@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 29896c026b65859448f923bc542ea7198e8f848b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98541193"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083463"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>대상 Azure VM의 네트워킹 구성 사용자 지정
 
@@ -28,7 +28,7 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 Azure VM을 복제하는 동안 장애 조치(failover) VM에 대해 다음과 같은 주요 리소스 구성을 제공할 수 있습니다.
 
 - [내부 부하 분산 장치](../load-balancer/load-balancer-overview.md)
-- [공용 IP](../virtual-network/public-ip-addresses.md)
+- [공용 IP](../virtual-network/ip-services/public-ip-addresses.md)
 - [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)(서브넷과 NIC 모두에 사용 가능)
 
 ## <a name="prerequisites"></a>필수 구성 요소

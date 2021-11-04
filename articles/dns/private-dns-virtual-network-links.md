@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/26/2021
 ms.author: rohink
-ms.openlocfilehash: 9e8ed0e21f1a6a98915dd3db1d5b8c2dcc1d6103
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: fa1729029d7576dac1dab2ea77cfe1c257441b42
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763292"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500814"
 ---
 # <a name="what-is-a-virtual-network-link"></a>가상 네트워크 링크란?
 
@@ -26,7 +26,7 @@ Azure에서 프라이빗 DNS 영역을 만든 후에는 가상 네트워크를 �
 
 ## <a name="resolution-virtual-network"></a>확인 가상 네트워크
 
-자동 가입 없이 프라이빗 DNS 영역에 가상 네트워크를 연결하도록 선택하는 경우 가상 네트워크는 확인 가상 네트워크로만 처리됩니다. 이 가상 네트워크에 배포된 가상 머신에 대한 DNS 레코드는 프라이빗 영역에 자동으로 만들어지지 않습니다. 그러나 가상 네트워크에 배포된 가상 머신은 프라이빗 영역의 DNS 레코드를 성공적으로 쿼리할 수 있습니다. 이러한 레코드에는 프라이빗 DNS 영역에 연결된 다른 가상 네트워크에서 수동으로 만든 레코드와 자동으로 등록된 레코드가 포함됩니다.
+자동 등록 없이 가상 네트워크를 프라이빗 DNS 영역에 연결하도록 선택하는 경우 가상 네트워크는 확인 가상 네트워크로만 처리됩니다. 이 가상 네트워크에 배포된 가상 머신에 대한 DNS 레코드는 프라이빗 영역에 자동으로 만들어지지 않습니다. 그러나 가상 네트워크에 배포된 가상 머신은 프라이빗 영역의 DNS 레코드를 성공적으로 쿼리할 수 있습니다. 이러한 레코드에는 프라이빗 DNS 영역에 연결된 다른 가상 네트워크에서 수동으로 만든 레코드와 자동으로 등록된 레코드가 포함됩니다.
 
 하나의 프라이빗 DNS 영역에는 확인 가상 네트워크가 여러 개 있을 수 있으며 가상 네트워크에는 연결된 확인 영역이 여러 개 있을 수 있습니다.
 

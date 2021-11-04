@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 81d8da21d5da91c79fa40077832dd6543fd69499
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83122371"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432228"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Azure Functions 진단 개요
 
@@ -51,7 +51,7 @@ Azure Functions 진단을 시작하는 방법은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[UserVoice](https://feedback.azure.com/forums/355860-azure-functions)에서 Azure Functions 진단에 대해 질문하거나 피드백을 제공할 수 있습니다. 피드백 제목에 `[Diag]`을(를) 포함합니다.
+[UserVoice](https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0)에서 Azure Functions 진단에 대해 질문하거나 피드백을 제공할 수 있습니다. 피드백 제목에 `[Diag]`을(를) 포함합니다.
 
 > [!div class="nextstepaction"]
 > [함수 앱 모니터링](functions-monitoring.md)

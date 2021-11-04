@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9c5b35e84d0e16b70b4abba8f784ba9c779c0169
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: 077ab48fd75b48afc5f08f95ccaf48eb7ccc1988
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112380125"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474935"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Azure Spatial Anchors 지원 옵션
 
@@ -46,7 +46,7 @@ Azure Portal에서 Azure Spatial Anchors에 대한 기술 지원 티켓을 열�
 
 ## <a name="provide-product-feedback"></a>제품 사용자 의견 제공
 
-사용자 의견을 제공하거나, Azure Spatial Anchors 서비스에 대한 아이디어 또는 제안을 공유하거나, 다른 사람이 제출한 아이디어에 투표하려면 [Azure Spatial Anchors 피드백 포럼](https://feedback.azure.com/forums/919252-azure-spatial-anchors)을 방문하세요.
+사용자 의견을 제공하거나, Azure Spatial Anchors 서비스에 대한 아이디어 또는 제안을 공유하거나, 다른 사람이 제출한 아이디어에 투표하려면 [Azure Spatial Anchors 피드백 포럼](https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8)을 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

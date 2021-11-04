@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/04/2021
 ms.author: bagol
-ms.openlocfilehash: dc2c1b6ed2d40e7d1af82b3c62f378bfd046a94c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 38dd71ac717dc5f3aea7d41bb08cb3c2bed671da
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254124"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037058"
 ---
 # <a name="migrate-to-azure-sentinel-from-an-existing-siem"></a>기존 SIEM에서 Azure Sentinel로 마이그레이션
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 SOC(보안 운영 센터) 팀은 중앙 집중식 SIEM(보안 정보 및 이벤트 관리) 및 SOAR(보안 오케스트레이션, 자동화 및 대응) 솔루션을 사용하여 점점 더 분산되는 디지털 자산을 보호합니다.
 
@@ -43,7 +46,7 @@ SOC(보안 운영 센터) 팀은 중앙 집중식 SIEM(보안 정보 및 이벤�
 
 예를 들어 다음 주요 영역을 평가합니다.
 
-|평가 영역 |Description  |
+|평가 영역 |설명  |
 |---------|---------|
 |**공격 탐지 범위**     | [MITRE ATT&CK](https://attack.mitre.org/) 또는 유사한 프레임워크를 사용하여 각 SIEM이 전체 공격 범위를 얼마나 잘 탐지할 수 있는지 비교합니다.        |
 |**대응성**     |   SIEM에 경고가 표시된 후 분석가가 관련 작업을 시작하기까지의 시간인 MTTA(평균 인지 시간)를 측정합니다. 이 시간은 대개 SIEM 간에 유사합니다.      |
@@ -153,7 +156,7 @@ Azure Sentinel에서 일부 데이터(예: 클라우드 데이터)를 분석한 
 
 다음 표에는 권장되지 않는 병렬 구성과 그 이유에 대한 세부 정보가 설명되어 있습니다.
 
-|메서드  |Description  |
+|메서드  |설명  |
 |---------|---------|
 |**레거시 SIEM에 Azure Sentinel 로그 보내기**     |  이 방법을 사용하면 온-프레미스 SIEM의 비용 및 크기 조정 문제를 계속 경험하게 됩니다. <br><br>레거시 SIEM의 스토리지 비용과 함께 Azure Sentinel의 데이터 수집 비용을 지불하게 되며 Azure Sentinel의 SIEM 및 SOAR 탐지, 분석, UEBA(사용자 엔터티 동작 분석), AI 또는 조사 및 자동화 도구를 활용할 수 없습니다.       |
 |**레거시 SIEM에서 Azure Sentinel로 로그 보내기**     |   이 방법은 Azure Sentinel의 전체 기능을 제공하지만 조직은 여전히 두 가지 다른 데이터 수집 원본에 대한 비용을 지불합니다. 이 모델은 아키텍처 복잡성을 추가하는 것 외에도 비용이 더 높아질 수 있습니다.     |
@@ -250,7 +253,7 @@ Azure Sentinel은 기계 학습 분석을 사용하여 충실도가 높고 실�
 - [**위협 탐지를 위한 사용자 지정 분석 규칙 만들기**](detect-threats-custom.md). [경고 그룹화](detect-threats-custom.md#alert-grouping)를 사용하여 지정된 기간 내에 발생하는 경고를 그룹화하여 경고 피로를 줄입니다.
 - [**데이터 필드를 Azure Sentinel의 엔터티에 매핑**](map-data-fields-to-entities.md)하여 SOC 엔지니어가 조사 중에 추적할 증거의 일부로 엔터티를 정의할 수 있도록 합니다. 엔터티 매핑을 사용하면 SOC 분석가가 시간과 노력을 줄일 수 있는 직관적인 [조사 그래프(investigate-cases.md#use-the-investigation-graph-to-deep-dive)를 활용할 수 있습니다.
 - 증거를 사용하여 인시던트 미리 보기 창에서 특정 인시던트와 관련된 이벤트, 경고 및 책갈피를 표시하는 방법의 예로 [**UEBA 데이터를 사용하여 인시던트를 조사**](investigate-with-ueba.md)합니다.
-- [**KQL(Kusto 쿼리 언어)** ](/azure/data-explorer/kusto/query/): 데이터를 처리하고 결과를 반환하기 위해 [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 데이터베이스에 읽기 전용 요청을 보내는 데 사용할 수 있습니다. KQL은 [엔드포인트용 Microsoft Defender](https://www.microsoft.com/microsoft-365/security/endpoint-defender) 및 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 같은 다른 Microsoft 서비스에서도 사용됩니다.
+- [**KQL(Kusto 쿼리 언어)**](/azure/data-explorer/kusto/query/): 데이터를 처리하고 결과를 반환하기 위해 [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 데이터베이스에 읽기 전용 요청을 보내는 데 사용할 수 있습니다. KQL은 [엔드포인트용 Microsoft Defender](https://www.microsoft.com/microsoft-365/security/endpoint-defender) 및 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 같은 다른 Microsoft 서비스에서도 사용됩니다.
 
 ## <a name="use-automation-to-streamline-processes"></a>자동화를 사용하여 프로세스 간소화
 

@@ -8,13 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/21/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 213fdf5c52098a9b95c189d1f7f776e9a5a3252e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9dc260a367536c63880149fe56aa13302e757623
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052901"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452911"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud의 Endpoint Protection 평가 및 권장 사항
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f74c751f5b725270cfefcf4bab7353df4c498f01
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d52a30c31bc1e33713d641655cd6b46a8134063d
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642250"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504591"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거
 
@@ -276,14 +276,15 @@ Python에서는 특성을 지원하지 않습니다.
 
 ```json
 {
-    "schedule":{
+    "Schedule":{
+        "AdjustForDST": true
     },
-    "scheduleStatus": {
-        "last":"2016-10-04T10:15:00+00:00",
-        "lastUpdated":"2016-10-04T10:16:00+00:00",
-        "next":"2016-10-04T10:20:00+00:00"
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
     },
-    "isPastDue":false
+    "IsPastDue":false
 }
 ```
 

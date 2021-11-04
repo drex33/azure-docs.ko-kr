@@ -4,16 +4,16 @@ description: 네트워크 파일 시스템 공유를 탑재하는 방법을 알�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8f3565f05fc04a74e761b1070f0374677703d225
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
-ms.translationtype: HT
+ms.openlocfilehash: 04d3174900ce5aa788f3793b39fa4d6c06222001
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113225273"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036792"
 ---
 # <a name="how-to-mount-an-nfs-file-share-preview"></a>NFS 파일 공유를 마운트하는 방법(미리 보기)
 
@@ -42,12 +42,12 @@ ms.locfileid: "113225273"
 
 ## <a name="disable-secure-transfer"></a>보안 전송을 사용하지 않도록 설정
 
-1. Azure Portal에 로그인한 다음 앞에서 만든 NFS 공유를 포함하는 스토리지 계정에 액세스합니다.
+1. [Azure Portal](https://portal.azure.com/) 에 로그인 하 여 만든 NFS 공유를 포함 하는 저장소 계정에 액세스 합니다.
 1. **Configuration(구성)** 을 선택합니다.
 1. **보안 전송 필요** 로 **사용 안 함** 을 선택합니다.
 1. **저장** 을 선택합니다.
 
-    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="보안 전송이 사용하지 않도록 설정된 스토리지 계정 구성 화면 스크린샷.":::
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="보안 전송이 사용하지 않도록 설정된 스토리지 계정 구성 화면 스크린샷." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
 
 ## <a name="mount-an-nfs-share"></a>NFS 공유 탑재
 

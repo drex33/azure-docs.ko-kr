@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 6da58d3f37af146c2cb1371cd8b18f134c24d0a2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 80803c3ac30b34079a408117867b68d4e43c4195
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067435"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445769"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가
 
@@ -105,7 +105,9 @@ Azure는 사기로 인한 예산 초과를 방지하고, Azure 용량 제약 조
 ### <a name="azure-machine-learning-managed-online-endpoints-preview"></a>Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning 관리되는 온라인 엔드포인트에는 다음과 같은 제한이 있습니다.
+Azure Machine Learning 관리되는 온라인 엔드포인트에는 다음 표에 설명된 제한이 있습니다. 
+
+엔드포인트에 대한 현재 사용량을 확인하려면 [메트릭을 확인합니다.](how-to-monitor-online-endpoints.md#view-metrics) Azure Machine Learning 제품 팀에서 예외를 요청하려면 기술 지원 티켓을 여세요.
 
 | **리소스** | **제한** |
 | --- | --- |
@@ -115,11 +117,15 @@ Azure Machine Learning 관리되는 온라인 엔드포인트에는 다음과 �
 | 구독당 배포 수 | 200 |
 | 엔드포인트당 배포 수 | 20 |
 | 배포당 인스턴스 수 | 20 |
-| 엔드포인트 수준에서 최대 페이로드 크기 | 1.5MB |
-| 엔드포인트 수준에서 최대 요청 시간 초과  | 60초 |
-| 모든 배포에 대한 엔드포인트 수준의 총 QPS | 100 |
+| 엔드포인트 수준에서 최대 요청 시간 초과  | 90초 |
+| 모든 배포에 대한 엔드포인트 수준의 초당 총 요청 수  | 500 <sup>2</sup> |
+| 모든 배포에 대한 엔드포인트 수준의 초당 총 연결 수  | 100 <sup>2</sup> |
+| 모든 배포에 대한 엔드포인트 수준에서 활성 상태인 총 연결 수  | 100 <sup>2</sup> |
+| 모든 배포에 대한 엔드포인트 수준의 총 대역폭  | 5MBPS <sup>2</sup> |
 
-<sup>1</sup> ,와 같은 단일 파선 `my-endpoint-name` 은 끝점 및 배포 이름에 허용 됩니다.
+<sup>1</sup> 과 같은 단일 `my-endpoint-name` 대시는 엔드포인트 및 배포 이름에 허용됩니다.
+
+<sup>2</sup> 제한 증가를 요청하는 경우 필요할 수 있는 관련 제한 증가를 계산해야 합니다. 예를 들어 초당 요청에 대한 제한 증가를 요청하는 경우 필요한 연결 및 대역폭 제한을 계산하고 동일한 요청에 이러한 제한 증가를 포함할 수도 있습니다.
 
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인
 [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)은 다음 한도를 갖습니다.

@@ -2,13 +2,16 @@
 title: Azure VM에서 SQL Server DB 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행되는 SQL Server 데이터베이스를 관리하고 모니터링하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/27/2021
-ms.openlocfilehash: c536b29f731ee646f987dc9ce2d178cb93426c91
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 6da639ea369b0676a34af12a8e37c13b018c57d7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272013"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435008"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -18,9 +21,9 @@ SQL Server 데이터베이스에 대한 백업을 아직 구성하지 않은 경
 
 ## <a name="monitor-backup-jobs-in-the-portal"></a>포털에서 백업 작업 모니터링
 
-Azure Backup은 매우 빈번할 수 있으므로 예약된 로그 백업을 제외하고 포털의 **백업 작업** 아래에 예약된 모든 주문형 작업을 표시합니다. 이 포털에는 데이터베이스 검색 및 등록, 백업 구성과 백업 및 복원 작업이 표시됩니다.
+Azure Backup Azure Portal는 **백업 센터** 에서 백업 센터의 **백업 작업** 에 대 한 모든 예약 된 작업 및 주문형 작업을 표시 합니다. 단, 예약 된 로그 백업은 매우 빈번 하 게 사용할 수 있기 때문입니다. 이 포털에는 데이터베이스 검색 및 등록, 백업 구성과 백업 및 복원 작업이 표시됩니다.
 
-![백업 작업 포털](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
+:::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-inline.png" alt-text="백업 작업의 백업 작업을 보여 주는 스크린샷" lightbox="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-expanded.png":::
 
 모니터링 시나리오에 대한 자세한 내용은 [Azure Portal의 모니터링](backup-azure-monitoring-built-in-monitor.md) 및 [Azure Monitor를 사용한 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 참조하세요.  
 
@@ -55,19 +58,21 @@ Azure Backup은 매우 빈번할 수 있으므로 예약된 로그 백업을 제
 
 데이터베이스에 대한 보호를 중지하려면:
 
-1. 자격 증명 모음 대시보드에서 **백업 항목** 을 선택합니다.
+1. **Backup center** 로 이동 하 고 메뉴에서 **백업 인스턴스** 를 클릭 합니다.
 
-2. **백업 관리 유형** 에서 **Azure VM의 SQL** 을 선택합니다.
+2. **Azure VM에서 SQL** 를 데이터 원본 유형으로 선택 합니다.
 
-    ![Azure VM의 SQL 선택](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Azure VM에서 SQL를 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
 
 3. 보호를 중지하려는 데이터베이스를 선택합니다.
 
-    ![보호를 중지할 데이터베이스 선택](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance-inline.png" alt-text="보호를 중지할 데이터베이스를 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/backup-azure-sql-database/sql-select-instance-expanded.png":::
 
 4. 데이터베이스 메뉴에서 **백업 중지** 를 선택합니다.
 
-    ![백업 중지 선택](./media/backup-azure-sql-database/stop-db-button.png)
+   백업 인스턴스 보기에서 특정 행을 마우스 오른쪽 단추로 클릭 하 고 **백업 중지** 를 선택할 수도 있습니다.
+
+   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup-inline.png" alt-text="백업 중지를 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/backup-azure-sql-database/sql-stop-backup-expanded.png":::
 
 5. **백업 중지** 메뉴에서 데이터를 보존할지 아니면 삭제할지 선택합니다. 원하는 경우 이유나 설명을 입력합니다.
 

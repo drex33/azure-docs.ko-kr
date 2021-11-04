@@ -1,21 +1,21 @@
 ---
-title: Azure Automation 계정에 대해 시스템 할당 관리 ID 사용(미리 보기)
+title: Azure Automation 계정에 시스템 할당 관리 ID 사용
 description: 이 문서에서는 Azure Automation 계정에 관리 ID를 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb883fafd7c738ca99fe2282edb67d1849b9b1af
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 685126603c302a02d56aff51873cd34340947494
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858161"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470759"
 ---
-# <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Azure Automation 계정에 대해 시스템 할당 관리 ID 사용(미리 보기)
+# <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account"></a>Azure Automation 계정에 시스템 할당 관리 ID 사용
 
-이 문서에서는 Azure Automation 계정에 시스템 할당 관리 ID를 만드는 방법과 이를 사용하여 다른 리소스에 액세스하는 방법을 보여줍니다. 관리 ID가 Azure Automation에서 작동하는 방법에 대한 자세한 내용은 [관리 ID](automation-security-overview.md#managed-identities-preview)를 참조하세요.
+이 문서에서는 Azure Automation 계정에 시스템 할당 관리 ID를 만드는 방법과 이를 사용하여 다른 리소스에 액세스하는 방법을 보여줍니다. 관리 ID가 Azure Automation에서 작동하는 방법에 대한 자세한 내용은 [관리 ID](automation-security-overview.md#managed-identities)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -23,7 +23,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - Azure Automation 계정. 자세한 내용은 [Azure Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
 
-- 최신 버전의 Az PowerShell modules Az. Accounts, az. az. az. KeyVault.
+- 최신 버전의 Az PowerShell 모듈 Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 
 - Automation Runbook에서 액세스할 Azure 리소스입니다. 이 리소스에는 Automation Runbook에서 리소스에 대한 액세스를 인증하는 데 도움이 되는 관리 ID에 정의된 역할이 있어야 합니다. 역할을 추가하려면 대응하는 Azure AD 테넌트 리소스의 소유자여야 합니다.
 
@@ -64,7 +64,7 @@ $automationAccount = "automationAccountName"
 ```
 
 > [!IMPORTANT]
-> 새 Automation 계정 수준 ID는 이전 VM 수준 시스템이 할당한 ID를 재정의하며 이는 [관리 ID를 통한 Runbook 인증 사용](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)에 자세히 설명되어 있습니다. VM의 시스템 할당 ID를 이용해 Runbook 리소스에 액세스하는 하이브리드 작업을 Azure VM에서 실행한다면, 하이브리드 작업에는 Automation 계정 ID를 사용합니다. 따라서 Automation 계정의 고객 관리형 키(CMK) 기능을 사용 하면 기존 작업 실행이 영향을 받을 수 있습니다.<br/><br/>VM의 관리 ID를 계속 사용하고 싶다면 Automation 계정 수준 ID를 사용 설정하지 않아야 합니다. 이미 사용 설정한 경우 Automation 계정 시스템 할당 관리 ID를 사용하지 않도록 설정할 수 있습니다. [Azure Automation 계정 관리형 ID 사용 안 함](./disable-managed-identity-for-automation.md)을 참조하세요.
+> 새 Automation 계정 수준 ID는 관리 ID와 함께 Runbook 인증 사용에 설명된 모든 이전 VM 수준 시스템 할당 [ID를 재정의합니다.](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities) VM의 시스템 할당 ID를 이용해 Runbook 리소스에 액세스하는 하이브리드 작업을 Azure VM에서 실행한다면, 하이브리드 작업에는 Automation 계정 ID를 사용합니다. 따라서 Automation 계정의 고객 관리형 키(CMK) 기능을 사용 하면 기존 작업 실행이 영향을 받을 수 있습니다.<br/><br/>VM의 관리 ID를 계속 사용하고 싶다면 Automation 계정 수준 ID를 사용 설정하지 않아야 합니다. 이미 사용 설정한 경우 Automation 계정 시스템 할당 관리 ID를 사용하지 않도록 설정할 수 있습니다. [Azure Automation 계정 관리형 ID 사용 안 함](./disable-managed-identity-for-automation.md)을 참조하세요.
 
 ### <a name="enable-using-the-azure-portal"></a>Azure Portal을 사용하도록 설정
 
@@ -101,13 +101,13 @@ $output
 
 :::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="set-azautomationaccount 명령의 출력입니다.":::
 
-추가 출력의 경우 `$output.identity | ConvertTo-Json`을 실행합니다.
+추가 출력의 경우 예제를 수정하여 를 `$output.identity | ConvertTo-Json` 지정합니다.
 
 ### <a name="enable-using-a-rest-api"></a>REST API를 사용하도록 설정
 
 구문 및 예제 단계는 아래에 나와 있습니다.
 
-#### <a name="syntax"></a>Syntax
+#### <a name="syntax"></a>구문
 
 아래 본문 구문은 HTTP **PATCH** 메서드를 사용하여 기존 Automation 계정에 시스템 할당 관리 ID를 사용하도록 설정합니다. 그러나 이 구문은 Automation 계정과 연결된 기존 사용자 할당 관리 ID를 제거합니다.
 
@@ -257,9 +257,9 @@ Automation 계정은 해당 시스템 할당 관리 ID를 사용하여 Azure Key
 
 시스템이 할당한 관리 ID를 인증에 사용하려면 먼저 ID를 사용하려는 Azure 리소스에서 해당 ID에 대한 액세스 권한을 설정합니다. 이 작업을 완료하려면 대상 Azure 리소스에서 해당 ID에 적절한 역할을 할당합니다.
 
-최소 권한의 원칙을 따르고 Runbook을 실행하는 데 필요한 권한만 신중하게 할당합니다. 예를 들어 Automation 계정이 Azure VM을 시작하거나 중지하는 데만 필요한 경우 실행 계정 또는 관리 ID에 VM을 시작하거나 중지하는 권한만 할당해야 합니다. 마찬가지로, Runbook이 Blob Storage에서 읽는 경우 읽기 전용 권한을 할당합니다. 이 예제에서는 Azure PowerShell을 사용하여 기여자를 할당하는 방법을 보여 줍니다.
+최소 권한의 원칙을 따르고 Runbook을 실행하는 데 필요한 권한만 신중하게 할당합니다. 예를 들어 Automation 계정이 Azure VM을 시작하거나 중지하는 데만 필요한 경우 실행 계정 또는 관리 ID에 VM을 시작하거나 중지하는 권한만 할당해야 합니다. 마찬가지로 Runbook이 Blob Storage에서 읽는 경우 읽기 전용 권한을 할당합니다.
 
-이 예제에서는 Azure PowerShell을 사용하여 구독의 기여자 역할을 대상 Azure 리소스에 할당하는 방법을 보여줍니다. 기여자 역할은 예시이며 사용자의 경우에는 필요하지 않을 수도 있습니다.
+다음 예제에서는 Azure PowerShell 사용하여 구독의 기여자 역할을 대상 Azure 리소스에 할당하는 방법을 보여줍니다. 기여자 역할은 예시이며 사용자의 경우에는 필요하지 않을 수도 있습니다.
 
 ```powershell
 New-AzRoleAssignment `
@@ -295,7 +295,7 @@ HTTP 엔드포인트의 경우에는 다음을 확인합니다.
 - X-IDENTITY-HEADER는 Hybrid Runbook Worker용 환경 변수인 IDENTITY_HEADER의 값으로 설정되어야 합니다.
 - Post 요청의 콘텐츠 형식은 'application/x-www-form-urlencoded'여야 합니다.
 
-### <a name="get-access-token-for-system-assigned-identity-using-http-get"></a>HTTP Get을 사용하여 시스템 할당 ID에 대한 액세스 토큰 가져오기
+### <a name="get-access-token-for-system-assigned-managed-identity-using-http-get"></a>HTTP Get을 사용하여 시스템 할당 관리 ID에 대한 액세스 토큰을 얻습니다.
 
 ```powershell
 $resource= "?resource=https://management.azure.com/" 
@@ -307,7 +307,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token
 ```
 
-### <a name="get-access-token-for-system-assigned-identity-using-http-post"></a>HTTP Post를 사용하여 시스템 할당 ID에 대한 액세스 토큰 가져오기
+### <a name="get-access-token-for-system-assigned-identity-using-http-post"></a>HTTP Post를 사용하여 시스템 할당 ID에 대한 액세스 토큰을 얻습니다.
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT  
@@ -388,10 +388,22 @@ $command.ExecuteNonQuery()
 $conn.Close()
 ```
 
+## <a name="migrate-from-existing-run-as-accounts-to-managed-identity"></a>기존 실행 계정에서 관리 ID로 마이그레이션
+
+Azure Automation 실행 계정으로 클래식 배포 모델에 배포된 Azure Resource Manager 리소스 또는 리소스를 관리하기 위한 인증을 제공했습니다. Runbook 인증을 위해 실행 계정에서 관리 ID로 전환하려면 다음 단계를 수행합니다.
+
+1. 시스템 [할당](enable-managed-identity-for-automation.md), [사용자 할당](add-user-assigned-identity.md)또는 두 가지 유형의 관리 ID를 사용하도록 설정합니다.
+1. 관리 ID에 실행 계정이 할당된 것과 일치하는 Azure 리소스에 동일한 권한을 부여합니다.
+1. 관리 ID를 사용하여 인증하도록 Runbook을 업데이트합니다.
+1. 관리 ID를 사용하도록 Runbook을 수정합니다. ID를 지원하려면 Az cmdlet `Connect-AzAccount` cmdlet를 사용합니다. PowerShell 참조에서 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount)를 참조하세요.
+
+   - AzureRM 모듈을 사용하는 경우 `AzureRM.Profile` 최신 버전으로 업데이트하고 로 cmdlet을 사용하여 를 `Add-AzureRMAccount` 대체합니다. `Connect-AzureRMAccount –Identity`
+   - Az 모듈을 사용하는 경우 Azure PowerShell 모듈 업데이트 문서의 단계에 따라 최신 [버전으로 업데이트합니다.](automation-update-azure-modules.md#update-az-modules)
+
 ## <a name="next-steps"></a>다음 단계
 
-- Runbook이 성공적으로 완료되지 않으면 [Azure Automation 관리 ID 문제 해결(미리 보기)](troubleshoot/managed-identity.md)을 검토합니다.
+- Runbook이 성공적으로 완료되지 않으면 Azure Automation [관리 ID 문제 해결을](troubleshoot/managed-identity.md)검토하세요.
 
-- 관리 ID를 사용하지 않도록 설정해야 한다면, [Azure Automation 계정 관리 ID 사용 안 함(미리 보기)](disable-managed-identity-for-automation.md)을 참조하세요.
+- 관리 ID를 사용하지 않도록 설정해야 하는 경우 [Azure Automation 계정 관리 ID 사용 안 함을 참조하세요.](disable-managed-identity-for-automation.md)
 
 - Azure Automation 계정 보안에 대한 개요는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.

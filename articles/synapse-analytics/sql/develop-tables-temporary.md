@@ -2,20 +2,20 @@
 title: Synapse SQL에서 임시 테이블 사용
 description: Synapse SQL에서 임시 테이블을 사용하기 위한 필수 지침입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.openlocfilehash: 8513df83196b3521a749515c6bb22caad7d255b7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
-ms.translationtype: HT
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
+ms.openlocfilehash: 3244152e4d7eb7cac78dcab07995719bdd07e863
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816046"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508554"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Synapse SQL의 임시 테이블
 
@@ -25,7 +25,7 @@ ms.locfileid: "107816046"
 
 ## <a name="temporary-tables"></a>임시 테이블
 
-특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. Synapse SQL을 사용하면 임시 테이블이 세션 수준에 존재합니다.  이러한 임시 테이블은 만들어진 세션에만 표시됩니다. 따라서 해당 세션이 로그오프되면 자동으로 삭제됩니다. 
+특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. Synapse SQL을 사용하면 임시 테이블이 세션 수준에 존재합니다.  이러한 임시 테이블은 만들어진 세션에만 표시됩니다. 따라서 세션이 종료되면 자동으로 삭제됩니다. 
 
 ## <a name="temporary-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 임시 테이블
 
@@ -95,8 +95,7 @@ GROUP BY
 
 > [!NOTE]
 > `CTAS`는(은) 강력한 명령이며 트랜잭션 로그 공간을 사용한다는 점에서 효율적이라는 추가적인 이점이 있습니다. 
-> 
-> 
+
 
 ### <a name="drop-temporary-tables"></a>임시 테이블 삭제
 
@@ -230,7 +229,7 @@ DROP TABLE #stats_ddl;
 
 서버리스 SQL 풀의 임시 테이블은 지원되지만 사용이 제한됩니다. 이러한 파일은 파일을 대상으로 하는 쿼리에서 사용할 수 없습니다. 
 
-예를 들어 스토리지에 있는 파일의 데이터를 사용하여 임시 테이블에 조인할 수 없습니다. 임시 테이블의 수는 100개로 제한되고 총 크기는 100MB로 제한됩니다.
+예를 들어 스토리지에 있는 파일의 데이터를 사용하여 임시 테이블에 조인할 수 없습니다. 임시 테이블 수는 100개로 제한되며 총 크기는 100MB로 제한됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

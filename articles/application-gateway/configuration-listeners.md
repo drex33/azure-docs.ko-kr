@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0a88acaf29187c648b24f74877a260a8772f6008
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: e9468de9cbd88e9ad4406ac929aebc6bda938fb3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319686"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447382"
 ---
 # <a name="application-gateway-listener-configuration"></a>Application Gateway 수신기 구성
 
@@ -54,7 +54,7 @@ HTTP 또는 HTTPS 선택:
 - [TLS 종료](features.md#secure-sockets-layer-ssltls-termination) 또는 [엔드투엔드 TLS 암호화](./ssl-overview.md)를 원하는 경우 HTTPS를 선택합니다. 클라이언트와 애플리케이션 게이트웨이 간의 트래픽이 암호화됩니다. 그리고 TLS 연결은 애플리케이션 게이트웨이에서 종료됩니다. 엔드투엔드 TLS 암호화를 원하는 경우 HTTPS를 선택하고 **백 엔드 HTTP** 설정을 구성해야 합니다. 이렇게 하면 애플리케이션 게이트웨이에서 백 엔드로 이동하는 경우 트래픽이 다시 암호화됩니다.
 
 
-TLS 종료 및 엔드투엔드 TLS 암호화를 구성하려면 애플리케이션 게이트웨이가 대칭 키를 파생할 수 있도록 수신기에 인증서를 추가해야 합니다. 이는 TLS 프로토콜 사양에 따라 결정됩니다. 이렇게 파생된 대칭 키는 게이트웨이로 전송되는 트래픽을 암호화하고 암호를 해독하는 데 사용됩니다. 게이트웨이 인증서는 PFX(개인 정보 교환) 형식이어야 합니다. 이 형식을 사용하면 게이트웨이가 트래픽을 암호화하고 암호를 해독하는 데 사용하는 프라이빗 키를 내보낼 수 있습니다.
+TLS 종료를 구성 하려면 TLS/SSL 인증서를 수신기에 추가 해야 합니다. 이를 통해 Application Gateway는 들어오는 트래픽의 암호를 해독 하 고 클라이언트에 응답 트래픽을 암호화할 수 있습니다. Application Gateway에 제공 된 인증서는 개인 키와 공개 키를 모두 포함 하는 PFX (개인 정보 Exchange) 형식 이어야 합니다.
 
 ## <a name="supported-certificates"></a>지원되는 인증서
 

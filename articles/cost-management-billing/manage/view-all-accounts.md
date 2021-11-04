@@ -1,19 +1,20 @@
 ---
 title: Azure Portal에서 청구 계정 보기
 description: Azure Portal에서 청구 계정을 보는 방법을 알아봅니다. Enterprise, Microsoft 고객 및 Microsoft 파트너 계약의 범위 정보를 알아봅니다.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: e82875dbf65689565855e298eb44fb41511673da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bcfda7f0083a1f8838004dff262f53a80f437512
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644014"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443113"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Azure Portal의 청구 계정 및 범위
 

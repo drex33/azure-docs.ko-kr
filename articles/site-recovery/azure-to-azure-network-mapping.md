@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: harshacs
-ms.openlocfilehash: b7c4b0f75dd94a5aa61b75b99bbb553c98090aac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: afc8bd93704008860882150b53e1624072871778
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528300"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441815"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
@@ -52,7 +52,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 >[!NOTE]
 >* 네트워크 매핑을 수정하면 새 VM 복제에 대한 기본값만 변경됩니다. 기존 복제에 대한 대상 가상 네트워크 선택에는 영향을 주지 않습니다.
->* 기존 복제에 대한 대상 네트워크를 수정하려는 경우 복제된 항목의 컴퓨팅 및 네트워크 설정으로 이동합니다.
+>* 기존 복제에 대한 대상 네트워크를 수정하려면 복제된 항목의 **네트워크** 설정 이동합니다.
 
 ## <a name="specify-a-subnet"></a>서브넷 지정
 
@@ -60,9 +60,9 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 - 원본 VM 서브넷과 이름이 같은 서브넷을 대상 네트워크에서 사용할 수 있는 경우 해당 서브넷은 대상 VM에 대해 설정됩니다.
 - 대상 네트워크에 동일한 이름의 서브넷이 없는 경우 사전순으로 첫 번째 서브넷이 대상 서브넷으로 설정됩니다.
-- VM의 **컴퓨팅 및 네트워크** 설정에서 대상 서브넷을 수정할 수 있습니다.
+- VM에 대한 **네트워크** 설정에서 대상 서브넷을 수정할 수 있습니다.
 
-    ![컴퓨팅 및 네트워크 컴퓨팅 속성 창](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+    ![네트워크 컴퓨팅 속성 창](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="set-up-ip-addressing-for-target-vms"></a>대상 VM의 IP 주소 설정
@@ -72,6 +72,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 - **DHCP**: 원본 VM의 NIC에서 DHCP를 사용하는 경우 대상 VM의 NIC 역시 DHCP를 사용하도록 설정됩니다.
 - **고정 IP 주소**: 원본 VM의 NIC에서 고정 IP 주소를 사용하는 경우 대상 VM NIC 역시 고정 IP 주소를 사용합니다.
 
+보조 IP 구성에도 동일하게 적용됩니다.
 
 ## <a name="ip-address-assignment-during-failover"></a>장애 조치(failover) 중에 IP 주소 할당
 
@@ -91,7 +92,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 - 장애 조치(failover) VNet은 재해 복구를 설정할 때 선택한 대상 네트워크입니다.
 - 테스트 장애 조치(failover)에는 항상 비 프로덕션 네트워크를 사용하는 것이 좋습니다.
-- VM의 **컴퓨팅 및 네트워크** 설정에서 대상 IP 주소를 수정할 수 있습니다.
+- VM의 **네트워크** 설정에서 대상 IP 주소를 수정할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,14 +8,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 10/28/2021
 ms.author: pafarley
-ms.openlocfilehash: 4e3ed696bba0a2d739e87f465561c156d6752f23
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.openlocfilehash: 374957c8175f320b5152abcb661516cad5324304
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033944"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426395"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
 
@@ -100,7 +100,7 @@ ms.locfileid: "112033944"
 - 감정
 - Face
 - PhotoDNA 클라우드 서비스
-- 텍스트 분석
+- 언어 서비스
 
 ### <a name="add-a-connector"></a>커넥터 추가
 

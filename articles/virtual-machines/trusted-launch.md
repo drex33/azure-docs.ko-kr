@@ -1,22 +1,22 @@
 ---
-title: '미리 보기: Azure VM에 대한 신뢰할 수 있는 시작'
+title: Azure VM에 대한 신뢰할 수 있는 시작
 description: Azure 가상 머신에 대한 신뢰할 수 있는 시작에 대해 알아봅니다.
 author: khyewei
 ms.author: khwei
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 10/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 9b2dfe8d4ae7bb17eee4d875178ff059080cb4e0
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 03bbb681c61f28c2b4fbed580094fd8f47017de0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728896"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466774"
 ---
-# <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Azure 가상 머신에 대한 신뢰할 수 있는 시작(미리 보기)
+# <a name="trusted-launch-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 신뢰할 수 있는 시작
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
 
@@ -24,11 +24,7 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 
 > [!IMPORTANT]
 > 신뢰할 수 있는 시작을 사용하려면 새 가상 머신을 만들어야 합니다. 처음 신뢰할 수 있는 시작을 사용하지 않고 만든 기존 가상 머신에서는 이를 사용할 수 없습니다.
->
-> 신뢰할 수 있는 시작은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
->
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 
 ## <a name="benefits"></a>이점 
@@ -38,9 +34,9 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 - 전체 부팅 체인의 무결성에 대한 인사이트와 확신을 얻으세요.
 - 워크로드를 신뢰할 수 있고 확인할 수 있는지 확인합니다.
 
-## <a name="public-preview-limitations"></a>공용 미리 보기 제한 사항
+## <a name="limitations"></a>제한 사항
 
-**크기 지원**:
+**VM 크기 지원:**
 - B 시리즈
 - Dav4 시리즈, Dasv4 시리즈
 - DCsv2 시리즈
@@ -60,11 +56,13 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 - Debian 11
 - CentOS 8.4
 - Oracle Linux 8.3
+- CBL-Mariner
+- Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
 - Windows 11 Pro
 - Windows 11 Enterprise
-- Windows 11 Enterprise 다중 세션
+- 다중 세션 Windows 11 Enterprise
 - Windows 10 Pro
 - Windows 10 Enterprise
 - Windows 10 Enterprise 다중 세션
@@ -74,14 +72,16 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 
 **가격 책정**: 기존 VM 가격 책정에 대한 추가 비용은 없습니다.
 
-**다음 기능은 이 미리 보기에서 지원되지 않습니다**.
+**다음 기능은 지원되지 않습니다.**
 - Backup
 - Azure Site Recovery
-- 공유 이미지 갤러리
+- Azure Compute 갤러리(이전의 Shared Image Gallery)
 - 임시 OS 디스크
 - 공유 디스크
+- Ultra disk
 - 관리형 이미지
 - Azure Dedicated Host 
+- 중첩된 가상화
 
 ## <a name="secure-boot"></a>보안 부팅
 
@@ -108,7 +108,8 @@ HVCI는 악성 또는 확인되지 않은 코드의 삽입 및 실행에 대해 
 
 - **보안 부팅을 사용하도록 설정하는 권장 사항** -이 권장 사항은 신뢰할 수 있는 시작을 지원하는 VM에만 적용됩니다. Azure Security Center는 보안 부팅을 사용할 수 있지만 사용하지 않는 VM을 식별합니다. 이 기능을 사용하도록 낮은 심각도 권장 사항을 발급합니다.
 - **vTPM 사용에 대한 권장 사항** - VM에서 vTPM을 사용하도록 설정된 경우 Azure Security Center는 이를 사용해 게스트 증명을 수행하고 고급 위협 패턴을 식별할 수 있습니다. Azure Security Center가 신뢰할 수 있는 시작을 지원하고 vTPM을 사용하지 않도록 설정된 VM을 식별하는 경우 낮은 심각도 권장 사항을 발급하여 사용하도록 합니다. 
-- **증명 상태 평가** - VM에서 vTPM을 사용하는 경우 Azure Security Center 확장은 VM이 정상 방식으로 부팅되었는지 원격으로 확인할 수 있습니다. 이를 원격 증명이라고 합니다. Azure Security Center는 원격 증명의 상태를 나타내는 평가를 발급합니다.
+- **게스트 증명 확장을 설치하는 권장 사항** - VM에서 보안 부팅 및 vTPM을 사용하도록 설정했지만 게스트 증명 확장이 설치되지 않은 경우 Azure Security Center 게스트 증명 확장을 설치하기 위한 낮은 심각도 권장 사항을 발급합니다. 이 확장을 사용하면 Azure Security Center VM의 부팅 무결성을 사전에 파악하고 모니터링할 수 있습니다. 부팅 무결성은 원격 증명을 통해 증명됩니다.  
+- **증명 상태 평가** -Vm에서 vtpm을 사용 하도록 설정 하 고 증명 확장이 설치 된 경우 vm이 정상적인 방식으로 부팅 되었는지 원격으로 확인할 수 Azure Security Center. 이를 원격 증명이라고 합니다. Azure Security Center는 원격 증명의 상태를 나타내는 평가를 발급합니다.
 
 ## <a name="azure-defender-integration"></a>Azure Defender 통합
 
@@ -118,8 +119,7 @@ VM이 신뢰할 수 있는 시작으로 올바르게 설정된 경우 Azure Defe
     VM 증명은 다음과 같은 이유로 실패할 수 있습니다.
     - 부팅 로그를 포함하는 증명된 정보가 신뢰할 수 있는 기준에서 벗어납니다. 이는 신뢰할 수 없는 모듈이 로드되었으며 OS가 손상되었을 수 있음을 나타낼 수 있습니다.
     - 증명된 VM의 vTPM에서 가져온 증명 견적을 확인할 수 없습니다. 이는 맬웨어가 있고 vTPM에 대한 트래픽을 가로챌 수 있음을 나타낼 수 있습니다.
-    - VM의 증명 확장이 응답하지 않습니다. 이는 맬웨어 또는 OS 관리자에 의한 서비스 거부 공격을 나타낼 수 있습니다.
-
+    
     > [!NOTE]
     >  이 경고는 vTPM을 사용하고 증명 확장이 설치된 VM에 사용할 수 있습니다. 증명을 통과하려면 보안 부팅을 사용하도록 설정해야 합니다. 보안 부팅을 사용하지 않도록 설정하면 증명이 실패합니다. 보안 부팅을 사용하지 않도록 설정해야 하는 경우, 가양성을 방지하기 위해 이 경고를 억제할 수 있습니다.
 
@@ -154,10 +154,16 @@ Azure Security Center는 주기적으로 증명을 수행합니다. 증명이 �
 
   
 ### <a name="how-does-trusted-launch-compared-to-hyper-v-shielded-vm"></a>신뢰할 수 있는 시작은 Hyper-V 보호된 VM과 어떻게 다른가요?
+
 Hyper-V 보호된 VM은 현재 Hyper-V에서만 사용할 수 있습니다. [Hyper-V 보호된 VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)은 일반적으로 보호된 패브릭과 함께 배포됩니다. 보호된 패브릭은 HGS(호스트 보호 서비스), 하나 이상의 보호된 호스트 및 보호된 VM 집합으로 구성됩니다. Hyper-V 보호된 VM은 Hyper-V 호스트에서 실행될 수 있는 패브릭 관리자와 신뢰할 수 없는 소프트웨어 모두에서 가상 머신의 데이터와 상태를 보호해야 하는 패브릭에서 사용하기 위한 것입니다. 반면에 신뢰할 수 있는 시작은 HGS를 추가 배포하고 관리하지 않고도 Azure의 독립 실행형 가상 머신 또는 Virtual Machine Scale Sets로 배포할 수 있습니다. 배포 코드를 간단하게 변경하거나 Azure Portal 확인란을 선택하여 모든 신뢰할 수 있는 시작 기능을 사용할 수 있습니다.  
 
 ### <a name="how-can-i-convert-existing-vms-to-trusted-launch"></a>기존 VM을 신뢰할 수 있는 시작으로 변환하려면 어떻게 해야 하나요?
-2세대 VM의 경우 신뢰할 수 있는 시작으로 변환하는 마이그레이션 경로는 GA(일반 공급)를 대상으로 합니다.
+
+2 세대 VM의 경우 신뢰할 수 있는 시작으로 변환 하는 마이그레이션 경로는 GA (일반 공급) 후 대상입니다.
+
+### <a name="what-is-vm-guest-state-vmgs"></a>VM 게스트 상태 (VMGS) 란?  
+
+VM 게스트 상태 (VMGS)는 신뢰할 수 있는 시작 VM에만 적용 됩니다. Azure에서 관리 되는 blob 이며, UEFI (통합 된 확장 가능 펌웨어 인터페이스) 보안 부팅 서명 데이터베이스 및 기타 보안 정보를 포함 합니다. VMGS blob의 수명 주기는 OS 디스크와 연결 됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

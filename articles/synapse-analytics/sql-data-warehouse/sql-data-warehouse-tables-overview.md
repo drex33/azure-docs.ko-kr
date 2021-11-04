@@ -1,22 +1,22 @@
 ---
 title: 테이블 디자인
-description: Azure Synapse Analytics에서 전용 SQL 풀을 사용하여 테이블을 디자인하는 방법을 소개합니다.
+description: 전용 SQL 풀을 사용하여 테이블을 디자인하는 방법을 소개합니다.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/15/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c55edbd24553189c11070999ddc5d3b3516f2d97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ea3081720adc74576d171dbba40a0f09d858749a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737934"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507097"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용하여 테이블 디자인
 
@@ -36,15 +36,15 @@ ms.locfileid: "98737934"
 
 스키마는 비슷한 방식으로 함께 사용되는 테이블을 그룹화하는 좋은 방법입니다.  온-프레미스 솔루션에서 전용 SQL 풀로 여러 데이터베이스를 마이그레이션하는 경우 모든 팩트, 차원 및 통합 테이블을 전용 SQL 풀의 하나의 스키마로 마이그레이션하는 것이 가장 좋습니다.
 
-예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 샘플 전용 SQL 풀의 모든 테이블을 wwi라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 만듭니다.
+예를 들어 모든 테이블을 라는 하나의 스키마 내에 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 샘플 전용 SQL 풀에 저장할 수 `wwi` 있습니다. 다음 코드는 라는 [사용자 정의 스키마를](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 만듭니다. `wwi`
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-전용 SQL 풀의 테이블 구성을 표시하려면 fact, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표는 WideWorldImportersDW의 일부 스키마 및 테이블 이름을 보여 줍니다.  
+전용 SQL 풀의 테이블 구성을 표시하려면 fact, dim 및 int를 테이블 이름의 접두사로 사용할 수 있습니다. 다음 표에는 의 스키마 및 테이블 이름 중 일부가 `WideWorldImportersDW` 표시됩니다.  
 
-| WideWorldImportersDW 테이블  | 테이블 유형 | 전용 SQL 풀 |
+| **WideWorldImportersDW 테이블**  | *테이블 유형* | **전용 SQL 풀** |
 |:-----|:-----|:------|:-----|
 | City | 차원 | wwi.DimCity |
 | 주문 | 팩트 | wwi.FactOrder |
@@ -65,11 +65,11 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 임시 테이블은 세션 기간 동안만 유지됩니다. 임시 테이블을 사용하여 다른 사용자가 임시 결과를 볼 수 없게 하고 정리할 필요를 줄일 수 있습니다.  
 
-임시 테이블은 로컬 스토리지를 활용하여 빠른 성능을 제공합니다.  자세한 내용은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요.
+임시 테이블은 로컬 스토리지를 활용하여 빠른 성능을 제공합니다. 자세한 내용은 [임시 테이블을 참조하세요.](sql-data-warehouse-tables-temporary.md)
 
 ### <a name="external-table"></a>외부 테이블
 
-외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE AS SELECT 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 전용 SQL 풀로 가져옵니다.
+외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE AS SELECT 문과 함께 사용하면 외부 테이블에서 를 선택하면 데이터를 전용 SQL 풀로 가져옵니다.
 
 따라서 외부 테이블은 데이터 로드에 유용합니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md)를 참조하세요.
 
@@ -103,7 +103,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 테이블 범주에 따라 선택할 테이블 배포 옵션이 결정되는 경우가 많습니다.
 
-| 테이블 범주 | 권장 배포 옵션 |
+| **테이블 범주** | **권장 배포 옵션** |
 |:---------------|:--------------------|
 | 팩트           | 클러스터형 columnstore 인덱스와 함께 해시 배포를 사용합니다. 동일한 배포 열에서 두 해시 테이블을 조인하면 성능이 향상됩니다. |
 | 차원      | 작은 테이블에는 복제를 사용합니다. 테이블이 너무 커서 각 컴퓨팅 노드에 저장할 수 없는 경우 해시 분산을 사용합니다. |
@@ -144,7 +144,7 @@ PRIMARY KEY는 NONCLUSTERED와 NOT ENFORCED를 모두 사용하는 경우에만 
 
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | Description |
+| **T-SQL 문**| **설명** |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 외부 테이블을 만듭니다. 테이블의 정의는 전용 SQL 풀에 저장됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |
@@ -297,7 +297,7 @@ FROM size
 
 ### <a name="table-space-summary"></a>테이블 공간 요약
 
-이 쿼리는 테이블에 의해 행 및 공간을 반환합니다.  가장 큰 테이블이 어느 테이블인지, 해당 테이블이 라운드 로빈, 복제 또는 해시 분산인지 확인할 수 있습니다.  해시 분산 테이블의 경우 쿼리에서 배포 열을 보여 줍니다.  
+이 쿼리는 테이블에 의해 행 및 공간을 반환합니다.  이를 통해 가장 큰 테이블에 해당 하는 테이블과 라운드 로빈, 복제 또는 해시 분산 여부를 확인할 수 있습니다.  해시 분산 테이블의 경우 쿼리에서 배포 열을 보여 줍니다.  
 
 ```sql
 SELECT

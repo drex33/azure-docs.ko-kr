@@ -5,13 +5,13 @@ ms.topic: how-to
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 03/18/2021
-ms.openlocfilehash: 04e89d4fa783159bec8869809f6db5a7e2f6950a
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.date: 11/02/2021
+ms.openlocfilehash: 2c82b8c14f68ab11ad0585390e68de4864ee7169
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093576"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500168"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용하여 어플라이언스 설정
 
@@ -61,7 +61,7 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 Azure 공용 클라우드 또는 Azure Government 클라우드용 VMware 어플라이언스를 설정할 수 있습니다.
@@ -91,8 +91,8 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
  - IIS 재작성 모듈을 다운로드하여 설치합니다.
  - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
  - 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일:**`%ProgramData%\Microsoft Azure\Config`
-    - **로그 파일:**`%ProgramData%\Microsoft Azure\Logs`
+    - **구성 파일**: `%ProgramData%\Microsoft Azure\Config`
+    - **로그 파일**: `%ProgramData%\Microsoft Azure\Logs`
 
 스크립트를 성공적으로 실행하면 어플라이언스 구성 관리자가 자동으로 시작됩니다.
 
@@ -122,7 +122,7 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 Azure 공용 클라우드 또는 Azure Government 클라우드용 Hyper-V 어플라이언스를 설정할 수 있습니다.
@@ -135,7 +135,7 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 `AzureMigrateInstaller.ps1` 실행하여 라는 스크립트를 실행합니다.
+4. 다음 명령을 실행하여 `AzureMigrateInstaller.ps1`이라는 스크립트를 실행합니다.
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 

@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.openlocfilehash: 986bc72d135cbbfceeb4b7e60556673a8dd8edbc
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 757290560f921ee87cf9454037a4f8f199283f29
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275851"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449491"
 ---
 # <a name="add-scoring-profiles-to-a-search-index"></a>검색 인덱스에 점수 매기기 프로필 추가
 
@@ -206,7 +206,7 @@ POST /indexes/hotels/docs&api-version=2020-06-30
 
 | 함수 | 설명 |
 |-|-|
-| "freshness" | 날짜/시간 필드(Edm.DataTimeOffset)의 값만큼 점수를 높입니다. 이 함수에는 점수 상승이 발생하는 기간을 나타내는 값을 지정할 수 있도록 `boostingDuration` 특성이 포함되어 있습니다. | 
+| "freshness" | datetime 필드(Edm.DateTimeOffset)의 값으로 향상됩니다. 이 함수에는 점수 상승이 발생하는 기간을 나타내는 값을 지정할 수 있도록 `boostingDuration` 특성이 포함되어 있습니다. | 
 | "magnitude" | 숫자 값의 크기를 기준으로 점수를 높입니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 Edm.Double 및 Edm.Int 필드에만 사용할 수 있습니다. magnitude 함수의 경우 반전 패턴을 사용하려면(예: 비싼 품목보다 저렴한 품목의 점수를 높이기 위해) 범위를 높은 값에서 낮은 값 순서로 반전할 수 있습니다. 예를 들어 가격 범위가 $100~$1인 경우 "boostingRangeStart"를 100으로, "boostingRangeEnd"를 1로 설정하여 가격이 낮은 품목의 점수를 높입니다. | 
 | "distance"  | 근접도 또는 지리적 위치를 기준으로 점수를 높입니다. 이 함수는 Edm.GeographyPoint 필드에만 사용할 수 있습니다. | 
 | "tag"  | 검색 문서와 쿼리 문자열에 공통적으로 적용된 태그의 점수를 높입니다. 태그는 `tagsParameter`에 제공됩니다. 이 함수는 Edm.String 및 Collection(Edm.String) 필드에만 사용할 수 있습니다. | 

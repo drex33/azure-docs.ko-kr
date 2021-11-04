@@ -1,19 +1,19 @@
 ---
 title: Azure Maps Weather Services를 사용하여 실시간 및 예측 날씨 데이터 요청
 description: Microsoft Azure Maps Weather Services를 사용하여 실시간(현재) 및 예측(분, 시간별, 일별) 날씨 데이터를 요청하는 방법 알아보기
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: ed0985778f27f17292428dddadaf4d0dedc9cd46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6ee9fefcb0675f35eebfe78b980d6e04d44f5a72
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566874"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435266"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Azure Maps Weather Services를 사용하여 실시간 및 예측 날씨 데이터 요청
 
@@ -54,7 +54,7 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-    https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 현재 날씨 정보가 포함됩니다.
@@ -244,7 +244,7 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-    https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. 파란색 **보내기** 단추를 클릭합니다. 심각한 날씨 경보가 없는 경우 응답 본문에 빈 `results[]` 배열이 포함됩니다. 심각한 날씨 경보가 있는 경우 응답 본문에 다음 JSON 응답과 같은 내용이 포함됩니다:
@@ -296,10 +296,11 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 5일간의 일기예보 데이터가 포함됩니다. 간단히 하기 위해 아래 JSON 응답은 첫째 날의 예측을 보여줍니다.
+
     ```json
     {
     "summary": {
@@ -544,7 +545,7 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 다음 12시간 동안의 일기예보 데이터가 포함됩니다. 간단히 하기 위해 아래 JSON 응답은 첫 번째 시간의 예측을 보여줍니다.
@@ -652,7 +653,7 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 3. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 다음 120분 동안 15분 간격의 일기예보 데이터가 포함됩니다.

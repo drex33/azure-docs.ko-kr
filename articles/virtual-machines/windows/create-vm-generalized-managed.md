@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c785bec3fc403a1090d5604d0954271992aea1f3
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: c4dec92555d52a1e405c9d27c4242237add47619
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689649"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456464"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
@@ -23,7 +23,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지�
 
 새 VM을 만들기 전에 원본 이미지로 사용하고 이미지에 대한 액세스 권한을 부여해야 하는 모든 사용자에게 이미지에 대한 읽기 액세스 권한을 부여하려면 [관리형 VM 이미지를 만들어야](capture-image-resource.md) 합니다. 
 
-하나의 관리형 이미지는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20개 이상의 VM을 동시에 만들려면 20개의 동시 VM 배포마다 1개의 복제본으로 구성된 [공유 이미지 갤러리](../shared-image-galleries.md) 이미지를 사용합니다.
+하나의 관리형 이미지는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20 개 이상의 Vm을 동시에 만들려면 20 개의 동시 VM 배포 마다 1 개의 복제본으로 구성 된 [Azure 계산 갤러리](../shared-image-galleries.md) (이전의 공유 이미지 갤러리) 이미지를 사용 합니다.
 
 ## <a name="use-the-portal"></a>포털 사용
 

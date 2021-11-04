@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f867ad9d55f5e5dbaac7962dd8e4ae4daeafee6f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 18a4c83dfa9998ede857147cf35d47d116fd9686
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776845"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444690"
 ---
 # <a name="azure-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Azure Virtual Desktop(클래식) 세션 호스트 가상 머신 구성
 
@@ -178,7 +178,7 @@ Azure Virtual Desktop 에이전트는 세션 호스트 VM에 처음 설치될 �
 
 ## <a name="troubleshooting-issues-with-the-azure-virtual-desktop-side-by-side-stack"></a>Azure Virtual Desktop 병렬 스택과 관련된 문제 해결
 
-Azure Virtual Desktop 병렬 스택은 Windows Server 2019와 함께 자동으로 설치됩니다. MSI(Microsoft Installer)를 사용하여 병렬 스택을 Microsoft Windows Server 2016 또는 Windows Server 2012 R2에 설치합니다. Microsoft Windows 10에서는 **enablesxstackrs.ps1** 을 사용하여 Azure Virtual Desktop 병렬 스택을 사용하도록 설정합니다.
+Azure Virtual Desktop side-by-side 스택은 Windows Server 2019 이상과 함께 자동으로 설치됩니다. MSI(Microsoft Installer)를 사용하여 병렬 스택을 Microsoft Windows Server 2016 또는 Windows Server 2012 R2에 설치합니다. Microsoft Windows 10에서는 **enablesxstackrs.ps1** 을 사용하여 Azure Virtual Desktop 병렬 스택을 사용하도록 설정합니다.
 
 세션 호스트 풀 VM에서 병렬 스택을 설치하거나 사용하도록 설정하는 세 가지 주요 방법이 있습니다.
 

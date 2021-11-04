@@ -1,19 +1,19 @@
 ---
 title: Azure 예약 사용률 보기
 description: 예약 사용률 및 세부 정보를 가져오는 방법을 알아봅니다.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 15726451525d3ffcaf2d059b9e6c9dee86058591
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: f69c39205ddc465ee4634ec621905fed2d701682
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710199"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446242"
 ---
 # <a name="view-reservation-utilization-after-purchase"></a>구매 후 예약 사용률 보기
 

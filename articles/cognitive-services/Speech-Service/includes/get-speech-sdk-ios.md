@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: pafarley
-ms.openlocfilehash: 5a761794e8f66f55e3ea9cbb2e6df282b675ea4f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 30d913eba160fd68702758695a8efa0547e55a26
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540023"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506531"
 ---
 :::row:::
     :::column span="3":::
@@ -64,7 +64,7 @@ end
         <br>
         <div class="icon is-large">
             <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
-            &nbsp;&nbsp;❤️        <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
+            &nbsp;&nbsp;❤️         <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

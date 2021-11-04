@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c1b057b8bfaacc0f2f26dcf8688d7439e6506c8b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101716587"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502790"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>미사용 데이터의 사용자 지정 명령 암호화
 
@@ -25,7 +25,7 @@ ms.locfileid: "101716587"
 > 사용자 지정 명령 서비스는 애플리케이션과 연결된 LUIS 리소스에 대해 암호화를 자동으로 사용하지 않습니다. 필요한 경우 [여기](../luis/encrypt-data-at-rest.md)에서 LUIS 리소스에 대한 암호화를 사용하도록 설정해야 합니다.
 
 ## <a name="about-cognitive-services-encryption"></a>Cognitive Services 암호화 정보
-데이터는 [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) 규격 [256비트 AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 암호화를 사용하여 암호화 및 암호 해독됩니다. 암호화 및 암호 해독은 투명하므로 암호화 및 액세스가 자동으로 관리됩니다. 데이터는 기본적으로 안전하며 암호화를 활용하기 위해 코드 또는 애플리케이션을 수정할 필요가 없습니다.
+데이터는 [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2)를 준수하는 [256비트 AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 암호화를 사용하여 암호화 및 암호 해독됩니다. 암호화 및 암호 해독은 투명하므로 암호화 및 액세스가 자동으로 관리됩니다. 데이터는 기본적으로 안전하며 암호화를 활용하기 위해 코드 또는 애플리케이션을 수정할 필요가 없습니다.
 
 ## <a name="about-encryption-key-management"></a>암호화 키 관리 정보
 

@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 504cc328d7336c829c30222f0ff95c11291c1955
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8420373d452cdcb6a1add4d45fc990af1690ef29
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131253669"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131521362"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-[참조 설명서](/java/api/overview/azure/ai-formrecognizer-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[참조 설명서](/java/api/overview/azure/ai-formrecognizer-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer/src) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -227,10 +227,10 @@ Total Price: null, confidence: 0.93
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
-이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원래 양식 문서의 키-값 관계를 포함하는 정형 데이터를 출력할 수 있습니다. 모델을 학습한 후 필요한 경우 테스트하고 다시 학습합니다. 결국 필요에 따라 더 많은 양식에서 데이터를 안정적으로 추출하는 데 사용합니다.
+이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습 된 모델은 원래 양식 문서에서 키-값 관계를 포함 하는 구조화 된 데이터를 출력할 수 있습니다. 모델을 학습 한 후에는 필요에 따라 테스트 하 고 다시 학습 합니다. 궁극적으로이를 사용 하 여 필요에 따라 더 많은 양식에서 데이터를 안정적으로 추출 합니다.
 
 > [!NOTE]
-> Form Recognizer 샘플 레이블 지정 도구 와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 [있습니다.](../../label-tool.md)
+> 또한 [폼 인식기 샘플 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용 하 여 모델을 학습 시킬 수 있습니다.
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -270,7 +270,7 @@ The model found field 'field-6' with label: VAT ID
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
-학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구는](../../label-tool.md) 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *useTrainingLabels* 매개 변수를 사용하여 **beginTraining** 메서드를 호출할 수 있습니다.
+학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [양식 인식기 샘플 레이블 지정 도구](../../label-tool.md) 는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공 합니다. 레이블 파일이 있으면 `true`로 설정된 *useTrainingLabels* 매개 변수를 사용하여 **beginTraining** 메서드를 호출할 수 있습니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
@@ -404,7 +404,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="troubleshooting"></a>문제 해결
 
-Form Recognizer 클라이언트는 `ErrorResponseException` 예외를 발생합니다. 예를 들어 잘못된 파일 원본 URL을 제공하려고 하면 오류가 발생한 원인을 나타내는 오류 메시지와 함께 `ErrorResponseException`이 발생합니다. 다음 코드 조각에서 오류는 예외를 catch하고 오류에 대한 추가 정보를 표시하여 적절히 처리됩니다.
+폼 인식기 클라이언트에서 `ErrorResponseException` 예외가 발생 합니다. 예를 들어 잘못된 파일 원본 URL을 제공하려고 하면 오류가 발생한 원인을 나타내는 오류 메시지와 함께 `ErrorResponseException`이 발생합니다. 다음 코드 조각에서 오류는 예외를 catch하고 오류에 대한 추가 정보를 표시하여 적절히 처리됩니다.
 
 ```java Snippet:FormRecognizerBadRequest
 try {
@@ -426,4 +426,4 @@ Java용 Azure SDK는 애플리케이션 오류를 빠르게 해결하는 데 도
 > [학습 데이터 세트 빌드](../../build-training-data-set.md)
 
 * [Form Recognizer란?](../../overview.md)
-* [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)에서 이 가이드의 샘플 코드 등을 확인할 수 있습니다.
+* [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)에서 이 가이드의 샘플 코드 등을 확인할 수 있습니다.

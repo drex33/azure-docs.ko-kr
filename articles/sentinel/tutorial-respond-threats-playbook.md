@@ -11,19 +11,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 152b034fe5fd5571ec58c001a8befc98c84f4107
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 903a0ae946a60ff4b1dd2fec7789fa38986d3bcb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737551"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083786"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 자습서에서는 자동화 규칙과 함께 플레이북을 사용하여 인시던트 응답을 자동화하고 Azure Sentinel이 탐지한 보안 위협을 해결하는 방법을 보여줍니다. 이 자습서를 완료하고 나면 다음을 수행할 수 있습니다.
 

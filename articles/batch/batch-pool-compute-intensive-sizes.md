@@ -3,12 +3,12 @@ title: Batch에서 컴퓨팅 집약적 Azure VM 사용
 description: Azure Batch 풀에서 HPC 및 GPU 가상 머신 크기를 활용하는 방법입니다. OS 종속성에 대해 알아보고 몇 가지 시나리오 예제를 살펴봅니다.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 8f3156296e1ae1ec892be86fc41738fcb7f29090
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
-ms.translationtype: HT
+ms.openlocfilehash: 10abcfeb8a754ccaeac6de9986612c81fe4decbe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988337"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426661"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
 
@@ -116,7 +116,7 @@ Linux NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 CUDA Too
 1. Ubuntu 16.04 LTS를 실행하는 Azure NC 시리즈 VM을 배포합니다. 예를 들어, 미국 중남부 지역에서 VM을 만듭니다. 
 2. Azure Portal, Azure 구독에 연결하는 클라이언트 컴퓨터 또는 Azure Cloud Shell을 사용하여 [NVIDIA GPU 드라이버 확장](../virtual-machines/extensions/hpccompute-gpu-linux.md
 )을 VM에 추가합니다. 또는 VM에 연결하고 [CUDA 드라이버를 수동으로 설치](../virtual-machines/linux/n-series-driver-setup.md)하는 다음 단계를 수행합니다.
-3. Batch용 [Shared Image Gallery 이미지](batch-sig-images.md)를 만드는 단계를 수행합니다.
+3. 단계에 따라 Batch에 대한 [Azure Compute 갤러리 이미지를](batch-sig-images.md) 만듭니다.
 4. NC VM을 지원하는 영역에서 Batch 계정을 만듭니다.
 5. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 [사용자 지정 이미지](batch-sig-images.md)를 사용하는 풀을 만듭니다. 다음 표에서는 이미지의 샘플 풀 설정을 보여줍니다.
 
@@ -135,8 +135,8 @@ Azure H16r VM 노드 풀에서 Windows MPI 애플리케이션을 실행하려면
 2. Azure 구독에 연결하는 클라이언트 컴퓨터에서 [Azure PowerShell 명령](../virtual-machines/sizes-hpc.md)을 실행하거나 Azure Cloud Shell을 사용하여 VM에 HpcVmDrivers 확장을 추가합니다. 
 1. VM에 대한 원격 데스크톱 연결을 만듭니다.
 1. 최신 버전의 Microsoft MPI에 대한 [설치 패키지](https://www.microsoft.com/download/details.aspx?id=57467)(MSMpiSetup.exe)를 다운로드하고 Microsoft MPI를 설치합니다.
-1. Batch용 [Shared Image Gallery 이미지](batch-sig-images.md)를 만드는 단계를 수행합니다.
-1. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 [Shared Image Gallery 이미지를 사용](batch-sig-images.md)하여 풀을 만듭니다. 다음 표에서는 이미지의 샘플 풀 설정을 보여줍니다.
+1. 단계에 따라 Batch에 대한 [Azure Compute 갤러리 이미지를](batch-sig-images.md) 만듭니다.
+1. Batch API 또는 Azure Portal 사용하여 Azure Compute [갤러리와](batch-sig-images.md) 원하는 수의 노드 및 크기 조정을 사용하여 풀을 만듭니다. 다음 표에서는 이미지의 샘플 풀 설정을 보여줍니다.
 
 | 설정 | 값 |
 | ---- | ---- |

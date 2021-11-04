@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 6e5c6bb17c4b31126b05af32a8b1582c7f025c2c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0ba6e7a0a336a5fbcb560a07a7731c8cdcc66e9e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101154"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439028"
 ---
 # <a name="improve-quality-of-response-with-synonyms"></a>동의어를 사용하여 응답 품질 향상
 
@@ -80,8 +80,7 @@ ms.locfileid: "131101154"
 
 > [!NOTE]
 > 동의어는 대/소문자를 구분하지 않습니다. 중지 단어를 동의어로 추가하는 경우에도 동의어가 예상대로 작동하지 않을 수 있습니다. 중지 단어 목록은 [중지 단어 목록](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md)에서 확인할 수 있습니다.
-
-예를 들어 정보 기술에 대한 약어 **IT** 를 추가하면 **IT** 는 중지 단어이고 쿼리가 처리될 때 필터링되기 때문에 시스템에서 정보 기술을 인식하지 못할 수 있습니다.
+> 예를 들어 정보 기술에 대한 약어 **IT** 를 추가하면 **IT** 는 중지 단어이고 쿼리가 처리될 때 필터링되기 때문에 시스템에서 정보 기술을 인식하지 못할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,24 +1,26 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 09/17/2021
+ms.date: 10/29/2021
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e0926dc0a211990a64812b00702e84acb0d1f140
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0f5bafd3bfa25691ee531c5e8aa60b4c70937815
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645539"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520441"
 ---
 | 리소스 | 제한 |
 | --- | --- |
 | 데이터 처리량 |30Gbps|
 |규칙 제한|1만 네트워크 및 응용 프로그램 규칙의 고유 원본/대상|
+|단일 규칙 컬렉션 그룹 내에 있는 규칙의 총 크기| 2Mb|
+|방화벽 정책의 규칙 컬렉션 그룹 수|50|
 |최대 DNAT 규칙|298(단일 공용 IP 주소로 구성된 방화벽의 경우)<br><br> DNAT 제한은 기본 플랫폼으로 인해 발생합니다. DNAT 규칙의 최대 수는 298개입니다. 그러나 공용 IP 주소가 추가되면 사용 가능한 DNAT 규칙의 수가 줄어듭니다. 예를 들어 두 개의 공용 IP 주소는 297개의 DNAT 규칙을 허용합니다. 규칙의 프로토콜이 TCP와 UDP 둘 다에 대해 구성된 경우 두 개의 규칙으로 계산됩니다.|
 |AzureFirewallSubnet 최소 크기 |/26|
 |네트워크 및 애플리케이션 규칙의 포트 범위|1 - 65535|

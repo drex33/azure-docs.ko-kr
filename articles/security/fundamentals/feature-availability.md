@@ -6,24 +6,25 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 76d38f7f5aa2c62010e3c3c6680ff016d3dc518d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 381119c1c7bbc57016eae274a9564d0fbfc4e663
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075565"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452778"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>미국 정부 고객을 위한 클라우드 기능 가용성
 
 이 문서는 다음 보안 서비스에 대한 Microsoft Azure 및 Azure Government 클라우드의 기능 가용성을 설명합니다.
 
+- [Azure Information Protection](#azure-information-protection)
 - [Azure Security Center](#azure-security-center)
 - [Azure Sentinel](#azure-sentinel)
 - [IoT용 Azure Defender](#azure-defender-for-iot)
 
 > [!NOTE]
 > 이 문서에 추가 보안 서비스가 곧 추가될 예정입니다.
-> 
+>
 
 ## <a name="azure-government"></a>Azure Government
 
@@ -50,6 +51,88 @@ Office 365 US Government 환경에 대한 자세한 내용은 다음을 참조�
 
 
 다음 섹션에서는 서비스가 Microsoft 365와 통합된 경우가 언제인지 그리고 Office 365 GCC, Office 365 High 및 Office 365 DoD의 기능 가용성을 식별합니다.
+
+## <a name="azure-information-protection"></a>Azure Information Protection
+
+AIP(Azure Information Protection)는 조직에서 문서와 이메일의 콘텐츠에 레이블을 지정하여 검색, 분류 및 보호할 수 있도록 지원하는 클라우드 기반 솔루션입니다.
+
+AIP는 MIP(Microsoft Information Protection) 솔루션의 일부이며 Microsoft 365에서 제공하는 [레이블 지정](/microsoft-365/compliance/sensitivity-labels) 및 [분류](/microsoft-365/compliance/data-classification-overview) 기능을 확장합니다.
+
+자세한 내용은 [Azure Information Protection 제품 설명서](/azure/information-protection/)를 참조 하십시오.
+
+- Office 365 GCC는 Azure에서 Azure Active Directory(Azure AD)와 페어링됩니다. Office 365 GCC High와 Office 365 DoD는 Azure Government에서 Azure AD와 페어링됩니다. [상호 운용이 가능한](#microsoft-365-integration) 위치를 이해하려면 Azure 환경에 주의해야 합니다. 다음 표에서는 *지원되지 않는* 상호 운용성을 대시(-)로 표시하여 지원 관계가 없음을 나타낼 수 있습니다.
+
+- GCC-High 및 DoD 고객에 대 한 추가 구성이 필요 합니다. 자세한 내용은 [Azure Information Protection Premium 정부 서비스 설명](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description)을 참조 하세요.
+
+> [!NOTE]
+> 정부 고객에 대 한 지원에 대 한 자세한 내용은 표 아래의 각주에 나와 있습니다. 
+> 
+> GCC High 및 DoD 고객에 대 한 Azure Information Protection를 구성 하려면 추가 단계가 필요 합니다. 자세한 내용은 [Azure Information Protection Premium 정부 서비스 설명](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description)을 참조 하세요.
+>
+
+|기능/서비스  |Azure  |Azure Government  |
+|---------|---------|---------|
+|**[Azure Information Protection 스캐너](/azure/information-protection/deploy-aip-scanner)** <sup> [1](#aipnote1)</sup>       |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|**관리**     |         |         |
+|[스캐너 관리용 Azure Information Protection 포털](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **분류 및 레이블** 지정 <sup> [2](#aipnote2)</sup>   |         |         |
+| [온-프레미스 파일 서버/리포지토리의 모든 파일에 *기본 레이블을* 적용 하는 aip 스캐너](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [지원 되는 온-프레미스 파일의 자동화 된 분류, 레이블 지정 및 보호를 위한 AIP 스캐너](/azure/information-protection/deploy-aip-scanner)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| |  |  |
+
+<sup> <a name="aipnote1" /> </a> 1</sup> 스캐너가 파일을 스캔 하는 Office 365 없이 작동할 수 있습니다. 스캐너가 Office 365 없이 파일에 레이블을 적용할 수 없습니다.
+
+<sup> <a name="aipnote2" /> </a> 2</sup> 분류 및 레이블 지정 추가 기능은 Professional 및 (ProPlus) 및 C2R (클릭 하 여 실행) 버전을 포함 하 여 Microsoft 365 앱 (버전 9126.1001 이상)를 사용 하는 정부 고객만 지원 합니다. Office 2010, Office 2013 및 기타 Office 2016 버전은 지원되지 않습니다.
+
+### <a name="office-365-features"></a>Office 365 기능
+
+|기능/서비스  |Office 365 GCC  |Office 365 GCC High |Office 365 DoD  |
+|---------|---------|---------|---------|
+|**관리**     |         |         | |
+|- [RMS 서비스 관리용 PowerShell](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
+|- [AIP UL 용 PowerShell 클라이언트 대량 작업](/powershell/module/azureinformationprotection/)      |         |         |         |
+|**SDK**     |         |         |         |
+|- [밉 및 AIP SDK (소프트웨어 개발 키트)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
+|**사용자 지정**     |         |         |         |
+|- [문서 추적 및 해지](/azure/information-protection/rms-client/track-and-revoke-admin)      |   GA      |  사용할 수 없음       |     사용할 수 없음    |
+|**키 관리**      |         |         |         |
+|- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
+|- [키 암호화 (2 개)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
+|**Office 파일** <sup> [3](#aipnote6)</sup>      |         |         |         |
+|- [비즈니스에 대 한 Microsoft Exchange Online, Microsoft Office SharePoint Online 및 Microsoft OneDrive 보호](/azure/information-protection/requirements-applications)      |     GA    |  GA <sup> [4](#aipnote3)</sup>       |   GA <sup> [4](#aipnote3)</sup>      |
+|- [Rights Management 커넥터를 통해 온-프레미스 Exchange 및 SharePoint 콘텐츠 보호](/azure/information-protection/deploy-rms-connector)     |    GA <sup> [5](#aipnote5)</sup>      |  사용할 수 없음       |     사용할 수 없음         |
+|- [Office 365 메시지 암호화](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
+|- [Outlook에서 미리 구성 된 M/MIME 보호를 자동으로 적용 하도록 레이블 설정](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
+|- [Outlook를 사용할 때 정보의 과도 한 공유 제어](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA <sup> [6](#aipnote6)</sup>        |    GA <sup> [6](#aipnote6)</sup>      |
+|**분류 및 레이블** 지정 <sup> [2](#aipnote2)  /  [7](#aipnote7)</sup>      |         |         |         |
+|-부서별 템플릿을 포함 한 사용자 지정 템플릿     |     GA       |    GA     |   GA         |
+|-수동, 기본 및 필수 문서 분류     |       GA       |    GA     |   GA       |
+|-자동 및 권장 분류 GA 조건을 구성 합니다.       |    GA     |   GA        |
+|- [ptxt, pjpg 및 pjpg (일반 보호)을 포함 하 여 Microsoft Office 없는 파일 형식에 대 한 보호](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|     |         |         |         |
+
+
+<sup> <a name="aipnote3" /> </a> 3</sup> AD RMS에 대 한 모바일 장치 확장은 현재 정부 고객에 게 제공 되지 않습니다.
+
+<sup> <a name="aipnote4" /> </a> 4</sup> SharePoint 온라인 (IRM 보호 된 사이트 및 라이브러리)과 Rights Management 정보는 현재 사용할 수 없습니다.
+
+<sup> <a name="aipnote5" /> </a> 5</sup> IRM (정보 Rights Management)은 Professional Plus (ProPlus) 및 클릭 하 여 실행 (C2R) 버전을 포함 하 여 Microsoft 365 앱 (버전 9126.1001 이상)에 대해서만 지원 됩니다. Office 2010, Office 2013 및 기타 Office 2016 버전은 지원되지 않습니다.
+
+<sup> <a name="aipnote6" /> </a> 6</sup> 정부 클라우드에서 보호 된 문서와 전자 메일을 상용 클라우드의 사용자에 게 공유 하는 것은 현재 사용할 수 없습니다. 상용 클라우드의 사용자, 상용 클라우드의 Microsoft 365 앱 없는 사용자 및 개인용 RMS 라이선스가 있는 사용자 Microsoft 365 앱 포함 됩니다.
+
+<sup> <a name="aipnote7" /> </a> 7</sup> Microsoft 365 보안 & 규정 준수 센터의 [중요 한 정보 유형](/microsoft-365/compliance/sensitive-information-type-entity-definitions) 수는 지역에 따라 달라질 수 있습니다.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -301,7 +384,7 @@ Azure Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄�
 |--|--|--|
 | [온-프레미스 디바이스 검색 및 인벤토리](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
 | [취약점 관리](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
-| [IoT를 사용하여 위협 탐지 및 OT 동작 분석](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
+| [IoT 및 OT 동작 분석을 사용한 위협 감지](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
 | [수동 및 자동 위협 인텔리전스 업데이트](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **SIEM, SOAR 및 XDR을 사용하여 IT 및 OT 보안 통합** |  |  |
 | [Active Directory](../../defender-for-iot/organizations/how-to-create-and-manage-users.md#integrate-with-active-directory-servers) | GA | GA |
@@ -314,15 +397,15 @@ Azure Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄�
 | [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
 | [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
 | [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [Palo Alto 파노라마](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [ServiceNow (경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
+| [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
+| [ServiceNow(경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
 | [SNMP MIB 모니터링](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
 | [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
-| [SYSLOG 서버 (CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [웹 콜백 (Webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
+| [SYSLOG 서버(CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [웹 콜백(웹후크)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### <a name="for-device-builders"></a>디바이스 빌더의 경우
 

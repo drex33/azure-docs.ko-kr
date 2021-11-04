@@ -8,22 +8,26 @@ ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: e86d15e5b15133891ad5fd3e3f61ea6cc6f790e5
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 3748e969e83d651fa76dc9cff9b92b2f2ffc4f1d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503511"
+ms.locfileid: "131483072"
 ---
 # <a name="whats-new-in-azure-synapse-analytics"></a>Azure Synapse Analytics 새로운 내용
 
-이 문서에서는 2021년 10월 현재 사용할 수 있는 Azure Synapse Analytics 대한 업데이트를 나열합니다.
+이 문서에서는 Azure Synapse Analytics 대한 업데이트를 설명하고 현재 공개 미리 보기로 제공된 기능을 나열합니다.
 
-각 업데이트는 Azure Synapse Analytics 블로그 및 자세한 정보를 제공하는 문서에 연결합니다.
+목록의 각 기능 옆에 있는 링크는 다음과 같습니다.
+
+- [blog]: Most features are explained in a section in the monthly update blog post.
+- [article]: Some features have an article that provides more detail
+- 나머지 기능은 설명이 필요 없고 문서가 필요하지 않습니다.
 
 ## <a name="october-2021-update"></a>2021년 10월 업데이트
 
-다음 업데이트는 이번 달에 Azure Synapse Analytics 새로운 업데이트입니다.
+이번 달 Azure Synapse Analytics 새로운 업데이트는 다음과 같습니다.
 
 ### <a name="general"></a>일반
 

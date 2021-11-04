@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/28/2021
 ms.author: aahi
-ms.openlocfilehash: 2226e4e7c5df60a4a601408da04a1f2e67c4dc4f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: e11de4634d7488f75649535b56bd5129d7c1d65a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067778"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473398"
 ---
 # <a name="create-containers-for-reuse"></a>재사용할 컨테이너 생성
 
@@ -55,7 +55,7 @@ ms.locfileid: "106067778"
 
 ### <a name="reuse-recipe-store-billing-settings-with-container"></a>레시피 재사용: 컨테이너에 청구 설정 저장
 
-이 예제에서는 Dockerfile에서 Text Analytics 감정 컨테이너를 빌드하는 방법을 보여줍니다.
+이 예제에서는 Dockerfile에서 언어 서비스의 감정 컨테이너를 빌드하는 방법을 보여 줍니다.
 
 ```Dockerfile
 FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest

@@ -3,7 +3,7 @@ title: 캐싱 작동 방식 | Microsoft Docs
 description: 캐싱은 데이터에 대한 향후 요청에 신속하게 액세스할 수 있도록 데이터를 로컬에 저장하는 프로세스입니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2021
-ms.author: allensu
-ms.openlocfilehash: 3d89d3621593abc77bf61b5cb32655df00748a86
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: duau
+ms.openlocfilehash: d3ffe6cbfb55651664be4bf845099561916aeee1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226719"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450650"
 ---
 # <a name="how-caching-works"></a>캐싱 작동 방식
 
@@ -135,7 +135,7 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 **CDN 캐시 기간**: Azure CDN에 리소스가 캐시되는 시간의 길이를 지정합니다. 하지만 **원본 사용** 이 예이고 원본 서버의 HTTP 응답에 캐시 지시문 헤더 `Expires` 또는 `Cache-Control: max-age`가 포함되어 있으면 Azure CDN은 헤더에 지정된 기간 값을 대신 사용합니다. 
 
 > [!NOTE]
-> Azure CDN 개체가 캐시에 저장되는 최소 시간을 보장하지 않습니다. 캐시된 콘텐츠는 더 자주 요청되는 콘텐츠를 위한 공간을 확보하기 위해 콘텐츠를 자주 요청하지 않는 경우 만료되기 전에 CDN 캐시에서 제거될 수 있습니다.
+> Azure CDN은 개체가 캐시에 저장 되는 최소 시간을 보장 하지 않습니다. 자주 요청 되는 콘텐츠를 위한 공간을 확보 하기 위해 콘텐츠가 자주 요청 되지 않은 경우 캐시 된 콘텐츠가 CDN 캐시에서 제거 될 수 있습니다.
 > 
 
 ## <a name="next-steps"></a>다음 단계

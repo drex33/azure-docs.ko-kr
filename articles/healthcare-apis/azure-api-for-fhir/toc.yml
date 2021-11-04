@@ -1,16 +1,17 @@
 items:
-  - name: Azure Healthcare API(미리 보기) 설명서
+  - name: Azure 의료 Api (미리 보기) 설명서
     href: ../index.yml
-  - name: Azure API for FHIR 설명서
+  - name: FHIR 용 Azure API 설명서
     href: index.yml
   - name: 개요
+    expanded: true
     items:
       - name: Azure API for FHIR 정보
         href: overview.md
       - name: Azure IoT Connector for FHIR(미리 보기) 정보
         href: overview.md#azure-iot-connector-for-fhir-preview
   - name: 빠른 시작
-    expanded: false
+    expanded: true
     items:
       - name: Azure API for FHIR 배포
         expanded: false
@@ -32,7 +33,7 @@ items:
           - name: ARM 템플릿 사용
             href: iot-azure-resource-manager-template-quickstart.md
   - name: 자습서
-    expanded: false
+    expanded: true
     items:
       - name: JavaScript 애플리케이션 배포
         expanded: false
@@ -66,7 +67,7 @@ items:
           - name: Da Vinci Plan Net
             href: ../fhir/davinci-plan-net.md
   - name: 방법 가이드
-    expanded: false
+    expanded: true
     items:
       - name: 애플리케이션 등록
         expanded: false
@@ -84,7 +85,7 @@ items:
       - name: 설정 구성
         expanded: false
         items:
-          - name: 다른 Azure API for FHIR 설정 구성
+          - name: 기타 Azure API 설정 구성
             href: azure-api-for-fhir-additional-settings.md
           - name: Azure RBAC 구성
             href: configure-azure-rbac.md
@@ -149,10 +150,10 @@ items:
         href: iot-troubleshoot-guide.md
       - name: Azure API for FHIR에 대한 자동 크기 조정
         href: autoscale-azure-api-fhir.md
-      - name: Azure API for FHIR 재해 복구
+      - name: FHIR 용 Azure API에 대 한 재해 복구
         href: disaster-recovery.md
   - name: 개념
-    expanded: false
+    expanded: true
     items:
       - name: Azure AD 및 Azure API for FHIR 개요
         href: azure-active-directory-identity-configuration.md
@@ -167,21 +168,25 @@ items:
             href: iot-data-flow.md
           - name: Azure IoT Connector for FHIR(미리 보기) 매핑 템플릿
             href: iot-mapping-templates.md
-      - name: FHIR Rest API 기능
+      - name: Rest API 기능
         href: fhir-rest-api-capabilities.md
       - name: 보안
         items:
           - name: Azure Policy의 보안 컨트롤
             href: ./security-controls-policy.md
   - name: 리소스
+    expanded: true
     items:
-      - name: FAQ
-        href: fhir-faq.yml
       - name: 지원되는 기능
         href: fhir-features-supported.md
+      - name: 릴리스 정보
+        href: release-notes.md
+      - name: FAQ
+        href: fhir-faq.yml
       - name: GitHub 프로젝트
         href: fhir-github-projects.md
   - name: 참조
+    expanded: true
     items:
       - name: Azure CLI
         href: /cli/azure/healthcareapis

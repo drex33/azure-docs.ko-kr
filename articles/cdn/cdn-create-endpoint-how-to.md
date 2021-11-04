@@ -3,7 +3,7 @@ title: Azure CDN 엔드포인트 만들기 | Microsoft Docs
 description: 이 문서에서는 고급 설정을 포함하여 새 Azure CDN(Content Delivery Network) 엔드포인트를 만드는 방법을 보여줍니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/09/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 18f4276c3013f50ceacf74f4c8cec068f0de88cb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e7ca38a7d4a7965b99b7392a3543dc4d28455e6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775534"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454982"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 만들기
 이 문서에서는 기존 CDN 프로필에서 [Azure CDN(Content Delivery Network)](cdn-overview.md) 엔드포인트를 만드는 모든 설정에 대해 설명합니다. 프로필과 엔드포인트를 만든 후에는 고객에게 콘텐츠를 제공할 수 있습니다. 프로필 및 엔드포인트를 만드는 빠른 시작은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
@@ -102,7 +102,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
     엔드포인트 구성이 POP(point-of-presence) 서버에 전파되기 전에 CDN 도메인 이름을 사용하려고 시도하면 HTTP 404 응답 상태가 수신될 수 있습니다. 엔드포인트를 만든 후 몇 시간이 지난 후에도 404 응답 상태가 계속 수신되는 경우 [404 상태 코드를 반환하는 Azure CDN 엔드포인트 문제 해결](cdn-troubleshoot-endpoint.md)을 참조하세요.
 
 > [!NOTE]
-> *Verizon CDN 엔드포인트의* 경우 어떤 이유로든 엔드포인트를 **사용하지 않도록 설정하거나** **중지하면** Verizon 추가 포털을 통해 구성된 모든 리소스가 정리됩니다. 엔드포인트를 다시 시작하여 이러한 구성을 자동으로 복원할 수 없습니다. 이러한 구성을 다시 변경해야 합니다.
+> *Verizon CDN 엔드포인트* 의 경우 어떤 이유로든 엔드포인트를 **사용하지 않도록 설정** 하거나 **중지** 하면 Verizon 보조 포털을 통해 구성된 모든 리소스가 정리됩니다. 엔드포인트를 다시 시작하여 이러한 구성을 자동으로 복원할 수 없습니다. 이러한 구성을 다시 변경해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 더 이상 필요 없는 엔드포인트를 삭제하려면 엔드포인트를 선택하고 **삭제** 를 선택합니다. 

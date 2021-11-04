@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: cynthn
 ms.custom: portal
-ms.openlocfilehash: 7b733043a6b9a8e68aad94aaa57baf5c4d3fd2aa
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
-ms.translationtype: HT
+ms.openlocfilehash: e28ec0a10431316f7c5658ec006a7136f5388ff3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128915"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444614"
 ---
 # <a name="remove-machine-specific-information-by-generalizing-a-vm-before-creating-an-image"></a>이미지를 만들기 전에 VM을 일반화하여 머신 관련 정보 제거
 
-특별히 일반화된 이미지를 만들려는 경우가 아니면 [Shared Image Gallery](shared-image-galleries.md#generalized-and-specialized-images)에서 이미지를 만들기 위해 VM을 일반화할 필요가 없습니다. 갤러리 외부에서 관리형 이미지를 만드는 경우에는 일반화가 필요합니다.
+일반화된 이미지를 특별히 만들려고 하지 않는 한 [Azure Compute 갤러리에서](shared-image-galleries.md#generalized-and-specialized-images) 이미지를 만드는 데 VM 일반화가 필요하지 않습니다. 갤러리 외부에서 관리형 이미지를 만드는 경우에는 일반화가 필요합니다.
 
 일반화하면 머신 관련 정보가 제거되므로 이미지를 사용하여 여러 VM을 만들 수 있습니다. VM이 일반화되면 VM이 일반화되어 부팅 시퀀스를 올바르게 설정할 수 있음을 플랫폼에 알려야 합니다. VM이 일반화되면 VM을 다시 시작하면 안 됩니다.
 

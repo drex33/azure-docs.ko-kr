@@ -3,30 +3,30 @@ title: Speech Service API용 Docker 컨테이너 설치 및 실행
 titleSuffix: Azure Cognitive Services
 description: Speech Service용 Docker 컨테이너를 사용하여 온-프레미스에서 음성 인식, 대화 내용 기록, 생성 등을 수행할 수 있습니다.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.author: aahi
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: a930b5234f13d7e53bc50b6dc3f7b3d959df2e0e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 3a1bee0399a00a758339a636d55e46321794a93b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131024596"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501087"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Speech Service API용 Docker 컨테이너 설치 및 실행 
 
-컨테이너를 사용하면 사용자 환경에서 _일부_ Speech Service API를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
+컨테이너를 사용 하면 사용자 환경에서 음성 서비스 Api의 _일부_ 를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
 
 음성 컨테이너는 고객이 강력한 클라우드 기능 및 에지 지역성 모두에 최적화된 음성 애플리케이션 아키텍처를 구축할 수 있도록 합니다. 클라우드 기반 Azure Speech Service와 동일한 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 사용하는 여러 컨테이너를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 표준 음성 합성 음성 및 텍스트 음성 대 음성 컨테이너는 2021년 8월 31일에 사용 중지되었습니다. 대신 신경망 텍스트 음성 대 음성 컨테이너를 사용하도록 애플리케이션을 마이그레이션하는 것이 좋습니다. 애플리케이션 업데이트에 대한 자세한 내용은 [다음 단계를 따르세요.](./text-to-speech.md#migrate-to-neural-voice)
+> 2021 년 8 월 31 일에 표준 음성 합성 음성 및 텍스트 음성 변환 컨테이너를 사용 중지 했습니다. 대신 신경망 및 음성 변환 컨테이너를 사용 하도록 응용 프로그램을 마이그레이션하는 것이 좋습니다. 응용 프로그램을 업데이트 하는 방법에 대 한 자세한 내용은 [다음 단계를 따르세요](./text-to-speech.md#migrate-to-neural-voice) .
 
 | 컨테이너 | 기능 | 최신 | 릴리스 상태 |
 |--|--|--|--|
@@ -311,18 +311,18 @@ diarize_speech_config.set_service_property(
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 변환 출력의 감정 분석 
-음성 텍스트 변환 컨테이너의 v2.6.0부터 미리 보기 엔드포인트 대신 TextAnalytics 3.0 API 엔드포인트를 사용해야 합니다. 예
+음성 텍스트 컨테이너의 v 2.6.0에서 시작 하 여 미리 보기 하나 대신 Language service 3.0 API 끝점을 사용 해야 합니다. 예를 들면 다음과 같습니다.
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
 
 > [!NOTE]
-> Text Analytics `v3.0` API는 이전 버전인 Text Analytics `v3.0-preview.1`과 호환되지 않습니다. 최신 감정 기능을 지원하려면 음성 텍스트 변환 컨테이너 이미지의 `v2.6.0` 및 Text Analytics `v3.0`을 사용합니다.
+> 언어 서비스 `v3.0` API는 이전 버전과 호환 되지 않습니다  `v3.0-preview.1` . 최신 감정 기능 지원을 받으려면 `v2.6.0` 음성-텍스트 컨테이너 이미지 및 언어 서비스를 사용 합니다 `v3.0` .
 
-음성 텍스트 변환 컨테이너 v2.2.0부터 출력에서 [감정 분석 v3 API를](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 호출할 수 있습니다. 감정 분석을 호출하려면 Text Analytics API 리소스 엔드포인트가 필요합니다. 예를 들면 다음과 같습니다. 
+음성 텍스트 변환 컨테이너 v2.2.0부터 출력에서 [감정 분석 v3 API를](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 호출할 수 있습니다. 감정 분석을 호출 하려면 언어 서비스 API 리소스 끝점이 필요 합니다. 예를 들어: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
-클라우드에서 Text Analytics 엔드포인트에 액세스하는 경우 키가 필요합니다. Text Analytics를 로컬에서 실행하는 경우 이를 제공하지 않아도 될 수 있습니다.
+클라우드에서 언어 서비스 끝점에 액세스 하는 경우 키가 필요 합니다. 언어 서비스 기능을 로컬로 실행 하는 경우에는이 기능을 제공 하지 않아도 됩니다.
 
 키와 엔드포인트는 다음 예제와 같이 음성 컨테이너에 인수로 전달됩니다.
 
@@ -339,7 +339,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 이 명령은 다음을 수행합니다.
 
 * 위의 명령과 동일한 단계를 수행합니다.
-* 감정 분석 요청을 보내기 위해 Text Analytics API 엔드포인트 및 키를 저장합니다. 
+* 감정 분석 요청을 보내기 위한 언어 서비스 API 끝점 및 키를 저장 합니다. 
 
 #### <a name="phraselist-v2-on-the-speech-to-text-output"></a>음성 텍스트 변환 출력의 Phraselist v2 
 
@@ -541,13 +541,13 @@ WSS 및 HTTPS 프로토콜을 사용하는 방법에 대한 자세한 내용은 
 
 #### <a name="analyze-sentiment"></a>감정 분석
 
-[컨테이너에](#analyze-sentiment-on-the-speech-to-text-output) Text Analytics API 자격 증명을 제공한 경우 음성 SDK를 사용하여 감정 분석을 통한 음성 인식 요청을 보낼 수 있습니다. *단순* 또는 *상세* 형식을 사용하도록 API 응답을 구성할 수 있습니다.
+[컨테이너에](#analyze-sentiment-on-the-speech-to-text-output)언어 서비스 API 자격 증명을 제공한 경우 speech SDK를 사용 하 여 감정 분석을 통해 음성 인식 요청을 보낼 수 있습니다. *단순* 또는 *상세* 형식을 사용하도록 API 응답을 구성할 수 있습니다.
 > [!NOTE]
 > Speech Service Python SDK의 v1.13에는 감정 분석과 관련된 문제가 있습니다. Speech Service Python SDK에서 감정 분석을 사용하는 경우에는 v1.12.x 또는 이전 버전을 사용하세요.
 
 # <a name="simple-format"></a>[단순 형식](#tab/simple-format)
 
-단순 형식을 사용하도록 음성 클라이언트를 구성하려면 `"Sentiment"`에 `Simple.Extensions`를 값으로 추가합니다. 특정 Text Analytics 모델 버전을 선택하려면 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` 속성 구성에서 `'latest'`를 대체합니다.
+단순 형식을 사용하도록 음성 클라이언트를 구성하려면 `"Sentiment"`에 `Simple.Extensions`를 값으로 추가합니다. 특정 언어 서비스 모델 버전을 선택 하려면 `'latest'` 속성 구성에서를 대체 합니다 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` .
 
 ```python
 speech_config.set_service_property(
@@ -581,7 +581,7 @@ speech_config.set_service_property(
 
 # <a name="detailed-format"></a>[상세 형식](#tab/detailed-format)
 
-상세 형식을 사용하도록 음성 클라이언트를 구성하려면 `Detailed.Extensions`, `Detailed.Options` 또는 둘 다에 `"Sentiment"`를 값으로 추가합니다. 특정 Text Analytics 모델 버전을 선택하려면 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` 속성 구성에서 `'latest'`를 대체합니다.
+상세 형식을 사용하도록 음성 클라이언트를 구성하려면 `Detailed.Extensions`, `Detailed.Options` 또는 둘 다에 `"Sentiment"`를 값으로 추가합니다. 특정 감정 분석 모델 버전을 선택 하려면 `'latest'` 속성 구성에서를 대체 합니다 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` .
 
 ```python
 speech_config.set_service_property(

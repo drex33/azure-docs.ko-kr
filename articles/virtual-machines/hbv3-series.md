@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 93b9273069fb564ae7049983d34ee71dba8ef57a
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 208c1c16c07bdd32730d17e990e037f0fe7da015
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072369"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060462"
 ---
 # <a name="hbv3-series"></a>ESv3 시리즈
 
@@ -30,7 +30,7 @@ HBv3 시리즈 Vm은 유체 역학, 명시적 및 암시적 유한 요소 분석
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 서비스 예정<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 <br>
 
 |크기 |vCPU |프로세서 |메모리(GiB) |메모리 대역폭 GB/초 |기본 CPU 빈도(GHz) |모든 코어 빈도(GHz, 최고) |단일 코어 빈도(GHz, 최고) |RDMA 성능(Gb/s) |MPI 지원 |임시 스토리지(GiB) |최대 데이터 디스크 수 |최대 이더넷 vNIC |

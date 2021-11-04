@@ -1,19 +1,19 @@
 ---
 title: Azure Databricks 사전 구매 할인이 적용되는 방법
 description: Azure Databricks 사전 구매 할인이 사용량에 적용되는 방법에 대해 알아봅니다. 구매 기간 중에 언제든지 이러한 Databricks를 사용할 수 있습니다.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: e0525d7d70f9b5195a6b011717b7d27219b0d929
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c09f7f3c4bdd4603e58f05ea71278320f60f33c9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676868"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446261"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Azure Databricks 사전 구매 할인이 적용되는 방법
 

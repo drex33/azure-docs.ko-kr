@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2021
 ms.author: bagol
-ms.openlocfilehash: 483a228dc172acc3ce0cb44e5f9ac0eba1da807c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 223fa4bf0e62790e31ae8d872ef47c72a15b4634
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114481896"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083877"
 ---
 # <a name="enrich-entities-in-azure-sentinel-with-geolocation-data-via-rest-api-public-preview"></a>REST API를 통해 지리적 위치 데이터로 Azure Sentinel에서 엔터티 보강(공개 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 REST API를 사용하여 지리적 위치 데이터로 Azure Sentinel에서 엔터티를 보강하는 방법을 보여 줍니다.
 

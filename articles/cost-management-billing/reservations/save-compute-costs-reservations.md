@@ -1,19 +1,19 @@
 ---
 title: Azure Reservations란?
 description: 가상 머신, SQL 데이터베이스, Azure Cosmos DB 및 기타 리소스 비용에 대한 예약 인스턴스를 절약하기 위한 Azure 예약 및 가격 책정에 대해 알아봅니다.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 02/24/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 7c2cf88eed3d8b727147f57ef9e2b52afd07de59
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fb1dd3eeefe62760485d501a92bcf4a51265ddfd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039141"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430499"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 

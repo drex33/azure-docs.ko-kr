@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 24f1499d51177d932e327d259df3c5d8f55e0e41
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a4d9d73682b5b312e7f71d83cbfb3fdb7dacba8
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187581"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131519956"
 ---
 > [!div class="nextstepaction"]
 > [GitHub에서 Go 샘플 살펴보기](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples)

@@ -1,20 +1,20 @@
 ---
-title: Azure Automation 계정에 대해 사용자 할당 관리 ID 사용(미리 보기)
+title: Azure Automation 계정에 대해 사용자 할당 관리 ID 사용
 description: 이 문서에서는 Azure Automation 계정에 사용자 할당 관리 ID를 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7b1a75aac3166b1fdd3cdd39f5f66bd380339975
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 033f25f5d5902b339a2777cffc8c526a459ca587
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061792"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435532"
 ---
-# <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Azure Automation 계정에 대해 사용자 할당 관리 ID 사용(미리 보기)
+# <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account"></a>Azure Automation 계정에 대해 사용자 할당 관리 ID 사용
 
-이 문서에서는 Azure Automation 계정에 사용자 할당 관리 ID를 만드는 방법과 이를 사용하여 다른 리소스에 액세스하는 방법을 보여줍니다. 관리 ID가 Azure Automation에서 작동하는 방법에 대한 자세한 내용은 [관리 ID](automation-security-overview.md#managed-identities-preview)를 참조하세요.
+이 문서에서는 Azure Automation 계정에 사용자 할당 관리 ID를 만드는 방법과 이를 사용하여 다른 리소스에 액세스하는 방법을 보여줍니다. 관리 ID가 Azure Automation에서 작동하는 방법에 대한 자세한 내용은 [관리 ID](automation-security-overview.md#managed-identities)를 참조하세요.
 
 > [!NOTE]
 > 사용자가 할당한 ID는 클라우드 작업에서만 지원됩니다.  
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - Azure Automation 계정. 자세한 내용은 [Azure Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
 
-- 시스템이 할당한 관리 ID. 자세한 내용은 [Azure Automation 계정에 대해 시스템 할당 관리 ID 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
+- 시스템이 할당한 관리 ID. 자세한 내용은 [Azure Automation 계정에 시스템 할당 관리 ID 사용을 참조하세요.](enable-managed-identity-for-automation.md)
 
 - 사용자가 할당한 관리 ID. 자세한 내용은 [사용자 할당 관리 ID 만들기](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)을 참조하세요.
 
@@ -336,7 +336,7 @@ HTTP 엔드포인트의 경우에는 다음을 확인합니다.
 - 리소스는 GET 요청에 대한 쿼리 매개 변수로서, 그리고 POST 요청에 대한 양식 데이터로서 요청과 함께 전달되어야 합니다.
 - Post 요청에 대한 콘텐츠 형식은 `application/x-www-form-urlencoded`여야 합니다.
 
-### <a name="get-access-token-for-user-assigned-managed-identity-using-http-get"></a>Http Get을 사용하여 사용자 할당 관리 ID에 대한 액세스 토큰 가져오기  
+### <a name="get-access-token-for-user-assigned-managed-identity-using-http-get"></a>HTTP Get을 사용하여 사용자 할당 관리 ID에 대한 액세스 토큰을 얻습니다.  
 
 ```powershell
 $resource= "?resource=https://management.azure.com/"
@@ -348,7 +348,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers�
 Write-Output $accessToken.access_token 
 ```
 
-### <a name="get-access-token-for-user-assigned-managed-identity-using-http-post"></a>Http Post를 사용하여 사용자 할당 관리 ID에 대한 액세스 토큰 가져오기
+### <a name="get-access-token-for-user-assigned-managed-identity-using-http-post"></a>HTTP Post를 사용하여 사용자 할당 관리 ID에 대한 액세스 토큰을 얻습니다.
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT
@@ -397,8 +397,8 @@ print(response.text)
 
 ## <a name="next-steps"></a>다음 단계
 
-- Runbook이 성공적으로 완료되지 않으면 [Azure Automation 관리 ID 문제 해결(미리 보기)](troubleshoot/managed-identity.md)을 검토합니다.
+- Runbook이 성공적으로 완료되지 않으면 Azure Automation [관리 ID 문제 해결을](troubleshoot/managed-identity.md)검토하세요.
 
-- 관리 ID를 사용하지 않도록 설정해야 한다면, [Azure Automation 계정 관리 ID 사용 안 함(미리 보기)](disable-managed-identity-for-automation.md)을 참조하세요.
+- 관리 ID를 사용하지 않도록 설정해야 하는 경우 [Azure Automation 계정 관리 ID 사용 안 함을 참조하세요.](disable-managed-identity-for-automation.md)
 
 - Azure Automation 계정 보안에 대한 개요는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.

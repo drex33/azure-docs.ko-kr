@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 01/22/2021
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 4323f41cbc7440c79b2842bb3f128705a22d1dd4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 6d4c11db5fd2367fa29475e46b4afa23dc540035
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435369"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433064"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)이란?
 
@@ -57,7 +57,7 @@ Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 �
 또는 다음과 같은 기타 Azure Synapse 리소스를 살펴봅니다.
 
 - [블로그](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/) 검색
-- [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse) 제출
+- [기능 요청](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8) 제출
 - [지원 티켓 만들기](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html) 검색
 - [Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw) 검색

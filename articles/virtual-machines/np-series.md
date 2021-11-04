@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 4a366d704e942c74bfa32e9a0819cfda2126b2d1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f40ac573e8abb20e7d4eb4b11a0d9e09f251d9c8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456616"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022021"
 ---
 # <a name="np-series"></a>NP 시리즈 
 
@@ -29,7 +29,7 @@ VM 생성 지원: 1세대<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | FPGA | FPGA 메모리: GiB | 최대 데이터 디스크 수 | 최대 Nic/예상 네트워크 대역폭 (Mbps) | 
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | FPGA | FPGA 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수/예상 네트워크 대역폭(Mbps) | 
 |---|---|---|---|---|---|---|---|
 | Standard_NP10s | 10 | 168 | 736  | 1 | 64  | 8 | 1 / 7500 | 
 | Standard_NP20s | 20 | 336 | 1474 | 2 | 128 | 16 | 2 / 15000 | 

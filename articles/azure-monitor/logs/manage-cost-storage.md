@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/17/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1713d3091794ed95438a5e9d7944b3f5ee41f5ee
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 650ccc08d5cec7e037a6203f71ac8429f1bc2bf0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131793"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079000"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -201,7 +201,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 
 작업 영역을 기반으로 한 Application Insights 리소스의 데이터 형식(`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` 및 `AppTraces`)은 기본적으로 무료로 90일 동안 보존됩니다. 이들 데이터 형식의 보존 기간은 데이터 형식별 보존 기간 기능을 적용하여 조정할 수 있습니다. 
 
-Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge)는 보존 청구에 영향을 미치지 않으며 매우 제한된 경우에만 사용됩니다. 보존 요금을 줄이려면 작업 영역 또는 특정 데이터 형식에 대한 보존 기간을 줄여야 합니다. 
+Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge)는 보존 청구에 영향을 미치지 않으며 매우 제한된 경우에만 사용됩니다. 보존 요금을 줄이려면 작업 영역 또는 특정 데이터 형식에 대한 보존 기간을 줄여야 합니다. [Log Analytics 및 Application Insights에 저장 된 개인 데이터](./personal-data-mgmt.md)를 관리 하는 방법에 대해 자세히 알아보세요.
 
 ### <a name="retention-by-data-type"></a>데이터 형식별 보존 기간
 
@@ -303,7 +303,7 @@ Usage
 | summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(TimeGenerated, 1d) // Quantity in units of MB
 | render areachart  
 ```
-`Update`업데이트 관리 `UpdateSummary` `where Datatype` 솔루션이 작업 영역에서 실행되고 있지 않거나 솔루션 대상 지정을 사용하도록 설정된 경우 및 데이터 형식을 줄에 추가합니다([자세한 정보).](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+`Update`업데이트 관리 `UpdateSummary` `where Datatype` 솔루션이 작업 영역에서 실행되고 있지 않거나 솔루션 대상 지정을 사용하도록 설정된 경우 및 데이터 형식을 줄에 추가합니다([자세한 내용은 ).](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
 
 
 ### <a name="alert-when-daily-cap-is-reached"></a>일일 상한에 도달한 경우 경고

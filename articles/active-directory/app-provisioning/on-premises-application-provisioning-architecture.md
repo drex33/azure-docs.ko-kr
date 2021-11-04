@@ -11,12 +11,12 @@ ms.date: 05/28/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3b716cd754c26c0a3fe0b1f95183c86bac941f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 89a0f2bd6b48d195836303a89143593c4d959bfb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991207"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028009"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-architecture"></a>Azure AD 온-프레미스 애플리케이션 프로비저닝 아키텍처
 
@@ -66,7 +66,7 @@ DN(고유 이름)은 디렉터리 계층 구조에서 현재 위치를 표시하
 
 예를 들어 Active Directory 또는 LDAP와 같은 기존 형식의 기존 DN을 생각할 때 다음과 비슷한 것을 생각합니다.
 
-  CN=Lola Jacobson,CN=Users,DC=contoso,DC=com
+  `CN=Lola Jacobson,CN=Users,DC=contoso,DC=com`
 
 하지만 계층 구조가 아닌 평평한 SQL과 같은 데이터 원본의 경우에는 DN이 테이블 중 하나에 이미 있거나 ECMA 커넥터 호스트에 제공하는 정보에서 만들어져야 합니다.  
 

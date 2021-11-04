@@ -2,17 +2,17 @@
 title: Azure VM의 SQL Server에 대한 인덱서 연결
 titleSuffix: Azure Cognitive Search
 description: 암호화된 연결을 사용하도록 설정하고 Azure Cognitive Search의 인덱서에서 Azure VM(가상 머신)의 SQL Server로의 연결을 허용하도록 방화벽을 구성합니다.
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 9b4faabe0406cb1052db2d7992f73bdf16c0e009
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d405b28acfcac8270b0e2ec4b3493f151108e4cf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241367"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076114"
 ---
 # <a name="indexer-connections-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신의 SQL Server에 대한 인덱서 연결
 

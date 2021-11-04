@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0af9aeb9efe3b652f52b01e3b45307253e810742
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 392b9d5b753ff75ab64a2f21a87301ba17de24c3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568073"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058011"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -42,6 +42,7 @@ ms.locfileid: "122568073"
 > **Azure Sentinel 고객**
 > - 현재, Azure Sentinel이 작업 영역에 배포된 후 작업 영역을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원되지 않습니다. 
 > - 작업 영역을 이미 이동한 경우 **Analytics** 에서 모든 활성 규칙을 사용하지 않도록 설정하고 5분 후에 다시 사용하도록 설정합니다. 이 방법이 대부분의 경우에 효과적인 솔루션이어야 하지만, 이는 지원되지 않으며 사용자의 책임하에 수행됩니다.
+> - 완료 하는 데 몇 시간 Azure Resource Manager 걸릴 수 있으며, 작업 중에 솔루션이 응답 하지 않을 수 있습니다.
 > 
 > **경고 다시 만들기**
 > - 권한은 작업 영역을 이동하거나 리소스 이름을 변경하는 중에 변경되는 작업 영역 리소스 ID를 기준으로 하기 때문에 모든 경고를 다시 만들어야 합니다. 2019년 6월 1일 이후에 만들어진 작업 영역 또는 [레거시 Log Analytics 경고 API에서 scheduledQueryRules API로 업그레이드](../alerts/alerts-log-api-switch.md)된 작업 영역의 경고는 템플릿에서 내보내고 이동 후 배포할 수 있습니다. [작업 영역에서 경고 시 scheduledQueryRules API가 사용되는지 확인](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace)할 수 있습니다. 또는 대상 작업 영역에서 경고를 수동으로 구성할 수 있습니다.

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.openlocfilehash: 1a4fbbb84eb296acabd383461e01e90cbf570d9d
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 1bbc831b32d2a29cf590f36ea0f2c436f739ee6b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657381"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076702"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebook 실행
 
@@ -150,6 +150,8 @@ Notebook 또는 Python 스크립트를 실행하려면 먼저 실행 중인 [컴
 * 중지된 컴퓨팅 인스턴스가 있으면 컴퓨팅 드롭다운 오른쪽에서 **컴퓨팅 시작** 을 선택합니다. 화면 크기에 따라 **...** 메뉴 아래에 있을 수 있습니다.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="컴퓨팅 인스턴스 시작":::
+    
+컴퓨팅 인스턴스에 연결되면 도구 모음을 사용하여 Notebook의 모든 셀을 실행하거나 Control + Enter를 사용하여 선택한 단일 셀을 실행합니다. 
 
 사용자가 만든 컴퓨팅 인스턴스만 보고 사용할 수 있습니다.  **사용자 파일** 은 VM과 별도로 저장되고 작업 영역의 모든 컴퓨팅 인스턴스 간에 공유됩니다.
 

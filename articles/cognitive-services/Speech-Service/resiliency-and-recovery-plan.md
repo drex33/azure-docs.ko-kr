@@ -3,7 +3,7 @@ title: 음성 고객 리소스를 백업 및 복구하는 방법
 titleSuffix: Azure Cognitive Services
 description: Custom Speech 및 Custom Voice 서비스 중단을 준비하는 방법을 알아봅니다.
 services: cognitive-services
-author: masaki-itagaki
+author: masakiitagaki
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/28/2021
 ms.author: mitagaki
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: aff4093863b1813e22fc6050ff4050cf4133bdd6
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 860e70f567742a418e8de75c68793b29fb691df2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508367"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058372"
 ---
 # <a name="back-up-and-recover-speech-customer-resources"></a>음성 고객 리소스 백업 및 복구
 
@@ -118,10 +118,10 @@ Custom Voice 자동 장애 조치(failover)를 지원하지 않습니다. 이러
     -   음성 모델 배포는 일반적으로 **3분 안에** 완료됩니다.
     -   참고: 추가 엔드포인트는 추가 요금이 부과됩니다. [여기에서 모델 호스팅에 대한 가격 책정을 확인합니다.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 
-4.  보조 지역으로 장애 조치하도록 클라이언트를 구성합니다. C#: [GitHub: 보조 지역으로 사용자 지정 음성 장애 조치(failover)의](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L920)샘플 코드를 참조하세요.
+4.  보조 지역으로 장애 조치(fail over)하려면 클라이언트를 구성합니다. C#: [GitHub: 보조 지역으로 사용자 지정 음성 장애 조치(failover)의](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L920)샘플 코드를 참조하세요.
 
 ### <a name="speaker-recognition"></a>Speaker Recognition
 
-Speaker Recognition [Azure 쌍을 이루는 지역을](/azure/best-practices-availability-paired-regions) 사용하여 자동으로 장애 조치(failover) 작업을 수행합니다. 화자 등록 및 음성 서명은 데이터 손실을 방지하고 가동 중단 시 사용할 수 있도록 정기적으로 백업됩니다.
+Speaker Recognition [Azure 쌍을](/azure/best-practices-availability-paired-regions) 이루는 지역을 사용하여 자동으로 장애 조치(failover) 작업을 수행합니다. 화자 등록 및 음성 서명은 데이터 손실을 방지하고 가동 중단 시 사용할 수 있도록 정기적으로 백업됩니다.
 
 가동 중단 시 Speaker Recognition 서비스는 쌍을 이루는 지역으로 자동으로 장애 조치(failover)하고 백업된 데이터를 사용하여 주 지역이 다시 온라인이 될 때까지 요청을 계속 처리합니다.

@@ -7,46 +7,35 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 261b0d20ae5e5f2438b559bc79c271b717606083
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ced6bd08895993c18a305418bd68ae8a0557301f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161145"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026679"
 ---
-# <a name="quickstart-form-recognizer-python-client-library-sdks-v30--preview"></a>빠른 시작: Form Recognizer Python 클라이언트 라이브러리 SDK v3.0 | 미리 보기
-
-Python 프로그래밍 언어를 사용하여 Azure Form Recognizer를 시작합니다. Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데이터 처리 소프트웨어를 빌드할 수 있는 [Azure Applied AI Service](../../../applied-ai-services/index.yml) 클라우드 서비스입니다. REST API 또는 SDK를 통해 Form Recognizer를 사용할 수 있습니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
+# <a name="quickstart-python-client-library-sdk-v30--preview"></a>빠른 시작: Python 클라이언트 라이브러리 SDK v3.0 | 미리 보기
 
 >[!NOTE]
-> Form Recognizer v3.0은 현재 공개 미리 보기에 있습니다. 일부 기능은 지원되지 않거나 기능이 제한될 수 있습니다.
+> Form Recognizer v3.0은 현재 공개 미리 보기에 있습니다. 일부 기능은 지원되지 않거나 기능이 제한될 수 있습니다. 
 
 [참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/latest/azure.ai.formrecognizer.html) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [패키지(PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-Azure Cognitive Services Form Recognizer는 기계 학습을 사용하여 문서에서 양식 필드, 텍스트 및 테이블을 추출하고 분석하는 클라우드 서비스입니다. 클라이언트 라이브러리 SDK를 워크플로 및 애플리케이션에 통합하여 Form Recognizer 모델을 쉽게 호출할 수 있습니다.
+ Python 프로그래밍 언어를 사용하여 Azure Form Recognizer를 시작합니다. Azure Form Recognizer는 기계 학습을 사용하여 문서에서 양식 필드, 텍스트 및 테이블을 추출하고 분석하는 클라우드 기반 Azure Applied AI Service입니다. 클라이언트 라이브러리 SDK를 워크플로 및 애플리케이션에 통합하여 Form Recognizer 모델을 쉽게 호출할 수 있습니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
 
-### <a name="form-recognizer-models"></a>Form Recognize 모델
-
-Python SDK에서 지원하는 모델 및 기능은 다음과 같습니다.
-
-* 🆕일반 문서 - 텍스트, 테이블, 구조, 키-값 쌍 및 명명된 엔터티를 분석하고 추출합니다.|
-* 레이아웃 - 모델을 학습시킬 필요 없이 양식 문서의 라디오 단추 및 확인란과 같은 테이블, 선, 단어 및 선택 표시를 분석하고 추출합니다.
-* 사용자 지정 - 사용자 고유의 양식 유형으로 학습된 모델을 사용하여 사용자 지정 양식에서 양식 필드 및 기타 콘텐츠를 분석하고 추출합니다.
-* 청구서 - 미리 학습된 모델을 사용하여 청구서에서 공통 필드를 분석하고 추출합니다.
-* 영수증 - 미리 학습된 영수증 모델을 사용하여 영수증에서 공통 필드를 분석하고 추출합니다.
-* ID 문서 - 미리 학습된 ID 문서 모델을 사용하여 여권 또는 운전면허증과 같은 ID 문서에서 공통 필드를 분석하고 추출합니다.
-* 명함 - 미리 학습된 명함 모델을 사용하여 명함에서 공통 필드를 분석하고 추출합니다.
+Form Recognizer 기능 및 개발 옵션에 대한 자세한 내용은 [개요](../overview.md#form-recognizer-features-and-development-options) 페이지를 참조하세요.
 
 이 빠른 시작에서는 다음 기능을 사용하여 양식 및 문서에서 데이터와 값을 분석하고 추출합니다.
 
-* [**일반 문서**](#try-it-general-document-model)
+* [🆕 **일반 문서**](#try-it-general-document-model) - 텍스트, 테이블, 구조, 키-값 쌍 및 명명된 엔터티를 분석하고 추출합니다.
 
-* [**Layout**](#try-it-layout-model)
+* [**레이아웃**](#try-it-layout-model) - 모델을 학습시킬 필요 없이 테이블, 선, 단어, 선택 표시(양식 문서의 원형 선택 단추 및 확인란)를 분석하고 추출합니다.
 
-* [**미리 빌드된 청구서**](#try-it-prebuilt-invoice-model)
+* [**미리 빌드된 청구서**](#try-it-prebuilt-model) - 미리 학습된 모델을 사용하여 청구서에서 자주 사용되는 필드를 분석하고 추출합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -59,9 +48,9 @@ Python SDK에서 지원하는 모델 및 기능은 다음과 같습니다.
 * Cognitive Services 또는 Form Recognizer 리소스. Azure 구독이 있으면 Azure Portal에서 [단일 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 또는 [다중 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer 리소스를 만들어 키와 엔드포인트를 가져옵니다. 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 > [!TIP]
-> 단일 엔드포인트/키에서 여러 Cognitive Services에 액세스하려는 경우 Cognitive Services 리소스를 만듭니다. Form Recognizer 리소스를 Form Recognizer 액세스 전용으로 만듭니다. [Azure Active Directory 인증](/azure/active-directory/authentication/overview-authentication)을 사용하려는 경우 단일 서비스 리소스가 필요합니다.
+> 단일 엔드포인트/키에서 여러 Cognitive Services에 액세스하려는 경우 Cognitive Services 리소스를 만듭니다. Form Recognizer 리소스를 Form Recognizer 액세스 전용으로 만듭니다. [Azure Active Directory 인증](../../../active-directory/authentication/overview-authentication.md)을 사용하려는 경우 단일 서비스 리소스가 필요합니다.
 
-* 리소스가 배포되면 **리소스로 이동** 을 클릭합니다. 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 키와 엔드포인트는 이 빠른 시작의 뒷부분에서 코드에 붙여넣습니다.
+* 리소스를 배포한 후 **리소스로 이동** 을 선택합니다. 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 빠른 시작 뒷부분에서 코드에 키와 엔드포인트를 붙여넣게 됩니다.
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal의 키 및 엔드포인트 위치.":::
 
@@ -105,12 +94,26 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ```
 
+### <a name="select-a-code-sample-to-copy-and-paste-into-your-application"></a>복사하여 애플리케이션에 붙여넣을 코드 샘플을 선택합니다.
+
+* [**일반 문서**](#try-it-general-document-model)
+
+* [**Layout**](#try-it-layout-model)
+
+* [**미리 빌드된 청구서**](#try-it-prebuilt-model)
+
+> [!IMPORTANT]
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services/cognitive-services-security.md) 문서를 참조하세요.
+
 ## <a name="try-it-general-document-model"></a>**사용해 보기**: 일반 문서 모델
 
 > [!div class="checklist"]
 >
 > * 이 예제에서는 **URI에 있는 양식 문서 파일** 이 필요합니다. 이 빠른 시작에는 [샘플 양식 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf)를 사용할 수 있습니다.
-> * 파일 URI 값을 파일 위쪽 근처에 있는 `formUrl` 변수에 추가합니다.
+> * URI에서 지정된 파일을 분석하기 위해 `begin_analyze_document` 메서드를 사용하고 모델 ID로 `prebuilt-document`를 전달합니다. 반환된 값은 제출된 문서에 대한 데이터가 포함된 `result` 개체입니다.
+> * 파일 URI 값을 파일 위쪽 근처에 있는 `formUrl` 변수에 추가했습니다.
+> * 간단히 하기 위해 서비스에서 반환하는 모든 엔터티 필드가 여기에 표시되지는 않습니다. 지원되는 모든 필드 및 해당 형식의 목록을 보려면 [일반 문서](../concept-general-document.md#named-entity-recognition-ner-categories) 개념 페이지를 참조하세요.
 
 ### <a name="add-the-following-code-to-your-general-document-application-on-the-line-below-the-key-variable"></a>다음 코드를 일반 문서 애플리케이션의 `key` 변수 아래의 줄에 추가
 
@@ -242,7 +245,8 @@ if __name__ == "__main__":
 > [!div class="checklist"]
 >
 > * 이 예제에서는 **URI에 있는 양식 문서 파일** 이 필요합니다. 이 빠른 시작에는 [샘플 양식 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf)를 사용할 수 있습니다.
-> * 파일 URI 값을 파일 위쪽 근처에 있는 `formUrl` 변수에 추가합니다.
+> * 파일 URI 값을 파일 위쪽 근처에 있는 `formUrl` 변수에 추가했습니다.
+> * URI에서 지정된 파일을 분석하기 위해 `begin_analyze_document` 메서드를 사용하고 모델 ID로 `prebuilt-layout`을 전달합니다. 반환된 값은 제출된 문서에 대한 데이터가 포함된 `result` 개체입니다.
 
 ### <a name="add-the-following-code-to-your-layout-application-on-the-line-below-the-key-variable"></a>다음 코드를 레이아웃 애플리케이션의 `key` 변수 아래의 줄에 추가
 
@@ -275,25 +279,27 @@ def analyze_layout():
 
 ```
 
-## <a name="try-it-prebuilt-invoice-model"></a>**사용해 보기**: 미리 빌드된 청구서 모델
+## <a name="try-it-prebuilt-model"></a>**사용해 보기**: 미리 빌드된 모델
 
-이 샘플에서는 청구서를 예로 사용하여 미리 학습된 모델에서 특정 유형의 일반 문서에 있는 데이터를 분석하는 방법을 보여 줍니다. [**청구서 키-값 쌍**](../concept-invoice.md#key-value-pair-extraction)의 전체 목록은 미리 빌드된 개념 페이지를 *참조하세요*.
+이 샘플에서는 청구서를 예로 사용하여 미리 학습된 모델에서 특정한 일반 문서 유형에 있는 데이터를 분석하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
 >
-> * 이 예제에서는 **URI에 있는 청구서 문서 파일** 이 필요합니다. 이 빠른 시작에는 [샘플 청구서 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf)를 사용할 수 있습니다.
-> * 파일 URI 값을 Main 메서드의 파일 위쪽에 있는 `string fileUri` 변수에 추가합니다.
+> * 이 예제에서는 미리 빌드된 모델을 사용하여 청구서 문서를 분석합니다. 이 빠른 시작에는 [샘플 청구서 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf)를 사용할 수 있습니다.
+> * 파일 URI 값을 파일 위쪽의 `string fileUri` 변수에 추가했습니다.
+> * URI에서 지정된 파일을 분석하기 위해 `begin_analyze_document` 메서드를 사용하고 모델 ID로 `prebuilt-invoice`를 전달합니다. 반환된 값은 제출된 문서에 대한 데이터가 포함된 `result` 개체입니다.
+> * 간단히 하기 위해 서비스에서 반환하는 모든 키-값 쌍이 여기에 표시되지는 않습니다. 지원되는 모든 필드 및 해당 형식의 목록을 보려면 [청구서](../concept-invoice.md#field-extraction) 개념 페이지를 참조하세요.
 
 ### <a name="choose-the-invoice-prebuilt-model-id"></a>청구서가 미리 빌드된 모델 ID 선택
 
 청구서에 국한되지 않습니다. 몇 가지 미리 빌드된 모델 중에서 선택할 수 있으며, 각 모델에는 자체의 지원 필드 세트가 있습니다. 분석 작업에 사용할 모델은 분석할 문서 유형에 따라 달라집니다. 현재 Form Recognizer 서비스에서 지원하는 미리 빌드된 모델에 대한 모델 ID는 다음과 같습니다.
 
-* **prebuilt-invoice**: 청구서에서 텍스트, 선택 표시, 테이블, 키-값 쌍 및 키 정보를 추출합니다.
-* **prebuilt-businessCard**: 명함에서 텍스트 및 키 정보를 추출합니다.
-* **prebuilt-idDocument**: 운전 면허증과 국제 여권에서 텍스트 및 키 정보를 추출합니다.
-* **prebuilt-receipt**: 영수증에서 텍스트 및 키 정보를 추출합니다.
+* [**prebuilt-invoice**](../concept-invoice.md): 청구서에서 텍스트, 선택 표시, 테이블, 키-값 쌍 및 키 정보를 추출합니다.
+* [**prebuilt-receipt**](../concept-receipt.md): 영수증에서 텍스트 및 키 정보를 추출합니다.
+* [**prebuilt-idDocument**](../concept-id-document.md): 운전 면허증과 국제 여권에서 텍스트 및 키 정보를 추출합니다.
+* [**prebuilt-businessCard**](../concept-business-card.md): 명함에서 텍스트 및 키 정보를 추출합니다.
 
-### <a name="add-the-following-code-to-your-prebuilt-invoice-application-below-the-document_analysis_client-variable"></a>다음 코드를 미리 빌드된 청구서 애플리케이션의 `document_analysis_client` 변수 아래에 추가
+### <a name="add-the-following-code-to-your-prebuilt-invoice-application-below-the-key-variable"></a>다음 코드를 미리 빌드된 청구서 애플리케이션의 `key` 변수 아래에 추가
 
 ```python
 
@@ -575,9 +581,9 @@ if __name__ == "__main__":
 
 1. **form_recognizer_quickstart.py** 파일이 있는 폴더로 이동합니다.
 
-1. 터미널에서 다음을 입력합니다.
+1. 터미널에 다음 명령을 입력합니다.
 
-```python
+```console
 python form_recognizer_quickstart.py
 ```
 
@@ -587,3 +593,6 @@ python form_recognizer_quickstart.py
 
 > [!div class="nextstepaction"]
 > [REST API v3.0 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Form Recognizer Python 참조 라이브러리](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b1/index.html)

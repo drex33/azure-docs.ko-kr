@@ -6,18 +6,19 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: d5087994a72b52ce091dac98987b8e0bc60e287e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c5ab750319ffdad58269c909bd14d660d8bdc252
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224738"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087177"
 ---
-# <a name="configure-host-scaling-preview"></a>호스트 크기 조정 구성(미리 보기)
+# <a name="configure-host-scaling"></a>호스트 크기 조정 구성
 
-이 문서는 추가 동시 클라이언트 연결을 수용하기 위해 Azure Bastion에 추가 배율 단위(인스턴스)를 추가하는 데 도움이 됩니다. 미리 보기 중에 이 설정은 Azure Portal에서만 구성할 수 있습니다. 호스트 스케일링에 대한 자세한 내용은 [구성 설정](configuration-settings.md#instance)을 참조하세요. 
+이 문서는 추가 동시 클라이언트 연결을 수용하기 위해 Azure Bastion에 추가 배율 단위(인스턴스)를 추가하는 데 도움이 됩니다. 미리 보기 중에 이 설정은 Azure Portal에서만 구성할 수 있습니다. 호스트 스케일링에 대한 자세한 내용은 [구성 설정](configuration-settings.md#instance)을 참조하세요.
 
 ## <a name="configuration-steps"></a>구성 단계
 

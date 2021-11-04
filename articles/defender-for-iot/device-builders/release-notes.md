@@ -2,25 +2,28 @@
 title: 디바이스 빌더용 Azure Defender for IoT의 새로운 기능
 description: 최신 릴리스와 Defender for IoT 디바이스 빌더의 최신 기능에 대해 알아보세요.
 ms.topic: overview
-ms.date: 06/06/2021
-ms.openlocfilehash: cde850ba6e5dedddea9d74a8232bc20e8a634c59
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c420fddad0332b2a83907dd564bf977c31ea6d4d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086287"
 ---
 # <a name="whats-new-in-azure-defender-for-iot-for-device-builders"></a>디바이스 빌더용 Azure Defender for IoT의 새로운 기능은 무엇인가요?  
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 이 문서에는 Defender for IoT의 새로운 기능과 향상된 기능이 나와 있습니다.
 
 언급된 기능은 미리 보기에 있습니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 기타 법률 용어가 포함되어 있습니다.
 
-## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Azure Defender for IoT 버전 관리 및 지원 
+## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Azure Defender for IoT 버전 관리 및 지원
 
-다음에는 Defender for IoT의 지원, 주요 변경 정책, 현재 사용할 수 있는 Azure Defender for IoT의 버전이 나와 있습니다. 
+다음에는 Defender for IoT의 지원, 주요 변경 정책, 현재 사용할 수 있는 Azure Defender for IoT의 버전이 나와 있습니다.
 
-### <a name="servicing-information-and-timelines"></a>서비스 정보 및 타임라인 
+### <a name="servicing-information-and-timelines"></a>서비스 정보 및 타임라인
 
 Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 릴리스할 계획입니다. Azure Defender for IoT 센서 및 온-프레미스 관리 콘솔의 각 GA(일반 공급) 버전은 릴리스 후 최대 9개월 동안 지원됩니다. 수정 사항 및 새 기능은 현재 지원되고 있는 현재 GA 버전에 적용되며 이전 GA 버전에는 적용되지 않습니다.
 
@@ -30,6 +33,7 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 |--|--|--|
 | 10.0 | 2021년 1월 | 2021년 10월 |
 | 10.3 | 2021년 4월 | 2022년 2월 |
+| 10.5.2 | 2021년 11월 | 2022년 7월 |
 
 ## <a name="april-2021"></a>2021년 4월
 
@@ -37,7 +41,9 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 
 이제 Microsoft Defender for IoT에서 새로운 위협 인텔리전스 패키지를 출시했으므로 클라우드 연결 센서에 자동으로 밀어넣을 수 있습니다. 위협 인텔리전스 패키지를 다운로드한 다음, 센서에 업로드하는 것도 가능합니다.
 
-자동 업데이트를 사용하면 운영 작업을 줄이고 보안을 강화하는 데 도움이 됩니다. **자동 위협 인텔리전스 업데이트** 토글을 켜고 Defender for IoT 포털에 클라우드 연결 센서를 온보딩하여 자동 업데이트를 사용하도록 설정하세요.
+자동 업데이트를 사용하면 운영 작업을 줄이고 보안을 강화하는 데 도움이 됩니다.
+
+**자동 위협 인텔리전스 업데이트** 토글을 켜고 Defender for IoT 포털에 클라우드 연결 센서를 온보딩하여 자동 업데이트를 사용하도록 설정하세요.
 
 위협 인텔리전스 데이터를 업데이트할 때 좀 더 보수적인 접근법을 사용하려면 필요하다고 생각될 때만 Azure Defender for IoT 포털에서 클라우드 연결 센서로 패키지를 수동으로 밀어넣으면 됩니다.
 그러면 패키지를 다운로드한 후 센서에 업로드할 필요 없이 패키지 설치 시기를 제어할 수 있습니다. Defender for IoT **사이트 및 센서** 페이지에서 센서에 수동으로 업데이트를 밀어넣습니다.
@@ -65,7 +71,7 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 - 원본 및 대상 주소
 - 수정 단계
 - 사용자가 정의한 센서 이름
-- 센서와 연결된 영역의 이름 
+- 센서와 연결된 영역의 이름
 - 센서와 연결된 사이트의 이름
 
 **Sensor**
@@ -124,6 +130,7 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 - [온보딩](#onboarding)
 - [유용성](#usability)
 - [기타 업데이트](#other-updates)
+
 ### <a name="security"></a>보안
 
 이 릴리스에서는 인증서 및 암호 복구 기능이 향상되었습니다.

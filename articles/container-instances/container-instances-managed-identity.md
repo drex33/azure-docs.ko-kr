@@ -3,12 +3,12 @@ title: 컨테이너 그룹에서 관리 ID 사용
 description: 다른 Azure 서비스를 사용하여 인증할 수 있는 Azure Container Instances에서 관리 ID를 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 44f4e15e6e11fac884c2d117aae351615420ba43
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
-ms.translationtype: HT
+ms.openlocfilehash: 03b129b3aa986bb9858280e08c2532ef73806e91
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114219283"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057859"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -358,7 +358,7 @@ az keyvault secret show \
 
 하나 이상의 사용자 할당 ID를 사용하도록 설정할 수 있습니다.
 
-```YAML
+```yaml
 identity:
   type: UserAssigned
   userAssignedIdentities:
@@ -367,7 +367,7 @@ identity:
 
 ### <a name="system-assigned-identity"></a>시스템 할당 ID
 
-```YAML
+```yaml
 identity:
   type: SystemAssigned
 ```
@@ -376,7 +376,7 @@ identity:
 
 컨테이너 그룹에서 시스템 할당 ID 또는 하나 이상의 사용자 할당 ID를 사용하도록 설정할 수 있습니다.
 
-```YAML
+```yml
 identity:
   type: SystemAssigned, UserAssigned
   userAssignedIdentities:

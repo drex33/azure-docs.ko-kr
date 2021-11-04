@@ -16,12 +16,12 @@ ms.date: 12/01/2020
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c7555235283e892741234b74ddb80ce3a13051
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8dd005cf460bcd2407a8dcd681701c8cacd408db
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784716"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058087"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>자습서: Linux VM에서 사용자 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -163,7 +163,7 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
     "properties":{"provisioningState":"Succeeded"}
     } 
     ```
-    
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 사용자 할당 관리 ID를 만들고 이를 Linux 가상 머신에 연결하여 Azure Resource Manager API에 액세스하는 방법을 설명합니다.  Azure Resource Manager에 대한 자세한 내용은 다음을 참조하세요.

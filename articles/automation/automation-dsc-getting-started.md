@@ -5,16 +5,19 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8ff365200828b786b4cf770508e5a811983abd58
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
-ms.translationtype: HT
+ms.openlocfilehash: 4d7a0a92d538db30ac0de9d0c5c97cb546517088
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732743"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026509"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 시작하기
 
 이 문서에서는 Azure Automation State Configuration으로 만들기, 가져오기 및 구성 컴파일링, 관리할 머신 사용 설정 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 단계별 가이드를 제공합니다. State Configuration의 개요는 [State Configuration 개요](automation-dsc-overview.md)를 참조하세요. DSC(필요한 상태 구성) 설명서는 [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)를 참조하세요.
+
+> [!NOTE]
+> Automation State Configuration 사용하도록 설정하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있으며 [게스트 구성이라는](../governance/policy/concepts/guest-configuration.md)Azure Policy 기능으로 관리됩니다. 게스트 구성 서비스는 DSC 확장, Azure Automation State Configuration 기능 및 고객 피드백에서 가장 일반적으로 요청된 기능을 결합합니다. 게스트 구성에는 Arc 지원 서버를 통한 하이브리드 머신 지원도 [포함됩니다.](../azure-arc/servers/overview.md)
 
 이 문서에 설명된 단계를 따르지 않고 이미 설정된 샘플 환경을 원하는 경우 [Azure Automation 관리형 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration)을 사용할 수 있습니다. 이 템플릿은 State Configuration(DSC)에 의해 관리되는 Azure VM을 비롯한 완전한 State Configuration(DSC) 환경을 설정합니다.
 

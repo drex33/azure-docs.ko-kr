@@ -3,15 +3,13 @@ title: '빠른 시작: Azure PowerShell을 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Resource Graph 공유 쿼리를 만드는 단계를 수행합니다.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: 95057d0c1016bf030f21c9cab9281e9fe51dd897
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 8281e2bb2ff53fea28ff43a69e8b16cf9d1f7ddf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122325078"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016129"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Resource Graph 공유 쿼리 만들기
 

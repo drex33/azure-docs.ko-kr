@@ -8,15 +8,13 @@ ms.author: laobri
 ms.date: 06/10/2020
 ms.topic: quickstart
 ms.service: data-science-vm
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 63c41484ab1123a5a5fdc9620381afed76e8bf08
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: c22e8137a90da2908a1e47836ccba2e0c63aa8b9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982739"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088201"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Ubuntu Data Science Virtual Machine 만들기
 

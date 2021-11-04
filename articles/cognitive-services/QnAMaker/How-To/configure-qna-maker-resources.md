@@ -4,19 +4,20 @@ description: 이 문서에서는 QnA Maker 리소스에 대한 고급 구성을 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/04/2021
-ms.openlocfilehash: 0eaff84368327da7ebef11d53338f13ee6f8cdb4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e8e6cf62e2d6c09059af00fc7fa3d5f2c447ae2a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376382"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069219"
 ---
 # <a name="configure-qna-maker-resources"></a>QnA Maker 리소스 구성
 
 사용자는 다른 Cognitive Search 리소스를 사용하도록 QnA Maker를 구성할 수 있습니다. QnA Maker GA를 사용하는 경우 App Service 설정을 구성할 수도 있습니다.
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용하도록 QnA Maker 구성
 
@@ -50,30 +51,7 @@ Azure Resource Manager 템플릿을 통해 QnA 서비스를 만드는 경우, �
 
 App Service [애플리케이션 설정](../../../app-service/configure-common.md#configure-app-settings)을 구성하는 방법에 대해 자세히 알아보세요.
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-### <a name="configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용하도록 사용자 지정 질문 답변 기능이 있는 Text Analytics 리소스 구성
-
-> [!NOTE]
-> Text Analytics와 연결된 Azure Search Service를 변경하면 이미 있는 모든 기술 자료에 대한 액세스 권한이 손실됩니다. Azure Search Service를 변경하기 전에 기존 기술 자료를 내보내야 합니다.
-
-
-포털을 통해 Text Analytics 리소스 및 해당 종속성(예: Search)을 만드는 경우 Search Service가 만들어지고 Text Analytics 리소스에 연결됩니다. 이러한 리소스를 만든 후 **기능** 탭에서 검색 리소스를 업데이트할 수 있습니다.
-
-1.  Azure Portal에서 Text Analytics 리소스로 이동합니다.
-
-2.  **기능** 을 선택하고 Text Analytics 리소스와 연결할 Cognitive Search 서비스를 선택합니다.
-
-> [!div class="mx-imgBorder"]
-> ![TA에 QnA 추가](../media/qnamaker-how-to-upgrade-qnamaker/update-custom-qna-feature.png)
-
-3.  **저장** 을 클릭합니다.
-
----
-
 ## <a name="get-the-latest-runtime-updates"></a>최신 런타임 업데이트 받기
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들](./set-up-qnamaker-service-azure.md) 때 배포한 Azure App Service 인스턴스의 일부입니다. 런타임은 주기적으로 업데이트됩니다. QnA Maker App Service 인스턴스는 2019년 4월 사이트 확장 릴리스(버전 5 이상) 이후 자동 업데이트 모드에 있습니다. 이 업데이트는 업그레이드하는 동안 가동 중지 시간을 0으로 처리하도록 설계되었습니다.
 
@@ -93,16 +71,8 @@ https://www.qnamaker.ai/UserSettings 에서 현재 버전을 확인할 수 있�
 1. App Service를 다시 시작합니다. 업데이트 프로세스는 몇 초 내에 완료되어야 합니다. 이 QnAMaker 서비스를 사용하는 모든 종속 애플리케이션 또는 봇은 이 재시작 기간 동안 최종 사용자가 사용할 수 없습니다.
 
     ![QnAMaker App Service 인스턴스 다시 시작](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
-    
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-앱 서비스는 사용자 지정 질문 답변과 함께 배포되지 않습니다.
-
----
 
 ## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>시간 초과를 방지하도록 App Service 유휴 설정 구성
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 게시된 기술 자료에 대한 QnA Maker 예측 런타임을 제공하는 App Service에는 서비스가 유휴 상태이면 자동으로 시간이 초과되도록 기본적으로 설정되는 유휴 시간 제한 구성이 있습니다. QnA Maker의 경우, 이는 트래픽이 없는 기간 후에도 예측 런타임 generateAnswer API가 때때로 시간 초과되는 것을 의미합니다.
 
@@ -121,15 +91,7 @@ https://www.qnamaker.ai/UserSettings 에서 현재 버전을 확인할 수 있�
 
 App Service [일반 설정](../../../app-service/configure-common.md#configure-general-settings)을 구성하는 방법에 대해 자세히 알아보세요.
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-앱 서비스는 사용자 지정 질문 답변과 함께 배포되지 않습니다.
-
----
-
 ## <a name="business-continuity-with-traffic-manager"></a>Traffic Manager를 통한 비즈니스 연속성
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 비즈니스 연속성 계획의 주요 목표는 Bot 또는 이를 사용하는 애플리케이션에 대한 작동 중지 시간이 없도록 보장하는 복원력 있는 기술 자료 엔드포인트를 만드는 것입니다.
 
@@ -151,9 +113,3 @@ App Service [일반 설정](../../../app-service/configure-common.md#configure-g
 1. Traffic Manager 엔드포인트에 대해 이전에는 SSL(Secure Sockets Layer)로 알려진 TLS(전송 계층 보안) 인증서를 만들어야 합니다. App Service에서 [TLS/SSL 인증서를 바인딩](../../../app-service/configure-ssl-bindings.md)합니다.
 
 1. 마지막으로, 봇 또는 앱에서 트래픽 관리자 엔드포인트를 사용합니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-앱 서비스는 사용자 지정 질문 답변과 함께 배포되지 않습니다.
-
----

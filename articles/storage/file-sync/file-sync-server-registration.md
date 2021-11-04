@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2e0e42cb89e4fa15046f3b2de2f43637ca975bfe
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: d3b85de94c0e323cf33bd3cc2cd7fdf11bf654b2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679153"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022477"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure 파일 동기화에 등록된 서버 관리
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -35,7 +35,7 @@ Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 
 
 * Azure PowerShell 모듈이 서버에 설치되어 있는지 확인합니다. 서버가 장애 조치(failover) 클러스터의 멤버인 경우 클러스터의 모든 노드에 Az 모듈이 필요합니다. Az 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)을 참조하세요.
 
-    > [!Note]  
+    > [!NOTE]
     > 최신 버전의 Az PowerShell 모듈을 사용하여 서버를 등록/등록 취소하는 것이 좋습니다. Az 패키지가 이전에 이 서버에 설치되었고 이 서버의 PowerShell 버전이 5.* 이상인 경우 `Update-Module` cmdlet을 사용하여 이 패키지를 업데이트할 수 있습니다. 
 * 사용자 환경에서 네트워크 프록시 서버를 사용하는 경우 활용할 동기화 에이전트에 대한 서버에서 프록시 설정을 구성합니다.
     1. 프록시 IP 주소 및 포트 번호 결정
@@ -49,7 +49,7 @@ Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 
         * 프록시 다시 설정: netsh winhttp reset proxy
         * 에이전트 설치 후 설정되는 경우 동기화 에이전트 다시 시작: net stop filesyncsvc
     
-```XML
+```xml
     Figure 1:
     <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -73,7 +73,7 @@ Azure 파일 동기화의 *동기화 그룹* 에서 서버를 *서버 엔드포�
 
 4. 이전에 서버가 등록되지 않은 경우에는 설치를 완료한 후 바로 서버 등록 UI가 표시됩니다.
 
-> [!Important]  
+> [!IMPORTANT]  
 > 서버가 장애 조치(failover) 클러스터의 멤버인 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다.
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>서버 등록 UI를 사용하여 서버 등록
@@ -90,7 +90,7 @@ Azure 파일 동기화의 *동기화 그룹* 에서 서버를 *서버 엔드포�
 
     ![로그인 대화 상자](media/storage-sync-files-server-registration/server-registration-ui-3.png)
 
-> [!Important]  
+> [!IMPORTANT]  
 > 서버가 장애 조치(failover) 클러스터의 멤버인 경우 각 서버는 서버 등록을 실행해야 합니다. Azure Portal에서 등록된 서버로 표시되면 Azure 파일 동기화에서 자동으로 각 노드를 동일한 장애 조치 클러스터의 멤버로 인식하여 적절하게 그룹화합니다.
 
 #### <a name="register-the-server-with-powershell"></a>PowerShell로 서버 등록
@@ -103,7 +103,7 @@ Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -St
 ### <a name="unregister-the-server-with-storage-sync-service"></a>스토리지 동기화 서비스에서 서버 등록 취소
 스토리지 동기화 서비스에서 서버 등록을 취소하려면 여러 단계를 수행해야 합니다. 서버를 제대로 등록 취소하는 방법을 살펴보겠습니다.
 
-> [!Warning]  
+> [!WARNING]  
 > Microsoft 엔지니어가 명시적으로 지시하기 전에 서버 등록을 취소하거나, 등록하거나, 서버 엔드포인트를 제거하고 다시 만들어서 동기화, 클라우드 계층화 또는 Azure 파일 동기화의 다른 부분에서 발생한 문제를 해결하려고 하지 않습니다. 서버 등록을 취소하고 서버 엔트포인트를 제거하는 것은 파괴적 작업입니다. 서버 엔드포인트를 사용하여 볼륨에 계층화된 파일은 등록된 서버 및 서버 엔드포인트를 다시 만든 후에 Azure 파일 공유의 해당 위치에 "다시 연결"되지 않습니다. 그러면 동기화 오류가 발생합니다. 또한 서버 엔드포인트 네임스페이스 외부에 있는 계층화된 파일은 영구적으로 손실될 수 있습니다. 클라우드 계층화를 한 번도 사용하지 않아도 계층화된 파일이 서버 엔드포인트에 있을 수 있습니다.
 
 #### <a name="optional-recall-all-tiered-data"></a>(선택 사항) 모든 계층화된 데이터 기억
@@ -114,7 +114,7 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
-> [!Warning]  
+> [!WARNING]  
 > 계층화된 모든 데이터를 회수할 만큼 충분한 사용 가능한 공간이 서버 엔드포인트를 호스팅하는 로컬 볼륨에 없으면 `Invoke-StorageSyncFileRecall` cmdlet이 실패합니다.  
 
 #### <a name="remove-the-server-from-all-sync-groups"></a>모든 동기화 그룹에서 서버 제거
@@ -152,13 +152,13 @@ Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Azure 파일 동기화가 데이터 센터의 좋은 이웃이 되도록 보장 
 Azure 파일 동기화는 거의 데이터 센터에서 실행되는 유일한 서비스가 아니기 때문에 Azure 파일 동기화의 네트워크 및 스토리지 사용량을 제한하는 것이 좋습니다.
 
-> [!Important]  
+> [!IMPORTANT]  
 > 한도를 너무 낮게 설정하면 Azure 파일 동기화 동기화 및 회수 성능에 영향을 줍니다.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Azure 파일 동기화 네트워크 제한 설정
 `StorageSyncNetworkLimit`cmdlets을 사용하여 Azure 파일 동기화의 네트워크 사용률을 조절할수 있습니다.
 
-> [!Note]  
+> [!NOTE]  
 > 계층화된 파일에 액세스하는 경우 네트워크 제한이 적용되지 않습니다.
 
 예를 들어 Azure 파일 동기화에서 작업 주간 동안 오전 9시에서 오후 5시(17:00) 사이에 10Mbps를 초과하여 사용하지 않도록 새 스로틀 제한을 만들 수 있습니다. 

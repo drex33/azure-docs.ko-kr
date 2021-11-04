@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 집계형 네임스페이스 구성
 description: Azure HPC Cache를 사용하여 백 엔드 스토리지에 대한 클라이언트 쪽 경로를 만드는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/22/2021
-ms.author: v-erkel
-ms.openlocfilehash: 0374c2da7cda001da779c42cacaf11db6f797356
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 903ed4b3d17b0fc7290e5ce2755518cf768ac342
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587394"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015374"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>집계형 네임스페이스 설정
 
@@ -101,7 +101,7 @@ Azure Portal에서 **네임스페이스** 설정 페이지를 로드합니다. �
 
 * **내보내기 하위 디렉터리** - 이 경로를 통해 내보내기의 특정 하위 디렉터리를 탑재하려면 여기에 입력합니다. 그렇지 않으면 이 필드를 비워 둡니다.
 
-![오른쪽에 편집 페이지가 있는 포털 네임스페이스 페이지의 스크린샷 편집 양식에서 nfs 스토리지 대상 네임스페이스 경로에 대한 설정을 표시합니다.](media/namespace-edit-nfs.png)
+![편집 페이지가 오른쪽에 열려 있는 포털 네임 스페이스 페이지의 스크린샷 편집 폼은 N F S 저장소 대상 네임 스페이스 경로에 대 한 설정을 표시 합니다.](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

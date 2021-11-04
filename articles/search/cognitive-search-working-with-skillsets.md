@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: c189fd8d77d33a2397e5a83f73dcdda759247a03
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 08bf1a57c4b7d4905693c3f11964feeb04c8beef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535242"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014864"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 세트 개념
 
@@ -91,7 +91,7 @@ ms.locfileid: "123535242"
 
 보강된 문서는 처음에는 [*문서 크래킹*](search-indexer-overview.md#document-cracking) 중에 데이터 원본에서 추출된 콘텐츠에 불과하며, 원본에서 텍스트와 이미지가 추출되어 언어 또는 이미지 분석에 사용됩니다. 
 
-초기 콘텐츠는 *루트 노드* 입니다. 일반적으로 전체 문서 또는 정규화된 이미지입니다. 보강 트리에서 초기 콘텐츠를 설명하는 방법은 각 데이터 원본 형식에 따라 달라집니다. 다음 표에서는 지원되는 여러 데이터 원본에 대한 보강 파이프라인으로 들어가는 문서의 상태를 보여줍니다.
+초기 콘텐츠는 *루트* 노드()이며 `document\content` 일반적으로 문서 크래킹 중에 데이터 원본에서 추출된 전체 문서 또는 정규화된 이미지입니다. 보강 트리에서 초기 콘텐츠를 설명하는 방법은 각 데이터 원본 형식에 따라 달라집니다. 다음 표에서는 지원되는 여러 데이터 원본에 대한 보강 파이프라인으로 들어가는 문서의 상태를 보여줍니다.
 
 |데이터 원본\구문 분석 모드|기본값|JSON, JSON 줄 및 CSV|
 |---|---|---|
@@ -99,7 +99,7 @@ ms.locfileid: "123535242"
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|해당 없음 |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|해당 없음|
 
-기술이 실행되면 출력이 보강 트리에 새 노드로 추가됩니다. 이러한 노드는 다운스트림 기술의 입력으로 사용할 수 있으며, 결국에는 지식 저장소에 프로젝션되거나 인덱스 필드에 매핑됩니다. 번역된 문자열과 같은 콘텐츠를 만드는 기술은 해당 출력을 보강된 문서에 씁니다. 마찬가지로 업스트림 기술의 출력을 사용하는 기술은 보강된 문서에서 읽고 필요한 입력을 얻습니다. 
+기술이 실행되면 출력이 보강 트리에 새 노드로 추가됩니다. 이러한 노드는 다운스트림 기술의 입력으로 사용할 수 있으며, 결국에는 지식 저장소에 프로젝션되거나 인덱스 필드에 매핑됩니다. 번역된 문자열과 같은 콘텐츠를 만드는 기술은 해당 출력을 보강된 문서에 씁니다. 마찬가지로 업스트림 기술의 출력을 사용하는 기술은 보강된 문서에서 읽고 필요한 입력을 얻습니다.
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="기술은 보강 트리에서 읽고 씁니다." border="false":::
 

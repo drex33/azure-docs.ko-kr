@@ -12,19 +12,13 @@ ms.technology: devops-cicd
 ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.custom:
-- mvc
-- seo-java-july2019
-- seo-java-august2019
-- seo-java-september2019
-- devx-track-java
-- mode-api
-ms.openlocfilehash: 30ee97e0928f7b2995bd7bf02bec15bb8a46f7e2
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.openlocfilehash: 3f8e80127e0b01f7c2773f3e8b1c1ba2212a2473
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535425"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016457"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
-ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 53f77e719d25ba4b11ad06c0f62f93a227d9becd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652299"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022762"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 애플리케이션을 업데이트하여 Maven에서 Java 라이브러리 페치
 Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스팅으로 이동했습니다. **mavencentral** 을 사용하여 최신 Service Fabric Java 종속성을 가져올 수 있습니다. 이 가이드를 통해 Yeoman 템플릿 또는 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환되도록 Service Fabric Java SDK에서 사용하기 위해 만든 기존의 Java 애플리케이션을 업데이트할 수 있습니다.
@@ -35,7 +35,7 @@ Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스�
 
 4. 애플리케이션의 스크립트를 설치/제거하도록 업데이트하여 [여기](service-fabric-application-lifecycle-sfctl.md)에서 언급한 단계를 수행하는 새 Service Fabric CLI를 사용합니다. 시작한 [예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)를 참조할 수 있습니다.
 
->[!TIP]
+> [!TIP]
 > Service Fabric Java SDK를 제거한 후에 Yeoman이 작동하지 않습니다. [여기](service-fabric-create-your-first-linux-application-with-java.md)에서 언급한 필수 구성 요소에 따라 Service Fabric Yeoman Java 템플릿 생성기를 작동시킵니다.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven의 Service Fabric Java 라이브러리
@@ -46,7 +46,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
 
 애플리케이션에 대한 Service Fabric Reliable Actor 지원입니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors</artifactId>
@@ -67,7 +67,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
 
 애플리케이션에 대한 Service Fabric 상태 비저장 서비스 지원입니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services</artifactId>
@@ -90,7 +90,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
 
 Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 전송 계층에서 프로그래밍하지 않으면 Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport</artifactId>
@@ -111,7 +111,7 @@ Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 
 
 Service Fabric에 대한 시스템 수준 지원이며 네이티브 Service Fabric 런타임에 지시합니다. Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다. 그러면 위의 다른 종속성을 포함하는 경우 자동으로에서 Maven에서 가져옵니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf</artifactId>

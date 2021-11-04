@@ -7,14 +7,14 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml
-ms.openlocfilehash: b8681974510b6d3fbee74248aab95b33de443109
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 10/21/2021
+ms.custom: data4ml, ignite-fall-2021
+ms.openlocfilehash: b1fc133b02c667ae46d543da3fe020d116d6eb54
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003821"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068896"
 ---
 # <a name="create-an-image-labeling-project-and-export-labels"></a>이미지 레이블 지정 프로젝트 만들기 및 레이블 내보내기
 
@@ -31,7 +31,7 @@ Azure Machine Learning 데이터 레이블 지정은 데이터 레이블 지정 
 - 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 효율적으로 관리합니다.
 - 진행 상황을 추적하고 불완전한 레이블 지정 작업의 큐를 유지 관리합니다.
 - 프로젝트를 시작 및 중지하고 레이블 지정 진행률을 제어합니다.
-- 레이블이 지정한 데이터를 검토하고 Azure Machine Learning 데이터 세트로 레이블이 지정되어 있는 데이터를 내보냅니다.
+- 레이블이 지정 된 데이터를 검토 하 고 Azure Machine Learning 데이터 세트로 레이블이 지정 된 내보내기합니다.
 
 > [!Important]
 > 데이터 이미지는 Azure Blob 데이터 저장소에서 사용할 수 있는 파일이어야 합니다. (기존 데이터 저장소가 없는 경우 프로젝트를 만드는 동안 파일을 업로드할 수 있습니다.)
@@ -127,9 +127,12 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 **ML 지원 레이블 지정** 페이지를 사용하면 자동 기계 학습 모델을 트리거하여 레이블 지정 작업을 가속화할 수 있습니다. 의료 이미지(“.dcm”)는 지원 레이블 지정에 포함되지 않습니다.
 
-레이블 지정 프로젝트가 시작될 때 잠재적인 편차를 줄이기 위해 항목이 임의의 순서로 섞입니다. 그러나 데이터 세트에 있는 모든 편차는 학습된 모델에 반영됩니다. 예를 들어 항목의 80%가 단일 클래스인 경우 모델을 학습시키는 데 사용되는 데이터의 약 80%가 해당 클래스의 데이터입니다. 이 학습에는 활성 학습이 포함되지 않습니다.
+레이블 지정 프로젝트가 시작될 때 잠재적인 편차를 줄이기 위해 항목이 임의의 순서로 섞입니다. 그러나 데이터 세트에 있는 모든 편차는 학습된 모델에 반영됩니다. 예를 들어 항목의 80%가 단일 클래스인 경우 모델을 학습시키는 데 사용되는 데이터의 약 80%가 해당 클래스의 데이터입니다.
 
-*ML 지원 레이블 지정 사용* 을 선택하고, 지원 레이블 지정을 사용하도록 설정할 GPU를 지정합니다. 이는 다음 두 단계로 구성됩니다.
+*ML 지원 레이블 지정 사용을* 선택하고 GPU를 지정하여 보조 레이블 지정을 사용하도록 설정합니다. 작업 영역에 GPU 클러스터가 없으면 GPU 클러스터가 만들어지고 작업 영역에 추가됩니다.   클러스터는 최소 0개의 노드로 만들어지므로 사용하지 않을 때 비용이 발생하지 않습니다.
+
+
+ML 지원 레이블 지정은 다음 두 단계로 구성됩니다.
 
 * Clustering
 * 사전 레이블 지정
@@ -155,7 +158,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 기계 학습 모델이 수동으로 레이블이 지정된 데이터에 대해 학습되면 수동으로 레이블이 지정된 항목의 테스트 세트에 대해 모델을 평가하여 서로 다른 신뢰도 임계값으로 정확도를 결정합니다. 이 평가 프로세스는 사전 레이블을 표시할 만큼 충분히 정확한 모델의 신뢰도 임계값을 결정하는 데 사용됩니다. 그런 다음, 레이블이 없는 데이터에 대해 모델을 평가합니다. 이 임계값보다 더 확실한 예측이 있는 항목은 사전 레이블 지정에 사용됩니다.
 
-## <a name="initialize-the-image-labeling-project"></a>이미지 레이블 지정 프로젝트 초기화
+## <a name="initialize-the-image-labeling-project"></a>이미지 레이블 지정 프로젝트를 초기화 합니다.
 
 [!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
 
@@ -169,7 +172,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 :::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="데이터 레이블 지정 대시보드":::
 
-진행률 차트는 레이블이 지정되었거나 건너뛰거나 검토가 필요하거나 아직 완료되지 않은 항목 수를 표시합니다.  차트를 마우스로 가리키면 각 섹션의 항목 수가 표시됩니다.
+진행률 차트에는 표시 된 항목의 수, 건너뛴 항목, 검토 필요 또는 아직 완료 되지 않은 항목이 표시 됩니다.  각 섹션의 항목 수를 보려면 차트를 마우스로 가리킵니다.
 
 가운데 섹션에는 아직 할당되지 않은 작업 큐가 표시됩니다. ML 지원 레이블 지정이 해제된 경우, 이 섹션에는 할당할 수동 작업 수가 표시됩니다. ML 지원 레이블 지정이 설정된 경우 다음 사항도 표시됩니다.
 
@@ -187,7 +190,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 ### <a name="data-tab"></a>데이터 탭
 
-**데이터** 탭에서 데이터 세트를 보고, 레이블이 지정된 데이터를 검토할 수 있습니다. 레이블이 있는 데이터를 스크롤하여 레이블을 확인합니다. 잘못된 레이블이 지정된 데이터가 표시되면 이를 선택하고 **거부** 를 선택합니다. 그러면 해당 레이블이 제거되고, 해당 데이터를 레이블이 지정되지 않은 큐에 다시 넣습니다.
+**데이터** 탭에서 데이터 세트를 보고, 레이블이 지정된 데이터를 검토할 수 있습니다. 레이블이 지정 된 데이터를 스크롤하여 레이블을 확인 합니다. 잘못된 레이블이 지정된 데이터가 표시되면 이를 선택하고 **거부** 를 선택합니다. 그러면 해당 레이블이 제거되고, 해당 데이터를 레이블이 지정되지 않은 큐에 다시 넣습니다.
 
 ### <a name="details-tab"></a>자세히 탭
 
@@ -220,7 +223,7 @@ Machine Learning의 **데이터 세트** 섹션에서 내보낸 Azure Machine Le
 
 ![내보낸 데이터 세트](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-레이블이 지정한 데이터를 Azure Machine Learning 데이터 세트로 내보낸 후에는 AutoML을 사용하여 레이블이 지정한 데이터에 대해 학습된 컴퓨터 비전 모델을 빌드할 수 있습니다. [Python을 사용하여 컴퓨터 비전 모델을 학습하도록 AutoML 설정(미리 보기)에서](how-to-auto-train-image-models.md) 자세히 알아보세요.
+레이블이 지정 된 데이터를 Azure Machine Learning 데이터 집합으로 내보낸 후 automl을 사용 하 여 레이블이 지정 된 데이터에 대해 학습 된 컴퓨터 비전 모델을 빌드할 수 있습니다. [Python을 사용 하 여 컴퓨터 비전 모델 학습을 위한 AutoML 설정에서 자세히 알아보세요 (미리 보기)](how-to-auto-train-image-models.md) .
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -235,4 +238,4 @@ Machine Learning의 **데이터 세트** 섹션에서 내보낸 Azure Machine Le
 ## <a name="next-steps"></a>다음 단계
 
 * [자습서: 첫 번째 이미지 분류 레이블 지정 프로젝트 만들기](tutorial-labeling.md)를 참조하세요.
-* [이미지에 태그를 붙이는 방법](how-to-label-data.md)
+* [이미지에 태그를 만드는 방법](how-to-label-data.md)

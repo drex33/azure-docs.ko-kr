@@ -7,13 +7,13 @@ ms.author: victorh
 ms.date: 08/28/2020
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
-ms.openlocfilehash: 01b42b78a8ecb1746bad8aae8adbd8131ec6c80d
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.openlocfilehash: eeb1750613f322c3360d746fd080e40df9e67b12
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461443"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068662"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - ARM 템플릿
 

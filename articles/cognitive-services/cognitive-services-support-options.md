@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 10/8/2021
 ms.author: pafarley
-ms.openlocfilehash: 4673d15b9e64e8e4bb54a71f9d2383da78080380
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fa9a1391b6f222156c94a829586309220838ea89
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434449"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058353"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services 지원 및 도움말 옵션
 
@@ -22,7 +22,7 @@ ms.locfileid: "131434449"
 ## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='/media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
 지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
@@ -52,7 +52,7 @@ Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 �
 * [몰입형 리더](/answers/topics/azure-immersive-reader.html)
 * [언어 이해(LUIS)](/answers/topics/azure-language-understanding.html)
 * [QnA Maker](/answers/topics/azure-qna-maker.html)
-* [언어 서비스](/answers/topics/azure-text-analytics.html)
+* [텍스트 분석](/answers/topics/azure-text-analytics.html)
 * [Translator](/answers/topics/azure-translator.html)
 
 **Speech**
@@ -70,7 +70,7 @@ Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 �
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
 
 <div class='icon is-large'>
-    <img alt='Stack Overflow' src='/media/logos/logo_stackoverflow.svg'>
+    <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
 가장 큰 커뮤니티 개발자 에코시스템의 개발자 질문에 대한 답변을 보려면 Stack Overflow에서 질문하세요.
@@ -92,7 +92,7 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 * [몰입형 리더](https://stackoverflow.com/search?q=azure+immersive+reader)
 * [언어 이해(LUIS)](https://stackoverflow.com/search?q=azure+luis+language+understanding)
 * [QnA Maker](https://stackoverflow.com/search?q=azure+qna+maker)
-* [언어 서비스](https://stackoverflow.com/search?q=azure+text+analytics)
+* [텍스트 분석](https://stackoverflow.com/search?q=azure+text+analytics)
 * [Translator](https://stackoverflow.com/search?q=azure+translator+text)
 
 **Speech**
@@ -126,7 +126,7 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 * [몰입형 리더](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 * [언어 이해(LUIS)](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 * [QnA Maker](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
-* [언어 서비스](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
+* [텍스트 분석](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 * [Translator](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 
 **Speech**

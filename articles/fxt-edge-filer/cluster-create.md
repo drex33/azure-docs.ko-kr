@@ -1,17 +1,17 @@
 ---
 title: '자습서: Azure FXT Edge Filer 캐시 클러스터 만들기'
 description: Azure FXT Edge 필터를 사용하여 하이브리드 스토리지 캐시 클러스터를 만드는 방법과 클러스터 제어판에 로그인하여 클러스터 설정을 구성하는 방법에 대해 알아봅니다.
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.openlocfilehash: 68efae7eeb44f2d73da1dbf7bb378ec287736783
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: bc9ba05d6a441d7a223342f5c0dc964dc8eb1844
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414537"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086211"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>자습서: Azure FXT Edge Filer 클러스터 만들기
 

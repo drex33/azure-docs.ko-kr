@@ -1,18 +1,18 @@
 ---
 title: Azure HPC Cache 만들기
 description: Azure HPC Cache 인스턴스를 만드는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/15/2021
-ms.author: v-erkel
+ms.author: femila
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b7789af76572eeaa3dfdfe4c6ff379889341033e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6f457dcf69b0f38173a3816ea1ac16c2cc7c5935
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557463"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015336"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -178,11 +178,11 @@ Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미�
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | 아니요          | 아니요          |
-  | 6144GB    | 예         | 예         | 아니요          |
+  | 3072GB    | 예         | no          | no          |
+  | 6144GB    | 예         | 예         | no          |
   | 12288GB   | 예         | 예         | 예         |
-  | 24576GB   | 아니요          | 예         | 예         |
-  | 49152GB   | 아니요          | 아니요          | 예         |
+  | 24576GB   | no          | 예         | 예         |
+  | 49152GB   | no          | no          | 예         |
 
   캐시에서 10개가 넘는 스토리지 대상을 사용하려면 SKU에 대해 사용 가능한 가장 높은 캐시 크기 값을 선택합니다. 이러한 구성은 최대 20개의 스토리지 대상을 지원합니다.
 
@@ -282,11 +282,11 @@ Install-Module -Name Az.HPCCache
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | 아니요          | 아니요          |
-  | 6144GB    | 예         | 예         | 아니요          |
+  | 3072GB    | 예         | no          | no          |
+  | 6144GB    | 예         | 예         | no          |
   | 12,288GB   | 예         | 예         | 예         |
-  | 24,576GB   | 아니요          | 예         | 예         |
-  | 49,152GB   | 아니요          | 아니요          | 예         |
+  | 24,576GB   | no          | 예         | 예         |
+  | 49,152GB   | no          | no          | 예         |
 
   가격 책정과 처리량 및 워크플로에 적절하게 캐시 크기를 조정하는 방법에 대한 중요한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조하세요.
 

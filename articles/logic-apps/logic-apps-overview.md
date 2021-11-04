@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4
 ms.date: 08/18/2021
-ms.openlocfilehash: 3b327472304874bc91879a21c2ec6adac49fc987
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: a5b1b0f6d4d51874dd330c2336e5f342aaedeec9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066816"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085870"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
@@ -28,7 +28,7 @@ ms.locfileid: "130066816"
 
 * 트윗을 모니터링하고, 감정을 분석하고, 검토가 필요한 항목에 대한 경고 또는 작업 만들기.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
 
 사용자가 선택하고 만든 논리 앱 리소스 종류에 따라 논리 앱은 Azure 가상 네트워크에 액세스할 때 다중 테넌트 Azure Logic Apps, [단일 테넌트 Azure Logic Apps](single-tenant-overview-compare.md) 또는 전용 [통합 서비스 환경](connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행됩니다. 컨테이너에서 논리 앱을 실행하려면 [Azure Arc 지원 Logic Apps를 사용하여 단일 테넌트 기반 논리 앱을 만듭니다](azure-arc-enabled-logic-apps-create-deploy-workflows.md). 자세한 내용은 [Azure Arc 지원 Logic Apps란?](azure-arc-enabled-logic-apps-overview.md) 및 [논리 앱의 리소스 종류 및 호스트 환경의 차이점](#resource-environment-differences)을 검토하세요.
 
@@ -222,8 +222,6 @@ Azure Logic Apps에 대한 다른 빠른 시작 가이드를 살펴볼 수도 �
 
 다음 소개 비디오를 시청하여 Azure Logic Apps 플랫폼에 대해 자세히 알아보세요.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
->
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
 
 ## <a name="next-steps"></a>다음 단계

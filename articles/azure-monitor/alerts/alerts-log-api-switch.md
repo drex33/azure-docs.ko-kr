@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 101a575d9acac5da4a8c0399f60e8f32e591d2cf
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
-ms.translationtype: HT
+ms.openlocfilehash: f3d55bfe93ec3bcaa713e77db6326488851994d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285361"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026225"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>레거시 Log Analytics 경고 API에서 현재 로그 경고 API로 업그레이드
 
@@ -25,11 +25,12 @@ ms.locfileid: "107285361"
 ## <a name="benefits"></a>이점
 
 - 경고 규칙 생성을 위한 단일 템플릿(이전에는 별도의 템플릿이 3개 필요했음)
-- Log Analytics 작업 영역 또는 Application Insights 리소스용 단일 API
+- 모든 Azure 리소스에 대 한 단일 API 로그 경고
+- 상태 저장 및 1 분 로그 경고 미리 보기를 지원 합니다.
 - [PowerShell cmdlet 지원](./alerts-log.md#managing-log-alerts-using-powershell)
 - 다른 모든 경고 유형과 심각도 맞춤
 - Log Analytics 작업 영역 또는 Application Insights 리소스와 같은 여러 외부 리소스를 포함하는 [교차 작업 영역 로그 경고](../logs/cross-workspace-query.md)를 만드는 기능
-- 사용자는 'Aggregate On' 매개 변수를 사용하여 경고를 나눌 차원을 지정할 수 있습니다.
+- 사용자는 경고를 나눌 차원을 지정할 수 있습니다.
 - 로그 경고의 데이터 연장 기간은 최대 2일입니다(이전에는 1일로 제한됨).
 
 ## <a name="impact"></a>영향

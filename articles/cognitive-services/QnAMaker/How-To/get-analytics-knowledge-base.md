@@ -8,19 +8,20 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 41477b99c6bb07ab836f6c4ef75a06b2f642f3a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d9b596ad4766848e460d534be42930f39c5b6043
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375428"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069200"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 [QnA Maker Service를 만드는](./set-up-qnamaker-service-azure.md) 동안 Application Insights를 사용하도록 설정한 경우 QnA Maker는 모든 채팅 로그 및 기타 원격 분석을 저장합니다. 샘플 쿼리를 실행하여 Application Insight에서 채팅 로그를 가져옵니다.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 1. Application Insights 리소스로 이동합니다.
 
@@ -48,21 +49,7 @@ ms.locfileid: "110375428"
 
     [![쿼리를 실행하여 사용자의 질문, 대답 및 점수 확인](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-사용자 지정 질문 답변(미리 보기)은 Azure 진단 로깅을 사용하여 원격 분석 데이터와 채팅 로그를 저장합니다. 다음 단계에 따라 샘플 쿼리를 실행하여 QnA Maker 기술 자료 사용에 대한 분석을 가져옵니다.
-
-1. 사용자 지정 질문 답변(미리 보기) 기능을 사용하여 Text Analytics 서비스에 대한 [진단 로깅을 사용하도록 설정](../../diagnostic-logging.md)합니다.
-
-2. 이전 단계에서 로깅을 위해 **Audit, RequestResponse 및 AllMetrics** 외에 **Trace** 를 선택합니다.
-
-    ![QnA Maker 관리형(미리 보기)에서 추적 로깅 사용](../media/qnamaker-how-to-analytics-kb/qnamaker-v2-enable-trace-logging.png)
-
----
-
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>QnA Maker 기술 자료에 대한 다른 분석에 대해 쿼리 실행
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 ### <a name="total-90-day-traffic"></a>총 90일 트래픽
 
@@ -131,76 +118,6 @@ traces | extend id = operation_ParentId
 | project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-### <a name="all-qna-chat-log"></a>모든 QnA 채팅 로그
-
-```kusto
-// All QnA Traffic
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
-| extend answer_ = tostring(parse_json(properties_s).answer)
-| extend question_ = tostring(parse_json(properties_s).question)
-| extend score_ = tostring(parse_json(properties_s).score)
-| extend kbId_ = tostring(parse_json(properties_s).kbId)
-| project question_, answer_, score_, kbId_
-```
-
-### <a name="traffic-count-per-knowledge-base-and-user-in-a-time-period"></a>특정 기간 동안의 기술 자료 및 사용자당 트래픽 수
-
-```kusto
-// Traffic count per KB and user in a time period
-let startDate = todatetime('2019-01-01');
-let endDate = todatetime('2020-12-31');
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
-| where TimeGenerated <= endDate and TimeGenerated >=startDate
-| extend kbId_ = tostring(parse_json(properties_s).kbId)
-| extend userId_ = tostring(parse_json(properties_s).userId)
-| summarize ChatCount=count() by bin(TimeGenerated, 1d), kbId_, userId_
-```
-
-### <a name="latency-of-generateanswer-api"></a>GenerateAnswer API의 대기 시간
-
-```kusto
-// Latency of GenerateAnswer
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="Generate Answer"
-| project TimeGenerated, DurationMs
-| render timechart
-```
-
-### <a name="average-latency-of-all-operations"></a>모든 작업의 평균 대기 시간
-
-```kusto
-// Average Latency of all operations
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| project DurationMs, OperationName
-| summarize count(), avg(DurationMs) by OperationName
-| render barchart
-```
-
-### <a name="unanswered-questions"></a>대답이 없는 질문
-
-```kusto
-// All unanswered questions
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer"
-| extend answer_ = tostring(parse_json(properties_s).answer)
-| extend question_ = tostring(parse_json(properties_s).question)
-| extend score_ = tostring(parse_json(properties_s).score)
-| extend kbId_ = tostring(parse_json(properties_s).kbId)
-| where score_ == 0
-| project question_, answer_, score_, kbId_
-```
-
----
 
 ## <a name="next-steps"></a>다음 단계
 

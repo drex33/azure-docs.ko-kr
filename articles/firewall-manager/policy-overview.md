@@ -5,18 +5,18 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 10/26/2021
 ms.author: victorh
-ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 98524c2c5c73ab7a75395464911585f80bcd092c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95802022"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024299"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Azure Firewall Manager 정책 개요
 
-방화벽 정책은 NAT, 네트워크 및 애플리케이션 규칙 컬렉션과 위협 인텔리전스 설정을 포함하는 Azure 리소스입니다. 보안 가상 허브 및 Hub Virtual Networks의 여러 Azure Firewall 인스턴스에서 사용할 수 있는 글로벌 리소스입니다. 정책은 여러 지역 및 구독에서 작동합니다.
+방화벽 정책 Azure Firewall 구성하는 권장 방법입니다. 보안 가상 허브 및 Hub Virtual Networks의 여러 Azure Firewall 인스턴스에서 사용할 수 있는 글로벌 리소스입니다. 정책은 여러 지역 및 구독에서 작동합니다.
 
 ![Azure Firewall Manager 정책](media/policy-overview/policy-overview.png)
 
@@ -24,9 +24,34 @@ ms.locfileid: "95802022"
 
 정책은 Azure Portal, REST API, 템플릿, Azure PowerShell 및 CLI를 포함한 여러 가지 방법으로 만들고 관리할 수 있습니다.
 
-포털 또는 Azure PowerShell을 사용하여 Azure Firewall에서 기존 규칙을 마이그레이션하여 정책을 만들 수도 있습니다. 자세한 내용은 [Azure Firewall 구성을 Azure Firewall 정책으로 마이그레이션하는 방법](migrate-to-policy.md)을 참조하세요. 
+포털 또는 Azure PowerShell 사용하여 기존 클래식 규칙을 Azure Firewall 마이그레이션하여 정책을 만들 수도 있습니다. 자세한 내용은 [Azure Firewall 구성을 Azure Firewall 정책으로 마이그레이션하는 방법](migrate-to-policy.md)을 참조하세요. 
 
 정책은 하나 이상의 가상 허브 또는 VNet과 연결할 수 있습니다. 방화벽은 계정과 연결된 모든 구독 및 모든 지역에 있을 수 있습니다.
+
+## <a name="classic-rules-and-policies"></a>클래식 규칙 및 정책
+
+Azure Firewall 클래식 규칙과 정책을 모두 지원하지만 정책은 다시 커밋된 구성입니다. 다음 표에서는 정책과 클래식 규칙을 비교합니다.
+
+
+| 제목 | 정책  | 클래식 규칙 |
+| ------- | ------- | ----- |
+|포함     |NAT, 네트워크, 애플리케이션 규칙, 사용자 지정 DNS 및 DNS 프록시 설정, IP 그룹 및 위협 인텔리전스 설정(허용 목록 포함), IDPS, TLS 검사, 웹 범주, URL 필터링|NAT, 네트워크 및 애플리케이션 규칙, 사용자 지정 DNS 및 DNS 프록시 설정, IP 그룹 및 위협 인텔리전스 설정(허용 목록 포함)|
+|보호     |가상 허브 및 Virtual Network|Virtual Network만|
+|포털 환경     |Firewall Manager를 사용한 중앙 관리|독립 실행형 방화벽 환경|
+|여러 방화벽 지원     |방화벽 정책(여러 방화벽에서 사용할 수 있는 별도의 리소스)|수동으로 규칙 내보내기/가져오기 또는 타사 관리 솔루션 사용 |
+|가격 책정     |방화벽 연결 기반 청구, [가격 책정](#pricing) 참조|무료|
+|지원되는 배포 메커니즘     |포털, REST API, 템플릿, Azure PowerShell 및 CLI|포털, REST API, 템플릿, PowerShell 및 CLI |
+
+## <a name="standard-and-premium-policies"></a>표준 및 Premium 정책
+
+Azure Firewall 표준 및 Premium 정책을 지원합니다. 다음 표에서는 두 가지 차이점을 요약합니다.
+
+
+|정책 유형|기능 지원  | 방화벽 SKU 지원|
+|---------|---------|----|
+|표준 정책    |NAT 규칙, 네트워크 규칙, 애플리케이션 규칙<br>사용자 지정 DNS, DNS 프록시<br>IP 그룹<br>웹 범주<br>위협 인텔리전스|Standard 또는 Premium|
+|Premium 정책    |모든 표준 기능 지원 및:<br><br>TLS 검사<br>웹 범주<br>URL 필터링<br>IDPS|Premium
+
 
 ## <a name="hierarchical-policies"></a>계층 구조 정책
 
@@ -36,25 +61,13 @@ ms.locfileid: "95802022"
 
 위협 인텔리전스 모드도 부모 정책에서 상속됩니다. 이 동작을 재정의하기 위해 위협 인텔리전스 모드를 다른 값으로 설정할 수 있지만 해제할 수는 없습니다. 더 엄격한 값으로만 재정의할 수 있습니다. 예를 들어 부모 정책이 **경고만** 으로 설정된 경우 이 로컬 정책을 **경고 및 거부** 로 구성할 수 있습니다.
 
-위협 인텔리전스 모드와 마찬가지로 위협 인텔리전스 허용 목록은 부모 정책에서 상속됩니다. 자식 정책은 허용 목록에 추가 IP 주소를 추가할 수 있습니다.
+위협 인텔리전스 모드와 마찬가지로 위협 인텔리전스 허용 목록은 부모 정책에서 상속됩니다. 자식 정책은 허용 목록에 IP 주소를 더 추가할 수 있습니다.
 
 NAT 규칙 컬렉션은 지정된 방화벽에 따라 다르므로 상속되지 않습니다.
 
 상속을 사용하면 부모 정책에 대한 변경 내용이 연결된 방화벽 자식 정책에 자동으로 적용됩니다.
 
-## <a name="traditional-rules-and-policies"></a>기존 규칙 및 정책
 
-Azure Firewall은 기존 규칙과 정책을 모두 지원합니다. 다음 표에서는 정책과 규칙을 비교합니다.
-
-
-| 제목 | 정책  | 규칙 |
-| ------- | ------- | ----- |
-|포함     |NAT, 네트워크, 애플리케이션 규칙, 사용자 지정 DNS 및 DNS 프록시 설정, IP 그룹 및 위협 인텔리전스 설정(허용 목록 포함)|NAT, 네트워크, 애플리케이션 규칙, 사용자 지정 DNS 및 DNS 프록시 설정, IP 그룹 및 위협 인텔리전스 설정(허용 목록 포함)|
-|보호     |가상 허브 및 Virtual Network|Virtual Network만|
-|포털 환경     |Firewall Manager를 사용한 중앙 관리|독립 실행형 방화벽 환경|
-|여러 방화벽 지원     |방화벽 정책(여러 방화벽에서 사용할 수 있는 별도의 리소스)|수동으로 규칙 내보내기/가져오기 또는 타사 관리 솔루션 사용 |
-|가격 책정     |방화벽 연결 기반 청구, [가격 책정](#pricing) 참조|무료|
-|지원되는 배포 메커니즘     |포털, REST API, 템플릿, Azure PowerShell 및 CLI|포털, REST API, 템플릿, PowerShell 및 CLI |
 
 ## <a name="pricing"></a>가격 책정
 

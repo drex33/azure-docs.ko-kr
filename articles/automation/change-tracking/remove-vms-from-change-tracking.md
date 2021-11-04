@@ -1,30 +1,30 @@
 ---
-title: Azure Automation 변경 내용 추적 및 인벤토리 컴퓨터 제거
-description: 이 문서에서는 변경 내용 추적 및 인벤토리 Azure 및 비 Azure 머신을 제거하는 방법을 알려줍니다.
+title: Azure Automation 변경 내용 추적 및 인벤토리에서 컴퓨터 제거
+description: 이 문서에서는 변경 내용 추적 및 인벤토리에서 Azure 및 비 Azure 컴퓨터를 제거 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 10/20/2021
-ms.openlocfilehash: 00c3fd50964972e42ea6b2e97f1b6d238d5e01c4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 10/26/2021
+ms.openlocfilehash: 810b2ac388b0f387183f735437ccc2b2a3918cfd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220098"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026302"
 ---
-# <a name="remove-machines-from-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 컴퓨터 제거
+# <a name="remove-machines-from-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리에서 컴퓨터 제거
 
-사용자 환경의 Azure 또는 비 Azure 머신에서 변경 내용 추적을 마치면 [변경 내용 추적 및 인벤토리](overview.md) 기능으로 관리를 중지할 수 있습니다. 관리를 중지하려면 자동화 계정에 연결된 Log Analytics 작업 영역에서 저장된 검색 쿼리 `MicrosoftDefaultComputerGroup`을 편집합니다.
+사용자 환경에서 Azure 또는 비 Azure 컴퓨터에 대 한 변경 내용을 추적 하는 작업이 완료 되 면 [변경 내용 추적 및 인벤토리](overview.md) 기능을 사용 하 여 관리를 중단할 수 있습니다. 관리를 중지하려면 자동화 계정에 연결된 Log Analytics 작업 영역에서 저장된 검색 쿼리 `MicrosoftDefaultComputerGroup`을 편집합니다.
 
 ## <a name="sign-into-the-azure-portal"></a>Azure Portal에 로그인합니다.
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-## <a name="to-remove-your-machines"></a>머신을 제거하려면
+## <a name="to-remove-your-machines"></a>컴퓨터를 제거 하려면
 
 1. Azure Portal의 상단 탐색에서 **Cloud Shell** 을 시작합니다. Azure Cloud Shell에 익숙하지 않은 경우 [Azure Cloud Shell 개요](../../cloud-shell/overview.md)를 참조하세요.
 
-2. 다음 방법을 사용하여 관리에서 제거하려는 Azure 가상 머신 또는 비 Azure 머신의 UUID를 식별합니다.
+2. 다음 방법을 사용 하 여 관리에서 제거 하려는 Azure 가상 컴퓨터 또는 비 Azure 컴퓨터의 UUID를 식별 합니다.
 
    # <a name="azure-vm"></a>[Azure VM](#tab/azure-vm)
 
@@ -37,7 +37,7 @@ ms.locfileid: "130220098"
    ```kusto
    Heartbeat
    | where TimeGenerated > ago(30d)
-   | where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure")
+   | where ComputerEnvironment == "Non-Azure"
    | summarize by Computer, VMUUID
    ```
 

@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버에서 실행 중인 VMware VM을 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: d734b9852da54c13d498cfd4a60caf007735d2f6
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
-ms.translationtype: HT
+ms.openlocfilehash: f8ab0de1a1fb126d8aabd536a596c4e73f66d4af
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114722589"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026073"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -468,9 +468,9 @@ MABS V3 UR1 이상을 사용하여 VMware VM 백업에서 특정 디스크를 �
   1. VMware 콘솔에서 디스크를 제외하려는 VM 설정으로 이동합니다.
   2. 제외하려는 디스크를 선택하 고 해당 디스크에 대한 경로를 확인합니다.
 
-        예를 들어 TestVM4에서 하드 디스크 2를 제외하려면 하드 디스크 2의 경로는 **[datastore1] TestVM4/TestVM4\_1.vmdk** 입니다.
+     예를 들어 TestVM4에서 하드 디스크 2를 제외하려면 하드 디스크 2의 경로는 **[datastore1] TestVM4/TestVM4\_1.vmdk** 입니다.
 
-        ![제외할 하드 디스크](./media/backup-azure-backup-server-vmware/test-vm.png)
+     ![제외할 하드 디스크](./media/backup-azure-backup-server-vmware/test-vm.png)
 
 ### <a name="configure-mabs-server"></a>MABS 서버 구성
 
@@ -478,93 +478,93 @@ VMware VM이 보호되도록 구성된 MABS 서버로 이동하여 디스크 제
 
   1. MABS 서버에서 보호되는 VMware 호스트의 세부 정보를 가져옵니다.
 
-        ```powershell
-        $psInfo = get-DPMProductionServer
-        $psInfo
-        ```
+     ```powershell
+     $psInfo = get-DPMProductionServer
+     $psInfo
+     ```
 
-        ```output
-        ServerName   ClusterName     Domain            ServerProtectionState
-        ----------   -----------     ------            ---------------------
-        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
-        ```
+     ```output
+     ServerName   ClusterName     Domain            ServerProtectionState
+     ----------   -----------     ------            ---------------------
+     Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+     ```
 
   2. VMware 호스트를 선택하고 VMware 호스트에 대한 VM 보호를 나열합니다.
 
-        ```powershell
-        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
-        $vmDsInfo
-        ```
+     ```powershell
+     $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+     $vmDsInfo
+     ```
 
-        ```output
-        Computer     Name     ObjectType
-        --------     ----     ----------
-        Vcentervm1  TestVM2      VMware
-        Vcentervm1  TestVM1      VMware
-        Vcentervm1  TestVM4      VMware
-        ```
+     ```output
+     Computer     Name     ObjectType
+     --------     ----     ----------
+     Vcentervm1  TestVM2      VMware
+     Vcentervm1  TestVM1      VMware
+     Vcentervm1  TestVM4      VMware
+     ```
 
   3. 디스크를 제외하려는 VM을 선택합니다.
 
-        ```powershell
-        $vmDsInfo[2]
-        ```
+     ```powershell
+     $vmDsInfo[2]
+     ```
 
-        ```output
-        Computer     Name      ObjectType
-        --------     ----      ----------
-        Vcentervm1   TestVM4   VMware
-        ```
+     ```output
+     Computer     Name      ObjectType
+     --------     ----      ----------
+     Vcentervm1   TestVM4   VMware
+     ```
 
   4. 디스크를 제외하려면 `Bin` 폴더로 이동하고 다음 매개 변수를 사용하여 *ExcludeDisk.ps1* 스크립트를 실행합니다.
 
-        > [!NOTE]
-        > 이 명령을 실행하기 전에 MABS 서버에서 DPMRA 서비스를 중지합니다. 그렇지 않으면 스크립트가 성공을 반환하지만 제외 목록을 업데이트하지는 않습니다. 서비스를 중지하기 전에 진행 중인 작업이 없는지 확인합니다.
+     > [!NOTE]
+     > 이 명령을 실행하기 전에 MABS 서버에서 DPMRA 서비스를 중지합니다. 그렇지 않으면 스크립트가 성공을 반환하지만 제외 목록을 업데이트하지는 않습니다. 서비스를 중지하기 전에 진행 중인 작업이 없는지 확인합니다.
 
      **제외에서 디스크를 추가/제거하려면 다음 명령을 실행합니다.**
 
-      ```powershell
-      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
-      ```
+     ```powershell
+     ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+     ```
 
      **예제**:
 
      TestVM4에 대한 디스크 제외를 추가하려면 다음 명령을 실행합니다.
 
-       ```powershell
-      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
-       ```
+     ```powershell
+     C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+     ```
 
-      ```output
-       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
-       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
-      ```
+     ```output
+     Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+     Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+     ```
 
   5. 디스크가 제외에 추가되었는지 확인합니다.
 
      **특정 VM에 대한 기존 제외를 보려면 다음 명령을 실행합니다.**
 
-        ```powershell
-        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
-        ```
+     ```powershell
+     ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+     ```
 
      **예제**
 
-        ```powershell
-        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
-        ```
+     ```powershell
+     C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+     ```
 
-        ```output
-        <VirtualMachine>
-        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
-        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
-        </VirtualMachine>
-        ```
+     ```output
+     <VirtualMachine>
+       <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+       <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+     </VirtualMachine>
+     ```
 
-     이 VM에 대한 보호를 구성한 후에는 제외된 디스크가 보호 중에 나열되지 않습니다.
+     이 VM에 대한 보호를 구성한 후에는 보호 중에 제외된 디스크가 나열되지 않습니다.
 
-        > [!NOTE]
-        > 이미 보호된 VM에 대해 이러한 단계를 수행하는 경우 제외를 위해 디스크를 추가한 후 일관성 확인을 수동으로 실행해야 합니다.
+     > [!NOTE]
+     > 이미 보호된 VM에 대해 이러한 단계를 수행하는 경우 제외를 위해 디스크를 추가한 후 일관성 확인을 수동으로 실행해야 합니다.
 
 ### <a name="remove-the-disk-from-exclusion"></a>제외에서 디스크 제거
 

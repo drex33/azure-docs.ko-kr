@@ -6,15 +6,15 @@ services: machine-learning
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 12/09/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
-ms.openlocfilehash: 36f55ad8e9cc05b4d7734aef6219895eec445bb3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3b638535784e35089050f3f7e55d85232800ef06
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232592"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561559"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화된 Machine Learning 실험 결과 평가
 
@@ -71,34 +71,34 @@ ms.locfileid: "130232592"
 다음 표는 실험에 대해 생성된 각 분류 모델에 대해서 자동화된 ML이 계산하는 모델 성능 메트릭을 요약하여 보여 줍니다. 자세한 내용은 각 메트릭의 **계산** 필드에 연결된 Scikit-learn 설명서를 참조하세요. 
 
 > [!NOTE]
-> 이미지 분류 모델에 대한 [메트릭에](#metrics-for-image-models-preview) 대한 자세한 내용은 이미지 메트릭 섹션을 참조하세요.
+> 이미지 분류 모델의 메트릭에 대 한 자세한 내용은 [이미지 메트릭](#metrics-for-image-models-preview) 섹션을 참조 하세요.
 
 |메트릭|Description|계산|
 |--|--|---|
-|AUC | AUC는 [수신자 조작 특성 곡선](#roc-curve) 아래 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`AUC_macro`, 각 클래스에 대한 AUC의 산술 평균입니다.<li> `AUC_micro`- 총 참 긍정, 가음성 및 가양성 수를 계산하여 계산됩니다. <li> `AUC_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 점수의 산술 평균입니다. <li> `AUC_binary`- 하나의 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 `true` 클래스로 결합하여 AUC의 `false` 값입니다.<br><br>|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|AUC | AUC는 [수신자 조작 특성 곡선](#roc-curve) 아래 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`AUC_macro`, 각 클래스에 대한 AUC의 산술 평균입니다.<li> `AUC_micro`총 참 긍정, 거짓 부정 및 거짓 긍정을 계산 하 여 계산 됩니다. <li> `AUC_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 점수의 산술 평균입니다. <li> `AUC_binary`는 특정 클래스를 클래스로 처리 하 `true` 고 다른 모든 클래스를 클래스로 결합 하 여이 값입니다 `false` .<br><br>|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| Accuracy(정확도)는 실제 클래스 레이블과 정확히 일치하는 예측 비율입니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
-|average_precision|Average precision(평균 정밀도)은 정밀도-재현율 곡선을 이전 임계값에서의 재현율 증가를 가중치로 사용하여 계산한 각 임계값에서 도달된 정밀도의 가중 평균으로 요약합니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>`average_precision_score_macro`, 각 클래스의 평균 정밀도 점수의 산술 평균입니다.<li> `average_precision_score_micro`- 총 참 긍정, 가음성 및 가양성 수를 계산하여 계산됩니다.<li>`average_precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스의 평균 정밀도 점수의 산술 평균입니다. <li> `average_precision_score_binary`- 한 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 평균 정밀도 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.average_precision_score.html)|
+|average_precision|Average precision(평균 정밀도)은 정밀도-재현율 곡선을 이전 임계값에서의 재현율 증가를 가중치로 사용하여 계산한 각 임계값에서 도달된 정밀도의 가중 평균으로 요약합니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>`average_precision_score_macro`, 각 클래스의 평균 정밀도 점수의 산술 평균입니다.<li> `average_precision_score_micro`총 참 긍정, 거짓 부정 및 거짓 긍정을 계산 하 여 계산 됩니다.<li>`average_precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스의 평균 정밀도 점수의 산술 평균입니다. <li> `average_precision_score_binary`는 특정 클래스 하나를 클래스로 처리 하 `true` 고 다른 모든 클래스를 클래스로 결합 하 여 평균 전체 자릿수 값입니다 `false` .|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.average_precision_score.html)|
 balanced_accuracy|Balanced accuracy(균형 정확도)는 각 클래스 재현율의 산술 평균입니다.<br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
-f1_score|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 가양성 및 가음성 모두에 대해 적절한 균형 측정값입니다. 그러나 진음성은 고려하지 않습니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>  `f1_score_macro`: 각 클래스에 대한 F1 점수의 산술 평균입니다. <li> `f1_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 계산됩니다. <li> `f1_score_weighted`: 각 클래스에 대한 F1 점수의 클래스 빈도에 따른 가중 평균입니다. <li> `f1_score_binary`- 특정 클래스 하나를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 f1의 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
+f1_score|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 가양성 및 가음성 모두에 대해 적절한 균형 측정값입니다. 그러나 진음성은 고려하지 않습니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>  `f1_score_macro`: 각 클래스에 대한 F1 점수의 산술 평균입니다. <li> `f1_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 계산됩니다. <li> `f1_score_weighted`: 각 클래스에 대한 F1 점수의 클래스 빈도에 따른 가중 평균입니다. <li> `f1_score_binary`는 특정 클래스 하나를 클래스로 처리 하 `true` 고 다른 모든 클래스를 클래스로 결합 하 여 f1 값입니다 `false` .|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|이것은 (다항) 로지스틱 회귀와 그 확장(예: 신경망)에 사용되는 손실 함수로, 확률적 분류자의 예측이 주어진 경우 실제 레이블의 음의 로그 유사도로 정의됩니다. <br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf)|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| Normalized macro recall(정규화된 매크로 재현율)은 매크로 평균이면서 정규화되어 있는 재현율이므로, 임의 성능 점수는 0이고 완벽 성능 점수는 1이 됩니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>여기서 `R`은 임의 예측에 대해 예상되는 `recall_score_macro`값입니다.<br><br>`R = 0.5`&nbsp;&nbsp;이진&nbsp;분류의 경우입니다. <br>`R = (1 / C)` C-클래스 분류 문제의 경우입니다.|
 matthews_correlation | Matthews 상관(Matthews correlation) 계수는 정확도의 균형 측정값으로서, 한 클래스에 다른 클래스보다 훨씬 더 많은 샘플이 포함된 경우에도 사용할 수 있습니다. 계수 1은 완벽 예측, 0은 임의 예측, -1은 역예측을 나타냅니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [-1, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
-정밀도|Precision(정밀도)은 음성 샘플을 양성으로 레이블을 지정하지 않도록 하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li> `precision_score_macro`, 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_micro`, 진양성과 가양성의 총 개수를 세어 전역적으로 계산됩니다. <li> `precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_binary`한 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 전체 자릿수 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
-재현율| Recall(재현율)은 양성 샘플 모두를 검색하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`recall_score_macro`: 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 전역적으로 계산됩니다.<li> `recall_score_weighted`: 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_binary`- 특정 클래스 하나를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 회수하는 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
+정밀도|Precision(정밀도)은 음성 샘플을 양성으로 레이블을 지정하지 않도록 하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li> `precision_score_macro`, 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_micro`, 진양성과 가양성의 총 개수를 세어 전역적으로 계산됩니다. <li> `precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_binary`는 특정 클래스 하나를 클래스로 처리 하 `true` 고 다른 모든 클래스를 클래스로 결합 하 여 전체 자릿수 값입니다 `false` .|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
+재현율| Recall(재현율)은 양성 샘플 모두를 검색하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`recall_score_macro`: 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 전역적으로 계산됩니다.<li> `recall_score_weighted`: 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_binary`-특정 클래스 하나를 클래스로 처리 하 `true` 고 다른 모든 클래스를 클래스로 결합 하 여 회수 값입니다 `false` .|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|Weighted accuracy(가중치가 적용된 정확도)는 각 샘플에 동일한 클래스에 속하는 샘플의 총 수로 가중치가 적용된 정확도입니다. <br><br>**목표:** 1에 가까울수록 좋음 <br>**범위:** [0, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
 
 ### <a name="binary-vs-multiclass-classification-metrics"></a>이진 및 다중 클래스 분류 메트릭
 
-자동화된 ML 데이터가 이진인지 자동으로 검색하고, 클래스를 지정하여 데이터가 다중 클래스인 경우에도 사용자가 이진 분류 메트릭을 활성화할 수 있도록 `true` 합니다. 데이터 세트에 두 개의 클래스 또는 두 개 이상의 클래스가 있는 경우와 관계없이 다중 클래스 분류 메트릭이 보고됩니다. 이진 분류 메트릭은 데이터가 이진이거나 사용자가 옵션을 활성화할 때만 보고됩니다. 
+자동 ML는 데이터가 이진 인지 자동으로 검색 하 고, 클래스를 지정 하 여 데이터를 다중 클래스 하는 경우에도 사용자가 이진 분류 메트릭을 활성화할 수 있도록 `true` 합니다. 다중 클래스 분류 메트릭은 데이터 집합에 두 개 이상의 클래스가 있는지 여부에 관계 없이 보고 됩니다. 이진 분류 메트릭은 데이터가 이진 이거나 사용자가 옵션을 활성화 한 경우에만 보고 됩니다. 
 
 > [!Note]
-> 이진 분류 작업이 검색되면 를 사용하여 `numpy.unique` 레이블 집합을 찾고 이후 레이블이 `true` 클래스로 사용됩니다. 에 정렬 프로시저가 있기 때문에 `numpy.unique` 클래스 선택은 `true` 안정적입니다.
+> 이진 분류 태스크가 검색 되 면를 사용 하 여 `numpy.unique` 레이블 집합을 찾고 이후 레이블이 클래스로 사용 됩니다 `true` . 에 정렬 프로시저가 있으므로 `numpy.unique` 클래스 선택은 안정적으로 수행 `true` 됩니다.
 
 다중 클래스 분류 메트릭은 다중 클래스 분류를 위한 것입니다. 예상대로 이러한 메트릭은 이진 데이터 세트에 적용될 때 클래스를 `true` 클래스로 처리하지 않습니다. 명확하게 다중 클래스용인 메트릭은 `micro`, `macro` 또는 `weighted`가 접미사로 붙습니다. 이러한 예로 `average_precision_score`, `f1_score`, `precision_score`, `recall_score` 및 `AUC`가 있습니다. 예를 들어, `tp / (tp + fn)`으로 재현율을 계산하는 대신 다중 클래스 평균 재현율(`micro`, `macro` 또는 `weighted`)은 이진 분류 데이터 세트의 두 클래스에 대한 평균입니다. 이는 `true` 클래스와 `false` 클래스에 대해 개별적으로 재현율을 계산하고 나서 둘의 평균을 구하는 것과 같습니다.
 
-또한 이진 분류의 자동 검색이 지원되지만 항상 `true` 클래스를 수동으로 지정하여 올바른 클래스에 대해 이진 분류 메트릭이 계산되도록 하는 것이 좋습니다.
+뿐만 아니라 이진 분류의 자동 검색이 지원 되기는 하지만 항상 클래스를 수동으로 지정 하 여 `true` 이진 분류 메트릭이 올바른 클래스에 대해 계산 되도록 하는 것이 좋습니다.
 
-데이터 세트 자체가 다중 클래스일 때 이진 분류 데이터 세트에 대한 메트릭을 활성화하려면 사용자는 클래스로 처리할 클래스만 지정하면 `true` 되며 이러한 메트릭이 계산됩니다.
+데이터 집합 자체가 다중 클래스 때 이진 분류 데이터 집합에 대 한 메트릭을 활성화 하려면 사용자는 클래스로 처리할 클래스를 지정 하기만 하면 `true` 이러한 메트릭이 계산 됩니다.
 
 ## <a name="confusion-matrix"></a>혼동 행렬
 
@@ -149,7 +149,7 @@ AUC(곡선 아래 면적)는 올바르게 분류된 샘플의 비율로 해석�
 
 완벽 모델은 모든 양성 샘플을 모든 음성 샘플 위에 순위를 두어 두 개의 직선 세그먼트로 구성된 누적 이득 곡선을 제공합니다. 첫 번째는 기울기가 `1 / x`인 `(0, 0)`에서 `(x, 1)`을 잇는 선으로, 여기에서 `x`는 양성 클래스에 속하는 샘플의 비율입니다(클래스가 분산된 경우 `1 / num_classes`). 두 번째는 `(x, 1)`에서 `(1, 1)`을 잇는 가로선입니다. 첫 번째 세그먼트에서 모든 양성 샘플이 올바르게 분류되고 누적 이득은 고려되는 샘플의 첫 `x%` 내에서 `100%`로 이동합니다.
 
-기준 임의 모델은 `y = x`을 따르는 누적 이득 곡선을 가지며, 고려된 샘플 중 `x%`의 경우 총 양성 샘플 중 약 `x%`만 검색되었습니다. 균형이 조정된 데이터 세트에 대한 완벽한 모델은 마이크로 평균 곡선과 누적 수익이 100%가 될 때까지 기울기를 갖는 매크로 평균 선이 있고 `num_classes` 데이터 백분율이 100이 될 때까지 가로입니다.
+기준 임의 모델은 `y = x`을 따르는 누적 이득 곡선을 가지며, 고려된 샘플 중 `x%`의 경우 총 양성 샘플 중 약 `x%`만 검색되었습니다. 분산 된 데이터 집합에 대 한 완벽 한 모델에는 마이크로 평균 곡선 및 평균 증가율이 100%가 될 때까지 기울기가 있는 매크로 평균 줄이 포함 되 고, 그 다음에는 `num_classes` 데이터%가 100이 됩니다.
 > [!TIP]
 > 분류 실험의 경우 자동화된 ML 모델에 대해 생성된 각각의 꺾은선형 차트를 이용하여 클래스별로 모델을 평가하거나 모든 클래스에 대해 평균화할 수 있습니다. 차트의 오른쪽에 있는 범례에서 클래스 레이블을 클릭하여 이러한 여러 보기 간에 전환이 가능합니다.
 ### <a name="cumulative-gains-curve-for-a-good-model"></a>좋은 모델의 누적 이득 곡선
@@ -160,7 +160,7 @@ AUC(곡선 아래 면적)는 올바르게 분류된 샘플의 비율로 해석�
 
 ## <a name="lift-curve"></a>리프트 곡선
 
-리프트 곡선은 임의 모델에 비하여 모델의 성능이 몇 배나 더 우수한지를 보여 줍니다. 리프트는 임의 모델의 누적 증가율(항상 이어야 함)에 대한 누적 증가율로 `1` 정의됩니다.
+리프트 곡선은 임의 모델에 비하여 모델의 성능이 몇 배나 더 우수한지를 보여 줍니다. 리프트는 임의 모델의 누적 증가율 (항상 이어야 함)에 대 한 누적 이득의 비율로 정의 됩니다 `1` .
 
 이러한 상대적 성능은 클래스의 수를 늘릴 때 분류가 더 어려워지는 점을 반영합니다. (임의 모델은 두 클래스를 사용하는 데이터 세트에 비해 10개 클래스를 사용하는 데이터 세트에서 더 높은 비율의 샘플을 잘못 예측)
 

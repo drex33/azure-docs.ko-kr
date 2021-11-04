@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 25e19ac7512c26e9e6985d033ec46d76b4c5233a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ec41b338acbf055e8fa499ff6b4e867844b30e4d
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528405"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131553060"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>PostgreSQL 데이터베이스를 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹으로 마이그레이션
 
@@ -45,9 +45,8 @@ Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹은 PostgreSQL의 �
 - `psql`
 - ...
 
-   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
-
 ## <a name="example"></a>예제
+
 `pgAdmin` 도구를 사용하여 단계를 설명해 보겠습니다.
 다음 설정을 고려하세요.
 - **원본:**  
@@ -80,8 +79,10 @@ az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> -
 ```
 다음과 같은 출력을 반환합니다.
 ```console
-[
-  {
+{
+  "instances": [
+    {
+      "endpoints": [
     "Description": "PostgreSQL Instance",
     "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
   },
@@ -93,7 +94,13 @@ az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> -
     "Description": "Metrics Dashboard",
     "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
   }
-]
+],
+"engine": "PostgreSql",
+"name": "postgres01"
+}
+  ],
+  "namespace": "arc"
+}
 ```
 
 대상 데이터베이스의 이름을 **RESTORED_MyOnPremPostgresDB** 로 지정합니다.
@@ -128,12 +135,17 @@ Azure Arc 설정에서 호스트되는 Postgres 인스턴스를 확장합니다.
 
 Arc 설정 내에서 `psql`를 사용하여 Postgres 인스턴스에 연결하고 데이터베이스 컨텍스트를 `RESTORED_MyOnPremPostgresDB`로 설정하고 데이터를 쿼리할 수 있습니다.
 
-1. `psql` 연결 문자열에서 도움을 주는 엔드포인트를 나열합니다.
+1. 연결 문자열을 구성 하는 데 도움이 되는 끝점을 나열 합니다 `psql` .
 
-   ```azurecli
+   ```Az CLI
    az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
-   [
-     {
+   ```
+
+   ```Az CLI
+   {
+     "instances": [
+       {
+         "endpoints": [
        "Description": "PostgreSQL Instance",
        "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
      },
@@ -145,7 +157,13 @@ Arc 설정 내에서 `psql`를 사용하여 Postgres 인스턴스에 연결하�
        "Description": "Metrics Dashboard",
        "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
      }
-   ]
+   ],
+   "engine": "PostgreSql",
+   "name": "postgres01"
+   }
+     ],
+     "namespace": "arc"
+   }
    ```
 
 1. `psql` 연결 문자열에서 `-d` 매개 변수를 사용하여 데이터베이스 이름을 표시합니다. 아래의 명령을 사용하여 암호를 입력하라는 메시지가 표시됩니다.

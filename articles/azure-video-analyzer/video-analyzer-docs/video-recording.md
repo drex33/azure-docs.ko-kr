@@ -3,14 +3,14 @@ title: Azure Video Analyzer로 재생하기 위해 비디오 녹화
 description: 이 문서에서는 Azure Video Analyzer로 재생하기 위해 비디오를 녹화하는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 94ac0847b4cb4783ad16044514960b88c67d2a03
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 253db9fe0ad067f00647cb195995eaee4951a38a
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073722"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563951"
 ---
 # <a name="record-video-for-playback"></a>재생을 위해 비디오 녹화
 
@@ -30,7 +30,7 @@ CVR 또는 EVR 중 무엇을 사용할지는 비즈니스 목표에 따라 달�
 
 ## <a name="retention-policy"></a>보존 정책
 
-보존 정책은 보존되는 비디오 녹화의 길이 또는 기간을 결정하는 정책을 나타냅니다. 보존 정책을 사용하면 스토리지 비용과 비즈니스 요구 사항의 균형을 맞출 수 있습니다. CVR 시나리오의 경우 보존 정책은 비디오를 저장해야 하는 기간(예: 지난 7일)을 정의합니다. 이에 대한 자세한 내용은 **[보존 정책 관리](manage-retention-policy.md)** 문서에서 확인할 수 있습니다.
+보존 정책은 보존되는 비디오 녹화의 길이 또는 기간을 결정하는 정책을 나타냅니다. 보존 정책을 사용하면 스토리지 비용과 비즈니스 요구 사항의 균형을 맞출 수 있습니다. CVR 시나리오의 경우 보존 정책은 비디오를 저장해야 하는 기간(예: 지난 7일)을 정의합니다. 자세한 내용은 보존 정책 **[관리](manage-retention-policy.md)** 문서에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

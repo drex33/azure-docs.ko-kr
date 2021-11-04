@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터에 대한 네트워크 설정 구�
 description: NSG 규칙, RDP 포트 액세스, 부하 분산 규칙 등에 대해 Service Fabric 관리형 클러스터를 구성하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 0299118a7715a566cccc0dd1fb7bc83aa9c5e06c
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 3482f414029c79ceea9c0ee8bcc258ed2fc495e1
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545663"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558880"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성
 
@@ -199,9 +199,9 @@ Azure Portal을 사용하여 RDP(원격 데스크톱 프로토콜)에 대한 인
 
    ![인바운드 NAT 규칙][Inbound-NAT-Rules]
 
-   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트 할당은 50000에서 시작되고 대상 포트는 대상 노드의 RDP 서비스에 매핑되는 포트 3389입니다.
+   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트 할당은 5만에서 시작 하 고 대상 포트는 포트 3389 이며, 대상 노드의 RDP 서비스에 매핑됩니다.
    >[!NOTE]
-   > BYOLB 기능을 사용하고 RDP를 원하는 경우 NAT 풀을 별도로 구성해야 합니다. 이렇게 하면 해당 노드 형식에 대한 NAT 규칙이 자동으로 생성되지 않습니다.
+   > BYOLB 기능을 사용 하 고 RDP를 사용 하려는 경우에는 별도로 NAT 풀을 구성 해야 합니다. 이러한 노드 유형에 대 한 NAT 규칙을 자동으로 만들지 않습니다.
 
 4. 특정 노드(확장 집합 인스턴스)에 원격으로 연결합니다. 클러스터를 만들 때 설정한 사용자 이름 및 암호 또는 구성한 다른 자격 증명을 사용할 수 있습니다.
 
@@ -331,7 +331,11 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 이 기능을 통해 고객은 관리형 클러스터가 리소스를 배포할 전용 서브넷을 지정하여 기존 가상 네트워크를 사용할 수 있습니다. 이는 사용하려는 관련 보안 정책 및 트래픽 라우팅이 있는 VNet 및 서브넷이 이미 구성된 경우에 유용할 수 있습니다. 기존 가상 네트워크에 배포한 후 Azure ExpressRoute, Azure VPN Gateway, 네트워크 보안 그룹 및 가상 네트워크 피어링 등의 다른 네트워킹 기능을 쉽게 통합할 수 있습니다. 또한 필요한 경우 [자체 Azure Load Balancer 가져오기](#byolb)가 가능합니다.
 
 > [!NOTE]
+> BYOVNET을 사용 하는 경우 관리 되는 클러스터 리소스가 하나의 서브넷에 배포 됩니다. 
+
+> [!NOTE]
 > 클러스터가 만들어지고 관리형 클러스터가 제공된 서브넷에 NSG를 할당한 후에는 이 설정을 변경할 수 없습니다. NSG 할당을 재정의하지 마십시오. 그렇지 않으면 트래픽이 중단됩니다.
+
 
 **사용자 고유의 가상 네트워크 불러오기**
 
@@ -439,8 +443,11 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 
 * 개인 또는 공용 트래픽에 대해 미리 구성된 Load Balancer 고정 IP 주소 사용
 * 특정 노드 형식에 Load Balancer 매핑
-* 각 노드 유형이 고유한 NSG를 사용 하 여 자체 서브넷에 배포 되기 때문에 노드 유형별 네트워크 보안 그룹 규칙을 구성 합니다. 
+* 각 노드 유형이 고유한 NSG를 사용하여 자체 서브넷에 배포되기 때문에 노드 유형별 네트워크 보안 그룹 규칙 구성 
 * 보유하고 있을 수 있는 기존 정책 및 컨트롤 유지
+
+> [!NOTE]
+> BYOVNET을 사용하는 경우 관리형 클러스터 리소스는 구성된 추가 부하 분산에 관계없이 하나의 NSG가 있는 하나의 서브넷에 배포됩니다.
 
 > [!NOTE]
 > 노드 유형에 대한 클러스터 배포 후 기본값에서 사용자 지정으로 전환할 수는 없지만 배포 후 사용자 지정 부하 분산 장치 구성을 수정할 수 있습니다.
@@ -488,7 +495,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 
 2. Service Fabric 리소스 공급자 애플리케이션으로 역할 할당을 추가합니다. 역할 할당을 추가하는 것은 일회성 작업입니다. 다음 PowerShell 명령을 실행하거나 아래에 설명된 대로 ARM(Azure Resource Manager) 템플릿을 구성하여 역할을 추가합니다.
 
-   다음 단계에서는 Existing-RG 리소스 그룹에서 Existing-LoadBalancer1이라는 기존 부하 분산 장치로 시작합니다. 서브넷의 이름은 default입니다.
+   다음 단계에서는 Existing-RG 리소스 그룹에서 Existing-LoadBalancer1이라는 기존 부하 분산 장치로 시작합니다.
 
    기존 Azure Load Balancer에서 필요한 `Id` 속성 정보를 얻습니다. 우리는 
 
@@ -510,7 +517,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
    New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
    ```
 
-   또는`principalId`, `roleDefinitionId`, `vnetName`, `subnetName`에 적절한 값으로 구성된 ARM(Azure Resource Manager) 템플릿을 사용하여 역할 할당을 추가할 수 있습니다.
+   또는 1단계, 및 에서 가져온 에 대한 적절한 값으로 구성된 ARM(Azure Resource Manager) 템플릿을 사용하여 역할 할당을 추가할 수 `principalId` `loadBalancerRoleAssignmentID` 있습니다. `roleDefinitionId`
 
    ```JSON
       "type": "Microsoft.Authorization/roleAssignments",

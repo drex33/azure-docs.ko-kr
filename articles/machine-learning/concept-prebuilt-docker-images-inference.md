@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 author: shivanissambare
-ms.date: 10/07/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, curated environments
-ms.openlocfilehash: 04ca2582360f0a4463dd806664a84d020b0c58a7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 0f7fc034ee6df962ecfe6e00b62b8899e223505c
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712171"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563704"
 ---
 # <a name="prebuilt-docker-images-for-inference"></a>유추를 위한 미리 빌드된 Docker 이미지
 

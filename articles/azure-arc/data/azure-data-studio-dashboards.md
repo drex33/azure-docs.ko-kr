@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 94e7b6b351d13a85a516b4a4bc6c54c31754bc12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: cea97bab303ce2d009cecc67ed30ec89b0992118
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536405"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554339"
 ---
 # <a name="azure-data-studio-dashboards"></a>Azure Data Studio 대시보드
 
@@ -28,52 +28,18 @@ ms.locfileid: "122536405"
 - [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) 다운로드
 - Azure Arc 확장이 설치됨
 
-### <a name="determine-the-data-controller-server-api-endpoint-url"></a>데이터 컨트롤러 서버 API 엔드포인트 URL 확인
 
-먼저 Azure Data Studio를 데이터 컨트롤러 서비스 API 엔드포인트 URL에 연결해야 합니다.
-
-이 엔드포인트를 가져오려면 다음 명령을 실행할 수 있습니다.
-
-```console
-kubectl get svc/controller-svc-external -n <namespace name>
-
-#Example:
-kubectl get svc/controller-svc-external -n arc
-```
-
-다음과 같은 출력이 표시됩니다.
-
-```console
-NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                       AGE
-controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
-```
-
-LoadBalancer 유형을 사용하는 경우 외부 IP 주소와 포트 번호를 복사합니다. NodePort를 사용하는 경우 Kubernetes API 서버의 IP 주소와 PORT(S) 열 아래에 나열된 포트 번호를 사용합니다.
-
-이제 다음과 같이 이 정보를 결합하여 엔드포인트에 대한 URL을 생성합니다.
-
-```console
-https://<ip address>:<port>
-
-Example:
-https://52.154.152.24:30080
-```
-
-다음 단계에서 사용할 IP 주소를 기록해 둡니다.
 
 ### <a name="connect"></a>연결
 
 1. Azure Data Studio 열기
+2. 왼쪽의 **연결** 탭 선택
+3. **Azure Arc 컨트롤러** 라는 패널을 확장 합니다.
+4. **커넥트 컨트롤러** 단추를 클릭 합니다. 그러면 오른쪽에 블레이드가 열립니다.
+5. 기본적으로 Azure Data Studio는 기본 디렉터리의 kube.config 파일에서 읽으려고 시도 하 고 사용 가능한 kubernetes 클러스터 컨텍스트를 나열 하 고 현재 클러스터 컨텍스트를 미리 선택 합니다. 연결할 올바른 클러스터 인 경우 **네임 스페이스** 입력에 Azure Arc 데이터 컨트롤러가 배포 되는 네임 스페이스를 입력 합니다. Azure Arc 데이터 컨트롤러가 배포 되는 네임 스페이스를 검색 해야 하는 경우 kubernetes 클러스터에서를 실행할 수 있습니다 ```kubectl get datacontrollers -A``` . 
+6. 선택적으로 **이름** 에 대 한 입력에 Azure Arc 데이터 컨트롤러의 표시 이름을 추가 합니다.
+7. **연결** 을 선택합니다.
 
-1. 왼쪽의 **연결** 탭 선택
-
-아래쪽으로 **Azure Arc 컨트롤러** 라는 패널을 확장합니다.
-
-\+ 아이콘을 클릭하여 새 데이터 컨트롤러 연결을 추가합니다.
-
-명령 팔레트의 화면 위쪽에 1단계에서 생성한 URL을 입력하고 Enter 키를 누릅니다.
-데이터 컨트롤러에 대한 사용자 이름을 입력합니다.  이 값은 데이터 컨트롤러 배포 중에 전달된 사용자 이름입니다.  Enter 키를 누릅니다.
-데이터 컨트롤러에 대한 암호를 입력합니다.  이 값은 데이터 컨트롤러 배포 중에 전달된 암호입니다. Enter 키를 누릅니다.
 
 이제 데이터 컨트롤러에 연결되었으므로 데이터 컨트롤러 및 모든 SQL 관리형 인스턴스 또는 PostgreSQL 하이퍼스케일 서버 그룹 리소스에 대한 대시보드를 볼 수 있습니다.
 

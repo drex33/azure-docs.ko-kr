@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: bb4f39f14dad9426f48cc86597f74333c830bba5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 830c8e72517da4591b82edee8cf50dc2375f1c86
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528696"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556828"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 분석
 
@@ -78,7 +78,7 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되면 Azure Mac
 
 1. **작성자** 섹션의 왼쪽 창에서 **디자이너** 탭을 클릭합니다.
 
-1. **사용하기 쉬운 사전 빌드 모듈** 을 선택하여 새 파이프라인을 만듭니다.
+1. **사용 하기 쉬운 미리 작성 된 구성 요소** 를 선택 하 여 새 파이프라인을 만듭니다.
 
 1. 오른쪽의 설정 창에서 파이프라인의 이름을 지정합니다.
 
@@ -90,19 +90,19 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되면 Azure Mac
 
 1. 이전에 만든 데이터 세트를 캔버스로 끌어다 놓습니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="캔버스의 데이터 세트 모듈 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="캔버스의 데이터 집합 구성 요소 스크린샷":::
 
 ## <a name="clean-the-data"></a>데이터 정리
 
 데이터를 정리하려면 모델에 관련되지 않은 열을 삭제합니다. 아래 단계를 따릅니다.
 
-1. 왼쪽 창에서 **모듈** 하위 탭을 선택합니다.
+1. 왼쪽 창에서 하위 탭 **구성 요소** 를 선택 합니다.
 
-1. **데이터 변환 < 조작** 의 **데이터 센터의 열 선택** 모듈을 캔버스로 끌어 옵니다. 이 모듈을 **데이터 세트** 모듈에 연결합니다.
+1. 데이터 변환 **의 데이터 집합에서 열 선택** 구성 요소를 끌어 캔버스로 **조작을 <** 합니다. 이 구성 요소를 **데이터 집합** 구성 요소에 커넥트 합니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="캔버스의 열 선택 모듈 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="캔버스에서 열 선택 구성 요소의 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
-1. 모듈을 클릭하여 속성 창을 엽니다. 편집 열을 클릭하여 삭제할 열을 지정합니다.
+1. 구성 요소를 클릭 하 여 속성 창을 엽니다. 편집 열을 클릭하여 삭제할 열을 지정합니다.
 
 1. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다. 페이지 맨 아래에 있는 **저장**
 
@@ -112,43 +112,43 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되면 Azure Mac
 
 데이터가 80-20으로 분할되어 80%는 기계 학습 모델을 학습하고 20%는 모델을 테스트합니다. 이 이진 분류 문제에는 “2클래스” 알고리즘이 사용됩니다.
 
-1. **데이터 분할** 모듈을 캔버스로 끌어서 놓습니다.
+1. **분할 데이터** 구성 요소를 캔버스로 끌어 옵니다.
 
 1. 속성 창에서 **첫 번째 출력 데이터 세트의 행 분수** 에 대해 0.8을 입력합니다.
 
     :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="0.8의 분할 비율을 보여 주는 스크린샷":::
 
-1. **2클래스 향상된 의사 결정 트리** 모듈을 캔버스로 끌어서 놓습니다.
+1. **2 클래스 승격 된 의사 결정 트리** 구성 요소를 캔버스로 끕니다.
 
-1. **모델 학습** 모듈을 캔버스로 끌어다 놓습니다. **2클래스 향상된 의사 결정 트리**(ML 알고리즘) 및 **데이터 분할**(알고리즘을 학습할 데이터) 모듈에 연결하여 입력을 지정합니다.
+1. **모델 학습** 구성 요소를 캔버스로 끌어다 놓습니다. **2 클래스 승격 된 의사 결정 트리** (ML 알고리즘)에 연결 하 고 데이터 (알고리즘 학습에 데이터) 구성 요소를 **분할** 하 여 입력을 지정 합니다.
 
 1. 모델 학습 모델의 경우 속성 창의 **레이블 열** 옵션에서 열 편집을 선택합니다. **BikeBuyer** 열을 예측할 열로 선택하고 **저장** 을 선택합니다.
 
     :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="레이블 열 BikeBuyer가 선택된 것을 보여 주는 스크린샷":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="2클래스 향상 의사 결정 트리 및 데이터 분할 모듈에 연결된 모델 학습 모듈을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Two-Class 향상 된 의사 결정 트리 및 분할 데이터 구성 요소에 연결 된 학습 모델 구성 요소를 보여 주는 스크린샷":::
 
 ## <a name="score-the-model"></a>모델 점수 매기기
 
 이제 테스트 데이터에서 모델이 수행하는 방식을 테스트합니다. 두 가지 알고리즘을 비교하여 어떤 알고리즘이 더 나은지 확인합니다. 아래 단계를 따릅니다.
 
-1. **모델 점수 매기기** 모듈을 캔버스로 끌어 놓고 **모델 학습** 및 **데이터 분할** 모듈에 연결합니다.
+1. **모델 점수 매기기** 구성 요소를 캔버스로 끌어서 **모델 학습** 및 **데이터 분할** 구성 요소에 연결 합니다.
 
 1. **2클래스 Bayes 평균 퍼셉트론** 을 실험 캔버스로 끌어서 놓습니다. 2클래스 향상된 의사 결정 트리와 비교하여 이 알고리즘이 수행하는 방법을 비교합니다.
 
-1. 캔버스에서 **모델 학습** 및 **모델 채점** 모듈을 복사하고 붙여넣습니다.
+1. 캔버스에서 **모델 학습** 및 **모델 점수 매기기** 구성 요소를 복사 하 여 붙여넣습니다.
 
-1. **모델 평가** 모듈을 캔버스로 끌어서 놓아 두 알고리즘을 비교합니다.
+1. **모델 평가** 구성 요소를 캔버스로 끌어 두 알고리즘을 비교 합니다.
 
 1. **제출** 을 클릭하여 파이프라인 실행을 설정합니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="캔버스의 나머지 모든 모듈 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="캔버스에 남아 있는 모든 구성 요소의 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
-1. 실행이 완료되면 **모델 평가** 모듈을 마우스 오른쪽 단추로 클릭하고 **평가 결과 시각화** 를 클릭합니다.
+1. 실행이 완료 되 면 **모델 평가** 구성 요소를 마우스 오른쪽 단추로 클릭 하 고 **평가 결과 시각화** 를 클릭 합니다.
 
     :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="결과 스크린샷":::
 
-제공된 메트릭은 ROC 곡선, 정밀도-리콜 다이어그램 및 리프트 곡선입니다. 메트릭을 살펴보면 첫 번째 모델이 두 번째 모델보다 효과적으로 실행된 것을 확인할 수 있습니다. 첫 번째 모델의 예측을 보려면 모델 채점 모듈을 마우스 오른쪽 단추로 클릭하고 채점된 데이터 세트 시각화를 클릭하여 예측 결과를 확인합니다.
+제공된 메트릭은 ROC 곡선, 정밀도-리콜 다이어그램 및 리프트 곡선입니다. 메트릭을 살펴보면 첫 번째 모델이 두 번째 모델보다 효과적으로 실행된 것을 확인할 수 있습니다. 첫 번째 모델이 예측 하는 것을 보려면 모델 점수 매기기 구성 요소를 마우스 오른쪽 단추로 클릭 하 고 점수가 매겨진 데이터 집합 시각화를 클릭 하 여 예측 결과를 확인 합니다.
 
 테스트 데이터 세트에 두 개의 열이 추가된 것을 확인할 수 있습니다.
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: d8d18d296a54b85cb3b571099e13f8c3e4e7a9c7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 27f338d093d2084df5ca00b61a8c258d04067b69
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529350"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563362"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Kibana 및 Grafana를 사용하여 로그 및 메트릭 보기
 
@@ -24,10 +24,10 @@ Kibana 및 Grafana 웹 대시보드는 Azure Arc 지원 데이터 서비스에�
 
 ## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Azure Arc에서 Azure SQL Managed Instance 모니터링
 
-Arc 지원 SQL Managed Instance에 대한 로그 및 모니터링 대시보드에 액세스하려면 다음 `azdata` CLI 명령을 실행합니다.
+Azure Arc 사용 SQL Managed Instance의 로그 및 모니터링 대시보드에 액세스 하려면 다음 CLI 명령을 실행 합니다. `azdata`
 
 ```azurecl
-az sql mi-arc endpoint list -n <name of SQL instance>
+az sql mi-arc endpoint list -n <name of SQL instance> --use-k8s
 
 ```
 관련 Grafana 대시보드는 다음과 같습니다.
@@ -96,4 +96,3 @@ az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 60
    - [Kibana 가이드](https://www.elastic.co/guide/en/kibana/current/index.html)
    - [Kibana의 데이터 시각화를 사용하는 대시보드 드릴다운 소개](https://www.elastic.co/webinars/dashboard-drilldowns-with-data-visualizations-in-kibana/)
    - [Kibana 대시보드를 빌드하는 방법](https://www.elastic.co/webinars/how-to-build-kibana-dashboards/)
-

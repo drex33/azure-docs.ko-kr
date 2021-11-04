@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 5e28a106c2341f87220a6413f74d2501b3f719cb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: bd98cd6a0317400bcae932d9f08f719cb8c7fc0f
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440453"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558918"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
@@ -63,18 +63,18 @@ az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 ### <a name="build-tools"></a>빌드 도구
 
 #### <a name="maven"></a>Maven
-Azure [Web Apps Maven 플러그 인을](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)사용하면 프로젝트 루트에 하나의 명령을 통해 Azure Web App용 Maven Java 프로젝트를 쉽게 준비할 수 있습니다.
+[Azure Web Apps에 대 한 Maven 플러그](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)인을 사용 하 여 프로젝트 루트에서 명령 하나를 사용 하 여 Azure 웹 앱에 대 한 Maven Java 프로젝트를 쉽게 준비할 수 있습니다.
 
 ```shell
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
 ```
 
-이 명령은 `azure-webapp-maven-plugin` 기존 Azure 웹앱을 선택하거나 새 웹앱을 만들라는 메시지를 표시하여 플러그 인 및 관련 구성을 추가합니다. 그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
+이 명령은 `azure-webapp-maven-plugin` 기존 Azure 웹 앱을 선택 하거나 새 앱을 만들도록 요청 하 여 플러그 인과 관련 구성을 추가 합니다. 그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
 ```shell
 mvn package azure-webapp:deploy
 ```
 
-의 샘플 구성은 다음과 `pom.xml` 같습니다.
+다음은의 샘플 구성입니다 `pom.xml` .
 ```xml
 <plugin> 
   <groupId>com.microsoft.azure</groupId>  
@@ -107,15 +107,15 @@ mvn package azure-webapp:deploy
 ```
 
 #### <a name="gradle"></a>Gradle
-1. 플러그 인을 에 추가하여 [Azure Web Apps Gradle 플러그](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) 인을 설치합니다. `build.gradle`
+1. 에 플러그 인을 추가 하 여 [Azure Web Apps에 대 한 Gradle 플러그 인](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) 을 설정 합니다 `build.gradle` .
     ```groovy
     plugins {
       id "com.microsoft.azure.azurewebapp" version "1.2.0"
     }
     ```
 
-1. 웹앱 세부 정보를 구성합니다. 해당 Azure 리소스가 없으면 생성됩니다.
-다음은 샘플 구성이며, 자세한 내용은 이 [문서를 참조하세요.](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration)
+1. 웹 앱 세부 정보를 구성 합니다. 해당 하는 경우 해당 Azure 리소스가 생성 됩니다.
+다음은 샘플 구성입니다. 자세한 내용은이 [문서](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration)를 참조 하세요.
     ```groovy
     azurewebapp {
         subscription = '<your subscription id>'
@@ -137,34 +137,34 @@ mvn package azure-webapp:deploy
     }
     ```
 
-1. 하나의 명령으로 배포합니다.
+1. 하나의 명령으로 배포 합니다.
     ```shell
     gradle azureWebAppDeploy
     ```
     
 ### <a name="ides"></a>IDE
-Azure는 다음을 포함하여 인기 있는 Java ID에서 원활한 Java App Service 개발 환경을 제공합니다.
-- *VS Code:* java [Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
-- *IntelliJ IDEA:*[IntelliJ를 사용하여 Azure App Service 위한 Hello World 웹앱 만들기](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
-- *Eclipse: Eclipse를*[사용하여 Azure App Service 위한 Hello World 웹앱 만들기](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
+Azure는 다음과 같은 인기 있는 Java Ide에서 원활한 Java App Service 개발 환경을 제공 합니다.
+- *VS Code*: [Java Web Apps Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
+- *INTELLIJ 아이디어*:[IntelliJ를 사용 하 여 Azure App Service에 대 한 헬로 월드 웹 앱 만들기](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
+- *Eclipse*:[eclipse를 사용 하 여 Azure App Service에 대 한 헬로 월드 웹 앱 만들기](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 
 ### <a name="kudu-api"></a>Kudu API
 #### <a name="java-se"></a>Java SE
 
-Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/publish/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서를 참조하세요.](./deploy-zip.md#deploy-warjarear-packages) 
+Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/publish/` 엔드포인트를 사용합니다. 이 API에 대 한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조 하세요. 
 
 > [!NOTE]
 >  .jar 애플리케이션의 이름을 App Service에서 `app.jar`로 정해야 애플리케이션을 식별하고 실행할 수 있습니다. 위에서 언급한 Maven 플러그인은 배포 중에 애플리케이션의 이름을 자동으로 바꿉니다. JAR 이름을 *app.jar* 로 변경하고 싶지 않은 경우에는 .jar 앱을 실행하는 명령이 포함된 셸 스크립트를 업로드하면 됩니다. 그런 다음, Portal의 구성 섹션에 있는 [시작 파일](./faq-app-service-linux.yml) 텍스트 상자에 이 스크립트의 절대 경로를 붙여 넣습니다. 시작 스크립트는 배치된 디렉터리에서 실행되지 않습니다. 따라서 항상 절대 경로를 사용하여 시작 스크립트의 파일을 참조해야 합니다(예: `java -jar /home/myapp/myapp.jar`).
 
 #### <a name="tomcat"></a>Tomcat
 
-.war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서를 참조하세요.](./deploy-zip.md#deploy-warjarear-packages)
+.war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대 한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조 하세요.
 
 ::: zone pivot="platform-linux"
 
 #### <a name="jboss-eap"></a>JBoss EAP
 
-JBoss에 .war 파일을 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서를 참조하세요.](./deploy-zip.md#deploy-warjarear-packages)
+JBoss에 .war 파일을 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대 한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조 하세요.
 
 .ear 파일을 배포하려면 [FTP를 사용합니다](deploy-ftp.md). .ear 애플리케이션은 애플리케이션의 구성에 정의된 컨텍스트 루트에 배포됩니다. 예를 들어 앱의 컨텍스트 루트가 `<context-root>myapp</context-root>`인 경우, `/myapp` 경로에서 사이트를 찾아 볼 수 있습니다. `http://my-app-name.azurewebsites.net/myapp` 웹앱을 루트 경로에 제공하려면 앱이 컨텍스트 루트를 루트 경로로 설정했는지 확인합니다. `<context-root>/</context-root>` 자세한 정보는 [웹 애플리케이션의 컨텍스트 루트 설정](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html)을 참조하세요.
 
@@ -211,9 +211,9 @@ Azul JVM을 사용하는 App Service에 대한 모든 Java 런타임은 Zulu 비
 
 #### <a name="timed-recording"></a>시간 기록
 
-시간이 걸리는 기록을 수행하려면 Java 애플리케이션의 PID(프로세스 ID)가 필요합니다. PID를 찾으려면 `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`에서 웹앱의 SCM 사이트로 브라우저를 엽니다. 이 페이지는 웹앱에서 실행 중인 프로세스를 표시합니다. 테이블에서 "java"라는 프로세스를 찾고 해당 PID(프로세스 ID)를 복사합니다.
+시간이 지정 된 기록을 수행 하려면 Java 응용 프로그램의 PID (프로세스 ID)가 필요 합니다. PID를 찾으려면 `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`에서 웹앱의 SCM 사이트로 브라우저를 엽니다. 이 페이지는 웹앱에서 실행 중인 프로세스를 표시합니다. 테이블에서 "java"라는 프로세스를 찾고 해당 PID(프로세스 ID)를 복사합니다.
 
-다음으로, SCM 사이트의 상단 도구 모음에서 **디버그 콘솔** 을 열고 다음 명령을 실행합니다. `<pid>`를 이전에 복사한 프로세스 ID로 바꿉니다. 이 명령은 Java 애플리케이션의 30초 프로파일러 기록을 시작하고 디렉터리에 라는 파일을 `timed_recording_example.jfr` `D:\home` 생성합니다.
+다음으로, SCM 사이트의 상단 도구 모음에서 **디버그 콘솔** 을 열고 다음 명령을 실행합니다. `<pid>`를 이전에 복사한 프로세스 ID로 바꿉니다. 이 명령은 Java 응용 프로그램의 30 초 profiler 기록을 시작 하 고 디렉터리에 이라는 파일을 생성 합니다 `timed_recording_example.jfr` `D:\home` .
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
@@ -237,7 +237,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
 ```
 
-30초 간격 동안 을 실행하여 녹음이 이루어지고 있는지 확인할 수 `jcmd 116 JFR.check` 있습니다. 그러면 지정된 Java 프로세스의 모든 기록이 표시됩니다.
+30 초 간격 동안를 실행 하 여 기록이 수행 되는지 유효성을 검사할 수 있습니다 `jcmd 116 JFR.check` . 그러면 지정된 Java 프로세스의 모든 기록이 표시됩니다.
 
 #### <a name="continuous-recording"></a>연속 기록
 
@@ -270,7 +270,7 @@ Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az_webapp_log_config)를 �
 
 Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az_webapp_log_config)를 통해 [애플리케이션 로깅](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */home/LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
 
-Linux 기반 App Services에 대 한 Azure Blob Storage 로깅은 [Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor) 사용 하 여 구성할 수 있습니다. 
+Linux 기반 App Services 대한 Azure Blob Storage 로깅은 Azure Monitor [](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor) 
 
 ::: zone-end
 
@@ -278,7 +278,7 @@ Linux 기반 App Services에 대 한 Azure Blob Storage 로깅은 [Azure Monitor
 
 ## <a name="customization-and-tuning"></a>사용자 지정 및 튜닝
 
-Linux용 Azure App Service는 기본적으로 Azure Portal 및 CLI를 통해 튜닝 및 사용자 지정이 가능합니다. 비 Java 관련 웹앱 구성에 대한 다음 문서를 검토하세요.
+Azure App Service Azure Portal 및 CLI를 통한 즉시 조정 및 사용자 지정을 지원합니다. 비 Java 관련 웹앱 구성에 대한 다음 문서를 검토하세요.
 
 - [앱 설정 구성](configure-common.md#configure-app-settings)
 - [사용자 지정 도메인 설정](app-service-web-tutorial-custom-domain.md)
@@ -286,12 +286,11 @@ Linux용 Azure App Service는 기본적으로 Azure Portal 및 CLI를 통해 튜
 - [CDN 추가](../cdn/cdn-add-to-web-app.md)
 - [Kudu 사이트 구성](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
-
 ### <a name="set-java-runtime-options"></a>Java 런타임 옵션 설정
 
 할당된 메모리 또는 기타 JVM 런타임 옵션을 설정하려면 `JAVA_OPTS`라는 [앱 설정](configure-common.md#configure-app-settings)을 옵션과 함께 만듭니다. App Service는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
 
-Azure Portal의 웹 앱에 대 한 **응용 프로그램 설정** 에서 `JAVA_OPTS` Java SE 또는 `CATALINA_OPTS` 와 같은 다른 설정을 포함 하는 Tomcat에 대해 라는 새 앱 설정을 만듭니다 `-Xms512m -Xmx1204m` .
+Azure Portal 웹앱의 애플리케이션 **설정** 아래에서 Java SE 또는 Tomcat에 대해 와 같은 다른 설정을 포함하는 라는 새 앱 `JAVA_OPTS` `CATALINA_OPTS` 설정을 `-Xms512m -Xmx1204m` 만듭니다.
 
 Maven 플러그 인에서 앱 설정을 구성하려면 Azure 플러그 인 섹션에서 설정/값 태그를 추가합니다. 다음 예에서는 특정 최소 및 최대 Java 힙 크기를 설정합니다.
 
@@ -304,6 +303,13 @@ Maven 플러그 인에서 앱 설정을 구성하려면 Azure 플러그 인 섹�
 </appSettings>
 ```
 
+::: zone pivot="platform-windows"
+
+> [!NOTE]
+> Windows App Service Tomcat을 사용하는 경우 web.config 파일을 만들 필요가 없습니다. 
+
+::: zone-end
+
 App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리케이션을 실행하는 개발자는 다음 옵션을 사용할 수 있습니다.
 
 - B1 및 S1 인스턴스: `-Xms1024m -Xmx1024m`
@@ -311,7 +317,7 @@ App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리�
 - B3 및 S3 인스턴스: `-Xms6144m -Xmx6144m`
 - P1v2 인스턴스: `-Xms3072m -Xmx3072m`
 - P2v2 인스턴스: `-Xms6144m -Xmx6144m`
-- P3v2가 인스턴스: `-Xms12800m -Xmx12800m`
+- P3v2 인스턴스: `-Xms12800m -Xmx12800m`
 - P1v3 인스턴스: `-Xms6656m -Xmx6656m`
 - P2v3 인스턴스: `-Xms14848m -Xmx14848m`
 - P3v3 인스턴스: `-Xms30720m -Xmx30720m`
@@ -394,7 +400,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-사용자를 로그 아웃 하려면 경로를 사용 `/.auth/ext/logout` 합니다. 다른 작업을 수행 하려면 [로그인 및 로그 아웃 사용자 지정](configure-authentication-customize-sign-in-out.md)에 대 한 설명서를 참조 하세요. Tomcat [HttpServletRequest 인터페이스](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) 및 해당 메서드에 대한 공식 설명서도 있습니다. 다음 서블릿 메서드도 App Service 구성에 따라 하이드레이션됩니다.
+사용자를 로그아웃하려면 `/.auth/ext/logout` 경로를 사용합니다. 다른 작업을 수행하려면 로그인 [및 로그아웃 사용자 지정에](configure-authentication-customize-sign-in-out.md)대한 설명서를 참조하세요. Tomcat [HttpServletRequest 인터페이스](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) 및 해당 메서드에 대한 공식 설명서도 있습니다. 다음 서블릿 메서드도 App Service 구성에 따라 하이드레이션됩니다.
 
 ```java
 public boolean isSecure()
@@ -416,7 +422,7 @@ public int getServerPort()
 
 먼저 [Key Vault에 앱 액세스 권한을 부여](app-service-key-vault-references.md#granting-your-app-access-to-key-vault)하고 [애플리케이션 설정에서 사용자 비밀을 KeyVault 참조로 만드는](app-service-key-vault-references.md#reference-syntax) 지침을 따릅니다. App Service 터미널에 원격으로 액세스하는 동안 환경 변수를 인쇄하여 참조가 비밀로 해결되는지 확인할 수 있습니다.
 
-이러한 비밀을 Spring 또는 Tomcat 구성 파일에 삽입하려면 환경 변수 삽입 구문(`${MY_ENV_VAR}`)을 사용합니다. 스프링 구성 파일은 [표면화 된 구성](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)에 대 한이 설명서를 참조 하세요.
+이러한 비밀을 Spring 또는 Tomcat 구성 파일에 삽입하려면 환경 변수 삽입 구문(`${MY_ENV_VAR}`)을 사용합니다. Spring 구성 파일의 경우 [외부화된 구성에](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)대한 이 설명서를 참조하세요.
 
 ::: zone pivot="platform-linux"
 
@@ -424,7 +430,7 @@ public int getServerPort()
 
 기본적으로 [App Service Linux에 업로드된](configure-ssl-certificate.md) 공용 또는 프라이빗 인증서는 컨테이너가 시작될 때 해당 Java 키 저장소에 로드됩니다. 인증서를 업로드한 후에는 Java 키 저장소에 로드하기 위해 App Service를 다시 시작해야 합니다. 공용 인증서는 `$JAVA_HOME/jre/lib/security/cacerts`에서 키 저장소로 로드되고 프라이빗 인증서는 `$JAVA_HOME/lib/security/client.jks`에 저장됩니다.
 
-Java 키 저장소의 인증서를 사용 하 여 JDBC 연결을 암호화 하려면 추가 구성이 필요할 수 있습니다. 선택한 JDBC 드라이버에 대 한 설명서를 참조 하세요.
+Java 키 저장소의 인증서를 통해 JDBC 연결을 암호화하는 데 더 많은 구성이 필요할 수 있습니다. 선택한 JDBC 드라이버에 대한 설명서를 참조하세요.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
@@ -452,7 +458,7 @@ keyStore.load(
 
 키 저장소에 인증서를 수동으로 로드할 수 있습니다. App Service가 인증서를 키 저장소에 자동으로 로드하지 못하도록 값이 `1`인 앱 설정 `SKIP_JAVA_KEYSTORE_LOAD`를 만듭니다. Azure Portal을 통해 App Service에 업로드된 모든 공용 인증서는 `/var/ssl/certs/`에 저장됩니다. 프라이빗 인증서는 `/var/ssl/private/`에 저장됩니다.
 
-App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keytool` 명령을 실행하여 Java Key Tool을 상호 작용하거나 디버그할 수 있습니다. 명령 목록은 [핵심 도구 설명서](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html)를 참조하세요. KeyStore API에 대한 자세한 내용은 [공식 설명서를 참조하세요.](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)
+App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keytool` 명령을 실행하여 Java Key Tool을 상호 작용하거나 디버그할 수 있습니다. 명령 목록은 [핵심 도구 설명서](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html)를 참조하세요. 키 저장소 API에 대 한 자세한 내용은 [공식 설명서](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)를 참조 하세요.
 
 ::: zone-end
 
@@ -462,7 +468,7 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 
 ### <a name="configure-application-insights"></a>Application Insights 구성
 
-Azure Monitor Application Insights는 고객이 오류, 병목 현상 및 사용 패턴을 관찰하여 애플리케이션 성능을 개선하고 MTTR(평균 해결 시간)을 줄일 수 있는 클라우드 네이티브 애플리케이션 모니터링 서비스입니다. 몇 번의 클릭 또는 CLI 명령을 통해 Node.js 또는 Java 앱에 대한 모니터링을 사용하도록 설정하고 로그, 메트릭 및 분산 추적을 자동으로 수집할 수 있어 앱에 SDK를 포함할 필요가 없습니다.
+Azure Monitor application insights는 고객이 오류, 병목 상태 및 사용 패턴을 관찰 하 여 응용 프로그램 성능을 개선 하 고 MTTR (평균 해결 시간)를 줄일 수 있도록 하는 클라우드 네이티브 응용 프로그램 모니터링 서비스입니다. 몇 번의 클릭 또는 CLI 명령을 통해 Node.js 또는 Java 앱에 대한 모니터링을 사용하도록 설정하고 로그, 메트릭 및 분산 추적을 자동으로 수집할 수 있어 앱에 SDK를 포함할 필요가 없습니다.
 
 #### <a name="azure-portal"></a>Azure portal
 
@@ -586,7 +592,7 @@ Spring Boot 애플리케이션에서 데이터 원본에 연결하려면 연결 
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
     ```
 
-이 [항목에 대한](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) 자세한 내용은 데이터 액세스 및 [외부화된 구성에](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) 대한 Spring Boot 설명서를 참조하세요.
+이 항목에 대 한 자세한 내용은 데이터 액세스 및 [표면화 된 구성](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) 에 대 한 [스프링 부팅 설명서](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) 를 참조 하세요.
 
 ::: zone pivot="platform-windows"
 
@@ -904,11 +910,11 @@ PowerShell에는 XSL 변환을 사용하여 XML 파일을 변환하는 기본 �
 
 이러한 지침은 데이터베이스 연결에 적용됩니다. 선택한 데이터베이스의 드라이버 클래스 이름 및 JAR 파일로 자리 표시자를 채워야 합니다. 공통 데이터베이스에 대한 클래스 이름 및 드라이버 다운로드가 포함된 표가 제공됩니다.
 
-| 데이터베이스   | 드라이버 클래스 이름                             | JDBC 드라이버                                                                      |
+| 데이터베이스   | 드라이버 클래스 이름                             | JDBC 드라이버                                                                              |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [다운로드](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [다운로드](https://dev.mysql.com/downloads/connector/j/)(“플랫폼 독립적” 선택) |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [다운로드](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [다운로드](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)     |
 
 JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하도록 Tomcat을 구성하려면 먼저 시작 시 Tomcat에서 읽은 `CATALINA_OPTS` 환경 변수를 사용자 지정합니다. [App Service Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)에서 앱 설정을 통해 이러한 값을 설정합니다.
 

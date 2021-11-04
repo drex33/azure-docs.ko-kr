@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 501b431e86b19c8e6cf3aa7cfacb0758691eb93b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 41f12d9421a49cb926a666469beda97cd8f53eac
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528657"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559735"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning용 CLI 확장 설치 및 사용
 
@@ -61,7 +61,10 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 
 ## <a name="install-the-extension"></a>확장 설치
 
-확장은 `az ml`로 시작하는 명령을 처음 사용하려고 할 때 자동으로 설치됩니다.
+CLI(v1) 확장을 설치하려면 다음을 수행합니다.
+```azurecli-interactive
+az extension add -n azure-cli-ml
+```
 
 ## <a name="update-the-extension"></a>확장 업데이트
 

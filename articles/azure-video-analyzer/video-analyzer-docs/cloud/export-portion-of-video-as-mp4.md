@@ -2,14 +2,14 @@
 title: Azure Video Analyzer 녹화 비디오의 일부를 MP4 파일로 내보내기
 description: 이 자습서에서는 Video Analyzer 계정 에코시스템 외부에서 다운로드하고 사용할 수 있는 Video Analyzer 비디오로 저장된 Video Analyzer 녹화 비디오의 일부를 MP4로 내보내는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 10/18/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 74b46b6c46e3ae6cb6ae9f4567b20bcee3e37ebe
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1da3d7b0a201f50ae2b3ed7e429cfb7673010cb6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053592"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552927"
 ---
 # <a name="tutorial-export-portion-of-recorded-video-as-an-mp4-file"></a>자습서: 녹화된 비디오의 일부를 MP4 파일로 내보내기
 

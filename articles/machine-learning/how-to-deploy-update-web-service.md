@@ -6,20 +6,20 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.date: 07/31/2020
+ms.date: 10/21/2021
 ms.custom: deploy
-ms.openlocfilehash: cbcda2cc8bf9621ce6b323bc2b80a3af5da12bba
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: ae53790d2fc119f1242f44326e8ca40b8483f9eb
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428980"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557265"
 ---
 # <a name="update-a-deployed-web-service"></a>배포된 웹 서비스 업데이트
 
 이 문서에서는 Azure Machine Learning을 사용하여 배포된 웹 서비스를 업데이트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Azure Machine Learning을 사용하여 웹 서비스를 이미 배포했다고 가정합니다. 웹 서비스를 배포하는 방법을 알아보려면 [다음 단계](how-to-deploy-and-where.md)를 따르세요.
 

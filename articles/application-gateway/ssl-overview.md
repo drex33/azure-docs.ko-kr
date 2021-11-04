@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
 ms.author: victorh
-ms.openlocfilehash: f8b0a8ac537e9fedaae107c8130dbe6cbee2d289
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: be89c299d5b45f54a5d147bf3841384526f54360
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131462294"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556676"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Application Gateway를 사용한 TLS 종료 및 종단간 TLS 개요
 
@@ -27,7 +27,7 @@ Application Gateway는 게이트웨이에서 TLS 종료를 지원합니다. 그 
 - **지능형 라우팅** - 트래픽 암호를 해독하여 Application Gateway는 헤더, URI 등과 같은 요청 콘텐츠에 액세스할 수 있으며 이 데이터를 사용하여 요청을 라우팅할 수 있습니다.
 - **인증서 관리** - 인증서를 구매하여 모든 백 엔드 서버가 아닌 Application Gateway에만 설치해야 합니다. 이렇게 하면 시간과 돈이 모두 절약됩니다.
 
-TLS 종료를 구성 하려면 TLS/SSL 인증서를 수신기에 추가 해야 합니다. 이를 통해 Application Gateway는 들어오는 트래픽의 암호를 해독 하 고 클라이언트에 응답 트래픽을 암호화할 수 있습니다. Application Gateway에 제공 된 인증서는 개인 키와 공개 키를 모두 포함 하는 PFX (개인 정보 Exchange) 형식 이어야 합니다.
+TLS 종료를 구성하려면 TLS/SSL 인증서를 수신기에 추가해야 합니다. 이렇게 하면 Application Gateway 들어오는 트래픽의 암호를 해독하고 클라이언트에 대한 응답 트래픽을 암호화할 수 있습니다. Application Gateway 제공된 인증서는 프라이빗 키와 퍼블릭 키를 모두 포함하는 PFX(개인 정보 Exchange) 형식이어야 합니다.
 
 > [!IMPORTANT] 
 > 수신기의 인증서를 사용하려면 전체 인증서 체인(CA의 루트 인증서, 중간 인증서, 리프 인증서)을 업로드하여 신뢰 체인을 설정해야 합니다. 
@@ -150,6 +150,7 @@ HTTPS 상태 프로브의 경우 Application Gateway v1 SKU는 HTTP 설정에 �
 | --- | --- | --- |
 | FQDN으로 TLS 핸드셰이크 중 SNI(server_name) 헤더 | 백 엔드 풀에서 FQDN으로 설정합니다. [RFC 6066](https://tools.ietf.org/html/rfc6066)에 따라 리터럴 IPv4 및 IPv6 주소는 SNI 호스트 이름에 허용되지 않습니다. <br> **참고:** 백 엔드 풀의 FQDN은 DNS를 백 엔드 서버의 IP 주소(공용 또는 개인)로 확인해야 합니다. | SNI 헤더(server_name)는 HTTP 설정에서 호스트 이름으로 설정되고, 그렇지 않으면 *PickHostnameFromBackendAddress* 옵션을 선택하거나 호스트 이름을 언급하지 않으면 백 엔드 풀 구성에서 FQDN으로 설정됩니다.
 | 백 엔드 풀 주소가 IP 주소이거나 HTTP 설정에 호스트 이름이 설정되어 있지 않은 경우 | 백 엔드 풀 항목이 FQDN이 아니면 SNI는 [RFC 6066](https://tools.ietf.org/html/rfc6066)에 따라 설정되지 않습니다. | SNI는 클라이언트에서 입력 FQDN의 호스트 이름으로 설정되고 백 엔드 인증서의 CN은 이 호스트 이름과 일치해야 합니다.
+| 호스트 이름이 HTTP 설정에 제공 되지 않지만, FQDN이 백 엔드 풀 멤버의 대상으로 지정 되었습니다. | SNI는 클라이언트에서 입력 FQDN의 호스트 이름으로 설정되고 백 엔드 인증서의 CN은 이 호스트 이름과 일치해야 합니다. | SNI는 클라이언트에서 입력 FQDN의 호스트 이름으로 설정되고 백 엔드 인증서의 CN은 이 호스트 이름과 일치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

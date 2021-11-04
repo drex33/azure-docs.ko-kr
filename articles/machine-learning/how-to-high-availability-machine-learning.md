@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 05/05/2021
-ms.openlocfilehash: 70429e7d9b1628f17672aaaa545c6c5bba3c30b1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/21/2021
+ms.openlocfilehash: 0a18a2bb7efd673ff6e2d6460890e80d52609b02
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032692"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564844"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>비즈니스 연속성 및 재해 복구를 위한 장애 조치(failover)
 
@@ -30,7 +30,7 @@ Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노
 > [!NOTE]
 > Azure Machine Learning 자체는 자동 장애 조치 또는 재해 복구를 제공하지 않습니다.
 
-작업 영역 또는 해당 구성 요소를 실수로 삭제 한 경우에도이 문서는 현재 지원 되는 복구 옵션을 제공 합니다.
+작업 영역 또는 해당 구성 요소를 실수로 삭제한 경우 이 문서에서는 현재 지원되는 복구 옵션도 제공합니다.
 
 ## <a name="understand-azure-services-for-azure-machine-learning"></a>Azure Machine Learning에 대한 Azure 서비스 이해
 

@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.custom: automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
-ms.date: 07/09/2020
-ms.openlocfilehash: 5d172148ec6d293d2a60a03bc60c0f94baa7a577
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: 6538ebfbb7aae0a8e2b97c4b41a124568db858c7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426115"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562307"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>해석력: 자동화된 Machine Learning의 모델 설명(미리 보기)
 

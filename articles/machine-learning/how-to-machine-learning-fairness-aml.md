@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 11/16/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 799ae40a42a8849fdf74bf7d89b30e08e26a00b1
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 635bde6c0d932ed0c77abb27d55770f52b59a1b9
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063719"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562450"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning을 사용하여 ML 모델의 공정성 평가(미리 보기)
 

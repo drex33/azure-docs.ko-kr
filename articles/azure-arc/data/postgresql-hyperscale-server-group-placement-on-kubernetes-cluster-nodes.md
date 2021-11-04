@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: b99df2f95838fe1913876a3e6a138935806df836
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 05dd347914d7be942c00232de78cf89484f07555
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535569"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555327"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 배치
 
@@ -139,7 +139,7 @@ Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 일부인 각 Po
 스케일 아웃하려면 다음 명령을 실행합니다.
 
 ```azurecli
-az postgres arc-server edit --name postgres01 --workers 3 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit --name postgres01 --workers 3 --k8s-namespace arc3 --use-k8s
 ```
 
 다음 출력이 생성됩니다.
@@ -152,15 +152,20 @@ postgres01 is Ready
 Azure Arc 데이터 컨트롤러에 배포된 서버 그룹을 나열하고 이제 서버 그룹이 작업자 3개와 함께 실행되는지 확인합니다. 명령 실행:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres arc-server list --k8s-namespace arc3 --use-k8s
 ```
 
 그리고 작업자 2개에서 3개로 스케일 아웃했는지 확인합니다.
 
 ```output
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    3
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 3
+  }
+]
 ```
 
 앞에서 설명한 것처럼 서버 그룹은 이제 총 4개의 pod를 사용합니다.
@@ -198,10 +203,10 @@ Node:         aks-agentpool-42715708-vmss000000
 
 |서버 그룹 역할|서버 그룹 pod|pod를 호스팅하는 Kubernetes 실제 노드
 |-----|-----|-----
-|코디네이터|postgres01-0|aks-agentpool-42715708-vmss000000
-|작업자|postgres01-1|aks-agentpool-42715708-vmss000002
-|작업자|postgres01-2|aks-agentpool-42715708-vmss000003
-|작업자|postgres01-3|aks-agentpool-42715708-vmss000000
+|코디네이터|postgres01c-0|aks-agentpool-42715708-vmss000000
+|작업자|postgres01w-1|aks-agentpool-42715708-vmss000002
+|작업자|postgres01w-2|aks-agentpool-42715708-vmss000003
+|작업자|postgres01w-3|aks-agentpool-42715708-vmss000000
 
 새 작업자(postgres01w-2)의 pod가 코디네이터와 동일한 노드에 배치되었는지 확인합니다. 
 
@@ -287,7 +292,7 @@ Kubernetes 클러스터의 새 실제 노드가 Azure Arc Data Services에 필�
 다섯 번째 실제 노드는 워크로드를 아직 호스트하고 있지 않습니다. Azure Arc 지원 PostgreSQL 하이퍼스케일을 스케일 아웃하면 Kubernetes는 새 PostgreSQL Pod의 배치를 최적화하며 이미 더 많은 워크로드를 호스트하고 있는 실제 노드에 이를 배치해서는 안 됩니다. 다음 명령을 실행하여 Azure Arc 지원 PostgreSQL 하이퍼스케일을 작업자 3개에서 4개로 조정합니다. 작업이 끝나면 서버 그룹이 구성되고 PostgreSQL 인스턴스 5개, 코디네이터 1개 및 작업자 4개에 배포됩니다.
 
 ```azurecli
-az postgres arc-server edit --name postgres01 --workers 4 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit --name postgres01 --workers 4 --k8s-namespace arc3 --use-k8s
 ```
 
 다음 출력이 생성됩니다.
@@ -300,15 +305,20 @@ postgres01 is Ready
 데이터 컨트롤러에 배포된 서버 그룹을 나열하고 이제 서버 그룹이 작업자 4개와 함께 실행되는지 확인합니다.
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres arc-server list --k8s-namespace arc3 --use-k8s
 ```
 
 그리고 작업자 3개에서 4개로 스케일 아웃했는지 관찰합니다. 
 
 ```console
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    4
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 4
+  }
+]
 ```
 
 이전처럼 서버 그룹이 이제 4개의 pod를 사용함을 확인합니다.

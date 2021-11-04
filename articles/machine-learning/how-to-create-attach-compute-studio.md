@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/16/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e20b1ded0e4468bf600ee4022db18165b5edcbc3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 669b14511c13ac1571082507ad8c16ed6b571600
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251588"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556543"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 모델 학습 및 배포용 컴퓨팅 대상 만들기
 
@@ -90,7 +90,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 학습, 일괄 유추 또는 강화 학습 워크로드에 사용되는 단일 또는 다중 노드 컴퓨팅 클러스터를 만듭니다. [위 단계](#portal-create)를 수행하여 컴퓨팅 클러스터를 만듭니다.  그런 다음, 양식을 다음과 같이 작성합니다.
 
-|필드  |설명  |
+|필드  |Description  |
 |---------|---------|
 | 위치 | 컴퓨팅 클러스터를 만들 Azure 지역입니다. 기본적으로 이는 작업 영역과 동일한 위치입니다. 작업 영역이 아닌 다른 영역으로 위치를 설정하는 것은 __미리 보기__ 에 제공되며 컴퓨팅 인스턴스가 아닌 __컴퓨팅 클러스터__ 에만 사용할 수 있습니다.</br>작업 영역 또는 데이터 저장소와 다른 지역을 사용하는 경우 네트워크 대기 시간 및 데이터 전송 비용이 증가할 수 있습니다. 클러스터를 만들 때와 클러스터에서 작업을 실행할 때 대기 시간 및 비용이 발생할 수 있습니다. |
 |가상 머신 유형 |  CPU 또는 GPU를 선택합니다. 이 영역은 생성되면 변경될 수 없습니다.     |

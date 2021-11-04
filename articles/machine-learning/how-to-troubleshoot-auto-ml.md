@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 03/08/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, automl, references_regions
-ms.openlocfilehash: 3634cce207462695fdb7fadfecfb2f3f520d621f
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 4916f65ef70e6df04a1dfacb690450da20e35386
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428106"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561975"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 문제 해결
 

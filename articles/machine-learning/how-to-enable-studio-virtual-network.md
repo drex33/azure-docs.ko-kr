@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 11/01/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: aa95dee6cbe0a5661bc5d82557a6f07d89267034
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c978e214e9a3c7e7bef5afc60f11263c1e9efe12
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460739"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562488"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용
 
@@ -147,13 +147,13 @@ Azure Data Lake Storage Gen2를 데이터 저장소로 사용하는 경우 Azure
 
 SQL 포함된 사용자를 만든 후에는 [GRANT T-SQL 명령](/sql/t-sql/statements/grant-object-permissions-transact-sql)사용하여 해당 사용자에게 권한을 부여합니다.
 
-## <a name="intermediate-module-output"></a>중간 모듈 출력
+## <a name="intermediate-component-output"></a>중간 구성 요소 출력
 
-Azure Machine Learning 디자이너 중간 모듈 출력을 사용하는 경우 디자이너의 모든 모듈에 대한 출력 위치를 지정할 수 있습니다. 보안, 로깅 또는 감사를 위해 중간 데이터 세트를 별도의 위치에 저장하는 데 사용할 수 있습니다. 출력을 지정하려면 다음 단계를 사용합니다.
+Azure Machine Learning designer 중간 구성 요소 출력을 사용 하는 경우 디자이너의 모든 구성 요소에 대 한 출력 위치를 지정할 수 있습니다. 보안, 로깅 또는 감사를 위해 중간 데이터 세트를 별도의 위치에 저장하는 데 사용할 수 있습니다. 출력을 지정하려면 다음 단계를 사용합니다.
 
-1. 출력을 지정하려는 모듈을 선택합니다.
-1. 오른쪽에 표시되는 모듈 설정 창에서 **출력 설정** 을 선택합니다.
-1. 각 모듈 출력에 사용할 데이터 저장소를 지정합니다.
+1. 출력에 지정할 구성 요소를 선택 합니다.
+1. 오른쪽에 표시 되는 구성 요소 설정 창에서 **출력 설정** 을 선택 합니다.
+1. 각 구성 요소 출력에 사용 하려는 데이터 저장소를 지정 합니다.
 
 가상 네트워크의 중간 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 액세스 권한이 없으면 파이프라인이 실패합니다.
 

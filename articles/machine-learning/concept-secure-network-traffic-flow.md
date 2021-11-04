@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/22/2021
-ms.openlocfilehash: 9e35609a6e6d450b2938dfbb4feab319f5a3c9c2
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.date: 10/21/2021
+ms.openlocfilehash: 119405dc4db6d31aaf2ac5b704af7798ce41837a
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660261"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564407"
 ---
 # <a name="network-traffic-flow-when-using-a-secured-workspace"></a>보안 작업 영역을 사용하는 경우 네트워크 트래픽 흐름
 
 Azure Machine Learning 작업 영역 및 연결된 리소스가 Azure Virtual Network 보호되면 리소스 간의 네트워크 트래픽이 변경됩니다. 가상 네트워크가 없으면 네트워크 트래픽이 공용 인터넷 또는 Azure 데이터 센터 내에서 흐릅니다. VNet(가상 네트워크)이 도입되면 네트워크 보안을 강화할 수도 있습니다. 예를 들어 VNet과 공용 인터넷 간의 인바운드 및 아웃바운드 통신을 차단합니다. 그러나 Azure Machine Learning 공용 인터넷의 일부 리소스에 액세스해야 합니다. 예를 들어 Azure 리소스 관리는 배포 및 관리 작업에 사용됩니다.
 
-이 문서에서는 공용 인터넷으로/에서 필요한 트래픽을 나열합니다. 또한 다음과 같은 시나리오에서 클라이언트 개발 환경과 보안 Azure Machine Learning 작업 영역 간에 네트워크 트래픽이 흐르는 방식을 설명합니다.
+이 문서에서는 공용 인터넷으로/에서 필요한 트래픽을 나열합니다. 또한 다음 시나리오에서 클라이언트 개발 환경과 보안 Azure Machine Learning 작업 영역 간에 네트워크 트래픽이 흐르는 방식을 설명합니다.
 
 * Azure Machine Learning __Studio를__ 사용하여 작업:
 
@@ -53,13 +53,13 @@ Azure Machine Learning 작업 영역 및 연결된 리소스가 Azure Virtual Ne
 ## <a name="inbound-and-outbound-requirements"></a>인바운드 및 아웃바운드 요구 사항
 
 
-| __시나리오__ | __필수 인바운드__ | __필요한 아웃바운드__ | __추가 구성__ | 
+| __시나리오__ | __필수 인바운드__ | __필수 아웃바운드__ | __추가 구성__ | 
 | ----- | ----- | ----- | ----- |
 | [스튜디오에서 작업 영역에 액세스](#scenario-access-workspace-from-studio) | 해당 없음 | <ul><li>Azure Active Directory</li><li>Azure Front Door</li><li>Azure Machine Learning Service</li></ul> | 사용자 지정 DNS 서버를 사용해야 할 수 있습니다. 자세한 내용은 [사용자 지정 DNS와 함께 작업 영역 사용을 참조하세요.](how-to-custom-dns.md) | 
 | [Studio에서 AutoML, 디자이너, 데이터 세트 및 데이터 저장소 사용](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | 해당 없음 | 해당 없음 | <ul><li>작업 영역 서비스 주체 구성</li><li>신뢰할 수 있는 Azure 서비스에서 액세스 허용</li></ul>자세한 내용은 [가상 네트워크에서 작업 영역을 보호하는 방법을 참조하세요.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) | 
-| [컴퓨팅 인스턴스 및 컴퓨팅 클러스터 사용](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>포트 44224의 Azure Machine Learning 서비스</li><li>포트 29876-29877의 Azure Batch Management 서비스</li></ul> | <ul><li>Azure Active Directory</li><li>Azure Resource Manager</li><li>Azure Machine Learning Service</li><li>Azure Storage 계정</li><li>Azure Key Vault</li></ul> | 방화벽을 사용하는 경우 사용자 정의 경로를 만듭니다. 자세한 내용은 [인바운드 및 아웃바운드 트래픽 구성을 참조하세요.](how-to-access-azureml-behind-firewall.md) | 
+| [컴퓨팅 인스턴스 및 컴퓨팅 클러스터 사용](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>포트 44224의 Azure Machine Learning 서비스</li><li>포트 29876-29877의 Azure Batch 관리 서비스</li></ul> | <ul><li>Azure Active Directory</li><li>Azure Resource Manager</li><li>Azure Machine Learning Service</li><li>Azure Storage 계정</li><li>Azure Key Vault</li></ul> | 방화벽을 사용하는 경우 사용자 정의 경로를 만듭니다. 자세한 내용은 [인바운드 및 아웃바운드 트래픽 구성을 참조하세요.](how-to-access-azureml-behind-firewall.md) | 
 | [Azure Kubernetes Service 사용](#scenario-use-azure-kubernetes-service) | 해당 없음 | AKS에 대한 아웃바운드 구성에 대한 자세한 내용은 [Azure Kubernetes Service 배포하는 방법을](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster)참조하세요. | 내부 Load Balancer 구성합니다. 자세한 내용은 [Azure Kubernetes Service 배포하는 방법을](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster)참조하세요. | 
-| [Azure Machine Learning 관리되는 Docker 이미지 사용](#scenario-use-docker-images-managed-by-azure-ml) | 해당 없음 | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` 글로벌 컨테이너 레지스트리</li></ul> | 작업 영역에 대한 Azure Container Registry VNet 뒤에 있는 경우 컴퓨팅 클러스터를 사용하여 이미지를 빌드하도록 작업 영역을 구성합니다. 자세한 내용은 [가상 네트워크에서 작업 영역을 보호하는 방법을 참조하세요.](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) | 
+| [Azure Machine Learning 관리되는 Docker 이미지 사용](#scenario-use-docker-images-managed-by-azure-ml) | 해당 없음 | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` 전역 컨테이너 레지스트리</li></ul> | 작업 영역에 대한 Azure Container Registry VNet 뒤에 있는 경우 컴퓨팅 클러스터를 사용하여 이미지를 빌드하도록 작업 영역을 구성합니다. 자세한 내용은 [가상 네트워크에서 작업 영역을 보호하는 방법을 참조하세요.](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) | 
 
 
 ## <a name="scenario-access-workspace-from-studio"></a>시나리오: 스튜디오에서 작업 영역에 액세스
@@ -72,7 +72,7 @@ Azure Machine Learning 작업 영역 및 연결된 리소스가 Azure Virtual Ne
 * 리소스에 인증하려면 __Azure Active Directory__ 사용됩니다.
 * 관리 및 배포 작업의 경우 __Azure Resource Manager__ 사용됩니다.
 * Azure Machine Learning 특정 작업의 경우 __Azure Machine Learning 서비스가__ 사용됩니다.
-* Azure Machine Learning Studio에 액세스하려면 ( https://ml.azure.com) , __Azure FrontDoor가__ 사용됩니다.
+* Azure Machine Learning Studio()에 액세스하기 위해 https://ml.azure.com) __Azure FrontDoor가__ 사용됩니다.
 * 대부분의 스토리지 작업의 경우 트래픽은 작업 영역에 대한 기본 스토리지의 프라이빗 엔드포인트를 통해 흐릅니다. 예외는 [AutoML, 디자이너, 데이터 세트 및 데이터 저장소 사용](#scenario-use-automl-designer-dataset-and-datastore-from-studio) 섹션에서 설명합니다.
 * 또한 VNet 내에서 리소스의 이름을 확인할 수 있는 DNS 솔루션을 구성해야 합니다. 자세한 내용은 [사용자 지정 DNS와 함께 작업 영역 사용을 참조하세요.](how-to-custom-dns.md)
 
@@ -102,14 +102,14 @@ Azure Machine Learning Studio의 다음 기능은 _데이터 프로파일링을 
 
 ## <a name="scenario-use-compute-instance-and-compute-cluster"></a>시나리오: 컴퓨팅 인스턴스 및 컴퓨팅 클러스터 사용
 
-Azure Machine Learning 컴퓨팅 인스턴스 및 컴퓨팅 클러스터는 Microsoft에서 호스트하는 관리형 서비스입니다. Azure Batch 서비스를 기반으로 빌드됩니다. Microsoft 관리형 환경에 있는 동안 VNet에도 삽입됩니다.
+Azure Machine Learning 컴퓨팅 인스턴스 및 컴퓨팅 클러스터는 Microsoft에서 호스트하는 관리되는 서비스입니다. Azure Batch 서비스를 기반으로 빌드됩니다. Microsoft 관리형 환경에 있는 동안 VNet에도 삽입됩니다.
 
-컴퓨팅 인스턴스 또는 컴퓨팅 클러스터를 만들 때 VNet에도 다음 리소스가 만들어집니다.
+컴퓨팅 인스턴스 또는 컴퓨팅 클러스터를 만들 때 VNet에 다음 리소스도 생성됩니다.
 
 * 필요한 아웃바운드 규칙이 있는 네트워크 보안 그룹입니다. 이러한 규칙은 Azure Machine Learning(포트 44224의 TCP) 및 Azure Batch 서비스(포트 29876-29877의 TCP)에서 __인바운드__ 액세스를 허용합니다.
 
     > [!IMPORTANT]
-    > 방화벽을 사용하여 VNet에 대한 인터넷 액세스를 차단하는 경우 이 트래픽을 허용하도록 방화벽을 구성해야 합니다. 예를 들어 Azure Firewall 사용하여 사용자 정의 경로를 만들 수 있습니다. 자세한 내용은 [방화벽에서 Azure Machine Learning 사용하는 방법을 참조하세요.](how-to-access-azureml-behind-firewall.md#inbound-configuration)
+    > 방화벽을 사용하여 VNet에 대한 인터넷 액세스를 차단하는 경우 이 트래픽을 허용하도록 방화벽을 구성해야 합니다. 예를 들어 Azure Firewall 사용하여 사용자 정의 경로를 만들 수 있습니다. 자세한 내용은 [방화벽과 함께 Azure Machine Learning 사용하는 방법을 참조하세요.](how-to-access-azureml-behind-firewall.md#inbound-configuration)
 
 * 공용 IP가 있는 부하 분산기.
 
@@ -120,7 +120,7 @@ Azure Machine Learning 컴퓨팅 인스턴스 및 컴퓨팅 클러스터는 Micr
 
 컴퓨팅 인스턴스 또는 클러스터에서 데이터 액세스는 VNet에 대한 Storage 계정의 프라이빗 엔드포인트를 통과합니다.
 
-컴퓨팅 인스턴스에서 Visual Studio Code 사용하는 경우 다른 아웃바운드 트래픽을 허용해야 합니다. 자세한 내용은 [방화벽에서 Azure Machine Learning 사용하는 방법을 참조하세요.](how-to-access-azureml-behind-firewall.md)
+컴퓨팅 인스턴스에서 Visual Studio Code 사용하는 경우 다른 아웃바운드 트래픽을 허용해야 합니다. 자세한 내용은 [방화벽과 함께 Azure Machine Learning 사용하는 방법을 참조하세요.](how-to-access-azureml-behind-firewall.md)
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="컴퓨팅 인스턴스 또는 클러스터를 사용하는 경우 트래픽 흐름 다이어그램":::
 

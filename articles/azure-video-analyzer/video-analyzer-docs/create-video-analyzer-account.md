@@ -3,18 +3,18 @@ title: Azure Video Analyzer 계정 만들기
 description: 이 항목에서는 Azure Video Analyzer의 계정을 만드는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/31/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3dc43f2d6882b4a1c22dee331e780a91c8425af7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ae759d67273461dff2c4fb8b37de222603bdcb7d
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031198"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563989"
 ---
 # <a name="create-a-video-analyzer-account"></a>Video Analyzer 계정을 만듭니다.
 
-Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들어야 합니다. 계정은 스토리지 계정 및 하나 이상의 [UAMI(사용자 할당 관리 ID)와][docs-uami]연결되어야 합니다. UAMI에는 스토리지 계정에 대한 Storage [Blob 데이터 기여자][docs-storage-access] 역할 및 [읽기][docs-role-reader] 권한자 역할의 권한이 있어야 합니다. 필요에 따라 Video Analyzer 계정과 IoT Hub 연결할 수 있습니다. Video Analyzer 에지 모듈을 [투명 게이트웨이로](./cloud/use-remote-device-adapter.md)사용하는 경우에 필요합니다. 이렇게 하는 경우 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 권한이 있는 UAMI를 추가해야 합니다. 스토리지 계정과 IoT Hub 또는 별도의 UAMI에 동일한 UAMI를 사용할 수 있습니다.
+Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들어야 합니다. 계정은 스토리지 계정 및 하나 이상의 [UAMI(사용자 할당 관리 ID)와][docs-uami]연결되어야 합니다. UAMI에는 스토리지 계정에 대한 Storage [Blob 데이터 기여자][docs-storage-access] 역할 및 [읽기][docs-role-reader] 권한자 역할의 권한이 있어야 합니다. 필요에 따라 Video Analyzer 계정과 IoT Hub 연결할 수 있습니다. Video Analyzer 에지 모듈을 [투명 게이트웨이로](./cloud/use-remote-device-adapter.md)사용하는 경우에 필요합니다. 이렇게 하는 경우 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 권한이 있는 UAMI를 추가해야 합니다. 스토리지 계정과 IoT Hub 둘 다에 대해 동일한 UAMI를 사용하거나 별도의 UAMI를 사용할 수 있습니다.
 
 이 문서에서는 새 Video Analyzer 계정을 만드는 단계를 설명합니다. Azure Portal 또는 [ARM(Azure Resource Manager) 템플릿][docs-arm-template]을 사용할 수 있습니다. 사용하려는 방법에 대한 탭을 선택합니다.
 
@@ -32,7 +32,7 @@ Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들�
 1. **만들기** 를 클릭합니다.
 1. **Video Analyzer 계정 만들기** 섹션에서 필수 값을 입력합니다.
 
-    | 이름 | 설명 |
+    | 이름 | Description |
     | ---|---|
     |**구독**|둘 이상의 구독이 있는 경우 액세스 권한이 있는 Azure 구독 목록에서 하나를 선택합니다.|
     |**리소스 그룹**|기존 리소스를 선택하거나 새 리소스를 만듭니다. 리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.|

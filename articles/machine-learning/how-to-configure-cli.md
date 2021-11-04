@@ -8,15 +8,15 @@ ms.subservice: mlops
 ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: d3b21575b1e0e7e8e5c049cdf692ea261b8173c6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: de4ca6e0fcbcc6394889a6c334c9dc19f69da041
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423899"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560989"
 ---
 # <a name="install-and-set-up-the-cli-v2"></a>CLI(v2) 설치 및 설정
 
@@ -33,35 +33,35 @@ ms.locfileid: "129423899"
 
 새 Machine Learning 확장에는 **Azure CLI 버전이 필요`>=2.15.0`** 합니다. 다음 요구 사항이 충족되는지 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_version":::
 
 충족되지 않으면 [Azure CLI를 업그레이드](/cli/azure/update-azure-cli)합니다.
 
 설치한 Azure CLI 확장을 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_extension_list":::
 
 `azure-cli-ml` 확장을 포함하여 `ml` 네임스페이스를 사용하는 충돌 확장이 설치되어 있지 않은지 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_extension_remove":::
 
 이제 `ml` 확장을 설치합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_install":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_install":::
 
 도움말 명령을 실행하여 설치를 확인하고 사용 가능한 하위 명령을 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_verify":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_ml_verify":::
 
 확장을 최신 버전으로 업그레이드할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_ml_update":::
 
 ### <a name="installation-on-linux"></a>Linux에서 설치
 
 Linux를 사용하는 경우 필요한 CLI 버전과 Machine Learning 확장을 설치하는 가장 빠른 방법은 다음과 같습니다.
 
-:::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
+:::code language="bash" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_extension_install_linux":::
 
 자세한 내용은 [Linux용 Azure CLI 설치](/cli/azure/install-azure-cli-linux)를 참조하세요.
 
@@ -69,29 +69,43 @@ Linux를 사용하는 경우 필요한 CLI 버전과 Machine Learning 확장을 
 
 로그인:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_login":::
 
 여러 Azure 구독에 대한 액세스 권한이 있는 경우 활성 구독을 설정할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_account_set":::
+
+필요에 따라 후속 명령에서 사용하기 위해 셸에서 일반 변수를 설치합니다.
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="set_variables":::
+
+> [!WARNING]
+> 이렇게 하면 Bash 구문을 사용하여 변수를 설정합니다. 셸에 필요한 대로 조정합니다. 변수를 사용하는 대신 인라인 아래 명령의 값을 바꿀 수도 있습니다.
 
 Azure 리소스 그룹이 아직 없는 경우 만들 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_group_create":::
+
+그리고 기계 학습 작업 영역을 만듭니다.
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 기계 학습 하위 명령에는 `--workspace/-w` 및 `--resource-group/-g` 매개 변수가 필요합니다. 반복적으로 입력하지 않으려면 기본값을 구성합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
 
 > [!TIP]
 > 대부분의 코드 예제에서는 기본 작업 영역 및 리소스 그룹을 설정했다고 가정합니다. 명령줄에서 이러한 항목을 재정의할 수 있습니다.
 
-이제 기계 학습 작업 영역을 만듭니다.
+를 사용하여 현재 기본값을 표시할 수 있습니다. `--list-defaults/-l`
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="list_defaults":::
+
+> [!TIP]
+> 와 를 `--output/-o` 결합하면 더 읽기 가능한 출력 형식을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Machine Learning CLI 확장을 사용하여 모델 학습(미리 보기)](how-to-train-cli.md)
+- [CLI를 사용하여 모델 학습(v2)](how-to-train-cli.md)
 - [Visual Studio Code Azure Machine Learning 확장 설정](how-to-setup-vs-code.md)
 - [Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 TensorFlow 모델 학습](tutorial-train-deploy-image-classification-model-vscode.md)

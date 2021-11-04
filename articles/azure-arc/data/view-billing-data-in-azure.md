@@ -7,104 +7,44 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 2c4e25aebf46ea13b69b8ca24d1336c4ba5521ad
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b54d77c5abb5e8043368ad1e8bce3d3865e68fd7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529418"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558766"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>청구 데이터를 Azure에 업로드하고 Azure Portal에서 보기
 
-> [!IMPORTANT] 
->  미리 보기 기간 동안 Azure Arc 지원 데이터 서비스를 사용하는 데 비용이 들지 않습니다. 청구 시스템이 엔드투엔드로 작동하지만 청구 미터는 $0으로 설정됩니다.  이 시나리오를 따르면 현재 **하이브리드 데이터 서비스** 라는 서비스와 **Microsoft.AzureArcData/`<resource type>`** 라는 유형의 리소스에 대한 항목이 청구서에 표시됩니다. 만든 Azure Arc의 각 데이터 서비스에 대한 레코드를 볼 수 있지만 각 레코드에 대한 요금은 0달러입니다.
+
 
 
 ## <a name="connectivity-modes---implications-for-billing-data"></a>연결 모드 - 청구 데이터에 대한 영향
 
-앞으로 Azure Arc 지원 데이터 서비스를 실행할 수 있는 두 가지 모드가 제공됩니다.
+Azure Arc 사용 데이터 서비스를 배포할 수 있는 두 가지 모드가 있습니다.
 
 - **간접적으로 연결됨** - Azure에 직접 연결되지 않습니다. 데이터는 내보내기/업로드 프로세스를 통해서만 Azure로 전송됩니다.
-- **직접 연결됨** - 이 모드에서는 Azure Arc 지원 데이터 서비스가 실행 중인 Kubernetes 클러스터와 Azure 간의 직접 연결을 제공하기 위해 Azure Arc 지원 Kubernetes 서비스에 종속됩니다. 이렇게 하면 더 많은 기능을 사용할 수 있으며 Azure PaaS에서 데이터 서비스를 관리하는 것처럼 Azure Portal 및 Azure CLI를 사용하여 Azure Arc 지원 데이터 서비스를 관리할 수도 있습니다.  이 연결 모드는 아직 미리 보기에서 사용할 수 없지만 곧 제공될 예정입니다.
+- **직접 연결** -이 모드에서는 azure arc 사용 데이터 서비스가 배포 되는 Kubernetes 클러스터와 azure 간에 직접 연결을 제공 하기 위해 azure Arc 사용 Kubernetes 서비스에 대 한 종속성이 제공 됩니다. 이렇게 하면 azure에서 더 많은 기능을 사용할 수 있으며 azure PaaS에서 데이터 서비스를 관리 하는 것 처럼 Azure Portal를 사용 하 여 Azure Arc 사용 데이터 서비스를 관리할 수도 있습니다.  
 
 [연결 모드](./connectivity.md)의 차이점에 대해 자세히 알아볼 수 있습니다.
 
 간접 연결 모드에서 청구 데이터는 Azure Arc 데이터 컨트롤러에서 보안 파일로 주기적으로 내보낸 다음 Azure에 업로드되어 처리됩니다.  곧 출시될 직접 연결 모드에서는 서비스 비용을 거의 실시간으로 볼 수 있도록 청구 데이터가 약 1시간 동안 Azure로 자동 전송됩니다. 간접적으로 연결된 모드에서 데이터를 내보내고 업로드하는 프로세스는 스크립트를 사용하여 자동화할 수도 있고, 이를 수행할 서비스를 구축할 수도 있습니다.
 
-## <a name="upload-billing-data-to-azure"></a>Azure에 청구 데이터 업로드
+## <a name="upload-billing-data-to-azure---indirectly-connected-mode"></a>Azure-간접 연결 모드로 청구 데이터 업로드
+
+> [!NOTE]
+> 사용량 (청구) 데이터의 업로드는 직접 연결 모드에서 자동으로 수행 됩니다. 다음 지침은 간접 연결 모드에만 해당 됩니다. 
 
 청구 데이터를 Azure에 업로드하려면 먼저 다음이 수행되어야 합니다.
 
 1. 아직 없는 경우 Azure Arc 지원 데이터 서비스를 만듭니다. 예를 들어 다음 중 하나를 만듭니다.
    - [Azure Arc에서 Azure SQL Managed Instance 만들기](create-sql-managed-instance.md)
    - [Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md)
-1. 아직 업로드하지 않은 경우 [Azure Monitor에 리소스 인벤토리, 사용량 데이터, 메트릭 및 로그를 업로드](upload-metrics-and-logs-to-azure-monitor.md)합니다.
-1. 청구 원격 측정 수집 프로세스에서 일부 청구 데이터를 수집할 수 있도록 데이터 서비스를 만든 후 최소 2시간 동안 기다립니다.
+2. 청구 원격 측정 수집 프로세스에서 일부 청구 데이터를 수집할 수 있도록 데이터 서비스를 만든 후 최소 2시간 동안 기다립니다.
+3. [리소스 인벤토리, 사용 현황 데이터, 메트릭 및 Azure Monitor 로그 업로드](upload-metrics-and-logs-to-azure-monitor.md) 에 설명 된 단계에 따라 사용량/청구/로그 데이터를 업로드 하는 데 필요한 필수 구성 요소를 설정 하 고, [Azure에 대 한 업로드 사용 데이터](upload-usage-data.md) 를 진행 하 여 청구 데이터를 업로드 합니다. 
 
-청구 데이터를 내보내려면 다음 명령을 실행합니다.
-
-```azurecli
-az arcdata dc export -t usage -p usage.json --k8s-namespace <namespace> --use-k8s
-```
-
-현재 파일은 내용을 볼 수 있도록 암호화되어 있지 않습니다. 텍스트 편집기에서 자유롭게 열어 내용이 어떻게 보이는지 확인합니다.
-
-`resources` 및 `data`의 두 가지 데이터 세트가 있음을 알 수 있습니다. `resources`는 데이터 컨트롤러, PostgreSQL 하이퍼스케일 서버 그룹 및 SQL Managed Instances입니다. 데이터의 `resources` 레코드는 리소스 기록의 관련 이벤트(만들기, 업데이트, 삭제 시기)를 캡처합니다. `data` 레코드는 시간당 지정된 인스턴스에서 사용할 수 있는 코어 수를 캡처합니다.
-
-`resource` 항목의 예:
-
-```console
-    {
-        "customObjectName": "<resource type>-2020-29-5-23-13-17-164711",
-        "uid": "4bc3dc6b-9148-4c7a-b7dc-01afc1ef5373",
-        "instanceName": "sqlInstance001",
-        "instanceNamespace": "arc",
-        "instanceType": "<resource>",
-        "location": "eastus",
-        "resourceGroupName": "production-resources",
-        "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2",
-        "isDeleted": false,
-        "externalEndpoint": "32.191.39.83:1433",
-        "vCores": "2",
-        "createTimestamp": "05/29/2020 23:13:17",
-        "updateTimestamp": "05/29/2020 23:13:17"
-    }
-```
-
-`data` 항목의 예:
-
-```console
-        {
-          "requestType": "usageUpload",
-          "clusterId": "4b0917dd-e003-480e-ae74-1a8bb5e36b5d",
-          "name": "DataControllerTestName",
-          "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2",
-          "resourceGroup": "production-resources",
-          "location": "eastus",
-          "uploadRequest": {
-            "exportType": "usages",
-            "dataTimestamp": "2020-06-17T22:32:24Z",
-            "data": "[{\"name\":\"sqlInstance001\",
-                       \"namespace\":\"arc\",
-                       \"type\":\"<resource type>\",
-                       \"eventSequence\":1, 
-                       \"eventId\":\"50DF90E8-FC2C-4BBF-B245-CB20DC97FF24\",
-                       \"startTime\":\"2020-06-17T19:11:47.7533333\",
-                       \"endTime\":\"2020-06-17T19:59:00\",
-                       \"quantity\":1,
-                       \"id\":\"4BC3DC6B-9148-4C7A-B7DC-01AFC1EF5373\"}]",
-           "signature":"MIIE7gYJKoZIhvcNAQ...2xXqkK"
-          }
-        }
-```
-
-다음 명령을 실행하여 usage.json 파일을 Azure에 업로드합니다.
-
-```azurecli
-az arcdata dc upload -p usage.json
-```
 
 ## <a name="view-billing-data-in-azure-portal"></a>Azure Portal에서 청구 데이터 보기
 

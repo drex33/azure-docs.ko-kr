@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 author: shivanissambare
-ms.date: 10/07/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: b772db78ebdcbede50b3decc4edd235c336471a6
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: a25416951d7cc124397d4701992ec9a04968d443
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713201"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562412"
 ---
 # <a name="extend-a-prebuilt-docker-image"></a>사전 빌드된 Docker 이미지 확장
 

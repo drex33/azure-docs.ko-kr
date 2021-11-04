@@ -2,14 +2,14 @@
 title: Azure Video Analyzer 모듈 쌍 JSON 스키마
 description: 이 문서에서는 Azure Video Analyzer 에지 모듈에 대한 모듈 쌍 JSON 스키마에 대한 개요를 제공합니다.
 ms.topic: how-to
-ms.date: 10/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f6dd3ae2e188e8179fde0cd3a684e647cbf92fe3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 360102a551ea6321a4b40063123176fc13672929
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053687"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559393"
 ---
 # <a name="module-twin-configuration-schema"></a>모듈 쌍 구성 스키마
 
@@ -25,8 +25,8 @@ Video Analyzer 에지 모듈은 다음 모듈 쌍 속성을 노출합니다.
 
 | 속성                    | 필수 | 동적 | Description                                                  |
 | :-------------------------- | :------- | :------ | :----------------------------------------------------------- |
-| `ProvisioningToken`          | 예      | 아니요      | 에지 모듈의 유효성을 검사하고 클라우드 서비스를 프로비전하는 인증 토큰(Video Analyzer 계정에 대한 액세스 포함) |
-| `ApplicationDataDirectory`    | Yes      | 아니요      | 구성을 유지하기 위해 탑재된 볼륨에 매핑되는 모듈 파일 시스템 내의 경로입니다.       |
+| `ProvisioningToken`          | 예      | 예      | 에지 모듈의 유효성을 검사하고 클라우드 서비스를 프로비전하는 인증 토큰(Video Analyzer 계정에 대한 액세스 포함) |
+| `ApplicationDataDirectory`    | 예      | 아니요      | 구성을 유지하기 위해 탑재된 볼륨에 매핑되는 모듈 파일 시스템 내의 경로입니다.       |
 | `DiagnosticsEventsOutputName` | 아니요       | 예     | 진단 이벤트에 대한 허브 출력입니다. (비어 있는 경우 진단이 게시되지 않았음을 의미함) |
 | `OperationalEventsOutputName` | 아니요       | 예     | 작업 이벤트에 대한 허브 출력입니다. (비어 있는 경우 작업 이벤트가 게시되지 않았음을 의미함) |
 | `LogLevel`                    | 아니요       | 예     | 자세한 정보, 정보(기본값), 경고, 오류, 없음 중 하나 |

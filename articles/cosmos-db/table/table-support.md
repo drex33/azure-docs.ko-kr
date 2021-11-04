@@ -4,16 +4,16 @@ description: 동일한 테이블 데이터 모델 작업을 공유하여 Azure C
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 11/03/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: f9f84e6e023fab37ec806cd498356fe2ccd0665a
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: d0039773cc1ddf50d3c34466d3480ecbe753cf0e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509065"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555593"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Table API 및 Azure Table storage로 개발하기
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]

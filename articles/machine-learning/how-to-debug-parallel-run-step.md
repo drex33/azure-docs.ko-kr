@@ -10,13 +10,13 @@ ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
-ms.date: 09/23/2020
-ms.openlocfilehash: 30a23150fc3d3de18cdde48c9ab07743613c5a15
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: 47ad08328588ca3b380298b6e796cc05d3af29fe
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426267"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564331"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>ParallelRunStep 문제 해결
 
@@ -249,12 +249,12 @@ def init():
     fil_path = log_dir / f"{proc_name}_<file_name>" # Avoid conflicting among worker processes with proc_name.
 ```
 
-## <a name="how-to-handle-log-in-new-processes"></a>새 프로세스에서 로그를 처리하는 방법
-모듈을 사용하여 입력 스크립트에서 새 프로세스를 [`subprocess`](https://docs.python.org/3/library/subprocess.html) 생성하고, 입력/출력/오류 파이프에 연결하고, 반환 코드를 가져올 수 있습니다.
+## <a name="how-to-handle-log-in-new-processes"></a>새 프로세스의 로그를 처리 하는 방법
+모듈을 사용 하 여 스크립트를 입력 하 여 새 프로세스를 생성 하 [`subprocess`](https://docs.python.org/3/library/subprocess.html) 고, 입력/출력/오류 파이프에 연결 하 고, 반환 코드를 가져올 수 있습니다.
 
-와 함께 함수를 사용하는 것이 [`run()`](https://docs.python.org/3/library/subprocess.html#subprocess.run) `capture_output=True` 좋습니다. 오류는 에 `logs/user/error/<node_id>/<process_name>.txt` 표시됩니다.
+에서 함수를 사용 하는 것이 좋습니다 [`run()`](https://docs.python.org/3/library/subprocess.html#subprocess.run) `capture_output=True` . 에 오류가 표시 됩니다 `logs/user/error/<node_id>/<process_name>.txt` .
 
-를 사용하려면 `Popen()` 다음과 같이 stdout/stderr을 파일로 리디렉션해야 합니다.
+를 사용 하려는 경우 `Popen()` 다음과 같이 stdout/stderr을 파일로 리디렉션해야 합니다.
 ```python
 from pathlib import Path
 from subprocess import Popen
@@ -280,9 +280,9 @@ def init():
 ```
 
 > [!NOTE]
-> 작업자 프로세스는 동일한 프로세스에서 "시스템" 코드와 항목 스크립트 코드를 실행합니다.
+> 작업자 프로세스가 동일한 프로세스에서 "시스템" 코드와 항목 스크립트 코드를 실행 합니다.
 >
-> 또는 가 지정되지 않은 경우 `stdout` `stderr` 항목 스크립트에서 로 만든 하위 `Popen()` 프로세스는 작업자 프로세스의 설정을 상속합니다.
+> `stdout`을 지정 하지 않거나 지정 하지 않으면 `stderr` 항목 스크립트에서로 만든 하위 프로세스는 `Popen()` 작업자 프로세스의 설정을 상속 합니다.
 >
 > `stdout`는 `logs/sys/node/<node_id>/processNNN.stdout.txt`에, `stderr`은 `logs/sys/node/<node_id>/processNNN.stderr.txt`에 쓰입니다.
 

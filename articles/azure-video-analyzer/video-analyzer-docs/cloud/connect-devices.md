@@ -1,53 +1,53 @@
 ---
-title: Azure Video Analyzer에 디바이스 커넥트
-description: 이 문서에서는 Azure Video Analyzer에 디바이스를 연결하는 방법을 설명합니다.
+title: Azure Video Analyzer로 장치 커넥트
+description: 이 문서에서는 Azure 비디오 분석기에 장치를 연결 하는 방법을 설명 합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 72a83593134b52c652d8d31bb441ecc083d88fea
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 605c7641c5960bf5643a0ca26e29339d5cd21db0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053595"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563248"
 ---
-# <a name="connect-devices-to-azure-video-analyzer"></a>Azure Video Analyzer에 디바이스 커넥트
+# <a name="connect-devices-to-azure-video-analyzer"></a>Azure Video Analyzer로 장치 커넥트
 
 [!INCLUDE [header](includes/cloud-env.md)]
 
-디바이스에서 비디오를 캡처하고 녹화하려면 Azure Video Analyzer 서비스가 [디바이스에 대한 RTSP](../terminology.md#rtsp) 연결을 설정해야 합니다. 디바이스가 방화벽 뒤에 있는 경우 이러한 연결이 차단되며 Azure에서 인바운드 연결을 허용하는 규칙을 항상 만들 수 있는 것은 아닙니다. 이러한 디바이스를 지원하려면 Video Analyzer에서 IoT Hub 통해 전송된 명령을 수신 대기하는 [Azure IoT 플러그 앤 플레이](../../../iot-develop/overview-iot-plug-and-play.md) 디바이스 구현을 빌드하고 설치한 다음, 서비스에 대한 보안 websocket 터널을 엽니다. 이러한 터널이 설정되면 Video Analyzer는 RTSP 서버에 연결할 수 있습니다.
+장치에서 비디오를 캡처 및 기록 하기 위해 Azure Video Analyzer 서비스는 [RTSP](../terminology.md#rtsp) 연결을 설정 해야 합니다. 장치가 방화벽 뒤에 있는 경우 이러한 연결이 차단 되며, Azure에서 인바운드 연결을 허용 하는 규칙을 만드는 것이 항상 가능한 것은 아닙니다. 이러한 장치를 지원 하기 위해 [Azure IoT 플러그 앤 플레이](../../../iot-develop/overview-iot-plug-and-play.md) 장치 구현을 빌드 및 설치 하 여 비디오 분석기에서 IoT Hub를 통해 전송 된 명령을 수신 하 고 서비스에 대 한 보안 websocket 터널을 열 수 있습니다. 이러한 터널이 설정 되 면 Video Analyzer는 RTSP 서버에 연결할 수 있습니다.
 
 ## <a name="overview"></a>개요 
 
-이 문서에서는 Video Analyzer가 디바이스에서 비디오를 캡처하고 녹화할 수 있는 Azure IoT PnP 디바이스 구현을 빌드하는 방법을 개략적인 개념으로 제공합니다. 
+이 문서에서는 비디오 분석기를 사용 하 여 장치에서 비디오를 캡처 및 기록 하는 데 사용할 수 있는 Azure IoT PnP 장치 구현을 빌드하기 위한 개략적인 개념을 제공 합니다. 
 
-애플리케이션은 다음을 수행해야 합니다. 
+응용 프로그램은 다음을 수행 해야 합니다. 
 
-1. IoT 디바이스로 실행 
-1. 특정 명령()을 통해 [IoT PnP](../../../iot-develop/overview-iot-plug-and-play.md) 인터페이스 구현 `tunnelOpen` 
-1. 이러한 명령을 받으면 다음을 수행합니다. 
-   * 받은 인수의 유효성 검사 
-   * 제공된 토큰을 사용하여 제공된 URL에 대한 보안 websocket 연결을 엽니다.
-   * 카메라의 RTSP 서버 TCP 연결에 websocket 바이트를 전달합니다.
+1. IoT 장치로 실행 
+1. 특정 명령 ()을 사용 하 여 [IoT PnP](../../../iot-develop/overview-iot-plug-and-play.md) 인터페이스를 구현 합니다. `tunnelOpen` 
+1. 이러한 명령이 수신 될 때: 
+   * 받은 인수 유효성 검사 
+   * 제공 된 토큰을 사용 하 여 제공 된 URL에 대 한 보안 websocket 연결을 엽니다.
+   * Websocket 바이트를 카메라의 RTSP 서버 TCP 연결로 전달
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/connect-devices/connect-devices.svg" alt-text="클라우드에 디바이스 커넥트":::
+> :::image type="content" source="./media/connect-devices/connect-devices.svg" alt-text="클라우드로 장치 커넥트":::
 
-## <a name="run-as-an-iot-device"></a>IoT 디바이스로 실행 
+## <a name="run-as-an-iot-device"></a>IoT 장치로 실행 
 
-Video Analyzer 애플리케이션은 Video Analyzer PnP 플러그 인으로 배포됩니다. 이렇게 하려면 Azure IoT [디바이스 SDK](../../../iot-develop/libraries-sdks.md#device-sdks) 중 하나를 사용하여 IoT PnP 디바이스 구현을 빌드해야 합니다. IoT Hub IoT 디바이스를 등록하여 IoT Hub 디바이스 ID 및 디바이스 연결 문자열을 가져옵니다.
+Video Analyzer 응용 프로그램은 Video Analyzer PnP 플러그인으로 배포 됩니다. 이렇게 하려면 [Azure IoT 장치 sdk](../../../iot-develop/libraries-sdks.md#device-sdks) 중 하나를 사용 하 여 IoT PnP 장치 구현을 빌드해야 합니다. IoT 장치를 IoT Hub에 등록 하 여 IoT Hub 장치 ID 및 장치 연결 문자열을 가져옵니다.
 
-### <a name="iot-device-clientconfiguration"></a>IoT 디바이스 클라이언트 구성
+### <a name="iot-device-clientconfiguration"></a>IoT 장치 클라이언트 구성
 
-* `“dtmi:azure:videoanalyzer:WebSocketTunneling;1”`PnP 쿼리를 지원하려면 OPTION_MODEL_ID 로 설정합니다.  
-* 디바이스가 WebSockets 프로토콜을 통해 MQTT 또는 MQTT를 사용하여 Azure IoT Hub에 연결하는지 확인합니다. 
-    * IoT 디바이스에 구성된 경우 HTTPS 프록시를 통해 IoT Hub 커넥트  
-*  `tunnelOpen`직접 메서드에 대한 콜백 등록   
+* `“dtmi:azure:videoanalyzer:WebSocketTunneling;1”`PnP 쿼리를 지원 하도록 OPTION_MODEL_ID 설정  
+* 장치가 Azure IoT 허브에 연결 하기 위해 mqtt 또는 websocket을 통한 mqtt 프로토콜을 사용 하 고 있는지 확인 합니다. 
+    * IoT 장치에 구성 된 경우 HTTPS 프록시를 통해 IoT Hub 커넥트  
+*  `tunnelOpen`직접 메서드에 대 한 콜백 등록   
 
-## <a name="implement-the-iot-pnp-interface-for-video-analyzer"></a>Video Analyzer용 IoT PnP 인터페이스 구현
+## <a name="implement-the-iot-pnp-interface-for-video-analyzer"></a>비디오 분석기에 대 한 IoT PnP 인터페이스 구현
 
-다음 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 모델은 Video Analyzer에 연결할 수 있는 디바이스에 대해 설명합니다.
+다음의 [DTDL (디지털 Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 모델은 Video Analyzer에 연결할 수 있는 장치를 설명 합니다.
 
 ```json
 {
@@ -94,30 +94,30 @@ Video Analyzer 애플리케이션은 Video Analyzer PnP 플러그 인으로 배�
 }
 ```
 
-IoT 디바이스는 직접 메서드 를 등록합니다.  `tunnelOpen` 여기서 요청 본문에는 위에 표시된 것처럼 , 및 매개 변수가 `remoteEndpoint` `remoteAuthorizationToken` `localPort` 있습니다.
+IoT 장치는 직접 메서드를 등록 합니다  `tunnelOpen` . 여기서 요청 본문에는 `remoteEndpoint` `remoteAuthorizationToken` `localPort` 위에 표시 된 것 처럼, 및 매개 변수가 포함 됩니다.
 
 ## <a name="implement-the-direct-method-tunnelopen"></a>직접 메서드 구현 `tunnelOpen`
-Video `tunnelOpen` Analyzer 서비스에서 직접 메서드를 호출하는 경우 애플리케이션은 다음을 수행해야 합니다.
+`tunnelOpen`Video Analyzer 서비스에서 직접 메서드를 호출 하는 경우 응용 프로그램은 다음을 수행 해야 합니다.
 
-1. 디바이스의 사용 가능한 RTSP 포트를 얻습니다.
-1. 직접 `localPort` 메서드 호출에 지정된 값을 사용 가능한 포트와 비교
-   * 일치하는 내용이 없으면 **BadRequest를** 반환합니다(아래 오류 응답 섹션 참조).
-1. "(카메라 IP 또는 호스트 이름): "에 대한 TCP 연결을 `localPort` 엽니다. "
-   * 연결이 실패하면 **BadRequest를** 반환합니다.
-   * 참고: 호스트 이름은 일반적으로 **localhost입니다.**
-1. 에 대한 웹 소켓 연결을 `remoteEndpoint` 엽니다(디바이스에 구성된 경우 프록시를 통해).
-   * HTTP "Authorization" 헤더를 "Bearer(remoteAuthorizationToken)"로 설정합니다.
-   * "PnpDevice" 값으로 "TunnelConnectionSource" 헤더 설정
-   * User-Agent 구현을 식별하는 데 도움이 되는 적절한 값으로 설정합니다. 
-      * 예를 들어 CPU, OS, 디바이스의 모델/메이크 아키텍처를 캡처할 수 있습니다.
-   * 웹 소켓 연결에 성공하면 200 OK를 반환하고, 그렇지 않으면 적절한 오류 코드를 반환합니다.
-1. 반환 응답(차단 안 함)
-1. IoT PnP 디바이스 구현은 websocket과 RTSP 서버 TCP 연결 간에 양방향으로 TCP 데이터 전송을 시작합니다.
+1. 장치의 사용 가능한 RTSP 포트를 가져옵니다.
+1. `localPort`직접 메서드 호출에 지정 된 값을 사용 가능한 포트와 비교 합니다.
+   * 일치 하는 항목이 없는 경우 **Badrequest** 반환 (아래의 오류 응답 섹션 참조)
+1. "(카메라 IP 또는 호스트 이름)"에 대 한 TCP 연결을 `localPort` 엽니다.
+   * 연결에 실패 하면 **Badrequest** 반환
+   * 참고: 호스트 이름은 일반적으로 **localhost** 입니다.
+1. 에 대 한 웹 소켓 연결 열기 `remoteEndpoint` (장치에 구성 된 경우 프록시를 통해)
+   * HTTP "Authorization" 헤더를 "전달자 (remoteAuthorizationToken)"로 설정 합니다.
+   * "Pnp 장치" 값을 사용 하 여 "TunnelConnectionSource" 헤더를 설정 합니다.
+   * User-Agent를 구현을 식별 하는 데 도움이 되는 적절 한 값으로 설정 합니다. 
+      * 예를 들어 장치의 CPU, OS, 모델/제조업체의 아키텍처를 캡처할 수 있습니다.
+   * 웹 소켓 연결에 성공 하면 200을 반환 하 고 그렇지 않으면 적절 한 오류 코드를 반환 합니다.
+1. 반환 응답 (차단 안 함)
+1. IoT PnP 장치 구현이 websocket 및 RTSP 서버 TCP 연결 간에 TCP 데이터 양방향을 보내기 시작 합니다.
 
-Video Analyzer 서비스는 실패 시 요청을 다시 `tunnelOpen` 시도하므로 애플리케이션에서 재시도는 필요하지 않습니다.
+Video Analyzer 서비스는 `tunnelOpen` 실패 시 요청을 다시 시도 하므로 응용 프로그램에서 다시 시도는 필요 하지 않습니다.
 
 ### <a name="error-responses"></a>오류 응답
-`tunnelOpen`요청이 실패하면 응답 본문은 다음과 이어야 합니다.
+`tunnelOpen`요청이 실패 하면 응답 본문은 다음과 같아야 합니다.
 
 ```
 {
@@ -128,17 +128,17 @@ Video Analyzer 서비스는 실패 시 요청을 다시 `tunnelOpen` 시도하�
 ```
 이러한 오류 응답의 예는 다음과 같습니다.
 
-* 로컬 포트는 RTSP 또는 RTSPS 포트로 사용할 수 없습니다 { "code": "400", "target": "(카메라 IP 또는 호스트 이름):{localPort}", "message": "로컬 포트를 사용할 수 없습니다"}
-* 시간 제한/RTSP 엔드포인트에 연결할 수 없음 { "code": "400", "target": "(카메라 IP 또는 호스트 이름):{localPort}", "message":"RTSP 엔드포인트에 연결할 수 없습니다."}
-*   웹 소켓 연결 시도의 시간 제한/오류 응답 { "code": "{WebSocket 응답 코드}", "target": "{remoteEndpoint}", "message": "{Web socket response error message}"}
+* 로컬 포트를 RTSP 또는 RTSPS 포트 {"code": "400", "target": "(카메라 IP 또는 호스트 이름): {localPort}", "message": "로컬 포트를 사용할 수 없음"}로 사용할 수 없습니다.
+* 제한 시간/RTSP 끝점 {"code": "400", "target": "(카메라 IP 또는 호스트 이름): {localPort}", "message": "RTSP 끝점에 연결할 수 없습니다."}에 연결할 수 없습니다.
+*   웹 소켓 연결 시도 {"code": "{WebSocket 응답 코드}", "대상": "{remoteEndpoint}", "메시지": "{웹 소켓 응답 오류 메시지}"}의 시간 제한/오류 응답
 
 
-## <a name="ingestion-to-video-analyzer"></a>Video Analyzer로의 스트리밍
-Video Analyzer에 비디오를 캡처하고 녹화하려면 터널링을 사용하도록 설정된 파이프라인 토폴로지 를 만들어야 합니다. 해당 토폴로지에서 라이브 파이프라인을 만들고 활성화해야 합니다. [이 프로세스에 대한 지침은 여기에 설명되어 있습니다.](use-remote-device-adapter.md#create-pipeline-topology-in-the-video-analyzer-service)
+## <a name="ingestion-to-video-analyzer"></a>비디오 분석기에 수집
+비디오 분석기에 비디오를 캡처 및 기록 하기 위해 터널링을 사용 하는 파이프라인 토폴로지를 만들어야 합니다. 해당 토폴로지에서 라이브 파이프라인을 만들고 활성화 해야 합니다. [이 프로세스에 대 한 지침은 여기에 설명 되어 있습니다.](use-remote-device-adapter.md#create-pipeline-topology-in-the-video-analyzer-service)
 
  
-## <a name="example-implementation"></a>구현 예제
-videoanalyzerhelp@microsoft.com디바이스에서 애플리케이션을 구현하여 Video Analyzer에 연결하려면 에 문의하세요.
+## <a name="example-implementation"></a>구현 예
+videoanalyzerhelp@microsoft.com장치에서 응용 프로그램을 구현 하 여 비디오 분석기에 연결 하려는 경우에 문의 하세요.
 
 ## <a name="see-also"></a>참고 항목 
 

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.custom: devplatv2
 author: wenxwei
 ms.author: wenxwei
-ms.date: 06/22/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 2d69263d1c4037640eefd44a1328414f8a47ad06
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: a626c789737b8af53c18946450c9be7ee5f91176
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705390"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562013"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>작업 만들기 UI를 사용하여 학습 작업 만들기(미리 보기)
 
@@ -28,7 +28,7 @@ Azure Machine Learning을 사용하여 학습 작업을 만드는 방법에는 �
 
 * Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요. 
 
-* Azure Machine Learning에서 작업의 개념 이해. [작업 소개](how-to-train-cli.md#introducing-jobs)를 참조하세요.
+* Azure Machine Learning에서 작업의 개념 이해. [CLI(v2)를 사용하여 모델을 학습하는 방법을](how-to-train-cli.md)참조하세요.
 
 ## <a name="get-started"></a>시작
 
@@ -55,7 +55,7 @@ Azure Machine Learning을 사용하여 학습 작업을 만드는 방법에는 �
 | --- | --- | 
 | 컴퓨팅 인스턴스 | [Azure Machine Learning 컴퓨팅 인스턴스란?](concept-compute-instance.md) | 
 | 컴퓨팅 클러스터 | [컴퓨팅 클러스터란?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| 연결된 Kubernetes 클러스터 | [Azure Arc 사용 machine learning (미리 보기)을 구성](how-to-attach-arc-kubernetes.md)합니다. | 
+| 연결된 Kubernetes 클러스터 | [Azure Arc 지원 기계 학습(미리 보기) 을 구성합니다.](how-to-attach-arc-kubernetes.md) | 
 
 1. 컴퓨팅 형식을 선택합니다.
 1. 기존 컴퓨팅 리소스를 선택합니다. 드롭다운에는 선택에 도움이 되는 노드 정보와 SKU 형식이 표시됩니다.
@@ -73,7 +73,7 @@ Azure Machine Learning을 처음 사용하는 경우 새 컴퓨팅을 만들기 
 | --- | --- | 
 | 컴퓨팅 인스턴스 | [Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리](how-to-create-manage-compute-instance.md) | 
 | 컴퓨팅 클러스터 | [Azure Machine Learning 컴퓨팅 클러스터 만들기](how-to-create-attach-compute-cluster.md) | 
-| 연결된 Kubernetes 클러스터 | [Azure Arc 사용 Kubernetes 클러스터 연결](how-to-attach-arc-kubernetes.md) | 
+| 연결된 Kubernetes 클러스터 | [Azure Arc 지원 Kubernetes 클러스터 연결](how-to-attach-arc-kubernetes.md) | 
 
 ## <a name="specify-the-necessary-environment"></a>필요한 환경 지정
 
@@ -85,7 +85,7 @@ Azure Machine Learning을 처음 사용하는 경우 새 컴퓨팅을 만들기 
 
 ### <a name="curated-environments"></a>큐레이팅 환경
 
-큐레이팅 환경은 일반적인 ML 워크로드에서 사용되는 Python 패키지의 Azure 정의 컬렉션입니다. 큐레이팅 환경은 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 환경은 실행 준비 오버헤드를 줄일 수 있는 캐시된 Docker 이미지에서 지원됩니다. “큐레이팅 환경” 페이지에 표시되는 카드에는 각 환경의 세부 정보가 표시됩니다. 자세한 내용은 [Azure Machine Learning 큐 레이트 environment](resource-curated-environments.md)를 참조 하세요.
+큐레이팅 환경은 일반적인 ML 워크로드에서 사용되는 Python 패키지의 Azure 정의 컬렉션입니다. 큐레이팅 환경은 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 환경은 실행 준비 오버헤드를 줄일 수 있는 캐시된 Docker 이미지에서 지원됩니다. “큐레이팅 환경” 페이지에 표시되는 카드에는 각 환경의 세부 정보가 표시됩니다. 자세한 내용은 [Azure Machine Learning 큐레이팅된 환경을](resource-curated-environments.md)참조하세요.
 
  [![큐레이팅 환경](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 

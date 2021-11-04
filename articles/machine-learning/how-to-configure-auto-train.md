@@ -8,19 +8,19 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 09/27/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 59bf4007cad596b4d14c17a729c9da4e4cfb3957
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0b8d9b3beaf965cc8c5c745d243da429c0de10e4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065269"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561027"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
-이 가이드에서는 Azure Machine Learning 자동화된 ML 사용하여 [Azure Machine Learning Python SDK로](/python/api/overview/azure/ml/intro) 자동화된 Machine Learning, AutoML, 학습 실행을 설정하는 방법을 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화된 ML 실험을 구성하는 데 사용할 수 있는 다양한 옵션에 대해 자세히 설명합니다.
+이 가이드에서는 자동화 된 ML를 사용 하 Azure Machine Learning 여 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 를 사용 하 여 자동화 된 기계 학습, automl, 학습 실행을 설정 하는 방법에 대해 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화 된 ML 실험을 구성 하는 데 사용할 수 있는 다양 한 옵션에 대해 자세히 설명 합니다.
 
 엔드투엔드 예제는 [자습서: AutoML - 회귀 모델 학습](tutorial-auto-train-models.md)을 참조하세요.
 
@@ -124,7 +124,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 * 데스크톱이나 랩톱 같은 사용자의 **로컬** 머신 - 일반적으로 데이터 세트가 작은 경우 및 아직 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
  
-* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 컴퓨팅 인스턴스는 컴퓨팅 대상으로도 지원됩니다.
+* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 계산 인스턴스는 계산 대상으로도 지원 됩니다.
 
     Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
@@ -136,7 +136,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 자동화된 ML 실험을 구성하는 데 사용할 수 있는 몇 가지 옵션이 있습니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)를 참조하세요.
 
-다음 예제는 분류 작업에 대한 것입니다. 이 실험에서는 AUC 가중치를 [기본 메트릭으로](#primary-metric) 사용하고 실험 시간 초과가 30분 및 교차 유효성 검사 접기 2개로 설정됩니다.
+다음은 분류 태스크에 대 한 예입니다. 실험에서는 [기본 메트릭으로](#primary-metric) 로가는가 중 되 고 실험 시간 제한이 30 분으로 설정 되 고 교차 유효성 검사 접기가 2로 설정 됩니다.
 
 ```python
     automl_classifier=AutoMLConfig(task='classification',
@@ -147,7 +147,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
                                    label_column_name=label,
                                    n_cross_validations=2)
 ```
-추가 설정이 필요한 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [Time-Series 예측에 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조하세요. 
+추가로 설치 해야 하는 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [시계열 예측을 위한 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조 하세요. 
 
 ```python
     time_series_settings = {
@@ -203,15 +203,15 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ### <a name="primary-metric"></a>기본 메트릭
 
-`primary_metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 됩니다.
+`primary_metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정됩니다.
 
-자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 비즈니스 요구를 가장 잘 표현 하는 메트릭을 선택 하는 것이 중요 한 고려 사항입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다. 다음 섹션에서는 작업 유형 및 비즈니스 시나리오에 따라 권장 되는 기본 메트릭을 요약 합니다. 
+자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 주요 고려 사항은 비즈니스 요구 사항을 가장 잘 나타내는 메트릭을 선택하는 것입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다. 다음 섹션에서는 작업 유형 및 비즈니스 시나리오에 따라 권장되는 기본 메트릭을 요약합니다. 
 
 [자동화된 Machine Learning 결과 이해](how-to-understand-automated-ml.md)에서 이러한 메트릭의 정의에 대해 알아보세요.
 
 #### <a name="metrics-for-classification-scenarios"></a>분류 시나리오에 대한 메트릭 
 
-Thresholded 메트릭 (예:, `accuracy` , `average_precision_score_weighted` `norm_macro_recall` 및)은 `precision_score_weighted` 작은 데이터 집합에 대해 최적화 되지 않을 수도 있습니다. 즉, 매우 큰 클래스 기울이기 (클래스 불균형)가 있거나 예상 메트릭 값이 0.0 또는 1.0에 매우 근접 한 경우입니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
+임계값 종속 메트릭(예: `accuracy` , , 및 `recall_score_weighted` )은 `norm_macro_recall` `precision_score_weighted` 작거나 클래스 기울이기(클래스 불균형)가 매우 크거나 예상 메트릭 값이 0.0 또는 1.0에 매우 가까운 데이터 세트에 최적화되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
@@ -222,10 +222,16 @@ Thresholded 메트릭 (예:, `accuracy` , `average_precision_score_weighted` `no
 | `precision_score_weighted` |  |
 
 #### <a name="metrics-for-regression-scenarios"></a>회귀 시나리오에 대한 메트릭
- 
-`r2_score` 및 `spearman_correlation`과 같은 메트릭은 예측할 값의 스케일이 많은 크기의 정도를 포함하는 경우 모델의 품질을 더 잘 나타낼 수 있습니다. 예를 들어 많은 사람의 급여가 2만 달러에서 10만 달러인 급여 추정의 경우 1억 달러 범위에 있는 일부 급여로 인해 스케일이 매우 높아집니다. 
 
-이 경우 `normalized_mean_absolute_error` 및 `normalized_root_mean_squared_error`는 급여가 3만 달러인 작업자에 대해 2천만 달러 버는 작업자와 같이 2만 달러 예측 오차를 처리합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). `normalized_mean_absolute_error` 및 `normalized_root_mean_squared_error`는 예측할 값이 비슷한 범위에 있는 경우에 유용 합니다.
+`r2_score`, `normalized_mean_absolute_error` 및 는 모두 예측 오류를 `normalized_root_mean_squared_error` 최소화하려고 합니다. `r2_score` 및 `normalized_root_mean_squared_error` 는 둘 다 평균 제곱 오차를 최소화하는 반면 `normalized_mean_absolute_error` 은 평균 절대값 오차를 축소합니다. 절대값은 모든 크기에서 오류를 처리하며 제곱 오차는 절대값이 큰 오류에 대해 훨씬 큰 패널티를 갖습니다. 더 큰 오류를 더 많이 발생시켜야 하는지 여부에 따라 제곱 오차 또는 절대 오차를 최적화하도록 선택할 수 있습니다.
+
+와 의 주요 차이점은 `r2_score` `normalized_root_mean_squared_error` 정규화된 방식과 그 의미입니다. `normalized_root_mean_squared_error` 는 범위별로 정규화된 제곱 평균 오차이며 예측의 평균 오차 크기로 해석될 수 있습니다. `r2_score` 는 예상 데이터 분산에 의해 정규화된 평균 제곱 오차입니다. 모델에서 캡처할 수 있는 변형의 비율입니다. 
+
+> [! 참고] `r2_score` 및 도 기본 `normalized_root_mean_squared_error` 메트릭과 유사하게 동작합니다. 고정 유효성 검사 집합이 적용되는 경우 이러한 두 메트릭은 동일한 대상, 평균 제곱 오차를 최적화하고 동일한 모델에 의해 최적화됩니다. 학습 집합만 사용할 수 있고 교차 유효성 검사가 적용되는 경우 에 대한 정규화기가 학습 집합의 범위로 고정되기 때문에 약간 `normalized_root_mean_squared_error` 다를 수 있지만 에 대한 정규화는 각 `r2_score` 접기의 분산이기 때문에 모든 접기마다 달라집니다.
+
+정확한 값 대신 순위가 관심 있는 경우 `spearman_correlation` 실제 값과 예측 간의 순위 상관 관계를 측정하기 때문에 더 나은 선택이 될 수 있습니다.
+
+그러나 현재 회귀 주소에 대한 기본 메트릭은 상대적 차이가 없습니다. 이러한 `r2_score` `normalized_mean_absolute_error` 두 데이터 요소가 `normalized_root_mean_squared_error` 회귀를 위해 동일한 데이터 세트에 속하는 경우 , 및 는 $20k의 급여가 $30k인 작업자에 대해 $20k 예측 오류를 동일하게 처리합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). 상대적 차이 문제를 해결하기 위해 사용 가능한 기본 메트릭을 사용하여 모델을 학습한 다음, 또는 가 가장 적합한 모델을 선택할 수 `mean_absolute_percentage_error` `root_mean_squared_log_error` 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
@@ -379,7 +385,7 @@ run = experiment.submit(automl_config, show_output=True)
 자식 실행 및 수행 가능한 시기를 관리하는 데 도움이 되도록 실험당 전용 클러스터를 만들고 실험의 `max_concurrent_iterations` 수를 클러스터의 노드 수와 일치시키는 것이 좋습니다. 이러한 방식으로 클러스터의 모든 노드를 동시에 사용하여 원하는 동시 자식 실행/반복 횟수를 지정할 수 있습니다.
 
 `AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.
-계산 인스턴스의 경우 `max_concurrent_iterations` 계산 인스턴스 VM의 코어 수와 동일 하 게 설정할 수 있습니다.
+컴퓨팅 인스턴스의 경우 을 `max_concurrent_iterations` 컴퓨팅 인스턴스 VM의 코어 수와 동일하게 설정할 수 있습니다.
 
 ## <a name="explore-models-and-metrics"></a>모델 및 메트릭 탐색
 
@@ -417,7 +423,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-동일한 실험 노트북 내에서 제출 및 학습 된 로컬 또는 원격 실행의 경우, 메서드를 사용 하 여 최상의 모델을 전달할 수 있습니다 `get_output()` . 
+동일한 실험 Notebook 내에서 제출되고 학습된 로컬 또는 원격 실행의 경우 메서드를 사용하여 최상의 모델을 전달할 수 `get_output()` 있습니다. 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -533,9 +539,9 @@ model = run.register_model(model_name = model_name,
 
 모델 해석력을 통해 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 모델과 배포된 모델의 학습 및 유추 시간에 모델 해석력 기능을 사용할 수 있도록 다양한 패키지가 포함되어 있습니다.
 
-자동화 된 ML 실험 내에서 특히 [interpretability 기능을 사용 하도록 설정](how-to-machine-learning-interpretability-automl.md) 하는 방법을 참조 하세요.
+특히 자동화된 ML 실험 내에서 [해석 기능 기능을 사용하도록 설정하는](how-to-machine-learning-interpretability-automl.md) 방법을 참조하세요.
 
-자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 일반적인 내용은 [interpretability의 개념 문서](how-to-machine-learning-interpretability.md) 를 참조 하세요.
+자동화된 기계 학습 이외의 SDK의 다른 영역에서 모델 설명 및 기능 중요도를 사용하도록 설정하는 방법에 대한 일반적인 내용은 [해석력에 대한 개념 문서를 참조하세요.](how-to-machine-learning-interpretability.md)
 
 > [!NOTE]
 > ForecastTCN 모델은 현재 설명 클라이언트에서 지원되지 않습니다. 이 모델은 최상의 모델로 반환되고 주문형 설명 실행을 지원하지 않는 경우 설명 대시보드를 반환하지 않습니다.

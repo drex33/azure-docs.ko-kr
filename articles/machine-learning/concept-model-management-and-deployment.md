@@ -8,16 +8,16 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: jpe316
 ms.author: jordane
-ms.date: 07/08/2021
+ms.date: 10/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: e58e820471bbde5d56996958b82c573c69d332b8
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: e23150105f2242f5db507cca1be39aca27f26786
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427175"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561008"
 ---
-# <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning 모델 관리, 배포, 계보 및 모니터링
+# <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포, 계보 및 모니터링
 
 이 문서에서는 Azure Machine Learning 사용하여 모델의 수명 주기를 관리하는 방법을 알아봅니다. Azure Machine Learning은 Machine Learning Operations(MLOps) 방식을 사용합니다. MLOps는 기계 학습 솔루션의 품질 및 일관성을 개선합니다. 
 

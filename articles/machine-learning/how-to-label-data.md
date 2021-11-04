@@ -1,20 +1,20 @@
 ---
 title: 이미지 및 텍스트 문서에 레이블 지정
 title.suffix: Azure Machine Learning
-description: 데이터 레이블 지정 도구를 사용하여 데이터 레이블 지정 프로젝트에서 Machine Learning 텍스트 또는 레이블 이미지에 레이블을 빠르게 지정합니다.
+description: 데이터 레이블 지정 도구를 사용하여 데이터 레이블 지정 프로젝트에서 Machine Learning 대한 텍스트 레이블을 빠르게 지정하거나 이미지에 레이블을 지정합니다.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml, ignite-fall-2021
-ms.openlocfilehash: 3fae9f8f6e5c0e54d42751456b693a4bc094771c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a811c63e29800fa7f79d620f358e06939168ce4c
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131079380"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563039"
 ---
 # <a name="labeling-images-and-text-documents"></a>이미지 및 텍스트 문서에 레이블 지정
 
@@ -67,6 +67,8 @@ ms.locfileid: "131079380"
     * 어느 시점에서 프로젝트 이름 옆에 **미리 레이블이 지정되어** 있는 작업이 표시될 수 있습니다.  그러면 기계 학습 분류 모델에서 제공하는 제안된 레이블로 항목이 표시됩니다. 어떤 기계 학습 모델도 100% 정확성을 가지고 있지는 않습니다. 모델을 신뢰할 수 있는 데이터만 사용하지만 이러한 데이터는 여전히 잘못된 레이블이 지정될 수 있습니다.  레이블이 표시되면 페이지를 제출하기 전에 잘못된 레이블을 수정합니다.
 
 특히 레이블 지정 프로젝트의 초기에 기계 학습 모델은 이미지의 작은 하위 세트에 레이블을 지정할 정도로만 정확할 수 있습니다. 이러한 이미지가 레이블 지정되면 레이블 지정 프로젝트가 수동 레이블 지정으로 반환되어 다음 라운드 모델 학습에 대한 추가 데이터를 수집합니다. 시간이 지남에 따라 모델은 더 높은 비율의 이미지에 대해 더 확실하게 되므로 나중에 프로젝트에서 더 많은 사전 레이블 작업을 진행합니다.
+
+미리 레이블이 지정된 작업이 더 이상 없으면 레이블 확인 또는 수정을 중지하고 항목에 수동으로 태그를 지정하는 것으로 돌아갑니다.
 
 ## <a name="image-tasks"></a><a name="image-tasks"></a> 이미지 작업
 
@@ -168,13 +170,13 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 
 이미지에 대한 다각형을 만든 후 **제출** 을 선택하여 작업을 저장하지 않으면 진행 중인 작업이 저장되지 않습니다.
 
-## <a name="label-text-preview"></a><a name="label-text"></a>레이블 텍스트(미리 보기)
+## <a name="label-text-preview"></a><a name="label-text"></a>레이블 텍스트 (미리 보기)
 
 > [!IMPORTANT]
 > 텍스트 레이블 지정은 공개 미리 보기로 제공됩니다.
 > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-텍스트에 태그를 지정할 때 도구 모음을 사용하여 다음을 수행합니다.
+텍스트 태그를 지정 하는 경우 도구 모음을 사용 합니다.
 
 * 텍스트 크기 늘리기 또는 줄이기
 * 글꼴 변경

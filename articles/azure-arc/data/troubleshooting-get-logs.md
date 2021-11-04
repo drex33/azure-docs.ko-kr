@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 82152756b5caf5bfbe0301a14185d8ffed1d1afe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4b61faba9abd2f4c1af5db559dd28fa5a8e7c013
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535723"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555251"
 ---
 # <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스 문제를 해결하기 위한 로그 가져오기
 
@@ -33,13 +33,13 @@ ms.locfileid: "122535723"
 다음 명령을 실행하여 로그를 덤프합니다.
 
    ```azurecli
-   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
    예를 들면 다음과 같습니다.
 
    ```azurecli
-   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
 데이터 컨트롤러는 `logs`라는 하위 디렉터리에서 현재 작업 디렉터리에 로그 파일을 만듭니다. 
@@ -186,4 +186,3 @@ az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps -
             ├───journal
             └───openvpn
 ```
-

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: wenxwei
 ms.author: wenxwei
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.reviewer: peterlu
 ms.custom: devplatv2
-ms.openlocfilehash: 89fb2c08aa76b88110bb5832f297d08d5891dda4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: f411d33baea7863b9139069f1eefd1282cf7b730
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448323"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562089"
 ---
 # <a name="train-models-with-rest-preview"></a>REST를 사용하여 모델 학습(미리 보기)
 
@@ -92,7 +92,7 @@ LightGBM 예제는 LightGBM 환경에서 실행해야 합니다. PUT 요청을 �
 
 `Docker`를 사용하여 docker 이미지를 구성하고 `condaFile`을 사용하여 conda 종속성을 추가할 수 있습니다. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### <a name="datastore"></a>데이터 저장소
 
@@ -114,7 +114,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 이제 데이터 저장소가 생겼으므로 데이터 세트를 만들 수 있습니다. 이 예제에서는 공통 데이터 세트 `iris.csv`를 사용하고 `path`에서 이 데이터 세트를 가리킵니다. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### <a name="code"></a>코드
 
@@ -128,7 +128,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 코드를 업로드한 후에는 PUT 요청으로 코드를 지정하고 `datastoreId`를 사용하여 데이터 저장소를 참조할 수 있습니다. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## <a name="submit-a-training-job"></a>학습 작업 제출
 
@@ -145,7 +145,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 다음 명령을 사용하여 학습 작업을 제출합니다.
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## <a name="submit-a-hyperparameter-sweep-job"></a>하이퍼 매개 변수 스윕 작업 제출
 
@@ -162,7 +162,7 @@ Azure Machine Learning에서는 학습 하이퍼 매개 변수를 효율적으�
 
 동일한 LightGBM 예제를 사용하여 스윕 작업을 만들려면 다음 명령을 사용합니다. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## <a name="next-steps"></a>다음 단계
 

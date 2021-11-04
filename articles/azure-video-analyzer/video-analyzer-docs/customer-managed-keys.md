@@ -4,13 +4,13 @@ description: Azure Video Analyzer에서 고객 관리형 키(즉, Bring Your Own
 author: anilmur
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: e86d2eb8883efb887a598f93d191ae9070ef2b67
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.date: 11/04/2021
+ms.openlocfilehash: 749c70286af3c6d182dc1e8a925ad7fb4c8e815a
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129403001"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552680"
 ---
 # <a name="customer-managed-keys-with-azure-video-analyzer"></a>Azure Video Analyzer를 사용한 고객 관리형 키
 

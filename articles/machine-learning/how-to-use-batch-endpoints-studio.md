@@ -9,14 +9,14 @@ ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
-ms.date: 08/16/2021
+ms.date: 10/21/2021
 ms.custom: how-to, studio, managed-batch-endpoints
-ms.openlocfilehash: 290d13c050a624c660174e3d8e272c67e90a9207
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d9d6287903466283e0b94e246a17a75a77929c8a
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424145"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560590"
 ---
 # <a name="how-to-use-batch-endpoints-preview-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 일괄 처리 엔드포인트(미리 보기)를 사용하는 방법
 
@@ -85,7 +85,7 @@ Azure Machine Learning 스튜디오에서 일괄 처리 엔드포인트를 만�
 
 ### <a name="overwrite-settings"></a>설정 덮어쓰기
 
-일부 설정은 일괄 채점 작업을 시작할 때 덮어쓰일 수 있습니다. 예를 들어 컴퓨팅 리소스를 더 효율적으로 사용하거나 성능을 향상하기 위해 설정을 덮어쓸 수 있습니다. 설정을 재정의하려면 __Override deployment settings__(배포 설정 재정의)를 선택하고 설정을 제공합니다. 자세한 내용은 [일괄 처리 엔드포인트 사용](how-to-use-batch-endpoint.md#overwrite-settings)을 참조하세요.
+일부 설정은 일괄 채점 작업을 시작할 때 덮어쓰일 수 있습니다. 예를 들어 컴퓨팅 리소스를 더 효율적으로 사용하거나 성능을 향상하기 위해 설정을 덮어쓸 수 있습니다. 설정을 재정의하려면 __Override deployment settings__(배포 설정 재정의)를 선택하고 설정을 제공합니다. 자세한 내용은 [일괄 처리 엔드포인트 사용](how-to-use-batch-endpoint.md#configure-the-output-location-and-overwrite-settings)을 참조하세요.
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="일괄 작업을 시작할 때 덮어쓰기 설정의 스크린샷":::
 

@@ -8,15 +8,15 @@ ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: laobri
 author: lobrien
-ms.date: 8/25/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: be7c64940466d3e1379c407970e5bd71645d882b
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a28a9b5cc6241c36e6dfdca253a4e56af480b9d8
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429626"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557512"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>기계 학습 파이프라인 게시 및 추적
 
@@ -26,7 +26,7 @@ ms.locfileid: "129429626"
 
 기계 학습 파이프라인은 기계 학습 작업에 재사용 가능한 워크플로입니다. 파이프라인의 이점 중 하나는 협업입니다. 또한 새 버전을 만드는 동안 고객이 현재 모델을 사용할 수 있도록 파이프라인의 버전을 관리할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 모든 파이프라인 리소스를 수용할 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -350,13 +350,13 @@ response = requests.post(rest_endpoint,
 
 1. 파이프라인 엔드포인트의 이전 실행 결과를 실행, 사용 또는 검토하려면 특정 파이프라인을 선택합니다.
 
-## <a name="disable-a-published-pipeline&quot;></a>게시된 파이프라인 사용 안 함
+## <a name="disable-a-published-pipeline"></a>게시된 파이프라인 사용 안 함
 
 게시된 파이프라인 목록에서 파이프라인을 숨기려면 스튜디오 또는 SDK에서 파이프라인을 사용하지 않도록 설정합니다.
 
 ```python
 # Get the pipeline by using its ID from Azure Machine Learning studio
-p = PublishedPipeline.get(ws, id=&quot;068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 26338164ca073ff5d9b331d36a5a9d935a3f3468
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: acf4d6fa3057dca4d1b7ccf0c08ee8c8ca5ef31a
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707607"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555529"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
 
@@ -34,8 +34,8 @@ AI 보강은 비텍스트 원본과 구분되지 않는 텍스트에서 잠재�
 
 ## <a name="hands-on-walkthroughs"></a>실습 연습
 
-+ [빠른 시작: 텍스트 번역 및 엔터티 기술체 만들기](cognitive-search-quickstart-blob.md)
-+ [빠른 시작: OCR 이미지 기술셋 만들기](cognitive-search-quickstart-ocr.md)
++ [빠른 시작: 텍스트 번역 및 엔터티 기술 만들기](cognitive-search-quickstart-blob.md)
++ [빠른 시작: OCR 이미지 만들기 기술](cognitive-search-quickstart-ocr.md)
 + [자습서: AI를 사용하는 보강 인덱싱](cognitive-search-tutorial-blob.md)
 + [자습서: 디버그 세션을 사용하여 기술 세트 변경 내용 진단, 복구 및 커밋](cognitive-search-tutorial-debug-sessions.md)
 
@@ -43,7 +43,7 @@ AI 보강은 비텍스트 원본과 구분되지 않는 텍스트에서 잠재�
 
 + [빠른 시작: Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)
 + [REST 및 Postman을 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)
-+ [Storage Explorer를 사용하여 지식 저장소 보기](knowledge-store-view-storage-explorer.md)
++ [Storage 브라우저를 사용 하 여 기술 자료 저장소 보기](knowledge-store-view-storage-explorer.md)
 + [Power BI를 사용하여 지식 저장소 연결](knowledge-store-connect-power-bi.md)
 + [지식 저장소에서 프로젝션 정의](knowledge-store-projections-examples.md)
 

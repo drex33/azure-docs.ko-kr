@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 10/26/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 434c255f0b9634e0d17bad1627ddd92af9498bfe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d34d8a361e22f25e82daf0576e65e35af192bdcd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582437"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462768"
 ---
 # <a name="scenario-protected-web-api"></a>시나리오: 보호된 웹 API
 
@@ -29,7 +29,7 @@ ms.locfileid: "99582437"
 
 웹 API를 보호하기 위해 알아야 할 구체적인 정보는 다음과 같습니다.
 
-- 앱 등록은 하나 이상의 *범위* 또는 *애플리케이션 역할* 을 노출해야 합니다.
+- 앱 등록은 하나 이상의 _범위_ 또는 _애플리케이션 역할_ 을 노출해야 합니다.
   - 범위는 사용자를 대신하여 호출되는 웹 API에 의해 노출됩니다.
   - 애플리케이션 역할은 디먼 애플리케이션에서 호출하는 웹 API에 의해 노출됩니다(자체 웹 API를 호출함).
 - 새 웹 API 앱 등록을 만드는 경우 웹 API에서 허용하는 [액세스 토큰 버전](reference-app-manifest.md#accesstokenacceptedversion-attribute)을 `2`로 선택합니다. 레거시 웹 API의 경우 허용되는 토큰 버전은 `null`일 수 있지만 이 값은 로그인 대상을 조직으로만 제한하며 개인 MSA(Microsoft 계정)는 지원되지 않습니다.

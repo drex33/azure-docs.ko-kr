@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure Service Bus 기능을 통해 전송 및 �
 ms.topic: article
 ms.date: 09/21/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5eb3bf6eef551fd13788f7659eb8becede8e250d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5cdfa306b19c528fd66c6566f54c5c7992a2462e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666215"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046740"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
-이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 대부분의 설명은 Service Bus 샘플을 [사용하는 AMQP 트랜잭션에서 설명합니다.](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia) 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
+이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. [AMQP Transactions with Service Bus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)에 설명되어 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
 
 > [!NOTE]
 > Service Bus 기본 계층은 트랜잭션을 지원하지 않습니다. 표준 및 프리미엄 계층은 트랜잭션을 지원합니다. 이러한 계층 간의 차이점은 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
@@ -43,7 +43,7 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 ## <a name="transfers-and-send-via"></a>전송 및 "send via"
 
-큐 또는 토픽에서 프로세서로, 그리고 다른 큐 또는 토픽으로 데이터를 트랜잭션으로 전달하도록 설정하기 위해 Service Bus *전송을 지원합니다.* 전송 작업에서 발신자는 먼저 전송 *큐 또는 토픽* 에 메시지를 보내고 전송 큐 또는 토픽은 자동 전달 기능이 사용하는 것과 동일한 강력한 전송 구현을 사용하여 메시지를 의도한 대상 큐 또는 토픽으로 즉시 이동합니다. 메시지는 전송 큐 또는 토픽의 소비자에게 표시되는 방식으로 전송 큐 또는 토픽의 로그에 커밋되지 않습니다.
+큐 또는 토픽에서 프로세서로 데이터를 트랜잭션으로 전달한 다음 다른 큐 또는 토픽으로 트랜잭션 전달을 사용하도록 설정하기 위해 Service Bus *전송을 지원합니다.* 전송 작업에서 발신자는 먼저 전송 *큐 또는 토픽* 에 메시지를 보내고 전송 큐 또는 토픽은 자동 전달 기능이 사용하는 것과 동일한 강력한 전송 구현을 사용하여 메시지를 의도한 대상 큐 또는 토픽으로 즉시 이동합니다. 메시지는 전송 큐 또는 토픽의 소비자에게 표시되는 방식으로 전송 큐 또는 토픽의 로그에 커밋되지 않습니다.
 
 전송 큐 또는 토픽 자체가 보낸 사람의 입력 메시지 원본인 경우 이 트랜잭션 기능의 기능이 분명해집니다. 즉, Service Bus 하나의 원자성 작업으로 입력 메시지에 대해 전체(또는 지연 또는 데드 문자) 작업을 수행하는 동안 전송 큐 또는 토픽을 "통해" 대상 큐 또는 토픽으로 메시지를 전송할 수 있습니다. 
 
@@ -82,8 +82,7 @@ Service Bus 큐에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Service Bus 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 * [자동 전달을 사용한 Service Bus 엔터티 연결](service-bus-auto-forwarding.md)
-* [자동포워드 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
-* [Service Bus 샘플과 함께 원자성 트랜잭션](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
-* [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
-
+* [자동포함 샘플(](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward) `Microsoft.ServiceBus.Messaging` 라이브러리)
+* [Service Bus 샘플(라이브러리)을 가진 원자성 트랜잭션](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions) `Microsoft.ServiceBus.Messaging`
+* [트랜잭션 작업 샘플(](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md) `Azure.Messaging.ServiceBus` 라이브러리)
+* [Azure 큐 Storage 및 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

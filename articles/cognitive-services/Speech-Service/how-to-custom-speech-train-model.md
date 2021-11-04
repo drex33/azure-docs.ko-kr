@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: pafarley
-ms.openlocfilehash: 73076c141f28bc22450c87491053130ace6b5793
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e45c5badecfe97cb0be75e3e30f9442bf71beb69
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540760"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080577"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -27,8 +28,8 @@ ms.locfileid: "123540760"
 
 | 사용 사례 | 데이터 형식 |
 | -------- | --------- |
-| 의료 용어 또는 IT 전문 용어와 같은 업계별 어휘 및 문법에 대한 인식 정확도 향상 | 관련 텍스트(문장/발화) |
-| 제품 이름 또는 머리글자어와 같이 비표준 발음을 포함하는 단어 또는 용어의 발음 및 표시된 형태를 정의합니다. | 관련 텍스트(발음) |
+| 의료 용어 또는 IT 전문 용어와 같은 업계별 어휘 및 문법에 대한 인식 정확도 향상 | 일반 텍스트 또는 구조적 텍스트 데이터 |
+| 제품 이름 또는 머리글자어와 같이 비표준 발음을 포함하는 단어 또는 용어의 발음 및 표시된 형태를 정의합니다. | 정형 텍스트의 발음 데이터 또는 음성 발음 |
 | 말하는 스타일, 악센트 또는 특정 배경 소음에 대한 인식 정확도 향상 | 오디오 + 휴먼 레이블 대화 기록 |
 
 ## <a name="train-and-evaluate-a-model"></a>모델 학습 및 평가

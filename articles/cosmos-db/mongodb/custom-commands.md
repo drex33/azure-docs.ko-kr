@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 07/30/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: d46a4f812d9fd6a4de89bb2e0e0f82fdaf48dca6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f3f865d28452c6930ef53f5882e59570b07ef551
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528843"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016609"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용하여 Azure Cosmos DB의 API for MongoDB에 저장된 데이터 관리 
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -221,7 +221,7 @@ db.runCommand({customAction: "GetDatabase"});
 | `offerThroughput` | `int` | 선택 사항 | 데이터베이스에 설정할 프로비전된 처리량입니다. 이 매개 변수를 지정하지 않으면 기본값은 최솟값인 400RU/s입니다. * 10,000RU/s가 넘는 처리량을 지정하려면 `shardKey` 매개 변수가 필요합니다.|
 | `shardKey` | `string` | 처리량이 많은 컬렉션에 필요 | 분할된 컬렉션에 대한 분할 키의 경로입니다. 이 매개 변수는 `offerThroughput`에서 10,000RU/s를 초과하여 설정하는 경우에 필요합니다.  지정할 경우 삽입된 모든 문서에 이 키와 값이 필요합니다. |
 | `autoScaleSettings` | `Object` | [자동 크기 조정 모드](../provision-throughput-autoscale.md)에 필요합니다. | 이 개체에는 자동 크기 조정 용량 모드와 관련된 설정이 포함됩니다. 컬렉션이 동적으로 증가하는 요청 단위의 최대 크기를 설명하는 `maxThroughput` 값을 설정할 수 있습니다. |
-| `indexes` | `Array` | 선택적으로 인덱스를 구성합니다. 이 매개 변수는 3.6+ 계정에서만 지원됩니다. | 있는 경우 _id에 대한 인덱스가 필요합니다. 배열의 각 항목은 하나 이상의 필드 키와 이름을 포함해야 하며 인덱스 옵션을 포함할 수 있습니다. 예를 들어, a 및 b 필드에 복합 고유 인덱스를 작성하려면 `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}` 항목을 사용합니다.
+| `indexes` | `Array` | 선택적으로 인덱스를 구성합니다. 이 매개 변수는 3.6+ 계정에서만 지원됩니다. | 있는 경우 _id에 대한 인덱스가 필요합니다. 배열의 각 항목은 하나 이상의 필드 키와 이름을 포함해야 하며 인덱스 옵션을 포함할 수 있습니다. 예를 들어 필드에 복합 고유 인덱스 를 만들고 `a` `b` 이 항목을 사용하려면 입니다. `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}`
 
 ### <a name="output"></a>출력
 
@@ -316,7 +316,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 | `autoScaleSettings` | `Object` | [자동 크기 조정 모드](../provision-throughput-autoscale.md)에 필요합니다. 이 개체에는 자동 크기 조정 용량 모드와 관련된 설정이 포함됩니다. `maxThroughput` 값은 컬렉션이 동적으로 증가하는 요청 단위의 최대 크기를 설명합니다. |
 | `indexes` | `Array` | 선택적으로 인덱스를 구성합니다. 이 매개 변수는 3.6+ 계정에서만 지원됩니다. 컬렉션의 기존 인덱스가 있으면 지정된 인덱스 세트로 대체됩니다(인덱스 삭제 포함). _id에 대한 인덱스가 필요합니다. 배열의 각 항목은 하나 이상의 필드 키와 이름을 포함해야 하며 인덱스 옵션을 포함할 수 있습니다. 예를 들어, a 및 b 필드에 복합 고유 인덱스를 작성하려면 `{key: {a: 1, b: 1}, name: "a_1_b_1", unique: true}` 항목을 사용합니다.
 
-## <a name="output"></a>출력
+### <a name="output"></a>출력
 
 기본 사용자 지정 명령 응답을 반환합니다. 출력의 매개 변수에 대한 사용자 지정 명령의 [기본 출력](#default-output)을 참조하세요.
 

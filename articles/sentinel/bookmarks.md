@@ -8,16 +8,18 @@ ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 10/24/2019
-ms.openlocfilehash: 0fecd1fca22b003892817f8fd33db88b1eea6127
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 661a02a15b7acb53ab496c1f5fcf9a9ab8c04205
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535811"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060766"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Azure Sentinel을 사용하여 헌팅하는 동안 데이터 추적 유지
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 위협 헌팅을 사용하려면 일반적으로 많은 로그 데이터를 검토하여 악의적인 동작의 증거를 찾아야 합니다. 이 프로세스 중에 조사자는 잠재적인 가설의 유효성을 검사하고 손상의 전체적인 스토리를 파악하는 작업의 일부로 기억하고, 다시 방문하고, 분석하려는 이벤트를 찾습니다.
 

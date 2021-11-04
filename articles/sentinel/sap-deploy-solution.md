@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: fb8d75b9dbf4fd2e6c0fd82ecbc0dce2ce2447c0
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 00aa377ffc7f713159f4ff8a55b562eaf809980b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857829"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064300"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 SAP에 대한 Azure Sentinel 지속적인 위협 모니터링 프로세스를 단계별로 안내합니다.
 

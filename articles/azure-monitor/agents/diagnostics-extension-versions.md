@@ -5,12 +5,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c730f1d5d440d809932499f04338e68a2375b6d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719817"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044251"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>WAD(Windows Azure Diagnostics) 확장 구성 스키마 버전 및 기록
 이 문서에서는 Microsoft Azure SDK의 일부로 제공되는 [WAD(Azure Diagnostics Windows) 확장](diagnostics-extension-overview.md) 스키마 버전에 대한 버전 기록을 제공합니다.  
@@ -61,7 +61,7 @@ Azure Monitor 싱크에 대한 지원이 추가되었습니다. 이 싱크는 �
 }
 ```
 
-```XML
+```xml
 <SinksConfig>  
   <Sink name="AzureMonitorSink">
       <AzureMonitor/>
@@ -87,7 +87,7 @@ Azure Monitor 싱크에 대한 지원이 추가되었습니다. 이 싱크는 �
     ]
 },
 ```
-```XML
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
   <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
 </PerformanceCounters>

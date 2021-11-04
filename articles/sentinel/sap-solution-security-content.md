@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/28/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 234de4f2f93a9c35126c0f7be7d8feeb3a244044
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: dabfc84a21e7ded8ce3d3e338ffbb03395ef88db
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681498"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009057"
 ---
 # <a name="azure-sentinel-sap-solution-security-content-reference-public-preview"></a>Azure Sentinel SAP 솔루션: 보안 콘텐츠 참조(공개 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 [Azure Sentinel SAP 솔루션](sap-deploy-solution.md#deploy-sap-security-content)에 사용할 수 있는 보안 콘텐츠에 대해 자세히 설명합니다.
 

@@ -5,15 +5,16 @@ author: roygara
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 10/15/2018
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c8c8881de696143be60c9ff61c1649eb31fe59b3
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8f54e1f74c5f4f6a8502285f5e4c36c09892ec71
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695613"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082610"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
@@ -25,11 +26,41 @@ ms.locfileid: "122695613"
 > 항상 파일 시스템이 정상 상태이고 디스크 파티션 테이블 형식이 새 크기를 지원하는지 확인하고, 디스크 크기 조정 작업을 수행하기 전에 데이터를 백업하도록 해야 합니다. 자세한 내용은 [Azure Backup 빠른 시작](../../backup/quick-backup-vm-portal.md)을 참조하세요. 
 
 ## <a name="expand-an-azure-managed-disk"></a>Azure Managed Disk 확장
+
+### <a name="resize-without-downtime-preview"></a>가동 중지 시간 없이 크기 조정 (미리 보기)
+
+이제 VM의 할당을 취소 하지 않고 관리 디스크의 크기를 조정할 수 있습니다.
+
+이에 대 한 미리 보기에는 다음과 같은 제한 사항이 있습니다.
+
+- 현재 미국 서 부 에서만 사용할 수 있습니다.
+- 데이터 디스크에 대해서만 지원 됩니다.
+- TiB 보다 작은 디스크는 가동 중지 시간 없이 4 TiB 이상 확장할 수 없습니다.
+    - 디스크 크기를 4 TiB 이상으로 늘리면 가동 중지 시간 없이 확장할 수 있습니다.
+- [최신 Azure CLI](/cli/azure/install-azure-cli), [최신 Azure PowerShell 모듈](/powershell/azure/install-az-ps),를 통해 액세스 하는 경우 Azure Portal를 설치 하 고 사용 [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize) 하거나 2021-04-01 이상의 API 버전을 사용 하는 Azure Resource Manager 템플릿을 사용 해야 합니다.
+
+기능에 등록 하려면 다음 명령을 사용 합니다.
+
+```azurecli
+az feature register --namespace Microsoft.Compute --name LiveResize
+```
+
+등록이 완료 되려면 몇 분 정도 걸릴 수 있습니다. 등록 했는지 확인 하려면 다음 명령을 사용 합니다.
+
+```azurecli
+az feature show --namespace Microsoft.Compute --name LiveResize
+```
+
+### <a name="get-started"></a>시작
+
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 이 문서는 Azure에 데이터 디스크가 하나 이상 연결되고 준비된 기존 VM이 필요합니다. 사용할 수 있는 VM이 아직 없는 경우 [데이터 디스크가 있는 VM 만들기 및 준비](tutorial-manage-disks.md#create-and-attach-disks)를 참조하세요.
 
 다음 샘플에서는 예제 매개 변수 이름(예: *myResourceGroup* 및 *myVM*)을 사용자의 고유한 값으로 바꿉니다.
+
+> [!IMPORTANT]
+> **LiveResize** 를 사용 하도록 설정 하 고 디스크가 [가동 중지 시간 없이 크기 조정 (미리 보기)](#resize-without-downtime-preview)의 요구 사항을 충족 하는 경우 1 단계 및 3 단계를 건너뛸 수 있습니다. 
 
 1. VM이 실행되고 있으면 가상 하드 디스크에 대한 작업을 수행할 수 없습니다. [az vm deallocate](/cli/azure/vm#az_vm_deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 에서 *myVM* 이라는 VM의 할당을 취소합니다.
 

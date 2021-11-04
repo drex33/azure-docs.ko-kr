@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: yelevin
-ms.openlocfilehash: d6afd8e1d4c70d818257007993aedfe3a48ce4f4
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e7fa9ec18c39ff3c58c45dde445f4b10fbd198fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129752116"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009456"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Azure Sentinel의 플레이북을 사용하여 위협 대응 자동화
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel 플레이북에 대해 설명하고, 플레이북을 사용하여 SOAR(보안 오케스트레이션, 자동화된 응답) 작업을 구현함으로써 시간과 리소스를 절약하는 동시에 더 나은 결과를 얻을 방법을 설명합니다.
 
@@ -44,11 +46,11 @@ ms.locfileid: "129752116"
 >
 > **플레이북 템플릿은** 현재 **미리 보기로** 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-플레이북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 빌드되고 테스트되고 즉시 사용할 수 있는 워크플로입니다. 템플릿은 처음부터 플레이북을 개발할 때 모범 사례에 대한 참조 또는 새로운 자동화 시나리오에 대한 영감을 제공하는 역할을 할 수도 있습니다.
+플레이북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 빌드되고 테스트되고 즉시 사용할 수 있는 워크플로입니다. 템플릿은 플레이북을 처음부터 개발할 때 모범 사례에 대한 참조로 사용하거나 새로운 자동화 시나리오에 대한 영감을 제공할 수도 있습니다.
 
 플레이북 템플릿은 플레이북(템플릿의 편집 가능한 복사본)을 만들 때까지 활성 플레이북 자체가 아닙니다.
 
-다음 소스에서 플레이북 템플릿을 얻을 수 있습니다.
+다음 원본에서 플레이북 템플릿을 얻을 수 있습니다.
 
 - **플레이북 템플릿** 탭(Automation 아래)은 Azure Sentinel 커뮤니티에서 제공하는 주요 시나리오를 제공합니다. 동일한 템플릿에서 여러 활성 플레이북을 만들 수 있습니다.
 

@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 메트릭 및 모니터링
 description: Azure HPC Cache 관련 통계 보는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
-ms.author: v-erkel
-ms.openlocfilehash: 0963a412ac3939ad9421c2f7c1de7d72c24995ac
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: e52ee6e3ae9960418a72f7eaf5c4068e31943d4a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113589790"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005350"
 ---
 # <a name="cache-metrics-and-monitoring"></a>캐시 메트릭 및 모니터링
 

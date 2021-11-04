@@ -9,15 +9,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
-ms.custom: references_regions
-ms.openlocfilehash: 49aef35c5f69bd5ad09c4b1154fbee75ba2aa204
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 492f94282f1e3d3055d6f7726da68c8d9503856c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251827"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009114"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 빠른 시작에서는 Azure Sentinel을 온보딩하는 방법을 알아봅니다. Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 설정한 후 데이터 원본을 연결해야 합니다.
 
@@ -127,4 +129,3 @@ Azure Sentinel은 서비스에 연결하고 이벤트 및 로그를 Azure Sentin
     - [Azure Sentinel 시작](get-visibility.md)
     - [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](detect-threats-custom.md)
     - [Common Event Format을 사용하여 외부 솔루션 연결](connect-common-event-format.md)
-

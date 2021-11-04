@@ -4,12 +4,12 @@ description: Azure Database for PostgreSQL 백업을 복원 하는 방법에 대
 ms.topic: how-to
 ms.date: 10/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: df48d37f61b910dd9e8396fb8460d98479186f9c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2eb0d8bd462c50a0da09b4da059d8c0d185dbd3e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224033"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020524"
 ---
 # <a name="restore-azure-database-for-postgresql-backups-preview"></a>Azure Database for PostgreSQL 백업 복원 (미리 보기)
 
@@ -17,8 +17,7 @@ ms.locfileid: "130224033"
 
 서비스에 대상 서버에 대 한 적절 한 [사용 권한 집합이](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) 있는 경우 동일한 구독 내의 Azure PostgreSQL 서버로 데이터베이스를 복원할 수 있습니다.
 
-## <a name="restore-a-database-on-the-target-storage-account"></a>대상 Storage 계정에서 데이터베이스 복원
-
+## <a name="restore-azure-postgresql-database"></a>Azure PostgreSQL 데이터베이스 복원
 
 1. **백업 자격 증명 모음**  ->  **백업 인스턴스** 로 이동 합니다. 데이터베이스를 선택 하 고 **복원** 을 클릭 합니다.
 

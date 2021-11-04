@@ -2,13 +2,13 @@
 title: 백업 센터 지원 매트릭스
 description: 이 문서에서는 백업 센터에서 각 워크로드 유형에 대해 지원하는 시나리오를 요약합니다.
 ms.topic: conceptual
-ms.date: 09/22/2021
-ms.openlocfilehash: 2ffaa5adbd13c4244dab79b18f95ac2585e8f3a9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/20/2021
+ms.openlocfilehash: 602884f3cf077e53061bd02dc5235ddbe3073075
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669934"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033554"
 ---
 # <a name="support-matrix-for-backup-center"></a>백업 센터 지원 매트릭스
 
@@ -22,24 +22,24 @@ ms.locfileid: "128669934"
 | 모니터링 | 모든 백업 인스턴스 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | 위와 동일 |
 | 모니터링 | 모든 백업 정책 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | 위와 동일 |
 | 모니터링 | 모든 자격 증명 모음 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | 위와 동일 |
+| 모니터링 | 대규모 Azure Monitor 경고 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [경고](./backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview) 설명서 참조 |
+| 모니터링     |   Azure Backup 메트릭 보기 및 메트릭 경고 규칙 작성 | <li>Azure VM   </li><li>Azure VM의 SQL </li><li> Azure VM의 SAP HANA</li><li>Azure 파일 </li> |   지역 및 구독에 대한 모든 Recovery Services 자격 증명 모음에 대한 메트릭을 동시에 볼 수 있습니다. Azure Portal 더 큰 범위에 대한 메트릭 보기는 현재 지원되지 않습니다. 메트릭 경고 규칙을 구성하는 데에도 동일한 제한이 적용됩니다. 자세한 내용은 [Azure Portal 메트릭 보기를](metrics-overview.md#view-metrics-in-the-azure-portal) 참조하세요.|
 | 동작 | 백업 구성 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [Azure VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql-overview.md#support-matrix)에 대한 지원 매트릭스 참조 |
 | 동작 | 백업 인스턴스 복원 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [Azure VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql-overview.md#support-matrix)에 대한 지원 매트릭스 참조 |
 | 동작 | 자격 증명 모음 만들기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [Recovery Services 자격 증명 모음](./backup-support-matrix.md#vault-support)에 대한 지원 매트릭스 참조 |
 | 동작 | 백업 정책 만들기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [Recovery Services 자격 증명 모음](./backup-support-matrix.md#vault-support)에 대한 지원 매트릭스 참조 |
 | 동작 | 백업 인스턴스에 대해 주문형 백업 실행 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [Azure VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql-overview.md#support-matrix)에 대한 지원 매트릭스 참조 |
 | 동작 | 백업 인스턴스에 대해 백업 중지 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [Azure VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql-overview.md#support-matrix)에 대한 지원 매트릭스 참조 |
+| 동작 | 백업 센터에서 지역 간 복원 작업 실행 | <li> Azure Virtual Machine <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA | [지역 간 복원](./backup-create-rs-vault.md#set-cross-region-restore) 설명서 참조 |
 | 자세한 정보 | Backup 보고서 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Virtual Machine의 SQL <br><br> <li> Azure Virtual Machine의 SAP HANA <br><br> <li> Azure 파일 <br><br> <li> System Center Data Protection Manager <br><br> <li> Azure Backup 에이전트(MARS) <br><br> <li> Azure Backup 서버(MABS) | [Backup 보고서에 대해 지원되는 시나리오](./configure-reports.md#supported-scenarios) 참조 |
 | 거버넌스 | '백업' 범주에서 기본 제공 및 사용자 지정 Azure 정책 조회 및 할당 | 해당 없음 | 해당 없음 |
 | 거버넌스 | 백업에 대해 구성되지 않은 데이터 원본 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | 해당 없음 |
-| 모니터링 | 대규모 Azure Monitor 경고 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [경고](./backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview) 설명서 참조 |
-| 동작 | 백업 센터에서 지역 간 복원 작업 실행 | <li> Azure Virtual Machine <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA | [지역 간 복원](./backup-create-rs-vault.md#set-cross-region-restore) 설명서 참조 |
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
 | **범주** | **시나리오**  |
 |--------------|---------------|
 | 동작 | 대규모 자격 증명 모음 설정 구성은 현재 백업 센터에서 지원되지 않습니다. |
-| 가용성 | 백업 센터는 현재 국가별 클라우드에서 사용할 수 없습니다. | 
 
 ## <a name="next-steps"></a>다음 단계
 

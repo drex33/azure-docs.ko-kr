@@ -1,12 +1,11 @@
 ---
 title: 일반적으로 사용되는 Azure Sentinel 통합 문서 | Microsoft Docs
-description: 인기 있는 기본 제공 Azure Sentinel 리소스를 사용하기 위해 가장 일반적으로 사용되는 통합 문서에 대해 알아봅니다.
+description: 인기 있는 기본적으로 사용되는 Azure Sentinel 리소스를 사용하기 위해 가장 일반적으로 사용되는 통합 문서에 대해 알아봅니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
-ms.openlocfilehash: 76800b0f7a90dacd1447b87fdc1f1d23300873ec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a8e96969dc4edd5a79e1ca85ac32529c10b8a343
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784397"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019555"
 ---
 # <a name="commonly-used-azure-sentinel-workbooks"></a>일반적으로 사용되는 Azure Sentinel 통합 문서
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 다음 표에는 가장 일반적으로 사용되는 기본 제공 Azure Sentinel 통합 문서가 나와 있습니다.
 
@@ -31,7 +33,7 @@ ms.locfileid: "124784397"
 > [!TIP]
 > 수집 중인 데이터와 연결된 통합 문서를 배포하는 것이 좋습니다. 통합 문서를 사용하면 수집된 데이터를 기반으로 광범위한 모니터링 및 조사를 할 수 있습니다.
 >
-> 자세한 내용은 [데이터 원본 연결](connect-data-sources.md) 및 [Azure Sentinel 솔루션 검색 및 배포](sentinel-solutions-deploy.md)를 참조하세요.
+> 자세한 내용은 [커넥트 데이터 원본](connect-data-sources.md) 및 [중앙 집중식으로 Azure Sentinel 콘텐츠 및 솔루션 검색 및 배포를 참조하세요.](sentinel-solutions-deploy.md)
 >
 
 |통합 문서 이름  |Description  |

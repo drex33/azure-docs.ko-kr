@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205661a32d938352ae81073668843c569825cc8e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7bb8060a3a699f7b34abfdc6c70c8bc469304070
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679611"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063353"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -95,8 +95,9 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
-이 섹션에서는 Azure CLI를 사용하여 Azure VM에서 사용자 할당 관리 ID를 추가하고 제거하는 방법을 알아봅니다. VM과 다른 RG에서 사용자 할당 관리 ID를 만드는 경우 관리 ID의 URL을 사용하여 VM에 할당해야 합니다.
-예: `--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`
+이 섹션에서는 Azure CLI를 사용하여 Azure VM에서 사용자 할당 관리 ID를 추가하고 제거하는 방법을 알아봅니다. VM과 다른 RG에서 사용자 할당 관리 ID를 만드는 경우 관리 ID의 URL을 사용하여 VM에 할당해야 합니다. 예:
+
+`--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Azure VM 생성 중에 사용자 할당 관리 ID 할당
 
@@ -144,34 +145,35 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 1. [az identity create](/cli/azure/identity#az_identity_create)를 사용하여 사용자 할당 ID를 만듭니다.  `-g` 매개 변수는 사용자 할당 ID가 만들어진 리소스 그룹을 지정하고 `-n` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>` 매개 변수 값을 원하는 값으로 바꾸세요.
 
-    > [!IMPORTANT]
-    > 이름에 특수 문자(예: 밑줄)가 있는 사용자 할당 관리 ID를 만드는 기능은 현재 지원되지 않습니다. 영숫자 문자를 사용하세요. 업데이트를 다시 확인하세요.  자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
+   > [!IMPORTANT]
+   > 이름에 특수 문자(예: 밑줄)가 있는 사용자 할당 관리 ID를 만드는 기능은 현재 지원되지 않습니다. 영숫자 문자를 사용하세요. 업데이트를 다시 확인하세요.  자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
 
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+
    응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다. 
 
    ```json
    {
-        "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>",
-        "location": "westcentralus",
-        "name": "<USER ASSIGNED IDENTITY NAME>",
-        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
-        "resourceGroup": "<RESOURCE GROUP>",
-        "tags": {},
-        "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+     "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+     "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+     "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>",
+     "location": "westcentralus",
+     "name": "<USER ASSIGNED IDENTITY NAME>",
+     "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+     "resourceGroup": "<RESOURCE GROUP>",
+     "tags": {},
+     "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+     "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
    }
    ```
 
 2. [az vm identity assign](/cli/azure/vm)을 사용하여 VM에 사용자 할당 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY NAME>`은 이전 단계에서 만든 대로 사용자 할당 관리 ID의 리소스 `name` 속성입니다. VM과 다른 RG에서 사용자 할당 관리 ID를 만든 경우 관리 ID의 URL을 사용해야 합니다.
 
-    ```azurecli-interactive
-    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
-    ```
+   ```azurecli-interactive
+   az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
+   ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 사용자 할당 관리 ID 제거
 

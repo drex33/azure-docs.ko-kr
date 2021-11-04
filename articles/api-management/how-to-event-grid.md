@@ -5,16 +5,16 @@ author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 07/12/2021
-ms.custom: ''
-ms.openlocfilehash: 9e81fbe26c8b98a0694789567cef9126d5ca02fc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/2/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: b98e958869b30a90d7006020768cdc7d8c1d62c7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567218"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063065"
 ---
-# <a name="send-events-from-api-management-to-event-grid-preview"></a>API Management에서 Event Grid로 이벤트 보내기(미리 보기)
+# <a name="send-events-from-api-management-to-event-grid"></a>API Management에서 Event Grid로 이벤트 보내기
 
 API Management는 이벤트 알림을 다른 서비스로 보내고 다운스트림 프로세스를 트리거할 수 있도록 [Azure Event Grid](../event-grid/overview.md)와 통합됩니다. Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다.
 
@@ -63,7 +63,7 @@ az deployment group create \
 Event Grid에서 *항목* 을 구독하여 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다. 여기에서 API Management 인스턴스의 이벤트에 대한 구독을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
-1. **이벤트(미리 보기) > + 이벤트 구독** 을 선택합니다. 
+1. 이벤트 **> + 이벤트 구독** 을 선택 합니다. 
 1. **기본** 탭에서
     * 이벤트 구독에 대한 설명이 포함된 **이름** 을 입력합니다.
     * **이벤트 유형** 에서 하나 이상의 API Management 이벤트 유형을 선택하여 Event Grid에 보냅니다. 이 문서의 예제에서는 최소한 **Microsoft.APIManagement.ProductCreated** 를 선택합니다. 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 9f863760130b0748405cb30d4257864482b679f0
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: e24ac58841c7ca786cb82e538930e66d081b1e9c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106242"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045197"
 ---
 # <a name="troubleshoot-issues-with-diagnostics-queries"></a>진단 쿼리 관련 문제 해결
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -77,7 +77,7 @@ Azure Diagnostics 테이블의 경우 모든 데이터가 하나의 단일 테�
 
 - 초당 RU의 대부분을 차지하는 작업을 어떻게 찾나요?
 
-    ```Kusto
+   ```kusto
    AzureDiagnostics
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
    | where TimeGenerated >= ago(2h) 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 02918b4f33c01aab5a250e3228b6ad7ec5930394
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: 7be1aa846ee53edf0c23594d89af59e3c7f7aa32
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322242"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051518"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -61,7 +61,7 @@ Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 �
 
 진단 확장 구성 파일을 준비합니다. 이 파일은 진단 확장에서 클라우드 서비스에 대해 수집해야 하는 로그와 성능 카운터를 지정합니다. 다음은 샘플 진단 구성 파일입니다.  
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?> 
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -103,7 +103,7 @@ Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 �
 
 진단 파일의 “SinksConfig” 섹션에서 새 Azure Monitor 싱크를 정의합니다. 
 
-```XML
+```xml
   <SinksConfig> 
     <Sink name="AzMonSink"> 
     <AzureMonitor> 
@@ -125,7 +125,7 @@ Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 �
 
 마지막으로, 프라이빗 구성에서 *Azure Monitor 계정* 섹션을 추가합니다. 앞에서 만든 서비스 주체 클라이언트 ID와 비밀을 입력합니다. 
 
-```XML
+```xml
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <StorageAccount name="" endpoint="" /> 
     <AzureMonitorAccount> 

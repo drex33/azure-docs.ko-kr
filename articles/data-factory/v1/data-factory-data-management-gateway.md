@@ -9,12 +9,12 @@ ms.date: 10/22/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: cb827e3603bb00e1c1aa435847dc58fe03d0a389
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ae9dd04f2bacdbe6a45b11e3d9c535b01953c90b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255489"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065345"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -277,6 +277,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 다음 단계를 수행하여 자동 업데이트 기능을 사용하지 않거나/사용할 수 있습니다.
 
 [단일 노드 게이트웨이의 경우]
+
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
 2. *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
@@ -284,20 +285,26 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
+
 4. 다시 켜려면:
 
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-   [다중 노드 고가용성 및 확장성 있는 게이트웨이의 경우](data-factory-data-management-gateway-high-availability-scalability.md)
+[다중 노드 고가용성 및 확장성 있는 게이트웨이의 경우](data-factory-data-management-gateway-high-availability-scalability.md)
+
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
+
 2. *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* 폴더로 전환합니다.
+
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     고가용성 기능이 있는 게이트웨이의 경우, 추가 AuthKey 매개 변수가 필요합니다.
+
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
+
 4. 다시 켜려면:
 
     ```powershell
@@ -305,6 +312,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
     ```
 
 ## <a name="configuration-manager"></a>구성 관리자
+
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이** 를 입력하여 이 유틸리티에 액세스합니다.
@@ -361,7 +369,7 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.
 
-모니터링 속성 | Description
+모니터링 속성 | 설명
 :------------------ | :----------
 이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프라인/제한됨/기타. 해당 상태에 대한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조하세요.
@@ -452,7 +460,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
    4. **확인** 을 클릭하여 자격 증명을 암호화하고 대화 상자를 닫습니다.
 8. 이제 **connectionString** 에 **encryptedCredential** 속성이 표시되어야 합니다.
 
-    ```JSON
+    ```json
     {
         "name": "SqlServerLinkedService",
         "properties": {
@@ -465,7 +473,8 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
         }
     }
     ```
-   게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
+
+    게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
 
 **자격 증명 설정** 애플리케이션을 사용하는 경우 포털은 게이트웨이 머신에서 **게이트웨이 구성 관리자** 의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
@@ -524,10 +533,11 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
     ```
 2. **Get-AzDataFactoryGateway** cmdlet을 사용하여 데이터 팩터리의 게이트웨이 목록을 가져올 수 있습니다. **상태** 에 **online** 이 표시되어 있으면 게이트웨이를 사용할 준비가 되었음을 나타냅니다.
 
-    ```powershell        
+    ```powershell
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   게이트웨이를 제거하려면 **Remove-AzDataFactoryGateway** cmdlet을 사용하고 게이트웨이 설명을 업데이트하려면 **Set-AzDataFactoryGateway** cmdlet을 사용합니다. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.  
+
+    게이트웨이를 제거하려면 **Remove-AzDataFactoryGateway** cmdlet을 사용하고 게이트웨이 설명을 업데이트하려면 **Set-AzDataFactoryGateway** cmdlet을 사용합니다. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.  
 
 ### <a name="list-gateways-using-powershell"></a>PowerShell을 사용하여 게이트웨이 나열
 

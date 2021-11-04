@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6f556fff4f83e76fc99f508d96d1e05aefac0023
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
-ms.translationtype: HT
+ms.openlocfilehash: 1317bc86b2f4283475b1cc819d24c1ac6475a486
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847910"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045686"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler를 사용하여 Azure Virtual Machine 또는 가상 머신 확장 집합에서 실행되는 웹앱 프로파일링
 
@@ -67,21 +67,23 @@ ms.locfileid: "109847910"
 
 1. 원하는 애플리케이션이 [IIS](https://www.microsoft.com/web/downloads/platform.aspx)를 통해 실행 중인 경우라면 `IIS Http Tracing` Windows 기능을 활성화합니다.
 
-   a. 환경에 대한 원격 액세스를 설정한 후, [Windows 기능 추가](/iis/configuration/system.webserver/tracing/) 창을 사용합니다. 또는 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.  
+   1. 환경에 대한 원격 액세스를 설정한 후, [Windows 기능 추가](/iis/configuration/system.webserver/tracing/) 창을 사용합니다. 또는 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.  
 
-    ```powershell
-    Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
-    ```  
-   b. 원격 액세스 설정에 문제가 있을 경우에는 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 다음 명령을 실행할 수 있습니다.  
+      ```powershell
+      Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
+      ```
+  
+   1. 원격 액세스 설정에 문제가 있을 경우에는 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 다음 명령을 실행할 수 있습니다.  
 
-    ```azurecli
-    az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
-    ```
+      ```azurecli
+      az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
+      ```
 
 1. 애플리케이션을 배포합니다.
 
 ## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Azure Resource Explorer를 사용하여 Profiler 싱크 설정
-아직 포털에서 Application Insights Profiler 싱크를 설정하는 방법은 없습니다. 위에서 설명한 것처럼 powershell을 사용하지 않고 Azure Resource Explorer를 사용하여 싱크를 설정할 수 있습니다. 하지만 VM을 다시 배포하는 경우 싱크가 손실됩니다. 이 설정을 유지하려면 VM을 배포할 때 사용하는 구성을 업데이트해야 합니다.
+
+아직 포털에서 Application Insights Profiler 싱크를 설정하는 방법은 없습니다. 위에서 설명한 대로 PowerShell을 사용 하는 대신 Azure Resource Explorer를 사용 하 여 싱크를 설정할 수 있습니다. 하지만 VM을 다시 배포하는 경우 싱크가 손실됩니다. 이 설정을 유지하려면 VM을 배포할 때 사용하는 구성을 업데이트해야 합니다.
 
 1. 가상 머신용으로 설치된 확장을 보고 Microsoft Azure Diagnostics 확장이 설치되었는지 확인합니다.  
 

@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1b5ed1cd49ac4117dac6ff0a6e3bdb916299ec44
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 46c629ead4f86d71974ba26426177ca2d9093609
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457414"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032433"
 ---
 # <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra"></a>Azure Managed Instance for Apache Cassandra에 대한 질문과 대답
 
@@ -72,7 +72,7 @@ Apache Cassandra용 Azure Managed Instance는 데이터 센터 간에 데이터�
 
 ### <a name="where-can-i-give-feedback-on-azure-managed-instance-for-apache-cassandra-features"></a>Apache Cassandra용 Azure Managed Instance 기능에 대한 피드백은 어디서 제출할 수 있나요?
 
-[사용자 의견 피드백](https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858?c=e6e5c7c4-0d25-ec11-b6e6-000d3a4f0858#)에서 "관리형 Apache Cassandra" 범주를 통해 피드백을 제출할 수 있습니다.
+[사용자 의견 피드백](https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548)에서 "관리형 Apache Cassandra" 범주를 통해 피드백을 제출할 수 있습니다.
 
 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
 

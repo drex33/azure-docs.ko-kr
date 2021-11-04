@@ -8,12 +8,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7c25a9bd3e643f67adb6897603ac92840ae58584
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 6c7419536c73014edbad9ff2f3adcd2229ad6f8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072825"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003404"
 ---
 # <a name="nvv3-series"></a>NVv3 시리즈
 
@@ -30,7 +30,7 @@ NVv3 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 가상 워크스테이션 | 가상 애플리케이션 |

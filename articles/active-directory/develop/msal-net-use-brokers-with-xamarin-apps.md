@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: c5f64fa958d8f4e4750518ed0ff4eaa691f9cbd8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 823c01dc3c6f6856bfc8cac2249da6bc1ddc411f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786905"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054327"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Xamarin 애플리케이션에서 Microsoft Authenticator 또는 Intune 회사 포털 사용
 
@@ -133,7 +133,7 @@ URL 구성표에서는 `BundleId`로 `$"msauth.(BundleId)"` 앱이 고유하게 
 > [!NOTE]
 > 이 URL 구성표는 브로커의 응답을 받을 때 앱을 고유하게 식별하는 리디렉션 URI의 일부가 됩니다.
 
-```XML
+```xml
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -155,7 +155,7 @@ MSAL은 `–canOpenURL:`을 사용하여 브로커가 디바이스에 설치되�
 
 다음 예와 같이 *info.plist* 파일의 `LSApplicationQueriesSchemes` 섹션에 `msauthv2`를 추가합니다.
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>

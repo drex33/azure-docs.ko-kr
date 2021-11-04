@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2021
 ms.author: bagol
-ms.openlocfilehash: de7126b7a095868680ff08fab6691782379bb742
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6614cc08a53314a701a0db5e6396024bbfb58a28
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952341"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009418"
 ---
 # <a name="connect-windows-virtual-desktop-data-to-azure-sentinel"></a>Azure Sentinel에 Windows Virtual Desktop 데이터 연결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel을 사용하여 WVD(Windows Virtual Desktop) 환경을 모니터링하는 방법을 설명합니다.
 

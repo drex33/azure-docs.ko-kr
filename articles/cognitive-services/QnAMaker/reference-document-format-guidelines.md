@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 53baa580d2f2c68fa32f38bddb07b5d9e362d190
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 875987a881e8e370d99530bfa975a73964d7d80c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787752"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080660"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져오는 문서 및 URL에 대한 형식 지침
 
@@ -69,7 +70,7 @@ QnA Maker는 다음과 같은 시각적 단서를 기반으로 하여 파일의 
  현재 이 기능은 문서 업로드를 통해서만 사용할 수 있으며 PDF 및 DOC 파일 형식에만 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 비정형 파일/콘텐츠에 대한 지원은 사용자 지정 질문 답변(미리 보기)에서만 사용할 수 있습니다.
+> 비정형 파일/콘텐츠에 대한 지원은 질문 응답에서만 사용할 수 있습니다.
 
 ### <a name="structured-qna-document"></a>구조화된 QnA 문서
 

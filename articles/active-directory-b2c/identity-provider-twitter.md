@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 11cc9a7e58001b515e3332717bc4ccdc4f9832f6
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: dc7e2a22e07f131019e701b54ca24b978454b9ae
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130227793"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007156"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인
 
@@ -35,7 +35,7 @@ ms.locfileid: "130227793"
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-사용자가 Azure AD B2C에서 Twitter 계정을 사용하여 로그인하도록 하려면 Twitter 애플리케이션을 만들어야 합니다. Twitter 계정이 없는 경우 [https://twitter.com/signup](https://twitter.com/signup)에서 가입할 수 있습니다. 또한 [개발자 계정을 신청](https://developer.twitter.com/en/apply/user.html)해야 합니다. 자세한 내용은 [액세스 신청](https://developer.twitter.com/en/apply-for-access)을 참조하세요.
+사용자가 Azure AD B2C에서 Twitter 계정을 사용하여 로그인하도록 하려면 Twitter 애플리케이션을 만들어야 합니다. Twitter 계정이 없는 경우 [`https://twitter.com/signup`](https://twitter.com/signup)에서 가입할 수 있습니다. 또한 [개발자 계정을 신청](https://developer.twitter.com/en/apply/user.html)해야 합니다. 자세한 내용은 [액세스 신청](https://developer.twitter.com/en/apply-for-access)을 참조하세요.
 
 1. Twitter 계정 자격 증명을 사용하여 [Twitter 개발자 포털](https://developer.twitter.com/portal/projects-and-apps)에 로그인합니다.
 1. **독립 실행형 앱** 에서 **+ 앱 만들기** 를 선택합니다.

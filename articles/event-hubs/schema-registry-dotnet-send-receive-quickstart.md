@@ -2,14 +2,14 @@
 title: 이벤트를 보내고 받을 때 스키마 유효성 검사 - AMQP 및 .NET
 description: 이 문서에서는 스키마 레지스트리를 사용하는 스키마 유효성 검사를 통해 Azure Event Hubs에서 이벤트를 보내거나 받는 .NET Core 애플리케이션을 만드는 연습을 제공 합니다.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 10/20/2021
 ms.custom: devx-track-csharp, ignite-fall-2021
-ms.openlocfilehash: d87fdaff91e46811319b259de01300fb2a70dff3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a0c14102f4db010b641685d89f2ac1bb09022ee9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433864"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131029693"
 ---
 # <a name="validate-schema-when-sending-and-receiving-events---amqp-and-net"></a>이벤트를 보내고 받을 때 스키마 유효성 검사 - AMQP 및 .NET 
 이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET 라이브러리를 사용하는 스키마 유효성 검사로 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 

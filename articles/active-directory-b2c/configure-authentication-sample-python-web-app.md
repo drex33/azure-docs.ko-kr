@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C를 사용하여 샘플 Python 웹 애플리케이션에서 인증 구성
 description: 이 문서에서는 Azure Active Directory B2C를 사용하여 Python 웹 애플리케이션에 로그인하고 사용자를 등록하는 방법에 대해 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
-ms.author: mimart
+ms.date: 09/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 89fb5fdd217ddc38a4b3f80504b3c48a882c4251
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1466e62e50cac9d24616c9662f73ad23f3f6eea7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471933"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007920"
 ---
 # <a name="configure-authentication-in-a-sample-python-web-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 샘플 Python 웹앱에서 인증 구성
 
@@ -61,8 +61,9 @@ OIDC(OpenID Connect)는 OAuth 2.0을 기반으로 하는 인증 프로토콜입�
 웹앱 등록을 만들려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. **Azure AD B2C** 를 검색하고 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
 1. **이름** 아래에 애플리케이션 이름을 입력합니다(예: *webapp1*).
 1. **지원되는 계정 유형** 아래에서 **모든 ID 공급자 또는 조직 디렉터리의 계정(사용자 흐름에서 사용자를 인증하는 용도)** 을 선택합니다. 

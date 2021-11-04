@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: pafarley
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a8c9cee28300a42c61fbff4cc0f5ad0d989d6b4b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d73f17d3e3eb8d5511dcb98c6a074a73120eaf06
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434563"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080615"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -52,13 +52,13 @@ Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모�
 | [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 | 5개 이상의 오디오 파일 | 예 | 해당 없음 |
 | [오디오 + 휴먼 레이블 대화 기록](#audio--human-labeled-transcript-data-for-trainingtesting) | 예<br>정확도 평가에 사용 | 0.5-5시간 분량의 오디오 | 예 | 1-20시간 분량의 오디오 |
 | [일반 텍스트](#plain-text-data-for-training) | 예 | 해당 사항 없음 | 예 | 1-200MB의 관련 텍스트 |
-| [구조적 텍스트(공개](#structured-text-data-for-training-public-preview) 미리 보기) | 예 | 해당 사항 없음 | 예 | 최대 4000개 항목과 최대 50,000개의 학습 문장이 있는 최대 10개의 클래스 |
+| [구조적 텍스트](#structured-text-data-for-training-public-preview) (공개 미리 보기) | 예 | 해당 사항 없음 | 예 | 최대 2000 개의 항목 및 최대 5만 교육 문장이 있는 최대 20 개의 클래스 |
 | [발음](#pronunciation-data-for-training) | 예 | 해당 사항 없음 | 예 | 1KB - 1MB의 발음 텍스트 |
 
 파일은 형식에 따라 데이터 세트로 그룹화하고 .zip 파일로 업로드해야 합니다. 각 데이터 세트는 단일 데이터 형식만 포함할 수 있습니다.
 
 > [!TIP]
-> 새 모델을 학습할 때 일반 텍스트 데이터 또는 구조적 텍스트 데이터로 시작합니다. 이 데이터는 특수 용어 및 구의 인식을 향상시킵니다. 텍스트를 사용한 학습(몇 분)은 오디오를 사용한 학습(며칠)보다 훨씬 빠릅니다.
+> 새 모델을 학습 하는 경우 일반 텍스트 데이터 또는 구조화 된 텍스트 데이터로 시작 합니다. 이 데이터는 특별 한 사용 약관의 인식을 향상 시킵니다. 텍스트를 사용한 학습(몇 분)은 오디오를 사용한 학습(며칠)보다 훨씬 빠릅니다.
 
 > [!NOTE]
 > 모든 기본 모델이 오디오를 통한 학습을 지원하지는 않습니다. 기본 모델이 이를 지원하지 않는 경우 Speech Service는 대본의 텍스트만 사용하고 오디오는 무시합니다. [언어 지원](language-support.md#speech-to-text)을 참조하여 오디오 데이터를 통한 학습을 지원하는 기본 모델의 목록을 확인하세요. 기본 모델이 오디오 데이터를 통한 학습을 지원하는 경우라도 해당 서비스는 오디오의 일부만 사용할 수 있습니다. 하지만 대본은 모두 사용합니다.
@@ -70,16 +70,16 @@ Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모�
 > 학습 전용 하드웨어가 있는 지역에서 Speech Service는 학습을 위해 최대 20시간의 오디오를 사용합니다. 다른 지역에서는 최대 8시간의 오디오만 사용합니다.
 
 > [!NOTE]
-> 구조적 텍스트를 사용한 학습은 en-US, en-UK, en-IN, de-DE, fr-FR, fr-CA, es-ES, es-MX 로케일에서만 지원되며, 이러한 로케일에 대해 최신 기본 모델을 사용해야 합니다. 
+> 구조적 텍스트를 사용한 교육은 en-us, en-us, en-us, en-us, fr-fr, fr-fr, fr, fr-fr, 사용자가 이러한 로캘에 대해서만 지원 됩니다. 이러한 로캘에는 이러한 로캘에 대 한 최신 기본 모델을 사용 해야 합니다. 
 >
-> 구조적 텍스트로 학습을 지원하지 않는 로케일의 경우 서비스는 일반 텍스트 데이터를 포함하는 학습의 일부로 클래스를 참조하지 않는 학습 문장을 가져옵니다.
+> 구조적 텍스트로 학습을 지원 하지 않는 로캘의 경우 서비스는 일반 텍스트 데이터를 사용 하 여 학습의 일부로 클래스를 참조 하지 않는 학습 문장을 모두 사용 합니다.
 
 ## <a name="upload-data"></a>데이터 업로드
 
-데이터를 업로드하려면 [Speech Studio](https://aka.ms/speechstudio/customspeech)이동합니다. 프로젝트를 만든 후 **음성 데이터 세트** 탭으로 이동하고 **데이터 업로드** 를 클릭하여 마법사를 시작하고 첫 번째 데이터 세트를 만듭니다. 데이터 세트에 대한 음성 데이터 형식을 선택하고 데이터를 업로드합니다.
+데이터를 업로드 하려면 [Speech Studio](https://aka.ms/speechstudio/customspeech)로 이동 합니다. 프로젝트를 만든 후 **음성 데이터 세트** 탭으로 이동하고 **데이터 업로드** 를 클릭하여 마법사를 시작하고 첫 번째 데이터 세트를 만듭니다. 데이터 세트에 대한 음성 데이터 형식을 선택하고 데이터를 업로드합니다.
 
 > [!NOTE]
-> 데이터 세트 파일 크기가 128MB를 초과하는 경우 *Azure Blob 또는 공유 위치* 옵션을 사용해야만 업로드할 수 있습니다. 음성 텍스트로 REST API [v3.0을](rest-speech-to-text.md#speech-to-text-rest-api-v30) 사용하여 허용되는 크기의 데이터 세트를 [업로드할](speech-services-quotas-and-limits.md#model-customization)수도 있습니다. 자세한 내용은 [다음 섹션을](#upload-data-using-speech-to-text-rest-api-v30) 참조하세요.
+> 데이터 집합 파일 크기가 128 MB를 초과 하는 경우 *Azure Blob 또는 공유 위치* 옵션을 사용 하 여 업로드할 수 있습니다. 또한 [음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) 을 사용 하 여 [허용 되는 크기](speech-services-quotas-and-limits.md#model-customization)의 데이터 집합을 업로드할 수 있습니다. 자세한 내용은 [다음 섹션을](#upload-data-using-speech-to-text-rest-api-v30) 참조 하세요.
 
 먼저 **학습** 또는 **테스트** 중 어디에 데이터 세트를 사용할지 지정해야 합니다. **학습** 또는 **테스트** 에 업로드 및 사용할 수 있는 여러 유형의 데이터가 있습니다. 업로드하는 각 데이터 세트는 업로드하기 전에 올바른 형식으로 지정해야 하며 선택한 데이터 형식에 대한 요구 사항을 충족해야 합니다. 다음 섹션에서는 요구 사항에 대해 살펴봅니다.
 
@@ -88,11 +88,11 @@ Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모�
 * **사용자 지정 모델 학습** 탭으로 이동하여 사용자 지정 모델을 학습할 수 있습니다.
 * **테스트 모델** 탭으로 이동하여 오디오 전용 데이터로 품질을 시각적으로 검사하거나 오디오 + 휴먼 레이블 대화 기록 데이터를 사용하여 정확도를 평가할 수 있습니다.
 
-### <a name="upload-data-using-speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v3.0을 사용하여 데이터 업로드
+### <a name="upload-data-using-speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0을 사용 하 여 데이터 업로드
 
-음성 텍스트 REST API [v3.0을](rest-speech-to-text.md#speech-to-text-rest-api-v30) 사용하여 사용자 지정 모델과 관련된 작업을 자동화할 수 있습니다. 특히 데이터 세트를 업로드하는 데 사용할 수 있습니다. Speech Studio 로컬 파일 옵션을 사용하여 큰 파일을 업로드할 수 없으므로 데이터 세트 *파일이* 128MB를 초과하는 경우 특히 유용합니다. (이전 섹션에서 설명한 것과 동일한 용도로 Speech Studio *Azure Blob 또는 공유 위치* 옵션을 사용할 수도 있습니다.)
+[음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) 을 사용 하 여 사용자 지정 모델과 관련 된 작업을 자동화할 수 있습니다. 특히 데이터 집합을 업로드 하는 데 사용할 수 있습니다. 이 기능은 Speech Studio에서 *로컬 파일* 옵션을 사용 하 여 큰 파일을 업로드할 수 없기 때문에 데이터 집합 파일이 128 MB를 초과 하는 경우에 특히 유용 합니다. (이전 섹션에서 설명한 것과 같은 목적으로 Speech Studio에서 *Azure Blob 또는 공유 위치* 옵션을 사용할 수도 있습니다.)
 
-다음 요청 중 하나를 사용하여 데이터 세트를 만들고 업로드합니다.
+다음 요청 중 하나를 사용 하 여 데이터 집합을 만들고 업로드 합니다.
 * [데이터 세트 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
 * [양식에서 데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
 
@@ -192,14 +192,14 @@ Speech Service 구독에 권장되는 지역 목록은 [Azure 계정 설정](cus
 
 ## <a name="structured-text-data-for-training-public-preview"></a>학습을 위한 구조화 된 텍스트 데이터 (공개 미리 보기)
 
-일반적으로 예상 되는 길이 발언 특정 패턴을 따릅니다. 한 가지 일반적인 패턴은 길이 발언는 목록의 단어나 구와만 다른 것입니다. 이에 대 한 예는 "에 대 한 질문이 있습니다 `product` ."는 `product` 가능한 제품의 목록입니다. 또는 "확인" `object` `color` 을 `object` 사용 합니다. 여기서은 기하학적 모양의 목록이 고 `color` 는 색 목록입니다. 학습 데이터 만들기를 간소화 하 고 사용자 지정 언어 모델 내에서 더 나은 모델링을 사용 하려면 markdown 형식으로 구조화 된 텍스트를 사용 하 여 항목 목록을 정의한 다음 학습 길이 발언 내에서이를 참조할 수 있습니다. 또한 markdown 형식은 단어의 음성 발음을 지정 하는 것을 지원 합니다. Markdown 형식은 해당 형식을 `.lu` Language Understanding 모델을 학습 하는 데 사용 되는 markdown를 특정 목록 엔터티 및 예제 길이 발언와 공유 합니다. 전체 markdown에 대 한 자세한 내용은 `.lu` <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> `.lu` 파일 형식을</a>참조 하십시오.
+일반적으로 예상 되는 길이 발언 특정 패턴을 따릅니다. 한 가지 일반적인 패턴은 길이 발언는 목록의 단어나 구와만 다른 것입니다. 이에 대 한 예는 "에 대 한 질문이 있습니다 `product` ."는 `product` 가능한 제품의 목록입니다. 또는 "확인" `object` `color` 을 `object` 사용 합니다. 여기서은 기하학적 모양의 목록이 고 `color` 는 색 목록입니다. 학습 데이터 만들기를 간소화 하 고 사용자 지정 언어 모델 내에서 더 나은 모델링을 사용 하려면 markdown 형식으로 구조화 된 텍스트를 사용 하 여 항목 목록을 정의한 다음 학습 길이 발언 내에서이를 참조할 수 있습니다. 또한 markdown 형식은 단어의 음성 발음을 지정 하는 것을 지원 합니다. Markdown 형식은 해당 형식을 Language Understanding 모델을 학습 하는 데 사용 하는 _._ 전체 _. lu_ markdown에 대 한 자세한 내용은 <a href="https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0" target="_blank">. lu 파일 형식</a> 문서를 참조 하세요. 
 
 Markdown 형식의 예는 다음과 같습니다.
 
 ```markdown
 // This is a comment
 
-// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 10 of these
+// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 20 of these
 @ list food =
 - pizza
 - burger
@@ -239,30 +239,30 @@ Markdown 형식의 예는 다음과 같습니다.
 ```
 
 일반 텍스트와 마찬가지로 구조적 텍스트로의 교육은 일반적으로 몇 분 정도 걸립니다. 또한 예제 문장과 목록에는 프로덕션 환경에서 원하는 음성 입력 형식이 반영 되어야 합니다.
-발음 항목의 경우 [유니버설 전화 집합](phone-sets.md)에 대 한 설명을 참조 하세요.
+발음 항목은 유니버설 전화 집합에 대한 설명을 [참조하세요.](phone-sets.md)
 
-다음 표에서는 markdown 형식에 대 한 제한 및 기타 속성을 지정 합니다.
+아래 표는 markdown 형식에 대한 제한 및 기타 속성을 지정합니다.
 
 | 속성 | 값 |
 |----------|-------|
 | 텍스트 인코딩 | UTF-8 BOM |
 | 최대 파일 크기 | 200MB |
 | 최대 예제 문장 수 | 50,000 |
-| 최대 목록 클래스 수 | 10 |
-| List 클래스의 최대 항목 수 | 4,000 |
-| 최대 음성: phoneticlexicon 항목 수 | 15000 |
-| 단어 당 최대 발음 수 | 2 |
+| 목록 클래스의 최대 수 | 10 |
+| 목록 클래스의 최대 항목 수 | 4,000 |
+| 최대 음성 수:phoneticlexicon 항목 | 15000 |
+| 단어당 최대 발음 수 | 2 |
 
 
 ## <a name="pronunciation-data-for-training"></a>학습용 발음 데이터
 
-사용자가 접하거나 사용하게 될 표준 발음이 없는 특수 용어가 있는 경우 사용자 지정 발음 파일을 제공하여 인식을 향상시킬 수 있습니다. 사용자 지정 발음을 지 원하는 언어 목록은 [음성 텍스트 테이블](language-support.md#speech-to-text)의 **사용자 지정** 열에서 **발음** 을 참조 하세요.
+사용자가 접하거나 사용하게 될 표준 발음이 없는 특수 용어가 있는 경우 사용자 지정 발음 파일을 제공하여 인식을 향상시킬 수 있습니다. 사용자 지정 발음을 지원하는 언어 목록은 [Speech-to-text 테이블의](language-support.md#speech-to-text) **사용자 지정** 열에서 **발음을** 참조하세요.
 
 > [!IMPORTANT]
 > 사용자 지정 발음 파일을 사용하여 일반적인 단어의 발음을 변경하는 것은 권장되지 않습니다.
 
 > [!NOTE]
-> 이 유형의 발음 파일을 구조적 텍스트 학습 데이터와 결합할 수 없습니다. 구조적 텍스트 데이터의 경우 구조적 텍스트 markdown 형식에 포함 된 음성 발음 기능을 사용 합니다.
+> 이 형식의 발음 파일을 구조적 텍스트 학습 데이터와 결합할 수 없습니다. 구조적 텍스트 데이터의 경우 구조적 텍스트 마크다운 형식에 포함된 음성 발음 기능을 사용합니다.
 
 단일 텍스트 파일에 발음을 제공합니다. 여기에는 음성 발화의 예와 각각에 대한 사용자 지정 발음이 포함됩니다.
 

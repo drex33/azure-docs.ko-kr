@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: b9e9d6b1b5939804b24fd523bf8b7444ed41178f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8589caaa888e9a9b1156563bd38090c922ebfcc4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708597"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020866"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure Diagnostics 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure Diagnostics 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 세트나 전체를 파이핑할 수 있습니다.
@@ -22,7 +22,7 @@ Azure 진단 확장 1.5는 진단 데이터를 보낼 수 있는 추가 위치�
 
 Application Insights에 대한 싱크 예제 구성:
 
-```XML
+```xml
 <SinksConfig>
     <Sink name="ApplicationInsights">
       <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>
@@ -85,7 +85,7 @@ Application Insights에 대한 싱크 예제 구성:
 1. 모든 오류를 Application Insights로 보냅니다(**DiagnosticMonitorConfiguration** 노드에서 지정).
 2. 또한 애플리케이션 로그(**로그** 노드에서 지정함)에 대한 자세한 정보 표시 수준 로그를 보냅니다.
 
-```XML
+```xml
 <WadCfg>
   <DiagnosticMonitorConfiguration overallQuotaInMB="4096"
        sinks="ApplicationInsights.MyTopDiagData"> <!-- All info below sent to this channel -->
@@ -197,7 +197,7 @@ Application Insights에 대한 싱크 예제 구성:
 
 ### <a name="send-verbose-application-logs-to-application-insights"></a>Application Insights에 자세한 정보 표시 애플리케이션 로그 보내기
 
-```XML
+```xml
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 ```
 ```JSON

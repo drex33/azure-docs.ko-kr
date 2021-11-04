@@ -1,26 +1,27 @@
 ---
-title: Microsoft Defender for Cloud의 워크플로 자동화 | Microsoft Docs
-description: Microsoft Defender for Cloud에서 워크플로를 만들고 자동화 하는 방법을 알아봅니다.
+title: Microsoft Defender for Cloud | 워크플로 자동화 Microsoft Docs
+description: Microsoft Defender for Cloud에서 워크플로를 만들고 자동화하는 방법 알아보기
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.openlocfilehash: cefeb17946f5723d7ea44ee89f8245eef01d28c3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 4cf12721cc691f4719cc4442b4092b44f6d8e1b7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445151"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004571"
 ---
-# <a name="automate-responses-to-microsoft-defender-for-cloud-triggers"></a>클라우드 트리거에 대해 Microsoft Defender에 대 한 응답 자동화
+# <a name="automate-responses-to-microsoft-defender-for-cloud-triggers"></a>Microsoft Defender for Cloud 트리거에 대한 응답 자동화
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 모든 보안 프로그램에는 인시던트 응답을 위한 여러 워크플로가 포함되어 있습니다. 이러한 프로세스에는 관련 이해 관계자에게 알리고, 변경 관리 프로세스를 시작하고, 특정 수정 단계를 적용하는 것이 포함될 수 있습니다. 보안 전문가는 가능한 한 해당 절차의 여러 단계를 자동화할 것을 권장합니다. Azure 자동화를 통해 오버헤드를 줄입니다. 또한 자동화는 프로세스 단계가 미리 정의된 요구 사항에 따라 빠르고 일관되게 수행되도록 하여 보안을 향상할 수 있습니다.
 
-이 문서에서는 Microsoft Defender for Cloud의 워크플로 자동화 기능에 대해 설명 합니다. 이 기능은 보안 경고, 권장 사항 및 규정 준수 변경에 대해 Logic Apps를 트리거할 수 있습니다. 예를 들어, 경고가 발생 하는 경우 Defender for Cloud가 특정 사용자를 전자 메일로 보낼 수 있습니다. [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 Logic Apps를 만드는 방법도 알아봅니다.
+이 문서에서는 Microsoft Defender for Cloud의 워크플로 자동화 기능을 설명합니다. 이 기능은 보안 경고, 권장 사항 및 규정 준수 변경에 대해 Logic Apps를 트리거할 수 있습니다. 예를 들어 경고가 발생할 때 Defender for Cloud에서 특정 사용자에게 메일을 보내도록 할 수 있습니다. [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 Logic Apps를 만드는 방법도 알아봅니다.
 
 
 ## <a name="availability"></a>가용성
@@ -37,17 +38,15 @@ ms.locfileid: "131445151"
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>논리 앱을 생성된 뒤 자동으로 실행되는 시간을 정의합니다. 
 
-1. 클라우드 용 Defender의 사이드바에서 **워크플로 자동화** 를 선택 합니다.
+1. Defender for Cloud의 사이드바에서 **워크플로 자동화** 를 선택합니다.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="정의 된 자동화 목록을 보여 주는 워크플로 자동화 페이지의 스크린샷" lightbox="./media/workflow-automation/list-of-workflow-automations.png":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="워크플로 자동화 목록.":::
 
     이 페이지에서 새 자동화 규칙을 만들거나 기존 규칙을 사용/사용하지 않도록 설정하거나 삭제할 수 있습니다.
 
-1. 새로운 워크플로를 정의하려면 **워크플로 자동화 추가** 를 클릭합니다. 새 자동화에 대 한 옵션 창이 열립니다.
+1. 새로운 워크플로를 정의하려면 **워크플로 자동화 추가** 를 클릭합니다. 
 
-    :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="워크플로 자동화 추가 창.":::
-
-    여기에서 다음을 입력할 수 있습니다.
+    새로운 자동화에 대한 옵션이 포함된 창이 나타납니다. 여기에서 다음을 입력할 수 있습니다.
     1. 자동화에 대한 이름 및 설명입니다.
     1. 자동 워크플로를 시작하는 트리거입니다. 예를 들어, 당신은 “SQL”을 포함하는 보안 경고가 생성될 때, 논리 앱을 실행하려고 할 수 있습니다.
 
@@ -56,7 +55,9 @@ ms.locfileid: "131445151"
 
     1. 트리거 조건이 충족될 때 실행되는 논리 앱입니다. 
 
-1. 작업 섹션에서 **Logic Apps 페이지 방문** 을 선택 하 여 논리 앱 만들기 프로세스를 시작 합니다.
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="워크플로 자동화 추가 창.":::
+
+1. 작업 섹션에서 Logic Apps **페이지를 방문하여** 논리 앱 만들기 프로세스를 시작합니다.
 
     Azure Logic Apps로 이동합니다.
 
@@ -64,22 +65,22 @@ ms.locfileid: "131445151"
 
     [![새 Logic App 만들기.](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
-1. 이름, 리소스 그룹 및 위치를 입력 하 고 **검토 및** 만들기 만들기를 선택  >  합니다.
+1. 이름, 리소스 그룹 및 위치를 입력하고 **검토 및**  >  **만들기를** 선택합니다.
 
-    메시지 **배포가 진행 중** 입니다 .가 표시 됩니다. 배포 완료 알림이 표시 될 때까지 기다렸다가 알림에서 **리소스로 이동** 을 선택 합니다.
+    **배포가 진행 중이라는** 메시지가 나타납니다. 배포 완료 알림이 표시되기를 기다렸다가 알림에서 **리소스로 이동을** 선택합니다.
 
 1. 새 논리 앱에서는 보안 범주 내의 기본 제공 및 미리 정의된 템플릿을 선택할 수 있습니다. 또는 해당 프로세스가 트리거될 때 발생하는 이벤트의 사용자 지정 흐름을 정의할 수 있습니다.
 
     > [!TIP]
-    > 경우에 따라 논리 앱에서 매개 변수는 자체 필드가 아닌 문자열의 일부로 커넥터에 포함됩니다. 매개 변수를 추출 하는 방법에 대 한 예제는 [클라우드 워크플로 자동화 Microsoft Defender를 빌드하는 동안 논리 앱 매개 변수 작업](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121)#14 단계를 참조 하세요.
+    > 경우에 따라 논리 앱에서 매개 변수는 자체 필드가 아닌 문자열의 일부로 커넥터에 포함됩니다. 매개 변수를 추출하는 방법의 예제는 [클라우드용 Microsoft Defender 워크플로 자동화를 빌드하는 동안 논리 앱 매개 변수 작업의 14단계를 참조하세요.](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121)
 
-    논리 앱 디자이너는 클라우드 트리거에 대해 이러한 Defender를 지원 합니다.
+    논리 앱 디자이너는 다음과 같은 Defender for Cloud 트리거를 지원합니다.
 
-    - **클라우드 권장 사항에 대 한 Microsoft Defender가 만들어지거나 트리거되** 는 경우-논리 앱이 사용 되지 않거나 대체 되는 권장 사항을 사용 하는 경우 automation의 작동이 중지 되 고 트리거를 업데이트 해야 합니다. 권장 사항에 대 한 변경 내용을 추적 하려면 [릴리스 정보](release-notes.md)를 사용 합니다.
+    - **클라우드용 Microsoft Defender 권장 사항이 만들어지거나 트리거될 때** - 논리 앱이 더 이상 사용되지 않거나 대체되는 권장 사항을 사용하는 경우 자동화가 중지되고 트리거를 업데이트해야 합니다. 권장 사항의 변경 내용을 추적하려면 [릴리스 정보](release-notes.md)를 사용합니다.
 
-    - **클라우드 경고에 대 한 Defender가 만들어지거나 트리거될 때** 관심 있는 심각도 수준의 경고에만 관련 되도록 트리거를 사용자 지정할 수 있습니다.
+    - **클라우드용 Defender 경고가 생성되거나 트리거되는** 경우 - 관심 있는 심각도 수준의 경고와만 관련되도록 트리거를 사용자 지정할 수 있습니다.
     
-    - 규정 준수 평가에 대 한 업데이트를 기반으로 **클라우드 규정 준수 평가에 대 한 Defender가 만들어지거나 트리거된 경우** 자동화.
+    - **Defender for Cloud 규정 준수 평가를 만들거나 트리거하는 경우** - 규정 준수 평가에 대한 업데이트를 기반으로 자동화를 트리거합니다.
 
     > [!NOTE]
     > 레거시 트리거 "Azure Security Center 경고에 대한 응답이 트리거되는 경우"를 사용하면 논리 앱이 워크플로 자동화 기능으로 실행되지 않습니다. 대신 위에서 언급한 트리거 중 하나를 사용하세요. 
@@ -90,7 +91,7 @@ ms.locfileid: "131445151"
 
     ![새로 고침.](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. 논리 앱을 선택하여 자동화를 저장합니다. 논리 앱 드롭다운은 위에서 언급 한 클라우드 커넥터용 지원 Defender Logic Apps 표시 합니다.
+1. 논리 앱을 선택하여 자동화를 저장합니다. 논리 앱 드롭다운에는 위에서 언급한 지원 Defender for Cloud 커넥터가 있는 Logic Apps만 표시됩니다.
 
 
 ## <a name="manually-trigger-a-logic-app"></a>Logic App을 수동으로 트리거
@@ -116,9 +117,9 @@ Logic App을 수동으로 실행하려면, 경고 또는 권장 사항을 연 �
 
     |목표  |정책  |정책 ID  |
     |---------|---------|---------|
-    |보안 경고에 대한 워크플로 자동화              |[클라우드 경고에 대해 Microsoft Defender에 대 한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-    |보안 추천 사항에 대한 워크플로 자동화     |[클라우드 권장 사항에 대 한 Microsoft Defender 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
-    |규정 준수 변경에 대한 워크플로 자동화|[클라우드 규정 준수를 위해 Microsoft Defender에 대 한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
+    |보안 경고에 대한 워크플로 자동화              |[클라우드용 Microsoft Defender 경고에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+    |보안 추천 사항에 대한 워크플로 자동화     |[클라우드용 Microsoft Defender 권장 사항에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+    |규정 준수 변경에 대한 워크플로 자동화|[클라우드용 Microsoft Defender 규정 준수를 위한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
     ||||
 
     > [!TIP]
@@ -136,7 +137,7 @@ Logic App을 수동으로 실행하려면, 경고 또는 권장 사항을 연 �
         > [!TIP]
         > 각 매개 변수에는 제공되는 옵션을 알려 주는 도구 설명이 있습니다.
         >
-        > Azure Policy의 매개 변수 탭 (1)은 클라우드 워크플로 자동화 페이지 (2) 용 Defender와 유사한 구성 옵션에 대 한 액세스를 제공 합니다.
+        > Azure Policy 매개 변수 탭(1)은 클라우드용 Defender 워크플로 자동화 페이지(2)와 유사한 구성 옵션에 대한 액세스를 제공합니다.
         > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Azure Policy를 사용하여 워크플로 자동화의 매개 변수 비교." lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. 필요한 경우 이 할당을 기존 구독에 적용하려면 **수정** 탭을 열고 수정 작업을 만드는 옵션을 선택합니다.
@@ -146,7 +147,7 @@ Logic App을 수동으로 실행하려면, 경고 또는 권장 사항을 연 �
 
 ## <a name="data-types-schemas"></a>데이터 형식 스키마
 
-Logic App 인스턴스에 전달된 보안 경고 또는 권장 사항 이벤트의 원시 이벤트 스키마를 보려면 [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)를 참조하세요. 이는 위에서 언급한 클라우드용 Defender의 기본 제공 논리 앱 커넥터를 사용하지 않고 대신 논리 앱의 일반 HTTP 커넥터를 사용하는 경우에 유용할 수 있습니다. 이벤트 JSON 스키마를 사용하여 원하는 대로 수동으로 구문 분석할 수 있습니다.
+Logic App 인스턴스에 전달된 보안 경고 또는 권장 사항 이벤트의 원시 이벤트 스키마를 보려면 [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)를 참조하세요. 이는 위에서 언급 한 클라우드의 기본 제공 논리 앱 커넥터용 Defender를 사용 하지 않고 논리 앱의 일반 HTTP 커넥터를 사용 하는 경우에 유용할 수 있습니다. 이벤트 JSON 스키마를 사용 하 여 적합 한 것으로 수동으로 구문 분석할 수 있습니다.
 
 
 ## <a name="faq---workflow-automation"></a>FAQ - 워크플로 자동화
@@ -161,13 +162,13 @@ Logic App 인스턴스에 전달된 보안 경고 또는 권장 사항 이벤트
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Logic Apps 만들고, Defender for Cloud에서 실행을 자동화하고, 수동으로 실행하는 것에 대해 배웠습니다.
+이 문서에서는 Logic Apps을 만들고, 클라우드에 대해 Defender에서 실행을 자동화 하 고, 수동으로 실행 하는 방법을 알아보았습니다.
 
 관련 자료는 다음을 참조하세요. 
 
 - [워크플로 자동화를 사용하여 보안 대응을 자동화하는 방법에 대한 Microsoft Learn 모듈](/learn/modules/resolve-threats-with-azure-security-center/)
-- [클라우드용 Microsoft Defender의 보안 권장 사항](review-security-recommendations.md)
-- [클라우드용 Microsoft Defender의 보안 경고](alerts-overview.md)
+- [Microsoft Defender for Cloud의 보안 권장 사항](review-security-recommendations.md)
+- [Microsoft Defender for Cloud의 보안 경고](alerts-overview.md)
 - [Azure Logic Apps 정보](../logic-apps/logic-apps-overview.md)
 - [Azure Logic Apps용 커넥터](../connectors/apis-list.md)
 - [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)

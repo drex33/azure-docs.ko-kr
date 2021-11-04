@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 1574464f4f6f4c4abe8a3fc45247f28b7b97bd96
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 169e25bd7fe5b77580652d4edf4beabb26abcf18
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428077"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031825"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
@@ -374,7 +374,7 @@ az group create --name myResourceGroup --location westeurope
 1. 로그인에 성공하면 레지스트리에 대한 로컬 Docker 이미지에 태그를 지정합니다.
 
     ```bash
-   docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```    
 
 1. `docker push` 명령을 사용하여 이미지를 레지스트리로 푸시합니다.

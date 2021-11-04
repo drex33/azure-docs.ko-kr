@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,16 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/04/2021
 ms.author: bagol
-ms.openlocfilehash: f8ad30e833e7b400c7d308b1f99dd457af438fa0
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: aa633024754c82e1a9879f79c9410e6948405eeb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129622448"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004013"
 ---
 # <a name="azure-sentinel-dhcp-normalization-schema-reference-public-preview"></a>Azure Sentinel DHCP 정규화 스키마 참조(공개 미리 보기)
 
-DHCP 정보 모델은 DHCP 서버에서 보고하는 이벤트를 설명하는 데 사용되며 Azure Sentinel 소스 독립적 분석을 사용하도록 설정하는 데 사용됩니다.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+DHCP 정보 모델은 DHCP 서버에서 보고하는 이벤트를 설명하는 데 사용되며, Azure Sentinel 소스 독립적 분석을 사용하도록 설정하는 데 사용됩니다.
 
 자세한 내용은 [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)을 참조하세요.
 
@@ -38,7 +40,7 @@ DHCP 정보 모델은 DHCP 서버에서 보고하는 이벤트를 설명하는 �
 
 ASIM DHCP 스키마는 클라이언트 시스템에서 임대된 DHCP IP 주소에 대한 요청 제공 및 부여된 임대를 사용하여 DNS 서버를 업데이트하는 등 DHCP 서버 활동을 나타냅니다.
 
-DHCP 이벤트에서 가장 중요한 필드는 [SrcIpAddr](#srcipaddr) 및 [SrcHostname입니다.](#srchostname)이 필드는 DHCP 서버가 임대를 부여하여 바인딩하고 [IpAddr](#ipaddr) 및 [Hostname](#hostname) 필드에 의해 각각 별칭이 표시됩니다. [SrcMacAddr](#srcmacaddr) 필드는 IP 주소가 임대되지 않을 때 사용되는 클라이언트 컴퓨터를 나타내기 때문에 중요합니다.  
+DHCP 이벤트에서 가장 중요한 필드는 [SrcIpAddr](#srcipaddr) 및 [SrcHostname입니다.](#srchostname)이 필드는 DHCP 서버가 임대를 부여하여 바인딩하고 [IpAddr](#ipaddr) 및 [Hostname](#hostname) 필드에 각각 별칭이 추가됩니다. [SrcMacAddr](#srcmacaddr) 필드는 IP 주소가 임대되지 않을 때 사용되는 클라이언트 컴퓨터를 나타내기 때문에 중요합니다.  
 
 DHCP 서버는 보안 문제 또는 네트워크 포화로 인해 클라이언트를 거부할 수 있습니다. 또한 제한된 네트워크에 연결하는 IP 주소를 임대하여 클라이언트를 격리할 수도 있습니다. [EventResult](#eventresult), [EventResultDetails](#eventresultdetails) 및 [DvcAction](#dvcaction) 필드는 DHCP 서버 응답 및 작업에 대한 정보를 제공합니다.
 
@@ -76,37 +78,37 @@ OSSEM에는 ASIM DHCP 스키마와 비슷한 DHCP 스키마가 없습니다.
 | **EventStartTime** | 필수 | 날짜/시간 | 원본에서 집계를 지원하고 레코드에서 여러 이벤트를 나타내는 경우 이 필드를 사용하여 첫 번째 이벤트가 생성된 시간을 지정합니다. <br><br>다른 경우에는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |
 | **EventEndTime** | Alias || [TimeGenerated](#timegenerated) 필드에 대한 별칭입니다. |
 | **EventType** | 필수 | Enumerated | 레코드에서 보고하는 작업을 표시합니다. <br><Br> 가능한 값은 `Assign` `Renew` , 및 `Release` `DNS Update` 입니다. <br><br>예: `Assign`| 
-| <a name="eventresult"></a>**EventResult** | 필수 | Enumerated | , , , `Success` `Partial` `Failure` `NA` (해당 사항 안 함) 값 중 하나입니다.<br> <br>값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 또는 원본에서 EventResult 값을 파생하기 위해 분석해야 하는 [EventResultDetails](#eventresultdetails) 필드만 제공할 수 있습니다.  DHCP 서버에서 클라이언트를 격리하는 경우 이 필드를 로 설정해야 `Partial` 합니다.<br><br>예: `Success`|
-| <a name="eventresultdetails"></a>**EventResultDetails** | Alias | | EventResult](#eventresult) 필드에 보고된 결과의 이유 또는 세부 정보입니다. <br><Br> 가능한 값은 `Exhausted`, `Quarantined` 및 `Denied`입니다. <br><br>예: `Exhausted` |
-| **EventOriginalResultDetails**    | 선택    | 문자열     |  원본에서 제공하는 경우 [EventResultDetails](#eventresultdetails)에 대한 원래 레코드에 제공된 값입니다. Windows DHCP 서버 로그의 경우 QResult 필드 값을 여기에 저장합니다. |
+| <a name="eventresult"></a>**EventResult** | 필수 | Enumerated | , , , `Success` `Partial` `Failure` `NA` (해당 사항 안 함) 값 중 하나입니다.<br> <br>값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 또는 원본이 [EventResultDetails](#eventresultdetails) 필드만 제공할 수 있습니다. 이 필드를 분석하여 **EventResult** 값을 파생시켜야 합니다. DHCP 서버에서 클라이언트를 격리하는 경우 이 필드를 로 설정해야 `Partial` 합니다.<br><br>예: `Success`|
+| <a name="eventresultdetails"></a>**EventResultDetails** | Alias | | EventResult](#eventresult) 필드에 보고된 결과에 대한 이유 또는 세부 정보입니다. <br><Br> 가능한 값은 `Exhausted`, `Quarantined` 및 `Denied`입니다. <br><br>예: `Exhausted` |
+| **EventOriginalResultDetails**    | 선택    | 문자열     |  원본에서 제공하는 경우 [EventResultDetails](#eventresultdetails)에 대한 원래 레코드에 제공된 값입니다. Windows DHCP 서버 로그의 경우 여기에 QResult 필드 값을 저장합니다. |
 | **EventOriginalUid** | 선택 | 문자열 | 원본에서 제공하는 경우 원래 레코드의 고유 ID입니다. |
 | **EventOriginalType**   | 선택    | 문자열  |  원본에서 제공하는 경우 원본 이벤트 유형 또는 ID입니다.<br><br>예: `DNS Assign Failed` |
 | <a name ="eventproduct"></a>**EventProduct** | 필수 | String | 이벤트를 생성하는 제품 이 필드는 원본 레코드에서 사용하지 못할 수 있으며, 이 경우 파서에서 설정해야 합니다. <br><br>예: `DHCP Server` |
 | **EventProductVersion** | 선택 | 문자열 | 이벤트를 생성하는 제품의 버전 이 필드는 원본 레코드에서 사용하지 못할 수 있으며, 이 경우 파서에서 설정해야 합니다. <br><br>예: `12.1` |
 | <a name="eventvendor"></a>**EventVendor** | 필수 | String | 이벤트를 생성하는 제품의 공급 업체 이 필드는 원본 레코드에서 사용하지 못할 수 있으며, 이 경우 파서에서 설정해야 합니다.<br><br>예: `Microsoft`|
-| **EventSchemaVersion** | 필수 | String | 여기에 설명 된 스키마 버전은 **0.1.0** 입니다. |
-| **EventSchema** | 필수 | String | 여기에 설명 된 스키마 이름은 **Dhcp** 입니다. |
+| **EventSchemaVersion** | 필수 | String | 여기에 설명된 스키마의 버전은 **0.1.0입니다.** |
+| **EventSchema** | 필수 | String | 여기에 설명된 스키마의 이름은 **Dhcp** 입니다. |
 | **EventReportUrl** | 선택 | 문자열 | 이벤트에 대한 추가 정보를 제공하는 리소스에 대해 이벤트에 제공된 URL입니다. |
-| <a name="dvc"></a>**Dvc** | Alias | String | DHCP 서버의 고유 식별자입니다.<br><br>예: `ContosoDc.Contoso.Azure`<br><br>이 필드에는 [Dvcfqdn](#dvcfqdn), [dvcid](#dvcid), [DvcHostname](#dvchostname)또는 [dvcipaddr](#dvcipaddr) 필드가 별칭으로 있을 수 있습니다. 명백한 장치가 없는 클라우드 원본의 경우 [이벤트 제품](#eventproduct) 필드와 동일한 값을 사용 합니다. |
+| <a name="dvc"></a>**Dvc** | Alias | String | DHCP 서버의 고유 식별자입니다.<br><br>예: `ContosoDc.Contoso.Azure`<br><br>이 필드는 [DvcFQDN,](#dvcfqdn) [DvcId,](#dvcid) [DvcHostname](#dvchostname)또는 [DvcIpAddr](#dvcipaddr) 필드에 별칭을 붙일 수 있습니다. 명백한 디바이스가 없는 클라우드 원본의 경우 [이벤트 제품](#eventproduct) 필드와 동일한 값을 사용합니다. |
 | <a name="dvcipaddr"></a>**DvcIpAddr** | 권장 | IP 주소 | DHCP 서버의 IP 주소입니다.<br><br>예: `2001:db8::ff00:42:8329` |
-| <a name="dvchostname"></a>**DvcHostname** | 필수 | String | DHCP 서버의 호스트 이름으로, 도메인 정보를 제외 합니다. 사용할 수 있는 장치 이름이 없으면이 필드에 관련 IP 주소를 저장 합니다.<br><br>예: `DESKTOP-1282V4D` |
+| <a name="dvchostname"></a>**DvcHostname** | 필수 | String | 도메인 정보를 제외한 DHCP 서버의 호스트 이름입니다. 사용할 수 있는 디바이스 이름이 없는 경우 이 필드에 관련 IP 주소를 저장합니다.<br><br>예: `DESKTOP-1282V4D` |
 | <a name="dvcdomain"></a>**DvcDomain** | 권장 | String | DHCP 서버의 도메인입니다.<br><br>예: `Contoso` |
-| <a name="dvcdomaintype"></a>**DvcDomainType** | 권장 | Enumerated | [Dvcdomain](#dvcdomain) 의 유형입니다 (알려진 경우). 가능한 값은 다음과 같습니다.<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>**참고**:이 필드는 [dvcdomain](#dvcdomain) 필드가 사용 되는 경우에 필요 합니다. |
-| <a name="dvcfqdn"></a>**DvcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함 하 여 DHCP 서버의 호스트 이름입니다. <br><br> 예: `Contoso\DESKTOP-1282V4D`<br><br>**참고**:이 필드는 기존의 FQDN 형식과 Windows domain\hostname 형식을 둘 다 지원 합니다. [DvcDomainType](#dvcdomaintype) 필드에는 사용 된 형식이 반영 됩니다.  |
-| <a name="dvcid"></a>**DvcId** | 선택 | 문자열 | 레코드에 보고 된 DHCP 서버의 ID입니다.<br><br>예제: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DvcIdType** | 선택 사항 | Enumerated | 알려진 경우 [Dvcid](#dvcid)의 유형입니다. 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 Id를 사용할 수 있는 경우 목록에서 첫 번째 Id를 사용 하 고 필드 이름  **DvcAzureResourceId** 및 **Dvcmdeid** 를 각각 사용 하 여 다른 id를 저장 합니다.<br><br>**참고**:이 필드는 [dvcid](#dvcid) 필드가 사용 되는 경우에 필요 합니다. |
-| **EventSeverity** | 선택 사항 | Enumerated | `Low`DHCP 서버가 클라이언트를 격리 한 경우로 설정 하 고, `Medium` 서버에서 클라이언트를 차단한 경우로 설정 합니다. 그렇지 않으면로 설정 `Informational` 합니다. <br><br>예: `Informational`|
-| <a name="dvcaction"></a>**DvcAction** | 선택 사항 | Enumerated | DHCP 서버에서 수행 하는 작업입니다. 가능한 값은 `Allow`, `Deny` 및 `Quarantine`입니다.<br><br>예: `Deny` |
+| <a name="dvcdomaintype"></a>**DvcDomainType** | 권장 | Enumerated | [DvcDomain의 형식입니다(알려진](#dvcdomain) 경우). 가능한 값은 다음과 같습니다.<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>**참고:** [DvcDomain](#dvcdomain) 필드를 사용하는 경우 이 필드가 필요합니다. |
+| <a name="dvcfqdn"></a>**DvcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함하는 DHCP 서버의 호스트 이름입니다. <br><br> 예: `Contoso\DESKTOP-1282V4D`<br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [DvcDomainType](#dvcdomaintype) 필드는 사용된 형식을 반영합니다.  |
+| <a name="dvcid"></a>**DvcId** | 선택 | 문자열 | 레코드에 보고된 DHCP 서버의 ID입니다.<br><br>예제: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
+| **DvcIdType** | 선택 사항 | Enumerated | [DvcId의](#dvcid)형식입니다(알려진 경우). 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 ID를 사용할 수 있는 경우 목록의 첫 번째 ID를 사용하고, 각각  **DvcAzureResourceId** 및 **DvcMDEid** 필드 이름을 사용하여 다른 ID를 저장합니다.<br><br>**참고:** [DvcId](#dvcid) 필드를 사용하는 경우 이 필드가 필요합니다. |
+| **EventSeverity** | 선택 사항 | Enumerated | `Low`DHCP 서버가 클라이언트를 격리한 경우 로 설정하고 서버가 `Medium` 클라이언트를 차단한 경우 로 설정합니다. 그렇지 않으면 `Informational` 를 로 설정합니다. <br><br>예: `Informational`|
+| <a name="dvcaction"></a>**DvcAction** | 선택 사항 | Enumerated | DHCP 서버에서 수행되는 동작입니다. 가능한 값은 `Allow`, `Deny` 및 `Quarantine`입니다.<br><br>예: `Deny` |
 | <a name="additionalfields"></a>**AdditionalFields** | 선택 사항 | 동적 | 원본에서 보존할 가치가 있는 기타 정보를 제공하는 경우 원본 필드 이름으로 유지하거나 **AdditionalFields** 동적 필드를 만들고 추가 정보를 키/값 쌍으로 추가합니다. |
 | | | | |
 
 ### <a name="dhcp-specific-fields"></a>DHCP 관련 필드
 
-아래 필드는 DHCP 이벤트와 관련이 있지만 대부분은 다른 스키마의 필드와 비슷하며 동일한 명명 규칙을 따릅니다.
+아래 필드는 DHCP 이벤트와 관련이 있지만 많은 필드가 다른 스키마의 필드와 유사하며 동일한 명명 규칙을 따릅니다.
 
-| **필드** | **클래스** | **형식** | **참고** |
+| **필드** | **클래스** | **형식** | **참고 사항** |
 | --- | --- | --- | --- |
-| <a name="srcipaddr"></a>**SrcIpAddr** | 필수 | IP 주소 | DHCP 서버에 의해 클라이언트에 할당 된 IP 주소입니다.<br><br>예: `192.168.12.1` |
+| <a name="srcipaddr"></a>**SrcIpAddr** | 필수 | IP 주소 | DHCP 서버에서 클라이언트에 할당한 IP 주소입니다.<br><br>예: `192.168.12.1` |
 | <a name="ipaddr"></a>**IpAddr** | Alias | | [Srcipaddr](#srcipaddr) 의 별칭 |
 | <a name="requestedipaddr"></a>**Request편집기** | 선택 사항 | IP 주소 | DHCP 클라이언트에서 요청 하는 IP 주소입니다 (사용 가능한 경우).<br><br>예: `192.168.12.3` |
 | <a name="srchostname"></a>**SrcHostname** | 필수 | String | DHCP 임대를 요청 하는 장치의 호스트 이름입니다. 사용할 수 있는 장치 이름이 없으면이 필드에 관련 IP 주소를 저장 합니다.<br><br>예: `DESKTOP-1282V4D` |
@@ -122,21 +124,21 @@ OSSEM에는 ASIM DHCP 스키마와 비슷한 DHCP 스키마가 없습니다.
 | <a name="srcusername"></a>**SrcUsername** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함 하는 원본 사용자 이름입니다. 다음 형식 중 하나를 사용 하 고 우선 순위를 지정 합니다.<br>- **Upn/메일**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **단순**: `johndow`. 도메인 정보를 사용할 수 없는 경우에만 간단한 양식을 사용 합니다.<br><br>[SrcUsernameType](#srcusernametype) 필드에 사용자 이름 유형을 저장 합니다. 다른 Id를 사용할 수 있는 경우 필드 이름을 **Srcuserupn**, **srcuserupn** 및 **SrcUserDn** 으로 정규화 하는 것이 좋습니다.<br><br>자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `AlbertE` |
 | **사용자 이름** | Alias | | [Srcusername](#srcusername) 의 별칭 |
 | <a name="srcusernametype"></a>**SrcUsernameType** | 선택 사항 | Enumerated | [Srcusername](#srcusername) 필드에 저장 된 사용자 이름 유형을 지정 합니다. 지원 되는 값은 `UPN` ,, `Windows` `DN` 및 `Simple` 입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `Windows` |
-| **SrcUserType** | 선택 사항 | Enumerated | Actor의 형식입니다. 허용된 값은<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. [EventOriginalUserType](#srcoriginalusertype) 필드에 원래 값을 저장 합니다. |
-| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | 원본에서 제공 하는 경우 원래 원본 사용자 형식입니다. |
-| <a name="srcmacaddr"></a>**SrcMacAddr** | 필수 | MAC 주소 | DHCP 임대를 요청 하는 클라이언트의 MAC 주소입니다. <br><br>**참고**: Windows DHCP 서버는 파서가 삽입 해야 하는 콜론을 생략 하 고 비표준 방식으로 MAC 주소를 기록 합니다.<br><br>예: `06:10:9f:eb:8f:14` |
-| <a name="dhcpleaseduration"></a>**DhcpLeaseDuration** | 선택 | 정수 | 클라이언트에 부여 된 임대의 길이 (초)입니다. |  
-|<a name="dhcpsessionid"></a>**DhcpSessionId** | 선택 | 문자열 | 보고 디바이스에서 보고한 세션 식별자 DHCP 서버의 Windows TransactionID 필드로 설정 합니다. <br><br>예: `2099570186` |
-| **SessionId** | Alias | String | [DhcpkSessionId](#dhcpsessionid) 에 대 한 별칭 |
-| <a name="dhcpsessionduration"></a>**DhcpSessionDuration** | 선택 | 정수 | DHCP 세션을 완료 하는 데 걸린 시간 (밀리초)입니다.<br><br>예: `1500` |
-| **기간** | Alias | | [Dhcpsessionduration](#dhcpsessionduration) 의 별칭 |
-| **DhcpSrcDHCId** | 선택 | 문자열 | [RFC4701](https://datatracker.ietf.org/doc/html/rfc4701) 에서 정의한 DHCP 클라이언트 ID입니다. |
-| **DhcpCircuitId** | 선택 | 문자열 | [RFC3046](https://datatracker.ietf.org/doc/html/rfc3046) 에 정의 된 DHCP 회로 ID |
-| **DhcpSubscriberId** | 선택 | 문자열 | [RFC3993](https://datatracker.ietf.org/doc/html/rfc3993) 에 의해 정의 된 DHCP 구독자 ID |
-| **DhcpVendorClassId**  | 선택 | 문자열 | [RFC3925](https://datatracker.ietf.org/doc/html/rfc3925)에 정의 된 DHCP 공급 업체 클래스 Id입니다. |
-| **DhcpVendorClass**  | 선택 | 문자열 | [RFC3925](https://datatracker.ietf.org/doc/html/rfc3925)에 의해 정의 된 DHCP 공급 업체 클래스입니다.|
-| **DhcpUserClassId**  | 선택 | 문자열 | [RFC3004](https://datatracker.ietf.org/doc/html/rfc3004)에 의해 정의 된 DHCP 사용자 클래스 Id입니다.|
-| **DhcpUserClass** | 선택 | 문자열 | [RFC3004](https://datatracker.ietf.org/doc/html/rfc3004)에 의해 정의 된 DHCP 사용자 클래스입니다.|
+| **SrcUserType** | 선택 사항 | Enumerated | Actor의 형식입니다. 허용된 값은<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 원래 값을 [EventOriginalUserType](#srcoriginalusertype) 필드에 저장합니다. |
+| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | 원본에서 제공하는 경우 원래 원본 사용자 유형입니다. |
+| <a name="srcmacaddr"></a>**SrcMacAddr** | 필수 | MAC 주소 | DHCP 임대를 요청하는 클라이언트의 MAC 주소입니다. <br><br>**참고:** Windows DHCP 서버는 MAC 주소를 비표준 방식으로 기록하여 파서에서 삽입해야 하는 콜론을 생략합니다.<br><br>예: `06:10:9f:eb:8f:14` |
+| <a name="dhcpleaseduration"></a>**DhcpLeaseDuration** | 선택 | 정수 | 클라이언트에 부여된 임대 길이(초)입니다. |  
+|<a name="dhcpsessionid"></a>**DhcpSessionId** | 선택 | 문자열 | 보고 디바이스에서 보고한 세션 식별자 Windows DHCP 서버의 경우 이를 TransactionID 필드로 설정합니다. <br><br>예: `2099570186` |
+| **SessionId** | Alias | String | [DhcpkSessionId에](#dhcpsessionid) 대한 별칭 |
+| <a name="dhcpsessionduration"></a>**DhcpSessionDuration** | 선택 | 정수 | DHCP 세션을 완료하는 데 소요되는 시간(밀리초)입니다.<br><br>예: `1500` |
+| **기간** | Alias | | [DhcpSessionDuration에](#dhcpsessionduration) 대한 별칭 |
+| **DhcpSrcDHCId** | 선택 | 문자열 | [RFC4701에](https://datatracker.ietf.org/doc/html/rfc4701) 정의된 DHCP 클라이언트 ID |
+| **DhcpCircuitId** | 선택 | 문자열 | [RFC3046에](https://datatracker.ietf.org/doc/html/rfc3046) 정의된 DHCP 회로 ID |
+| **DhcpSubscriberId** | 선택 | 문자열 | [RFC3993에](https://datatracker.ietf.org/doc/html/rfc3993) 정의된 DHCP 구독자 ID |
+| **DhcpVendorClassId**  | 선택 | 문자열 | [RFC3925](https://datatracker.ietf.org/doc/html/rfc3925)에 정의된 DHCP 공급업체 클래스 ID입니다. |
+| **DhcpVendorClass**  | 선택 | 문자열 | [RFC3925](https://datatracker.ietf.org/doc/html/rfc3925)에 정의된 DHCP 공급업체 클래스입니다.|
+| **DhcpUserClassId**  | 선택 | 문자열 | [RFC3004](https://datatracker.ietf.org/doc/html/rfc3004)에 정의된 DHCP 사용자 클래스 ID입니다.|
+| **DhcpUserClass** | 선택 | 문자열 | [RFC3004](https://datatracker.ietf.org/doc/html/rfc3004)에 정의된 DHCP 사용자 클래스입니다.|
 | | | | |
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 724c7e65d04b635dcaa635d29483da756cf47bfc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 58c9f69b898a41a1d07ae41755f67d926b2ac74f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675874"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082458"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
 
@@ -45,9 +45,9 @@ IoT Central 사용하면 솔루션에 데이터를 전송하는 [IoT 디바이�
 
 ### <a name="view-and-analyze-data"></a>데이터 보기 및 분석
 
-IoT Central 애플리케이션에서 개별 디바이스 또는 여러 디바이스의 집계된 데이터에 대한 데이터를 보고 분석할 수 있습니다.
+IoT Central 애플리케이션에서는 개별 디바이스 또는 여러 디바이스의 집계된 데이터에 대한 데이터를 보고 분석할 수 있습니다.
 
-- 디바이스 템플릿을 사용하여 특정 유형의 개별 디바이스에 대한 [사용자 지정 보기를](howto-set-up-template.md#views) 정의합니다. 예를 들어 개별 자동 온도 조절기의 시간별 온도를 그리거나 배달 트럭의 라이브 위치를 표시할 수 있습니다.
+- 디바이스 템플릿을 사용하여 특정 유형의 개별 디바이스에 대한 [사용자 지정 보기를](howto-set-up-template.md#views) 정의합니다. 예를 들어 개별 자동 온도 조절기의 시간별 온도를 표시하거나 배달 트럭의 라이브 위치를 표시할 수 있습니다.
 - 기본 제공 [분석을](tutorial-use-device-groups.md) 사용하여 여러 디바이스에 대한 집계 데이터를 봅니다. 예를 들어 여러 소매점의 총 점유율 또는 점유율이 가장 높거나 낮은 매장 식별을 확인할 수 있습니다.
 - 디바이스를 관리하는 데 도움이 되는 사용자 지정 [대시보드를](howto-manage-dashboards.md) 만듭니다. 예를 들어 맵, 타일 및 차트를 추가하여 디바이스 원격 분석을 표시할 수 있습니다.  
 
@@ -57,6 +57,7 @@ IoT Central 애플리케이션에서 솔루션의 다음 보안 측면을 관리
 
 - [디바이스 연결:](concepts-get-connected.md)디바이스에서 애플리케이션에 대한 연결을 설정하는 데 사용하는 보안 키를 만들고, 해지하고, 업데이트합니다.
 - [앱 통합:](howto-authorize-rest-api.md#get-an-api-token)다른 애플리케이션에서 애플리케이션과의 보안 연결을 설정하는 데 사용하는 보안 키를 만들고, 해지하고, 업데이트합니다.
+- [데이터 내보내기:](howto-export-data.md#connection-options)관리 ID를 사용하여 데이터 내보내기 대상에 대한 연결을 보호합니다.
 - [사용자 관리:](howto-manage-users-roles.md)애플리케이션에 로그인할 수 있는 사용자와 해당 사용자가 가진 권한을 결정하는 역할을 관리합니다.
 - [조직:](howto-create-organizations.md)IoT Central 애플리케이션에서 디바이스를 볼 수 있는 사용자를 관리하는 계층 구조를 정의합니다.
 
@@ -106,4 +107,4 @@ IoT Central 또는 다른 서비스에서 데이터를 사용하려면 데이터
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central의 아키텍처에 대해 배웠으므로 다음 단계로 Azure IoT Central에서 [디바이스 연결](concepts-get-connected.md)에 대해 알아보세요.
+이제 Azure IoT Central의 아키텍처에 대해 배웠으므로 권장되는 다음 단계는 Azure IoT Central의 [확장성 및 고가용성에](concepts-scalability-availability.md) 대해 알아보는 것입니다.

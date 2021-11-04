@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2021
 ms.author: yelevin
-ms.openlocfilehash: d9f6ce8b85aae451fbab318b85f50fb0da7919a6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 17ff2b2910b81c29f88f70e9a3de31433f965668
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541300"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064566"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리형 키 설정
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel에 대한 [CMK(고객 관리형 키)](../azure-monitor/logs/customer-managed-keys.md)를 구성하는 단계 및 배경 정보를 제공합니다. CMK를 사용하면 사용자가 생성 및 소유하고 [Azure Key Vault](../key-vault/general/overview.md)에 저장한 암호화 키로 Azure Sentinel에 저장된 모든 데이터(모든 관련 스토리지 리소스에서 Microsoft가 이미 암호화)에 추가 보호 계층을 제공할 수 있습니다.
 

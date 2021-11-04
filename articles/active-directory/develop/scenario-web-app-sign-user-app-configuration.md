@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 6e816919d41dbae62c33028c5d35c996654d7f26
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 39ca13ebaea9469dbbfa21cc8ded20b36dc2ed3d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258305"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050663"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인하는 웹앱: 코드 구성
 
@@ -143,7 +143,7 @@ Azure Portal에서 애플리케이션의 **인증** 페이지에 등록하는 �
 
 ASP.NET에서 애플리케이션은 [Web.config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15)파일의 12~15번째 줄을 통해 구성됩니다.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   For more information on how to configure your ASP.NET application, visit
@@ -249,7 +249,7 @@ Microsoft ID 플랫폼(이전의 Azure AD v2.0)으로 인증을 추가하려면 
 >
 > Visual Studio 내에서 현재의 기본 ASP.NET Core 웹 프로젝트를 사용하거나 `dotnet new mvc --auth SingleOrg` 또는 `dotnet new webapp --auth SingleOrg`를 사용하여 프로젝트를 시작하려는 경우 다음과 같은 코드가 표시됩니다.
 >
->```c#
+> ```c#
 >  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
 >          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
 > ```
@@ -372,7 +372,6 @@ from flask import Flask, render_template, session, request, redirect, url_for
 from flask_session import Session  # https://pythonhosted.org/Flask-Session
 import msal
 import app_config
-
 
 app = Flask(__name__)
 app.config.from_object(app_config)

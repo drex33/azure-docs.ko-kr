@@ -8,12 +8,12 @@ metadata:
   ms.date: 06/15/2017
   ms.author: rogarana
   ms.subservice: disks
-  ms.openlocfilehash: 2e3e13f0db5b96d8d1cd8ca3eaa7b900dacb0d72
-  ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-  ms.translationtype: HT
+  ms.openlocfilehash: f65f03a35d744b3131b89c2e973abd1cd6b7e3ef
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/07/2021
-  ms.locfileid: "113358316"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131018510"
 title: Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 summary: 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 sections:
@@ -143,10 +143,6 @@ sections:
 
       [2세대 이미지](./generation-2.md)는 OS 디스크와 데이터 디스크 둘 다에서 GPT 분할을 사용할 수 있습니다.
   - question: >
-      스냅샷을 지원하는 디스크 유형은 무엇입니까?
-    answer: >
-      프리미엄 SSD, 표준 SSD 및 표준 HDD가 스냅샷을 지원합니다. 이러한 세 가지 디스크 유형은 디스크 크기에 관계없이(최대 32TiB 크기의 디스크 포함) 스냅샷을 지원합니다. 울트라 디스크는 스냅샷을 지원하지 않습니다.
-  - question: >
       Azure 디스크 예약이란?
     answer: >
       디스크 예약은 1년 동안 사용할 디스크 스토리지를 미리 구입하여 총 비용을 절감할 수 있는 옵션입니다. Azure 디스크 예약에 대한 자세한 내용은 [Azure Disk에 예약 할인이 적용되는 방식 이해](../cost-management-billing/reservations/understand-disk-reservations.md) 문서를 참조하세요.
@@ -163,6 +159,39 @@ sections:
       표준 SSD 디스크가 "단일 인스턴스 VM SLA"를 지원하나요?
     answer: >
       예, 모든 디스크 유형은 단일 인스턴스 VM SLA를 지원합니다.
+- name: 스냅샷
+  questions:
+  - question: >
+      암호화된 증분 스냅샷을 지역 간에 복사할 수 있나요?
+    answer: >
+      예.
+  - question: >
+      동일한 디스크의 여러 증분 스냅샷을 한 지역에서 다른 지역으로 병렬로 복사할 수 있나요?
+    answer: >
+      아니요, 이전 복사본이 완료되기를 기다려야 합니다.
+  - question: >
+      여러 디스크의 증분 스냅샷을 동시에 복사할 수 있나요?
+    answer: >
+      현재 예.
+  - question: >
+      증분 스냅샷이 다른 지역으로 복사를 완료한 경우를 확인하려면 어떻게 해야 합니까?
+    answer: >
+      **completionPercent** 속성을 확인하여 복사본의 상태를 확인할 수 있습니다. 이 속성이 100이면 스냅샷이 준비됩니다.
+  - question: >
+      만든 순서가 아닌 순서로 스냅샷을 다른 지역에 복사할 수 있나요?
+    answer: >
+      아니요, 스냅샷은 생성 순서대로 다른 지역에 복사해야 합니다.
+  - question: >
+      지역 간 복사본이 완료되기 전에 원본 증분 스냅샷이 삭제되면 어떻게 되나요?
+    answer: >
+      복사가 실패합니다.
+  - question: >
+      관리되는 스냅샷 및 이미지가 암호화되나요?
+    answer: "예. 모든 관리형 스냅샷과 이미지는 자동으로 암호화됩니다. \n"
+  - question: >
+      스냅샷을 지원하는 디스크 유형은 무엇입니까?
+    answer: >
+      프리미엄 SSD, 표준 SSD 및 표준 HDD가 스냅샷을 지원합니다. 이러한 세 가지 디스크 유형은 디스크 크기에 관계없이(최대 32TiB 크기의 디스크 포함) 스냅샷을 지원합니다. 울트라 디스크는 스냅샷을 지원하지 않습니다.
 - name: Azure 공유 디스크
   questions:
   - question: >
@@ -346,9 +375,6 @@ sections:
       고객 관리형 키를 사용한 서버 쪽 암호화를 통해 암호화된 Managed Disks를 Azure Backup 서비스로 백업할 수 있나요?
     answer: >
       예.
-  - question: >
-      관리되는 스냅샷 및 이미지가 암호화되나요?
-    answer: "예. 모든 관리형 스냅샷과 이미지는 자동으로 암호화됩니다. \n"
   - question: >
       Managed Disks에 이전에 암호화된 스토리지 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?
     answer: >

@@ -5,14 +5,13 @@ author: spelluru
 ms.author: spelluru
 ms.date: 09/15/2021
 ms.topic: quickstart
-ms.custom:
-- mode-portal
-ms.openlocfilehash: f4a4e0ab9803ea12922e264888930c4f199bfefb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-portal
+ms.openlocfilehash: c76c152c48500de4cf6b9ab381fa2fd5ccbbb848
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128565726"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083634"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 하나 이상의 구독 만들기
 이 빠른 시작에서는 Azure Portal를 사용하여 Service Bus 토픽을 만든 다음, 해당 토픽에 대한 구독을 만듭니다. 

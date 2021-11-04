@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 25ab2fb283428f494ca52d769622df4b7a7a7ad1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.custom: devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: d1fd3bd30b0778065101fb1d223c63421b5e8d67
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110116680"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043683"
 ---
 # <a name="keyword-recognition"></a>키워드 인식
 
@@ -80,7 +80,7 @@ ms.locfileid: "110116680"
 ![키워드 확인 및 음성 텍스트 변환의 병렬 처리](media/custom-keyword/keyword-verification-parallel-processing.png)
 
 키워드 확인과 음성 텍스트 변환을 병렬로 실행하면 다음과 같은 이점이 있습니다.
-* **음성 텍스트 변환 결과에 추가 대기 시간 없음** – 병렬 실행은 키워드 확인이 대기 시간을 추가하지 않으며 클라이언트가 음성 텍스트 변환 결과를 빠르게 수신함을 의미합니다. 키워드 확인에서 키워드가 오디오에 없는 것으로 확인되면 음성 텍스트 변환 처리가 종료되어 불필요한 음성 텍스트 변환 처리로부터 보호됩니다. 그러나 네트워크 및 클라우드 모델 처리는 음성 활성화의 사용자 인식 대기 시간을 증가시킵니다. 자세한 내용은 [권장 사항 및 지침](keyword-recognition-guidelines.md)을 참조하세요.
+* **음성 텍스트 변환 결과에 추가 대기 시간 없음** – 병렬 실행은 키워드 확인이 대기 시간을 추가하지 않으며 클라이언트가 음성 텍스트 변환 결과를 빠르게 수신함을 의미합니다. 키워드 확인에서 키워드가 오디오에 없는 것으로 확인되면 음성 텍스트 변환 처리가 종료되어 불필요한 음성 텍스트 변환 처리로부터 보호됩니다. 그러나 네트워크 및 클라우드 모델 처리는 음성 활성화의 사용자 인식 대기 시간을 증가시킵니다. 자세한 내용은 [권장 사항 및 지침](keyword-recognition-guidelines.md)을 참조 하세요.
 * **음성 텍스트 변환 결과에 키워드 접두사 적용** – 음성 텍스트 변환 처리는 클라이언트에 전송된 결과 앞에 키워드가 붙습니다. 이렇게 하면 키워드 뒤에 오는 음성에 대한 음성 텍스트 변환 결과의 정확도가 향상됩니다.
 * **음성 텍스트 변환 시간 제한 증가** – 오디오의 시작 부분에 키워드가 필요하기 때문에 음성 텍스트 변환은 음성의 끝을 확인하고 음성 텍스트 변환 처리를 종료하기 전에 키워드 다음에 최대 5초 동안 일시 중지될 수 있습니다. 이렇게 하면 최종 사용자 환경이 준비된 명령( *\<keyword> \<pause> \<command>* ) 및 연결된 명령( *\<keyword> \<command>* )에 대해 올바르게 처리됩니다. 
 

@@ -7,13 +7,13 @@ ms.service: azure-redhat-openshift
 keywords: 암호화, byok, aro, 배포, openshift, red hat
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: template-how-to
-ms.openlocfilehash: 460867bfd62859a86395cb64219396233ae27d06
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: b4df39040ac3cfbab2ecfa8cb24c72ff19ee5bdc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238082"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048238"
 ---
 # <a name="encrypt-os-disks-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Azure Red Hat OpenShift (ARO) (미리 보기)에서 고객이 관리 하는 키 (CMK)를 사용 하 여 OS 디스크 암호화
 
@@ -24,7 +24,7 @@ ms.locfileid: "130238082"
 호스트 기반 암호화를 사용 하 여 ARO 에이전트 노드의 vm 호스트에 저장 된 데이터는 미사용 및 Storage 서비스로 암호화 된 흐름에서 암호화 됩니다. 즉, 임시 디스크는 플랫폼 관리형 키를 사용하여 미사용 암호화됩니다. OS 및 데이터 디스크의 캐시는 해당 디스크에 설정된 암호화 유형에 따라 플랫폼 관리형 키 또는 고객 관리형 키를 사용하여 미사용 암호화됩니다. 기본적으로 ARO를 사용할 때 OS 및 데이터 디스크는 플랫폼 관리 키를 사용 하 여 미사용으로 암호화 됩니다. 즉, 이러한 디스크에 대 한 캐시도 플랫폼 관리 키를 사용 하 여 미사용에서 기본적으로 암호화 됩니다. 아래 암호화 단계를 수행 하 여 고유한 관리 키를 지정할 수 있습니다. 또한 이 단계에서 지정한 키를 사용하여 이러한 디스크에 대한 캐시도 암호화합니다.
 
 > [!IMPORTANT]
-> ARO 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기 기능은 "있는 그대로" 제공 되며 "사용 가능"으로 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. 미리 보기 기능은 최고의 노력으로 고객 지원팀에서 부분적으로 다룹니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다.
+> ARO 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기 기능은 "있는 그대로" 및 "사용 가능한 상태로" 제공되며 서비스 수준 계약 및 제한 보증에서 제외됩니다. 미리 보기 기능은 최선을 다해 고객 지원팀에서 부분적으로 처리됩니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다.
 
 ## <a name="limitation"></a>제한 사항
 Azure에서 설정 된 Key Vault 및 디스크 암호화를 유지 관리 하는 것은 고객의 책임입니다. 키를 유지 하지 못하면 ARO 클러스터가 손상 됩니다. Vm 작동이 중지 되므로 전체 ARO 클러스터의 작동이 중지 됩니다. Azure Red Hat OpenShift 엔지니어링 팀은 키에 액세스할 수 없습니다. 따라서 키는 키를 백업, 복제 또는 검색할 수 없습니다. 디스크 암호화 집합을 사용 하 여 암호화 키를 관리 하는 방법에 대 한 자세한 내용은 Microsoft Azure 설명서에서 [Azure 디스크 저장소의 서버 쪽 암호화](../virtual-machines/disk-encryption.md) 를 참조 하세요.
@@ -39,7 +39,7 @@ CLI (Azure Command-Line 인터페이스)를 설치 하 고 사용 하 여 Key Va
 > CLI 확장은 미리 보기 기능에만 필요 합니다.
 
 1. Python 휠 및 CLI 확장을 모두 다운로드 하려면 다음 URL을 클릭 합니다.  [https://aka.ms/az-aroext-latest.whl](https://aka.ms/az-aroext-latest.whl)
-1. 다음 명령을 실행합니다.
+1. 다음 명령 실행:
     ```azurecli-interactive
     az extension add --upgrade -s <path to downloaded .whl file>
     ```

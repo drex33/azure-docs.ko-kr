@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: 2e06616914f1e78a71a540fbd64021c0e1bfcbab
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 9901caefe7d50b1042ea5c621bb064efc8c3eb0b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785976"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045276"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SQL 데이터베이스에 대한 워크플로 자동화
 
@@ -78,6 +78,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
    |----------------|-------------|
    | [**Azure AD 통합**](../azure-sql/database/authentication-aad-overview.md) | - 비 ISE 및 ISE SQL Server 커넥터를 모두 지원합니다. <p><p>- 데이터베이스에 액세스할 수 있는 Azure AD(Azure Active Directory)의 유효한 ID가 필요합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요 - 인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대한 데이터베이스 액세스 권한 부여 - 인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD 통합 인증](../azure-sql/database/authentication-aad-overview.md) |
    | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - 비 ISE 및 ISE SQL Server 커넥터를 모두 지원합니다. <p><p>- 데이터베이스에 생성되고 저장되는 유효한 사용자 이름과 강력한 암호가 필요합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요 - 인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대한 데이터베이스 액세스 권한 부여 - 인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | **관리 ID** | - 비 ISE 및 ISE SQL Server 커넥터를 모두 지원합니다. <p><p>- [데이터베이스에 대한 액세스 권한이](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)있는 유효한 관리 ID, SQL Server 리소스에 대한 **DB 기여자** 역할 액세스 SQL SQL Server 리소스가 포함된 리소스 그룹에 대한 **기여자** 액세스 권한이 필요합니다. <p>자세한 내용은 [SQL - Server-Level 역할을 참조하세요.](/sql/relational-databases/security/authentication-access/server-level-roles)
    |||
 
    이 예제는 **Azure AD 통합** 으로 계속 진행합니다.

@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 조건부 액세스 기술 프로필
 titleSuffix: Azure AD B2C
 description: Azure AD B2C의 조건부 액세스 기술 프로필에 대한 사용자 지정 정책 참조입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/18/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 902d9251c7393d3f6e693ba37c587398136493e6
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: d44ae627279131004bdac2f755eb26b59e375381
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112368951"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007955"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에서 조건부 액세스 기술 프로필 정의
 
@@ -34,7 +34,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 다음 예는 조건부 액세스 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -64,7 +64,6 @@ Azure AD B2C는 모든 로그인에 대해 모든 정책을 평가하고 사용�
 | IsFederated | 예 |boolean | 사용자가 페더레이션된 계정으로 로그인했는지 여부를 나타냅니다. 값은 `false`여야 합니다. |
 | IsMfaRegistered | 예 |boolean | 사용자가 다단계 인증에 이미 전화번호를 등록했는지 여부를 나타냅니다. |
 
-
 **InputClaimsTransformations** 요소는 조건부 액세스 서비스로 보내기 전에 입력 클레임을 수정하거나 새 입력 클레임을 생성하는 데 사용되는 **InputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 
 ### <a name="output-claims"></a>출력 클레임
@@ -82,7 +81,7 @@ Azure AD B2C는 모든 로그인에 대해 모든 정책을 평가하고 사용�
 
 다음 예에서는 로그인 위협을 평가하는 데 사용되는 조건부 액세스 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -122,7 +121,6 @@ Azure AD B2C는 모든 로그인에 대해 모든 정책을 평가하고 사용�
 | ClaimReferenceId | 필수 | 데이터 형식 | 설명 |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | 예 | stringCollection| 평가 모드의 도전 클레임에서 반환되는 것으로 확인된 위협을 수정하는 과정에서 충족된 도전의 목록입니다.|
-
 
 **InputClaimsTransformations** 요소는 조건부 액세스 서비스를 호출하기 전에 입력 클레임을 수정하거나 새 입력 클레임을 생성하는 데 사용되는 **InputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 

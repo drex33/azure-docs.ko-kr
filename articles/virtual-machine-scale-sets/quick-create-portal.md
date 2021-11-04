@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5fd43ebed8d1ebcad3d5f76bda21b978bdb0950e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a58462910a3f673a050bdb252d65369ef6fb3b45
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693238"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003431"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 
@@ -40,7 +40,7 @@ Azure [Load Balancer](../load-balancer/load-balancer-overview.md)는 들어오�
     | ---| ---|
     | Subscription  | 구독을 선택합니다.    |    
     | Resource group | **새로 만들기** 를 선택하고 텍스트 상자에 *myVMSSResourceGroup* 을 입력합니다.|
-    | Name           | *myLoadBalancer*         |
+    | 속성           | *myLoadBalancer*         |
     | 지역         | **미국 동부** 를 선택합니다.       |
     | Type          | **공용** 을 선택합니다.       |
     | SKU           | **표준** 을 선택합니다.       |
@@ -61,6 +61,7 @@ RHEL, CentOS, Ubuntu 또는 SLES와 같은 Windows Server 이미지 또는 Linux
 1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인하고 리소스 그룹 목록에서 *myVMSSResourceGroup* 을 선택합니다. 
 1. 확장 집합의 이름으로 *myScaleSet* 을 입력합니다.
 1. **지역** 에서 사용자 영역과 가까운 지역을 선택합니다.
+1. **오케스트레이션** 에서 **오케스트레이션 모드** 에 대해 *균일* 옵션이 선택되어 있는지 확인합니다. 
 1. **이미지** 에 대해 Marketplace 이미지를 선택합니다. 이 예제에서는 *Ubuntu Server 18.04 LTS* 를 선택했습니다.
 1. 원하는 사용자 이름을 입력한 후 원하는 인증 유형을 선택합니다.
    - **암호** 는 12자 이상 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 참조하세요.

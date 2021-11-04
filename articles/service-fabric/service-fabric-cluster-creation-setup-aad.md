@@ -3,12 +3,13 @@ title: 클라이언트 인증에 대한 Azure Active Directory 설정
 description: Service Fabric 클러스터에 대한 클라이언트를 인증하려면 Azure AD(Azure Active Directory)를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: a1f89e144f9cef12c5bff87befb00a88bad8d7d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e960b753e7d1c76992e59cb03133f27f7e305ea1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215972"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004077"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
 
@@ -19,14 +20,14 @@ Azure에서 실행 중인 클라이언트의 경우 관리 엔드포인트에 �
 Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 몇 가지 진입점을 제공합니다. 결과적으로 클러스터에 대 한 액세스를 제어 하는 두 개의 Azure AD 응용 프로그램 (웹 응용 프로그램과 네이티브 응용 프로그램)을 만듭니다. 응용 프로그램을 만든 후에는 읽기 전용 및 관리자 역할에 사용자를 할당 합니다.
 
 > [!NOTE]
-> Linux에서 클러스터를 만들기 전에 다음 단계를 완료 해야 합니다. Windows에는 [기존 클러스터에 대해 AZURE AD 인증을 구성](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md)하는 옵션도 있습니다.
+> Linux에서 클러스터를 만들기 전에 다음 단계를 완료 해야 합니다. Windows에서 [기존 클러스터에 대해 Azure AD 인증을 구성](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md)하는 옵션도 있습니다.
 
 > [!NOTE]
-> Azure Portal에서 Linux AAD 지원 클러스터의 응용 프로그램 및 노드를 볼 수 없는 [알려진 문제](https://github.com/microsoft/service-fabric/issues/399) 입니다.
+> Linux AAD 지원 클러스터의 응용 프로그램 및 노드를 Azure Portal에서 볼 수 없다는 [알려진 문제](https://github.com/microsoft/service-fabric/issues/399) 입니다.
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 이미 테넌트를 만들었다고 가정합니다. 그러지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
 
 Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 단계를 단순화하기 위해 Windows PowerShell 스크립트 집합을 만들었습니다.
@@ -38,7 +39,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 
 스크립트를 사용 하 여 클러스터에 대 한 액세스를 제어 하는 두 개의 Azure AD 응용 프로그램 (웹 응용 프로그램과 네이티브 응용 프로그램)을 만듭니다. 클러스터를 나타내는 응용 프로그램을 만든 후 Service Fabric: 읽기 전용 및 관리자에 [의해 지원 되는 역할](service-fabric-cluster-security-roles.md)에 대 한 사용자를 만듭니다.
 
-`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다.  또한 사용자의 사용자 이름과 암호를 지정합니다. 예를 들면 다음과 같습니다.
+`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다.  또한 사용자의 사용자 이름과 암호를 지정합니다. 예:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -62,7 +63,7 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인�
    * *ClusterName*\_클러스터
    * *ClusterName*\_클라이언트
 
-이 스크립트는 AAD를 사용 하는 [클러스터를 만들](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access)때 Azure Resource Manager 템플릿에 필요한 JSON을 인쇄 하므로 PowerShell 창을 계속 열어 두는 것이 좋습니다.
+이 스크립트는 [AAD 사용 가능한 클러스터를 만들](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access)때 Azure Resource Manager 템플릿에 필요한 JSON을 인쇄 하므로 PowerShell 창을 계속 열어 두는 것이 좋습니다.
 
 ```json
 "azureActiveDirectory": {
@@ -136,9 +137,9 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD를 �
 ## <a name="next-steps"></a>다음 단계
 Azure Active Directory 애플리케이션 및 사용자에 대한 역할을 설정한 후 [클러스터를 구성 및 배포합니다](service-fabric-cluster-creation-via-arm.md).
 
-
 <!-- Links -->
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
+
+[azure-cli]: /cli/azure/get-started-with-azure-cli
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

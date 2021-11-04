@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 07/05/2021
-ms.openlocfilehash: 46c6dfa381ec2dff04212c38a7580859bcba4762
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6bbec2642287631731b7dc25335af86eb815e96c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733025"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051151"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
 
@@ -806,7 +806,7 @@ END
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
-    ``` 
+    ```
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
@@ -824,7 +824,7 @@ END
 
 6. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공** 입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다.
 
-    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png" alt-text="스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.":::    
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png" alt-text="스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여 줍니다.":::    
 7. **작업** 열에 있는 링크를 선택하면 파이프라인에 대한 모든 활동 실행이 표시됩니다. 
 
 8. **파이프라인 실행** 보기로 돌아가려면 **모든 파이프라인 실행** 을 선택합니다. 

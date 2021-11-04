@@ -3,12 +3,12 @@ title: 서비스 엔드포인트를 사용한 액세스 제한
 description: Azure Virtual Network의 서비스 엔드포인트를 사용하여 Azure Container Registry에 대한 액세스를 제한합니다. 서비스 엔드포인트 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0fa721a4a4cf59c93123c98c500b693f05667054
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6c76e7e98f049a46c161c5f4ff00b5282ba52c1a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641620"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043474"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Azure Virtual Network의 서비스 엔드포인트를 사용하여 컨테이너 레지스트리에 대한 액세스 제한
 
@@ -16,7 +16,7 @@ ms.locfileid: "128641620"
 
 이 문서에서는 가상 네트워크에서 컨테이너 레지스트리 서비스 엔드포인트(미리 보기)를 구성하는 방법을 보여 줍니다. 
 
-각 레지스트리는 최대 100개의 가상 네트워크 규칙을 지원합니다.
+각 레지스트리는 최대 100 개의 가상 네트워크 규칙을 지원 합니다.
 
 > [!IMPORTANT]
 > Azure Container Registry에서 이제 [Azure Private Link](container-registry-private-link.md)를 지원하므로 레지스트리에 가상 네트워크의 프라이빗 엔드포인트를 배치할 수 있습니다. 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 가상 네트워크 안에서 액세스할 수 있습니다. 대부분의 네트워크 시나리오에서 서비스 엔드포인트 대신 프라이빗 엔드포인트를 사용하는 것이 좋습니다.
@@ -112,7 +112,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 [az acr network-rule add][az-acr-network-rule-add] 명령을 사용하여 VM 서브넷으로부터의 액세스를 허용하는 네트워크 규칙을 레지스트리에 추가합니다. 다음 명령에서 컨테이너 레지스트리 이름과 서브넷 리소스 ID를 바꿉니다. 
 
- ```azurecli
+```azurecli
 az acr network-rule add \
   --name mycontainerregistry \
   --subnet <subnet-resource-id>

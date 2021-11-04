@@ -1,6 +1,6 @@
 ---
-title: Microsoft Defender for Cloud의 파일 무결성 모니터링
-description: Microsoft Defender for Cloud에서 파일 무결성 모니터링과 기준을 비교하는 방법을 알아봅니다.
+title: Microsoft Defender for Cloud에서 파일 무결성 모니터링
+description: Microsoft Defender for Cloud에서 기준선을 파일 무결성 모니터링과 비교 하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 384cca216b8f262070c68a3af2e9697c8cef2a46
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 0d5cceba40478759e36d08430dc2b2e4b30855f3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457186"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131053734"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>FIM(파일 무결성 모니터링)을 사용하여 기준 비교
 
@@ -26,7 +27,7 @@ ms.locfileid: "131457186"
 
 FIM(파일 무결성 모니터링)은 리소스의 중요한 영역이 변경될 때 알리므로 권한 없는 작업을 조사하고 해결할 수 있습니다. FIM은 Windows 파일, Windows 레지스트리 및 Linux 파일을 모니터링합니다.
 
-이 항목에서는 파일 및 레지스트리에서 FIM을 사용하도록 설정하는 방법을 설명합니다. FIM에 대한 자세한 내용은 [Microsoft Defender for Cloud의 파일 무결성 모니터링을 참조하세요.](file-integrity-monitoring-overview.md)
+이 항목에서는 파일 및 레지스트리에서 FIM을 사용하도록 설정하는 방법을 설명합니다. FIM에 대 한 자세한 내용은 [Microsoft Defender For Cloud의 파일 무결성 모니터링](file-integrity-monitoring-overview.md)을 참조 하세요.
 
 ## <a name="why-use-fim"></a>FIM을 사용하는 이유
 

@@ -5,26 +5,28 @@ description: 이 자습서에서는 네트워크 기능을 관리형 애플리�
 author: prmitt
 ms.service: network-function-manager
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 11/02/2021
 ms.author: prmitt
-ms.openlocfilehash: 0e45f8db150505b323f45cd79eed40215b3a44f8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3ac4c4e0654e1d5f22c128c45106079916676a4f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223332"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005084"
 ---
-# <a name="tutorial-deploy-network-functions-on-azure-stack-edge-preview"></a>자습서: Azure Stack Edge에 네트워크 기능 배포(미리 보기)
+# <a name="tutorial-deploy-network-functions-on-azure-stack-edge"></a>자습서: Azure Stack Edge에 네트워크 기능 배포
 
 이 자습서에서는 Azure Marketplace를 사용하여 Azure Stack Edge에 네트워크 기능을 배포하는 방법에 대해 알아봅니다. 네트워크 기능 관리자를 사용하면 Azure Stack Edge에서 간소화된 배포를 위한 Azure Managed Applications 환경을 사용할 수 있습니다.
 
 > [!div class="checklist"]
-> * [필수 구성 요소](overview.md#prereq) 확인
+> * [필수 구성 요소](#prereq) 확인
 > * 네트워크 기능 만들기
 > * 네트워크 기능 정보 확인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a><a name="prereq"></a>필수 조건
 
+* [필수 구성 요소 및 요구 사항](requirements.md) 문서에 나열된 모든 필수 조건을 충족했습니다.
 * 네트워크 기능 관리자용 디바이스 리소스를 만들었습니다. 이러한 단계를 완료하지 않은 경우 [디바이스 리소스를 만드는 방법](create-device.md)을 참조하세요.
 * 디바이스의 **개요** 탭에서 다음 값이 있는지 확인합니다.
   * 프로비전 상태 = 성공함
@@ -32,7 +34,7 @@ ms.locfileid: "130223332"
 
 ## <a name="create-a-network-function"></a><a name="create"></a>네트워크 기능 만들기
 
-1. [Azure 미리 보기 포털](https://aka.ms/AzureNetworkFunctionManager)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 네트워크 기능을 배포하려는 **디바이스** 리소스로 이동하고 **+ 네트워크 기능 만들기** 를 선택합니다.
 
    :::image type="content" source="./media/deploy-functions/create-network-function.png" alt-text="+ 네트워크 기능 만들기의 스크린샷" lightbox="./media/deploy-functions/create-network-function.png":::
@@ -57,7 +59,7 @@ ms.locfileid: "130223332"
 1. 기본 설정을 구성합니다.
 
    :::image type="content" source="./media/deploy-functions/basics-blade.png" alt-text="기본 설정의 스크린샷" lightbox="./media/deploy-functions/basics-blade.png":::
-1. 관리 ID를 적용합니다. 자세한 내용은 [관리 ID](overview.md#managed-identity)를 참조하세요.
+1. 관리 ID를 적용합니다. 자세한 내용은 [관리 ID](resources-permissions.md)를 참조하세요.
 
    :::image type="content" source="./media/deploy-functions/managed-identity.png" alt-text="관리 ID의 스크린샷" lightbox="./media/deploy-functions/managed-identity.png":::
 1. Fusion Core VM의 관리, LAN 및 WAN 인터페이스의 IP 주소 정보를 입력합니다.

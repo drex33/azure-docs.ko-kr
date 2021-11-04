@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2021
 ms.author: yelevin
-ms.openlocfilehash: 0b54396efb80aabc5c4a0959d7d4bc2657cf0506
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ef77535810671c0f442aa90eade688778c381750
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529100"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064490"
 ---
 # <a name="use-azure-monitor-workbooks-to-visualize-and-monitor-your-data"></a>Azure Monitor 통합 문서를 사용하여 데이터 시각화 및 모니터링
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md)한 후에는 사용자 지정 대시보드를 만들 때 다양한 기능을 제공하는 Azure Monitor 통합 문서의 Azure Sentinel 채택을 사용하여 데이터를 시각화하고 모니터링할 수 있습니다. 통합 문서가 Azure Sentinel에 다르게 표시되는 반면, [Azure Monitor 통합 문서를 사용하여 대화형 보고서를 만드는](../azure-monitor/visualize/workbooks-overview.md) 방법을 확인하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
 

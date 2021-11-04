@@ -11,12 +11,12 @@ author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: 2a725512f3fa18a9af43d2725cda4ce1248e796a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e425644b279b19b9ea6e894e7e81130742bbf60e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528734"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432209"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
@@ -94,11 +94,8 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
 
 > [!NOTE]
 > T-SQL 문을 종료해도 데이터베이스 복사 작업은 종료되지 않습니다. 작업을 종료하려면 대상 데이터베이스를 삭제합니다.
-> [!NOTE]
-> 원본 및/또는 대상 서버에 프라이빗 엔드포인트가 구성되어 있고 공용 네트워크 액세스를 사용하지 않는 경우에는 데이터베이스 복사가 지원되지 않습니다. 프라이빗 엔드포인트가 구성되었지만 공용 네트워크 액세스가 허용되는 경우 공용 IP 주소에서 대상 서버에 연결할 때 데이터베이스 복사를 시작하는 데 성공합니다.
-현재 연결의 원본 IP 주소를 확인하려면 `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`를 실행합니다.
- 
-
+>
+> 원본 및/또는 대상 서버가 [개인 끝점](private-endpoint-overview.md) 을 구성 하 고 [공용 네트워크 액세스가 거부](connectivity-settings.md#deny-public-network-access)된 경우에는 데이터베이스 복사가 지원 되지 않습니다. 개인 끝점이 구성 되었지만 공용 네트워크 액세스가 허용 되는 경우 공용 IP 주소에서 대상 서버에 연결 될 때 데이터베이스 복사를 시작 하는 것이 지원 됩니다. 복사 작업이 완료 되 면 공용 액세스를 거부할 수 있습니다.
 
 > [!IMPORTANT]
 > T-SQL CREATE DATABASE ... AS COPY OF 명령을 사용할 때 백업 스토리지 중복을 선택하는 것은 아직 지원되지 않습니다. 
@@ -141,7 +138,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ```
 
 > [!IMPORTANT]
-> 두 서버 방화벽이 모두 T-SQL CREATE DATABASE ... AS COPY OF 명령을 실행하는 클라이언트의 IP에서 인바운드 연결을 허용하도록 구성해야 합니다.
+> 두 서버 방화벽이 모두 T-SQL CREATE DATABASE ... AS COPY OF 명령을 실행하는 클라이언트의 IP에서 인바운드 연결을 허용하도록 구성해야 합니다. 현재 연결의 원본 IP 주소를 확인하려면 `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`를 실행합니다.
 
 ### <a name="copy-to-a-different-subscription"></a>다른 구독으로 복사
 

@@ -6,16 +6,16 @@ ms.subservice: update-management
 ms.date: 09/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f35472fae9c8dec647ff57d39f1572e64f3890b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 19101cea8f435f09cb37aa2340f0bc02788442f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680721"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459067"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
-사전 스크립트 및 사후 스크립트는 Azure Automation 계정에서 업데이트 배포 이전(사전 작업) 및 이후(사후 작업)에 실행되는 Runbook입니다. 사전 스크립트 및 사후 스크립트는 로컬이 아닌 Azure 컨텍스트에서 실행됩니다. 사전 스크립트는 업데이트 배포가 시작할 때 실행됩니다. Windows에서 사후 스크립트는 배포 종료 시와 구성 된 다시 부팅 후에 실행 됩니다. Linux의 경우 사후 스크립트는 컴퓨터가 다시 부팅 된 후가 아니라 배포가 끝난 후에 실행 됩니다. 
+사전 스크립트 및 사후 스크립트는 Azure Automation 계정에서 업데이트 배포 이전(사전 작업) 및 이후(사후 작업)에 실행되는 Runbook입니다. 사전 스크립트 및 사후 스크립트는 로컬이 아닌 Azure 컨텍스트에서 실행됩니다. 사전 스크립트는 업데이트 배포가 시작할 때 실행됩니다. Windows 사후 스크립트는 배포가 끝날 때와 구성된 재부팅 후에 실행됩니다. Linux의 경우 사후 스크립트는 컴퓨터가 다시 부팅된 후가 아니라 배포 종료 후 실행됩니다. 
 
 ## <a name="pre-script-and-post-script-requirements"></a>사전 스크립트 및 사후 스크립트 요구 사항
 
@@ -45,7 +45,7 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 속성
 
-|속성  |유형 |Description  |
+|속성  |형식 |Description  |
 |---------|---------|---------|
 |SoftwareUpdateConfigurationName     |String | 소프트웨어 업데이트 구성의 이름입니다.        |
 |SoftwareUpdateConfigurationRunId     |GUID | 실행의 고유 ID입니다.        |
@@ -181,7 +181,7 @@ Python 2에서 예외 처리는 [try](https://www.python-course.eu/exception_han
 
 사전 작업 및 사후 작업은 Runbook으로 실행되며 배포의 Azure VM에서 기본적으로 실행되지 않습니다. Azure VM과 상호 작용하려면 다음 항목이 있어야 합니다.
 
-* 실행 계정
+* [관리 ID](../automation-security-overview.md#managed-identities) 또는 실행 계정
 * 실행하려는 Runbook
 
 Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://github.com/azureautomation/update-management-run-script-with-run-command)을 참조하세요.
@@ -190,7 +190,7 @@ Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/modul
 
 사전 작업 및 사후 작업은 Azure 컨텍스트에서 실행되며 비 Azure 머신에는 액세스할 수 없습니다. 비 Azure 머신과 상호 작용하려면 다음 항목이 있어야 합니다.
 
-* 실행 계정
+* [관리 ID](../automation-security-overview.md#managed-identities) 또는 실행 계정
 * 머신에 설치된 Hybrid Runbook Worker
 * 로컬에서 실행하려는 Runbook
 * 부모 Runbook
@@ -242,7 +242,7 @@ If (<My custom error logic>)
 
 .DESCRIPTION
   This script is intended to be run as a part of Update Management pre/post-scripts.
-  It requires a RunAs account.
+  It requires the Automation account's system-assigned managed identity.
 
 .PARAMETER SoftwareUpdateConfigurationRunContext
   This is a system variable which is automatically passed in by Update Management during a deployment.
@@ -251,21 +251,20 @@ If (<My custom error logic>)
 param(
     [string]$SoftwareUpdateConfigurationRunContext
 )
+
 #region BoilerplateAuthentication
-#This requires a RunAs account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
 
-Add-AzAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
 
-$AzureContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
-$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext
+$context = ConvertFrom-Json $SoftwareUpdateConfigurationRunContext
 #Access the properties of the SoftwareUpdateConfigurationRunContext
 $vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId
@@ -285,6 +284,11 @@ Set-AutomationVariable -Name $runId -Value $vmIds
 $variable = Get-AutomationVariable -Name $runId
 #>
 ```
+
+시스템이 할당한 관리 ID를 사용하여 Runbook을 실행하려면 코드를 그대로 둡니다. 사용자가 할당한 관리 ID를 사용하려면 다음을 수행합니다.
+1. 줄 22에서 를 제거합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
+1. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`로 바꿉니다.
+1. 클라이언트 ID를 입력합니다.
 
 > [!NOTE]
 > 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](../automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.

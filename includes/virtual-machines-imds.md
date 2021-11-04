@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 60b4e1ac82574cab16feee9c436d9521eaf58ad4
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 8f86f0c6a624adf0299d13efd3b2ba1c8aa8cbf3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130173375"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520393"
 ---
 IMDS(Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대한 정보를 제공합니다. 이를 사용하여 가상 머신을 관리하고 구성할 수 있습니다.
 이 정보에는 SKU, 스토리지, 네트워크 구성 및 예정된 유지 관리 이벤트가 포함됩니다. 사용 가능한 데이터의 전체 목록은 [엔드포인트 범주 요약](#endpoint-categories)을 참조하세요.
@@ -343,8 +343,8 @@ GET /metadata/instance
 | `azEnvironment` | VM이 실행되는 Azure 환경 | 2018-10-01
 | `customData` | [IMDS에서는](#frequently-asked-questions) 이 기능이 사용되지 않으며 비활성화됩니다. `userData`로 대체되었습니다. | 2019-02-01
 | `evictionPolicy` | [스폿 VM](../articles/virtual-machines/spot-vms.md)이 제거되는 방법을 설정합니다. | 2020-12-01
-| `extendedLocation.type` | VM의 확장 된 위치 유형입니다. | 2021-03-01
-| `extendedLocation.name` | VM의 확장 위치 이름 | 2021-03-01
+| `extendedLocation.type` | VM의 확장된 위치 유형입니다. | 2021-03-01
+| `extendedLocation.name` | VM의 확장된 위치 이름 | 2021-03-01
 | `isHostCompatibilityLayerVm` | VM이 호스트 호환성 계층에서 실행되는지 여부를 식별합니다. | 2020-06-01
 | `licenseType` | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit)에 대한 라이선스 유형입니다. 이는 AHB 사용 VM에 대해서만 제공됩니다. | 2020-09-01
 | `location` | VM을 실행하는 Azure 지역 | 2017-04-02
@@ -1028,7 +1028,7 @@ Azure Resource Manager를 사용하여 만든 VM의 경우 문서에는 문서 �
 | `timestamp.expiresOn` | 서명된 문서가 만료되는 시점의 UTC 타임스탬프입니다. | 2018-10-01
 | `vmId` | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2018-10-01
 | `subscriptionId` | Virtual Machine에 대한 Azure 구독 | 2019-04-30
-| `sku` | VM 이미지에 대 한 특정 SKU ( `compute/sku` 인스턴스 메타 데이터 끝점의 속성과 상관 관계 \[ `/metadata/instance` \] ) | 2019-11-01
+| `sku` | VM 이미지에 대한 특정 SKU(인스턴스 `compute/sku` 메타데이터 엔드포인트의 속성과 상관 \[ `/metadata/instance` \] 관계) | 2019-11-01
 
 > [!NOTE]
 > 클래식(비 Azure Resource Manager) VM의 경우 vmId만 채워집니다.
@@ -1398,7 +1398,7 @@ IMDS를 사용하여 예약된 이벤트의 상태를 가져올 수 있습니다
 
 ## <a name="product-feedback"></a>제품 사용자 의견
 
-[여기](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627)의 Virtual Machines > Instance Metadata Service 아래에서 제품 피드백 및 아이디어를 사용자 피드백 채널에 제공할 수 있습니다.
+[여기](https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c?c=a60ebac8-c125-ec11-b6e6-000d3a4f0f1c)의 Virtual Machines > Instance Metadata Service 아래에서 제품 피드백 및 아이디어를 사용자 피드백 채널에 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

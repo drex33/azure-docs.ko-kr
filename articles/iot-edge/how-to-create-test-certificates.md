@@ -3,16 +3,16 @@ title: 테스트 인증서 만들기 - Azure IoT Edge | Microsoft Docs
 description: 테스트 인증서를 만들고 프로덕션 배포를 위해 Azure IoT Edge 디바이스에 설치하는 방법을 알아봅니다.
 author: kgremban
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 460c8f4d5d59b0f43d0706587dafab60289b1984
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ac93261275ea28161661f458ff2ac9bb204e872d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610981"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430176"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
@@ -34,10 +34,10 @@ IoT Edge 시나리오를 테스트하기 위한 데모 인증서를 만들려면
 2. 시나리오에 대한 다른 모든 인증서에 서명하는 데 사용하는 [루트 CA 인증서를 만듭니다](#create-root-ca-certificate).
 3. 테스트하려는 시나리오에 필요한 인증서를 생성합니다.
    * 수동 또는 IoT Hub Device Provisioning Service를 사용하여 X.509 인증서 인증을 사용하는 디바이스를 프로비저닝하기 위해 [IoT Edge 디바이스 ID 인증서를 만듭니다](#create-iot-edge-device-identity-certificates).
-   * 게이트웨이 시나리오에서 IoT Edge 디바이스에 대한 [IoT Edge 디바이스 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates).
+   * 게이트웨이 시나리오에서 IoT Edge 디바이스에 대한 IoT Edge [CA 인증서를 만듭니다.](#create-iot-edge-ca-certificates)
    * 게이트웨이 시나리오에서 다운스트림 디바이스를 인증하기 위한 [다운스트림 디바이스 인증서를 만듭니다](#create-downstream-device-certificates).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Git이 설치된 개발 머신
 
@@ -226,20 +226,24 @@ DPS의 IoT Edge 디바이스에 대한 개별 등록을 위해서는 `iot-edge-d
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
-## <a name="create-iot-edge-device-ca-certificates"></a>IoT Edge 디바이스 CA 인증서 만들기
+## <a name="create-iot-edge-ca-certificates"></a>IoT Edge CA 인증서 만들기
 
-프로덕션으로 이동하는 모든 IoT Edge 디바이스에는 구성 파일에서 참조되는 디바이스 CA 인증서가 필요합니다.
-디바이스 CA 인증서는 디바이스에서 실행되는 모듈에 대한 인증서를 만듭니다.
-디바이스 CA 인증서는 IoT Edge 디바이스가 다운스트림 디바이스에 대한 ID를 확인하는 방법이기 때문에 게이트웨이 시나리오에도 필요합니다.
-
-<!-- 1.1 -->
+<!--1.1-->
 :::moniker range="iotedge-2018-06"
+
+프로덕션으로 가는 모든 IoT Edge 디바이스에는 구성 파일에서 참조되는 CA 서명 인증서가 필요합니다. 이 인증서를 **디바이스 CA 인증서** 라고 합니다. 디바이스 CA 인증서는 디바이스에서 실행되는 모듈에 대한 인증서를 만듭니다. 디바이스 CA 인증서는 IoT Edge 디바이스가 다운스트림 디바이스에 대한 ID를 확인하는 방법이기 때문에 게이트웨이 시나리오에도 필요합니다.
+
 디바이스 CA 인증서는 IoT Edge 디바이스에서 config.yaml 파일의 **인증서** 섹션으로 이동합니다.
+
 :::moniker-end
 
-<!-- 1.2 -->
+<!--1.2-->
 :::moniker range=">=iotedge-2020-11"
-디바이스 CA 인증서는 IoT Edge 디바이스에서 config.toml 파일의 **Edge CA** 섹션으로 이동합니다.
+
+프로덕션으로 가는 모든 IoT Edge 디바이스에는 구성 파일에서 참조되는 CA 서명 인증서가 필요합니다. 이 인증서를 **에지 CA 인증서라고** 하며, 에지 CA 인증서는 디바이스에서 실행되는 모듈에 대한 인증서를 만드는 것을 담당합니다. 에지 CA 인증서는 IoT Edge 디바이스가 다운스트림 디바이스에 대한 ID를 확인하는 방법이기 때문에 게이트웨이 시나리오에도 필요합니다.
+
+Edge CA 인증서는 IoT Edge 디바이스에 있는 config.toml 파일의 **Edge CA** 섹션으로 이동합니다.
+
 :::moniker-end
 
 이 섹션의 단계를 진행하기 전에 [스크립트 설정](#set-up-scripts) 및 [루트 CA 인증서 만들기](#create-root-ca-certificate) 섹션의 단계를 따르세요.
@@ -248,7 +252,7 @@ DPS의 IoT Edge 디바이스에 대한 개별 등록을 위해서는 `iot-edge-d
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다음 명령을 사용하여 IoT Edge 디바이스 CA 인증서 및 프라이빗 키를 만듭니다. CA 인증서의 이름을 입력합니다.
+2. 다음 명령을 사용하여 IoT Edge CA 인증서 및 프라이빗 키를 만듭니다. CA 인증서의 이름을 입력합니다.
 
    ```powershell
    New-CACertsEdgeDevice "<CA cert name>"
@@ -265,7 +269,7 @@ DPS의 IoT Edge 디바이스에 대한 개별 등록을 위해서는 `iot-edge-d
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다음 명령을 사용하여 IoT Edge 디바이스 CA 인증서 및 프라이빗 키를 만듭니다. CA 인증서의 이름을 입력합니다.
+2. 다음 명령을 사용하여 IoT Edge CA 인증서 및 프라이빗 키를 만듭니다. CA 인증서의 이름을 입력합니다.
 
    ```bash
    ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
@@ -302,7 +306,7 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들면 다음과 같습니다.
+2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -332,7 +336,7 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들면 다음과 같습니다.
+2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

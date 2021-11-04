@@ -3,19 +3,19 @@ title: Speech Service란?
 titleSuffix: Azure Cognitive Services
 description: Speech Service는 음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. Speech SDK, Speech Devices SDK 또는 REST API를 사용하여 애플리케이션, 도구 및 디바이스에 음성을 추가합니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
-ms.author: pafarley
-ms.openlocfilehash: 8c2cf97e6aa7b4bedfa2b3b834b563116fb3434c
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: d19b05eae65e6d01e6e9daa4700318eca451e88d
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539482"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505311"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 

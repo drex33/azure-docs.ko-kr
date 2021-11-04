@@ -8,12 +8,13 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: fed69e86658ffe15a353aa6a5863c4db32815926
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5c1c5af62c723d207b9eb5bdfc3c38fa57e9b4e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428409"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055942"
 ---
 # <a name="protect-windows-admin-center-resources-with-microsoft-defender-for-cloud"></a>클라우드 용 Microsoft Defender를 사용 하 여 Windows 관리 센터 리소스 보호
 

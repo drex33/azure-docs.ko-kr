@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 10/12/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b02ce290d0910e2dccc19643c94ee338f80b6989
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b7f0cc91f8705ac865cac4820402051dce1e9eff
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467457"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064110"
 ---
 # <a name="azure-sentinel-content-hub-catalog"></a>Azure 센티널 콘텐츠 허브 카탈로그
 
@@ -41,15 +41,14 @@ ms.locfileid: "131467457"
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**Microsoft Insider 위험 관리** |[데이터 커넥터](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), 통합 문서, 분석 규칙, 구하기 쿼리 |보안-참가자 위협 | Microsoft|
-| **클라우드 용 Microsoft MITRE AT&T&접시 헤드 솔루션**| 통합 문서, 분석 규칙, 구하기 쿼리|보안 위협 방지, 보안-기타 |Microsoft |
-| **Azure 센티널 사기** | [통합 문서, 분석 규칙, watchlists](monitor-key-vault-honeytokens.md)  | 보안 위협 방지  |Microsoft |
+|**클라우드 용 Microsoft MITRE AT&T&접시 헤드 솔루션**| 통합 문서, 분석 규칙, 구하기 쿼리|보안 위협 방지, 보안-기타 |Microsoft |
 |**제로 트러스트** (3 목 3.0) |통합 문서 |Id, 보안-기타 |Microsoft |
 | | | | |
 
 
 ## <a name="arista-networks"></a>네트워크
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**네트워크** (활성 보안) |데이터 커넥터, 통합 문서, 분석 규칙 | 보안-네트워크 |[Arista-활성 보안](https://awakesecurity.com/) |
 | | | | |
@@ -57,7 +56,7 @@ ms.locfileid: "131467457"
 
 ## <a name="armorblox"></a>Armorblox
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**Armorblox-센티널** |데이터 커넥터 | 보안 위협 방지 |[Armorblox](https://www.armorblox.com/contact/) |
 | | | | |
@@ -78,7 +77,7 @@ ms.locfileid: "131467457"
 
 ## <a name="box"></a>Box
 
-|Name   |Includes  |범주 |지원 요소  |
+|이름   |Includes  |범주 |지원 요소  |
 |------------------|---------|---------|---------|
 |**Box 솔루션**| 데이터 커넥터, 통합 문서, 분석 규칙, 구하기 쿼리, 파서 |  Storage, 응용 프로그램  | Microsoft|
 | | | | |
@@ -86,7 +85,7 @@ ms.locfileid: "131467457"
 
 ## <a name="check-point"></a>Check Point
 
-|Name   |Includes  |범주 |지원 요소  |
+|이름   |Includes  |범주 |지원 요소  |
 |------------------|---------|---------|---------|
 |**Check Point Azure 센티널 솔루션**   |[데이터 커넥터](data-connectors-reference.md#check-point), 플레이 북, 사용자 지정 논리 앱 커넥터  | 보안 자동화 (대화 충성도) | [검사점](https://www.checkpoint.com/support-services/contact-support/)|
 | | | | |
@@ -94,26 +93,26 @@ ms.locfileid: "131467457"
 
 ## <a name="cisco"></a>시스코
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**Cisco ACI** |데이터 커넥터, 파서 |보안 – 네트워크 |Microsoft |
 |**Cisco ASA** |[데이터 커넥터](data-connectors-reference.md#cisco-asa), 플레이 북, 사용자 지정 논리 앱 커넥터 |보안-자동화 (대화 충성도) |Microsoft |
 |**Cisco Duo 보안** |데이터 커넥터, 파서 | ID|Microsoft |
-|**Cisco ISE**  |데이터 커넥터, 통합 문서, 분석 규칙, 플레이북, 헌팅 쿼리, 파서, 사용자 지정 논리 앱 커넥터 |네트워킹, 보안 - 기타 | Microsoft |
-|**Cisco Meraki** |[데이터 커넥터,](data-connectors-reference.md#cisco-meraki-preview)플레이북, 사용자 지정 논리 앱 커넥터 |보안 - 네트워크 |Microsoft |
-|**Cisco Secure Email Gateway/ESA** |데이터 커넥터, 파서 |보안 - 위협 방지 |Microsoft |
-|**Cisco StealthWatch** |데이터 커넥터, 파서 |보안 - 네트워크 | Microsoft|
-|**Cisco Umbrella** |[데이터 커넥터,](data-connectors-reference.md#cisco-umbrella-preview)통합 문서, 분석 규칙, 플레이북, 헌팅 쿼리, 파서, 사용자 지정 논리 앱 커넥터 |보안 - 클라우드 보안 |Microsoft |
-|**Cisco WSA(Web Security Appliance)** | 데이터 커넥터, 파서|보안 - 네트워크 |Microsoft |
+|**Cisco ISE**  |데이터 커넥터, 통합 문서, 분석 규칙, 플레이 북, 구하기 쿼리, 파서, 사용자 지정 논리 앱 커넥터 |네트워킹, 보안-기타 | Microsoft |
+|**Cisco Meraki** |[데이터 커넥터](data-connectors-reference.md#cisco-meraki-preview), 플레이 북, 사용자 지정 논리 앱 커넥터 |보안-네트워크 |Microsoft |
+|**Cisco Secure Email Gateway/ESA** |데이터 커넥터, 파서 |보안 위협 방지 |Microsoft |
+|**Cisco StealthWatch** |데이터 커넥터, 파서 |보안-네트워크 | Microsoft|
+|**Cisco Umbrella** |[데이터 커넥터](data-connectors-reference.md#cisco-umbrella-preview), 통합 문서, 분석 규칙, 플레이 북, 구하기 쿼리, 파서, 사용자 지정 논리 앱 커넥터 |보안-클라우드 보안 |Microsoft |
+|**Cisco WSA(Web Security Appliance)** | 데이터 커넥터, 파서|보안-네트워크 |Microsoft |
 | | | | |
 
 
 ## <a name="cloudflare"></a>Cloudflare
 
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Cloudflare 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리, 파서| 보안 - 네트워크, 네트워킹 |Microsoft |
+|**Cloudflare 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙, 구하기 쿼리, 파서| 보안-네트워크, 네트워킹 |Microsoft |
 | | | | |
 
 
@@ -121,70 +120,70 @@ ms.locfileid: "131467457"
 
 
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Contrast Protect Azure Sentinel 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙 |보안 - 위협 방지 |Microsoft  |
+|**Contrast Protect Azure Sentinel 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙 |보안 위협 방지 |Microsoft  |
 | | | | |
 
-## <a name="crowdstrike"></a>2018년 3월
+## <a name="crowdstrike"></a>Crowdstrike
 
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**CrowdStrike Falcon Endpoint Protection 솔루션**| 데이터 커넥터, 통합 문서, 분석 규칙, 플레이북, 파서| 보안 - 위협 방지| Microsoft|
+|**CrowdStrike Falcon Endpoint Protection 솔루션**| 데이터 커넥터, 통합 문서, 분석 규칙, 플레이 북, 파서| 보안 위협 방지| Microsoft|
 | | | | |
 
 ## <a name="digital-guardian"></a>디지털 보호자
 
 
-|Name    |Includes  |범주 |지원 요소  |
+|속성    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**디지털 보호자** |데이터 커넥터, 파서 |보안 - Information Protection |Microsoft |
+|**디지털 보호자** |데이터 커넥터, 파서 |보안-Information Protection |Microsoft |
 | | | |
 
-## <a name="falconforce"></a>ForceForce
+## <a name="falconforce"></a>False
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**FriFriday 콘텐츠 - Friday** |Analytics 규칙 |UEBA(사용자 동작), 보안 - 참가자 위협 | [ForceForce](https://www.falconforce.nl/en/)|
+|**비-금 금요일 콘텐츠-없음** |Analytics 규칙 |사용자 동작 (UEBA), 보안-참가자 위협 | [False](https://www.falconforce.nl/en/)|
 | | | |
 
-## <a name="fireeye-nx-network-security"></a>FireEye NX(네트워크 보안)
+## <a name="fireeye-nx-network-security"></a>FireEye NX (네트워크 보안)
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**FireEye NX(네트워크 보안)** |데이터 커넥터, 파서 |보안 - 네트워크| Microsoft|
+|**FireEye NX (네트워크 보안)** |데이터 커넥터, 파서 |보안-네트워크| Microsoft|
 | | | |
 
-## <a name="flare-systems-firework"></a>2016년 3월 2
+## <a name="flare-systems-firework"></a>플레어 시스템 불꽃놀이
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**2016년 3월 2** |데이터 커넥터 |보안 - 위협 방지 |Microsoft|
+|**플레어 시스템 불꽃놀이** |데이터 커넥터 |보안 위협 방지 |Microsoft|
 | | | |
 
 ## <a name="forescout"></a>Forescout
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Forescout** |데이터 커넥터, 파서 |보안 - 네트워크 | Microsoft|
+|**Forescout** |데이터 커넥터, 파서 |보안-네트워크 | Microsoft|
 | | | |
 
 ## <a name="fortinet-fortigate"></a>Fortinet Fortigate
 
-|Name    |Includes  |범주 |지원 요소  |
+|속성    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Fortinet Fortigate** |[데이터 커넥터,](data-connectors-reference.md#fortinet)플레이북, 사용자 지정 논리 앱 커넥터|보안 - AUTOMATION(SOAR) | Microsoft|
+|**Fortinet Fortigate** |[데이터 커넥터](data-connectors-reference.md#fortinet), 플레이 북, 사용자 지정 논리 앱 커넥터|보안 자동화 (대화 충성도) | Microsoft|
 | | | |
 
 
 ## <a name="google"></a>Google
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**DNS 솔루션 Google Cloud Platform** |데이터 커넥터, 파서 |클라우드 공급자, 네트워킹 |Microsoft |
+|**Google Cloud Platform DNS 솔루션** |데이터 커넥터, 파서 |클라우드 공급자, 네트워킹 |Microsoft |
 |**Google Cloud Platform Cloud Monitoring 솔루션**|데이터 커넥터, 파서 |클라우드 공급자 | Microsoft|
-|**Google Cloud Platform ID 및 액세스 관리 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙, 플레이북, 헌팅 쿼리, 파서, 사용자 지정 논리 앱 커넥터|클라우드 공급자, ID |Microsoft |
+|**Id 및 액세스 관리 솔루션 Google Cloud Platform**|데이터 커넥터, 통합 문서, 분석 규칙, 플레이 북, 구하기 쿼리, 파서, 사용자 지정 논리 앱 커넥터|클라우드 공급자, Id |Microsoft |
 | | | | |
 
 
@@ -192,38 +191,38 @@ ms.locfileid: "131467457"
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Azure Sentinel용 HYAS Insight 솔루션 갤러리**| 플레이북| 보안 - 위협 인텔리전스, 보안 - 자동화(SOAR) |Microsoft |
+|**Azure Sentinel용 HYAS Insight 솔루션 갤러리**| 플레이북| 보안 위협 인텔리전스, 보안 자동화 (대화 충성도) |Microsoft |
 | | | | |
 
 ## <a name="imperva"></a>Imperva
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Imperva Cloud WAF(공식적으로** Imperva Incapsula)| [데이터 커넥터](data-connectors-reference.md#imperva-waf-gateway-preview), 파서| 보안 - 네트워크 | Microsoft|
+|**Imperva Cloud WAF** (공식적 Imperva Incapsula)| [데이터 커넥터](data-connectors-reference.md#imperva-waf-gateway-preview), 파서| 보안-네트워크 | Microsoft|
 | | | | |
 
 ## <a name="infoblox"></a>InfoBlox
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**InfoBlox Threat Defense/InfoBlox Cloud Data Connector**| [데이터 커넥터,](data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview)통합 문서, 분석 규칙| 보안 - 위협 방지 | Microsoft|
+|**InfoBlox 위협 방어/InfoBlox 클라우드 데이터 커넥터**| [데이터 커넥터](data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview), 통합 문서, 분석 규칙| 보안 위협 방지 | Microsoft|
 | | | | |
 
 
 ## <a name="ironnet"></a>IronNet
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**IronNet CyberSecurity Iron Defense - Azure Sentinel** | |보안 - 네트워크 |Microsoft |
+|**IronNet 사이버 보안 철 방어-Azure 센티널** | |보안-네트워크 |Microsoft |
 | | | |
 
 
 
 ## <a name="juniper"></a>Juniper
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Juniper IDP** |데이터 커넥터, 파서|보안 - 네트워크 |Microsoft |
+|**Juniper IDP** |데이터 커넥터, 파서|보안-네트워크 |Microsoft |
 | | | | |
 
 
@@ -231,7 +230,7 @@ ms.locfileid: "131467457"
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**카퍼 스키 바이러스 백신** |데이터 커넥터, 파서   | 보안 - 위협 방지|Microsoft |
+|**Kaspersky 바이러스 백신** |데이터 커넥터, 파서   | 보안 위협 방지|Microsoft |
 | | | | |
 
 
@@ -239,129 +238,129 @@ ms.locfileid: "131467457"
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Lookout Mobile Threat Defense for Azure Sentinel**| [데이터 커넥터](data-connectors-reference.md#lookout-mobile-threat-defense-preview)|보안 - 네트워크 |[Lookout](https://www.lookout.com/support) |
+|**Azure 센티널에 대 한 모바일 위협 방어**| [데이터 커넥터](data-connectors-reference.md#lookout-mobile-threat-defense-preview)|보안-네트워크 |[Lookout](https://www.lookout.com/support) |
 | | | |
 
 ## <a name="mcafee"></a>McAfee
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**McAfee ePolicy Orchestrator 솔루션**| 데이터 커넥터, 통합 문서, 분석 규칙, 플레이북, 헌팅 쿼리, 파서, 사용자 지정 논리 앱 커넥터| 보안 - 위협 방지| Microsoft |
-|**McAfee 네트워크 보안 플랫폼** 솔루션(Intrushield) + 바이러스 백신 정보(T1 - 논리 앱) |데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리, 파서 |보안 - 위협 방지 | Microsoft|
+|**McAfee ePolicy Orchestrator 솔루션**| 데이터 커넥터, 통합 문서, 분석 규칙, 플레이 북, 구하기 쿼리, 파서, 사용자 지정 논리 앱 커넥터| 보안 위협 방지| Microsoft |
+|**McAfee Intrushield (네트워크 보안 플랫폼 솔루션** ) + 바이러스 백신 정보 (T1-논리 앱) |데이터 커넥터, 통합 문서, 분석 규칙, 구하기 쿼리, 파서 |보안 위협 방지 | Microsoft|
 | | | | |
 
 ## <a name="microsoft"></a>Microsoft
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Azure 센티널 4 Microsoft Dynamics 365**     |   [데이터 커넥터](data-connectors-reference.md#dynamics-365), 통합 문서, 분석 규칙 및 구하기 쿼리 |      애플리케이션   |Microsoft         |
-|**Teams용 Azure Sentinel**     | 데이터 커넥터, 분석 규칙, 플레이 북, 구하기 쿼리      |   애플리케이션      |    커뮤니티     |
+|**Azure Sentinel 4 Microsoft Dynamics 365**     |   [데이터 커넥터,](data-connectors-reference.md#dynamics-365)통합 문서, 분석 규칙 및 헌팅 쿼리 |      애플리케이션   |Microsoft         |
+|**Teams용 Azure Sentinel**     | 데이터 커넥터, 분석 규칙, 플레이북, 헌팅 쿼리      |   애플리케이션      |    커뮤니티     |
 | | | | |
 
 
 ## <a name="oracle"></a>Oracle
 
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**Oracle 클라우드 인프라** |데이터 커넥터, 파서 | 클라우드 공급자 | Microsoft|
-|**Oracle Database 감사 솔루션** | 데이터 커넥터, 통합 문서, 분석 규칙, 구하기 쿼리, 파서| 애플리케이션|Microsoft |
+|**Oracle Database 감사 솔루션** | 데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리, 파서| 애플리케이션|Microsoft |
 | | | | |
 
 ## <a name="palo-alto"></a>Palo Alto
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Palo Alto PAN-OS**|[데이터 커넥터](#palo-alto), 플레이 북, 사용자 지정 논리 앱 커넥터 |보안 자동화 (대화 충성도), 보안-네트워크 |Microsoft |
-|**Palo Alto Prisma 솔루션**|[데이터 커넥터](#palo-alto), 통합 문서, 분석 규칙, 구하기 쿼리, 파서 |보안-클라우드 보안 |Microsoft |
+|**Palo Alto PAN-OS**|[데이터 커넥터,](#palo-alto)플레이북, 사용자 지정 논리 앱 커넥터 |보안 - SOAR(자동화), 보안 - 네트워크 |Microsoft |
+|**Palo Alto Prisma 솔루션**|[데이터 커넥터,](#palo-alto)통합 문서, 분석 규칙, 헌팅 쿼리, 파서 |보안 - 클라우드 보안 |Microsoft |
 | | | | |
 
 ## <a name="ping-identity"></a>Ping Identity
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**PingFederate 솔루션** |데이터 커넥터, 통합 문서, 분석 규칙, 구하기 쿼리, 파서| ID|Microsoft |
+|**PingFederate 솔루션** |데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리, 파서| ID|Microsoft |
 | | | | |
 
 ## <a name="proofpoint"></a>Proofpoint
 
-|Name    |Includes  |범주 |지원 요소  |
+|속성    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Proofpoint POD 솔루션** |[데이터 커넥터](data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview), 통합 문서, 분석 규칙, 구하기 쿼리, 파서| 보안 위협 방지|Microsoft |
-|**Proofpoint TAP 솔루션** | 통합 문서, 분석 규칙, 플레이 북, 사용자 지정 논리 앱 커넥터|보안 자동화 (대화 충성도), 보안 위협 방지 |Microsoft |
+|**Proofpoint POD 솔루션** |[데이터 커넥터,](data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)통합 문서, 분석 규칙, 헌팅 쿼리, 파서| 보안 - 위협 방지|Microsoft |
+|**Proofpoint TAP 솔루션** | 통합 문서, 분석 규칙, 플레이북, 사용자 지정 논리 앱 커넥터|보안 - AUTOMATION(SOAR), 보안 - 위협 방지 |Microsoft |
 | | | |
 
 ## <a name="qualys"></a>Qualys
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Qualys VM 솔루션** |통합 문서, 분석 규칙 |보안 취약성 관리 |Microsoft |
+|**Qualys VM 솔루션** |통합 문서, 분석 규칙 |보안 - 취약성 관리 |Microsoft |
 | | | | |
 
 ## <a name="rapid7"></a>Rapid7
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Rapid7 InsightVM CloudAPI 솔루션** |데이터 커넥터, 파서|보안 취약성 관리 |Microsoft |
+|**Rapid7 InsightVM CloudAPI 솔루션** |데이터 커넥터, 파서|보안 - 취약성 관리 |Microsoft |
 | | | | |
 
 ## <a name="reversinglabs"></a>ReversingLabs
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**ReversingLabs TitaniumCloud File 보강 솔루션**|플레이북 |보안 위협 인텔리전스 |[ReversingLabs](https://support.reversinglabs.com/hc/en-us) |
+|**ReversingLabs TitaniumCloud 파일 보강 솔루션**|플레이북 |보안 - 위협 인텔리전스 |[ReversingLabs](https://support.reversinglabs.com/hc/en-us) |
 | | | | |
 
 ## <a name="riskiq"></a>RiskIQ
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**RiskIQ 보안 인텔리전스 플레이북**|플레이북 |보안 위협 인텔리전스, 보안 자동화 (대화 충성도) |[RiskIQ](https://www.riskiq.com/integrations/microsoft/) |
+|**RiskIQ 보안 인텔리전스 플레이북**|플레이북 |보안 - 위협 인텔리전스, 보안 - 자동화(SOAR) |[RiskIQ](https://www.riskiq.com/integrations/microsoft/) |
 | | | | |
 
 ## <a name="rsa"></a>RSA
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**RSA SecurID** |데이터 커넥터, 파서 |보안-기타, Id |Microsoft |
+|**RSA SecurID** |데이터 커넥터, 파서 |보안 - 기타, ID |Microsoft |
 | | | |
 
 
 
 ## <a name="sap"></a>SAP
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**SAP용 Continuous Threat Monitoring**|[데이터 커넥터](sap-deploy-solution.md), [통합 문서, 분석 규칙, watchlists](sap-solution-security-content.md) | 애플리케이션  |커뮤니티 |
+|**SAP용 Continuous Threat Monitoring**|[데이터 커넥터,](sap-deploy-solution.md) [통합 문서, 분석 규칙, 감시 목록](sap-solution-security-content.md) | 애플리케이션  |커뮤니티 |
 | | | | |
 
 ## <a name="semperis"></a>Semperis
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Semperis**|데이터 커넥터, 통합 문서, 분석 규칙, 파서 | 보안 위협 방지, Id  |[Semperis](https://www.semperis.com/contact-us/) |
+|**Semperis**|데이터 커넥터, 통합 문서, 분석 규칙, 파서 | 보안 - 위협 방지, ID  |[Semperis](https://www.semperis.com/contact-us/) |
 | | | | |
 
-## <a name="senserva-pro"></a>Pro
+## <a name="senserva-pro"></a>Senserva Pro
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Azure Sentinel용 Senserva 제품** |데이터 커넥터, 통합 문서, 분석 규칙, 구하기 쿼리 |규정 준수 |[초](https://www.senserva.com/contact/) |
+|**Azure Sentinel용 Senserva 제품** |데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리 |규정 준수 |[Senserva](https://www.senserva.com/contact/) |
 | | | | |
 
 
 ## <a name="sonrai-security"></a>Sonrai 보안
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Sonrai 보안-Azure 센티널** |데이터 커넥터, 통합 문서, 분석 규칙   | 규정 준수|Sonrai 보안 |
+|**Sonrai 보안 - Azure Sentinel** |데이터 커넥터, 통합 문서, 분석 규칙   | 규정 준수|Sonrai 보안 |
 | | | | |
 
 ## <a name="slack"></a>Slack
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Slack Audit 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙, 구하기 쿼리, 파서 |애플리케이션| Microsoft|
+|**Slack Audit 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리, 파서 |애플리케이션| Microsoft|
 | | | | |
 
 
@@ -369,32 +368,32 @@ ms.locfileid: "131467457"
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Sophos Endpoint Protection 솔루션** |데이터 커넥터, 파서| 보안 위협 방지 |Microsoft |
-|**Sophos XG Firewall 솔루션**| 통합 문서, 분석 규칙, 파서 |보안-네트워크 |Microsoft |
+|**Sophos Endpoint Protection 솔루션** |데이터 커넥터, 파서| 보안 - 위협 방지 |Microsoft |
+|**Sophos XG Firewall 솔루션**| 통합 문서, 분석 규칙, 파서 |보안 - 네트워크 |Microsoft |
 | | | | |
 
 
 ## <a name="symantec"></a>Symantec
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Symantec 끝점**|데이터 커넥터, 통합 문서, 분석 규칙, 플레이 북, 구하기 쿼리, 파서| 보안 위협 방지|Microsoft |
-|**Symantec ProxySG 솔루션**|통합 문서, 분석 규칙 |보안-네트워크 |Symantec |
+|**Symantec 엔드포인트**|데이터 커넥터, 통합 문서, 분석 규칙, 플레이북, 헌팅 쿼리, 파서| 보안 - 위협 방지|Microsoft |
+|**Symantec ProxySG 솔루션**|통합 문서, 분석 규칙 |보안 - 네트워크 |Symantec |
 | | | | |
 
 ## <a name="tenable"></a>Tenable
 
 |Name    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Tenable에 대 한 Nessus 스캐너/IO VM 보고서 사용**  | 데이터 커넥터, 파서| 보안 취약성 관리| Microsoft |
+|**클라우드용 Tenable Nessus 스캐너/IO VM 보고서**  | 데이터 커넥터, 파서| 보안 - 취약성 관리| Microsoft |
 | | | | |
 
 
 ## <a name="trend-micro"></a>Trend Micro
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
-|**Trend Micro Apex One 솔루션**  | 데이터 커넥터, 구하기 쿼리, 파서| 보안 위협 방지|Microsoft |
+|**Trend Micro Apex One 솔루션**  | 데이터 커넥터, 헌팅 쿼리, 파서| 보안 - 위협 방지|Microsoft |
 | | | | |
 
 
@@ -402,7 +401,7 @@ ms.locfileid: "131467457"
 
 ## <a name="ubiquiti"></a>Ubiquiti
 
-|Name    |Includes  |범주 |지원 요소  |
+|속성    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**Ubiquiti UniFi 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리, 파서 |보안 - 네트워크 |Microsoft |
 | | | | |
@@ -410,7 +409,7 @@ ms.locfileid: "131467457"
 
 ## <a name="varmour"></a>vArmour
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**vArmour 애플리케이션 컨트롤러 및 Azure Sentinel 솔루션**|데이터 커넥터, 통합 문서, 분석 규칙 |IT 운영 |[vArmour](https://www.varmour.com/contact-us/) |
 | | | | |
@@ -425,14 +424,14 @@ ms.locfileid: "131467457"
 
 ## <a name="vmware"></a>VMware
 
-|Name    |Includes  |범주 |지원 요소  |
+|속성    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**VMware Carbon Black 솔루션**|통합 문서, 분석 규칙| 보안 - 위협 방지| Microsoft|
 | | | | |
 
 ## <a name="zeek-network"></a>Zeek 네트워크
 
-|Name    |Includes  |범주 |지원 요소  |
+|이름    |Includes  |범주 |지원 요소  |
 |---------|---------|---------|---------|
 |**Azure Sentinel용 Corelight**|데이터 커넥터, 통합 문서, 분석 규칙, 헌팅 쿼리, 파서 | IT 운영, 보안 - 네트워크 | [Zeek 네트워크](https://support.corelight.com/)|
 | | | | |

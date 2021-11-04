@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: mamccrea
-ms.openlocfilehash: 59a89c069c332d4d0346e0f3c795763818c601de
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: cb15ab04a92e22099f9c04d9e05bb2e44c182826
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457110"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471481"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 제공되는 Red Hat Enterprise Linux의 BYOS(사용자 구독 필요) 골드 이미지
 
@@ -193,7 +193,7 @@ Azure Disk Encryption 적용 단계에 대해서는 [Linux VM에서의 Azure Dis
 
     이러한 경우에는 Microsoft 또는 Red Hat에 문의하여 구독을 사용하도록 설정합니다.
 
-- RHEL BYOS 이미지의 스냅샷을 수정하거나 해당 사용자 지정 이미지를 [Shared Image Gallery](../../shared-image-galleries.md)에 게시하려는 경우, 해당 스냅샷의 원본과 일치하는 계획 정보를 제공해야 합니다. 예를 들면, 해당 명령은 다음과 같을 수 있습니다.
+- RHEL BYOS 이미지에서 스냅샷을 수정하고 해당 사용자 지정 이미지를 [Azure Compute 갤러리(이전의](../../shared-image-galleries.md) Shared Image Gallery)에 게시하려는 경우 스냅샷의 원래 원본과 일치하는 계획 정보를 제공해야 합니다. 예를 들면, 해당 명령은 다음과 같을 수 있습니다.
 
     ```azurecli
     az vm create –image \

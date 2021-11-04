@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c700170e59792dc6f782ded02960962c7b21d946
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 70a9b1da38f827da393164e4ab1da9928ea6e7b9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696924"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428048"
 ---
 # <a name="azure-image-builder-service-devops-task-preview"></a>Azure Image Builder Service DevOps 작업(미리 보기)
 
@@ -78,7 +78,7 @@ ms.locfileid: "122696924"
  
 ### <a name="location"></a>위치
 
-위치는 Image Builder가 실행될 지역입니다. 설정된 수의 [지역](../image-builder-overview.md#regions)만 지원됩니다. 원본 이미지가 이 위치에 있어야 합니다. 예를 들어 Shared Image Gallery를 사용하는 경우 복제본이 해당 지역에 있어야 합니다.
+위치는 Image Builder가 실행될 지역입니다. 설정된 수의 [지역](../image-builder-overview.md#regions)만 지원됩니다. 원본 이미지가 이 위치에 있어야 합니다. 예를 들어 Azure Compute 갤러리를 사용하는 경우 복제본이 해당 지역에 있어야 합니다.
 
 ### <a name="managed-identity-required"></a>관리 ID(필수)
 Image Builder에는 원본 사용자 지정 이미지를 읽고, Azure Storage에 연결하고, 사용자 지정 이미지를 만드는 데 사용하는 관리 ID가 필요합니다. 자세한 내용은 [Azure Image Builder에 대한 자세한 정보](../image-builder-overview.md#permissions)를 참조하세요.
@@ -94,12 +94,12 @@ Image Builder에는 원본 사용자 지정 이미지를 읽고, Azure Storage�
     ```json
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
-* Azure Shared Image Gallery - 이미지 버전의 resourceId를 전달해야 합니다. 예를 들면 다음과 같습니다.
+* Azure Azure Compute 갤러리 - 이미지 버전의 resourceId를 전달해야 합니다. 예를 들면 다음과 같습니다.
     ```json
     /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/<versionNumber>
     ```
 
-    최신 Shared Image Gallery 버전을 가져와야 하는 경우 AZ PowerShell 또는 AZ CLI 작업을 통해 최신 버전을 가져오고 DevOps 변수를 설정할 수 있습니다. AZ VM Image Builder DevOps 작업에서 변수를 사용합니다. 자세한 내용은 [예제](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery)를 참조하세요.
+    최신 Azure Compute 갤러리(이전의 Shared Image Gallery) 버전을 다운로드해야 하는 경우 AZ PowerShell 또는 AZ CLI 작업이 있어야 최신 버전을 얻고 DevOps 변수를 설정할 수 있습니다. AZ VM Image Builder DevOps 작업에서 변수를 사용합니다. 자세한 내용은 [예제](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery)를 참조하세요.
 
 * (마켓플레이스) 기본 이미지: 인기 이미지의 드롭다운 목록이 있으며 항상 지원되는 OS의 '최신' 버전을 사용합니다. 
 
@@ -233,9 +233,9 @@ Windows의 경우에만 사용자 지정이 끝날 때 작업이 Windows 업데�
 
 * 위치
 
-#### <a name="azure-shared-image-gallery"></a>Azure Shared Image Gallery
+#### <a name="azure-compute-gallery"></a>Azure Compute 갤러리
 
-Shared Image Gallery가 이미 **있어야** 합니다.
+Azure Compute 갤러리가 이미 **있어야** 합니다.
 
 * ResourceID: 
     ```bash

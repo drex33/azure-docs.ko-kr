@@ -3,19 +3,19 @@ title: '자습서: Electron 데스크톱 앱에서 사용자 로그인 및 Micro
 titleSuffix: Microsoft identity platform
 description: 이 자습서에서는 사용자를 로그인하고, 인증 코드 흐름을 사용하여 Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 Electron 데스크톱 앱을 빌드합니다.
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: karenhoran
-ms.openlocfilehash: 2036a0317aef3d383d065cdd2ad6143342ea1d91
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.author: marsma
+ms.openlocfilehash: 083c31b427c0f3d8cc261af7c9033d4ec1ffbeae
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161859"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500472"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-in-an-electron-desktop-app"></a>자습서: Electron 데스크톱 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 

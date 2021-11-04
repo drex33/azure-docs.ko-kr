@@ -6,26 +6,26 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/01/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
-ms.openlocfilehash: 4c8f1c2f769340cb36832b06bf5a76258b69cd9f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0e24c058239d57cba1c66ebff06ba9d482bcb594
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131008813"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433197"
 ---
 # <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>보관된 Blob을 온라인 계층으로 리하이드레이션
 
-보관 계층에 있는 Blob을 읽으려면 먼저 Blob을 온라인 계층(핫 또는 쿨) 계층으로 리하디드해야 합니다. Blob을 리하이드레이션 하는 것은 두 가지 방법이 있습니다.
+보관 계층에 있는 Blob을 읽으려면 먼저 Blob을 온라인 계층(핫 또는 쿨) 계층으로 리하우전해야 합니다. Blob을 리하이드레이션 하는 것은 두 가지 방법이 있습니다.
 
 - Blob 복사 작업을 사용하여 핫 또는 쿨 계층의 새 [Blob에 복사합니다.](/rest/api/storageservices/copy-blob) 대부분의 시나리오에서는 Microsoft에서이 옵션을 권장합니다.
 - [Blob](/rest/api/storageservices/set-blob-tier) 계층 설정 작업을 사용하여 계층을 보관에서 핫 또는 쿨로 변경합니다.
 
-Blob을 리하딩할 때 작업의 우선 순위를 표준 우선 순위 또는 높은 우선 순위로 지정할 수 있습니다. 표준 우선 순위 리하일레이션 작업을 완료하는 데 최대 15시간이 걸릴 수 있습니다. 우선 순위가 높은 작업은 표준 우선 순위 요청보다 우선 순위가 높으며 크기가 10GB 미만인 개체의 경우 1시간 이내에 완료할 수 있습니다. 작업이 보류 중인 동안 리하일레이션 우선 순위를 *표준에서* *높음으로* 변경할 수 있습니다.
+Blob을 리하딩할 때 작업의 우선 순위를 표준 우선 순위 또는 높은 우선 순위로 지정할 수 있습니다. 표준 우선 순위 리하일레이션 작업을 완료하는 데 최대 15시간이 걸릴 수 있습니다. 우선 순위가 높은 작업은 표준 우선 순위 요청보다 우선 순위가 높으며 크기가 10GB 미만인 개체의 경우 1시간 이내에 완료할 수 있습니다. 작업이 보류 중인 동안 리하위드레이션 우선 순위를 *표준에서* *높음으로* 변경할 수 있습니다.
 
 리하이드레이션이 완료되면 이벤트를 실행할 수 있도록 Azure Event Grid를 구성하고 응답으로 응용 프로그램 코드를 실행할 수 있습니다. Blob 리하이드레이션 작업이 완료될 때 Azure 함수를 실행하는 이벤트를 처리하는 방법을 알아보려면 [blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행](archive-rehydrate-handle-event.md)을 참조 하세요.
 
@@ -194,7 +194,7 @@ az storage blob show \
 
 표준 우선 순위 리하일레이션 작업이 보류 중인 동안 Blob에 대한 리하위드레이션 우선 순위 설정을 *표준에서* *높음으로* 변경하여 해당 Blob을 더 빠르게 리하우징할 수 있습니다.
 
-보류 중인 작업에 대해 리하일레이션 우선 순위 설정을 *높음에서* *표준으로* 낮출 수 없습니다. 또한 리하일레이션 우선 순위를 변경하면 청구에 영향을 미칠 수 있습니다. 자세한 내용은 [보관 계층 에서 Blob 리하이드레이션을 참조하세요.](archive-rehydrate-overview.md)
+보류 중인 작업에 대해 리하일레이션 우선 순위 설정을 *높음에서* *표준으로* 낮출 수 없습니다. 또한 리하일레이션 우선 순위를 변경하면 청구에 영향을 미칠 수 있습니다. 자세한 내용은 [보관 계층 에서 Blob 리하일레이션을 참조하세요.](archive-rehydrate-overview.md)
 
 ### <a name="change-the-rehydration-priority-for-a-pending-set-blob-tier-operation"></a>보류 중인 Blob 계층 설정 작업에 대한 리하위드레이션 우선 순위 변경
 
@@ -206,15 +206,15 @@ Azure Portal 보류 중인 작업의 리하위드레이션 우선 순위를 변�
 
 1. 리하일레이션 우선 순위를 변경하려는 Blob으로 이동하여 Blob을 선택합니다.
 1. 계층 **변경** 단추를 선택합니다.
-1. 계층 **변경** 대화 상자에서 리하일레이션 Blob(핫 또는 쿨)에 대한 대상 온라인 액세스 계층으로 액세스 계층을 설정합니다. **보관 상태** 필드에는 대상 온라인 계층이 표시됩니다.
-1. **리하이드 전송률 우선 순위** 드롭다운에서 우선 순위를 *높음* 으로 설정합니다.
+1. 계층 **변경** 대화 상자에서 리하우전 Blob(핫 또는 쿨)에 대한 대상 온라인 액세스 계층으로 액세스 계층을 설정합니다. **보관 상태** 필드에는 대상 온라인 계층이 표시됩니다.
+1. **리하이드 전송률 우선 순위** 드롭다운에서 우선 순위를 *높음으로* 설정합니다.
 1. **저장** 을 선택합니다.
 
     :::image type="content" source="media/archive-rehydrate-to-online-tier/update-rehydration-priority-portal.png" alt-text="Azure Portal 리하우전 Blob에 대한 리하위드레이션 우선 순위를 업데이트하는 방법을 보여주는 스크린샷":::
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell을 사용하여 보류 중인 작업에 대한 리하위드레이션 우선 순위를 변경하려면 먼저 서비스에서 Blob의 속성을 얻습니다. 이 단계는 가장 최근의 속성 설정이 있는 개체가 있는지 확인하는 데 필요합니다. 다음으로 **Blob의 BlobClient** 속성을 사용하여 Blob에 대한 .NET 참조를 반환한 다음 해당 참조에서 **SetAccessTier** 메서드를 호출합니다.
+PowerShell을 사용하여 보류 중인 작업에 대한 리하위드레이션 우선 순위를 변경하려면 [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 3.12.0 이상 버전을 설치했는지 확인합니다. 다음으로, 서비스에서 Blob의 속성을 얻습니다. 이 단계는 가장 최근의 속성 설정이 있는 개체가 있는지 확인하는 데 필요합니다. 마지막으로 **Blob의 BlobClient** 속성을 사용하여 Blob에 대한 .NET 참조를 반환한 다음 해당 참조에서 **SetAccessTier** 메서드를 호출합니다.
 
 ```azurepowershell
 # Get the blob from the service.
@@ -224,7 +224,6 @@ $rehydratingBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName -
 if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 {
     # Change rehydration priority to High, using the same target tier.
-    
     if ($rehydratingBlob.BlobProperties.ArchiveStatus -eq "rehydrate-pending-to-hot")
     {
         $rehydratingBlob.BlobClient.SetAccessTier("Hot", $null, "High")
@@ -241,7 +240,9 @@ if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI 사용하여 보류 중인 작업의 리하일레이션 우선 순위를 변경하려면 매개 변수가 높음으로 설정된 [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) 명령을 호출합니다. `--rehydrate-priority`  대상 계층(핫 또는 쿨)은 리하일레이션 작업에 대해 원래 지정한 계층과 동일해야 합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Azure CLI 사용하여 보류 중인 작업의 리하일레이션 우선 순위를 변경하려면 먼저 Azure CLI 버전 2.29.2 이상 버전을 설치했는지 확인합니다. Azure CLI 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치하는 방법을](/cli/azure/install-azure-cli)참조하세요.
+
+다음으로, 매개 변수를 높음으로 설정하여 [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) 명령을 호출합니다. `--rehydrate-priority`  대상 계층(핫 또는 쿨)은 리하일레이션 작업에 대해 원래 지정한 계층과 동일해야 합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
 # Update the rehydration priority for a blob moving to the Hot tier.
@@ -335,7 +336,7 @@ az storage blob show \
 
 ---
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층입니다.](access-tiers-overview.md)
 - [보관 계층의 Blob 리하일레이션 개요](archive-rehydrate-overview.md)

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6542272fd39e4b79edaecebcfc2e9ec54ab64fb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 81ac59ce54f77b8462198ed8532abe8b62f2cb61
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566364"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503755"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard API: 다운로드 및 릴리스 정보
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "122566364"
 
 |   | 링크  |
 |---|---|
-|**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Azure.Data.Tables/)|
 |**샘플**|[Cosmos DB Table API .NET 샘플](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**빠른 시작**|[빠른 시작](create-table-dotnet.md)|
 |**자습서**|[자습서](tutorial-develop-table-dotnet.md)|

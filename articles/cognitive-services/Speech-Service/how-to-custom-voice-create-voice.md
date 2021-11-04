@@ -3,19 +3,19 @@ title: Custom Voice 만들기 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 데이터를 업로드할 준비가 되면 Custom Voice 포털로 이동합니다. Custom Voice 프로젝트를 만들거나 선택합니다. 프로젝트는 음성 학습에 사용할 데이터로 올바른 언어/로캘 및 성별 속성을 공유해야 합니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: pafarley
-ms.openlocfilehash: 1f444ca13224c27918812c12f0a9e86a50e0b994
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: eur
+ms.openlocfilehash: 16f9d66b669e792d0bccc2676bdc1db327de3229
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644679"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507211"
 ---
 # <a name="create-and-use-your-voice-model"></a>음성 모델 만들기 및 사용
 

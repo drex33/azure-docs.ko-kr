@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 5dd2f7a7d5bc580c6846f214c84788bd2067cb0c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043906"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441631"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -26,7 +26,7 @@ Site Recovery가 Azure에서 장애 조치된 가상 머신을 만들 수 없습
 
 * 가상 머신을 만드는 데 사용할 수 있는 할당량이 부족합니다. [구독] -> [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](https://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다.
 
-* 동일한 가용성 집합에 다른 크기 제품군의 가상 머신을 장애 조치하려고 합니다. 동일한 가용성 집합의 모든 가상 머신에 대해 동일한 크기 제품군을 선택했는지 확인합니다. 가상 머신의 Compute 및 네트워크 설정으로 이동하여 크기를 변경한 다음, 장애 조치(failover)를 다시 시도합니다.
+* 동일한 가용성 집합에 다른 크기 제품군의 가상 머신을 장애 조치하려고 합니다. 동일한 가용성 집합의 모든 가상 머신에 대해 동일한 크기 제품군을 선택했는지 확인합니다. 가상 컴퓨터의 **계산** 설정으로 이동 하 여 크기를 변경 하 고 장애 조치 (failover)를 다시 시도 하세요.
 
 * 구독에는 가상 머신의 생성을 방지하는 정책이 있습니다. 가상 머신의 생성을 허용하도록 정책을 변경한 후 장애 조치를 다시 시도합니다.
 
@@ -38,7 +38,7 @@ Site Recovery가 장애 조치된 가상 머신에 대해 네트워크 인터페
 
 Site Recovery가 Azure에서 장애 조치된 클래식 가상 머신을 만들 수 없습니다. 다음 때문에 발생할 수 있습니다.
 
-* 만들 가상 머신에 필요한 가상 네트워크와 같은 리소스 중 하나가 존재하지 않습니다. 가상 머신의 Compute 및 네트워크 설정에 제공된 대로 가상 네트워크를 만들거나 이미 존재하는 가상 네트워크로 설정을 수정한 다음, 장애 조치(failover)를 다시 시도합니다.
+* 만들 가상 머신에 필요한 가상 네트워크와 같은 리소스 중 하나가 존재하지 않습니다. 가상 컴퓨터의 네트워크 설정 아래에 제공 된 가상 네트워크를 만들거나 설정을 이미 존재 하는 가상 네트워크로 수정한 후 장애 조치 (failover)를 다시 시도 합니다.
 
 ## <a name="failover-failed-with-error-id-170010"></a>장애 조치 실패(오류 ID 170010)
 

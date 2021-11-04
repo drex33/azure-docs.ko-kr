@@ -8,16 +8,17 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 5ed0dd6ad86b5f7758f0e1972867876eedc3b51a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f88ab798618608b8dbb0e27fb772a82a5199a889
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225940"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080862"
 ---
-# <a name="upgrade-a-sku-preview"></a>SKU 업그레이드(미리 보기)
+# <a name="upgrade-a-sku"></a>SKU 업그레이드
 
-이 문서는 기본 계층(SKU)에서 표준으로 업그레이드하는 데 도움이 됩니다. 업그레이드한 후에는 Bastion을 삭제하고 다시 구성하지 않고는 기본 SKU로 되돌릴 수 없습니다. 미리 보기 중에 이 설정은 Azure Portal에서만 구성할 수 있습니다. 호스트 확장에 대한 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요. 
+이 문서는 기본 계층(SKU)에서 표준으로 업그레이드하는 데 도움이 됩니다. 업그레이드한 후에는 Bastion을 삭제하고 다시 구성하지 않고는 기본 SKU로 되돌릴 수 없습니다. 현재이 설정은 Azure Portal 에서만 구성할 수 있습니다. 호스트 확장에 대한 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요. 
 
 ## <a name="configuration-steps"></a>구성 단계
 

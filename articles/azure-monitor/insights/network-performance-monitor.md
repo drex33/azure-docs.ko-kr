@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: bd0fb0720218b938b8c10454afeafba85887fa2c
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: 5cb27140e38fa264973bb29d8137b270297a3b0e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779127"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462086"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
 ![네트워크 성능 모니터 기호](./media/network-performance-monitor/npm-symbol.png)
 
 > [!IMPORTANT]
-> 2021년 7월 1일부터 기존 작업 영역에 새 테스트를 추가하거나 네트워크 성능 모니터에서 새 작업 영역을 사용하도록 설정할 수 없습니다. 2021년 7월 1일 이전에 만든 테스트는 계속 사용할 수 있습니다. 현재 워크로드에 대한 서비스 중단의 영향을 최소화하려면 2024년 2월 29일 이전에 [테스트를 네트워크 성능 모니터에서 Azure Network Watcher의 새로운 연결 모니터로 마이그레이션](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md)합니다.
+> 2021년 7월 1일부터는 기존 작업 영역에 새 테스트를 추가하거나 네트워크 성능 모니터에서 새 작업 영역을 사용하도록 설정할 수 없습니다. 2021년 7월 1일 이전에 만든 테스트는 계속 사용할 수 있습니다. 현재 워크로드에 대한 서비스 중단의 영향을 최소화하려면 2024년 2월 29일 이전에 [테스트를 네트워크 성능 모니터에서 Azure Network Watcher의 새로운 연결 모니터로 마이그레이션](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md)합니다.
 
 네트워크 성능 모니터는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 하이브리드 네트워크 모니터링 솔루션입니다. 또한 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결을 모니터링하고 Azure ExpressRoute의 성능을 모니터링하는 데 도움이 됩니다. 
 
@@ -295,7 +295,7 @@ Azure Portal을 통해 경고를 생성하는 NPM 사용자인 경우:
 
 ## <a name="provide-feedback"></a>피드백 제공 
 
-* **UserVoice:** 개발되기를 바라는 네트워크 성능 모니터 기능에 대한 아이디어를 게시할 수 있습니다. [UserVoice 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)를 방문하세요. 
+* **UserVoice:** 개발되기를 바라는 네트워크 성능 모니터 기능에 대한 아이디어를 게시할 수 있습니다. [UserVoice 페이지](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=611733d4-1b25-ec11-b6e6-000d3a4f09d0)를 방문하세요. 
 
 * **코호트 조인:** 코호트에 조인하는 새 고객을 항상 환영합니다. 그 일환으로 새로운 기능에 초기에 액세스할 수 있고 네트워크 성능 모니터를 개선하는 데 참여할 수 있는 기회가 제공됩니다. 조인에 관심이 있을 경우 이 [빠른 설문 조사](https://aka.ms/npmcohort)에 참여하세요. 
 

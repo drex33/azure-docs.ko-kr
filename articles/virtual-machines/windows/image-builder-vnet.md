@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb089d643953848e1441bc3b1d6707e7e5f9d6fa
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: df258f347fb615c3ee95932f0ed17c1a24b1955c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690677"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436995"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>기존 Azure VNET에 액세스를 허용하는 Windows VM용 Azure Image Builder 사용
 
@@ -231,7 +231,7 @@ $buildJsonStatus
 ```
 
 ### <a name="query-the-distribution-properties"></a>분포 속성 쿼리
-VHD 위치에 배포하거나, 관리되는 이미지 위치 속성 또는 공유 이미지 갤러리 복제 상태가 필요한 경우 배포 대상이 있을 때마다 'runOutput'을 쿼리해야 합니다. 배포 유형의 속성을 설명하는 고유한 runOutput이 있습니다.
+VHD 위치에 배포 하는 경우 관리 되는 이미지 위치 속성 또는 Azure 계산 갤러리 (이전의 공유 이미지 갤러리) 복제 상태가 필요 합니다. ' runOutput '을 쿼리해야 합니다. 배포 대상이 있을 때마다 배포 유형의 속성을 설명 하는 고유한 runOutput을 갖게 됩니다.
 
 ```powerShell
 $managementEp = $currentAzureContext.Environment.ResourceManagerUrl
@@ -281,4 +281,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Shared Image Gallery](../shared-image-galleries.md)에 대해 자세히 알아보세요.
+[Azure 계산 갤러리](../shared-image-galleries.md)에 대해 자세히 알아보세요.

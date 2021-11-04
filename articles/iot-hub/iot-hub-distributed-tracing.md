@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: c24b7ee5154ec7f79bbbf19ffc6c59b8bf6221b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9ab92079d783522731e470e3be6aaf232589d0b6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536502"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449700"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -93,7 +93,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 ### <a name="clone-the-source-code-and-initialize"></a>소스 코드를 복제 및 초기화
 
-1. Visual Studio 2019용 ["C++를 사용한 데스크톱 개발" 워크로드](/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true)를 설치합니다. Visual Studio 2017 및 2015도 지원됩니다.
+1. Visual Studio 2019용 ["C++를 사용한 데스크톱 개발" 워크로드](/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true)를 설치합니다. Visual Studio 2017도 지원 됩니다.
 
 1. [CMake](https://cmake.org/)를 설치합니다. 명령 프롬프트에서 `cmake -version`을 입력하여 `PATH`에 있는지 확인합니다.
 
@@ -249,7 +249,7 @@ C SDK를 사용하지 않고 분산 추적 기능을 미리 보는 것은 **사�
 }
 ```
 
-| 요소 이름 | 필수 | Type | 설명 |
+| 요소 이름 | 필수 | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | 예 | 정수 | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
 | `sampling_rate` | 예 | 정수 | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |

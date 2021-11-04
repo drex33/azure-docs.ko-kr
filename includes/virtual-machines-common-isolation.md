@@ -5,15 +5,15 @@ services: virtual-machines
 author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/05/2020
+ms.date: 10/20/2021
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 6d2e50a5154a74fc2521da6032d8bfcd8d34f4d6
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: b5d51a00a35fa34236a62c48f1ee01402ca2f1c9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113364824"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520474"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다. 격리된 크기는 특정 하드웨어 세대에 적용되고 작용하며 하드웨어 세대가 사용 중지되면 사용되지 않습니다.
 
@@ -25,6 +25,10 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 현재 격리 가상 머신 제품에는 다음이 포함됩니다.
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_E104i_v5
+* Standard_E104is_v5
+* Standard_E104id_v5
+* Standard_E104ids_v5
 * Standard_F72s_v2
 * Standard_M128ms
 * Standard_DC8_v2
@@ -39,13 +43,13 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 | 크기 | 격리 사용 중지 날짜 | 
 | --- | --- |
-| Standard_DS15_v2 | 2021년 5월 15일 |
-| Standard_D15_v2  | 2021년 5월 15일 |
-| Standard_G5  | 2022년 2월 15일 |
-| Standard_GS5  | 2022년 2월 15일 |
+| Standard_DS15_v2  | 2021년 5월 15일      |
+| Standard_D15_v2   | 2021년 5월 15일      |
+| Standard_G5       | 2022년 2월 15일 |
+| Standard_GS5      | 2022년 2월 15일 |
 | Standard_E64i_v3  | 2022년 2월 15일 |
-| Standard_E64is_v3  | 2022년 2월 15일 |
-| Standard_DC8_v2 | 2022년 2월 15일 |
+| Standard_E64is_v3 | 2022년 2월 15일 |
+| Standard_DC8_v2   | 2022년 2월 15일 |
 
 
 ## <a name="faq"></a>FAQ

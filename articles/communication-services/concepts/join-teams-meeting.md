@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 6b6444ef42e0ada42f374ed5d1e69aefd332a983
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c0713588eadebbd1d9376faec8e61cf5a88dfd1d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438876"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068915"
 ---
 # <a name="join-a-teams-meeting"></a>Teams 회의 참가
 
@@ -38,7 +38,7 @@ Azure communication Teams Services를 사용 하 여 빌드된 사용자 지정 
 
 Teams 익명 회의 참여와 마찬가지로 애플리케이션에 참여할 회의 링크가 있어야 합니다. 이 링크는 Graph API 또는 Microsoft Teams의 일정에서 가져올 수 있습니다. Teams에 표시 되는 byoi 사용자의 이름은 SDK를 호출 하는 통신 서비스를 통해 구성할 수 있으며, 사용자가 Azure Active Directory Teams를 사용 하 여 인증 되지 않았음을 알리기 위해 "외부"로 레이블이 지정 됩니다.
 
-모임 중에 통신 서비스 사용자는 Azure Communication Services Sdk를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 통신 서비스 사용자가 모임이 나 모임을 종료 한 후에는 더 이상 새 채팅 메시지를 보내거나 받을 수 없지만 모임 중에 보내고 받은 메시지에는 액세스할 수 있습니다. 익명 통신 서비스 사용자는 모임에서 참가자를 추가/제거할 수 없으며 모임에 대 한 녹음 또는 기록을 시작할 수 없습니다.
+모임 중에 통신 서비스 사용자는 Azure Communication Services Sdk를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 통신 서비스 사용자가 모임이 나 모임을 종료 한 후에는 더 이상 새 채팅 메시지를 보내거나 받을 수 없지만 모임 중에 보내고 받은 메시지에는 액세스할 수 있습니다. 익명 통신 서비스 사용자는 모임에 추가 참가자를 추가할 수 없으며 모임에 대 한 녹음 또는 기록을 시작할 수 없습니다.
 
 Teams 모임에 참가하는 데 필요한 데이터 흐름에 대한 추가 정보는 [클라이언트 및 서버 아키텍처 페이지](client-and-server-architecture.md)에서 사용할 수 있습니다. [그룹 통화 주인공 샘플](../samples/calling-hero-sample.md)은 웹 애플리케이션에서 Teams 모임에 참여하기 위한 예제 코드를 제공합니다.
 

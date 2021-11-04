@@ -9,12 +9,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 8194b5c170186c5498e181e00f27c91156ae4ada
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: dcc46e36f85642380cb1c3d2a773698e9807e0f9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428182"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438325"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -112,9 +112,6 @@ Microsoft 인증서 또는 CA에서 구입한 사용자 지정 인증서로 TLS�
     ```
     > [!IMPORTANT]
     > Microsoft의 인증서를 사용하는 경우에는 고유 인증서 또는 도메인 이름을 구입할 필요가 없습니다.
-
-    > [!WARNING]
-    > AKS 클러스터가 내부 부하 분산 장치로 구성된 경우에는 Microsoft 제공 인증서 사용이 __지원되지 않으며__ 사용자 지정 인증서를 사용하여 TLS를 사용하도록 설정해야 합니다.
 
 * **구입한 사용자 지정 인증서를 사용할 때** 는 *ssl_cert_pem_file*, *ssl_key_pem_file* 및 *ssl_cname* 매개 변수를 사용합니다. 다음 예제에서는 .pem 파일을 사용해서 구입한 TLS/SSL 인증서를 사용하는 구성을 만드는 방법을 보여줍니다.
  

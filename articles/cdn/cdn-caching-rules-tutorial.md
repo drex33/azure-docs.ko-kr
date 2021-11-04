@@ -3,7 +3,7 @@ title: 자습서 - Azure CDN 캐싱 규칙 설정 | Microsoft Docs
 description: 이 자습서에서는 Azure CDN 전역 캐싱 규칙 및 사용자 지정 캐싱 규칙을 설정합니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 27c04533f4a2c0bdfafaae1a3e182e9b01e35437
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a95888225d1b8e695f8950081fbf4247e7959fc9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058938"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430955"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>자습서: Azure CDN 캐싱 규칙 설정
 

@@ -8,12 +8,12 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: e6ea151e7f8449a8dc3e86944fff4bcf55932784
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 5bee5e85fe7529ae783e99be02159bc8d62442b7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770404"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437223"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET에 대한 액세스 허용
 
@@ -153,7 +153,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## <a name="set-permissions-on-the-resource-group"></a>리소스 그룹에 대한 사용 권한 설정
 
-Image Builder는 제공된 [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용하여 Azure SIG(Shared Image Gallery)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+Image Builder 제공된 [사용자 ID를](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) 사용하여 이미지를 Azure Compute 갤러리(이전의 Shared Image Gallery)에 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```bash
 # create user assigned identity for image builder
@@ -266,7 +266,7 @@ SSH 연결이 설정되는 즉시 오늘의 메시지로 이미지가 사용자 
 
 다음은 생성된 이미지와 다른 모든 리소스 파일을 삭제합니다. 리소스를 삭제하기 전에 이 배포를 완료했는지 확인합니다.
 
-이미지 갤러리 리소스를 삭제하는 경우 먼저 모든 이미지 버전을 삭제해야 해당 이미지 버전을 만드는 데 사용된 이미지 정의를 삭제할 수 있습니다. 갤러리를 삭제하려면 먼저 갤러리에서 이미지 정의를 모두 삭제해야 합니다.
+갤러리 리소스를 삭제할 때 이미지 버전을 만드는 데 사용되는 이미지 정의를 삭제하려면 모든 이미지 버전을 삭제해야 합니다. 갤러리를 삭제하려면 먼저 갤러리에서 이미지 정의를 모두 삭제해야 합니다.
 
 Image Builder 템플릿을 삭제합니다.
 
@@ -306,4 +306,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Shared Image Gallery](../shared-image-galleries.md)에 대해 자세히 알아보세요.
+[Azure Compute 갤러리에](../shared-image-galleries.md)대해 자세히 알아보세요.

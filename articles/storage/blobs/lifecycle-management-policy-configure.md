@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e940db4a16963b236fa5230893373da935532761
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 0fc4fce280db7a2d4744fc8466ff9297699494a3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273216"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460359"
 ---
 # <a name="configure-a-lifecycle-management-policy"></a>수명 주기 관리 정책 구성
 
@@ -220,4 +220,4 @@ Azure Resource Manager 템플릿을 사용하여 수명 주기 관리 정책을 
 ## <a name="see-also"></a>참고 항목
 
 - [데이터 수명 주기를 자동으로 관리하여 비용 최적화](lifecycle-management-overview.md)
-- [Blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)
+- [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)

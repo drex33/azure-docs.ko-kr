@@ -1,22 +1,24 @@
 ---
 title: Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins Explorer의 기능 및 용도 이해
+description: Azure Digital Twins 탐색기의 기능과 용도에 대해 알아보고 디지털 모델, 쌍 및 그래프를 시각화 하는 데 유용한 도구 일 수 있습니다.
 author: baanders
 ms.author: baanders
-ms.date: 10/19/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: dda87e7551d63f8800a96f1c8965ee2824958c58
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bbcc693123f84d5cf789f53c8961f648ce2e90bf
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262052"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504249"
 ---
 # <a name="azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer(미리 보기)
 
-**Azure Digital Twins Explorer** 는 [모델](concepts-models.md) 및 [트윈 그래프](concepts-twins-graph.md)를 포함하여 Azure Digital Twins 인스턴스의 데이터를 시각화하고 상호 작용하기 위한 개발자 도구입니다. 
+이 문서에는 해당 사용 사례와 해당 기능에 대 한 개요를 포함 하 여 **Azure Digital Twins 탐색기** 에 대 한 정보가 포함 되어 있습니다. 각 기능을 사용하는 방법에 대한 자세한 단계는 [Azure Digital Twins Explorer 사용](how-to-use-azure-digital-twins-explorer.md)을 참조하세요.
+
+Azure Digital Twins Explorer는 [모델](concepts-models.md) 및 [트윈 그래프](concepts-twins-graph.md)를 포함하여 Azure Digital Twins 인스턴스의 데이터를 시각화하고 상호 작용하기 위한 개발자 도구입니다. 
 
 >[!NOTE]
 >이 도구는 현재 **공개 미리 보기** 로 제공됩니다.
@@ -26,8 +28,6 @@ ms.locfileid: "130262052"
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="샘플 모델 및 트윈을 보여주는 Azure Digital Twins Explorer의 스크린샷." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 시각적 인터페이스는 그래프와 모델 세트의 모양을 탐색하고 이해하기 위한 훌륭한 도구입니다. 또한 시각적 인터페이스를 사용해 각 트윈과 관계를 즉시 변경할 수 있습니다.
-
-이 문서에는 사용 사례 및 기능 개요를 포함하여 Azure Digital Twins Explorer에 대한 자세한 정보가 포함되어 있습니다. 각 기능을 사용하는 방법에 대한 자세한 단계는 [Azure Digital Twins Explorer 사용](how-to-use-azure-digital-twins-explorer.md)을 참조하세요.
 
 ## <a name="when-to-use"></a>사용 시기
 

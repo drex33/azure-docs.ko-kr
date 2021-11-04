@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6ef288e776daaf7aa266d13068647bea1c5a4c27
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 4117926fe8de79a295fa3c0a52c1ca54816496ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691890"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427991"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Azure Image Builder Service 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "122691890"
 
 이 문서는 Azure Image Builder Service를 사용할 때 발생할 수 있는 일반적인 문제를 확인하고 해결하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 빌드를 만들 때 빌드가 다음 필수 구성 요소를 충족하는지 확인합니다.
     
 - 이미지 빌더 서비스는 WinRM 또는 SSH를 사용하여 빌드 VM과 통신합니다. 빌드의 일부로 이러한 설정을 사용하지 마세요.
@@ -91,8 +91,8 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 #### <a name="solution"></a>해결 방법
 
 시나리오에 따라 Azure Image Builder에 다음 권한이 필요할 수 있습니다.
-- 원본 이미지 또는 Shared Image Gallery 리소스 그룹
-- 배포 이미지 또는 Shared Image Gallery 리소스
+- 원본 이미지 또는 Azure 계산 갤러리 (이전의 공유 이미지 갤러리) 리소스 그룹
+- 배포 이미지 또는 Azure Compute 갤러리 리소스
 - 파일 사용자 지정자에서 액세스하는 스토리지 계정, 컨테이너 또는 Blob 
 
 권한을 구성하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-cli.md) 또는 [PowerShell을 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-powershell.md)을 참조하세요.
@@ -113,8 +113,8 @@ Status=403 Code="AuthorizationFailed" Message="The client '......' with object i
 #### <a name="solution"></a>해결 방법
 
 시나리오에 따라 Azure Image Builder에 다음 권한이 필요할 수 있습니다.
-* 원본 이미지 또는 Shared Image Gallery 리소스 그룹
-* 배포 이미지 또는 Shared Image Gallery 리소스
+* 원본 이미지 또는 Azure Compute 갤러리 리소스 그룹
+* 배포 이미지 또는 Azure Compute 갤러리 리소스
 * 파일 사용자 지정자에서 액세스하는 스토리지 계정, 컨테이너 또는 Blob 
 
 권한을 구성하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-cli.md) 또는 [PowerShell을 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-powershell.md)을 참조하세요.
@@ -176,7 +176,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="understanding-the-customization-log"></a>사용자 지정 로그 이해
 
-로그는 자세한 정보입니다. Shared Image Gallery 복제와 같은 이미지 배포 관련 문제를 포함하여 이미지 빌드에 대해 설명합니다. 이러한 오류는 이미지 템플릿 상태의 오류 메시지에 표시됩니다.
+로그는 자세한 정보입니다. 이미지 배포에 대 한 문제를 포함 하 여 Azure Compute 갤러리 복제와 같은 이미지 빌드를 다룹니다. 이러한 오류는 이미지 템플릿 상태의 오류 메시지에 표시됩니다.
 
 customization.log에 포함되는 단계는 다음과 같습니다.
 
@@ -325,17 +325,17 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 
 파일 사용자 지정자는 20MB 미만의 작은 파일을 다운로드하는 데만 적합합니다. 큰 파일을 다운로드하려면 스크립트 또는 인라인 명령을 사용합니다. 예를 들어 Linux에서 `wget` 또는 `curl`를 사용할 수 있습니다. Windows에서는 `Invoke-WebRequest`를 사용할 수 있습니다.
 
-### <a name="error-waiting-on-shared-image-gallery"></a>Shared Image Gallery에서 기다리는 동안 오류 발생
+### <a name="error-waiting-on-azure-compute-gallery"></a>Azure 계산 갤러리에서 대기 하는 동안 오류 발생
 
 #### <a name="error"></a>오류
 
 ```text
-Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
+Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to Azure Compute Gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to Azure Compute Gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on Azure Compute Gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
 ```
 
 #### <a name="cause"></a>원인
 
-Image Builder에서 이미지를 SIG(Shared Image Gallery)에 추가하고 복제할 때까지 기다리는 동안 시간 제한이 초과되었습니다. 이미지가 SIG에 삽입되는 경우 이미지 빌드에 성공했다고 가정할 수 있습니다. 그러나 Image Builder에서 복제를 완료할 때까지 Shared Image Gallery를 기다리고 있으므로 전체 프로세스가 실패했습니다. 빌드가 실패하더라도 복제는 계속됩니다. 배포 *runOutput* 을 확인하여 이미지 버전의 속성을 가져올 수 있습니다.
+이미지를 추가 하 고 Azure Compute 갤러리에 복제할 때까지 기다리는 동안 이미지 작성기 시간이 초과 되었습니다. 이미지가 SIG에 삽입되는 경우 이미지 빌드에 성공했다고 가정할 수 있습니다. 그러나 이미지 작성기가 Azure 계산 갤러리에서 복제를 완료 하기를 기다리고 있으므로 전체 프로세스가 실패 했습니다. 빌드가 실패하더라도 복제는 계속됩니다. 배포 *runOutput* 을 확인하여 이미지 버전의 속성을 가져올 수 있습니다.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -624,7 +624,7 @@ Azure DevOps 기능 및 제한 사항에 대한 자세한 내용은 [Microsoft �
  
 #### <a name="solution"></a>해결 방법
 
-사용자 고유의 DevOps 에이전트를 호스팅하거나 빌드 시간을 줄일 수 있습니다. 예를 들어 Shared Image Gallery에 배포하는 경우 한 지역에 복제합니다. 비동기적으로 복제하려는 경우입니다. 
+사용자 고유의 DevOps 에이전트를 호스팅하거나 빌드 시간을 줄일 수 있습니다. 예를 들어 Azure Compute 갤러리에 배포하는 경우 한 지역에 복제합니다. 비동기적으로 복제하려는 경우입니다. 
 
 ### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>느린 Windows 로그온: 'Windows 모듈 설치 관리자를 기다려 주세요.'
 

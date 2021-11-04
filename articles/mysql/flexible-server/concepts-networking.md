@@ -6,21 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: 44b13211bd8a7f3b71f1357db0097500801c2a0c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2ae111660b2faa6f5bba17e9f94b17caa2b2c642
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535544"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438205"
 ---
-# <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 연결 및 네트워킹 개념 - 유연한 서버(미리 보기)
+# <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 유연한 서버에 대 한 연결 및 네트워킹 개념
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 문서에서는 Azure MySQL 유연한 서버와의 연결을 제어하는 개념을 소개합니다. Azure에서 서버를 안전하게 만들어 액세스하기 위해 Azure Database for MySQL 유연한 서버에 대한 네트워킹 개념을 상세히 살펴봅니다.
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 미리 보기로 제공됩니다.
 
 Azure Database for MySQL - 유연한 서버는 서버에 대한 연결을 구성하는 두 가지 방법을 지원합니다.
 > [!NOTE]

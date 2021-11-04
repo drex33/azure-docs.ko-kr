@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 99cee6b73fb37caf0ccf09170d60ea4ba3effc2a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: a4b784173df17ec626419104868fe778770a9a02
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714185"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426737"
 ---
 # <a name="azure-bastion-faq"></a>Azure Bastion FAQ
 
@@ -24,7 +24,7 @@ ms.locfileid: "129714185"
 
 ### <a name="is-ipv6-supported"></a>IPv6이 지원되나요?
 
-현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다.
+현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다. 즉, 사용자는 자신의 요새 리소스에 IPv4 공용 IP 주소만 할당할 수 있으며,이를 사용 하 여 IPv4 대상 Vm에 연결할 수 있습니다. 또한 사용자의 방호를 사용 하 여 이중 스택 대상 Vm에 연결할 수 있지만 Azure 방호를 통해 IPv4 트래픽만 보내고 받을 수 있습니다. 
 
 ### <a name="can-i-use-azure-bastion-with-azure-private-dns-zones"></a>Azure Private DNS 영역에서 Azure Bastion을 사용할 수 있나요?
 
@@ -46,7 +46,7 @@ Azure Bastion은 특정 내부 엔드포인트와 통신하여 대상 리소스�
 
 ### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>RDP 세션에서는 어떤 기능이 지원되나요?
 
-지금은 텍스트 복사/붙여넣기만 지원됩니다. 파일 복사와 같은 기능은 지원되지 않습니다. [Azure Bastion 피드백 페이지](https://feedback.azure.com/forums/217313-networking?category_id=367303)에서 새 기능에 대한 피드백을 공유해 주시기 바랍니다.
+지금은 텍스트 복사/붙여넣기만 지원됩니다. 파일 복사와 같은 기능은 지원되지 않습니다. [Azure Bastion 피드백 페이지](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789)에서 새 기능에 대한 피드백을 공유해 주시기 바랍니다.
 
 ### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>Bastion 보안 강화는 AADJ VM 확장 조인 VM에서 작동하나요?
 
@@ -79,24 +79,24 @@ Azure Bastion은 배포된 지역 외부로 고객 데이터를 이동하거나 
 
 ### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Bastion 원격 세션 중에 지원되는 키보드 레이아웃은?
 
-Azure Bastion 현재 VM 내에서 다음과 같은 키보드 레이아웃을 지원합니다.
+Azure 방호는 현재 VM 내에서 다음과 같은 키보드 레이아웃을 지원 합니다.
 * en-us-qwerty
-* en-gb-qwerty
-* de-ch-qwertz
+* en-us-qwerty
 * de-de-qwertz
-* fr-be-azerty
+* qwertz
 * fr-fr-azerty
-* fr-ch-qwertz
-* hu-hu-qwertz
-* it-it-qwerty
+* fr-fr-azerty
+* fr-fr-qwertz
+* hu-hu-hu-hu-qwertz
+* it-qwerty
 * ja-jp-qwerty
 * pt-br-qwerty
-* es-es-qwerty
-* es-latam-qwerty
-* sv-se-qwerty
-* tr-tr-qwerty
+* es-qwerty
+* latam-qwerty
+* sv-qwerty
+* tr-qwerty
 
-대상 VM의 기본 키보드 레이아웃은 로컬 컴퓨터 설정에서 변경할 수 있는 로컬 언어와 일치합니다.
+대상 VM의 기본 키보드 레이아웃은 로컬 컴퓨터 설정에서 변경할 수 있는 로컬 언어와 일치 합니다.
 
 ### <a name="does-azure-bastion-support-timezone-configuration-or-timezone-redirection-for-target-vms"></a><a name="timezone"></a>Azure Bastion은 대상 VM에 대한 표준 시간대 구성 또는 표준 시간대 리디렉션을 지원하나요?
 

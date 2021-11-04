@@ -1,22 +1,22 @@
 ---
 title: Digital Twins 및 쌍 그래프
 titleSuffix: Azure Digital Twins
-description: 디지털 트윈의 개념과 관계가 어떻게 그래프를 만드는지를 이해합니다.
+description: 디지털 트윈에 대해 알아보고 해당 관계가 디지털 트윈 그래프를 형성하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 8/26/2021
+ms.date: 10/20/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 42cce83683df789aeaabe53ca170f17319ec3603
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 33ad5a0eb684526184affba2d254bf20f66de930
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224846"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500244"
 ---
-# <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 트윈 및 트윈 그래프 이해
+# <a name="digital-twins-and-their-twin-graph"></a>디지털 트윈 및 쌍 그래프
 
-Azure Digital Twins 솔루션에서 환경의 엔터티는 **디지털 트윈** 으로 표시됩니다. 디지털 트윈은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 트윈에 연결하여 **트윈 그래프** 를 형성할 수 있습니다. 이 트윈 그래프는 전체 환경에 대한 표현입니다.
+이 문서에서는 Azure Digital Twins 컨텍스트에 있는 **디지털 트윈과** 트윈 간의 관계가 트윈 **그래프를** 형성하는 방법에 대해 설명합니다. Azure Digital Twins 솔루션에서 환경의 엔터티는 **디지털 트윈** 으로 표시됩니다. 디지털 트윈은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 트윈에 연결하여 **트윈 그래프** 를 형성할 수 있습니다. 이 트윈 그래프는 전체 환경에 대한 표현입니다.
 
 > [!TIP]
 > "Azure Digital Twins"는 전체 Azure 서비스를 의미합니다. "Digital 트윈" 또는 "트윈"은 서비스 인스턴스 내의 개별 트윈 노드를 나타냅니다.

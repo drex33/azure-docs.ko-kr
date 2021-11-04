@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/28/2021
 ms.author: aahi
-ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cd29ef48f2d1042091a1379570e8ea710c718ff9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96002348"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426225"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>LUIS(Language Understanding) 컨테이너 제한 사항
 
@@ -46,7 +46,7 @@ LUIS 컨테이너에는 몇 가지 주목할 만한 제한 사항이 있습니�
 
 LUIS 컨테이너는 LUIS에서 [지원되는 언어](luis-language-support.md#languages-supported)의 하위 집합을 지원합니다. LUIS 컨테이너는 다음 언어로 된 발화를 이해할 수 있습니다.
 
-| 언어 | Locale | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 문구 목록 권장 사항 | \**[Text Analytics](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
+| 언어 | Locale | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 문구 목록 권장 사항 | **[감정 분석](../language-service/sentiment-opinion-mining/language-support.md) 및 [핵심 구 추출](../language-service/key-phrase-extraction/language-support.md)|
 |--|--|:--:|:--:|:--:|:--:|
 | 영어(미국) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | 아랍어(미리 보기 - 최신 표준 아랍어) |`ar-AR`|❌|❌|❌|❌|
@@ -67,4 +67,4 @@ LUIS 컨테이너는 LUIS에서 [지원되는 언어](luis-language-support.md#l
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
-[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
+[!INCLUDE [Language service support notes](includes/text-analytics-support-notes.md)]

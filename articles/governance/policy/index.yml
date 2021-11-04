@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/02/2021
-  ms.openlocfilehash: 1efbad4bf3d35bab919dd564926fe5cbcf3e1202
-  ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+  ms.openlocfilehash: 6232e7623ef154702feac80dd0575c63f74ed1ec
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/04/2021
-  ms.locfileid: "111411794"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131425523"
 landingContent:
 - title: Azure Policy 정보
   linkLists:
@@ -122,7 +122,7 @@ landingContent:
     - text: Azure 거버넌스 YouTube 채널
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: 제품 기능 요청
-      url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
+      url: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=5b220886-f324-ec11-b6e6-000d3a4f0da0
     - text: Azure 거버넌스를 위한 기술 커뮤니티
       url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 - title: 참조

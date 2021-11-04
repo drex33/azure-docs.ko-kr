@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 02e994d743269b5cf8d4b66a713f129a66e4ef36
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 157d643ffa2b5af97f05b7272bb3a8c4232dc0c4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129995914"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436976"
 ---
 # <a name="tutorial-configure-security-analytics-for-azure-active-directory-b2c-data-with-azure-sentinel"></a>자습서: Azure Sentinel을 사용하여 Azure Active Directory B2C 데이터에 대한 보안 분석 구성
 

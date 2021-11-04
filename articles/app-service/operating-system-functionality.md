@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 09/09/2021
 ms.custom: seodec18
-ms.openlocfilehash: d4242ae2afb79f44452c51a971a64632e0d7f098
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 207d2f12c8603b7533cef588131e4a60e0f0ad36
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124769924"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427326"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](./overview.md)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
 
 > [!NOTE] 
-> App Service의 [Linux 앱](overview.md#app-service-on-linux)은 자체 컨테이너에서 실행됩니다. 호스트 운영 체제에 대한 액세스는 허용되지 않으며, 컨테이너에 대한 루트 액세스 권한이 제공되지 않습니다. 마찬가지로, [Windows 컨테이너에서 실행되는 앱](quickstart-custom-container.md?pivots=container-windows)의 경우 컨테이너에 대한 관리자 액세스 권한은 있지만 호스트 운영 체제에 대한 액세스 권한은 없습니다. 
+> App Service의 [Linux 앱](overview.md#app-service-on-linux)은 자체 컨테이너에서 실행됩니다. 컨테이너에 대한 루트 액세스 권한이 있지만 호스트 운영 체제에 대한 액세스는 허용되지 않습니다. 마찬가지로, [Windows 컨테이너에서 실행되는 앱](quickstart-custom-container.md?pivots=container-windows)의 경우 컨테이너에 대한 관리자 액세스 권한은 있지만 호스트 운영 체제에 대한 액세스 권한은 없습니다. 
 >
 
 <a id="tiers"></a>
@@ -26,14 +26,14 @@ App Service는 다중 테넌트 호스팅 환경에서 고객 앱을 실행합�
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-App Service는 서로 다른 계층 간의 원활한 크기 조정 환경을 지원하기 때문에, App Service 앱에 적용되는 보안 구성이 동일하게 유지됩니다. 따라서 App Service가 서로 다른 계층 간에 전환될 때 앱이 갑자기 다르게 작동하여 예기치 못한 방식으로 장애가 발생하는 일이 없습니다.
+App Service는 서로 다른 계층 간의 원활한 크기 조정 환경을 지원하기 때문에, App Service 앱에 적용되는 보안 구성이 동일하게 유지됩니다. 이렇게 하면 App Service 계획이 한 계층에서 다른 계층으로 전환될 때 앱이 갑자기 다르게 동작하지 않고 예기치 않은 방식으로 실패합니다.
 
 <a id="developmentframeworks"></a>
 
 ## <a name="development-frameworks"></a>개발 프레임워크
 App Service 가격 책정 계층은 앱에서 사용할 수 있는 컴퓨팅 리소스(CPU, 디스크 스토리지, 메모리, 네트워크 송신)의 양을 제어합니다. 하지만 앱에서 사용할 수 있는 프레임워크 기능의 범위는 크기 조정 계층에 관계없이 동일하게 유지됩니다.
 
-App Service는 ASP.NET, 클래식 ASP, Node.js, PHP 및 Python을 비롯 한 다양 한 개발 프레임 워크를 지원 합니다 .이는 모두 IIS 내에서 확장으로 실행 됩니다. 보안 구성을 간소화하고 일반화하기 위해 App Service 앱은 일반적으로 다양한 개발 프레임워크를 기본 설정으로 실행합니다. 개별 개발 프레임워크별로 API 노출 영역 및 기능을 사용자 지정하여 앱을 구성하는 접근 방식을 사용할 수도 있습니다. 대신 App Service는 앱의 개발 프레임워크에 관계없이 일반적인 기준 운영 체제 기능을 사용하여 보다 일반적인 접근 방식을 취합니다.
+App Service ASP.NET, 클래식 ASP, Node.js, PHP 및 Python을 비롯한 다양한 개발 프레임워크를 지원하며, 모두 IIS 내에서 확장으로 실행됩니다. 보안 구성을 간소화하고 일반화하기 위해 App Service 앱은 일반적으로 다양한 개발 프레임워크를 기본 설정으로 실행합니다. 개별 개발 프레임워크별로 API 노출 영역 및 기능을 사용자 지정하여 앱을 구성하는 접근 방식을 사용할 수도 있습니다. 대신 App Service는 앱의 개발 프레임워크에 관계없이 일반적인 기준 운영 체제 기능을 사용하여 보다 일반적인 접근 방식을 취합니다.
 
 다음 섹션에서는 App Service 앱에 사용할 수 있는 일반적인 종류의 운영 체제 기능이 요약되어 있습니다.
 
@@ -47,8 +47,8 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 ### <a name="local-drives"></a>로컬 드라이브
 근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 다음 내용이 포함됩니다.
 
-- 운영 체제 드라이브 ( `%SystemDrive%` )는 VM 크기에 따라 크기가 달라 집니다.
-- `%ResourceDrive%`App Service에서 내부적으로 사용 하는 리소스 드라이브 ()입니다.
+- VM 크기에 따라 크기가 달라지는 운영 체제 `%SystemDrive%` 드라이브()입니다.
+- App Service 내부적으로 사용하는 리소스 드라이브( `%ResourceDrive%` )입니다.
 
 애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들면 다음과 같습니다. 
 
@@ -60,34 +60,34 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-unc-shares"></a>네트워크 드라이브(UNC 공유)
-앱 배포 및 유지 관리를 용이 하 게 하는 App Service의 고유한 측면 중 하나는 모든 콘텐츠 공유가 UNC 공유 집합에 저장 된다는 것입니다. 이 모델은 부하가 분산된 여러 개의 서버가 있는 온-프레미스 웹 호스팅 환경에서 사용되는 일반적인 콘텐츠 스토리지 패턴에 잘 매핑됩니다. 
+앱 배포 및 유지 관리를 간단하게 만드는 App Service 고유한 측면 중 하나는 모든 콘텐츠 공유가 UNC 공유 집합에 저장된다는 것입니다. 이 모델은 부하가 분산된 여러 개의 서버가 있는 온-프레미스 웹 호스팅 환경에서 사용되는 일반적인 콘텐츠 스토리지 패턴에 잘 매핑됩니다. 
 
 App Service 내에는 각 데이터 센터에서 만들어진 다수의 UNC 공유가 있습니다. 각 데이터 센터에서 모든 고객의 사용자 콘텐츠가 차지하는 비율이 각 UNC 공유에 할당됩니다. 각 고객의 구독에는 데이터 센터 내의 특정 UNC 공유에 예약된 디렉터리 구조가 있습니다. 고객에게는 특정 데이터 센터 내에서 만든 여러 개의 앱이 있을 수 있으므로, 단일 고객 구독에 속한 모든 디렉터리는 동일한 UNC 공유에 만들어집니다. 
 
-Azure 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하는 특정 가상 머신은 시간이 지남에 따라 변경됩니다. 가상 머신은 일반적인 Azure 작동 과정에서 채택되거나 채택되지 않으면서, UNC 공유는 다양한 가상 머신에 탑재될 것이 확실합니다. 이 때문에 앱은 UNC 파일 경로의 컴퓨터 정보가 시간이 지남에 따라 안정성을 유지할 것으로 강력하게 가정해서는 안 됩니다. 대신 App Service에서 제공 하는 편리한 *가상* 절대 경로를 사용 해야 합니다 `%HOME%\site` . 이 가짜 절대 경로를 사용하면 앱 및 사용자를 알 수 없는 이동식 방법으로 고유 앱을 참조할 수 있습니다. 를 사용 하 여 `%HOME%\site` 각 전송에 대해 새 절대 경로를 구성 하지 않고도 앱에서 앱으로 공유 파일을 전송할 수 있습니다.
+Azure 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하는 특정 가상 머신은 시간이 지남에 따라 변경됩니다. 가상 머신은 일반적인 Azure 작동 과정에서 채택되거나 채택되지 않으면서, UNC 공유는 다양한 가상 머신에 탑재될 것이 확실합니다. 이 때문에 앱은 UNC 파일 경로의 컴퓨터 정보가 시간이 지남에 따라 안정성을 유지할 것으로 강력하게 가정해서는 안 됩니다. 대신 App Service 제공하는 편리한 *보조* 절대 경로를 사용해야 `%HOME%\site` 합니다. 이 가짜 절대 경로를 사용하면 앱 및 사용자를 알 수 없는 이동식 방법으로 고유 앱을 참조할 수 있습니다. 를 사용하면 `%HOME%\site` 각 전송에 대한 새 절대 경로를 구성하지 않고도 앱에서 앱으로 공유 파일을 전송할 수 있습니다.
 
 <a id="TypesOfFileAccess"></a>
 
 ### <a name="types-of-file-access-granted-to-an-app"></a>앱에 부여되는 파일 액세스 형식
-`%HOME%`앱의 디렉터리는 해당 앱 전용 Azure Storage의 콘텐츠 공유에 매핑되고 해당 크기는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)에 의해 정의 됩니다. 여기에는 콘텐츠, 오류 및 진단 로그, 소스 제어에서 만든 앱의 이전 버전 등의 디렉터리가 포함 될 수 있습니다. 이러한 디렉터리는 런타임에 읽기 및 쓰기 액세스를 위해 앱의 응용 프로그램 코드에서 사용할 수 있습니다. 파일은 로컬에 저장 되지 않으므로 앱을 다시 시작할 때마다 지속 됩니다.
+`%HOME%`앱의 디렉터리 는 해당 앱 전용 Azure Storage 콘텐츠 공유에 매핑되며, 해당 크기는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)에 의해 정의됩니다. 콘텐츠, 오류 및 진단 로그에 대한 디렉터리 및 소스 제어에서 만든 이전 버전의 앱이 포함될 수 있습니다. 이러한 디렉터리를 읽기 및 쓰기 액세스를 위해 런타임에 앱의 애플리케이션 코드에서 사용할 수 있습니다. 파일은 로컬로 저장되지 않으므로 앱이 다시 시작될 때 지속됩니다.
 
-시스템 드라이브에서 `%SystemDrive%\local` 앱 관련 임시 로컬 저장소에 대 한 예약을 App Service 합니다. 이 디렉터리의 파일에 대 한 변경 내용은 앱을 다시 시작할 때 영구적이 *지 않습니다* . 앱은 고유 임시 로컬 스토리지를 완전히 읽고 쓸 수 있지만, 이 스토리지는 사실상 애플리케이션 코드에서 직접적으로 사용되도록 만들어지지 않았습니다. IIS 및 웹 애플리케이션 프레임워크를 위한 임시 파일 스토리지를 제공하기 위한 것입니다. 또한 `%SystemDrive%\local` 각 앱에 대 한 저장소의 양을 제한 하 여 개별 앱이 과도 한 양의 로컬 파일 저장소를 소비 하지 않도록 합니다. App Service Azure Functions ( **무료**, **공유** 및 **소비** ) 계층의 경우 제한은 500입니다. 다른 계층은 다음 표를 참조 하세요.
+시스템 드라이브에서 App Service `%SystemDrive%\local` 앱별 임시 로컬 스토리지를 예약합니다. 이 디렉터리에 있는 파일의 변경 내용은 앱 다시 시작에서 *지속되지 않습니다.* 앱은 고유 임시 로컬 스토리지를 완전히 읽고 쓸 수 있지만, 이 스토리지는 사실상 애플리케이션 코드에서 직접적으로 사용되도록 만들어지지 않았습니다. IIS 및 웹 애플리케이션 프레임워크를 위한 임시 파일 스토리지를 제공하기 위한 것입니다. 또한 App Service 각 앱의 스토리지 양을 `%SystemDrive%\local` 제한하여 개별 앱이 과도한 양의 로컬 파일 스토리지를 사용하는 것을 방지합니다. **무료**, **공유** 및 **Azure Functions(소비)** 계층의 경우 제한은 500MB입니다. 다른 계층은 다음 표를 참조하세요.
 
-| SKU 제품군 | B1/S1/등 | B2/S2/등 | B3/S3/등 |
+| SKU 제품군 | B1/S1/etc. | B2/S2/etc. | B3/S3/etc. |
 | - | - | - | - |
-|Basic, Standard, Premium | 11GB | 15GB | 58 GB |
-| PremiumV2, PremiumV3, Isolated | 21 GB | 61GB | 140GB |
+|Basic, Standard, Premium | 11GB | 15GB | 58GB |
+| PremiumV2, PremiumV3, 격리 | 21 GB | 61GB | 140GB |
 
-App Service가 임시 로컬 스토리지를 사용하는 방법을 두 가지 예로 들면 임시 ASP.NET 파일용 디렉터리와 IIS 압축 파일용 디렉터리 등입니다. ASP.NET 컴파일 시스템은 `%SystemDrive%\local\Temporary ASP.NET Files` 임시 컴파일 캐시 위치로 디렉터리를 사용 합니다. IIS는 디렉터리를 사용 하 여 `%SystemDrive%\local\IIS Temporary Compressed Files` 압축 된 응답 출력을 저장 합니다. 이 두 가지 파일 사용법은(다른 사용법도 포함) 모두 App Service에서 앱별 임시 로컬 스토리지로 다시 매핑됩니다. 이렇게 다시 매핑되면 해당 기능이 예상대로 지속됩니다.
+App Service가 임시 로컬 스토리지를 사용하는 방법을 두 가지 예로 들면 임시 ASP.NET 파일용 디렉터리와 IIS 압축 파일용 디렉터리 등입니다. ASP.NET 컴파일 시스템은 `%SystemDrive%\local\Temporary ASP.NET Files` 디렉터리를 임시 컴파일 캐시 위치로 사용합니다. IIS는 `%SystemDrive%\local\IIS Temporary Compressed Files` 디렉터리를 사용하여 압축된 응답 출력을 저장합니다. 이 두 가지 파일 사용법은(다른 사용법도 포함) 모두 App Service에서 앱별 임시 로컬 스토리지로 다시 매핑됩니다. 이렇게 다시 매핑되면 해당 기능이 예상대로 지속됩니다.
 
-App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임의의 고유 작업자 프로세스 ID로 실행됩니다. 이 ID에 대한 자세한 내용은 [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)를 참조하세요. 응용 프로그램 코드는 운영 체제 드라이브에 대 한 기본 읽기 전용 액세스에이 id를 사용 합니다. 따라서 애플리케이션 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
+App Service 각 앱은 IIS 애플리케이션 풀 ID 설명서에 자세히 설명된 "애플리케이션 풀 ID"라는 임의의 고유한 낮은 권한의 작업자 프로세스 [ID로](/iis/manage/configuring-security/application-pool-identities) 실행됩니다. 애플리케이션 코드는 운영 체제 드라이브에 대한 기본 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 애플리케이션 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
 
 <a name="multipleinstances"></a>
 
 ### <a name="file-access-across-multiple-instances"></a>여러 인스턴스의 파일 액세스
-콘텐츠 공유 ( `%HOME%` ) 디렉터리는 응용 프로그램의 콘텐츠를 포함 하 고 응용 프로그램 코드는이 디렉터리에 쓸 수 있습니다. 앱이 여러 인스턴스에서 실행 되는 경우 모든 인스턴스가 `%HOME%` 동일한 디렉터리를 볼 수 있도록 디렉터리는 모든 인스턴스 간에 공유 됩니다. 따라서 예를 들어 업로드 된 파일을 디렉터리에 저장 하는 앱은 `%HOME%` 모든 인스턴스에서 즉시 사용할 수 있습니다. 
+콘텐츠 공유( `%HOME%` ) 디렉터리에는 앱의 콘텐츠가 포함되며 애플리케이션 코드가 해당 디렉터리에 쓸 수 있습니다. 앱이 여러 인스턴스에서 실행되는 경우 `%HOME%` 모든 인스턴스가 동일한 디렉터리를 볼 수 있도록 디렉터리를 모든 인스턴스 간에 공유합니다. 따라서 예를 들어 앱이 업로드된 파일을 디렉터리에 저장하는 경우 `%HOME%` 해당 파일은 모든 인스턴스에서 즉시 사용할 수 있습니다. 
 
-임시 로컬 저장소 ( `%SystemDrive%\local` ) 디렉터리는 인스턴스 간에 공유 되지 않으며, 앱과 해당 [Kudu 앱](resources-kudu.md)간에 공유 되지 않습니다.
+임시 로컬 스토리지( `%SystemDrive%\local` ) 디렉터리 는 인스턴스 간에 공유되지 않으며 앱과 해당 [Kudu 앱](resources-kudu.md)간에 공유되지도 않습니다.
 
 <a id="NetworkAccess"></a>
 

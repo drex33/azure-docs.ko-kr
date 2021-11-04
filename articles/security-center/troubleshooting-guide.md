@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/15/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a1e957b7d7cc285c9f757106a9183573104e849d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b2ee3378df9d7ad35dcdcd319b4f3390d260cc8a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053528"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457110"
 ---
 # <a name="microsoft-defender-for-cloud-troubleshooting-guide"></a>클라우드용 Microsoft Defender 문제 해결 가이드
 
@@ -80,7 +79,7 @@ Defender for Cloud는 Log Analytics 에이전트(Azure Monitor 서비스에서 �
 
 컴퓨터에 Log Analytics 에이전트를 설치하는 경우 다른 결과를 생성할 수 있는 두 가지 설치 시나리오가 있습니다. 지원되는 시나리오는 다음과 같습니다.
 
-* **Defender for Cloud에 의해 자동으로 설치되는 에이전트:** 이 시나리오에서는 두 위치( Defender for Cloud 및 로그 검색)에서 경고를 볼 수 있습니다. 리소스가 속한 구독의 보안 정책에 구성된 이메일 주소로 이메일 알림을 받게 됩니다.
+* **Defender for Cloud에 의해 자동으로 설치된 에이전트:** 이 시나리오에서는 Defender for Cloud 및 로그 검색의 두 위치에서 경고를 볼 수 있습니다. 리소스가 속한 구독의 보안 정책에 구성된 이메일 주소로 이메일 알림을 받게 됩니다.
 
 * **Azure에 있는 VM에 수동으로 설치된 에이전트:** 이 시나리오에서는 2017년 2월 이전에 수동으로 다운로드하여 설치한 에이전트를 사용하는 경우 작업 영역이 속한 구독을 필터링하는 경우에만 Defender for Cloud 포털에서 경고를 볼 수 있습니다. 리소스가 속한 구독에서 필터링하는 경우 경고가 표시되지 않습니다. 작업 영역이 속한 구독의 보안 정책에 구성된 이메일 주소로 이메일 알림을 받게 됩니다.
 
@@ -97,10 +96,10 @@ Defender for Cloud는 Log Analytics 에이전트(Azure Monitor 서비스에서 �
 | 전원 상태 끄기 | VM이 중지됩니다.  Log Analytics 에이전트는 실행 중인 VM에만 설치할 수 있습니다. | VM을 다시 시작합니다. |
 | 누락되었거나 잘못된 Azure VM 에이전트 | Log Analytics 에이전트가 아직 설치되지 않았습니다.  Defender for Cloud가 확장을 설치하려면 유효한 Azure VM 에이전트가 필요합니다. | Azure VM 에이전트를 VM에 설치, 다시 설치 또는 업그레이드합니다. |
 | 설치할 준비가 되지 않은 VM 상태  | VM을 설치할 준비가 되지 않았기 때문에 Log Analytics 에이전트가 아직 설치되지 않았습니다. VM 에이전트 또는 VM 프로비전 문제로 인해 VM을 설치할 준비가 되지 않았습니다. | VM의 상태를 확인합니다. 포털의 **Virtual Machines** 로 돌아가서 상태 정보에 대한 VM을 선택합니다. |
-|설치 실패 - 일반 오류 | Log Analytics 에이전트가 설치되었지만 오류로 인해 실패했습니다. | 수동으로 [확장을 설치하거나 확장을](../azure-monitor/vm/monitor-virtual-machine.md#agents) 제거합니다. 따라서 Defender for Cloud는 다시 설치를 시도합니다. |
+|설치 실패 - 일반 오류 | Log Analytics 에이전트가 설치되었지만 오류로 인해 실패했습니다. | 수동으로 [확장을 설치하거나 확장을](../azure-monitor/vm/monitor-virtual-machine.md#agents) 제거하면 Defender for Cloud가 다시 설치를 시도합니다. |
 | 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Log Analytics 에이전트를 설치하지 못했습니다. Defender for Cloud가 VM에 이미 설치된 로컬 에이전트(Log Analytics 또는 System Center Operations Manager)를 식별했습니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Log Analytics 에이전트 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/vm/monitor-virtual-machine.md#agents)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](enable-data-collection.md)을 참조하세요. |
 | 에이전트에서 작업 영역에 연결할 수 없음 | Log Analytics 에이전트가 설치되었지만 네트워크 연결로 인해 실패했습니다.  인터넷 액세스가 있는지 또는 에이전트에 대해 유효한 HTTP 프록시가 구성되어 있는지 확인합니다. | [모니터링 에이전트 네트워크 요구 사항]을 참조하세요. |
-| 누락되었거나 알 수 없는 작업 영역에 연결된 에이전트 | Defender for Cloud는 VM에 설치된 Log Analytics 에이전트가 액세스 권한이 없는 작업 영역에 연결되어 있음을 확인했습니다. | 이는 두 가지 경우에 발생할 수 있습니다. 하나는 작업 영역이 삭제되어 더 이상 존재하지 않습니다. 올바른 작업 영역으로 에이전트를 다시 설치하거나 에이전트를 제거하고 Defender for Cloud가 자동 프로비저닝 설치를 완료하도록 허용합니다. 두 번째 경우는 작업 영역이 Defender for Cloud에 대한 권한이 없는 구독의 일부인 경우입니다. Defender for Cloud는 Microsoft 보안 리소스 공급자가 액세스할 수 있도록 구독을 요구합니다. 이 경우 Microsoft 보안 리소스 공급자에 대한 구독을 등록하여 해당 구독을 사용합니다. 이 작업은 API, PowerShell, 포털에서 수행하거나 Defender for Cloud **개요** 대시보드에서 구독을 필터링하여 수행할 수 있습니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. |
+| 누락되었거나 알 수 없는 작업 영역에 연결된 에이전트 | Defender for Cloud는 VM에 설치된 Log Analytics 에이전트가 액세스 권한이 없는 작업 영역에 연결되어 있음을 확인했습니다. | 이는 두 가지 경우에 발생할 수 있습니다. 하나는 작업 영역이 삭제되어 더 이상 존재하지 않습니다. 올바른 작업 영역으로 에이전트를 다시 설치하거나 에이전트를 제거하고 Defender for Cloud가 자동 프로비저닝 설치를 완료하도록 허용합니다. 두 번째 경우는 작업 영역이 Defender for Cloud에 권한이 없는 구독의 일부인 경우입니다. Defender for Cloud는 Microsoft 보안 리소스 공급자가 액세스할 수 있도록 구독을 요구합니다. 이 경우 Microsoft 보안 리소스 공급자에 대한 구독을 등록하여 해당 구독을 사용합니다. 이 작업은 API, PowerShell, 포털에서 수행하거나 Defender for Cloud **개요** 대시보드에서 구독을 필터링하여 수행할 수 있습니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. |
 | 에이전트가 응답하지 않거나 ID가 누락되었음 | Defender for Cloud는 에이전트가 설치되어 있더라도 VM에서 검색된 보안 데이터를 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트가 데이터를 보고하지만 Azure 리소스 ID가 누락되어 있으므로 Azure VM에 데이터를 일치시킬 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support)을 참조하세요. |
 | 에이전트가 설치되지 않음 | 데이터 수집을 사용하지 않도록 설정되었습니다. | 보안 정책에서 데이터 수집을 설정하거나 Log Analytics 에이전트를 수동으로 설치합니다. |
 

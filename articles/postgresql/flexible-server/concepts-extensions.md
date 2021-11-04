@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: dda5f9c654d7b6630a733006e69df7f2b98b8eeb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fb84bc87483b7a0451d6fd63d922ad9c6c2dfb3c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594824"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467571"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 PostgreSQL 확장
 
@@ -225,4 +225,4 @@ pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을
 
 ## <a name="next-steps"></a>다음 단계
 
-사용하려는 확장이 표시되지 않으면 알려주세요. [피드백 포럼](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)에서 기존 요청에 투표하거나 새 피드백 요청을 작성하세요.
+사용하려는 확장이 표시되지 않으면 알려주세요. [피드백 포럼](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)에서 기존 요청에 투표하거나 새 피드백 요청을 작성하세요.

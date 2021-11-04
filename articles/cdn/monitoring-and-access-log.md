@@ -2,7 +2,7 @@
 title: Azure CDN의 모니터링, 메트릭 및 원시 로그
 description: 이 문서에서는 Azure CDN 모니터링, 메트릭 및 원시 로그를 설정하고 사용하는 방법을 설명합니다.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fd117532267672e152b6fd6f6ce382c4bda39687
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 3c169a63a39f26174cf6c39ef73c95ae5e545b2c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693973"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450479"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Azure CDN의 실시간 모니터링, 메트릭 및 액세스 로그
 Microsoft의 Azure CDN에서는 문제를 해결, 추적 및 디버그할 수 있도록 다음과 같은 방법으로 리소스를 모니터링할 수 있습니다. 

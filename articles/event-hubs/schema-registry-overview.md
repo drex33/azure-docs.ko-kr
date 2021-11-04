@@ -2,14 +2,14 @@
 title: Azure Event Hubs의 Azure 스키마 레지스트리
 description: 이 문서에서는 Azure Event Hubs의 스키마 레지스트리 지원에 대해 간략하게 설명합니다.
 ms.topic: overview
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: a4ecf4d9205c5110e54e00263cfb17d51ba4b482
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 95db225c83bb760b0f5de12a39b20d24c1613d62
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131016310"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449850"
 ---
 # <a name="azure-schema-registry-in-azure-event-hubs"></a>Azure Event Hubs의 Azure 스키마 레지스트리
 많은 이벤트 스트리밍 및 메시징 시나리오에서 이벤트 또는 메시지 페이로드는 구조화된 데이터를 포함합니다. [Apache Avro](https://avro.apache.org/)와 같은 스키마 기반 형식은 종종 이러한 구조화된 데이터를 직렬화하거나 역직렬화하는 데 사용됩니다. 
@@ -103,7 +103,7 @@ Event Hubs 제한(예: 네임스페이스의 스키마 그룹 수)은 [Event Hub
 ## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 스키마 레지스트리에 프로그래밍 방식으로 액세스하는 경우 애플리케이션을 Azure AD(Azure Active Directory)에 등록하고 애플리케이션의 보안 주체를 Azure RBAC(Azure 역할 기반 액세스 제어) 역할 중 하나에 추가해야 합니다.
 
-| 역할 | 설명 | 
+| 역할 | Description | 
 | ---- | ----------- | 
 | 소유자 | 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다. |
 | 참가자 | 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다. |

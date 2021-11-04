@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: c257941079c3a43639337dd1b010002ddac4672e
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 0e7e2da03d90f4111601871db7085749f9efc75a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642193"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457357"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버의 메트릭 경고 설정 
+# <a name="set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 대한 메트릭에 대한 경고 설정 - 유연한 서버
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL을 설정하는 방법을 보여 줍니다. Azure 서비스의 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 
@@ -54,14 +51,14 @@ ms.locfileid: "122642193"
 12. 경고에 대한 알림을 수신하는 새 작업 그룹을 만들 수도 있습니다. 자세한 내용은 [작업 그룹 만들기 및 관리](../../azure-monitor/alerts/action-groups.md)를 참조하세요.
 13. 새 작업 그룹을 만들려면 **+ 작업 그룹 만들기** 를 선택합니다. **구독**, **리소스 그룹**, **작업 그룹 이름** 및 **표시 이름** 을 사용하여 "작업 그룹 만들기" 양식을 작성합니다.
 14. 작업 그룹에 대한 **알림을** 구성합니다.
-    
+
     **알림 유형** 에서 "이메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다. 이메일을 보내기 위한 **Azure Resource Manager 역할** 을 선택합니다.
     **이메일/SMS 메시지/푸시/음성** 을 선택하여 특정 받는 사람에게 알림을 보낼 수도 있습니다.
 
     알림 유형에 **이름** 을 입력하고 완료되면 **검토 + 만들기** 를 선택합니다.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
-    
+
 15. **경고 규칙 이름**, **설명**, **리소스 그룹에 경고 규칙 저장** 및 **심각도** 같은 **경고 규칙 세부 정보** 를 입력합니다.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->

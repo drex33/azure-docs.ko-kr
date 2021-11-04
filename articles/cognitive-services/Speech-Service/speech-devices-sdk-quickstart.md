@@ -3,20 +3,20 @@ title: '빠른 시작: Windows, Linux 또는 Android에서 음성 디바이스 S
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 Windows, Linux 또는 Android 음성 디바이스 SDK를 시작하기 위한 필수 구성 요소와 지침이 포함되어 있습니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
-ms.author: pafarley
+ms.author: eur
 zone_pivot_groups: platforms-set-of-three
-ms.openlocfilehash: a5f58eb49c076845bf70bb6c1d2084e7493190b7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: d81dc8cbf7eba8c4e73a66d400828c1bdb95d884
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540616"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509799"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>빠른 시작: Windows, Linux 또는 Android에서 음성 디바이스 SDK 샘플 앱 실행
 

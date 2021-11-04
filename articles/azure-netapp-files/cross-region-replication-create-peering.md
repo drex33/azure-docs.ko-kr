@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 11/02/2021
 ms.author: b-juche
-ms.openlocfilehash: 34ee024344fb5ed7bf7da32f181a0bc43cbfc8fd
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8a937074cfc0cd4305ac5946bdb792d612c44f7b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038653"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465386"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 복제본 만들기
 
@@ -75,7 +75,7 @@ NFS 프로토콜의 경우 내보내기 정책 규칙이 내보내기에 액세�
 
 7. **태그** 탭에서 필요에 따라 키/값 쌍을 만듭니다.  
 
-8. **복제** 탭에서 [원본 볼륨 리소스 ID 찾기](#locate-the-source-volume-resource-id)에서 가져온 원본 볼륨 리소스 ID를 붙여넣고 원하는 복제 일정을 선택합니다. 복제 일정에 대한 옵션에는 10분마다, 매 시간, 매일, 매주, 매월 등이 있습니다.  
+8. **복제** 탭에서 [원본 볼륨 리소스 ID 찾기](#locate-the-source-volume-resource-id)에서 가져온 원본 볼륨 리소스 ID를 붙여넣고 원하는 복제 일정을 선택합니다. 복제 일정에 대 한 옵션에는 10 분 마다, 매시간, 매일 등이 있습니다.
 
     ![볼륨 복제 만들기](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 

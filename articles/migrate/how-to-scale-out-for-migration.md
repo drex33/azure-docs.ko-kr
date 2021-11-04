@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 187ed49a116b99524f6cfca408bdb0d7e15a47ca
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 9a041511dcd921c7bf4a9316cdbf3d7617ef66b7
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092588"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503718"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 에이전트 없는 VMware 가상 머신의 마이그레이션 확장
 
@@ -70,7 +70,7 @@ ms.locfileid: "129092588"
 > 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. 계산 된 해시 값이이 문자열과 일치 하지 않는 경우 포털에서 스케일 아웃 어플라이언스 설치 관리자의 최신 버전을 다운로드 합니다. BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
+> 3. 계산 된 해시 값이이 문자열과 일치 하지 않는 경우 포털에서 스케일 아웃 어플라이언스 설치 관리자의 최신 버전을 다운로드 합니다. 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
 
@@ -80,7 +80,7 @@ ms.locfileid: "129092588"
 
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 
-4. `AzureMigrateInstaller.ps1`다음 명령을 실행 하 여 이라는 스크립트를 실행 합니다.
+4. 다음 명령을 실행하여 `AzureMigrateInstaller.ps1`이라는 스크립트를 실행합니다.
 
   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 

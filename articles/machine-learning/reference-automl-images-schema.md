@@ -11,12 +11,12 @@ ms.author: rvadthyavath
 author: vadthyavath
 ms.date: 10/13/2021
 ms.custom: ''
-ms.openlocfilehash: 376ba24800b3d547a302d83eef960c58afd73054
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 725e8ae80d29a352bd2146906a782d4c8c2e6e38
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130008676"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442565"
 ---
 # <a name="data-schemas-to-train-computer-vision-models-with-automated-machine-learning"></a>자동화 된 machine learning을 사용 하 여 컴퓨터 비전 모델을 학습 하는 데이터 스키마
 
@@ -44,12 +44,12 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 
 | 키       | Description  | 예제 |
 | -------- |----------|-----|
-| image_url | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | 이미지 유형 ( [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library에서 사용 가능한 모든 이미지 형식이 지원 됨)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| 키 | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| label | 이미지의 클래스/레이블<br>`Required, String` | `"cat"` |
+| `image_url` | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | 이미지 유형 ( [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library에서 사용 가능한 모든 이미지 형식이 지원 됨)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| `height` | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| `label` | 이미지의 클래스/레이블<br>`Required, String` | `"cat"` |
 
 
 다중 클래스 이미지 분류에 대 한 JSONL 파일의 예:
@@ -61,6 +61,8 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": "water_bottle"}
   ```
+
+![이미지 분류 다중 클래스의 이미지 예제입니다.](media/reference-automl-images-schema/multiclass-predictions.jpg)
 
 ### <a name="image-classification-multi-label"></a>이미지 분류 다중 레이블
 
@@ -88,12 +90,12 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 
 | 키       | Description  | 예제 |
 | -------- |----------|-----|
-| image_url | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | 이미지 유형 ( [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library에서 사용할 수 있는 모든 이미지 형식이 지원 됨)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
-| 키 | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"200px" or 200` |
-| label | 이미지의 클래스/레이블 목록<br>`Required, List of Strings` | `["cat","dog"]` |
+| `image_url` | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | 이미지 유형 ( [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library에서 사용할 수 있는 모든 이미지 형식이 지원 됨)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
+| `height` | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"200px" or 200` |
+| `label` | 이미지의 클래스/레이블 목록<br>`Required, List of Strings` | `["cat","dog"]` |
 
 
 이미지 분류 다중 레이블에 대 한 JSONL 파일의 예:
@@ -106,6 +108,8 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": ["carton","milk_bottle","water_bottle"]}
   ```
+
+![이미지 분류 다중 레이블의 이미지 예제입니다.](media/reference-automl-images-schema/multilabel-predictions.jpg)
 
 ### <a name="object-detection"></a>개체 감지
 
@@ -142,27 +146,27 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 ```
 
 여기서 각 부분의 의미는 다음과 같습니다. 
-- xmin = x 경계 상자의 왼쪽 위 모퉁이의 좌표
-- ymin = 경계 상자의 왼쪽 위 모퉁이에 대 한 y 좌표입니다.
-- xmax = 경계 상자의 오른쪽 아래 모퉁이의 x 좌표입니다.
-- ymax = 경계 상자의 오른쪽 아래 모퉁이의 y 좌표입니다.
+- `xmin` = x 경계 상자의 왼쪽 위 모퉁이의 좌표
+- `ymin` = 경계 상자의 왼쪽 위 모퉁이의 y 좌표
+- `xmax` = 경계 상자 오른쪽 아래 모퉁이의 x 좌표
+- `ymax` = 경계 상자 오른쪽 아래 모퉁이의 y 좌표
 
 
 
 | 키       | Description  | 예제 |
 | -------- |----------|-----|
-| image_url | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | 이미지 유형 ( [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library에서 사용할 수 있는 모든 이미지 형식이 지원 됩니다. 그러나 YOLO의 경우 [opencv](https://pypi.org/project/opencv-python/4.3.0.36/) 에서 허용 하는 이미지 형식만 지원 됩니다.<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| 키 | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| 레이블 (외부 키) | 각 상자가 `label, topX, topY, bottomX, bottomY, isCrowd` 왼쪽 위 좌표와 오른쪽 아래 좌표에 대 한 사전 인 경계 상자 목록<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]` |
-| 레이블 (내부 키)| 경계 상자에 있는 개체의 클래스/레이블<br>`Required, String` | `"cat"` |
-| topX | 경계 상자와 이미지 너비의 왼쪽 위 모퉁이에 대 한 x 좌표의 비율<br>`Required, Float in the range [0,1]` | `0.260` |
-| topY | 경계 상자와 이미지 높이의 왼쪽 위 모퉁이에 대 한 y 좌표의 비율입니다.<br>`Required, Float in the range [0,1]` | `0.406` |
-| bottomX | 경계 상자와 이미지 너비의 오른쪽 아래 모퉁이의 x 좌표 비율<br>`Required, Float in the range [0,1]` | `0.735` |
-| bottomY | 경계 상자와 이미지 높이의 오른쪽 아래 모퉁이에 대 한 y 좌표의 비율입니다.<br>`Required, Float in the range [0,1]` | `0.701` |
-| isCrowd | 경계 상자가 개체의 주위에 있는지 여부를 나타냅니다. 이 특수 플래그를 설정 하면 메트릭을 계산할 때이 특정 경계 상자를 건너뜁니다.<br>`Optional, Bool` | `0` |
+| `image_url` | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | 이미지 유형 ( [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library에서 사용할 수 있는 모든 이미지 형식이 지원 됩니다. 그러나 YOLO의 경우 [opencv](https://pypi.org/project/opencv-python/4.3.0.36/) 에서 허용 하는 이미지 형식만 지원 됩니다.<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| `height` | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| `label` (외부 키) | 각 상자가 `label, topX, topY, bottomX, bottomY, isCrowd` 왼쪽 위 좌표와 오른쪽 아래 좌표에 대 한 사전 인 경계 상자 목록<br>`Required, List of dictionaries` | `[{"label": "cat", "topX": 0.260, "topY": 0.406, "bottomX": 0.735, "bottomY": 0.701, "isCrowd": 0}]` |
+| `label` (내부 키)| 경계 상자에 있는 개체의 클래스/레이블<br>`Required, String` | `"cat"` |
+| `topX` | 경계 상자와 이미지 너비의 왼쪽 위 모퉁이에 대 한 x 좌표의 비율<br>`Required, Float in the range [0,1]` | `0.260` |
+| `topY` | 경계 상자와 이미지 높이의 왼쪽 위 모퉁이에 대 한 y 좌표의 비율입니다.<br>`Required, Float in the range [0,1]` | `0.406` |
+| `bottomX` | 경계 상자와 이미지 너비의 오른쪽 아래 모퉁이의 x 좌표 비율<br>`Required, Float in the range [0,1]` | `0.735` |
+| `bottomY` | 경계 상자와 이미지 높이의 오른쪽 아래 모퉁이에 대 한 y 좌표의 비율입니다.<br>`Required, Float in the range [0,1]` | `0.701` |
+| `isCrowd` | 경계 상자가 개체의 주위에 있는지 여부를 나타냅니다. 이 특수 플래그를 설정 하면 메트릭을 계산할 때이 특정 경계 상자를 건너뜁니다.<br>`Optional, Bool` | `0` |
 
 
 개체 검색에 대 한 JSONL 파일의 예:
@@ -174,7 +178,9 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 .
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.0180, "topY": 0.297, "bottomX": 0.380, "bottomY": 0.836, "isCrowd": 0}, {"label": "milk_bottle", "topX": 0.454, "topY": 0.348, "bottomX": 0.613, "bottomY": 0.683, "isCrowd": 0}, {"label": "water_bottle", "topX": 0.667, "topY": 0.279, "bottomX": 0.841, "bottomY": 0.615, "isCrowd": 0}]}
-  ```
+```
+
+![개체 검색을 위한 이미지 예제입니다.](media/reference-automl-images-schema/object-detect-predictions.jpg)
 
 ### <a name="instance-segmentation"></a>인스턴스 조각화
 
@@ -202,15 +208,15 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 
 | 키       | Description  | 예제 |
 | -------- |----------|-----|
-| image_url | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
-| image_details | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
-| format  | 이미지 형식<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
-| width | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
-| 키 | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"665px" or 665` |
-| 레이블 (외부 키) | 각 마스크가의 사전 인 마스크 목록 `label, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
-| 레이블 (내부 키)| 마스크에 있는 개체의 클래스/레이블<br>`Required, String` | `"cat"` |
-| isCrowd | 마스크가 개체의 주위에 있는지 여부를 나타냅니다.<br>`Optional, Bool` | `0` |
-| polygon | 개체의 다각형 좌표<br>`Required,  List of list for multiple segments of the same instance. Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
+| `image_url` | AML 데이터 저장소의 이미지 위치<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_details` | 이미지 세부 정보<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
+| `format`  | 이미지 형식<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
+| `width` | 이미지의 너비입니다.<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
+| `height` | 이미지의 높이입니다.<br>`Optional, String or Positive Integer` | `"665px" or 665` |
+| `label` (외부 키) | 각 마스크가의 사전 인 마스크 목록 `label, isCrowd, polygon coordinates` <br>`Required, List of dictionaries` | ` [{"label": "can", "isCrowd": 0, "polygon": [[0.577, 0.689,`<br> ` 0.562, 0.681,`<br> `0.559, 0.686]]}]` |
+| `label` (내부 키)| 마스크에 있는 개체의 클래스/레이블<br>`Required, String` | `"cat"` |
+| `isCrowd` | 마스크가 개체의 주위에 있는지 여부를 나타냅니다.<br>`Optional, Bool` | `0` |
+| `polygon` | 개체의 다각형 좌표<br>`Required,  List of list for multiple segments of the same instance. Float values in the range [0,1]` | ` [[0.577, 0.689, 0.567, 0.689, 0.559, 0.686]]` |
 
 
 인스턴스 구분에 대 한 JSONL 파일의 예:
@@ -223,6 +229,8 @@ Azure Machine Learning 이미지에 대 한 AutoML을 사용 하려면 입력 �
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "water_bottle", "isCrowd": 0, "polygon": [[0.334, 0.626, 0.304, 0.621, 0.254, 0.603, 0.164, 0.605, 0.158, 0.602, 0.146, 0.602, 0.142, 0.608, 0.094, 0.612, 0.084, 0.599, 0.080, 0.585, 0.080, 0.539, 0.082, 0.536, 0.092, 0.533, 0.126, 0.530, 0.132, 0.533, 0.144, 0.533, 0.162, 0.525, 0.172, 0.525, 0.186, 0.521, 0.196, 0.521 ]]}, {"label": "milk_bottle", "isCrowd": 0, "polygon": [[0.392, 0.773, 0.380, 0.732, 0.379, 0.767, 0.367, 0.755, 0.362, 0.735, 0.362, 0.714, 0.352, 0.644, 0.352, 0.611, 0.362, 0.597, 0.40, 0.593, 0.444,  0.494, 0.588, 0.515, 0.585, 0.621, 0.588, 0.671, 0.582, 0.713, 0.572, 0.753 ]]}]}
 ```
+
+![인스턴스 구분을 위한 이미지 예제입니다.](media/reference-automl-images-schema/instance-segmentation-predictions.jpg)
 
 ## <a name="data-format-for-inference"></a>유추를 위한 데이터 형식
 
@@ -389,6 +397,9 @@ response = requests.post(scoring_uri, data, headers=headers)
    ]
 }
 ```
+
+> [!NOTE]
+> 이 문서에 사용 된 이미지는 냉장고 Objects 데이터 집합, copyright © Microsoft Corporation에서 제공 되며 [MIT 라이선스](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE)의 [computervision-조리법/01_training_introduction](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) 에서 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

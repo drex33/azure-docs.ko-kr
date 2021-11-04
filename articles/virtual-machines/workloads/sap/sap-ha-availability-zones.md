@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/29/2020
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120936f3d2b76fd1e66fc12bfad9bf2f0959de5a
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: e84bd6b69c19a40fe660f17d8b41c38e66bd28d8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070169"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448997"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 Azure 가용성 집합에 다양한 SAP 아키텍처 계층을 배포하는 것 이외에, 좀 더 최근에 도입된 [Azure 가용성 영역](../../../availability-zones/az-overview.md)도 SAP 워크로드 배포에 사용할 수 있습니다. Azure 가용성 영역은 다음과 같이 정의됩니다. “지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다.” Azure 가용성 영역을 모든 지역에서 사용할 수 있는 것은 아닙니다. Azure에서 가용성 영역을 제공하는 지역에 대해서는 [Azure 지역 맵](https://azure.microsoft.com/global-infrastructure/geographies/)에서 확인하세요. 해당 맵은 가용성 영역을 제공하거나 제공하도록 발표한 지역에 대해 보여 줍니다. 
@@ -112,6 +112,7 @@ SAP 아키텍처의 특징은 달리 구성하지 않는 한 사용자 작업과
 - 미국 동부(세 영역 중 두 영역)
 - 미국 중남부(세 영역 중 두 영역)
 - 영국 남부(세 영역 중 두 영역)
+- 동남 아시아
 
 영역 간 SAP 배포 아키텍처가 권장되지 않는 Azure 지역은 다음과 같습니다.
 
@@ -153,7 +154,6 @@ SAP 아키텍처의 특징은 달리 구성하지 않는 한 사용자 작업과
 
 여러 영역에 걸친 배포 아키텍처로 해당 유형을 선호할 가능성이 있는 Azure 지역은 다음과 같습니다.
 
-- 동남아시아
 - 오스트레일리아 동부
 - 브라질 남부
 - 독일 중서부

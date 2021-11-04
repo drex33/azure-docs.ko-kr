@@ -1,16 +1,16 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
-ms.author: v-demjoh
+ms.author: eric-urban
 ms.custom: devx-track-js
-ms.openlocfilehash: 1d7fc134ab6e3c27e38b00f61a2463bc9d3d0167
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 42e0db662c9eaae08351c12a03e1954372b628d6
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378184"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506902"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 다른 언어로 번역하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성 번역을 수행하는 방법을 알아봅니다. 이 빠른 시작에서는 다음 토픽을 다룹니다.
 

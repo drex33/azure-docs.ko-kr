@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/15/2021
 ms.custom: devx-track-azurecli, ignite-fall-2021
-ms.openlocfilehash: ab1c521be2748c8f58fec4c2f0455e1f08c39bdc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a8ba281a1061643cc582e6de4fc75a8c43fae71c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102934"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447433"
 ---
 # <a name="dapr-extension-for-azure-kubernetes-service-aks-preview"></a>AKS(Azure Kubernetes Service용 Dapr 확장)(미리 보기)
 
@@ -37,23 +37,26 @@ Dapr이 AKS 클러스터에 설치되면 애플리케이션 서비스에 Dapr �
 > [!WARNING]
 > AKS 확장을 통해 Dapr을 설치하는 경우 Dapr CLI 대신 향후 Dapr 관리를 위해 확장을 계속 사용하는 것이 좋습니다. 두 도구를 결합하면 충돌이 발생하여 원치 않는 동작이 발생할 수 있습니다.
 
+## <a name="supported-kubernetes-versions"></a>지원되는 Kubernetes 버전
+
+Dapr 확장은 AKS와 동일한 지원 기간을 사용합니다. 자세한 내용은 [Kubernetes 버전 지원 정책][k8s-version-support-policy]를 참조하세요.
+
 ## <a name="prerequisites"></a>사전 요구 사항 
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli-windows) 및 *aks-preview 확장을 설치합니다.*
-- AKS 클러스터가 없는 경우 [AKS 클러스터][deploy-cluster]를 만들어야 합니다.
+- 없는 경우 [AKS 클러스터][deploy-cluster]를 만들어야 합니다.
 
 
-### <a name="register-the-extensions-aks-extensionmanager-and-aks-dapr-preview-features"></a>, `Extensions` `AKS-ExtensionManager` 및 `AKS-Dapr` 미리 보기 기능 등록
+### <a name="register-the-aks-extensionmanager-and-aks-dapr-preview-features"></a>및 `AKS-ExtensionManager` 미리 보기 기능 등록 `AKS-Dapr`
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Dapr 확장을 사용할 수 있는 AKS 클러스터를 만들려면 구독에서 , 및 기능 플래그를 사용하도록 설정해야 `Extensions` `AKS-ExtensionManager` `AKS-Dapr` 합니다.
+Dapr 확장을 사용할 수 있는 AKS 클러스터를 만들려면 구독에서 및 기능 플래그를 사용하도록 설정해야 `AKS-ExtensionManager` `AKS-Dapr` 합니다.
 
-다음 `Extensions` `AKS-ExtensionManager` 예제와 같이 az feature register 명령을 사용하여 , 및 `AKS-Dapr` 기능 플래그를 [등록합니다.][az-feature-register]
+다음 `AKS-ExtensionManager` `AKS-Dapr` 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 및 기능 플래그를 등록합니다.
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.KubernetesConfiguration" --name "Extensions"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
 ```
@@ -61,7 +64,6 @@ az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
 상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfiguration/Extensions')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ExtensionManager')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-Dapr')].{Name:name,State:properties.state}"
 ```
@@ -89,7 +91,7 @@ az extension update --name k8s-extension
 
 ## <a name="create-the-extension-and-install-dapr-on-your-aks-cluster"></a>확장을 만들고 AKS 클러스터에 Dapr 설치
 
-Kubernetes 확장을 사용하도록 구독이 등록되면 DApr 확장을 만들어 AKS 클러스터에 Dapr을 설치할 수 있습니다. 예:
+Kubernetes 확장을 사용하도록 구독이 등록되면 DApr 확장을 만들어 AKS 클러스터에 Dapr을 설치할 수 있습니다. 예를 들어:
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -162,7 +164,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## <a name="show-current-configuration-settings"></a>현재 구성 설정 표시
 
-명령을 `az k8s-extension show` 사용하여 현재 Dapr 구성 설정을 표시합니다.  
+명령을 사용하여 `az k8s-extension show` 현재 Dapr 구성 설정을 표시합니다.  
 
 ```azure-cli-interactive
 az k8s-extension show --cluster-type managedClusters \
@@ -172,6 +174,11 @@ az k8s-extension show --cluster-type managedClusters \
 ```
 
 ## <a name="update-configuration-settings"></a>구성 설정 업데이트
+
+> [!IMPORTANT]
+> 일부 구성 옵션은 만든 후 수정할 수 없습니다. 이러한 옵션을 조정하려면 확장을 삭제하고 다시 수행해야 합니다. 이 설정은 다음 설정에 적용됩니다.
+> * `global.ha.*`
+> * `dapr_placement.*`
 
 > [!NOTE]
 > HA(고가용성)는 언제든지 사용하도록 설정할 수 있습니다. 그러나 사용하도록 설정되면 확장을 삭제하고 다시 설정해야 합니다. 사용 사례에 고가용성이 필요한지 확실하지 않은 경우 중단을 최소화하기 위해 사용하지 않도록 설정하여 시작하는 것이 좋습니다.
@@ -204,7 +211,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## <a name="troubleshooting-extension-errors"></a>확장 오류 문제 해결
 
-확장을 만들거나 업데이트하지 못한 경우 명령을 실행하여 확장을 만들지 못한 위치를 검사할 수 `az k8s-extension list` 있습니다. 예를 들어 구성 설정에 잘못된 키가 사용되는 경우(예: `global.ha=false` `global.ha.enabled=false` 대신) 
+확장을 만들거나 업데이트하지 못한 경우 명령을 실행하여 확장 만들기가 실패한 위치를 검사할 수 `az k8s-extension list` 있습니다. 예를 들어 구성 설정에 잘못된 키가 사용되는 경우(예: `global.ha=false` `global.ha.enabled=false` 대신) 
 
 ```azure-cli-interactive
 az k8s-extension list --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup
@@ -234,13 +241,15 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 
 ## <a name="next-steps"></a>다음 단계
 
-- AKS 클러스터에서 Dapr을 성공적으로 프로비전했으면 [샘플 애플리케이션을][sample-application] 배포해 보세요.
+- AKS 클러스터에서 Dapr을 성공적으로 프로비전했으면 [샘플 애플리케이션][sample-application]을 배포해 보세요.
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[sample-application]: ./quickstart-dapr.md
+[k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production

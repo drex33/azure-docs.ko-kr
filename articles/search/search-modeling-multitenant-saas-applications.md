@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 7833dcf8fbe2b6460346310a4d094c7bb5d606c4
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
-ms.translationtype: HT
+ms.openlocfilehash: 057c06b2d3b83b49448e2ec6edd0b1140a324375
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581585"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422523"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테넌트 SaaS 애플리케이션의 디자인 패턴 및 Azure Cognitive Search
 
@@ -104,7 +104,7 @@ Azure Cognitive Search를 사용하면 개별 인덱스의 규모와 총 인덱�
 
 인덱스의 총 수가 단일 서비스에 대해 너무 커지면 새 테넌트를 수용하도록 다른 서비스를 프로비전해야 합니다. 새 서비스를 추가할 때 인덱스를 검색 서비스 간에 이동해야 할 경우, Azure Cognitive Search 서비스는 인덱스 이동을 허용하지 않으므로 인덱스의 데이터를 수동으로 한 인덱스에서 다른 인덱스로 복사해야 합니다.
 
-## <a name="model-2-once-service-per-tenant"></a>모델 2: 테넌트당 일회 서비스
+## <a name="model-2-one-service-per-tenant"></a>모델 2: 테 넌 트 당 하나의 서비스
 
 :::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="테넌트당 서비스 모델" border="false":::
 

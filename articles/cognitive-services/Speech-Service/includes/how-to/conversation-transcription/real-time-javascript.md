@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: pafarley
-ms.openlocfilehash: 61ad5ceb418755876c2d3fc8c25b61d95facabfa
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: eur
+ms.openlocfilehash: 05d94ddec3c4f5302eb83c430642190759a00561
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130019205"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508937"
 ---
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -77,7 +77,7 @@ main();
 * 생성자를 사용하여 `ConversationTranscriber`를 만듭니다.
 * 대화에 참가자를 추가합니다. 문자열 `voiceSignatureStringUser1` 및 `voiceSignatureStringUser2`는 위의 단계에서 출력으로 제공됩니다.
 * 이벤트에 등록하고 대화 내용 기록을 시작합니다.
-* 음성 샘플을 제공하지 않고 화자를 차별화하려면 `DifferentiateGuestSpeakers` 대화 전사 [개요](../../../conversation-transcription.md)에서와 같이 기능을 사용하도록 설정하세요. 
+* 음성 샘플을 제공 하지 않고 스피커를 차별화 하려면 `DifferentiateGuestSpeakers` [대화 내용 개요](../../../conversation-transcription.md)에서와 같이 기능을 사용 하도록 설정 하세요. 
 
 ```javascript
 (function() {

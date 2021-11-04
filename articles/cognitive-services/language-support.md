@@ -7,15 +7,15 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 10/28/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a44eb178b3e664af73d4e15474bae64aa92f704f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fce378ce24075a96d0b110a1386520649ff3b0bf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020220"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434221"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
@@ -38,7 +38,7 @@ Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하�
 
 * [언어 이해(LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
-* [텍스트 분석](./text-analytics/language-support.md)
+* [언어 서비스](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
 ## <a name="speech"></a>Speech

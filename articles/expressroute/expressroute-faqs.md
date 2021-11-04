@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: a9402ac0a69cff3cd2b420754aceeb452811e1a1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7f1787d8b1d074350ce42a98635bb8bb89c4aa75
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246778"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501479"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -84,7 +84,7 @@ ExpressRoute는 다양한 서비스 유형에 개인 피어링, Microsoft 피어
 
 **지원됨:**
 
-* 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
+* [Azure Virtual Desktop RDP Shortpath와](../virtual-desktop/shortpath.md) 같은 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
 
@@ -103,14 +103,13 @@ Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면
 
 * CDN
 * Azure Front Door
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication 서버(레거시)
 * Traffic Manager
 * Logic Apps
 
 ### <a name="public-peering"></a>공용 피어링
 
-공용 피어링이 새 ExpressRoute 회로에서 사용되지 않도록 설정되었습니다. 이제 Azure 서비스를 Microsoft 피어링에서 사용할 수 있습니다. 공용 피어 링이 더 이상 사용 되지 않는 회로를 사용 하는 경우 원하는 서비스에 따라 Microsoft 피어 링 또는 공용 피어 링을 사용 하도록 선택할 수 있습니다.
+공용 피어링이 새 ExpressRoute 회로에서 사용되지 않도록 설정되었습니다. 이제 Azure 서비스를 Microsoft 피어링에서 사용할 수 있습니다. 공용 피어링이 사용되지 않기 전에 만들어진 회로가 있는 경우 원하는 서비스에 따라 Microsoft 피어링 또는 공용 피어링을 사용하도록 선택할 수 있습니다.
 
 공용 피어링에 대한 자세한 내용 및 구성 단계는 [ExpressRoute 공용 피어링](about-public-peering.md)을 참조하세요.
 

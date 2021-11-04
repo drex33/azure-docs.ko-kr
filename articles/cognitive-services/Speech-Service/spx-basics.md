@@ -3,19 +3,19 @@ title: Speech CLI 빠른 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Azure Speech CLI를 시작하세요. 코드를 작성하지 않고도 음성 텍스트 변환, 텍스트 음성 변환, 음성 번역 등의 Speech Service와 상호 작용할 수 있습니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.author: pafarley
-ms.openlocfilehash: 55d84da6f7ebdbf45bbf6c90b5cb881319a62aa9
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: cd953953e927472a822b0f1031081a212d6339f6
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540815"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510171"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Azure Speech CLI 시작
 

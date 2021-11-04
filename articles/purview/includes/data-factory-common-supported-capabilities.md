@@ -4,13 +4,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 09/27/2021
-ms.openlocfilehash: 8c4baccdbfb0f6162e666d6901e0080202a3b7e9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/01/2021
+ms.openlocfilehash: 51d0252b374eb2e4a24d6e0a7ece2bff010d0caa
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212348"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464051"
 ---
 ### <a name="copy-activity-support"></a>복사 작업 지원
 
@@ -41,6 +41,8 @@ ms.locfileid: "129212348"
 *\* Azure Purview는 현재 계보 또는 스캔에 대한 쿼리 또는 저장 프로시저를 지원하지 않습니다. 계보는 테이블 및 뷰 원본으로만 제한됩니다.*
 
 자체 호스팅 Integration Runtime 사용하는 경우 계보가 지원되는 최소 버전은 다음과 같습니다.
+
+- 모든 사용 사례: 버전 5.9.7885.3 이상
 - Oracle에서 데이터 복사: 버전 5.10 이상
 - COPY 명령 또는 PolyBase를 통해 Azure Synapse Analytics 데이터 복사: 버전 5.10 이상
 

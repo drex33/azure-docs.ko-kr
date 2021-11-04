@@ -7,26 +7,22 @@ ms.topic: article
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: 1c3ff0fb224d5c1f8fe0133f184044b8aa5b30a3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d0bef29fc9e91d847046bc5d8157a70bd2fdfd9a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837141"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470987"
 ---
 # <a name="monitoring-app-service"></a>App Service 모니터링
 
-Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 App Service에서 생성되어 [Azure Monitor](../azure-monitor/overview.md)에 제공되는 모니터링 데이터에 대해 설명합니다. 사용자는 App Service 앱을 디버그하는 데 도움이 되는 [기본 제공 진단으로 리소스를 모니터링](troubleshoot-diagnostic-logs.md)할 수도 있습니다. 이 기능을 사용하는 모든 Azure 서비스에 공통되는 Azure Monitor 기능에 익숙하지 않은 경우, [Azure Monitor로 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 읽어 보세요.
-
-> [!NOTE]
-> App Service 진단 설정 통합은 [미리 보기로](https://aka.ms/appsvcblog-azmon)제공됩니다.
->
+Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 App Service에서 생성되어 [Azure Monitor](../azure-monitor/overview.md)에 제공되는 모니터링 데이터에 대해 설명합니다. 사용자는 App Service 앱을 디버그하는 데 도움이 되는 [기본 제공 진단으로 리소스를 모니터링](troubleshoot-diagnostic-logs.md)할 수도 있습니다. 모든 Azure 서비스에 공통적인 Azure Monitor 기능에 익숙하지 않은 경우 [Azure Monitor를 사용 하 여 azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 참조 하세요.
 
 ## <a name="monitoring-data"></a>데이터 모니터링 
 
 App Service는 [Azure 리소스에서 데이터 모니터링](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data)에 설명된 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집합니다. 
 
-[*App Service* 모니터링 데이터 참조](monitor-app-service-reference.md)에서 App Service에서 생성된 메트릭 및 로그 메트릭에 관한 자세한 정보를 확인하세요.
+App Service 메트릭 및 로그에 대 한 자세한 내용은 [모니터링 *App Service* 데이터 참조](monitor-app-service-reference.md) 를 참조 하세요.
 
 또한 App Service는 앱을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 기본 제공 로그 사용에 관한 자세한 내용은 [진단 로깅 사용](troubleshoot-diagnostic-logs.md)을 참조하세요. App Service 인스턴스를 모니터링하려면 [상태 검사를 사용하여 App Service 인스턴스 모니터링](monitor-instances-health-check.md)을 참조하세요.
 
@@ -52,7 +48,7 @@ App Service에 대해 수집되는 플랫폼 메트릭의 목록은 [App Service
 
 Azure Monitor Logs의 데이터는 테이블마다 고유한 자체 속성 집합이 있는 테이블에 저장됩니다.  
 
-Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)에서 설명합니다.
+Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)에서 설명합니다.
 
 [활동 로그](../azure-monitor/essentials/activity-log.md)는 구독 수준 이벤트에 인사이트를 제공하는 플랫폼 로그의 유형입니다. 독립적으로 보거나, Azure Monitor 로그로 라우팅할 수 있습니다. Azure Monitor 로그로 라우팅하면 Log Analytics를 사용하여 복잡한 쿼리를 실행할 수 있습니다.
 
@@ -98,7 +94,7 @@ myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, Resul
 
 Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../azure-monitor/alerts/alerts-metric-overview.md), [로그](../azure-monitor/alerts/alerts-unified-log.md) 및 [활동 로그](../azure-monitor/alerts/activity-log-alerts.md)에서 경고를 설정할 수 있습니다.
 
-App Service에서 애플리케이션을 실행하는 경우 [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights)는 추가 유형의 경고를 제공할 수 있습니다.
+App Service Azure Monitor에서 응용 프로그램을 실행 하는 경우 [Application Insights](../azure-monitor/overview.md#application-insights) 에서 더 많은 유형의 경고를 제공 합니다.
 
 다음 표에는 App Service에 대한 일반적인 경고 규칙과 권장되는 경고 규칙이 나와 있습니다.
 

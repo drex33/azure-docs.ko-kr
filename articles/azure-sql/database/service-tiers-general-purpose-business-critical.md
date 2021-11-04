@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 7/7/2021
-ms.openlocfilehash: 9fbcf03159e11aa9d2951f3f951290eb6e51b511
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.date: 11/02/2021
+ms.openlocfilehash: 716c425958a457b45736835029b90567c090d4a9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670141"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446983"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database 및 Azure SQL Managed Instance 서비스 계층
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,6 +30,8 @@ ms.locfileid: "129670141"
 Azure SQL Database 하이퍼스케일 서비스 계층도 제공합니다. 
 
 - [하이퍼스케일](service-tier-hyperscale.md)은 대부분의 비즈니스 워크로드에 맞게 설계되었으며 확장성이 뛰어난 스토리지, 읽기 스케일아웃, 신속한 크기 조정 및 빠른 데이터베이스 복원 기능을 제공합니다.
+
+vCore 기반 구매 모델과 DTU 기반 구매 모델을 비교하려면 [모델 및 리소스 구매](purchasing-models.md)를 참조하세요.
 
 ## <a name="service-tier-comparison"></a>서비스 계층 비교
 
@@ -44,14 +46,15 @@ Azure SQL Database 하이퍼스케일 서비스 계층도 제공합니다.
 | | SQL Managed Instance 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80  vCore | 해당 없음 | 해당 없음 |
 | **스토리지 유형** | 모두 | 원격 스토리지 | 계층형 원격 및 로컬 SSD 스토리지 | 로컬 SSD 스토리지 |
 | **데이터베이스 크기** | SQL Database | 1GB – 4TB | 40GB - 100TB | 1GB – 4TB |
-| | SQL Managed Instance  | 32GB~8TB </br> 16 TB (미리 보기) 코어 수에 따라 Gen5만| 해당 없음 | 32GB~4TB |
+| | SQL Managed Instance  | 32GB~8TB </br> 코어 수에 따라 16 TB(미리 보기), Gen5만| 해당 없음 | 32GB~4TB |
 | **스토리지 크기** | SQL Database | 1GB – 4TB | 40GB - 100TB | 1GB – 4TB |
 | | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **TempDB 크기** | SQL Database | [vCore당 32GB](resource-limits-vcore-single-databases.md) | [vCore당 32GB](resource-limits-vcore-single-databases.md) | [vCore당 32GB](resource-limits-vcore-single-databases.md) |
 | | SQL Managed Instance  | [vCore당 24GB](../managed-instance/resource-limits.md#service-tier-characteristics) | 해당 없음 | [스토리지 크기에 따라](../managed-instance/resource-limits.md#service-tier-characteristics) 최대 4TB 한도 |
 | **로그 쓰기 처리량** | SQL Database | 단일 데이터베이스: [vCore당 4.5MB/s(최대 50MB/s)](resource-limits-vcore-single-databases.md) <br> 탄력적 풀: [vCore당 6MB/s(최대 62.5MB/s)](resource-limits-vcore-elastic-pools.md)| 100MB/초 | 단일 데이터베이스: [vCore당 12MB/s(최대 96MB/s)](resource-limits-vcore-single-databases.md) <br> 탄력적 풀: [vCore당 15MB/s(최대 120MB/s)](resource-limits-vcore-elastic-pools.md)|
-| | SQL Managed Instance | [vCore 당 3MB/s(최대 22MB/초)](../managed-instance/resource-limits.md#service-tier-characteristics) | 해당 없음 | [vCore 당 4MB/s(최대 48MB/초)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**가용성**|모두| 99.99% |  [보조 복제본이 하나면 99.95%, 추가 복제본이 있으면 99.99%](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database-) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함되면 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+| | SQL Managed Instance | [vCore 당 3MB/s(최대 22MB/초)](../managed-instance/resource-limits.md#service-tier-characteristics) | 해당 없음 | [vCore당 4MB/s(최대 48MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
+|**가용성**|SQL Database([SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/))| 99.99% | [보조 복제본이 하나면 99.95%, 추가 복제본이 있으면 99.99%](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database-) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함되면 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+| |SQL Managed Instance([SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/))| 99.99% |  [보조 복제본이 하나면 99.95%, 추가 복제본이 있으면 99.99%](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database-) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함되면 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Backup**|모두|RA-GRS, 1-35일(기본값: 7일) | RA-GRS, 7일, 빠른 PITR(특정 시점 복원) | RA-GRS, 1-35일(기본값: 7일) |
 |**메모리 내 OLTP** | | 해당 없음 | 일부 지원. 메모리 최적화 테이블 형식, 테이블 변수 및 고유하게 컴파일된 모듈이 지원됩니다. | 사용 가능 |
 |**읽기 전용 복제본**| | 0 기본 제공 <br> 0-4 [지역에서 복제](active-geo-replication-overview.md)사용 | 0-4 기본 제공 | 1 기본 제공, 가격에 포함 <br> 0-4 [지역에서 복제](active-geo-replication-overview.md)사용 |
@@ -59,10 +62,17 @@ Azure SQL Database 하이퍼스케일 서비스 계층도 제공합니다.
 || SQL Managed Instance | [vCore, 예약된 스토리지 및 백업 스토리지](https://azure.microsoft.com/pricing/details/sql-database/managed/)에 대한 요금이 청구됩니다. <br/>IOPS는 요금이 청구되지 않음| 해당 없음 | [vCore, 예약된 스토리지 및 백업 스토리지](https://azure.microsoft.com/pricing/details/sql-database/managed/)에 대한 요금이 청구됩니다. <br/>IOPS에는 요금이 부과되지 않습니다.| 
 |**할인 모델**| | [예약 인스턴스](reserved-capacity-overview.md)<br/>[Azure 하이브리드 혜택](../azure-hybrid-benefit.md)(개발/테스트 구독에서 사용할 수 없음)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종량제](https://azure.microsoft.com/offers/ms-azr-0023p/) 개발/테스트 구독| [Azure 하이브리드 혜택](../azure-hybrid-benefit.md)(개발/테스트 구독에서 사용할 수 없음)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종량제](https://azure.microsoft.com/offers/ms-azr-0023p/) 개발/테스트 구독| [예약 인스턴스](reserved-capacity-overview.md)<br/>[Azure 하이브리드 혜택](../azure-hybrid-benefit.md)(개발/테스트 구독에서 사용할 수 없음)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종량제](https://azure.microsoft.com/offers/ms-azr-0023p/) 개발/테스트 구독|
 
-세부 정보는 [Azure SQL Database(vCore)](resource-limits-vcore-single-databases.md)의 서비스 계층, [단일 Azure SQL Database(DTU)](resource-limits-dtu-single-databases.md), [풀링된 Azure SQL Database(DTU)](resource-limits-dtu-single-databases.md) 및 [Azure SQL Managed Instance](../managed-instance/resource-limits.md) 페이지 간의 자세한 차이점을 참조하세요.
-
 > [!NOTE]
-> 하이퍼스케일 서비스 계층에 대한 정보는 [하이퍼스케일 서비스 계층](service-tier-hyperscale.md)을 참조하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델을 비교하려면 [모델 및 리소스 구매](purchasing-models.md)를 참조하세요.
+> SLA(Service Level Agreement(서비스 수준 약정))에 대한 자세한 내용은 [Azure SQL Database SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) 또는 Azure [SQL Managed Instance SLA를](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/)참조하세요.
+
+### <a name="resource-limits"></a>리소스 한계
+
+리소스 제한에 대한 자세한 내용은 다음을 참조하세요.
+
+ - [Azure SQL Database(vCore)](resource-limits-vcore-single-databases.md)
+ - [단일 Azure SQL Database(DTU)](resource-limits-dtu-single-databases.md)
+ - [풀된 Azure SQL Database(DTU)](resource-limits-dtu-single-databases.md)
+ - [Azure SQL Managed Instance](../managed-instance/resource-limits.md)
 
 ## <a name="data-and-log-storage"></a>데이터 및 로그 스토리지
 

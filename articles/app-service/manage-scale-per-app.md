@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 77f8ff8cf7e3e9a83b207f8d98ef570437b27b47
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: ee1f3c956f683e3362138a7534c403e2162e64df
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111162"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462389"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>앱별 스케일링을 사용한 Azure App Service의 고밀도 호스팅
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-App Service를 사용하는 경우 실행되는 [App Service 요금제](overview-hosting-plans.md)를 스케일링하여 앱을 스케일링할 수 있습니다. 여러 앱이 같은 App Service 계획에서 실행되는 경우 각 스케일 아웃 인스턴스는 계획의 모든 앱을 실행합니다.
+App Service를 사용하는 경우 실행되는 [App Service 요금제](overview-hosting-plans.md)를 스케일링하여 앱을 스케일링할 수 있습니다. 여러 앱이 동일한 App Service 계획에서 실행되는 경우 각 스케일 아웃 인스턴스는 계획의 모든 앱을 실행합니다.
 
 *앱별 스케일링* 을 App Service 요금제 수준에서 사용하도록 설정하여 앱을 호스트하는 App Service 요금제로부터 독립적으로 앱을 스케일링할 수 있습니다. 이러한 방식으로 App Service 계획은 10개의 인스턴스로 확장될 수 있지만 앱은 5개만 사용하도록 설정될 수 있습니다.
 

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c39417697dd88d3faa64ce47493ab5e7c08faa0d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 57925df3babc22a6cfdff2f81d23bbbd60767cc6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481350"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461611"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -20,7 +20,7 @@ ms.locfileid: "110481350"
 
 ## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>사용자 지정 VM 이미지 및 표준 애플리케이션 라이선스를 사용하는 Batch 풀
 
-애플리케이션의 다른 워크로드 및 유형과 마찬가지로 사용자 지정 VM 이미지는 필요한 렌더링 애플리케이션 및 플러그 인을 사용하여 만들 수 있습니다. 사용자 지정 VM 이미지는 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)에 배치되며 [Batch 풀을 만드는 데 사용할 수 있습니다](batch-sig-images.md).
+다른 워크로드 및 애플리케이션 유형과 마찬가지로 필요한 렌더링 애플리케이션 및 플러그 인을 통해 사용자 지정 VM 이미지를 만들 수 있습니다. 사용자 지정 VM 이미지는 [Azure Compute 갤러리에](../virtual-machines/shared-image-galleries.md) 배치되며 [Batch 풀을 만드는 데 사용할 수 있습니다.](batch-sig-images.md)
 
 작업 명령줄 문자열은 사용자 지정 VM 이미지를 만들 때 사용하는 애플리케이션 및 경로를 참조해야 합니다.
 
@@ -46,8 +46,8 @@ Azure Portal 및 Batch Explorer는 풀을 만들 때 렌더링 VM 이미지를 �
 
 추가 애플리케이션이 풀 VM에서 필요한 경우 다른 옵션을 사용할 수 있습니다.
 
-* Shared Image Gallery의 사용자 지정 이미지:
-  * 이 옵션을 사용하여 정확한 애플리케이션 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [Shared Image Gallery를 사용하여 풀 만들기](batch-sig-images.md)를 참조하세요. Autodesk 및 Chaos Group은 Azure Batch 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원이 포함된 이러한 애플리케이션 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 현재 버전의 Maya 또는 3ds Max는 헤드리스를 실행하는 경우(배치/명령줄 모드로) 라이선스 서버가 필요하지 않습니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
+* Azure Compute 갤러리의 사용자 지정 이미지:
+  * 이 옵션을 사용하여 정확한 애플리케이션 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [Azure Compute 갤러리를 사용하여 풀 만들기를 참조하세요.](batch-sig-images.md) Autodesk 및 Chaos Group은 Azure Batch 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원이 포함된 이러한 애플리케이션 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 현재 버전의 Maya 또는 3ds Max는 헤드리스를 실행하는 경우(배치/명령줄 모드로) 라이선스 서버가 필요하지 않습니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
 * [애플리케이션 패키지](./batch-application-packages.md).
   * 하나 이상의 ZIP 파일을 사용하여 애플리케이션 파일을 패키지 처리하고, Azure Portal을 통해 업로드하고, 풀 구성에서 패키지를 지정합니다. 풀 VM이 생성되면 ZIP 파일이 다운로드되고 파일이 추출됩니다.
 * 리소스 파일.
@@ -99,4 +99,4 @@ Azure Marketplace VM 이미지를 사용하는 경우의 모범 사례는 환경
 ## <a name="next-steps"></a>다음 단계
 
 * [Batch를 이용해 렌더링 애플리케이션을 사용](batch-rendering-applications.md)하는 방법에 대해 알아봅니다.
-* [자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션](batch-rendering-storage-data-movement.md)에 대해 자세히 알아봅니다.
+* [자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션](batch-rendering-storage-data-movement.md)에 대해 알아봅니다.

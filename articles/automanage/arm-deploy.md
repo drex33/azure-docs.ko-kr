@@ -6,22 +6,22 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/09/2021
-ms.openlocfilehash: c86cf4ac8bdc5855248d2ec114f7ba2f050d8346
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: cdb10c265ddae4aaf83450c1951ef6cb5c2219df
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457452"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443854"
 ---
 # <a name="onboard-a-machine-to-automanage-with-an-azure-resource-manager-arm-template"></a>ARM(Azure Resource Manager) 템플릿을 사용하여 Automanage에 컴퓨터 온보딩
 
 
 ## <a name="overview"></a>개요
-아래 단계에 따라 Automanage 모범 사례에 컴퓨터를 온보딩합니다. 아래 ARM 템플릿은 Automanage에 온보딩된 컴퓨터를 나타내는 Azure 리소스인 `configurationProfileAssignment` 개체를 만듭니다.
+ARM 템플릿을 사용 하 여 모범 사례를 자동으로 관리 하려면 아래 단계에 따라 컴퓨터를 등록 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-* 기존 Automanage 계정을 만들고 올바른 권한을 할당해야 합니다. Automanage 계정을 생성하고 권한을 할당하는 방법에 대한 자세한 내용은 [이 문서](./automanage-account.md)를 참조하세요.
-* 권한이 할당된 기존 Automanage 계정이 있는 경우, Automanage에 온보딩하려는 머신이 포함된 리소스 그룹에 대한 **기여자** 역할도 있어야 합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+* 필요한 [RBAC 권한이](./automanage-virtual-machines.md#required-rbac-permissions) 있어야 합니다.
+* 이러한 [전제 조건](./automanage-virtual-machines.md#prerequisites) 에서 강조 표시 되 고 지원 되는 VM 이미지가 지원 되는 지역에 있어야 합니다.
 
 
 ## <a name="arm-template-overview"></a>ARM 템플릿 개요
@@ -34,21 +34,17 @@ ms.locfileid: "129457452"
         "machineName": {
             "type": "String"
         },
-        "automanageAccountName": {
-            "type": "String"
-        },
-        "configurationProfileAssignment": {
+        "configurationProfile": {
             "type": "String"
         }
     },
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines/providers/configurationProfileAssignments",
-            "apiVersion": "2020-06-30-preview",
-            "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/', 'default')]",
+            "apiVersion": "2021-04-30-preview",
+            "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
-                "configurationProfile": "[parameters('configurationProfileAssignment')]",
-                "accountId": "[concat(resourceGroup().id, '/providers/Microsoft.Automanage/accounts/', parameters('automanageAccountName'))]"
+                "configurationProfile": "[parameters('configurationProfile')]",
             }
         }
     ]
@@ -56,11 +52,11 @@ ms.locfileid: "129457452"
 ```
 
 ## <a name="arm-template-deployment"></a>ARM 템플릿 배포
-위의 ARM 템플릿은 지정된 Automanage 계정을 사용하여 지정된 컴퓨터에 대한 구성 프로필 할당을 생성합니다. Automanage 계정을 만들지 않았다면 [이 문서](./automanage-account.md)에서 자세히 알아보세요.
+위의 ARM 템플릿에서는 지정 된 컴퓨터에 대 한 구성 프로필 할당을 만듭니다. 
 
-`configurationProfileAssignment` 값은 다음 값 중 하나일 수 있습니다.
-* "Production"
-* "DevTest"
+`configurationProfile` 값은 다음 값 중 하나일 수 있습니다.
+* "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction"
+* "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesDevTest"
 
 다음 단계를 따라 ARM 템플릿을 배포합니다.
 1. 위의 ARM 템플릿을 `azuredeploy.json`로 저장합니다

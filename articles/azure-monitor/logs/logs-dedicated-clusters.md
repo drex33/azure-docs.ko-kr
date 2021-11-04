@@ -1,45 +1,45 @@
 ---
 title: Azure Monitor 로그 전용 클러스터
-description: 최소 약정 계층을 충족 하는 고객은 전용 클러스터를 사용할 수 있습니다.
+description: 최소 약정 계층을 충족하는 고객은 전용 클러스터를 사용할 수 있습니다.
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c56b2a5f3cc601f2c66b6577d250eed813228271
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 95830ef00132c7b432b29c033a9d7e7e400b8aad
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130248196"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458858"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor 로그 전용 클러스터
 
 Azure Monitor 로그 전용 클러스터는 Azure Monitor 로그 고객이 고급 기능을 사용할 수 있게 해주는 배포 옵션입니다. 고객은 전용 클러스터에서 호스트되어야 하는 Log Analytics 작업 영역을 선택할 수 있습니다.
 
-전용 클러스터를 통해 고객은 하루에 최소 500 GB의 데이터 수집을 커밋할 수 있습니다. 데이터 손실이나 서비스 중단 없이 기존 작업 영역을 전용 클러스터로 마이그레이션할 수 있습니다. 
+전용 클러스터를 사용하려면 고객이 하루에 500GB 이상의 데이터 수집을 커밋해야 합니다. 데이터 손실이나 서비스 중단 없이 기존 작업 영역을 전용 클러스터로 마이그레이션할 수 있습니다. 
 
 전용 클러스터가 필요한 기능:
 
 - **[고객 관리형 키](../logs/customer-managed-keys.md)** - 고객이 제공하고 제어하는 키를 사용하여 클러스터 데이터를 암호화합니다.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Microsoft 지원 엔지니어의 데이터 액세스 요청을 제어합니다.
 - **[이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - 암호화 알고리즘 또는 키 중 하나가 손상될 수 있는 상황으로부터 보호합니다. 이 경우 추가 암호화 계층은 계속해서 데이터를 보호합니다.
-- **[가용성 영역](./availability-zones.md)** - 전용 클러스터의 가용성 영역과 관련된 데이터 센터 오류로부터 데이터를 보호합니다. 가용성 영역은 분리된 물리적 위치에 있는 데이터 센터이며 독립적인 전원, 냉각, 네트워킹 등을 갖추고 있습니다. 영역의 이 독립적인 인프라와 물리적 분리를 사용하면 작업 영역이 영역의 리소스를 사용할 수 있기 때문에 인시던트 발생 가능성이 훨씬 낮아집니다.
+- **[가용성 영역](../../availability-zones/az-overview.md)** - 영역이 위치로 물리적으로 분리되고 독립적인 전원, 냉각 및 네트워킹을 갖춘 데이터 센터 오류로부터 데이터를 보호합니다. 영역 및 독립 인프라의 물리적 분리는 작업 영역이 영역의 리소스에 의존할 수 있기 때문에 인시던트 발생 가능성이 훨씬 낮아집니다. 전용 클러스터는 Azure에 가용성 영역이 있는 지역에서 데이터 복원력을 사용하도록 설정된 가용성 영역을 사용하여 [만들어집니다.](../../availability-zones/az-overview.md#azure-regions-with-availability-zones) 클러스터의 가용성 영역 구성을 만든 후에는 변경할 수 없으며 클러스터의 속성 에서 설정을 확인할 수 `isAvailabilityZonesEnabled` 있습니다. [Azure Monitor 가용성 영역은](./availability-zones.md) 서비스의 광범위한 부분을 다루며, 해당 지역에서 사용할 수 있는 경우 Azure Monitor 복원력을 자동으로 확장합니다.
 - **[다중 작업 영역](../logs/cross-workspace-query.md)** - 고객이 프로덕션에 둘 이상의 작업 영역을 사용하는 경우 전용 클러스터를 사용하는 것이 적합할 수 있습니다. 모든 작업 영역이 동일한 클러스터에 있으면 작업 영역 간 쿼리가 더 신속하게 실행됩니다. 또한 할당된 약정 계층이 모든 클러스터 수집을 고려하고, 그중 일부가 작고 약정 계층 할인 대상이 아니더라도 모든 작업 영역에 적용되므로 전용 클러스터를 사용하는 것이 더 비용 효율적일 수 있습니다.
 
 
 ## <a name="management"></a>관리 
 
-전용 클러스터는 Azure Monitor 로그 클러스터를 나타내는 Azure 리소스를 사용하여 관리됩니다. 작업은 [CLI](/cli/azure/monitor/log-analytics/cluster), [PowerShell](/powershell/module/az.operationalinsights) 또는 [REST](/rest/api/loganalytics/clusters)를 사용 하 여 프로그래밍 방식으로 수행 됩니다.
+전용 클러스터는 Azure Monitor 로그 클러스터를 나타내는 Azure 리소스를 사용하여 관리됩니다. 작업은 [CLI,](/cli/azure/monitor/log-analytics/cluster) [PowerShell](/powershell/module/az.operationalinsights) 또는 [REST](/rest/api/loganalytics/clusters)를 사용하여 프로그래밍 방식으로 수행됩니다.
 
-클러스터가 만들어지면 작업 영역을 연결 하 고 새 수집 데이터를 클러스터에 저장할 수 있습니다. 언제 든 지 클러스터에서 작업 영역 연결을 끊을 수 있으며 새 데이터는 공유 Log Analytics 클러스터에 저장 됩니다. 링크 및 연결 해제 작업은 작업 영역에서 subjection를 사용 하는 작업 전후에 쿼리 및 데이터 액세스에 영향을 주지 않습니다. 클러스터 및 작업 영역은 연결을 허용 하기 위해 동일한 지역에 있어야 합니다.
+클러스터가 만들어지면 작업 영역을 연결하고 새로 수집된 데이터를 클러스터에 저장합니다. 언제든지 클러스터에서 작업 영역을 연결 해제할 수 있으며 새 데이터는 공유 Log Analytics 클러스터에 저장됩니다. 링크 및 연결 해제 작업은 작업 영역의 보존을 적용하는 작업 전후의 쿼리 및 데이터에 대한 액세스에 영향을 미치지 않습니다. 연결을 허용하려면 클러스터와 작업 영역이 동일한 지역에 있어야 합니다.
 
 클러스터 수준의 모든 작업에는 클러스터에 대한 `Microsoft.OperationalInsights/clusters/write` 작업 권한이 필요합니다. 이 권한은 `*/write` 작업이 포함된 소유자이거나 기여자 또는 `Microsoft.OperationalInsights/*` 작업이 포함된 Log Analytics 기여자 역할을 통해 부여될 수 있습니다. Log Analytics 권한에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역에 대한 액세스 관리](./manage-access.md)를 참조하세요. 
 
 
 ## <a name="cluster-pricing-model"></a>클러스터 가격 책정 모델
 
-Log Analytics 전용 클러스터는 최소 500 g b/일의 약정 계층 (이전에는 용량 예약 이라고 함) 가격 책정 모델을 사용 합니다. 계층 수준 이상의 사용량은 해당 약정 계층의 GB당 유효 요금으로 청구됩니다. 약정 계층 가격 책정 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
+Log Analytics 전용 클러스터는 하루 500GB 이상의 약정 계층(이전의 용량 예약이라고 함) 가격 책정 모델을 사용합니다. 계층 수준 이상의 사용량은 해당 약정 계층의 GB당 유효 요금으로 청구됩니다. 약정 계층 가격 책정 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
 
 클러스터 약정 계층 수준은 `Sku` 아래에서 `Capacity` 매개 변수를 사용하여 Azure Resource Manager를 통해 프로그래밍 방식으로 구성됩니다. `Capacity`는 GB 단위로 지정되며 500, 1,000, 2,000 또는 5,000GB/일 값을 가질 수 있습니다.
 
@@ -49,7 +49,7 @@ Log Analytics 전용 클러스터는 최소 500 g b/일의 약정 계층 (이전
 
 2. **작업 영역**: 클러스터의 약정 계층 비용은 각 작업 영역에 대한 [Azure Security Center](../../security-center/index.yml)의 노드별 할당을 고려한 후 각 작업 영역의 데이터 수집 볼륨에 따라 클러스터의 작업 영역을 기준으로 비례적으로 계산됩니다. 이 가격 책정 모델의 전체 세부 정보는 [여기](./manage-cost-storage.md#log-analytics-dedicated-clusters)에 설명되어 있습니다. 
 
-작업 영역이 레거시 노드당 가격 책정 계층을 사용 하는 경우 클러스터에 연결 된 경우 클러스터의 약정 계층에 대 한 데이터 수집 기준으로 청구 되며 노드당 더 이상 청구 되지 않습니다. Azure Security Center의 노드별 데이터 할당은 계속 적용됩니다.
+작업 영역에서 레거시 노드당 가격 책정 계층을 사용하는 경우 클러스터에 연결되면 클러스터의 약정 계층에 대해 수집된 데이터에 따라 요금이 청구되고 노드당 더 이상 청구되지 않습니다. Azure Security Center의 노드별 데이터 할당은 계속 적용됩니다.
 
 Log Analytics 전용 클러스터 청구에 대한 자세한 내용은 [여기](./manage-cost-storage.md#log-analytics-dedicated-clusters)에서 확인할 수 있습니다.
 
@@ -58,9 +58,9 @@ Log Analytics 전용 클러스터 청구에 대한 자세한 내용은 [여기](
 새 전용 클러스터를 만들 때 다음 속성을 지정해야 합니다.
 
 - **ClusterName**
-- **ResourceGroupName**: 일반적으로 클러스터는 조직의 많은 팀에서 공유 되기 때문에 중앙 IT 리소스 그룹을 사용 해야 합니다. 추가적인 디자인 고려 사항은 [Azure Monitor 로그 배포 디자인](../logs/design-logs-deployment.md)을 참조하세요.
+- **ResourceGroupName:** 클러스터는 일반적으로 조직의 많은 팀에서 공유하므로 중앙 IT 리소스 그룹을 사용해야 합니다. 추가적인 디자인 고려 사항은 [Azure Monitor 로그 배포 디자인](../logs/design-logs-deployment.md)을 참조하세요.
 - **위치**
-- **SkuCapacity**: 약정 계층 (이전에는 용량 예약 이라고 함)을 500, 1000, 2000 또는 5000 g b/일로 설정할 수 있습니다. 클러스터 비용에 대한 자세한 내용은 [Log Analytics 클러스터의 비용 관리](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요. 
+- **SkuCapacity:** 약정 계층(이전의 용량 예약)은 500, 1000, 2000 또는 5000GB/일로 설정할 수 있습니다. 클러스터 비용에 대한 자세한 내용은 [Log Analytics 클러스터의 비용 관리](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요. 
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한`Microsoft.OperationalInsights/clusters/write`이 있어야 하며, 이들 권한은 역할 할당 시 이 특정 작업 또는 `Microsoft.OperationalInsights/*` 또는 `*/write`를 포함하여 부여할 수 있습니다.
 
@@ -70,9 +70,9 @@ cluster 리소스를 만든 후에는 *sku*, *keyVaultProperties 또는 *billing
 
 > [!NOTE]
 > 클러스터를 만들면 리소스 할당 및 프로비전이 트리거됩니다. 이 작업을 완료하는 데 몇 시간 정도 걸릴 수 있습니다.
-> 전용 클러스터는 데이터 수집에 상관 없이 프로 비전 된 후에만 요금이 청구 되며, 배포를 준비 하 여 클러스터에 대 한 프로 비전 및 작업 영역 링크를 신속 하 게 배포 합니다 다음을 확인합니다.
-> - 클러스터에 연결할 초기 작업 영역 목록이 식별 됨
-> - 클러스터 및 연결할 작업 영역에 대 한 구독에 대 한 사용 권한이 있습니다.
+> 전용 클러스터는 데이터 수집에 관계없이 프로비전되면 요금이 청구되며, 클러스터에 대한 프로비전 및 작업 영역 링크를 신속하게 처리할 수 있도록 배포를 준비하는 것이 좋습니다. 다음을 확인합니다.
+> - 클러스터에 연결할 초기 작업 영역 목록이 식별됩니다.
+> - 클러스터 및 모든 작업 영역을 연결하기 위한 구독에 대한 권한이 있습니다.
 
 **CLI**
 ```azurecli
@@ -193,9 +193,9 @@ GET 요청을 클러스터 리소스에 보내고 *provisioningState* 값을 확
 
 ## <a name="link-a-workspace-to-a-cluster"></a>클러스터에 작업 영역 연결
 
-Log Analytics 작업 영역이 전용 클러스터에 연결 된 경우 기존 데이터가 기존 클러스터에 남아 있는 동안 작업 영역에 대 한 새 데이터 수집 새 클러스터로 라우팅됩니다. 전용 클러스터를 CMK(고객 관리형 키)로 암호화하는 경우 키로 새 데이터만 이 키로 암호화됩니다. 시스템은 이 차이를 추상화하므로 시스템이 백그라운드에서 클러스터 간 쿼리를 수행하는 동안 평소처럼 작업 영역을 쿼리할 수 있습니다.
+Log Analytics 작업 영역이 전용 클러스터에 연결된 경우 작업 영역에 수집된 새 데이터는 기존 클러스터에 남아 있는 동안 새 클러스터로 라우팅됩니다. 전용 클러스터를 CMK(고객 관리형 키)로 암호화하는 경우 키로 새 데이터만 이 키로 암호화됩니다. 시스템은 이 차이를 추상화하므로 시스템이 백그라운드에서 클러스터 간 쿼리를 수행하는 동안 평소처럼 작업 영역을 쿼리할 수 있습니다.
 
-하나의 클러스터에 최대 1,000개의 작업 영역을 연결할 수 있습니다. 연결된 작업 영역은 클러스터와 동일한 지역에 위치합니다. 시스템 백 엔드를 보호 하 고 데이터 조각화를 방지 하려면 작업 영역을 한 달에 두 번 이상 클러스터에 연결할 수 없습니다.
+하나의 클러스터에 최대 1,000개의 작업 영역을 연결할 수 있습니다. 연결된 작업 영역은 클러스터와 동일한 지역에 위치합니다. 시스템 백 엔드를 보호하고 데이터 조각화를 방지하기 위해 작업 영역을 한 달에 두 번 이상 클러스터에 연결할 수 없습니다.
 
 연결 작업을 수행하려면 작업 영역과 cluster 리소스 모두에 대한 '쓰기' 권한이 있어야 합니다.
 

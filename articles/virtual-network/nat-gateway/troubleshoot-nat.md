@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: ee98cfbe079d9d31a7a8a3b45210c25dbaaa16ef
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 610d24576386b311bf5e4ef5a98c1c22a705aff0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130228190"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466412"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Azure Virtual Network NAT 연결 문제 해결
 
@@ -177,11 +177,9 @@ _**해결 방법:**_
 
 ### <a name="ipv6-coexistence"></a>IPv6 공존
 
-[NAT Virtual Network](nat-overview.md) IPv4 UDP 및 TCP 프로토콜을 지원 하 고 IPv6 접두사가 있는 서브넷에서의 배포는 지원 되지 않습니다.
+[Virtual Network NAT](nat-overview.md)는 IPv4 UDP 및 TCP 프로토콜을 지원합니다. NAT는 IPv6 공용 IP 주소 또는 IPv6 공용 IP 접두사에 연결할 수 없습니다. 그러나 NAT는 이중 스택 서브넷에 배포할 수 있습니다.
 
-_**해결 방법:**_ NAT 게이트웨이를 IPv6 접두사가 없는 서브넷에 배포합니다.
-
-[Virtual Network NAT UserVoice](https://aka.ms/natuservoice)를 통해 추가 기능에 대한 관심을 나타낼 수 있습니다.
+_**해결 방법:**_ 이중 스택 서브넷에 NAT 게이트웨이를 배포 합니다.
 
 ### <a name="connection-doesnt-originate-from-nat-gateway-ips"></a>NAT 게이트웨이 IP에서 연결이 시작되지 않음
 
@@ -200,4 +198,3 @@ NAT 게이트웨이 리소스에 대한 서브넷을 구성하는 가상 머신�
 * [Virtual Network NAT](nat-overview.md)에 대한 자세한 정보
 * [NAT 게이트웨이 리소스](nat-gateway-resource.md)에 대한 자세한 정보
 * [NAT 게이트웨이 리소스에 대한 메트릭 및 경고](nat-metrics.md)에 대해 알아봅니다.
-* [UserVoice에서 Virtual Network NAT에 대해 다음에 빌드할 항목을 알려줍니다](https://aka.ms/natuservoice).

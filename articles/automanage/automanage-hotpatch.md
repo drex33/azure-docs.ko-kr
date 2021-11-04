@@ -9,22 +9,19 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5de4c52015a8282591edeee6de9fd27aae042324
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 32441732385ebd16c2edaa9b77a75382051b6ee1
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770665"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502885"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>새 가상 머신에 대한 핫패치(미리 보기)
 
 > [!IMPORTANT]
-> Windows Server 서비스용 Automanage는 현재 공개 미리 보기 상태입니다. 아래에 설명된 핫패치 기능을 사용하려면 옵트인 절차가 필요합니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> Hotpatch은 현재 공개 미리 보기로 제공 됩니다. 아래에 설명된 핫패치 기능을 사용하려면 옵트인 절차가 필요합니다.
+> 이 미리 보기는 서비스 수준 약정 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-> [!NOTE]
-> 핫패치는 Windows Server 2022 Datacenter: Azure Edition(Core) 미리 보기에서 평가할 수 있습니다.  Windows Server 2019 Datacenter: Azure Edition 미리 보기에 대한 핫패치는 더 이상 평가할 수 없습니다.
 
 핫패칭은 설치 후 다시 부팅할 필요가 없는 지원되는 _Windows Server Azure 버전_ VM(가상 머신)에 업데이트를 설치하는 새로운 방법입니다. 이 문서에서는 다음과 같은 이점을 제공하는 지원되는 _Windows Server Azure 버전_ VM에 대한 핫패치 정보를 다룹니다.
 * 더 적은 다시 부팅으로 인해 워크로드 영향을 줄입니다.
@@ -49,18 +46,19 @@ ms.locfileid: "122770665"
 ## <a name="how-to-get-started"></a>시작하는 방법
 
 > [!NOTE]
-> 미리 보기 단계 중에는 [이 링크](https://aka.ms/AutomanageWindowsServerPreview)를 사용해야 Azure Portal을 시작할 수 있습니다.
+> 미리 보기 단계 중에는 [이 링크](https://aka.ms/ws2022ae-portal-preview)를 사용해야 Azure Portal을 시작할 수 있습니다.
 
 새 VM에서 핫패치 사용을 시작하려면 다음 단계를 수행합니다.
 1.  미리 보기 액세스 사용
     * 구독 당 일회성 미리 보기 액세스를 사용해야 합니다.
-    * 미리 보기 액세스는 다음 섹션에 설명된 대로 API, PowerShell 또는 CLI를 통해 사용하도록 설정할 수 있습니다.
-1.  Azure Portal에서 VM 생성
-    * 미리 보기 중에는 [이 링크](https://aka.ms/AutomanageWindowsServerPreview)를 사용하여 시작해야 합니다.
-1.  VM 세부 정보 제공
-    * 이미지 드롭다운에서 사용하려는 지원되는 _Windows Server Azure 버전_ 이미지가 선택되어 있는지 확인합니다.  지원되는 이미지는 이 문서 상단에 나열되어 있습니다.
-    * 관리 탭 단계에서 '게스트 OS 업데이트' 섹션까지 아래로 스크롤합니다. 핫패칭을 켜기로 설정하고 패치 설치를 Azure 오케스트레이션 패치로 설정하는 것을 볼 수 있습니다.
-    * Automanage VM 모범 사례는 기본적으로 사용하도록 설정됩니다
+    * 아래의 ' 미리 보기 액세스 사용 ' 섹션에 설명 된 대로 API, PowerShell 또는 CLI를 통해 미리 보기 액세스를 사용 하도록 설정할 수 있습니다.
+1.  Azure Portal에서 새 VM 만들기를 시작 합니다.
+    * 미리 보기 중에는 [이 링크](https://aka.ms/ws2022ae-portal-preview)를 사용하여 시작해야 합니다.
+1.  VM을 만드는 동안 세부 정보 제공
+    * 이미지 드롭다운에서 지원 되는 _Windows Server Azure 버전_ 이미지가 선택 되어 있는지 확인 합니다.  [이 가이드](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) 를 사용 하 여 지원 되는 이미지를 확인 합니다.
+    * 관리 탭의 ' 게스트 OS 업데이트 ' 섹션에서 ' hotpatch 사용 ' 확인란을 선택 하 여 미리 보기 상태에서 hotpatch를 평가 합니다.  패치 오케스트레이션 옵션은 ' 오케스트레이션 '로 설정 됩니다. 
+    * ' Azure Automanage ' 섹션의 관리 탭에서 ' Azure Automanage environment '의 ' 개발/테스트 ' 또는 ' 프로덕션 '을 선택 하 여 미리 보기 중에 자동 관리 컴퓨터 모범 사례를 평가 합니다.
+    
 1. 새 VM 만들기
 
 ## <a name="enabling-preview-access"></a>미리 보기 액세스 사용 설정
@@ -234,5 +232,6 @@ VM에 대한 패치 상태를 보려면 Azure Portal에서 VM에 대한 **게스
 
 ## <a name="next-steps"></a>다음 단계
 
-* [여기](../automation/update-management/overview.md)에서 Azure 업데이트 관리에 대해 자세히 알아보세요.
-* [여기](../virtual-machines/automatic-vm-guest-patching.md)에서 자동 VM 게스트 패치에 대해 자세히 알아보세요.
+* [Azure 업데이트 관리](../automation/update-management/overview.md) 에 대 한 자세한 정보
+* [자동 VM 게스트 패치](../virtual-machines/automatic-vm-guest-patching.md) 에 대 한 자세한 정보
+* [Windows 서버에 대 한 automanage](automanage-windows-server-services-overview.md) 에 대해 자세히 알아보기

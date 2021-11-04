@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: e5e462036e30a533d914f8e9420476f1604645d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/29/2021
+ms.openlocfilehash: 53b0e0de88f10f9d91a9b1f8d5aace9a40ad071d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598089"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445714"
 ---
 # <a name="categories-and-subcategories-in-the-commercial-marketplace"></a>상업용 마켓플레이스의 범주 및 하위 범주
 
@@ -41,14 +41,14 @@ ms.locfileid: "128598089"
 | DevOps | 해당 없음 |
 | ID | 액세스 관리 |
 | IT 및 관리 도구 | 관리 솔루션<br>비즈니스 애플리케이션 |
-| 사물 인터넷 | IoT Analytics & 데이터<br>IoT 연결<br>IoT 핵심 서비스<br>IoT Edge 모듈<br>Iot & IIot 플랫폼<br>IoT 보안<br>IoT 솔루션 |
+| 사물 인터넷 | IoT Analytics & 데이터<br>IoT 연결<br>IoT 핵심 서비스<br>IoT Edge 모듈<br>Iot & IIot Platforms<br>IoT 보안<br>IoT 솔루션 |
 | 미디어 | Content Protection<br>라이브 및 주문형 스트리밍<br>Media Services |
 | 마이그레이션 | 데이터 마이그레이션 |
 | Mixed Reality | 해당 없음 |
 | 모니터링 및 진단 | 해당 없음 |
 | 네트워킹 | 어플라이언스 관리자<br>연결<br>방화벽<br>부하 분산 장치 |
 | 보안 | ID 및 액세스 관리<br>Information Protection<br>Threat Protection |
-| 스토리지 | 백업 및 복구<br>파일 & 개체 공유 차단<br>데이터 관리<br>엔터프라이즈 하이브리드 스토리지 |
+| 스토리지 | 백업 및 복구<br>블록 파일 & 개체 공유<br>데이터 관리<br>엔터프라이즈 하이브리드 스토리지 |
 | 웹 | 블로그 및 CMS<br>전자 상거래<br>시작 웹앱<br>Web Apps<br>웹앱 프레임워크 |
 |||
 

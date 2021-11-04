@@ -3,18 +3,17 @@ title: Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾
 description: Blob 인덱스 태그를 사용하여 Blob 개체를 분류, 관리 및 쿼리하는 방법에 대해 알아봅니다.
 author: normesta
 ms.author: normesta
-ms.date: 08/25/2021
+ms.date: 11/01/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: fa2284e03c8d69bacb40a2fe99d3c3cb10a73828
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: dfa77490b95f67e7c75e658211602fe5a27c1c57
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154644"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441422"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기
 
@@ -67,7 +66,7 @@ Blob에 단일 태그를 적용하여 데이터 처리가 완료된 시간을 �
 
 Blob에 여러 태그를 적용하여 데이터를 더 자세히 설명할 수 있습니다.
 
-> "Project" = 'Contoso' "Classified" = 'True' "Status" = 'Unprocessed' "Priority" = '01'
+> "Project" = ' Contoso ' "분류 된" = ' True ' "Status" = ' 처리 되지 않은 ' "우선 순위" = ' 01 '
 
 기존 인덱스 태그 특성을 수정하려면 기존 태그 특성을 검색하고, 태그 특성을 수정한 후 [Set Blob Tags](/rest/api/storageservices/set-blob-tags) 작업으로 바꿉니다. Blob에서 모든 인덱스 태그를 제거하려면 태그 속성을 지정하지 않고 `Set Blob Tags` 작업을 호출합니다. Blob 인덱스 태그는 Blob 데이터 콘텐츠에 대한 하위 리소스이므로 `Set Blob Tags`는 기본 콘텐츠를 수정하지 않으며 Blob의 마지막 수정 시간 또는 eTag를 변경하지 않습니다. 모든 현재 기본 Blob에 대한 인덱스 태그를 만들거나 수정할 수 있습니다. 인덱스 태그는 이전 버전에 대해서도 유지되지만 Blob 인덱스 엔진에는 전달되지 않으므로 인덱스 태그를 쿼리하여 이전 버전을 검색할 수 없습니다. 스냅샷 또는 일시 삭제된 Blob의 태그는 수정할 수 없습니다.
 
@@ -135,7 +134,7 @@ Blob 인덱스 필터링에는 다음 기준이 적용됩니다.
 
 다음 표에는 `Find Blobs by Tags`에 유효한 모든 연산자가 나와 있습니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     >      |  보다 큼 | `"Date" > '2018-06-18'` |
@@ -160,7 +159,7 @@ REST 버전 2019-10-10 이상에서는 대부분의 [Blob service API](/rest/api
 
 아래 표는 조건부 연산에 유효한 연산자를 보여줍니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     <>     |   같지 않음   | `"Status" <> 'Done'` |
@@ -263,21 +262,32 @@ Blob 인덱스 태그는 Blob 데이터에 대한 하위 리소스입니다. Blo
 
 [SAS(공유 액세스 서명)](../common/storage-sas-overview.md)를 사용하는 호출자에게는 Blob 인덱스 태그에 대해 작업할 수 있는 범위가 지정된 권한이 부여될 수 있습니다.
 
-#### <a name="blob-sas"></a>Blob SAS
+#### <a name="service-sas-for-a-blob"></a>Blob에 대 한 서비스 SAS
 
-Blob 인덱스 태그에 대한 액세스를 허용하기 위해 Blob SAS에서 다음 권한이 부여될 수 있습니다. Blob 읽기 및 쓰기 권한만으로는 해당 인덱스 태그를 읽거나 쓰기에 충분하지 않습니다.
+Blob 인덱스 태그에 대 한 액세스를 허용 하기 위해 blob에 대 한 서비스 SAS에서 다음 사용 권한을 부여할 수 있습니다. Blob read ( `r` ) 및 write ( `w` ) 권한 만으로는 해당 인덱스 태그를 읽거나 쓸 수 없습니다.
 
 | 사용 권한 | URI 기호 | 허용되는 작업                |
 |------------|------------|-----------------------------------|
 | 인덱스 태그 |     t      | Blob에 대한 인덱스 태그 가져오기 및 설정 |
 
-#### <a name="container-sas"></a>컨테이너 SAS
+#### <a name="service-sas-for-a-container"></a>컨테이너에 대 한 서비스 SAS
 
-다음 권한은 Blob 태그에 대한 필터링을 허용하기 위해 컨테이너 SAS에서 부여할 수 있습니다. Blob `Blob List` 권한은 인덱스 태그를 기준으로 Blob을 필터링하기에 충분하지 않습니다.
+Blob 태그에 대 한 필터링을 허용 하기 위해 컨테이너에 대 한 서비스 SAS에서 다음 사용 권한을 부여할 수 있습니다. Blob list ( `i` ) 권한은 인덱스 태그로 필터링 blob을 허용 하기에 충분 하지 않습니다.
 
 | 사용 권한 | URI 기호 | 허용되는 작업         |
 |------------|------------|----------------------------|
 | 인덱스 태그 |     f      | 인덱스 태그가 있는 Blob 찾기 |
+
+#### <a name="account-sas"></a>계정 SAS
+
+Blob 태그에서 blob 인덱스 태그 및 필터링에 대 한 액세스를 허용 하기 위해 계정 SAS에서 다음 사용 권한을 부여할 수 있습니다. 
+
+| 사용 권한 | URI 기호 | 허용되는 작업                |
+|------------|------------|-----------------------------------|
+| 인덱스 태그 |     t      | Blob에 대한 인덱스 태그 가져오기 및 설정 |
+| 인덱스 태그 |     f      | 인덱스 태그가 있는 Blob 찾기 |
+
+Blob read ( `r` ) 및 write ( `w` ) 권한만 있으면 해당 인덱스 태그를 읽거나 쓸 수 없으며, list ( `i` ) 권한은 인덱스 태그로 필터링 blob을 허용 하기에 충분 하지 않습니다.
 
 ## <a name="choosing-between-metadata-and-blob-index-tags"></a>메타데이터와 Blob 인덱스 태그 중에서 선택
 
@@ -311,8 +321,8 @@ Blob 인덱스 태그와 메타데이터 모두 Blob 리소스와 함께 임의�
 
 | Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![아니요](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 

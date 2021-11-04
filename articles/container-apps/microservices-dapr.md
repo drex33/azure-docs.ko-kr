@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/25/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d49d1c0fdedef986933cd0c31dc9f47a988dfbd6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1fa71d13aa43d9fd681ab3eb6799734ea65c1482
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131450137"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131102880"
 ---
 # <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-the-azure-cli"></a>자습서: Azure CLI을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램 배포
 
@@ -131,22 +131,6 @@ az extension add \
 ```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
-```
-
----
-
-확장이 설치 되었으므로 `Microsoft.Web` 네임 스페이스를 등록 합니다.
-
-# <a name="bash"></a>[Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.Web
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -295,9 +279,7 @@ Azure Blob Storage 계정을 만든 후에는이 자습서의 이후 단계에�
 
 ```bash
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
-```
 
-```bash
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -305,9 +287,7 @@ echo $STORAGE_ACCOUNT_KEY
 
 ```powershell
 $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
-```
 
-```powershell
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -441,13 +421,13 @@ Azure Storage 계정의 데이터를 검토 하 여 서비스가 올바르게 �
 
 1. **편집** 탭을 클릭 합니다.
 
-1. **새로 고침** 단추를 클릭 하 여 데이터가 자동으로 업데이트 되는 방식을 관찰 합니다.
+1. 새로 **고침** 단추를 클릭하여 업데이트를 관찰합니다.
 
 ### <a name="view-logs"></a>로그 보기
 
-컨테이너 앱을 통해 기록 되는 데이터는 `ContainerAppConsoleLogs_CL` 사용자 지정 테이블의 Log Analytics 작업 영역에 저장 됩니다. Azure Portal 또는 CLI를 통해 로그를 볼 수 있습니다. 기록 된 데이터를 쿼리하려면 먼저 분석이 처음 도착할 때까지 몇 분 정도 기다려야 할 수 있습니다.
+컨테이너 앱을 통해 기록된 데이터는 `ContainerAppConsoleLogs_CL` Log Analytics 작업 영역의 사용자 지정 테이블에 저장됩니다. Azure Portal 또는 CLI를 통해 로그를 볼 수 있습니다.
 
-다음 CLI 명령을 사용 하 여 명령줄에서 로그를 볼 수 있습니다.
+다음 CLI 명령을 사용하여 명령줄에서 로그를 봅니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -469,7 +449,7 @@ az monitor log-analytics query `
 
 ---
 
-다음 출력은 CLI 명령에서 예측할 응답 유형을 보여 줍니다.
+다음 출력에서는 CLI 명령에서 예상할 응답 형식을 보여 주는 출력입니다.
 
 ```console
 ContainerAppName_s    Log_s                            TableName      TimeGenerated
@@ -486,7 +466,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-완료 되 면 다음 명령을 실행 하 여 리소스 그룹을 삭제 하 여 컨테이너 앱 리소스를 정리 합니다.
+완료되면 다음 명령을 실행하여 리소스 그룹을 삭제하여 Container App 리소스를 정리합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -504,12 +484,12 @@ az group delete `
 
 ---
 
-이 명령은 컨테이너 앱, 저장소 계정, 컨테이너 앱 환경 및 리소스 그룹의 다른 리소스를 모두 삭제 합니다.
+이 명령은 컨테이너 앱, 스토리지 계정, 컨테이너 앱 환경 및 리소스 그룹의 다른 리소스를 모두 삭제합니다.
 
 > [!NOTE]
-> `pythonapp` `nodeapp` 는 구성 된 상태 저장소에 유지 되는 메시지를 사용 하 여를 계속 호출 하므로 지속적으로 청구 가능한 작업을 방지 하기 위해 이러한 정리 단계를 완료 하는 것이 중요 합니다.
+> `pythonapp`구성된 상태 저장소에 유지되는 메시지를 사용하여 를 지속적으로 호출하기 `nodeapp` 때문에 지속적인 청구 가능 작업을 방지하기 위해 이러한 정리 단계를 완료하는 것이 중요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 수명 주기 관리](application-lifecycle-management.md)
+> [애플리케이션 수명 주기 관리](application-lifecycle-management.md)

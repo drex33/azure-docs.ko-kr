@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 09/07/2021
-ms.openlocfilehash: e80149a89c38124a6789b5e74e1c73f647465ae6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3f580069fc44f676bc6fcffa40bd74256a818a50
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580550"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520806"
 ---
 ## <a name="sdks"></a>SDK
 
-이 문서의 코드 조각은 Azure RTOS Azure IoT [미들웨어 추가를](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot)사용하는 샘플을 기반으로 합니다. 추가는 [Azure RTOS](/azure/rtos/overview-rtos) [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)간의 바인딩 계층입니다.
+이 문서의 코드 조각은 Azure RTOS Azure IoT [미들웨어 추가를](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot)사용하는 샘플을 기반으로 합니다. addon은 [Azure RTOS](/azure/rtos/overview-rtos) [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)간의 바인딩 계층입니다.
 
 이 문서의 코드 조각은 다음 샘플을 기반으로 합니다.
 
@@ -66,7 +66,7 @@ status = nx_azure_iot_provisioning_client_registration_payload_set(prov_client_p
 
 ## <a name="use-components"></a>구성 요소 사용
 
-[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-develop/concepts-modeling-guide.md)에 설명된 대로 디바이스 빌더가 구성 요소를 사용하여 디바이스를 설명할지 결정해야 합니다. 구성 요소를 사용하는 경우 디바이스는 다음 섹션에 설명된 규칙을 따라야 합니다. 구성 요소에 대한 IoT 플러그 앤 플레이 규칙 작업을 간소화하기 위해 샘플은 [nx_azure_iot_pnp_helpers.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/samples/common/nx_azure_iot_pnp_helpers.h)의 도우미 함수를 사용합니다.
+[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-develop/concepts-modeling-guide.md)에 설명된 대로 디바이스 빌더가 구성 요소를 사용하여 디바이스를 설명할지 결정해야 합니다. 구성 요소를 사용하는 경우 디바이스는 다음 섹션에 설명된 규칙을 따라야 합니다. 구성 요소에 대한 IoT 플러그 앤 플레이 규칙 작업을 간소화하기 위해 샘플은 [nx_azure_iot_hub_client.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h)의 도우미 함수를 사용합니다.
 
 ## <a name="telemetry"></a>원격 분석
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버로 VM 확장 관리
 description: Azure Arc 사용 서버에서는 Azure가 아닌 VM을 사용하여 배포 후 구성 및 자동화 작업을 제공하는 가상 머신 확장 배포 기능을 관리할 수 있습니다.
-ms.date: 10/22/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 05362b675d68b8394875eb021a0a7fcb8b7ce649
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: e652b7c520345ad56a28a718448ac520af8237e3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130261028"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447363"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버로 가상 머신 확장 관리
 
@@ -25,7 +25,7 @@ Azure Arc 사용 서버를 사용하면 Azure VM 확장을 비 Azure Windows 및
 > Azure Arc 사용 서버는 Azure 가상 머신에 대한 VM 확장의 배포 및 관리를 지원하지 않습니다. Azure VM에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
 
 > [!NOTE]
-> 현재 Azure Portal에서만 확장을 업데이트할 수 있습니다. 현재 Azure CLI, Azure PowerShell에서 이 작업을 수행하거나 Azure Resource Manager 템플릿을 사용하는 것은 지원되지 않습니다.
+> 현재 Azure Portal 또는 Azure CLI 에서만 확장을 업데이트할 수 있습니다. Azure PowerShell에서이 작업을 수행 하거나 Azure Resource Manager 템플릿을 사용 하는 것은 현재 지원 되지 않습니다.
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -50,7 +50,7 @@ VM 확장 기능은 [지원되는 지역](overview.md#supported-regions) 목록�
 Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 요소에 대 한 자세한 내용을 알아보려면 [에이전트 개요](agent-overview.md#agent-component-details)를 참조 하세요.
 
 > [!NOTE]
-> 최근에 DSC VM 확장에 대한 지원이 Azure Arc 지원 서버에 대해 제거되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
+> Azure Arc 사용 서버에 대 한 최근 DSC VM 확장 지원이 제거 되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
 
 Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 다른 Azure 구독 간에 하나 이상의 VM 확장이 설치된 머신을 이동할 수 있도록 지원합니다. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 이 지원은 Connected Machine 에이전트 버전 **1.8.21197.005** 부터 사용할 수 있습니다. 계속하기 전에 리소스 이동 및 고려 사항에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
@@ -59,13 +59,13 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 |내선 번호 |Publisher |형식 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |WindowsAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 Azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
-|Microsoft Antimalware 확장 |Microsoft.Azure.Security |IaaSAntimalware |[Windows 대한 Microsoft Antimalware 확장](../../virtual-machines/extensions/iaas-antimalware-windows.md) |
+|Microsoft Antimalware 확장 |Microsoft.Azure.Security |IaaSAntimalware |[Windows Microsoft Antimalware 확장](../../virtual-machines/extensions/iaas-antimalware-windows.md) |
 |사용자 지정 스크립트 확장 |Microsoft.Compute | CustomScriptExtension |[Windows 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)|
 |Log Analytics 에이전트 |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Windows용 Log Analytics VM 확장](../../virtual-machines/extensions/oms-windows.md)|
 |VM용 Azure Monitor(인사이트) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Windows용 종속성 에이전트 가상 머신 확장](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Azure Key Vault 인증서 동기화 | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Windows용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-windows.md) |
 |Azure Monitor 에이전트 |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Azure Monitor 에이전트 설치(미리 보기)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
-|Azure Automation Hybrid Runbook Worker 확장(미리 보기) |Microsoft.Compute |HybridWorkerForWindows |[확장 기반 사용자 Hybrid Runbook Worker 배포하여](../../automation/extension-based-hybrid-runbook-worker-install.md) Runbook을 로컬로 실행합니다. |
+|Azure Automation Hybrid Runbook Worker 확장 (미리 보기) |Microsoft.Compute |HybridWorkerForWindows |[확장 기반 사용자 Hybrid Runbook Worker를 배포](../../automation/extension-based-hybrid-runbook-worker-install.md) 하 여 로컬로 runbook을 실행할 수 있습니다. |
 
 ### <a name="linux-extensions"></a>Linux 확장
 
@@ -77,7 +77,7 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 |VM용 Azure Monitor(인사이트) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Linux용 Dependency Agent 가상 머신 확장](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Azure Key Vault 인증서 동기화 | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor 에이전트 |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Azure Monitor 에이전트 설치(미리 보기)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
-|Azure Automation Hybrid Runbook Worker 확장(미리 보기) |Microsoft.Compute |HybridWorkerForLinux |[확장 기반 사용자 Hybrid Runbook Worker 배포하여](../../automation/extension-based-hybrid-runbook-worker-install.md) Runbook을 로컬로 실행합니다.|
+|Azure Automation Hybrid Runbook Worker 확장 (미리 보기) |Microsoft.Compute |HybridWorkerForLinux |[확장 기반 사용자 Hybrid Runbook Worker를 배포](../../automation/extension-based-hybrid-runbook-worker-install.md) 하 여 로컬로 runbook을 실행할 수 있습니다.|
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -94,7 +94,7 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 
 Linux용 Log Analytics 에이전트 VM 확장을 사용하려면 대상 컴퓨터에 Python 2.x가 설치되어 있어야 합니다. 
 
-확장을 설치하기 전에 [Log Analytics 에이전트에 대한 배포 옵션을](concept-log-analytics-extension-deployment.md) 검토하여 사용 가능한 다양한 방법과 요구 사항을 충족하는 방법을 이해하는 것이 좋습니다.
+확장을 설치 하기 전에 [Log Analytics 에이전트에 대 한 배포 옵션](concept-log-analytics-extension-deployment.md) 을 검토 하 여 사용 가능한 다양 한 방법과 요구 사항을 충족 하는 방법을 이해 하는 것이 좋습니다.
 
 ### <a name="azure-key-vault-vm-extension"></a>Azure Key Vault VM 확장
 

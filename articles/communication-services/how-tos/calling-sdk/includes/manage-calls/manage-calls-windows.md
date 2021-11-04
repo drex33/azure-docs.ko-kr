@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: c2d11835a455cb0a8a9456aad95d5be4da423259
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9737c4e756e034c88800264e5cc56a4ca1f81741
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128705619"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253646"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
@@ -65,7 +65,7 @@ Call call_;
 
 ## <a name="create-button-handlers"></a>단추 처리기 만들기
 
-이전에는 XAML 코드에 두 개의 UI 단추가 추가되었습니다. 다음 코드에서는 사용자가 단추를 클릭하면 실행될 처리기를 추가합니다.
+이전에는 XAML 코드에 두 개의 UI 단추가 추가되었습니다. 다음 코드는 사용자가 단추를 선택할 때 실행할 처리기를 추가 합니다.
 이전 섹션에서 데이터 멤버 뒤에 다음 코드를 추가해야 합니다.
 
 ```csharp

@@ -4,13 +4,13 @@ description: 의도 및 엔터티를 사용하여 발화 텍스트에서 데이�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/28/2021
+ms.openlocfilehash: e3618ae81b43402f533df268b4a6e3a7efded997
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025996"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434677"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용하여 발화 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -242,17 +242,17 @@ LUIS에서 [토큰 지원](luis-language-support.md#tokenization)을 참조하�
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
 
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 유형의 이름을 가진 데이터를 추출하기가 가장 어렵습니다. **[단순 엔터티](luis-concept-entity-types.md#simple-entity)** 로 시작하고 [구문 목록](luis-concept-feature.md)을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](./luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 유형의 이름을 가진 데이터를 추출하기가 가장 어렵습니다. **[단순 엔터티](luis-concept-entity-types.md)** 로 시작하고 [구문 목록](luis-concept-feature.md)을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](./luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ## <a name="patternany-entity-data"></a>Pattern.any 엔터티 데이터
 
 [Pattern.any](reference-entity-pattern-any.md)는 엔터티가 시작되고 끝나는 위치를 표시하기 위해 패턴의 템플릿 발화에서만 사용되는 가변 길이 자리 표시자입니다. 패턴에 사용되는 엔터티를 찾아 패턴을 적용할 수 있어야 합니다.
 
 ## <a name="sentiment-analysis"></a>정서 분석
-[게시](luis-how-to-publish-app.md#sentiment-analysis)하는 동안 감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](../text-analytics/index.yml) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
+[게시](luis-how-to-publish-app.md#sentiment-analysis)하는 동안 감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. 감정 분석에 대 한 자세한 내용은 [언어 서비스](../language-service/sentiment-opinion-mining/overview.md) 설명서를 참조 하세요.
 
 ## <a name="key-phrase-extraction-entity-data"></a>키 구문 추출 엔터티 데이터
-[키 구문 추출 엔터티](luis-reference-prebuilt-keyphrase.md)는 [Text Analytics](../text-analytics/index.yml)에서 제공하는 발화의 키 구문을 반환합니다.
+[키 구 추출 엔터티](luis-reference-prebuilt-keyphrase.md) 는 [언어 서비스](../language-service/key-phrase-extraction/overview.md)에서 제공 하는 utterance의 키 구를 반환 합니다.
 
 ## <a name="data-matching-multiple-entities"></a>여러 엔터티와 일치하는 데이터
 

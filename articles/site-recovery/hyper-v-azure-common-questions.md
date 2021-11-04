@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용한 Hyper-V 재해 복구에 대한 일반 �
 description: 이 문서에는 Azure Site Recovery 사이트를 사용하여 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 설정하는 방법과 관련된 일반적인 질문이 요약되어 있습니다.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 46061013844ecc6e41a0329641fd5d81b68656c4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879447"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475087"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -170,10 +170,10 @@ Hyper-V VM은 30초(Premium Storage 제외) 또는 5분마다 복제할 수 있�
 예, Azure Site Recovery와 Hyper-V 복제본을 모두 컴퓨터에 함께 구성할 수 있습니다. 하지만 컴퓨터는 물리적 컴퓨터로 보호되어야 하며 구성/프로세스 서버를 사용하여 Azure에 복제됩니다. 물리적 컴퓨터 보호에 대한 자세한 내용은 [여기](./physical-azure-architecture.md)에서 자세히 알아봅니다.
 
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
-확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
-지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
 예, 디스크는 복제에서 제외할 수 있습니다. 

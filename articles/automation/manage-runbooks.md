@@ -3,26 +3,26 @@ title: Azure Automation에서 Runbook 관리
 description: 이 문서에서는 Azure Automation에서 Runbook을 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
+ms.date: 11/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 88122af7da4472db497713b4f417092cca7e87df
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 99f86065b9a33125e3ca4cf72af5b8ec442e3cc0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351460"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455460"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
-새로 만들거나 파일 또는 [Runbook 갤러리](automation-runbook-gallery.md)에서 기존 Runbook을 가져와 Azure Automation에 Runbook을 추가할 수 있습니다. 이 문서에서는 파일에서 가져온 Runbook을 관리하는 방법에 대한 정보를 제공합니다. [Azure Automation에 대한 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)에서 커뮤니티 Runbook과 모듈 액세스에 대한 모든 상세 정보를 확인할 수 있습니다.
+새로 만들거나 파일 또는 [Runbook 갤러리](automation-runbook-gallery.md)에서 기존 Runbook을 가져와 Azure Automation에 Runbook을 추가할 수 있습니다. 이 문서에서는 runbook 디자인에서 runbook 및 권장 패턴 및 모범 사례를 관리 하는 방법에 대 한 정보를 제공 합니다. [Azure Automation에 대한 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)에서 커뮤니티 Runbook과 모듈 액세스에 대한 모든 상세 정보를 확인할 수 있습니다.
 
 ## <a name="create-a-runbook"></a>Runbook 만들기
 
-Azure Portal 또는 PowerShell을 사용하여 Azure Automation 새 Runbook을 만듭니다. Runbook을 만든 후에는 다음의 정보를 사용하여 Runbook을 편집할 수 있습니다.
+Azure Portal 또는 PowerShell을 사용 하 여 Azure Automation에서 새 runbook을 만듭니다. Runbook을 만든 후에는 다음의 정보를 사용하여 Runbook을 편집할 수 있습니다.
 
 * [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
-* [Automation Runbook에 대한 주요 PowerShell 워크플로 개념 알아보기](automation-powershell-workflow.md)
+* [Automation runbook에 대 한 주요 PowerShell 워크플로 개념 알아보기](automation-powershell-workflow.md)
 * [Azure Automation에서 Python 2 패키지 관리](python-packages.md)
 * [Azure Automation에서 Python 3 패키지(미리 보기) 관리](python-3-packages.md)
 
@@ -33,8 +33,11 @@ Azure Portal 또는 PowerShell을 사용하여 Azure Automation 새 Runbook을 �
 1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
 1. Automation 계정에서 **프로세스 자동화** 아래에 있는 **Runbook** 을 선택하여 Runbook 목록을 엽니다.
 1. **Runbook 만들기** 를 클릭합니다.
-1. Runbook의 이름을 입력하고 [유형](automation-runbook-types.md)을 선택합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄, 대시 등이 포함될 수 있습니다.
-1. **만들기** 를 클릭하여 Runbook을 만들고 편집기를 엽니다.
+    1. Runbook의 이름을로 합니다.
+    1. **Runbook 유형** 드롭다운에서 해당 [유형을](automation-runbook-types.md)선택 합니다. Runbook 이름은 문자로 시작 해야 하 고 문자, 숫자, 밑줄 및 대시를 포함할 수 있습니다.
+    1. **런타임 버전** 을 선택 합니다.
+    1. 적용 가능한 **설명** 입력
+1. **만들기** 를 클릭 하 여 runbook을 만듭니다.
 
 ### <a name="create-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 만들기
 
@@ -74,17 +77,20 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 1. Azure Portal에서 **Automation 계정** 을 검색하여 선택합니다.
 1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
 1. Automation 계정에서 **프로세스 자동화** 아래에 있는 **Runbook** 을 선택하여 Runbook 목록을 엽니다.
-1. **Runbook 가져오기** 를 클릭합니다.
-1. **Runbook 파일** 을 클릭하고 가져올 파일을 선택합니다.
+1. **Runbook 가져오기** 를 클릭합니다. 다음 옵션 중 하나를 선택할 수 있습니다.
+    1. **파일 찾아보기** -로컬 컴퓨터에서 파일을 선택 합니다.
+    1. **갤러리에서 찾아보기** -갤러리에서 기존 runbook을 찾아보고 선택할 수 있습니다.
+1. 파일을 선택합니다.
 1. **이름** 필드가 사용 설정된 경우 Runbook 이름을 변경할 수 있습니다. 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄, 대시 등이 포함될 수 있습니다.
-1. [Runbook 형식](automation-runbook-types.md)이 자동으로 선택되지만 해당 제한을 고려한 후에 형식을 변경할 수 있습니다.
-1. **만들기** 를 클릭합니다. 새 Runbook이 Automation 계정의 Runbook 목록에 표시됩니다.
+1. [**Runbook 형식이**](automation-runbook-types.md) 자동으로 채워지므로 해당 제한 사항을 고려한 후에 형식을 변경할 수 있습니다.
+1. **런타임 버전이** 자동으로 채워지거나 드롭다운 목록에서 버전을 선택 합니다.
+1. **가져오기** 를 클릭합니다. 새 Runbook이 Automation 계정의 Runbook 목록에 표시됩니다.
 1. 실행에 앞서 [Runbook을 게시](#publish-a-runbook)해야 합니다.
 
 > [!NOTE]
 > 그래픽 Runbook을 가져온 후에는 이를 다른 형식으로 변환할 수 있습니다. 하지만 그래픽 Runbook을 텍스트 Runbook으로 변환할 수는 없습니다.
 
-### <a name="import-a-runbook-with-powershell"></a>PowerShell을 통해 Runbook 가져오기
+### <a name="import-a-runbook-with-powershell"></a>PowerShell을 사용 하 여 runbook 가져오기
 
 [Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook) cmdlet을 사용하여 스크립트 파일을 초안 Runbook으로 가져옵니다. 해당 Runbook이 이미 있는 경우 cmdlet에 `Force` 매개 변수를 사용하지 않으면 가져오기에 실패합니다.
 
@@ -200,10 +206,11 @@ if (($jobs.Status -contains 'Running' -and $runningCount -gt 1 ) -or ($jobs.Stat
 }
 ```
 
-Runbook을 시스템 할당 관리 ID로 실행하려면 코드를 그대로 둡니다. 사용자 할당 관리 ID를 사용하려면 다음을 수행합니다.
-1. 줄 5에서 `$AzureContext = (Connect-AzAccount -Identity).context` 를 제거합니다.
-1. , 및 으로 대체합니다. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`
-1. 클라이언트 ID를 입력합니다.
+시스템이 할당한 관리 ID를 사용하여 Runbook을 실행하려면 코드를 그대로 둡니다. 사용자가 할당한 관리 ID를 사용하려면 다음을 수행합니다.
+
+1. 5 번 줄에서,를 제거 합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
+1. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`로 바꿉니다.
+1. 클라이언트 ID를 입력 합니다.
 
 ## <a name="handle-transient-errors-in-a-time-dependent-script"></a>시간 종속 스크립트의 일시적인 오류 처리
 
@@ -242,10 +249,11 @@ $startParams = @{
 Start-AzAutomationRunbook @startParams
 ```
 
-Runbook을 시스템 할당 관리 ID로 실행하려면 코드를 그대로 둡니다. 사용자 할당 관리 ID를 사용하려면 다음을 수행합니다.
-1. 줄 5에서 `$AzureContext = (Connect-AzAccount -Identity).context` 를 제거합니다.
-1. , 및 으로 대체합니다. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`
-1. 클라이언트 ID를 입력합니다.
+시스템이 할당한 관리 ID를 사용하여 Runbook을 실행하려면 코드를 그대로 둡니다. 사용자가 할당한 관리 ID를 사용하려면 다음을 수행합니다.
+
+1. 5 번 줄에서,를 제거 합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
+1. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`로 바꿉니다.
+1. 클라이언트 ID를 입력 합니다.
 
 ## <a name="work-with-a-custom-script"></a>사용자 지정 스크립트 작업
 
@@ -255,8 +263,8 @@ Runbook을 시스템 할당 관리 ID로 실행하려면 코드를 그대로 둡
 사용자 지정 스크립트 사용:
 
 1. Automation 계정을 만듭니다.
-2. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) 역할을 배포합니다. 
-4. Linux 컴퓨터의 경우 높은 권한이 필요합니다. 로그인하여 [서명 확인을 해제](automation-linux-hrw-install.md#turn-off-signature-validation)합니다.
+2. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) 역할을 배포합니다.
+3. Linux 컴퓨터의 경우 높은 권한이 필요합니다. 로그인하여 [서명 확인을 해제](automation-linux-hrw-install.md#turn-off-signature-validation)합니다.
 
 ## <a name="test-a-runbook"></a>Runbook 테스트
 
@@ -280,9 +288,11 @@ Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며
 
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Azure Portal에서 Runbook 게시하기
 
-1. Azure Portal에서 Automation 계정에 Rubbook을 엽니다.
-2. **편집** 을 클릭합니다.
-3. **게시** 단추를 클릭한 다음 확인 메시지에서 **예** 를 클릭하여 응답합니다.
+1. Azure Portal에서 **Automation 계정** 을 검색하여 선택합니다.
+1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
+1. Automation 계정에서 runbook을 엽니다.
+1. **편집** 을 클릭합니다.
+1. **게시** 를 클릭 한 다음 확인 메시지에 대 한 응답으로 **예** 를 선택 합니다.
 
 ### <a name="publish-a-runbook-using-powershell"></a>PowerShell을 사용하여 Runbook 게시
 
@@ -305,14 +315,16 @@ Publish-AzAutomationRunbook @publishParams
 
 Runbook이 게시되면 작업에 대해 일정을 지정할 수 있습니다.
 
-1. Azure Portal에서 Automation 계정에 Runbook을 엽니다.
-2. **리소스** 에서 **일정** 을 선택합니다.
-3. **일정 추가** 를 선택합니다.
-4. Runbook 예약 창에서 **Runbook에 일정 연결** 을 선택합니다.
-5. 일정 창에서 **새 일정 만들기** 를 선택합니다.
-6. 새 일정 창에 이름, 설명 및 기타 매개 변수를 입력합니다.
-7. 일정이 생성되면 강조 표시하고 **확인** 을 클릭합니다. 이제 Runbook에 연결될 것입니다.
-8. 사용자의 사서함에서 Runbook 상태를 알리는 전자 메일을 찾습니다.
+1. Azure Portal에서 **Automation 계정** 을 검색하여 선택합니다.
+1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
+1. Runbook 목록에서 runbook을 선택 합니다.
+1. **리소스** 에서 **일정** 을 선택합니다.
+1. **일정 추가** 를 선택합니다.
+1. **Runbook 예약** 창에서 **Runbook에 일정 연결** 을 선택 합니다.
+1. **일정** 창에서 **새 일정 만들기** 를 선택 합니다.
+1. **새 일정** 창에 이름, 설명 및 기타 매개 변수를 입력 합니다.
+1. 일정이 생성되면 강조 표시하고 **확인** 을 클릭합니다. 이제 Runbook에 연결될 것입니다.
+1. 사용자의 사서함에서 Runbook 상태를 알리는 전자 메일을 찾습니다.
 
 ## <a name="obtain-job-statuses"></a>작업 상태 가져오기
 

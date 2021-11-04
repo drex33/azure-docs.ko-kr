@@ -6,19 +6,15 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 243aa85ed2e52fe73efcb0e81c5b3de70b43039e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5767eacad78b775514483d7c2e90de7d74eee7fe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536117"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468046"
 ---
-# <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버 가상 네트워크 만들기 및 관리
+# <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 Azure Database for MySQL 유연한 서버를 위한 가상 네트워크 만들기 및 관리
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가지 유형의 상호 배타적인 네트워크 연결 방법을 지원합니다. 다음은 두 가지 옵션입니다.
 

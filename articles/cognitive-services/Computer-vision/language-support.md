@@ -8,33 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
-ms.openlocfilehash: f2ded17ed86a550ca781fbad792e89bfc4d7809d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a79954ba0a96f6db6f12af13c6c74d7386e88231
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130215937"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473417"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대한 언어 지원
 
-Computer Vision의 일부 기능은 여러 언어를 지원합니다. 여기서 언급하지 않은 기능은 영어만 지원합니다.
+Computer Vision의 일부 기능은 여러 언어를 지원 합니다. 여기서 언급 하지 않은 기능은 영어만 지원 합니다.
 
 ## <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
-Computer Vision OCR Api는 여러 언어를 지원 합니다. 읽기는 언어 매개 변수를 요구 하지 않고 동일한 텍스트 줄을 포함 하 여 혼합 된 언어로 이미지 및 문서에서 텍스트를 추출할 수 있습니다. 자세한 내용은 [OCR(광학 인식) 개요](overview-ocr.md)를 참조하세요.
+Computer Vision OCR Api는 다양 한 언어를 지원 합니다. 읽기는 언어 매개 변수를 요구 하지 않고 같은 텍스트 줄을 포함 하 여 혼합 된 언어로 이미지 및 문서에서 텍스트를 추출할 수 있습니다. 자세한 내용은 [OCR(광학 인식) 개요](overview-ocr.md)를 참조하세요.
 
 
 > [!NOTE]
-> **언어 코드 선택 사항**
+> **언어 코드(선택 사항)**
 >
-> OCR의 심층 학습 기반 범용 모델은 혼합 된 언어의 텍스트 줄을 포함 하 여 문서에서 다국어 텍스트를 모두 추출 하며 언어 코드를 지정할 필요가 없습니다. 언어에 대해 잘 모르는 경우에는 언어 코드를 매개 변수로 제공 하지 말고 서비스에서 관련 모델만 강제로 적용 하도록 합니다. 그렇지 않으면 서비스에서 불완전 하 고 잘못 된 텍스트를 반환할 수 있습니다.
+> OCR의 심층 학습 기반 범용 모델 읽기는 혼합 된 언어를 포함 하는 텍스트 줄을 포함 하 여 문서에서 다국어 텍스트를 모두 추출 하며 언어 코드를 지정할 필요가 없습니다. 언어에 대해 잘 모르는 경우에는 언어 코드를 매개 변수로 제공하지 말고 서비스에서 관련 모델만 강제로 적용하도록 합니다. 그렇지 않으면 서비스에서 불완전하고 잘못된 텍스트를 반환할 수 있습니다.
 
-미리 보기 언어 및 기능을 사용하려면 [모델 버전을 지정하는 방법](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional)을 참조하세요. 미리 보기 모델에는 현재 GA 버전에 대한 향상된 기능이 포함되어 있습니다.
+미리 보기 모델에는 현재 GA 버전의 API에 대 한 향상 된 기능이 포함 되어 있습니다. 미리 보기 언어 및 기능을 사용하려면 [모델 버전을 지정하는 방법](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional)을 참조하세요. 
 
 ### <a name="handwritten-languages"></a>필기 언어
-다음 표에서는 읽을 때 지원 되는 필기 언어를 나열 합니다.
+
+다음 표에서는 필기 텍스트에 대해 읽을 때 지원 되는 언어를 나열 합니다.
 
 |언어| 언어 코드(선택 사항) | 읽기 |
 |:-----|:----:|:-----|
@@ -47,7 +48,8 @@ Computer Vision OCR Api는 여러 언어를 지원 합니다. 읽기는 언어 �
 |스페인어 |`es`|✅ 미리 보기 |
 
 ### <a name="print-languages"></a>인쇄 언어
-다음 표에서는 OCR Api에서 지원 되는 인쇄 언어를 나열 합니다.
+
+다음 표에서는 인쇄 되는 텍스트에 대해 OCR Api에서 지원 되는 언어를 나열 합니다.
 
 |언어| 언어 코드(선택 사항) | 읽기 | OCR |
 |:-----|:----:|:-----|:---:|
@@ -179,7 +181,7 @@ Computer Vision OCR Api는 여러 언어를 지원 합니다. 읽기는 언어 �
 
 ## <a name="image-analysis"></a>이미지 분석
 
-[Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부 작업은 `language` 쿼리 매개 변수로 지정된 다른 언어로 결과를 반환할 수 있습니다. 다른 작업은 지정된 언어에 관계없이 결과를 영어로 반환하고 지원되지 않는 언어에 대해서는 예외를 throw합니다. 작업은 `visualFeatures` 및 `details` 쿼리 매개 변수로 지정됩니다. 이미지 분석을 통해 수행할 수 있는 모든 작업 목록은 [개요](overview-image-analysis.md)를 참조하세요. 태그 지정 언어는 API 버전 3.2 이상에서만 사용할 수 있습니다.
+[분석-이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부 기능은 쿼리 매개 변수로 지정 된 다른 언어로 결과를 반환할 수 있습니다 `language` . 다른 작업은 지정된 언어에 관계없이 결과를 영어로 반환하고 지원되지 않는 언어에 대해서는 예외를 throw합니다. 작업은 `visualFeatures` 및 `details` 쿼리 매개 변수로 지정됩니다. 이미지 분석을 통해 수행할 수 있는 모든 작업 목록은 [개요](overview-image-analysis.md)를 참조하세요. 태그 지정 언어는 API 버전 3.2 이상에서만 사용할 수 있습니다.
 
 |언어 | 언어 코드 | 범주 | 태그 | Description | 성인 | 브랜드 | 색 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

@@ -1,16 +1,16 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
-ms.author: pafarley
-ms.openlocfilehash: 8e9666d2d944fe87767084129549476a09902fef
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 11856bd2b26703b4f1001c1a5223c86f2d2d9a8a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540654"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509740"
 ---
 이 빠른 시작에서는 Linux용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
 

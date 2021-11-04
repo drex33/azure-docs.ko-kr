@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: 5ea3b24cbdbd4a4c9a1f11883e8a2231467a7ee3
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 11/01/2021
+ms.openlocfilehash: f939d397db80e303ec2ed36d4112df0d38d090aa
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278577"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464052"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory와 Azure Purview를 연결하는 방법
 

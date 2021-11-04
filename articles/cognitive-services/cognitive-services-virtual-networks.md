@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 10/28/2021
 ms.author: aahi
-ms.openlocfilehash: f8c20e9da69c9b4a6f1a301e11d73e39853662e1
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 8ab4c205daaec32b3799d4c6cdccd4f9ddef093a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467811"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473474"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -50,8 +50,8 @@ VNET(가상 네트워크)는 [Cognitive Services를 사용할 수 있는 지역]
 > * Face
 > * 언어 이해(LUIS)
 > * Personalizer
-> * Speech Services
-> * 텍스트 분석
+> * Speech Service
+> * 언어 서비스
 > * QnA Maker
 > * Translator Text
 

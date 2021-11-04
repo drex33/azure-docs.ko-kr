@@ -5,20 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0db68a72b3b44f9febb7cdef546545b5b549ddae
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 70b58b689798b6651a88674668497a27a2780429
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069385"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450935"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지 사용
 
 이 토픽에 나와 있는 단계를 순서대로 수행하여 신규 또는 기존 Automation 계정 및 연결된 Log Analytics 작업 영역을 사용하는 VM에서 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정합니다. 설정 프로세스를 완료한 후에는 변수를 구성하여 기능을 사용자 지정합니다.
-
->[!NOTE]
->클래식 VM에서 작업 시간 외 VM 시작/중지 기능을 사용하려면 클래식 실행 계정이 필요합니다. 클래식 실행 계정은 기본적으로 생성되지 않습니다. [클래식 실행 계정 만들기](automation-create-standalone-account.md#create-a-classic-run-as-account)를 참조하세요.
->
 
 ## <a name="enable-and-configure"></a>사용 및 구성 
 

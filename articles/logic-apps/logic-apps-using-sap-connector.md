@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/01/2021
 tags: connectors
-ms.openlocfilehash: 3951ae0b6ea1d3764c60723c476a989712fce6e5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a400c8e5ac118250afedd27f2f8e79b678546727
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218001"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438648"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -324,7 +324,7 @@ SAP 커넥터의 ISE 버전은 SNC X.509를 지원합니다. 다음 단계에 �
 
    1. **SNC 파트너 이름** 에 백엔드의 SNC 이름을 입력합니다. 예: `p:CN=DV3, OU=LA, O=MS, C=US`.
 
-   1. **SNC 인증서** 에 SNC 클라이언트의 공개 인증서를 base64로 인코딩된 형식으로 입력합니다. PEM 머리글이나 바닥글을 포함하지 마세요.
+   1. **SNC 인증서** 에 SNC 클라이언트의 공개 인증서를 base64로 인코딩된 형식으로 입력합니다. PEM 머리글이나 바닥글을 포함하지 마세요. PSE에 여러 프라이빗 인증서가 포함될 수 있지만 이 **SNC 인증서** 매개 변수는 이 연결에 사용해야 하는 인증서를 식별하므로 여기에 프라이빗 인증서를 입력하지 마세요. 자세한 내용은 다음 참고를 검토하세요.
 
    1. 필요에 따라 **SNC 내 이름**, **SNC 보호 품질** 에 대한 SNC 설정을 입력합니다(선택 사항).
 
@@ -350,8 +350,35 @@ SAP 커넥터의 ISE 버전은 SNC X.509를 지원합니다. 다음 단계에 �
 
    커넥터는 PSE 변경을 감지하고 다음 연결 요청 중에 자체 복사본을 업데이트합니다.
 
+   이진 PSE 파일을 base64로 인코딩된 형식으로 변환하려면 다음 단계를 수행합니다.
+   
+   1. PowerShell 스크립트를 사용합니다. 예를 들면 다음과 같습니다.
+
+      ```powershell
+      Param ([Parameter(Mandatory=$true)][string]$psePath, [string]$base64OutputPath)
+      $base64String = [convert]::ToBase64String((Get-Content -path $psePath -Encoding byte))
+      if ($base64OutputPath -eq $null)
+      {
+          Write-Output $base64String
+      }
+      else
+      {
+          Set-Content -Path $base64OutputPath -Value $base64String
+          Write-Output "Output written to $base64OutputPath"
+      } 
+      ```
+
+   1. 스크립트를 `pseConvert.ps1` 파일로 저장한 다음 스크립트를 호출합니다. 예를 들면 다음과 같습니다.
+
+      ```output
+      .\pseConvert.ps1 -psePath "C:\Temp\SECUDIR\request.pse" -base64OutputPath "connectionInput.txt"
+      Output written to connectionInput.txt 
+      ```
+
+      출력 경로 매개 변수를 제공하지 않으면 콘솔에 대한 스크립트의 출력에 줄이 끊어집니다. 연결 입력 매개 변수에 대한 base 64로 인코딩된 문자열의 줄 바꿈을 제거합니다.
+
    > [!NOTE]
-   > ISE에 대해 둘 이상의 SNC 클라이언트 인증서를 사용하는 경우 모든 연결에 대해 동일한 PSE를 제공해야 합니다. 클라이언트 공개 인증서 매개 변수를 ISE에서 사용되는 각 연결에 대한 특정 인증서로 설정할 수 있습니다.
+   > ISE에 대해 둘 이상의 SNC 클라이언트 인증서를 사용하는 경우 모든 연결에 대해 동일한 PSE를 제공해야 합니다. PSE는 각 연결과 모든 연결에 대한 클라이언트 프라이빗 인증서를 포함해야 합니다. ISE에서 사용되는 각 연결에 대한 특정 프라이빗 인증서와 일치하도록 클라이언트 공용 인증서 매개 변수를 설정해야 합니다.
 
 1. **만들기** 를 선택하여 연결을 만듭니다. 매개 변수가 정확하면 연결이 만들어집니다. 매개 변수에 문제가 있는 경우 연결 만들기 대화 상자에 오류 메시지가 표시됩니다.
 

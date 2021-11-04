@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 1fb950fb0a589d4ac9dc6554b95a8f72fa8ca7b3
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: e6cb3ecf7bdc352617f5b418b6fa802cdf2c7d63
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831569"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439009"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
 
@@ -77,7 +77,7 @@ Personalizer 사용 사례를 선택하는 경우 다음을 고려합니다.
 * **사용자 인구 통계**: 성별, 나이, 인종, 종교와 관련된 특징: 이러한 기능은 규정상의 이유로 특정 애플리케이션에서 허용되지 않을 수 있으며, 맞춤 설정에서 일반화와 편견을 전파할 수 있으므로 이러한 기능을 맞춤 설정하는 것이 윤리적이지 않을 수 있습니다. 이러한 편견 전파의 예로 노인 또는 성별에 기반한 대상 그룹에 표시되지 않는 엔지니어링에 대한 채용 공고가 있습니다.
 * **로캘 정보**: 전 세계의 많은 지역에서 위치 정보(예: 우편 번호, 또는 인근 지역 이름)는 소득, 인종 및 종교와 높은 상관 관계가 있을 수 있습니다.
 * **공정성에 대한 사용자 인식**: 애플리케이션에서 올바른 결정을 내리는 경우에도 사용자가 애플리케이션에 표시된 콘텐츠가 차별적인 기능과 관련이 있는 것으로 보이는 방식으로 변경되는 것을 인식하는 효과를 고려해야 합니다.
-* **특징에서 의도하지 않은 편견**:       모집단의 하위 집합에만 영향을 주는 기능을 사용하여 도입될 수 있는 편견의 유형이 있습니다. 이미지 분석을 사용하여 그림의 항목을 추출하거나 텍스트 분석을 사용하여 텍스트의 엔터티를 검색하는 경우와 같이 기능이 알고리즘 방식으로 생성되는 경우 특별히 주의해야 합니다. 이러한 기능을 만드는 데 사용하는 서비스의 특성을 알고 있어야 합니다.
+* **특징에서 의도하지 않은 편견**:       모집단의 하위 집합에만 영향을 주는 기능을 사용하여 도입될 수 있는 편견의 유형이 있습니다. 이를 위해서는 이미지 분석을 사용 하 여 그림 또는 텍스트 분석에서 항목을 추출 하 여 텍스트에서 엔터티를 검색 하는 경우 처럼 기능을 알고리즘 방식으로 하는 경우 추가 주의가 필요 합니다. 이러한 기능을 만드는 데 사용하는 서비스의 특성을 알고 있어야 합니다.
 
 컨텍스트 및 작업을 Personalizer로 보내는 기능을 선택하는 경우 다음과 같은 모범 사례를 적용합니다.
 

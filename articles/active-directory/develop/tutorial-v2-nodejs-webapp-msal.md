@@ -3,19 +3,19 @@ title: '자습서: Node.js 및 Express 웹앱에서 사용자 로그인 | Azure'
 titleSuffix: Microsoft identity platform
 description: 이 자습서에서는 웹앱에서 사용자를 로그인시키기 위한 지원 기능을 추가합니다.
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: karenhoran
-ms.openlocfilehash: 4767d7aa31d705e25f8d87ca24f928c64fe022f1
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.author: marsma
+ms.openlocfilehash: 1a61eb908221d4fe2eea9d74d4fbc02c7660ba85
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161604"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507931"
 ---
 # <a name="tutorial-sign-in-users-in-a-nodejs--express-web-app"></a>자습서: Node.js 및 Express 웹앱에서 사용자 로그인
 

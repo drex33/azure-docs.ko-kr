@@ -5,17 +5,20 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: fc5de9ff694c1c5a3841c206334fb87d240a568c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 973a1d100fb8182565628aab8cef66364e57a378
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378774"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131038806"
 ---
 # <a name="manage-qna-maker-app"></a>QnA Maker 앱 관리
 
 QnA Maker를 사용하면 협력자의 역할에 따라 협력자 액세스를 제한하는 기능을 제공하여 다양한 작성자 및 콘텐츠 편집자와 협업할 수 있습니다.
 [QnA Maker 협력자 인증 개념](../Concepts/role-based-access-control.md)에 대해 자세히 알아보세요.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어) 추가
 
@@ -23,29 +26,13 @@ QnA Maker를 사용하면 여러 사용자가 동일한 QnA Maker 리소스에 �
 
 ## <a name="access-at-the-cognitive-resource-level"></a>인지 리소스 수준에서 액세스
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 특정 기술 자료는 QnA Maker 서비스에서 공유할 수 없습니다. 보다 세부적인 액세스 제어를 원하는 경우 여러 QnA Maker 리소스에 기술 자료를 배포한 다음, 각 리소스에 역할을 추가하는 것이 좋습니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-특정 기술 자료는 Text Analytics 서비스에서 공유할 수 없습니다. 보다 세부적인 액세스 제어를 원하는 경우 여러 Text Analytics 리소스에 기술 자료를 배포한 다음, 각 리소스에 역할을 추가하는 것이 좋습니다.
-
----
 
 ## <a name="add-a-role-to-a-resource"></a>리소스에 역할 추가
 
 ### <a name="add-a-user-account-to-the-cognitive-resource"></a>인지 리소스에 사용자 계정 추가
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 QnA Maker 리소스에 RBAC 컨트롤을 적용해야 합니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-사용자 지정 질문 답변을 기능으로 사용하여 Text Analytics 리소스에 RBAC 컨트롤을 적용해야 합니다.
-
----
 
 다음 단계에서는 협력자 역할을 사용하지만 이러한 단계를 사용하여 역할을 추가할 수 있습니다.
 

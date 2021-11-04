@@ -9,12 +9,12 @@ metadata:
   ms.author: brbell
   ms.reviewer: mimckitt
   ms.date: 06/15/2020
-  ms.openlocfilehash: 69fe7e2a56d5cdf487d195a067195c078cec074e
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-  ms.translationtype: HT
+  ms.openlocfilehash: ef76c25c13ded4f9e7f23eac6b38f6c62963f478
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122538467"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131474745"
 title: 로컬 임시 디스크가 없는 Azure VM의 크기
 summary: >
   > [!TIP]
@@ -22,22 +22,20 @@ summary: >
   > 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
 
 
-  이 문서에서는 로컬 임시 디스크가 없는 Azure VM의 크기에 대한 FAQ(자주 묻는 질문)의 답변을 제공합니다(예: 로컬 임시 디스크 없음). 해당 VM 크기에 대한 자세한 내용은 [Dv4 및 Dsv4 시리즈에 대한 사양(범용 워크로드)](dv4-dsv4-series.md) 또는 [Ev4 및 Esv4 시리즈 사양(메모리 최적화 워크로드)](ev4-esv4-series.md)을 참조하세요.
+  이 문서에서는 로컬 임시 디스크가 없는 Azure VM의 크기에 대한 FAQ(자주 묻는 질문)의 답변을 제공합니다(예: 로컬 임시 디스크 없음).
 sections:
 - name: 무시됨
   questions:
   - question: "로컬 임시 디스크가 없다는 건 무슨 의미인가요? \n"
     answer: >
-      과거에는 작은 로컬 디스크(예: D: 드라이브)가 포함된 VM 용량(예: Standard_D2s_v3, Standard_E48_v3)을 사용했습니다. 이제 VM 크기가 새롭게 바뀌어서 그 작은 로컬 디스크는 더 이상 없습니다. 그러나 계속 표준 HDD, 프리미엄 SSD 또는 울트라 SSD에 연결할 수는 있습니다.
+      과거에는 작은 로컬 디스크(예: D: 드라이브)가 포함된 VM 용량(예: Standard_D2s_v3, Standard_E48_v3)을 사용했습니다. [Dasv5](dasv5-dadsv5-series.md) 및 [EASV5](easv5-eadsv5-series.md) 와 같은 VM 시리즈를 사용 하면 작은 로컬 디스크가 더 이상 존재 하지 않습니다. 그러나 표준 HDD, 프리미엄 SSD 또는 울트라 SSD를 연결 하 여 원격 저장소로 사용할 수 있습니다.
   - question: >
       여전히 로컬 임시 디스크를 필요한 경우 어떻게 하나요?
-    answer: "워크로드에 로컬 임시 디스크가 필요한 경우 새로운 [Ddv4 및 Ddsv4](ddv4-ddsv4-series.md), 혹은 [Edv4 및 Edsv4](edv4-edsv4-series.md) VM 크기를 사용할 수도 있습니다. 이러한 크기는 이전 v3 크기 대비 50% 더 큰 임시 디스크를 제공합니다.\n\n> [!NOTE]\n> 로컬 임시 디스크는 영구적이지 않습니다. 데이터를 영구적으로 유지하려면 표준 HDD, 프리미엄 SSD 또는 울트라 SSD 옵션을 사용하세요. \n"
-  - question: "해당 새 VM 크기가 지금까지 익숙했던 범용 Dv3/Dsv3 또는 메모리 최적화 Ev3/Esv3 VM 크기와 다른 점은 무엇인가요? \n"
-    answer: "| 로컬 임시 디스크를 사용하는 v3 VM 제품군   | 로컬 임시 디스크를 사용하는 새 v4 제품군 | 로컬 임시 디스크가 없는 새 v4 제품군 |\n|---|---|---|\n| Dv3   | Ddv4 | Dv4 |\n| Dsv3 | Ddsv4  | Dsv4 |\n| Ev3   | Edv4  | Ev4 |\n| Esv3 | Edsv4 |    Esv4 | \n"
+    answer: "워크 로드에 로컬 임시 디스크가 필요한 경우에도 [Dadsv5](dasv5-dadsv5-series.md)같은 크기를 제공 합니다. \n\n> [!NOTE]\n> 로컬 임시 디스크는 영구적이지 않습니다. 데이터를 영구적으로 유지하려면 표준 HDD, 프리미엄 SSD 또는 울트라 SSD 옵션을 사용하세요. \n"
   - question: "로컬 임시 디스크가 있는 VM 크기를 로컬 임시 디스크가 없는 VM 크기로 조정할 수 있나요?  \n"
     answer: "아니요. 크기 조정에 사용할 수 있는 조합은 다음과 같습니다. \n\n1. VM(로컬 임시 디스크 있음) -> VM(로컬 임시 디스크 있음) 및 \n2. VM(로컬 임시 디스크 없음) -> VM(로컬 임시 디스크 없음) \n\n해결 방법에 관심이 있는 경우 다음 질문을 참조하세요.\n\n> [!NOTE]\n> 이미지가 리소스 디스크에 종속되어 있거나 페이지 파일 또는 스왑 파일이 로컬 임시 디스크에 있는 경우 디스크 없는 이미지는 작동하지 않습니다. 대신 ‘디스크 있는’ 대안을 사용하세요. \n"
   - question: "로컬 임시 디스크가 있는 VM 크기에서 로컬 임시 디스크가 없는 VM 크기로 마이그레이션은 어떻게 하나요?  \n"
-    answer: "다음 단계를 수행하여 마이그레이션을 할 수 있습니다. \n\n1. 로컬 임시 디스크가 있는 가상 머신(예: D: 드라이브)에 로컬 관리자로 연결합니다.\n2. [Windows VM에서 D: 드라이브를 데이터 드라이브로 사용](./windows/change-drive-letter.md) 문서의 “일시적으로 pagefile.sys를 C 드라이브로 이동” 섹션의 지침에 따라 페이지 파일을 로컬 임시 디스크(D: 드라이브)에서 C: 드라이브로 이동합니다.\n\n   > [!NOTE]\n   > “일시적으로 pagefile.sys를 C 드라이브로 이동” 섹션의 지침을 따라 D: 드라이브를 Windows VM의 데이터 드라이브로 사용해 페이지 파일을 로컬 임시 디스크(D: 드라이브)에서 C: 드라이브로 옮깁니다. **설명된 단계와의 편차 때문에 다음 오류 메시지가 표시됩니다. “리소스 디스크에서 비 리소스 디스크 VM 크기로 변경하거나 그 반대의 경우는 허용되지 않기 때문에 VM 크기를 조정할 수 없습니다.”**\n\n3. [포털 혹은 Azure CLI를 사용하여 스냅샷 만들기](./linux/snapshot-copy-managed-disk.md) 문서에 설명된 단계를 수행해서 VM의 스냅샷을 만듭니다. \n4. [CLI를 사용하여 스냅샷에서 가상 머신 만들기](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot) 문서에 설명된 단계에 따라 스냅샷을 사용해 새로운 디스크 없는 VM(예: Dv4, Dsv4, Ev4, Esv4 시리즈)을 만듭니다. \n"
+    answer: "다음 단계를 수행하여 마이그레이션을 할 수 있습니다. \n\n1. 로컬 임시 디스크가 있는 가상 머신(예: D: 드라이브)에 로컬 관리자로 연결합니다.\n2. [Windows VM에서 D: 드라이브를 데이터 드라이브로 사용](./windows/change-drive-letter.md) 문서의 “일시적으로 pagefile.sys를 C 드라이브로 이동” 섹션의 지침에 따라 페이지 파일을 로컬 임시 디스크(D: 드라이브)에서 C: 드라이브로 이동합니다.\n\n   > [!NOTE]\n   > “일시적으로 pagefile.sys를 C 드라이브로 이동” 섹션의 지침을 따라 D: 드라이브를 Windows VM의 데이터 드라이브로 사용해 페이지 파일을 로컬 임시 디스크(D: 드라이브)에서 C: 드라이브로 옮깁니다. **설명된 단계와의 편차 때문에 다음 오류 메시지가 표시됩니다. “리소스 디스크에서 비 리소스 디스크 VM 크기로 변경하거나 그 반대의 경우는 허용되지 않기 때문에 VM 크기를 조정할 수 없습니다.”**\n\n3. [포털 혹은 Azure CLI를 사용하여 스냅샷 만들기](./linux/snapshot-copy-managed-disk.md) 문서에 설명된 단계를 수행해서 VM의 스냅샷을 만듭니다. \n4. CLI를 사용 하 [여 스냅숏에서 가상 컴퓨터 만들기](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot)에 설명 된 단계에 따라 스냅숏을 사용 하 여 새 디스크 없는 VM (예: Dv5, Dsv5, Dasv5, Ev5, Esv5, Easv5 series)을 만듭니다. \n"
   - question: >
       해당 VM 크기는 Linux 및 Windows OS(운영 체제)를 모두 지원하나요?
     answer: >
@@ -49,4 +47,4 @@ sections:
   - question: >
       질문이나 의견이 있으신가요?
     answer: "[피드백 양식]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u)을 작성하세요. \n"
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n이 문서에서는 로컬 임시 디스크 없는 Azure VM과 관련된 가장 자주 묻는 질문에 대해 자세히 알아보았습니다. 해당 VM 크기에 대한 자세한 내용은 다음 문서를 참조하세요.\n\n- [Dv4 및 Dsv4 시리즈 사양(범용 워크로드)](dv4-dsv4-series.md)\n- [Ev4 및 Esv4 시리즈 사양(메모리 최적화 워크로드)](ev4-esv4-series.md)"
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n이 문서에서는 로컬 임시 디스크 없는 Azure VM과 관련된 가장 자주 묻는 질문에 대해 자세히 알아보았습니다. 해당 VM 크기에 대한 자세한 내용은 다음 문서를 참조하세요.\n\n- [Dv5 및 Dsv5 시리즈에 대 한 사양](dv5-dsv5-series.md)\n- [Dasv5 및 Dadsv5 시리즈에 대 한 사양](dasv5-dadsv5-series.md)\n- [Ev5 및 Esv5 시리즈에 대 한 사양](ev5-esv5-series.md)\n- [Easv5 및 Eadsv5 시리즈에 대 한 사양](easv5-eadsv5-series.md)"

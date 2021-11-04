@@ -6,26 +6,23 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: bf3aa8b675e242952f32678059b8b2c89d5b95e0
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 15757c3a7e394dcc52c83e8eeef54d8b44b97a34
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612430"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468198"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 느린 쿼리 로그(미리 보기)
+# <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유동 서버에서 느린 쿼리 로그
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Azure Database for MySQL 유연한 서버에서 느린 쿼리 로그는 사용자가 구성하고 액세스하는 데 사용할 수 있습니다. 느린 쿼리 로그는 기본적으로 사용하지 않도록 설정되어 있으므로 문제 해결 중 성능 병목 상태를 식별하는 데 도움이 됩니다.
 
 MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서의 [느린 쿼리 로그 섹션](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)을 참조하세요.
 
-## <a name="configure-slow-query-logging"></a>느린 쿼리 로깅 구성 
-기본적으로 느린 쿼리 로그는 사용하지 않도록 설정되어 있습니다. 로그를 사용하려면, `slow_query_log` 서버 매개 변수를 *ON* 으로 설정합니다. 이 작업은 Azure Portal 또는 Azure CLI를 사용하여 수행할 수 있습니다. <!-- add link to server parameter-->. 
+## <a name="configure-slow-query-logging"></a>느린 쿼리 로깅 구성
+기본적으로 느린 쿼리 로그는 사용하지 않도록 설정되어 있습니다. 로그를 사용하려면, `slow_query_log` 서버 매개 변수를 *ON* 으로 설정합니다. 이 작업은 Azure Portal 또는 Azure CLI를 사용하여 수행할 수 있습니다. <!-- add link to server parameter-->.
 
 느린 쿼리 로깅 동작을 제어하기 위해 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
@@ -86,7 +83,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
     ```
 
@@ -96,7 +93,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | order by query_time_d desc
     | take 5
     ```
@@ -107,7 +104,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
@@ -117,7 +114,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
     | render timechart
     ```
@@ -127,10 +124,10 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
     ```Kusto
     AzureDiagnostics
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
-    ```    
-    
+    ```
+
 ## <a name="next-steps"></a>다음 단계
 - [감사 로그](concepts-audit-logs.md)에 대한 자세한 정보
 - [쿼리 성능 Insight](tutorial-query-performance-insights.md)

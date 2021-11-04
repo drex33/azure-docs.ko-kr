@@ -1,18 +1,18 @@
 ---
 title: Looker의 메타데이터 및 계보
 description: 이 문서에서는 Looker 원본에서 데이터 계보 추출을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/12/2021
-ms.openlocfilehash: bed8395940643e56d586369fd00341b4c28b27f9
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 254bbe548ffb95ce6bf43c8fbb8b107ac87997eb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567458"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428789"
 ---
 # <a name="how-to-get-lineage-from-looker-into-azure-purview"></a>Looker에서 Azure Purview로 계보를 가져오는 방법
 

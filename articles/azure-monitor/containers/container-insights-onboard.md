@@ -3,19 +3,19 @@ title: Container Insights 사용 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 성능과 어떤 성능 관련 문제가 확인되었는지 이해할 수 있도록 Container Insights를 사용하도록 설정하고 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: be2dcaeb088d2996df1d09e3f373e48866db3eb9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2d47ea7f2f2f0dadfd979a42b0b0e9125d4bebde
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233453"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455115"
 ---
 # <a name="enable-container-insights"></a>Container Insights 사용
 
 이 문서에서는 Kubernetes 환경에 배포되고 호스트되는 워크로드의 성능을 모니터링하도록 Container Insights를 설정하는 데 사용할 수 있는 옵션의 개요를 제공합니다.
 
 - [AKS(Azure Kubernetes Service)](../../aks/index.yml)  
-- [Azure Arc-사용 가능한 Kubernetes 클러스터](../../azure-arc/kubernetes/overview.md)
+- [Azure Arc 지원 Kubernetes 클러스터](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) 또는 온-프레미스
    - [AKS 엔진](https://github.com/Azure/aks-engine)
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 4.x  
@@ -29,7 +29,7 @@ ms.locfileid: "130233453"
 - Azure CLI
 - [Terraform 및 AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
-AKS kubernetes 클러스터의 경우에는 모니터링을 사용 하도록 설정 하기 전에 먼저 클러스터를 [Azure Arc](../../azure-arc/kubernetes/overview.md) 에 연결 해야 합니다.
+AKS가 아닌 Kubernetes 클러스터의 경우 모니터링을 사용하도록 설정하기 전에 먼저 클러스터를 [Azure Arc](../../azure-arc/kubernetes/overview.md) 연결해야 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -73,7 +73,10 @@ Container Insights는 공식적으로 다음 구성을 지원합니다.
 
 - 환경: Azure Red Hat OpenShift, Kubernetes 온-프레미스 및 Azure/Azure Stack의 AKS 엔진 자세한 내용은 [Azure Stack에서 AKS 엔진](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)을 참조하세요.
 - Kubernetes 및 지원 정책의 버전은 [AKS(Azure Kubernetes Service)에서 지원](../../aks/supported-kubernetes-versions.md)되는 것과 동일합니다.
-- 클러스터를 [azure arc](../../azure-arc/kubernetes/overview.md) 에 연결 하 고 azure arc를 통해 Insights 컨테이너를 통해 모니터링 하도록 설정 하는 것이 좋습니다.
+- 클러스터를 Azure Arc 연결하고 [Azure Arc](../../azure-arc/kubernetes/overview.md) 통해 컨테이너 Insights 통해 모니터링을 사용하도록 설정하는 것이 좋습니다.
+
+> [!IMPORTANT]
+> 모니터링 추가 기능 은 현재 [HTTP 프록시(미리 보기)로](../../aks/http-proxy.md) 구성된 AKS 클러스터에 대해 지원되지 않습니다.
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
 
@@ -132,9 +135,9 @@ Container Insights를 사용하도록 설정하려면 다음 표에 설명된 �
 | | [Azure Monitor에서 AKS 클러스터에 사용](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Azure Monitor의 다중 클러스터 페이지에서 이미 배포된 하나 이상의 AKS 클러스터에 대해 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [AKS 클러스터에서 사용](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Azure Portal의 AKS 클러스터에서 직접 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [Azure Resource Manager 템플릿을 사용하여 AKS 클러스터에 사용](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| 미리 구성된 Azure Resource Manager 템플릿을 사용하여 AKS 클러스터에 대해 모니터링을 사용하도록 설정할 수 있습니다. |
-| 기존 비 AKS Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS Kubernetes 클러스터에 대해를 사용 하도록 설정](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli)합니다. | Azure 외부에서 호스트 되 고 Azure Arc에서 사용 하도록 설정 된 Kubernetes 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. 여기에는 하이브리드, OpenShift 및 Azure CLI를 사용 하는 다중 클라우드가 포함 됩니다. |
-| | [Azure Resource Manager 템플릿을 사용 하 여 비 AKS Kubernetes 클러스터에 대해 사용](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-resource-manager) | 미리 구성 된 Azure Resource Manager 템플릿을 사용 하 여 Arc에서 사용 하도록 설정 된 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
-| | [Azure Monitor에서 비 AKS Kubernetes 클러스터에 대해 사용](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-portal) | Azure Monitor의 multicluster 페이지에서 이미 배포 된 하나 이상의 클러스터에 대해 모니터링을 사용 하도록 설정할 수 있습니다. |
+| 기존 비 AKS Kubernetes 클러스터 | [Azure CLI 사용하여 비 AKS Kubernetes 클러스터에 대해 를 사용하도록 설정합니다.](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli) | Azure 외부에서 호스트되고 Azure Arc 사용하도록 설정된 Kubernetes 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. 여기에는 Azure CLI 사용하는 하이브리드, OpenShift 및 다중 클라우드가 포함됩니다. |
+| | [Azure Resource Manager 템플릿을 사용하여 비 AKS Kubernetes 클러스터에 사용하도록 설정](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-resource-manager) | 미리 구성된 Azure Resource Manager 템플릿을 사용하여 Arc에서 사용하도록 설정된 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
+| | [Azure Monitor 비 AKS Kubernetes 클러스터에 대해 사용하도록 설정](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-portal) | Azure Monitor 다중 클러스터 페이지에서 이미 배포된 Arc를 사용하여 사용하도록 설정된 하나 이상의 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

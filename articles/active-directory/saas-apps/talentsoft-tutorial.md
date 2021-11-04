@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: d17ae5e0f8f506a1ab7e72dfe1905a23f68ba1fe
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a31516f2907cf123f74a3d6e57b563b0688dce45
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124772394"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510488"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-talentsoft"></a>자습서: Talentsoft와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124772394"
 * 사용자가 자신의 Azure AD 계정으로 Talentsoft에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -81,7 +81,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://<tenant>.talentsoft.com` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://<tenant>.talent-soft.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Talentsoft 클라이언트 지원 팀](mailto:advancedservices@talentsoft.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

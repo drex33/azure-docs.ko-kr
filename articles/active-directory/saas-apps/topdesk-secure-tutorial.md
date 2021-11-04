@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 3784c7b022a807c86805187fbdffb61167970443
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 34d5d0f7daabce877b025c81e9268119e1d3e1e2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679114"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459200"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-topdesk---secure"></a>자습서: TOPdesk - Secure와 Azure AD SSO 통합
 
@@ -87,7 +87,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     다. **로그인 URL** 텍스트 상자에서 `https://<companyname>.topdesk.net` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [TOPdesk - Secure 클라이언트 지원 팀](https://www.topdesk.com/us/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [TOPdesk - Secure 클라이언트 지원 팀](https://www.topdesk.com/en/services/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -97,7 +97,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기 
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -109,7 +109,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 TOPdesk - Secure에 대한 액세스 권한을 부여합니다.
 
@@ -118,16 +118,16 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-topdesk---secure-sso&quot;></a>TOPdesk - Secure SSO 구성
+## <a name="configure-topdesk---secure-sso"></a>TOPdesk - Secure SSO 구성
 
 1. **TOPdesk - Secure** 회사 사이트에 관리자 권한으로 로그온합니다.
 
 2. **TOPdesk** 메뉴에서 **Settings** 를 클릭합니다.
 
-    ![설정](./media/topdesk-secure-tutorial/menu.png &quot;설정")
+    ![설정](./media/topdesk-secure-tutorial/menu.png "설정")
 
 3. **Login Settings** 를 클릭합니다.
 
@@ -173,7 +173,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     b. 인증서 파일을 업로드하려면 **Certificate (RSA)** 에서 **Browse** 를 클릭합니다.
 
-    다. **프라이빗 키(RSA, PKCS8, DER)** 의 경우 사용자 고유의 프라이빗 키를 업로드하거나 [TOPdesk- 보안 클라이언트 지원 팀](https://www.topdesk.com/us/support)에 문의하여 프라이빗 키를 받을 수 있습니다.
+    다. **프라이빗 키(RSA, PKCS8, DER)** 의 경우 사용자 고유의 프라이빗 키를 업로드하거나 [TOPdesk- 보안 클라이언트 지원 팀](https://www.topdesk.com/en/services/support/)에 문의하여 프라이빗 키를 받을 수 있습니다.
 
     d. TOPdesk 지원 팀에서 받은 로고 파일을 업로드하려면 **Logo icon** 에서 **Browse** 를 클릭합니다.
 

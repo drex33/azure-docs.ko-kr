@@ -3,20 +3,20 @@ title: Custom Speech 모델 학습 및 배포 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech 모델을 학습하고 배포하는 방법을 알아봅니다. 음성 텍스트 변환 모델을 학습하면 Microsoft 기준선 모델이나 사용자 지정 모델에 대해 인식 정확도를 개선할 수 있습니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e45c5badecfe97cb0be75e3e30f9442bf71beb69
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a7f0e4f45659d77400f21d6ff056c1b8d5131fca
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080577"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509179"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -29,7 +29,7 @@ ms.locfileid: "131080577"
 | 사용 사례 | 데이터 형식 |
 | -------- | --------- |
 | 의료 용어 또는 IT 전문 용어와 같은 업계별 어휘 및 문법에 대한 인식 정확도 향상 | 일반 텍스트 또는 구조적 텍스트 데이터 |
-| 제품 이름 또는 머리글자어와 같이 비표준 발음을 포함하는 단어 또는 용어의 발음 및 표시된 형태를 정의합니다. | 정형 텍스트의 발음 데이터 또는 음성 발음 |
+| 제품 이름 또는 머리글자어와 같이 비표준 발음을 포함하는 단어 또는 용어의 발음 및 표시된 형태를 정의합니다. | 구조적 텍스트의 발음 데이터 또는 음성 발음 |
 | 말하는 스타일, 악센트 또는 특정 배경 소음에 대한 인식 정확도 향상 | 오디오 + 휴먼 레이블 대화 기록 |
 
 ## <a name="train-and-evaluate-a-model"></a>모델 학습 및 평가

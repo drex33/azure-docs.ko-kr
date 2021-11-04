@@ -10,13 +10,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/12/2021
-ms.openlocfilehash: 53549869098504396d1fa1039ed43b5ff02d2a9b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.date: 10/28/2021
+ms.openlocfilehash: 8c006a47f6967be5387e462a2387d1b59195b685
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083641"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430784"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
@@ -71,9 +71,9 @@ ms.locfileid: "110083641"
 
 <a name="enable-sentiment-analysis"></a>
 
-감정 분석을 사용하면 LUIS에서 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)와 통합되어 감정 및 핵심 구 분석을 제공할 수 있습니다.
+감정 분석을 사용하면 LUIS를 [언어 서비스와](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 통합하여 감정 및 핵심 구 분석을 제공할 수 있습니다.
 
-Text Analytics 키를 제공할 필요는 없으며, 이 서비스에 대한 비용은 사용자의 Azure 계정에 부과되지 않습니다.
+언어 서비스 키를 제공할 필요가 없으며 Azure 계정에 이 서비스에 대한 청구 요금은 없습니다.
 
 감정 데이터는 데이터의 긍정적(1에 가까움) 또는 부정적(0에 가까움) 감정을 나타내는 1과 0 사이의 점수입니다. `positive`, `neutral` 및 `negative`의 감정 레이블은 지원되는 문화를 따릅니다. 현재 영어만 감정 레이블을 지원합니다.
 

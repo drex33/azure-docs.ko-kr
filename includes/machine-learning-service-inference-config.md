@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
-ms.openlocfilehash: a03f71adc99063fee4374b1436b08adf5bab783d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 72ccb933db6b4524ecdd45a9f74f4a1f399171da
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102510828"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520110"
 ---
 `inferenceconfig.json` 문서의 항목은 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) 클래스에 대한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대한 매개 변수 간의 매핑에 대해 설명합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "102510828"
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "baseImage": "mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu18.04",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

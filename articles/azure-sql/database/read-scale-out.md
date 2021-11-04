@@ -11,12 +11,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 09/23/2021
-ms.openlocfilehash: a501b564fcf8d9780c6398a5abd8bae49c10811f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: f5acdf621c04ba48664004bbb1f28ae1c0914fcb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163555"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447040"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>읽기 전용 복제본을 사용하여 읽기 전용 쿼리 워크로드의 오프로드
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -130,7 +130,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 ## <a name="enable-and-disable-read-scale-out"></a>읽기 확장 사용 설정 및 사용 중지
 
-읽기 확장은 프리미엄, 중요 비즈니스용, 하이퍼스케일 서비스 계층에서 기본적으로 사용하도록 설정되어 있습니다. 기본, 표준 또는 범용 서비스 계층에서는 읽기 확장을 사용하도록 설정할 수 없습니다. 읽기 스케일 아웃은 보조 복제본이 0개인 하이퍼스케일 데이터베이스에서 자동으로 비활성화됩니다.
+읽기 확장은 프리미엄, 중요 비즈니스용, 하이퍼스케일 서비스 계층에서 기본적으로 사용하도록 설정되어 있습니다. 기본, 표준 또는 범용 서비스 계층에서는 읽기 확장을 사용하도록 설정할 수 없습니다. 읽기 확장은 0개의 보조 복제본으로 구성된 하이퍼스케일 데이터베이스에서 자동으로 비활성화됩니다.
 
 다음 방법을 사용하여 프리미엄 또는 중요 비즈니스용 서비스 계층의 단일 데이터베이스 및 탄력적 풀 데이터베이스에서 읽기 확장을 사용 중지하고 다시 사용 설정할 수 있습니다.
 
@@ -196,6 +196,13 @@ Body: {
 
 > [!NOTE]
 > 두 개 이상의 HA 복제본이 포함 된 하이퍼 규모 지역 복제본을 제외 하 고 지역에서 복제 된 보조 데이터베이스의 복제본 간에 자동 라운드 로빈 또는 다른 부하 분산 라우팅이 없습니다. 이 경우 읽기 전용 의도가 있는 세션은 지역 복제본의 모든 HA 복제본에 배포 됩니다.
+
+## <a name="feature-support-on-read-only-replicas"></a>읽기 전용 복제본에 대 한 기능 지원
+
+읽기 전용 복제본에 대 한 일부 기능의 동작 목록은 다음과 같습니다.
+* 읽기 전용 복제본에 대 한 감사는 자동으로 설정 됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조 하세요.
+* [Query Performance Insight](query-performance-insight-use.md) 는 현재 읽기 전용 복제본에 대 한 작업을 추적 하지 않는 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)의 데이터를 사용 합니다. Query Performance Insight는 읽기 전용 복제본에서 실행 되는 쿼리를 표시 하지 않습니다.
+* 자동 조정은 [자동 조정 문서](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf)에 설명 된 대로 쿼리 저장소에 의존 합니다. 자동 조정은 주 복제본에서 실행 되는 워크 로드에만 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/16/2021
 ms.author: allensu
-ms.openlocfilehash: 024a523939e5f03cf01aec937a646f1159f6b79b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1911c3a97892a440d0819025c6f040732d03e6e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130254649"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079551"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Azure Load Balancer 포털 설정
 
@@ -161,11 +161,11 @@ Azure Load Balancer의 백 엔드 풀에 가상 머신 또는 가상 머신 확�
 
 :::image type="content" source="./media/manage/add-health-probe.png" alt-text="상태 프로브 추가 스크린샷" border="true":::
 
-부하 분산 장치 만들기 포털 페이지의 **인바운드 규칙** 탭에서 **+ 인바운드 NAT 규칙 추가** 를 선택하여 만들기 페이지를 엽니다.
+부하 분산 디바이스 만들기 포털 페이지의 **인바운드 규칙** **탭에서 + 인바운드 NAT 규칙 추가를** 선택하여 만들기 페이지를 엽니다.
 
-#### <a name="-add-a-an-inbound-nat-rule"></a>**+ 인바운드 NAT 규칙 추가**
+#### <a name="-add-an-inbound-nat-rule"></a>**+ 인바운드 NAT 규칙 추가**
 
-**+ 인바운드 NAT 규칙 추가** 만들기 페이지에 다음이 표시됩니다.
+다음은 **+ 인바운드 NAT 규칙 만들기 추가** 페이지에 표시됩니다.
 
 | Setting | 세부 정보 |
 | ---------- | ---------- |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 87fa97dafe9de4a23f5eaadfd4083cd1ca517cde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3d10e0d329e508de51fe12895777082ba1c5dade
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026593"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501650"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 

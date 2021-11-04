@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 10/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: abe4bb3a53e3177857cb8041fd255ec916985054
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d90817c4e49a61728d2c8a73628fdb33efe7123b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93089868"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446375"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 암호화 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,7 +41,7 @@ PaaS 서비스인 Azure Cosmos DB는 사용하기가 매우 간편합니다. Azu
 A: 추가 비용은 없습니다.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>Q: 암호화 키는 누가 관리하나요?
-A: 키는 Microsoft에서 관리합니다.
+A: Azure Cosmos 계정에 저장 된 데이터는 서비스 관리 키를 사용 하 여 Microsoft에서 관리 하는 키로 자동 및 원활 하 게 암호화 됩니다. 필요에 따라 [고객이 관리 하는 키 또는 CMK](how-to-setup-cmk.md)를 사용 하 여 관리 하는 키를 사용 하 여 두 번째 암호화 계층을 추가 하도록 선택할 수 있습니다.
 
 ### <a name="q-how-often-are-encryption-keys-rotated"></a>Q: 얼마나 자주 암호화 키가 순환되나요?
 A: Microsoft에는 Cosmos DB가 따르는 암호화 키 순환에 대한 일련의 내부 지침이 있습니다. 특정 지침은 게시되지 않습니다. Microsoft는 내부 지침의 하위 집합으로 간주되고 개발자를 위한 유용한 모범 사례가 있는 [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)을 게시합니다.

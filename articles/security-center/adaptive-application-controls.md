@@ -7,12 +7,13 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.author: memildin
-ms.openlocfilehash: a51cc96fd10442373d6bb5cf677073f30e50b3a2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: db79a066b5bfa350d8af47e8d817345276eac4e3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445372"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131103675"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응형 애플리케이션 제어를 통해 컴퓨터의 공격 표면 축소
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 7d8bde85114829ab00256810ff96dbf3840c2884
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 36c7e05e2cce3e93fcd35521582190f2d7cef2b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052971"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469164"
 ---
 # <a name="azure-stack-edge-2110-release-notes"></a>Azure Stack Edge 2110 릴리스 정보
 
@@ -48,6 +48,11 @@ Azure Stack Edge 2110 릴리스에서는 다음과 같은 새로운 기능을 �
 |**3.**|IoT Edge |IoT Edge를 통해 배포된 모듈은 호스트 네트워크를 사용할 수 없습니다. | 
 |**4.**|Kubernetes + 업데이트 |2008 릴리스와 같은 이전 소프트웨어 버전에는 ClusterConnectionException을 나타내며 업데이트가 실패하도록 하는 경합 상태 업데이트 문제가 있습니다. |
 |**5.**|Kubernetes 대시보드 | SSL 인증서가 포함된 Kubernetes 대시보드의 *Https* 엔드포인트는 지원되지 않습니다. | 
+|**6.**|VM |VNF를 배포 하는 동안 VM 관리 NIC에 고정 IP 중복 검사가 추가 됩니다. 명시적 오류 메시지가 반환 됩니다. | 
+|**7.**|VM |주소 공간에서 처음 4 개의 IP 주소에 대 한 IP 예약 검사가 제거 되었습니다.  | 
+|**8.**|다중 액세스에 지 계산 |VNF를 배포 하는 동안 로컬 Azure Resource Manager 토큰 만료 문제가 해결 되었습니다. 이전 릴리스에서는 VHD를 다운로드 하는 데 오랜 시간이 걸릴 때 Azure Resource Manager 토큰이 만료 되 면 VNF 배포가 실패 합니다.  | 
+|**9.**|다중 액세스에 지 계산 |VNF를 배포 하는 동안 Azure Resource Manager 호출에 대 한 제한 시간이 추가 되었습니다. 이전 릴리스에서는 Azure Resource Manager 호출이 실패 한 경우 VNF 배포에 오랜 시간이 걸렸습니다.   | 
+|**10.**|다중 액세스에 지 계산 |다중 액세스에 지 계산 VHD 다운로드가 완료 된 후 Azure Resource Manager 템플릿 배포를 정리 합니다. 이전 릴리스에서는 많은 VNF 배포 후 사용자가 배포 할당량 초과 오류를 발생 시킬 수 있습니다. 기본 할당량은 리소스 그룹당 800 배포 였습니다.  | 
 
 
 
@@ -77,7 +82,7 @@ Azure Stack Edge 2110 릴리스에서는 다음과 같은 새로운 기능을 �
 |**8.**|Kubernetes 클러스터|Azure Stack Edge Pro의 Kubernetes는 Helm v3 이상에서만 지원됩니다. 자세한 내용은 [질문과 대답: Tiller 제거](https://v3.helm.sh/docs/faq/)를 참조하세요.|
 |**9.**|Kubernetes |포트 31000은 Kubernetes 대시보드용으로 예약되어 있습니다. 포트 31001은 Edge 컨테이너 레지스트리용으로 예약되어 있습니다. 마찬가지로 기본 구성에서 IP 주소 172.28.0.1과 172.28.0.10은 각각 Kubernetes 서비스 및 Core DNS 서비스용으로 예약되어 있습니다.|예약된 IP는 사용하지 마세요.|
 |**10.**|Kubernetes |현재 Kubernetes는 다중 프로토콜 LoadBalancer 서비스를 허용하지 않습니다. TCP와 UDP 모두에서 수신 대기해야 하는 DNS 서비스를 예로 들 수 있습니다. |MetalLB를 사용하여 Kubernetes의 제한을 해결하기 위해 같은 Pod 선택기에 두 가지 서비스(TCP용 1개, UDP용 1개)를 만들 수 있습니다. 이러한 서비스는 같은 공유 키와 spec.loadBalancerIP를 사용하여 같은 IP 주소를 공유합니다. 사용 가능한 IP 주소보다 더 많은 서비스를 사용하는 경우 IP를 공유할 수도 있습니다. <br> 자세한 내용은 [IP 주소 공유](https://metallb.universe.tf/usage/#ip-address-sharing)를 참조하세요.|
-|**11.**|Kubernetes 클러스터|기존 Azure IoT Edge 마켓플레이스 모듈은 Azure Stack Edge 디바이스에서 IoT Edge를 실행하기 위해 수정이 필요할 수 있습니다.|자세한 내용은 [Azure Stack edge Pro GPU 장치에서 Azure Stack edge Pro FPGA 장치에서 기존 IoT Edge 모듈 실행](azure-stack-edge-gpu-modify-fpga-modules-gpu.md)을 참조 하세요.|
+|**11.**|Kubernetes 클러스터|기존 Azure IoT Edge 마켓플레이스 모듈은 Azure Stack Edge 디바이스에서 IoT Edge를 실행하기 위해 수정이 필요할 수 있습니다.|자세한 내용은 [Azure Stack Edge Pro GPU 디바이스에서 Azure Stack Edge Pro FPGA 디바이스에서 기존 IoT Edge 모듈 실행을 참조하세요.](azure-stack-edge-gpu-modify-fpga-modules-gpu.md)|
 |**12.**|Kubernetes |파일 기반 바인드 탑재는 Azure Stack Edge 디바이스에 있는 Kubernetes의 Azure IoT Edge에서 지원되지 않습니다.|IoT Edge는 변환 계층을 사용하여 `ContainerCreate` 옵션을 Kubernetes 구문으로 변환합니다. `hostpath` 디렉터리에 대한 `Binds` 맵을 만드는 작업, 즉 파일 기반 바인드 탑재는 IoT Edge 컨테이너의 경로에 바인딩될 수 없습니다. 가능하면 부모 디렉터리를 매핑합니다.|
 |**13.**|Kubernetes |IoT Edge에 대한 자체 인증서를 가져와 디바이스에서 컴퓨팅을 구성한 후 Azure Stack Edge 디바이스에 해당 인증서를 추가하는 경우 새 인증서가 선택되지 않습니다.|이 문제를 해결하려면 디바이스에서 컴퓨팅을 구성하기 전에 인증서를 업로드해야 합니다. 컴퓨팅이 이미 구성되어 있으면 [디바이스의 PowerShell 인터페이스에 연결하고 IoT Edge 명령을 실행](azure-stack-edge-gpu-connect-powershell-interface.md#use-iotedge-commands)합니다. `iotedged` 및 `edgehub` Pod를 다시 시작합니다.|
 |**14.**|인증서 |특정한 경우 로컬 UI의 인증서 상태를 업데이트하는 데 몇 초 정도 걸릴 수 있습니다. |로컬 UI의 다음 시나리오에 영향을 줄 수 있습니다.<ul><li>**인증서** 페이지의 **상태** 열.</li><li>**시작** 페이지의 **보안** 타일.</li><li>**개요** 페이지의 **구성** 타일.</li></ul>  |
@@ -86,7 +91,7 @@ Azure Stack Edge 2110 릴리스에서는 다음과 같은 새로운 기능을 �
 |**17.**|Kubernetes |Kubernetes는 .NET 애플리케이션에서 사용하는 환경 변수 이름에서 ":"을 지원하지 않습니다. 이러한 조건은 Event Grid IoT Edge 모듈이 Azure Stack Edge 디바이스 및 기타 애플리케이션에서 작동하는 데도 필요합니다. 자세한 내용은 [ASP.NET core 설명서](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables)를 참조하세요.|“:”을 이중 밑줄로 바꿉니다. 자세한 내용은 [Kubernetes 이슈](https://github.com/kubernetes/kubernetes/issues/53201)를 참조하세요.|
 |**18.** |Azure Arc + Kubernetes 클러스터 |기본적으로 Git 리포지토리에서 리소스 `yamls`가 삭제되면 해당 리소스가 Kubernetes 클러스터에서 삭제되지 않습니다.  |Git 리포지토리에서 삭제될 때 리소스 삭제를 허용하려면 Arc OperatorParams에서 `--sync-garbage-collection`을 설정합니다. 자세한 내용은 [구성 삭제](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)를 참조하세요. |
 |**19.**|NFS |디바이스에서 데이터를 쓰기 위해 NFS 공유 탑재를 사용하는 애플리케이션은 단독 쓰기를 사용해야 합니다. 이렇게 하면 디스크에 쓸 수 있습니다.| |
-|**720.**|컴퓨팅 구성 |네트워크 구성에서 컴퓨팅 구성이 실패합니다. 게이트웨이나 스위치 또는 라우터가 네트워크에 존재하지 않는 시스템에 대한 ARP(주소 확인 프로토콜) 요청에 응답하기 때문입니다.| |
+|**20.**|컴퓨팅 구성 |네트워크 구성에서 컴퓨팅 구성이 실패합니다. 게이트웨이나 스위치 또는 라우터가 네트워크에 존재하지 않는 시스템에 대한 ARP(주소 확인 프로토콜) 요청에 응답하기 때문입니다.| |
 |**21.**|컴퓨팅 및 Kubernetes |Kubernetes가 디바이스에 처음으로 설정된 경우 사용 가능한 모든 GPU를 클레임합니다. 따라서 Kubernetes를 설정한 후에는 GPU를 사용하여 Azure Resource Manager VM을 만들 수 없습니다. |디바이스에 GPU가 2개 있는 경우 GPU를 사용하는 VM 1개를 만든 다음, Kubernetes를 구성할 수 있습니다. 이 경우 Kubernetes는 사용 가능한 나머지 1개의 GPU를 사용합니다. |
 |**22.**|사용자 지정 스크립트 VM 확장 |이전 릴리스에서 만든 Windows VM에 알려진 문제가 있으며 디바이스가 2103으로 업데이트되었습니다. <br> 해당 VM에 사용자 지정 스크립트 확장을 추가하면 Windows VM Guest Agent(버전 2.7.41491.901만 해당)의 업데이트에서 중단되어 확장 배포 시간이 초과됩니다. | 이 문제를 해결하려면 <ol><li> RDP(원격 데스크톱 프로토콜)을 사용하여 Windows VM에 연결합니다. </li><li> `waappagent.exe`가 머신에서 실행 중인지 확인: `Get-Process WaAppAgent`. </li><li> `waappagent.exe`가 실행 중이지 않으면 `rdagent` 서비스 다시 시작: `Get-Service RdAgent` \| `Restart-Service`. 5분 동안 기다립니다.</li><li> `waappagent.exe` 실행 중에 `WindowsAzureGuest.exe` 프로세스를 종료합니다. </li><li>프로세스를 종료하면 프로세스가 최신 버전으로 다시 실행되기 시작합니다.</li><li>`Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion` 명령을 사용하여 Windows VM Guest Agent 버전이 2.7.41491.971인지 확인합니다.</li><li>[Windows VM에서 사용자 지정 스크립트 확장을 설정](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)합니다. </li><ol> |
 |**23.**|GPU VM |이 릴리스 이전에는 GPU VM 수명 주기가 업데이트 흐름에서 관리되지 않았습니다. 따라서 2103 릴리스로 업데이트할 때 GPU VM은 업데이트 중에 자동으로 중지되지 않습니다. 디바이스를 업데이트하기 전에 `stop-stayProvisioned` 플래그를 사용하여 GPU VM을 수동으로 중지해야 합니다. 자세한 내용은 [VM 일시 중단 또는 종료](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm)를 참조하세요.<br> 업데이트 전에 계속 실행되는 모든 GPU VM은 업데이트 후에 시작됩니다. 이 경우 VM에서 실행 중인 워크로드는 정상적으로 종료되지 않습니다. 업데이트 후 VM이 원하는 상태가 아닐 수 있습니다. <br>업데이트 전에 `stop-stayProvisioned`를 통해 중지된 모든 GPU VM은 업데이트 후 자동으로 시작됩니다. <br>Azure Portal을 통해 GPU VM을 중지하는 경우 디바이스를 업데이트 다음 VM을 수동으로 시작해야 합니다.| Kubernetes를 사용하여 GPU VM을 실행하는 경우 업데이트 직전에 GPU VM을 중지합니다. <br>GPU VM이 중지되면 Kubernetes는 원래 VM에서 사용했던 GPU를 인수합니다. <br>GPU VM이 중지된 상태에 있는 시간이 길수록 Kubernetes가 GPU를 인수할 가능성이 커집니다. |

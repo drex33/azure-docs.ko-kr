@@ -3,12 +3,12 @@ title: Azure Backup 용어집
 description: 이 문서에서는 Azure Backup에서 사용하는 데 유용한 용어를 정의합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 774fc63002677aa9fbb986d40a5d8fe2b3e99f7d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502028"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465196"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup 용어집
 
@@ -186,7 +186,7 @@ GFS(할아버지-아버지-자식) 백업 정책은 매일 백업 일정 외에�
 
 ## <a name="job"></a>작업
 
-사용자 또는 Azure Backup 서비스에서 만든 백업 관련 작업입니다. 작업은 예약되거나 주문형(임시)일 수 있습니다. 백업, 복원, 보호 구성 등 다양한 유형의 작업이 있습니다. [작업에 대해 자세히 알아보기](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault)
+사용자 또는 Azure Backup 서비스에서 만든 백업 관련 작업입니다. 작업은 예약되거나 주문형(임시)일 수 있습니다. 백업, 복원, 보호 구성 등 다양한 유형의 작업이 있습니다. [작업에 대해 자세히 알아보기](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center)
 
 ## <a name="mabs--azure-backup-server"></a>MABS/Azure Backup Server
 

@@ -3,17 +3,17 @@ title: Azure IaaS VM에 대한 디스크 유형 선택 - 관리 디스크
 description: 울트라 디스크, 프리미엄 SSD, 표준 SSD, 표준 HDD를 포함하여 가상 머신에 사용 가능한 Azure 디스크 유형을 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 10/14/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 90612eecede80ae83247cb3727411db8c43e1eb2
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 5e4eb581f8cf9b95e9a8ba4dffd442efc6c055ef
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074364"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505444"
 ---
 # <a name="azure-managed-disk-types"></a>Azure 관리 디스크 유형
 
@@ -35,7 +35,7 @@ Azure managed disks는 현재 특정 고객 시나리오를 해결 하기 위한
 | **디스크 유형** | SSD | SSD | SSD | HDD |
 | **시나리오**  | IO 집약적 워크로드 - [SAP HANA](workloads/sap/hana-vm-operations-storage.md), 최상위 계층 데이터베이스(예: SQL, Oracle) 및 다른 트랜잭션 집약적 워크로드 | 프로덕션 및 성능이 중요한 워크로드 | 웹 서버, 조금 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트 | 백업, 중요하지 않음, 가끔 액세스 |
 | **최대 디스크 크기** | 65536기비바이트(GiB) | 32,767GiB | 32,767GiB | 32,767GiB |
-| **최대 처리량** | 2,000MB/s | 900MB/s | 750MB/s | 500MB/s |
+| **최대 처리량** | 4000 m b/초 | 900MB/s | 750MB/s | 500MB/s |
 | **최대 IOPS** | 160,000 | 20,000 | 6,000 | 2,000 |
 
 ## <a name="ultra-disks"></a>Ultra disks
@@ -55,12 +55,12 @@ Azure 울트라 디스크는 기본적으로 구독당 지역별 최대 32TiB를
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2,000         |
-|64     |19,200         |2,000         |
-|128     |38,400         |2,000         |
-|256     |76,800         |2,000         |
-|512     |153,600         |2,000         |
-|1,024-65,536(1TiB의 단위로 증가하는 이 범위의 크기)     |160,000         |2,000         |
+|32     |9,600         |2,400         |
+|64     |19,200         |4,000         |
+|128     |38,400         |4,000         |
+|256     |76,800         |4,000         |
+|512     |153,600         |4,000         |
+|1,024-65,536(1TiB의 단위로 증가하는 이 범위의 크기)     |160,000         |4,000         |
 
 Ultra disks는 이전 테이블의 99.99%에 설명 된 submillisecond 대기 시간 및 대상 IOPS 및 처리량을 제공 하도록 설계 되었습니다.
 
@@ -80,7 +80,7 @@ IOPS에 대 한 자세한 내용은 [가상 컴퓨터 및 디스크 성능](disk
 
 ### <a name="ultra-disk-throughput"></a>Ultra disk 처리량
 
-단일 ultra disk의 처리량 제한은 각 프로 비전 된 2000 IOPS에 대해 256 KiB/s입니다 (초당 MBps = 10 ^ 6 바이트). 디스크당 보장되는 최소 처리량은 프로비저닝된 각 IOPS당 4KiB/s이고, 전체 기준은 1MBps 이상입니다.
+단일 ultra disk의 처리량 제한은 각 프로 비전 된 4000 IOPS에 대해 256 KiB/s입니다 (초당 MBps = 10 ^ 6 바이트). 디스크당 보장되는 최소 처리량은 프로비저닝된 각 IOPS당 4KiB/s이고, 전체 기준은 1MBps 이상입니다.
 
 가상 머신에서 디스크를 분리 하지 않고도 런타임에 ultra disk IOPS 및 처리량 성능을 조정할 수 있습니다. 디스크에서 성능 크기 조정 작업이 실행 된 후 변경 내용이 적용 되는 데 최대 한 시간이 걸릴 수 있습니다. 24 시간 동안 최대 4 개의 성능 크기 조정 작업을 수행할 수 있습니다.
 

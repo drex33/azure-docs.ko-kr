@@ -2,13 +2,16 @@
 title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure Backup으로 백업되는 Azure VM에서 실행되는 SQL Server 데이터베이스 및 복원하는 방법을 설명합니다. 지역 간 복원을 사용하여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: 312cf2918356c44b010097de4abf66be03f172a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 0e687cbae798a480eaf417de04b653b88d2e2c94
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528211"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431115"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -50,26 +53,16 @@ Azure Backup은 다음과 같은 방법으로 Azure VM에서 실행되는 SQL Se
 
 다음과 같이 복원합니다.
 
-1. SQL Server VM이 등록된 자격 증명 모음을 엽니다.
-2. 자격 증명 모음 대시보드의 **사용 현황** 아래에서 **백업 항목** 을 선택합니다.
-3. **백업 항목** 의 **백업 관리 유형** 에서 **Azure VM의 SQL** 을 선택합니다.
+1. Azure Portal에서 **Backup center** 로 이동 하 고 **복원** 을 클릭 합니다.
 
-    ![Azure VM의 SQL 선택](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-restore-inline.png" alt-text="복원 프로세스 시작을 보여 주는 스크린샷" lightbox="./media/backup-azure-sql-database/backup-center-restore-expanded.png":::
 
-4. 복원할 데이터베이스를 선택합니다.
+1. **Azure VM에서** 데이터 원본 유형으로 SQL를 선택 하 고, 복원할 데이터베이스를 선택 하 고 **계속** 을 클릭 합니다.
 
-    ![복원할 데이터베이스를 선택합니다.](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-restore.png" alt-text="Datasource 유형을 선택 하는 것을 보여 주는 스크린샷":::
 
-5. 데이터베이스 메뉴를 검토합니다. 다음과 같은 데이터베이스 백업에 대한 정보를 제공합니다.
-
-    - 가장 오래된 복원 지점 및 최신 복원 지점
-    - 트랜잭션 로그 백업으로 구성된 경우 전체 및 대량 로그된 복구 모델의 데이터베이스에 대한 지난 24시간 동안의 로그 백업 상태.
-
-6. **복원** 을 선택합니다.
-
-    ![복원 선택](./media/backup-azure-sql-database/restore-db.png)
-
-7. **복원 구성** 에서 데이터를 복원할 위치(또는 방법)를 지정합니다.
+1. **복원 구성** 에서 데이터를 복원할 위치(또는 방법)를 지정합니다.
+   
    - **대체 위치**: 대체 위치에 데이터베이스를 복원하고 원래 원본 데이터베이스를 유지합니다.
    - **DB 덮어쓰기**: 원래 원본과 동일한 SQL Server 인스턴스에 데이터를 복원합니다. 이 옵션은 원래 데이터베이스를 덮어씁니다.
 
@@ -77,7 +70,6 @@ Azure Backup은 다음과 같은 방법으로 Azure VM에서 실행되는 SQL Se
         > 선택한 데이터베이스가 Always On 가용성 그룹에 속하면 SQL Server에서 데이터베이스를 덮어쓸 수 없습니다. **대체 위치** 만 사용할 수 있습니다.
         >
    - **파일로 복원**: 데이터베이스로 복원하는 대신 SQL Server Management Studio를 사용하여 파일이 있는 컴퓨터에서 나중에 데이터베이스로 복구할 수 있는 백업 파일을 복원합니다.
-     ![복원 구성 메뉴](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>대체 위치에 복원
 
@@ -87,9 +79,9 @@ Azure Backup은 다음과 같은 방법으로 Azure VM에서 실행되는 SQL Se
 1. 해당되는 경우 **선택한 SQL 인스턴스에 이름이 같은 DB가 있으면 덮어쓰기** 를 선택합니다.
 1. **복원 지점 선택** 을 선택한 다음 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)할지 또는 [특정 복구 지점](#restore-to-a-specific-restore-point)으로 복원할지를 선택합니다.
 
-    ![복원 지점 선택](./media/backup-azure-sql-database/select-restore-point.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="복원 지점을 선택 하는 것을 보여 주는 스크린샷":::
 
-    ![특정 시점으로 복원](./media/backup-azure-sql-database/restore-to-point-in-time.png)
+   :::image type="content" source="./media/backup-azure-sql-database/restore-points-sql-inline.png" alt-text="지정 시간에 대 한 복원을 보여 주는 스크린샷" lightbox="./media/backup-azure-sql-database/restore-points-sql-expanded.png":::
 
 1. **고급 구성** 메뉴에서:
 
@@ -119,16 +111,17 @@ Azure Backup은 다음과 같은 방법으로 Azure VM에서 실행되는 SQL Se
 백업 데이터를 데이터베이스 대신 .bak 파일로 복원하려면 **파일로 복원** 을 선택하십시오. 파일이 지정된 경로에 덤프되면 이러한 파일을 데이터베이스로 복원하려는 컴퓨터로 가져올 수 있습니다. 이러한 파일을 임의의 컴퓨터로 이동할 수 있으므로 이제 구독 및 지역 간에 데이터를 복원할 수 있습니다.
 
 1. **복원 위치 및 방법** 에서 **파일로 복원** 을 선택합니다.
-1. 백업 파일을 복원하려는 SQL Server 이름을 선택합니다.
+1. 백업 파일을 복원할 SQL Server 이름을 선택 합니다.
 1. **서버의 대상 경로** 에서 2단계에서 선택한 서버에 폴더 경로를 입력합니다. 서비스에서 필요한 모든 백업 파일을 덤프하는 위치입니다. 일반적으로 네트워크 공유 경로 또는 탑재된 Azure 파일 공유 경로가 대상 경로로 지정되면 이를 통해 동일한 네트워크의 다른 컴퓨터 또는 동일한 Azure 파일 공유가 탑재된 다른 컴퓨터에서 이러한 파일에 더 쉽게 액세스할 수 있습니다.<BR>
 
-    >등록된 대상 VM에 탑재된 Azure 파일 공유에서 데이터베이스 백업 파일을 복원하려면 NT AUTHORITY\SYSTEM에 파일 공유에 대한 액세스 권한이 있는지 확인합니다. 아래 지정된 단계를 수행하여 VM에 탑재된 AFS에 대한 읽기/쓰기 권한을 부여할 수 있습니다.
-    >
-    >- `PsExec -s cmd`를 실행하여 NT AUTHORITY\SYSTEM 셸에 입력
-    >   - `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>` 실행
-    >   - `dir \\<storageacct>.file.core.windows.net\<filesharename>` 액세스 확인
-    >- `\\<storageacct>.file.core.windows.net\<filesharename>`을 경로로 하여 백업 자격 증명 모음에서 파일로 복원을 시작<BR>
-    [Sysinternals](/sysinternals/downloads/psexec) 페이지에서 PsExec를 다운로드할 수 있습니다.
+   >[!Note]
+   >등록된 대상 VM에 탑재된 Azure 파일 공유에서 데이터베이스 백업 파일을 복원하려면 NT AUTHORITY\SYSTEM에 파일 공유에 대한 액세스 권한이 있는지 확인합니다. 아래 지정된 단계를 수행하여 VM에 탑재된 AFS에 대한 읽기/쓰기 권한을 부여할 수 있습니다.
+   >
+   >- `PsExec -s cmd`를 실행하여 NT AUTHORITY\SYSTEM 셸에 입력
+   >   - `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>` 실행
+   >   - `dir \\<storageacct>.file.core.windows.net\<filesharename>` 액세스 확인
+   >- `\\<storageacct>.file.core.windows.net\<filesharename>`을 경로로 하여 백업 자격 증명 모음에서 파일로 복원을 시작<BR>
+   >[Sysinternals](/sysinternals/downloads/psexec) 페이지에서 PsExec를 다운로드할 수 있습니다.
 
 1. **확인** 을 선택합니다.
 
@@ -201,14 +194,14 @@ CRR을 사용하도록 설정된 경우 보조 지역에서 백업 항목을 볼
 
 >[!NOTE]
 >- 복원이 트리거되고 데이터 전송 단계에서는 복원 작업을 취소할 수 없습니다.
->- 지역 간 복원 작업을 수행하는 데 필요한 역할/액세스 수준은 구독의 _백업 운영자_ 역할과 원본 및 대상 가상 머신의 _기여자(쓰기)_ 권한입니다. 백업 작업을 보기 위해 구독에서 필요한 최소 권한은 ‘백업 읽기 권한자’입니다.
+>- 지역 간 복원 작업을 수행하는 데 필요한 역할/액세스 수준은 구독의 _백업 운영자_ 역할과 원본 및 대상 가상 머신의 _기여자(쓰기)_ 권한입니다. 백업 작업을 보기 위해 구독에서 필요한 최소 권한은 '백업 읽기 권한자'입니다.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>보조 지역 복원 작업 모니터링
 
-1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 작업** 으로 이동합니다.
-1. **보조 지역** 을 선택하여 보조 지역의 항목을 봅니다.
+1. Azure Portal **백업 센터 백업**  >  **작업으로** 이동합니다.
+1. 보조 지역의 작업을 보려면 **CrossRegionRestore에** 대한 필터 작업입니다.
 
-    ![필터링된 백업 작업](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs-inline.png" alt-text="필터링된 Backup 작업을 보여주는 스크린샷." lightbox="./media/backup-azure-sql-database/backup-center-jobs-expanded.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

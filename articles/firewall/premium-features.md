@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/29/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: c6cc19bd688dd2c38210fae8d77a036f2ba5be7e
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 22cfeda4b1fc1afb032e8a6b2e689117211e5f1e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754314"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438539"
 ---
 # <a name="azure-firewall-premium-features"></a>Azure Firewall 프리미엄 기능
 
@@ -87,6 +87,26 @@ URL 필터링은 HTTP와 HTTPS 트래픽 모두에 적용할 수 있습니다. H
 ### <a name="category-exceptions"></a>범주 예외
 
 웹 범주 규칙에 대한 예외를 만들 수 있습니다. 규칙 컬렉션 그룹 내에서 우선 순위가 높은 별도의 허용 또는 거부 규칙 컬렉션을 만듭니다. 예를 들어 우선 순위가 100인 `www.linkedin.com`을 허용하는 규칙 컬렉션과 우선 순위가 200인 **소셜 네트워킹** 을 거부하는 규칙 컬렉션을 구성할 수 있습니다. 그러면 미리 정의된 **소셜 네트워킹** 웹 범주의 예외가 생성됩니다.
+
+### <a name="web-category-search"></a>웹 범주 검색
+
+**웹 범주 검사** 기능을 사용 하 여 지정 된 FQDN 또는 URL의 범주를 식별할 수 있습니다. 이를 사용 하려면 **방화벽 정책 설정** 에서 **웹 범주** 탭을 선택 합니다. 이 기능은 대상 트래픽에 대 한 응용 프로그램 규칙을 정의할 때 특히 유용 합니다.
+
+:::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="방화벽 범주 검색 대화 상자":::
+
+### <a name="category-change"></a>범주 변경
+
+**방화벽 정책 설정** 의 **웹 범주** 탭에서 다음과 같은 경우 분류 변경을 요청할 수 있습니다. 
+
+- FQDN 또는 URL은 다른 범주에 속해야 함 
+
+   또는 
+
+- 분류되지 않은 FQDN 또는 URL에 대해 제안된 범주가 있음 
+
+ 범주 변경 보고서를 제출 하 고 나면 처리 요청을 받았음을 나타내는 토큰이 알림에 제공 됩니다. 검색 표시줄에 토큰을 입력 하 여 요청이 진행 중인지, 거부 되었는지 또는 승인 되었는지 확인할 수 있습니다.  이렇게 하려면 토큰 ID를 저장 해야 합니다.
+
+:::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="방화벽 범주 보고서 대화 상자":::
 
  ## <a name="supported-regions"></a>지원되는 지역
 

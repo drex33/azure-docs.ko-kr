@@ -8,14 +8,14 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 11/06/2020
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.openlocfilehash: d167ea6f71e1f9b47468c81e84e9221e5ec58c75
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a02bea7b16c6c0899681df8f7e0d0499415f450e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427631"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562621"
 ---
 # <a name="configure-authentication-for-models-deployed-as-web-services"></a>웹 서비스로 배포된 모델에 대한 인증 구성
 

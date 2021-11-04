@@ -2,14 +2,14 @@
 title: 프로덕션 준비 및 모범 사례
 description: 이 문서에서는 프로덕션 환경에서 Azure Video Analyzer edge 모듈을 구성 하 고 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: reference
-ms.date: 10/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1baf85b21c9b6b2792eb93ca2d4c94ef50170395
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d25965ed8143b8d74f33794fbc97282502b84b96
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103074"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560191"
 ---
 # <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
 

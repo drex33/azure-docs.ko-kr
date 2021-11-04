@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 7254ed303e45c69f291aa5c7a06f63390aaed162
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 95bda32a3ffc305a4523e952f0cc975917996292
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529351"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555308"
 ---
 # <a name="list-the-azure-arc-enabled-postgresql-hyperscale-server-groups-created-in-an-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러에서 만든 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 나열
 
@@ -33,10 +33,14 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
 다음과 같은 출력을 반환합니다.
 ```console
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    2
-postgres02  Ready    2
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 4
+  }
+]
 ```
 이 명령에 사용할 수 있는 매개 변수에 대한 자세한 내용을 보려면 다음을 실행하세요.
 ```azurecli
@@ -48,21 +52,13 @@ az postgres arc-server list --help
 
 **Postgres의 버전과 무관하게 서버 그룹을 나열하려면 다음을 실행합니다.**
 ```console
-kubectl get postgresqls
+kubectl get postgresqls -n <namespace>
 ```
 다음과 같은 출력을 반환합니다.
 ```console
-NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
-postgresql-12.arcdata.microsoft.com/postgres01   Ready   3/3          10.0.0.4:30499      51s
-postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:31066      6d
+NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
+postgres01   Ready   5/5          12.345.67.890:5432   12d
 ```
-
-**Postgres의 특정 버전에 대한 서버 그룹을 나열하려면 다음을 실행합니다.**
-```console
-kubectl get postgresql-12
-```
-
-Postgres 버전 11을 실행하는 서버 그룹을 나열하려면 _postgresql-12_ 를 _postgresql-11_ 로 교체합니다.
 
 ## <a name="next-steps"></a>다음 단계:
 

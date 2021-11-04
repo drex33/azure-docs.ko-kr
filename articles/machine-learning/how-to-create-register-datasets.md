@@ -10,13 +10,13 @@ ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/06/2021
-ms.openlocfilehash: 423dae8f84e43900ad84a49423b7d2ff00fb8c76
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 10/21/2021
+ms.openlocfilehash: 941e99ba438d2f9819ccde34d922fb79075f73e9
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429796"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131553940"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -129,7 +129,7 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
-로컬 디렉터리에서 모든 파일을 업로드 하려는 경우 [upload_directory ()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-)를 사용 하 여 단일 메서드에 filedataset을 만듭니다. 이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
+로컬 디렉터리에서 모든 파일을 업로드하려면 [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-)를 사용하여 단일 메서드에 FileDataset를 만듭니다. 이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -235,7 +235,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-[이미지 레이블 지정 프로젝트](how-to-create-image-labeling-projects.md) 에서 만든 **레이블이 지정 된 데이터 집합** 은 특별 한 경우입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
+이미지 레이블 지정 프로젝트에서 만든 [레이블이 지정되는](how-to-create-image-labeling-projects.md) **데이터 세트는** 특별한 경우입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
 
 ```python
 # Dataset that only contains records where the label column value is dog
@@ -326,7 +326,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 세트 만들기
 
-메모리 내 pandas 데이터 프레임에서 TabularDataset를 만들려면 [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) 메서드를 사용합니다. 이 메서드는 TabularDataset를 작업 영역에 등록하고 기본 스토리지에 데이터를 업로드하여 스토리지 비용이 발생합니다. 
+In memory pandas 데이터 프레임에서 TabularDataset을 만들려면 메서드를 사용 [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) 합니다. 이 메서드는 TabularDataset를 작업 영역에 등록 하 고 데이터를 기본 저장소에 업로드 하 여 저장소 비용을 발생 시킵니다. 
 
 ```python
 from azureml.core import Workspace, Datastore, Dataset
@@ -339,7 +339,7 @@ dataset = Dataset.Tabular.register_pandas_dataframe(pandas_df, datastore, "datas
 
 ```
 > [!TIP]
-> 메모리 내 Spark 데이터 프레임 또는 dask 데이터 프레임에서 공개 미리 보기 메서드 및 를 사용하여 TabularDataset를 만들고 [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory##register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) [`register_dask_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-dask-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) 등록합니다. 이러한 메서드는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능이며 언제든지 변경 될 수 있습니다. 
+> 공용 미리 보기 메서드 및를 사용 하 여 메모리 내 spark 데이터 프레임 또는 TabularDataset에서 데이터 프레임를 만들고 등록 [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory##register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) [`register_dask_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-dask-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) 합니다. 이러한 메서드는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다. 
 > 
 >  이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/02/2021
-ms.openlocfilehash: d697375b3eec9a49f404a9af9771b431938aeb4d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 10/21/2021
+ms.openlocfilehash: 1ac26da492c4236d89ed71edf738dbc6cd813563
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238476"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552699"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 암호화
 
@@ -37,7 +37,7 @@ Azure Machine Learning은 모델을 학습하고 유추를 수행할 때 다양�
 * 실행 사이에 로컬 스크래치 디스크를 정리합니다
 * 키 자격 증명 모음을 사용하여 스토리지 계정, 컨테이너 레지스트리 및 SSH 계정의 자격 증명을 실행 레이어에서 컴퓨팅 클러스터로 안전하게 전달합니다.
 
-이 플래그가 True로 설정 되 면 문제를 해결 하는 데 어려움이 있을 수 있습니다. 이는 일부 원격 분석이 Microsoft로 전송 되지 않으며 성공률 또는 문제 유형에 대 한 가시성을 줄여 주므로이 플래그가 True 인 경우 사전에 대응 하지 못할 수 있기 때문에 발생할 수 있습니다.
+이 플래그를 True로 설정하면 문제 해결에 큰 영향을 미칠 수 있습니다. 이 문제는 일부 원격 분석이 Microsoft로 전송되지 않고 성공률 또는 문제 유형에 대한 가시성이 낮기 때문에 발생할 수 있으므로 이 플래그가 True이면 사전에 대응하지 못할 수 있습니다.
 
 > [!TIP]
 > `hbi_workspace` 플래그는 전송 중 암호화에는 영향을 미치지 않고 미사용 암호화에만 영향을 줍니다.
@@ -71,7 +71,7 @@ Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메타데이터를 저
     * `resource_cmk_uri`: 이 매개 변수는 [키의 버전 정보](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)를 포함하여 키 자격 증명 모음에서 고객 관리형 키의 전체 리소스 URI입니다. 
 
         > [!NOTE]
-        > 자격 증명 모음을 삭제 하는 경우 실수로 인 한 데이터 손실을 방지 하기 위해 암호화 된 기계 학습 작업 영역을 만들기 전에 CMK 키 자격 증명 모음 인스턴스에서 일시 삭제 및 제거 보호를 사용 하도록 설정 해야 합니다.
+        > 자격 증명 모음 삭제 시 실수로 데이터가 손실되지 않도록 보호하기 위해 암호화된 기계 학습 작업 영역을 만들기 전에 CMK 키 자격 증명 모음 인스턴스에서 일시 삭제 및 제거 보호를 사용하도록 설정해야 합니다.
         
         > [!NOTE]
         > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 

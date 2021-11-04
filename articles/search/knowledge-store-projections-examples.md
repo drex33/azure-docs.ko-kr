@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 3414e3d5b339334bf0762427c99020ff3a3170ad
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 0aa980d2268f6d055f3aa05a8e30d57712c022df
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134187"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563628"
 ---
 # <a name="define-projections-in-a-knowledge-store"></a>지식 저장소에서 프로젝션 정의
 
@@ -164,7 +164,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 개체 프로젝션을 정의 하려면 `objects` 프로젝션 속성에서 배열을 사용 합니다. 개체 프로젝션에는 다음과 같은 세 가지 필수 속성이 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |----------|-------------|
 | storageContainer | Azure Storage에서 만든 새 컨테이너의 이름을 결정 합니다.  |
 | generatedKeyName | 각 행을 고유 하 게 식별 하는 키의 열 이름입니다. 값은 시스템에서 생성 됩니다. 이 속성을 생략하면 테이블 이름과 ‘키’를 명명 규칙으로 사용하는 열이 자동으로 만들어집니다. |
@@ -235,7 +235,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 파일 프로젝션을 정의 하려면 `files` 프로젝션 속성에서 배열을 사용 합니다. 파일 프로젝션에는 다음과 같은 세 가지 필수 속성이 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |----------|-------------|
 | storageContainer | Azure Storage에서 만든 새 컨테이너의 이름을 결정 합니다.  |
 | generatedKeyName | 각 행을 고유 하 게 식별 하는 키의 열 이름입니다. 값은 시스템에서 생성 됩니다. 이 속성을 생략하면 테이블 이름과 ‘키’를 명명 규칙으로 사용하는 열이 자동으로 만들어집니다. |
@@ -272,7 +272,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 1. [인덱서 실행을 모니터링](search-howto-monitor-indexers.md) 하 여 진행률을 확인 하 고 오류를 catch 합니다.
 
-1. [Storage Explorer를 사용 하 여](knowledge-store-view-storage-explorer.md) Azure Storage에서 개체 생성을 확인 합니다.
+1. [Storage 브라우저를 사용 하 여](knowledge-store-view-storage-explorer.md) Azure Storage에서 개체 생성을 확인 합니다.
 
 1. 테이블을 프로젝션 하는 경우 테이블 조작 및 시각화를 위해 [Power BI로 가져옵니다](knowledge-store-connect-power-bi.md) . 대부분의 경우 Power BI은 테이블 간의 관계를 자동으로 검색 합니다.
 

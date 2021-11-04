@@ -2,15 +2,15 @@
 title: 에지에서 동작 감지 및 이벤트 내보내기 - Azure
 description: 이 빠른 시작에서는 프로그래밍 방식으로 직접 메서드를 호출하여 Live Video Analytics를 통해 동작을 감지하고 이벤트를 내보내는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a13a255c20b9d8d4293b029b61f614512229cbf3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1682dc1bedc5fa6cbc076ad500c30e48ded7d5bf
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030788"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554605"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>빠른 시작: 동작 감지 및 이벤트 내보내기
 

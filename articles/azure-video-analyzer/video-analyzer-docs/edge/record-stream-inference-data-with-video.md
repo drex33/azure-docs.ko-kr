@@ -3,14 +3,14 @@ title: 비디오를 사용하여 추론 메타데이터 녹화 및 스트리밍 
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디오 및 추론 메타데이터를 클라우드에 녹화하고 시각적 유추 메타데이터를 사용하여 녹화를 재생하는 방법을 알아봅니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9e91b9ed8e73f2834165b012654e567a6f219a81
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 77b920f52f699cb4492764aaf5ecb8b5f8ee2a7e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103731"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559412"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>자습서: 비디오를 사용하여 추론 메타데이터 녹화 및 스트리밍
 

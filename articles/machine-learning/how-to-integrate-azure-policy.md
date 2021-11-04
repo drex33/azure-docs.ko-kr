@@ -1,35 +1,35 @@
 ---
-title: Azure Machine Learning 감사 및 관리
+title: 감사 및 관리 Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Azure Policy를 사용하여 Azure Machine Learning에 대한 기본 제공 정책을 사용하여 작업 영역이 요구 사항을 준수하는지 확인하는 방법을 알아봅니다.
 author: aashishb
 ms.author: aashishb
-ms.date: 05/10/2021
+ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: e9a532ca4a4bf87bfb4569c03d367cb4d3d2ea2d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 7c9b8d5ef1126d204d4f418bc70100760468bc33
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428239"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562374"
 ---
-# <a name="audit-and-manage-azure-machine-learning"></a>Azure Machine Learning 감사 및 관리
+# <a name="audit-and-manage-azure-machine-learning"></a>감사 및 관리 Azure Machine Learning
 
-팀이 Azure Machine Learning에 대해 공동으로 작업 하는 경우 구성 및 리소스 구성에 대 한 다양 한 요구 사항을 직면 하 게 될 수 있습니다. 기계 학습 팀은 공동 작업을 위해 작업 영역을 구성 하는 방법에 대 한 유연성을 찾거나 계산 클러스터를 사용 사례의 요구 사항으로 크기를 조정할 수 있습니다. 이러한 시나리오에서는 응용 프로그램 팀에서 자체 인프라를 관리할 수 있는 경우 생산성이 극대화 될 수 있습니다.
+팀이 Azure Machine Learning 협업할 때 리소스 구성 및 구성에 대한 다양한 요구 사항에 직면할 수 있습니다. 기계 학습 팀은 협업을 위해 작업 영역을 구성하거나 컴퓨팅 클러스터 크기를 해당 사용 사례의 요구 사항에 맞게 유연하게 구성할 수 있습니다. 이러한 시나리오에서는 애플리케이션 팀이 자체 인프라를 관리할 수 있는 경우 생산성이 가장 향상됩니다.
 
-플랫폼 관리자는 정책을 사용 하 여 팀이 자신의 리소스를 관리할 guardrails의 레이아웃을 지정할 수 있습니다. [Azure Policy](../governance/policy/index.yml) 는 리소스 상태를 감사 하 고 제어 하는 데 도움이 됩니다. 이 문서에서는 Azure Machine Learning에 대 한 사용 가능한 감사 제어 및 거 버 넌 스 관행에 대해 알아봅니다.
+플랫폼 관리자는 정책을 사용하여 팀이 자체 리소스를 관리할 수 있도록 보호책을 배치할 수 있습니다. [Azure Policy](../governance/policy/index.yml) 리소스 상태를 감사하고 관리하는 데 도움이 됩니다. 이 문서에서는 Azure Machine Learning 대한 사용 가능한 감사 제어 및 거버넌스 사례에 대해 알아봅니다.
 
-## <a name="policies-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 정책
+## <a name="policies-for-azure-machine-learning"></a>Azure Machine Learning 정책
 
 [Azure Policy](../governance/policy/index.yml) 는 Azure 리소스가 정책을 준수하는지 확인할 수 있도록 하는 거버넌스 도구입니다.
 
 Azure Machine Learning은 Azure Machine Learning과 관련된 일반적인 시나리오에 사용할 수 있는 정책 집합을 제공합니다. 이러한 정책 정의를 기존 구독에 할당하거나 고유한 사용자 지정 정의를 만드는 기준으로 사용할 수 있습니다.
 
-아래 표에는 Azure Machine Learning을 사용 하 여 할당할 수 있는 정책 선택이 포함 되어 있습니다. Azure Machine Learning에 대한 기본 제공 정책의 전체 목록은 [Azure Machine Learning에 대한 기본 제공 정책](../governance/policy/samples/built-in-policies.md#machine-learning)을 참조하세요.
+아래 표에는 Azure Machine Learning 사용하여 할당할 수 있는 정책의 선택 항목이 포함되어 있습니다. Azure Machine Learning에 대한 기본 제공 정책의 전체 목록은 [Azure Machine Learning에 대한 기본 제공 정책](../governance/policy/samples/built-in-policies.md#machine-learning)을 참조하세요.
 
 | 정책 | 설명 |
 | ----- | ----- |
@@ -59,15 +59,15 @@ Azure Machine Learning과 관련된 기본 제공 정책 정의를 보려면 다
 
 Azure Machine Learning 작업 영역에 액세스할 수 있는 사용자를 제어하려면 Azure Active Directory [조건부 액세스](../active-directory/conditional-access/overview.md)를 사용합니다.
 
-## <a name="enable-self-service-using-landing-zones"></a>랜딩 영역을 사용 하 여 셀프 서비스 사용
+## <a name="enable-self-service-using-landing-zones"></a>랜딩 존을 사용하여 셀프 서비스 사용
 
-랜딩 영역은 규모, 거 버 넌 스, 보안 및 생산성을 위해 Azure 환경을 설정 하는 아키텍처 패턴입니다. 데이터 방문 영역은 응용 프로그램 팀에서 데이터 및 분석 워크 로드를 호스트 하는 데 사용 하는 관리자로 구성 환경입니다.
+랜딩 존은 규모, 거버넌스, 보안 및 생산성을 고려하는 Azure 환경을 설정하는 아키텍처 패턴입니다. 데이터 랜딩 존은 애플리케이션 팀이 데이터 및 분석 워크로드를 호스트하는 데 사용하는 관리자 구성 환경입니다.
 
-방문 영역의 목적은 팀이 Azure 환경에서 시작 될 때 모든 인프라 구성 작업이 완료 되도록 하는 것입니다. 예를 들어 보안 제어는 조직의 표준을 준수 하 고 네트워크 연결이 설정 된 상태에서 설정 됩니다.
+랜딩 존의 목적은 팀이 Azure 환경에서 시작할 때 모든 인프라 구성 작업이 수행되도록 하는 것입니다. 예를 들어 보안 제어는 조직 표준에 따라 설정되고 네트워크 연결이 설정됩니다.
 
-랜딩 영역 패턴을 사용 하 여 기계 학습 팀을 사용 하도록 설정 하 여 셀프 서비스에서 자체 리소스를 배포 및 관리할 수 있습니다. Azure policy를 사용 하 여 관리자는 규정 준수를 위해 Azure 리소스를 감사 하 고 관리할 수 있으며, 작업 영역이 요구 사항에 부합 하는지 확인할 수 있습니다. 
+랜딩 존 패턴을 사용하여 기계 학습 팀이 자체 리소스를 셀프 서비스 배포 및 관리할 수 있습니다. Azure Policy를 사용하면 관리자가 규정 준수를 위해 Azure 리소스를 감사 및 관리하고 작업 영역이 요구 사항을 충족하는지 확인할 수 있습니다. 
 
-Azure Machine Learning는 [클라우드 채택 프레임 워크 데이터 관리 및 분석 시나리오](/azure/cloud-adoption-framework/scenarios/data-management/)에서 [데이터 방문 영역과](https://github.com/Azure/data-landing-zone) 통합 됩니다. 이 참조 구현은 machine learning 작업을 마이그레이션할 최적화 된 환경을 제공 하며 미리 구성 된 Azure Machine Learning에 대 한 정책을 포함 합니다.
+Azure Machine Learning 클라우드 채택 프레임워크 데이터 관리 및 분석 시나리오에서 데이터 [랜딩 존과](https://github.com/Azure/data-landing-zone) [통합됩니다.](/azure/cloud-adoption-framework/scenarios/data-management/) 이 참조 구현은 기계 학습 워크로드를 로 마이그레이션하는 최적화된 환경을 제공하고 미리 구성된 Azure Machine Learning 대한 정책을 포함합니다.
 
 ## <a name="configure-built-in-policies"></a>기본 제공 정책 구성
 
@@ -126,6 +126,6 @@ Azure Machine Learning 컴퓨팅 클러스터 또는 인스턴스 만들기 요�
 * [Azure Policy 설명서](../governance/policy/overview.md)
 * [Azure Machine Learning에 대한 기본 제공 정책](policy-reference.md)
 * [Azure Security Center로 보안 정책 작업](../security-center/tutorial-security-policy.md)
-* [데이터 관리 및 분석에 대한 클라우드 채택 프레임워크 시나리오에서는](/azure/cloud-adoption-framework/scenarios/data-management/) 클라우드에서 데이터 및 분석 워크로드를 실행할 때 고려해야 할 사항을 간략하게 설명합니다.
-* [클라우드 채택 프레임워크 데이터 랜딩 존은](https://github.com/Azure/data-landing-zone) Azure에서 데이터 및 분석 워크로드를 관리하기 위한 참조 구현을 제공합니다.
-* [정책을 사용하여 azure 프라이빗 DNS 영역 과 Azure Private Link 통합하여](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)작업 영역 및 종속 리소스에 대한 프라이빗 링크 구성을 관리하는 방법을 알아봅니다.
+* [데이터 관리 및 분석을 위한 클라우드 채택 프레임 워크 시나리오](/azure/cloud-adoption-framework/scenarios/data-management/) 는 클라우드에서 데이터 및 분석 워크 로드를 실행 하는 데 필요한 사항을 간략하게 설명 합니다.
+* [클라우드 채택 프레임 워크 데이터 방문 영역](https://github.com/Azure/data-landing-zone) 은 Azure에서 데이터 및 분석 워크 로드를 관리 하기 위한 참조 구현을 제공 합니다.
+* [정책을 사용 하 여 Azure 개인 링크를 azure 사설 DNS 영역과 통합 하는 방법에 대해 설명](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)하 고 작업 영역 및 종속 리소스에 대 한 개인 링크 구성을 관리 합니다.

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: peterlu
-author: peterclu
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: dfa3b5630b09e2a3e3411afc7d77b76f1b651e72
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90893433"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555004"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>키보드를 통해 Azure Machine Learning 디자이너 사용
 
@@ -25,40 +25,40 @@ ms.locfileid: "90893433"
 
 ## <a name="navigate-the-pipeline-graph"></a>파이프라인 그래프 탐색
 
-파이프라인 그래프는 중첩된 목록으로 구성됩니다. 외부 목록은 파이프라인 그래프의 모든 모듈을 설명하는 모듈 목록입니다. 내부 목록은 특정 모듈의 모든 연결을 설명하는 연결 목록입니다.  
+파이프라인 그래프는 중첩된 목록으로 구성됩니다. 외부 목록은 파이프라인 그래프의 모든 구성 요소를 설명하는 구성 요소 목록입니다. 내부 목록은 특정 구성 요소의 모든 연결을 설명하는 연결 목록입니다.  
 
-1. 모듈 목록에서 화살표 키를 사용하여 모듈을 전환합니다.
-1. Tab 키를 사용하여 대상 모듈의 연결 목록을 엽니다.
-1. 화살표 키를 사용하여 모듈의 연결 포트 간에 전환합니다.
-1. "G" 키를 사용하여 대상 모듈로 이동합니다.
+1. 구성 요소 목록에서 화살표 키를 사용하여 구성 요소를 전환합니다.
+1. 탭을 사용하여 대상 구성 요소에 대한 연결 목록을 엽니다.
+1. 화살표 키를 사용하여 구성 요소의 연결 포트 간에 전환합니다.
+1. "G"를 사용하여 대상 구성 요소로 이동합니다.
 
 ## <a name="edit-the-pipeline-graph"></a>파이프라인 그래프 편집
 
-### <a name="add-a-module-to-the-graph"></a>그래프에 모듈 추가
+### <a name="add-a-component-to-the-graph"></a>그래프에 구성 요소 추가
 
-1. Ctrl+F6을 사용하여 캔버스에서 모듈 트리로 포커스를 전환합니다.
-1. 표준 트리뷰 컨트롤을 사용하여 모듈 트리에서 원하는 모듈을 찾습니다.
+1. Ctrl+F6을 사용하여 캔버스에서 구성 요소 트리로 포커스를 전환합니다.
+1. 표준 treeview 컨트롤을 사용하여 구성 요소 트리에서 원하는 구성 요소를 찾습니다.
 
-### <a name="edit-a-module"></a>모듈 편집
+### <a name="edit-a-component"></a>구성 요소 편집
 
-모듈을 다른 모듈에 연결하려면 다음을 수행합니다.
+구성 요소를 다른 구성 요소에 연결하려면 다음을 수행합니다.
 
-1. 모듈 목록의 모듈을 대상으로 지정하여 연결 도우미를 열 때는 Ctrl + Shift + H를 사용합니다.
-1. 모듈의 연결 포트를 편집합니다.
+1. 구성 요소 목록의 구성 요소를 대상으로 지정하여 연결 도우미를 열 때 Ctrl + Shift + H를 사용합니다.
+1. 구성 요소에 대한 연결 포트를 편집합니다.
 
-모듈 속성을 조정하려면 다음을 수행합니다.
+구성 요소 속성을 조정하려면 다음을 수행합니다.
 
-1. 모듈을 대상으로 지정하여 모듈 속성을 열 때는 Ctrl + Shift + E를 사용합니다.
-1. 모듈 속성을 편집합니다.
+1. 구성 요소를 대상으로 지정하는 경우 Ctrl + Shift + E를 사용하여 구성 요소 속성을 엽니다.
+1. 구성 요소 속성을 편집합니다.
 
 ## <a name="navigation-shortcuts"></a>탐색 바로 가기
 
 | 키 입력 | Description |
 |-|-|
-| Ctrl + F6 | 캔버스와 모듈 트리 간 포커스 전환 |
-| Ctrl + F1   | 모듈 트리의 노드에 포커스가 있을 때 정보 카드 열기 |
+| Ctrl + F6 | 캔버스와 구성 요소 트리 간에 포커스 전환 |
+| Ctrl + F1   | 구성 요소 트리의 노드에 초점을 맞출 때 정보 카드 열기 |
 | Ctrl + Shift + H | 노드에 포커스가 있을 때 연결 도우미 열기 |
-| Ctrl + Shift + E | 노드에 포커스가 있을 때 모듈 속성 열기 |
+| Ctrl + Shift + E | 포커스가 노드에 있을 때 구성 요소 속성 열기 |
 | Ctrl + G | 파이프라인 실행에 실패한 경우 실패한 첫 번째 노드로 포커스 이동 |
 
 ## <a name="action-shortcuts"></a>작업 바로 가기

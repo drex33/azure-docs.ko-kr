@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c7c4c28218d1cf6e1c55523d926fd3691a8c13a8
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a759bda6549df753d03e1fe0e8933f454f589d74
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356302"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563419"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -268,7 +268,7 @@ Azure Machine Learning은 다음과 같은 모니터링 및 로깅 기능을 제
 + [Azure Machine Learning 디자이너](concept-designer.md)를 사용하여 코드를 작성하지 않고 워크플로 단계를 수행합니다.
 + [자동화된 Machine Learning](concept-automated-ml.md)을 위한 웹 환경
 + [Azure Machine Learning Notebook](how-to-run-jupyter-notebooks.md)은 통합 Jupyter Notebook 서버에서 고유의 코드를 작성하고 실행합니다.
-+ [이미지](how-to-create-image-labeling-projects.md) 또는 [텍스트](how-to-create-text-labeling-projects.md)레이블을 지정 하는 프로젝트를 만들고, 관리 하 고, 모니터링 하기 위한 데이터 레이블 지정 프로젝트입니다.
++ [이미지](how-to-create-image-labeling-projects.md) 또는 [텍스트에](how-to-create-text-labeling-projects.md)레이블을 지정하기 위한 프로젝트를 만들고, 관리하고, 모니터링하는 데이터 레이블 지정 프로젝트
 
 ### <a name="programming-tools"></a>프로그래밍 도구
 

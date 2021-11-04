@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: mldata
 author: lobrien
 ms.author: laobri
-ms.date: 08/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.openlocfilehash: 519494db9a1bb06e43dc60ffed998b800555a887
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 6f4a09153702e98068034fa5b5866a4baa18de03
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426210"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561521"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제
 
@@ -81,7 +81,7 @@ model_output_port.download('.', show_progress=True)
 
 Python SDK를 사용하여 다음 기계 학습 리소스를 삭제할 수 있습니다. 
 
-| 형식 | 함수 호출 | 메모 | 
+| 형식 | 함수 호출 | 참고 | 
 | --- | --- | --- |
 | `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace#delete-delete-dependent-resources-false--no-wait-false-) | `delete-dependent-resources`를 사용하여 하위 항목까지 삭제 |
 | `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29#delete--) | | 

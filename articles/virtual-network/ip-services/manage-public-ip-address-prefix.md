@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 9d70a60a115f1ddcb2b2253a78aeec1563ec8e8a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 824d89126252a0690b93a2129f47d8e02b728694
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373049"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560115"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -27,7 +27,7 @@ ms.locfileid: "129373049"
    |설정|필수 여부|세부 정보|
    |---|---|---|
    |Subscription|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
-   |리소스 그룹|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
+   |Resource group|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
    |이름|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |지역|예|범위에서 주소를 할당할 공용 IP 주소와 동일한 [지역](https://azure.microsoft.com/regions)에 있어야 합니다.|
    |IP 버전|Yes| 접두사의 IP 버전(v4 또는 v6)
@@ -61,6 +61,9 @@ ms.locfileid: "129373049"
 |---|---|
 |CLI|[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
+
+>[!NOTE]
+>공용 IP 접두사에서 공용 IP 주소를 요청할 때 할당은 결정적이거나 순차적이지 않습니다. 공용 IP 접두사에서 특정 공용 IP 주소가 필요한 경우 PowerShell 또는 CLI 명령을 통해 이를 허용합니다.  PowerShell의 경우 `IpAddress` 매개 변수(뒤에 원하는 IP)를 사용해야 합니다. CLI의 경우 매개 변수(원하는 IP 뒤에)를 `ip-address` 사용해야 합니다.
 
 >[!NOTE]
 >표준 SKU로 만든 고정 공용 IP 주소만 접두사의 범위에서 할당할 수 있습니다. 공용 IP 주소 SKU에 대해 자세히 알아보려면 [공용 IP 주소](public-ip-addresses.md#public-ip-addresses)를 참조하세요.

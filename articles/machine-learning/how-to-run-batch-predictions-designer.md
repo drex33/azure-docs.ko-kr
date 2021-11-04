@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 02/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 85562dd33031ae0f392efac6aed6d5e4ecc5c2e5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: da37ffd719585c5f4d00d2cac1411ee3057a8472
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428277"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562146"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
 
@@ -67,7 +67,7 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 
 이 섹션에서는 데이터 세트 매개 변수를 만들어서 예측을 할 다른 데이터 세트를 지정합니다.
 
-1. 데이터 세트 모듈을 선택합니다.
+1. 데이터 세트 구성 요소를 선택합니다.
 
 1. 캔버스 오른쪽에 창이 표시됩니다. 창 아래쪽에서 **파이프라인 매개 변수 설정** 을 선택합니다.
    
@@ -153,13 +153,13 @@ REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필�
 
 추론 파이프라인에서는 모델만 업데이트되며 데이터 변환은 업데이트되지 않습니다.
 
-업데이트된 변환을 유추 파이프라인에서 사용하려면 변환 모듈의 변환 출력을 데이터 세트로 등록해야 합니다.
+유추 파이프라인에서 업데이트된 변환을 사용하려면 변환 구성 요소의 변환 출력을 데이터 세트로 등록해야 합니다.
 
 ![변환 데이터 세트를 등록하는 방법을 보여주는 스크린샷](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
 
-그런 다음, 수동으로 유추 파이프라인의 **TD** 모듈을 등록된 데이터 세트로 바꿉니다.
+그런 다음 유추 파이프라인의 **TD-** 구성 요소를 등록된 데이터 세트로 수동으로 대체합니다.
 
-![변환 모듈을 바꾸는 방법을 보여주는 스크린샷](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+![변환 구성 요소를 바꾸는 방법을 보여주는 스크린샷](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
 
 그러면 업데이트된 모델과 변환이 적용된 추론 파이프라인을 제출하고 배포할 수 있습니다.
 

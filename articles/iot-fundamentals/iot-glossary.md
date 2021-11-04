@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: c5ef5f73449657041d308e6d68dce61e9d9477c6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 532bb1f9d9c2e612714a178d3c1445f24cd8c6ea
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445807"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552509"
 ---
 # <a name="glossary-of-iot-terms"></a>IoT 용어집
 
@@ -22,316 +22,316 @@ ms.locfileid: "131445807"
 
 ### <a name="advanced-message-queueing-protocol"></a>고급 메시지 큐 프로토콜
 
-[디바이스와의](#device)통신을 지원하고 [IoT Hub](#iot-hub) IoT Central 메시징 프로토콜 중 하나입니다.
+[장치와](#device)의 통신을 지원 하기 위해 [IoT Hub](#iot-hub) 및 IoT Central 하는 메시징 프로토콜 중 하나입니다.
 
 [자세한 정보](../iot-hub/iot-hub-devguide-protocols.md)
 
-적용 대상: Ot Hub, IoT Central, 디바이스 개발자
+적용 대상: Iot Hub, IoT Central, 장치 개발자
 
 ### <a name="allocation-policy"></a>할당 정책
 
-Device [Provisioning Service에서](#device-provisioning-service)할당 정책은 서비스에서 [연결된 IoT Hub](#linked-iot-hub)에 [디바이스를](#device) 할당하는 방법을 결정합니다.
+[장치 프로 비전 서비스](#device-provisioning-service)에서 할당 정책은 서비스가 [연결 된 IoT hub](#linked-iot-hub)에 [장치](#device) 를 할당 하는 방법을 결정 합니다.
 
-적용된 내용: Device Provisioning Service
+적용 대상: 장치 프로 비전 서비스
 
 ### <a name="attestation-mechanism"></a>증명 메커니즘
 
-Device [Provisioning Service에서](#device-provisioning-service)증명 메커니즘은 [디바이스의](#device)ID를 확인하는 데 사용되는 방법입니다. 증명 메커니즘은 [등록](#enrollment)에서 구성됩니다.
+[장치 프로 비전 서비스](#device-provisioning-service)에서 증명 메커니즘은 [장치의](#device)id를 확인 하는 데 사용 되는 방법입니다. 증명 메커니즘은 [등록](#enrollment)에서 구성됩니다.
 
-증명 메커니즘에는 X.509 인증서, 신뢰할 수 있는 플랫폼 [모듈](#module)및 대칭 키가 포함됩니다.
+증명 메커니즘에는 x.509 인증서, 신뢰할 수 있는 플랫폼 [모듈](#module)및 대칭 키가 포함 됩니다.
 
-적용된 내용: Device Provisioning Service
+적용 대상: 장치 프로 비전 서비스
 
 ### <a name="automatic-deployment"></a>자동 배포
 
-[IoT Edge](#iot-edge) 모듈 집합을 실행하도록 [IoT Edge 디바이스의](#iot-edge-device) 대상 집합을 구성하는 IoT Edge [기능입니다.](#module) 각 배포는 대상 조건과 일치하는 모든 디바이스가 대상 [조건과](#target-condition) 일치하도록 새 [디바이스를](#device) 만들거나 수정한 경우에도 지정된 모듈 집합을 실행하도록 지속적으로 보장합니다. 각 IoT Edge 디바이스는 해당 대상 조건을 충족하는 가장 높은 우선 순위 배포만 수신합니다.
+IoT Edge [모듈](#module)집합을 실행 하도록 [IoT Edge 장치의](#iot-edge-device) 대상 집합을 구성 하는 [IoT Edge](#iot-edge) 의 기능입니다. 각 배포는 대상 조건과 일치 하도록 새 장치를 만들거나 수정 하는 경우에도 [대상 조건과](#target-condition) 일치 하는 모든 [장치가](#device) 지정 된 모듈 집합을 실행 하는지 확인 합니다. 각 IoT Edge 디바이스는 해당 대상 조건을 충족하는 가장 높은 우선 순위 배포만 수신합니다.
 
 [자세한 정보](../iot-edge/module-deployment-monitoring.md)
 
-적용 적용: IoT Edge
+적용 대상: IoT Edge
 
 ### <a name="automatic-device-configuration"></a>자동 디바이스 구성
 
-[솔루션](#solution) 백 엔드에서 시스템 및 사용자 지정 메트릭을 사용하여 디바이스 [쌍](#device-twin) 집합에 [desired 속성을](#desired-properties) 할당하고 [디바이스](#device) 상태를 보고할 수 있도록 하는 [IoT Hub](#iot-hub) 기능입니다.
+[솔루션](#solution) 백 엔드가 [장치](#device-twin) 쌍 집합에 [desired 속성](#desired-properties) 을 할당 하 고 시스템 및 사용자 지정 메트릭을 사용 하 여 [장치](#device) 상태를 보고할 수 있도록 하는 [IoT Hub](#iot-hub) 기능입니다.
 
 [자세한 정보](../iot-hub/iot-hub-automatic-device-management.md)
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="automatic-device-management"></a>자동 디바이스 관리
 
-전체 수명 주기 동안 대규모 [디바이스를](#device) 관리하는 반복적이고 복잡한 작업을 자동화하는 [IoT Hub](#iot-hub) 기능입니다. 이 기능을 사용하면 [해당 속성을](#properties)기반으로 디바이스 집합을 대상으로 지정하고, [원하는 구성을](#desired-configuration)정의하고, 범위가 IoT Hub 디바이스를 업데이트할 수 있습니다.
+전체 수명 주기 동안 많은 [장치](#device) 대규모을 관리 하는 반복적이 고 복잡 한 작업을 자동화 하는 [IoT Hub](#iot-hub) 기능입니다. 기능을 사용 하면 해당 [속성](#properties)을 기반으로 장치 집합을 대상으로 지정 하 고, [원하는 구성을](#desired-configuration)정의 하 고, 범위에 있을 때마다 장치를 IoT Hub 업데이트할 수 있습니다.
 
 [자동 디바이스 구성](../iot-hub/iot-hub-automatic-device-management.md) 및 [IoT Edge 자동 배포](../iot-edge/how-to-deploy-at-scale.md)로 구성됩니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="azure-certified-device-program"></a>Azure Certified Device 프로그램
 
-Azure Certified [Device는](#device) Azure에서 실행되도록 빌드된 IoT 디바이스를 차별화, 인증 및 승격할 수 있는 무료 프로그램입니다.
+Azure 인증 [장치](#device) 는 azure에서 실행 되도록 빌드된 IoT 장치를 구분 하 고, 인증 하 고, 승격할 수 있는 무료 프로그램입니다.
 
 [자세한 정보](../certification/overview.md)
 
-적용할 내용: Ot Hub, IoT Central
+적용 대상: Iot Hub, IoT Central
 
 ### <a name="azure-digital-twins"></a>Azure Digital Twins
 
-실제 사물, 장소, 비즈니스 프로세스 및 사람의 디지털 표현을 만들기 위한 PaaS(Platform as a Service) 제품입니다. 전체 환경을 나타내는 쌍 그래프를 작성하고, 이를 사용하여 더 나은 제품을 구동하고, 운영 및 비용을 최적화하며, 혁신적인 고객 경험을 만들기 위한 인사이트를 얻습니다.
+실제 사물, 장소, 비즈니스 프로세스 및 사람들의 디지털 표현을 만들기 위한 PaaS (platform as a service) 제품입니다. 전체 환경을 나타내는 쌍 그래프를 작성하고, 이를 사용하여 더 나은 제품을 구동하고, 운영 및 비용을 최적화하며, 혁신적인 고객 경험을 만들기 위한 인사이트를 얻습니다.
 
 [자세한 정보](../digital-twins/overview.md)
 
-적용 적용: Digital Twins
+적용 대상: 디지털 쌍
 
 ### <a name="azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스
 
-고객의 구독에 [있는 Azure Digital Twins](#azure-digital-twins) 서비스의 단일 인스턴스입니다. Azure [Digital Twins](#digital-twin) Azure 서비스 전체를 참조하지만 Azure Digital Twins *인스턴스는* 개별 Azure Digital Twins 리소스입니다.
+고객 구독에 있는 [Azure Digital Twins](#azure-digital-twins) 서비스의 단일 인스턴스입니다. Azure [Digital Twins](#digital-twin) 는 전체 azure 서비스를 참조 하는 반면, azure Digital twins *인스턴스* 는 개별 azure 디지털 쌍 리소스입니다.
 
-적용 적용: Digital Twins
+적용 대상: 디지털 쌍
 
 ### <a name="azure-iot-explorer"></a>Azure IoT Explorer
 
-[디바이스에서](#device) 보내는 [원격 분석을](#telemetry) 보고, 디바이스 [속성](#properties)를 사용하고, 명령을 호출하는 데 사용할 수 [있는](#command)도구입니다. 또한, 디바이스를 대상으로 상호 작용 및 테스트를 하고 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)를 관리할 수 있습니다.
+[장치](#device) 에서 보내는 [원격 분석](#telemetry) 을 보고, 장치 [속성](#properties)을 사용 하 고, [명령을](#command)호출 하는 데 사용할 수 있는 도구입니다. 또한, 디바이스를 대상으로 상호 작용 및 테스트를 하고 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)를 관리할 수 있습니다.
 
 [자세한 정보](https://github.com/Azure/azure-iot-explorer)
 
-적용 대상: Ot Hub, 디바이스 개발자
+적용 대상: Iot Hub, 장치 개발자
 
 ### <a name="azure-iot-tools"></a>Azure IoT Tools
 
-VS Code [Azure](#iot-hub) IoT Hub 및 [디바이스를](#device) 관리하는 데 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장입니다. Azure IoT Tools 통해 IoT 개발자는 VS Code IoT 프로젝트를 쉽게 개발할 수 있습니다.
+VS Code에서 Azure [IoT Hub](#iot-hub) 및 [장치](#device) 를 관리 하는 데 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장 프로그램입니다. Azure IoT Tools를 통해 iot 개발자는에서 iot 프로젝트를 쉽게 개발할 수 있습니다 VS Code
 
-적용 대상: Ot Hub, IoT Edge, IoT Central, 디바이스 개발자
+적용 대상: Iot Hub, IoT Edge, IoT Central, 장치 개발자
 
 ### <a name="azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK
 
-여러 언어에 사용할 수 있는 이러한 SDKS를 사용하면 [IoT Hub](#iot-hub) 또는 IoT Central 애플리케이션과 상호 작용하는 [디바이스 앱을](#device-app) 만들 수 있습니다.
+여러 언어에서 사용할 수 있는 이러한 SDK를 사용 하 여 [IoT hub](#iot-hub) 또는 IoT Central 응용 프로그램과 상호 작용 하는 [장치 앱](#device-app) 을 만들 수 있습니다.
 
 [자세한 정보](../iot-develop/about-iot-sdks.md)
 
-적용 대상: Ot Hub, IoT Central, 디바이스 개발자
+적용 대상: Iot Hub, IoT Central, 장치 개발자
 
 ### <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 
-여러 언어에 사용할 수 있는 이러한 SDK를 사용하면 [IoT Hub와](#iot-hub)상호 작용하는 [백 엔드 앱을](#back-end-app) 만들 수 있습니다.
+여러 언어에서 사용할 수 있는 이러한 Sdk를 사용 하 여 [IoT hub](#iot-hub)와 상호 작용 하는 [백 엔드 앱](#back-end-app) 을 만들 수 있습니다.
 
 [자세한 정보](/iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ## <a name="b"></a>b
 
 ### <a name="back-end-app"></a>백 엔드 앱
 
-[IoT Hub](#iot-hub)컨텍스트에서 IoT Hub의 서비스 [엔드포인트](#endpoint) 중 하나에 연결하는 앱입니다. 예를 들어 백 엔드 앱은 [디바이스-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행되지만 간단히 하기 위해 많은 자습서에서 백 엔드 앱을 로컬 개발 머신에서 실행되는 콘솔 앱으로 표시합니다.
+[IoT Hub](#iot-hub)컨텍스트에서 IoT Hub의 서비스 지향 [끝점](#endpoint) 중 하나에 연결 하는 앱입니다. 예를 들어 백 엔드 앱은 [디바이스-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행 되지만 간단한 자습서의 많은 자습서에서는 백 엔드 앱을 로컬 개발 컴퓨터에서 실행 되는 콘솔 앱으로 표시 합니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="built-in-endpoints"></a>기본 제공 엔드포인트
 
-[IoT Hub](#iot-hub)에 기본 제공되는 [엔드포인트입니다.](#endpoint) 예를 들어 모든 IoT Hub에는 Event Hubs 호환되는 기본 제공 엔드포인트가 포함되어 있습니다.
+[IoT Hub](#iot-hub)에 기본 제공 되는 [끝점](#endpoint) 입니다. 예를 들어 모든 IoT hub에는 Event Hubs 호환 되는 기본 제공 끝점이 포함 되어 있습니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ## <a name="c"></a>C
 
 ### <a name="cloud-gateway"></a>클라우드 게이트웨이
 
-IoT Hub 또는 [IoT Central](#iot-hub) 직접 연결할 수 없는 [디바이스에](#device) 대한 연결을 사용하도록 설정하는 클라우드 호스팅 앱입니다. 클라우드 [게이트웨이는](#gateway) 디바이스에 로컬로 실행되는 [필드 게이트웨이와](#field-gateway) 달리 클라우드에서 호스트됩니다. 클라우드 게이트웨이의 일반적인 사용 사례는 디바이스에 대한 프로토콜 변환을 구현하는 것입니다.
+[IoT Hub](#iot-hub) 또는 IoT Central에 직접 연결할 수 없는 [장치](#device) 에 대 한 연결을 가능 하 게 하는 클라우드 호스팅 앱입니다. 클라우드 [게이트웨이](#gateway) 는 장치에 로컬로 실행 되는 [필드 게이트웨이와](#field-gateway) 달리 클라우드에서 호스팅됩니다. 클라우드 게이트웨이의 일반적인 사용 사례는 장치에 대 한 프로토콜 변환을 구현 하는 것입니다.
 
-적용할 내용: Ot Hub, IoT Central
+적용 대상: Iot Hub, IoT Central
 
 ### <a name="cloud-property"></a>클라우드 속성
 
-IoT Central 애플리케이션에서 스토어 [디바이스](#device) 메타데이터를 사용할 수 있는 IoT Central 기능입니다. 클라우드 [속성은](#properties) 디바이스 [템플릿](#device-template)에 정의되어 있지만 [디바이스 모델](#device-model)의 일부가 아닙니다. 클라우드 속성은 디바이스와 동기화되지 않습니다.
+IoT Central 응용 프로그램에서 [장치](#device) 메타 데이터를 저장할 수 있도록 하는 IoT Central의 기능입니다. 클라우드 [속성](#properties) 은 장치 [템플릿에](#device-template)정의 되지만 [장치 모델](#device-model)에는 포함 되지 않습니다. 클라우드 속성은 장치와 동기화 되지 않습니다.
 
-적용 적용: IoT Central
+적용 대상: IoT Central
 
 ### <a name="cloud-to-device"></a>클라우드-디바이스
 
-[IoT Hub에서](#iot-hub) 연결된 [디바이스로](#device)전송된 메시지입니다. 이러한 메시지는 종종 [디바이스에](#command) 작업을 수행하도록 지시하는 명령입니다.
+[IoT hub](#iot-hub) 에서 연결 된 [장치로](#device)전송 되는 메시지입니다. 종종 이러한 메시지는 장치에 작업을 수행 하도록 지시 하는 [명령](#command) 입니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="command"></a>명령
 
-명령은 [디지털 트윈](#digital-twin)에서 호출할 수 있는 메서드를 나타내기 위해 IoT 플러그 앤 플레이 [인터페이스에](#interface) 정의됩니다. 예를 들어 [디바이스를](#device)다시 부팅하는 명령입니다. IoT Central 명령은 [디바이스 템플릿](#device-template)에 정의됩니다.
+명령은 [디지털](#digital-twin)쌍에서 호출할 수 있는 메서드를 나타내기 위해 IoT 플러그 앤 플레이 [인터페이스](#interface) 에 정의 됩니다. 예를 들어 [장치](#device)를 다시 부팅 하는 명령이 있습니다. IoT Central에서 명령은 [장치 템플릿에](#device-template)정의 되어 있습니다.
 
-적용 대상: Ot Hub, IoT Central, 디바이스 개발자
+적용 대상: Iot Hub, IoT Central, 장치 개발자
 
 ### <a name="component"></a>구성 요소
 
-IoT 플러그 앤 플레이 및 [Azure Digital Twins](#azure-digital-twins)구성 요소를 사용하면 [모델](#model) 인터페이스를 다른 [인터페이스의](#interface) 어셈블리로 빌드할 수 있습니다. [디바이스 모델](#device-model)은 여러 인터페이스를 구성 요소로 결합할 수 있습니다. 예를 들어 모델에는 스위치 구성 요소와 온도 조절 디바이스 구성 요소가 포함될 수 있습니다. 모델의 여러 구성 요소가 동일한 인터페이스 형식을 사용할 수도 있습니다. 예를 들어 하나의 모델에 두 개의 온도 조절 디바이스 구성 요소가 포함될 수 있습니다.
+IoT 플러그 앤 플레이 및 [Azure Digital Twins](#azure-digital-twins)에서 구성 요소를 사용 하 여 다른 인터페이스의 어셈블리로 [모델](#model) [인터페이스](#interface) 를 빌드할 수 있습니다. [디바이스 모델](#device-model)은 여러 인터페이스를 구성 요소로 결합할 수 있습니다. 예를 들어 모델에는 스위치 구성 요소와 온도 조절 디바이스 구성 요소가 포함될 수 있습니다. 모델의 여러 구성 요소가 동일한 인터페이스 형식을 사용할 수도 있습니다. 예를 들어 하나의 모델에 두 개의 온도 조절 디바이스 구성 요소가 포함될 수 있습니다.
 
-적용 대상: Ot Hub, Digital Twins, 디바이스 개발자
+적용 대상: Iot Hub, 디지털 쌍, 장치 개발자
 
 ### <a name="configuration"></a>구성
 
-[IoT Hub](#iot-hub)의 [자동 장치 구성](#automatic-device-configuration) 컨텍스트에서는 [장치](#device) 집합에 대 한 [원하는 구성을](#desired-configuration) 정의 하 고 상태와 진행률을 보고 하는 메트릭 집합을 제공 합니다.
+[IoT Hub](#iot-hub)자동 [디바이스 구성의](#automatic-device-configuration) 컨텍스트에서 디바이스 [쌍](#device) 집합에 대해 [원하는 구성을](#desired-configuration) 정의하고 상태 및 진행 상황을 보고하는 메트릭 집합을 제공합니다.
 
-적용 대상: Iot Hub
+적용된 내용: Ot Hub
 
 ### <a name="connection-string"></a>연결 문자열
 
-응용 프로그램 코드에서를 사용 하 여 [끝점](#endpoint)에 연결 하는 데 필요한 정보를 캡슐화 합니다. 일반적으로 연결 문자열에는 엔드포인트의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. [IoT Hub](#iot-hub) 서비스와 연결 된 연결 문자열에는 다음 두 가지 유형이 있습니다.
+앱 코드에서 를 사용하여 [엔드포인트](#endpoint)에 연결하는 데 필요한 정보를 캡슐화합니다. 일반적으로 연결 문자열에는 엔드포인트의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. [IoT Hub](#iot-hub) 서비스와 연결된 두 가지 유형의 연결 문자열이 있습니다.
 
-- *[장치](#device) 연결 문자열* 을 사용 하면 장치에서 IoT hub의 장치 지향 끝점에 연결할 수 있습니다.
-- *연결 문자열* 을 IoT Hub [백 엔드 앱](#back-end-app) 이 IoT Hub의 서비스 연결 끝점에 연결할 수 있습니다.
+- *[디바이스](#device) 연결 문자열을* 사용하면 디바이스가 IoT Hub의 디바이스 연결 엔드포인트에 연결할 수 있습니다.
+- *IoT Hub 연결 문자열을* 사용하면 [백 엔드 앱이](#back-end-app) IoT Hub의 서비스 연결 엔드포인트에 연결할 수 있습니다.
 
-적용 대상: Iot Hub, 장치 개발자
+적용 대상: Ot Hub, 디바이스 개발자
 
 ### <a name="custom-endpoints"></a>사용자 지정 엔드포인트
 
-[라우팅 규칙](#routing-rule)으로 발송 된 메시지를 전달 하는 [IoT hub](#iot-hub) 의 사용자 정의 [끝점](#endpoint) 입니다. 이러한 끝점은 이벤트 허브, Service Bus 큐 또는 Service Bus 토픽에 직접 연결 됩니다.
+[라우팅 규칙에](#routing-rule)의해 디스패치된 메시지를 배달하는 [IoT Hub의](#iot-hub) 사용자 정의 [엔드포인트입니다.](#endpoint) 이러한 엔드포인트는 이벤트 허브, Service Bus 큐 또는 Service Bus 토픽에 직접 연결됩니다.
 
-적용 대상: Iot Hub
+적용된 내용: Ot Hub
 
 ### <a name="custom-gateway"></a>사용자 지정 게이트웨이
 
-[IoT Hub](#iot-hub) 또는 IoT Central에 직접 연결할 수 없는 [장치](#device) 에 대 한 연결을 설정 합니다. Azure [IoT Edge](#iot-edge) 를 사용 하 여 메시지, 사용자 지정 프로토콜 변환 및 기타 처리를 처리 하는 사용자 지정 논리를 구현 하는 사용자 지정 [게이트웨이](#gateway) 를 빌드할 수 있습니다.
+IoT Hub 또는 [IoT Central](#iot-hub) 직접 연결할 수 없는 [디바이스에](#device) 대한 연결을 사용하도록 설정합니다. Azure [IoT Edge](#iot-edge) 사용하여 메시지를 처리하는 사용자 지정 논리, 사용자 지정 프로토콜 변환 및 기타 처리를 구현하는 사용자 지정 [게이트웨이를](#gateway) 빌드할 수 있습니다.
 
-적용 대상: Iot Hub, IoT Central
+적용할 내용: Ot Hub, IoT Central
 
 ## <a name="d"></a>D
 
 ### <a name="default-component"></a>기본 구성 요소
 
-모든 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) [모델](#model) 에는 기본 [구성 요소가](#component)있습니다. 단순 [장치 모델](#device-model) 에는 기본 구성 요소만 있습니다. 이러한 모델은 구성 요소 [장치가](#device)라고도 합니다. 더 복잡 한 모델에는 기본 구성 요소 아래에 중첩 된 여러 구성 요소가 있습니다.
+모든 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) [모델에는](#model) 기본 [구성 요소가](#component)있습니다. 단순 [디바이스 모델에는](#device-model) 기본 구성 요소만 있습니다. 이러한 모델을 구성 요소가 없는 [디바이스라고도](#device)합니다. 더 복잡한 모델에는 기본 구성 요소 아래에 중첩된 여러 구성 요소가 있습니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 개발자
+적용 대상: Ot Hub, IoT Central, 디바이스 개발자
 
 ### <a name="deployment-manifest"></a>배포 매니페스트
 
-하나 이상의 [IoT Edge 장치](#iot-edge-device) [모듈](#module-twin)쌍에 대 한 [구성](#configuration) 데이터를 포함 하는 [IoT Edge](#iot-edge) JSON 문서입니다.
+하나 이상의 [IoT Edge 디바이스](#iot-edge) [모듈 쌍에](#module-twin)대한 [구성](#configuration) 데이터를 포함하는 [IoT Edge](#iot-edge-device) JSON 문서입니다.
 
-적용 대상: IoT Edge, IoT Central
+적용 내용: IoT Edge, IoT Central
 
 ### <a name="desired-configuration"></a>desired 구성
 
-[장치](#device-twin)쌍의 컨텍스트에서 원하는 [구성은](#configuration) 장치와 동기화 되어야 하는 [장치](#device) 쌍의 전체 [속성](#properties) 및 메타 데이터 집합을 나타냅니다.
+[디바이스 쌍의](#device-twin)컨텍스트에서 원하는 [구성은](#configuration) [디바이스와](#device) 동기화해야 하는 디바이스 쌍의 [전체 속성](#properties) 및 메타데이터 집합을 나타냅니다.
 
-적용 대상: Iot Hub
+적용된 내용: Ot Hub
 
 ### <a name="desired-properties"></a>Desired 속성
 
-[장치](#device-twin)쌍의 컨텍스트에서 desired [속성](#properties) 은 장치 [구성](#configuration) 또는 조건을 동기화 하기 위해 [보고 된 속성](#reported-properties) 에 사용 되는 [장치](#device) 쌍의 하위 섹션입니다. desired 속성은 [백 엔드 앱](#back-end-app)에서만 설정할 수 있고 [디바이스 앱](#device-app)에서 관찰할 수 있습니다. IoT Central은 쓰기 가능한 속성 이라는 용어를 사용 합니다.
+[디바이스 쌍의](#device-twin)컨텍스트에서 desired 속성은 [reported](#reported-properties) [속성과](#properties) 함께 디바이스 [구성](#configuration) 또는 조건을 동기화하는 데 사용되는 디바이스 [쌍의](#device) 하위 섹션입니다. desired 속성은 [백 엔드 앱](#back-end-app)에서만 설정할 수 있고 [디바이스 앱](#device-app)에서 관찰할 수 있습니다. IoT Central 쓰기 가능한 속성이라는 용어를 사용합니다.
 
-적용 대상: Iot Hub
+적용된 내용: Ot Hub
 
 ### <a name="device"></a>디바이스
 
-IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하거나 다른 디바이스를 제어할 수 있는 소규모의 독립 실행형 컴퓨팅 디바이스입니다. 예를 들어 디바이스는 환경 모니터링 디바이스이거나 온실에서 급수 및 통풍 시스템을 위한 컨트롤러일 수 있습니다. 장치 카탈로그는 인증 된 장치 목록을 제공 합니다.
+IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하거나 다른 디바이스를 제어할 수 있는 소규모의 독립 실행형 컴퓨팅 디바이스입니다. 예를 들어 디바이스는 환경 모니터링 디바이스이거나 온실에서 급수 및 통풍 시스템을 위한 컨트롤러일 수 있습니다. 디바이스 카탈로그는 인증된 디바이스 목록을 제공합니다.
 
-적용 대상: Iot Hub, IoT Central, IoT Edge, 장치 프로 비전 서비스, 장치 개발자
+적용 대상: Ot Hub, IoT Central, IoT Edge, Device Provisioning Service, 디바이스 개발자
 
 ### <a name="device-provisioning-service"></a>Device Provisioning Service
 
-제로 터치 [장치 프로 비전](#device-provisioning)을 구성 하는 데 사용 하는 [IoT Hub](#iot-hub) 및 IoT Central에 대 한 도우미 서비스입니다. DPS를 사용 하면 안전 하 고 확장 가능한 방식으로 수백만 대의 [장치](#device) 를 프로 비전 할 수 있습니다.
+터치 없는 [디바이스 프로비저닝을](#device-provisioning)구성하는 데 사용하는 [IoT Hub](#iot-hub) 및 IoT Central 위한 도우미 서비스입니다. DPS를 사용하면 안전하고 확장 가능한 방식으로 수백만 개의 [디바이스를](#device) 프로비전할 수 있습니다.
 
-적용 대상: Iot Hub, 장치 프로 비전 서비스, IoT Central
+적용 적용: Ot Hub, Device Provisioning Service, IoT Central
 
 ### <a name="device-rest-api"></a>디바이스 REST API
 
-장치에서 장치- [클라우드](#device-to-cloud) 메시지를 [iot Hub](#iot-hub)로 보내고 iot hub에서 [클라우드-장치](#cloud-to-device) 메시지를 수신 하는 데 사용할 수 있는 [REST API입니다.](#device) 일반적으로 상위 수준 [Azure IoT 장치 sdk](#azure-iot-device-sdks)중 하나를 사용 해야 합니다.
+[디바이스에서](#device) [디바이스-클라우드](#device-to-cloud) 메시지를 [IoT Hub로 보내고 IoT Hub에서](#iot-hub) [클라우드-디바이스](#cloud-to-device) 메시지를 수신하는 데 사용할 수 있는 REST API. 일반적으로 상위 수준 [Azure IoT 디바이스 SDK](#azure-iot-device-sdks)중 하나를 사용해야 합니다.
 
 [자세한 정보](/rest/api/iothub/device)
 
-적용 대상: Iot Hub
+적용된 내용: Ot Hub
 
 ### <a name="device-app"></a>디바이스 앱
 
-장치 [앱은](#device) 장치에서 실행 되며 [IoT hub](#iot-hub) 또는 IoT Central 응용 프로그램과의 통신을 처리 합니다. 일반적으로 디바이스 앱을 구현할 때 [Azure IoT 디바이스 SDK](#azure-iot-device-sdks) 중 하나를 사용합니다.
+[디바이스](#device) 앱은 디바이스에서 실행되며 [IoT Hub](#iot-hub) 또는 IoT Central 애플리케이션과의 통신을 처리합니다. 일반적으로 디바이스 앱을 구현할 때 [Azure IoT 디바이스 SDK](#azure-iot-device-sdks) 중 하나를 사용합니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 개발자
+적용 대상: Ot Hub, IoT Central, 디바이스 개발자
 
 ### <a name="device-builder"></a>디바이스 작성기
 
-[장치](#device)에서 실행할 코드를 만드는 담당자입니다. 일반적으로 디바이스 빌더는 [Azure IoT 디바이스 SDK들](#azure-iot-device-sdks) 중 하나를 사용하여 디바이스 클라이언트를 구현합니다. 디바이스 작성기는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)에서 실행되도록 코드를 구현할 때 [디바이스 모델](#device-model) 및 [인터페이스](#interface)를 사용합니다.
+[디바이스에서](#device)실행할 코드를 만드는 담당자입니다. 일반적으로 디바이스 빌더는 [Azure IoT 디바이스 SDK들](#azure-iot-device-sdks) 중 하나를 사용하여 디바이스 클라이언트를 구현합니다. 디바이스 작성기는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)에서 실행되도록 코드를 구현할 때 [디바이스 모델](#device-model) 및 [인터페이스](#interface)를 사용합니다.
 
-적용 대상: Iot Hub, IoT Central, IoT Edge, 장치 개발자
+적용 대상: Ot Hub, IoT Central, IoT Edge, 디바이스 개발자
 
 ### <a name="device-identity"></a>디바이스 ID
 
-[IoT Hub](#iot-hub) [id 레지스트리](#identity-registry) 또는 IoT Central 응용 프로그램에 등록 된 모든 [장치](#device) 에 할당 된 고유 식별자입니다.
-
-적용 대상: Iot Hub, IoT Central
-
-### <a name="device-management"></a>디바이스 관리
-
-[장치](#device) 관리에는 계획, 프로 비전, 구성, 모니터링 및 사용 중지를 포함 하 여 IoT [솔루션](#solution) 에서 장치 관리와 관련 된 전체 수명 주기가 포함 됩니다.
-
-적용 대상: Iot Hub, IoT Central
-
-### <a name="device-model"></a>디바이스 모델
-
-[장치](#device)기능에 대 한 [디지털 Twins 정의 언어](#digital-twins-definition-language)를 사용 하는 설명입니다. 기능에는 [원격 분석](#telemetry), [속성](#properties)및 [명령이](#command)포함 됩니다.
-
-[자세한 정보](../iot-develop/concepts-modeling-guide.md)
-
-적용 대상: Iot Hub, IoT Central, 장치 개발자, 디지털 쌍
-
-### <a name="device-provisioning"></a>디바이스 프로비전
-
-[솔루션](#solution)의 저장소에 초기 [장치](#device) 데이터를 추가 하는 프로세스입니다. 새 장치를 허브에 연결할 수 있게 하려면 장치 ID 및 키를 [IoT Hub](#iot-hub) [id 레지스트리에](#identity-registry)추가 해야 합니다. [장치 프로 비전 서비스](#device-provisioning-service) 는 IoT hub 또는 IoT Central 응용 프로그램에서 장치를 자동으로 프로 비전 할 수 있습니다.
-
-적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
-
-### <a name="device-template"></a>디바이스 템플릿
-
-IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 하는 장치 유형의 특성 및 동작을 정의 하는 청사진입니다.
-
-예를 들어 장치 템플릿은 올바른 단위 및 데이터 형식을 사용 하는 시각화를 만들 수 IoT Central 있도록 장치에서 전송 하는 [원격 분석](#telemetry) 을 정의할 수 있습니다. [디바이스 모델](#device-model)은 디바이스 템플릿의 일부입니다.
-
-적용 대상: IoT Central
-
-### <a name="device-twin"></a>디바이스 쌍
-
-[장치](#device) 쌍은 메타 데이터, [구성](#configuration)및 조건과 같은 장치 상태 정보를 저장 하는 JSON 문서입니다. [IoT Hub](#iot-hub) IoT Hub에서 프로 비전 하는 각 장치에 대해 장치 쌍을 유지 합니다. 장치 쌍을 사용 하면 장치와 [솔루션](#solution) 백 엔드 간의 장치 조건 및 구성을 동기화 할 수 있습니다. 디바이스 쌍을 쿼리하여 특정 디바이스를 찾고 장기 실행 중인 작업의 상태를 확인할 수 있습니다.
-
-적용 대상: Iot Hub
-
-### <a name="device-to-cloud"></a>디바이스-클라우드
-
-[IoT Hub](#iot-hub) 또는 IoT Central 연결 된 [장치](#device) 에서 전송 된 메시지를 나타냅니다.
-
-적용 대상: Iot Hub
-
-### <a name="digital-twins-definition-language"></a>디지털 Twins 정의 언어
-
-[IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)와 [Azure Digital Twins](#azure-digital-twins) 엔터티에 대한 [모델](#model) 및 [인터페이스](#interface)를 설명하는 JSON-LD 언어입니다. 이 언어를 통해 IoT 플랫폼과 IoT [솔루션](#solution) 은 엔터티의 의미 체계를 사용할 수 있습니다.
-
-[추가 정보] ((https://github.com/Azure/opendigitaltwins-dtdl)
-
-적용 대상: Iot Hub, IoT Central, 디지털 쌍
-
-### <a name="digital-twin"></a>디지털 쌍
-
-디지털 쌍은 물리적 개체를 나타내는 디지털 데이터의 컬렉션입니다. 물리적 개체의 변경 내용은 디지털 쌍에 반영됩니다. 일부 시나리오에서는 디지털 쌍을 사용하여 물리적 개체를 조작할 수 있습니다. [Azure digital 쌍 서비스](../digital-twins/index.yml) 는 [디지털 쌍 정의 언어로](#digital-twins-definition-language) 표현 된 [모델](#model) 을 사용 하 여 [물리적 장치의](#physical-device) 디지털 쌍 또는 상위 수준 추상화 비즈니스 개념을 나타냅니다 .이를 통해 다양 한 클라우드 기반 디지털 쌍 [솔루션](#solution)을 사용할 수 있습니다. [IoT 플러그 앤 플레이](../iot-develop/index.yml) [장치](#device) 에는 디지털 쌍 (디지털 쌍 정의 언어 [장치 모델](#device-model)에 설명 됨)이 있습니다.
-
-적용 대상: Iot Hub, IoT Central, 디지털 쌍, 장치 개발자
-
-### <a name="digital-twin-change-events"></a>디지털 쌍 변경 이벤트
-
-[IoT 플러그 앤 플레이 디바이스가](#iot-plug-and-play-device) [IoT Hub에](#iot-hub)연결된 경우 허브는 라우팅 기능을 사용하여 [디지털 트윈](#digital-twin) 변경에 대한 알림을 보낼 수 있습니다. IoT Central 데이터 내보내기 기능은 디지털 트윈 변경 이벤트를 다른 서비스에 전달할 수도 있습니다. 예를 들어 [디바이스에서](#device)속성 값이 변경되면 IoT Hub 이벤트 허브와 같은 [엔드포인트에](#endpoint) 알림을 보낼 수 있습니다.
+IoT Hub [ID 레지스트리](#identity-registry) 또는 [IoT Central](#iot-hub) 애플리케이션에 등록된 모든 [디바이스에](#device) 할당된 고유 식별자입니다.
 
 적용할 내용: Ot Hub, IoT Central
 
-### <a name="digital-twin-graph"></a>디지털 트윈 그래프
+### <a name="device-management"></a>디바이스 관리
+
+[디바이스](#device) 관리는 계획, 프로비전, 구성, 모니터링 및 사용 중지를 포함하여 IoT [솔루션의](#solution) 디바이스 관리와 관련된 전체 수명 주기를 포함합니다.
+
+적용할 내용: Ot Hub, IoT Central
+
+### <a name="device-model"></a>디바이스 모델
+
+[디바이스](#device)기능의 [Digital Twins 정의 언어](#digital-twins-definition-language)를 사용하는 설명입니다. 기능에는 [원격 분석,](#telemetry) [속성](#properties)및 [명령이 포함됩니다.](#command)
+
+[자세한 정보](../iot-develop/concepts-modeling-guide.md)
+
+적용 대상: Ot Hub, IoT Central, 디바이스 개발자 Digital Twins
+
+### <a name="device-provisioning"></a>디바이스 프로비전
+
+[솔루션](#solution)의 저장소에 초기 [디바이스](#device) 데이터를 추가하는 프로세스입니다. 새 디바이스를 허브에 연결할 수 있도록 하려면 디바이스 ID 및 키를 [IoT Hub](#iot-hub) [ID 레지스트리에](#identity-registry)추가해야 합니다. [Device Provisioning Service는](#device-provisioning-service) IoT Hub 또는 IoT Central 애플리케이션에서 디바이스를 자동으로 프로비전할 수 있습니다.
+
+적용: Ot Hub, IoT Central, Device Provisioning Service
+
+### <a name="device-template"></a>디바이스 템플릿
+
+IoT Central [디바이스](#device) 템플릿은 애플리케이션에 연결하는 디바이스 유형의 특징과 동작을 정의하는 청사진입니다.
+
+예를 들어 디바이스 템플릿은 IoT Central 올바른 단위 및 데이터 형식을 사용하는 시각화를 만들 수 있도록 디바이스에서 보내는 [원격](#telemetry) 분석을 정의할 수 있습니다. [디바이스 모델](#device-model)은 디바이스 템플릿의 일부입니다.
+
+적용 적용: IoT Central
+
+### <a name="device-twin"></a>디바이스 쌍
+
+[디바이스](#device) 쌍은 메타데이터, [구성](#configuration)및 조건과 같은 디바이스 상태 정보를 저장하는 JSON 문서입니다. [IoT Hub](#iot-hub) IoT Hub에서 프로비전하는 각 디바이스에 대해 디바이스 쌍을 유지합니다. 디바이스 쌍을 사용하면 디바이스와 [솔루션](#solution) 백 엔드 간에 디바이스 조건 및 구성을 동기화할 수 있습니다. 디바이스 쌍을 쿼리하여 특정 디바이스를 찾고 장기 실행 중인 작업의 상태를 확인할 수 있습니다.
+
+적용된 내용: Ot Hub
+
+### <a name="device-to-cloud"></a>디바이스-클라우드
+
+연결된 [디바이스에서](#device) IoT Hub 또는 [IoT Central](#iot-hub) 전송된 메시지를 나타냅니다.
+
+적용된 내용: Ot Hub
+
+### <a name="digital-twins-definition-language"></a>Digital Twins 정의 언어
+
+[IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)와 [Azure Digital Twins](#azure-digital-twins) 엔터티에 대한 [모델](#model) 및 [인터페이스](#interface)를 설명하는 JSON-LD 언어입니다. 언어를 사용하면 IoT 플랫폼 및 IoT [솔루션에서](#solution) 엔터티의 의미 체계를 사용할 수 있습니다.
+
+[자세한 정보](https://github.com/Azure/opendigitaltwins-dtdl)
+
+적용: Ot Hub, IoT Central, Digital Twins
+
+### <a name="digital-twin"></a>디지털 쌍
+
+디지털 쌍은 물리적 개체를 나타내는 디지털 데이터의 컬렉션입니다. 물리적 개체의 변경 내용은 디지털 쌍에 반영됩니다. 일부 시나리오에서는 디지털 쌍을 사용하여 물리적 개체를 조작할 수 있습니다. [Azure Digital Twins 서비스는](../digital-twins/index.yml) Digital Twins 정의 [언어로](#digital-twins-definition-language) 표현된 [모델을](#model) 사용하여 [물리적 디바이스의](#physical-device) 디지털 트윈 또는 상위 수준의 추상 비즈니스 개념을 나타내며 광범위한 클라우드 기반 디지털 트윈 솔루션을 사용할 수 [있습니다.](#solution) [IoT 플러그 앤 플레이](../iot-develop/index.yml) [디바이스에는](#device) Digital Twins 정의 언어 [디바이스 모델](#device-model)에서 설명하는 디지털 트윈이 있습니다.
+
+적용 대상: Ot Hub, IoT Central, Digital Twins, 디바이스 개발자
+
+### <a name="digital-twin-change-events"></a>디지털 쌍 변경 이벤트
+
+[Iot 플러그 앤 플레이 장치가](#iot-plug-and-play-device) [iot hub](#iot-hub)에 연결 된 경우 허브는 해당 라우팅 기능을 사용 하 여 [디지털](#digital-twin) 쌍 변경 내용에 대 한 알림을 보낼 수 있습니다. IoT Central 데이터 내보내기 기능은 디지털 쌍 변경 이벤트를 다른 서비스로 전달할 수도 있습니다. 예를 들어, [장치](#device)에서 속성 값이 변경 될 때마다 이벤트 허브와 같은 [끝점](#endpoint) 에 알림을 보낼 수 IoT Hub.
+
+적용 대상: Iot Hub, IoT Central
+
+### <a name="digital-twin-graph"></a>디지털 쌍 그래프
 
 [Azure Digital Twins](#azure-digital-twins) 서비스에서 [디지털 쌍](#digital-twin)을 [관계](#relationship)와 연결시켜 전체 물리적 환경을 디지털로 나타내는 정보 그래프를 만들 수 있습니다. 단일 [Azure Digital Twins 인스턴스](#azure-digital-twins-instance)는 여러 개의 연결 해제된 그래프 또는 하나의 상호 연결된 그래프를 호스트할 수 있습니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="direct-method"></a>직접 메서드
 
-[IoT Hub에서](#iot-hub)API를 호출하여 [디바이스에서](#device) 실행할 메서드를 트리거하는 방법입니다.
+[IoT hub](#iot-hub)에서 API를 호출 하 여 [장치](#device) 에서 실행 되는 메서드를 트리거하는 방법입니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="downstream-service"></a>다운스트림 서비스
 
-현재 컨텍스트에서 데이터를 수신하는 서비스를 설명하는 상대 용어입니다. 예를 들어 [Azure Digital Twins](#azure-digital-twins)컨텍스트에서 Azure Digital Twins Time Series Insights 데이터 흐름을 설정하면 Time Series [Insights](#digital-twin) 다운스트림 서비스입니다.
+현재 컨텍스트에서 데이터를 수신하는 서비스를 설명하는 상대 용어입니다. 예를 [들어 azure digital twins의 컨텍스트에서](#azure-digital-twins)는 azure [digital twins](#digital-twin) 에서 Time Series Insights로 이동 하도록 데이터를 설정 하는 경우 다운스트림 서비스 Time Series Insights입니다.
 
-적용: Ot Hub, IoT Central, Digital Twins
+적용 대상: Iot Hub, IoT Central, 디지털 쌍
 
 ## <a name="e"></a>E
 
@@ -339,129 +339,129 @@ IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 �
 
 다른 서비스에서 데이터를 받을 수 있는 데이터 라우팅 서비스의 명명된 표현입니다.
 
-[IoT Hub는 앱이 IoT Hub에](#iot-hub) 연결할 수 있도록 하는 여러 엔드포인트를 노출합니다. [디바이스에서 디바이스-클라우드](#device)메시지 보내기와 같은 작업을 수행할 수 있도록 하는 [디바이스 관련](#device-to-cloud) 엔드포인트가 있습니다. [백 엔드 앱이](#back-end-app) 디바이스 ID 관리와 같은 작업을 수행할 수 있도록 하는 서비스 쪽 관리 엔드포인트가 [있습니다.](#device-identity) 디바이스-클라우드 메시지 를 읽기 위한 서비스 지향 [기본 제공 엔드포인트](#built-in-endpoints)가 있습니다. [사용자 지정 엔드포인트](#custom-endpoints)를 만들어 [라우팅 규칙](#routing-rule)으로 발송된 디바이스-클라우드 메시지를 받을 수 있습니다.
+[Iot hub](#iot-hub) 는 앱이 iot hub에 연결할 수 있도록 하는 여러 끝점을 노출 합니다. 장치에서 장치- [클라우드](#device-to-cloud) 메시지 전송과 같은 작업을 수행할 수 있도록 하는 [장치](#device)지향 끝점이 있습니다. [백 엔드 앱](#back-end-app) 이 [장치 id](#device-identity) 관리와 같은 작업을 수행할 수 있도록 하는 서비스 지향 관리 끝점이 있습니다. 디바이스-클라우드 메시지 를 읽기 위한 서비스 지향 [기본 제공 엔드포인트](#built-in-endpoints)가 있습니다. [사용자 지정 엔드포인트](#custom-endpoints)를 만들어 [라우팅 규칙](#routing-rule)으로 발송된 디바이스-클라우드 메시지를 받을 수 있습니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="enrollment"></a>등록
 
-Device [Provisioning Service에서](#device-provisioning-service)등록은 자동 프로비저닝을 통해 [연결된 IoT Hub에](#linked-iot-hub) 등록할 수 있는 개별 [디바이스](#device) 또는 디바이스 그룹의 레코드입니다.
+[장치 프로 비전 서비스](#device-provisioning-service)에서 등록은 자동 프로 비전을 통해 [연결 된 IoT hub](#linked-iot-hub) 에 등록할 수 있는 개별 [장치](#device) 또는 장치 그룹의 레코드입니다.
 
-적용: Ot Hub, IoT Central, Device Provisioning Service
+적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
 
 ### <a name="enrollment-group"></a>등록 그룹
 
-Device [Provisioning Service](#device-provisioning-service) 및 IoT Central [등록](#enrollment) 그룹은 X.509 또는 대칭 키 [증명 메커니즘](#attestation-mechanism)을 공유하는 [디바이스](#device) 그룹을 식별합니다.
+[장치 프로 비전 서비스](#device-provisioning-service) 및 IoT Central에서 [등록](#enrollment) 그룹은 x.509 또는 대칭 키 [증명 메커니즘](#attestation-mechanism)을 공유 하는 [장치](#device) 그룹을 식별 합니다.
 
-적용 적용: Ot Hub, Device Provisioning Service, IoT Central
+적용 대상: Iot Hub, 장치 프로 비전 서비스, IoT Central
 
-### <a name="event-hubs-compatible-endpoint"></a>Event Hubs 호환 엔드포인트
+### <a name="event-hubs-compatible-endpoint"></a>Event Hubs 호환 끝점
 
-[Event Hubs](#iot-hub) 호환 메서드를 사용하여 허브로 전송된 [디바이스](#device) 메시지를 읽을 수 있는 IoT Hub [엔드포인트입니다.](#endpoint) Event Hubs 호환되는 메서드에는 [Event Hubs SDK](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)포함됩니다.
+Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#device) 메시지를 읽을 수 있는 [IoT Hub](#iot-hub) [끝점](#endpoint) 입니다. Event Hubs 호환 방법에는 [Event Hubs sdk](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)가 포함 됩니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="event-handler"></a>이벤트 처리기
 
-이벤트의 도착에 의해 트리거되는 프로세스입니다. 예를 들어 Azure 함수에 이벤트 처리 코드를 추가하고 [엔드포인트](#endpoint) 및 이벤트 라우팅 을 사용하여 데이터를 전송하여 이벤트 처리기를 만들 수 [있습니다.](#event-routing)
+이벤트 도착에 의해 트리거되는 프로세스입니다. 예를 들어 Azure 함수에 이벤트 처리 코드를 추가 하 고 [끝점](#endpoint) 및 [이벤트 라우팅을](#event-routing)사용 하 여 데이터를 전송 하 여 이벤트 처리기를 만들 수 있습니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="event-routing"></a>이벤트 라우팅
 
-한 디바이스 또는 서비스에서 다른 [디바이스의](#device) [엔드포인트로](#endpoint) 이벤트 및 해당 데이터를 보내는 프로세스입니다.
+하나의 [장치나](#device) 서비스에서 다른 장치나 서비스로 이벤트와 해당 데이터를 보내는 [프로세스입니다.](#endpoint)
 
-[Iot Hub에서](#iot-hub)메시지를 보내는 방법을 설명하는 [라우팅 규칙을](#routing-rule) 정의할 수 있습니다. [Azure Digital Twins](#azure-digital-twins)이벤트 경로는 이 용도로 만들어진 엔터티입니다. Azure [Digital Twins](#digital-twin) 이벤트 경로에는 각 엔드포인트로 전송되는 이벤트 유형을 제한하는 필터가 포함될 수 있습니다.
+[Iot Hub](#iot-hub)에서 메시지를 전송 하는 방법을 설명 하는 [라우팅 규칙](#routing-rule) 을 정의할 수 있습니다. [Azure Digital Twins](#azure-digital-twins)에서 이벤트 경로는이 용도로 만들어진 엔터티입니다. Azure [Digital Twins](#digital-twin) 이벤트 경로에는 각 끝점으로 전송 되는 이벤트 유형을 제한 하는 필터가 포함 될 수 있습니다.
 
-적용할 내용: Ot Hub, Digital Twins
+적용 대상: Iot Hub, 디지털 쌍
 
 ## <a name="f"></a>F
 
 ### <a name="field-gateway"></a>필드 게이트웨이
 
-[IoT Hub](#iot-hub) 직접 연결할 수 없고 일반적으로 [디바이스와](#device) 함께 로컬로 배포되는 디바이스에 대한 연결을 사용하도록 설정합니다.
+[IoT Hub](#iot-hub) 에 직접 연결할 수 없는 [장치](#device) 에 대 한 연결을 사용 하도록 설정 합니다. 일반적으로 장치와 함께 로컬로 배포 됩니다.
 
-적용할 내용: Ot Hub, IoT Central
+적용 대상: Iot Hub, IoT Central
 
 ## <a name="g"></a>G
 
 ### <a name="gateway"></a>게이트웨이
 
-게이트웨이를 사용하면 [IoT Hub](#iot-hub)직접 연결할 수 없는 [디바이스에](#device) 연결할 수 있습니다. 필드 [게이트웨이,](#field-gateway) [클라우드 게이트웨이](#cloud-gateway)및 사용자 지정 [게이트웨이도](#custom-gateway)참조하세요.
+게이트웨이는 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 [장치](#device) 에 대 한 연결을 가능 하 게 합니다. [필드 게이트웨이](#field-gateway), [클라우드 게이트웨이](#cloud-gateway)및 [사용자 지정 게이트웨이](#custom-gateway)도 참조 하세요.
 
-적용할 내용: Ot Hub, IoT Central
+적용 대상: Iot Hub, IoT Central
 
 ### <a name="gateway-device"></a>게이트웨이 디바이스
 
-[필드 게이트웨이](#field-gateway)의 예입니다. [게이트웨이](#gateway) [디바이스는](#device) 표준 IoT 디바이스 또는 [IoT Edge 디바이스일](#iot-edge-device)수 있습니다.
+[필드 게이트웨이의](#field-gateway)예입니다. [게이트웨이](#gateway) [장치](#device) 는 표준 IoT 장치 또는 [IoT Edge 장치인](#iot-edge-device)수 있습니다.
 
 게이트웨이 디바이스를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 다운스트림 디바이스의 연결이 가능합니다.
 
-적용: Ot Hub, IoT Central, IoT Edge
+적용 대상: Iot Hub, IoT Central, IoT Edge
 
 ## <a name="h"></a>H
 
 ### <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
-[디바이스](#device) 비밀의 안전한 하드웨어 기반 스토리지에 사용됩니다. 디바이스에 대한 가장 안전한 형태의 비밀 스토리지입니다. 하드웨어 보안 [모듈은](#module) X.509 인증서와 대칭 키를 모두 저장할 수 있습니다. Device [Provisioning Service](#device-provisioning-service)에서 [증명 메커니즘은](#attestation-mechanism) 하드웨어 보안 모듈을 사용할 수 있습니다.
+[장치](#device) 비밀의 안전 하 고 하드웨어 기반 저장소에 사용 됩니다. 장치에 대 한 가장 안전한 형태의 암호 저장소입니다. 하드웨어 보안 [모듈](#module) 은 x.509 인증서와 대칭 키를 둘 다 저장할 수 있습니다. [장치 프로 비전 서비스](#device-provisioning-service)에서 [증명 메커니즘](#attestation-mechanism) 은 하드웨어 보안 모듈을 사용할 수 있습니다.
 
-적용 대상: Ot Hub, 디바이스 개발자, Device Provisioning Service
+적용 대상: Iot Hub, 장치 개발자, 장치 프로 비전 서비스
 
 ## <a name="i"></a>I
 
 ### <a name="id-scope"></a>ID 범위
 
-[Device Provisioning Service](#device-provisioning-service) 인스턴스를 만들 때 할당된 고유 값입니다.
+생성 될 때 [장치 프로 비전 서비스](#device-provisioning-service) 인스턴스에 할당 되는 고유 값입니다.
 
-IoT Central 애플리케이션은 DPS 인스턴스를 사용하고 IoT Central UI를 통해 ID 범위를 사용할 수 있도록 합니다.
+응용 프로그램 IoT Central DPS 인스턴스를 사용 하 고 IoT Central UI를 통해 ID 범위를 사용할 수 있도록 설정 합니다.
 
-적용: Ot Hub, IoT Central, Device Provisioning Service
+적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
 
 ### <a name="identity-registry"></a>ID 레지스트리
 
-허브에 연결할 수 있는 개별 [디바이스에](#device) 대한 정보를 저장하는 [IoT](#iot-hub) Hub의 기본 [제공 구성 요소입니다.](#component)
+허브에 연결 하도록 허용 된 개별 [장치](#device) 에 대 한 정보를 저장 하는 [IoT hub](#iot-hub) 의 기본 제공 [구성 요소](#component) 입니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="individual-enrollment"></a>개별 등록
 
-Device Provisioning Service가 [IoT Hub에](#iot-hub) [프로비전할](#device-provisioning-service) 수 있는 단일 [디바이스를](#device) 식별합니다.
+[장치 프로 비전 서비스가](#device-provisioning-service) [IoT hub](#iot-hub)에 프로 비전 할 수 있는 단일 [장치](#device) 를 식별 합니다.
 
-적용 내용: Ot Hub, Device Provisioning Service
+적용 대상: Iot Hub, 장치 프로 비전 서비스
 
 ### <a name="interface"></a>인터페이스
 
-IoT 플러그 앤 플레이에서 인터페이스는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 또는 [디지털 쌍](#digital-twin)에서 구현하는 관련 기능을 설명합니다. 여러 [디바이스 모델](#device-model)에서 인터페이스를 다시 사용할 수 있습니다. [인터페이스가 디바이스](#device) [모델](#model)에서 사용되는 경우 디바이스의 [구성 요소를](#component) 정의합니다. 단순 디바이스에는 기본 인터페이스만 포함됩니다.
+IoT 플러그 앤 플레이에서 인터페이스는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 또는 [디지털 쌍](#digital-twin)에서 구현하는 관련 기능을 설명합니다. 여러 [디바이스 모델](#device-model)에서 인터페이스를 다시 사용할 수 있습니다. 인터페이스는 [장치](#device) [모델](#model)에서 사용 되는 경우 장치의 [구성 요소](#component) 를 정의 합니다. 단순 디바이스에는 기본 인터페이스만 포함됩니다.
 
-[Azure Digital Twins](#azure-digital-twins) *인터페이스를* 사용하여 Digital Twins [정의 언어](#digital-twins-definition-language) 모델 정의의 최상위 코드 항목을 참조할 수 있습니다.
+[Azure Digital Twins](#azure-digital-twins)에서 *인터페이스* 를 사용 하 여 [디지털 twins 정의 언어](#digital-twins-definition-language) 모델 정의에서 최상위 코드 항목을 참조할 수 있습니다.
 
-적용 대상: 디바이스 개발자, Digital Twins
+적용 대상: 장치 개발자, 디지털 쌍
 
 ### <a name="iot-edge"></a>IoT Edge
 
-온-프레미스 [디바이스에](#device)Azure 서비스 및 [솔루션](#solution)관련 코드를 클라우드 기반 배포할 수 있도록 하는 서비스 및 관련 클라이언트 라이브러리 및 런타임입니다. [IoT Edge 디바이스](#iot-edge-device)는 다른 디바이스의 데이터를 집계한 후 데이터를 클라우드로 전송하기 전에 계산 및 분석을 수행할 수 있습니다.
+클라우드 기반 Azure 서비스 및 [솔루션](#solution)관련 코드를 온-프레미스 [장치](#device)에 배포 하는 데 사용할 수 있는 서비스 및 관련 클라이언트 라이브러리 및 런타임입니다. [IoT Edge 디바이스](#iot-edge-device)는 다른 디바이스의 데이터를 집계한 후 데이터를 클라우드로 전송하기 전에 계산 및 분석을 수행할 수 있습니다.
 
 [자세한 정보](../iot-edge/index.yml)
 
-적용 적용: IoT Edge
+적용 대상: IoT Edge
 
 ### <a name="iot-edge-agent"></a>IoT Edge 에이전트
 
-모듈 배포 및 모니터링을 담당하는 [IoT Edge 런타임의](#iot-edge-runtime) [일부입니다.](#module)
+[모듈](#module)배포 및 모니터링을 담당 하는 [IoT Edge 런타임의](#iot-edge-runtime) 일부입니다.
 
-적용 적용: IoT Edge
+적용 대상: IoT Edge
 
 ### <a name="iot-edge-device"></a>IoT Edge 디바이스
 
-컨테이너화된 [IoT Edge](#iot-edge) [모듈을](#module) 사용하여 Azure 서비스, 타사 서비스 또는 사용자 고유의 코드를 실행하는 [디바이스입니다.](#device) 디바이스에서 IoT Edge [런타임은](#iot-edge-runtime) 모듈을 관리합니다. 클라우드에서 IoT Edge 디바이스를 원격으로 모니터링하고 관리할 수 있습니다.
+컨테이너 화 된 [IoT Edge](#iot-edge) [모듈](#module) 을 사용 하 여 Azure 서비스, 타사 서비스 또는 자신의 코드를 실행 하는 [장치](#device) 입니다. 장치에서 [IoT Edge 런타임은](#iot-edge-runtime) 모듈을 관리 합니다. 클라우드에서 IoT Edge 디바이스를 원격으로 모니터링하고 관리할 수 있습니다.
 
-적용 적용: IoT Edge
+적용 대상: IoT Edge
 
 ### <a name="iot-edge-hub"></a>IoT Edge 허브
 
-[모듈](#module) 간, 업스트림 및 다운스트림 통신을 담당하는 [IoT Edge 런타임의](#iot-edge-runtime) 일부입니다.
+모듈, 업스트림 및 다운스트림 통신을 담당 [하는](#module) [IoT Edge 런타임의](#iot-edge-runtime) 일부입니다.
 
-적용 적용: IoT Edge
+적용 대상: IoT Edge
 
 ### <a name="iot-edge-runtime"></a>IoT Edge 런타임
 
@@ -767,47 +767,47 @@ IoT의 컨텍스트에서 *솔루션은* 일반적으로 [디바이스,](#device
 
 [디바이스 쌍의](#device-twin)컨텍스트에서 태그는 [JSON](#solution) 문서의 형태로 솔루션 백 엔드에 의해 저장되고 검색되는 [디바이스](#device) 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="target-condition"></a>대상 조건
 
-[IoT Edge](#iot-edge) 배포에서 대상 조건은 배포의 대상 [디바이스를](#device) 선택합니다. 대상 조건은 요구 사항을 충족하는 새 디바이스를 포함하거나 더 이상 요구 사항을 충족하지 않는 디바이스를 제거하기 위해 지속적으로 평가됩니다.
+[IoT Edge](#iot-edge) 배포에서 대상 조건은 배포의 대상 [장치](#device) 를 선택 합니다. 대상 조건은 요구 사항을 충족하는 새 디바이스를 포함하거나 더 이상 요구 사항을 충족하지 않는 디바이스를 제거하기 위해 지속적으로 평가됩니다.
 
-적용 적용: IoT Edge
+적용 대상: IoT Edge
 
 ### <a name="telemetry"></a>원격 분석
 
-풍속 또는 온도와 같은 데이터는 [센서에서 디바이스에](#device) 의해 수집된 [IoT Hub로](#iot-hub) 전송됩니다.
+바람 속도 또는 온도와 같은 데이터는 [장치](#device) 에서 센서 로부터 수집 된 [IoT hub](#iot-hub) 에 전송 됩니다.
 
 [속성](#properties)과 달리 원격 분석은 [디지털 쌍](#digital-twin)에 저장되지 않으며, 발생 시 처리해야 하는 시간 제한 데이터 이벤트의 스트림입니다.
 
-IoT 플러그 앤 플레이 및 [Azure Digital Twins](#azure-digital-twins) [인터페이스에](#interface) 정의된 원격 분석 필드는 측정값을 나타냅니다. 이러한 측정값은 일반적으로 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 등 디바이스에서 데이터 스트림으로 보내는 센서 판독값과 같은 값입니다.
+IoT 플러그 앤 플레이 및 [Azure Digital Twins](#azure-digital-twins)에서 [인터페이스](#interface) 에 정의 된 원격 분석 필드는 측정값을 나타냅니다. 이러한 측정값은 일반적으로 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 등 디바이스에서 데이터 스트림으로 보내는 센서 판독값과 같은 값입니다.
 
-적용 대상: Ot Hub, IoT Central, Digital Twins, IoT Edge, 디바이스 개발자
+적용 대상: Iot Hub, IoT Central, 디지털 쌍, IoT Edge, 장치 개발자
 
 ### <a name="telemetry-event"></a>원격 분석 이벤트
 
-[원격 분석](#telemetry) 데이터의 도착을 나타내는 [IoT Hub의](#iot-hub) 이벤트입니다.
+[원격 분석](#telemetry) 데이터 도착을 나타내는 [IoT hub](#iot-hub) 의 이벤트입니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="twin-queries"></a>쌍 쿼리
 
-[SQL](#iot-hub) 같은 쿼리 언어를 사용하여 [디바이스 쌍](#device-twin) 또는 [모듈](#module-twin)쌍 에서 정보를 검색할 수 있는 IoT Hub 기능입니다.
+SQL 유사한 쿼리 언어를 사용 하 여 [장치](#device-twin) 쌍 또는 [모듈](#module-twin)쌍에서 정보를 검색할 수 있도록 하는 [IoT Hub](#iot-hub) 기능입니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ### <a name="twin-synchronization"></a>쌍 동기화
 
-[IoT Hub](#iot-hub) 프로세스는 디바이스 쌍 또는 모듈 [쌍에서](#device-twin) [desired 속성을](#desired-properties) 사용하여 [디바이스](#device) 또는 [모듈을](#module-twin) 구성하고 [쌍에](#reported-properties) 저장할 reported 속성을 검색합니다. [](#module)
+[장치](#device-twin) 쌍 또는 [모듈](#module-twin) 쌍에서 [원하는 속성](#desired-properties) 을 사용 하는 [IoT Hub](#iot-hub) 프로세스는 장치 또는 [모듈](#module) 을 구성 하 고 해당 [장치](#device) 에서 [보고 된 속성](#reported-properties) 을 검색 하 여 쌍에 저장 합니다.
 
-적용된 내용: Ot Hub
+적용 대상: Iot Hub
 
 ## <a name="u"></a>U
 
 ### <a name="upstream-service"></a>업스트림 서비스
 
-현재 컨텍스트로 데이터를 내보내는 서비스를 설명하는 상대 용어입니다. 예를 들어 [Azure Digital Twins](#azure-digital-twins)컨텍스트에서는 데이터가 [IoT Hub](#iot-hub) [Azure](#digital-twin)Digital Twins 으로 흐르기 때문에 IoT Hub 업스트림 서비스로 간주됩니다.
+현재 컨텍스트로 데이터를 내보내는 서비스를 설명하는 상대 용어입니다. 예를 들어 [Azure Digital twins](#azure-digital-twins)의 컨텍스트에서는 데이터가 IoT Hub에서 Azure [digital twins](#digital-twin)로 전달 되기 때문에 [IoT Hub](#iot-hub) 업스트림 서비스로 간주 됩니다.
 
-적용: Ot Hub, IoT Central, Digital Twins
+적용 대상: Iot Hub, IoT Central, 디지털 쌍
 

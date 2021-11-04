@@ -9,15 +9,15 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/13/2021
-ms.openlocfilehash: 38d9487c5f0cd31c732a855de1008bae74df7e3f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 10/21/2021
+ms.openlocfilehash: 493ca7789d47f642025c34779c8895084bf28acd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163266"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558272"
 ---
-# <a name="use-managed-identities-with-azure-machine-learning"></a>Azure Machine Learning에서 관리 되는 id 사용
+# <a name="use-managed-identities-with-azure-machine-learning"></a>Azure Machine Learning 관리 ID 사용
 
 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 *리소스에 액세스하는 데 필요한 최소 권한* 으로 작업 영역을 구성할 수 있습니다. 
 
@@ -265,5 +265,5 @@ ws = Workspace.create(name="workspace name",
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Machine Learning의 엔터프라이즈 보안](concept-enterprise-security.md)에 대해 자세히 알아보기
-* [Id 기반 데이터 액세스](how-to-identity-based-data-access.md) 에 대 한 자세한 정보
-* [계산 클러스터에서 관리 되는 id](how-to-create-attach-compute-cluster.md)에 대해 알아봅니다.
+* ID [기반 데이터 액세스에](how-to-identity-based-data-access.md) 대해 알아보기
+* 컴퓨팅 [클러스터 의 관리 ID에](how-to-create-attach-compute-cluster.md)대해 알아봅니다.

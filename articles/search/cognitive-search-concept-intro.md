@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: dfb4cf341c6014854e219c17d387076f5beab595
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8010de7d6aa0af0d096a0c7ed23740f23734cda2
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010729"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554396"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
-Azure Cognitive Search AI 보강은 인덱싱 중에 분석, 변환 및 콘텐츠 생성을 추가하는 기본 제공 인식 기술 및 사용자 지정 기술을 나타냅니다. 보강은 이미지로부터 정보를 추출하고, 감정, 주요 구문을 탐지하며, 텍스트에서 엔티티를 찾아내고 일부를 이름 짓는 등 이전에는 존재하지 않았던 새로운 정보를 생성합니다. 보강은 구분되지 않은 텍스트에도 구조체를 추가합니다. 이러한 모든 프로세스로 인해 이전에 검색할 수 없었던 콘텐츠를 전체 텍스트 검색 시나리오에서 사용할 수 있게 되었습니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 정보 마이닝)에 유용합니다.
+Azure Cognitive Search에서 AI 보강는 인덱싱을 수행 하는 동안 분석, 변환 및 콘텐츠 생성을 추가 하는 기본 제공 인식 기술 및 사용자 지정 기술을 나타냅니다. 보강은 이미지로부터 정보를 추출하고, 감정, 주요 구문을 탐지하며, 텍스트에서 엔티티를 찾아내고 일부를 이름 짓는 등 이전에는 존재하지 않았던 새로운 정보를 생성합니다. 보강은 구분되지 않은 텍스트에도 구조체를 추가합니다. 이러한 모든 프로세스를 통해 전체 텍스트 검색 시나리오에서 이전에 검색 되지 않은 콘텐츠를 사용할 수 있게 됩니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 정보 마이닝)에 유용합니다.
 
-보강은 인덱서 에 연결된 [**기술 모음에**](cognitive-search-working-with-skillsets.md) 의해 [**정의됩니다.**](search-indexer-overview.md) 인덱서는 콘텐츠를 추출하고 설정하지만, 기술 세트는 이미지, blob 및 기타 비정형 데이터 원본에서 새로운 정보 및 구조를 식별, 분석 및 생성합니다. 보강 파이프라인의 출력은 [**검색 인덱스**](search-what-is-an-index.md) 또는 [**지식 저장소**](knowledge-store-concept-intro.md)입니다.
+보강는 [**인덱서에**](search-indexer-overview.md)연결 된 [**기술**](cognitive-search-working-with-skillsets.md) 에 의해 정의 됩니다. 인덱서는 콘텐츠를 추출하고 설정하지만, 기술 세트는 이미지, blob 및 기타 비정형 데이터 원본에서 새로운 정보 및 구조를 식별, 분석 및 생성합니다. 보강 파이프라인의 출력은 [**검색 인덱스**](search-what-is-an-index.md) 또는 [**기술 자료 저장소**](knowledge-store-concept-intro.md)입니다.
 
 ![보강 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "보강 파이프라인 개요")
 
@@ -109,11 +109,11 @@ AI 보강은 Azure Cognitive Services도 사용할 수 있는 지역에서 사�
 
 Azure Cognitive Search에서 인덱서는 만들어지는 출력을 저장합니다.
 
-[**검색 가능한 인덱스는 항상 인덱서에서**](search-what-is-an-index.md) 생성되는 출력 중 하나입니다. 인덱스 사양은 인덱서 요구 사항이며, 기술 셋을 연결할 때 기술 기술의 출력과 원본에서 직접 매핑된 모든 필드를 사용하여 인덱스 채우기를 합니다. 일반적으로 핵심 구 또는 감정 점수와 같은 특정 기술에 대한 출력은 해당 목적용으로 만든 필드의 인덱스로 수집됩니다.
+[**검색 가능한 인덱스**](search-what-is-an-index.md) 는 항상 인덱서에 의해 생성 되는 출력 중 하나입니다. 인덱스 사양은 인덱서 요구 사항입니다. 기술를 연결 하면 기술의 출력과 원본에서 직접 매핑된 모든 필드가 인덱스를 채우는 데 사용 됩니다. 일반적으로 핵심 구 또는 감정 점수와 같은 특정 기술에 대한 출력은 해당 목적용으로 만든 필드의 인덱스로 수집됩니다.
 
-[**지식 저장소는 지식**](knowledge-store-concept-intro.md) 마이닝과 같은 다운스트림 앱에 사용되는 선택적 출력입니다. 지식 저장소는 기술 세트 내에서 정의됩니다. 해당 정의는 보강 문서가 테이블이나 개체(파일 또는 Blob)로 프로젝션되는지 여부를 결정합니다. 테이블 형식 프로젝션은 Power BI와 같은 도구의 대화형 분석에 적합하지만 파일 및 Blob은 일반적으로 데이터 과학 또는 유사한 프로세스에 사용됩니다.
+[**기술 자료 저장소**](knowledge-store-concept-intro.md) 는 기술 자료 마이닝 등의 다운스트림 앱에 사용 되는 선택적 출력입니다. 지식 저장소는 기술 세트 내에서 정의됩니다. 해당 정의는 보강 문서가 테이블이나 개체(파일 또는 Blob)로 프로젝션되는지 여부를 결정합니다. 테이블 형식 프로젝션은 Power BI와 같은 도구의 대화형 분석에 적합하지만 파일 및 Blob은 일반적으로 데이터 과학 또는 유사한 프로세스에 사용됩니다.
 
-마지막으로, 인덱서가 Azure Blob Storage [**보강된 문서를 캐시하여**](cognitive-search-incremental-indexing-conceptual.md) 후속 기술et 실행에서 다시 사용할 수 있습니다. 캐시는 내부용입니다. 캐시된 보강은 나중에 다시 실행하는 것과 동일한 기술 세트에서 사용할 수 있습니다. 캐싱은 기술 세트에 이미지 분석 또는 OCR이 포함되어 있고 이미지 파일을 다시 처리하는 시간과 비용을 방지하려는 경우에 유용합니다.
+마지막으로, 인덱서는 이후 기술 실행에서 다시 사용할 수 있도록 Azure Blob Storage의 [**보강 문서를 캐시할**](cognitive-search-incremental-indexing-conceptual.md) 수 있습니다. 캐시는 내부용입니다. 캐시된 보강은 나중에 다시 실행하는 것과 동일한 기술 세트에서 사용할 수 있습니다. 캐싱은 기술 세트에 이미지 분석 또는 OCR이 포함되어 있고 이미지 파일을 다시 처리하는 시간과 비용을 방지하려는 경우에 유용합니다.
 
 인덱스와 지식 저장소는 서로 완전히 독립적입니다. 인덱서 요구 사항을 충족하기 위해 인덱스를 연결해야 하지만, 유일한 목표가 지식 저장소인 경우에는 인덱스를 채운 후 무시해도 됩니다. 그러나 삭제하지 마세요. 인덱서 및 기술 세트를 다시 실행하려면 인덱서를 실행하기 위해 인덱스가 필요합니다.
 
@@ -121,7 +121,7 @@ Azure Cognitive Search에서 인덱서는 만들어지는 출력을 저장합니
 
 처리가 완료되면 Azure Cognitive Search에서 전체 텍스트를 검색할 수 있는 보강된 문서로 구성된 [검색 인덱스](search-what-is-an-index.md)가 생성됩니다. [**인덱스를 쿼리하면**](search-query-overview.md) 개발자와 사용자가 파이프라인에서 생성 된 보강 콘텐츠에 액세스 하는 방법이 있습니다. 인덱스는 Azure Cognitive Search에 대해 만들 수 있는 다른 항목과 비슷합니다. 사용자 정의 분석기로 텍스트 분석을 보완하거나, 퍼지 검색 쿼리를 호출하거나, 필터를 추가하거나, 점수 매기기 프로필을 사용하여 검색 관련성을 조정할 수 있습니다.
 
-[지식 저장소](knowledge-store-concept-intro.md)도 있을 수 있습니다. 지식 저장소는 분석 또는 기계 학습과 같은 정보 마이닝 시나리오에서 사용할 수 있는 데이터를 포함합니다. [Storage Explorer](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md) 또는 Azure Storage에 연결된 앱을 사용할 수 있습니다.
+[지식 저장소](knowledge-store-concept-intro.md)도 있을 수 있습니다. 지식 저장소는 분석 또는 기계 학습과 같은 정보 마이닝 시나리오에서 사용할 수 있는 데이터를 포함합니다. [Storage 브라우저](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md), Azure Storage에 연결 하는 모든 앱을 사용할 수 있습니다.
 
 ## <a name="checklist-a-typical-workflow"></a>검사 목록: 일반적인 워크플로
 

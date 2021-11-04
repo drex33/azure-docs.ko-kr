@@ -10,13 +10,13 @@ ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
-ms.date: 05/05/2021
-ms.openlocfilehash: ba0dfb7c86250a55de5967bbffafd40823709dce
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: 97b235e45e1f988fde94272252e738d38b0a53e6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425793"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564673"
 ---
 # <a name="troubleshooting-batch-endpoints-preview"></a>일괄 처리 엔드포인트(미리 보기) 문제 해결
 
@@ -29,22 +29,8 @@ ms.locfileid: "129425793"
 | 문제 | 가능한 해결 방법 |
 |--|--|
 | 코드 구성 또는 환경이 없습니다. | 비-MLflow 모델을 사용 중인 경우 채점 스크립트 및 환경 정의를 제공해야 합니다. 비-코드 배포는 MLflow 모델에 대해서만 지원됩니다. 자세한 내용은 [MLflow 및 Azure Machine Learning을 사용하여 ML 모델 추적](how-to-use-mlflow.md)을 참조하세요.|
-| 기존 일괄 처리 엔드포인트에 대한 모델, 코드, 환경 및 컴퓨팅을 업데이트하지 못했습니다. | 새 이름으로 새 일괄 처리 엔드포인트를 만듭니다. 기존 일괄 처리 엔드포인트에 대한 이러한 자산 업데이트는 아직 지원되지 않습니다. |
-| 리소스를 찾을 수 없습니다. | CLI 명령에서 `--type batch`를 사용하는지 확인합니다. 이 인수를 지정하지 않으면 기본 `online` 형식이 사용됩니다.|
 | 지원되지 않는 입력 데이터입니다. | 일괄 처리 엔드포인트는 다음 3개의 형식으로 입력 데이터를 허용합니다. 1) 등록된 데이터 2) 클라우드의 데이터 3) 로컬의 데이터 올바른 형식을 사용하고 있는지 확인합니다. 자세한 내용은 [일괄 처리 채점에 일괄 처리 엔드포인트(미리 보기) 사용](how-to-use-batch-endpoint.md)을 참조하세요.|
-| 제공된 엔드포인트 이름이 존재하거나 삭제되고 있습니다. | 새 이름으로 새 일괄 처리 엔드포인트를 만듭니다. `endpoint delete` 명령은 엔드포인트를 삭제하도록 표시합니다. 동일한 지역에 새 엔드포인트를 만드는 데 동일한 이름을 다시 사용할 수 없습니다. |
 | 출력이 이미 있습니다. | 고유한 출력 위치를 구성하는 경우 각 엔드포인트 호출에 대해 새 출력을 제공해야 합니다. |
-
-##  <a name="scoring-script-requirements"></a>채점 스크립트 요구 사항
-
-MLflow가 아닌 모델을 사용하는 경우 채점 스크립트를 제공해야 합니다. 채점 스크립트에 다음 두 함수가 포함되어야 합니다.
-
-- `init()`: 이후 유추를 위해 비용이 많이 드는 준비 또는 일반적인 준비에 이 함수를 사용합니다. 예를 들어 모델을 글로벌 개체에 로드하는 데 사용합니다. 이 함수는 프로세스를 시작할 때 한 번만 호출됩니다.
--  `run(mini_batch)`: 이 함수는 각 `mini_batch` 인스턴스에 대해 실행됩니다.
-    -  `mini_batch`: `mini_batch` 값은 파일 경로 목록입니다.
-    -  `response`: `run()` 메서드는 pandas 데이터 프레임 또는 배열을 반환해야 합니다. 이러한 반환된 요소는 공통 출력 파일에 추가됩니다. 반환되는 각 출력 요소는 입력 미니 일괄 처리의 입력 요소에 대한 성공적인 실행 하나를 나타냅니다. 단일 입력을 실행 출력 결과에 매핑하기에 충분한 데이터가 실행 결과에 포함되어 있는지 확인합니다. 실행 출력은 출력 파일에 기록되지만 순서대로 기록된다는 보장은 없으므로, 사용자는 출력의 키를 사용하여 올바른 입력에 매핑해야 합니다.
-
-:::code language="python" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mnist/code/digit_identification.py" :::
 
 ## <a name="understanding-logs-of-a-batch-scoring-job"></a>일괄 처리 채점 작업의 로그 이해
 

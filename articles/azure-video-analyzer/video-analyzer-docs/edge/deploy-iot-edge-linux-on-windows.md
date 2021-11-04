@@ -1,21 +1,21 @@
 ---
-title: eflow를 사용 하 여 Windows 장치에 배포
+title: EFLOW를 사용하여 Windows 디바이스에 배포
 description: 이 문서에서는 IoT Edge for Linux on Windows 디바이스에 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3e2e045a72700b7e2c2e96cf63f344a84173b0f7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cc1dcfe36fd811c57f047695f5d63b7bff3848f6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102846"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556505"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>IoT EFLOW(Edge for Linux on Windows) 디바이스에 배포
 
 [!INCLUDE [header](includes/edge-env.md)]
 
-이 문서에서는 [IoT EFLOW(Edge for Linux on Windows)](../../../iot-edge/iot-edge-for-linux-on-windows.md)가 있는 에지 디바이스에 Azure Video Analyzer를 배포하는 방법에 대해 알아봅니다. 이 문서의 단계를 완료 하면 비디오에서 동작을 검색 하는 [파이프라인](../pipeline.md) 을 실행 하 고 해당 이벤트를 IoT Hub으로 내보낼 수 있습니다. 그런 다음, 고급 시나리오에 대한 파이프라인을 전환하고 Azure Video Analyzer 기능을 Windows 기반 IoT Edge 디바이스로 가져올 수 있습니다.
+이 문서에서는 [IoT EFLOW(Edge for Linux on Windows)](../../../iot-edge/iot-edge-for-linux-on-windows.md)가 있는 에지 디바이스에 Azure Video Analyzer를 배포하는 방법에 대해 알아봅니다. 이 문서의 단계를 완료하면 비디오에서 동작을 감지하고 이러한 이벤트를 IoT Hub 내보낼 수 있는 [파이프라인을](../pipeline.md) 실행할 수 있습니다. 그런 다음, 고급 시나리오에 대한 파이프라인을 전환하고 Azure Video Analyzer 기능을 Windows 기반 IoT Edge 디바이스로 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
@@ -40,13 +40,13 @@ ms.locfileid: "131102846"
     > [!TIP] 
     > EFLOW VM을 종료하려면 터미널 내에 `exit`를 입력합니다.
 
-1. PowerShell을 통해 EFLOW VM에 로그인 하 고 다음 명령을 입력 합니다.
+1. PowerShell을 통해 EFLOW VM에 로그인하고 다음 명령을 입력합니다.
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
     
     `sudo iptables -I INPUT -p udp -j ACCEPT`
 
-    비디오 분석기에는 응용 프로그램 구성 데이터를 저장 하기 위한 특정 로컬 폴더가 필요 합니다. 이 방법 가이드에서는 분석을 위해 비디오 피드를 실시간으로 비디오 분석기 모듈에 릴레이 하는 [RTSP 시뮬레이터](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) 를 활용 하 고 있습니다. 이 시뮬레이터는 입력 디렉터리에서 입력으로 사용합니다. 
+    Video Analyzer에는 애플리케이션 구성 데이터를 저장하기 위한 특정 로컬 폴더가 필요합니다. 이 방법 가이드에서는 분석을 위해 비디오 피드를 Video Analyzer 모듈에 실시간으로 릴레이하는 [RTSP 시뮬레이터를](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) 활용합니다. 이 시뮬레이터는 입력 디렉터리에서 입력으로 사용합니다. 
 
     위에서 사용된 준비 디바이스 스크립트는 이러한 작업을 자동화하므로 하나의 명령을 실행하고, 관련 입력과 구성 폴더, 비디오 입력 파일 및 권한을 가진 사용자 계정을 모두 원활하게 만들 수 있습니다. 명령이 성공적으로 완료되면 에지 디바이스에 생성된 다음 폴더가 표시됩니다. 
 
@@ -57,7 +57,7 @@ ms.locfileid: "131102846"
 
     분석할 입력 파일 역할을 하는 /home/localedgeuser/samples/input 폴더에 있는 비디오 파일(*.mkv)을 확인합니다. 
     
-1. Edge 장치를 설정 하 고, 허브에 등록 하 고, 생성 된 올바른 폴더 구조를 사용 하 여 성공적으로 실행 했으므로 다음 단계는 다음과 같은 추가 Azure 리소스를 설정 하 고 Video Analyzer 모듈을 배포 하는 것입니다. 다음 배포 템플릿은 리소스 만들기를 처리합니다.
+1. 이제 에지 디바이스를 설정하고, 허브에 등록하고, 올바른 폴더 구조를 만들어 성공적으로 실행했으므로 다음 단계는 다음 추가 Azure 리소스를 설정하고 Video Analyzer 모듈을 배포하는 것입니다. 다음 배포 템플릿은 리소스 만들기를 처리합니다.
 
     [![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
     

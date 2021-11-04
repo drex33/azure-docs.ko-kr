@@ -8,14 +8,14 @@ ms.subservice: automl
 ms.topic: conceptual
 author: cartacioS
 ms.author: sacartac
-ms.date: 07/01/2021
+ms.date: 10/21/2021
 ms.custom: automl
-ms.openlocfilehash: c08eae9654e01fda15889ac6fe65f99de2d73bb6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 32847e60114e86eb8d8571aff4d31c436a2fbd42
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130261808"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563400"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -44,8 +44,8 @@ Azure Machine Learning은 자동화된 ML 작업을 위해 다음 두 가지 환
 | |Python SDK|스튜디오 웹 환경|
 |----|:----:|:----:|
 |**학습/유효성 검사 세트로 데이터 분할**| ✓|✓
-|**분류, 회귀 & 예측과 같은 ML 작업을 지원합니다.**| ✓| ✓
-|**Computer Vision 작업 지원(미리 보기): 이미지 분류, 개체 감지 & 인스턴스 구분**| ✓| 
+|**ML 작업 지원: 분류, 회귀, & 예측**| ✓| ✓
+|**컴퓨터 비전 작업 지원 (미리 보기): 이미지 분류, 개체 검색 & 인스턴스 구분**| ✓| 
 |**기본 메트릭 기반 최적화**| ✓| ✓
 |**Azure ML 컴퓨팅을 컴퓨팅 대상으로 지원** | ✓|✓
 |**예측 구간, 대상 지연 시간 및 롤링 기간 구성**|✓|✓
@@ -83,7 +83,7 @@ Azure Machine Learning은 자동화된 ML 작업을 위해 다음 두 가지 환
 |**가드 레일 가져오기**| ✓|✓|
 |**실행 일시 중지 및 다시 시작**| ✓| |
 
-## <a name="when-to-use-automl-classification-regression-forecasting--computer-vision"></a>AutoML을 사용하는 경우: 분류, 회귀, 예측 & 컴퓨터 비전
+## <a name="when-to-use-automl-classification-regression-forecasting--computer-vision"></a>AutoML을 사용 하는 경우: 분류, 재발, 예측 & 컴퓨터 비전
 
 Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델을 학습시키고 튜닝하도록 하려면 자동화된 ML을 적용합니다. 자동화된 ML은 기계 학습 모델 개발 프로세스를 보편화하고, 데이터 과학 전문 지식과 관계없이 문제에 대한 엔드투엔드 기계 학습 파이프라인을 식별할 수 있도록 사용자의 역량을 강화합니다.
 
@@ -149,7 +149,7 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 이미지에 대 한 자동화 된 ML은 다음과 같은 컴퓨터 비전 작업을 지원 합니다. 
 
-작업 | 설명
+Task | Description
 ----|----
 다중 클래스 이미지 분류 | 이미지가 클래스 집합에서 단일 레이블만으로 분류 되는 작업-예를 들어 각 이미지는 ' cat ' 또는 ' dog ' 또는 ' 오리 '의 이미지로 분류 됩니다.
 다중 레이블 이미지 분류 | 이미지에 레이블 집합에서 하나 이상의 레이블이 있을 수 있는 작업 (예: 이미지에 ' cat ' 및 ' dog ' 모두 표시)
@@ -299,7 +299,7 @@ AutoML로 시작하고 실행할 수 있는 여러 가지 리소스가 있습니
 
 + **코드가 적거나 없는 환경** 은 [가이드: Azure Machine Learning 스튜디오에서 코드 없는 AutoML을 사용하여 분류 모델 학습](tutorial-first-experiment-automated-ml.md)을 참조하세요.
 
-+ **AutoML을 사용 하 여 컴퓨터 비전 모델을 학습 하려면** [Automl 및 Python을 사용 하 여 개체 검색 모델 학습 (미리 보기) 자습서](tutorial-auto-train-image-models.md)를 참조 하세요.
++ **AutoML을 사용하여 컴퓨터 비전 모델을 학습하려면** [자습서: AutoML 및 Python을 사용하여 개체 감지 모델 학습(미리 보기)을](tutorial-auto-train-image-models.md)참조하세요.
    
 방법 문서는 자동화된 ML이 제공하는 기능에 대한 추가 세부 정보를 제공합니다. 예제: 
 
@@ -309,7 +309,7 @@ AutoML로 시작하고 실행할 수 있는 여러 가지 리소스가 있습니
 
 +  [시계열 데이터로 예측 모델을 훈련](how-to-auto-train-forecast.md)하는 방법에 대해 알아보세요.
 
-+  [Python을 사용 하 여 컴퓨터 비전 모델을 학습](how-to-auto-train-image-models.md)하는 방법을 알아봅니다.
++  Python을 사용하여 [컴퓨터 비전 모델을 학습하는](how-to-auto-train-image-models.md)방법을 알아봅니다.
    
 ### <a name="jupyter-notebook-samples"></a>Jupyter Notebook 샘플 
 

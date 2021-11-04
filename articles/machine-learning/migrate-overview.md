@@ -7,13 +7,13 @@ ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 08/23/2021
-ms.openlocfilehash: 95e95e3c6eaa3a2e1738dd3a9dea9afd5e56e008
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/21/2021
+ms.openlocfilehash: 384b1b11e272cab8386a5a4f3344c36e99959254
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131088125"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561937"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Azure Machine Learning으로 마이그레이션 
 
@@ -53,7 +53,7 @@ Azure Machine Learning으로 마이그레이션하려면 다음 방식을 사용
 
     [!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
-3. Azure Machine Learning 디자이너에서 중요한 Studio(클래식) 모듈이 지원되는지 확인합니다. 자세한 내용은 아래의 [Studio(클래식) 및 디자이너 모듈 매핑](#studio-classic-and-designer-module-mapping) 표를 참조하세요.
+3. Azure Machine Learning 디자이너에서 중요한 Studio(클래식) 모듈이 지원되는지 확인합니다. 자세한 내용은 아래의 [Studio (클래식) 및 디자이너 구성 요소 매핑](#studio-classic-and-designer-component-mapping) 표를 참조 하세요.
 
 4. [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=azure-portal).
 
@@ -90,16 +90,16 @@ Azure Machine Learning으로 마이그레이션하려면 다음 방식을 사용
 1. 시나리오를 확장하고 추가 작업을 Azure Machine Learning으로 마이그레이션합니다.
 
 
-## <a name="studio-classic-and-designer-module-mapping"></a>Studio(클래식) 및 디자이너 모듈 매핑
+## <a name="studio-classic-and-designer-component-mapping"></a>Studio (클래식) 및 디자이너 구성 요소 매핑
 
 디자이너에서 Studio(클래식) 실험을 다시 빌드하는 동안 사용할 모듈을 확인하려면 다음 표를 참조하세요.
 
 
 > [!IMPORTANT]
-> 디자이너는 C# 패키지가 아닌 Studio(클래식)와 같은 오픈 소스 Python 패키지를 통해 모듈을 구현합니다. 이러한 차이로 인해 디자이너 모듈의 출력은 해당 Studio(클래식)와 약간 다를 수 있습니다.
+> 디자이너는 C# 패키지가 아닌 Studio(클래식)와 같은 오픈 소스 Python 패키지를 통해 모듈을 구현합니다. 이러한 차이로 인해 디자이너 구성 요소의 출력은 해당 스튜디오 (클래식)와 약간 다를 수 있습니다.
 
 
-|범주|Studio(클래식) 모듈|대체 디자이너 모듈|
+|범주|Studio(클래식) 모듈|대체 디자이너 구성 요소|
 |--------------|----------------|--------------------------------------|
 |데이터 입력 및 출력|- 수동으로 데이터 입력 </br> - 데이터 내보내기 </br> - 데이터 가져오기 </br> - 학습된 모델 로드 </br> - 압축된 데이터 세트 압축 풀기|- 수동으로 데이터 입력 </br> - 데이터 내보내기 </br> - 데이터 가져오기|
 |데이터 형식 변환|- CSV로 변환 </br> - 데이터 세트로 변환 </br> - ARFF로 변환 </br> - SVMLight로 변환 </br> - TSV로 변환|- CSV로 변환 </br> - 데이터 세트로 변환|
@@ -125,9 +125,9 @@ Azure Machine Learning으로 마이그레이션하려면 다음 방식을 사용
 | 웹 서비스 | - 입력 </br> - 출력 | - 입력 </br>  - 출력|
 | Computer Vision| | - 이미지 변환 적용 </br> - 이미지 디렉터리로 변환 </br> - 이미지 변환 시작 </br> - 이미지 디렉터리 분할  </br> - DenseNet 이미지 분류   </br>- ResNet 이미지 분류 |
 
-개별 디자이너 모듈을 사용하는 방법에 대한 자세한 내용은 [디자이너 모듈 참조](algorithm-module-reference/module-reference.md)를 참조하세요.
+개별 디자이너 구성 요소를 사용 하는 방법에 대 한 자세한 내용은 [디자이너 구성 요소 참조](./component-reference/component-reference.md)를 참조 하세요.
 
-### <a name="what-if-a-designer-module-is-missing"></a>디자이너 모듈이 없는 경우 어떻게 되나요?
+### <a name="what-if-a-designer-component-is-missing"></a>디자이너 구성 요소가 없는 경우 어떻게 되나요?
 
 Azure Machine Learning 디자이너에는 Studio(클래식)에서 가장 인기 있는 모듈이 포함되어 있습니다. 또한 최신 기계 학습 기술을 활용하는 새로운 모듈도 포함되어 있습니다. 
 

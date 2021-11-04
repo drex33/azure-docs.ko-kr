@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: 4af576587d5d0e87053fb31cdd2c1d073d1ea97e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 244b7070d73eb96f584a1a50b49e24b44ba41a7e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714763"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561407"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 
@@ -134,10 +134,6 @@ ms.locfileid: "129714763"
 앞으로 기본 제공 [**검색 탐색기**](search-explorer.md) 쿼리 페이지를 사용하여 쿼리할 준비가 된 검색 인덱스가 있어야 합니다. 임의의 쿼리 문자열을 테스트할 수 있도록 검색 상자를 제공합니다.
 
 **검색 탐색기** 는 [REST API 요청](/rest/api/searchservice/search-documents)만 처리할 수 있지만, [단순 쿼리 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 [완전한 Lucene 쿼리 파서](/rest/api/searchservice/lucene-query-syntax-in-azure-search)에 대한 구문과 [문서 REST API 검색](/rest/api/searchservice/search-documents#bkmk_examples) 작업에 제공되는 모든 검색 매개 변수를 허용합니다.
-
-> [!TIP]
-> [Azure Cognitive Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)의 6분 8초에 다음 단계가 설명되어 있습니다.
->
 
 1. 명령 모음에서 **검색 탐색기** 를 클릭합니다.
 

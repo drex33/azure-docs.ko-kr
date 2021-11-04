@@ -3,14 +3,14 @@ title: gRPC 유추 서버 개발 및 배포 - Azure Video Analyzer
 description: 이 문서에서는 Azure Video Analyzer와 함께 사용할 gRPC 유추 서버를 개발하고 배포하는 방법에 대한 지침을 제공합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d7ca3dea79a97026dc42dd34a2b352b3cdcc1ad9
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 3b5d2dbb4e686cfe03a8deefbcbbc6d08647f3de
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510461"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564083"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>gRPC 유추 서버 개발 및 배포
 
@@ -40,7 +40,7 @@ gRPC 유추 서버를 만들어 Video Analyzer를 통해 확장으로 구현하�
 
 IoT Edge 디바이스에서 Video Analyzer 모듈을 배포하고 작동하는 데 필요한 단계를 수행합니다.
 
-### <a name="high-level-implementation-steps"></a>개략적인 구현 단계
+### <a name="high-level-implementation-steps"></a>높은 수준의 구현 단계
 
 1. gRPC에서 지원되는 여러 언어인 C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby 중 하나를 선택합니다.
 1. [proto3 파일](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc)을 사용하여 Video Analyzer와 통신하는 gRPC 서버를 구현합니다.
@@ -70,7 +70,7 @@ IoT Edge 디바이스에서 Video Analyzer 모듈을 배포하고 작동하는 �
 1. 프레임 처리 완료를 승인합니다. 그래야 Video Analyzer에서 메모리를 회수할 수 있습니다.
 
 > [!NOTE]
-> 공유 메모리가 있는 추론에 대 한 gRPC 확장 모듈을 사용 하는 경우 Video Analyzer edge 모듈 및 확장 모듈이 동일한 [사용자 및 그룹](https://docs.docker.com/engine/reference/builder/#user) 에서 실행 되어야 합니다.
+> 공유 메모리를 유추하기 위해 gRPC 확장 모듈을 사용하는 경우 Video Analyzer 에지 모듈과 확장 모듈이 모두 동일한 [사용자 및 그룹에서](https://docs.docker.com/engine/reference/builder/#user) 실행되어야 합니다.
 
 ## <a name="create-a-grpc-inference-server"></a>gRPC 유추 서버 만들기
 

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/24/2021
+ms.date: 10/21/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: d41c6537d597e34c826a4f0e7e6fecc75684d9a4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b480b86b75f87232dc5560b620fc11a58a070ae6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241874"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557493"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 학습 환경 보호
 
@@ -239,7 +239,7 @@ ARM 템플릿을 통해 공용 IP 컴퓨팅 클러스터를 만들 수도 없습
 
 **문제 해결**
 
-* 클러스터를 만드는 동안 이 오류 메시지가 발생하면 "지정된 서브넷에 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints가 활성화되어 있습니다." 메시지가 표시된 경우 [Private Link 서비스에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 프라이빗 [엔드포인트에 대한 네트워크 정책 사용 안 함의](../private-link/disable-private-endpoint-network-policy.md)지침을 따르세요.
+* 클러스터를 만드는 동안 이 오류 메시지가 발생하면 "지정된 서브넷에 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints가 활성화되어 있습니다." 메시지가 표시된 경우 [Private Link 서비스에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 프라이빗 [엔드포인트에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-endpoint-network-policy.md)의 지침을 따르세요.
 
 * ACR 또는 Azure Storage 대한 연결 문제로 작업 실행이 실패하는 경우 고객이 서브넷에 ACR 및 Azure Storage 서비스 엔드포인트/프라이빗 엔드포인트를 추가하고 ACR/Azure Storage 서브넷에서의 액세스를 허용하는지 확인합니다.
 

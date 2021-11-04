@@ -2,14 +2,14 @@
 title: HTTP 확장 프로토콜 - Azure
 description: Azure Video Analyzer를 사용하면 파이프라인 확장 노드를 통해 처리 능력을 향상시킬 수 있습니다. HTTP 확장 프로세서는 HTTP 프로토콜을 사용하는 확장성 시나리오를 가능하게 합니다. 여기서 성능 및/또는 최적 리소스 사용률은 주요 문제가 아닙니다.
 ms.topic: reference
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 50da053a6454a2c6973f52ed55891ce2f40d6e06
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 217848284743b0bcf9e5f805d04b0deb43a587f4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053024"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563191"
 ---
 # <a name="use-the-http-extension-protocol"></a>HTTP 확장 프로토콜 사용 
 

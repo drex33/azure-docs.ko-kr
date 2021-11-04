@@ -3,14 +3,14 @@ title: Azure Video Analyzer 할당량 및 제한 사항 - Azure
 description: 이 문서에서는 Azure Video Analyzer 할당량 및 제한 사항을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 45c867d3420c51e931b1cc9a0a8e1b54836f7494
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cad4ed3ffac3d9b8617150070579bd9bee5ad6b3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012020"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563134"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Video Analyzer 할당량 및 제한 사항
 
@@ -68,74 +68,74 @@ Video Analyzer는 [인터리브된 RTP 스트림](https://datatracker.ietf.org/d
 ### <a name="support-for-video-ai"></a>비디오 AI 지원
 HTTP 또는 gRPC 확장 프로세서는 외부 AI 모듈을 사용하여 이미지/비디오 프레임 데이터의 전송만 지원합니다. 따라서 오디오 데이터에 대한 추론 실행은 지원되지 않습니다. 결과적으로 `inputs` 중 하나로 RTSP 원본 노드가 있는 파이프라인 토폴로지의 프로세서 노드도 `outputSelectors` 속성을 사용하여 비디오만 프로세서로 전달되도록 합니다. 이 [토폴로지](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json)를 예로 참조하세요.
 
-## <a name="quotas-and-limitations---live-and-batch-pipeline"></a>할당량 및 제한-라이브 및 일괄 처리 파이프라인
+## <a name="quotas-and-limitations---live-and-batch-pipeline"></a>할당량 및 제한 사항 - 라이브 및 일괄 처리 파이프라인
 
-이 섹션에서는 Video Analyzer 클라우드 파이프라인의 할당량 및 제한 사항을 열거 합니다. 
+이 섹션에서는 Video Analyzer 클라우드 파이프라인의 할당량 및 제한에 대해 열거합니다. 
 
 ### <a name="maximum-number-of-pipeline-topologies"></a>최대 파이프라인 토폴로지 수 
 
-비디오 분석기 계정 당 최대 5 개의 파이프라인 토폴로지가 지원 됩니다. 
+Video Analyzer 계정당 최대 5개 파이프라인 토폴로지만 지원됩니다. 
 
 ### <a name="limits-on-concurrent-activation-of-live-pipelines"></a>라이브 파이프라인의 동시 활성화 제한 
 
-5 분 동안 최대 10 개의 라이브 파이프라인을 활성화할 수 있으며, 이러한 파이프라인이 지정 된 시간에 최대 10 개까지 있을 수 있습니다 `Activating` .
+5분 동안 라이브 파이프라인을 10개까지 활성화할 수 있으며, 이러한 파이프라인은 항상 10개까지 상태일 수 `Activating` 있습니다.
 
-이러한 제한은 파이프라인 작업에는 적용 되지 않습니다.  
+이러한 제한은 파이프라인 작업에 적용되지 않습니다.  
 
-### <a name="maximum-live-pipelines-per-topology"></a>토폴로지 당 최대 활성 파이프라인 수  
+### <a name="maximum-live-pipelines-per-topology"></a>토폴로지당 최대 라이브 파이프라인  
 
-토폴로지 당 최대 50 개의 라이브 파이프라인이 지원 됩니다.  
+토폴로지당 라이브 파이프라인은 50개까지 지원됩니다.  
 
-### <a name="concurrent-low-latency-streaming-sessions"></a>대기 시간이 짧은 동시 스트리밍 세션  
+### <a name="concurrent-low-latency-streaming-sessions"></a>동시 짧은 대기 시간 스트리밍 세션  
 
-각 활성 라이브 파이프라인에 대해 [짧은 대기 시간 스트림을](playback-recordings-how-to.md#low-latency-streaming)볼 수 있는 클라이언트 응용 프로그램은 최대 하나만 있을 수 있습니다. 다른 클라이언트에서 연결을 시도 하면 요청이 거부 됩니다.  
+각 활성 라이브 파이프라인에 대해 [대기 시간이 짧은 스트림을](playback-recordings-how-to.md#low-latency-streaming)보는 클라이언트 애플리케이션이 하나만 있을 수 있습니다. 다른 클라이언트가 연결을 시도하면 요청이 거부됩니다.  
 
-### <a name="limitations-on-designing-pipeline-topologies"></a>파이프라인 토폴로지 디자인 제한 사항 
+### <a name="limitations-on-designing-pipeline-topologies"></a>파이프라인 토폴로지 디자인에 대한 제한 사항 
 
-다음은 파이프라인 토폴로지에서 함께 연결할 수 있는 다양 한 노드 및 제한 사항입니다. 
+다음은 파이프라인 토폴로지에서 함께 연결할 수 있는 여러 노드 및 해당 제한 사항입니다. 
 
 * RTSP 원본
    * 파이프라인 토폴로지마다 하나의 RTSP 원본만 허용됩니다.
-* 비디오 소스
-   * 파이프라인 토폴로지에서는 하나의 비디오 원본만 사용할 수 있습니다.
-   * [일괄 처리 종류](pipeline.md#batch-pipeline)의 파이프라인 토폴로지에서만 사용할 수 있습니다. 유형의 비디오 리소스를 수락할 수만 있습니다 `archive` . 
+* 비디오 원본
+   * 파이프라인 토폴로지당 하나의 비디오 원본만 허용됩니다.
+   * [일괄 처리 종류의](pipeline.md#batch-pipeline)파이프라인 토폴로지에서만 사용할 수 있습니다. 형식의 비디오 리소스만 수락할 수 `archive` 있습니다. 
 * 인코더 프로세서 
-   * 파이프라인 토폴로지에서는 하나의 인코더 프로세서만 사용할 수 있습니다.
-   * [일괄 처리 종류](pipeline.md#batch-pipeline)의 파이프라인 토폴로지에서만 사용할 수 있으며, 이러한 토폴로지에서 비디오 비디오 싱크 노드의 바로 업스트림 이어야 합니다.
-   * 이 도구는 AAC 코덱을 사용 하 여 H. n a n 코덱 및 오디오로 비디오 인코딩을 지원 합니다.
-   * 사용자가 기록 된 비디오를 다운스트림 처리를 위해 원하는 형식으로 변환할 때 인코딩 속성을 지정할 수 있습니다. 두 가지 유형: (a) 시스템 사전 설정 (b) 사용자 지정 사전 설정입니다. 각 사전 설정에 대해 허용 되는 구성은 아래 표에 나와 있습니다. 
+   * 파이프라인 토폴로지당 하나의 인코더 프로세서만 허용됩니다.
+   * [일괄 처리 종류의](pipeline.md#batch-pipeline)파이프라인 토폴로지에서만 사용할 수 있으며, 이러한 토폴로지에서 비디오 비디오 싱크 노드의 즉시 업스트림이어야 합니다.
+   * H.264 코덱을 통해 비디오 인코딩 및 AAC 코덱을 통해 오디오만 지원합니다.
+   * 사용자가 녹화된 비디오를 다운스트림 처리를 위해 원하는 형식으로 변환할 때 인코딩 속성을 지정할 수 있습니다. 두 가지 유형: (a) 시스템 사전 설정 (b) 사용자 지정 사전 설정입니다. 각 사전 설정에 허용되는 구성은 아래 표에 나열되어 있습니다. 
      
      | 구성       | 시스템 기본 설정        | 사용자 지정 사전 설정 |
      | -----------         | -----------          |----------- |
-     | 비디오 인코더 비트 전송률 kbps      | 원본과 동일      | 200 ~ 16000 kbps |
-     | 프레임 속도       | 원본과 동일      | 0 ~ 300 |
-     | 높이    | 원본과 동일        | 1 ~ 4320 |
-     | 너비    | 원본과 동일       | 1 ~ 8192 |
-     | 모드   | Pad        | Pad, PreserveAspectRatio, 늘이기 |     
-     | 오디오 인코더 비트 전송률 kbps  | 원본과 동일        | 허용 되는 값: 96, 112, 128, 160, 192, 224, 256 |
+     | 비디오 인코더 비트 전송률 kbps      | 원본과 동일      | 200~16,000kbps |
+     | 프레임 속도       | 원본과 동일      | 0~300 |
+     | 높이    | 원본과 동일        | 1~4320 |
+     | 너비    | 원본과 동일       | 1~8192 |
+     | 모드   | Pad        | Pad, PreserveAspectRatio, Stretch |     
+     | 오디오 인코더 비트 전송률 kbps  | 원본과 동일        | 허용되는 값: 96, 112, 128, 160, 192, 224, 256 |
      
 * 비디오 싱크 
-   *  파이프라인 토폴로지당 하나의 비디오 싱크만 허용됩니다.
-   *  RTSP 원본 또는 인코더 프로세서 노드에서 즉시 다운스트림이어야 합니다. 
-   *  일괄 처리 종류의 파이프라인 토폴로지에서 사용되는 경우 출력으로 MP4 파일을 생성합니다.
+   *  파이프라인 토폴로지에서는 하나의 비디오 싱크로만 허용 됩니다.
+   *  RTSP 원본 또는 인코더 프로세서 노드에서 즉시 다운스트림 이어야 합니다. 
+   *  일괄 처리 종류의 파이프라인 토폴로지에서 사용 되는 경우 MP4 파일을 출력으로 생성 합니다.
 
-### <a name="support-for-batch-video-export"></a>일괄 처리 비디오 내보내기 지원 
+### <a name="support-for-batch-video-export"></a>Batch 비디오 내보내기 지원 
 
 * 세그먼트 선택 
-   * 내보낼 보관된 비디오 부분의 시작 및 끝 타임스탬프인 시간 순서는 UTC 시간으로 지정해야 합니다. 
-   * 시간 시퀀스의 최대 범위(종료 타임스탬프 - 시작 타임스탬프)는 24시간보다 적거나 같아야 합니다. 
+   * 내보낼 보관 된 비디오 부분의 시작 및 종료 타임 스탬프 인 시간 순서는 UTC 시간으로 지정 해야 합니다. 
+   * 시간 시퀀스의 최대 범위 (종료 타임 스탬프-시작 타임 스탬프)는 24 시간 보다 작거나 같아야 합니다. 
 
 ### <a name="supported-cameras"></a>지원되는 카메라
 
 RTSP 프로토콜을 지원하는 IP 카메라만 사용할 수 있습니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다. 
 
-H.264 비디오와 AAC 오디오를 사용하도록 카메라를 구성해야 합니다. 다른 코덱은 현재 지원되지 않습니다. 비디오 인코딩 비트 전송 속도는 500~3000Kbps 사이여야 합니다.True ingestion bitrate가 이 임계값을 초과하면, 해당 처리의 연결이 끊어지고 지수 백오프와 다시 연결됩니다.
+H.264 비디오와 AAC 오디오를 사용하도록 카메라를 구성해야 합니다. 다른 코덱은 현재 지원되지 않습니다. 비디오 인코딩 비트 전송률은 500에서 3000 Kbps 사이 여야 합니다.True 수집 비트 전송률이이 임계값을 초과 하면 수집의 연결이 끊어지고 지 수 백오프를 사용 하 여 다시 연결 됩니다.
 
 Video Analyzer는 [인터리브된 RTP 스트림](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12)을 사용하는 RTSP만 지원합니다. 이 모드에서 RTP 트래픽은 RTSP TCP 연결을 통해 터널링됩니다. UDP를 통한 RTP 트래픽은 지원되지 않습니다. 
 
 ### <a name="support-for-video-ai"></a>비디오 AI 지원 
 
-라이브 또는 녹화된 비디오 분석은 현재 지원되지 않습니다.
+라이브 또는 기록 된 비디오에 대 한 분석은 현재 지원 되지 않습니다.
 
 ## <a name="quotas-and-limitations---service"></a>할당량 및 제한 사항 - 서비스
 

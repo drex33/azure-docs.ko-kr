@@ -8,15 +8,15 @@ ms.subservice: mlops
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 06/17/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy
-ms.openlocfilehash: eec009303938195fffe6c2ddb0ad6d44a2e1a8b0
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d7d3897b80947b8198d1ab4403b2d99a8738b2d3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425395"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557569"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용하여 유추를 위한 딥 러닝 모델 배포
 

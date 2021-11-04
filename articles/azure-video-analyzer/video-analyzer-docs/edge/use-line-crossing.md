@@ -2,14 +2,14 @@
 title: Azure Video Analyzer를 사용하여 라이브 비디오에서 개체가 가상의 선과 교차할 때 감지
 description: 이 빠른 시작에서는 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드에서 개체가 선과 교차할 때 감지하는 방법을 보여줍니다.
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: db1db2166816ab9b2f523aa14af37868bd0b1a1a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: faa8053ed2d6dbc2b1df0917fcb08dd308fb1910
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053230"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552604"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>자습서: 라이브 비디오에서 개체가 가상의 선과 교차할 때 감지
 

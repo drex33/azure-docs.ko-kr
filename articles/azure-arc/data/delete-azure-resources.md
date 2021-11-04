@@ -7,29 +7,39 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 5a2b51573e4b639c80fd36b69cef667b9ea6eff5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ad92c16b70fd2d9f2e137558db1e70c387815a8f
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567057"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564141"
 ---
 # <a name="delete-resources-from-azure"></a>Azure에서 리소스 삭제
 
-이 문서에서는 Azure에서 리소스를 삭제하는 방법을 설명합니다.
+이 문서에서는 Azure에서 Azure Arc 지원 데이터 서비스 리소스를 삭제하는 방법을 설명합니다.
 
 > [!WARNING]
 > 이 문서에 설명된 대로 리소스를 삭제하면 이러한 작업은 되돌릴 수 없습니다.
 
 ## <a name="before"></a>이전
 
-Azure Arc SQL Managed Instance 또는 Azure Arc 데이터 컨트롤러와 같은 리소스를 삭제하기 전에 [Azure에 청구 데이터 업로드](view-billing-data-in-azure.md#upload-billing-data-to-azure)에 설명된 지침에 따라 정확한 청구 계산을 위해 사용량 정보를 Azure로 내보내고 업로드해야 합니다.
+Azure Arc SQL 관리되는 인스턴스 또는 Azure Arc 데이터 컨트롤러와 같은 리소스를 삭제하기 전에 청구 데이터를 Azure에 업로드 설명된 지침에 따라 정확한 청구 계산을 위해 사용량 정보를 Azure로 내보내고 [업로드해야 합니다.](view-billing-data-in-azure.md#upload-billing-data-to-azure---indirectly-connected-mode)
 
 ## <a name="direct-connectivity-mode"></a>직접 연결 모드
 
 클러스터가 직접 연결 모드로 Azure에 연결된 경우 Azure Portal을 사용하여 리소스를 관리합니다. 데이터 컨트롤러, Managed Instance 및 PostgreSQL 그룹에 대한 모든 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업에 포털을 사용합니다.
+
+Azure Portal:
+1. 리소스 그룹으로 이동한 다음 Azure Arc 데이터 컨트롤러를 삭제합니다.
+2. Azure Arc 지원 Kubernetes 클러스터를 선택하고 개요 페이지로 이동합니다.
+    - 설정 **아래에서 확장을 선택합니다.**
+    - 확장 페이지에서 Azure Arc 데이터 서비스 확장(microsoft.arcdataservices 형식)을 선택하고 **제거를** 클릭합니다.
+3. 필요에 따라 Azure Arc 데이터 컨트롤러가 배포된 사용자 지정 위치를 삭제합니다.
+4. 필요에 따라 네임스페이스에 생성된 다른 리소스가 없는 경우 Kubernetes 클러스터에서 네임스페이스를 삭제할 수도 있습니다.
+
+
 
 [Azure Portal을 사용하여 Azure 리소스 관리](../../azure-resource-manager/management/manage-resources-portal.md)를 참조하세요.
 

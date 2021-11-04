@@ -1,90 +1,91 @@
 ---
-title: 릴리스의 새로운 기능이란?
+title: Python SDK 릴리스 정보
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 및 기계 학습 및 데이터 준비 Python SDK에 대한 최신 업데이트에 대해 알아봅니다.
+description: Python SDK를 Azure Machine Learning 최신 업데이트에 대해 알아봅니다.
+services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 10/04/2021
-ms.openlocfilehash: 8807aa11ce8f9d4c96ae27656d9d29a4f5f7e7f1
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 10/21/2021
+ms.openlocfilehash: 5c2594e38db7a57e2861241d37405a8ce03b8494
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994179"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563172"
 ---
-# <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
+# <a name="azure-machine-learning-python-sdk-release-notes"></a>Azure Machine Learning Python SDK 릴리스 정보
 
-이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠를 보려면 Azure Machine Learning의 [**Python용 기본 SDK**](/python/api/overview/azure/ml/intro) 참조 페이지를 확인하세요.
+이 문서에서는 Azure Machine Learning Python SDK 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠를 보려면 Azure Machine Learning의 [**Python용 기본 SDK**](/python/api/overview/azure/ml/intro) 참조 페이지를 확인하세요.
 
 __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
 ## <a name="2021-10-11"></a>2021-10-11
 
-### <a name="azure-machine-learning-sdk-for-python-v1350"></a>Azure Machine Learning Python v 1.35.0 SDK
+### <a name="azure-machine-learning-sdk-for-python-v1350"></a>Azure Machine Learning Python용 SDK v1.35.0
   + **azureml-automl-core**
     + 이진 메트릭 계산 사용
   + **azureml-contrib-fairness**
-    + 실패 한 대시보드 다운로드에 대 한 오류 메시지 개선
+    + 실패한 대시보드 다운로드에서 오류 메시지 개선
   + **azureml-core**
-    + 관리 되는 Id 인증에 대해 공용이 아닌 클라우드를 지정 하는 동안 버그가 해결 되었습니다.
-    + 이제 Dataset.File.upload_directory () 및 Dataset.Tabular.register_pandas_dataframe () 실험적 플래그가 제거 됩니다.
-    + 이제 TabularDataset 클래스의 partition_by () 메서드에서 실험적 플래그가 제거 됩니다.
+    + 관리 ID 인증을 위해 퍼블릭이 아닌 클라우드를 지정하는 버그가 해결되었습니다.
+    + 이제 Dataset.File.upload_directory() 및 Dataset.Tabular.register_pandas_dataframe() 실험 플래그가 제거됩니다.
+    + 이제 TabularDataset 클래스의 partition_by() 메서드에서 실험적 플래그가 제거됩니다.
   + **azureml-pipeline-steps**
-    + 이제 `partition_keys` ParallelRunConfig 클래스의 매개 변수에 대 한 실험적 플래그가 제거 됩니다.
+    + 이제 `partition_keys` ParallelRunConfig 클래스의 매개 변수에 대한 실험적 플래그가 제거됩니다.
   + **azureml-interpret**
-    + azureml-intepret로 업데이트 된 패키지 해석-community 0.20. *
+    + azureml-interpret 패키지가 intepret-community 0.20으로 업데이트되었습니다.*
   + **azureml.mlflow**
-    + 하위 디렉터리를 사용 하 여 MLflow로 아티팩트 및 이미지를 기록할 수 있습니다.
+    + 하위Directories를 사용하여 MLflow를 사용하여 아티팩트 및 이미지를 기록할 수 있도록 했습니다.
   + **azureml-responsibleai**
-    + 실패 한 대시보드 다운로드에 대 한 오류 메시지 개선
+    + 실패한 대시보드 다운로드에서 오류 메시지 개선
   + **azureml-train-automl-client**
-    + 이미지 분류, 개체 검색 및 인스턴스 조각화와 같은 컴퓨터 비전 작업에 대 한 지원이 추가 되었습니다. 자세한 설명서 [는 이미지 모델을 자동으로 학습 하는 방법](how-to-auto-train-image-models.md) 에서 찾을 수 있습니다.
+    + 이미지 분류, 개체 검색 및 인스턴스 구분과 같은 컴퓨터 비전 작업에 대한 지원이 추가되었습니다. 자세한 설명서는 [이미지 모델을 자동으로 학습하는 방법에서](how-to-auto-train-image-models.md) 찾을 수 있습니다.
     + 이진 메트릭 계산 사용
   + **azureml-train-automl-runtime**
-    + 모델 테스트 실행에 TCNForecaster 지원을 추가 합니다.
-    + 모델 테스트 predictions.csv 출력 형식으로 업데이트 합니다. 이제 출력 열에는 원래 대상 값과 테스트 실행에 전달 된 기능이 포함 됩니다. 이 설정은에서를 설정 `test_include_predictions_only=True` `AutoMLConfig` 하거나에서 설정 하 여 해제할 수 있습니다 `include_predictions_only=True` `ModelProxy.test()` . 사용자가 예측만 포함 하도록 요청한 경우 출력 형식은 다음과 같습니다 (예측이 회귀와 같음). 분류 => [예측 값] [확률] 회귀 => [예측 값] else (기본값): 분류 => [원래 테스트 데이터 레이블] [예측 값] [확률] [기능] 회귀 => [원래 테스트 데이터 레이블] [예측 값] [기능] `[predicted values]` 열 이름 = `[label column name] + "_predicted"` . `[probabilities]`열 이름 = `[class name] + "_predicted_proba"` 입니다. 테스트 실행에 대 한 입력으로 전달 된 대상 열이 없으면 `[original test data labels]` 는 출력에 없습니다.
+    + 모델 테스트 실행에 TCNForecaster 지원을 추가합니다.
+    + 모델 테스트 predictions.csv 출력 형식을 업데이트합니다. 이제 출력 열에는 원래 대상 값과 테스트 실행에 전달된 기능이 포함됩니다. 에서 를 설정하거나 에서 를 설정하여 해제할 수 `test_include_predictions_only=True` `AutoMLConfig` `include_predictions_only=True` `ModelProxy.test()` 있습니다. 사용자가 예측만 포함하도록 요청한 경우 출력 형식은 다음과 같습니다(예측은 회귀와 동일함): 분류 => [예측 값] [확률] 회귀 => [예측 값] else() 기본값: 분류 => [원래 테스트 데이터 레이블] [예측 값] [확률] [기능] 회귀 => [원래 테스트 데이터 레이블] [예측 값] [기능] `[predicted values]` 열 이름 = `[label column name] + "_predicted"` . `[probabilities]`열 이름 = `[class name] + "_predicted_proba"` 입니다. 테스트 실행에 대한 입력으로 전달된 대상 열이 없으면 는 `[original test data labels]` 출력에 포함되지 않습니다.
 
 ## <a name="2021-09-07"></a>2021-09-07
 
-### <a name="azure-machine-learning-sdk-for-python-v1340"></a>Azure Machine Learning Python v 1.34.0 SDK
+### <a name="azure-machine-learning-sdk-for-python-v1340"></a>Azure Machine Learning Python v1.34.0용 SDK
   + **azureml-automl-core**
-    + 이전에 학습 된 예측 파이프라인을 다시 맞추기 위한 지원이 추가 되었습니다.
-    + 예측을 위해 학습 데이터 (샘플 내 예측)에 대 한 예측을 가져오는 기능을 추가 했습니다.
+    + 이전에 학습된 예측 파이프라인을 다시 맞추기 위한 지원이 추가되었습니다.
+    + 예측을 위해 학습 데이터(샘플 내 예측)에 대한 예측을 얻을 수 있는 기능이 추가되었습니다.
   + **azureml-automl-runtime**
-    + AutoML 분류자 모델의 배포 된 끝점에서 예측 된 확률을 반환 하는 지원을 추가 합니다.
-    + 사용자가 모든 예측이 정수 여야 함을 지정 하는 예측 옵션이 추가 되었습니다.
-    + Training_data_label_column_name를 사용 하 여 로컬 실험을 위한 모델 설명 기능 이름의 일부가 되지 않도록 대상 열 이름이 제거 되었습니다.
-    + 데이터 집합 입력으로
-    + 이전에 학습 된 예측 파이프라인을 다시 맞추기 위한 지원이 추가 되었습니다.
-    + 예측을 위해 학습 데이터 (샘플 내 예측)에 대 한 예측을 가져오는 기능을 추가 했습니다.
+    + AutoML 분류자 모델의 배포된 엔드포인트에서 예측 확률을 반환하는 지원을 추가합니다.
+    + 사용자가 모든 예측이 정수여야 함을 지정하는 예측 옵션이 추가되었습니다.
+    + 대상 열 이름이 로컬 실험에 대한 모델 설명 기능 이름의 일부가 되는 것을 제거했습니다training_data_label_column_name
+    + 을 데이터 세트 입력으로 사용합니다.
+    + 이전에 학습된 예측 파이프라인을 다시 맞추기 위한 지원이 추가되었습니다.
+    + 예측을 위해 학습 데이터(샘플 내 예측)에 대한 예측을 얻을 수 있는 기능이 추가되었습니다.
   + **azureml-core**
-    + 테이블 형식 데이터 집합에서 스트림 열 유형, 탑재 및 스트림 열을 설정 하는 지원이 추가 되었습니다.
-    + Kubernetes.attach_configuration (identity_type = None, identity_ids = None)에 추가 된 새 선택적 필드를 사용 하 여 SystemAssigned 또는 UserAssigned 된 id로 KubernetesCompute을 연결할 수 있습니다. Print (compute_target) 또는 compute_target ()를 호출할 때 새 id 필드가 포함 됩니다. identity_type, identity_id, principal_id 및 tenant_id/client_id.
+    + 테이블 형식 데이터 세트에서 스트림 열 유형을 설정하고 스트림 열을 탑재 및 다운로드하는 지원이 추가되었습니다.
+    + SystemAssigned 또는 UserAssigned ID와 KubernetesCompute를 연결할 수 있는 Kubernetes.attach_configuration(identity_type=None, identity_ids=None)에 추가된 새로운 선택적 필드입니다. print(compute_target) 또는 compute_target.serialize(): identity_type, identity_id, principal_id 및 tenant_id/client_id 호출할 때 새 ID 필드가 포함됩니다.
   + **azureml-dataprep**
-    + 테이블 형식 데이터 집합의 스트림 열 유형 설정에 대 한 지원이 추가 되었습니다. 테이블 형식 데이터 집합에서 스트림 열을 탑재 및 다운로드 하는 지원이 추가 되었습니다.
+    + 테이블 형식 데이터 세트에 대한 스트림 열 형식을 설정하는 지원이 추가되었습니다. 테이블 형식 데이터 세트에서 스트림 열을 탑재하고 다운로드하는 지원이 추가되었습니다.
   + **azureml-defaults**
-    + 종속성 `azureml-inference-server-http==0.3.1` 이에 추가 되었습니다 `azureml-defaults` .
+    + 종속성이 `azureml-inference-server-http==0.3.1` 에 `azureml-defaults` 추가되었습니다.
   + **azureml.mlflow**
-    + `max_results`및 선택적 매개 변수를 추가 하 여 LIST_EXPERIMENTS API의 페이지 매김을 허용 `page_token` 합니다. 설명서는 MLflow 공식 문서를 참조 하세요.
+    + 및 선택적 매개변수를 추가하여 list_experiments API의 페이지가 `max_results` `page_token` 지정되도록 허용합니다. 설명서는 MLflow 공식 문서를 참조하세요.
   + **azureml-sdk**
-    + 사용 되지 않는 패키지 (azureml 교육)의 종속성이 azureml-sdk 내에서 바뀌었습니다.
-    + Responsibleai에 azureml 추가-sdk 스페셜 기능
+    + azureml-sdk 내에서 사용되지 않은 패키지(azureml-train)에 대한 종속성이 대체되었습니다.
+    + azureml-sdk extras에 azureml-responsibleai 추가
   + **azureml-train-automl-client**
-    + `test_data` `test_size` 에서 및 매개 변수를 노출 `AutoMLConfig` 합니다. 이러한 매개 변수를 사용 하 여 모델 이후에 테스트 실행을 자동으로 시작할 수 있습니다. 
-    + 학습 단계를 완료 했습니다. 테스트 실행은 최상의 모델을 사용 하 여 예측을 계산 하 고 이러한 예측이 제공 되 면 메트릭을 생성 합니다.
+    + 에서 `test_data` 및 `test_size` 매개 변수를 노출합니다. `AutoMLConfig` 이러한 매개 변수를 사용하여 모델 이후에 테스트 실행을 자동으로 시작할 수 있습니다. 
+    + 학습 단계가 완료되었습니다. 테스트 실행은 최상의 모델을 사용하여 예측을 계산하고 이러한 예측을 고려하여 메트릭을 생성합니다.
 
 ## <a name="2021-08-24"></a>2021-08-24
 
 ### <a name="azure-machine-learning-experimentation-user-interface"></a>Azure Machine Learning 실험 사용자 인터페이스
   + **삭제 실행**
-    + 실행 삭제는 사용자가 작업 영역에서 하나 이상의 실행을 삭제할 수 있는 새로운 기능입니다.
-    + 이 기능을 통해 사용자는 저장소 비용을 줄이고 UI에서 직접 실행 및 실험을 정기적으로 삭제 하 여 저장소 용량을 관리할 수 있습니다.
+    + 삭제 실행은 사용자가 작업 영역에서 하나 또는 여러 개의 실행을 삭제할 수 있는 새로운 기능입니다.
+    + 이 기능은 사용자가 UI에서 실행 및 실험을 직접 정기적으로 삭제하여 스토리지 비용을 줄이고 스토리지 용량을 관리하는 데 도움이 될 수 있습니다.
   + **일괄 처리 취소 실행**
-    + 일괄 처리 취소 실행은 사용자가 실행 목록에서 취소할 실행을 하나 또는 여러 개 선택할 수 있게 해 주는 새로운 기능입니다. 
-    + 이 기능을 통해 사용자는 여러 개의 지연 된 실행을 취소 하 고 클러스터에서 공간을 확보할 수 있습니다.
+    + 일괄 처리 취소 실행은 사용자가 실행 목록에서 취소할 하나 또는 여러 실행을 선택할 수 있는 새로운 기능입니다. 
+    + 이 기능은 사용자가 큐에 대기된 여러 실행을 취소하고 클러스터의 공간을 확보하는 데 도움이 될 수 있습니다.
 
 ## <a name="2021-08-18"></a>2021-08-18
 
@@ -327,7 +328,7 @@ Azure CLI에 대한 `ml` 확장은 Azure Machine Learning을 위한 차세대 �
     + 인증용 테넌트를 포함하도록 포털 URI 업데이트
     + 리디렉션을 방지하기 위해 실행 URI에서 실험 이름 제거
     + 실험 ID를 사용하도록 실험 URO가 업데이트되었습니다.
-    + az cli를 사용하여 원격 컴퓨팅을 연결하기 위한 버그 수정
+    + Az CLI를 사용 하 여 원격 계산을 연결 하기 위한 버그 수정
     + 인증용 테넌트를 포함하도록 포털 URI가 업데이트되었습니다.
     + glob 구조에 따라 파일 데이터 세트 파티션을 이해하도록 지원하는 기능이 추가되었습니다.
   + **azureml-interpret**
@@ -1912,7 +1913,7 @@ Azure CLI에 대한 `ml` 확장은 Azure Machine Learning을 위한 차세대 �
 ### <a name="azure-machine-learning-designer-enhancements"></a>Azure Machine Learning 디자이너 향상 기능
 
 + 이전 명칭: 시각적 인터페이스 
-+    기능 엔지니어링, 교차 유효성 검사 및 데이터 변환 같은 추천자, 분류자 및 학습 유틸리티를 포함한 새로운 [모듈](algorithm-module-reference/module-reference.md) 11개.
++    기능 엔지니어링, 교차 유효성 검사 및 데이터 변환 같은 추천자, 분류자 및 학습 유틸리티를 포함한 새로운 [모듈](component-reference/component-reference.md) 11개.
 
 ### <a name="r-sdk"></a>R SDK 
  

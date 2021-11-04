@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 0650691e9786ac88184c8354052ea96329e8f933
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2380a10d9a4a054a5d83b2c1096797e41bba7d0f
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639720"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563609"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구로 Azure Arc 데이터 컨트롤러 만들기
 
@@ -53,11 +53,13 @@ kubectl delete clusterrole arcdataservices-extension
 kubectl delete clusterrole arc:cr-arc-metricsdc-reader
 kubectl delete clusterrole arc:cr-arc-dc-watch
 kubectl delete clusterrole cr-arc-webhook-job
-
-# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
+kubectl delete clusterrole {namespace}:cr-upgrade-worker
 kubectl delete clusterrolebinding {namespace}:crb-arc-metricsdc-reader
 kubectl delete clusterrolebinding {namespace}:crb-arc-dc-watch
 kubectl delete clusterrolebinding crb-arc-webhook-job
+kubectl delete clusterrolebinding {namespace}:crb-upgrade-worker
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
 
 # API services
 # Up to May 2021 release
@@ -153,13 +155,13 @@ bootstrapper.yaml 템플릿 파일은 기본적으로 MCR(Microsoft Container Re
       - name: arc-private-registry #Create this image pull secret if you are using a private container registry
       containers:
       - name: bootstrapper
-        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.0.0_2021-07-30 #Change this registry location if you are using a private container registry.
+        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.1.0_2021-11-02 #Change this registry location if you are using a private container registry.
         imagePullPolicy: Always
 ```
 
-## <a name="create-a-secret-for-the-kibanagrafana-dashboards"></a>Kibana/Grafana 대시보드의 비밀 만들기
+## <a name="create-secrets-for-the-metrics-and-logs-dashboards"></a>메트릭 및 로그 대시보드에 대 한 비밀 만들기
 
-사용자 이름 및 암호는 Kibana 및 Grafana 대시보드에서 관리자 권한으로 인증을 받는 데 사용됩니다.  보안 암호를 선택하고 이러한 권한이 필요한 암호를 사용하여 공유합니다.
+메트릭 및 로그 대시보드에 관리자 권한으로 인증 하는 데 사용 되는 사용자 이름 및 암호를 지정할 수 있습니다. 보안 암호를 선택하고 이러한 권한이 필요한 암호를 사용하여 공유합니다.
 
 Kubernetes 비밀은 Base64로 인코딩한 문자열로, 사용자 이름을 위해 하나, 암호를 위해 하나가 저장됩니다.
 
@@ -184,7 +186,7 @@ echo -n '<your string to encode here>' | base64
 # echo -n 'example' | base64
 ```
 
-사용자 이름과 암호를 인코딩한 후에는 [템플릿 파일](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml)을 기반으로 파일을 만들고 사용자 이름과 암호 값을 사용자 고유 값으로 바꿀 수 있습니다.
+사용자 이름 및 암호를 인코딩한 후 [템플릿 파일](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) 을 기반으로 파일을 만들고 사용자 이름 및 암호를 고유한 이름으로 바꿀 수 있습니다.
 
 이 후 다음 명령을 실행하여 비밀을 만듭니다.
 
@@ -264,7 +266,7 @@ spec:
     serviceAccount: sa-arc-controller
   docker:
     imagePullPolicy: Always
-    imageTag: v1.0.0_2021-07-30
+    imageTag: v1.1.0_2021-11-02
     registry: mcr.microsoft.com
     repository: arcdata
   infrastructure: other #Must be a value in the array [alibaba, aws, azure, gcp, onpremises, other]

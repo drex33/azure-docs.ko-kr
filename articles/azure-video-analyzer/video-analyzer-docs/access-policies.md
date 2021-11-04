@@ -2,13 +2,13 @@
 title: Azure Video Analyzer 액세스 정책
 description: 이 문서에서는 Azure Video Analyzer가 액세스 정책에서 JWT 토큰을 사용하여 비디오를 보호하는 방법을 설명합니다.
 ms.topic: reference
-ms.date: 06/01/2021
-ms.openlocfilehash: fe421e429357000bf6380cdf18f3a029fea4f7c9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/04/2021
+ms.openlocfilehash: a6a1a455c1c105d9deaabbe6a3d57eef3398ed51
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128670484"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563685"
 ---
 # <a name="access-policies"></a>액세스 정책
 
@@ -165,7 +165,7 @@ RSA 및 ECC 형식이라는 두 가지 유형의 키가 지원됩니다.
 
 - `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
 
-JWTTokenIssuer는 JWT 토큰 및 다음과 같은 필요한 구성 요소를 만듭니다.
+JWTTokenIssuer는 JWT 토큰과 다음과 같은 필수 구성 요소를 만듭니다.
 
 - `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
 
@@ -178,13 +178,13 @@ JWTTokenIssuer는 JWT 토큰 및 다음과 같은 필요한 구성 요소를 만
 
 ### <a name="in-the-azure-portal"></a>Azure Portal에서
 
-1. Azure Portal 로그인하고 Video Analyzer 계정이 있는 리소스 그룹으로 이동합니다.
+1. Azure Portal에 로그인 하 고 비디오 분석기 계정이 있는 리소스 그룹으로 이동 합니다.
 1. Video Analyzer 리소스를 선택합니다.
-1. **Video Analyzer에서** **액세스 정책을** 선택합니다.
+1. **Video Analyzer** 아래에서 **액세스 정책** 을 선택 합니다.
 
-   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="플레이어 위젯 - 포털 액세스 정책.":::
+   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="플레이어 위젯-포털 액세스 정책.":::
    
-1. **새로 설정을** 선택하고 다음 정보를 입력합니다.
+1. **새로 만들기** 를 선택 하 고 다음 정보를 입력 합니다.
 
    > [!NOTE] 
    > 이러한 값은 이전 단계에서 만든 JWTTokenIssuer 애플리케이션에서 제공됩니다.
@@ -193,17 +193,17 @@ JWTTokenIssuer는 JWT 토큰 및 다음과 같은 필요한 구성 요소를 만
 
    - 발급자 - JWT 토큰 발급자와 일치해야 합니다. 
 
-   - 대상 그룹 - JWT 토큰의 대상 그룹 `${System.Runtime.BaseResourceUrlPattern}` -이 기본값입니다.
+   - JWT 토큰의 대상 그룹--기본값입니다 `${System.Runtime.BaseResourceUrlPattern}` .
 
-   - 키 유형 - RSA 
+   - 키 유형-RSA 
 
    - 알고리즘 - 지원되는 값은 RS256, RS384, RS512입니다.
 
-   - 키 ID - 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
+   - 키 ID-인증서에서 생성 됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
 
-   - RSA 키 모듈러스 - 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
+   - RSA 키 모듈러스-인증서에서 생성 됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
 
-   - RSA 키 지수 - 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
+   - RSA 키 지 수-인증서에서 생성 됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
 
    :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="플레이어 위젯 - 액세스 정책 포털"::: 
    

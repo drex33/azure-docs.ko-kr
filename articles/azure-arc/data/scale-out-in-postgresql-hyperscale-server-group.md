@@ -7,21 +7,21 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: b3e7df998d32317763c6a0de7c0e7c1cc2f2420b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 286754a121dc2aabeeacda47dd82dd4f3a1ed83b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566627"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564521"
 ---
 # <a name="scale-out-and-in-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>작업자 노드를 더 추가하여 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃/인
 이 문서에서는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 스케일 아웃 및 스케일 인하는 방법을 설명합니다. 이 문서에서는 시나리오를 따라가는 방식을 취합니다. **시나리오를 따라가지 않고 스케일 아웃 방법을 읽기만 하려는 경우 [스케일 아웃](#scale-out)** 또는 [스케일 인]() 단락으로 이동하세요.
 
-Azure Arc 지원 PostgreSQL 하이퍼스케일에 Postgres 인스턴스(Postgres 하이퍼스케일 작업자 노드)를 추가할 때 스케일 아웃합니다.
+Postgres 인스턴스 (Postgres Hyperscale worker 노드)를 Azure Arc 사용 PosrgreSQL Hyperscale 서버 그룹에 추가할 때 규모를 확장 합니다.
 
-Azure Arc 지원 PostgreSQL 하이퍼스케일에서 Postgres 인스턴스(Postgres 하이퍼스케일 작업자 노드)를 제거할 때 스케일 인합니다.
+Azure Arc 사용 PosrgreSQL Hyperscale 서버 그룹에서 Postgres 인스턴스 (Postgres Hyperscale worker 노드)를 제거할 때 확장 합니다.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
@@ -53,26 +53,35 @@ az postgres arc-server endpoint list -n <server name>  --k8s-namespace <namespac
 ```
 예를 들면 다음과 같습니다.
 ```azurecli
-az postgres arc-server endpoint list -n postgres01  --k8s-namespace <namespace> --use-k8s
+az postgres arc-server endpoint list -n postgres01  --k8s-namespace arc --use-k8s
 ```
 
 예제 출력:
 
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+{
+  "instances": [
+    {
+      "endpoints": [
+        {
+          "description": "PostgreSQL Instance",
+          "endpoint": "postgresql://postgres:<replace with password>@12.345.567.89:5432"
+        },
+        {
+          "description": "Log Search Dashboard",
+          "endpoint": "https://23.456.78.99:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))"
+        },
+        {
+          "description": "Metrics Dashboard",
+          "endpoint": "https://34.567.890.12:3000/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01"
+        }
+      ],
+      "engine": "PostgreSql",
+      "name": "postgres01"
+    }
+  ],
+  "namespace": "arc"
+}
 ```
 
 ##### <a name="connect-with-the-client-tool-of-your-choice"></a>원하는 클라이언트 도구를 사용하여 연결
@@ -160,7 +169,7 @@ az postgres arc-server edit -n <server group name> -w <target number of worker n
 이 예제에서는 다음 명령을 실행하여 작업자 노드 수를 2에서 4로 늘립니다.
 
 ```azurecli
-az postgres arc-server edit -n postgres01 -w 4 --k8s-namespace <namespace> --use-k8s 
+az postgres arc-server edit -n postgres01 -w 4 --k8s-namespace arc --use-k8s 
 ```
 
 노드를 추가하면 서버 그룹에 대해 보류 중 상태가 표시됩니다. 예를 들면 다음과 같습니다.
@@ -169,9 +178,12 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 ```console
-Name        State          Workers
-----------  -------------  ---------
-postgres01  Pending 4/5    4
+{
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Updating",
+    "workers": 4
+  }
 ```
 
 노드를 사용할 수 있게 되면 하이퍼스케일 분할 리밸런서가 자동으로 실행되고 데이터를 새 노드에 재배포합니다. 스케일 아웃 작업은 온라인 작업입니다. 노드가 추가되고 데이터가 노드 간에 재배포되는 동안 데이터는 쿼리에 사용할 수 있는 상태로 유지됩니다.
@@ -184,27 +196,31 @@ postgres01  Pending 4/5    4
 명령 실행:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres arc-server list --k8s-namespace arc --use-k8s
 ```
 
 이 명령은 네임스페이스에 생성된 서버 그룹의 목록을 반환하고 해당 서버 그룹의 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
 ```console
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    4
+{
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 4
+  }
 ```
 
 #### <a name="with-kubectl"></a>Kubectl 사용:
 명령 실행:
 ```console
-kubectl get postgresqls
+kubectl get postgresqls -n arc
 ```
 
 이 명령은 네임스페이스에 생성된 서버 그룹의 목록을 반환하고 해당 서버 그룹의 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
 ```console
-NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
-postgres01   Ready   4/4          10.0.0.4:31066      4d20h
+NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
+postgres01   Ready   5/5          12.345.567.89:5432   9d
 ```
+작업자 노드 수보다 하나 이상의 pod가 있습니다. 추가 pod는 코디네이터 역할이 있는 Postgres 인스턴스를 호스트 하는 데 사용 됩니다.
 
 #### <a name="with-a-sql-query"></a>SQL 쿼리 사용:
 선택한 클라이언트 도구를 사용하여 서버 그룹에 연결하고 다음 쿼리를 실행합니다.
@@ -245,7 +261,6 @@ SELECT COUNT(*) FROM github_events;
 ```azurecli
 az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
-
 
 스케일 인 작업은 온라인 작업입니다. 노드가 제거되고 나머지 노드에 데이터가 재배포되는 동안 애플리케이션은 가동 중지 시간 없이 데이터에 계속 액세스합니다.
 

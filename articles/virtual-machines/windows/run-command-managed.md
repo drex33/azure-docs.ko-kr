@@ -10,12 +10,12 @@ ms.date: 10/28/2021
 ms.topic: how-to
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fca5afb1b633d5c35279e046c88cf64c9a7a4ab8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7a1617fea3ea7de71a040852f4906ecffe1b0432
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482928"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557892"
 ---
 # <a name="preview-run-scripts-in-your-windows-vm-by-using-managed-run-commands"></a>미리 보기: 관리되는 실행 명령을 사용하여 Windows VM에서 스크립트 실행
 
@@ -28,7 +28,7 @@ ms.locfileid: "131482928"
 실행 명령 기능은 VM(가상 머신) 에이전트를 사용하여 Azure Windows VM 내에서 스크립트를 작성합니다. 이러한 스크립트는 일반 머신 또는 애플리케이션 관리에 사용할 수 있습니다. VM 액세스 및 네트워크 문제를 신속하게 진단 및 수정하고 VM을 다시 양호한 상태로 되돌릴 수 있습니다.
 
 *업데이트된* 관리되는 실행 명령 동일한 VM 에이전트 채널을 사용하여 스크립트를 실행하고 [원래 작업 지향 실행 명령](run-command.md)대해 다음과 같은 향상된 기능을 제공합니다. 
-- ARM 배포 템플릿을 통해 업데이트된 실행 명령 지원 
+- ARM 배포 템플릿을 통한 업데이트된 실행 명령 지원 
 - 여러 스크립트의 병렬 실행 
 - 스크립트의 순차적 실행 
 - RunCommand 스크립트를 취소할 수 있습니다.  
@@ -36,6 +36,10 @@ ms.locfileid: "131482928"
 - 장기 실행(시간/일) 스크립트 지원 
 - 안전한 방식으로 비밀(매개 변수, 암호) 전달
 
+
+## <a name="register-for-preview"></a>미리 보기 등록
+
+공개 미리 보기 중에 관리되는 실행 명령 사용하려면 구독을 등록해야 합니다. 등록 지침에 대한 [Azure 구독에서 미리 보기 기능을 설정하고](../../azure-resource-manager/management/preview-features.md) 기능 이름 을 `RunCommandPreview` 사용합니다.
 
 ## <a name="azure-cli"></a>Azure CLI 
 
@@ -45,7 +49,7 @@ ms.locfileid: "131482928"
 이 명령은 VM에 스크립트를 전달하고, 실행하고, 캡처된 출력을 반환합니다.
 
 ```azurecli-interactive
-az vm run-command set --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --script "Write-Host Hello World!"
+az vm run-command create --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --script "Write-Host Hello World!"
 ```
 
 ### <a name="list-all-deployed-runcommand-resources-on-a-vm"></a>VM에 배포된 모든 RunCommand 리소스 나열 
@@ -76,7 +80,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 이 명령은 VM에 스크립트를 전달하고, 실행하고, 캡처된 출력을 반환합니다.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand" – Script "Write-Host Hello World!"
+Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "Write-Host Hello World!"
 ```
 
 ### <a name="list-all-deployed-runcommand-resources-on-a-vm"></a>VM에 배포된 모든 RunCommand 리소스 나열 
@@ -90,14 +94,14 @@ Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 이 명령은 최신 출력, 시작/종료 시간, 종료 코드 및 실행의 터미널 상태를 포함하여 현재 실행 진행 상황을 검색합니다.
 
 ```powershell-interactive
-Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand" -Status
+Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" -Status
 ```
 
 ### <a name="delete-runcommand-resource-from-the-vm"></a>VM에서 RunCommand 리소스 삭제
 이전에 VM에 배포된 RunCommand 리소스를 제거합니다. 스크립트 실행이 아직 진행 중이면 실행이 종료됩니다. 
 
 ```powershell-interactive
-Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand"
+Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName"
 ```
  
 

@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 381119c1c7bbc57016eae274a9564d0fbfc4e663
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 46d7b4d08a7181b56859c5639ccd5a187e526474
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452778"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564350"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>미국 정부 고객을 위한 클라우드 기능 가용성
 
@@ -21,6 +21,7 @@ ms.locfileid: "131452778"
 - [Azure Security Center](#azure-security-center)
 - [Azure Sentinel](#azure-sentinel)
 - [IoT용 Azure Defender](#azure-defender-for-iot)
+- [Azure Attestation](#azure-attestation)
 
 > [!NOTE]
 > 이 문서에 추가 보안 서비스가 곧 추가될 예정입니다.
@@ -384,28 +385,28 @@ Azure Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄�
 |--|--|--|
 | [온-프레미스 디바이스 검색 및 인벤토리](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
 | [취약점 관리](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
-| [IoT 및 OT 동작 분석을 사용한 위협 감지](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
+| [IoT를 사용하여 위협 탐지 및 OT 동작 분석](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
 | [수동 및 자동 위협 인텔리전스 업데이트](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **SIEM, SOAR 및 XDR을 사용하여 IT 및 OT 보안 통합** |  |  |
 | [Active Directory](../../defender-for-iot/organizations/how-to-create-and-manage-users.md#integrate-with-active-directory-servers) | GA | GA |
 | [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
-| [ClearPass(경고 & 인벤토리)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-span-virtual-interface-to-the-virtual-switch) | GA | GA |
+| [ClearPass (경고 & 인벤토리)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-span-virtual-interface-to-the-virtual-switch) | GA | GA |
 | [CyberArk PSM](../../defender-for-iot/organizations/concept-key-concepts.md#integrations) | GA | GA |
 | [이메일](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
 | [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
 | [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
-| [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
+| [Microsoft 센티널](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
+| [NetWitness 모니터](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
 | [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [ServiceNow(경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
+| [Palo Alto 파노라마](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
+| [ServiceNow (경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
 | [SNMP MIB 모니터링](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
 | [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
-| [SYSLOG 서버(CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버(LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버(개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버(문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [웹 콜백(웹후크)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
+| [SYSLOG 서버 (CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버 (LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버 (개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버 (문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [웹 콜백 (Webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### <a name="for-device-builders"></a>디바이스 빌더의 경우
 
@@ -415,6 +416,26 @@ Azure Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄�
 | [Azure Defender for IoT를 사용하여 Sentinel 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
 | **Linux용 독립 실행형 마이크로 에이전트** |  |  |
 | [독립 실행형 에이전트 이진 설치](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | 공개 미리 보기 | 공개 미리 보기 |
+
+## <a name="azure-attestation"></a>Azure Attestation
+
+Microsoft Azure Attestation은 플랫폼의 신뢰성과 플랫폼 내부에서 실행되는 이진 파일의 무결성을 원격으로 확인하기 위한 통합 솔루션입니다. 서비스는 플랫폼에서 증명 정보를 수신 하 고, 보안 표준을 사용 하 여 유효성을 검사 하 고, 구성 가능한 정책에 대해 평가 하 고, 클레임 기반 응용 프로그램 (예: 신뢰 당사자, 감사 기관)에 대 한 증명 토큰을 생성 합니다. 
+
+Azure 증명은 현재 Azure 공용 및 정부 클라우드의 여러 지역에서 사용할 수 있습니다. Azure Government에서는 US Gov 버지니아 및 US Gov 애리조나에서 서비스를 미리 보기 상태로 사용할 수 있습니다. 
+
+자세한 내용은 Azure 증명 [공개 설명서](/azure/attestation/overview)를 참조 하세요. 
+
+| 기능 | Azure | Azure Government |
+|--|--|--|
+| 제어 평면 및 데이터 평면 작업을 수행 하기 위한 [포털 환경](/azure/attestation/quickstart-portal) | GA | - |
+| 제어 평면 및 데이터 평면 작업을 수행 하기 위한 [PowerShell 환경](/azure/attestation/quickstart-powershell)  | GA | GA |
+| TLS 1.2 적용   | GA | GA |
+| BCDR 지원   | GA | - |
+| [서비스 태그 통합](/azure/virtual-network/service-tags-overview) | GA | GA |
+| [변경할 수 없는 로그 저장소](/azure/attestation/audit-logs) | GA | GA |
+| 개인 링크를 사용 하 여 네트워크 격리 | 공개 미리 보기 | - |
+| [FedRAMP 높은 인증](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) | GA | - |
+| 고객 lockbox | GA | - |
 
 ## <a name="next-steps"></a>다음 단계
 

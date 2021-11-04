@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: a9a3c76cb931a5683cf6fd52a806979c430f3f72
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: bdeb9336aa94198d0448d697ca01304825877bd4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580929"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561369"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>예제: Azure Machine Learning을 사용하여 사용자 지정 기술 빌드 및 배포 
 
@@ -77,8 +77,6 @@ Notebook의 섹션 3에서는 섹션 2에서 만든 모델을 학습시키고, �
 ## <a name="update-the-skillset"></a>기술 세트 업데이트
 
 Notebook의 섹션 4에는 기술 세트와 인덱서를 업데이트하는 4개의 셀이 있습니다. 또는 포털을 사용하여 새 기술을 선택하고 기술 세트에 적용한 다음, 인덱서를 실행하여 검색 서비스를 업데이트할 수도 있습니다.
-
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Active-Learning-with-Azure-Cognitive-Search/player#time=19m35s:paused/03/player]
 
 포털에서 기술 기술로 이동하여 기술 세트 정의(JSON) 링크를 선택합니다. Notebook의 첫 번째 셀에서 만든 기술 세트의 JSON이 포털에 표시됩니다. 디스플레이 오른쪽에는 기술 정의 템플릿을 선택할 수 있는 드롭다운 메뉴가 있습니다. AML(Azure Machine Learning) 템플릿을 선택합니다. Azure ML 작업 영역의 이름과 유추 클러스터에 배포할 모델의 엔드포인트를 입력합니다. 템플릿이 이 엔드포인트 uri와 키로 업데이트됩니다.
 

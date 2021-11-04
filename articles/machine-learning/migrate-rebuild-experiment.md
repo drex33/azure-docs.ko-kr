@@ -7,13 +7,13 @@ ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 03/08/2021
-ms.openlocfilehash: 0a00ad012f38a142332a62846e78c2ae87460464
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/21/2021
+ms.openlocfilehash: fd0bb1394ce2ce8b8cf8d58ece5834f08e538eaa
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128705624"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556201"
 ---
 # <a name="rebuild-a-studio-classic-experiment-in-azure-machine-learning"></a>Azure Machine Learning 디자이너에서 Studio(클래식) 실험 다시 빌드
 
@@ -26,7 +26,7 @@ Studio(클래식) **실험** 은 Azure Machine Learning의 **파이프라인** �
 SDK를 사용한 파이프라인 빌드에 대한 자세한 내용은 [Azure Machine Learning 파이프라인이란](concept-ml-pipelines.md#building-pipelines-with-the-python-sdk)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md#create-a-workspace).
@@ -42,16 +42,16 @@ Azure Machine Learning에서 시각적 그래프를 **파이프라인 초안** �
 1. Azure Machine Learning 스튜디오([ml.azure.com](https://ml.azure.com))로 이동
 1. 왼쪽 탐색 창에서 **디자이너** > **사용하기 쉬운 미리 작성된 모듈** 을 선택합니다. ![새 파이프라인을 만드는 방법을 보여주는 스크린샷.](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
-1. 디자이너 모듈을 사용하여 실험을 수동으로 다시 빌드합니다.
+1. 디자이너 구성 요소를 사용해 실험을 수동으로 다시 빌드합니다.
     
-    대체 모듈을 찾으려면 [모듈 매핑 테이블](migrate-overview.md#studio-classic-and-designer-module-mapping)을 참조하세요. 대부분의 Studio(클래식) 모듈은 디자이너에서 동일한 버전을 사용합니다.
+    대체 모듈을 찾으려면 [모듈 매핑 테이블](migrate-overview.md#studio-classic-and-designer-component-mapping)을 참조하세요. 대부분의 Studio(클래식) 모듈은 디자이너에서 동일한 버전을 사용합니다.
 
     > [!Important]
     > 실험에서 R 스크립트 실행 모듈을 사용하는 경우 실험을 마이그레이션하기 위한 추가 단계를 수행해야 합니다. 자세한 내용은 [R 스크립트 마이그레이션 모듈](migrate-execute-r-script.md)을 참조하세요.
 
 1. 매개 변수를 조정합니다.
     
-    각 모듈을 선택하고 모듈 설정 패널에서 오른쪽으로 매개 변수를 조정합니다. 매개 변수를 사용하여 Studio(클래식) 실험의 기능을 다시 만듭니다. 각 모듈에 대한 자세한 내용은 [모듈 참조](./algorithm-module-reference/module-reference.md)를 참조하세요.
+    각 모듈을 선택하고 모듈 설정 패널에서 오른쪽으로 매개 변수를 조정합니다. 매개 변수를 사용하여 Studio(클래식) 실험의 기능을 다시 만듭니다. 각 모듈에 대한 자세한 내용은 [모듈 참조](./component-reference/component-reference.md)를 참조하세요.
 
 ## <a name="submit-a-run-and-check-results"></a>실행 제출 및 결과 확인
 
@@ -86,7 +86,7 @@ Studio(클래식) 실험을 다시 만든 후에는 **파이프라인 실행** �
     - **로그 보기**: 드라이버 및 시스템 로그를 봅니다. **70_driver_log** 를 사용하여 오류 및 예외와 같은 사용자 제출 스크립트와 관련된 정보를 볼 수 있습니다.
 
 > [!IMPORTANT]
-> 디자이너 모듈은 Studio(클래식)의 C# 패키지와 달리 오픈 소스 Python 패키지를 사용합니다. 그 결과 모듈 출력이 디자이너와 Studio(클래식) 사이에서 약간 다를 수 있습니다. 
+> 디자이너 구성 요소는 Studio(클래식)의 C# 패키지와 비교하여 오픈 소스 Python 패키지를 사용합니다. 그 결과 모듈 출력이 디자이너와 Studio(클래식) 사이에서 약간 다를 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

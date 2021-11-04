@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/08/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: fa34a8e5e801080f354e13b632917a1a05eabf43
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8e52c61db68aaf85af70b6bfb373bd7b331bd29
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832644"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555422"
 ---
 # <a name="connectivity-modes-and-requirements"></a>연결 모드 및 요구 사항
 
@@ -48,15 +48,15 @@ Azure Arc 지원 데이터 서비스를 Azure에 직접 연결하면 사용자�
 |**기능**|**간접 연결**|**직접 연결**|
 |---|---|---|
 |**자동 고가용성**|지원됨|지원됨|
-|**셀프서비스 프로비저닝**|지원됨<br/>만들기는 Azure Data Studio, 적절한 CLI 또는 Kubernetes 네이티브 도구(helm, kubectl, oc 등)를 사용하거나 Azure Arc 지원 Kubernetes GitOps 프로비저닝을 사용하여 수행할 수 있습니다.|지원됨<br/>간접 연결 모드 만들기 옵션 외에 Azure Portal, Azure Resource Manager API, Azure CLI 또는 ARM 템플릿을 통해 만들 수도 있습니다. **직접 연결 모드 지원 보류 중**
-|**탄력적 확장성**|지원됨|지원됨<br/>**직접 연결 모드 지원 보류 중**|
-|**Billing**|지원됨<br/>청구 데이터는 주기적으로 내보내지고 Azure로 전송됩니다.|지원됨<br/>청구 데이터는 자동으로 계속해서 Azure로 전송되며 근 실시간으로 반영됩니다. **직접 연결 모드 지원 보류 중**|
+|**셀프서비스 프로비저닝**|지원됨<br/>만들기는 Azure Data Studio, 적절한 CLI 또는 Kubernetes 네이티브 도구(helm, kubectl, oc 등)를 사용하거나 Azure Arc 지원 Kubernetes GitOps 프로비저닝을 사용하여 수행할 수 있습니다.|지원됨<br/>간접 연결 모드 만들기 옵션 외에 Azure Portal, Azure Resource Manager API, Azure CLI 또는 ARM 템플릿을 통해 만들 수도 있습니다. 
+|**탄력적 확장성**|지원됨|지원됨<br/>|
+|**Billing**|지원됨<br/>청구 데이터는 주기적으로 내보내지고 Azure로 전송됩니다.|지원됨<br/>청구 데이터는 자동으로 계속해서 Azure로 전송되며 근 실시간으로 반영됩니다. |
 |**인벤토리 관리**|지원됨<br/>인벤토리 데이터는 주기적으로 내보내지고 Azure로 전송됩니다.<br/><br/>Azure Data Studio, Azure Data CLI 또는 `kubectl`과 같은 클라이언트 도구를 사용하여 인벤토리를 로컬로 보고 관리합니다.|지원됨<br/>인벤토리 데이터는 자동으로 계속해서 Azure로 전송되며 근 실시간으로 반영됩니다. 따라서 Azure Portal에서 직접 인벤토리를 관리할 수 있습니다.|
-|**자동 업그레이드 및 패치**|지원됨<br/>데이터 컨트롤러는 MCR(Microsoft Container Registry)에 직접 액세스할 수 있어야 합니다. 아니면 MCR에서 컨테이너 이미지를 가져와서 데이터 컨트롤러가 액세스할 수 있는 로컬 프라이빗 컨테이너 레지스트리로 푸시해야 합니다.|지원됨<br/>**직접 연결 모드 지원 보류 중**|
-|**자동 백업 및 복원**|지원됨<br/>자동 로컬 백업 및 복원.|지원됨<br/>자동 로컬 백업 및 복원 외에도 ‘필요에 따라’ 장기 오프사이트 보존을 위해 Azure Backup으로 백업을 보낼 수 있습니다. **직접 연결 모드 지원 보류 중**|
-|**Monitoring**|지원됨<br/>Grafana 및 Kibana 대시보드를 사용한 로컬 모니터링.|지원됨<br/>로컬 모니터링 대시보드 외에도 ‘필요에 따라’ 모니터링 데이터 및 로그를 Azure Monitor로 보내 한 곳에서 여러 사이트를 대규모로 모니터링할 수 있습니다. **직접 연결 모드 지원 보류 중**|
+|**자동 업그레이드 및 패치**|지원됨<br/>데이터 컨트롤러는 MCR(Microsoft Container Registry)에 직접 액세스할 수 있어야 합니다. 아니면 MCR에서 컨테이너 이미지를 가져와서 데이터 컨트롤러가 액세스할 수 있는 로컬 프라이빗 컨테이너 레지스트리로 푸시해야 합니다.|지원됨<br/>**직접 연결된 에서 보류 중인 가용성입니다.**|
+|**자동 백업 및 복원**|지원됨<br/>자동 로컬 백업 및 복원.|지원됨<br/>자동 로컬 백업 및 복원 외에도 ‘필요에 따라’ 장기 오프사이트 보존을 위해 Azure Backup으로 백업을 보낼 수 있습니다. **직접 연결된 모드에서 보류 중인 가용성입니다.**|
+|**Monitoring**|지원됨<br/>Grafana 및 Kibana 대시보드를 사용한 로컬 모니터링.|지원됨<br/>로컬 모니터링 대시보드 외에도 ‘필요에 따라’ 모니터링 데이터 및 로그를 Azure Monitor로 보내 한 곳에서 여러 사이트를 대규모로 모니터링할 수 있습니다. |
 |**인증**|데이터 컨트롤러 및 대시보드 인증에 로컬 사용자 이름/암호를 사용합니다. 데이터베이스 인스턴스에 대한 연결을 위해 SQL 및 Postgres 로그인 또는 Active Directory(AD는 현재 지원되지 않으며 곧 미리 보기로 제공될 예정)를 사용합니다.  Kubernetes API에 대한 인증에 K8s 인증 공급자를 사용합니다.|간접 연결 모드의 인증 방법 외에도 ‘필요에 따라’ Azure Active Directory를 사용할 수 있습니다. **직접 연결 모드 지원 보류 중**|
-|**RBAC(역할 기반 액세스 제어)**|Kubernetes API에서 Kubernetes RBAC를 사용합니다. 데이터베이스 인스턴스에 SQL 및 Postgres RBAC를 사용합니다.|Azure Active Directory 및 Azure RBAC를 사용할 수 있습니다.|
+|**RBAC(역할 기반 액세스 제어)**|Kubernetes API에서 Kubernetes RBAC를 사용합니다. 데이터베이스 인스턴스에 SQL 및 Postgres RBAC를 사용합니다.|Azure Active Directory 및 Azure RBAC를 사용할 수 있습니다. **직접 연결 모드 지원 보류 중**|
 |**Azure Defender**|지원되지 않음|추후 지원 예정|
 
 ## <a name="connectivity-requirements"></a>연결 요구 사항
@@ -81,7 +81,7 @@ Azure Arc 지원 데이터 서비스를 Azure에 직접 연결하면 사용자�
 
 ## <a name="details-on-internet-addresses-ports-encryption-and-proxy-server-support"></a>인터넷 주소, 포트, 암호화, 프록시 서버 지원에 대한 세부 정보
 
-현재는 간접 연결 모드만 일반적으로 사용할 수 있습니다. 이 모드에서는 인터넷에서 사용할 수 있는 서비스에 세 가지 연결만 필요합니다. 이러한 연결 항목은 다음과 같습니다.
+인터넷에서 사용할 수 있는 서비스에는 세 가지 연결이 필요합니다. 이러한 연결 항목은 다음과 같습니다.
 
 - [MCR(Microsoft Container Registry)](#microsoft-container-registry-mcr)
 - [Azure Resource Manager API](#azure-resource-manager-apis)
@@ -119,9 +119,9 @@ HTTPS
 
 없음
 
-### <a name="helm-chart-used-to-create-data-controller-in-direct-connected-mode"></a>직접 연결 모드에서 데이터 컨트롤러를 만드는 데 사용 되는 투구 차트
+### <a name="helm-chart-used-to-create-data-controller-in-direct-connected-mode"></a>직접 연결된 모드에서 데이터 컨트롤러를 만드는 데 사용되는 Helm 차트
 
-Azure Arc 데이터 컨트롤러 부트스트래퍼를 프로 비전 하는 데 사용 되는 투구 차트와 사용자 지정 리소스 정의, 클러스터 역할 및 클러스터 역할 바인딩과 같은 클러스터 수준 개체는 Azure Container Registry에서 가져옵니다.
+Azure Arc 데이터 컨트롤러 부트스트래퍼 및 클러스터 수준 개체(예: 사용자 지정 리소스 정의, 클러스터 역할 및 클러스터 역할 바인딩)를 프로비전하는 데 사용되는 helm 차트는 Azure Container Registry 가져옵니다.
 
 #### <a name="connection-source"></a>연결 원본
 

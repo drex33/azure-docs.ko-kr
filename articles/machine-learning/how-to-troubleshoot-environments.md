@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: saachigopal
 ms.author: sagopal
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 5b1a0f5890f55e2dc114801a8f4fd058ef4db69b
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 37b95d4736546721642d88d85ad88ee09d55c394
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660460"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558310"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>환경 이미지 빌드 관련 문제 해결
 
@@ -164,9 +164,9 @@ RUN apt-get update && \
 
 이 명령을 실행하면 환경을 구성하기 위한 올바른 모듈 종속성이 설치됩니다. 
 
-### <a name="build-failure-when-using-spark-packages"></a>Spark 패키지를 사용 하는 경우 빌드 오류
+### <a name="build-failure-when-using-spark-packages"></a>Spark 패키지를 사용할 때 빌드 실패
 
-패키지를 precache 하지 않도록 환경을 구성 합니다. 
+패키지를 미리 캐시하지 않도록 환경을 구성합니다. 
 
 ```python
 env.spark.precache_packages = False

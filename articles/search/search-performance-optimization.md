@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 60dd14be7d420d5aac5da5ba85d3e78e72a5ba42
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 22f037751c913e05dde84395ed18252b16d01a6e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002532"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554377"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Azure Cognitive Search의 가용성 및 비즈니스 연속성
 
@@ -35,7 +35,7 @@ Cognitive Search 복제본은 인덱스의 복제본입니다. 복제본이 여�
 
 ## <a name="data-residency"></a>데이터 보존
 
-Azure Cognitive Search는 권한 부여 없이 고객 지정 지역 외부에 고객 데이터를 저장 하지 않습니다.
+Azure Cognitive Search 권한 없이 고객 지정 지역 외부에 고객 데이터를 저장하지 않습니다.
 
 <a name="availability-zones"></a>
 
@@ -110,7 +110,7 @@ Azure Cognitive Search REST API를 사용하여 [검색 인덱스에서 콘텐�
 
 ## <a name="disaster-recovery-and-service-outages"></a>재해 복구 및 서비스 중단
 
-[Service Level Agreement(서비스 수준 약정) (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 에 명시 된 것 처럼 azure Cognitive Search 서비스 인스턴스가 두 개 이상의 복제본으로 구성 된 경우 인덱스 쿼리 요청에 대해 높은 수준의 가용성을 보장 하 고, azure Cognitive Search 서비스 인스턴스가 3 개 이상의 복제본으로 구성 된 경우 인덱스 업데이트 요청을 처리 합니다. 그러나 재해 복구를 위한 기본 제공 메커니즘은 없습니다. Microsoft의 제어 외부에서 치명적인 오류가 발생 하는 경우 연속 서비스가 필요한 경우 다른 지역에서 두 번째 서비스를 프로 비전 하 고 지역에서 복제 전략을 구현 하 여 인덱스가 모든 서비스에서 완전히 중복 되도록 하는 것이 좋습니다.
+[SLA(Service Level Agreement(서비스 수준 약정))에서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 언급했듯이 Azure Cognitive Search 서비스 인스턴스가 둘 이상의 복제본으로 구성된 경우 인덱스 쿼리 요청에 대한 높은 수준의 가용성과 Azure Cognitive Search 서비스 인스턴스가 3개 이상의 복제본으로 구성된 경우 인덱스 업데이트 요청이 보장됩니다. 그러나 재해 복구를 위한 기본 제공 메커니즘은 없습니다. Microsoft에서 제어할 수 없는 치명적인 오류가 발생할 경우 연속 서비스가 필요한 경우 다른 지역에 두 번째 서비스를 프로비전하고 지역 복제 전략을 구현하여 인덱스가 모든 서비스에서 완전히 중복되도록 하는 것이 좋습니다.
 
 [인덱서](search-indexer-overview.md)를 사용하여 인덱스를 채우고 새로 고치는 고객은 동일한 데이터 원본을 활용하여 지역별 인덱서를 통해 재해 복구를 처리할 수 있습니다. 인덱서를 실행하는 서로 다른 지역의 두 서비스는 동일한 데이터 소스에서 인덱싱하여 지리적 중복을 적용할 수 있습니다. 지역 중복 데이터 원본에서 인덱싱하는 경우에는 Azure Cognitive Search 인덱서가 주 복제본에서만 증분 인덱싱을 수행할 수 있습니다(새 문서, 수정된 문서 또는 삭제된 문서에서 업데이트 병합). 장애 조치(failover) 이벤트에서 인덱서를 새로운 주 복제본으로 다시 지정하십시오. 
 
@@ -124,12 +124,7 @@ Azure Cognitive Search는 기본 데이터 스토리지 솔루션이 아니므�
 
 ## <a name="next-steps"></a>다음 단계
 
-각각의 가격 책정 계층 및 서비스 제한에 대한 자세한 정보는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요. [용량 계획](search-capacity-planning.md) 을 검토 하 여 파티션 및 복제본 조합 또는 체크 아웃 사례 연구에 대해 자세히 알아보세요. 실제 팁에 대 한 [복잡 한 AI 시나리오를 지원 하려면 Cognitive Search를 사용](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078) 하세요.
-
-이 문서에서 설명하는 기법의 성능 및 데모에 대한 내용은 다음 동영상에서 확인하세요.
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
->
+각각의 가격 책정 계층 및 서비스 제한에 대한 자세한 정보는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요. [용량 계획을](search-capacity-planning.md) 검토하여 파티션 및 복제본 조합에 대해 자세히 알아보거나 사례 연구: Cognitive Search 사용하여 실제 팁을 위한 복잡한 [AI 시나리오를 지원하세요.](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)
 
 <!--Image references-->
 [1]: ./media/search-performance-optimization/geo-redundancy.png

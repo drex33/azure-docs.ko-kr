@@ -3,15 +3,15 @@ title: 자체 모델로 라이브 비디오 분석 - HTTP
 description: 이 빠른 시작에서는 Video Analyzer를 통해 자체 모델(HTTP)을 사용하여 라이브 비디오를 분석하는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7ec8b1215a835c70d72ca7ff23b76c47f65634c1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 42845d87a8c1679a9b186cf71a9b82a9413fb005
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101053"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563590"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>빠른 시작: 자체 모델로 라이브 비디오 분석l - HTTP
 

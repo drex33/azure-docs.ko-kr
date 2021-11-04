@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: lobrien
 ms.author: laobri
-ms.date: 10/22/2020
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: f6fc3ad230c4da9f44c536ec61d8c840374c3ed6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 0d25bcabc1c3108ed1899110a61da22551262bf8
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429037"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559127"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>기계 학습 파이프라인 문제 해결
 
@@ -238,10 +238,10 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ### <a name="get-logs-from-the-authoring-page"></a>제작 페이지에서 로그 가져오기
 
-파이프라인 실행을 제출하고 제작 페이지에 머무르는 경우 각 모듈의 실행이 완료되면 각 모듈에 대해 생성되는 로그 파일을 찾을 수 있습니다.
+파이프라인 실행을 제출 하 고 제작 페이지에 유지 하는 경우 각 구성 요소의 실행이 완료 되 면 각 구성 요소에 대해 생성 되는 로그 파일을 찾을 수 있습니다.
 
-1. 제작 캔버스에서 실행이 완료된 모듈을 선택합니다.
-1. 모듈의 오른쪽 창에서 **출력 + 로그** 탭으로 이동합니다.
+1. 작성 캔버스에서 실행이 완료 된 구성 요소를 선택 합니다.
+1. 구성 요소의 오른쪽 창에서  **출력 + 로그** 탭으로 이동 합니다.
 1. 오른쪽 창을 펼치고 **70_driver_log.txt** 를 선택하여 브라우저에서 파일을 봅니다. 로그를 로컬로 다운로드할 수도 있습니다.
 
     ![디자이너의 출력 창을 펼친 모습](./media/how-to-debug-pipelines/designer-logs.png)
@@ -254,8 +254,8 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
     ![파이프라인 실행 페이지](./media/how-to-debug-pipelines/designer-pipelines.png)
 
-1. 미리 보기 창에서 모듈을 선택합니다.
-1. 모듈의 오른쪽 창에서 **출력 + 로그** 탭으로 이동합니다.
+1. 미리 보기 창에서 구성 요소를 선택 합니다.
+1. 구성 요소의 오른쪽 창에서  **출력 + 로그** 탭으로 이동 합니다.
 1. 오른쪽 창을 펼쳐 브라우저에서 **70_driver_log.txt** 파일을 보거나 해당 파일을 선택하여 로그를 로컬로 다운로드합니다.
 
 > [!IMPORTANT]

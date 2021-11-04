@@ -10,17 +10,17 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/07/2021
-ms.openlocfilehash: cd08a4cb752ede0f958adde438cb516791f4ae76
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 10/21/2021
+ms.openlocfilehash: 134eeff68debe0faa799d5fb5bfa4b477deef7f0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130215144"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562564"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역용 프라이빗 엔드포인트 구성
 
-이 문서에서는 Azure Machine Learning 작업 영역용 프라이빗 엔드포인트를 구성하는 방법을 알아봅니다. Azure Machine Learning에 대 한 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조 하세요.
+이 문서에서는 Azure Machine Learning 작업 영역용 프라이빗 엔드포인트를 구성하는 방법을 알아봅니다. Azure Machine Learning 위한 가상 네트워크를 만드는 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요를 참조하세요.](how-to-network-security-overview.md)
 
 Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음, 작업 영역에 대한 액세스를 개인 IP 주소를 통해서만 발생하도록 제한할 수 있습니다. 프라이빗 엔드포인트를 사용하면 데이터 반출 위험을 줄이는 데 도움이 됩니다. 프라이빗 엔드포인트에 대한 자세한 내용은 [Azure Private Link](../private-link/private-link-overview.md) 문서를 참조하세요.
 
@@ -40,22 +40,22 @@ Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 * 프라이빗 엔드포인트를 만들 기존 가상 네트워크가 있어야 합니다. 
-* 개인 끝점을 추가 하기 전에 [개인 끝점에 대 한 네트워크 정책을 사용 하지 않도록 설정](../private-link/disable-private-endpoint-network-policy.md) 합니다.
+* 프라이빗 엔드포인트를 추가하기 전에 [프라이빗 엔드포인트에 대한 네트워크 정책을 사용하지 않도록 설정합니다.](../private-link/disable-private-endpoint-network-policy.md)
 
 ## <a name="limitations"></a>제한 사항
 
-* 개인 끝점을 사용 하 여 보안 된 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하 고 공용 인터넷을 통해 Azure Machine Learning studio를 사용 하는 경우 디자이너와 같은 일부 기능에서 데이터에 액세스 하지 못할 수 있습니다. 이 문제는 VNet 뒤에서 보호되는 서비스에 데이터를 저장하는 경우에 발생합니다. 예를 들어 Azure Storage 계정이 있습니다.
+* 프라이빗 엔드포인트로 보호되는 작업 영역에 대해 공용 액세스를 사용하도록 설정하고 공용 인터넷을 통해 Azure Machine Learning Studio를 사용하는 경우 디자이너와 같은 일부 기능이 데이터에 액세스하지 못할 수 있습니다. 이 문제는 VNet 뒤에서 보호되는 서비스에 데이터를 저장하는 경우에 발생합니다. 예를 들어 Azure Storage 계정이 있습니다.
 * Mozilla Firefox를 사용하는 경우 작업 영역의 프라이빗 엔드포인트에 액세스를 시도할 때 문제가 발생할 수 있습니다. 이 문제는 Mozilla의 DNS over HTTPS와 관련된 것일 수 있습니다. 해결 방법으로 Microsoft Edge 또는 Google Chrome을 사용하는 것이 좋습니다.
 * 프라이빗 엔드포인트를 사용해도 작업 영역을 삭제하거나 컴퓨팅 리소스를 관리하는 것과 같은 Azure 컨트롤 플레인(관리 작업)에는 영향을 주지 않습니다. 예를 들어 컴퓨팅 대상 생성, 업데이트 또는 삭제가 있습니다. 이러한 작업은 항상 그렇듯 공용 인터넷을 통해 수행됩니다. Azure Machine Learning 스튜디오, API(게시된 파이프라인 포함) 또는 SDK를 사용하는 등의 데이터 평면 작업은 프라이빗 엔드포인트를 사용합니다.
-* 개인 끝점을 사용 하 여 작업 영역에서 계산 인스턴스 또는 계산 클러스터를 만들 때 계산 인스턴스 및 계산 클러스터는 작업 영역과 동일한 Azure 지역에 있어야 합니다.
-* Azure Kubernetes 서비스 클러스터를 만들거나 개인 끝점을 사용 하는 작업 영역에 연결 하는 경우 클러스터는 작업 영역과 동일한 영역에 있어야 합니다.
-* 여러 개인 끝점 (미리 보기)이 포함 된 작업 영역을 사용 하는 경우 개인 끝점 중 하나가 다음 종속성 서비스와 동일한 VNet에 있어야 합니다.
+* 프라이빗 엔드포인트가 있는 작업 영역에서 컴퓨팅 인스턴스 또는 컴퓨팅 클러스터를 만들 때 컴퓨팅 인스턴스와 컴퓨팅 클러스터는 작업 영역과 동일한 Azure 지역에 있어야 합니다.
+* 프라이빗 엔드포인트가 있는 작업 영역에 Azure Kubernetes Service 클러스터를 만들거나 연결할 때 클러스터는 작업 영역과 동일한 지역에 있어야 합니다.
+* 여러 프라이빗 엔드포인트(미리 보기)가 있는 작업 영역을 사용하는 경우 프라이빗 엔드포인트 중 하나가 다음 종속성 서비스와 동일한 VNet에 있어야 합니다.
 
-    * Azure Storage 작업 영역에 대 한 기본 저장소를 제공 하는 계정
-    * 작업 영역에 대 한 Azure Key Vault
-    * 작업 영역에 대 한 Azure Container Registry입니다.
+    * Azure Storage 작업 영역에 대한 기본 스토리지를 제공하는 계정
+    * 작업 영역에 대한 Azure Key Vault
+    * 작업 영역에 대한 Azure Container Registry.
 
-    예를 들어 하나의 VNet (' 서비스 ' VNet)에는 종속성 서비스 및 작업 영역에 대 한 개인 끝점이 포함 되어 있습니다. 이 구성을 통해 작업 영역에서 서비스와 통신할 수 있습니다. 다른 VNet (' 클라이언트 ')은 작업 영역에 대 한 개인 끝점만 포함할 수 있으며, 클라이언트 개발 컴퓨터와 작업 영역 간 통신에만 사용 됩니다.
+    예를 들어 하나의 VNet('서비스' VNet)에는 종속성 서비스 및 작업 영역에 대한 프라이빗 엔드포인트가 포함됩니다. 이 구성을 사용하면 작업 영역이 서비스와 통신할 수 있습니다. 다른 VNet('클라이언트')은 작업 영역에 대한 프라이빗 엔드포인트만 포함할 수 있으며 클라이언트 개발 컴퓨터와 작업 영역 간의 통신에만 사용할 수 있습니다.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>프라이빗 엔드포인트를 사용하는 작업 영역 만들기
 
@@ -183,56 +183,56 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 [!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
-## <a name="multiple-private-endpoints-preview"></a>여러 개인 끝점 (미리 보기)
+## <a name="multiple-private-endpoints-preview"></a>여러 프라이빗 엔드포인트(미리 보기)
 
-미리 보기 기능으로 Azure Machine Learning 작업 영역에 대 한 여러 개인 끝점을 지원 합니다. 여러 개인 끝점은 서로 다른 환경을 별도로 유지 하려는 경우에 자주 사용 됩니다. 다음은 여러 개인 끝점을 사용 하 여 사용 하도록 설정 하는 몇 가지 시나리오입니다.
+미리 보기 기능으로 Azure Machine Learning 작업 영역에 대한 여러 프라이빗 엔드포인트를 지원합니다. 서로 다른 환경을 별도로 유지하려는 경우 여러 프라이빗 엔드포인트가 사용되는 경우가 많습니다. 다음은 여러 프라이빗 엔드포인트를 사용하여 사용하도록 설정된 몇 가지 시나리오입니다.
 
-* 별도 VNet의 클라이언트 개발 환경.
-* 별도의 VNet에 있는 AKS (Azure Kubernetes Service) 클러스터.
-* 별도의 VNet에 있는 다른 Azure 서비스. 예를 들어 Azure Synapse 및 Azure Data Factory은 Microsoft에서 관리 하는 가상 네트워크를 사용할 수 있습니다. 두 경우 모두 해당 서비스에서 사용 하는 관리 되는 VNet에 작업 영역에 대 한 개인 끝점을 추가할 수 있습니다. 이러한 서비스에서 관리 되는 가상 네트워크를 사용 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+* 별도의 VNet에 있는 클라이언트 개발 환경.
+* 별도의 VNet에 있는 AKS(Azure Kubernetes Service) 클러스터
+* 별도의 VNet에 있는 다른 Azure 서비스. 예를 들어 Azure Synapse 및 Azure Data Factory Microsoft 관리형 가상 네트워크를 사용할 수 있습니다. 두 경우 모두 해당 서비스에서 사용하는 관리되는 VNet에 작업 영역에 대한 프라이빗 엔드포인트를 추가할 수 있습니다. 이러한 서비스에서 관리형 가상 네트워크를 사용하는 자세한 내용은 다음 문서를 참조하세요.
 
-    * [Synapse 관리 되는 전용 끝점](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
-    * [Azure Data Factory 관리 되는 가상 네트워크](../data-factory/managed-virtual-network-private-endpoint.md)입니다.
+    * [Synapse 관리 프라이빗 엔드포인트](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
+    * [관리형 가상 네트워크를 Azure Data Factory.](../data-factory/managed-virtual-network-private-endpoint.md)
 
     > [!IMPORTANT]
-    > [Synapse의 데이터 반출](../synapse-analytics/security/workspace-data-exfiltration-protection.md) 는 Azure Machine Learning에서 지원 되지 않습니다.
+    > [Synapse의 데이터 유출 보호는](../synapse-analytics/security/workspace-data-exfiltration-protection.md) Azure Machine Learning 지원되지 않습니다.
 
 > [!IMPORTANT]
-> 작업 영역에 대 한 개인 끝점을 포함 하는 각 VNet은 작업 영역에서 사용 하는 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry에도 액세스할 수 있어야 합니다. 예를 들어 각 VNet에서 서비스에 대 한 개인 끝점을 만들 수 있습니다.
+> 작업 영역에 대한 프라이빗 엔드포인트를 포함하는 각 VNet은 작업 영역에서 사용하는 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 액세스할 수 있어야 합니다. 예를 들어 각 VNet의 서비스에 대한 프라이빗 엔드포인트를 만들 수 있습니다.
 
-여러 끝점을 추가 하면 [작업 영역에 개인 끝점 추가](#add-a-private-endpoint-to-a-workspace) 섹션에 설명 된 것과 동일한 단계를 사용 합니다.
+여러 엔드포인트를 추가하면 [작업 영역에 프라이빗 엔드포인트 추가](#add-a-private-endpoint-to-a-workspace) 섹션에 설명된 것과 동일한 단계가 사용됩니다.
 
-### <a name="scenario-isolated-clients"></a>시나리오: 격리 된 클라이언트
+### <a name="scenario-isolated-clients"></a>시나리오: 격리된 클라이언트
 
-Azure Machine Learning에서 사용 하는 계산 리소스에 직접 액세스할 수 없도록 개발 클라이언트를 격리 하려는 경우 다음 단계를 사용 합니다.
-
-> [!NOTE]
-> 이러한 단계에서는 기존 작업 영역 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 있다고 가정 합니다. 이러한 각 서비스에는 기존 VNet에 개인 끝점이 있습니다.
-
-1. 클라이언트에 대 한 다른 VNet을 만듭니다. 이 VNet에는 클라이언트 역할을 하는 Azure Virtual Machines 포함 될 수도 있고, 온-프레미스 클라이언트에서 VNet에 연결 하는 데 사용 하는 VPN Gateway 포함 될 수도 있습니다.
-1. 작업 영역에서 사용 하는 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry에 대 한 새 개인 끝점을 추가 합니다. 이러한 개인 끝점은 클라이언트 VNet에 있어야 합니다.
-1. 작업 영역에서 사용 되는 추가 저장소가 있는 경우 해당 저장소에 대 한 새 개인 끝점을 추가 합니다. 개인 끝점은 클라이언트 VNet에 존재 하 고 개인 DNS 영역 통합을 사용 하도록 설정 되어 있어야 합니다.
-1. 작업 영역에 새 개인 끝점을 추가 합니다. 이 개인 끝점은 클라이언트 VNet에 존재 하 고 개인 DNS 영역 통합을 사용 하도록 설정 되어 있어야 합니다.
-1. [가상 네트워크에서 Studio 사용](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) 문서의 단계를 사용 하 여 studio에서 저장소 계정에 액세스할 수 있도록 합니다.
-
-다음 다이어그램에서는이 구성을 보여 줍니다. __워크 로드__ VNet에는 학습 & 배포를 위해 작업 영역에서 생성 된 계산이 포함 됩니다. __클라이언트__ VNet에는 클라이언트 또는 클라이언트 express 경로/v p r 연결이 포함 되어 있습니다. 두 vnet에는 작업 영역, Azure Storage 계정, Azure Key Vault 및 Azure Container Registry에 대 한 개인 끝점이 포함 되어 있습니다.
-
-:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-client.png" alt-text="Isolated 클라이언트 VNet의 다이어그램":::
-
-### <a name="scenario-isolated-azure-kubernetes-service"></a>시나리오: 격리 된 Azure Kubernetes Service
-
-작업 영역에서 사용 하는 격리 된 Azure Kubernetes 서비스를 만들려는 경우 다음 단계를 사용 합니다.
+개발 클라이언트를 격리하여 Azure Machine Learning 사용하는 컴퓨팅 리소스에 직접 액세스할 수 없도록 하려면 다음 단계를 사용합니다.
 
 > [!NOTE]
-> 이러한 단계에서는 기존 작업 영역 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 있다고 가정 합니다. 이러한 각 서비스에는 기존 VNet에 개인 끝점이 있습니다.
+> 이러한 단계에서는 기존 작업 영역, Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 가정합니다. 이러한 각 서비스에는 기존 VNet에 프라이빗 엔드포인트가 있습니다.
 
-1. Azure Kubernetes Service 인스턴스를 만듭니다. 생성 하는 동안 AKS는 AKS 클러스터가 포함 된 VNet을 만듭니다.
-1. 작업 영역에서 사용 하는 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry에 대 한 새 개인 끝점을 추가 합니다. 이러한 개인 끝점은 클라이언트 VNet에 있어야 합니다.
-1. 작업 영역에서 다른 저장소를 사용 하는 경우 해당 저장소에 대 한 새 개인 끝점을 추가 합니다. 개인 끝점은 클라이언트 VNet에 존재 하 고 개인 DNS 영역 통합을 사용 하도록 설정 되어 있어야 합니다.
-1. 작업 영역에 새 개인 끝점을 추가 합니다. 이 개인 끝점은 클라이언트 VNet에 존재 하 고 개인 DNS 영역 통합을 사용 하도록 설정 되어 있어야 합니다.
-1. AKS 클러스터를 Azure Machine Learning 작업 영역에 연결 합니다. 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md#attach-an-existing-aks-cluster)을 참조하세요.
+1. 클라이언트에 대한 다른 VNet을 만듭니다. 이 VNet은 클라이언트 역할을 하는 Azure Virtual Machines 포함하거나 온-프레미스 클라이언트가 VNet에 연결하는 데 사용하는 VPN Gateway 포함할 수 있습니다.
+1. 작업 영역에서 사용하는 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 대한 새 프라이빗 엔드포인트를 추가합니다. 이러한 프라이빗 엔드포인트는 클라이언트 VNet에 있어야 합니다.
+1. 작업 영역에서 사용되는 추가 스토리지가 있는 경우 해당 스토리지에 대한 새 프라이빗 엔드포인트를 추가합니다. 프라이빗 엔드포인트는 클라이언트 VNet에 있어야 하며 프라이빗 DNS 영역 통합을 사용하도록 설정해야 합니다.
+1. 작업 영역에 새 프라이빗 엔드포인트를 추가합니다. 이 프라이빗 엔드포인트는 클라이언트 VNet에 있어야 하며 프라이빗 DNS 영역 통합을 사용하도록 설정해야 합니다.
+1. 가상 네트워크에서 스튜디오 사용 문서의 단계를 사용하여 [Studio에서](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) 스토리지 계정에 액세스할 수 있도록 합니다.
 
-:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="Isolated AKS VNet의 다이어그램":::
+다음 다이어그램에서는 이 구성을 보여 줍니다. __워크로드__ VNet에는 학습 & 배포를 위해 작업 영역에서 만든 컴퓨팅이 포함되어 있습니다. __클라이언트__ VNet에는 클라이언트 또는 클라이언트 ExpressRoute/VPN 연결이 포함됩니다. 두 VNet 모두 작업 영역, Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 대한 프라이빗 엔드포인트를 포함합니다.
+
+:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-client.png" alt-text="격리된 클라이언트 VNet의 다이어그램":::
+
+### <a name="scenario-isolated-azure-kubernetes-service"></a>시나리오: 격리된 Azure Kubernetes Service
+
+작업 영역에서 사용하는 격리된 Azure Kubernetes Service 만들려면 다음 단계를 사용합니다.
+
+> [!NOTE]
+> 이러한 단계에서는 기존 작업 영역, Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 가정합니다. 이러한 각 서비스에는 기존 VNet에 프라이빗 엔드포인트가 있습니다.
+
+1. Azure Kubernetes Service 인스턴스를 만듭니다. AKS는 만드는 동안 AKS 클러스터를 포함하는 VNet을 만듭니다.
+1. 작업 영역에서 사용하는 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry 대한 새 프라이빗 엔드포인트를 추가합니다. 이러한 프라이빗 엔드포인트는 클라이언트 VNet에 있어야 합니다.
+1. 작업 영역에서 사용되는 다른 스토리지가 있는 경우 해당 스토리지에 대한 새 프라이빗 엔드포인트를 추가합니다. 프라이빗 엔드포인트는 클라이언트 VNet에 있어야 하며 프라이빗 DNS 영역 통합을 사용하도록 설정해야 합니다.
+1. 작업 영역에 새 프라이빗 엔드포인트를 추가합니다. 이 프라이빗 엔드포인트는 클라이언트 VNet에 있어야 하며 프라이빗 DNS 영역 통합을 사용하도록 설정해야 합니다.
+1. AKS 클러스터를 Azure Machine Learning 작업 영역에 연결합니다. 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md#attach-an-existing-aks-cluster)을 참조하세요.
+
+:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="격리된 AKS VNet의 다이어그램":::
 
 ## <a name="enable-public-access"></a>공용 액세스 사용
 

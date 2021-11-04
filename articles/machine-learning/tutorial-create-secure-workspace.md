@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 09/15/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ad81535a8287a4b89f978c4c2523b664375d23d6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: c488b3ec12d0aabcfb84b0ebb700eb738e8698e1
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428733"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558063"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>보안 작업 영역을 만드는 방법
 
@@ -83,12 +83,12 @@ ms.locfileid: "129428733"
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="학습 서브넷 스크린샷":::
 
         > [!TIP]
-        > _서비스 엔드포인트를_ 사용하여 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry VNet에 추가하려는 경우 서비스 아래에서 __다음을 선택합니다.__
+        > _서비스 끝점_ 을 사용 하 여 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry를 VNet에 추가 하려는 경우 __서비스__ 에서 다음을 선택 합니다.
         > * __Microsoft.Storage__
         > * __Microsoft.KeyVault__
         > * __Microsoft.ContainerRegistry__
         >
-        > _프라이빗 엔드포인트를_ 사용하여 이러한 서비스를 VNet에 추가하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대한 프라이빗 엔드포인트를 사용하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
+        > _개인 끝점_ 을 사용 하 여 이러한 서비스를 VNet에 추가 하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대 한 개인 끝점을 사용 하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
 
     1. 모델 점수를 매기는 데 사용되는 컴퓨팅 리소스에 대한 서브넷을 만들려면 __+서브넷 추가__ 를 다시 선택하고 다음 값을 사용합니다.
         * __서브넷 이름__: 점수 매기기
@@ -97,12 +97,12 @@ ms.locfileid: "129428733"
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="점수 매기기 서브넷 스크린샷":::
 
         > [!TIP]
-        > _서비스 엔드포인트를_ 사용하여 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry VNet에 추가하려는 경우 서비스 아래에서 __다음을 선택합니다.__
+        > _서비스 끝점_ 을 사용 하 여 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry를 VNet에 추가 하려는 경우 __서비스__ 에서 다음을 선택 합니다.
         > * __Microsoft.Storage__
         > * __Microsoft.KeyVault__
         > * __Microsoft.ContainerRegistry__
         >
-        > _프라이빗 엔드포인트를_ 사용하여 이러한 서비스를 VNet에 추가하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대한 프라이빗 엔드포인트를 사용하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
+        > _개인 끝점_ 을 사용 하 여 이러한 서비스를 VNet에 추가 하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대 한 개인 끝점을 사용 하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
 
 1. __보안__ 을 선택합니다. __BastionHost__ 에서 __사용__ 을 선택합니다. [Azure Bastion](../bastion/bastion-overview.md)은 이후 단계에서 VNet 내부에서 만들 VM 점프 상자에 액세스하는 안전한 방법을 제공합니다. 나머지 필드에 대해 다음 값을 사용합니다.
 
@@ -178,7 +178,7 @@ ms.locfileid: "129428733"
 1. __검토 + 만들기__ 를 선택합니다. 정보가 올바른지 확인한 후 __만들기__ 를 선택합니다.
 
 > [!TIP]
-> 파이프라인에서 [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하려는 경우 전용 끝점 대상 **큐** 및 **테이블** 하위 리소스를 구성 해야 합니다. ParallelRunStep은 작업 예약 및 디스패치를 위해 후드에서 큐와 테이블을 사용합니다.
+> 파이프라인에서 [ParallelRunStep을](./tutorial-pipeline-batch-scoring-classification.md) 사용하려는 경우 프라이빗 엔드포인트 대상 **큐** 및 **테이블** 하위 리소스를 구성해야 합니다. ParallelRunStep은 작업 예약 및 디스패치를 위해 후드에서 큐와 테이블을 사용합니다.
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 

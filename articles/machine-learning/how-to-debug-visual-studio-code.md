@@ -8,13 +8,13 @@ ms.subservice: mlops
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/16/2021
-ms.openlocfilehash: 88d7d9976e5b0eeecd656f5aaf68fa603425c3a9
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: eb1f4fb0e3f833bdcc9631f72c6ffe127005a0e3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424410"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556486"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -29,7 +29,7 @@ Azure Machine Learning 확장을 사용하여 기계 학습 실험을 클라우�
 * Azure Machine Learning VS Code 확장(미리 보기). 자세한 내용은 [Azure Machine Learning VS Code 확장 설정](how-to-setup-vs-code.md)을 참조하세요.
 
     > [!IMPORTANT]
-    > Azure Machine Learning VS Code 확장은 기본적으로 CLI(v2)를 사용합니다. 이 가이드의 지침에서는 1.0 CLI를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio Code 설정을 수정하는 자세한 내용은 사용자 및 [작업 영역 설정 설명서를 참조하세요.](https://code.visualstudio.com/docs/getstarted/settings)
+    > Azure Machine Learning VS Code 확장은 기본적으로 CLI(v2)를 사용합니다. 이 가이드의 지침에서는 1.0 CLI를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio Code 설정을 수정하는 자세한 내용은 [사용자 및 작업 영역 설정 설명서를 참조하세요.](https://code.visualstudio.com/docs/getstarted/settings)
 
 * [Docker](https://www.docker.com/get-started)
   * Mac 및 Windows용 Docker Desktop
@@ -343,6 +343,9 @@ ip_address: 10.3.0.5
 ## <a name="debug-and-troubleshoot-deployments"></a>배포 디버그 및 문제 해결
 
 경우에 따라 모델 배포에 포함된 Python 코드를 대화형으로 디버그해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. VS Code 및 debugpy를 사용하여 Docker 컨테이너 내에서 실행되는 코드에 연결할 수 있습니다.
+
+> [!TIP]
+> 관리되는 온라인 엔드포인트 및 배포를 로컬로 디버깅하여 시간을 절약하고 버그를 조기에 catch합니다. 자세한 내용은 [Visual Studio Code 로컬로 관리되는 온라인 엔드포인트 디버그(미리 보기)를](how-to-debug-managed-online-endpoints-visual-studio-code.md)참조하세요.
 
 > [!IMPORTANT]
 > `Model.deploy()` 및 `LocalWebservice.deploy_configuration`을 사용하여 모델을 로컬로 배포하는 경우 이 디버깅 방법이 작동하지 않습니다. 대신 [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) 메서드를 사용하여 이미지를 만들어야 합니다.

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 4884730dc163b7720b5c2abb9c4f1fb529e5e2ca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a42b0ff8a23f3504b642ab79a1b85718aa0c62e1
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567276"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557759"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Azure Data Studio에서 데이터 컨트롤러 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "122567276"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Kubernetes 클러스터에 액세스하고, 배포하려는 Kubernetes 클러스터를 가리키도록 kubeconfig 파일을 구성해야 합니다.
-- **Azure Data Studio**, **Azure Arc** 라는 Azure Data Studio 확장 및 `arcdata` 확장이 있는 Azure CLI를 포함한 [클라이언트 도구를 설치](install-client-tools.md)해야 합니다.
+- **Azure Data Studio, Azure Arc** 이라는 Azure Data Studio 확장, 확장으로 **Azure CLI** 등의 클라이언트 [도구를 설치해야](install-client-tools.md) `arcdata` 합니다.
 - Azure Data Studio에서 Azure에 로그인해야 합니다.  이렇게 하려면 CTRL/Command + SHIFT + P를 입력하여 명령 텍스트 창을 열고 **Azure** 를 입력합니다.  **Azure: 로그인** 을 선택합니다.   패널에서 오른쪽 위에 있는 + 아이콘을 클릭하여 Azure 계정을 추가합니다.
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>배포 마법사를 사용하여 Azure Arc 데이터 컨트롤러 만들기
@@ -66,7 +66,7 @@ ms.locfileid: "122567276"
 >  아래 예제 명령은 ‘arc’라는 이름으로 데이터 컨트롤러 및 Kubernetes 네임스페이스를 만들었다고 가정합니다.  다른 네임스페이스/데이터 컨트롤러 이름을 사용한 경우 ‘arc’를 해당 이름으로 바꿀 수 있습니다.
 
 ```console
-kubectl get datacontroller/arc --namespace arc
+kubectl get datacontroller --namespace arc
 ```
 
 ```console
@@ -76,10 +76,10 @@ kubectl get pods --namespace arc
 아래와 같은 명령을 실행하여 특정 Pod의 생성 상태를 확인할 수도 있습니다.  이 기능은 문제를 해결하는 데 특히 유용합니다.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/control-2g7bl --namespace arc
+#kubectl describe pod/control-2g7bl --namespace arc
 ```
 
 ## <a name="troubleshooting-creation-problems"></a>생성 문제 해결

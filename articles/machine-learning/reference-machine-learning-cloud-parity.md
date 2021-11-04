@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8c05b77a77bbcbfc977dadb22151f0086001b859
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 828c093eba73ad1b0042d63ed52b34ba47032acd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359447"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558177"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Azure Machine Learning 클라우드 지역 간 기능 가용성
 

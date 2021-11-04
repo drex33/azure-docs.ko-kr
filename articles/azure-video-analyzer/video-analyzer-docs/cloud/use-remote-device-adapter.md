@@ -2,14 +2,14 @@
 title: 원격 장치 어댑터를 사용 하 여 클라우드로 카메라 커넥트
 description: 이 문서에서는 원격 장치 어댑터를 사용 하 여 Azure Video Analyzer 서비스에 카메라를 연결 하는 방법을 설명 합니다.
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0c2b72c02153ccc2814825031a3494ceba98c7df
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 74734444b33c6963097d4e23e3859aedbc9a91e7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502904"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563210"
 ---
 # <a name="connect-cameras-to-the-cloud-using-a-remote-device-adapter"></a>원격 장치 어댑터를 사용 하 여 클라우드에 카메라 커넥트
 

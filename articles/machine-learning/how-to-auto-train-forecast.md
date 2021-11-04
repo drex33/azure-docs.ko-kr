@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
-ms.date: 06/11/2021
-ms.openlocfilehash: f8e036a77603c1e0833117a4562ad9dfd93c7ac9
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: 3469b316b48c876965fb1aaec9bfd5feed33909e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427194"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561786"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Python으로 시계열 예측 모델을 학습시키도록 AutoML 설정
 
@@ -147,7 +147,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 작업을 
 |`forecast_horizon`|앞으로 어느 정도의 기간에 대해 예측할 것인지 정의합니다. 구간은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
 |`enable_dnn`|[예측 DNN을 사용하도록 설정]()합니다.||
 |`time_series_id_column_names`|타임스탬프가 동일한 여러 행이 있는 데이터에서 시계열을 고유하게 식별하는 데 사용되는 열 이름입니다. 시계열 식별자가 정의되지 않은 경우 데이터 세트는 하나의 시계열로 간주됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
-|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [Frequency]에 대해 자세히 알아보세요. (#frequency-대상-데이터 집계)||
+|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [frequency]에 대해 자세히 알아보세요. (#frequency-target-data-aggregation)||
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
 |`feature_lags`| 지연에 대한 기능은 `target_lags`가 설정되고 `feature_lags`가 `auto`로 설정된 경우 자동화된 ML에 의해 자동으로 결정됩니다. 기능 지연을 사용하도록 설정하면 정확도를 향상시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용하지 않도록 설정되어 있습니다. ||
 |`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 이동 기간 집계](#target-rolling-window-aggregation)에 대해 자세히 알아봅니다.||

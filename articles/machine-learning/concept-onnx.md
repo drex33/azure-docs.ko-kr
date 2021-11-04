@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: prasantp
 author: prasanthpul
-ms.date: 06/18/2020
+ms.date: 10/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7b0c2d35903bd30a3a7e50519292b4ef1f893006
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 79127d816e84a0b6fa80d0288cbc928b0e6d7df8
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130234494"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555137"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 및 Azure Machine Learning: ML 모델을 만들고 가속화합니다
 

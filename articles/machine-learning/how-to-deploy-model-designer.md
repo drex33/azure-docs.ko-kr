@@ -7,16 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.reviewer: peterlu
-ms.date: 10/08/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: deploy, studio, designer
-ms.openlocfilehash: d2553ddde013c43b9ce4d23d2cc0b4541150e6f3
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 4722a32435ad3b1a8f7fdcf0cd46c077b52a5f08
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740484"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557607"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>스튜디오를 사용하여 디자이너에서 학습된 모델 배포
 
@@ -39,24 +38,24 @@ ms.locfileid: "129740484"
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
-* 다음 모듈 중 하나를 포함하는 완료된 학습 파이프라인:
-    - [모델 학습 모듈](./algorithm-module-reference/train-model.md)
-    - [변칙 검색 모델 학습 모듈](./algorithm-module-reference/train-anomaly-detection-model.md)
-    - [클러스터링 모델 학습 모듈](./algorithm-module-reference/train-clustering-model.md)
-    - [Pytorch 모델 학습 모듈](./algorithm-module-reference/train-pytorch-model.md)
-    - [SVD 추천 학습 모듈](./algorithm-module-reference/train-svd-recommender.md)
-    - [Vowpal Wabbit 모델 학습 모듈](./algorithm-module-reference/train-vowpal-wabbit-model.md)
-    - [Wide & Deep 모델 학습 모듈](./algorithm-module-reference/train-wide-and-deep-recommender.md)
+* 다음 구성 요소 중 하나를 포함 하는 완료 된 학습 파이프라인:
+    - [모델 구성 요소 학습](./algorithm-module-reference/train-model.md)
+    - [변칙 검색 모델 구성 요소 학습](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [클러스터링 모델 구성 요소 학습](./algorithm-module-reference/train-clustering-model.md)
+    - [Pytorch 모델 구성 요소 학습](./algorithm-module-reference/train-pytorch-model.md)
+    - [.SVD 추천 구성 요소 학습](./algorithm-module-reference/train-svd-recommender.md)
+    - [Vowpal Wabbit 모델 구성 요소 학습](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [넓은 & 심화 모델 구성 요소 학습](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## <a name="register-the-model"></a>모델 등록
 
 학습 파이프라인이 완료된 후에는 학습된 모델을 Azure Machine Learning 작업 영역에 등록하여 다른 프로젝트의 모델에 액세스할 수 있습니다.
 
-1. [모델 학습](./algorithm-module-reference/train-model.md) 모듈을 선택합니다.
+1. [모델 학습 구성 요소](./algorithm-module-reference/train-model.md)를 선택 합니다.
 1. 오른쪽 창에서 **출력 + 로그** 탭을 선택합니다.
 1. **모델 등록** 아이콘을 선택합니다. ![기어 아이콘 스크린샷](./media/how-to-deploy-model-designer/register-model-icon.png)
 
-    ![모델 학습 모듈의 오른쪽 창 스크린샷](./media/how-to-deploy-model-designer/train-model-right-pane.png)
+    ![모델 학습 구성 요소 오른쪽 창의 스크린샷](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
 1. 모델의 이름을 입력하고 **저장** 을 선택합니다.
 
@@ -68,13 +67,13 @@ ms.locfileid: "129740484"
 
 Azure Machine Learning 스튜디오에서 모델을 배포하려면 다음 파일이 필요합니다.
 
-- **항목 스크립트 파일** - 학습된 모델을 로드하고, 요청에서 입력 데이터를 처리하고, 실시간 추론을 수행하고, 결과를 반환합니다. **모델 학습** 모듈이 완료되면 디자이너가 `score.py` 항목 스크립트 파일을 자동으로 생성합니다.
+- **항목 스크립트 파일** - 학습된 모델을 로드하고, 요청에서 입력 데이터를 처리하고, 실시간 추론을 수행하고, 결과를 반환합니다. `score.py` **모델 학습** 구성 요소가 완료 되 면 디자이너에서 자동으로 항목 스크립트 파일을 생성 합니다.
 
-- **Conda 종속성 파일** - webservice가 종속된 pip 및 Conda 패키지를 지정합니다. **모델 학습** 모듈이 완료되면 디자이너가 `conda_env.yaml` 파일을 자동으로 만듭니다.
+- **Conda 종속성 파일** - webservice가 종속된 pip 및 Conda 패키지를 지정합니다. `conda_env.yaml` **모델 학습** 구성 요소가 완료 되 면 디자이너에서 자동으로 파일을 만듭니다.
 
-**모델 학습** 모듈의 오른쪽 창에서 다음 두 파일을 다운로드할 수 있습니다.
+**모델 학습** 구성 요소의 오른쪽 창에서 다음 두 파일을 다운로드할 수 있습니다.
 
-1. **모델 학습** 모듈을 선택합니다.
+1. **모델 학습** 구성 요소를 선택 합니다.
 1. **출력 + 로그** 탭에서 `trained_model_outputs` 폴더를 선택합니다.
 1. `conda_env.yaml`파일 및 `score.py` 파일을 다운로드합니다.
 
@@ -91,7 +90,7 @@ Azure Machine Learning 스튜디오에서 모델을 배포하려면 다음 파�
     ![모델 세부 정보 페이지의 배포용 다운로드 파일 스크린샷](./media/how-to-deploy-model-designer/download-artifacts-in-models-page.png)
 
 > [!NOTE]
-> 이 `score.py` 파일은 **모델 점수 매기기** 모듈과 거의 동일한 기능을 제공합니다. 그러나 [SVD 추천 점수 매기기](./algorithm-module-reference/score-svd-recommender.md), [Wide and Deep 추천 점수 매기기](./algorithm-module-reference/score-wide-and-deep-recommender.md), [Vowpal Wabbit 모델 매기기](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등의 일부 모듈에는 다른 점수 매기기 모드의 매개 변수가 사용됩니다. 항목 스크립트에서 이러한 매개 변수를 변경할 수도 있습니다.
+> 이 `score.py` 파일은 **모델 점수 매기기** 구성 요소와 거의 동일한 기능을 제공 합니다. 그러나 [점수 .Svd 추천](./algorithm-module-reference/score-svd-recommender.md), [점수 Wide and Deep 추천](./algorithm-module-reference/score-wide-and-deep-recommender.md), [점수 Vowpal wabbit 모델](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등의 일부 구성 요소에는 다른 점수 매기기 모드의 매개 변수가 있습니다. 항목 스크립트에서 이러한 매개 변수를 변경할 수도 있습니다.
 >
 >`score.py` 파일에서 매개 변수를 설정하는 방법에 대한 자세한 내용은 [항목 스크립트 구성](#configure-the-entry-script) 섹션을 참조하세요.
 
@@ -181,7 +180,7 @@ image_transform = [
 ]
 transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
 
-# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model component
 sample_file_path = '_samples.json'
 with open(sample_file_path, 'r') as f:
     sample_data = json.load(f)
@@ -204,7 +203,7 @@ with open(data_file_path, 'w') as f:
 
 ## <a name="configure-the-entry-script"></a>항목 스크립트 구성
 
-[Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md), [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등과 같은 디자이너의 일부 모듈에는 다른 점수 매기기 모드의 매개 변수가 사용됩니다. 
+[점수 .Svd 추천](./algorithm-module-reference/score-svd-recommender.md), [점수 넓게 및 딥 추천](./algorithm-module-reference/score-wide-and-deep-recommender.md), [점수 Vowpal wabbit 모델](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등 디자이너의 일부 구성 요소에는 다른 점수 매기기 모드의 매개 변수가 있습니다. 
 
 이 섹션에서는 항목 스크립트 파일에서 이러한 매개 변수를 업데이트하는 방법을 알아봅니다.
 
@@ -244,7 +243,7 @@ def run(data):
 
     data_frame_directory = create_dfd_from_dict(input_entry, schema_data)
 
-    # The parameter names can be inferred from Score Wide and Deep Recommender module parameters:
+    # The parameter names can be inferred from Score Wide and Deep Recommender component parameters:
     # convert the letters to lower cases and replace whitespaces to underscores.
     score_params = dict(
         trained_wide_and_deep_recommendation_model=model,

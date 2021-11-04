@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 08/03/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 3a38717cec9aed40e3aff96376a9d956eb82a53d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 07132095c3f64aa4df3f6ec728894a625bac2b74
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124792223"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561710"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너란 무엇인가요? 
 
@@ -39,11 +39,11 @@ Azure Machine Learning 디자이너는 Azure Machine Learning에서 모델을 �
 
 시각적 캔버스를 사용하여 포괄적인 기계 학습 워크플로를 만듭니다. 디자이너에서 모델을 모두 학습시키고 테스트 및 배포합니다.
 
-1. [데이터 세트](#datasets) 및 [모듈](#module)을 캔버스에 끌어서 놓습니다.
-1. 모듈을 연결하여 [파이프라인 초안](#pipeline-draft)을 만듭니다.
-1. Azure Machine Learning 작업 영역에서 컴퓨팅 리소스를 사용하여 [파이프라인 실행](#pipeline-run)을 제출합니다.
-1. **학습 파이프라인** 을 **유추 파이프라인** 으로 변환합니다.
-1. REST **파이프라인 엔드포인트** 에 파이프라인을 [게시](#publish)하여 다른 매개 변수 및 데이터 세트와 함께 실행되는 새 파이프라인을 제출합니다.
++ [데이터 세트](#datasets) 및 [구성 요소를](#component) 캔버스로 끌어서 놓습니다.
++ 구성 요소를 커넥트 [파이프라인 초안을](#pipeline-draft)만듭니다.
++ Azure Machine Learning 작업 영역에서 컴퓨팅 리소스를 사용하여 [파이프라인 실행](#pipeline-run)을 제출합니다.
++ **학습 파이프라인** 을 **유추 파이프라인** 으로 변환합니다.
++ REST **파이프라인 엔드포인트** 에 파이프라인을 [게시](#publish)하여 다른 매개 변수 및 데이터 세트와 함께 실행되는 새 파이프라인을 제출합니다.
     + **학습 파이프라인** 을 게시하여 매개 변수 및 데이터 세트를 변경하는 동안 여러 모델을 학습하는 데 단일 파이프라인을 다시 사용합니다.
     + **일괄 처리 유추 파이프라인** 을 게시하여 이전에 학습된 모델을 통해 새 데이터에 대한 예측을 수행합니다.
 1. **실시간 유추 파이프라인** 을 실시간 엔드포인트에 [배포](#deploy)하여 새 데이터에 대한 예측을 실시간으로 수행합니다.
@@ -52,18 +52,18 @@ Azure Machine Learning 디자이너는 Azure Machine Learning에서 모델을 �
 
 ## <a name="pipeline"></a>파이프라인
 
-[파이프라인](concept-azure-machine-learning-architecture.md#ml-pipelines)은 연결하는 데이터 세트와 알고리즘 모듈로 구성됩니다. 파이프라인은 다양한 용도로 사용됩니다. 단일 모델을 학습하는 파이프라인이나 여러 모델을 학습하는 파이프라인을 만들 수 있습니다. 실시간 또는 일괄 처리로 예측을 수행하는 파이프라인을 만들거나 데이터 정리만 수행하는 파이프라인을 만들 수 있습니다. 파이프라인을 사용하여 작업을 다시 사용하고 프로젝트를 구성할 수 있습니다.
+[파이프라인은](concept-azure-machine-learning-architecture.md#ml-pipelines) 연결하는 데이터 세트 및 분석 구성 요소로 구성됩니다. 파이프라인은 다양한 용도로 사용됩니다. 단일 모델을 학습하는 파이프라인이나 여러 모델을 학습하는 파이프라인을 만들 수 있습니다. 실시간 또는 일괄 처리로 예측을 수행하는 파이프라인을 만들거나 데이터 정리만 수행하는 파이프라인을 만들 수 있습니다. 파이프라인을 사용하여 작업을 다시 사용하고 프로젝트를 구성할 수 있습니다.
 
 ### <a name="pipeline-draft"></a>파이프라인 초안
 
-디자이너에서 파이프라인을 편집하면 진행 상황이 **파이프라인 초안** 으로 저장됩니다. 모듈을 추가하거나 제거하고, 컴퓨팅 대상을 구성하고, 매개 변수를 만드는 등의 작업을 통해 언제든지 파이프라인 초안을 편집할 수 있습니다.
+디자이너에서 파이프라인을 편집하면 진행 상황이 **파이프라인 초안** 으로 저장됩니다. 구성 요소를 추가 또는 제거하고, 컴퓨팅 대상을 구성하고, 매개 변수를 만드는 등 언제든지 파이프라인 초안을 편집할 수 있습니다.
 
 유효한 파이프라인에는 다음과 같은 특징이 있습니다.
 
-* 데이터 세트는 모듈에만 연결될 수 있습니다.
-* 모듈은 데이터 세트 또는 기타 모듈에만 연결될 수 있습니다.
-* 모듈의 모든 입력 포트에는 데이터 흐름에 대한 연결이 포함되어야 합니다.
-* 각 모듈의 모든 필수 매개 변수를 설정해야 합니다.
+* 데이터 세트는 구성 요소에만 연결할 수 있습니다.
+* 구성 요소는 데이터 세트 또는 다른 구성 요소에만 연결할 수 있습니다.
+* 구성 요소에 대한 모든 입력 포트는 데이터 흐름에 대한 일부 연결이 있어야 합니다.
+* 각 구성 요소에 대한 모든 필수 매개 변수를 설정해야 합니다.
 
 파이프라인 초안을 실행할 준비가 되면 파이프라인 실행을 제출합니다.
 
@@ -77,16 +77,16 @@ Azure Machine Learning 디자이너는 Azure Machine Learning에서 모델을 �
 
 기계 학습 데이터 세트를 사용하여 손쉽게 데이터에 액세스하고 데이터를 사용할 수 있습니다. 디자이너에는 실험에 사용할 여러 [샘플 데이터 세트](samples-designer.md#datasets)가 포함되어 있습니다. 필요할 때 더 많은 데이터 세트를 [등록](how-to-create-register-datasets.md)할 수 있습니다.
 
-## <a name="module"></a>모듈
+## <a name="component"></a>구성 요소
 
-모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. 디자이너에는 데이터 수신 함수부터 학습, 점수 매기기, 유효성 검사 프로세스에 이르는 다양한 모듈이 있습니다.
+구성 요소는 데이터에 대해 수행할 수 있는 알고리즘입니다. 디자이너에는 데이터 수신 함수에서 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 여러 구성 요소가 있습니다.
 
-모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택할 때 모듈 매개 변수가 캔버스 오른쪽의 속성 창에 표시됩니다. 해당 창에서 매개 변수를 수정하여 파이프라인을 튜닝할 수 있습니다. 디자이너에서 개별 모듈의 컴퓨팅 리소스를 설정할 수 있습니다. 
+구성 요소에는 구성 요소의 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 있을 수 있습니다. 캔버스에서 구성 요소를 선택하면 캔버스 오른쪽의 속성 창에 구성 요소의 매개 변수가 표시됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다. 디자이너에서 개별 구성 요소에 대한 컴퓨팅 리소스를 설정할 수 있습니다. 
 
-:::image type="content" source="./media/concept-designer/properties.png" alt-text="모듈 속성":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="구성 요소 속성":::
 
 
-사용할 수 있는 기계 학습 알고리즘의 라이브러리를 탐색하는 데 도움이 필요한 경우 [알고리즘 및 모듈 참조 개요](algorithm-module-reference/module-reference.md)를 참조하세요. 알고리즘 선택에 도움이 필요한 경우 [Azure Machine Learning 알고리즘 치트 시트](algorithm-cheat-sheet.md)를 참조하세요.
+사용 가능한 기계 학습 알고리즘 라이브러리를 탐색하는 데 도움이 필요하면 [알고리즘 & 구성 요소 참조 개요를 참조하세요.](component-reference/component-reference.md) 알고리즘 선택에 도움이 필요한 경우 [Azure Machine Learning 알고리즘 치트 시트](algorithm-cheat-sheet.md)를 참조하세요.
 
 ## <a name="compute-resources"></a><a name="compute"></a> 컴퓨팅 리소스
 
@@ -115,7 +115,7 @@ Azure Machine Learning 디자이너는 Azure Machine Learning에서 모델을 �
 
 게시된 파이프라인은 유연하며, 모델을 학습 또는 재학습시키고, [일괄 처리 유추를 수행](how-to-run-batch-predictions-designer.md)하고, 새 데이터를 처리하는 등의 작업을 수행하는 데 사용할 수 있습니다. 여러 파이프라인을 단일 파이프라인 엔드포인트에 게시하고 실행할 파이프라인 버전을 지정할 수 있습니다.
 
-게시된 파이프라인은 각 모듈의 파이프라인 초안에서 정의한 컴퓨팅 리소스에서 실행됩니다.
+게시된 파이프라인은 각 구성 요소의 파이프라인 초안에 정의한 컴퓨팅 리소스에서 실행됩니다.
 
 디자이너는 SDK와 동일한 [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline) 개체를 만듭니다.
 

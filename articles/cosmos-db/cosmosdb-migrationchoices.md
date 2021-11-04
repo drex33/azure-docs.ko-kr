@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/03/2021
-ms.openlocfilehash: d441d12a0c61bfcf6c8e89b51dad0e95e9906e4d
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 412b047896496124b042de82d9841afba9112934
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501726"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562773"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>온-프레미스 또는 클라우드 데이터를 Azure Cosmos DB로 마이그레이션하는 옵션
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -75,7 +75,7 @@ ms.locfileid: "131501726"
 |온라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB API for MongoDB |&bull; Azure Cosmos DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull; 대량 데이터 세트에 적합하고 라이브 변경 내용 복제를 처리합니다. <br/>&bull; 다른 MongoDB 원본에서만 작동합니다.|
 |오프라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| Azure Cosmos DB API for MongoDB| &bull; Azure Cosmos DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull; 대량 데이터 세트에 적합하고 라이브 변경 내용 복제를 처리합니다. <br/>&bull; 다른 MongoDB 원본에서만 작동합니다.|
 |오프라인|[Azure Data Factory](../data-factory/connector-azure-cosmos-db-mongodb-api.md)| &bull;JSON/CSV 파일<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB <br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/><br/> 지원되는 다른 원본에 관해서는 [Azure Data Factory](../data-factory/connector-overview.md) 문서를 참조하세요. | &bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB <br/>&bull; JSON 파일 <br/><br/> 지원되는 다른 대상에 관해서는 [Azure Data Factory](../data-factory/connector-overview.md) 문서를 참조하세요.| &bull; 손쉽게 설정하고 여러 원본을 지원합니다. <br/>&bull; Azure Cosmos DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull; 대량 데이터 세트에 적합합니다. <br/>&bull; 검사점이 없으면 마이그레이션 과정에서 발생하는 모든 문제에 대해 전체 마이그레이션 프로세스를 다시 시작해야 함을 의미합니다.<br/>&bull; 배달 못한 편지 큐가 없으면 일부 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있음을 의미합니다. <br/>&bull; 특정 데이터 원본에 대한 읽기 처리량을 늘리려면 사용자 지정 코드가 필요합니다.|
-|오프라인|기존 Mongo 도구([mongodump](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [mongorestore](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [Studio3T](mongodb/connect-using-mongochef.md))]|MongoDB | Azure Cosmos DB API for MongoDB| &bull; 손쉽게 설정하고 통합합니다. <br/>&bull; 제한에 대한 사용자 지정 처리가 필요합니다.|
+|오프라인|기존 Mongo 도구([mongodump](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [mongorestore](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [Studio3T](mongodb/connect-using-mongochef.md))|MongoDB | Azure Cosmos DB API for MongoDB| &bull; 손쉽게 설정하고 통합합니다. <br/>&bull; 제한에 대한 사용자 지정 처리가 필요합니다.|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API
 

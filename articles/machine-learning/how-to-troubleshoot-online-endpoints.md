@@ -1,26 +1,26 @@
 ---
-title: 관리형 온라인 엔드포인트(미리 보기) 배포 문제 해결
+title: 온라인 끝점 배포 (미리 보기) 문제 해결
 titleSuffix: Azure Machine Learning
-description: 관리형 온라인 엔드포인트를 사용하여 몇 가지 일반적인 배포 및 채점 오류를 해결하는 방법을 알아봅니다.
+description: 온라인 끝점을 사용 하 여 몇 가지 일반적인 배포 및 점수 매기기 오류를 해결 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 author: petrodeg
 ms.author: petrodeg
 ms.reviewer: laobri
-ms.date: 05/13/2021
+ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 9bd4d635eaaa2a6fa676b965ebd6df0eac7ea8ec
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 06c8c9c128528b3e50c49e9c29a0849c9640d7eb
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429701"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131560685"
 ---
-# <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결
+# <a name="troubleshooting-online-endpoints-deployment-and-scoring-preview"></a>온라인 끝점 배포 및 점수 매기기 (미리 보기) 문제 해결
 
-Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)의 배포 및 채점에서 일반적인 문제를 해결하는 방법을 알아봅니다.
+Azure Machine Learning 온라인 끝점 (미리 보기)의 배포 및 점수 매기기에서 일반적인 문제를 해결 하는 방법에 대해 알아봅니다.
 
 이 문서는 문제 해결에 접근하는 방식으로 구성됩니다.
 
@@ -42,11 +42,15 @@ Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)의 배
 
 로컬 배포는 로컬 Docker 환경에 모델을 배포합니다. 로컬 배포는 클라우드에 배포하기 전에 테스트 및 디버그하는 데 유용합니다.
 
+> [!TIP]
+> Visual Studio Code를 사용 하 여 끝점을 로컬로 테스트 하 고 디버그할 수 있습니다. 자세한 내용은 [Visual Studio Code에서 로컬로 온라인 끝점 디버그](how-to-debug-managed-online-endpoints-visual-studio-code.md)를 참조 하세요.
+
 로컬 배포는 로컬 엔드포인트의 생성, 업데이트 및 삭제를 지원합니다. 또한 엔드포인트에서 로그를 호출하고 얻을 수 있습니다. 로컬 배포를 사용하려면 `--local`을 적절한 CLI 명령에 추가합니다.
 
 ```azurecli
-az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
+az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
+
 로컬 배포의 일부로 다음 단계가 수행됩니다.
 
 - Docker는 새 컨테이너 이미지를 빌드하거나 로컬 Docker 캐시에서 기존 이미지를 풀합니다. 기존 이미지가 사양 파일의 환경 부분과 일치하는 경우 해당 이미지가 사용됩니다.
@@ -61,13 +65,13 @@ az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
 컨테이너에서 로그 출력을 보려면 다음 CLI 명령을 사용합니다.
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> -d <deployment-name> -l 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 또는
 
 ```azurecli
-    az ml endpoint get-logs --name <endpoint-name> --deployment <deployment-name> --lines 100
+    az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
 ```
 
 `az configure`를 통해 이러한 매개 변수를 아직 설정하지 않은 경우 위의 명령에 `--resource-group` 및 `--workspace-name`을 추가합니다.
@@ -75,7 +79,7 @@ az ml endpoint get-logs -n <endpoint-name> -d <deployment-name> -l 100
 이러한 매개 변수를 설정하는 방법에 대한 정보를 보고 현재 값이 이미 설정된 경우 다음을 실행합니다.
 
 ```azurecli
-az ml endpoint get-logs -h
+az ml online-deployment get-logs -h
 ```
 
 기본적으로 로그는 유추 서버에서 풀됩니다. 로그에는 'score.py' 코드의 print/log 문을 포함하는 유추 서버의 콘솔 로그가 포함되어 있습니다.
@@ -129,7 +133,7 @@ Azure Machine Learning 용량 부족으로 인해 지정된 VM 크기를 프로�
 이 오류에 대한 자세한 내용을 보려면 다음을 실행합니다.
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### <a name="err_1300-unable-to-download-user-modelcode-artifacts"></a>ERR_1300: 사user model\code 아티팩트를 다운로드할 수 없음
@@ -160,7 +164,7 @@ az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail
 이 오류에 대한 자세한 내용을 보려면 다음을 실행합니다.
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### <a name="err_1350-unable-to-download-user-model-not-enough-space-on-the-disk"></a>ERR_1350: 사용자 모델을 다운로드할 수 없습니다. 디스크 공간이 부족합니다.
@@ -176,7 +180,7 @@ az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --line
 오류에 대한 정확한 원인을 보려면 다음을 실행합니다. 
 
 ```azurecli
-az ml endpoint get-logs
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### <a name="err_2101-kubernetes-unschedulable"></a>ERR_2101: Kubernetes 예약 불가능
@@ -203,9 +207,13 @@ az ml endpoint get-logs
 
 안정적이고 신뢰할 수 있는 서비스를 제공하기 위해 최선을 다하고 있지만, 때로는 계획대로 되지 않는 경우도 있습니다. 이 오류가 발생하면 당사 측에 문제가 있는 것이므로 당사가 해결해야 합니다. 모든 관련 정보와 함께 [고객 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출하면 문제를 해결하겠습니다.  
 
+## <a name="autoscaling-issues"></a>자동 크기 조정 문제
+
+자동 크기 조정에 문제가 있는 경우 [Azure 자동 크기 조정 문제 해결](../azure-monitor/autoscale/autoscale-troubleshoot.md)을 참조 하세요.
+
 ## <a name="http-status-codes"></a>HTTP 상태 코드
 
-REST 요청으로 관리형 온라인 엔드포인트에 액세스할 때 반환된 상태 코드는 [HTTP 상태 코드](https://aka.ms/http-status-codes)에 대한 표준을 준수합니다. 다음은 관리형 엔드포인트 호출 및 예측 오류가 HTTP 상태 코드에 매핑되는 방법에 대한 세부 정보입니다.
+REST 요청을 사용 하 여 온라인 끝점에 액세스 하는 경우 반환 된 상태 코드는 [HTTP 상태 코드](https://aka.ms/http-status-codes)의 표준을 준수 합니다. 끝점 호출 및 예측 오류가 HTTP 상태 코드에 매핑되는 방법에 대 한 자세한 내용은 다음과 같습니다.
 
 | 상태 코드| 이유 구문 |  이 코드가 반환되는 이유 |
 | --- | --- | --- |

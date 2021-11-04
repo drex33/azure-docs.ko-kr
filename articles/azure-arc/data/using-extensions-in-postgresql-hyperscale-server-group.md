@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 831b3e220afe826b5190588b8855b72a8d648916
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 52e024043726c463c0bea5b9b16421a0674a2cd2
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529055"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131558842"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 PostgreSQL 확장 사용
 
@@ -25,7 +25,7 @@ PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제�
 
 ## <a name="supported-extensions"></a>지원되는 확장
 표준 [`contrib`](https://www.postgresql.org/docs/12/contrib.html) 확장 및 다음 확장은 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 컨테이너에 이미 배포되어 있습니다.
-- [`citus`](https://github.com/citusdata/citus), v: 10.0. [Citus 데이터](https://www.citusdata.com/)의 Citus 확장은 PostgreSQL 엔진에 하이퍼 크기 조정 기능을 제공하므로 기본적으로 로드됩니다. Azure Arc PostgreSQL 하이퍼스케일 서버 그룹에서 Citus 확장을 삭제하는 것은 지원되지 않습니다.
+- [`citus`](https://github.com/citusdata/citus), v: 10.2. [Citus 데이터](https://www.citusdata.com/)의 Citus 확장은 PostgreSQL 엔진에 하이퍼 크기 조정 기능을 제공하므로 기본적으로 로드됩니다. Azure Arc PostgreSQL 하이퍼스케일 서버 그룹에서 Citus 확장을 삭제하는 것은 지원되지 않습니다.
 - [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.3
 - [`pgaudit`](https://www.pgaudit.org/), v: 1.4
 - plpgsql, v: 1.0
@@ -47,11 +47,11 @@ PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제�
 
 |확장   |Shared_preload_libraries에 추가되어야 합니다.  |생성되어야 함 |
 |-------------|--------------------------------------------------|---------------------- |
-|`pg_cron`      |아니요       |예        |
+|`pg_cron`      |예       |예        |
 |`pg_audit`     |예       |예        |
 |`plpgsql`      |예       |예        |
-|`postgis`      |아니요       |예        |
-|`plv8`      |아니요       |예        |
+|`postgis`      |예       |예        |
+|`plv8`      |예       |예        |
 
 ## <a name="add-extensions-to-the-shared_preload_libraries"></a>`shared_preload_libraries`에 확장 추가
 `shared_preload_libraries`에 대한 자세한 내용은 [여기](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES)에서 PostgreSQL 설명서를 참조하세요.
@@ -60,11 +60,11 @@ PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제�
 
 ### <a name="add-an-extension-at-the-creation-time-of-a-server-group"></a>서버 그룹을 만들 때 확장 추가
 ```azurecli
-az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names>
+az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
 ```
 ### <a name="add-an-extension-to-an-instance-that-already-exists"></a>이미 존재하는 인스턴스에 확장 추가
 ```azurecli
-az postgres arc-server server edit -n <name of your postgresql server group> --extensions <extension names>
+az postgres arc-server server edit -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
 ```
 
 
@@ -75,31 +75,30 @@ az postgres arc-server server edit -n <name of your postgresql server group> --e
 
 ### <a name="with-cli-command"></a>CLI 명령을 사용하여
 ```azurecli
-az postgres arc-server show -n <server group name>
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인합니다. 예를 들면 다음과 같습니다.
 ```console
-"engine": {
+  "spec": {
+    "dev": false,
+    "engine": {
       "extensions": [
         {
           "name": "citus"
-        },
-        {
-          "name": "pg_cron"
         }
-      ]
-    },
+      ],
 ```
 ### <a name="with-kubectl"></a>kubectl을 사용하여
 ```console
-kubectl describe postgresql-12s/postgres02
+kubectl describe postgresqls/<server group name> -n <namespace>
 ```
 출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인합니다. 예를 들면 다음과 같습니다.
 ```console
-Engine:
+Spec:
+  Dev:  false
+  Engine:
     Extensions:
-      Name:  citus
-      Name:  pg_cron
+      Name:   citus
 ```
 
 

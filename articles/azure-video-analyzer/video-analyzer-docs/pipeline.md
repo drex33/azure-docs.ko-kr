@@ -2,14 +2,14 @@
 title: Azure Video Analyzer 파이프라인
 description: Azure video Analyzer edge 및 클라우드 내에서 비디오를 수집 하 고, 처리 하 고, 게시 하는 Azure 비디오 분석기 파이프라인. 파이프라인은 원하는 데이터 흐름을 얻기 위해 연결된 노드로 구성됩니다.
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 53ac9631155d35972546f937d872d1f48b476b52
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2e1eefc30140d56b1f4d7970e59f235d04799d67
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073898"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552547"
 ---
 # <a name="pipeline"></a>파이프라인
 
@@ -125,15 +125,15 @@ Cognitive Services 확장 프로세서 노드는 파이프라인을 [공간 분�
 
 #### <a name="encoder-processor"></a>인코더 프로세서
 
-인코더 프로세서 노드를 사용 하면 사용자가 기록 된 비디오를 다운스트림 처리를 위해 원하는 형식으로 변환할 때 인코딩 속성을 지정할 수 있습니다. 예를 들어 [4k 해상도](https://en.wikipedia.org/wiki/4K_resolution) 로 구성 된 카메라에서 기록 된 비디오를 파일로 내보내려면 먼저 [1920 X 1080 (전체 HD)](https://en.wikipedia.org/wiki/1080p) 해상도로 크기를 조정 해야 할 수 있습니다.
+인코더 프로세서 노드를 사용하면 녹화된 비디오를 다운스트림 처리를 위해 원하는 형식으로 변환할 때 인코딩 속성을 지정할 수 있습니다. 예를 들어 [4K 해상도로](https://en.wikipedia.org/wiki/4K_resolution) 구성된 카메라에서 녹화된 비디오는 파일로 내보내기 전에 [전체 HD(1920x1080)](https://en.wikipedia.org/wiki/1080p) 해상도로 크기가 지정되어야 할 수 있습니다.
 
 ### <a name="sinks"></a>Sinks
 
 #### <a name="video-sink"></a>비디오 싱크
 
-비디오 싱크 노드를 사용하면 비디오 및 관련 메타데이터를 Video Analyzer 클라우드 리소스에 저장할 수 있습니다. 비디오는 이벤트에 따라 지속적으로 또는 이상으로 기록 될 수 있습니다. 비디오 싱크 노드는 클라우드 연결이 끊어지면 에지 디바이스의 비디오를 캐시하고, 연결이 복원되면 업로드를 다시 시작할 수 있습니다. 또한 이 노드의 속성을 구성하는 방법에 대한 자세한 내용은 [연속 비디오 녹화](continuous-video-recording.md) 문서를 참조하세요.
+비디오 싱크 노드를 사용하면 비디오 및 관련 메타데이터를 Video Analyzer 클라우드 리소스에 저장할 수 있습니다. 비디오를 지속적으로 또는 드물게 녹화할 수 있습니다(이벤트에 따라). 비디오 싱크 노드는 클라우드 연결이 끊어지면 에지 디바이스의 비디오를 캐시하고, 연결이 복원되면 업로드를 다시 시작할 수 있습니다. 또한 이 노드의 속성을 구성하는 방법에 대한 자세한 내용은 [연속 비디오 녹화](continuous-video-recording.md) 문서를 참조하세요.
 
-보안상의 이유로, 지정 된 Video Analyzer **edge 모듈** 인스턴스는 새 비디오 항목 또는 이전에 기록한 비디오 항목에 동일한 모듈에만 콘텐츠를 기록할 수 있습니다. 동일한 edge 모듈 인스턴스에 의해 만들어지지 않은 기존 비디오에 콘텐츠를 기록 하려고 하면 기록에 실패 합니다.
+보안상의 이유로 지정된 Video Analyzer **에지 모듈** 인스턴스는 동일한 모듈에서 새 비디오 항목 또는 이전에 녹화한 비디오 항목에만 콘텐츠를 기록할 수 있습니다. 동일한 에지 모듈 인스턴스에서 생성되지 않은 기존 비디오에 콘텐츠를 기록하려고 하면 콘텐츠를 기록하지 못할 수 있습니다.
 
 #### <a name="file-sink"></a>파일 싱크
 
@@ -147,13 +147,13 @@ IoT Hub 메시지 싱크 노드를 사용하여 IoT Edge 허브에 이벤트를 
 
 ## <a name="rules-on-the-use-of-nodes"></a>노드 사용 규칙
 
-다음 표에서는 라이브 및 일괄 토폴로지와 비디오 분석기 edge 모듈 및 서비스에서 노드가 허용 되는 현재 규칙을 설명 합니다.
+다음 표에서는 라이브 및 일괄 처리 토폴로지 및 Video Analyzer 에지 모듈 및 서비스에서 노드가 허용되는 현재 규칙을 설명합니다.
 
 | 노드 이름                              | 토폴로지 종류  |  배포       |
 | -------------------------------------- | ---------------|-------------------|
 | RTSP 원본                            | 라이브           |  Edge 및 클라우드   |
-| IoT hub 메시지 원본                 | 라이브           |  Microsoft Edge             |
-| 비디오 소스                           | Batch          |  클라우드            |
+| IoT Hub 메시지 원본                 | 라이브           |  Microsoft Edge             |
+| 비디오 원본                           | Batch          |  클라우드            |
 | 동작 감지 프로세서             | 라이브           |  Microsoft Edge             |
 | HTTP 확장 프로세서               | 라이브           |  Microsoft Edge             |
 | gRPC 확장 프로세서               | 라이브           |  Microsoft Edge             |
@@ -164,9 +164,9 @@ IoT Hub 메시지 싱크 노드를 사용하여 IoT Edge 허브에 이벤트를 
 | 인코더 프로세서                      | Batch          |  클라우드            |
 | 비디오 싱크                             | 라이브 및 일괄 처리 |  Edge 및 클라우드   |
 | 파일 싱크                              | 라이브           |  Microsoft Edge             |
-| IoT hub 메시지 싱크                   | 라이브           |  Microsoft Edge             |
+| IoT Hub 메시지 싱크                   | 라이브           |  Microsoft Edge             |
 
-토폴로지 내에서 다양 한 노드를 사용할 수 있는 방법에 대 한 추가 규칙은 [파이프라인의 제한 사항](quotas-limitations.md#limitations-on-pipeline-topologies) 을 참조 하세요.
+[토폴로지](quotas-limitations.md#limitations-on-pipeline-topologies) 내에서 다른 노드를 사용할 수 있는 방법에 대한 추가 규칙은 파이프라인에 대한 제한을 참조하세요.
 
 ## <a name="scenarios"></a>시나리오
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 8b2b64de8dd16e36b6956c289beda986d89a5c98
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 1c33c2f4bf89b76abf40d12146965114ba4918b0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528587"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564502"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-az-or-kubectl"></a>CLI(az 또는 kubectl)를 사용하여 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 업 및 스케일 다운
 
@@ -25,7 +25,9 @@ ms.locfileid: "122528587"
 
 이 가이드에서는 vCore 및/또는 메모리의 크기를 조정하는 방법을 설명합니다.
 
-서버 그룹의 vCore 또는 메모리 설정을 스케일 업하거나 스케일 다운하면 각 vCore 및 메모리 설정에 대해 최소 및/또는 최대를 설정할 수 있습니다. 특정 수의 vCore 또는 특정 양의 메모리를 사용하도록 서버 그룹을 구성하려면 최대 설정에 해당하는 최소 설정을 설정합니다.
+서버 그룹의 vCore 또는 메모리 설정을 스케일 업하거나 스케일 다운하면 각 vCore 및 메모리 설정에 대해 최소 및/또는 최대를 설정할 수 있습니다. 특정 수의 vCore 또는 특정 양의 메모리를 사용하도록 서버 그룹을 구성하려면 최대 설정에 해당하는 최소 설정을 설정합니다. VCores 및 메모리에 대해 설정 된 값을 늘리려면 다음을 확인 해야 합니다. 
+- 배포를 호스트 하는 물리적 인프라에서 충분 한 리소스를 사용할 수 있습니다. 
+- 동일한 시스템에서 배치 된 작업은 동일한 vCores 또는 메모리에 대해 경쟁 하지 않습니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -33,7 +35,7 @@ ms.locfileid: "122528587"
 
 서버 그룹 현재 정의를 표시하고 현재 vCore 및 메모리 설정을 확인하려면 다음 명령 중 하나를 실행합니다.
 
-### <a name="cli-with-azure-cli-az"></a>azure cli를 사용하는 CLI(az)
+### <a name="with-azure-cli-az"></a>Azure CLI (az)
 
 ```azurecli
 az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
@@ -54,7 +56,9 @@ Spec:
       Name:   citus
     Version:  12
   Scale:
-    Workers:  2
+    Replicas:       1
+    Sync Replicas:  0
+    Workers:        4
   Scheduling:
     Default:
       Resources:
@@ -117,13 +121,13 @@ az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/
 **코디네이터 역할이 2개 코어를 초과하지 않도록 구성하고 작업자 역할이 4개 코어를 초과하지 않도록 구성합니다.**
 
 ```azurecli
- az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace <namespace> --use-k8s
- az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace arc --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace arc --use-k8s
 ```
 
 또는
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace arc --use-k8s
 ```
 
 > [!NOTE]
@@ -150,6 +154,17 @@ kubectl edit postgresql/<servergroup name> -n <namespace name>
 아래 구성과 일치하도록 서버 그룹의 정의를 설정합니다.
 
 ```json
+...
+  spec:
+  dev: false
+  engine:
+    extensions:
+    - name: citus
+    version: 12
+  scale:
+    replicas: 1
+    syncReplicas: "0"
+    workers: 4
   scheduling:
     default:
       resources:
@@ -163,7 +178,7 @@ kubectl edit postgresql/<servergroup name> -n <namespace name>
             memory: 1Gi
           requests:
             cpu: "2"
-            memory: 512Mi
+            memory: 256Mi
       worker:
         resources:
           limits:
@@ -171,7 +186,8 @@ kubectl edit postgresql/<servergroup name> -n <namespace name>
             memory: 1Gi
           requests:
             cpu: "2"
-            memory: 512Mi
+            memory: 256Mi
+...
 ```
 
 `vi` 편집기에 익숙하지 않은 경우 [여기](https://www.computerhope.com/unix/uvi.htm)에서 필요할 수 있는 명령에 대한 설명을 참조하세요.
@@ -186,13 +202,13 @@ kubectl edit postgresql/<servergroup name> -n <namespace name>
 코어/메모리 제한/요청 매개 변수를 기본값으로 다시 설정하려면 해당 매개 변수를 편집하고 실제 값 대신 빈 문자열을 전달합니다. 예를 들어 코어 제한 매개 변수를 다시 설정하려는 경우 다음 명령을 실행합니다.
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
-az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace arc --use-k8s
+az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
 ```
 
 또는 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace arc --use-k8s
 ```
 
 ## <a name="next-steps"></a>다음 단계

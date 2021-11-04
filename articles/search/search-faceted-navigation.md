@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ebd61d57e79864c1af8a583de349eb5a6706fce8
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 55473848a8c8e8e7f9c6072566eb73d823feaba2
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273935"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561312"
 ---
 # <a name="add-faceted-navigation-to-a-search-app"></a>검색 앱에 패싯 탐색 추가
 
@@ -302,7 +302,3 @@ C #의이 자습서 및 샘플 시리즈에는 [패싯 탐색에 초점을 맞�
 ### <a name="nycjobs-sample-code-and-demo-ajax"></a>NYCJobs 샘플 코드 및 데모 (Ajax)
 
 NYCJobs 샘플은 프레젠테이션 계층에서 Ajax를 사용 하는 ASP.NET MVC 응용 프로그램입니다. [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 [라이브 데모 앱](https://aka.ms/azjobsdemo) 및 원본 코드로 사용할 수 있습니다.
-
-### <a name="video-demonstration"></a>비디오 데모
-
-[Azure Cognitive Search 심층](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)소개 45:25에서 패싯을 구현 하는 방법에 대 한 데모를 소개 합니다.

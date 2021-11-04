@@ -2,14 +2,14 @@
 title: IoT Edge 디바이스에 Azure Video Analyzer 배포 - Azure
 description: 이 문서에서는 IoT Edge 디바이스에 Azure Video Analyzer를 배포하는 데 도움이 되는 단계를 나열합니다. 예를 들어, 로컬 Linux 컴퓨터에 대한 액세스 권한이 있는 경우 이 작업을 수행할 수 있습니다.
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4b2bb0cac613ec4b6a5bac1020e572c991a54a68
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6bd045a6cbc1d85790119564a00783b74f759b97
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102839"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556600"
 ---
 # <a name="deploy-azure-video-analyzer-to-an-iot-edge-device"></a>IoT Edge 디바이스에 Azure Video Analyzer 배포
 
@@ -90,13 +90,13 @@ Azure 리소스를 만들고 에지 모듈을 배포하는 데 몇 분 정도 �
 1. 만든 에지 모듈을 클릭하면 해당 구성 페이지로 이동합니다.  
 
     ![에지 모듈의 구성 페이지를 보여 주는 스크린샷.](./media/deploy-iot-edge-device/modules.png)
-1. **직접 메서드** 메뉴 옵션을 클릭 합니다.
+1. **직접 메서드** 메뉴 옵션을 클릭합니다.
 
     > [!NOTE] 
     > 현재 페이지에서 볼 수 있듯이 연결 문자열 섹션에 값을 추가해야 할 수도 있습니다. **설정 이름** 섹션에서 아무것도 숨기거나 변경할 필요가 없습니다. 공개하는 것도 괜찮습니다.
 
     ![직접 메서드](./media/deploy-iot-edge-device/module-details.png)
-1. 다음으로 상자에 "pipelineTopologyList"를 입력 `Method Name` 합니다.
+1. 다음으로 상자에 "pipelineTopologyList"를 `Method Name` 입력합니다.
 1. 그런 다음, 페이로드 상자에 아래 JSON 페이로드를 복사하여 붙여넣습니다.
     
    ```
@@ -104,8 +104,8 @@ Azure 리소스를 만들고 에지 모듈을 배포하는 데 몇 분 정도 �
        "@apiVersion": "1.1"
    }
    ```
-1. 페이지 맨 위에서 **메서드 호출** 옵션을 클릭 합니다.
-1. 상자에 상태 200 메시지가 표시 됩니다. `Result`
+1. 페이지 위쪽에서 **메서드 호출** 옵션을 클릭합니다.
+1. 상자에 상태 200 메시지가 표시되어야 합니다. `Result`
 
     ![상태 200 메시지](./media/deploy-iot-edge-device/connection-timeout.png) 
 

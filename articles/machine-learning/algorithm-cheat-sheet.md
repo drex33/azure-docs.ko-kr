@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 07/20/2021
+ms.date: 10/21/2021
 adobe-target: true
-ms.openlocfilehash: ebe02e264a9f3faea2812253eeced6d56319627d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f14a468130dbadfc9ae6a5668a9e1c71b880e818
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567009"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564920"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너용 Machine Learning 알고리즘 치트 시트
 
@@ -39,7 +39,7 @@ Azure Machine Learning은 ***분류** _, _*_추천 시스템_*_, _*_클러스터
 
 모든 Machine Learning 알고리즘에는 자체 스타일이나 귀납적 바이어스가 있습니다. 특정 문제에 대해 적합한 알고리즘이 여러 개 존재할 수 있으며, 그 중 어떤 알고리즘이 다른 알고리즘보다 적합도가 높을 수도 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 
 
-Azure Machine Learning 디자이너 알고리즘에 대한 자세한 정보를 보려면 [알고리즘 및 모듈 참조](algorithm-module-reference/module-reference.md)로 이동하세요.
+Azure Machine Learning 디자이너의 알고리즘에 대해 자세히 알아보려면 [알고리즘 및 구성 요소 참조](component-reference/component-reference.md)로 이동하세요.
 
 ## <a name="kinds-of-machine-learning"></a>Machine Learning의 종류
 

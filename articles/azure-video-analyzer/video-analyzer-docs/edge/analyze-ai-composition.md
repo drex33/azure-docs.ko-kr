@@ -3,14 +3,14 @@ title: AI 컴퍼지션을 사용하여 여러 AI 모델로 라이브 비디오 �
 description: 이 문서에서는 Azure Video Analyzer의 AI 컴퍼지션 기능을 사용하여 여러 AI 모델로 라이브 비디오 스트림을 분석하는 방법에 대한 지침을 제공합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b86cf60f51913c883bdc1fa62a6d8b1bb3f073e9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 63df94e51b53dde61fd7863ece33b2a9baac2908
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053162"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554567"
 ---
 # <a name="analyze-live-video-streams-with-multiple-ai-models-using-ai-composition"></a>AI 컴퍼지션을 사용하여 여러 AI 모델로 라이브 비디오 스트림 분석
 

@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 679be09b977ffd39dd513e88968fe4b0d474e74b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 037de82a9123014151cc26013550348459b57ca7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705358"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561502"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>미리 빌드된 Docker 이미지에 대 한 Python 패키지 확장성 (미리 보기)
 

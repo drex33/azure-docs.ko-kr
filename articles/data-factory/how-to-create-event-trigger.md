@@ -10,12 +10,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: e2621a6eea481866bb5351623065e7d113e8e9bd
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: da1348f0e31fbe0c3e2528692d40675d799e43da
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138670"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469695"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>스토리지 이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -31,6 +31,9 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 > [!NOTE]
 > 이 문서에서 설명하는 통합은 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)에 따라 달라집니다. 구독이 Event Grid 리소스 공급자에 등록되어 있는지 확인합니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. *Microsoft.EventGrid/eventSubscriptions/* * 작업을 수행할 수 있어야 합니다. 이 작업은 EventGrid EventSubscription 기여자 기본 제공 역할의 일부입니다.
+
+> [!NOTE]
+> Blob 저장소 계정이 [개인 끝점](../storage/common/storage-private-endpoints.md) 뒤에 있고 공용 네트워크 액세스를 차단 하는 경우 blob 저장소에서 Azure Event Grid에 대 한 통신을 허용 하도록 네트워크 규칙을 구성 해야 합니다. [Storage 설명서](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services)에 따라 Event Grid와 같은 신뢰할 수 있는 Azure 서비스에 대 한 저장소 액세스를 부여 하거나 VNet 주소 공간에 매핑되는 Event Grid에 대 한 개인 끝점을 구성할 수 있습니다 [Event Grid 설명서](../event-grid/configure-private-endpoints.md)
 
 ## <a name="create-a-trigger-with-ui"></a>UI로 트리거 만들기
 
@@ -95,7 +98,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 | **범위** | 스토리지 계정의 Azure Resource Manager 리소스 ID입니다. | String | Azure Resource Manager ID | 예 |
 | **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 이러한 값의 조합입니다. |
 | **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어 `/records/blobs/december/`는 `records` 컨테이너 아래의 `december` 폴더에서 Blob에 대한 트리거만을 시작합니다. | String   | | `blobPathBeginsWith` 또는 `blobPathEndsWith` 속성 중 하나 이상에 대한 값을 제공합니다. |
-| **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어 `december/boxes.csv`는 `december` 폴더에서 `boxes`라는 이름의 Blob에 대한 트리거만을 시작합니다. | String   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
+| **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어 `december/boxes.csv`는 `december` 폴더에서 `boxes`라는 이름의 Blob에 대한 트리거만을 시작합니다. | String   | | `blobPathBeginsWith` 또는 `blobPathEndsWith` 속성 중 하나 이상에 대한 값을 제공합니다. |
 | **ignoreEmptyBlobs** | 0 바이트 BLOB이 파이프라인 실행을 트리거하는지 여부입니다. 기본적으로 True로 설정됩니다. | 부울 | true 또는 false | 예 |
 
 ## <a name="examples-of-storage-event-triggers"></a>스토리지 이벤트 트리거의 예제
@@ -119,7 +122,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 Azure Data Factory 및 Synapse 파이프라인은 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Blob 이벤트에 연결된 파이프라인의 수신 대기를 위한 무단 액세스, 업데이트를 위한 구독, 트리거가 엄격히 금지되도록 합니다.
 
-* 새 스토리지 이벤트 트리거를 만들거나 기존 스토리지 이벤트 트리거를 업데이트하려면, 서비스에 로그인한 Azure 계정에서 관련 스토리지 계정에 적절한 액세스 권한을 보유하고 있어야 합니다. 그렇지 않으면 작업이 실패 하 고 _액세스가 거부_ 됩니다.
+* 새 를 성공적으로 만들거나 기존 Storage 이벤트 트리거를 업데이트하려면 서비스에 로그인한 Azure 계정에 관련 스토리지 계정에 대한 적절한 액세스 권한이 있어야 합니다. 그렇지 않으면 _액세스가 거부되어_ 작업이 실패합니다.
 * Azure Data Factory 및 Azure Synapse에서는 Event Grid에 대한 특별 권한이 필요하지 않고, 작업의 Data Factory 또는 Azure Synapse 서비스 주체에게 특별 RBAC 권한을 할당할 필요가 _없습니다_.
 
 다음 RBAC 설정은 스토리지 이벤트 트리거에 대해 작동합니다.

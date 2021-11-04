@@ -3,14 +3,14 @@ title: PowerShell 갤러리에서 Azure Automation Runbook 및 모듈 사용
 description: 이 문서에서는 Microsoft GitHub 리포지토리 및 PowerShell 갤러리에서 Runbook 및 모듈을 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/07/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 203900e225700055c581ce4c7a100e055d9526b7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1f6b3a47d7d8bcab77c80b71fcbc06c3381509c9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837445"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504203"
 ---
 # <a name="use-existing-runbooks-and-modules"></a>기존 Runbook 및 모듈 사용
 
@@ -21,22 +21,40 @@ Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대�
 
 ## <a name="import-runbooks-from-github-with-the-azure-portal"></a>Azure Portal을 사용하여 GitHub에서 Runbook 가져오기
 
+> [!NOTE]
+>- Azure Portal의 **갤러리 찾아보기** 옵션은 향상 된 사용자 환경을 제공 합니다.
+>- **프로세스 자동화**  >  **runbook** 블레이드에서 **runbook 가져오기** 또는 **갤러리 찾아보기** 옵션을 선택 하 여 runbook을 가져올 수 있으며, **runbook** 페이지에는 **런타임 버전과** **Runbook 유형** 이라는 두 개의 새로운 열이 표시 됩니다.
+ 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **프로세스 자동화** 에서 **Runbook 갤러리** 를 선택합니다.
-3. **원본: GitHub** 를 선택합니다.
-4. 목록 위의 필터를 사용하여 게시자, 유형 및 정렬별로 표시 범위를 좁힐 수 있습니다. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다.
+1. **프로세스 자동화** 아래에서 **runbook** 블레이드를 선택 합니다.
+1. **Runbook 페이지에서** **runbook 가져오기** 를 클릭 합니다.
+
+   :::image type="content" source="./media/automation-runbook-gallery/import-runbook.png" alt-text="Runbook 가져오기 옵션에서 runbook을 선택 하는 스크린샷":::
+
+1. **runbook 가져오기** 페이지에서 로컬 컴퓨터에 저장 된 파일을 가져오거나, **파일 찾아보기** 또는 **갤러리에서 각각 찾아보기** 를 사용 하 여 GitHub에서 파일을 가져올 수 있습니다.
+1. 파일을 선택합니다.
+1. **이름**, **런타임 버전** 및 **설명을** 입력 합니다.
+1. **가져오기** 를 클릭합니다.
+   
+   :::image type="content" source="./media/automation-runbook-gallery/import-runbook-upload-runbook-file.png" alt-text="파일 또는 갤러리에서 runbook을 선택 하는 스크린샷":::
+
+1. 또는 **runbook** 페이지에서 **갤러리 찾아보기** 를 선택 하 여 사용 가능한 runbook을 찾아봅니다.
+
+   :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-option.png" alt-text="Runbook 블레이드에서 갤러리 검색 옵션을 선택 하는 스크린샷":::
+
+1. 목록 위의 필터를 사용하여 게시자, 유형 및 정렬별로 표시 범위를 좁힐 수 있습니다. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다.
 
    :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github.png" alt-text="Runbook 갤러리 찾아보기." lightbox="./media/automation-runbook-gallery/browse-gallery-github-expanded.png":::
 
-5. 항목을 가져오려면 세부 정보 페이지에서 **가져오기** 를 클릭합니다.
+1. **선택** 을 클릭 하 여 선택한 runbook을 선택 합니다. 
+1. **Runbook 가져오기** 페이지에서 **이름을** 입력 하 고 **런타임 버전** 을 선택 합니다.
+1. **Runbook 형식** 및 **설명은** 자동으로 채워집니다.
+1. **가져오기** 를 클릭합니다.
 
    :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import.png" alt-text="갤러리 항목 가져오기.":::
 
-6. 선택적으로 가져오기 블레이드에서 Runbook 이름을 변경한 후 **확인** 을 클릭하여 Runbook을 가져옵니다.
-
-   :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import-blade.png" alt-text="갤러리 항목 가져오기 블레이드.":::
-
 7. 이 Runbook은 Automation 계정의 **Runbook** 탭에 표시됩니다.
+
  
 ## <a name="runbooks-in-the-powershell-gallery"></a>PowerShell 갤러리의 Runbook
 
@@ -56,10 +74,10 @@ PowerShell 갤러리에서 직접 가져오는 것은 Azure Portal을 사용하�
 
 PowerShell 모듈에는 Runbook에서 사용할 수 있는 cmdlet이 포함되어 있습니다. Azure Automation에 설치할 수 있는 기존 모듈은 [PowerShell 갤러리](https://www.powershellgallery.com)에서 사용할 수 있습니다. Azure Portal에서 이 갤러리를 시작하여 모듈을 Azure Automation에 직접 설치하거나, 수동으로 다운로드하여 설치할 수 있습니다.
 
-또한 Azure Portal에서 가져올 모듈을 찾을 수 있습니다. 이것들은 **공유 리소스** 아래의 **모듈 갤러리** 에서 해당 Automation 계정에 대해 나열되어 있습니다.
+또한 Azure Portal에서 가져올 모듈을 찾을 수 있습니다. **공유 리소스** 아래의 **모듈** 에서 Automation 계정에 대해 나열 됩니다.
 
 > [!IMPORTANT] 
-> Az 모듈을 통해 실행되도록 설계된 스크립트에는 "AzureRm" 키워드를 포함하지 마십시오. 주석에도 키워드를 포함하면 AzureRm이 로드된 다음, Az 모듈과 충돌할 수 있습니다.
+> Az 모듈을 통해 실행되도록 설계된 스크립트에는 "AzureRm" 키워드를 포함하지 마세요. 주석에도 키워드를 포함하면 AzureRm이 로드된 다음, Az 모듈과 충돌할 수 있습니다.
 
 ## <a name="common-scenarios-available-in-the-powershell-gallery"></a>PowerShell 갤러리에서 사용 가능한 일반 시나리오
 
@@ -99,7 +117,8 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 ## <a name="import-a-module-from-the-modules-gallery-in-the-azure-portal"></a>Azure Portal을 사용하여 모듈 갤러리에서 모듈 가져오기
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-1. **공유 리소스** 아래에서 **모듈 갤러리** 를 선택하여 모듈 목록을 엽니다.
+1. **공유 리소스** 에서 **모듈** 을 선택합니다.
+1. **모듈** 페이지에서 **갤러리 찾아보기** 를 선택 하 여 모듈 목록을 엽니다.
 
       :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="모듈 갤러리의 보기." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
@@ -127,7 +146,7 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 
 ## <a name="request-a-runbook-or-module"></a>Runbook 또는 모듈 요청
 
-[사용자 음성](https://feedback.azure.com/forums/246290-azure-automation/)에 요청을 보낼 수 있습니다.  Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [Microsoft Q&A 질문 페이지](/answers/topics/azure-automation.html)에 질문을 게시하세요.
+[사용자 음성](https://feedback.azure.com/d365community/forum/8ddd03a2-0225-ec11-b6e6-000d3a4f0858)에 요청을 보낼 수 있습니다.  Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [Microsoft Q&A 질문 페이지](/answers/topics/azure-automation.html)에 질문을 게시하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

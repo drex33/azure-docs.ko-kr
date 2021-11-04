@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 26f70e4750d29231b3f139ecd617b43071e369bb
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: f0558d7e3cffd744ec4effa1d4f81f359e909e97
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066094"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503174"
 ---
 # <a name="shaping-data-for-projection-into-a-knowledge-store"></a>지식 저장소에 프로젝션할 데이터 셰이핑
 
@@ -20,7 +20,7 @@ Azure Cognitive Search에서 “데이터 셰이핑”은 Azure Storage에서 �
 
 기술이 실행됨에 따라 노드 계층 구조에서 보강 트리에 출력이 기록됩니다. 보강 트리 전체를 보고 사용해야 할 수도 있지만 번역된 텍스트 또는 추출된 엔티티와 관련된 노드를 특정 테이블에 배치할 때와 같이 여러 시나리오에 따라 노드 하위 집합을 만드는 경우처럼 더 세부적인 조정이 필요한 경우가 더 많습니다.
 
-자체적으로 보강 트리는 지식 저장소에 해당 콘텐츠가 표시된 방식을 알려주는 논리를 포함하지 않습니다. 데이터 셰이프는 각 테이블, 개체, 파일 프로젝션에 저장되는 항목에 대한 스키마를 제공하여 이러한 격차를 메워줍니다. 데이터 셰이프는 보강된 데이터에 대한 사용자 지정 정의 또는 보기와 같습니다. 필요한 만큼 셰이프를 만들고 이를 지식 저장소 정의에서 프로젝션에 할당할 수 있습니다. 
+자체적으로 보강 트리는 지식 저장소에 해당 콘텐츠가 표시된 방식을 알려주는 논리를 포함하지 않습니다. 데이터 셰이프는 각 테이블, 개체, 파일 프로젝션에 저장되는 항목에 대한 스키마를 제공하여 이러한 격차를 메워줍니다. 데이터 셰이프는 보강된 데이터에 대한 사용자 지정 정의 또는 보기와 같습니다. 필요한 만큼 셰이프를 만든 후 기술 자료 저장소 정의의 [프로젝션](knowledge-store-projection-overview.md) 에 할당할 수 있습니다. 
 
 ## <a name="approaches-for-creating-shapes"></a>셰이프 만들기에 대한 접근 방법
 
@@ -144,7 +144,7 @@ Azure Cognitive Search에서 “데이터 셰이핑”은 Azure Storage에서 �
 ]
 ```
 
-## <a name="inline-shape-for-table-projections"></a>테이블 프로젝션에 대한 인라인 셰이프
+## <a name="inline-shape-for-table-projections"></a>테이블 프로젝션의 인라인 모양
 
 인라인 셰이핑은 프로젝션 정의 자체 내에서 새 셰이프를 형성하는 기능입니다. 인라인 셰이핑의 특성은 다음과 같습니다.
 
@@ -222,7 +222,7 @@ Azure Cognitive Search에서 “데이터 셰이핑”은 Azure Storage에서 �
 
 <a name="inline-shape"></a>
 
-## <a name="inline-shape-for-object-projections"></a>개체 프로젝션에 대한 인라인 셰이프
+## <a name="inline-shape-for-object-projections"></a>개체 프로젝션에 대 한 인라인 모양
 
 쉐이퍼 기술을 사용하여 새 도형을 생성하거나 개체 프로젝션의 인라인 셰이핑을 사용할 수 있습니다. 테이블 예제에서는 도형을 만들고 자르는 방법을 보여주지만, 이 예제에서는 인라인 셰이핑을 사용하는 방법을 보여줍니다. 
 

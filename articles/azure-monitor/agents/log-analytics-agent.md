@@ -4,13 +4,13 @@ description: 이 항목에서는 Log Analytics를 사용하여 Azure, 온-프레
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/12/2021
-ms.openlocfilehash: 749d807f15419445ff82f8e4b621efca034885a7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/02/2021
+ms.openlocfilehash: 1fa0763c9d4ccdb4e0233a5c6159be7c0d745be6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131074235"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470398"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 
@@ -20,6 +20,7 @@ Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 머신
 > Log Analytics 에이전트를 Microsoft Monitoring Agent(MMA)라고도 합니다.
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Azure 진단 확장과 비교
+
 Azure Monitor의 [Azure 진단 확장](./diagnostics-extension-overview.md)을 사용하여 Azure 가상 머신의 게스트 운영 체제에서도 모니터링 데이터를 수집할 수 있습니다. 요구 사항에 따라 둘 중 하나 또는 모두를 사용하도록 선택할 수 있습니다. Azure Monitor 에이전트의 상세 비교는 [Azure Monitor 에이전트 개요](../agents/agents-overview.md)를 참조하세요. 
 
 고려해야 할 주요 차이점은 다음과 같습니다.
@@ -83,14 +84,14 @@ Operations Manager 관리 그룹에 에이전트를 연결하는 방법에 대�
 
 ### <a name="windows-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Windows 가상 머신
 
-- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다.
+- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다. [배포 옵션](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) 을 검토 하 여 Arc 사용 서버에 등록 된 컴퓨터에서 확장에 사용할 수 있는 다양 한 배포 방법을 파악 합니다.
 - 명령줄에서 에이전트를 [수동으로 설치](../agents/agent-windows.md)합니다.
 - [Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation)를 사용하여 설치를 자동화합니다.
 - [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) 사용
 
 ### <a name="linux-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Linux 가상 머신
 
-- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다.
+- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다. [배포 옵션](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) 을 검토 하 여 Arc 사용 서버에 등록 된 컴퓨터에서 확장에 사용할 수 있는 다양 한 배포 방법을 파악 합니다.
 - GitHub에 호스트된 래퍼 스크립트를 호출하는 에이전트를 [수동으로 설치](../vm/monitor-virtual-machine.md)합니다.
 - Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 [System Center Operations Manager](./om-agents.md)와 Azure Monitor를 통합합니다.
 
@@ -148,6 +149,6 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](../agents/age
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터 원본](../agents/agent-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요. 
+* [데이터 원본](../agents/agent-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../logs/log-query-overview.md)에 대해 알아봅니다. 
 * Azure Monitor에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [모니터링 솔루션](../insights/solutions.md)에 대해 알아봅니다.

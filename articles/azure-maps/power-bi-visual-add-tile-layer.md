@@ -1,20 +1,20 @@
 ---
 title: Azure Maps Power BI 시각적 개체에 타일 레이어 추가 | Microsoft Azure Maps
 description: 이 문서에서는 Power BI에 대한 Microsoft Azure Maps 시각적 개체에서 타일 레이어를 사용하는 방법에 대해 설명합니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
+manager: eriklind
 ms.custom: ''
-ms.openlocfilehash: 0edb31901950da22c321af2d6c41966465f916f9
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7811174ce91de74f5fbc3f433c44e2aed223d01c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430417"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477006"
 ---
 # <a name="add-a-tile-layer"></a>타일 레이어 추가
 
@@ -45,21 +45,21 @@ ms.locfileid: "123430417"
 
 Azure Maps 시각적 개체에 의해 지원되는 세 가지 다른 타일 서비스 명명 규칙이 있습니다.
 
--   **X, Y, 확대/축소 표기법** - 타일 그리드에서 X는 열이고 Y는 타일의 행 위치이며 확대/축소 표기법은 확대/축소 수준을 기반으로 하는 값입니다.
--   **쿼드키 표기법** - x, y 및 확대/축소 정보를 단일 문자열 값으로 결합합니다. 이 문자열 값은 단일 타일에 대한 고유 식별자가 됩니다.
--   **경계 상자** - 경계 상자 좌표 형식 `{west},{south},{east},{north}`으로 이미지를 지정합니다. 이 형식은 일반적으로 [WMS(웹 매핑 서비스)](https://www.opengeospatial.org/standards/wms)에서 사용됩니다.
+* **X, Y, 확대/축소 표기법** - 타일 그리드에서 X는 열이고 Y는 타일의 행 위치이며 확대/축소 표기법은 확대/축소 수준을 기반으로 하는 값입니다.
+* **쿼드키 표기법** - x, y 및 확대/축소 정보를 단일 문자열 값으로 결합합니다. 이 문자열 값은 단일 타일에 대한 고유 식별자가 됩니다.
+* **경계 상자** - 경계 상자 좌표 형식 `{west},{south},{east},{north}`으로 이미지를 지정합니다. 이 형식은 일반적으로 [WMS(웹 매핑 서비스)](https://www.opengeospatial.org/standards/wms)에서 사용됩니다.
 
 타일 URL은 다음 매개 변수를 사용하는 타일 URL 템플릿에 대한 https URL입니다.
 
--   `{x}` - 타일의 X 위치입니다. 또한 `{y}` 및 `{z}`가 필요합니다.
--   `{y}` - 타일의 Y 위치입니다. 또한 `{x}` 및 `{z}`가 필요합니다.
--   `{z}` - 타일의 확대/축소 수준입니다. 또한 `{x}` 및 `{y}`가 필요합니다.
--   `{quadkey}` - Bing 지도 타일 시스템 명명 규칙을 기반으로 하는 타일 `quadkey`식별자입니다.
--   `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
+* `{x}` - 타일의 X 위치입니다. 또한 `{y}` 및 `{z}`가 필요합니다.
+* `{y}` - 타일의 Y 위치입니다. 또한 `{x}` 및 `{z}`가 필요합니다.
+* `{z}` - 타일의 확대/축소 수준입니다. 또한 `{x}` 및 `{y}`가 필요합니다.
+* `{quadkey}` - Bing 지도 타일 시스템 명명 규칙을 기반으로 하는 타일 `quadkey`식별자입니다.
+* `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 
 예를 들어 다음은 Azure Maps에서 [날씨 레이더 타일 서비스](/rest/api/maps/render-v2/get-map-tile)에 대한 서식이 지정된 타일 URL입니다. `[subscription-key]`은 Azure Maps 구독 키에 대한 자리 표시자입니다.
 
-> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
+> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}`
 
 Azure Maps 타일링 배열 시스템에 대한 자세한 정보는 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조하세요.
 

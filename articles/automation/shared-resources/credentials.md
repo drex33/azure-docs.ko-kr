@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2a78f9636a29c8e48c8d3e1c38d7127bd3ba84b7
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 5a33bac9db69320df6e2e6d0e02361cb9aa0cdab
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354046"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432513"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Azure Automation에서 자격 증명 관리
 
@@ -77,11 +77,11 @@ Microsoft Azure Portal 또는 Windows PowerShell을 사용하여 새 자격 증�
 
     ![새 자격 증명 만들기](../media/credentials/credential-create.png)
 
-6. 다단계 인증 확인란이 선택되어 있으면 선택을 취소합니다.
+6. 다단계 인증 확인란이 선택 되어 있으면 선택을 취소 합니다.
 7. **만들기** 를 클릭하여 새 자격 증명 자산을 저장합니다.
 
 > [!NOTE]
-> 다단계 인증을 사용하는 사용자 계정은 Azure Automation에서 지원되지 않습니다.
+> Azure Automation는 다단계 인증을 사용 하는 사용자 계정을 지원 하지 않습니다.
 
 ### <a name="create-a-new-credential-asset-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 자격 증명 자산 만들기
 
@@ -116,7 +116,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-또한 먼저 관리 ID 로 연결한 후 자격 증명을 사용하여 [커넥트-AzAccount로](/powershell/module/az.accounts/connect-azaccount) Azure에 인증할 수 [있습니다.](../automation-security-overview.md#managed-identities-preview) 이 예제에서는 [시스템 할당 관리 ID 를](../enable-managed-identity-for-automation.md)사용합니다.
+자격 증명을 사용 하 여 먼저 [관리 id](../automation-security-overview.md#managed-identities)로 연결한 후에 [커넥트-AzAccount](/powershell/module/az.accounts/connect-azaccount) 로 Azure에 인증할 수도 있습니다. 이 예에서는 [시스템 할당 관리 id](../enable-managed-identity-for-automation.md)를 사용 합니다.
 
 ```powershell
 # Ensures you do not inherit an AzContext in your runbook

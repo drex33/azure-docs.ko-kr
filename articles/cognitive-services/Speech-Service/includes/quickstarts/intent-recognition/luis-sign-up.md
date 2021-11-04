@@ -1,16 +1,16 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/04/2021
-ms.author: pafarley
-ms.openlocfilehash: 67fc77b58d484c9fbb85029f0222e0d352e17428
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: d2bda8b0bbd4a4d484d2aa1016bb57244bd6caf7
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543493"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507570"
 ---
 의도 인식 빠른 시작을 완료하려면 LUIS 미리 보기 포털을 사용하여 LUIS 계정 및 프로젝트를 만들어야 합니다. 이 빠른 시작을 사용하려면 [의도 인식 기능을 사용할 수 있는 지역](../../../regions.md#intent-recognition)에서 LUIS 구독이 필요합니다. Speech Service 구독은 필요하지 *않습니다*.
 

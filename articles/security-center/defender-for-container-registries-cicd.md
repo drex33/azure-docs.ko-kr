@@ -7,13 +7,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 97fed8a7afce16a33497860cda70b12fc90bed2c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 044976ac6fb0e017c7cf9c5cff8bc7f6c31f3da2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014902"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428903"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>CI/CD 워크플로에서 취약한 컨테이너 이미지 식별
 
@@ -53,7 +52,7 @@ GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설�
 
 ### <a name="step-1-enable-the-cicd-integration-in-defender-for-cloud"></a>1단계. Defender for Cloud에서 CI/CD 통합 사용
 
-1. Defender for Cloud 메뉴에서 **환경 설정** 을 선택합니다.
+1. Defender for Cloud 메뉴에서 **환경 설정** 을 엽니다.
 1. 관련 구독을 선택합니다.
 1. 해당 구독에 대한 설정 페이지의 사이드바에서 **통합** 을 선택합니다.
 1. 창이 나타나면 워크플로에서 CI/CD 검색 결과를 푸시할 Application Insights 계정을 선택합니다.

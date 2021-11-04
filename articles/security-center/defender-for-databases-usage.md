@@ -7,13 +7,12 @@ ms.date: 06/17/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: f7d34663e9c83e74ea25ce501a89a5a34b38677e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 97b4cc4264ad835862ffce288852cb39356b1b03
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056011"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428827"
 ---
 # <a name="enable-microsoft-defender-for-open-source-relational-databases-and-respond-to-alerts"></a>오픈 소스 관계형 데이터베이스에 대해 Microsoft Defender를 사용 하도록 설정 하 고 경고에 응답
 

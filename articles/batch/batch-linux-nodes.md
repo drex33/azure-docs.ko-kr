@@ -4,12 +4,12 @@ description: Azure Batch의 Linux 가상 머신 풀에서 병렬 컴퓨팅 워�
 ms.topic: how-to
 ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f2140fd4f2bfc383743b84f0b635afba3dda9afe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98683703"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458668"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
 
@@ -21,7 +21,7 @@ Batch에서 컴퓨팅 노드 풀을 만들 때는 노드 크기와 운영 체제
 
 ### <a name="virtual-machine-image-reference"></a>가상 머신 이미지 참조
 
-Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용하여 가상 머신 구성에서 컴퓨팅 노드를 제공합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1) 이미지를 지정하거나 [Shared Image Gallery를 사용하여 사용자 지정 이미지를 준비](batch-sig-images.md)할 수 있습니다.
+Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용하여 가상 머신 구성에서 컴퓨팅 노드를 제공합니다. Azure Marketplace 이미지를 지정하거나 [Azure Compute](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1) [갤러리를 사용하여 사용자 지정 이미지를 준비할](batch-sig-images.md)수 있습니다.
 
 가상 머신 이미지 참조를 만들 때 다음 속성을 지정해야 합니다.
 

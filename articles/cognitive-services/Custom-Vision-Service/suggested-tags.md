@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/27/2021
 ms.author: pafarley
-ms.openlocfilehash: 94ca47e6114e4f8c3485f6072facd07c25e4b96a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: be1e97aead471012e6d0e92931d670306cb1ddf4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "73647763"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458307"
 ---
 # <a name="label-images-faster-with-smart-labeler"></a>Smart Labeler로 더 빠르게 이미지에 레이블 지정
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: ayshak
 ms.reviewer: jushiman
-ms.openlocfilehash: c5f2304de4cd10b8d4eea43c324d6d6e17bdbd7f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 5cefbdb7cdb3d44c08c61889d3a6420d31729989
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070511"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471747"
 ---
 # <a name="eav4-and-easv4-series"></a>Eav4 및 Easv4 시리즈
 
@@ -35,7 +35,7 @@ Eav4 시리즈와 Easv4 시리즈는 최대 256MB의 L3 캐시를 갖춘 다중 
 
 Eav4 시리즈 크기는 2.35Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 하며 최대 주파수 3.35GHz를 달성할 수 있습니다. Eav4 시리즈 크기는 메모리 집약적 엔터프라이즈 응용 프로그램에 적합합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 SSD를 사용하려면 Easv4 시리즈 크기를 사용합니다. Easv4 크기에 대한 가격 및 청구 미터는 Eav3 시리즈와 동일합니다.
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
 | -----|-----|-----|-----|-----|-----|-----|-----|
 | Standard\_E2a\_v4<sup>1</sup>|2|16|50|4|3000 / 46 / 23|2 | 800 |
 | 표준\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 | 1600 |
@@ -64,7 +64,7 @@ Eav4 시리즈 크기는 2.35Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기�
 
 Easv4 시리즈 크기는 2.35Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 하며 최대 주파수 3.35GHz를 달성할 수 있고 프리미엄 SSD를 사용합니다. Easv4 시리즈 크기는 메모리 집약적 엔터프라이즈 응용 프로그램에 적합합니다.
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>1</sup> | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 버스트 캐시 및 임시 스토리지 처리량: IOPS/MBps<sup>1</sup> | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_E2as_v4<sup>3</sup>|2|16|32|4|4000 / 32 (50)| 4000/100 |3200 / 48| 4000/200 |2 | 800 |
 | Standard_E4as_v4 <sup>2</sup>|4|32|64|8|8000 / 64 (100)| 8000/200 |6400 / 96| 8000/200 |2 | 1600 |

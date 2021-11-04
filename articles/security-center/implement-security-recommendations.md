@@ -1,21 +1,20 @@
 ---
-title: Microsoft Defender for Cloud | 보안 권장 사항 구현 Microsoft Docs
-description: 이 문서에서는 Microsoft Defender for Cloud의 권장 사항에 응답하여 리소스를 보호하고 보안 정책을 충족하는 방법을 설명합니다.
+title: Microsoft Defender for Cloud에서 보안 권장 사항 구현 | Microsoft Docs
+description: 이 문서에서는 Microsoft Defender for Cloud에서 리소스를 보호 하 고 보안 정책을 충족 하기 위해 권장 사항에 응답 하는 방법을 설명 합니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: c11a416ec381c41a04739e3e1a04682781e6f929
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d01a8f806154cdf0260f0dcf8c9f6c65386c99f6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052825"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437919"
 ---
-# <a name="implement-security-recommendations-in-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender에서 보안 권장 사항 구현
+# <a name="implement-security-recommendations-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 보안 권장 사항 구현
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -71,11 +70,11 @@ ms.locfileid: "131052825"
 
 ## <a name="fix-actions-logged-to-the-activity-log"></a>활동 로그에 기록되는 수정 작업 <a name="activity-log"></a>
 
-수정 작업은 템플릿 배포 또는 REST API 요청을 사용하여 `PATCH` 리소스에 구성을 적용합니다. 이러한 작업은 [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)에 기록됩니다.
+수정 작업은 템플릿 배포 또는 REST API 요청을 사용 하 여 `PATCH` 리소스에 대 한 구성을 적용 합니다. 이러한 작업은 [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)에 기록됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Defender for Cloud에서 권장 사항을 수정하는 방법을 설명했습니다. 환경에 대한 권장 사항을 정의하고 선택하는 방법을 알아보려면 다음 페이지를 참조하세요.
+이 문서에서는 클라우드에 대 한 Defender의 권장 사항을 수정 하는 방법을 살펴보았습니다. 사용자 환경에 대 한 권장 사항을 정의 하 고 선택 하는 방법을 알아보려면 다음 페이지를 참조 하세요.
 
 - [보안 정책, 이니셔티브 및 권장 사항은 무엇인가요?](security-policy-concept.md)

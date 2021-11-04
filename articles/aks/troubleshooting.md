@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 09/24/2021
-ms.openlocfilehash: 16aa9482b9de779295732fef0f2b88fa348e9026
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c21c5a981f091c9c4b0e340f3c0ae1481cd486c6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707189"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455913"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -93,6 +93,22 @@ API 서버에 연결하기 위해 22, 9000 및 1194 포트가 열려 있는지 �
 
 AKS에서 지원되는 최소 TLS 버전은 TLS 1.2입니다.
 
+## <a name="my-application-is-failing-with-argument-list-too-long"></a>응용 프로그램에서 오류가 발생 했습니다. `argument list too long`
+
+다음과 유사한 오류 메시지가 표시될 경우:
+
+```
+standard_init_linux.go:228: exec user process caused: argument list too long
+```
+
+두 가지 가능한 원인은 다음과 같습니다.
+- 실행 파일에 제공 된 인수 목록이 너무 깁니다.
+- 실행 파일에 제공 된 환경 변수 집합이 너무 큽니다.
+
+하나의 네임 스페이스에 배포 된 서비스가 많은 경우 환경 변수 목록이 너무 커질 수 있으며 Kubelet 실행을 시도할 때 위의 오류 메시지가 생성 됩니다. 이 오류는 Kubelet에서 각 활성 서비스의 호스트 및 포트를 기록 하는 환경 변수를 삽입 하 여 서비스에서이 정보를 사용 하 여 다른 항목을 찾을 수 있기 때문에 발생 합니다 ( [Kubernetes 설명서에서](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)자세히 알아보세요). 
+
+해결 방법으로 `enableServiceLinks: false` [Pod 사양](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core)내에서을 설정 하 여이 Kubelet 동작을 사용 하지 않도록 설정할 수 있습니다. **그러나** 서비스가 이러한 환경 변수를 사용 하 여 다른 서비스를 찾는 경우에는이로 인해 오류가 발생 합니다. 한 가지 해결 방법은 [Coredns](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)를 사용 하는 환경 변수 대신 서비스 확인에 DNS를 사용 하는 것입니다. 또 다른 옵션은 활성 상태의 서비스 수를 줄이는 것입니다.
+
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>업그레이드하거나 크기를 조정하려고 하는 중에 `"Changing property 'imageReference' is not allowed"` 오류가 발생했습니다. 이 문제를 어떻게 해결하나요?
 
 AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문에 이 오류가 발생하는 것일 수 있습니다. MC_* 리소스 그룹에서 리소스의 태그 및 다른 속성을 수정하거나 삭제하면 예기치 않은 결과가 발생할 수 있습니다. AKS 클러스터의 MC_* 그룹 아래에서 리소스를 변경하면 SLO(서비스 수준 목표)가 손상됩니다.
@@ -106,7 +122,7 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 1. 클러스터가 `failed` 상태를 벗어날 때까지 `upgrade` 및 `scale` 작업은 성공적으로 수행되지 않습니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
     * **부족한 컴퓨팅(CRP) 할당량** 을 사용하여 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 컴퓨팅 할당량을 늘리도록 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
     * 고급 네트워킹 및 **부족한 서브넷(네트워킹) 리소스** 를 사용하여 클러스터 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 리소스 할당량을 늘리도록 요청](../azure-resource-manager/templates/error-resource-quota.md#solution)합니다.
-2. 업그레이드 실패의 근본 원인이 해결되면 원래 작업을 다시 시도합니다. 이 재시도 작업은 클러스터를 성공 상태로 가져와야 합니다. 
+2. 업그레이드 실패의 근본 원인을 해결 한 후 원래 작업을 다시 시도 합니다. 이 재시도 작업은 클러스터를 succeeded 상태로 전환 해야 합니다. 
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>내 클러스터를 업그레이드하고 있거나 업그레이드가 실패한 상태에서 업그레이드하거나 크기를 조정하려고 하면 오류가 발생합니다.
 

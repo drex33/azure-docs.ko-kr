@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d1cf4c18c4722c327d9d74569e7709d11068dc7c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 71a86e1440d96a37fd72afc67aaaaa7d122c6d4f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087073"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426680"
 ---
 # <a name="about-bastion-configuration-settings"></a>Bastion 구성 설정 정보
 
@@ -78,7 +78,7 @@ Azure Bastion은 기본 SKU에서 표준 SKU로의 업그레이드를 지원합�
 Azure Bastion에는 전용 서브넷 **AzureBastionSubnet** 이 필요합니다. 이 서브넷은 Azure Bastion이 배포된 동일한 가상 네트워크에서 만들어야 합니다. 서브넷에는 다음 구성이 있어야 합니다.
 
 * 서브넷 이름은 *AzureBastionSubnet* 이어야 합니다.
-* 서브넷 크기는 27 이상(26, 25 등)이어야 합니다.
+* 서브넷 크기는 /26 이상(/25, /24 등)이어야 합니다.
 * 호스트 크기 조정을 위해 26 이상의 서브넷이 권장됩니다. 더 작은 서브넷 공간을 사용하면 배율 단위 수가 제한됩니다. 자세한 내용은 이 문서의 [호스트 크기 조정](#instance) 섹션을 참조하세요.
 * 서브넷은 베스천 호스트와 동일한 VNet 및 리소스 그룹에 있어야 합니다.
 * 서브넷은 추가 리소스를 포함할 수 없습니다.

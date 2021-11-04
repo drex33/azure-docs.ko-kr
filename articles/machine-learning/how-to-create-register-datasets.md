@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: a125ee289f9f3ea87f1015136b07ec2ad76cef32
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 423dae8f84e43900ad84a49423b7d2ff00fb8c76
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003045"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429796"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -129,7 +129,7 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
-로컬 디렉터리에서 모든 파일을 업로드하려면 [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-)를 사용하여 단일 메서드로 FileDataset를 만듭니다. 이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
+로컬 디렉터리에서 모든 파일을 업로드 하려는 경우 [upload_directory ()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-)를 사용 하 여 단일 메서드에 filedataset을 만듭니다. 이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -245,12 +245,9 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
 
-### <a name="partition-data-preview"></a>데이터 분할(미리 보기)
+### <a name="partition-data"></a>데이터 분할
 
 TabularDataset 또는 FileDataset를 만들 때 `partitions_format` 매개 변수를 포함하여 데이터 세트를 분할할 수 있습니다. 
-
-> [!IMPORTANT]
-> 데이터 세트 분할은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든 변경될 수 있습니다. 
 
 데이터 세트를 분할하면 각 파일 경로의 파티션 정보가 지정된 형식에 따라 열로 추출됩니다. 형식은 첫 번째 파티션 키의 위치에서 시작하여 파일 경로의 끝까지입니다. 
 

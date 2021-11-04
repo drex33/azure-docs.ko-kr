@@ -3,22 +3,22 @@ title: Azure AD 인증 구성
 description: App Service 또는 Azure Functions 앱의 ID 공급자로 Azure Active Directory 인증을 구성하는 방법에 대해 알아봅니다.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 10/26/2021
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 039a32d1f1ec1327ee032c17af36dc910f363eed
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: cc5761afe295bd9ef71c86cf6ffdafb8c0e847ff
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045978"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435836"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 문서에서는 앱이 인증 공급자로 [Microsoft ID 플랫폼](../active-directory/develop/v2-overview.md) Azure AD)을 사용하여 사용자를 로그인하도록 Azure App Service 또는 Azure Functions에 대한 인증을 구성하는 방법을 보여 줍니다.
+이 문서에서는 앱이 인증 공급자로 Microsoft ID 플랫폼(Azure AD)를 사용하여 사용자를 로그인하도록 Azure App Service 또는 [Azure Functions](../active-directory/develop/v2-overview.md) 대한 인증을 구성하는 방법을 보여 줍니다.
 
-App Service 인증 기능은 Microsoft ID 플랫폼을 사용하여 앱 등록을 자동으로 만들 수 있습니다. 사용자 또는 디렉터리 관리자가 별도로 만든 등록을 사용할 수도 있습니다.
+App Service 인증 기능은 Microsoft ID 플랫폼 앱 등록을 자동으로 만들 수 있습니다. 사용자 또는 디렉터리 관리자가 별도로 만든 등록을 사용할 수도 있습니다.
 
 - [자동으로 새 앱 등록 만들기](#express)
 - [별도로 만든 기존 등록 사용](#advanced)
@@ -43,13 +43,13 @@ App Service 인증 기능은 Microsoft ID 플랫폼을 사용하여 앱 등록�
 1. (선택 사항) **다음: 권한** 을 클릭하고 애플리케이션에 필요한 모든 범위를 추가합니다. 이러한 항목은 앱 등록에 추가되지만 나중에 변경할 수도 있습니다.
 1. **추가** 를 클릭합니다.
 
-이제 앱에서 인증을 위해 Microsoft ID 플랫폼을 사용할 준비가 되었습니다. 공급자는 **인증** 화면에 나열됩니다. 여기에서 공급자 구성을 편집하거나 삭제할 수 있습니다.
+이제 앱에서 인증에 Microsoft ID 플랫폼 사용할 준비가 되었습니다. 공급자는 **인증** 화면에 나열됩니다. 여기에서 공급자 구성을 편집하거나 삭제할 수 있습니다.
 
 Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD 로그인을 구성하는 예제는 [이 자습서](scenario-secure-app-authentication-app-service.md)를 참조하세요.
 
 ## <a name="option-2-use-an-existing-registration-created-separately"></a><a name="advanced"> </a>옵션 2: 별도로 만든 기존 등록 사용
 
-등록 세부 정보를 사용하여 등록을 사용자 지정하고 App Service 인증을 구성하여 Microsoft ID 플랫폼용 애플리케이션을 수동으로 등록할 수도 있습니다. 이 방식은 예를 들어, 애플리케이션이 있는 것과는 다른 Azure AD 테넌트에서 앱 등록을 사용하려는 경우에 유용합니다.
+또한 등록을 사용자 지정하고 등록 세부 정보를 App Service 인증을 구성하여 Microsoft ID 플랫폼 애플리케이션을 수동으로 등록할 수도 있습니다. 이 방식은 예를 들어, 애플리케이션이 있는 것과는 다른 Azure AD 테넌트에서 앱 등록을 사용하려는 경우에 유용합니다.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Azure AD에서 App Service 앱의 앱 등록 만들기
 
@@ -68,7 +68,7 @@ Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD �
 1. **리디렉션 URI** 에서 **웹** 을 선택하고 `<app-url>/.auth/login/aad/callback`를 입력합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다.
 1. **등록** 을 선택합니다.
 1. 앱 등록을 만든 후에는 나중에 사용할 수 있도록 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID** 를 복사합니다.
-1. **인증** 을 선택합니다. **암시적 권한 부여** 에서 **ID 토큰** 을 사용하도록 설정하여 OpenID Connect 사용자가 App Service에서 로그인하는 것을 허용합니다.
+1. **인증** 을 선택합니다. **암시적 허용 및 하이브리드 흐름에서** **ID 토큰을** 사용하도록 설정하여 OpenID 커넥트 사용자가 App Service 로그인할 수 있도록 합니다.  **저장** 을 선택합니다.
 1. (선택 사항) **브랜딩** 을 선택합니다. **홈페이지 URL** 에서 App Service 앱의 URL을 입력하고 **저장** 을 선택합니다.
 1. **API 노출을** 선택하고 "애플리케이션 ID URI" 옆에 있는 **설정을** 클릭합니다. 이 값은 리소스로 사용될 때 애플리케이션을 고유하게 식별하여 액세스 권한을 부여하는 토큰을 요청할 수 있도록 합니다. 만드는 범위에 대한 접두사로 사용됩니다.
 
@@ -77,10 +77,11 @@ Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD �
     값을 입력한 후 **저장을** 클릭합니다.
 
 1. **범위 추가** 를 선택합니다.
+   1. **범위 추가에서** **애플리케이션 ID URI는** 이전 단계에서 설정한 값입니다.  **저장하고 계속** 을 선택합니다.
    1. **범위 이름** 에 *user_impersonation* 을 입력합니다.
    1. 텍스트 상자에는 동의 페이지에서 사용자에게 표시할 동의 범위 이름 및 설명을 입력합니다. 예를 들어 *Access &lt; &gt; application-name 을* 입력합니다.
    1. **범위 추가** 를 선택합니다.
-1. (선택 사항) 클라이언트 암호를 만들려면 **인증서 및 비밀** > **새 클라이언트 암호** > **추가** 를 선택합니다. 페이지에 표시되는 클라이언트 암호 값을 복사합니다. 다시 표시되지 않습니다.
+1. (선택 사항) 클라이언트 암호를 만들려면 **인증서 & 비밀**  >  **클라이언트 비밀** 새 클라이언트  >  **암호** 를 선택합니다.  설명 및 만료를 입력하고 **추가를** 선택합니다. 페이지에 표시되는 클라이언트 암호 값을 복사합니다. 다시 표시되지 않습니다.
 1. (선택 사항) **회신 URL** 을 여러 개 추가하려면 **인증** 을 선택합니다.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Azure Active Directory에서 Azure Active Directory 사용
@@ -93,7 +94,7 @@ Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD �
     |필드|설명|
     |-|-|
     |애플리케이션(클라이언트) ID| 앱 등록의 **애플리케이션(클라이언트) ID** 를 사용합니다. |
-    |클라이언트 암호(선택 사항)| 앱 등록에서 생성한 클라이언트 암호를 사용합니다. 클라이언트 비밀을 사용하면 하이브리드 흐름이 사용되며 App Service는 액세스 및 새로 고침 토큰을 반환합니다. 클라이언트 암호를 설정하지 않으면 암시적 흐름이 사용되며 ID 토큰만 반환됩니다. 이러한 토큰은 공급자가 보내고 EasyAuth 토큰 저장소에 저장됩니다.|
+    |클라이언트 암호| 앱 등록에서 생성한 클라이언트 암호를 사용합니다. 클라이언트 비밀을 사용하면 하이브리드 흐름이 사용되며 App Service는 액세스 및 새로 고침 토큰을 반환합니다. 클라이언트 암호를 설정하지 않으면 암시적 흐름이 사용되며 ID 토큰만 반환됩니다. 이러한 토큰은 공급자가 보내고 EasyAuth 토큰 저장소에 저장됩니다.|
     |발급자 URL| `<authentication-endpoint>/<tenant-id>/v2.0`을 사용하고, \<authentication-endpoint>를 [클라우드 환경의 인증 엔드포인트](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints)로 바꾸고(예: 글로벌 Azure는 "https://login.microsoftonline.com "), \<tenant-id> 를 앱 등록이 생성된 **디렉터리(테넌트) ID** 로 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키와 토큰 발급자 클레임 값을 확인하는 등의 용도로 사용됩니다. Azure AD v1을 사용하는 애플리케이션 및 Azure Functions 앱의 경우 URL에서 `/v2.0`을 생략합니다.|
     |허용되는 토큰 대상| 앱이 클라우드 또는 서버 앱이고 웹앱의 인증 토큰을 허용하려면 웹앱의 **애플리케이션 ID URI** 를 여기에 추가합니다. 구성된 **클라이언트 ID** 는 암시적으로 *항상* 허용되는 대상으로 간주됩니다.|
 
@@ -105,7 +106,7 @@ Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD �
 
 1. **추가** 를 클릭합니다.
 
-이제 앱에서 인증을 위해 Microsoft ID 플랫폼을 사용할 준비가 되었습니다. 공급자는 **인증** 화면에 나열됩니다. 여기에서 공급자 구성을 편집하거나 삭제할 수 있습니다.
+이제 앱에서 인증에 Microsoft ID 플랫폼 사용할 준비가 되었습니다. 공급자는 **인증** 화면에 나열됩니다. 여기에서 공급자 구성을 편집하거나 삭제할 수 있습니다.
 
 ## <a name="configure-client-apps-to-access-your-app-service"></a>App Service에 액세스하도록 클라이언트 앱 구성
 

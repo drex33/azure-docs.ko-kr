@@ -7,12 +7,12 @@ ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.openlocfilehash: 49921eba1a7f4c6c898eaadf1d8743d8d210057a
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 8b7fe1fc5c291f02abff88cb3e5ace2607cf32f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729808"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428143"
 ---
 # <a name="custom-authentication-in-azure-static-web-apps"></a>Azure Static Web Apps의 사용자 지정 인증
 
@@ -29,11 +29,11 @@ Azure Static Web Apps는 Azure에서 관리하는 공급자 등록을 사용하�
 
 사용자 지정 ID 공급자는 `auth` 구성 파일 의 섹션에서 [구성됩니다.](configuration.md)
 
-소스 제어에 비밀을 포함시키지 않으려면 구성은 [애플리케이션 설정](application-settings.md)에서 구성 파일의 일치하는 이름을 찾습니다. [Azure Key Vault](./key-vault-secrets.md)에 비밀을 저장하도록 선택할 수도 있습니다.
+소스 제어에 비밀을 포함시키지 않으려면 구성은 [애플리케이션 설정](application-settings.md#configure-application-settings)에서 구성 파일의 일치하는 이름을 찾습니다. [Azure Key Vault](./key-vault-secrets.md)에 비밀을 저장하도록 선택할 수도 있습니다.
 
 # <a name="azure-active-directory"></a>[Azure Active Directory](#tab/aad)
 
-등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md)만듭니다.
+등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md#configure-application-settings)만듭니다.
 
 | 설정 이름 | 값 |
 | --- | --- |

@@ -4,229 +4,88 @@ description: Azure Monitor에서 모니터링하는 모든 서비스 및 기타 
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 08/15/2020
-ms.openlocfilehash: 1e43944b803f798c3bd741903f1ee0732bcb93d4
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.openlocfilehash: 414f209928ebada5794970e5290fb5eee9db5633
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864536"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476987"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
-이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
 
-## <a name="insights-and-core-solutions"></a>인사이트 및 핵심 솔루션
-핵심 인사이트 및 솔루션은 Azure Monitor의 일부로 간주되며 Azure에 대한 지원 및 서비스 수준 계약을 따릅니다. Azure Monitor를 사용할 수 있는 모든 Azure 지역에서 지원됩니다.
+이 문서는 Azure Monitor 모니터링되는 다양한 애플리케이션 및 서비스에 대한 참조입니다.
 
-### <a name="insights"></a>자세한 정보
+## <a name="insights-and-curated-visualizations"></a>Insights 및 큐레이팅된 시각화
 
-인사이트는 특정 애플리케이션 및 서비스에 대한 사용자 지정 모니터링 환경을 제공합니다. 로그 및 메트릭을 모두 수집하고 분석합니다.
+일부 서비스에는 큐레이팅된 모니터링 환경이 있습니다. 즉, Microsoft는 해당 서비스를 모니터링하기 위한 시작점으로 사용할 수 있는 사용자 지정 기능을 제공합니다. 이러한 환경을 전체적으로 **큐레이팅된 시각화라고** 하며, 더 복잡한 환경은 **Insights** 호출됩니다.  
 
-| 인사이트 | Description |
-|:---|:---|
-| [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 애플리케이션을 모니터링하는 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. |
-| [컨테이너 인사이트](containers/container-insights-overview.md) | AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
-| [Cosmos DB 인사이트](insights/cosmosdb-insights-overview.md) | 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. |
-| [네트워크 인사이트(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. |
-[리소스 그룹 인사이트(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
-| [Storage 인사이트](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
-| [VM 인사이트](vm/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
-| [Key Vault 인사이트(미리 보기)](./insights/key-vault-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간 통합 보기를 제공하여 키 자격 증명 모음에 대한 종합적인 모니터링을 제공합니다. |
-| [Azure Cache for Redis insights(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
+환경은 서비스에 따라 로그 및 메트릭의 하위 집합을 수집하고 분석하며, 즉시 경고를 제공할 수도 있습니다. 이러한 원격 분석은 시각적 레이아웃으로 표시됩니다. 시각화는 크기와 규모에 따라 다릅니다. 일부는 Azure Monitor 일부로 간주되며 Azure에 대한 지원 및 서비스 수준 계약을 따릅니다. Azure Monitor를 사용할 수 있는 모든 Azure 지역에서 지원됩니다. 큐레이팅된 다른 시각화는 더 적은 기능을 제공하고, 크기를 조정하지 않을 수 있으며, 다른 규약을 가질 수 있습니다.  일부는 Azure Monitor 통합 문서를 기반으로 하는 반면, 다른 통합 문서에는 광범위한 사용자 지정 환경이 있을 수 있습니다. 
+
+아래 표에는 사용 가능한 큐레이팅된 시각화와 해당 시각화에 대한 자세한 정보가 나열되어 있습니다.  
+
+>[!NOTE]
+> **모니터링 솔루션이라는** 다른 유형의 이전 시각화는 더 이상 활성 개발 중이 아닙니다.  교체 기술은 위에서 언급한 Azure Monitor Insights. 인사이트를 사용하고 솔루션의 새 인스턴스를 배포하지 않는 것이 좋습니다. 솔루션에 대한 자세한 내용은 [Azure Monitor 솔루션 모니터링을](/azure/azure-monitor/insights/solutions)참조하세요.
 
 
-### <a name="core-solutions"></a>핵심 솔루션
-
-솔루션은 특정 애플리케이션이나 서비스에 대해 사용자 지정된 로그 쿼리 및 보기를 기반으로 합니다. 로그만 수집 및 분석하며, 인사이트를 위해 시간이 지남에 따라 더 이상 사용되지 않습니다.
-
-| 해결 방법 | Description |
-|:---|:---|
-| [에이전트 상태](insights/solution-agenthealth.md) | Log Analytics 에이전트의 상태와 구성을 분석합니다. |
-| [경고 관리](insights/alert-management-solution.md) | System Center Operations Manager, Nagios 또는 Zabbix에서 수집된 경고를 분석합니다. |
-| [서비스 맵](vm/service-map.md) | Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. |
-
-
-
-## <a name="azure-services"></a>Azure 서비스
-다음 표에는 Azure 서비스와 Azure Monitor에 수집되는 데이터가 나열되어 있습니다. 
-
-- 메트릭 - 서비스는 메트릭을 Azure Monitor 메트릭에 자동으로 수집합니다. 
-- 로그 - 서비스는 Azure Monitor 로그에 대한 플랫폼 로그 및 메트릭을 수집할 수 있는 진단 설정을 지원합니다
-- 인사이트 - 서비스에 대한 사용자 지정된 모니터링 환경을 제공하는 서비스에 대한 인사이트입니다.
-
-| 서비스 | 메트릭 | 로그 | 인사이트 | 메모 |
-|:---|:---|:---|:---|:---|
-|Active Directory | 예 | 예 | [예](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
-|Active Directory B2C | 예 | 아니요 | 아니요 |  |
-|Active Directory Domain Services | 예 | 예 | 예 |  |
-|활동 로그 | 예 | 예 | 예 | |
-|고급 위협 보호 | 예 | 아니요 | 예 |  |
-|Advisor | 예 | 아니요 | 예 |  |
-|AI Builder | 예 | 아니요 | 예 |  |
-|Analysis Services | 예 | 예 | 예 |  |
-|FHIR용 API | 예 | 아니요 | 예 |  |
-|API Management | 예 | 예 | 예 |  |
-|App Service | 예 | 예 | 예 |  |
-|AppConfig | 예 | 아니요 | 예 |  |
-|Application Gateway | 예 | 예 | 예 |  |
-|증명 상태 | 예 | 아니요 | 예 |  |
-|Automation | 예 | 예 | 예 |  |
-|Azure Service Manager(RDFE) | 예 | 아니요 | 예 |  |
-|Backup | 예 | 예 | 예 |  |
-|Bastion | 예 | 아니요 | 예 |  |
-|Batch | 예 | 예 | 예 |  |
-|Batch AI | 예 | 아니요 | 예 |  |
-|Blockchain Service | 예 | 예 | 예 |  |
-|Blueprints | 예 | 아니요 | 예 |  |
-|Bot 서비스 | 예 | 아니요 | 예 |  |
-|Cloud Services | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
-|Cloud Shell | 예 | 아니요 | 예 |  |
-|Cognitive Services | 예 | 예 | 예 |  |
-|Container Instances | 예 | 아니요 | 예 |  |
-|Container Registry | 예 | 예 | 예 |  |
-|CDN(콘텐츠 전송 네트워크) | 예 | 예 | 예 |  |
-|Cosmos DB | 예 | 예 | [예](insights/cosmosdb-insights-overview.md) |  |
-|Cost Management | 예 | 아니요 | 예 |  |
-|Data Box | 예 | 아니요 | 예 |  |
-|Data Catalog Gen2 | 예 | 아니요 | 예 |  |
-|Data Explorer | 예 | 예 | 예 |  |
-|Data Factory | 예 | 예 | 예 |  |
-|Data Factory v2 | 예 | 예 | 예 |  |
-|Data Share | 예 | 아니요 | 예 |  |
-|Database for MariaDB | 예 | 예 | 예 |  |
-|Database for MySQL | 예 | 예 | 예 |  |
-|Database for PostgreSQL | 예 | 예 | 예 |  |
-|Database Migration Service | 예 | 아니요 | 예 |  |
-|Databricks | 예 | 예 | 예 |  |
-|DDoS Protection | 예 | 예 | 예 |  |
-|DevOps | 예 | 아니요 | 예 |  |
-|DNS | 예 | 아니요 | 예 |  |
-|도메인 이름 | 예 | 아니요 | 예 |  |
-|DPS | 예 | 아니요 | 예 |  |
-|Dynamics 365 Customer Engagement | 예 | 아니요 | 예 |  |
-|Dynamics 365 Finance and Operations | 예 | 아니요 | 예 |  |
-|Event Grid | 예 | 아니요 | 예 |  |
-|Event Hubs | 예 | 예 | 예 |  |
-|ExpressRoute | 예 | 예 | 예 |  |
-|방화벽 | 예 | 예 | 예 |  |
-|Front Door | 예 | 예 | 예 |  |
-|Functions | 예 | 예 | 예 |  |
-|HDInsight | 예 | 예 | 예 |  |
-|HPC Cache | 예 | 아니요 | 예 |  |
-|Information Protection | 예 | 예 | 예 |  |
-|Intune | 예 | 예 | 예 |  |
-|IoT Central | 예 | 아니요 | 예 |  |
-|IoT Hub | 예 | 예 | 예 |  |
-|Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
-|AKS(Azure Kubernetes Service) | 예 | 아니요 | [예](containers/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 아니요 | 예 |  |
-|Logic Apps | 예 | 예 | 예 |  |
-|Machine Learning Service | 예 | 아니요 | 예 |  |
-|Managed Applications  | 예 | 아니요 | 예 |  |
-|지도  | 예 | 아니요 | 예 |  |
-|Media Services | 예 | 예 | 예 |  |
-|Microsoft Managed Desktop | 예 | 아니요 | 아니요 |  |
-|Microsoft Power Apps | 아니요 | 아니요 | 예 |  |
-|Microsoft 소셜 참여 | 예 | 아니요 | 예 |  |
-|Microsoft Stream | 예 | 예 | 예 |  |
-|마이그레이션 | 예 | 아니요 | 예 |  |
-|Multi-Factor Authentication | 예 | 예 | 예 |  |
-|Network Watcher | 예 | 예 | 예 |  |
-|Notification Hubs | 예 | 아니요 | 예 |  |
-|공개 데이터 세트 | 예 | 아니요 | 예 |  |
-|정책 | 예 | 아니요 | 예 |  |
-|Power Automate | 예 | 아니요 | 아니요 |  |
-|Power BI Embedded | 예 | 예 | 예 |  |
-|Private Link | 예 | 아니요 | 예 |  |
-|프로젝트 Spool 통신 플랫폼 | 예 | 아니요 | 예 |  |
-|Red Hat OpenShift | 예 | 아니요 | 예 |  |
-|Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 예 | 아니요 | 예 |  |
-|리소스 관리자 | 예 | 아니요 | 예 |  |
-|소매점 검색 – Bing에서 | 예 | 아니요 | 예 |  |
-|검색 | 예 | 예 | 예 |  |
-|Service Bus | 예 | 예 | 예 |  |
-|Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
-|등록 포털 | 예 | 아니요 | 예 |  |
-|Site Recovery | 예 | 예 | 예 |  |
-|Spring Cloud Service | 예 | 아니요 | 예 |  |
-|Azure Synapse Analytics | 예 | 예 | 예 |  |
-|SQL Database | 예 | 예 | 예 |  |
-|SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 예 | 아니요 | 예 |  |
-|스토리지 | 예 | 아니요 | [예](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) |  |
-|스토리지 캐시 | 예 | 아니요 | 예 |  |
-|스토리지 동기화 서비스 | 예 | 아니요 | 예 |  |
-|Stream Analytics | 예 | 예 | 예 |  |
-|Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 예 | 아니요 | 예 |  |
-|Traffic Manager | 예 | 예 | 예 |  |
-|유니버설 인쇄 | 예 | 아니요 | 예 |  |
-|Virtual Machine Scale Sets | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
-|Virtual Machines | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
-|Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
-|Virtual Network - NSG 흐름 로그 | 예 | 예 | 예 |  |
-|VPN Gateway | 예 | 예 | 예 |  |
-|Windows Virtual Desktop | 예 | 예 | 예 |  |
-
-## <a name="virtual-machine-agents"></a>가상 머신 에이전트
-다음 표에는 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집하고 모니터에 데이터를 보낼 수 있는 에이전트가 나열되어 있습니다. 각 에이전트는 서로 다른 데이터를 수집하여 Azure Monitor의 메트릭 또는 로그에 보낼 수 있습니다. 
-
-각 에이전트가 수집할 수 있는 데이터에 대한 자세한 내용은 [Azure Monitor 에이전트 개요](agents/agents-overview.md)를 참조하세요.
-
-| 에이전트 |  메트릭 | 로그 |
-|:---|:---|:---|:---|
-| [Azure Monitor 에이전트(미리 보기)](agents/azure-monitor-agent-overview.md) | 예 | 예 |
-| [Log Analytics 에이전트](agents/log-analytics-agent.md) | 예 | 예|
-| [진단 확장](agents/diagnostics-extension-overview.md) | 예 | 예 |
-| [Telegraf 에이전트](essentials/collect-custom-metrics-linux-telegraf.md) | 예 | 예 |
-| [종속성 에이전트](vm/vminsights-enable-overview.md) | 예 | 예 |
-
+|docs 링크가 있는 이름| 시스템 상태 | [Azure Portal 링크](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/more)| Description | 
+|:--|:--|:--|:--|
+| [Azure Active Directory 대한 Azure Monitor 통합 문서](/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks) | GA(일반 공급) | [예](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Workbooks) | Azure Active Directory 조건부 액세스 정책의 영향을 이해하고, 로그인 실패 문제를 해결하고, 레거시 인증을 식별하는 통합 문서를 제공합니다. | 
+| [Azure Backup Insights](/azure/backup/backup-azure-monitoring-use-azuremonitor) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_DataProtection/BackupCenterMenuBlade/backupReportsConfigure/menuId/backupReportsConfigure) | Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공합니다. | 
+| [Azure Cache for Redis용 Azure Monitor(미리 보기)](/azure/azure-monitor/insights/redis-cache-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/redisCacheInsights) | 전반적인 성능, 오류, 용량 및 운영 상태의 통합된 대화형 보기를 제공합니다. | 
+| [Azure Cosmos DB Insights](/azure/azure-monitor/insights/cosmosdb-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/cosmosDBInsights) | 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. | 
+| [Azure Data Explorer 클러스터](/azure/azure-monitor/insights/data-explorer) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer 인사이트는 클러스터 성능, 작업, 사용량, 오류에 대한 통합 보기를 통해 포괄적인 클러스터 모니터링을 제공합니다. | 
+| [Azure HDInsight(미리 보기)](/azure/hdinsight/log-analytics-migration#insights) | 미리 보기 | 예 | HDInsight 클러스터에서 중요한 성능 메트릭을 수집하고 가장 일반적인 시나리오에 대한 시각화 및 대시보드를 제공하는 Azure Monitor 통합 문서입니다. 리소스 사용률 및 애플리케이션 상태를 포함하여 단일 HDInsight 클러스터의 전체 보기를 제공합니다.|
+ | [Azure IoT Edge Insights](/azure/iot-edge/how-to-explore-curated-visualizations/) | GA | 아니요 | Azure Monitor 통합 문서 기반 공용 템플릿을 사용하여 Azure Portal 바로 IoT Edge 디바이스에서 수집된 메트릭을 시각화하고 탐색합니다. 큐레이팅된 통합 문서는 IoT Edge 런타임의 기본 제공 메트릭을 사용합니다. 이러한 보기에는 워크로드 모듈의 메트릭 계측이 필요하지 않습니다. | 
+ | [Azure Key Vault Insights(미리 보기)](/azure/azure-monitor/insights/key-vault-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/keyvaultsInsights) | Key Vault 요청, 성능, 실패 및 대기 시간 통합 보기를 제공하여 키 자격 증명 모음에 대한 종합적인 모니터링을 제공합니다. | 
+ | [Azure Monitor 애플리케이션 Insights](/azure/azure-monitor/app/app-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/applicationsInsights) | 클라우드 또는 온-프레미스에서 호스트되는지 여부에 관계없이 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링하는 APM(Extensible Application Performance Management) 서비스입니다. Azure Monitor의 강력한 데이터 분석 플랫폼을 활용하여 애플리케이션의 작업에 대한 심층 인사이트를 제공합니다. 사용자가 오류를 보고할 때까지 기다리지 않고 오류를 진단할 수 있습니다. Application Insights는 다양한 개발 도구에 대한 연결점을 포함하고 있으며 Visual Studio와 통합되어 DevOps 프로세스를 지원합니다. | 
+ | [Log Analytics 작업 영역 Azure Monitor](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) | 미리 보기 | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/lawsInsights) | Log Analytics 작업 영역 인사이트(미리 보기)는 작업 영역 사용량, 성능, 상태, 에이전트, 쿼리, 변경 로그의 통합 보기를 통해 작업 영역에 대한 포괄적인 모니터링을 제공합니다. 이 문서는 Log Analytics 작업 영역 인사이트(미리 보기)를 등록하고 사용하는 방법을 이해하는 데 도움이 됩니다. | 
+ | [Azure Service Bus](/azure/service-bus/) | 미리 보기 | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/serviceBusInsights) |  | 
+ | [Azure SQL 인사이트](/azure/azure-monitor/insights/sql-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/sqlWorkloadInsights) | Azure SQL 제품군의 모든 제품을 모니터링하기 위한 포괄적인 인터페이스입니다. SQL 인사이트는 동적 관리 뷰를 사용하여 상태를 모니터링하고 문제를 진단하고 성능을 조정하는 데 필요한 데이터를 공개합니다. 참고: SQL 모니터링을 설정하는 경우 SQL Analytics 솔루션 대신 사용합니다. |
+ | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/storageInsights) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. | 
+ | [Azure VM Insights](/azure/azure-monitor/insights/vminsights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/virtualMachines) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다.  | 
+ | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/networkInsights) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. | 
+ | [Azure Container Insights](/azure/azure-monitor/insights/container-insights-overview) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/containerInsights) | AKS(Azure Kubernetes Service)에서 호스트되는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메트릭을 수집하여 성능을 시각적으로 표시합니다. 컨테이너 로그도 수집됩니다.  Kubernetes 클러스터에서 모니터링을 사용하도록 설정하면, 이러한 메트릭 및 로그가 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 통해 자동으로 수집됩니다. | 
+ | [리소스 그룹용 Azure Monitor](/azure/azure-monitor/insights/resource-group-insights) | GA | 아니요 | 리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. | 
+ | [Azure Monitor SAP](/azure/virtual-machines/workloads/sap/monitor-sap-on-azure) | GA | 아니요 | Azure에서 SAP 지형을 실행 하는 모든 사용자를 위한 Azure 기본 모니터링 제품입니다. Azure Virtual Machines의 SAP와 Azure의 많은 인스턴스에서 작동 합니다. Azure 인프라 및 데이터베이스에서 원격 분석 데이터를 하나의 중앙 위치에 수집 하 고 신속 하 게 문제 해결을 위해 데이터의 상관 관계를 합니다. 해당 구성 요소에 대해 관련 공급자를 추가하여 Azure VM(가상 머신), 고가용성 클러스터, SAP HANA 데이터베이스, SAP NetWeaver 등의 SAP 환경을 이루는 다양한 구성 요소를 모니터링할 수 있습니다. |
+ | [Azure Stack HCI insights ](/azure-stack/hci/manage/azure-stack-hci-insights) | 미리 보기 | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/azureStackHCIInsights) | 통합 문서를 기반으로 Azure Monitor 합니다. Azure에 연결 되 고 모니터링에 등록 된 등록 된 Azure Stack HCI 버전 21H2 클러스터에 대 한 상태, 성능 및 사용 현황 정보를 제공 합니다. 이는 데이터를 Log Analytics 작업 영역에 저장 하 여 시간에 따라 강력한 집계를 제공 하 고 데이터 추세를 필터링 및 분석할 수 있도록 합니다.  | 
+ | [Windows Virtual Desktop Insights](/azure/virtual-desktop/azure-monitor) | GA | [예](https://ms.portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/insights/menuId/insights) | Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor는 IT 전문가가 Windows 가상 데스크톱 환경을 이해 하는 데 도움이 되는 Azure Monitor 통합 문서를 기반으로 하는 대시보드입니다. 이 토픽에서는 Windows Virtual Desktop 환경을 모니터링하기 위해 Azure Monitor for Windows Virtual Desktop을 설정하는 방법을 안내합니다. | 
 
 ## <a name="product-integrations"></a>제품 통합
-다음 표의 서비스 및 솔루션은 Azure Monitor에서 수집한 다른 로그 데이터를 사용하여 분석할 수 있도록 해당 데이터를 Log Analytics 작업 영역에 저장합니다.
+
+다음 표의 기타 서비스 및 이전 모니터링 솔루션은 Log Analytics 작업 영역에 데이터를 저장 하 여 Azure Monitor에서 수집한 다른 로그 데이터를 사용 하 여 분석할 수 있도록 합니다.
 
 | 제품/서비스 | Description |
 |:---|:---|
 | [Azure Automation](../automation/index.yml) | Windows 및 Linux 컴퓨터에서 운영 체제 업데이트를 관리하고 변경 내용을 추적합니다. [변경 내용 추적](../automation/change-tracking/overview.md) 및 [업데이트 관리](../automation/update-management/overview.md)을 참조하세요. |
-| [Azure Information Protection ](/azure/information-protection/) | 문서와 이메일을 분류하고 필요에 따라 보호합니다. [Azure Information Protection의 중요 보고](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)를 참조하세요. |
+| [Azure Information Protection](/azure/information-protection/) | 문서와 이메일을 분류하고 필요에 따라 보호합니다. [Azure Information Protection의 중요 보고](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)를 참조하세요. |
 | [Azure Security Center](../security-center/index.yml) | 보안 이벤트를 수집 및 분석하고 위협 분석을 수행합니다. [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md)을 참조하세요. |
 | [Azure Sentinel](../sentinel/index.yml) | Office 365 및 Amazon Web Services 클라우드 내역을 비롯한 다양한 원본에 연결합니다. [데이터 원본에 연결](../sentinel/connect-data-sources.md)을 참조하세요. |
 | [Microsoft Intune](/intune/) | Azure Monitor로 로그를 보낼 진단 설정을 만듭니다. [Intune에서 스토리지, 이벤트 허브 또는 로그 분석으로 로그 데이터 전송(미리 보기)](/intune/fundamentals/review-logs-using-azure-monitor)을 참조하세요.  |
-| 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics) - Azure Application Gateway에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](../network-watcher/traffic-analytics.md) - NSG(Network Watcher 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. |
-| [Office 365](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 향상된 온보딩이 제공되는 업데이트된 버전입니다. |
-| [SQL Analytics](insights/azure-sql.md) | 여러 구독 간에 대규모로 Azure SQL 데이터베이스와 SQL 관리형 인스턴스의 성능을 모니터링합니다. |
-| [Surface Hub](insights/surface-hubs.md) | Surface Hub 디바이스의 상태와 사용 현황을 추적합니다. |
+| 네트워크 [트래픽 분석](../network-watcher/traffic-analytics.md) | NSG (네트워크 보안 그룹) 흐름 로그를 Network Watcher 분석 하 여 Azure 클라우드의 트래픽 흐름에 대 한 통찰력을 제공 합니다. |
 | [System Center Operations Manager](/system-center/scom) | Operations Manager 에이전트에서 관리 그룹을 Azure Monitor에 연결하여 데이터를 수집합니다. [Azure Monitor에 Operations Manager 연결](agents/om-agents.md)을 참조하세요.<br> [Operations Manager 평가](insights/scom-assessment.md) 솔루션을 사용하여 System Center Operations Manager 관리 그룹의 위험 및 상태를 평가합니다. |
 | [Microsoft Teams 대화방](/microsoftteams/room-systems/azure-monitor-deploy) | Microsoft Teams 대화방 디바이스의 통합된 엔드투엔드 관리입니다. |
 | [Visual Studio App Center](/appcenter/) | 애플리케이션을 빌드, 테스트 및 배포한 다음, 상태 및 사용 현황을 모니터링합니다. [App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작](app/mobile-center-quickstart.md)을 참조하세요. |
 | Windows | [Windows 업데이트 준수](/windows/deployment/update/update-compliance-get-started) - Windows 데스크톱 업그레이드를 평가합니다.<br>[Desktop Analytics](/configmgr/desktop-analytics/overview) - Configuration Manager와 통합되어 Windows 클라이언트의 업데이트 준비 사항에 대해 충분한 정보를 파악한 후 결정하도록 인사이트와 인텔리전스를 제공합니다. |
+| **다음 솔루션도 Azure Monitor의 부분과 통합 됩니다. 솔루션은 더 이상 활성 개발에 있지 않습니다. 대신 [insights](#insights-and-curated-visualizations) 를 사용 하세요.**  | | 
+| 네트워크 [네트워크 성능 모니터 솔루션](insights/network-performance-monitor.md) | 
+| 네트워크 [Azure 애플리케이션 게이트웨이 솔루션](insights/azure-networking-analytics.md#azure-application-gateway-analytics) | .
+| [Office 365 솔루션](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 향상된 온보딩이 제공되는 업데이트된 버전입니다. |
+| [SQL 분석 솔루션](insights/azure-sql.md) | 대신 SQL Insights 사용 |
+| [Surface Hub 솔루션](insights/surface-hubs.md) |  |
 
-
-
-## <a name="other-solutions"></a>기타 솔루션
-기타 솔루션은 다양한 애플리케이션 및 서비스를 모니터링하는 데 사용할 수 있지만, 활성 개발은 중지되었으며 일부 지역에서는 사용하지 못할 수 있습니다. Azure Log Analytics 데이터 수집 서비스 수준 계약에서 다룹니다.
-
-| 해결 방법 | Description |
-|:---|:---|
-| [Active Directory 상태 확인](insights/ad-assessment.md) | Active Directory 환경의 위험 및 상태를 평가합니다. |
-| [Active Directory 복제 상태](insights/ad-replication-status.md) | Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다. |
-| [활동 로그 분석](essentials/activity-log.md#activity-log-analytics-monitoring-solution) | Azure 로그 항목을 봅니다. |
-| [DNS 분석(미리 보기)](insights/dns-analytics.md) | DNS 서버에서 Windows DNS 분석 및 감사 로그와 기타 관련 데이터를 수집, 분석 및 상관 관계를 파악합니다. |
-| [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | 여러 배포에서 Cloud Foundry 시스템 상태와 성능 메트릭을 수집, 확인 및 분석합니다. |
-| [컨테이너](containers/containers.md) | Docker 및 Windows 컨테이너 호스트를 보고 관리합니다. |
-| [주문형 평가](/services-hub/health/getting_started_with_on_demand_assessments) | 온-프레미스, 하이브리드 및 클라우드 Microsoft 기술 환경의 가용성, 보안 및 성능을 평가하고 최적화합니다. |
-| [SQL 상태 검사](insights/sql-assessment.md) | SQL Server 환경의 위험 및 상태를 평가합니다.  |
-| [실시간 데이터](insights/wire-data.md) | Log Analytics 에이전트를 통해 Windows 연결 및 Linux 연결 컴퓨터에서 수집되는 통합 네트워크 및 성능 데이터입니다. |
 
 ## <a name="third-party-integration"></a>타사 통합
 
-| 해결 방법 | Description |
+| 통합 | Description |
 |:---|:---|
 | [ITSM](alerts/itsmc-overview.md) | ITSMC(IT 서비스 관리 커넥터)를 사용하면 Azure와 지원되는 ITSM(IT 서비스 관리) 제품/서비스를 연결할 수 있습니다.  |
+| [Azure Monitor 파트너](/azure/azure-monitor/partners/) | 특정 형식으로 Azure Monitor와 통합 되는 파트너 목록 | 
+| [Azure Monitor 파트너 통합](/azure/partner-solutions/overview/)| 이미 빌드된 경우 Azure Monitor 및 기타 타사 모니터링 플랫폼 간의 특수 통합.  예를 들면 Datadog 및 탄력적이 있습니다.|
 
 
 ## <a name="resources-outside-of-azure"></a>Azure 외부의 리소스
+
 Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 리소스에서 데이터를 수집할 수 있습니다.
 
 | 리소스 | 방법 |
@@ -236,6 +95,187 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 | REST API 클라이언트 | 별도의 API를 사용하여 REST API 클라이언트의 Azure Monitor 로그 및 메트릭에 데이터를 쓸 수 있습니다. 로그의 경우 [HTTP 데이터 수집기 API를 사용하여 로그 데이터를 Azure Monitor로 보내기](logs/data-collector-api.md)를, 메트릭의 경우 [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기](essentials/metrics-store-custom-rest-api.md)를 참조하세요. |
 
 
+## <a name="azure-supported-services"></a>Azure 지원 서비스
+ 
+다음 표에는 Azure 서비스와 Azure Monitor에 수집되는 데이터가 나열되어 있습니다. 
+
+- 메트릭 - 서비스는 메트릭을 Azure Monitor 메트릭에 자동으로 수집합니다. 
+- 로그-서비스는 Log Analytics 분석을 위해 메트릭 및 플랫폼 로그를 Azure Monitor 로그에 보낼 수 있는 진단 설정을 지원 합니다.
+- 통찰력-서비스에 대 한 사용자 지정 모니터링 환경을 제공 하는 정보를 사용할 수 있습니다.
+
+| 서비스 | 리소스 공급자 네임 스페이스 | 메트릭 있음 | 로그 있음 | 인사이트 | 메모
+|---------|---------------------------------------|----------------|-----------|----------|--------|
+ | [Azure Active Directory Domain Services](/azure/active-directory-domain-services/) | Microsoft.AAD/DomainServices | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftaaddomainservices) |   | |
+ | [Azure Active Directory](/azure/active-directory/) | Microsoft.Aadiam/azureADMetrics | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftaadiamazureadmetrics) | 아니요 | [Azure Active Directory에 대 한 Azure Monitor 통합 문서](/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks) | |
+ | [Azure Analysis Services](/azure/analysis-services/)   | Microsoft.AnalysisServices/servers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftanalysisservicesservers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftanalysisservicesservers) |   | |
+ | [API Management](/azure/api-management/)   | Microsoft.ApiManagement/service | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftapimanagementservice) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftapimanagementservice) |   | |
+ | [Azure App Configuration](/azure/azure-app-configuration/)   | Microsoft.AppConfiguration/configurationStores | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftappconfigurationconfigurationstores) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftappconfigurationconfigurationstores) |   | |
+ | [Azure Spring Cloud](/azure/spring-cloud/spring-cloud-overview.md)   | Microsoft.AppPlatform/Spring | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftappplatformspring) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftappplatformspring) |   | |
+ | [Azure Attestation 서비스](/azure/attestation/overview) | Microsoft.Attestation/attestationProviders | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftattestationattestationproviders) |   | |
+ | [Azure Automation](/azure/automation/)   | Microsoft.Automation/automationAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftautomationautomationaccounts) |   | |
+ | [Azure VMware 솔루션](/azure/azure-vmware/)   | Microsoft.AVS/privateClouds | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftavsprivateclouds) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftavsprivateclouds) |   | |
+ | [Azure Batch](/azure/batch/)   | Microsoft.Batch/batchAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftbatchbatchaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftbatchbatchaccounts) |   | |
+ | [Azure Batch](/azure/batch/)   | Microsoft.BatchAI/workspaces | 아니요 | 아니요 |   | |
+ | [Azure Cognitive Services-Bing Search API](/azure/cognitive-services/bing-web-search/) | Microsoft.Bing/accounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftbingaccounts) | 아니요 |   | |
+ | [Azure Blockchain Service](/azure/blockchain/workbench/)   | Microsoft.Blockchain/blockchainMembers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftblockchainblockchainmembers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftblockchainblockchainmembers) |   | |
+ | [Azure Blockchain Service](/azure/blockchain/workbench/)   | Microsoft.Blockchain/cordaMembers | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftblockchaincordamembers) |   | |
+ | [Azure Bot Service](/azure/bot-service/)   | Microsoft.BotService/botServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftbotservicebotservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftbotservicebotservices) |   | |
+ | [Azure Cache for Redis](/azure/azure-cache-for-redis/)   | Microsoft.Cache/Redis | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcacheredis) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcacheredis) | [Azure Cache for Redis용 Azure Monitor(미리 보기)](/azure/azure-monitor/insights/redis-cache-insights-overview) | |
+ | [Azure Cache for Redis](/azure/azure-cache-for-redis/)   | Microsoft.Cache/redisEnterprise | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcacheredisenterprise) | 아니요 | [Azure Cache for Redis용 Azure Monitor(미리 보기)](/azure/azure-monitor/insights/redis-cache-insights-overview) | |
+ | [Content Delivery Network](/azure/cdn/)   | Microsoft Cdn/CdnWebApplicationFirewallPolicies | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcdncdnwebapplicationfirewallpolicies) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcdncdnwebapplicationfirewallpolicies) |   | |
+ | [Content Delivery Network](/azure/cdn/)   | Microsoft.Cdn/profiles | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcdnprofiles) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcdnprofiles) |   | |
+ | [Content Delivery Network](/azure/cdn/)   | Microsoft.Cdn/profiles/endpoints | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcdnprofilesendpoints) |   | |
+ | [Azure Virtual Machines-클래식](/azure/virtual-machines/) | Microsoft.ClassicCompute/domainNames/slots/roles | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclassiccomputedomainnamesslotsroles) | 아니요 | [VM 인사이트](/azure/azure-monitor/insights/vminsights-overview) | |
+ | [Azure Virtual Machines-클래식](/azure/virtual-machines/) | Microsoft.ClassicCompute/virtualMachines | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclassiccomputevirtualmachines) | 아니요 |   | |
+ | [Virtual Network (클래식)](/azure/virtual-network/network-security-groups-overview) | Microsoft.ClassicNetwork/networkSecurityGroups | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftclassicnetworknetworksecuritygroups) |   | |
+ | [Azure Storage (클래식)](/azure/storage/) | Microsoft.ClassicStorage/storageAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclassicstoragestorageaccounts) | 아니요 | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | |
+ | [Azure Storage Blob (클래식)](/azure/storage/blobs/) | Microsoft.ClassicStorage/storageAccounts/blobServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclassicstoragestorageaccountsblobservices) | 아니요 | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | |
+ | [Azure Storage 파일 (클래식)](/azure/storage/files/) | Microsoft.ClassicStorage/storageAccounts/fileServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclassicstoragestorageaccountsfileservices) | 아니요 | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | |
+ | [Azure Storage 큐 (클래식)](/azure/storage/queue/) | Microsoft.ClassicStorage/storageAccounts/queueServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclassicstoragestorageaccountsqueueservices) | 아니요 | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | |
+ | [Azure Storage 테이블 (클래식)](/azure/storage/tables/) | Microsoft.ClassicStorage/storageAccounts/tableServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclassicstoragestorageaccountstableservices) | 아니요 | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | |
+ | Microsoft 클라우드 테스트 플랫폼 | Microsoft.Cloudtest/hostedpools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcloudtesthostedpools) | 아니요 |   | |
+ | Microsoft 클라우드 테스트 플랫폼 | Microsoft.Cloudtest/pools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcloudtestpools) | 아니요 |   | |
+ | [Azure의 Cray ClusterStor](https://azure.microsoft.com/blog/supercomputing-in-the-cloud-announcing-three-new-cray-in-azure-offers/) | Microsoft.ClusterStor/nodes | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftclusterstornodes) | 아니요 |   | |
+ | [Azure Cognitive Services](/azure/cognitive-services/)   | Microsoft.CognitiveServices/accounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcognitiveservicesaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcognitiveservicesaccounts) |   | |
+ | [Azure Communication Services](/azure/communication-services/) | Microsoft.Communication/CommunicationServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcommunicationcommunicationservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcommunicationcommunicationservices) |   | |
+ | [Azure Cloud Services](/azure/cloud-services-extended-support/)   | Microsoft.Compute/cloudServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservices) | 예 |  | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.|
+ | [Azure Cloud Services](/azure/cloud-services-extended-support/) | Microsoft.Compute/cloudServices/roles | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservicesroles) | 예 | | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.|
+ | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft. Compute/disks | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputedisks) | 아니요 | [VM 인사이트](/azure/azure-monitor/insights/vminsights-overview) | |
+ | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachines | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) | 아니요 | [VM 인사이트](/azure/azure-monitor/insights/vminsights-overview) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.|
+ | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachineScaleSets | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets) | 아니요 | [VM 인사이트](/azure/azure-monitor/insights/vminsights-overview) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.|
+ | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines) | 아니요 | [VM 인사이트](/azure/azure-monitor/insights/vminsights-overview) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.|
+ | [Microsoft 연결 된 차량 플랫폼](https://azure.microsoft.com/blog/microsoft-connected-vehicle-platform-trends-and-investment-areas/) | Microsoft.ConnectedVehicle/platformAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftconnectedvehicleplatformaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftconnectedvehicleplatformaccounts) |   | |
+ | [Azure Container Instances](/azure/container-instances/)   | Microsoft.ContainerInstance/containerGroups | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcontainerinstancecontainergroups) | 아니요 | [컨테이너 Insights](/azure/azure-monitor/insights/container-insights-overview) | |
+ | [Azure Container Registry](/azure/container-registry/)   | Microsoft.ContainerRegistry/registries | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcontainerregistryregistries) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcontainerregistryregistries) |   | |
+ | [AKS(Azure Kubernetes Service)](/azure/aks/)   | Microsoft.ContainerService/managedClusters | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcontainerservicemanagedclusters) | [컨테이너 Insights](/azure/azure-monitor/insights/container-insights-overview) | |
+ | [Azure 사용자 지정 공급자](/azure/azure-resource-manager/custom-providers/)   | Microsoft.CustomProviders/resourceProviders | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftcustomprovidersresourceproviders) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcustomprovidersresourceproviders) |   | |
+ | [Microsoft Dynamics 365 Customer Insights](/dynamics365/customer-insights/) | Microsoft.D365CustomerInsights/instances | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftd365customerinsightsinstances) |   | |
+ | [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview.md)   | Microsoft.DataBoxEdge/DataBoxEdgeDevices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdataboxedgedataboxedgedevices) | 아니요 |   | |
+ | [Azure Databricks](/azure/azure-databricks/)   | Microsoft.Databricks/workspaces | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdatabricksworkspaces) |   | |
+ | Project CI | Microsoft.DataCollaboration/workspaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdatacollaborationworkspaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdatacollaborationworkspaces) |   | |
+ | [Azure Data Factory](/azure/data-factory/)   | Microsoft.DataFactory/dataFactories | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdatafactorydatafactories) | 아니요 |   | |
+ | [Azure Data Factory](/azure/data-factory/)   | Microsoft.DataFactory/factories | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdatafactoryfactories) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdatafactoryfactories) |   | |
+ | [Azure Data Lake Analytics](/azure/data-lake-analytics/)   | Microsoft.DataLakeAnalytics/accounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdatalakeanalyticsaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdatalakeanalyticsaccounts) |   | |
+ | [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction.md)   | Microsoft.DataLakeStore/accounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdatalakestoreaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdatalakestoreaccounts) |   | |
+ | [Azure Data Share](/azure/data-share/)   | Microsoft.DataShare/accounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdatashareaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdatashareaccounts) |   | |
+ | [Azure Database for MariaDB](/azure/mariadb/)   | Microsoft.DBforMariaDB/servers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdbformariadbservers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdbformariadbservers) |   | |
+ | [Azure Database for MySQL](/azure/mysql/)   | Microsoft.DBforMySQL/flexibleServers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdbformysqlflexibleservers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdbformysqlflexibleservers) |   | |
+ | [Azure Database for MySQL](/azure/mysql/)   | Microsoft.DBforMySQL/servers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdbformysqlservers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdbformysqlservers) |   | |
+ | [Azure Database for PostgreSQL](/azure/postgresql/)   | Microsoft.DBforPostgreSQL/flexibleServers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdbforpostgresqlflexibleservers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdbforpostgresqlflexibleservers) |   | |
+ | [Azure Database for PostgreSQL](/azure/postgresql/)   | Microsoft.DBforPostgreSQL/serverGroupsv2 | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdbforpostgresqlservergroupsv2) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdbforpostgresqlservergroupsv2) |   | |
+ | [Azure Database for PostgreSQL](/azure/postgresql/)   | Microsoft.DBforPostgreSQL/servers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdbforpostgresqlservers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdbforpostgresqlservers) |   | |
+ | [Azure Database for PostgreSQL](/azure/postgresql/)   | Microsoft.DBforPostgreSQL/serversv2 | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdbforpostgresqlserversv2) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdbforpostgresqlserversv2) |   | |
+ | [Microsoft Windows Virtual Desktop](/azure/virtual-desktop/)   | Microsoft.DesktopVirtualization/applicationgroups | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdesktopvirtualizationapplicationgroups) | [Windows Virtual Desktop Insights](/azure/virtual-desktop/azure-monitor) | |
+ | [Microsoft Windows Virtual Desktop](/azure/virtual-desktop/)   | Microsoft.DesktopVirtualization/hostpools | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdesktopvirtualizationhostpools) | [Windows Virtual Desktop Insights](/azure/virtual-desktop/azure-monitor) | |
+ | [Microsoft Windows Virtual Desktop](/azure/virtual-desktop/)   | Microsoft.DesktopVirtualization/workspaces | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdesktopvirtualizationworkspaces) |   | |
+ | [Azure IoT Hub](/azure/iot-hub/) | Microsoft.Devices/ElasticPools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdeviceselasticpools) | 아니요 |   | |
+ | [Azure IoT Hub](/azure/iot-hub/) | Microsoft.Devices/ElasticPools/IotHubTenants | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdeviceselasticpoolsiothubtenants) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdeviceselasticpoolsiothubtenants) |   | |
+ | [Azure IoT Hub](/azure/iot-hub/) | Microsoft.Devices/IotHubs | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdevicesiothubs) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdevicesiothubs) |   | |
+ | [Azure IoT Hub Device Provisioning Service](/azure/iot-dps/)   | Microsoft.Devices/ProvisioningServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdevicesprovisioningservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdevicesprovisioningservices) |   | |
+ | [Azure Digital Twins](/azure/digital-twins/about-digital-twins.md)   | Microsoft.DigitalTwins/digitalTwinsInstances | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdigitaltwinsdigitaltwinsinstances) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdigitaltwinsdigitaltwinsinstances) |   | |
+ | [Azure Cosmos DB](/azure/cosmos-db/)   | Microsoft.DocumentDB/databaseAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftdocumentdbdatabaseaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftdocumentdbdatabaseaccounts) | [Azure Cosmos DB Insights](/azure/azure-monitor/insights/cosmosdb-insights-overview) | |
+ | [Azure Grid](/azure/event-grid/)   | Microsoft.EventGrid/domains | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventgriddomains) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofteventgriddomains) |   | |
+ | [Azure Grid](/azure/event-grid/)   | Microsoft.EventGrid/eventSubscriptions | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventgrideventsubscriptions) | 아니요 |   | |
+ | [Azure Grid](/azure/event-grid/)   | Microsoft.EventGrid/extensionTopics | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventgridextensiontopics) | 아니요 |   | |
+ | [Azure Grid](/azure/event-grid/)   | Microsoft.EventGrid/partnerNamespaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventgridpartnernamespaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofteventgridpartnernamespaces) |   | |
+ | [Azure Grid](/azure/event-grid/)   | Microsoft.EventGrid/partnerTopics | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventgridpartnertopics) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofteventgridpartnertopics) |   | |
+ | [Azure Grid](/azure/event-grid/)   | Microsoft.EventGrid/systemTopics | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventgridsystemtopics) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofteventgridsystemtopics) |   | |
+ | [Azure Grid](/azure/event-grid/)   | Microsoft.EventGrid/topics | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventgridtopics) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofteventgridtopics) |   | |
+ | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/clusters | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventhubclusters) | 아니요 | 0 | |
+ | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/namespaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofteventhubnamespaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofteventhubnamespaces) | 0 | |
+ | [Microsoft 실험 플랫폼](https://www.microsoft.com/research/group/experimentation-platform-exp/) | microsoft.experimentation/experimentWorkspaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftexperimentationexperimentworkspaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftexperimentationexperimentworkspaces) |   | |
+ | [Azure HDInsight](/azure/hdinsight/)   | Microsoft.HDInsight/clusters | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofthdinsightclusters) | 아니요 | [Azure HDInsight(미리 보기)](/azure/hdinsight/log-analytics-migration#insights) | |
+ | [FHIR용 Azure API](/azure/healthcare-apis/) | Microsoft.HealthcareApis/services | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofthealthcareapisservices) |   | |
+ | [FHIR용 Azure API](/azure/healthcare-apis/) | Microsoft.HealthcareApis/workspaces/iotconnectors | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors) | 아니요 |   | |
+ | [StorSimple](/azure/storsimple/)   | microsoft.hybridnetwork/networkfunctions | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofthybridnetworknetworkfunctions) | 아니요 |   | |
+ | [StorSimple](/azure/storsimple/)   | microsoft.hybridnetwork/virtualnetworkfunctions | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofthybridnetworkvirtualnetworkfunctions) | 아니요 |   | |
+ | [Azure Monitor](/azure/azure-monitor/)   | microsoft.insights/autoscalesettings | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftinsightsautoscalesettings) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftinsightsautoscalesettings) |   | |
+ | [Azure Monitor](/azure/azure-monitor/)   | microsoft.insights/components | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftinsightscomponents) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftinsightscomponents) | [Azure Monitor 애플리케이션 Insights](/azure/azure-monitor/app/app-insights-overview) | |
+ | [Azure IoT Central](/azure/iot-central/)   | Microsoft.IoTCentral/IoTApps | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftiotcentraliotapps) | 아니요 |   | |
+ | [Azure Key Vault](/azure/key-vault/)   | Microsoft.KeyVault/managedHSMs | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultmanagedhsms) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftkeyvaultmanagedhsms) | [Azure Key Vault Insights(미리 보기)](/azure/azure-monitor/insights/key-vault-insights-overview) | |
+ | [Azure Key Vault](/azure/key-vault/)   | Microsoft.KeyVault/vaults | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftkeyvaultvaults) | [Azure Key Vault Insights(미리 보기)](/azure/azure-monitor/insights/key-vault-insights-overview) | |
+ | [AKS(Azure Kubernetes Service)](/azure/aks/)   | Microsoft.Kubernetes/connectedClusters | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconnectedclusters) | 아니요 |   | |
+ | [Azure Data Explorer](/azure/data-explorer/)   | Microsoft.Kusto/clusters | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftkustoclusters) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftkustoclusters) |   | |
+ | [Azure Logic Apps](/azure/logic-apps/)   | Microsoft.Logic/integrationAccounts | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftlogicintegrationaccounts) |   | |
+ | [Azure Logic Apps](/azure/logic-apps/)   | Microsoft.Logic/integrationServiceEnvironments | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftlogicintegrationserviceenvironments) | 아니요 |   | |
+ | [Azure Logic Apps](/azure/logic-apps/)   | Microsoft.Logic/workflows | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftlogicworkflows) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftlogicworkflows) |   | |
+ | [Azure Machine Learning](/azure/machine-learning/)   | Microsoft.MachineLearningServices/workspaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmachinelearningservicesworkspaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftmachinelearningservicesworkspaces) |   | |
+ | [Azure Maps](/azure/azure-maps/)   | Microsoft.Maps/accounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmapsaccounts) | 아니요 |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft.Media/mediaservices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftmediamediaservices) |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft.Media/mediaservices/liveEvents | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents) | 아니요 |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft.Media/mediaservices/streamingEndpoints | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints) | 아니요 |   | |
+ | [Azure Media Services](/azure/media-services/)   | Microsoft. 미디어/비디오 분석기 | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmediavideoanalyzers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftmediavideoanalyzers) |   | |
+ | [Azure Spatial Anchors](/azure/spatial-anchors/)   | Microsoft.MixedReality/remoteRenderingAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmixedrealityremoterenderingaccounts) | 아니요 |   | |
+ | [Azure Spatial Anchors](/azure/spatial-anchors/)   | Microsoft.MixedReality/spatialAnchorsAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftmixedrealityspatialanchorsaccounts) | 아니요 |   | |
+ | [Azure NetApp Files](/azure/azure-netapp-files/)   | Microsoft.NetApp/netAppAccounts/capacityPools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetappnetappaccountscapacitypools) | 아니요 |   | |
+ | [Azure NetApp Files](/azure/azure-netapp-files/)   | Microsoft.NetApp/netAppAccounts/capacityPools/volumes | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) | 아니요 |   | |
+ | [Application Gateway](/azure/application-gateway/) | Microsoft.Network/applicationGateways | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkapplicationgateways) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkapplicationgateways) |   | |
+ | [Azure Firewall](/azure/firewall/) | Microsoft. 네트워크/azureFirewalls | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkazurefirewalls) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkazurefirewalls) |   | |
+ | [Azure Bastion](/azure/bastion/) | Microsoft.Network/bastionHosts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkbastionhosts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkbastionhosts) |   | |
+ | [VPN Gateway](/azure/vpn-gateway/) | Microsoft.Network/connections | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkconnections) | 아니요 |   | |
+ | [Azure DNS](/azure/dns/) | Microsoft.Network/dnszones | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkdnszones) | 아니요 |   | |
+ | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRouteCircuits | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkexpressroutecircuits) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkexpressroutecircuits) |   | |
+ | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRouteGateways | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkexpressroutegateways) | 아니요 |   | |
+ | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRoutePorts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkexpressrouteports) | 아니요 |   | |
+ | [Azure Front Door](/azure/frontdoor/) | Microsoft.Network/frontdoors | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkfrontdoors) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkfrontdoors) |   | |
+ | [Azure Load Balancer](/azure/load-balancer/) | Microsoft.Network/loadBalancers | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkloadbalancers) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkloadbalancers) |   | |
+ | [Azure Load Balancer](/azure/load-balancer/) | Microsoft.Network/natGateways | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworknatgateways) | 아니요 |   | |
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/networkInterfaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworknetworkinterfaces) | 아니요 | [Azure 네트워크 Insights](/azure/azure-monitor/insights/network-insights-overview) | |
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/networkSecurityGroups | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworknetworksecuritygroups) | [Azure 네트워크 Insights](/azure/azure-monitor/insights/network-insights-overview) | |
+ | [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) | Microsoft.Network/networkWatchers/connectionMonitors | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworknetworkwatchersconnectionmonitors) | 아니요 |   | |
+ | [Azure 가상 WAN](/azure/virtual-wan/virtual-wan-about) | Microsoft.Network/p2sVpnGateways | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkp2svpngateways) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkp2svpngateways) |   | |
+ | [Azure DNS Private Zones](/azure/dns/private-dns-privatednszone) | Microsoft.Network/privateDnsZones | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkprivatednszones) | 아니요 |   | |
+ | [Azure Private Link](/azure/private-link/private-link-overview) | Microsoft.Network/privateEndpoints | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkprivateendpoints) | 아니요 |   | |
+ | [Azure Private Link](/azure/private-link/private-link-overview) | Microsoft.Network/privateLinkServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkprivatelinkservices) | 아니요 |   | |
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/publicIPAddresses | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkpublicipaddresses) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkpublicipaddresses) | [Azure 네트워크 Insights](/azure/azure-monitor/insights/network-insights-overview) | |
+ | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) | Microsoft. Network/trafficmanagerprofiles | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworktrafficmanagerprofiles) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworktrafficmanagerprofiles) |   | |
+ | [Azure 가상 WAN](/azure/virtual-wan/virtual-wan-about) | Microsoft.Network/virtualHubs | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkvirtualhubs) | 아니요 |   | |
+ | [Azure VPN Gateway](/azure/vpn-gateway/) | Microsoft.Network/virtualNetworkGateways | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkvirtualnetworkgateways) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkvirtualnetworkgateways) |   | |
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/virtualNetworks | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkvirtualnetworks) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkvirtualnetworks) | [Azure 네트워크 Insights](/azure/azure-monitor/insights/network-insights-overview) | |
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/virtualRouters | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkvirtualrouters) | 아니요 |   | |
+ | [Azure 가상 WAN](/azure/virtual-wan/virtual-wan-about) | Microsoft.Network/vpnGateways | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkvpngateways) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftnetworkvpngateways) |   | |
+ | [Azure Notification Hubs](/azure/notification-hubs/)   | Microsoft. NotificationHubs/네임 스페이스/notificationHubs | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftnotificationhubsnamespacesnotificationhubs) | 아니요 |   | |
+ | [Azure Monitor](/azure/azure-monitor/)   | Microsoft.OperationalInsights/workspaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftoperationalinsightsworkspaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftoperationalinsightsworkspaces) |   | |
+ | [Azure Peering Service](/azure/peering-service/) | Microsoft.Peering/peerings | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftpeeringpeerings) | 아니요 |   | |
+ | [Azure Peering Service](/azure/peering-service/) | Microsoft.Peering/peeringServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftpeeringpeeringservices) | 아니요 |   | |
+ | [Microsoft Power BI](/power-bi/power-bi-overview)   | Microsoft.PowerBI/tenants | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftpowerbitenants) |   | |
+ | [Microsoft Power BI](/power-bi/power-bi-overview)   | Microsoft.PowerBI/tenants/workspaces | 아니요 | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftpowerbitenantsworkspaces) |   | |
+ | [Power BI Embedded](/azure/power-bi-embedded/)   | Microsoft.PowerBIDedicated/capacities | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftpowerbidedicatedcapacities) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftpowerbidedicatedcapacities) |   | |
+ | [Azure Purview](/azure/purview/) | Microsoft.Purview/accounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftpurviewaccounts) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftpurviewaccounts) |   | |
+ | [Azure Site Recovery](/azure/site-recovery/)   | Microsoft.RecoveryServices/vaults | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftrecoveryservicesvaults) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftrecoveryservicesvaults) |   | |
+ | [Azure Relay](/azure/service-bus-relay/relay-what-is-it.md)   | Microsoft.Relay/namespaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftrelaynamespaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftrelaynamespaces) |   | |
+ | [Azure Resource Manager](/azure/azure-resource-manager/)   | Microsoft .Resources/subscription | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftresourcessubscriptions) | 아니요 |   | |
+ | [Azure Cognitive Search](/azure/search/)   | Microsoft.Search/searchServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsearchsearchservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftsearchsearchservices) |   | |
+ | [Azure Service Bus](/azure/service-bus/)   | Microsoft.ServiceBus/namespaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftservicebusnamespaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftservicebusnamespaces) | [Azure Service Bus](/azure/service-bus/) | |
+ | [Service Fabric](/azure/service-fabric/index.yml)   | Microsoft.ServiceFabric   | 아니요 | 아니요 | [Service Fabric](/azure/service-fabric/)   | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.|
+ | [Azure SignalR Service](/azure/azure-signalr/)   | Microsoft.SignalRService/SignalR | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsignalrservicesignalr) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftsignalrservicesignalr) |   | |
+ | [Azure SignalR Service](/azure/azure-signalr/)   | Microsoft.SignalRService/WebPubSub | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsignalrservicewebpubsub) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftsignalrservicewebpubsub) |   | |
+ | [Azure SQL Managed Instance](/azure/azure-sql/database/monitoring-tuning-index) | Microsoft.Sql/managedInstances | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsqlmanagedinstances) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftsqlmanagedinstances) | [Azure SQL 인사이트](/azure/azure-monitor/insights/sql-insights-overview) | |
+ | [Azure SQL Database](/azure/azure-sql/database/) | Microsoft.Sql/servers/databases | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsqlserversdatabases) | 아니요 | [Azure SQL 인사이트](/azure/azure-monitor/insights/sql-insights-overview) | |
+ | [Azure SQL Database](/azure/azure-sql/database/) | Microsoft.Sql/servers/elasticpools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsqlserverselasticpools) | 아니요 | [Azure SQL 인사이트](/azure/azure-monitor/insights/sql-insights-overview) | |
+ | [Azure Storage](/azure/storage/)   | Microsoft.Storage/storageAccounts | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccounts) | 아니요 | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | |
+ | [Azure Storage Blob](/azure/storage/blobs/) | Microsoft.Storage/storageAccounts/blobServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsblobservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftstoragestorageaccountsblobservices) | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | |
+ | [Azure Storage 파일](/azure/storage/files/) | Microsoft.Storage/storageAccounts/fileServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsfileservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftstoragestorageaccountsfileservices) | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | |
+ | [Azure Storage 큐 서비스](/azure/storage/queues/)   | Microsoft.Storage/storageAccounts/queueServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsqueueservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftstoragestorageaccountsqueueservices) | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | |
+ | [Azure Table Services](/azure/storage/tables/)   | Microsoft.Storage/storageAccounts/tableServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountstableservices) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftstoragestorageaccountstableservices) | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | |
+ | [Azure HPC Cache](/azure/hpc-cache/) | Microsoft.StorageCache/caches | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragecachecaches) | 아니요 |   | |
+ | [Azure Storage](/azure/storage/)   | microsoft.storagesync/storageSyncServices | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragesyncstoragesyncservices) | 아니요 | [Azure Storage Insights](/azure/azure-monitor/insights/storage-insights-overview) | |
+ | [Azure Stream Analytics](/azure/stream-analytics/)   | Microsoft.StreamAnalytics/streamingjobs | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftstreamanalyticsstreamingjobs) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftstreamanalyticsstreamingjobs) |   | |
+ | [Azure Synapse Analytics](/azure/sql-data-warehouse/)   | Microsoft.Synapse/workspaces | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsynapseworkspaces) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftsynapseworkspaces) |   | |
+ | [Azure Synapse Analytics](/azure/sql-data-warehouse/)   | Microsoft.Synapse/workspaces/bigDataPools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsynapseworkspacesbigdatapools) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftsynapseworkspacesbigdatapools) |   | |
+ | [Azure Synapse Analytics](/azure/sql-data-warehouse/)   | Microsoft.Synapse/workspaces/sqlPools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftsynapseworkspacessqlpools) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftsynapseworkspacessqlpools) |   | |
+ | [Azure Time Series Insights](/azure/time-series-insights/)   | Microsoft.TimeSeriesInsights/environments | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofttimeseriesinsightsenvironments) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofttimeseriesinsightsenvironments) |   | |
+ | [Azure Time Series Insights](/azure/time-series-insights/)   | Microsoft.TimeSeriesInsights/environments/eventsources | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsofttimeseriesinsightsenvironmentseventsources) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsofttimeseriesinsightsenvironmentseventsources) |   | |
+ | [Azure VMware 솔루션](/azure/azure-vmware/)   | Microsoft.VMwareCloudSimple/virtualMachines | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftvmwarecloudsimplevirtualmachines) | 아니요 |   | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/connections | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebconnections) | 아니요 |   | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/hostingEnvironments | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftwebhostingenvironments) | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/hostingEnvironments/multiRolePools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools) | 아니요 | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/hostingEnvironments/workerPools | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsworkerpools) | 아니요 | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/serverFarms | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebserverfarms) | 아니요 | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/sites | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsites) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftwebsites) | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/sites/slots | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsitesslots) | [**예**](/azure/azure-monitor/essentials/resource-log-categories#microsoftwebsitesslots) | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
+ | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/staticSites | [**예**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebstaticsites) | 아니요 | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -243,3 +283,5 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 - [Azure 리소스 모니터링에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 로그의 데이터를 분석하기 위한 로그 쿼리 작성에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 메트릭에서 데이터를 분석하기 위한 메트릭 차트 만들기 자습서](essentials/tutorial-metrics-explorer.md)를 완료합니다.
+ 
+

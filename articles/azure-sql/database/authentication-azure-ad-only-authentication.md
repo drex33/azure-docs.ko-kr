@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 인증만
-description: 이 문서에서는 Azure SQL Database 및 azure SQL에서 Azure Active Directory (azure AD) 인증 기능에 대 한 정보를 제공 Managed Instance
+title: 인증만 Azure Active Directory
+description: 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance Azure Active Directory(Azure AD) 전용 인증 기능에 대한 정보를 제공합니다.
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2021
+ms.date: 11/03/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 74b02577e6bb59481182afda881216ebff0544cf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 050a9690f22ef34b39d89a5cd0cf4d8a6c7d340b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131044041"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503056"
 ---
 # <a name="azure-ad-only-authentication-with-azure-sql"></a>Azure SQL을 사용한 Azure AD 전용 인증
 
@@ -29,9 +29,9 @@ Azure SQL 인증에 대한 자세한 내용은 [인증 및 권한 부여](logins
 
 ## <a name="feature-description"></a>기능 설명
 
-Azure AD 전용 인증을 사용 하는 경우 [SQL 인증이](logins-create-manage.md#authentication-and-authorization) 서버 또는 관리 되는 인스턴스 수준에서 사용 하지 않도록 설정 되 고 SQL 인증 자격 증명을 기반으로 하는 모든 인증을 방지 합니다. SQL 인증 사용자는 모든 데이터베이스를 포함 하 여 Azure SQL Database 또는 관리 되는 인스턴스의 [논리 서버](logical-servers.md) 에 연결할 수 없습니다. SQL 인증을 사용하지 않도록 설정해도 적절한 권한이 있는 Azure AD 계정으로 새 SQL 인증 로그인 및 사용자를 계속 만들 수 있습니다. 새로 만든 SQL 인증 계정은 서버에 연결할 수 없습니다. Azure AD 전용 인증을 사용하도록 설정해도 기존 SQL 인증 로그인 및 사용자 계정이 제거되지는 않습니다. 이 기능은 이러한 계정으로 서버와 이 서버에 대해 만들어진 모든 데이터베이스에 연결하는 것만 방지합니다.
+Azure AD 전용 인증을 사용하도록 설정하는 경우 [SQL 인증은](logins-create-manage.md#authentication-and-authorization) 서버 또는 관리되는 인스턴스 수준에서 사용하지 않도록 설정되며 SQL 인증 자격 증명을 기반으로 하는 모든 인증을 방지합니다. SQL 인증 사용자는 모든 데이터베이스를 포함하여 Azure SQL Database 또는 관리되는 인스턴스의 [논리 서버에](logical-servers.md) 연결할 수 없습니다. SQL 인증을 사용하지 않도록 설정해도 적절한 권한이 있는 Azure AD 계정으로 새 SQL 인증 로그인 및 사용자를 계속 만들 수 있습니다. 새로 만든 SQL 인증 계정은 서버에 연결할 수 없습니다. Azure AD 전용 인증을 사용하도록 설정해도 기존 SQL 인증 로그인 및 사용자 계정이 제거되지는 않습니다. 이 기능은 이러한 계정으로 서버와 이 서버에 대해 만들어진 모든 데이터베이스에 연결하는 것만 방지합니다.
 
-Azure Policy를 사용 하 여 Azure AD 전용 인증을 사용 하 여 강제로 서버를 만들도록 할 수도 있습니다. 자세한 내용은 [AZURE AD 전용 인증에 대 한 Azure Policy](authentication-azure-ad-only-authentication-policy.md)를 참조 하세요.
+Azure Policy 사용하여 Azure AD 전용 인증을 사용하도록 설정하여 서버를 강제로 만들 수도 있습니다. 자세한 내용은 [Azure AD 전용 인증에 대한 Azure Policy 참조하세요.](authentication-azure-ad-only-authentication-policy.md)
 
 ## <a name="permissions"></a>사용 권한
 
@@ -402,7 +402,7 @@ SQL Database에 대해 Azure AD 전용 인증을 사용 하는 경우 다음 기
 - [서버 역할 Azure SQL Database](security-server-roles.md)
 - [탄력적 작업](job-automation-overview.md)
 - [SQL 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)
-- [CDC (변경 데이터 캡처)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server)
+- [CDC (변경 데이터 캡처)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) -Azure AD 사용자로 Azure SQL Database에서 데이터베이스를 만들고 해당 데이터베이스에 변경 데이터 캡처를 사용 하도록 설정 하는 경우 SQL 사용자는 CDC 아티팩트를 사용 하지 않도록 설정 하거나 변경할 수 없습니다. 그러나 다른 Azure AD 사용자는 동일한 데이터베이스에서 CDC를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 마찬가지로 SQL 사용자로 Azure SQL Database을 만드는 경우 Azure AD 사용자로 CDC를 사용 하거나 사용 하지 않도록 설정 하는 것은 작동 하지 않습니다.
 - [트랜잭션 복제](/azure/azure-sql/managed-instance/replication-transactional-overview) -복제 참가자 간 연결에는 인증이 필요 SQL 하므로 azure AD 전용 인증을 사용 하는 경우에는 트랜잭션 복제를 사용 하 여 azure SQL Managed Instance, 온-프레미스 SQL Server 또는 azure에서 변경 된 내용을 푸시하는 시나리오에 대 한 SQL Database에 대해 트랜잭션 복제가 지원 되지 않습니다.  Azure SQL Database의 데이터베이스에 대 한 VM SQL Server 인스턴스
 - [SQL 인사이트](/azure/azure-monitor/insights/sql-insights-overview)
 - Azure AD 그룹 구성원 계정에 대 한 EXEC AS 문

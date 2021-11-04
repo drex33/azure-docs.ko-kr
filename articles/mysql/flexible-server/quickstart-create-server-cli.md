@@ -8,24 +8,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b8b7454effbef87eb44ec5e99caf5bfb03756d1a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b737e4095fedec7260a8c666649c77443c7d4523
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128609254"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433539"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버 만들기
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 이 빠른 시작에서는 [Azure Cloud Shell](https://shell.azure.com)에서 [Azure CLI](/cli/azure/get-started-with-azure-cli) 명령을 사용하여 5분 안에 Azure Database for MySQL 유연한 서버를 만드는 방법을 보여 줍니다. 
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -57,26 +55,25 @@ az account set --subscription <subscription id>
 az group create --name myresourcegroup --location eastus2
 ```
 
-`az mysql flexible-server create` 명령을 사용하여 유연한 서버를 만듭니다. 서버는 여러 데이터베이스를 포함할 수 있습니다. 다음 명령은 Azure CLI의 [로컬 컨텍스트](/cli/azure/local-context)에 있는 서비스 기본값 및 값을 사용하여 서버를 만듭니다. 
+`az mysql flexible-server create` 명령을 사용하여 유연한 서버를 만듭니다. 서버는 여러 데이터베이스를 포함할 수 있습니다. 다음 명령은 Azure CLI의 [로컬 컨텍스트](/cli/azure/local-context)에 있는 서비스 기본값 및 값을 사용하여 서버를 만듭니다.
 
 ```azurecli-interactive
 az mysql flexible-server create
 ```
 
-생성된 서버에는 다음과 같은 특성이 있습니다. 
-- 자동 생성된 서버 이름, 관리자 이름, 관리자 암호, 리소스 그룹 이름(로컬 컨텍스트에서 아직 지정되지 않은 경우) 및 리소스 그룹과 동일한 위치. 
+생성된 서버에는 다음과 같은 특성이 있습니다.
+- 자동 생성된 서버 이름, 관리자 이름, 관리자 암호, 리소스 그룹 이름(로컬 컨텍스트에서 아직 지정되지 않은 경우) 및 리소스 그룹과 동일한 위치.
 - 나머지 서버 구성에 대한 서비스 기본값: 컴퓨팅 계층(버스트 가능), 컴퓨팅 크기/SKU(B1MS), 백업 보존 기간(7일) 및 MySQL 버전(5.7)
 - 기본 연결 방법은 자동 생성된 가상 네트워크 및 서브넷을 사용하는 프라이빗 액세스(VNet 통합)입니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 서버를 만든 후에는 연결 방법을 변경할 수 없습니다. 예를 들어 만드는 동안 *프라이빗 액세스(VNet 통합)* 를 선택한 경우 만든 후에 *퍼블릭 액세스(허용된 IP 주소)* 로 변경할 수 없습니다. VNet 통합을 사용하여 서버에 안전하게 액세스하려면 프라이빗 액세스 권한이 있는 서버를 만드는 것이 좋습니다. [개념 문서](./concepts-networking.md)에서 프라이빗 액세스에 대해 자세히 알아보세요.
 
-기본값을 변경하려는 경우 구성 가능한 CLI 매개 변수의 전체 목록에 대한 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server)를 참조하세요. 
+기본값을 변경하려는 경우 구성 가능한 CLI 매개 변수의 전체 목록에 대한 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server)를 참조하세요.
 
-다음은 몇 가지 샘플 출력입니다. 
+다음은 몇 가지 샘플 출력입니다.
 
 ```json
-Command group 'mysql flexible-server' is in preview. It may be changed/removed in a future release.
 Creating Resource Group 'groupXXXXXXXXXX'...
 Creating new vnet "serverXXXXXXXXXVNET" in resource group "groupXXXXXXXXXX"...
 Creating new subnet "serverXXXXXXXXXSubnet" in resource group "groupXXXXXXXXXX" and delegating it to "Microsoft.DBforMySQL/flexibleServers"...
@@ -99,7 +96,7 @@ Make a note of your password. If you forget, you would have to reset your passwo
 }
 ```
 
-기본값을 변경하려는 경우 구성 가능한 CLI 매개 변수의 전체 목록에 대한 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server)를 참조하세요. 
+기본값을 변경하려는 경우 구성 가능한 CLI 매개 변수의 전체 목록에 대한 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server)를 참조하세요.
 
 ## <a name="create-a-database"></a>데이터베이스 만들기
 아직 만들지 않은 경우 다음 명령을 실행하여 **newdatabase** 인 데이터베이스를 만듭니다.
@@ -119,7 +116,7 @@ az mysql flexible-server db create -d newdatabase
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-결과는 JSON 형식입니다. **fullyQualifiedDomainName** 및 **administratorLogin** 을 기록해 둡니다. 다음은 JSON 출력의 샘플입니다. 
+결과는 JSON 형식입니다. **fullyQualifiedDomainName** 및 **administratorLogin** 을 기록해 둡니다. 다음은 JSON 출력의 샘플입니다.
 
 ```json
 {
@@ -168,7 +165,6 @@ az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -
 성공적인 연결을 위해 다음과 같은 출력이 표시되어야 합니다.
 
 ```output
-Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Connecting to newdatabase database.
 Successfully connected to mysqldemoserver1.
 ```
@@ -211,12 +207,12 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUI
 Azure Cloud Shell을 사용하여 유연한 서버에 연결하려면 Azure Cloud Shell에서 유연한 서버로의 네트워킹 액세스를 허용해야 합니다. 이를 위해 Azure Portal의 MySQL 유연한 서버 **네트워킹** 블레이드로 이동하고, 아래 스크린샷에 나온 대로 **방화벽** 섹션 아래에 “Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)” 확인란을 선택하고 저장을 클릭하여 설정을 유지합니다.
 
  > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="퍼블릭 액세스 네트워크 구성에 대해 MySQL 유연한 서버에 Azure Cloud Shell 액세스를 허용하는 방법을 보여 주는 스크린샷":::
- 
- 
+
+
 > [!NOTE]
 > 개발 또는 테스트하는 경우에만 **Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)** 를 선택해야 합니다. 다른 고객의 구독에서 들어오는 연결을 포함하여 Azure 서비스 또는 자산에 할당된 IP 주소에서 들어오는 연결을 허용하도록 방화벽을 구성합니다.
 
-**사용해 보기** 를 클릭하여 Azure Cloud Shell을 시작하고 다음 명령을 사용하여 유연한 서버에 연결합니다. 명령에서는 서버 이름, 사용자 이름 및 암호를 사용합니다. 
+**사용해 보기** 를 클릭하여 Azure Cloud Shell을 시작하고 다음 명령을 사용하여 유연한 서버에 연결합니다. 명령에서는 서버 이름, 사용자 이름 및 암호를 사용합니다.
 
 ```azurecli-interactive
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem

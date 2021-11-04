@@ -7,12 +7,12 @@ ms.author: msangapu
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: 330629c958e036db382bed63b9ae0b9642e14bad
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
-ms.translationtype: HT
+ms.openlocfilehash: bf48bd5fd5155b7409d3868635ee3529cfd97b92
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114227882"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471063"
 ---
 # <a name="monitoring-app-service-data-reference"></a>App Service 데이터 모니터링 참조
 
@@ -42,13 +42,9 @@ App Service에는 차원이 포함된 메트릭이 없습니다.
 
 ## <a name="resource-logs"></a>리소스 로그
 
-> [!NOTE]
-> Azure Monitor와 App Service의 통합은 [미리 보기](https://aka.ms/appsvcblog-azmon)에 있습니다.
->
-
 이 섹션에는 App Service에 대해 수집할 수 있는 리소스 로그 유형이 나열되어 있습니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |

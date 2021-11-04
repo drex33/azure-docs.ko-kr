@@ -4,22 +4,19 @@ description: 이 문서에서는 Azure Automation 텍스트 편집기를 사용�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: 48df3f834601410caf83d818ac75b1b7b7e68dc2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: dfab1cb98a15bb919ac017607a56366134149764
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468246"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435437"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
-Azure Automation에서 텍스트 편집기를 사용하여 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 편집할 수 있습니다. 이 편집기에는 IntelliSense와 같은 다른 코드 편집기의 일반적인 기능이 있습니다. 또한 Runbook에 공통적으로 사용되는 리소스에 액세스하는 데 도움이 되는 추가 특수 기능과 색 구분 기능도 있습니다. 
+Azure Automation에서 텍스트 편집기를 사용하여 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 편집할 수 있습니다. 이 편집기에는 IntelliSense와 같은 다른 코드 편집기의 일반적인 기능이 있습니다. 또한 Runbook에 공통적으로 사용되는 리소스에 액세스하는 데 도움이 되는 추가 특수 기능과 색 구분 기능도 있습니다.
 
 텍스트 편집기에는 cmdlet, 자산 및 자식 Runbook에 대한 코드를 Runbook에 삽입하는 기능이 포함되어 있습니다. 코드를 직접 입력하지 않고 사용 가능한 리소스 목록에서 선택하여 편집기가 적합한 코드를 Runbook에 삽입하도록 할 수 있습니다.
 
@@ -97,12 +94,11 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Automation에서 Runbook 관리](manage-runbooks.md)
-* [PowerShell 워크플로 알아보기](automation-powershell-workflow.md)
-* [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
+* [Azure Automation에서 runbook을 관리](manage-runbooks.md)하는 방법을 알아봅니다.
+* PowerShell 워크플로 runbook을 시작 하려면 [powershell 워크플로 학습](automation-powershell-workflow.md)을 참조 하세요.
 * [인증서](./shared-resources/certificates.md)
 * [연결](automation-connections.md).
 * [자격 증명](./shared-resources/credentials.md).
 * [일정](./shared-resources/schedules.md).
 * [변수](./shared-resources/variables.md).
-* [PowerShell cmdlet 참조](/powershell/module/az.automation)
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

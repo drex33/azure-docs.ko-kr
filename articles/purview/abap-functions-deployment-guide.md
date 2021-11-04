@@ -1,18 +1,18 @@
 ---
 title: SAP R3의 메타데이터 추출 ABAP 함수 모듈 - Azure Purview
 description: 이 문서에서는 SAP 서버에 ABAP 함수 모듈을 배포하는 단계를 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: f235e4b293c47c9d2833732fa6333a350a1fd272
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: b8d67c3c5b596627fc1795cf97d807d7f582e326
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210348"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442163"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>SAP R3 브리지 패밀리에 대한 메타데이터 추출 ABAP 함수 모듈을 배포
 
@@ -65,7 +65,7 @@ Sap Business Suite 4 HANA(S/4HANA), ECC, R/3 ERP 브리지를 사용하여 SAP �
 
 1. 함수 그룹이 생성되면 해당 그룹을 선택합니다.
 
-2. 리포지토리 브라우저에서 함수 그룹 이름을 선택 하 고 길게 클릭 하거나 마우스 오른쪽 단추를 클릭 하 고 **만들기**, **함수 모듈** 을 차례로 선택 합니다.
+2. 리포지토리 브라우저에서 함수 그룹 이름을 길게 누른(또는 마우스 오른쪽 단추로 클릭) 다음, **만들기,** **함수 모듈을** 차례로 선택합니다.
 
 3. **함수 모듈** 필드에서 `Z_MITI_DOWNLOAD`를 입력합니다. **짧은 텍스트** 입력을 적절한 설명으로 채웁니다.
 
@@ -112,7 +112,7 @@ Sap Business Suite 4 HANA(S/4HANA), ECC, R/3 ERP 브리지를 사용하여 SAP �
 
 7. 함수를 저장합니다. ctrl+S를 누르거나, 주 메뉴에서 **함수 모듈**, **저장** 을 차례로 선택합니다.
 
-8. 도구 모음에서 **활성화** 아이콘 (Ctrl + F3)을 선택 하 고 대화 상자 창에서  **계속** 단추를 선택 합니다. 메시지가 표시되면 생성된 항목들을 선택하여 주 함수 모듈과 함께 활성화해야 합니다.
+8. 도구 모음에서 **활성화** 아이콘(ctrl+F3)을 선택하고 대화 상자 창에서  **계속** 단추를 선택합니다. 메시지가 표시되면 생성된 항목들을 선택하여 주 함수 모듈과 함께 활성화해야 합니다.
 
 ### <a name="testing-the-function"></a>함수 테스트
 

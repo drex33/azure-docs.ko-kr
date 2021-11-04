@@ -1,19 +1,19 @@
 ---
 title: Azure App Service에 대한 예약 할인
 description: Azure App Service Premium v3 및 Premium v2 인스턴스 및 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: b6230f86fc33dca290f6d61f923024c9352d8600
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 2158a99d12b39891c9e52220fd2b84821b742c58
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378511"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446318"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service"></a>Azure App Service에 예약 할인이 적용되는 방법
 

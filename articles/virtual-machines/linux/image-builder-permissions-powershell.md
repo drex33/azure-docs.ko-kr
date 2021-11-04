@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 759f48a8bcfaa30c190c701ba5dcc8b9cad8a876
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: e310a12248ab0f17c66de2561e090125cbec392e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696145"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444538"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>PowerShell을 사용하여 Azure Image Builder 서비스 권한 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "122696145"
 
 (AIB)에 등록하면 AIB 서비스에 스테이징 리소스 그룹(IT_*)을 만들고, 관리하고, 삭제할 수 있는 권한이 부여되며, 이미지 빌드에 필요한 리소스를 추가할 수 있는 권한이 부여됩니다. 성공적으로 등록하는 동안 구독에서 사용할 수 있는 AIB SPN(서비스 주체 이름)이 이 작업을 수행합니다.
 
-Azure VM Image Builder에서 관리형 이미지 또는 공유 이미지 갤러리에 이미지를 배포하도록 허용하려면 이미지를 읽고 쓸 수 있는 권한이 있는 Azure 사용자 할당 ID를 만들어야 합니다. Azure Storage에 액세스하는 경우 프라이빗 또는 퍼블릭 컨테이너를 읽을 수 있는 권한이 필요합니다.
+Azure VM 이미지 작성기에서 이미지를 관리 되는 이미지 또는 Azure 계산 갤러리 (이전의 공유 이미지 갤러리)에 배포 하도록 허용 하려면 이미지를 읽고 쓸 수 있는 권한이 있는 Azure 사용자 할당 id를 만들어야 합니다. Azure Storage에 액세스하는 경우 프라이빗 또는 퍼블릭 컨테이너를 읽을 수 있는 권한이 필요합니다.
 
 이미지를 빌드하기 전에 사용 권한 및 권한을 설정해야 합니다. 다음 섹션에서는 PowerShell을 사용하여 가능한 시나리오를 구성하는 방법에 관해 자세히 설명합니다.
 
@@ -55,7 +55,7 @@ Azure 사용자 할당 ID에 대한 자세한 내용은 ID를 만드는 방법�
 
 ## <a name="allow-image-builder-to-distribute-images"></a>Image Builder에서 이미지를 배포하도록 허용
 
-Azure Image Builder가 이미지(관리형 이미지/공유 이미지 갤러리)를 배포하려면 Azure Image Builder 서비스에서 이러한 리소스 그룹으로 이미지를 삽입할 수 있어야 합니다. 필요한 사용 권한을 부여하려면 사용자 할당 관리 ID를 만들고 이미지가 빌드된 리소스 그룹에 대한 권한을 부여해야 합니다. Azure Image Builder에는 구독의 다른 리소스 그룹에 있는 리소스에 액세스할 수 있는 권한이 **없습니다**. 빌드 실패를 방지하려면 액세스를 허용하기 위해 명시적인 작업을 수행해야 합니다.
+Azure 이미지 작성기에서 이미지를 배포 하는 경우 (관리 되는 이미지/a p i d a t i) Azure 이미지 작성기 서비스는 이러한 리소스 그룹에 이미지를 삽입할 수 있도록 허용 해야 합니다. 필요한 사용 권한을 부여하려면 사용자 할당 관리 ID를 만들고 이미지가 빌드된 리소스 그룹에 대한 권한을 부여해야 합니다. Azure Image Builder에는 구독의 다른 리소스 그룹에 있는 리소스에 액세스할 수 있는 권한이 **없습니다**. 빌드 실패를 방지하려면 액세스를 허용하기 위해 명시적인 작업을 수행해야 합니다.
 
 이미지를 배포하기 위해 리소스 그룹에 대한 사용자 할당 관리 ID 참가자 권한을 부여하지 않아도 됩니다. 그러나 사용자 할당 관리 ID의 경우 배포 리소스 그룹에 다음 Azure `Actions` 권한이 필요합니다.
 
@@ -65,7 +65,7 @@ Microsoft.Compute/images/read
 Microsoft.Compute/images/delete
 ```
 
-공유 이미지 갤러리에 배포하는 경우 다음도 필요합니다.
+Azure Compute 갤러리에 배포 하는 경우 다음도 필요 합니다.
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -76,7 +76,7 @@ Microsoft.Compute/galleries/images/versions/write
 
 ## <a name="permission-to-customize-existing-images"></a>기존 이미지를 사용자 지정하기 위한 권한
 
-Azure Image Builder가 원본 사용자 지정 이미지(관리형 이미지/공유 이미지 갤러리)에서 이미지를 빌드하려면 Azure Image Builder 서비스에서 이러한 리소스 그룹으로 이미지를 읽을 수 있어야 합니다. 필요한 사용 권한을 부여하려면 사용자 할당 관리 ID를 만들고 이미지가 있는 리소스 그룹에 대한 권한을 부여해야 합니다.
+Azure 이미지 작성기가 원본 사용자 지정 이미지에서 이미지를 빌드하려면 (관리 되는 이미지/a p i d a t i d) Azure 이미지 작성기 서비스에서 이러한 리소스 그룹으로 이미지를 읽을 수 있어야 합니다. 필요한 사용 권한을 부여하려면 사용자 할당 관리 ID를 만들고 이미지가 있는 리소스 그룹에 대한 권한을 부여해야 합니다.
 
 기존 사용자 지정 이미지에서 빌드:
 
@@ -84,7 +84,7 @@ Azure Image Builder가 원본 사용자 지정 이미지(관리형 이미지/공
 Microsoft.Compute/galleries/read
 ```
 
-기존 공유 이미지 갤러리 버전에서 빌드:
+기존 Azure Compute 갤러리 버전에서 빌드:
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -105,7 +105,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 ## <a name="create-an-azure-role-definition"></a>Azure 역할 정의 만들기
 
-다음 예제에서는 이전 섹션에서 설명한 작업에서 Azure 역할 정의를 만듭니다. 예제는 리소스 그룹 수준에서 적용됩니다. 사용자 요구 사항에 따라 예제가 충분히 세분화되어 있는지 평가하고 테스트합니다. 시나리오의 경우 특정 공유 이미지 갤러리로 구체화해야 할 수 있습니다.
+다음 예제에서는 이전 섹션에서 설명한 작업에서 Azure 역할 정의를 만듭니다. 예제는 리소스 그룹 수준에서 적용됩니다. 사용자 요구 사항에 따라 예제가 충분히 세분화되어 있는지 평가하고 테스트합니다. 시나리오의 경우 특정 Azure 계산 갤러리에 구체화 해야 할 수 있습니다.
 
 이미지 작업은 읽기 및 쓰기를 허용합니다. 사용자 환경에 적합한 항목을 결정합니다. 예를 들어, Azure Image Builder가 리소스 그룹 *‘example-rg-1’* 에서 이미지를 읽고 리소스 그룹 *‘example-rg-2’* 에 이미지를 쓰도록 허용하는 역할을 만듭니다.
 

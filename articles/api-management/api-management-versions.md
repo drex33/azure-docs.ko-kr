@@ -6,15 +6,14 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 10/31/2021
 ms.author: jodowns
-ms.custom: fasttrack-new
-ms.openlocfilehash: 6b055cb6771dc76557c61220a52120a5fbbd7940
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: a89860216563480de4803cc6e4a7e9f24853190f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811386"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471101"
 ---
 # <a name="versions-in-azure-api-management"></a>Azure API Management 버전
 
@@ -64,11 +63,13 @@ API 개발자는 버전에 대한 요구 사항이 다릅니다. Azure API Manag
 
 ## <a name="how-versions-are-represented"></a>버전을 나타내는 방법
 
-Azure API Management 단일 논리 API에 대한 버전 집합을 나타내는 *버전 집합이라는* 리소스를 유지 관리합니다. 버전 집합에는 버전이 지정된 API의 표시 이름과 요청을 지정된 버전으로 [지정하는 데 사용되는 버전 지정 체계가](#versioning-schemes) 포함됩니다.
+Azure API Management 단일 논리 API에 대한 *버전 집합을* 나타내는 버전 집합이라는 리소스를 유지 관리합니다. 버전 집합에는 버전이 지정된 API의 표시 이름과 요청을 지정된 버전으로 [지정하는 데 사용되는 버전 지정 체계가](#versioning-schemes) 포함됩니다.
 
 API의 각 버전은 자체 API 리소스로 유지 관리되며, 이 리소스는 버전 집합과 연결됩니다. 버전 집합에는 다른 작업 또는 정책이 있는 API가 포함될 수 있습니다. 집합의 버전 간에 중요한 변경 내용을 만들 수 있습니다.
 
 Azure Portal 버전 집합을 만듭니다. Azure Portal 설정된 버전에 대한 이름과 설명을 수정할 수 있습니다.
+
+최종 버전이 삭제되면 버전 집합이 자동으로 삭제됩니다.
 
 [Azure CLI, Azure PowerShell, Resource Manager](/cli/azure/apim/api/versionset) [템플릿](/azure/templates/microsoft.apimanagement/service/apiversionsets)또는 [Azure Resource Manager](/powershell/module/az.apimanagement/#api-management) [API](/rest/api/apimanagement/2020-12-01/api-version-set)를 사용하여 버전 집합을 직접 보고 관리할 수 있습니다.
 
@@ -94,7 +95,7 @@ Azure Portal 사용하여 기존 API에서 버전 변경을 사용하도록 설�
 
 API의 세부 정보는 해당 API의 모든 버전 목록도 표시합니다. `Original`버전 식별자 없이 버전이 표시됩니다.
 
-![API의 세부 정보 및 해당 API에 대한 버전 목록을 표시하는 API Management 개발자 포털](media/api-management-versions/portal-details.png)
+![API Management API의 세부 정보 및 해당 API에 대한 버전 목록을 표시하는 개발자 포털](media/api-management-versions/portal-details.png)
 
 > [!TIP]
 > API 버전은 개발자 포털에 표시되기 전에 제품에 추가해야 합니다.

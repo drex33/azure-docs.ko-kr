@@ -2,17 +2,17 @@
 title: Azure CDN에 대한 표준 규칙 엔진의 일치 조건 | Microsoft Docs
 description: Azure CDN(Azure Content Delivery Network)에 대한 표준 규칙 엔진의 일치 조건에 대한 참조 설명서입니다.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: allensu
-ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: bd0c6b0578fc301c38e96b654a281eb025c54dc5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81259932"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469923"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진의 일치 조건
 
@@ -113,6 +113,7 @@ IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
 - IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들면 다음과 같습니다.
   - **IPv4 예제**: *5.5.5.64/26* 은 5.5.5.64~5.5.5.127 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: *1:2:3:/48* 은 1:2:3:0:0:0:0:0~1:2:3:ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
+- 원격 주소는 네트워크 연결에서 온 원래 클라이언트 IP를 나타내거나, 사용자가 프록시 뒤에 있는 경우 일반적으로 X-Forwarded-For 요청 헤더를 나타냅니다.
 
 ### <a name="request-body"></a>요청 본문
 

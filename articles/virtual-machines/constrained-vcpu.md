@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
-ms.openlocfilehash: 2f86f559bfba9c2fcc75649153db450abb877b4d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 1cfbe39883612804e32b47868806f87b3753a102
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696533"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437261"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>제한된 vCPU 지원 VM 크기
 
@@ -30,69 +30,113 @@ vCPU 수를 원래 VM 크기의 절반이나 1/4로 제한할 수 있습니다. 
 SQL Server 또는 Oracle에 대해 청구되는 라이선스 요금은 새 vCPU 개수로 제한되며 다른 제품은 새 vCPU 수를 기준으로 청구됩니다. 따라서 활성(청구 가능) vCPU에 대한 VM 사양의 비율이 50~75% 증가합니다. 이러한 새 VM 크기를 통해 고객 워크로드는 소프트웨어 라이선스 비용을 최적화하면서 동일한 메모리, 스토리지 및 I/O 대역폭을 사용할 수 있습니다. 현재 OS 라이선스를 포함하는 컴퓨팅 비용은 원래 크기와 동일하게 유지됩니다. 자세한 내용은 [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)(비용 효율적인 데이터베이스 워크로드를 위한 Azure VM 크기)를 참조하세요.
 
 
-| 이름                | vCPU | 사양           |
-|---------------------|------|-----------------|
-| Standard_M8-2ms     | 2    | M8ms와 동일    |
-| Standard_M8-4ms     | 4    | M8ms와 동일    |
-| Standard_M16-4ms    | 4    | M16ms와 동일   |
-| Standard_M16-8ms    | 8    | M16ms와 동일   |
-| Standard_M32-8ms    | 8    | M32ms와 동일   |
-| Standard_M32-16ms   | 16   | M32ms와 동일   |
-| Standard_M64-32ms   | 32   | M64ms와 동일   |
-| Standard_M64-16ms   | 16   | M64ms와 동일   |
-| Standard_M128-64ms  | 64   | M128ms와 동일  |
-| Standard_M128-32ms  | 32   | M128ms와 동일  |
-| Standard_E4-2s_v3   | 2    | E4s_v3과 동일  |
-| Standard_E8-4s_v3   | 4    | E8s_v3과 동일  |
-| Standard_E8-2s_v3   | 2    | E8s_v3과 동일  |
-| Standard_E16-8s_v3  | 8    | E16s_v3와 동일 |
-| Standard_E16-4s_v3  | 4    | E16s_v3와 동일 |
-| Standard_E32-16s_v3 | 16   | E32s_v3와 동일 |
-| Standard_E32-8s_v3  | 8    | E32s_v3와 동일 |
-| Standard_E64-32s_v3 | 32   | E64s_v3와 동일 |
-| Standard_E64-16s_v3 | 16   | E64s_v3와 동일 |
-| Standard_E4-2s_v4   | 2    | E4s_v4와 동일  |
-| Standard_E8-4s_v4   | 4    | E8s_v4와 동일  |
-| Standard_E8-2s_v4   | 2    | E8s_v4와 동일  |
-| Standard_E16-8s_v4  | 8    | E16s_v4와 동일 |
-| Standard_E16-4s_v4  | 4    | E16s_v4와 동일 |
-| Standard_E32-16s_v4 | 16   | E32s_v4와 동일 |
-| Standard_E32-8s_v4  | 8    | E32s_v4와 동일 |
-| Standard_E64-32s_v4 | 32   | E64s_v4와 동일 |
-| Standard_E64-16s_v4 | 16   | E64s_v4와 동일 |
-| Standard_E4-2ds_v4  | 2    | E4ds_v4와 동일 |
-| Standard_E8-4ds_v4  | 4    | E8ds_v4와 동일 |
-| Standard_E8-2ds_v4  | 2    | E8ds_v4와 동일 |
-| Standard_E16-8ds_v4 | 8    | E16ds_v4와 동일|
-| Standard_E16-4ds_v4 | 4    | E16ds_v4와 동일|
-| Standard_E32-16ds_v4| 16   | E32ds_v4와 동일|
-| Standard_E32-8ds_v4 | 8    | E32ds_v4와 동일|
-| Standard_E64-32ds_v4| 32   | E64ds_v4와 동일|
-| Standard_E64-16ds_v4| 16   | E64ds_v4와 동일|
-| Standard_E4-2as_v4  | 2    | E4as_v4와 동일 |
-| Standard_E8-4as_v4  | 4    | E8as_v4와 동일 |
-| Standard_E8-2as_v4  | 2    | E8as_v4와 동일 |
-| Standard_E16-8as_v4 | 8    | E16as_v4와 동일|
-| Standard_E16-4as_v4 | 4    | E16as_v4와 동일|
-| Standard_E32-16as_v4| 16   | E32as_v4와 동일|
-| Standard_E32-8as_v4 | 8    | E32as_v4와 동일|
-| Standard_E64-32as_v4| 32   | E64as_v4와 동일|
-| Standard_E64-16as_v4| 16   | E64as_v4와 동일|
-| Standard_E96-48as_v4| 48   | E96as_v4와 동일|
-| Standard_E96-24as_v4| 24   | E96as_v4와 동일|
-| Standard_GS4-8      | 8    | GS4와 동일     |
-| Standard_GS4-4      | 4    | GS4와 동일     |
-| Standard_GS5-16     | 16   | GS5와 동일     |
-| Standard_GS5-8      | 8    | GS5와 동일     |
-| Standard_DS11-1_v2  | 1    | DS11_v2와 동일 |
-| Standard_DS12-2_v2  | 2    | DS12_v2와 동일 |
-| Standard_DS12-1_v2  | 1    | DS12_v2와 동일 |
-| Standard_DS13-4_v2  | 4    | DS13_v2와 동일 |
-| Standard_DS13-2_v2  | 2    | DS13_v2와 동일 |
-| Standard_DS14-8_v2  | 8    | DS14_v2와 동일 |
-| Standard_DS14-4_v2  | 4    | DS14_v2와 동일 |
-| Standard_M416-208s_v2 | 208    | M416s_v2와 동일|
-| Standard_M416-208ms_v2 | 208    | M416ms_v2와 동일 |
+| 이름                    | vCPU | 사양              |
+|-------------------------|------|--------------------|
+| Standard_M8-2ms         | 2    | M8ms와 동일       |
+| Standard_M8-4ms         | 4    | M8ms와 동일       |
+| Standard_M16-4ms        | 4    | M16ms와 동일      |
+| Standard_M16-8ms        | 8    | M16ms와 동일      |
+| Standard_M32-8ms        | 8    | M32ms와 동일      |
+| Standard_M32-16ms       | 16   | M32ms와 동일      |
+| Standard_M64-32ms       | 32   | M64ms와 동일      |
+| Standard_M64-16ms       | 16   | M64ms와 동일      |
+| Standard_M128-64ms      | 64   | M128ms와 동일     |
+| Standard_M128-32ms      | 32   | M128ms와 동일     |
+| Standard_E4-2s_v3       | 2    | E4s_v3과 동일     |
+| Standard_E8-4s_v3       | 4    | E8s_v3과 동일     |
+| Standard_E8-2s_v3       | 2    | E8s_v3과 동일     |
+| Standard_E16-8s_v3      | 8    | E16s_v3와 동일    |
+| Standard_E16-4s_v3      | 4    | E16s_v3와 동일    |
+| Standard_E32-16s_v3     | 16   | E32s_v3와 동일    |
+| Standard_E32-8s_v3      | 8    | E32s_v3와 동일    |
+| Standard_E64-32s_v3     | 32   | E64s_v3와 동일    |
+| Standard_E64-16s_v3     | 16   | E64s_v3와 동일    |
+| Standard_E4-2s_v4       | 2    | E4s_v4와 동일     |
+| Standard_E8-4s_v4       | 4    | E8s_v4와 동일     |
+| Standard_E8-2s_v4       | 2    | E8s_v4와 동일     |
+| Standard_E16-8s_v4      | 8    | E16s_v4와 동일    |
+| Standard_E16-4s_v4      | 4    | E16s_v4와 동일    |
+| Standard_E32-16s_v4     | 16   | E32s_v4와 동일    |
+| Standard_E32-8s_v4      | 8    | E32s_v4와 동일    |
+| Standard_E64-32s_v4     | 32   | E64s_v4와 동일    |
+| Standard_E64-16s_v4     | 16   | E64s_v4와 동일    |
+| Standard_E4-2ds_v4      | 2    | E4ds_v4와 동일    |
+| Standard_E8-4ds_v4      | 4    | E8ds_v4와 동일    |
+| Standard_E8-2ds_v4      | 2    | E8ds_v4와 동일    |
+| Standard_E16-8ds_v4     | 8    | E16ds_v4와 동일   |
+| Standard_E16-4ds_v4     | 4    | E16ds_v4와 동일   |
+| Standard_E32-16ds_v4    | 16   | E32ds_v4와 동일   |
+| Standard_E32-8ds_v4     | 8    | E32ds_v4와 동일   |
+| Standard_E64-32ds_v4    | 32   | E64ds_v4와 동일   |
+| Standard_E64-16ds_v4    | 16   | E64ds_v4와 동일   |
+| Standard_E4-2s_v5       | 2    | E4s_v5와 동일     |
+| Standard_E8-4s_v5       | 4    | E8s_v5와 동일     |
+| Standard_E8-2s_v5       | 2    | E8s_v5와 동일     |
+| Standard_E16-8s_v5      | 8    | E16s_v5와 동일    |
+| Standard_E16-4s_v5      | 4    | E16s_v5와 동일    |
+| Standard_E32-16s_v5     | 16   | E32s_v5와 동일    |
+| Standard_E32-8s_v5      | 8    | E32s_v5와 동일    |
+| Standard_E64-32s_v5     | 32   | E64s_v5와 동일    |
+| Standard_E64-16s_v5     | 16   | E64s_v5와 동일    |
+| Standard_E96-48s_v5     | 48   | E96s_v5와 동일    |
+| Standard_E96-24s_v5     | 24   | E96s_v5와 동일    |
+| Standard_E4-2ds_v5      | 2    | E4ds_v5와 동일    |
+| Standard_E8-4ds_v5      | 4    | E8ds_v5와 동일    |
+| Standard_E8-2ds_v5      | 2    | E8ds_v5와 동일    |
+| Standard_E16-8ds_v5     | 8    | E16ds_v5와 동일   |
+| Standard_E16-4ds_v5     | 4    | E16ds_v5와 동일   |
+| Standard_E32-16ds_v5    | 16   | E32ds_v5와 동일   |
+| Standard_E32-8ds_v5     | 8    | E32ds_v5와 동일   |
+| Standard_E64-32ds_v5    | 32   | E64ds_v5와 동일   |
+| Standard_E64-16ds_v5    | 16   | E64ds_v5와 동일   |
+| Standard_E96-48ds_v5    | 48   | E96ds_v5와 동일   |
+| Standard_E96-24ds_v5    | 24   | E96ds_v5와 동일   |
+| Standard_E4-2as_v4      | 2    | E4as_v4와 동일    |
+| Standard_E8-4as_v4      | 4    | E8as_v4와 동일    |
+| Standard_E8-2as_v4      | 2    | E8as_v4와 동일    |
+| Standard_E16-8as_v4     | 8    | E16as_v4와 동일   |
+| Standard_E16-4as_v4     | 4    | E16as_v4와 동일   |
+| Standard_E32-16as_v4    | 16   | E32as_v4와 동일   |
+| Standard_E32-8as_v4     | 8    | E32as_v4와 동일   |
+| Standard_E64-32as_v4    | 32   | E64as_v4와 동일   |
+| Standard_E64-16as_v4    | 16   | E64as_v4와 동일   |
+| Standard_E96-48as_v4    | 48   | E96as_v4와 동일   |
+| Standard_E96-24as_v4    | 24   | E96as_v4와 동일   |
+| Standard_E4-2ads_v5     | 2    | E4ads_v5와 동일   |
+| Standard_E8-4ads_v5     | 4    | E8ads_v5와 동일   |
+| Standard_E8-2ads_v5     | 2    | E8ads_v5와 동일   |
+| Standard_E16-8ads_v5    | 8    | E16ads_v5와 동일  |
+| Standard_E16-4ads_v5    | 4    | E16ads_v5와 동일  |
+| Standard_E32-16ads_v5   | 16   | E32ads_v5와 동일  |
+| Standard_E32-8ads_v5    | 8    | E32ads_v5와 동일  |
+| Standard_E64-32ads_v5   | 32   | E64ads_v5와 동일  |
+| Standard_E64-16ads_v5   | 16   | E64ads_v5와 동일  |
+| Standard_E96-48ads_v5   | 48   | E96ads_v5와 동일  |
+| Standard_E96-24ads_v5   | 24   | E96ads_v5와 동일  |
+| Standard_E4-2as_v5      | 2    | E4as_v5와 동일    |  
+| Standard_E8-4as_v5      | 4    | E8as_v5와 동일    | 
+| Standard_E8-2as_v5      | 2    | E8as_v5와 동일    |  
+| Standard_E16-8as_v5     | 8    | E16as_v5와 동일   |
+| Standard_E16-4as_v5     | 4    | E16as_v5와 동일   |
+| Standard_E32-16as_v5    | 16   | E32as_v5와 동일   |
+| Standard_E32-8as_v5     | 8    | E32as_v5와 동일   |
+| Standard_E64-32as_v5    | 32   | E64as_v5와 동일   |
+| Standard_E64-16as_v5    | 16   | E64as_v5와 동일   |
+| Standard_E96-48as_v5    | 48   | E96as_v5와 동일   |
+| Standard_E96-24as_v5    | 24   | E96as_v5와 동일   |
+| Standard_GS4-8          | 8    | GS4와 동일        |
+| Standard_GS4-4          | 4    | GS4와 동일        |
+| Standard_GS5-16         | 16   | GS5와 동일        |
+| Standard_GS5-8          | 8    | GS5와 동일        |
+| Standard_DS11-1_v2      | 1    | DS11_v2와 동일    |
+| Standard_DS12-2_v2      | 2    | DS12_v2와 동일    |
+| Standard_DS12-1_v2      | 1    | DS12_v2와 동일    |
+| Standard_DS13-4_v2      | 4    | DS13_v2와 동일    |
+| Standard_DS13-2_v2      | 2    | DS13_v2와 동일    |
+| Standard_DS14-8_v2      | 8    | DS14_v2와 동일    |
+| Standard_DS14-4_v2      | 4    | DS14_v2와 동일    |
+| Standard_M416-208s_v2   | 208  | M416s_v2와 동일   |
+| Standard_M416-208ms_v2  | 208  | M416ms_v2와 동일  |
 
 ## <a name="other-sizes"></a>기타 크기
 - [컴퓨팅 최적화](./sizes-compute.md)

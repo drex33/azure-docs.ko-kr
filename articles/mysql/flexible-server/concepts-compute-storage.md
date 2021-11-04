@@ -6,19 +6,17 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 752102e7e446f5f93e23a8cfb455bca2d069ce8c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 69aeb2e450a78ce6c3bdc7378d9d53edf3706720
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246270"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475695"
 ---
-# <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL에서 컴퓨팅 및 스토리지 옵션 - 유연한 서버(미리 보기)
+# <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 컴퓨팅 및 스토리지 옵션 - 유연한 서버
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모리 최적화의 세 가지 컴퓨팅 계층 중 하나에서 만들 수 있습니다. 컴퓨팅 계층은 B 시리즈, D 시리즈 및 E 시리즈를 사용하는 기본 VM SKU로 구분됩니다. 컴퓨팅 계층과 크기를 선택하면 서버에서 사용할 수 있는 메모리 및 vCore가 결정됩니다. 모든 컴퓨팅 계층에서 동일한 스토리지 기술이 사용됩니다. 모든 리소스는 MySQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
@@ -101,19 +99,17 @@ Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모
 
 ### <a name="storage-auto-grow"></a>스토리지 자동 증가
 
-스토리지 자동 증가는 서버가 스토리지가 부족해지고 읽기 전용이 되지 않도록 방지합니다. 스토리지 자동 증가를 사용하도록 설정하면 워크로드에 영향을 주지 않고 스토리지가 자동으로 증가합니다. 스토리지 자동 증가는 모든 새 서버 생성에 대해 기본적으로 활성화됩니다. 프로비전된 스토리지가 100GB보다 작거나 같은 서버의 경우, 사용 가능한 스토리지 공간이 프로비전된 스토리지 크기의 10% 미만이면 프로비전된 스토리지 크기가 5GB씩 증가합니다. 프로비전된 스토리지가 100GB를 초과하는 서버의 경우, 사용 가능한 스토리지 공간이 10GB의 프로비전된 스토리지 크기 미만이면 프로비전된 스토리지 크기가 5%씩 증가합니다. 위에 지정된 대로 최대 스토리지 제한이 적용됩니다. 서버 인스턴스를 새로 고쳐 컴퓨팅 + Storage 블레이드에서 프로비전된 업데이트된 스토리지를 확인합니다. 
+스토리지 자동 증가는 서버가 스토리지가 부족해지고 읽기 전용이 되지 않도록 방지합니다. 스토리지 자동 증가를 사용하도록 설정하면 워크로드에 영향을 주지 않고 스토리지가 자동으로 증가합니다. 스토리지 자동 증가는 모든 새 서버 생성에 대해 기본적으로 활성화됩니다. 프로비전된 스토리지가 100GB보다 작거나 같은 서버의 경우, 사용 가능한 스토리지 공간이 프로비전된 스토리지 크기의 10% 미만이면 프로비전된 스토리지 크기가 5GB씩 증가합니다. 프로비전된 스토리지가 100GB를 초과하는 서버의 경우, 사용 가능한 스토리지 공간이 10GB의 프로비전된 스토리지 크기 미만이면 프로비전된 스토리지 크기가 5%씩 증가합니다. 위에 지정된 대로 최대 스토리지 제한이 적용됩니다. 서버 인스턴스를 새로 고쳐 계산 + Storage 블레이드에서 프로 비전 된 업데이트 된 저장소를 확인 합니다. 
 
 예를 들어 1000GB의 스토리지를 프로비전하고 실제 활용이 990GB를 넘어서는 경우 서버는 1050GB로 증가합니다. 또는 10GB의 스토리지를 프로비전한 경우 사용 가능한 스토리지가1GB 미만이면 스토리지 크기가 15GB로 증가합니다.
 
-스토리지가 자동 스케일 업되면 규모를 축소할 수 없습니다.
+자동으로 확장 된 저장소는 규모를 축소할 수 없습니다.
 
 ## <a name="iops"></a>IOPS
 
 Azure Database for MySQL – 유연한 서버는 추가 IOPS의 프로비전을 지원합니다. 이 기능을 사용하면 추가 IOPS 제한을 초과하는 추가 IOPS를 프로비전할 수 있습니다. 이 기능을 사용하면 언제든지 워크로드 요구 사항에 따라 프로비전된 IOPS 수를 늘리거나 줄일 수 있습니다. 
 
-최소 IOPS는 모든 컴퓨팅 크기에서 360이고, 최대 IOPS는 선택한 컴퓨팅 크기로 결정됩니다. 미리 보기에서 지원되는 최대 IOPS는 20,000IOPS입니다.
-
-컴퓨팅 크기별 최대 IOPS에 대한 자세한 내용은 아래에 나와 있습니다. 
+최소 IOPS는 모든 컴퓨팅 크기에서 360이고, 최대 IOPS는 선택한 컴퓨팅 크기로 결정됩니다. 컴퓨팅 크기별 최대 IOPS에 대한 자세한 내용은 아래에 나와 있습니다. 
 
 | 컴퓨팅 크기         | 최대 IOPS        | 
 |----------------------|---------------------|
@@ -143,9 +139,9 @@ Azure Database for MySQL – 유연한 서버는 추가 IOPS의 프로비전을 
 > [!Important]
 > **무료 IOPS** 는 최소(컴퓨팅 크기의 "캐시되지 않은 최대 디스크 처리량: IOPS/MBps", 300 + GiB*3에 프로비저닝된 스토리지)와 동일합니다.<br>
 > **최소 IOPS** 는 모든 컴퓨팅 크기에서 360입니다.<br>
-> **최대 IOPS** 는 선택한 컴퓨팅 크기로 결정됩니다. 미리 보기에서 지원되는 최대 IOPS는 20,000IOPS입니다.
+> **최대 IOPS** 는 선택한 컴퓨팅 크기로 결정됩니다. 
 
-[IO 백분율](./concepts-monitoring.md) 메트릭을 사용하여 Azure Portal(Azure Monitor와 함께)에서 I/O 사용량을 모니터링할 수 있습니다. 컴퓨팅을 기반으로 하는 최대 IOPS보다 더 많은 IOPS가 필요한 경우 서버의 컴퓨팅 크기를 조정해야 합니다.
+[IO 백분율](./concepts-monitoring.md) 메트릭을 사용하여 Azure Portal(Azure Monitor와 함께)에서 I/O 사용량을 모니터링할 수 있습니다. 계산을 기반으로 하는 최대 IOPS 보다 더 많은 IOPS가 필요한 경우 서버 계산의 크기를 조정 해야 합니다.
 
 ## <a name="backup"></a>Backup
 

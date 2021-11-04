@@ -3,7 +3,7 @@ title: Azure CDN 청구 이해 | Microsoft Docs
 description: 청구 영역, 배달 요금 및 비용 관리를 포함하여 Azure Content Delivery Network에서 호스트하는 콘텐츠의 청구 구조에 대해 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
-ms.author: allensu
-ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: c592be1445b874eb4535ac0f0082bf735832ebb2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018684"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426623"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 

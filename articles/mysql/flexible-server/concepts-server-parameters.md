@@ -6,23 +6,20 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 43f544cb2782fc80dd574a1d8c425283c51a0ed3
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 59bb5a6a2a544eb72d1438c38ad3040c2ac43476
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256472"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468369"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버의 서버 매개 변수
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 문서에서는 Azure Database for MySQL - 유연한 서버에서 서버 매개 변수를 구성하는 데 있어서의 고려 사항 및 지침을 제공합니다.
 
-## <a name="what-are-server-variables"></a>서버 변수란? 
+## <a name="what-are-server-variables"></a>서버 변수란?
 
 MySQL 엔진은 엔진 동작을 구성 및 조정하는 데 사용할 수 있는 여러 [서버 변수/매개 변수](https://dev.mysql.com/doc/refman/5.7/en/server-option-variable-reference.html)를 제공합니다. 일부 매개 변수는 런타임 중에 동적으로 설정할 수 있으며, "정적"이기 때문에 서버를 다시 시작해야 적용되는 매개 변수도 있습니다.
 
@@ -37,15 +34,15 @@ Azure Database for MySQL 유연한 서버는 [Azure Portal](./how-to-configure-s
 다음 섹션을 참조하여 일반적으로 업데이트되는 여러 서버 매개 변수의 제한에 대해 자세히 알아보세요. 제한은 서버의 컴퓨팅 계층 및 크기(vCore)에 따라 결정됩니다.
 
 > [!NOTE]
-> 수정할 수 없지만 환경에 대해 수정 가능한 것으로 여기고자 하는 서버 매개 변수를 수정하려는 경우 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) 항목을 열거나 우선 순위 지정에 도움이 될 수 있는 피드백이 이미 있는 경우 투표합니다.
+> 수정할 수 없지만 환경에 대해 수정 가능한 것으로 여기고자 하는 서버 매개 변수를 수정하려는 경우 [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0) 항목을 열거나 우선 순위 지정에 도움이 될 수 있는 피드백이 이미 있는 경우 투표합니다.
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-Azure Database for MySQL 유연한 서버에서 이진 로그는 항상 사용 설정됩니다(`log_bin`이 ON으로 설정됨). log_bin_trust_function_creators는 유연한 서버에서 기본적으로 ON으로 설정됩니다. 
+Azure Database for MySQL 유연한 서버에서 이진 로그는 항상 사용 설정됩니다(`log_bin`이 ON으로 설정됨). log_bin_trust_function_creators는 유연한 서버에서 기본적으로 ON으로 설정됩니다.
 
 이진 로깅 형식은 항상 **행** 이고 서버에 대한 모든 연결은 **항상** 행 기반 이진 로깅을 사용합니다. 행 기반 이진 로깅을 사용하는 경우 보안 문제가 존재하지 않고 이진 로깅이 중단되지 않아 안전하게 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)를 **ON** 상태로 유지할 수 있습니다.
 
-[`log_bin_trust_function_creators`]가 OFF로 설정된 경우 트리거를 만들려고 하면 *슈퍼 권한이 없고 이진 로깅이 사용 설정되었습니다(덜 안전한 `log_bin_trust_function_creators` 변수를 사용하는 것이 좋습니다)* 와 유사한 오류가 발생할 수 있습니다. 
+[`log_bin_trust_function_creators`]가 OFF로 설정된 경우 트리거를 만들려고 하면 *슈퍼 권한이 없고 이진 로깅이 사용 설정되었습니다(덜 안전한 `log_bin_trust_function_creators` 변수를 사용하는 것이 좋습니다)* 와 유사한 오류가 발생할 수 있습니다.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -77,9 +74,18 @@ MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이�
 
 Azure Database for MySQL 유연한 서버는 단일 데이터 파일에서 최대 **4TB** 를 지원합니다. 데이터베이스 크기가 4TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 4TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
 
+### <a name="innodb_log_file_size"></a>innodb_log_file_size
+
+[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) 는 [로그 그룹](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group)에 있는 각 [로그 파일](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) 의 크기 (바이트)입니다. 로그 파일 [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size)innodb_log_files_in_group)의 결합 된 크기는  *  [](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)512gb 보다 약간 작은 최대값을 초과할 수 없습니다. 로그 파일 크기는 성능에 더 유용 하지만, 충돌 후 복구 시간이 높을 경우 단점이 있습니다. 충돌 복구 시 거의 발생 하지 않을 경우 복구 시간을 균형 있게 유지 하 고 피크 작업 중에 처리량을 최대화 해야 합니다. 또한 다시 시작 시간이 길어질 수 있습니다. MySQL, 512MB, 1GB 또는 2GB의 Azure database for MySQL 유연한 서버 값 중 하나에 innodb_log_size를 구성할 수 있습니다. 매개 변수가 정적 이므로 다시 시작 해야 합니다.
+
+> [!NOTE]
+> 매개 변수 innodb_log_file_size를 기본값에서 변경한 경우 다시 시작 지연이 발생 하지 않도록 하려면 "innodb_buffer_pool_pages_dirty '와 같은 전역 상태 표시" 값이 30 초 동안 0으로 유지 되는지 확인 합니다.
+
+
+
 ### <a name="max_connections"></a>max_connections
 
-max_connection의 값은 서버의 메모리 크기에 따라 결정됩니다. 
+max_connection의 값은 서버의 메모리 크기에 따라 결정됩니다.
 
 |**가격 책정 계층**|**vCore**|**메모리 크기(GiB)**|**기본값**|**최솟값**|**최댓값**|
 |---|---|---|---|---|---|
@@ -114,7 +120,7 @@ MySQL에 대한 새 클라이언트 연결을 만들려면 시간이 필요하�
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-"행 크기가 너무 큼(> 8126)"과 유사한 오류가 표시되는 경우 **innodb_strict_mode** 매개 변수를 해제할 수 있습니다. 서버 매개 변수 **innodb_strict_mode** 는 서버 수준에서 전역 수정이 허용되지 않는데, 행 데이터 크기가 8k보다 큰 경우 데이터가 오류 없이 잘려 잠재적인 데이터 손실로 이어질 수 있기 때문입니다. 페이지 크기 제한에 맞춰 스키마를 수정하는 것이 좋습니다. 
+"행 크기가 너무 큼(> 8126)"과 유사한 오류가 표시되는 경우 **innodb_strict_mode** 매개 변수를 해제할 수 있습니다. 서버 매개 변수 **innodb_strict_mode** 는 서버 수준에서 전역 수정이 허용되지 않는데, 행 데이터 크기가 8k보다 큰 경우 데이터가 오류 없이 잘려 잠재적인 데이터 손실로 이어질 수 있기 때문입니다. 페이지 크기 제한에 맞춰 스키마를 수정하는 것이 좋습니다.
 
 이 매개 변수는 `init_connect`를 사용하여 세션 수준에서 설정할 수 있습니다. 세션 수준에서 **innodb_strict_mode** 를 설정하려면 [설정 매개 변수가 목록에 없음](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters)을 참조하세요.
 

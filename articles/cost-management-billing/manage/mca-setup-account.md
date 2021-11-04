@@ -1,19 +1,20 @@
 ---
 title: Microsoft 고객 계약에 대한 청구 설정 - Azure
 description: Microsoft 고객 계약에 대한 청구 계정을 설정하는 방법을 알아봅니다. 설정에 필요한 필수 구성 요소를 확인하고 사용 가능한 다른 리소스를 살펴봅니다.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 982bb3719de66d880f635dbb7c95e9ae2c4590c2
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 74f49b2df909c157555390fedd280d1d51615530
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711157"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433955"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 

@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6b252ef52b1501d5428aa85cb697ea04a8c3cafc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 004b80f77d4fdd410ab3530315990d5ad0132e5c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053155"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434937"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>gRPC 유추 서버 개발 및 배포
 
@@ -39,6 +39,9 @@ gRPC 유추 서버를 만들어 Video Analyzer를 통해 확장으로 구현하�
 ### <a name="setup-video-analyzer-module"></a>Video Analyzer 모듈 설치
 
 IoT Edge 디바이스에서 Video Analyzer 모듈을 배포하고 작동하는 데 필요한 단계를 수행합니다.
+
+> [!NOTE]
+> 배포 매니페스트는 태그를 1 (비디오-분석기: 1)로 사용 합니다. 따라서 이러한 매니페스트를 다시 배포하면 최신 태그가 릴리스될 때 에지 디바이스의 모듈이 업데이트되어야 합니다.
 
 ### <a name="high-level-implementation-steps"></a>개략적인 구현 단계
 

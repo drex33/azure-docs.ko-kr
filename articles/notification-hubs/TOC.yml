@@ -165,7 +165,7 @@
       href: /cli/azure/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/notificationhubs/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.notificationhubs/allversions
@@ -186,7 +186,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-notificationhub'
     - name: 기능 요청
-      href: 'https://feedback.azure.com/forums/218849-notification-hubs'
+      href: 'https://feedback.azure.com/d365community/forum/405a1b30-8b26-ec11-b6e6-000d3a4f0789'
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 지원 옵션

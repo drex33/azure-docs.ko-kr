@@ -1,16 +1,16 @@
 ---
 title: 사용자 지정 컨테이너 구성
 description: Azure App Service에서 사용자 지정 컨테이너를 구성하는 방법을 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
-ms.topic: article
-ms.date: 08/25/2021
+ms.topic: how-to
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c65f1c511e0f33f4b460bf7d1f7a40895437b019
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 7e4d861418739660eb948e289af32d673a269b91
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709839"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435760"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -39,18 +39,18 @@ ms.locfileid: "129709839"
 
 앱을 시작하는 동안 부모 이미지를 다운로드하는 데 다소 시간이 걸립니다. 그러나 Azure App Service에서 이미 캐시된 다음 부모 이미지 중 하나를 사용하여 시작 시간을 줄일 수 있습니다.
 
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):2004
+- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore): 20h2
 - [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):ltsc2019
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-2004
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): 4.8-Windowsservercore-20H2
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-ltsc2019
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1809
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 5.0-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 5.0-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 3.1-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 3.1-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 3.1-nanoserver-1809
 
 ::: zone-end
 
@@ -71,6 +71,68 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 ```
 
 *\<username>* 및 *\<password>* 의 경우 프라이빗 레지스트리 계정에 대한 로그인 자격 증명을 제공합니다.
+
+## <a name="use-managed-identity-to-pull-image-from-azure-container-registry"></a>관리 id를 사용 하 여 Azure Container Registry에서 이미지 끌어오기
+
+관리 id를 사용 하 여 ACR에서 가져오도록 웹 앱을 구성 하려면 다음 단계를 사용 합니다. 이 단계에서는 시스템 할당 관리 id를 사용 하지만 사용자 할당 관리 id를 사용할 수도 있습니다.
+
+1. [`az webapp identity assign`](/cli/azure/webapp/identity#az_webapp_identity-assign) 명령을 사용하여 [시스템이 할당한 관리 ID](./overview-managed-identity.md)를 웹앱에 사용하도록 설정합니다.
+
+    ```azurecli-interactive
+    az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
+    ```
+    `<app-name>`을 이전 단계에서 사용한 이름으로 바꿉니다. 명령 출력 (--query 및--output 인수를 사용 하 여 필터링)은 할당 된 id의 서비스 사용자 ID 이며 곧 사용 됩니다.
+1. Azure Container Registry의 리소스 ID를 가져옵니다.
+    ```azurecli-interactive
+    az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
+    ```
+    `<registry-name>`을 레지스트리 이름으로 바꿉니다. 명령 출력 (--query 및--output 인수를 기준으로 필터링)은 Azure Container Registry의 리소스 ID입니다.
+1. 컨테이너 레지스트리에 액세스할 수 있는 권한을 관리 ID에 부여합니다.
+
+    ```azurecli-interactive
+    az role assignment create --assignee <principal-id> --scope <registry-resource-id> --role "AcrPull"
+    ```
+
+    다음 값을 바꿉니다.
+    - `<principal-id>` 값을 `az webapp identity assign` 명령의 서비스 주체 ID로 바꿉니다.
+    - `<registry-resource-id>`명령을 사용 하 여 컨테이너 레지스트리의 ID 사용 `az acr show`
+
+    이러한 권한에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어란?](../role-based-access-control/overview.md)을 참조하세요.
+
+1. Azure Container Registry에서 가져올 관리 ID를 사용하도록 앱을 구성합니다.
+
+    ```azurecli-interactive
+    az webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+    ```
+
+    다음 값을 바꿉니다.
+    - `<app-name>`을 웹앱 이름으로 바꿉니다.
+    >[!Tip]
+    > PowerShell 콘솔을 사용 하 여 명령을 실행 하는 경우 `--generic-configurations` 이 및 다음 단계에서 인수의 문자열을 이스케이프 해야 합니다. 예: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
+1. 필드 앱이 [사용자 할당 관리 id](overview-managed-identity.md#add-a-user-assigned-identity)를 사용 하는 경우 웹 앱에서 구성 되었는지 확인 한 다음 추가 `acrUserManagedIdentityID` 속성을 설정 하 여 클라이언트 ID를 지정 합니다.
+    
+    ```azurecli-interactive
+    az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
+    ```
+    `<identity-name>`사용자 할당 관리 id의를 바꾸고 출력을 사용 `<client-id>` 하 여 사용자 할당 관리 id id를 구성 합니다.
+
+    ```azurecli-interactive
+    az  webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUserManagedIdentityID": "<client-id>"}'
+    ```
+
+모든 설정이 되었으며 웹 앱이 관리 id를 사용 하 여 Azure Container Registry에서 끌어옵니다. 
+
+::: zone pivot="container-linux"
+
+## <a name="use-an-image-from-a-network-protected-registry"></a>네트워크로 보호 된 레지스트리에서 이미지 사용
+
+가상 네트워크 또는 온-프레미스 내의 레지스트리에서 연결 하 여 꺼내려면 앱은 VNet 통합 기능을 사용 하 여 가상 네트워크에 연결 해야 합니다. 이는 전용 끝점을 사용 하는 Azure Container Registry에도 필요 합니다. 네트워크 및 DNS 확인이 구성 되 면 앱 설정을 설정 하 여 VNet을 통해 이미지 풀의 라우팅을 사용 하도록 설정 합니다 `WEBSITE_PULL_IMAGE_OVER_VNET=true` .
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
+```
+
+::: zone-end
 
 ## <a name="i-dont-see-the-updated-container"></a>업데이트된 컨테이너가 표시되지 않음
 
@@ -199,7 +261,7 @@ Docker 로그에 액세스하는 방법에는 여러 가지가 있습니다.
 - [Azure Portal에서](#in-azure-portal)
 - [Kudu 콘솔에서](#from-the-kudu-console)
 - [Kudu API를 통해](#with-the-kudu-api)
-- [Azure Monitor로 로그 보내기](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
+- [Azure Monitor로 로그 보내기](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### <a name="in-azure-portal"></a>Azure Portal에서
 

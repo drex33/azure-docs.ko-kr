@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11102d95bc2aba65e6bc3cba71805a67f195947b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c58e6ffd9b3b74ee465c5e2e5c05f688252d1173
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92681604"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467551"
 ---
 # <a name="how-to-use-microsoftazuresearch-in-a-c-net-application"></a>C# .NET 애플리케이션에서 Microsoft.Azure.Search를 사용하는 방법
 
@@ -43,7 +43,7 @@ SDK의 다른 NuGet 패키지는 다음과 같습니다.
 * [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](/dotnet/api/microsoft.azure.search.models)
 
-SDK의 향후 업데이트에 대한 피드백을 제공하려는 경우 [피드백 페이지](https://feedback.azure.com/forums/263029-azure-search/)를 참조하거나 [GitHub](https://github.com/azure/azure-sdk-for-net/issues) 에서 이슈를 만들고 이슈 제목에 "Azure Cognitive Search"를 포함하세요.
+SDK의 향후 업데이트에 대한 피드백을 제공하려는 경우 [피드백 페이지](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8)를 참조하거나 [GitHub](https://github.com/azure/azure-sdk-for-net/issues) 에서 이슈를 만들고 이슈 제목에 "Azure Cognitive Search"를 포함하세요.
 
 .NET SDK는 [Azure Cognitive Search REST API의 버전 `2019-05-06`](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/data-plane/Microsoft.Azure.Search.Data/stable/2019-05-06)을 대상으로 합니다. 이 버전에는 Azure Blob을 인덱싱할 때 [복합 형식](search-howto-complex-data-types.md), [AI 보강](cognitive-search-concept-intro.md), [자동 완성](/rest/api/searchservice/autocomplete), [JsonLines 구문 분석 모드](search-howto-index-json-blobs.md)에 대한 지원이 포함됩니다. 
 
@@ -271,7 +271,7 @@ private static void CreateIndex(string indexName, SearchServiceClient serviceCli
 필드 외에도, 점수 매기기 프로필, 서제스터 또는 CORS 옵션을 인덱스에 추가할 수도 있습니다(해당 매개 변수는 간단하게 나타내기 위해 샘플에서 생략됨). [SDK 참조](/dotnet/api/microsoft.azure.search.models.index)뿐만 아니라 [Azure Cognitive Search REST API 참조](/rest/api/searchservice/)에서 인덱스 개체와 그 구성 요소에 대한 자세한 정보를 찾을 수 있습니다.
 
 ### <a name="populating-the-index"></a>인덱스 채우기
-`Main`의 다음 단계는 새로 만든 인덱스를 채우는 것입니다. 이 인덱스 채우기는 다음 메서드에서 수행됩니다(여기서 일부 코드는 간단한 설명을 위해 “...”로 대체되었음.  전체 데이터 채우기 코드는 전체 샘플 솔루션을 참조).
+`Main`의 다음 단계는 새로 만든 인덱스를 채우는 것입니다. 이 인덱스 채우기는 다음 메서드에서 수행됩니다(여기서 일부 코드는 간단한 설명을 위해 “...”로 대체되었음.  전체 데이터 채우기 코드는 전체 샘플 솔루션을 참조.)
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -483,7 +483,7 @@ public partial class Hotel
 public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 ```
 
-이 속성의 `JsonIgnore` 특성은 `FieldBuilder`에 이 속성을 인덱스에 필드로 직렬화하지 않도록 지시합니다.  이는 애플리케이션에서 도우미로 사용할 수 있는 클라이언트 쪽 계산된 속성을 만드는 좋은 방법입니다.  이 경우 `SmokingAllowed` 속성은 `Rooms` 컬렉션의 모든 `Room`에 흡연 허용 여부를 반영합니다.  모두 false이면 전체 호텔에서 흡연을 허용하지 않음을 나타냅니다.
+이 속성의 `JsonIgnore` 특성은 `FieldBuilder` 에 이 속성을 인덱스에 필드로 직렬화하지 않도록 지시합니다.  이는 응용 프로그램에서 도우미로 사용할 수 있는 클라이언트 쪽 계산된 속성을 만드는 좋은 방법입니다.  이 경우 `SmokingAllowed` 속성은 `Room` 에, `Rooms` 컬렉션에 있는 모든 구성 요소에 흡연 허용 여부를 반영합니다.  모두 false이면 전체 호텔에서 흡연을 허용하지 않음을 나타냅니다.
 
 `Address`와 `Rooms` 등과 같은 일부 속성은 .NET 클래스의 인스턴스입니다.  이러한 속성은 더욱 복잡한 데이터 구조를 나타내므로 인덱스에 [데이터 형식이 복잡한](./search-howto-complex-data-types.md) 필드가 필요합니다.
 

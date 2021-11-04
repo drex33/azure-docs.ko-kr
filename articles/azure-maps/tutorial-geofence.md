@@ -1,23 +1,23 @@
 ---
 title: '자습서: Microsoft Azure Map에서 지오펜스 만들기 및 디바이스 추적'
 description: 지오펜스를 설정하는 방법에 대한 자습서. Azure Maps Spatial 서비스를 사용하여 지오펜스와 관련된 디바이스를 추적하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 7/06/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: f9b2c74f25d5f27385b604d53530edbdb57a91fd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b3f98990a34ada3d832498a892d289323f485a28
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750202"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455343"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
-이 자습서에서는 Azure Maps 지오펜스 서비스를 만들고 사용하는 방법에 대한 기본 사항을 안내합니다. 
+이 자습서에서는 Azure Maps 지오펜스 서비스를 만들고 사용하는 방법에 대한 기본 사항을 안내합니다.
 
 다음 시나리오를 고려하세요.
 
@@ -26,6 +26,7 @@ ms.locfileid: "121750202"
 Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다양한 서비스를 제공합니다. 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
+>
 > * 모니터링하려는 건설 현장 구역을 정의하는 [지오펜싱 GeoJSON 데이터](geofence-geojson.md)를 업로드합니다. [데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)를 사용하여 지오펜스를 다각형 좌표로 Azure Maps 계정에 업로드합니다.
 > * 장비가 지오펜스 영역을 출입할 때 트리거되어 이메일 알림을 건설 현장 운영 관리자에 보내도록 두 개의 [논리 앱](../event-grid/handler-webhooks.md#logic-apps)을 설정합니다.
 > * [Azure Event Grid](../event-grid/overview.md)를 사용하여 Azure Maps 지오펜스 출입 이벤트를 구독합니다. 두 개의 논리 앱에 정의된 HTTP 엔드포인트를 호출하는 두 개의 webhook 이벤트 구독을 설정합니다. 그러면 논리 앱은 지오펜스에서 나가거나 들어오는 장비에 대한 적절한 이메일 알림을 보냅니다.
@@ -58,7 +59,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 5. 다음 URL을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     URL 경로의 `geojson` 매개 변수는 업로드되는 데이터의 데이터 형식을 나타냅니다.
@@ -162,7 +163,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 11. **Operation-Location** 키의 값인 `status URL`을 복사합니다. `status URL`을 사용하여 GeoJSON 데이터 업로드의 상태를 확인합니다.
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
 ### <a name="check-the-geojson-data-upload-status"></a>GeoJSON 데이터 업로드 상태 확인
@@ -180,7 +181,7 @@ GeoJSON 데이터의 상태를 확인하고 고유 ID(`udid`)를 검색하려면
 5. 복사한 `status URL`을 [지오펜싱 GeoJSON 데이터 업로드](#upload-geofencing-geojson-data)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
+   https://us.atlas.microsoft.com/mapData/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
    ```
 
 6. **보내기** 를 선택합니다.
@@ -208,7 +209,7 @@ GeoJSON 데이터의 상태를 확인하고 고유 ID(`udid`)를 검색하려면
 5. 복사한 `resource Location URL`을 [GeoJSON 데이터 업로드 상태 확인](#check-the-geojson-data-upload-status)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. 응답 창에서 **본문** 탭을 선택합니다. 메타데이터는 다음 JSON 조각과 같습니다.
@@ -226,7 +227,7 @@ GeoJSON 데이터의 상태를 확인하고 고유 ID(`udid`)를 검색하려면
 
 ## <a name="create-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 만들기
 
-다음으로, 메일 알림을 트리거하는 두 개의 [논리 앱](../event-grid/handler-webhooks.md#logic-apps) 엔드포인트를 만듭니다. 
+다음으로, 메일 알림을 트리거하는 두 개의 [논리 앱](../event-grid/handler-webhooks.md#logic-apps) 엔드포인트를 만듭니다.
 
 논리 앱을 만들려면 다음을 수행합니다.
 
@@ -338,7 +339,7 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. **보내기** 를 선택합니다.
@@ -386,7 +387,7 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. **보내기** 를 선택합니다.
@@ -434,7 +435,7 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
     ```HTTP
-      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
 6. **보내기** 를 선택합니다.
@@ -485,7 +486,7 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. **보내기** 를 선택합니다.
@@ -527,7 +528,7 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. **보내기** 를 선택합니다.

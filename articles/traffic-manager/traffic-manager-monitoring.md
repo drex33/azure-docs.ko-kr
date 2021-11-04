@@ -1,21 +1,21 @@
 ---
-title: Azure Traffic Manager 엔드포인트 모니터링 | Microsoft Docs
+title: Azure Traffic Manager 끝점 모니터링
 description: 이 문서는 Traffic Manager가 엔드포인트 모니터링 및 자동 엔드포인트 장애 조치를 사용하여 Azure 고객이 고가용성 애플리케이션을 어떻게 배포할 수 있도록 하는지 이해하는 데 도움이 됩니다.
 services: traffic-manager
-author: duongau
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2021
-ms.author: duau
-ms.openlocfilehash: ce4ff8cfa4bee895e17cd7ad22c54ff777d210ff
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.author: allensu
+ms.openlocfilehash: 52edf0cbae53540152a9991980499698b3292287
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435185"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467210"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 엔드포인트 모니터링
 
@@ -134,8 +134,11 @@ Traffic Manager는 비정상 엔드포인트를 포함하는 모든 엔드포인
 9. **서비스가 다시 온라인 상태가 됩니다**. 서비스를 사용할 수 있습니다. 모니터링 시스템에서 다음 상태 검사를 수행할 때까지 엔드포인트는 Traffic Manager에서 Degraded 상태로 유지됩니다.
 10. **서비스에 대한 트래픽 다시 시작**. Traffic Manager는 GET 요청을 전송하고 200 OK 상태 응답을 수신합니다. 서비스는 정상 상태로 돌아왔습니다. Traffic Manager 이름 서버는 업데이트되고 DNS 응답에서 서비스의 DNS 이름을 전달하기 시작합니다. 다른 엔드포인트를 반환하는 캐시된 DNS 응답이 만료되고 다른 엔드포인트에 대한 기존 연결이 종료되면 트래픽이 엔드포인트로 돌아갑니다.
 
+    > [!IMPORTANT]
+    > Traffic Manager는 각 엔드포인트에 대해 여러 위치에서 여러 프로브를 배포합니다. 여러 프로브는 엔드포인트 모니터링에 대한 복원력을 높입니다. Traffic Manager는 단일 프로브 인스턴스에 의존하지 않고 프로브의 평균 상태를 집계합니다. 검색 시스템의 중복성은 의도적으로 적용됩니다. 엔드포인트 값은 프로브별이 아니라 전체적으로 확인해야 합니다. 프로브 상태가 표시되는 숫자는 평균입니다. 프로브의 50%(0.5) 미만이 **상태를** 게시하는 경우에만 상태가 문제가 됩니다.
+
     > [!NOTE]
-    > Traffic Manager는 DNS 수준에서 작동하므로 모든 엔드포인트에 대한 기존 연결에 영향을 미칠 수 없습니다. 엔드포인트 간에 트래픽을 전달할 때는(프로필 설정을 변경하거나 장애 조치 또는 장애 복구 중) Traffic Manager가 사용 가능한 엔드포인트에 새 연결을 전달합니다. 그러나 다른 엔드포인트는 해당 세션이 종료될 때까지 기존 연결을 통해 트래픽을 계속 수신할 수 있습니다. 트래픽이 기존 연결에서 비워지도록 하기 위해 애플리케이션은 각 엔드포인트에 사용된 세션 기간을 제한해야 합니다.
+    > Traffic Manager는 DNS 수준에서 작동하므로 모든 엔드포인트에 대한 기존 연결에 영향을 미칠 수 없습니다. 엔드포인트 간에 트래픽을 전달할 때는(프로필 설정을 변경하거나 장애 조치 또는 장애 복구 중) Traffic Manager가 사용 가능한 엔드포인트에 새 연결을 전달합니다. 다른 엔드포인트는 해당 세션이 종료될 때까지 기존 연결을 통해 트래픽을 계속 수신할 수 있습니다. 트래픽이 기존 연결에서 비워지도록 하기 위해 애플리케이션은 각 엔드포인트에 사용된 세션 기간을 제한해야 합니다.
 
 ## <a name="traffic-routing-methods"></a>트래픽 라우팅 방법
 

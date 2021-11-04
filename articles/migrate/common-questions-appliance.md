@@ -5,13 +5,13 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 11360af784f456559955152772ba099ad4d48d73
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 11/01/2021
+ms.openlocfilehash: 446a59d6234219425bb24e62ecfc4796cd7fec6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123423879"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429587"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -57,7 +57,7 @@ Azure Migrate 어플라이언스는 온-프레미스 서버를 지속적으로 �
 
 ## <a name="can-i-harden-the-appliance"></a>어플라이언스를 강화하려면 어떻게 할 수 있나요?
 
-다운로드 한 템플릿을 사용 하 여 어플라이언스를 만들 때 템플릿에 구성 요소 (예: 바이러스 백신)를 추가할 수 있습니다. Azure 방화벽을 통해 올바른 [url](migrate-appliance.md#public-cloud-urls) 에 대 한 액세스를 허용 했는지 확인 하 고 *%ProgramData%\MicrosoftAzure* 폴더가 바이러스 백신 검사에서 제외 되는지 확인 합니다.
+다운로드한 템플릿을 사용하여 어플라이언스를 만드는 경우 템플릿에 구성 요소(예: 바이러스 백신)를 추가할 수 있습니다. Azure Firewall 통해 올바른 [URL에](migrate-appliance.md#public-cloud-urls) 대한 액세스를 허용했는지와 *%ProgramData%\MicrosoftAzure* 폴더가 바이러스 백신 검사에서 제외되었는지 확인합니다.
 
 ## <a name="what-network-connectivity-is-required"></a>어떤 네트워크 연결이 필요한가요?
 
@@ -108,6 +108,12 @@ Azure Migrate로 전송되는 데이터의 볼륨은 여러 매개 변수에 따
 ## <a name="can-a-project-have-multiple-appliances"></a>하나의 프로젝트에 여러 개의 어플라이언스가 있을 수 있나요?
 
 하나의 프로젝트에 여러 개의 어플라이언스를 등록할 수 있습니다. 그러나 한 어플라이언스는 한 프로젝트에만 등록할 수 있습니다.
+
+## <a name="how-do-i-find-the-azure-migrate-appliances-registered-to-the-project"></a>프로젝트에 등록된 Azure Migrate 어플라이언스를 찾을 어떻게 할까요? 있나요?
+1. Azure Portal [Azure Migrate 홈페이지로](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) 이동하고 왼쪽 메뉴에서 **서버, 데이터베이스 및 웹앱을** 선택합니다.
+1. 오른쪽 위 모서리에서 **변경을** 선택하여 프로젝트를 선택합니다.
+1. Azure Migrate 프로젝트의 Azure Migrate **개요:** 검색 & 평가를 선택합니다.
+1. **개요에서** 왼쪽 메뉴에서 **어플라이언스를** 선택하여 프로젝트에 등록된 어플라이언스와 어플라이언스에 있는 에이전트의 연결 상태를 확인합니다.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Azure Migrate 어플라이언스/복제 어플라이언스는 동일한 vCenter에 연결할 수 있나요?
 

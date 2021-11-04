@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 10/14/2021
 ms.author: lajanuar
 recommendations: false
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 680f1f6f1bfddc5bf525ae06b61bcf9098dc850f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: dbee487212f56eb5c99d3cc785cf8a2205280fcf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567130"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426148"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Transaltor 컨테이너 설치 및 실행(미리 보기)
 
-  컨테이너를 사용하면 고유한 환경에서 Translator 서비스의 몇몇 기능을 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Translator 컨테이너를 다운로드, 설치 및 실행하는 방법을 알아봅니다.
+컨테이너를 사용하면 고유한 환경에서 Translator 서비스의 몇몇 기능을 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Translator 컨테이너를 다운로드, 설치 및 실행하는 방법을 알아봅니다.
 
 Translator 컨테이너를 사용하면 강력한 클라우드 기능과 에지 위치 모두에 최적화된 번역기 애플리케이션 아키텍처를 빌드할 수 있습니다.
+
+번역기 컨테이너를 사용할 때 [지원 되는 언어](../language-support.md) 목록을 참조 하세요. 
 
 > [!IMPORTANT]
 >
@@ -158,6 +160,8 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-HANS
 | `http://localhost:5000/swagger` | 컨테이너는 엔드포인트에 대한 전체 설명서 세트와 **사용해 보기** 기능을 제공합니다. 이 기능을 사용하면 웹 기반 HTML 양식으로 설정을 입력할 수 있고 코드 작성 없이 쿼리를 만들 수 있습니다. 쿼리가 반환되면 필요한 HTTP 헤더 및 본문 형식을 보여주기 위해 예제 CURL 명령이 제공됩니다. |
 
 :::image type="content" source="../../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="컨테이너 홈페이지":::
+
+[!INCLUDE [Diagnostic container](../../containers/includes/diagnostics-container.md)]
 
 ## <a name="text-translation-code-samples"></a>문자 번역 코드 샘플
 

@@ -1,6 +1,6 @@
 ---
-title: Image Builder - Azure Virtual Desktop 이미지 만들기
-description: PowerShell에서 Azure Image Builder 사용하여 Azure Virtual Desktop의 Azure VM 이미지를 만듭니다.
+title: 이미지 작성기-Azure 가상 데스크톱 이미지 만들기
+description: PowerShell에서 Azure 이미지 작성기를 사용 하 여 Azure 가상 데스크톱의 Azure VM 이미지를 만듭니다.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -10,26 +10,26 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 046bec93d3a9ae0ffef8b189470f412ab357943d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 503b2663d6de83d982e6f8e9c2538de3765c9294
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131018492"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466659"
 ---
-# <a name="create-a-azure-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM Image Builder 및 PowerShell을 사용하여 Azure Virtual Desktop 이미지 만들기
+# <a name="create-a-azure-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM 이미지 작성기 및 PowerShell을 사용 하 여 Azure 가상 데스크톱 이미지 만들기
 
 **적용 대상:** :heavy_check_mark: Windows VM 
 
-이 문서에서는 다음과 같은 사용자 지정을 사용하여 Azure Virtual Desktop 이미지를 만드는 방법을 보여줍니다.
+이 문서에서는 다음과 같은 사용자 지정으로 Azure 가상 데스크톱 이미지를 만드는 방법을 보여 줍니다.
 
 * [Fslogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1) 설치
-* 커뮤니티 리포지션에서 [Azure Virtual Desktop 최적화 스크립트](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) 실행
+* 커뮤니티 리포지토리에서 [Azure 가상 데스크톱 최적화 스크립트](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) 를 실행 합니다.
 * [Microsoft Teams](../../virtual-desktop/teams-on-avd.md) 설치
 * [다시 시작](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * [Windows 업데이트](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer) 실행
 
-Azure VM Image Builder를 사용하여 이 작업을 자동화하고, [공유 이미지 갤러리](../shared-image-galleries.md)에 이미지를 배포하는 방법을 알아봅니다. 공유 이미지 갤러리에서는 이미지를 다른 지역에 복제하고, 스케일을 제어하고, 조직 내부 및 외부에서 공유할 수 있습니다.
+Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [Azure 계산 갤러리](../shared-image-galleries.md) (이전의 공유 이미지 갤러리)에 이미지를 배포 하 여 다른 지역에 복제 하 고, 크기를 제어 하 고, 조직 내부 및 외부에서 이미지를 공유할 수 있는 방법을 보여 줍니다.
 
 
 Image Builder 구성의 배포를 간소화하기 위해 이 예제에서는 Azure Resource Manager 템플릿과 중첩된 Image Builder 템플릿을 함께 사용합니다. 이를 통해 변수 및 매개 변수 입력과 같은 몇 가지 이점을 얻을 수 있습니다. 명령줄에서 매개 변수를 전달할 수도 있습니다.
@@ -167,9 +167,9 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 > 오류 'New-AzRoleDefinition: 역할 정의 한도가 초과되었습니다. 역할 정의를 더 이상 만들 수 없습니다.'가 표시되면 [Azure RBAC 문제 해결](../../role-based-access-control/troubleshooting.md)을 참조하세요.
 
 
-## <a name="create-the-shared-image-gallery"></a>Shared Image Gallery 만들기 
+## <a name="create-the-azure-compute-gallery"></a>Azure 계산 갤러리 만들기 
 
-공유 이미지 갤러리가 아직 없는 경우 만들어야 합니다.
+Azure 계산 갤러리가 아직 없는 경우 새로 만들어야 합니다.
 
 ```azurepowershell-interactive
 $sigGalleryName= "myaibsig01"

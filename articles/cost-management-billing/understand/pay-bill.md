@@ -8,14 +8,14 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: ef24c80e50cc45f48b583d721b35f61645b94033
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
-ms.translationtype: HT
+ms.openlocfilehash: 70d104853db5634e70dfbdd7bc01c1c2b8fd9589
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483183"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476151"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft Azure에 대한 청구서를 지불하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "107483183"
 
 [Microsoft 고객 계약에 대한 액세스를 확인합니다](#check-access-to-a-microsoft-customer-agreement).
 
-Azure 청구서 대금을 결제하는 방법에는 두 가지가 있습니다. 청구 프로필의 기본 결제 방법으로 결제하거나 **지금 결제** 라는 일회성 결제를 수행할 수 있습니다.
+Azure 청구서 대금을 결제하는 방법에는 두 가지가 있습니다. 청구 프로필의 기본 결제 방법으로 지불하거나 **지금 결제를** 사용하여 일회성 결제를 할 수 있습니다.
 
 Microsoft 담당자를 통해 Azure에 등록한 경우 기본 결제 방법은 항상 *수표 또는 전신 송금* 으로 설정되어 있습니다. Microsoft 담당자를 통해 Azure에 등록한 경우 자동 신용 카드 결제는 옵션이 아닙니다. 대신 [개별 청구서를 신용 카드로 결제](#pay-now-in-the-azure-portal)할 수 있습니다.
 
@@ -40,6 +40,8 @@ Azure 크레딧을 보유한 경우 각 청구 기간마다 청구서에 자동�
 어떤 이유로 자동 신용 또는 직불 카드 청구가 거부되면 **지금 결제** 를 사용하여 Azure Portal에서 신용 또는 직불 카드로 일회성 결제를 수행할 수 있습니다.
 
 기본 결제 방법을 수표 또는 전신 송금으로 변경하는 방법을 알아보려면 [청구서로 결제하는 방법](../manage/pay-by-invoice.md)을 참조하세요.
+
+직불 카드 사용을 허용하지 않는 몇 가지 국가가 있지만, 일반적으로 이 카드를 사용하여 Azure 청구서를 지불할 수 있습니다. 가상 및 선불 직불 카드는 Azure 청구서 지불에 사용할 수 없습니다.
 
 ### <a name="check-or-wire-transfer"></a>수표 또는 전신 송금
 

@@ -7,15 +7,14 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a54517057c6ffb7915c58cf6bfa0b328037c7dcc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 50070c59c99e40e0d4d40577119f7f1d9805ecf9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010208"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445315"
 ---
-# <a name="create-rich-interactive-reports-of-defender-for-cloud-data"></a>클라우드용 Defender 데이터의 풍부한 대화형 보고서 만들기
+# <a name="create-rich-interactive-reports-of-defender-for-cloud-data"></a>Defender for Cloud 데이터의 풍부한 대화형 보고서 만들기
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -23,7 +22,7 @@ ms.locfileid: "131010208"
 
 통합 문서는 Azure 데이터 시각화를 위한 풍부한 기능 집합을 제공합니다. 각 시각화 형식에 대한 자세한 예제는 [시각화 예제 및 설명서](../azure-monitor/visualize/workbooks-text-visualizations.md)를 참조하세요. 
 
-Microsoft Defender for Cloud 내에서 기본 제공 통합 문서에 액세스하여 조직의 보안 태세를 추적할 수 있습니다. 사용자 지정 통합 문서를 빌드하여 Defender for Cloud 또는 기타 지원되는 데이터 원본에서 광범위한 데이터를 볼 수도 있습니다.
+Microsoft Defender for Cloud 내에서 기본 제공 통합 문서에 액세스하여 조직의 보안 태세를 추적할 수 있습니다. 사용자 지정 통합 문서를 빌드하여 Defender for Cloud 또는 기타 지원되는 데이터 원본에서 다양한 데이터를 볼 수도 있습니다.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="시간 경과에 따른 보안 점수 통합 문서.":::
 
@@ -39,7 +38,7 @@ Microsoft Defender for Cloud 내에서 기본 제공 통합 문서에 액세스�
 
 ## <a name="workbooks-gallery-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud의 통합 문서 갤러리
 
-통합된 Azure 통합 문서 기능을 통해 Microsoft Defender for Cloud를 사용하면 사용자 지정 대화형 통합 문서를 간편하게 빌드할 수 있습니다. Defender for Cloud에는 사용자 지정이 준비된 다음 통합 문서가 있는 갤러리도 포함되어 있습니다.
+통합된 Azure 통합 문서 기능을 통해 Microsoft Defender for Cloud를 사용하면 사용자 지정 대화형 통합 문서를 간편하게 빌드할 수 있습니다. Defender for Cloud에는 사용자 지정을 위한 다음 통합 문서가 있는 갤러리도 포함되어 있습니다.
 
 - [‘시간 경과에 따른 보안 점수’ 통합 문서](#use-the-secure-score-over-time-workbook) - 구독의 점수와 리소스에 대한 권장 사항의 변경 내용 추적
 - [‘시스템 업데이트’ 통합 문서](#use-the-system-updates-workbook) - 리소스, OS, 심각도 등에 따라 누락된 시스템 업데이트 보기
@@ -152,13 +151,13 @@ Microsoft Defender for Cloud는 리소스 구성을 업계 표준, 규정 및 �
 
 1. 통합 문서의 갤러리 템플릿 JSON을 복사합니다.
 
-1. 클라우드 용 Defender에서 통합 문서 갤러리를 열고 메뉴 모음에서 **새로 만들기** 를 선택 합니다.
+1. Defender for Cloud에서 통합 문서 갤러리를 열고 메뉴 모음에서 **새로** 를 선택합니다.
 1. **</>** 를 선택하여 고급 편집기를 입력합니다.
 1. 전체 갤러리 템플릿 JSON에 붙여 넣습니다.
 1. **적용** 을 선택합니다.
 1. 도구 모음에서 **다른 이름으로 저장** 을 선택합니다.
 
-    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="클라우드 용 Defender의 갤러리에 통합 문서를 저장 합니다.":::
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="통합 문서를 Defender for Cloud의 갤러리에 저장합니다.":::
 
 1. 통합 문서를 저장하는 데 필요한 세부 정보를 입력합니다.
    1. 통합 문서의 이름
@@ -170,7 +169,7 @@ Microsoft Defender for Cloud는 리소스 구성을 업계 표준, 규정 및 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 기본 제공 보고서를 사용 하는 클라우드 통합 Azure Monitor 통합 문서 페이지의 Defender와 사용자 지정 대화형 보고서를 작성 하는 옵션에 대해 설명 했습니다.
+이 문서에서는 기본 제공 보고서와 고유한 사용자 지정 대화형 보고서를 빌드하는 옵션이 있는 클라우드용 Defender의 통합 Azure Monitor 통합 문서 페이지에 대해 설명했습니다.
 
 - [Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md)에 대해 자세히 알아봅니다
-- 기본 제공 통합 문서는 클라우드의 권장 사항에 대 한 데이터를 Defender에서 가져옵니다. [보안 권장 사항 - 참조 가이드](recommendations-reference.md)에서 다양한 보안 권장 사항에 대해 알아봅니다.
+- 기본 제공 통합 문서가 Defender for Cloud의 권장 사항에서 데이터를 가져옵니다. [보안 권장 사항 - 참조 가이드](recommendations-reference.md)에서 다양한 보안 권장 사항에 대해 알아봅니다.

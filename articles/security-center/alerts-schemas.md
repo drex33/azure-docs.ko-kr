@@ -1,6 +1,6 @@
 ---
-title: 클라우드 경고에 대 한 Microsoft Defender의 스키마
-description: 이 문서에서는 보안 경고에 대해 Microsoft Defender for Cloud에서 사용 되는 다양 한 스키마에 대해 설명 합니다.
+title: 클라우드용 Microsoft Defender 경고에 대한 스키마
+description: 이 문서에서는 보안 경고를 위해 Microsoft Defender for Cloud에서 사용하는 다양한 스키마에 대해 설명합니다.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,23 +8,22 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 335f20150490d9f792f9ba552b13b01e64e95673
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6554e451c1622e10ab7d06abfb4d36e309be0395
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010615"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433349"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-구독에서 향상 된 보안 기능을 사용할 수 있는 경우 Defender for Cloud가 해당 리소스에 대 한 위협을 검색할 때 보안 경고를 받게 됩니다.
+구독에서 향상된 보안 기능을 사용하도록 설정한 경우 Defender for Cloud가 해당 리소스에 대한 위협을 감지하면 보안 경고를 받게 됩니다.
 
-클라우드 페이지 ( [개요 대시보드](overview-page.md), [경고](tutorial-security-incident.md), [리소스 상태 페이지](investigate-resource-health.md)또는 [워크 로드 보호 대시보드](workload-protections-dashboard.md) )와 외부 도구 (예:
+개요 대시보드, [경고,](tutorial-security-incident.md) [리소스 상태 페이지](investigate-resource-health.md)또는 [워크로드 보호](workload-protections-dashboard.md) [대시보드와](overview-page.md)같은 외부 도구를 통해 클라우드용 Microsoft Defender 페이지에서 이러한 보안 경고를 볼 수 있습니다.
 
-- [Microsoft 센티널](../sentinel/index.yml) -microsoft의 클라우드 기본 siem. 센티널 커넥터는 Microsoft Defender for Cloud에서 경고를 가져오고 Microsoft 센티널의 [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md) 으로 보냅니다.
+- [Microsoft Sentinel](../sentinel/index.yml) - Microsoft의 클라우드 네이티브 SIEM입니다. Sentinel 커넥터는 Microsoft Defender for Cloud에서 경고를 받아 Microsoft Sentinel용 [Log Analytics 작업 영역으로](../azure-monitor/logs/quick-create-workspace.md) 보냅니다.
 - 타사 SIEM - [Azure Event Hubs](../event-hubs/index.yml)로 데이터를 전송합니다. 그런 다음 Event Hub 데이터를 타사 SIEM과 통합합니다. [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)에서 자세히 알아봅니다.
 - [REST API](/rest/api/securitycenter/) - REST API를 사용하여 경고에 액세스하는 경우 [온라인 경고 API 문서](/rest/api/securitycenter/alerts)를 참조하세요.
 
@@ -37,20 +36,20 @@ ms.locfileid: "131010615"
 ## <a name="the-schemas"></a>스키마 
 
 
-### <a name="microsoft-sentinel"></a>[Microsoft 센티널](#tab/schema-sentinel)
+### <a name="microsoft-sentinel"></a>[Microsoft Sentinel](#tab/schema-sentinel)
 
-센티널 커넥터는 Microsoft Defender for Cloud에서 경고를 가져오고 Microsoft 센티널의 Log Analytics 작업 영역으로 보냅니다.
+Sentinel 커넥터는 Microsoft Defender for Cloud에서 경고를 가져오고 Microsoft Sentinel용 Log Analytics 작업 영역으로 보냅니다.
 
-클라우드 경고에 대해 Defender를 사용 하 여 Microsoft 센티널 사례 또는 인시던트를 만들려면 아래에 표시 된 해당 경고에 대 한 스키마가 필요 합니다. 
+Defender for Cloud 경고를 사용하여 Microsoft Sentinel 사례 또는 인시던트를 만들려면 아래 표시된 경고에 대한 스키마가 필요합니다. 
 
-Microsoft 센티널에 대 한 자세한 내용은 [설명서](../sentinel/index.yml)를 참조 하세요.
+Microsoft Sentinel에 대한 자세한 내용은 [설명서를 참조하세요.](../sentinel/index.yml)
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
 
 ### <a name="azure-activity-log"></a>[Azure 활동 로그](#tab/schema-activitylog)
 
-Microsoft Defender for Cloud는 Azure 활동 로그에서 이벤트로 생성 된 보안 경고를 감사 합니다.
+클라우드용 Microsoft Defender는 Azure 활동 로그에서 이벤트로 생성된 보안 경고를 감사합니다.
 
 다음과 같이 경고 활성화 이벤트를 검색하여 활동 로그에서 보안 경고 이벤트를 볼 수 있습니다.
 
@@ -123,7 +122,7 @@ Microsoft Defender for Cloud는 Azure 활동 로그에서 이벤트로 생성 �
 |필드|Description|
 |----|----|
 |**channels**|상수, ‘Operation’|
-|**correlationId**|클라우드 용 Microsoft Defender 경고 ID|
+|**correlationId**|클라우드용 Microsoft Defender 경고 ID|
 |**description**|경고에 대한 설명|
 |**eventDataId**|correlationId 참조|
 |**eventName**|value 및 localizedValue 하위 필드에는 경고 표시 이름 포함|
@@ -153,7 +152,7 @@ Microsoft Defender for Cloud는 Azure 활동 로그에서 이벤트로 생성 �
 
 ### <a name="continuous-export"></a>[연속 내보내기](#tab/schema-continuousexport)
 
-클라우드의 연속 내보내기 기능에 대 한 Defender는 다음으로 경고 데이터를 전달 합니다.
+Defender for Cloud의 연속 내보내기 기능은 경고 데이터를 다음으로 전달합니다.
 
 - [경고 API](/rest/api/securitycenter/alerts)와 동일한 스키마를 사용하는 Azure Event Hub.
 - Azure Monitor 데이터 참조 설명서의 [SecurityAlert 스카마](/azure/azure-monitor/reference/tables/SecurityAlert)에 따른 Log Analytics 작업 영역.
@@ -172,11 +171,11 @@ MS Graph로 전송되는 보안 경고에 대한 스키마 및 JSON 표현은 [M
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 보안 경고 정보를 보낼 때 클라우드의 위협 방지 도구에 사용 되는 스키마에 대해 설명 했습니다.
+이 문서에서는 보안 경고 정보를 보낼 때 Microsoft Defender for Cloud의 위협 방지 도구에서 사용하는 스키마에 대해 설명했습니다.
 
-클라우드의 외부 Defender에서 보안 경고에 액세스 하는 방법에 대 한 자세한 내용은 다음 페이지를 참조 하세요.
+Defender for Cloud 외부에서 보안 경고에 액세스하는 방법에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
-- [Microsoft 센티널](../sentinel/index.yml) -microsoft의 클라우드-기본 siem
+- [Microsoft Sentinel](../sentinel/index.yml) - Microsoft의 클라우드 네이티브 SIEM
 - [Azure Event Hubs](../event-hubs/index.yml) - Microsoft의 완전 관리형 실시간 데이터 수집 서비스
-- [클라우드 데이터를 위해 계속 Defender를 내보냅니다.](continuous-export.md)
+- [지속적으로 Defender for Cloud 데이터 내보내기](continuous-export.md)
 - [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor는 데이터 및 구성 정보가 포함된 컨테이너인 Log Analytics 작업 영역에 로그 데이터를 저장합니다.

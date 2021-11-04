@@ -56,6 +56,8 @@
       href: front-door-health-probes.md
     - name: Front Door에서 요청에 대해 라우팅을 일치시키는 방법
       href: front-door-route-matching.md
+    - name: 엔드투엔드 TLS 암호화
+      href: concept-end-to-end-tls.md
     - name: HTTP/2 지원
       href: front-door-http2.md
     - name: HTTP 헤더 프로토콜 지원

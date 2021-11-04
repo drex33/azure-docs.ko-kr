@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: fe3dcf7c56c72f259a456875f3ab2716ad609353
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2038efe285f36466b0b562d4d87fbd172a44dd42
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250163"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469593"
 ---
 # <a name="build-a-custom-teams-endpoint"></a>사용자 지정 Teams 엔드포인트 빌드
 
@@ -30,7 +30,7 @@ Azure Communication Services ID SDK를 사용하여 Teams 사용자의 Azure AD(
 
 음성, 비디오 및 화면 공유 기능은 Azure Communication Services Calling SDK를 통해 제공됩니다. 다음 다이어그램은 통화 환경을 사용자 지정 Teams 엔드포인트와 통합할 때 따라야 하는 프로세스의 개요를 보여줍니다.
 
-![사용자 지정 Teams 엔드포인트 환경에 대해 호출 기능을 사용하도록 설정하는 프로세스의 다이어그램입니다.](./media/teams-identities/teams-identity-calling-overview.png)
+![사용자 지정 Teams 엔드포인트 환경에 대해 호출 기능을 사용하도록 설정하는 프로세스의 다이어그램입니다.](./media/teams-identities/teams-identity-calling-overview.svg)
 
 ## <a name="chat"></a>채팅
 

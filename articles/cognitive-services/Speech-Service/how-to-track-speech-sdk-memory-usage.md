@@ -3,22 +3,22 @@ title: Speech SDK 메모리 사용량을 추적하는 방법 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK는 음성 번역과 함께 음성 텍스트 변환 및 텍스트 음성 변환을 위해 다양한 프로그래밍 언어를 지원합니다. 이 문서에서는 SDK에 기본 제공되는 메모리 관리 도구에 대해 설명합니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rhurey
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: 42c52363c9c5f50503d17d79b056f28d6d9434d7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: b1269860e0f79c207df2cdd1b0f54689dab08ea9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540868"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507078"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Speech SDK 메모리 사용량을 추적하는 방법
 
@@ -96,7 +96,7 @@ Speech SDK를 사용하여 지정된 시간에 허용되는 최대 개체 수를
 ```terminal
 Runtime error: The maximum object count of 500 has been exceeded.
 The threshold can be adjusted by setting the SPEECH-ObjectCountErrorThreshold property on the SpeechConfig object.
-See http://https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-object-tracking-speech-sdk for more detailed information.
+See https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-object-tracking-speech-sdk for more detailed information.
 Handle table dump by ojbect type:
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognizer 0

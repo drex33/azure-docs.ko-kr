@@ -1,23 +1,23 @@
 ---
 title: Azure의 공유 이미지 관련 문제 해결
-description: 공유 이미지 갤러리 문제를 어떻게 해결하는지 알아봅니다.
+description: Azure Compute 갤러리에서 공유 이미지 문제를 해결하는 방법을 알아봅니다.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 7/1/2021
-ms.openlocfilehash: 10e8b54145d5948eff55265b3b0bc0b413d2cd66
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: a838879249bad2edfb8d5105e34cd7697a1f59e2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054437"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437090"
 ---
-# <a name="troubleshoot-shared-image-galleries-in-azure"></a>Azure의 공유 이미지 갤러리 문제 해결
+# <a name="troubleshoot-images-in-an-azure-compute-gallery"></a>Azure Compute 갤러리의 이미지 문제 해결
 
 **적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
-공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. PowerShell로 `--debug` 스위치를 Azure CLI 및 `-Debug` 스위치로 전달하면 디버그 모드를 활성화합니다. 오류를 찾았으면 이 문서에 따라 문제를 해결합니다.
+갤러리, 이미지 정의 및 이미지 버전과 같은 Azure Compute 갤러리(이전의 Shared Image Gallery) 리소스에서 작업을 수행하는 데 문제가 있는 경우 디버그 모드에서 실패한 명령을 다시 실행합니다. PowerShell로 `--debug` 스위치를 Azure CLI 및 `-Debug` 스위치로 전달하면 디버그 모드를 활성화합니다. 오류를 찾았으면 이 문서에 따라 문제를 해결합니다.
 
 
 ## <a name="creating-or-modifying-a-gallery"></a>갤러리에서 만들거나 수정 ##
@@ -29,14 +29,14 @@ ms.locfileid: "129054437"
 - 영문자, 숫자, 밑줄, 마침표로만 구성되어 있음
 - 영문자나 숫자로 시작하고 끝남
 
-**메시지**: *제공 된 리소스 이름에 \<galleryName\> 잘못 된 후행 문자 ()가 \<character\> 있습니다. 이름은 문자로 끝날 수 없습니다. \<character\>*  
+**메시지:** *제공된 리소스 \<galleryName\> 이름에는 다음과 같은 잘못된 후행 문자가 \<character\> 있습니다. 이름은 문자로 \<character\> 끝날 수 없습니다.*  
 **원인**: 갤러리 이름이 마침표나 밑줄로 끝납니다.  
 **해결 방법**: 다음 조건을 충족하는 갤러리 이름을 선택합니다. 
 - 80자 제한이 있음
 - 영문자, 숫자, 밑줄, 마침표로만 구성되어 있음
 - 영문자나 숫자로 시작하고 끝남
 
-**메시지**: *제공 된 위치 \<region\> 는 ' Microsoft. Compute/갤러리가 ' 리소스 종류에 사용할 수 없습니다. 리소스 종류에 사용할 수 있는 지역 목록은* ...  
+**메시지:** *제공된 \<region\> 위치는 'Microsoft.Compute/갤러리' 리소스 종류에 사용할 수 없습니다. 리소스 종류에 사용 가능한 지역 목록은 ...*  
 **원인**: 갤러리에 지정된 지역이 정확하지 않거나 액세스 요청이 필요합니다.  
 **해결 방법**: 지역 이름이 정확한지 확인합니다. 지역 이름이 정확한 경우 지역에 대한 [액세스 요청](/troubleshoot/azure/general/region-access-request-process)을 제출합니다.
 
@@ -44,58 +44,58 @@ ms.locfileid: "129054437"
 **원인**: 하나 이상의 기존 이미지 정의가 포함된 갤러리를 삭제하려 했습니다. 빈 갤러리만 삭제할 수 있습니다.  
 **해결 방법**: 갤러리 내의 모든 이미지 정의를 삭제한 다음 갤러리를 삭제합니다. 이미지 정의에 이미지 버전이 있으면 이미지 정의를 삭제하기 전에 이미지 버전을 삭제해야 합니다.
 
-**메시지**: *갤러리 이름이 \<galleryName\> 구독 내에서 고유 하지 않습니다 \<subscriptionID\> . 다른 갤러리 이름을 선택 하십시오.*  
+**메시지:** *갤러리 이름은 구독 내에서 \<galleryName\> 고유하지 \<subscriptionID\> 않습니다. 다른 갤러리 이름을 선택하세요.*  
 **원인**: 이름이 같은 기존 갤러리가 있으며 같은 이름으로 다른 갤러리를 만들려 했습니다.  
 **해결 방법**: 갤러리에 대해 다른 이름을 선택합니다.
 
-**메시지**: 리소스가 *\<galleryName\> 리소스 그룹의 위치에 이미 있습니다 \<region\_1\> \<resourceGroup\> . 같은 이름의 리소스를 위치에서 만들 수 없습니다 \<region\_2\> . 새 리소스 이름을 선택 하십시오.*  
+**메시지:** *리소스가 \<galleryName\> 리소스 그룹의 위치에 이미 \<region\_1\> \<resourceGroup\> 있습니다. 동일한 이름의 리소스는 위치에 만들 수 \<region\_2\> 없습니다. 새 리소스 이름을 선택하세요.*  
 **원인**: 이름이 같은 기존 갤러리가 있으며 같은 이름으로 다른 갤러리를 만들려 했습니다.  
 **해결 방법**: 갤러리에 대해 다른 이름을 선택합니다.
 
 ## <a name="creating-or-modifying-image-definitions"></a>이미지 정의 만들기 또는 수정 ##
 
-**메시지**: *속성 ' galleryImage. \<property\> '을 (를) 변경할 수 없습니다* .  
+**메시지:** *'galleryImage.properties. ' 속성을 변경할 \<property\> 수 없습니다.*  
 **원인**: OS 유형, OS 상태, Hyper-V 세대, 제안, 게시자 또는 SKU를 변경하려 했습니다. 이러한 속성을 변경하는 것은 허용되지 않습니다.  
 **해결 방법**: 대신 새 이미지 정의를 만듭니다.
 
-**메시지**: 리소스가 *\<galleryName/imageDefinitionName\> 리소스 그룹의 위치에 이미 있습니다 \<region\_1\> \<resourceGroup\> . 같은 이름의 리소스를 위치에서 만들 수 없습니다 \<region\_2\> . 새 리소스 이름을 선택 하십시오.*  
+**메시지:** *리소스가 \<galleryName/imageDefinitionName\> 리소스 그룹의 위치에 이미 \<region\_1\> \<resourceGroup\> 있습니다. 동일한 이름의 리소스는 위치에 만들 수 \<region\_2\> 없습니다. 새 리소스 이름을 선택하세요.*  
 **원인**: 동일한 갤러리와 리소스 그룹에 이름이 동일한 기존 이미지 정의가 있습니다. 다른 지역에 있는 동일한 갤러리에 이름이 동일한 다른 이미지 정의를 만들려 했습니다.  
 **해결 방법**: 이미지 정의에 다른 이름을 사용하거나 이미지 정의를 다른 갤러리나 리소스 그룹에 넣습니다.
 
-**메시지**: *제공 된 리소스 이름에 \<galleryName\> / \<imageDefinitionName\> 잘못 된 후행 문자 ()가 \<character\> 있습니다. 이름은 문자로 끝날 수 없습니다. \<character\>*  
-**원인**: \<imageDefinitionName\> 이름이 마침표 또는 밑줄로 끝납니다.  
+**메시지:** *제공된 리소스 \<galleryName\> / \<imageDefinitionName\> 이름에는 다음과 같은 잘못된 후행 문자가 \<character\> 있습니다. 이름은 문자로 \<character\> 끝날 수 없습니다.*  
+**원인:** \<imageDefinitionName\> 이름은 마침표 또는 밑 줄로 끝납니다.  
 **해결 방법**: 다음 조건을 충족하는 이미지 정의 이름을 선택합니다. 
 - 80자 제한이 있음
 - 영문자, 숫자, 밑줄, 하이픈, 마침표로만 구성되어 있음
 - 영문자나 숫자로 시작하고 끝남.
 
-**메시지**: *엔터티 이름은 \<imageDefinitionName\> 유효성 검사 규칙에 따라 유효 하지 않습니다: ^ [^ \_ \\ W] [ \\ w-. \_ ] {0,79} (? <! [-.]) $"*  
-**원인**: \<imageDefinitionName\> 이름이 마침표 또는 밑줄로 끝납니다.  
+**메시지:** *유효성 검사 규칙에 따라 엔터티 이름이 \<imageDefinitionName\> 잘못되었습니다. ^[^ \_ \\ W][ \\ w-. \_ ] {0,79} (?<! [-.]) $"*  
+**원인:** \<imageDefinitionName\> 이름은 마침표 또는 밑 줄로 끝납니다.  
 **해결 방법**: 다음 조건을 충족하는 이미지 정의 이름을 선택합니다. 
 - 80자 제한이 있음
 - 영문자, 숫자, 밑줄, 하이픈, 마침표로만 구성되어 있음
 - 영문자나 숫자로 시작하고 끝남
 
-**메시지**: *자산 이름 galleryImage .이 (가) \<property\> 잘못 되었습니다. 비워 둘 수 없습니다. 허용 되는 문자는 대/소문자, 숫자, 하이픈 (-), 마침표 (.), 밑줄 ( \_ )입니다. 이름은 마침표 (.)로 끝날 수 없습니다. 이름의 길이는 자를 초과할 수 없습니다 \<number\> .*  
+**메시지:** *자산 이름 갤러리Image.properties.identifier.가 \<property\> 잘못되었습니다. 비어 있을 수 없습니다. 허용되는 문자는 대문자 또는 소문자, 숫자, 하이픈(-), 마침표(.), 밑줄( \_ )입니다. 이름은 period(.)로 끝날 수 없습니다. 이름의 길이는 문자를 초과할 수 \<number\> 없습니다.*  
 **원인**: 게시자, 제안 또는 SKU 값이 명명 요구 사항을 충족하지 않습니다.  
 **해결 방법**: 다음 조건을 충족하는 값을 선택합니다. 
 - 게시자에는 128자 제한, 제안 및 SKU에는 64자 제한이 있음
 - 영문자, 숫자, 하이픈, 밑줄, 마침표로만 구성되어 있음
 - 마침표로 끝나지 않음
 
-**메시지**: *중첩 리소스에서 요청 된 작업을 수행할 수 없습니다. 부모 리소스 \<galleryName\> 를 찾을 수 없습니다.*  
-**원인**: \<galleryName\> 현재 구독 및 리소스 그룹에 이름이 있는 갤러리가 없습니다.  
-**해결 방법**: 갤러리, 구독, 리소스 그룹의 이름이 정확한지 확인합니다. 그렇지 않으면 라는 새 갤러리를 만듭니다 \<galleryName\> .
+**메시지:** *중첩된 리소스에 대해 요청된 작업을 수행할 수 없습니다. 부모 \<galleryName\> 리소스를 찾을 수 없습니다.*  
+**원인:** 현재 구독 및 리소스 그룹에 이름이 \<galleryName\> 있는 갤러리가 없습니다.  
+**해결 방법**: 갤러리, 구독, 리소스 그룹의 이름이 정확한지 확인합니다. 그렇지 않으면 라는 새 갤러리를 \<galleryName\> 만듭니다.
 
-**메시지**: *제공 된 위치 \<region\> 는 ' Microsoft. Compute/갤러리가 ' 리소스 종류에 사용할 수 없습니다. 리소스 종류에 사용할 수 있는 지역 목록은* ...  
-**원인**: \<region\> 이름이 잘못 되었거나 액세스 요청이 필요 합니다.  
+**메시지:** *제공된 \<region\> 위치는 'Microsoft.Compute/갤러리' 리소스 종류에 사용할 수 없습니다. 리소스 종류에 사용 가능한 지역 목록은 ...*  
+**원인:** \<region\> 이름이 올바르지 않거나 액세스 요청이 필요합니다.  
 **해결 방법**: 지역 이름의 철자가 정확한지 확인합니다. 이 명령을 실행하여 액세스할 수 있는 지역을 확인할 수 있습니다. 지역이 목록에 없으면 [액세스 요청](/troubleshoot/azure/general/region-access-request-process)을 제출합니다.
 
-**메시지**: *값을 직렬화 할 수 없습니다. \<value\> 형식: ' iso-8601 '., ISO8601Error: iso 8601 시간 지정자 ' '이 (가) 없습니다. Datetime 문자열 \<value\> 을 구문 분석할 수 없습니다.*  
+**메시지:** *값을 serialize할 수 없습니다. \<value\> 형식: 'iso-8601'., ISO8601Error: ISO 8601 시간 지정자 'T'가 없습니다. datetime 문자열을 \<value\> 구문 분석할 수 없음*  
 **원인**: 속성에 제공된 값의 형식이 올바른 날짜로 지정되지 않았습니다.  
 **해결 방법**: 날짜를 yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:sszzz 또는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)에 따라 유효한 양식으로 제공합니다.
 
-**메시지**: *문자열을 DateTimeOffset으로 변환할 수 없습니다 \<value\> . ' Properties \<property\> ' 경로*  
+**메시지:** *문자열을 DateTimeOffset: 로 변환할 수 \<value\> 없습니다. 경로 'properties. \<property\> '*  
 **원인**: 속성에 제공된 값의 형식이 올바른 날짜로 지정되지 않았습니다.  
 **해결 방법**: 날짜를 yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:sszzz 또는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)에 따라 유효한 양식으로 제공합니다.
 
@@ -103,15 +103,15 @@ ms.locfileid: "129054437"
 **원인**: 오늘 날짜 이후여야 하는 수명 종료 날짜 속성의 형식이 올바르게 지정되지 않았습니다.  
 **해결 방법**: 날짜를 yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:sszzz 또는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)에 따라 유효한 양식으로 제공합니다.
 
-**메시지**: *인수-- \<property\> : 잘못 된 int 값 \<value\> :*  
-**원인**: \<property\> 정수 값만 허용 하 고 \<value\> 는 정수가 아닙니다.  
+**Message**: *argument -- : 잘못된 \<property\> int 값: \<value\>*  
+**원인:** \<property\> 정수 값만 허용하며 는 \<value\> 정수가 아닙니다.  
 **해결 방법**: 정수 값을 선택합니다.
 
-**메시지**: *의 최소값은 \<property\> 의 최 댓 값 보다 크지 않아야 합니다 \<property\> .*  
-**원인**:에 대해 제공 된 최소값이 \<property\> 에 대해 제공 된 최대값 보다 높습니다 \<property\> .  
+**메시지:** *의 최소값은 의 \<property\> 최대값보다 크지 않아야 \<property\> 합니다.*  
+**원인:** 에 제공된 최소값이 에 \<property\> 제공된 최대값보다 \<property\> 높습니다.  
 **해결 방법**: 최소값이 최대값 이하가 되도록 변경합니다.
 
-**메시지**: *갤러리 이미지: \<imageDefinitionName\> (게시자: \<Publisher\> , 제안: \<Offer\> , sku:)로 식별 된가 \<SKU\> 이미 있습니다. 다른 게시자, 제품, sku 조합을 선택 합니다.*  
+**메시지:** *갤러리 이미지: \<imageDefinitionName\> (publisher: \<Publisher\> , offer: , \<Offer\> sku: \<SKU\> )로 식별됩니다. 가 이미 있습니다. 다른 게시자, 제안, SKU 조합을 선택합니다.*  
 **원인**: 게시자, 제안, SKU의 세 요소가 동일한 갤러리에 있는 기존 이미지와 동일한 새 이미지 정의를 만들려 했습니다.  
 **해결 방법**: 갤러리 내에서 모든 이미지 정의의 게시자, 제안, SKU 조합은 고유해야 합니다. 고유한 조합을 선택하거나 새 갤러리를 선택하고 이미지 정의를 다시 선택하십시오.
 
@@ -119,16 +119,16 @@ ms.locfileid: "129054437"
 **원인**: 이미지 버전이 있는 이미지 정의를 삭제하려 했습니다. 이미지 정의를 삭제하려면 비어 있어야 합니다.  
 **해결 방법**: 이미지 정의 내의 모든 이미지 버전을 삭제한 다음 이미지 정의를 삭제합니다.
 
-**메시지**: *매개 변수를 바인딩할 수 없습니다 \<property\> . 값 \<value\> 을 형식으로 변환할 수 없습니다 \<propertyType\> . 식별자 이름을 올바른 열거자 이름과 일치 시킬 수 없습니다 \<value\> . 다음 열거자 이름 중 하나를 지정 하 고 다시 시도 하세요. \<choice\_1\> , \<choice\_2\> , ...*  
-**원인**: 속성에 사용할 수 있는 값 목록이 제한 \<value\> 되어 있으며 그 중 하나가 아닙니다.  
-**해결 방법**: 가능한 값 중 하나를 선택 \<choice\> 합니다.
+**메시지:** *매개 변수를 바인딩할 수 \<property\> 없습니다. 값을 \<value\> 형식으로 변환할 수 \<propertyType\> 없습니다. 식별자 이름을 유효한 \<value\> 열거자 이름과 일치시킬 수 없습니다. 다음 열거자 이름 중 하나를 지정하고 , \<choice\_1\> \<choice\_2\> , ...*  
+**원인:** 속성에는 가능한 값의 제한된 목록이 있으며 그 \<value\> 중 하나가 아닙니다.  
+**해결 방법:** 가능한 값 중 하나를 \<choice\> 선택합니다.
 
-**메시지**: *매개 변수를 바인딩할 수 없습니다 \<property\> . 값을 system.string \<value\> 형식으로 변환할 수 없습니다 &quot; . DateTime &quot;*  
+**메시지:** *매개 변수를 바인딩할 수 \<property\> 없습니다. 값을 \<value\> &quot; &quot; System.DateTime 형식으로 변환할 수 없습니다.*  
 **원인**: 속성에 제공된 값의 형식이 올바른 날짜로 지정되지 않았습니다.  
 **해결 방법**: 날짜를 yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:sszzz 또는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)에 따라 유효한 양식으로 제공합니다.
 
-**메시지:** *매개 변수를 바인딩할 수 \<property\> 없습니다. 값을 \<value\> &quot; System.Int32 &quot; 형식으로 변환할 수 없습니다.*  
-**원인:** \<property\> 정수 값만 허용하며 는 \<value\> 정수가 아닙니다.  
+**메시지**: *매개 변수를 바인딩할 수 없습니다 \<property\> . 값을 system.string \<value\> 형식으로 &quot; &quot; 변환할 수 없습니다.*  
+**원인**: \<property\> 정수 값만 허용 하 고 \<value\> 는 정수가 아닙니다.  
 **해결 방법**: 정수 값을 선택합니다.
 
 **메시지**: *ZRS 스토리지 계정 형식은 이 지역에서 지원되지 않습니다.*  
@@ -137,35 +137,35 @@ ms.locfileid: "129054437"
 
 ## <a name="creating-or-updating-image-versions"></a>이미지 버전 만들기 또는 업데이트 ##
 
-**메시지:** *제공된 \<region\> 위치는 'Microsoft.Compute/갤러리' 리소스 종류에 사용할 수 없습니다. 리소스 종류에 사용 가능한 지역 목록은 ...*  
-**원인:** \<region\> 이름이 올바르지 않거나 액세스 요청이 필요합니다.  
+**메시지**: *제공 된 위치 \<region\> 는 ' Microsoft. Compute/갤러리가 ' 리소스 종류에 사용할 수 없습니다. 리소스 종류에 사용할 수 있는 지역 목록은* ...  
+**원인**: \<region\> 이름이 잘못 되었거나 액세스 요청이 필요 합니다.  
 **해결 방법**: 지역 이름의 철자가 정확한지 확인합니다. 이 명령을 실행하여 액세스할 수 있는 지역을 확인할 수 있습니다. 지역이 목록에 없으면 [액세스 요청](/troubleshoot/azure/general/region-access-request-process)을 제출합니다.
 
-**메시지:** *중첩된 리소스에 대해 요청된 작업을 수행할 수 없습니다. 부모 \<galleryName/imageDefinitionName\> 리소스를 찾을 수 없습니다.*  
-**원인:** 현재 구독 및 리소스 그룹에 이름이 \<galleryName/imageDefinitionName\> 있는 갤러리가 없습니다.  
-**해결 방법**: 갤러리, 구독, 리소스 그룹의 이름이 정확한지 확인합니다. 그렇지 않으면 지정된 리소스 그룹에 \<galleryName\> 이름 및/또는 이미지 정의가 있는 새 \<imageDefinitionName\> 갤러리를 만듭니다.
+**메시지**: *중첩 리소스에서 요청 된 작업을 수행할 수 없습니다. 부모 리소스 \<galleryName/imageDefinitionName\> 를 찾을 수 없습니다.*  
+**원인**: \<galleryName/imageDefinitionName\> 현재 구독 및 리소스 그룹에 이름이 있는 갤러리가 없습니다.  
+**해결 방법**: 갤러리, 구독, 리소스 그룹의 이름이 정확한지 확인합니다. 그렇지 않으면 \<galleryName\> 표시 된 리소스 그룹의 이름 및/또는 이미지 정의를 사용 하 여 새 갤러리를 만듭니다 \<imageDefinitionName\> .
 
-**메시지:** *매개 변수를 바인딩할 수 \<property\> 없습니다. 값을 \<value\> &quot; &quot; System.DateTime 형식으로 변환할 수 없습니다.*  
+**메시지**: *매개 변수를 바인딩할 수 없습니다 \<property\> . 값을 system.string \<value\> 형식으로 변환할 수 없습니다 &quot; . DateTime &quot;*  
 **원인**: 속성에 제공된 값의 형식이 올바른 날짜로 지정되지 않았습니다.  
 **해결 방법**: 날짜를 yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:sszzz 또는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)에 따라 유효한 양식으로 제공합니다.
 
-**메시지:** *매개 변수를 바인딩할 수 \<property\> 없습니다. 값을 \<value\> &quot; System.Int32 &quot; 형식으로 변환할 수 없습니다.*  
-**원인:** \<property\> 정수 값만 허용하며 는 \<value\> 정수가 아닙니다.  
+**메시지**: *매개 변수를 바인딩할 수 없습니다 \<property\> . 값을 system.string \<value\> 형식으로 &quot; &quot; 변환할 수 없습니다.*  
+**원인**: \<property\> 정수 값만 허용 하 고 \<value\> 는 정수가 아닙니다.  
 **해결 방법**: 정수 값을 선택합니다.
 
-**메시지:** *갤러리 이미지 버전 게시 프로필 \<publishingRegions\> 영역에는 \<sourceRegion\> 이미지 버전의 위치가 포함되어야 합니다.*  
-**원인:** 원본 이미지()의 위치가 \<sourceRegion\> 목록에 포함되어야 \<publishingRegions\> 합니다.  
-**해결 방법:** \<sourceRegion\> 목록에 를 \<publishingRegions\> 포함합니다.
+**메시지**: *갤러리 이미지 버전 게시 프로필 영역은 \<publishingRegions\> 이미지 버전 \<sourceRegion\> 의 위치를 포함 해야 합니다* .  
+**원인**: 원본 이미지 ()의 위치를 \<sourceRegion\> 목록에 포함 해야 합니다 \<publishingRegions\> .  
+**해결 방법**: \<sourceRegion\> 목록에를 포함 \<publishingRegions\> 합니다.
 
-**메시지:** *\<value\> 매개 변수 \<property\> 값이 범위를 벗어났습니다. 값은 와 사이여야 \<minValue\> \<maxValue\> 합니다(포함).*  
-**원인:** \<value\> 가 에 대해 가능한 값 범위를 벗어났습니다. \<property\>  
-**해결 방법:** 및 범위 내에 있는 값을 \<minValue\> \<maxValue\> 선택합니다(포함).
+**메시지**: *\<value\> 매개 변수 값 \<property\> 이 범위를 벗어났습니다. 값은 \<minValue\> 와 \<maxValue\> (포함) 사이* 여야 합니다.  
+**원인**: \<value\> 이의 가능한 값 범위를 벗어났습니다 \<property\> .  
+**해결 방법**: 및의 범위에 포함 되는 값을 선택 \<minValue\> \<maxValue\> 합니다.
 
-**메시지:** *\<resourceID\> 원본을 찾을 수 없습니다. 원본이 있고 생성 중인 갤러리 이미지 버전과 동일한 지역에 있는지 확인하세요.*  
-**원인:** 에 소스가 없거나 \<resourceID\> 의 \<resourceID\> 원본이 생성 중인 갤러리 이미지와 동일한 지역에 있지 않습니다.  
-**해결 방법:** \<resourceID\> 값이 올바르고 갤러리 이미지 버전의 원본 영역이 값의 영역과 동일한지 \<resourceID\> 확인합니다.
+**메시지**: *소스 \<resourceID\> 를 찾을 수 없습니다. 원본이 있는지 확인 하 고 갤러리 이미지 버전과 동일한 지역에 있는지 확인 하세요.*  
+**원인**:에 있는 소스가 없거나,의 \<resourceID\> 소스가 \<resourceID\> 만들 갤러리 이미지와 동일한 지역에 있지 않습니다.  
+**해결 방법**: \<resourceID\> 값이 올바르고 갤러리 이미지 버전의 원본 지역이 값의 지역과 동일한 지 확인 \<resourceID\> 합니다.
 
-**메시지:** *'galleryImageVersion.properties.storageProfile. 속성 변경 \<diskImage\> source.id'은 허용되지 않습니다.*  
+**메시지**: *' GalleryImageVersion. storageprofile ' 속성을 변경 합니다 \<diskImage\> . source.id '은 사용할 수 없습니다.*  
 **원인**: 갤러리 이미지 버전의 원본 ID를 생성한 이후에 변경할 수 없습니다.  
 **해결 방법**: 원본 ID가 기존 원본 ID와 동일한지 확인하거나 이미지 버전의 버전 번호를 변경하거나 현재 이미지 버전을 삭제하고 다시 시도하십시오.
 
@@ -177,55 +177,55 @@ ms.locfileid: "129054437"
 **원인**: 디스크 및/또는 디스크 스냅샷의 목록을 사용하여 이미지 버전을 생성할 경우 두 개 이상의 디스크나 디스크 스냅샷에 동일한 리소스 ID가 있습니다.  
 **해결 방법**: 중복되는 모든 디스크 원본 ID를 제거하거나 변경합니다.
 
-**메시지**: *\<resourceID\> 'properties.storageProfile. 경로의 속성 ID입니다. \<diskImages\> source.id'이(가) 잘못되었습니다. '/subscriptions/ \<subscriptionID> ' 또는 '/providers/ \<resourceProviderNamespace> /'로 시작하는 정규화된 리소스 ID를 예상합니다.*  
-**원인:** \<resourceID\> 값의 형식이 잘못되었습니다.  
+**메시지**: *\<resourceID\> 경로 ' 속성. storageprofile의 속성 id \<diskImages\> 입니다. source.id '이 (가) 잘못 되었습니다. '/Subscriptions/ \<subscriptionID> ' 또는 '/providers/ \<resourceProviderNamespace> /'로 시작 하는 정규화 된 리소스 Id가 있어야 합니다.*  
+**원인**: \<resourceID\> 값의 형식이 잘못 되었습니다.  
 **해결 방법**: 리소스 ID가 정확한지 확인합니다.
 
-**메시지:** *원본 ID: \<resourceID\> 관리되는 이미지, 가상 머신 또는 다른 갤러리 이미지 버전이어야 합니다.*  
-**원인:** \<resourceID\> 값의 형식이 잘못되었습니다.  
+**메시지**: *원본 id: \<resourceID\> 관리 되는 이미지, 가상 머신 또는 다른 갤러리 이미지 버전 이어야 합니다.*  
+**원인**: \<resourceID\> 값의 형식이 잘못 되었습니다.  
 **해결 방법**: VM을 사용하는 경우나 관리형 이미지나 원본 이미지로 갤러리 이미지 버전을 사용하는 경우 VM의 리소스 ID, 관리형 이미지 또는 갤러리 이미지 버전이 정확한지 확인하십시오.
 
-**메시지:** *원본 ID: \<resourceID\> 관리 디스크 또는 스냅샷이어야 합니다.*  
-**원인:** \<resourceID\> 값의 형식이 잘못되었습니다.  
+**메시지**: *원본 id는 \<resourceID\> 관리 디스크 또는 스냅숏 이어야* 합니다.  
+**원인**: \<resourceID\> 값의 형식이 잘못 되었습니다.  
 **해결 방법**: 이미지 버전의 원본으로 디스크 및/또는 디스크 스냅샷을 사용하는 경우 디스크 및/또는 디스크 스냅샷의 리소스 ID가 정확한지 확인하십시오.
 
-**메시지:** *부모 갤러리 \<resourceID\> 이미지()의 OS 상태가 이 아니므로 에서 갤러리 이미지 버전을 만들 수 \<OsState\_1\> \<OsState\_2\> 없습니다.*  
+**메시지**: *\<resourceID\> 부모 갤러리 이미지의 OS 상태 ( \<OsState\_1\> )가 \<OsState\_2\> 아니기 때문에에서 갤러리 이미지 버전을 만들 수 없습니다* .  
 **원인**: 운영 체제 상태(일반이나 특수)가 이미지 정의에 지정된 운영 체제 상태와 일치하지 않습니다.  
-**해결 방법:** 운영 체제 상태가 인 VM을 기반으로 원본을 \<OsState\_1\> 선택하거나 를 기반으로 VM에 대한 새 이미지 정의를 만듭니다. \<OsState\_2\>
+**해결 방법**: 운영 체제 상태가 인 vm을 기반으로 원본을 선택 \<OsState\_1\> 하거나에 따라 vm에 대 한 새 이미지 정의를 만듭니다 \<OsState\_2\> .
 
-**메시지:** *ID가 \<resourceID\> '인 리소스에 부모 갤러리 이미지 하이퍼바이저 생성 [' \<V#\_1\> ']과 다른 하이퍼바이저 생성 [' \<V#\_2\> ']이* 있습니다.  
-**원인**: 이미지 버전의 하이퍼바이저 세대가 이미지 정의에 지정된 하이퍼바이저 세대와 일치하지 않습니다. 이미지 정의 운영 체제는 \<V#\_1\> 이고 이미지 버전 운영 체제는 입니다. \<V#\_2\>  
+**메시지**: *id가 ' ' 인 리소스의 \<resourceID\> 하이퍼바이저 생성 [' \<V#\_1\> ']이 부모 갤러리 이미지 하이퍼바이저 생성 [' ' \<V#\_2\> ]* 과 (와) 다릅니다.  
+**원인**: 이미지 버전의 하이퍼바이저 세대가 이미지 정의에 지정된 하이퍼바이저 세대와 일치하지 않습니다. 이미지 정의 운영 체제는이 \<V#\_1\> 고 이미지 버전 운영 체제는 \<V#\_2\> 입니다.  
 **해결 방법**: 이미지 정의와 하이퍼바이저 세대가 동일한 원본을 선택하거나 이미지 버전과 하이퍼바이저 세대가 동일한 새 이미지 정의를 만들거나 선택합니다.
 
-**메시지:** *ID가 \<resourceID\> ''인 리소스의 OS 유형이 \<OsType\_1\> 부모 갤러리 이미지 OS 유형 생성 [' \<OsType \_2\> ']과 다른 [' ']*  
-**원인**: 이미지 버전의 하이퍼바이저 세대가 이미지 정의에 지정된 하이퍼바이저 세대와 일치하지 않습니다. 이미지 정의 운영 체제는 \<OsType\_1\> 이고 이미지 버전 운영 체제는 입니다. \<OsType\_2\>  
+**메시지**: *id가 ' ' 인 리소스의 \<resourceID\> os 유형 [' ']이 (가) \<OsType\_1\> 부모 갤러리 이미지 os 유형 생성 [' \<OsType \_2\> ']* 과 (와) 다릅니다.  
+**원인**: 이미지 버전의 하이퍼바이저 세대가 이미지 정의에 지정된 하이퍼바이저 세대와 일치하지 않습니다. 이미지 정의 운영 체제는이 \<OsType\_1\> 고 이미지 버전 운영 체제는 \<OsType\_2\> 입니다.  
 **해결 방법**: 이미지 정의와 운영 체제(Linux/Windows)가 동일한 원본을 선택하거나 이미지 버전과 운영 체제가 동일한 새 이미지 정의를 만들거나 선택합니다.
 
-**메시지:** *원본 가상 \<resourceID\> 머신은 임시 OS 디스크를 포함할 수 없습니다.*  
-**원인:** 의 \<resourceID\> 원본에 임시 OS 디스크가 포함되어 있습니다. 공유된 이미지 갤러리는 현재 임시 OS 디스크를 지원하지 않습니다.  
+**메시지**: *원본 가상 머신은 \<resourceID\> 임시 OS 디스크를 포함할 수 없습니다.*  
+**원인**:의 원본에 \<resourceID\> 임시 OS 디스크가 포함 되어 있습니다. Azure Compute 갤러리는 현재 삭제 된 OS 디스크를 지원 하지 않습니다.  
 **해결 방법**: 임시 OS 디스크를 사용하지 않는 VM을 기반으로 하는 다른 원본을 선택합니다.
 
-**메시지:** *원본 가상 \<resourceID\> 머신은 \<diskID\> UltraSSD 계정 유형에 저장된 디스크 [' ']를 포함할 수 없습니다.*  
-**원인:** \<diskID\> 디스크가 울트라 SSD 디스크입니다. 공유된 이미지 갤러리는 현재 Ultra SSD 디스크를 지원하지 않습니다.  
+**메시지**: *원본 가상 머신은 \<resourceID\> \<diskID\> UltraSSD 계정 유형에 저장 된 [' '] 디스크를 포함할 수 없습니다.*  
+**원인**: 디스크가 \<diskID\> 울트라 SSD 디스크입니다. Azure Compute 갤러리는 현재 울트라 SSD 디스크를 지원 하지 않습니다.  
 **해결 방법**: 프리미엄 SSD, 표준 SSD, 및/또는 표준 HDD 관리 디스크로만 구성된 원본을 사용합니다.
 
-**메시지:** *Managed Disks 원본 가상 머신을 만들어야 \<resourceID\> 합니다.*  
-**원인:** 의 가상 머신에서 \<resourceID\> 관리되지 않는 디스크를 사용합니다.  
+**메시지**: *\<resourceID\> Managed Disks에서 원본 가상 머신을 만들어야 합니다.*  
+**원인**:의 가상 머신은 \<resourceID\> 관리 되지 않는 디스크를 사용 합니다.  
 **해결 방법**: 프리미엄 SSD, 표준 SSD, 및/또는 표준 HDD 관리 디스크로만 구성된 VM을 기반으로 하는 원본을 사용합니다.
 
-**메시지:** *원본 ' '에 대한 요청이 너무 \<resourceID\> 많습니다. 원본에 대한 요청 수를 줄이거나 다시 시도하기 전에 잠시 기다려 주세요.*  
+**메시지**: *소스 ' '에 요청이 너무 많습니다 \<resourceID\> . 원본에서 요청 수를 줄이거나 잠시 기다린 후 다시 시도 하세요.*  
 **원인**: 현재 요청 수가 너무 많아 이 이미지 버전의 원본을 제한하고 있습니다.  
 **해결 방법**: 나중에 다시 이미지 버전 생성을 시도합니다.
 
-**메시지:** *디스크 암호화 집합 \<diskEncryptionSetID\> ''은 갤러리 \<subscriptionID\> 리소스와 동일한 구독 ' '에 있어야 합니다.*  
+**메시지**: *디스크 암호화 집합 ' '이 (가) \<diskEncryptionSetID\> \<subscriptionID\> 갤러리 리소스와 동일한 구독 ' '에 있어야 합니다.*  
 **원인**: 디스크 암호화 집합은 생성된 것과 동일한 구독 및 지역에서만 사용할 수 있습니다.  
 **해결 방법**: 이미지 버전과 동일한 구독 및 지역에서 암호화 집합을 만들거나 사용합니다.
 
-**메시지:** *암호화된 원본: \<resourceID\> ' '이 현재 갤러리 이미지 버전 구독 ''의 구독 ID와 다른 구독 ID에 \<subscriptionID\_1\> 있습니다. 암호화되지 않은 원본으로 다시 시도하거나 원본의 구독 \<subcriptionID\_2\> ''을 사용하여 갤러리 이미지 버전을 만드세요.*  
-**원인**: 공유된 이미지 갤러리는 현재 원본 이미지가 암호화된 경우 다른 원본 이미지의 다른 구독에서 이미지 버전 생성을 지원하지 않습니다.  
+**메시지**: *암호화 된 원본: ' \<resourceID\> '은 (는) 현재 갤러리 이미지 버전 구독 ' '과 (와) 다른 구독 ID에 \<subscriptionID\_1\> 있습니다. 암호화 되지 않은 원본으로 다시 시도 하거나 원본의 구독 ' \<subcriptionID\_2\> '을 (를) 사용 하 여 갤러리 이미지 버전을 만드세요.*  
+**원인**: Azure Compute 갤러리는 현재 원본 이미지가 암호화 된 경우 다른 원본 이미지의 다른 구독에서 이미지 버전을 만드는 것을 지원 하지 않습니다.  
 **해결 방법**: 암호화되지 않은 원본을 사용하거나 원본과 동일한 구독에서 이미지 버전을 만듭니다.
 
-**메시지:** *디스크 암호화 \<diskEncryptionSetID\> 집합을 찾을 수 없습니다.*  
+**메시지**: *디스크 암호화 집합을 \<diskEncryptionSetID\> 찾을 수 없습니다.*  
 **원인**: 디스크 암호화가 정확하지 않을 수 있습니다.  
 **해결 방법**: 디스크 암호화 집합의 리소스 ID가 올바른지 확인합니다.
 
@@ -235,13 +235,13 @@ ms.locfileid: "129054437"
 
 **메시지**: *매개 변수 galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.dataDiskImages.diskEncryptionSetId의 값이 잘못되었습니다.*  
 **원인**: 데이터 디스크 이미지에 사용된 디스크 암호화 집합의 리소스 ID가 잘못된 형식을 사용합니다.  
-**해결 방법:** 디스크 암호화 집합의 리소스 ID가 /subscriptions/ \<subscriptionID\> /resourceGroups/ \<resourceGroupName\> /providers/Microsoft.Compute/ 형식을 따르는지 \<diskEncryptionSetName\> 확인합니다.
+**해결 방법**: 디스크 암호화 집합의 리소스 ID가/Subscriptions/ \<subscriptionID\> /Resourcegroups//Providers/Microsoft.Compute/형식을 따르는지 확인 \<resourceGroupName\> \<diskEncryptionSetName\> 합니다.
 
 **메시지**: *매개 변수 galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId의 값이 잘못되었습니다.*  
 **원인**: OS 디스크 이미지에 사용된 디스크 암호화 집합의 리소스 ID가 잘못된 형식을 사용합니다.  
-**해결 방법:** 디스크 암호화 집합의 리소스 ID가 /subscriptions/ \<subscriptionID\> /resourceGroups/ \<resourceGroupName\> /providers/Microsoft.Compute/ 형식을 따르는지 \<diskEncryptionSetName\> 확인합니다.
+**해결 방법**: 디스크 암호화 집합의 리소스 ID가/Subscriptions/ \<subscriptionID\> /Resourcegroups//Providers/Microsoft.Compute/형식을 따르는지 확인 \<resourceGroupName\> \<diskEncryptionSetName\> 합니다.
 
-**메시지:** *업데이트 갤러리 이미지 버전 요청에 대해 지역 [ ] 에 설정된 디스크 암호화를 통해 새 데이터 디스크 이미지 암호화 lun \<number\> [ ]을 지정할 수 \<region\> 없습니다. 이 버전을 업데이트하려면 새 lun을 제거합니다. 데이터 디스크 이미지 암호화 설정을 변경해야 하는 경우 올바른 설정을 사용하여 새 갤러리 이미지 버전을 만들어야 합니다.*  
+**메시지**: *\<number\> \<region\> 업데이트 갤러리 이미지 버전 요청에 대해 지역 []에 디스크 암호화가 설정 된 새 데이터 디스크 이미지 암호화 lun []을 (를) 지정할 수 없습니다. 이 버전을 업데이트 하려면 새 lun을 제거 합니다. 데이터 디스크 이미지 암호화 설정을 변경 해야 하는 경우 올바른 설정을 사용 하 여 새 갤러리 이미지 버전을 만들어야 합니다.*  
 **원인**: 기존 이미지 버전의 데이터 디스크에 암호화를 추가했습니다. 기존 이미지 버전에 암호화를 추가할 수 없습니다.  
 **해결 방법**: 새 갤러리 이미지 버전을 생성하거나 추가된 암호화 설정을 제거합니다.
 
@@ -249,27 +249,27 @@ ms.locfileid: "129054437"
 **원인**: 원본 ID가 누락되었습니다.  
 **해결 방법**: 원본의 원본 ID가 있는지 확인합니다.
 
-**메시지**: *소스를 찾을 수 없습니다 \<resourceID\> . 소스가 있는지 확인 하세요.*  
+**메시지:** *소스를 찾을 수 \<resourceID\> 없습니다. 원본이 있는지 확인하세요.*  
 **원인**: 원본의 리소스 ID가 정확하지 않습니다.  
 **해결 방법**: 원본의 리소스 ID가 정확한지 확인합니다.
 
-**메시지**: 디스크 암호화 집합 ' '이 (가) ' ' *\<region\_1\> \<diskEncryptionSetID\> 지역에서 \<region\_2\> 해당 하는 디스크에 사용 되는 경우 대상 영역 ' '의 디스크 ' galleryArtifactVersion. publishingProfile* .  
-**원인**:의 OS 디스크에서 암호화를 사용 했지만에서는 사용 \<region\_2\> 하지 않았습니다 \<region\_1\> .  
+**메시지:** *디스크 암호화 집합은 '' 디스크 암호화 집합 ''이 지역 '의 \<region\_1\> 해당 \<diskEncryptionSetID\> 디스크에 사용되므로 \<region\_2\> ' ' 대상 지역의 디스크 'galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId'에 필요합니다.*  
+**원인:** 암호화가 의 OS 디스크에서 \<region\_2\> 사용되었지만 에서는 사용되지 \<region\_1\> 않았습니다.  
 **해결 방법**: OS 디스크에 암호화를 사용하고 있는 경우 모든 지역에 암호화를 사용하십시오.
 
-**메시지**: 디스크 암호화 집합 ' '이 (가) 지역 ' ' *\<number\> \<region\_1\> \<diskEncryptionSetID\> 의 해당 디스크에 사용 \<region\_2\> 되므로 대상 영역 ' '의 디스크 ' LUN '에 디스크 암호화 집합이 필요 합니다* .  
-**원인**:에서 LUN의 데이터 디스크에 대 한 암호화 \<number\> 를 사용 \<region\_2\> 했지만에서 사용 되지 않았습니다 \<region\_1\> .  
+**메시지:** *디스크 암호화 집합 ''은 지역 ' \<number\> '의 해당 디스크에 사용되므로 대상 지역 ' \<region\_1\> '의 디스크 'LUN'에 \<diskEncryptionSetID\> 디스크 \<region\_2\> 암호화 세트가 필요합니다.*  
+**원인:** 암호화가 의 LUN에 있는 데이터 \<number\> 디스크에서 \<region\_2\> 사용되었지만 에서는 사용되지 \<region\_1\> 않았습니다.  
 **해결 방법**: 데이터 디스크에 암호화를 사용하고 있는 경우 모든 지역에 암호화를 사용하십시오.
 
-**메시지**: *dataDiskImages에 잘못 된 lun [ \<number\> ]을 (를) 지정 했습니다. Lun은 다음 값 [' 0, 9 '] 중 하나* 여야 합니다.  
+**메시지:** *\<number\> encryption.dataDiskImages에 잘못된 lun [ ]이 지정되었습니다. lun은 다음 값 ['0,9'] 중 하나여야 합니다.*  
 **원인**: 암호화에 지정된 LUN이 VM에 연결된 디스크의 LUN과 일치하지 않습니다.  
 **해결 방법**: 암호화의 LUN을 VM에 있는 데이터 디스크의 LUN으로 변경합니다.
 
-**메시지**: *중복 된 lun ' '이 (가) \<number\> 대상 영역 ' \<region\> ' dataDiskImages에 지정 되었습니다* .  
-**원인**:에서 사용 되는 암호화 설정이 \<region\> LUN을 두 번 이상 지정 했습니다.  
-**해결 방법**:에서 lun을 변경 \<region\> 하 여 모든 lun이에서 고유한 지 확인 \<region\> 합니다.
+**메시지:** *중복 luns \<number\> ' '이(가) 대상 지역 ' \<region\> encryption.dataDiskImages에 지정되었습니다.*  
+**원인:** 에 사용된 암호화 \<region\> 설정이 LUN을 두 번 이상 지정했습니다.  
+**해결 방법:** 에서 LUN을 \<region\> 변경하여 모든 LUN이 에서 고유한지 확인합니다. \<region\>
 
-**메시지**: *osdiskimage 및 DataDiskImage는 동일한 blob \<sourceID\> 을 가리킬 수 없습니다* .  
+**메시지:** *OSDiskImage 및 DataDiskImage는 동일한 \<sourceID\> Blob을 가리킬 수 없습니다.*  
 **원인**: OS 디스크와 하나 이상의 데이터 디스크에 대한 원본이 고유하지 않습니다.  
 **해결 방법**: OS 디스크 및/또는 데이터 디스크의 원본을 교체하여 OS 디스크와 모든 데이터 디스크가 고유한지 확인합니다.
 
@@ -281,8 +281,8 @@ ms.locfileid: "129054437"
 **원인**: 이미지 버전에 대한 업데이트 호출에 새 데이터 디스크를 포함하거나 디스크에 대한 새 LUN이 있습니다.  
 **해결 방법**: 기존 이미지 버전의 LUN 및 데이터 디스크를 사용합니다.
 
-**메시지**: *디스크 암호화 집합은 \<diskEncryptionSetID\> \<subscriptionID\> 갤러리 리소스와 동일한 구독에 있어야 합니다.*  
-**원인**: 공유된 이미지 갤러리는 현재 다른 구독의 디스크 암호화 집합을 사용하도록 지원하지 않습니다.  
+**메시지:** *디스크 암호화 집합은 \<diskEncryptionSetID\> 갤러리 \<subscriptionID\> 리소스와 동일한 구독에 있어야 합니다.*  
+**원인:** Azure Compute 갤러리는 현재 다른 구독의 디스크 암호화 집합 사용을 지원하지 않습니다.  
 **해결 방법**: 동일한 구독에서 이미지 버전 및 디스크 암호화 집합을 만듭니다.
 
 **메시지**: *'GalleryImageVersion 원본 리소스 크기 2048이 지원되는 최대 크기 1024를 초과.'하기 때문에 이 지역에서 복제가 실패했습니다.*  
@@ -294,28 +294,28 @@ ms.locfileid: "129054437"
 **해결 방법**: 삭제 이벤트가 완료될 때까지 기다렸다가 이미지 버전을 다시 만듭니다.
 
 **메시지**: *원본 리소스 '\<sourceID>'에 대해 암호화가 지원되지 않습니다. 암호화를 지원하는 다른 원본 리소스를 사용하거나 암호화 속성을 제거하세요.*  
-**원인**: 현재 Shared Image Gallery는 VM, 디스크, 스냅샷 및 관리형 이미지에 대한 암호화만 지원합니다. 이미지 버전에 대해 제공된 원본 중 하나가 암호화를 지원하는 이전 원본 목록에 없습니다.  
+**원인:** 현재 Azure Compute 갤러리는 VM, 디스크, 스냅샷 및 관리되는 이미지에 대한 암호화만 지원합니다. 이미지 버전에 대해 제공된 원본 중 하나가 암호화를 지원하는 이전 원본 목록에 없습니다.  
 **해결 방법**: 이미지 버전에서 디스크 암호화 집합을 제거하고 지원 팀에 문의하세요.
 
 ## <a name="creating-or-updating-a-vm-or-scale-sets-from-an-image-version"></a>이미지 버전에서 VM이나 확장 집합 만들기 또는 업데이트 ##
 
-**메시지**: *" \<imageDefinitionResourceID\> "에 대 한 최신 이미지 버전이 없습니다* .  
+**메시지:** *\<imageDefinitionResourceID\> ""에 대한 최신 이미지 버전이 없습니다.*  
 **원인**: 가상 머신을 배포하는 데 사용된 이미지 정의에 최근에 포함된 이미지 버전이 포함되지 않습니다.  
 **해결 방법**: '최신 항목에서 제외'가 False로 설정된 이미지 버전이 하나 이상 있는지 확인합니다. 
 
-**메시지**: *갤러리 이미지/subscriptions/ \<subscriptionID\> /Stgg/ \<resourceGroup\> /providers/Microsoft.Compute/galleries/ \<galleryName\> /images/ \<imageName\> /versions/ \<versionNumber\> 는 지역에서 사용할 수 없습니다 \<region\> . 이 지역에 복제 하려면 이미지 소유자에 게 문의 하거나 요청 된 지역을 변경 하세요.*  
+**메시지:** *갤러리 이미지 /subscriptions/ \<subscriptionID\> /resourceGroups/ \<resourceGroup\> /providers/Microsoft.Compute/gallerys/ \<galleryName\> /images/ \<imageName\> /versions/는 \<versionNumber\> 지역에서 사용할 수 \<region\> 없습니다. 이미지 소유자에게 문의하여 이 지역에 복제하거나 요청된 지역을 변경하세요.*  
 **원인**: 배포를 위해 선택한 버전이 존재하지 않거나 표시된 지역에 복제본이 없습니다.  
 **해결 방법**: 이미지 리소스의 이름이 정확하고 표시된 지역에 복제본이 하나 이상 있는지 확인합니다. 
 
-**메시지**: *갤러리 이미지/Subscriptions/ \<subscriptionID\> /Ssourceg/ \<resourceGroup\> /providers/Microsoft.Compute/galleries/ \<galleryName\> /images/ \<imageName\> 는 지역에서 사용할 수 없습니다 \<region\> . 이 지역에 복제 하려면 이미지 소유자에 게 문의 하거나 요청 된 지역을 변경 하세요.*  
+**메시지:** *갤러리 이미지 /subscriptions/ \<subscriptionID\> /resourceGroups/ \<resourceGroup\> /providers/Microsoft.Compute/gallerys/ \<galleryName\> /images/는 \<imageName\> 지역에서 사용할 수 \<region\> 없습니다. 이미지 소유자에게 문의하여 이 지역에 복제하거나 요청된 지역을 변경하세요.*  
 **원인**: 배포를 위해 선택한 이미지 정의에 최신 및 표시된 지역에 포함된 이미지 버전이 없습니다.  
 **해결 방법**: 지역에 '최신 항목에서 제외'가 False로 설정된 이미지 버전이 하나 이상 있는지 확인합니다. 
 
-**메시지**: *범위에서 ' Microsoft. Compute/갤러리/이미지/버전/읽기 ' 작업을 수행할 수 있는 권한이 클라이언트에 있지만 \<resourceID\> 현재 테 넌 트는 \<tenantID\> 연결 된 구독에 액세스할 수 있는 권한이 없습니다 \<subscriptionID\> .*  
-**원인**: 가상 머신이나 확장 집합이 SIG 이미지를 통해 생성되었거나 다른 테넌트에서 생성되었습니다. 가상 머신이나 확장 집합을 변경하려 했지만 이미지를 보유한 구독에 대한 액세스 권한이 없습니다.  
+**메시지:** 클라이언트에는 범위 에서 *'Microsoft.Compute/갤러리/images/versions/read' 작업을 수행할 수 있는 \<resourceID\> 권한이 있지만 현재 테넌트는 연결된 구독 에 액세스할 권한이 \<tenantID\> \<subscriptionID\> 없습니다.*  
+**원인:** 가상 머신 또는 확장 집합이 다른 테넌트에서 갤러리 이미지를 통해 만들어졌습니다. 가상 머신이나 확장 집합을 변경하려 했지만 이미지를 보유한 구독에 대한 액세스 권한이 없습니다.  
 **해결 방법**: 이미지 버전의 구독 소유자에게 문의하여 이미지 버전 읽기 액세스 권한을 요청합니다.
 
-**메시지**: *갤러리 이미지를 \<resourceID\> 지역에서 사용할 수 없습니다 \<region\> . 이 지역에 복제 하려면 이미지 소유자에 게 문의 하거나 요청 된 지역을 변경 하세요.*  
+**메시지:** *갤러리 이미지는 지역에서 사용할 수 \<resourceID\> \<region\> 없습니다. 이미지 소유자에게 문의하여 이 지역에 복제하거나 요청된 지역을 변경하세요.*  
 **원인**: 갤러리 이미지에 대해 게시된 지역 목록 중에 없는 지역에 VM을 생성하려 했습니다.  
 **해결 방법**: 지역의 이미지를 복제하거나 갤러리 이미지의 게시 지역에 있는 지역에 VM을 생성하십시오.
 
@@ -327,18 +327,18 @@ ms.locfileid: "129054437"
 **원인**: VM이 일반 이미지에서 생성되었으며 관리자 사용자 이름, 암호 또는 SSH 키가 누락되었습니다. 일반 이미지는 관리자 사용자 이름, 암호 또는 SSH 키를 보존하지 않기 때문에 이 필드는 VM이나 확장 집합을 생성하는 중에 지정해야 합니다.  
 **해결 방법**: 관리자 사용자 이름, 암호 또는 SSH 키를 지정하거나 특수 이미지 버전을 사용합니다.
 
-**메시지**: *가상 머신 확장 집합을 업데이트할 수 없습니다. \<vmssName\> VM 크기 집합의 현재 OS 상태가 일반화 되어 있으며,이는 특수화 된 업데이트 된 갤러리 이미지 OS 상태와는 다릅니다.*  
+**메시지:** *\<vmssName\> VM 확장 집합의 현재 OS 상태가 일반화되어 업데이트된 갤러리 이미지 OS 상태인 Specialized와 다르기 때문에 Virtual Machine Scale Set를 업데이트할 수 없습니다.*  
 **원인**: 확장 집합에 대한 현재 원본 이미지는 일반 원본 이미지이지만 특수 원본 이미지로 업데이트되었습니다. 현재 원본 이미지와 확장 집합의 새 원본 이미지의 상태는 동일해야 합니다.  
 **해결 방법**: 확장 집합을 업데이트하려면 일반 이미지 버전을 사용하십시오.
 
-**메시지**: *\<diskEncryptionSetID\> 공유 이미지 갤러리에 설정 된 디스크 암호화 \<versionID\> 가 구독에 속해 \<subscriptionID\_1\> 있으며 구독 \<subscriptionID\_2\> 에서 ' ' 리소스와 함께 사용할 수 없습니다* .  
+**메시지:** *Azure Compute 갤러리에서 설정된 디스크 \<diskEncryptionSetID\> \<versionID\> 암호화는 구독에 \<subscriptionID\_1\> 속하며 구독에서 \<subscriptionID\_2\> '' 리소스와 함께 사용할 수 없습니다.*  
 **원인**: 이미지 버전을 암호화하는 데 사용되는 디스크 암호화 집합이 이미지 버전을 호스팅하는 구독과 다른 구독에 있습니다.  
 **해결 방법**: 이미지 버전과 디스크 암호화 집합에 동일한 구독을 사용합니다.
 
 **메시지**: *VM이나 가상 머신 확장 집합을 만드는 시간이 깁니다.*  
 **해결 방법**: VM이나 가상 머신 확장 집합을 만들려 하는 이미지 버전의 **OSType** 이(가) 이미지 버전을 만드는 데 사용한 원본과 동일한 **OSType** 인지 확인합니다. 
 
-**메시지**: *id가 인 리소스의 \<vmID\> 계획 [' { \" name \" : \" \<name\> \" , \" publisher \" : \" \<publisher\> \" , \" product \" : \" \<product\> \" , \" promotionCode \" :} ']이 (가) \" \<promotionCode\> \" 부모 갤러리 이미지 계획 [' null ']* 과 (와) 다릅니다.  
+**메시지:** *ID가 인 \<vmID\> 리소스의 계획 ['{ \" \" 이름: \" \<name\> \" , publisher \" : , product : \" , \" \<publisher\> \" \" \" \" \<product\> \" \" promotionCode : \" \" \<promotionCode\> \" }']가 부모 갤러리 이미지 계획 ['null']과 다릅니다.*  
 **원인**: 배포하는 이미지 버전의 부모 이미지 정의에 구매 계획 정보가 없습니다.  
 **해결 방법**: 오류 메시지와 동일한 구매 계획 세부 정보로 이미지 정의를 만들고, 이 이미지 정의로 이미지 버전을 만듭니다.
 
@@ -346,12 +346,12 @@ ms.locfileid: "129054437"
 ## <a name="creating-a-disk-from-an-image-version"></a>이미지 버전에서 디스크 만들기 ##
 
 **메시지**: *매개 변수 imageReference의 값이 잘못되었습니다.*  
-**원인**: SIG 이미지 버전을 디스크로 내보내려 했지만 이미지에 없는 LUN 위치를 사용했습니다.    
+**원인:** 갤러리 이미지 버전에서 디스크로 내보내려고 했지만 이미지에 없는 LUN 위치를 사용했습니다.    
 **해결 방법**: 이미지 버전에서 어떤 LUN 위치가 사용 중인지 확인합니다.
 
 ## <a name="sharing-resources"></a>리소스 공유
 
-구독 전반에 걸친 이미지 갤러리, 이미지 정의, 이미지 버전 리소스 공유는 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/rbac-and-directory-admin-roles.md)를 사용하여 설정됩니다. 
+구독 간에 갤러리, 이미지 정의 및 이미지 버전 리소스 공유는 [Azure RBAC(Azure 역할 기반 액세스 제어)를](../role-based-access-control/rbac-and-directory-admin-roles.md)사용하여 활성화됩니다. 
 
 ## <a name="replication-speed"></a>복제 속도
 
@@ -359,9 +359,9 @@ ms.locfileid: "129054437"
 
 ## <a name="azure-limits-and-quotas"></a>Azure 한도 및 할당량 
 
-[Azure 한도 및 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)은 모든 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스에 적용됩니다. 구독의 한도 내에 있는지도 확인해야 합니다. 
+[Azure 제한 및 할당량은](../azure-resource-manager/management/azure-subscription-service-limits.md) 모든 Azure Compute 갤러리, 이미지 정의 및 이미지 버전 리소스에 적용됩니다. 구독의 한도 내에 있는지도 확인해야 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[공유 이미지 갤러리](./shared-image-galleries.md)에 대해 자세히 알아보세요.
+[Azure Compute 갤러리에](./shared-image-galleries.md)대해 자세히 알아보세요.

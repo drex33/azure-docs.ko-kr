@@ -3,7 +3,7 @@ title: '빠른 시작: 프로필 또는 엔드포인트 만들기 - Azure Resour
 titleSuffix: Azure Content Delivery Network
 description: 이 빠른 시작에서는 Azure Content Delivery Network 프로필 및 Resource Manager 템플릿 엔드포인트를 만드는 방법을 알아봅니다.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
-ms.author: allensu
-ms.openlocfilehash: ee199aaf13763f735607943eb51b848aecde54ff
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.author: duau
+ms.openlocfilehash: d0f160a068e8f9205a9659e34de6033b6690f520
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005540"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426357"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기 - ARM 템플릿
 

@@ -6,12 +6,12 @@ metadata:
   ms.service: azure
   ms.date: 07/17/2020
   ms.custom: devx-track-azurepowershell, references_regions
-  ms.openlocfilehash: 1bd63686c5dc726a238723991132e93c1b13863c
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: f8ef53c79632091644365836000d719055852674
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130226417"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131453804"
 title: Azure DevTest Labs FAQ
 summary: "\nAzure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.\n\n## <a name=\"blog-post\"></a>블로그 게시물\nDevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니다. \n\n### <a name=\"where-can-i-track-feature-updates-from-now-on\"></a>이제부터 기능 업데이트는 어디에서 추적할 수 있나요?\n이제부터는 기능 업데이트와 유익한 블로그 게시물을 Azure 블로그와 Azure 업데이트에 게시할 예정입니다. 블로그 게시물은 필요할 때마다 설명서에도 연결됩니다.\n        \n[DevTest Labs Azure 블로그](https://azure.microsoft.com/blog/tag/azure-devtest-labs/)와 [DevTest Labs Azure 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab)를 구독하면 DevTest Labs의 새로운 기능에 대한 정보가 제공됩니다.\n        \n### <a name=\"what-happens-to-the-existing-blog-posts\"></a>기존 블로그 게시물은 어떻게 되나요?\n현재 기존 블로그 게시물(정지 업데이트 제외)을 [DevTest Labs 설명서](devtest-lab-overview.md)로 마이그레이션하고 있습니다. MSDN 블로그가 더 이상 사용되지 않으면 DevTest Labs의 설명서 개요로 리디렉션될 예정입니다. 리디렉션되면 '제목으로 필터링'에서 원하는 문서를 검색할 수 있습니다. 일부 게시물은 아직 마이그레이션되지 않았지만 이달 말까지 완료할 예정입니다. \n        \n### <a name=\"where-do-i-see-outage-updates\"></a>중단 업데이트는 어디에서 볼 수 있나요?\n앞으로 중단 업데이트는 Twitter 핸들을 사용하여 게시할 예정입니다. Twitter에서 팔로우하고 중단 및 알려진 버그에 대한 최신 업데이트를 받으세요.\n\n### <a name=\"twitter\"></a>Twitter\nTwitter 핸들: [@azlabservices](https://twitter.com/azlabservices)\n"
 sections:
@@ -27,7 +27,7 @@ sections:
 
       - 더 폭넓은 대상에 다가갈 수 있도록 [Azure DevTest Labs에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-devtestlabs.html)에 질문을 게시하세요. Azure DevTest Labs 팀과 커뮤니티의 다른 구성원들이 참여합니다.
 
-      - 기능 요청의 경우 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
+      - 기능 요청의 경우 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/d365community/forum/502dba10-7726-ec11-b6e6-000d3a4f032c)으로 제출해 주세요.
   - question: >
       Microsoft 계정이란?
     answer: >

@@ -3,13 +3,16 @@ title: 하이브리드 백업을 보호하는 보안 기능
 description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안전하게 만드는 방법 알아보기
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 04/26/2021
-ms.openlocfilehash: 10a3420003197fc76f9baefbfd4c58c40a6dacfc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: eebf21c5b967d08d3f38eef74239dbff0e3d4e7d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073665"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443430"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 
@@ -20,15 +23,18 @@ ms.locfileid: "131073665"
 - **복구**. 삭제된 백업 데이터는 삭제일로부터 추가 14일 동안 보존됩니다. 이를 통해 지정된 기간 내에는 데이터를 복구할 수 있게 되므로 공격이 발생하더라도 데이터가 손실되지 않습니다. 또한 데이터 손상으로부터 보호하기 위해 더 많은 수의 최소 복구 지점이 유지됩니다.
 
 > [!NOTE]
-> IaaS(Infrastructure as a Service) VM 백업으로 인프라를 사용하는 경우 보안 기능은 사용하지 말아야 합니다. 이러한 기능은 아직 IaaS VM 백업에 사용할 수 없으므로 사용 하도록 설정 해도 아무런 영향을 주지 않습니다. 다음을 사용하는 경우에만 보안 기능을 사용하도록 설정해야 합니다. <br/>
->
-> - **Azure Backup 에이전트**. 최소 에이전트 버전 2.0.9052. 이러한 기능을 사용하도록 설정하면 중요한 작업을 수행하기 위해 이 에이전트 버전으로 업그레이드해야 합니다. <br/>
-> - **Azure Backup Server**. Azure Backup Server 업데이트 1을 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
-> - **System Center Data Protection Manager**. Data Protection Manager 2012 R2 UR12 또는 Data Protection Manager 2016 UR2를 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
+> 이러한 기능은 Recovery Services 자격 증명 모음에만 사용할 수 있습니다. 새로 만든 모든 Recovery Services 자격 증명 모음은 기본적으로 이러한 기능을 사용합니다. 기존 Recovery Services 자격 증명 모음의 경우 사용자가 다음 섹션에 설명한 단계를 사용하여 이러한 기능을 사용하도록 설정해야 합니다. 기능을 사용하도록 설정하면 자격 증명 모음에 등록되어 있는 Recovery Services 에이전트 컴퓨터, Azure Backup Server 인스턴스 및 Data Protection Manager 서버에 모두 적용됩니다.
 
-> [!NOTE]
-> 이러한 기능은 Recovery Services 자격 증명 모음에만 사용할 수 있습니다. 새로 만든 모든 Recovery Services 자격 증명 모음은 기본적으로 이러한 기능을 사용합니다. 기존 Recovery Services 자격 증명 모음의 경우 사용자가 다음 섹션에 설명한 단계를 사용하여 이러한 기능을 사용하도록 설정해야 합니다. 기능을 사용하도록 설정하면 자격 증명 모음에 등록되어 있는 Recovery Services 에이전트 컴퓨터, Azure Backup Server 인스턴스 및 Data Protection Manager 서버에 모두 적용됩니다. 이 기능의 설정은 일회성 작업이며 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다.
->
+## <a name="minimum-version-requirements"></a>최소 버전 요구 사항
+
+다음을 사용하는 경우에만 보안 기능을 사용하도록 설정합니다.
+
+- **Azure Backup 에이전트:** 최소 에이전트 버전 _2.0.9052._ 이러한 기능을 사용하도록 설정한 후 중요한 작업을 수행하도록 에이전트 버전을 업그레이드합니다.
+- **Azure Backup Server:** Azure Backup Server 업데이트 1이 있는 최소 Azure Backup 에이전트 버전 _2.0.9052_ 
+- **System Center Data Protection Manager:** Data Protection Manager 2012 _R2 UR12 Data Protection Manager 2016 UR2의_ 최소 Azure Backup 에이전트 버전 _2.0.9052_ /  
+
+>[!Note]
+>IaaS(Infrastructure as a Service) VM 백업을 사용하는 경우 보안 기능을 사용하도록 설정하지 않도록 합니다. 현재 이러한 기능은 IaaS VM 백업에 사용할 수 없으므로 사용하도록 설정해도 영향을 미치지 않습니다.
 
 ## <a name="enable-security-features"></a>보안 기능 사용
 
@@ -57,7 +63,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
 
 ## <a name="recover-deleted-backup-data"></a>삭제된 백업 데이터 복구
 
-보안 기능 설정을 사용하도록 설정하면 Azure Backup 추가 14일 동안 삭제된 백업 데이터를 유지하고 **백업 데이터 삭제를** 사용하여 백업 중지 작업을 수행하는 경우 즉시 삭제하지 않습니다. 이 데이터를 14일 기간 내 복원하려면 사용 중인 항목에 따라 다음 단계를 수행합니다.
+보안 기능 설정을 사용하도록 설정하면 Azure Backup 추가로 14일 동안 삭제된 백업 데이터를 유지하고 백업 데이터 **삭제를** 사용하여 백업 중지 작업을 수행하는 경우 즉시 삭제하지 않습니다. 이 데이터를 14일 기간 내 복원하려면 사용 중인 항목에 따라 다음 단계를 수행합니다.
 
 **Azure Recovery Services 에이전트** 사용자의 경우:
 

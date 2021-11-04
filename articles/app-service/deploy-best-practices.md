@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: c70cf1ca07e5fff58a14aa6b5b6c2f18b9e0e775
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 06728431db78d14be1a67f1dde753a0992b5dbba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222521"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471120"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -43,7 +43,7 @@ Azure Pipelines, Jenkins 및 편집기 플러그 인 같은 배포 도구는 이
 
 ### <a name="continuously-deploy-code"></a>지속적으로 코드 배포
 
-프로젝트에 테스트, QA 및 스테이징에 대한 분기가 지정된 경우 각 분기는 스테이징 슬롯에 지속적으로 배포되어야 합니다. 이를 [Gitflow 디자인](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)이라고 합니다. 이를 통해 관련자는 배포된 분기를 쉽게 평가하고 테스트할 수 있습니다. 
+프로젝트에 테스트, QA 및 스테이징에 대한 분기가 지정된 경우 각 분기는 스테이징 슬롯에 지속적으로 배포되어야 합니다. 이를 [Gitflow 디자인](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)이라고 합니다. 이를 통해 관련자는 배포 된 분기를 쉽게 평가 하 고 테스트할 수 있습니다. 
 
 프로덕션 슬롯에 대해 연속 배포를 사용하도록 설정하면 안 됩니다. 대신 프로덕션 분기(주로 주 분기)가 비 프로덕션 슬롯에 배포되어야 합니다. 기본 분기를 릴리스할 준비가 되면 프로덕션 슬롯으로 교환합니다. 프로덕션에 배포하는 대신 프로덕션으로 교환하면 가동 중지 시간을 방지할 수 있으며, 다시 교환하여 변경 내용을 롤백할 수도 있습니다. 
 

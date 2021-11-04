@@ -2,17 +2,17 @@
 title: App Service, 함수, 논리 앱용으로 Azure Arc 설정
 description: Azure Arc 지원 Kubernetes 클러스터의 경우 App Service 앱, 함수 앱 및 논리 앱을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 08/17/2021
-ms.openlocfilehash: f0594458f65fbd14bc50540148d5ea68d15fbdbd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 11/02/2021
+ms.openlocfilehash: a330d68ed556a60261ca91e6bfb32fdddf52dc14
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707119"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435589"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
 
-Azure Arc 지원 [Kubernetes 클러스터가](../azure-arc/kubernetes/overview.md)있는 경우 이를 사용하여 App Service 사용하도록 [설정된 사용자 지정 위치를](overview-arc-integration.md) 만들고 웹앱, 함수 앱 및 논리 앱을 배포할 수 있습니다.
+Azure Arc 지원 [Kubernetes 클러스터가](../azure-arc/kubernetes/overview.md)있는 경우 이 클러스터를 사용하여 [App Service 사용하도록 설정된 사용자 지정 위치를](overview-arc-integration.md) 만들고 웹앱, 함수 앱 및 논리 앱을 배포할 수 있습니다.
 
 Azure Arc 지원 Kubernetes를 사용하면 온-프레미스 또는 클라우드 Kubernetes 클러스터를 Azure의 App Service, Functions 및 Logic Apps 표시할 수 있습니다. 다른 Azure 지역처럼 앱을 만들고 배포할 수 있습니다.
 
@@ -31,7 +31,6 @@ Azure 계정이 없다면 무료 계정에 [지금 바로 가입](https://azure.
 Set the following environment variables based on your Kubernetes cluster deployment:
 
 ```bash
-staticIp="<public-ip-address-of-the-kubernetes-cluster>"
 aksClusterGroupName="<name-resource-group-with-aks-cluster>"
 groupName="<name-of-resource-group-with-the-arc-connected-cluster>"
 clusterName="<name-of-arc-connected-cluster>"
@@ -54,13 +53,13 @@ az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.Web --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension remove --name appservice-kube
-az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
+az extension add --upgrade --yes --name appservice-kube
 ```
 
 ## <a name="create-a-connected-cluster"></a>연결된 클러스터 만들기
 
 > [!NOTE]
-> 이 자습서에서는 [AKS(Azure Kubernetes Service)](../aks/index.yml)를 사용하여 처음부터 환경을 설정하기 위한 구체적인 지침을 제공합니다. 그러나 프로덕션 워크로드의 경우 Azure에서 이미 관리되는 Azure Arc를 AKS 클러스터에서 사용하도록 설정하지 않는 것이 좋습니다. 아래 단계는 서비스를 이해하는 데 도움이 되지만 프로덕션 배포의 경우 조치가 아닌 설명으로 간주되어야 합니다. Azure Arc 지원 Kubernetes 클러스터 만들기에 대한 일반적인 지침은 [빠른 시작: 기존 Kubernetes 클러스터](../azure-arc/kubernetes/quickstart-connect-cluster.md) 커넥트 Azure Arc 참조하세요.
+> 이 자습서에서는 [AKS(Azure Kubernetes Service)](../aks/index.yml)를 사용하여 처음부터 환경을 설정하기 위한 구체적인 지침을 제공합니다. 그러나 프로덕션 워크로드의 경우 Azure에서 이미 관리되는 Azure Arc를 AKS 클러스터에서 사용하도록 설정하지 않는 것이 좋습니다. 아래 단계는 서비스를 이해하는 데 도움이 되지만 프로덕션 배포의 경우 조치가 아닌 설명으로 간주되어야 합니다. Azure Arc 지원 Kubernetes 클러스터 만들기에 대한 일반적인 [지침은 빠른 시작: 기존 Kubernetes 클러스터](../azure-arc/kubernetes/quickstart-connect-cluster.md) 커넥트 Azure Arc 참조하세요.
 
 1. 공용 IP 주소를 사용하여 Azure Kubernetes Service에서 클러스터를 만듭니다. `<group-name>`을 원하는 리소스 그룹 이름으로 바꿉니다.
 
@@ -74,8 +73,6 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
     infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
-    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
-    staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -87,9 +84,6 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
     az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
-    $infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
-    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
-    $staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
 
     ---
@@ -151,7 +145,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md) Azure Arc App Service 실행할 필요가 없지만, 개발자가 Azure Arc 지원 Kubernetes 클러스터에서 실행 중인 앱에 대한 애플리케이션 로그를 얻을 수 있습니다. 
+Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md) Azure Arc App Service 실행할 필요는 없지만, 개발자가 Azure Arc 지원 Kubernetes 클러스터에서 실행 중인 앱에 대한 애플리케이션 로그를 얻을 수 있는 방법입니다. 
 
 1. 간단한 설명을 위해 지금 작업 영역을 만듭니다.
 
@@ -255,7 +249,6 @@ Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md)
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
-        --configuration-settings "loadBalancerIp=${staticIp}" \
         --configuration-settings "keda.enabled=true" \
         --configuration-settings "buildService.storageClassName=default" \
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" \
@@ -282,7 +275,6 @@ Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md)
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
         --configuration-settings "appsNamespace=${namespace}" `
         --configuration-settings "clusterName=${kubeEnvironmentName}" `
-        --configuration-settings "loadBalancerIp=${staticIp}" `
         --configuration-settings "keda.enabled=true" `
         --configuration-settings "buildService.storageClassName=default" `
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" `
@@ -304,15 +296,14 @@ Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md)
     | 매개 변수 | 설명 |
     | - | - |
     | `Microsoft.CustomLocation.ServiceAccount` | 생성할 사용자 지정 위치에 대해 만들어야 하는 서비스 계정입니다. `default` 값으로 설정하는 것이 좋습니다. |
-    | `appsNamespace` | 앱 정의 및 Pod를 프로비전하는 네임스페이스입니다. 확장 릴리스 네임스페이스와 일치해야 합니다. |
+    | `appsNamespace` | 앱 정의 및 Pod를 프로비전하는 네임스페이스입니다. 확장 릴리스 네임스페이스의 해당 네임스페이스와 **일치해야 합니다.** |
     | `clusterName` | 이 확장에 대해 생성되는 App Service Kubernetes 환경의 이름입니다. |
-    | `loadBalancerIp` | Kubernetes 클러스터의 공용 IP입니다. App Service 앱은 이 IP 주소에서 트래픽을 수신합니다. 기본 DNS 매핑을 알리는 역할도 합니다. |
     | `keda.enabled` | [KEDA](https://keda.sh/)를 Kubernetes 클러스터에 설치해야 하는지 여부입니다. `true` 또는 `false`를 수락합니다. |
-    | `buildService.storageClassName` | 빌드 아티팩트를 저장하는 빌드 서비스를 위한 [스토리지 클래스의 이름](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class)입니다. `default` 같은 값은 `default`라는 클래스를 지정하며 [기본으로 표시되는 클래스](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)는 지정하지 않습니다. |
+    | `buildService.storageClassName` | 빌드 아티팩트를 저장하는 빌드 서비스를 위한 [스토리지 클래스의 이름](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class)입니다. `default` 같은 값은 `default`라는 클래스를 지정하며 [기본으로 표시되는 클래스](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)는 지정하지 않습니다.  기본값은 AKS 및 AKS HCI에 유효한 스토리지 클래스이지만 다른 배포판/플랫폼에는 사용할 수 없습니다. |
     | `buildService.storageAccessMode` | 위에 나오는 이름의 스토리지 클래스와 함께 사용할 [액세스 모드](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)입니다. `ReadWriteOnce` 또는 `ReadWriteMany`를 수락합니다. |
     | `customConfigMap` | App Service Kubernetes 환경에서 설정할 구성 맵의 이름입니다. 현재는 `<namespace>/kube-environment-config`여야 하며 `<namespace>`를 위의 `appsNamespace`로 바꿔야 합니다. |
     | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | Azure Kubernetes Service 클러스터가 있는 리소스 그룹의 이름입니다. 기본 클러스터가 Azure Kubernetes Service인 경우에만 유효 하며 필수 요소입니다.  |
-    | `logProcessor.appLogs.destination` | 선택 사항입니다. `log-analytics`를 수락합니다. |
+    | `logProcessor.appLogs.destination` | 선택 사항입니다. 또는 를 수락하고 `log-analytics` `none` 없음을 선택하면 플랫폼 로그가 비활성화됩니다. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | `logProcessor.appLogs.destination`이 `log-analytics`로 설정된 경우에만 필요합니다. base64로 인코딩된 Log Analytics 작업 영역 ID입니다. 이 매개 변수는 보호 설정으로 구성해야 합니다. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | `logProcessor.appLogs.destination`이 `log-analytics`로 설정된 경우에만 필요합니다. base64로 인코딩된 Log Analytics 작업 영역 공유 키입니다. 이 매개 변수는 보호 설정으로 구성해야 합니다. |
     | | |
@@ -456,7 +447,6 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
         --resource-group $groupName \
         --name $kubeEnvironmentName \
         --custom-location $customLocationId \
-        --static-ip $staticIp
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -465,8 +455,7 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
     az appservice kube create `
         --resource-group $groupName `
         --name $kubeEnvironmentName `
-        --custom-location $customLocationId `
-        --static-ip $staticIp
+        --custom-location $customLocationId `      
     ```
 
     ---

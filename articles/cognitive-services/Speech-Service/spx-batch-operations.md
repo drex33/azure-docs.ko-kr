@@ -3,19 +3,19 @@ title: Speech CLI 일괄 처리 옵션 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech CLI를 사용하여 음성을 텍스트로 변환 일괄 처리(음성 인식), 텍스트를 음성으로 변환 일괄 처리(음성 합성)하는 방법을 알아봅니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: pafarley
-ms.openlocfilehash: a64288707e9a9ce7388ca60a0c28e2a01f504d7f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 1049720604ba4ba3a0be1874e0364e2e92c321e9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543838"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505216"
 ---
 # <a name="speech-cli-batch-operations"></a>Speech CLI 일괄 처리 작업
 

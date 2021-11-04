@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44a8c8ab6420db717533e83af9e01a89fad47bad
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: 856cefa33948f530ee859ee1eeadfaf2cdf73de6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205033"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471785"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>세션 호스트 가상 머신에 Windows 라이선스 적용
 
@@ -65,4 +65,4 @@ $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object Reso
 
 ## <a name="requirements-for-deploying-windows-server-remote-desktop-services"></a>Windows Server 원격 데스크톱 서비스 배포 요구 사항
 
-Windows Server 2019, 2016 또는 2012 R2를 배포의 Azure Virtual Desktop 호스트로 배포하는 경우 해당 가상 머신에서 원격 데스크톱 서비스 라이선스 서버에 액세스할 수 있어야 합니다. 원격 데스크톱 서비스 라이선스 서버는 온-프레미스 또는 Azure에 있을 수 있습니다. 자세한 내용은 [원격 데스크톱 서비스 라이선스 서버 활성화](/windows-server/remote/remote-desktop-services/rds-activate-license-server)를 참조하세요.
+배포에서 Azure 가상 데스크톱 호스트로 Windows 서버를 배포 하는 경우 해당 가상 머신에서 원격 데스크톱 서비스 라이선스 서버에 액세스할 수 있어야 합니다. 원격 데스크톱 서비스 라이선스 서버는 온-프레미스 또는 Azure에 있을 수 있습니다. 자세한 내용은 [원격 데스크톱 서비스 라이선스 서버 활성화](/windows-server/remote/remote-desktop-services/rds-activate-license-server)를 참조하세요.

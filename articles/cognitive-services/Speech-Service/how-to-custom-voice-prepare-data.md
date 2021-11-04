@@ -3,19 +3,19 @@ title: Custom Voice에 대한 데이터를 준비하는 방법 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service를 사용하여 자체 브랜드의 사용자 지정 음성을 만듭니다. 스튜디오 레코딩 및 관련 스크립트를 제공하면 서비스가 녹음된 음성에 맞게 튜닝된 고유한 음성 모델을 생성합니다. 이 음성을 사용하여 제품, 도구 및 애플리케이션에서 음성을 합성할 수 있습니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: pafarley
-ms.openlocfilehash: 3736e0a1200367e3f0e39bffc213cf369d3983b5
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 39bd6cb6d7fd224a12d7fa38a5a299a0c6a414c2
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536466"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504477"
 ---
 # <a name="prepare-training-data"></a>학습 데이터 준비
 

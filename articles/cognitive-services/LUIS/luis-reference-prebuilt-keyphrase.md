@@ -8,16 +8,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/27/2019
-ms.openlocfilehash: 02a48c8d106795b970d573bb71f52ba92e0a90ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/28/2021
+ms.openlocfilehash: 0fd252c5be2f4c0a44eea998ed6ea5a83d4f2c7c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91541988"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454640"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 keyPhrase 미리 빌드된 엔터티
-keyPhrase 엔터티는 발화에서 다양한 핵심 구를 추출합니다. keyphrase를 포함하는 예제 발화를 애플리케이션에 추가할 필요는 없습니다. keyPhrase 엔터티는 [텍스트 분석](../text-analytics/overview.md) 기능의 일부로 [여러 문화권](luis-language-support.md#languages-supported)에서 지원됩니다.
+keyPhrase 엔터티는 발화에서 다양한 핵심 구를 추출합니다. keyphrase를 포함하는 예제 발화를 애플리케이션에 추가할 필요는 없습니다. 키 구 엔터티는 [언어 서비스](../language-service/overview.md) 기능의 일부로 [많은 문화권](luis-language-support.md#languages-supported) 에서 지원 됩니다.
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>미리 빌드된 keyPhrase 엔터티의 해결
 

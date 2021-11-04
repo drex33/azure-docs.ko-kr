@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, azla
 ms.topic: conceptual
 ms.date: 07/14/2021
-ms.openlocfilehash: 4f49e0fbbfa4c2a98b86c96dc3b0e650d6ff6bc9
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: 30fa05a4aad2108ac96de820ac2ea86357cd17b6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204829"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457528"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -63,7 +63,7 @@ REST 또는 SOAP를 사용하여 HTTP 또는 HTTPS를 통해 데이터 원본에
   * 논리 앱과 게이트웨이 리소스는 동일한 Azure 구독에 존재하지 않아도 됩니다. 게이트웨이 리소스를 사용할 수 있는 트리거 및 동작에서 게이트웨이 리소스가 있는 다른 Azure 구독을 선택할 수 있습니다. 단, 해당 구독이 논리 앱과 동일한 Azure AD 테넌트 또는 디렉터리에 있는 경우에만 가능합니다. 또한 다른 관리자가 설정해 줄 수 있는 게이트웨이에 대한 관리자 권한이 있어야 합니다. 자세한 내용은 [데이터 게이트웨이: PowerShell을 사용하여 자동화 - 1부](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) 및 [Powershell: 데이터 게이트웨이 - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser)를 참조하세요.
 
     > [!NOTE]
-    > 현재는 여러 구독에서 게이트웨이 리소스 또는 설치를 공유할 수 없습니다. 제품 피드백을 제출하려면 [Microsoft Azure 피드백 포럼](https://feedback.azure.com/forums/34192--general-feedback)을 참조하세요.
+    > 현재는 여러 구독에서 게이트웨이 리소스 또는 설치를 공유할 수 없습니다. 제품 피드백을 제출하려면 [Microsoft Azure 피드백 포럼](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4)을 참조하세요.
 
 <a name="create-gateway-resource"></a>
 

@@ -4,19 +4,19 @@ description: 이 문서에서는 모바일 에이전트의 자동 업데이트 �
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/01/2021
-ms.openlocfilehash: 97cfba3e14268385632a47a5898b21e8d68811cb
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a683aacc762ce169045ee17891b49624ef1ee991
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539734"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437653"
 ---
 # <a name="upgrade-mobility-service-and-appliance-components-preview"></a>Mobility Service 및 어플라이언스 구성 요소 업그레이드(미리 보기)
 
-이 미리 보기에서는 업그레이드를 수행하기 위해 원본 컴퓨터의 루트/관리자 자격 증명을 유지 관리하지 않아도 됩니다. 자격 증명은 에이전트의 초기 설치에만 필요합니다. 완료되면 자격 증명을 제거할 수 있습니다.
+이 미리 보기에서는 업그레이드를 수행 하는 데 원본 컴퓨터의 루트/관리자 자격 증명을 유지 관리할 필요가 없습니다. 자격 증명은 에이전트의 초기 설치에만 필요 합니다. 완료 되 면 자격 증명을 제거할 수 있습니다.
 
 
-## <a name="update-mobility-agent-automatically"></a>모바일 에이전트를 자동으로 업데이트
+## <a name="update-mobility-agent-automatically"></a>자동으로 모바일 에이전트 업데이트
 
 기본적으로 자동 업데이트는 자격 증명 모음에서 사용하도록 설정됩니다. 자동 업데이트는 새 버전을 사용할 수 있는 경우 현지 시간으로 매일 오전 12시에 트리거됩니다.
 
@@ -117,6 +117,25 @@ ms.locfileid: "123539734"
 이를 업데이트해야 하는 경우 **상태** 가 동일하게 반영됩니다. 상태 메시지를 클릭하여 구성 요소를 업그레이드합니다.
 
   ![복제 어플라이언스 구성 요소](./media/upgrade-mobility-service-preview/appliance-components.png)
+
+### <a name="turn-off-auto-update"></a>자동 업데이트 해제
+
+1. 어플라이언스를 실행하는 서버에서 레지스트리 편집기를 엽니다.
+2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance** 로 이동합니다.
+3. 자동 업데이트를 해제하려면 DWORD 값이 0인 **AutoUpdate** 레지스트리 키를 만듭니다.
+
+    ![레지스트리 키 설정](./media/upgrade-mobility-service-preview/registry-key.png)
+
+
+### <a name="turn-on-auto-update"></a>자동 업데이트 설정
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance에서 자동 업데이트 레지스트리 키를 삭제 하 여 자동 업데이트를 켤 수 있습니다.
+
+레지스트리 키를 삭제하려면 다음을 수행합니다.
+
+1. 어플라이언스를 실행하는 서버에서 레지스트리 편집기를 엽니다.
+2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance** 로 이동합니다.
+3. 자동 업데이트를 해제하기 위해 이전에 만든 **AutoUpdate** 레지스트리 키를 삭제합니다.
 
 ### <a name="resolve-issues-with-component-upgrade"></a>구성 요소 업그레이드와 관련된 문제 해결
 

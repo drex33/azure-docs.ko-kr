@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2021
-ms.openlocfilehash: f5b1caaef90a25e6635c30d1e3272438a408393b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 24b5db0411241778ce9afd63a4a167b9d6d483eb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589628"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433420"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>릴리스 정보 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -77,7 +77,7 @@ Azure Database for PostgreSQL 유연한 서버에 대한 질문이나 제안이 
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)를 통해 항목을 만드세요.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)를 통해 항목을 만드세요.
   
 
 ## <a name="next-steps"></a>다음 단계

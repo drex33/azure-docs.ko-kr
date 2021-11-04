@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0e4f00440b89117ad2c247a485e29709c336cac3
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025704"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504024"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>사용자 지정 명령 애플리케이션 작성 시 오류 디버그
 
@@ -98,4 +98,4 @@ LUIS 예측 리소스를 애플리케이션에 할당하지 않는 경우 예측
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [GitHub의 샘플 참조](https://aka.ms/speech/cc-samples)
+> [GitHub 샘플 참조](https://aka.ms/speech/cc-samples)

@@ -4,12 +4,12 @@ description: Azure Backup 워크로드를 모니터하고 Azure Monitor를 사�
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2e1466d3f7f8130cfe8b12ad23f2bf1f9dd61b54
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
-ms.translationtype: HT
+ms.openlocfilehash: f1c729a9a724bb397b01a74c2f5853c1b2a74e25
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565521"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455020"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용하여 대규모 모니터링
 
@@ -18,7 +18,7 @@ Azure Backup은 [기본 제공 모니터링 및 경고 기능](backup-azure-moni
 - 여러 구독 간의 여러 복구 서비스 저장소로부터 데이터를 모니터링하는 경우
 - 기본 알림 채널이 이메일이 *아닌* 경우
 - 사용자가 더 많은 시나리오에 대해 경고를 원하는 경우
-- 포털의 [**백업 작업**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) 또는 [**백업 경고**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)에 표시되지 않는 Azure의 System Center Data Protection Manager와 같은 온-프레미스 구성 요소의 정보를 보려는 경우
+- 포털의 [**백업 작업**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center) 또는 [**백업 경고**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)에 표시되지 않는 Azure의 System Center Data Protection Manager와 같은 온-프레미스 구성 요소의 정보를 보려는 경우
 
 ## <a name="using-log-analytics-workspace"></a>Log Analytics 작업 영역 사용
 

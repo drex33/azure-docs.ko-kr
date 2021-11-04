@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
-ms.openlocfilehash: 54a04db65c94adb1200000d027cdd9177c228297
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 49fb9db94ceeaef94dc6c255002f392232ca820c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672137"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434164"
 ---
 # <a name="chat-concepts"></a>채팅 개념 
 
@@ -35,8 +35,6 @@ Azure Communication Services 채팅 SDK를 사용하여 실시간 텍스트 채�
 
 ### <a name="user-access"></a>사용자 액세스
 일반적으로 스레드 작성자와 참여자는 스레드 접근 권한이 동일하며, 스레드 삭제를 포함하여 SDK에서 사용 가능한 모든 관련 작업을 실행할 수 있습니다. 참가자는 다른 참가자가 보낸 메시지에 대한 쓰기 권한이 없으므로, 메시지를 보낸 사람만 보낸 메시지를 업데이트하거나 삭제할 수 있습니다. 다른 참가자가 이 작업을 시도하면 오류가 발생합니다. 
-
-사용자 세트의 채팅 기능에 대한 액세스를 제한하려는 경우 신뢰할 수 있는 서비스의 일부로 액세스를 구성할 수 있습니다. 신뢰할 수 있는 서비스는 채팅 참가자의 인증 및 권한을 오케스트레이션하는 서비스입니다. 이에 대한 자세한 내용은 아래를 참조하세요.  
 
 ### <a name="chat-data"></a>채팅 데이터 
 Communication Services는 명시적으로 삭제될 때까지 채팅 기록을 저장합니다. 채팅 스레드 참가자는 `ListMessages`를 사용하여 특정 스레드에 대한 메시지 기록을 볼 수 있습니다. 채팅 스레드에서 제거된 사용자는 이전 메시지 기록을 볼 수 있지만, 해당 채팅 스레드의 일부로 새 메시지를 보내거나 받을 수는 없습니다. 참가자가 없는 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. Communication Services에 의해 저장되는 데이터에 대한 자세한 내용은 [개인 정보](../privacy.md)에 대한 문서를 참조하세요.  

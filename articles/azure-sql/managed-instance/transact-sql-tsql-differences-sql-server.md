@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 10/21/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 17782d880c8a874ab4dedc717f4a71b5f0771a13
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: dad341c2d4323346619c20da105f7f50f21f67bc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239250"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431031"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ SQL Managed Instance에 도입된 일부 PaaS 제한 사항이 있으며 SQL Ser
 
 이러한 기능 중 대부분은 아키텍처 제약 조건이며 서비스 기능을 나타냅니다.
 
-SQL Managed Instance 검색되고 나중에 해결될 일시적인 알려진 문제는 [새로운](doc-changes-updates-release-notes-whats-new.md)내용에 설명되어 있습니다.
+SQL Managed Instance 검색되고 나중에 해결될 일시적인 알려진 문제는 [새로운 내용에](doc-changes-updates-release-notes-whats-new.md)설명되어 있습니다.
 
 ## <a name="availability"></a>가용성
 
@@ -70,7 +70,7 @@ SQL Managed Instance에는 자동 백업이 있으므로 사용자는 전체 데
 - SQL Managed Instance를 사용하는 경우 최대 32개의 스트라이프가 있는 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 이 개수는 백업 압축을 사용할 경우 최대 4TB의 데이터베이스에 충분합니다.
 - 서비스 관리 TDE(투명한 데이터 암호화)로 암호화된 데이터베이스에서는 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용하여 백업을 암호화합니다. 키를 내보낼 수 없어 백업을 복원할 수 없습니다. 자동 백업 및 특정 시점 복원을 사용하거나 [고객 관리(BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key)를 대신 사용합니다. 데이터베이스에서 암호화를 사용하지 않도록 설정할 수 있습니다.
 - Managed Instance에서 가져온 기본 백업은 SQL Server로 복원할 수 없습니다. 이는 Managed Instance가 SQL Server의 모든 버전과 비교하여 내부 데이터베이스 버전이 더 높기 때문입니다.
-- Azure Storage에서 데이터베이스를 백업하거나 복원하려면 리소스에 대한 제한된 액세스 권한을 부여하는 SAS(공유 액세스 서명)를 만들어야 Azure Storage [리소스에 대해 자세히 알아보세요.](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql) 이러한 시나리오에는 액세스 키를 사용할 수 없습니다.
+- Azure Storage에서 데이터베이스를 백업하거나 복원하려면 리소스를 Azure Storage 제한된 액세스 권한을 부여하는 SAS(공유 액세스 서명)를 만들어야 합니다. [이 에 대해 자세히 알아보세요.](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql) 이러한 시나리오에는 액세스 키를 사용할 수 없습니다.
 - SQL Managed Instance에서 `BACKUP` 명령을 사용한 최대 백업 스트라이프 크기는 최대 BLOB 크기인 195GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
 
     > [!TIP]
@@ -152,7 +152,7 @@ SQL Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급
   - SQL 트랜잭션 복제
   - 링크 서버
 
-- Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정할 수 없습니다. 데이터베이스에서 로그인이 생성 되지 않은 경우에도 Azure AD 그룹의 구성원은 데이터베이스 소유자가 될 수 있습니다.
+- Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정할 수 없습니다. Azure AD 그룹의 멤버는 데이터베이스에 로그인이 만들어지지 않은 경우에도 데이터베이스 소유자가 될 수 있습니다.
 - [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) 절과 같이, 다른 Azure AD 보안 주체를 사용하여 Azure AD 서버 수준 보안 주체를 가장할 수 있습니다. EXECUTE AS 제한 사항은 다음과 같습니다.
 
   - 이름이 로그인 이름과 다른 경우 EXECUTE AS USER는 Azure AD 사용자에 대해 지원되지 않습니다. 예를 들어 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com]을 통해 사용자를 만들고 EXEC AS USER = _myAadUser_ 를 통해 가장을 시도하는 경우입니다. Azure AD 서버 보안 주체(로그인)에서 **USER** 를 만들 때 **LOGIN** 에서 user_name을 동일한 login_name으로 지정합니다.
@@ -175,13 +175,13 @@ SQL Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급
 - 로그인이 SQL 보안 주체인 경우 `sysadmin` 역할에 포함된 로그인만 create 명령을 사용하여 Azure AD 계정에 대한 로그인을 만들 수 있습니다.
 - Azure AD 로그인은 Azure SQL Managed Instance에 사용되는 것과 동일한 디렉터리 내의 Azure AD 구성원이어야 합니다.
 - Azure AD 서버 보안 주체(로그인)는 SQL Server Management Studio 18.0 미리 보기 5부터 개체 탐색기에 표시됩니다.
-- 인스턴스에 대해 사용 하도록 설정 되 면 Azure AD 관리자 계정에 대 한 *sysadmin* 액세스 수준의 서버 보안 주체가 자동으로 만들어집니다.
+- *sysadmin* 액세스 수준이 있는 서버 보안 주체는 인스턴스에서 사용하도록 설정되면 Azure AD 관리자 계정에 대해 자동으로 만들어집니다.
 - 인증 중에 인증 보안 주체를 확인하기 위해 적용되는 시퀀스는 다음과 같습니다.
 
     1. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 경우(sys.server_principals에서 "E" 형식으로), 액세스 권한을 부여하고 Azure AD 서버 보안 주체(로그인)의 사용 권한을 적용합니다.
     1. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 Azure AD 그룹의 멤버인 경우(sys.server_principals에서 "X" 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
     1. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 직접 매핑된 경우(sys.database_principals에서 "E" 형식으로), 액세스 권한을 부여하고 Azure AD 데이터베이스 사용자의 사용 권한을 적용합니다.
-    1. Azure ad 계정이 데이터베이스에서 Azure AD 사용자에 매핑되는 Azure ad 그룹의 멤버인 경우 (예를 들어, "X" 형식으로 제공 되며, Azure AD 그룹 사용자의 액세스 권한 부여 및 적용 권한으로 sys.database_principals.
+    1. Azure AD 계정이 "X" 형식으로 sys.database_principals 있는 데이터베이스의 Azure AD 사용자에 매핑된 Azure AD 그룹의 구성원인 경우 액세스 권한을 부여하고 Azure AD 그룹 사용자의 권한을 적용합니다.
 
 ### <a name="service-key-and-service-master-key"></a>서비스 키 및 서비스 마스터 키
 
@@ -391,7 +391,7 @@ Azure SQL Managed Instance는 현재 MSDTC 온-프레미스 또는 Azure Virtual
 
 ### <a name="linked-servers"></a>연결된 서버
 
-SQL Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합니다.
+SQL Managed Instance [연결된 서버는](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) 제한된 수의 대상을 지원합니다.
 
 - 지원되는 대상은 SQL Managed Instance, SQL Database, Azure Synapse SQL [서버리스](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/), 전용 풀 및 SQL Server Instances입니다. 
 - 분산 쓰기 가능한 트랜잭션은 Managed Instance 간에만 가능합니다. 자세한 내용은 [분산 트랜잭션](../database/elastic-transactions-overview.md)을 참조하세요. 그러나 MS DTC는 지원되지 않습니다.
@@ -403,13 +403,13 @@ SQL Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - `OPENROWSET` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
 - `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. `SQLNCLI`, `SQLNCLI11` 및 `SQLOLEDB` 값만 공급자로 지원됩니다. 예제는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
-- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)을 사용하거나 [Synapse Analytics에서 서버리스 SQL 풀을 참조하는 연결된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용해 보세요. [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|에서 이 요청 추적
+- 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)을 사용하거나 [Synapse Analytics에서 서버리스 SQL 풀을 참조하는 연결된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용해 보세요. [SQL Managed Instance 피드백 항목](https://feedback.azure.com/d365community/idea/db80cf6e-3425-ec11-b6e6-000d3a4f0f84)|에서 이 요청 추적
 
-Azure SQL Managed Instance의 연결된 서버는 SQL 인증만 지원합니다. AAD 인증이 아직 지원되지 않습니다.
+Azure SQL Managed Instance의 연결 된 서버는 SQL 인증 및 [AAD 인증](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#linked-servers-with-azure-sql-managed-instance)을 지원 합니다.
 
 ### <a name="polybase"></a>PolyBase
 
-SQL Managed Instance에서 Polybase 지원을 사용하도록 설정하는 작업이 [진행 중](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance)입니다. 그동안, 해결 방법으로 [Synapse Analytics의 서버리스 SQL 풀](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 또는 SQL Server에 연결된 서버를 사용하여 Azure Data Lake 또는 Azure Storage에 저장된 파일에서 데이터를 쿼리할 수 있습니다.   
+SQL Managed Instance에서 Polybase 지원을 사용하도록 설정하는 작업이 [진행 중](https://feedback.azure.com/d365community/idea/ccc44856-3425-ec11-b6e6-000d3a4f0f84)입니다. 그동안, 해결 방법으로 [Synapse Analytics의 서버리스 SQL 풀](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 또는 SQL Server에 연결된 서버를 사용하여 Azure Data Lake 또는 Azure Storage에 저장된 파일에서 데이터를 쿼리할 수 있습니다.   
 PolyBase에 대한 일반 정보는 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제

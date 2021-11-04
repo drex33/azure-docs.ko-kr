@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: yunjchoi
-ms.openlocfilehash: ee11221e5484a796b8dbbcb10a323288d3e74756
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
-ms.translationtype: HT
+ms.openlocfilehash: 838eb4b7abfc5a2fba3fd16d0259bfad2cc13e08
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011561"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455970"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Azure Kubernetes Service 진단(미리 보기) 개요
 
@@ -97,4 +97,4 @@ ID 및 보안 관리는 클러스터와의 통신을 방해하는 인증 및 권
 
 * AKS 2일차 운영 가이드의 [심사 방법 섹션](/azure/architecture/operator-guides/aks/aks-triage-practices)을 참조하세요.
 
-* 제목에 “[Diag]”를 추가하여 [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) 에서 질문이나 의견을 게시합니다.
+* 제목에 “[Diag]”를 추가하여 [UserVoice](https://feedback.azure.com/d365community/forum/aabe212a-f724-ec11-b6e6-000d3a4f0da0) 에서 질문이나 의견을 게시합니다.

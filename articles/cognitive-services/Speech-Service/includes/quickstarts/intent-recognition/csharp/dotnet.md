@@ -1,18 +1,18 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e631af5dcba67d716f8c59098521c507e9c04486
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 863da53b9c2313f09e37fefc513725fab6286766
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543403"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507485"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 

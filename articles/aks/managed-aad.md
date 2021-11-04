@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 10/20/2021
 ms.author: miwithro
-ms.openlocfilehash: d2e2a7326029ff4f25a960ca2f3012b5868d2c33
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 03d6b2e101103607ec1c699ebdf814d6f41cdb76
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130227438"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427402"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리형 Azure Active Directory 통합
 
@@ -27,7 +27,6 @@ Azure AD 통합 흐름에 대한 자세한 정보는 [Azure Active Directory 통
 * AKS 관리형 Azure AD 통합을 사용하지 않도록 설정할 수 없습니다
 * AKS 관리형 Azure AD 통합 클러스터를 레거시 AAD로 변경하는 기능은 지원되지 않습니다
 * Kubernetes RBAC를 사용하지 않는 클러스터는 AKS 관리형 Azure AD 통합에 대해 지원되지 않습니다.
-* AKS 관리형 Azure AD 통합에 연결된 Azure AD 테넌트 변경은 지원되지 않습니다
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -182,7 +181,7 @@ AKS 관리형 Azure AD 클러스터가 성공적으로 마이그레이션되면 
   }
 ```
 
-Kubeconfig를 업데이트 하 여 클러스터에 액세스 하려면 [다음][access-cluster]단계를 수행 합니다.
+클러스터에 액세스하기 위해 kubeconfig를 업데이트하고 [여기의][access-cluster]단계를 수행합니다.
 
 ## <a name="non-interactive-sign-in-with-kubelogin"></a>kubelogin을 사용한 비 대화형 로그인
 
@@ -196,7 +195,7 @@ AKS 클러스터를 배포할 때 로컬 계정은 기본적으로 사용하도�
 > Azure AD 통합이 사용하도록 설정된 클러스터에서 `aad-admin-group-object-ids`로 지정된 그룹에 속한 사용자는 관리자가 아닌 자격 증명을 통해 계속 액세스할 수 있습니다. Azure AD 통합을 사용하지 않고 `properties.disableLocalAccounts`를 true로 설정하지 않은 클러스터에서는 사용자 및 관리자 자격 증명을 모두 얻지 못합니다.
 
 > [!NOTE]
-> 사용자가 로컬 계정/s를 사용 했을 수 있는 기존 AKS 클러스터에서 로컬 계정 사용자를 사용 하지 않도록 설정한 후 관리자가 [클러스터 인증서를 회전](https://docs.microsoft.com/azure/aks/certificate-rotation#rotate-your-cluster-certificates)하 여 해당 사용자가 액세스할 수 있는 인증서를 해지 해야 합니다.  이 클러스터가 새 클러스터 인 경우 작업이 필요 하지 않습니다.
+> 사용자가 로컬 계정을 사용했을 수 있는 기존 AKS 클러스터에서 로컬 계정 사용자를 비활성화한 후 관리자는 해당 사용자가 액세스할 수 있는 인증서를 해지하기 위해 [클러스터 인증서를 순환해야](certificate-rotation.md#rotate-your-cluster-certificates)합니다.  새 클러스터인 경우 아무 작업도 필요하지 않습니다.
 
 ### <a name="create-a-new-cluster-without-local-accounts"></a>로컬 계정이 없는 새 클러스터 만들기
 
@@ -373,15 +372,15 @@ aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
 aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
 aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
-### <a name="apply-just-in-time-access-at-the-namespace-level"></a>네임 스페이스 수준에서 Just-in-time 액세스를 적용 합니다.
+### <a name="apply-just-in-time-access-at-the-namespace-level"></a>네임스페이스 수준에서 Just-In-Time 액세스 적용
 
-1. AKS 클러스터를 [AZURE RBAC](manage-azure-rbac.md)와 통합 합니다.
-2. 역할 할당을 통해 클러스터에서 네임 스페이스를 사용 하 여 Just-in-time 액세스와 통합 하려는 그룹을 연결 합니다.
+1. AKS 클러스터를 [Azure RBAC](manage-azure-rbac.md)와 통합합니다.
+2. 역할 할당을 통해 Just-In-Time 액세스와 통합하려는 그룹을 클러스터의 네임스페이스와 연결합니다.
 
 ```azurecli-interactive
 az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
-3. 네임 스페이스 수준에서 구성 된 그룹을 PIM과 연결 하 여 구성을 완료 합니다.
+3. 네임스페이스 수준에서 방금 구성한 그룹을 PIM과 연결하여 구성을 완료합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 

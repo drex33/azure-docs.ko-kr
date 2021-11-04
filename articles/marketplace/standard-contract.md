@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 05/20/2020
-ms.openlocfilehash: 20a257bde6022249fd7b2ab875b94f356234b490
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/29/2021
+ms.openlocfilehash: 6767ef2786ca57353690dde19bbe20235a7c80f6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94488879"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429720"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스 표준 계약
 
@@ -36,7 +36,7 @@ Microsoft는 Microsoft 상업용 마켓플레이스에 대한 표준 계약을 �
 >[!Note]
 >이러한 두 가지 유형의 수정은 누적됩니다. 사용자 지정 수정을 대상으로 하는 고객은 구매 중 표준 계약에 대한 범용 수정도 적용받게 됩니다. 개정은 공백을 포함하여 4000 자로 제한됩니다.
 
-Microsoft 상업적 마켓플레이스에 대한 표준 계약은  Azure 애플리케이션(솔루션 템플릿 및 관리형 애플리케이션), Virtual Machines 및 SaaS와 같은 제품 유형에 활용할 수 있습니다.
+Azure 애플리케이션(솔루션 템플릿 및 관리되는 애플리케이션), Azure 컨테이너, 컨테이너 앱, Virtual Machines 및 SaaS 제안 유형에 대해 Microsoft 상업용 Marketplace에 대한 표준 계약 활용할 수 있습니다.
 
 ## <a name="customer-experience"></a>고객 환경
 

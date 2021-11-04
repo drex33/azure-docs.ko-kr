@@ -5,17 +5,17 @@ description: AI와 인간의 검토 조정 활동 결합을 관장하는 웹 사
 services: cognitive-services
 author: PatrickFarley
 manager: mikemcca
-ms.date: 03/15/2019
+ms.date: 10/28/2021
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
-ms.openlocfilehash: b4336b24dd68df2ce52081e6b0d3d1e49517f3d8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.openlocfilehash: 10caecde2eb28a73252ce8581d279c657223f1c9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031766"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469980"
 ---
 # <a name="content-moderator-review-tool"></a>Content Moderator 검토 도구
 
@@ -31,7 +31,7 @@ Azure Content Moderator는 Machine Learning 콘텐츠 조정을 사용자 검토
 - 조정 API 결과가 나올 때 사용자 [검토](../review-api.md#reviews)를 자동화하여 만듭니다.
 - 콘텐츠 검토를 콘텐츠 범주 또는 경험 수준에 따라 구성된 여러 검토 팀에 할당 또는 에스컬레이션합니다.
 - 기본 또는 사용자 지정 논리 필터([워크플로](../review-api.md#workflows))를 사용하여 코드를 작성하지 않고 콘텐츠를 정렬하고 추적합니다.
-- [커넥터](./configure.md#connectors)를 사용하여 Content Moderator API 외에 Microsoft PhotoDNA, Text Analytics, Face 서비스로 콘텐츠를 처리합니다.
+- [커넥터](./configure.md#connectors) 를 사용 하 여 Content Moderator api 외에 Microsoft 사진 Dna, 언어 및 얼굴 서비스를 사용 하 여 콘텐츠를 처리 합니다.
 - 콘텐츠 수정 프로세스에 대한 주요 성능 메트릭을 가져옵니다.
 
 ## <a name="review-tool-dashboard"></a>검토 도구 대시보드

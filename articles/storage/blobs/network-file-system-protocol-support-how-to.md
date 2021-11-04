@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 54d406303019ebfa967133c26bd5487c848575b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6b22b99cdd883ed8dedb90f925a918fe9c25d9bb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664887"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444879"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol"></a>NFS(네트워크 파일 시스템) 3.0 프로토콜을 사용하여 Blob Storage 탑재
 
@@ -100,7 +100,7 @@ Linux 시스템에서 디렉터리를 만든 다음, 컨테이너를 스토리�
 |오류 | 원인/해결 방법|
 |---|---|
 |`Access denied by server while mounting`|지원되는 서브넷 내에서 클라이언트가 실행되고 있는지 확인합니다. [지원되는 네트워크 위치](network-file-system-protocol-support.md#supported-network-connections)를 참조하세요.|
-|`No such file or directory`| 탑재 명령과 해당 매개 변수를 터미널에 직접 입력해야 합니다. 이 명령의 일부를 복사하여 다른 애플리케이션의 터미널에 붙여넣는 경우 붙여넣은 정보에 숨겨진 문자가 있으면 이 오류가 발생할 수 있습니다.|
+|`No such file or directory`| 탑재 명령과 해당 매개 변수를 터미널에 직접 입력해야 합니다. 이 명령의 일부를 복사하여 다른 애플리케이션의 터미널에 붙여넣는 경우 붙여넣은 정보에 숨겨진 문자가 있으면 이 오류가 발생할 수 있습니다. 이 오류는 계정이 NFS 3.0에 대해 사용하도록 설정되지 않은 경우에도 나타날 수 있습니다. |
 |`Permision denied`| 새로 만든 NFS v3 컨테이너의 기본 모드는 0750입니다. 루트가 아닌 사용자에게는 볼륨에 대한 액세스 권한이 없습니다. 루트가 아닌 사용자가 액세스해야 하는 경우 루트 사용자는 모드를 0755로 변경해야 합니다. 샘플 명령: `sudo chmod 0755 /mnt/<newcontainer>`|
 |`EINVAL ("Invalid argument"`) |이 오류는 클라이언트에서 다음을 시도할 때 나타날 수 있습니다.<li>Blob 엔드포인트에서 만든 Blob에 씁니다.<li>스냅샷이 있거나 활성 WORM(한 번 쓰기, 여러 번 읽기) 정책을 포함하는 컨테이너에 있는 Blob을 삭제합니다.|
 |`EROFS ("Read-only file system"`) |이 오류는 클라이언트에서 다음을 시도할 때 나타날 수 있습니다.<li>Blob에 쓰거나 활성 임대가 있는 Blob을 삭제합니다.<li>활성 WORM(한 번 쓰기, 여러 번 읽기) 정책이 있는 컨테이너에서 Blob에 쓰거나 Blob을 삭제합니다. |

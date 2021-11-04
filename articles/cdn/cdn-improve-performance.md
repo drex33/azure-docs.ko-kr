@@ -3,7 +3,7 @@ title: Azure CDN에서 파일을 압축하여 성능 향상 | Microsoft Docs
 description: Azure CDN에서 파일을 압축하여 파일 전송 속도를 개선하고 페이지 로드 성능을 향상시키는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
-ms.author: allensu
-ms.openlocfilehash: 7ab5e46f81e4102428e50a63247e59279a83e899
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: duau
+ms.openlocfilehash: b179c9a34e9e7c696d18dcd13ef110c089703eb2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661320"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454906"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -97,8 +97,8 @@ ms.locfileid: "128661320"
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Microsoft의 Azure CDN 표준 프로필
 
 **Microsoft의 Azure CDN 표준** 프로필의 경우에는 적합한 파일만 압축됩니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
-- [압축을 위해 구성된](#enabling-compression) MIME 형식이어야 합니다.
-- 원본 응답에 "IDENTITY" *Content-Encoding* 헤더만 있습니다.
+- [압축을 위해 구성](#enabling-compression) 된 MIME 형식 이어야 합니다.
+- 원본 응답에 "id" *콘텐츠 인코딩* 헤더만 있습니다.
 - 1KB 초과
 - 8MB보다 작아야 합니다
 

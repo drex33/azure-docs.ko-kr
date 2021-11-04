@@ -1,17 +1,17 @@
 ---
 title: 플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 description: 진단 설정을 사용하여 Azure Monitor 로그, Azure Storage 또는 Azure Event Hubs에 Azure Monitor 플랫폼 메트릭 및 로그를 보냅니다.
-author: bwren
-ms.author: bwren
+author: rboucher
+ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/09/2021
-ms.openlocfilehash: 50eb92441c248884930e556551a92acb9e43661b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/02/2021
+ms.openlocfilehash: 39cb496d02ca77a65e4adff7aabf591b54e07ea4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130176409"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459010"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그](./platform-logs-overview.md)에서 Azure 리소스 및 이에 따른 Azure 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다. [플랫폼 메트릭](./data-platform-metrics.md)은 기본적으로 수집되며 일반적으로 Azure 모니터 메트릭 데이터베이스에 저장됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성하는 방법에 대한 세부 정보를 제공합니다.
@@ -47,6 +47,7 @@ Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그
 | [Log Analytics 작업 영역](../logs/design-logs-deployment.md) | Log Analytics 작업 영역에 로그 및 메트릭을 수집하면 강력한 로그 쿼리를 사용하여 Azure Monitor로 보낸 다른 모니터링 데이터로 로그 및 메트릭을 분석할 수 있으며 경고 및 시각화와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다. |
 | [Event Hubs](../../event-hubs/index.yml) | 로그 및 메트릭을 이벤트 허브로 보내면 타사 SIEM과 같은 외부 시스템 및 기타 로그 분석 솔루션으로 데이터를 스트리밍할 수 있습니다.  |
 | [Azure Storage 계정](../../storage/blobs/index.yml) | Azure Storage 계정에 로그 및 메트릭을 보관하면 감사, 정적 분석, 백업에 유용합니다. Azure Storage는 Azure Monitor 로그 및 Log Analytics 작업 영역보다 비용이 적고 로그를 무기한으로 보관할 수 있습니다.  |
+| [Azure Monitor 파트너 통합](/azure/partner-solutions/overview/)| Azure Monitor 기타 타사 모니터링 플랫폼 간의 특수 통합. |
 
 
 ### <a name="destination-requirements"></a>대상 요구 사항
@@ -123,12 +124,12 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
         ![스토리지로 보내기](media/diagnostic-settings/storage-settings-new.png)
 
         > [!TIP]
-        > 보존 정책을 0으로 설정하고 예약된 작업을 사용하여 스토리지에서 데이터를 수동으로 삭제하면 이후의 혼동을 피할 수 있습니다.
+        > 보존 정책을 0으로 설정하고 [Azure Storage 수명 주기 정책을](/azure/storage/blobs/lifecycle-management-policy-configure) 사용하거나 예약된 작업을 사용하여 스토리지에서 데이터를 삭제하는 것이 좋습니다. 이러한 전략은 보다 일관된 동작을 제공할 가능성이 높습니다. 
         >
-        > 첫째, 보관에 스토리지를 사용하는 경우 일반적으로 365일을 초과하여 데이터를 보관하고자 합니다. 둘째, 0보다 큰 보존 정책을 선택하는 경우 만료 날짜는 저장 시점에 로그에 연결됩니다. 저장한 후에는 해당 로그의 날짜를 변경할 수 없습니다.
-        >
-        > 예를 들어, *WorkflowRuntime* 에 대한 보존 정책을 180일로 설정한 다음 24시간 후에 365일로 설정하면, 처음 24시간 동안 저장된 로그는 180일 후 자동으로 삭제되는 반면, 모든 후속 로그는 자동으로 365일 후에 삭제됩니다. 나중에 보존 정책을 변경해도 처음 24시간 동안의 로그가 365일 동안 유지되지 않습니다.
-
+        > 첫째, 보관에 스토리지를 사용하는 경우 일반적으로 365일을 초과하여 데이터를 보관하고자 합니다. 둘째, 0보다 큰 보존 정책을 선택하는 경우 만료 날짜는 저장 시점에 로그에 연결됩니다. 저장한 후에는 해당 로그의 날짜를 변경할 수 없습니다. 예를 들어, *WorkflowRuntime* 에 대한 보존 정책을 180일로 설정한 다음 24시간 후에 365일로 설정하면, 처음 24시간 동안 저장된 로그는 180일 후 자동으로 삭제되는 반면, 모든 후속 로그는 자동으로 365일 후에 삭제됩니다. 나중에 보존 정책을 변경해도 처음 24시간 동안의 로그가 365일 동안 유지되지 않습니다.
+    
+     1. **파트너 통합** - 먼저 구독에 파트너 통합을 설치해야 합니다. 자세한 내용은 [Azure Monitor 파트너 통합을 참조하세요.](/azure/partner-solutions/overview/) 
+    
 6. **저장** 을 클릭합니다.
 
 몇 분 후 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 로그가 지정된 대상에 스트리밍됩니다. 이벤트를 내보내는 시점과 [Log Analytics 작업 영역에 표시](../logs/data-ingestion-time.md)되는 시점 사이에 최대 15분이 걸릴 수 있습니다.
@@ -226,7 +227,7 @@ Resource Manager 템플릿을 사용하여 진단 설정을 만들거나 업데�
    Create-AzDiagPolicy.ps1 -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-   또는 명령에서 구독 및 리소스 종류를 지정할 수 있습니다. 예를 들어 Log Analytics 작업 영역 및 SQL Server 데이터베이스에 대한 이벤트 허브로 로그를 보내는 정책 정의를 만들려면 다음 명령을 사용합니다.
+   또는 명령에서 구독 및 리소스 종류를 지정할 수 있습니다. 예를 들어 로그를 Log Analytics 작업 영역 및 SQL Server 데이터베이스에 대한 이벤트 허브로 보내는 정책 정의를 만들려면 다음 명령을 사용합니다.
 
    ```azurepowershell
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
@@ -234,7 +235,7 @@ Resource Manager 템플릿을 사용하여 진단 설정을 만들거나 업데�
 
 5. 스크립트는 각 정책 정의에 대해 별도의 폴더를 만듭니다. 각 폴더에는 *azurepolicy.json , azurepolicy.rules.json* 및 *azurepolicy.parameters.json* 이라는 세 개의 파일이 포함되어 있습니다.  Azure Portal 정책을 수동으로 만들려는 경우 전체 정책 정의가 포함되어 있으므로 *azurepolicy.json의* 내용을 복사하여 붙여넣을 수 있습니다. PowerShell 또는 Azure CLI 다른 두 파일을 사용하여 명령줄에서 정책 정의를 만듭니다.
 
-   다음 예제에서는 PowerShell 및 Azure CLI 모두의 정책 정의를 설치하는 방법을 보여줍니다. 각 예제에는 모니터링 범주를 **지정하는** 메타데이터가 포함되어 새 정책 정의를 기본 제공 정책 정의로 그룹화합니다.
+   다음 예제에서는 PowerShell 및 Azure CLI 모두의 정책 정의를 설치하는 방법을 보여줍니다. 각 예제에는 모니터링 범주를 **지정하는** 메타데이터가 포함되어 새 정책 정의를 기본 제공 정책 정의와 그룹화합니다.
 
    ```azurepowershell
    New-AzPolicyDefinition -name "Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace" -policy .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json -parameter .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json -mode All -Metadata '{"category":"Monitoring"}'
@@ -255,7 +256,7 @@ Resource Manager 템플릿을 사용하여 진단 설정을 만들거나 업데�
 - **범주를** **모니터링으로** 설정하여 관련 기본 제공 및 사용자 지정 정책 정의를 사용하여 그룹화합니다.
 - 이니셔티브에 포함된 정책 정의에 대한 Log Analytics 작업 영역 및 이벤트 허브에 대한 세부 정보를 지정하는 대신 일반적인 이니셔티브 매개 변수를 사용합니다. 이 매개 변수를 사용하면 모든 정책 정의에 대한 공통 값을 쉽게 지정하고 필요한 경우 해당 값을 변경할 수 있습니다.
 
-![이니셔티브 정의에 대한 설정을 보여 주는 스크린샷](media/diagnostic-settings/initiative-definition.png)
+![이니셔티브 정의에 대한 설정을 보여 주는 스크린샷.](media/diagnostic-settings/initiative-definition.png)
 
 ### <a name="assignment"></a>할당 
 모니터링할 리소스의 범위에 따라 Azure 관리 그룹, 구독 또는 리소스 그룹에 이니셔티브를 할당합니다. [관리 그룹은](../../governance/management-groups/overview.md) 특히 조직에 여러 구독이 있는 경우 범위 지정 정책에 유용합니다.
@@ -286,7 +287,7 @@ Resource Manager 템플릿, 진단 설정 REST API, Azure CLI 또는 Azure Power
 
 이 오류가 발생하면 모든 메트릭 범주 이름을 'AllMetrics'로 바꿔 배포를 업데이트하여 문제를 해결합니다. 배포가 이전에 여러 범주를 추가한 경우에는 'AllMetrics' 참조를 포함하는 단 하나만 유지해야 합니다. 문제가 계속되면 Azure Portal을 통해 Azure 지원에 문의하세요. 
 
-## <a name="setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>ResourceID의 비 ASCII 문자로 인해 설정이 사라진다
+## <a name="setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>resourceID에서 ASCII가 아닌 문자로 인해 설정이 사라집니다.
 
 진단 설정은 비 ASCII 문자(예: Preproducción)가 포함된 Resourceid를 지원하지 않습니다. Azure에서 리소스의 이름을 바꿀 수 없으므로 유일한 방법은 비 ASCII 문자 없이 새 리소스를 만드는 것입니다. 문자가 리소스 그룹에 있는 경우 그 아래에 있는 리소스를 새 리소스로 이동할 수 있습니다. 이동하지 않으면 리소스를 다시 만들어야 합니다. 
 

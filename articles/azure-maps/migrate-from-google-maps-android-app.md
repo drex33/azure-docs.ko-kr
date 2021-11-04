@@ -546,7 +546,7 @@ baseContext.resources.updateConfiguration(
 
 Azure Maps는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 첫 번째 옵션은 언어 및 지역 보기 정보를 `AzureMaps` 클래스에 전달하는 것입니다. 이 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용합니다. 즉, 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다. 다음 예제에서는 &quot;fr-FR&quot; 언어 코드를 사용하여 프랑스어를 설정합니다.
 
-::: zone pivot=&quot;programming-language-java-android&quot;
+::: zone pivot="programming-language-java-android"
 
 ```java
 static {

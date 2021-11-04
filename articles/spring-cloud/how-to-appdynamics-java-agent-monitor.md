@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/19/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 5d00e41e3d2fc1d1682b0e852da98f8ead613d05
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 308869704426d8b62a92da3b739ce3b9218f860e
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273740"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500852"
 ---
 # <a name="how-to-monitor-spring-boot-apps-with-the-appdynamics-java-agent-preview"></a>AppDynamics Java 에이전트를 사용하여 Spring Boot 앱을 모니터링하는 방법(미리 보기)
 
@@ -41,9 +41,9 @@ AppDynamics Java 에이전트를 사용하면 다음을 수행할 수 있습니�
 전체 워크플로의 경우 다음을 수행해야 합니다.
 
 * Azure Spring Cloud AppDynamics Java in process 에이전트를 활성화하여 애플리케이션 메트릭 데이터를 생성합니다.
-* AppDynamics 에이전트를 AppDynamics 컨트롤러에 커넥트 컨트롤러에서 데이터를 수집하고 시각화합니다.
+* AppDynamics 에이전트를 AppDynamics 컨트롤러에 커넥트 컨트롤러의 데이터를 수집하고 시각화합니다.
 
-!['appDynamics Agent' 상자에 연결되는 양방향 화살표가 있는 'Azure Spring Cloud' 상자의 Spring Boot 애플리케이션을 보여 주는 다이어그램. 'AppDynamics Controller' 상자를 가리키는 화살표도 있습니다.](media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg)
+!['appDynamics Agent' 상자에 연결하는 양방향 화살표가 있는 'Azure Spring Cloud' 상자의 Spring Boot 애플리케이션을 보여 주는 다이어그램. 'AppDynamics Controller' 상자를 가리키는 화살표도 있습니다.](media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg)
 
 ### <a name="activate-an-application-with-the-appdynamics-agent-using-the-azure-cli"></a>Azure CLI 사용하여 AppDynamics 에이전트로 애플리케이션 활성화
 
@@ -80,7 +80,7 @@ Azure CLI 통해 애플리케이션을 활성화하려면 다음 단계를 사�
               APPDYNAMICS_CONTROLLER_PORT=443
     ```
 
-Azure Spring Cloud */opt/agents/appdynamics/java/javaagent.jar 경로에 AppDynamics Java* 에이전트를 미리 설치합니다. 애플리케이션의 JVM 옵션에서 에이전트를 활성화한 다음 환경 변수를 사용하여 에이전트를 구성할 수 있습니다. [Java 에이전트를](https://docs.appdynamics.com/21.9/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/monitor-azure-spring-cloud-with-java-agent)Azure Spring Cloud 모니터링에서 이러한 변수에 대한 값을 찾을 수 있습니다. 이러한 변수가 AppDynamics UI에서 보고서를 보고 구성하는 데 도움이 되는 방법에 대한 자세한 내용은 [계층 및 노드를 참조하세요.](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes)
+Azure Spring Cloud */opt/agents/appdynamics/java/javaagent.jar 경로에 AppDynamics Java 에이전트를* 미리 설치합니다. 애플리케이션의 JVM 옵션에서 에이전트를 활성화한 다음 환경 변수를 사용하여 에이전트를 구성할 수 있습니다. [Java 에이전트를](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent)Azure Spring Cloud 모니터링에서 이러한 변수에 대한 값을 찾을 수 있습니다. 이러한 변수가 AppDynamics UI에서 보고서를 보고 구성하는 데 도움이 되는 방법에 대한 자세한 내용은 [계층 및 노드를 참조하세요.](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes)
 
 ### <a name="activate-an-application-with-the-appdynamics-agent-using-the-azure-portal"></a>Azure Portal 사용하여 AppDynamics 에이전트로 애플리케이션 활성화
 
@@ -98,7 +98,7 @@ Azure Portal 통해 애플리케이션을 활성화하려면 다음 단계를 �
 
 1. 왼쪽 탐색 창에서 **구성을** 선택하여 애플리케이션의 환경 변수를 추가, 업데이트 또는 삭제합니다.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="앱 구성 페이지의 '환경 변수' 섹션을 보여주는 Azure Portal 스크린샷 " lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="앱 구성 페이지의 '환경 변수' 섹션을 보여 Azure Portal 스크린샷 " lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
 
 1. **일반 설정을** 선택하여 애플리케이션의 JVM 옵션을 추가, 업데이트 또는 삭제합니다.
 
@@ -218,7 +218,7 @@ Azure Spring Cloud VNet 삽입 인스턴스의 경우 아웃바운드 트래픽�
 
 ## <a name="understand-the-limitations"></a>제한 사항 이해
 
-AppDynamics 에이전트의 제한에 대한 자세한 내용은 [Java 에이전트를 사용하여 Azure Spring Cloud 모니터링을 참조하세요.](https://docs.appdynamics.com/21.9/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/monitor-azure-spring-cloud-with-java-agent)
+AppDynamics 에이전트의 제한 사항 이해하려면 [Java 에이전트를 사용하여 Azure Spring Cloud 모니터링을 참조하세요.](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,22 +1,22 @@
 ---
 title: 분산 테이블 디자인 지침
-description: Azure Synapse Analytics에서 전용 SQL 풀을 사용하여 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
+description: 전용 SQL 풀을 사용 하 여 해시 분산 테이블 및 라운드 로빈 분산 테이블을 디자인 하는 권장 사항.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1f85a8d539c8f841bafaae9d877446c5e6ecb416
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: f1cae70e186d6fb1467dcb5f31ea5c9ee15df6eb
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538823"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500624"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용하여 분산 테이블을 디자인하기 위한 지침
 
@@ -42,11 +42,11 @@ ms.locfileid: "122538823"
 
 해시 분산 테이블은 결정적 해시 함수를 사용하여 하나의 [배포](massively-parallel-processing-mpp-architecture.md#distributions)에 각 행을 할당하도록 컴퓨팅 노드에서 테이블 행을 분산합니다.
 
-![분산 테이블](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "분산 테이블")  
+:::image type="content" source="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png" alt-text="분산 테이블" lightbox="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png":::
 
 동일한 값은 항상 동일한 배포를 해시하므로 SQL Analytics는 행 위치에 대한 기본 제공 정보를 제공 합니다. 전용 SQL 풀에서 이 정보는 쿼리 중 데이터 이동을 최소화하여 쿼리 성능을 향상시키는 데 사용됩니다.
 
-해시 분산 테이블은 별모양 스키마의 큰 팩트 테이블에 적합합니다. 행 수가 매우 많은 경우에도 여전히 높은 성능을 유지할 수 있습니다. 물론 분산 시스템이 제공하도록 디자인된 성능을 얻는 데 도움이 되는 디자인 고려 사항이 있습니다. 이 문서에 설명되어 있는 이러한 고려 사항 중 하나는 적합한 배포 열을 선택하는 것입니다.
+해시 분산 테이블은 별모양 스키마의 큰 팩트 테이블에 적합합니다. 행 수가 매우 많은 경우에도 여전히 높은 성능을 유지할 수 있습니다. 분산 시스템에서 제공 하도록 디자인 된 성능을 얻는 데 도움이 되는 몇 가지 디자인 고려 사항이 있습니다. 이 문서에 설명되어 있는 이러한 고려 사항 중 하나는 적합한 배포 열을 선택하는 것입니다.
 
 다음 경우 해시 분산 테이블을 사용하는 것이 좋습니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "122538823"
 
 [뉴욕 택시 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) 자습서에 라운드 로빈 준비 테이블로 데이터를 로드하는 예제가 제공됩니다.
 
-## <a name="choosing-a-distribution-column"></a>배포 열 선택
+## <a name="choose-a-distribution-column"></a>배포 열 선택
 
 해시 분산 테이블에는 해시 키인 배포 열이 있습니다. 예를 들어 다음 코드는 배포 열인 ProductKey가 포함된 해시 분산 테이블을 만듭니다.
 
@@ -88,8 +88,7 @@ CREATE TABLE [dbo].[FactInternetSales]
 WITH
 (   CLUSTERED COLUMNSTORE INDEX
 ,  DISTRIBUTION = HASH([ProductKey])
-)
-;
+);
 ```
 
 배포 열에 저장된 데이터를 업데이트할 수 있습니다. 배포 열의 데이터를 업데이트하면 데이터 순서 섞기 작업이 발생할 수 있습니다.
@@ -119,7 +118,7 @@ WITH
 
 - `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` 및 `HAVING` 절에 사용됨. 두 개의 큰 팩트 테이블에서 조인이 잦은 경우 조인 열 중 하나에 두 테이블을 분산하면 쿼리 성능이 향상됩니다.  테이블을 조인에 사용하지 않는 경우 `GROUP BY` 절에 자주 사용되는 열에 테이블을 분산하는 것이 좋습니다.
 - `WHERE` 절에 사용되지 *않음*. 이렇게 하면 쿼리가 모든 배포에서 실행되지 않도록 쿼리 범위를 좁힐 수 있습니다.
-- 날짜 열이 *아님*. WHERE 절은 날짜별로 필터링하는 경우가 많습니다.  이 경우 모든 처리가 몇몇 배포에서만 실행될 수 있습니다.
+- 날짜 열이 *아님*. `WHERE` 절은 날짜별로 필터링 하는 경우가 많습니다.  이 경우 모든 처리가 몇몇 배포에서만 실행될 수 있습니다.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>적합한 배포 열이 없을 경우 수행할 작업
 
@@ -142,7 +141,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 
 데이터 기울이기가 10%가 넘는 테이블을 식별하려면:
 
-1. [테이블 개요](sql-data-warehouse-tables-overview.md#table-size-queries) 문서에 나온 dbo.vTableSizes 뷰를 만듭니다.  
+1. `dbo.vTableSizes` [테이블 개요](sql-data-warehouse-tables-overview.md#table-size-queries) 문서에 표시된 뷰를 만듭니다.  
 2. 다음 쿼리를 실행합니다.
 
 ```sql

@@ -5,18 +5,18 @@ metadata:
   title: 음성 디바이스 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: pafarley
-  ms.openlocfilehash: 5d580525e747e87d7e61a80b38f08ca9d5e2bcf9
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.author: eur
+  ms.openlocfilehash: f5b13858e7536a1c3c3ecdab55c30ddcd8f2d8c9
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131016740"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131510537"
 landingContent:
 - title: Speech Devices SDK 정보
   linkLists:

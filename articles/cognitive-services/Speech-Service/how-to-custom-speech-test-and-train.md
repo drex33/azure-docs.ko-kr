@@ -3,20 +3,20 @@ title: Custom Speech용 데이터 준비 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모델을 학습하는 경우 오디오 및 텍스트 데이터가 필요합니다. 이 페이지에서는 데이터 형식, 사용 방법 및 관리 방법에 대해 다룹니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d73f17d3e3eb8d5511dcb98c6a074a73120eaf06
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 645a45ed2ad16abc92b0dded9f1950a3e1ad47d6
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080615"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509933"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -52,7 +52,7 @@ Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모�
 | [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 | 5개 이상의 오디오 파일 | 예 | 해당 없음 |
 | [오디오 + 휴먼 레이블 대화 기록](#audio--human-labeled-transcript-data-for-trainingtesting) | 예<br>정확도 평가에 사용 | 0.5-5시간 분량의 오디오 | 예 | 1-20시간 분량의 오디오 |
 | [일반 텍스트](#plain-text-data-for-training) | 예 | 해당 사항 없음 | 예 | 1-200MB의 관련 텍스트 |
-| [구조적 텍스트](#structured-text-data-for-training-public-preview) (공개 미리 보기) | 예 | 해당 사항 없음 | 예 | 최대 2000 개의 항목 및 최대 5만 교육 문장이 있는 최대 20 개의 클래스 |
+| [구조적 텍스트](#structured-text-data-for-training-public-preview) (공개 미리 보기) | 예 | 해당 사항 없음 | 예 | 최대 4000 항목 및 최대 5만 교육 문장이 포함 된 최대 10 개 클래스 |
 | [발음](#pronunciation-data-for-training) | 예 | 해당 사항 없음 | 예 | 1KB - 1MB의 발음 텍스트 |
 
 파일은 형식에 따라 데이터 세트로 그룹화하고 .zip 파일로 업로드해야 합니다. 각 데이터 세트는 단일 데이터 형식만 포함할 수 있습니다.
@@ -192,14 +192,14 @@ Speech Service 구독에 권장되는 지역 목록은 [Azure 계정 설정](cus
 
 ## <a name="structured-text-data-for-training-public-preview"></a>학습을 위한 구조화 된 텍스트 데이터 (공개 미리 보기)
 
-일반적으로 예상 되는 길이 발언 특정 패턴을 따릅니다. 한 가지 일반적인 패턴은 길이 발언는 목록의 단어나 구와만 다른 것입니다. 이에 대 한 예는 "에 대 한 질문이 있습니다 `product` ."는 `product` 가능한 제품의 목록입니다. 또는 "확인" `object` `color` 을 `object` 사용 합니다. 여기서은 기하학적 모양의 목록이 고 `color` 는 색 목록입니다. 학습 데이터 만들기를 간소화 하 고 사용자 지정 언어 모델 내에서 더 나은 모델링을 사용 하려면 markdown 형식으로 구조화 된 텍스트를 사용 하 여 항목 목록을 정의한 다음 학습 길이 발언 내에서이를 참조할 수 있습니다. 또한 markdown 형식은 단어의 음성 발음을 지정 하는 것을 지원 합니다. Markdown 형식은 해당 형식을 Language Understanding 모델을 학습 하는 데 사용 하는 _._ 전체 _. lu_ markdown에 대 한 자세한 내용은 <a href="https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0" target="_blank">. lu 파일 형식</a> 문서를 참조 하세요. 
+일반적으로 예상 되는 길이 발언 특정 패턴을 따릅니다. 한 가지 일반적인 패턴은 길이 발언는 목록의 단어나 구와만 다른 것입니다. 이에 대 한 예는 "에 대 한 질문이 있습니다 `product` ."는 `product` 가능한 제품의 목록입니다. 또는 "확인" `object` `color` 을 `object` 사용 합니다. 여기서은 기하학적 모양의 목록이 고 `color` 는 색 목록입니다. 학습 데이터 만들기를 간소화 하 고 사용자 지정 언어 모델 내에서 더 나은 모델링을 사용 하려면 markdown 형식으로 구조화 된 텍스트를 사용 하 여 항목 목록을 정의한 다음 학습 길이 발언 내에서이를 참조할 수 있습니다. 또한 markdown 형식은 단어의 음성 발음을 지정 하는 것을 지원 합니다. Markdown 형식은 해당 형식을 `.lu` Language Understanding 모델을 학습 하는 데 사용 되는 markdown를 특정 목록 엔터티 및 예제 길이 발언와 공유 합니다. 전체 markdown에 대 한 자세한 내용은 `.lu` <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> `.lu` 파일 형식을</a>참조 하십시오.
 
 Markdown 형식의 예는 다음과 같습니다.
 
 ```markdown
 // This is a comment
 
-// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 20 of these
+// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 10 of these
 @ list food =
 - pizza
 - burger

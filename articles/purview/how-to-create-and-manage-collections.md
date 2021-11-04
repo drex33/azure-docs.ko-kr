@@ -6,14 +6,14 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 10/22/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0a684cec230766119345b8fd8acd3df53cc3f25a
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: e96a3e1e523c466cc3dc851725b648cba78dc8e8
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213017"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502130"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Azure Purview에서 컬렉션 만들기 및 관리
 
@@ -95,13 +95,27 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/filter-collections.png" alt-text="컬렉션 위의 필터가 강조 표시된 Purview 스튜디오 컬렉션 창의 스크린샷" border="true":::
 
-1. 루트 컬렉션의 컨텍스트 메뉴에서 **새로 고침** 을 선택하여 컬렉션 목록을 다시 로드합니다.
+1. 루트 컬렉션의 상황에 맞는 메뉴에서 **새로 고침을** 선택하여 컬렉션 목록을 다시 로드합니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-collections.png" alt-text="리소스 이름 옆에 있는 단추가 선택되고 새로 고침 단추가 강조 표시된 Purview 스튜디오 컬렉션 창의 스크린샷" border="true":::
 
 1. 컬렉션 세부 정보 페이지에서 **새로 고침** 을 선택하여 단일 컬렉션을 다시 로드합니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-single-collection.png" alt-text="컬렉션 창 아래에 새로 고침 단추가 강조 표시된 Purview 스튜디오 컬렉션 창의 스크린샷" border="true":::
+
+### <a name="delete-a-collection"></a>컬렉션 삭제
+
+컬렉션을 삭제하려면 컬렉션 관리자가 되어야 합니다. 확실하지 않은 경우 위의 가이드에 따라 권한을 확인합니다. 자식 컬렉션, 자산, 데이터 원본 또는 검색이 연결된 경우에만 컬렉션을 삭제할 수 있습니다. 
+
+1. 컬렉션 세부 정보 페이지에서 **삭제를** 선택합니다.
+   
+   :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collections.png" alt-text="컬렉션을 삭제하는 Purview Studio 창의 스크린샷" border="true":::
+
+2. 메시지가 표시되면 **확인을** 선택합니다. **이 컬렉션을 삭제하시겠습니까?**
+
+   :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collection-confirmation.png" alt-text="컬렉션을 삭제하는 확인 메시지를 보여주는 Purview Studio 창의 스크린샷" border="true":::
+
+3. Purview 데이터 맵 컬렉션 삭제를 확인합니다.
 
 ## <a name="add-roles-and-restrict-access-through-collections"></a>컬렉션을 통해 역할 추가 및 액세스 제한
 
@@ -140,7 +154,7 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/remove-role-assignment.png" alt-text="역할 할당 탭이 선택되고 이름 중 하나 옆에 있는 x 단추가 강조 표시된 Purview 스튜디오 컬렉션 창의 스크린샷" border="true":::
 
-1. 사용자를 제거하려면 **확인** 을 선택합니다.
+1. 사용자를 제거해야 하는 경우 **확인을** 선택합니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/confirm-remove.png" alt-text="확인 단추가 강조 표시된 확인 팝업 스크린샷" border="true":::
 
@@ -151,7 +165,7 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 상속을 제한하면 제한된 컬렉션에 사용자를 직접 추가하여 액세스 권한을 부여해야 합니다.
 
 1. 상속을 제한할 컬렉션으로 이동하고 **역할 할당** 탭을 선택합니다.
-1. 이 컬렉션과 모든 하위 컬렉션에서 상속된 권한을 제거하려면 **상속된 권한 제한** 을 선택하고 팝업 대화 상자에서 **액세스 제한** 을 선택합니다. 컬렉션 관리자 권한에는 영향을 주지 않습니다.
+1. 이 컬렉션과 모든 하위 컬렉션에서 상속된 권한을 제거하려면 **상속된 권한 제한** 을 선택하고 팝업 대화 상자에서 **액세스 제한** 을 선택합니다. 컬렉션 관리자 권한은 영향을 받지 않습니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/restrict-access-inheritance.png" alt-text="역할 할당 탭이 선택되고 상속된 권한 제한 슬라이드 단추가 강조 표시된 Purview 스튜디오 컬렉션 창의 스크린샷" border="true":::
 
@@ -201,7 +215,7 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 
         :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="사용자에게 권한이 없고 정보나 옵션에 액세스할 수 없는 Purview 스튜디오 자산 창의 스크린샷" border="true":::
 
-    1. 한 컬렉션에 대한 읽기 권한이 있지만 쓰기 권한이 없는 경우 자산 세부 정보 페이지를 살펴볼 수 있지만 다음 작업은 수행할 수 없습니다.
+    1. 한 컬렉션에 대한 읽기 권한이 있지만 쓰기 권한이 없는 경우 자산 세부 정보 페이지를 찾아볼 수 있지만 다음 작업은 사용하지 않도록 설정됩니다.
         * 자산을 편집합니다. **편집** 단추를 사용하지 않게 설정합니다.
         * 자산을 삭제합니다. **삭제** 단추를 사용하지 않게 설정합니다.
         * 자산을 다른 컬렉션으로 이동합니다. 컬렉션 경로 섹션의 오른쪽 위 모서리에 있는 줄임표 단추는 숨겨집니다.

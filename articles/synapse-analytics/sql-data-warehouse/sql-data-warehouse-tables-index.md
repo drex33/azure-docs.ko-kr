@@ -6,21 +6,21 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/16/2021
-author: XiaoyuMSFT
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 58f3eed8b16ff3ed02c6dfac6dc7d72ebb4ca374
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
-ms.translationtype: HT
+ms.openlocfilehash: 498c9c6f5f010490f97eb6a7cb0073a8f9c58d28
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599981"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503812"
 ---
-# <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 테이블 인덱싱
+# <a name="indexes-on-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Azure Synapse Analytics 전용 SQL 풀 테이블의 인덱스
 
-전용 SQL 풀의 테이블 인덱싱에 대한 권장 사항 및 예제입니다.
+Azure Synapse Analytics 전용 SQL 풀의 테이블을 인덱싱하는 권장 사항 및 예제입니다.
 
 ## <a name="index-types"></a>인덱스 형식
 
@@ -32,7 +32,7 @@ ms.locfileid: "107599981"
 
 기본적으로 전용 SQL 풀은 테이블에 대해 인덱스 옵션이 지정되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축과 최적의 전반적인 쿼리 성능을 모두 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
 
-클러스터형 columnstore 테이블을 만들려면 WITH 절에 CLUSTERED COLUMNSTORE INDEX를 지정하거나 WITH 절을 제외합니다.
+클러스터형 columnstore 테이블을 만들려면 `CLUSTERED COLUMNSTORE INDEX` WITH 절에서 를 지정하거나 WITH 절을 해제합니다.
 
 ```SQL
 CREATE TABLE myTable
@@ -92,9 +92,9 @@ CREATE INDEX zipCodeIndex ON myTable (zipCode);
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스 최적화
 
-클러스터형 columnstore 테이블은 데이터가 세그먼트로 구성됩니다.  columnstore 테이블에 대해 최적의 쿼리 성능을 구현하려면 높은 세그먼트 품질을 유지하는 것이 중요합니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  세그먼트 품질은 압축된 행 그룹마다 100,000개 이상의 행이 있을 때 가장 최적 상태가 되며, 행 그룹당 행 수가 행 그룹이 포함할 수 있는 최대 수인 1,048,576개일 때 성능이 향상됩니다.
+클러스터형 columnstore 테이블은 데이터가 세그먼트로 구성됩니다.  columnstore 테이블에 대해 최적의 쿼리 성능을 구현하려면 높은 세그먼트 품질을 유지하는 것이 중요합니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  세그먼트 품질은 압축된 행 그룹당 100K 이상의 행이 있고 행 그룹당 행 수가 행 그룹에 포함될 수 있는 가장 많은 행인 1,048,576개 행에 근접하기 때문에 성능이 향상되는 가장 최적입니다.
 
-아래 뷰를 만들어 시스템에서 행 그룹당 평균 행 수를 계산하고 차선에 해당하는 클러스터 columnstore 인덱스를 식별하는 데 사용할 수 있습니다.  이 뷰의 마지막 열은 인덱스를 다시 구성하는 데 사용할 수 있는 SQL 문으로 생성됩니다.
+아래 보기를 만들고 시스템에서 사용하여 행 그룹당 평균 행을 계산하고 최적이 않은 클러스터 columnstore 인덱스를 식별할 수 있습니다.  이 뷰의 마지막 열은 인덱스를 다시 구성하는 데 사용할 수 있는 SQL 문으로 생성됩니다.
 
 ```sql
 CREATE VIEW dbo.vColumnstoreDensity
@@ -139,17 +139,16 @@ JOIN    sys.[tables] t                              ON  mp.[object_id]          
 JOIN    sys.[schemas] s                             ON t.[schema_id]            = s.[schema_id]
 GROUP BY
         s.[name]
-,       t.[name]
-;
+,       t.[name];
 ```
 
-뷰를 만들었으므로 이제 다음 쿼리를 실행하여 행 수가 100,000개 미만인 행 그룹이 있는 테이블을 식별합니다. 물론 좀 더 최적 상태의 세그먼트 품질을 원할 경우 임계값인 100,000개를 늘릴 수도 있습니다.
+뷰를 만들었으므로 이제 이 쿼리를 실행하여 행이 100K 미만인 행 그룹이 있는 테이블을 식별합니다. 더 최적의 세그먼트 품질을 원하는 경우 임계값을 100K로 늘릴 수 있습니다.
 
 ```sql
 SELECT    *
 FROM    [dbo].[vColumnstoreDensity]
 WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
-        OR INVISIBLE_rowgroup_rows_AVG < 100000
+        OR INVISIBLE_rowgroup_rows_AVG < 100000;
 ```
 
 쿼리를 실행했으면 데이터를 확인하고 결과를 분석할 수 있습니다. 다음 표는 행 그룹 분석에서 확인할 내용에 대해 설명합니다.
@@ -163,11 +162,11 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 | [COMPRESSED_rowgroup_rows_AVG] |평균 행 수가 행 그룹의 최대 행 수보다 훨씬 적은 경우에는 CTAS 또는 ALTER INDEX REBUILD를 사용하여 데이터를 다시 압축하는 옵션을 고려해야 합니다. |
 | [COMPRESSED_rowgroup_count] |columnstore 형식인 행 그룹의 수. 테이블에 비해 이 숫자가 매우 높으면 columnstore 밀도가 낮다는 뜻입니다. |
 | [COMPRESSED_rowgroup_rows_DELETED] |행이 columnstore 형식으로 논리적으로 삭제됩니다. 테이블 크기에 비해 이 숫자가 더 높으면 행이 실제로 제거되도록 파티션을 다시 만들거나 인덱스를 다시 작성하는 옵션을 고려해 보아야 합니다. |
-| [COMPRESSED_rowgroup_rows_MIN] |이 열을 AVG 및 MAX 열과 함께 사용하여 columnstore의 행 그룹에 대한 값 범위를 이해할 수 있습니다. 이 숫자가 로드 임계값(파티션 정렬 분산당 102,400)보다 낮으면 데이터 로드에서 최적화를 사용할 수 있습니다. |
+| [COMPRESSED_rowgroup_rows_MIN] |이를 AVG 및 MAX 열과 함께 사용하여 columnstore의 행 그룹에 대한 값 범위를 파악할 수 있습니다. 이 숫자가 로드 임계값(파티션 정렬 분산당 102,400)보다 낮으면 데이터 로드에서 최적화를 사용할 수 있습니다. |
 | [COMPRESSED_rowgroup_rows_MAX] |위와 동일합니다. |
 | [OPEN_rowgroup_count] |열려 있는 행 그룹은 정상입니다. 테이블 분산당(60) 행 그룹이 하나 열려 있다고 예상하는 것이 합리적일 것입니다. 이 숫자가 과도하게 높으면 여러 파티션에 데이터를 로드한다는 뜻입니다. 이 숫자가 적절하게 유지되도록 분할 전략을 확인하세요. |
 | [OPEN_rowgroup_rows] |각 행 그룹은 최대 1,048,576개 행을 포함할 수 있습니다. 이 값을 사용하여 현재 열려 있는 행 그룹이 얼마나 찼는지 확인할 수 있습니다. |
-| [OPEN_rowgroup_rows_MIN] |열려 있는 그룹은 데이터가 테이블로 서서히 로드되고 있거나 이전 부하가 나머지 행을 다 채우고 이 행 그룹까지 넘어 왔음을 뜻합니다. MIN, MAX, AVG 열을 사용하여 열려 있는 행 그룹에 데이터가 얼마나 있는지 확인할 수 있습니다. 작은 테이블의 경우 모든 데이터가 100%일 수 있습니다! 이 경우에는 ALTER INDEX REBUILD를 사용하여 데이터를 강제로 columnstore로 만들어야 합니다. |
+| [OPEN_rowgroup_rows_MIN] |열려 있는 그룹은 데이터가 테이블로 서서히 로드되고 있거나 이전 부하가 나머지 행을 다 채우고 이 행 그룹까지 넘어 왔음을 뜻합니다. MIN, MAX, AVG 열을 사용하여 열려 있는 행 그룹에 데이터가 얼마나 있는지 확인할 수 있습니다. 작은 테이블의 경우 모든 데이터의 100%가 될 수 있습니다. 이 경우에는 ALTER INDEX REBUILD를 사용하여 데이터를 강제로 columnstore로 만들어야 합니다. |
 | [OPEN_rowgroup_rows_MAX] |위와 동일합니다. |
 | [OPEN_rowgroup_rows_AVG] |위와 동일합니다. |
 | [CLOSED_rowgroup_rows] |닫힌 행 그룹이 있는 경우 |
@@ -179,7 +178,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ## <a name="impact-of-index-maintenance"></a>인덱스 유지 관리의 영향
 
-`vColumnstoreDensity` 뷰의 `Rebuild_Index_SQL` 열에 인덱스를 다시 빌드하는 데 사용할 수 있는 `ALTER INDEX REBUILD` 문이 포함되어 있습니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다. 이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 [리소스 클래스](resource-classes-for-workload-management.md)를 권장되는 최소 수로 늘립니다. 예제는 이 문서의 뒷부분에 나오는 [인덱스를 다시 빌드하여 세그먼트 품질 향상](#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.
+`vColumnstoreDensity` 뷰의 `Rebuild_Index_SQL` 열에 인덱스를 다시 빌드하는 데 사용할 수 있는 `ALTER INDEX REBUILD` 문이 포함되어 있습니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다. 이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 [리소스 클래스](resource-classes-for-workload-management.md)를 권장되는 최소 수로 늘립니다. 예제는 이 문서의 뒷부분에 나오는 [인덱스를 다시 빌드하여 세그먼트 품질 향상](#rebuild-indexes-to-improve-segment-quality)을 참조하세요.
 
 순서가 지정된 클러스터형 columnstore 인덱스가 포함된 테이블의 경우 `ALTER INDEX REBUILD`가 tempdb를 사용하여 데이터를 다시 정렬합니다. 다시 빌드 작업 중에 tempdb를 모니터합니다. tempdb 공간이 더 필요하면 데이터 풀을 통해 스케일 업할 수 있습니다. 인덱스 다시 빌드가 완료되면 다시 크기를 줄입니다.
 
@@ -210,7 +209,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 - 행 삽입은 행을 델타 행 그룹이라 불리는 내부 rowstore 테이블에 추가합니다. 삽입된 행은 델타 행 그룹이 꽉 차서 닫힌 것으로 표시될 때까지 columnstore로 변환되지 않습니다. 행 그룹은 최대 용량인 1,048,576개 행에 도달하면 닫힙니다.
 - Columnstore 형식에서 행을 업데이트하면 논리적 삭제 후 삽입으로 처리됩니다. 삽입된 행은 델타 저장소에 저장될 수 있습니다.
 
-파티션 정렬 배포당 102,400개 행의 대량 임계값을 초과하는 일괄 처리된 업데이트 및 삽입 작업은 columnstore 형식으로 직접 기록됩니다. 그러나 균일한 배포를 가정하여 한 작업에서 614만 4천 개 이상의 행을 수정해야 할 수 있습니다. 지정된 파티션 정렬 배포당 행 수가 102,400개보다 적은 경우 행이 델타 저장소로 이동하며 충분한 수의 행이 삽입될 때까지 또는 행 그룹을 닫도록 수정하거나 인덱스가 다시 빌드될 때까지 이곳에 유지됩니다.
+파티션 정렬 배포당 102,400개 행의 대량 임계값을 초과하는 일괄 처리된 업데이트 및 삽입 작업은 columnstore 형식으로 직접 기록됩니다. 그러나 균일한 배포를 가정하여 한 작업에서 614만 4천 개 이상의 행을 수정해야 할 수 있습니다. 지정된 파티션 정렬 배포의 행 수가 102,400개 미만인 경우 행은 델타 저장소로 이동하여 행 그룹을 닫기 위해 충분한 행이 삽입 또는 수정되거나 인덱스가 다시 작성될 때까지 해당 위치에 유지됩니다.
 
 ### <a name="small-or-trickle-load-operations"></a>작거나 지속적인 로드 작업
 
@@ -224,11 +223,11 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 테이블에 일부 데이터가 로드된 경우 아래 단계에 따라 테이블을 식별한 후 차선에 해당하는 클러스터형 columnstore 인덱스로 테이블을 다시 작성합니다.
 
-## <a name="rebuilding-indexes-to-improve-segment-quality"></a>인덱스를 다시 작성하여 세그먼트 품질 개선
+## <a name="rebuild-indexes-to-improve-segment-quality"></a>세그먼트 품질을 개선하기 위해 인덱스 다시 작성
 
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1단계: 적합한 리소스 클래스를 사용하는 사용자 식별 또는 만들기
 
-세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다. 이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다.
+세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 뷰에서 반환된 SQL 인덱스를 다시 빌드하는 데 사용할 수 있는 ALTER INDEX REBUILD 문이 포함되어 있습니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다. 이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다.
 
 다음은 사용자의 리소스 클래스를 늘려 사용자에게 더 많은 메모리를 할당하는 방법의 예입니다. 리소스 클래스를 사용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
 
@@ -238,7 +237,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser';
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 더 높은 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
 
-이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(LoadUser)로 로그인하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
+이제 더 높은 리소스 클래스를 사용하는 1단계( )에서 사용자로 `LoadUser` 로그인하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
 또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다.
 
@@ -268,7 +267,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 세그먼트 품질이 저하된 테이블을 식별하는 쿼리를 다시 실행하고 세그먼트 품질이 향상되었는지 확인합니다.  세그먼트 품질이 개선되지 않은 경우 테이블의 행이 아주 넓은 것일 수 있습니다.  인덱스를 다시 작성할 때 더 높은 리소스 클래스 또는 DWU를 사용하는 것이 좋습니다.
 
-## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드
+## <a name="rebuild-indexes-with-ctas-and-partition-switching"></a>CTAS 및 파티션 전환을 사용하여 인덱스 다시 작성
 
 이 예제에서는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문 및 파티션 전환을 사용하여 테이블 파티션을 다시 작성합니다.
 

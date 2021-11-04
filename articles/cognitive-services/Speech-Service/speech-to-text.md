@@ -3,21 +3,21 @@ title: 음성 텍스트 변환 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 음성 텍스트 변환 소프트웨어를 사용하면 오디오 스트림을 텍스트로 실시간 전사할 수 있습니다. 애플리케이션, 도구 또는 디바이스는 이 텍스트 입력을 사용하고, 표시하고, 관련 작업을 수행할 수 있습니다. 이 문서는 음성 텍스트 변환 서비스의 이점과 기능에 대한 개요입니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: 음성 텍스트 변환, 음성 텍스트 변환 소프트웨어
-ms.openlocfilehash: 7da34e76d760b8f29a90112c00a1f8f05655d940
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 78db7165e44eb53a6d34c9095f70185874d0d8ce
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543985"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509891"
 ---
 # <a name="what-is-speech-to-text"></a>음성 텍스트 변환이란?
 

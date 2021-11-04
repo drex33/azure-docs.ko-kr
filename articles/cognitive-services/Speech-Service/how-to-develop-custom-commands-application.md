@@ -3,19 +3,19 @@ title: '방법: 사용자 지정 명령 애플리케이션 개발 - Speech Servi
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 명령 애플리케이션을 개발하고 사용자 지정하는 방법을 알아봅니다. 음성 명령 앱은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합합니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: pafarley
-ms.openlocfilehash: 7b5f32e50e4bcb256d5580edccaf083dad39b98c
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 33d5d790dca4f52e601cf49cedc038e98edbfe1b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542632"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503850"
 ---
 # <a name="develop-custom-commands-applications"></a>사용자 지정 명령 애플리케이션 개발
 

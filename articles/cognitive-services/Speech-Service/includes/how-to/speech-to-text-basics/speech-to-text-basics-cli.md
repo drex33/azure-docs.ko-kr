@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2020
-ms.author: pafarley
-ms.openlocfilehash: 8f3574839f8f7c330b49249f5b90a5404117ab9e
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: ae12aaf1fe15554246c9b05f9e4839305e1419b7
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542855"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501888"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech CLI를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 

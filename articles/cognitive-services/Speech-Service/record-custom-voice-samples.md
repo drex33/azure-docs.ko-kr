@@ -3,19 +3,19 @@ title: 사용자 지정 음성 녹음 샘플 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 강력한 스크립트를 준비하고, 적절한 성우를 고용하고, 전문적으로 녹음하여 프로덕션 수준 사용자 지정 음성을 만듭니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: pafarley
-ms.openlocfilehash: 712a0d37b7089ae34596994c999ef49fc9d53ba6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.author: eur
+ms.openlocfilehash: 2a0c504fdcc39b4aff0981350e747dfd42ce3389
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470037"
+ms.locfileid: "131504724"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -107,9 +107,9 @@ ms.locfileid: "131470037"
    예를 들어 다음과 같은 몇 가지 모범 사례가 있습니다.
     - 약어를 포함 하는 줄의 경우 ‘btw’ 대신 "by the way"을 사용합니다.
     - 숫자가 있는 줄의 경우 "911" 대신 "구 일 일"로 쓸 수 있습니다.
-    - 약어를 포함 하는 줄의 경우 "ABC" 대신 "A B C"가 있습니다.
+    - 머리글자어가 있는 줄의 경우 "ABC" 대신 "A B C"가 있습니다.
    
-   이를 통해 음성 인재이 이러한 단어를 예상 된 방식으로 pronounces 확인 합니다. 학습 프로세스 중에 스크립트와 기록이 일관 되게 일치 하는지 확인하세요.  
+   이를 통해 성우가 예상한 방식으로 이러한 단어를 발음하는지 확인합니다. 학습 프로세스 중에 스크립트와 기록이 일관 되게 일치 하는지 확인하세요.  
 
    > [!NOTE]
    > 성우를 위해 준비된 스크립트는 50% 및 $45와 같은 기본 읽기 규칙을 따라야 하며, 학습에 사용되는 스크립트는 스크립트가 오디오 콘텐츠(예: *50%)와 일치하도록 정규화해야 합니다.*  및 *45달러*. 음성 인재의 기록에 대해 학습에 사용된 스크립트를 확인하여 일치 하는지 확인합니다.
@@ -235,13 +235,13 @@ Microsoft Word에서 스크립트를 작성할 수 있습니다. 스크립트는
 
   ![묵음 없음](media/custom-voice/no-silence.png)
 
-### <a name="do-it-yourself&quot;></a>직접 수행
+### <a name="do-it-yourself"></a>직접 수행
 
 녹음 스튜디오에 가지 않고 직접 녹음하려는 경우 다음과 같은 간단한 입문서를 참조합니다. 홈 녹음 및 팟캐스팅이 증가하고 있으므로 이전보다 더 쉽게 유용한 녹음 조언 및 리소스를 온라인에서 찾을 수 있습니다.
 
-에코나 &quot;룸 톤&quot;이 없는 작은 방을 &quot;녹음 부스&quot;로 사용하는 것이 좋습니다. 가능한 한 조용하고 방음 장치가 된 곳이 좋습니다. 벽 커튼을 사용하여 에코를 줄이고 룸 소리를 중화하거나 &quot;줄일 수 있습니다&quot;.
+에코나 "룸 톤"이 없는 작은 방을 "녹음 부스"로 사용하는 것이 좋습니다. 가능한 한 조용하고 방음 장치가 된 곳이 좋습니다. 벽 커튼을 사용하여 에코를 줄이고 룸 소리를 중화하거나 "줄일 수 있습니다".
 
-음성 녹음용으로 제작된 고품질의 스튜디오 콘덴서 마이크로폰(줄여서 &quot;마이크")을 사용합니다. Sennheiser, AKG, 최신 Zoom 마이크로도 좋은 결과를 얻을 수 있습니다. 마이크를 구입할 수도 있고 지역의 시청각 렌탈 회사에서 대여할 수도 있습니다. USB 인터페이스가 있는 마이크를 구합니다. 이 종류의 마이크는 마이크 요소, 프리앰프 및 아날로그-디지털 변환기를 하나의 패키지로 편리하게 결합하므로 간편하게 연결할 수 있습니다.
+음성 녹음용으로 제작된 고품질의 스튜디오 콘덴서 마이크로폰(줄여서 "마이크")을 사용합니다. Sennheiser, AKG, 최신 Zoom 마이크로도 좋은 결과를 얻을 수 있습니다. 마이크를 구입할 수도 있고 지역의 시청각 렌탈 회사에서 대여할 수도 있습니다. USB 인터페이스가 있는 마이크를 구합니다. 이 종류의 마이크는 마이크 요소, 프리앰프 및 아날로그-디지털 변환기를 하나의 패키지로 편리하게 결합하므로 간편하게 연결할 수 있습니다.
 
 아날로그 마이크를 사용할 수도 있습니다. 많은 렌탈 회사에서는 음성 캐릭터용으로 개조된 "빈티지" 마이크를 제공합니다. 전문적인 아날로그 기어는 소비자 장비에서 사용되는 1/4인치 플러그 대신 밸런스 XLR 커넥터를 사용합니다. 아날로그로 전환하려면 이러한 커넥터와 함께 프리앰프와 컴퓨터 오디오 인터페이스가 필요합니다.
 

@@ -2,13 +2,13 @@
 title: Batch 풀에서 확장 사용
 description: 확장은 Batch 컴퓨팅 노드에서 프로비저닝 후 구성 및 설치를 용이하게 하는 소규모 애플리케이션입니다.
 ms.topic: how-to
-ms.date: 08/06/2021
-ms.openlocfilehash: b9c34dd5d191253352181158ece29218657f8d75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/03/2021
+ms.openlocfilehash: bac3c6c53552ac99aef6210cbe184da754580ca0
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528116"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508687"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Batch 풀에서 확장 사용
 
@@ -22,12 +22,19 @@ ms.locfileid: "122528116"
 - CustomScript 확장 유형은 Azure Batch 서비스에 예약되어 있으므로 재정의할 수 없습니다.
 - 일부 확장은 제대로 기능하기 위해 컴퓨팅 노드의 컨텍스트에서 액세스할 수 있는 풀 수준 관리 ID가 필요할 수 있습니다. 확장에 해당하는 경우 [Batch 풀에서 관리 ID 구성](managed-identity-pools.md)을 참조하세요.
 
-### <a name="supported-extensions"></a>지원되는 확장
+## <a name="supported-extensions"></a>지원되는 확장
 
 Batch 풀을 만들 때 현재 다음 확장을 설치할 수 있습니다.
 
-- [Linux](../virtual-machines/extensions/key-vault-linux.md) 및 [Windows](../virtual-machines/extensions/key-vault-windows.md)용 Azure Key Vault 확장
-- [Linux](../virtual-machines/extensions/oms-linux.md) 및 [Windows](../virtual-machines/extensions/oms-windows.md)용 로그 분석 및 모니터링 확장
+- [Linux 용 Azure Key Vault 확장](../virtual-machines/extensions/key-vault-linux.md)
+- [Windows Azure Key Vault 확장](../virtual-machines/extensions/key-vault-windows.md)
+- [Linux 용 Azure Monitor Logs analytics 및 모니터링 확장](../virtual-machines/extensions/oms-linux.md)
+- [Windows에 대 한 Azure Monitor 로그 분석 및 모니터링 확장](../virtual-machines/extensions/oms-windows.md)
+- [Azure Desired State Configuration (DSC) 확장](../virtual-machines/extensions/dsc-overview.md)
+- [Windows vm에 대 한 Azure 진단 확장](../virtual-machines/windows/extensions-diagnostics.md)
+- [AMD의 Windows에 대 한 HPC GPU 드라이버 확장](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md)
+- [NVIDIA의 Windows에 대 한 HPC GPU 드라이버 확장](../virtual-machines/extensions/hpccompute-gpu-windows.md)
+- [Windows Microsoft Antimalware 확장](../virtual-machines/extensions/iaas-antimalware-windows.md)
 
 지원 요청을 개설하여 추가 게시자 및/또는 확장 유형에 대한 지원을 요청할 수 있습니다.
 

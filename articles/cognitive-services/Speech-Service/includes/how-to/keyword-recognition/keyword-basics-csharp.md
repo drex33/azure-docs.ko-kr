@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/04/2021
-ms.author: pafarley
-ms.openlocfilehash: 08e35b6cc6aa2ed094e96a25b33aedd3081814dc
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 7214efa174e16ea27fd24beded8fcbeb77ecc57e
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541125"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508630"
 ---
 먼저 `KeywordRecognitionModel`을 반환하는 `FromFile()` 정적 함수를 사용하여 키워드 모델 파일을 로드합니다. Speech Studio에서 다운로드한 `.table` 파일의 경로를 사용합니다. 또한 기본 마이크를 사용하여 `AudioConfig`를 만든 다음, 오디오 구성을 사용하여 새 `KeywordRecognizer`를 인스턴스화합니다.
 

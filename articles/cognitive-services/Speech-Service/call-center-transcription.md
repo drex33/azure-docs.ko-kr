@@ -3,19 +3,19 @@ title: 콜 센터 전사 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 음성 텍스트 변환의 일반적인 시나리오는 IVR(대화형 음성 응답)과 같은 다양한 시스템에서 발생한 대량의 전화 통신 데이터를 전사하는 것입니다. Speech Service 및 통합 음성 모델을 사용하여 기업은 오디오 캡처 시스템에서 높은 품질의 전사를 얻을 수 있습니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: pafarley
-ms.openlocfilehash: 0c1e1ca9b38c342d469c7d4ea1589b48038c95db
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: ba4e6fc3d128daf54f55456163acb6a563745b55
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538870"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507950"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터용 Speech Service
 
@@ -76,7 +76,7 @@ Speech Service 기능의 기능적 측면 외에도, 콜 센터에 적용하는 
 
 ### <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-이 영역은 더 어려운 분석 애플리케이션 중 하나이며 AI 및 기계 학습을 적용하여 이점을 누릴 수 있는 영역입니다. 이 경우의 기본 시나리오는 고객 의도를 유추하는 것입니다. 고객이 전화를 건 이유가 무엇입니까? 고객의 문제가 무엇입니까? 고객이 부정적 경험을 한 이유가 무엇입니까? 당사의 [텍스트 분석 서비스](https://azure.microsoft.com/services/cognitive-services/text-analytics/)는 사용자의 엔드투엔드 솔루션을 중요 키워드 또는 구를 추출하도록 빨리 업그레이드하기 위한 분석 세트를 기본 제공합니다.
+이 영역은 더 어려운 분석 애플리케이션 중 하나이며 AI 및 기계 학습을 적용하여 이점을 누릴 수 있는 영역입니다. 이 경우의 기본 시나리오는 고객 의도를 유추하는 것입니다. 고객이 전화를 건 이유가 무엇입니까? 고객의 문제가 무엇입니까? 고객이 부정적 경험을 한 이유가 무엇입니까? [언어 서비스는](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 중요한 키워드 또는 구를 추출하기 위한 엔드 투 엔드 솔루션을 빠르게 업그레이드하기 위한 분석 세트를 기본적으로 제공합니다.
 
 이제 음성 인식용 일괄 처리 및 실시간 파이프라인을 좀 더 자세히 살펴보겠습니다.
 

@@ -1,19 +1,19 @@
 ---
 title: 텍스트 음성 변환 컨테이너 엔드포인트 쿼리
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/31/2020
-ms.author: aahi
-ms.openlocfilehash: 4571acfc46d9b336be23eaa3287dce5696c707b2
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
-ms.translationtype: HT
+ms.author: eur
+ms.openlocfilehash: e81b2bfb8781b3c8d14d182d8d6da14b48484953
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930232"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501085"
 ---
 컨테이너는 [REST 기반 엔드포인트 API](../rest-text-to-speech.md)를 제공합니다. 플랫폼, 프레임워크 및 사용 가능한 언어 변형에 대한 많은 [샘플 소스 코드 프로젝트](https://github.com/Azure-Samples/Cognitive-Speech-TTS)가 있습니다.
 

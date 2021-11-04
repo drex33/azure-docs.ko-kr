@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/03/2021
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
-ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d0dc05f32ca3f2fec1e19106e93178dcc40e4d0b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96454542"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501346"
 ---
 # <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대한 워크로드 분석
 
@@ -103,8 +103,7 @@ SELECT  w.[wait_id]
 FROM    sys.dm_pdw_waits w
 JOIN    sys.dm_pdw_exec_sessions s  ON w.[session_id] = s.[session_id]
 JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
-WHERE    w.[session_id] <> SESSION_ID()
-;
+WHERE    w.[session_id] <> SESSION_ID();
 ```
 
 `sys.dm_pdw_resource_waits` DMV는 지정된 쿼리에 대한 대기 정보를 표시합니다. 리소스 대기 시간은 리소스가 제공될 때까지 기다리는 시간을 측정합니다. 신호 대기 시간은 기본 SQL 서버에서 CPU로 쿼리를 예약하는 데 걸리는 시간입니다.
@@ -122,8 +121,7 @@ SELECT  [session_id]
 ,       [resource_class]
 ,       [wait_id]                                   AS queue_position
 FROM    sys.dm_pdw_resource_waits
-WHERE    [session_id] <> SESSION_ID()
-;
+WHERE    [session_id] <> SESSION_ID();
 ```
 
 또한 `sys.dm_pdw_resource_waits` DMV를 사용하여 얼마나 많은 동시성 슬롯이 부여되었는지 계산할 수 있습니다.
@@ -133,8 +131,7 @@ SELECT  SUM([concurrency_slots_used]) as total_granted_slots
 FROM    sys.[dm_pdw_resource_waits]
 WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
-AND     [session_id]     <> session_id()
-;
+AND     [session_id]     <> session_id();
 ```
 
 `sys.dm_pdw_wait_stats` DMV는 기록 추세 분석에 사용할 수 있습니다.
@@ -147,10 +144,9 @@ SELECT   w.[pdw_node_id]
 ,        w.[signal_time]
 ,        w.[completed_count]
 ,        w.[wait_time]
-FROM    sys.dm_pdw_wait_stats w
-;
+FROM    sys.dm_pdw_wait_stats w;
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [전용 SQL 풀(이전의 SQL DW) 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.
+데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [전용 SQL 풀(이전의 SQL DW) 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요. 더 큰 리소스 클래스가 클러스터된 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuild-indexes-to-improve-segment-quality)을 참조하세요.

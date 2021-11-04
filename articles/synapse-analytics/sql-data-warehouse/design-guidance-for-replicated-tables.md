@@ -2,31 +2,29 @@
 title: 복제된 테이블에 대한 디자인 지침
 description: Synapse SQL 풀에서 복제된 테이블을 디자인하기 위한 권장 사항
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/19/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f4c9326d4893209379bf459ed9fa7b9feff253aa
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
-ms.translationtype: HT
+ms.openlocfilehash: 2dd2b937029d240ac28904cc346d2211cab99ac1
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109837856"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506356"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 복제된 테이블을 사용하기 위한 디자인 지침
 
 이 문서는 Synapse SQL 풀 스키마로 복제 테이블을 디자인하기 위한 권장 사항을 제공합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
 
-> [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 사용자가 SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.    자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요.
+이 문서에서는 사용자가 SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.   자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요.
 
 테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.    예를 들어 다음 질문을 고려합니다.
 
@@ -36,13 +34,13 @@ ms.locfileid: "109837856"
 
 ## <a name="what-is-a-replicated-table"></a>복제 테이블이란?
 
-복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2GB는 하드 제한이 아닙니다.  데이터가 정적이고 변경되지 않는 경우 더 큰 테이블을 복제할 수 있습니다.
+복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다. 2GB는 하드 제한이 아닙니다.  데이터가 정적이고 변경되지 않는 경우 더 큰 테이블을 복제할 수 있습니다.
 
 다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL 풀에서 복제 테이블은 각 컴퓨팅 노드의 배포 데이터베이스로 완벽하게 복사됩니다.
 
-![복제 테이블](./media/design-guidance-for-replicated-tables/replicated-table.png "복제 테이블")  
+:::image type="content" source="./media/design-guidance-for-replicated-tables/replicated-table.png" alt-text="복제 테이블" lightbox="./media/design-guidance-for-replicated-tables/replicated-table.png":::
 
-복제 테이블은 별모양 스키마의 차원 테이블에 효과적입니다. 일반적으로 차원 테이블은 차원 테이블과 다르게 배포되는 팩트 테이블에 조인됩니다.  차원은 대개 여러 복사본을 저장하고 유지 관리하기에 적당한 크기입니다. 차원에는 고객 이름 및 주소, 제품 세부 정보와 같이 느리게 변하는 설명 데이터가 저장됩니다. 느리게 변하는 데이터의 특성으로 인해 복제 테이블을 유지 관리하는 경우가 줄어듭니다.
+복제 테이블은 별모양 스키마의 차원 테이블에 효과적입니다. 일반적으로 차원 테이블은 차원 테이블과 다르게 배포 되는 팩트 테이블에 조인 됩니다.  차원은 대개 여러 복사본을 저장하고 유지 관리하기에 적당한 크기입니다. 차원에는 고객 이름 및 주소, 제품 세부 정보와 같이 느리게 변하는 설명 데이터가 저장됩니다. 느리게 변하는 데이터의 특성으로 인해 복제 테이블을 유지 관리하는 경우가 줄어듭니다.
 
 복제 테이블 사용을 고려하는 것이 좋은 경우:
 
@@ -67,18 +65,16 @@ CPU를 많이 사용하는 쿼리는 모든 Compute 노드에 작업이 분산�
 예를 들어 이 쿼리에는 복잡한 조건자가 있습니다.  이 쿼리는 데이터가 복제 테이블이 아니라 분산 테이블에 있을 때 실행 속도가 빨라집니다. 이 예에서 데이터는 라운드 로빈 분산 테이블일 수 있습니다.
 
 ```sql
-
 SELECT EnglishProductName
 FROM DimProduct
-WHERE EnglishDescription LIKE '%frame%comfortable%'
-
+WHERE EnglishDescription LIKE '%frame%comfortable%';
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>기존의 라운드 로빈 테이블을 복제 테이블로 변환
 
 라운드 로빈 테이블이 이미 있는 경우 이 문서에 설명된 조건을 충족한다면 복제 테이블로 변환하는 것이 좋습니다. 복제 테이블은 데이터 이동의 필요성을 없애기 때문에 라운드 로빈 테이블보다 성능을 향상시킵니다.  라운드 로빈 테이블은 조인을 위해 데이터 이동이 항상 필요합니다.
 
-이 예제는 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 DimSalesTerritory 테이블을 복제 테이블로 변경합니다. 이 예제는 DimSalesTerritory가 해시 분산이거나 라운드 로빈이거나 상관없이 작동합니다.
+이 예에서는 [Ctas](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 를 사용 하 여 `DimSalesTerritory` 테이블을 복제 된 테이블로 변경 합니다. 이 예 `DimSalesTerritory` 는가 해시 분산 인지 또는 라운드 로빈 인지에 관계 없이 작동 합니다.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -101,7 +97,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 복제 테이블은 각각의 Compute 노드에 전체 테이블이 이미 존재하기 때문에 조인을 위해 데이터를 이동할 필요가 없습니다. 차원 테이블이 라운드 로빈 분산이면 조인은 각각의 Compute 노드에 차원 테이블 전체를 복사합니다. 데이터를 이동하려면 쿼리 계획에 BroadcastMoveOperation이라는 작업이 포함됩니다. 이런 유형의 데이터 이동 작업은 쿼리 성능을 저하시키며 복제 테이블을 사용하면 필요가 없어집니다. 쿼리 계획 단계를 보려면 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 시스템 카탈로그 보기를 사용합니다.  
 
-예를 들어 AdventureWorks 스키마에 대한 다음 쿼리에서 `FactInternetSales` 테이블은 해시 분산입니다. `DimDate` 및 `DimSalesTerritory` 테이블은 작은 차원 테이블입니다. 이 쿼리는 회계 연도 2004년에 대한 북아메리카 지역의 총 매출을 반환합니다.
+예를 들어 스키마에 대 한 다음 쿼리에서는 `AdventureWorks` `FactInternetSales` 테이블이 해시 분산 되어 있습니다. `DimDate` 및 `DimSalesTerritory` 테이블은 작은 차원 테이블입니다. 이 쿼리는 회계 연도 2004년에 대한 북아메리카 지역의 총 매출을 반환합니다.
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
@@ -124,7 +120,7 @@ WHERE d.FiscalYear = 2004
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>복제 테이블 수정에 대한 성능 고려 사항
 
-SQL 풀은 테이블의 마스터 버전을 유지하여 복제 테이블을 구현합니다. 마스터 버전을 각 컴퓨팅 노드에 있는 첫 번째 배포 데이터베이스에 복사합니다. 변경 사항이 있는 경우 마스터 버전이 먼저 업데이트된 다음 각 컴퓨팅 노드의 테이블이 다시 작성됩니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW2000c의 복제된 테이블에는 5개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL 풀은 더 빠른 데이터 수정 문 및 유연한 크기 조정 작업을 지원하기 위해 이 모델을 사용합니다.
+SQL 풀은 테이블의 마스터 버전을 유지하여 복제 테이블을 구현합니다. 마스터 버전을 각 컴퓨팅 노드에 있는 첫 번째 배포 데이터베이스에 복사합니다. 변경 사항이 있는 경우 마스터 버전이 먼저 업데이트된 다음 각 컴퓨팅 노드의 테이블이 다시 작성됩니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW2000c의 복제 된 테이블에는 데이터 복사본이 5 개 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL 풀은 더 빠른 데이터 수정 문 및 유연한 크기 조정 작업을 지원하기 위해 이 모델을 사용합니다.
 
 비동기 다시 빌드는 다음 이후에 복제된 테이블에 대한 첫 번째 쿼리에 의해 트리거됩니다.
 

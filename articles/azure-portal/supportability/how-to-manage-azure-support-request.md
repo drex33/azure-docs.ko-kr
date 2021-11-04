@@ -1,19 +1,21 @@
 ---
 title: Azure 지원 요청 관리
-description: 지원 요청을 보고, 메시지를 보내고, 심각도 수준을 변경하고, 고급 진단 정보의 수집을 허용 또는 거부하고, 닫힌 지원 요청을 다시 열고, 파일을 업로드하는 방법을 설명합니다.
+description: 지원 요청을 보는 방법 및 메시지를 보내고, 파일을 업로드 하 고, 옵션을 관리 하는 방법에 대해 알아봅니다.
 tags: billing
 ms.topic: how-to
-ms.date: 10/20/2021
-ms.openlocfilehash: f59d5d799b4db86669798dacd44697c8f678b031
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/02/2021
+ms.openlocfilehash: 361ab4b643dac6fb54fae8d236dfac38ee024701
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262504"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508347"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
 
-[Azure 지원 요청을 만든](how-to-create-azure-support-request.md) 후에는 이 문서에서 설명하는 [Azure Portal](https://portal.azure.com)에서 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support) 또는 [Azure CLI](/cli/azure/azure-cli-support-request)를 사용하여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
+[Azure 지원 요청을 만든](how-to-create-azure-support-request.md)후 [Azure Portal](https://portal.azure.com)에서 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support) 또는 [Azure CLI](/cli/azure/azure-cli-support-request)를 사용하여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
+
+지원 요청을 관리 하려면 구독 수준에서 [소유자](../../role-based-access-control/built-in-roles.md#owner), [참가자](../../role-based-access-control/built-in-roles.md#contributor)또는 [지원 요청 참가자](../../role-based-access-control/built-in-roles.md#support-request-contributor) 역할이 있어야 합니다. 구독 없이 만든 지원 요청을 관리 하려면 [관리자](../../active-directory/roles/permissions-reference.md)여야 합니다.
 
 ## <a name="view-support-requests"></a>지원 요청 보기
 
@@ -52,13 +54,13 @@ ms.locfileid: "130262504"
 
 ## <a name="allow-collection-of-advanced-diagnostic-information"></a>고급 진단 정보 수집 허용
 
-지원 요청을 만들 때 **고급 진단 정보** 섹션에서 **예** 또는 **아니요를** 선택할 수 있습니다. 이 옵션은 Azure 지원에서 잠재적으로 문제를 해결하는 데 도움이 될 수 있는 Azure 리소스의 [로그 파일과](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) 같은 [진단 정보를](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 수집할 수 있는지 여부를 결정합니다.
+지원 요청을 만들 때 **고급 진단 정보** 섹션에서 **예** 또는 **아니요** 를 선택할 수 있습니다. 이 옵션은 Azure 지원에서 잠재적으로 문제를 해결 하는 데 도움이 될 수 있는 Azure 리소스의 [로그 파일과](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) 같은 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 를 수집할 수 있는지 여부를 결정 합니다.
 
-요청을 만든 후 **고급 진단 정보** 선택을 변경하려면 다음을 수행합니다.
+요청을 만든 후에 **고급 진단 정보** 선택 항목을 변경 하려면 다음을 수행 합니다.
 
 1. **모든 지원 요청** 페이지에서 지원 요청을 선택합니다.
 
-1. 지원 **요청** 페이지에서 고급 **진단 정보를** 찾은 **다음, 변경을** 선택합니다.
+1. **지원 요청** 페이지에서 **고급 진단 정보** 를 확인 하 고 **변경** 을 선택 합니다.
 
 1. **예** 또는 **아니요** 를 선택한 후 **확인** 을 선택하여 확인합니다.
 
@@ -78,7 +80,7 @@ ms.locfileid: "130262504"
 
 파일 업로드 옵션을 사용할 때 다음 지침을 수행합니다.
 
-- 개인 정보를 보호하려면 업로드 시 개인 정보를 포함시키기 마세요.
+- 개인 정보를 보호 하려면 업로드 시 개인 정보를 포함 하지 마세요.
 - 파일 이름은 110자 이하여야 합니다.
 - 둘 이상의 파일을 업로드할 수 없습니다.
 - 파일은 4MB보다 클 수 없습니다.
@@ -117,17 +119,17 @@ ms.locfileid: "130262504"
 
 ## <a name="close-a-support-request"></a>지원 요청 닫기
 
-지원 요청을 닫려면 요청을 종결하라는 [메시지를 보냅니다.](#send-a-message)
+지원 요청을 종결 하려면 [메시지를 보내고](#send-a-message) 요청을 종료 하 시겠습니까?를 알려 주세요.
 
 ## <a name="reopen-a-closed-request"></a>닫힌 요청 다시 열기
 
-닫힌 지원 요청을 다시 열려면 요청을 자동으로 다시 여는 [새 메시지](#send-a-message)를 만듭니다.
+닫힌 지원 요청을 다시 열려면 [새 메시지](#send-a-message)를 만듭니다. 그러면 요청이 자동으로 다시 열립니다.
 
 ## <a name="cancel-a-support-plan"></a>지원 플랜 취소
 
-지원 계획을 취소하려면 [지원 계획 취소를 참조하세요.](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan)
+지원 플랜을 취소 하려면 [지원 계획 취소](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 프로세스를 검토하여 [Azure 지원 요청을 만듭니다.](how-to-create-azure-support-request.md)
-- [Azure 지원 티켓 REST API](/rest/api/support)대해 알아봅니다.
+- 프로세스를 검토 하 여 [Azure 지원 요청을 만듭니다](how-to-create-azure-support-request.md).
+- [Azure 지원 티켓 REST API](/rest/api/support)에 대해 알아봅니다.

@@ -3,25 +3,25 @@ title: Speech Studio 역할 기반 액세스 제어 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Studio 통해 Speech Service에 액세스 역할을 할당하는 방법을 알아봅니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.author: pafarley
-ms.openlocfilehash: c234aa457c6aa77ff16f8297ca5861a66a5e05aa
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: eur
+ms.openlocfilehash: 4b84d73b242aba0b46674005211dcb6de77d69e4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264525"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509385"
 ---
 # <a name="azure-role-based-access-control-in-speech-studio"></a>Speech Studio Azure 역할 기반 액세스 제어 
 
-Speech Studio Azure 리소스에 대한 개별 액세스를 관리하기 위한 권한 부여 시스템인 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. Azure RBAC를 사용하여 Speech Studio 작업에 대한 다양한 수준의 권한을 다른 팀 구성원에게 할당할 수 있습니다. Azure RBAC에 대한 자세한 내용은 [AZURE RBAC 설명서](../../role-based-access-control/overview.md)를 참조하세요.
+Speech Studio Azure 리소스에 대한 개별 액세스를 관리하기 위한 권한 부여 시스템인 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. Azure RBAC를 사용하여 Speech Studio 작업에 대한 다양한 수준의 권한을 다른 팀 멤버에게 할당할 수 있습니다. Azure RBAC에 대한 자세한 내용은 [AZURE RBAC 설명서](../../role-based-access-control/overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 계정 및 Speech 리소스를 Speech Studio 로그인해야 합니다. Speech Studio [개요를](speech-studio-overview.md)참조하세요.
 
@@ -37,13 +37,13 @@ Azure 음성 리소스에 대한 액세스 권한을 부여하려면 Azure Porta
 
 | **기본 제공 역할** | **리소스 키를 나열할 수 있는 권한** | **Custom Speech 작업에 대한 권한** | **Custom Voice 작업에 대한 권한**| **다른 기능에 대한 권한** |
 | ---| ---| ---| ---| --|
-|**소유자** |Yes |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
-|**기여자** |Yes |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
-|**Cognitive Service 기여자** |Yes |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
-|**Cognitive Service 사용자** |Yes |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
-|**Cognitive Service Speech 기여자** |No |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
-|**Cognitive Service Speech 사용자** |No |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |모든 권한 |
-|**Cognitive Services 데이터 판독기(미리 보기)** |No |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |모든 권한 |
+|**소유자** |예 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
+|**기여자** |예 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
+|**Cognitive Service 기여자** |예 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
+|**Cognitive Service 사용자** |예 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
+|**Cognitive Service Speech 기여자** |아니요 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |프로젝트/데이터/모델/엔드포인트를 만들거나 편집하거나 삭제할 수 있는 권한을 포함하여 프로젝트에 대한 모든 권한 |모든 권한 |
+|**Cognitive Service Speech 사용자** |아니요 |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |모든 권한 |
+|**Cognitive Services 데이터 판독기(미리 보기)** |아니요 |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |프로젝트 / 데이터 세트 / 모델 / 엔드포인트를 볼 수 있습니다. 만들 수 없음, 편집, 삭제 |모든 권한 |
 
 또는 [고유한 사용자 지정 역할을 만들](../../role-based-access-control/custom-roles.md)수 있습니다. 예를 들어 사용자 지정 음성 모델을 엔드포인트에 배포할 수 없는 사용자 지정 음성 데이터 세트를 업로드할 수 있는 권한이 있는 사용자 지정 역할을 만들 수 있습니다.
 

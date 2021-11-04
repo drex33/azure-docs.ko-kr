@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 79c2a7514677b00227d71d52906d83b3e7734e70
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fb3151b3981d0bd28120efab9bdba7fd143ae86d
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131442068"
+ms.locfileid: "131510940"
 ---
 # <a name="create-a-scan-rule-set"></a>검사 규칙 집합 만들기
 
@@ -24,7 +24,7 @@ Azure Purview 카탈로그에서 검사 규칙 집합을 만들어 조직의 데
 
 검사 규칙 집합을 만들려면 다음을 수행합니다.
 
-1. Azure [Purview Studio에서](https://web.purview.azure.com/resource/) **데이터 맵** 선택합니다.
+1. Azure [부서의 범위 Studio](https://web.purview.azure.com/resource/)에서 **데이터 맵** 을 선택 합니다.
 
 1. 왼쪽 창에서 **검사 규칙 집합** 을 선택한 다음, **새로 만들기** 를 선택합니다.
 
@@ -60,7 +60,7 @@ Azure Purview 카탈로그에서 검사 규칙 집합을 만들어 조직의 데
 
 1. **만들기** 를 선택하여 검사 규칙 집합 만들기를 완료합니다.
 
-### <a name="create-a-custom-file-type"></a>사용자 지정 파일 형식 만들기
+## <a name="create-a-custom-file-type"></a>사용자 지정 파일 형식 만들기
 
 Azure Purview는 검사 규칙 집합에서 사용자 지정 확장을 추가하고 사용자 지정 열 구분 기호를 정의하는 작업을 지원합니다.
 
@@ -91,6 +91,26 @@ Azure Purview는 검사 규칙 집합에서 사용자 지정 확장을 추가하
 1. 변경하거나 삭제하려는 경우 새 파일 형식 타일에서 **편집** 을 선택합니다.
 
 1. **계속** 을 선택하여 검사 규칙 집합 구성을 완료합니다.
+
+## <a name="ignore-patterns"></a>패턴 무시
+
+Azure 부서의 범위는 검색 하는 동안 자산을 제외 하는 정규식 (regex) 정의를 지원 합니다. 검색 하는 동안 Azure 부서의 범위는 이러한 정규식에 대해 자산의 URL을 비교 합니다. 검색 하는 동안 언급 된 regex 일치 하는 모든 자산이 무시 됩니다.
+
+**무시 패턴** 블레이드에서 spark 트랜잭션 파일에 대해 하나의 regex를 미리 채웁니다. 필요 하지 않은 경우 기존 패턴을 제거할 수 있습니다. 최대 10 개의 무시 패턴을 정의할 수 있습니다.
+
+:::image type="content" source="./media/create-a-scan-rule-set/ignore-patterns-blade.png" alt-text="정의 된 정규식 4 개와 함께 패턴 무시 블레이드를 보여 주는 스크린샷 첫 번째는 미리 채워진 spark 트랜잭션 regex이 고, 두 번째는 \\.txt$이 고, 세 번째는 \\.csv$이 고, 마지막으로 folderb/. *입니다.":::
+
+위의 예제에서는 다음과 같습니다.
+
+- Regex 2 및 3은 검색 중에 .txt 및 .csv로 끝나는 모든 파일을 무시 합니다.
+- Regex 4는 검색 중에/Folderb/및 모든 내용을 무시 합니다.
+
+패턴을 무시 하는 데 사용할 수 있는 몇 가지 추가 팁은 다음과 같습니다.
+
+- Regex를 처리 하는 동안 Azure 부서의 범위는 기본적으로 regex에 $를 추가 합니다.
+- 검색 에이전트가 정규식과 비교할 url을 이해 하는 좋은 방법은 부서의 범위 데이터 카탈로그를 검색 하 고, 나중에 무시 하려는 자산을 찾고, **개요** 탭에서 FQN (정규화 된 이름)를 확인 하는 것입니다.
+
+   :::image type="content" source="./media/create-a-scan-rule-set/fully-qualified-name.png" alt-text="자산의 개요 탭에서 정규화 된 이름을 보여 주는 스크린샷":::
 
 ## <a name="system-scan-rule-sets"></a>시스템 검사 규칙 집합
 

@@ -252,9 +252,9 @@ Google Maps를 지역화하려면 언어 및 지역 매개 변수를 추가합�
 
 ![Google Maps 지역화](media/migrate-google-maps-web-app/google-maps-localization.png)
 
-#### <a name="after-azure-maps&quot;></a>이후: Azure Maps
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
-Azure Maps는 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 글로벌 *atlas* 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정으로 기본 설정됩니다. 다음은 언어를 프랑스어(&quot;fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
+Azure Maps는 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 글로벌 *atlas* 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정으로 기본 설정됩니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -1317,12 +1317,12 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 
 ![Google Maps 타일 레이어](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
 
-#### <a name="after-azure-maps&quot;></a>이후: Azure Maps
+#### <a name="after-azure-maps"></a>이후: Azure Maps
 
 다른 레이어와 마찬가지로 타일 계층을 맵에 추가합니다. x, y, 확대/축소 자리 표시자, `{x}`, `{y}`, `{z}`가 포함된 형식이 지정된 URL을 사용하여 타일에 액세스할 위치를 레이어에 알려줍니다. Azure Maps 타일 레이어는 `{quadkey}`, `{bbox-epsg-3857}` 및 `{subdomain}` 자리 표시자도 지원합니다.
 
 > [!TIP]
-> Azure Maps에서는 기본 지도 계층을 비롯한 다른 계층 아래에 레이어를 쉽게 렌더링할 수 있습니다. 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, &quot;labels");` 코드를 사용합니다.
+> Azure Maps에서는 기본 지도 계층을 비롯한 다른 계층 아래에 레이어를 쉽게 렌더링할 수 있습니다. 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, "labels");` 코드를 사용합니다.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.

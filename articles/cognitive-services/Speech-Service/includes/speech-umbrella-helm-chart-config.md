@@ -3,19 +3,19 @@ title: Speech 컨테이너 설치
 titleSuffix: Azure Cognitive Services
 description: 음성 umbrella helm 차트 구성 옵션을 자세히 설명합니다.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/01/2020
-ms.author: aahi
-ms.openlocfilehash: 0257f3af44cc85d0a3656472db224ae5a7e19161
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: eur
+ms.openlocfilehash: d0c666089a6886737018572cdace21b0690d64dc
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96002291"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500775"
 ---
 ### <a name="speech-umbrella-chart"></a>음성(umbrella 차트)
 

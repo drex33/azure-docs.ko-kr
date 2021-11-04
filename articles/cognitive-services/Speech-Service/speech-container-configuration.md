@@ -3,19 +3,19 @@ title: 음성 컨테이너 구성
 titleSuffix: Azure Cognitive Services
 description: Speech Service는 각 컨테이너에 공통된 구성 프레임워크를 제공하므로, 사용자는 컨테이너에 대한 스토리지, 로깅 및 원격 분석은 물론, 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/22/2021
-ms.author: aahi
-ms.openlocfilehash: f86de9cbb7bf6235af6d112f9eae396b43a911f8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.author: eur
+ms.openlocfilehash: 8824e6cdf70fae19becb54d5a404b4cb8a9a344d
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441395"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503568"
 ---
 # <a name="configure-speech-service-containers"></a>Speech Service 컨테이너 구성
 
@@ -78,7 +78,7 @@ ms.locfileid: "114441395"
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](speech-container-howto.md#host-computer-requirements-and-recommendations)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다.
 
-| Optional | 이름 | 데이터 형식 | Description |
+| Optional | Name | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
 | 허용되지 않음 | `Input` | String | 표준 Speech 컨테이너는 사용하지 않습니다. Custom Speech 컨테이너는 [볼륨 탑재](#volume-mount-settings)를 사용합니다.                                                                                    |
 | 선택 | `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output` |

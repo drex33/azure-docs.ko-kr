@@ -3,19 +3,19 @@ title: '빠른 시작: Node.js 데스크톱 앱에서 Microsoft Graph 호출 | A
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 Node.js Electron 데스크톱 애플리케이션이 사용자를 로그인시키고 액세스 토큰을 가져와서 Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 알아봅니다.
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: karenhoran
-ms.openlocfilehash: 362fdcddc9a8d58da30f269be44fc195870949e1
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.author: marsma
+ms.openlocfilehash: 9020f5952e224ae93e4c1acaab2ab62fcefa81fa
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163760"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501821"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>빠른 시작: Electron 데스크톱 앱에서 액세스 토큰을 얻고 Microsoft Graph API 호출
 

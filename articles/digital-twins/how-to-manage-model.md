@@ -1,18 +1,18 @@
 ---
 title: DTDL 모델 관리
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins 내에서 모델을 만들고, 편집하고, 삭제하는 방법을 참조하세요.
+description: Azure Digital Twins 내에서 DTDL 모델을 만들고, 편집 하 고, 삭제 하는 방법을 비롯 하 여 DTDL 모델을 관리 하는 방법에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 8/30/2021
+ms.date: 10/20/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2e5c137ceb08bd89dc70026639c6191b1c61f42d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 7ae5a3293b7b9ba4712c3762b18b6d9c66eab926
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223245"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507173"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -97,10 +97,10 @@ Azure Digital Twins 인스턴스에 저장된 모델을 나열하고 검색할 �
 모델을 업데이트하기 전에 전체 솔루션과 수행하려는 모델 변경의 영향에 대해 전체적으로 생각하는 것이 좋습니다. Azure Digital Twins 솔루션의 모델은 종종 상호 연결되므로 한 모델을 업데이트하려면 다른 여러 모델을 업데이트해야 하는 계단식 변경을 인식하는 것이 중요합니다. 모델 업데이트는 모델을 사용하는 트윈에 영향을 미치며 수신 및 처리 코드, 클라이언트 애플리케이션 및 자동화된 보고서에도 영향을 미칠 수 있습니다.
 
 다음은 모델 전환을 원활하게 관리하는 데 도움이 되는 몇 가지 권장 사항입니다.
-* 개별 모델의 관점에서 생각하지 않고 모델과 모델의 관계를 최신 상태로 유지하기 위해 적절할 때 전체 모델 세트를 발전시키는 것을 고려합니다.
+* 모델을 별도 엔터티로 생각 하는 대신 모델 및 해당 관계를 최신 상태로 유지 하는 데 적합 한 경우 전체 모델 집합을 진화 하는 것이 좋습니다.
 * 모델을 원본 코드처럼 취급하고 원본 제어에서 관리합니다. 솔루션의 다른 코드에 적용하는 것과 동일한 엄격함과 주의를 모델 및 모델 변경에 적용합니다.
 
-모델 업데이트를 진행할 준비가 되면 이 섹션의 나머지 부분에서 업데이트를 구현하는 데 사용할 수 있는 전략에 대해 설명합니다.
+모델 업데이트 프로세스를 계속할 준비가 되 면이 섹션의 나머지 부분에서는 업데이트를 구현 하는 데 사용할 수 있는 전략에 대해 설명 합니다.
 
 ### <a name="strategies-for-updating-models"></a>모델 업데이트 전략
 
@@ -112,7 +112,7 @@ Azure Digital Twins 인스턴스에 저장된 모델을 나열하고 검색할 �
 * [전략 1: 새 모델 버전 업로드](#strategy-1-upload-new-model-version): 새 버전 번호와 함께 모델을 업로드하고 해당 새 모델을 사용하도록 트윈을 업데이트합니다. 모델의 새 버전과 이전 버전은 모두 삭제할 때까지 인스턴스에 존재합니다.
     - 이 모델을 사용하는 일부 트윈만 업데이트하려는 경우 또는 트윈이 모델을 준수하고 모델 전환을 통해 쓰기 가능한 상태를 유지하도록 하려는 경우에 **이 전략을 사용** 합니다.
 * [전략 2: 이전 모델을 삭제하고 다시 업로드](#strategy-2-delete-old-model-and-reupload): 원래 모델을 삭제하고 그 자리에 동일한 이름과 ID(DTMI 값)를 사용하여 새 모델을 업로드합니다. 기존 모델을 새 모델로 완전히 교체합니다. 
-    - 이 모델을 사용하는 모든 트윈은 물론 모델에 반응하는 모든 코드를 한 번에 업데이트하려는 경우 **이 전략을 사용** 합니다. 모델 업데이트에 모델 업데이트의 호환성이 손상되는 변경이 포함된 경우 트윈은 이전 모델에서 새 모델로 전환하는 동안 잠시 동안 해당 모델을 준수하지 않습니다. 즉, 새 모델이 업로드되고 트윈이 모델을 준수할 때까지 업데이트를 수행하지 못합니다.
+    - 모델에 대 한 모든 코드 응답 뿐만 아니라 한 번에이 모델을 사용 하는 모든 쌍을 업데이트 하려는 **경우이 전략을 사용** 합니다. 모델 업데이트에 모델 업데이트의 호환성이 손상되는 변경이 포함된 경우 트윈은 이전 모델에서 새 모델로 전환하는 동안 잠시 동안 해당 모델을 준수하지 않습니다. 즉, 새 모델이 업로드되고 트윈이 모델을 준수할 때까지 업데이트를 수행하지 못합니다.
 
 >[!NOTE]
 > 개발 외에는 모델을 호환성이 손상되는 변경을 만들지 않는 것이 좋습니다.
@@ -244,7 +244,7 @@ REST API 호출 [DigitalTwinModels Update](/rest/api/digital-twins/dataplane/mod
 
 다른 모델이 `extends` 관계 또는 구성 요소로 종속된 모델은 예외입니다. 예를 들어 ConferenceRoom 모델이 Room 모델을 확장하고 ACUnit 모델을 구성 요소로 포함하는 경우 ConferenceRoom이 해당 참조를 제거할 때까지 Room 또는 ACUnit을 삭제할 수 없습니다. 
 
-종속 모델을 업데이트하여 종속성을 제거하거나 종속 모델을 완전히 삭제하여 이 작업을 수행할 수 있습니다.
+종속 모델을 업데이트하여 종속성 제거를 수행하거나 종속 모델을 완전히 삭제하면 됩니다.
 
 #### <a name="during-deletion-deletion-process"></a>삭제 중: 삭제 프로세스
 

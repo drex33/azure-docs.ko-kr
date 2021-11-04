@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 0964872d03d6e321d25d51a18edbb4a6f0be8a4f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edb41875e75dd8de51d7f444d8259345c8bbc395
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425398"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501903"
 ---
 이 빠른 시작에서는 Speech Service 및 cURL을 사용하여 음성을 텍스트로 변환하는 방법을 알아봅니다.
 

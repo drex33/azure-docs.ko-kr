@@ -1,26 +1,27 @@
 ---
 title: '자습서: 맵에서 주변 위치 검색 | Microsoft Azure Maps'
 description: 맵에서 관심 지점을 검색하는 방법에 대한 자습서. Azure Maps Web SDK를 사용하여 검색 기능 및 대화형 팝업 상자를 맵에 추가하는 방법을 참조하세요.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 1/15/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: eriklind
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 61ea9691e30fe401946a43d2ffd8488b905c0835
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: db7fc079426d30c8fc34cce99463b22c910e1ab6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072393"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458991"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
 이 자습서에서는 Azure Maps를 사용하여 계정을 설정한 다음, Maps API를 사용하여 관심 지점을 검색하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * Azure Maps 계정 만들기
 > * Maps 계정에 대한 기본 키 검색
 > * 지도 컨트롤 API를 사용하여 새 웹 페이지 만들기
@@ -192,7 +193,7 @@ ms.locfileid: "131072393"
 4. 브라우저에 다음 HTTPRequest를 입력하여 지도에서 렌더링하는 원시 데이터를 볼 수 있습니다. \<Your Azure Maps Key\>를 기본 키로 바꿉니다.
 
    ```http
-   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 이 시점에서 MapSearch 페이지에는 유사 항목 검색 쿼리에서 반환된 관심 지점의 위치가 표시될 수 있습니다. 몇 가지 대화형 기능과 위치에 대한 자세한 정보를 추가해 보겠습니다.

@@ -6,13 +6,13 @@ ms.author: abnarain
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: b94ceb3bc190f57e3e5190e89e1018fc8a6e77f6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/22/2021
+ms.openlocfilehash: 09a2c057cbefefc02e40d326eea094e37b092cc5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831146"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851157"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
 
@@ -32,7 +32,7 @@ Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라�
 
 2. 키 자격 증명 모음 액세스 정책을 열고 비밀을 가져오고 나열할 수 있는 관리 ID 권한을 추가합니다.
 
-    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="&quot; &quot; &quot; 액세스 정책 추가 &quot; 작업이 강조 표시 된 액세스 정책 페이지를 보여 주는 스크린샷":::
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="액세스 정책 추가 작업이 강조 표시된 액세스 정책 페이지를 보여주는 &quot; &quot; &quot; &quot; 스크린샷.":::
 
     :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png" alt-text="Key Vault 액세스 정책":::
 

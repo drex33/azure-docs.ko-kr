@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 80929cb469d4d60c649786c955e8f92906794185
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a27e468a13f95b45a56961b5bb1bfe50553bd841
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011090"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841850"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure Purview의 데이터에 대한 분류 인사이트
 
@@ -21,7 +21,7 @@ ms.locfileid: "131011090"
 > [!IMPORTANT]
 > Azure 부서의 범위 Insights는 현재 미리 보기로 제공 됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
-지원 되는 데이터 원본에는 다음이 포함 됩니다. Azure Blob Storage, Azure Data Lake Storage (ADLS) gen 1, Azure Data Lake Storage (ADLS) gen 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (이전의 SQL DW), Azure SQL Database, azure SQL Managed Instance , SQL Server, amazon S3 버킷 및 amazon RDS 데이터베이스 (공개 미리 보기)를 제공 합니다.
+지원 되는 데이터 원본에는 다음이 포함 됩니다. Azure Blob Storage, Azure Data Lake Storage (ADLS) gen 1, Azure Data Lake Storage (ADLS) gen 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (이전의 SQL DW), Azure SQL Database, azure SQL Managed Instance , SQL Server, amazon S3 버킷 및 amazon RDS 데이터베이스 (공개 미리 보기)를 Power BI
 
 이 방법 가이드에서 배울 내용은 다음과 같습니다.
 

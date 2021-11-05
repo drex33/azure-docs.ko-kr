@@ -85,6 +85,10 @@ items:
             href: retrieve-the-username-password-for-data-controller.md
           - name: 서비스 주체 자격 증명 업데이트
             href: update-service-principal-credentials.md
+      - name: 업그레이드
+        items:
+          - name: 간접 데이터 컨트롤러 - CLI
+            href: upgrade-data-controller-indirect-cli.md
       - name: 문제 해결
         items:
           - name: 가이드
@@ -191,8 +195,12 @@ items:
                 href: managed-instance-high-availability.md
               - name: 예약 용량
                 href: reserved-capacity-overview.md
-              - name: 삭제
+              - name: DELETE
                 href: delete-managed-instance.md
+          - name: 업그레이드
+            items:
+              - name: CLI를 통해 업그레이드
+                href: upgrade-sql-managed-instance-cli.md
           - name: 마이그레이션
             items:
               - name: SQL Managed Instance로 마이그레이션(Azure Arc)

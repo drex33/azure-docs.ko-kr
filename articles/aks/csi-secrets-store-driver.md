@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 10/13/2021
 ms.custom: template-how-to, devx-track-azurecli
-ms.openlocfilehash: d6bb3be48769c19afc525330d6b33810b04066a3
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 4182267fc13ee5e67aa8849ae1807306afbc2ad8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131507371"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851689"
 ---
 # <a name="use-the-azure-key-vault-provider-for-secrets-store-csi-driver-in-an-azure-kubernetes-service-aks-cluster"></a>AKS (Azure Kubernetes Service) 클러스터에서 비밀 저장소 CSI 드라이버에 대 한 Azure Key Vault 공급자 사용
 
@@ -142,7 +142,7 @@ Azure Key Vault 디자인은 키, 암호 및 인증서를 선명 하 게 구분 
 |Object|반환 값|전체 인증서 체인을 반환 합니다.|
 |---|---|---|
 |`key`|PEM 형식의 공개 키|해당 없음|
-|`cert`|PEM 형식의 인증서|아니요|
+|`cert`|PEM 형식의 인증서|No|
 |`secret`|PEM 형식의 개인 키 및 인증서|예|
 
 ## <a name="disable-azure-key-vault-provider-for-secrets-store-csi-driver-on-an-existing-aks-cluster"></a>기존 AKS 클러스터에서 비밀 저장소 CSI 드라이버에 대 한 Azure Key Vault 공급자 사용 안 함
@@ -207,7 +207,7 @@ SecretProviderClass를 만들 때 필드를 사용 `secretObjects` 하 여 Kuber
 > `objectName`의가 `secretObjects` 탑재 된 콘텐츠의 파일 이름과 일치 하는지 확인 합니다. 대신를 사용 하는 경우 `objectAlias` 개체 별칭과 일치 해야 합니다.
 
 ```yml
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
   name: azure-sync
@@ -274,35 +274,35 @@ curl localhost:8898/metrics
 
 |메트릭|Description|태그|
 |----|----|----|
-|keyvault_request|keyvault에서 얻는 데 걸린 시간 분포|`os_type=<runtime os>`, `provider=azure`, `object_name=<keyvault object name>`, `object_type=<keyvault object type>`, `error=<error if failed>`|
-|grpc_request|gRPC 요청에 걸린 시간 분포|`os_type=<runtime os>`, `provider=azure`, `grpc_method=<rpc full method>`, `grpc_code=<grpc status code>`, `grpc_message=<grpc status message>`|
+|keyvault_request|Keyvault에서 가져오는 데 걸린 시간 배포|`os_type=<runtime os>`, `provider=azure`, `object_name=<keyvault object name>`, `object_type=<keyvault object type>`, `error=<error if failed>`|
+|grpc_request|GRPC 요청에 소요 된 시간 배포|`os_type=<runtime os>`, `provider=azure`, `grpc_method=<rpc full method>`, `grpc_code=<grpc status code>`, `grpc_message=<grpc status message>`|
 
 ### <a name="secrets-store-csi-driver"></a>비밀 저장소 CSI 드라이버
 
-메트릭은 포트 8095에서 제공되지만 이 포트는 기본적으로 Pod 외부에 노출되지 않습니다. 를 사용하여 localhost를 통해 메트릭에 액세스합니다. `kubectl port-forward`
+메트릭은 포트 8095에서 제공 되지만이 포트는 기본적으로 pod 외부에 노출 되지 않습니다. 다음을 사용 하 여 localhost에서 메트릭에 액세스 합니다 `kubectl port-forward` .
 
 ```bash
 kubectl port-forward -n kube-system ds/aks-secrets-store-csi-driver 8095:8095 &
 curl localhost:8095/metrics
 ```
 
-다음 표에서는 비밀 저장소 CSI 드라이버에서 제공하는 메트릭을 나열합니다.
+다음 표에서는 비밀 저장소 CSI 드라이버에서 제공 하는 메트릭을 보여 줍니다.
 
 |메트릭|Description|태그|
 |----|----|----|
 |total_node_publish|성공한 볼륨 탑재 요청의 총 수|`os_type=<runtime os>`, `provider=<provider name>`|
 |total_node_unpublish|성공한 볼륨 분리 요청의 총 수|`os_type=<runtime os>`|
-|total_node_publish_error|볼륨 탑재 요청의 총 오류 수|`os_type=<runtime os>`, `provider=<provider name>`, `error_type=<error code>`|
-|total_node_unpublish_error|볼륨 분리 요청의 총 오류 수|`os_type=<runtime os>`|
-|total_sync_k8s_secret|동기화된 총 k8s 비밀 수|`os_type=<runtime os`, `provider=<provider name>`|
-|sync_k8s_secret_duration_sec|k8s 비밀을 동기화하는 데 걸린 시간 분포|`os_type=<runtime os>`|
-|total_rotation_reconcile|회전 조정의 총 수|`os_type=<runtime os>`, `rotated=<true or false>`|
-|total_rotation_reconcile_error|오류와 조정된 총 회전 수|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
-|total_rotation_reconcile_error|Pod에 대한 비밀 저장소 콘텐츠를 회전하는 데 걸린 시간 분포|`os_type=<runtime os>`|
+|total_node_publish_error|볼륨 탑재 요청에 대 한 총 오류 수|`os_type=<runtime os>`, `provider=<provider name>`, `error_type=<error code>`|
+|total_node_unpublish_error|볼륨 분리 요청이 있는 총 오류 수입니다.|`os_type=<runtime os>`|
+|total_sync_k8s_secret|동기화 된 k8s 암호의 총 수|`os_type=<runtime os`, `provider=<provider name>`|
+|sync_k8s_secret_duration_sec|K8s 암호를 동기화 하는 데 걸린 시간 배포|`os_type=<runtime os>`|
+|total_rotation_reconcile|총 회전 조정 수|`os_type=<runtime os>`, `rotated=<true or false>`|
+|total_rotation_reconcile_error|오류를 사용 하 여 조정 된 총 회전 수|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
+|total_rotation_reconcile_error|Pod에 대 한 비밀 저장소 콘텐츠를 회전 하는 데 걸린 시간 분포|`os_type=<runtime os>`|
 
 ## <a name="next-steps"></a>다음 단계
 <!-- Add a context sentence for the following links -->
-AKS 클러스터에서 비밀 저장소 CSI 드라이버용 Azure Key Vault 공급자를 사용하는 방법을 학습한 후 다음 리소스를 참조하세요.
+AKS 클러스터에서 비밀 저장소 CSI 드라이버에 대 한 Azure Key Vault 공급자를 사용 하는 방법을 학습 한 후에는 다음 리소스를 참조 하세요.
 
 - [AKS에서 Azure Disks 및 Azure Files에 대한 CSI 드라이버 사용][csi-storage-drivers]
 

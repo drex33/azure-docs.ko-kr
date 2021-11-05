@@ -4,13 +4,13 @@ description: Azure 서비스 및 애플리케이션에 대한 전체 모니터�
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/01/2021
-ms.openlocfilehash: 35ffbe3a329aae483b4da841ba4dfe34c1a07f9a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 10/14/2021
+ms.openlocfilehash: a47c26f2b600d7ed2ffd67877ab7202a763a4054
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435133"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036317"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -55,7 +55,7 @@ Azure Monitor는 [다양한 원본](monitor-reference.md)에서 데이터를 수
 
 - **애플리케이션 모니터링 데이터:** 플랫폼에 관계없이, 작성한 코드의 성능 및 기능에 대한 데이터입니다.
 - **게스트 OS 모니터링 데이터:** 애플리케이션이 실행되고 있는 운영 체제에 대한 데이터입니다. Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다. 
-- **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 메트릭 또는 로그가 있는 리소스의 전체 목록은 [Azure Monitor를 사용하여 모니터링할 수 있는 것](monitor-reference.md#azure-supported-services)을 참조하세요.
+- **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 메트릭 또는 로그가 있는 리소스의 전체 목록은 [Azure Monitor를 사용하여 모니터링할 수 있는 것](monitor-reference.md#list-of-azure monitor-supported-services)을 참조하세요.
 - **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
 - **Azure 테넌트 모니터링 데이터:** Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 

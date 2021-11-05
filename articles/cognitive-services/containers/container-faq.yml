@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: Cognitive Services 컨테이너 FAQ(질문과 대답)
+  title: Cognitive Services 컨테이너 FAQ
   titleSuffix: Azure Cognitive Services
-  description: 자주 묻는 질문과 대답입니다.
+  description: FAQ 답변을 확인합니다.
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -10,99 +10,109 @@ metadata:
   ms.topic: conceptual
   ms.date: 07/21/2021
   ms.author: aahi
-  ms.openlocfilehash: ae166866e7a7c7005bf57f34ffadccc692d8c72f
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 3fe301fcbd933e126a7aa60d777fbfe5c706a469
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124806625"
-title: Azure Cognitive Services 컨테이너 FAQ(질문과 대답)
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131011677"
+title: Azure Cognitive Services 컨테이너에 대한 FAQ
 summary: ''
 sections:
 - name: 일반적인 질문
   questions:
   - question: 사용할 수 있는 기능은 무엇인가요?
     answer: >
-      Azure Cognitive Services 컨테이너를 통해 개발자는 Azure에서 제공되는 것과 동일한 인텔리전트 API를 사용하면서 컨테이너화의 [혜택](../cognitive-services-container-support.md#features-and-benefits)을 누릴 수 있습니다. 일부 컨테이너는 애플리케이션의 액세스를 요구할 수 있는 제어된 미리 보기로 사용할 수 있습니다. 그 밖의 컨테이너는 제어되지 않는 미리 보기로 공개적으로 사용할 수 있거나, 일반적으로 사용할 수 있습니다. [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md) 문서에서 전체 컨테이너 및 해당 가용성 목록을 확인할 수 있습니다. [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services)에서도 컨테이너를 볼 수 있습니다.
+      Azure Cognitive Services 컨테이너를 통해 개발자는 Azure에서 제공되는 것과 동일한 인텔리전트 API를 사용하면서 컨테이너화의 [혜택](../cognitive-services-container-support.md#features-and-benefits)을 누릴 수 있습니다. 일부 컨테이너는 애플리케이션에 액세스해야 할 수 있는 게이트 미리 보기로 사용할 수 있습니다. 그 밖의 컨테이너는 제어되지 않는 미리 보기로 공개적으로 사용할 수 있거나, 일반적으로 사용할 수 있습니다. [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md) 문서에서 전체 컨테이너 및 해당 가용성 목록을 확인할 수 있습니다. [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services)에서 컨테이너를 볼 수도 있습니다.
   - question: Cognitive Services 클라우드와 컨테이너 간에 차이가 있나요?
     answer: >
       Cognitive Services 컨테이너는 Cognitive Services 클라우드의 대안입니다. 컨테이너는 해당하는 클라우드 서비스와 동일한 기능을 제공합니다. 고객은 온-프레미스 또는 Azure에서 컨테이너를 배포할 수 있습니다. 핵심 AI 기술, 가격 책정 계층, API 키 및 API 서명은 컨테이너와 해당 클라우드 서비스 간에 동일합니다. 해당하는 클라우드 서비스와 컨테이너를 비교하여 선택하기 위한 [기능 및 혜택](../cognitive-services-container-support.md#features-and-benefits)은 다음과 같습니다.
   - question: 제어된 미리 보기 컨테이너는 어떻게 액세스하고 사용하나요?
     answer: >
-      이전에는 제어된 미리 보기 컨테이너를 `containerpreview.azurecr.io` 리포지토리에서 호스트했습니다. 2020년 9월 22일부터는 이러한 컨테이너가 Microsoft Container Registry에서 호스트되며 다운로드하는 데 docker 로그인 명령을 사용하지 않습니다. 승인된 Azure 구독 ID로 Azure 리소스를 만들었다면 제어된 미리 보기 컨테이너를 실행할 수 있을 것입니다. [요청 양식](https://aka.ms/csgate)을 완료한 후 Azure 구독이 승인되지 않았다면 컨테이너를 실행할 수 없습니다.
-  - question: 모든 Cognitive Services에 컨테이너를 사용할 수 있나요? 앞으로 어떤 컨테이너 집합을 기대할 수 있나요?
+      이전에는 제어된 미리 보기 컨테이너를 `containerpreview.azurecr.io` 리포지토리에서 호스트했습니다. 2020년 9월 22일부터 이러한 컨테이너는 Microsoft Container Registry에서 호스팅됩니다. 다운로드할 때 `docker login` 명령을 사용할 필요가 없습니다. 승인된 Azure 구독 ID로 Azure 리소스를 만들었다면 제어된 미리 보기 컨테이너를 실행할 수 있을 것입니다. [요청 양식](https://aka.ms/csgate)을 완료한 후 Azure 구독이 승인되지 않았다면 컨테이너를 실행할 수 없습니다.
+  - question: 모든 Cognitive Services 제품에 대해 컨테이너를 사용할 수 있나요? 그리고 예상해야 하는 다음 컨테이너 세트는 무엇인가요?
     answer: >
-      앞으로 더 많은 Cognitive Services 컨테이너 제품을 제공하고자 합니다. 새 컨테이너 릴리스와 기타 Cognitive Services 공지에 대한 업데이트는 현지 Microsoft 고객 담당자에게 문의하세요.
+      더 많은 Cognitive Services 제품을 컨테이너로 제공하고자 합니다. 새 컨테이너 릴리스와 기타 Cognitive Services 공지에 대한 업데이트는 현지 Microsoft 계정 관리자에게 문의하세요.
   - question: Cognitive Services 컨테이너에 대한 SLA(서비스 수준 계약)는 어떻게 되나요?
     answer: >
       Cognitive Services 컨테이너에는 SLA가 없습니다.
 
 
-      리소스의 Cognitive Services 컨테이너 구성은 고객이 제어하므로 Microsoft가 GA(일반 공급)용 SLA를 제공하지 않습니다. 온-프레미스 컨테이너의 배포는 고객에 달려 있으므로 고객이 호스트 환경을 정의합니다.
+      고객은 리소스의 Cognitive Services 컨테이너 구성을 제어하므로 Microsoft는 일반 공급(GA)에 대한 SLA를 제공하지 않습니다. 고객은 온-프레미스에 컨테이너를 자유롭게 배포하고 호스트 환경을 정의할 수 있습니다.
 
 
       > [!IMPORTANT]
 
-      > Cognitive Services 서비스 수준 계약에 대한 자세한 정보는 [SLA 페이지를 확인하세요](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+      > Cognitive Services의 서비스 수준 계약에 대해 자세히 알아보려면 [SLA 페이지를 방문](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)합니다.
   - question: 이 컨테이너를 소버린 클라우드에서 사용할 수 있나요?
-    answer: "\"소버린 클라우드\" 라는 용어를 모두 사용하는 것은 아니므로 먼저 정의해 보겠습니다.\n\n> \"소버린 클라우드\"는 [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure 독일](../../germany/germany-welcome.md) 및 [Azure 중국 21Vianet](/azure/china/overview-operations) 클라우드로 구성됩니다.\n\n아쉽게도 Cognitive Services 컨테이너는 소버린 클라우드에서 기본적으로 지원 *되지 않습니다*. 컨테이너를 이 클라우드에서 실행할 수 있으나 퍼블릭 클라우드에서 풀하고 사용 데이터를 퍼블릭 엔드포인트로 보내야 합니다.\n"
+    answer: >
+      *소버린 클라우드* 라는 용어를 모두 사용하는 것은 아니므로 먼저 정의해 보겠습니다.
+
+
+      > 소버린 클라우드는 [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure 독일](../../germany/germany-welcome.md) 및 [Azure 중국 21Vianet](/azure/china/overview-operations) 클라우드로 구성됩니다.
+
+
+      아쉽게도 Cognitive Services 컨테이너는 소버린 클라우드에서 기본적으로 지원 *되지 않습니다*. 컨테이너를 이 클라우드에서 실행할 수 있으나 퍼블릭 클라우드에서 풀하고 사용량 현황 데이터를 퍼블릭 엔드포인트로 보내야 합니다.
 - name: 버전 관리
   questions:
   - question: 컨테이너는 어떻게 최신 버전으로 업데이트되나요?
     answer: >
-      고객은 배포한 컨테이너를 업데이트하는 시기를 선택할 수 있습니다. 최신 버전을 식별하기 위해 컨테이너는 `latest` 같은 표준 [Docker 태그](https://docs.docker.com/engine/reference/commandline/tag/)로 표시됩니다. 최신 컨테이너 버전이 릴리스되면 풀하는 것이 좋습니다. 이미지가 업데이트되었을 때 알림을 받는 방법에 대한 자세한 내용은 [Azure Container Registry 웹후크](../../container-registry/container-registry-webhook.md)를 확인하세요.
+      고객은 배포한 컨테이너를 업데이트할 시기를 선택할 수 있습니다. 최신 버전을 식별하기 위해 컨테이너는 `latest` 같은 표준 [Docker 태그](https://docs.docker.com/engine/reference/commandline/tag/)로 표시됩니다. 고객은 최신 버전의 컨테이너가 릴리스되면 끌어올 것을 권장합니다. 이미지가 업데이트될 때 알림을 받는 방법에 대한 자세한 내용은 [Azure Container Registry 웹후크](../../container-registry/container-registry-webhook.md)를 참조하세요.
   - question: 어떤 버전이 지원되나요?
     answer: >
       컨테이너의 현재 및 마지막 주 버전이 지원됩니다. 그러나 최신 상태를 유지하여 최신 기술을 확보하는 것이 좋습니다.
   - question: 업데이트 버전은 어떻게 관리되나요?
     answer: >
-      주요 버전 변경은 API 서명에 큰 변화가 있음을 의미합니다. 일반적으로 해당하는 Cognitive Service 클라우드 제품에 대한 주요 버전 변경과 일치합니다. 사소한 버전 변경은 버그 픽스, 모델 업데이트 또는 API 서명이 크게 변경되지 않는 새로운 기능을 의미합니다.
+      호환성이 손상되는 변경은 API 서명에 큰 변화가 있음을 의미합니다. 일반적으로 해당하는 Cognitive Services 클라우드 제품에 대한 주 버전 변경과 일치합니다. 사소한 버전 변경은 버그 픽스, 모델 업데이트 또는 API 서명이 크게 변경되지 않는 새로운 기능을 의미합니다.
 - name: 기술 관련 질문
   questions:
+  - question: 내 배포 환경에서 잠재적인 오류를 진단하려면 어떻게 해야 하나요?
+    answer: >
+      [!INCLUDE [Containers next steps](includes/diagnostics-container.md)]
   - question: IoT 디바이스에서 Cognitive Services 컨테이너를 실행하려면 어떻게 해야 하나요?
     answer: >
-      인터넷 연결이 안정적이지 않거나 대역폭 비용을 절약하려는 경우가 있을 수 있습니다. 또는 대기 시간이 적어야 하는 경우, 현장 분석이 필요한 중요한 데이터를 처리하는 경우 등 모든 상황에서 [Cognitive Services 컨테이너 기반의 Azure IoT Edge](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/)는 클라우드와의 일관성을 제공합니다.
+      안정적인 인터넷 연결이 없거나 대역폭 비용을 절감하고 싶거나 짧은 대기 시간 요구 사항이 있거나 현장에서 분석해야 하는 중요한 데이터를 처리하는 경우 [Azure IoT Edge는 Cognitive Services 컨테이너](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/)는 클라우드와의 일관성을 제공합니다.
   - question: 이 컨테이너가 OpenShift와 호환되나요?
     answer: >
       OpenShift로 컨테이너를 테스트하지 않지만 보통은 Cognitive Services 컨테이너는 Docker 이미지를 지원하는 모든 플랫폼에서 실행되어야 합니다. OpenShift를 사용하는 경우 컨테이너를 `root-user`로 실행하는 것이 좋습니다.
   - question: 제품 사용자 피드백 및 기능 추천은 어떻게 제공하나요?
     answer: >
-      염려되는 점에 대해 공개적으로 [목소리를 내고](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737) 겹치는 가능한 문제에 대해 목소리를 내는 다른 사용자를 지지할 것을 권장합니다. 피드백 도구는 제품 피드백과 기능 권장 사항 모두에 사용할 수 있습니다.
-  - question: Cognitive Services 컨테이너에서 반환되는 상태 메시지 및 오류는 무엇인가요?
+      고객이 공개적으로 [자신의 우려를 표명](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)하고 잠재적인 문제가 겹치는 경우 동일한 조치를 취한 다른 사람들에게 찬성 투표를 할 것을 권장합니다. 제품 피드백과 기능 권장 사항 모두에 피드백 도구를 사용할 수 있습니다.
+  - question: Cognitive Services 컨테이너는 어떤 상태 메시지와 오류를 반환하나요?
     answer: >
-      상태 메시지 및 오류 목록은 다음 표를 참조하세요.
+      다음은 상태 메시지 및 오류입니다.
 
 
       |상태  | 설명  |
 
       |---------|---------|
 
-      | `Valid` | API 키가 올바르므로 조치가 필요하지 않습니다. |
+      | `Valid` | API 키가 유효합니다. 어떤 조치가 필요하지 않습니다. |
 
-      | `Invalid` |   API 키가 잘못되었습니다. 컨테이너를 실행하려면 올바른 API 키를 제공해야 합니다. Azure Portal에서 Azure Cognitive Services 리소스에 대한 **키 및 엔드포인트** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
+      | `Invalid` |   API 키가 잘못되었습니다. 컨테이너를 실행하려면 유효한 API 키를 제공해야 합니다. Azure Portal의 Cognitive Services 리소스에 대한 **키 및 엔드포인트** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
 
-      | `Mismatch` | 다른 종류의 Cognitive Services 리소스에 대한 API 키 또는 엔드포인트를 제공했습니다. Azure Cognitive Services 리소스에 대한 **키 및 엔드포인트** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
+      | `Mismatch` | 다른 종류의 Cognitive Services 리소스에 대한 API 키 또는 엔드포인트를 제공했습니다. Azure Portal의 Cognitive Services 리소스에 대한 **키 및 엔드포인트** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
 
-      | `CouldNotConnect` | 컨테이너가 청구 엔드포인트에 연결할 수 없습니다. 추가 요청을 수행하기 전에 `Retry-After` 값을 확인하고 이 기간이 종료될 때까지 대기합니다. |
+      | `CouldNotConnect` | 컨테이너가 청구 엔드포인트에 연결할 수 없습니다. 더 많은 요청을 하기 전에 `Retry-After` 값을 확인하고 이 기간이 끝날 때까지 기다리세요. |
 
-      | `OutOfQuota` | API 키가 할당량을 초과했습니다. 가격 책정 계층을 업그레이드하거나, 추가 할당량을 사용할 수 있게 될 때까지 기다릴 수 있습니다. Azure Portal에서 Azure Cognitive Service 리소스의 **가격 책정 계층** 섹션에서 계층을 찾습니다. |
+      | `OutOfQuota` | API 키가 할당량을 초과했습니다. 가격 책정 계층을 업그레이드하거나 추가 할당량이 제공될 때까지 기다릴 수 있습니다. Cognitive Service 리소스의 **가격 책정 계층** 섹션에 있는 Azure Portal에서 계층을 찾습니다. |
 
-      | `BillingEndpointBusy` | 청구 엔드포인트가 현재 사용 중입니다. 추가 요청을 수행하기 전에 `Retry-After` 값을 확인하고 이 기간이 종료될 때까지 대기합니다. |
+      | `BillingEndpointBusy` | 청구 엔드포인트가 현재 사용 중입니다. 더 많은 요청을 하기 전에 `Retry-After` 값을 확인하고 이 기간이 끝날 때까지 기다리세요. |
 
-      | `ContainerUseUnauthorized` | 제공 된 API 키는 이 컨테이너에 사용할 권한이 없습니다. 제어된 컨테이너를 사용하는 중일 수도 있으므로 [온라인 요청](https://aka.ms/csgate)을 제출하여 Azure 구독 ID가 승인되었는지 확인합니다. |
+      | `ContainerUseUnauthorized` | 제공된 API 키는 이 컨테이너에 사용할 수 있는 권한이 없습니다. 제어된 컨테이너를 사용하는 중일 수도 있으므로 [온라인 요청](https://aka.ms/csgate)을 제출하여 Azure 구독 ID가 승인되었는지 확인합니다. |
 
       | `Unknown` | 서버에서 현재 청구 요청을 처리할 수 없습니다. |
-  - question: 지원은 어디로 연락하나요?
+  - question: 지원은 어떻게 받나요?
     answer: >
-      고객 지원 채널은 Cognitive Services 클라우드 기반 API와 동일합니다. 모든 Cognitive Services 컨테이너에는 회사와 커뮤니티가 고객을 지원하는 데 도움이 되는 로깅 기능이 포함되어 있습니다. 추가 지원이 필요한 경우 다음 옵션을 참조하세요.
+      고객 지원 채널은 Cognitive Services 클라우드 기반 API와 동일합니다. 모든 Cognitive Services 컨테이너에는 회사와 커뮤니티가 고객을 지원하는 데 도움이 되는 로깅 기능이 포함되어 있습니다. 추가 지원을 위한 옵션은 다음과 같습니다.
 
-      * 고객은 자신의 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/)을 참조하여 지원 담당자를 확인해야 합니다.
+      * [Azure 지원 플랜](https://azure.microsoft.com/support/plans/)에서 연락처 정보를 찾으세요.
 
-      * [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow)는 전문가 및 마니아 프로그래머를 위한 질문과 대답 사이트입니다.
+      * 전문 프로그래머와 열정적인 프로그래머를 위한 질문과 답변 사이트인 [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow)의 다음 영역을 사용해 보세요.
         * [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
         * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
   - question: 청구는 어떻게 작동하나요?
-    answer: "Cognitive Services 클라우드와 유사하게 사용량을 기준으로 요금이 청구됩니다. Azure에 계량 데이터를 보내도록 컨테이너를 구성해야 하며, 그에 따라 트랜잭션이 청구됩니다. 호스트되는 온-프레미스 서비스 전체에서 사용된 리소스는 계층별 가격 책정을 통해 단일 할당량에 합산되며 두 용도를 모두 계산합니다. 자세한 내용은 해당 제품의 가격 책정 페이지를 참조하세요.\n\n* [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)\n* [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md#billing)\n* [Face](../face/face-how-to-install-containers.md#billing)\n* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)\n* [언어 이해(LUIS)](../luis/luis-container-howto.md#billing)\n* [Speech Service API](../speech-service/speech-container-howto.md#billing)\n* [텍스트 분석](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)\n\n> [!IMPORTANT]\n> Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와만 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다.\n\n컨테이너에서 계량을 위해 통신하는 정보의 예는 다음과 같습니다.\n\n\n```json \n\"usageRequestBody\": {\n  \"id\": \"customer_subscriptionID\",\n  \"apiType\": \"textanalytics\",\n  \"containerType\": \"keyphrase\",\n  \"containerVersion\": \"1.1.00864.0001\",\n  \"containerId\": \"dep--keyphrase-\",\n  \"meter\": {\n    \"name\": \"CognitiveServices.TextAnalytics.Container.BatchScoring\",\n    \"quantity\": 10.0\n  }\n  ```\n"
+    answer: "Cognitive Services 클라우드와 유사하게 사용량을 기준으로 요금이 청구됩니다. Azure에 계량 데이터를 보내도록 컨테이너를 구성해야 하며, 그에 따라 트랜잭션이 청구됩니다. 호스트되는 온-프레미스 서비스 전체에서 사용된 리소스는 계층별 가격 책정을 통해 단일 할당량에 합산되며 두 용도를 모두 계산합니다. 자세한 내용은 다음 가격 책정 페이지를 참조하세요.\n\n* [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)\n* [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md) \n* [Face](../face/overview.md)\n* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)\n* [언어 이해(LUIS)](../luis/luis-container-howto.md#billing)\n* [Speech Service API](../speech-service/speech-container-howto.md#billing)\n* [텍스트 분석](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)\n\n> [!IMPORTANT]\n> Cognitive Services 컨테이너는 계량을 위해 Azure에 연결하지 않고 실행할 수 있는 *라이선스가 없습니다*. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다.\n\n다음은 계량을 위해 컨테이너가 통신하는 정보의 예입니다.\n\n\n```json \n\"usageRequestBody\": {\n  \"id\": \"customer_subscriptionID\",\n  \"apiType\": \"textanalytics\",\n  \"containerType\": \"keyphrase\",\n  \"containerVersion\": \"1.1.00864.0001\",\n  \"containerId\": \"dep--keyphrase-\",\n  \"meter\": {\n    \"name\": \"CognitiveServices.TextAnalytics.Container.BatchScoring\",\n    \"quantity\": 10.0\n  }\n  ```\n"
   - question: 컨테이너에 대한 현재 지원 보증은 무엇인가요?
     answer: >
       미리 보기에 대한 보증은 없습니다. 엔터프라이즈 소프트웨어에 대한 Microsoft의 표준 보증은 컨테이너가 GA(일반 공급) 형태로 공식 발표될 때 적용됩니다.
@@ -114,14 +124,14 @@ sections:
       Cognitive Services 컨테이너는 계량을 위해 Azure에 연결하지 않고 실행할 수 있는 *라이선스가 없습니다*. 고객은 컨테이너에서 항상 계량 서비스와 통신할 수 있도록 설정해야 합니다.
   - question: 이러한 컨테이너를 실행하는 데 필요한 하드웨어는 무엇인가요?
     answer: >
-      Cognitive Services 컨테이너는 호환되는 모든 Linux 노드, VM 및 x64 Linux Docker 컨테이너를 지원하는 에지 디바이스에서 실행할 수 있는 x64 기반 컨테이너입니다. 모두 CPU 프로세서가 필요합니다. 각 컨테이너 제품에 대한 최소 및 권장 구성은 아래에서 제공합니다.
+      Cognitive Services 컨테이너는 호환되는 모든 Linux 노드, VM 및 x64 Linux Docker 컨테이너를 지원하는 에지 디바이스에서 실행할 수 있는 x64 기반 컨테이너입니다. 모두 CPU 프로세서가 필요합니다. 다음 페이지에서 각 컨테이너 제품에 대한 최소 및 권장 구성을 찾을 수 있습니다.
 
 
       * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations)
 
-      * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations)
+      * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md)
 
-      * [Face](../face/face-how-to-install-containers.md#container-requirements-and-recommendations)
+      * [Face](../face/overview.md)
 
       * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
 
@@ -132,8 +142,8 @@ sections:
       * [텍스트 분석](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#host-computer-requirements-and-recommendations)
   - question: 이러한 컨테이너는 현재 Windows에서 지원되나요?
     answer: >
-      Cognitive Services 컨테이너는 Linux 컨테이너이나, Windows의 Linux 컨테이너를 일부 지원합니다. Windows의 Linux 컨테이너에 대한 자세한 내용은 [Docker 설명서](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/)를 참조하세요.
-  - question: Cognitive Services 컨테이너는 AWS 및 Google 제품에 어떻게 비교되나요?
+      Cognitive Services 컨테이너는 Linux 컨테이너이지만 Windows에서 Linux 컨테이너를 일부 지원합니다. Windows의 Linux 컨테이너에 대한 자세한 내용은 [Docker 설명서](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/)를 참조하세요.
+  - question: Cognitive Services 컨테이너는 AWS 및 Google 제품과 어떻게 비교되나요?
     answer: >
       Microsoft는 고객이 클라우드 서비스를 사용하는 것처럼 간단한 트랜잭션별 청구를 통해 컨테이너에서 미리 학습된 AI 모델을 제시한 최초의 클라우드 공급자입니다. Microsoft는 하이브리드 클라우드가 고객에게 더 많은 옵션을 제공한다고 믿습니다.
   - question: 컨테이너의 규정 준수 인증에는 어떤 것이 있나요?
@@ -141,5 +151,5 @@ sections:
       Cognitive Services 컨테이너에는 규정 준수 인증이 없습니다.
   - question: Cognitive Services 컨테이너는 어떤 지역에서 사용할 수 있나요?
     answer: >
-      컨테이너는 어느 지역에서나 사용할 수 있지만 키와 Azure의 계량 호출에 대한 응답이 필요합니다. 클라우드 서비스에 지원되는 모든 지역이 컨테이너 계량 호출에 대해 지원됩니다.
+      컨테이너는 모든 지역에서 실행할 수 있지만 키가 필요하고 측정을 위해 Azure로 다시 호출해야 합니다. 클라우드 서비스에 지원되는 모든 지역이 컨테이너 계량 호출에 대해 지원됩니다.
 additionalContent: '[!INCLUDE [Containers next steps](includes/containers-next-steps.md)]'

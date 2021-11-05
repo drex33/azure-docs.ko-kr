@@ -6,13 +6,13 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 4/7/2020
-ms.openlocfilehash: b1e7f42274b8402b55d358e10cde30f93520dd72
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/22/2021
+ms.openlocfilehash: d306f5853bee8dcb01cd65d53060b1fa25013176
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824698"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842115"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용하여 ADF로 SQL Server 에이전트 작업 마이그레이션
 
@@ -53,8 +53,8 @@ ms.locfileid: "124824698"
     1. 원본 폴더 경로를 업데이트합니다. 유효한 경로는 패키지의 폴더 경로 또는 부모 폴더 경로입니다.
     1. 대상 폴더 경로를 업데이트합니다. 기본값은 1단계에서 선택된 기본 스토리지 계정의 상대 경로입니다.
     1. **매핑 삭제** 를 통해 선택한 매핑을 삭제합니다.
-:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2.png" alt-text="캡처는 매핑을 추가할 수 있는 Map S I s 패키지 및 구성 경로 페이지를 표시 합니다.":::
-:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2-1.png" alt-text="원본 및 대상 폴더 경로를 업데이트할 수 있는 Map S I s 패키지 및 구성 경로 페이지가 스크린샷에 표시 됩니다.":::
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2.png" alt-text="스크린샷은 매핑을 추가할 수 있는 Map SSS 패키지 및 구성 경로 페이지를 보여줍니다.":::
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2-1.png" alt-text="스크린샷은 원본 및 대상 폴더 경로를 업데이트할 수 있는 Map SSS 패키지 및 구성 경로 페이지를 보여줍니다.":::
 
 1. 마이그레이션이 적용될 작업을 선택하고 해당하는 *실행된 SSIS 패키지 작업* 의 설정을 구성합니다.
 

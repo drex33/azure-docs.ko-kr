@@ -2,14 +2,14 @@
 title: Azure Video Analyzer 이벤트 기반 비디오 녹화 - Azure
 description: 'EVR (이벤트 기반 비디오 기록)은 이벤트에 의해 트리거될 때 비디오를 기록 하는 프로세스를 나타냅니다. 문제의 이벤트는 비디오 신호 자체의 처리(예: 동작이 감지된 경우) 또는 독립 원본(예: 도어 센서가 도어가 열렸다는 신호를 보냄)으로 인해 발생할 수 있습니다. 이 문서에서는 EVR과 관련된 몇 가지 사용 사례에 대해 설명합니다.'
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4d6c7a45d9da0824578bd3640c53ee5d6b4ea23f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 721e86c43dc0268eaca3fb83b7b2784249f6010e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131039094"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844566"
 ---
 # <a name="event-based-video-recording"></a>이벤트 기반 비디오 녹화  
 

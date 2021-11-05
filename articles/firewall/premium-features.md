@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 11/04/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 22cfeda4b1fc1afb032e8a6b2e689117211e5f1e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: addbd908670741cd0ba8662bf73a1a6788487498
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438539"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851461"
 ---
 # <a name="azure-firewall-premium-features"></a>Azure Firewall 프리미엄 기능
 
@@ -51,8 +51,8 @@ Azure Firewall 프리미엄은 네트워크 트래픽의 바이트 시퀀스 또
 
 Azure Firewall 서명/규칙 세트에는 다음이 포함됩니다.
 - 실제 맬웨어, 명령과 제어, 익스플로잇 키트 및 기존 예방 방법에서 누락된 실제 악성 활동에 관한 지문을 강조합니다.
-- 50개가 넘는 범주의 55,000개가 넘는 규칙
-    - 범주에는 맬웨어 명령과 제어, DoS 공격, 봇네트, 정보 이벤트, 익스플로잇, 취약성, SCADA 네트워크 프로토콜, 익스플로잇 키트 활동 등이 포함됩니다.
+- 50개 이상의 범주에서 58,000개 이상의 규칙
+    - 범주에는 맬웨어 명령 및 제어, 피싱, 트로이 목마, 봇넷, 정보 이벤트, 악용, 취약성, SCADA 네트워크 프로토콜, 익스플로잇 키트 활동 등이 포함됩니다.
 - 20 ~ 40개 이상의 새 규칙이 매일 릴리스됩니다.
 - 최신 맬웨어 샌드박스 및 전역 센서 네트워크 피드백 루프를 사용하여 가양성 등급을 낮춥니다.
 
@@ -90,13 +90,13 @@ URL 필터링은 HTTP와 HTTPS 트래픽 모두에 적용할 수 있습니다. H
 
 ### <a name="web-category-search"></a>웹 범주 검색
 
-**웹 범주 검사** 기능을 사용 하 여 지정 된 FQDN 또는 URL의 범주를 식별할 수 있습니다. 이를 사용 하려면 **방화벽 정책 설정** 에서 **웹 범주** 탭을 선택 합니다. 이 기능은 대상 트래픽에 대 한 응용 프로그램 규칙을 정의할 때 특히 유용 합니다.
+웹 범주 확인 기능을 사용하여 지정된 FQDN 또는 URL이 어떤 **범주인지** 식별할 수 있습니다. 이를 사용하려면 **방화벽 정책 설정** **웹 범주** 탭을 선택합니다. 이 방법은 대상 트래픽에 대한 애플리케이션 규칙을 정의할 때 특히 유용합니다.
 
 :::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="방화벽 범주 검색 대화 상자":::
 
 ### <a name="category-change"></a>범주 변경
 
-**방화벽 정책 설정** 의 **웹 범주** 탭에서 다음과 같은 경우 분류 변경을 요청할 수 있습니다. 
+**방화벽 정책 설정** **웹 범주** 탭 아래에서 다음과 같은 경우 분류 변경을 요청할 수 있습니다. 
 
 - FQDN 또는 URL은 다른 범주에 속해야 함 
 
@@ -104,7 +104,7 @@ URL 필터링은 HTTP와 HTTPS 트래픽 모두에 적용할 수 있습니다. H
 
 - 분류되지 않은 FQDN 또는 URL에 대해 제안된 범주가 있음 
 
- 범주 변경 보고서를 제출 하 고 나면 처리 요청을 받았음을 나타내는 토큰이 알림에 제공 됩니다. 검색 표시줄에 토큰을 입력 하 여 요청이 진행 중인지, 거부 되었는지 또는 승인 되었는지 확인할 수 있습니다.  이렇게 하려면 토큰 ID를 저장 해야 합니다.
+ 범주 변경 보고서를 제출하면 처리 요청을 받았음을 나타내는 토큰이 알림에 제공됩니다. 검색 표시줄에 토큰을 입력하여 요청이 진행 중인지, 거부되었는지 또는 승인되었는지 확인할 수 있습니다.  이렇게 하려면 토큰 ID를 저장해야 합니다.
 
 :::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="방화벽 범주 보고서 대화 상자":::
 
@@ -123,8 +123,8 @@ Azure Firewall 프리미엄은 다음 지역에서 지원됩니다.
 - 인도 중부(퍼블릭/인도)
 - 미국 중부(퍼블릭/미국)
 - 미국 중부 EUAP(퍼블릭/카나리아(미국))
-- 중국 북부 2 (Mooncake/중국)
-- 중국 동부 2 (Mooncake/중국)
+- 중국 북부 2(문케이크/중국)
+- 중국 동부 2(Mooncake /China)
 - 동아시아(퍼블릭/아시아 태평양)
 - 미국 동부(퍼블릭/미국)
 - 미국 동부 2(퍼블릭/미국)

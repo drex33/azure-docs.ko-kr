@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 10/22/2021
 ms.author: curtand
-ms.reviewer: krbain
+ms.reviewer: jodah
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834893a35c8284012f61d228bf44385cb9eb5549
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7bde4362580ebfd04f67b5311c79cb8c64e85ddc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986457"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052658"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대한 만료 정책 구성
 
@@ -42,7 +42,9 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 ## <a name="activity-based-automatic-renewal"></a>활동 기준 자동 갱신
 
-Azure AD 인텔리전스를 사용하여 이제 그룹은 최근에 사용되었는지 여부에 따라 자동으로 갱신됩니다. 이 기능을 사용하면 그룹 소유자가 Outlook, SharePoint 또는 Teams와 같은 Microsoft 365 서비스에서 그룹의 사용자 활동을 기반으로 하므로 수동 작업을 수행할 필요가 없습니다. 예를 들어 소유자 또는 그룹 구성원이 SharePoint에서 문서를 업로드하거나 Teams 채널을 방문하거나 Outlook의 그룹으로 이메일을 보내면 그룹이 만료되고 소유자에게 갱신 알림이 제공되지 않을 때까지 35일이 지나면 그룹이 자동으로 갱신됩니다.
+Azure AD 인텔리전스를 사용하여 이제 그룹은 최근에 사용되었는지 여부에 따라 자동으로 갱신됩니다. 이 기능을 사용하면 그룹 소유자가 Outlook, SharePoint 또는 Teams와 같은 Microsoft 365 서비스에서 그룹의 사용자 활동을 기반으로 하므로 수동 작업을 수행할 필요가 없습니다. 예를 들어, 소유자 또는 그룹 멤버가 SharePoint에 문서를 업로드하거나, Teams 채널을 방문하거나, Outlook의 그룹으로 이메일을 보내는 경우 그룹이 만료되기 약 35일 전에 그룹이 자동으로 갱신되고 소유자에게 갱신 알림이 전달되지 않습니다. Yammer 기본 모드에서 Microsoft 365 그룹으로 변환된 "모든 회사" 그룹은 현재 이러한 유형의 자동 갱신을 지원하지 않으며 해당 그룹에 대한 Yammer 활동은 활동으로 계산되지 않습니다.
+
+예를 들어, 그룹이 30일 비활성 후에 만료되도록 설정된 만료 정책을 고려합니다. 그러나 그룹 만료를 사용하도록 설정된 날(아직 레코드 활동이 없기 때문) 만료 이메일을 보내지 않도록 Azure AD에서 먼저 5일을 대기합니다. 해당 5일 동안 활동이 있는 경우 만료 정책이 예상대로 작동합니다. 5일 이내에 활동이 없는 경우 만료/갱신 이메일을 보냅니다. 물론 그룹이 5일 동안 비활성 상태이고 이메일이 전송된 다음 그룹이 활성 상태인 경우 그룹을 자동 갱신하고 만료 기간을 다시 시작합니다.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>그룹 만료를 자동으로 갱신하는 작업
 
@@ -100,6 +102,9 @@ Azure AD 인텔리전스를 사용하여 이제 그룹은 최근에 사용되었
 ![만료 이메일 알림](./media/groups-lifecycle/expiration-notification.png)
 
 **그룹 갱신** 알림 이메일에서 그룹 소유자는 [액세스 패널](https://account.activedirectory.windowsazure.com/r#/applications)의 그룹 세부 정보 페이지에 직접 액세스할 수 있습니다. 여기에 사용자는 그룹에 대해 마지막 갱신 시간, 예상 만료 시간, 그룹 갱신 능력 등에 대한 자세한 정보를 얻을 수 있습니다. 이제 그룹 세부 정보 페이지에는 Microsoft 365 그룹 리소스에 대한 링크가 포함되어 있으므로 그룹 소유자는 해당 그룹의 콘텐츠 및 활동을 편리하게 볼 수 있습니다.
+
+>[!Important]
+> 알림 이메일에 문제가 있고 전송되지 않거나 지연된 경우 Microsoft는 마지막 이메일이 전송되기 전에 그룹을 삭제하지 않을 것임을 보장합니다.
 
 그룹이 만료되면 그룹은 만료 날짜 1일 후에 삭제됩니다. Microsoft 365 그룹의 만료 및 후속 삭제에 대해 알려주는 이와 같은 이메일 알림은 Microsoft 365 그룹 소유자에게 전송됩니다.
 

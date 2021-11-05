@@ -2,13 +2,13 @@
 title: Azure Video Analyzer의 AI 컴퍼지션
 description: 이 문서에서는 세 가지 종류의 AI 컴퍼지션에 대한 Azure Video Analyzer 지원에 대한 개략적인 개요를 제공합니다. 또한 이 항목에서는 각 종류의 AI 컴퍼지션에 대한 시나리오 설명도 제공합니다.
 ms.topic: conceptual
-ms.date: 08/11/2021
-ms.openlocfilehash: 709bfe642c6427e131c95d64af6de0ee410cf261
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/04/2021
+ms.openlocfilehash: 4195fd0dbcd44f0eeb273384e6d6cfad352aedb5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536035"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847112"
 ---
 # <a name="ai-composition"></a>AI 컴퍼지션
 

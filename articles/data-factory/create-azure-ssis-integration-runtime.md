@@ -4,16 +4,16 @@ description: Azure에 SSIS 패키지를 배포하고 실행할 수 있도록 Azu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3a3e6c8318309959eb2a709837040db42575b91b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 70e745d18699c6a1acb707528ec38641a1fe7a02
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215380"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842894"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 
@@ -34,9 +34,9 @@ Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에
 
 - Azure-SSIS IR을 가상 네트워크에 조인하거나, Azure-SSIS IR에서 온-프레미스 데이터에 액세스하도록 자체 호스팅 IR을 프록시로 구성합니다.
 
-이러한 문서에서는 Azure Portal , Azure PowerShell 및 [Azure Resource Manager](create-azure-ssis-integration-runtime-portal.md) [템플릿을](create-azure-ssis-integration-runtime-resource-manager-template.md)사용하여 [Azure-SSIS IR](create-azure-ssis-integration-runtime-powershell.md)프로비전하는 방법을 보여줍니다.
+이러한 문서에서는 [Azure Portal](create-azure-ssis-integration-runtime-portal.md), [Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md)및 [Azure Resource Manager 템플릿을](create-azure-ssis-integration-runtime-resource-manager-template.md)사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,10 +88,10 @@ Data Factory 및 Azure-SSIS IR을 사용할 수 있는 Azure 지역의 목록은
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal 사용하여 Azure-SSIS IR 프로비전하는 방법을 알아봅니다.](create-azure-ssis-integration-runtime-portal.md)
-- [Azure PowerShell 사용하여 Azure-SSIS IR 프로비전하는 방법을 알아봅니다.](create-azure-ssis-integration-runtime-powershell.md)
-- [Azure Resource Manager 템플릿을 사용하여 Azure-SSIS IR 프로비전하는 방법을 알아봅니다.](create-azure-ssis-integration-runtime-resource-manager-template.md)
-- [Azure Data Factory 에서 SSIS 패키지를 배포하고 실행합니다.](create-azure-ssis-integration-runtime-deploy-packages.md)
+- [Azure Portal를 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 알아봅니다](create-azure-ssis-integration-runtime-portal.md).
+- [Azure PowerShell를 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 알아봅니다](create-azure-ssis-integration-runtime-powershell.md).
+- [Azure Resource Manager 템플릿을 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 알아봅니다](create-azure-ssis-integration-runtime-resource-manager-template.md).
+- [Azure Data Factory에서 SSIS 패키지를 배포 하 고 실행](create-azure-ssis-integration-runtime-deploy-packages.md)합니다.
 
 이 설명서의 다른 Azure-SSIS IR 항목을 참조하세요.
 

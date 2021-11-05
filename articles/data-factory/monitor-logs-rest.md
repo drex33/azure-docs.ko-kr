@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor REST API를 통해 진단 로그 설정
 description: Azure Monitor REST API 사용하여 Azure Data Factory 대한 진단 로그를 설정하는 방법을 알아봅니다.
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 8407ed72f1bc3bbade51d19d27bd26ab15e7b49a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 41b7a817b35b15ad18d962f5fb073fac76118444
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020166"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842837"
 ---
 # <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Azure Monitor REST API를 통해 진단 로그 설정
 
@@ -91,7 +91,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | --- | --- | --- |
 | **storageAccountId** |String | 진단 로그를 보내려는 스토리지 계정의 리소스 ID입니다. |
 | **serviceBusRuleId** |String | 스트리밍 진단 로그에 대해 이벤트 허브를 만들려는 service-bus 네임스페이스의 서비스 버스 규칙 ID입니다. 규칙 ID의 형식은 `{service bus resource ID}/authorizationrules/{key name}`입니다.|

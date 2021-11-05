@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: mathoma,vanto
-ms.date: 08/20/2021
-ms.openlocfilehash: f9c5df5bf086e5d80c8f506aa8bb718427755d7a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/04/2021
+ms.openlocfilehash: e445574d69096605f16a6a097f005e020674f6a2
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680683"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851708"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance 연결 문제 및 기타 오류 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -105,7 +105,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 일반적으로 서비스 관리자는 다음 단계를 사용하여 로그인을 자격 증명을 추가할 수 있습니다.
 
 1. SSMS(SQL Server Management Studio)를 사용하여 서버에 로그인합니다.
-2. Master 데이터베이스에서 다음 SQL 쿼리를 실행하여 로그인 이름이 사용하지 않도록 설정되었는지 여부를 확인합니다.
+2. 데이터베이스에서 다음 SQL `master` 쿼리를 실행하여 로그인 이름이 비활성화되었는지 확인합니다.
 
    ```sql
    SELECT name, is_disabled FROM sys.sql_logins;
@@ -303,6 +303,8 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행되나요?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조하세요.
 
+메모리 부족 오류 및 샘플 쿼리에 대 한 자세한 내용은 [Azure SQL Database를 사용 하 여 메모리 부족 오류 문제 해결](troubleshoot-memory-errors-issues.md)을 참조 하세요.
+
 ### <a name="table-of-additional-resource-governance-error-messages"></a>추가 리소스 거버넌스 오류 메시지 표
 
 | 오류 코드 | 심각도 | 설명 |
@@ -314,7 +316,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 | 40550 |16 |잠금을 너무 많이 획득하여 세션이 종료되었습니다. 단일 트랜잭션에서 읽거나 수정하는 행 수를 줄여 보세요. 일괄 처리에 대한 자세한 내용은 [배치를 사용하여 SQL Database 애플리케이션 성능을 개선하는 방법](../performance-improve-use-batching.md)을 참조하세요.|
 | 40551 |16 |과도한 `TEMPDB` 사용으로 인해 세션이 종료되었습니다. 쿼리를 수정하여 임시 테이블 공간 사용량을 줄여 보세요.<br/><br/>임시 개체를 사용하는 경우 세션에서 더 이상 필요하지 않을 때 임시 개체를 삭제하여 `TEMPDB` 데이터베이스의 공간을 절약하세요. SQL Database tempdb 사용에 대한 자세한 내용은 [SQL Database의 tempdb 데이터베이스](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)를 참조하세요.|
 | 40552 |16 |트랜잭션 로그 공간 사용량이 너무 많아 세션이 종료되었습니다. 단일 트랜잭션에서 수정하는 행 수를 줄여 보세요. 일괄 처리에 대한 자세한 내용은 [배치를 사용하여 SQL Database 애플리케이션 성능을 개선하는 방법](../performance-improve-use-batching.md)을 참조하세요.<br/><br/>`bcp.exe` 유틸리티 또는 `System.Data.SqlClient.SqlBulkCopy` 클래스를 사용하여 대량 삽입을 수행하는 경우 `-b batchsize` 또는 `BatchSize` 옵션을 사용하여 각 트랜잭션에서 서버로 복사된 행의 수를 제한하세요. `ALTER INDEX` 문을 사용하여 인덱스를 다시 작성하는 경우 `REBUILD WITH ONLINE = ON` 옵션을 사용하여 시도하십시오. VCore 구매 모델의 트랜잭션 로그 크기에 대한 자세한 내용은 다음을 참조하세요. <br/>&bull; &nbsp;[단일 데이터베이스에 대한 vCore 기반 한도](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[탄력적 풀에 대한 vCore 기반 한도](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance 리소스 한도](../managed-instance/resource-limits.md).|
-| 40553 |16 |메모리 사용량이 너무 많아 세션이 종료되었습니다. 쿼리를 수정하여 처리할 행 수를 줄여 보세요.<br/><br/>Transact-SQL 코드에서 `ORDER BY` 및 `GROUP BY` 작업의 수를 줄이면 쿼리의 메모리 요구 사항이 줄어듭니다. 데이터베이스 크기 조정은 [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.|
+| 40553 |16 |메모리 사용량이 너무 많아 세션이 종료되었습니다. 쿼리를 수정하여 처리할 행 수를 줄여 보세요.<br/><br/>Transact-SQL 코드에서 `ORDER BY` 및 `GROUP BY` 작업의 수를 줄이면 쿼리의 메모리 요구 사항이 줄어듭니다. 데이터베이스 크기 조정은 [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요. 메모리 부족 오류 및 샘플 쿼리에 대 한 자세한 내용은 [Azure SQL Database를 사용 하 여 메모리 부족 오류 문제 해결](troubleshoot-memory-errors-issues.md)을 참조 하세요.|
 
 ## <a name="elastic-pool-errors"></a>탄력적 풀 오류
 
@@ -345,7 +347,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ## <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>로그인에서 요청한 데이터베이스 "master"를 열 수 없습니다. 로그인에 실패했습니다.
 
-이 문제는 계정에 master 데이터베이스에 대한 액세스 권한이 없기 때문에 발생합니다. 그러나 SSMS(SQL Server Management Studio)는 기본값으로 master 데이터베이스에 연결을 시도합니다.
+이 문제는 계정에 데이터베이스에 대 한 액세스 권한이 없기 때문에 발생 합니다 `master` . 하지만 기본적으로 SQL Server Management Studio (SSMS)는 데이터베이스에 대 한 연결을 시도 `master` 합니다.
 
 이 문제를 해결하려면 다음 단계를 따릅니다.
 

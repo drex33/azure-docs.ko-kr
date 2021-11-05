@@ -3,21 +3,21 @@ title: Azure Active Directory 애플리케이션 프록시를 사용하여 온-�
 description: Azure Active Directory의 애플리케이션 프록시를 사용하면 네이티브 앱이 온-프레미스 또는 클라우드 VM에서 호스트하는 API 및 비즈니스 논리에 안전하게 액세스할 수 있습니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7f4404e3e9b09bcabfc97f0419c230e932a31815
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: eb2036976e9e73e7ad466974f9885b9035152851
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568096"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059493"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 온-프레미스 API에 안전하게 액세스
 
@@ -97,7 +97,7 @@ Azure AD 애플리케이션 프록시를 통해 웹 API를 게시했습니다. �
 1. **할당 추가** 페이지로 돌아가서 **할당** 을 선택합니다.
 
 > [!NOTE]
-> Windows 통합 인증을 사용하는 API에는 [추가 단계](./application-proxy-configure-single-sign-on-with-kcd.md)가 필요할 수 있습니다.
+> Windows 통합 인증을 사용하는 API에는 [추가적인 단계](./application-proxy-configure-single-sign-on-with-kcd.md)가 필요할 수 있습니다.
 
 ## <a name="register-the-native-app-and-grant-access-to-the-api"></a>네이티브 앱을 등록하고 API에 대한 액세스 권한 부여
 
@@ -139,13 +139,13 @@ AppProxyNativeAppSample 네이티브 앱을 등록하려면 다음을 수행합�
 
 마지막 단계는 네이티브 앱을 구성하는 것입니다. NativeClient 샘플 앱의 *Form1.cs* 파일에서 다음 코드 조각을 사용하면 MSAL 라이브러리에서 API 호출을 요청하기 위한 토큰을 획득하고 이를 전달자로 앱 헤더에 연결합니다.
 
-   ```
-   // Acquire Access Token from AAD for Proxy Application
- IPublicClientApplication clientApp = PublicClientApplicationBuilder
-.Create(<App ID of the Native app>)
-.WithDefaultRedirectUri() // will automatically use the default Uri for native app
-.WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
-.Build();
+```csharp
+// Acquire Access Token from AAD for Proxy Application
+IPublicClientApplication clientApp = PublicClientApplicationBuilder
+    .Create(<App ID of the Native app>)
+    .WithDefaultRedirectUri() // Will automatically use the default Uri for native app
+    .WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
+    .Build();
 
 AuthenticationResult authResult = null;
 var accounts = await clientApp.GetAccountsAsync();
@@ -154,22 +154,22 @@ IAccount account = accounts.FirstOrDefault();
 IEnumerable<string> scopes = new string[] {"<Scope>"};
 
 try
- {
+{
     authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
- }
-    catch (MsalUiRequiredException ex)
- {
-     authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();                
- }
- 
+}
+catch (MsalUiRequiredException ex)
+{
+    authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
+}
+
 if (authResult != null)
- {
-  //Use the Access Token to access the Proxy Application
-  
-  HttpClient httpClient = new HttpClient();
-  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
-  HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
- }
+{
+    // Use the Access Token to access the Proxy Application
+
+    HttpClient httpClient = new HttpClient();
+    HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+    HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
+}
 ```
 
 Azure Active Directory에 연결하고 API 앱 프록시를 호출하도록 네이티브 앱을 구성하려면 NativeClient 샘플 앱의 *App.config* 파일에 있는 자리 표시자 값을 Azure AD의 값으로 업데이트합니다.

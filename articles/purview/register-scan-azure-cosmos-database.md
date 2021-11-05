@@ -7,14 +7,14 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 7d5556fcd040eaefe1078cddaf084089e471d496
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ba4c12c51ad744e6c68d63c1aaad17f32fbec15e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076956"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841983"
 ---
-# <a name="connect-to-azure-cosmos-database-sql-api-in-azure-purview"></a>Azure Purview에서 Azure Cosmos 데이터베이스(SQL API)로 커넥트
+# <a name="connect-to-azure-cosmos-database-sql-api-in-azure-purview"></a>Azure Purview에서 Azure Cosmos 데이터베이스(SQL API)에 커넥트
 
 이 문서에서는 Azure Cosmos 데이터베이스 원본을 인증하고 상호 작용하는 지침을 포함하여 Azure Purview에서 Azure Cosmos 데이터베이스(SQL API)를 등록하는 프로세스를 간략하게 설명합니다.
 
@@ -22,9 +22,11 @@ ms.locfileid: "131076956"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)|아니요|아니요|
+| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)|예|아니요** |
 
-## <a name="prerequisites"></a>사전 요구 사항
+\** 계보는 데이터 세트가 에서 원본/싱크로 사용되는 경우 [지원됩니다Data Factory 복사 작업](how-to-link-azure-data-factory.md) 
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -76,7 +78,7 @@ ms.locfileid: "131076956"
 
 Azure Cosmos Database에 대한 인증을 설정하는 방법은 하나뿐입니다.
 
-**계정 키** - Azure Purview가 비밀을 사용하여 데이터 원본을 안전하게 검색할 수 있도록 자격 증명을 저장하기 위해 Azure Key Vault 내에 비밀을 만들 수 있습니다. 비밀은 스토리지 계정 키, SQL 로그인 암호 또는 암호일 수 있습니다.
+**계정 키** - Azure Purview가 비밀을 사용하여 데이터 원본을 안전하게 검사할 수 있도록 자격 증명을 저장하기 위해 Azure Key Vault 내에 비밀을 만들 수 있습니다. 비밀은 로그인 암호 또는 암호를 SQL 스토리지 계정 키일 수 있습니다.
 
 > [!Note]
 > 구독에 Azure _Key Vault_ 리소스를 배포하고 Azure Key Vault 내의 비밀에 대한 필수 액세스 권한이 있는 Azure _Purview 계정의_ MSI를 할당해야 _합니다._
@@ -98,7 +100,7 @@ Azure Cosmos Database에 대한 인증을 설정하는 방법은 하나뿐입니
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-key-vault.png" alt-text="키 자격 증명 모음을 보여 주는 스크린샷":::
 
-1. 비밀 설정 > 선택하고 **+ 생성/가져오기를** **선택합니다.**
+1. 비밀 설정 > 선택하고 + **생성/가져오기를** **선택합니다.**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-generate-secret.png" alt-text="비밀을 생성하는 키 자격 증명 모음 옵션을 보여 주는 스크린샷":::
 
@@ -112,16 +114,16 @@ Azure Cosmos Database에 대한 인증을 설정하는 방법은 하나뿐입니
 ### <a name="creating-the-scan"></a>검사 만들기
 
 1. **Purview 계정을** 열고 **Purview Studio 열기를** 선택합니다.
-1. **데이터 맵**  -->  **원본으로** 이동하여 컬렉션 계층 구조를 봅니다.
+1. **데이터 맵**  -->  **원본으로** 이동하여 컬렉션 계층 구조를 확인합니다.
 1. 이전에 등록된 **Azure Cosmos 데이터베이스** 아래에서 새 **검색** 아이콘을 선택합니다.
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-create-scan.png" alt-text="새 검사를 만드는 화면을 보여 주는 스크린샷":::
 
-1. 검사에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, **자격 증명** 아래에서 + **새로** 설정을 선택합니다.
+1. 검색에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, **자격 증명** 아래에서 + **새로** 설정을 선택합니다.
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-acct-key-option.png" alt-text="검사를 위한 계정 키 옵션을 보여 주는 스크린샷":::
 
-1. _계정_ 키를 만드는 동안 사용된 적절한 **키 자격 증명** 모음 연결 및 **비밀 이름을** 선택합니다. _계정 키로_ **인증 방법** 선택
+1. _계정_ 키를 만드는 동안 사용된 적절한 **키 자격 증명** 모음 연결 및 **비밀 이름을** 선택합니다. **인증 방법을** _계정 키로_ 선택
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-acct-key-details.png" alt-text="계정 키 옵션을 보여 주는 스크린샷":::
 

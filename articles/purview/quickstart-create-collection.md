@@ -6,21 +6,16 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
-ms.date: 09/27/2021
+ms.date: 11/04/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 47db60e99048d5be58eb1aae6707caa6ae9c4d6e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5dff616c6fa7ee8e72a932da281935f77db19010
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218774"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853703"
 ---
 # <a name="quickstart-create-a-collection-and-assign-permissions-in-purview"></a>빠른 시작: Purview에서 컬렉션 만들기 및 권한 할당
-
-> [!NOTE]
-> 현재 이 빠른 시작은 2021년 8월 18일 이후에 생성된 Azure Purview 인스턴스에만 적용됩니다. 8월 18일 전에 만든 인스턴스는 컬렉션을 만들 수 있지만, 해당 컬렉션을 통해 사용 권한을 관리하지는 않습니다. 8월 18일 전에 만든 Purview 인스턴스에 대한 컬렉션 만들기의 자세한 내용은 페이지 맨 아래에 있는 [**레거시 컬렉션 가이드**](#legacy-collection-guide)를 참조하세요.
-> 
-> 모든 레거시 계정은 향후 몇 주 동안 자동으로 업그레이드됩니다. Purview 계정이 업그레이드되면 메일 알림을 받게 됩니다. 계정이 업그레이드되면 변경되는 사항에 대한 자세한 내용은 [업그레이드된 계정 가이드](concept-account-upgrade.md)를 참조하세요.
 
 컬렉션은 자산, 원본 및 정보에 대한 소유권과 액세스 제어를 관리하는 데 사용되는 Azure Purview 도구입니다. 또한 컬렉션은 고객의 관리 환경이 고객의 데이터와 일치하도록 사용자 지정된 범주로 원본 및 자산을 구성합니다. 이 가이드에서는 첫 번째 컬렉션 및 컬렉션 관리자를 설정하여 조직의 Purview 환경을 준비하는 과정을 안내합니다.
 
@@ -96,25 +91,6 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
     :::image type="content" source="./media/quickstart-create-collection/edit-role-assignments.png" alt-text="역할 할당 편집 드롭다운 목록이 선택된 Purview Studio 컬렉션 창의 스크린샷" border="true":::
 
 1. 역할 멤버에 추가할 사용자를 텍스트 상자에 입력하여 검색합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
-
-## <a name="legacy-collection-guide"></a>레거시 컬렉션 가이드
-
-> [!NOTE]
-> 이 레거시 컬렉션 가이드는 2021년 8월 18일 전에 만든 Purview 인스턴스에만 적용됩니다. 이 날짜 이후에 만든 인스턴스는 위의 가이드를 따라야 합니다.
-
-### <a name="create-a-legacy-collection"></a>레거시 컬렉션 만들기
-
-1. 왼쪽 창에서 데이터 맵을 선택하여 데이터 맵을 엽니다. 맵 보기를 사용하여 컬렉션 및 해당 컬렉션 아래에 나열된 원본을 볼 수 있습니다.
-
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-view.png" alt-text="데이터 맵이 열린 Purview Studio 창의 스크린샷" border="true":::
-
-1. **+ 새 컬렉션** 을 선택합니다.
-
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-create.png" alt-text="데이터 맵이 열리고 + 새 컬렉션이 강조 표시된 Purview Studio 창의 스크린샷" border="true":::
-
-1. 컬렉션 이름을 지정하고 부모 또는 ‘없음’을 선택합니다. **만들기** 를 선택합니다. 컬렉션 정보가 데이터 맵에 반영됩니다.
-
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-name.png" alt-text="Purview Studio 새 컬렉션 팝업의 스크린샷" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

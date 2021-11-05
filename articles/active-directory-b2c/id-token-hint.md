@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/16/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 557977f3de6e59ff592af65b6ff0357cdc4bfa5d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8868c506ab80a2ece97882e080caa5abb5642c24
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130036927"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007261"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필 정의
 
@@ -24,7 +24,7 @@ Azure AD B2C를 사용하면 신뢰 당사자 애플리케이션이 OAuth2 권�
 
 ## <a name="use-cases"></a>사용 사례
 
-이 솔루션을 사용하여 단일 JWT 토큰으로 캡슐화된 Azure AD B2C에 데이터를 보낼 수 있습니다. 시스템 관리자가 서명된 초대를 사용자에게 보낼 수 있는 [이메일 초대 솔루션 등록](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md)은 id_token_hint를 기반으로 합니다. 초대 이메일에 대한 액세스 권한이 있는 사용자만 디렉터리에 계정을 만들 수 있습니다.
+이 솔루션을 사용하여 단일 JWT 토큰으로 캡슐화된 Azure AD B2C에 데이터를 보낼 수 있습니다. 시스템 관리자가 서명된 초대를 사용자에게 보낼 수 있는 [`Signup with email invitation` 솔루션](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md)은 id_token_hint를 기반으로 합니다. 초대 이메일에 대한 액세스 권한이 있는 사용자만 디렉터리에 계정을 만들 수 있습니다.
 
 ## <a name="token-signing-approach"></a>토큰 서명 방법
 
@@ -41,7 +41,7 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 | 만료 시간 | `exp` | `1600087315` | epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. Azure AD B2C는 이 값의 유효성을 검사하고 토큰이 만료된 경우 토큰을 거부합니다.|
 | 이전이 아님 | `nbf` | `1599482515` | epoch 시간으로 표시된, 토큰이 유효화되는 시간입니다. 일반적으로 토큰이 발급된 시간과 같습니다. Azure AD B2C는 이 값의 유효성을 검사하고 토큰 수명이 유효하지 않은 경우 토큰을 거부합니다. |
 
- 다음 토큰은 유효한 ID 토큰의 예입니다.
+다음 토큰은 유효한 ID 토큰의 예입니다.
 
 ```json
 {
@@ -82,18 +82,18 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 
 다음 메타데이터는 대칭 키를 사용할 때 관련됩니다. 
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 발급자 | 예 | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 JWT 토큰 클레임 내의 `iss` 클레임과 동일해야 합니다. | 
 | IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. | 
 
 다음 메타데이터는 비대칭 키를 사용할 때 관련됩니다. 
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | METADATA| 예 | OpenID의 잘 알려진 구성 엔드포인트라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
-| 발급자 | 예 | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 메타데이터에 구성된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일해야 합니다. |  
-| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. |  
+| 발급자 | No | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 메타데이터에 구성된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일해야 합니다. |  
+| IdTokenAudience | No | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. |  
 
 [!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
@@ -101,10 +101,9 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 
 대칭 키를 사용하는 경우 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | JWT 토큰 서명의 유효성을 검사하는 데 사용되는 암호화 키입니다.|
-
 
 ## <a name="how-to-guide"></a>방법 가이드
 
@@ -188,7 +187,7 @@ $newClientSecret
 * `/.well-known/openid-configuration` -토큰 발급자 이름 및 JWK 엔드포인트에 대한 링크와 같이 토큰에 대한 관련 정보가 포함된 잘 알려진 구성 엔드포인트입니다. 
 * `/.well-known/keys` -키(인증서의 프라이빗 키 부분 포함)에 서명하는 데 사용되는 공개 키가 있는 JWK(JSON 웹 키) 엔드포인트입니다.
 
-[TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC 컨트롤러 샘플을 참조하세요.
+[`TokenMetadataController.cs`](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC 컨트롤러 샘플을 참조하세요.
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계. 자체 서명된 인증서 준비
 
@@ -196,7 +195,7 @@ $newClientSecret
 
 이 PowerShell 명령을 실행하여 자체 서명된 인증서를 실행합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
 
-```PowerShell
+```powershell
 New-SelfSignedCertificate `
     -KeyExportPolicy Exportable `
     -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -210,7 +209,7 @@ New-SelfSignedCertificate `
 
 #### <a name="step-2-add-the-id-token-hint-technical-profile"></a>2단계. ID 토큰 힌트 기술 프로필 추가 
 
-다음 기술 프로필은 토큰의 유효성을 검사하고 클레임을 추출합니다. 메타데이터 URI를 토큰 발급자의 잘 알려진 구성 엔드포인트로 변경합니다.  
+다음 기술 프로필은 토큰의 유효성을 검사하고 클레임을 추출합니다. 메타데이터 URI를 토큰 발급자의 잘 알려진 구성 엔드포인트로 변경합니다.
 
 ```xml
 <ClaimsProvider>
@@ -253,24 +252,25 @@ New-SelfSignedCertificate `
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
 1. 신뢰 당사자 정책에서 IdTokenHint_ExtractClaims 기술 프로필에서 구성한 것과 동일한 입력 클레임을 반복합니다. 예를 들면 다음과 같습니다.
+
     ```xml
-   <RelyingParty>
-     <DefaultUserJourney ReferenceId="SignUp" />
-     <TechnicalProfile Id="PolicyProfile">
-       <DisplayName>PolicyProfile</DisplayName>
-       <Protocol Name="OpenIdConnect" />
-       <InputClaims>
-         <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUp" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
         </InputClaims>
-       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
-       </OutputClaims>
-       <SubjectNamingInfo ClaimType="sub" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
       </TechnicalProfile>
     </RelyingParty>
     ```

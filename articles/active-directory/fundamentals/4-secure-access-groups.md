@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2500d1872c2c70c8d39afa0b564c35a8bb9bcb9b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c134f657e4037627fc39f321d9e579c8682a6b58
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536754"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067083"
 ---
 # <a name="securing-external-access-with-groups"></a>그룹으로 외부 액세스 보안 
 
@@ -100,12 +100,12 @@ ms.locfileid: "122536754"
 
 Azure AD 보안 그룹 및 Microsoft 365 그룹 모두 Azure AD 포털 또는 Microsoft 365 관리 포털에서 생성될 수 있습니다. 두 유형 모두 외부 액세스 보안을 위한 기초로 사용될 수 있습니다.
 
-|고려 사항 | Azure AD 보안 그룹(수동 및 동적)| Microsoft 365 그룹 |
+| 고려 사항 | Azure AD 보안 그룹(수동 및 동적)| Microsoft 365 그룹 |
 | - | - | - |
-| 그룹에 포함 될 수 있는 항목은 무엇인가요?| 사용자<br>그룹<br>서비스 원칙<br>디바이스| 사용자만 |
+| 그룹에 포함 될 수 있는 항목은 무엇인가요?| 사용자<br>그룹<br>서비스 주체<br>디바이스| 사용자만 |
 | 그룹이 생성되는 위치는 어디인가요?| Azure AD 포털<br>Microsoft 365 포털(메일을 사용하도록 설정된 경우)<br>PowerShell<br>Microsoft Graph<br>최종 사용자 포털| Microsoft 365 포털<br>Azure AD 포털<br>PowerShell<br>Microsoft Graph<br>Microsoft 365 애플리케이션 |
-| 기본적으로 생성되는 사람은 누구인가요?| 관리자 <br>최종 사용자| 관리자<br>최종 사용자 |
-| 기본적으로 추가될 수 있는 사용자는 누구인가요?| 내부 사용자(멤버)| 모든 조직의 테넌트 멤버 및 게스트 |
+| 기본적으로 생성되는 사람은 누구인가요?| 관리자 <br>사용자| 관리자<br>사용자 |
+| 기본적으로 추가될 수 있는 사용자는 누구인가요?| 내부 사용자(테넌트 멤버)| 모든 조직의 테넌트 멤버 및 게스트 |
 | 액세스 권한을 부여하는 대상은 무엇인가요?| 할당된 리소스만| 모든 그룹 관련 리소스:<br>(그룹 사서함, 사이트, 팀, 채팅 및 기타 포함된 Microsoft 365 리소스)<br>그룹이 추가되는 다른 모든 리소스 |
 | 함께 사용 가능한 항목| 조건부 액세스<br>권한 관리<br>그룹 라이선스| 조건부 액세스<br>권한 관리<br>민감도 레이블 |
 
@@ -154,9 +154,9 @@ Microsoft 365 그룹을 사용하여 팀 및 연관된 사이트와 콘텐츠와
 
 Microsoft 365 그룹은 해당 역할에 대해 다음 의미를 갖습니다.
 
-* **소유자** - 그룹 소유자가 멤버를 추가하거나 제거할 수 있고 공유 사서함에서 대화를 삭제하거나 그룹 설정을 변경하는 기능 등의 고유한 권한을 갖습니다. 그룹 소유자는 그룹 이름을 바꾸거나, 설명 또는 사진을 업데이트할 수 있습니다.
+* **소유자** - 그룹 소유자는 멤버를 추가하거나 제거할 수 있고 공유 사서함에서 대화를 삭제하거나 그룹 설정을 변경하는 기능과 같이 그룹 내 고유한 관리 권한을 갖습니다. 그룹 소유자는 그룹 이름을 바꾸거나, 설명 또는 사진을 업데이트할 수 있습니다.
 
-* **멤버** - 멤버는 그룹의 모든 것에 액세스할 수 있지만 그룹 설정을 변경할 수 없습니다. 기본적으로 그룹 멤버는 사용자의 그룹에 참가하도록 게스트를 초대할 수 있지만, [이러한 설정은 소유자가 제어할 수 있습니다](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
+* **멤버** - 그룹 멤버는 그룹의 모든 것에 액세스할 수 있지만 그룹 설정은 변경할 수 없습니다. 기본적으로 그룹 멤버는 게스트를 그룹에 참가하도록 초대할 수 있습니다. [해당 설정을 제어](/microsoft-365/admin/create-groups/manage-guest-access-in-groups)할 수 있습니다.
 
 * **게스트** - 그룹 게스트는 조직 외부에 있는 멤버입니다. 기본적으로 게스트는 Teams에서 기능이 일부 제한됩니다.
 

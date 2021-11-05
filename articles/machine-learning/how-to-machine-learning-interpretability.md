@@ -1,27 +1,28 @@
 ---
-title: Azure Machine Learning의 모델 해석력(미리 보기)
+title: 모델 해석성(미리 보기)
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning Python SDK를 사용하여 학습 및 추론하는 동안 기계 학습 모델이 예측하는 방법을 이해하고 설명하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 10/21/2021
-ms.openlocfilehash: 37eb558e755860fc2130965fa5faacfe0d4fe804
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: responsible-ml, mktng-kw-nov2021
+ms.date: 11/04/2021
+ms.openlocfilehash: baf146725c01736fde36420779e495ce3906f891
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564825"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852601"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning의 모델 해석력(미리 보기)
 
+이 문서에서는 Azure Machine Learning 모델 해석에 사용할 수 있는 방법을 설명합니다. 
 
-## <a name="model-interpretability-overview"></a>모델 해석력 개요
+## <a name="why-does-model-interpretability-matter"></a>모델 해석성이 중요한 이유는 무엇인가요?
 
 모델 해석력은 회사 정책, 산업 표준 및 정부 규정 준수를 보장하는 데 있어 데이터 과학자, 감사자, 비즈니스 의사 결정자에게 매우 중요합니다.
 
@@ -52,13 +53,13 @@ SDK에서 클래스 및 메서드를 사용하여 다음을 수행할 수 있습
 + 학습 및 유추 중에 실제 데이터 세트에서 모델 해석력을 대규모로 달성합니다.
 + 대화형 시각화 대시보드를 사용하여 학습 시간에 데이터 및 설명의 패턴을 발견합니다.
 
-기계 학습에서 **기능** 은 대상 데이터 요소를 예측하는 데 사용되는 데이터 필드입니다. 예를 들어 신용 위험을 예측하려면 나이, 계정 규모, 계정 사용 기간에 대한 데이터 필드를 사용할 수 있습니다. 이 경우에는 나이, 계정 규모, 계정 사용 기간이 **기능** 이 됩니다. 기능 중요도는 각 데이터 필드가 모델의 예측에 어떻게 영향을 주는지 알려줍니다. 예를 들어, 계정 크기와 계정 나이가 예측 값에 크게 영향을 주지 않는 동안에는 기간을 예측에 많이 사용할 수 있습니다. 데이터 과학자는 이 프로세스를 통해 예측되는 결과를 설명할 수 있으므로 관련자는 모델에서 가장 중요한 기능이 무엇인지 알 수 있습니다.
+기계 학습에서 **기능** 은 대상 데이터 요소를 예측하는 데 사용되는 데이터 필드입니다. 예를 들어 신용 위험을 예측하려면 나이, 계정 규모, 계정 사용 기간에 대한 데이터 필드를 사용할 수 있습니다. 이 경우에는 나이, 계정 규모, 계정 사용 기간이 **기능** 이 됩니다. 기능 중요도는 각 데이터 필드가 모델의 예측에 어떻게 영향을 주는지 알려줍니다. 예를 들어 계정 크기 및 계정 나이는 예측 값에 크게 영향을 미치지 않지만, 나이는 예측에 많이 사용될 수 있습니다. 데이터 과학자는 이 프로세스를 통해 예측되는 결과를 설명할 수 있으므로 관련자는 모델에서 가장 중요한 기능이 무엇인지 알 수 있습니다.
 
-## <a name="supported-interpretability-techniques"></a>지원되는 해석력 기술
+## <a name="supported-model-interpretability-techniques"></a>지원되는 모델 해석 기술
 
  `azureml-interpret`은 해석 가능한 모델을 학습하고 블랙 박스 AI 시스템을 설명하는 데 도움을 주는 오픈 소스 Python 패키지인 [Interpret-Community](https://github.com/interpretml/interpret-community/)에서 개발한 해석력 기술을 사용합니다. [Interpret-Community](https://github.com/interpretml/interpret-community/)는 해당 SDK를 지원하는 설명자에 대한 호스트 역할을 하며 현재 다음 해석력 기술을 지원하고 있습니다.
 
-|해석력 기술|Description|형식|
+|해석력 기술|Description|Type|
 |--|--|--------------------|
 |SHAP 트리 설명자| [SHAP](https://github.com/slundberg/shap)의 트리 설명자는 **트리 및 트리 결합체** 에 특정되는 다항식 시간 고속 SHAP 값 예측 알고리즘에 중점을 둡니다.|모델별|
 |SHAP 심층 설명자| SHAP의 설명을 기반으로 하는 심층 설명자는 “[SHAP NIPS 문서](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명된 DeepLIFT와의 연결을 기반으로 하는 딥 러닝 모델의 SHAP 값에 대한 고속 근사값 알고리즘입니다. TensorFlow 백엔드를 사용하는 **TensorFlow** 모델 및 **keras** 모델이 지원됩니다(PyTorch도 예비 단계로 지원됩니다).”|모델별|

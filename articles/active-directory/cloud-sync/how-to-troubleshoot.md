@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 65022d98c7ee7e90d8f1fe5b6854605c841ad05b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 863d043bc3185b5fd7f44056ba13bca5ed700f30
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530318"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018246"
 ---
 # <a name="cloud-sync-troubleshooting"></a>클라우드 동기화 관련 문제 해결
 
@@ -167,21 +167,22 @@ Azure Portal에서 프로비저닝 로그를 사용하여 개체 동기화 문�
 ![격리에 대한 추가 정보를 보여 주는 스크린샷.](media/how-to-troubleshoot/quarantine-2.png)
 
 상태를 마우스 오른쪽 단추로 클릭하면 추가 옵션이 표시됩니다.
-    
-   - 프로비저닝 로그 보기
-   - 에이전트 보기
-   - 격리 지우기
+
+- 프로비저닝 로그 보기
+- 에이전트 보기
+- 격리 지우기
 
 ![마우스 오른쪽 단추 메뉴 옵션을 보여 주는 스크린샷.](media/how-to-troubleshoot/quarantine-4.png)
 
-
 ### <a name="resolve-a-quarantine"></a>격리 해결
-격리를 해결하는 두 가지 다른 방법이 있습니다.  아래에 이 계정과 키의 예제가 나와 있습니다.
 
-  - 격리 지우기 - 워터마크를 지우고 델타 동기화를 실행합니다.
-  - 프로비저닝 작업 다시 시작 - 워터마크를 지우고 초기 동기화를 실행합니다.
+격리를 해결하는 두 가지 다른 방법이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+
+- 격리 지우기 - 워터마크를 지우고 델타 동기화를 실행합니다.
+- 프로비저닝 작업 다시 시작 - 워터마크를 지우고 초기 동기화를 실행합니다.
 
 #### <a name="clear-quarantine"></a>격리 지우기
+
 워터마크를 지우고 프로비저닝 작업에서 델타 동기화를 실행하려면 상태를 마우스 오른쪽 단추로 클릭하고 **격리 지우기** 를 선택합니다.
 
 격리가 지워진다는 알림이 표시되어야 합니다.
@@ -193,11 +194,13 @@ Azure Portal에서 프로비저닝 로그를 사용하여 개체 동기화 문�
 ![격리 상태 정보](media/how-to-troubleshoot/quarantine-6.png)
 
 #### <a name="restart-the-provisioning-job"></a>프로비저닝 작업 다시 시작
+
 Azure Portal를 사용하여 프로비저닝 작업을 다시 시작합니다. 에이전트 구성 페이지에서 **프로비저닝 다시 시작** 을 선택합니다.
 
   ![프로비저닝 다시 시작](media/how-to-troubleshoot/quarantine-3.png)
 
 - Microsoft Graph를 사용하여 [프로비저닝 작업을 다시 시작](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true)합니다. 다시 시작하는 작업을 완전히 제어할 수 있습니다. 다음을 지우도록 선택할 수 있습니다.
+
   - 에스크로: 격리 상태에 도달할 때까지 누적되는 에스크로 카운터를 다시 시작하려는 경우.
   - 격리: 격리에서 애플리케이션을 제거하려는 경우.
   - 워터마크. 
@@ -207,19 +210,25 @@ Azure Portal를 사용하여 프로비저닝 작업을 다시 시작합니다. �
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
 ## <a name="repairing-the-the-cloud-sync-service-account"></a>클라우드 동기화 서비스 계정 복구
-클라우드 동기화 서비스 계정을 복구해야 하는 경우를 `Repair-AADCloudSyncToolsAccount`를 사용할 수 있습니다.  
 
+클라우드 동기화 서비스 계정을 복구해야 하는 경우를 `Repair-AADCloudSyncToolsAccount`를 사용할 수 있습니다.
 
-   1.  [여기](reference-powershell.md#install-the-aadcloudsynctools-powershell-module)에 설명된 설치 단계를 사용하여 시작한 다음 나머지 단계를 계속 진행합니다.
-   2.  관리자 권한으로 Windows PowerShell 세션에서 다음을 입력하거나 복사하여 붙여넣습니다. 
-    ```
-    Connect-AADCloudSyncTools
-    ```  
+   1. [여기](reference-powershell.md#install-the-aadcloudsynctools-powershell-module)에 설명된 설치 단계를 사용하여 시작한 다음 나머지 단계를 계속 진행합니다.
+
+   2. 관리자 권한으로 Windows PowerShell 세션에서 다음을 입력하거나 복사하여 붙여넣습니다.
+
+      ```powershell
+      Connect-AADCloudSyncTools
+      ```
+
    3. Azure AD 전역 관리자 자격 증명을 입력합니다.
-   4. 다음을 입력하거나 복사하여 붙여넣습니다. 
-    ```
-    Repair-AADCloudSyncToolsAccount
-    ```  
+
+   4. 다음을 입력하거나 복사하여 붙여넣습니다.
+
+      ```powershell
+      Repair-AADCloudSyncToolsAccount
+      ```
+
    5. 이 작업이 완료되면 계정이 성공적으로 복구된 것입니다.
 
 ## <a name="next-steps"></a>다음 단계 

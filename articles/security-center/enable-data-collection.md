@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: e70c3abc258cb39da17755aea937d13cfaa77d2d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8d9fa0e724c20d0327d6b3907fee8e954deda41f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029653"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453101"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
 
@@ -68,7 +67,7 @@ Log Analytics 에이전트에 대한 자동 프로비전이 설정되어 있으�
 
 Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려면 다음을 수행합니다.
 
-1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
+1. Defender for Cloud 메뉴에서 **환경 설정** 을 엽니다.
 1. 관련 구독을 선택합니다.
 1. **자동 프로비저닝** 페이지에서 Log Analytics 에이전트에 대한 자동 프로비저닝 상태를 **켜기** 로 설정합니다.
 
@@ -211,7 +210,7 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 
 1. Log Analytics 에이전트를 설치할 작업 영역에서 Microsoft Defender를 사용하도록 설정합니다.
 
-    1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
+    1. Defender for Cloud 메뉴에서 **환경 설정** 을 엽니다.
 
     1. 에이전트를 설치할 작업 영역을 설정합니다. 작업 영역이 Defender for Cloud에서 사용하는 것과 동일한 구독에 있고 작업 영역에 대한 읽기/쓰기 권한이 있는지 확인합니다.
 

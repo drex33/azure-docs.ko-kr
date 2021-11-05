@@ -11,18 +11,21 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 18720d99bc8cf0e237e25ea13f686970573d5704
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cc2f5f735f20e54baa22eea7ad4d9fd00a3bc426
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678443"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850112"
 ---
 # <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 데이터베이스 데이터 정렬 지원 
 
 새 전용 SQL 풀(이전의 SQL DW)을 만들 때 Azure Portal에서 기본 데이터베이스 데이터 정렬을 변경할 수 있습니다. 이 기능을 사용하면 3800개의 지원 데이터베이스 데이터 정렬 중 하나를 사용하여 새 데이터베이스를 훨씬 쉽게 만들 수 있습니다.
 
 데이터 정렬은 문자 기반 데이터 형식에 대한 로캘, 코드 페이지, 정렬 순서 및 문자 민감도 규칙을 제공합니다. 데이터 정렬 정보를 요구하는 모든 열과 식은 데이터베이스 설정에서 선택한 데이터 정렬을 상속합니다. 기본 상속은 문자 기반 데이터 형식에 대해 다른 데이터 정렬을 명시적으로 지정하여 재정의될 수 있습니다.
+
+> [!NOTE]
+> Azure Synapse Analytics 쿼리 텍스트(변수, 상수 등 포함)는 다른 SQL Server 제공과 같이 서버 수준 데이터 정렬이 아닌 데이터베이스 수준 데이터 정렬을 사용하여 항상 처리됩니다.
 
 ## <a name="changing-collation"></a>데이터 정렬 변경
 

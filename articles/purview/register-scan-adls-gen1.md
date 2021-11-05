@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 2887511d9d92fcf9112473207ba3445282b8b87f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 743db90c66f4499b356ca0413ab1827aa73d5f2e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131015616"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852753"
 ---
 # <a name="connect-to-azure-data-lake-gen1-in-azure-purview"></a>Azure 부서의 범위에서 Azure Data Lake Gen1에 커넥트
 
@@ -25,9 +25,11 @@ ms.locfileid: "131015616"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 아니요 |[Data Factory 계보](how-to-link-azure-data-factory.md) |
+| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 예 |제한 됨 * * |
 
-## <a name="prerequisites"></a>사전 요구 사항
+\** 데이터 집합을 [Data Factory 복사 작업](how-to-link-azure-data-factory.md) 에서 원본/싱크로 사용 하는 경우에는 계보가 지원 됩니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -157,19 +159,19 @@ ms.locfileid: "131015616"
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-open-purview-studio.png" alt-text="컬렉션 계층 구조를 보여 주는 스크린샷":::
 
-1. 이전에 등록 된 **ADLS Gen1 데이터 소스** 에서 **새 검사** 아이콘을 클릭 합니다.
+1. 이전에 등록된 ADLS Gen1 데이터 **원본** 아래에서 **새 검색** 아이콘을 클릭합니다.
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-new-scan.png" alt-text="새 검색 아이콘이 있는 데이터 원본을 보여 주는 스크린샷":::
 
 #### <a name="if-using-managed-identity"></a>관리 ID를 사용하는 경우
 
-검사에 대한 **이름을** 제공하고, **자격 증명에서** **Purview MSI를** 선택하고, 검사에 적절한 컬렉션을 선택하고, **연결 테스트를** 클릭합니다. 연결이 성공적이면 **계속을** 클릭합니다.
+검사에 대한 **이름을** 제공하고, **자격 증명에서** **Purview MSI를** 선택하고, 검사에 적절한 컬렉션을 선택하고, **연결 테스트를** 클릭합니다. 연결에 성공하면 **계속을** 클릭합니다.
 
 :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-managed-identity.png" alt-text="검사를 실행하는 관리 ID 옵션을 보여 주는 스크린샷":::
 
 #### <a name="if-using-service-principal"></a>서비스 주체를 사용하는 경우
 
-1. 검사에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, **자격 증명** 아래에서 **+ 새로** 만들기를 클릭합니다.
+1. 검사에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, 자격 증명 아래에서 **+ 새로** **만들기를** 클릭합니다.
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-sp.png" alt-text="서비스 주체 옵션을 보여 주는 스크린샷":::
 
@@ -177,7 +179,7 @@ ms.locfileid: "131015616"
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-sp-key-vault.png" alt-text="서비스 주체 키 자격 증명 모음 옵션을 보여 주는 스크린샷":::
 
-1. 연결 **테스트를** 클릭합니다. 연결이 성공적이면 **계속을** 클릭합니다.
+1. 연결 **테스트를** 클릭합니다. 연결이 성공하면 **계속을** 클릭합니다.
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-sp-test-connection.png" alt-text="서비스 주체에 대한 테스트 연결을 보여 주는 스크린샷":::
 
@@ -243,7 +245,7 @@ ms.locfileid: "131015616"
     > * 스캔을 삭제해도 이전 스캔에서 생성된 카탈로그 자산은 삭제되지 않습니다.
     > * 원본 테이블을 변경하고 Purview의 스키마 탭에서 설명을 편집한 후에 원본 테이블을 다시 검사하면 해당 자산이 스키마 변경 내용으로 더 이상 업데이트되지 않습니다.
 
-1. _증분 검색_ 또는 _전체 검색을_ 다시 실행할 수 있습니다.
+1. _증분 검색_ 또는 _전체_ 검색을 다시 실행할 수 있습니다.
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-full-inc-scan.png" alt-text="전체 또는 증분 검사 관리":::
 

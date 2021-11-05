@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: thwimmer
-ms.openlocfilehash: f82c46c6853f33e2137cd54c03b2bfa1df9dca8a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 2dc6d75a816ab40eb66dad46307c5f24bb2685b7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060177"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 OpenText Directory Services 구성
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 10/20/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 301a386c9c9a21cf1f988ee62c19ca7cc60e7a39
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 62e4557b003c0347c6ecbf8a39102260abb66386
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430003"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050245"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -25,7 +25,7 @@ ms.locfileid: "123430003"
 
 이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다. 가능하면 [토큰을 획득하고 보안 Web API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
-OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비스(비밀 클라이언트)에서 다른 웹 서비스를 호출할 때 사용자를 가장하는 대신 고유한 자격 증명을 사용하여 인증할 수 있습니다. 더 높은 수준의 보증을 위해 Microsoft ID 플랫폼은 호출 서비스가 자격 증명으로 인증서(공유 비밀 대신)를 사용할 수 있도록 합니다.  애플리케이션 자체 자격 증명을 사용하므로 이러한 자격 증명은 안전하게 보관해야 합니다. 소스 코드에서 해당 자격 증명을 게시하거나 웹 페이지에 포함하거나 널리 분산된 네이티브 애플리케이션에서 _절대_ 사용하지 마세요. 
+OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비스(비밀 클라이언트)에서 다른 웹 서비스를 호출할 때 사용자를 가장하는 대신 고유한 자격 증명을 사용하여 인증할 수 있습니다. 더 높은 수준의 보증을 위해 Microsoft ID 플랫폼을 사용하면 호출 서비스가 공유 비밀 대신 [인증서](#second-case-access-token-request-with-a-certificate) 또는 페더레이션 자격 증명을 사용하여 인증할 수도 있습니다.  애플리케이션 자체 자격 증명을 사용하므로 이러한 자격 증명은 안전하게 보관해야 합니다. 소스 코드에서 해당 자격 증명을 게시하거나 웹 페이지에 포함하거나 널리 분산된 네이티브 애플리케이션에서 _절대_ 사용하지 마세요. 
 
 클라이언트 자격 증명 흐름에서는 관리자가 애플리케이션 자체에 직접 사용 권한을 부여합니다. 앱이 리소스에 대한 토큰을 제공하는 경우 리소스는 인증에 관련된 사용자가 없으므로 앱 자체에 작업을 수행할 수 있는 권한을 부여합니다.  이 문서에서는 [API를 호출하는 애플리케이션에 권한을 부여](#application-permissions)하는 데 필요한 단계와 [API를 호출하는 데 필요한 토큰을 가져오는 방법](#get-a-token)에 대해 설명합니다.
 
@@ -58,7 +58,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비
 
 ACL 기반 권한 부여 패턴을 사용하도록 설정하기 위해 Azure AD에는 애플리케이션에 다른 애플리케이션에 대한 토큰을 가져올 수 있는 권한이 필요하지 않습니다. 따라서 `roles` 클레임 없이 앱 전용 토큰을 발급할 수 있습니다. API를 노출하는 애플리케이션은 토큰을 허용하기 위해 권한 확인을 구현해야 합니다.
 
-애플리케이션에서 애플리케이션에 대한 역할 없는 앱 전용 액세스 토큰을 가져오지 못하게 하려면 [앱에 대한 사용자 할당 요구 사항을 사용하도록 설정](../manage-apps/add-application-portal-configure.md#configure-app-properties)해야 합니다. 이렇게 하면 할당된 역할이 없는 사용자와 애플리케이션에서 해당 애플리케이션에 대한 토큰을 가져올 수 없게 됩니다.
+애플리케이션에서 애플리케이션에 대한 역할 없는 앱 전용 액세스 토큰을 가져오지 못하게 하려면 [앱에 대한 사용자 할당 요구 사항을 사용하도록 설정](../manage-apps/assign-user-or-group-access-portal.md)해야 합니다. 이렇게 하면 할당된 역할이 없는 사용자와 애플리케이션에서 해당 애플리케이션에 대한 토큰을 가져올 수 없게 됩니다. 
 
 ### <a name="application-permissions"></a>애플리케이션 사용 권한
 
@@ -69,13 +69,13 @@ ACL을 사용하는 대신 API를 사용하여 **애플리케이션 권한** 세
 * 모든 사용자로 메일 보내기
 * 디렉터리 데이터 읽기
 
-Microsoft Graph가 아닌 사용자 고유의 API를 사용하여 애플리케이션 사용 권한을 사용하려면 먼저 Azure Portal의 API 앱 등록에서 범위를 정의하여 [API를 노출](quickstart-configure-app-expose-web-apis.md)해야 합니다. 그런 다음 클라이언트 애플리케이션의 앱 등록에서 해당 권한을 선택하여 [API에 대한 액세스를 구성](quickstart-configure-app-access-web-apis.md)합니다. API의 앱 등록에서 범위를 노출하지 않은 경우 Azure Portal의 클라이언트 애플리케이션의 앱 등록에서 해당 API에 대한 애플리케이션 권한을 지정할 수 없습니다.
+Microsoft Graph가 아닌 사용자 고유의 API를 사용하여 애플리케이션 사용 권한을 사용하려면 먼저 Azure Portal의 API 앱 등록에서 범위를 정의하여 [API를 노출](howto-add-app-roles-in-azure-ad-apps.md)해야 합니다. 그런 다음 클라이언트 애플리케이션의 앱 등록에서 해당 권한을 선택하여 [API에 대한 액세스를 구성](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications)합니다. API의 앱 등록에서 범위를 노출하지 않은 경우 Azure Portal의 클라이언트 애플리케이션의 앱 등록에서 해당 API에 대한 애플리케이션 권한을 지정할 수 없습니다.
 
-사용자가 아닌 애플리케이션으로 인증하는 경우 사용자가 부여하는 *위임된 권한* - 범위를 사용할 수 없습니다. 관리자가 애플리케이션에 부여하거나 웹 API의 사전 인증을 통해 부여한 애플리케이션 사용 권한(역할이라고도 함)을 사용해야 합니다.
+사용자가 아닌 애플리케이션으로 인증할 때 앱이 대신할 사용자가 없기 때문에 *위임된 권한*(사용자가 부여한 범위)을 사용할 수 없습니다. 관리자가 애플리케이션에 부여하거나 웹 API의 사전 인증을 통해 부여한 애플리케이션 사용 권한(역할이라고도 함)을 사용해야 합니다.
 
 애플리케이션 권한에 대한 자세한 내용은 [권한 및 동의](v2-permissions-and-consent.md#permission-types)를 참조하세요.
 
-#### <a name="recommended-sign-the-user-into-your-app"></a>사용자가 앱에 로그인하는 것이 좋습니다.
+#### <a name="recommended-sign-the-admin-into-your-app-to-have-app-roles-assigned"></a>권장 사항: 앱 역할을 할당하려면 관리자에게 앱에 로그인합니다.
 
 일반적으로 애플리케이션 사용 권한을 사용하는 애플리케이션을 빌드할 때 앱에는 관리자가 앱의 사용 권한을 승인할 수 있는 페이지 또는 보기가 필요합니다. 이 페이지는 앱 로그인 흐름의 일부, 앱 설정의 일부 또는 전용 "연결" 흐름일 수 있습니다. 대부분의 경우에 사용자가 회사 또는 학교 Microsoft 계정으로 로그인한 후에 앱은 이 "연결" 보기만을 표시하게 됩니다.
 
@@ -100,11 +100,11 @@ PRO 팁: 브라우저에서 다음 요청 붙여넣기를 시도합니다.
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 사용자가 속한 테넌트가 무엇인지 모르고 테넌트를 사용하여 로그인하지 않으려는 경우 `common`을 사용합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
-| `redirect_uri` | 필수 | 리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 하며 추가 경로 세그먼트가 있을 수 있습니다. |
+| `redirect_uri` | 필수 | 리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 하며 추가 패스 세그먼트가 있을 수 있습니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
 
 해당 시점에 Azure AD는 테넌트 관리자만이 요청을 완료하기 위해 로그인할 수 있도록 합니다. 관리자에게는 앱 등록 포털에서 앱에 요청한 애플리케이션 직접 사용 권한을 모두 승인하라는 메시지가 표시됩니다.
@@ -160,7 +160,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 | 앱에 할당되는 애플리케이션 ID입니다. 앱을 등록한 포털에서 이 정보를 찾을 수 있습니다. |
@@ -182,7 +182,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 |앱에 할당되는 애플리케이션(클라이언트) ID입니다. |
@@ -193,9 +193,29 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 인증서 기반 요청에 대한 매개 변수는 공유 비밀 기반 요청과 한 가지 면에서 다릅니다. `client_secret` 매개 변수는 `client_assertion_type` 및 `client_assertion` 매개 변수로 대체됩니다.
 
+### <a name="third-case-access-token-request-with-a-federated-credential"></a>세 번째 경우: 페더레이션 자격 증명을 사용한 액세스 토큰 요청
+
+```HTTP
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
+```
+
+| 매개 변수 | 조건 | 설명 |
+| --- | --- | --- |
+| `client_assertion` | 필수 | Kubernetes와 같은 Microsoft ID 플랫폼 외부의 다른 ID 공급자로부터 애플리케이션이 가져오는 어설션(JWT 또는 JSON 웹 토큰)입니다. 이 JWT의 세부 사항은 애플리케이션에 [페더레이션 ID 자격 증명](workload-identity-federation-create-trust.md)으로 등록되어야 합니다. 다른 ID 공급자에서 생성된 어설션을 설정하고 사용하는 방법을 알아보려면 [워크로드 ID 페더레이션](workload-identity-federation.md)에 대해 읽어보세요.|
+
+요청의 모든 것은 위의 인증서 기반 흐름과 동일하지만 한 가지 중요한 예외(`client_assertion`의 원본)가 있습니다. 이 흐름에서 애플리케이션은 JWT 어설션 자체를 만들지 않습니다.  대신 앱은 다른 ID 공급자가 만든 JWT를 사용합니다.  이를 "[워크로드 ID 페더레이션](workload-identity-federation.md)"이라고 하며, 여기서 다른 ID 플랫폼의 앱 ID를 사용하여 Microsoft ID 플랫폼 내에서 토큰을 획득합니다.  이는 Azure 외부에서 컴퓨팅을 호스팅하지만 Microsoft ID 플랫폼으로 보호되는 API에 액세스하는 것과 같은 클라우드 간 시나리오에 가장 적합합니다. 
+
 ### <a name="successful-response"></a>성공적인 응답
 
-두 방법 중 하나의 성공적인 응답은 다음과 같습니다.
+모든 방법의 성공적인 응답은 다음과 같습니다.
 
 ```json
 {

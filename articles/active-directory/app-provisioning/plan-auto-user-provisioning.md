@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e4be8f3bac712136fc2cbfea5a6a6febbd81e0e1
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: deac46666be5c77d48597d2e75838c167040badf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991093"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059531"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Azure Active Directory에서 자동 사용자 프로비저닝 배포 계획
 
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory) 자동 사용자 프로비저닝은 비즈니�
 
 * **비용 절감**. 자동 사용자 프로비저닝은 수동 프로비저닝과 관련된 비효율성 및 인적 오류를 방지하여 비용을 절감합니다. 맞춤형으로 개발된 사용자 프로비저닝 솔루션, 스크립트 및 감사 로그의 필요성을 줄여줍니다.
 
-### <a name="licensing"></a>라이선스
+### <a name="licensing"></a>라이선싱
 
 Azure AD는 애플리케이션 갤러리 메뉴에 제공된 템플릿을 사용하여 모든 애플리케이션의 셀프 서비스 통합을 제공합니다. 라이선스 요구 사항의 전체 목록은 [Azure AD 가격 책정 페이지](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요.
 
@@ -99,7 +99,7 @@ Azure AD 프로비저닝 서비스는 각 애플리케이션 공급업체가 제
 
 이 예제에서 사용자 생성은 Azure AD에서 발생하고 Azure AD 프로비저닝 서비스는 대상(SaaS) 애플리케이션에 대한 자동 사용자 프로비저닝을 관리합니다.
 
-![Azure A D 프로비저닝 서비스를 통해 온-프레미스 HR 애플리케이션에서 대상 S a S 애플리케이션에 사용자/그룹을 만드는 프로세스를 보여주는 다이어그램입니다.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Azure A D 프로비전 서비스를 통해 온-프레미스 HR 애플리케이션에서 대상 S A A S 애플리케이션에 사용자/그룹을 만드는 프로세스를 보여주는 다이어그램입니다.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **워크플로에 대한 설명:**
 
@@ -318,7 +318,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로비�
 
 #### <a name="resources"></a>리소스
 
-* [제품 사용자 의견 제공](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [제품 사용자 의견 제공](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 * [Azure AD의 새로운 기능에 대한 최신 정보 받기](https://azure.microsoft.com/updates/?product=active-directory)
 

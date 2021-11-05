@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 2efc0fcdb566a71c096398f45a95c355cb1dc840
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d533ae6860850830640f052f4737b61c199d952e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131421611"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851777"
 ---
 # <a name="security-admin-rules-in-azure-virtual-network-manager-preview"></a>Azure Virtual Network Manager의 보안 관리자 규칙(미리 보기)
 
@@ -25,10 +25,14 @@ Azure Virtual Network Manager는 가상 네트워크에서 배포할 수 있는 
 
 ## <a name="security-admin-rules"></a>보안 관리자 규칙
 
-보안 관리자 규칙을 사용하면 조건 집합과 일치하는 보안 정책 조건을 적용할 수 있습니다. Azure Virtual Network Manager 인스턴스의 범위 내에서만 리소스에 대한 보안 관리 규칙을 정의할 수 있습니다. 이러한 보안 규칙은 NSG(네트워크 보안 그룹) 규칙보다 우선 순위가 높으며 NSG 규칙 전에 평가됩니다. 예를 들어 관리자는 보안 관리자 규칙을 사용하여 인터넷에서 모든 높은 위험 포트 또는 프로토콜을 거부할 수 있으며, 이러한 규칙은 VM 또는 서브넷 수준에서 생성된 허용된 NSG 규칙을 재정의합니다.
+보안 관리자 규칙을 사용하면 조건 집합과 일치하는 보안 정책 조건을 적용할 수 있습니다. Azure Virtual Network Manager 인스턴스의 범위 내에서만 리소스에 대한 보안 관리 규칙을 정의할 수 있습니다. 이러한 보안 규칙은 NSG(네트워크 보안 그룹) 규칙보다 우선 순위가 높으며 NSG 규칙 전에 평가됩니다. 또한 보안 관리자 규칙은 NSG 규칙을 변경하지 않습니다. 아래 그림을 참조하세요.
+
+:::image type="content" source="./media/concept-security-admins/traffic-evaluation.png" alt-text="보안 관리자 규칙 및 NSG를 통해 트래픽을 평가하는 방법에 대한 다이어그램입니다.":::
+
+보안 관리자 규칙을 사용하여 보안 규칙을 적용할 수 있습니다. 예를 들어 관리자는 보안 관리자 규칙을 사용하여 인터넷의 모든 높은 위험 포트 또는 프로토콜을 거부할 수 있습니다. 이러한 보안 관리자 규칙은 모든 NSG 규칙 전에 평가되기 때문입니다.
 
 > [!IMPORTANT]
-> 일부 서비스에는 네트워크 트래픽이 해당 서비스에 필요한 대로 작동하는지 확인하는 네트워크 의도 정책이 있습니다. 보안 관리자 규칙을 사용하는 경우 해당 서비스에 대해 만든 네트워크 의도 정책을 중단시킬 수 있습니다. 예를 들어 거부 관리자 규칙을 만들면 SQL *관리형 인스턴스* 서비스에서 허용하는 일부 트래픽을 차단할 수 있으며, 이 트래픽은 네트워크 의도 정책에 의해 정의됩니다. 보안 관리자 구성을 적용하기 전에 환경을 검토해야 합니다. 자세한 내용은 [거부 규칙을 갖기 전에 SQLMI 트래픽을 명시적으로 허용하는 방법을 참조하세요.](faq.md#how-can-i-explicitly-allow-sqlmi-traffic-before-having-deny-rules)
+> 일부 서비스에는 네트워크 트래픽이 해당 서비스에 필요한 대로 작동하는지 확인하는 네트워크 의도 정책이 있습니다. 보안 관리자 규칙을 사용하는 경우 해당 서비스에 대해 만든 네트워크 의도 정책을 중단시킬 수 있습니다. 예를 들어 거부 관리자 규칙을 만들면 SQL *관리되는 인스턴스* 서비스에서 허용하는 일부 트래픽을 차단할 수 있으며, 이 트래픽은 네트워크 의도 정책에 의해 정의됩니다. 보안 관리자 구성을 적용하기 전에 환경을 검토해야 합니다. 자세한 내용은 [거부 규칙을 갖기 전에 SQLMI 트래픽을 명시적으로 허용하는 방법을 참조하세요.](faq.md#how-can-i-explicitly-allow-sqlmi-traffic-before-having-deny-rules)
 
 다음은 보안 관리자 규칙에서 정의할 수 있는 필드입니다.
 

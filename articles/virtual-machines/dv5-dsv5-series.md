@@ -2,19 +2,19 @@
 title: Dv5 및 Dsv5 시리즈-Azure Virtual Machines
 description: Dv5 및 Dsv5 시리즈 Vm에 대 한 사양입니다.
 author: styli365
-ms.author: sttsinar
+ms.author: joelpell
 ms.reviewer: joelpell
 ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: e8297681a102455134bff09ef30afb91acf920fa
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 091acf19ef4932334ac94483e7cc7d664bcdf114
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482917"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841192"
 ---
 # <a name="dv5-and-dsv5-series"></a>Dv5 및 Dsv5 시리즈
 

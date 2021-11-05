@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 9ee623656ee83347d2edc1fe010131913a07ccb4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 39b6dd297ad0fbb739272db41900e68c799e790d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023788"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853808"
 ---
 # <a name="connect-to-and-manage-a-power-bi-tenant-in-azure-purview"></a>Azure 부서의 범위에서 Power BI 테 넌 트에 커넥트 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "131023788"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| [예](how-to-lineage-powerbi.md)|
+| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예](how-to-lineage-powerbi.md)|
 
 > [!Note]
 > Purview 인스턴스와 Power BI 테넌트가 동일한 Azure 테넌트 내에 존재하는 경우, Power BI 테넌트 검사를 설정하는 데에는 관리 ID(MSI) 인증만을 사용할 수 있습니다.
@@ -35,7 +35,7 @@ ms.locfileid: "131023788"
 -   [Power BI 메타 데이터 검색 제한 사항을](/power-bi/admin/service-admin-metadata-scanning)검토 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -172,26 +172,38 @@ Power BI 테넌트가 있는 Azure AD 테넌트가 Azure Purview 계정이 프�
 
    1. Power BI가 있는 Azure Active Directory 테넌트에서 앱 등록을 만듭니다. `password` 필드를 강력한 암호로, `app_display_name`을 Power BI 테넌트가 호스트되는 Azure AD 테넌트에 존재하지 않는 애플리케이션 이름으로 업데이트해야 합니다.
 
-       ```powershell   
-       $SecureStringPassword = ConvertTo-SecureString -String <'password'> -AsPlainText -Force
-       $AppName = '<app_display_name>'
-       New-AzADApplication -DisplayName $AppName -Password $SecureStringPassword
-       ```
+      ```powershell   
+      $SecureStringPassword = ConvertTo-SecureString -String <'password'> -AsPlainText -Force
+      $AppName = '<app_display_name>'
+      New-AzADApplication -DisplayName $AppName -Password $SecureStringPassword
+      ```
 
    1. Azure Active Directory 대시보드에서 새로 만든 애플리케이션을 선택하고 **앱 등록** 을 선택합니다. 다음과 같은 위임된 권한을 애플리케이션에 할당하고 테넌트에 대한 관리자 동의를 부여합니다.
 
-         - Power BI 서비스     Tenant.Read.All
-         - Microsoft Graph      openid
+      - Power BI 서비스     Tenant.Read.All
+      - Microsoft Graph      openid
 
-   1. Azure Active Directory 대시보드에서 새로 만든 애플리케이션을 선택하고 **인증** 을 선택합니다. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트)** 을 선택합니다.
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Power BI 서비스 및 Microsoft Graph에 대 한 위임 된 권한의 스크린샷":::
 
-   1. 웹 브라우저에서 다음 url을 실행 하 여 서비스 사용자에 대 한 테 넌 트 별 로그인 URL을 생성 합니다.
+   1. Azure Active Directory 대시보드에서 새로 만든 애플리케이션을 선택하고 **인증** 을 선택합니다. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트)** 을 선택합니다. 
 
-     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-multitenant.png" alt-text="다중 테 넌 트를 지 원하는 계정 유형의 스크린샷":::
 
-    매개 변수를 올바른 정보로 바꿔야 합니다. <purview_tenant_id>는 Azure Purview 계정이 프로비전되는 Azure Active Directory 테넌트 ID(GUID)입니다.
-    <client_id_to_delegate_the_pbi_admin>은 서비스 사용자에 해당하는 애플리케이션 ID입니다.
+   1. **암시적 허용 및 하이브리드 흐름** 에서 **ID 토큰 (암시적 및 하이브리드 흐름에 사용 됨)** 을 선택 해야 합니다.
+    
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-id-token-hybrid-flows.png" alt-text="ID 토큰 하이브리드 흐름의 스크린샷":::
 
+   1. 웹 브라우저에서 다음 URL을 실행하여 서비스 사용자의 테넌트별 로그인 URL을 생성합니다.
+
+      ```
+      https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
+      ```
+    
+      매개 변수를 올바른 정보로 바꾸어야 합니다.
+      
+      - `<purview_tenant_id>`Azure 부서의 범위 계정이 프로 비전 되는 Azure Active Directory 테 넌 트 ID (GUID)입니다.
+      - `<client_id_to_delegate_the_pbi_admin>` 서비스 사용자에 해당 하는 응용 프로그램 ID입니다.
+   
    1. 관리자가 아닌 계정을 사용하여 로그인합니다. 이는 외부 테넌트에서 서비스 사용자를 프로비전하는 데 필요합니다.
 
    1. 메시지가 표시되면 _기본 프로필 보기_ 와 _액세스 권한이 부여된 데이터에 대한 액세스 유지_ 에 요청된 권한을 수락합니다.
@@ -209,7 +221,12 @@ Power BI 테넌트가 있는 Azure AD 테넌트가 Azure Purview 계정이 프�
     $Password = '<pbi_admin_password>'
     ```
 
-1. Azure Purview 구독에서 Purview 계정을 찾고 Azure RBAC 역할을 사용하여 _Purview 데이터 원본 관리자_ 를 서비스 사용자와 Power BI 사용자에게 할당합니다.
+    > [!Note]
+    > 포털에서 Azure Active Directory 사용자 계정을 만드는 경우 공용 클라이언트 흐름 옵션은 기본적으로 **아니요** 입니다. **예** 로 설정/해제 해야 합니다.
+    > <br>
+    > :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-public-client-flows.png" alt-text="공용 클라이언트 흐름의 스크린샷":::
+    
+1. Azure 부서의 범위 Studio에서 서비스 사용자 및 루트 컬렉션의 Power BI 사용자에 게 _데이터 원본 관리자_ 를 할당 합니다. 
 
 1. 교차 테넌트 Power BI 테넌트를 Azure Purview 계정 내 새 데이터 원본으로 등록하려면 `service_principal_key`를 업데이트하고 PowerShell 세션에서 다음 cmdlet를 실행합니다.
 

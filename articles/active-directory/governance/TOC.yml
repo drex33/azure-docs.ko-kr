@@ -43,10 +43,8 @@
           href: what-is-inter-directory-provisioning.md
     - name: 액세스 검토
       items:
-        - name: 검토를 사용하여 게스트 액세스 관리
-          href: manage-guest-access-with-access-reviews.md
-        - name: 검토로 사용자 액세스 관리
-          href: manage-user-access-with-access-reviews.md
+        - name: 검토를 통해 액세스 관리
+          href: manage-access-review.md
         - name: 조건부 액세스에서 제외된 사용자 관리
           href: conditional-access-exclusion.md
     - name: 외부 조직에서 사용자 검토 및 제거
@@ -94,7 +92,7 @@
               href: entitlement-management-access-package-lifecycle-policy.md
             - name: 의무 분리 구성
               href: entitlement-management-access-package-incompatible.md
-            - name: 요청 보기
+            - name: 요청 보기 및 제거
               href: entitlement-management-access-package-requests.md
             - name: 요청 재처리
               href: entitlement-management-reprocess-access-package-requests.md
@@ -123,9 +121,7 @@
             - name: 액세스 검토 만들기
               href: entitlement-management-access-reviews-create.md
             - name: 액세스 검토
-              href: entitlement-management-access-reviews-review-access.md
-            - name: 직접 액세스 검토
-              href: entitlement-management-access-reviews-self-review.md
+              href: self-access-review.md
         - name: 그룹 및 앱
           items:
             - name: 액세스 검토 만들기

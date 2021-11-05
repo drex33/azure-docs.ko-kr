@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3eb56d9de903fc6013600908e3b44e8e0f547ed
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 28a6ca16de88df5bde2b003879814c032ed0c519
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618118"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049960"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -84,7 +84,7 @@ ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD �
 
 스마트 카드 또는 인증서 기반 인증을 사용하여 디바이스를 Azure AD에 조인할 수 없습니다. 그러나 AD FS가 구성된 경우 스마트 카드를 사용하여 Azure AD 조인 디바이스에 로그인할 수 있습니다.
 
-**권장 사항:** Windows 10 디바이스에 강력한 암호 없는 인증을 사용하려면 비즈니스용 Windows Hello를 구현하세요.
+**권장 사항:** Windows 10 이상 디바이스에 강력한 암호 없는 인증을 사용하려면 비즈니스용 Windows Hello를 구현하세요.
 
 ### <a name="user-configuration"></a>사용자 구성
 
@@ -103,8 +103,8 @@ UPN 변경은 Windows 10 2004 업데이트를 시작하는 경우에만 지원�
 
 Azure AD 조인:
 
-- Windows 10 디바이스에만 적용됩니다. 
-- 이전 버전의 Windows 또는 다른 운영 체제에는 적용되지 않습니다. Windows 7/8.1 디바이스의 경우 Azure AD 조인을 배포하려면 Windows 10으로 업그레이드해야 합니다.
+- Windows 10 및 Windows 11 디바이스에 적용할 수 있습니다. 
+- 이전 버전의 Windows 또는 다른 운영 체제에는 적용되지 않습니다. Windows 7/8.1 디바이스의 경우 Azure AD 조인을 배포하려면 최소 Windows 10으로 업그레이드해야 합니다.
 - FIPS 규격 TPM 2.0에서는 지원되지만 TPM 1.2에서는 지원되지 않습니다. 디바이스에 FIPS 규격 TPM 1.2가 있는 경우 Azure AD 조인을 진행하기 전에 디바이스를 사용하지 않도록 설정해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 Microsoft에서 FIPS 모드를 사용하지 않도록 설정하는 도구를 제공하지 않습니다. 하드웨어 OEM에 지원을 문의하세요.
  
 **권장 사항:** 항상 최신 Windows 10 릴리스를 사용하여 업데이트된 기능을 활용하는 것이 좋습니다.

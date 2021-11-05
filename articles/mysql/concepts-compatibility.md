@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 269656068d01e2db1e222ec58e5f9b40f34f0d53
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/4/2021
+ms.openlocfilehash: 179fb2cc8bf43217b7bcd82b6c980ab5f0d05613
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536787"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841718"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
 
@@ -20,10 +20,13 @@ ms.locfileid: "122536787"
 이 문서에서는 Azure Database for MySQL 단일 서버와 호환되는 드라이버 및 관리 도구를 설명합니다.
 
 > [!NOTE]
-> 이 문서는 드라이버가 단일 서버 서비스의 [연결 아키텍처](concepts-connectivity-architecture.md)와 호환되도록 Azure Database for MySQL 단일 서버에만 적용됩니다. [Azure Database for MySQL 유연한 서버](./flexible-server/overview.md)는 지원되는 모든 드라이버 및 도구와 호환되고 MySQL 커뮤니티 버전과 호환됩니다. 
+> 이 문서는 드라이버가 단일 서버 서비스의 [연결 아키텍처](concepts-connectivity-architecture.md)와 호환되도록 Azure Database for MySQL 단일 서버에만 적용됩니다. [Azure Database for MySQL 유연한 서버](./flexible-server/overview.md)는 지원되는 모든 드라이버 및 도구와 호환되고 MySQL 커뮤니티 버전과 호환됩니다.
 
 ## <a name="mysql-drivers"></a>MySQL 드라이버
 Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 버전의 MySQL 데이터베이스를 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. 세 가지 최신 버전의 MySQL 드라이버를 지원하는 것이 목표이며, MySQL 드라이버의 기능 및 사용 편의를 개선하기 위해 지속적으로 오픈 소스 커뮤니티의 작성자와 협력하고 있습니다. 다음 표에는 테스트를 통해 Azure Database for MySQL 5.6 및 5.7과 호환되는 것으로 확인된 드라이버 목록이 정리되어 있습니다.
+
+> [!WARNING]
+MySQL 8.0.27 클라이언트는 Azure Database for MySQL 단일 서버와 호환 되지 않습니다. mysql.exe 또는 워크 벤치를 통해 만든 MySQL 8.0.27 클라이언트의 모든 연결이 실패 합니다. 해결 방법으로, 이전 버전의 클라이언트 (MySQL 8.0.27 이전)를 사용 하거나 대신 [Azure Database for MySQL 유연한 서버의](https://docs.microsoft.com/azure/mysql/flexible-server/overview) 인스턴스를 만드는 것이 좋습니다.
 
 | **프로그래밍 언어** | **Driver** | **연결** | **호환되는 버전** | **호환되지 않는 버전** | **참고** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |

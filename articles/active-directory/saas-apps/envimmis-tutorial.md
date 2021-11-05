@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: d6265163ad60b1ac057ccc3a08cc281b7b54ca5d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9be5d831afc5781c4951f76e72a332abd7be1e4c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835611"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>자습서: Envi MMIS와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124835611"
 * 사용자가 해당 Azure AD 계정으로 Envi MMIS에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -75,9 +75,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://www.<CUSTOMER DOMAIN>.com/Account` 패턴을 사용하여 URL을 입력합니다.
+    1. **식별자** 텍스트 상자에서 `https://www.<CUSTOMER DOMAIN>.com/Account` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://www.<CUSTOMER DOMAIN>.com/Account/Acs` 패턴을 사용하여 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에서 `https://www.<CUSTOMER DOMAIN>.com/Account/Acs` 패턴을 사용하여 URL을 입력합니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
@@ -142,11 +142,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     !["파일" 옵션이 선택되고 "파일 선택" 아이콘과 "확인" 단추가 강조 표시된 "메타데이터 업로드" 팝업을 보여주는 스크린샷.](./media/envimmis-tutorial/file.png)
 
-    a. **업로드 위치** 드롭다운에서 **파일** 옵션을 선택합니다.
+    1. **업로드 위치** 드롭다운에서 **파일** 옵션을 선택합니다.
 
-    b. **파일 선택 아이콘** 을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+    1. **파일 선택 아이콘** 을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
-    다. **Ok** 를 클릭합니다.
+    1. **Ok** 를 클릭합니다.
 
 7. 다운로드한 메타데이터 파일을 업로드하면 필드가 자동으로 채워집니다. **업데이트** 를 클릭합니다.
 
@@ -172,19 +172,19 @@ Azure AD 사용자가 Envi MMIS에 로그인할 수 있도록 하려면 Envi MMI
 
     ![직원 추가를 보여주는 스크린샷](./media/envimmis-tutorial/add-user.png)
 
-    a. **사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon\@contoso.com**)을 입력합니다.
+    1. **사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon\@contoso.com**)을 입력합니다.
     
-    b. **이름** 텍스트 상자에 BrittaSimon의 이름(예: **Britta**)을 입력합니다.
+    1. **이름** 텍스트 상자에 BrittaSimon의 이름(예: **Britta**)을 입력합니다.
 
-    다. **성** 텍스트 상자에 BrittaSimon의 성(예: **Simon**)을 입력합니다.
+    1. **성** 텍스트 상자에 BrittaSimon의 성(예: **Simon**)을 입력합니다.
 
-    d. 텍스트 상자의 **직함** 에 사용자의 직함을 입력합니다.
-    
-    e. **이메일 주소** 텍스트 상자에 Britta Simon 계정의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
+    1. 텍스트 상자의 **직함** 에 사용자의 직함을 입력합니다.
 
-    f. **SSO 사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon\@contoso.com**)을 입력합니다.
+    1. **이메일 주소** 텍스트 상자에 Britta Simon 계정의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 
-    g. **저장** 을 클릭합니다.
+    1. **SSO 사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon\@contoso.com**)을 입력합니다.
+
+    1. **저장** 을 클릭합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

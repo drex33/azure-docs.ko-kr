@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 4f15d39da8f97897498f07892eb90d37a1bd8574
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 2d0a74b5674bba6850cbe38f1811c1204acb5e69
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209276"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848214"
 ---
 # <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Azure Purview에 연결하고 비공개로 안전하게 데이터 원본 검색
 
@@ -26,7 +26,7 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
 
  - Blob 프라이빗 엔드포인트는 Azure Purview 관리형 스토리지 계정에 연결됩니다.
  - 큐 프라이빗 엔드포인트는 Azure Purview 관리형 스토리지 계정에 연결됩니다.
- - 네임스페이스 프라이빗 엔드포인트는 Azure Purview 관리형 이벤트 허브 네임스페이스에 연결됩니다.
+ - 네임 스페이스 개인 끝점은 Azure 부서의 범위 관리 되는 이벤트 허브 네임 스페이스에 연결 됩니다.
 
   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Azure Purview 및 Private Link 아키텍처를 보여 주는 다이어그램.":::
 
@@ -180,7 +180,7 @@ Azure Purview에 대한 수집 프라이빗 엔드포인트를 배포한 후에�
    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="자체 호스팅 IR을 사용하여 Azure 검사를 실행하는 것을 보여 주는 스크린샷":::
 
 > [!IMPORTANT]
-> 2021년 8월 18일 이후에 Azure Purview 계정을 만든 경우 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 최신 버전의 자체 호스팅 통합 런타임을 다운로드하여 설치해야 합니다.
+> Microsoft 다운로드 센터에서 최신 버전의 자체 호스팅 통합 런타임을 [다운로드하여](https://www.microsoft.com/download/details.aspx?id=39717)설치해야 합니다.
 
 ## <a name="firewalls-to-restrict-public-access"></a>퍼블릭 액세스를 제한하는 방화벽
 

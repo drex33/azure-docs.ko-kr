@@ -176,7 +176,7 @@
           href: azure-stack-edge-gpu-manage-certificates.md
         - name: 인증서 오류 문제 해결
           href: azure-stack-edge-gpu-certificate-troubleshooting.md
-    - name: 가상 머신
+    - name: 가상 머신(미리 보기)
       items:
         - name: VM이란?
           href: azure-stack-edge-gpu-virtual-machine-overview.md
@@ -206,6 +206,8 @@
               href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
             - name: VM - GPU
               href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
+            - name: VMs - HPN
+              href: azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md
             - name: VM - Azure PowerShell cmdlet
               href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
             - name: VM - Azure PowerShell 스크립트
@@ -288,7 +290,7 @@
                   href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md
                 - name: C# 모듈 개발
                   href: azure-stack-edge-gpu-create-iot-edge-module.md
-            - name: Azure Arc(미리 보기)를 통해
+            - name: Azure Arc를 통해
               items:
                 - name: Kubernetes 클러스터에서 Arc 사용
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
@@ -296,6 +298,10 @@
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
                 - name: Azure Arc 데이터 컨트롤러 배포
                   href: azure-stack-edge-gpu-deploy-arc-data-controller.md
+        - name: 방법
+          items:
+            - name: MetalLB 구성
+              href: azure-stack-edge-gpu-configure-metallb-bgp-mode.md
     - name: IoT Edge
       items:
         - name: IoT Edge 샘플 배포
@@ -340,8 +346,6 @@
           href: azure-stack-edge-gpu-data-residency.md
         - name: 키 자격 증명 모음 통합 보기
           href: azure-stack-edge-gpu-activation-key-vault.md
-        - name: 자동 관리 로깅 사용
-          href: azure-stack-edge-gpu-proactive-log-collection.md
     - name: 공유 보안
       items:
         - name: 보안 개요
@@ -392,11 +396,17 @@
               href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: 디바이스 로그 및 진단
               href: azure-stack-edge-gpu-troubleshoot.md
+            - name: 자동 관리 로깅 사용
+              href: azure-stack-edge-gpu-proactive-log-collection.md
+            - name: 원격 지원 사용
+              href: azure-stack-edge-gpu-remote-support-diagnostics-repair.md
             - name: Microsoft 지원에 문의
               href: azure-stack-edge-contact-microsoft-support.md
     - name: 공유 릴리스 정보
       items:
-        - name: 2106 - 현재
+        - name: 2110 - 현재
+          href: azure-stack-edge-gpu-2110-release-notes.md
+        - name: 2106
           href: azure-stack-edge-gpu-2106-release-notes.md
         - name: 2105
           href: azure-stack-edge-gpu-2105-release-notes.md

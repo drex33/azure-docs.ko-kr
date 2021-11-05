@@ -1,7 +1,7 @@
 ---
 title: 알려진 문제
 titleSuffix: Azure SQL Managed Instance
-description: Azure SQL Managed Instance 현재 알려진 문제 및 가능한 해결 방법 또는 해결 방법에 대해 알아봅니다.
+description: 현재 Azure SQL Managed Instance의 알려진 문제 및 가능한 해결 방법 또는 해결 방법에 대해 알아봅니다.
 services: sql-database
 author: MashaMSFT
 ms.author: mathoma
@@ -11,30 +11,31 @@ ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: 97cf7977d6e867d0c3bbc106f599bc69db4d987b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 31f42cb2dd8405a08477fd6ee9048f42e80e44be
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465234"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851290"
 ---
-# <a name="known-issues-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance 알려진 문제
+# <a name="known-issues-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 알려진 문제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-이 문서에서는 현재 알려진 [Azure SQL Managed Instance](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance)문제 및 해결 날짜 또는 가능한 해결 방법을 나열합니다. Azure SQL Managed Instance 대한 자세한 내용은 [개요](sql-managed-instance-paas-overview.md)및 [새로운 을](doc-changes-updates-release-notes-whats-new.md)참조하세요. 
+이 문서에는 [Azure SQL Managed Instance](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance)와 관련 하 여 현재 알려진 문제점과 해결 날짜 또는 가능한 해결 방법이 나열 되어 있습니다. Azure SQL Managed Instance에 대해 자세히 알아보려면 [개요](sql-managed-instance-paas-overview.md)와 [새로운 기능](doc-changes-updates-release-notes-whats-new.md)을 참조 하세요. 
 
  
 ## <a name="known-issues"></a>알려진 문제
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
-|[서비스 주체의 다시 Azure Portal 제안하는 잘못된 오류 메시지](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|2021년 9월|||
+|[SQL Server 인증을 사용 하는 경우 ' @ ' 사용자 이름은 지원 되지 않습니다.](#when-using-sql-server-authentication-usernames-with--are-not-supported)|2021년 10월|||
+|[서비스 주체의 재작성을 제안 하 Azure Portal 오류 메시지가 잘못 되었습니다.](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|9 월 2021|||
 |[연결 유형을 변경해도 장애 조치(failover) 그룹 엔드포인트를 통한 연결에는 영향을 주지 않습니다.](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|2021년 1월|해결 방법 있음||
 |[ @query매개 변수를 사용할 때 sp_send_dbmail 프로시저가 일시적으로 실패할 수 있습니다.](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|2021년 1월|해결 방법 있음||
-|[서버 신뢰 그룹에서 관리되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020년 10월|해결 방법 있음||
-|[관리되는 인스턴스 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020년 10월|해결됨|2021년 5월|
+|[서버 신뢰 그룹에서 관리 되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020년 10월|해결 방법 있음||
+|[관리 되는 인스턴스 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020년 10월|해결됨|2021년 5월|
 |[이전에 삭제한 논리 서버와 동일한 이름으로 SQL Managed Instance를 만들 수 없습니다.](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|2020년 8월|해결 방법 있음||
-|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / Azure의 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) SQL 및 `BACKUP` / `RESTORE` SQL Managed Instance 문은 Azure AD 관리 ID를 사용하여 Azure Storage에 인증할 수 없습니다.|2020년 9월|해결 방법 있음||
+|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / azure SQL의 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) 및 `BACKUP` / `RESTORE` SQL Managed Instance azure AD 관리 id를 사용 하 여 azure storage에 인증할 수 없습니다.|2020년 9월|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없음](#service-principal-cannot-access-azure-ad-and-akv)|2020년 8월|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
 |[기존 작업을 수정하면 또는 사용하거나 사용하지 않도록 설정하면 에이전트가 응답하지 않음](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
@@ -314,19 +315,23 @@ using (var scope = new TransactionScope())
 **해결 방법(2020년 3월 이후 필요하지 않음):** [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase)를 사용하여 두 연결을 사용하는 대신 연결 컨텍스트에서 다른 데이터베이스를 사용합니다.
 
 
-## <a name="no-resolution"></a>해결 방법 없음
+## <a name="no-resolution"></a>해결 안 함
 
-### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>서비스 주체의 다시 Azure Portal 제안하는 잘못된 오류 메시지
+### <a name="when-using-sql-server-authentication-usernames-with--are-not-supported"></a>SQL Server 인증을 사용 하는 경우 ' @ ' 사용자 이름은 지원 되지 않습니다.
 
-서비스 주체가 이미 있는 경우에도 Azure SQL Managed Instance 대한 Azure Portal _Active Directory 관리자_ 블레이드에 다음 오류 메시지가 표시될 수 있습니다.
+중간에 ' @ ' 기호 (예: ' ')를 포함 하는 사용자 이름은 abc@xy SQL Server 인증을 사용 하 여 로그인 할 수 없습니다.
 
-"Managed Instance Azure Active Directory 액세스하려면 서비스 주체가 필요합니다. 서비스 주체를 만들려면 여기를 클릭하세요."
+### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>서비스 주체의 재작성을 제안 하 Azure Portal 오류 메시지가 잘못 되었습니다.
 
-관리되는 인스턴스의 서비스 주체가 이미 있는 경우 이 오류 메시지를 무시하거나 관리되는 인스턴스에서 인증을 AAD 수 있습니다. 
+서비스 주체가 이미 존재 하는 경우에도 Azure SQL Managed Instance에 대 한 Azure Portal의 _Active Directory 관리자_ 블레이드가 다음 오류 메시지를 표시 하 고 있을 수 있습니다.
 
-서비스 주체가 있는지 확인하려면 _Azure Portal Enterprise 애플리케이션_ 페이지로 이동하고, 애플리케이션 _유형_ 드롭다운 목록에서 _관리 ID를_ 선택하고, _적용을_ 선택하고, 검색 상자에 관리되는 인스턴스의 이름을 입력합니다. 인스턴스 이름이 결과 목록에 표시되면 서비스 주체가 이미 존재하며 추가 작업이 필요하지 않습니다.
+"Managed Instance Azure Active Directory에 액세스 하려면 서비스 주체가 필요 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. "
 
-오류 메시지의 지침을 이미 따르고 오류 메시지에서 링크를 클릭한 경우 관리되는 인스턴스의 서비스 주체가 다시 생성되었습니다. 이 경우 Azure AD 인증이 제대로 작동하려면 새로 만든 서비스 주체에 Azure AD 읽기 권한을 할당하세요. 이 작업은 지침에 따라 Azure PowerShell 통해 수행할 수 [있습니다.](../database/authentication-aad-configure.md?tabs=azure-powershell#powershell)
+관리 되는 인스턴스의 서비스 주체가 이미 존재 하는 경우이 오류 메시지를 무시 하 고 관리 되는 인스턴스에 대 한 AAD 인증을 사용할 수 있습니다. 
+
+서비스 사용자가 있는지 여부를 확인 하려면 Azure Portal의 응용 프로그램 _Enterprise_ 페이지로 이동 하 고, _응용 프로그램 종류_ 드롭다운 목록에서 _관리 id_ 를 선택한 다음, _적용_ 을 선택 하 고 검색 상자에 관리 되는 인스턴스의 이름을 입력 합니다. 인스턴스 이름이 결과 목록에 표시 되는 경우 서비스 주체는 이미 존재 하며 추가 작업이 필요 하지 않습니다.
+
+오류 메시지의 지침을 이미 따르고 오류 메시지에서 링크를 클릭 한 경우 관리 되는 인스턴스의 서비스 사용자가 다시 생성 되었습니다. 이 경우 Azure AD 인증이 제대로 작동 하려면 새로 만든 서비스 주체에 Azure AD 읽기 권한을 할당 하세요. 다음 [지침](../database/authentication-aad-configure.md?tabs=azure-powershell#powershell)에 따라 Azure PowerShell를 통해 수행할 수 있습니다.
 
 ### <a name="azure-ad-logins-and-users-are-not-supported-in-ssdt"></a>Azure AD 로그인 및 사용자가 SSDT에서 지원되지 않음
 
@@ -357,6 +362,6 @@ Azure SQL 설명서에 기여하려면 [Docs 기여자 가이드](/contribute/)�
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Managed Instance 업데이트 및 개선의 목록은 서비스 업데이트 [SQL Managed Instance 참조하세요.](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance)
+업데이트 및 개선 사항 Managed Instance SQL 목록은 [SQL Managed Instance 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance)를 참조 하세요.
 
 모든 Azure 서비스에 대한 개선 사항 및 업데이트는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.

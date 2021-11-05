@@ -7,17 +7,20 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/27/2021
-ms.openlocfilehash: b8d72d3b2e32f22cd3fc6bbe8a89b11469b343c4
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.date: 10/26/2021
+ms.openlocfilehash: 1b41284306927a2538e983c093ee8e571a9e93eb
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072217"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842077"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Azure Consumption Commitment 등록
 
 이 문서는 상업용 Marketplace 게시자를 위한 것이며, 시간에 따른 특정 Azure 지출 금액에 대해 고객이 Microsoft와 체결하는 계약 약정인 MACC(Microsoft Azure Consumption Commitment)에 대해 설명합니다. MACC가 고객에게 제공하는 이점에 대한 자세한 내용은 [Azure Consumption Commitment 이점](/marketplace/azure-consumption-commitment-benefit)을 참조하세요.
+
+> [!TIP]
+> Azure Marketplace의 사용 약정 이점에 대 한 고객의 보기를 확인 하려면 [Azure 사용량 약정 혜택](/marketplace/azure-consumption-commitment-benefit)을 참조 하세요.
 
 ## <a name="macc-program"></a>MACC 프로그램
 

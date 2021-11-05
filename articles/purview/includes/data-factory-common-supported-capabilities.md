@@ -5,12 +5,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 11/01/2021
-ms.openlocfilehash: 51d0252b374eb2e4a24d6e0a7ece2bff010d0caa
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 238db4caa1bcb11e0f4c27b6e490b0859b1e536d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464051"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851492"
 ---
 ### <a name="copy-activity-support"></a>복사 작업 지원
 
@@ -30,23 +30,24 @@ ms.locfileid: "131464051"
 | Azure SQL 데이터베이스 \* | Yes | 
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | 예 | 
+| Azure 전용 SQL 풀 (이전의 SQL DW)\* | 예 | 
 | Azure Table Storage | 예 |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
-| 오라클 \* | Yes |
+| Oracle \* | Yes |
 | SAP 테이블‘(SAP ECC 또는 SAP S/4HANA에 연결하는 경우)’ | Yes |
 | SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
 *\* Azure Purview는 현재 계보 또는 스캔에 대한 쿼리 또는 저장 프로시저를 지원하지 않습니다. 계보는 테이블 및 뷰 원본으로만 제한됩니다.*
 
-자체 호스팅 Integration Runtime 사용하는 경우 계보가 지원되는 최소 버전은 다음과 같습니다.
+자체 호스팅 Integration Runtime 사용 하는 경우에 대 한 계보 지원으로 최소 버전을 확인 합니다.
 
 - 모든 사용 사례: 버전 5.9.7885.3 이상
 - Oracle에서 데이터 복사: 버전 5.10 이상
-- COPY 명령 또는 PolyBase를 통해 Azure Synapse Analytics 데이터 복사: 버전 5.10 이상
+- COPY 명령 또는 PolyBase: 버전 5.10 이상을 통해 Azure Synapse Analytics로 데이터 복사
 
-#### <a name="limitations-on-copy-activity-lineage"></a>복사 작업 계보에 대한 제한 사항
+#### <a name="limitations-on-copy-activity-lineage"></a>복사 작업 계보에 대 한 제한 사항
 
 현재 다음과 같은 복사 작업 기능을 사용하는 경우 해당 계보는 아직 지원되지 않습니다.
 
@@ -72,10 +73,11 @@ ms.locfileid: "131464051"
 | Azure Database for PostgreSQL \* | 예 |
 | Azure SQL 데이터베이스 \* | Yes |
 | Azure SQL Managed Instance \* | Yes | 
-| Azure Synapse Analytics \* | Yes |
+| Azure Synapse Analytics \* | 예 |
+| Azure 전용 SQL 풀 (이전의 SQL DW)\* | Yes | 
 
 *\* Azure Purview는 현재 계보 또는 스캔에 대한 쿼리 또는 저장 프로시저를 지원하지 않습니다. 계보는 테이블 및 뷰 원본으로만 제한됩니다.*
 
-#### <a name="limitations-on-data-flow-lineage"></a>데이터 흐름 계보에 대한 제한 사항
+#### <a name="limitations-on-data-flow-lineage"></a>데이터 흐름 계보에 대 한 제한 사항
 
-현재 데이터 흐름 계보는 Purview [리소스 집합](../concept-resource-sets.md)과 통합되지 않습니다.
+현재 데이터 흐름 계보가 부서의 범위 [리소스 집합과](../concept-resource-sets.md)통합 되지 않습니다.

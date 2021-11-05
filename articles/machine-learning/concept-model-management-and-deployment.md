@@ -1,25 +1,25 @@
 ---
 title: 'MLOps: ML 모델 관리'
 titleSuffix: Azure Machine Learning
-description: 'Azure Machine Learning(MLOps)을 통한 모델 관리에 대해 알아봅니다. 모델을 배포, 관리, 계보 추적 및 모니터링하여 지속적으로 개선합니다. '
+description: 'Azure Machine Learning를 사용 하 여 모델 관리 (MLOps)에 대해 알아봅니다. 모델을 배포, 관리, 계보 추적 및 모니터링하여 지속적으로 개선합니다. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 author: jpe316
 ms.author: jordane
-ms.date: 10/21/2021
-ms.custom: seodec18
-ms.openlocfilehash: e23150105f2242f5db507cca1be39aca27f26786
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: seodec18, mktng-kw-nov2021
+ms.date: 11/04/2021
+ms.openlocfilehash: 7391f4306207e6b181f994c04022c4393712f30f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131561008"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848480"
 ---
 # <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포, 계보 및 모니터링
 
-이 문서에서는 Azure Machine Learning 사용하여 모델의 수명 주기를 관리하는 방법을 알아봅니다. Azure Machine Learning은 Machine Learning Operations(MLOps) 방식을 사용합니다. MLOps는 기계 학습 솔루션의 품질 및 일관성을 개선합니다. 
+이 문서에서는 Azure Machine Learning에서 모델의 수명 주기를 관리 하 Machine Learning는 방법에 대해 알아봅니다. MLOps는 기계 학습 솔루션의 품질 및 일관성을 개선합니다. 
 
 ## <a name="what-is-mlops"></a>MLOps란?
 
@@ -28,6 +28,8 @@ Machine Learning Operations(MLOps)는 워크플로의 효율성을 향상시키�
 * 모델의 실험 및 개발 속도 향상
 * 프로덕션 단계로의 모델 배포 속도 향상
 * 품질 보증 및 엔드 투 엔드 계보 추적
+
+## <a name="mlops-in-azure-machine-learning"></a>Azure Machine Learning의 MLOps
 
 Azure Machine Learning은 다음과 같은 MLOps 기능을 제공합니다.
 
@@ -40,6 +42,7 @@ Azure Machine Learning은 다음과 같은 MLOps 기능을 제공합니다.
 - **Azure Machine Learning 및 Azure Pipelines를 통해 ML 수명 주기 전체를 자동화** 합니다. 파이프라인을 사용하면 모델을 자주 업데이트하고, 새 모델을 테스트하고, 다른 애플리케이션 및 서비스와 함께 새 ML 모델을 지속적으로 배포할 수 있습니다.
 
 MLOps에 대한 자세한 내용은 [MLOps(Machine Learning DevOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops)를 참조하세요.
+
 ## <a name="create-reproducible-ml-pipelines"></a>재현 가능한 ML 파이프라인 만들기
 
 Azure Machine Learning의 ML 파이프라인을 사용하여 모델 학습 프로세스와 관련된 모든 단계를 연결합니다.
@@ -141,7 +144,7 @@ Azure Kubernetes Service에 배포하는 경우 제어된 롤아웃을 사용하
 
 Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용할 수 있도록 지원합니다. 자세한 내용은 [Power BI(미리 보기)에서 Azure Machine Learning 통합](/power-bi/service-machine-learning-integration)을 참조하세요.
 
-## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>ML 수명 주기 전체에 걸쳐 캡처에 필요한 거버넌스 데이터 캡처
+## <a name="capture-the-governance-data-required-for-mlops"></a>MLOps에 필요한 거버넌스 데이터 캡처
 
 Azure ML은 메타데이터를 사용하여 모든 ML 자산의 엔드투엔드 감사 내역을 추적하는 기능을 제공합니다.
 

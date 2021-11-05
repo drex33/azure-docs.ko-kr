@@ -2,14 +2,14 @@
 title: 비디오 연속 녹화 및 재생 자습서 - Azure Video Analyzer
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디오를 클라우드에 연속 녹화하고 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/04/2021
+ms.date: 09/27/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6a86dac6b242139d406dd6513a70846c57fa1c05
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c7fb6e35b3fa4f06734ab5aedb4c7b8df6d8ba27
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559355"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131030974"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>자습서: 연속 비디오 녹화 및 재생
 

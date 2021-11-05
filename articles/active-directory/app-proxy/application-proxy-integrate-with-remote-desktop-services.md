@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시로 원격 데스크�
 description: RDS(원격 데스크톱 서비스)를 사용하여 앱 프록시를 구성하는 방법을 설명합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: aa5c8ae942bb48c78526867eb44cc2084c056d48
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.reviewer: ashishj
+ms.openlocfilehash: b178c5370326bcb4dad2eefefbea0d6eb3cde662
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649665"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063407"
 ---
 # <a name="publish-remote-desktop-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시로 원격 데스크톱 게시
 
@@ -61,6 +61,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    - 외부 URL: 이 필드는 애플리케이션 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다.
    - 사전 인증 방법: Azure Active Directory
    - URL 헤더 변환: 아니요
+   - HTTP 전용 쿠키 사용: 아니요
 2. 게시된 RD 애플리케이션에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
 3. 애플리케이션에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함** 으로 유지합니다.
 

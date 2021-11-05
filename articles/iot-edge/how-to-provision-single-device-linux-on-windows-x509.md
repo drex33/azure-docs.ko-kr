@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: kgremban
 monikerRange: iotedge-2018-06
-ms.openlocfilehash: edaf3659da6614689a942e736c3b1bc34215b9ff
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: ccc4efe5978b9a97e0e4d535a42545161f33c6c4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131576780"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842704"
 ---
 # <a name="create-and-provision-an-iot-edge-for-linux-on-windows-device-using-x509-certificates"></a>x.509 인증서를 사용 하 여 Windows 장치에서 Linux에 대 한 IoT Edge 만들기 및 프로 비전
 
@@ -43,7 +43,7 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 > * [TPM을 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
 > * [대칭 키를 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 IoT Edge 장치를 등록 하 고 Windows에 Linux 용 IoT Edge를 설치 하는 방법을 설명 합니다. 이러한 작업을 수행 하는 데 사용 되는 다양 한 필수 조건 및 유틸리티가 있습니다. 계속 하기 전에 모든 필수 구성 요소가 포함 되어 있는지 확인 합니다.
 
@@ -77,7 +77,7 @@ Windows Admin Center 또는 관리자 권한 PowerShell 세션을 사용하여 �
 대상 디바이스의 관리자 권한 PowerShell 세션에서 다음 명령을 실행합니다. 자리 표시자 텍스트를 고유한 값으로 바꿉니다.
 
 ```powershell
-Provision-EflowVm -provisioningType ManualX509 -iotHubHostname "<HUB HOSTNAME>" -deviceId "<DEVICE ID>" -identityCertPath "<ABSOLUTE PATH TO IDENTITY CERT>" -identityPrivKeyPath "<ABSOLUTE PATH TO PRIVATE KEY>"
+Provision-EflowVm -provisioningType ManualX509 -iotHubHostname "HUB_HOSTNAME_HERE" -deviceId "DEVICE_ID_HERE" -identityCertPath "ABSOLUTE_PATH_TO_IDENTITY_CERT_HERE" -identityPrivKeyPath "ABSOLUTE_PATH_TO_PRIVATE_KEY_HERE"
 ```
 
 `Provision-EflowVM` 명령에 대한 자세한 내용은 [Windows의 Linux용 IoT Edge용 PowerShell 함수](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm)를 참조하세요.

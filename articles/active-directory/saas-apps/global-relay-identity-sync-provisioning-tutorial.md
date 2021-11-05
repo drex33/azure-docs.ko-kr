@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: thwimmer
-ms.openlocfilehash: f8aec55ac9c17880956b571b6d9d354d6578e467
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 01311d9e8a72f057c00196dd229ae0a1cf69a537
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767780"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040231"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Global Relay Identity Sync 구성
 
@@ -129,7 +129,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |userType|String|
    |locale|String|
    |timezone|String|
-   |emails[type eq "home"].value|문자열|
+   |emails[type eq "home"].value|String|
    |emails[type eq "other"].value|String|
    |phoneNumbers[type eq "home"].value|String|
    |phoneNumbers[type eq "other"].value|String|

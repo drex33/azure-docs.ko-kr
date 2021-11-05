@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: fd160749fef327efa21094ba69daf2db88449918
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 2fa29b8cfd15ccee133ef416d729c1807aa0a400
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357484"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017923"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>단일 페이지 애플리케이션: 로그인 및 로그아웃
 
@@ -454,9 +454,9 @@ function App() {
 
 ---
 
-## <a name="sign-out-with-a-popup-window"></a>팝업 창을 사용한 로그아웃
+## <a name="sign-out-with-a-pop-up-window"></a>팝업 창으로 로그아웃
 
-MSAL.js v2는 브라우저 스토리지의 캐시를 지우고 팝업 창에서 Azure AD(Azure Active Directory) 로그아웃 페이지를 여는 `logoutPopup` 메서드를 제공합니다. 로그아웃 후에 Azure AD는 팝업을 애플리케이션으로 다시 리디렉션하고 MSAL.js에서 팝업을 닫습니다.
+MSAL.js v2는 브라우저 스토리지의 캐시를 지우고 Azure AD(Azure Active Directory) 로그아웃 페이지로 팝업 창을 여는 `logoutPopup` 메서드를 제공합니다. 로그아웃 후에 Azure AD는 팝업을 애플리케이션으로 다시 리디렉션하고, MSAL.js눈 팝업을 닫습니다.
 
 `postLogoutRedirectUri`를 설정하여 Azure AD가 로그아웃 후에 리디렉션해야 하는 URI를 구성할 수 있습니다. 애플리케이션 등록에서 이 URI를 리디렉션 URI로 등록해야 합니다.
 
@@ -485,7 +485,7 @@ await myMsal.logoutPopup(logoutRequest);
 ```
 # <a name="javascript-msaljs-v1"></a>[JavaScript(MSAL.js v1)](#tab/javascript1)
 
-MSAL.js v1에서는 팝업 창을 사용한 로그아웃이 지원되지 않습니다.
+팝업 창을 통한 로그아웃은 MSAL.js v1에서 지원되지 않습니다.
 
 # <a name="angular-msaljs-v2"></a>[Angular(MSAL.js v2)](#tab/angular2)
 
@@ -512,7 +512,7 @@ logout() {
 
 # <a name="angular-msaljs-v1"></a>[Angular(MSAL.js v1)](#tab/angular1)
 
-MSAL Angular v1에서는 팝업 창을 사용한 로그아웃이 지원되지 않습니다.
+팝업 창을 통한 로그아웃은 MSAL Angular v1에서 지원되지 않습니다.
 
 # <a name="react"></a>[React](#tab/react)
 

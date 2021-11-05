@@ -2,13 +2,16 @@
 title: Azure 파일 공유 복원
 description: Azure Portal을 사용하여 Azure Backup을 통해 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/12/2020
-ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/03/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 464c9927f901a373310ad6d1c0812a5a5de1eaaa
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89376777"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846843"
 ---
 # <a name="restore-azure-file-shares"></a>Azure 파일 공유 복원
 
@@ -26,37 +29,25 @@ ms.locfileid: "89376777"
 
 ### <a name="select-the-file-share-to-restore"></a>복원할 파일 공유 선택
 
-1. [Azure Portal](https://portal.azure.com/)에서 파일 공유의 백업을 구성하는 데 사용한 Recovery Services 자격 증명 모음을 엽니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **Backup center** 로 이동 하 고 **복원** 을 클릭 합니다.
 
-1. 개요 창의 **보호된 항목** 섹션에서 **백업 항목** 을 선택합니다.
+   :::image type="content" source="./media/restore-afs/backup-center-restore-inline.png" alt-text="Azure 파일 공유 복원 프로세스를 시작 하는 것을 보여 주는 스크린샷" lightbox="./media/restore-afs/backup-center-restore-expanded.png":::
 
-    ![백업 항목 선택](./media/restore-afs/backup-items.png)
+1. 데이터 원본 유형으로 **Azure Files (Azure Storage)** 를 선택 하 고 복원 하려는 파일 공유를 선택한 다음 **계속** 을 클릭 합니다.
 
-1. **백업 항목** 을 선택하면 모든 백업 관리 유형이 나열된 새 창이 개요 창 옆에 열립니다.
-
-    ![백업 관리 유형](./media/restore-afs/backup-management.png)
-
-1. **백업 항목** 창의 **백업 관리 유형** 에서 **Azure Storage(Azure Files)** 를 선택합니다. 이 자격 증명 모음을 사용하여 백업된 모든 파일 공유 및 해당 스토리지 계정 목록이 표시됩니다.
-
-    ![모든 파일 공유 목록](./media/restore-afs/file-shares.png)
-
-1. Azure 파일 공유 목록에서 복원 작업을 수행할 파일 공유를 선택합니다.
+   :::image type="content" source="./media/restore-afs/azure-file-share-select-instance.png" alt-text="백업 항목을 선택 하는 것을 보여 주는 스크린샷":::
 
 ### <a name="full-share-recovery"></a>전체 공유 복구
 
 이 복원 옵션을 사용하여 원래 위치나 대체 위치에서 전체 파일 공유를 복원할 수 있습니다.
 
-1. [복원할 파일 공유 선택](#select-the-file-share-to-restore) 섹션의 5단계에서 복원할 파일 공유를 선택한 후에 표시되는 **백업 항목** 창에서 **공유 복원** 옵션을 선택합니다.
-
-   ![공유 복원 선택](./media/restore-afs/restore-share.png)
-
-1. **공유 복원** 을 선택하면 **복원** 창이 열립니다. 복원 작업을 수행하는 데 사용할 복원 지점을 선택하려면 **복원 지점** 텍스트 상자 아래에 있는 **선택** 링크 텍스트를 선택합니다.
+1. 이전 단계에서 **계속** 을 선택 하면 **복원** 창이 열립니다. 복원 작업을 수행하는 데 사용할 복원 지점을 선택하려면 **복원 지점** 텍스트 상자 아래에 있는 **선택** 링크 텍스트를 선택합니다.
 
     ![선택을 선택하여 복원 지점 선택](./media/restore-afs/select-restore-point.png)
 
 1. **복원 지점 선택** 컨텍스트 창이 오른쪽에 열리고 선택한 파일 공유에 사용할 수 있는 복원 지점이 나열됩니다. 복원 작업을 수행하는 데 사용할 복원 지점을 선택한 다음 **확인** 을 선택합니다.
 
-    ![복원 지점 선택](./media/restore-afs/restore-point.png)
+   :::image type="content" source="./media/restore-afs/azure-file-share-select-restore-point-inline.png" alt-text="복원 지점을 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/restore-afs/azure-file-share-select-restore-point-expanded.png":::
 
     >[!NOTE]
     >기본적으로 **복원 지점 선택** 창에는 지난 30일 동안의 복원 지점이 나열됩니다. 특정 기간 동안 생성된 복원 지점을 확인하려면 적절한 **시작 시간** 및 **종료 시간** 을 선택하여 범위를 지정하고 **새로 고침** 단추를 선택합니다.
@@ -72,7 +63,7 @@ ms.locfileid: "89376777"
 
 1. **복원** 을 선택하여 복원 작업을 시작합니다.
 
-    ![복원을 선택하여 시작](./media/restore-afs/click-restore.png)
+   :::image type="content" source="./media/restore-afs/azure-file-share-original-location-recovery.png" alt-text="시작 화면에 복원을 선택 하는 것을 보여 주는 스크린샷":::
 
 #### <a name="restore-to-an-alternate-location-full-share-recovery"></a>대체 위치로 복원(전체 공유 복구)
 
@@ -83,13 +74,16 @@ ms.locfileid: "89376777"
 1. 충돌이 있을 경우 건너뛸지 아니면 덮어쓸지를 선택합니다.
 1. 모든 상자에 적절한 값을 입력한 후 **복원** 을 선택하여 복원 작업을 시작합니다.
 
-    ![대체 위치 선택](./media/restore-afs/alternate-location.png)
+   :::image type="content" source="./media/restore-afs/azure-file-share-alternate-location-recovery.png" alt-text="대체 위치를 선택 하도록 보여 주는 스크린샷":::
 
 ### <a name="item-level-recovery"></a>항목 수준 복구
 
 이 복원 옵션을 사용하여 원래 위치나 대체 위치에서 개별 파일 또는 폴더를 복원할 수 있습니다.
 
-1. [복원할 파일 공유 선택](#select-the-file-share-to-restore) 섹션의 5단계에서 복원할 파일 공유를 선택한 후에 표시되는 **백업 항목** 창에서 **파일 복구** 옵션을 선택합니다.
+1. **백업 센터** 로 이동 하 여 메뉴에서 **백업 인스턴스** 를 선택 하 고 **Azure Storage (Azure Files)** 로 선택한 datasource 유형을 사용 합니다.
+1. 항목 수준 복구를 수행 하려는 파일 공유를 선택 합니다.
+
+   백업 항목 메뉴에 **파일 복구** 옵션이 표시 됩니다.
 
     ![파일 복구 선택](./media/restore-afs/file-recovery.png)
 
@@ -153,10 +147,10 @@ ms.locfileid: "89376777"
 
 Recovery Services 자격 증명 모음에서 복원 진행률을 모니터링할 수도 있습니다.
 
-1. 복원 작업을 트리거한 Recovery Services 자격 증명 모음을 엽니다.
-1. 개요 창의 **모니터링** 섹션에서 **백업 작업** 을 선택하여 다양한 워크로드에 대해 실행 중인 작업의 상태를 확인합니다.
+1. **백업 센터** 로 이동 하 고 메뉴에서 **백업 작업** 을 클릭 합니다.
+1. 필요한 데이터 원본 유형 및 작업 상태에 대 한 작업을 필터링 합니다.
 
-    ![백업 작업 선택](./media/restore-afs/backup-jobs.png)
+   :::image type="content" source="./media/restore-afs/backup-center-jobs-inline.png" alt-text="백업 작업을 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/restore-afs/backup-center-jobs-expanded.png":::
 
 1. 파일 공유에 해당하는 워크로드 이름을 선택하여 **전송된 데이터**, **복원된 파일 수** 등 복원 작업에 대한 자세한 정보를 확인합니다.
 

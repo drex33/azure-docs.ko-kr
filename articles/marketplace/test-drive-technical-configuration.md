@@ -4,21 +4,24 @@ description: 시험 사용에 대해 알아봅니다. 시험 사용을 사용하
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 10/26/2021
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: c4d5ccaead616fa53cc10733ad82f0f20b7e1cab
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
-ms.translationtype: HT
+ms.openlocfilehash: 04eab06f0ce8aefa675b89613611c0ec9a93f9b6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007394"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847359"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
 Microsoft 상업용 Marketplace의 시험 사용 옵션을 사용하면 제품의 주요 기능에 대한 셀프 가이드 둘러보기 실습을 구성할 수 있습니다. 시험 사용을 사용하면 새 고객이 구매를 커밋하기 전에 제품을 사용해 볼 수 있습니다. 자세한 내용은 [시험 사용이란?](what-is-test-drive.md)을 참조하세요.
 
 더 이상 제품에 대한 시험 사용을 제공하지 않으려는 경우 **제품 설정** 페이지로 돌아가서 **시험 사용** 확인란의 선택을 취소합니다. 모든 제품 유형에 시험 사용이 가능한 것은 아닙니다.
+
+> [!TIP]
+> 상업용 Marketplace에서 시험 구매에 대한 고객의 보기를 보려면 [Azure Marketplace란?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource 무엇인가요?를 참조하세요.](/marketplace/appsource-overview)
 
 ## <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 

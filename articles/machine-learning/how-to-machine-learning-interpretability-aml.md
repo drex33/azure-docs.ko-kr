@@ -1,5 +1,5 @@
 ---
-title: Python에서 ML 모델 해석 및 설명(미리 보기)
+title: Python을 사용 하 여 & 설명 모델 해석 (미리 보기)
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델이 기능 중요도를 결정하고 Azure Machine Learning SDK를 사용할 때 예측하는 방법에 대한 설명을 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -10,15 +10,15 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: ce73277b509a0ea98e02196998dc9b735768d5a7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021
+ms.openlocfilehash: f22bee60a86d162c57313ab33811a21408eefd74
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562431"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847454"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>해석력 패키지를 사용하여 Python의 ML 모델 및 예측 설명(미리 보기)
+# <a name="use-the-python-interpretability-package-to-explain-ml-models--predictions-preview"></a>Python interpretability 패키지를 사용 하 여 예측 & ML 모델 설명 (미리 보기)
 
 이 방법 가이드에서는 Azure Machine Learning Python SDK의 해석력 패키지를 사용하여 다음 작업을 수행하는 방법을 알아봅니다.
 
@@ -569,9 +569,9 @@ X, Y 및 색 축을 따라 다른 필터를 선택함으로써 데이터 세트 
 
 지원 되는 설명 탭 | 원시 기능 (조밀한) | 원시 기능 (스파스) | 엔지니어링 된 기능 (조밀한) | 엔지니어링 된 기능 (스파스)
 :----- | :--- | :--- | :---- | :---- |
-모델 성능   | 지원 됨 (예측 안 함) | 지원 됨 (예측 안 함)  | 지원됨 | 지원됨 |
+모델 성능   | 지원 됨 (예측 안 함) | 지원 됨 (예측 안 함)  | 지원됨 | 지원 여부 |
 데이터 세트 탐색기  | 지원 됨 (예측 안 함)   | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 지원됨 | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 
- Aggregatge 기능 중요도 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+ 집계 기능 중요도 | 지원 여부 | 지원됨 | 지원됨 | 지원됨 |
  개별 기능 중요도| 지원 됨 (예측 안 함)   | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 지원됨 | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 
 
 
@@ -584,6 +584,6 @@ X, Y 및 색 축을 따라 다른 필터를 선택함으로써 데이터 세트 
 
 ## <a name="next-steps"></a>다음 단계
 
-[모델 해석력에 대해 자세히 알아보기](how-to-machine-learning-interpretability.md)
+[Azure ML의 모델 interpretability 기술](how-to-machine-learning-interpretability.md)
 
-[Azure Machine Learning 해석력 샘플 노트북 확인](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+[Azure Machine Learning interpretability 샘플 노트북 확인](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

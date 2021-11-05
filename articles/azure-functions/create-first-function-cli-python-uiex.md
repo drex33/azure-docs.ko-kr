@@ -8,12 +8,12 @@ ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8bbd177e5cf9a6148179dfec7f7f6b6c0082cdde
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 951a0cec92d531aa980b519df2a046355997c175
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739835"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039338"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 
@@ -37,13 +37,13 @@ ms.locfileid: "121739835"
 
 + Azure <abbr title="Azure 사용량에 대한 청구 정보를 유지 관리하는 프로필.">account</abbr> 활성 <abbr title="Azure에서 리소스를 관리하는 기본 조직 구조이며 일반적으로 조직 내의 개인 또는 부서와 연결됩니다.">subscription</abbr>. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.x. 
-  
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.x.
+
 + 그리고 <abbr title="로컬 개발 컴퓨터에서 Azure 리소스로 작업하기 위한 플랫폼 간 명령줄 도구 집합(Azure Portal 대용).">Azure CLI</abbr> 또는 <abbr title="로컬 개발 컴퓨터에서 Azure 리소스로 작업하기 위한 명령을 제공하는 PowerShell 모듈(Azure Portal 대용).">Azure PowerShell</abbr> Azure 리소스 생성용:
 
     + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) 버전 5.0 이상.
+    + [Az PowerShell 모듈](/powershell/azure/install-az-ps), 버전 5.9.0 이상.
 
 + Azure Functions 버전 3.x에서 모두 지원되는 [Python 3.8(64비트)](https://www.python.org/downloads/release/python-382/), [Python 3.7(64비트)](https://www.python.org/downloads/release/python-375/), [Python 3.6(64비트)](https://www.python.org/downloads/release/python-368/).
 
@@ -65,7 +65,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 + 터미널 또는 명령 창에서 `func --version`을 실행하여 다음을 확인합니다. <abbr title="로컬 컴퓨터에서 Azure Functions로 작업하기 위한 명령줄 도구 집합.">Azure Functions Core Tools</abbr> 버전 3.x입니다.
 
-+ `(Get-Module -ListAvailable Az).Version`을 실행하고 버전 5.0 이상을 확인합니다. 
++ `(Get-Module -ListAvailable Az).Version`을 실행하고 버전 5.0 이상을 확인합니다.
 
 + `Connect-AzAccount`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
 
@@ -119,7 +119,7 @@ py -m venv .venv
 
 ---
 
-활성화된 가상 환경에서 이후의 모든 명령을 실행합니다. 
+활성화된 가상 환경에서 이후의 모든 명령을 실행합니다.
 
 <br/>
 
@@ -129,7 +129,7 @@ py -m venv .venv
 
 이 섹션에서는 로컬 항목을 만듭니다. <abbr title="함께 배포하고 관리할 수 있는 하나 이상의 개별 함수에 대한 논리적 컨테이너.">Azure Functions 프로젝트</abbr> Python. 프로젝트의 각 함수는 특정 항목에 응답합니다. <abbr title="함수의 코드를 호출하는 이벤트의 유형(예: HTTP 요청, 큐 메시지 또는 특정 시간).">트리거</abbr>.
 
-1. `func init` 명령을 실행하여 지정된 런타임에 *LocalFunctionProj* 폴더에 함수 프로젝트를 만듭니다.  
+1. `func init` 명령을 실행하여 지정된 런타임에 *LocalFunctionProj* 폴더에 함수 프로젝트를 만듭니다.
 
     ```console
     func init LocalFunctionProj --python
@@ -140,11 +140,11 @@ py -m venv .venv
     ```console
     cd LocalFunctionProj
     ```
-    
+
     <br/>
     <details>
     <summary><strong>LocalFunctionProj 폴더에 생성되는 항목은 무엇인가요?</strong></summary>
-    
+
     이 폴더에는 [local.settings.json](functions-develop-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
     </details>
 
@@ -152,21 +152,21 @@ py -m venv .venv
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ```   
+    ```
     `--name` 인수는 함수(HttpExample)의 고유한 이름입니다.
 
     `--template` 인수는 함수의 트리거(HTTP)를 지정합니다.
-    
+
     `func new`는 함수 코드와 구성 파일 이름 *function.json* 을 사용하여 *\_\_init\_\_.py* 파일이 포함된 함수 이름과 일치하는 하위 폴더를 만듭니다.
 
-    <br/>    
+    <br/>
     <details>
     <summary><strong>__init__.py에 대한 코드</strong></summary>
-    
+
     *\_\_init\_\_.py* 에는 *function.json* 의 구성에 따라 트리거되는 `main()` Python 함수가 포함되어 있습니다.
-    
+
     :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
-    
+
     HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에 요청 데이터를 받습니다. `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. *function.json* 에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=python)을 참조하세요.
     </details>
 
@@ -175,12 +175,12 @@ py -m venv .venv
     <summary><strong>function.json에 대한 코드</strong></summary>
 
     *function.json* 은 다음을 정의하는 구성 파일입니다. <abbr title="함수와 기타 리소스 간의 선언적 연결. 입력 바인딩은 함수에 데이터를 제공합니다. 출력 바인딩은 함수에서 다른 리소스로 데이터를 제공합니다.">입력 및 출력 바인딩</abbr> 트리거 유형을 포함하는 함수용.
-    
+
     원하는 경우 다른 Python 파일을 호출하도록 `scriptFile`을 변경할 수 있습니다.
-    
+
     :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
-    
-    각 바인딩에는 명령, 형식 및 고유한 이름이 필요합니다. HTTP 트리거의 입력 바인딩은 [`httpTrigger`](functions-bindings-http-webhook-trigger.md) 형식이고, 출력 바인딩은 [`http`](functions-bindings-http-webhook-output.md) 형식입니다.    
+
+    각 바인딩에는 명령, 형식 및 고유한 이름이 필요합니다. HTTP 트리거의 입력 바인딩은 [`httpTrigger`](functions-bindings-http-webhook-trigger.md) 형식이고, 출력 바인딩은 [`http`](functions-bindings-http-webhook-output.md) 형식입니다.
     </details>
 
 <br/>
@@ -195,21 +195,21 @@ py -m venv .venv
     func start
     ```
 
-    출력의 끝 부분에 다음 줄이 표시됩니다. 
-    
+    출력의 끝 부분에 다음 줄이 표시됩니다.
+
     <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     ...
-    
+
     Now listening on: http://0.0.0.0:7071
     Application started. Press Ctrl+C to shut down.
-    
+
     Http Functions:
-    
+
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ...
-    
+
     </pre>
-    
+
     <br/>
     <details>
     <summary><strong>출력에 HttpExample이 표시되지 않음</strong></summary>
@@ -242,7 +242,7 @@ py -m venv .venv
 
     [az login](/cli/azure/reference-index#az_login) 명령은 Azure 계정에 로그인합니다.
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Connect-AzAccount
     ```
@@ -251,14 +251,14 @@ py -m venv .venv
 
     ---
 
-1. `westeurope` 지역에 `AzureFunctionsQuickstart-rg`라는 리소스 그룹을 만듭니다. 
+1. `westeurope` 지역에 `AzureFunctionsQuickstart-rg`라는 리소스 그룹을 만듭니다.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
+
     ```azurecli
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
- 
+
     [az group create](/cli/azure/group#az_group_create) 명령은 리소스 그룹을 만듭니다. 일반적으로 리소스 그룹 및 리소스를 만듭니다. <abbr title="리소스가 할당된 특정 Azure 데이터 센터에 대한 지리적 참조.">region</abbr> 가까운 곳. `az account list-locations` 명령에서 반환된 사용 가능한 지역 사용
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
@@ -281,7 +281,7 @@ py -m venv .venv
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령은 스토리지 계정을 만듭니다. 
+    [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령은 스토리지 계정을 만듭니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -294,33 +294,33 @@ py -m venv .venv
     ---
 
     `<STORAGE_NAME>`을 적절한 이름으로 바꿉니다. <abbr title="이 이름은 모든 Azure 고객이 전역적으로 사용하는 모든 스토리지 계정에서 고유해야 합니다. 예를 들어 contosobizappstorage20과 같이 개인 또는 회사 이름, 애플리케이션 이름 및 숫자 식별자를 조합하여 사용할 수 있습니다.">Azure Storage에서 고유함</abbr>. 이름은 3~24자의 숫자와 소문자만 포함해야 합니다. `Standard_LRS`는 범용 계정을 지정하며, [Functions로 지원](storage-considerations.md#storage-account-requirements)됩니다.
-    
+
     이 빠른 시작에 대해 스토리지 계정은 약간의 비용(몇 USD 센트)만 발생합니다.
 
 1. Azure에서 함수 앱을 만듭니다.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-        
+
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
     ```
-    
+
     [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `--runtime-version`을 `3.7` 또는 `3.6`으로 각각 변경합니다.
-    
+
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
-    
+
     [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `-RuntimeVersion`을 `3.7` 또는 `3.6`으로 각각 변경합니다.
 
     ---
-    
+
     `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꿉니다.
 
-    `<APP_NAME>`을 다음 항목으로 바꿉니다. <abbr title="모든 Azure 고객에 대해 전역적으로 고유한 이름이어야 합니다. 예를 들어 contoso-bizapp-func-20과 같이 개인 또는 조직 이름, 애플리케이션 이름 및 숫자 식별자를 조합하여 사용할 수 있습니다.">사용자에게 적합한 전역적으로 고유한 이름</abbr>. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
-    
+    `<APP_NAME>`을 다음 항목으로 바꿉니다. <abbr title="모든 Azure 고객에 대해 전역적으로 고유한 이름이어야 합니다. 예를 들어 contoso-bizapp-func-20과 같이 개인 또는 조직 이름, 애플리케이션 이름 및 숫자 식별자를 조합하여 사용할 수 있습니다.">사용자에게 적합한 전역적으로 고유한 이름</abbr>. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다.
+
     <br/>
     <details>
     <summary><strong>Azure에 프로비저닝된 리소스의 비용은 얼마인가요?</strong></summary>
@@ -334,7 +334,7 @@ py -m venv .venv
 
 ## <a name="6-deploy-the-function-project-to-azure"></a>6. Azure에 함수 프로젝트 배포
 
-Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](functions-run-local.md#project-file-deployment) 명령을 사용하여 **로컬 함수 프로젝트를 배포할** 준비가 되었습니다.  
+Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](functions-run-local.md#project-file-deployment) 명령을 사용하여 **로컬 함수 프로젝트를 배포할** 준비가 되었습니다.
 
 다음 예제에서 `<APP_NAME>`을 앱 이름으로 바꿉니다.
 
@@ -367,7 +367,7 @@ Functions in msdocs-azurefunctions-qs:
 
 ## <a name="7-invoke-the-function-on-azure"></a>7. Azure에서 함수 호출
 
-함수에서 HTTP 트리거를 사용하므로 브라우저 또는 다음과 같은 도구를 사용하여 URL에 HTTP 요청을 전송하여 호출합니다. <abbr title="URL에 대한 HTTP 요청을 생성하는 명령줄 도구. https://curl.se/ 참조">curl</abbr>. 
+함수에서 HTTP 트리거를 사용하므로 브라우저 또는 다음과 같은 도구를 사용하여 URL에 HTTP 요청을 전송하여 호출합니다. <abbr title="URL에 대한 HTTP 요청을 생성하는 명령줄 도구. https://curl.se/ 참조">curl</abbr>.
 
 # <a name="browser"></a>[브라우저](#tab/browser)
 
@@ -393,7 +393,7 @@ func azure functionapp logstream <APP_NAME> --browser
 
 `<APP_NAME>`은 함수 앱 이름으로 바꿉니다.
 
-별도의 터미널 창 또는 브라우저에서 원격 함수를 다시 호출합니다. Azure의 함수 실행에 대한 자세한 로그가 터미널에 표시됩니다. 
+별도의 터미널 창 또는 브라우저에서 원격 함수를 다시 호출합니다. Azure의 함수 실행에 대한 자세한 로그가 터미널에 표시됩니다.
 
 <br/>
 

@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f878e18a914b0319657790864d02832bf91fbe36
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c3ee6cc0c913533b83be1eb389e7d7402875e4dd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889655"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012419"
 ---
 # <a name="nist-authenticator-types-and-aligned-azure-active-directory-methods"></a>NIST 인증자 유형 및 조정된 Azure Active Directory 메서드
 

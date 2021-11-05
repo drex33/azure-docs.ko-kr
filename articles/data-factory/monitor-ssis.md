@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor를 사용하여 SSIS 작업 모니터링
-description: Azure Monitor를 사용 하 여 Azure Data Factory에서 SSIS 작업을 모니터링 하는 방법에 대해 알아봅니다.
-author: jasonwhowell
-ms.author: jasonh
+description: Azure Monitor 사용하여 Azure Data Factory SSIS 작업을 모니터링하는 방법을 알아봅니다.
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 8e3160f3bd6fd7cd68c8fe26257090a70d9a43dc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 91e291b27301cee8b7ec8f65e248e09c4f79799c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131033155"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842742"
 ---
 # <a name="monitor-ssis-operations-with-azure-monitor"></a>Azure Monitor를 사용하여 SSIS 작업 모니터링
 

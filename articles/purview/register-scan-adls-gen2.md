@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 6459dc9cfccac5f17e0fac155121a817a0fad060
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 18076fa234650f5d176f2487e2c0ff487a61bb49
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131038246"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842002"
 ---
 # <a name="connect-to-azure-data-lake-gen2-in-azure-purview"></a>Azure 부서의 범위에서 Azure Data Lake Gen2에 커넥트
 
@@ -22,9 +22,11 @@ ms.locfileid: "131038246"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 예 | [Data Factory 계보](how-to-link-azure-data-factory.md) |
+| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 예 | 제한 됨 * * |
 
-## <a name="prerequisites"></a>사전 요구 사항
+\** 데이터 집합을 [Data Factory 복사 작업](how-to-link-azure-data-factory.md) 에서 원본/싱크로 사용 하는 경우에는 계보가 지원 됩니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -174,56 +176,56 @@ ms.locfileid: "131038246"
 
 ##### <a name="granting-the-service-principal-access-to-your-adls-gen2-account"></a>ADLS Gen2 계정에 대 한 서비스 사용자 액세스 권한 부여
 
-서비스 주체에게 ADLS Gen2 데이터 원본을 검사할 수 있는 권한을 부여하는 것이 중요합니다. 검색 권한을 부여할 대상에 따라 구독, 리소스 그룹 또는 리소스 수준에서 카탈로그의 MSI를 추가할 수 있습니다.
+서비스 사용자에 게 ADLS Gen2 데이터 원본을 검색할 수 있는 권한을 부여 하는 것이 중요 합니다. 검색 권한을 부여할 대상에 따라 구독, 리소스 그룹 또는 리소스 수준에서 카탈로그의 MSI를 추가할 수 있습니다.
 
 > [!Note]
-> Azure 리소스에 서비스 주체를 추가할 수 있으려면 구독의 소유자이어야 합니다.
+> Azure 리소스에서 서비스 주체를 추가할 수 있으려면 구독의 소유자 여야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 카탈로그가 검색할 수 있도록 허용할 구독, 리소스 그룹 또는 리소스(예: Azure Data Lake Storage Gen2 스토리지 계정)를 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에서 카탈로그를 검색할 수 있도록 허용 하려는 구독, 리소스 그룹 또는 리소스 (예: Azure Data Lake Storage Gen2 저장소 계정)를 찾습니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="스토리지 계정을 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="저장소 계정을 보여 주는 스크린샷":::
 
-1. 왼쪽 탐색 창에서 **Access Control(IAM)를** 클릭한 다음 + 역할 할당   -->  **추가를** 클릭합니다.
+1. 왼쪽 탐색 영역에서 **Access Control (IAM)** 을 클릭 한 다음 **+ 추가**  -->  **역할 할당** 추가를 클릭 합니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="스토리지 계정에 대한 액세스 제어를 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="저장소 계정에 대 한 액세스 제어를 보여 주는 스크린샷":::
 
-1. **역할을** Storage **Blob 데이터 판독기로** 설정하고 입력 **선택** 상자에 _서비스 주체를_ 입력합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
+1. **역할** 을 **Storage Blob 데이터 판독기** 로 설정 하 고 입력 상자에서 _서비스 사용자_ **를 입력 합니다** . 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="서비스 주체에 스토리지 계정 권한을 제공하는 세부 정보를 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="서비스 사용자에 게 저장소 계정 사용 권한을 제공 하는 세부 정보를 보여 주는 스크린샷":::
 
-### <a name="create-the-scan"></a>검사 만들기
+### <a name="create-the-scan"></a>검색 만들기
 
-1. **Purview 계정을** 열고 **Purview Studio 열기를** 클릭합니다.
-1. **데이터 맵**  -->  **원본으로** 이동하여 컬렉션 계층 구조를 확인합니다.
-1. 이전에 등록된 ADLS Gen2 데이터 **원본** 아래에서 **새 검색** 아이콘을 클릭합니다.
+1. **부서의 범위 계정을** 열고 **오픈 부서의 범위 Studio** 를 클릭 합니다.
+1. **데이터 맵** 원본으로 이동 하 여  -->   컬렉션 계층 구조를 확인 합니다.
+1. 이전에 등록 된 **ADLS Gen2 데이터 소스** 에서 **새 검사** 아이콘을 클릭 합니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-new-scan.png" alt-text="새 검사를 만드는 화면을 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-new-scan.png" alt-text="새 검색을 만들기 위한 화면을 보여 주는 스크린샷":::
 
-#### <a name="if-using-managed-identity"></a>관리 ID를 사용하는 경우
+#### <a name="if-using-managed-identity"></a>관리 Id를 사용 하는 경우
 
-1. 검사에 대한 **이름을** 제공하고, **자격 증명에서** **Purview MSI를** 선택하고, 검사에 적절한 컬렉션을 선택하고, **연결 테스트를** 클릭합니다. 연결이 성공적이면 **계속을** 클릭합니다.
+1. 검색에 대 한 **이름을** 제공 하 고, **자격 증명** 에서 **부서의 범위 MSI** 를 선택 하 고, 검색에 적절 한 컬렉션을 선택 하 고, **연결 테스트** 를 클릭 합니다. 연결에 성공 하면 **계속** 을 클릭 합니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="검사를 실행하는 관리 ID 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="검색을 실행 하는 관리 Id 옵션을 보여 주는 스크린샷":::
 
-#### <a name="if-using-account-key"></a>계정 키를 사용하는 경우
+#### <a name="if-using-account-key"></a>계정 키를 사용 하는 경우
 
-1. 검사에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, **인증 방법을** _계정 키로_ 선택합니다.
+1. 검색에 대 한 **이름을** 제공 하 고, 검색을 위한 적절 한 컬렉션을 선택 하 고, **인증 방법** 을 _계정 키_ 로 선택 합니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="검사를 위한 계정 키 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="검색에 대 한 계정 키 옵션을 보여 주는 스크린샷":::
 
-#### <a name="if-using-service-principal"></a>서비스 주체를 사용하는 경우
+#### <a name="if-using-service-principal"></a>서비스 주체를 사용 하는 경우
 
-1. 검사에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, **자격 증명** 아래에서 **+ 새로** 만들기를 클릭합니다.
+1. 검색에 대 한 **이름을** 제공 하 고, 검색에 적절 한 컬렉션을 선택 하 고, **자격 증명** 에서 **+ 새로 만들기** 를 클릭 합니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-option.png" alt-text="서비스 주체가 검사를 사용하도록 설정하는 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-option.png" alt-text="서비스 사용자가 검사를 사용 하도록 설정 하는 옵션을 보여 주는 스크린샷":::
 
-1. _서비스 주체_ 를 만드는 동안 사용된 적절한 **키 자격** 증명 모음 연결 및 **비밀 이름을** 선택합니다. **서비스 주체 ID는** 이전에 복사한 **애플리케이션(클라이언트) ID입니다.**
+1. _서비스 주체_ 를 만드는 동안 사용 된 적절 한 **키 자격 증명 모음 연결** 및 **비밀 이름을** 선택 합니다. **서비스 사용자 id** 는 앞에서 복사한 **응용 프로그램 (클라이언트) id** 입니다.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-service-principal-option.png" alt-text="서비스 주체 옵션을 보여 주는 스크린샷":::
 
-1. 연결 **테스트를** 클릭합니다. 연결이 성공적이면 **계속을** 클릭합니다.
+1. **연결 테스트** 를 클릭 합니다. 연결에 성공 하면 **계속** 을 클릭 합니다.
 
-### <a name="scope-and-run-the-scan"></a>검사 범위 및 실행
+### <a name="scope-and-run-the-scan"></a>검색 범위 및 실행
 
 1. 목록에서 적절한 항목을 선택하여 검색 범위를 특정 폴더와 하위 폴더로 지정할 수 있습니다.
 
@@ -233,15 +235,15 @@ ms.locfileid: "131038246"
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-rule-set.png" alt-text="검사 규칙 집합":::
 
-1. 새 검사 _규칙 집합을_ 만드는 경우 검색 규칙에 포함할 **파일 형식을** 선택합니다.
+1. 새 _스캔 규칙 집합_ 을 만드는 경우 검색 규칙에 포함할 **파일 형식을** 선택 합니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-file-types.png" alt-text="검사 규칙 집합 파일 형식":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-file-types.png" alt-text="검색 규칙 집합 파일 형식":::
 
-1. 검사 규칙에 포함할 **분류** 규칙을 선택할 수 있습니다.
+1. 검색 규칙에 포함할 **분류 규칙** 을 선택할 수 있습니다.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-classification rules.png" alt-text="검사 규칙 집합 분류 규칙":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-classification rules.png" alt-text="검색 규칙 집합 분류 규칙":::
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-scan-rule-set.png" alt-text="검사 규칙 집합 선택":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-scan-rule-set.png" alt-text="검색 규칙 집합 선택":::
 
 1. 검사 트리거를 선택합니다. 일정을 설정하거나 검사를 한 번 실행할 수 있습니다.
 

@@ -6,22 +6,22 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: dd0328314cbe1f93565a421e0ff4f68f410b10dc
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 409a86883cf010390b3d37c8d3af945ed3702eae
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131459979"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851853"
 ---
 # <a name="understanding-azure-virtual-desktop-network-connectivity"></a>Azure Virtual Desktop 네트워크 연결 이해
 
 Azure Virtual Desktop은 Azure에서 실행되는 세션 호스트에서 클라이언트 세션을 호스트하는 기능을 제공합니다. Microsoft는 고객을 대신하여 서비스의 일부를 관리하고 클라이언트와 세션 호스트를 연결하기 위한 보안 엔드포인트를 제공합니다. 아래 다이어그램은 Azure Virtual Desktop에서 사용되는 네트워크 연결에 대한 개략적인 개요를 제공합니다.
 
-:::image type="content" source="media/windows-virtual-desktop-network-connections.svg" alt-text="Azure Virtual Desktop 네트워크 연결 다이어그램" lightbox="media/windows-virtual-desktop-network-connections.svg":::
+:::image type="content" source="media/azure-virtual-desktop-network-connections.svg" alt-text="Azure Virtual Desktop 네트워크 연결 다이어그램" lightbox="media/azure-virtual-desktop-network-connections.svg":::
 
 ## <a name="session-connectivity"></a>세션 연결
 
-Azure Virtual Desktop은 RDP(원격 데스크톱 프로토콜)를 사용하여 네트워크 연결을 통해 원격 표시 및 입력 기능을 제공합니다. RDP는 처음에 Windows NT 4.0 터미널 서버 버전과 함께 릴리스 되었으며 모든 Microsoft Windows 및 Windows Server 릴리스부터 지속적으로 진화 하 고 있습니다. 처음부터 RDP는 기본 전송 스택과는 별도로 개발되었으며 현재는 여러 유형의 전송을 지원합니다.
+Azure Virtual Desktop은 RDP(원격 데스크톱 프로토콜)를 사용하여 네트워크 연결을 통해 원격 표시 및 입력 기능을 제공합니다. RDP는 처음에 Windows NT 4.0 터미널 서버 버전과 함께 릴리스되었으며 Microsoft Windows 및 Windows Server 릴리스마다 지속적으로 발전하고 있습니다. 처음부터 RDP는 기본 전송 스택과는 별도로 개발되었으며 현재는 여러 유형의 전송을 지원합니다.
 
 ## <a name="reverse-connect-transport"></a>역방향 연결 전송
 

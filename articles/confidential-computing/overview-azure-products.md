@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: overview
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.author: JenCook
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6c91bfeaf32dba2f40e321f1c8fbf093351d39cd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d3e395ac1eb16ccf499793d51b58db998a87294c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029728"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848511"
 ---
 # <a name="confidential-computing-on-azure"></a>Azure의 기밀 컴퓨팅
 
@@ -22,15 +22,13 @@ ms.locfileid: "131029728"
 
 Intel SGX([Intel Software Guard Extensions](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html)) 또는[ AMD SEV-SNP(AMD Secure Encrypted Virtualization)](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization)와 같은 기술은 기밀 컴퓨팅 구현을 지원하는 CPU의 개선된 최신 기술입니다. 이러한 기술은 가상화 확장으로 설계되었으며 메모리 암호화 및 무결성, CPU 상태 기밀성 및 무결성, 증명을 포함한 기능 집합을 제공하여 기밀 컴퓨팅 위협 모델을 빌드합니다.
 
-![3가지의 데이터 보호 상태를 보여주며 사용 중인 기밀 컴퓨팅의 데이터가 강조 표시된 그래픽.](media/overview-azure-products/three-states.jpg)
+:::image type="content" source="media/overview-azure-products/three-states.png" alt-text="3가지의 데이터 보호 상태를 보여주며 사용 중인 기밀 컴퓨팅의 데이터가 강조 표시된 그래픽.":::
 
 기밀 컴퓨팅을 미사용 데이터 및 전송 중인 데이터 암호화와 함께 사용하는 경우, 안전한 퍼블릭 클라우드 플랫폼에서 중요하거나 규제가 높은 데이터 집합 및 애플리케이션 워크로드를 보호하여 사용 중인 암호화의 가장 큰 단일 장벽을 제거합니다. 기밀 컴퓨팅은 일반 데이터 보호를 넘어 확장됩니다. 또한 TEE는 독점 비즈니스 논리, 분석 함수, 기계 학습 알고리즘 또는 전체 애플리케이션을 보호하는 데 사용됩니다.
 
 ## <a name="navigating-azure-confidential-computing"></a>Azure 기밀 컴퓨팅 탐색
 
 기밀 컴퓨팅을 위한 [Microsoft 제품](https://aka.ms/azurecc)은 IaaS(Infrastructure as a Service)에서 PaaS(Platform as a Service)까지 확장되며, 개발자 도구는 클라우드에서 데이터 및 코드 기밀성 경험을 지원합니다.
-
-![도구 및 서비스를 보여주는 Azure 기밀 컴퓨팅 스택의 스크린샷.](media/overview-azure-products/acc-stack.jpg)
 
 ## <a name="reducing-the-attack-surface"></a>공격 노출 영역 축소
 TCB(신뢰할 수 있는 컴퓨팅 기반)는 보안 환경을 제공하는 시스템의 모든 하드웨어, 펌웨어 및 소프트웨어 구성 요소를 나타냅니다. TCB 내의 구성 요소는 "위험"으로 간주됩니다. TCB 내의 한 구성 요소가 손상되면 전체 시스템 보안이 위태로워질 수 있습니다. 낮은 TCB는 더 높은 수준의 보안을 의미합니다. 다양한 취약점, 맬웨어, 공격 및 악의적인 사용자에게 노출될 위험이 줄어듭니다. Azure 기밀 컴퓨팅은 TEE를 제공하여 클라우드 워크로드에 대한 TCB를 낮추는 것을 목표로 합니다. 

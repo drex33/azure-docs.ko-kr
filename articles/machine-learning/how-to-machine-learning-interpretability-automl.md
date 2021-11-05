@@ -1,26 +1,26 @@
 ---
-title: 자동화된 Machine Learning 설명(미리 보기)
+title: 자동화 된 ML에서 모델 explainability (미리 보기)
 titleSuffix: Azure Machine Learning
 description: 자동화된 Machine Learning 모델이 기능 중요도를 결정하고 Azure Machine Learning SDK를 사용할 때 예측하는 방법에 대한 설명을 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, responsible-ml
+ms.custom: automl, responsible-ml, mktng-kw-nov2021
 ms.author: mithigpe
 author: minthigpen
 ms.date: 10/21/2021
-ms.openlocfilehash: 6538ebfbb7aae0a8e2b97c4b41a124568db858c7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: f739da0dde7f2ef9935466ebbd4e4d4498355263
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562307"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852620"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>해석력: 자동화된 Machine Learning의 모델 설명(미리 보기)
+# <a name="interpretability-model-explainability-in-automated-ml-preview"></a>Interpretability: 자동화 된 ML 모델 explainability (미리 보기)
 
 
-이 글에서는 Python SDK를 사용하여 Azure Machine Learning에서 자동화된 Machine Learning(자동화된 ML)에 대한 설명을 가져오는 방법에 대해 알아봅니다. 자동화된 ML은 생성된 모델의 기능 중요도를 이해하는 데 도움이 됩니다. 
+이 문서에서는 Python SDK를 사용 하 여 Azure Machine Learning에서 자동화 된 machine learning (자동화 된 ML) 모델에 대 한 설명을 가져오는 방법에 대해 알아봅니다. 자동화된 ML은 생성된 모델의 기능 중요도를 이해하는 데 도움이 됩니다. 
 
 1\.0.85 이후의 모든 SDK 버전은 기본적으로 `model_explainability=True`로 설정됩니다. SDK 버전 1.0.85 및 이전 버전에서 사용자는 모델 해석력을 사용하기 위해 `AutoMLConfig` 개체에 `model_explainability=True`을 설정해야 합니다. 
 
@@ -323,4 +323,4 @@ if service.state == 'Healthy':
 
 ## <a name="next-steps"></a>다음 단계
 
-자동화된 Machine Learning 이외의 Azure Machine Learning SDK 영역에서 모델 설명 및 기능 중요도를 사용하도록 설정하는 방법에 대한 자세한 내용은 [해석력에 대한 개념 문서](how-to-machine-learning-interpretability.md)를 참조하세요.
+자동화 된 ML 이외의 영역에서 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [모델 interpretability에 대 한 추가 기법](how-to-machine-learning-interpretability.md)을 참조 하세요.

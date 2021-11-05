@@ -7,12 +7,12 @@ ms.date: 10/19/2021
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 2636638bcab5577bee2f4c07bae3653cc4151248
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 88de9f363851d47fbefcdcf69060111d8fd64bbf
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131421699"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842381"
 ---
 # <a name="autoscale-preview-for-azure-virtual-desktop-host-pools"></a>Azure Virtual Desktop 호스트 풀에 대한 자동 크기 조정(미리 보기)
 
@@ -28,7 +28,9 @@ ms.locfileid: "131421699"
 
 >[!NOTE]
 > - Azure Virtual Desktop(클래식)은 자동 크기 조정 기능을 지원하지 않습니다. 
+> - 자동 크기 조정은 azure Virtual Desktop for Azure Stack HCI 지원하지 않습니다. 
 > - Autsoscale은 임시 디스크의 크기 조정을 지원하지 않습니다.
+
 
 최상의 결과를 위해 Azure Virtual Desktop Azure Resource Manager 템플릿 또는 Microsoft의 타사 도구를 사용하여 배포한 VM에서 자동 크기 조정을 사용하는 것이 좋습니다.
 
@@ -87,7 +89,7 @@ ms.locfileid: "131421699"
 }
 ```
 
-## <a name="assign-custom-roles-with-the-azure-portal"></a>Azure Portal 사용하여 사용자 지정 역할 할당
+## <a name="assign-custom-roles-with-the-azure-portal"></a>Azure Portal 사용자 지정 역할 할당
 
 Azure Portal 사용하여 구독에 사용자 지정 역할을 만들고 할당하려면 다음을 수행합니다.
 
@@ -173,7 +175,7 @@ Azure Portal 사용하여 구독에 사용자 지정 역할을 만들고 할당�
 
 2. Azure **Virtual Desktop**  >  **크기 조정 계획으로** 이동한 **다음, 만들기를** 선택합니다.
 
-3. 기본 **탭에서** **Project 세부 정보** 아래에서 크기 조정 계획을 할당할 구독의 이름을 선택합니다.
+3. 기본 **탭에서** **Project 세부 정보를** 살펴보고 크기 조정 계획을 할당할 구독의 이름을 선택합니다.
 
 4. 새 리소스 그룹을 만들려면 새 **만들기를** 선택합니다. 기존 리소스 그룹을 사용하려면 드롭다운 메뉴에서 해당 이름을 선택합니다.
 
@@ -199,7 +201,7 @@ Azure Portal 사용하여 구독에 사용자 지정 역할을 만들고 할당�
 
 2. 일정 이름 필드에 일정 **이름을** 입력합니다.
 
-3. 반복 **날짜** 필드에서 일정이 반복되는 요일을 선택합니다.
+3. **반복** 대상 필드에서 일정이 반복 될 날짜를 선택 합니다.
 
 4. **위로 램프** 탭에서 다음 필드를 입력 합니다.
 

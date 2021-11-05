@@ -4,19 +4,22 @@ description: 이 문서에서는 상업용 Marketplace 거래 옵션에 대한 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 10/26/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 344b3aeba1c10e3a66d01458800d771ca31dd3a7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 236f6a577dd1ae566b560c811f4a9c48c47c9456
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056437"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851100"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
 이 문서에서는 상업용 Marketplace를 통해 *거래 가능* 제품 판매에 대한 가격 책정, 청구, 송장 작성 및 지급 고려 사항에 대해 설명합니다. 거래 불가능한(무료 또는 BYOL) 제품 게시에 대한 자세한 내용은 [목록 옵션 소개](determine-your-listing-type.md)를 참조하세요.
+
+> [!TIP]
+> 상업용 Marketplace에서 구매에 대한 고객의 보기를 보려면 [구매 Azure Marketplace](/marketplace/azure-purchasing-invoicing)참조하세요. SaaS 제안의 경우 [Microsoft AppSource SaaS 앱 구매를 참조하세요.](/marketplace/purchase-software-appsource)
 
 ## <a name="transactions-by-listing-option"></a>게시 옵션별 트랜잭션
 
@@ -59,7 +62,7 @@ Microsoft를 통한 판매를 선택하면 Microsoft 상거래 기능을 활용�
 
 - **구독 가격 책정**: 소프트웨어 라이선스 요금은 정액 요금 또는 사용자 단위로 청구되는 월간 또는 연간 정기 구독 요금으로 표시됩니다. 정기 구독 요금은 고객의 중도 취소 또는 사용하지 않은 서비스에 대해 비례 배분되어 계산되지 않습니다. 고객이 구독 기간 중 구독을 업그레이드하거나 다운그레이드하는 경우 정기 구독 요금은 비례 배부되어 계산될 수 있습니다.
 - **사용량 기반 가격 책정**: Azure Virtual Machine 제품의 경우 제품 사용 범위에 따라 고객에게 청구됩니다. 가상 머신 이미지의 경우 VM 이미지에서 배포하는 가상 머신 사용량에 대해 게시자가 설정한 시간당 Azure Marketplace 요금이 고객에게 부과됩니다. 시간당 요금은 가상 머신 크기에 관계없이 균일할 수도 있고 크기별로 다를 수 있습니다. 1시간 미만은 분 단위로 요금이 청구됩니다. 플랜은 매월 청구됩니다.
-- **요금제 가격 책정**: Azure 애플리케이션 제품 및 SaaS 제품의 경우 게시자는 [ Marketplace 계량 서비스](marketplace-metering-service-apis.md)를 사용하여 구성한 사용자 지정 미터 측정 기준에 따라 사용량에 대해 청구할 수 있습니다. 이러한 변경 사항은 계약(권한)에 포함된 월간 또는 연간 요금에 추가됩니다. 사용자 지정 미터 측정 기준의 예로는 대역폭, 티켓 또는 처리된 이메일이 있습니다. 게시자는 각 플랜에 대해 하나 이상의 측정 기준을 정의할 수 있지만 제품당 최대 30 개입니다. 게시자는 제품에서 각 미터를 정의하여 개별 사용자의 사용량을 추적해야 합니다. 이벤트가 발생 한 시간 이내에 Microsoft에 보고 되어야 합니다. Microsoft는 해당 청구 기간에 대해 게시자가 보고한 사용량 정보를 토대로 고객에게 요금을 부과합니다.
+- **요금제 가격 책정**: Azure 애플리케이션 제품 및 SaaS 제품의 경우 게시자는 [ Marketplace 계량 서비스](marketplace-metering-service-apis.md)를 사용하여 구성한 사용자 지정 미터 측정 기준에 따라 사용량에 대해 청구할 수 있습니다. 이러한 변경 사항은 계약(권한)에 포함된 월간 또는 연간 요금에 추가됩니다. 사용자 지정 미터 측정 기준의 예로는 대역폭, 티켓 또는 처리된 이메일이 있습니다. 게시자는 각 플랜에 대해 하나 이상의 측정 기준을 정의할 수 있지만 제품당 최대 30 개입니다. 게시자는 제품에서 각 미터를 정의하여 개별 사용자의 사용량을 추적해야 합니다. 이벤트가 발생한 후 1시간 이내에 Microsoft에 보고되어야 합니다. Microsoft는 해당 청구 기간에 대해 게시자가 보고한 사용량 정보를 토대로 고객에게 요금을 부과합니다.
 
 > [!NOTE]
 > 솔루션을 사용한 후 사용량에 따라 청구된 제품은 환불되지 않습니다.
@@ -81,13 +84,13 @@ Microsoft를 통한 판매를 선택하면 Microsoft 상거래 기능을 활용�
 
 ### <a name="usage-based-and-subscription-pricing"></a>사용량 기반 및 구독 가격 책정
 
-사용 기반 또는 구독 트랜잭션으로 제품을 게시하면 Microsoft는 소프트웨어 라이선스 구매, 반품 및 지불 거절을 처리하는 기술과 서비스를 제공합니다. 이 시나리오에서 게시자는 Microsoft가 이러한 목적을 위한 에이전트 역할을 하도록 권한을 부여합니다. 게시자는 Microsoft가 소프트웨어 라이선스 거래를 용이하게 할 수 있도록 허용합니다. 그러나 게시자는 판매자, 공급자, 배포자 및 사용 허가자로 지정을 유지 합니다.
+사용 기반 또는 구독 트랜잭션으로 제품을 게시하면 Microsoft는 소프트웨어 라이선스 구매, 반품 및 지불 거절을 처리하는 기술과 서비스를 제공합니다. 이 시나리오에서 게시자는 Microsoft가 이러한 목적을 위한 에이전트 역할을 하도록 권한을 부여합니다. 게시자는 Microsoft가 소프트웨어 라이선스 거래를 용이하게 할 수 있도록 허용합니다. 그러나 게시자는 판매자, 공급자, 배포자 및 허가자로 지정을 유지합니다.
 
 Microsoft를 통해 고객은 Microsoft의 상업용 Marketplace 및 최종 사용자 사용권 계약의 사용 약관에 따라 소프트웨어를 주문, 라이선스 부여 및 사용할 수 있습니다. 사용자 고유의 최종 사용자 사용권 계약을 제공하거나 제품을 만들 때 [표준 계약](./standard-contract.md)을 선택해야 합니다.
 
 ### <a name="free-software-trials"></a>소프트웨어 평가판
 
-거래 게시 시나리오의 경우 구독에 따라 소프트웨어 라이선스를 30일에서 120일까지 무료로 사용할 수 있습니다. 해당 하는 Azure 인프라 사용에 대 한 요금이 고객에 게 청구 됩니다.
+거래 게시 시나리오의 경우 구독에 따라 소프트웨어 라이선스를 30일에서 120일까지 무료로 사용할 수 있습니다. 고객에게 적용 가능한 Azure 인프라 사용량에 대한 요금이 청구됩니다.
 
 ### <a name="examples-of-pricing-and-store-fees"></a>가격 책정 및 스토어 요금 예
 

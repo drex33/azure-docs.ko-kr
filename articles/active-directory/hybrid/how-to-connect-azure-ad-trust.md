@@ -17,12 +17,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8fea0133b7aa93b16a7e65e9e573723e7e21bae
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: fb602f5ab56ee173683f8f17b741705b26c48e70
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112460291"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046283"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "112460291"
 
 * Azure AD Connect에서 신뢰에 구성하는 다양한 설정
 * Azure AD Connect에서 설정하는 발급 변환 규칙(클레임 규칙)
-* 업그레이드와 구성 업데이트 간에 클레임 규칙을 백업하고 복원하는 방법. 
+* 업그레이드와 구성 업데이트 간에 클레임 규칙을 백업하고 복원하는 방법
 * Azure AD를 통해 AD FS 트러스트를 보호하고 모니터링하는 모범 사례
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Azure AD Connect에서 제어하는 설정

@@ -8,12 +8,12 @@ ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1fd89f44552e8a986e4ccffb55836c0d4db3d8d2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2c030d419349275204e662d78396543f5517ceca
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131015032"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847226"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 대한 민감도 레이블 인사이트
 
@@ -22,7 +22,7 @@ ms.locfileid: "131015032"
 > [!IMPORTANT]
 > Azure Purview 민감도 레이블 Insights 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
-지원되는 데이터 원본은 다음과 같습니다. Azure Blob Storage, ADLS(Azure Data Lake Storage) GEN 1, ADLS(Azure Data Lake Storage) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 버킷, Amazon RDS 데이터베이스(공개 미리 보기)
+지원되는 데이터 원본은 다음과 같습니다. Azure Blob Storage, ADLS(Azure Data Lake Storage) GEN 1, ADLS(Azure Data Lake Storage) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 버킷, Amazon RDS 데이터베이스(공개 미리 보기), Power BI
 
 이 방법 가이드에서 배울 내용은 다음과 같습니다.
 
@@ -31,11 +31,7 @@ ms.locfileid: "131015032"
 > - 데이터에 대한 민감도 레이블 지정 인사이트를 봅니다.
 > - 데이터에 대한 더 많은 민감도 레이블 지정 세부 정보를 드릴다운합니다.
 
-> [!NOTE]
-> Purview에서 검사하는 [Power BI 자산](register-scan-power-bi-tenant.md)에 있는 민감도 레이블은 현재 민감도 레이블 지정 인사이트 보고서에 표시되지 않습니다. 
->
-> Power BI 자산의 민감도 레이블을 보려면 [Purview Data Catalog](how-to-search-catalog.md)에서 자산을 확인하세요.
-> 
+ 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Purview 인사이트를 시작하기 전에 다음 단계를 완료했는지 확인합니다.

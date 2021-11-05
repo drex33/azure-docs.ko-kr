@@ -1,6 +1,6 @@
 ---
-title: 전용 SQL 풀 커넥트 및 관리 (이전의 SQL DW)
-description: 이 가이드에서는 Azure 부서의 범위에서 전용 SQL 풀 (이전의 SQL DW)에 연결 하는 방법을 설명 하 고, 부서의 범위의 기능을 사용 하 여 전용 SQL 풀 원본을 검색 하 고 관리 합니다.
+title: 전용 SQL 풀(이전의 SQL DW)에 커넥트 및 관리
+description: 이 가이드에서는 Azure Purview에서 전용 SQL 풀(이전의 SQL DW)에 연결하고 Purview의 기능을 사용하여 전용 SQL 풀 원본을 검사하고 관리하는 방법을 설명합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -8,16 +8,16 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 7d01566c2c9f20b86d3cf135fc126bd5d5982e98
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0978293d82de908ca31706fa40ebfdc489fab8fd
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056322"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848859"
 ---
-# <a name="connect-to-and-manage-dedicated-sql-pools-in-azure-purview"></a>Azure 부서의 범위에서 전용 SQL 풀에 커넥트 및 관리
+# <a name="connect-to-and-manage-dedicated-sql-pools-in-azure-purview"></a>Azure Purview에서 전용 SQL 풀 커넥트 및 관리
 
-이 문서에서는 전용 SQL 풀 (이전의 SQL DW)을 등록 하는 방법 및 Azure 부서의 범위에서 전용 SQL 풀을 인증 하 고 상호 작용 하는 방법을 간략하게 설명 합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
+이 문서에서는 전용 SQL 풀(이전의 SQL DW)을 등록하는 방법과 Azure Purview에서 전용 SQL 풀을 인증하고 상호 작용하는 방법을 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
 
 > [!NOTE]
 > Synapse 작업 영역 내에서 전용 SQL 데이터베이스를 등록하고 검사하려는 경우 [여기](register-scan-synapse-workspace.md)에 나와 있는 지침을 따라야 합니다.
@@ -26,13 +26,15 @@ ms.locfileid: "131056322"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)| [예](#scan)| [예](#scan)| [예](#scan)| 아니요 | 아니요|
+| [예](#register) | [예](#scan)| [예](#scan)| [예](#scan)| [예](#scan)| 예 | 아니요** |
+
+\** 계보는 데이터 세트가 에서 원본/싱크로 사용되는 경우 [지원됩니다Data Factory 복사 작업](how-to-link-azure-data-factory.md) 
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
 * Azure Purview는 스키마 탭에서 300개를 초과하는 열을 지원하지 않으며 "Additional-Columns-Truncated"를 표시합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -42,13 +44,13 @@ ms.locfileid: "131056322"
 
 ## <a name="register"></a>등록
 
-이 섹션에서는 [부서의 범위 Studio](https://web.purview.azure.com/)를 사용 하 여 Azure 부서의 범위에서 전용 SQL 풀을 등록 하는 방법에 대해 설명 합니다.
+이 섹션에서는 [Purview Studio를](https://web.purview.azure.com/)사용하여 Azure Purview에서 전용 SQL 풀을 등록하는 방법을 설명합니다.
 
 ### <a name="authentication-for-registration"></a>등록 인증
 
-인증을 설정 하는 방법에는 다음 세 가지가 있습니다.
+인증을 설정하는 방법에는 세 가지가 있습니다.
 
-- [관리 id](#managed-identity-to-register) (권장)
+- [관리](#managed-identity-to-register) ID(권장)
 - Service Principal
 - [SQL 인증](#sql-authentication-to-register)
 
@@ -57,7 +59,7 @@ ms.locfileid: "131056322"
 
 #### <a name="managed-identity-to-register"></a>등록할 관리 ID
 
-부서의 범위 계정에는 고유 하 게 관리 되는 Id가 있으며,이 Id를 만들 때 기본적으로 부서의 범위 이름입니다. [azure ad 응용 프로그램을 사용 하 여 azure ad 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)의 전제 조건 및 자습서에 따라 정확한 부서의 범위의 관리 id 이름을 사용 하 여 전용 SQL 풀에 azure ad 사용자를 만듭니다.
+Purview 계정에는 자체 관리 ID가 있으며, 이는 기본적으로 Purview 이름을 만들 때의 이름입니다. Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기의 필수 조건 및 자습서에 따라 정확한 Purview의 관리 ID 이름으로 전용 SQL 풀에 [Azure AD 사용자를 만듭니다.](../azure-sql/database/authentication-aad-service-principal-tutorial.md)
 
 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
@@ -69,13 +71,13 @@ EXEC sp_addrolemember 'db_datareader', [PurviewManagedIdentity]
 GO
 ```
 
-인증에는 데이터베이스, 스키마 및 테이블에 대 한 메타 데이터를 가져올 수 있는 권한이 있어야 합니다. 또한 분류를 위해 샘플링할 테이블을 쿼리할 수 있어야 합니다. ID에 `db_datareader` 사용 권한을 할당하는 것이 좋습니다.
+인증에는 데이터베이스, 스키마 및 테이블에 대한 메타데이터를 가져오기 위한 권한이 있어야 합니다. 또한 분류를 위해 샘플링할 테이블을 쿼리할 수 있어야 합니다. ID에 `db_datareader` 사용 권한을 할당하는 것이 좋습니다.
 
 #### <a name="service-principal-to-register"></a>등록할 서비스 주체
 
 검사에 서비스 주체 인증을 사용하려면 기존 주체를 사용하거나 새 주체를 만들 수 있습니다.
 
-새 서비스 주체를 만들어야 하는 경우 다음 단계를 수행 합니다.
+새 서비스 주체를 만들어야 하는 경우 다음 단계를 수행합니다.
  1. [Azure Portal](https://portal.azure.com)로 이동합니다.
  1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
  1. 1. **앱 등록** 을 선택합니다.
@@ -96,9 +98,9 @@ GO
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
 1. 마지막으로 서비스 주체를 사용하여 검사를 설정하기 위한 [새 자격 증명을 만듭니다](manage-credentials.md#create-a-new-credential).
 
-##### <a name="granting-the-service-principal-access"></a>서비스 사용자 액세스 권한 부여
+##### <a name="granting-the-service-principal-access"></a>서비스 주체 액세스 권한 부여
 
-또한 azure ad [응용 프로그램을 사용 하 여 azure ad 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)에 대 한 필수 조건 및 자습서에 따라 전용 풀에 azure ad 사용자를 만들어야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
+또한 Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기의 필수 조건 및 자습서에 따라 전용 풀에서 [Azure AD 사용자를 만들어야 합니다.](../azure-sql/database/authentication-aad-service-principal-tutorial.md) 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -113,7 +115,7 @@ GO
 
 #### <a name="sql-authentication-to-register"></a>등록할 SQL 인증
 
-[로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) 의 지침에 따라 전용 SQL 풀 (이전의 SQL DW)에 대 한 로그인을 만들 수 있습니다 (아직 없는 경우).
+[CREATE LOGIN의](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) 지침에 따라 전용 SQL 풀(이전의 SQL DW)에 대한 로그인을 만들 수 있습니다(DW가 없는 경우).
 
 선택한 인증 방법이 **SQL 인증** 인 경우 암호를 가져오고 키 자격 증명 모음에 저장해야 합니다.
 
@@ -123,7 +125,7 @@ GO
 1. **+ 생성/가져오기** 를 선택하고, SQL 로그인 *암호* 로 **이름** 및 **값** 을 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
-1. 마지막으로, 키를 사용 하 여 [새 자격 증명을 만들어](manage-credentials.md#create-a-new-credential) 검색을 설정 합니다.
+1. 마지막으로, 키를 사용하여 검색을 설정하는 [새 자격 증명을 만듭니다.](manage-credentials.md#create-a-new-credential)
 
 ### <a name="steps-to-register"></a>등록 단계
 
@@ -132,20 +134,20 @@ Purview에서 새 SQL 전용 풀을 등록하려면 다음을 수행합니다.
 1. Purview 계정으로 이동합니다.
 1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 1. **등록** 을 선택합니다.
-1. **등록 원본** 에서 **Azure 전용 SQL 풀 (이전의 SQL DW)** 을 선택 합니다.
+1. **원본 등록에서** **Azure Dedicated SQL 풀(이전의 SQL DW) 을** 선택합니다.
 1. **계속** 을 선택합니다.
 
-**소스 등록** 화면에서 다음을 수행 합니다.
+원본 등록 화면에서 다음을 **수행합니다.**
 
 1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
-2. Azure 구독을 선택 하 여 전용 SQL 풀을 필터링 합니다.
-3. 전용 SQL 풀을 선택 합니다.
+2. 전용 SQL 풀을 필터링하려면 Azure 구독을 선택합니다.
+3. 전용 SQL 풀을 선택합니다.
 4. 컬렉션을 선택하거나 새로 만듭니다(선택 사항).
 5. **등록** 을 선택하여 데이터 원본을 등록합니다.
 
 ## <a name="scan"></a>검사
 
-아래 단계에 따라 전용 SQL 풀을 검색 하 여 자산을 자동으로 식별 하 고 데이터를 분류 합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
+아래 단계에 따라 전용 SQL 풀을 검사하여 자산을 자동으로 식별하고 데이터를 분류합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
 
 ### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 

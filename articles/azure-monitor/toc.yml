@@ -4,6 +4,8 @@
   items:
     - name: Azure Monitor란?
       href: overview.md
+    - name: 무엇을 모니터링할 수 있나요?
+      href: monitor-reference.md
     - name: FAQ
       href: faq.yml
     - name: 새로운 기능
@@ -111,8 +113,6 @@
       href: azure-cli-metrics-alert-sample.md
 - name: 개념
   items:
-    - name: 무엇을 모니터링할 수 있나요?
-      href: monitor-reference.md
     - name: 연속 모니터링
       href: continuous-monitoring.md
     - name: 데이터 원본
@@ -1214,61 +1214,6 @@
           href: insights/resource-group-insights.md
         - name: 인사이트 문제 해결
           href: insights/troubleshoot-workbooks.md
-        - name: 솔루션
-          items:
-            - name: 개요
-              href: insights/solutions.md
-              displayName: 'Azure CLI, az monitor log-analytics'
-            - name: 대상 솔루션
-              href: insights/solution-targeting.md
-            - name: 사용 가능한 솔루션
-              items:
-                - name: AD 상태 평가
-                  href: insights/ad-assessment.md
-                - name: AD 복제 상태
-                  href: insights/ad-replication-status.md
-                - name: 용량 및 성능 솔루션
-                  href: insights/capacity-performance.md
-                - name: Docker 및 Windows 컨테이너 모니터링
-                  href: containers/containers.md
-                - name: 네트워크
-                  items:
-                    - name: 네트워킹 분석
-                      href: insights/azure-networking-analytics.md
-                    - name: DNS
-                      href: insights/dns-analytics.md
-                    - name: 네트워크 성능 모니터
-                      items:
-                        - name: 솔루션 개요
-                          href: insights/network-performance-monitor.md
-                        - name: 성능 모니터링
-                          href: insights/network-performance-monitor-performance-monitor.md
-                        - name: 서비스 연결 모니터
-                          href: insights/network-performance-monitor-service-connectivity.md
-                        - name: ExpressRoute
-                          href: insights/network-performance-monitor-expressroute.md
-                        - name: 가격 책정
-                          href: insights/network-performance-monitor-pricing-faq.yml
-                        - name: FAQ
-                          href: insights/network-performance-monitor-faq.yml
-                - name: Office 365
-                  href: insights/solution-office-365.md
-                - name: 서비스 맵 솔루션
-                  href: vm/service-map.md
-                - name: 서비스 맵 및 Operations Manager
-                  href: vm/service-map-scom.md
-                - name: Azure SQL
-                  href: insights/azure-sql.md
-                - name: SQL Server
-                  href: insights/sql-assessment.md
-                - name: Surface Hub
-                  href: insights/surface-hubs.md
-                - name: VMware Analytics 솔루션
-                  href: insights/vmware.md
-                - name: 유선 데이터 솔루션
-                  href: insights/wire-data.md
-                - name: 경고 관리 솔루션
-                  href: insights/alert-management-solution.md
     - name: 통합 문서
       items:
         - name: 개요
@@ -1346,6 +1291,61 @@
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:
+        - name: 모니터링 솔루션
+          items:
+            - name: 개요
+              href: insights/solutions.md
+              displayName: 'Azure CLI, az monitor log-analytics'
+            - name: 대상 솔루션
+              href: insights/solution-targeting.md
+            - name: 사용 가능한 솔루션
+              items:
+                - name: AD 상태 평가
+                  href: insights/ad-assessment.md
+                - name: AD 복제 상태
+                  href: insights/ad-replication-status.md
+                - name: 용량 및 성능 솔루션
+                  href: insights/capacity-performance.md
+                - name: Docker 및 Windows 컨테이너 모니터링
+                  href: containers/containers.md
+                - name: 네트워크
+                  items:
+                    - name: 네트워킹 분석
+                      href: insights/azure-networking-analytics.md
+                    - name: DNS
+                      href: insights/dns-analytics.md
+                    - name: 네트워크 성능 모니터
+                      items:
+                        - name: 솔루션 개요
+                          href: insights/network-performance-monitor.md
+                        - name: 성능 모니터링
+                          href: insights/network-performance-monitor-performance-monitor.md
+                        - name: 서비스 연결 모니터
+                          href: insights/network-performance-monitor-service-connectivity.md
+                        - name: ExpressRoute
+                          href: insights/network-performance-monitor-expressroute.md
+                        - name: 가격 책정
+                          href: insights/network-performance-monitor-pricing-faq.yml
+                        - name: FAQ
+                          href: insights/network-performance-monitor-faq.yml
+                - name: Office 365
+                  href: insights/solution-office-365.md
+                - name: 서비스 맵 솔루션
+                  href: vm/service-map.md
+                - name: 서비스 맵 및 Operations Manager
+                  href: vm/service-map-scom.md
+                - name: Azure SQL
+                  href: insights/azure-sql.md
+                - name: SQL Server
+                  href: insights/sql-assessment.md
+                - name: Surface Hub
+                  href: insights/surface-hubs.md
+                - name: VMware Analytics 솔루션
+                  href: insights/vmware.md
+                - name: 유선 데이터 솔루션
+                  href: insights/wire-data.md
+                - name: 경고 관리 솔루션
+                  href: insights/alert-management-solution.md
         - name: Power BI
           items:
             - name: 로그 데이터 내보내기
@@ -1382,18 +1382,18 @@
       items:
         - name: 플랫폼 메트릭
           href: essentials/metrics-supported.md
-        - name: 진단 설정의 메트릭
+        - name: 진단 설정을 통해 내보내기
           href: essentials/metrics-supported-export-diagnostic-settings.md
         - name: 경고의 메트릭
           href: alerts/alerts-metric-near-real-time.md
     - name: 플랫폼 로그
       items:
-        - name: 활동 로그 스키마
-          href: essentials/activity-log-schema.md
-        - name: 리소스 로그 스키마
-          href: essentials/resource-logs-schema.md
         - name: 지원되는 리소스 로그 범주
           href: essentials/resource-logs-categories.md
+        - name: 리소스 로그 스키마
+          href: essentials/resource-logs-schema.md
+        - name: 활동 로그 스키마
+          href: essentials/activity-log-schema.md
     - name: 진단 확장 스키마
       items:
         - name: Windows 진단 확장

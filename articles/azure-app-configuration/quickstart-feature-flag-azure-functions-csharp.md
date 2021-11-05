@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22de8b7775d6825d99afe8eb4f0dc043f8ec639c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724257"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031559"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>빠른 시작: Azure Functions 앱에 기능 플래그 추가
 
@@ -81,7 +81,7 @@ ms.locfileid: "98724257"
 
 3. `ConfigureAppConfiguration` 메서드를 업데이트하고 `AddAzureAppConfiguration()`을 호출하여 Azure App Configuration 공급자를 추가 구성 원본으로 추가합니다. 
 
-   `UseFeatureFlags()` 메서드는 공급자에게 기능 플래그를 로드하도록 지시합니다. 모든 기능 플래그는 기본적으로 30초 후에 캐시가 만료된 후 변경 내용을 다시 확인합니다. `UseFeatureFlags` 메서드에 전달된 `FeatureFlagsOptions.CacheExpirationInterval` 속성을 설정하여 만료 간격을 업데이트할 수 있습니다. 
+    `UseFeatureFlags()` 메서드는 공급자에게 기능 플래그를 로드하도록 지시합니다. 모든 기능 플래그는 기본적으로 30초 후에 캐시가 만료된 후 변경 내용을 다시 확인합니다. `UseFeatureFlags` 메서드에 전달된 `FeatureFlagsOptions.CacheExpirationInterval` 속성을 설정하여 만료 간격을 업데이트할 수 있습니다. 
 
     ```csharp
     public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
@@ -94,8 +94,9 @@ ms.locfileid: "98724257"
         });
     }
     ```
-   > [!TIP]
-   > 기능 플래그 이외의 구성이 애플리케이션에 로드되는 것을 원하지 않는 경우 `Select("_")`를 호출하여 존재하지 않는 더미 키 "_"만 로드할 수 있습니다. 기본적으로 `Select` 메서드를 호출하지 않으면 App Configuration 저장소의 모든 구성 키 값이 로드됩니다.
+
+    > [!TIP]
+    > 기능 플래그 이외의 구성이 애플리케이션에 로드되는 것을 원하지 않는 경우 `Select("_")`를 호출하여 존재하지 않는 더미 키 `"_"`만 로드할 수 있습니다. 기본적으로 `Select` 메서드를 호출하지 않으면 App Configuration 저장소의 모든 구성 키 값이 로드됩니다.
 
 4. 종속성 주입을 통해 Azure App Configuration 서비스 및 기능 관리자를 사용할 수 있도록 하려면 `Configure` 메서드를 업데이트합니다.
 

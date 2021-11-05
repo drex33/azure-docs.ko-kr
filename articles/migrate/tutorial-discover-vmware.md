@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 3d3fc18ebceb18e7411a68c19e069a0db4889854
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dfeb24812c2fa735500d4a29429dece17747ebe8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797118"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037932"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>자습서: Azure Migrate를 사용하여 VMware 환경에서 실행 중인 서버 검색
 
@@ -318,7 +318,7 @@ vCenter Server 검색을 시작하려면 **검색 시작** 을 선택합니다. 
 * [소프트웨어 인벤토리](how-to-discover-applications.md)는 검색된 서버의 기존 웹 서버 역할을 식별합니다. 서버에서 웹 서버 역할을 사용한 것으로 확인되면 Azure Migrate는 서버에서 웹앱 검색을 수행합니다. 웹앱 구성 데이터는 24시간마다 한 번 업데이트됩니다.
 * 소프트웨어 인벤토리 중에 추가된 서버 자격 증명은 서버에 대해 반복되고, 에이전트 없는 종속성 분석을 위해 유효성이 검사됩니다. 서버 검색이 완료되면 포털에서 서버에 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다. 유효성 검사에 성공한 서버만 선택하여 [에이전트 없는 종속성 분석](how-to-create-group-machine-dependencies-agentless.md)을 사용하도록 설정할 수 있습니다.
 * ASP.NET 웹앱, SQL Server 인스턴스 및 데이터베이스 데이터는 검색을 시작한 후 24시간 이내에 포털에 표시되기 시작합니다.
-* 기본적으로 Azure Migrate는 SQL 인스턴스에 연결하는 가장 안전한 방법을 사용합니다. 즉, Azure Migrate는 TrustServerCertificate 속성을 `true`로 설정하여 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다. 또한 전송 계층은 SSL을 사용하여 채널을 암호화하고 인증서 체인을 건너뛰어 신뢰 유효성을 검사합니다. 따라서 어플라이언스 서버는 인증서의 루트 인증 기관을 신뢰하도록 설정되어야 합니다. 그러나 어플라이언스에서 **SQL Server 연결 속성 편집** 을 선택하여 연결 설정을 수정할 수 있습니다. 선택할 항목을 이해하는 방법에 대해 [자세히 알아보세요](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+* 기본적으로 Azure Migrate는 SQL 인스턴스에 연결하는 가장 안전한 방법을 사용합니다. 즉, Azure Migrate는 TrustServerCertificate 속성을 `true`로 설정하여 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다. 또한 전송 계층은 SSL을 사용하여 채널을 암호화하고 인증서 체인을 건너뛰어 신뢰 유효성을 검사합니다. 따라서 어플라이언스 서버는 인증서의 루트 인증 기관을 신뢰하도록 설정되어야 합니다. 그러나 어플라이언스에서 **SQL Server 연결 속성 편집** 을 선택하여 연결 설정을 편집할 수 있습니다. 무엇을 선택해야 하는지 이해하려면 [자세히 알아봅니다](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="SQL Server 연결 속성을 편집하는 방법을 보여 주는 스크린샷":::
 
@@ -326,9 +326,10 @@ vCenter Server 검색을 시작하려면 **검색 시작** 을 선택합니다. 
 
 ### <a name="view-discovered-data"></a>검색된 데이터 보기
 
-1. Azure Migrate 포털로 이동합니다.
-1. 발견된 데이터를 보려면 아래 스크린샷에 표시된 대로 새로 고침을 클릭합니다.
-    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="검색 및 평가 타일에서 데이터를 새로 고치는 방법을 보여주는 스크린샷":::
+1. Azure Portal에서 Azure Migrate로 돌아갑니다.
+1. 검색된 데이터를 보려면 **새로 고침** 을 선택합니다.
+
+   :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="검색 및 평가 타일에서 데이터를 새로 고치는 방법을 보여주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

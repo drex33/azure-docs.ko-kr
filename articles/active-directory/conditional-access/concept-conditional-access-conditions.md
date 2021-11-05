@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 10/22/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: calebb
+manager: karenhoran
+ms.reviewer: calebb, sandeo-MSFT
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1725c88ec2275d4b20303161680020512c13bc4a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 89dab74b476345e08a5b995ad04d7d512d0e3a28
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226746"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012646"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -107,7 +107,7 @@ Azure AD 조건부 액세스에서는 다음과 같은 디바이스 플랫폼을
 
 | OS | 브라우저 |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome, [Firefox 91 이상](https://support.mozilla.org/kb/windows-sso) |
 | Windows 8 / 8.1 | Internet Explorer, 크롬 |
 | Windows 7 | Internet Explorer, 크롬 |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -190,18 +190,23 @@ Windows 7, iOS, Android 및 macOS Azure AD는 디바이스가 Azure AD에 등록
 **다른 클라이언트** 를 선택하여 IMAP, MAPI, POP, SMTP 및 최신 인증을 사용하지 않는 이전 Office 앱과 같은 메일 프로토콜과 함께 기본 인증을 사용하는 앱에 영향을 미치는 조건을 지정할 수 있습니다.
 
 ## <a name="device-state-preview"></a>디바이스 상태(미리 보기)
+> [!CAUTION]
+> **이 미리 보기 기능은 더 이상 사용되지 않습니다.** 고객은 이전에 디바이스 상태(미리 보기) 조건을 사용하여 달성된 시나리오를 조건부 액세스에서 **디바이스에 대한 필터** 조건을 사용하여 충족해야 합니다.
 
 디바이스 상태 조건은 하이브리드 Azure AD 조인된 디바이스 및/또는 조직의 조건부 액세스 정책에서 Microsoft Intune 준수 정책을 준수한다고 표시된 디바이스를 제외하는 데 사용할 수 있습니다.
 
 예를 들어 *Microsoft Azure Management* 클라우드 앱에 액세스하는 *모든 사용자* 는 **모든 디바이스 상태** 를 포함하고 **하이브리드 Azure AD 조인된 디바이스** 및 **준수 상태로 표시된 디바이스** 를 *액세스 제어*, **차단** 을 위해 제외합니다. 
    - 이 예제에서는 하이브리드 Azure AD 조인된 디바이스 또는 준수 상태로 표시된 디바이스에서만 Microsoft Azure 관리에 대한 액세스를 허용하는 정책을 만듭니다.
 
+위 시나리오는 **device.trustType -ne "ServerAD" -or device.isCompliant -ne True** 규칙과 *액세스 제어* 의 경우 **차단** 을 사용하는 **디바이스에 대한 필터** 조건을 제외하고 *Microsoft Azure Management* 클라우드 앱에 액세스하는 *모든 사용자* 를 사용하여 구성할 수 있습니다.
+- 이 예제에서는 하이브리드 Azure AD 조인된 디바이스 또는 준수 상태로 표시된 디바이스에서만 Microsoft Azure 관리에 대한 액세스를 허용하는 정책을 만듭니다.
+
 > [!IMPORTANT]
 > 디바이스에 대한 디바이스 상태 및 필터는 조건부 액세스 정책에서 함께 사용할 수 없습니다. 디바이스에 대한 필터는 `trustType` 및 `isCompliant` 속성을 통해 디바이스 상태 정보를 대상으로 지정하는 지원을 포함하여 보다 세부적인 대상 지정을 제공합니다.
 
-## <a name="filters-for-devices-preview"></a>장치용 필터(미리 보기)
+## <a name="filter-for-devices"></a>디바이스에 대한 필터
 
-조건부 액세스에는 디바이스에 대한 필터라는 새로운 선택적 조건이 있습니다. 디바이스에 대한 필터를 조건으로 구성할 때 조직은 디바이스 속성에 규칙 식을 사용하여 필터를 기반으로 디바이스를 포함하거나 제외하도록 선택할 수 있습니다. 디바이스 필터에 대한 규칙 식은 규칙 작성기 또는 규칙 구문을 사용하여 작성할 수 있습니다. 이 환경은 그룹의 동적 멤버 자격 규칙에 사용되는 환경과 비슷합니다. 자세한 내용은 [조건부 액세스: 디바이스 필터(미리 보기)](concept-condition-filters-for-devices.md) 문서를 참조하세요.
+조건부 액세스에는 디바이스에 대한 필터라는 새로운 선택적 조건이 있습니다. 디바이스에 대한 필터를 조건으로 구성할 때 조직은 디바이스 속성에 대한 규칙 표현식을 사용하여 필터를 기반으로 디바이스를 포함하거나 제외하도록 선택할 수 있습니다. 디바이스 필터에 대한 규칙 식은 규칙 작성기 또는 규칙 구문을 사용하여 작성할 수 있습니다. 이 환경은 그룹의 동적 멤버 자격 규칙에 사용되는 환경과 비슷합니다. 자세한 내용은 [조건부 액세스: 디바이스 필터(미리 보기)](concept-condition-filters-for-devices.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

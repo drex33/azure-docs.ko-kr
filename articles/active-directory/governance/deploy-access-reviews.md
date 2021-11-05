@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acbe5d7b57906c894021ec4e4f83633433b3c3b
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: f754d527a1b469ae420ca1af53e2c3b73692a5ef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530294"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051841"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -191,10 +191,10 @@ ms.locfileid: "122530294"
 
 | 리소스 종류| 액세스 검토 생성 및 관리(작성자)| 액세스 검토 결과 읽기 |
 | - | - | -|
-| 그룹 또는 애플리케이션| 전역 관리자 <p>사용자 관리자| 작성자 및 보안 관리자 |
-| Azure AD의 권한 있는 역할| 전역 관리자 <p>권한 있는 역할 관리자| 작성자 <p>보안 Reader<p>보안 관리자 |
-| Azure의 권한 있는 역할(리소스)| 전역 관리자<p>사용자 관리자<p>리소스 소유자| 작성자 |
-| 액세스 패키지| 전역 관리자<p>액세스 패키지 작성자| 전역 관리자 한정 |
+| 그룹 또는 애플리케이션| 전역 관리자 <p>사용자 관리자<p>Identity Governance 관리자<p>권한 있는 역할 관리자(Azure AD 역할 할당 가능 그룹에 대한 검토만 해당)<p>그룹 소유자([관리자가 사용하도록 설정한 경우]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview))| 전역 관리자<p>전역 Reader<p>사용자 관리자<p>Identity Governance 관리자<p>권한 있는 역할 관리자<p>보안 Reader<p>그룹 소유자([관리자가 사용하도록 설정한 경우]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview)) |
+|Azure AD 역할| 전역 관리자 <p>권한 있는 역할 관리자|  전역 관리자<p>전역 Reader<p>사용자 관리자<p>권한 있는 역할 관리자<p> <p>보안 Reader |
+| Azure 리소스 역할| 전역 관리자<p>리소스 소유자| 전역 관리자<p>전역 Reader<p>사용자 관리자<p>권한 있는 역할 관리자<p> <p>보안 Reader  |
+| 액세스 패키지| 전역 관리자<p>사용자 관리자<p>Identity Governance 관리자| 전역 관리자<p>전역 Reader<p>사용자 관리자<p>Identity Governance 관리자<p> <p>보안 Reader  |
 
 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
@@ -439,9 +439,9 @@ Azure AD와 통합된 리소스에 대한 액세스를 검토하는 전략 및 �
 
 | 방법 문서 | Description |
 | - | - |
- [액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM에서 권한 있는 Azure AD 역할에 대한 액세스 검토 만들기 |
-| [액세스 권한 자체 검토](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당된 경우 역할에 대한 액세스를 승인하거나 거부합니다. |
-| [액세스 검토 완료](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 액세스 검토 보기 및 결과 적용 |
+ [액세스 검토 만들기](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM에서 권한 있는 Azure AD 역할에 대한 액세스 검토 만들기 |
+| [액세스 권한 자체 검토](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당된 경우 역할에 대한 액세스를 승인하거나 거부합니다. |
+| [액세스 검토 완료](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 액세스 검토 보기 및 결과 적용 |
 
 
 ### <a name="review-azure-resource-roles"></a>Azure 리소스 역할 검토
@@ -454,9 +454,9 @@ Azure AD와 통합된 리소스에 대한 액세스를 검토하는 전략 및 �
 
 | 방법 문서| Description |
 | - | -|
-| [액세스 검토 만들기](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM에서 권한 있는 Azure 리소스 역할에 대한 액세스 검토 만들기 |
-| [액세스 권한 자체 검토](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당된 경우 역할에 대한 액세스를 승인하거나 거부합니다. |
-| [액세스 검토 완료](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 액세스 검토 보기 및 결과 적용 |
+| [액세스 검토 만들기](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM에서 권한 있는 Azure 리소스 역할에 대한 액세스 검토 만들기 |
+| [액세스 권한 자체 검토](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당된 경우 역할에 대한 액세스를 승인하거나 거부합니다. |
+| [액세스 검토 완료](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 액세스 검토 보기 및 결과 적용 |
 
 
 ## <a name="use-the-access-reviews-api"></a>액세스 검토 API 사용

@@ -7,13 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 06/07/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 44acbc3ace06af2e741b3daf5c6afe9a50a2efe0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 689fe8336594e26c283a75b5f4dfb0026c73ef32
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029637"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441879"
 ---
 # <a name="quickstart-enable-enhanced-security-features"></a>빠른 시작: 향상된 보안 기능 사용
 
@@ -71,7 +70,7 @@ Defender for Cloud의 향상된 보안 기능을 사용하여 전체 Azure 구�
 
 구독에 대해 향상된 보안 기능을 사용하지 않아야 하는 경우 절차는 동일하지만 **향상된 보안 해제** 를 선택합니다.
  
-1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
+1. Defender for Cloud 메뉴에서 **환경 설정** 을 엽니다.
 1. 관련 구독을 선택합니다.
 1. **Defender 플랜** 을 선택하고 **향상된 보안 해제** 를 선택합니다.
 

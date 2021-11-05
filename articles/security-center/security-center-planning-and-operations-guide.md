@@ -8,13 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 30f42a41584c7897a288da22f11245608a7efbb8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3f4f174594e7aa10369ed1d822b51df6c22e33b6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009551"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445069"
 ---
 # <a name="planning-and-operations-guide"></a>계획 및 운영 가이드
 

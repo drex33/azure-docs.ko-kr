@@ -5,14 +5,14 @@ description: Azure Cache for Redis 연결을 복원력 있게 만드는 방법�
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 11/3/2021
 ms.author: shpathak
-ms.openlocfilehash: dd7bb63204ccaa38379b49cfe3946372319dfc44
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d8e5f95e78db7c46ad1c52401b938acc37af6b4f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252904"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850948"
 ---
 # <a name="connection-resilience"></a>연결 복원력
 
@@ -33,13 +33,16 @@ ms.locfileid: "130252904"
 |설정  |값 |
 |---------|---------|
 | *net.ipv4.tcp_retries2*   | 5 |
-| *TCP_KEEPIDLE*   | 15 |
-| *TCP_KEEPINTVL*  | 5 |
-| *TCP_KEEPCNT* | 3 |
-
-*ForceReconnect* 패턴을 사용 하는 것이 좋습니다. 패턴의 구현에 대해서는 [지연 \<T\> 패턴으로 다시 연결](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs)의 코드를 참조 하세요.
 
 이 시나리오에 대 한 자세한 내용은 [Linux에서 실행 하는 경우 연결을 15 분 동안 다시 설정 하지 않음](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646)을 참조 하세요. 이 문서에서는 Redis 라이브러리에 대해 설명 하지만, Linux에서 실행 되는 다른 클라이언트 라이브러리도 영향을 받습니다. 설명은 여전히 유용 하 고 다른 라이브러리로 일반화할 수 있습니다.
+
+## <a name="using-forcereconnect-with-stackexchangeredis"></a>ForceReconnect와 함께 Redis 사용
+
+드문 경우 지만 연결을 삭제 한 후 Redis가 다시 연결 되지 않습니다. 이러한 경우 클라이언트를 다시 시작 하거나 새를 만들면 `ConnectionMultiplexer` 문제가 해결 됩니다. 앱이 주기적으로 다시 연결 `ConnectionMultiplexer` 하도록 허용 하는 동시에 단일 패턴을 사용 하는 것이 좋습니다. 응용 프로그램에서 사용 하는 프레임 워크 및 플랫폼과 가장 일치 하는 빠른 시작 샘플 프로젝트를 살펴보세요. 빠른 시작에서이 코드 패턴의 예제를 볼 수 [있습니다.](https://github.com/Azure-Samples/azure-cache-redis-samples)
+
+사용자는 `ConnectionMultiplexer` `ObjectDisposedException` 이전 항목을 삭제 한 결과로 발생할 수 있는 모든 오류를 처리 해야 합니다.
+
+`ForceReconnectAsync()`및에 대해를 호출 `RedisConnectionExceptions` `RedisSocketExceptions` 합니다. 을 (를) `ForceReconnectAsync()` `RedisTimeoutExceptions` 사용 하 고 있는 경우에만를 호출할 수도 있습니다 `ReconnectMinInterval` `ReconnectErrorThreshold` . 그렇지 않으면 새 연결을 설정 하면 이미 오버 로드 되었기 때문에 시간이 초과 된 서버에서 cascade 오류가 발생할 수 있습니다.
 
 ## <a name="configure-appropriate-timeouts"></a>적절한 시간 제한 구성
 

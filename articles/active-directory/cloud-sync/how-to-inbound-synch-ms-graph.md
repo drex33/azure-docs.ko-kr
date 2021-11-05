@@ -11,12 +11,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f12e0d99a2444510d9a26c2bebb4147614f871a
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 14b9ae4733773c45650f2efae8ad72d41f17aff2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164276"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018227"
 ---
 # <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>MS Graph API를 사용하여 클라우드 동기화를 프로그래밍 방식으로 구성하는 방법
 

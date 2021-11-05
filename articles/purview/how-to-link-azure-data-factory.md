@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.openlocfilehash: f939d397db80e303ec2ed36d4112df0d38d090aa
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2ba2c135a0b07df6c6a4802c241b064b2ef94335
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464052"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851493"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory와 Azure Purview를 연결하는 방법
 
@@ -36,17 +36,15 @@ ms.locfileid: "131464052"
 
 >[!Note]
 >Data Factory 연결을 보려면 다음 역할에 할당되어야 합니다. 관리 그룹에서의 역할 상속은 지원되지 않습니다.
->- **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우: 루트 컬렉션의 **Collection admins** 역할
->- **2021년 8월 18일 이전** 에 생성된 Purview 계정의 경우: Azure 기본 제공 **Owner**, **Contributor**, **Reader** 또는 **User Access Administrator** 역할
+>루트 컬렉션에 대 한 **컬렉션 관리자** 역할입니다.
 
 ## <a name="create-new-data-factory-connection"></a>새 Data Factory 연결을 만듭니다.
 
 >[!Note]
 >Data Factory 연결을 추가하거나 제거하려면 다음 역할에 할당되어야 합니다. 관리 그룹에서의 역할 상속은 지원되지 않습니다.
->- **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우: 루트 컬렉션의 **Collection admins** 역할
->- **2021년 8월 18일 이전** 에 생성된 Purview 계정의 경우: **Owner** 또는 **User Access Administrator** 역할
+>루트 컬렉션에 대 한 **컬렉션 관리자** 역할입니다.
 >
-> 뿐만 아니라 사용자가 데이터 팩터리의 “Owner” 또는 “Contributor”여야 합니다.
+> 또한 사용자가 data factory의 "소유자" 또는 "참가자" 여야 합니다.
 
 Purview 계정에 기존 데이터 팩터리를 연결하려면 아래 단계를 수행합니다. [ADF에서 Data Factory를 Purview 계정에 연결](../data-factory/connect-data-factory-to-azure-purview.md)할 수도 있습니다.
 
@@ -71,9 +69,7 @@ Purview 계정에 기존 데이터 팩터리를 연결하려면 아래 단계를
 
 데이터 팩터리의 관리 ID는 데이터 팩터리에서 Purview로의 계보 푸시 작업을 인증하는 데 사용됩니다. UI에서 데이터 팩터리를 Purview에 연결하면 역할 할당이 자동으로 추가됩니다.
 
-- **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우 Purview **루트 컬렉션** 에 대한 데이터 팩터리의 관리 ID **Data Curator** 역할을 부여합니다. [Azure Purview의 액세스 제어](../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
-
-- **2021년 8월 18일 이전에** 만든 Purview 계정의 경우 Purview 계정에서 데이터 팩터리의 관리 ID Azure 기본 제공 [**Purview Data Legac(레거시)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) 역할을 부여합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
+부서의 범위 **root collection** 에서 data factory의 관리 되는 Id **데이터 큐레이터** 역할을 부여 합니다. [Azure Purview의 액세스 제어](../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
 
 ### <a name="remove-data-factory-connections"></a>데이터 팩터리 연결 제거
 
@@ -103,9 +99,9 @@ Data Factory와 Purview 간의 통합은 다음 섹션에 설명된 대로 Data 
 
 [지원되는 데이터 저장소](how-to-lineage-sql-server-integration-services.md#supported-data-stores)를 참조하세요.
 
-## <a name="access-secured-azure-purview-account"></a>보안 Azure Purview 계정에 액세스
+## <a name="access-secured-azure-purview-account"></a>액세스 보안 Azure 부서의 범위 계정
       
-Purview 계정이 방화벽으로 보호되는 경우 Data Factory Purview 프라이빗 엔드포인트를 통해 [보안 Purview 계정에 액세스하도록](../data-factory/how-to-access-secured-purview-account.md) 하는 방법을 알아봅니다.
+부서의 범위 계정을 방화벽으로 보호 하는 경우 부서의 범위 개인 끝점을 통해 [보안 부서의 범위 계정에 Data Factory 액세스](../data-factory/how-to-access-secured-purview-account.md) 하는 방법을 알아봅니다.
 
 ## <a name="bring-data-factory-lineage-into-purview"></a>Purview에 Data Factory 계보 가져오기
 

@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 10/22/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9ebc40c8777a4b49f0bd6aaeccff4b2f82d4f7a4
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 042829ac525ed911f1a9ec984843931e8029b0a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064422"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007470"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 특성 추가 및 사용자 입력 사용자 지정
 
@@ -37,6 +37,10 @@ ms.locfileid: "130064422"
 
 ## <a name="add-user-attributes-your-user-flow"></a>사용자 흐름에 사용자 특성 추가
 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. 정책(예: "B2C_1_SignupSignin")을 선택하여 엽니다.
 1. **사용자 특성** 을 선택한 다음, 사용자 특성을 선택합니다(예: "City"). 
@@ -112,7 +116,7 @@ city 특성에 대한 값의 집합 목록을 제공하려면 다음을 수행�
 1. **사용자 흐름** 을 선택하고 정책(예: "B2C_1_SignupSignin")을 선택하여 엽니다.
 1. **언어** 를 선택합니다.
 1. 번역하려는 언어를 선택합니다.
-1. **로컬 계정 가입 페이지** 를 선택합니다.
+1. **페이지 수준 리소스 파일** 아래에서 **로컬 계정 가입 페이지** 를 선택합니다.
 1. 폴더 아이콘을 선택하고 업로드할 JSON 파일을 선택합니다. 변경 내용이 자동으로 사용자 흐름에 저장됩니다.
 
 ## <a name="test-your-user-flow"></a>사용자 흐름 테스트

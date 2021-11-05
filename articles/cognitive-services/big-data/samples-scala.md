@@ -6,14 +6,14 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: sample
-ms.date: 07/06/2020
+ms.date: 10/28/2021
 ms.author: marhamil
-ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 154317217ce22196ddde1e4a3c04c39d5eafc0ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363275"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469809"
 ---
 # <a name="quick-examples"></a>빠른 예제
 
@@ -21,20 +21,20 @@ ms.locfileid: "94363275"
 
 이 샘플에서는 다음과 같은 Cognitive Services를 사용합니다.
 
-- Text Analytics - 문장 세트의 감정(또는 분위기)을 가져옵니다.
+- 언어 서비스 - 문장 세트의 감정(또는 분위기)을 가져옵니다.
 - Computer Vision - 이미지 세트와 연결된 태그(한 단어 설명)를 가져옵니다.
 - Bing Image Search - 웹에서 자연어 쿼리와 관련된 이미지를 검색합니다.
-- 음성 텍스트 변환 - 텍스트 기반 기록을 추출하여 오디오 파일을 기록합니다.
-- Anomaly Detector - 시계열 데이터 내의 비정상 상태를 검색합니다.
+- 음성 텍스트 변환 - 오디오 파일을 전사하여 텍스트 기반 기록을 추출합니다.
+- Anomaly Detector - 시계열 데이터 내의 변칙을 감지합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 1. [시작하기](getting-started.md) 단계에 따라 Azure Databricks 및 Cognitive Services 환경을 설정합니다. 이 자습서에는 MMLSpark를 설치하는 방법과 Databricks에서 Spark 클러스터를 만드는 방법이 포함되어 있습니다.
 1. Azure Databricks에서 새 Notebook을 만든 후 아래 **공유 코드** 를 복사하여 Notebook의 새 셀에 붙여넣습니다.
-1. 아래에서 서비스 샘플을 선택하고 복사하여 Notebook의 두 번째 새 셀에 붙여넣습니다.
+1. 아래에서 서비스 샘플을 선택하고, 이를 복사하여 Notebook의 두 번째 새 셀에 붙여넣습니다.
 1. 서비스 구독 키 자리 표시자를 사용자 고유의 키로 바꿉니다.
-1. 셀의 오른쪽 위 모서리에 있는 실행 단추(삼각형 아이콘)를 선택한 다음, **셀 실행** 을 선택합니다.
-1. 셀 아래의 표에서 결과를 봅니다.
+1. 셀의 오른쪽 위 모서리에서 실행 단추(삼각형 아이콘)를 선택한 다음, **셀 실행** 을 선택합니다.
+1. 결과가 테이블의 셀 아래에 표시됩니다.
 
 ## <a name="shared-code"></a>공유 코드
 시작하려면 다음 코드를 프로젝트에 추가합니다.
@@ -47,9 +47,9 @@ val serviceKey = "ADD-YOUR-SUBSCRIPTION-KEY"
 val location = "eastus"
 ```
 
-## <a name="text-analytics"></a>텍스트 분석
+## <a name="language-service"></a>언어 서비스
 
-[Text Analytics](../text-analytics/index.yml) 서비스는 텍스트에서 인텔리전트 인사이트를 추출하기 위한 여러 알고리즘을 제공합니다. 예를 들어 지정된 입력 텍스트의 감정을 찾을 수 있습니다. 이 서비스는 `0.0`과 `1.0` 간에 점수를 반환합니다. 낮은 점수는 부정 감정을 나타내고 높은 점수는 긍정 감정을 나타냅니다.  아래 샘플에서는 세 개의 간단한 문장을 사용하고 각각의 감정 점수를 반환합니다.
+[언어 서비스](../language-service/index.yml)는 텍스트에서 지능형 인사이트를 추출하기 위한 몇 가지 알고리즘을 제공합니다. 예를 들어 지정된 입력 텍스트의 감정을 찾을 수 있습니다. 이 서비스는 `0.0`과 `1.0` 간에 점수를 반환합니다. 낮은 점수는 부정 감정을 나타내고 높은 점수는 긍정 감정을 나타냅니다.  아래 샘플에서는 세 개의 간단한 문장을 사용하고 각각의 감정 점수를 반환합니다.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -82,7 +82,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 ## <a name="computer-vision"></a>Computer Vision
 
 [Computer Vision](../computer-vision/index.yml)은 이미지를 분석하여 얼굴, 개체, 자연어 설명 등의 구조를 식별합니다.
-이 샘플에서는 이미지 목록에 태그를 지정합니다. 태그는 인식할 수 있는 개체, 사람, 장면 및 작업과 같은 이미지의 항목에 대한 한 가지 단어 설명입니다.
+이 샘플에서는 태그를 이미지 목록에 지정합니다. 태그는 인식 가능한 개체, 사람, 경치, 동작과 같이 이미지의 항목에 대한 한 단어 설명입니다.
 
 ```scala
 // Create a dataframe with the image URLs
@@ -118,7 +118,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## <a name="bing-image-search"></a>Bing 이미지 검색
 
-[Bing Image Search](../bing-image-search/overview.md)는 웹을 검색하여 사용자의 자연어 쿼리와 관련된 이미지를 검색합니다. 이 샘플에서는 따옴표가 있는 이미지를 찾는 텍스트 쿼리를 사용합니다. 쿼리와 관련된 사진이 포함된 이미지 URL의 목록을 반환합니다.
+[Bing Image Search](../bing-image-search/overview.md)는 웹을 검색하여 사용자의 자연어 쿼리와 관련된 이미지를 검색합니다. 이 샘플에서는 따옴표를 사용하여 이미지를 찾는 텍스트 쿼리를 사용합니다. 쿼리와 관련된 사진이 포함된 이미지 URL의 목록을 반환합니다.
 
 
 ```scala
@@ -163,7 +163,7 @@ display(pipeline.fit(df).transform(df))
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
-[음성 텍스트 변환](../speech-service/index-speech-to-text.yml) 서비스는 음성 오디오의 스트림 또는 파일을 텍스트로 변환합니다. 이 샘플에서는 두 개의 오디오 파일을 기록합니다. 첫 번째 파일은 이해하기 쉽고, 두 번째 파일은 더 어려울 수 있습니다.
+[음성 텍스트 변환](../speech-service/index-speech-to-text.yml) 서비스는 음성 오디오의 스트림 또는 파일을 텍스트로 변환합니다. 이 샘플에서는 두 개의 오디오 파일을 전사합니다. 첫 번째 파일은 이해하기 쉽고, 두 번째 파일은 더 어렵습니다.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -189,9 +189,9 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 | url | DisplayText |
 |:------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav | 사용자 지정 음성은 오디오 데이터를 사용자 지정 음성 포털의 해당 인식 결과와 비교하여 모델의 인식 품질을 시각적으로 검사하는 데 사용할 수 있는 도구를 제공합니다. 업로드한 오디오를 재생하여 제공된 인식 결과가 올바른지 확인할 수 있습니다. 이 도구를 사용하면 오디오 데이터를 전사하지 않고도 Microsoft의 기준 음성 텍스트 변환 모델 또는 학습된 사용자 지정 모델의 품질을 신속하게 검사할 수 있습니다. |
-| https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3 | 여러분을 위한 시각적 확인을 추가합니다.    |
-| https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3 | 정보를 알려드립니다. |
+| https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav | 사용자 지정 음성은 오디오 데이터를 사용자 지정 음성 포털의 해당 인식 결과와 비교하여 모델의 인식 품질을 시각적으로 검사할 수 있는 도구를 제공합니다. 업로드된 오디오를 재생하여 제공된 인식 결과가 올바른지 확인할 수 있습니다. 이 도구를 사용하면 오디오 데이터를 전사하지 않고도 Microsoft의 기준 음성 텍스트 변환 모델 또는 학습된 사용자 지정 모델의 품질을 빠르게 검사할 수 있습니다. |
+| https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3 | 점잖은 분의 생각에 대한 시각적 검사를 추가합니다.    |
+| https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3 | 내 말을 듣습니다. |
 | https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3 | 작업 라디오인 경우에도 사용할 수 있습니다. |
 
 ## <a name="anomaly-detector"></a>Anomaly Detector

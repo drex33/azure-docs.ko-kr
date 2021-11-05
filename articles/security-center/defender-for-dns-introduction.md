@@ -7,13 +7,12 @@ ms.date: 10/20/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 00f783b82b9a5b1aa8e6152e513fa91ab3213929
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5e9c316576187db360c2db9d5c6f51929d7c7c3f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055866"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467647"
 ---
 # <a name="introduction-to-microsoft-defender-for-dns"></a>Microsoft Defender for DNS 소개
 

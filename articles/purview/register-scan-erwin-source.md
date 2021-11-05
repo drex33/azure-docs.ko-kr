@@ -1,19 +1,19 @@
 ---
 title: erwin Mart 서버에 연결 및 관리
 description: 이 가이드에서는 Azure Purview에서 erwin Mart 서버에 연결하고 Purview의 기능을 사용하여 erwin Mart 서버 원본을 검사하고 관리하는 방법을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 0d8e19a1f416a162d1a1c37b5403ea38c721e508
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0a6aef0cdbf55772ada02bef7090ccc3165b5658
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056246"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472450"
 ---
 # <a name="connect-to-and-manage-erwin-mart-servers-in-azure-purview-preview"></a>Azure Purview에서 erwin Mart 서버에 연결 및 관리(미리 보기)
 

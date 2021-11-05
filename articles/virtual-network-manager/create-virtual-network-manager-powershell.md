@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: template-quickstart, ignite-fall-2021
-ms.openlocfilehash: a25f96fc9584c776c51798ea05d6221116b0b6a9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: effbdd0482e40535793e2c60dcdce3b4cdb518e6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029369"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466468"
 ---
 # <a name="quickstart-create-a-mesh-network-with-azure-virtual-network-manager-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하는 Azure Virtual Network Manager를 통해 메시 네트워크 만들기
 
@@ -30,6 +30,22 @@ ms.locfileid: "131029369"
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 최신 PowerShell 모듈이 있는지 확인하거나 포털에서 Azure Cloud Shell을 사용할 수 있습니다.
 * 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+
+## <a name="register-subscription-for-public-preview"></a>공개 미리 보기에 대한 구독 등록
+
+다음 명령을 사용하여 Azure Virtual Network Manager의 공개 미리 보기에 대한 Azure 구독을 등록합니다.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AllowAzureNetworkManager -ProviderNamespace Microsoft.Network
+```
+
+## <a name="install-azure-powershell-module"></a>Azure PowerShell 모듈 설치
+
+다음 명령을 사용하여 최신 *Az.Network* Azure PowerShell 모듈을 설치합니다.
+
+```azurepowershell-interactive
+Install-Module -Name Az.Network -AllowPrerelease
+```
 
 ## <a name="create-virtual-network-manager"></a>Virtual Network Manager 만들기
 

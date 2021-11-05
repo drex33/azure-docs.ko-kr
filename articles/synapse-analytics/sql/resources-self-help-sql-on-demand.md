@@ -10,12 +10,12 @@ ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3d9cc42d6efcfdac2d9bb65bde1bb31c6af646c5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5f783ad0ee776d4f07e313595e54dc6661dd8661
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452265"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556771"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -596,12 +596,6 @@ Delta Lake 데이터 세트가 손상되지 않았는지 확인합니다. Azure 
 이제 Spark 풀과 함께 Delta Lake 폴더를 계속 사용할 수 있습니다. 이를 공유할 수 있는 경우 복사된 데이터를 Microsoft 지원에 제공합니다. Azure 팀은 `delta_log` 파일의 콘텐츠를 조사하고 가능한 오류 및 해결 방법에 대한 추가 정보를 제공합니다.
 
 ### <a name="partitioning-column-returns-null-values"></a>분할 열이 NULL 값을 반환합니다.
-
-**상태**: 해결됨
-
-**릴리스**: 2021년 8월
-
-### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>토폴로지 변경 또는 컴퓨팅 컨테이너 오류로 인해 쿼리 실패
 
 **상태**: 해결됨
 

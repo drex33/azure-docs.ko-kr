@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 1/14/2021
-ms.openlocfilehash: 18cc914db7634637ec2ea541afbcefc105e5d38c
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
-ms.translationtype: HT
+ms.date: 11/04/2021
+ms.openlocfilehash: 215cd52bf5f0272884364f2070985459937ccdc8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590345"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853019"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Intelligent Insights에서 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류, 시간 제한을 �
 | :------------------- | ------------------- | ------------------- |
 | [리소스 제한에 도달](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 리소스(DTU), 데이터베이스 작업자 스레드 또는 모니터링된 구독에서 사용 가능한 데이터베이스 로그인 세션의 사용량이 해당 리소스 제한에 도달하였습니다. 이는 성능에 영향을 미칩니다. | CPU 리소스의 사용량이 해당 리소스 제한에 도달합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 | [워크로드 증가](intelligent-insights-troubleshoot-performance.md#workload-increase) | 데이터베이스의 워크로드가 증가하거나 지속적으로 누적되었음이 발견되었습니다. 이는 성능에 영향을 미칩니다. | 워크로드 증가가 감지되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
-| [메모리 부족](intelligent-insights-troubleshoot-performance.md#memory-pressure) | 메모리 부여를 요청한 작업자는 통계적으로 상당한 시간 또는 요청된 메모리 부여가 있는 작업자의 늘어난 누적 동안 메모리 할당을 기다려야 합니다. 이는 성능에 영향을 미칩니다. | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [메모리 부족](intelligent-insights-troubleshoot-performance.md#memory-pressure) | 메모리 부여를 요청한 작업자는 통계적으로 상당한 시간 동안 메모리 할당을 기다리거나, 요청 된 메모리 부여가 있는 작업자의 누적 된 시간을 늘려야 합니다. 이는 성능에 영향을 미칩니다. | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 | [잠금](intelligent-insights-troubleshoot-performance.md#locking) | 성능에 영향을 주는 과도한 데이터베이스 잠금이 검색되었습니다. | 데이터베이스 성능에 영향을 주는 과도한 데이터베이스 잠금이 발견되었습니다. |
 | [MAXDOP 증가](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | MAXDOP(최대 병렬 처리 수준 옵션)이 변경되었으며 쿼리 실행 효율성에 영향을 주고 있습니다. 이는 성능에 영향을 미칩니다. | MAXDOP(최대 병렬 처리 수준 옵션)이 변경되었으며 쿼리 실행 효율성에 영향을 주고 있습니다. 이는 성능에 영향을 미칩니다. |
 | [페이지 래치 경합](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 여러 스레드가 동일한 메모리 내 데이터 버퍼 페이지에 동시에 액세스하려고 시도하여 페이지 래치 경합이 발생하고 있습니다. 이는 성능에 영향을 미칩니다. | 여러 스레드가 동일한 메모리 내 데이터 버퍼 페이지에 동시에 액세스하려고 시도하여 페이지 래치 경합이 발생하고 있습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
@@ -110,7 +110,7 @@ Azure SQL Database의 리소스는 일반적으로 [DTU](service-tiers-dtu.md) �
 
 또한 워크로드를 최적화하거나 여러 데이터베이스에 분산하여 워크로드를 줄일 수 있습니다. 또는 여러 데이터베이스에 워크로드를 분산할 수도 있습니다. 이러한 방법을 사용할 수 없는 경우 데이터베이스의 가격 책정 계층을 높여 데이터베이스에 사용 가능한 메모리 리소스의 양을 늘려 보십시오.
 
-문제 해결에 대한 자세한 제안 사항은 [메모리 부여에 대한 명상: 다양한 이름으로 정체를 알 수 없는 SQL Server 메모리 소비자(영문)](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994)를 참조하세요.
+문제 해결에 대한 자세한 제안 사항은 [메모리 부여에 대한 명상: 다양한 이름으로 정체를 알 수 없는 SQL Server 메모리 소비자(영문)](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994)를 참조하세요. Azure SQL Database 메모리 부족 오류에 대한 자세한 내용은 Azure SQL Database 메모리 [부족 오류 문제 해결을](troubleshoot-memory-errors-issues.md)참조하세요.
 
 ## <a name="locking"></a>잠금
 
@@ -226,7 +226,7 @@ Azure SQL Database에서[Query Performance Insight](query-performance-insight-us
 
 ### <a name="what-is-happening"></a>설명
 
-검색 가능한 이 성능 패턴은 TempDB 리소스에 액세스하려는 스레드의 병목 현상이 있는 데이터베이스 성능 상태를 나타냅니다. (이 상태는 IO와 관련이 없습니다.) 이 성능 문제에 대한 일반적인 시나리오는 작은 tempDB 테이블을 모두 만들고, 사용하고, 삭제하는 수백 개의 동시 쿼리입니다. 시스템이 지난 7일간의 성능 기준과 비교하여 동일한 TempDB 테이블을 사용하는 많은 수의 동시 쿼리가 데이터베이스 성능에 영향을 줄 만큼 통계적으로 유의미한 수준으로 증가했음을 감지했습니다.
+검색 가능한 이 성능 패턴은 TempDB 리소스에 액세스하려는 스레드의 병목 현상이 있는 데이터베이스 성능 상태를 나타냅니다. 이 조건은 IO와 관련이 없습니다. 이러한 성능 문제에 대 한 일반적인 시나리오는 작은 tempDB 테이블을 만들고 사용 하 고 삭제 하는 수백 개의 동시 쿼리입니다. 시스템이 지난 7일간의 성능 기준과 비교하여 동일한 TempDB 테이블을 사용하는 많은 수의 동시 쿼리가 데이터베이스 성능에 영향을 줄 만큼 통계적으로 유의미한 수준으로 증가했음을 감지했습니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 

@@ -9,13 +9,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: ac1a72efe9d71725e27162ee19fc3b8b02645023
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7053bcc1e28eeb262dda8833ddf98806aae770b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014294"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472108"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>자습서: 보안 경고 심사, 조사 및 대응
 
@@ -107,7 +106,7 @@ Defender for Cloud는 모든 보안 경고에 대해 통일된 보기를 제공�
 
 계속 사용할 생각이 없거나 이러한 기능을 해제하려면 다음을 수행합니다.
 
-1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
+1. Defender for Cloud 메뉴에서 **환경 설정** 을 엽니다.
 1. 관련 구독을 선택합니다.
 1. **Defender 플랜** 을 선택하고 **향상된 보안 해제** 를 선택합니다.
 
@@ -118,7 +117,7 @@ Defender for Cloud는 모든 보안 경고에 대해 통일된 보기를 제공�
     > [!NOTE]
     > 한 번에 단일 플랜 또는 모든 플랜을 사용하지 않도록 설정하는지 여부에 관계없이 향상된 보안 기능을 사용하지 않도록 설정한 후 데이터 수집이 짧은 기간 동안 계속될 수 있습니다. 
 
-1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
+1. Defender for Cloud 메뉴에서 **환경 설정** 을 엽니다.
 1. 관련 구독을 선택합니다.
 1. **자동 프로비저닝** 을 선택합니다.
 1. 관련 확장을 사용하지 않도록 설정합니다.

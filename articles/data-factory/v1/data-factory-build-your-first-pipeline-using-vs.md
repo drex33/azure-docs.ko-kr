@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: tutorial
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.date: 10/22/2021
-ms.openlocfilehash: 37ebe53f72841141171cb463b53d4de7c1e1d705
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 51c421fbb6dc38dbf4de26e95b82bb455e0b35bf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130229506"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051176"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>자습서: Visual Studio를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -98,7 +98,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 2. **주문형 HDInsight 연결된 서비스** 를 선택하고 **추가** 를 클릭합니다.
 3. **JSON** 을 다음 JSON으로 바꿉니다.
 
-     ```json
+    ```json
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
@@ -299,17 +299,17 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png" alt-text="게시 - 새 데이터 팩터리 설정":::
 
-   1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
+   1. **새 Data Factory 만들기** 옵션을 선택합니다.
    2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예: **DataFactoryUsingVS09152016** 이름은 전역적으로 고유해야 합니다.
    3. **구독** 필드에서 올바른 구독을 선택합니다. 
-        > [!IMPORTANT]
-        > 모든 구독이 표시되지 않으면 구독의 관리자 또는 공동 관리자인 계정을 사용하여 로그인했는지 확인합니다.
+      > [!IMPORTANT]
+      > 모든 구독이 표시되지 않으면 구독의 관리자 또는 공동 관리자인 계정을 사용하여 로그인했는지 확인합니다.
    4. 생성되는 데이터 팩터리의 **리소스 그룹** 을 선택합니다.
    5. 데이터 팩터리의 **하위 지역** 을 선택합니다.
    6. **다음** 을 클릭하여 **항목 게시** 페이지로 전환합니다. **다음** 단추를 사용할 수 없는 경우 **TAB** 키를 눌러 이름 필드에서 나갑니다.
-
       > [!IMPORTANT]
       > 게시할 때 **데이터 팩터리 이름 “DataFactoryUsingVS”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameDataFactoryUsingVS). 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.   
+
 1. **항목 게시** 페이지에서 모든 데이터 팩터리 엔터티가 선택되었는지 확인하고 **다음** 을 클릭하여 **요약** 페이지로 전환합니다.
 
     :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png" alt-text="항목 페이지 게시":::     
@@ -321,20 +321,27 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 염두해 둘 중요한 사항은 다음과 같습니다.
 
 - **구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.** 라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
-    - Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다.
-        ```powershell   
-        Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-        ```
-        데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
 
-        ```powershell
-        Get-AzResourceProvider
-        ```
-    - Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
+  - Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다.
+
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+
+    데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
+
+    ```powershell
+    Get-AzResourceProvider
+    ```
+
+  - Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
+
 - 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
+
 - 데이터 팩터리 인스턴스를 만들려면 Azure 구독의 관리자 또는 공동 관리자여야 합니다.
 
 ### <a name="monitor-pipeline"></a>파이프라인 모니터링
+
 이 단계에서는 데이터 팩터리의 다이어그램 뷰를 사용하여 파이프라인을 모니터링합니다. 
 
 #### <a name="monitor-pipeline-using-diagram-view"></a>다이어그램 보기를 사용하여 파이프라인 모니터링
@@ -489,7 +496,7 @@ Azure Storage 연결 서비스에 대한 다음 JSON 정의를 고려해야 합�
             "name": "LastName",
             "type": "String"
         }
-    ],
+    ]
     ```
 
     다음 구성 파일(0부터 시작되는 인덱스 사용)과 같은 속성을 구성합니다.
@@ -498,15 +505,15 @@ Azure Storage 연결 서비스에 대한 다음 JSON 정의를 고려해야 합�
     {
         "name": "$.properties.structure[0].name",
         "value": "FirstName"
-    }
+    },
     {
         "name": "$.properties.structure[0].type",
         "value": "String"
-    }
+    },
     {
         "name": "$.properties.structure[1].name",
         "value": "LastName"
-    }
+    },
     {
         "name": "$.properties.structure[1].type",
         "value": "String"
@@ -514,13 +521,14 @@ Azure Storage 연결 서비스에 대한 다음 JSON 정의를 고려해야 합�
     ```
 
 ### <a name="property-names-with-spaces"></a>공백이 포함된 속성 이름
+
 속성 이름에 공백이 있으면 다음 예제(데이터베이스 서버 이름)와 같이 대괄호를 사용합니다.
 
 ```json
- {
-     "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
-     "value": "MyAsqlServer.database.windows.net"
- }
+{
+    "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+    "value": "MyAsqlServer.database.windows.net"
+}
 ```
 
 ### <a name="deploy-solution-using-a-configuration"></a>구성을 사용하여 솔루션 배포

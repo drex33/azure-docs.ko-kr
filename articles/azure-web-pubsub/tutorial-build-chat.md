@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 08/16/2021
-ms.openlocfilehash: cf3f6f174cc5302b4215db21ec7362401b3454e9
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: aa7180756dc5708b2747d7d7fe104138b48b058c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829738"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423999"
 ---
 # <a name="tutorial-create-a-chat-app-with-azure-web-pubsub-service"></a>자습서: Azure Web PubSub 서비스를 사용하여 채팅 앱 만들기
 
@@ -115,7 +115,7 @@ Azure Web PubSub에는 서버 역할과 클라이언트 역할이 있습니다. 
     </html>
     ```
 
-브라우저에서 `dotnet run --urls http://localhost:8080`을 실행하고 http://localhost:8080/index.html 에 액세스하여 서버를 테스트할 수 있습니다.
+브라우저에서 `dotnet run --urls http://localhost:8080`를 실행하고 http://localhost:8080/index.html 에 액세스하여 서버를 테스트할 수 있습니다.
 
 [메시지 게시 및 구독 자습서](./tutorial-pub-sub-messages.md)에서는 구독자가 Web PubSub SDK의 API를 사용하여 연결 문자열에서 액세스 토큰을 생성하고, 이 토큰을 사용하여 서비스에 연결했습니다. 실제 애플리케이션에서는 연결 문자열이 서비스에 대한 모든 작업을 수행할 수 있는 높은 권한을 갖기 때문에 일반적으로 안전하지 않으므로 클라이언트와 공유하면 안 됩니다. 클라이언트가 연결 문자열을 보관할 필요 없이 연결이 필요할 때마다 이 API를 호출하여 액세스 토큰을 요청할 수 있도록 이 액세스 토큰 생성 프로세스를 서버 쪽의 REST API로 변경해 보겠습니다.
 
@@ -605,16 +605,15 @@ ngrok는 인터넷에서 액세스할 수 있는 URL(`https://<domain-name>.ngro
 
 그런 다음, 서비스 이벤트 처리기를 업데이트하고 Webhook URL을 설정합니다.
 
-Azure CLI [az webpubsub event-handler hub](/cli/azure/webpubsub/event-handler/hub) 명령을 사용하여 이벤트 처리기 설정을 업데이트합니다.
+Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az_webpubsub_hub_update) 명령을 사용하여 채팅 허브에 대한 이벤트 처리기 설정을 만듭니다.
 
   > [!Important]
   > &lt;your-unique-resource-name&gt;을 이전 단계에서 만든 Web PubSub 리소스의 이름으로 바꿉니다.
-  > &lt;domain-name&lt;을 출력된 ngrok 이름으로 바꿉니다.
+  > &lt;domain-name&gt;을 출력된 ngrok 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az webpubsub event-handler hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name chat --template url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event-pattern="connected"
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name chat --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
 ```
-
 
 업데이트가 완료되면 홈페이지 http://localhost:8080/index.html 을 열고 사용자 이름을 입력합니다. 그러면 연결되었다는 메시지가 서버 콘솔에 출력됩니다.
 
@@ -895,7 +894,7 @@ az webpubsub event-handler hub update -n "<your-unique-resource-name>" -g "myRes
     });
     ```
 
-    이 이벤트 처리기는 `client.sendToAll()`을 사용하여 수신 메시지를 모든 클라이언트에 브로드캐스트합니다.
+    이 이벤트 처리기는 `client.sendToAll()`를 사용하여 수신 메시지를 모든 클라이언트에 브로드캐스트합니다.
 
 2.  사용자로부터 서버로 메시지를 보내고 받은 메시지를 페이지에 표시하는 논리를 추가하도록 `index.html`을 업데이트합니다.
 

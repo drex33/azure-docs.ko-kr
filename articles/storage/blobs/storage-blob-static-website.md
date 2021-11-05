@@ -6,21 +6,21 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 09/04/2020
+ms.date: 11/04/2021
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: ffab1f466de9352d1ea6784cbacb7cb9672ecaa7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3cfa4113d0b2307c6683b8a103d3480ed5dfb41c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467382"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843188"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
-*$web* 이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](../../azure-functions/functions-overview.md) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다. Azure Storage 고정적인 웹 사이트 호스팅은 웹 서버에서 콘텐츠를 렌더링하지 않아도 되는 경우에 적합한 옵션입니다.
+*$web* 이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](../../azure-functions/functions-overview.md) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다. Azure Storage 고정적인 웹 사이트 호스팅은 웹 서버에서 콘텐츠를 렌더링하지 않아도 되는 경우에 적합한 옵션입니다. 
 
-[App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/)는 Azure Storage 고정적인 웹 사이트 호스팅의 훌륭한 대안이며 웹 서버에서 콘텐츠를 렌더링하지 않아도 되는 경우에도 적합합니다. App Service Static Web Apps는 GitHub 소스부터 전역 배포까지 완전 관리형 연속 통합 및 지속적인 업데이트(CI/CD) 워크플로를 제공합니다.
+[!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 웹 서버에서 콘텐츠를 렌더링해야 하는 경우에는 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 사용할 수 있습니다.
 

@@ -7,13 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 10/21/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9435ba38ead8799a8628b0a888d074f2432ffd2e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7cd13ebef2e548d9596823f829041e48c99e532e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101671"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441840"
 ---
 # <a name="microsoft-defender-for-clouds-enhanced-security-features"></a>클라우드용 Microsoft Defender의 향상된 보안 기능
 

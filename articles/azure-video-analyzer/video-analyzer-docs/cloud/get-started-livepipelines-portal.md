@@ -3,14 +3,14 @@ title: Azure Video Analyzer 라이브 파이프라인 시작 - Azure Portal
 description: 이 빠른 시작에서는 Azure Video Analyzer 서비스의 라이브 파이프라인을 사용하여 RTSP 카메라에서 비디오를 캡처하고 녹화하는 단계를 안내합니다.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 10/16/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1678d4a6f80e96f271ad7cc5985fa7c63c0947b4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ed1c4e979d9b593cc701c294c95eda96b27db415
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131461744"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554415"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-live-pipelines-in-the-azure-portal"></a>빠른 시작: Azure Portal Video Analyzer 라이브 파이프라인 시작
 

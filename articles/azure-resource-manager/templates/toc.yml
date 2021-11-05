@@ -53,6 +53,9 @@
         - name: 연결된 템플릿으로 배포
           displayName: template specs
           href: template-specs-deploy-linked-template.md
+        - name: 포털 양식 만들기
+          href: template-specs-create-portal-forms.md
+          displayName: 'UI,form,blade'
     - name: 고급 템플릿
       items:
         - name: 템플릿 참조 사용

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 237de7e75007de85054501ed76b253a6eedf4346
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
-ms.translationtype: HT
+ms.openlocfilehash: 81803facdff8012ee01b6cca0c408755c81f5233
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528373"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853912"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태
 
@@ -45,20 +45,20 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 | 대상  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL - 단일 서버** | MySQL | ✔ | 공개 미리 보기  |
-|   | RDS MySQL | ✔ | 공개 미리 보기  |
-|   | Azure DB for MySQL* | ✔ | 공개 미리 보기  |
-| **Azure DB for MySQL - 유연한 서버** | MySQL | ✔ | 공개 미리 보기  |
-|   | RDS MySQL | ✔ | 공개 미리 보기  |
-|   | Azure DB for MySQL* | ✔ | 공개 미리 보기  |
+| **Azure DB for MySQL - 단일 서버** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
+| **Azure DB for MySQL - 유연한 서버** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 | **DB for PostgreSQL - 유연한 서버** | PostgreSQL | X |
@@ -76,13 +76,13 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 |   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |  |
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **MySQL용 Azure DB** | MySQL | ✔ | GA |
-|   | RDS MySQL | ✔ | GA |
+| **MySQL용 Azure DB** | MySQL | X |  |
+|   | RDS MySQL | X |  |
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | ✔ | GA |
 |   | Azure DB for PostgreSQL - 단일 서버* | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |

@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: c77ec3cc1abd0f27efc6720d007118346b3def03
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: b4771486e8f64df5005a6cc3a29d5b7c960cde3d
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130253348"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131045789"
 landingContent:
 - title: App Service 정보
   linkLists:
@@ -56,8 +56,6 @@ landingContent:
       url: configure-ssl-bindings.md
     - text: 스테이징 환경에서 앱 실행
       url: deploy-staging-slots.md
-    - text: 스토리지 및 Microsoft Graph에 안전하게 액세스
-      url: scenario-secure-app-overview.md
   - linkListType: how-to-guide
     links:
     - text: SSH를 통해 Linux 컨테이너에 연결
@@ -102,6 +100,24 @@ landingContent:
       url: tutorial-python-postgresql-app.md
     - text: PostgreSQL을 사용하는 Ruby(Rails) 앱
       url: tutorial-ruby-postgres-app.md
+- title: 안전
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure App Service의 보안
+      url: overview-security.md
+  - linkListType: tutorial
+    links:
+    - text: 관리 ID를 사용한 Secretless SQL Database 액세스
+      url: tutorial-connect-msi-sql-database.md
+    - text: 관리 ID를 사용하여 스토리지 및 Microsoft Graph에 대한 비밀 없는 액세스
+      url: scenario-secure-app-overview.md
+    - text: Key Vault 비밀을 사용하여 서비스에 안전하게 연결
+      url: tutorial-connect-msi-key-vault.md
+    - text: 백 엔드 연결을 위해 네트워크 트래픽 격리
+      url: tutorial-networking-isolate-vnet.md
+    - text: 사용자 인증
+      url: tutorial-auth-aad.md
 - title: 관리 및 통합
   linkLists:
   - linkListType: concept
@@ -110,10 +126,6 @@ landingContent:
       url: app-service-plan-manage.md
   - linkListType: tutorial
     links:
-    - text: 관리 ID를 사용하여 리소스 액세스 보안
-      url: app-service-web-tutorial-connect-msi.md
-    - text: 사용자 인증
-      url: tutorial-auth-aad.md
     - text: CORS를 통한 RESTful API 호스팅
       url: app-service-web-tutorial-rest-api.md
     - text: 애플리케이션에 CDN 추가

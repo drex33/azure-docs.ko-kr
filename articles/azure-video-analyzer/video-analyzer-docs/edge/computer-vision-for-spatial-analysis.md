@@ -5,20 +5,20 @@ author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f492272e2365d242859357e86056fd3d5095e88b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b3de27af4dab9dd8968f97487cb120dbcd0d08c8
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101028"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554491"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>자습서: Computer Vision과 함께 라이브 비디오를 사용하여 공간 분석(미리 보기)
 
 [!INCLUDE [header](includes/edge-env.md)]
 
-이 자습서에서는 [Azure Cognitive Services의 공간 분석 AI 서비스를 위한 Computer Vision](../../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md)과 함께 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석하는 방법을 보여줍니다. 이 추론 서버를 통해 스트리밍 비디오를 분석하여 물리적 공간에서 사람과 움직임 간의 공간 관계를 이해하는 방법을 확인할 수 있습니다. 비디오 피드의 프레임은 이 추론 서버에 전송되고, 결과는 IoT Edge 허브로 전송되고, 일부 조건이 충족되면 비디오 클립이 녹화되고 Video Analyzer 계정에 비디오로 저장됩니다.
+이 자습서에서는 [Azure Cognitive Services의 공간 분석 AI 서비스를 위한 Computer Vision](../../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md)과 함께 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석하는 방법을 보여줍니다. 이 유추 서버를 통해 스트리밍 비디오를 분석하여 물리적 공간에서 사람과 움직임 간의 공간 관계를 이해하는 방법을 확인할 수 있습니다. 비디오 피드의 프레임은 이 추론 서버에 전송되고, 결과는 IoT Edge 허브로 전송되고, 일부 조건이 충족되면 비디오 클립이 녹화되고 Video Analyzer 계정에 비디오로 저장됩니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -124,7 +124,7 @@ ms.locfileid: "131101028"
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/overview.png" alt-text="공간 분석 개요":::
 
-이 다이어그램에서는 이 자습서의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스트하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](../pipeline.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 `CognitiveServicesVisionProcessor` 노드로 보냅니다.
+이 다이어그램에서는 이 자습서의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스팅하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](../pipeline.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 `CognitiveServicesVisionProcessor` 노드로 보냅니다.
 
 `CognitiveServicesVisionProcessor` 노드는 프록시 역할을 수행합니다. 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음 **공유 메모리** 를 통해 이미지를 gRPC 엔드포인트 뒤에서 AI 작업을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 공간 분석 모듈입니다. `CognitiveServicesVisionProcessor` 노드는 다음과 같은 두 가지 작업을 수행합니다.
 
@@ -195,7 +195,7 @@ ms.locfileid: "131101028"
 
 다음 표에서는 IoT Edge 모듈에 사용되는 다양한 환경 변수를 보여줍니다. `spatialanalysis`의 `env` 속성을 사용하여 위에서 언급한 배포 매니페스트에서 설정할 수도 있습니다.
 
-| 설정 이름 | 값 | 설명|
+| 설정 이름 | 값 | Description|
 |---------|---------|---------|
 | DISPLAY | :1 | 이 값은 호스트 컴퓨터의 `echo $DISPLAY` 출력과 동일해야 합니다. Azure Stack Edge 디바이스에는 디스플레이가 없습니다. 이 설정은 적용할 수 없습니다.|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | **수정 금지**|

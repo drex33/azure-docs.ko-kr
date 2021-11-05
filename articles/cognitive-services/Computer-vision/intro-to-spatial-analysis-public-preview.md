@@ -11,16 +11,16 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/06/2021
 ms.custom: contperf-fy22q2
-ms.openlocfilehash: 9553c7e177bdc78b071d6ed68725879e46c9ef5e
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: fd160aa2ba4a626e12db638694cb6d971b19fbd2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668450"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469942"
 ---
 # <a name="what-is-spatial-analysis"></a>공간 분석이란?
 
-공간 분석은 지정된 영역 내에서 사람들의 움직임과 상태를 파악하여 조직이 실제 공간의 가치를 극대화할 수 있도록 도와주는 AI 서비스입니다. 이를 통해 CCTV 또는 감시 카메라에서 비디오를 수집하고, 비디오 스트림에서 인사이트를 추출하고, 다른 시스템에서 사용할 이벤트를 생성할 수 있습니다. 카메라 스트림의 입력을 통해 이 서비스는 공간에 들어가는 사람의 수를 세거나 얼굴에 마스크 착용 및 사회적 거리두기 지침을 사용하여 규정 준수를 측정하는 것과 같은 작업을 수행할 수 있습니다.
+Computer Vision 공간 분석을 사용하여 카메라에서 스트리밍 비디오를 수집하고, 통찰력을 추출하고, 다른 시스템에서 사용할 이벤트를 생성할 수 있습니다. 이 서비스는 비디오에서 사람의 존재와 움직임을 감지합니다. 공간에 들어가는 사람의 수를 세거나 얼굴에 마스크 착용 및 사회적 거리두기 지침을 사용하여 규정 준수를 측정하는 것과 같은 작업을 수행할 수 있습니다. 물리적 공간의 비디오 스트림을 처리하여 사람들이 비디오 스트림을 사용하는 방법을 배우고 조직에 대한 공간의 가치를 극대화할 수 있습니다. 
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -29,18 +29,26 @@ ms.locfileid: "129668450"
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.-->
 
 ## <a name="what-it-does"></a>수행하는 작업
+공간 분석은 비디오를 수집한 다음, 비디오에서 사람을 감지합니다. 사람이 감지되면 시스템은 시간이 지남에 따라 이동하는 사람을 추적한 다음, 사람들이 관심 영역과 상호 작용할 때 이벤트를 생성합니다. 모든 작업은 단일 카메라의 보기 필드에서 인사이트를 제공합니다. 
 
-공간 분석의 핵심 작업은 비디오를 수집하고, 비디오에서 사람을 감지하며, 시간이 지남에 따라 움직이는 사람을 추적하고, 사람이 관심 영역과 상호 작용할 때 이벤트를 생성하는 시스템을 기반으로 합니다.
+### <a name="people-counting"></a>인원 수 계산
+이 작업은 PersonCount 작업을 사용하여 시간에 따라 특정 영역에 있는 인원 수를 계산합니다. 프레임에 걸쳐 사람을 추적하지 않고 처리된 각 프레임에 대해 독립적인 카운트를 생성합니다. 이 작업은 공간에 있는 인원 수를 추정하거나 사람이 나타날 때 경고를 생성하는 데 사용할 수 있습니다.
 
-## <a name="spatial-analysis-features"></a>공간 분석 기능
+![공간 분석은 카메라 시야에 있는 인원 수를 계산합니다.](https://user-images.githubusercontent.com/11428131/139924111-58637f2e-f2f6-42d8-8812-ab42fece92b4.gif)
 
-| 기능 | 정의 |
-|------|------------|
-| **인물 감지** | 이 구성 요소는 "이 이미지에서 사람들은 어디에 있나요?"라는 질문에 답변합니다. 이미지에서 사람을 찾고, 각 사람의 위치를 나타내는 경계 상자 좌표를 **사람 추적** 구성 요소에 전달합니다. |
-| **인물 추적** | 이 구성 요소는 사람들이 카메라 앞에서 이동할 때 시간이 지남에 따라 인물 감지를 연결합니다. 사람들이 일반적으로 움직이는 방법에 대한 임시 논리 및 사람의 전반적인 모양에 대한 기본 정보를 사용합니다. 여러 카메라를 통해 사람을 추적하지 않습니다. 사용자가 약 1분 이상 시야를 벗어났다가 시야에 다시 들어오면 시스템에서 이를 새로운 사람으로 인식합니다. 인물 추적은 카메라에서 개인을 고유하게 식별하지 않습니다. 얼굴 인식 또는 걸음걸이 추적을 사용하지 않습니다. |
-| **얼굴 마스크 감지** | 이 구성 요소는 카메라의 시야에서 사람의 얼굴 위치를 감지하고, 얼굴의 마스크 착용 유무를 식별합니다. AI 작업은 비디오에서 이미지를 스캔합니다. 얼굴이 감지되면 서비스에서 경계 상자를 얼굴 주위에 제공합니다. 개체 감지 기능을 사용하여 얼굴 마스크가 경계 상자 내에 있는지 식별합니다. 얼굴 마스크 감지에는 한 얼굴을 다른 얼굴과 구분하거나 얼굴 특성을 예측 또는 분류하거나 얼굴 인식을 수행하는 작업이 포함되지 않습니다. |
-| **관심 영역** | 이 구성 요소는 입력 비디오 프레임의 사용자 정의 영역 또는 선입니다. 사람이 비디오에서 이 영역과 상호 작용하면 시스템에서 이벤트를 생성합니다. 예를 들어 **PersonCrossingLine** 작업의 경우 비디오 프레임에서 선이 정의됩니다. 사람이 해당 선을 교차할 때 이벤트가 생성됩니다. |
-| **이벤트** | 이벤트는 공간 분석의 기본 출력입니다. 각 작업은 주기적으로(예: 분당 한 번) 또는 특정 트리거가 발생할 때마다 특정 이벤트를 발생시킵니다. 이벤트에는 입력 비디오에서 발생한 작업에 대한 정보가 포함되지만, 이미지 또는 비디오는 포함되지 않습니다. 예를 들어 **PeopleCount** 작업은 사람 수가 변경될 때마다(트리거) 또는 1분마다 한 번씩(주기적으로) 업데이트된 수가 포함된 이벤트를 발생시킬 수 있습니다. |
+### <a name="entrance-counting"></a>입장 인원 계산
+이 기능은 사람들이 해당 지역에 머무르는 시간이나 출입구를 통해 들어오는 시간을 모니터링합니다. 이 모니터링은 PersonCrossingPolygon 또는 PersonCrossingLine 작업을 사용하여 수행할 수 있습니다. 소매점 시나리오에서는 이러한 작업을 통해 계산대 대기 시간이나 디스플레이 이용 인원을 측정할 수 있습니다. 또한 로비 또는 다른 상업 건물 시나리오에서 이러한 작업은 특정 층에서 유동 인구를 측정할 수 있습니다.
+
+![공간 분석은 계산대 대기 시간을 측정합니다.](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
+
+### <a name="social-distancing-and-facemask-detection"></a>사회적 거리두기 및 마스크 착용 감지 
+이 기능은 사람들이 공간에서 사회적 거리두기 요구 사항을 얼마나 잘 따르는지 분석합니다. PersonDistance 작업을 사용하여 시스템은 사람들이 공간 여기저기로 돌아 다닐 때 자동으로 자체 보정합니다. 그런 다음, 사람들이 특정 거리 임계값(6피트 또는 10피트)을 위반할 때를 식별합니다.
+
+![공간 분석은 사람 간의 거리를 표시하는 선을 표시하는 사회적 거리두기 위반 이벤트를 시각화합니다.](https://user-images.githubusercontent.com/11428131/139924062-b5e10c0f-3cf8-4ff1-bb58-478571c022d7.gif)
+
+공간 분석은 또한 사람이 마스크와 같은 얼굴 보호 커버를 착용하고 있는지 감지하도록 구성할 수 있습니다. `ENABLE_FACE_MASK_CLASSIFIER` 매개 변수를 구성하여 PersonCount, PersonCrossingLine 및 PersonCrossingPolygon 작업에 대해 마스크 분류자를 사용할 수 있습니다.
+
+![공간 분석은 엘리베이터에서 사람들이 마스크를 착용하고 있는지 여부를 분류합니다.](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
 
 ## <a name="get-started"></a>시작
 
@@ -48,7 +56,7 @@ ms.locfileid: "129668450"
 
 ## <a name="responsible-use-of-spatial-analysis-technology"></a>공간 분석 기술의 책임 있는 사용
 
-공간 분석 기술을 책임 있게 사용하는 방법에 대해 자세히 알아보려면 [투명성 메모](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)를 참조하세요. Microsoft의 투명성 메모는 Microsoft의 AI 기술의 작동 방식, 시스템 소유자가 시스템 성능과 동작에 영향을 줄 수 있는 선택 사항, 기술, 사람 및 환경을 포함한 전체 시스템에 대한 사고의 중요성을 이해하는 데 도움을 주기 위한 것입니다.
+공간 분석 기술을 책임 있게 사용하는 방법에 대해 자세히 알아보려면 [투명성 메모](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)를 참조하세요. Microsoft의 투명성 메모는 AI 기술의 작동 방식과 시스템 소유자가 시스템 성능 및 동작에 영향을 줄 수 있는 선택 항목을 이해하는 데 도움이 됩니다. 기술, 사람 및 환경을 포함하여 전체 시스템에 대한 사고의 중요성에 중점을 둡니다.
 
 ## <a name="next-steps"></a>다음 단계
 

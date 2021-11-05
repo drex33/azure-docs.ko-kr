@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: 593858009c59c782119f9389bd36dcf894977a70
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6c71f912da153ae41b261e639cf99e6554927cdf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129989877"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068173"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 대한 SAML Single Sign-On
 
@@ -81,7 +81,7 @@ SAML 인증으로 보호되는 온-프레미스 애플리케이션에 SSO(Single
    * SP 시작 흐름의 경우 인증 토큰 수신을 위해 백 엔드 애플리케이션에서 올바른 **회신 URL** 또는 Assertion Consumer Service URL을 지정하도록 해야 합니다.
 
     > [!NOTE]
-    > 백 엔드 애플리케이션에서 **회신 URL** 이 내부 URL이어야 하는 경우 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하여 일치하는 내부 및 외부 URL을 갖거나 사용자의 디바이스에 내 앱 보안 로그인 확장을 설치해야 합니다. 이 확장은 적절한 애플리케이션 프록시 서비스로 자동으로 리디렉션됩니다. 확장을 설치하려면 [내 앱 보안 로그인 확장](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension)을 참조하세요.
+    > 백 엔드 애플리케이션에서 **회신 URL** 이 내부 URL이어야 하는 경우 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하여 일치하는 내부 및 외부 URL을 보유하거나 사용자의 디바이스에 내 앱 보안 로그인 확장을 설치해야 합니다. 이 확장은 적절한 애플리케이션 프록시 서비스로 자동으로 리디렉션됩니다. 확장을 설치하려면 [내 앱 보안 로그인 확장](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension)을 참조하세요.
     
 ## <a name="test-your-app"></a>앱 테스트
 

@@ -7,13 +7,12 @@ ms.date: 07/20/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8de5687d645dce485514957d7be490bbd502b85a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b75bf09ffce366ce593d450ffcdfa8993f3ae5b7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055885"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463794"
 ---
 # <a name="introduction-to-microsoft-defender-for-kubernetes"></a>Microsoft Defender for Kubernetes 소개
 

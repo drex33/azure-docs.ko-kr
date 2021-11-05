@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 3db7ccf1e1b668697ad37d5245d93b82ae56d8de
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f6d54941d01bf6588a330dcf822b38c46ca8eed6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433121"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846542"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -33,7 +33,7 @@ sync 명령은 다음과 같은 점에서 copy 명령과 다릅니다.
 
 1. 기본적으로 재귀 플래그는 true이며 sync는 모든 하위 디렉터리를 복사합니다. Sync는 재귀 플래그가 false인 경우 디렉터리 내의 최상위 파일만 복사합니다.
 2. 가상 디렉터리 간에 동기화할 때 가상 디렉터리 중 하나와 이름이 같은 Blob이 있는 경우 경로에 후행 슬래시를 추가합니다(예 참조).
-3. `deleteDestination` 플래그가 true 또는 prompt로 설정된 경우 sync는 대상에서 원본에 없는 파일 및 Blob을 삭제합니다.
+3. `--delete-destination` 플래그가 true 또는 prompt로 설정된 경우 sync는 대상에서 원본에 없는 파일 및 Blob을 삭제합니다.
 
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
@@ -181,6 +181,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--output-type string|명령 출력의 형식을 지정합니다. text, json 등을 선택할 수 있습니다. 기본값은 “text”입니다.|
 |--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

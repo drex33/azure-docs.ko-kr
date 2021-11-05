@@ -8,18 +8,20 @@ ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2021
+ms.date: 11/01/2021
 ms.author: duau
-ms.openlocfilehash: c76b78b8ed834b1cd3c86cab1bdbf5cb98141956
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: db0bf4783de324af2ab4e5a5ec6bfbaa18ad33cf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073243"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449776"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Front Door에 대한 Azure Resource Manager 배포 모델 템플릿
 
 다음 표에는 Azure Front Door에 대한 Azure Resource Manager 배포 모델 템플릿 링크가 포함되어 있습니다.
+
+## <a name="azure-front-door"></a>Azure Front Door
 
 | 템플릿 | Description |
 | ---| ---|
@@ -35,6 +37,33 @@ ms.locfileid: "130073243"
 | [클라이언트 IP 허용 목록 또는 차단 목록에 대한 Front Door 구성](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip)| 클라이언트 IP를 사용하여 사용자 지정 액세스 제어를 사용하여 트래픽 특정 클라이언트 ID를 제한하도록 Front Door를 구성합니다. |
 | [특정 http 매개변수로 작업을 수행하도록 Front Door 구성](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-http-params)| http 매개 변수와 함께 액세스 제어에 대한 사용자 지정 규칙을 사용하여 수신 요청에서 http 매개 변수를 기준으로 특정 트래픽을 허용하거나 차단하도록 Front Door를 구성합니다. |
 | [Front Door 속도 제한 구성](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-rate-limiting)| 제공된 프론트 엔드 호스트에 대한 수신 트래픽의 속도를 제한하도록 Front Door를 구성합니다. |
+| | |
+
+## <a name="azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)
+
+| 샘플 | Description |
+|-|-|
+| [Front Door(빠른 생성)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium/) | 엔드포인트, 원본 그룹, 원본 및 경로를 포함하는 기본 Front Door 프로필을 만듭니다.  |
+| [규칙 집합](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-rule-set/) | Front Door 프로필 및 규칙 집합을 만듭니다.  |
+| [관리형 규칙 집합이 있는 WAF 정책](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-premium-waf-managed/) | 관리형 규칙 집합이 있는 Front Door 프로필 및 WAF를 만듭니다.  |
+| [사용자 지정 규칙이 있는 WAF 정책](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-waf-custom/) | 사용자 지정 규칙이 있는 Front Door 프로필 및 WAF를 만듭니다.  |
+| [요율 제한이 있는 WAF 정책](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-rate-limit/) | 사용자 지정 규칙으로 Front Door 프로필과 WAF를 만들어 요율 제한을 수행합니다.  |
+| [지역 필터링을 사용하는 WAF 정책](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-geo-filtering/) | 사용자 지정 규칙으로 Front Door 프로필과 WAF를 만들어 지역 필터링을 수행합니다.  |
+|**App Service 원본**| **설명** |
+| [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-app-service-public) | 퍼블릭 엔드포인트 및 Front Door 프로필을 사용하여 App Service 앱을 만듭니다.  |
+| [Private Link가 있는 App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-premium-app-service-private-link) | 프라이빗 엔드포인트 및 Front Door 프로필을 사용하여 App Service 앱을 만듭니다.  |
+|**Azure Functions 원본**| **설명** |
+| [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-function-public/) | 퍼블릭 엔드포인트 및 Front Door 프로필을 사용하여 Azure Functions 앱을 만듭니다.  |
+| [Private Link가 있는 Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-premium-function-private-link) | 프라이빗 엔드포인트 및 Front Door 프로필을 사용하여 Azure Functions 앱을 만듭니다.  |
+|**API Management 원본**| **설명** |
+| [API Management(외부)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-api-management-external) | 외부 VNet 통합 및 Front Door 프로필을 사용하여 API Management 인스턴스를 만듭니다.  |
+|**스토리지 원본**| **설명** |
+| [스토리지 정적 웹 사이트](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-storage-static-website) | 퍼블릭 엔드포인트 및 Front Door 프로필을 사용하여 Azure Storage 계정 및 정적 웹 사이트를 만듭니다.  |
+| [Private Link가 있는 스토리지 Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-premium-storage-blobs-private-link) | 프라이빗 엔드포인트 및 Front Door 프로필을 사용하여 Azure Storage 계정 및 Blob 컨테이너를 만듭니다.  |
+|**Application Gateway 원본**| **설명** |
+| [Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-application-gateway-public) | Application Gateway 및 Front Door 프로필을 만듭니다. |
+|**가상 머신 원본**| **설명** |
+| [Private Link 서비스가 있는 가상 머신](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-premium-vm-private-link) | 가상 머신과 Private Link 및 Front Door 프로필을 만듭니다. |
 | | |
 
 ## <a name="next-steps"></a>다음 단계

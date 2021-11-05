@@ -1,6 +1,6 @@
 ---
 title: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 특정 보안 경고에 대한 보안 자동화 만들기
-description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 특정 Security Center 경고에 의해 트리거되는 논리 앱을 트리거하는 Azure Security Center 자동화를 만드는 방법에 대해 알아봅니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 특정 Defender for Cloud 경고에 의해 트리거되는 논리 앱을 트리거하는 Microsoft Defender for Cloud 자동화를 만드는 방법에 대해 알아봅니다.
 services: azure-resource-manager
 author: memildin
 ms.service: azure-resource-manager
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 856cef0da55b12e808565d25ffe2ac92db4762eb
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 18d5dcfa0559bbf94da14fdca975da568d011da2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112238115"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472260"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 특정 보안 경고에 대한 자동 응답 만들기
 
-이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Security Center에 의해 특정 보안 경고가 수신될 때 논리 앱을 트리거하는 워크플로 자동화를 만드는 방법을 설명합니다.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Microsoft Defender for Cloud에 의해 특정 보안 경고가 수신될 때 논리 앱을 트리거하는 워크플로 자동화를 만드는 방법을 설명합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,7 +31,7 @@ ms.locfileid: "112238115"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-Azure Security Center의 워크플로 자동화 기능을 사용하는 데 필요한 역할 및 사용 권한 목록은 [워크플로 자동화](workflow-automation.md)를 참조하세요.
+Microsoft Defender for Cloud의 워크플로 자동화 기능을 사용하는 데 필요한 역할 및 사용 권한 목록은 [워크플로 자동화](workflow-automation.md)를 참조하세요.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -39,10 +41,10 @@ Azure Security Center의 워크플로 자동화 기능을 사용하는 데 필�
 
 ### <a name="relevant-resources"></a>관련 리소스
 
-- [**Microsoft.Security/automations**](/azure/templates/microsoft.security/automations): 특정 문자열이 포함된 Azure Security Center 경고를 수신할 때 논리 앱을 트리거하는 자동화입니다.
+- [**Microsoft.Security/automations**](/azure/templates/microsoft.security/automations): 특정 문자열을 포함하는 Microsoft Defender for Cloud 경고를 수신할 때 논리 앱을 트리거하는 자동화입니다.
 - [**Microsoft.Logic/workflows**](/azure/templates/microsoft.logic/workflows): 트리거가 가능한 빈 논리 앱입니다.
 
-다른 Security Center 빠른 시작 템플릿은 [커뮤니티 제공 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security&pageNumber=1&sort=Popular)을 참조하세요.
+다른 Defender for Cloud 빠른 시작 템플릿은 [커뮤니티 제공 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security&pageNumber=1&sort=Popular)을 참조하세요.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -70,9 +72,9 @@ Azure Security Center의 워크플로 자동화 기능을 사용하는 데 필�
 
 Azure Portal을 사용하여 워크플로 자동화가 배포되었는지 확인합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Security Center** 를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Defender for Cloud** 를 엽니다.
 1. 상단 메뉴 모음에서 필터 아이콘을 선택하고 새 워크플로 자동화를 배포한 특정 구독을 선택합니다.
-1. Security Center의 사이드바에서 **워크플로 자동화** 를 열고 새 자동화를 확인합니다.
+1. Defender for Cloud의 메뉴에서 **워크플로 자동화** 를 열고 새 자동화를 확인합니다.
     :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="구성된 자동화 목록." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > 구독에 많은 워크플로 자동화가 있는 경우 **이름으로 필터링** 옵션을 사용합니다.
@@ -81,9 +83,9 @@ Azure Portal을 사용하여 워크플로 자동화가 배포되었는지 확인
 
 더 이상 필요하지 않은 경우 Azure Portal을 사용하여 워크플로 자동화를 삭제합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Security Center** 를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Defender for Cloud** 를 엽니다.
 1. 상단 메뉴 모음에서 필터 아이콘을 선택하고 새 워크플로 자동화를 배포한 특정 구독을 선택합니다.
-1. Security Center의 사이드바에서 **워크플로 자동화** 를 열고 삭제할 자동화를 찾습니다.
+1. Defender for Cloud의 메뉴에서 **워크플로 자동화** 를 열고 삭제할 자동화를 찾습니다.
     :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="워크플로 자동화를 제거하는 단계입니다." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. 삭제할 항목의 확인란을 선택합니다.
 1. 도구 모음에서 **삭제** 를 선택합니다.

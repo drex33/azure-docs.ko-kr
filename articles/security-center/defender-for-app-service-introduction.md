@@ -7,13 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: ecd51b53b2aacd11bd5a02af8f7b432f9a08e133
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: be03a03d517701e50b4c2e8bfbc7949273c1200e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075981"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428808"
 ---
 # <a name="protect-your-web-apps-and-apis"></a>웹앱 및 API 보호
 
@@ -44,7 +43,7 @@ App Service용 Microsoft Defender를 사용하여 Azure App Service 요금제를
 
 ## <a name="what-are-the-benefits-of-microsoft-defender-for-app-service"></a>App Service용 Microsoft Defender의 이점은 무엇인가요?
 
-Azure App Service는 웹앱 및 API를 빌드하고 호스트하기 위한 완전 관리형 플랫폼입니다. 플랫폼은 완전 관리형이기 때문에 인프라에 대해 걱정할 필요가 없습니다. 엔터프라이즈급 성능, 보안 및 규정 준수 요구 사항을 충족하는 관리, 모니터링 및 운영 인사이트를 제공합니다. 자세한 내용은 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 참조하세요.
+Azure App Service는 웹앱 및 API를 빌드하고 호스팅하기 위한 완전 관리형 플랫폼입니다. 플랫폼은 완전 관리형이기 때문에 인프라에 대해 걱정할 필요가 없습니다. 엔터프라이즈급 성능, 보안 및 규정 준수 요구 사항을 충족하는 관리, 모니터링 및 운영 인사이트를 제공합니다. 자세한 내용은 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 참조하세요.
 
 **App Service용 Microsoft Defender** 는 클라우드 규모를 사용하여 App Service를 통해 실행되는 애플리케이션을 대상으로 하는 공격을 식별합니다. 공격자는 웹 애플리케이션을 검색하여 약점을 찾아 악용합니다. 특정 환경으로 라우팅되기 전에 Azure에서 실행되는 애플리케이션에 대한 요청은 여러 게이트웨이를 통과하면서 검사 및 기록됩니다. 그런 다음, 이 데이터는 악용 및 공격자를 식별하고, 나중에 사용할 새 패턴을 학습하는 데 사용됩니다.
 

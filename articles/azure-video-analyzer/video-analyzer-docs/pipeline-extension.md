@@ -3,14 +3,14 @@ title: 파이프라인 확장 - Azure Video Analyzer
 description: Azure Video Analyzer를 사용하면 파이프라인 확장 노드를 통해 파이프라인 처리 능력을 확장할 수 있습니다. 이 문서에서는 파이프라인 확장 노드에 대해 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 70c5ab2f2bc3a82889501496d23eb8a681c7ec68
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7641524fb712d9564fca46ef40e8949f4dd9bad1
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020593"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851588"
 ---
 # <a name="pipeline-extension"></a>파이프라인 확장
 

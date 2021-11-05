@@ -5,12 +5,12 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4207e171b07d203fd7a71f4c9783baef3d4f6a90
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 890ec787bfc7a4316df9d27271460a90d5047175
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506097"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842703"
 ---
 ## <a name="install-iot-edge"></a>IoT Edge 설치
 
@@ -18,7 +18,7 @@ ms.locfileid: "131506097"
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Windows 대상 디바이스에 Linux용 IoT Edge 설치합니다.
+대상 디바이스의 Windows Linux용 IoT Edge 설치합니다.
 
 > [!NOTE]
 > 다음 PowerShell 프로세스에서는 Windows의 Linux용 IoT Edge를 로컬 디바이스에 배포하는 방법을 간략하게 설명합니다. PowerShell을 사용하여 원격 대상 디바이스에 배포하려면 [원격 PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote)을 사용하여 원격 디바이스에 대한 연결을 설정하고 해당 디바이스에서 이러한 명령을 원격으로 실행합니다.
@@ -52,7 +52,7 @@ Windows 대상 디바이스에 Linux용 IoT Edge 설치합니다.
    >
    >`Deploy-Eflow` 명령의 선택적 매개 변수를 사용하여 가상 컴퓨터의 사용 가능한 리소스를 사용자 지정할 수 있습니다.
    >
-   >예를 들어, 아래 명령은 vCPU 코어 4개, RAM 4GB, 디스크 공간 20GB의 가상 머신을 만듭니다.
+   >예를 들어 아래 명령은 4개의 vCPU 코어, 4GB RAM(MB로 표시) 및 20GB의 디스크 공간이 있는 가상 머신을 만듭니다.
    >
    >   ```powershell
    >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDiskSize 20
@@ -75,7 +75,7 @@ Windows 대상 디바이스에 Linux용 IoT Edge 설치합니다.
 
    ![배포가 성공하면 메시지 끝에 '배포 성공'이 표시됩니다( PNG).](./media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
 
-배포가 완료되면 디바이스를 프로비전할 준비가 되었습니다.
+   배포가 성공하면 디바이스를 프로비전할 준비가 된 것입니다.
 
 # <a name="windows-admin-center"></a>[Windows Admin Center](#tab/windowsadmincenter)
 

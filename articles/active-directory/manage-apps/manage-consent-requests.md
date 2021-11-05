@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory에서 애플리케이션에 대한 동의 관리 및 동의 요청 평가
+title: 애플리케이션에 대한 동의 관리 및 동의 요청 평가
 description: 사용자 동의가 사용하지 않도록 설정되거나 제한되는 경우 동의 요청을 관리하는 방법 및 Azure Active Directory 애플리케이션에 대한 테넌트 전체 관리자 동의에 대한 요청을 평가하는 방법에 대해 알아봅니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: a6bf1ec1616d45edd08b943b55f2859d7942c908
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: de4553fae64801ae029a01e218658e847d5acb03
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425855"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066941"
 ---
-# <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>애플리케이션에 대한 동의 관리 및 동의 요청 평가
+# <a name="manage-consent-to-applications-and-evaluate-consent-requests-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 동의를 관리하고 동의 요청을 평가합니다.
 
 Microsoft는 사용자가 선택한 권한과 확인된 게시자의 앱에 대해서만 동의할 수 있도록 [사용자 동의를 제한](../../active-directory/manage-apps/configure-user-consent.md)할 것을 권장합니다. 이 정책을 충족하지 않는 앱의 경우 의사 결정 프로세스는 조직의 보안 및 ID 관리자 팀과 함께 중앙 집중화됩니다.
 
@@ -99,7 +100,7 @@ Azure Portal, Azure AD PowerShell 또는 동의 확인 프롬프트 자체에서
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>특정 사용자를 대신하여 동의 부여
 
-관리자는 전체 조직에 대한 동의를 부여하는 대신 [Microsoft Graph API](/graph/use-the-api)를 사용하여 단일 사용자 대신 위임된 권한에 대한 동의를 부여할 수도 있습니다. 자세한 내용은 [사용자를 대신하여 액세스 권한 가져오기](/graph/auth-v2-user)를 참조하세요.
+관리자는 전체 조직에 대한 동의를 부여하는 대신 [Microsoft Graph API](/graph/use-the-api)를 사용하여 단일 사용자 대신 위임된 권한에 대한 동의를 부여할 수도 있습니다. Microsoft Graph PowerShell을 사용하는 자세한 예는 [PowerShell을 사용하여 단일 사용자를 대신하여 동의 부여](#grant-consent-on-behalf-of-a-single-user-using-powershell)를 참조하세요.
 
 ## <a name="limiting-user-access-to-applications"></a>애플리케이션에 대한 사용자 액세스 제한
 
@@ -119,6 +120,88 @@ Azure Portal, Azure AD PowerShell 또는 동의 확인 프롬프트 자체에서
 4. **엔터프라이즈 애플리케이션** 을 선택하고 **관리** 섹션에서 **사용자 설정** 을 선택합니다.
 :::image type="content" source="media/manage-consent-requests/disable-user-consent-operations.png" alt-text="모든 앱에 대해 사용자 동의 작업 사용 안 함":::
 5. **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음** 토글을 **아니요** 로 설정하여 모든 이후 사용자 동의 작업을 사용하지 않도록 설정하고 **저장** 단추를 클릭합니다.
+
+## <a name="grant-consent-on-behalf-of-a-single-user-using-powershell"></a>PowerShell을 사용하여 단일 사용자를 대신하여 동의 부여
+
+사용자가 자신을 대신하여 동의하면 다음이 발생합니다.
+
+1. 클라이언트 애플리케이션에 대한 서비스 주체가 아직 없는 경우 만들어집니다. 서비스 주체는 Azure AD 테넌트에 있는 애플리케이션 또는 서비스의 인스턴스입니다. 앱 또는 서비스에 부여된 액세스 권한은 이 서비스 주체 개체와 연결됩니다.
+1. 애플리케이션이 액세스해야 하는 각 API에 대해 사용자를 대신하여 액세스하기 위해 애플리케이션이 해당 API에 필요한 권한에 대해 위임된 권한 부여가 만들어집니다. 위임된 권한 부여는 해당 사용자가 로그인할 때 애플리케이션이 사용자를 대신하여 API에 액세스할 수 있는 권한을 부여합니다.
+1. 사용자에게 클라이언트 애플리케이션이 할당됩니다. 사용자에게 애플리케이션을 할당하면 해당 사용자의 [내 앱](my-apps-deployment-plan.md) 포털에 애플리케이션이 나열되어 사용자가 자신을 대신하여 부여된 액세스 권한을 검토하고 취소할 수 있습니다.
+
+한 사용자를 대신하여 애플리케이션에 동의하는 것과 동일한 단계를 수동으로 수행하려면 다음 세부 정보가 필요합니다.
+
+* 동의를 부여하는 앱의 앱 ID입니다(이를 "클라이언트 애플리케이션"이라고 함).
+* 클라이언트 애플리케이션에 필요한 API 권한입니다. API의 앱 ID와 권한 ID 또는 클레임 값을 알아야 합니다.
+* 액세스 권한이 부여되는 사용자를 대신하는 사용자 이름 또는 개체 ID입니다.
+
+다음 예에서는 [Microsoft Graph PowerShell](/graph/powershell/get-started)을 사용하여 위에 나열된 세 단계를 수행하여 단일 사용자를 대신하여 동의를 부여합니다. 이 예에서 클라이언트 애플리케이션은 [Microsoft Graph Explorer](https://aka.ms/ge)이며 Microsoft Graph API에 대한 액세스 권한을 부여합니다.
+
+```powershell
+# The app for which consent is being granted. In this example, we're granting access
+# to Microsoft Graph Explorer, an application published by Microsoft.
+$clientAppId = "de8bc8b5-d9f9-48b1-a8ad-b748da725064" # Microsoft Graph Explorer
+
+# The API to which access will be granted. Microsoft Graph Explorer makes API 
+# requests to the Microsoft Graph API, so we'll use that here.
+$resourceAppId = "00000003-0000-0000-c000-000000000000" # Microsoft Graph API
+
+# The permissions to grant. Here we're including "openid", "profile", "User.Read"
+# and "offline_access" (for basic sign-in), as well as "User.ReadBasic.All" (for 
+# reading other users' basic profile).
+$permissions = @("openid", "profile", "offline_access", "User.Read", "User.ReadBasic.All")
+
+# The user on behalf of who access will be granted. The app will be able to access 
+# the API on behalf of this user.
+$userUpnOrId = "user@example.com"
+
+# Step 0. Connect to Microsoft Graph PowerShell. We need User.ReadBasic.All to get
+#    users' IDs, Application.ReadWrite.All to list and create service principals, 
+#    DelegatedPermissionGrant.ReadWrite.All to create delegated permission grants, 
+#    and AppRoleAssignment.ReadWrite.All to assign an app role.
+#    WARNING: These are high-privilege permissions!
+Connect-MgGraph -Scopes ("User.ReadBasic.All Application.ReadWrite.All " `
+                        + "DelegatedPermissionGrant.ReadWrite.All " `
+                        + "AppRoleAssignment.ReadWrite.All")
+
+# Step 1. Check if a service principal exists for the client application. 
+#     If one does not exist, create it.
+$clientSp = Get-MgServicePrincipal -Filter "appId eq '$($clientAppId)'"
+if (-not $clientSp) {
+   $clientSp = New-MgServicePrincipal -AppId $clientAppId
+}
+
+# Step 2. Create a delegated permission grant granting the client app access to the
+#     API, on behalf of the user. (This example assumes that an existing delegated 
+#     permission grant does not already exist, in which case it would be necessary 
+#     to update the existing grant, rather than create a new one.)
+$user = Get-MgUser -UserId $userUpnOrId
+$resourceSp = Get-MgServicePrincipal -Filter "appId eq '$($resourceAppId)'"
+$scopeToGrant = $permissions -join " "
+$grant = New-MgOauth2PermissionGrant -ResourceId $resourceSp.Id `
+                                     -Scope $scopeToGrant `
+                                     -ClientId $clientSp.Id `
+                                     -ConsentType "Principal" `
+                                     -PrincipalId $user.Id
+
+# Step 3. Assign the app to the user. This ensure the user can sign in if assignment
+#     is required, and ensures the app shows up under the user's My Apps.
+if ($clientSp.AppRoles | ? { $_.AllowedMemberTypes -contains "User" }) {
+    Write-Warning ("A default app role assignment cannot be created because the " `
+                 + "client application exposes user-assignable app roles. You must " `
+                 + "assign the user a specific app role for the app to be listed " `
+                 + "in the user's My Apps access panel.")
+} else {
+    # The app role ID 00000000-0000-0000-0000-000000000000 is the default app role
+    # indicating that the app is assigned to the user, but not for any specific 
+    # app role.
+    $assignment = New-MgServicePrincipalAppRoleAssignedTo `
+          -ServicePrincipalId $clientSp.Id `
+          -ResourceId $clientSp.Id `
+          -PrincipalId $user.Id `
+          -AppRoleId "00000000-0000-0000-0000-000000000000"
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

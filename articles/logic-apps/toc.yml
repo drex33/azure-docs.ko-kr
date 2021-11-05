@@ -75,6 +75,8 @@
           href: create-single-tenant-workflows-azure-portal.md
         - name: 단일 테넌트 워크플로 만들기 - Visual Studio Code
           href: create-single-tenant-workflows-visual-studio-code.md
+        - name: 단일 테넌트 워크플로에 대한 SQL 스토리지 설정
+          href: set-up-sql-db-storage-single-tenant-standard-workflows.md
         - name: 단일 테넌트에서 논리 앱에 대한 호스트 및 앱 설정 편집
           href: edit-app-settings-host-settings.md
         - name: 단일 테넌트 워크플로에 대한 매개 변수 만들기
@@ -247,8 +249,6 @@
               href: logic-apps-enterprise-integration-liquid-transform.md
         - name: B2B 오류 문제 해결
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-        - name: 재해 복구 계획 빌드
-          href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: 커넥터 - 심도 있는 항목
       items:
         - name: AS2
@@ -257,6 +257,8 @@
           href: ../connectors/connectors-create-api-azureblobstorage.md
         - name: Azure Container Instances
           href: ../connectors/connectors-create-api-container-instances.md
+        - name: Azure Cosmos DB
+          href: ../connectors/connectors-create-api-cosmos-db.md
         - name: Azure Event Grid
           href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
         - name: Azure Event Hubs
@@ -401,6 +403,12 @@
           href: monitor-b2b-messages-log-analytics.md
         - name: 모니터링 및 추적 쿼리 만들기
           href: create-monitoring-tracking-queries.md
+    - name: 비즈니스 연속성 및 재해 복구
+      items:
+        - name: 비즈니스 연속성 및 재해 복구를 위한 Azure 리소스 복제
+          href: create-replication-tasks-azure-resources.md
+        - name: B2B 비즈니스 연속성 및 재해 복구 계획 빌드
+          href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: '예제, 시나리오 및 연습'
       href: logic-apps-examples-and-scenarios.md
       items:
@@ -479,6 +487,6 @@
     - name: Twitter
       href: 'https://twitter.com/logicappsio'
     - name: 제품 사용자 의견 제공
-      href: 'https://feedback.azure.com/forums/287593-logic-apps'
+      href: 'https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=logic-apps'

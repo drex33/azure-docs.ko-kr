@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 10/01/2021
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 6c7ec83fcf7ea03dcacc92137f1ef63a6cce1f2f
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 7d6b9a81f5e5e948704b4597a7283cd976b124c2
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399530"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847203"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>빠른 시작: Synapse에서 새로운 Azure Machine Learning 연결된 서비스 만들기
 
@@ -43,7 +43,7 @@ Azure Synapse에서 Azure Machine Learning 연결 서비스를 만들 때 사용
 
 ## <a name="create-a-linked-service-using-the-synapse-workspace-managed-identity"></a>Synapse 작업 영역 관리 ID를 사용하여 연결된 서비스 만들기
 
-이 섹션에서는 [Azure Synapse 작업 영역 관리 ID](../security/synapse-workspace-managed-identity.md)를 사용하여 Azure Synapse에서 Azure Machine Learning 연결 서비스를 만드는 방법을 안내합니다.
+이 섹션에서는 [Azure Synapse 작업 영역 관리 ID](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)를 사용하여 Azure Synapse에서 Azure Machine Learning 연결 서비스를 만드는 방법을 안내합니다.
 
 ### <a name="give-msi-permission-to-the-azure-ml-workspace"></a>Azure ML 작업 영역에 MSI 권한 부여
 

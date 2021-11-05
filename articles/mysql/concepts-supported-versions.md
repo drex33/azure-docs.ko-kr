@@ -6,13 +6,13 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.custom: ''
-ms.date: 6/3/2020
-ms.openlocfilehash: 1dc37ae36703e334ca132b52749edbcdb9b3a602
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 11/4/2021
+ms.openlocfilehash: 466b3706c2814f4cb833e441c7d19f5d7b2895fe
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164786"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845896"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 
@@ -24,7 +24,7 @@ Azure Database for MySQL은 [MySQL 커뮤니티 버전](https://www.mysql.com/pr
 
 단일 서버 배포 옵션에서 게이트웨이는 서버 인스턴스에 대한 연결을 리디렉션하는 데 사용됩니다. 연결이 설정되면 MySQL 클라이언트는 MySQL Server 인스턴스에서 실행 중인 실제 버전이 아닌 게이트웨이에서 설정된 MySQL 버전을 표시합니다. MySQL Server 인스턴스의 버전을 확인하려면 MySQL 프롬프트에서 `SELECT VERSION();` 명령을 사용합니다. [연결 아키텍처](./concepts-connectivity-architecture.md#connectivity-architecture)를 검토하여 Azure Database for MySQL 서비스 아키텍처의 게이트웨이에 대한 자세한 정보를 알아봅니다.
 
-Azure Database for MySQL에서 주 버전 v 5.7 및 v 8.0을 지원 하므로 Azure Database for MySQL에 연결 하는 기본 포트 3306는 MySQL 클라이언트 버전 5.7 (최소 공통 분모)을 실행 하 여 지원 되는 모든 주 버전의 서버에 대 한 연결을 지원 합니다. 그러나 애플리케이션 요구 사항에 따라 특정 주 버전(예: v5.7 또는 v8.0)에 연결해야 하는 경우 서버 연결 문자열의 포트를 변경하여 연결할 수 있습니다.
+Azure Database for MySQL에서 주 버전 v 5.7 및 v 8.0을 지원 하므로 Azure Database for MySQL에 연결 하는 기본 포트 3306는 MySQL 클라이언트 버전 5.6 (최소 공통 분모)을 실행 하 여 지원 되는 모든 주 버전의 서버에 대 한 연결을 지원 합니다. 그러나 애플리케이션 요구 사항에 따라 특정 주 버전(예: v5.7 또는 v8.0)에 연결해야 하는 경우 서버 연결 문자열의 포트를 변경하여 연결할 수 있습니다.
 
 Azure Database for MySQL 서비스에서 게이트웨이 노드는 v5.7 클라이언트의 경우 포트 3308에서, v8.0 클라이언트의 경우 포트 3309에서 수신 대기합니다. 즉, v5.7 게이트웨이 클라이언트에 연결하려면 정규화된 서버 이름 및 포트 3308을 사용하여 클라이언트 애플리케이션에서 서버에 연결해야 합니다. 마찬가지로, v8.0 게이트웨이 클라이언트에 연결하려면 정규화된 서버 이름 및 포트 3309를 사용하여 서버에 연결할 수 있습니다. 보다 명확한 이해를 위해 다음 예제를 확인합니다.
 

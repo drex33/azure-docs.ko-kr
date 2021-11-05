@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: f194a0326f4caa90fc57bfd9af2991a9f4e1fbeb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0d623789b1f99e6e7728fd5d3f80bb7ca2be7218
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029494"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441783"
 ---
 # <a name="quickstart-set-up-microsoft-defender-for-cloud"></a>빠른 시작: 클라우드용 Microsoft Defender 설정
 
@@ -56,7 +55,7 @@ Defender for Cloud를 시작하려면 Microsoft Azure에 대한 구독이 있어
 
 Defender for Cloud를 처음 시작한 후 몇 분 내에 다음이 표시될 수 있습니다.
 
-- 연결된 리소스의 보안을 개선하는 방법에 대한 **권장 사항**.
+- 연결된 리소스의 보안을 개선하는 방법에 대한 **권장 사항**
 - 현재 Defender for Cloud에서 평가되는 리소스의 인벤토리와 각 리소스의 보안 태세.
 
 Defender for Cloud를 최대한 활용하려면 빠른 시작 섹션의 다음 단계를 계속 진행합니다.

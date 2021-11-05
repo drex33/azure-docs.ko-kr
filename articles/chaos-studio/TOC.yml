@@ -44,6 +44,8 @@
       href: chaos-studio-fault-library.md
     - name: 오류 공급자
       href: chaos-studio-fault-providers.md
+    - name: 미리 보기 제한 사항 및 알려진 문제
+      href: chaos-studio-limitations.md
     - name: 서비스 제한
       href: chaos-studio-service-limits.md
     - name: REST API 설명서

@@ -5,12 +5,12 @@ ms.author: juramir
 ms.date: 10/15/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: fd559b8f393f7dca88bfb64fa24e9ba17e6b3832
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: acab57f774d97c2cd9710b77f6a0ebabf73e4fdb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131253655"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520549"
 ---
 이 빠른 시작에서는 C#용 Azure Communication Services 채팅 SDK를 사용하여 Teams 모임에서 채팅하는 방법을 알아봅니다.
 
@@ -67,7 +67,7 @@ private const string connectionString_ = "";
 
 ```csharp
         /// <summary>
-        /// Backgroung task that keeps polling for chat messages while the call connection is stablished
+        /// Background task that keeps polling for chat messages while the call connection is stablished
         /// </summary>
         private async Task StartPollingForChatMessages()
         {
@@ -114,7 +114,7 @@ private const string connectionString_ = "";
                         }
 
                         await SetInCallState(true);
-                        Thread.Sleep(3000);
+                        await Task.Delay(3000);
                     }
                     catch (Exception e)
                     {
@@ -141,14 +141,14 @@ private const string connectionString_ = "";
 
 
 
-## <a name="get-a-teams-meeting-link"></a>Teams 모임 링크 가져오기
+## <a name="get-a-teams-meeting-link"></a>Teams 미팅 링크 가져오기
 
 Teams 모임 링크는 [그래프 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. 
 
 또한 Teams 모임 초대 자체의 **모임 참가** URL에서 필요한 모임 링크를 가져올 수 있습니다.
-Teams 모임 링크는 `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`와 같습니다. 
+Teams 미팅 링크는 `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`와 같습니다. 
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-windows.png" alt-text="완료된 csharp 애플리케이션 스크린샷":::
 
 > [!NOTE] 
-> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지 전송, 수신, 편집 및 타이핑 알림 보내기가 지원됩니다. 읽음 확인 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 모임에서 다른 사용자를 추가하거나 제거할 수 없습니다.
+> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지 전송, 수신, 편집 및 타이핑 알림 보내기가 지원됩니다. 읽음 확인 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.

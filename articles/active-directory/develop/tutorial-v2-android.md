@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
-ms.openlocfilehash: 0c79ad939a28913a13193b2743c6fda98f553663
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 44afa745df2799b18e67e43fe4a24b09089636d5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587084"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050397"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -143,10 +143,10 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
     `android:host=` 값을 Azure Portal에서 등록한 패키지 이름으로 바꿉니다.
     `android:path=` 값을 Azure Portal에서 등록한 키 해시로 바꿉니다. 서명 해시는 URL로 인코딩되면 **안 됩니다**. 서명 해시의 시작 부분에 선행 `/`가 있는지 확인합니다.
     
-    `android:host` 값을 대체할 "패키지 이름"은 "com.azuresamples.msalandroidapp"과 유사해야 합니다.
-    `android:path` 값을 대체할 "서명 해시"는 "/1wIqXSqBj7w+h11ZifsnqwgyKrY="와 유사해야 합니다.
+    `android:host` 값을 대체할 "패키지 이름"은 `com.azuresamples.msalandroidapp`와 유사해야 합니다.
+    `android:path` 값을 대체할 "서명 해시"는 `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`와 유사해야 합니다.
     
-    앱 등록의 인증 블레이드에서 이러한 값을 찾을 수도 있습니다. 리디렉션 URI는 "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D" 형식입니다. 서명 해시가 이 값의 끝 부분에 URL로 인코딩되었지만, 서명 해시가 `android:path` 값에서 URL로 인코딩되면 **안 됩니다**.
+    앱 등록의 인증 블레이드에서 이러한 값을 찾을 수도 있습니다. 리디렉션 URI는 `msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D`와 유사합니다. 서명 해시가 이 값의 끝 부분에 URL로 인코딩되었지만, 서명 해시가 `android:path` 값에서 URL로 인코딩되면 **안 됩니다**.
 
 ## <a name="use-msal"></a>MSAL 사용
 

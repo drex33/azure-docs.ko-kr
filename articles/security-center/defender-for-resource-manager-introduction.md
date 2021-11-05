@@ -7,13 +7,12 @@ ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: b08ffb4e19a74f04ef597c03881f2eb8246826bb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ea1f2259d34389498bcdf144a463973baeb3919d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084277"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453177"
 ---
 # <a name="introduction-to-microsoft-defender-for-resource-manager"></a>Microsoft Defender for Resource Manager 소개
 
@@ -28,7 +27,7 @@ Microsoft Defender for Resource Manager는 Azure Portal, Azure REST API, Azure C
 >[!NOTE]
 > 이러한 분석 중 일부는 [Microsoft Defender for Cloud Apps(이전의 Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security)에서 제공합니다. 이러한 분석을 활용하려면 Cloud App Security 라이선스에 대한 정품 인증을 수행해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용하도록 설정됩니다. 경고를 사용하지 않도록 설정하려면 다음을 수행합니다.
 >
-> 1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
+> 1. Defender for Cloud 메뉴에서 **환경 설정** 을 엽니다.
 > 1. 변경하려는 구독을 선택합니다.
 > 1. **통합** 을 선택합니다.
 > 1. **Microsoft Defender for Cloud에서 내 데이터에 액세스하도록 허용** 을 선택 취소하고 **저장** 을 선택합니다.

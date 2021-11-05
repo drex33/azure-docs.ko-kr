@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.author: JenCook
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2e0a4496265e2399a6f8a1bbbff554c971067d24
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f0d28b9f6e9894ec8a5506a428b8c15cadb2f716
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052860"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845508"
 ---
 # <a name="confidential-computing-deployment-models"></a>기밀 컴퓨팅 배포 모델
 
@@ -44,7 +44,7 @@ Vm을 사용 하는 많은 이유가 있지만 컨테이너는 최신 IT의 많�
 일반적으로 다음과 같은 경우 기밀 Vm에 솔루션을 배포할 수 있습니다.
 
 - 수정 하거나 컨테이너 화 된 수 없는 레거시 응용 프로그램이 있습니다. 그러나 데이터를 처리 하는 동안에도 메모리의 데이터를 보호 해야 합니다.
-- 단일 인프라에서 다른 Os (운영 체제)를 필요로 하는 여러 응용 프로그램을 실행 하 고 있습니다.
+- 단일 인프라에서 다른 OS (운영 체제)를 필요로 하는 여러 응용 프로그램을 실행 하 고 있습니다.
 - 모든 OS 리소스를 포함 하 여 전체 컴퓨팅 환경을 에뮬레이트 하려고 합니다.
 - 온-프레미스에서 Azure로 기존 Vm을 마이그레이션하는 중입니다.
 
@@ -64,7 +64,7 @@ Vm 관리자 또는 VM 내에서 실행 중인 다른 모든 앱 또는 서비�
 
 AMD 심각도-.SNP 기술은 하이퍼바이저에서 VM 격리를 제공 합니다. 하드웨어 기반 메모리 무결성 보호는 악의적인 하이퍼바이저 기반 공격을 방지 하는 데 도움이 됩니다. 심각도-.SNP 모델은 AMD Secure Processor 및 VM을 신뢰 합니다. 모델은 다른 하드웨어 및 소프트웨어 구성 요소를 신뢰 하지 않습니다. 신뢰할 수 없는 구성 요소에는 호스트 시스템의 BIOS와 하이퍼바이저가 포함 됩니다.
 
-![신뢰할 수 있고 신뢰할 수 없는 구성 요소를 정의 하는 AMD 심각도-.SNP VM 아키텍처의 다이어그램입니다.](media/confidential-computing-deployment-models/amd-sev-snp-vm.jpg)
+:::image type="content" source="media/confidential-computing-deployment-models/amd-sev-snp-vm.png" alt-text="신뢰할 수 있고 신뢰할 수 없는 구성 요소를 정의 하는 AMD 심각도-.SNP VM 아키텍처의 다이어그램입니다.":::
 
 ### <a name="secure-enclaves-on-intel-sgx"></a>Intel SGX에서 enclaves 보안
 
@@ -72,7 +72,7 @@ AMD 심각도-.SNP 기술은 하이퍼바이저에서 VM 격리를 제공 합니
 
 Intel SGX는 응용 프로그램 격리에 사용 되는 데이터를 보호 합니다. 개발자는 선택한 코드와 데이터를 수정 되지 않도록 보호 함으로써 응용 프로그램 보안을 향상 시키기 위해 응용 프로그램을 강화 된 enclaves 또는 신뢰할 수 있는 실행 모듈로 분할할 수 있습니다. Enclave 외부 엔터티는 사용 권한 수준에 관계 없이 enclave 메모리를 읽거나 쓸 수 없습니다. 하이퍼바이저 또는 운영 체제는 일반적인 OS 수준 호출을 통해이 액세스를 가져올 수도 없습니다. Enclave 함수를 호출 하려면 Intel SGX Cpu에서 새로운 명령 집합을 사용 해야 합니다. 이 프로세스에는 몇 가지 보호 검사가 포함 되어 있습니다.
 
-![앱 enclave 내에 보안 정보를 표시 하는 Intel SGX enclaves 아키텍처의 다이어그램입니다.](media/confidential-computing-deployment-models/intel-sgx-enclave.jpg)
+:::image type="content" source="media/confidential-computing-deployment-models/intel-sgx-enclave.png" alt-text="앱 enclave 내에 보안 정보를 표시 하는 Intel SGX enclaves 아키텍처의 다이어그램입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

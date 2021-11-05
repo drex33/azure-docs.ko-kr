@@ -8,33 +8,26 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 10/21/2021
-ms.openlocfilehash: cf0a7f78de5a79440876630278faab8e581eeb33
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: mktng-kw-nov2021
+ms.date: 11/04/2021
+ms.openlocfilehash: 9809169a8da6965c8d1fdbb741ddd4817f8d2af7
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559089"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850188"
 ---
-# <a name="open-source-integration-with-azure-machine-learning-projects"></a>Azure Machine Learning 프로젝트와의 오픈 소스 통합
+# <a name="use-open-source-machine-learning-libraries-and-platforms-with-azure-machine-learning"></a>Azure Machine Learning 오픈 소스 기계 학습 라이브러리 및 플랫폼 사용
 
-오픈 소스 Python 기계 학습 라이브러리와 플랫폼을 사용하여 Azure Machine Learning에서 엔드투엔드 기계 학습 프로세스를 학습, 배포, 관리할 수 있습니다.  Jupyter Notebook, Visual Studio Code 같은 개발 도구를 사용하여 Azure Machine Learning에서 기존 모델과 스크립트를 활용합니다.  
-
-이 문서에서는 오픈 소스 라이브러리와 플랫폼에 대해 자세히 알아봅니다.
+이 문서에서는 Azure Machine Learning 사용할 수 있는 오픈 소스 Python 기계 학습 라이브러리 및 플랫폼에 대해 알아봅니다. 원하는 오픈 소스 프로젝트를 사용하여 엔드투엔드 기계 학습 프로세스를 학습, 배포 및 관리합니다.  Jupyter Notebook, Visual Studio Code 같은 개발 도구를 사용하여 Azure Machine Learning에서 기존 모델과 스크립트를 활용합니다.  
 
 ## <a name="train-open-source-machine-learning-models"></a>오픈 소스 기계 학습 모델 학습
 
-기계 학습의 학습 프로세스에는 작업을 완수하거나 문제를 해결하기 위해 데이터에 알고리즘을 적용하는 방법이 포함됩니다. 문제에 따라 작업과 데이터에 가장 적합한 여러 알고리즘을 선택할 수 있습니다. 기계 학습의 여러 분기에 대한 자세한 내용은 [딥 러닝과 기계 학습 비교 문서](./concept-deep-learning-vs-machine-learning.md)와 [기계 학습 알고리즘 치트 시트](algorithm-cheat-sheet.md)를 참조하세요.
-
-### <a name="preserve-data-privacy-using-differential-privacy"></a>차등 프라이버시 사용을 통한 데이터 프라이버시 유지
-
-기계 학습 모델을 학습하려면 데이터가 필요합니다. 데이터가 중요한 경우에는 안전하고 프라이빗한 데이터인지 반드시 확인해야 합니다. 차등 프라이버시는 데이터 세트에서 정보의 기밀성을 유지하는 기술입니다. 자세한 내용은 [데이터 프라이버시 유지](concept-differential-privacy.md)에 관한 문서를 참조하세요. 
-
-[SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python)와 같은 오픈 소스 차등 프라이버시 도구 키트는 Azure Machine Learning 솔루션에서 [데이터의 프라이버시를 유지](how-to-differential-privacy.md)하는 데 도움이 됩니다.
+기계 학습의 학습 프로세스에는 작업을 완수하거나 문제를 해결하기 위해 데이터에 알고리즘을 적용하는 방법이 포함됩니다. 문제에 따라 작업과 데이터에 가장 적합한 여러 알고리즘을 선택할 수 있습니다. 기계 학습으로 해결할 수 있는 문제에 대한 자세한 내용은 [딥 러닝 및 기계 학습 문서](./concept-deep-learning-vs-machine-learning.md) 및 기계 학습 알고리즘 [치트 시트를 참조하세요.](algorithm-cheat-sheet.md)
 
 ### <a name="classical-machine-learning-scikit-learn"></a>고전적 기계 학습: scikit-learn
 
-분류, 클러스터링, 회귀와 같은 고전적 기계 학습 알고리즘 작업과 관련된 학습 작업의 경우 Scikit-learn 등을 활용할 수 있습니다. 꽃 분류 모델을 학습하는 방법에 대한 자세한 내용은 [Scikit-learn을 사용하여 학습하는 방법 문서](how-to-train-scikit-learn.md)를 참조하세요.
+분류, 클러스터링 및 회귀와 같은 기존 기계 학습 알고리즘 작업과 관련된 학습 작업의 경우 scikit-learn과 같은 작업을 사용할 수 있습니다. 꽃 분류 모델을 학습하는 방법을 알아보려면 [scikit-learn을 사용하여 학습하는 방법 문서를 참조하세요.](how-to-train-scikit-learn.md)
 
 ### <a name="neural-networks-pytorch-tensorflow-keras"></a>신경망: PyTorch, TensorFlow, Keras
 
@@ -45,6 +38,8 @@ ms.locfileid: "131559089"
  *  [PyTorch](https://github.com/pytorch/pytorch): [전이 학습 사용을 통한 딥 러닝 이미지 분류 모델 학습](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [TensorFlow 사용을 통한 수기 숫자 인식](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [keras 사용을 통한 이미지 분석용 신경망 빌드](how-to-train-keras.md)
+
+### <a name="transfer-learning"></a>이전 학습
 
 처음부터 딥 러닝 모델을 교육하려면 많은 양의 시간, 데이터, 컴퓨팅 리소스가 필요한 경우가 많습니다. 전이 학습을 사용하면 학습 프로세스를 단축할 수 있습니다. 전이 학습은 한 가지 문제를 해결하는 과정에서 획득한 지식을 다른 관련 문제에 적용하는 기술입니다. 즉, 기존 모델을 사용하여 용도를 변경할 수 있습니다. 전이 학습에 대한 자세한 내용은 [딥 러닝과 기계 학습 비교 문서](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning)를 참조하세요.
 
@@ -59,6 +54,14 @@ Azure Machine Learning에서 Ray RLLib를 사용하는 방법은 [강화 학습 
 ### <a name="monitor-model-performance-tensorboard"></a>모델 성능 모니터링: TensorBoard
 
 단일 또는 여러 모델을 학습하려면 모델이 예상대로 작동하는지 확인하기 위해 원하는 메트릭을 시각화하고 검사해야 합니다. [Azure Machine Learning에서 TensorBoard를 사용하여 실험 메트릭을 추적하고 시각화](./how-to-monitor-tensorboard.md)할 수 있습니다.
+
+## <a name="responsible-ml-privacy-and-fairness"></a>책임 있는 ML: 개인 정보 보호 및 공정성
+
+### <a name="preserve-data-privacy-with-differential-privacy"></a>차등 개인 정보 보호로 데이터 개인 정보 보호
+
+기계 학습 모델을 학습하려면 데이터가 필요합니다. 데이터가 중요한 경우에는 안전하고 프라이빗한 데이터인지 반드시 확인해야 합니다. 차등 프라이버시는 데이터 세트에서 정보의 기밀성을 유지하는 기술입니다. 자세한 내용은 [데이터 프라이버시 유지](concept-differential-privacy.md)에 관한 문서를 참조하세요. 
+
+[SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python)와 같은 오픈 소스 차등 프라이버시 도구 키트는 Azure Machine Learning 솔루션에서 [데이터의 프라이버시를 유지](how-to-differential-privacy.md)하는 데 도움이 됩니다.
 
 ### <a name="frameworks-for-interpretable-and-fair-models"></a>해석 가능하고 공정한 모델을 위한 프레임워크
 
@@ -95,7 +98,7 @@ Docker와 같은 컨테이너 기술은 모델을 웹 서비스로 배포하는 
 
 배포 보안은 배포 프로세스의 중요한 부분입니다. [암호화된 유추 서비스를 배포](how-to-homomorphic-encryption-seal.md)하려면 `encrypted-inference`오픈 소스 Python 라이브러리를 사용합니다. `encrypted inferencing` 패키지는 동형 암호 라이브러리인 [Microsoft SEAL](https://github.com/Microsoft/SEAL)을 기반으로 하는 바인딩을 제공합니다.
 
-## <a name="machine-learning-operations-mlops"></a>MLOps(Machine Learning Operations)
+## <a name="machine-learning-operations-mlops"></a>기계 학습 작업(MLOps)
 
 일반적으로 기계 학습을 위한 DevOps로 간주되고 있는 MLOps(Machine Learning Operations)를 통해 보다 투명하고 복원력 있고 재현 가능한 기계 학습 워크플로를 빌드할 수 있습니다. MLOps에 대한 자세한 내용은 [MLOps란? 문서](./concept-model-management-and-deployment.md)를 참조하세요. 
 

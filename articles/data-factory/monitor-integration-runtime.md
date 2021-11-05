@@ -5,15 +5,15 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 10/27/2021
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e51fb365939181acc3dfa509f791458ecc54bf7f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 171ad694df08942a9dbef4383f48f11480f4d18b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131033383"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850511"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -43,7 +43,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 -------- | ------------- | 
 | Name | Azure 통합 런타임의 이름. |  
 | 주 | Azure 통합 런타임의 상태. | 
@@ -72,7 +72,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 **각 노드** 의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 | -------- | ----------- | 
 | Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예제: 온라인/오프라인/제한됨/기타. 해당 상태에 대한 자세한 정보는 다음 섹션을 참조하세요. | 
@@ -234,7 +234,7 @@ Azure Portal에서 Azure-SSIS IR를 모니터링하려면 모든 통합 런타�
 
 **RUNNING / REQUESTED NODE(S)** 정보 제공 타일은 현재 실행 중인 노드 수를 Azure-SSIS IR에 대해 이전에 요청된 총 노드 수와 비교합니다.
 
-**DUAL STANDBY PAIR/ROLE** 정보 타일에는 BCDR(비즈니스 연속성 및 재해 복구) 및 Azure-SSIS IR 현재 주/보조 역할을 위해 Azure SQL Database 관리되는 인스턴스 장애 조치(failover) 그룹과 동기화되는 이중 대기 Azure-SSIS IR 쌍의 이름이 표시됩니다. SSISDB 장애 조치(failover)가 발생하면 기본 및 보조 Azure SSIS IR에서 역할을 전환합니다([BCDR에 대한 Azure-SSIS IR 구성](./configure-bcdr-azure-ssis-integration-runtime.md) 참조).
+**DUAL STANDBY PAIR/ROLE** 정보 타일에는 BCDR(비즈니스 연속성 및 재해 복구) 및 Azure-SSIS IR 현재 주/보조 역할을 위해 Azure SQL Database 관리형 인스턴스 장애 조치(failover) 그룹과 동기화되는 이중 대기 Azure-SSIS IR 쌍의 이름이 표시됩니다. SSISDB 장애 조치(failover)가 발생하면 기본 및 보조 Azure SSIS IR에서 역할을 전환합니다([BCDR에 대한 Azure-SSIS IR 구성](./configure-bcdr-azure-ssis-integration-runtime.md) 참조).
 
 기능 타일에 대한 세부 정보는 다음을 참조하세요.
 

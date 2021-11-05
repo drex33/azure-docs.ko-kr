@@ -1,7 +1,7 @@
 ---
 title: Azure Machine Learning에서 차등 프라이버시(미리 보기)
 titleSuffix: Azure Machine Learning
-description: 차등 프라이버시가 무엇인지 알아보고, 데이터 프라이버시를 보호하는 차등 프라이버시 시스템을 구현하는 방법을 알아봅니다.
+description: 차등 개인 정보에 대해 알아보고 differentially 개인 시스템이 데이터 개인 정보를 유지 하는 방법을 알아보세요.
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 10/21/2021
@@ -9,23 +9,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.custom: responsible-ml
-ms.openlocfilehash: 3df3f361d6f3591fe9b209ac64a5f8a51c09d2dd
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: responsible-ml, mktng-kw-nov2021
+ms.openlocfilehash: fc3606a4d893152b87fc5f5f47d987c16ce65724
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562716"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842560"
 ---
-# <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Azure Machine Learning에서 차등 프라이버시 정의(미리 보기)
+# <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Machine learning (미리 보기)의 차등 개인 정보는 무엇 인가요?
 
 기계 학습의 차등 프라이버시 및 그 작동 방식에 대해 알아봅니다.
 
-조직에서 수집하여 분석에 사용하는 데이터의 양이 증가하면서 개인 정보 보호와 보안에 대한 우려도 증가하고 있습니다. 분석에는 데이터가 필요합니다. 일반적으로 모델을 학습하는 데 사용하는 데이터가 많을 수록 정확성이 높아집니다. 이러한 분석에 개인 정보를 사용하는 경우에는 데이터를 사용하는 내내 비공개 상태를 유지하는 것이 특히 중요합니다.
+조직에서 수집하여 분석에 사용하는 데이터의 양이 증가하면서 개인 정보 보호와 보안에 대한 우려도 증가하고 있습니다. 분석에는 데이터가 필요합니다. 일반적으로 기계 학습 모델을 학습 하는 데 사용 되는 데이터가 많을 수록 더 정확 하 게 됩니다. 이러한 분석에 개인 정보를 사용하는 경우에는 데이터를 사용하는 내내 비공개 상태를 유지하는 것이 특히 중요합니다.
 
 ## <a name="how-differential-privacy-works"></a>차등 프라이버시 작동 원리
 
-차등 프라이버시는 개인의 데이터를 비공개로 안전하게 보호하는 데 유용한 일련의 시스템과 방법입니다.
+차등 프라이버시는 개인의 데이터를 비공개로 안전하게 보호하는 데 유용한 일련의 시스템과 방법입니다. Machine learning 솔루션에서는 규정 준수를 위해 차등 개인 정보를 요구 해야 할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > ![차등 프라이버시 기계 학습 프로세스](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
@@ -36,9 +36,9 @@ ms.locfileid: "131562716"
 
 ## <a name="differential-privacy-metrics"></a>차등 프라이버시 메트릭
 
-차등 프라이버시는 사용자가 보고서를 무제한 생성하여 실수로 중요한 데이터가 공개되는 가능성을 방지하려고 합니다. **엡실론** 이라고 알려진 값은 보고서의 노이즈 또는 비공개 정도를 측정합니다. 엡실론은 노이즈나 프라이버시와 반비례 관계가 있습니다. 엡실론이 낮을수록 데이터의 노이즈(및 비공개) 정도가 높습니다.
+차등 프라이버시는 사용자가 보고서를 무제한 생성하여 실수로 중요한 데이터가 공개되는 가능성을 방지하려고 합니다. **엡실론** 이라고 하는 값은 보고서의 소음이 나 개인 보고서의 예를 측정 합니다. 엡실론은 노이즈나 프라이버시와 반비례 관계가 있습니다. 엡실론이 낮을수록 데이터의 노이즈(및 비공개) 정도가 높습니다.
 
-엡실론 값은 음수가 아닙니다. 1 미만의 값은 완전 타당한 거부를 제공합니다. 1을 초과하는 값이 높을수록 실제 데이터가 노출될 위험이 높습니다. 차등 비공개 시스템을 구현할 때는 엡실론 값이 0과 1 사이인 보고서를 생성하는 것이 좋습니다.
+엡실론 값은 음수가 아닙니다. 1 미만의 값은 완전 타당한 거부를 제공합니다. 1을 초과하는 값이 높을수록 실제 데이터가 노출될 위험이 높습니다. 차등 개인 정보를 사용 하 여 기계 학습 솔루션을 구현 하는 경우 0에서 1 사이의 엡실론 값을 사용 하 여 데이터를 원합니다.
 
 엡실론과 직접 상관 관계가 있는 또 다른 값은 **델타** 입니다. 델타는 보고서가 완전 비공개가 아닐 확률의 척도입니다. 델타가 높을수록 엡실론이 높습니다. 두 값은 상관 관계가 있기 때문에 엡실론이 더 자주 사용됩니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "131562716"
 
 ## <a name="open-source-differential-privacy-libraries"></a>오픈 소스 차등 프라이버시 라이브러리
 
-SmartNoise는 글로벌 차등 프라이버시 시스템을 구축하는 다양한 구성 요소가 포함된 오픈 소스 프로젝트입니다. SmartNoise는 다음과 같은 최상위 구성 요소로 이루어집니다.
+SmartNoise는 차등 개인 정보를 사용 하 여 기계 학습 솔루션을 빌드하기 위한 구성 요소가 포함 된 오픈 소스 프로젝트입니다. SmartNoise는 다음과 같은 최상위 구성 요소로 이루어집니다.
 
 - SmartNoise Core 라이브러리
 - SmartNoise SDK 라이브러리
@@ -80,6 +80,8 @@ SmartNoise는 글로벌 차등 프라이버시 시스템을 구축하는 다양�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [차등 프라이버시 시스템을 빌드하는 방법](how-to-differential-privacy.md) 입니다.
+Machine learning의 차등 개인 정보에 대해 자세히 알아보세요. 
 
-SmartNoise의 구성 요소에 대한 자세한 내용을 보려면 [Smartnoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [Smartnoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk) 및 [Smartnoise 샘플](https://github.com/opendifferentialprivacy/smartnoise-samples)에 대한 GitHub 리포지토리를 확인하세요.
+ - Azure Machine Learning에서 [차등 프라이버시 시스템을 빌드하는 방법](how-to-differential-privacy.md) 입니다.
+
+ - SmartNoise의 구성 요소에 대한 자세한 내용을 보려면 [Smartnoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [Smartnoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk) 및 [Smartnoise 샘플](https://github.com/opendifferentialprivacy/smartnoise-samples)에 대한 GitHub 리포지토리를 확인하세요.

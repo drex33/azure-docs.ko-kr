@@ -4,15 +4,15 @@ description: Azure 지원 dtexec 유틸리티를 사용한 SQL Server Integratio
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2020
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 2c775706070207ce637b69c2405a3c05c55a85c7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 633c7f52bb015769ab2e15c5fbde23d5d4128ee9
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811503"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843559"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Azure 지원 dtexec 유틸리티를 사용하여 SQL Server Integration Services 패키지 실행
 

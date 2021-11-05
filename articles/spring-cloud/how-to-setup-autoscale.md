@@ -1,25 +1,27 @@
 ---
-title: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
+title: 응용 프로그램에 대 한 자동 크기 조정 설정
 description: 이 문서에서는 Microsoft Azure Portal 또는 Azure CLI를 사용하여 애플리케이션에 대한 자동 스케일링을 설정하는 방법에 대해 설명합니다.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/03/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d1e0b9cb6beb48e6f9ae8c8d5d985f4dfd930d2d
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 67b5976e8df650ac8961cdb428338ca8147878d4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529580"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846637"
 ---
-# <a name="set-up-autoscale-for-microservice-applications"></a>마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
+# <a name="set-up-autoscale-for-applications"></a>응용 프로그램에 대 한 자동 크기 조정 설정
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
-자동 스케일링은 Azure Spring Cloud의 기본 제공 기능으로, 수요가 변할 때 마이크로서비스 애플리케이션의 성능을 최적화하는 데 도움이 됩니다. 여기에는 가상 CPU, 메모리 및 앱 인스턴스 수를 수정하는 작업이 포함됩니다. 이 문서에서는 Microsoft Azure Portal 또는 Azure CLI를 사용하여 애플리케이션에 대한 자동 스케일링을 설정하는 방법에 대해 설명합니다.
+이 문서에서는 Microsoft Azure Portal 또는 Azure CLI를 사용하여 애플리케이션에 대한 자동 스케일링을 설정하는 방법에 대해 설명합니다.
 
+자동 크기 조정은 Azure 스프링 클라우드의 기본 제공 기능으로, 수요가 변경 될 때 응용 프로그램에서 최적의 성능을 제공 하는 데 도움이 됩니다. Azure 스프링 클라우드는 규모 확장 및 규모 확장을 지원 합니다. 여기에는 앱 인스턴스 수 및 부하 분산을 수정 하는 작업이 포함 됩니다.
+ 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 절차를 따르려면 다음이 필요합니다.
@@ -44,7 +46,7 @@ ms.locfileid: "122529580"
 
 자동 스케일링 수요를 관리하는 다음 두 가지 옵션이 있습니다.
 
-* 수동 스케일링: 고정된 인스턴스 수를 유지합니다. 표준 계층에서는 최대 500개 인스턴스까지 스케일 아웃할 수 있습니다. 이 값은 마이크로서비스 애플리케이션의 개별 실행 인스턴스 수를 변경합니다.
+* 수동 스케일링: 고정된 인스턴스 수를 유지합니다. 표준 계층에서는 최대 500개 인스턴스까지 스케일 아웃할 수 있습니다. 이 값은 응용 프로그램의 개별 실행 인스턴스 수를 변경 합니다.
 * 사용자 지정 자동 스케일링: 메트릭을 기반으로 일정에 따라 스케일링
 
 Azure Portal에서 스케일링 방법을 선택합니다.  다음 그림은 **사용자 지정 스케일링** 옵션 및 모드 설정을 보여줍니다.

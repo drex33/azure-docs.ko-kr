@@ -1,6 +1,6 @@
 ---
-title: Windows 장치에서 대칭 키를 사용 하 여 Linux에 대 한 IoT Edge 만들기 및 프로 비전-Azure IoT Edge | Microsoft Docs
-description: 대칭 키로 수동 프로 비전을 사용 하 여 IoT Hub의 Windows 장치에서 Linux 용 단일 IoT Edge 만들기 및 프로 비전
+title: 대칭 키를 사용하여 Windows 디바이스에서 Linux용 IoT Edge 만들고 프로비전 - Azure IoT Edge | Microsoft Docs
+description: 대칭 키와 함께 수동 프로비저닝을 사용하여 IoT Hub Windows 디바이스에서 Linux용 단일 IoT Edge 만들고 프로비전합니다.
 author: kgremban
 ms.reviewer: v-tcassi
 ms.service: iot-edge
@@ -9,43 +9,43 @@ ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: kgremban
 monikerRange: iotedge-2018-06
-ms.openlocfilehash: 17e40216eae6fee6e013139eb792b5746f0c5b40
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 014019cd2615488cb30eb85ef2f751f6d5cac7a8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131577615"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853399"
 ---
-# <a name="create-and-provision-an-iot-edge-for-linux-on-windows-device-using-symmetric-keys"></a>대칭 키를 사용 하 여 Windows 장치에서 Linux 용 IoT Edge 만들기 및 프로 비전
+# <a name="create-and-provision-an-iot-edge-for-linux-on-windows-device-using-symmetric-keys"></a>대칭 키를 사용하여 Windows 디바이스에서 Linux용 IoT Edge 만들기 및 프로비전
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-이 문서에서는 Windows 장치에서 Linux에 대 한 IoT Edge를 등록 하 고 프로 비전 하는 종단 간 지침을 제공 합니다.
+이 문서에서는 Windows 디바이스에서 Linux용 IoT Edge 등록하고 프로비전하는 엔드투엔드 지침을 제공합니다.
 
 IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 또는 디바이스-클라우드 통신을 추적하는 데 사용되는 디바이스 ID가 있습니다. IoT 허브 호스트 이름, 디바이스 ID, 디바이스에서 IoT Hub 인증에 사용하는 정보를 포함하는 연결 정보로 디바이스를 구성합니다.
 
 이 문서의 단계는 단일 디바이스를 IoT 허브에 연결하는 수동 프로비저닝이라는 프로세스를 안내합니다. 수동 프로비저닝을 위해 IoT Edge 디바이스를 인증하는 두 가지 옵션이 있습니다.
 
-* **대칭 키**: IoT Hub에서 새 장치 id를 만들면 서비스에서 두 개의 키를 만듭니다. 디바이스에 키 중 하나를 저장하고 인증 시 IoT Hub 키를 제시합니다.
+* **대칭 키:** IoT Hub 새 디바이스 ID를 만들 때 서비스에서 두 개의 키를 만듭니다. 디바이스에 키 중 하나를 저장하고 인증 시 IoT Hub 키를 제시합니다.
 
   이 인증 방식을 사용하면 빠르게 시작할 수 있지만 안전하지 않습니다.
 
 * **X.509 자체 서명**: 두 개의 x.509 ID 인증서를 만들어 디바이스에 저장합니다. IoT Hub에서 새 디바이스 ID를 만들 때 두 인증서의 지문을 모두 제공합니다. 디바이스는 IoT Hub에 인증 시 인증서 하나를 제시되고 IoT Hub는 인증서가 지문과 일치하는지 확인합니다.
 
-  이 인증 방법은 보다 안전 하며 프로덕션 시나리오에 권장 됩니다.
+  이 인증 방법은 더 안전하며 프로덕션 시나리오에 권장됩니다.
 
-이 문서에서는 인증 방법으로 대칭 키를 사용 하는 방법을 설명 합니다. x.509 인증서를 사용 하려면 [x.509 인증서를 사용 하 여 Windows 장치에서 Linux 용 IoT Edge 만들기 및 프로 비전](how-to-provision-single-device-linux-on-windows-x509.md)을 참조 하세요.
+이 문서에서는 대칭 키를 인증 방법으로 사용하는 방법을 다룹니다. X.509 인증서를 사용하려면 X.509 [인증서를 사용하여 Windows 디바이스에서 Linux용 IoT Edge 만들기 및 프로비저닝을 참조하세요.](how-to-provision-single-device-linux-on-windows-x509.md)
 
 > [!NOTE]
-> 설정할 장치가 많고 각 장치를 수동으로 프로 비전 하지 않으려는 경우 다음 문서 중 하나를 사용 하 여 IoT Edge IoT Hub 장치 프로 비전 서비스에서 작동 하는 방법을 알아봅니다.
+> 설정할 디바이스가 많고 각 디바이스를 수동으로 프로비전하지 않으려는 경우 다음 문서 중 하나를 사용하여 IoT Hub 디바이스 프로비저닝 서비스에서 IoT Edge 작동하는 방법을 알아봅니다.
 >
-> * [X.509 인증서를 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
-> * [TPM을 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
-> * [대칭 키를 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
+> * [X.509 인증서를 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
+> * [TPM을 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
+> * [대칭 키를 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 문서에서는 IoT Edge 장치를 등록 하 고 Windows에 Linux 용 IoT Edge를 설치 하는 방법을 설명 합니다. 이러한 작업을 수행 하는 데 사용 되는 다양 한 필수 조건 및 유틸리티가 있습니다. 계속 하기 전에 모든 필수 구성 요소가 포함 되어 있는지 확인 합니다.
+이 문서에서는 IoT Edge 디바이스 등록 및 Windows Linux용 IoT Edge 설치에 대해 설명합니다. 이러한 작업에는 이러한 작업을 수행하는 데 사용되는 다양한 필수 구성 조건 및 유틸리티가 있습니다. 계속하기 전에 모든 필수 구성요소가 있는지 확인합니다.
 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
@@ -61,9 +61,9 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 
 ## <a name="provision-the-device-with-its-cloud-identity"></a>클라우드 ID를 사용한 디바이스 프로비전
 
-클라우드 id 및 인증 정보를 사용 하 여 장치를 설정할 준비가 되었습니다.
+클라우드 ID 및 인증 정보를 사용하여 디바이스를 설정할 준비가 완료되었습니다.
 
-대칭 키를 사용 하 여 장치를 프로 비전 하려면 장치의 **연결 문자열이** 필요 합니다.
+대칭 키를 사용하여 디바이스를 프로비전하려면 디바이스의 **연결 문자열** 이 필요합니다.
 
 Windows Admin Center 또는 관리자 권한 PowerShell 세션을 사용하여 디바이스를 프로비전할 수 있습니다.
 
@@ -72,7 +72,7 @@ Windows Admin Center 또는 관리자 권한 PowerShell 세션을 사용하여 �
 대상 디바이스의 관리자 권한 PowerShell 세션에서 다음 명령을 실행합니다. 자리 표시자 텍스트를 고유한 값으로 바꿉니다.
 
 ```powershell
-Provision-EflowVm -provisioningType ManualConnectionString -devConnString "<CONNECTION_STRING_HERE>"
+Provision-EflowVm -provisioningType ManualConnectionString -devConnString "PASTE_DEVICE_CONNECTION_STRING_HERE"
 ```
 
 `Provision-EflowVM` 명령에 대한 자세한 내용은 [Windows의 Linux용 IoT Edge용 PowerShell 함수](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm)를 참조하세요.
@@ -114,7 +114,7 @@ IoT Edge for Linux on Windows가 IoT Edge 디바이스에 성공적으로 설치
 
 1. IoT Edge 서비스 문제를 해결해야 하는 경우 다음 Linux 명령을 사용합니다.
 
-    1. 서비스 로그를 검색 합니다.
+    1. 서비스 로그를 검색합니다.
 
        ```bash
        sudo journalctl -u iotedge

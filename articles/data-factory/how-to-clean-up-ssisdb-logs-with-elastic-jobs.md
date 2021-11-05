@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure Data Factory, Azure SQL Managed Instance 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/28/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e235bd04b0693a0fabc9f4432aff01c85b5c67e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 78b6c754fe2b49ceabf940aa76b86ddd90dfc91e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824712"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843662"
 ---
 # <a name="how-to-clean-up-ssisdb-logs-automatically"></a>SSISDB 로그를 자동으로 정리하는 방법
 

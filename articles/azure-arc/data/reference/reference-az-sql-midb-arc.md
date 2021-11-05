@@ -1,7 +1,7 @@
 ---
-title: az postgres arc-server endpoint reference
+title: az sql midb-arc
 titleSuffix: Azure Arc-enabled data services
-description: az postgres arc-server 엔드포인트 명령에 대한 참조 문서입니다.
+description: Az sql midb-arc 명령에 대 한 참조 문서입니다.
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: seanw
@@ -9,27 +9,29 @@ ms.date: 11/04/2021
 ms.topic: reference
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: 78111c030c1641cab22664d889e26505de879cf7
+ms.openlocfilehash: 8053ea28fe1ce1f7f05c1bb710265fb86839dcd2
 ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847701"
+ms.locfileid: "131859299"
 ---
-# <a name="az-postgres-arc-server-endpoint"></a>az postgres arc-server endpoint
+# <a name="az-sql-midb-arc"></a>az sql midb-arc
 ## <a name="commands"></a>명령
-| 명령 | 설명|
+| 명령 | Description|
 | --- | --- |
-[az postgres arc-server endpoint list](#az-postgres-arc-server-endpoint-list) | Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 엔드포인트를 나열합니다.
-## <a name="az-postgres-arc-server-endpoint-list"></a>az postgres arc-server endpoint list
-Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 엔드포인트를 나열합니다.
+[az sql midb-arc 복원](#az-sql-midb-arc-restore) | Azure Arc 사용 SQL 관리 되는 인스턴스로 데이터베이스를 복원 합니다.
+## <a name="az-sql-midb-arc-restore"></a>az sql midb-arc 복원
+Azure Arc 사용 SQL 관리 되는 인스턴스로 데이터베이스를 복원 합니다.
 ```bash
-az postgres arc-server endpoint list 
+az sql midb-arc restore 
 ```
 ### <a name="examples"></a>예제
-Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 엔드포인트를 나열합니다.
+예 1-특정 시점 복원을 사용 하 여 데이터베이스 복원
 ```bash
-az postgres arc-server endpoint list --name postgres01  --k8s-namespace namespace --use-k8s
+az sql midb-arc restore --managed-instance sqlmi1 --name mysourcedb
+ --dest-name mynewdb --time "2021-10-20T05:34:22Z" --k8s-namespace
+ arc --use-k8s --dry-run
 ```
 ### <a name="global-arguments"></a>전역 인수
 #### `--debug`

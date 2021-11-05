@@ -2,14 +2,14 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 05/03/2021
+ms.date: 11/04/2021
 ms.author: naiteeks
-ms.openlocfilehash: 21c3bec8bfb4cb48aa1dd45bfccfd703dcf0c54a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 82ba3bf9146dc462f5dc6c09664ac258f6bf35a3
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030747"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860633"
 ---
 배포 매니페스트는 에지 디바이스에 배포되는 모듈을 정의합니다. 또한 해당 모듈에 대한 구성 설정을 정의합니다.
 

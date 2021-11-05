@@ -2,14 +2,14 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 04/30/2021
+ms.date: 11/04/2021
 ms.author: juliako
-ms.openlocfilehash: 559f4eccbf1eb9bd41471937b3f1d6e846812b40
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 374098dfd8d78d0558b36105415658fc75979f66
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101112"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860590"
 ---
 1. Visual Studio Code에서 src/edge로 이동합니다. 여러분이 만든 .env 파일이 몇 가지 배포 템플릿 파일과 함께 표시됩니다.
 

@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 09/17/2021
-ms.openlocfilehash: d98d51158981c6b3aa04a0d8ea8b42b16d768d26
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: 776329b23ab4e0fdd11e48da6ec1a7cc3d21a7f7
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665495"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852316"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 IR을 Azure-SSIS IR의 프록시로 구성
 
@@ -194,7 +194,7 @@ Azure-SSIS IR에서 실행되는 클라우드 준비 작업은 별도로 청구�
 
 ## <a name="enforce-tls-12"></a>TLS 1.2 적용
 
-준비에 대 한 Azure Blob Storage를 포함 하 여 가장 강력한 암호화/가장 안전한 네트워크 프로토콜 (tls 1.2)만 사용 하도록 구성 된 데이터 저장소에 액세스 해야 하는 경우 tls 1.2만 사용 하도록 설정 하 고 자체 호스팅 IR에서 이전 SSL/TLS 버전을 사용 하지 않도록 설정 해야 합니다. 이렇게 하려면 공개 미리 보기 blob 컨테이너의 *Customsetupscript/UserScenarios/TLS 1.2* 폴더에서 제공 하는 *기본 .cmd* 스크립트를 다운로드 하 여 실행할 수 있습니다. [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 다음 SAS URI를 입력해 공개 미리 보기 Blob 컨테이너에 연결할 수 있습니다.
+준비에 Azure Blob Storage 포함하여 가장 강력한 암호화/가장 안전한 네트워크 프로토콜(TLS 1.2)만 사용하도록 구성된 데이터 저장소에 액세스해야 하는 경우 TLS 1.2만 사용하도록 설정하고 자체 호스팅 IR에서 동시에 이전 SSL/TLS 버전을 사용하지 않도록 설정해야 합니다. 이렇게 하려면 공개 미리 보기 Blob 컨테이너의 *CustomSetupScript/UserScenarios/TLS 1.2* 폴더에서 제공하는 *main.cmd* 스크립트를 다운로드하여 실행할 수 있습니다. [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 다음 SAS URI를 입력해 공개 미리 보기 Blob 컨테이너에 연결할 수 있습니다.
 
 `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
 

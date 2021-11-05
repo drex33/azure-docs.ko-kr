@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 3e90ab30e8eb916ef70248af32b7b95ff0a48428
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d80b12e807e6c6f0999927bc373fe64c1feb1b40
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131003545"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846599"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대한 액세스 제어를 설정하는 방법 
 
@@ -129,7 +129,7 @@ Azure Portal에서 Azure Synapse 작업 영역을 만듭니다.
 
 ## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>4단계: 기본 스토리지 컨테이너에 작업 영역 MSI 액세스 권한 부여
 
-파이프라인을 실행하고 시스템 작업을 수행하려면 MSI(작업 영역 관리 서비스 ID)가 기본 ADLS Gen2 계정에 있는 `container1`에 액세스해야 합니다. 자세한 내용은 [Azure Synapse 작업 영역 관리 ID](synapse-workspace-managed-identity.md)를 참조하세요.
+파이프라인을 실행하고 시스템 작업을 수행하려면 MSI(작업 영역 관리 서비스 ID)가 기본 ADLS Gen2 계정에 있는 `container1`에 액세스해야 합니다. 자세한 내용은 [Azure Synapse 작업 영역 관리 ID](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)를 참조하세요.
 
 - Azure 포털 열기
 - 스토리지 계정, `storage1`, `container1`을 차례로 찾습니다.

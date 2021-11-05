@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: d448a7179e2fa512690dba638747010ec292427c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d96e331727c1c4d306746c35565f759fcd12a4c8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131520498"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861393"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript)
 
@@ -37,7 +37,7 @@ Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-device"></a>디바이스 실행
+## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 이 섹션에서는 Node.js SDK를 사용하여 디바이스에서 IoT Hub로 메시지를 보냅니다. 두 개의 온도 조절기 센서가 있는 온도 컨트롤러를 구현하는 샘플을 실행합니다.
 
 1. 새 콘솔(예: Windows CMD, PowerShell 또는 Bash)을 엽니다. 다음 단계에서 이 콘솔을 사용하여 Node.js SDK를 설치하고 Node.js 샘플 코드로 작업합니다.

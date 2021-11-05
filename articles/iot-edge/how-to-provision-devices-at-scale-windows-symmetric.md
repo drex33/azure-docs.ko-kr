@@ -9,18 +9,25 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0fea4aa2ac14e161e4fa2439e97e74f51eb5859d
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: a1abccf4a039a36f2969e6b32b8eca2478d07427
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510112"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845947"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-windows-using-symmetric-keys"></a>대칭 키를 사용 하 여 Windows에서 대규모로 IoT Edge 장치 만들기 및 프로 비전
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 이 문서에서는 대칭 키를 사용 하 여 하나 이상의 Windows IoT Edge 장치를 자동으로 프로 비전 하는 종단 간 지침을 제공 합니다. [Azure IoT 허브 장치 프로 비전 서비스](../iot-dps/index.yml) (DPS)를 사용 하 여 Azure IoT에 지 장치를 자동으로 프로 비전 할 수 있습니다. Autoprovisioning 비전 프로세스에 익숙하지 않은 경우 계속 하기 전에 [프로 비전 개요](../iot-dps/about-iot-dps.md#provisioning-process) 를 검토 합니다.
+
+>[!NOTE]
+>Windows 컨테이너를 사용하는 Azure IoT Edge는 Azure IoT Edge 버전 1.2부터 지원되지 않습니다.
+>
+>Window 디바이스에서 IoT Edge를 실행하는 새로운 방법을 사용하려면 [Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md)를 참조하세요.
+>
+>Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하려는 경우에는 [해당 방법 가이드](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)의 단계를 따를 수 있습니다.
 
 작업은 다음과 같습니다.
 
@@ -29,7 +36,7 @@ ms.locfileid: "131510112"
 
 대칭 키 증명은 장치 프로 비전 서비스 인스턴스를 사용 하 여 장치를 인증 하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 또는 [X.509 인증서](../iot-dps/concepts-x509-attestation.md)를 사용하는 디바이스 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다. <!-- note links here; they will break -->
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
@@ -60,13 +67,11 @@ IoT Edge 장치로 사용할 실제 또는 가상 Windows 장치입니다.
 
 1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 기본적으로 Windows 컨테이너를 사용하여 수동으로 프로비저닝하므로 대칭 키 인증을 사용하여 자동 프로비저닝하려면 `-DpsSymmetricKey` 플래그를 사용합니다.
 
-   `{scope_id}`, `{registration_id}` 및`{symmetric_key}`의 자리 표시자 값을 앞에서 수집한 데이터로 바꿉니다.
-
-   `-RegistrationId {registration_id}`장치 id를 id 인증서의 CN 이름 이외의 이름으로 설정 하려는 경우 매개 변수를 추가 합니다.
+   `paste_scope_id_here`, `paste_registration_id_here` 및`paste_symmetric_key_here`의 자리 표시자 값을 앞에서 수집한 데이터로 바꿉니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -DpsSymmetricKey -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -DpsSymmetricKey -ScopeId paste_scope_id_here -RegistrationId paste_registration_id_here -SymmetricKey paste_symmetric key_here
    ```
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인

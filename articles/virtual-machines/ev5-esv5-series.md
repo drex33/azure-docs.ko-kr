@@ -2,32 +2,32 @@
 title: Ev5 및 Esv5 시리즈 - Azure Virtual Machines
 description: Ev5 및 Esv5 시리즈 VM에 대한 사양입니다.
 author: styli365
-ms.author: sttsinar
+ms.author: joelpell
 ms.reviewer: joelpell
 ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: a09b15cb2acff0aebe94cd550185e1ded5e055ea
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: c4719f96a5c0f2532039ed5764a01aca95b10ea4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502163"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847169"
 ---
 # <a name="ev5-and-esv5-series"></a>Ev5 및 Esv5 시리즈
 
 **적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
-Ev5 및 Esv5 시리즈는 하이퍼 스레드 구성의 3세대 Intel &reg; Xeon &reg; 8370C(Ice Lake) 프로세서에서 [실행될](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) Virtual Machines 있으며, 대부분의 범용 워크로드에 더 나은 가치 제안을 제공합니다. 이 새로운 프로세서는 [Intel Turbo Boost &reg; Technology, Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)Advanced-Vector [ &reg; Extensions 512(Intel AVX-512) 및 Intel Deep Learning Boost가 있는 &reg; 3.5GHz의](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) 모든 코어 Turbo 클록 속도를 제공합니다. [ &reg; ](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html) 최대 672 GiB RAM을 갖춘 이러한 가상 머신은 메모리 집약적 엔터프라이즈 애플리케이션, 관계형 데이터베이스 서버 및 메모리 내 분석 워크로드에 적합합니다. Ev5 및 Esv5 시리즈는 로컬 임시 디스크가 필요하지 않은 워크로드에 더 나은 가치 제안을 제공합니다.
+Ev5 및 Esv5 시리즈는 하이퍼 스레드 구성의 3세대 Intel &reg; Xeon &reg; 8370C(Ice Lake) 프로세서에서 [실행될](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) Virtual Machines 있으며, 대부분의 범용 워크로드에 더 나은 가치 제안을 제공합니다. 이 새로운 프로세서는 [Intel Turbo Boost &reg; Technology, Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)Advanced-Vector [ &reg; Extensions 512(Intel AVX-512) 및 Intel Deep Learning Boost가 있는 &reg; 3.5GHz의](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) 모든 코어 turbo 클록 속도를 제공합니다. [ &reg; ](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html) 최대 672 GiB RAM을 갖춘 이러한 가상 머신은 메모리 집약적 엔터프라이즈 애플리케이션, 관계형 데이터베이스 서버 및 메모리 내 분석 워크로드에 적합합니다. Ev5 및 Esv5 시리즈는 로컬 임시 디스크가 필요하지 않은 워크로드에 더 나은 가치 제안을 제공합니다.
 
 > [!NOTE]
 > 질문과 대답은  [로컬 임시 디스크가 없는 Azure VM 크기](azure-vms-no-temp-disk.yml)를 참조하세요.
 
 ## <a name="ev5-series"></a>Ev5 시리즈
 
-Ev5 시리즈 가상 머신은 3세대 Intel® Xeon® 8370C(Ice Lake) 프로세서에서 실행하여 최대 3.5GHz의 모든 코어 turbo 클록 속도에 도달합니다.  이러한 가상 머신은 최대 104개 vCPU와 672 GiB RAM을 제공합니다. Ev5 시리즈 가상 머신에는 임시 스토리지가 없으므로 진입 가격이 낮아질 수 있습니다.
+Ev5 시리즈 가상 머신은 최대 3.5GHz의 모든 코어 turbo 클록 속도에 도달하는 3세대 Intel® Xeon® 8370C(Ice Lake) 프로세서에서 실행됩니다.  이러한 가상 머신은 최대 104개 vCPU와 672 GiB RAM을 제공합니다. Ev5 시리즈 가상 머신에는 임시 스토리지가 없으므로 진입 가격이 낮아질 수 있습니다.
 
 Ev5 시리즈는 표준 SSD 및 표준 HDD 디스크 유형을 지원합니다. Premium SSD 또는 Ultra Disk 스토리지를 사용하려면 Esv5 시리즈 가상 머신을 선택합니다. 디스크 스토리지는 가상 머신과 별도로 청구됩니다. [디스크에 대한 가격 책정을 참조하세요.](https://azure.microsoft.com/pricing/details/managed-disks/)
 
@@ -85,11 +85,11 @@ Esv5 시리즈는 표준 ssd, 표준 hdd 및 Premium ssd 디스크 유형을 지
 | Standard_E96s_v5<sup>3</sup>   | 96  | 672 | 원격 스토리지 전용 | 32 | 80000/2600  | 80000/4000 | 8 | 35000  |
 | Standard_E104is_v5<sup>4</sup> | 104 | 672 | 원격 스토리지 전용 | 64 | 120000/4000 | 120000/4000 | 8 | 100000 |
 
-<sup>1</sup> 가속화 된 네트워킹은 모든 Esv5 가상 머신에서 기본적으로 설정 되 고 설정 됩니다.<br>
-<sup>2 2</sup> 개의 nic에 가속화 된 네트워킹을 적용할 수 있습니다.<br>
-<sup>3</sup> [제한 된 코어](constrained-vcpu.md) 크기를 사용할 수 있습니다.<br>
-<sup>4</sup> 인스턴스는 단일 고객 전용의 하드웨어에 [격리](../security/fundamentals/isolation-choices.md#compute-isolation) 되어 있습니다.<br>
-<sup>5</sup> Esv5 시리즈 vm은 디스크 성능을 증가 [시킬 수 있으며](disk-bursting.md) 한 번에 최대 30 분 동안 버스트 max를 얻을 수 있습니다.
+<sup>1</sup> 가속화된 네트워킹이 필요하며 모든 Esv5 가상 머신에서 기본적으로 켜져 있습니다.<br>
+<sup>2</sup> 가속화된 네트워킹은 두 개의 NIC에 적용할 수 있습니다.<br>
+<sup>3</sup> 사용 가능한 [제한된 코어](constrained-vcpu.md) 크기입니다.<br>
+<sup>4</sup> 인스턴스는 단일 고객 전용 하드웨어로 [격리됩니다.](../security/fundamentals/isolation-choices.md#compute-isolation)<br>
+<sup>5개의</sup> Esv5 시리즈 VM은 디스크 성능을 [버스트하고](disk-bursting.md) 한 번에 최대 30분 동안 최대 버스트 최대값을 얻을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -1,19 +1,19 @@
 ---
 title: Windows 인증으로 데이터 저장소 및 파일 공유 액세스
 description: Windows 인증을 사용하여 데이터 저장소과 파일 공유에 액세스하는 패키지를 실행하도록 Azure SQL Database와 Azure Data Factory의 Azure-SSIS Integration Runtime에 SSIS 카탈로그를 구성하는 방법을 알아봅니다.
-ms.date: 10/27/2020
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel
-ms.openlocfilehash: a0777b13eb394ac221bc85679c2ea05925b156c1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5d1ced9c1c867a45a56b684515db53aaf9a73848
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566593"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850359"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Azure의 SSIS 패키지에서 Windows 인증으로 데이터 저장소 및 파일 공유 액세스
 

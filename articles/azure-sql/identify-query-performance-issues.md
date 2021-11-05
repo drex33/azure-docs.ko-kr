@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
-ms.date: 1/14/2021
-ms.openlocfilehash: 5ae1bfde67d2fed9147ffe8a18203f3dc1d80c19
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/04/2021
+ms.openlocfilehash: d4b9249ece6117af35466b0984c9dc5ceff2a224
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431981"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843639"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL Database에서 검색 가능한 쿼리 성능 병목 상태 유형
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -197,7 +197,7 @@ Intelligent Insights를 사용하여 [워크로드 증가](database/intelligent-
   워크로드에서 임시 테이블을 사용하거나 계획에 TempDB 스필이 있는 경우 쿼리에 TempDB 처리량 문제가 있을 수 있습니다. DMV를 사용하여 [TempDB 문제 식별](database/monitoring-with-dmvs.md#identify-tempdb-performance-issues)을 참조하세요.
 - **메모리 관련 문제**
 
-  워크로드에 충분한 메모리가 없는 경우 페이지 예상 수명이 줄어들거나 쿼리에 필요한 것보다 메모리가 작게 확보될 수 있습니다. 때에 따라 쿼리 최적화 프로그램에서 기본 제공되는 인텔리전스를 통해 메모리 관련 문제를 해결할 수 있습니다. DMV를 사용하여 [메모리 부여 문제 파악](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)을 참조하세요.
+  워크로드에 충분한 메모리가 없는 경우 페이지 예상 수명이 줄어들거나 쿼리에 필요한 것보다 메모리가 작게 확보될 수 있습니다. 때에 따라 쿼리 최적화 프로그램에서 기본 제공되는 인텔리전스를 통해 메모리 관련 문제를 해결할 수 있습니다. DMV를 사용하여 [메모리 부여 문제 파악](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)을 참조하세요. 자세한 내용 및 샘플 쿼리는 [Azure SQL Database을 사용 하 여 메모리 부족 오류 해결](database/troubleshoot-memory-errors-issues.md)을 참조 하세요.
 
 ### <a name="methods-to-show-top-wait-categories"></a>상위 대기 범주를 표시하는 메서드
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 60425a0915921632874620ef5a1faf0d3ba22115
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d31cb6d07958c5f14ac5e45f0094e772b168a535
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013121"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847929"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Synapse 파이프라인을 사용하여 전용 SQL 풀 일시 중지 및 다시 시작
 
@@ -223,6 +223,6 @@ ForEach 작업을 만들어 각 전용 SQL 풀을 반복합니다.
 
 Azure Synapse의 관리 ID 및 전용 SQL 풀에 관리 ID를 추가하는 방법에 대한 자세한 내용은 여기에서 찾을 수 있습니다.
 
-[Azure Synapse 작업 영역 관리 ID](../security/synapse-workspace-managed-identity.md)
+[Azure Synapse 작업 영역 관리 ID](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
 
 [작업 영역 관리 ID에 권한 부여](../security/how-to-grant-workspace-managed-identity-permissions.md)

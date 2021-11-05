@@ -7,19 +7,22 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: 4278a3b0e022015a1e12542cac7699590150b5e4
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.date: 10/26/2021
+ms.openlocfilehash: 2f8aa4612d386995f39fccceebdaee67e4afe9dd
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602573"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848347"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>가상 머신 제품 계획
 
 이 문서에서는 VM(가상 머신) 제품을 상업용 Marketplace에 게시하기 위한 다양한 옵션 및 요구 사항에 대해 설명합니다. VM 제품은 Azure Marketplace를 통해 배포되고 청구되는 거래 가능한 제품입니다.
 
 시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만들고](create-account.md) 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다.
+
+> [!TIP]
+> 상업용 Marketplace에서 구매에 대한 고객의 보기를 보려면 [구매 Azure Marketplace](/marketplace/azure-purchasing-invoicing)참조하세요.
 
 ### <a name="technical-fundamentals"></a>기술 기본 사항
 

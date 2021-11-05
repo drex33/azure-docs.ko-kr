@@ -6,21 +6,16 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 11/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e96a3e1e523c466cc3dc851725b648cba78dc8e8
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 0c288971fefc95bfed7d5c4b7496dda628bb1f90
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502130"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845269"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Azure Purview에서 컬렉션 만들기 및 관리
-
-> [!NOTE]
-> 현재 이 가이드는 **2021년 8월 18일 이후에** 만든 Azure Purview 인스턴스에만 적용됩니다. 8월 18일 전에 만든 인스턴스는 컬렉션을 만들 수 있지만, 해당 컬렉션을 통해 권한을 관리할 수는 없습니다. 8월 18일 전에 만든 Purview 인스턴스에 대한 컬렉션을 만드는 방법에 대한 내용은 페이지 맨 아래에 있는 [**레거시 컬렉션 가이드**](#legacy-collection-guide)를 참조하세요.
->
-> 모든 레거시 계정은 돌아오는 주에 자동으로 업그레이드됩니다. Purview 계정이 업그레이드되면 메일 알림을 받게 됩니다. 계정이 업그레이드되면 변경되는 사항에 대한 자세한 내용은 [업그레이드된 계정 가이드](concept-account-upgrade.md)를 참조하세요.
 
 Azure Purview의 컬렉션은 비즈니스 흐름에 따라 자산 및 원본을 구성하는 데 사용할 수 있지만 Purview에서 액세스를 관리하는 데 사용되는 도구이기도 합니다. 이 가이드에서는 이러한 컬렉션의 생성 및 관리를 안내할 뿐만 아니라 원본을 등록하고 컬렉션에 자산을 추가하는 방법에 대한 단계를 다룹니다.
 
@@ -277,27 +272,6 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 1. 자산의 세부 정보를 보려면 검색 결과에서 자산 이름을 선택합니다. 또는 자산을 확인하고 대량 편집할 수 있습니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="컬렉션별 탭이 선택되고 자산 확인란이 강조 표시된 Purview Studio 카탈로그 창의 스크린샷"border="true":::
-
-## <a name="legacy-collection-guide"></a>레거시 컬렉션 가이드
-
-> [!NOTE]
-> 이 레거시 컬렉션 가이드는 2021년 8월 18일 전에 만든 Purview 인스턴스에만 적용됩니다. 이 날짜 이후에 만든 인스턴스는 위의 가이드를 따라야 합니다.
-
-레거시 컬렉션은 데이터 맵의 원본만 구성하고 해당 원본에 대한 사용 권한은 관리하지 않습니다.
-
-### <a name="create-a-legacy-collection"></a>레거시 컬렉션 만들기
-
-1. 왼쪽 창에서 데이터 맵을 선택하여 데이터 맵을 엽니다. 맵 보기를 사용하여 컬렉션 및 해당 컬렉션 아래에 나열된 원본을 볼 수 있습니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-view.png" alt-text="데이터 맵이 열린 Purview Studio 창의 스크린샷" border="true":::
-
-1. **+ 새 컬렉션** 을 선택합니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-create.png" alt-text="데이터 맵이 열리고 + 새 컬렉션이 강조 표시된 Purview Studio 창의 스크린샷" border="true":::
-
-1. 컬렉션 이름을 지정하고 부모 또는 ‘없음’을 선택합니다. **만들기** 를 선택합니다. 컬렉션 정보가 데이터 맵에 반영됩니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-name.png" alt-text="새 컬렉션 창을 보여주는 Purview Studio 창의 스크린샷" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

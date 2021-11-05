@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d290549baf39f11c495c1f028a6eea2aba75d701
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 41d98bfa2fddc6575d53c2770e9411609acb68c1
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576666"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845840"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 공용 표준 Load Balancer 사용
 
@@ -193,8 +193,7 @@ az aks create \
 ### <a name="configure-the-allocated-outbound-ports"></a>할당된 아웃바운드 포트 구성
 
 > [!IMPORTANT]
-> 작은 대상 집합에 다수의 연결을 설정할 것으로 예상되는 애플리케이션이 클러스터에 있는 경우(예: SQL DB에 많은 프런트엔드 인스턴스가 연결됨).이러한 시나리오에서는 SNAT 포트 고갈(연결할 포트가 없음)이 발생할 가능성이 매우 높습니다. 이러한 시나리오에서는 부하 분산 장치에서 할당된 아웃바운드 포트 및 아웃바운드 프런트엔드 IP를 늘리는 것이 좋습니다. 증가 시에는 하나(1)의 추가 IP 주소로 64,000개 포트를 추가하여 모든 클러스터 노드에 분산하는 것을 고려해야 합니다.
-
+> 클러스터에 많은 수의 연결을 설정 해야 하는 응용 프로그램이 있는 경우, 예를 들어 SQL DB에 연결 하는 많은 프런트 엔드 인스턴스는 SNAT 포트 고갈 (연결에 사용할 포트 부족)가 발생 하기 쉽습니다. 이러한 시나리오에서는 부하 분산 장치에서 할당 된 아웃 바운드 포트 및 아웃 바운드 프런트 엔드 Ip를 늘리는 것이 좋습니다. 이러한 값을 적절 하 게 계산 하는 방법에 대 한 자세한 내용은 아래를 참조 하세요.
 
 별도로 지정하지 않는 한 AKS는 할당된 아웃바운드 포트의 기본값을 사용하여 이를 구성할 때 표준 Load Balancer를 정의합니다. 이 값은 아래 명령에 표시된 것처럼 AKS API에서 **null** 또는 SLB API에서 **0** 입니다.
 
@@ -211,11 +210,19 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-이 출력은 사용자가 포트가 0개인 상황지만 [백 엔드 풀 크기에 따라 자동 아웃바운드 포트 할당][azure-lb-outbound-preallocatedports]을 활용한다는 것을 의미하지 않습니다. 예를 들어 클러스터에 50개 이하의 노드가 있는 경우 각 노드에 대한 1024 포트가 할당되며, 여기서 노드 수를 늘리면 노드당 포트 수가 점차 줄어듭니다.
+이 출력은 클러스터에 0 개의 포트가 있지만 [백 엔드 풀 크기에 따라 자동 아웃 바운드 포트 할당][azure-lb-outbound-preallocatedports]을 사용 하는 것을 의미 하지는 않습니다. 예를 들어 클러스터의 노드가 50 이하인 경우 1024 포트가 각 노드에 할당 됩니다. 클러스터의 노드 수가 증가 하면 노드당 사용할 수 있는 포트 수가 줄어듭니다.
 
+할당 된 아웃 바운드 포트의 수를 정의 하거나 늘리려면 아웃 바운드 포트 수와 Ip 수에 대 한 적절 한 값을 계산 해야 합니다. 아웃 바운드 포트 수가 여기에 지정 된 값에 대 한 인스턴스당 고정 됩니다. 아웃 바운드 포트의 값은 8의 배수 여야 합니다.
 
-할당된 아웃바운드 포트의 수를 정의하거나 늘리려면 아래 예제를 따르면 됩니다.
+IP를 더 추가해도 노드에 더 많은 포트가 추가되지는 않습니다. 대신 클러스터의 더 많은 노드에 대한 용량을 제공합니다. 이 계산을 수행할 때 [maxSurge 값을](upgrade-cluster.md#customize-node-surge-upgrade)통해 지정된 노드 수를 포함하여 업그레이드의 일부로 추가될 수 있는 노드를 고려해야 합니다. 필요한 IP 수에 대한 계산은 `(<maximum number of nodes in the cluster> * <outbound ports per node>) / 64000` 이며 가장 가까운 정수로 반올림됩니다.
 
+예제:
+- 값이 제공되지 않고 클러스터에 48개의 노드가 있는 경우 각 노드에는 1024개의 포트를 사용할 수 있습니다.
+- 값이 제공되지 않고 클러스터가 52개 노드로 증가하면 이제 각 노드에 512개의 포트를 사용할 수 있습니다.
+- 아웃바운드 포트가 1,000으로 설정되고 아웃바운드 IP 수가 2로 설정된 경우 클러스터는 최대 128개의 노드(IP당 64,000개 포트/노드당 1,000개 포트 * 2 IP = 128개 노드)를 지원할 수 있습니다.
+- 아웃바운드 포트가 4,000으로 설정되고 아웃바운드 IP 수가 7로 설정된 경우 클러스터는 최대 112개의 노드(IP당 64,000개 포트/노드당 4,000개 포트 * 7 IP = 112개 노드)를 지원할 수 있습니다.
+
+값이 계산되면 다음 명령을 사용하여 클러스터에 적용할 수 있습니다.
 
 ```azurecli-interactive
 az aks update \
@@ -225,13 +232,13 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-이 예제에서는 내 클러스터의 노드마다 4,000개의 아웃바운드 포트를 할당하므로, 7개의 IP를 사용하면 노드당 포트 4,000개 * 노드 100개 = 총 노드 400,000개 <  = 총 포트 448,000개 = 7개 IP * IP당 포트 64,000개가 됩니다. 이렇게 하면 100개 노드로 안전하게 확장하고 기본 업그레이드 작업을 수행할 수 있습니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분한 포트를 할당하는 것이 중요합니다. AKS는 기본적으로 업그레이드에 버퍼 노드 하나를 사용합니다. 이 예제에서는 지정된 특정 시점에 4,000개의 빈 포트가 필요합니다. [maxSurge 값](upgrade-cluster.md#customize-node-surge-upgrade)을 사용할 경우 노드당 아웃바운드 포트 수에 maxSurge 값을 곱합니다.
+이러한 값을 확인하려면 클러스터의 최대 크기가 100개 노드라고 가정하고 필요한 포트 수(400,000개)와 사용 가능한 포트 수(448,000개)를 계산합니다. 이 구성은 업그레이드 중에 노드 급증을 위한 공간이 있는 100개 노드 클러스터에 충분한 포트를 제공합니다.
 
-100개 노드를 안전하게 진행하려면 더 많은 IP를 추가해야 합니다.
-
+- 100개 노드 * 노드당 4000개 포트 = 400,000개 포트 필요
+- IP 7개 * IP당 64000개 포트 = 448,000개 포트 사용 가능.
 
 > [!IMPORTANT]
-> 연결 또는 스케일링 문제를 방지하기 위해 *allocatedOutboundPorts* 를 사용자 지정하기 전에 [필요한 할당량을 계산하고 요구 사항을 확인][requirements]해야 합니다.
+> 연결 또는 크기 조정 문제를 방지하기 위해 *allocatedOutboundPorts를* 사용자 지정하기 전에 [필요한 할당량 계산 및 요구 사항 확인][요구 사항]을 수행해야 합니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분한 포트를 할당하는 것이 중요합니다. AKS는 업그레이드를 위해 기본적으로 하나의 버퍼 노드로 설정됩니다. [maxSurge 값을](upgrade-cluster.md#customize-node-surge-upgrade)사용하는 경우 노드당 아웃바운드 포트에 maxSurge 값을 곱하여 필요한 포트 수를 결정합니다.
 
 클러스터를 만들 때 **`load-balancer-outbound-ports`** 매개 변수를 사용해도 되지만 **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** 또는 **`load-balancer-outbound-ip-prefixes`** 도 지정해야 합니다.  예를 들면 다음과 같습니다.
 
@@ -263,16 +270,7 @@ az aks update \
 > AKS는 기본적으로 유휴 상태에서 TCP 재설정을 사용하도록 설정하며, 이 구성을 유지하고 시나리오에서 보다 예측 가능한 애플리케이션 동작에 활용할 것을 권장합니다.
 > TCP RST는 ESTABLISHED 상태에서 TCP 연결 중에만 전송됩니다. 자세한 내용은 [여기](../load-balancer/load-balancer-tcp-reset.md)서 확인할 수 있습니다.
 
-### <a name="requirements-for-customizing-allocated-outbound-ports-and-idle-timeout"></a>할당된 아웃바운드 포트 및 유휴 시간 제한 사용자 지정을 위한 요구 사항
-
-- *allocatedOutboundPorts* 에 대해 지정하는 값도 8의 배수여야 합니다.
-- 노드 VM 수 및 필요한 할당된 아웃바운드 포트를 기반으로 아웃바운드 IP 용량이 충분해야 합니다. 아웃바운드 IP 용량이 충분한지 유효성을 검사하려면 다음 수식을 사용합니다. 
- 
-*outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
- 
-예를 들어 3개의 *nodeVMs* 및 50,000개의 *desiredAllocatedOutboundPorts* 가 있는 경우 최소 3개 이상의 *outboundIPs* 가 있어야 합니다. 필요한 것보다 더 많은 추가 아웃바운드 IP 용량을 통합하는 것이 좋습니다. 또한 아웃바운드 IP 용량을 계산할 때 클러스터 자동 크기 조정기 및 노드 풀 업그레이드의 가능성을 고려해야 합니다. 클러스터 자동 크기 조정기의 경우 현재 노드 수와 최대 노드 수를 검토하고 더 높은 값을 사용합니다. 업그레이드하는 경우 업그레이드를 허용하는 모든 노드 풀에 대해 추가 노드 VM을 고려합니다.
-
-- *IdleTimeoutInMinutes* 를 기본값 30분이 아닌 다른 값으로 설정할 때는 워크로드에 아웃바운드 연결이 필요한 기간을 고려합니다. 또한 AKS 외부에서 사용되는 ‘표준’ SKU 부하 분산 장치에 대한 기본 시간 제한 값은 4분입니다. 특정 AKS 워크로드를 더 정확하게 반영하는 *IdleTimeoutInMinutes* 값을 지정하면 더 이상 사용되지 않는 연결로 인한 SNAT 고갈을 줄이는 데 도움이 될 수 있습니다.
+*IdleTimeoutInMinutes* 를 기본값 30분이 아닌 다른 값으로 설정할 때는 워크로드에 아웃바운드 연결이 필요한 기간을 고려합니다. 또한 AKS 외부에서 사용되는 ‘표준’ SKU 부하 분산 장치에 대한 기본 시간 제한 값은 4분입니다. 특정 AKS 워크로드를 더 정확하게 반영하는 *IdleTimeoutInMinutes* 값을 지정하면 더 이상 사용되지 않는 연결로 인한 SNAT 고갈을 줄이는 데 도움이 될 수 있습니다.
 
 > [!WARNING]
 > *AllocatedOutboundPorts* 및 *IdleTimeoutInMinutes* 의 값을 변경하면 부하 분산 장치에 대한 아웃바운드 규칙의 동작이 크게 변할 수 있으므로, 장단점과 애플리케이션의 연결 패턴을 이해하지 않은 상태로 가볍게 변경해서는 안 됩니다. 변경의 영향을 완전히 이해하려면 이 값을 업데이트하기 전에 [아래의 SNAT 문제 해결 섹션][troubleshoot-snat]을 확인하고 [Load Balancer 아웃바운드 규칙][azure-lb-outbound-rules-overview] 및 [Azure의 아웃바운드 연결][azure-lb-outbound-connections]을 검토하세요.
@@ -296,7 +294,7 @@ spec:
   - MY_EXTERNAL_IP_RANGE
 ```
 
-이 예에서는 범위에서 인바운드 외부 트래픽만 허용 하도록 규칙을 업데이트 합니다 `MY_EXTERNAL_IP_RANGE` . 를 `MY_EXTERNAL_IP_RANGE` 내부 서브넷 IP 주소로 바꾸면 트래픽이 클러스터 내부 ip로만 제한 됩니다. 트래픽이 클러스터 내부 Ip로 제한 되는 경우 Kubernetes 클러스터 외부의 클라이언트에서 부하 분산 장치에 액세스할 수 없습니다.
+이 예제에서는 범위의 인바운드 외부 트래픽만 허용하도록 규칙을 `MY_EXTERNAL_IP_RANGE` 업데이트합니다. 를 내부 서브넷 IP 주소로 바꾸면 `MY_EXTERNAL_IP_RANGE` 트래픽은 클러스터 내부 IP로만 제한됩니다. 트래픽이 클러스터 내부 IP로 제한되는 경우 Kubernetes 클러스터 외부의 클라이언트는 부하 분산에 액세스할 수 없습니다.
 
 > [!NOTE]
 > 인바운드, 외부 트래픽은 부하 분산 장치에서 AKS 클러스터의 가상 네트워크로 흐릅니다. 가상 네트워크에는 부하 분산 장치의 모든 인바운드 트래픽을 허용하는 NSG(네트워크 보안 그룹)가 있습니다. 이 NSG는 *LoadBalancer* 형식의 [서비스 태그][service-tags]를 사용하여 부하 분산 장치의 트래픽을 허용합니다.
@@ -332,7 +330,7 @@ spec:
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | 리소스 그룹의 이름            | 클러스터 인프라와 동일한 리소스 그룹에 있지 않은 부하 분산 장치 공용 IP의 리소스 그룹(노드 리소스 그룹)을 지정합니다.
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | 허용되는 서비스 태그 목록          | 허용되는 [서비스 태그][service-tags]를 쉼표로 구분한 목록을 지정합니다.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP 유휴 시간 제한(분)          | 부하 분산 장치에서 TCP 연결 유휴 시간 제한이 발생하는 시간을 분 단위로 지정합니다. 기본값 및 최솟값은 4입니다. 최댓값은 30입니다. 정수여야 합니다.
-|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | SLB에 대해 사용 하지 않도록 설정 `enableTcpReset` 합니다. Kubernetes 1.18에서 사용 되지 않으며 1.20에서 제거 되었습니다. 
+|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | SLB에 대해 를 사용하지 않도록 `enableTcpReset` 설정합니다. Kubernetes 1.18에서 사용되지 않으며 1.20에서 제거되었습니다. 
 
 
 ## <a name="troubleshooting-snat"></a>SNAT 문제 해결
@@ -426,7 +424,6 @@ SNAT 소모의 근본 원인은 아웃바운드 연결의 설정, 관리 또는 
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-[requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 10/22/2021
-ms.openlocfilehash: d939af34afba8a240b4edc2ee1a3b0ed145b62ff
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 446943d4632ab6f659480574b7b0eb3db2bc9dcf
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503137"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853095"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -20,9 +20,6 @@ ms.locfileid: "131503137"
 
 > [!NOTE]
 > Purview Integration Runtime은 동일한 컴퓨터의 Azure Synapse Analytics 또는 Azure Data Factory Integration Runtime으로 공유할 수 없습니다. 분리된 컴퓨터에 설치해야 합니다.
-
-> [!IMPORTANT]
-> 2021년 8월 18일 이후에 Azure Purview 계정을 만든 경우 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 최신 버전의 자체 호스팅 통합 런타임을 다운로드하여 설치해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

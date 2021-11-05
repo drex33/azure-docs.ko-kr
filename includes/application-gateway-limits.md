@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 09/09/2021
 ms.author: victorh
-ms.openlocfilehash: f106ca51487e1c4c306d51161110062ad3582fcd
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 76fed7a6f79dafd42c6262f4f73bd21a7c2e45a7
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129439978"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861462"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -27,7 +27,8 @@ ms.locfileid: "129439978"
 | 인증 인증서 |100 | |
 | 신뢰할 수 있는 루트 인증서 |100 | |
 | 최소 요청 시간 제한 |1초 | |
-| 최대 요청 시간 제한 |24시간 | |
+| 개인 백 엔드에 대 한 요청 제한 시간 최대 |24시간 | |
+| 외부 백 엔드에 대 한 최대 요청 시간 제한 |4분 | |
 | 사이트 수 |100<sup>1</sup> |HTTP 수신기당 1 |
 | 수신기당 URL 맵 |1 | |
 | URL 맵당 최대 경로 기반 규칙|100||

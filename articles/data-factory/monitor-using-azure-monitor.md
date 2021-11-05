@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor를 사용하여 데이터 팩터리 모니터링
-description: Data Factory 정보를 사용하여 진단 로그를 사용하도록 설정하여 Azure Monitor 사용하여 Azure Data Factory 파이프라인을 모니터링하는 방법을 알아봅니다.
-author: jasonwhowell
-ms.author: jasonh
+description: Azure Monitor를 사용 하 여 Data Factory 정보로 진단 로그를 사용 하도록 설정 하 여 Azure Data Factory 파이프라인을 모니터링 하는 방법에 대해 알아봅니다.
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.custom: contperf-fy22q1
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: a3e2fe3f005467e82ebe5fbc2e502c764a7322b3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 91f377e1e092348a9d3a4ea6be3794c6f212d6b8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131033136"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853950"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용하여 Data Factory 모니터링 및 경고
 

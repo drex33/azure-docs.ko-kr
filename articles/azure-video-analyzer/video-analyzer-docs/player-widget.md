@@ -3,14 +3,14 @@ title: Video Analyzer 플레이어 위젯 사용
 description: 이 문서에서는 응용 프로그램에 Video Analyzer 플레이어 위젯을 추가 하는 방법을 설명 합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4617d7db16d674ff74419fc43744ff04b9e239cb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 44d14f7dc2977f39276e4c57a4d35d5e28b31a3d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012058"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845456"
 ---
 # <a name="use-the-azure-video-analyzer-player-widget"></a>Azure Video Analyzer 플레이어 위젯 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "131012058"
 > * 영역 서랍 플레이어 추가
 > * 지정 된 시작 및 종료 시간으로 잘린 비디오 보기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에는 다음이 필요합니다.
 
@@ -336,7 +336,7 @@ import { ZoneDrawer } from '@azure/video-analyzer-widgets';
 ```
 
 
-이 메서드를 사용하여 가져오는 경우 가져오기가 완료된 후 영역 서랍 및 플레이어 개체를 프로그래밍 방식으로 만들어야 합니다.  앞의 예제에서는 HTML 태그를 사용하여 모듈을 페이지에 `ava-player` 추가했습니다. 코드를 통해 영역 서랍 개체 및 플레이어 개체를 만들려면 JavaScript에서 다음을 수행할 수 있습니다.
+이 메서드를 사용하여 가져오는 경우 가져오기가 완료된 후 영역 서랍 및 플레이어 개체를 프로그래밍 방식으로 만들어야 합니다.  앞의 예제에서는 HTML 태그를 사용하여 모듈을 페이지에 `ava-player` 추가했습니다. 코드를 통해 영역 서랍 개체와 플레이어 개체를 만들려면 JavaScript에서 다음을 수행할 수 있습니다.
 
 
 ```javascript

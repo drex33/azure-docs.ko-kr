@@ -5,12 +5,12 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 74dfc438f1d1da5716933184fe1cc446fcb86c41
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 94b115654d50fcc7924d86afcc9b78ddab05688d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505874"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845105"
 ---
 ## <a name="install-iot-edge"></a>IoT Edge 설치
 
@@ -30,9 +30,9 @@ IoT Edge 런타임을 설치하려면 다음을 수행합니다.
 
 2. 다음 작업을 수행하는 [Deploy-IoTEdge](../articles/iot-edge/reference-windows-scripts.md#deploy-iotedge) 명령을 실행합니다.
 
-   * Windows 머신이 지원되는 버전에 해당하는지 확인합니다.
-   * 컨테이너 기능을 사용하도록 설정합니다.
-   * Moby 엔진과 IoT Edge 런타임을 다운로드합니다.
+   * Windows 컴퓨터가 지원되는 버전에 있는지 확인합니다.
+   * 컨테이너 기능을 켭니다.
+   * moby 엔진 및 IoT Edge 런타임을 다운로드합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -44,6 +44,6 @@ IoT Edge 런타임을 설치하려면 다음을 수행합니다.
 디바이스에 IoT Edge를 설치하는 경우 추가 매개 변수를 사용하여 다음과 같이 프로세스를 수정할 수 있습니다.
 
 * 트래픽이 프록시 서버를 통과하도록 설정
-* 오프라인 설치 시 설치 프로그램이 로컬 디렉터리를 가리키도록 합니다.
+* 오프라인 설치를 위해 설치 관리자가 로컬 디렉터리를 가리키도록 합니다.
 
 추가 매개 변수에 대한 자세한 내용은 [Windows 컨테이너를 포함한 IoT Edge용 PowerShell 스크립트](../articles/iot-edge/reference-windows-scripts.md)를 참조하세요.

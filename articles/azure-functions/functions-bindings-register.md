@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/14/2020
 ms.author: cshoe
-ms.openlocfilehash: 7267e733971b2abed258ca815a010b13938bc2a6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: b847243543eb8667a38d253e7eaad215af29e7b2
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613475"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852343"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
@@ -20,7 +20,7 @@ Azure Functions 버전 2.x부터 함수 런타임에는 기본적으로 HTTP 및
 
 다음 표는 바인딩을 등록하는 방법과 시기를 나타냅니다.
 
-| 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> 함수 2.x 이상  |
+| 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> Functions 2.x 이상에서  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|자동|자동<sup>*</sup>|
 |.NET 언어 이외의 언어|자동|[확장 번들](#extension-bundles)을 사용하거나(권장) [명시적으로 확장 설치](#explicitly-install-extensions)|
@@ -51,6 +51,7 @@ Java, JavaScript, PowerShell, Python, 사용자 지정 처리기 함수 앱의 �
 | --- | --- | --- |
 | 1.x | `[1.*, 2.0.0)` | 번들을 생성하는 데 사용된 [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) 참조 |
 | 2.x | `[2.*, 3.0.0)` | 번들을 생성하는 데 사용된 [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) 참조 |
+| 3.x | `[3.3.0, 4.0.0)` | 번들을 생성하는 데 사용된 [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v3.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) 참조 |
 
 > [!NOTE]
 > host.json에서 사용자 지정 버전 범위를 지정할 수 있지만 이 표의 버전 값을 사용하는 것이 좋습니다.
@@ -69,7 +70,7 @@ Java, JavaScript, PowerShell, Python, 사용자 지정 처리기 함수 앱의 �
 * 단일 번들에서 사용할 수 없는 특정 확장 조합에 액세스해야 합니다.
 
 > [!NOTE]
-> 핵심 도구를 사용 하 여 확장을 수동으로 설치 하려면 [.Net Core 3.1 SDK](https://dotnet.microsoft.com/download) 가 설치 되어 있어야 합니다. .NET Core SDK는 Azure Functions Core Tools에서 NuGet의 확장을 설치하는 데 사용됩니다. Azure Functions 확장을 사용하기 위해 .NET을 알 필요는 없습니다.
+> Core Tools를 사용하여 확장을 수동으로 설치하려면 [.NET Core 3.1 SDK가](https://dotnet.microsoft.com/download) 설치되어 있어야 합니다. .NET Core SDK는 Azure Functions Core Tools에서 NuGet의 확장을 설치하는 데 사용됩니다. Azure Functions 확장을 사용하기 위해 .NET을 알 필요는 없습니다.
 
 확장을 명시적으로 설치하면 extensions.csproj라는 .NET 프로젝트 파일이 프로젝트의 루트에 추가됩니다. 이 파일은 함수에 필요한 NuGet 패키지 세트를 정의합니다. 이 파일에서 [NuGet 패키지 참조](/nuget/consume-packages/package-references-in-project-files)로 작업할 수 있지만 Core Tools를 사용하면 파일을 수동으로 편집하지 않고도 확장을 설치할 수 있습니다.
 
@@ -92,7 +93,7 @@ func extensions install
 다음 명령을 사용하여 특정 버전(이 경우 Storage 확장)에서 특정 확장 패키지를 설치합니다.
 
 ```command
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.2
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
 ```
 
 자세한 내용은 [`func extensions install` 명령](functions-core-tools-reference.md#func-extensions-install)을 참조하세요.

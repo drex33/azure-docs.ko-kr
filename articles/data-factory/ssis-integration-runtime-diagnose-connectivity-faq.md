@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
-ms.date: 06/21/2021
-ms.openlocfilehash: e1d1b8a876d55698db83b0c7d331f45797c3c1b3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/22/2021
+ms.openlocfilehash: d4e5bfd39cf66733d49e229ccc01342e310775df
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743177"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131849200"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>SSIS Integration Runtime에서 연결 진단 기능 사용
 

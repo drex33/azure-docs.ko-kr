@@ -2,14 +2,14 @@
 author: russellcooks
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 07/9/2021
+ms.date: 11/04/2021
 ms.author: russellcooks
-ms.openlocfilehash: 4791296e2c87e743208aad7253a5f09827fb98fa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d368c8ee998f2f9f8f3eae29e13f7747e95d01a3
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030734"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860895"
 ---
 * VS Code에서 `TERMINAL` 창으로 이동
 * cd 명령을 사용하여 /video-analyzer-iot-edge-python-main/src/cloud-to-device-console-app 디렉터리로 이동

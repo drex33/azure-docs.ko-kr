@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: ce451558d91b164cd6b291edc6eeff05c7b8b749
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e5d83a17edd2cff6c58ee7ac646c2bdf2fe30f5e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032760"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861066"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
 
@@ -32,7 +32,7 @@ ms.locfileid: "131032760"
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## <a name="run-a-device"></a>디바이스 실행
+## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 이 섹션에서는 로컬 환경을 구성하고, Azure IoT Python 디바이스 SDK를 설치하고, 온도 컨트롤러를 만드는 샘플을 실행합니다.
 
 ### <a name="configure-your-environment"></a>환경 구성

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee5d0ac639cbd36215df5545d684909af3acd748
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6dc297736403b6124b27f34462ffaee0bfa4cf4a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563835"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845782"
 ---
 # <a name="connect-to-a-virtual-network-in-internal-mode-using-azure-api-management"></a>Azure API Management를 사용 하 여 내부 모드에서 가상 네트워크에 커넥트 
 Azure Vnet (가상 네트워크)를 사용 하 여 Azure API Management는 여러 VPN 기술을 사용 하 여 인터넷에 액세스할 수 없는 Api를 관리 하 여 연결을 만들 수 있습니다. [외부](./api-management-using-with-vnet.md) 또는 내부 모드를 통해 API Management를 배포할 수 있습니다. VNET 연결 옵션, 요구 사항 및 고려 사항은 [Azure API Management에서 가상 네트워크 사용](virtual-network-concepts.md)을 참조 하세요.
@@ -38,7 +38,7 @@ Azure Vnet (가상 네트워크)를 사용 하 여 Azure API Management는 여�
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 일부 필수 구성 요소는 `stv2` `stv1` API Management 인스턴스에 대 한 [계산 플랫폼](compute-infrastructure.md) 의 버전 (또는)에 따라 달라 집니다. 
 
@@ -152,7 +152,6 @@ VNET에서 API Management 인스턴스를 [만들거나](/powershell/module/az.a
 
 그런 다음 만든 가상 머신에서 모든 서비스 엔드포인트에 액세스할 수 있습니다.
 
-VNET에서 사용자 지정 DNS 서버를 사용하는 경우, DNS 레코드를 생성하고 VNET의 어느 곳에서나 이러한 엔드포인트에 액세스할 수 있습니다.
 
 ### <a name="access-on-custom-domain-names"></a>사용자 지정 도메인 이름에 대한 액세스
 
@@ -178,7 +177,7 @@ VNET에서 사용자 지정 DNS 서버를 사용하는 경우, DNS 레코드를 
 > [!NOTE]
 > API Management 인스턴스의 VIP 주소는 다음과 같은 경우에 변경됩니다.
 > * VNET이 사용하거나 사용하지 않도록 설정됩니다. 
-> * API Management **외부** 가상 네트워크 모드에서 **내부** 가상 네트워크 모드로 또는 그 반대로 이동합니다.
+> * API Management **외부** 가상 네트워크 모드에서 **내부** 가상 네트워크 모드로 또는 그 반대로 이동됩니다.
 > * [영역 중복](zone-redundancy.md) 설정은 인스턴스의 위치에서 활성화, 업데이트 또는 비활성화됩니다(SKU에만 Premium).
 >
 > VNET 내에서 DNS 등록, 라우팅 규칙 및 IP 제한 목록을 업데이트해야 할 수 있습니다.
@@ -191,7 +190,7 @@ DIP 주소는 서비스의 각 기본 가상 머신에 할당되고 VNET *내의
 
 #### <a name="example"></a>예제
 
-내부 VNET의 Premium 계층에 1개의 API Management [용량 단위를](api-management-capacity.md) 배포하는 경우 3개의 IP 주소가 사용됩니다. 프라이빗 VIP의 경우 1개, VM 2개에 대한 DIP에 각각 하나씩 사용됩니다. 4단위로 확장하는 경우 서브넷의 추가 DIP에 더 많은 IP가 소비됩니다.  
+내부 VNET의 Premium 계층에 1개의 API Management [용량 단위를](api-management-capacity.md) 배포하는 경우 3개의 IP 주소가 사용됩니다. 프라이빗 VIP의 경우 1개, VM 2개의 DIP에 각각 하나씩 사용됩니다. 4단위까지 확장하면 서브넷의 추가 DIP에 더 많은 IP가 소비됩니다.  
 
 대상 엔드포인트에 고정된 DIP 집합만 허용 목록에 있는 경우 나중에 새 단위를 추가하면 연결 오류가 발생합니다. 이러한 이유로 서브넷은 전적으로 제어에 있으므로 백 엔드에서 전체 서브넷을 허용 나열하는 것이 좋습니다.
 

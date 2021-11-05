@@ -1,19 +1,19 @@
 ---
-title: Linux에서 가상 TPM을 사용 하 여 장치 프로 비전-Azure IoT Edge
+title: Linux에서 가상 TPM을 사용 하 여 장치 만들기 및 프로 비전-Azure IoT Edge
 description: Linux 장치에서 시뮬레이션 된 TPM을 사용 하 여 Azure IoT에 지에 대 한 Azure IoT 허브 장치 프로 비전 서비스를 테스트 합니다.
-author: v-tcassi
-manager: philmea
-ms.author: v-tcassi
-ms.date: 07/09/2021
+author: kgremban
+manager: lizross
+ms.author: kgremban
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d4f2bcb6e8f86a45d22e4a3a16555fefe8f81
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b353f683a64444a0ad89f062d0b826484260681f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246627"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852050"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전
 
@@ -47,26 +47,20 @@ ms.locfileid: "130246627"
 
 ---
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
+
+<!-- Cloud resources prerequisites H3 and content -->
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+
+### <a name="iot-edge-installation"></a>IoT Edge 설치
 
 # <a name="physical-device"></a>[물리적 디바이스](#tab/physical-device)
 
-* 활성 IoT 허브
-* Azure에서 IoT Hub에 연결 된 IoT Hub 장치 프로 비전 서비스의 인스턴스입니다.
-  * 장치 프로 비전 서비스 인스턴스가 없는 경우 IoT Hub 장치 프로 비전 서비스 빠른 시작의 두 섹션에 있는 지침을 따르세요.
-     - [새 IoT Hub 장치 프로 비전 서비스 만들기](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service)
-     - [IoT hub 및 장치 프로 비전 서비스 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service)
-  * 장치 프로 비전 서비스를 실행 한 후 개요 페이지에서 **ID 범위** 값을 복사 합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
+IoT Edge 장치로 사용할 물리적 Linux 장치입니다.
 
 # <a name="virtual-machine"></a>[가상 머신](#tab/virtual-machine)
 
-* 활성 IoT 허브
-* Azure에서 IoT Hub에 연결 된 IoT Hub 장치 프로 비전 서비스의 인스턴스입니다.
-  * 장치 프로 비전 서비스 인스턴스가 없는 경우 IoT Hub device 프로 비전 서비스 빠른 시작의 두 섹션에 설명 된 지침을 따르세요.
-    - [새 IoT Hub 장치 프로 비전 서비스 만들기](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service)
-    - [IoT hub 및 장치 프로 비전 서비스 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service)
-  * 장치 프로 비전 서비스를 실행 한 후 개요 페이지에서 **ID 범위** 값을 복사 합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
-* [Hyper-V를 사용하도록 설정된](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
+[Hyper-V를 사용하도록 설정된](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
 
 ---
 
@@ -174,164 +168,13 @@ VM을 시작 하 여 설치 프로세스를 완료 합니다.
 
 등록 ID 및 인증 키를 입력 한 후에는 계속할 준비가 된 것입니다.
 
-## <a name="create-a-device-provisioning-service-enrollment"></a>장치 프로 비전 서비스 등록 만들기
+<!-- Create an enrollment for your device using TPM provisioning information H2 and content -->
+[!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
 
-TPM에서 프로 비전 정보를 검색 하 고 해당 정보를 사용 하 여 장치 프로 비전 서비스에 개별 등록을 만듭니다.
+<!-- Install IoT Edge on Linux H2 and content -->
+[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
 
-장치 프로 비전 서비스에서 등록을 만들 때 **초기 장치 쌍 상태** 를 선언할 수 있습니다. 장치 쌍에서 지역, 환경, 위치 또는 장치 유형 등 솔루션에 사용 된 메트릭으로 장치를 그룹화 하도록 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
-
-> [!TIP]
-> 이 문서의 단계는 Azure Portal에 대 한 것 이지만 Azure CLI를 사용 하 여 개별 등록를 만들 수도 있습니다. 자세한 내용은 [az iot dps enrollment](/cli/azure/iot/dps/enrollment)를 참조하세요. CLI 명령의 일부로 **에지 사용** 플래그를 사용하여 IoT Edge 장치에 대한 등록을 지정합니다.
-
-1. [Azure Portal](https://portal.azure.com)에서 IoT Hub device 프로 비전 서비스 인스턴스로 이동 합니다.
-
-1. **설정** 에서 **등록 관리** 를 선택합니다.
-
-1. **개별 등록 추가** 를 선택 하 고 다음 단계를 완료 하 여 등록을 구성 합니다.
-
-   1. **메커니즘** 의 경우 **TPM** 을 선택합니다.
-
-   1. VM 또는 물리적 장치에서 복사한 **인증 키** 와 **등록 ID** 를 제공 합니다.
-
-   1. 원하는 경우 장치에 대 한 ID를 제공 합니다. 디바이스 ID를 제공하지 않으면 등록 ID가 사용됩니다.
-
-   1. VM 또는 물리적 장치가 IoT Edge 장치 임을 선언 하려면 **True** 를 선택 합니다.
-
-   1. 장치를 연결 하려는 연결 된 IoT hub를 선택 하거나 **새 IoT Hub에 연결** 을 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 허브 중 하나에 디바이스가 할당됩니다.
-
-   1. 원하는 경우 **초기 장치 쌍 상태** 에 태그 값을 추가 합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 자세한 내용은 [대규모로 IoT Edge 모듈 배포](how-to-deploy-at-scale.md)를 참조하세요.
-
-   1. **저장** 을 선택합니다.
-
-이제 이 디바이스에 대한 등록이 있으므로 IoT Edge 런타임은 설치 중에 디바이스를 자동으로 프로비저닝할 수 있습니다.
-
-## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
-
-이 섹션에서는 IoT Edge에 대 한 Linux VM 또는 물리적 장치를 준비 합니다. 그런 다음 IoT Edge를 설치 합니다.
-
-IoT Edge 런타임을 설치할 준비가 되기 전에 장치에서 두 단계를 완료 해야 합니다. 장치에서 Microsoft 설치 패키지에 액세스할 수 있어야 하 고 컨테이너 엔진이 설치 되어 있어야 합니다.
-
-### <a name="access-the-microsoft-installation-packages"></a>Microsoft 설치 패키지 액세스
-
-장치에 Microsoft 설치 패키지에 대 한 액세스 권한이 있어야 합니다.
-
-1. 장치의 운영 체제와 일치 하는 리포지토리 구성을 설치 합니다.
-
-   * **Ubuntu Server 18.04**:
-
-      ```bash
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-      ```
-
-   * **Raspberry Pi OS Stretch**:
-
-      ```bash
-      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-      ```
-
-1. 생성된 목록을 sources.list.d 디렉터리에 복사합니다.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-1. Microsoft GPG 공개 키를 설치합니다.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trust.gpg.d/
-   ```
-
-> [!NOTE]
-> Azure IoT Edge 소프트웨어 패키지에는 각 패키지(`usr/share/doc/{package-name}` 또는 `LICENSE` 디렉터리)에 있는 사용 조건이 적용됩니다. 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치하고 사용하면 이러한 사용 조건에 동의하는 것입니다. 사용 조건에 동의 하지 않는 경우 해당 패키지를 사용 하지 마세요.
-
-### <a name="install-a-container-engine"></a>컨테이너 엔진 설치
-
-IoT Edge은 OCI 호환 컨테이너 런타임에 의존 합니다. 프로덕션 시나리오의 경우 Moby 엔진을 사용 하는 것이 좋습니다. Moby 엔진은 IoT Edge에서 공식적으로 지원 되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
-
-1. 디바이스에서 패키지 목록을 업데이트합니다.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-1. Moby 엔진을 설치합니다.
-
-   ```bash
-   sudo apt-get install moby-engine
-   ```
-
-   > [!TIP]
-   > Moby 컨테이너 엔진을 설치할 때 오류가 발생 하는 경우에는 Linux 커널을 Moby 호환성을 확인 하세요. 일부 포함된 디바이스의 제조업체는 컨테이너 엔진 호환성에 필요한 기능이 없는 사용자 지정 Linux 커널을 포함하는 디바이스 이미지를 제공합니다. Moby에서 제공한 [check-config 스크립트](https://github.com/moby/moby/blob/master/contrib/check-config.sh)를 사용하는 다음 명령을 실행하여 커널 구성을 확인합니다.
-   >
-   >   ```bash
-   >   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
-   >   chmod +x check-config.sh
-   >   ./check-config.sh
-   >   ```
-   >
-   > 스크립트의 출력에서 `Generally Necessary` 및 `Network Drivers` 아래의 모든 항목을 사용할 수 있는지 확인합니다. 누락 된 기능을 사용 하는 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 사용 하도록 설정 합니다. 마찬가지로 또는와 같은 커널 구성 생성기를 사용 하는 `defconfig` 경우 `menuconfig` 해당 기능을 찾아서 사용 하도록 설정 하 고 그에 따라 커널을 다시 빌드합니다. 새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 필요한 모든 기능이 성공적으로 설정 되었는지 확인 합니다.
-
-### <a name="install-iot-edge"></a>IoT Edge 설치
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다.
-
-이 섹션의 단계는 인터넷에 연결 된 장치에 최신 버전을 설치 하는 일반적인 프로세스를 나타냅니다. 시험판 버전과 같은 특정 버전을 설치 해야 하거나 오프 라인 상태에서 설치 해야 하는 경우 오프 라인 또는 특정 버전의 설치 단계를 따르세요.
-
-1. 디바이스에서 패키지 목록을 업데이트합니다.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-1. **Libiothsm** 패키지와 함께 IoT Edge 버전 1.1 *을 설치 합니다.
-
-   ```bash
-   sudo apt-get install iotedge
-   ```
-
-   > [!NOTE]
-   > * IoT Edge 버전 1.1은 IoT Edge의 장기 지원 분기입니다. 이전 버전을 실행 하는 경우 최신 패치를 설치 하거나 업데이트 하는 것이 좋습니다. 이전 버전은 더 이상 지원 되지 않기 때문입니다.
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-IoT Edge 서비스는 IoT Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 서비스는 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다.
-
-IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서비스는 IoT Edge 및 IoT Hub와 통신 해야 하는 기타 장치 구성 요소에 대 한 id 프로 비전 및 관리를 처리 합니다.
-
-이 섹션의 단계는 인터넷에 연결된 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 보여 줍니다. 시험판 버전과 같은 특정 버전을 설치 해야 하거나 오프 라인 상태에서 설치 해야 하는 경우 오프 라인 또는 특정 버전의 설치 단계를 따르세요.
-
-디바이스에서 패키지 목록을 업데이트합니다.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-사용할 수 있는 IoT Edge 및 IoT ID 서비스 버전을 확인합니다.
-
-   ```bash
-   apt list -a aziot-edge aziot-identity-service
-   ```
-
-최신 버전의 IoT Edge 및 IoT id 서비스 패키지를 설치하려면 다음 명령을 사용합니다.
-
-   ```bash
-   sudo apt-get install aziot-edge
-   ```
-
-또는 최신 버전이 아닌 다른 IoT Edge 버전을 설치하도록 선택한 경우 `aziot-edge` 및 `aziot-identity-service` 서비스 모두에 동일한 버전을 설치해야 합니다.
-
-:::moniker-end
-<!-- end 1.2 -->
-
-## <a name="configure-the-device-with-provisioning-information"></a>프로비저닝 정보를 사용하여 디바이스 구성
+## <a name="provision-the-device-with-its-cloud-identity"></a>클라우드 ID를 사용한 디바이스 프로비전
 
 장치에 런타임을 설치한 후 장치 프로 비전 서비스에 연결 하 고 IoT Hub 하는 데 사용 하는 정보를 사용 하 여 장치를 구성 합니다.
 
@@ -355,10 +198,10 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "<SCOPE_ID>"
+     scope_id: "SCOPE_ID_HERE"
      attestation:
        method: "tpm"
-       registration_id: "<REGISTRATION_ID>"
+       registration_id: "REGISTRATION_ID_HERE"
    # always_reprovision_on_startup: true
    # dynamic_reprovisioning: false
    ```
@@ -396,16 +239,16 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
    [provisioning]
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "<SCOPE_ID>"
+   id_scope = "SCOPE_ID_HERE"
    
    [provisioning.attestation]
    method = "tpm"
-   registration_id = "<REGISTRATION_ID>"
+   registration_id = "REGISTRATION_ID_HERE"
    ```
 
 1. 및의 값을 `id_scope` `registration_id` 장치 프로 비전 서비스 및 장치 정보로 업데이트 합니다. `scope_id`값은 장치 프로 비전 서비스 인스턴스의 개요 페이지에서 **ID 범위** 입니다.
 
-1. 필요에 따라 파일의 autoreprovisioning mode 섹션을 찾습니다. `auto_reprovisioning_mode` 매개 변수를 사용하여 디바이스의 다시 프로비저닝 동작을 `Dynamic`, `AlwaysOnStartup` 또는 `OnErrorOnly`로 구성합니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
+1. 필요에 따라 파일의 auto 다시 프로 비전 mode 섹션을 찾습니다. `auto_reprovisioning_mode` 매개 변수를 사용하여 디바이스의 다시 프로비저닝 동작을 `Dynamic`, `AlwaysOnStartup` 또는 `OnErrorOnly`로 구성합니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
 
 1. 파일을 저장하고 닫습니다.
 
@@ -532,7 +375,7 @@ IoT Edge 런타임은 장치의 TPM에 대 한 액세스를 브로커 하는 TPM
 :::moniker-end
 <!-- end 1.2 -->
 
-## <a name="restart-iot-edge-and-verify-successful-installation"></a>IoT Edge 다시 시작 및 설치 확인
+## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

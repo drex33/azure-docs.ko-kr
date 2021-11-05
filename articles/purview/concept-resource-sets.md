@@ -7,16 +7,17 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: d1d15fb4ff3bc2d820311b4f847c21236d83b6f3
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 4e15f2813a0aea04f63cc11b3273c4a91d44afb2
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708773"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845877"
 ---
 # <a name="understanding-resource-sets"></a>리소스 집합 이해
 
 이 문서는 Azure Purview에서 리소스 집합을 사용하여 데이터 자산을 논리적 리소스에 매핑하는 방법을 이해하는 데 도움이 됩니다.
+
 ## <a name="background-info"></a>배경 정보
 
 대규모 데이터 처리 시스템은 일반적으로 스토리지에 단일 테이블을 여러 파일로 저장합니다. Azure Purview 데이터 카탈로그에서 이 개념은 리소스 집합을 사용하여 표현됩니다. 리소스 집합은 스토리지의 많은 자산을 나타내는 카탈로그의 단일 개체입니다.
@@ -45,11 +46,11 @@ Purview는 Word, Excel 또는 PDF와 같은 대부분의 문서 파일 형식을
 
 ## <a name="how-azure-purview-scans-resource-sets"></a>Azure Purview에서 리소스 집합을 검사하는 방법
 
-Azure Purview가 리소스 집합의 일부로 간주되는 리소스를 검색하면 전체 검사에서 샘플 검사로 전환됩니다. 샘플 검색은 리소스 집합에 있다고 생각되는 파일의 하위 집합만 엽니다. 열리는 각 파일에 대해 해당 스키마를 사용하고 분류자를 실행합니다. 그런 다음, Azure Purview는 열려 있는 리소스에서 최신 리소스를 찾고 카탈로그에 있는 전체 리소스 집합에 대한 항목에서 해당 리소스의 스키마와 분류를 사용합니다.
+Azure Purview가 리소스 집합의 일부로 간주되는 리소스를 검색하면 전체 검사에서 샘플 검사로 전환됩니다. 샘플 검색은 리소스 집합에 있다고 생각되는 파일의 하위 집합만 엽니다. 열리는 각 파일에 대해 해당 스키마를 사용하고 해당 분류자를 실행합니다. 그런 다음, Azure Purview는 열려 있는 리소스에서 최신 리소스를 찾고 카탈로그에 있는 전체 리소스 집합에 대한 항목에서 해당 리소스의 스키마와 분류를 사용합니다.
 
 ## <a name="advanced-resource-sets"></a>고급 리소스 집합
 
-기본적으로 Azure Purview는 리소스 집합 파일 샘플링 규칙에 따라 [리소스 집합에](sources-and-scans.md#resource-set-file-sampling)대한 스키마 및 분류를 결정합니다. Azure Purview는 **고급** 리소스 집합 기능을 통해 리소스 집합 자산을 사용자 지정하고 추가로 보강할 수 있습니다. 고급 리소스 집합을 사용하도록 설정하면 Azure Purview는 추가 집계를 실행하여 리소스 집합 자산에 대한 다음 정보를 컴퓨팅합니다.
+기본적으로 Azure Purview는 리소스 집합 파일 샘플링 규칙에 따라 [리소스](sources-and-scans.md#resource-set-file-sampling)집합에 대한 스키마 및 분류를 결정합니다. Azure Purview는 **고급** 리소스 집합 기능을 통해 리소스 집합 자산을 사용자 지정하고 추가로 보강할 수 있습니다. 고급 리소스 집합을 사용하도록 설정하면 Azure Purview는 추가 집계를 실행하여 리소스 집합 자산에 대한 다음 정보를 컴퓨팅합니다.
 
 - 변경 메타데이터에서 스키마 드리프트를 정확하게 반영하기 위한 최신 스키마 및 분류입니다.
 - 리소스 집합을 구성하는 파일의 샘플 경로입니다.
@@ -66,10 +67,7 @@ Azure Purview가 리소스 집합의 일부로 간주되는 리소스를 검색�
 
 ### <a name="turning-on-advanced-resource-sets"></a>고급 리소스 집합 켜기
 
-모든 새 Azure Purview 인스턴스에서는 고급 리소스 집합이 기본적으로 꺼져 있습니다. 고급 리소스 집합은 관리 허브의 **계정 정보에서** 사용하도록 설정할 수 있습니다.
-
-> [!NOTE]
-> 2021년 8월 19일 이전에 만든 모든 Purview 인스턴스에는 기본적으로 고급 리소스 집합이 설정되어 있습니다.
+고급 리소스 집합은 모든 새 Azure Purview 인스턴스에서 기본적으로 해제되어 있습니다. 고급 리소스 집합은 관리 허브의 **계정 정보에서** 사용하도록 설정할 수 있습니다.
 
 :::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="고급 리소스 집합을 켭니다." border="true":::
 
@@ -130,6 +128,7 @@ Azure Purview는 자산 그룹을 리소스 집합으로 일치시킬 때 카탈
 - 자산을 리소스 집합이 아닌 것으로 잘못 표시
 
 Azure Purview에서 리소스 집합으로 그룹화된 자산을 검색하는 방법과 카탈로그 내에 표시되는 방법을 사용자 지정하거나 재정의하려면 관리 센터에서 패턴 규칙을 정의할 수 있습니다. 단계별 지침 및 구문은 [리소스 집합 패턴 규칙](how-to-resource-set-pattern-rules.md)을 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Purview를 시작하려면 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.

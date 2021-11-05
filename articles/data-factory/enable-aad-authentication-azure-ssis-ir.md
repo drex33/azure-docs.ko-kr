@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 09/27/2021
-ms.openlocfilehash: f887d3370364f899a1e7afd527c9a146b20bd637
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/22/2021
+ms.openlocfilehash: c800193e027821df00167930d06d9c13ad8cb67d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081418"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843657"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 사용
 

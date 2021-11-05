@@ -1,6 +1,6 @@
 ---
 title: PowerShell에서 SSIS 패키지 실행 작업 사용
-description: 이 문서에서는 ssis 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 PowerShell과 함께 ssis (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다.
+description: 이 문서에서는 SSIS 패키지 실행 작업을 사용하여 Azure Data Factory 파이프라인에서 PowerShell을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법을 설명합니다.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/01/2021
-ms.openlocfilehash: 8ef01b0e07e208e32fcbebe1b29aa0b86f2ee41d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/22/2021
+ms.openlocfilehash: ab67509d2b9c9eda90268c19bce081d1bb11e942
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373014"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843464"
 ---
-# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory-with-powershell"></a>PowerShell을 사용 하 여 Azure Data Factory에서 SSIS 패키지 실행 작업을 사용 하 여 SSIS 패키지를 실행 합니다.
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory-with-powershell"></a>PowerShell을 Azure Data Factory SSIS 패키지 실행 작업으로 SSIS 패키지 실행
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 문서에서는 PowerShell 및 ssis 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 ssis (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다.
+이 문서에서는 PowerShell 및 SSIS 패키지 실행 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -417,5 +417,5 @@ Azure Portal을 사용하여 파이프라인을 모니터링할 수도 있습니
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Factory Studio 포털에서 SSIS 패키지 실행 작업을 사용 하 여 SSIS 패키지를 실행 합니다.](how-to-invoke-ssis-package-ssis-activity.md)
+- [Azure Data Factory Studio 포털에서 SSIS 패키지 실행 작업으로 SSIS 패키지 실행](how-to-invoke-ssis-package-ssis-activity.md)
 - [Azure Data Factory 파이프라인에서 SSIS 작업을 사용하여 ETL/ELT 워크플로 현대화 및 확장](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

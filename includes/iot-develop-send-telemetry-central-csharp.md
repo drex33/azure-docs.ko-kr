@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/08/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: ab1618125ba42545702571629e7242871ecec4f7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1a61f369d0987caac2cc821e37c1e5e1ed7cda40
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032778"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861246"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples)
 
@@ -37,7 +37,7 @@ ms.locfileid: "131032778"
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## <a name="run-a-device"></a>디바이스 실행
+## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 이 섹션에서는 로컬 환경을 구성하고, Azure IoT C# 샘플을 설치하고, 온도 컨트롤러를 만드는 샘플을 실행합니다.
 
 ### <a name="configure-your-environment"></a>환경 구성

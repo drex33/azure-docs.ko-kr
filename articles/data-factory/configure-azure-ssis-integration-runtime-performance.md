@@ -1,18 +1,18 @@
 ---
 title: Azure-SSIS Integration Runtime에 대한 성능 구성
 description: 고성능을 위해 Azure-SSIS Integration Runtime의 속성을 구성하는 방법을 알아봅니다.
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 907b946dec3112d152212d26a1d3dffca41150fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e73ed20a998e58b3b396d7f420561ab9edec97eb
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828388"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845421"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 

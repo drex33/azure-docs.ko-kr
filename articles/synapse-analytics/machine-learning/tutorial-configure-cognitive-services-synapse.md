@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 04d9b7ab0255212ed1b753d0bf6f31abfe1db03d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d72db64026ff3d4d4cee759b34047662248737a6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131018953"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845136"
 ---
 # <a name="quickstart-configure-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics의 Cognitive Services를 사용하기 위한 필수 구성 요소 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "131018953"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Azure Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 
@@ -75,7 +75,7 @@ Azure Portal에서 [Speech](https://ms.portal.azure.com/#create/Microsoft.Cognit
 ## <a name="create-a-key-vault-and-configure-secrets-and-access"></a>키 자격 증명 모음 만들기 및 비밀과 액세스 구성
 
 1. Azure Portal에서 [키 자격 증명 모음](https://ms.portal.azure.com/#create/Microsoft.KeyVault)을 만듭니다.
-2. **Key Vault** > **액세스 정책** 으로 이동하여 Azure Key Vault에서 비밀을 읽을 수 있도록 [Azure Synapse 작업 영역 MSI](../security/synapse-workspace-managed-identity.md) 권한을 부여합니다.
+2. **Key Vault** > **액세스 정책** 으로 이동하여 Azure Key Vault에서 비밀을 읽을 수 있도록 [Azure Synapse 작업 영역 MSI](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) 권한을 부여합니다.
 
    > [!NOTE]
    > 정책 변경 내용을 저장했는지 확인합니다. 이 단계는 놓치기 쉽습니다.

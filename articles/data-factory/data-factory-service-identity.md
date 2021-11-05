@@ -6,15 +6,15 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 10/22/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: b775c3873e28fbd6f59b8686800ccf733fb34ae6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 8e1eaad6d25623c9cb1697137fdb69340cb6aeca
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457908"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846126"
 ---
 # <a name="managed-identity-for-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse에 대 한 관리 id 
 

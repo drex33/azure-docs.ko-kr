@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/14/2021
 ms.author: joarroyo
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: b116c7481dcbbdf05bf7aba476feeef853c0c87f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 398117120e560db00be97a344feed09351a26258
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993666"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050340"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa-using-auth-code-flow"></a>자습서: 인증 코드 흐름을 사용하여 Angular SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -265,7 +265,7 @@ ng generate component profile                       # To add a profile page
 
 팝업 창이나 전체 프레임 리디렉션을 사용하여 로그인을 호출하려면 다음 섹션에서 코드를 추가합니다. 
 
-### <a name="sign-in-using-popups"></a>팝업을 사용하여 로그인
+### <a name="sign-in-using-pop-ups"></a>팝업을 사용하여 로그인
 
 1. *src/app/app.component.ts* 에서 코드를 다음으로 변경하여 팝업 창을 사용해 사용자를 로그인합니다.
 
@@ -930,7 +930,7 @@ export class AppComponent implements OnInit, OnDestroy {
 }
 ```
 
-### <a name="sign-out-using-popups"></a>팝업을 사용하여 로그아웃
+### <a name="sign-out-using-pop-ups"></a>팝업을 사용하여 로그아웃
 
 *src/app/app.component.ts* 에서 코드를 업데이트하여 팝업을 사용해 사용자를 로그아웃합니다.
 

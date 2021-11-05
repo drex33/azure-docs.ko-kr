@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 6/4/2021
+ms.date: 10/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: cf7821b8227b21efb063850b02222f2675a245b7
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 04dffd4dcebee3cee9023cf445fda6e3fd05b008
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539127"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050682"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
 
@@ -35,19 +35,49 @@ ms.locfileid: "122539127"
 
 ## <a name="upcoming-changes"></a>예정된 변경
 
-### <a name="the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt"></a>이제 디바이스 코드 흐름 UX에 앱 확인 프롬프트가 포함됩니다.
+인식해야 하는 예정된 변경이 없습니다. 
 
-**적용 날짜**: 2021년 6월.
+## <a name="october-2021"></a>2021년 10월
+
+### <a name="error-50105-has-been-fixed-to-not-return-interaction_required-during-interactive-authentication"></a>대화형 인증 중에 `interaction_required`를 반환하지 않는 오류 50105가 수정되었습니다.
+
+**적용 날짜**: 2021년 10월
 
 **영향을 받는 엔드포인트**: v2.0 및 v1.0
 
-**영향을 받는 프로토콜**: [디바이스 코드 흐름](v2-oauth2-device-code.md)
+**영향을 받은 프로토콜**: [사용자 할당이 필요한](../manage-apps/what-is-access-management.md#requiring-user-assignment-for-an-app) 앱의 모든 사용자 흐름
 
-보안을 개선하기 위해 디바이스 코드 흐름은 사용자가 예상하는 앱에 로그인하고 있는지 확인하는 프롬프트를 추가하도록 업데이트되었습니다. 이는 피싱 공격을 방지하기 위해 추가되었습니다.
+**변경**
 
-표시되는 프롬프트는 다음과 같습니다.
+오류 50105(현재 할당)는 할당되지 않은 사용자가 관리자가 사용자 할당이 필요한 것으로 표시한 앱에 로그인을 시도할 때 발생합니다.  이것은 일반적인 액세스 제어 패턴이며 사용자는 종종 액세스 차단을 해제하기 위해 할당을 요청하는 관리자를 찾아야 합니다.  오류에는 `interaction_required` 오류 응답을 올바르게 처리하는 잘 코딩된 애플리케이션에서 무한 루프를 일으키는 버그가 있었습니다. `interaction_required`는 앱에 대화형 인증을 수행하도록 지시하지만 그렇게 한 후에도 Azure AD는 여전히 `interaction_required` 오류 응답을 반환합니다.  
 
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="'Azure CLI에 로그인하려고 하나요?'라는 새 프롬프트":::
+오류 시나리오가 업데이트되어 비대화형 인증(여기서 `prompt=none`은 UX를 숨기는 데 사용됨) 동안 `interaction_required` 오류 응답을 사용하여 대화형 인증을 수행하도록 앱에 지시합니다. 후속 대화형 인증에서 Azure AD는 이제 사용자를 유지하고 오류 메시지를 직접 표시하여 루프가 발생하지 않도록 합니다. 
+
+참고로 Azure AD는 `AADSTS50105`에 대한 문자열 확인과 같은 개별 오류 코드를 감지하는 애플리케이션을 지원하지 않습니다. 대신 [Azure AD 지침](reference-aadsts-error-codes.md#handling-error-codes-in-your-application)은 표준을 따르고 `interaction_required` 및 `login_required`와 같은 [표준화된 인증 응답](https://openid.net/specs/openid-connect-core-1_0.html#AuthError)을 사용합니다. 이는 응답의 표준 `error` 필드에서 찾을 수 있습니다. 다른 필드는 문제 해결 중에 사람이 사용할 수 있는 필드입니다. 
+
+오류 조회 서비스에서 50105 오류의 현재 텍스트와 자세한 내용을 검토할 수 있습니다. https://login.microsoftonline.com/error?code=50105 
+
+### <a name="appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains"></a>단일 테넌트 애플리케이션의 AppId URI는 기본 체계 또는 확인된 도메인을 사용해야 합니다.
+
+**적용 날짜**: 2021년 10월
+
+**영향을 받는 엔드포인트**: v2.0 및 v1.0
+
+**영향을 받는 프로토콜**: 모든 흐름
+
+**변경**
+
+단일 테넌트 애플리케이션의 경우 AppId URI(identifierUris) 추가/업데이트 요청은 URI 값의 도메인이 고객 테넌트의 확인된 도메인 목록의 일부인지 또는 값이 Azure Active Directory에서 제공한 기본 체계(`api://{appId}`)를 사용하는지 확인합니다.
+이렇게 하면 도메인이 확인된 도메인 목록에 없거나 값이 기본 체계를 사용하지 않는 경우 애플리케이션에서 AppId URI를 추가하지 못할 수 있습니다.
+확인된 도메인에 대한 자세한 내용은 [사용자 지정 도메인 문서](../../active-directory/fundamentals/add-custom-domain.md)를 참조하세요.
+
+변경 사항은 AppID URI에서 확인되지 않은 도메인을 사용하는 기존 애플리케이션에 영향을 미치지 않습니다. 새 애플리케이션만 유효성을 검사하거나 기존 애플리케이션이 식별자 URI를 업데이트하거나 identifierUri 컬렉션에 새 URI를 추가하는 경우 유효성을 검사합니다. 새 제한 사항은 2021년 10월 15일 이후에 앱의 identifierUris 컬렉션에 추가된 URI에만 적용됩니다. 2021년 10월 15일에 제한 사항이 적용되는 경우 애플리케이션의 identifierUris 컬렉션에 이미 있는 AppId URI는 해당 컬렉션에 새 URI를 추가하더라도 계속 작동합니다.
+
+요청이 유효성 검사에 실패하면 만들기/업데이트에 대한 애플리케이션 API는 HostNameNotOnVerifiedDomain을 나타내는 `400 badrequest`를 클라이언트에 반환합니다.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
+
+## <a name="august-2021"></a>2021년 8월
 
 ### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>조건부 액세스는 명시적으로 요청된 범위에 대해서만 트리거됩니다.
 
@@ -73,6 +103,23 @@ ms.locfileid: "122539127"
 
 앱이 세 가지 범위(예: `scope=tasks.read`) 중 하나에 대해 마지막 요청을 한 경우 Azure AD는 사용자가 `files.readwrite`에 필요한 조건부 액세스 정책을 이미 완료했음을 확인하고 세 가지 권한 모두에 대해 토큰을 다시 발급합니다. 
 
+
+## <a name="june-2021"></a>2021년 6월
+
+### <a name="the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt"></a>이제 디바이스 코드 흐름 UX에 앱 확인 프롬프트가 포함됩니다.
+
+**적용 날짜**: 2021년 6월.
+
+**영향을 받는 엔드포인트**: v2.0 및 v1.0
+
+**영향을 받는 프로토콜**: [디바이스 코드 흐름](v2-oauth2-device-code.md)
+
+보안을 개선하기 위해 디바이스 코드 흐름은 사용자가 예상하는 앱에 로그인하고 있는지 확인하는 프롬프트를 추가하도록 업데이트되었습니다. 이는 피싱 공격을 방지하기 위해 추가되었습니다.
+
+표시되는 프롬프트는 다음과 같습니다.
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="'Azure CLI에 로그인하려고 하나요?'라는 새 프롬프트":::
+
 ## <a name="may-2020"></a>2020년 5월
 
 ### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>버그 수정: Azure AD는 더 이상 상태 매개 변수를 두 번 인코딩하지 않습니다.
@@ -83,7 +130,7 @@ ms.locfileid: "122539127"
 
 **영향을 받는 프로토콜**: `/authorize` 엔드포인트를 방문하는 모든 흐름(암시적 흐름 및 인증 코드 흐름)
 
-Azure AD 권한 부여 응답에서 버그가 발견되어 수정되었습니다. `/authorize`인증 기간 동안 요청의 `state` 매개 변수가 응답에 포함되어 앱 상태를 보존하고 CSRF 공격을 방지합니다. Azure AD가 `state` 매개 변수를 응답에 삽입하기 전에 URL을 잘못 인코딩하여 다시 한 번 인코딩했습니다.  이로 인해 애플리케이션이 Azure AD의 응답을 잘못 거부하게 됩니다. 
+Azure AD 권한 부여 응답에서 버그가 발견되어 수정되었습니다. `/authorize`인증 기간 동안 요청의 `state` 매개 변수가 응답에 포함되어 앱 상태를 보존하고 CSRF 공격을 방지합니다. Azure AD가 `state` 매개 변수를 응답에 삽입하기 전에 URL을 잘못 인코딩하여 다시 한 번 인코딩했습니다.  이로 인해 애플리케이션이 Azure AD의 응답을 잘못 거부하게 됩니다.
 
 Azure AD는 더 이상 이 매개 변수를 두 번 인코딩하지 않으므로 앱이 결과를 올바르게 구문 분석할 수 있습니다. 이 변경은 모든 애플리케이션에 적용됩니다. 
 

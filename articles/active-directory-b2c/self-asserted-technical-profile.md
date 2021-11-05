@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 자체 어설션된 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/10/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 8d3343838216522abfc11ec3f202ae2da1c0e38f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 031b7b1ae4d776ce08a18da5e292d83206c4c3b2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611881"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040155"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -211,7 +211,7 @@ PersistedClaims 요소는 사용되지 않습니다. 자체 어설션된 기술 
 | setting.forgotPasswordLinkLocation <sup>2</sup>| 예| 암호 찾기 링크를 표시합니다. 가능한 값은 레이블 바로 뒤 또는 레이블이 없는 경우 암호 입력 필드 뒤에 링크를 표시하는 `AfterLabel`(기본값), 암호 입력 필드 뒤에 링크를 표시하는 `AfterInput`, 단추 뒤의 양식 하단에 링크를 표시하는 `AfterButtons` 또는 암호 찾기 링크를 제거하는 `None`입니다.|
 | setting.enableRememberMe <sup>2</sup>| 예| [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) 확인란을 표시합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 예| 사용자가 입력을 중지할 때까지 기다린 다음 값의 유효성을 검사하여 사용자 환경을 개선합니다. 기본값은 2,000밀리초입니다. |
-| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md)이 기술 프로필에 포함되는지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용하려면 이를 `true`로 설정합니다. |
+| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 기술 프로필에 [클레임 해결](claim-resolver-overview.md)이 포함되는지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용하려면 이를 `true`로 설정합니다. |
 |forgotPasswordLinkOverride <sup>4</sup>| 예 | 실행할 암호 재설정 클레임 교환입니다. 자세한 내용은 [셀프 서비스 암호 재설정](add-password-reset-policy.md)을 참조하세요. |
 
 참고:

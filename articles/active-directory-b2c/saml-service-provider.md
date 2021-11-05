@@ -3,22 +3,22 @@ title: 애플리케이션에 대한 SAML IdP로 Azure Active Directory B2C 구�
 title-suffix: Azure Active Directory B2C
 description: 애플리케이션(서비스 공급자)에 SAML 프로토콜 어설션을 제공하도록 Azure Active Directory B2C를 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/30/2021
-ms.author: mimart
+ms.date: 10/05/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 52966adfeffc137bf9edd95c61887dbc98f02aa6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: d0bc55f909fe019dedb92d20cce0584ea5d33768
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221513"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012817"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -44,6 +44,10 @@ Azure AD B2C를 고객 ID 및 액세스 관리 솔루션으로 사용하는 조�
 2. 사용자는 Azure AD B2C 로컬 계정 또는 기타 페더레이션 ID 공급자(구성된 경우)를 사용하여 인증할 수 있습니다.
 3. 사용자가 페더레이션 ID 공급자를 사용하여 로그인하면 토큰 응답이 Azure AD B2C로 전송됩니다.
 4. Azure AD B2C는 SAML 어설션을 생성하고 애플리케이션에 보냅니다.
+
+이 동영상을 시청하여 SAML 애플리케이션을 Azure AD B2C와 통합하는 방법을 알아봅니다. 
+
+>[!Video https://www.youtube.com/embed/r2TIVBCm7v4]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -95,7 +99,8 @@ SAML 애플리케이션 및 연결된 메타데이터 엔드포인트가 아직 
 Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 위에서 **전체 서비스** 를 선택한 다음, **Azure AD B2C** 를 검색하여 선택합니다.
 1. **개요** 페이지에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
@@ -174,7 +179,7 @@ SAML 토큰 발급자 기술 프로필의 `IssuerUri` 메타데이터 항목 값
 
 1. 원하는 편집기에서 *SignUpOrSigninSAML.xml* 파일을 엽니다.
 
-1. 정책의 `PolicyId` 및 `PublicPolicyUri` 값을 `_B2C_1A_signup_signin_saml_` 및 `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`로 변경할 수 있습니다.
+1. 정책의 `PolicyId` 및 `PublicPolicyUri` 값을 `B2C_1A_signup_signin_saml` 및 `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`로 변경할 수 있습니다.
 
     ```xml
     <TrustFrameworkPolicy
@@ -292,7 +297,8 @@ Azure AD B2C 정책 메타데이터는 다음 URL에서 사용할 수 있습니�
 Azure AD B2C에서 애플리케이션을 신뢰하려면 Azure AD B2C 애플리케이션 등록을 만듭니다. 이 등록에는 애플리케이션의 메타데이터 엔드포인트와 같은 구성 정보가 포함됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **전체 서비스** 를 선택한 다음 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 예를 들어 **SAMLApp1** 을 입력합니다.
@@ -311,7 +317,10 @@ SAML 앱의 경우 애플리케이션 등록 매니페스트에서 여러 속성
 
 SAML 애플리케이션이 Azure AD B2C에 요청하면 SAML AuthN 요청에 `Issuer` 특성이 포함됩니다. 이 특성의 값은 일반적으로 애플리케이션의 메타데이터 `entityID` 값과 같습니다. Azure AD B2C는 이 값을 사용하여 디렉터리에서 애플리케이션 등록을 조회하고 구성을 읽습니다. 이 조회가 성공하려면 애플리케이션 등록의 `identifierUri`가 `Issuer` 특성과 일치하는 값으로 채워져야 합니다.
 
-등록 매니페스트에서 `identifierURIs` 매개 변수를 찾아 적절한 값을 추가합니다. 이 값은 애플리케이션에서 `EntityId`에 대해 SAML AuthN 요청에 구성된 값 및 애플리케이션의 메타데이터에 있는 `entityID` 값과 동일합니다.
+등록 매니페스트에서 `identifierURIs` 매개 변수를 찾아 적절한 값을 추가합니다. 이 값은 애플리케이션에서 `EntityId`에 대해 SAML AuthN 요청에 구성된 값 및 애플리케이션의 메타데이터에 있는 `entityID` 값과 동일합니다. 또한 `accessTokenAcceptedVersion` 매개 변수를 찾아 값을 `2`로 설정해야 합니다.
+
+> [!IMPORTANT]
+> `accessTokenAcceptedVersion`을 `2`로 업데이트하지 않으면 확인된 도메인이 필요한 오류 메시지가 표시됩니다.
 
 다음 예는 SAML 메타데이터의 `entityID` 값을 보여줍니다.
 
@@ -343,7 +352,7 @@ SAML 테스트 애플리케이션을 예로 사용하면 애플리케이션 매�
 
 Azure AD B2C가 SAML 응답을 보내는 회신 URL을 구성할 수 있습니다. 회신 URL은 애플리케이션 매니페스트에서 구성할 수 있습니다. 이 구성은 애플리케이션에서 공개적으로 액세스 가능한 메타데이터 엔드포인트를 노출하지 않는 경우 유용합니다.
 
-SAML 애플리케이션에 대한 회신 URL은 애플리케이션이 SAML 응답을 수신해야 하는 엔드포인트입니다. 애플리케이션은 이 예제에서 보듯이 일반적으로 `AssertionConsumerServiceUrl` 특성 아래의 메타데이터 문서에서 이 URL을 제공합니다.
+SAML 애플리케이션에 대한 회신 URL은 애플리케이션이 SAML 응답을 수신해야 하는 엔드포인트입니다. 다음 예와 같이 애플리케이션은 일반적으로 메타데이터 문서에서 이 URL을 `AssertionConsumerService` 요소의 `Location` 특성으로 제공합니다.
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -352,7 +361,7 @@ SAML 애플리케이션에 대한 회신 URL은 애플리케이션이 SAML 응�
 </SPSSODescriptor>
 ```
 
-`AssertionConsumerServiceUrl` 특성에 제공된 메타데이터를 재정의하려고 하거나 메타데이터 문서에 URL이 없는 경우 매니페스트의 `replyUrlsWithType` 속성 아래에서 URL을 구성할 수 있습니다. `BindingType` 값은 `HTTP POST`로 설정됩니다.
+애플리케이션의 메타데이터 `AssertionConsumerService` 요소가 누락되었거나 이를 재정의하려는 경우 애플리케이션 등록 매니페스트 `replyUrlsWithType` 속성을 구성합니다. Azure AD B2C는 `replyUrlsWithType`을 사용하여 사용자가 `HTTP-POST` 바인딩 유형을 사용하여 로그인한 후 리디렉션합니다.
 
 SAML 테스트 애플리케이션을 예로 들어 `replyUrlsWithType`의 `url` 속성을 다음 JSON 조각에 표시된 값으로 설정합니다.
 
@@ -367,20 +376,18 @@ SAML 테스트 애플리케이션을 예로 들어 `replyUrlsWithType`의 `url` 
 
 #### <a name="override-or-set-the-logout-url-optional"></a>로그아웃 URL 재정의 또는 설정(선택 사항)
 
-로그아웃 요청 후 Azure AD B2C가 사용자를 보낼 로그아웃 URL을 구성할 수 있습니다. 회신 URL은 애플리케이션 매니페스트에서 구성할 수 있습니다.
-
-`SingleLogoutService` 특성에 제공된 메타데이터를 재정의하려고 하거나 메타데이터 문서에 URL이 없는 경우 매니페스트의 `Logout` 속성 아래에서 이를 구성할 수 있습니다. `BindingType` 값은 `Http-Redirect`로 설정됩니다.
-
-이 애플리케이션은 다음 예에서 보듯이 일반적으로 `AssertionConsumerServiceUrl` 특성 아래의 메타데이터 문서에서 이 URL을 제공합니다.
+로그아웃 URL은 로그아웃 요청 후 사용자를 리디렉션할 위치를 정의합니다. 다음 예와 같이 애플리케이션은 일반적으로 메타데이터 문서에서 이 URL을 `SingleLogoutService` 요소의 `Location` 특성으로 제공합니다.
 
 ```xml
-<IDPSSODescriptor WantAuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://samltestapp2.azurewebsites.net/logout" ResponseLocation="https://samltestapp2.azurewebsites.net/logout" />
 
-</IDPSSODescriptor>
+</SPSSODescriptor>
 ```
 
-SAML 테스트 애플리케이션을 예제로 사용하여 `logoutUrl`을 `https://samltestapp2.azurewebsites.net/logout`으로 설정된 상태로 둡니다.
+애플리케이션의 메타데이터 `SingleLogoutService` 요소가 누락된 경우 애플리케이션 등록 매니페스트 `logoutUrl` 속성을 구성합니다. Azure AD B2C는 `logoutURL`을 사용하여 사용자가 `HTTP-Redirect` 바인딩 유형을 사용하여 로그아웃한 후 리디렉션합니다.
+
+SAML 테스트 애플리케이션을 예로 사용하여 `logoutUrl` 속성을 `https://samltestapp2.azurewebsites.net/logout`로 설정합니다.
 
 ```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

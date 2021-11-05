@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 9653e837350f1149a19eed52283187a356cf9efc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7178d525a1f38083fe732a1e2b7a0183dd16d39e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791121"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058182"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>자습서: Freedcamp와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124791121"
 * 사용자가 해당 Azure AD 계정으로 Freedcamp에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.freedcamp.com/login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 또한 사용자는 고유한 고객 도메인과 관련된 URL 값을 입력할 수 있고, 반드시 `freedcamp.com` 패턴을 사용할 필요는 없으며 애플리케이션 인스턴스에 고유한 고객 도메인 특정 값을 입력할 수도 있습니다. 그뿐 아니라 [Freedcamp 클라이언트 지원 팀](mailto:devops@freedcamp.com)에 URL 패턴에 대한 추가 정보를 문의할 수 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 또한 사용자는 고유한 사용자 지정 도메인과 관련된 URL 값을 입력할 수 있고, 반드시 패턴을 사용할 필요는 없으며 `freedcamp.com`, 애플리케이션 인스턴스에 고유한 사용자 지정 도메인 특정 값을 입력할 수도 있습니다. 또한 [Freedcamp 클라이언트 지원 팀](mailto:devops@freedcamp.com)에 URL 패턴에 대한 추가 정보를 문의할 수 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
 

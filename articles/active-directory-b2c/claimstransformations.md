@@ -1,21 +1,21 @@
 ---
-title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
+title: ClaimsTransformations - Azure Active Directory B2C
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마에 포함된 ClaimsTransformations 요소의 정의에 대해 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1b4aa49d6aecdf06ec445dd036be05805ffb128
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85202962"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007993"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -115,7 +115,7 @@ ms.locfileid: "85202962"
 | ClaimTypeReferenceId | 예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다.
 | TransformationClaimType | 예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
 
-입력 클레임과 출력 클레임의 유형(문자열, 부울 등)이 같은 경우에는 같은 입력 클레임을 출력 클레임으로 사용할 수 있습니다. 이 경우 클레임 변환에서 입력 클레임이 출력값으로 변경됩니다.
+클레임 변환에 사용되는 입력 및 출력 클레임은 고유해야 합니다. 동일한 입력 클레임을 출력 클레임으로 사용할 수 없습니다.
 
 ## <a name="example"></a>예제
 

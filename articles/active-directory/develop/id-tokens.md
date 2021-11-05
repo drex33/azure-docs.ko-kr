@@ -12,16 +12,13 @@ ms.topic: conceptual
 ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
-ms.custom:
-- aaddev
-- identityplatformtop40
-- fasttrack-edit
-ms.openlocfilehash: c1e125127cf4376eb96e267c11e35085a4a27f18
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.openlocfilehash: fb20ed3a3a09c7bef7495d439ad2856f646e8a51
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114458902"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067195"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft ID 플랫폼 ID 토큰
 
@@ -78,10 +75,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |-----|--------|-------------|
 |`aud` |  문자열, 앱 ID GUID | 토큰의 의도한 수신자를 식별합니다. `id_tokens`에서 액세스 토큰에서 대상은 Azure Portal에서 앱에 할당된 앱의 애플리케이션 ID입니다. 이 값의 유효성을 검사해야 합니다. 앱의 애플리케이션 ID와 일치하지 않는 경우 토큰을 거부해야 합니다. |
 |`iss` |  문자열, 발급자 URI | 토큰을 생성하고 반환하는 발급자 또는 “권한 부여 서버”를 식별합니다. 또한 사용자가 인증된 Azure AD 테넌트도 식별합니다. v2.0 엔드포인트에서 토큰을 발급한 경우 URI는 `/v2.0`에서 종료됩니다.  사용자가 Microsoft 계정의 소비자 사용자임을 나타내는 GUID는 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. 앱은 클레임의 GUID 부분을 사용하여 앱에 로그인할 수 있는 테넌트 집합을 제한할 수 있습니다(해당되는 경우). |
-|`iat` |  int, UNIX 타임스탬프 | "발급 시간"은 이 토큰에 대한 인증이 발생한 시간을 나타냅니다.  |
+|`iat` |  int, Unix 타임스탬프 | "발급 시간"은 이 토큰에 대한 인증이 발생한 시간을 나타냅니다.  |
 |`idp`|문자열, 대개 STS URI입니다. | 토큰의 주체를 인증한 ID 공급자를 기록합니다. 이 값은 사용자 계정이 발행자(예: 게스트)와 동일한 테넌트에 속하지 않는 경우 발행자 클레임의 값과 동일합니다. 클레임이 없는 경우 `iss` 값을 대신 사용할 수 있음을 의미합니다.  조직 컨텍스트(예: Azure AD 테넌트에 초대된 개인 계정)에서 사용되는 개인 계정의 경우, `idp` 클레임은 ‘live.com’ 또는 Microsoft 계정 테넌트 `9188040d-6c67-4c5b-b112-36a304b66dad`가 포함된 STS URI일 수 있습니다. |
-|`nbf` |  int, UNIX 타임스탬프 | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다.|
-|`exp` |  int, UNIX 타임스탬프 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다.  특정 상황에서는 리소스가 이 시간 전에 토큰을 거부할 수 있다는 점에 유의해야 합니다. 예를 들어 인증 변경이 필요하거나 토큰 해지가 감지된 경우입니다. |
+|`nbf` |  int, Unix 타임스탬프 | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다.|
+|`exp` |  int, Unix 타임스탬프 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 **않아야** 하는 만료 시간을 식별합니다.  특정 상황에서는 리소스가 이 시간 전에 토큰을 거부할 수 있다는 점에 유의해야 합니다. 예를 들어 인증 변경이 필요하거나 토큰 해지를 탐지한 경우입니다. |
 | `c_hash`| String |코드 해시는 OAuth 2.0 권한 부여 코드와 함께 ID 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 이 코드 해시는 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법을 이해하려면 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken)을 참조하세요. |
 |`at_hash`| String |액세스 토큰 해시는 OAuth 2.0 액세스 토큰을 사용하여 `/authorize` 엔드포인트에서 ID 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법을 이해하려면 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken)을 참조하세요. 이는 `/token` 엔드포인트의 ID 토큰에서 반환되지 않습니다. |
 |`aio` | 불투명 문자열 | Azure AD에서 토큰을 다시 사용하기 위해 데이터를 기록하는 데 사용하는 내부 클레임입니다. 무시됩니다.|

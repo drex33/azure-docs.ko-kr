@@ -3,31 +3,28 @@ title: 리소스 소유자 암호 자격 증명 흐름 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 ROPC(리소스 소유자 암호 자격 증명 흐름)을 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 09/12/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4c4d31d7a1d9e67b1c246de50887d65206a12d57
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 0acca4a87ea72157a11862ec448483008af87526
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284620"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008234"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름 설정
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 자격 증명) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 
 ## <a name="ropc-flow-notes"></a>ROPC 흐름 노트
 
@@ -57,19 +54,25 @@ ROPC 흐름을 사용하는 경우 다음 사항을 고려하세요.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>리소스 소유자 사용자 흐름 만들기
 
-1. Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인합니다.
-2. Azure AD B2C 테넌트로 전환하려면 포털의 오른쪽 위 모서리에서 B2C 디렉터리를 선택합니다.
-3. **사용자 흐름** 을 선택하고 **새 사용자 흐름** 을 선택합니다.
-4. **ROPC(리소스 소유자 암호 자격 증명)를 사용하여 로그인** 을 선택합니다.
-5. **버전** 에서 **미리 보기** 가 선택되어 있는지 확인한 다음 **만들기** 를 선택합니다.
-7. *ROPC_Auth* 와 같은 사용자 흐름에 사용할 이름을 입력합니다.
-8. **애플리케이션 클레임** 에서 **자세히 표시** 를 클릭합니다.
-9. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
-10. **확인** 을 선택하고 **만들기** 를 선택합니다.
+1. Azure AD B2C 테넌트의 **전역 관리자** 로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다.
+    1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+    1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. **사용자 흐름** 을 선택하고 **새 사용자 흐름** 을 선택합니다.
+1. **ROPC(리소스 소유자 암호 자격 증명)를 사용하여 로그인** 을 선택합니다.
+1. **버전** 에서 **미리 보기** 가 선택되어 있는지 확인한 다음 **만들기** 를 선택합니다.
+1. *ROPC_Auth* 와 같은 사용자 흐름에 사용할 이름을 입력합니다.
+1. **애플리케이션 클레임** 에서 **자세히 표시** 를 클릭합니다.
+1. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
+1. **확인** 을 선택하고 **만들기** 를 선택합니다.
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="pre-requisite"></a>필수 구성 요소 
+아직 수행하지 않은 경우 [Active Directory B2C 사용자 지정 정책 시작](tutorial-create-user-flows.md)에서 사용자 지정 정책 시작 팩에 대해 알아봅니다.
 
 ##  <a name="create-a-resource-owner-policy"></a>리소스 소유자 정책 만들기
 

@@ -14,79 +14,78 @@ metadata:
   ms.reviewer: vincesm
   ms.custom: it-pro
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 2682ed48d5da440e36fe560e7b47dab8f9fa20ed
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: c09bcdde3713f3ab93814cc67b23ded5cc49c17d
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "122536422"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131057137"
 title: 그룹에 할당된 Azure AD 역할 문제 해결
 summary: 다음은 Azure AD(Azure Active Directory)의 Azure AD 그룹에 역할을 할당하기 위한 몇 가지 일반적인 질문과 문제 해결 팁입니다.
 sections:
 - name: 무시됨
   questions:
   - question: >
-      I'm a Groups Administrator but I can't see the 'Azure AD roles can be assigned to the group' switch.
+      그룹 관리자이지만 ‘Azure AD 역할을 그룹에 할당할 수 있습니다’ 스위치가 보이지 않습니다.
     answer: >
-      Only Privileged Role Administrators or Global Administrators can create a group that's eligible for role assignment. Only users in those roles see this control.
+      권한 있는 역할 관리자 또는 전역 관리자만 역할 할당이 가능한 그룹을 만들 수 있습니다. 이러한 역할의 사용자만 이 컨트롤을 볼 수 있습니다.
   - question: >
-      Who can modify the membership of groups that are assigned to Azure AD roles?
+      Azure AD 역할에 할당된 그룹의 멤버 자격을 수정할 수 있는 사람은 누구인가요?
     answer: >
-      By default, only Privileged Role Administrator and Global Administrator manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
+      기본적으로 권한 있는 역할 관리자 및 전역 관리자만 역할 할당 가능 그룹의 멤버 자격을 관리하지만, 그룹 소유자를 추가하여 역할 할당 가능 그룹의 관리를 위임할 수 있습니다.
   - question: >
-      I am a Helpdesk Administrator in my organization but I can't update password of a user who is a Directory Readers. Why does that happen?
+      소속 조직의 기술 지원팀 관리자인데, 디렉터리 읽기 권한자인 사용자의 암호를 업데이트할 수 없습니다. 그 이유는 무엇인가요?
     answer: >
-      The user might have gotten Directory Readers by way of a role-assignable group. All members and owners of a role-assignable groups are protected. Only users in the Privileged Authentication Administrator or Global Administrator roles can reset credentials for a protected user.
+      사용자가 역할 할당 가능 그룹을 통해 디렉터리 읽기 권한자를 얻었을 수 있습니다. 역할 할당 가능 그룹의 모든 멤버와 소유자가 보호됩니다. 권한 있는 인증 관리자 또는 전역 관리자 역할의 사용자만 보호된 사용자에 대한 자격 증명을 재설정할 수 있습니다.
   - question: >
-      I can't update password of a user. They don't have any higher privileged role assigned. Why is it happening?
-    answer: "The user could be an owner of a role-assignable group. We protect owners of role-assignable groups to avoid elevation of privilege. An example might be if a group Contoso_Security_Admins is assigned to Security Administrator role, where Bob is the group owner and Alice is Password Administrator in the organization. If this protection weren't present, Alice could reset Bob's credentials and take over his identity. After that, Alice could add herself or anyone to the group Contoso_Security_Admins group to become a Security Administrator in the organization. To find out if a user is a group owner, get the list of owned objects of that user and see if any of the groups have isAssignableToRole set to true. If yes, then that user is protected and the behavior is by design. Refer to these documentations for getting owned objects:\n\n- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  \n- [List ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)\n"
-  - question: "Can I create an access review on groups that can be assigned to Azure AD roles (specifically, groups with isAssignableToRole property set to true)?  \n"
+      사용자 암호를 업데이트할 수 없습니다. 사용자에게 더 높은 권한의 역할이 할당되지 않았습니다. 이유가 무엇인가요?
+    answer: "사용자가 역할 할당 가능 그룹의 소유자일 수 있습니다. 권한 상승을 방지하기 위해 역할 할당 가능 그룹의 소유자는 보호를 받습니다. 예컨대 그룹 Contoso_Security_Admins가 보안 관리자 역할에 할당된 경우, Bob이 그룹 소유자이고 Alice가 조직의 암호 관리자일 수 있습니다. 이 보호가 없으면 Alice가 Bob의 자격 증명을 재설정하고 Bob의 ID를 취득할 수 있습니다. 그러면 Alice가 Contoso_Security_Admins 그룹에 본인이나 다른 사람을 추가하여 조직의 보안 관리자가 될 수 있습니다. 사용자가 그룹 소유자인지 확인하려면 해당 사용자의 소유 개체 목록을 가져오고 isAssignableToRole이 true로 설정된 그룹이 있는지 확인합니다. 그렇다면 해당 사용자는 보호를 받고 그 동작은 의도된 것입니다. 소유 개체를 가져오려면 다음 설명서를 참조하세요.\n\n- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  \n- [ownedObjects 나열](/graph/api/user-list-ownedobjects?tabs=http)\n"
+  - question: "Azure AD 역할에 할당될 수 있는 그룹에서 액세스 검토를 만들 수 있나요(특히 isAssignableToRole 속성이 true로 설정된 그룹)?  \n"
     answer: >
-      Yes, you can. If you are on newest version of Access Review, then your reviewers are directed to My Access by default, and only Global Administrators can create access reviews on role-assignable groups. However, if you are on the older version of Access Review, then your reviewers are directed to the Access Panel by default, and both Global Administrators and User Administrator can create access reviews on role-assignable groups. The new experience will be rolled out to all customers on July 28, 2020 but if you’d like to upgrade sooner, make a request to [Azure AD Access Reviews - Updated reviewer experience in My Access Signup](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+      예, 할 수 있습니다. 전역 관리자 및 권한 있는 역할 관리자만 역할 할당 가능 그룹에서 액세스 검토를 만들 수 있습니다.
   - question: >
-      Can I create an access package and put groups that can be assigned to Azure AD roles in it?
-    answer: "Yes, you can. Global Administrator and User Administrator have the power to put any group in an access package. Nothing changes for Global Administrator, but there's a slight change in User Administrator role permissions. To put a role-assignable group into an access package, you must be a User Administrator and also owner of the role-assignable group. Here's the full table showing who can create access package in Enterprise License Management:\n\nAzure AD directory role | Entitlement management role | Can add security group\\* | Can add Microsoft 365 group\\* | Can add app | Can add SharePoint Online site\n----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------\nGlobal Administrator | n/a | ✔️ | ✔️ | ✔️  | ✔️\nUser Administrator  | n/a  | ✔️  | ✔️  | ✔️\nIntune Administrator | Catalog owner | ✔️  | ✔️  | &nbsp;  | &nbsp;\nExchange Administrator  | Catalog owner  | &nbsp; | ✔️  | &nbsp;  | &nbsp;\nTeams service Administrator | Catalog owner  | &nbsp; | ✔️  | &nbsp;  | &nbsp;\nSharePoint Administrator | Catalog owner | &nbsp; | ✔️  | &nbsp;  | ✔️ \nApplication Administrator | Catalog owner  | &nbsp;  | &nbsp; | ✔️  | &nbsp;\nCloud application Administrator | Catalog owner  | &nbsp;  | &nbsp; | ✔️  | &nbsp;\nUser | Catalog owner | Only if group owner | Only if group owner | Only if app owner  | &nbsp;\n\n\\*Group isn't role-assignable; that is, isAssignableToRole = false. If a group is role-assignable, then the person creating the access package must also be owner of the role-assignable group.\n"
+      액세스 패키지를 만들고 Azure AD 역할에 할당될 수 있는 그룹을 배치할 수 있나요?
+    answer: "예, 할 수 있습니다. 전역 관리자 및 사용자 관리자는 액세스 패키지에 모든 그룹을 배치할 수 있습니다. 전역 관리자에 대한 변경 사항은 없지만, 사용자 관리자 역할 권한은 약간 변경됩니다. 액세스 패키지에 역할 할당 가능 그룹을 배치하려면 사용자 관리자 겸 역할 할당 가능 그룹의 소유자여야 합니다. 다음은 엔터프라이즈 라이선스 관리에서 액세스 패키지를 만들 수 있는 사람을 보여 주는 전체 표입니다.\n\nAzure AD 디렉터리 역할 | 권한 관리 역할 | 보안 그룹 추가 가능\\* | Microsoft 365 그룹 추가 가능\\* | 앱 추가 가능 | SharePoint Online 사이트 추가 가능\n----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------\n전역 관리자 | 해당 없음 | ✔️ | ✔️ | ✔️  | ✔️\n사용자 관리자  | 해당 없음  | ✔️  | ✔️  | ✔️\nIntune 관리자 | 카탈로그 소유자 | ✔️  | ✔️  | &nbsp;  | &nbsp;\nExchange 관리자  | 카탈로그 소유자  | &nbsp; | ✔️  | &nbsp;  | &nbsp;\nTeams 서비스 관리자 | 카탈로그 소유자  | &nbsp; | ✔️  | &nbsp;  | &nbsp;\nSharePoint 관리자 | 카탈로그 소유자 | &nbsp; | ✔️  | &nbsp;  | ✔️ \n애플리케이션 관리자 | 카탈로그 소유자  | &nbsp;  | &nbsp; | ✔️  | &nbsp;\n클라우드 애플리케이션 관리자 | 카탈로그 소유자  | &nbsp;  | &nbsp; | ✔️  | &nbsp;\n사용자 | 카탈로그 소유자 | 그룹 소유자인 경우에만 해당 | 그룹 소유자인 경우에만 해당 | 앱 소유자인 경우에만 해당  | &nbsp;\n\n\\*그룹은 역할을 할당할 수 없습니다. 즉, isAssignableToRole = false입니다. 그룹이 역할 할당 가능인 경우 액세스 패키지를 만드는 사람도 역할 할당 가능 그룹의 소유자여야 합니다.\n"
+  - question: "\"할당된 역할\"에서 \"할당 제거\" 옵션을 찾을 수 없습니다. 사용자에 대한 역할 할당을 삭제하려면 어떻게 해야 하나요?\n"
+    answer: >
+      이 답변은 Azure AD Premium P1 조직에만 적용됩니다.
+
+
+      1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인하고 **Azure Active Directory** 를 선택합니다.
+
+      1. 사용자를 선택하고 사용자 프로필을 엽니다.
+
+      1. **할당된 역할** 을 선택합니다.
+
+      1. 기어 아이콘을 선택합니다. 이 정보를 제공할 수 있는 창이 열립니다. 직접 할당 옆에 "제거" 단추가 있습니다. 간접 역할 할당을 제거하려면, 역할이 할당된 그룹에서 사용자를 제거합니다.
   - question: >
-      I can't find "Remove assignment" option in "Assigned Roles". How do I delete role assignment to a user?
+      역할 할당이 가능한 그룹을 모두 보려면 어떻게 해야 하나요?
     answer: >
-      This answer is applicable only to Azure AD Premium P1 organizations.
+      다음 단계를 수행합니다.
 
 
-      1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) and open **Azure Active Directory**.
+      1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인하고 **Azure Active Directory** 를 선택합니다.
 
-      1. Select users and open a user profile.
+      1. **그룹** > **모든 그룹** 을 선택합니다.
 
-      1. Select **Assigned roles**.
+      1. **필터 추가** 를 선택합니다.
 
-      1. Select the gear icon. A pane opens that can give this information. There's a "Remove" button beside direct assignments. To remove indirect role assignment, remove the user from the group that has been assigned the role.
+      1. **역할 할당 가능** 으로 필터링합니다.
   - question: >
-      How do I see all groups that are role-assignable?
+      보안 주체에 직간접적으로 할당되는 역할을 알아보려면 어떻게 해야 하나요?
     answer: >
-      Follow these steps:
+      다음 단계를 수행합니다.
 
 
-      1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) and open **Azure Active Directory**.
+      1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인하고 **Azure Active Directory** 를 선택합니다.
 
-      1. Select **Groups** > **All groups**.
+      1. 사용자를 선택하고 사용자 프로필을 엽니다.
 
-      1. Select **Add filters**.
+      1. **할당된 역할** 을 선택하고 다음을 수행합니다.
 
-      1. Filter to **Role assignable**.
-  - question: >
-      How do I know which role are assigned to a principal directly and indirectly?
+          - Azure AD Premium P1 사용이 허가된 조직: 기어 아이콘을 선택합니다. 이 정보를 제공할 수 있는 창이 열립니다.
+          - Azure AD Premium P2 사용이 허가된 조직: **멤버 자격** 열에서 직접/상속된 라이선스 정보를 찾을 수 있습니다.
+  - question: "역할에 할당하기 위해 새 그룹을 만들어야 하는 이유는 무엇인가요?  \n"
     answer: >
-      Follow these steps:
-
-
-      1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) and open **Azure Active Directory**.
-
-      1. Select users and open a user profile.
-
-      1. Select **Assigned roles**, and then:
-
-          - In Azure AD Premium P1 licensed organizations: Select the gear icon. A pane opens that can give this information.
-          - In Azure AD Premium P2 licensed organizations: You'll find direct and inherited license information in the **Membership** column.
-  - question: "Why do we enforce creating a new group for assigning it to role?  \n"
-    answer: >
-      If you assign an existing group to a role, the existing group owner could add other members to this group without the new members realizing that they'll have the role. Because role-assignable groups are powerful, we're putting lots of restrictions to protect them. You don't want changes to the group that would be surprising to the person managing the group.
-additionalContent: "\n## Next steps\n\n- [Use Azure AD groups to manage role assignments](groups-concept.md)\n- [Create a role-assignable group](groups-create-eligible.md)"
+      역할에 기존 그룹을 할당하는 경우, 새 멤버가 자신이 역할을 갖게 될 것을 모르는 상태에서 그룹 소유자가 이 그룹에 다른 멤버를 추가할 수 있습니다. 역할 할당 가능 그룹은 강력하기 때문에 이를 보호하기 위한 제한을 많이 두고 있습니다. 그룹을 관리하는 사용자가 놀랄 만한 변화를 그룹에 주고 싶어 하지는 않습니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [Azure AD 그룹을 사용하여 역할 할당 관리](groups-concept.md)\n- [역할 할당 가능 그룹 만들기](groups-create-eligible.md)"

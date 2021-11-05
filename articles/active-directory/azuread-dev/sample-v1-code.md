@@ -1,7 +1,6 @@
 ---
 title: Azure Active Directory v1.0에 대한 코드 샘플 | Microsoft Docs
 description: 시나리오별로 구성된 Azure Active Directory(v1.0 엔드포인트) 코드 샘플의 인덱스를 제공합니다.
-services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
@@ -14,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: fab3983d4061b494fdadf9ab2c09f2827735e9da
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 89c96384400d9a8942021c0c8c6a9793f35de2f5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229965"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059474"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 코드 샘플(v1.0 엔드포인트)
 
@@ -75,16 +74,16 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 - 자동(Windows의 Windows 통합 인증 또는 사용자 이름/암호 사용)
 - 다른 디바이스에 대화형 로그인을 위임하여(웹 컨트롤을 제공하지 않는 디바이스에서 사용되는 디바이스 코드 흐름)
 
-클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출
------------------- | -------- | ---------- | -------------------- | -------------------------
-데스크톱(WPF)           | ![이 이미지는 .NET/C# 로고를 보여 줍니다.](media/sample-v2-code/logo-net.png)  | 대화형 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget)의 일부 | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-모바일(UWP)            | .![이 이미지는 .NET/C#/UWP를 보여 줍니다.](media/sample-v2-code/logo-windows.png)   | 대화형 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 이 샘플은 [ADAL.NET](https://aka.ms/adalnet)이 아니라 [WAM](/windows/uwp/security/web-account-manager)을 사용합니다.|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store)(ADAL.NET을 사용하여 단일 테넌트 Web API를 호출하는 UWP 애플리케이션) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store)(ADAL.NET을 사용하여 다중 테넌트 Web API를 호출하는 UWP 애플리케이션)|
-모바일(Android, iOS, UWP)   | ![이 이미지는 .NET/C#(Xamarin)을 보여 줍니다.](media/sample-v2-code/logo-xamarin.png) | 대화형 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
-모바일(Android)           | ![이 이미지는 Android 로고를 보여 줍니다.](media/sample-v2-code/logo-android.png) | 대화형 |   [android](https://github.com/Azure-Samples/active-directory-android) |
-모바일(iOS)           | ![이 이미지는 iOS / Objective C 또는 Swift를 보여 줍니다.](media/sample-v2-code/logo-ios.png) | 대화형 |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-데스크톱(콘솔)          | ![이 이미지는 .NET/C# 로고를 보여 줍니다.](media/sample-v2-code/logo-net.png) | 사용자 이름/암호 </p>  Windows 통합 인증 | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
-데스크톱(콘솔)          | ![이 이미지는 Java 로고를 보여 줍니다.](media/sample-v2-code/logo-java.png) | 사용자 이름/암호 | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-데스크톱(콘솔)           | ![이 이미지는 .NET Core/C# 로고를 보여 줍니다.](media/sample-v2-code/logo-netcore.png) | 디바이스 코드 흐름 | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+| 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출 |
+|------------------ | -------- | ---------- | -------------------- | ------------------------- |
+| 데스크톱(WPF) | ![이 이미지는 .NET/C# 로고를 보여 줍니다.](media/sample-v2-code/logo-net.png) | 대화형 | [`dotnet-native-multitarget`](https://github.com/azure-samples/active-directory-dotnet-native-multitarget)의 일부 | [`dotnet-native-desktop`](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [`dotnet-native-aspnetcore`](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore/)</p> [`dotnet-webapi-manual-jwt-validation`](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation) |
+| 모바일(UWP) | ![이 이미지는 .NET/C#/UWP를 보여 줍니다.](media/sample-v2-code/logo-windows.png) | 대화형 | [`dotnet-native-uwp-wam`](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 이 샘플은 [ADAL.NET](https://aka.ms/adalnet)이 아니라 [WAM](/windows/uwp/security/web-account-manager)을 사용합니다. | [`dotnet-windows-store`](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (ADAL.NET을 사용하여 단일 테넌트 웹 API를 호출하는 UWP 애플리케이션) </p> [`dotnet-webapi-multitenant-windows-store`](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (ADAL.NET를 사용 하여 다중 테넌트 웹 API를 호출 하는 UWP 응용 프로그램) |
+| 모바일(Android, iOS, UWP) | ![이 이미지는 .NET/C#(Xamarin)을 보여 줍니다.](media/sample-v2-code/logo-xamarin.png) | 대화형 | [`dotnet-native-multitarget`](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+| 모바일(Android) | ![이 이미지는 Android 로고를 보여 줍니다.](media/sample-v2-code/logo-android.png) | 대화형 | [`android`](https://github.com/Azure-Samples/active-directory-android) |
+| 모바일(iOS) | ![이 이미지는 iOS / Objective C 또는 Swift를 보여 줍니다.](media/sample-v2-code/logo-ios.png) | 대화형 | [`nativeClient-iOS`](https://github.com/azureadquickstarts/nativeclient-ios) |
+| 데스크톱(콘솔) | ![이 이미지는 .NET/C# 로고를 보여 줍니다.](media/sample-v2-code/logo-net.png) | 사용자 이름/암호 </p> Windows 통합 인증 | | [`dotnet-native-headless`](https://github.com/azure-samples/active-directory-dotnet-native-headless) |
+| 데스크톱(콘솔) | ![이 이미지는 Java 로고를 보여 줍니다.](media/sample-v2-code/logo-java.png) | 사용자 이름/암호 | | [`java-native-headless`](https://github.com/Azure-Samples/active-directory-java-native-headless) |
+| 데스크톱(콘솔) | ![이 이미지는 .NET Core/C# 로고를 보여 줍니다.](media/sample-v2-code/logo-netcore.png) | 디바이스 코드 흐름 | | [`dotnet-deviceprofile`](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile) |
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>디먼 애플리케이션(애플리케이션 ID를 사용하여 웹 API에 액세스)
 

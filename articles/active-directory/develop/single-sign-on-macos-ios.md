@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 94174eeb943f4016fde8baf329fa6ba27768e486
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 02140728536e458c85e8c63a0fa1ca3c9663506b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039936"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050509"
 ---
 # <a name="configure-sso-on-macos-and-ios"></a>macOS 및 iOS에서 SSO 구성
 
@@ -72,7 +72,7 @@ App2 리디렉션 URI: `msauth.com.contoso.mytestapp2://auth`
 App3 리디렉션 URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
-> 리디렉션 URI의 형식은 MSAL이 지원하는 형식과 호환되어야 합니다. 이것은 [MSAL 리디렉션 URI 형식 요구 사항](redirect-uris-ios.md#msal-redirect-uri-format-requirements)에 설명되어 있습니다.
+> 리디렉션 URI의 형식은 MSAL이 지원하는 형식과 호환되어야 하며 이는 [MSAL 리디렉션 URI 형식 요구 사항](redirect-uris-ios.md#msal-redirect-uri-format-requirements)에 설명되어 있습니다.
 
 ### <a name="setup-keychain-sharing-between-applications"></a>애플리케이션 간 공유되는 키 집합 설정
 

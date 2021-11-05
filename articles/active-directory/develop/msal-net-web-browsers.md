@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 9a431a2088ac01b3e0bec21b951fa4af0c5347e0
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: b53166da12d2949cbebb590cd326b8bd86d5bec4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568085"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052706"
 ---
 # <a name="using-web-browsers-msalnet"></a>웹 브라우저 사용(MSAL.NET)
 
@@ -65,7 +65,7 @@ MSAL.NET은 다중 프레임워크 라이브러리이며 UI 컨트롤에서 브�
 
 ## <a name="system-browser-experience-on-net"></a>.NET의 시스템 브라우저 환경 
 
-MSAL.NET은 .NET Core에서 시스템 브라우저를 별도의 프로세스로 시작합니다. MSAL.NET은 이 브라우저를 제어할 수 없지만 사용자가 인증을 완료하면 MSAL.NET에서 URI를 가로챌 수 있는 방식으로 웹 페이지가 리디렉션됩니다.
+MSAL.NET은 .NET Core에서 시스템 브라우저를 별도의 프로세스로 시작합니다. MSAL.NET은 이 브라우저를 제어할 수 없지만, 사용자가 인증을 완료하면 MSAL.NET에서 URI를 가로챌 수 있는 방식으로 웹 페이지가 리디렉션됩니다.
 
 다음을 지정하여 이 브라우저를 사용하도록 .NET 클래식 또는 .NET 5용으로 작성된 앱을 구성할 수도 있습니다.
 
@@ -82,7 +82,7 @@ MSAL.NET은 `http://localhost:port`에서 수신 대기하고 사용자가 인�
 
 시스템 브라우저를 사용하도록 설정하려면 다음과 같이 합니다.
 
-1. 앱을 등록하는 동안 `http://localhost`를 리디렉션 URI로 구성합니다(현재 B2C에서 지원되지 않음).
+1. 앱을 등록하는 중에 `http://localhost`을(를) 리디렉션 URI로 구성합니다(현재 B2C에서 지원하지 않음).
 2. PublicClientApplication을 생성하는 경우 다음 리디렉션 URI를 지정합니다.
 
 ```csharp
@@ -227,4 +227,4 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 #### <a name="net-core-doesnt-support-interactive-authentication-with-an-embedded-browser"></a>.NET Core는 포함된 브라우저를 사용한 대화형 인증을 지원하지 않습니다.
 
 .NET Core의 경우 대화형으로 토큰을 획득하는 것은 포함된 웹 보기가 아닌 시스템 웹 브라우저를 통해서만 가능합니다. 실제로 .NET Core는 아직 UI를 제공하지 않습니다.
-시스템 웹 브라우저를 사용하여 검색 환경을 사용자 지정하려는 경우 [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) 인터페이스를 구현하고 사용자 고유의 브라우저도 제공할 수 있습니다.
+시스템 웹 브라우저를 사용하여 검색 환경을 사용자 지정하려는 경우 [IWithCustomUI](scenario-desktop-acquire-token-interactive.md#withcustomwebui) 인터페이스를 구현하고 사용자 고유의 브라우저도 제공할 수 있습니다.

@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fabe48a641fcb4f0d96c2853d8b0b38c58c32a5d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85551554"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027971"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>OpenID Connect 및 Azure Active Directory를 사용하여 웹 애플리케이션에 대한 액세스 권한 부여
 
@@ -108,7 +108,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 | --- | --- | --- |
 | tenant |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
 | client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. **Azure Active Directory** 를 클릭하고 **앱 등록** 을 클릭한 다음 애플리케이션을 선택하여 애플리케이션 페이지에서 애플리케이션 ID를 찾으세요. |

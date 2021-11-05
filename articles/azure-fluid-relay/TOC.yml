@@ -32,6 +32,8 @@
       href: how-tos/local-mode-with-azure-client.md
     - name: '방법: Azure Function을 사용하여 TokenProvider 작성'
       href: how-tos/azure-function-token-provider.md
+    - name: '방법: Azure Static Web Apps를 사용하여 Fluid 애플리케이션 배포'
+      href: how-tos/deploy-fluid-static-web-apps.md
     - name: '방법: JWT 토큰 사용'
       href: how-tos/fluid-json-web-token.md
     - name: '방법: Azure Fluid Relay에서 테스트 자동화 사용'

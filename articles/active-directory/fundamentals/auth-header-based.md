@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72651ac47ebf3f67a8ee3aae9f71a533ded53a83
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 99cf28c88b3c94fad5e9abe7eaee1e11bcfacbe6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954973"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052373"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용한 헤더 기반 인증
 
-레거시 애플리케이션은 일반적으로 헤더 기반 인증을 사용합니다. 이 시나리오에서는 사용자(또는 메시지 보낸 사람)가 중간 ID 솔루션을 인증합니다. 중간 솔루션은 사용자를 인증하고 필요한 HTTP(Hypertext Transfer Protocol) 헤더를 대상 웹 서비스로 전파합니다. Azure AD(Active Directory)는 애플리케이션 프록시 서비스를 통해 이 패턴을 지원하고 다른 네트워크 컨트롤러 솔루션과의 통합을 지원합니다. 
+레거시 애플리케이션은 일반적으로 헤더 기반 인증을 사용합니다. 이 시나리오에서는 사용자(또는 메시지 보낸 사람)가 중간 ID 솔루션을 인증합니다. 중간 솔루션은 사용자를 인증하고 필요한 HTTP(Hypertext Transfer Protocol) 헤더를 대상 웹 서비스로 전파합니다. Azure AD(Active Directory)는 애플리케이션 프록시 서비스를 통해 이 패턴을 지원하고 다른 네트워크 컨트롤러 솔루션과의 통합을 지원합니다.
 
 이 솔루션에서 애플리케이션 프록시는 애플리케이션에 대한 원격 액세스를 제공하고, 사용자를 인증하고, 애플리케이션에 필요한 헤더를 전달합니다. 
 

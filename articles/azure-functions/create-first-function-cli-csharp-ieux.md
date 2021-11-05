@@ -8,12 +8,12 @@ ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 45173a74c0e3189c1f356aea2f8024ff15409f32
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: dc1f05ad07d9349b7b4906e60fcaf5b671435959
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107866200"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039414"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 C# 함수 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "107866200"
 
     + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) 버전 5.0 이상.
+    + [Az PowerShell 모듈](/powershell/azure/install-az-ps), 버전 5.9.0 이상.
 
 ---
 
@@ -65,7 +65,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 +`func --version`을 **실행** 하여 Azure Functions Core Tools가 3.x인지 확인합니다.
 
-+ `(Get-Module -ListAvailable Az).Version`을 **실행** 하고 버전이 5.0 이상인지 확인합니다. 
++ `(Get-Module -ListAvailable Az).Version`을 **실행** 하고 버전이 5.0 이상인지 확인합니다.
 
 + `Connect-AzAccount`를 **실행** 하여 Azure에 로그인하고 활성 구독을 확인합니다.
 
@@ -77,7 +77,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 이 섹션에서는 로컬 항목을 만듭니다. <abbr title="함께 배포하고 관리할 수 있는 하나 이상의 개별 함수에 대한 논리적 컨테이너.">Azure Functions 프로젝트</abbr> C# 프로젝트의 각 함수는 특정 항목에 응답합니다. <abbr title="함수의 코드를 호출하는 이벤트(예: HTTP 요청, 큐 메시지 또는 특정 시간).">트리거</abbr>.
 
-1. `func init` 명령을 실행하여 지정된 런타임에 *LocalFunctionProj* 폴더에 함수 프로젝트를 만듭니다.  
+1. `func init` 명령을 실행하여 지정된 런타임에 *LocalFunctionProj* 폴더에 함수 프로젝트를 만듭니다.
 
     ```csharp
     func init LocalFunctionProj --dotnet
@@ -91,24 +91,24 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
     <br/>
 
 1. 다음 명령을 사용하여 프로젝트에 함수를 추가합니다.
-    
+
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ``` 
+    ```
     `--name` 인수는 함수(HttpExample)의 고유한 이름입니다.
 
     `--template` 인수는 함수의 트리거(HTTP)를 지정합니다.
 
-    
-    <br/>   
-    <details>  
-    <summary><strong>선택 사항: HttpExample.cs용 코드</strong></summary>  
-    
+
+    <br/>
+    <details>
+    <summary><strong>선택 사항: HttpExample.cs용 코드</strong></summary>
+
     *HttpExample.cs* 에는 `req` 변수에 요청 데이터를 수신하는 `Run` 메서드가 포함되며, 트리거 동작을 정의하는 **HttpTriggerAttribute** 로 데코레이트된 [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest)입니다.
 
     :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
-        
-    반환 개체는 [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult)(200) 또는 [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult)(400)로 응답 메시지를 반환하는 [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult)입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=csharp)을 참조하세요.  
+
+    반환 개체는 [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult)(200) 또는 [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult)(400)로 응답 메시지를 반환하는 [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult)입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=csharp)을 참조하세요.
     </details>
 
 <br/>
@@ -123,7 +123,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
     func start
     ```
 
-    출력의 끝 부분에 다음 줄이 표시됩니다. 
+    출력의 끝 부분에 다음 줄이 표시됩니다.
 
     <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     ...
@@ -155,7 +155,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 <br/>
 
 ---
-    
+
 ## <a name="5-create-supporting-azure-resources-for-your-function"></a>5. 함수를 지원하는 Azure 리소스 만들기
 
 함수 코드를 Azure에 배포하기 전에 다음을 만들어야 합니다. <abbr title="한 단위로 관리할 수 있는 관련 Azure 리소스에 대한 논리적 컨테이너.">리소스 그룹</abbr>, <abbr title="모든 Azure Storage 데이터 개체를 포함하는 계정. 스토리지 계정은 스토리지 데이터의 고유한 네임스페이스를 제공합니다.">스토리지 계정 만들기</abbr>및 <abbr title="함수가 실행되는 기본 컴퓨팅 환경을 제공하며 Azure에서 서버리스 함수를 호스팅하는 클라우드 리소스.">함수 앱</abbr> 다음 명령을 사용합니다.
@@ -168,7 +168,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
     ```
 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Connect-AzAccount
     ```
@@ -176,7 +176,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
     ---
 
-1. `westeurope` 지역에 `AzureFunctionsQuickstart-rg`라는 리소스 그룹을 만듭니다. 
+1. `westeurope` 지역에 `AzureFunctionsQuickstart-rg`라는 리소스 그룹을 만듭니다.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -196,7 +196,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
     ---
 
     Linux 및 Windows 앱을 동일한 리소스 그룹에 호스트할 수 없습니다. Windows 함수 앱 또는 웹앱이 포함된 `AzureFunctionsQuickstart-rg`이라는 기존 리소스 그룹이 있는 경우 다른 리소스 그룹을 사용해야 합니다.
-    
+
 1. 리소스 그룹 및 지역에 범용 Azure Storage 계정을 만듭니다.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -223,24 +223,24 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 '<APP_NAME>'을 전역적으로 고유한 이름으로 **바꿉니다**.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-        
+
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-    
-    
+
+
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location 'West Europe'
     ```
-    
-    
+
+
     ---
-    
+
     `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꿉니다.
 
-    `<APP_NAME>`을 다음 항목으로 바꿉니다. <abbr title="모든 Azure 고객에 대해 전역적으로 고유한 이름이어야 합니다. 예를 들어 contoso-bizapp-func-20과 같이 개인 또는 조직 이름, 애플리케이션 이름 및 숫자 식별자를 조합하여 사용할 수 있습니다.">고유 이름</abbr>. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
+    `<APP_NAME>`을 다음 항목으로 바꿉니다. <abbr title="모든 Azure 고객에 대해 전역적으로 고유한 이름이어야 합니다. 예를 들어 contoso-bizapp-func-20과 같이 개인 또는 조직 이름, 애플리케이션 이름 및 숫자 식별자를 조합하여 사용할 수 있습니다.">고유 이름</abbr>. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다.
 
     <br/>
     <details>
@@ -288,7 +288,7 @@ Functions in msdocs-azurefunctions-qs:
 
 ## <a name="7-invoke-the-function-on-azure"></a>7. Azure에서 함수 호출
 
-`publish` 명령의 출력에 표시된 **호출 URL** 전체를 브라우저 주소 표시줄에 복사합니다. **&name=Functions** 쿼리 매개 변수를 **추가** 합니다. 
+`publish` 명령의 출력에 표시된 **호출 URL** 전체를 브라우저 주소 표시줄에 복사합니다. **&name=Functions** 쿼리 매개 변수를 **추가** 합니다.
 
 ![브라우저에서 보여 주는 Azure에서 실행되는 함수의 출력](../../includes/media/functions-run-remote-azure-cli/function-test-cloud-browser.png)
 

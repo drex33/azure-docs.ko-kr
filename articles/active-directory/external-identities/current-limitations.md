@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6049b2b8f3562689255113efa3b2454927ffe7ef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8b2df7a9fb6ff0cf56846ba6672f90fb62349e2d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750755"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049466"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 협업의 제한 사항
 Azure AD(Azure Active Directory) B2B 협업에는 이 문서에 설명된 제한 사항이 적용됩니다.
@@ -34,7 +34,7 @@ Azure AD B2B에는 Azure AD 서비스 디렉터리 제한이 적용됩니다. �
 [국가별 클라우드](../develop/authentication-national-cloud.md)는 물리적으로 격리된 Azure 인스턴스입니다. B2B 협업은 국가별 클라우드 경계를 넘어 지원되지 않습니다. 예를 들어 Azure 테넌트가 공용 전역 클라우드에 있는 경우 해당 계정이 국가 클라우드에 있는 사용자를 초대할 수 없습니다. 사용자와 협업하려면 다른 이메일 주소를 요청하거나 디렉터리에서 구성원 사용자 계정을 만들어야 합니다.
 
 ## <a name="azure-us-government-clouds"></a>Azure 미국 정부 클라우드
-Azure 미국 정부 클라우드 내에서 B2B 협업은 둘 다 Azure 미국 정부 클라우드 내에 있고 B2B 협업을 지원하는 테넌트 간에만 지원됩니다. B2B 협업을 지원하는 Azure 미국 정부 테넌트는 Microsoft, Google 계정 또는 이메일 일회용 암호 계정을 사용하여 소셜 사용자와 협업할 수도 있습니다. 이러한 그룹 이외의 사용자(예: 사용자가 Azure 미국 정부 클라우드의 일부가 아니거나 아직 B2B 협업을 지원하지 않는 테넌트에 있는 경우)를 초대하면 초대에 실패하거나 사용자가 초대에 응할 수 없습니다. 다른 제한 사항에 관한 자세한 내용은 [Azure Active Directory Premium P1 및 P2 변형](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2)을 참조하세요.
+Azure 미국 정부 클라우드 내에서 B2B 협업은 둘 다 Azure 미국 정부 클라우드 내에 있고 B2B 협업을 지원하는 테넌트 간에만 지원됩니다. B2B 협업을 지원하는 Azure 미국 정부 테넌트는 Microsoft, Google 계정 또는 이메일 일회용 암호 계정을 사용하여 소셜 사용자와 협업할 수도 있습니다. 이러한 그룹 이외의 사용자(예: 사용자가 Azure 미국 정부 클라우드의 일부가 아니거나 아직 B2B 협업을 지원하지 않는 테넌트에 있는 경우)를 초대하면 초대에 실패하거나 사용자가 초대에 응할 수 없습니다. Microsoft 계정(MSA)의 경우 Azure Portal 액세스에 대한 알려진 제한 사항이 있습니다. 새로 초대된 MSA 게스트는 Azure Portal에 대한 직접 링크 초대를 사용할 수 없으며 기존 MSA 게스트는 Azure Portal에 로그인할 수 없습니다. 다른 제한 사항에 관한 자세한 내용은 [Azure Active Directory Premium P1 및 P2 변형](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2)을 참조하세요.
 
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Azure 미국 정부 테넌트에서 B2B 협업을 사용할 수 있는지 어떻게 알 수 있나요?
 다음을 수행하여 Azure 미국 정부 클라우드 테넌트가 B2B 협업을 지원하는지 확인합니다.

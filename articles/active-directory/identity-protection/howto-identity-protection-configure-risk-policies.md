@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 10/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11751323d1341cbcde19451bc101197c7d714368
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c9e3bfc88442f495d49116e01cc06e876be95787
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536313"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051594"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>방법: 위험 정책 구성 및 사용
 
@@ -41,7 +41,7 @@ Microsoft의 권장 사항은 사용자 위험 정책 임계값을 **높음** �
 
 ### <a name="risk-remediation"></a>위험 수정
 
-조직은 위험이 감지되면 액세스를 차단하도록 선택할 수 있습니다. 차단은 합법적인 사용자가 필요한 작업을 수행하지 못하게 하는 경우가 있습니다. 더 나은 솔루션은 Azure AD MFA(Multi-Factor Authentication) 및 SSPR(셀프 서비스 암호 재설정)을 사용하여 자체 수정을 허용하는 것입니다. 
+조직은 위험이 감지되면 액세스를 차단하도록 선택할 수 있습니다. 차단은 합법적인 사용자가 필요한 작업을 수행하지 못하게 하는 경우가 있습니다. 더 나은 솔루션은 Azure AD MFA(Multi-Factor Authentication) 및 SSPR(셀프 서비스 암호 재설정)을 사용하여 자체 수정을 허용하는 것입니다.
 
 - 사용자 위험 정책이 트리거되는 경우: 
    - 관리자는 사용자가 SSPR을 통해 새 암호를 만들어 사용자 위험을 다시 설정하기 전에 Azure AD MFA를 수행해야 하는 보안 암호 재설정을 요구할 수 있습니다. 
@@ -67,6 +67,8 @@ Microsoft의 권장 사항은 사용자 위험 정책 임계값을 **높음** �
    - 정책에서 더 많은 조건부 액세스 특성 사용
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+수정 정책을 사용하기 전에 조직은 모든 액티브 위험을 [조사](howto-identity-protection-investigate-risk.md) 및 [해결](howto-identity-protection-remediate-unblock.md)하는 것이 좋습니다.
 
 ### <a name="user-risk-with-conditional-access"></a>조건부 액세스로 인한 사용자 위험
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 10/26/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2497e47078f91c1649db107dd105227e219ae2
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: d8e4b08f407417136462ff066d0f0e81312662ae
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113565735"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051714"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 대한 액세스 검토 만들기
 
@@ -40,9 +40,33 @@ ms.locfileid: "113565735"
 
 [새 액세스 패키지를 만들거나](entitlement-management-access-package-create.md) [기존 액세스 패키지 정책을 편집](entitlement-management-access-package-lifecycle-policy.md)하는 경우 액세스 검토를 사용하도록 설정할 수 있습니다. 액세스 패키지에 대한 액세스 검토를 사용하도록 설정하려면 다음 단계를 따르세요.
 
-1. 액세스 패키지의 **수명 주기** 탭을 열고 **액세스 검토** 로 스크롤합니다.
+1. **수명 주기** 탭에서 액세스 패키지에 대한 사용자의 할당이 만료되는 시기를 지정합니다. 사용자가 할당을 확장할 수 있는지 여부를 지정할 수도 있습니다.
 
-1. **액세스 검토 필요** 토글을 **예** 로 이동합니다.
+1. **만료** 섹션에서 액세스 패키지 할당 만료를 **날짜**, **일 수**, **시간** 또는 **없음** 으로 설정합니다.
+
+    **날짜** 에 대해 이후의 만료 날짜를 선택합니다.
+
+    **일 수** 의 경우 0~3660일 사이의 숫자를 지정합니다.
+
+    **시간** 에 시간을 지정합니다.
+
+    선택 사항에 따라 액세스 패키지에 대한 사용자의 할당은 특정 날짜, 승인 후 특정 기간(일) 또는 없음에 따라 만료됩니다.
+    
+    ![액세스 패키지 - 수명 주기 만료 설정](./media/entitlement-management-access-reviews/expiration.png)
+
+1. 고급 만료 설정 표시를 클릭하여 추가 설정을 표시합니다.
+
+1. 사용자가 할당을 연장할 수 있도록 허용하려면 **사용자가 액세스를 연장할 수 있도록 허용** 을 **예** 로 설정합니다.
+
+    정책에서 연장이 허용되는 경우 사용자는 액세스 패키지 할당이 만료되도록 설정하기 14일 전 또는 1일 전에 이메일을 수신하여 할당을 연장하라는 메시지를 표시합니다. 사용자는 연장을 요청할 때 계속 정책 범위 내에 있어야 합니다. 또한 정책에 할당을 위한 명시적인 종료 날짜가 있고 사용자가 액세스를 연장하는 요청을 제출하는 경우, 사용자에게 액세스 패키지에 대한 액세스 권한을 부여하는 데 사용된 정책에 정의된 대로, 요청의 연장 날짜는 할당이 만료될 때 또는 그 이전이어야 합니다. 예를 들어 정책에 할당이 6월 30일에 만료되도록 설정된 것으로 표시되는 경우 사용자가 요청할 수 있는 최대 연장은 6월 30일입니다.
+
+    사용자의 액세스 권한이 연장된 경우 지정된 확장 날짜(정책을 만든 사용자의 표준 시간대로 설정한 날짜) 이후에는 액세스 패키지를 요청할 수 없습니다.
+
+1. 권한 연장 승인을 요청하려면 **권한 연장 승인 요청** 을 **예** 로 설정합니다.
+
+    요청 탭에 지정된 것과 동일한 승인 설정이 사용됩니다.
+
+1. 다음으로 **액세스 검토 필요** 토글을 **예** 로 이동합니다.
 
     ![액세스 검토 추가](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 

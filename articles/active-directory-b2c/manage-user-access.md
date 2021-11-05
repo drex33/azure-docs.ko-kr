@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C에서 사용자 액세스 관리 | Microsoft Docs
+title: Azure Active Directory B2C에서 사용자 액세스 관리
 description: Azure AD B2C를 사용하여 미성년자를 식별하고, 생년월일 및 국가/지역 데이터를 수집하고, 애플리케이션의 사용 약관에 동의하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 0ee26e7fe74d87f7b20f9a28b049b8043b376273
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae1e0c55642865550d58a299041fff6445c67360
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518060"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007734"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 

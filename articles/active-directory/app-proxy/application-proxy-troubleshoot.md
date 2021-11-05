@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시 문제 해결
 description: Azure Active Directory 애플리케이션 프록시 관련 오류를 해결하는 방법을 설명합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 10/12/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 1e46bb0fad37e1a6da3676578f6cd92af912cb3f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.reviewer: ashishj
+ms.openlocfilehash: b31b3fa622621f7b94ad3c78910fdb8ce3436467
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963895"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059436"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>애플리케이션 프록시 문제 및 오류 메시지 문제 해결
 
@@ -36,7 +36,7 @@ ms.locfileid: "111963895"
 
 ## <a name="connector-errors"></a>커넥터 오류
 
-커넥터 마법사를 설치하는 동안 등록에 실패하는 경우 실패한 이유를 확인하는 두 가지 방법이 있습니다. **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin** 에서 이벤트 로그를 확인하거나 다음 Windows PowerShell 명령을 실행합니다.
+커넥터 마법사를 설치하는 동안 등록에 실패하는 경우 실패한 이유를 확인하는 두 가지 방법이 있습니다. 이벤트 로그에서 **Windows Logs\Application**(원본으로 필터링 = "Microsoft AAD 애플리케이션 프록시 커넥터")을 확인하거나 다음 Windows PowerShell 명령을 실행합니다.
 
 ```powershell
 Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
@@ -51,7 +51,7 @@ Get-EventLog application –source "Microsoft AAD Application Proxy Connector" �
 | 커넥터를 등록하지 못함: Azure 관리 포털에서 애플리케이션 프록시를 활성화했으며 Active Directory 사용자 이름과 암호를 올바르게 입력했는지 확인합니다. 오류: 'AADSTS50059: 테넌트를 식별하는 정보가 요청에서 찾을 수 없거나 제공된 자격 증명으로 암시되지 않으며, 서비스 주체 URI에 의한 검색이 실패했습니다. | 액세스하고자 하는 디렉터리의 조직 ID 일부인 도메인이 아닌 Microsoft 계정을 사용하여 로그인을 시도하고 있습니다. 관리자가 테넌트 도메인과 동일한 도메인 이름의 일부인지 확인하세요. 예를 들어, Azure AD 도메인이 contoso.com이라면 관리자는 admin@contoso.com여야 합니다. |
 | PowerShell 스크립트의 실행을 위한 현재 실행 정책을 검색하지 못했습니다. | 커넥터 설치에 실패한다면 PowerShell 실행 정책이 비활성화되어 있지 않은지 확인하세요. <br><br>1. 그룹 정책 편집기를 엽니다.<br>2. **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **Windows PowerShell** 로 이동한 다음 **스크립트 실행 켜기** 를 두 번 클릭합니다.<br>3. 실행 정책은 **구성 안 함** 또는 **사용** 으로 설정될 수 있습니다. **사용** 으로 설정했다면 옵션에 있는 실행 정책을 **로컬 스크립트 및 원격 서명된 스크립트 허용** 또는 **모든 스크립트 허용** 으로 설정했는지 확인합니다. |
 | 커넥터에서 구성을 다운로드하지 못했습니다. | 인증에 사용되는 커넥터의 클라이언트 인증서가 만료되었습니다. 이것은 커넥터가 프록시 뒤에 설치되어 있는 경우 발생할 수도 있습니다. 이 경우 커넥터는 인터넷에 액세스할 수 없으며 원격 사용자에게 애플리케이션을 제공할 수 없게 됩니다. `Register-AppProxyConnector` Windows PowerShell에서 cmdlet을 사용하여 트러스트를 수동으로 갱신합니다. 커넥터가 프록시 뒤에 있는 경우 커넥터 계정 "네트워크 서비스" 및 "로컬 시스템"에 인터넷 액세스 권한을 부여해야 합니다. 이것은 프록시에 대한 액세스 권한을 부여하거나 프록시를 우회하도록 설정하여 수행할 수 있습니다. |
-| 커넥터를 등록하지 못함: 커넥터를 등록하려면 Active Directory의 애플리케이션 관리자여야 합니다. 오류: '등록 요청이 거부되었습니다.' | 로그인하고자 하는 별칭이 이 도메인에서 관리자가 아닙니다. 커넥터는 항상 사용자의 도메인을 소유하는 디렉터리에 대해 설치됩니다. 로그인하고자 하는 관리자 계정이 Azure AD 테넌트에 대한 애플리케이션 관리자 권한 이상을 가지고 있는지 확인합니다. |
+| 커넥터를 등록하지 못함: 커넥터를 등록하려면 Active Directory의 애플리케이션 관리자여야 합니다. 오류: '등록 요청이 거부되었습니다.' | 로그인하고자 하는 별칭이 이 도메인에서 관리자가 아닙니다. 커넥터는 항상 사용자의 도메인을 소유하는 디렉터리에 대해 설치됩니다. 로그인하고자 하는 관리자 계정이 Azure AD 테넌트에 대한 애플리케이션 관리자 권한 이상을 보유하고 있는지 확인합니다. |
 | 네트워킹 문제로 인해 커넥터가 서비스에 연결할 수 없습니다. 커넥터가 다음 URL에 액세스하려고 했습니다. | 커넥터가 애플리케이션 프록시 클라우드 서비스에 연결할 수 없습니다. 이는 연결을 차단하는 방화벽 규칙이 있는 경우에 발생할 수 있습니다. [애플리케이션 프록시 사전 요구 사항](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)에 나와 있는 올바른 포트와 URL에 대한 액세스를 허용했는지 확인합니다. |
 
 ## <a name="kerberos-errors"></a>Kerberos 오류
@@ -80,10 +80,6 @@ Get-EventLog application –source "Microsoft AAD Application Proxy Connector" �
 | 이 회사 앱에 액세스할 수 없습니다. 이 애플리케이션에 액세스할 수 있는 권한이 없습니다. 권한 부여에 실패했습니다. 사용자에게 Azure Active Directory Premium에 대한 라이선스가 있는지 확인합니다. | 구독자의 관리자가 사용자에게 Premium 라이선스를 명시적으로 할당하지 않은 경우 사용자가 게시된 앱에 액세스를 시도할 때 이 오류가 발생할 수 있습니다. 구독자의 Active Directory **라이선스** 탭으로 이동하고 이 사용자나 사용자 그룹에 Premium 라이선스가 할당되어 있는지 확인합니다. |
 | 지정된 호스트 이름을 사용하는 서버를 찾을 수 없습니다. | 애플리케이션의 사용자 지정 도메인이 올바르게 구성되지 않으면 게시된 앱에 사용자가 액세스를 시도하는 경우 이 오류가 발생할 수 있습니다. [Azure AD 애플리케이션 프록시 사용자 지정 도메인 사용](./application-proxy-configure-custom-domain.md)에 나와 있는 단계에 따라 도메인에 대한 인증서를 업로드하고 DNS 레코드를 올바르게 구성했는지 확인합니다. |
 |사용할 수 없음: 해당 회사 앱에 액세스할 수 없거나 사용자에게 권한을 부여할 수 없습니다. 사용자가 온-프레미스 AD에 정의되어 있고 사용자가 온-프레미스 AD의 앱에 액세스할 수 있는지 확인합니다. | 권한 부여 정보에 액세스하는 데 문제가 있을 수 있습니다. [일부 애플리케이션 및 API에는 계정 개체의 권한 부여 정보에 대한 액세스 필요]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information)를 참조하세요. 간단히 말하면 확인할 “Windows 권한 부여 액세스 그룹” 기본 제공 도메인 그룹에 앱 프록시 커넥터 머신 계정을 추가합니다. |
-
-## <a name="my-error-wasnt-listed-here"></a>내 오류가 여기에 나열되지 않았습니다.
-
-Azure AD 애플리케이션 프록시에 이 문제 해결 가이드에 나열되지 않은 오류 또는 문제가 발생한 경우 알려주시기 바랍니다. 발생한 오류의 세부 정보를 [피드백 팀](mailto:aadapfeedback@microsoft.com)에게 전자 메일로 보내 주세요.
 
 ## <a name="see-also"></a>참조
 * [Azure Active Directory에 대한 애플리케이션 프록시 사용](application-proxy-add-on-premises-application.md)

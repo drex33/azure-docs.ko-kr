@@ -1,0 +1,82 @@
+- name: 배포 문서 문제 해결
+  href: index.yml
+- name: 개요
+  items:
+    - name: 배포 문제 해결이란 무엇인가요?
+      href: overview.md
+- name: 빠른 시작
+  items:
+    - name: ARM 배포 문제 해결
+      href: quickstart-troubleshoot-arm-deployment.md
+    - name: Bicep 배포 문제 해결
+      href: quickstart-troubleshoot-bicep-deployment.md
+- name: 방법
+  items:
+    - name: 배포 문제 해결
+      items:
+        - name: 배포 오류 문제 해결
+          href: common-deployment-errors.md
+        - name: AccountNameInvalid
+          href: error-storage-account-name.md
+        - name: DeploymentQuotaExceeded
+          href: deployment-quota-exceeded.md
+        - name: InvalidTemplate
+          href: error-invalid-template.md
+        - name: JobSizeExceeded
+          href: error-job-size-exceeded.md
+        - name: NoRegisteredProviderFound
+          href: error-register-resource-provider.md
+        - name: NotFound
+          href: error-not-found.md
+        - name: ParentResourceNotFound
+          href: error-parent-resource.md
+        - name: Linux의 프로비전 및 할당 문제
+          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
+        - name: Windows의 프로비전 및 할당 문제
+          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
+        - name: RequestDisallowedByPolicy
+          href: error-policy-requestdisallowedbypolicy.md
+        - name: ReservedResourceName
+          href: error-reserved-resource-name.md
+        - name: ResourceQuotaExceeded
+          href: error-resource-quota.md
+        - name: SkuNotAvailable
+          href: error-sku-not-available.md
+- name: 참고
+  items:
+    - name: Bicep 및 ARM 템플릿 참조
+      href: /azure/templates/
+    - name: Functions
+      items:
+        - name: ARM 템플릿 함수
+          href: ../templates/template-functions.md
+        - name: Bicep 함수
+          href: ../bicep/bicep-functions.md
+    - name: REST
+      href: /rest/api/resources/
+    - name: Azure PowerShell
+      href: /powershell/module/az.resources
+    - name: Azure CLI
+      href: /cli/azure/resource
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.resourcemanager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.resources
+    - name: Python
+      href: /python/api/overview/azure/resources
+- name: 리소스
+  items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/paths/deploy-manage-resource-manager-templates/
+    - name: Azure 빠른 시작 템플릿
+      href: 'https://azure.microsoft.com/resources/templates/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-resource-manager'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

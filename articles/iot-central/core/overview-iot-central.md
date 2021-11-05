@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2, contperf-fy22q1
-ms.openlocfilehash: eb61a41cb7c7425c336145130cc61c76173f4ceb
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 98de0994e430ccf8bc3ab5026e9ef739c603368a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652376"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024280"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -36,7 +36,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 - _솔루션 작성기_ 는 [애플리케이션 생성](quick-deploy-iot-central.md), [규칙 및 작업 구성](quick-configure-rules.md), [다른 서비스와의 통합 정의](quick-export-data.md) 및 운영자와 디바이스 개발자를 위해 애플리케이션을 추가로 사용자 지정하는 작업을 담당합니다.
 - _운영자_ 는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices-individually.md)합니다.
-- _관리자_ 는 애플리케이션 내 [사용자 및 권한](howto-administer.md) 관리와 같은 관리 작업을 담당합니다.
+- _관리자_ 는 애플리케이션 내 [사용자 역할 및 권한](howto-administer.md) 관리와 [관리 ID의 다른 서비스로의 안전한 연결 구성](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)과 같은 관리 작업을 담당합니다.
 - _디바이스 개발자_ 는 애플리케이션에 연결된 [디바이스에서 실행되는 코드를 만들](concepts-telemetry-properties-commands.md)거나 [IoT Edge 모듈](concepts-iot-edge.md)을 만듭니다.
 
 ## <a name="create-your-iot-central-application"></a>IoT Central 애플리케이션 만들기

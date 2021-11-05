@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: d3e027c8a6de4cdd73197909289a00659a5839e7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a0a65e424d295b6cecd478a7fdff9ae8df79a3fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124745487"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039990"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -127,7 +127,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Workday에 대한 액세스 권한을 부여합니다.
 
@@ -136,16 +136,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-workday&quot;></a>Workday 구성
+## <a name="configure-workday"></a>Workday 구성
 
 1. 다른 웹 브라우저 창에서 Workday 회사 사이트에 관리자 권한으로 로그인합니다.
 
 1. **검색 상자** 에서 홈페이지 왼쪽 상단에 있는 이름 **테넌트 설정 편집 - 보안** 으로 검색합니다.
 
-    ![테넌트 보안 편집](./media/workday-tutorial/search-box.png &quot;테넌트 보안 편집")
+    ![테넌트 보안 편집](./media/workday-tutorial/search-box.png "테넌트 보안 편집")
 
 
 1. **SAML 설정** 섹션에서 **ID 공급자 가져오기** 를 클릭합니다.
@@ -197,7 +197,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     e. **확인** 을 클릭합니다.
 
     > [!NOTE]
-    > Single Sign-On을 올바르게 설정했는지 확인하세요. 잘못된 설정으로 Single Sign-On을 활성화한 경우 자격 증명을 사용하여 애플리케이션을 입력하고 잠글 수 없을 수도 있습니다. 이 경우 Workday는 사용자가 [Your Workday URL]/login.flex?redirect=n 형식으로 해당 일반 사용자 이름 및 암호를 사용하여 로그인할 수 있는 백업 로그인 url을 제공합니다.
+    > Single Sign-On을 올바르게 설정했는지 확인하세요. 잘못된 설정으로 SSO(Single Sign-On)를 사용하도록 설정한 경우 자격 증명을 애플리케이션에 입력하지 못하고 잠길 수 있습니다. 이 상황에서 Workday는 사용자가 다음 형식의 일반 사용자 이름과 암호를 사용하여 로그인할 수 있는 백업 로그인 URL을 제공합니다.[Your Workday URL]/login.flex?redirect=n
 
 ### <a name="create-workday-test-user"></a>Workday 테스트 사용자 만들기
 

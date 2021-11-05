@@ -13,14 +13,14 @@ ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f0f943475fc397acf61c51fc3dc34cc9efdb1cfb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f4ef55cd1a780612647e5e39eb13eed84fdead42
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450570"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032172"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
+# <a name="customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
 오늘날 Microsoft ID 플랫폼은 사용자 지정 애플리케이션뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 애플리케이션 모두를 포함하여 대부분의 엔터프라이즈 애플리케이션에서 SSO(Single Sign-On)를 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Microsoft ID 플랫폼을 통해 애플리케이션에 인증하면 Microsoft ID 플랫폼은 HTTP POST를 통해 애플리케이션에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임* 이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
@@ -58,8 +58,9 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Micro
 |---------------|-------------|
 | **기본값** | Microsoft ID 플랫폼이 기본 원본 형식을 사용합니다. |
 | **Persistent** | Microsoft ID 플랫폼이 Persistent를 NameID 형식으로 사용합니다. |
-| **EmailAddress** | Microsoft ID 플랫폼이 EmailAddress를 NameID 형식으로 사용합니다. |
+| **메일 주소** | Microsoft ID 플랫폼이 EmailAddress를 NameID 형식으로 사용합니다. |
 | **Unspecified** | Microsoft ID 플랫폼이 Unspecified를 NameID 형식으로 사용합니다. |
+|**Windows 도메인의 정규화된 이름**| Microsoft ID 플랫폼은 WindowsDomainQualifiedName 형식을 사용합니다.|
 
 임시 NameID도 지원되지만 이 형식은 드롭다운에서 사용할 수 없으며 Azure 쪽에서 구성할 수 없습니다. NameIDPolicy 특성에 대한 자세한 내용은 [Single Sign-on SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조하세요.
 
@@ -140,7 +141,7 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Micro
 | **IfEmpty()** | 입력이 null이거나 비어 있는 경우 특성 또는 상수를 출력합니다.<br/>예를 들어 지정된 사용자의 직원 ID가 비어 있는 경우 extensionattribute에 저장된 특성을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>매개 변수 1(입력): user.employeeid<br/>매개 변수 2(출력): user.extensionattribute1<br/>매개 변수 3(일치 항목이 없는 경우 출력): user.employeeid |
 | **IfNotEmpty()** | 입력이 null이 아니고 비어 있지 않은 경우 특성 또는 상수를 출력합니다.<br/>예를 들어 지정된 사용자의 직원 ID가 비어 있지 않은 경우 extensionattribute에 저장된 특성을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>매개 변수 1(입력): user.employeeid<br/>매개 변수 2(출력): user.extensionattribute1 |
 
-추가 변환이 필요한 경우 [Azure AD의 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599)의 *SaaS 애플리케이션* 범주 아래에서 아이디어를 제출합니다.
+추가 변환이 필요한 경우 [Azure AD의 피드백 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)의 *SaaS 애플리케이션* 범주 아래에서 아이디어를 제출합니다.
 
 ## <a name="add-the-upn-claim-to-saml-tokens"></a>SAML 토큰에 UPN 클레임 추가
 

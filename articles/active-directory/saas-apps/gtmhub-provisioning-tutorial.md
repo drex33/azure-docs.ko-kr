@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: thwimmer
-ms.openlocfilehash: 29daa8d65fceec441a197e6240fcf0c40f108f36
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e2efc7199d363533bcaadfbeaeb68734e328cb02
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060291"
 ---
 # <a name="tutorial-configure-gtmhub-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Gtmhub 구성
 

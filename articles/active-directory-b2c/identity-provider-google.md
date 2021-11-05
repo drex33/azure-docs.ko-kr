@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4113f9743c92ab5809977f681e35d41b759fe599
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: faed36e348a8716e1023705ca077e892a24ac2d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130217338"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007242"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Google 계정으로 등록 설정 및 로그인
 
@@ -41,7 +41,7 @@ ms.locfileid: "130217338"
 
 ## <a name="create-a-google-application"></a>Google 애플리케이션 만들기
 
-Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Google 계정으로 로그인할 수 있도록 설정하려면 [Google Developers Console](https://console.developers.google.com/)에서 애플리케이션을 만들어야 합니다. 자세한 내용은 [OAuth 2.0 설정](https://support.google.com/googleapi/answer/6158849)을 참조하세요. Google 계정이 없는 경우 [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)에서 가입할 수 있습니다.
+Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Google 계정으로 로그인할 수 있도록 설정하려면 [Google Developers Console](https://console.developers.google.com/)에서 애플리케이션을 만들어야 합니다. 자세한 내용은 [OAuth 2.0 설정](https://support.google.com/googleapi/answer/6158849)을 참조하세요. Google 계정이 없는 경우 [`https://accounts.google.com/signup`](https://accounts.google.com/signup)에서 가입할 수 있습니다.
 
 1. Google 계정 자격 증명을 사용하여 [Google 개발자 콘솔](https://console.developers.google.com/)에 로그인합니다.
 1. 페이지의 왼쪽 위 모서리에서 프로젝트 목록을 선택한 다음 **새 프로젝트** 를 선택합니다.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 10/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a48cf9d6912fae91cd789ae16bb68e1d95a4a9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 442a2e4d5f88d9716b6cc197c503888edb314040
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128585430"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049979"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식
 
@@ -34,7 +34,7 @@ Azure AD 조인 디바이스를 사용하면 사용자는 이미 자신의 환�
 
 Azure AD 조인 디바이스는 온-프레미스 AD 환경에 조인되어 있지 않으므로 해당 환경에 대한 지식이 없습니다. 그러나 Azure AD Connect를 사용하여 온-프레미스 AD에 대한 추가 정보를 이러한 디바이스에 제공할 수 있습니다.
 
-하이브리드 환경을 사용하는 경우 온-프레미스 ID 정보를 클라우드에 동기화하기 위해 Azure AD Connect를 이미 배포했을 가능성이 높습니다. 동기화 프로세스의 일부로 Azure AD Connect는 온-프레미스 사용자 및 도메인 정보를 Azure AD에 동기화합니다. 사용자가 하이브리드 환경에서 Azure AD 조인 디바이스에 로그인하는 경우 다음을 수행합니다.
+Azure AD와 온-프레미스 AD를 모두 사용하여 하이브리드 환경을 사용하는 경우 온-프레미스 ID 정보를 클라우드로 동기화하는 Azure AD Connect 또는 Azure AD Connect 클라우드 동기화를 이미 배포했을 수 있습니다. 동기화 프로세스의 일부로 온-프레미스 사용자 및 도메인 정보는 Azure AD에 동기화됩니다. 사용자가 하이브리드 환경에서 Azure AD 조인 디바이스에 로그인하는 경우 다음을 수행합니다.
 
 1. Azure AD는 사용자의 온-프레미스 도메인의 세부 정보를 [기본 새로 고침 토큰](concept-primary-refresh-token.md)과 함께 디바이스로 다시 보냅니다.
 1. LSA(로컬 보안 기관) 서비스를 통해 디바이스에서 Kerberos 및 NTLM 인증을 사용할 수 있습니다.

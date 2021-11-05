@@ -156,6 +156,8 @@
       href: authentication-flows-app-scenarios.md
     - name: 애플리케이션 및 서비스 주체
       href: app-objects-and-service-principals.md
+    - name: 워크로드 ID 페더레이션
+      href: workload-identity-federation.md
     - name: ID 플랫폼 모범 사례
       href: identity-platform-integration-checklist.md
     - name: 앱 보안
@@ -545,6 +547,10 @@
           href: howto-authenticate-service-principal-powershell.md
         - name: Azure Portal을 사용하여 서비스 사용자 만들기
           href: howto-create-service-principal-portal.md
+        - name: GitHub 리포지토리를 신뢰하도록 앱 구성
+          href: workload-identity-federation-create-trust-github.md
+        - name: 외부 ID 공급자를 신뢰하도록 앱 구성
+          href: workload-identity-federation-create-trust.md
     - name: 여러 테넌트에서 로그인 허용
       items:
         - name: 앱에서 지원되는 계정 수정

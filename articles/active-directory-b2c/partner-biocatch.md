@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: d090d6c97a26b78799adf8c5927e6e680c43938a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 173ef82e77e44f3b7e2a664d613b1810995fee21
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596508"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044801"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 BioCatch 구성하기
 
@@ -84,7 +84,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. 확장 파일에서 상속되는 새 파일을 만듭니다.
 
-    ```XML
+    ```xml
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -96,7 +96,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. BuildingBlocks 리소스 아래에서 입력 상자를 숨기도록 사용자 지정 UI에 대한 참조를 만듭니다.
 
-    ```XML
+    ```xml
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -112,7 +112,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. BuildingBlocks 리소스 아래에 다음 클레임을 추가합니다.
 
-    ```XML
+    ```xml
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -146,7 +146,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. 클라이언트 세션 ID 필드에 대해 자체 어설션된 클레임 공급자를 구성합니다.
 
-    ```XML
+    ```xml
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -190,7 +190,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. BioCatch에 대한 REST API 클레임 공급자를 구성합니다. 
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -236,8 +236,8 @@ document.getElementById("clientSessionId").style.display = 'none';
       </TechnicalProfiles>
     ```
 
-    > [!Note]
-    > BioCatch는 구성할 URL, 고객 ID 및 uuID (고유 사용자 ID)를 제공합니다. 고객 SessionID 클레임은 BioCatch에 대한 쿼리 문자열 매개 변수로 전달됩니다. 예를 들어 *MAKE_PAYMENT* 작업 유형을 선택할 수 있습니다.
+    > [!NOTE]
+    > BioCatch는 구성할 URL, 고객 ID 및 UUID(고유 사용자 ID)를 제공합니다. 고객 SessionID 클레임은 BioCatch에 대한 쿼리 문자열 매개 변수로 전달됩니다. 예를 들어 *MAKE_PAYMENT* 작업 유형을 선택할 수 있습니다.
 
 7. userjourney 구성 예제를 따릅니다.
 
@@ -247,7 +247,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. 반환된 클레임 ‘위험’이 ‘낮은’ 경우 MFA를 위한 단계를 건너뛰고, 그렇지 않으면 사용자 MFA를 강제합니다. 
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
           <ClaimsExchanges> 
@@ -295,7 +295,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     반환된 BioCatch 정보를 토큰의 클레임(특히 *risklevel* 및 ‘점수’)으로 애플리케이션에 전달하는 것이 유용합니다.
 
-    ```XML
+    ```xml
     <RelyingParty> 
 
     <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 

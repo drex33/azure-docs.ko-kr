@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2021
 ms.author: jeedes
-ms.openlocfilehash: bce0a36a33598a76e666806f5c2622924e307854
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7e6a85bf02ba4a3fa133fb9b87c40f82c8ce94f8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809717"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>자습서: Certify와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124809717"
 * 사용자가 Azure AD 계정으로 Certify에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -122,7 +122,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 이 섹션에서는 Certify에서 Britta Simon이라는 사용자를 만듭니다. Certify는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비전을 지원합니다. 이 섹션에 작업 항목이 없습니다. Certify에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 > [!NOTE]
-> 사용자를 수동으로 생성해야 하는 경우 [Certify 지원 팀](mailto:support@certify.com)에 문의해야 합니다.
+> 사용자를 수동으로 만들어야 하는 경우 [Certify 지원 팀](mailto:support@certify.com)에 문의해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

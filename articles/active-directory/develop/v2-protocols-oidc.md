@@ -13,12 +13,12 @@ ms.date: 07/19/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a23fd4f764773dfa29e1abd20f4952cc86049c42
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7aab9abf57b94f07edda0e6f2c27c4720c747b20
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464081"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050207"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft ID 플랫폼 및 OpenID Connect 프로토콜
 
@@ -122,8 +122,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant` | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. 한 테넌트의 사용자를 다른 테넌트로 로그인하는 게스트 시나리오의 경우, 리소스 테넌트로 올바르게 로그인하려면 테넌트 식별자를 *반드시* 제공해야 합니다.|
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
 | `response_type` | 필수 | OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code`와 같은 다른 `response_type` 값을 포함할 수도 있습니다. |
-| `redirect_uri` | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 없는 경우, 엔드포인트가 사용자를 돌려보낼 하나의 등록된 redirect_uri를 임의로 선택합니다. |
-| `scope` | 필수 | 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
+| `redirect_uri` | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩해야 한다는 점을 제외하고는 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 없는 경우, 엔드포인트가 사용자를 돌려보낼 하나의 등록된 `redirect_uri`를 임의로 선택합니다. |
+| `scope` | 필수 | 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우 동의 UI에서 **로그인** 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
 | `nonce` | 필수 | 앱에서 생성한 요청에 포함되는 값이며, 결과 id_token 값에 클레임으로 포함됩니다. 앱은 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | `response_mode` | 권장 | 결과 권한 부여 코드를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. `form_post` 또는 `fragment`일 수 있습니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |

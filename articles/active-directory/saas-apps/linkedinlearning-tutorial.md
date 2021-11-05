@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 1a80caceb0edbb5e297ff70726843d838d0937df
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6b64b2db7b10b203d5c22903a108a2efa696fd78
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832986"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056978"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-linkedin-learning"></a>자습서: LinkedIn Learning과 Azure AD SSO 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124832986"
 * 사용자가 자신의 Azure AD 계정으로 LinkedIn Learning에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -81,7 +81,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 LinkedIn 포털로부터 복사한 **ACS(Assertion Consumer Service) URL** 을 입력합니다.
 
-    다. **SP 시작** 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 **추가 URL 설정** 옵션을 클릭하여 로그인 URL을 지정합니다. 자체 로그인 URL을 만들려면 **ACS(Access Control Server) URL** 을 복사하여 /saml/을 /login/으로 바꿉니다. 완료된 후에는 로그온 URL에 다음과 같은 패턴이 포함됩니다.
+    다. **SP 시작** 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 **추가 URL 설정** 옵션을 클릭하여 로그인 URL을 지정합니다. 로그인 URL을 만들려면 **ACS(Access Control Server) URL** 을 복사하여 /saml/ with /login/으로 바꿉니다. 완료된 후에는 로그온 URL에 다음과 같은 패턴이 포함됩니다.
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
@@ -100,7 +100,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -112,7 +112,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 LinkedIn Learning에 대한 액세스 권한을 부여합니다.
 
@@ -121,16 +121,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-linkedin-learning-sso&quot;></a>LinkedIn Learning SSO 구성
+## <a name="configure-linkedin-learning-sso"></a>LinkedIn Learning SSO 구성
 
 1. 관리자 권한으로 LinkedIn Learning 회사 사이트에 로그인합니다.
 
 1. **관리자로 이동** > **본인** > **인증** 을 선택합니다. 
 
-    ![계정](./media/linkedinlearning-tutorial/welcome-back-authenticate.png &quot;계정") 
+    ![계정](./media/linkedinlearning-tutorial/welcome-back-authenticate.png "계정") 
 
 1. **인증** 에서 **Single Sign-On 구성** 을 선택하고 **새 SSO 추가** 를 클릭합니다.    
 

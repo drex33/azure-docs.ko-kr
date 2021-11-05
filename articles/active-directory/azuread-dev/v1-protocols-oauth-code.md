@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5f987ab15201e4c4dabf147ac468184881e9ed17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66501419a4f4760e96c2f308dc0ed23134d4bb4c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85551649"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027990"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여
 
@@ -34,25 +34,25 @@ Azure AD(Azure Active Directory)는 OAuth 2.0을 사용하여 Azure AD 테넌트
 OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)에서 설명합니다. 웹앱 및 기본적으로 설치된 앱을 포함하여 대부분의 애플리케이션 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다.
 
 ## <a name="register-your-application-with-your-ad-tenant"></a>AD 테넌트에 애플리케이션 등록
-먼저, 애플리케이션을 Azure AD(Azure Active Directory) 테넌트에 등록합니다. 그러면 애플리케이션에 대한 애플리케이션 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
+먼저, Azure AD(Azure Active Directory) 테넌트에 애플리케이션을 등록합니다. 그러면 애플리케이션에 대한 애플리케이션 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
    
-1. 페이지 오른쪽 위 모서리에서 계정을 선택한 후 **디렉터리 전환** 탐색 및 적절한 테넌트를 차례로 선택하여 Azure AD 테넌트를 선택합니다. 
-   - 계정에 Azure AD 테넌트가 하나만 있거나 이미 적절한 Azure AD 테넌트를 선택한 경우 이 단계를 건너뛰세요.
+1. 페이지 오른쪽 상단 모서리에서 계정을 선택한 다음 **디렉터리 전환** 탐색 및 적절한 테넌트 선택을 통해 Azure AD 테넌트를 선택합니다. 
+   - 계정에 Azure AD 테넌트가 하나만 있거나 적절한 Azure AD 테넌트를 선택한 경우 이 단계를 건너뛰세요.
    
 1. Azure Portal에서 **Azure Active Directory** 를 검색하고 선택합니다.
    
-1. **Azure Active Directory** 왼쪽 메뉴에서 **앱 등록** 을 선택하고 **새 등록** 을 선택합니다.
+1. **Azure Active Directory** 왼쪽 메뉴에서 **앱 등록** 을 선택한 다음 **새 등록** 을 선택합니다.
    
-1. 메시지에 따라 새 애플리케이션을 만듭니다. 이 자습서에서는 웹 애플리케이션이든지 퍼블릭 클라이언트(모바일 및 데스크톱) 애플리케이션이든지 상관없지만 웹 애플리케이션 또는 퍼블릭 클라이언트 애플리케이션에 대한 특정 예제가 필요한 경우 [빠른 시작](v1-overview.md)을 확인하세요.
+1. 메시지에 따라 새 애플리케이션을 만듭니다. 이 튜토리얼의 웹 애플리케이션이든 퍼블릭 클라이언트(모바일 및 데스크톱) 애플리케이션이든 웹 애플리케이션 또는 퍼블릭 클라이언트 애플리케이션에 대한 구체적인 예가 필요한 경우 [빠른 시작](v1-overview.md)을 확인하세요.
    
    - **이름** 은 애플리케이션 이름이고 최종 사용자에게 애플리케이션을 설명합니다.
    - **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
-   - **리디렉션 URI** 를 제공합니다. 웹 애플리케이션의 경우 사용자가 로그인할 수 있는 앱의 기준 URL입니다.  예들 들어 `http://localhost:12345`입니다. 퍼블릭 클라이언트(모바일 및 데스크톱)의 경우 Azure AD는 이 URI를 사용하여 토큰 응답을 반환합니다. 애플리케이션에 특정한 값을 입력합니다.  예들 들어 `http://MyFirstAADApp`입니다.
+   - **리디렉션 URI** 제공 웹 애플리케이션의 경우 이것이 사용자가 로그인할 수 있는 앱의 기준 URL입니다.  예들 들어 `http://localhost:12345`입니다. 퍼블릭 클라이언트(모바일 및 데스크톱)의 경우 Azure AD에서 토큰 응답을 반환하는데 사용합니다. 애플리케이션에 특정한 값을 입력합니다.  예들 들어 `http://MyFirstAADApp`입니다.
    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
    
-1. 등록이 끝나면 Azure AD는 애플리케이션에 고유한 클라이언트 식별자(**애플리케이션 ID**)를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 페이지에서 이 값을 복사해 둡니다.
+1. 등록을 완료하면 Azure AD가 애플리케이션에 고유한 클라이언트 식별자(**애플리케이션 ID**)를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 페이지에서 이 값을 복사해 둡니다.
    
 1. Azure Portal에서 애플리케이션을 찾으려면 **앱 등록** 을 선택하고 **모든 애플리케이션 보기** 를 선택합니다.
 
@@ -78,7 +78,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 | --- | --- | --- |
 | tenant |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
 | client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. 서비스 세로 막대에서 **Azure Active Directory** 를 클릭하고, **앱 등록** 을 클릭하고, 애플리케이션을 선택합니다. |
@@ -163,7 +163,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 | --- | --- | --- |
 | tenant |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
 | client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. 애플리케이션 ID가 앱 등록의 설정에 표시됩니다. |

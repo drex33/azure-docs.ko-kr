@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 511f546437d12714ae77d1e3a99f15feda31e33f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ad00a74871373338a2b4e8b557297a808e8186fc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130228133"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007299"
 ---
 # <a name="add-ad-fs-as-an-openid-connect-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 OpenID Connect ID 공급자로 AD FS 추가
 
@@ -62,7 +62,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 AD FS 계정으로 �
 
     | LDAP 특성 | 나가는 클레임 형식 |
     | -------------- | ------------------- |
-    | User-Principal-Name | UPN |
+    | User-Principal-Name | upn |
     | Surname | family_name |
     | Given-Name | given_name |
     | Display-Name | name |
@@ -94,10 +94,10 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 AD FS 계정으로 �
 1. (선택 사항) **도메인 힌트** 에 `contoso.com`을 입력합니다. 자세한 내용은 [Azure Active Directory B2C를 사용하여 직접 로그인 설정](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조하세요.
 1. **ID 공급자 클레임 매핑** 에서 다음 클레임을 선택합니다.
 
-    - **사용자 ID**: *upn*
-    - **표시 이름**: *unique_name*
-    - **지정된 이름**: *given_name*
-    - **성**: *family_name*
+    - **사용자 ID**: `upn`
+    - **표시 이름**: `unique_name`
+    - **이름**: `given_name`
+    - **성**: `family_name`
 
 1. **저장** 을 선택합니다.
 

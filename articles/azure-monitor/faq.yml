@@ -8,12 +8,12 @@ metadata:
   author: bwren
   ms.author: bwren
   ms.date: 10/08/2020
-  ms.openlocfilehash: 439248f37075f7cbc91af0e15dcdf6b029e95b92
-  ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+  ms.openlocfilehash: 45e86a925c83f32ab4f704ea7ffc4f83ff3089ae
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/15/2021
-  ms.locfileid: "130066702"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131059930"
 title: Azure Monitor 질문과 대답
 summary: >
   이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다. 추가 질문이 있으면 [토론 포럼](/answers/questions/topics/single/24223.html)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -74,6 +74,15 @@ sections:
       Azure Monitor에서 수집된 데이터에 액세스하려면 어떻게 해야 하나요?
     answer: >
       인사이트와 솔루션은 Azure Monitor에 저장된 데이터를 사용할 수 있는 사용자 지정 환경을 제공합니다. KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 로그 데이터를 직접 사용할 수 있습니다. Azure Portal에서는 Log Analytics를 사용하여 쿼리를 작성 및 실행하고 데이터를 대화형으로 분석할 수 있습니다. Azure Portal에서 메트릭 탐색기를 사용하여 메트릭을 분석합니다. [Azure Monitor에서 로그 데이터 분석](logs/log-query-overview.md) 및 [Azure 메트릭 탐색기 시작](essentials/metrics-getting-started.md)을 참조하세요.
+  - question: >
+      Azure Monitor 로그에서 중복 레코드는 어떻게 표시되나요?
+    answer: >
+      경우에 따라 Azure Monitor 로그에 중복 레코드가 있는지 확인할 수 있습니다. 이는 일반적으로 다음 두 조건 중 하나에 해당합니다.
+
+
+      - 파이프라인의 구성 요소는 대상에 안정적으로 배달되도록 다시 시도합니다. 경우에 따라 매우 작은 비율의 원격 분석 항목에 대해 중복이 발생할 수 있습니다.
+
+      - 중복 레코드가 가상 컴퓨터에서 제공되는 경우 Log Analytics 에이전트와 Azure Monitor 에이전트가 모두 설치되어 있을 수 있습니다. Log Analytics 에이전트가 여전히 설치되야 하는 경우 Azure Monitor 에이전트에서 사용하는 데이터 수집 규칙에 의해 수집되는 데이터를 더 이상 수집하지 않도록 Log Analytics 작업 영역을 구성합니다.
 - name: 솔루션 및 인사이트
   questions:
   - question: >

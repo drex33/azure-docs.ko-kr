@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df3c243970709ad7ae4bc52f179117affc2d8613
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a1b237e8347a6a9238dfef505993410413537324
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776438"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057194"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -366,6 +366,7 @@ ms.locfileid: "124776438"
 > | 그룹에 사용자 추가 | 사용자 관리자 |  |
 > | 라이선스 할당 | 라이선스 관리자 | 사용자 관리자 |
 > | 게스트 사용자 만들기 | 게스트 초대자 | 사용자 관리자 |
+> | 게스트 사용자 초대 재설정 | 사용자 관리자 | 전역 관리자 |
 > | 사용자 만들기 | 사용자 관리자 |  |
 > | 사용자 삭제 | 사용자 관리자 |  |
 > | 제한된 관리자의 새로 고침 토큰 무효화(설명서 참조) | 사용자 관리자 |  |

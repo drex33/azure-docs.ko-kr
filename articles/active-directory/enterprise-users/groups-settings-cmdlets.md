@@ -4,7 +4,7 @@ description: Azure Active Directory cmdlet을 사용하여 그룹 설정을 관�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e45101caec9127c39837d015d6a5117c7e2ae775
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6453e5599ebc8ab5a28f94fe3f7c69c3615eb63b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472046"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052544"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -33,6 +33,9 @@ ms.locfileid: "114472046"
 Microsoft 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 Microsoft 365 그룹 설정을 구성하려면 “Group.Unified” 템플릿을 사용하세요. 단일 그룹의 Microsoft 365 그룹 설정을 구성하려면 “Group.Unified.Guest” 템플릿을 사용하세요. 이 템플릿은 Microsoft 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
 cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨터에 모듈을 다운로드하여 설치하는 방법에 대한 지침은 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/overview)를 참조하세요. 모듈의 버전 2 릴리스를 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAD/)에서 설치할 수 있습니다.
+
+>[!Note]
+>Microsoft 365 그룹에 대한 게스트 추가를 제한하는 설정이 있더라도 관리자는 Microsoft 365 그룹에 게스트 사용자를 계속 추가합니다. 이 설정은 관리자가 아닌 사용자가 Microsoft 365 그룹에 게스트 사용자를 추가하지 못하도록 제한합니다.
 
 ## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet 설치
 
@@ -160,7 +163,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 | <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: “False” | 더 이상 사용되지 않습니다. 사용하지 마십시오.
 |  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li> 기본값: False | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
 |  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li> 기본값: True | 게스트 사용자가 Microsoft 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>유형: String<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>유형: String<li>기본값: “” | 게스트 사용 지침의 링크 URL입니다. |
 |  <ul><li>AllowToAddGuests<li>형식: Boolean<li> 기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다. <br>*EnableMIPLabels* 가 *True* 로 설정되고 게스트 정책이 그룹에 할당된 민감도 레이블과 연결된 경우 이 설정은 재정의되고 읽기 전용이 될 수 있습니다.<br>조직 수준에서 AllowToAddGuests 설정이 False로 설정된 경우 그룹 수준의 모든 AllowToAddGuests 설정이 무시됩니다. 소수의 그룹에만 게스트 액세스를 사용하려면 조직 수준에서 AllowToAddGuests를 true로 설정한 후 특정 그룹에 선택적으로 사용하지 않도록 설정해야 합니다. |
 |  <ul><li>ClassificationList<li>유형: String<li>기본값: “” | Microsoft 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. <br>EnableMIPLabels == True인 경우에는 이 설정이 적용되지 않습니다.|
 |  <ul><li>EnableMIPLabels<li>형식: Boolean<li>기본값: “False” |Microsoft 365 규정 준수 센터에 게시된 민감도 레이블을 Microsoft 365 그룹에 적용할 수 있는지 여부를 나타내는 플래그입니다. 자세한 내용은 [Microsoft 365 그룹에 대한 민감도 레이블 할당](groups-assign-sensitivity-labels.md)을 참조하세요. |

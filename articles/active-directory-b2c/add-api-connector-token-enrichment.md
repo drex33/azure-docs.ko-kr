@@ -2,21 +2,21 @@
 title: 토큰 보강 - Azure Active Directory B2C
 description: API를 사용하여 외부 소스의 클레임으로 토큰을 보강합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 20473d6a5dcbdc826605d46928a7bfbb90792e0e
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 8f5bf34424754106c6d86195c37d23c3c9060c1c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186068"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008354"
 ---
 # <a name="enrich-tokens-with-claims-from-external-sources-using-api-connectors"></a>API 커넥터를 사용하여 외부 소스의 클레임으로 토큰 보강
 
@@ -255,7 +255,7 @@ REST API를 배포한 후에는 다음을 포함하여 고유한 REST API를 반
     
 자세한 구성은 [RESTful 기술 프로필 메타데이터](restful-technical-profile.md#metadata)를 참조하세요.
 
-위의 `AuthenticationType` 및 `AllowInsecureAuthInProduction` 설명은 프로덕션 환경으로 이동할 때 수행해야 하는 변경 내용을 지정합니다. 프로덕션을 위해 RESTful Api를 보호하는 방법을 알아보려면 [Secure RESTful API](secure-rest-api.md)를 참조하세요.
+위의 `AuthenticationType` 및 `AllowInsecureAuthInProduction` 설명은 프로덕션 환경으로 이동할 때 수행해야 하는 변경 내용을 지정합니다. 프로덕션을 위해 RESTful API를 보호하는 방법을 알아보려면 [RESTful API 보안](secure-rest-api.md)을 참조하세요.
 
 ## <a name="add-an-orchestration-step"></a>오케스트레이션 단계 추가
 
@@ -415,5 +415,3 @@ API를 보호하는 방법을 알아보려면 다음 문서를 참조하세요.
 - [참조: RESTful 기술 프로필](restful-technical-profile.md)
 
 ::: zone-end
-
-

@@ -2,22 +2,22 @@
 title: 세션 동작 구성 - Azure Active Directory B2C
 description: Azure Active Directory B2C에서 세션 동작을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 10/05/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9259fac727287ce4d52594d146eaac96a3085433
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 59d14afdbe6f4949f2761ddccb3a48a4770c3bd1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528823"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028180"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -63,7 +63,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함됩니�
 
 ### <a name="application-session"></a>애플리케이션 세션
 
-웹, 모바일 또는 단일 페이지 애플리케이션은 OAuth 액세스, ID 토큰 또는 SAML 토큰으로 보호할 수 있습니다. 사용자가 앱의 보호된 리소스에 액세스하려고 하면 앱은 애플리케이션 쪽에 활성 세션이 있는지 여부를 확인합니다. 앱 세션이 없거나 세션이 만료된 경우 앱은 사용자를 Azure AD B2C 로그인 페이지로 보냅니다.
+웹, 모바일 또는 단일 페이지 애플리케이션은 OAuth2 액세스 토큰, ID 토큰 또는 SAML 토큰으로 보호할 수 있습니다. 사용자가 앱의 보호된 리소스에 액세스하려고 하면 앱은 애플리케이션 쪽에 활성 세션이 있는지 여부를 확인합니다. 앱 세션이 없거나 세션이 만료된 경우 앱은 사용자를 Azure AD B2C 로그인 페이지로 안내합니다.
 
 애플리케이션 세션은 애플리케이션 도메인 이름(예: `https://contoso.com`)으로 저장된 쿠키 기반 세션이 될 수 있습니다. 모바일 애플리케이션은 다른 방식으로 세션을 저장할 수 있지만 비슷한 방법을 사용합니다.
 
@@ -89,7 +89,8 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함됩니�
 세션 동작을 구성하려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
 1. 이전에 만든 사용자 흐름을 엽니다.
@@ -133,14 +134,14 @@ KMSI는 개별 사용자 흐름 수준에서 구성할 수 있습니다. 사용�
 사용자 흐름에 대해 KMSI를 사용하도록 설정하려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서  **디렉터리 + 구독**  필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서  **모든 서비스** 를 선택하고  **Azure AD B2C** 를 검색하여 선택합니다.
-4.  **사용자 흐름(정책)** 을 선택합니다.
-5. 이전에 만든 사용자 흐름을 엽니다.
-6.  **속성** 을 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서  **모든 서비스** 를 선택하고  **Azure AD B2C** 를 검색하여 선택합니다.
+1.  **사용자 흐름(정책)** 을 선택합니다.
+1. 이전에 만든 사용자 흐름을 엽니다.
+1.  **속성** 을 선택합니다.
 
-7.  **세션 동작** 에서 **로그인 상태 유지 세션** 을 선택합니다. **로그인 세션 유지(일)** 옆에 1에서 90 사이의 값을 입력하여 세션을 열어 둘 수 있는 일 수를 지정합니다.
-
+1.  **세션 동작** 에서 **로그인 상태 유지 세션** 을 선택합니다. **로그인 세션 유지(일)** 옆에 1에서 90 사이의 값을 입력하여 세션을 열어 둘 수 있는 일 수를 지정합니다.
 
    ![로그인 상태 유지 세션 사용](media/session-behavior/enable-keep-me-signed-in.png)
 
@@ -264,11 +265,13 @@ KeepAliveInDays의 값을 아래 예제에 표시된 것과 같이 비교적 오
 
 ::: zone pivot="b2c-custom-policy"
 
-### <a name="single-sign-out"></a>Single Sign-Out 
+## <a name="single-sign-out"></a>Single Sign-Out 
 
-사용자를 Azure AD B2C 로그아웃 엔드포인트로 리디렉션하는 경우(OAuth2 및 SAML 프로토콜 둘 다에 대해) Azure AD B2C는 브라우저에서 사용자의 세션을 지웁니다. 하지만 사용자는 인증을 위해 Azure AD B2C를 사용하는 다른 애플리케이션에 여전히 로그인되어 있을 수 있습니다. 사용자를 동시에 로그아웃하도록 해당 애플리케이션을 활성화하려면 Azure AD B2C는 현재 사용자가 로그인된 모든 애플리케이션의 등록된 `LogoutUrl`로 HTTP GET 요청을 보냅니다.
+사용자를 [Azure AD B2C 로그아웃 엔드포인트](openid-connect.md#send-a-sign-out-request)(OAuth2 및 OpenID Connect 모두용)로 리디렉션하거나 `LogoutRequest`(SAML용)를 보내면 Azure AD B2C가 브라우저에서 사용자 세션을 지웁니다. 하지만 사용자는 인증을 위해 Azure AD B2C를 사용하는 다른 애플리케이션에 여전히 로그인되어 있을 수 있습니다. 활성 세션이 있는 모든 애플리케이션에서 사용자를 로그아웃하기 위해 Azure AD B2C는 *SLO(단일 로그아웃)* 라고도 하는 *단일 로그아웃* 을 지원합니다.
 
-애플리케이션은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다. 애플리케이션에서 단일 로그아웃을 지원하려는 경우 애플리케이션 코드에서 `LogoutUrl`을 구현해야 합니다. 
+로그아웃하는 동안 Azure AD B2C는 사용자가 현재 로그인되어 있는 모든 애플리케이션의 등록된 로그아웃 URL에 HTTP 요청을 동시에 보냅니다.
+
+### <a name="configure-your-custom-policy"></a>사용자 지정 정책 구성
 
 단일 로그아웃을 지원하려면 JWT 및 SAML 토큰 발급자 기술 프로필에서 다음을 지정해야 합니다.
 
@@ -314,6 +317,29 @@ KeepAliveInDays의 값을 아래 예제에 표시된 것과 같이 비교적 오
 </ClaimsProvider>
 ```
 
+### <a name="configure-your-application"></a>애플리케이션 구성
+
+애플리케이션이 아웃에 참여하려면:
+
+- [SAML 서비스 공급자](saml-service-provider.md)의 경우 [SAML 메타데이터 문서의 SingleLogoutService 위치](saml-service-provider.md#override-or-set-the-logout-url-optional)로 애플리케이션을 구성합니다. 앱 등록 `logoutUrl`을 구성할 수도 있습니다. 자세한 내용은 [로그아웃 URL 설정](saml-service-provider.md#override-or-set-the-logout-url-optional)을 참조하세요.
+- OpenID Connect 또는 OAuth2 애플리케이션의 경우 앱 등록 매니페스트의 `logoutUrl` 특성을 설정합니다. 로그아웃 URL을 구성하려면:
+    1. Azure AD B2C 메뉴에서 **앱 등록** 을 선택합니다.
+    1. 애플리케이션 등록을 선택합니다.
+    1. **관리** 에서 **인증** 을 선택합니다.
+    1. **프런트 채널 로그아웃 URL** 에서 로그아웃 URL을 구성합니다.
+
+### <a name="handling-single-sign-out-requests"></a>싱글 사인아웃 요청 처리
+
+Azure AD B2C는 로그아웃 요청을 수신하면 전면 채널 HTML iframe을 사용하여 사용자가 현재 로그인되어 있는 각 참여 애플리케이션의 등록된 로그아웃 URL로 HTTP 요청을 보냅니다. 로그아웃 요청을 트리거하는 애플리케이션은 이 로그아웃 메시지를 받지 않습니다. 애플리케이션은 사용자를 식별하는 애플리케이션 세션을 지워서 로그아웃 요청에 응답해야 합니다.
+
+- OpenID Connect 및 OAuth2 애플리케이션의 경우 Azure AD B2C는 등록된 로그아웃 URL에 HTTP GET 요청을 보냅니다.
+- SAML 애플리케이션의 경우 Azure AD B2C는 SAML 로그아웃 요청을 등록된 로그아웃 URL로 보냅니다.
+
+모든 애플리케이션에 로그아웃 알림이 전송되면 Azure AD B2C는 다음 중 하나를 수행합니다.
+
+- OpenID Connect 또는 OAuth2 애플리케이션의 경우 사용자는 초기 요청에 지정된(선택 사항) `state` 매개 변수를 포함하여 요청된 `post_logout_redirect_uri`로 리디렉션됩니다. 예: `https://contoso.com/logout?state=foo`.
+- SAML 애플리케이션의 경우 HTTP POST를 통해 SAML 로그아웃 응답이 처음에 로그아웃 요청을 보낸 애플리케이션으로 전송됩니다.
+
 ::: zone-end
 
 ### <a name="secure-your-logout-redirect"></a>로그아웃 리디렉션 보안
@@ -325,7 +351,8 @@ KeepAliveInDays의 값을 아래 예제에 표시된 것과 같이 비교적 오
 로그아웃 요청에 ID 토큰을 요구하려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
 1. 이전에 만든 사용자 흐름을 엽니다.
@@ -353,7 +380,8 @@ KeepAliveInDays의 값을 아래 예제에 표시된 것과 같이 비교적 오
 애플리케이션 로그아웃 URL을 구성하려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **앱 등록** 을 선택하고 애플리케이션을 선택합니다.
 1. **인증** 을 선택합니다.

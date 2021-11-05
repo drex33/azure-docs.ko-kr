@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1d3bac4cb1ca6bc5849ba743c83922f0283cc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dcd5f888622b1ce054f5fbb30db7b668f6501c70
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620980"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049903"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 
@@ -102,7 +102,7 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **Microsoft Edge 브라우저**: 형식이 지정된 URL <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
 | **Microsoft Edge 브라우저**: 즐겨찾기 표시줄 설정 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
 | **Microsoft Edge 브라우저**: 홈 단추 표시 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 팝업 차단 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 팝업 창 차단<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
 | **Microsoft Edge 브라우저**: 각 다운로드에서 수행할 작업 확인 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
 | **Microsoft Edge 브라우저**: 암호 저장 제안 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
 | **Microsoft Edge 브라우저**: 보내기 시 요청 추적 안 함 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |

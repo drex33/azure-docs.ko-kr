@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2021
 ms.author: thwimmer
-ms.openlocfilehash: c548e0398ad7d27d6a145f518a9351e706aacf08
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 9450d8fddcee604aed05a8d7d8e8194a1044840e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323335"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056816"
 ---
 # <a name="tutorial-configure-zip-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Zip 구성
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 10/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674f4cf80d68095ebd7b134c679b60b45ff2a548
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 54155113920c61d2f32474f0fac2414a6751bcdf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619347"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067416"
 ---
 # <a name="building-a-conditional-access-policy"></a>조건부 액세스 정책 빌드
 
@@ -26,7 +26,9 @@ ms.locfileid: "128619347"
 
 ![조건부 액세스(신호 + 결정 + 적용 = 정책)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-언제든지 개별 사용자에게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA(다단계 인증)가 필요하고 다른 정책에 규정 준수 디바이스가 필요한 경우 MFA를 완료한 다음 규정 준수 디바이스를 사용해야 합니다. 모든 할당은 논리적으로 **and** 가 적용됩니다. 하나를 초과하여 할당을 구성한 경우 모든 할당이 충족되어야 정책을 트리거할 수 있습니다.
+언제든지 개별 사용자에게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA(다단계 인증)가 필요하고 다른 정책에 규정 준수 디바이스가 필요한 경우 MFA를 완료한 다음 규정 준수 디바이스를 사용해야 합니다. 모든 할당은 논리적으로 **and** 가 적용됩니다. 할당을 두 개 이상 구성한 경우 정책을 트리거하려면 모든 할당이 충족되어야 합니다.
+
+"선택한 컨트롤 중 하나 필요" 정책을 선택한 경우 정책 요구 사항이 충족되는 즉시 정의된 순서대로 액세스 권한이 부여된다는 메시지가 표시됩니다.
 
 모든 정책은 다음 두 단계로 적용됩니다.
 
@@ -34,9 +36,9 @@ ms.locfileid: "128619347"
    - 정책 평가에 필요한 네트워크 위치 및 디바이스 ID와 같은 세션 세부 정보를 수집합니다. 
    - 정책 평가의 1단계는 사용하도록 설정된 정책 및 [보고 전용 모드](concept-conditional-access-report-only.md)의 정책에 대해 발생합니다.
 - 2단계: 적용 
-   - 1단계에서 수집한 세션 세부 정보를 사용하여 충족되지 않은 요구 사항을 확인합니다. 
-   - 액세스를 차단하도록 구성된 정책이 있는 경우 차단 권한 부여 컨트롤을 사용하면 적용이 중지되고 사용자가 차단됩니다. 
-   - 정책이 충족될 때까지 다음 순서에 따라 1단계에서 충족되지 않은 추가 권한 부여 컨트롤 요구 사항을 완료하라는 메시지가 사용자에게 표시됩니다.  
+   - 1단계에서 수집한 세션 세부 정보를 사용하여 충족되지 않은 요구 사항을 식별합니다. 
+   - 차단 권한 부여 제어를 사용하여 액세스를 차단하도록 구성된 정책이 있는 경우 여기서 적용이 중지되고 사용자가 차단됩니다. 
+   - 정책이 충족될 때까지 사용자에게 다음 순서대로 1단계 중에 충족되지 않은 더 많은 권한 부여 제어 요구 사항을 완료하라는 메시지가 표시됩니다.  
       - Multi-Factor Authentication 
       - 승인된 클라이언트 앱/앱 보호 정책 
       - 관리 디바이스(규정 준수 또는 하이브리드 Azure AD 조인) 
@@ -77,9 +79,9 @@ ms.locfileid: "128619347"
 
 #### <a name="client-apps"></a>클라이언트 앱
 
-기본값으로 새로 만든 모든 조건부 액세스 정책은 클라이언트 앱 조건이 구성되지 않은 경우에도 모든 클라이언트 앱 형식에 적용됩니다.
+기본적으로 새로 만든 모든 조건부 액세스 정책은 클라이언트 앱 조건이 구성되지 않은 경우에도 모든 클라이언트 앱 형식에 적용됩니다.
 
-클라이언트 앱 조건의 동작은 2020년 8월에 업데이트되었습니다. 기존 조건부 액세스 정책이 있는 경우 변경되지 않은 상태로 유지됩니다. 그러나 기존 정책을 클릭하면 구성 토글이 제거되고 정책이 적용되는 클라이언트 앱이 선택됩니다.
+클라이언트 앱 조건의 동작은 2020년 8월에 업데이트되었습니다. 기존 조건부 액세스 정책이 있는 경우 변경되지 않은 상태로 유지됩니다. 그러나 기존 정책을 선택하면 구성 토글이 제거되고 정책이 적용되는 클라이언트 앱이 선택됩니다.
 
 #### <a name="device-state"></a>디바이스 상태
 

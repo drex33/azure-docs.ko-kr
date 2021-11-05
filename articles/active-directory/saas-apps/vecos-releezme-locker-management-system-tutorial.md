@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 10/20/2021
 ms.author: jeedes
-ms.openlocfilehash: caca1503e0ea4c272708bce34ecfd8993b4d6113
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 59c3166bbbd5117e084808aaadfa1b1fafaf2dee
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007629"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056883"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-vecos-releezme-locker-management-system"></a>자습서: VECOS Releezme Locker 관리 시스템과 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 VECOS Releezme Locker 관리 시스템을 통합하는 방법에 대해 알아봅니다. Azure AD와 VECOS Releezme Locker 관리 시스템을 통합하면 다음을 수행할 수 있습니다.
 
-* Azure AD에서 VECOS Releezme Locker 관리 시스템에 액세스할 수 있는 사용자를 제어합니다.
+* Azure AD에서 VECOS Releezme Locker 관리 시스템에 액세스할 수 있는 사용자를 제어합니다. VECOS Releezme Locker 관리 시스템에 대한 액세스는 락커를 관리해야 하는 사용자(예: 시설 관리자, 서비스 데스크 직원 등)에게만 필요합니다.
 * 사용자가 해당 Azure AD 계정으로 VECOS Releezme Locker 관리 시스템에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
@@ -78,16 +78,44 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다. 
 
-    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://au.releezme.net/` URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<baseURL>/` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 URL `https://au.releezme.net/Saml2/Acs`를 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<baseURL>/Saml2/Acs`
     
-    c. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다.  
-    `https://sso-na.releezme.net`
+    다. **로그온 URL** 텍스트 상자에서  패턴을 사용하는 URL을 입력합니다.   
+    `https://<baseURL>/sso`(필요에 따라 VECOS에서 제공된 회사 코드 값으로 `?companycode=` 쿼리 매개 변수를 추가합니다.)
+
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 연결 중인 지역을 [VECOS Releezme Locker 관리 시스템 지원 팀](mailto:servicedesk@vecos.com)에 문의합니다. 지역에 따라 아래 URL이 다릅니다.
+
+    | **지역** | **baseURL** |
+    |-------|-------|
+    | 유럽| `https://www.releezme.net` |
+    | 북아메리카 | `https://na.releezme.net` |
+    | 아시아 태평양 | `https://au.releezme.net` |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
+
+## <a name="configure-vecos-releezme-locker-management-system-roles"></a>VECOS Releezme Locker 관리 시스템 역할 구성
+
+1. Azure Portal에서 **앱 등록** 을 선택한 다음 **모든 애플리케이션** 을 선택합니다.
+1. 앱 등록 목록에서 **VECOS Releezme Locker 관리 시스템** 을 선택합니다.
+1. 앱 등록에서 **앱 역할** 을 엽니다.
+1. 앱 역할 페이지에서 **앱 역할 만들기** 를 클릭하여 새 앱 역할을 만듭니다.
+1. **표시 이름** 필드에 역할 이름을 입력합니다. 예, `VECOS Company Facility Manager`.
+1. **허용되는 멤버 유형** 값으로 **사용자/그룹** 을 선택합니다.
+1. **값** 필드에 VECOS Releezme Locker 관리 시스템 역할 이름을 입력합니다. 아래 표를 참조하세요.
+1. **적용** 을 클릭합니다.
+
+| 역할 | 역할 값 | 설명 |
+| -- | --------- | ---------- |
+| 서비스 데스크 | CompanyServiceDesk | 제한된 액세스 서비스 데스크. 대부분의 읽기 전용 액세스 |
+| 서비스 데스크+ | CompanyServiceDeskPlus | 더 많은 읽기/쓰기 액세스 권한이 있는 서비스 데스크의 고급 버전 |
+| 시설 관리자 | CompanyFacilityManager | 회사 설정에 대한 액세스 권한이 있는 시설 관리자 |
+| 시설 관리자+ | CompanyFacilityManagerPlus | 회사 내에서 추가 액세스 권한이 있는 고급 시설 관리자 |
+| 관리자 | CompanyAdmin | 전체 회사 액세스 권한이 있는 관리자 |
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

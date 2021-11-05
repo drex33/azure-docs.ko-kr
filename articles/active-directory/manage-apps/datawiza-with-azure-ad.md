@@ -1,5 +1,6 @@
 ---
-title: Azure AD 및 Datawiza를 사용하여 하이브리드 액세스 보호
+title: Datawiza를 통해 하이브리드 액세스 보호
+titleSuffix: Azure AD
 description: 이 자습서에서는 안전한 하이브리드 액세스를 위해 Azure AD와 Datawiza를 통합하는 방법에 대해 알아봅니다.
 services: active-directory
 author: gargi-sinha
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 8/27/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8b1d7a3f45cd49bdb2ea420084a242e3e2c959
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: d527db391185c899bed3137c3783aa81f8a00c63
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214232"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067032"
 ---
 # <a name="tutorial-configure-datawiza-with-azure-active-directory-for-secure-hybrid-access"></a>자습서: 안전한 하이브리드 액세스를 위해 Azure Active Directory를 사용하여 Datawiza 구성하기
 
@@ -32,7 +33,7 @@ Datawiza의 [DAB(Datawiza Access Broker)](https://www.datawiza.com/access-broker
 
 - Azure 구독 구독이 없는 경우 [평가판](https://azure.microsoft.com/free/)을 사용할 수 있습니다.
 
-- 사용자의 Azure 구독에 연결된 [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)입니다.
+- 사용자의 Azure 구독에 연결된 [Azure AD 테넌트](../fundamentals/active-directory-access-create-new-tenant.md)입니다.
 
 - DAB를 실행하려면 [Docker](https://docs.docker.com/get-docker/) 및 [docker-compose](https://docs.docker.com/compose/install/)가 필요합니다. 애플리케이션은 가상 머신 및 운영 체제 미설치 컴퓨터 등 모든 플랫폼에서 실행할 수 있습니다.
 
@@ -42,7 +43,7 @@ Datawiza의 [DAB(Datawiza Access Broker)](https://www.datawiza.com/access-broker
 
 Datawiza 통합은 다음 구성 요소를 포함합니다.
 
-- [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft 클라우드 기반 ID 및 액세스 관리 서비스로, 사용자가 내부 및 외부 리소스에 로그인하고 액세스할 수 있도록 합니다.
+- [Azure AD](../fundamentals/active-directory-whatis.md) - Microsoft 클라우드 기반 ID 및 액세스 관리 서비스로, 사용자가 내부 및 외부 리소스에 로그인하고 액세스할 수 있도록 합니다.
 
 - DAB(Datawiza Access Broker) - 서비스 사용자가 로그인하고 HTTP 헤더를 통해 ID를 애플리케이션에 투명하게 전달합니다.
 
@@ -80,7 +81,7 @@ Azure AD의 경우 Datawiza는 편리한 [원클릭 통합](https://docs.datawiz
 
 1. Docker 또는 Kubernetes를 사용하여 DAB를 실행할 수 있습니다. 사용자가 샘플 헤더 기반 애플리케이션을 만들려면 Docker 이미지가 필요합니다. [DAB 및 SSO 통합을 구성합니다](https://docs.datawiza.com/step-by-step/step3.html). [Kubernetes를 통해 DAB를 배포합니다](https://docs.datawiza.com/tutorial/web-app-AKS.html). 다운로드하여 사용할 수 있는 샘플 Docker 이미지 `docker-compose.yml` 파일이 제공됩니다. [컨테이너 레지스트리에 로그인](https://docs.datawiza.com/step-by-step/step3.html#important-step)하여 DAB 및 헤더 기반 애플리케이션의 이미지를 다운로드합니다.
 
-    ```YML
+    ```yaml
     services:
       datawiza-access-broker:
       image: registry.gitlab.com/datawiza/access-broker
@@ -125,6 +126,6 @@ Azure AD의 경우 Datawiza는 편리한 [원클릭 통합](https://docs.datawiz
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2C를 사용하여 Datawiza 구성](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
+- [Azure AD B2C를 사용하여 Datawiza 구성](../../active-directory-b2c/partner-datawiza.md)
 
 - [Datawiza 설명서](https://docs.datawiza.com)

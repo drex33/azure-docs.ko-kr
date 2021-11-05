@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44ef48fe75d7070d3f471b06d548c06dc5d972b6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: dc0495e4ddd3e266b375a9d6a137497f457803da
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479790"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049257"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -30,7 +30,14 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 > 새 버전이 출시되면 Connect Health 에이전트가 자동으로 업데이트됩니다. Azure Portal에서 자동 업그레이드 설정을 사용하도록 설정했는지 확인하세요.
 >
 
-동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](./reference-connect-version-history.md)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
+동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](./reference-connect-version-history.md)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 투표하세요.
+
+## <a name="september-2021"></a>2021년 9월
+**에이전트 업데이트**
+- AD FS(버전 3.1.113.0)용 Azure AD Connect Health 에이전트
+  - 특정 디바이스 기반 인증 시나리오의 AD FS 감사에서 디바이스 준수 및 관리 상태, 디바이스 OS 및 디바이스 OS 버전과 같은 디바이스 정보를 추출하도록 수정합니다.
+  - 오류 사례에서 OAuth 애플리케이션 정보를 채우고 OAuth 실패를 보다 구체적인 오류 코드로 분류하도록 수정
+  - 고객 컴퓨터에서 끊어진 WMI 호출에 대한 경고를 수정합니다. 이제 이러한 호출에서 결과/상태가 "notRun"으로 설정됩니다.
 
 ## <a name="may-2021"></a>2021년 5월
 **에이전트 업데이트**

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a58042c7098116a2800453dcca46cae62011dfac
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: f2322a6a445c908528163673662cc59227c01711
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570487"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044425"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Strata를 사용하여 온-프레미스 애플리케이션을 보호하는 Azure AD B2C 확장을 위한 자습서
 
@@ -57,7 +57,7 @@ Strata의 Maverics 통합은 다음 구성 요소를 포함합니다.
 
 ![이미지는 하이브리드 앱에 액세스할 수 있도록 설정하는 Strata Maverics와 Azure AD B2C의 통합 아키텍처를 보여 줍니다.](./media/partner-strata/strata-architecture-diagram.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |:-------|:---------------|
 | 1. | 사용자가 온-프레미스 호스트된 애플리케이션에 대한 액세스를 요청합니다. Maverics Identity Orchestrator는 애플리케이션에 대한 사용자의 요청을 프록시합니다.|
 | 2. | Orchestrator에서 사용자의 인증 상태를 확인합니다. 세션 토큰이 수신되지 않거나 제공된 세션 토큰이 유효하지 않은 경우 인증을 위해 사용자를 Azure AD B2C로 보냅니다.|
@@ -324,7 +324,7 @@ appgateways:
 
 ## <a name="test-the-flow"></a>흐름 테스트
 
-1. 온-프레미스 애플리케이션 URL인 `https://example.com/sonar/dashboard`로 이동합니다.
+1. 온-프레미스 애플리케이션 URL로 이동합니다`https://example.com/sonar/dashboard`.
 
 2. 사용자 흐름에서 구성한 페이지로 Orchestrator를 리디렉션해야 합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: eccd83b7c29ec31c40271efc09d5318d35ba6d2a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fd6979056859c9ed0d38413d9bd6713e8cb4fb62
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764909"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>자습서: Ziflow와 Azure Active Directory 통합
 

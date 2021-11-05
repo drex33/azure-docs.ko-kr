@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 217663ae8dc1f2a0cba7bcd001ee12a20f1b6826
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 18bd3f6993c56187a64ba9db3397a659f9dea098
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618042"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049922"
 ---
 # <a name="azure-ad-registered-devices"></a>Azure AD 등록 디바이스
 
@@ -29,8 +29,8 @@ Azure AD 등록 디바이스의 목표는 사용자에게 BYOD(Bring Your Own De
 |   | Bring Your Own Device |
 |   | 모바일 디바이스 |
 | **디바이스 소유권** | 사용자 또는 조직 |
-| **운영 체제** | Windows 10, iOS, Android 및 macOS |
-| **프로비전** | Windows 10 – 설정 |
+| **운영 체제** | Windows 10 이상, iOS, Android 및 macOS |
+| **프로비전** | Windows 10 이상 – 설정 |
 |   | iOS/Android – 회사 포털 또는 Microsoft Authenticator 앱 |
 |   | macOS - 회사 포털 |
 | **디바이스 로그인 옵션** | 최종 사용자 로컬 자격 증명 |
@@ -47,11 +47,11 @@ Azure AD 등록 디바이스의 목표는 사용자에게 BYOD(Bring Your Own De
 
 ![Azure AD 등록 디바이스](./media/concept-azure-ad-register/azure-ad-registered-device.png)
 
-Azure AD 등록 디바이스는 Windows 10 디바이스에서 Microsoft 계정과 같은 로컬 계정을 사용하여 로그인 할 수 있습니다. 이러한 장치에는 조직 리소스에 액세스 하기 위한 Azure AD 계정이 있습니다. 조직의 리소스에 대한 액세스는 해당 Azure AD 계정 및 디바이스 ID에 적용된 조건부 액세스 정책에 따라 추가로 제한할 수 있습니다.
+Azure AD 등록 디바이스는 Windows 10 이상의 디바이스에서 Microsoft 계정과 같은 로컬 계정을 사용하여 로그인할 수 있습니다. 이러한 장치에는 조직 리소스에 액세스 하기 위한 Azure AD 계정이 있습니다. 조직의 리소스에 대한 액세스는 해당 Azure AD 계정 및 디바이스 ID에 적용된 조건부 액세스 정책에 따라 추가로 제한할 수 있습니다.
 
 관리자는 Microsoft Intune 같은 MDM(모바일 디바이스 관리) 도구를 사용하여 Azure AD 등록 디바이스를 보호하고 추가로 제어할 수 있습니다. MDM은 스토리지를 암호화하고, 암호 복잡성을 유지하고, 보안 소프트웨어를 업데이트해야 하는 등 조직에서 필요한 구성을 적용하는 수단을 제공합니다. 
 
-처음으로 회사 애플리케이션에 액세스하거나 Windows 10 설정 메뉴를 사용하여 수동으로 Azure AD 등록을 수행할 수 있습니다. 
+Azure AD 등록은 처음으로 작업 애플리케이션에 액세스하거나 Windows 10 또는 Windows 11 설정 메뉴를 사용하여 수동으로 수행할 수 있습니다. 
 
 ## <a name="scenarios"></a>시나리오
 

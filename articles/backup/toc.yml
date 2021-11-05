@@ -198,12 +198,34 @@
       items:
         - name: 개요
           href: backup-azure-database-postgresql-overview.md
-        - name: Backup
-          href: backup-azure-database-postgresql.md
-        - name: 복원
-          href: restore-azure-database-postgresql.md
-        - name: 관리
-          href: manage-azure-database-postgresql.md
+        - name: Azure Portal에서
+          items:
+            - name: Backup
+              href: backup-azure-database-postgresql.md
+            - name: 복원
+              href: restore-azure-database-postgresql.md
+            - name: 관리
+              href: manage-azure-database-postgresql.md
+        - name: PowerShell 사용
+          items:
+            - name: Backup
+              href: backup-postgresql-ps.md
+            - name: 복원
+              href: restore-postgresql-database-ps.md
+        - name: CLI 사용
+          items:
+            - name: Backup
+              href: backup-postgresql-cli.md
+            - name: 복원
+              href: restore-postgresql-database-cli.md
+        - name: REST API 사용
+          items:
+            - name: 정책
+              href: backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md
+            - name: Backup
+              href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
+            - name: 복원
+              href: restore-postgresql-database-use-rest-api.md
     - name: MARS 에이전트를 사용한 Windows 백업
       items:
         - name: 개요
@@ -436,6 +458,8 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Azure Portal 사용
           href: backup-azure-monitoring-built-in-monitor.md
+        - name: Azure Monitor 메트릭 사용
+          href: metrics-overview.md
         - name: Azure Monitor 로그 사용
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: 보고서
@@ -458,13 +482,15 @@
               href: backup-azure-diagnostics-mode-data-model.md
     - name: Automation
       items:
+        - name: Azure Backup 자동화 사용
+          href: automation-backup.md
         - name: Azure Backup을 위한 기본 제공 Azure Policy
           items:
             - name: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
               href: backup-azure-auto-enable-backup.md
             - name: 대규모로 자격 증명 모음 진단 설정 구성
               href: azure-policy-configure-diagnostics.md
-        - name: PowerShell
+        - name: PowerShell 사용
           items:
             - name: Azure VM
               href: backup-azure-vms-automation.md
@@ -504,6 +530,8 @@
           href: security-overview.md
         - name: Azure 역할 기반 액세스 제어
           href: backup-rbac-rs-vault.md
+        - name: Resource Guard를 사용한 다중 사용자 권한 부여
+          href: multi-user-authorization.md
         - name: 일시 삭제
           items:
             - name: 개요
@@ -533,10 +561,12 @@
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
-    - name: 액세스 계층
+    - name: 보관 액세스 계층
       items:
-        - name: 보관 액세스 계층
+        - name: 개요
           href: archive-tier-support.md
+        - name: 보관 계층 사용
+          href: use-archive-tier-support.md
     - name: 문제 해결
       items:
         - name: Azure VM
@@ -565,6 +595,8 @@
           href: backup-azure-sap-hana-database-troubleshoot.md
         - name: 시스템 상태
           href: backup-azure-system-state-troubleshoot.md
+        - name: 보관 액세스 계층
+          href: troubleshoot-archive-tier.md
 - name: 참조
   items:
     - name: .NET

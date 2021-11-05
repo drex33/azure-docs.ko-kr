@@ -9,12 +9,12 @@ ms.date: 03/26/2019
 author: manishmsfte
 ms.author: mansha
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 52060633158c66e0cbf981b46b34347bdcece649
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 79b8c95a43d4e9d083c8021c1b0ec4d606cd80f4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785964"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131041071"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>빠른 시작: Java SDK 및 Azure Cosmos DB Gremlin API를 사용하여 그래프 데이터베이스 빌드
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -30,11 +30,12 @@ ms.locfileid: "121785964"
 
 이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB Gremlin(그래프) API 계정을 생성 및 관리하고 GitHub에서 복제된 Java 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
 - [JDK(Java Development Kit) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). `JAVA_HOME` 환경 변수를 JDK가 설치된 폴더로 지정합니다.
 - [Maven 이진 보관 파일](https://maven.apache.org/download.cgi). 
 - [Git](https://www.git-scm.com/downloads) 
+- [Gremlin-driver 3.4.0](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver/3.4.0), 이 종속성은 빠른 시작 샘플의 pom.xml에 언급되어 있습니다.
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 

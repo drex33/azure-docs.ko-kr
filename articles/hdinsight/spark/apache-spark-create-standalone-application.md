@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 26e3c3f5daded5feaaa9063592e772314939f90f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 1c2f8d327596c3f2d1ed3dde8611152b0bccd72a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164615"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033060"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "130164615"
 
 * [Oracle Java Development 키트](https://www.azul.com/downloads/azure-only/zulu/).  이 자습서에서는 Java 버전 8.0.202를 사용합니다.
 
-* Java IDE. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전  2018.3.4](https://www.jetbrains.com/idea/download/)를 사용합니다.
+* Java IDE. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전 2018.3.4](https://www.jetbrains.com/idea/download/)를 사용합니다.
 
 * Azure Toolkit for IntelliJ.  [Azure Toolkit for IntelliJ 설치](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in)를 참조하세요.
 
@@ -226,7 +226,7 @@ Scala 플러그 인을 설치하려면 다음 단계를 수행합니다.
 
 1. **삭제** 를 선택합니다. **예** 를 선택합니다.
 
-:::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png" alt-text="클러스터를 삭제하는 HDInsight Azure Portal" border="true":::
+:::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png" alt-text="Azure Portal을 통해 HDInsight 클러스터를 삭제하는 방법을 보여 주는 스크린샷" border="true":::
 
 ## <a name="next-step"></a>다음 단계
 

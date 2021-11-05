@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: bf6afd93833bb8e81046f4bc84d53203920d4733
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: de40ab35343a096f8259c446289f549528f2bcab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129989896"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068192"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱이 프록시 애플리케이션과 상호 작용할 수 있도록 설정하는 방법
 
@@ -111,7 +111,7 @@ if (authResult != null)
 | \<Tenant ID> | **Azure Active Directory** > **속성** > **디렉터리 ID** |
 | \<App ID of the Native app> | **애플리케이션 등록** > *네이티브 애플리케이션* > **개요** > **애플리케이션 ID** |
 | \<Scope> | **애플리케이션 등록** > *네이티브 애플리케이션* > **API 사용 권한** > 사용 권한 API 클릭(user_impersonation) > **user_impersonation** 캡션이 포함된 패널이 오른쪽에 나타납니다. > 범위는 편집 상자에 있는 URL입니다.
-| \<Proxy App Url> | 외부 Url 및 API 경로
+| \<Proxy App URL> | 외부 Url 및 API 경로
 
 이러한 매개 변수를 사용하여 MSAL 코드를 편집한 후에는 사용자가 회사 네트워크 외부에 있는 경우에도 네이티브 클라이언트 애플리케이션에 인증할 수 있습니다.
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2913665d2cc834bd3b88f23ce81b46ca7a7dfbbe
-ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
+ms.openlocfilehash: e5ec368b0bc53cb70dd948669d855670ee603b12
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111352753"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057403"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft Graph API를 사용하여 사용자 지정 관리자 역할 할당 
 
@@ -28,7 +28,7 @@ Microsoft Graph API를 사용하여 사용자 계정에 역할을 할당하는 �
 
 - Azure AD Premium P1 또는 P2 라이선스
 - 권한 있는 역할 관리자 또는 전역 관리자
-- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의.
 
 자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
@@ -308,6 +308,7 @@ HTTP/1.1 400 Bad Request
 
 ## <a name="next-steps"></a>다음 단계
 
-* 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 공유하세요.
+* 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 경험을 공유하세요.
 * 역할 권한에 대한 자세한 내용은 [Azure AD 기본 제공 역할](permissions-reference.md)을 참조하세요.
 * 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md)를 참조하세요.
+

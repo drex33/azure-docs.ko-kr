@@ -113,6 +113,8 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
+    - name: 확장성 및 고가용성
+      href: core/concepts-scalability-availability.md
     - name: 디바이스 개발자 가이드
       href: core/overview-iot-central-developer.md
     - name: 솔루션 작성기 가이드
@@ -187,12 +189,20 @@
       items:
         - name: REST API 호출 인증 및 권한 부여
           href: core/howto-authorize-rest-api.md
+        - name: 디바이스 쿼리
+          href: core/howto-query-with-rest-api.md
         - name: 사용자 및 역할 관리
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: 데이터 내보내기
+          href: core/howto-manage-data-export-with-rest-api.md
+        - name: 디바이스 템플릿 관리
+          href: core/howto-manage-device-templates-with-rest-api.md
         - name: 디바이스 제어
           href: core/howto-control-devices-with-rest-api.md
         - name: 작업 관리
           href: core/howto-manage-jobs-with-rest-api.md
+        - name: 애플리케이션 관리
+          href: core/howto-manage-iot-central-with-rest-api.md
     - name: 디바이스 관리
       items:
         - name: 개별적으로 디바이스 관리
@@ -223,6 +233,8 @@
       items:
         - name: 디바이스 연결
           href: core/troubleshoot-connection.md
+        - name: 데이터 내보내기
+          href: core/troubleshoot-data-export.md
     - name: FAQ
       href: core/howto-faq.yml
     - name: 개인 기본 설정 관리

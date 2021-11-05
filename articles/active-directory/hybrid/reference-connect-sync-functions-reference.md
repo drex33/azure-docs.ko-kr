@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d297e7254728debc33b65fe226028fe108426fc9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98246709"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057479"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  

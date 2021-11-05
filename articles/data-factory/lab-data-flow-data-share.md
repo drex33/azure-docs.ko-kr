@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/04/2021
-ms.openlocfilehash: 4194c277a8472f8834362de462d804db2a3b406d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4d99139e708f0b69b3ddacd40e380853dabf8b2b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798867"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077955"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -97,7 +97,7 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
 
 *매핑 데이터 흐름을 사용하여 데이터 변환* 섹션에서는 매핑 데이터 흐름을 빌드합니다. 매핑 데이터 흐름을 빌드하기 전에 활성 스파크 클러스터에서 변환 논리를 초 단위로 테스트할 수 있는 디버그 모드를 켜는 것이 가장 좋습니다.
 
-디버그를 설정하려면 **데이터 흐름** 활동이 있을 때 데이터 흐름 캔버스 또는 파이프라인 캔버스의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 클릭합니다. 확인 대화 상자가 나타나면 [확인]을 클릭합니다. 클러스터가 시작될 때까지 약 5-7분 정도 걸립니다. 초기화하는 동안 *복사 작업을 사용하여 Azure SQL DB에서 ADLS Gen2로 데이터 수집* 을 진행합니다.
+디버그를 설정하려면 **데이터 흐름** 활동이 있을 때 데이터 흐름 캔버스 또는 파이프라인 캔버스의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 클릭합니다. 확인 대화 상자가 나타나면 **확인** 을 클릭합니다. 클러스터가 약 5~7분 이내에 시작됩니다. 초기화하는 동안 *복사 작업을 사용하여 Azure SQL DB에서 ADLS Gen2로 데이터 수집* 을 진행합니다.
 
 :::image type="content" source="media/lab-data-flow-data-share/configure10.png" alt-text="포털 구성 10":::
 

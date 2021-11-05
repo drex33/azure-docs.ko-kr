@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c76db99be355e0cf57a29aaf5a390df0112c644f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: afb264da92eb47dd53b6b1900fcbdafcae0d4911
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224614"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049732"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -72,10 +72,9 @@ Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 될 디
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`(Seamless SSO를 사용하거나 사용할 계획이 있는 경우)
-- `https://enterpriseregistration.windows.net`
 
 > [!WARNING]
-> 조직에서 데이터 손실 방지 또는 Azure AD 테넌트 제한과 같은 시나리오에 대한 SSL 트래픽을 가로채는 프록시 서버를 사용하는 경우 'https://device.login.microsoftonline.com '에 대한 트래픽을 TLS 중단-검사에서 제외해야 합니다. 'https://device.login.microsoftonline.com '을 제외하지 않으면 클라이언트 인증서 인증에 방해가 되어 디바이스 등록 및 디바이스 기반 조건부 액세스에 문제가 발생할 수 있습니다.
+> 조직에서 데이터 손실 방지 또는 Azure AD 테넌트 제한과 같은 시나리오에 대한 SSL 트래픽을 가로채는 프록시 서버를 사용하는 경우 `https://device.login.microsoftonline.com` 및 `https://enterpriseregistration.windows.net`에 대한 트래픽을 TLS 중단-검사에서 제외해야 합니다. 이러한 URL을 제외하지 않으면 클라이언트 인증서 인증에 방해가 되어 디바이스 등록 및 디바이스 기반 조건부 액세스에 문제가 발생할 수 있습니다.
 
 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 [WPAD(웹 프록시 자동 검색)를 구현](/previous-versions/tn-archive/cc995261(v=technet.10))을 사용하여 Windows 10 컴퓨터에서 Azure AD로 디바이스를 등록할 수 있습니다. WPAD 구성 및 관리 문제를 해결하려면 [자동 검색 문제 해결](/previous-versions/tn-archive/cc302643(v=technet.10))을 참조하세요. 1709 업데이트 이전의 Windows 10 디바이스에서 WPAD는 하이브리드 Azure AD 조인과 함께 작동하도록 프록시를 구성하는 데 사용할 수 있는 유일한 옵션입니다. 
 

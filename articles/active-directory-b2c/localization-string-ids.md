@@ -1,21 +1,21 @@
 ---
-title: 지역화 문자열 ID - Azure Active Directory B2C | Microsoft Docs
+title: 지역화 문자열 ID - Azure Active Directory B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 api.signuporsignin의 ID를 사용하여 콘텐츠 정의의 ID를 지정합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/10/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7e0f3e2ab306c46851e4c2ffcb6acf5824326282
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: eab029ea4640199b6ed1086c85cdf59fe92f45c2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564377"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036410"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -28,7 +28,7 @@ ms.locfileid: "113564377"
 다음 ID는 ID가 `api.signuporsignin`인 콘텐츠 정의 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 사용됩니다.
 
 | ID | 기본값 | 페이지 레이아웃 버전 |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **forgotpassword_link** | 암호를 잊으셨습니까? | `All` |
 | **createaccount_intro** | 아직 계정이 없으세요? | `All` |
 | **button_signin** | 로그인 | `All` |
@@ -57,9 +57,8 @@ ms.locfileid: "113564377"
 | **invalid_generic** | 유효한 {0}을 입력하세요. | `>= 2.1.1` |
 | **제목** | 로그인 | `>= 2.1.1` |
 
-
 > [!NOTE]
-> * {0}과 같은 자리 표시자는 `ClaimType`의 `DisplayName` 값을 사용하여 자동으로 채워집니다. 
+> * {0}과 같은 자리 표시자는 `ClaimType`의 `DisplayName` 값을 사용하여 자동으로 채워집니다.
 > * `ClaimType`을 지역화하는 방법에 대한 자세한 내용은 [가입 또는 로그인 예](#signupsigninexample)를 참조하세요.
 
 다음 예제에서는 등록 또는 로그인 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
@@ -96,7 +95,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 ### <a name="sign-up-or-sign-in-error-messages"></a>등록 또는 로그인 오류 메시지
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfInvalidPassword** | 암호가 올바르지 않습니다. |
 | **UserMessageIfPasswordExpired**| 암호가 만료되었습니다.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 계정을 찾을 수 없는 것 같습니다. |
@@ -146,7 +145,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 아래에는 ID가 `api.localaccountsignup`인 콘텐츠 정의 또는 `api.selfasserted.profileupdate`과 `api.localaccountpasswordreset`, [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)과 같이 `api.selfasserted`로 시작하는 모든 콘텐츠 정의의 ID가 나와 있습니다.
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 | **ver_sent** | 확인 코드를 보낸 대상: |
 | **ver_but_default** | 기본값 |
 | **cancel_message** | 사용자가 자체 어설션된 정보의 입력을 취소함 |
@@ -185,7 +184,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>등록 및 자체 어설션된 페이지 오류 메시지
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | 지정한 ID를 사용하는 사용자가 이미 있습니다. 다른 ID를 선택하세요. |
 | **UserMessageIfClaimNotVerified** | 확인되지 않은 클레임: {0} |
 | **UserMessageIfIncorrectPattern** | {0}에 대한 잘못된 패턴 |
@@ -259,7 +258,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 아래에는 ID가 `api.phonefactor`인 콘텐츠 정의 및 [전화 단계 기술 프로필](phone-factor-technical-profile.md)에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 | 페이지 레이아웃 버전 |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **button_verify** | 내게 전화 걸기 | `All` |
 | **country_code_label** | 국가 코드 | `All` |
 | **cancel_message** | 사용자가 다단계 인증을 취소함 | `All` |
@@ -283,7 +282,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **invalid_number** | 유효한 전화 번호를 입력하세요. | `All` |
 | **intro_sms** | 다음 번호가 기록에 남아 있습니다. 본인 인증을 위해 SMS로 코드를 보내겠습니다. | `All` |
 | **intro_entry_mixed** | SMS 또는 전화를 통해 인증 코드를 보낼 수 있도록 아래에 숫자를 입력하세요. | `All` |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **number_pattern** | `^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$` | `All` |
 | **intro_sms_p** |다음 번호가 기록에 남아 있습니다. 본인 인증을 위해 SMS로 코드를 받을 번호를 선택하세요. | `All` |
 | **requiredField_countryCode** | 국가 번호를 선택하세요. | `All` |
 | **requiredField_number** | 전화 번호를 입력하세요. | `All` |
@@ -361,7 +360,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 아래에는 [페이지 레이아웃 버전](page-layout.md) 2.1.0 이상인 [확인 표시 컨트롤](display-control-verification.md)에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 |intro_msg <sup>*</sup>| 확인이 필요합니다. [보내기] 단추를 클릭하세요.|
 |success_send_code_msg | 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요.|
 |failure_send_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 유효한 이메일 주소를 입력하고 다시 시도하세요.|
@@ -373,7 +372,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 |but_change_claims | 이메일 변경|
 
 참고: `intro_msg` 요소는 숨겨져 있어서 자체 어설션된 페이지에 표시되지 않습니다. 표시하려면 CSS 스타일시트로 [HTML 사용자 지정](customize-ui-with-html.md)을 사용합니다. 예를 들면 다음과 같습니다.
-    
+
 ```css
 .verificationInfoText div{display: block!important}
 ```
@@ -402,7 +401,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 아래에는 [페이지 레이아웃 버전](page-layout.md) 2.0.0을 사용하는 [확인 표시 컨트롤](display-control-verification.md)에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 |verification_control_but_change_claims |변경 |
 |verification_control_fail_send_code |코드를 전송하지 못했습니다. 나중에 다시 시도하세요. |
 |verification_control_fail_verify_code |코드를 확인하지 못했습니다. 나중에 다시 시도하세요. |
@@ -432,12 +431,11 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 다음은 [Restful 서비스 기술 프로필](restful-technical-profile.md) 오류 메시지에 대한 ID입니다.
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 |DefaultUserMessageIfRequestFailed | Restful 서비스 엔드포인트에 대한 연결을 설정하지 못했습니다. Restful 서비스 URL: {0} |
 |UserMessageIfCircuitOpen | {0} Restful 서비스 URL: {1} |
 |UserMessageIfDnsResolutionFailed | Restful 서비스 엔드포인트의 호스트 이름을 확인하지 못했습니다. Restful 서비스 URL: {0} |
 |UserMessageIfRequestTimeout | 시간 제한 {0}초 내에 Restful 서비스 엔드포인트에 대한 연결을 설정하지 못했습니다. Restful 서비스 URL: {1} |
-
 
 ### <a name="restful-service-example"></a>Restful 서비스 예제
 
@@ -457,7 +455,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 아래에는 [Azure AD MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfCouldntSendSms | 휴대폰으로 SMS를 보낼 수 없습니다. 다른 전화 번호를 사용해 보세요. |
 |UserMessageIfInvalidFormat | 전화 번호 형식이 잘못되었습니다. 전화 번호를 수정하고 다시 시도하세요.|
 |UserMessageIfMaxAllowedCodeRetryReached | 잘못된 코드를 너무 많이 입력했습니다. 나중에 다시 시도하세요.|
@@ -485,17 +483,16 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 아래에는 [Azure AD SSPR 기술 프로필](aad-sspr-technical-profile.md) 오류 메시지에 대한 ID가 나와 있습니다.
 
 | ID | 기본값 |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfChallengeExpired | 만료된 코드입니다.|
 |UserMessageIfInternalError | 메일 서비스에서 내부 오류가 발생했습니다. 나중에 다시 시도하세요.|
 |UserMessageIfThrottled | 요청이 너무 많습니다. 나중에 다시 시도하세요.|
 |UserMessageIfVerificationFailedNoRetry | 최대 확인 시도 횟수를 초과했습니다.|
 |UserMessageIfVerificationFailedRetryAllowed | 확인하지 못했습니다. 다시 시도하세요.|
 
-
 ### <a name="azure-ad-sspr-example"></a>Azure AD SSPR 예제
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
@@ -511,8 +508,8 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 [일회용 암호 기술 프로필](one-time-password-technical-profile.md) 오류 메시지에 대한 ID는 다음과 같습니다.
 
-| ID | 기본값 |
-| -- | ------------- |
+| ID | 기본값 | Description |
+| --- | ------------- | ----------- |
 | UserMessageIfSessionDoesNotExist | 예 | 코드 확인 세션이 만료된 경우 사용자에게 표시할 메시지입니다. 코드가 만료되었거나 지정된 식별자에 대한 코드가 생성되지 않았습니다. |
 | UserMessageIfMaxRetryAttempted | 예 | 허용되는 최대 확인 시도 횟수를 초과하는 경우 사용자에게 표시할 메시지입니다. |
 | UserMessageIfMaxNumberOfCodeGenerated | 예 | 코드 생성이 허용되는 최대 횟수를 초과하는 경우 사용자에게 표시할 메시지입니다. |
@@ -540,8 +537,8 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 클레임 변환 오류 메시지에 대한 ID는 다음과 같습니다.
 
 | ID | 클레임 변환 | 기본값 |
-| -- | ------------- |------------- |
-|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | 클레임 유형 "inputClaim"에 대한 부울 클레임 값을 비교하지 못했습니다.| 
+| --- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | 클레임 유형 "inputClaim"에 대한 부울 클레임 값을 비교하지 못했습니다.|
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | 클레임 값을 비교하지 못했습니다. 제공된 왼쪽 피연산자가 오른쪽 피연산자보다 큽니다.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | StringComparison "OrdinalIgnoreCase"를 사용하여 클레임 값을 비교하지 못했습니다.|
 

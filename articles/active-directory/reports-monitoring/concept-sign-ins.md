@@ -17,12 +17,12 @@ ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9ed7b31625275c808555534fcd49314444ab0ad
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: b5940205b9a1a17a6d6d51d96a6ab792ac744d3f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388150"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051632"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Azure Active Directory 로그인 로그
 
@@ -69,7 +69,7 @@ IT 관리자가 IT 환경의 운영 상태를 파악하려고 합니다. 시스�
 
 ## <a name="what-azure-ad-license-do-you-need"></a>필요한 Azure AD 라이선스는 무엇인가요?
 
-로그인 활동 보고서는 [모든 버전의 Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)에서 사용할 수 있으며 Microsoft Graph API를 통해 액세스할 수도 있습니다.
+로그인 활동 보고서는 [Azure AD의 모든 버전](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)에서 제공됩니다. Azure Active Directory P1 또는 P2 라이선스가 있는 경우 Microsoft Graph API를 통해 로그인 활동 보고서에 액세스할 수도 있습니다.
 
 
 ## <a name="where-can-you-find-it-in-the-azure-portal"></a>Azure Portal에서 로그를 찾을 수 있는 위치는 어디인가요?
@@ -120,12 +120,12 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 
 
-## <a name="filter-sign-in-activities&quot;></a>로그인 활동 필터링
+## <a name="filter-sign-in-activities"></a>로그인 활동 필터링
 
 
 로그의 데이터를 필터링하여 사용자에게 적합한 수준까지 범위를 좁힐 수 있습니다.
 
-![필터 추가 옵션을 보여주는 스크린샷.](./media/concept-sign-ins/04.png &quot;로그인 작업")
+![필터 추가 옵션을 보여주는 스크린샷.](./media/concept-sign-ins/04.png "로그인 작업")
 
 **요청 ID** - 관심 있는 요청의 ID입니다.
 
@@ -269,7 +269,7 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 - 로그인 상태
 
 > [!NOTE]
-> IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. IP 주소 매핑은 클라이언트 디바이스가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 모바일 공급자 또는 VPN이 IP 주소를 발급한다는 사실로 인해 복잡해집니다. 현재 IP 주소를 실제 위치로 변환하는 작업은 추적, 레지스트리 데이터, 역방향 조회, 기타 정보를 기반으로 한 최선의 노력입니다.
+> IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. IP 주소 매핑은 클라이언트 디바이스가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 모바일 공급자 또는 VPN이 IP 주소를 발급한다는 사실로 인해 복잡해집니다. 현재 IP 주소를 실제 위치로 변환하는 작업은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보를 기반으로 한 최선의 노력입니다.
 
 **사용자** 페이지에서 **활동** 섹션의 **로그인** 을 클릭하면 모든 사용자 로그인에 대한 전체 개요가 표시됩니다.
 

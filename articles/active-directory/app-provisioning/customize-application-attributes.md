@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 1e08dc5c0dc0d8e427de9ae1ebc53f16cb8e015a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 7f4c509b1f59db05db9bf6fca34960f7f2ab6b87
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043608"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054479"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -331,7 +331,7 @@ phoneNumbers 및 emails와 같은 특정 특성은 다양한 유형의 전화 �
 - Microsoft Azure AD는 동기화 프로세스의 효과적인 구현을 제공합니다. 초기화된 환경에서 동기화 주기 중에는 업데이트가 필요한 개체만 처리됩니다.
 - 특성 매핑 업데이트는 동기화 주기의 성능에 영향을 줍니다. 특성 매핑 구성의 업데이트는 모든 관리된 개체를 다시 평가해야 합니다.
 - 특성 매핑에 대한 연속 변경 횟수를 최소로 유지하는 것이 가장 좋은 방법입니다.
-- 사진을 동기화할 형식을 지정할 수 없으므로 앱에 프로비저닝할 사진 특성을 추가하는 기능이 현재는 지원되지 않습니다 [사용자의 소리](https://feedback.azure.com/forums/169401-azure-active-directory)에서 기능을 요청할 수 있습니다.
+- 사진을 동기화할 형식을 지정할 수 없으므로 앱에 프로비저닝할 사진 특성을 추가하는 기능이 현재는 지원되지 않습니다 [사용자의 소리](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 기능을 요청할 수 있습니다.
 - IsSoftDeleted 특성은 애플리케이션에 대한 기본 매핑의 일부인 경우가 많습니다. IsSoftdeleted는 4가지 시나리오(애플리케이션에서 할당되지 않아서 사용자가 범위를 벗어난 경우, 범위 지정 필터를 충족하지 않아서 사용자가 범위를 벗어난 경우, 사용자가 Azure AD에서 일시 삭제된 경우, 사용자에 대해 AccountEnabled 속성이 false로 설정된 경우) 중 하나에 해당할 수 있습니다. 특성 매핑에서 IsSoftDeleted 특성을 제거하지 않는 것이 좋습니다.
 - Azure AD 프로비저닝 서비스는 null 값 프로비저닝을 지원하지 않습니다.
 - 기본 키(일반적으로 "ID")는 특성 매핑에서 대상 특성으로 포함되어서는 안 됩니다. 

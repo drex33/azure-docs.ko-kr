@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 SAML 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 SAML 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 29e9341427b74c2395288ac85ee98d8ff44bd02e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: ef68bf0b3f56adde4fa18a35912e109701e50cb7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968203"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131012779"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML ID 공급자 기술 프로필 정의
 
@@ -156,7 +156,7 @@ SAML 어설션:
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| PartnerEntity | 예 | SAML ID 공급자의 메타데이터 URL입니다. ID 공급자 메타데이터를 복사하여 CDATA 요소 `<![CDATA[Your IDP metadata]]>` 내에 추가합니다. |
+| PartnerEntity | 예 | SAML ID 공급자의 메타데이터 URL입니다. 또는 ID 공급자 메타데이터를 복사하여 CDATA 요소 `<![CDATA[Your IDP metadata]]>` 안에 포함합니다. ID 공급자 메타데이터를 포함하지 않는 것이 좋습니다. ID 공급자는 설정을 변경하거나 인증서를 업데이트할 수 있습니다. ID 공급자 메타데이터가 변경된 경우 새 메타데이터를 가져오고 정책을 새 메타데이터로 업데이트합니다. |
 | WantsSignedRequests | 예 | 기술 프로필에서 모든 발신 인증 요청에 서명을 해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `true`로 설정하는 경우에는 **SamlMessageSigning** 암호화 키를 지정하고 모든 발신 인증 요청에 서명을 해야 합니다. 값을 `false`로 설정하는 경우에는 **SigAlg** 및 **Signature** 매개 변수(쿼리 문자열 또는 게시 매개 변수)가 요청에서 생략됩니다. 이 메타데이터는 메타데이터 **AuthnRequestsSigned** 특성도 제어합니다. 해당 특성은 ID 공급자와 공유되는 Azure AD B2C 기술 프로필의 메타데이터 출력입니다. 기술 프로필 메타데이터에서 **WantsSignedRequests** 값이 `false`로 설정되고 ID공급자 메타데이터가 **WantAuthnRequestsSigned** 가 `false`로 설정되는 경우 Azure AD B2C는 요청을 서명하지 않습니다. |
 | XmlSignatureAlgorithm | 예 | Azure AD B2C가 SAML 요청에 서명하는 데 사용하는 메서드입니다. 이 메타데이터는 SAML 요청의 **SigAlg** 매개 변수(쿼리 문자열 또는 게시 매개 변수) 값을 제어합니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`(기본값)입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. |
 | WantsSignedAssertions | 예 | 기술 프로필에서 모든 수신 어설션에 서명을 해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `true`로 설정하는 경우 ID 공급자가 Azure AD B2C로 전송하는 모든 어설션 섹션 `saml:Assertion`에 서명을 해야 합니다. 값을 `false`로 설정하는 경우에는 ID 공급자가 어설션에 서명을 하지 않아야 하며, 서명을 하더라도 Azure AD B2C가 서명의 유효성을 검사하지 않습니다. 이 메타데이터는 메타데이터 플래그 **WantsAssertionsSigned** 도 제어합니다. 해당 플래그는 ID 공급자와 공유되는 Azure AD B2C 기술 프로필의 메타데이터 출력입니다. 어설션 유효성 검사를 사용하지 않도록 설정하는 경우에는 응답 서명 유효성 검사도 사용하지 않도록 설정하는 것이 좋습니다. 자세한 내용은 **ResponsesSigned** 를 참조하세요. |

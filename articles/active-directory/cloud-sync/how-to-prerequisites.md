@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 10/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ad99f677cde82f461eee6396d945fb3cd030245
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 31850f855cdf109e2337898736d273237ff65058
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306111"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018204"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대한 필수 구성 요소
 이 문서에서는 ID 솔루션으로 Azure AD(Azure Active Directory) Connect 클라우드 동기화를 선택하고 사용하는 방법에 대한 지침을 제공합니다.
@@ -26,7 +26,8 @@ Azure AD Connect 클라우드 동기화를 사용하려면 다음이 필요합�
 
 - 에이전트 서비스를 실행을 위해 Azure AD Connect Cloud Sync gMSA(그룹 관리 서비스 계정)를 만드는 데 필요한 도메인 관리자 또는 엔터프라이즈 관리자 자격 증명. 
 - 게스트 사용자가 아닌 Azure AD 테넌트의 전역 관리자 계정.
-- Windows 2016 이상 버전을 사용하는 프로비저닝 에이전트에 대한 온-프레미스 서버.  이 서버는 [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 기준으로 계층 0 서버여야 합니다.
+- Windows 2016 이상 버전을 사용하는 프로비저닝 에이전트에 대한 온-프레미스 서버.  이 서버는 [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 기준으로 계층 0 서버여야 합니다.  도메인 컨트롤러에 에이전트 설치가 지원됩니다.
+- 고가용성은 Azure AD Connect 클라우드 동기화가 오랜 시간 동안 장애 없이 지속적으로 작동할 수 있는 기능을 말합니다.  여러 활성 에이전트를 설치하고 실행하면 하나의 에이전트가 실패하더라도 Azure AD Connect 클라우드 동기화가 계속 작동할 수 있습니다.  Microsoft는 고가용성을 위해 3개의 활성 에이전트를 설치할 것을 권장합니다.
 - 온-프레미스 방화벽 구성
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
@@ -53,6 +54,45 @@ Azure AD Connect 클라우드 동기화를 사용하려면 다음이 필요합�
 |허용 |gMSA 계정 |사용자 개체 만들기/삭제|이 개체 및 모든 하위 개체| 
 
 gMSA 계정을 사용하도록 기존 에이전트를 업그레이드하는 방법에 대한 단계는 [그룹 관리 서비스 계정](how-to-install.md#group-managed-service-accounts)을 참조하세요.
+
+#### <a name="create-gmsa-account-with-powershell"></a>PowerShell로 gMSA 계정 만들기
+다음 PowerShell 스크립트를 사용하여 사용자 지정 gMSA 계정을 만들 수 있습니다.  그런 다음 [클라우드 동기화 gMSA cmdlet](how-to-gmsa-cmdlets.md)을 사용하여 더 세분화된 권한을 적용할 수 있습니다.
+
+```powershell
+# Filename:    1_SetupgMSA.ps1
+# Description: Creates and installs a custom gMSA account for use with Azure AD Connect cloud sync.
+#
+# DISCLAIMER:
+# Copyright (c) Microsoft Corporation. All rights reserved. This 
+# script is made available to you without any express, implied or 
+# statutory warranty, not even the implied warranty of 
+# merchantability or fitness for a particular purpose, or the 
+# warranty of title or non-infringement. The entire risk of the 
+# use or the results from the use of this script remains with you.
+#
+#
+#
+#
+# Declare variables
+$Name = 'provAPP1gMSA'
+$Description = "Azure AD Cloud Sync service account for APP1 server"
+$Server = "APP1.contoso.com"
+$Principal = Get-ADGroup 'Domain Computers'
+
+# Create service account in Active Directory
+New-ADServiceAccount -Name $Name `
+-Description $Description `
+-DNSHostName $Server `
+-ManagedPasswordIntervalInDays 30 `
+-PrincipalsAllowedToRetrieveManagedPassword $Principal `
+-Enabled $True `
+-PassThru
+
+# Install the new service account on Azure AD Cloud Sync server
+Install-ADServiceAccount -Identity $Name
+```
+
+위의 cmdlet에 대한 자세한 내용은 [그룹 관리 서비스 계정 시작하기](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)?redirectedfrom=MSDN)를 참조하세요.
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서
 
@@ -88,7 +128,7 @@ gMSA 계정을 사용하도록 기존 에이전트를 업그레이드하는 방�
 
 ### <a name="additional-requirements"></a>추가 요구 사항
 
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471) 
 
 #### <a name="tls-requirements"></a>TLS 요구 사항
 

@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e89eb124b9cfb4100ddfca0d949331508fce398f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89320259"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052392"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>‘로그인 상태를 유지하시겠습니까?’ 구성 Azure AD 계정 프롬프트
 
@@ -28,7 +28,7 @@ KMSI(로그인 상태 유지)는 사용자가 로그인에 성공한 후 **로�
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="관리형 테넌트 대 페더레이션된 테넌트의 사용자 로그인 흐름을 보여 주는 다이어그램":::
 
 > [!NOTE]
-> 로그인 상태 유지 옵션을 구성하려면 Azure AD(Azure Active Directory) Premium 1, Premium 2 또는 Basic 버전을 사용하거나 Microsoft 365 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 및 Basic 버전은 Azure AD의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure AD 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
+> 로그인 상태 유지 옵션을 구성하려면 Azure AD(Azure Active Directory) Premium 1, Premium 2 또는 Basic 버전을 사용하거나 Microsoft 365 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 및 Basic 버전은 Azure AD의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure AD 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)을 사용하여 문의하세요.
 
 ## <a name="configure-kmsi"></a>KMSI 구성
 

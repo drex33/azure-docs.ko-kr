@@ -1,5 +1,6 @@
 ---
-title: F5 VPN을 통한 Azure AD 보안 하이브리드 액세스 | Microsoft Docs
+title: F5 VPN을 통한 안전한 하이브리드 액세스
+titleSuffix: Azure AD
 description: 암호 없는 VPN용 F5 BIG-IP와 Azure Active Directory SSO(Single Sign-On) 통합에 대한 자습서
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 10/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: 34175414cd5203438de76a94de7896e3bf175355
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0af9ea42dbe47ab9c0e62ad13e055164c3ec2464
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529067"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058198"
 ---
-# <a name="tutorial-for-azure-active-directory-single-sign-on-integration-with-f5-big-ip-for-password-less-vpn"></a>암호 없는 VPN용 F5 BIG-IP와 Azure Active Directory Single Sign-On 통합에 대한 자습서
+# <a name="integrate-f5-big-ip-for-password-less-vpn-with-azure-active-directory"></a>Azure Active Directory와 암호 없는 VPN용 F5 BIG-IP 통합
 
 이 자습서에서는 F5의 BIG-IP 기반 SSL-VPN(Secure Socket Layer 가상 사설망) 솔루션을 SHA(Secure Hybrid Access)용 AD(Azure Active Directory)와 통합하는 방법에 대해 알아봅니다.
 

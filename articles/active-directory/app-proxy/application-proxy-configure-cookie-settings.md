@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: c72ce281697b23092530571114dafb3aece5d0d1
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b621616790394df54d312af86719b24ff90a59c6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990086"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068154"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정
 

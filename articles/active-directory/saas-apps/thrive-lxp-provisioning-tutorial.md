@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/14/2021
 ms.author: thwimmer
-ms.openlocfilehash: ab5550c9e89d1cd755e376a1aaae8db9564ae484
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 7341d833ad1ddf00379c6d8a4e780a54456a8d73
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327724"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046027"
 ---
 # <a name="tutorial-configure-thrive-lxp-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Thrive LXP 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "122327724"
 
 ## <a name="step-2-configure-thrive-lxp-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 Thrive LXP 구성
 
-Thrive LXP 연락처에 연락하여 **테넌트 URL** 및 **비밀 토큰** 을 생성합니다. 해당 값들은 Azure Portal의 Thrive LXP 애플리케이션 프로비전 탭에서 테넌트 URL 및 비밀 토큰 필드에 입력됩니다.
+Thrive LXP 연락처에 연락하여 **테넌트 URL** 및 **비밀 토큰** 을 생성합니다. 해당 값들은 Azure Portal의 Thrive LXP 애플리케이션의 프로비전 탭에서 테넌트 URL 및 비밀 토큰 필드에 입력됩니다.
 
 ## <a name="step-3-add-thrive-lxp-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 Thrive LXP 추가
 

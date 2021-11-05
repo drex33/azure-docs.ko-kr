@@ -5,26 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 10/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cac67a60f5ebcd0b7075d9caa6c453209ce0121
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: aeca09f5763cf11edc13cecd2df0c267fad8a23d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606012"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049751"
 ---
 # <a name="preview-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-ssh-certificate-based-authentication"></a>미리 보기: Azure에서 SSH 인증서 기반 인증을 사용하여 Azure Active Directory로 Linux 가상 머신에 로그인
 
 Azure에서 Linux VM(가상 머신)의 보안을 강화하려면 Azure AD(Active Directory) 인증으로 통합하면 됩니다. 이제 Azure AD를 핵심 인증 플랫폼 및 인증 기관으로 사용하여 AD 및 SSH 인증서 기반 인증을 통해 Linux VM에 SSH할 수 있습니다. 이 기능을 통해 조직은 VM에 대한 액세스를 관리하는 Azure RBAC(역할 기반 액세스 제어) 및 조건부 액세스 정책을 중앙에서 제어하고 적용할 수 있습니다. 이 문서에서는 SSH 인증서 기반 인증을 사용하여 Linux VM을 생성 및 구성하고 Azure AD로 로그인하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
-> 이 기능은 현재 공개 미리 보기로 제공되고 있습니다. [디바이스 코드 흐름을 사용한 이전 버전은 2021년 8월 15일부터 사용되지 않습니다](../../virtual-machines/linux/login-using-aad.md). 이전 버전에서 이 버전으로 마이그레이션하려면 [이전 버전에서 마이그레이션 미리 보기](#migration-from-previous-preview) 섹션을 참조하세요.
+> 이 기능은 현재 공개 미리 보기로 제공되고 있습니다. [디바이스 코드 흐름을 사용하는 이전 버전은 2021년 8월 15일부터 지원이 중단되었습니다](../../virtual-machines/linux/login-using-aad.md). 이전 버전에서 이 버전으로 마이그레이션하려면 [이전 버전에서 마이그레이션 미리 보기](#migration-from-previous-preview) 섹션을 참조하세요.
 > 이 미리 보기는 서비스 수준 약정 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 테스트 후에 삭제하려는 테스트 가상 머신에서 이 기능을 사용합니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure에서 SSH 인증서 기반 인증을 Azure AD와 사용하여 Linux VM에 로그인하는 경우 다음과 같은 많은 혜택이 있습니다.
@@ -44,19 +44,17 @@ Azure에서 SSH 인증서 기반 인증을 Azure AD와 사용하여 Linux VM에 
 
 | 배포 | 버전 |
 | --- | --- |
-| CentOS | CentOS 7, CentOS 8.3 |
+| CentOS | CentOS 7, CentOS 8 |
 | Debian | Debian 9, Debian 10 |
-| openSUSE | openSUSE Leap 42.3 |
-| RedHat Enterprise Linux | RHEL 7.4 ~ RHEL 7.10, RHEL 8.3 |
-| SUSE Linux Enterprise Server | SLES 12 |
+| openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
+| RedHat Enterprise Linux | RHEL 7.4 ~ RHEL 7.10, RHEL 8.3+ |
+| SUSE Linux Enterprise Server | SLES 12, SLES 15.1+ |
 | Ubuntu Server | Ubuntu Server 16.04 ~ Ubuntu Server 20.04 |
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Azure 지역이 지원됩니다.
 
 - Azure 글로벌
 
-> [!Note]
-> 이 기능의 미리 보기는 2021년 6월까지 Azure Government 및 Azure 중국에서 지원됩니다.
  
 AKS(Azure Kubernetes Service) 클러스터에서 이 확장을 사용하는 것은 지원되지 않습니다. 자세한 내용은 [AKS 지원 정책](../../aks/support-policies.md)을 참조하세요.
 
@@ -96,7 +94,7 @@ Azure 중국의 경우
 VM이 다음 기능으로 구성되어 있는지 확인합니다.
 
 - 시스템이 할당한 관리 ID 이 옵션은 Azure Portal을 사용하여 VM을 만들고 Azure AD 로그인 옵션을 선택하는 경우 자동으로 선택됩니다. Azure CLI를 사용하여 신규 또는 기존 VM에서 시스템이 할당한 관리 ID를 사용하도록 설정할 수도 있습니다.
-- aadsshlogin 및 aadsshlogin-selinux(해당하는 경우). 이러한 패키지는 AADSSHLoginForLinux VM 확장을 사용하여 설치됩니다. 이 확장은 Azure Portal을 사용하여 VM을 만들고 Azure AD 로그인을 사용하도록 설정(관리 탭)하여 설치되거나 Azure CLI를 통해 설치됩니다.
+- `aadsshlogin` 및 `aadsshlogin-selinux`(적절한 경우). 이러한 패키지는 AADSSHLoginForLinux VM 확장을 사용하여 설치됩니다. 이 확장은 Azure Portal을 사용하여 VM을 만들고 Azure AD 로그인을 사용하도록 설정(관리 탭)하여 설치되거나 Azure CLI를 통해 설치됩니다.
 
 ### <a name="client"></a>클라이언트
 
@@ -340,13 +338,13 @@ VM 관리자 역할이 할당된 사용자는 Linux VM에 SSH를 성공적으로
 
 가상 머신 확장 집합이 지원되지만, 가상 머신 확장 집합 VM을 설정하고 연결하는 단계와 약간 다릅니다.
 
-먼저 가상 머신 확장 집합을 만들거나 이미 있는 가상 머신 확장 집합을 선택합니다. 가상 머신 확장 집합에 대한 시스템이 할당한 관리 ID를 사용하도록 설정합니다.
+1. 가상 머신 확장 집합을 만들거나 이미 있는 가상 머신 확장 집합을 선택합니다. 가상 머신 확장 집합에 대한 시스템이 할당한 관리 ID를 사용하도록 설정합니다.
 
 ```azurecli
 az vmss identity assign --vmss-name myVMSS --resource-group AzureADLinuxVMPreview
 ```
 
-가상 머신 확장 집합에 Azure AD 확장을 설치합니다.
+2. 가상 머신 확장 집합에 Azure AD 확장을 설치합니다.
 
 ```azurecli
 az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name Azure ADSSHLoginForLinux --resource-group AzureADLinuxVMPreview --vmss-name myVMSS
@@ -363,21 +361,30 @@ az ssh vm --ip 10.11.123.456
 
 ## <a name="migration-from-previous-preview"></a>이전 미리 보기에서 마이그레이션
 
-디바이스 코드 흐름을 기반으로 하는 Linux용 Azure AD 로그인의 이전 버전을 사용하는 고객의 경우 다음 단계를 완료합니다.
+디바이스 코드 흐름을 기반으로 하는 Linux용 Azure AD 로그인의 이전 버전을 사용하는 고객의 경우 Azure CLI를 사용하여 다음 단계를 완료합니다.
 
 1. VM에서 AADLoginForLinux 확장을 제거합니다.
-   1. Azure CLI를 사용하여, `az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux`
-1. VM에서  시스템이 할당한 관리 ID를 사용하도록 설정합니다.
-   1. Azure CLI를 사용하여, `az vm identity assign -g myResourceGroup -n myVm`
+   
+   ```azurecli
+   az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux
+   ```
+
+1. VM에서 시스템이 할당한 관리 ID를 사용합니다.
+
+   ```azurecli
+   az vm identity assign -g myResourceGroup -n myVm
+   ```
+
 1. VM에 AADSSHLoginForLinux 확장을 설치합니다.
-   1. Azure CLI를 사용하여,
-      ```azurecli
-      az vm extension set \
-                --publisher Microsoft.Azure.ActiveDirectory \
-                --name AADSSHLoginForLinux \
-                --resource-group myResourceGroup \
-                --vm-name myVM
-      ```
+
+    ```azurecli
+    az vm extension set \
+        --publisher Microsoft.Azure.ActiveDirectory \
+        --name AADSSHLoginForLinux \
+        --resource-group myResourceGroup \
+        --vm-name myVM
+    ```
+
 ## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Azure Policy를 사용하여 표준 보장 및 규정 준수를 평가합니다.
 
 Azure Policy를 사용하여 새 Linux 가상 머신과 기존 Linux 가상 머신에 Azure AD 로그인을 사용하도록 설정되어 있는지 확인하고 Azure Policy의 규정 준수 대시보드에서 사용자 환경의 규정 준수 상태를 대규모로 평가합니다. 이 기능을 사용하면 다양한 수준의 규약을 사용할 수 있습니다. Azure AD 로그인을 사용하도록 설정하지 않은 환경 내에서 신규 및 기존 Linux VM에 플래그를 지정할 수 있습니다. Azure Policy를 사용하여 Azure AD 로그인을 사용하도록 설정하지 않은 새 Linux VM에 Azure AD 확장을 배포하고 기존 Linux VM을 동일한 표준으로 수정할 수도 있습니다. 해당 기능 외에도 Azure Policy를 사용하여 머신에서 승인되지 않은 로컬 계정을 만든 Linux VM을 검색하고 플래그를 지정할 수 있습니다. 자세한 내용은 [Azure Policy](../../governance/policy/overview.md)를 검토하세요.
@@ -447,6 +454,6 @@ AADSSHLoginForLinux VM 확장의 상태는 포털에서 전환 중으로 표시�
 
 ## <a name="preview-feedback"></a>미리 보기 피드백
 
-[Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 이 미리 보기 기능에 대한 사용자 의견을 공유하거나, 사용에 관한 문제를 보고할 수 있습니다.
+[Azure AD 피드백 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 이 미리 보기 기능에 대한 사용자 의견을 공유하거나, 사용에 관한 문제를 보고할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

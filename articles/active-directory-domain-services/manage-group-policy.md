@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: 67eeae96e7965db1eb92f34f23ca6d8745aaac3a
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 07ce4db1e3cca141ccbddde61f9dc196da801698
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707977"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044458"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 그룹 정책 관리
 
@@ -24,6 +24,8 @@ Azure AD DS(Azure Active Directory Domain Services)의 사용자 및 컴퓨터 �
 하이브리드 환경에서 온-프레미스 AD DS 환경에 구성된 그룹 정책은 Azure AD DS와 동기화되지 않습니다. Azure AD DS에서 사용자 또는 컴퓨터에 대한 구성 설정을 정의하려면 기본 GPO 중 하나를 편집하거나 사용자 지정 GPO를 만듭니다.
 
 이 문서에서는 그룹 정책 관리 도구를 설치한 다음, 기본 제공 GPO를 편집하고 사용자 지정 GPO를 만드는 방법을 보여 줍니다.
+
+Azure의 머신 및 [하이브리드 연결](../azure-arc/servers/overview.md)을 비롯한 서버 관리 전략에 관심이 있는 경우, [그룹 정책 콘텐츠를 [Azure Policy](../governance/policy/overview.md) [게스트 구성](../governance/policy/concepts/guest-configuration.md) 기능으로 변환](../governance/policy/how-to/guest-configuration-create-group-policy.md)하는 방법을 읽어 보십시오.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -34,7 +36,7 @@ Azure AD DS(Azure Active Directory Domain Services)의 사용자 및 컴퓨터 �
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 자습서를 완료하여 [Azure Active Directory Domain Services 관리되는 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
+    * 필요한 경우 자습서를 완료하여 [Azure Active Directory Domain Services의 관리되는 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리되는 도메인에 연결된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료하여 [Windows Server VM을 만들어 관리되는 도메인에 조인시킵니다][create-join-windows-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정

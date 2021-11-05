@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8041656a11689d0cca64c3edae1af2e70409028
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a16bca98611e766aba2cdbe249cda8943efb42d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97027716"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049523"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가
 Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 수 있습니다. 이 문서에서 기본 그룹은 리소스 소유자(관리자)에 의해 단일 리소스에 추가되고 해당 리소스에 액세스해야 하는 특정 멤버(직원)를 포함합니다. 동적 멤버 자격 및 규칙 만들기를 포함한 더 복잡한 시나리오의 경우 [Azure Active Directory 사용자 관리 설명서](../enterprise-users/index.yml)를 참조하세요.
@@ -75,9 +75,9 @@ Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 
 
     ![멤버 수가 강조 표시된 그룹 개요 페이지](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
-## <a name="turn-on-or-off-group-welcome-email"></a>환영 이메일 켜기 또는 끄기
+## <a name="turn-off-group-welcome-email"></a>그룹 환영 이메일 끄기
 
-동적 또는 정적 멤버 자격으로 새 Microsoft 365 그룹을 만들면 그룹에 추가되는 모든 사용자에게 환영 알림이 전송됩니다. 사용자 또는 디바이스의 특성이 변경되면 멤버 자격 변경 가능성에 대비하여 조직의 모든 동적 그룹 규칙이 처리됩니다. 그런 다음, 추가된 사용자도 환영 알림을 받습니다. [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup)에서 이 동작을 끌 수 있습니다. 
+동적 또는 정적 멤버 자격으로 새 Microsoft 365 그룹을 만들면 그룹에 추가되는 모든 사용자에게 환영 알림이 전송됩니다. 사용자 또는 디바이스의 특성이 변경되면 멤버 자격 변경 가능성에 대비하여 조직의 모든 동적 그룹 규칙이 처리됩니다. 그런 다음, 추가된 사용자도 환영 알림을 받습니다. [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup)에서 이 동작을 끌 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

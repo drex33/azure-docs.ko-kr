@@ -29,18 +29,8 @@
       href: gallery-how-to-use-contribute-publish.md
 - name: 개념
   items:
-    - name: 초급자를 위한 데이터 과학
-      items:
-        - name: 1 - 다섯 질문
-          href: data-science-for-beginners-the-5-questions-data-science-answers.md
-        - name: 2 - 데이터가 준비되었습니까?
-          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
-        - name: 3 - 적절한 질문을 합니다
-          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
-        - name: 4 - 답변을 예측합니다
-          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
-        - name: 5 - 다른 사람의 작업을 복사합니다
-          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: '사용 중지: 초급자를 위한 데이터 과학'
+      href: retired-data-science-for-beginners-videos.md
     - name: 모델 관리
       displayName: 'deploy, consume, web service'
       href: deploy-consume-web-service-guide.md

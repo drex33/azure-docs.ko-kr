@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 62e963cdf3c0cdb60648e032a0520fdd71a90874
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: d33c54bae01d6406e32a0a2c97ef7695df48da9a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856299"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058854"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-perception-united-states-non-ultipro"></a>자습서: Azure AD SSO와 Perception United States(비 UltiPro) 통합
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://perception.kanjoya.com/sso?idp=<entity_id>` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **Perception United States(비 UltiPro)** 애플리케이션은 <entity_id>와 같은 **Azure AD 식별자** 값을 요구합니다. 이 값을 **Perception United States(비 UltiPro) 설정** 섹션에서 가져와서 URI로 인코딩할 수 있습니다. URI 인코딩 값을 가져오려면 **http://www.url-encode-decode.com/** 링크로 이동합니다.
+    다. **Perception 미국(비 UltiPro)** 애플리케이션은 <entity_id>와 같은 **Azure AD 식별자** 값을 요구합니다. 이 값을 **Perception United States(비 UltiPro) 설정** 섹션에서 가져와서 URI로 인코딩할 수 있습니다. URI 인코딩 값을 가져오려면 **http://www.url-encode-decode.com/** 링크로 이동합니다.
 
     d. URI 인코딩된 값을 얻은 후 아래에서 설명된 것과 같이 **회신 URL** 과 결합합니다.
 

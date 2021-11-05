@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/04/2021
+ms.date: 10/25/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: a39b34f0b783997a90e634157354543aa3eab79a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: c0713bd45f344ce6dc994cde61cb275f9fdef3a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042981"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036336"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트 관리
 
@@ -39,19 +39,21 @@ Azure AD B2C(Azure Active Directory B2C)에서 테넌트는 소비자 사용자�
 1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
 1. **관리** 에서 **사용자** 를 선택합니다.
 1. **새 사용자** 를 선택합니다.
+1. **사용자 만들기** 를 선택합니다(**사용자를 대량으로 만들고 싶습니다.** 를 선택하여 한 번에 많은 사용자를 만들 수 있습니다).
 1. **사용자**  페이지에서 이 사용자에 대한 정보를 입력합니다.
 
-   - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
-   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
-     사용자 이름의 도메인 부분에는 초기 기본 도메인 이름( *\<yourdomainname>.onmicrosoft.com*)을 사용해야 합니다.
-   - **그룹** - 원할 경우, 하나 이상의 기존 그룹에 사용자를 추가할 수 있습니다. 사용자를 나중에 그룹에 추가할 수도 있습니다. 
+  
+   - **사용자 이름**. *필수*. 새 사용자의 사용자 이름입니다. 예들 들어 `mary@contoso.com`입니다.
+     사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름, *\<tenant name>.onmicrosoft.com* 또는 `contoso.com`과 같은 [사용자 지정 도메인](custom-domain.md)을 사용해야 합니다.
+   - **이름**. *필수*. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
+   - **그룹** - *선택 사항입니다*. 하나 이상의 기존 그룹에 사용자를 추가할 수 있습니다. 사용자를 나중에 그룹에 추가할 수도 있습니다. 
    - **디렉터리 역할**: 사용자에 대한 Azure AD 관리 권한이 필요한 경우 Azure AD 역할에 추가할 수 있습니다. Azure AD에서 사용자에게 전역 관리자 또는 하나 이상의 제한된 관리자 역할을 할당할 수 있습니다. 역할 할당에 대한 자세한 내용은 [역할을 사용하여 리소스 액세스 제어](roles-resource-access-control.md)를 참조하세요.
    - **작업 정보**: 여기서 사용자에 대한 추가 정보를 추가하거나 나중에 추가할 수 있습니다. 
 
 1. **암호** 상자에 제공된 자동 생성된 암호를 복사합니다. 처음으로 로그인하는 사용자에게 이 암호를 제공해야 합니다.
 1. **만들기** 를 선택합니다.
 
-사용자가 만들어지고 Azure AD B2C 테넌트에 추가됩니다. Azure AD B2C 테넌트에서 고유한 하나 이상의 회사 계정을 전역 관리자 역할에 할당하는 것이 좋습니다. 이 계정은 비상 계정으로 간주할 수 있습니다.
+사용자가 만들어지고 Azure AD B2C 테넌트에 추가됩니다. Azure AD B2C 테넌트에서 고유한 하나 이상의 회사 계정을 전역 관리자 역할에 할당하는 것이 좋습니다. 이 계정은 *비상 계정* 으로 간주할 수 있습니다.
 
 ## <a name="invite-an-administrator-guest-account"></a>관리자 초대(게스트 계정)
 
@@ -67,10 +69,10 @@ Azure AD B2C(Azure Active Directory B2C)에서 테넌트는 소비자 사용자�
 1. **새 게스트 계정** 을 선택합니다.
 1. **사용자**  페이지에서 이 사용자에 대한 정보를 입력합니다.
 
-   - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
-   - **이메일 주소**. 필수 요소. 초대하려는 사용자의 이메일 주소입니다. 예: `mary@contoso.com`.   
+   - **이름**. *필수*. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
+   - **이메일 주소**. *필수*. 초대하려는 사용자의 이메일 주소는 Microsoft 계정이어야 합니다. 예: `mary@contoso.com`.   
    - **개인 메시지**. 초대 이메일에 포함될 개인 메시지를 추가합니다.
-   - **그룹** - 원할 경우, 하나 이상의 기존 그룹에 사용자를 추가할 수 있습니다. 사용자를 나중에 그룹에 추가할 수도 있습니다.
+   - **그룹** - *선택 사항입니다*. 하나 이상의 기존 그룹에 사용자를 추가할 수 있습니다. 사용자를 나중에 그룹에 추가할 수도 있습니다.
    - **디렉터리 역할**: 사용자에 대한 Azure AD 관리 권한이 필요한 경우 Azure AD 역할에 추가할 수 있습니다. Azure AD에서 사용자에게 전역 관리자 또는 하나 이상의 제한된 관리자 역할을 할당할 수 있습니다. 역할 할당에 대한 자세한 내용은 [역할을 사용하여 리소스 액세스 제어](roles-resource-access-control.md)를 참조하세요.
    - **작업 정보**: 여기서 사용자에 대한 추가 정보를 추가하거나 나중에 추가할 수 있습니다.
 

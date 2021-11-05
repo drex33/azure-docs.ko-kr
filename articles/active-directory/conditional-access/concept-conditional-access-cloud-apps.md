@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1e409fa879f4a541f1f3da7b1c68c06d01e1f8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a9d56443885c79f6d5aa153695df76156f4f9407
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587122"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012684"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>조건부 액세스: 클라우드 앱, 작업, 인증 컨텍스트
 
@@ -71,7 +71,7 @@ ms.locfileid: "128587122"
 - Windows Defender ATP
 
 > [!IMPORTANT]
-> 조건부 액세스에 사용할 수 있는 애플리케이션이 온보딩 및 유효성 검사 프로세스를 통과했습니다. 이 목록에 모든 Microsoft 앱이 포함되는 것은 아닙니다. 대부분 백 엔드 서비스이고 정책이 직접 적용되지 않기 때문입니다. 누락된 애플리케이션을 찾고 있는 경우 특정 애플리케이션 팀에 문의하거나 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259)에 대한 요청을 수행할 수 있습니다.
+> 조건부 액세스에 사용할 수 있는 애플리케이션이 온보딩 및 유효성 검사 프로세스를 통과했습니다. 이 목록에 모든 Microsoft 앱이 포함되는 것은 아닙니다. 대부분 백 엔드 서비스이고 정책이 직접 적용되지 않기 때문입니다. 누락된 애플리케이션을 찾고 있는 경우 특정 애플리케이션 팀에 문의하거나 [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에 대한 요청을 수행할 수 있습니다.
 
 ### <a name="office-365"></a>Office 365
 

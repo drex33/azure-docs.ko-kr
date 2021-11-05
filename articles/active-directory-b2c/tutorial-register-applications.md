@@ -12,12 +12,12 @@ ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: e6148f10ad257fcac79b0c2a355b16aca4c9a484
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: afe63c06f52ba8c7b81ca46b49461d147c3f6f5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044007"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036164"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록
 
@@ -79,6 +79,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **만들기** 를 선택하여 애플리케이션 등록을 완료합니다.
 
 * * *
+
+> [!TIP]
+> **앱 등록** 에서 만든 앱이 표시되지 않으면 포털을 새로 고침합니다.
 
 ## <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 

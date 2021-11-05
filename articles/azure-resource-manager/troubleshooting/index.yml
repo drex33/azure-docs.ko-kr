@@ -1,0 +1,107 @@
+### YamlMime:Landing
+title: 배포 문서 문제 해결
+summary: Azure Resource Manager 템플릿 및 Bicep 파일에 대한 Azure 배포 문제를 해결합니다.
+metadata:
+  title: 배포 문서 문제 해결
+  description: Azure Resource Manager 템플릿 및 Bicep 파일에 대한 배포 문제를 해결하는 방법을 알아봅니다.
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: templates, bicep
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 11/01/2021
+  ms.openlocfilehash: 04756d25bf54a560753f890e654fd13df349444a
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131088454"
+landingContent:
+- title: 배포 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 배포 문제 해결이란 무엇인가요?
+      url: overview.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ARM 템플릿 배포 문제 해결
+      url: quickstart-troubleshoot-arm-deployment.md
+    - text: Bicep 파일 배포 문제 해결
+      url: quickstart-troubleshoot-bicep-deployment.md
+- title: 배포 문제 해결
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 일반적인 배포 오류
+      url: common-deployment-errors.md
+    - text: ARM 템플릿 파일 구문
+      url: ../templates/syntax.md
+    - text: ARM 템플릿 테스트 도구 키트
+      url: ../templates/test-toolkit.md
+    - text: Bicep 파일 구문
+      url: ../bicep/file.md
+    - text: Bicep Linter
+      url: ../bicep/linter.md
+    - text: Azure 빠른 시작 템플릿
+      url: https://azure.microsoft.com/resources/templates/
+- title: 템플릿 배포
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: ARM 템플릿 배포
+      url: ../templates/deployment-tutorial-local-template.md
+    - text: Bicep 파일 배포
+      url: ../bicep/deploy-powershell.md
+    - text: 배포 기록 보기
+      url: ../templates/deployment-history.md
+  - linkListType: how-to-guide
+    links:
+    - text: PowerShell
+      url: ../templates/deploy-powershell.md
+    - text: Azure CLI
+      url: ../templates/deploy-cli.md
+    - text: 포털
+      url: ../templates/deploy-portal.md
+    - text: REST API
+      url: ../templates/deploy-rest.md
+    - text: Azure 단추에 배포
+      url: ../templates/deploy-to-azure-button.md
+    - text: ARM 템플릿 Cloud Shell
+      url: ../templates/deploy-cloud-shell.md
+    - text: Bicep 파일 Cloud Shell
+      url: ../bicep/deploy-cloud-shell.md
+    - text: ARM 템플릿 가상 배포
+      url: ../templates/deploy-what-if.md
+    - text: Bicep 파일 가상 배포
+      url: ../bicep/deploy-what-if.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 템플릿 참조
+      url: /azure/templates/
+    - text: REST API
+      url: /rest/api/resources/
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.resourcemanager
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.resources
+    - text: Python
+      url: /python/api/overview/azure/resources
+- title: 템플릿 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 템플릿 내보내기
+      url: ../templates/export-template-portal.md
+    - text: CI/CD
+      url: ../templates/add-template-to-azure-pipelines.md

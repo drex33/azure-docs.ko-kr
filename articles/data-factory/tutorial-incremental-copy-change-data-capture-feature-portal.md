@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 6297956cb77898c26beaa617a59b1b43cc111e80
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1c0e6e052b9e65f02ab57a7a2c165c9ba67be0a8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771767"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031046"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 
@@ -230,7 +230,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-name.png" alt-text="조회 활동 - 이름":::
 4. **속성** 창의 **설정** 으로 전환합니다.
+
    1. **원본 데이터 세트** 필드에 대해 SQL MI 데이터 세트 이름을 지정합니다.
+
    2. 쿼리 옵션을 선택하고 쿼리 상자에 다음을 입력합니다.
     ```sql
     DECLARE  @from_lsn binary(10), @to_lsn binary(10);  
@@ -238,9 +240,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal',  GETDATE());
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
     ```
+
    3. **첫 행만** 사용
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-settings.png" alt-text="조회 활동 - 설정":::
+
 5. **데이터 미리 보기** 단추를 클릭하여 조회 작업에서 유효한 출력을 가져왔는지 확인합니다.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-preview.png" alt-text="조회 작업 - 미리 보기":::
@@ -337,31 +341,38 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    1. 데이터 세트 속성의 **연결** 탭을 클릭하고 **디렉터리** 및 **파일** 섹션 모두에 동적 콘텐츠를 추가합니다. 
    2. 텍스트 상자 아래의 동적 콘텐츠 링크를 클릭하여 **디렉터리** 섹션에 다음 식을 입력합니다.
     
-    ```sql
-    @concat('customers/incremental/',formatDateTime(dataset().triggerStart,'yyyy/MM/dd'))
-    ```
+      ```sql
+      @concat('customers/incremental/',formatDateTime(dataset().triggerStart,'yyyy/MM/dd'))
+      ```
    3. **파일** 섹션에 다음 식을 입력합니다. 이렇게 하면 트리거 시작 날짜와 시간을 기준으로 파일 이름이 생성되고 그 뒤에 csv 확장명이 붙습니다.
     
-    ```sql
-    @concat(formatDateTime(dataset().triggerStart,'yyyyMMddHHmmssfff'),'.csv')
-    ```
-    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png" alt-text="싱크 데이터 세트 구성-3":::
+      ```sql
+      @concat(formatDateTime(dataset().triggerStart,'yyyyMMddHHmmssfff'),'.csv')
+      ```
+
+      :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png" alt-text="싱크 데이터 세트 구성-3":::
 
    4. **IncrementalCopyPipeline** 탭을 클릭하여 **복사** 작업의 **싱크** 설정으로 다시 이동합니다. 
    5. 데이터 세트 속성을 확장하고 다음 식을 사용하여 triggerStart 매개 변수 값에 동적 콘텐츠를 입력합니다.
-     ```sql
-     @pipeline().parameters.triggerStartTime
-     ```
-    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png" alt-text="싱크 데이터 세트 구성-4":::
+
+      ```sql
+      @pipeline().parameters.triggerStartTime
+      ```
+
+     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png" alt-text="싱크 데이터 세트 구성-4":::
 
 6. 디버그를 클릭하여 파이프라인을 테스트하고 폴더 구조와 출력 파일이 예상대로 생성되는지 확인합니다. 콘텐츠를 확인하려면 파일을 다운로드하여 엽니다. 
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-3.png" alt-text="증분 복사 디버그-3":::
+
 7. 파이프라인 실행의 입력 매개 변수를 검토하여 매개 변수가 쿼리에 삽입되는지 확인합니다.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-4.png" alt-text="증분 복사 디버그-4":::
+
 8. **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다.
+
 9. 마지막으로 연속 창 트리거를 구성하여 일정한 간격으로 파이프라인을 실행하고 시작 및 종료 시간 매개 변수를 설정합니다. 
+
    1. **트리거 추가** 단추를 클릭하고 **새로 만들기/편집** 을 선택합니다.
 
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/add-trigger.png" alt-text="새 트리거 추가":::
@@ -371,17 +382,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger.png" alt-text="연속 창 트리거":::
 
    3. 다음 화면에서 시작 및 종료 매개 변수에 대한 다음 값을 각각 지정합니다.
-    ```sql
-    @formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd HH:mm:ss.fff')
-    @formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd HH:mm:ss.fff')
-    ```
 
-   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png" alt-text="연속 창 트리거-2":::
+      ```sql
+      @formatDateTime(trigger().outputs.windowStartTime,'yyyy-MM-dd HH:mm:ss.fff')
+      @formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd HH:mm:ss.fff')
+      ```
+
+      :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png" alt-text="연속 창 트리거-2":::
 
 > [!NOTE]
 > 트리거는 게시된 후에만 실행됩니다. 또한 연속 창의 예상 동작은 시작 날짜부터 지금까지 모든 기록 간격을 실행하는 것입니다. 연속 창 트리거에 대한 자세한 내용은 [여기](./how-to-create-tumbling-window-trigger.md)에서 찾을 수 있습니다. 
-  
+
 10. **SQL Server Management Studio** 를 사용하여 다음 SQL을 실행하면 고객 테이블을 약간 추가로 변경할 수 있습니다.
+
     ```sql
     insert into customers (customer_id, first_name, last_name, email, city) values (4, 'Farlie', 'Hadigate', 'fhadigate3@zdnet.com', 'Reading');
     insert into customers (customer_id, first_name, last_name, email, city) values (5, 'Anet', 'MacColm', 'amaccolm4@yellowbook.com', 'Portsmouth');
@@ -390,10 +403,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     delete from customers where customer_id=5;
     ```
 11. **모두 게시** 단추를 클릭합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다.  
+
 12. 몇 분 후 파이프라인이 트리거되고 새 파일이 Azure Storage에 로드됩니다.
 
-
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
+
 1. 왼쪽의 **모니터** 탭을 클릭합니다. 목록에 파이프라인 실행 및 해당 상태가 표시됩니다. 목록을 새로 고치려면 **새로 고침** 을 클릭합니다. 파이프라인 이름 근처를 가리켜 다시 실행 작업 및 소비 보고서에 액세스합니다.
 
     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-pipeline-runs.png" alt-text="파이프라인 실행":::

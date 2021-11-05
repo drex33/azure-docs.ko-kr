@@ -36,20 +36,10 @@
       href: quickstart-arc.md
 - name: 자습서
   items:
-    - name: 보안 앱에서 스토리지 및 Microsoft Graph에 액세스
-      items:
-        - name: 개요
-          href: scenario-secure-app-overview.md
-        - name: App Service 인증 설정
-          href: scenario-secure-app-authentication-app-service.md
-        - name: 보안 앱이 스토리지에 액세스
-          href: scenario-secure-app-access-storage.md
-        - name: 보안 앱이 사용자로 Microsoft Graph에 액세스
-          href: scenario-secure-app-access-microsoft-graph-as-user.md
-        - name: 보안 앱이 앱으로 Microsoft Graph에 액세스
-          href: scenario-secure-app-access-microsoft-graph-as-app.md
-        - name: 리소스 정리
-          href: scenario-secure-app-clean-up-resources.md
+    - name: 사용자 지정 도메인 매핑
+      href: app-service-web-tutorial-custom-domain.md
+    - name: TLS/SSL을 사용하여 도메인 보호
+      href: configure-ssl-bindings.md
     - name: DB를 사용한 앱
       items:
         - name: SQL DB를 사용한 ASP.NET Core
@@ -72,18 +62,34 @@
           href: tutorial-custom-container.md
         - name: 다중 컨테이너 앱
           href: tutorial-multi-container-app.md
-    - name: SQL DB를 안전하게 액세스
-      href: app-service-web-tutorial-connect-msi.md
-    - name: RESTful API 호스트
-      href: app-service-web-tutorial-rest-api.md
-    - name: 사용자 지정 도메인 매핑
-      href: app-service-web-tutorial-custom-domain.md
-    - name: TLS/SSL을 사용하여 도메인 보호
-      href: configure-ssl-bindings.md
-    - name: CDN 추가
-      href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
+    - name: 비밀 없는 백 엔드 연결
+      items:
+        - name: 관리 ID를 SQL DB에 액세스
+          href: tutorial-connect-msi-sql-database.md
+        - name: 관리 ID 지원 없이 서비스에 액세스
+          href: tutorial-connect-msi-key-vault.md
     - name: 사용자 인증
       href: tutorial-auth-aad.md
+    - name: 보안 앱에서 스토리지 및 Microsoft Graph에 액세스
+      items:
+        - name: 개요
+          href: scenario-secure-app-overview.md
+        - name: App Service 인증 설정
+          href: scenario-secure-app-authentication-app-service.md
+        - name: 보안 앱이 스토리지에 액세스
+          href: scenario-secure-app-access-storage.md
+        - name: 보안 앱이 사용자로 Microsoft Graph에 액세스
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: 보안 앱이 앱으로 Microsoft Graph에 액세스
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: 리소스 정리
+          href: scenario-secure-app-clean-up-resources.md
+    - name: 네트워크 트래픽 격리
+      href: tutorial-networking-isolate-vnet.md
+    - name: RESTful API 호스트
+      href: app-service-web-tutorial-rest-api.md
+    - name: CDN 추가
+      href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: 이메일/트윗 보내기
       href: tutorial-send-email.md
     - name: 오류 문제 해결
@@ -364,8 +370,10 @@
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Kudu 서비스
       href: resources-kudu.md
-    - name: 마이그레이션 길잡이
-      href: app-service-migration-assistant.md
+    - name: ASP.NET 마이그레이션
+      href: app-service-asp-net-migration.md
+    - name: Java 마이그레이션
+      href: app-service-java-migration.md
     - name: 모범 사례
       href: app-service-best-practices.md
     - name: 샘플

@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef4e1b8f4524e9b883bfe4aa5ef7b2a0e2bcf83
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a0e35c11a94e1c0c6e86964d68c784c5cb3e7741
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536658"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060196"
 ---
 # <a name="azure-active-directory-security-operations-guide"></a>Azure Active Directory 보안 작업 가이드
 
@@ -73,6 +73,10 @@ Microsoft에는 요구 사항에 맞게 IT 환경을 사용자 지정할 수 있
 
    * [Windows 10 v1909 및 Windows Server v1909에 대한 보안 기준(최종)](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/security-baseline-final-for-windows-10-v1909-and-windows-server/ba-p/1023093)
 
+   * [Windows 11의 보안 기준](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/windows-11-security-baseline/ba-p/2810772)
+   
+   * [Windows Server 2022의 보안 기준](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/windows-server-2022-security-baseline/ba-p/2724685)
+   
 * 온-프레미스 환경
 
    * [Microsoft Defender for Identity 아키텍처](/defender-for-identity/architecture)
@@ -92,7 +96,7 @@ Microsoft에는 요구 사항에 맞게 IT 환경을 사용자 지정할 수 있
 
    * [Azure Active Directory Identity Protection을 사용하여 위험 조사](../identity-protection/howto-identity-protection-investigate-risk.md) 
 
-   * [Azure Sentinel에 Azure AD Identity Protection 데이터 연결](../../sentinel/connect-azure-ad-identity-protection.md)
+   * [Azure Sentinel에 Azure AD Identity Protection 데이터 연결](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 
 * AD DS(Active Directory Domain Services)
 
@@ -110,23 +114,23 @@ Microsoft에는 요구 사항에 맞게 IT 환경을 사용자 지정할 수 있
 
 * [로그인 로그](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault 로그](../../key-vault/general/logging.md?tabs=Vault)
 
-Azure Portal에서 Azure AD 감사 로그를 보고, CSV(쉼표로 구분된 값) 또는 JSON(JavaScript Object Notation) 파일로 다운로드할 수 있습니다. Azure Portal에는 모니터링과 경고를 더 효율적으로 자동화하는 다른 도구와 Azure AD 로그를 통합하는 몇 가지 방법이 있습니다.
+Azure Portal에서 Azure AD 감사 로그를 보고, CSV(쉼표로 구분된 값) 또는 JSON(JavaScript Object Notation) 파일로 다운로드할 수 있습니다. Azure Portal에는 모니터링 및 경고를 더 효율적으로 자동화하도록 허용하는 다른 도구와 Azure AD 로그를 통합하는 몇 가지 방법이 있습니다.
 
-* **[Azure Sentinel](../../sentinel/overview.md)** - SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 인텔리전트 보안 분석을 지원합니다. 
+* **[Azure Sentinel](../../sentinel/overview.md)** - SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 인텔리전트 보안 분석을 가능하게 합니다. 
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** - 다양한 조건을 자동으로 모니터링하고 경고할 수 있습니다. 통합 문서를 만들거나 사용하여 다양한 원본의 데이터를 결합할 수 있습니다.
+* **[Azure Monitor](../../azure-monitor/overview.md)** - 다양한 조건에 대한 자동화된 모니터링 및 경고를 가능하게 합니다. 통합 문서를 만들거나 사용하여 다양한 원본의 데이터를 결합할 수 있습니다.
 
 * **SIEM과 통합된 [Azure Event Hubs](../../event-hubs/event-hubs-about.md)** - Azure Event Hubs 통합을 통해 Splunk, ArcSight, QRadar, Sumo Logic 등의 [다른 SIEM에 Azure AD 로그를 통합할 수 있습니다](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 * **[MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security)** - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱의 규정 준수를 확인할 수 있습니다.
 
-모니터링하고 경고할 항목의 대부분은 조건부 액세스 정책의 결과입니다. [조건부 액세스 인사이트 및 보고 통합 문서](../conditional-access/howto-conditional-access-insights-reporting.md)를 사용하여 로그인에 대한 하나 이상의 조건부 액세스 정책과 디바이스 상태를 포함한 정책 결과를 조사할 수 있습니다. 이 통합 문서를 사용하면 영향 요약을 살펴보고 특정 기간 동안의 영향을 확인할 수 있습니다. 통합 문서를 사용하여 특정 사용자의 로그인을 조사할 수도 있습니다. 
+모니터링하고 경고할 항목의 대부분은 조건부 액세스 정책의 영향입니다. [조건부 액세스 인사이트 및 보고 통합 문서](../conditional-access/howto-conditional-access-insights-reporting.md)를 사용하여 로그인에 대한 하나 이상의 조건부 액세스 정책과 디바이스 상태를 포함한 정책 결과를 조사할 수 있습니다. 이 통합 문서를 사용하면 영향 요약을 보고 특정 기간 동안의 영향을 식별할 수 있습니다. 통합 문서를 사용하여 특정 사용자의 로그인을 조사할 수도 있습니다. 
 
-이 문서의 나머지 부분에서는 모니터링하고 경고하는 것이 좋은 사항에 대해 설명하며 위협 유형별로 구성되어 있습니다. 미리 빌드된 특정 솔루션이 있는 경우 해당 솔루션에 연결하거나 표 아래에 샘플을 제공합니다. 그러지 않으면 앞의 도구를 사용하여 경고를 빌드할 수 있습니다. 
+이 문서의 나머지 부분은 모니터링하고 경고하는 데 권장되는 대상에 대해 설명하며, 위협 유형별로 구성되어 있습니다. 미리 빌드된 특정 솔루션이 있는 경우 해당 솔루션에 연결하거나 표 뒤에서 샘플을 제공합니다. 그러지 않으면 앞의 도구를 사용하여 경고를 빌드할 수 있습니다. 
 
 * **[ID 보호](../identity-protection/overview-identity-protection.md)** - 조사에 활용할 수 있는 다음 세 개의 주요 보고서를 생성합니다.
 
@@ -152,13 +156,13 @@ Azure 하이브리드 환경의 일부로, 다음 요소가 모니터링 및 경
 
 * **PTA 에이전트** – 통과 인증 에이전트는 통과 인증을 사용하도록 설정하는 데 사용되며 온-프레미스에 설치됩니다. 에이전트 버전을 확인하는 방법과 다음 단계에 대한 자세한 내용은 [Azure AD 통과 인증 에이전트: 버전 릴리스 기록](../hybrid/reference-connect-pta-version-history.md)을 참조하세요. 
 
-* **AD FS/WAP** – Azure AD FS(Azure Active Directory Federation Services)와 WAP(웹 애플리케이션 프록시)를 사용하면 보안과 엔터프라이즈 경계 간에 디지털 ID 및 자격 권한을 안전하게 공유할 수 있습니다. 보안 모범 사례에 대한 자세한 내용은 [Active Directory Federation Services 보안을 위한 모범 사례]/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)를 참조하세요. 
+* **AD FS/WAP** – Azure AD FS(Azure Active Directory Federation Services)와 WAP(웹 애플리케이션 프록시)를 사용하면 보안과 엔터프라이즈 경계 간에 디지털 ID 및 자격 권한을 안전하게 공유할 수 있습니다. 보안 모범 사례에 대한 자세한 내용은 [Active Directory Federation Services 보안 모범 사례](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)를 참조하세요. 
 
 * **Azure AD Connect Health 에이전트** – Azure AD Connect Health에 대한 통신 링크를 제공하는 데 사용되는 에이전트입니다. 에이전트를 설치하는 방법에 대한 자세한 내용은 [Azure AD Connect Health 에이전트 설치](../hybrid/how-to-connect-health-agent-install.md)를 참조하세요. 
 
 * **Azure AD Connect 동기화 엔진** - 온-프레미스 구성 요소입니다(동기화 엔진이라고도 함). 기능에 대한 자세한 내용은 [Azure AD Connect 동기화 서비스 기능](../hybrid/how-to-connect-syncservice-features.md)을 참조하세요.
 
-* **암호 보호 DC 에이전트** – Azure 암호 보호 DC 에이전트는 이벤트 로그 메시지를 모니터링하고 보고하는 데 사용됩니다. 자세한 내용은 ../authentication/concept-password-ban-bad-on-premises.md를 참조하세요.
+* **암호 보호 DC 에이전트** – Azure 암호 보호 DC 에이전트는 이벤트 로그 메시지를 모니터링하고 보고하는 데 사용됩니다. 자세한 내용은 [Active Directory Domain Services에 온-프레미스 Azure AD 암호 보호 적용](../authentication/concept-password-ban-bad-on-premises.md)을 참조하세요. 
 
 * **암호 필터 DLL** – DC 에이전트의 암호 필터 DLL은 운영 체제에서 사용자 암호 유효성 검사 요청을 받습니다. 이 필터는 DC에서 로컬로 실행되는 DC 에이전트 서비스에 요청을 전달합니다. DLL을 사용하는 방법에 대한 자세한 내용은 [Active Directory Domain Services에 온-프레미스 Azure AD 암호 보호 적용](../authentication/concept-password-ban-bad-on-premises.md)을 참조하세요. 
 

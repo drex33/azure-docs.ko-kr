@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa8f116680b3876eebb2b96a4f4c5e40d6384a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1a139ffb47ad9f92cdb275191fc3eb983523c72a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528526"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046335"
 ---
 # <a name="azure-active-directory-security-operations-guide-for-applications"></a>애플리케이션에 대한 Azure Active Directory 보안 작업 가이드
 
@@ -72,7 +72,7 @@ ms.locfileid: "122528526"
 
 * [로그인 로그](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault 로그](../../key-vault/general/logging.md)
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure AD 감사 로그를 보고, CSV(쉼표로 구분된 값
 
 * **SIEM과 통합된 [Azure Event Hubs](../../event-hubs/event-hubs-about.md)** - [Azure AD 로그는 Splunk, ArcSight, QRadar 및 Sumo Logic과 같은 다른 SIEM에 통합](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)할 수 있습니다.
 
-* **[MCAS](/cloud-app-security/what-is-cloud-app-security)(Microsoft Cloud App Security)** – 앱 검색 및 관리, 앱과 리소스 제어 및 클라우드 앱의 규정 준수 확인을 가능하게 합니다.
+* **[MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security)** - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱의 규정 준수를 확인할 수 있습니다.
 
 모니터링하고 경고할 항목의 대부분은 조건부 액세스 정책의 영향입니다. [조건부 액세스 인사이트 및 보고 통합 문서](../conditional-access/howto-conditional-access-insights-reporting.md)를 사용하여 로그인에 대한 하나 이상의 조건부 액세스 정책과 디바이스 상태를 포함한 정책 결과를 조사할 수 있습니다. 이 통합 문서를 사용하면 영향 요약을 보고 특정 기간 동안의 영향을 식별할 수 있습니다. 통합 문서를 사용하여 특정 사용자의 로그인을 조사할 수도 있습니다. 
 
@@ -162,7 +162,7 @@ Azure Key Vault가 설정되면 [Key Vault에 액세스하는 방법과 시기](
 
 * [Azure Active Directory에서 애플리케이션에 대한 동의 관리 및 동의 요청 평가](../manage-apps/manage-consent-requests.md)
 
-* [불법 동의 부여 검색 및 수정 - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide)
+* [불법 동의 부여 검색 및 수정 - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)
 
 * [인시던트 대응 플레이북 - 앱 동의 부여 조사](/security/compass/incident-response-playbook-app-consent)
 

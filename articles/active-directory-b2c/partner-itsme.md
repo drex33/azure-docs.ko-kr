@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4d33746fb39d54fdeb9ed6a6754f22aea14a2a7c
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 73802a0d429d2eb71ec24be8b18d635eb5c2f003
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130035907"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044573"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 itsme OpenID Connect (OIDC) 구성
 
@@ -52,7 +52,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 |8     |  Itsme 환경에서는 Azure AD B2C로 OAuth 권한 부여 코드를 반환합니다. |
 |9     |  권한 부여 코드를 사용하여 Azure AD B2C는 토큰 요청을 수행합니다. |
 | 10 | itsme 환경은 토큰 요청을 확인하고, 여전히 유효한 경우 요청된 사용자 정보를 포함하는 OAuth 액세스 토큰 및 ID 토큰을 반환합니다. |
-| 11 | 마지막으로 사용자는 인증된 사용자로 리디렉션 url로 리디렉션됩니다.  |
+| 11 | 마지막으로 사용자는 인증된 사용자로 리디렉션 URL로 리디렉션됩니다.  |
 |   |   |
 
 ## <a name="onboard-with-itsme"></a>itsme으로 등록

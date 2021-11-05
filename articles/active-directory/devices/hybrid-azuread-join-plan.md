@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8be2618ee4bdeab517242870d593e88f631cfa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a766415eab11a0486b4609d181e5f01dcf4ef2a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536319"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049694"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -29,6 +29,10 @@ ms.locfileid: "122536319"
 Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소스에서 SSO(Single Sign-On)를 통해 사용자의 생산성을 극대화할 수 있습니다. 이와 동시에 [조건부 액세스](../conditional-access/overview.md)를 사용하여 클라우드 및 온-프레미스 리소스에 대한 액세스를 보호할 수 있습니다.
 
 온-프레미스 Active Directory(AD) 환경을 사용하고, Azure AD에 AD 도메인 조인 컴퓨터를 연결하려는 경우 하이브리드 Azure AD 조인으로 이를 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
+
+> [!TIP]
+> 온-프레미스 리소스에 대한 SSO 액세스는 Azure AD 조인된 디바이스에서도 사용할 수 있습니다. 자세한 내용은 [온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식](azuread-join-sso.md)을 참조하세요.
+>
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -63,6 +67,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 ### <a name="windows-current-devices"></a>Windows 현재 디바이스
 
 - Windows 10
+- Windows 11
 - Windows Server 2016
   - **참고**: Azure 국가별 클라우드 고객은 버전 1803이 필요합니다.
 - Windows Server 2019

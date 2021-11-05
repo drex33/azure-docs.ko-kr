@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f34d031bafd801cf068d19a4885bb9a818885c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 754520be35cbac4321fb7fbb65135016642a7ee1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128561920"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018322"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -44,7 +44,7 @@ Azure AD 사용 약관 정책에는 다음과 같은 기능이 있습니다.
 - Azure AD MFA(Multi-Factor Authentication)에 보안 정보를 등록하려면 먼저 직원 또는 게스트가 사용 약관 정책에 동의하도록 요구.
 - Azure AD SSPR(셀프 서비스 암호 재설정)에 보안 정보를 등록하기 전에 직원이 사용 약관 정책에 동의하도록 요구.
 - 조직의 모든 사용자에 대한 일반 사용 약관 정책 제공.
-- 사용자 특성을 기반으로 하는 특정 사용 약관 정책 제공(예: [동적 그룹](../enterprise-users/groups-dynamic-membership.md)을 사용하여 의사와 간호사, 국내 직원과 해외 직원에게 맞는 사용 약관을 각각 제공).
+- [동적 그룹](../enterprise-users/groups-dynamic-membership.md)을 사용하여 사용자 특성(예: 의사 대 간호사, 국내 대 국제 직원)을 기반으로 사용 정책의 특정 약관을 제공합니다.
 - Salesforce 같은 비즈니스 영향력이 높은 애플리케이션에 액세스할 때 특정 사용 약관 정책 제공.
 - 여러 언어로 사용 약관 정책 제공.
 - 사용 약관 정책에 동의한 또는 동의하지 않은 사용자 나열.

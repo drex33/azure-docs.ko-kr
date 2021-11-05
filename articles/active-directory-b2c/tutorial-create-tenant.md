@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2021
+ms.date: 10/26/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ce5da1ae3ae87d3dbfc91b72fbda412ad179cfa9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 48577b7625b80954d856d02fcee9e0696393bc55
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233964"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036260"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "130233964"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
-1. 구독이 포함된 디렉터리를 선택합니다.
+1. 구독이 포함된 디렉터리로 전환합니다.
     1. Azure Portal 포털 도구 모음에서 **디렉터리 + 구독** 필터 아이콘을 선택합니다. 
     
         ![디렉터리 + 구독 필터 아이콘](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
@@ -58,8 +58,8 @@ ms.locfileid: "130233964"
 
 1. 사용 중인 Azure 구독에 대한 리소스 공급자로 **Microsoft.AzureActiveDirectory** 를 추가합니다([자세히 알아보기](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)).
 
-    1. Azure Portal 메뉴 또는 **홈** 페이지에서 **구독** 을 선택합니다.
-    2. 구독을 선택한 다음, 왼쪽 메뉴에서 **리소스 공급자** 를 선택합니다.
+    1. Azure Portal에서 **구독** 을 검색하고 선택합니다.
+    2. 구독을 선택한 다음, 왼쪽 메뉴에서 **리소스 공급자** 를 선택합니다. 왼쪽 메뉴가 표시되지 않으면 페이지의 왼쪽 위에 있는 **<구독 이름>에 메뉴 표시** 아이콘을 선택하고 엽니다.
     3. **Microsoft.AzureActiveDirectory** 행에 **등록됨** 상태가 표시되는지 확인합니다. 표시되지 않으면 행을 선택한 다음, **등록** 을 선택합니다.
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.

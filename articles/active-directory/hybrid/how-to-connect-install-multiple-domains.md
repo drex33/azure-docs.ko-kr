@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c71ae3378c1d5d6304b506f2d5a4dbaa9b15e8e
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 671c9f9eadb7a272e718587417e78ff85d182b07
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111855029"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049371"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Microsoft 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -65,7 +65,7 @@ bmfabrikam.com 도메인의 설정을 보면 다음을 확인할 수 있습니�
 
 `-SupportMultipleDomain`은 여전히 adfs.bmcontoso.com의 페더레이션 서비스를 가리키도록 구성된 다른 엔드포인트를 변경하지 않습니다.
 
-`-SupportMultipleDomain` 이(가) 수행하는 다른 작업은 AD FS 시스템이 Azure AD에 대해 발급된 토큰에 적절한 발급자 값을 포함하도록 하는 것입니다. 사용자 UPN의 도메인 부분을 가져오거나 IssuerUri 즉, https://{upn suffix}/adfs/services/trust의 도메인으로 이를 설정하여 이 값을 설정합니다.
+`-SupportMultipleDomain`은 또한 AD FS 시스템이 Azure AD용으로 발급된 토큰에 적절한 발급자 값을 포함하도록 합니다. 이 값은 사용자 UPN의 도메인 부분을 IssuerUri, 즉 `https://{upn suffix}/adfs/services/trust`의 도메인으로 사용하여 설정됩니다.
 
 따라서 Azure AD 또는 Microsoft 365에 인증하는 동안 사용자 토큰의 IssuerUri 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다. 일치하는 항목이 없는 경우 인증이 실패합니다.
 

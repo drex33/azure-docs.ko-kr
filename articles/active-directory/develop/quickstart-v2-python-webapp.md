@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: fb38140f09fc7c1eb2c40fc02e8c113cbc6f94a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2201802ca0f4d10a65522dc45e2ecb9b2aa0ce96
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103518"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040174"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
@@ -124,15 +124,16 @@ ms.locfileid: "100103518"
 
 1. 다음과 같이 pip를 사용하여 MSAL Python 라이브러리, Flask 프레임워크, 서버 쪽 세션 관리 및 요청을 위한 Flask 세션을 설치해야 합니다.
 
-    ```Shell
+    ```shell
     pip install -r requirements.txt
     ```
 
-2. 셸 또는 명령줄에서 app.py를 실행합니다.
+2. 셸 또는 명령줄에서 `app.py`를 실행합니다.
 
-    ```Shell
+    ```shell
     python app.py
     ```
+
    > [!IMPORTANT]
    > 이 빠른 시작 애플리케이션에서는 클라이언트 비밀을 사용하여 자체를 기밀 클라이언트로 식별합니다. 클라이언트 비밀은 보안상의 이유로 프로젝트 파일에 일반 텍스트로 추가되므로, 이 애플리케이션을 프로덕션 애플리케이션으로 사용하는 방안을 고려하기 전에 클라이언트 비밀 대신 인증서를 사용하는 것이 좋습니다. 인증서를 사용하는 방법에 대한 자세한 내용은 [다음 지침](./active-directory-certificate-credentials.md)을 참조하세요.
 

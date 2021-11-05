@@ -1,21 +1,21 @@
 ---
-title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
+title: ClaimsSchema  - Azure Active Directory B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ClaimsSchema 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/05/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8930ceceb3b4f55bf579e110c15f58893bbfa6d2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97654033"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131008050"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -92,7 +92,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다: OAuth1, OAuth2, SAML2, OpenIdConnect |
+| 속성 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다: OAuth1, OAuth2, SAML2, OpenIdConnect |
 | PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
 
 다음 예제에서는 ID 경험 프레임워크가 SAML2 ID 공급자 또는 신뢰 당사자 애플리케이션과 상호 작용할 때 **surname** 클레임이 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`에 매핑되며 OpenIdConnect 및 OAuth2와 상호 작용할 때는 `family_name`에 매핑됩니다.

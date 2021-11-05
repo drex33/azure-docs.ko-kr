@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25d24c6f9d1f8346ad088308badca181a5bf1944
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928633"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012798"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Onfido를 구성하기 위한 자습서
 
@@ -110,9 +110,9 @@ Onfido에 대한 자세한 내용은 [Onfido API 설명서](https://documentatio
 
 2. 각 HTML 파일을 엽니다.
 
-3. 검색하여 {your-ui-blob-container-url}을 UI **ocean_blue**, **dist**, 그리고 **자산** 폴더가 있는 URL로 바꿉니다.
+3. 검색하여 `{your-ui-blob-container-url}`을 UI **ocean_blue**, **dist** 및 **자산** 폴더가 위치한 곳의 URL로 바꿉니다
 
-4. 검색하여 {your-중간 api url}을 중간 API 앱 서비스의 URL로 바꿉니다.
+4. 검색하여 `{your-intermediate-api-url}`을 중간 API 앱 서비스의 URL로 바꿉니다.
 
 #### <a name="upload-your-files"></a>파일 업로드
 
@@ -142,7 +142,7 @@ Onfido에 대한 자세한 내용은 [Onfido API 설명서](https://documentatio
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>4부 - Azure AD B2C 정책 구성
 
-Azure AD B2C 테넌트를 설정하고 정책을 구성하는 방법에 대한 명령은 이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)를 참조하세요.
+Azure AD B2C 테넌트를 설정하고 정책을 구성하는 방법에 대한 명령은 이 [문서](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)를 참조하세요.
 
 >[!NOTE]
 > 모범 사례로, 고객은 특성 컬렉션 페이지에서 동의 알림을 추가하는 것이 좋습니다. 신원 확인을 위해 타사 서비스에 정보가 보내질 것임을 사용자에게 알립니다.
@@ -167,8 +167,8 @@ Azure AD B2C 테넌트를 설정하고 정책을 구성하는 방법에 대한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요:
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

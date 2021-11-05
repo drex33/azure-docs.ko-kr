@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 3e1b06b52bfad748414f18787ae186094bdd53c7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e31624edd168b1fa5b1846b4c347b4915ba96c82
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826005"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068059"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>자습서: Azure Active Directory와 Qlik Sense Enterprise 통합
 
@@ -27,7 +27,7 @@ ms.locfileid: "124826005"
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -169,11 +169,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![설명된 값을 입력할 수 있는 가상 프록시 인증 편집 섹션을 보여 주는 스크린샷][qs10]
 
-    a. **익명 액세스 모드** 드롭다운은 익명 사용자가 가상 프록시를 통해 Qlik Sense에 액세스할 수 있는지를 결정합니다.  기본 옵션은 익명 사용자 없음입니다.
+    a. **익명 액세스 모드** 드롭다운 목록은 익명 사용자가 가상 프록시를 통해 Qlik Sense에 액세스할 수 있는지를 결정합니다. 기본 옵션은 **익명 사용자 없음** 입니다.
 
-    b. **인증 방법** 드롭다운은 가상 프록시가 사용할 인증 체계를 결정합니다.  드롭다운 목록에서 SAML을 선택합니다.  그 결과 더 많은 옵션이 표시됩니다.
+    b. **인증 방법** 드롭다운 목록은 가상 프록시가 사용할 인증 체계를 결정합니다. 드롭다운 목록에서 SAML을 선택합니다. 그 결과 더 많은 옵션이 표시됩니다.
 
-    다. **SAML 호스트 URI 필드** 에서 사용자가 이 SAML 가상 프록시를 통해 Qlik Sense에 액세스하기 위해 입력할 호스트 이름을 입력합니다.  호스트 이름은 Qlik Sense 서버의 URI입니다.
+    다. **SAML 호스트 URI 필드** 에서 사용자가 이 SAML 가상 프록시를 통해 Qlik Sense에 액세스하기 위해 입력할 호스트 이름을 입력합니다. 호스트 이름은 Qlik Sense 서버의 URI입니다.
 
     d. **SAML 엔터티 ID** 에서 SAML 호스트 URI 필드에 입력한 동일한 값을 입력합니다.
 
@@ -199,7 +199,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![가상 프록시 편집 고급 화면을 보여 주는 스크린샷][qs13]
 
-    호스트 허용 목록은 Qlik Sense 서버에 연결할 때 허용되는 호스트 이름을 식별합니다.  **Qlik Sense 서버에 연결할 때 사용자가 지정할 호스트 이름을 입력합니다.** 호스트 이름은 https:// 없이 SAML 호스트 URI와 동일한 값입니다.
+    호스트 허용 목록은 Qlik Sense 서버에 연결할 때 허용되는 호스트 이름을 식별합니다. **Qlik Sense 서버에 연결할 때 사용자가 지정할 호스트 이름을 입력합니다.** 호스트 이름은 `https://` 없이 SAML 호스트 URI와 동일한 값입니다.
 
 11. **적용** 단추를 클릭합니다.
 

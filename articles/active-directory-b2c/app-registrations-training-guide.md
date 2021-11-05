@@ -2,21 +2,21 @@
 title: Azure AD B2C의 새로운 앱 등록 환경
 description: Azure AD B2C의 새로운 앱 등록 환경에 대해 소개합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/25/2020
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 430da23986fc36a0e94c049512ef716aff1fed5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 262d9a123180588ed8eaee35a5faf17797cbbc07
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660253"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008107"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 새로운 앱 등록 환경
 
@@ -45,7 +45,7 @@ Azure AD B2C 앱 등록 환경은 Azure AD 테넌트용 일반 [앱 등록 환�
 
 - **엔드포인트** 창을 사용하면 OpenID 연결 구성, SAML 메타데이터, Microsoft Graph API 및 [OAuth 2.0 사용자 흐름 엔드포인트](tokens-overview.md#endpoints)를 포함하여 시나리오에 대한 관련 엔드포인트를 빠르게 식별할 수 있습니다.
 
-- **API 권한** 및 **API 노출** 은 보다 광범위한 범위, 권한 및 동의 관리를 제공합니다. 이제 앱에 MS Graph 및 Azure AD Graph 권한을 할당할 수도 있습니다.
+- **API 권한** 및 **API 노출** 은 보다 광범위한 범위, 권한 및 동의 관리를 제공합니다. 이제 앱에 MS Graph 권한을 할당할 수도 있습니다.
 
 -   이제 Azure AD B2C로 인증하는 앱에 **소유자** 및 **매니페스트** 를 사용할 수 있습니다. [매니페스트 편집기](../active-directory/develop/reference-app-manifest.md)를 사용하여 등록 소유자를 추가하고 애플리케이션 속성을 직접 편집할 수 있습니다.
 

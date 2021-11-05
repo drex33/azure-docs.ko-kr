@@ -3,24 +3,28 @@ title: 사용자 마이그레이션 방법
 titleSuffix: Azure AD B2C
 description: 사전 마이그레이션 또는 원활한 마이그레이션 방법을 사용하여 다른 ID 공급자의 사용자 계정을 Azure AD B2C로 마이그레이션합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: e4976deea08b8d0edc9a484f8a8ad4c07ad4512c
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 0cd0b976ec511070432538e99b7a8e20001a0156
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070518"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058153"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Azure AD B2C로 사용자 마이그레이션
 
 다른 ID 공급자에서 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션하려면 기존 사용자 계정을 마이그레이션해야 할 수도 있습니다. 여기서는 *사전 마이그레이션* 및 *원활한 마이그레이션* 의 두 가지 마이그레이션 방법에 대해 설명합니다. 어느 방법을 사용하든 Azure AD B2C에서 사용자 계정을 만들기 위해서는 [Microsoft Graph API](microsoft-graph-operations.md)를 사용하는 애플리케이션이나 스크립트를 작성해야 합니다.
+
+이 동영상을 시청하여 Azure AD B2C 사용자 마이그레이션 전략 및 고려해야 할 단계에 대해 알아봅니다.
+
+>[!Video https://www.youtube.com/embed/lCWR6PGUgz0]
 
 ## <a name="pre-migration"></a>사전 마이그레이션
 
@@ -84,7 +88,7 @@ ms.locfileid: "108070518"
   - 신용 카드 번호, 주민등록번호, 의료 기록 또는 정부 또는 업계 규정 준수 본문이 규정하는 기타 데이터와 같은 중요한 데이터.
   - 마케팅 또는 통신 기본 설정, 사용자 동작 및 인사이트.
 
-### <a name="directory-clean-up"></a>디렉터리 정리
+### <a name="directory-cleanup"></a>디렉터리 정리
 
 마이그레이션 프로세스를 시작하기 전에 디렉터리를 정리합니다.
 

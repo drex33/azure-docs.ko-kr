@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 67273a5e0c29a8a3ba7b7fdfcc3ccba2e5105c7c
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 03926f656bd96205057703e610bfab17c144dd5e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539134"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059379"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>v1.0 토큰을 허용하는 웹 API에 대한 범위
 
@@ -65,7 +65,7 @@ Azure AD에서 사용하는 논리는 다음과 같습니다.
 
 - v1.0 액세스 토큰을 사용하는 ADAL(Azure AD v1.0) 엔드포인트의 경우(유일하게 가능한 경우) audio=resource
 - MSAL(Microsoft ID 플랫폼)에서 v2.0 토큰을 허용하는 리소스에 대한 액세스 토큰을 요청하는 경우 `aud=resource.AppId`
-- MSAL(v2.0 엔드포인트)에서 v1.0 액세스 토큰을 허용하는 리소스(위의 경우)에 대한 액세스 토큰을 요청하는 경우 Azure AD는 마지막 슬래시 앞의 모든 항목을 가져와서 리소스 식별자로 사용하여 요청된 범위에서 원하는 대상 그룹을 구문 분석합니다. 따라서 https:\//database.windows.net에서 “https:\//database.windows.net/”의 대상이 예상된다면, “https:\//database.windows.net//.default”의 범위를 요청해야 합니다. GitHub 이슈 [#747: Resource url's trailing slash is omitted, which caused sql auth failure](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)(#747: 리소스 URL의 후행 슬래시가 생략되어 SQL 인증 오류가 발생함)도 참조하세요.
+- MSAL(v2.0 엔드포인트)에서 v1.0 액세스 토큰을 허용하는 리소스(위의 경우)에 대한 액세스 토큰을 요청하는 경우 Azure AD는 마지막 슬래시 앞의 모든 항목을 가져와서 리소스 식별자로 사용하여 요청된 범위에서 원하는 대상 그룹을 구문 분석합니다. 따라서 `https://database.windows.net`에서 `https://database.windows.net`이라는 대상 그룹이 필요한 경우 `https://database.windows.net//.default`라는 범위를 요청해야 합니다. GitHub 문제 [#747 참조: `Resource url's trailing slash is omitted, which caused sql auth failure`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 모든 권한에 대한 액세스를 요청하는 범위
 
@@ -83,4 +83,6 @@ var scopes = [ ResourceId + "/.default"];
 
 ## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>클라이언트 자격 증명 흐름/디먼 앱의 경우 요청하는 범위
 
-클라이언트 자격 증명 흐름의 경우 전달하는 범위도 `/.default`가 됩니다. 이렇게 하면 관리자가 애플리케이션 등록에서 동의한 모든 앱 수준 권한을 요청한다고 Azure AD에 알려줍니다.
+표준 클라이언트 자격 증명 흐름의 경우 `/.default`를 사용합니다. 예들 들어 `https://graph.microsoft.com/.default`입니다.
+
+Azure AD는 클라이언트 자격 증명 흐름에 대한 액세스 토큰에 관리자가 동의한 모든 앱 수준 권한을 자동으로 포함합니다.

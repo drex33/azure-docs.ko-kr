@@ -371,9 +371,10 @@
               displayName: 'trusted storage, storage, access, storage access, security'
         - name: 네트워크 보안
           items:
-            - name: 프라이빗 링크를 사용하여 Media Services 및 Storage 계정 만들기
-              href: security-private-link-how-to.md
-              displayName: 'security, private link, links, firewall, storage account, storage, private, links, secure'
+            - name: 프라이빗 엔드포인트 연결
+              href: security-private-link-connect-private-endpoint-concept.md
+            - name: Azure Media Services와의 Private Link
+              href: security-private-link-concept.md
             - name: 키 배달 IP 허용 목록
               href: drm-content-protection-key-delivery-ip-allow.md
               displayName: 'DRM, AES, content key, allow list, IP, whitelist, access control, IP allow list, IP restriction, key delivery, license delivery, AES Key, AES-128, common encryption, security, secure, protect, encrypt'
@@ -621,8 +622,10 @@
               href: ../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md
         - name: 네트워크 보안
           items:
-            - name: 미디어 및 스토리지 계정에 Private Link를 사용하는 방법
-              href: security-private-link-how-to.md
+            - name: 스트리밍 엔드포인트와 함께 Private Link 사용
+              href: security-private-link-streaming-endpoint-how-to.md
+            - name: ARM 템플릿과 함께 Private Link를 사용하는 방법
+              href: security-private-link-arm-how-to.md
               displayName: 'security, private link, links, firewall, storage account, storage, private, links, secure'
         - name: 보안 스트리밍
           items:

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: thwimmer
-ms.openlocfilehash: 7524739575e4088b4d95266b2901b08efc2b3c07
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: e01d8584825e1e9a74c82ee34dd3b9c6a2457cf2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122207672"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045922"
 ---
 # <a name="tutorial-configure-tribeloo-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Tribeloo 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "122207672"
     ![사용자 관리 액세스](media/tribeloo-provisioning-tutorial/tribeloo-user-management.png)
 
 1. **사용자 프로비저닝**(1) 탭을 선택합니다. 이 탭에서 Azure AD 통합을 구성하기 위해 사용해야 하는 Tribeloo 정보에 액세스할 수 있습니다.
-   1. **SCIM 기준 URL**(2)
+   1. **SCIM 기준 URL** (2)
    1. **SCIM 전달자 토큰**(3)
 1. 이러한 값을 클립보드에 복사하고 이를 해당 Azure AD 필드에 붙여넣습니다(5단계 참조). AD 필드는 각각 **테넌트 URL** 및 **비밀 토큰** 이름으로 지정됩니다.
 

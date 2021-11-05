@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18dd0fef7cc4a2d344abaf392bcc2ca3331bd828
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97108436"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021907"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LexisNexis를 구성하기 위한 자습서
 
@@ -23,7 +23,7 @@ ms.locfileid: "97108436"
 
 이 통합은 등록 흐름 중에 사용자가 제공하는 몇 가지 사용자 정보를 기준으로 프로파일링을 수행합니다. ThreatMetrix는 사용자가 계속 로그인할 수 있도록 허용할지 여부를 결정합니다. 다음 특성은 ThreatMetrix의 위험 분석에서 고려됩니다.
 
-- Email
+- 메일
 - 전화 번호
 - 사용자의 머신에서 수집된 프로파일링 정보
 
@@ -49,10 +49,10 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함됩니다.
 
 ![lexisnexis 아키텍처 다이어그램 스크린샷](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:--------------|:-------------|
 |1. | 사용자가 로그인 페이지를 엽니다. 사용자가 등록을 선택하여 새 계정을 만들고 페이지에 정보를 입력합니다. Azure AD B2C가 사용자 특성을 수집합니다.
-| 2. | Azure AD B2C는 중간 API를 호출하고 사용자 특성을 전달합니다.
+| 2. | Azure AD B2C는 중간 계층 API를 호출하고 사용자 특성을 전달합니다.
 | 3. | 중간 계층 API는 사용자 특성을 수집하고 LexisNexis API에서 사용할 수 있는 형식으로 변환합니다. 그런 다음, LexisNexis로 보냅니다.  
 | 4. | LexisNexis는 정보를 사용하고 이를 처리하여 위험 분석을 기반으로 사용자 ID의 유효성을 검사합니다. 그런 다음, 중간 계층 API에 결과를 반환합니다.
 | 5. | 중간 계층 API는 정보를 처리하고 Azure AD B2C에 관련 정보를 다시 보냅니다.
@@ -84,10 +84,10 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함됩니다.
 
 | 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
-|ThreatMetrix: Url | ThreatMetrix 계정 구성 |     |
+|ThreatMetrix:Url | ThreatMetrix 계정 구성 |     |
 |ThreatMetrix:OrgId | ThreatMetrix 계정 구성 |     |
 |ThreatMetrix:ApiKey |ThreatMetrix 계정 구성|  |
-|ThreatMetrix: Policy | ThreatMetrix에서 만든 정책의 이름 | |
+|ThreatMetrix:Policy | ThreatMetrix에서 만든 정책의 이름 | |
 | BasicAuth:ApiUsername |API에 대한 사용자 이름 정의| 사용자 이름은 Azure AD B2C 구성에 사용됩니다.
 | BasicAuth:ApiPassword | API에 대한 암호를 정의합니다. | 암호는 Azure AD B2C 구성에서 사용됩니다.
 
@@ -122,7 +122,7 @@ UI는 [바다색 템플릿](https://github.com/azure-ad-b2c/partner-integrations
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>7부 - Azure AD B2C 정책 구성
 
-이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)를 참조하여 [로컬 계정 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드하고 Azure AD B2C 테넌트에 대한 [정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy)을 구성합니다.
+이 [문서](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)를 참조하여 [로컬 계정 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드하고 Azure AD B2C 테넌트에 대한 [정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy)을 구성합니다.
 
 >[!NOTE]
 >특정 테넌트와 관련하여 제공된 정책을 업데이트합니다.
@@ -155,4 +155,4 @@ UI는 [바다색 템플릿](https://github.com/azure-ad-b2c/partner-integrations
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

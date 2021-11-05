@@ -2,21 +2,21 @@
 title: OpenID Connect로 웹 로그인 - Azure Active Directory B2C
 description: Azure Active Directory B2C에서 OpenID Connect 인증 프로토콜을 사용하여 웹 애플리케이션을 빌드합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2021
-ms.author: mimart
+ms.date: 10/05/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 32154904a78062f5e3afdb6217351f39151b36b8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 332b2c3383610287090c276cec5fc8ad011de617
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528408"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044858"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -271,9 +271,9 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 
-애플리케이션에서 사용자를 로그아웃시키려는 경우 애플리케이션의 쿠키를 삭제하거나 그렇지 않은 경우 사용자로 세션을 지우는 것은 충분하지 않습니다. Azure AD B2C로 사용자를 리디렉션하여 로그아웃하도록 해야 합니다. 그러지 않으면 사용자가 자격 증명을 다시 입력하지 않고 애플리케이션을 다시 인증할 수 있습니다. 자세한 내용은 [Azure AD B2C 세션](session-behavior.md)을 참조하세요.
+애플리케이션에서 사용자를 로그아웃시키려는 경우 애플리케이션의 쿠키를 삭제하거나 그렇지 않은 경우 사용자로 세션을 지우는 것은 충분하지 않습니다. Azure AD B2C로 사용자를 리디렉션하여 로그아웃하도록 해야 합니다. 그러지 않으면 사용자가 자격 증명을 다시 입력하지 않고 애플리케이션을 다시 인증할 수 있습니다. 자세한 내용은 [Azure AD B2C 세션 동작](session-behavior.md)을 참조하세요.
 
-사용자를 로그아웃하도록 하려면 앞부분에서 설명한 OpenID Connect 메타데이터 문서에 나열된 `end_session` 엔드포인트로 사용자를 리디렉션합니다.
+사용자를 로그아웃하려면 앞에서 설명한 OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`로 사용자를 리디렉션합니다.
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
@@ -282,11 +282,13 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | 매개 변수 | 필수 | Description |
 | --------- | -------- | ----------- |
 | {tenant} | 예 | Azure AD B2C 테넌트의 이름 |
-| {policy} | 예 | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |
+| {policy} | 예 | 권한 부여 요청에 사용된 사용자 흐름입니다. 예를 들어 사용자가 `b2c_1_sign_in` 사용자 흐름으로 로그인한 경우 로그아웃 요청에 `b2c_1_sign_in`를 지정합니다. |
 | id_token_hint| 예 | 이전에 발급된 ID 토큰으로 최종 사용자의 클라이언트와의 현재 인증된 세션에 대한 힌트로서 로그아웃 엔드포인트로 전달됩니다. `id_token_hint`는 Azure AD B2C 애플리케이션 설정에서 `post_logout_redirect_uri`가 등록된 회신 URL인지 확인합니다. 자세한 내용은 [로그아웃 리디렉션 보안](#secure-your-logout-redirect)을 참조하세요. |
 | client_id | 아니요* | [Azure Portal](https://portal.azure.com/)이 애플리케이션에 할당한 애플리케이션 ID입니다.<br><br>\*`Application` 격리 SSO 구성 및 로그아웃 요청이 `No`로 설정된 경우 ‘ID 토큰 필요’를 사용할 때 필요합니다. |
 | post_logout_redirect_uri | 예 | 성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다. 해당 URL이 포함되어 있지 않은 경우 Azure AD B2C는 사용자에게 일반 메시지를 표시합니다. `id_token_hint`를 제공하지 않는 한 Azure AD B2C 애플리케이션 설정에서 이 URL을 회신 URL로 등록해서는 안 됩니다. |
-| state | 예 | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 애플리케이션은 요청의 상태 값과 응답의 `state` 값이 같은지 확인해야 합니다. |
+| state | 예 | 권한 부여 요청에 `state` 매개 변수가 포함된 경우 `post_logout_redirect_uri`에 대한 응답으로 동일한 값이 반환됩니다. 애플리케이션은 요청의 상태 값과 응답의 `state` 값이 같은지 확인해야 합니다. |
+
+로그아웃 요청 시 Azure AD B2C는 Azure AD B2C 쿠키 기반 세션을 무효화하고 페더레이션된 ID 공급자에서 로그아웃을 시도합니다. 자세한 내용은 [Single Sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out)을 참조하세요.
 
 ### <a name="secure-your-logout-redirect"></a>로그아웃 리디렉션 보안
 

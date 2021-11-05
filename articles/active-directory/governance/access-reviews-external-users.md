@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: ajburnle
-ms.openlocfilehash: c976562224d4a0caca8921e46d8f8566800027ee
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: eef4702b7166dabb81cd2391d4acb8d8211b9648
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532231"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051917"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Azure AD(Azure Active Directory) Identity Governance를 사용하여 더 이상 리소스 액세스 권한이 없는 외부 사용자 검토 및 제거
 
@@ -29,7 +29,7 @@ ms.locfileid: "107532231"
 
 ## <a name="why-review-users-from-external-organizations-in-your-tenant"></a>테넌트의 외부 조직에서 사용자를 검토하는 이유는 무엇인가요?
 
-대부분 조직에서 최종 사용자는 협업을 위해 비즈니스 파트너 및 공급업체를 초대하는 프로세스를 시작합니다. 협업의 필요성으로 인해 조직은 외부 사용자를 정기적으로 평가하고 증명하는 방법을 리소스 소유자와 최종 사용자에게 제공합니다. 종종 새 협업 파트너를 온보딩하는 프로세스가 계획되고 고려되지만, 대부분 협업은 명확한 종료 날짜가 없으므로 사용자에게 더 이상 액세스 권한이 필요하지 않은 시기가 항상 분명한 것은 아닙니다. 또한 기업은 ID 수명 주기 관리를 통해 Azure AD를 정리하고, 더 이상 조직의 리소스에 액세스할 필요가 없는 사용자를 제거합니다. 디렉터리에서 파트너와 공급업체의 관련 ID 참조만 유지하면 제거되지 않은 외부 사용자에 대한 액세스 권한을 직원이 실수로 선택하고 부여할 위험을 줄일 수 있습니다. 이 문서에서는 권장되는 사전 제안에서 사후 및 정리 활동에 이르기까지 외부 ID를 관리하는 여러 가지 옵션을 안내합니다.
+대부분 조직에서 최종 사용자는 협업을 위해 비즈니스 파트너 및 공급업체를 초대하는 프로세스를 시작합니다. 협업의 필요성으로 인해 조직은 외부 사용자를 정기적으로 평가하고 증명하는 방법을 리소스 소유자와 최종 사용자에게 제공합니다. 종종 새 협업 파트너를 온보딩하는 프로세스가 계획되고 고려되지만, 대부분 협업은 명확한 종료 날짜가 없으므로 사용자에게 더 이상 액세스 권한이 필요하지 않은 시기가 항상 분명한 것은 아닙니다. 또한 기업은 ID 수명 주기 관리를 통해 Azure AD를 정리하고, 더 이상 조직의 리소스에 액세스할 필요가 없는 사용자를 제거합니다. 디렉터리에서 파트너와 공급업체의 관련 ID 참조만 유지하면 제거되지 않은 외부 사용자에 대한 액세스 권한을 직원이 실수로 선택하고 부여할 위험을 줄일 수 있습니다. 이 문서에서는 권장되는 사전 제안부터 사후 대응 및 정리 작업에 이르기까지 외부 ID를 관리하는 여러 가지 옵션을 안내합니다.
 
 ## <a name="use-entitlement-management-to-grant-and-revoke-access"></a>권한 관리를 사용하여 액세스 권한 부여 및 취소
 

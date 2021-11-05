@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 8829da481abbddc61c1cc90da0984742775059ae
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: eb7d97b5e796ae9433b695c15ef809f7674f53f3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556517"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-pool-lms"></a>자습서: Learning Pool LMS와 Azure Active Directory 통합
 
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     g. **저장** 을 클릭합니다.
 
-7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **앱 페더레이션 메타데이터 URL** 옆에 있는 [복사] 단추를 클릭하고, 해당 URL을 Learning Pool 배달 팀에 다시 전달합니다.
+7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **앱 페더레이션 메타데이터 URL** 옆에 있는 복사 단추를 클릭하고, 해당 URL을 Learning Pool 배달 팀에 다시 전달합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 

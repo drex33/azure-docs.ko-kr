@@ -12,12 +12,12 @@ ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 91dfb7c7a4a25ba741d7b2dc21b42705a9b79c34
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1d910871008bee6ba1a2820a68b3225c3fdfd67d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034274"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032262"
 ---
 # <a name="provide-optional-claims-to-your-app"></a>앱에 선택적 클레임 제공
 
@@ -163,7 +163,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 1. **관리** 에서 **매니페스트** 를 선택합니다. 웹 기반 매니페스트 편집기가 열리면 매니페스트를 편집할 수 있습니다. 필요에 따라 **다운로드** 를 선택하고 로컬로 매니페스트를 편집하고 **업로드** 를 사용하여 애플리케이션에 다시 적용할 수 있습니다. 애플리케이션 매니페스트에 대한 자세한 내용은 [Azure AD 애플리케이션 매니페스트 이해 문서](reference-app-manifest.md)를 참조하세요.
 
-    다음 애플리케이션 매니페스트 항목은 ID, 액세스 및 SAML 토큰에 auth_time, ipaddr 및 upn 선택적 클레임을 추가합니다.
+    다음 애플리케이션 매니페스트 항목은 ID, 액세스 및 SAML 토큰에 `auth_time`, `ipaddr` 및 `upn` 선택적 클레임을 추가합니다.
 
     ```json
     "optionalClaims": {
@@ -202,7 +202,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | 유형                       | Description                                           |
+| Name          | Type                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -215,7 +215,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
+| 속성                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |

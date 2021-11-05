@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: thwimmer
-ms.openlocfilehash: 87c00971c9205df6e9740a1614480fa7a9faa764
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 41d0e9cb85e79f30c1633d86441e4759abd5f208
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767004"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060272"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 IDEO 구성
 
@@ -41,7 +41,7 @@ ms.locfileid: "113767004"
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * [IDEO 테넌트](https://www.shape.space/product/pricing)
-* 관리자 권한이 있는 IDEO | Shape의 사용자 계정
+* IDEO의 사용자 계정 | 관리자 권한으로 모양 형성
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획

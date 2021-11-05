@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7db9a12a65cf127cb4c65e24128181ab6c0cb485
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 8dc639c5dd2098871e05e6ce39bfac3c529d2694
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135035"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063274"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -43,6 +43,7 @@ ms.locfileid: "113135035"
 - [자격 증명이 손실된](../identity-protection/overview-identity-protection.md) 사용자 검색
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증 _만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.
 - 통과 인증은 [Azure AD Connect Health](./whatis-azure-ad-connect.md)와 통합되지 않습니다.
+- 임시 또는 만료된 암호를 사용하여 AADJ(Azure AD 조인) 디바이스에 로그인하는 것은 통과 인증 사용자에 대해 지원되지 않습니다. "사용하려는 로그인 방법이 허용되지 않습니다"라는 오류가 표시됩니다.  이러한 사용자는 브라우저에 로그인하여 임시 암호를 업데이트해야 합니다.
 
 > [!IMPORTANT]
 > (Azure AD Connect Health 통합을 제외한) 지원되지 않는 시나리오에 _만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](how-to-connect-install-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다.
@@ -59,4 +60,4 @@ ms.locfileid: "113135035"
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 04aa6f6a7f99eed32c12cf5459c7a7e49089ce6c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5c7938e9c80cbce1128981516ccac2adcbcb8949
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962320"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044535"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>자습서: 보안 하이브리드 액세스를 위해 Azure Active Directory B2C를 사용하여 Ping ID 구성하기
 
@@ -182,12 +182,12 @@ ID 매핑을 만들려면 다음 단계를 수행합니다.
 5. **특성 매핑** 테이블에서 필요한 매핑 지정하기. 예를 들면 다음과 같습니다.
 
    특성 이름 | 헤더 이름 |
-   |-------|--------|
-   |upn | x-userprinciplename |
-   |이메일   |    x-email  |
-   |oid   | x-oid  |
-   |scp   |     x-scope |
-   |amr    |    x-amr    |
+   |---|---|
+   | 'upn' | x-userprincipalname |
+   | 'email' | x-email |
+   | 'oid' | x-oid |
+   | 'scp' | x-scope |
+   | 'amr' | x-amr |
 
 6. **저장** 을 선택합니다.
 

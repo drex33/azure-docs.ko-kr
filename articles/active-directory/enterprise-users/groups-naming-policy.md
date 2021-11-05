@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8292a4d79c7b2a83b11d1f006a6fda9521208c7c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5a0cd6b33caea0cd8f9a46a2f967a1291c5c94ce
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986343"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052639"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 대한 명명 정책 적용
 
@@ -240,7 +240,7 @@ Azure Active Directory 포털 | Azure AD 포털 및 액세스 패널 포털에�
 OWA(Outlook Web Access) | Outlook Web Access는 사용자가 그룹 이름 또는 그룹 별칭을 입력할 때 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 UI에 오류 메시지가 표시됩니다.
 Outlook 데스크톱 | Outlook 데스크톱에서 생성된 그룹은 명명 정책 설정을 준수합니다. Outlook 데스크톱 앱에는 적용된 그룹 이름의 미리 보기가 표시되지 않으며 사용자가 그룹 이름을 입력할 때 사용자 정의 차단 단어 오류를 반환하지 않습니다. 그러나 그룹을 만들거나 편집할 때 명명 정책이 자동으로 적용되며 그룹 이름 또는 별칭에 사용자 정의 차단 단어가 포함된 경우 오류 메시지가 표시됩니다.
 Microsoft Teams | Microsoft 팀은 사용자가 팀 이름을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
-SharePoint  |  SharePoint에는 사용자가 사이트 이름 또는 그룹 메일 주소를 입력할 때 명명 정책이 적용되는 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
+SharePoint | SharePoint에는 사용자가 사이트 이름 또는 그룹 메일 주소를 입력할 때 명명 정책이 적용되는 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 Microsoft Stream | Microsoft Stream은 사용자가 그룹 이름 또는 그룹 메일 별칭을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 Outlook iOS 및 Android 앱 | Outlook 앱에서 만든 그룹은 구성된 명명 정책을 준수합니다. Outlook 모바일 앱은 명명 정책이 적용된 이름의 미리 보기를 아직 표시하지 않으며 사용자가 그룹 이름을 입력하면 사용자 정의 차단 단어 오류를 반환하지 않습니다. 그러나 생성/편집 클릭 시 명명 정책은 자동으로 적용되며 그룹 이름 또는 별칭에 사용자 정의 차단 단어가 있는 경우에는 오류 메시지가 표시됩니다.
 그룹 모바일 앱 | 그룹 모바일 앱에서 만든 그룹은 명명 정책을 준수합니다. 그룹 모바일 앱은 명명 정책의 미리 보기를 표시하지 않으며 사용자가 그룹 이름을 입력할 때 사용자 정의 차단 단어 오류를 반환하지 않습니다. 그러나 명명 정책은 자동으로 적용되며 그룹 이름 또는 별칭에 사용자 정의 차단 단어가 있는 경우 그룹 생성 또는 편집 시 적절한 오류가 표시됩니다.

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/28/2021
+ms.date: 09/30/2021
 ms.author: jmprieur
 ms.reviewer: mmacy
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 67dbc1ba66f18bb6d779d1185d863541272acd56
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 896e52bf70229358a25055a23403ab2a5a2d7963
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451712"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054308"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET에서 토큰 캐시 직렬화
 
@@ -27,19 +27,19 @@ ms.locfileid: "123451712"
 ## <a name="quick-summary"></a>빠른 요약
 
 권장 사항은 다음과 같습니다.
-- 웹앱과 웹 API에서 [“Microsoft.Identity.Web”의 토큰 캐시 직렬 변환기](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)를 사용합니다. 토큰을 저장할 분산 데이터베이스 또는 캐시 시스템도 제공합니다.
-  - ASP.NET Core [웹앱](scenario-web-app-call-api-overview.md)과 [웹 API](scenario-web-api-call-api-overview.md)에서는 ASP.NET Core의 상위 수준 API로 Microsoft.Identity.Web을 사용합니다.
-  - ASP.NET 클래식, .NET Core, .NET 프레임워크에서는 Microsoft.Identity.Web에서 제공되는 [MSAL용 토큰 캐시 serialization 어댑터]()와 함께 직접 MSAL.NET을 사용합니다. 
+- 웹앱과 웹 API에서 ["Microsoft.Identity.Web.TokenCache"의 토큰 캐시 직렬 변환기](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)를 사용합니다. 토큰을 저장할 분산 데이터베이스 또는 캐시 시스템도 제공합니다.
+  - ASP.NET Core [웹앱](scenario-web-app-call-api-overview.md)과 [웹 API](scenario-web-api-call-api-overview.md)에서는 ASP.NET Core의 상위 수준 API로 [Microsoft.Identity.Web](microsoft-identity-web.md)을 사용합니다.
+  - ASP.NET 클래식, .NET Core, .NET 프레임워크에서 Microsoft.Identity.Web.TokenCache NuGet 패키지에 제공된 [MSAL용 토큰 캐시 직렬화 어댑터](msal-net-token-cache-serialization.md?tabs=aspnet)와 함께 MSAL.NET을 직접 사용합니다. 
 - 데스크톱 애플리케이션(토큰을 저장하는 데 파일 시스템을 사용할 수 있음)에서는 MSAL.Net과 함께 [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/wiki/Cross-platform-Token-Cache)을 사용합니다.
 - 모바일 애플리케이션(Xamarin.iOS, Xamarin.Android, 유니버설 Windows 플랫폼)에서는 MSAL.NET이 캐시를 처리하므로 아무 작업도 하지 마세요. 이러한 플랫폼에는 보안 스토리지가 있습니다.
 
 ## <a name="aspnet-core-web-apps-and-web-apis"></a>[ASP.NET Core 웹앱 및 웹 API](#tab/aspnetcore)
 
-[Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) 라이브러리는 토큰 캐시 serialization이 포함된 NuGet 패키지 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web)을 제공합니다.
+[Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) 라이브러리는 토큰 캐시 직렬화가 포함된 NuGet 패키지 [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache)를 제공합니다.
 
 | 확장 메서드 | 설명  |
 | ---------------- | ------------ |
-| `AddInMemoryTokenCaches` | 메모리 내 토큰 캐시 직렬화입니다. 이 구현은 샘플에서 매우 유용합니다. 웹앱이 다시 시작될 때 토큰 캐시가 손실되어도 상관하지 않는 경우 프로덕션 애플리케이션에서도 유용합니다. `AddInMemoryTokenCaches`는 캐시 항목이 사용되지 않는 한 만료되는 기간을 지정할 수 있는 `MsalMemoryTokenCacheOptions` 형식의 선택적 매개 변수를 사용합니다.
+| `AddInMemoryTokenCaches` | 메모리 내 토큰 캐시 직렬화입니다. 이 구현은 샘플 및 디먼 애플리케이션(앱 간 토큰/`AcquireTokenForClient`)에 유용합니다. 웹앱이 다시 시작될 때 토큰 캐시가 손실되어도 상관하지 않는 경우 프로덕션 애플리케이션에서도 유용합니다. Microsoft.Identity.Web 1.19.0부터 모든 앱 인스턴스에서 정적(공유) 캐시를 활용하도록 MSAL을 구성하며 다른 캐싱 메커니즘보다 훨씬 빠릅니다.
 | `AddSessionTokenCaches` | 토큰 캐시가 사용자 세션에 바인딩됩니다. 쿠키 크기가 너무 커지므로 ID 토큰에 클레임이 많이 포함된 경우에는 이 옵션이 적합하지 않습니다.
 | `AddDistributedTokenCaches` | 토큰 캐시는 ASP.NET Core `IDistributedCache` 구현에 대한 어댑터이므로 분산 메모리 캐시, Redis 캐시, 분산 NCache 또는 SQL Server 캐시 중에서 선택할 수 있습니다. `IDistributedCache` 구현에 관한 자세한 내용은 [분산 메모리 캐시](/aspnet/core/performance/caching/distributed)를 참조하세요.
 
@@ -119,11 +119,11 @@ services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
 
 ## <a name="non-aspnet-core-web-apps-and-web-apis"></a>[비 ASP.NET Core 웹앱 및 웹 API](#tab/aspnet)
 
-MSAL.NET을 사용하는 경우에도 Microsoft.Identity.Web에서 가져온 토큰 캐시 직렬 변환기를 활용할 수 있습니다. 
+MSAL.NET을 사용하는 경우에도 Microsoft.Identity.Web.TokenCache에서 가져온 토큰 캐시 직렬 변환기의 이점을 활용할 수 있습니다. 
 
 ### <a name="referencing-the-nuget-package"></a>NuGet 패키지 참조
 
-MSAL.NET 외에 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet 패키지를 프로젝트에 추가합니다.
+MSAL.NET 외에 [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet 패키지를 프로젝트에 추가합니다.
 
 ### <a name="configuring-the-token-cache"></a>토큰 캐시 구성
 
@@ -137,27 +137,39 @@ using Microsoft.Extensions.DependencyInjection;
 
 ```CSharp
 
- private static IConfidentialClientApplication app;
-
-public static async Task<IConfidentialClientApplication> BuildConfidentialClientApplication(
-  string clientId,
-  CertificateDescription certDescription,
-  string tenant)
+public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X509Certificate cert, string authority, string[] scopes)
  {
-  if (app== null)
-  {
      // Create the confidential client application
      app= ConfidentialClientApplicationBuilder.Create(clientId)
        // Alternatively to the certificate you can use .WithClientSecret(clientSecret)
-       .WithCertificate(certDescription.Certificate)
+       .WithCertificate(cert)
        .WithLegacyCacheCompatibility(false)
-       .WithTenantId(tenant)
+       .WithAuthority(authority)
        .Build();
 
-     // Add an in-memory token cache. Other options available: see below
-     app.AddInMemoryTokenCache();
-   }
-   return app;
+     // Add a static in-memory token cache. Other options available: see below
+     app.AddInMemoryTokenCache();  // Microsoft.Identity.Web.TokenCache 1.17+
+   
+     // Make the call to get a token for client_credentials flow (app to app scenario) 
+     return await app.AcquireTokenForClient(scopes).ExecuteAsync();
+     
+     // OR Make the call to get a token for OBO (web api scenario)
+     return await app.AcquireTokenOnBehalfOf(scopes, userAssertion).ExecuteAsync();
+     
+     // OR Make the call to get a token via auth code (web app scenario)
+     return await app.AcquireTokenByAuthorizationCode(scopes, authCode);    
+     
+     // OR, when the user has previously logged in, get a token silently
+     var homeAccountId = GetHomeAccountIdFromClaimsPrincipal(); // uid and utid claims
+     var account = await app.GetAccountAsync(homeAccountId);
+     try
+     {
+          return await app.AcquireTokenSilent(scopes, account).ExecuteAsync();; 
+     } 
+     catch (MsalUiRequiredException)
+     {
+        // cannot get a token silently, so redirect the user to be challenged 
+     }
   }
 ```
 
@@ -270,18 +282,6 @@ var app = ConfidentialClientApplicationBuilder
     .WithCacheSynchronization(false)
     .Build();
 ```
-
-### <a name="monitor-cache-hit-ratios-and-cache-performance"></a>모니터 캐시 적중률 및 캐시 성능
-
-MSAL은 [AuthenticationResult.AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata) 개체의 일부로 중요한 메트릭을 노출합니다. 
-
-| 메트릭       | 의미     | 알람을 트리거하는 경우는 언제인가요?    |
-| :-------------: | :----------: | :-----------: |
-|  `DurationTotalInMs` | 네트워크 호출 및 캐시를 포함하여 MSAL에 소요된 총 시간   | 전체 대기 시간이 긴 경우(> 1초)에 대한 알람입니다. 값은 토큰 원본에 따라 달라집니다. 캐시에서는 하나의 캐시 액세스입니다. AAD에서는 두 개의 캐시 액세스 + 하나의 HTTP 호출입니다. 하나의 추가 HTTP 호출로 인해 첫 번째 호출(프로세스별)이 더 오래 걸립니다. |
-|  `DurationInCacheInMs` | 앱 개발자가 사용자 지정한 토큰 캐시를 로드하거나 저장하는 데 걸린 시간입니다(예: Redis에 저장).| 스파이크에 대한 알람입니다. |
-|  `DurationInHttpInMs`| AAD에 대한 HTTP 호출을 수행하는 데 걸린 시간입니다.  | 스파이크에 대한 알람입니다.|
-|  `TokenSource` | 토큰의 원본을 나타냅니다. 토큰은 캐시에서 훨씬 빠르게 검색됩니다(예: ~100밀리초 및 700밀리초). 캐시 적중률을 모니터링하고 알람하는 데 사용할 수 있습니다. | `DurationTotalInMs` 사용 |
-
 ### <a name="samples"></a>샘플
 
 - .NET Framework 및 .NET Core 애플리케이션에서 토큰 캐시 직렬 변환기 사용은 이 샘플 [ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache)에서 표시됩니다. 
@@ -328,6 +328,23 @@ var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties );
 cacheHelper.RegisterCache(pca.UserTokenCache);
          
 ```
+
+
+##### <a name="plain-text-fallback-mode"></a>일반 텍스트 대체 모드
+
+플랫폼 간 토큰 캐시를 사용하면 암호화되지 않은 토큰을 일반 텍스트로 저장할 수 있습니다. 이는 디버깅 목적으로만 개발 환경에서 사용하기 위한 것입니다. 다음 코드 패턴을 사용하여 일반 텍스트 대체 모드를 사용할 수 있습니다.
+
+```csharp
+storageProperties =
+    new StorageCreationPropertiesBuilder(
+        Config.CacheFileName + ".plaintext",
+        Config.CacheDir)
+    .WithUnprotectedFile()
+    .Build();
+
+var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties).ConfigureAwait(false);
+```
+
 
 ## <a name="mobile-apps"></a>[모바일 앱](#tab/mobile)
 
@@ -581,6 +598,18 @@ namespace CommonCacheMsalV3
 ```
 
 ---
+
+## <a name="monitor-cache-hit-ratios-and-cache-performance"></a>모니터 캐시 적중률 및 캐시 성능
+
+MSAL은 [AuthenticationResult.AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata) 개체의 일부로 중요한 메트릭을 노출합니다. 이러한 메트릭을 기록하여 애플리케이션의 상태를 평가할 수 있습니다.
+
+| 메트릭       | 의미     | 알람을 트리거하는 경우는 언제인가요?    |
+| :-------------: | :----------: | :-----------: |
+|  `DurationTotalInMs` | 네트워크 호출 및 캐시를 포함하여 MSAL에 소요된 총 시간   | 전체 대기 시간이 긴 경우(> 1초)에 대한 알람입니다. 값은 토큰 원본에 따라 달라집니다. 캐시에서는 하나의 캐시 액세스입니다. AAD에서는 두 개의 캐시 액세스 + 하나의 HTTP 호출입니다. 하나의 추가 HTTP 호출로 인해 첫 번째 호출(프로세스별)이 더 오래 걸립니다. |
+|  `DurationInCacheInMs` | 앱 개발자가 사용자 지정한 토큰 캐시를 로드하거나 저장하는 데 걸린 시간입니다(예: Redis에 저장).| 스파이크에 대한 알람입니다. |
+|  `DurationInHttpInMs`| AAD에 대한 HTTP 호출을 수행하는 데 걸린 시간입니다.  | 스파이크에 대한 알람입니다.|
+|  `TokenSource` | 토큰의 원본을 나타냅니다. 토큰은 캐시에서 훨씬 빠르게 검색됩니다(예: ~100밀리초 및 700밀리초). 캐시 적중률을 모니터링하고 알람하는 데 사용할 수 있습니다. | `DurationTotalInMs` 사용 |
+
 
 ## <a name="next-steps"></a>다음 단계
 

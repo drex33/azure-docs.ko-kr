@@ -3,20 +3,20 @@ title: ContentDefinitions
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ContentDefinitions 요소를 지정합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2021
-ms.author: mimart
+ms.date: 09/12/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: a3c8b3d97a117e88c323253134be383fb0766355
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: af77df3d3839a019e4977b32c6b8b138b375b4f1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535523"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007451"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -79,7 +79,7 @@ ms.locfileid: "122535523"
 
 **LoadUri** 요소는 콘텐츠 정의에 대한 HTML5 페이지의 URL을 지정하는 데 사용됩니다. Azure AD B2C [사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)은 Azure AD B2C HTML 페이지를 사용하는 콘텐츠 정의와 함께 제공됩니다. **LoadUri** 는 Azure AD B2C 테넌트에 대한 상대 경로인 `~`로 시작합니다.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
   ...
@@ -88,12 +88,12 @@ ms.locfileid: "122535523"
 
 [HTML 템플릿을 사용하여 사용자 인터페이스를 사용자 지정](customize-ui-with-html.md)할 수 있습니다. HTML 템플릿을 사용하는 경우 절대 URL을 제공합니다. 다음 예제에서는 HTML 템플릿을 사용한 콘텐츠 정의를 보여 줍니다.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
   ...
 </ContentDefinition>
-``` 
+```
 
 ### <a name="datauri"></a>DataUri
 
@@ -111,8 +111,6 @@ ms.locfileid: "122535523"
 ### <a name="select-a-page-layout"></a>페이지 레이아웃 선택
 
 `elements`와 페이지 형식 사이에 `contract`를 삽입하여 [JavaScript 클라이언트 쪽 코드](javascript-and-page-layout.md)를 사용하도록 설정할 수 있습니다. 예들 들어 `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`입니다.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 `DataUri`의 [버전](page-layout.md) 부분은 정책의 사용자 인터페이스 요소에 대해 HTML, CSS, JavaScript를 포함하는 콘텐츠 패키지를 지정합니다. JavaScript 클라이언트 쪽 코드를 사용하도록 설정하려는 경우 JavaScript의 기반이 되는 요소를 변경할 수 없어야 합니다. 변경할 수 있는 경우 변경으로 인해 사용자 페이지에서 예기치 않은 동작이 발생할 수 있습니다. 해당 문제를 방지하려면 페이지 레이아웃 사용을 적용하고 페이지 레이아웃 버전을 지정합니다. 그러면 JavaScript의 기반이 되는 모든 콘텐츠 정의를 변경할 수 없습니다. JavaScript를 사용하지 않으려는 경우에도 페이지에 대한 페이지 레이아웃 버전을 지정해야 합니다.
 
@@ -152,7 +150,7 @@ ms.locfileid: "122535523"
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 
-다음 예제에서는 [최신 페이지 버전](page-layout.md)의 콘텐츠 정의 식별자와 해당하는 **DataUri** 를 보여 줍니다. 
+다음 예제에서는 [최신 페이지 버전](page-layout.md)의 콘텐츠 정의 식별자와 해당하는 **DataUri** 를 보여 줍니다.
 
 ```xml
 <!-- 

@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: f1b5196d422d2bc4a961c2b45ed814ee5555f2c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7d6cb25d553e5215ae3d06810b7c0087dd433ef3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643843"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019935"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -29,6 +29,8 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 > * 디바이스 그룹 만들기
 > * 이미지 업데이트 배포
 > * 업데이트 배포 모니터링
+
+참고: 이 자습서의 이미지 업데이트는 Raspberry Pi B3 보드에서 검증되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * 아직 수행하지 않은 경우 IoT Hub 구성을 포함하여 [디바이스 업데이트 계정 및 인스턴스](create-device-update-account.md)를 만듭니다.

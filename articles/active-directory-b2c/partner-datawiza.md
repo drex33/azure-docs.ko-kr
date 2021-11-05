@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 7/07/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a007f567b6f137f1bff225f90c3f52dfaf71c1f2
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: c33694c624deafa8cdc7ef37ac1dc39d98b5a4f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228587"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044744"
 ---
 # <a name="tutorial-configure-azure-ad-b2c-with-datawiza-to-provide-secure-hybrid-access"></a>자습서: 안전한 하이브리드 액세스를 제공하기 위해 Datawiza를 사용하여 Azure AD B2C 구성
 
@@ -67,7 +67,7 @@ Datawiza 통합에는 다음 구성 요소가 포함됩니다.
 
 2. Azure 관리 포털에서 [가입 및 로그인 사용자 흐름을 구성](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow)합니다.
 
-  >[!Note]
+  >[!NOTE]
   >나중에 DCMC에서 DAB를 설정할 때 테넌트 이름, 사용자 흐름 이름, 클라이언트 ID 및 클라이언트 암호가 필요합니다.
 
 ## <a name="create-an-application-on-dcmc"></a>DCMC에서 애플리케이션 만들기
@@ -82,7 +82,7 @@ Datawiza 통합에는 다음 구성 요소가 포함됩니다.
 
 1. Docker 또는 Kubernetes를 사용하여 DAB를 실행할 수 있습니다. 사용자가 샘플 헤더 기반 애플리케이션을 만들려면 Docker 이미지가 필요합니다. 자세한 내용은 [DAB 및 SSO 통합 구성](https://docs.datawiza.com/step-by-step/step3.html) 방법을 참조하고 Kubernetes 관련 지침은 [Kubernetes를 사용한 DAB 배포](https://docs.datawiza.com/tutorial/web-app-AKS.html) 방법을 참조하세요. 다운로드하여 사용할 수 있는 샘플 Docker 이미지 `docker-compose.yml file`가 제공됩니다. 컨테이너 레지스트리에 로그인하여 DAB 및 헤더 기반 애플리케이션의 이미지를 다운로드합니다. [다음 지침](https://docs.datawiza.com/step-by-step/step3.html#important-step)을 따릅니다.
  
-   ```YML
+   ```yaml
    version: '3'
 
     services:

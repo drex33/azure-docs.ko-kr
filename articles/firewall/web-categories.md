@@ -7,12 +7,12 @@ services: firewall
 ms.topic: overview
 ms.date: 07/19/2021
 ms.author: victorh
-ms.openlocfilehash: dba086ab0975fd710bb9d4356ddd442133d740a4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c8ca827495f9ccfdd2786ee3b2bbf33e939c6a16
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114481641"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068630"
 ---
 # <a name="azure-firewall-web-categories"></a>Azure Firewall 웹 범주
 
@@ -83,7 +83,7 @@ ms.locfileid: "114481641"
 
 ## <a name="productivity-loss"></a>생산성 손실
 
-|범주   |Description  |
+|범주   |설명  |
 |---------|---------|
 |광고 + 팝업    |  웹 페이지에 표시되는 광고 그래픽이나 기타 광고 콘텐츠 파일을 제공하는 사이트입니다.       |
 |채팅    |   채팅 서비스나 대화방을 통해 웹 기반으로 실시간 메시지를 교환할 수 있는 사이트입니다.       |

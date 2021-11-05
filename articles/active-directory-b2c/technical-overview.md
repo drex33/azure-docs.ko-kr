@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 5a01eb29caee02874cf828d1b2dd6b2df7440b4d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ca637cec58531de65847d5f1e7d19e81ed45318d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043057"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036431"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -81,7 +81,7 @@ Azure AD B2C는 사용자가 사용자를 인증할 수 있는 다양한 방법�
 
 Azure AD B2C에서는 표시 이름, 성, 이름, 구/군/시 등 소비자 계정 프로필의 공통 특성을 관리할 수 있습니다.
 
-또한 Azure AD 스키마를 확장하여 사용자에 대한 추가 정보를 저장할 수도 있습니다. 예를 들어 거주 국가/지역, 기본 언어 및 기본 설정(예: 뉴스레터를 구독할지 또는 다단계 인증을 사용할지의 여부) 등이 여기에 해당합니다. 자세한 내용은 다음을 참조하세요.
+또한 Azure AD 스키마를 확장하여 사용자에 대한 추가 정보를 저장할 수도 있습니다. 예를 들어, 상주 국가/지역, 기본 언어 및 기본 설정(예: 뉴스레터를 구독할지 또는 다단계 인증을 사용하도록 설정할지 여부)이 있습니다. 자세한 내용은 다음을 참조하세요.
 
 * [사용자 프로필 특성](user-profile-attributes.md)
 * [사용자 특성 추가 및 사용자 입력 사용자 지정](configure-user-input.md)
@@ -212,13 +212,13 @@ Azure AD B2C에서 RESTful API 통합에 대한 사용자 지정 정책을 사�
 
 예를 들어 애플리케이션에 로그인하기 위해 애플리케이션은 *가입 또는 로그인* 사용자 흐름을 사용합니다. 사용자가 로그인하면 프로필을 편집하려고 할 수 있으므로 이번에는 *프로필 편집* 사용자 흐름을 사용하여 애플리케이션이 다른 권한 부여 요청을 시작합니다.
 
-## <a name="multi-factor-authentication-mfa"></a>MFA(다단계 인증)
+## <a name="multifactor-authentication-mfa"></a>MFA(다단계 인증)
 
 Azure AD B2C MFA(다단계 인증)를 사용하면 사용자의 편의를 유지하면서 데이터와 애플리케이션에 대한 액세스를 보호할 수 있습니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고, 사용하기 쉬운 다양한 인증 방법을 제공하여 강력한 인증을 제공합니다. 
 
 관리자로서 결정할 수 있는 구성에 따라 사용자에게 MFA에 대한 문제가 발생할 수도 있고 그렇지 않을 수도 있습니다.
 
-사용자 흐름에서 MFA를 사용하도록 설정하는 방법을 알아보려면 [Azure Active Directory B2C에서 다단계 인증 사용](multi-factor-authentication.md)을 참조하세요.
+사용자 흐름에서 MFA를 사용하도록 설정하는 방법은 [Azure Active Directory B2C에서 다단계 인증을 사용하도록 설정](multi-factor-authentication.md)을 참조하세요.
 
 ## <a name="conditional-access"></a>조건부 액세스
 
@@ -226,7 +226,7 @@ Azure AD B2C MFA(다단계 인증)를 사용하면 사용자의 편의를 유지
 
 ![조건부 액세스 흐름](media/technical-overview/conditional-access-flow.png)
 
-Azure AD B2C는 각 로그인 이벤트를 평가하고 사용자 액세스 권한을 부여하기 전에 모든 정책 요구 사항이 충족되는지 확인합니다. 위험 사용자 또는 로그인은 MFA(Multi-Factor Authentication)와 같은 특정 수정 작업으로 인해 차단되거나 어려워질 수 있습니다. 자세한 내용은 [ID 보호 및 조건부 액세스](conditional-access-identity-protection-overview.md)를 참조하세요.
+Azure AD B2C는 각 로그인 이벤트를 평가하고 사용자 액세스 권한을 부여하기 전에 모든 정책 요구 사항이 충족되는지 확인합니다. 위험한 사용자 또는 로그인은 MFA(다단계 인증)와 같은 특정 수정 작업으로 인해 차단되거나 어려워질 수 있습니다. 자세한 내용은 [ID 보호 및 조건부 액세스](conditional-access-identity-protection-overview.md)를 참조하세요.
 
 ## <a name="password-complexity"></a>암호 복잡성
 
@@ -299,6 +299,11 @@ Azure AD B2C에서는 최종 사용자가 앱에 가입하거나 로그인하는
 Azure Application Insights를 Azure AD B2C 사용자 지정 정책에 통합하면 최종 사용자가 가입, 로그인, 암호 재설정 또는 프로필 편집을 수행하는 방법에 대한 인사이트를 얻을 수 있습니다. 이러한 지식을 사용하면 향후 개발 주기에 대해 데이터 기반의 결정을 내릴 수 있습니다.
 
 자세한 내용은 [Azure Active Directory B2C에서 Application Insights를 사용하여 사용자 동작 추적](analytics-with-application-insights.md)을 참조하세요.
+
+## <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
+Azure AD B2C 서비스는 일반적으로 [지역별로 사용 가능한 제품](https://azure.microsoft.com/regions/services/)에 지정된 대로 지역의 데이터 상주 옵션과 함께 가용성을 위해 전 세계에서 사용할 수 있습니다 데이터 상주는 [테넌트 만들기](tutorial-create-tenant.md)를 할 때 선택하는 국가/지역에 따라 결정됩니다. 
+
+[Azure Active Directory B2C 서비스 지역 가용성 및 데이터 상주](data-residency.md)에 대해 자세히 알아보세요.
 
 ## <a name="automation-using-microsoft-graph-api"></a>Microsoft Graph API를 사용한 Automation
 

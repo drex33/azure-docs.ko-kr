@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d7b2f01a9e90ca8a29b6ecbfc380cb138a3ad073
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7aead529824f487b73fc728dafd964567743d60d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124800482"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>자습서: Trelica와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "124800482"
 
 Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -92,7 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
-    ![[앱 페더레이션 메타데이터 URL] 옆에 복사 단추가 강조 표시된 [SAML 서명 인증서] 섹션](common/copy-metadataurl.png)
+    ![앱 페더레이션 메타데이터 URL 옆에 복사 단추가 강조 표시된 SAML 서명 인증서 섹션](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

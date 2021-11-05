@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: thwimmer
-ms.openlocfilehash: 82fdfb7621762828a32ad67774e9b0141c6b0464
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 462accaebda816fee959a5a586e331151badc269
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122207642"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058863"
 ---
 # <a name="tutorial-configure-holmes-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Holmes Cloud 구성
 
@@ -52,7 +52,7 @@ ms.locfileid: "122207642"
 
 > [!NOTE]
 > * 구독을 구입한 후 **Holmes Cloud 지원** <cs@holmescloud.com> 팀에서 Holmes Cloud 테넌트 URL을 받습니다.
-> * Single Sign-On 및 사용자 프로비저닝 서비스를 구독하는 한 필요한 정보(엔드포인트 URL, 토큰 등)를 찾아서 **회사 설정** 페이지에서 프로비저닝 서비스를 설정할 수 있습니다.
+> * Single Sign-On 및 사용자 프로비전 서비스를 구독하는 한 필요한 정보(엔드포인트 URL, 토큰 등)를 찾아서 **회사 설정** 페이지에서 프로비전 서비스를 설정할 수 있습니다.
  
 1. Holmes Cloud 자격 증명을 사용하여 Holmes Cloud 계정에 로그인합니다.
 1. "会社設定(회사 설정)" 메뉴를 선택한 후 모자 모양 아이콘을 선택합니다.

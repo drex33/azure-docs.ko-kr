@@ -13,12 +13,12 @@ ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: d633f52d739552a02999295ec083a965e0fa45fd
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 17c8ec1b17cc0e7b26a94b64826c247a31ecd229
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447031"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027876"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 

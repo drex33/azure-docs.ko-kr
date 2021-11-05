@@ -3,20 +3,20 @@ title: 사용자 지정 정책의 문자열 클레임 변환 예제
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 IEF(ID 경험 프레임워크) 스키마용 문자열 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: a7041f343eec34f16f4cfd7b32ae56157963dd09
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2327cb0bd2760492858c8a2a3105c5a5ee55368b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439363"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131032281"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -923,8 +923,8 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
     - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - 출력 클레임:
-    - **isMinorResponseCode**: B2C_V1_90001
-    - **isMinor**: true
+    - **isMinorResponseCode**: true
+    - **isMinor**: B2C_V1_90001
 
 
 ## <a name="stringcontains"></a>StringContains

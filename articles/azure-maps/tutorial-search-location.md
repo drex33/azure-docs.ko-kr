@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61ea9691e30fe401946a43d2ffd8488b905c0835
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821613"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072393"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -145,18 +145,18 @@ ms.locfileid: "99821613"
 
 1. 맵 `ready` 이벤트 처리기에서 다음 JavaScript 코드를 추가하여 검색 서비스 URL을 구성합니다.
 
-    ```JavaScript
-   // Use SubscriptionKeyCredential with a subscription key
-   var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
+    ```javascript
+    // Use SubscriptionKeyCredential with a subscription key
+    var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas. getSubscriptionKey());
+ 
+    // Use subscriptionKeyCredential to create a pipeline
+    var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
+ 
+    // Construct the SearchURL object
+    var searchURL = new atlas.service.SearchURL(pipeline); 
+    ```
 
-   // Use subscriptionKeyCredential to create a pipeline
-   var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
-
-   // Construct the SearchURL object
-   var searchURL = new atlas.service.SearchURL(pipeline); 
-   ```
-
-   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
+    `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
 2. 다음 스크립트 블록을 추가하여 검색 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소, 위치, POI(관심 지점) 같은 대부분의 유사 항목 입력을 처리합니다. 이 코드는 제공된 위도와 경도의 지정된 반경 내에서 인접한 주유소를 검색합니다. 그런 다음, `geojson.getFeatures()` 메서드를 사용하여 응답의 GeoJSON 기능 컬렉션을 추출하고 데이터 원본에 추가하면, 기호 레이어를 통해 데이터가 맵에 자동으로 렌더링됩니다. 스크립트의 마지막 부분은 맵의 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 결과의 경계 상자를 사용하는 카메라 보기를 설정합니다.
 
@@ -203,8 +203,8 @@ ms.locfileid: "99821613"
 
 1. 맵 `ready` 이벤트 처리기에서 유사 항목 검색 서비스를 쿼리하는 코드 뒤에 다음 코드 줄을 추가합니다. 이 코드에는 팝업 인스턴스가 만들어지고 기호 레이어에 mouseover 이벤트가 추가됩니다.
 
-    ```JavaScript
-   //Create a popup but leave it closed so we can update it and display it later.
+    ```javascript
+    // Create a popup but leave it closed so we can update it and display it later.
     popup = new atlas.Popup();
 
     //Add a mouse over event to the result layer and display a popup when this event fires.
@@ -241,7 +241,7 @@ ms.locfileid: "99821613"
     }
     ```
 
-3. 파일을 저장하고 브라우저를 새로 고칩니다. 이제 브라우저의 지도에서 검색 핀 위를 마우스로 가리키면 정보 팝업이 표시됩니다.
+3. 파일을 저장하고 브라우저를 새로 고칩니다. 이제 브라우저의 맵에서 검색 핀 위를 마우스로 가리키면 정보 팝업이 표시됩니다.
 
     ![Azure 맵 컨트롤 및 Search Service](./media/tutorial-search-location/popup-map.png)
 

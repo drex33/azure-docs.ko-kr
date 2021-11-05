@@ -1,22 +1,22 @@
 ---
-title: 액세스 토큰 요청 - Azure Active Directory B2C | Microsoft Docs
+title: 액세스 토큰 요청 - Azure Active Directory B2C
 description: Azure Active Directory B2C에서 액세스 토큰을 요청하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: df14f8fef3c5f71d5d80756eb629fc3ce5f16a74
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 2d6aeddaaf2efc039150d7060f76f46045bd0efe
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534568"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008316"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
@@ -66,7 +66,7 @@ OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다
 
 액세스 토큰을 요청하려면 인증 코드가 필요합니다. 다음은 `/authorize` 엔드포인트에 대한 인증 코드 요청 예제입니다. 사용자 지정 도메인은 액세스 토큰과 함께 사용하도록 지원되지 않습니다. 요청 URL에서 tenant-name.onmicrosoft.com 도메인을 사용합니다.
 
-다음 예제에서는 다음 값을 바꿉니다.
+다음 예에서는 쿼리 문자열에서 이러한 값을 바꿉니다.
 
 - `<tenant-name>` - Azure AD B2C 테넌트의 이름.
 - `<policy-name>` - 사용자 지정 정책 또는 사용자 흐름의 이름.
@@ -90,7 +90,7 @@ client_id=<application-ID>
 https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-인증 코드를 성공적으로 받은 후에는 이 코드를 사용하여 다음과 같이 액세스 토큰을 요청할 수 있습니다.
+인증 코드를 성공적으로 받은 후에는 이 코드를 사용하여 다음과 같이 액세스 토큰을 요청할 수 있습니다. 매개 변수는 HTTP POST 요청의 본문에 있습니다.
 
 ```http
 POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
@@ -104,7 +104,7 @@ grant_type=authorization_code
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...
 ```
-
+ 
 다음 응답과 비슷한 내용이 표시됩니다.
 
 ```json

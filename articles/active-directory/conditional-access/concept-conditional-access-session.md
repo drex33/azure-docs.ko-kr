@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81819fa99db4ff0171e96e5b2ba0ce3fc4604769
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e33f2c7393a9c7b91dcd6fd9188bd9a89f190215
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459542"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050725"
 ---
 # <a name="conditional-access-session"></a>조건부 액세스: 세션
 
@@ -26,7 +26,7 @@ ms.locfileid: "114459542"
 
 ## <a name="application-enforced-restrictions"></a>애플리케이션 적용 제한
 
-조직은 이 제어를 사용하여 Azure AD가 디바이스 정보를 선택한 클라우드 앱에 전달하도록 요구할 수 있습니다. 디바이스 정보를 사용하면 클라우드 앱이 규정 준수 또는 도메인 조인 디바이스에서 연결이 초기화되는지 여부를 알 수 있습니다. 이 컨트롤은 선택한 클라우드 앱으로 SharePoint Online 및 Exchange Online만 지원합니다. 선택하면 클라우드 앱에서는 디바이스 정보를 사용하여 사용자에게 디바이스 상태에 따라 제한된 환경이나 전체 환경을 제공합니다.
+조직은 이 제어를 사용하여 Azure AD가 디바이스 정보를 선택한 클라우드 앱에 전달하도록 요구할 수 있습니다. 디바이스 정보를 사용하면 클라우드 앱이 규정 준수 또는 도메인 조인 디바이스에서 연결이 시작되는지 여부를 파악하고 세션 환경을 변경할 수 있습니다. 이 컨트롤은 선택한 클라우드 앱으로 SharePoint Online 및 Exchange Online만 지원합니다. 이 옵션을 선택하면 클라우드 앱은 디바이스 정보를 사용하여 디바이스 상태에 따라 제한된(디바이스가 관리되지 않는 경우) 또는 전체 환경(디바이스가 관리되고 규정을 준수하는 경우)을 사용자에게 제공합니다.
 
 앱 적용 제한 사용 및 구성에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -71,6 +71,23 @@ ms.locfileid: "114459542"
 영구 브라우저 세션을 사용하면 사용자가 브라우저 창을 닫았다가 다시 연 후 로그인 상태를 유지할 수 있습니다.
 
 자세한 내용은 [조건부 액세스를 사용하여 인증 세션 관리 구성](howto-conditional-access-session-lifetime.md#persistence-of-browsing-sessions) 문서를 참조하세요.
+
+## <a name="customize-continuous-access-evaluation"></a>지속적인 액세스 권한 평가 사용자 지정
+
+[연속 액세스 평가](concept-continuous-access-evaluation.md)는 조직의 조건부 액세스 정책의 일부로 자동으로 사용하도록 설정됩니다. 연속 액세스 평가를 사용하지 않도록 설정하거나 엄격하게 적용하려는 조직의 경우, 이 구성은 이제 조건부 액세스의 세션 제어 내에 있는 옵션입니다. 연속 액세스 평가 정책의 범위를 모든 사용자 또는 특정 사용자 및 그룹으로 지정할 수 있습니다. 관리자는 새 정책을 만들거나 기존 조건부 액세스 정책을 편집하는 동안 다음과 같은 항목을 선택할 수 있습니다.
+
+- **사용 안 함** 은 **모든 클라우드 앱** 을 선택하고, 조건을 선택하지 않고 **세션** > 에서 **사용 안 함** 을 선택한 경우 수행됩니다. 조건부 액세스 정책에서 **지속적 액세스 평가를 사용자 정의합니다**.
+- **엄격한 적용** 은 중요한 이벤트 및 정책이 실시간으로 적용됨을 의미합니다. 모든 CAE 지원 서비스는 항상 클라이언트나 사용자가 요청할 수 있는 CAE 토큰을 가져옵니다. 엄격한 적용 모드가 설정되었을 때 CAE가 작동하지 않는 두 가지 시나리오가 있습니다.
+   - 비 CAE 지원 클라이언트는 CAE 지원 서비스에 대한 일반 토큰을 가져오지 않아야 합니다.
+   - 리소스 공급자가 볼 수 있는 IP가 허용 범위에 없는 경우 거부합니다.
+
+:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="Azure Portal의 새 조건부 액세스 정책에 있는 CAE 설정" lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
+
+## <a name="disable-resilience-defaults-preview"></a>복원력 기본값 사용 안 함(미리 보기)
+
+중단 시 Azure AD는 조건부 액세스 정책을 적용하면서 기존 세션에 대한 액세스를 확장합니다. 정책을 평가할 수 없는 경우 액세스는 복원력 설정에 따라 결정됩니다. 
+
+복원력 기본값을 사용하지 않도록 설정하면 기존 세션이 만료될 때 액세스가 거부됩니다. 자세한 내용은 [조건부 액세스: 복원력 기본값](resilience-defaults.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

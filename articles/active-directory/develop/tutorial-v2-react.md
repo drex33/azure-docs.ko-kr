@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/16/2021
 ms.author: jamesmantu
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e3481ee896e6caed33bdf7e59c64307a88136fde
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a42f4e5cd0b58c2078a4ba498b262efb804edcf8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993656"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050283"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-react-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 React SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -163,7 +163,7 @@ npm start
 
 *src에* *components* 라는 폴더를 만들고 폴더 내에 *SignInButton.jsx* 라는 파일을 만듭니다. 팝업 창 또는 전체 프레임 리디렉션을 사용하여 로그인을 호출하려면 다음 섹션 중 하나의 코드를 추가합니다.
 
-### <a name="sign-in-using-popups"></a>팝업을 사용하여 로그인
+### <a name="sign-in-using-pop-ups"></a>팝업을 사용하여 로그인
 
 *src/components/SignInButton.jsx* 에 다음 코드를 추가하여 선택 시 팝업 로그인을 호출하는 단추 구성 요소를 만듭니다.
 
@@ -277,7 +277,7 @@ export const SignInButton = () => {
 
 *src/components* 에서 *SignOutButton.jsx* 라는 파일을 만듭니다. 팝업 창 또는 전체 프레임 리디렉션을 사용하여 로그아웃을 호출하려면 다음 섹션 중 하나의 코드를 추가합니다.
 
-### <a name="sign-out-using-popups"></a>팝업을 사용하여 로그아웃
+### <a name="sign-out-using-pop-ups"></a>팝업을 사용하여 로그아웃
 
 *src/components/SignInButton.jsx* 에 다음 코드를 추가하여 선택 시 팝업 로그아웃을 호출하는 단추 구성 요소를 만듭니다.
 

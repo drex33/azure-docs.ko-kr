@@ -3,20 +3,20 @@ title: 사용자 도메인을 DID(탈중앙화 ID)(미리 보기)에 연결 - Az
 description: DNS Bind의 방법에 대해 알아볼까요?
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c1254176966a902f81cd42b68db17557288aa241
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c0449ce5682460e683772b5f33442efa0b979998
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466183"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049124"
 ---
-# <a name="link-your-domain-to-your-decentralized-identifier-did"></a>도메인을 DID(탈중앙화 ID)에 연결
+# <a name="link-your-domain-to-your-decentralized-identifier-did-preview"></a>도메인을 DID(탈중앙화 ID)에 연결(미리 보기)
 
 > [!IMPORTANT]
 > Azure Active Directory 확인 가능한 자격 증명은 현재 공개 미리 보기로 제공됩니다.
@@ -48,16 +48,17 @@ DID(탈중앙화 ID)는 기존 시스템에 고정되지 않은 식별자로 시
 1. Azure AD는 조직 설치 중에 제공하는 도메인 정보를 사용하여 DID 문서 내에서 서비스 엔드포인트를 작성합니다. DID와 상호 작용하는 모든 당사자는 DID와 연결된 도메인을 볼 수 있습니다.  
 
     ```json
-        "service": [
-          {
-            "id": "#linkeddomains",
-            "type": "LinkedDomains",
-            "serviceEndpoint": {
-              "origins": [
-                "https://www.contoso.com/"
-              ]
-            }
-          }
+    "service": [
+      {
+        "id": "#linkeddomains",
+        "type": "LinkedDomains",
+        "serviceEndpoint": {
+          "origins": [
+            "https://www.contoso.com/"
+          ]
+        }
+      }
+    ]
     ```
 
 2. Azure AD의 확인 가능한 자격 증명 서비스는 도메인에서 호스트할 수 있는 잘 알려진 구성 리소스를 생성합니다. 구성 파일에는 도메인의 출처를 가진 DID로 서명된 'DomainLinkageCredential'의 자체 발급되어 확인 가능한 자격 증명이 포함되어 있습니다. 루트 도메인 URL에 저장된 구성 문서의 예는 다음과 같습니다.
@@ -118,7 +119,7 @@ DID(탈중앙화 ID)는 기존 시스템에 고정되지 않은 식별자로 시
 
    ![잘 알려진 구성 다운로드](media/how-to-dnsbind/verify-download.png) 
 
-3. JWT를 복사하고, [jwt.ms](https://www.jwt.ms)를 열고, 도메인이 올바른지 확인합니다.
+3. linked_did 값(JWT)을 복사하고, [https://jwt.ms/](https://www.jwt.ms)를 열고, JWT를 붙여넣고, 도메인이 올바른지 확인합니다.
 
 4. DID를 복사하고 [ION 네트워크 탐색기](https://identity.foundation/ion/explorer)를 열어 동일한 도메인이 이미 사용한 문서에 포함되어 있는지 확인합니다. 
 

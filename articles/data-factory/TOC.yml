@@ -707,6 +707,8 @@ items:
           - name: 자체 호스팅되는 통합 런타임에 대한 자격 증명 암호화
             href: encrypt-credentials-self-hosted-integration-runtime.md
             displayName: self hosted
+          - name: Data Factory 자격 증명
+            href: credentials.md
           - name: Data Factory에 대한 관리 ID
             href: data-factory-service-identity.md
           - name: 고객 관리형 키를 사용하여 데이터 팩터리 암호화
@@ -821,7 +823,11 @@ items:
                 href: join-azure-ssis-integration-runtime-virtual-network.md
               - name: 가상 네트워크 구성
                 href: azure-ssis-integration-runtime-virtual-network-configuration.md
-              - name: Azure Data Factory Studio UI 사용
+              - name: 기본 가상 네트워크 주입
+                href: azure-ssis-integration-runtime-express-virtual-network-injection.md
+              - name: 표준 가상 네트워크 주입
+                href: azure-ssis-integration-runtime-standard-virtual-network-injection.md
+              - name: Azure Data Factory UI 사용
                 href: join-azure-ssis-integration-runtime-virtual-network-ui.md
               - name: Azure PowerShell 사용
                 href: join-azure-ssis-integration-runtime-virtual-network-powershell.md

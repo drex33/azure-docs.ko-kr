@@ -1,0 +1,44 @@
+- name: Azure 개발/테스트 제안 문서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: 개발/테스트 제안이란?
+      href: overview-what-is-devtest-offer-visual-studio.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 개별 Azure 개발/테스트 크레딧 시작
+      href: quickstart-individual-credit.md
+    - name: 엔터프라이즈 개발/테스트 구독 만들기
+      href: quickstart-create-enterprise-devtest-subscriptions.md
+- name: 개념
+  expanded: true
+  items:
+    - name: GitOps 및 Azure 개발/테스트 제공
+      href: concepts-gitops-azure-devtest.md
+    - name: 보안 및 거버넌스
+      href: concepts-security-governance-devtest.md
+- name: 방법 가이드
+  expanded: true
+  items:
+    - name: 디렉터리 테넌트 변경
+      href: how-to-change-directory-tenants-visual-studio-azure.md
+    - name: "크레딧 한도 제거\_"
+      href: how-to-remove-credit-limits.md
+    - name: 디렉터리에 사용자 추가
+      href: how-to-add-users-directory.md
+    - name: GitHub로 Azure에 로그인
+      href: how-to-sign-into-azure-with-github.md
+    - name: 개발/테스트 관리 및 모니터링
+      href: how-to-manage-monitor-devtest.md
+    - name: 안정성 및 성능 관리
+      href: how-to-manage-reliability-performance.md
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/en-us/pricing/dev-test/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'

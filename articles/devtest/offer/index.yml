@@ -1,0 +1,61 @@
+### YamlMime:Hub
+title: Azure 개발/테스트 제공 설명서
+summary: 'Visual Studio 구독 혜택을 사용하여 추가 비용 없이 Azure에서 개발 및 테스트하는 방법을 알아봅니다. 자습서, 방법 및 기타.'
+metadata:
+  title: Azure 개발/테스트 제공 설명서
+  description: 'Visual Studio 구독 혜택을 사용하여 추가 비용 없이 Azure에서 개발 및 테스트하는 방법을 알아봅니다. 자습서, 방법 및 기타.'
+  ms.topic: hub-page
+  ms.collection: collection
+  ms.prod: visual-studio-windows
+  ms.author: jmartens
+  author: j-martens
+  ms.date: 10/06/2021
+  ms.custom: devtestoffer
+  adobe-target: true
+highlightedContent:
+  items:
+    - title: Azure Dev/Test 제공은 무엇인가요?
+      itemType: overview
+      url: overview-what-is-devtest-offer-visual-studio.md
+    - title: Azure 크레딧을 사용하여 시작
+      itemType: quickstart
+      url: quickstart-individual-credit.md
+    - title: 엔터프라이즈 및 조직 구독 만들기
+      itemType: quickstart
+      url: concepts-gitops-azure-devtest.md
+conceptualContent:
+  items:
+    - title: 개인용 Azure 개발/테스트 제안
+      links:
+        - url: ../../devtest/offer/quickstart-individual-credit.md
+          itemType: how-to-guide
+          text: Azure 크레딧을 사용하여 시작
+        - url: ../../devtest/offer/how-to-add-users-directory.md
+          itemType: how-to-guide
+          text: 디렉터리에 사용자 추가
+        - url: ../../devtest/offer/how-to-remove-credit-limits.md
+          itemType: how-to-guide
+          text: 크레딧 한도 제거
+        - url: ../../devtest/offer/how-to-sign-into-azure-with-github.md
+          itemType: how-to-guide
+          text: GitHub 자격 증명을 사용하여 Azure에 로그인
+        - url: ../../devtest/offer/how-to-change-directory-tenants-visual-studio-azure.md
+          itemType: how-to-guide
+          text: VSS Azure 구독을 사용하여 디렉터리 테넌트 변경
+    - title: 엔터프라이즈에 대한 Azure 개발/테스트 제안
+      links:
+        - url: ../../devtest/offer/quickstart-create-enterprise-devtest-subscriptions.md
+          itemType: how-to-guide
+          text: 엔터프라이즈 및 조직 구독 만들기
+        - url: ../../devtest/offer/concepts-gitops-azure-devtest.md
+          itemType: how-to-guide
+          text: Azure 개발/테스트와 함께 GitOps 사용
+        - url: ../../devtest/offer/how-to-manage-monitor-devtest.md
+          itemType: how-to-guide
+          text: Azure 개발/테스트 구독 관리
+        - url: ../../devtest/offer/how-to-manage-reliability-performance.md
+          itemType: how-to-guide
+          text: 애플리케이션에 대한 안정성 빌드
+        - url: ../../devtest/offer/concepts-security-governance-devtest.md
+          itemType: how-to-guide
+          text: 보안 및 거버넌스 관리

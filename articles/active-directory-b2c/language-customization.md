@@ -2,22 +2,22 @@
 title: Azure Active Directory B2C의 언어 사용자 지정
 description: Azure Active Directory B2C의 사용자 흐름에서 언어 환경을 사용자 지정하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5464e14cddc6319ad82eaaa054e39ba661312f97
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686413"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007071"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
@@ -37,6 +37,10 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 
 > [!NOTE]
 > 사용자 지정 사용자 특성을 사용하는 경우 사용자 고유의 번역을 제공해야 합니다. 자세한 내용은 [문자열 사용자 지정](#customize-your-strings)을 참조하세요.
+
+Azure AD B2C를 사용하여 언어를 지역화하거나 사용자 지정하는 방법을 알아보려면 이 동영상을 시청합니다.
+
+>[!Video https://www.youtube.com/embed/yqrX5_tA7Ms]
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -184,7 +188,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>사용자 지정 언어 추가
 
-또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 사용자 흐름에서 모든 문자열에 대한 번역을 제공해야 합니다. 언어 및 로캘 코드는 ISO 639-1 표준으로 제한됩니다. 로캘 코드 형식은 반드시 "ISO_639-1_code"-"CountryCode"여야 합니다(예: `en-GB`). 로캘 ID 형식에 대한 자세한 내용은 https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a 를 참조하세요.
+또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 사용자 흐름에서 모든 문자열에 대한 번역을 제공해야 합니다. 언어 및 로캘 코드는 ISO 639-1 표준으로 제한됩니다. 로캘 코드 형식은 반드시 "ISO_639-1_code"-"CountryCode"여야 합니다(예: `en-GB`). 자세한 내용은 [로캘 ID 형식](/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a)을 참조하세요.
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 2. 사용자 지정 언어를 추가하려는 사용자 흐름을 클릭한 다음, **언어** 를 클릭합니다.
@@ -416,12 +420,13 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 </ContentDefinitions>
 ```
 
-##  <a name="upload-and-test-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드 및 테스트
+## <a name="upload-and-test-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드 및 테스트
 
 ### <a name="upload-the-custom-policy"></a>사용자 지정 정책 업로드
 
 1. 확장 파일을 저장합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택합니다.
@@ -457,7 +462,7 @@ Microsoft는 사용자가 사용할 수 있는 가장 최신의 번역을 제공
 
 ### <a name="support-for-right-to-left-languages"></a>오른쪽에서 왼쪽 언어 지원
 
-현재 Microsoft는 오른쪽에서 왼쪽 언어에 대한 지원을 제공하지 않습니다. 사용자 지정 로캘을 사용하고 CSS를 사용하여 문자열이 표시되는 방식을 변경하여 지원할 수 있습니다. 이 기능이 필요한 경우 [Azure 피드백](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag)에서 이 기능에 투표해 주세요.
+현재 Microsoft는 오른쪽에서 왼쪽 언어에 대한 지원을 제공하지 않습니다. 사용자 지정 로캘을 사용하고 CSS를 사용하여 문자열이 표시되는 방식을 변경하여 지원할 수 있습니다. 이 기능이 필요한 경우 [Azure 피드백](https://feedback.azure.com/d365community/idea/10a7e89c-c325-ec11-b6e6-000d3a4f0789)에서 이 기능에 투표해 주세요.
 
 ### <a name="social-identity-provider-translations"></a>소셜 ID 공급자 변환
 

@@ -9,14 +9,14 @@ ms.date: 06/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb
+ms.reviewer: calebb, sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8c0bf5ac063fbf300cf43cd46a22e8904cb6bf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 36d6283bd8304a33b80797e502edde45c952e06a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548790"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067397"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: 권한 부여
 
@@ -62,11 +62,25 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 
 디바이스는 준수 상태로 표시되기 전에 Azure AD에 등록되어 있어야 합니다. 디바이스 등록에 대한 자세한 내용은 [디바이스 ID란?](../devices/overview.md)문서에서 확인할 수 있습니다.
 
+**주의**
+
+- **준수 상태로 표시된 디바이스 필요** 요구 사항.
+   - Azure AD에 등록되고 Intune에 등록된 Windows Windows 현재(Windows 10 +), iOS, Android 및 macOS 디바이스만 지원합니다.
+   - 타사 MDM 시스템에 등록된 디바이스의 경우 [Intune에서 타사 디바이스 규정 준수 파트너 지원](/mem/intune/protect/device-compliance-partners)을 참조하세요.
+   - 조건부 액세스는 InPrivate 모드의 Microsoft Edge를 준수 디바이스로 간주할 수 없습니다.
+
+
 ### <a name="require-hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 디바이스 필요
 
 조직에서는 조건부 액세스 정책의 일부로 디바이스 ID를 사용하도록 선택할 수 있습니다. 조직에서는 이 확인란을 사용하여 디바이스가 하이브리드 Azure AD에 조인되도록 요구할 수 있습니다. 디바이스 ID에 대한 자세한 내용은 [디바이스 ID란?](../devices/overview.md)문서를 참조하세요.
 
-[디바이스 코드 OAuth 흐름](../develop/v2-oauth2-device-code.md)을 사용하는 경우 관리 디바이스 권한 부여 컨트롤 요구 또는 디바이스 상태 조건이 지원되지 않습니다. 이는 인증을 수행하는 디바이스가 코드를 제공하는 디바이스에 디바이스 상태를 제공할 수 없으며, 토큰의 디바이스 상태가 인증을 수행하는 디바이스에 대해 잠겨 있기 때문입니다. 대신 다단계 인증 권한 부여 컨트롤 필요를 사용하세요.
+[디바이스 코드 OAuth 흐름](../develop/v2-oauth2-device-code.md)을 사용하는 경우 관리 디바이스 권한 부여 컨트롤 요구 또는 디바이스 상태 조건이 지원되지 않습니다. 이는 인증을 수행하는 디바이스가 코드를 제공하는 디바이스에 디바이스 상태를 제공할 수 없으며, 토큰의 디바이스 상태가 인증을 수행하는 디바이스에 대해 잠겨 있기 때문입니다. 대신 다단계 인증 필요 권한 부여 컨트롤을 사용합니다.
+
+**주의**
+
+- **하이브리드 Azure AD 조인된 디바이스 필요** 요구 사항.
+   - 도메인 가입된 Windows 하위 수준(사전 Windows 10) 및 Windows 현재(Windows 10 +) 디바이스만 지원합니다.
+   - 조건부 액세스는 Microsoft Edge를 InPrivate 모드에서 하이브리드 Azure AD 조인된 디바이스로 고려할 수 없습니다.
 
 ### <a name="require-approved-client-app"></a>승인된 클라이언트 앱 필요
 
@@ -146,7 +160,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 - Nine Mail - 메일 및 달력
 
 > [!NOTE]
-> Microsoft Kaizala, 비즈니스용 Microsoft Skype, Microsoft Visio는 **앱 보호 정책 부여 필요** 를 지원하지 않습니다. 이러한 앱이 작동하도록 해야 하는 경우 **승인된 앱 필요** 권한 부여만을 사용하세요. 이러한 3가지 애플리케이션에서는 두 개의 권한 부여 사이에 the 또는 절을 사용할 수 없습니다.
+> Microsoft Kaizala, 비즈니스용 Microsoft Skype, Microsoft Visio는 **앱 보호 정책 부여 필요** 를 지원하지 않습니다. 이러한 앱이 작동하도록 해야 하는 경우 **승인된 앱 필요** 권한 부여만을 사용하세요. 이러한 3가지 애플리케이션에서는 두 개의 권한 부여 사이에 `or` 절을 사용할 수 없습니다.
 
 **주의**
 

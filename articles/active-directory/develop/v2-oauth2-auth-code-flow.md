@@ -13,20 +13,20 @@ ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f73951e34ada242dd70b9e9f99839d3072a52f76
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 9f7cb3e5869070e8120e39b21c2708887505043c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223746"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050264"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
-OAuth 2.0 인증 코드 권한은 디바이스에 설치된 앱에서 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. Microsoft ID 플랫폼에서 구현된 OAuth 2.0을 사용하여, 로그인 및 모바일 및 API 액세스를 데스크톱 앱에 추가할 수 있습니다.
+OAuth 2.0 인증 코드 권한은 디바이스에 설치된 앱에서 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. Microsoft ID 플랫폼에서 구현된 OAuth 2.0과 OIDC(Open ID Connect)를 사용하여, 모바일 및 데스크톱 앱에 로그인 및 API 액세스를 추가할 수 있습니다.
 
 이 문서에서는 임의 언어를 사용하여 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다.  가능하면 [토큰을 획득하고 보안 Web API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
-OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. [단일 페이지 앱](v2-app-types.md#single-page-apps-javascript), [웹앱](v2-app-types.md#web-apps) 및 [기본적으로 설치된 앱](v2-app-types.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. 이 흐름을 사용하면 앱이 Microsoft ID 플랫폼에서 보호되는 리소스에 액세스하는 데 사용할 수 있는 access_token뿐만 아니라 로그인한 사용자에 대한 추가 access_token 및 ID 토큰을 가져오기 위한 새로 고침 토큰도 안전하게 획득할 수 있습니다.
+OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. OIDC와 함께 이것은 [단일 페이지 앱](v2-app-types.md#single-page-apps-javascript), [웹앱](v2-app-types.md#web-apps) 및 [기본적으로 설치된 앱](v2-app-types.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. 이 흐름을 사용하면 앱이 Microsoft ID 플랫폼에서 보호되는 리소스에 액세스하는 데 사용할 수 있는 access_token뿐만 아니라 로그인한 사용자에 대한 추가 access_token 및 ID 토큰을 가져오기 위한 새로 고침 토큰도 안전하게 획득할 수 있습니다.
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`    | required    | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. 한 테넌트의 사용자를 다른 테넌트로 로그인하는 게스트 시나리오의 경우, 리소스 테넌트로 올바르게 로그인하려면 테넌트 식별자를 ‘제공해야 합니다’.|
 | `client_id`   | required    | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다.  |
 | `response_type` | required    | 인증 코드 흐름에 대한 `code`를 포함해야 합니다. [하이브리드 흐름](#request-an-id-token-as-well-hybrid-flow)을 사용하는 경우 `id_token`이나 `token`도 포함할 수 있습니다. |
-| `redirect_uri`  | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 원시 앱과 모바일 앱의 경우 권장되는 값 `https://login.microsoftonline.com/common/oauth2/nativeclient`(포함된 브라우저를 사용하는 앱의 경우)나 `http://localhost`(시스템 브라우저를 사용하는 앱의 경우) 중 하나를 사용해야 합니다. |
+| `redirect_uri` | 필수 | 앱에서 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 원시 앱과 모바일 앱의 경우 권장되는 값 `https://login.microsoftonline.com/common/oauth2/nativeclient`(포함된 브라우저를 사용하는 앱의 경우)나 `http://localhost`(시스템 브라우저를 사용하는 앱의 경우) 중 하나를 사용해야 합니다. |
 | `scope`  | required    | 사용자가 동의하게 할 공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다.  요청의 `/authorize` 레그에서는 여러 리소스를 포함할 수 있으므로 앱은 사용자가 호출하려는 여러 웹 API에 대한 동의를 받을 수 있습니다. |
 | `response_mode`   | 권장 | 결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 다음 중 하나일 수 있습니다.<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query`는 리디렉션 URI에 코드를 쿼리 문자열 매개 변수로 제공합니다. 암시적 흐름을 사용하여 ID 토큰을 요청하는 경우 `query`는 [OpenID 사양](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)에서 명시한 대로 사용할 수 없습니다. 코드만 요청하는 경우 `query`, `fragment` 또는 `form_post`를 사용할 수 있습니다. `form_post`는 리디렉션 URI에 대한 코드가 포함된 POST를 실행합니다. |
 | `state`                 | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 이 값은 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
@@ -224,7 +224,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="request-an-access-token-with-a-certificate-credential"></a>인증서 자격 증명을 사용하여 액세스 토큰 요청
 
-```HTTP
+```http
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -335,7 +335,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 access_token은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 엔드포인트에 제출해야 하며, 이번에는 `code` 대신 `refresh_token`을 제공해야 합니다.  새로 고침 토큰은 클라이언트가 이미 동의를 받은 모든 권한에 유효합니다. 따라서 `scope=mail.read`에 대한 요청에서 발행된 새로 고침 토큰을 사용하여 `scope=api://contoso.com/api/UseResource`에 대한 새 액세스 토큰을 요청할 수 있습니다.
 
-웹앱 및 네이티브 앱에 대한 새로 고침 토큰에는 지정된 수명이 없습니다. 일반적으로 새로 고침 토큰의 수명은 비교적 깁니다. 그러나 새로 고침 토큰이 만료되거나 해지되거나 원하는 작업을 위한 충분한 권한이 없는 경우가 있습니다. 애플리케이션은 [토큰 발급 엔드포인트에서 반환하는 오류](#error-codes-for-token-endpoint-errors)를 예상하고 정확히 처리해야 합니다. 그러나 단일 페이지 앱은 수명이 24시간인 토큰을 가져와서 매일 새 인증을 요구합니다.  타사 쿠키를 사용하도록 설정하면 iframe에서 이 작업을 자동으로 수행할 수 있지만 Safari와 같이 타사 쿠키를 사용하지 않는 브라우저에서는 최상위 수준 프레임(전체 페이지 탐색 또는 팝업)에서 수행해야 합니다.
+웹앱 및 네이티브 앱에 대한 새로 고침 토큰에는 지정된 수명이 없습니다. 일반적으로 새로 고침 토큰의 수명은 비교적 깁니다. 그러나 새로 고침 토큰이 만료되거나 해지되거나 원하는 작업을 위한 충분한 권한이 없는 경우가 있습니다. 애플리케이션은 [토큰 발급 엔드포인트에서 반환하는 오류](#error-codes-for-token-endpoint-errors)를 예상하고 정확히 처리해야 합니다. 그러나 단일 페이지 앱은 수명이 24시간인 토큰을 가져와서 매일 새 인증을 요구합니다.  타사 쿠키를 사용하도록 설정하면 iframe에서 이 작업을 자동으로 수행할 수 있지만 Safari와 같이 타사 쿠키를 사용하지 않는 브라우저에서는 최상위 수준 프레임(전체 페이지 탐색 또는 팝업 창)에서 수행해야 합니다.
 
 새로 고침 토큰은 새 액세스 토큰을 획득하는 데 사용될 경우 해지되지 않지만 이전 새로 고침 토큰은 삭제해야 합니다. [OAuth 2.0 사양](https://tools.ietf.org/html/rfc6749#section-6)에는 다음과 같이 명시되어 있습니다. "권한 부여 서버는 새 새로 고침 토큰을 발급할 수 있지만 이 경우 클라이언트는 이전 새로 고침 토큰을 삭제하고 새 새로 고침 토큰으로 바꾸어야 합니다. 권한 부여 서버는 클라이언트에 새 새로 고침 토큰을 발급한 후 이전 새로 고침 토큰을 해지할 수 있습니다."
 
@@ -357,7 +357,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &client_secret=sampleCredentia1s    // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
 
-| 매개 변수     | 형식           | Description        |
+| 매개 변수     | Type           | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | required     | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.   |
 | `client_id`     | required    | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |

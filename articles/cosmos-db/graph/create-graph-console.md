@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
 ms.author: mansha
-ms.openlocfilehash: ca2f0ffa8384cd908d479ec8f68a14459e4d4d9b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0fc2b11f924a5ae50cf1f6ae96f0ed82ab1813ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786516"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131041082"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -34,13 +34,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행됩니다. [Apache TinkerPop 사이트](https://tinkerpop.apache.org/downloads.html)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서 Azure Cosmos DB 계정을 만들려면 Azure 구독이 있어야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-또한 [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html)을 설치해야 합니다. **권장되는 버전 v3.4.3** 이하입니다. (Windows에서 Gremlin 콘솔을 사용하려면 [Java 런타임](https://www.oracle.com/technetwork/java/javase/overview/index.html)을 설치해야 합니다).
+또한 [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html)을 설치해야 합니다. **권장되는 버전 v3.4.3** 이하입니다. (Windows에서 Gremlin 콘솔을 사용하려면 [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)을 설치해야 합니다. 최소 Java 8이 필요하지만 Java 11을 사용하는 것이 좋습니다.)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 

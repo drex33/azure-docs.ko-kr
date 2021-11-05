@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 19ead7fe063992e95588641f7fd739081cf54a2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e037a1ba1ba3c0820321662d4f3feffa6dd2b35
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578416"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050625"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 API를 호출하는 디먼 앱 - 토큰 획득
 
@@ -65,7 +65,7 @@ MSAL Python에서 구성 파일은 다음 코드 조각과 같습니다.
 
 > [!IMPORTANT]
 > MSAL에서 버전 1.0 액세스 토큰을 허용하는 리소스에 대한 액세스 토큰을 요청하는 경우, Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 리소스 식별자로 사용하여 요청된 범위에서 원하는 대상 그룹을 구문 분석합니다.
-> 따라서 Azure SQL Database(**https:\//database.windows.net**)와 마찬가지로 리소스에는 슬래시(Azure SQL Database의 경우에는 `https://database.windows.net/`)로 끝나는 대상 그룹이 필요하므로 `https://database.windows.net//.default`의 범위를 요청해야 합니다. (이중 슬래시를 유의하세요.) 참고 항목: MSAL.NET 문제 [#747: 리소스 URL의 후행 슬래시가 생략되었으며 이로 인해 SQL 인증 실패가 발생했습니다](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> 따라서 Azure SQL Database(`https://database.windows.net`)와 같이 리소스가 슬래시로 끝나는 대상을 예상하는 경우(Azure SQL Database의 경우 `https://database.windows.net/`) `https://database.windows.net//.default` 범위를 요청해야 합니다. (이중 슬래시 참고) MSAL.NET 문제 [#747: `Resource url's trailing slash is omitted, which caused sql auth failure`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)도 참조하세요.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 

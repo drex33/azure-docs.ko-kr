@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: d46c09c582c6ea44b36dfb95e25c2d4b9f5c94cb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5674e27332d96a70fd1d2825dd4910dce11b861f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832860"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057018"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-sales-navigator"></a>자습서: LinkedIn Sales Navigator와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124832860"
 * 사용자가 해당 Azure AD 계정으로 LinkedIn Sales Navigator에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 텍스트 상자에 **엔터티 ID** 값을 입력합니다. 이 자습서의 뒷부분에 나오는 Linkedin 포털에서 엔터티 ID 값을 복사할 것입니다.
 
-    b. **회신 URL** 텍스트 상자에 **ACS(Assertion Consumer Access) Url** 값을 입력합니다. 이 자습서의 뒷부분에 나오는 Linkedin 포털에서 ACS(Assertion Consumer Access) Url 값을 복사할 것입니다.
+    b. **회신 URL** 텍스트 상자에 **ACS(Assertion Consumer Access) URL** 값을 입력합니다. 이 자습서의 뒷부분에 나오는 Linkedin 포털에서 ACS(Assertion Consumer Access) Url 값을 복사할 것입니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 

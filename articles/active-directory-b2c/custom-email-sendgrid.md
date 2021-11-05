@@ -3,21 +3,21 @@ title: SendGrid를 사용한 사용자 지정 이메일 확인
 titleSuffix: Azure AD B2C
 description: 고객이 Azure AD B2C 지원 애플리케이션을 사용하기 위해 등록할 때 고객에게 전송되는 확인 이메일을 사용자 지정하기 위해 SendGrid와 통합하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
-ms.author: mimart
+ms.date: 09/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: daee0bc89804b8fe72845c411224b689452fe7d2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 304b7056fda06e017be445b57a4b75aef6a17ffc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535517"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007422"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>SendGrid를 사용한 사용자 지정 이메일 확인
 
@@ -49,12 +49,13 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용
 다음으로, 정책이 참조할 SendGrid API 키를 Azure AD B2C 정책 키에 저장합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 에서 **수동** 을 선택합니다.
-1. 정책 키의 **이름** 을 입력합니다. `SendGridSecret`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `SendGridSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 1. **비밀** 에 이전에 기록한 SendGrid API 키를 입력합니다.
 1. **키 사용** 으로는 **서명** 을 선택합니다.
 1. **만들기** 를 선택합니다.
@@ -146,7 +147,6 @@ SendGrid 계정을 만들고 Azure AD B2C 정책 키에 SendGrid API 키를 저�
                        <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
                        <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
-
                        </td>
 
                        <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
@@ -206,6 +206,8 @@ JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims�
 
 * `template_id`InputParameter 값을 앞서 [SendGrid 템플릿 만들기](#create-sendgrid-template)에서 만든 SendGrid 트랜잭션 템플릿 ID로 업데이트합니다.
 * `from.email` 주소 값을 업데이트합니다. 확인 이메일이 스팸으로 표시되지 않도록 유효한 이메일 주소를 사용합니다.
+   > [!NOTE]
+   > 이 이메일 주소는 도메인 인증 또는 단일 보낸 사람 인증을 사용하여 보낸 사람 인증 아래의 SendGrid에서 확인되어야 합니다.
 * `personalizations.0.dynamic_template_data.subject` 제목 줄 입력 매개 변수의 값을 조직에 적절한 제목 줄로 업데이트합니다.
 
 ```xml
@@ -499,7 +501,7 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
 
 1. [ContentDefinitions](contentdefinitions.md) 요소를 업데이트하여 LocalizedResources 요소에 대한 참조를 추가합니다.
 
-    ```XML
+    ```xml
     <!--
     <BuildingBlocks> -->
       <ContentDefinitions>
@@ -524,17 +526,17 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
 
 1. 마지막으로 다음 입력 클레임 변환을 `LocalAccountSignUpWithLogonEmail` 및 `LocalAccountDiscoveryUsingEmailAddress` 기술 프로필에 추가합니다.
 
-    ```XML
+    ```xml
     <InputClaimsTransformations>
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
-    
+
 ## <a name="optional-localize-the-ui"></a>[선택 사항] UI 지역화
 
-Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로캘이나 언어를 지원할 수 있습니다. 정책의 지역화 지원을 통해 [확인 표시 컨트롤 사용자 인터페이스 요소](localization-string-ids.md#verification-display-control-user-interface-elements)와 [일회성 암호 오류 메시지](localization-string-ids.md#one-time-password-error-messages)에 대해 언어별 문자열을 제공할 수 있습니다. 다음 LocalizedString을 LocalizedResources에 추가합니다. 
+Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로캘이나 언어를 지원할 수 있습니다. 정책의 지역화 지원을 통해 [확인 표시 컨트롤 사용자 인터페이스 요소](localization-string-ids.md#verification-display-control-user-interface-elements)와 [일회성 암호 오류 메시지](localization-string-ids.md#one-time-password-error-messages)에 대해 언어별 문자열을 제공할 수 있습니다. 다음 LocalizedString을 LocalizedResources에 추가합니다.
 
-```XML
+```xml
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...

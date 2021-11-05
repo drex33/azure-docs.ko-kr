@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 5a8cbdc77a7570037645b350b62787aeaea7374f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dac1c67868fb99c59ee4bae73209132669188ae1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124821502"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443968"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>자습서: Sentry와 Azure Active Directory SSO(Single Sign-On) 통합
 

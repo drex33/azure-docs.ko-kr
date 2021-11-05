@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65623f4e37397cdb7a21060d238391e105a4b3fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91265394"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046302"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치
 Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD Connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 버전 SQL을 사용할 수 있습니다. 이전에 Azure AD Connect를 설치할 때 ADSync라는 새 데이터베이스가 항상 만들어졌습니다. Azure AD Connect 버전 1.1.613.0(이상)을 사용하면 기존 ADSync 데이터베이스에 연결하여 Azure AD Connect를 설치하는 옵션도 있습니다.

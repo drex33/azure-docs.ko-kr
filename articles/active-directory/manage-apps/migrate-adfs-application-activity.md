@@ -1,6 +1,7 @@
 ---
-title: 활동 보고서를 사용하여 AD FS 앱을 Azure Active Directory로 이동 | Microsoft Docs
+title: 활동 보고서를 사용하여 AD FS 앱을 Azure Active Directory로 이동
 description: AD FS(Active Directory Federation Services) 애플리케이션 활동 보고서를 사용하면 AD FS에서 Azure AD(Azure Active Directory)로 신속하게 애플리케이션을 마이그레이션할 수 있습니다. AD FS에 대한 이 마이그레이션 도구는 Azure AD와의 호환성을 식별하고 마이그레이션 지침을 제공합니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 01/14/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
-ms.openlocfilehash: 6b60479d1205acdd0d18311791adfc4924913c4e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 38b7137c130925ef7c8e9c127830c33f507b7642
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528807"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046264"
 ---
-# <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>AD FS 애플리케이션 활동 보고서를 사용하여 애플리케이션을 Azure AD로 마이그레이션
+# <a name="review-the-application-activity-report-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 작업 보고서를 검토 합니다.
 
 많은 조직에서 AD FS(Active Directory Federation Services)를 사용하여 클라우드 애플리케이션에 Single Sign-On을 제공합니다. 인증을 위해 AD FS 애플리케이션을 Azure AD로 이동하면 비용 관리, 위험 관리, 생산성, 규정 준수, 거버넌스 측면에서 특히 상당한 이점이 있습니다. 그러나 Azure AD와 호환되는 애플리케이션을 이해하고 특정 마이그레이션 단계를 식별하는 것은 시간이 오래 걸릴 수 있습니다.
 
@@ -80,8 +81,8 @@ AD FS 애플리케이션 작업 보고서는 Azure AD **사용량 & 인사이트
 |결과  |성공/경고/실패  |Description  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> AdditionalAuthentication에 대해 마이그레이션할 수 없는 하나 이상의 규칙이 검색되었습니다.       | 성공/경고          | 신뢰 당사자에게 MFA(Multi-Factor Authentication)를 요구하는 규칙이 있습니다. Azure AD로 이동하려면 이러한 규칙을 조건부 액세스 정책으로 변환합니다. 온-프레미스 MFA를 사용하는 경우 Azure AD MFA로 이동하는 것이 좋습니다. [조건부 액세스에 대해 자세히 알아봅니다](../authentication/concept-mfa-howitworks.md).        |
-|Test-ADFSRPAdditionalWSFedEndpoint <br> 신뢰 당사자가 AdditionalWSFedEndpoint를 true로 설정했습니다.       | 성공/실패          | AD FS 신뢰 당사자는 여러 WS-Fed 어설션 엔드포인트를 허용합니다.현재, Azure AD는 하나만 지원합니다.이 결과가 마이그레이션을 차단하는 시나리오가 발생하는 경우 [저희에게 알려주세요](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
-|Test-ADFSRPAllowedAuthenticationClassReferences <br> 신뢰 당사자가 AllowedAuthenticationClassReferences를 설정했습니다.       | 성공/실패          | AD FS에서 이 설정을 사용하면 애플리케이션이 특정 인증 유형만 허용하도록 구성되어 있는지 여부를 지정할 수 있습니다. 조건부 액세스를 사용하여 이 기능을 구현하는 것이 좋습니다. 이 결과가 마이그레이션을 차단하는 시나리오가 발생하는 경우 [저희에게 알려주세요](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication).  [조건부 액세스에 대해 자세히 알아봅니다](../authentication/concept-mfa-howitworks.md).          |
+|Test-ADFSRPAdditionalWSFedEndpoint <br> 신뢰 당사자가 AdditionalWSFedEndpoint를 true로 설정했습니다.       | 성공/실패          | AD FS 신뢰 당사자는 여러 WS-Fed 어설션 엔드포인트를 허용합니다.현재, Azure AD는 하나만 지원합니다.이 결과가 마이그레이션을 차단하는 시나리오가 발생하는 경우 [저희에게 알려주세요](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).     |
+|Test-ADFSRPAllowedAuthenticationClassReferences <br> 신뢰 당사자가 AllowedAuthenticationClassReferences를 설정했습니다.       | 성공/실패          | AD FS에서 이 설정을 사용하면 애플리케이션이 특정 인증 유형만 허용하도록 구성되어 있는지 여부를 지정할 수 있습니다. 조건부 액세스를 사용하여 이 기능을 구현하는 것이 좋습니다. 이 결과가 마이그레이션을 차단하는 시나리오가 발생하는 경우 [저희에게 알려주세요](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).  [조건부 액세스에 대해 자세히 알아보기](../authentication/concept-mfa-howitworks.md).         |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | 성공/실패          | AD FS에서 이 설정을 사용하면 애플리케이션이 SSO 쿠키를 무시하도록 구성되었는지 여부를 지정하고 **항상 인증 확인** 을 지정할 수 있습니다. Azure AD에서 조건부 액세스 정책을 통해 인증 세션을 관리하여 유사한 동작을 달성할 수 있습니다. [조건부 액세스를 사용하여 인증 세션 관리를 구성하는 방법에 대해 자세히 알아보세요](../conditional-access/howto-conditional-access-session-lifetime.md).          |
 |Test-ADFSRPAutoUpdateEnabled <br> 신뢰 당사자가 AutoUpdateEnabled를 true로 설정했습니다.       | 성공/경고          | AD FS에서 이 설정을 사용하면 AD FS를 페더레이션 메타데이터 내의 변경 내용에 따라 애플리케이션을 자동으로 업데이트하도록 구성할지 여부를 지정할 수 있습니다. Azure AD는 현재 이러한 구성을 지원하지 않지만 애플리케이션을 Azure AD로 마이그레이션하는 것을 차단하면 안 됩니다.           |
 |Test-ADFSRPClaimsProviderName <br> 신뢰 당사자가 여러 ClaimsProvider를 사용하도록 설정했습니다.       | 성공/실패          | 이 AD FS의 이 설정은 신뢰 당사자가 클레임을 수락하는 ID 공급자를 호출합니다. Azure AD에서는 Azure AD B2B를 사용하여 외부 공동 작업을 사용하도록 설정할 수 있습니다. [Azure AD B2B에 대해 자세히 알아봅니다](../external-identities/what-is-b2b.md).          |
@@ -92,7 +93,7 @@ AD FS 애플리케이션 작업 보고서는 Azure AD **사용량 & 인사이트
 |Test-ADFSRPMonitoringEnabled <br> 신뢰 당사자가 MonitoringEnabled를 true로 설정했습니다.       | 성공/경고          | AD FS에서 이 설정을 사용하면 AD FS를 페더레이션 메타데이터 내의 변경 내용에 따라 애플리케이션을 자동으로 업데이트하도록 구성할지 여부를 지정할 수 있습니다. Azure AD는 현재 이러한 구성을 지원하지 않지만 애플리케이션을 Azure AD로 마이그레이션하는 것을 차단하면 안 됩니다.           |
 |Test-ADFSRPNotBeforeSkew <br> NotBeforeSkewCheckResult      | 성공/경고          | AD FS는 SAML 토큰의 NotBefore 및 NotOnOrAfter 시간을 기준으로 시간차를 허용합니다. Azure AD에서는 기본적으로 이 기능이 처리됩니다.          |
 |Test-ADFSRPRequestMFAFromClaimsProviders <br> 신뢰 당사자가 RequestMFAFromClaimsProviders를 true로 설정했습니다.       | 성공/경고          | AD FS의 이 설정은 사용자가 다른 클레임 공급자에서 온 경우 MFA에 대한 동작을 결정합니다. Azure AD에서는 Azure AD B2B를 사용하여 외부 공동 작업을 사용하도록 설정할 수 있습니다. 그런 다음, 조건부 액세스 정책을 적용하여 게스트 액세스를 보호할 수 있습니다. [Azure AD B2B](../external-identities/what-is-b2b.md) 및 [조건부 액세스](../conditional-access/overview.md)에 대해 자세히 알아봅니다.          |
-|Test-ADFSRPSignedSamlRequestsRequired <br> 신뢰 당사자가 SignedSamlRequestsRequired를 true로 설정했습니다.       | 성공/실패          | 애플리케이션은 SAML 요청에서 서명을 확인하도록 AD FS에서 구성됩니다. Azure AD는 서명된 SAML 요청을 수락합니다. 그러나 서명을 확인하지 않습니다. Azure AD에는 악의적인 호출로부터 보호하는 여러 방법이 있습니다. 예를 들어, Azure AD는 애플리케이션에 구성된 회신 URL을 사용하여 SAML 요청의 유효성을 검사합니다. Azure AD는 애플리케이션에 대해 구성된 회신 URL에만 토큰을 보냅니다. 이 결과가 마이그레이션을 차단하는 시나리오가 발생하는 경우 [저희에게 알려주세요](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13394589-saml-signature).          |
+|Test-ADFSRPSignedSamlRequestsRequired <br> 신뢰 당사자가 SignedSamlRequestsRequired를 true로 설정했습니다.       | 성공/실패          | 애플리케이션은 SAML 요청에서 서명을 확인하도록 AD FS에서 구성됩니다. Azure AD는 서명된 SAML 요청을 수락합니다. 그러나 서명을 확인하지 않습니다. Azure AD에는 악의적인 호출로부터 보호하는 여러 방법이 있습니다. 예를 들어, Azure AD는 애플리케이션에 구성된 회신 URL을 사용하여 SAML 요청의 유효성을 검사합니다. Azure AD는 애플리케이션에 대해 구성된 회신 URL에만 토큰을 보냅니다. 이 결과가 마이그레이션을 차단하는 시나리오가 발생하는 경우 [저희에게 알려주세요](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).          |
 |Test-ADFSRPTokenLifetime <br> TokenLifetimeCheckResult        | 성공/경고         | 애플리케이션은 사용자 지정 토큰 수명에 대해 구성됩니다. AD FS 기본값은 1시간입니다.Azure AD는 조건부 액세스와 함께 이 기능을 지원합니다. 자세히 알아보려면 [조건부 액세스를 사용하여 인증 세션 관리 구성](../conditional-access/howto-conditional-access-session-lifetime.md)을 참조하세요.          |
 |신뢰 당사자가 클레임을 암호화하도록 설정되어 있습니다. Azure AD에서 지원됩니다.       | 합격          | Azure AD를 사용하여 애플리케이션에 전송된 토큰을 암호화할 수 있습니다. 자세히 알아보려면 [Azure AD SAML 토큰 암호화 구성](./howto-saml-token-encryption.md)을 참조하세요.          |
 |EncryptedNameIdRequiredCheckResult      | 성공/실패          | 애플리케이션은 SAML 토큰의 nameID 클레임을 암호화하도록 구성됩니다.Azure AD를 사용하여 애플리케이션에 전송된 전체 토큰을 암호화할 수 있습니다.특정 클레임의 암호화는 아직 지원되지 않습니다. 자세히 알아보려면 [Azure AD SAML 토큰 암호화 구성](./howto-saml-token-encryption.md)을 참조하세요.         |
@@ -118,10 +119,10 @@ AD FS에서 애플리케이션에 대한 클레임 규칙을 구성한 경우 �
 |UNSUPPORTED_CONDITION_PARAMETER      | 조건문은 정규식을 사용하여 클레임이 특정 패턴과 일치하는지 여부를 평가합니다.Azure AD에서 유사한 기능을 얻기 위해 IfEmpty(), StartWith(), Contains() 등의 미리 정의된 변환을 사용할 수 있습니다. 자세한 내용은 [엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.          |
 |UNSUPPORTED_CONDITION_CLASS      | 조건문에는 발급 문을 실행하기 전에 평가해야 하는 여러 조건이 있습니다.Azure AD는 클레임의 변환 함수를 사용하여 이 기능을 지원합니다. 이 변환 함수에서는 여러 클레임 값을 평가할 수 있습니다.자세한 내용은 [엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.          |
 |UNSUPPORTED_RULE_TYPE      | 클레임 규칙을 인식할 수 없습니다. Azure AD에서 클레임을 구성하는 방법에 대한 자세한 내용은 [엔터프라이즈 애플리케이션에 대해 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.          |
-|CONDITION_MATCHES_UNSUPPORTED_ISSUER      | 조건문이 Azure AD에서 지원되지 않는 발급자를 사용합니다.현재 Azure AD는 Active Directory 또는 Azure AD와 다른 저장소의 클레임을 제공하지 않습니다. 이로 인해 애플리케이션을 Azure AD로 마이그레이션하지 못할 경우 [저희에게 알려주세요](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).         |
+|CONDITION_MATCHES_UNSUPPORTED_ISSUER      | 조건문이 Azure AD에서 지원되지 않는 발급자를 사용합니다.현재 Azure AD는 Active Directory 또는 Azure AD와 다른 저장소의 클레임을 제공하지 않습니다. 이로 인해 애플리케이션을 Azure AD로 마이그레이션하지 못할 경우 [저희에게 알려주세요](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).         |
 |UNSUPPORTED_CONDITION_FUNCTION      | 조건문은 집계 함수를 사용하여 일치하는 항목 수에 관계 없이 단일 클레임을 발급하거나 추가합니다.Azure AD에서는 사용자의 특성을 평가하여 IfEmpty(), StartWith(), Contains() 등의 함수를 사용하여 클레임에 사용할 값을 결정할 수 있습니다.자세한 내용은 [엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.          |
 |RESTRICTED_CLAIM_ISSUED      | 조건문은 Azure AD에서 제한된 클레임을 사용합니다. 제한된 클레임을 발급할 수 있지만 원본을 수정하거나 변환을 적용할 수 없습니다. 자세한 내용은 [Azure AD의 특정 앱에 대한 토큰에서 내보낸 클레임 사용자 지정](../develop/active-directory-claims-mapping.md)을 참조하세요.          |
-|EXTERNAL_ATTRIBUTE_STORE      | 발급문에서 Active Directory와는 다른 특성 저장소를 사용합니다. 현재 Azure AD는 Active Directory 또는 Azure AD와 다른 저장소의 클레임을 제공하지 않습니다. 이 결과로 인해 애플리케이션을 Azure AD로 마이그레이션하지 못할 경우 [저희에게 알려주세요](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
+|EXTERNAL_ATTRIBUTE_STORE      | 발급문에서 Active Directory와는 다른 특성 저장소를 사용합니다. 현재 Azure AD는 Active Directory 또는 Azure AD와 다른 저장소의 클레임을 제공하지 않습니다. 이 결과로 인해 애플리케이션을 Azure AD로 마이그레이션하지 못할 경우 [저희에게 알려주세요](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).          |
 |UNSUPPORTED_ISSUANCE_CLASS      | 발급문은 ADD를 사용하여 들어오는 클레임 세트에 클레임을 추가합니다. Azure AD에서는 여러 클레임 변환으로 구성될 수 있습니다.자세한 내용은 [엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-claims-mapping.md)을 참조하세요.         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | 발급문은 정규식을 사용하여 내보낼 클레임 값을 변환합니다.Azure AD에서 유사한 기능을 얻기 위해 Extract(), Trim(), ToLower 등의 미리 정의된 변환을 사용할 수 있습니다. 자세한 내용은 [엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.          |
 

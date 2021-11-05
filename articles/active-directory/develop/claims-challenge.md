@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: nichola
 ms.reviewer: kkrishna, kylemar
-ms.openlocfilehash: abce87c8d5c5d88c9edd1303f0a585aa773d2ec8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6d1998673b3295129c494b4568e1ba6313984898
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471384"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067256"
 ---
 # <a name="claims-challenges-claims-requests-and-client-capabilities"></a>클레임 챌린지, 클레임 요청 및 클라이언트 기능
 
@@ -78,7 +78,7 @@ claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22va
 클레임 매개 변수를 채우려면 개발자는 다음을 수행해야 합니다.
 
 1. 이전에 받은 base64 문자열을 디코딩합니다.
-2. URL에서 문자열을 인코딩하고 **클레임** 매개 변수에 다시 추가합니다.
+2. URL-문자열을 인코딩하고 **클레임** 매개 변수에 다시 추가합니다.
 
 이 흐름이 완료되면 애플리케이션은 사용자가 필요한 조건을 충족했음을 증명하는 추가 클레임이 있는 액세스 토큰을 수신하게 됩니다.
 

@@ -99,6 +99,23 @@ conceptualContent:
       footerLink:
         url: management/index.yml
         text: 자세한 내용
+    - title: 배포 문제 해결
+      links:
+        - url: troubleshooting/overview.md
+          itemType: overview
+          text: 개요
+        - url: troubleshooting/common-deployment-errors.md
+          itemType: how-to-guide
+          text: 일반적인 배포 오류
+        - url: troubleshooting/quickstart-troubleshoot-arm-deployment.md
+          itemType: quickstart
+          text: ARM 템플릿 문제 해결
+        - url: troubleshooting/quickstart-troubleshoot-bicep-deployment.md
+          itemType: quickstart
+          text: Bicep 파일 문제 해결
+      footerLink:
+        url: troubleshooting/index.yml
+        text: 자세한 내용
     - title: Managed Applications
       links:
         - url: managed-applications/overview.md

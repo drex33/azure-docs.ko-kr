@@ -12,12 +12,12 @@ ms.date: 07/8/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: saumadan, marsma
-ms.openlocfilehash: 55633a1a3a6f4377abbfc413d866af031f57a31c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cd03531e35d51bafeceb2df913e17fc4814e911c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567045"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050580"
 ---
 # <a name="azure-ad-application-registration-security-best-practices"></a>Azure AD 애플리케이션 등록 보안 모범 사례
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory) 애플리케이션 등록은 비즈니스 애�
 
 애플리케이션의 리디렉션 URI를 최신 상태로 유지하는 것이 중요합니다. 리디렉션 URI 중 하나의 소유권이 상실되면 애플리케이션이 손상될 수 있습니다. 모든 DNS 레코드가 업데이트되고 변경 사항에 대해 주기적으로 모니터링되는지 확인합니다. 모든 URI의 소유권을 유지하는 것과 함께 와일드카드 회신 URL이나 http 또는 URN과 같은 안전하지 않은 URI 체계를 사용하지 마세요.
 
-![리디렉션 URI](media/active-directory-application-registration-best-practices/redirect-uri.png)
+![redirect_uri](media/active-directory-application-registration-best-practices/redirect-uri.png)
 
 ### <a name="redirect-uri-summary"></a>리디렉션 URI 요약
 
@@ -83,15 +83,9 @@ Azure AD(Azure Active Directory) 애플리케이션 등록은 비즈니스 애�
 ## <a name="appid-uri-configuration"></a>AppId URI 구성
 
 특정 애플리케이션은 WebAPI를 통해 리소스를 노출할 수 있으므로 테넌트의 리소스를 고유하게 식별하는 AppId URI를 정의해야 합니다. API 또는 https URI 체계 중 하나를 사용하고 조직에서 URI 충돌을 방지하기 위해 AppId URI를 다음 형식으로 설정하는 것이 좋습니다.
+AppId URI는 API 코드에서 참조되는 범위에 대한 접두사 역할을 하며 확인된 고객 소유 도메인을 사용해야 합니다. 다중 테넌트 애플리케이션의 경우에는 값도 전역적으로 고유해야 합니다.
 
-**유효한 API 체계:**
-
-- api:// _{appId}_
-- api:// _{tenantId}/{appId}_
-- api:// _{tenantId}/{string}_
-- https:// _{verifiedCustomerDomain}/{string}_
-- https:// _{string}.{verifiedCustomerDomain}_
-- https:// _{string}.{verifiedCustomerDomain}/{string}_
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 ![애플리케이션 ID URI](media/active-directory-application-registration-best-practices/app-id-uri.png)
 
@@ -102,6 +96,7 @@ Azure AD(Azure Active Directory) 애플리케이션 등록은 비즈니스 애�
 | 유효한 URI 형식을 사용하여 충돌을 방지합니다. | 와일드카드 AppId URI 사용 |
 | LoB(기간 업무) 앱에서 확인된 도메인 사용 | 잘못된 URI    |
 | AppId URI 인벤토리 구축                    |      -----             |
+| AppId URI를 사용하여 조직에 WebApi 노출| AppId URI를 사용하여 애플리케이션을 식별하고 대신 appId 속성을 사용합니다.|
 
 ## <a name="app-ownership-configuration"></a>앱 소유권 구성
 

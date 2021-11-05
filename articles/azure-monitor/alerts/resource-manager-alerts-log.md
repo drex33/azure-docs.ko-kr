@@ -5,206 +5,19 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2021
-ms.openlocfilehash: 0da91eedca9bbe1d44e129bf3d3e9574524b8f65
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: c170c3076784f8f5e0559032964b8df5233c623c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687536"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079285"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Azure Monitor의 로그 경고 규칙에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 로그 쿼리 경로를 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-## <a name="number-of-results-template-up-to-version-2018-04-16"></a>결과 템플릿 수(버전 2018-04-16까지)
-다음 샘플에서는 [결과 수 경고 규칙](../alerts/alerts-unified-log.md#count-of-the-results-table-rows)을 만듭니다.
-
-### <a name="notes"></a>메모
-
-- 이 샘플에는 [웹후크 페이로드](../alerts/alerts-log-webhook.md)가 포함되어 있습니다. 경고 규칙에서 웹후크를 트리거하지 않아야 하는 경우 **customWebhookPayload** 요소를 제거합니다.
-
-### <a name="template-file"></a>템플릿 파일
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sourceId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Resource ID of the Log Analytics workspace."
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Location for the alert. Must be the same location as the workspace."
-            }
-        },
-        "actionGroupId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The ID of the action group that is triggered when the alert is activated."
-            }
-        }
-    },
-    "resources":[ 
-        {
-            "type":"Microsoft.Insights/scheduledQueryRules",
-            "name":"Sample log query alert",
-            "apiVersion": "2018-04-16",
-            "location": "[parameters('location')]",
-            "properties":{
-                "description": "Sample log query alert",
-                "enabled": "true",
-                "source": {
-                    "query": "Event | where EventLevelName == \"Error\" | summarize count() by Computer",
-                    "dataSourceId": "[parameters('sourceId')]",
-                    "queryType":"ResultCount"
-                },
-                "schedule":{
-                    "frequencyInMinutes": 15,
-                    "timeWindowInMinutes": 60
-                },
-                "action":{
-                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                    "severity": "4",
-                    "aznsAction":{
-                        "actionGroup": "[array(parameters('actionGroupId'))]",
-                        "emailSubject": "Alert mail subject",
-                        "customWebhookPayload":"{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
-                    },
-                    "trigger":{
-                        "thresholdOperator": "GreaterThan",
-                        "threshold": 1
-                    }
-                }
-            }
-        }
-    ]
-}
-```
-
-### <a name="parameter-file"></a>매개 변수 파일
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "sourceId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
-      },
-      "location": {
-        "value": "westus"
-      },
-      "actionGroupId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
-      }
-  }
-}
-```
-
-## <a name="metric-measurement-template-up-to-version-2018-04-16"></a>메트릭 측정 템플릿(버전 2018-04-16까지)
-다음 샘플에서는 [메트릭 측정 경고 규칙](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value)을 만듭니다.
-
-### <a name="template-file"></a>템플릿 파일
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sourceId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Resource ID of the Log Analytics workspace."
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Location for the alert. Must be the same location as the workspace."
-            }
-        },
-        "actionGroupId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The ID of the action group that is triggered when the alert is activated."
-            }
-        }
-    },
-    "resources":[ 
-        {
-            "type":"Microsoft.Insights/scheduledQueryRules",
-            "name":"Sample metric measurement log query alert",
-            "apiVersion": "2018-04-16",
-            "location": "[parameters('location')]",
-            "properties":{
-                "description": "Sample metric measurement query alert rule",
-                "enabled": "true",
-                "source": {
-                    "query": "Event | where EventLevelName == \"Error\" | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Computer",
-                    "dataSourceId": "[parameters('sourceId')]",
-                    "queryType":"ResultCount"
-                },
-                "schedule":{
-                    "frequencyInMinutes": 15,
-                    "timeWindowInMinutes": 60
-                },
-                "action":{
-                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                    "severity": "4",
-                    "aznsAction":{
-                        "actionGroup": "[array(parameters('actionGroupId'))]",
-                        "emailSubject": "Alert mail subject"
-                    },
-                    "trigger":{
-                        "thresholdOperator": "GreaterThan",
-                        "threshold": 10,
-                        "metricTrigger":{
-                            "thresholdOperator": "Equal",
-                            "threshold": 1,
-                            "metricTriggerType": "Consecutive",
-                            "metricColumn": "Computer"
-                        }
-                    }
-                }
-            }
-        }
-    ]
-}
-```
-
-### <a name="parameter-file"></a>매개 변수 파일
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "sourceId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
-      },
-      "location": {
-        "value": "westus"
-      },
-      "actionGroupId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
-      }
-  }
-}
-```
-
-## <a name="template-for-all-resource-types-from-version-2021-02-01-preview"></a>모든 리소스 종류에 대한 템플릿(버전 2021-02-01-preview)
+## <a name="template-for-all-resource-types-from-version-2021-08-01"></a>모든 리소스 종류에 대한 템플릿(버전 2021-08-01)
 다음 샘플에서는 모든 리소스를 대상으로 지정할 수 있는 규칙을 만듭니다.
 
 ```json
@@ -404,7 +217,7 @@ ms.locfileid: "113687536"
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2021-02-01-preview",
+            "apiVersion": "2021-08-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -490,6 +303,193 @@ ms.locfileid: "113687536"
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group"
         }
     }
+}
+```
+
+## <a name="number-of-results-template-up-to-version-2018-04-16"></a>결과 템플릿 수(버전 2018-04-16까지)
+다음 샘플에서는 [결과 수 경고 규칙](../alerts/alerts-unified-log.md#count-of-the-results-table-rows)을 만듭니다.
+
+### <a name="notes"></a>메모
+
+- 이 샘플에는 [웹후크 페이로드](../alerts/alerts-log-webhook.md)가 포함되어 있습니다. 경고 규칙에서 웹후크를 트리거하지 않아야 하는 경우 **customWebhookPayload** 요소를 제거합니다.
+
+### <a name="template-file"></a>템플릿 파일
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the Log Analytics workspace."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Location for the alert. Must be the same location as the workspace."
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated."
+            }
+        }
+    },
+    "resources":[
+        {
+            "type":"Microsoft.Insights/scheduledQueryRules",
+            "name":"Sample log query alert",
+            "apiVersion": "2018-04-16",
+            "location": "[parameters('location')]",
+            "properties":{
+                "description": "Sample log query alert",
+                "enabled": "true",
+                "source": {
+                    "query": "Event | where EventLevelName == \"Error\" | summarize count() by Computer",
+                    "dataSourceId": "[parameters('sourceId')]",
+                    "queryType":"ResultCount"
+                },
+                "schedule":{
+                    "frequencyInMinutes": 15,
+                    "timeWindowInMinutes": 60
+                },
+                "action":{
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                    "severity": "4",
+                    "aznsAction":{
+                        "actionGroup": "[array(parameters('actionGroupId'))]",
+                        "emailSubject": "Alert mail subject",
+                        "customWebhookPayload":"{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+                    },
+                    "trigger":{
+                        "thresholdOperator": "GreaterThan",
+                        "threshold": 1
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>매개 변수 파일
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "sourceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
+      },
+      "location": {
+        "value": "westus"
+      },
+      "actionGroupId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
+      }
+  }
+}
+```
+
+## <a name="metric-measurement-template-up-to-version-2018-04-16"></a>메트릭 측정 템플릿(버전 2018-04-16까지)
+다음 샘플에서는 [메트릭 측정 경고 규칙](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value)을 만듭니다.
+
+### <a name="template-file"></a>템플릿 파일
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the Log Analytics workspace."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Location for the alert. Must be the same location as the workspace."
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated."
+            }
+        }
+    },
+    "resources":[
+        {
+            "type":"Microsoft.Insights/scheduledQueryRules",
+            "name":"Sample metric measurement log query alert",
+            "apiVersion": "2018-04-16",
+            "location": "[parameters('location')]",
+            "properties":{
+                "description": "Sample metric measurement query alert rule",
+                "enabled": "true",
+                "source": {
+                    "query": "Event | where EventLevelName == \"Error\" | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Computer",
+                    "dataSourceId": "[parameters('sourceId')]",
+                    "queryType":"ResultCount"
+                },
+                "schedule":{
+                    "frequencyInMinutes": 15,
+                    "timeWindowInMinutes": 60
+                },
+                "action":{
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                    "severity": "4",
+                    "aznsAction":{
+                        "actionGroup": "[array(parameters('actionGroupId'))]",
+                        "emailSubject": "Alert mail subject"
+                    },
+                    "trigger":{
+                        "thresholdOperator": "GreaterThan",
+                        "threshold": 10,
+                        "metricTrigger":{
+                            "thresholdOperator": "Equal",
+                            "threshold": 1,
+                            "metricTriggerType": "Consecutive",
+                            "metricColumn": "Computer"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>매개 변수 파일
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "sourceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
+      },
+      "location": {
+        "value": "westus"
+      },
+      "actionGroupId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
+      }
+  }
 }
 ```
 

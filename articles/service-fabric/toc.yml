@@ -136,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: Architecture
+    - name: 아키텍처
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -402,6 +402,12 @@
       items:
         - name: 관리형 클러스터 구성
           href: how-to-managed-cluster-configuration.md
+        - name: 관리형 클러스터에 연결
+          href: how-to-managed-cluster-connect.md
+        - name: 관리형 클러스터에서 자동 확장 구성
+          href: how-to-managed-cluster-autoscale.md
+        - name: 관리형 클러스터에서 노드 유형 구성
+          href: how-to-managed-cluster-modify-node-type.md
         - name: 관리형 클러스터 노드 형식에 VM 확장 집합 확장 추가
           href: how-to-managed-cluster-vmss-extension.md
         - name: 관리형 클러스터 네트워크 설정 구성
@@ -498,6 +504,8 @@
                   href: service-fabric-cross-availability-zones.md
                 - name: 상태 비저장 노드 유형을 사용하여 Azure Service Fabric 클러스터 배포
                   href: service-fabric-stateless-node-types.md
+                - name: 관리되는 데이터 디스크를 사용하여 Azure Service Fabric 클러스터 배포
+                  href: service-fabric-managed-disk.md
                 - name: Azure Active Directory 인증 설정
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: 사용자 지정 클러스터 템플릿 만들기

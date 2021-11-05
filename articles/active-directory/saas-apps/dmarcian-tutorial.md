@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 67dfcb774faf966dc54c150dbaf60e6cebf719ac
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a7bc336c84c1f992482dc8b8b6a841533a9dd58e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124770342"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068040"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>자습서: Azure Active Directory와 dmarcian 통합
 
@@ -68,45 +68,45 @@ dmarcian에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 **dmarcian** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On** 을 선택합니다.
+
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    1. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | **식별자** |
-    |-----|
-    | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    
+       | **식별자** |
+       |-----|
+       | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+       | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+       | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | **회신 URL** |
-    |----|
-    | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
-   
+       | **회신 URL** |
+       |----|
+       | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
+       | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
+       | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-    
+
     | **로그온 URL** |
     |-----|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
     | `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
     | `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
-     
+
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 식별자, 응답 URL 및 로그온 URL로 이 값을 업데이트하게 됩니다.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
@@ -158,20 +158,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![인증](./media/dmarcian-tutorial/status.png)
 
-    a. **ID 공급자에 dmarcian 추가** 섹션 아래에서 **복사** 를 클릭하여 인스턴스에 대한 **Assertion Consumer Service URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
+    1. **ID 공급자에 dmarcian 추가** 섹션 아래에서 **복사** 를 클릭하여 인스턴스에 대한 **Assertion Consumer Service URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    b. **ID 공급자에 dmarcian 추가** 섹션에서 **복사** 를 클릭하여 인스턴스에 대한 **엔터티 ID** 를 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
+    1. **ID 공급자에 dmarcian 추가** 섹션에서 **복사** 를 클릭하여 인스턴스에 대한 **엔터티 ID** 를 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
 
-    c. **인증 설정** 섹션의 **Identity Provider Metadata** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 을 붙여넣습니다.
+    1. **인증 설정** 섹션의 **ID 공급자 메타데이터** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 을 붙여넣습니다.
 
-    d. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` URL을 **인증 설정** 섹션 아래의 **특성 문** 텍스트 상자에 붙여넣습니다.
+    1. **인증 설정** 섹션의 **특성 문** 텍스트 상자에 이 URL을 붙여넣습니다.
+    
+       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    e. **로그인 URL 설정** 섹션 아래에서 인스턴스에 대한 **로그인 URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
+    1. **로그인 URL 설정** 섹션 아래에서 인스턴스에 대한 **로그인 URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
-    > [!Note]
-    > 조직에 따라 **로그인 URL** 을 수정할 수 있습니다.
+       > [!NOTE]
+       > 조직에 따라 **로그인 URL** 을 수정할 수 있습니다.
 
-    f. **저장** 을 클릭합니다.
+    1. **저장** 을 클릭합니다.
 
 ### <a name="create-dmarcian-test-user"></a>dmarcian 테스트 사용자 만들기
 
@@ -193,11 +195,11 @@ Azure AD 사용자가 dmarcian에 로그인할 수 있도록 하려면 dmarcian�
 
     ![새 사용자](./media/dmarcian-tutorial/save-user.png)
 
-    a. **새 사용자 이메일** 텍스트 상자에 사용자의 메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
+    1. **새 사용자 이메일** 텍스트 상자에 `brittasimon@contoso.com`와(과) 같은 사용자 이메일을 입력합니다.
 
-    b. 사용자에게 관리자 권한을 부여하려는 경우 **사용자를 관리자로 지정** 을 선택합니다.
+    1. 사용자에게 관리자 권한을 부여하려는 경우 **사용자를 관리자로 지정** 을 선택합니다.
 
-    다. **사용자 추가** 를 클릭합니다.
+    1. **사용자 추가** 를 클릭합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/27/2019
-ms.openlocfilehash: 534aa867ed763292ad36b74dd500eca77e5c2559
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5552faa01df1fd21af75c638549770c737920d9d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161698"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031445"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>자습서: 장애 조치(failover) 그룹에 SQL Managed Instance 추가
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -985,7 +985,7 @@ Azure Portal을 사용하여 장애 조치(failover) 그룹을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL** 을 선택합니다. **Azure SQL** 이 목록에 없는 경우 **모든 서비스** 를 선택한 다음, 검색 상자에 `Azure SQL`을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 첫 번째 섹션에서 만든 기본 관리형 인스턴스를 선택합니다(예: `sql-mi-primary`). 
-1. **설정** 에서 **인스턴스 장애 조치(Failover) 그룹** 으로 이동한 다음, **그룹 추가** 를 선택하여 **인스턴스 장애 조치(Failover) 그룹** 페이지를 엽니다. 
+1. **데이터 관리** 에서 **장애 조치(failover) 그룹** 으로 이동한 다음 **그룹 추가** 를 선택하여 **인스턴스 장애 조치(failover) 그룹** 페이지를 엽니다. 
 
    ![장애 조치(failover) 그룹 추가](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 

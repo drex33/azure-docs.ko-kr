@@ -11,12 +11,12 @@ ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5053bd0c3d63b13b1021476a09dca39dd08f581
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff64e9778b035d43a7502fcf416ffe037ff54ffa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108760"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057612"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 동기화 
 
@@ -35,7 +35,7 @@ ms.locfileid: "105108760"
 
 4. 이는 고급 시나리오입니다. 이 자습서에서 설명하는 단계를 정확히 수행해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 이 자습서를 완료하는 데 필요한 필수 구성 요소입니다.
 - Azure AD Connect 동기화 버전 1.4.32.0 이상인 테스트 환경
 - 동기화 범위에 속하고 파일럿 테스트에 사용할 수 있는 OU 또는 그룹. 작은 개체 세트로 시작하는 것이 좋습니다.
@@ -201,7 +201,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 >[!NOTE] 
 >Azure AD Connect 동기화에 대한 사용자 지정 스케줄러를 실행하는 경우 스케줄러를 사용하도록 설정하세요. 
 
-스케줄러를 사용하도록 설정하면 Azure AD Connect는 참조 특성(예: 관리자)이 업데이트되지 않는 한 메타버스의 `cloudNoFlow=true`를 사용하여 개체에 대한 변경 내용 내보내기를 중지합니다. 개체에 대한 참조 특성 업데이트가 있는 경우 Azure AD Connect는 `cloudNoFlow` 신호를 무시하고 개체에 대한 모든 업데이트를 내보냅니다.
+스케줄러가 사용하도록 설정되면 Azure AD Connect는 참조 특성(예: `manager`)이 업데이트되지 않는 한 메타버스의 `cloudNoFlow=true`를 사용하여 개체의 변경 내용 내보내기를 중지합니다. 개체에 대한 참조 특성 업데이트가 있는 경우 Azure AD Connect는 `cloudNoFlow` 신호를 무시하고 개체에 대한 모든 업데이트를 내보냅니다.
 
 ## <a name="something-went-wrong"></a>문제가 발생한 경우
 파일럿 테스트가 예상대로 작동하지 않는 경우 아래 단계에 따라 Azure AD Connect 동기화 설정으로 돌아갈 수 있습니다.

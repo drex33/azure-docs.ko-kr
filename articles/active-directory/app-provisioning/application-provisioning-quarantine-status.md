@@ -3,7 +3,7 @@ title: Azure Active Directory 애플리케이션 프로비저닝의 격리 상�
 description: 자동 사용자 프로비저닝을 위해 애플리케이션을 구성한 경우 격리의 프로비저닝 상태의 의미와 이러한 상태를 지우는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c3cdf8ab99506afd644d59fa8e74ed59fa1af853
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 93b00212bda4f02b6a31c151856639b1f461cac1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783174"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050834"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 애플리케이션 프로비저닝
 
@@ -30,7 +30,7 @@ Azure AD 프로비저닝 서비스는 구성의 상태를 모니터링합니다.
 ## <a name="how-do-i-know-if-my-application-is-in-quarantine"></a>애플리케이션이 격리 상태인지 확인하려면 어떻게 하나요?
 
 애플리케이션이 격리되어 있는지 여부를 확인하는 방법에는 다음 세 가지가 있습니다.
-  
+
 - Azure Portal에서 **Azure Active Directory** > **엔터프라이즈 애플리케이션** > &lt;*애플리케이션 이름*&gt; > **프로비저닝** 으로 이동하고, 격리 메시지의 진행률 표시줄을 검토합니다.   
 
   ![격리 상태를 보여 주는 프로비저닝 상태 표시줄](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
@@ -88,7 +88,7 @@ Azure AD 프로비저닝 서비스는 구성의 상태를 모니터링합니다.
 - Azure Portal를 사용하여 프로비저닝 작업을 다시 시작합니다. 애플리케이션의 **프로비저닝** 페이지에서 **프로비저닝 다시 시작** 을 선택합니다. 이 작업은 프로비저닝 서비스를 완전히 다시 시작하며, 이 작업은 다소 시간이 걸릴 수 있습니다. 에스크로를 지우고, 격리에서 앱을 제거하고, 모든 워터마크를 지우는 전체 초기 주기가 다시 실행됩니다. 그러면 서비스는 원본 시스템의 모든 사용자를 다시 평가하고 프로비저닝 범위에 있는지 확인합니다. 이 문서에 나와 있는 것처럼 이 서비스는 애플리케이션이 현재 격리 중이거나 특성 매핑을 변경해야 하는 경우에 유용할 수 있습니다. 계산해야 하는 개체의 수 때문에 초기 주기는 일반적인 증분 주기보다 완료하는 데 더 오래 걸립니다. [여기](application-provisioning-when-will-provisioning-finish-specific-user.md)에서 초기 및 증분 주기의 성능에 대해 자세히 알아볼 수 있습니다.
 
 - Microsoft Graph를 사용하여 [프로비저닝 작업을 다시 시작](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true)합니다. 다시 시작하는 작업을 완전히 제어할 수 있습니다. 에스크로를 지우거나(격리 상태를 적용하는 에스크로 카운터 다시 시작), 격리를 지우거나(격리에서 애플리케이션 제거), 워터마크를 지우도록 선택할 수 있습니다. 다음 요청을 사용합니다.
- 
+
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```

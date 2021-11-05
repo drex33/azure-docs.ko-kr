@@ -13,12 +13,12 @@ ms.date: 08/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 11642480ac817b50d102e396b8ab5e200948a615
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04194dc73b7c91bd1e59140a032232246b72420e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199558"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052711"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>MSAL.NET를 사용하는 Xamarin Android의 구성 요구 사항 및 문제 해결 팁
 
@@ -129,7 +129,7 @@ XML 파일의 값을 나타내는 클래스의 예제는 다음과 같습니다.
 </activity>
 ```
 
-`android:host=` 값을 Azure Portal에서 등록한 패키지 이름으로 바꿉니다. `android:path=` 값을 Azure Portal에서 등록한 키 해시로 바꿉니다. 서명 해시는 URL로 인코딩되면 *안 됩니다*. 선행 슬래시(`/`)가 서명 해시의 시작 부분에 표시되는지 확인합니다.
+`android:host=` 값을 Azure Portal에서 등록한 패키지 이름으로 바꿉니다. `android:path=` 값을 Azure Portal에서 등록한 키 해시로 바꿉니다. 서명 해시는 URL로 인코딩되면 **안 됩니다**. 선행 슬래시(`/`)가 서명 해시의 시작 부분에 표시되는지 확인합니다.
 
 ### <a name="xamarinforms-43x-manifest"></a>Xamarin.Forms 4.3.x 매니페스트
 

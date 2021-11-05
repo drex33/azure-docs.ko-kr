@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: dc1cf6a9a250b64b84cacbcf300183b913144b45
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 4d5b00526219b0a4ade24b7522ea4826236fd70e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180168"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057764"
 ---
 # <a name="tutorial-deploy-and-walkthrough-the-continuous-patient-monitoring-app-template"></a>자습서: 지속적인 환자 모니터링 앱 템플릿 배포 및 연습
 
@@ -25,7 +25,7 @@ ms.locfileid: "122180168"
 
 ## <a name="mobile-phone-gateway"></a>휴대폰 게이트웨이
 
-휴대폰 애플리케이션의 기본 기능은 의료 디바이스에서 BLE 데이터를 수집하여 IoT Central에 전달하는 것입니다. 이 앱은 디바이스 설정을 통해 환자를 안내하고 개인 상태 데이터를 볼 수 있도록 합니다. 다른 솔루션은 병실에 있는 태블릿 게이트웨이 또는 정적 게이트웨이를 사용할 수 있습니다. Android 및 iOS용 오픈 소스 샘플 모바일 애플리케이션을 애플리케이션 개발의 출발점으로 사용할 수 있습니다. 자세한 내용은 [IoT Central Continuous Patient Monitoring 모바일 앱](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/)을 참조하세요.
+휴대폰 애플리케이션의 기본 기능은 의료 디바이스에서 BLE 데이터를 수집하여 IoT Central에 전달하는 것입니다. 이 앱은 디바이스 설정을 통해 환자를 안내하고 개인 상태 데이터를 볼 수 있도록 합니다. 다른 솔루션은 병실에 있는 태블릿 게이트웨이 또는 정적 게이트웨이를 사용할 수 있습니다. Android 및 iOS용 오픈 소스 샘플 모바일 애플리케이션을 애플리케이션 개발의 출발점으로 사용할 수 있습니다. 자세한 내용은 [GitHub의 지속적인 환자 모니터링 샘플 모바일 앱](https://github.com/iot-for-all/iotc-cpm-sample)을 참조하세요.
 
 ## <a name="export-to-azure-api-for-fhirreg"></a>Azure API for FHIR에 배포&reg;
 

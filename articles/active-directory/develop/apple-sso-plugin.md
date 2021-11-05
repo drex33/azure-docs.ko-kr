@@ -13,16 +13,16 @@ ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e03b288934ce01a25a8ee7b4ad3569af6507b8a6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7fbe4e45e48d3416f530b6845faf702959f92463
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124734781"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067340"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 디바이스용 Microsoft Enterprise SSO 플러그 인(미리 보기)
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 이 기능 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 *Apple 디바이스용 Microsoft Enterprise SSO 플러그 인* 은 Apple의 [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) 기능을 지원하는 모든 애플리케이션에서 macOS, iOS 및 iPadOS의 Azure AD(Azure Active Directory) 계정에 대한 SSO(Single Sign-On) 계정을 제공합니다. 이 플러그 인은 비즈니스에서 의존할 수 있지만 아직 최신 ID 라이브러리 또는 프로토콜을 지원하지 않는 이전 애플리케이션에 대한 SSO를 제공합니다. Microsoft는 가능한 최상의 보호를 제공하면서 애플리케이션의 유용성을 높일 수 있는 이 플러그 인을 개발하기 위해 Apple과 긴밀하게 협력했습니다.
@@ -57,7 +57,7 @@ Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 사용하려면
 - Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 제공하는 Microsoft 애플리케이션을 디바이스에 설치해야 합니다. 퍼블릭 미리 보기의 경우 이러한 애플리케이션은 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)입니다.
 
 
-### <a name="macos-requirements"></a>macOS 요구 사항:
+### <a name="macos-requirements"></a>macOS 요구 사항
 - macOS 10.15 이상이 디바이스에 설치되어 있어야 합니다. 
 - Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 제공하는 Microsoft 애플리케이션을 디바이스에 설치해야 합니다. 퍼블릭 미리 보기의 경우 이러한 애플리케이션에는 [Intune 회사 포털 앱](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)이 포함됩니다.
 
@@ -193,7 +193,7 @@ Safari 또는 Safari View Service에 대해 SSO를 *사용하지 않도록 설�
     | 키 | 값 |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
-    | `AppBlockList` | SSO에 참여하지 못하게 하려는 Safari 앱의 번들 ID(쉼표로 구분된 목록)입니다.<br/><li>iOS의 경우: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>macOS의 경우: `com.apple.Safari` |
+    | `AppBlockList` | SSO에 참여하지 못하게 하려는 Safari 앱의 번들 ID(쉼표로 구분된 목록)입니다.<ul><li>iOS의 경우: `com.apple.mobilesafari`, `com.apple.SafariViewService`</li><li>macOS의 경우: `com.apple.Safari`</li></ul> |
 
 - *시나리오*: 모든 관리형 앱과 비관리형 앱에서 SSO를 사용하도록 설정하고 몇 가지 다른 앱에 SSO를 사용하지 않도록 설정하려고 합니다.
 
@@ -251,15 +251,23 @@ macOS는 모든 앱에서 일관된 환경을 제공하기 위해 이 설정이 
 
 #### <a name="disable-oauth-2-application-prompts"></a>OAuth 2 애플리케이션 프롬프트 사용 안 함
 
-Microsoft Enterprise SSO 플러그 인은 허용된 애플리케이션에서 시작되는 네트워크 요청에 공유 자격 증명을 추가하여 SSO를 제공합니다. 그러나 일부 OAuth 2 애플리케이션은 프로토콜 계층에서 최종 사용자 프롬프트를 잘못 적용할 수 있습니다. 이 문제가 표시되는 경우 해당 앱에 대해 공유 자격 증명이 무시되는 것을 알 수 있습니다. Microsoft Enterprise SSO 플러그 인이 다른 애플리케이션에 대해 작동하는 경우에도 사용자에게 로그인하라는 메시지가 표시됩니다.  
+Microsoft Enterprise SSO 플러그 인이 디바이스의 다른 애플리케이션에 대해 작동하더라도 애플리케이션에서 사용자에게 로그인하라는 메시지를 표시하는 경우 앱이 프로토콜 계층에서 SSO를 우회할 수 있습니다.  플러그 인은 허용된 애플리케이션의 네트워크 요청에 자격 증명을 추가하여 SSO를 제공하기 때문에 공유 자격 증명도 이러한 애플리케이션에서 무시됩니다.
 
-`disable_explicit_app_prompt` 플래그를 사용하도록 설정하면 네이티브 애플리케이션 및 웹 애플리케이션에서 프로토콜 계층에 대한 최종 사용자 프롬프트를 강제로 실행하고 SSO를 우회하는 기능이 제한됩니다. 이 플래그를 사용하도록 설정하려면 다음 매개 변수를 사용합니다.
+이러한 매개 변수를 통해 SSO 확장에서 기본 및 웹 애플리케이션이 프로토콜 계층에서 SSO를 우회하고 사용자에게 로그인 프롬프트를 강제로 표시하는 것을 방지해야 하는지 여부를 지정합니다.
+
+디바이스의 모든 앱에서 일관된 SSO 환경을 위해서는 기본적으로 사용하지 않도록 설정되어 있는 이러한 설정 중 하나를 사용하는 것이 좋습니다.
+  
+앱 프롬프트를 사용하지 않도록 설정하고 계정 선택기를 표시합니다.
 
 - **키**: `disable_explicit_app_prompt`
 - **형식**: `Integer`
 - **값**: 1 또는 0
+  
+앱 프롬프트를 사용하지 않도록 설정하고 일치하는 SSO 계정 목록에서 자동으로 계정을 선택합니다.
+- **키**: `disable_explicit_app_prompt_and_autologin`
+- **형식**: `Integer`
+- **값**: 1 또는 0
 
-모든 앱에서 일관된 환경을 제공하기 위해 이 플래그를 사용하도록 설정하는 것이 좋습니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 
 
 #### <a name="use-intune-for-simplified-configuration"></a>간소화된 구성에 Intune 사용
 

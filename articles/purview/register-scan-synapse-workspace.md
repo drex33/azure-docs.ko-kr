@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: ed76730cd37cf903c77b0893b546ab824e7ddff3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a5921e2af4445ad645ce48f6102c311c9478b9e9
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010919"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848024"
 ---
 # <a name="connect-to-and-manage-azure-synapse-analytics-workspaces-in-azure-purview"></a>Azure 부서의 범위에서 Azure Synapse Analytics 작업 영역에 대 한 커넥트 및 관리
 
@@ -23,14 +23,14 @@ ms.locfileid: "131010919"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)| [예](#scan) | [예](#scan)| [예](#scan)| 아니요| [예](how-to-lineage-azure-synapse-analytics.md)|
+| [예](#register) | [예](#scan)| [예](#scan) | [예](#scan)| [예](#scan)| 예| [예-Synapse 파이프라인](how-to-lineage-azure-synapse-analytics.md)|
 
 
 <!-- 4. Prerequisites
 Required. Add any relevant/source-specific prerequisites for connecting with this source. Authentication/Registration should be covered by the sections below and does not need to be covered here.
 -->
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

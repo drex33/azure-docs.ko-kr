@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 42cdee3f9b4354e2396f14e17f5f146c27ff29c5
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 59c29f3ce91f5ee1e1e5ee65710cc34ce1572907
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506133"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846004"
 ---
 # <a name="create-and-provision-iot-edge-for-linux-on-windows-devices-at-scale-using-x509-certificates"></a>X.509 인증서를 사용하여 대규모로 Windows 디바이스에서 Linux용 IoT Edge 만들고 프로비전
 
@@ -108,7 +108,7 @@ Windows Admin Center의 경우 다음 단계를 사용합니다.
 
 ---
 
-## <a name="verify-successful-configuration"></a>성공적인 구성 확인
+## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
 IoT Edge for Linux on Windows가 IoT Edge 디바이스에 성공적으로 설치되고 구성되었는지 확인합니다.
 
@@ -171,7 +171,7 @@ IoT Edge for Linux on Windows가 IoT Edge 디바이스에 성공적으로 설치
 
 디바이스 프로비전 서비스 등록 프로세스를 사용하면 새 디바이스를 프로비전하는 동시에 디바이스 ID 및 디바이스 쌍 태그를 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-cli-at-scale.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-at-scale.md)하는 방법을 알아봅니다.
 
-또한 다음을 수행할 수 있습니다.
+다음도 가능합니다.
 
 * 디바이스에 모듈을 배포하는 방법을 알아보려면 [IoT Edge 모듈 배포](how-to-deploy-modules-portal.md)를 계속 진행하세요.
 * [IoT Edge for Linux on Windows 가상 머신에서 인증서를 관리](how-to-manage-device-certificates.md)하고 파일을 호스트 OS에서 Linux 가상 머신으로 전송하는 방법을 알아봅니다.

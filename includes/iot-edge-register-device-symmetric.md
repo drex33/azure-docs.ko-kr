@@ -5,16 +5,16 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 11a89e1333ddcf3afd3594c3bd2ce46eda6513f1
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 80328e4ec6ea06937a30c94a0e0f854e03eb81da
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131577591"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851948"
 ---
 ## <a name="register-your-device"></a>디바이스 등록
 
-사용자의 기본 설정에 따라 **Azure Portal**, **Visual Studio Code** 또는 **Azure CLI** 를 사용 하 여 장치를 등록할 수 있습니다.
+기본 설정에 따라 **Azure Portal**, **Visual Studio Code** 또는 **Azure CLI** 사용하여 디바이스를 등록할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -28,7 +28,7 @@ Azure Portal의 IoT 허브에서 IoT Edge 디바이스는 에지가 사용 설�
 
 1. **디바이스 만들기** 페이지에서 다음 정보를 입력합니다.
 
-   * 설명 디바이스 ID를 만듭니다. 나중에 사용할 수 있도록이 장치 ID를 기록해 둡니다.
+   * 설명 디바이스 ID를 만듭니다. 나중에 사용할 수 있도록 이 디바이스 ID를 기록해 둡다.
    * 인증 유형으로 **대칭 키** 를 선택합니다.
    * 인증 키를 자동으로 생성하고 허브에 새 디바이스를 연결하려면 기본 설정을 사용합니다.
 
@@ -65,7 +65,7 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 다음 [az iot hub device-identity create](/cli/azure/iot/hub/device-identity) 명령을 사용하여 IoT 허브에서 새 디바이스 ID를 만듭니다. 다음은 그 예입니다.
 
    ```azurecli
-   az iot hub device-identity create --device-id [device_id] --hub-name [hub_name] --edge-enabled
+   az iot hub device-identity create --device-id device_id_here --hub-name hub_name_here --edge-enabled
    ```
 
 이 명령에는 세 개의 매개 변수가 포함됩니다.
@@ -78,9 +78,9 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 ---
 
-이제 IoT Hub에 등록 된 장치가 있으므로 IoT Edge 런타임의 설치 및 프로 비전을 완료 하는 데 사용 하는 정보를 검색 합니다.
+IoT Hub 디바이스를 등록했으므로 IoT Edge 런타임의 설치 및 프로비저닝을 완료하는 데 사용하는 정보를 검색합니다.
 
-## <a name="view-registered-devices-and-retrieve-provisioning-information"></a>등록 된 장치 보기 및 프로 비전 정보 검색
+## <a name="view-registered-devices-and-retrieve-provisioning-information"></a>등록된 디바이스 보기 및 프로비전 정보 검색
 
 대칭 키 인증을 사용하는 디바이스에서 IoT Edge 런타임의 설치 및 프로비저닝을 수행하려면 연결 문자열이 필요합니다.
 
@@ -117,7 +117,7 @@ IoT Hub에 연결하는 모든 디바이스는 Visual Studio Code Explorer의 **
 [az iot hub device-identity list](/cli/azure/iot/hub/device-identity) 명령을 사용하여 IoT 허브의 모든 디바이스를 볼 수 있습니다. 다음은 그 예입니다.
 
    ```azurecli
-   az iot hub device-identity list --hub-name [hub_name]
+   az iot hub device-identity list --hub-name hub_name_here
    ```
 
 IoT Edge 디바이스로 등록된 모든 디바이스에서는 **capabilities.iotEdge** 속성이 **true** 로 설정됩니다.

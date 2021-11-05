@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 73f1eaebb60d02e27be5585a0287a702abf6df2a
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 074f6dffae5067676e073916018126c5c2f07d85
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860966"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850568"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 
@@ -85,7 +85,7 @@ Synapse SQL 풀을 사용하면 기본 제공 보안 기능을 사용하여 데�
 | **스토리지 Azure AD(Azure Active Directory) 통과 인증** | 예 | 예 |
 | **스토리지 SAS 토큰 인증** | 예 | 예, 인스턴스 수준 [자격 증명](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) 또는 [외부 데이터 원본](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true)에서 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용합니다. |
 | **스토리지 액세스 키 인증** | 예, [외부 데이터 원본](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true)에서 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용합니다. | 예 |
-| **스토리지 [관리 ID](../security/synapse-workspace-managed-identity.md) 인증** | 예, [관리되는 서비스 ID 자격 증명](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest&preserve-view=true)을 사용합니다. | 예, `Managed Identity` 자격 증명을 사용합니다. |
+| **스토리지 [관리 ID](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) 인증** | 예, [관리되는 서비스 ID 자격 증명](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest&preserve-view=true)을 사용합니다. | 예, `Managed Identity` 자격 증명을 사용합니다. |
 | **스토리지 애플리케이션 ID 인증** | [예](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | 아니요 |
 | **서버 수준 역할** | 아니요 | 예. sysadmin, public 및 기타 서버 역할이 지원됩니다. |
 | **SERVER SCOPED CREDENTIAL** | 예 | 예 |
@@ -155,7 +155,7 @@ Synapse SQL 풀을 사용하면 기본 제공 보안 기능을 사용하여 데�
 | **JSON** | 예 | [예](query-json-files.md) |
 | **Avro** | 예 | 예 |
 | **[Delta-lake](https://delta.io/)** | 예 | [예](query-delta-lake-format.md) |
-| **[CDM](/common-data-model/)** | 예 | 아니요 |
+| **[CDM](/common-data-model/)** | 예 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 전용 SQL 풀 및 서버리스 SQL 풀의 모범 사례에 대한 추가 정보는 다음 문서에서 찾을 수 있습니다.

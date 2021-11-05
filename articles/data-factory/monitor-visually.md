@@ -1,19 +1,19 @@
 ---
 title: Azure Data Factory를 시각적으로 모니터링
 description: Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: 3e0be69e05e2719b212f7f7fcd886c9b475e78d1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 79dcf37a5f70e68bddfc165ea8798994c7af9798
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080178"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845535"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 

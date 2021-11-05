@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 24e6b8943d87cf7735cc1baae7027557e3da2ad2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 35f8b3482eff16197f9851ab849d9bdd370ad314
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505500"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850815"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-linux-using-x509-certificates"></a>X.509 인증서를 사용하여 Linux에서 대규모로 IoT Edge 디바이스 만들기 및 프로비전
 
@@ -106,12 +106,12 @@ IoT Edge 디바이스에는 해당 인증서가 모두 필요합니다. DPS에�
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "<SCOPE_ID>"
+     scope_id: "SCOPE_ID_HERE"
      attestation:
        method: "x509"
-   #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
-       identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
-       identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   #   registration_id: "OPTIONAL_REGISTRATION_ID_LEAVE_COMMENTED_OUT_TO_REGISTER_WITH_CN_OF_IDENTITY_CERT"
+       identity_cert: "REQUIRED_URI_TO_DEVICE_IDENTITY_CERTIFICATE_HERE"
+       identity_pk: "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY_HERE"
    #  always_reprovision_on_startup: true
    #  dynamic_reprovisioning: false
    ```
@@ -160,15 +160,15 @@ IoT Edge 디바이스에는 해당 인증서가 모두 필요합니다. DPS에�
    [provisioning]
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "<SCOPE_ID>"
+   id_scope = "SCOPE_ID_HERE"
    
    [provisioning.attestation]
    method = "x509"
-   registration_id = "<REGISTRATION ID>"
+   registration_id = "REGISTRATION_ID_HERE"
 
-   identity_cert = "<DEVICE IDENTITY CERTIFICATE>"
+   identity_cert = "DEVICE_IDENTITY_CERTIFICATE_HERE"
 
-   identity_pk = "<DEVICE IDENTITY PRIVATE KEY>"
+   identity_pk = "DEVICE_IDENTITY_PRIVATE_KEY_HERE"
    ```
 
 1. `id_scope` 값을 DPS 인스턴스에서 복사한 범위 ID로 업데이트합니다.

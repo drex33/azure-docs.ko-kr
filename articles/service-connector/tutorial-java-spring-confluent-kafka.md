@@ -8,12 +8,12 @@ ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 84508ab3634ac86a517b11d790d11a3ef56c4c49
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a407d164ec0214ddce6e1d8bf6254876d3642230
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053710"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449225"
 ---
 # <a name="tutorial-deploy-a-spring-boot-app-connected-to-apache-kafka-on-confluent-cloud-with-service-connector-in-azure-spring-cloud"></a>자습서: Azure Spring Cloud의 서비스 커넥터를 사용하여 Confluent Cloud의 Apache Kafka에 연결된 Spring Boot 앱 배포
 
@@ -119,6 +119,9 @@ az spring-cloud connection create confluent-cloud -g <your-spring-cloud-resource
 * 클러스터 API 키 및 암호를 사용하여 *\<cluster-api-key>* 및 *\<cluster-api-secret>* 을(를) **바꿉니다**.
 * kafka Schema Registry 엔드포인트(값은 `https://psrc-xxxx.westus2.azure.confluent.cloud`와(과) 같아야 함)를 사용하여 *\<kafka-schema-registry-endpoint>* **바꾸기**
 * kafka Schema Registry API 키 및 비밀을 사용하여 *\<registry-api-key>* 및 *\<registry-api-secret>* 을(를) **바꿉니다**.
+
+> [!NOTE]
+> "구독이 Microsoft.ServiceLinker를 사용하도록 등록되어 있지 않습니다."라는 오류 메시지가 표시되면 `az provider register -n Microsoft.ServiceLinker`를 실행하여 Service Connector 리소스 공급자를 등록하고 연결 명령을 다시 실행합니다. 
 
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
 

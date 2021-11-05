@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: a06d07a7d54b6399ab5f83c41284fb2fab7217fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6984d8e07f88eee035e252f0515fe131a4b1b61c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97360274"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422637"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: .NET(C#)을 사용하여 Azure Database for PostgreSQL에서 데이터 연결 및 쿼리 - 단일 서버
 
@@ -32,7 +32,7 @@ ms.locfileid: "97360274"
   | **서비스 엔드포인트 구성** | 공용 | [포털](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **프라이빗 링크 구성** | Private | [포털](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- 플랫폼(Windows, Ubuntu Linux 또는 macOS)에 [.NET Framework](https://www.microsoft.com/net/download)를 설치합니다.
+- 플랫폼에 [플랫폼용 .NET SDK](https://dotnet.microsoft.com/download)(Windows, Ubuntu Linux 또는 macOS)를 설치합니다.
 - [Visual Studio](https://www.visualstudio.com/downloads/)를 설치하여 프로젝트를 빌드합니다.
 - Visual Studio에서 [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet 패키지를 설치합니다.
 

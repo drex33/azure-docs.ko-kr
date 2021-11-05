@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: redis-cache
 author: curib
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: 63c9c98f7b85c18cde58d65a8d1fd94eff2b1985
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74b23eb8560a830e7e07a86fe745b94619eeeaf0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560169"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440332"
 ---
 1. 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하여 **리소스 만들기** 를 선택합니다.
 
@@ -39,11 +39,11 @@ ms.locfileid: "128560169"
 
 1. **다음: 고급** 탭을 선택하거나 페이지 맨 아래에서 **다음: 고급** 단추를 선택합니다.
 
-1. 기본 또는 표준 캐시 인스턴스의 **고급** 탭에서 TLS 포트가 아닌 다른 포트를 사용하도록 설정하려면 사용 토글을 선택합니다. 4 또는 (미리 보기) 6 중에서 사용하려는 Redis 버전을 선택할 수도 있습니다.
+1. 기본 또는 표준 캐시 인스턴스의 **고급** 탭에서 TLS 포트가 아닌 다른 포트를 사용하도록 설정하려면 사용 토글을 선택합니다. 4 또는 6 중에서 사용하려는 Redis 버전을 선택할 수도 있습니다.
 
-    :::image type="content" source="media/redis-cache-create/redis-version.png" alt-text="Redis 버전 4 또는 6.":::
+    :::image type="content" source="media/redis-cache-create/cache-redis-version.png" alt-text="Redis 버전 4 또는 6.":::
 
-1. 프리미엄 캐시 인스턴스의 **고급** 탭에서 TLS가 아닌 다른 포트, 클러스터링 및 데이터 지속성에 대한 설정을 구성합니다. 4 또는 (미리 보기) 6 중에서 사용하려는 Redis 버전을 선택할 수도 있습니다.
+1. 프리미엄 캐시 인스턴스의 **고급** 탭에서 TLS가 아닌 다른 포트, 클러스터링 및 데이터 지속성에 대한 설정을 구성합니다. 4 또는 6 중에서 사용하려는 Redis 버전을 선택할 수도 있습니다.
 
 1. **다음: 태그** 탭을 선택하거나 페이지 하단에서 **다음: 태그** 단추를 선택합니다.
 
@@ -54,3 +54,5 @@ ms.locfileid: "128560169"
 1. 녹색 유효성 검사 통과 메시지가 표시되면 **만들기** 를 선택합니다.
 
 캐시를 만드는 데 잠시 시간이 걸립니다. Azure Cache for Redis **개요** 페이지에서 진행률을 모니터링할 수 있습니다. **상태** 가 **실행 중** 으로 표시되면 캐시를 사용할 준비가 된 것입니다.
+
+<!-- Comment to dirty file. -->

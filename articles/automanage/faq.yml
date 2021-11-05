@@ -9,12 +9,12 @@ metadata:
   ms.topic: troubleshooting
   ms.date: 02/22/2021
   ms.author: deanwe
-  ms.openlocfilehash: dca933c5b86875b50d04a67f482713830437350b
-  ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+  ms.openlocfilehash: fff4dff979c1d37f7bda9c96e445a325f96b1f96
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122608106"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131443816"
 title: Vm에 대한 Azure Automanage 자주 묻는 질문
 summary: >
   이 문서에서는 [가상 머신에 대한 Azure Automanage](automanage-virtual-machines.md)에 대해 가장 일반적인 질문 중 몇 가지에 대한 답변을 제공합니다.
@@ -41,10 +41,10 @@ sections:
   - question: >
       Automanage를 사용하도록 설정하는데 필요한 Azure RBAC 권한은 무엇입니까?
     answer: >
-      기존 Automanage 계정을 사용하여 VM에서 Automanage를 사용하도록 설정하는 경우 VM이 있는 리소스 그룹에 대한 참가자 역할이 필요합니다.
+      Automanage를 사용하도록 설정하는 경우 VM이 있는 리소스 그룹에 대한 기여자 역할이 필요합니다.
 
 
-      사용하도록 설정할 때 새 Automanage 계정을 사용하는 경우 소유자 역할 또는 구독에 대한 참가자 + 사용자 액세스 관리자 역할이 있어야 합니다.
+      구독에서 처음으로 Automanage를 사용하도록 설정하는 경우 소유자 역할 또는 구독에 대한 기여자 + 사용자 액세스 관리자 역할이 있어야 합니다.
   - question: >
       지원되는 지역은 어떻게 되나요?
     answer: >
@@ -57,10 +57,13 @@ sections:
       Azure Automanage는 Azure Arc 사용 Vm을 사용하여 작업하나요?
     answer: >
       Automanage는 현재 Arc 사용 Vm을 지원하지 않습니다.
+  - question: "\"업그레이드 필요\"의 상태는 무엇을 의미하나요?\n"
+    answer: >
+      Automanage는 온보딩에 대한 새 API(버전 2021-04-30-preview 이상)를 지원합니다. 이전 버전의 Automanage(버전 2020-06-30-preview)에 있는 경우 Automanage를 사용하지 않도록 설정한 다음, 다시 사용하도록 설정해야 합니다. 자동으로 최신 버전으로 온보딩됩니다.
   - question: >
       Azure Automanage에서 구성을 사용자 지정할 수 있나요?
     answer: >
-      고객은 구성 기본 설정을 통해 Azure Backup 보존 등의 특정 서비스에 대한 설정을 사용자 지정할 수 있습니다. 변경할 수 있는 설정의 전체 목록은 [여기](automanage-virtual-machines.md#customizing-an-environment-using-preferences)에서 설명서를 참조하세요.
+      고객은 사용자 지정 프로필을 통해 Azure Backup 보존 등의 특정 서비스에 대한 설정을 사용자 지정할 수 있습니다. 변경할 수 있는 설정의 전체 목록은 [여기](automanage-virtual-machines.md#custom-profiles)에서 설명서를 참조하세요.
   - question: >
       Azure Automanage는 Linux 및 Windows Vm 모두에서 작동하나요?
     answer: >
@@ -84,7 +87,11 @@ sections:
   - question: >
       Automanage 계정은 무엇인가요?
     answer: >
-      Automanage 계정은 자동화된 작업이 수행되는 보안 컨텍스트 또는 ID를 제공하는 MSI(관리 서비스 ID)입니다.
+      Automanage 계정은 이전 버전의 Automanage(버전 2020-06-30-preview)를 사용하여 온보딩된 머신에만 사용됩니다. 자동화된 작업이 수행되는 보안 컨텍스트 또는 ID를 제공하는 MSI(관리 서비스 ID)입니다.
+  - question: >
+      구성 기본 설정이란?
+    answer: >
+      구성 기본 설정은 이전 버전의 Automanage(버전 2020-06-30-preview)를 사용하여 온보딩된 머신에만 사용됩니다. 설정 하위 집합의 사용자 지정을 지원합니다. 최신 버전의 Automanage에서 사용자 지정 프로필로 업그레이드되었습니다.
   - question: >
       Automanage를 사용하도록 설정하면 선택한 머신 외에도 추가 머신에 영향을 미치나요?
     answer: >

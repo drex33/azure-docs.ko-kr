@@ -16,10 +16,10 @@ items:
     items:
       - name: Form Recognizer v2.1
         items:
-          - name: Form Recognizer 레이블 지정 도구
+          - name: 샘플 레이블 지정 도구
             href: quickstarts/try-sample-label-tool.md
           - name: 클라이언트 라이브러리 및 REST API
-            href: quickstarts/try-sdk-rest-api.md
+            href: quickstarts/get-started-sdk-rest-api.md
       - name: Form Recognizer v3.0 | 미리 보기
         items:
           - name: Form Recognizer Studio(미리 보기)
@@ -28,8 +28,58 @@ items:
             href: quickstarts/try-v3-rest-api.md
           - name: C# SDK(미리 보기)
             href: quickstarts/try-v3-csharp-sdk.md
+          - name: Java SDK(미리 보기)
+            href: quickstarts/try-v3-java-sdk.md
+          - name: JavaScript SDK(미리 보기)
+            href: quickstarts/try-v3-javascript-sdk.md
           - name: Python SDK(미리 보기)
             href: quickstarts/try-v3-python-sdk.md
+  - name: 방법 가이드
+    items:
+      - name: Form Recognizer v3.0(미리 보기)으로 마이그레이션
+        href: v3-migration-guide.md
+      - name: SDK 및 REST API 사용
+        href: how-to-guides/try-sdk-rest-api.md
+      - name: Azure Blob 컨테이너용 SAS 토큰 생성
+        href: generate-sas-tokens.md
+      - name: 사용자 지정 모델
+        items:
+          - name: 사용자 지정 모델 빌드 및 학습
+            items:
+              - name: 학습 데이터 세트 구성
+                href: build-training-data-set.md
+              - name: 샘플 레이블 지정 도구 배포
+                href: deploy-label-tool.md
+              - name: 샘플 레이블 지정 도구를 사용하여 사용자 지정 모델 학습
+                href: label-tool.md
+              - name: 테이블 태그를 사용하여 사용자 지정 모델 학습
+                href: supervised-table-tags.md
+          - name: 사용자 지정 모델 작성
+            href: compose-custom-models.md
+      - name: 모델 백업 및 복구
+        href: disaster-recovery.md
+      - name: 컨테이너 사용
+        items:
+          - name: 컨테이너 설치 및 실행
+            displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+            href: containers/form-recognizer-container-install-run.md
+          - name: 컨테이너 구성
+            href: containers/form-recognizer-container-configuration.md
+            displayName: 'docker, container, run, billing, apikey, logging'
+          - name: 컨테이너 이미지 태그
+            href: containers/form-recognizer-container-image-tags.md
+          - name: 컨테이너 인스턴스 사용
+            href: ../../cognitive-services/containers/azure-container-instance-recipe.md
+      - name: 엔터프라이즈 준비
+        items:
+          - name: 가상 네트워크 설정
+            href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
+          - name: 관리 ID 만들기 및 사용
+            href: managed-identity-byos.md
+          - name: 고객 관리형 키 사용
+            href: encrypt-data-at-rest.md
+          - name: Azure AD 인증 사용
+            href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
   - name: 샘플
     items:
       - name: C#/.NET
@@ -52,48 +102,6 @@ items:
         href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
       - name: '데이터, 개인 정보 및 보안'
         href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
-  - name: 방법 가이드
-    items:
-      - name: Form Recognizer v3.0(미리 보기)으로 마이그레이션
-        href: v3-migration-guide.md
-      - name: Azure Blob 컨테이너용 SAS 토큰 생성
-        href: generate-sas-tokens.md
-      - name: 사용자 지정 모델 빌드 및 학습
-        items:
-          - name: 학습 데이터 세트 구성
-            href: build-training-data-set.md
-          - name: 샘플 레이블 지정 도구 배포
-            href: deploy-label-tool.md
-          - name: 샘플 레이블 지정 도구를 사용하여 사용자 지정 모델 학습
-            href: label-tool.md
-          - name: 테이블 태그를 사용하여 사용자 지정 모델 학습
-            href: supervised-table-tags.md
-      - name: 사용자 지정 모델 작성
-        href: compose-custom-models.md
-      - name: 컨테이너 사용
-        items:
-          - name: 컨테이너 설치 및 실행
-            displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
-            href: containers/form-recognizer-container-install-run.md
-          - name: 컨테이너 구성
-            href: containers/form-recognizer-container-configuration.md
-            displayName: 'docker, container, run, billing, apikey, logging'
-          - name: 컨테이너 이미지 태그
-            href: containers/form-recognizer-container-image-tags.md
-          - name: 컨테이너 인스턴스 사용
-            href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-      - name: 모델 백업 및 복구
-        href: disaster-recovery.md
-      - name: 엔터프라이즈 준비
-        items:
-          - name: 가상 네트워크 설정
-            href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
-          - name: 관리 ID 만들기 및 사용
-            href: managed-identity-byos.md
-          - name: 고객 관리형 키 사용
-            href: encrypt-data-at-rest.md
-          - name: Azure AD 인증 사용
-            href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
   - name: 개념
     items:
       - name: 모델 개요
@@ -116,19 +124,19 @@ items:
         href: concept-custom.md
   - name: 자습서
     items:
-      - name: Azure Form Recognizer 및 AI Builder 사용
+      - name: Azure Form Recognizer 및 AI Builder 워크플로
         expanded: true
         items:
-          - name: 사용자 지정 양식 처리 워크플로
+          - name: 사용자 지정
             href: /ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-          - name: 명함 처리 워크플로
-            href: /ai-builder/flow-business-card-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-          - name: ID 문서 처리 워크플로
-            href: /ai-builder/id-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/cognitive-services/applied-ai-services/breadcrumb/toc.json
-          - name: 청구서 처리 워크플로
+          - name: 청구서
             href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-          - name: 영수증 처리 워크플로
+          - name: Receipt
             href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
+          - name: ID 문서
+            href: /ai-builder/id-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/cognitive-services/applied-ai-services/breadcrumb/toc.json
+          - name: 명함
+            href: /ai-builder/flow-business-card-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
       - name: Cognitive Search에서 Azure Form Recognizer 사용
         href: ../../search/cognitive-search-custom-skill-form.md
       - name: Azure Functions에서 Azure Form Recognizer 사용

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d4ac6af77344717a9f38a96a28217de35d28d3d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324657"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454773"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>자습서: 예측을 개선하기 위해 일반적인 패턴 템플릿 발화 서식 추가
 
@@ -429,7 +429,7 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 새 템플릿 발화는 다음과 같습니다.
 
-`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`입니다.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 여기서는 필수 동사 시제를 **group** 으로 묶고, 선택적 `in` 및 `on`과 **or** 파이프를 사이에 사용합니다.
 
@@ -539,4 +539,4 @@ Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견�
 
 
 > [!div class="nextstepaction"]
-> [패턴과 함께 역할을 사용하는 방법 알아보기](luis-tutorial-pattern.md)
+> [패턴 구문에 대해 자세히 알아보기](./reference-pattern-syntax.md)

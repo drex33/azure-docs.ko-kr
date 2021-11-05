@@ -1,39 +1,45 @@
 ---
-title: Azure MySQL Database 등록 및 검사
-description: 이 자습서에서는 Azure Purview에서 Azure MySQL 데이터베이스를 등록하고 검사하는 방법을 설명합니다.
+title: Azure MySQL 데이터베이스에 연결 및 관리
+description: 이 가이드에서는 Azure Purview에서 Azure MySQL 데이터베이스에 연결하고 Purview의 기능을 사용하여 Azure MySQL 데이터베이스 원본을 검사하고 관리하는 방법을 설명합니다.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: tutorial
-ms.date: 09/27/2021
-ms.openlocfilehash: 8f4a5480b76e03a57ff810c88a0a1660ae561071
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: bdb96c3e1de3062426b87fe702d7694890fca44f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209866"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015051"
 ---
-# <a name="register-and-scan-an-azure-mysql-database"></a>Azure MySQL Database 등록 및 검사
+# <a name="connect-to-and-manage-azure-mysql-databases-in-azure-purview"></a>Azure Purview에서 Azure MySQL 데이터베이스에 연결 및 관리
 
-이 문서에서는 Azure MySQL Database를 등록하고 검색하는 방법을 설명합니다.
+이 문서에서는 Azure MySQL 데이터베이스를 등록하는 방법과 Azure Purview에서 Azure MySQL 데이터베이스를 인증하고 상호 작용하는 방법을 간략하게 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
-- **전체 및 증분 검사** - Azure MySQL Database에서 메타데이터 및 분류를 캡처합니다.
 
-- **계보** - ADF 복사 및 데이터 흐름 작업에 대한 데이터 자산 간의 계보입니다.
+|**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
+|---|---|---|---|---|---|---|
+| [예](#register) | [예](#scan)| [예*](#scan) | [예](#scan) | [예](#scan) | 아니요 | [Data Factory 계보](how-to-link-azure-data-factory.md) |
 
-### <a name="known-limitations"></a>알려진 제한 사항
-Purview는 Azure MySQL Database에 대한 SQL 인증만 지원합니다.
+\* Purview는 증분 검색을 위해 Azure Database for MySQL의 UPDATE_TIME 메타데이터를 사용합니다. 경우에 따라 이 필드는 데이터베이스에 유지되지 않고 전체 검사가 수행될 수 있습니다. 자세한 내용은 MySQL용 [INFORMATION_SCHEMA TABLES 테이블](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html)을 참조하세요.
 
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="prerequisites"></a>필수 조건
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-1. 아직 Purview 계정이 없는 경우 새로 만듭니다.
+* 활성 [Purview 리소스](create-catalog-portal.md).
 
-2. Purview 계정과 Azure MySQL Database 간의 네트워킹 액세스입니다.
+* 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
 
-### <a name="set-up-authentication-for-a-scan"></a>검사 인증 설정
+## <a name="register"></a>등록
+
+이 섹션에서는 [Purview Studio](https://web.purview.azure.com/)를 사용하여 Azure Purview에서 Azure MySQL 데이터베이스를 등록하는 방법에 대해 설명합니다.
+
+### <a name="authentication-for-registration"></a>등록 인증
 
 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
 
@@ -46,9 +52,9 @@ Purview는 Azure MySQL Database에 대한 SQL 인증만 지원합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
 1. 마지막으로 **사용자 이름** 및 **암호** 를 사용하여 검사를 설정하기 위한 SQL 인증 유형의 [새 자격 증명을 만듭니다](manage-credentials.md#create-a-new-credential).
 
-## <a name="register-an-azure-mysql-database-data-source"></a>Azure MySQL Database 데이터 원본 등록
+### <a name="steps-to-register"></a>등록 단계
 
-새 Azure MySQL Database를 데이터 카탈로그에 등록하려면 다음을 수행합니다.
+새 Azure MySQL 데이터베이스를 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
 1. Purview 계정으로 이동합니다.
 
@@ -64,11 +70,15 @@ Purview는 Azure MySQL Database에 대한 SQL 인증만 지원합니다.
 
 1. 데이터 원본의 **이름** 을 입력합니다. 이 이름은 카탈로그에서 이 데이터 원본의 표시 이름이 됩니다.
 1. **Azure 구독에서** 를 선택하고, **Azure 구독** 드롭다운 상자에서 적절한 구독을 선택하고, **서버 이름** 드롭다운 상자에서 적절한 서버를 선택합니다.
-1. **등록** 을 선택하여 데이터 원본을 등록합니다. 
+1. **등록** 을 선택하여 데이터 원본을 등록합니다.
 
 :::image type="content" source="media/register-scan-azure-mysql/02-register-azure-mysql-name-connection.png" alt-text="원본 등록 옵션" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+## <a name="scan"></a>검사
+
+아래 단계에 따라 Azure MySQL 데이터베이스를 검사하여 자산을 자동으로 식별하고 데이터를 분류합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
+
+### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
@@ -100,11 +110,10 @@ Purview는 Azure MySQL Database에 대한 SQL 인증만 지원합니다.
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
-> [!NOTE]
-> * 검사를 삭제해도 이전 Azure MySQL Database 검사에서 만든 자산이 삭제되지 않습니다.
-> * 원본 테이블을 변경하고 Purview의 스키마 탭에서 설명을 편집한 후에 원본 테이블을 다시 검사하면 해당 자산이 스키마 변경 내용으로 더 이상 업데이트되지 않습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
-- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)
+이제 소스를 등록했으므로 아래 가이드에 따라 Purview 및 데이터에 대해 자세히 알아봅니다.
+
+- [Azure Purview의 데이터 인사이트](concept-insights.md)
+- [Azure Purview의 계보](catalog-lineage-user-guide.md)
+- [Data Catalog 검색](how-to-search-catalog.md)

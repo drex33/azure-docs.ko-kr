@@ -1,6 +1,6 @@
 ---
-title: '자습서: 동일한 가상 네트워크에 Azure Database for MySQL 유연한 서버(미리 보기) 및 Azure App Service 웹앱 만들기'
-description: 웹앱을 사용하여 가상 네트워크에 Azure Database for MySQL 유연한 서버(미리 보기)를 만드는 빠른 시작 가이드
+title: '자습서: 동일한 가상 네트워크에 Azure Database for MySQL 유연한 서버 및 Azure App Service 웹앱 만들기'
+description: 웹앱을 사용하여 가상 네트워크에 Azure Database for MySQL 유연한 서버를 만드는 빠른 시작 가이드
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -8,23 +8,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0d95def7048b3077232bb728a97c28107ec80313
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2c53a76469edbb9fdaa507fb30af1157cca2608d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128654468"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429207"
 ---
-# <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for MySQL - 유연한 서버(미리 보기) 만들기
+# <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for MySQL - 유연한 서버 만들기
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
-
-이 자습서에서는 MySQL 유연한 서버(미리 보기)를 사용하여 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 내에 Azure App Service 웹앱을 만드는 방법을 보여줍니다.
+이 자습서에서는 MySQL 유연한 서버를 사용하여 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 내에 Azure App Service 웹앱을 만드는 방법을 보여 줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 >[!div class="checklist"]
@@ -32,7 +27,7 @@ ms.locfileid: "128654468"
 > * App Service에 위임할 서브넷 만들기
 > * 웹앱 만들기
 > * 가상 네트워크에 웹앱 추가
-> * 웹앱에서 Postgres에 연결 
+> * 웹앱에서 Postgres에 연결
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,12 +65,12 @@ az mysql flexible-server create --resource-group myresourcegroup --location west
 > 암호를 입력하지 않으면 암호가 자동으로 생성됩니다. 이 암호를 기록해 둡니다. 암호를 잊은 경우 ``` az mysql flexible-server update``` 명령을 사용하여 암호를 다시 설정해야 합니다.
 
 ## <a name="create-subnet-for-app-service-endpoint"></a>App Service 엔드포인트에 대한 서브넷 만들기
-이제 App Service 웹앱 엔드포인트에 위임된 서브넷이 있어야 합니다. 다음 명령을 실행하여 데이터베이스 서버가 생성된 것과 동일한 가상 네트워크에 새 서브넷을 만듭니다. 
+이제 App Service 웹앱 엔드포인트에 위임된 서브넷이 있어야 합니다. 다음 명령을 실행하여 데이터베이스 서버가 생성된 것과 동일한 가상 네트워크에 새 서브넷을 만듭니다.
 
 ```azurecli
 az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
 ```
-웹앱을 만든 후 웹앱에 대한 VNET 통합 규칙을 추가하는 데 필요하므로 이 명령 뒤에 가상 네트워크 이름과 서브넷 이름을 기록해 둡니다. 
+웹앱을 만든 후 웹앱에 대한 VNET 통합 규칙을 추가하는 데 필요하므로 이 명령 뒤에 가상 네트워크 이름과 서브넷 이름을 기록해 둡니다.
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: 디바이스 빌더용 Azure Defender for IoT 설명서
-summary: Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
+summary: 'Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다. 참고: IoT용 Azure Defender의 이름이 Azure Defender for IoT로 변경됩니다. 문서는 곧 업데이트됩니다.'
 metadata:
   title: 디바이스 빌더용 Azure Defender for IoT 설명서
   description: Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
@@ -12,12 +12,12 @@ metadata:
   ms.author: v-ekrieg
   manager: raynew
   ms.date: 06/17/2021
-  ms.openlocfilehash: c4853f4ca1017510c24a97fd4c974972667e26df
-  ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+  ms.openlocfilehash: 0c46acdd0a6e5f1278710b0ad66acc3eab9adb78
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/29/2021
-  ms.locfileid: "113013960"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131056607"
 landingContent:
 - title: 디바이스 빌더용 Azure Defender for IoT 정보
   linkLists:

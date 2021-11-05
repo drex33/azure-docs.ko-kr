@@ -10,12 +10,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8cf272407e64c612c4a3debb66ba13f7147cd227
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9a24d9bda03cdb456d92461546b606572f127bcb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101272"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467266"
 ---
 # <a name="quickstart-create-a-data-explorer-pool-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal을 사용하여 Data Explorer 풀 만들기(미리 보기)
 
@@ -109,4 +109,6 @@ Azure Portal을 사용하여 작업 영역에서 Data Explorer 풀을 삭제하�
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작: Synapse Studio를 사용하여 Data Explorer 풀 만들기](data-explorer-create-pool-studio.md)
+- [수집 개요](ingest-data/data-explorer-ingest-data-overview.md)
+- [Data Explorer로 분석](../get-started-analyze-data-explorer.md)
+- [Data Explorer 풀 모니터링](data-explorer-monitor-pools.md)

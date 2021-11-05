@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/01/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: e3664e9a42a502509e74c43643d47f18e153ff6e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 7fdc4de5dd6b766f79bab329bbde52e3f3d1b4ff
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429968"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468609"
 ---
 # <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>자습서: Azure Machine Learning 스튜디오에서 코드가 없는 AutoML을 사용하여 분류 모델 학습
 
@@ -127,8 +127,10 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
 
     1. 예측하려는 항목인 대상 열로 **y** 를 선택합니다. 이 열은 클라이언트가 정기 예금에 가입했는지 여부를 나타냅니다.
     
-    1. **+새 컴퓨팅 만들기** 를 선택하고 컴퓨팅 대상을 구성합니다. 컴퓨팅 대상은 학습 스크립트를 실행하거나 서비스 배포를 호스트하는 데 사용되는 로컬 또는 클라우드 기반 리소스 환경입니다. 이 실험에서는 클라우드 기반 컴퓨팅을 사용합니다. 
-        1. **Virtual Machine** 양식을 채워서 컴퓨팅을 설정합니다.
+    1. 컴퓨팅 유형으로 **컴퓨팅 클러스터** 를 선택합니다. 
+    
+    1.  **+새로 만들기**: 컴퓨팅 대상을 구성합니다. 컴퓨팅 대상은 학습 스크립트를 실행하거나 서비스 배포를 호스트하는 데 사용되는 로컬 또는 클라우드 기반 리소스 환경입니다. 이 실험에서는 클라우드 기반 컴퓨팅을 사용합니다. 
+        1. **가상 머신 선택** 양식을 채워 컴퓨팅을 설정합니다.
 
             필드 | Description | 자습서에서 사용하는 값
             ----|---|---

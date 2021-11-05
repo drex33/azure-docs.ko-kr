@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: template-quickstart, ignite-fall-2021
-ms.openlocfilehash: 4794e327ceeacaa91075317d1009ae45834580d8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 134f8b28d6505963cde1f44f0b6850643dae3436
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029351"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421757"
 ---
 # <a name="quickstart-create-a-mesh-network-topology-with-azure-virtual-network-manager-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Virtual Network Manager에서 메시 네트워크 토폴로지 만들기
 
@@ -28,6 +28,16 @@ ms.locfileid: "131029351"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="register-subscription-for-public-preview"></a>공개 미리 보기에 대한 구독 등록
+
+1. [미리 보기 기능](https://portal.azure.com/#blade/Microsoft_Azure_Resources/PreviewFeaturesBlade) 페이지로 이동합니다.
+
+1. **AllowAzureNetworkManager** 를 검색합니다.
+
+1. *AllowAzureNetworkManager* 옆에 있는 확인란을 선택한 다음, **+ 등록** 을 선택합니다.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/registration.png" alt-text="미리 보기 기능 등록 페이지의 스크린샷.":::
 
 ## <a name="create-virtual-network-manager"></a>Virtual Network Manager 만들기
 

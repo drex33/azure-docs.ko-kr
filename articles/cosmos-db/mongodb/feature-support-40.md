@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 3c7e455377ab243f8140ac346c6f924a3b04f0d8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a5994bdfcdaf1203246c71ecddc2a94f4be5a022
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554186"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450061"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(4.0 서버 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -194,6 +194,9 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 | $allElementsTrue | 예 |
 
 ### <a name="comparison-expressions"></a>비교 식
+
+> [!NOTE]
+> API for MongoDB는 쿼리에서 배열 리터럴이 있는 비교 식을 지원하지 않습니다.
 
 | 명령 | 지원됨 |
 |---------|---------|
@@ -580,4 +583,4 @@ Azure Cosmos DB는 아직 사용자 및 역할을 지원하지 않습니다. 그
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](nodejs-console-app.md)을 살펴봅니다.
 - Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

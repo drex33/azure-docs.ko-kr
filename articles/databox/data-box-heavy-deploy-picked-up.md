@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/29/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fa4df7119763e835cf62e67512105b748c7e2265
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: aad9a66c37b4d9d4ba590e339cd2188e5e194c64
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921013"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449928"
 ---
 ::: zone target = "docs"
 
@@ -77,17 +77,17 @@ ms.locfileid: "87921013"
     2. 배송 픽업을 예약하려면 배송 업체의 현지 번호로 전화합니다.
     3. 배송품 외부에 배송 레이블이 잘 표시되어 있는지 확인합니다.
     4. 이전 배송의 이전 배송 레이블을 디바이스에서 제거합니다.
-3. 운송업체에서 Data Box Heavy를 픽업하고 나면 포털의 주문 상태가 **픽업됨**으로 업데이트됩니다. 추적 ID도 표시됩니다.
+3. 운송업체에서 Data Box Heavy를 픽업하고 나면 포털의 주문 상태가 **픽업됨** 으로 업데이트됩니다. 추적 ID도 표시됩니다.
 
 ::: zone target = "docs"
 
 ## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
 
-Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수신됨**으로 업데이트됩니다. 디바이스에 손상이나 변조 흔적이 있는지 물리적으로 확인됩니다.
+Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수신됨** 으로 업데이트됩니다. 디바이스에 손상이나 변조 흔적이 있는지 물리적으로 확인됩니다.
 
 확인이 완료되면 Data Box Heavy가 Azure 데이터 센터의 네트워크에 연결됩니다. 데이터 복사가 자동으로 시작됩니다. 데이터 크기에 따라 복사 작업을 완료하는 데 몇 시간에서 몇 일이 걸릴 수 있습니다. 포털에서 복사 작업 진행 상황을 모니터링할 수 있습니다.
 
-복사가 완료되면 주문 상태는 **완료됨**으로 업데이트됩니다.
+복사가 완료되면 주문 상태는 **완료됨** 으로 업데이트됩니다.
 
 원본에서 데이터를 삭제하기 전에 데이터가 Azure에 업로드되었는지 확인합니다. 데이터는 다음 위치에 있을 수 있습니다.
 
@@ -100,7 +100,7 @@ Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수
 
 - 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다. 
 
-    - Azure에서 관리 디스크에 성공적으로 복사되면 Azure Portal의 **주문 세부 정보**로 이동하여 관리 디스크에 대해 지정된 리소스 그룹을 기록할 수 있습니다.
+    - Azure에서 관리 디스크에 성공적으로 복사되면 Azure Portal의 **주문 세부 정보** 로 이동하여 관리 디스크에 대해 지정된 리소스 그룹을 기록할 수 있습니다.
 
         ![관리 디스크 리소스 그룹 식별](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
 
@@ -108,7 +108,7 @@ Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수
 
         ![리소스 그룹에 연결된 관리 디스크](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
 
-    - VHDX 또는 동적/차이점 보관용 VHD를 복사한 경우 VHD/VHD가 준비 스토리지 계정에 페이지 Blob으로 업로드되지만 VHD를 관리 디스크로 변환하지 못합니다. 준비 **스토리지 계정 > Blob**으로 차례로 이동한 다음, 적절한 컨테이너(표준 SSD, 표준 HDD 또는 표준 HDD)를 선택합니다. VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드됩니다.
+    - VHDX 또는 동적/차이점 보관용 VHD를 복사한 경우 VHD/VHD가 준비 스토리지 계정에 페이지 Blob으로 업로드되지만 VHD를 관리 디스크로 변환하지 못합니다. 준비 **스토리지 계정 > Blob** 으로 차례로 이동한 다음, 적절한 컨테이너(표준 SSD, 표준 HDD 또는 표준 HDD)를 선택합니다. VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드됩니다.
     
 ::: zone-end
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: aca884ebbfc10cc847bade34ea1a9bd73ada18c9
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 764f0b8f8e78e41f20558f0a825d37cc8f118f6c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458400"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446103"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>자습서: Azure IoT Hub 메시지 보강 사용
 
@@ -251,7 +251,7 @@ az iot hub route create \
 
 1. **리소스 그룹** 을 선택하여 IoT 허브로 이동합니다. 그런 다음, 이 자습서에 맞게 설정된 리소스 그룹(**ContosoResourcesMsgEn**)을 선택합니다. 목록에서 IoT 허브를 찾아 선택합니다. IoT 허브에 대한 **메시지 라우팅** 을 선택합니다.
 
-   ![메시지 라우팅 선택](./media/tutorial-message-enrichments/select-iot-hub.png)
+   :::image type="content" source="./media/tutorial-message-enrichments/select-iot-hub.png" alt-text="메시지 라우팅을 선택하는 방법을 보여주는 스크린샷." border="true":::
 
    메시지 라우팅 창에는 **경로**, **사용자 지정 엔드포인트** 및 **보강 메시지** 라는 세 개의 탭이 있습니다. 처음 두 탭을 탐색하여 스크립트에서 설정한 구성을 살펴봅니다. 세 번째 탭을 사용하여 메시지 보강을 추가합니다. **enriched** 스토리지 컨테이너의 엔드포인트로 이동하는 메시지를 보강해 보겠습니다. 이름과 값을 입력한 다음, 드롭다운 목록에서 **ContosoStorageEndpointEnriched** 엔드포인트를 선택합니다. 다음은 메시지에 IoT 허브 이름을 추가하는 보강 설정 방법을 보여주는 예입니다.
 

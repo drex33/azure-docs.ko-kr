@@ -1,0 +1,69 @@
+### YamlMime:Landing
+title: Azure Virtual Network Manager 설명서
+summary: Azure Virtual Network Manager를 사용하여 Network Virtual Appliances와 가상 네트워크 간의 동적 라우팅을 간소화하는 방법을 알아봅니다.
+metadata:
+  title: Azure Virtual Network Manager 설명서
+  description: Azure Virtual Network Manager에 대해 알아보기
+  services: virtual-network-manager
+  ms.service: virtual-network-manager
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 11/02/2021
+  ms.openlocfilehash: 7b61df1521d2e80ff4c4e4847f54eff84669e4e6
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131053696"
+landingContent:
+- title: Azure Virtual Network Manager 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Virtual Network Manager란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: FAQ
+      url: faq.md
+- title: 시작하기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 범위
+      url: concept-network-manager-scope.md
+    - text: 네트워크 그룹
+      url: concept-network-groups.md
+    - text: 배포
+      url: concept-deployments.md
+  - linkListType: quickstart
+    links:
+    - text: Virtual Network Manager 만들기 및 구성 - 포털
+      url: create-virtual-network-manager-portal.md
+    - text: Virtual Network Manager 만들기 및 구성 - PowerShell
+      url: create-virtual-network-manager-powershell.md
+  - linkListType: tutorial
+    links:
+    - text: 보안 허브 및 스포크 네트워크 만들기
+      url: tutorial-create-secured-hub-and-spoke.md
+- title: 연결
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 연결 구성
+      url: concept-connectivity-configuration.md
+  - linkListType: how-to-guide
+    links:
+    - text: 허브 및 스포크 토폴로지 만들기
+      url: how-to-create-hub-and-spoke.md
+- title: 보안
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 관리자 구성
+      url: concept-security-admins.md
+  - linkListType: how-to-guide
+    links:
+    - text: 보안 관리 규칙을 사용하여 네트워크 트래픽 차단
+      url: how-to-block-network-traffic-portal.md

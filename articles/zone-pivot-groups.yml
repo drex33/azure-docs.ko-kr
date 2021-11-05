@@ -168,6 +168,14 @@ groups:
     title: Java
   - id: rest-api
     title: REST API
+- id: usage-custom-language-features
+  title: 사용 방법
+  prompt: 선호하는 사용 방법 선택
+  pivots:
+  - id: language-studio
+    title: Language Studio
+  - id: rest-api
+    title: REST API
 - id: programming-languages-set-ten
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -1109,10 +1117,10 @@ groups:
   - id: azure-arc
     title: Azure Arc
   - id: azure-portal
-    title: Security Center의 포털 페이지
+    title: Defender for Cloud의 포털 페이지
 - id: manage-asc-initiatives
-  title: Security Center 이니셔티브 관리
-  prompt: Security Center 이니셔티브를 어떻게 관리하나요?
+  title: Defender for Cloud 이니셔티브 관리
+  prompt: Defender for Cloud 이니셔티브를 어떻게 관리하나요?
   pivots:
   - id: azure-portal
     title: Azure Portal에서
@@ -1196,6 +1204,18 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+- id: custom-qna-quickstart
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: studio
+    title: Language Studio
+  - id: rest
+    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: azure-maps-android
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -1342,10 +1362,20 @@ groups:
     title: IAR EWARM
   - id: iot-toolset-mplab
     title: MPLAB
+- id: backup-client-powershelltier-clitier-portaltier
+  title: 클라이언트
+  prompt: 클라이언트 선택
+  pivots:
+  - id: client-powershelltier
+    title: PowerShell
+  - id: client-clitier
+    title: CLI
+  - id: client-portaltier
+    title: Azure portal
 metadata:
-  ms.openlocfilehash: 8f94e077e2983d0b3b8a71729d3d27522f3ee961
-  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.openlocfilehash: 68d5906853d11b7309b716cc7f04c8e6be664c2b
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129274750"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131046492"

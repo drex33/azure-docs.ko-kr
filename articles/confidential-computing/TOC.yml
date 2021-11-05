@@ -3,71 +3,84 @@
 - name: 개요
   expanded: true
   items:
-    - name: Azure 기밀 컴퓨팅 시작
+    - name: 기밀 컴퓨팅이란?
       href: overview.md
+    - name: Azure의 기밀 컴퓨팅
+      href: overview-azure-products.md
     - name: 사용 사례 및 시나리오
       href: use-cases-scenarios.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 가상 머신
+    - name: Enclave를 사용하는 기밀 VM
       items:
-        - name: Azure Portal에서 만들기
-          href: quick-create-portal.md
-        - name: Marketplace로 만들기
-          href: quick-create-marketplace.md
-    - name: AKS(Azure Kubernetes Services)
+        - name: Intel SGX 배포
+          items:
+            - name: Azure Portal을 사용하여 Intel SGX VM 만들기
+              href: quick-create-portal.md
+            - name: Marketplace를 사용하여 Intel SGX VM 만들기
+              href: quick-create-marketplace.md
+    - name: Enclave를 사용하는 기밀 컨테이너
       items:
-        - name: AKS 기밀 노드 개요
-          href: confidential-nodes-aks-overview.md
-        - name: Azure CLI를 사용하는 기밀 노드
-          href: confidential-nodes-aks-get-started.md
-        - name: AKS FAQ의 기밀 노드
-          href: confidential-nodes-aks-faq.yml
+        - name: CLI를 사용하여 Intel SGX AKS 만들기
+          href: confidential-enclave-nodes-aks-get-started.md
 - name: 개념
   expanded: true
   items:
-    - name: VM(가상 컴퓨터)
+    - name: 기밀 컴퓨팅 솔루션 빌드
+      href: confidential-computing-solutions.md
+    - name: 기밀 컴퓨팅에 솔루션 배포
+      href: confidential-computing-deployment-models.md
+    - name: 기밀 가상 머신
       items:
-        - name: Enclave 인식 가상 머신
-          href: confidential-computing-enclaves.md
-        - name: 가상 머신 솔루션
-          href: virtual-machine-solutions.md
-        - name: 기밀 컴퓨팅 VM FAQ
-          href: faq.yml
-    - name: 컨테이너 컴퓨팅
-      expanded: true
+        - name: Enclave를 사용하여 빌드
+          items:
+            - name: Enclave 개요
+              href: confidential-computing-enclaves.md
+            - name: Enclave 애플리케이션 개발
+              items:
+                - name: Enclave 개발 개요
+                  href: application-development.md
+                - name: 개발을 위한 오픈 소스 프로젝트
+                  href: enclave-development-oss.md
+                - name: 애플리케이션 Enclave 증명
+                  href: attestation.md
+            - name: Intel SGX 가상 머신 개발
+              href: virtual-machine-solutions-sgx.md
+            - name: 애플리케이션 Enclave VM FAQ
+              href: faq-application-enclaves.yml
+    - name: 기밀 컨테이너
       items:
-        - name: 기밀 컨테이너
+        - name: 컨테이너 솔루션 개요
+          href: confidential-containers.md
+        - name: 올바른 컨테이너 제품 선택
+          href: choose-confidential-containers-offerings.md
+        - name: 컨테이너 배포
           items:
-            - name: 시작
-              href: confidential-containers.md
-        - name: Enclave 인식 컨테이너
-          items:
-            - name: 시작
+            - name: Enclave 인식 컨테이너
               href: enclave-aware-containers.md
-    - name: 증명
-      href: attestation.md
-    - name: 애플리케이션 개발
-      href: application-development.md
+            - name: AKS의 기밀 Enclave 노드
+              href: confidential-nodes-aks-overview.md
+            - name: AKS 추가 기능
+              href: confidential-nodes-aks-addon.md
+            - name: 기밀 Enclave 노드 FAQ
+              href: confidential-nodes-aks-faq.yml
 - name: 방법
   items:
-    - name: Fortanix 기밀 컴퓨팅 관리자
-      href: how-to-fortanix-confidential-computing-manager.md
-    - name: Fortanix 기밀 컴퓨팅 관리자 노드 에이전트
-      href: how-to-fortanix-confidential-computing-manager-node-agent.md
-- name: 참조
-  items:
-    - name: SGX 견적 도우미 기능
-      href: confidential-nodes-out-of-proc-attestation.md
+    - name: 파트너 솔루션
+      items:
+        - name: Fortanix
+          items:
+            - name: Fortanix 기밀 컴퓨팅 관리자
+              href: how-to-fortanix-confidential-computing-manager.md
+            - name: Fortanix 기밀 컴퓨팅 관리자 노드 에이전트
+              href: how-to-fortanix-confidential-computing-manager-node-agent.md
 - name: 리소스
   items:
     - name: 기밀 컴퓨팅 피드백
       href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
     - name: StackOverflow
       href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
-    - name: Enclave SDK 열기
-      href: 'https://aka.ms/oesdkGitHubRepo'
     - name: 기밀 컴퓨팅 컨소시엄
       href: 'https://confidentialcomputing.io/'
     - name: Azure의 Virtual Machines

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/10/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 95e94f9d071465febf9877001d1096c448d55992
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a8d73103754d34156bd7609529a01ee38e5acf2b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077525"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860993"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
@@ -64,7 +64,7 @@ Windows 에서 이 빠른 시작을 완료하려면 Visual Studio 2019를 설치
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-device"></a>디바이스 실행
+## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 이 섹션에서는 C SDK를 사용하여 디바이스에서 IoT Hub로 메시지를 보냅니다. 두 개의 온도 조절기 센서가 있는 온도 컨트롤러를 구현하는 샘플을 실행합니다.
 
 ### <a name="build-the-sample"></a>샘플 빌드

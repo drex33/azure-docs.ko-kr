@@ -5,12 +5,13 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 09/22/2021
 ms.author: lajanuar
-ms.openlocfilehash: e3296ee84928256e399891b9f8a29318c565e5de
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c93a34308e235ba487cc1ffa3f668f2b179b8055
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725739"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027699"
 ---
 * 최상의 결과를 위해 문서당 하나의 명확한 사진 또는 고품질 스캔을 제공합니다.
 * 지원되는 파일 형식: JPEG, PNG, BMP, TIFF 및 PDF(텍스트 포함 또는 검사). 텍스트 포함 PDF는 문자 추출 및 위치에 오류가 발생할 가능성을 제거하는 데 가장 좋습니다.
@@ -21,5 +22,5 @@ ms.locfileid: "129725739"
 * 학습 데이터 세트의 총 크기는 500페이지 이하입니다.
 * PDF가 암호로 잠긴 경우에는 제출하기 전에 잠금을 해제해야 합니다.
 * 자율 학습(레이블이 지정된 데이터 제외)의 경우:
-  * 데이터에는 키와 값이 포함되어야 합니다.
+  * 데이터는 키와 값을 포함해야 합니다.
   * 키는 값의 위쪽 또는 왼쪽에 표시되어야 하며, 아래쪽 또는 오른쪽에는 표시될 수 없습니다.

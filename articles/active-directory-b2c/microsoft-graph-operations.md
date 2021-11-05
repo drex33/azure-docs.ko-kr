@@ -3,28 +3,32 @@ title: Microsoft Graph를 사용하여 리소스 관리
 titleSuffix: Azure AD B2C
 description: Microsoft Graph API를 호출하고 프로세스를 자동화하는 애플리케이션 ID를 사용하여 Azure AD B2C 테넌트의 리소스를 관리하는 방법입니다.
 services: B2C
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
-ms.custom: project-no-code
-ms.author: mimart
+ms.date: 10/08/2021
+ms.custom: project-no-code, ignite-fall-2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 9157b6212adac3c9bfa5f5c00a9c580a615bf8cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 19a13d9c2941d9a98cce4415b9266d67a9bb8e53
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566297"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028104"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph로 Azure AD B2C 관리
 
 Microsoft Graph를 사용하여 Azure AD B2C 디렉터리에서 리소스를 관리할 수 있습니다. Microsoft Graph API 작업은 사용자, ID 공급자, 사용자 흐름, 사용자 지정 정책 및 정책 키를 포함한 Azure AD B2C 리소스의 관리를 지원합니다. 다음 섹션의 각 링크는 해당 작업에 대한 Microsoft Graph API 참조 내의 해당 페이지를 대상으로 합니다. 
 
 > [!NOTE]
-> Azure 구독에 연결된 해당 Azure 리소스와 함께 Azure AD B2C 디렉터리 자체를 프로그래밍 방식으로 만들 수도 있습니다. 이 기능은 Microsoft Graph API를 통해서가 아니라 Azure REST API를 통해 제공됩니다. 자세한 내용은 [B2C 테넌트 - 만들기](/rest/api/activedirectory/b2ctenants/create)를 참조하세요.
+> Azure 구독에 연결된 해당 Azure 리소스와 함께 Azure AD B2C 디렉터리 자체를 프로그래밍 방식으로 만들 수도 있습니다. 이 기능은 Microsoft Graph API를 통해서가 아니라 Azure REST API를 통해 제공됩니다. 자세한 내용은 [B2C 테넌트 - 만들기](/rest/api/activedirectory/b2c-tenants/create)를 참조하세요.
+
+이 비디오를 시청하여 Microsoft Graph API를 사용해 Azure AD B2C 사용자 마이그레이션에 대해 알아보세요.
+
+>[!Video https://www.youtube.com/embed/9BRXBtkBzL4]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -135,6 +139,7 @@ Microsoft Graph API의 정책 키에 대한 최상위 리소스는 [신뢰할 �
 ## <a name="application-extension-properties"></a>애플리케이션 확장 속성
 
 - [확장 속성 나열](/graph/api/application-list-extensionproperty)
+- [확장 속성 삭제](/graph/api/application-delete-extensionproperty)
 
 Azure AD B2C는 사용자당 100개의 사용자 지정 특성을 보유할 수 있는 디렉터리를 제공합니다. 사용자 흐름의 경우 이러한 확장 속성은 [Azure Portal를 사용하여 관리됩니다](user-flow-custom-attributes.md). 사용자 지정 정책의 경우 정책에서 확장 속성에 값을 처음으로 쓸 때 Azure AD B2C에서 속성을 만듭니다.
 
@@ -248,4 +253,4 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 <!-- LINK -->
 
 [graph-objectIdentity]: /graph/api/resources/objectidentity
-[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)
+[graph-user]: /graph/api/resources/user

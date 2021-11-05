@@ -98,8 +98,10 @@
       items:
         - name: '앱 시작, 중지 및 삭제'
           href: how-to-start-stop-delete.md
-        - name: 영구 스토리지 사용
-          href: how-to-persistent-storage.md
+        - name: 기본 제공 영구 스토리지 사용
+          href: how-to-built-in-persistent-storage.md
+        - name: 사용자 지정 영구 스토리지 사용
+          href: how-to-custom-persistent-storage.md
         - name: 아웃바운드 공용 IP 주소 확인
           href: how-to-outbound-public-ip.md
     - name: 확장
@@ -176,8 +178,6 @@
           href: how-to-github-actions.md
         - name: GitHub 작업에서 Key Vault를 사용한 인증
           href: github-actions-key-vault.md
-        - name: Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
-          href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: 문제 해결
       items:
         - name: 문제 자체 진단 및 해결
@@ -194,7 +194,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Architecture
+- name: 아키텍처
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

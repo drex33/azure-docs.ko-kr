@@ -1,0 +1,52 @@
+### YamlMime:Landing
+title: 서비스 커넥터 설명서
+summary: 서비스 커넥터는 개발자가 컴퓨팅 서비스를 대상 지원 서비스에 쉽게 연결할 수 있도록 하는 Azure 관리형 서비스입니다.
+metadata:
+  title: 서비스 커넥터 설명서
+  description: 서비스 커넥터를 사용하여 Azure 컴퓨팅 서비스를 지원 서비스에 쉽게 연결하세요.
+  ms.service: service-connector
+  ms.topic: landing-page
+  author: shizn
+  ms.author: xshi
+  ms.date: 10/29/2021
+  ms.openlocfilehash: 9388686488d452f08610485a1fedeecb9daf8e5d
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131053053"
+landingContent:
+- title: 서비스 커넥터 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 서비스 커넥터란?
+      url: overview.md
+    - text: 서비스 커넥터의 주요 개념
+      url: concept-service-connector-internals.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: App Service에서 새 서비스 연결 만들기
+      url: quickstart-portal-app-service-connection.md
+    - text: Spring Cloud에서 새 서비스 연결 만들기
+      url: quickstart-portal-spring-cloud-connection.md
+- title: 일반 작업
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: PostgreSQL을 사용하는 Python(Django) 앱
+      url: tutorial-django-webapp-postgres-cli.md
+    - text: MySQL을 사용하는 Spring Cloud 앱
+      url: tutorial-java-spring-mysql.md
+    - text: Blob Storage가 포함된 ASP.NET 앱
+      url: tutorial-csharp-webapp-storage-cli.md
+    - text: Confluent Cloud의 Kafka를 사용하는 Spring Cloud 앱
+      url: tutorial-java-spring-confluent-kafka.md
+  - linkListType: how-to-guide
+    links:
+    - text: 문제 해결 가이드
+      url: how-to-troubleshoot-front-end-error.md
+    - text: 지역 지원
+      url: concept-region-support.md

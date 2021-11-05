@@ -1,0 +1,75 @@
+items:
+  - name: 서비스 커넥터 설명서
+    href: index.yml
+  - name: 서비스 커넥터 개요
+    href: overview.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: Azure App Service의 서비스 커넥터
+        expanded: true
+        items:
+          - name: 포털
+            href: quickstart-portal-app-service-connection.md
+          - name: CLI
+            href: quickstart-cli-app-service-connection.md
+      - name: Azure Spring Cloud의 서비스 커넥터
+        expanded: true
+        items:
+          - name: 포털
+            href: quickstart-portal-spring-cloud-connection.md
+          - name: CLI
+            href: quickstart-cli-spring-cloud-connection.md
+  - name: 자습서
+    expanded: true
+    items:
+      - name: PostgreSQL을 사용하는 Python(Django) 앱
+        href: tutorial-django-webapp-postgres-cli.md
+      - name: Blob Storage가 포함된 ASP.NET 앱
+        href: tutorial-csharp-webapp-storage-cli.md
+      - name: MySQL을 사용하는 Spring Cloud 앱
+        href: tutorial-java-spring-mysql.md
+      - name: Confluent Cloud의 Kafka를 사용하는 Spring Cloud 앱
+        href: tutorial-java-spring-confluent-kafka.md
+  - name: 개념
+    expanded: true
+    items:
+      - name: 서비스 커넥터 내부
+        href: concept-service-connector-internals.md
+      - name: 지역 지원
+        href: concept-region-support.md
+  - name: 방법 가이드
+    expanded: true
+    items:
+      - name: 통합
+        expanded: true
+        items:
+          - name: Azure Database for PostgreSQL
+            href: how-to-integrate-postgres.md
+          - name: Azure Database for MySQL
+            href: how-to-integrate-mysql.md
+          - name: Azure Blob Storage
+            href: how-to-integrate-storage-blob.md
+          - name: Azure Queue Storage
+            href: how-to-integrate-storage-queue.md
+          - name: Azure Table Storage
+            href: how-to-integrate-storage-table.md
+          - name: Azure File Storage
+            href: how-to-integrate-storage-file.md
+          - name: Azure Key Vault
+            href: how-to-integrate-key-vault.md
+          - name: Azure SignalR Service
+            href: how-to-integrate-signalr.md
+          - name: Confluent Cloud의 Apache Kafka
+            href: how-to-integrate-confluent-kafka.md
+      - name: 문제 해결
+        items:
+          - name: 문제 해결 가이드
+            href: how-to-troubleshoot-front-end-error.md
+  - name: 참조
+    expanded: true
+    items:
+      - name: Rest API
+        href: /rest/api/servicelinker
+      - name: Python SDK
+        href: /python/api/overview/azure/servicelinker

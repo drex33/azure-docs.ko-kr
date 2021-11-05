@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1, devx-track-azurepowershell
-ms.openlocfilehash: 5bb52799836b1975de9d936e04fb53987effb300
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 777355c3bff17c2d9a156eb6b330f15e2551943d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832629"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471006"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>자습서: 보안 앱에서 앱으로 Microsoft Graph에 액세스
 
@@ -119,7 +119,9 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 :::image type="content" alt-text="권한 창을 보여주는 스크린샷." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
 
-## <a name="call-microsoft-graph-net"></a>Microsoft Graph(.NET) 호출
+## <a name="call-microsoft-graph"></a>Microsoft Graph 호출
+
+# <a name="c"></a>[C#](#tab/programming-language-csharp)
 
 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스는 Microsoft Graph에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다. 관리 ID를 사용하여 토큰을 가져오고 서비스 클라이언트에 연결하는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 다음 코드 예제에서는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 그룹의 사용자를 가져옵니다.
 
@@ -129,7 +131,7 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 .NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 프로젝트에 [Microsoft.Identity.Web.MicrosoftGraph NuGet 패키지](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph)를 설치합니다.
 
-# <a name="command-line"></a>[명령줄](#tab/command-line)
+#### <a name="net-core-command-line"></a>.NET Core 명령줄
 
 명령줄을 열고 프로젝트 파일이 포함된 디렉터리로 전환합니다.
 
@@ -139,7 +141,7 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
-# <a name="package-manager"></a>[패키지 관리자](#tab/package-manager)
+#### <a name="package-manager-console"></a>패키지 관리자 콘솔
 
 Visual Studio에서 프로젝트/솔루션을 열고, **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 명령을 사용하여 콘솔을 엽니다.
 
@@ -147,8 +149,6 @@ Visual Studio에서 프로젝트/솔루션을 열고, **도구** > **NuGet 패�
 ```powershell
 Install-Package Microsoft.Identity.Web.MicrosoftGraph
 ```
-
----
 
 ### <a name="example"></a>예
 
@@ -207,6 +207,55 @@ public async Task OnGetAsync()
     Users = msGraphUsers;
 }
 ```
+
+# <a name="nodejs"></a>[Node.JS](#tab/programming-language-nodejs)
+
+[@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) 패키지의 `DefaultAzureCredential` 클래스는 Azure Storage에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다. 관리 ID를 사용하여 토큰을 가져오고 서비스 클라이언트에 연결하는 `DefaultAzureCredential` 클래스의 인스턴스를 만듭니다. 다음 코드 예제에서는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 그룹의 사용자를 가져옵니다.
+
+이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity)을 참조하세요.
+
+### <a name="example"></a>예제
+
+```nodejs
+const graphHelper = require('../utils/graphHelper');
+const { DefaultAzureCredential } = require("@azure/identity");
+
+exports.getUsersPage = async(req, res, next) => {
+
+    const defaultAzureCredential = new DefaultAzureCredential();
+    
+    try {
+        const tokenResponse = await defaultAzureCredential.getToken("https://graph.microsoft.com/.default");
+
+        const graphClient = graphHelper.getAuthenticatedClient(tokenResponse.token);
+
+        const users = await graphClient
+            .api('/users')
+            .get();
+
+        res.render('users', { user: req.session.user, users: users });   
+    } catch (error) {
+        next(error);
+    }
+}
+```
+
+Microsoft Graph를 쿼리하기 위해 샘플에서는 [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript)를 사용합니다. 이에 대한 코드는 전체 샘플의 [utils/graphHelper.js](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/3-WebApp-graphapi-managed-identity/controllers/graphController.js)에 있습니다.
+
+```nodejs
+getAuthenticatedClient = (accessToken) => {
+    // Initialize Graph client
+    const client = graph.Client.init({
+        // Use the provided access token to authenticate requests
+        authProvider: (done) => {
+            done(null, accessToken);
+        }
+    });
+
+    return client;
+}
+```
+---
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

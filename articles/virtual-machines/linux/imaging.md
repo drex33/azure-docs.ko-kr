@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 0378c3a8859092f65dca2b8e8147f9be6889e3e6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d08c55a1449d159438b652bd45bbdc50e02fb126
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251302"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427934"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -32,7 +32,7 @@ Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](../faq-fo
 
 Azure 관리 디스크는 단일 VHD입니다. 기존 VHD를 가져와서 관리 디스크를 만들거나 처음부터 빈 관리 디스크를 만들 수 있습니다. 디스크를 VM에 연결하여 관리 디스크에서 VM을 만들 수 있지만 VHD는 하나의 VM에서만 사용할 수 있습니다. OS 속성은 수정할 수 없습니다. Azure는 VM을 켜고 해당 디스크를 사용하여 시작하려고 합니다. 
 
-Azure 이미지는 여러 OS 디스크와 데이터 디스크로 구성될 수 있습니다. 관리형 이미지를 사용하여 VM을 만드는 경우 플랫폼에서 이미지의 복사본을 만들고 이를 사용하여 VM을 만들므로 관리형 이미지는 동일한 이미지를 여러 VM에 다시 사용할 수 있도록 지원합니다. 또한 Azure는 [Shared Image Gallery](../shared-image-galleries.md)를 통해 글로벌 복제 및 버전 관리와 같은 이미지에 대한 고급 관리 기능을 제공합니다. 
+Azure 이미지는 여러 OS 디스크와 데이터 디스크로 구성될 수 있습니다. 관리형 이미지를 사용하여 VM을 만드는 경우 플랫폼에서 이미지의 복사본을 만들고 이를 사용하여 VM을 만들므로 관리형 이미지는 동일한 이미지를 여러 VM에 다시 사용할 수 있도록 지원합니다. 또한 Azure는 [Azure Compute Gallery](../shared-image-galleries.md)(이전의 Shared Image Gallery)를 통해 글로벌 복제 및 버전 관리와 같은 이미지에 대한 고급 관리 기능을 제공합니다. 
 
 
 
@@ -42,9 +42,9 @@ Azure는 일반화 및 특수화의 두 가지 기본 이미지 유형을 제공
 
 | 시나리오      | 이미지 형식  | 스토리지 옵션 |
 | ------------- |:-------------:| :-------------:| 
-| 여러 VM에서 사용하도록 구성할 수 있는 이미지를 만들고, 호스트 이름을 설정하며, 관리 사용자를 추가하고, 처음 부팅하는 동안 다른 작업을 수행할 수 있습니다. | 일반화 | Shared Image Gallery 또는 독립 실행형 관리형 이미지 |
-| VM 스냅샷 또는 백업에서 이미지를 만듭니다. | 특수화 |Shared Image Gallery 또는 관리 디스크 |
-| 여러 VM을 만들도록 구성할 필요가 없는 이미지를 빠르게 만듭니다. |특수화 |공유 이미지 갤러리 |
+| 여러 VM에서 사용하도록 구성할 수 있는 이미지를 만들고, 호스트 이름을 설정하며, 관리 사용자를 추가하고, 처음 부팅하는 동안 다른 작업을 수행할 수 있습니다. | 일반화 | Azure Compute Gallery 또는 독립 실행형 관리형 이미지 |
+| VM 스냅샷 또는 백업에서 이미지를 만듭니다. | 특수화 |Azure Compute Gallery 또는 관리 디스크 |
+| 여러 VM을 만들도록 구성할 필요가 없는 이미지를 빠르게 만듭니다. |특수화 |Azure Compute Gallery |
 
 
 ### <a name="generalized-images"></a>일반화된 이미지
@@ -68,7 +68,7 @@ Azure는 일반화 및 특수화의 두 가지 기본 이미지 유형을 제공
 Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
 
 - 개발 및 테스트 환경에서 간단한 VM을 만들기 위한 관리형 이미지
-- 이미지를 규모에 맞게 만들고 공유하기 위한 [Shared Image Gallery](../shared-image-galleries.md)
+- 이미지를 규모에 맞게 만들고 공유하기 위한 [Azure Compute Gallery](../shared-image-galleries.md)
 
 
 ### <a name="managed-images"></a>관리형 이미지
@@ -77,9 +77,9 @@ Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수
 
 관리형 이미지는 단일 지역 및 구독 내에서 사용하기 위해 몇 개의 간단한 일반화된 이미지가 필요한 개발 및 테스트 환경에 사용할 수 있습니다. 
 
-### <a name="azure-shared-image-gallery-sig"></a>Azure SIG(Shared Image Gallery)
+### <a name="azure-compute-gallery"></a>Azure Compute Gallery
 
-[Shared Image Gallery](../shared-image-galleries.md)는 이미지를 규모에 맞게 만들고, 관리하고, 공유하는 데 사용하는 것이 좋습니다. Shared Image Gallery를 사용하면 이미지에 대한 구조와 구성을 구축할 수 있습니다.  
+[Azure Compute Gallery](../shared-image-galleries.md)(이전의 Shared Image Gallery)는 대규모로 이미지를 만들고 관리하고 공유하는 데 권장됩니다. Gallery를 사용하면 이미지에 대한 구조와 구성을 구축할 수 있습니다.  
 
 - 일반화된 이미지 및 특수화된 이미지 모두 지원
 - 1세대 및 2세대 이미지 모두 지원
@@ -89,7 +89,7 @@ Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수
 - Azure RBAC를 사용하여 구독 간은 물론 AD(Active Directory) 테넌트 간에도 공유합니다.
 - 각 지역에서 이미지 복제본으로 배포 스케일링
 
-대략적으로 SIG를 만들고 다음을 구성합니다.
+대략적으로 갤러리를 만들고 다음을 구성합니다.
 - 이미지 정의 - 이미지 그룹이 포함되는 컨테이너
 - 이미지 버전 - 실제 이미지
 
@@ -113,4 +113,5 @@ Azure는 Hyper-V Gen1(1세대) 및 Gen2(2세대)를 지원하고, Gen2는 최신
 
 ## <a name="next-steps"></a>다음 단계
 
-[Shared Image Gallery](tutorial-custom-images.md)를 만드는 방법에 대해 알아봅니다.
+[Azure Compute Gallery](tutorial-custom-images.md)를 만드는 방법을 알아봅니다.
+

@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Bot Service를 사용하여 여러 도메인에 대한 FAQ 봇 만들기'
-description: 이 자습서에서는 QnA Maker 및 Azure Bot Service를 사용하여 프로덕션 사용 사례에 대한 코드 없는 FAQ 봇을 만듭니다.
+title: '자습서: Azure Bot Service를 사용하여 여러 범주에 대한 FAQ 봇 만들기'
+description: 이 자습서에서는 질문 답변 및 Azure Bot Service를 사용하여 프로덕션 사용 사례에 대한 코드 없는 FAQ 봇을 만듭니다.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
@@ -8,19 +8,19 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 7fdf1178cd9e737b6696374bc126312c1aa819f6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ed5f8bf8009df79f2d49b3040aef7a5fe5635fab
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030644"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458174"
 ---
-# <a name="add-multiple-domains-to-your-faq-bot"></a>FAQ 봇에 여러 도메인 추가
+# <a name="add-multiple-categories-to-your-faq-bot"></a>FAQ 봇에 여러 범주 추가
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
-> * 프로젝트를 만들고 질문 답변 쌍을 메타데이터가 있는 고유한 도메인으로 태그 지정
+> * 프로젝트를 만들고 질문 답변 쌍을 메타데이터가 있는 고유한 범주로 태그 지정
 > * 각 도메인에 대해 별도의 프로젝트 만들기
 > * 각 도메인에 대해 별도의 언어 리소스 만들기
 
@@ -105,4 +105,4 @@ Surface 제품의 경우 다음 단계를 수행하여 두 제품 유형에 대�
 
 ## <a name="create-a-separate-language-resource-for-each-domain"></a>각 도메인에 대해 별도의 언어 리소스 만들기
 
-Microsoft의 마케팅 팀이 Surface 및 Xbox 제품에 대한 사용자 쿼리에 답변하는 고객 지원 봇을 빌드한다고 가정합니다. Surface 및 Xbox의 기술 자료에 액세스하는 별개의 팀을 할당하려고 합니다. 이런 경우 하나는 Surface용, 다른 하나는 Xbox용으로 두 개의 QnA Maker 리소스를 만드는 것이 좋습니다. 하지만 동일한 리소스에 액세스하는 사용자에 대해 별개의 역할을 정의할 수 있습니다.
+Microsoft의 마케팅 팀이 Surface 및 Xbox 제품에 대한 사용자 쿼리에 답변하는 고객 지원 봇을 빌드한다고 가정합니다. Surface 및 Xbox의 기술 자료에 액세스하는 별개의 팀을 할당하려고 합니다. 이런 경우 하나는 Surface용, 다른 하나는 Xbox용으로 두 개의 질문 답변 리소스를 만드는 것이 좋습니다. 하지만 동일한 리소스에 액세스하는 사용자에 대해 별개의 역할을 정의할 수 있습니다.

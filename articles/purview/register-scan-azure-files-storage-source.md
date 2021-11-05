@@ -1,6 +1,6 @@
 ---
 title: Azure Files 커넥트 및 관리
-description: 이 가이드에서는 Azure 부서의 범위에서 Azure Files에 연결 하 고 부서의 범위의 기능을 사용 하 여 Azure Files 원본을 검색 하 고 관리 하는 방법을 설명 합니다.
+description: 이 가이드에서는 Azure Purview에서 Azure Files 연결하고 Purview의 기능을 사용하여 Azure Files 원본을 검사하고 관리하는 방법을 설명합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -8,22 +8,24 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: e91e435ca2d8050a0c6d9728c4d010f9e9c844c4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 95abf27060748255f24b089cfc4fb9229f33bfa5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076266"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848062"
 ---
-# <a name="connect-to-and-manage-azure-files-in-azure-purview"></a>Azure 부서의 범위에서 Azure Files 커넥트 및 관리
+# <a name="connect-to-and-manage-azure-files-in-azure-purview"></a>Azure Purview에서 Azure Files 커넥트 및 관리
 
-이 문서에서는 Azure Files 등록 하는 방법 및 Azure 부서의 범위에서 Azure Files을 인증 하 고 상호 작용 하는 방법을 설명 합니다. Azure 부서의 범위에 대 한 자세한 내용은 [소개 문서](overview.md)를 참조 하세요.
+이 문서에서는 Azure Files 등록하는 방법 및 Azure Purview에서 Azure Files 인증하고 상호 작용하는 방법을 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 읽어보십시오.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan) | [예](#scan) | 아니요 | 아니요 |
+| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan) | [예](#scan) | 예 | 제한** |
+
+\** 데이터 세트가 에서 원본/싱크로 사용되는 경우 계보가 [지원됩니다Data Factory 복사 작업](how-to-link-azure-data-factory.md) 
 
 Azure Files는 시스템 기본 및 사용자 지정 분류 규칙을 기반으로 메타데이터 및 분류를 캡처하는 전체 및 증분 검색을 지원합니다.
 
@@ -33,7 +35,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 2. 첫 번째 행 값이 고유함
 3. 첫 번째 행 값은 날짜 또는 숫자가 아닙니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,7 +45,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
 ## <a name="register"></a>등록
 
-이 섹션에서는 [부서의 범위 Studio](https://web.purview.azure.com/)를 사용 하 여 Azure 부서의 범위에 Azure Files를 등록 하는 방법을 설명 합니다.
+이 섹션에서는 [Purview Studio를](https://web.purview.azure.com/)사용하여 Azure Purview에서 Azure Files 등록하는 방법에 대해 설명합니다.
 
 ### <a name="authentication-for-registration"></a>등록 인증
 
@@ -89,7 +91,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
 ## <a name="scan"></a>검사
 
-Azure Files를 검색 하 여 자산을 자동으로 식별 하 고 데이터를 분류 하려면 아래 단계를 따르세요. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
+아래 단계에 따라 Azure Files 검사하여 자산을 자동으로 식별하고 데이터를 분류합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
 
 ### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 

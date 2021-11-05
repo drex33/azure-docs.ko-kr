@@ -1,20 +1,20 @@
 ---
 title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
-ms.date: 07/13/2021
+ms.date: 11/02/2021
 ms.topic: overview
-ms.openlocfilehash: 2da14a65f146a181af39a8c06a8089fee9010467
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 8130a88042678d277fd5fe727f0593e8805bb5b4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113666567"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445788"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
 Azure Lighthouse는 리소스 간에 스케일링 기능, 고도의 자동화 및 향상된 거버넌스를 통해 다중 테넌트 관리를 허용합니다.
 
-Azure Lighthouse를 통해 서비스 공급자는 [Azure 플랫폼에 기본 제공되는 포괄적이고 강력한 도구](concepts/architecture.md)를 사용하여 관리형 서비스를 제공할 수 있습니다. 고객은 테넌트에 액세스할 수 있는 사용자, 액세스할 수 있는 리소스 및 수행할 수 있는 작업을 제어합니다. 이 제품은 여러 테넌트 간에 리소스를 관리하는 [엔터프라이즈 IT 조직](concepts/enterprise.md)에서도 활용할 수 있습니다.
+Azure Lighthouse를 통해 서비스 공급자는 [Azure 플랫폼에 기본 제공되는 포괄적이고 강력한 도구](concepts/architecture.md)를 사용하여 관리형 서비스를 제공할 수 있습니다. 고객은 테넌트에 액세스할 수 있는 사용자, 액세스할 수 있는 리소스 및 수행할 수 있는 작업을 제어합니다. 여러 테넌트 간에 리소스를 관리하는 [Enterprise 조직](concepts/enterprise.md)은 Azure Lighthouse를 사용하여 관리 작업을 간소화할 수도 있습니다.
 
 [교차 테넌트 관리 환경](concepts/cross-tenant-management-experience.md)에서는 [Azure Policy](how-to/policy-at-scale.md), [Azure Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md) 등의 Azure 서비스를 사용하여 보다 효율적으로 작업할 수 있습니다. 사용자는 고객의 테넌트에 저장되고 관리 테넌트의 사용자가 볼 수 있는 [활동 로그에서](how-to/view-service-provider-activity.md) 수행된 변경 내용 및 수행한 사용자를 볼 수 있습니다.
 
@@ -24,8 +24,8 @@ Azure Lighthouse를 통해 서비스 공급자는 [Azure 플랫폼에 기본 제
 
 Azure Lighthouse를 사용하면 서비스 공급자가 관리되는 서비스를 효율적으로 빌드하고 제공할 수 있습니다. 이점은 다음과 같습니다.
 
-- **대규모 관리**: 고객 참여 및 수명 주기 작업을 통해 고객 리소스를 보다 쉽게 관리하고 확장할 수 있습니다. 기존 API, 관리 도구 및 워크플로는 위치에 관계없이 Azure 외부에서 호스팅되는 컴퓨터를 포함하여 위임된 리소스에서 사용할 수 있습니다.
-- **고객을 위한 가시성 및 제어 향상**: 고객은 관리를 위임하는 범위와 허용되는 권한을 정확하게 제어할 수 있습니다. 원하는 경우 [서비스 공급자 작업을 감사](how-to/view-service-provider-activity.md)하고 액세스 권한을 완전히 제거할 수 있습니다.
+- **대규모 관리**: 고객 참여 및 수명 주기 작업을 통해 고객 리소스를 보다 쉽게 관리하고 확장할 수 있습니다. 기존 API, 관리 도구 및 워크플로는 위치에 관계없이 Azure 외부에서 호스팅되는 머신을 포함하여 위임된 리소스에서 사용할 수 있습니다.
+- **고객을 위한 가시성 및 제어 향상**: 고객은 관리를 위임하는 범위와 허용되는 권한을 정확하게 제어할 수 있습니다. 언제든지 [서비스 공급자 작업을 감사](how-to/view-service-provider-activity.md)하고 액세스 권한을 완전히 제거할 수 있습니다.
 - **포괄적인 통합 플랫폼 도구**: Azure Lighthouse는 기존 도구와 API, [Azure 관리형 애플리케이션](concepts/managed-applications.md) 및 파트너 프로그램(예: [CSP(클라우드 솔루션 공급자 프로그램)](concepts/cloud-solution-provider.md))에서 작동합니다. 이러한 유연성은 EA, CSP 및 종량제 등의 여러 라이선스 모델을 포함하는 주요 서비스 공급자 시나리오를 지원합니다. Azure Lighthouse를 기존 워크플로 및 애플리케이션에 통합하고, [파트너 ID를 연결](how-to/partner-earned-credit.md)하여 고객 참여에 대한 영향을 추적할 수 있습니다.
 
 ## <a name="capabilities"></a>기능

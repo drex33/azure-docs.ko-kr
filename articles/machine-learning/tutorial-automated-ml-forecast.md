@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: dcf05fe6acdb7f8f60520759b0a1b3e3e99fed3e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 1566d09bd625a6b71f28d788e41acffe7ec91ed9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428011"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464108"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 
@@ -111,9 +111,11 @@ Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용�
 
     1. 예측하려는 항목인 대상 열로 **cnt** 를 선택합니다. 이 열은 총 자전거 공유 대여 건수를 나타냅니다.
 
-    1. **새 컴퓨팅 만들기** 를 선택하고 컴퓨팅 대상을 구성합니다. 자동화된 ML은 Azure Machine Learning 컴퓨팅만 지원합니다. 
+    1. 컴퓨팅 유형으로 **컴퓨팅 클러스터** 를 선택합니다. 
 
-        1. **Virtual Machine** 양식을 채워서 컴퓨팅을 설정합니다.
+    1. **+새로 만들기** 를 선택하여 컴퓨팅 대상을 구성합니다. 자동화된 ML은 Azure Machine Learning 컴퓨팅만 지원합니다. 
+
+        1. **가상 머신 선택** 양식을 채워 컴퓨팅을 설정합니다.
 
             필드 | Description | 자습서에서 사용하는 값
             ----|---|---
@@ -127,7 +129,7 @@ Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용�
             ----|---|---
             컴퓨팅 이름 |  컴퓨팅 컨텍스트를 식별하는 고유한 이름입니다. | bike-compute
             최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다.|최소 노드: 1<br>최대 노드: 6
-            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|120(기본값)
+            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|1800(기본값)
             고급 설정 | 실험에 사용할 가상 네트워크를 구성하고 권한을 부여하는 설정입니다.| None 
   
         1. **만들기** 를 선택하여 컴퓨팅 대상을 가져옵니다. 

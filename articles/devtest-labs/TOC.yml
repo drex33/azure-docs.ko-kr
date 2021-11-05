@@ -9,6 +9,8 @@
     - name: 랩 만들기 - Resource Manager 템플릿
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
+    - name: 랩 만들기 - REST API
+      href: quickstarts/create-lab-rest.md
 - name: 자습서
   items:
     - name: 랩 설정

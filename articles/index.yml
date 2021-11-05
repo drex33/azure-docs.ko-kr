@@ -1146,6 +1146,12 @@ productDirectory:
       azureCategories:
         - networking
       url: virtual-network/index.yml
+    - title: Azure Virtual Network Manager(미리 보기)
+      summary: 가상 네트워크 연결을 중앙 집중식으로 관리하고 구독 간에 보안 규칙을 적용합니다.
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/azure-virtual-network-manager.svg'
+      azureCategories:
+        - networking
+      url: virtual-network-manager/index.yml
     - title: 가상 WAN
       summary: 연결 및 보안을 위한 Microsoft 관리형 허브 및 스포크 서비스
       imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-wans.svg'

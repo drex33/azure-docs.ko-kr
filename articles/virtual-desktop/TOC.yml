@@ -170,6 +170,8 @@
           href: start-virtual-machine-connect-faq.md
     - name: 드레이닝 모드 설정
       href: drain-mode.md
+    - name: Azure Stack HCI용 Azure Virtual Desktop(미리 보기)
+      href: azure-stack-hci.md
 - name: 개념
   items:
     - name: 관리 권장 사항
@@ -228,6 +230,12 @@
           href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
         - name: 화면 캡처 보호
           href: screen-capture-protection.md
+    - name: Azure Stack HCI용 Azure Virtual Desktop(미리 보기)
+      items:
+        - name: 개요(미리 보기)
+          href: azure-stack-hci-overview.md
+        - name: Azure Stack HCI FAQ(미리 보기)
+          href: azure-stack-hci-faq.yml
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'

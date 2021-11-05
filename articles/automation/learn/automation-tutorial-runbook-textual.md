@@ -3,19 +3,22 @@ title: 자습서 - Azure Automation에서 PowerShell 워크플로 Runbook 만들
 description: 이 자습서에서는 PowerShell 워크플로 Runbook을 만들고, 테스트하고, 게시하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e1550caff2fbd28a08e89c3fa570216ff8002430
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 2c677d7690acc3ab05c5d8df2ab516d396be2eb4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057703"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465620"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook-in-automation"></a>자습서: Automation에서 PowerShell 워크플로 Runbook 만들기
 
-이 자습서는 Azure Automation에서 [PowerShell 워크플로 Runbook](../automation-runbook-types.md#powershell-workflow-runbooks)을 만드는 과정을 안내합니다. PowerShell 워크플로 Runbook은 Windows PowerShell 워크플로를 기반으로 하는 텍스트 Runbook입니다. Azure Portal에서 텍스트 편집기를 사용하여 Runbook 코드를 만들고 편집할 수 있습니다. 
+이 자습서는 Azure Automation에서 [PowerShell 워크플로 Runbook](../automation-runbook-types.md#powershell-workflow-runbooks)을 만드는 과정을 안내합니다. PowerShell 워크플로 Runbook은 Windows PowerShell 워크플로를 기반으로 하는 텍스트 Runbook입니다. Azure Portal에서 텍스트 편집기를 사용하여 Runbook 코드를 만들고 편집할 수 있습니다.
+
+>[!NOTE]
+>  이 문서는 PowerShell 5.1에 적용됩니다. PowerShell 7.1(미리 보기)에서는 워크플로를 지원하지 않습니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -28,7 +31,7 @@ ms.locfileid: "129057703"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 사용자 할당 관리 ID가 하나 이상 있는 Azure Automation 계정. 자세한 내용은 [관리 ID 사용](../quickstarts/enable-managed-identity.md)을 참조하세요.
 * Automation 계정으로 가져온 Az 모듈 `Az.Accounts` 및 `Az.Compute`. 자세한 내용은 [Az 모듈 가져오기](../shared-resources/modules.md#import-az-modules)를 참조하세요.
@@ -37,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="assign-permissions-to-managed-identities"></a>관리 ID에 권한 할당
 
-적절한 [관리 ID](../automation-security-overview.md#managed-identities-preview)에 권한을 할당하여 가상 머신을 중지할 수 있도록 허용합니다. Runbook은 Automation 계정의 시스템이 할당한 관리 ID 또는 사용자가 할당한 관리 ID를 사용할 수 있습니다. 각 ID에 권한을 할당하는 단계가 제공됩니다. 아래 단계에서는 Azure Portal을 사용합니다. PowerShell을 사용하려면 [Azure PowerShell을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-powershell.md)을 참조하세요.
+적절한 [관리 ID](../automation-security-overview.md#managed-identities)에 권한을 할당하여 가상 머신을 중지할 수 있도록 허용합니다. Runbook은 Automation 계정의 시스템이 할당한 관리 ID 또는 사용자가 할당한 관리 ID를 사용할 수 있습니다. 각 ID에 권한을 할당하는 단계가 제공됩니다. 아래 단계에서는 Azure Portal을 사용합니다. PowerShell을 사용하려면 [Azure PowerShell을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-powershell.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Automation 계정으로 이동합니다.
 
@@ -91,14 +94,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 먼저 간단한 [PowerShell 워크플로 Runbook](../automation-runbook-types.md#powershell-workflow-runbooks)을 만듭니다. Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립트처럼 명령 집합을 순차적으로 수행하지 않고 병렬로 수행할 수 있다는 점입니다.
 
+>[!NOTE]
+> 릴리스 Runbook을 만드는 경우 Azure Portal에서 새로운 환경을 제공합니다. **Runbook** 블레이드 > **Runbook 만들기** 를 선택하는 경우 새 페이지 **Runbook 만들기** 가 적용 가능한 옵션과 함께 열립니다. 
+
 1. 열려 있는 Automation 계정 페이지의 **프로세스 자동화** 에서 **Runbook** 을 선택합니다.
 
-1. **+ Runbook 만들기** 를 선택합니다.
-    1. Runbook 이름을 `MyFirstRunbook-Workflow`로 지정합니다.
-    1. **Runbook 형식** 드롭다운 메뉴에서 **PowerShell 워크플로** 를 선택합니다.
-    1. **생성** 를 선택합니다.
-
    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook.png" alt-text="포털에서 PowerShell 워크플로 Runbook 만들기":::
+
+1. **+ Runbook 만들기** 를 선택합니다.
+    1. Runbook의 이름을 지정합니다. 예를 들어 test입니다.
+    1. **Runbook 형식** 드롭다운 메뉴에서 **PowerShell** 을 선택합니다.
+    1. **런타임 버전** 드롭다운에서 **5.1** 을 선택합니다.
+    1. 해당하는 **설명** 을 입력합니다.
+    1. **만들기** 를 선택합니다.
+   
+    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook-options.png" alt-text="포털의 PowerShell 워크플로 Runbook 옵션":::
+   
 
 ## <a name="add-code-to-the-runbook"></a>Runbook에 코드 추가
 

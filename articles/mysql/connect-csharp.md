@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 16127f59ce1f4a258bf76d97b072ec8cc5f6c6c5
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3af3a216b8c9d2e19021582181aea188de9dd0cc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643639"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472867"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: .NET(C#)을 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -27,6 +27,7 @@ ms.locfileid: "122643639"
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free).
 - [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)을 사용하여 Azure Database for MySQL 단일 서버 만들기 <br/> 또는 [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)를 만듭니다(없는 경우).
 - 퍼블릭 또는 프라이빗 액세스를 사용하는지 여부에 따라 아래 작업 중 **하나** 를 완료하여 연결을 활성화합니다.
+- 플랫폼에 [플랫폼용 .NET SDK](https://dotnet.microsoft.com/download)(Windows, Ubuntu Linux 또는 macOS)를 설치합니다.
 
 |작업| 연결 방법|방법 가이드|
 |:--------- |:--------- |:--------- |

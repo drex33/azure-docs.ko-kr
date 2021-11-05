@@ -110,6 +110,8 @@
           href: restify-soap-api.md
         - name: WebSocket API 가져오기
           href: websocket-api.md
+        - name: GraphQL API 가져오기
+          href: graphql-api.md
         - name: 웹앱 가져오기
           href: import-app-service-as-api.md
         - name: 함수 앱 가져오기
@@ -290,6 +292,8 @@
           href: api-management-dapr-policies.md
         - name: 정책 유효성 검사
           href: validation-policies.md
+        - name: GraphQL 유효성 검사 정책
+          href: graphql-validation-policies.md
     - name: 프로덕션에서 관리
       items:
         - name: Power Platform으로 API 내보내기

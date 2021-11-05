@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Azure Container Apps 미리 보기 설명서
+summary: Azure Container Apps를 사용하면 오케스트레이션 또는 인프라에 대해 걱정 없이 컨테이너화된 애플리케이션을 실행할 수 있습니다.
+metadata:
+  title: Azure Container Apps 설명서
+  description: Azure Container Apps를 사용하면 오케스트레이션 또는 인프라에 대해 걱정 없이 컨테이너화된 애플리케이션을 실행할 수 있습니다.
+  ms.topic: landing-page
+  ms.service: app-service
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 10/22/2021
+  ms.openlocfilehash: 3ac87235ba581b75b51de60e687d128c0d3feabc
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131088444"
+landingContent:
+- title: Azure Container Apps 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Container Apps란?
+      url: overview.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 첫 번째 컨테이너 앱 배포
+      url: ./get-started.md
+  - linkListType: concept
+    links:
+    - text: 환경
+      url: environment.md
+    - text: 컨테이너
+      url: containers.md
+    - text: 수정 내용
+      url: revisions.md
+    - text: 애플리케이션 수명 주기 관리
+      url: application-lifecycle-management.md
+    - text: 마이크로 서비스
+      url: microservices.md
+- title: 일반 작업
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 크기 조정 규칙 설정
+      url: scale-app.md
+    - text: 앱 보호
+      url: secure-app.md
+    - text: 앱 모니터링
+      url: monitor.md
+    - text: 수정 버전 관리
+      url: revisions-manage.md
+    - text: HTTP 수신 설정
+      url: ingress.md
+    - text: 여러 앱 연결
+      url: connect-apps.md
+- title: 앱 및 마이크로 서비스
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Dapr을 사용한 마이크로 서비스
+      url: microservices-dapr.md
+    - text: 백그라운드 처리
+      url: background-processing.md

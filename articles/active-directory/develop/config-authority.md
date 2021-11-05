@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: af729767467d2dc950fb7a559fec4d0a81d07cab
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 50a0593081e5a1971a22b6342f0c983c81b24bb1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123029186"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067215"
 ---
 # <a name="configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>다른 ID 공급자를 사용하도록 iOS 및 macOS용 MSAL 구성
 
@@ -240,11 +240,11 @@ do{
 
 ### <a name="msalaadauthority"></a>MSALAADAuthority
 
-`MSALAADAuthority`는 AAD 인증 기관을 나타냅니다. 인증 기관 URL은 다음과 같은 형식이어야 하며, 여기서 `<port>`은 선택 사항입니다: `https://<host>:<port>/<tenant>`
+`MSALAADAuthority`는 AAD 인증 기관을 나타냅니다. 인증 기관 URL은 다음과 같은 형식이어야 하며, 여기서 `<port>`은(는) 선택 사항입니다.`https://<host>:<port>/<tenant>`
 
 ### <a name="msalb2cauthority"></a>MSALB2CAuthority
 
-`MSALB2CAuthority`은 B2C 인증 기관을 나타냅니다. 기본값으로 B2C 인증 기관 URL은 다음과 같은 형식이어야 하며, 여기서 `<port>`은 선택 사항입니다: `https://<host>:<port>/tfp/<tenant>/<policy>` 그러나 MSAL은 기타 임의의 B2C 인증 기관 형식도 지원합니다.
+`MSALB2CAuthority`은 B2C 인증 기관을 나타냅니다. 기본적으로 B2C 인증 기관 URL은 다음과 같은 형식이어야 하며, 여기서 `<port>`은(는) 선택 사항입니다.`https://<host>:<port>/tfp/<tenant>/<policy>` 그러나 MSAL은 기타 임의의 B2C 인증 기관 형식도 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,0 +1,46 @@
+### YamlMime:Landing
+title: Azure Chaos Studio 설명서
+summary: Azure Chaos Studio는 VM에서 CPU 사용량이 100%가 발생하는 지역 다운 또는 애플리케이션 오류와 같은 실제 인시던트에서 애플리케이션 및 서비스 복원력을 측정, 이해 및 빌드하는 데 도움이 되는 Azure 서비스입니다. Chaos Studio를 사용하면 서비스에 오류를 삽입한 다음, 서비스가 중단에 대응하는 방식을 모니터링하는 Chaos Engineering 실험을 실행할 수 있습니다. Chaos 실험을 통해 아키텍처 선택 항목의 유효성을 검사하고 서비스 안정성을 향상시킬 수 있습니다. Chaos 실험은 수동 BCDR 훈련 및 게임 요일을 실행하기 위해 임시로 실행하거나 CI/CD 파이프라인의 일부로 실행하여 프로그래밍 방식으로 코드 흐름을 제어할 수 있습니다.
+metadata:
+  title: Azure Chaos Studio 설명서 - 자습서, API 참조
+  description: Azure에서 카오스 엔지니어링 및 오류 주입을 사용하여 서비스의 복원력을 구축하기 위한 솔루션인 Azure Chaos Studio에 대해 알아봅니다.
+  ms.service: chaos-studio
+  ms.topic: landing-page
+  author: johnkemnetz
+  ms.author: johnkem
+  ms.date: 08/24/2021
+  ms.openlocfilehash: 8ae0b6d778d71b05b45cdc23d27be26bd6b0cfa9
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131052948"
+landingContent:
+- title: Azure Chaos Studio 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Chaos Studio란?
+      url: chaos-studio-overview.md
+    - text: 카오스 엔지니어링이란?
+      url: chaos-studio-chaos-engineering-overview.md
+- title: 시작
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 서비스 직접 오류를 사용하여 Azure Cosmos DB 인스턴스를 장애 조치(failover)하는 카오스 실험 만들기
+      url: chaos-studio-tutorial-service-direct.md
+    - text: Azure Chaos Studio에서 에이전트 기반 오류를 사용하는 실험 만들기
+      url: chaos-studio-tutorial-agent-based.md
+    - text: Azure Chaos Studio에서 AKS Chaos Mesh 오류를 사용하는 실험 만들기
+      url: chaos-studio-tutorial-aks.md
+- title: 참고
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 오류 라이브러리
+      url: chaos-studio-fault-library.md
+    - text: 오류 공급자
+      url: chaos-studio-fault-providers.md
+    - text: REST API 설명서
+      url: https://docs.microsoft.com/rest/api/chaosstudio

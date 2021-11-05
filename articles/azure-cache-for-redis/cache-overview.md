@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 63aae0f54d07fea45f4cecc5a4699cd1448c0a4f
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 8940744c2f857064699180c24bc3b766bc7995f2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537777"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440225"
 ---
 # <a name="about-azure-cache-for-redis"></a>Azure Cache for Redis 소개
 
@@ -35,7 +35,7 @@ Azure Cache for Redis는 일반적인 애플리케이션 아키텍처 패턴을 
 
 ## <a name="redis-versions"></a>Redis 버전
 
-Azure Cache for Redis는 OSS Redis 버전 4.x를 지원하고, 미리 보기로 6.0을 지원합니다. 최신 버전을 제공하기 위해 Redis 5.0을 건너뛰기로 결정했습니다. 이전에는 Azure Cache for Redis가 단일 Redis 버전을 유지 관리했습니다. 나중에 최신 주 릴리스 업그레이드와 안정적인 이전 버전이 하나 이상 제공됩니다. 애플리케이션에 가장 적합한 [버전을 선택](cache-how-to-version.md)할 수 있습니다.
+Azure Cache for Redis는 OSS Redis 버전 4.0.x 및 6.0.x를 지원합니다. 최신 버전을 제공하기 위해 Redis 5.0을 건너뛰기로 결정했습니다. 이전에는 Azure Cache for Redis가 단일 Redis 버전을 유지 관리했습니다. 나중에 최신 주 릴리스 업그레이드와 안정적인 이전 버전이 하나 이상 제공됩니다. 애플리케이션에 가장 적합한 [버전을 선택](cache-how-to-version.md)할 수 있습니다.
 
 
 ## <a name="service-tiers"></a>서비스 계층

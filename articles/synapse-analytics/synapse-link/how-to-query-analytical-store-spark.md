@@ -6,16 +6,16 @@ author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 09/15/2020
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 9ea9d5d34d69b950e3fa80c350c43f12615660ba
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 83f6c3a7e88cf42cbb2a2d36ff07ac79e7eb5894
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112559"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452208"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-2-in-azure-synapse-link"></a>Azure Synapse Link에서 Apache Spark 2를 사용하여 Azure Cosmos DB와 상호 작용
 
@@ -48,6 +48,8 @@ Azure Cosmos DB 분석 저장소를 쿼리하는 두 가지 옵션(Spark 데이�
 반면 **Spark 테이블 만들기** 를 선택하는 경우 분석 저장소 상태의 메타데이터가 Spark에 캐시되지 않고 Spark 테이블에 대한 SparkSQL 쿼리가 실행될 때마다 다시 로드됩니다.
 
 따라서 분석 저장소의 고정된 스냅샷과 분석 저장소의 최신 스냅샷 중 무엇에 대해 Spark 분석을 평가할 것인지에 따라 Spark 데이터 프레임에 로드하는 방법 또는 Spark 테이블을 만드는 방법 중에 선택할 수 있습니다.
+
+분석 쿼리에 자주 사용되는 필터가 있는 경우 더 나은 쿼리 성능을 위해 이러한 필드를 기반으로 분할하는 옵션이 있습니다. Azure Synapse Spark Notebook에서 분할 작업을 주기적으로 실행하여 분석 저장소에서 분할을 트리거할 수 있습니다. 이 분할된 저장소는 Azure Synapse 작업 영역에 연결된 ADLS Gen2 기본 스토리지 계정을 가리킵니다. 자세한 내용은 [사용자 지정 분할 소개](../../cosmos-db/custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](../../cosmos-db/configure-custom-partitioning.md) 문서를 참조하세요.
 
 > [!NOTE]
 > Mongo DB 계정의 Azure Cosmos DB API를 쿼리하려면 분석 저장소의 [전체 충실도 스키마 표현](../../cosmos-db/analytical-store-introduction.md#analytical-schema) 및 사용할 확장 속성 이름에 대해 자세히 알아보세요.

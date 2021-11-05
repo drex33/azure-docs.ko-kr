@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 08/31/2021
 ms.author: azhussai
 ms.topic: conceptual
-ms.openlocfilehash: b2a8c8054096a8d93a3160a3cb5af935276224b1
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 5feb112a9d1c9b7eb229c65f8bcce3845a3f23ad
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272820"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844984"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
 
@@ -34,7 +34,7 @@ ms.locfileid: "123272820"
 다중 사이트 수신기를 사용하는 동안, 클라이언트 트래픽이 정확한 백 엔드로 라우팅되도록 하려면 요청 회람 규칙을 올바른 순서로 지정하는 것이 중요합니다.
 예를 들어, 연결된 호스트 이름이 각각 `*.contoso.com` 및 `shop.contoso.com`인 수신기가 2개 있는 경우, `shop.contoso.com` 호스트 이름을 가진 수신기는 `*.contoso.com`를 사용하여 수신기보다 먼저 처리되어야 합니다. `*.contoso.com`이 있는 수신기가 먼저 처리되는 경우, 더 구체적인 `shop.contoso.com` 수신기에서 클라이언트 트래픽을 수신하지 않습니다.
 
-이 순서는 수신기와 연결된 요청 회람 규칙에 '우선 순위' 필드 값을 입력하여 설정할 수 있습니다. 1에서 20000까지의 정수 값을 지정할 수 있습니다. 1은 가장 높은 우선 순위이고 20000은 가장 낮은 우선 순위입니다. 들어오는 클라이언트 트래픽이 여러 수신기와 일치하는 경우, 우선 순위가 가장 높은 요청 회람 규칙이 요청을 제공하는 데 사용됩니다.
+이 순서는 수신기와 연결된 요청 회람 규칙에 '우선 순위' 필드 값을 입력하여 설정할 수 있습니다. 1에서 20000까지의 정수 값을 지정할 수 있습니다. 1은 가장 높은 우선 순위이고 20000은 가장 낮은 우선 순위입니다. 들어오는 클라이언트 트래픽이 여러 수신기와 일치하는 경우, 우선 순위가 가장 높은 요청 회람 규칙이 요청을 제공하는 데 사용됩니다. 각 요청 라우팅 규칙에는 고유한 우선 순위 값이 있어야 합니다.
 
 우선 순위 필드는 `PathBasedRouting` 요청 회람 규칙의 평가 순서에만 영향을 미치며, 요청 회람 규칙 내에서 경로 기반 규칙의 평가 순서는 변경되지 않습니다.
 

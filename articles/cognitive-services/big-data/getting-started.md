@@ -6,14 +6,14 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 07/06/2020
+ms.date: 10/28/2021
 ms.author: marhamil
-ms.openlocfilehash: 9c9780a51954978935dad164c9d8c5b5a1535826
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f8d8e0ebbed2acc51c04a5ae83743e1fbf37ae6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447334"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446565"
 ---
 # <a name="getting-started"></a>시작
 
@@ -106,7 +106,7 @@ Spark 클러스터 및 환경이 설정되면 간단한 샘플을 실행할 수 
 from mmlspark.cognitive import *
 from pyspark.sql.functions import col
 
-# Add your subscription key from Text Analytics (or a general Cognitive Service key)
+# Add your subscription key from the Language service (or a general Cognitive Service key)
 service_key = "ADD-SUBSCRIPTION-KEY-HERE"
 
 df = spark.createDataFrame([
@@ -130,7 +130,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 ```
 
-1. Azure Portal의 Text Analytics 대시보드에 있는 **키 및 엔드포인트** 메뉴에서 구독 키를 가져옵니다.
+1. Azure Portal의 언어 리소스에 있는 **키 및 엔드포인트** 메뉴에서 구독 키를 가져옵니다.
 1. Databricks Notebook 코드의 구독 키 자리 표시자를 구독 키로 바꿉니다.
 1. Notebook 셀의 오른쪽 위에서 재생 또는 삼각형 기호를 선택하여 샘플을 실행합니다. 필요에 따라 Notebook의 위쪽에서 **모두 실행** 을 선택하여 모든 셀을 실행합니다. 대답이 테이블의 셀 아래에 표시됩니다.
 

@@ -2,22 +2,18 @@
 metadata:
   title: Azure Front Door - 질문과 대답
   description: 이 페이지에서는 Azure Front Door에 대한 자주 묻는 질문에 대한 답을 제공합니다.
-  services: frontdoor
-  documentationcenter: ''
   author: duongau
+  ms.author: duau
   ms.service: frontdoor
-  ms.devlang: na
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
   ms.date: 09/14/2021
-  ms.author: duau
-  ms.openlocfilehash: 43a4b39295b905f1a02eedfd61a6c13fca66319e
-  ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+  ms.openlocfilehash: e977459806fb6ec83f8f969d9011adc14f026744
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/19/2021
-  ms.locfileid: "130167702"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131442619"
 title: Azure Front Door에 대한 자주 묻는 질문
 summary: >
   이 문서에서는 Azure Front Door의 특징 및 기능에 대한 일반적인 질문에 답변합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
@@ -25,7 +21,9 @@ summary: >
 
   1. 이 문서의 의견 섹션입니다.
 
-  2. [Azure Front Door UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
+
+  2. [Azure Front Door UserVoice](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=d47b0f41-8326-ec11-b6e6-000d3a4f0789).
+
 
   3. **Microsoft 지원:** 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택합니다.
 sections:
@@ -122,57 +120,7 @@ sections:
   questions:
   - question: >
       Azure Front Door가 지원하는 TLS 버전은 무엇인가요?
-    answer: >
-      2019년 9월 이후에 만들어진 모든 Front Door 프로필은 기본적으로 TLS 1.2 이상을 사용합니다.
-
-
-      Front Door는 TLS 버전 1.0, 1.1 및 1.2를 지원합니다. TLS 1.3은 아직 지원되지 않습니다.
-  - question: >
-      Azure Front Door에서 지원되는 인증서는 무엇인가요?
-    answer: >
-      Front Door 사용자 지정 도메인에 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 사용하도록 설정하려면 Azure Front Door에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
-
-      Front Door 관리형 옵션은 Digicert를 통해 표준 TLS/SSL 인증서를 프로비저닝하고 Front Door의 키 자격 증명 모음에 저장합니다. 사용자 고유의 인증서를 사용하도록 선택하는 경우 지원되는 CA에서 인증서를 온보딩할 수 있으며, 여기에 표준 TLS, 확장된 유효성 검사 인증서 또는 와일드카드 인증서를 사용할 수 있습니다. 자체 서명된 인증서는 지원되지 않습니다. [사용자 지정 도메인에 HTTPS를 사용하는 방법](./front-door-custom-domain-https.md)을 알아보세요.
-  - question: >
-      Front Door는 인증서의 자동 순환을 지원하나요?
-    answer: >
-      Front Door 관리형 인증서 옵션의 경우 인증서는 Front Door에 의해 자동 순환됩니다. Front Door 관리 인증서를 사용 중이며 인증서 만료 날짜까지 60일 미만이 남아 있는 경우 지원 티켓을 제출합니다.
-
-      </br>고유한 사용자 지정 TLS/SSL 인증서의 경우 Azure Front Door가 Key Vault에 업로드된 최신 비밀 버전으로 자동 교체되도록 비밀 버전을 최신으로 설정합니다. 새 버전의 인증서/비밀을 배포하는 데 최대 24시간이 걸릴 수 있습니다. 비밀 버전을 특정 버전으로 구성하는 경우 Front Door가 Key Vault의 올바른 인증서 버전을 가리키도록 해야 합니다. Front Door 서비스 주체가 여전히 Key Vault에 액세스할 수 있는지 확인합니다. Key Vault에 대한 [액세스 권한을 부여하는 방법](standard-premium/how-to-configure-https-custom-domain.md#grant-azure-front-door-access-to-your-key-vault)을 참조하세요. Front Door가 업데이트된 인증서 출시 작업으로 인해 인증서의 주체 이름 또는 SAN(주체 대체 이름)이 변경되지 않으면 프로덕션 중단 시간이 발생하지 않습니다.
-  - question: >
-      Azure Front Door에서 지원되는 현재 암호 그룹은 무엇인가요?
-    answer: "TLS 1.2의 경우 지원되는 암호 그룹은 다음과 같습니다. \n\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n\n> [!NOTE]  \n> Windows 10 이상 버전의 경우 보안을 강화하기 위해 두 ECDHE 암호 그룹 중 하나 또는 둘 다를 사용하도록 설정하는 것이 좋습니다. Windows 8.1, 8 및 7은 이러한 ECDHE 암호 그룹과 호환되지 않습니다. DHE 암호 그룹은 이러한 운영 체제와의 호환성을 위해 제공되었습니다.\n\nTLS 1.0/1.1을 사용하는 사용자 지정 도메인을 사용하는 경우 다음 암호 그룹이 지원됩니다.\n\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\n- TLS_RSA_WITH_AES_256_GCM_SHA384\n- TLS_RSA_WITH_AES_128_GCM_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA256\n- TLS_RSA_WITH_AES_128_CBC_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA\n- TLS_RSA_WITH_AES_128_CBC_SHA\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n"
-  - question: >
-      TLS 프로토콜 버전을 제어하는 TLS 정책을 구성할 수 있나요?
-    answer: >
-      Azure Portal 또는 [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion)를 통해 사용자 지정 도메인 HTTPS 설정에서 Azure Front Door의 최소 TLS 버전을 구성할 수 있습니다. 현재는 1.0과 1.2 중에서 선택할 수 있습니다.
-  - question: >
-      특정 암호 모음만 지원하도록 Front Door를 구성할 수 있나요?
-    answer: "아니요, 특정 암호 그룹에 대한 Front Door 구성은 지원되지 않습니다. 그러나 인증 기관(예: Verisign, Entrust 또는 Digicert)에서 사용자 고유의 사용자 지정 TLS/SSL 인증서를 가져올 수 있으며, 인증서를 생성하는 경우에는 인증서에 특정 암호 그룹을 지정할 수 있습니다. \n"
-  - question: >
-      Front Door가 OCSP 스테이플링을 지원하나요?
-    answer: >
-      예, OCSP 스테이플링은 기본적으로 Front Door에 의해 지원되며 구성이 필요하지 않습니다.
-  - question: >
-      Azure Front Door에서 백 엔드에 대해 트래픽의 재암호화를 지원하나요?
-    answer: >
-      예, Azure Front Door는 TSL/SSL 오프로드와 백 엔드에 대한 트래픽을 다시 암호화하는 엔드투엔드 TLS를 지원합니다. 실제로 백 엔드에 대한 연결이 공용 IP를 통해 이루어지므로 전달 프로토콜로 HTTPS를 사용하도록 Front Door를 구성하는 것이 좋습니다.
-  - question: >
-      Front Door는 HTTPS 연결 시 백 엔드에서 자체 서명된 인증서를 지원하나요?
-    answer: >
-      아니요, 자체 서명된 인증서는 Front Door에서 지원되지 않으며 이 제한은 다음 두 가지 모두에 적용됩니다.
-
-
-      - **백 엔드**: HTTPS 또는 HTTPS 상태 프로브 형태로 트래픽을 전달하거나 캐싱을 사용하도록 설정된 회람 규칙의 원본에 캐시를 채우는 경우 자체 서명된 인증서를 사용할 수 없습니다.
-
-      - **프런트 엔드**: 사용자 지정 도메인에서 HTTPS를 사용하도록 설정하기 위해 고유한 사용자 지정 TLS/SSL 인증서를 사용하는 경우 자체 서명된 인증서를 사용할 수 없습니다.
-  - question: >
-      백 엔드에 대한 HTTPS 트래픽이 실패하는 이유는 무엇인가요?
-    answer: "상태 프로브 또는 전달 요청을 사용해 백 엔드에 대한 HTTPS 연결에 성공했지만 HTTPS 트래픽이 실패하는 경우에는 두 가지 이유가 있을 수 있습니다.\n\n- **인증서 주체 이름 불일치**: HTTPS 연결의 경우 Front Door는 백 엔드 호스트 이름과 일치하는 주체 이름을 가진 유효한 CA에서 인증서를 제공할 것을 요구합니다. 예를 들어 백 엔드 호스트 이름이 `myapp-centralus.contosonews.net`로 설정되고, TLS 핸드셰이크 중에 백 엔드에서 제공하는 인증서의 주체 이름이 `myapp-centralus.contosonews.net`이나 `*myapp-centralus*.contosonews.net`가 아니면 Front Door는 연결을 거부하고 오류를 생성합니다. \n    - **해결 방법**: 규정 준수 관점에서는 권장되지 않지만, Front Door에서 인증서 주체 이름 검사를 사용하지 않도록 설정하여 이 오류를 해결할 수 있습니다. 해당 설정은 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.\n- **잘못된 CA의 백 엔드 호스팅 인증서**: [유효한 인증 기관](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 인증서만 Front Door가 있는 백 엔드에서 사용할 수 있습니다. 내부 CA 또는 자체 서명된 인증서의 인증서는 허용되지 않습니다. 인증서에는 리프 및 중간 인증서가 있는 완전한 인증서 체인이 있어야 하며 루트 CA는 [Microsoft 신뢰할 수 있는 CA 목록](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 일부여야 합니다. \n"
-  - question: >
-      Azure Front Door에 클라이언트/상호 인증을 사용할 수 있나요?
-    answer: >
-      아니요. Azure Front Door는 [RFC 5246](https://tools.ietf.org/html/rfc5246)의 클라이언트/상호 인증을 도입한 TLS 1.2를 지원하지만, 현재까지는 Azure Front Door에서 클라이언트/상호 인증을 지원하지 않습니다.
+    answer: "2019년 9월 이후에 만들어진 모든 Front Door 프로필은 기본적으로 TLS 1.2 이상을 사용합니다.\n\nFront Door는 TLS 버전 1.0, 1.1 및 1.2를 지원합니다. TLS 1.3은 아직 지원되지 않습니다. 자세한 내용은 [Azure Front Door 엔드투엔드 TLS](concept-end-to-end-tls.md)를 참조하세요.\n        \n"
 - name: 결제
   questions:
   - question: >

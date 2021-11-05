@@ -9,12 +9,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1da552c76b1a76a4bc131b15e25021264c2d869f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1c0ba3a58906275d136a437f3b18d32e3fe70a24
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692882"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456787"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "122692882"
 확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Shared Image Gallery 만들기
+> * Azure Compute Gallery 만들기
 > * 이미지 정의 만들기
 > * 이미지 버전 만들기
 > * 이미지에서 확장 집합 만들기 
@@ -76,7 +76,7 @@ $gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
-   -Description 'Shared Image Gallery for my organization'  
+   -Description 'Azure Compute Gallery for my organization' 
 ```
 
 
@@ -264,7 +264,7 @@ Azure는 [Azure VM 이미지 작성기](../virtual-machines/image-builder-overvi
 이 자습서에서는 Azure PowerShell을 사용하여 확장 집합에 대한 사용자 지정 VM 이미지를 만들고 사용하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * Shared Image Gallery 만들기
+> * Azure Compute Gallery 만들기
 > * 이미지 정의 만들기
 > * 이미지 버전 만들기
 > * 이미지에서 확장 집합 만들기 

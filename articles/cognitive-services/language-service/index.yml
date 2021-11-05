@@ -1,0 +1,93 @@
+### YamlMime:Hub
+title: Azure Cognitive Service for Language 설명서
+summary: '정보를 추출하고, 텍스트를 분류하고, 대화형 언어를 이해하고, 질문에 답변 등의 작업을 수행할 수 있는 애플리케이션에 AI를 통합하는 방법을 알아봅니다.'
+brand: azure
+metadata:
+  title: '언어용 Azure Cognitive Services 설명서 - 자습서, API 참조 | Microsoft Docs'
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: 작성된 텍스트에서 작동하는 AI를 애플리케이션에 통합하는 방법에 대해 알아봅니다.
+  author: aahill
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: hub-page
+  ms.date: 09/13/2021
+  ms.author: aahi
+highlightedContent:
+  items:
+    - title: Azure Cognitive Service for Language란?
+      itemType: overview
+      url: overview.md
+    - title: 새로운 기능
+      itemType: whats-new
+      url: whats-new.md
+    - title: Language Studio 시작
+      itemType: get-started
+      url: language-studio.md
+    - title: AI의 책임 있는 사용
+      itemType: concept
+      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context
+conceptualContent:
+  items:
+    - title: 정보 추출
+      links:
+        - itemType: overview
+          text: 핵심 구 추출
+          url: key-phrase-extraction/overview.md
+        - itemType: overview
+          text: 연결된 엔터티 찾기
+          url: entity-linking/overview.md
+        - itemType: overview
+          text: NER(명명된 엔터티 인식)
+          url: named-entity-recognition/overview.md
+        - itemType: overview
+          text: PII(개인 식별 정보) 검색
+          url: personally-identifiable-information/overview.md
+        - itemType: overview
+          text: 사용자 지정 NER(사용자 지정 명명된 엔터티 인식)
+          url: custom-named-entity-recognition/overview.md
+        - itemType: overview
+          text: Text Analytics for health
+          url: text-analytics-for-health/overview.md
+    - title: 텍스트 분류
+      links:
+        - itemType: overview
+          text: 감정 분석 및 의견 텍스트 마이닝
+          url: sentiment-opinion-mining/overview.md
+        - itemType: overview
+          text: 언어 감지
+          url: language-detection/overview.md
+        - itemType: overview
+          text: 사용자 지정 텍스트 분류
+          url: custom-classification/overview.md
+    - title: 대화 이해 및 질문 답변
+      links:
+        - itemType: overview
+          text: 대화형 언어 이해
+          url: conversational-language-understanding/overview.md
+        - itemType: overview
+          text: 질문 답변
+          url: question-answering/overview.md
+    - title: 텍스트 번역
+      links:
+        - itemType: overview
+          text: 텍스트에서 기계 번역을 사용합니다.
+          url: ../translator/translator-overview.md
+    - title: 텍스트 요약
+      links:
+        - itemType: overview
+          text: 텍스트 요약
+          url: text-summarization/overview.md
+additionalContent:
+  sections:
+    - items:
+        - title: 리소스
+          links:
+            - text: 가격 책정
+              url: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+            - text: 배우기
+              url: /learn/browse/?products=azure-cognitive-services&term=Speech
+        - title: 지원
+          links:
+            - text: 지원 및 도움말
+              url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

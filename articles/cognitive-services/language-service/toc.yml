@@ -1,0 +1,739 @@
+items:
+  - name: Azure Cognitive Service for Language 설명서
+    href: index.yml
+  - name: 개요
+    expanded: true
+    items:
+      - name: Azure Cognitive Service for Language란?
+        href: overview.md
+      - name: 새로운 기능
+        href: whats-new.md
+      - name: 가격 책정
+        href: 'https://aka.ms/unifiedLanguagePricing'
+      - name: Language Studio 빠른 시작
+        href: language-studio.md
+  - name: AI의 책임 있는 사용
+    items:
+      - name: Azure Cognitive Service for Language에 대한 투명도 참고 사항
+        href: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context
+        displayName: 'Transparency note for language service, Language service Transparency, Responsible AI, Responsible use of AI'
+      - name: 윤리 및 책임 있는 사용
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+        displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+      - name: '데이터, 개인 정보 및 보안'
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+        displayName: 'Data privacy, logging, data retention'
+  - name: 사용자 지정 텍스트 분류(미리 보기)
+    items:
+      - name: 개요
+        href: custom-classification/overview.md
+      - name: 빠른 시작
+        href: custom-classification/quickstart.md
+      - name: 언어 지원
+        href: custom-classification/language-support.md
+      - name: FAQ
+        href: custom-classification/faq.md
+      - name: 방법 가이드
+        items:
+          - name: 프로젝트 만들기
+            href: custom-classification/how-to/create-project.md
+          - name: 데이터 선택 및 스키마 설계
+            href: custom-classification/how-to/design-schema.md
+            displayName: Best practices
+          - name: 태그 데이터
+            href: custom-classification/how-to/tag-data.md
+          - name: 모델 학습
+            href: custom-classification/how-to/train-model.md
+          - name: 모델 평가 보기
+            href: custom-classification/how-to/view-model-evaluation.md
+          - name: 모델 개선
+            href: custom-classification/how-to/improve-model.md
+          - name: 모델을 배포하고 런타임 API를 호출하여 텍스트 분류
+            href: custom-classification/how-to/call-api.md
+      - name: 개념
+        items:
+          - name: 평가 메트릭
+            href: custom-classification/concepts/evaluation.md
+          - name: 허용되는 데이터 태그 형식
+            href: custom-classification/concepts/data-formats.md
+            displayName: Data representation
+      - name: 참조
+        items:
+          - name: 용어
+            href: custom-classification/glossary.md
+            displayName: 'Model, Project, Class'
+          - name: 서비스 제한
+            href: custom-classification/service-limits.md
+          - name: REST API(v3.2-preview.2)
+            items:
+              - name: API 작성
+                href: 'https://go.microsoft.com/fwlink/?linkid=2176818'
+              - name: 런타임 예측 API
+                href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+  - name: 사용자 지정 NER(명명된 엔터티 인식)(미리 보기)
+    items:
+      - name: 개요
+        href: custom-named-entity-recognition/overview.md
+      - name: 빠른 시작
+        href: custom-named-entity-recognition/quickstart.md
+      - name: 언어 지원
+        href: custom-named-entity-recognition/language-support.md
+      - name: FAQ
+        href: custom-named-entity-recognition/faq.md
+      - name: 방법 가이드
+        items:
+          - name: 프로젝트 만들기
+            href: custom-named-entity-recognition/how-to/create-project.md
+          - name: 데이터 선택 및 스키마 설계
+            href: custom-named-entity-recognition/how-to/design-schema.md
+          - name: 태그 데이터
+            href: custom-named-entity-recognition/how-to/tag-data.md
+          - name: 모델 학습
+            href: custom-named-entity-recognition/how-to/train-model.md
+          - name: 모델 평가 보기
+            href: custom-named-entity-recognition/how-to/view-model-evaluation.md
+          - name: 모델 개선
+            href: custom-named-entity-recognition/how-to/improve-model.md
+          - name: 모델을 배포하고 런타임 API를 호출하여 엔터티 추출
+            href: custom-named-entity-recognition/how-to/call-api.md
+      - name: 자습서
+        items:
+          - name: 사용자 지정 엔터티를 사용하여 Cognitive Search 인덱스 보강
+            href: custom-named-entity-recognition/tutorials/cognitive-search.md
+      - name: 개념
+        items:
+          - name: 평가 메트릭
+            href: custom-named-entity-recognition/concepts/evaluation-metrics.md
+          - name: 허용되는 데이터 태그 형식
+            href: custom-named-entity-recognition/concepts/data-formats.md
+      - name: 참조
+        items:
+          - name: 용어
+            href: custom-named-entity-recognition/glossary.md
+          - name: 서비스 제한
+            href: custom-named-entity-recognition/service-limits.md
+          - name: REST API(v3.2-preview.2)
+            items:
+              - name: API 작성
+                href: 'https://go.microsoft.com/fwlink/?linkid=2176711'
+              - name: 런타임 예측 API
+                href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+  - name: 대화형 언어 이해(미리 보기)
+    items:
+      - name: 개요
+        href: conversational-language-understanding/overview.md
+      - name: 빠른 시작
+        href: conversational-language-understanding/quickstart.md
+      - name: 언어 지원
+        href: conversational-language-understanding/language-support.md
+      - name: FAQ
+        href: conversational-language-understanding/faq.md
+      - name: 방법 가이드
+        items:
+          - name: 프로젝트 만들기
+            href: conversational-language-understanding/how-to/create-project.md
+          - name: 스키마 빌드
+            href: conversational-language-understanding/how-to/build-schema.md
+          - name: 발화 태그 지정
+            href: conversational-language-understanding/how-to/tag-utterances.md
+          - name: 모델 학습
+            href: conversational-language-understanding/how-to/train-model.md
+          - name: 모델 평가 및 채점 보기
+            href: custom-named-entity-recognition/how-to/view-model-evaluation.md
+          - name: 모델 배포 및 런타임 API 쿼리
+            href: conversational-language-understanding/how-to/deploy-query-model.md
+      - name: 개념
+        items:
+          - name: 이전 버전과의 호환성
+            href: conversational-language-understanding/concepts/backwards-compatibility.md
+          - name: 엔터티 구성 요소
+            href: conversational-language-understanding/concepts/entity-components.md
+          - name: 평가 메트릭
+            href: conversational-language-understanding/concepts/evaluation-metrics.md
+          - name: 여러 언어 사용
+            href: conversational-language-understanding/concepts/multiple-languages.md
+      - name: 참고
+        items:
+          - name: 미리 빌드된 구성 요소 참조
+            href: conversational-language-understanding/prebuilt-component-reference.md
+          - name: 서비스 제한
+            href: conversational-language-understanding/service-limits.md
+          - name: 예측 API
+            items:
+              - name: REST API
+                items:
+                  - name: v3.2-preview.2
+                    href: 'https://go.microsoft.com/fwlink/?linkid=2173145'
+  - name: 엔터티 연결
+    items:
+      - name: 개요
+        href: entity-linking/overview.md
+      - name: 빠른 시작
+        href: entity-linking/quickstart.md
+      - name: 언어 지원
+        href: entity-linking/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: 엔터티 연결에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: API를 호출하는 방법
+            href: entity-linking/how-to/call-api.md
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesLinking'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: 언어 검색
+    items:
+      - name: 개요
+        href: language-detection/overview.md
+      - name: 빠른 시작
+        href: language-detection/quickstart.md
+      - name: 언어 지원
+        href: language-detection/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: 언어 검색에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-language-detection?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for language detection, language detection transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: API 호출
+            href: language-detection/how-to/call-api.md
+          - name: 컨테이너 사용
+            items:
+              - name: Docker 컨테이너 사용
+                href: language-detection/how-to/use-containers.md
+              - name: 컨테이너 구성
+                href: concepts/configure-containers.md
+              - name: 컨테이너 인스턴스 사용
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Cognitive Services 컨테이너 설명서
+                href: ../containers/index.yml
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Languages'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: 핵심 문구 추출
+    items:
+      - name: 개요
+        href: key-phrase-extraction/overview.md
+      - name: 빠른 시작
+        href: key-phrase-extraction/quickstart.md
+      - name: 언어 지원
+        href: key-phrase-extraction/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: 핵심 구 검색에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for key phrase detection, key phrase detection transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: 호출 핵심 구 분석
+            href: key-phrase-extraction/how-to/call-api.md
+          - name: 컨테이너 사용
+            items:
+              - name: Docker 컨테이너 사용
+                href: key-phrase-extraction/how-to/use-containers.md
+              - name: 컨테이너 구성
+                href: concepts/configure-containers.md
+              - name: 컨테이너 인스턴스 사용
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Cognitive Services 컨테이너 설명서
+                href: ../containers/index.yml
+      - name: 자습서
+        items:
+          - name: Power BI 통합
+            href: key-phrase-extraction/tutorials/integrate-power-bi.md
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/KeyPhrases'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: NER(명명된 엔터티 인식)
+    items:
+      - name: 개요
+        href: named-entity-recognition/overview.md
+      - name: 빠른 시작
+        href: named-entity-recognition/quickstart.md
+      - name: 언어 지원
+        href: named-entity-recognition/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: NER에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for NER, Named Entity Recognition transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: NER 호출
+            href: named-entity-recognition/how-to-call.md
+      - name: 개념
+        items:
+          - name: 인식된 엔터티 범주
+            href: named-entity-recognition/concepts/named-entity-categories.md
+      - name: 자습서
+        items:
+          - name: Power Automate를 사용하여 Excel에서 정보 추출
+            href: named-entity-recognition/tutorials/extract-excel-information.md
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionGeneral'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: PII(개인 식별 정보) 검색
+    items:
+      - name: 개요
+        href: personally-identifiable-information/overview.md
+      - name: 빠른 시작
+        href: personally-identifiable-information/quickstart.md
+      - name: 언어 지원
+        href: personally-identifiable-information/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: PII에 대한 투명도 참고
+            href: /legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for PII, Personally Identifiable Information transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: PII 호출
+            href: personally-identifiable-information/how-to-call.md
+      - name: 개념
+        items:
+          - name: 인식된 엔터티 범주
+            href: personally-identifiable-information/concepts/entity-categories.md
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionPii'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: 질문 답변
+    items:
+      - name: 개요
+        href: question-answering/overview.md
+      - name: 빠른 시작
+        href: question-answering/quickstart/sdk.md
+      - name: 언어 지원
+        href: question-answering/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: 질문 답변에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-question-answering?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for question answering, question answering transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-question-answering?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy-security-question-answering?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: QnA Maker에서 마이그레이션
+            href: question-answering/how-to/migrate-qnamaker.md
+          - name: 질문 답변 시작
+            href: question-answering/how-to/create-test-deploy.md
+          - name: 저장 데이터 암호화
+            href: question-answering/how-to/encrypt-data-at-rest.md
+          - name: 기술 자료 마이그레이션
+            href: question-answering/how-to/migrate-knowledge-base.md
+          - name: 잡담 추가
+            href: question-answering/how-to/chit-chat.md
+          - name: 기본 답변 변경
+            href: question-answering/how-to/change-default-answer.md
+          - name: 리소스 구성
+            href: question-answering/how-to/configure-resources.md
+          - name: 분석
+            href: question-answering/how-to/analytics.md
+          - name: 기술 자료 관리
+            href: question-answering/how-to/manage-knowledge-base.md
+          - name: 응답 필터링
+            href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
+          - name: 네트워크 격리 및 프라이빗 엔드포인트
+            href: question-answering/how-to/network-isolation.md
+      - name: 개념
+        items:
+          - name: 리소스 계획
+            href: question-answering/concepts/azure-resources.md
+          - name: 정확한 대답
+            href: question-answering/concepts/precise-answering.md
+          - name: 신뢰도 점수
+            href: question-answering/concepts/confidence-score.md
+          - name: 모범 사례
+            href: question-answering/concepts/best-practices.md
+      - name: 자습서
+        items:
+          - name: FAQ Bot 만들기
+            href: question-answering/tutorials/bot-service.md
+          - name: 단계별 대화
+            href: question-answering/tutorials/guided-conversations.md
+          - name: 능동적 학습
+            href: question-answering/tutorials/active-learning.md
+          - name: 동의어 추가
+            href: question-answering/tutorials/adding-synonyms.md
+          - name: 여러 언어
+            href: question-answering/tutorials/multiple-languages.md
+          - name: 여러 도메인
+            href: question-answering/tutorials/multiple-domains.md
+  - name: 감정 분석 및 오피니언 마이닝
+    items:
+      - name: 개요
+        href: sentiment-opinion-mining/overview.md
+      - name: 빠른 시작
+        href: sentiment-opinion-mining/quickstart.md
+      - name: 언어 지원
+        href: sentiment-opinion-mining/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: 감정 분석 및 오피니언 마이닝에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for sentiment analysis, opinion mining transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: 감정 분석 및 오피니언 마이닝 호출
+            href: sentiment-opinion-mining/how-to/call-api.md
+          - name: 컨테이너 사용
+            items:
+              - name: Docker 컨테이너 사용
+                href: sentiment-opinion-mining/how-to/use-containers.md
+              - name: 컨테이너 구성
+                href: concepts/configure-containers.md
+              - name: 컨테이너 인스턴스 사용
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Cognitive Services 컨테이너 설명서
+                href: ../containers/index.yml
+      - name: 자습서
+        items:
+          - name: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
+            href: /databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
+          - name: 'Flask를 사용하여 텍스트 번역, 감정 분석 및 음성 합성'
+            href: /translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: Text Analytics for health
+    items:
+      - name: 개요
+        href: text-analytics-for-health/overview.md
+      - name: 빠른 시작
+        href: text-analytics-for-health/quickstart.md
+      - name: 언어 지원
+        href: text-analytics-for-health/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: 의료 분야 Text Analytics에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for Text Analytics health, Text Analytics for health transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: API를 호출하는 방법
+            href: text-analytics-for-health/how-to/call-api.md
+          - name: 컨테이너 사용
+            items:
+              - name: Docker 컨테이너 사용
+                href: text-analytics-for-health/how-to/use-containers.md
+              - name: Docker 컨테이너 구성
+                href: text-analytics-for-health/how-to/configure-containers.md
+              - name: 컨테이너 인스턴스 사용
+                href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+              - name: Cognitive Services 컨테이너 설명서
+                href: ../containers/index.yml
+      - name: 개념
+        items:
+          - name: 인식된 엔터티 범주
+            href: text-analytics-for-health/concepts/health-entity-categories.md
+          - name: 관계 추출
+            href: text-analytics-for-health/concepts/relation-extraction.md
+          - name: 어설션 검색
+            href: text-analytics-for-health/concepts/assertion-detection.md
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health'
+              - name: v3.1
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+              - name: v3.1
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
+  - name: 텍스트 요약(미리 보기)
+    items:
+      - name: 개요
+        href: text-summarization/overview.md
+      - name: 빠른 시작
+        href: text-summarization/quickstart.md
+      - name: 언어 지원
+        href: text-summarization/language-support.md
+      - name: AI의 책임 있는 사용
+        items:
+          - name: 텍스트 요약에 대한 투명도 참고 사항
+            href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI'
+          - name: 윤리 및 책임 있는 사용
+            href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
+          - name: '데이터, 개인 정보 및 보안'
+            href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+            displayName: 'Data privacy, logging, data retention'
+      - name: 방법 가이드
+        items:
+          - name: 텍스트 요약 API 호출
+            href: text-summarization/how-to/call-api.md
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: v3.2-preview.2
+                href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze'
+          - name: SDK
+            items:
+              - name: v3.2-preview.2
+                items:
+                  - name: .NET
+                    href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+                  - name: Python
+                    href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+                  - name: Java
+                    href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+                  - name: Node.js
+                    href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+  - name: 개념
+    items:
+      - name: 다국어 및 이모지 지원
+        href: concepts/multilingual-emoji-support.md
+      - name: 'LUIS, QnA Maker 및 Text Analytics에서 마이그레이션'
+        href: concepts/migrate.md
+  - name: 자습서
+    items:
+      - name: 캔버스 앱에서 Cognitive Services 사용
+        href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
+      - name: Azure Kubernetes Service 사용
+        href: tutorials/use-kubernetes-service.md
+  - name: 엔터프라이즈 준비
+    items:
+      - name: 지역 지원
+        href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+      - name: 규정 준수 및 인증
+        href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+  - name: 리소스
+    items:
+      - name: 지원 및 도움말 옵션
+        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Text Analytics v2에서 마이그레이션
+        href: concepts/migrate-from-text-analytics-v2.md

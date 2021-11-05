@@ -6,19 +6,22 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 12/08/2020
-ms.openlocfilehash: 5fba64beff10f59be42776cc87cf6f37922295dd
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 10/26/2021
+ms.openlocfilehash: 9769e52457a65ab3b37135cdbe7d7fdd78e1f1e6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949069"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853855"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
 시험 사용은 구입 전 체험 옵션을 제공하여 잠재적인 고객에게 제품을 선보임으로써 적절한 잠재 고객을 창출하고 구매 전환율을 높일 수 있는 유용한 방법입니다. 시험 사용은 실제 구현 시나리오에서 제품을 사용합니다. 제품을 사용하는 고객은 비슷한 솔루션을 구입하기 위한 명확한 의도를 보여 줍니다. 이를 통해 더 많은 고급 잠재 고객을 유도할 수 있습니다.
 
 고객도 시험 사용을 활용할 수 있는 이점이 있습니다. 제품을 먼저 사용해 볼 수 있도록 하면 구매 프로세스의 마찰을 줄일 수 있습니다. 또한 시험 사용은 미리 프로비저닝됩니다. 즉, 고객이 제품을 다운로드하거나 설정하거나 구성할 필요가 없습니다.
+
+> [!TIP]
+> 상용 marketplace에서 고객의 시험에서 볼 수 있는 내용을 보려면 [Azure Marketplace 무엇 인가요?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource](/marketplace/appsource-overview)정의를 참조 하세요.
 
 ## <a name="how-does-it-work"></a>작동 원리
 

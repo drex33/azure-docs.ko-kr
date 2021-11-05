@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 11c04c9a513e454e8a9296c00b716a154b5bc541
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6a1e887b9cbab6c8393dacf83a0e148ba257630d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029621"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452626"
 ---
 # <a name="tutorial-deploy-web-application-connected-to-azure-storage-blob-with-service-connector"></a>자습서: 서비스 커넥터를 사용하여 Azure Storage Blob에 연결된 웹 애플리케이션 배포
 
@@ -92,6 +92,8 @@ az webapp connection create storage-blob -g ServiceConnector-tutorial-rg -n <app
 - *\<app-name>* 를 단계 3에서 사용한 웹앱 이름으로 **교체** 합니다.
 - *\<storage-name>* 를 단계 4에서 사용한 스토리지 앱 이름으로 **교체** 합니다.
 
+> [!NOTE]
+> "구독이 Microsoft.ServiceLinker를 사용하도록 등록되어 있지 않습니다."라는 오류 메시지가 표시되면 `az provider register -n Microsoft.ServiceLinker`를 실행하여 Service Connector 리소스 공급자를 등록하고 연결 명령을 다시 실행합니다. 
 
 ## <a name="6-run-sample-code"></a>6. 샘플 코드 실행
 

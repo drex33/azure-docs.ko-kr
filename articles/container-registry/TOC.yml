@@ -253,12 +253,43 @@
           href: container-registry-tasks-pack-build.md
         - name: 태스크 로그 보기
           href: container-registry-tasks-logs.md
+- name: 연결된 레지스트리
+  expanded: true
+  items:
+    - name: 개요
+      expanded: false
+      items:
+        - name: 연결된 레지스트리 정보
+          href: intro-connected-registry.md
+        - name: IoT Edge와 함께 사용
+          href: overview-connected-registry-and-iot-edge.md
+    - name: 빠른 시작
+      expanded: true
+      items:
+        - name: 연결된 레지스트리 만들기 - CLI
+          href: quickstart-connected-registry-cli.md
+        - name: 연결된 레지스트리 만들기 - 포털
+          href: quickstart-connected-registry-portal.md
+        - name: IoT Edge에 연결된 레지스트리 배포
+          href: quickstart-deploy-connected-registry-iot-edge-cli.md
+    - name: 자습서
+      items:
+        - name: 중첩된 IoT Edge에 연결된 레지스트리 배포
+          href: tutorial-deploy-connected-registry-nested-iot-edge-cli.md
+    - name: 개념
+      items:
+        - name: 연결된 레지스트리에 대한 액세스
+          href: overview-connected-registry-access.md
+    - name: 방법 가이드
+      items:
+        - name: 연결된 레지스트리에서 이미지 끌어오기
+          href: pull-images-from-connected-registry.md
 - name: 참조
   expanded: false
   items:
     - name: Azure CLI
       href: /cli/azure/acr
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/az.containerregistry

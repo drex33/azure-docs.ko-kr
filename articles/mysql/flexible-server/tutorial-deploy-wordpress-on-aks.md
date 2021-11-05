@@ -7,24 +7,22 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: vc, devx-track-azurecli
-ms.openlocfilehash: 749137187b7fffe111f854860517dc608ae44c8a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d311dbc14f5a2227f10a29a553adafdbbc28494c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582420"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472735"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>자습서: Azure Database for MySQL - 유연한 서버를 사용하여 AKS에 WordPress 앱 배포
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기)를 통해 WordPress 애플리케이션을 AKS(Azure Kubernetes Service) 클러스터에 배포합니다. 
-**[AKS](../../aks/intro-kubernetes.md)** 는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. **[Azure Database for MySQL - 유연한 서버(미리 보기)](overview.md)** 는 데이터베이스 관리 기능 및 구성 설정에 대해 더 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 현재 유연한 서버는 미리 보기에 있습니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버를 통해 WordPress 애플리케이션을 AKS(Azure Kubernetes Service) 클러스터에 배포합니다.
+**[AKS](../../aks/intro-kubernetes.md)** 는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. **[Azure Database for MySQL - 유연한 서버](overview.md)** 는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다.
 
 > [!NOTE]
->
-> - Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-> - 이 빠른 시작에서는 Kubernetes 개념, WordPress 및 MySQL에 대한 기본 지식이 있다고 가정합니다.
+> 이 빠른 시작에서는 Kubernetes 개념, WordPress 및 MySQL에 대한 기본 지식이 있다고 가정합니다.
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 

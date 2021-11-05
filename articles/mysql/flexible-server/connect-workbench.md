@@ -7,19 +7,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: bf516da87533fb057bd473aa50fc3d5304dbadd1
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 7beb058e51010bc148d9cde31e4053d3de3cf598
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643612"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445524"
 ---
-# <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>빠른 시작: MySQL Workbench를 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리(미리 보기)
+# <a name="use-mysql-workbench-with-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버와 함께 MySQL Workbench 사용
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 빠른 시작에서는 MySQL Workbench 애플리케이션을 사용하여 Azure Database for MySQL 유연한 서버에 연결하는 방법을 설명합니다.
 

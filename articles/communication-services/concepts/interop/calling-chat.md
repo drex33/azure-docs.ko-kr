@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 4bb4cf91aed5ae4784511416d3f30dd9d6a20986
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 10435eba4127fbb58d939bfac0710aa90e2c7b32
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579258"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846257"
 ---
 # <a name="teams-interoperability-calling-and-chat"></a>Teams 상호 운용성: 호출 및 채팅
 
@@ -33,10 +33,10 @@ ms.locfileid: "131579258"
 
 Azure Communication Services를 사용 하 여 빌드한 사용자 지정 응용 프로그램을 Teams 사용자와 연결 하 고 통신 하기 위해 최종 사용자 또는 봇에서 사용할 수 있으며, 응용 프로그램 개발자가 명시적으로 표시 하지 않는 한 사용자 Teams 표시 되는 방법에는 차이가 없습니다.
 
-Teams 사용자가 호출 하거나 채팅을 시작 하려면 사용자의 AAD (Azure Active Directory) 개체 ID가 필요 합니다. [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (또는 다른 메커니즘)를 사용 하 여 온-프레미스 디렉터리와 AAD 간에 동기화 하는 경우 [Microsoft Graph API](/graph/api/resources/users) 또는 온-프레미스 디렉터리를 사용 하 여이를 가져올 수 있습니다.
+호출을 시작 하거나 Teams 사용자와 채팅 하려면 사용자의 Azure Active Directory (Azure AD) 개체 ID가 필요 합니다. [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (또는 다른 메커니즘)를 사용 하 여 온-프레미스 디렉터리와 Azure AD 간의 동기화를 사용 하는 경우 [Microsoft Graph API](/graph/api/resources/users) 또는 온-프레미스 디렉터리를 사용 하 여이를 가져올 수 있습니다.
 
 ## <a name="calling"></a>호출
-호출 SDK를 사용 하면 통신 서비스 사용자 또는 끝점이 Azure Active Directory (AAD) 개체 ID로 식별 되는 Teams 사용자로 1:1 호출을 시작할 수 있습니다. 다른 통신 서비스 사용자를 호출 하는 기존 응용 프로그램을 쉽게 수정 하 여 Teams 사용자를 호출할 수 있습니다.
+호출 SDK를 사용 하면 통신 서비스 사용자 또는 끝점이 Azure Active Directory (Azure AD) 개체 ID로 식별 되는 Teams 사용자로 1:1 호출을 시작할 수 있습니다. 다른 통신 서비스 사용자를 호출 하는 기존 응용 프로그램을 쉽게 수정 하 여 Teams 사용자를 호출할 수 있습니다.
  
 [호출 관리-Azure 통신 서비스 방법 가이드 | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
@@ -48,7 +48,7 @@ const call = callAgent.startCall([acsCallee]);
 
 [microsoftTeamsUserId](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier?view=azure-node-latest#microsoftTeamsUserId)를 사용 하 여 Teams 사용자 호출:
 ```js
-const teamsCallee = { microsoftTeamsUserId: '8:orgid:<Teams User AAD Object ID>' }
+const teamsCallee = { microsoftTeamsUserId: '<Teams User AAD Object ID>' }
 const call = callAgent.startCall([teamsCallee]);
 ```
  
@@ -62,9 +62,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Teams 및 [Skype IP 휴대폰용](/skypeforbusiness/certification/devices-ip-phones) 타사 [장치](/MicrosoftTeams/devices/teams-ip-phones) 는 지원 되지 않습니다.
 
 ## <a name="chat"></a>채팅
-채팅 SDK를 사용 하면 통신 서비스 사용자 또는 끝점이 Azure Active Directory (AAD) 개체 ID로 식별 되는 Teams 사용자와 채팅을 1: n 채팅을 시작할 수 있습니다. 다른 통신 서비스 사용자와 채팅을 만드는 기존 응용 프로그램을 쉽게 수정 하 여 Teams 사용자와 채팅을 만들 수 있습니다.
-                                            
-[빠른 시작: 앱에 채팅 추가](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript)
+채팅 SDK를 사용 하면 통신 서비스 사용자 또는 끝점이 Azure Active Directory (AAD) 개체 ID로 식별 되는 Teams 사용자와 그룹 채팅을 수행할 수 있습니다. 대신 다른 통신 서비스 사용자와 채팅을 만드는 기존 응용 프로그램을 쉽게 수정 하 여 Teams 사용자와 채팅을 만들 수 있습니다. 다음은 채팅 SDK를 사용 하 여 Teams 사용자를 참가자로 추가 하는 방법에 대 한 예입니다. 채팅 SDK를 사용 하 여 메시지를 보내고 참가자를 관리 하는 방법을 알아보려면 [빠른](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript)시작을 참조 하세요.
 
 Teams 사용자와 채팅 만들기:
 ```js
@@ -72,7 +70,7 @@ async function createChatThread() {
 const createChatThreadRequest = {  topic: "Hello, World!"  }; 
 const createChatThreadOptions = {
     participants: [ { 
-        id: { microsoftTeamsUserId: '<TEAMS_USER_ID>' }, 
+        id: { microsoftTeamsUserId: '<Teams User AAD Object ID>' }, 
         displayName: '<USER_DISPLAY_NAME>' }
     ] }; 
 const createChatThreadResult = await chatClient.createChatThread( 
@@ -80,26 +78,16 @@ createChatThreadRequest, createChatThreadOptions );
 const threadId = createChatThreadResult.chatThread.id; return threadId; }
 ```                                         
 
-**지원되는 기능**
--   메시지 보내기/받기 (형식: 텍스트, 서식 있는 텍스트, 이모티콘) 
--   통신 서비스 사용자가 보낸 메시지를 편집할 수 있음
--   보낸 메시지 삭제
--   실시간 알림 (현재 ACS에서 지원 되는 스레드 및 메시지 관련 이벤트) 받기
--   전송 & 수신 입력 표시기
--   읽음 확인 수신 & 수신
--   참가자 추가 및 메시지 기록 공유: Teams 사용자는 Teams 사용자만 추가할 수 있습니다. 통신 서비스 사용자는 Teams 및 통신 서비스 사용자를 추가할 수 있습니다.
--   채팅에서 기존 참가자 제거
--   채팅 나가기
--   채팅 항목 업데이트
--   통신 서비스 사용자가 채팅을 삭제할 수 있습니다.
+테스트 하기 쉽도록 [여기](https://github.com/Azure-Samples/communication-services-web-chat-hero/tree/teams-interop-chat-adhoc)에 샘플 앱을 게시 했습니다. 응용 프로그램을 통신 서비스 리소스 및 interop 사용 Teams 테 넌 트로 업데이트 하 여 시작 하세요. 
 
-
-**제한 사항 및 알려진 문제**
-- Teams 사용자가 메시지를 편집 하지 못했습니다.
-- 통신 서비스 사용자가 스레드를 삭제 하면 Teams 사용자에 대 한 메시지 기록이 제거 되 고 스레드에서 Teams 사용자가 제거 됩니다.
-- 외부 사용자에 대 한 Teams 클라이언트 UI가 일치 하지 않습니다.
-- Teams 클라이언트를 사용 하 여 채팅 참가자와 통화를 시작할 수 없습니다.
-
+**제한 사항 및 알려진 문제** </br>
+비공개 미리 보기 상태에서 통신 서비스 사용자는 통신 서비스 채팅 SDK를 사용 하 여 일반 및 서식 있는 문자 메시지의 전송 및 수신, 표시기 입력, 읽음 확인, 실시간 알림 등을 비롯 한 다양 한 작업을 수행할 수 있습니다. 그러나 대부분의 Teams 채팅 기능은 지원 되지 않습니다. 다음은 몇 가지 주요 동작 및 알려진 문제입니다.
+-   채팅은 통신 서비스 사용자만 시작할 수 있습니다. 
+-   통신 서비스 사용자는 gif, 이미지 또는 파일을 보내거나 받을 수 없습니다. 파일 및 이미지에 대 한 링크를 공유할 수 있습니다.
+-   통신 서비스 사용자가 채팅을 삭제할 수 있습니다. 그러면 채팅 스레드에서 Teams 사용자가 제거 되 고 Teams 클라이언트에서 메시지 기록이 숨겨집니다.
+- 알려진 문제: 통신 서비스 사용자가 참가자 목록에 올바르게 표시 되지 않습니다. 현재는 외부로 표시 되지만 사람들의 카드는 일치 하지 않을 수 있습니다. 
+- 알려진 문제: Teams 앱 내에서 호출로 채팅을 전달할 수 없습니다. 
+- 알려진 문제: Teams 사용자가 메시지를 편집 하는 것은 지원 되지 않습니다. 
 
 ## <a name="privacy"></a>개인 정보 취급 방침
 Azure Communication Services와 Microsoft Teams 간의 상호 운용성을 통해 애플리케이션과 사용자가 Teams 통화, 회의 및 채팅에 참여할 수 있습니다. Teams 통화 또는 회의에서 기록 또는 전사를 사용하도록 설정할 때 애플리케이션 사용자에게 알림을 제공하는 것은 귀하의 책임입니다.

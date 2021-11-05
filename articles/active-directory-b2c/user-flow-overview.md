@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 | Microsoft Docs
+title: Azure Active Directory B2C의 사용자 흐름 및 사용자 지정 정책
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 기본 제공 사용자 흐름과 사용자 지정 정책 확장 가능 정책 프레임워크에 대해 자세히 알아보세요.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: b663904df2d116bdfa92a0dcef4b05c0806fec14
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 73d1649881428047cf0c593335d66d9d3145ec2c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199145"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021869"
 ---
 # <a name="user-flows-and-custom-policies-overview"></a>사용자 흐름 및 사용자 지정 정책 비교
 
@@ -60,7 +60,7 @@ Azure AD B2C에서는 ID 사용자 환경을 제공하기 위한 두 가지 방�
 사용자 지정 정책은 단계를 조합하여 사용자 경험을 구성할 수 있는 기능을 제공합니다. 예를 들면 다음과 같습니다.
 
 * 다른 ID 공급자와 페더레이션
-* 자사 및 타사 MFA(다단계 인증) 챌린지
+* 자사 및 타사 MFA(다단계 인증) 문제
 * 모든 사용자 입력 수집
 * REST API 통신을 사용하여 외부 시스템과 통합
 
@@ -82,9 +82,9 @@ Azure AD B2C에서는 ID 사용자 환경을 제공하기 위한 두 가지 방�
 |-|-------------------|-----------------|
 | 대상 사용자 | ID 전문 지식이 있거나 없는 모든 애플리케이션 개발자 | ID 전문가, 시스템 통합 서비스, 컨설턴트 및 사내 ID 팀. OpenID Connect 흐름에 만족하고 ID 공급자와 클레임 기반 인증을 이해합니다. |
 | 구성 방법 | 사용자에게 친숙한 UI(사용자 인터페이스)를 사용하는 Azure Portal | XML 파일 직접 편집 및 Azure Portal에 업로드 |
-| UI 사용자 지정 | HTML, CSS 및 [JavaScript](javascript-and-page-layout.md)를 비롯한 [전체 UI 사용자 지정](customize-ui-with-html.md)<br><br>사용자 지정 문자열을 사용하는 [다국어 지원](language-customization.md) | 동일 |
-| 특성 사용자 지정 | 표준 및 사용자 지정 특성 | 동일 |
-| 토큰 및 세션 관리 | [토큰 사용자 지정](configure-tokens.md) 및 [세션 동작](session-behavior.md). | 동일 |
+| UI 사용자 지정 | HTML, CSS 및 [JavaScript](javascript-and-page-layout.md)를 비롯한 [전체 UI 사용자 지정](customize-ui-with-html.md)<br><br>사용자 지정 문자열을 사용하는 [다국어 지원](language-customization.md) | 사용자 흐름과 동일 |
+| 특성 사용자 지정 | 표준 및 사용자 지정 특성 | 사용자 흐름과 동일 |
+| 토큰 및 세션 관리 | [토큰 사용자 지정](configure-tokens.md) 및 [세션 동작](session-behavior.md). | 사용자 흐름과 동일 |
 | ID 공급자 | Azure Active Directory 테넌트를 사용한 페더레이션과 같이 [사전 정의된 로컬](identity-provider-local.md) 또는 [소셜 공급자](add-identity-provider.md) | 표준 기반 OIDC, OAUTH 및 SAML  REST API와의 통합을 사용하여 인증을 수행할 수도 있습니다. |
 | ID 작업 | 로컬 또는 많은 소셜 계정을 사용하여 [등록 또는 로그인](add-sign-up-and-sign-in-policy.md)<br><br>[셀프 서비스 암호 재설정](add-password-reset-policy.md)<br><br>[프로필 편집](add-profile-editing-policy.md)<br><br>Multi-Factor Authentication.<br><br>액세스 토큰 흐름. | 사용자 지정 ID 공급자를 사용하는 사용자 흐름과 동일한 작업을 완료하거나 사용자 지정 범위를 사용합니다.<br><br>등록 시 다른 시스템에서 사용자를 프로비전합니다.<br><br>고유한 이메일 서비스 공급자를 사용하여 환영 이메일을 보냅니다.<br><br>Azure AD B2C 외부의 사용자 저장소를 사용합니다.<br><br>API를 사용하여 신뢰할 수 있는 시스템으로 사용자 제공 정보의 유효성을 검사합니다. |
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 10/28/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: af09d5044c578b876ef3464caf1ec1bc1b96ab71
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043736"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446508"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 
@@ -29,8 +29,8 @@ ms.locfileid: "105043736"
 > * 개발 환경 설정 및 종속성 설치
 > * Flask 앱 만들기
 > * Translator를 사용하여 텍스트 번역
-> * Text Analytics를 사용하여 입력 텍스트 및 번역에 대한 긍정적/부정적 감정 분석
-> * Speech Services를 사용하여 번역된 텍스트를 합성된 음성으로 변환
+> * 언어 서비스를 사용하여 입력 텍스트 및 번역에 대한 긍정적/부정적 감정 분석
+> * Speech Service를 사용하여 번역된 텍스트를 합성된 음성으로 변환
 > * 로컬에서 Flask 앱 실행
 
 > [!TIP]
@@ -45,7 +45,7 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * [Flask 설명서](http://flask.pocoo.org/)
 * [Flask for Dummies - 초보자용 Flask 가이드](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 위해 필요한 소프트웨어 및 구독 키를 살펴보겠습니다.
 
@@ -54,14 +54,14 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * IDE 또는 [Visual Studio Code](https://code.visualstudio.com/)나 [Atom](https://atom.io/) 같은 텍스트 편집기  
 * [Chrome](https://www.google.com/chrome/browser/) 또는 [Firefox](https://www.mozilla.org/firefox)
 * **Translator** 구독 키(**글로벌** 위치 사용 가능)
-* **미국 서부** 지역의 **Text Analytics** 구독 키.
+* **미국 서부** 지역의 **언어 서비스** 구독 키
 * **미국 서부** 지역의 **Speech Services** 구독 키.
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>계정 만들기 및 리소스 구독
 
 앞에서 설명한 대로 이 자습서를 실행하려면 구독 키 3개가 필요합니다. 즉, Azure 계정 내에 다음을 위한 리소스를 만들어야 합니다.
 * 변환기
-* 텍스트 분석
+* 언어 서비스
 * Speech Services
 
 [Azure Portal에서 Cognitive Services 계정 만들기](../cognitive-services-apis-create-account.md) 단계별 지침을 사용하여 리소스를 만듭니다.
@@ -476,19 +476,18 @@ flask run
 
 ## <a name="analyze-sentiment"></a>감정 분석
 
-[Text Analytics API](../text-analytics/overview.md)를 사용하여 감정 분석을 수행하거나 텍스트에서 핵심 문구를 추출하거나 원본 언어를 검색할 수 있습니다. 이 앱에서는 감정 분석을 사용하여 제공된 텍스트가 긍정적인지, 중립적인지 또는 부정적인지 결정합니다. 이 API는 0~1 사이의 숫자 점수를 반환합니다. 점수가 1에 가까울수록 긍정적 감정을 나타내고 점수가 0에 가까울수록 부정적 감정을 나타냅니다.
+[언어 서비스 API](../language-service/overview.md)를 사용하여 감정 분석을 수행하거나 텍스트에서 핵심 문구를 추출하거나 원본 언어를 검색할 수 있습니다. 이 앱에서는 감정 분석을 사용하여 제공된 텍스트가 긍정적인지, 중립적인지 또는 부정적인지 결정합니다. 이 API는 0~1 사이의 숫자 점수를 반환합니다. 점수가 1에 가까울수록 긍정적 감정을 나타내고 점수가 0에 가까울수록 부정적 감정을 나타냅니다.
 
 이 섹션에서는 몇 가지 작업을 수행합니다.
 
-* Text Analytics API를 호출하여 감정 분석을 수행하고 응답을 반환하는 몇몇
-Python 작성
+* 언어 서비스 API를 호출하여 감정 분석을 수행하고 응답을 반환하는 일부 Python 작성
 * Python 코드를 호출하는 Flask 경로 만들기
 * 감정 점수에 대한 영역 및 분석을 수행하는 단추를 사용하여 HTML 업데이트
 * 사용자가 HTML에서 Flask 앱과 상호 작용할 수 있게 해주는 JavaScript 작성
 
-### <a name="call-the-text-analytics-api"></a>텍스트 분석 API 호출
+### <a name="call-the-language-service-api"></a>언어 서비스 API 호출
 
-Text Analytics API를 호출하는 함수를 작성해 보겠습니다. 이 함수는 `input_text`, `input_language`, `output_text` 및 `output_language` 네 인수를 사용합니다. 이 함수는 사용자가 앱에서 감정 분석 실행 단추를 누를 때마다 호출됩니다. 사용자가 텍스트 영역 및 언어 선택에서 제공하는 데이터, 그리고 검색된 언어 및 번역 출력은 요청할 때마다 제공됩니다. 응답 개체는 원본 및 번역에 대한 감정 점수를 포함합니다. 다음 섹션에서는 응답을 구문 분석하고 해당 응답을 앱에 사용하는 몇몇 JavaScript를 작성하게 됩니다. 지금은 Text Analytics API 호출에 집중하겠습니다.
+언어 서비스 API를 호출하는 함수를 작성해 보겠습니다. 이 함수는 `input_text`, `input_language`, `output_text` 및 `output_language` 네 인수를 사용합니다. 이 함수는 사용자가 앱에서 감정 분석 실행 단추를 누를 때마다 호출됩니다. 사용자가 텍스트 영역 및 언어 선택에서 제공하는 데이터, 그리고 검색된 언어 및 번역 출력은 요청할 때마다 제공됩니다. 응답 개체는 원본 및 번역에 대한 감정 점수를 포함합니다. 다음 섹션에서는 응답을 구문 분석하고 해당 응답을 앱에 사용하는 몇몇 JavaScript를 작성하게 됩니다. 지금은 언어 서비스 API를 호출하는 데 집중하겠습니다.
 
 1. 작업 디렉터리의 루트에 `sentiment.py`라는 파일을 만들어 보겠습니다.
 2. 다음으로, 이 코드를 `sentiment.py`에 추가합니다.
@@ -527,7 +526,7 @@ Text Analytics API를 호출하는 함수를 작성해 보겠습니다. 이 함�
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Text Analytics 구독 키를 추가하고 저장합니다.
+3. 언어 서비스 구독 키를 추가하고 저장합니다.
 
 ### <a name="add-a-route-to-apppy"></a>`app.py`에 경로 추가
 
@@ -951,5 +950,5 @@ flask run
 ## <a name="next-steps"></a>다음 단계
 
 * [Translator 참조](./reference/v3-0-reference.md)
-* [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+* [언어 서비스 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 * [텍스트를 음성으로 변환 API 참조](../speech-service/rest-text-to-speech.md)

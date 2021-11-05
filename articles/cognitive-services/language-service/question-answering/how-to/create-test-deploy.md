@@ -6,14 +6,14 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: aff89e8d55b4c4f3b2de77b7c44413fefc246cd1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f190c2aec509af157944fb11a110953c9e8bbdb0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101475"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476607"
 ---
-# <a name="create-test-and-deploy-custom-question-answering"></a>사용자 지정형 질문 답변 만들기, 테스트 및 배포
+# <a name="create-test-and-deploy-a-custom-question-answering-project"></a>사용자 지정 질문 답변 프로젝트 만들기, 테스트 및 배포
 
 FAQ 또는 제품 매뉴얼과 같은 자신의 콘텐츠에서 질문 답변 프로젝트를 만들 수 있습니다. 이 문서에는 질문에 답하기 위해 제품 매뉴얼에서 질문 답변 프로젝트를 만드는 예가 포함되어 있습니다.
 
@@ -21,7 +21,7 @@ FAQ 또는 제품 매뉴얼과 같은 자신의 콘텐츠에서 질문 답변 �
 
 > [!div class="checklist"]
 > * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
-> * 사용자 지정 질문 답변 기능이 사용하도록 설정된 [언어 리소스](https://aka.ms/create-language-resource). 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, 언어 리소스 이름을 기억합니다.
+> * 사용자 지정 질문 답변 기능이 사용하도록 설정된 [언어 리소스](https://aka.ms/create-language-resource).
 
 ## <a name="create-your-first-question-answering-project"></a>첫 번째 질문 답변 프로젝트 만들기
 
@@ -58,7 +58,7 @@ FAQ 또는 제품 매뉴얼과 같은 자신의 콘텐츠에서 질문 답변 �
     |--------|---------|
     |Surface Book 사용자 가이드 |https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf |
 
-    추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다.
+    추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다. 질문과 대답은 기본 콘텐츠가 구조화되었는지 또는 구조화되지 않았는지를 확인합니다.
 
     원본을 성공적으로 추가한 후 원본 내용을 편집하여 더 많은 사용자 지정 질문 답변 세트를 추가할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/07/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: d52b951ef959053d441e61515c42b6644368fa8a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 14b6d365b38181ffd6fb3a9b3d8cf72abd85cfa4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077524"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860672"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
 
@@ -42,7 +42,7 @@ Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-device"></a>디바이스 실행
+## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 
 이 섹션에서는 C# SDK를 사용하여 디바이스에서 IoT Hub로 메시지를 보냅니다. 두 개의 온도 조절기 센서가 있는 온도 컨트롤러를 구현하는 샘플을 실행합니다.
 

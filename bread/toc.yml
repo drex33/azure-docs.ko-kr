@@ -283,6 +283,9 @@
         - name: 관리
           tocHref: /azure/azure-resource-manager/management/
           topicHref: /azure/azure-resource-manager/management/
+        - name: 배포 문제 해결
+          tocHref: /azure/azure-resource-manager/troubleshooting/
+          topicHref: /azure/azure-resource-manager/troubleshooting/
         - name: Managed Applications
           tocHref: /azure/azure-resource-manager/managed-applications/
           topicHref: /azure/azure-resource-manager/managed-applications/
@@ -425,6 +428,9 @@
         - name: 지식 탐색
           tocHref: /azure/cognitive-services/kes/
           topicHref: /azure/cognitive-services/kes/overview
+        - name: 언어 서비스
+          tocHref: /azure/cognitive-services/language-service/
+          topicHref: /azure/cognitive-services/language-service/
         - name: 언어 이해(LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
@@ -770,6 +776,9 @@
             - name: IP 서비스
               tocHref: /azure/virtual-network/ip-services
               topicHref: /azure/virtual-network/ip-services
+        - name: Virtual Network Manager
+          tocHref: /azure/virtual-network-manager/
+          topicHref: /azure/virtual-network-manager/
         - name: 가상 WAN
           tocHref: /azure/virtual-wan/
           topicHref: /azure/virtual-wan/
@@ -1024,6 +1033,13 @@
         - name: Video Analyzer
           tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
           topicHref: /azure/azure-video-analyzer/video-analyzer-docs/
+          items:
+            - name: Microsoft Edge
+              tocHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
+              topicHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
+            - name: 클라우드
+              tocHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud
+              topicHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud
         - name: Media용 Video Analyzer
           tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
           topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/

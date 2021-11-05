@@ -11,76 +11,116 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 06/01/2021
-  ms.openlocfilehash: 2f3aee33c4fb240b786073140d32ed352f9b2229
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: a7d339bf7fe92a177c301227d417c1accb11a3c9
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121745664"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131039015"
 landingContent:
-- title: Video Analyzer 개요
+- title: Azure Video Analyzer 개요
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Video Analyzer 정보(미리 보기)
       url: overview.md
-    - text: Azure Video Analyzer for Media 정보
-      url: ../video-analyzer-for-media-docs/video-indexer-overview.md
+    - text: 용어
+      url: terminology.md
   - linkListType: quickstart
     links:
-    - text: ARM 템플릿 사용 시작
-      url: get-started-detect-motion-emit-events.md
     - text: 포털 사용 시작
       url: get-started-detect-motion-emit-events-portal.md
-- title: 이벤트를 기반으로 비디오 녹화
+    - text: ARM 템플릿 사용 시작
+      url: get-started-detect-motion-emit-events.md
+  - linkListType: concept
+    links:
+    - text: 라이브 비디오 분석
+      url: analyze-live-video-without-recording.md
+- title: 파이프라인 및 토폴로지 만들기 및 배포
   linkLists:
   - linkListType: concept
     links:
-    - text: 연속 비디오 녹화
+    - text: 비디오 파이프라인
+      url: pipeline.md
+  - linkListType: tutorial
+    links:
+    - text: 가상 선을 통과하는 개체 검색
+      url: edge/use-line-crossing.md
+    - text: Open VINO DL Streamer를 사용하여 개체 검색
+      url: edge/use-intel-openvino-tutorial.md
+- title: 에지에 인텔리전트 비디오 애플리케이션 만들기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 이벤트 기반 비디오 녹화
       url: event-based-video-recording-concept.md
   - linkListType: quickstart
     links:
-    - text: 동작을 감지하고 에지 디바이스에 비디오 녹화
-      url: detect-motion-record-video-edge-devices.md
-    - text: 동작을 감지하고 클라우드에서 비디오 녹화
-      url: detect-motion-record-video-clips-cloud.md
+    - text: 자체 모델로 라이브 비디오 분석 - HTTP
+      url: edge/analyze-live-video-use-your-model-http.md
+    - text: 에지 디바이스에서 동작을 감지하고 비디오 녹화
+      url: edge/detect-motion-record-video-edge-devices.md
   - linkListType: tutorial
     links:
     - text: 이벤트 기반 비디오 녹화 및 재생
-      url: record-event-based-live-video.md
-- title: 녹화하지 않고 라이브 비디오 분석
+      url: edge/record-event-based-live-video.md
+- title: 서비스에서 비디오 애플리케이션 만들기
   linkLists:
   - linkListType: concept
     links:
-    - text: 녹화하지 않고 라이브 비디오 분석
-      url: analyze-live-video-without-recording.md
+    - text: 클라우드에 카메라 비디오 녹화 사용
+      url: cloud/connect-cameras-to-cloud.md
   - linkListType: quickstart
     links:
-    - text: 동작 감지 및 이벤트 내보내기
-      url: detect-motion-emit-events-quickstart.md
-    - text: 라이브 비디오에서 개체 추적
-      url: track-objects-live-video.md
+    - text: 서비스에서 파이프라인 빌드
+      url: cloud/get-started-livepipelines-portal.md
   - linkListType: tutorial
     links:
-    - text: HTTP 확장을 통해 OVMS를 사용하여 라이브 비디오 분석
-      url: use-intel-openvino-tutorial.md
-    - text: gRPC 확장을 통해 OV DL Streamer를 사용하여 라이브 비디오 분석
-      url: use-intel-grpc-video-analytics-serving-tutorial.md
-    - text: 공간 분석을 사용하여 라이브 비디오 분석
-      url: computer-vision-for-spatial-analysis.md
-    - text: Custom Vision을 사용하여 라이브 비디오 분석
-      url: analyze-live-video-custom-vision.md
-- title: 참조
+    - text: 포털을 통해 비디오 클립 내보내기
+      url: cloud/export-portion-of-video-as-mp4.md
+- title: 커뮤니티 참여
   linkLists:
-  - linkListType: reference
+  - linkListType: get-started
     links:
-    - text: FAQ
-      url: faq-edge.yml
+    - text: GitHub 커뮤니티
+      url: https://github.com/Azure/video-analyzer
+    - text: 기술 커뮤니티 블로그
+      url: https://techcommunity.microsoft.com/t5/azure-video-analyzer/bg-p/AzureVideoAnalyzerBlog
+- title: 파이프라인 및 토폴로지 모니터링, 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 에지 비디오 파이프라인 모니터링 및 로깅
+      url: edge/monitor-log-edge.md
+    - text: 서비스의 비디오 파이프라인 모니터링 및 로깅
+      url: cloud/monitor-log-cloud.md
+    - text: 에지 비디오 파이프라인 문제 해결
+      url: edge/troubleshoot.md
+    - text: 서비스의 비디오 파이프라인 문제 해결
+      url: cloud/troubleshoot.md
+- title: API 검색
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: C# 리포지토리
+      url: https://go.microsoft.com/fwlink/?linkid=2163551
+    - text: Python 리포지토리
+      url: https://go.microsoft.com/fwlink/?linkid=2163454
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/videoanalyzer/
     - text: SDK
       url: sdk.md
-    - text: 파이프라인 확장
-      url: pipeline-extension.md
-    - text: 직접 메서드
-      url: direct-methods.md
-    - text: 할당량 및 제한 사항
-      url: quotas-limitations.md
+    - text: 직접 메서드 VS Code
+      url: edge/direct-methods.md
+- title: 리소스
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 릴리스 정보
+      url: release-notes.md
+    - text: 가격 책정
+      url: https://azure.microsoft.com/pricing/details/video-analyzer/
+    - text: Edge 모듈 FAQ
+      url: edge/faq.yml
+    - text: 서비스 FAQ
+      url: cloud/faq.yml

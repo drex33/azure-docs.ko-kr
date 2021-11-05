@@ -11,6 +11,8 @@
       href: tutorial-enable-sspr.md
     - name: Azure AD Multi-Factor Authentication 사용
       href: tutorial-enable-azure-mfa.md
+    - name: 클라우드 동기화 비밀번호 쓰기 저장 사용(미리 보기)
+      href: tutorial-enable-cloud-sync-sspr-writeback.md
     - name: 온-프레미스에 암호 쓰기 저장 사용
       href: tutorial-enable-sspr-writeback.md
     - name: 사용자 지정 금지 암호 목록 구성
@@ -272,7 +274,7 @@
 - name: 리소스
   items:
     - name: Azure 피드백 포럼
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+      href: 'https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789'
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-active-directory.html
     - name: 가격 책정

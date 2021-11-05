@@ -1,24 +1,24 @@
 ---
-title: 빠른 시작 - Microsoft Azure Confidential Ledger Python 클라이언트 라이브러리
-description: Python용 Microsoft Azure Confidential Ledger 클라이언트 라이브러리를 사용하는 방법 알아보기
+title: 빠른 시작 - Microsoft Azure 기밀 원장 Python 클라이언트 라이브러리
+description: Python용 Microsoft Azure 기밀 원장 클라이언트 라이브러리를 사용하는 방법 알아보기
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 1fd69155a6131565b81ba9684e5c2c077a5420d9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 292c298f3af1b693574ecf9e053de14373d4d597
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671529"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476322"
 ---
-# <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>빠른 시작: Python용 Microsoft Azure Confidential Ledger 클라이언트 라이브러리
+# <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>빠른 시작: Python용 Microsoft Azure 기밀 원장 클라이언트 라이브러리
 
-Python용 Microsoft Azure Confidential Ledger 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
+Python용 Microsoft Azure 기밀 원장 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
 
-Microsoft Azure Confidential Ledger는 중요한 데이터 레코드를 관리하는 데 사용하는 매우 안전한 새로운 서비스입니다. 권한 있는 블록체인 모델을 기반으로 하는 Confidential Ledger는 불변성(원장을 추가 전용으로 만듬) 및 변조 방지(모든 레코드가 그대로 유지되도록)와 같은 고유한 데이터 무결성 이점을 제공합니다.
+Microsoft Azure 기밀 원장은 중요한 데이터 레코드를 관리하는 데 사용하는 매우 안전한 새로운 서비스입니다. 권한 있는 블록체인 모델을 기반으로 하는 Azure 기밀 원장은 불변성(원장을 추가 전용으로 만듦) 및 변조 방지(모든 레코드가 그대로 유지되도록)와 같은 고유한 데이터 무결성 이점을 제공합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,13 +48,13 @@ Azure Active Directory ID 클라이언트 라이브러리를 설치합니다.
 pip install azure-identity
 ```
 
-Confidential Ledger 컨트롤 플레인 클라이언트 라이브러리를 설치합니다.
+Azure 기밀 원장 컨트롤 플레인 클라이언트 라이브러리를 설치합니다.
 
 ```terminal
 pip install azure.mgmt.confidentialledger
 ```
 
-Confidential Ledger 데이터 평면 클라이언트 라이브러리를 설치합니다.
+Azure 기밀 원장 데이터 평면 클라이언트 라이브러리를 설치합니다.
 
 ```terminal
 pip install azure.confidentialledger 
@@ -161,7 +161,7 @@ print (f"- ID: {myledger.id}")
 
 이제 원장이 있으므로 데이터 평면 클라이언트 라이브러리(azure.confidentialledger)를 사용하여 원장과 상호 작용합니다. 
 
-먼저 Confidential Ledger 인증서를 생성하고 저장합니다.  
+먼저 기밀 원장 인증서를 생성하고 저장합니다.  
 
 ```python
 identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
@@ -174,7 +174,7 @@ with open(ledger_tls_cert_file_name, "w") as cert_file:
     cert_file.write(network_identity.ledger_tls_certificate)
 ```
 
-이제 원장 URL 및 자격 증명과 함께 네트워크 인증서를 사용하여 Confidential Ledger 클라이언트를 만들 수 있습니다.
+이제 원장 URL 및 자격 증명과 함께 네트워크 인증서를 사용하여 기밀 원장 클라이언트를 만들 수 있습니다.
 
 ```python
 ledger_client = ConfidentialLedgerClient(
@@ -297,7 +297,7 @@ print(entry.contents)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Microsoft Azure Confidential Ledger 문서도 이 빠른 시작을 이용해 작성할 수 있습니다. 이후의 빠른 시작 및 자습서를 계속 진행하려는 경우 이러한 리소스를 유지하는 것이 좋습니다.
+다른 Azure 기밀 원장 문서도 이 빠른 시작을 이용해 작성할 수 있습니다. 이후의 빠른 시작 및 자습서를 계속 진행하려는 경우 이러한 리소스를 유지하는 것이 좋습니다.
 
 그렇지 않으면 이 문서에서 만든 리소스를 완료한 후 Azure CLI [az group delete](/cli/azure/group?#az_group_delete) 명령을 사용하여 리소스 그룹과 포함된 모든 리소스를 삭제합니다.
 
@@ -307,4 +307,4 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Azure Confidential Ledger 개요](overview.md)
+- [Microsoft Azure 기밀 원장 개요](overview.md)

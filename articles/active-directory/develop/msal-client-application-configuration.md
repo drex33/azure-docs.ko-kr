@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 038646d4d6245398f5385e2a6a1595ce2909ee39
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 590c070617e20a3e8efda38619393d701dcfbfc5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530879"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036241"
 ---
 # <a name="application-configuration-options"></a>애플리케이션 구성 옵션
 
@@ -114,7 +114,7 @@ Azure AD 인증 기관 대상 그룹과 테넌트 ID를 모두 지정하면 MSAL
 
 MSAL을 사용하는 공용 클라이언트 앱 개발자인 경우:
 
-- 데스크톱 또는 UWP 애플리케이션(MSAL.NET 4.1 이상)에서 `.WithDefaultRedirectUri()`를 사용해야 합니다. 이 메서드는 공용 클라이언트 애플리케이션의 리디렉션 URI 속성을 공용 클라이언트 애플리케이션의 기본 권장 리디렉션 URI로 설정합니다.
+- 데스크톱 또는 UWP 애플리케이션(MSAL.NET 4.1 이상)에서 `.WithDefaultRedirectUri()`를 사용해야 합니다. 이 메서드는 공용 클라이언트 애플리케이션의 리디렉션 URI 속성을 공용 클라이언트 응용 프로그램의 기본 권장 리디렉션 URI로 설정합니다.
 
   | 플랫폼 | 리디렉션 URI |
   |--|--|

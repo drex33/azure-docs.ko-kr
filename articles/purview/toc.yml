@@ -76,6 +76,10 @@ items:
         href: concept-insights.md
       - name: 업그레이드된 Azure Purview 계정
         href: concept-account-upgrade.md
+      - name: 액세스 정책
+        href: concept-data-policies.md
+      - name: 셀프 서비스 액세스
+        href: concept-self-service.md
   - name: 방법 가이드
     items:
       - name: 컬렉션 만들기 및 관리
@@ -89,6 +93,8 @@ items:
           - name: 자격 증명 관리
             href: manage-credentials.md
             displayName: Create and manage credentials
+          - name: 서비스 주체 만들기
+            href: create-service-principal-azure.md
       - name: 원본
         items:
           - name: Azure 다중 소스
@@ -149,6 +155,8 @@ items:
             href: register-scan-saps4hana-source.md
           - name: Teradata
             href: register-scan-teradata-source.md
+          - name: Amazon RDS
+            href: register-scan-amazon-rds.md
           - name: Amazon S3
             href: register-scan-amazon-s3.md
       - name: 검사
@@ -259,6 +267,10 @@ items:
         href: disaster-recovery.md
       - name: Azure Monitor로 모니터링
         href: how-to-monitor-with-azure-monitor.md
+      - name: 데이터 소유자 액세스 정책
+        items:
+          - name: 데이터 액세스 정책 Azure Storage
+            href: how-to-access-policies-storage.md
   - name: 참고
     items:
       - name: Azure Purview 제품 용어집

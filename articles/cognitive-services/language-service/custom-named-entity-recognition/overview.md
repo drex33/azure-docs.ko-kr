@@ -11,19 +11,19 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: d5644ecbc6b76ab2fc1ec44239fc14c52ab5fa73
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bac6068c02ea4f253176a65061d11604104c2bd5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101429"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439047"
 ---
 # <a name="what-is-custom-named-entity-recognition-ner-preview"></a>사용자 지정 NER(명명된 엔터티 인식)(미리 보기)이란?
 
-사용자 지정 NER은 [Microsoft Turing](https://msturing.org/about) 기술을 기반으로 구축된 [Azure Cognitive Service for Language](../overview.md) 내에서 사용자 지정 기능의 일부로 제공됩니다. 이 기능을 통해 사용자는 사용자 지정 AI 모델을 빌드하여 계약 또는 재무 문서와 같은 비정형 텍스트에서 도메인별 엔터티를 추출할 수 있습니다. 개발자는 사용자 지정 NER 프로젝트를 만들어 데이터에 반복적으로 태그를 지정하고, 학습하고, 평가하고, 모델 성능을 개선한 후 사용할 수 있습니다. 
+사용자 지정 NER은 [Azure Cognitive Service for Language](../overview.md)에서 제공하는 기능 중 하나입니다. 텍스트 사용자 지정 NER 작업에 대한 사용자 지정 모델을 빌드할 수 있도록 기계 학습 인텔리전스를 적용하는 클라우드 기반 API 서비스입니다.
 
-모델 빌드 및 사용자 지정을 간소화하기 위해 서비스는 [언어 스튜디오](https://aka.ms/languageStudio)를 통해 액세스할 수 있는 사용자 지정 웹 포털을 제공합니다. 이 [빠른 시작](quickstart.md)의 단계를 수행하여 서비스를 쉽게 시작할 수 있습니다. 
-
+사용자 지정 NER은 [Azure Cognitive Service for Language](../overview.md) 내에서 사용자 지정 기능의 일부로 제공됩니다. 이 기능을 통해 사용자는 사용자 지정 AI 모델을 빌드하여 계약 또는 재무 문서와 같은 비정형 텍스트에서 도메인별 엔터티를 추출할 수 있습니다. 개발자는 사용자 지정 NER 프로젝트를 만들어 데이터에 반복적으로 태그를 지정하고, 학습하고, 평가하고, 모델 성능을 개선한 후 사용할 수 있습니다. 태그가 지정된 데이터의 품질은 모델 성능에 큰 영향을 미칩니다. 모델 빌드 및 사용자 지정을 간소화하기 위해 서비스는 [언어 스튜디오](https://aka.ms/languageStudio)를 통해 액세스할 수 있는 사용자 지정 웹 포털을 제공합니다. 이 [빠른 시작](quickstart.md)의 단계를 수행하여 서비스를 쉽게 시작할 수 있습니다. 
+ 
 이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.
 
 * [빠른 시작](quickstart.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.
@@ -34,7 +34,7 @@ ms.locfileid: "131101429"
 
 ### <a name="information-extraction"></a>정보 추출
 
-많은 금융 및 법률 조직에서는 매일 은행 명세서, 법적 계약 또는 은행 양식과 같은 수천 개의 복잡한 비정형 텍스트에서 데이터를 추출하고 정규화합니다. 이러한 양식을 수동으로 처리하는 대신 사용자 지정 NER을 통해 이 프로세스를 자동화할 수 있습니다.
+많은 금융 및 법률 조직에서는 매일 은행 명세서, 법적 계약 또는 은행 양식과 같은 수천 개의 복잡한 비정형 텍스트에서 데이터를 추출하고 정규화합니다. 이러한 양식을 수동으로 처리하는 대신 사용자 지정 NER을 통해 이 프로세스를 자동화하고 비용, 시간 및 노력을 절감할 수 있습니다.
 
 ### <a name="knowledge-mining-to-enhanceenrich-semantic-search"></a>의미 체계 검색을 향상/보강하기 위한 지식 마이닝
 
@@ -42,7 +42,7 @@ ms.locfileid: "131101429"
 
 ### <a name="audit-and-compliance"></a>감사 및 규정 준수
 
-조직 정책을 감사하고 적용하기 위해 수동으로 긴 텍스트 파일을 사용하는 대신, 사용자 지정 NER을 사용하여 자동화된 솔루션을 구축하고 필요한 비즈니스 규칙을 적용할 수 있습니다. 
+정책을 감사하고 적용하기 위해 상당히 긴 텍스트 파일을 수동으로 검토하는 대신 금융 또는 법률 기업의 IT 부서에서 사용자 지정 NER을 사용하여 자동화된 솔루션을 빌드할 수 있습니다. 이러한 솔루션은 규정 준수 정책을 적용하고 구조화 및 비구조적 콘텐츠를 처리하는 지식 마이닝 파이프라인을 기반으로 필요한 비즈니스 규칙을 설정하는 데 도움이 됩니다.
 
 ## <a name="application-development-lifecycle"></a>애플리케이션 개발 수명 주기
 

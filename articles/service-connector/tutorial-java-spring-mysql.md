@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5da530ff759bca62d8da679d493fe3c8d7360e32
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f25ab8e1eb144675567316194c9b4ca3a547f111
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029476"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475239"
 ---
 # <a name="tutorial-deploy-spring-cloud-application-connected-to-azure-database-for-mysql-with-service-connector"></a>자습서: Service Connector를 사용 하여 Azure Database for MySQL에 연결된 Spring Cloud 애플리케이션 배포
 
@@ -112,6 +112,9 @@ storage-size | 5120 | 서버의 스토리지 용량입니다(단위는 메가바
     ```azurecli
     az spring-cloud connection create mysql
     ```
+
+    > [!NOTE]
+    > "구독이 Microsoft.ServiceLinker를 사용하도록 등록되어 있지 않습니다."라는 오류 메시지가 표시되면 `az provider register -n Microsoft.ServiceLinker`를 실행하여 Service Connector 리소스 공급자를 등록하고 연결 명령을 다시 실행합니다. 
 
 1. 샘플 코드 복제
 

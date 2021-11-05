@@ -523,6 +523,8 @@
           href: /azure/templates/microsoft.web/2018-11-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
+        - name: Azure Functions Core Tools
+          href: functions-core-tools-reference.md
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
@@ -531,8 +533,6 @@
           href: /python/api/azure-functions/azure.functions
     - name: 앱 설정 참조
       href: functions-app-settings.md
-    - name: Azure Functions Core Tools
-      href: functions-core-tools-reference.md
     - name: 트리거 및 바인딩
       items:
         - name: Blob Storage
@@ -697,6 +697,8 @@
           items:
             - name: AZF0001
               href: errors-diagnostics/sdk-rules/azf0001.md
+            - name: AZF0002
+              href: errors-diagnostics/sdk-rules/azf0002.md
     - name: host.json 2.x 참조
       href: functions-host-json.md
     - name: host.json 1.x 참조
@@ -730,7 +732,7 @@
     - name: Twitter
       href: 'https://twitter.com/azurefunctions'
     - name: 제품 사용자 의견 제공
-      href: 'https://feedback.azure.com/forums/355860-azure-functions'
+      href: 'https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0'
     - name: Azure Functions GitHub 리포지토리
       href: 'https://github.com/Azure/Azure-Functions/'
     - name: Azure 업데이트

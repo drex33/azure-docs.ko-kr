@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: mimckitt
-ms.openlocfilehash: 8bf4c2842f6ec3cecc6e6cc014bb225115a1655f
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: be0cf8b120a8d74066f13ddac09460a6dc662df4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450416"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444575"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -24,11 +24,11 @@ ms.locfileid: "123450416"
 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure Virtual Machines의 사용자 지정 이미지를 만듭니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * Shared Image Gallery 만들기
+> * Azure Compute Gallery 만들기(이전의 Shared Image Gallery)
 > * 이미지 정의 만들기
 > * 이미지 버전 만들기
 > * 이미지에서 VM 만들기 
-> * 이미지 갤러리 공유
+> * 갤러리 공유
 
 
 이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요** 를 선택합니다.
@@ -37,11 +37,11 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="overview"></a>개요
 
-[공유 이미지 갤러리](../shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
+[Azure Compute Gallery](../shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
 
-Shared Image Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 
+Azure Compute Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 
 
-공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
+Azure Compute Gallery 기능에는 여러 가지 리소스가 있습니다.
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
@@ -57,13 +57,13 @@ Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용�
 
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
-## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기 
+## <a name="create-a-gallery"></a>갤러리 만들기 
 
-이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 
+갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 
 
-갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에 대시를 사용할 수 없습니다.   갤러리 이름은 구독 내에서 고유해야 합니다. 
+갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에 대시를 사용할 수 없습니다. 갤러리 이름은 구독 내에서 고유해야 합니다. 
 
-[az sig create](/cli/azure/sig#az_sig_create)를 사용하여 이미지 갤러리를 만드세요. 다음 예제에서는 *미국 동부* 에 *myGalleryRG* 라는 리소스 그룹 및 *myGallery* 라는 갤러리를 만듭니다.
+[az sig create](/cli/azure/sig#az_sig_create)를 사용하여 갤러리를 만듭니다. 다음 예제에서는 *미국 동부* 에 *myGalleryRG* 라는 리소스 그룹 및 *myGallery* 라는 갤러리를 만듭니다.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -169,7 +169,7 @@ az sig show \
    --query id
 ```
 
-이메일 주소 및 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)와 함께 개체 ID를 범위로 사용하여 사용자에게 공유 이미지 갤러리에 대한 액세스 권한을 부여합니다. `<email-address>` 및 `<gallery iD>`를 사용자 고유의 정보로 바꿉니다.
+이메일 주소 및 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)와 함께 개체 ID를 범위로 사용하여 사용자에게 Azure Compute Gallery에 대한 액세스 권한을 부여합니다. `<email-address>` 및 `<gallery iD>`를 사용자 고유의 정보로 바꿉니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -189,11 +189,11 @@ Azure는 [Azure VM 이미지 작성기](../image-builder-overview.md)인 Packer�
 이 자습서에서는 사용자 지정 VM 이미지를 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * Shared Image Gallery 만들기
+> * Azure Compute Gallery 만들기
 > * 이미지 정의 만들기
 > * 이미지 버전 만들기
 > * 이미지에서 VM 만들기 
-> * 이미지 갤러리 공유
+> * 갤러리 공유
 
 고가용성 가상 머신에 대해 알아보려면 다음 자습서로 진행합니다.
 

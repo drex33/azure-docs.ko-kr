@@ -6,14 +6,14 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 07/09/2020
+ms.date: 10/28/2021
 ms.author: marhamil
-ms.openlocfilehash: aaade03edbbb109656fb7371a063cdc2512c5a20
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 71b89cc6b54ff99864bdd0f15ebcee472a36cd70
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461631"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434487"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>빅 데이터용 Azure Cognitive Services
 
@@ -54,7 +54,7 @@ API 및 SDK를 통해 액세스되는 [Cognitive Services](../index.yml)는 개�
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[텍스트 분석](../text-analytics/index.yml "텍스트 분석")| Text Analytics 서비스는 감정 분석, 핵심 구 추출 및 언어 감지를 위해 원시 텍스트에 대한 자연어 처리를 제공합니다.|
+|[언어 서비스](../language-service/index.yml "언어 서비스")| 언어 서비스는 감정 분석, 핵심 구 추출 및 언어 감지를 위해 원시 텍스트에 대한 자연어 처리를 제공합니다.|
 
 ### <a name="search"></a>검색
 

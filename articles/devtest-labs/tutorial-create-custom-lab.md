@@ -3,12 +3,12 @@ title: 랩 자습서 만들기
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. 랩 관리자는 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 52640469ff02fd167b0add4210ddec11db05af97
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 239f92aa172e4239403869e488ec7c9348623009
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655603"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073125"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 랩 설정
 이 자습서에서는 Azure Portal을 사용하여 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
@@ -73,18 +73,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>사용자를 Lab User에 추가
 
-1. 왼쪽 메뉴에서 **구성 및 정책** 을 선택합니다. 
+1. [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 또는 [소유자](../role-based-access-control/built-in-roles.md#owner) 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-    ![구성 및 정책](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. 메뉴에서 **액세스 제어(IAM)** 를 선택하고, 도구 모음에서 **+ 역할 할당 추가** 를 선택합니다. 
+1. 만든 랩이 포함된 리소스 그룹을 엽니다
 
-    ![역할 할당 추가 - 단추](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
-1. **권한 추가** 페이지에서 다음 작업을 수행합니다.
-    1. **역할** 에 대해 **DevTest Labs User** 를 선택합니다. 
-    2. 추가하려는 **사용자** 를 선택합니다. 
-    3. **저장** 을 선택합니다.
+1. 탐색 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 
-        ![사용자 추가](./media/tutorial-create-custom-lab/add-user.png)
+1. **추가** > **역할 할당 추가** 를 선택합니다.
+
+    ![역할 할당 추가 메뉴가 열려 있는 액세스 제어(IAM) 페이지.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. **역할** 탭에서 **DevTest Labs User** 역할을 선택합니다.
+
+    ![역할 탭이 선택된 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. **구성원** 탭에서 원하는 역할에 추가할 사용자를 선택합니다.
+
+1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 다음 자습서에서는 랩 사용자가 랩에서 VM을 클레임하고 연결하는 방법을 보여줍니다. 해당 자습서를 하고 싶지 않고 이 자습서의 일부로 작성된 리소스를 정리하려면 다음 단계를 수행합니다. 

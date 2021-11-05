@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
-ms.openlocfilehash: c4ad34729b81d6ca13bb2ff52c30dc77cd1614b9
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 0e3cab3835abc8ca3fed652830437dfa7c425e74
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167380"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466963"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 
@@ -41,7 +41,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
     - 또한 자동 크기 조정은 수요가 낮을 때 애플리케이션을 실행하는 불필요한 VM 인스턴스의 수를 최소화하는 한편, 수요가 증가하고 추가 VM 인스턴스가 자동으로 추가될 때 고객이 허용 가능한 수준의 성능을 계속 확보할 수 있습니다. 이 기능은 필요에 따라 비용을 절감하고 Azure 리소스를 효율적으로 만드는 데 도움이 됩니다.
 
 - **대규모 작업**
-    - 확장 집합은 공유 이미지 갤러리를 통해 표준 마켓플레이스 이미지 및 사용자 지정 이미지에 대해 최대 1,000개의 VM 인스턴스를 지원합니다. 관리되는 이미지를 사용하여 확장 집합을 만드는 경우에는 VM 인스턴스가 600개로 제한됩니다.
+    - 확장 집합은 Azure Compute Gallery를 통해 표준 마켓플레이스 이미지 및 사용자 지정 이미지에 대해 최대 1,000개의 VM 인스턴스를 지원합니다. 관리되는 이미지를 사용하여 확장 집합을 만드는 경우에는 VM 인스턴스가 600개로 제한됩니다.
     - 프로덕션 워크로드에서 최상의 성능을 얻으려면 [Azure Managed Disks](../virtual-machines/managed-disks-overview.md)를 사용합니다.
 
 

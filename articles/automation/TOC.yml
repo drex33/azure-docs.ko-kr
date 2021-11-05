@@ -3,7 +3,7 @@
 - name: 개요
   items:
     - name: Automation이란?
-      href: automation-intro.md
+      href: overview.md
     - name: FAQ
       href: automation-faq.md
     - name: 새로운 기능
@@ -249,7 +249,7 @@
               items:
                 - name: 변경 내용 추적 및 인벤토리 제거
                   href: change-tracking/remove-feature.md
-                - name: 변경 내용 추적 및 인벤토리에서 VM 제거
+                - name: 컴퓨터 제거
                   href: change-tracking/remove-vms-from-change-tracking.md
             - name: 문제 해결
               items:
@@ -321,7 +321,7 @@
           items:
             - name: 업데이트 관리 제거
               href: update-management/remove-feature.md
-            - name: 업데이트 관리에서 VM 제거
+            - name: 컴퓨터 제거
               href: update-management/remove-vms.md
         - name: 문제 해결
           items:

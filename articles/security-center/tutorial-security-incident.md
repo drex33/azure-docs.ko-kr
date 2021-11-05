@@ -1,28 +1,27 @@
 ---
-title: 경고 응답 자습서 - Azure Security Center
+title: 경고 응답 자습서 - Microsoft Defender for Cloud
 description: 이 자습서에서는 보안 경고를 심사하고 경고의 근본 원인 및 범위를 확인하는 방법을 알아봅니다.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 6d11384a3a1cab1ef5145a8e29a64e26552862da
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ac1a72efe9d71725e27162ee19fc3b8b02645023
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112236880"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014294"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>자습서: 보안 경고 심사, 조사 및 대응
-Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 클라우드 리소스에서 잠재적으로 악의적인 활동에 대해 경고합니다. 다른 보안 제품 및 서비스의 경고를 Security Center에 통합할 수도 있습니다. 경고가 발생하면 잠재적인 보안 문제를 조사하고 수정하기 위한 신속한 조치가 필요합니다. 
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Microsoft Defender for Cloud는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 클라우드 리소스에서 잠재적으로 악의적인 활동에 대해 경고합니다. 다른 보안 제품 및 서비스의 경고를 Defender for Cloud에 통합할 수도 있습니다. 경고가 발생하면 잠재적인 보안 문제를 조사하고 수정하기 위한 신속한 조치가 필요합니다. 
 
 이 자습서에서는 다음 작업 방법을 배웁니다.
 
@@ -34,22 +33,22 @@ Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하�
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-이 자습서에서 설명하는 기능을 단계별로 실행하려면 Azure Defender가 사용하도록 설정되어 있어야 합니다. 무료로 Azure Defender를 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 시작](security-center-get-started.md) 빠른 시작에서는 업그레이드 방법을 안내합니다.
+이 자습서에서 설명하는 기능을 단계별로 실행하려면 Defender for Cloud의 향상된 보안 기능을 사용하도록 설정해야 합니다. 무료로 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Defender for Cloud 시작](get-started.md) 빠른 시작에서는 업그레이드 방법을 안내합니다.
 
 
 ## <a name="triage-security-alerts"></a>보안 경고 심사
-Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합니다. 검색된 활동의 심각도를 기준으로 보안 경고의 순위가 매겨집니다. 
+Defender for Cloud는 모든 보안 경고에 대해 통일된 보기를 제공합니다. 검색된 활동의 심각도를 기준으로 보안 경고의 순위가 매겨집니다. 
 
 **보안 경고** 페이지에서 경고를 심사합니다.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center의 보안 경고 목록":::
+:::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud의 보안 경고 목록":::
 
 이 페이지에서 현재 환경의 활성 보안 경고를 검토하여 어떤 경고를 먼저 조사할 것인지 결정할 수 있습니다.
 
-보안 경고를 심사할 때 심각도가 높은 경고를 먼저 처리하도록 경고 심각도에 따라 경고의 우선 순위를 지정합니다. 경고 심각도에 대한 자세한 내용은 [경고 분류 방법](security-center-alerts-overview.md#how-are-alerts-classified)을 참조하세요.
+보안 경고를 심사할 때 심각도가 높은 경고를 먼저 처리하도록 경고 심각도에 따라 경고의 우선 순위를 지정합니다. 경고 심각도에 대한 자세한 내용은 [경고 분류 방법](alerts-overview.md#how-are-alerts-classified)을 참조하세요.
 
 > [!TIP]
-> 원하는 도구에서 Azure Sentinel을 비롯한 가장 많이 사용되는 SIEM 솔루션에 Azure Security Center를 연결하고 경고를 사용할 수 있습니다. [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)에서 자세히 알아봅니다.
+> Microsoft Defender for Cloud를 Microsoft Sentinel을 비롯한 가장 널리 사용되는 SIEM 솔루션에 연결하고 선택한 도구의 경고를 사용할 수 있습니다. [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)에서 자세히 알아봅니다.
 
 
 ## <a name="investigate-a-security-alert"></a>보안 경고 조사
@@ -76,7 +75,7 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
     - 공격 받은 리소스에서 생성한 원시 로그를 조사합니다.
 
 ## <a name="respond-to-a-security-alert"></a>보안 경고에 대응
-경고를 조사하고 해당 범위를 파악한 후에는 다음과 같이 Azure Security Center 내에서 보안 경고에 대응할 수 있습니다.
+보안 경고를 조사하고 해당 범위를 파악한 후에는 Microsoft Defender for Cloud 내에서 경고에 응답할 수 있습니다.
 
 1.  **조치 수행** 탭을 열고 권장 대응을 확인합니다.
 
@@ -104,23 +103,32 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
 
 ## <a name="end-the-tutorial"></a>자습서 종료
 
-이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 후속 빠른 시작 및 자습서를 계속 사용하려면 자동 프로비저닝 및 Azure Defender를 설정된 상태로 유지합니다. 
+이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 후속 빠른 시작 및 자습서를 계속 사용하려면 자동 프로비저닝 및 Defender for Cloud의 향상된 보안 기능을 설정된 상태로 유지합니다. 
 
 계속 사용할 생각이 없거나 이러한 기능을 해제하려면 다음을 수행합니다.
 
-1. Security Center 주 메뉴로 돌아가서 **가격 책정 및 설정** 을 선택합니다.
+1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
 1. 관련 구독을 선택합니다.
-1. 다운그레이드하려면 **Azure Defender 끄기** 를 선택합니다.
-1. 자동 프로비저닝을 해제하려면 **데이터 수집** 페이지를 열고 **자동 프로비저닝** 을 **끄기** 로 설정합니다.
+1. **Defender 플랜** 을 선택하고 **향상된 보안 해제** 를 선택합니다.
+
+    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Defender for Cloud의 향상된 보안 기능을 사용하거나 사용하지 않도록 설정합니다.":::
+
 1. **저장** 을 선택합니다.
 
->[!NOTE]
-> 자동 프로비저닝을 해제해도 이미 에이전트가 있는 Azure VM의 Log Analytics 에이전트는 제거되지 않습니다. 자동 프로비저닝을 사용하지 않도록 설정하면 리소스에 대한 보안 모니터링이 제한됩니다.
->
+    > [!NOTE]
+    > 한 번에 단일 플랜 또는 모든 플랜을 사용하지 않도록 설정하는지 여부에 관계없이 향상된 보안 기능을 사용하지 않도록 설정한 후 데이터 수집이 짧은 기간 동안 계속될 수 있습니다. 
+
+1. Defender for Cloud의 메뉴에서 **환경 설정** 을 선택합니다.
+1. 관련 구독을 선택합니다.
+1. **자동 프로비저닝** 을 선택합니다.
+1. 관련 확장을 사용하지 않도록 설정합니다.
+
+    >[!NOTE]
+    > 자동 프로비저닝을 해제해도 이미 에이전트가 있는 Azure VM의 Log Analytics 에이전트는 제거되지 않습니다. 자동 프로비저닝을 사용하지 않도록 설정하면 리소스에 대한 보안 모니터링이 제한됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 보안 경고에 대응할 때 사용되는 Security Center 기능에 대해 알아보았습니다. 관련 자료는 다음을 참조하세요.
+이 자습서에서는 보안 경고에 대응할 때 사용되는 Defender for Cloud 기능에 대해 알아보았습니다. 관련 자료는 다음을 참조하세요.
 
-- [Key Vault용 Azure Defender 경고에 응답](defender-for-key-vault-usage.md)
+- [Key Vault용 Microsoft Defender 경고에 대응](defender-for-key-vault-usage.md)
 - [보안 경고 - 참조 가이드](alerts-reference.md)
-- [Azure Defender 소개](azure-defender.md)
+- [Defender for Cloud 소개](defender-for-cloud-introduction.md)

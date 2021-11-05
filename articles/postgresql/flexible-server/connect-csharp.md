@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 01/16/2021
-ms.openlocfilehash: fd6df64482c5eaeec79fe5f2c9a92aaae475dfdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7eb4d405982b3a069c77d3d6bf994d3d9f6a2bdd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98605957"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429055"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>빠른 시작: .NET(C#)을 사용하여 Azure Database for PostgreSQL - 유연한 서버의 데이터 연결 및 쿼리
 
@@ -25,7 +25,7 @@ ms.locfileid: "98605957"
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free).
 - [Azure Portal](./quickstart-create-server-portal.md)을 사용하여 Azure Database for PostgreSQL 유연한 서버 만들기 <br/> 또는 [Azure CLI](./quickstart-create-server-cli.md)를 만듭니다(없는 경우).
 - 서버에서 사용할 수 있는 빈 *postgres* 데이터베이스를 사용하거나 [새 데이터베이스](./quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql)를 만듭니다.
-- 플랫폼(Windows, Ubuntu Linux 또는 macOS)에 [.NET Framework](https://www.microsoft.com/net/download)를 설치합니다.
+- 플랫폼에 [플랫폼용 .NET SDK](https://dotnet.microsoft.com/download)(Windows, Ubuntu Linux 또는 macOS)를 설치합니다.
 - [Visual Studio](https://www.visualstudio.com/downloads/)를 설치하여 프로젝트를 빌드합니다.
 - Visual Studio에서 [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet 패키지를 설치합니다.
 

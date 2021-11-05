@@ -6,16 +6,16 @@ ms.subservice: language-service
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: c49eb76f79ef48a5074a70b8bc6930f263486d85
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3478ab7b9a9d1920bcc5dc61b108b80514f60aba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100817"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439066"
 ---
 # <a name="tutorial-create-a-faq-bot"></a>자습서: FAQ 봇 만들기
 
-코드 없이 질문 답변 및 Azure [Bot Service](https://azure.microsoft.com/services/bot-service/)를 사용하여 FAQ 봇을 만듭니다.
+코드 없이 사용자 지정 질문 답변 및 Azure [Bot Service](https://azure.microsoft.com/services/bot-service/)를 사용하여 FAQ 봇을 만듭니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 

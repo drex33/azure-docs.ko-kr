@@ -7,21 +7,18 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 310e3e4b4b4b00a4b3255cfd581b155c28ed7705
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a53c532d4f95edfea9aaa4ae96a9d0a92d9c9b10
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128609368"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425390"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL - 유연한 서버 만들기
+# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server"></a>빠른 시작 - ARM 템플릿을 사용하여 Azure Database for MySQL - 유연한 서버 만들기
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
-Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리형 서비스입니다. ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 유연한 서버를 프로비저닝하여 여러 서버 또는 서버 상 여러 데이터베이스를 배포할 수 있습니다.
+Azure Database for MySQL - 유연한 서버는 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리형 서비스입니다. ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 유연한 서버를 프로비저닝하여 여러 서버 또는 서버 상 여러 데이터베이스를 배포할 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -87,7 +84,7 @@ _mysql-flexible-server-template.json_ 파일을 만들고 여기에 이 JSON 스
     }
   },
   "variables": {
-    "api": "2020-07-01-preview",
+    "api": "2021-05-01",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
     "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",

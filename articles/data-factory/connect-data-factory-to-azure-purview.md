@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
 ms.date: 10/25/2021
-ms.openlocfilehash: 1875b32d5a5f964b3a602b60d820ca377e0ee927
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 026dc4cb24c5e7b51fc5eec918cf92d3b6b23090
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040911"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846143"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Azure Purview(미리 보기)에 Data Factory 연결
 
@@ -72,13 +72,9 @@ Azure Purview에서 Data Factory를 등록하는 방법에 대한 자세한 내�
 
 데이터 팩터리의 관리 ID는 데이터 팩터리에서 Purview로의 계보 푸시 작업을 인증하는 데 사용됩니다. 
 
-- **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우 Purview **루트 컬렉션** 에 대한 **데이터 큐레이터** 역할을 데이터 팩터리 관리 ID에 부여합니다. [Azure Purview의 액세스 제어](../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
+부서의 범위 **root 컬렉션** 에서 데이터 팩터리의 관리 되는 Identity **data 큐레이터** 역할을 부여 합니다. [Azure Purview의 액세스 제어](../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
 
-    작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있고 네트워크에서 Purview 계정에 액세스할 수 있는 경우 이 작업은 성공적으로 수행됩니다.
-
-- **2021 년 8 월 18 일 이전** 에 만든 부서의 범위 계정의 경우 부서의 범위 계정에 data factory의 관리 되는 id Azure 기본 [**부서의 범위 Data 큐레이터 (레거시)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) 역할을 부여 합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
-
-    작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 계정에 대해 Azure 기본 제공 **소유자** 또는 **사용자 액세스 관리자** 역할이 있으면 이 작업이 성공적으로 수행됩니다.
+작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있고 네트워크에서 Purview 계정에 액세스할 수 있는 경우 이 작업은 성공적으로 수행됩니다.
 
 ## <a name="monitor-purview-connection"></a>Purview 연결 모니터링
 

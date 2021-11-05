@@ -6,14 +6,14 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: sample
-ms.date: 07/06/2020
+ms.date: 10/28/2021
 ms.author: marhamil
-ms.openlocfilehash: 590ddef27315f37719da5b28c68b6c402371e986
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: acf81e5d9b0502e2eab309ed2fdc239ffae9afc7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363258"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450289"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>빅 데이터용 Cognitive Services에 대한 Python 샘플
 
@@ -21,7 +21,7 @@ ms.locfileid: "94363258"
 
 이 문서의 샘플에서 사용하는 Cognitive Services는 다음과 같습니다.
 
-- Text Analytics - 문장 세트의 감정(또는 분위기)을 가져옵니다.
+- 언어 서비스 - 문장 세트의 감정(또는 분위기)을 가져옵니다.
 - Computer Vision - 이미지 세트와 연결된 태그(한 단어 설명)를 가져옵니다.
 - Bing Image Search - 웹에서 자연어 쿼리와 관련된 이미지를 검색합니다.
 - 음성 텍스트 변환 - 오디오 파일을 전사하여 텍스트 기반 기록을 추출합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "94363258"
 ```python
 from mmlspark.cognitive import *
 
-# A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
+# A general Cognitive Services key for the Language service and Computer Vision (or use separate keys that belong to each service)
 service_key = "ADD_YOUR_SUBSCRIPION_KEY"
 # A Bing Search v7 subscription key
 bing_search_key = "ADD_YOUR_SUBSCRIPION_KEY"
@@ -54,9 +54,9 @@ anomaly_key = "ADD_YOUR_SUBSCRIPION_KEY"
 assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 ```    
 
-## <a name="text-analytics-sample"></a>Text Analytics 샘플
+## <a name="language-service-sample"></a>언어 서비스 샘플
 
-[Text Analytics](../text-analytics/index.yml) 서비스는 텍스트에서 인텔리전트 인사이트를 추출하기 위한 몇 가지 알고리즘을 제공합니다. 예를 들어 지정된 입력 텍스트의 감정을 찾을 수 있습니다. 이 서비스는 0.0과 1.0 사이의 점수를 반환합니다. 여기서 낮은 점수는 부정적인 감정을 나타내고, 높은 점수는 긍정적인 감정을 나타냅니다.  이 샘플에서는 세 개의 간단한 문장을 사용하고, 각각에 대한 감정을 반환합니다.
+[언어 서비스](../language-service/index.yml)는 텍스트에서 지능형 인사이트를 추출하기 위한 몇 가지 알고리즘을 제공합니다. 예를 들어 지정된 입력 텍스트의 감정을 찾을 수 있습니다. 이 서비스는 0.0과 1.0 사이의 점수를 반환합니다. 여기서 낮은 점수는 부정적인 감정을 나타내고, 높은 점수는 긍정적인 감정을 나타냅니다.  이 샘플에서는 세 개의 간단한 문장을 사용하고, 각각에 대한 감정을 반환합니다.
 
 ```python
 from pyspark.sql.functions import col
@@ -68,7 +68,7 @@ df = spark.createDataFrame([
   ("The cognitive services on spark aint bad", "en-US"),
 ], ["text", "language"])
 
-# Run the Text Analytics service with options
+# Run the Language service with options
 sentiment = (TextSentiment()
     .setTextCol("text")
     .setLocation("eastus")

@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/01/2019
+ms.date: 10/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9d1ef18a0cd7852227e50b116ec6ff9c1b1250
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: dc56bcf1407180aefa5ac888669f1eb2db37fbad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732697"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032195"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -118,6 +119,10 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태**:
   * _성공_: 관리자가 사용자의 암호를 성공적으로 다시 설정했음을 나타냅니다.
   * _실패_: 관리자가 사용자의 암호를 변경하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
+- **작업 추가 세부 정보 OnPremisesAgent**:
+  - _없음_: 클라우드 전용 재설정을 나타냅니다.
+  - _AAD Connect_: Azure AD Connect 쓰기 저장 에이전트를 통해 암호를 온-프레미스로 다시 설정했음을 나타냅니다.
+  - _CloudSync_: Azure AD CloudSync 쓰기 저장 에이전트를 통해 암호를 온-프레미스로 다시 설정했음을 나타냅니다.
 
 ### <a name="activity-type-reset-password-self-service"></a>활동 유형: 암호 다시 설정(셀프 서비스)
 

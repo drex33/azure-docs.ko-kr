@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3765b1abb6996e364ed3f7004e56f323fe256450
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7d2e071fd7dc368df867b17a53f9e994ee5c16a6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017044"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430974"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>자습서: Bastion을 구성하고 Windows VM에 연결
 
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 | --- | --- |
 | 속성 | VNet1-bastion |
 | + 서브넷 이름 | AzureBastionSubnet |
-| AzureBastionSubnet 주소 | 서브넷 마스크가 /27 이상인 VNet 주소 공간 내의 서브넷입니다.<br> 예: 10.1.1.0/26  |
+| AzureBastionSubnet 주소 | 서브넷 마스크가 /26 이상인 VNet 주소 공간 내의 서브넷입니다.<br> 예: 10.1.1.0/26  |
 | 계층/SKU | 표준 |
 | 인스턴스 수(호스트 크기 조정)| 3 이상 |
 | 공용 IP 주소 |  새로 만들기 |
@@ -119,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 다음 지침에 따라 서브넷을 만듭니다.
 
    * 서브넷 이름은 **AzureBastionSubnet** 이어야 합니다.
-   * 서브넷은 /27 이상이어야 합니다. 표준 SKU의 경우 향후 추가 호스트 크기 조정 인스턴스를 수용할 수 있도록 /26 이상을 사용하는 것이 좋습니다.
+   * 서브넷은 /26 이상이어야 합니다. 표준 SKU의 경우 향후 추가 호스트 크기 조정 인스턴스를 수용할 수 있도록 /26 이상을 사용하는 것이 좋습니다.
 
    :::image type="content" source="./media/tutorial-create-host-portal/bastion-subnet.png" alt-text="AzureBastionSubnet 서브넷의 스크린샷":::
 

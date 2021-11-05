@@ -3,12 +3,12 @@ title: 컨테이너 그룹 업데이트
 description: Azure Containers Instances 컨테이너 그룹에서 실행되는 컨테이너를 업데이트하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: cbb2e830490d2591645b8156ee830856da0f9049
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: f2ec8ed3641fd9e692c89c6fdb29a7bea268b023
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786966"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853342"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
 
@@ -73,6 +73,7 @@ Windows Server Core와 같이 더 큰 컨테이너 이미지를 기반으로 하
 * CPU, 메모리 또는 GPU 리소스
 * 정책 다시 시작
 * 네트워크 프로필
+* 가용성 영역
 
 컨테이너 그룹을 삭제하고 다시 만들면 해당 그룹은 "다시 배포"되지 않고 새로 만들어집니다. 모든 이미지 계층은 이전 배포에서 캐시된 계층이 아니라 레지스트리에서 새로 가져옵니다. 컨테이너의 IP 주소도 다른 기본 호스트에 배포되어 변경될 수 있습니다.
 

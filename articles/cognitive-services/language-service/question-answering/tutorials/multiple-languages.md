@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: eca68b90756f0da4d34a5ceff6d3194b57297dc4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 42179895f60e56f33b41097375c583c3b272c038
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029559"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469619"
 ---
 # <a name="create-projects-in-multiple-languages"></a>여러 언어로 프로젝트 만들기
 
@@ -21,7 +21,6 @@ ms.locfileid: "131029559"
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 여러 언어를 지원하는 프로젝트 만들기
 > * 영어를 지원하는 프로젝트 만들기
 > * 독일어를 지원하는 프로젝트 만들기
 
@@ -34,7 +33,7 @@ ms.locfileid: "131029559"
 > [!div class="mx-imgBorder"]
 > [![이 리소스에서 프로젝트를 만들 때 언어를 선택하려고 합니다가 선택된 프로젝트 만들기를 위한 UI 스크린샷]( ../media/multiple-languages/multiple-languages.png)](../media/multiple-languages/multiple-languages.png#lightbox)
 
-1. [Language Studio](https://aka.ms/languageStudio)에서 질문 답변 페이지를 엽니다. **새 프로젝트 만들기** > **이 리소스에서 프로젝트를 만들 때 언어를 선택하려고 합니다** > **다음** 을 선택합니다.
+1. [Language Studio](https://aka.ms/languageStudio) 홈 페이지에서 사용자 지정 질문 답변 열기를 선택합니다. **새 프로젝트 만들기** > **이 리소스에서 프로젝트를 만들 때 언어를 선택하려고 합니다** > **다음** 을 선택합니다.
 
 2. 기본 정보 입력 페이지를 작성하고 **다음** > **프로젝트 만들기** 를 선택합니다.
 

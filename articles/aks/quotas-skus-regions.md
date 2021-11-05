@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 기본 할당량, 제한된 노드
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 257598f1a1ea8bbc578fe44c40b8e2dafef36837
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: fb0cf8fc6c3f8cdc2b68d26ca81ca6e240b65a2a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130266052"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843844"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성
 

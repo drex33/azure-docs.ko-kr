@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 25e0b4d072f797ad7263c71645b30cbe1fa75131
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bf21fbec454dc16e00c67bb9885e5694ad73ed57
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124817554"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>자습서: ClickUp Productivity 플랫폼과 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124817554"
 * 사용자가 해당 Azure AD 계정으로 ClickUp Productivity Platform에 자동으로 로그인(Single Sign-On)되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 

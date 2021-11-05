@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9e9504220ac6aa001314c8ebf78bdb11a6cd011a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 243b8a068c5301c5545c2afe8567ae1fbf71284c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071594"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426718"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>빠른 시작: VM 설정에서 Azure Bastion 구성
 
@@ -63,7 +63,7 @@ ms.locfileid: "131071594"
 | --- | --- |
 | 속성 | VNet1-bastion |
 | + 서브넷 이름 | AzureBastionSubnet |
-| AzureBastionSubnet 주소 | 서브넷 마스크가 /27 이상인 VNet 주소 공간 내의 서브넷입니다.<br> 예: 10.1.1.0/26  |
+| AzureBastionSubnet 주소 | 서브넷 마스크가 /26 이상인 VNet 주소 공간 내의 서브넷입니다.<br> 예: 10.1.1.0/26  |
 | 계층/SKU | 표준 |
 | 공용 IP 주소 |  새로 만들기 |
 | 공용 IP 주소 이름 | VNet1-ip  |
@@ -89,7 +89,7 @@ ms.locfileid: "131071594"
 
    :::image type="content" source="./media/quickstart-host-portal/create-step-1.png" alt-text="미리 채워진 1단계 설정 스크린샷" lightbox="./media/quickstart-host-portal/create-step-1.png":::
 
-1. **Azure Bastion을 사용하여 연결** 페이지, **2단계** 에서 서브넷 값을 구성합니다. AzureBastionSubnet 주소 공간은 제안된 주소 공간으로 미리 채워져 있습니다. AzureBastionSubnet 주소 공간은 /27 이상(/26, /25 등)이어야 합니다. 호스트 스케일링이 제한되지 않도록 /26을 사용하는 것이 좋습니다. 이 설정 구성을 마치면 **서브넷 만들기** 를 클릭하여 AzureBastionSubnet을 만듭니다.
+1. **Azure Bastion을 사용하여 연결** 페이지, **2단계** 에서 서브넷 값을 구성합니다. AzureBastionSubnet 주소 공간은 제안된 주소 공간으로 미리 채워져 있습니다. AzureBastionSubnet 주소 공간은 /26 이상(/25, /24 등)이어야 합니다. 호스트 스케일링이 제한되지 않도록 /26을 사용하는 것이 좋습니다. 이 설정 구성을 마치면 **서브넷 만들기** 를 클릭하여 AzureBastionSubnet을 만듭니다.
 
      :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Bastion 서브넷 만들기의 스크린샷.":::
 

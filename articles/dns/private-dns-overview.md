@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: eb66facb8d36884205bc9cd8e562ab97f92c3dd8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 819e3f911a769f870b792ed92b699f3356139565
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745040"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457700"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure 프라이빗 DNS란?
 
@@ -47,7 +47,7 @@ Azure 프라이빗 DNS는 다음과 같은 이점을 누릴 수 있습니다.
 
 ## <a name="capabilities"></a>기능
 
-Azure DNS는 다음과 같은 기능을 제공합니다.
+Azure 프라이빗 DNS는 다음과 같은 기능을 제공합니다.
 
 * **자동 등록이 사용 설정된 프라이빗 영역에 연결된 가상 네트워크에서 가상 머신 자동 등록**. 가상 머신이 개인 IP 주소를 가리키는 A 레코드로 프라이빗 영역에 등록됩니다. 자동 등록이 사용 설정된 가상 네트워크 연결에서 가상 머신이 삭제되면 Azure DNS는 연결된 프라이빗 영역에서 해당 DNS 레코드도 자동으로 제거합니다.
 
@@ -57,7 +57,7 @@ Azure DNS는 다음과 같은 기능을 제공합니다.
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
-Azure DNS의 제한 사항은 다음과 같습니다.
+Azure 프라이빗 DNS의 제한 사항은 다음과 같습니다.
 
 * VM DNS 레코드의 자동 등록이 활성화된 경우 특정 가상 네트워크를 하나의 프라이빗 영역에만 연결할 수 있습니다. 그러나 단일 DNS 영역에 여러 가상 네트워크를 연결할 수 있습니다.
 * 역방향 DNS는 연결된 가상 네트워크의 개인 IP 공간에 대해서만 작동합니다.

@@ -260,6 +260,8 @@
           href: how-to-connect-health-adfs.md
         - name: AD FS를 지원하는 Azure AD Connect Health에 대한 위험한 IP 보고서
           href: how-to-connect-health-adfs-risky-ip.md
+        - name: Azure AD Connect Health 위험 IP 보고서 통합 문서
+          href: how-to-connect-health-adfs-risky-ip-workbook.md
         - name: Connect Health를 사용하여 Azure AD에서 AD FS 로그인
           href: how-to-connect-health-ad-fs-sign-in.md
         - name: 동기화에 Azure AD Connect Health 사용

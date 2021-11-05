@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7fb48f71a891493220440d56a50e3c72510892
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 228eab10c0c9db81b1cf1327d6746f96faa64d05
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529062"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057119"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 
@@ -44,9 +44,9 @@ ms.locfileid: "122529062"
 이러한 계정을 구성할 때는 다음 요구 사항이 충족되어야 합니다.
 
 - 응급 액세스 계정은 조직의 개별 사용자와 연결되지 않아야 합니다. 직원이 제공한 휴대폰, 개별 직원이 가지고 다니는 하드웨어 토큰 또는 기타 직원 전용 자격 증명에 계정이 연결되지 않아야 합니다. 이 예방 조치는 개별 직원이 자격 증명이 필요한 경우 접근할 수 없는 인스턴스를 포함합니다. 등록된 모든 디바이스가 Azure AD와 통신하는 여러 수단이 있는 안전하고 알려진 위치에 있는지 확인하는 것이 중요합니다.
-- 응급 액세스 계정에 사용되는 인증 메커니즘은 다른 응급 액세스 계정을 비롯한 기타 관리 계정에 사용되는 메커니즘과 구분되어야 합니다.  예를 들어, 일반 관리자가 온-프레미스 MFA를 통해 로그인하는 경우 Azure AD MFA는 다른 메커니즘입니다.  하지만 Azure AD MFA가 관리 계정에 대한 인증의 기본적인 부분인 경우에는 다른 방법(예: 사용자 지정 컨트롤을 통해 타사 MFA 공급자로 조건부 액세스 사용)을 고려하는 것이 좋습니다.
+- 비상 액세스 계정에 강력한 인증을 사용하고 다른 관리 계정과 동일한 인증 방법을 사용하지 않는지 확인합니다. 예를 들어 일반 관리자 계정이 강력한 인증을 위해 Microsoft Authenticator 앱을 사용하는 경우 비상 계정에 FIDO2 보안 키를 사용합니다. 인증 프로세스에 외부 요구 사항이 추가되지 않도록 [다양한 인증 방법의 종속성](../fundamentals/resilience-in-credentials.md)을 고려합니다.
 - 디바이스나 자격 증명이 만료되지 않아야 하고 사용 부족으로 인해 자동으로 정리되는 범위에 속하지 않아야 합니다.  
-- 응급 액세스 계정에 대한 글로벌 관리자 역할 할당은 영구적으로 설정해야 합니다. 
+- Azure AD Privileged Identity Management에서 전역 관리자 역할 할당을 긴급 액세스 계정에 적합하지 않고 영구적으로 설정해야 합니다. 
 
 ### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>전화 기반 MFA에서 하나 이상의 계정 제외
 
@@ -56,11 +56,11 @@ ms.locfileid: "122529062"
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>조건부 액세스 정책에서 하나 이상의 계정 제외
 
-응급 상황에서 정책으로 인해 액세스 권한이 차단되어 문제를 해결하지 못하는 경우는 없어야 합니다. 따라서 하나 이상의 응급 액세스 계정을 모든 조건부 액세스 정책에서 제외시켜야 합니다.
+응급 상황에서 정책으로 인해 액세스 권한이 차단되어 문제를 해결하지 못하는 경우는 없어야 합니다. 조건부 액세스를 사용하는 경우 모든 조건부 액세스 정책에서 하나 이상의 긴급 액세스 계정을 제외해야 합니다.
 
 ## <a name="federation-guidance"></a>페더레이션 지침
 
-일부 조직에서는 AD Domain Services 및 ADFS나 유사한 ID 공급자를 사용하여 Azure AD에 페더레이션합니다. [관리 권한이 있는 온-프레미스 계정이 없어야 합니다](../fundamentals/protect-m365-from-on-premises-attacks.md). Azure AD 외부에서 관리 권한이 있는 계정에 대해 인증을 마스터링 및/또는 소싱하면 해당 시스템의 작동이 중단되거나 손상될 경우 불필요한 위험을 초래합니다.
+일부 조직은 AD 도메인 서비스 및 AD FS 또는 유사한 ID 공급자를 사용하여 Azure AD에 페더레이션합니다. 온-프레미스 시스템에 대한 긴급 액세스와 클라우드 서비스에 대한 긴급 액세스는 서로 종속되지 않고 구별되어야 합니다. 다른 시스템에서 비상 액세스 권한이 있는 계정에 대한 인증을 마스터링 및/또는 소싱하면 해당 시스템이 중단될 경우 불필요한 위험이 추가됩니다.
 
 ## <a name="store-account-credentials-safely"></a>계정 자격 증명을 안전하게 저장
 
@@ -97,7 +97,29 @@ ms.locfileid: "122529062"
     1. **검색 쿼리** 에서 다음 쿼리를 입력하여 두 개의 비상 계정에 대한 개체 ID를 삽입합니다.
         > [!NOTE]
         > 포함하려는 각 추가 비상 계정에 대해 다른 "or UserId == "ObjectGuid""를 쿼리에 추가합니다.
-
+                
+        샘플 쿼리:
+        ```kusto
+        // Search for a single Object ID (UserID)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448"
+        ```
+        
+        ```kusto
+        // Search for multiple Object IDs (UserIds)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448" or UserId == "0383eb26-1cbc-4be7-97fd-e8a0d8f4e62b"
+        ```
+        
+        ```kusto
+        // Search for a single UserPrincipalName
+        SigninLogs
+        | project UserPrincipalName 
+        | where UserPrincipalName == "user@yourdomain.onmicrosoft.com"
+        ```
+        
         ![경고 규칙에 비상 계정의 개체 ID를 추가](./media/security-emergency-access/query-image1.png)
 
     1. **경고 논리** 에서 다음을 입력합니다.
@@ -158,4 +180,4 @@ ms.locfileid: "122529062"
 - 아직 가입하지 않은 경우 [Azure AD Premium에 가입](../fundamentals/active-directory-get-started-premium.md)
 - [사용자에 대해 2단계 인증을 요구하는 방법](../authentication/howto-mfa-userstates.md)
 - Microsoft 365를 사용하는 경우 [Microsoft 365의 글로벌 관리자에 대한 추가 보호 구성](/office365/enterprise/protect-your-global-administrator-accounts)
-- [ 관리자에 대한 액세스 검토를 시작](../privileged-identity-management/pim-how-to-start-security-review.md)하고 [기존 글로벌 관리자를 보다 구체적인 관리자 역할로 전환](permissions-reference.md)
+- [ 관리자에 대한 액세스 검토를 시작](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)하고 [기존 글로벌 관리자를 보다 구체적인 관리자 역할로 전환](permissions-reference.md)

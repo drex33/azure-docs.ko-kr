@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: mimckitt
-ms.openlocfilehash: dcdfee7742f2afb66965c855bf01f86dc1680690
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 64ff90e695b8027ed23da463bdf75a4778675e0a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692999"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456806"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "122692999"
 확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Shared Image Gallery 만들기
+> * Azure Compute Gallery 만들기
 > * 특수화된 이미지 정의 만들기
 > * 이미지 버전 만들기
 > * 특수화된 이미지에서 확장 집합 만들기
@@ -38,9 +38,9 @@ ms.locfileid: "122692999"
 
 ## <a name="overview"></a>개요
 
-[공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
+[Azure Compute Gallery](../virtual-machines/shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
 
-Shared Image Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 
+Azure Compute Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 
 
 ## <a name="create-and-configure-a-source-vm"></a>원본 VM 만들기 및 구성
 
@@ -235,7 +235,7 @@ az group delete --name myResourceGroup --no-wait --yes
 이 자습서에서는 Azure CLI를 사용하여 확장 집합에 대한 사용자 지정 VM 이미지를 만들고 사용하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * Shared Image Gallery 만들기
+> * Azure Compute Gallery 만들기
 > * 특수화된 이미지 정의 만들기
 > * 이미지 버전 만들기
 > * 특수화된 이미지에서 확장 집합 만들기

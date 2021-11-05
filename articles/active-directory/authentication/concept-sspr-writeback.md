@@ -5,22 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 10/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f27cee969d666d8605c0c87552eed1f305e1e4c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a695c5d207bb441bfc3393ee0c5c1222efac4e79
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529069"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063388"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장의 작동 방식
 
-Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통해 사용자는 클라우드에서 암호를 재설정할 수 있지만, 대부분의 회사에는 사용자가 존재하는 온-프레미스 Active Directory Domain Services(AD DS) 환경도 있습니다. 비밀번호 쓰기 저장은 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)를 통해 활성화되며 클라우드의 암호 변경 내용을 실시간으로 기존 온-프레미스 디렉터리에 다시 쓸 수 있는 기능입니다. 이 구성에서 사용자가 SSPR를 이용하여 클라우드에서 암호를 변경하거나 재설정하면 업데이트된 암호 또한 온-프레미스 AD DS 환경에 쓰기 저장됩니다.
+Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 통해 사용자는 클라우드에서 암호를 재설정할 수 있지만, 대부분의 회사에는 사용자를 위한 온-프레미스 AD DS(Active Directory Domain Services) 환경도 있습니다. 비밀 번호 쓰기 저장을 통해 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 또는 [Azure AD Connect 클라우드 동기화](tutorial-enable-cloud-sync-sspr-writeback.md)를 사용하여 클라우드의 암호 변경 사항을 실시간으로 온-프레미스 디렉터리에 다시 쓸 수 있습니다. 사용자가 클라우드에서 SSPR을 사용하여 암호를 변경하거나 재설정하면 업데이트된 암호도 온-프레미스 AD DS 환경에 다시 기록됩니다.
 
 > [!IMPORTANT]
 > 이 개념 문서에서는 셀프 서비스 암호 재설정 쓰기 저장의 작동 원리를 관리자에게 설명합니다. 셀프 서비스 암호 재설정에 이미 등록된 최종 사용자가 계정으로 다시 이동해야 하는 경우 https://aka.ms/sspr 로 이동합니다.
@@ -40,18 +41,23 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통�
 * **액세스 패널 및 Microsoft 365에서 암호 변경 지원**: 페더레이션 또는 암호 해시 동기화된 사용자가 만료되었거나 만료되지 않은 암호를 변경하면 해당 암호는 AD DS에 쓰기 저장됩니다.
 * **Azure Portal에서 관리자가 암호를 재설정할 때 비밀번호 쓰기 저장 지원**: 사용자가 페더레이션 또는 암호 해시 동기화된 경우 관리자가 [Azure Portal](https://portal.azure.com)에서 해당 사용자의 암호를 재설정하면 암호가 온-프레미스에 쓰기 저장됩니다. 이 기능은 현재 Office 관리자 포털에서 지원되지 않습니다.
 * **인바운드 방화벽 규칙이 필요하지 않음**: 비밀번호 쓰기 저장은 Azure Service Bus Relay를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
+* 연결되지 않은 도메인에 있는 사용자를 포함하여 요구 사항에 따라 다양한 사용자 세트를 대상으로 하는 [Azure AD Connect](tutorial-enable-sspr-writeback.md) 또는 [클라우드 동기화](tutorial-enable-cloud-sync-sspr-writeback.md)를 사용하여 **Side-by-Side 도메인 수준 배포를 지원** 합니다.  
 
 > [!NOTE]
-> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수는 있지만, 암호 재설정을 사용하여 잊어버린 암호를 재설정할 수는 없습니다. 보호 그룹에 대한 자세한 내용은 [AD DS의 보호 계정 및 그룹](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
+> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수는 있지만, 잊어버린 암호를 재설정할 수는 없습니다. 보호 그룹에 대한 자세한 내용은 [AD DS의 보호 계정 및 그룹](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
 
-SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
+SSPR 쓰기 저장을 시작하려면 다음 자습서 중 하나 또는 둘 다를 완료합니다.
 
-> [!div class="nextstepaction"]
-> [자습서: 셀프 서비스 암호 재설정(SSPR) 쓰기 저장 사용](./tutorial-enable-sspr-writeback.md)
+- [자습서: 셀프 서비스 암호 재설정(SSPR) 쓰기 저장 사용](tutorial-enable-cloud-sync-sspr-writeback.md)
+- [자습서: 온-프레미스 환경에 Azure Active Directory Connect 클라우드 동기화 셀프 서비스 암호 재설정 쓰기 저장 사용(미리 보기)](tutorial-enable-cloud-sync-sspr-writeback.md)
+
+## <a name="azure-ad-connect-and-cloud-sync-side-by-side-deployment"></a>Azure AD Connect 및 클라우드 동기화 병렬 배포
+
+Azure AD Connect와 클라우드 동기화를 서로 다른 도메인에 병렬 배포하여 다른 사용자 세트를 대상으로 지정할 수 있습니다. 이를 통해 기존 사용자가 회사 합병 또는 분할로 인해 사용자가 연결되지 않은 도메인에 있는 경우 옵션을 추가하는 동안 쓰기 저장 암호 변경을 계속 진행할 수 있습니다. Azure AD Connect와 클라우드 동기화를 서로 다른 도메인에서 구성할 수 있으므로 한 도메인의 사용자는 Azure AD Connect를 사용할 수 있고 다른 도메인의 사용자는 클라우드 동기화를 사용할 수 있습니다. 클라우드 동기화는 Azure AD Connect의 단일 인스턴스를 사용하지 않기 때문에 더 높은 가용성을 제공할 수도 있습니다. 두 배포 옵션 간의 기능 비교는 [Azure AD Connect와 클라우드 동기화 간의 비교](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync)를 참조하세요.
 
 ## <a name="how-password-writeback-works"></a>암호 쓰기 저장의 작동 원리
 
-페더레이션 또는 암호 해시 동기화된 사용자가 클라우드에서 자신의 암호를 재설정하거나 변경하려고 시도하면 다음 작업이 수행됩니다.
+페더레이션, 암호 해시 동기화(또는 Azure AD Connect 배포의 경우 통과 인증)용으로 구성된 사용자 계정이 클라우드에서 암호를 재설정하거나 변경하려고 하면 다음 작업이 수행됩니다.
 
 1. 사용자가 어떤 종류의 암호를 가지고 있는지 확인하기 위한 검사가 수행됩니다. 암호가 온-프레미스에서 관리되는 경우:
    * 쓰기 저장 서비스를 사용 중인지 확인하기 위한 검사가 수행됩니다. 사용 중인 경우 사용자가 계속 진행할 수 있습니다.
@@ -105,7 +111,7 @@ SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
 사용자가 암호 재설정을 제출한 후 재설정 요청은 여러 암호화 단계를 거친 후 온-프레미스 환경에 도달합니다. 이러한 암호화 단계는 최대의 서비스 안정성과 보안을 보장합니다. 다음과 같이 설명할 수 있습니다.
 
 1. **2048비트 RSA 키를 사용한 암호 암호화**: 사용자가 온-프레미스에 다시 작성된 암호를 제출하면 제출된 암호 자체를 2048비트 RSA 키로 암호화합니다.
-1. **AES-GCM을 사용한 패키지 수준 암호화**: AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 Service Bus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조하는 것을 방지합니다.
+1. **256비트 AES-GCM을 사용한 패키지 수준 암호화**: AES-GCM(256비트 키 크기 포함)을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 Service Bus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조하는 것을 방지합니다.
 1. **모든 통신이 TLS/SSL을 통해 발생**: Service Bus와 모든 통신은 SSL/TLS 채널에서 발생합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
 1. **6개월마다 자동 키 롤오버**: 최상의 서비스 보안과 안전성을 보장하기 위해, 모든 키는 6개월마다 또는 Azure AD Connect에서 암호 쓰기 저장이 해제되었다가 다시 설정될 때마다 롤오버됩니다.
 

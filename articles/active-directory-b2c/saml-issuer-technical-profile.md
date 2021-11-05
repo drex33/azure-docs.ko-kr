@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 SAML 발급자의 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 SAML(Security Assertion Markup Language) 토큰 발급자에 대한 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/12/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 54869c14cf7c5a7e43f34102f5c95e37689dfee8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 03e67143c0eb0e4a6d57d928d65becc519271f4b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095343"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131044402"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML 토큰 발급자의 기술 프로필 정의
 
@@ -58,9 +58,9 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | IssuerUri | 예 | SAML 응답에 표시되는 발급자 이름입니다. 이 값은 신뢰 당사자 애플리케이션에 구성된 이름과 같아야 합니다. |
-| XmlSignatureAlgorithm | 아니요 | Azure AD B2C에서 SAML 어설션에 서명 하는 데 사용 하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 응답을 구성 하려면 [saml 응용 프로그램을 등록 하는 옵션](saml-service-provider.md) 을 참조 하세요.|
-|TokenNotBeforeSkewInSeconds| 아니요| 유효 기간의 시작을 표시 하는 타임 스탬프에 대 한 오차 (정수)를 지정 합니다. 이 수가 높을수록 신뢰 당사자에 대 한 클레임이 발급 된 시간에 대 한 유효 기간이 시작 되는 이후 시간을 반환 합니다. 예를 들어 TokenNotBeforeSkewInSeconds이 60 초로 설정 된 경우 토큰이 13:05:10 UTC에서 발급 되 면 토큰은 13:04:10 UTC에서 유효 합니다. 기본값은 0입니다. 최대값은 3600 (1 시간)입니다. |
-|TokenLifeTimeInSeconds| 아니요| SAML 어설션의 수명을 지정 합니다. 이 값은 위에서 참조 된 NotBefore 값의 초 단위입니다. 기본값은 300 초 (5 분)입니다. |
+| XmlSignatureAlgorithm | 예 | Azure AD B2C에서 SAML 어설션에 서명하는 데 사용하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 응답을 구성하려면 [SAML 애플리케이션을 등록하는 옵션](saml-service-provider.md)을 참조하세요.|
+|TokenNotBeforeSkewInSeconds| 아니요| 유효 기간의 시작을 표시하는 타임스탬프에 대한 오차(정수)를 지정합니다. 이 수가 클수록 신뢰 당사자에 대해 클레임이 발급된 시간과 관련하여 유효 기간이 시작되는 시간 이후의 시간을 반환합니다. 예를 들어 TokenNotBeforeSkewInSeconds가 60초로 설정된 경우 토큰이 13:05:10 UTC에 발급되면 토큰은 13:04:10 UTC부터 유효합니다. 기본값은 0입니다. 최댓값은 3600(1시간)입니다. |
+|TokenLifeTimeInSeconds| 아니요| SAML 어설션의 수명을 지정합니다. 이 값은 위에서 참조된 NotBefore 값의 초 단위입니다. 기본값은 300 초(5분)입니다. |
 
 
 ## <a name="cryptographic-keys"></a>암호화 키

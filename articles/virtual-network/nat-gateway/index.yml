@@ -12,12 +12,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 04/05/2021
-  ms.openlocfilehash: cb818fd91d9777a8579a6dd31189511b4ff472b2
-  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.openlocfilehash: 86a8371d5adbb377aeea7c0748f0ba787be27a95
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/07/2021
-  ms.locfileid: "113438718"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131466453"
 landingContent:
 - title: Virtual Network NAT 정보
   linkLists:
@@ -41,3 +41,7 @@ landingContent:
       url: tutorial-nat-gateway-load-balancer-public-portal.md
     - text: NAT 게이트웨이를 내부 부하 분산 장치와 통합
       url: tutorial-nat-gateway-load-balancer-internal-portal.md
+  - linkListType: video
+    links:
+    - text: Azure NAT Gateway를 사용하여 아웃바운드 연결을 개선하는 방법
+      url: https://www.youtube.com/watch?v=2Ng_uM0ZaB4

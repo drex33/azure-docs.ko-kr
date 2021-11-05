@@ -11,17 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d8a093e4008d747aee8bab48ed2db7dcd81fd2a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ae50e0d9cee09cafe0b6a43cec1122832857b7fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826313"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>자습서: HighGear와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 HighGear를 통합하는 방법에 대해 알아봅니다.
-HighGear를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 HighGear를 통합하는 방법에 대해 알아봅니다. HighGear를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 * HighGear에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 * 사용자가 해당 Azure AD 계정으로 HighGear에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
@@ -101,29 +100,29 @@ HighGear 시스템에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **서비스 공급 기업 엔터티 ID** 필드의 값을 붙여넣습니다.
+    1. **식별자** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **서비스 공급 기업 엔터티 ID** 필드의 값을 붙여넣습니다.
 
-    ![서비스 공급 기업 엔터티 ID 필드](media/highgear-tutorial/service-provider-entity-id-field.png)
-    
-    > [!NOTE]
-    > Single Sign-On 설정 페이지에 액세스하려면 HighGear 시스템에 로그인해야 합니다. 로그인하고 나면 HighGear에서 관리 탭 위로 마우스를 이동한 후 Single Sign-On 설정 메뉴 항목을 클릭합니다.
-    
-    ![Single Sign-On 설정 메뉴 항목](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+       ![서비스 공급 기업 엔터티 ID 필드](media/highgear-tutorial/service-provider-entity-id-field.png)
 
-    b. **회신 URL** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **ACS(Assertion Consumer Service) URL** 의 값을 붙여넣습니다.
+       > [!NOTE]
+       > Single Sign-On 설정 페이지에 액세스하려면 HighGear 시스템에 로그인해야 합니다. 로그인하고 나면 HighGear에서 관리 탭 위로 마우스를 이동한 후 Single Sign-On 설정 메뉴 항목을 클릭합니다.
 
-    ![ACS(Assertion Consumer Service) URL 필드](media/highgear-tutorial/assertion-consumer-service-url-field.png)
+       ![Single Sign-On 설정 메뉴 항목](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-    다. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
+    1. **회신 URL** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **ACS(Assertion Consumer Service) URL** 의 값을 붙여넣습니다.
 
-     ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
+       ![ACS(Assertion Consumer Service) URL 필드](media/highgear-tutorial/assertion-consumer-service-url-field.png)
 
-     **로그온 URL** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **서비스 공급 기업 엔터티 ID** 필드의 값을 붙여넣습니다. (이 엔터티 ID는 SP 시작 로그온에 사용되는 HighGear 시스템의 기본 URL이기도 합니다.)
+    1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    ![서비스 공급 기업 엔터티 ID 필드](media/highgear-tutorial/service-provider-entity-id-field.png)
+       ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
-    > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이 값을 HighGear 시스템의 **Single Sign-On 설정** 페이지에 있는 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 도움이 필요한 경우 [HighGear 지원팀](mailto:support@highgear.com)에 문의하세요.
+       **로그온 URL** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **서비스 공급 기업 엔터티 ID** 필드의 값을 붙여넣습니다. (이 엔터티 ID는 SP 시작 로그온에 사용되는 HighGear 시스템의 기본 URL이기도 합니다.)
+
+       ![서비스 공급 기업 엔터티 ID 필드](media/highgear-tutorial/service-provider-entity-id-field.png)
+
+       > [!NOTE]
+       > 이러한 값은 실제 값이 아닙니다. 이 값을 HighGear 시스템의 **Single Sign-On 설정** 페이지에 있는 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 도움이 필요한 경우 [HighGear 지원팀](mailto:support@highgear.com)에 문의하세요.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 **인증서(Base64)** 를 컴퓨터에 다운로드하고 저장합니다. Single Sign-On 구성의 이후 단계에서 필요합니다.
 
@@ -133,11 +132,11 @@ HighGear 시스템에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-    a. 로그인 URL. 아래 **HighGear Single Sign-On 구성** 의 2단계에서 이 값이 필요합니다.
+    1. 로그인 URL. 아래 **HighGear Single Sign-On 구성** 의 2단계에서 이 값이 필요합니다.
 
-    b. Azure AD 식별자. 아래 **HighGear Single Sign-On 구성** 의 3단계에서 이 값이 필요합니다.
+    1. Azure AD 식별자. 아래 **HighGear Single Sign-On 구성** 의 3단계에서 이 값이 필요합니다.
 
-    다. 로그아웃 URL. 아래 **HighGear Single Sign-On 구성** 의 4단계에서 이 값이 필요합니다.
+    1. 로그아웃 URL. 아래 **HighGear Single Sign-On 구성** 의 4단계에서 이 값이 필요합니다.
 
 ### <a name="configure-highgear-single-sign-on"></a>HighGear Single Sign-On 구성
 
@@ -175,14 +174,13 @@ Single Sign-On을 위해 HighGear를 구성하려면 HighGear 시스템에 로�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
+    1. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    1. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**(예: BrittaSimon@contoso.com)을 입력합니다.
 
-    다. **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어둡니다.
+    1. **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기** 를 클릭합니다.
+    1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

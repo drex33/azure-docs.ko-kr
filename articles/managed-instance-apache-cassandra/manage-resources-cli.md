@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 통해 리소스 관리 - Azure Resource Manager | Microsoft Docs
+title: Azure CLI-Azure Resource Manager를 사용 하 여 리소스 관리 Microsoft Docs
 description: Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance의 관리를 자동화하는 일반적인 명령을 알아봅니다.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
 ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021
-keywords: azure resource manager cli
-ms.openlocfilehash: 6f299601c013363965697b026a0f563fba4a7ae6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+keywords: azure 리소스 관리자 cli
+ms.openlocfilehash: 955be9d99cb233e43450ed8f7f1bf23e2c28c09a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020125"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131849055"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli"></a>Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
 
@@ -94,7 +94,7 @@ az managed-cassandra cluster show \
 clusterName='cassandra-hybrid-cluster'
 resourceGroupName='MyResourceGroup'
 
-az managed-cassandra cluster node-status \
+az managed-cassandra cluster status \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName
 ```
@@ -167,6 +167,9 @@ az managed-cassandra datacenter delete \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName 
 ```
+
+> [!WARNING]
+> 클러스터에 두 개 이상의 데이터 센터가 있는 경우 [keyspace 복제 전략 설정](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/operations/opsChangeKSStrategy.html) 에서 삭제 하려는 데이터 센터에 대 한 모든 참조를 먼저 제거 해야 합니다. 클러스터 내의 모든 키 공간에 데이터 센터에 대 한 참조가 여전히 있는 경우이 명령은 실패 합니다. 
 
 ### <a name="get-datacenter-details"></a><a id="get-datacenter-details">데이터 센터 세부 정보를 가져옵니다.</a>
 

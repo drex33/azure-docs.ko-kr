@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 366aa1737f0e72a1f250fc1d25ea77636955d674
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e40b714709aedbb643b2b2d65878a73618a7682f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034304"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445876"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub 및 스토리지 계정 배포
 
@@ -63,8 +63,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 1. **허브 이름** 이 필요합니다. 리소스 목록에서 허브를 선택합니다. IoT Hub 섹션의 위쪽에 있는 허브 이름을 Windows 클립보드에 복사합니다.
 
-   ![허브 이름 복사](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
-
     이 명령에서 표시된 허브 이름으로 바꾸고, 명령 창에서 다음 명령을 실행합니다.
 
     ```cmd
@@ -77,11 +75,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. 다음 환경 변수는 IoT 디바이스 키입니다. 허브에 대한 IoT Hub 메뉴에서 **IoT 디바이스** 를 선택하여 새 디바이스를 허브에 추가합니다.
+1. 다음 환경 변수는 IoT 디바이스 키입니다. 허브에 대한 IoT Hub 메뉴에서 **디바이스** 를 선택하여 새 디바이스를 허브에 추가합니다.
 
-   ![IoT 디바이스 선택](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
+   :::image type="content" source="./media/horizontal-arm-route-messages/04-select-iot-devices.png" alt-text="왼쪽 창에 있는 디바이스를 보여주는 스크린샷." border="true":::
 
-1. 화면 오른쪽에서 **+ 새로 만들기** 를 선택하여 새 디바이스를 추가합니다.
+1. 화면 오른쪽에서 **+ 디바이스 추가** 를 선택하여 새 디바이스를 추가합니다.
 
    새 디바이스 이름을 입력합니다. 이 빠른 시작에서는 **Contoso-Test-Device** 로 시작하는 이름을 사용합니다. 디바이스를 저장한 다음, 해당 화면을 다시 열어 디바이스 키를 검색합니다. (키는 창을 닫을 때 생성됩니다.) 기본 키 또는 보조 키를 선택하고, Windows 클립보드에 복사합니다. 명령 창에서 실행할 명령을 설정한 다음, **Enter** 키를 누릅니다. 이 명령은 다음과 같지만 디바이스 키가 붙여넣어집니다.
 

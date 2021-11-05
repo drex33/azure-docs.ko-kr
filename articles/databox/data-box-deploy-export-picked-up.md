@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 10/29/2021
 ms.author: alkohli
-ms.openlocfilehash: ea9a918ee32a3ada83651085290fa7c7b26c6e0e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 544454e4022da67db50fb194d7aea72a6bd716bd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131024375"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449978"
 ---
 # <a name="tutorial-return-azure-data-box"></a>자습서: Azure Data Box 반환
 
@@ -59,7 +59,7 @@ Microsoft 관리형 배송을 사용하는 경우 배송할 지역에 대한 지
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
-**독일 또는 스위스에서 배송하는 경우**, [자체 관리형 배송을 사용](#self-managed-shipping)할 수도 있습니다.
+**독일 또는 스위스의 Azure 데이터 센터로 다시 배송하는 경우**, [자체 관리형 배송을 사용](#self-managed-shipping)할 수도 있습니다.
 
 ## <a name="uk"></a>[UK](#tab/in-uk)
 

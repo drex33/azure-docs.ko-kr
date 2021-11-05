@@ -47,6 +47,8 @@
       href: manage-permissions.md
     - name: DRR(DDoS Rapid Response)에 문의
       href: ddos-rapid-response.md
+    - name: 게이트웨이 Load Balancer 및 파트너 NVA를 통한 인라인 L7 DDoS 보호
+      href: inline-protection-glb.md
     - name: 파트너 등록
       href: ddos-protection-partner-onboarding.md
 - name: 참조
@@ -65,7 +67,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtualnetwork/ddosprotectionplans
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md

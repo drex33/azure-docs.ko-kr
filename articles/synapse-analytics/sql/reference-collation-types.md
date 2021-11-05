@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9a83646556838732a3b79f93771c762f00ed5afc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 2ea3022b0138e290891e1ee3bc78975648aae06c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144298"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847891"
 ---
 # <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL에 대한 데이터베이스 데이터 정렬 지원 
 
@@ -22,6 +22,9 @@ ms.locfileid: "108144298"
 새 전용 SQL 풀 데이터베이스를 만들 때 Azure Portal에서 기본 데이터베이스 데이터 정렬을 변경할 수 있습니다. 이 기능을 사용하면 3800개의 지원 데이터베이스 데이터 정렬 중 하나를 사용하여 새 데이터베이스를 훨씬 쉽게 만들 수 있습니다.
 
 생성 시 CREATE DATABASE 문을 사용하여 기본 서버리스 SQL 풀 데이터베이스 데이터 정렬을 지정할 수 있습니다.
+
+> [!NOTE]
+> Azure Synapse Analytics 쿼리 텍스트(변수, 상수 등 포함)는 다른 SQL Server 제공과 같이 서버 수준 데이터 정렬이 아닌 데이터베이스 수준 데이터 정렬을 사용하여 항상 처리됩니다.
 
 ## <a name="change-collation"></a>데이터 정렬 변경
 전용 SQL 풀 데이터베이스의 기본 데이터 정렬을 변경하려면 프로비전 환경의 데이터 정렬 필드를 업데이트합니다. 예를 들어, 기본 데이터 정렬이 대/소문자를 구분하도록 변경하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS로 변경합니다. 

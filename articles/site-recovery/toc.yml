@@ -112,6 +112,8 @@
           href: azure-to-azure-support-matrix.md
         - name: Azure Backup과 Site Recovery 사용
           href: site-recovery-backup-interoperability.md
+        - name: 여러 IP 주소에 대한 장애 조치(failover) 구성
+          href: concepts-multiple-ip-address-failover.md
         - name: Azure VM 재해 복구를 위해 가속화된 네트워킹
           href: azure-vm-disaster-recovery-with-accelerated-networking.md
         - name: Azure VM 재해 복구로 ExpressRoute

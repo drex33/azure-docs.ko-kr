@@ -12,6 +12,8 @@
       href: whats-new.md
     - name: 사용자 지정 질문 답변(미리 보기)
       href: custom-question-answering.md
+    - name: 사용자 지정 질문 답변으로 마이그레이션
+      href: ../language-service/question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: 빠른 시작
   items:
     - name: 기술 자료 만들기 및 쿼리
@@ -21,7 +23,7 @@
         - name: 클라이언트 라이브러리 또는 REST API
           href: Quickstarts/quickstart-sdk.md
 - name: 샘플
-  href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face&terms=qna-maker'
+  href: /samples/browse/?products=azure&term=face&terms=qna-maker
 - name: AI의 책임 있는 사용
   items:
     - name: 투명성 메모
@@ -64,9 +66,6 @@
           href: How-To/edit-knowledge-base.md
         - name: 메타데이터 태그 추가
           href: Quickstarts/add-question-metadata-portal.md
-        - name: 후속 프롬프트 추가
-          href: How-To/multiturn-conversation.md
-          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
         - name: 기본 답변 변경
           href: How-To/change-default-answer.md
     - name: 기술 자료 쿼리
@@ -104,8 +103,6 @@
       href: Concepts/data-sources-and-content.md
     - name: Azure RBAC(Azure 역할 기반 액세스 제어)
       href: Concepts/role-based-access-control.md
-    - name: 정확한 대답
-      href: reference-precise-answering.md
     - name: 활성 학습 설정
       href: How-To/use-active-learning.md
     - name: 프로세스 순위 지정
@@ -128,15 +125,15 @@
     - name: FAQ 봇 사용자 지정
       items:
         - name: 다중 전환 프롬프트를 사용하여 단계별 대화 만들기
-          href: Tutorials/guided-conversations.md
+          href: ../language-service/question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
         - name: 봇에 여러 도메인 추가
-          href: Tutorials/create-faq-bot-for-multiple-domains.md
+          href: ../language-service/question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
         - name: 활성 학습으로 기술 자료 향상
-          href: Tutorials/active-learning.md
-        - name: 여러 언어의 기술 자료 추가
-          href: Tutorials/multiple-languages.md
+          href: ../language-service/question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
         - name: 동의어를 추가하여 관련성 향상
-          href: Tutorials/adding-synonyms.md
+          href: ../language-service/question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
+        - name: 여러 언어의 기술 자료 추가
+          href: ../language-service/question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: 참조
   items:
     - name: REST API

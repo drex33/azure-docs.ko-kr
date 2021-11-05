@@ -84,6 +84,8 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.yml
+        - name: 사용자 지정 분할 - 개요
+          href: custom-partitioning-analytical-store.md
     - name: 백업 및 복원
       items:
         - name: 백업 및 복원 소개
@@ -650,6 +652,14 @@
               href: secure-access-to-data.md
             - name: Advanced Threat Protection
               href: sql/advanced-threat-protection.md
+        - name: 부분 문서 업데이트
+          items:
+            - name: 부분 문서 업데이트 개요
+              href: partial-document-update.md
+            - name: 부분 문서 업데이트 시작
+              href: partial-document-update-getting-started.md
+            - name: 부분 문서 업데이트 FAQ
+              href: partial-document-update-faq.yml
         - name: 연결 모드
           href: sql/sql-sdk-connection-modes.md
     - name: 방법 가이드
@@ -1077,6 +1087,10 @@
           href: cassandra/powershell-samples.md
         - name: Azure CLI를 사용하여 관리
           href: cassandra/cli-samples.md
+        - name: Cassandra API를 사용하는 Glowroot
+          href: cassandra/glowroot-cassandra.md
+        - name: 오류 코드 정의
+          href: cassandra/error-codes-solution.md
     - name: 참조
       items:
         - name: REST 리소스 공급자
@@ -1412,6 +1426,9 @@
     - name: 무료 계층
       href: free-tier.md
       displayName: free tier
+    - name: 총 계정 처리량 제한
+      displayName: 'cost, RUs, RU'
+      href: limit-total-account-throughput.md
     - name: Azure Cosmos DB 리소스 관리
       items:
         - name: Azure Cosmos 계정 관리
@@ -1474,6 +1491,8 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Synapse Link를 지원하는 Power BI 사용
           href: synapse-link-power-bi.md
+        - name: 사용자 지정 분할 구성
+          href: configure-custom-partitioning.md
     - name: 백업 및 복원
       items:
         - name: 지속적인 백업 관리

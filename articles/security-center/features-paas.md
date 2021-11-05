@@ -1,24 +1,27 @@
 ---
-title: 지원되는 Azure PaaS 리소스에 대한 Azure Security Center 기능
-description: 이 페이지에서는 지원되는 Azure PaaS 리소스에 대한 Azure Security Center 기능 사용 여부를 보여 줍니다.
+title: 지원되는 Azure PaaS 리소스에 대한 Microsoft Defender for Cloud 기능.
+description: 이 페이지에서는 지원되는 Azure PaaS 리소스에 대한 Microsoft Defender for Cloud 기능의 가용성을 보여줍니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 04/25/2021
 ms.author: memildin
-ms.openlocfilehash: 4ee6b02ad60ad08022cbe2428bb9fb52c3ac2194
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: acaefa655593a70caca049c536b0ed7cde9f90f2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992344"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055847"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Azure PaaS 서비스의 기능 적용 범위 <a name="paas-services"></a>
 
-아래 표에서는 지원되는 Azure PaaS 리소스에 대한 Azure Security Center 기능 사용 여부를 보여 줍니다.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-|서비스|권장 사항(무료)|보안 경고(Azure Defender)|취약성 평가(Azure Defender)|
+아래 표에서는 지원되는 Azure PaaS 리소스에 대한 Microsoft Defender for Cloud 기능의 가용성을 보여줍니다.
+
+|서비스|권장 사항(무료)|보안 경고 |취약점 평가|
 |:----|:----:|:----:|:----:|
 |Azure App Service|✔|✔|-|
 |Azure Automation 계정|✔|-|-|
@@ -50,4 +53,4 @@ ms.locfileid: "107992344"
 
 \* 이러한 기능은 현재 미리 보기로 지원됩니다.
 
-\*\* Azure AD(Azure Active Directory) 권장 사항은 Azure Defender를 사용하는 구독에만 사용할 수 있습니다.
+\*\* Azure AD(Azure Active Directory) 권장 사항은 [향상된 보안 기능이 활성화](enable-enhanced-security.md)된 구독에만 사용할 수 있습니다.

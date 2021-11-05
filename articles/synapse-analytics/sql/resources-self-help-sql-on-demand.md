@@ -10,12 +10,12 @@ ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c5057290f21a87a2a8c599de7d3fdd2c8b76ebb6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3d9cc42d6efcfdac2d9bb65bde1bb31c6af646c5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046549"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452265"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -165,6 +165,12 @@ FROM
 
     AS [result]
 ```
+
+### <a name="cannot-bulk-load-because-the-file-could-not-be-opened"></a>파일을 열 수 없으므로 대량 로드할 수 없습니다.
+
+이 오류는 쿼리 실행 중에 파일이 수정될 때 반환됩니다. 일반적으로 `Cannot bulk load because the file {file path} could not be opened. Operating system error code 12(The access code is invalid.).`와 같은 오류가 발생합니다.
+
+서버리스 sql 풀은 쿼리가 실행되는 동안 수정된 파일을 읽을 수 없습니다. 쿼리에서 파일을 잠글 수 없습니다. 수정 작업이 **추가** 라는 것을 알고 있는 경우 `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}` 옵션을 설정해 볼 수 있습니다. [추가 전용 파일을 쿼리하는 방법](query-single-csv-file.md#querying-appendable-files) 또는 [추가 전용 파일에 테이블을 만드는 방법](create-use-external-tables.md#external-table-on-appendable-files)을 참조하세요.
 
 ### <a name="query-fails-with-conversion-error"></a>변환 오류를 나타내며 쿼리 실패
 데이터 파일 [filepath]'의 행 n, 열 m [columnname]에 대해 대량 로드 데이터 변환 오류(지정된 코드 페이지의 형식 불일치 또는 잘못된 문자) 오류 메시지를 나타내며 쿼리가 실패하는 경우 데이터 형식이 행 번호 n 및 열 m의 실제 데이터와 일치하지 않음을 의미합니다. 
@@ -401,9 +407,28 @@ FROM
     AS [result]
 ```
 
+### <a name="waitiocompletion-call-failed"></a>`WaitIOCompletion` 호출 실패
+
+이 메시지는 원격 스토리지(Azure Data Lake)에서 데이터를 읽는 IO 작업이 완료되기를 기다리는 동안 쿼리가 실패했음을 나타냅니다. 스토리지가 서버리스 SQL 풀과 동일한 지역에 있고 기본적으로 일시 중지되는 `archive access` 스토리지를 사용 중인 것은 아닌지 확인하세요. 스토리지 메트릭을 검사하고 스토리지 계층(새 파일 업로드)에 IO 요청을 포화시킬 수 있는 다른 워크로드가 없는지 확인하세요.
+
 ### <a name="incorrect-syntax-near-not"></a>'NOT' 근처의 잘못된 구문
 
-이 오류는 열 정의에 `NOT NULL` 제약 조건이 포함된 열이 있는 일부 외부 테이블이 있음을 나타냅니다. 테이블을 업데이트하여 열 정의에서 `NOT NULL`을 제거합니다.
+이 오류는 열 정의에 `NOT NULL` 제약 조건이 포함된 열이 있는 일부 외부 테이블이 있음을 나타냅니다. 테이블을 업데이트하여 열 정의에서 `NOT NULL`을 제거합니다. 
+
+### <a name="inserting-value-to-batch-for-column-type-datetime2-failed"></a>열 형식 DATETIME2에 대한 일괄 처리에 값을 삽입하지 못했습니다.
+
+Parquet/Delta Lake 파일에 저장된 날짜/시간 값은 `DATETIME2` 열로 나타낼 수 없습니다. spark를 사용하여 파일의 최솟값을 검사하고 0001-01-03보다 작은 날짜가 있는지 확인하세요. Parquet(일부 Spark 버전) 형식으로 값을 작성하는 데 사용되는 율리우스력과 서버리스 SQL 풀에서 사용되는 그레고리력 사이에 2일의 차이가 있을 수 있으며, 이로 인해 잘못된(음수) 날짜 값으로 변환될 수 있습니다. 
+
+Spark를 사용하여 이러한 값을 업데이트해 보세요. 다음 샘플은 Delta Lake에서 값을 업데이트하는 방법을 보여줍니다.
+
+```spark
+from delta.tables import *
+from pyspark.sql.functions import *
+
+deltaTable = DeltaTable.forPath(spark, 
+             "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
+deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
+```
 
 ## <a name="configuration"></a>구성
 
@@ -471,7 +496,7 @@ WITH ( FORMAT_TYPE = PARQUET)
 | `type name` 유형의 `column name` 열이 외부 데이터 유형 `type name`과 호환되지 않습니다. | `WITH` 절에서 지정된 열 유형이 Azure Cosmos DB 컨테이너의 유형과 일치하지 않습니다. [Azure Cosmos DB에서 SQL 형식 매핑](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings) 섹션에 설명된 바와 같이 열 형식을 변경하거나 `VARCHAR` 형식을 사용하십시오. |
 | 열이 모든 셀의 `NULL` 값을 포함합니다. | `WITH` 절에 잘못된 열 이름 또는 경로 식이 있을 수 있습니다. `WITH` 절에서 열 이름(또는 열 유형 뒤의 경로 식)은 Azure Cosmos DB 컬렉션의 일부 속성 이름과 일치해야 합니다. 비교 시 *대/소문자가 구분* 됩니다. 예를 들어 `productCode`와 `ProductCode`는 서로 다른 속성입니다. |
 
-[Azure Synapse Analytics 피드백 페이지](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862)에서 제안과 문제를 보고할 수 있습니다.
+[Azure Synapse Analytics 피드백 페이지](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)에서 제안과 문제를 보고할 수 있습니다.
 
 ### <a name="utf-8-collation-warning-is-returned-while-reading-cosmosdb-string-types"></a>CosmosDB 문자열 형식을 읽는 동안 UTF-8 데이터 정렬 경고가 반환됩니다.
 
@@ -517,7 +542,7 @@ Azure Synapse SQL은 다음과 같은 경우 트랜잭션 저장소에 표시되
   - 파티션 스키마를 설명하는 와일드카드를 지정하지 마세요. Delta Lake 쿼리는 Delta Lake 파티션을 자동으로 식별합니다. 
 - Apache Spark 풀에서 만든 Delta Lake 테이블은 서버리스 SQL 풀에서 자동으로 사용할 수 없습니다. T-SQL 언어를 사용하여 이러한 Delta Lake 테이블을 쿼리하려면 [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) 문을 실행하고 형식으로 Delta를 지정합니다.
 - 외부 테이블은 분할을 지원하지 않습니다. Delta Lake 폴더에서 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)를 사용하여 파티션 제거를 활용합니다. 아래에서 알려진 문제 및 해결 방법을 참조하세요.
-- 서버리스 SQL 풀은 시간 이동 쿼리를 지원하지 않습니다. [Azure 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)에서 이 기능에 대해 투표할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [기록 데이터를 읽습니다](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- 서버리스 SQL 풀은 시간 이동 쿼리를 지원하지 않습니다. [Azure 피드백 사이트](https://feedback.azure.com/d365community/idea/8fa91755-0925-ec11-b6e6-000d3a4f07b8)에서 이 기능에 대해 투표할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [기록 데이터를 읽습니다](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - 서버리스 SQL 풀은 Delta Lake 파일 업데이트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 최신 버전의 Delta Lake를 쿼리할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [Delta Lake를 업데이트](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data)합니다.
 - Azure Synapse Analytics의 서버리스 SQL 풀은 [BLOOM 필터](/azure/databricks/delta/optimizations/bloom-filters)를 사용하는 데이터 세트를 지원하지 않습니다.
 - Delta Lake 지원은 전용 SQL 풀에서 사용할 수 없습니다. 서버리스 풀을 사용하여 Delta Lake 파일을 쿼리하고 있는지 확인합니다.
@@ -544,9 +569,31 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 
 이 쿼리가 실패하면 호출자는 기본 스토리지 파일을 읽을 수 있는 권한이 없습니다. 
 
-가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
+가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 `Storage Blob Data Contributor` 역할을 자신에게 부여하는 것입니다. 
 - [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
+
+### <a name="json-text-is-not-properly-formatted"></a>JSON 텍스트의 형식이 잘못되었습니다.
+
+이 오류는 서버리스 SQL 풀이 Delta Lake 트랜잭션 로그를 읽을 수 없음을 나타냅니다. 다음 오류와 같은 오류가 표시될 수 있습니다.
+
+```
+Msg 13609, Level 16, State 4, Line 1
+JSON text is not properly formatted. Unexpected character '' is found at position 263934.
+Msg 16513, Level 16, State 0, Line 1
+Error reading external metadata.
+```
+Delta Lake 데이터 세트가 손상되지 않았는지 확인합니다. Azure Synapse에서 Apache Spark 풀을 사용하여 Delta Lake 폴더의 콘텐츠를 읽을 수 있는지 확인합니다. 이렇게 하면 `_delta_log` 파일이 손상되지 않도록 할 수 있습니다.
+
+**해결 방법** - Apache Spark 풀을 사용해서 Delta Lake 데이터 세트에 검사점을 만들고 쿼리를 다시 실행합니다. 검사점은 트랜잭션 json 로그 파일을 집계하고 문제를 해결할 수 있습니다.
+
+데이터 세트가 유효한 경우 다음과 같이 [지원 티켓을 작성](../../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request)하고 추가 정보를 제공합니다.
+- 열 추가/제거 또는 테이블 최적화와 같은 변경을 수행하지 마세요. 이렇게 하면 Delta Lake 트랜잭션 로그 파일의 상태가 변경될 수 있습니다.
+- `_delta_log` 폴더의 콘텐츠를 새 빈 폴더에 복사합니다. `.parquet data` 파일을 복사하지 **마세요**.
+- 새 폴더에 복사한 내용을 읽고 동일한 오류가 발생하는지 확인합니다.
+- 복사한 `_delta_log` 파일의 콘텐츠를 Azure 지원에 보냅니다.
+
+이제 Spark 풀과 함께 Delta Lake 폴더를 계속 사용할 수 있습니다. 이를 공유할 수 있는 경우 복사된 데이터를 Microsoft 지원에 제공합니다. Azure 팀은 `delta_log` 파일의 콘텐츠를 조사하고 가능한 오류 및 해결 방법에 대한 추가 정보를 제공합니다.
 
 ### <a name="partitioning-column-returns-null-values"></a>분할 열이 NULL 값을 반환합니다.
 
@@ -562,89 +609,27 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 
 ### <a name="column-of-type-varchar-is-not-compatible-with-external-data-type-parquet-column-is-of-nested-type"></a>'VARCHAR' 형식의 열은 외부 데이터 형식과 호환되지 않음 'Parquet 열이 중첩 형식임'
 
-WITH 절을 지정하지 않고 일부 중첩 형식 열이 포함된 Delta Lake 파일을 읽으려고 합니다(자동 스키마 유추 사용).
+**상태**: 해결됨
 
-```sql
-SELECT TOP 10 *
-FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
-    FORMAT = 'delta') as rows;
-```
-
-자동 스키마 유추는 Delta Lake의 중첩 열에서 작동하지 않습니다. FORMAT='parquet'을 지정하고 경로에**를 추가하여 쿼리로 일부 결과를 반환하는지 확인합니다.
-
-**해결 방법:** `WITH` 절을 사용하고 `VARCHAR` 형식을 중첩 열에 명시적으로 할당합니다. `WITH` 절이 파티션 열에 대해 `NULL`을 반환하는 또 다른 알려진 문제로 인해 데이터 세트가 분할된 경우에는 작동하지 않습니다. 복합 유형 열이 있는 분할된 데이터 세트는 현재 지원되지 않습니다.
+**릴리스**: 2021년 10월
 
 ### <a name="cannot-parse-field-type-in-json-object"></a>JSON 개체에서 ‘type’ 필드를 구문 분석할 수 없음
 
-WITH 절을 지정하지 않고 일부 중첩 형식 열이 포함된 Delta Lake 파일을 읽으려고 합니다(자동 스키마 유추 사용). 
+**상태**: 해결됨
 
-```sql
-SELECT TOP 10 *
-FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
-    FORMAT = 'delta') as rows;
-```
-
-자동 스키마 유추는 Delta Lake의 중첩 열에서 작동하지 않습니다. FORMAT='parquet'을 지정하고 경로에**를 추가하여 쿼리로 일부 결과를 반환하는지 확인합니다.
-
-**해결 방법:** `WITH` 절을 사용하고 `VARCHAR` 형식을 중첩 열에 명시적으로 할당합니다. `WITH` 절이 파티션 열에 대해 `NULL`을 반환하는 또 다른 알려진 문제로 인해 데이터 세트가 분할된 경우에는 작동하지 않습니다. 복합 유형 열이 있는 분할된 데이터 세트는 현재 지원되지 않습니다.
+**릴리스**: 2021년 10월
 
 ### <a name="cannot-find-value-of-partitioning-column-in-file"></a>파일에서 분할 열 값을 찾을 수 없음 
 
-Delta Lake 데이터 세트는 분할 열에 `NULL` 값이 있을 수 있습니다. 이러한 파티션은 `HIVE_DEFAULT_PARTITION` 폴더에 저장됩니다. 이것은 현재 서버리스 SQL 풀에서 지원되지 않습니다. 이 경우 다음과 같은 오류가 발생합니다.
+**상태**: 해결됨
 
-```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
-Cannot find value of partitioning column '<column name>' in file 
-'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
-```
-
-**해결 방법:** Apache Spark 풀을 사용하여 Delta Lake 데이터 세트를 업데이트하고 분할 열에 `null` 대신 일부 값(빈 문자열 또는 `"null"`)을 사용합니다.
-
-### <a name="json-text-is-not-properly-formatted"></a>JSON 텍스트의 형식이 잘못되었습니다.
-
-이 오류는 서버리스 SQL 풀이 Delta Lake 트랜잭션 로그를 읽을 수 없음을 나타냅니다. 다음 오류와 같은 오류가 표시될 수 있습니다.
-
-```
-Msg 13609, Level 16, State 4, Line 1
-JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
-Msg 16513, Level 16, State 0, Line 1
-Error reading external metadata.
-```
-먼저 Delta Lake 데이터 세트가 손상되지 않았는지 확인합니다.
-- Azure Synapse 또는 Databricks 클러스터에서 Apache Spark 풀을 사용하여 Delta Lake 폴더의 콘텐츠를 읽을 수 있는지 확인합니다. 이렇게 하면 `_delta_log` 파일이 손상되지 않도록 할 수 있습니다.
-- `FORMAT='PARQUET'`를 지정하고 URI 경로 끝에 재귀 와일드카드 `/**`를 사용하여 데이터 파일의 내용을 읽을 수 있는지 확인합니다. 모든 Parquet 파일을 읽을 수 있는 경우 문제는 `_delta_log` 트랜잭션 로그 폴더에 있습니다.
-
-일반적인 오류 및 해결 방법:
-
-- `JSON text is not properly formatted. Unexpected character '.'` - 기본 parquet 파일에 서버리스 SQL 풀에서 지원되지 않는 일부 데이터 형식이 포함될 수 있습니다.
-
-**해결 방법:** 지원되지 않는 형식을 제외하는 WITH 스키마를 사용합니다.
-
-- `JSON text is not properly formatted. Unexpected character '{'` - 일부 `_UTF8` 데이터베이스 정렬을 사용할 수 있습니다. 
-
-**해결 방법:** `master` 데이터베이스 또는 비UTF8 정렬을 사용하는 다른 데이터베이스에서 쿼리를 실행합니다. 이 해결 방법으로 문제가 해결되면 `_UTF8` 데이터 정렬이 없는 데이터베이스를 사용합니다. `WITH` 절의 열 정의에 `_UTF8` 데이터 정렬을 지정합니다.
-
-**일반 문제 해결** - Apache Spark 풀을 사용해서 Delta Lake 데이터 세트에 검사점을 만들고 쿼리를 다시 실행합니다. 검사점은 트랜잭션 json 로그 파일을 집계하고 문제를 해결할 수 있습니다.
-
-데이터 세트가 유효하고 해결 방법이 도움이 되지 않는 경우 지원 티켓을 보고하고 Azure 지원에 재현을 제공합니다.
-- 열 추가/제거 또는 테이블 최적화와 같은 변경을 수행하지 마세요. 이렇게 하면 Delta Lake 트랜잭션 로그 파일의 상태가 변경될 수 있습니다.
-- `_delta_log` 폴더의 콘텐츠를 새 빈 폴더에 복사합니다. `.parquet data` 파일을 복사하지 **마세요**.
-- 새 폴더에 복사한 내용을 읽고 동일한 오류가 발생하는지 확인합니다.
-- 이제 Spark 풀과 함께 Delta Lake 폴더를 계속 사용할 수 있습니다. 이를 공유할 수 있는 경우 복사된 데이터를 Microsoft 지원에 제공합니다.
-- 복사한 `_delta_log` 파일의 콘텐츠를 Azure 지원에 보냅니다.
-
-Azure 팀은 `delta_log` 파일의 콘텐츠를 조사하고 가능한 오류 및 해결 방법에 대한 추가 정보를 제공합니다.
+**릴리스**: 2021년 11월
 
 ### <a name="resolving-delta-log-on-path--failed-with-error-cannot-parse-json-object-from-log-file"></a>경로에서 델타 로그 확인 중 ... 오류로 인해 실패: 로그 파일에서 JSON 개체를 구문 분석할 수 없음
 
-이 오류는 다음 이유/지원되지 않는 기능으로 인해 발생할 수 있습니다.
-- Delta Lake 데이터 세트에 대한 [BLOOM 필터](/azure/databricks/delta/optimizations/bloom-filters). Azure Synapse Analytics의 서버리스 SQL 풀은 [BLOOM 필터](/azure/databricks/delta/optimizations/bloom-filters)를 사용하는 데이터 세트를 지원하지 않습니다.
-- 통계가 포함된 Delta Lake 데이터 세트의 Float 열.
-- Float 열의 분할된 데이터 세트.
+**상태**: 해결됨
 
-**해결 방법**: 서버리스 SQL 풀을 사용하여 Delta Lake 폴더를 읽으려면 [BLOOM 필터를 제거](/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index)합니다. 문제를 일으키는 `float` 열이 있으면 데이터 세트를 다시 분할하거나 통계를 제거해야 합니다.
+**릴리스**: 2021년 11월
 
 ## <a name="performance"></a>성능
 
@@ -690,7 +675,7 @@ Synapse Studio를 사용하는 경우 SQL Server Management Studio 또는 Azure 
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-서비스 주체의 경우 애플리케이션 ID를 SID(객체 ID 아님)로 사용하여 로그인을 만들어야 합니다. 다른 SPI/앱에 대한 역할 할당을 만들 때 Azure Synapse 서비스가 Azure AD Graph에서 애플리케이션 ID를 가져오지 못하도록 제한하는 서비스 주체와 관련된 알려진 제한이 있습니다.  
+서비스 주체의 경우 애플리케이션 ID를 SID(객체 ID 아님)로 사용하여 로그인을 만들어야 합니다. 다른 SPI/앱에 대한 역할 할당을 만들 때 Azure Synapse 서비스가 Microsoft Graph에서 애플리케이션 ID를 가져오지 못하도록 제한하는 서비스 주체와 관련된 알려진 제한이 있습니다.  
 
 #### <a name="solution-1"></a>해결 방법 #1
 Azure Portal > Synapse Studio > 관리 > 액세스 제어로 이동하고 원하는 서비스 주체에 대해 Synapse 관리자 또는 Synapse SQL 관리자를 수동으로 추가합니다.

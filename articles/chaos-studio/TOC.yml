@@ -1,0 +1,62 @@
+- name: Azure Chaos Studio 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Chaos Studio란?
+      href: chaos-studio-overview.md
+    - name: 카오스 엔지니어링이란?
+      href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
+- name: 빠른 시작
+  items:
+    - name: Azure Chaos Studio를 사용하여 카오스 실험 만들기 및 실행
+      href: chaos-studio-quickstart-azure-portal.md
+- name: 자습서
+  items:
+    - name: 실험 실행 및 관리
+      href: chaos-studio-run-experiment.md
+- name: 샘플
+  items:
+    - name: Azure REST API
+      href: chaos-studio-samples-rest-api.md
+- name: 개념
+  items:
+    - name: Chaos 실험
+      href: chaos-studio-chaos-experiments.md
+    - name: 오류 및 작업
+      href: chaos-studio-faults-actions.md
+    - name: 대상 및 기능
+      href: chaos-studio-targets-capabilities.md
+    - name: 권한 및 보안
+      href: chaos-studio-permissions-security.md
+- name: 방법 가이드
+  items:
+    - name: 실험 만들기 및 실행 - 서비스 직접 오류
+      href: chaos-studio-tutorial-service-direct.md
+    - name: 실험 만들기 및 실행 - 에이전트 기반 오류
+      href: chaos-studio-tutorial-agent-based.md
+    - name: 실험 만들기 및 실행 - AKS에서 Chaos Mesh 오류
+      href: chaos-studio-tutorial-aks.md
+    - name: 일반적인 문제 해결
+      href: troubleshooting.md
+- name: 참조
+  items:
+    - name: 오류 라이브러리
+      href: chaos-studio-fault-library.md
+    - name: 오류 공급자
+      href: chaos-studio-fault-providers.md
+    - name: 서비스 제한
+      href: chaos-studio-service-limits.md
+    - name: REST API 설명서
+      href: 'https://docs.microsoft.com/rest/api/chaosstudio'
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product='
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/'

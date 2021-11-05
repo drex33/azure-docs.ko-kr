@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: c62a446aace060bf55606462b04b323cb44bf2cb
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 521ebf79dd265b26958c36411c1d6aa281e11a5e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553847"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842590"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton Inference Server를 사용한 고성능 서비스 제공(미리 보기) 
 
@@ -51,6 +51,9 @@ NVIDIA Triton 유추 서버에는 특정 모델 리포지토리 구조가 필요
 ## <a name="deploy-using-cli-v2"></a>CLI를 사용 하 여 배포 (v2)
 
 이 섹션에서는 Machine Learning 확장 (v2)과 함께 Azure CLI를 사용 하 여 관리 되는 온라인 끝점에 Triton를 배포할 수 있는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> Triton 없는 코드 배포의 경우 **[로컬 끝점을 통한 테스트](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** 는 현재 지원 되지 않습니다.
 
 1. 여러 명령의 경로에 입력을 방지 하려면 다음 명령을 사용 하 여 환경 변수를 설정 `BASE_PATH` 합니다. 이 변수는 모델 및 연결 된 YAML 구성 파일이 있는 디렉터리를 가리킵니다.
 

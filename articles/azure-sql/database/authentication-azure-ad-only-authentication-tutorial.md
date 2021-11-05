@@ -8,22 +8,19 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
-ms.openlocfilehash: 76425e37c83ea5ac44653e20753e35606b89d370
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/02/2021
+ms.openlocfilehash: 09e855391a591e39d31c1eb939bce6c2dc1cc6b2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643235"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473626"
 ---
 # <a name="tutorial-enable-azure-active-directory-only-authentication-with-azure-sql"></a>자습서: Azure SQL을 사용한 Azure Active Directory 전용 인증 사용
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!NOTE]
-> 이 문서에서 설명하는 **Azure AD 전용 인증** 기능은 **퍼블릭 미리 보기** 로 제공됩니다. 
-
-이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에서 [Azure AD 전용 인증](authentication-azure-ad-only-authentication.md) 기능을 사용하도록 설정하는 방법을 안내합니다. Azure AD 전용 인증이 사용하도록 설정된 SQL Database 또는 Managed Instance를 프로비저닝하려는 경우 [Azure SQL에서 Azure AD 전용 인증이 사용하도록 설정된 서버 만들기](authentication-azure-ad-only-authentication-create-server.md)를 참조하세요.
+이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에서 [Azure AD 전용 인증](authentication-azure-ad-only-authentication.md) 기능을 사용하도록 설정하는 방법을 안내합니다. Azure AD 전용 인증이 사용하도록 설정된 SQL Database 또는 SQL Managed Instance를 프로비저닝하려는 경우 [Azure SQL에서 Azure AD 전용 인증이 사용하도록 설정된 서버 만들기](authentication-azure-ad-only-authentication-create-server.md)를 참조하세요.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -76,9 +73,16 @@ Azure Portal에서 Azure AD 전용 인증을 사용하도록 설정하려면 아
 1. **이 서버에서 Azure Active Directory 인증만 지원** 확인란을 선택합니다.
 1. **Azure AD 인증만 사용** 팝업이 표시됩니다. **예** 를 클릭하여 기능을 사용하도록 설정하고 설정을 **저장** 합니다.
 
-## <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
+## <a name="enable-in-sql-managed-instance-using-azure-portal"></a>Azure Portal을 통해 SQL Managed Instance에서 사용
 
-현재 포털에서 SQL Managed Instance에 대한 Azure AD 전용 인증을 관리할 수는 없습니다.
+Azure Portal에서 Azure AD 전용 인증을 사용하도록 설정하려면 아래 단계를 참조하세요.
+
+1. [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할이 있는 사용자로 [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. **SQL 관리형 인스턴스** 로 이동한 다음, **설정** 메뉴에서 **Active Directory 관리자** 를 선택합니다.
+
+1. **Azure Active Directory 관리자** 를 추가하지 않은 경우 이 설정을 먼저 지정해야 Azure AD 전용 인증을 사용하도록 설정할 수 있습니다.
+1. **이 관리형 인스턴스에서 Azure Active Directory 인증만 지원** 확인란을 선택합니다.
+1. **Azure AD 인증만 사용** 팝업이 표시됩니다. **예** 를 클릭하여 기능을 사용하도록 설정하고 설정을 **저장** 합니다.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -167,7 +171,7 @@ API를 사용하여 Azure AD 전용 인증을 관리하는 방법에 대한 자�
    Connect-AzAccount
    ```
 
-1. `<myinstance>`를 SQL Managed Instance 이름으로, `<myresource>`를 SQL 관리형 인스턴스가 포함된 Azure 리소스로 바꾸어 다음 명령을 실행합니다.
+1. `<myinstance>`를 SQL Managed Instance 이름으로, `<myresource>`를 **SQL 관리형 인스턴스** 가 포함된 Azure 리소스로 바꾸어 다음 명령을 실행합니다.
 
    ```powershell
    Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication -InstanceName <myinstance> -ResourceGroupName <myresource>
@@ -181,7 +185,13 @@ API를 사용하여 Azure AD 전용 인증을 관리하는 방법에 대한 자�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-[Azure Portal](https://portal.azure.com/)에서 **SQL 서버** 리소스로 이동합니다. **설정** 메뉴에서 **Azure Active Directory** 를 선택합니다. Azure AD 전용 인증에 대한 포털 지원은 Azure SQL Database에서만 사용할 수 있습니다.
+## <a name="check-status-in-sql-database"></a>SQL Database에서 상태 확인
+
+[Azure Portal](https://portal.azure.com/)에서 **SQL 서버** 리소스로 이동합니다. **설정** 메뉴에서 **Azure Active Directory** 를 선택합니다.
+
+## <a name="check-status-in-sql-managed-instance"></a>SQL Managed Instance에서 상태 확인
+
+[Azure Portal](https://portal.azure.com/)에서 **SQL 관리형 인스턴스** 리소스로 이동합니다. **설정** 메뉴에서 **Active Directory 관리자** 를 선택합니다.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -267,7 +277,7 @@ API를 사용하여 Azure AD 전용 인증을 관리하는 방법에 대한 자�
    Connect-AzAccount
    ```
 
-1. `<myinstance>`를 SQL Managed Instance 이름으로, `<myresource>`를 SQL 관리형 인스턴스가 포함된 Azure 리소스로 바꾸어 다음 명령을 실행합니다.
+1. `<myinstance>`를 SQL Managed Instance 이름으로, `<myresource>`를 **SQL 관리형 인스턴스** 가 포함된 Azure 리소스로 바꾸어 다음 명령을 실행합니다.
 
    ```powershell
    Get-AzSqlInstanceActiveDirectoryOnlyAuthentication -InstanceName <myinstance> -ResourceGroupName <myresource>
@@ -277,7 +287,7 @@ API를 사용하여 Azure AD 전용 인증을 관리하는 방법에 대한 자�
 
 ## <a name="test-sql-authentication-with-connection-failure"></a>연결 실패로 SQL 인증 테스트
 
-Azure AD 전용 인증을 사용하도록 설정한 후 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 [SQL Database 또는 Managed Instance에 대한 연결](connect-query-ssms.md)을 테스트합니다. 연결을 위해 SQL 인증을 사용합니다.
+Azure AD 전용 인증을 사용하도록 설정한 후 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 [SQL Database 또는 SQL Managed Instance에 대한 연결](connect-query-ssms.md)을 테스트합니다. 연결을 위해 SQL 인증을 사용합니다.
 
 다음 출력과 비슷한 로그인 실패 메시지가 표시됩니다.
 
@@ -294,11 +304,17 @@ Azure AD 전용 인증 기능을 사용하지 않도록 설정하면 Azure SQL�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
+## <a name="disable-in-sql-database-using-azure-portal"></a>Azure Portal을 통해 SQL Database에서 사용하지 않도록 설정
+
 1. [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할이 있는 사용자로 [Azure Portal](https://portal.azure.com/)로 이동합니다.
 1. SQL 서버 리소스로 이동한 다음, **설정** 메뉴에서 **Azure Active Directory** 를 선택합니다.
 1. Azure AD 전용 인증 기능을 사용하지 않도록 설정하려면 **이 서버에서 Azure Active Directory 인증만 지원** 확인란의 선택을 취소하고 설정을 **저장** 합니다.
 
-현재 포털에서 SQL Managed Instance에 대한 Azure AD 전용 인증을 관리할 수는 없습니다.
+## <a name="disable-in-sql-managed-instance-using-azure-portal"></a>Azure Portal을 통해 SQL Managed Instance에서 사용하지 않도록 설정
+
+1. [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할이 있는 사용자로 [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. **SQL 관리형 인스턴스** 로 이동한 다음, **설정** 메뉴에서 **Active Directory 관리자** 를 선택합니다.
+1. Azure AD 전용 인증 기능을 사용하지 않도록 설정하려면 **이 관리형 인스턴스에서 Azure Active Directory 인증만 지원** 확인란의 선택을 취소하고 설정을 **저장** 합니다.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -386,7 +402,7 @@ PowerShell을 통해 Azure SQL Managed Instance에서 Azure AD 전용 인증을 
    Connect-AzAccount
    ```
 
-1. `<myinstance>`를 SQL Managed Instance 이름으로, `<myresource>`를 SQL 관리형 인스턴스가 포함된 Azure 리소스로 바꾸어 다음 명령을 실행합니다.
+1. `<myinstance>`를 SQL Managed Instance 이름으로, `<myresource>`를 관리형 인스턴스가 포함된 Azure 리소스로 바꾸어 다음 명령을 실행합니다.
 
    ```powershell
    Disable-AzSqlInstanceActiveDirectoryOnlyAuthentication -InstanceName <myinstance> -ResourceGroupName <myresource>

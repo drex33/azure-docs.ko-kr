@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8e85133b8c476f2de046a8396ba171d563751bd7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 154aa9ad4374456247d119902ccfb37803215cdb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128579768"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442258"
 ---
-# <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버(미리 보기) 앱 빌드
+# <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버 앱 빌드
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -27,8 +27,8 @@ ms.locfileid: "128579768"
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 > * 로컬 MySQL을 사용하여 PHP(Laravel) 앱 설정
-> * MySQL 유연한 서버(미리 보기) 만들기
-> * MySQL 유연한 서버(미리 보기)에 PHP 앱 연결
+> * MySQL 유연한 서버 만들기
+> * MySQL 유연한 서버에 PHP 앱 연결
 > * 앱을 Azure App Service에 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure Portal에서 앱 관리
@@ -36,7 +36,7 @@ ms.locfileid: "128579768"
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -141,8 +141,8 @@ php artisan serve
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
-## <a name="create-a-mysql-flexible-server-preview"></a>MySQL 유연한 서버(미리 보기) 만들기
-이 단계에서는 현재 공개 미리 보기로 제공되는 [Azure Database for MySQL 유연한 서버](../index.yml)에 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)에서 [`az flexible-server create`](/cli/azure/mysql/server#az_mysql_flexible_server_create) 명령을 사용하여 서버를 만듭니다.
+## <a name="create-a-mysql-flexible-server"></a>MySQL 유연한 서버 만들기
+이 단계에서는 [Azure Database for MySQL 유연한 서버](../index.yml)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)에서 [`az flexible-server create`](/cli/azure/mysql/server#az_mysql_flexible_server_create) 명령을 사용하여 서버를 만듭니다.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>

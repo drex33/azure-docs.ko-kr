@@ -1,24 +1,24 @@
 ---
-title: Azure Confidential Ledger에 대한 질문과 대답
-description: Azure Confidential Ledger에 대한 질문과 대답
+title: Azure 기밀 원장에 대한 질문과 대답
+description: Azure 기밀 원장에 대한 질문과 대답
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 1baa1470bcaef8e447b19eb37580b21b94c02df6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2c5d6aab297fb357d94066a05dd7f6ff766b31df
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386642"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458117"
 ---
-# <a name="frequently-asked-questions-for-azure-confidential-ledger"></a>Azure Confidential Ledger에 대한 질문과 대답
+# <a name="frequently-asked-questions-for-azure-confidential-ledger"></a>Azure 기밀 원장에 대한 질문과 대답
 
 ## <a name="how-can-i-tell-if-the-acc-ledger-service-would-be-useful-to-my-organization"></a>ACC Ledger 서비스가 내 조직에 유용한지 어떻게 알 수 있나요?
 
-Confidential Ledger는 악의적인 직원이 이전 레코드를 위조, 수정 또는 제거하려고 하는 "내부자" 시나리오를 비롯하여 동기가 부여된 공격자가 기본 로깅/스토리지 시스템을 손상시키려고 할 만큼 중요한 레코드를 보유한 조직에 적합합니다.
+Azure 기밀 원장은 악의적인 직원이 이전 레코드를 위조, 수정 또는 제거하려고 하는 "내부자" 시나리오를 비롯하여 동기가 부여된 공격자가 기본 로깅/스토리지 시스템을 손상시키려고 할 만큼 중요한 레코드를 보유한 조직에 적합합니다.
 
 ## <a name="what-makes-acc-ledger-much-more-secure"></a>ACC Ledger를 훨씬 더 안전하게 만드는 것은 무엇인가요?
 
@@ -30,10 +30,10 @@ Confidential Ledger는 악의적인 직원이 이전 레코드를 위조, 수정
 
 ## <a name="how-do-i-verify-ledgers-authenticity"></a>원장의 신뢰성을 어떻게 확인하나요?
 
-클라이언트와 통신하는 원장 서버 노드가 인증되었는지 확인할 수 있습니다. 자세한 내용은 [Confidential Ledger 노드 인증](authenticate-ledger-nodes.md)을 참조하세요.
+클라이언트와 통신하는 원장 서버 노드가 인증되었는지 확인할 수 있습니다. 자세한 내용은 [기밀 원장 노드 인증](authenticate-ledger-nodes.md)을 참조하세요.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Azure Confidential Ledger 개요](overview.md)
+- [Microsoft Azure 기밀 원장 개요](overview.md)

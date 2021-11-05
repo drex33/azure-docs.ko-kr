@@ -9,22 +9,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 10/18/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: contperf-fy21q4, aaddev
-ms.openlocfilehash: ed3495bb7267c54f9b95f7fc3465d76ddde2faaa
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: b4d0dcee8791ad43c0b216ffb289bf4de1b819d6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581892"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067321"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
 Microsoft ID 플랫폼을 사용하면 애플리케이션이 클라이언트 암호를 사용할 수 있는 모든 위치(예: OAuth 2.0 [클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md) 흐름, [OBO](v2-oauth2-on-behalf-of-flow.md)(On-Behalf-Of) 흐름)에서 자체 자격 증명을 인증에 사용할 수 있습니다.
 
-애플리케이션이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 애플리케이션에서 소유한 인증서로 서명된 [JWT](./security-tokens.md#json-web-tokens-and-claims)(JSON Web Token) 어설션입니다.
+애플리케이션이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 애플리케이션에서 소유한 인증서로 서명된 [JWT](./security-tokens.md#json-web-tokens-and-claims)(JSON Web Token) 어설션입니다. `private_key_jwt` 클라이언트 인증 옵션에 대한 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) 사양에 설명되어 있습니다.
+
+다른 ID 공급자가 발급한 JWT를 애플리케이션에 대한 자격 증명으로 사용하는 데 관심이 있는 경우 페더레이션 정책을 설정 하는 방법에 대 한 [워크로드 ID 페더레이션](workload-identity-federation.md)을 참조하세요.
 
 ## <a name="assertion-format"></a>어설션 형식
 
@@ -42,12 +44,12 @@ Microsoft ID 플랫폼을 사용하면 애플리케이션이 클라이언트 암
 
 클레임 유형 | 값 | 설명
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "aud"(대상) 클레임은 JWT가 대상으로 하는 수신자(여기서는 Azure AD)를 식별합니다. [RFC 7519, 섹션 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3)을 참조하세요.  이 경우 해당 수신자는 로그인 서버(login.microsoftonline.com)입니다.
-exp | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 섹션 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4)를 참조하세요.  이렇게 하면 그 때까지 어설션을 사용할 수 있으므로 `nbf` 이후 최대한 짧게 5~10분간 유지합니다.  Azure AD는 현재 `exp` 시간에 제한을 두지 않습니다. 
-iss | {ClientID} | "Iss"(발급자) 클레임은 JWT를 발급한 보안 주체(이 경우 클라이언트 애플리케이션)를 식별합니다.  GUID 애플리케이션 ID를 사용합니다.
-jti | (GUID) | "jti"(JWT ID) 클레임은 JWT에 대한 고유 식별자를 제공합니다. 식별자 값은 동일한 값이 실수로 다른 데이터 개체에 할당될 가능성이 무시되는 방식으로 할당되어야 합니다. 애플리케이션이 여러 발급자를 사용하는 경우 서로 다른 발급자가 생성한 값 간에도 충돌을 방지해야 합니다. "jti" 값은 대/소문자를 구분하는 문자열입니다. [RFC 7519, 섹션 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
-nbf | 1601519114 | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다. [RFC 7519, 섹션 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5)  현재 시간을 사용하는 것이 적절합니다. 
-sub | {ClientID} | "Sub"(주체) 클레임은 JWT의 주체(이 경우에는 애플리케이션)도 식별합니다. `iss`와 동일한 값을 사용합니다. 
+`aud` | `https://login.microsoftonline.com/{tenantId}/v2.0` | "aud"(대상) 클레임은 JWT가 대상으로 하는 수신자(여기서는 Azure AD)를 식별합니다. [RFC 7519, 섹션 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3)을 참조하세요.  이 경우 해당 수신자는 로그인 서버(login.microsoftonline.com)입니다.
+`exp` | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 섹션 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4)를 참조하세요.  이렇게 하면 그 때까지 어설션을 사용할 수 있으므로 `nbf` 이후 최대한 짧게 5~10분간 유지합니다.  Azure AD는 현재 `exp` 시간에 제한을 두지 않습니다. 
+`iss` | {ClientID} | "Iss"(발급자) 클레임은 JWT를 발급한 보안 주체(이 경우 클라이언트 애플리케이션)를 식별합니다.  GUID 애플리케이션 ID를 사용합니다.
+`jti` | (GUID) | "jti"(JWT ID) 클레임은 JWT에 대한 고유 식별자를 제공합니다. 식별자 값은 동일한 값이 실수로 다른 데이터 개체에 할당될 가능성이 무시되는 방식으로 할당되어야 합니다. 애플리케이션이 여러 발급자를 사용하는 경우 서로 다른 발급자가 생성한 값 간에도 충돌을 방지해야 합니다. "jti" 값은 대/소문자를 구분하는 문자열입니다. [RFC 7519, 섹션 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+`nbf` | 1601519114 | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다. [RFC 7519, 섹션 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5)  현재 시간을 사용하는 것이 적절합니다. 
+`sub` | {ClientID} | "Sub"(주체) 클레임은 JWT의 주체(이 경우에는 애플리케이션)도 식별합니다. `iss`와 동일한 값을 사용합니다. 
 
 ### <a name="signature"></a>서명
 

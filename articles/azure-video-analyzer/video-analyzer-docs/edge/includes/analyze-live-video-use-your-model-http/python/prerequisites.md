@@ -2,15 +2,15 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 09/10/2021
+ms.date: 11/04/2021
 ms.author: juliako
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0b948421911bfa93c290d295f64bdc469896a234
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a7d745c4e2dfd364e9cb0d62225abf74bd1741a5
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101046"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860612"
 ---
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 

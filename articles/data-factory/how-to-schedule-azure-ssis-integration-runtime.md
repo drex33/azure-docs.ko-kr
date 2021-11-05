@@ -5,15 +5,15 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: a7a520ba1b95b412cbc068ad045a6b022e15306f
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 7615c7d3d0556aef2bd2f73148ac986709082ce0
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535458"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845725"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 
@@ -46,7 +46,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
 2. 왼쪽 메뉴에서 **새로 만들기** 를 클릭하고 **데이터 + 분석**, **Data Factory** 를 차례로 클릭합니다. 
    
-   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png" alt-text="New->DataFactory":::
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png" alt-text="새로 만들기->DataFactory":::
    
 3. **새 데이터 팩터리** 페이지에서 **이름** 으로 **MyAzureSsisDataFactory** 를 입력합니다. 
       
@@ -84,46 +84,46 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
    :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
    
-2. **작업** 도구 상자에서 **일반** 메뉴를 펼치고, **웹** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 작업 속성 창의 **일반** 탭에서 작업 이름을 **startMyIR** 로 변경합니다. **설정** 탭으로 전환하고 다음 작업을 수행합니다.
+2. **작업** 도구 상자에서 **일반** 메뉴를 펼치고, **웹** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 작업 속성 창의 **일반** 탭에서 작업 이름을 **startMyIR** 로 변경합니다. **설정** 탭으로 전환 하 고 다음 작업을 수행 합니다.
 
-   1. **URL의** 경우 Azure-SSIS IR 시작하는 REST API 대해 , , 및 를 `{subscriptionId}` `{resourceGroupName}` `{factoryName}` `{integrationRuntimeName}` IR의 실제 값으로 바 바꾸는 URL을 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` 입력합니다. 로 바꿉니다. 또는 ADF UI/앱의 모니터링 페이지에서 IR의 리소스 ID를 복사하여 붙여넣고, 위의 URL에서 `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}` 부분을 바꿔도 됩니다.
+   1. **Url** 에 대해 Azure-SSIS IR 시작 하는 REST API에 대해 다음 url을 입력 합니다.,, `{subscriptionId}` `{resourceGroupName}` 및을 `{factoryName}` `{integrationRuntimeName}` IR에 대 한 실제 값으로 바꿉니다 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` . 로 바꿉니다. 또는 ADF UI/앱의 모니터링 페이지에서 IR의 리소스 ID를 복사하여 붙여넣고, 위의 URL에서 `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}` 부분을 바꿔도 됩니다.
     
       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png" alt-text="ADF SSIS IR 리소스 ID":::
   
    2. **메서드** 로 **POST** 를 선택합니다. 
    3. **본문** 에 `{"message":"Start my IR"}`를 입력합니다.
-   4. **인증의** 경우 **관리 ID를** 선택하여 ADF에 대해 지정된 시스템 관리 ID를 사용합니다. 자세한 내용은 [Data Factory 관리 ID](./data-factory-service-identity.md) 문서를 참조하세요.
+   4. **인증** 의 경우 ADF에 대해 지정 된 시스템 관리 id를 사용 하려면 **관리 되는 id** 를 선택 합니다. 자세한 내용은 [Data Factory의 관리 id](./data-factory-service-identity.md) 문서를 참조 하세요.
    5. **리소스** 에 `https://management.azure.com/`을 입력합니다.
     
       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png" alt-text="ADF 웹 작업 일정 SSIS IR":::
   
 3. 첫 번째 파이프라인을 복제하여 두 번째 파이프라인을 만들고, 작업 이름을 **stopMyIR** 로 변경하고 다음 속성을 바꿉니다.
 
-   1. **URL의** 경우 Azure-SSIS IR 중지하는 REST API 대해 , , 및 를 IR의 실제 값으로 바 바꾸는 URL을 `{subscriptionId}` `{resourceGroupName}` `{factoryName}` `{integrationRuntimeName}` `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01` 입력합니다.
+   1. **Url** 에 대해 Azure-SSIS IR를 중지 하 고 `{subscriptionId}` ,, 및을 `{resourceGroupName}` `{factoryName}` `{integrationRuntimeName}` IR에 대 한 실제 값으로 대체 하는 REST API에 다음 URL을 입력 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01` 합니다.
    2. **본문** 에 `{"message":"Stop my IR"}`를 입력합니다. 
 
-4. 세 번째 파이프라인을 만들고, **작업** 도구 상자의 **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끌어서 놓고, [ADF에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 호출](how-to-invoke-ssis-package-ssis-activity.md) 문서의 지침에 따라 구성합니다.  다음으로, 첫 번째/두 번째 파이프라인의 웹 활동과 비슷하게 IR을 시작/중지하는 두 개의 웹 작업 간에 SSIS 패키지 실행 활동을 연결합니다.
+4. 세 번째 파이프라인을 만들고, **작업** 도구 상자의 **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끌어서 놓고, [ADF에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 호출](how-to-invoke-ssis-package-ssis-activity.md) 문서의 지침에 따라 구성합니다.  다음으로 첫 번째/두 번째 파이프라인의 웹 활동과 마찬가지로 IR을 시작/중지 하는 두 웹 활동 간에 SSIS 패키지 실행 작업을 연결 합니다.
 
-   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png" alt-text="ADF Web Activity On-Demand SSIS IR":::
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png" alt-text="ADF 웹 작업 주문형 SSIS IR":::
 
-5. 세 번째 파이프라인을 수동으로 만드는 대신 템플릿에서 자동으로 만들 수도 있습니다. 이렇게 하려면 파이프라인 옆에 **있는 ...** 기호를 선택하여 **파이프라인** 작업 메뉴를 드롭다운하고, **템플릿 작업에서 파이프라인을** 선택하고, **범주** 아래에서 SSIS 확인란을 선택하고, **SSIS** 패키지 템플릿을 **실행하기 전과 후에 Azure-SSIS IR 시작 및 중지하도록 ADF 파이프라인** 예약을 선택하고, **Azure-SSIS Integration Runtime** 드롭다운 메뉴에서 IR을 선택합니다.  마지막으로 **이 템플릿 사용** 단추를 선택합니다. SSIS 패키지 실행 작업에 할당할 수 있도록 SSIS 패키지만 남아 있는 파이프라인이 자동으로 만들어집니다.
+5. 세 번째 파이프라인을 수동으로 만드는 대신 템플릿에서 자동으로 만들 수도 있습니다. 이렇게 하려면 **파이프라인** 옆에 있는 ... 기호를 선택 하 여 파이프라인 작업 메뉴를 드롭다운 하 고, **템플릿 작업에서 파이프라인** 을 선택 하 고, **범주** 아래에서 **SSIS** 확인란을 선택 하 고, **ssis 패키지 템플릿 실행 전후에 Azure-SSIS IR 시작 및 중지 하도록 ADF 파이프라인 예약** 을 선택 하 고, **Azure-SSIS Integration Runtime** 드롭다운 메뉴에서 IR을 선택 합니다 **.**  마지막으로 **이 템플릿 사용** 단추를 선택 합니다. Ssis 패키지 실행 작업에 할당할 수 있도록 자동으로 SSIS 패키지를 사용 하 여 파이프라인이 생성 됩니다.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-on-demand-ssis-ir-template.png" alt-text="ADF 주문형 SSIS IR 템플릿":::
 
-6. 세 번째 파이프라인을 더 강력하게 만들기 위해 네트워크 연결 또는 기타 문제로 인해 일시적인 오류가 있는 경우 IR을 시작/중지하는 웹 활동을 다시 시도하고 IR이 실제로 시작/중지된 경우에만 완료되도록 할 수 있습니다. 이렇게 하려면 각 웹 작업을 Until 작업 바꿀 수 있습니다. 이 Until 작업 IR을 시작/중지하는 웹 활동과 IR 상태를 확인하는 웹 활동이 각각 하나씩 포함됩니다. Until *활동에서 SSIS IR을 시작하고* *SSIS IR 중지를* 호출해 보겠습니다.  *SSIS IR 시작* Until 작업 *SSIS IR 시작* 및 *SSIS IR 상태 얻기* 웹 활동이 포함되어 있습니다. *SSIS IR 중지* Until 작업 *SSIS IR 중지* 및 *SSIS IR 상태 얻기* 웹 활동이 포함됩니다. SSIS IR 중지 *SSIS IR 시작* 작업의 **설정** 탭에서 /  **식** 에 `@equals('Started', activity('Get SSIS IR Status').output.properties.state)` / `@equals('Stopped', activity('Get SSIS IR Status').output.properties.state)` 각각 을 입력합니다.
+6. 세 번째 파이프라인을 더욱 강력 하 게 만들려면 네트워크 연결 또는 기타 문제로 인 한 일시적인 오류가 발생 하 고 IR이 실제로 시작/중지 된 경우에만 완료 된 경우 IR을 시작/중지 하는 웹 활동이 다시 시도 되도록 할 수 있습니다. 이렇게 하려면 각 웹 활동을 Until 활동으로 바꿀 수 있습니다. 그러면 하나는 IR을 시작/중지 하 고 다른 하나는 IR 상태를 확인 하는 두 개의 웹 활동을 포함 합니다. 작업이 *SSIS ir을 시작* 하 고 *Ssis Ir을 중지할* 때까지를 호출 해 보겠습니다.  Ssis ir *시작* 작업에는 *ssis IR 시작* 및 *ssis ir 상태 가져오기* 웹 작업이 포함 됩니다. Ssis ir *중지* 작업은 *Ssis ir을 중지* 하 고 *ssis ir 상태 가져오기* 웹 작업을 포함할 때까지 합니다. [ *ssis ir 시작*]의 [ssis ir 중지] **설정** 탭에서 /  **식** 에 대해 `@equals('Started', activity('Get SSIS IR Status').output.properties.state)` / `@equals('Stopped', activity('Get SSIS IR Status').output.properties.state)` 각각를 입력 합니다.
 
-   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir.png" alt-text="ADF Until 작업 주문형 SSIS IR":::
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir.png" alt-text="주문형 SSIS IR 작업까지 ADF":::
 
-   Until 활동 내에서 *SSIS IR 시도* / *SSIS IR 시도 중지* 웹 활동은 첫 번째/두 번째 파이프라인의 웹 활동과 유사합니다. *SSIS IR 상태 웹* 작업 얻기의 **설정** 탭에서 다음 작업을 수행합니다.
+   Until 활동 내에서 ssis ir  / *시도 ssis ir* 웹 작업을 시작 하는 작업은 첫 번째/두 번째 파이프라인의 웹 활동과 비슷합니다. *SSIS IR 상태* 웹 작업 가져오기의 **설정** 탭에서 다음 작업을 수행 합니다.
 
-   1. **URL의** 경우 Azure-SSIS IR 상태를 가져오고 , , 및 를 IR의 실제 값으로 바꾸는 REST API `{subscriptionId}` `{resourceGroupName}` `{factoryName}` `{integrationRuntimeName}` URL을 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}?api-version=2018-06-01` 입력합니다.
-   2. **메서드** 에 대해 **GET을** 선택합니다. 
-   3. **인증의** 경우 **관리 ID를** 선택하여 ADF에 대해 지정된 시스템 관리 ID를 사용합니다. 자세한 내용은 [Data Factory 관리 ID](./data-factory-service-identity.md) 문서를 참조하세요.
+   1. **Url** 에 대해 다음 REST API url을 입력 하 여 Azure-SSIS IR 상태를 가져오고 `{subscriptionId}` ,, `{resourceGroupName}` 및을 `{factoryName}` `{integrationRuntimeName}` IR에 대 한 실제 값으로 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}?api-version=2018-06-01` 바꿉니다.
+   2. **메서드에** 대해 **가져오기** 를 선택 합니다. 
+   3. **인증** 의 경우 ADF에 대해 지정 된 시스템 관리 id를 사용 하려면 **관리 되는 id** 를 선택 합니다. 자세한 내용은 [Data Factory의 관리 id](./data-factory-service-identity.md) 문서를 참조 하세요.
    4. **리소스** 에 `https://management.azure.com/`을 입력합니다.
     
-      :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir-open.png" alt-text="작업 주문형 SSIS IR이 열릴 때까지 ADF":::
+      :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir-open.png" alt-text="작업 주문형 SSIS IR이 열려 있을 때까지 ADF":::
 
-7. ADF에 대한 관리 ID 자체에 **기여자** 역할을 할당하면 파이프라인의 웹 작업에서 REST API를 호출하여 그 안에 프로비전된 Azure-SSIS IR을 시작/중지할 수 있습니다.  Azure Portal ADF 페이지에서 **액세스 제어(IAM)** 를 클릭하고 **+ 역할 할당 추가를** 클릭한 후 **역할 할당 추가** 블레이드에서 다음 작업을 수행합니다.
+7. ADF에 대한 관리 ID 자체에 **기여자** 역할을 할당하면 파이프라인의 웹 작업에서 REST API를 호출하여 그 안에 프로비전된 Azure-SSIS IR을 시작/중지할 수 있습니다.  Azure Portal ADF 페이지에서 **Access control (IAM)** 을 클릭 하 고 **+ 역할 할당 추가** 를 클릭 한 후 **역할 할당 추가** 블레이드에서 다음 작업을 수행 합니다.
 
    1. **역할** 에 **참가자** 를 선택합니다. 
    2. **액세스 할당** 에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체** 를 선택합니다. 
@@ -142,7 +142,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png" alt-text="테스트 실행":::
     
-2. 세 번째 파이프라인을 테스트하기 위해 SSIS 패키지를 SSIS 카탈로그(SSISDB)에 저장하는 경우 SQL Server Management Studio(SSMS)을 시작하여 실행을 확인할 수 있습니다. **서버에 연결** 창에서 다음 작업을 수행합니다. 
+2. ssis 카탈로그 (SSISDB)에 ssis 패키지를 저장 하는 경우 세 번째 파이프라인을 테스트 하려면 SQL Server Management Studio (SSMS)를 시작 하 여 실행을 확인할 수 있습니다. **서버에 연결** 창에서 다음 작업을 수행합니다. 
 
     1. **서버 이름** 에는 **&lt;실제 서버 이름&gt;.database.windows.net** 을 입력합니다.
     2. **옵션 >>** 을 선택합니다.

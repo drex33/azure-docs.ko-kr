@@ -12,12 +12,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 11/08/2019
-  ms.openlocfilehash: cb092b5fd8131c67931c85758d71f955fdf4110d
-  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.openlocfilehash: 3a1aae148d39c4990a36606155b8a688b72e7f3b
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/14/2021
-  ms.locfileid: "129998488"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131016666"
 landingContent:
 - title: Azure Container Registry 정보
   linkLists:
@@ -93,3 +93,17 @@ landingContent:
     links:
     - text: 이미지 빌드 자동화
       url: container-registry-tutorial-quick-task.md
+- title: 연결된 레지스트리(미리 보기)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 연결된 레지스트리 정보
+      url: intro-connected-registry.md
+    - text: 연결된 레지스트리 및 IoT Edge
+      url: overview-connected-registry-and-iot-edge.md
+  - linkListType: quickstart
+    links:
+    - text: 연결된 레지스트리 만들기 - CLI
+      url: quickstart-connected-registry-cli.md
+    - text: 연결된 레지스트리 만들기 - 포털
+      url: quickstart-connected-registry-portal.md

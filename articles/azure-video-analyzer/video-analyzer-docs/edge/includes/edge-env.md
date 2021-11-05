@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 08/29/2021
 ms.author: juliako
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7a4d0a8570e6e2b57eb5d2e52808e8c4301d14e8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
-ms.translationtype: MT
+ms.openlocfilehash: d300905bd9031d66cbf5cec32f74f8b3bdd492cd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030686"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434936"
 ---
 ![에지 아이콘](../media/env-icon/edge.png)  
-또는 [클라우드에서 동영상 애플리케이션 만들기](../../index.yml)의 항목을 확인하세요.
+또는 [서비스에서 비디오 애플리케이션 만들기](../../index.yml) 아래의 항목을 확인하세요.
 
 ---

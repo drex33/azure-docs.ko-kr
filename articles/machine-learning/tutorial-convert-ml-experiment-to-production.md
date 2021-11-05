@@ -9,16 +9,16 @@ ms.subservice: mlops
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e3659f44811c59033a22e1985856f934cd78bba
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 71811dfc50840706aea019b3d8479c31a85fb634
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426513"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429644"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>자습서: ML 실험을 프로덕션 Python 코드로 변환
 
-이 자습서에서는 MLOpsPython 코드 템플릿 및 Azure Machine Learning을 사용하여 Juptyer Notebooks를 Python 스크립트로 변환하여 테스트 및 자동화에 익숙해지는 방법을 알아봅니다. 일반적으로 이 프로세스는 Juptyer Notebook에서 실험 / 학습 코드를 가져와서 Python 스크립트로 변환하는 데 사용됩니다. 그런 다음, 프로덕션 환경에서 이러한 스크립트를 테스트 및 CI/CD 자동화에 사용할 수 있습니다. 
+이 자습서에서는 MLOpsPython 코드 템플릿 및 Azure Machine Learning을 사용하여 Jupyter Notebooks를 Python 스크립트로 변환하여 테스트 및 자동화에 익숙해지는 방법을 알아봅니다. 일반적으로 이 프로세스는 Jupyter Notebook에서 실험 / 학습 코드를 가져와서 Python 스크립트로 변환하는 데 사용됩니다. 그런 다음, 프로덕션 환경에서 이러한 스크립트를 테스트 및 CI/CD 자동화에 사용할 수 있습니다. 
 
 기계 학습 프로젝트에는 실제 데이터 세트를 사용하여 Jupyter Notebook과 같은 Agile 도구로 가설을 테스트하는 실험이 필요합니다. 모델을 프로덕션에 사용할 준비가 되면, 모델 코드를 프로덕션 코드 리포지토리에 배치해야 합니다. 프로덕션 코드 리포지토리에 배치할 모델 코드를 Python 스크립트로 변환해야 하는 경우가 있습니다. 이 자습서에서는 실험 코드를 Python 스크립트로 내보내는 방법에 권장되는 방식을 설명합니다.
 

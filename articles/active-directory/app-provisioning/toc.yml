@@ -18,7 +18,7 @@
       href: customize-application-attributes.md
     - name: 앱별 프로비저닝 자습서
       href: /azure/active-directory/saas-apps
-    - name: Azure AD ECMA 커넥터 호스트 일반 SQL 커넥터
+    - name: SQL 기반 앱에 프로비저닝
       href: tutorial-ecma-sql-connector.md
 - name: 개념
   expanded: true
@@ -35,6 +35,10 @@
       href: on-premises-application-provisioning-architecture.md
     - name: 식 작성기 이해
       href: expression-builder.md
+    - name: SuccessFactors 통합 이해
+      href: sap-successfactors-integration-reference.md
+    - name: Workday 통합 이해
+      href: workday-integration-reference.md
 - name: 방법 가이드
   expanded: true
   items:
@@ -74,13 +78,13 @@
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: 원본 특성 누락
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: ECMA 커넥터 호스트 문제 해결
+        - name: 온-프레미스 프로비저닝 문제 해결
           href: on-premises-ecma-troubleshoot.md
         - name: 프로비저닝 로그
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: 온-프레미스 앱 프로비전
       items:
-        - name: 일반 SQL 커넥터 구성
+        - name: SQL 기반 앱에 프로비저닝
           href: on-premises-sql-connector-configure.md
         - name: 일반 LDAP 커넥터 구성
           href: on-premises-ldap-connector-configure.md
@@ -88,6 +92,18 @@
           href: on-premises-scim-provisioning.md
         - name: MIM 동기화에서 커넥터 마이그레이션
           href: on-premises-migrate-microsoft-identity-manager.md
+    - name: HR 프로비저닝 문제 해결
+      items:
+        - name: 특성 검색 문제
+          href: hr-attribute-retrieval-issues.md
+        - name: 사용자 만들기 문제
+          href: hr-user-creation-issues.md
+        - name: 사용자 업데이트 문제
+          href: hr-user-update-issues.md
+        - name: 관리자 업데이트 문제
+          href: hr-manager-update-issues.md
+        - name: HR 쓰기 저장 문제
+          href: hr-writeback-issues.md
 - name: 참조
   items:
     - name: SCIM 2.0 프로토콜 규정 준수
@@ -98,12 +114,8 @@
       href: functions-for-customizing-application-data.md
     - name: 클라우드 HR 프로비저닝
       items:
-        - name: SuccessFactors 통합
-          href: sap-successfactors-integration-reference.md
         - name: SuccessFactors 특성 참조
           href: sap-successfactors-attribute-reference.md
-        - name: Workday 통합
-          href: workday-integration-reference.md
         - name: Workday 특성 참조
           href: workday-attribute-reference.md
         - name: 프로비저닝 에이전트 버전 기록

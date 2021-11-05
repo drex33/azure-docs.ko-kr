@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 2fcaaf038ec7a619ec36a68fdd720ac7599da25f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 63fb96a6bbb5ac1cd883ea8c19a10951e4701c8f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649722"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443284"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -179,6 +179,9 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 | $allElementsTrue | 예 |
 
 ### <a name="comparison-expressions"></a>비교 식
+
+> [!NOTE]
+> API for MongoDB는 쿼리에서 배열 리터럴이 있는 비교 식을 지원하지 않습니다.
 
 | 명령 | 지원됨 |
 |---------|---------|

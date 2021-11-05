@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f59bd00e110fd281d44db68030e0ad0d7c07ddf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fd5bab28d73781339b959e5d8e51eb6d8c455a39
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761223"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>자습서: Novatus와 Azure Active Directory 통합
 
@@ -182,7 +182,7 @@ Novatus에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 이 섹션에서는 Novatus에서 Britta Simon이라는 사용자를 만듭니다. Novatus는 Just-In-Time 사용자 프로비저닝을 지원하며, 기본적으로 사용하도록 설정됩니다. 이 섹션에 작업 항목이 없습니다. Novatus에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 >[!NOTE]
->사용자를 수동으로 생성해야 하는 경우 [Novatus 지원 팀](mailto:jvinci@novatusinc.com)에 문의해야 합니다. 
+>사용자를 수동으로 만들어야 하는 경우 [Novatus 지원 팀](mailto:jvinci@novatusinc.com)에 문의해야 합니다. 
 > 
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 

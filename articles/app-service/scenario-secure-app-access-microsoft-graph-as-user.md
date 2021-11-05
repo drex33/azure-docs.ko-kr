@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 09/23/2021
+ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: 332552d361c4c8c43b7b4bfa981050c829a79762
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b20ae4e6cec7ad3ce710c6e9670ff580b30f2638
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624523"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462313"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>자습서: 보안 앱에서 사용자로 Microsoft Graph에 액세스
 
@@ -122,9 +122,12 @@ az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RES
 ```
 ---
 
-## <a name="call-microsoft-graph-net"></a>Microsoft Graph(.NET) 호출
+## <a name="call-microsoft-graph"></a>Microsoft Graph 호출
 
-이제 웹앱에 필요한 권한이 있으며 Microsoft Graph의 클라이언트 ID도 로그인 매개 변수에 추가됩니다. [Microsoft.Identity.Web 라이브러리](https://github.com/AzureAD/microsoft-identity-web/)를 사용하여 웹앱은 Microsoft Graph 인증을 위한 액세스 토큰을 얻습니다. 버전 1.2.0 이상에서 Microsoft.Identity.Web 라이브러리는 App Service 인증/권한 부여 모듈과 통합되며 함께 실행할 수 있습니다. Microsoft.Identity.Web은 웹앱이 App Service에서 호스트되는 것을 감지하고 App Service 인증/권한 부여 모듈에서 액세스 토큰을 가져옵니다. 그런 다음, 액세스 토큰은 Microsoft Graph API를 사용하여 인증된 요청에 전달됩니다.
+이제 웹앱에 필요한 권한이 있으며 Microsoft Graph의 클라이언트 ID도 로그인 매개 변수에 추가됩니다.
+
+# <a name="c"></a>[C#](#tab/programming-language-csharp)
+[Microsoft.Identity.Web 라이브러리](https://github.com/AzureAD/microsoft-identity-web/)를 사용하여 웹앱은 Microsoft Graph 인증을 위한 액세스 토큰을 얻습니다. 버전 1.2.0 이상에서 Microsoft.Identity.Web 라이브러리는 App Service 인증/권한 부여 모듈과 통합되며 함께 실행할 수 있습니다. Microsoft.Identity.Web은 웹앱이 App Service에서 호스트되는 것을 감지하고 App Service 인증/권한 부여 모듈에서 액세스 토큰을 가져옵니다. 그런 다음, 액세스 토큰은 Microsoft Graph API를 사용하여 인증된 요청에 전달됩니다.
 
 이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf)을 참조하세요.
 
@@ -137,7 +140,7 @@ az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RES
 
 .NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 프로젝트에 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) 및 [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 설치합니다.
 
-# <a name="command-line"></a>[명령줄](#tab/command-line)
+#### <a name="net-core-command-line"></a>.NET Core 명령줄
 
 명령줄을 열고 프로젝트 파일이 포함된 디렉터리로 전환합니다.
 
@@ -149,7 +152,7 @@ dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 dotnet add package Microsoft.Identity.Web
 ```
 
-# <a name="package-manager"></a>[패키지 관리자](#tab/package-manager)
+#### <a name="package-manager-console"></a>패키지 관리자 콘솔
 
 Visual Studio에서 프로젝트/솔루션을 열고, **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 명령을 사용하여 콘솔을 엽니다.
 
@@ -159,8 +162,6 @@ Install-Package Microsoft.Identity.Web.MicrosoftGraph
 
 Install-Package Microsoft.Identity.Web
 ```
-
----
 
 ### <a name="startupcs"></a>Startup.cs
 
@@ -273,6 +274,54 @@ public class IndexModel : PageModel
     }
 }
 ```
+
+# <a name="nodejs"></a>[Node.JS](#tab/programming-language-nodejs)
+
+웹앱은 들어오는 요청 헤더에서 사용자의 액세스 토큰을 가져옵니다. 그러면 Microsoft Graph 클라이언트로 전달되어 `/me` 엔드포인트에 인증된 요청을 만듭니다.
+
+이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf)에서 *graphController.js* 를 참조하세요.
+
+```nodejs
+const graphHelper = require('../utils/graphHelper');
+
+// Some code omitted for brevity.
+
+exports.getProfilePage = async(req, res, next) => {
+
+    try {
+        const graphClient = graphHelper.getAuthenticatedClient(req.session.protectedResources["graphAPI"].accessToken);
+
+        const profile = await graphClient
+            .api('/me')
+            .get();
+
+        res.render('profile', { isAuthenticated: req.session.isAuthenticated, profile: profile, appServiceName: appServiceName });   
+    } catch (error) {
+        next(error);
+    }
+}
+```
+
+Microsoft Graph를 쿼리하려면 [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript)를 사용합니다. 이에 대한 코드는 [utils/graphHelper.js](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/2-WebApp-graphapi-on-behalf/utils/graphHelper.js)에 있습니다.
+
+```nodejs
+const graph = require('@microsoft/microsoft-graph-client');
+
+// Some code omitted for brevity.
+
+getAuthenticatedClient = (accessToken) => {
+    // Initialize Graph client
+    const client = graph.Client.init({
+        // Use the provided access token to authenticate requests
+        authProvider: (done) => {
+            done(null, accessToken);
+        }
+    });
+
+    return client;
+}
+```
+---
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

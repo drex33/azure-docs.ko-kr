@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.author: trkeya
 author: trkeya
-ms.date: 09/09/2021
-ms.openlocfilehash: 7415e01f79c7982b2e56e1bb02fc84be13174388
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/26/2021
+ms.openlocfilehash: 3bcd8b99ea7361e0af05cd55f96741b0d5ab5db8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065155"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847435"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -21,6 +21,9 @@ Azure Marketplace 또는 AppSource에 제품이 있지만 Azure 리소스만 사
 ARM 템플릿이 무엇인지 잘 모르는 경우 [Azure Resource Manager란?](../azure-resource-manager/management/overview.md) 및 [ARM 템플릿의 구조와 구문 이해](../azure-resource-manager/templates/syntax.md)를 읽고 고유한 템플릿을 빌드하고 테스트하는 방법을 더 잘 알아보세요.
 
 **호스트된** 또는 **논리 앱** 시험 사용에 대한 자세한 내용은 [시험 사용이란?](what-is-test-drive.md)을 참조하세요.
+
+> [!TIP]
+> 상용 marketplace에서 고객의 시험에서 볼 수 있는 내용을 보려면 [Azure Marketplace 무엇 인가요?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource](/marketplace/appsource-overview)정의를 참조 하세요.
 
 ## <a name="technical-configuration"></a>기술 구성
 

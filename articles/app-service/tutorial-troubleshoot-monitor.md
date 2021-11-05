@@ -5,18 +5,14 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 907ae75b17bcb7496c2ad3e76a8e4da1bd44b1fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd68df35eed106edf707a8356e066e736aa913f7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728115"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470930"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>자습서: Azure Monitor를 사용하여 App Service 앱 문제 해결
-
-> [!NOTE]
-> Azure Monitor와 App Service의 통합은 [미리 보기](https://aka.ms/appsvcblog-azmon)에 있습니다.
->
 
 이 자습서에서는 [Azure Monitor](../azure-monitor/overview.md)를 사용하여 [App Service](overview.md) 앱의 문제를 해결하는 방법을 보여줍니다. 샘플 앱에는 메모리를 소모하고 HTTP 500 오류가 발생하는 코드가 포함되어 있으므로 Azure Monitor를 사용하여 문제를 진단하고 해결할 수 있습니다. 완료되면 [Azure Monitor](../azure-monitor/overview.md)와 통합된 Linux의 App Service에서 샘플 앱이 실행됩니다.
 
@@ -58,7 +54,7 @@ git remote add azure <url-from-app-webapp-create>
 git push azure main
 ```
 
-## <a name="configure-azure-monitor-preview"></a>Azure Monitor 구성(미리 보기)
+## <a name="configure-azure-monitor"></a>Azure Monitor 구성
 
 ### <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
@@ -132,7 +128,7 @@ Azure Portal에서 Log Analytics 작업 영역을 선택합니다.
 
 ### <a name="log-queries"></a>로그 쿼리
 
-로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 활용할 수 있습니다. 로그 쿼리를 사용하여 AppServiceHTTPLogs 및 AppServiceConsoleLogs 모두에서 로그를 식별합니다. 로그 쿼리에 대한 자세한 내용은 [로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조하세요.
+로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 적용할 수 있습니다. 로그 쿼리를 사용하여 AppServiceHTTPLogs 및 AppServiceConsoleLogs 모두에서 로그를 식별합니다. 로그 쿼리에 대한 자세한 내용은 [로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>로그 쿼리를 사용하여 AppServiceHTTPLogs 보기
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: duau
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 05c43d5e21c637fef321dc39cd341befedfba81e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 81603472d4a5a254fe86f2a6866d8a7edcbbef88
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029356"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459637"
 ---
 # <a name="what-is-azure-virtual-network-manager-preview"></a>Azure Virtual Network Manager(미리 보기)란?
 
@@ -28,7 +28,7 @@ Azure Virtual Network Manager는 구독 전체에서 가상 네트워크를 전�
 
 :::image type="content" source="./media/overview/management-group.png" alt-text="Virtual Network Manager의 관리 그룹 다이어그램":::
 
-만들기 프로세스 중에 Azure Virtual Network Manager에서 관리하는 범위를 정의합니다. 범위는 구독 또는 [관리 그룹](../governance/management-groups/overview.md) 수준에서 정의할 수 있습니다. 범위를 정의한 후에는 Virtual Network Manager의 *연결* 및 *SecurityAdmin* 역할과 같은 기능을 사용할 수 있습니다.
+만들기 프로세스 중에 Azure Virtual Network Manager에서 관리하는 범위를 정의합니다. 범위를 정의하려면 [관리 그룹](../governance/management-groups/overview.md)을 만들어야 합니다. 범위를 정의한 후에는 Virtual Network Manager의 *연결* 및 *SecurityAdmin* 역할과 같은 기능을 사용할 수 있습니다.
 
 Virtual Network Manager 인스턴스를 배포한 후 조건문을 사용하여 *네트워크 그룹* 을 만들어 이름, 태그 또는 ID(동적 멤버 자격)를 기준으로 가상 네트워크를 선택합니다. 특정 가상 네트워크(정적 멤버 자격)를 선택할 수도 있습니다. 정의된 네트워크 그룹 규칙은 가상 네트워크 멤버 자격에 대해 정의한 규칙을 설명하는 사용자 지정 이니셔티브 정의 및 해당 할당으로 Azure Policy에 반영됩니다. Azure Policy 이니셔티브에 대한 자세한 내용은 [Azure Policy 이니셔티브 구조](../governance/policy/concepts/initiative-definition-structure.md)를 참조하세요. 이러한 정책은 현재 읽기 전용 모드에서 사용할 수 있습니다. 이러한 정책을 만들고, 업데이트하고, 삭제하는 방법에 대한 자세한 내용은 [네트워크 그룹 및 Azure Policy](concept-network-groups.md#network-group-and-azure-policy)를 참조하세요. 그런 다음 토폴로지 및 보안 요구 사항에 따라 이러한 네트워크 그룹에 적용되는 연결 및/또는 보안 구성을 만듭니다. 
 

@@ -1,0 +1,77 @@
+- name: Virtual Network Manager 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Virtual Network Manager란?
+      href: overview.md
+- name: 빠른 시작
+  items:
+    - name: Virtual Network Manager 만들기 - 포털
+      href: create-virtual-network-manager-portal.md
+    - name: Virtual Network Manager 만들기 - PowerShell
+      href: create-virtual-network-manager-powershell.md
+  expanded: true
+- name: 자습서
+  items:
+    - name: 보안 허브 및 스포크 만들기
+      href: tutorial-create-secured-hub-and-spoke.md
+- name: 개념
+  items:
+    - name: FAQ
+      href: faq.md
+    - name: 범위
+      href: concept-network-manager-scope.md
+    - name: 네트워크 그룹
+      href: concept-network-groups.md
+    - name: 구성 유형
+      items:
+        - name: 연결
+          href: concept-connectivity-configuration.md
+        - name: 보안 관리자 규칙
+          href: concept-security-admins.md
+    - name: 배포
+      href: concept-deployments.md
+    - name: 구성 요소 제거 또는 업데이트
+      href: concept-remove-components-checklist.md
+- name: 방법 가이드
+  items:
+    - name: 네트워크 트래픽 차단
+      items:
+        - name: 포털
+          href: how-to-block-network-traffic-portal.md
+        - name: PowerShell
+          href: how-to-block-network-traffic-powershell.md
+    - name: 네트워크 토폴로지 만들기
+      items:
+        - name: 메시
+          items:
+            - name: Azure Portal
+              href: how-to-create-mesh-network.md
+            - name: Azure PowerShell
+              href: how-to-create-mesh-network-powershell.md
+        - name: 허브 및 스포크
+          items:
+            - name: Azure Portal
+              href: how-to-create-hub-and-spoke.md
+            - name: Azure PowerShell
+              href: how-to-create-hub-and-spoke-powershell.md
+    - name: 적용된 구성 보기
+      href: how-to-view-applied-configurations.md
+    - name: 동적 멤버 자격에서 요소 제외
+      href: how-to-exclude-elements.md
+    - name: 일반적인 문제
+      href: common-issues.md
+- name: 참조
+  items:
+    - name: REST (영문)
+      href: /rest/api/networkmanager/
+    - name: .NET SDK
+      href: /dotnet/api/microsoft.azure.management.network?view=azure-dotnet
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: 네트워킹 블로그
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'

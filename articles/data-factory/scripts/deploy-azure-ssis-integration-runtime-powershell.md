@@ -7,13 +7,13 @@ ms.topic: article
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 09/12/2017
-ms.openlocfilehash: 8698a5852eb557d5ec8016f1ec8f3181c9d43275
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/22/2021
+ms.openlocfilehash: 9df84e12e61a801d2d61e283ebd8b53e6f1633a3
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567365"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850344"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell 스크립트 ‑ Azure‑SSIS 통합 런타임 배포
 

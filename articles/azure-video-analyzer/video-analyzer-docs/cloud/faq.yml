@@ -1,0 +1,73 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Video Analyzer FAQ - Azure
+  description: 이 문서에서는 Azure Video Analyzer에 대해 자주 묻는 질문에 답변합니다.
+  ms.service: azure-video-analyzer
+  ms.topic: conceptual
+  ms.date: 10/21/2021
+  ms.openlocfilehash: 89350ab9e102f9c937fea005977a46ba2f3a4c9e
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131053589"
+title: Azure Video Analyzer FAQ
+summary: 이 문서에서는 Azure Video Analyzer에 대해 일반적으로 묻는 질문에 답변합니다.
+sections:
+- name: 무시됨
+  questions:
+  - question: 일반
+    answer: "**파이프라인 토폴로지 정의에서 사용할 수 있는 시스템 변수는 무엇인가요?**\n\n| 변수   |  설명  | \n| --- | --- | \n| System.Runtime.DateTime | 일반적으로 다음 형식의 날짜와 시간으로 표현되는 UTC 시간의 한 순간을 나타냅니다. <br/>*yyyyMMddTHHmmssZ* | \n| System.Runtime.PreciseDateTime | UTC(협정 세계시) 날짜/시간 인스턴스를 다음과 같은 밀리초 단위의 ISO8601 파일 호환 형식으로 나타냅니다.<br/>*yyyyMMddTHHmmss.fffZ* | \n| System.TopologyName    | 파이프라인 토폴로지의 이름을 나타냅니다. | \n| System.PipelineName | 라이브 파이프라인의 이름을 나타냅니다. | \n\n> [!Note] \n> System.Runtime.DateTime 및 System.Runtime.PreciseDateTime은 비디오 싱크 노드에서 Azure Video Analyzer 비디오 리소스 이름의 일부로 사용할 수 없습니다. 이러한 변수는 파일 이름 지정을 위해 [FileSink](../pipeline.md#file-sink)에서 사용할 수 있습니다.\n\n**Video Analyzer 서비스의 라이브 파이프라인과 일괄 처리 파이프라인 작업의 차이점은 무엇인가요?**\n\n라이브 토폴로지는 이름에서 알 수 있듯이 카메라에서 클라우드로 라이브 비디오를 수집하는 데 사용됩니다. 일괄 처리 토폴로지는 비디오 분석기 서비스에서 녹화된 비디오를 처리하거나 내보내는 데 사용됩니다. 자세한 내용은 [파이프라인](../pipeline.md#pipeline-topologies) 및 [파이프라인에서 노드 사용](../pipeline.md#rules-on-the-use-of-nodes)에 대한 규칙을 참조하세요.\n\n**Video Analyzer에 대한 개인정보처리방침은 무엇인가요?**\n\nVideo Analyzer에는 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)이 적용됩니다. 개인정보처리방침은 Microsoft에서 처리하는 개인 데이터, Microsoft에서 개인 데이터를 처리하는 방법 및 Microsoft에서 개인 데이터를 처리하는 목적을 설명합니다. 개인 정보에 대해 자세히 알아보려면 [Microsoft 보안 센터](https://www.microsoft.com/trust-center?rtc=1)를 방문하세요.\n\n**Video Analyzer 서비스에 대한 AI 모델 또는 AI 추론 기능이 있나요?**\n\n현재 Video Analyzer 클라우드 파이프라인에는 사용할 수 없습니다. 하지만, Video Analyzer 에지 모듈은 Stream Analytics, Cognitive Services 및 강력한 하이브리드(에지+클라우드) 애플리케이션을 빌드하는 Event Hub와 Cognitive Services 같은 기타 Azure 클라우드 서비스 등의 Azure IoT Edge 모듈과 함께 사용할 수 있습니다. 이 확장 가능한 에지 모듈은 오픈 소스 기계 학습 모델 및 학습 데이터로 빌드된 Azure Cognitive Services 컨테이너 또는 사용자 지정 에지 모듈과 같은 다양한 AI 에지 모듈에 원활하게 통합됩니다. 그에 대한 예는 [여기](../edge/analyze-live-video-use-your-model-grpc.md)를 참조하세요.\n"
+  - question: 구성 및 배포
+    answer: >
+      **Azure Video Analyzer 계정은 어떻게 만드나요?**
+
+
+      ARM(Azure Resource Manager) 템플릿 또는 Azure Portal을 사용하여 계정을 만들 수 있습니다. Azure Video Analyzer 계정을 만들려면 [여기](../create-video-analyzer-account.md)를 참조하세요.
+
+
+      **RTSP 카메라가 없는 경우 어떻게 RTSP 스트림을 시뮬레이션할 수 있나요?**
+
+
+      Azure Linux VM을 사용하는 RTSP 카메라 시뮬레이터를 배포하여 RTSP 스트림을 시뮬레이션할 수 있습니다. 자세한 내용은 [RTSP 카메라 시뮬레이터](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator)를 참조하세요.
+
+
+      **RTSP 카메라 시뮬레이터에 샘플 비디오 파일을 더 추가하려면 어떻게 해야 하나요?**
+
+
+      기존 RTSP 카메라 시뮬레이터 미디어 폴더에 새 비디오 파일을 추가하려면 [여기](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator)를 참조하세요.
+
+      테스트에 사용할 수 있는 샘플 미디어 파일은 [미디어 데이터 세트](https://github.com/Azure/video-analyzer/tree/main/media)에서 찾을 수 있습니다.
+
+
+      **Live 파이프라인 테스트 및 개발 중에 RTSP 시뮬레이터를 사용할 수 있나요?**
+
+
+      예, 학습 프로세스를 지원하기 위해 빠른 시작 및 자습서용 [RTSP 카메라 시뮬레이터](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator)를 사용할 수 있습니다. 프로젝트를 시뮬레이터에만 의존하지 않는 것이 좋습니다. 프로덕션 배포를 계획하기 전에 실제 RTSP 원본을 사용하여 테스트하는 데 투자해야 합니다.
+  - question: IP 카메라 및 RTSP 설정에서 캡처
+    answer: "**비디오 스트림으로 보내려면 내 카메라 디바이스에서 특별한 SDK를 사용해야 하나요?**\n\n아니요, Video Analyzer는 대부분의 IP 카메라에서 지원되는 RTSP(실시간 스트리밍 프로토콜)를 비디오 스트리밍에 사용하여 미디어를 캡처할 수 있습니다. \n\n**RTSP 이외의 프로토콜을 사용하여 Video Analyzer 서비스에 미디어를 푸시할 수 있나요?**\n\n아니요, Video Analyzer 서비스는 IP 카메라에서 비디오를 캡처하는 데 RTSP만 지원합니다. TCP/HTTP를 통한 RTSP 스트리밍을 지원하는 모든 카메라가 작동합니다. \n\n**라이브 파이프라인에서 RTSP 원본 URL을 다시 설정하거나 업데이트할 수 있나요?**\n\n예, 라이브 파이프라인이 \"비활성화\" 상태인 경우 RTSP 구성을 업데이트할 수 있습니다.\n"
+  - question: 모니터링 및 메트릭
+    answer: >
+      **Video Analyzer 서비스를 더 쉽게 모니터링할 수 있는 도구가 있나요?**
+
+
+      진단 설정을 설정하고 스토리지 계정에 로그를 보관하여 서비스 생성 이벤트 및 메트릭을 모니터링할 수 있습니다. Azure Portal에서 Video Analyzer 계정으로 이동하여 모니터링 섹션에 액세스할 수 있습니다. 자세한 내용은 [여기](./monitor-log-cloud.md)를 참조하세요.
+
+
+      **Azure Event Grid를 사용하여 클라우드에서 파이프라인을 모니터링할 수 있나요?**
+
+
+      아니요, 현재 지원되지 않습니다.
+
+
+      **Azure Monitor를 사용하여 클라우드에서 내 파이프라인의 상태, 메트릭 및 성능을 볼 수 있나요?**
+
+
+      예, 이 방법을 지원합니다. 자세한 내용은 [Azure Monitor Metrics 개요](../../../azure-monitor/essentials/data-platform-metrics.md) 및 [모니터링 및 로그](./monitor-log-cloud.md) 문서를 참조하세요.
+  - question: 요금 청구 및 가용성
+    answer: >
+      **Azure Video Analyzer 요금은 어떻게 청구되나요?**
+
+
+      청구 정보는 [Video Analyzer 가격 책정](https://azure.microsoft.com/pricing/details/video-analyzer/)을 참조하세요.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n[빠른 시작: Azure Video Analyzer 서비스 시작](./get-started-livepipelines-portal.md)"

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.openlocfilehash: c1759ba3bc4f9f516485f42f03d040bec5b4c78a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 455bad570c4b86c00933ffb1fd1f27f85871e6d9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636062"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426110"
 ---
 # <a name="sms-concepts"></a>SMS 개념
 
@@ -26,7 +26,7 @@ Azure Communication Services를 사용하면 Communication Services SMS SDK를 �
 Azure Communication Services SMS SDK의 주요 기능에는 다음이 포함됩니다.
 
 -  애플리케이션에 SMS 기능을 추가하기 위한 **간단한** 설정 환경
-- 미국에서 A2P(애플리케이션-사람) 사용 사례의 무료 전화 번호에 대한 **높은 속도** 메시지 지원
+- 미국에서 A2P(애플리케이션-사람) 사용 사례의 무료 전화 번호 및 짧은 코드(*출시 예정*)에 대한 **높은 속도** 메시지 지원.
 - **대량 메시징** 은 여러 받는 사람에게 한 번에 메시지를 보낼 수 있도록 지원합니다.
 - 고객 지원, 경고 및 약속 미리 알림과 같은 시나리오를 지원하는 **양방향** 대화
 - 애플리케이션에서 보낸 메시지에 대한 실시간 배달 보고서를 사용하여 **안정적인 배달**

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 1c6f676ba6f4c689a34baf2119a4179e3a5200ad
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.openlocfilehash: e0d430c393637ff11e7315716b3fdd9818a61b8b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038267"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467153"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 

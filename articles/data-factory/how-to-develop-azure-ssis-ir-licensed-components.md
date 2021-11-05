@@ -7,13 +7,13 @@ author: swinarko
 ms.author: sawinark
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 71991798306296c7df16ee7d39678a25f263629f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/22/2021
+ms.openlocfilehash: 30608b15b71160b2fe3ad7a89ed3ef6328d6259a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831230"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843712"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 라이선스 사용자 지정 구성 요소 설치
 

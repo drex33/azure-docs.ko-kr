@@ -2,15 +2,15 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 05/05/2021
+ms.date: 11/04/2021
 ms.author: faneerde
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9566ec1e5d9a8f689e412fbeea2b2214614188b3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 17f32b1500f5218a1a6668a875c63bfd64de83b9
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030800"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861182"
 ---
 라이브 파이프라인을 실행하면 동작 감지기 프로세서 노드의 결과가 IoT Hub 메시지 싱크 노드를 통해 IoT 허브에 전송됩니다. Visual Studio Code의 **OUTPUT** 창에 표시되는 메시지에는 **body** 섹션과 **applicationProperties** 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](../../../../../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 

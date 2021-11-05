@@ -7,20 +7,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 1b207091a3c38fb2842a53a9c7c4627fd5c0b790
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3c49bb5c3e272e792d50c5f8fcadbacd9d6ebbe6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643618"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460682"
 ---
-# <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: PHP를 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
+# <a name="use-php-with-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버와 함께 PHP 사용
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 이 빠른 시작에서는 [PHP](https://secure.php.net/manual/intro-whatis.php) 애플리케이션을 사용하여 Azure Database for MySQL 유연한 서버에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 사용자가 PHP를 사용하여 개발하는 데 익숙하며 Azure Database for MySQL 유연한 서버를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항

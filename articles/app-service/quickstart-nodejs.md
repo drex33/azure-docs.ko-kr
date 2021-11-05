@@ -5,17 +5,13 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.custom: mvc, devcenter, seodec18
-zone_pivot_groups: app-service-ide-oss
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6368e186e280262b7901fa3b2c259b44c40c460d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+zone_pivot_groups: app-service-vscode-cli-portal
+ms.openlocfilehash: 6eab9e5d144b4c52dff5a3bdd23c47ee3905e212
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657836"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455695"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -43,6 +39,14 @@ ms.locfileid: "128657836"
 
 ::: zone-end
 
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+- 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- [Node.js 및 npm](https://nodejs.org)을 설치합니다. `node --version` 명령을 실행하여 Node.js가 설치되어 있는지 확인합니다.
+- 앱에 연결할 FTP 클라이언트(예: [FileZilla](https://filezilla-project.org))가 있어야 합니다.
+
+::: zone-end
 ## <a name="create-your-nodejs-application"></a>Node.js 애플리케이션 만들기
 
 이 단계에서는 스타터 Node.js 애플리케이션을 만들고 컴퓨터에서 실행되는지 확인합니다.
@@ -220,6 +224,65 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 
 ::: zone-end
 
+:::zone target="docs" pivot="development-environment-azure-portal"
+### <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
+
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+
+### <a name="create-azure-resources"></a>Azure 리소스 만들기
+
+1. 검색에 **앱 서비스** 를 입력합니다. **서비스** 아래에서 **App Services** 를 선택합니다.
+
+     :::image type="content" source="./media/quickstart-nodejs/portal-search.png?text=Azure portal search details" alt-text="포털 검색 스크린샷":::
+
+1. **App Services** 페이지에서 **만들기** 를 선택합니다.
+1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기** 를 선택합니다. 이름으로 *myResourceGroup* 을 입력합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="웹앱에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여 주는 프로젝트 세부 정보 섹션의 스크린샷":::
+
+1. **인스턴스 세부 정보** 에서 웹앱의 전역적으로 고유한 이름을 입력하고 **코드** 를 선택합니다. *노드 14 LTS* **런타임 스택**, **운영 체제** 및 앱을 제공하려는 **지역** 을 선택합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="가상 머신의 이름을 입력하고 해당 지역, 이미지, 크기를 선택하는 인스턴스 세부 정보 섹션 스크린샷":::
+
+1. **App Service 계획** 에서 **새 App Service 계획 만들기** 를 선택합니다. 이름으로 *myAppServicePlan* 을 입력합니다. 무료 계층으로 변경하려면 **크기 변경** 을 클릭하고, **개발/테스트** 탭을 선택하고, **F1** 을 선택하고, 페이지 아래쪽에서 **적용** 단추를 선택합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/app-service-plan-details.png" alt-text="관리자 사용자 이름 및 암호를 입력하는 관리자 계정 섹션의 스크린샷":::
+
+1. 페이지 아래쪽에서 **검토 + 만들기** 단추를 선택합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/review-create.png" alt-text="페이지 맨 아래에 있는 검토 및 만들기 단추를 보여주는 스크린샷":::
+
+1. 유효성 검사를 실행한 후 페이지 아래쪽에서 **만들기** 단추를 선택합니다.
+
+1. 배포가 완료되면 **리소스로 이동** 을 선택합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="리소스로 이동하는 다음 단계를 보여주는 스크린샷":::
+
+### <a name="get-ftp-credentials"></a>FTP 자격 증명 가져오기
+
+Azure App Service는 FTP/S 배포를 위해 [**두 가지 유형의 자격 증명**](deploy-configure-credentials.md)을 지원합니다. 이러한 자격 증명은 Azure 구독 자격 증명과 동일하지 않습니다. 이 섹션에서는 FileZilla와 함께 사용할 *애플리케이션 범위 자격 증명* 을 가져옵니다.
+
+1. App Service 앱 페이지의 왼쪽 메뉴에서 **배포 센터** 를 클릭하고 **FTPS 자격 증명** 탭을 선택합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="FTPS 배포 자격 증명":::
+
+1. **FileZilla** 를 열고 새 사이트를 만듭니다.
+
+1. **FTPS 자격 증명** 탭에서 **FTPS 엔드포인트**, **사용자 이름** 및 **암호** 를 FileZilla에 복사합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="FTPS 연결 세부 정보":::
+
+1. FileZilla에서 **연결** 을 클릭합니다.
+ 
+### <a name="deploy-files-with-ftp"></a>FTP를 통해 파일 배포
+
+1. 모든 파일 및 디렉터리 파일을 Azure의 [ **/site/wwwroot** 디렉터리](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)에 복사합니다.
+    
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-deploy-files.png" alt-text="FileZilla 배포 파일":::
+
+1. 앱의 URL을 찾아 앱이 제대로 실행하는지 확인합니다.
+
+::: zone-end
 ## <a name="redeploy-updates"></a>업데이트 재배포
 
 Visual Studio Code에서 파일을 편집하고 저장한 다음, Azure 앱에 다시 배포하여 이 앱에 변경 내용을 배포할 수 있습니다. 다음은 그 예입니다.
@@ -258,6 +321,14 @@ Visual Studio Code에서 파일을 편집하고 저장한 다음, Azure 앱에 �
 
 ::: zone-end
 
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+2. 변경 내용을 저장한 다음, FTP 클라이언트를 사용하여 앱을 다시 배포합니다.
+    
+1. 배포가 완료되면 `http://<app-name>.azurewebsites.net` 웹 페이지를 새로 고칩니다. `Welcome to Express` 메시지가 `Welcome to Azure!`로 변경된 것을 볼 수 있습니다.
+
+::: zone-end
+
 ## <a name="stream-logs"></a>로그 스트리밍
 
 :::zone target="docs" pivot="development-environment-vscode"
@@ -266,9 +337,9 @@ Visual Studio Code 출력 창에서 직접 Azure 앱의 로그 출력(`console.l
 
 1. **App Service** 탐색기에서 마우스 오른쪽 단추로 앱 노드를 클릭하고, **스트리밍 로그 시작** 을 선택합니다.
 
-    ![스트리밍 로그 시작](media/quickstart-nodejs/view-logs.png)
+    ![스트리밍 로그 시작](./media/quickstart-nodejs/view-logs.png)
 
-1. 앱을 다시 시작하라는 메시지가 표시되면 **예** 를 클릭합니다. 앱이 다시 시작되면 Visual Studio Code 출력 창이 열리고 로그 스트림에 연결됩니다. 
+1. 앱을 다시 시작하라는 메시지가 표시되면 **예** 를 클릭합니다. 앱이 다시 시작되면 Visual Studio Code 출력 창이 열리고 로그 스트림에 연결됩니다.
 
 1. 몇 초 후 출력 창에 로그 스트리밍 서비스에 연결되었다는 메시지가 표시됩니다. 브라우저에서 페이지를 새로 고쳐 더 많은 출력 활동을 생성할 수 있습니다.
 
@@ -300,6 +371,36 @@ az webapp log tail
 브라우저에서 앱을 새로 고쳐서 콘솔 로그를 생성합니다. 여기에는 앱에 대한 HTTP 요청을 설명하는 메시지를 포함합니다. 출력이 즉시 표시되지 않으면 30초 후에 다시 시도합니다.
 
 언제든지 로그 스트리밍을 중지하려면 터미널에서 **Ctrl**+**C** 를 누릅니다.
+
+::: zone-end
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+앱 내부에서 생성되는 콘솔 로그와 앱이 실행되는 컨테이너에 액세스할 수 있습니다. Azure Portal에서 직접 Node.js 앱의 로그 출력(`console.log()`에 대한 호출)을 스트리밍할 수 있습니다.
+
+1. 앱에 대한 동일한 **App Service** 페이지에서 왼쪽 메뉴를 사용하여 *모니터링* 섹션으로 스크롤하고 **로그 스트림** 을 클릭합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/log-stream.png" alt-text="Azure 앱 서비스의 로그 스트림 스크린샷":::
+
+1. 몇 초 후 출력 창에 로그 스트리밍 서비스에 연결되었다는 메시지가 표시됩니다. 브라우저에서 페이지를 새로 고쳐 더 많은 출력 활동을 생성할 수 있습니다.
+
+    <pre>
+    Connecting...
+    2021-10-26T21:04:14  Welcome, you are now connected to log-streaming service.
+    Starting Log Tail -n 10 of existing logs ----
+    /appsvctmp/volatile/logs/runtime/81b1b83b27ea1c3d598a1cdec28c71c4074ce66c735d0be57f15a8d07cb3178e.log
+    2021-10-26T21:04:08.614384810Z: [INFO]
+    2021-10-26T21:04:08.614393710Z: [INFO]  # Enter the source directory to make sure the script runs where the user expects
+    2021-10-26T21:04:08.614399010Z: [INFO]  cd "/home/site/wwwroot"
+    2021-10-26T21:04:08.614403210Z: [INFO]
+    2021-10-26T21:04:08.614407110Z: [INFO]  export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+    2021-10-26T21:04:08.614411210Z: [INFO]  if [ -z "$PORT" ]; then
+    2021-10-26T21:04:08.614415310Z: [INFO]          export PORT=8080
+    2021-10-26T21:04:08.614419610Z: [INFO]  fi
+    2021-10-26T21:04:08.614423411Z: [INFO]
+    2021-10-26T21:04:08.614427211Z: [INFO]  node /opt/startup/default-static-site.js
+    Ending Log Tail of existing logs ---
+    </pre>
 
 ::: zone-end
 
@@ -336,6 +437,20 @@ az group delete --no-wait
 이 명령은 *.azure/config* 파일에 캐시된 리소스 그룹 이름을 사용합니다.
 
 `--no-wait` 인수를 사용하면 작업이 완료되기 전에 명령을 반환할 수 있습니다.
+
+::: zone-end
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+더 이상 필요하지 않으면 리소스 그룹, 앱 서비스 및 모든 관련 리소스를 삭제할 수 있습니다.
+
+1. App Service *개요* 페이지에서 [Azure 리소스 만들기](#create-azure-resources) 단계에서 만든 *리소스 그룹* 을 클릭합니다.
+
+    :::image type="content" source="./media/quickstart-nodejs/resource-group.png" alt-text="App Service 개요 페이지의 리소스 그룹":::
+
+1. *리소스 그룹* 페이지에서 **리소스 그룹 삭제** 를 선택합니다. 리소스 그룹의 이름을 확인하고 리소스 삭제를 마칩니다.
+
+    리소스 그룹 삭제
 
 ::: zone-end
 

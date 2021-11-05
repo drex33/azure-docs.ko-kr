@@ -8,15 +8,15 @@ manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: dd2ceaa97a456d72227d6180596aeccc9e00a614
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e083bc3d5f313be6bd32a75f413f858ef68e0993
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453901"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469999"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -49,7 +49,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Vision-Win
 ```
 
 > [!IMPORTANT]
-> 이 리포지토리를 ZIP으로 다운로드하지 마세요. ZIP으로 리포지토리를 다운로드하는 경우 Git에 하위 모듈이 포함되지 않습니다.
+> 이 리포지토리를 _.zip_ 파일로 다운로드하지 마세요. _.zip_ 으로 리포지토리를 다운로드하는 경우 Git에 하위 모듈이 포함되지 않습니다.
 
 ### <a name="get-optional-sample-images"></a>선택적 샘플 이미지 가져오기
 

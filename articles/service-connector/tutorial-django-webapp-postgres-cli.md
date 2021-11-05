@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2021
 zone_pivot_groups: postgres-server-options
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a14dc7e27c49d9f4e253e3a3a51c0526a56cadf9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 24c6d2cee0748d342c0d8d797d4a07692f6da9db
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053716"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444917"
 ---
 # <a name="tutorial-using-service-connector-preview-to-build-a-django-app-with-postgres-on-azure-app-service"></a>자습서: 서비스 커넥터(미리 보기)를 사용하여 Postgres on Azure App Service로 Django 앱 빌드
 
@@ -331,6 +331,7 @@ az webapp connection create postgres --client-type django
 - 이 명령은 앱 코드에서 예상한 대로 "AZURE_POSTGRESQL_HOST", "AZURE_POSTGRESQL_NAME", "AZURE_POSTGRESQL_USER", "AZURE_POSTGRESQL_PASS"라는 설정을 만듭니다.
 - 관리자 자격 증명을 잊어버린 경우 이 명령은 다시 설정하도록 안내합니다.
 
+
 ::: zone-end
 
 ::: zone pivot="postgres-flexible-server"
@@ -344,6 +345,9 @@ az webapp connection create postgres --client-type django
 - 관리자 자격 증명을 잊어버린 경우 이 명령은 다시 설정하도록 안내합니다.
 
 ::: zone-end
+
+> [!NOTE]
+> "구독이 Microsoft.ServiceLinker를 사용하도록 등록되어 있지 않습니다."라는 오류 메시지가 표시되면 `az provider register -n Microsoft.ServiceLinker`를 실행하여 Service Connector 리소스 공급자를 등록하고 연결 명령을 다시 실행합니다. 
 
 Python 코드에서 `os.environ.get('AZURE_POSTGRESQL_HOST')`과 같은 명령문을 사용하여 이러한 설정을 환경 변수로 액세스합니다. 자세한 내용은 [환경 변수 액세스](../app-service/configure-language-python.md#access-environment-variables)를 참조하세요.
 

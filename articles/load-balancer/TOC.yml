@@ -43,6 +43,14 @@
           href: tutorial-cross-region-powershell.md
         - name: 영역 간 부하 분산 장치 만들기 - Azure CLI
           href: tutorial-cross-region-cli.md
+    - name: 게이트웨이 부하 분산 장치
+      items:
+        - name: 게이트웨이 부하 분산 장치 만들기 - 포털
+          href: tutorial-gateway-portal.md
+        - name: 게이트웨이 부하 분산 장치 만들기 - PowerShell
+          href: tutorial-gateway-powershell.md
+        - name: 게이트웨이 부하 분산 장치 만들기 - Azure CLI
+          href: tutorial-gateway-cli.md
     - name: NAT 게이트웨이
       items:
         - name: NAT 게이트웨이 공용 부하 분산 장치 통합
@@ -67,6 +75,8 @@
       href: manage.md
     - name: 영역 간 부하 분산 장치
       href: cross-region-overview.md
+    - name: 게이트웨이 부하 분산 장치
+      href: gateway-overview.md
     - name: 새로운 기능
       href: whats-new.md
     - name: 구성 요소

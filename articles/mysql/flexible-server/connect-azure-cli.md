@@ -7,19 +7,16 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: b27fb9ec4ff24cd53906b304db1f32655380fc66
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 26c25afc997ee86f0fe23f944ae5afad34269e92
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128595787"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468122"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>빠른 시작: Azure Database for MySQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 이 빠른 시작에서는 ```az mysql flexible-server connect```에서 Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버에 연결하고 ```az mysql flexible-server execute``` 명령을 통해 단일 쿼리 또는 sql 파일을 실행하는 방법을 보여줍니다. 이 명령을 사용하면 데이터베이스 서버에 대한 연결을 테스트하고 쿼리를 실행할 수 있습니다. 대화형 모드를 사용하여 여러 쿼리를 실행할 수도 있습니다.
 
@@ -29,10 +26,10 @@ ms.locfileid: "128595787"
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - [Azure CLI](/cli/azure/install-azure-cli) 최신 버전(2.20.0 이상) 설치
-- ```az login``` 명령을 통해 Azure CLI를 사용하여 로그인 
+- ```az login``` 명령을 통해 Azure CLI를 사용하여 로그인
 - ```az config param-persist on```을 사용하여 매개 변수 지속성을 설정합니다. 매개 변수 지속성은 리소스 그룹이나 위치 등과 같은 많은 인수를 반복하지 않고도 로컬 컨텍스트를 사용할 수 있도록 도와줍니다.
 
-## <a name="create-an-mysql-flexible-server"></a>MySQL 유연한 서버 만들기
+## <a name="create-a-mysql-flexible-server"></a>MySQL 유연한 서버 만들기
 
 먼저 관리형 MySQL 서버를 만듭니다. [Azure Cloud Shell](https://shell.azure.com/)에서 다음 스크립트를 실행하고 이 명령에서 생성된 **서버 이름**, **사용자 이름** 및 **암호** 를 기록해 둡니다.
 
@@ -50,7 +47,7 @@ az mysql flexible-server db create -d newdatabase
 ```
 
 ## <a name="view-all-the-arguments"></a>모든 인수 보기
-```--help``` 인수를 사용하여 이 명령에 대한 모든 인수를 볼 수 있습니다. 
+```--help``` 인수를 사용하여 이 명령에 대한 모든 인수를 볼 수 있습니다.
 
 ```azurecli
 az mysql flexible-server connect --help
@@ -164,7 +161,7 @@ test   200
 az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
 ```
 
-**예제:** 
+**예제:**
 ```azurecli
 az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
 ```

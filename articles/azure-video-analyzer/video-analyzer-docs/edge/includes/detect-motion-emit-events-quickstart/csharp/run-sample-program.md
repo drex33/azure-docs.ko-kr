@@ -2,15 +2,15 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 03/18/2021
+ms.date: 11/04/2021
 ms.author: faneerde
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5fa93e27177e2369edbe5143c5248fa9faa08772
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 82d0bddf25488a8cd3bce195221a96136d5f53bf
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030830"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131860684"
 ---
 샘플 코드를 실행하려면 다음 단계를 수행합니다.
 

@@ -48,6 +48,12 @@
           href: event-hubs-capture-python.md
     - name: Apache Kafka용 Event Hubs로 스트리밍
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: 스키마 레지스트리 사용
+      items:
+        - name: 스키마 레지스트리 만들기
+          href: create-schema-registry.md
+        - name: 스키마(.NET 및 AMQP)를 사용하여 이벤트 유효성 검사
+          href: schema-registry-dotnet-send-receive-quickstart.md
     - name: 전용 클러스터 만들기
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: 자습서
@@ -157,8 +163,6 @@
           href: configure-processing-units-premium-namespace.md
         - name: 이벤트에 사용자 지정 데이터 추가
           href: add-custom-data-event.md
-        - name: 스키마 레지스트리 만들기
-          href: create-schema-registry.md
         - name: 동적으로 파티션 추가
           href: dynamically-add-partitions.md
         - name: Azure Stack Hub에서 Blob Storage를 검사점 저장소로 사용

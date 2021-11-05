@@ -7,23 +7,19 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 29d2f44dec6a80f2512e6ef23c2627c8dd098be4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 02d9f115a5fbeb364719a2fc6cafb22e6ea03cf7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741570"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465861"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Azure에서 사용자 지정 컨테이너 실행
 
 ::: zone pivot="container-windows"
-[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 컨테이너 환경에서는 관리 액세스, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 등으로부터 운영 체제를 잠급니다. 자세한 내용은 [Azure App Service의 운영 체제 기능](operating-system-functionality.md)을 참조하세요. 애플리케이션에 미리 구성된 환경에서 허용하는 것보다 많은 액세스 권한이 필요한 경우 대신 사용자 지정 Windows 컨테이너를 배포할 수 있습니다.
+[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 그러나 미리 구성된 애플리케이션 스택은 [운영 체제를 잠그고 낮은 수준의 액세스를 차단](operating-system-functionality.md)합니다. 사용자 지정 Windows 컨테이너에는 이러한 제한이 없으므로, 개발자가 컨테이너를 완전히 사용자 지정하고 컨테이너화된 애플리케이션에 Windows 기능에 대한 모든 액세스 권한을 부여할 수 있습니다. 
 
 이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio의 [Docker Hub](https://hub.docker.com/)에 배포합니다. Azure App Service의 사용자 지정 컨테이너에서 앱을 실행합니다.
-
-> [!NOTE]
-> Windows 컨테이너는 Azure Files로 제한되며 현재 Azure Blob을 지원하지 않습니다.
-
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -199,7 +195,7 @@ App Service on Linux는 .NET, PHP, Node.js 등의 언어 지원을 통해 Linux�
 [빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-portal.md)의 지침에 따라 컨테이너 레지스트리를 만듭니다.
 
 > [!IMPORTANT]
-> Azure 컨테이너 레지스트리를 만들 때 **관리 사용자** 옵션을 **사용** 으로 설정해야 합니다. Azure Portal 레지스트리 페이지의 **액세스 키** 섹션에서 설정할 수도 있습니다. 이 설정은 App Service 액세스에 필요합니다.
+> Azure 컨테이너 레지스트리를 만들 때 **관리 사용자** 옵션을 **사용** 으로 설정해야 합니다. Azure Portal 레지스트리 페이지의 **액세스 키** 섹션에서 설정할 수도 있습니다. 이 설정은 App Service 액세스에 필요합니다. 관리 ID에 대한 내용은 [ACR에서 배포 자습서](tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry)를 참조하세요.
 
 ## <a name="sign-in"></a>로그인
 

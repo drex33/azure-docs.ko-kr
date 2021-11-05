@@ -163,6 +163,8 @@
               href: sizes-b-series-burstable.md
             - name: DCsv2 시리즈
               href: dcv2-series.md
+            - name: DCsv3 및 DCdsv3 시리즈
+              href: dcv3-series.md
             - name: Dv2 및 DSv2 시리즈
               href: dv2-dsv2-series.md
             - name: Dv3 및 Dsv3 시리즈

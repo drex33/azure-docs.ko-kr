@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2020
 ms.author: thwimmer
-ms.openlocfilehash: bb87222737e4c85eebb2869a812f44d9e703c8d4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 60647cbceed7b7917daa18e8b8c7ed6531ebe0c9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327715"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059122"
 ---
 # <a name="tutorial-configure-contentful-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Contentful 구성
 
@@ -62,7 +62,7 @@ ms.locfileid: "122327715"
 
 5. **개인용 액세스 토큰 생성** 을 선택합니다.
 
-    ![url](media/contentful-provisioning-tutorial/generate.png)
+    ![개인용 액세스 토큰을 생성하는 SCIM URL을 보여 주는 스크린샷](media/contentful-provisioning-tutorial/generate.png)
 
 6. 모달 창에서 개인용 액세스 토큰의 이름을 입력한 다음 **생성** 을 선택합니다.
 

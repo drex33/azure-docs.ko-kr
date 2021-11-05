@@ -1,19 +1,19 @@
 ---
 title: 진단 설정 및 작업 영역 구성
 description: Azure Data Factory를 모니터링 하도록 진단 설정 및 Log Analytics 작업 영역을 구성 하는 방법에 대해 알아봅니다.
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 124df7c29c1a8447420b6241f2d635f2ff46c304
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6637cd45f6c7dd9260eb3bb5af1601457213158f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078677"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845288"
 ---
 # <a name="configure-diagnostic-settings-and-a-workspace"></a>진단 설정 및 작업 영역 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "131078677"
       - _ADFSSISPackageExecutionComponentPhases_
       - _ADFSSISPackageExecutionDataStatistics_
 
-      Log Analytics 테이블에 보낼 워크로드와 관련된 다양한 로그를 선택할 수 있습니다. 예: 
+      Log Analytics 테이블에 보낼 워크로드와 관련된 다양한 로그를 선택할 수 있습니다. 예를 들면 다음과 같습니다. 
         - ssis (SQL Server Integration Services)를 사용 하지 않는 경우 ssis 로그를 선택할 필요가 없습니다. 
         - SSIS IR (통합 런타임) 시작, 중지 또는 유지 관리 작업을 기록 하려면 SSIS IR 로그를 선택 합니다. 
         - SQL Server Management Studio, SQL Server 에이전트 또는 기타 지정 된 도구에서 T-SQL를 통해 ssis 패키지 실행을 호출 하는 경우 ssis 패키지 로그를 선택 합니다. 

@@ -1,5 +1,5 @@
 ---
-title: 기계 학습 모델 배포 방법
+title: 기계 학습 모델 배포
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델을 배포하는 방법과 위치에 대해 알아봅니다. Azure Container Instances, Azure Kubernetes Service 및 FPGA에 배포합니다.
 services: machine-learning
@@ -8,14 +8,14 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021
 adobe-target: true
-ms.openlocfilehash: b5514df10228a9e5638712976a0602fc33c8a990
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 78abc8d3dba3090198f8856d71f91a9087237641
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604363"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853323"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 기계 학습 모델 배포 
 
@@ -24,15 +24,17 @@ Azure 클라우드의 웹 서비스로 기계 학습 또는 딥 러닝 모델을
 > [!TIP]
 > 관리형 온라인 엔드포인트(미리 보기)는 기본 인프라를 만들고 관리할 필요 없이 학습된 모델을 배포하는 방법을 제공합니다. 자세한 내용은 [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점](how-to-deploy-managed-online-endpoints.md)을 참조하세요.
 
+## <a name="workflow-for-deploying-a-model"></a>모델 배포를 위한 워크플로
+
 워크플로는 모델을 배포하는 위치와 관계없이 유사합니다.
 
-1. 모델 등록
-1. 항목 스크립트 준비
-1. 유추 구성 준비
-1. 모델을 로컬로 배포하여 모든 것이 작동하는지 확인
-1. 컴퓨팅 대상 선택
-1. 클라우드에 모델 다시 배포
-1. 결과 웹 서비스 테스트
+1. 모델을 등록합니다.
+1. 항목 스크립트를 준비합니다.
+1. 유추 구성을 준비합니다.
+1. 모델을 로컬로 배포하여 모든 것이 작동하는지 확인합니다.
+1. 컴퓨팅 대상을 선택합니다.
+1. 모델을 클라우드에 다시 배포합니다.
+1. 결과 웹 서비스를 테스트합니다.
 
 기계 학습 배포 워크플로와 관련한 개념에 대한 자세한 내용은 [Azure Machine Learning을 사용한 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
@@ -83,7 +85,7 @@ SDK를 사용하여 작업 영역에 연결하는 방법에 대한 자세한 내
 
 ---
 
-## <a name="register-your-model"></a><a id="registermodel"></a> 모델 등록
+## <a name="register-the-model"></a><a id="registermodel"></a> 모델 등록
 
 배포된 기계 학습 서비스의 일반적인 상황은 다음 구성 요소가 필요하다는 것입니다.
     

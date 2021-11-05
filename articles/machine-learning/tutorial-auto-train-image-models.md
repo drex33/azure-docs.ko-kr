@@ -11,12 +11,12 @@ ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 10/06/2021
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: a8b299a57b5ba3d31d34447ceacded9933c61b55
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e6906988b47ecdb1ba5e1ca7947666e6371ddd8e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007688"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468578"
 ---
 # <a name="tutorial-train-an-object-detection-model-preview-with-automl-and-python"></a>자습서: AutoML 및 Python을 사용하여 개체 검색 모델(미리 보기) 학습
 
@@ -495,3 +495,6 @@ plt.show()
 * [자동화된 ML의 컴퓨터 비전(미리 보기)에 대해 자세히 알아봅니다](concept-automated-ml.md#computer-vision-preview).
 * [Python을 사용하여 컴퓨터 비전 모델을 학습시키도록 AutoML을 설정하는 방법(미리 보기)을 알아봅니다](how-to-auto-train-image-models.md).
 * [자동화된 기계 학습 샘플에 대한 GitHub Notebook 리포지토리](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml)에서 자세한 코드 예제 및 사용 사례를 검토합니다. 컴퓨터 비전 모델 빌드와 관련된 샘플은 'image-' 접두사가 있는 폴더를 확인하세요.
+
+> [!NOTE]
+> 냉장고 개체 데이터 세트는 [MIT 라이선스](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE)의 라이선스를 통해 사용할 수 있습니다.

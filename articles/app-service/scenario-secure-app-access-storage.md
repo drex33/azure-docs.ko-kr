@@ -11,12 +11,12 @@ ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: b6d04053d4b63552c2329a675c2557e6f1cd8fee
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: be170a07340fdea84b9b4af03bd329fcdf91483d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290028"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065554"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>자습서: 웹앱에서 Azure Storage 액세스
 
@@ -301,4 +301,10 @@ static public async Task UploadBlob(string accountName, string containerName, st
 > * 관리 ID를 사용하여 웹앱에서 스토리지에 액세스합니다.
 
 > [!div class="nextstepaction"]
+> [자습서: Virtual Network 통합을 통해 백 엔드 통신 격리](tutorial-networking-isolate-vnet.md)
+
+> [!div class="nextstepaction"]
 > [사용자를 대신하여 App Service에서 Microsoft Graph에 액세스](scenario-secure-app-access-microsoft-graph-as-user.md)
+
+> [!div class="nextstepaction"]
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)

@@ -1,0 +1,57 @@
+- name: Azure Container Apps 미리 보기 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Container Apps 정보
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 첫 번째 컨테이너 앱 배포
+      href: get-started.md
+- name: 개념
+  items:
+    - name: Environment
+      href: environment.md
+    - name: 컨테이너
+      href: containers.md
+    - name: 수정 내용
+      href: revisions.md
+    - name: 애플리케이션 수명 주기 관리
+      href: application-lifecycle-management.md
+    - name: 마이크로 서비스
+      href: microservices.md
+- name: 방법 가이드
+  items:
+    - name: 앱 스케일링
+      href: scale-app.md
+    - name: 앱 보호
+      href: secure-app.md
+    - name: 앱 모니터링
+      href: monitor.md
+    - name: 수정 버전 관리
+      href: revisions-manage.md
+    - name: HTTPS 수신 설정
+      href: ingress.md
+    - name: 여러 앱 연결
+      href: connect-apps.md
+- name: 자습서
+  items:
+    - name: CLI를 사용하는 Dapr이 있는 마이크로 서비스
+      href: microservices-dapr.md
+    - name: ARM을 사용하는 Dapr이 있는 마이크로 서비스
+      href: microservices-dapr-azure-resource-manager.md
+    - name: 백그라운드 처리
+      href: background-processing.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/containerapps
+    - name: ARM API 사양
+      href: azure-resource-manager-api-spec.md
+- name: 리소스
+  items:
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/app-service/static/'
+    - name: 할당량
+      href: quotas.md

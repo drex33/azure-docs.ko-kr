@@ -1,19 +1,19 @@
 ---
 title: '자습서: Microsoft Azure Maps에서 Azure Notebooks(Python)를 사용하여 센서 데이터를 날씨 예측 데이터와 조인'
 description: Azure Notebooks(Python)를 사용하여 Microsoft Azure Maps Weather Service의 날씨 예측 데이터와 센서 데이터를 조인하는 방법에 대한 자습서.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: d961b7051fa469304b4e8cce3f53e09813a10c02
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 83cc80267e9e3b917e60bb2da5421f67fdfb4c7a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743797"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455305"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인
 
@@ -22,6 +22,7 @@ ms.locfileid: "121743797"
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
+>
 > * 클라우드의 [Azure Notebooks](https://notebooks.azure.com)에서 데이터 파일로 작업합니다.
 > * 파일에서 데모 데이터를 로드합니다.
 > * Python에서 Azure Maps REST API를 호출합니다.
@@ -29,14 +30,12 @@ ms.locfileid: "121743797"
 > * Azure Maps [일일 예측](/rest/api/maps/weather/getdailyforecast) 날씨 데이터를 사용하여 데모 데이터를 보강합니다.
 > * 예측 데이터를 그래프로 표시합니다.
 
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 먼저 다음을 수행해야 합니다.
 
 1. [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)의 지침에 따라 S0 가격 책정 계층에서 Azure Maps 계정 구독을 만듭니다.
 2. 계정에 대한 기본 구독 키를 가져오려면 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 지침을 따릅니다.
-
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
@@ -88,7 +87,7 @@ for i in range(0, len(coords), 2):
     wind_direction.append([])
     
     query = str(coords[i])+', '+str(coords[i+1])
-    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={}&duration=15".format(query, subscription_key))).json()
+    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&duration=15".format(query, subscription_key))).json()
     j+=1
     for day in range(len(forecast_response['forecasts'])):
             date = forecast_response['forecasts'][day]['date'][:10]
@@ -113,7 +112,7 @@ session = aiohttp.ClientSession()
 
 pins="default|la-25+60|ls12|lc003C62|co9B2F15||'Location A'{} {}|'Location B'{} {}|'Location C'{} {}|'Location D'{} {}".format(coords[1],coords[0],coords[3],coords[2],coords[5],coords[4], coords[7],coords[6])
 
-image_response = "https://atlas.microsoft.com/map/static/png?subscription-key={}&api-version=1.0&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
+image_response = "https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
 
 static_map_response = await session.get(image_response)
 
@@ -125,7 +124,6 @@ display(Image(poi_range_map))
 ```
 
 ![터빈 위치](./media/weather-service-tutorial/location-map.png)
-
 
 스테이션 ID를 기반으로 하는 데모 데이터를 사용하여 예측 데이터를 그룹화합니다. 스테이션 ID는 날씨 데이터 센터용입니다. 이 그룹화는 예측 데이터를 사용하여 데모 데이터를 보강합니다.
 
@@ -149,9 +147,7 @@ grouped_weather_data = combined_weather_data.groupby(['StationID'])
 grouped_weather_data.get_group(station_ids[0]).reset_index()
 ```
 
-<center>
-
-![그룹화된 데이터](./media/weather-service-tutorial/grouped-data.png)</center>
+<center>![그룹화된 데이터](./media/weather-service-tutorial/grouped-data.png)</center>
 
 ## <a name="plot-forecast-data"></a>예측 데이터 그리기
 

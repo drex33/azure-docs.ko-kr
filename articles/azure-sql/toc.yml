@@ -841,6 +841,8 @@
           href: managed-instance/transact-sql-tsql-differences-sql-server.md
         - name: 트랜잭션 복제
           href: managed-instance/replication-transactional-overview.md
+        - name: SQL MI용 링크 기능
+          href: managed-instance/link-feature.md
         - name: 관리 작업
           items:
             - name: 개요
@@ -1047,19 +1049,23 @@
               href: managed-instance/timezones-overview.md
             - name: 연결 형식 구성
               href: managed-instance/connection-types-overview.md
-            - name: 관리형 인스턴스에 대한 경고 만들기
+            - name: SQL MI에 대한 경고 만들기
               href: managed-instance/alerts-create.md
             - name: 위협 감지 구성
               href: managed-instance/threat-detection-configure.md
         - name: 네트워킹 구성
           items:
-            - name: 관리되는 인스턴스 서브넷의 크기 결정
+            - name: SQL MI 서브넷의 크기 결정
               href: managed-instance/vnet-subnet-determine-size.md
-            - name: 관리되는 인스턴스용 신규 VNet 및 서브넷 만들기
+            - name: SQL MI에 대한 새 VNet 및 서브넷 만들기
               href: managed-instance/virtual-network-subnet-create-arm-template.md
-            - name: 관리되는 인스턴스용 기존 VNet 및 서브넷 구성
+            - name: SQL MI에 대한 기존 VNet 및 서브넷 구성
               href: managed-instance/vnet-existing-add-subnet.md
-            - name: 관리형 인스턴스를 삭제한 후 서브넷 삭제
+            - name: SQL MI에 대한 서비스 엔드포인트 정책 구성
+              href: managed-instance/service-endpoint-policies-configure.md
+            - name: SQL MI를 다른 서브넷으로 이동
+              href: managed-instance/vnet-subnet-move-instance.md
+            - name: SQL MI를 삭제한 후 서브넷 삭제
               href: managed-instance/virtual-cluster-delete.md
             - name: 사용자 지정 DNS 구성
               href: managed-instance/custom-dns-configure.md
@@ -1073,7 +1079,7 @@
               href: managed-instance/management-endpoint-verify-built-in-firewall.md
         - name: 마이그레이션
           items:
-            - name: SQL Server를 Azure SQL Managed Instance로 마이그레이션 가이드
+            - name: SQL Server를 SQL MI 가이드로 마이그레이션
               href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
             - name: 로그 재생 서비스를 사용하여 데이터베이스 마이그레이션
               href: managed-instance/log-replay-service-migrate.md
@@ -1101,14 +1107,14 @@
   items:
     - name: 설명서
       href: virtual-machines/index.yml
+    - name: 새로운 기능
+      href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
     - name: Windows
       items:
         - name: 개요
           items:
             - name: SQL Server VM이란?
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-            - name: 새로운 기능
-              href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
         - name: 빠른 시작
           items:
             - name: 포털
@@ -1187,6 +1193,8 @@
                   href: virtual-machines/windows/storage-configuration.md
                 - name: 자동화된 패치
                   href: virtual-machines/windows/automated-patching.md
+                - name: SQL 평가
+                  href: virtual-machines/windows/sql-assessment-for-sql-vm.md
                 - name: Azure Key Vault 통합
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: 스토리지를 UltraSSD로 마이그레이션
@@ -1315,6 +1323,14 @@
           items:
             - name: SQL VM 만들기 - 포털
               href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+        - name: 개념
+          items:
+            - name: SQL IaaS 에이전트 확장
+              href: virtual-machines/linux/sql-server-iaas-agent-extension-linux.md
+        - name: 방법 가이드
+          items:
+            - name: SQL IaaS 확장에 등록
+              href: virtual-machines/linux/sql-iaas-agent-extension-register-vm-linux.md
         - name: 자습서
           items:
             - name: STONITH를 사용하여 Azure RHEL VM 가용성 그룹 설정

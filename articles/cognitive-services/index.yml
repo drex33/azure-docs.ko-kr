@@ -55,15 +55,15 @@ conceptualContent:
     - title: 언어
       summary: '앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.'
       links:
+        - url: ./language-service/index.yml
+          itemType: overview
+          text: Azure Cognitive Service for Language
         - url: ./luis/index.yml
           itemType: overview
           text: 언어 이해(LUIS)
         - url: ./qnamaker/index.yml
           itemType: overview
           text: QnA Maker
-        - url: ./text-analytics/index.yml
-          itemType: overview
-          text: 텍스트 분석
         - url: ./translator/index.yml
           itemType: overview
           text: 변환기

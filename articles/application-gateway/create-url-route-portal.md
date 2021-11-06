@@ -1,6 +1,6 @@
 ---
 title: '자습서: 포털을 사용하는 URL 경로 기반 라우팅 규칙 - Azure Application Gateway'
-description: 이 자습서에서는 Azure Portal을 사용하여 애플리케이션 게이트웨이 및 가상 머신 확장 집합에 대한 URL 경로 기반 회람 규칙을 만드는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Portal을 사용하여 애플리케이션 게이트웨이 및 가상 머신 확장 집합에 대한 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -14,9 +14,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "101708954"
 ---
-# <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
+# <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 기반 라우팅 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
-Azure Portal을 사용하여 [애플리케이션 게이트웨이](./overview.md)를 만들 때 [URL 경로 기반 회람 규칙](./url-route-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀의 적절한 서버에 도착하도록 하는 라우팅 규칙을 만듭니다.
+Azure Portal을 사용하여 [애플리케이션 게이트웨이](./overview.md)를 만들 때 [URL 경로 기반 라우팅 규칙](./url-route-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀의 적절한 서버에 도착하도록 하는 라우팅 규칙을 만듭니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 

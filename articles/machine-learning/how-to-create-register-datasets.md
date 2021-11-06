@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.openlocfilehash: 941e99ba438d2f9819ccde34d922fb79075f73e9
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2916b7c8042a96e35ad138ae5ae20c389c62e751
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553940"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866642"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -97,8 +97,7 @@ TabularDatasets를 사용하면 데이터의 열 또는 경로 패턴 데이터�
 Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 [Azure Machine Learning 데이터 저장소](how-to-access-data.md) 또는 웹 URL의 경로에서 데이터 세트를 만들어야 합니다. 
 
 > [!TIP] 
-> ID 기반 데이터 액세스 권한을 사용하여 스토리지 URL에서 직접 데이터 세트를 만들 수 있습니다. [ID 기반 데이터 액세스 권한을 사용하여 스토리지에 연결(미리 보기)](how-to-identity-based-data-access.md)에서 자세히 알아보기<br><br>
-이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다. 
+> ID 기반 데이터 액세스 권한을 사용하여 스토리지 URL에서 직접 데이터 세트를 만들 수 있습니다. [ID 기반 데이터 액세스를 사용하여 스토리지에 커넥트](how-to-identity-based-data-access.md)자세히 알아보세요.
 
  
 Python SDK를 사용하여 데이터 저장소에서 데이터 세트를 만들려면 다음을 수행합니다.
@@ -235,7 +234,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-이미지 레이블 지정 프로젝트에서 만든 [레이블이 지정되는](how-to-create-image-labeling-projects.md) **데이터 세트는** 특별한 경우입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
+[이미지 레이블 지정 프로젝트](how-to-create-image-labeling-projects.md) 에서 만든 **레이블이 지정 된 데이터 집합** 은 특별 한 경우입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
 
 ```python
 # Dataset that only contains records where the label column value is dog

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
 ms.date: 08/19/2021
-ms.openlocfilehash: 356d81e93997922b0ae9b2e82bf7670449f168af
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 1bf251d6aa45aaf0306d3e595a674280214dc64a
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258815"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867307"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -192,7 +192,7 @@ Setting | 세부 정보
 ## <a name="azure-virtual-machine-agent"></a>Azure Virtual Machine 에이전트
 
 - **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 컴퓨터가 Azure로 장애 조치(failover)될 때 Azure VM이 모든 VM 확장을 사용하기 위한 에이전트 설치 사전 요구 사항을 충족합니다.
-- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)가 Azure VM에 수동으로 설치되어야 합니다.
+- **Linux vm**:  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) 는 장애 조치 (FAILOVER) 후 Azure VM에 자동으로 설치 됩니다.
 
 ## <a name="locate-installer-files"></a>설치 프로그램 파일 찾기
 
@@ -268,7 +268,7 @@ Setting | 세부 정보
 >[!NOTE]
 > 이 섹션은 Azure Site Recovery - 미리 보기에 적용됩니다. [클래식에 대한 설치 지침은 다음과 같습니다](#install-the-mobility-service-using-ui-classic).
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 단계를 사용하여 서버 운영 체제에 대한 설치 관리자 파일을 찾습니다.  
 - 어플라이언스에서 *E:\Software\Agents* 폴더로 이동합니다.

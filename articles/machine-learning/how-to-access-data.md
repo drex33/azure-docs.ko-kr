@@ -11,12 +11,12 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 9d722d5344316582536b3301270ee47f3ec9d3dc
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 3c308761c0becae3a3f0d7eb3a33fc1bc76f5918
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554966"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867060"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 스토리지 서비스에 연결
 
@@ -29,9 +29,9 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 하위 코드 환경의 경우 [Azure Machine Learning 스튜디오를 사용하여 데이터 저장소를 만들고 등록](how-to-connect-data-ui.md#create-datastores)하는 방법을 참조하세요.
 
 >[!TIP]
-> 이 문서에서는 서비스 주체 또는 SAS(공유 액세스 서명) 토큰과 같은 자격 증명 기반 인증 자격 증명을 사용하여 스토리지 서비스에 연결하려는 경우를 가정합니다. 자격 증명이 데이터 저장소에 등록된 경우 작업 영역 *읽기 권한자* 역할을 가진 모든 사용자는 이러한 자격 증명을 검색할 수 있습니다. [작업 영역 *읽기 권한자* 역할에 대해 자세히 알아보세요.](how-to-assign-roles.md#default-roles) <br><br>이 부분이 걱정된다면 [ID 기반 액세스를 사용하여 스토리지 서비스에 연결](how-to-identity-based-data-access.md)하는 방법을 알아봅니다. <br><br>이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다. 
+> 이 문서에서는 서비스 주체 또는 SAS(공유 액세스 서명) 토큰과 같은 자격 증명 기반 인증 자격 증명을 사용하여 스토리지 서비스에 연결하려는 경우를 가정합니다. 자격 증명이 데이터 저장소에 등록된 경우 작업 영역 *읽기 권한자* 역할을 가진 모든 사용자는 이러한 자격 증명을 검색할 수 있습니다. [작업 영역 *읽기 권한자* 역할에 대해 자세히 알아보세요.](how-to-assign-roles.md#default-roles) <br><br>이 부분이 걱정된다면 [ID 기반 액세스를 사용하여 스토리지 서비스에 연결](how-to-identity-based-data-access.md)하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
@@ -92,7 +92,7 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 Azure Storage 서비스에 안전하게 연결하려면 Azure Machine Learning에서 해당하는 데이터 스토리지 컨테이너에 액세스할 권한이 있어야 합니다. 이 액세스 권한은 데이터 저장소를 등록하는 데 사용되는 인증 자격 증명에 따라 다릅니다. 
 
 > [!NOTE]
-> 이 참고 자료는 [ID 기반 데이터 액세스 권한으로 생성된 데이터 저장소(미리 보기)](how-to-identity-based-data-access.md)에도 적용됩니다. 
+> 이 지침은 [id 기반 데이터 액세스를 사용 하 여 만든 데이터 저장소](how-to-identity-based-data-access.md)에도 적용 됩니다. 
 
 ### <a name="virtual-network"></a>가상 네트워크 
 

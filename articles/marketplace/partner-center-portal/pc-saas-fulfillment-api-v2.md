@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/27/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 4e2dff653564a568905160188fc4be308812c557
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 99735c9e18cb6e278c85254bcebbe514c2fbe0f3
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460720"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866562"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 
@@ -118,7 +118,10 @@ SaaS 구독은 다음과 같은 두 가지 유형의 업데이트를 사용할 �
 
 게시자가 게시자 쪽에서 SaaS 서비스를 변경할 수 없습니다. 게시자는 이 정보를 일시 중단된 고객에게 제공하고 고객의 SaaS 서비스 액세스를 제한하거나 차단하는 것이 좋습니다. 요금 결제를 전혀 받지 못할 가능성이 있습니다.
 
-Microsoft는 구독을 자동으로 취소하기 전에 고객에게 30일의 유예 기간을 줍니다. 구독이 *일시 중단됨* 상태인 경우:
+> [!NOTE]
+> Microsoft는 구독을 자동으로 취소하기 전에 고객에게 30일의 유예 기간을 줍니다. 30 일 유예 기간이 지나면 웹 후크는 [구독 취소](#cancel-a-subscription) 작업을 받게 됩니다.
+
+구독이 *일시 중단됨* 상태인 경우:
 
 * 파트너 또는 ISV는 데이터 또는 설정 손실 없이 전체 기능을 복원할 수 있도록 SaaS 계정을 복구 가능한 상태로 유지해야 합니다.
 * 파트너 또는 ISV는 유예 기간 동안 결제가 이루어지면 구독 복구 요청이, 유예 기간이 종료되면 구독 프로비전 해제 요청이 있을 것으로 예상해야 합니다. 두 요청은 모두 webhook 메커니즘을 통해 전송됩니다.
@@ -751,7 +754,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 *응답 코드:*
 
-Code: 200 지정 된 SaaS 구독에서 보류 중인 작업을 반환 합니다.
+코드: 200 지정된 SaaS 구독에서 보류 중인 작업을 반환합니다.
 
 *응답 페이로드 예제:*
 
@@ -774,7 +777,7 @@ Code: 200 지정 된 SaaS 구독에서 보류 중인 작업을 반환 합니다.
 }
 ```
 
-보류 중인 작업이 없는 경우 빈 json을 반환 합니다.
+보류 중인 작업이 없으면 빈 json을 반환합니다.
 
 코드: 400 잘못된 요청: 유효성을 검사할 수 없습니다.
 

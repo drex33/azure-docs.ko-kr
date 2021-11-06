@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/01/2021
-ms.openlocfilehash: 8e474cd0ae6635034607a088aceee47a83c500de
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 26403d2de9fe0a4235dc1460f13adcd78e595e77
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388777"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867022"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 보안
 
@@ -78,7 +78,7 @@ oid            | 24827
 
 ```
 
-또한 유연한 서버에서 [감사 로깅](../concepts-audit.md)을 사용하여 데이터베이스의 활동을 추적할 수 있습니다. 
+또한 유연한 서버에서 [감사 로깅](concepts-audit.md)을 사용하여 데이터베이스의 활동을 추적할 수 있습니다. 
 
 > [!NOTE]
 > Azure Database for PostgreSQL - 유연한 서버는 현재 [Azure Defender 보호](../../security-center/azure-defender.md)를 지원하지 않습니다. 

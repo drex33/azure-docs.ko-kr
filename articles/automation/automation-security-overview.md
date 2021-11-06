@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Automation 계정 인증의 개요를 제
 keywords: 자동화 보안, 안전한 자동화, 자동화 인증
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 11/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08f265d4e2af8fe985db3ceab78b535db2f73924
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7d6a509e4d99b95e2113aceb00ff1dab9a98fd91
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470873"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866661"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Azure Automation 계정 인증 개요
 
@@ -37,6 +37,9 @@ Azure Automation에서 Azure Resource Manager 및 PowerShell cmdlet을 사용하
 Azure AD(Azure Active Directory)의 관리 ID를 사용하면 Runbook에서 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리되며, 비밀을 프로비저닝하거나 회전하지 않아도 됩니다. Azure AD의 관리 ID에 대한 자세한 내용은 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 관리 ID는 Runbook에서 인증하는 데 권장되는 방법이며 Automation 계정의 기본 인증 방법입니다.
+
+> [!NOTE]
+> Automation 계정을 만들 때 실행 계정을 만드는 옵션을 더 이상 사용할 수 없습니다. 그러나 기존 및 새 Automation 계정에 대한 실행 계정을 계속 지원합니다. Azure Portal 또는 PowerShell을 사용하여 Automation 계정에서 [실행 계정을 만들](create-run-as-account.md) 수 있습니다.
 
 관리 ID를 사용하는 경우 얻을 수 있는 몇 가지 혜택은 다음과 같습니다.
 
@@ -68,7 +71,7 @@ Azure Automation의 실행 계정은 클래식 배포 모델로 배포된 리소
 - Automation 계정
 
 > [!NOTE]
-> Azure Automation 실행 계정을 자동으로 만들지 않습니다. 관리 ID를 사용하여 대체되었습니다.
+> Azure Automation 실행 계정을 자동으로 만들지 않으며 관리 ID를 사용하여 대체되었습니다. 그러나 기존 및 새 Automation 계정에 대한 실행 계정을 계속 지원합니다. Azure Portal 또는 PowerShell을 사용하여 Automation 계정에서 [실행 계정을 만들](create-run-as-account.md) 수 있습니다.
 
 ### <a name="subscription-permissions"></a>구독 권한
 

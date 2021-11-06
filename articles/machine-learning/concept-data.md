@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 537fe72423e7ab4052f2a4bad32784a541228296
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 5623567cb35f6222d660b9e02de5d2fa125dd826
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553959"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867155"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보호
 
@@ -67,7 +67,7 @@ Azure Machine Learning 데이터 스토리지는 Azure의 데이터 스토리지
 + Azure Database for MySQL
 
 >[!TIP]
-> 일반적으로 데이터 스토리지를 만드는 데 사용할 수 있는 기능에는 서비스 주체 또는 SAS(공유 액세스 서명) 토큰과 같은 스토리지 서비스에 액세스하기 위한 자격 증명 기반 인증이 필요합니다. 해당 자격 증명은 작업 영역에 대한 ‘읽기’ 권한이 있는 사용자가 액세스할 수 있습니다. <br><br>이것이 걱정된다면 [스토리지 서비스(미리 보기)에 대해 ID 기반 데이터 액세스를 사용하는 데이터 스토리지를 생성합니다](how-to-identity-based-data-access.md). 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
+> 일반적으로 데이터 스토리지를 만드는 데 사용할 수 있는 기능에는 서비스 주체 또는 SAS(공유 액세스 서명) 토큰과 같은 스토리지 서비스에 액세스하기 위한 자격 증명 기반 인증이 필요합니다. 해당 자격 증명은 작업 영역에 대한 ‘읽기’ 권한이 있는 사용자가 액세스할 수 있습니다. <br><br>이 문제가 있는 경우  [저장소 서비스에 대 한 id 기반 데이터 액세스를 사용 하는 데이터 저장소를 만듭니다](how-to-identity-based-data-access.md).
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>데이터 세트와 스토리지의 참조 데이터
@@ -117,7 +117,7 @@ Azure Machine Learning 데이터 세트는 데이터의 복사본이 아닙니�
 
 Azure Machine Learning은 레이블 지정 프로젝트를 만들고, 관리하고, 모니터링할 수 있는 중앙 위치를 제공합니다. 레이블 지정 프로젝트를 사용하면 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 더 효율적으로 관리할 수 있습니다. 현재 지원되는 작업은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자를 사용하는 개체 식별입니다.
 
-이미지 [레이블 지정 프로젝트](how-to-create-image-labeling-projects.md) 또는 [텍스트 레이블 지정 프로젝트](how-to-create-text-labeling-projects.md)를 만들고 기계 학습 실험에 사용할 데이터 세트를 출력합니다.
+[이미지 레이블](how-to-create-image-labeling-projects.md) 지정 프로젝트 또는 [텍스트 레이블 지정 프로젝트](how-to-create-text-labeling-projects.md)를 만들고 기계 학습 실험에서 사용할 데이터 집합을 출력 합니다.
 
 <a name="drift"></a>
 

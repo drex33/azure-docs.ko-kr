@@ -6,12 +6,12 @@ author: nickomang
 ms.topic: article
 ms.date: 09/09/2021
 ms.author: nickoman
-ms.openlocfilehash: 871a2f97ab8b95cca46fea91f5613cb489cb19a3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 93bcd85c1a0804a6b3335add09d609eac41db98a
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066922"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866756"
 ---
 # <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service의 HTTP 프록시 지원 (미리 보기)
 
@@ -26,6 +26,7 @@ ms.locfileid: "131066922"
 ## <a name="limitations-and-other-details"></a>제한 사항 및 기타 세부 정보
 
 다음 시나리오는 지원되지 **않습니다**.
+- 모니터링 추가 기능
 - 노드 풀 당 다른 프록시 구성
 - 프록시 설정 업데이트 후 클러스터 만들기
 - 사용자/암호 인증
@@ -35,7 +36,7 @@ ms.locfileid: "131066922"
 
 기본적으로 *Httpproxy*, *HttpsProxy 및* *ca* 에는 값이 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli)

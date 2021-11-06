@@ -1,14 +1,14 @@
 ---
 title: 대규모 Azure Sentinel 작업 영역 관리
 description: Azure Lighthouse는 위임된 고객 리소스에서 Azure Sentinel을 효과적으로 관리할 수 있도록 지원합니다.
-ms.date: 08/16/2021
+ms.date: 11/05/2021
 ms.topic: how-to
-ms.openlocfilehash: d6eba4cab51fa18164cc5f44e579be23ef8e74a5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 51dab03ae91d61979f2f84bac57fb96adad9fea7
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777814"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867041"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모 Azure Sentinel 작업 영역 관리
 
@@ -21,11 +21,14 @@ Azure Sentinel은 보안 분석 및 위협 인텔리전스를 제공하며, 경�
 > [!TIP]
 > 이 항목은 서비스 공급자 및 고객을 염두에 두고 만들었지만 이 지침은 [Azure Lighthouse를 사용하여 여러 테넌트를 관리하는 기업](../concepts/enterprise.md)에도 적용됩니다.
 
+> [!NOTE]
+> 여러 [지역](../../availability-zones/az-overview.md#regions)에 있는 위임된 리소스를 관리할 수 있습니다. 그러나 [국가별 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 퍼블릭 클라우드 또는 별도의 두 국가별 클라우드 간에 구독을 위임하는 것은 지원되지 않습니다.
+
 ## <a name="architectural-considerations"></a>아키텍처 고려 사항
 
 Azure Sentinel을 사용하여 Security-as-a-service 제품을 빌드하려고 하는 MSSP(관리되는 보안 서비스 공급자)의 경우, 개별 고객 테넌트 내에 배포된 여러 Azure Sentinel 작업 영역을 중앙에서 모니터링, 관리 및 구성하기 위해 단일 SOC(보안 작업 센터)가 필요할 수 있습니다. 마찬가지로, 여러 Azure AD 테넌트가 있는 기업은 테넌트 전반에 배포된 여러 Azure Sentinel 작업 영역을 중앙에서 관리하려고 할 수 있습니다.
 
-이 중앙 집중형 배포 모델의 장점은 다음과 같습니다.
+이 배포 모델은 다음과 같은 이점이 있습니다.
 
 - 데이터의 소유권은 관리되는 각 테넌트에 남아 있습니다.
 - 지리적 경계 내에 데이터를 저장하기 위한 요구 사항을 지원합니다.
@@ -35,12 +38,13 @@ Azure Sentinel을 사용하여 Security-as-a-service 제품을 빌드하려고 �
 - Azure Sentinel(예: Azure AD 활동 로그, Office 365 로그 또는 Microsoft Threat Protection 경고)과 통합된 모든 데이터 원본 및 데이터 커넥터의 데이터는 각 고객 테넌트 내에 유지됩니다.
 - 네트워크 대기 시간을 줄입니다.
 - 새 자회사 또는 고객을 쉽게 추가하거나 제거할 수 있습니다.
-
-> [!NOTE]
-> 여러 [지역](../../availability-zones/az-overview.md#regions)에 있는 위임된 리소스를 관리할 수 있습니다. 그러나 [국가별 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 퍼블릭 클라우드 또는 별도의 두 국가별 클라우드 간에 구독을 위임하는 것은 지원되지 않습니다.
+- Azure Lighthouse를 통해 작업할 때 다중 작업 영역 보기를 사용할 수 있습니다.
+- 지적 재산을 보호 하기 위해 플레이 북와 통합 문서를 사용 하 여 고객과 직접 코드를 공유 하지 않고도 테 넌 트 간에 작업을 수행할 수 있습니다. 분석 및 구하기 규칙만 각 고객의 테 넌 트에 직접 저장 해야 합니다.
 
 > [!IMPORTANT]
-> 모든 작업 영역이 고객 테넌트에 생성된 경우 Microsoft.SecurityInsights 및 Microsoft.OperationalInsights 리소스 공급자도 관리 테넌트의 구독에 [등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)해야 합니다.
+> 모든 작업 영역이 고객 테 넌 & 트에 생성 되는 경우 OperationalInsights 리소스 공급자를 관리 하는 테 넌 트의 구독에도 [등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) 해야 합니다.
+
+대체 배포 모델은 관리 테 넌 트에 하나의 Azure 센티널 작업 영역을 만드는 것입니다. 이 모델에서 Azure Lighthouse는 관리 되는 테 넌 트의 데이터 원본에서 로그 수집을 사용 하도록 설정 합니다. 그러나 테 넌 트에 연결할 수 없는 일부 데이터 원본 (예: Microsoft Defender)이 있습니다. 이러한 제한으로 인해이 모델은 많은 서비스 공급자 시나리오에 적합 하지 않습니다.
 
 ## <a name="granular-azure-role-based-access-control-azure-rbac"></a>세분화된 Azure RBAC(Azure 역할 기반 액세스 제어)란?
 
@@ -71,7 +75,7 @@ MSSP에서 관리하는 각 고객 구독은 [Azure Lighthouse아 온보딩](onb
 
 [Azure Sentinel의 Azure Monitor 통합 문서](../../sentinel/overview.md#workbooks)는 연결된 데이터 원본의 데이터를 시각화하고 모니터링하여 인사이트를 확보하는 데 도움이 됩니다. Azure Sentinel에서 기본 제공 통합 문서 템플릿을 사용하거나 시나리오에 맞는 사용자 지정 통합 문서를 만들 수 있습니다.
 
-관리 테넌트에 통합 문서를 배포하고 대규모 대시보드를 만들어 고객 테넌트 간에 데이터를 모니터링하고 쿼리할 수 있습니다. 자세한 내용은 [작업 영역 간 모니터링](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks)을 참조하세요. 
+관리 테넌트에 통합 문서를 배포하고 대규모 대시보드를 만들어 고객 테넌트 간에 데이터를 모니터링하고 쿼리할 수 있습니다. 자세한 내용은 [작업 영역 간 모니터링](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks)을 참조하세요.
 
 해당 고객과 관련된 시나리오를 위해 관리하는 개별 테넌트에 직접 통합 문서를 배포할 수도 있습니다.
 
@@ -90,6 +94,12 @@ Azure Lighthouse를 Azure Sentinel과 함께 사용하여 테넌트 전반에서
 [MCAS(Microsoft Cloud App Security) 커넥터](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)를 사용하도록 설정하여 경고 및 Cloud Discovery 로그를 Azure Sentinel에 스트림할 수 있습니다. 이를 통해 클라우드 앱에 대한 가시성을 확보하고, 정교한 분석 자료를 통해 사이버 위협을 식별한 후 대응하고, 데이터가 이동하는 방식을 제어할 수 있습니다. MCAS의 활동 로그는 [CEF(Common Event Format)를 사용하여 소비](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849)될 수 있습니다.
 
 Office 365 데이터 커넥터를 설정한 후 통합 문서에서 데이터 보기 및 분석, 쿼리를 사용하여 사용자 지정 경고 만들기, 위협에 대응하도록 플레이북 구성 등 테넌트 간 Azure Sentinel 기능을 사용할 수 있습니다.
+
+## <a name="protect-intellectual-property"></a>지적 재산 보호
+
+고객을 사용 하는 경우 azure 센티널 분석 규칙, 구하기 쿼리, 플레이 북 및 통합 문서와 같은 Azure 센티널에서 개발한 지적 재산을 보호할 수 있습니다. 고객이 이러한 리소스에 사용 되는 코드에 대 한 완전 한 액세스 권한을 보유 하지 않도록 하는 데 사용할 수 있는 여러 가지 방법이 있습니다.
+
+자세한 내용은 [Azure 센티널에서 MSSP 지적 재산 보호](../../sentinel/mssp-protect-intellectual-property.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

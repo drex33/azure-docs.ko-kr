@@ -8,12 +8,12 @@ ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: mode-portal
-ms.openlocfilehash: c1bcbd91ae960eb8fb690b04b09445183d787e94
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 449925c1588ad05fccf2d5d5509ad621b6041956
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005445"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131867136"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>빠른 시작: ExpressRoute 회로 만들기 및 수정
 
@@ -25,7 +25,7 @@ ms.locfileid: "131005445"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
-* 시작 전에 [비디오 보기](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)로 단계를 더 잘 이해할 수 있습니다.
+* 시작 전에 [비디오 보기](https://channel9.msdn.com/Blogs/Azure/Azure-ExpressRoute-How-to-create-an-ExpressRoute-circuit)로 단계를 더 잘 이해할 수 있습니다.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
 

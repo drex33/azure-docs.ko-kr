@@ -3,12 +3,12 @@ title: 컨트롤 플레인 및 데이터 평면 작업
 description: 컨트롤 플레인과 데이터 평면 작업의 차이점을 설명합니다. 컨트롤 플레인 작업은 Azure Resource Manager가 처리합니다. 데이터 평면 작업은 서비스가 처리합니다.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 0e1dbf525266fdcf7ca34a449cc51169dda027d5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c5e72693c751086f17958c39c96d12624e478b99
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755979"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893408"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Azure 컨트롤 플레인과 데이터 평면
 
@@ -33,7 +33,7 @@ Azure 작업은 컨트롤 플레인과 데이터 평면이라는 두 가지 범�
 * Azure 독일의 경우 URL은 `https://management.microsoftazure.de/`입니다.
 * Microsoft Azure 중국 21Vianet의 경우 URL은 `https://management.chinacloudapi.cn`입니다.
 
-어떤 작업이 Azure Resource Manager URL을 사용하는지 검색하려면 [Azure REST API](/rest/api/azure/)를 참조하세요. 예를 들어, MySQL에 대한 [만들기 또는 업데이트 작업](/rest/api/mysql/flexibleserver(preview)/servers/update)은 요청 URL이 다음과 같기 때문에 컨트롤 플레인 작업입니다.
+어떤 작업이 Azure Resource Manager URL을 사용하는지 검색하려면 [Azure REST API](/rest/api/azure/)를 참조하세요. 예를 들어, MySQL에 대한 [만들기 또는 업데이트 작업](/rest/api/mysql/singleserver/databases/create-or-update)은 요청 URL이 다음과 같기 때문에 컨트롤 플레인 작업입니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -52,15 +52,15 @@ Azure Resource Manager는 모든 컨트롤 플레인 요청을 처리합니다. 
 
 ## <a name="data-plane"></a>데이터 평면
 
-데이터 평면 작업에 대한 요청은 사용자 인스턴스와 관련된 엔드포인트로 전송됩니다. 예를 들어 Cognitive Services의 [언어 검색 작업](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)은 요청 URL이 다음과 같기 때문에 데이터 평면 작업입니다.
+데이터 평면 작업에 대 한 요청은 사용자 인스턴스와 관련 된 끝점으로 전송 됩니다. 예를 들어 Cognitive Services의 [언어 검색 작업](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)은 요청 URL이 다음과 같기 때문에 데이터 평면 작업입니다.
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages
 ```
 
-데이터 평면 작업은 REST API로 제한되지 않습니다. 가상 머신 또는 데이터베이스 서버에 로그인하는 것과 같은 추가 자격 증명이 필요할 수 있습니다.
+데이터 평면 작업은 REST API로 제한되지 않습니다. 가상 컴퓨터 또는 데이터베이스 서버에 로그인 하는 등의 다른 자격 증명이 필요할 수 있습니다.
 
-관리 및 거버넌스를 적용하는 기능은 데이터 평면 작업에 적용되지 않을 수 있습니다. 사용자가 솔루션과 상호 작용하는 다른 방법을 고려해야 합니다. 예를 들어 사용자가 데이터베이스를 삭제하지 못하도록 하는 잠금은 사용자가 쿼리를 통해 데이터를 삭제하는 것을 막지 않습니다.
+관리 및 관리를 적용 하는 기능은 데이터 평면 작업에 적용 되지 않을 수 있습니다. 사용자가 솔루션과 상호 작용하는 다른 방법을 고려해야 합니다. 예를 들어 사용자가 데이터베이스를 삭제하지 못하도록 하는 잠금은 사용자가 쿼리를 통해 데이터를 삭제하는 것을 막지 않습니다.
 
 일부 정책을 사용하여 데이터 평면 작업을 제어할 수 있습니다. 자세한 내용은 [Azure Policy의 리소스 공급자 모드(미리 보기)](../../governance/policy/concepts/definition-structure.md#resource-provider-modes)를 참조하세요.
 
@@ -68,4 +68,4 @@ POST {Endpoint}/text/analytics/v2.0/languages
 
 * Azure Resource Manager에 대한 개요는 [Azure Resource Manager란?](overview.md)을 참조하세요.
 
-* 새 리소스 및 기존 리소스에 대한 정책 정의의 영향에 대해 자세히 알아보려면 [새 Azure Policy 정의의 영향 평가](../../governance/policy/concepts/evaluate-impact.md)를 참조하세요.
+* 새 리소스 및 기존 리소스에 대 한 정책 정의의 영향에 대해 자세히 알아보려면 [새 Azure Policy 정의의 영향 평가](../../governance/policy/concepts/evaluate-impact.md)를 참조 하세요.

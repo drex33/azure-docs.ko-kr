@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 940ad3d08069ee51a9d138585b6e7dca0af49996
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 78351934381ebd76e32041987a4534f64cf151bf
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658912"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892744"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -307,6 +307,8 @@ def main(req, context):
         'ctx_invocation_id': context.invocation_id,
         'ctx_trace_context_Traceparent': context.trace_context.Traceparent,
         'ctx_trace_context_Tracestate': context.trace_context.Tracestate,
+        'ctx_retry_context_RetryCount': context.retry_context.retry_count,
+        'ctx_retry_context_MaxRetryCount': context.retry_context.max_retry_count,
     })
 ```
 
@@ -371,6 +373,10 @@ def main(req: azure.functions.HttpRequest,
 `function_name` 함수의 이름입니다.
 
 `invocation_id` 현재 함수 호출의 ID입니다.
+
+`trace_context` 분산 추적에 대한 컨텍스트입니다. 자세한 내용은  [`Trace Context`](https://www.w3.org/TR/trace-context/) 을 참조하세요.
+
+`retry_context` 함수에 대한 재시도 컨텍스트입니다. 자세한 내용은 [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) 을 참조하세요.
 
 ## <a name="global-variables"></a>글로벌 변수
 

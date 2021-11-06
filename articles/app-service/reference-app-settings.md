@@ -3,12 +3,12 @@ title: 환경 변수 및 앱 설정 참조
 description: 일반적으로 사용되는 환경 변수와 앱 설정을 사용하여 수정할 수 있는 환경 변수에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: d945b34eb4803da8d94f4cdcfc8a998212e24afa
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ae0f67ae935d31fc242350761e80e5d073a7273a
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224359"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892062"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Azure App Service 환경 변수 및 앱 설정
 
@@ -435,7 +435,7 @@ NEGOTIATE_CLIENT_CERT
 |-|-|
 | `WEBSITE_RELAYS` | 읽기 전용입니다. 엔드포인트 및 서비스 버스 데이터를 포함하여 하이브리드 연결을 구성하는 데 필요한 데이터입니다. |
 | `WEBSITE_REWRITE_TABLE` | 읽기 전용입니다. 런타임에 조회를 수행하여 연결을 적절하게 다시 작성하는 데 사용됩니다. | 
-| `WEBSITE_VNET_ROUTE_ALL` | 기본적으로 [지역 VNet 통합](./overview-vnet-integration.md#regional-vnet-integration)을 사용하는 경우, 앱은 RFC1918 트래픽만 VNet으로 라우팅합니다. 모든 아웃바운드 트래픽을 VNet으로 라우팅하고 동일한 NSG 및 UDR을 적용하려면 `1`로 설정합니다. 이 설정을 사용하면 VNet을 통해 비 RFC1918 엔드포인트에 액세스하고, 앱에서 나가는 모든 아웃바운드 트래픽을 보호하고, 선택한 네트워크 어플라이언스에 모든 아웃바운드 트래픽을 강제로 터널링할 수 있습니다. |
+| `WEBSITE_VNET_ROUTE_ALL` | 기본적으로 [지역 VNet 통합](./overview-vnet-integration.md#regional-virtual-network-integration)을 사용하는 경우, 앱은 RFC1918 트래픽만 VNet으로 라우팅합니다. 모든 아웃바운드 트래픽을 VNet으로 라우팅하고 동일한 NSG 및 UDR을 적용하려면 `1`로 설정합니다. 이 설정을 사용하면 VNet을 통해 비 RFC1918 엔드포인트에 액세스하고, 앱에서 나가는 모든 아웃바운드 트래픽을 보호하고, 선택한 네트워크 어플라이언스에 모든 아웃바운드 트래픽을 강제로 터널링할 수 있습니다. |
 | `WEBSITE_PRIVATE_IP` | 읽기 전용입니다. [VNet 와 통합](./overview-vnet-integration.md)될 때 앱과 연결된 IP 주소. 지역 VNet 통합의 경우, 값은 위임된 서브넷의 주소 범위에 속하는 IP이고 VNet 통합이 필요한 게이트웨이의 경우 값은 Virtual Network Gateway에 구성된 지점 및 사이트 간 주소 풀의 주소 범위에 속하는 IP입니다. 이 IP는 앱이 VNet을 통해 리소스에 연결하는 데 사용합니다. 또한 설명된 주소 범위 내에서 변경할 수 있습니다. |
 | `WEBSITE_PRIVATE_PORTS` | 읽기 전용입니다. VNet 통합에서 앱에서 다른 노드와 통신하는 데 사용할 수 있는 포트를 보여줍니다. |
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 8940744c2f857064699180c24bc3b766bc7995f2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3404575f7eef3dc1c4f4784d255e0df6d569fd0f
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440225"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893693"
 ---
 # <a name="about-azure-cache-for-redis"></a>Azure Cache for Redis 소개
 
@@ -64,7 +64,7 @@ Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
 | [데이터 지속성](cache-how-to-premium-persistence.md) |-|-|✔|미리 보기|미리 보기|
 | [영역 중복](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
 | [지역에서 복제](cache-how-to-geo-replication.md) |-|-|✔|미리 보기|미리 보기|
-| [Redis 모듈](#choosing-the-right-tier) |-|-|-|✔|✔|
+| [Redis 모듈](#choosing-the-right-tier) |-|-|-|✔|-|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
 | [예약된 업데이트](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|

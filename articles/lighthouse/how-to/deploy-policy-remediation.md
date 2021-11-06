@@ -1,14 +1,14 @@
 ---
 title: 수정할 수 있는 정책 배포
 description: Azure Lighthouse를 통해 수정 작업을 사용하는 정책을 배포하려면 고객 테넌트에서 관리 ID를 만들어야 합니다.
-ms.date: 09/30/2021
+ms.date: 11/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 5783d753fabb7246914056139fb9a081b7684b9c
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8255519f1c7229aaff1eee88d93c2b2ea73ae7ce
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362261"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892232"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 
@@ -19,14 +19,14 @@ ms.locfileid: "129362261"
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>고객 테넌트에서 관리 ID에 역할을 할당할 수 있는 사용자 만들기
 
-Azure Lighthouse에 고객을 등록할 때 매개 변수 파일과 함께 [Azure Resource Manager 템플릿](onboard-customer.md#create-an-azure-resource-manager-template)을 사용하여 고객 테넌트에서 위임된 리소스에 액세스할 수 있는 권한 부여를 정의할 수 있습니다. 각 권한 부여는 관리 테넌트에서 Azure AD 사용자, 그룹 또는 서비스 주체에 해당하는 **principalId와** 부여될 [Azure 기본 제공 역할에](../../role-based-access-control/built-in-roles.md) 해당하는 **roleDefinitionId를** 지정합니다.
+Azure Lighthouse에 고객을 등록할 때 매개 변수 파일과 함께 [Azure Resource Manager 템플릿](onboard-customer.md#create-an-azure-resource-manager-template)을 사용하여 고객 테넌트에서 위임된 리소스에 액세스할 수 있는 권한 부여를 정의할 수 있습니다. 각 권한 부여는 관리 테 넌 트의 Azure AD 사용자, 그룹 또는 서비스 주체에 해당 하는 **Principalid** 및 부여할 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 에 해당 하는 **roleDefinitionId** 를 지정 합니다.
 
 **principalId** 가 고객 테넌트에서 관리 ID를 만들도록 허용하려면 해당 **roleDefinitionId** 를 **사용자 액세스 관리자** 로 설정해야 합니다. 이 역할은 일반적으로 지원되지 않지만 이 특정 시나리오에서 사용할 수 있습니다. 이 권한이 있는 사용자 계정은 관리 ID에 특정 기본 제공 역할을 하나 이상 할당할 수 있습니다. 이러한 역할은 **delegatedRoleDefinitionIds** 속성에서 정의되며 사용자 액세스 관리자 또는 소유자를 제외한 모든 [지원되는 Azure 기본 제공 역할](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)을 포함할 수 있습니다.
 
 고객이 등록된 후 이 권한 부여에서 만든 **principalId** 는 이러한 기본 제공 역할을 고객 테넌트의 관리 ID에 할당할 수 있습니다. 그러나 일반적으로 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 없습니다.
 
 > [!NOTE]
-> 테넌트 간 [역할 할당은](../../role-based-access-control/role-assignments-steps.md#step-5-assign-role) 현재 Azure Portal 아닌 API를 통해 수행해야 합니다.
+> 테 넌 트 간의 [역할 할당](../../role-based-access-control/role-assignments-steps.md#step-5-assign-role) 은 현재 Azure Portal가 아닌 api를 통해 수행 되어야 합니다.
 
 아래 예제에서는 사용자 액세스 관리자 역할을 보유하는 **principalId** 를 보여 줍니다. 이 사용자는 고객 테넌트에서 관리 ID에 두 개의 기본 제공 역할(참가자 및 Log Analytics 참가자)을 할당할 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Lighthouse에 고객을 등록할 때 매개 변수 파일과 함께 [Azur
 
 예를 들어, 이 [샘플](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring)에 설명된 대로 고객 테넌트에서 Azure Key Vault 리소스에서 진단을 사용하도록 설정하려고 한다고 가정합니다. 위에서 설명한 것처럼 적절한 권한이 있는 관리 테넌트의 사용자는 이 시나리오를 활성화하기 위해 [Azure Resource Manager 템플릿](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json)을 배포합니다.
 
-위임된 구독과 함께 사용할 정책 할당을 만드는 작업은 현재 Azure Portal이 아닌 API를 통해 수행해야 합니다. 이렇게 할 때 **apiVersion은** 새 **delegatedManagedIdentityResourceId** 속성을 포함하는 **2020-10-01-preview** 로 설정되어야 합니다. 이 속성을 사용하면 고객 테넌트(Azure Lighthouse 온보딩된 구독 또는 리소스 그룹)에 상주하는 관리 ID를 포함할 수 있습니다.
+위임된 구독과 함께 사용할 정책 할당을 만드는 작업은 현재 Azure Portal이 아닌 API를 통해 수행해야 합니다. 이렇게 하려면 **apiVersion** 를  **2019-04-01-preview** 이상으로 설정 하 여 새 **delegatedManagedIdentityResourceId** 속성을 포함 해야 합니다. 이 속성을 사용 하면 고객 테 넌 트에 있는 관리 id (Azure Lighthouse에 등록 된 구독 또는 리소스 그룹)를 포함할 수 있습니다.
 
 다음 예제에서는 **delegatedManagedIdentityResourceId** 를 사용하는 역할 할당을 보여 줍니다.
 

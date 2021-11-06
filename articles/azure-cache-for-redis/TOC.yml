@@ -156,6 +156,8 @@
           href: cache-administration.md#schedule-updates
         - name: redis-cli.exe 액세스 구성
           href: cache-how-to-redis-cli-tool.md
+        - name: 영역 간 이동
+          href: cache-moving-resources.md
         - name: Azure Cache for Redis 이벤트 게시
           href: cache-event-grid.md
         - name: TLS 1.0 및 1.1 제거
@@ -204,7 +206,7 @@
       href: /powershell/module/az.rediscache
     - name: Azure CLI
       href: /cli/azure/redis
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/redis/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.cache/allversions

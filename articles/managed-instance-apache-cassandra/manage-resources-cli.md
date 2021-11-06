@@ -8,12 +8,12 @@ ms.date: 11/02/2021
 ms.author: thvankra
 ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021
 keywords: azure 리소스 관리자 cli
-ms.openlocfilehash: 955be9d99cb233e43450ed8f7f1bf23e2c28c09a
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 1cb28336c27a6f470a305917a267fc9c9320620a
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131849055"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892479"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli"></a>Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "131849055"
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> 이 문서를 진행하려면 Azure CLI 버전 2.17.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+> 이 문서에서는 Azure CLI 버전 2.30.0 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 >
 > Azure Resource Manager가 리소스 URI와 함께 작동하는 방식을 위반하므로 Apache Cassandra 리소스에 대한 Azure Managed Instance 관리의 이름을 바꿀 수 없습니다.
 

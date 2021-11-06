@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure CLI을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램 배포'
-description: Azure CLI를 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램을 배포 합니다.
+title: '자습서: Azure CLI 사용하여 Azure Container Apps에 Dapr 애플리케이션 배포'
+description: Azure CLI 사용하여 Azure Container Apps에 Dapr 애플리케이션을 배포합니다.
 services: app-service
 author: asw101
 ms.service: app-service
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cbca0dbd5449e5461e938d7c252c06f2ef0c18e3
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 194368627e18899521d45607d83dfaaad195ad8b
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578920"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893503"
 ---
-# <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-the-azure-cli"></a>자습서: Azure CLI을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램 배포
+# <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-the-azure-cli"></a>자습서: Azure CLI 사용하여 Azure Container Apps에 Dapr 애플리케이션 배포
 
-[6Apr](https://dapr.io/) (분산 응용 프로그램 런타임)는 복원 력, 상태 비저장 및 상태 저장 마이크로 서비스를 빌드하는 데 도움이 되는 런타임입니다. 이 자습서에서는 샘플 응용 프로그램을 Azure Container Apps에 배포 합니다.
+[Dapr(분산](https://dapr.io/) Application Runtime)은 복원력 있는 상태 비 상태 비지정 마이크로서비스를 빌드하는 데 도움이 되는 런타임입니다. 이 자습서에서는 샘플 Dapr 애플리케이션이 Azure Container Apps에 배포됩니다.
 
 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 컨테이너 앱에 대 한 컨테이너 앱 환경 만들기
-> * 컨테이너 앱에 대 한 Azure Blob Storage 상태 저장소 만들기
-> * 에서 메시지를 생성 하 고 소비 하며 상태 저장소를 사용 하 여 유지 하는 두 개의 앱을 배포 합니다.
-> * 두 마이크로 서비스 간의 상호 작용을 확인 합니다.
+> * 컨테이너 앱에 대한 Container Apps 환경 만들기
+> * 컨테이너 앱에 대한 Azure Blob Storage 상태 저장소 만들기
+> * 가 메시지를 생성하고 사용하는 두 개의 앱을 배포하고 상태 저장소를 사용하여 유지합니다.
+> * 두 마이크로 서비스 간의 상호 작용을 확인합니다.
 
-마이크로 서비스를 빌드할 때 Azure Container Apps는 완전히 관리 되는 버전의 Eapr Api를 제공 합니다. Azure Container Apps에서 Eapr를 사용 하는 경우 다양 한 기능을 제공 하는 마이크로 서비스 옆에 사이드카를 사용 하도록 설정할 수 있습니다. 사용 가능한 모든 Api [에는 서비스 간 호출](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [이벤트 바인딩](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [상태 저장소](https://docs.dapr.io/developing-applications/building-blocks/state-management/)및 [행위자](https://docs.dapr.io/developing-applications/building-blocks/actors/)가 포함 됩니다.
+Azure Container Apps는 마이크로서비스를 빌드할 때 완전히 관리되는 버전의 Dapr API를 제공합니다. Azure Container Apps에서 Dapr을 사용하는 경우 다양한 기능을 제공하는 마이크로 서비스 옆에 사이드카를 실행할 수 있습니다. 사용 가능한 Dapr API에는 [서비스 대 서비스 호출,](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/) [Pub/Sub,](https://docs.dapr.io/developing-applications/building-blocks/pubsub/) [이벤트 바인딩,](https://docs.dapr.io/developing-applications/building-blocks/bindings/) [상태 저장소](https://docs.dapr.io/developing-applications/building-blocks/state-management/)및 행위자 가 [포함됩니다.](https://docs.dapr.io/developing-applications/building-blocks/actors/)
 
-이 자습서에서는 메시지를 생성 하는 클라이언트 (Python) 앱과 구성 된 상태 저장소에 이러한 메시지를 사용 하 고 유지 하는 서비스 (노드) 앱으로 구성 된 [헬로 월드](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) 빠른 시작에서 동일한 응용 프로그램을 배포 합니다. 다음 아키텍처 다이어그램에서는이 자습서를 구성 하는 구성 요소를 보여 줍니다.
+이 자습서에서는 메시지를 생성하는 클라이언트(Python) 앱과 구성된 상태 저장소에서 해당 메시지를 사용하고 유지하는 서비스(노드) 앱으로 구성된 Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) 빠른 시작에서 동일한 애플리케이션을 배포합니다. 다음 아키텍처 다이어그램에서는 이 자습서를 구성하는 구성 요소를 보여 줍니다.
 
-:::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Azure Container Apps의 4Apr 헬로 월드 마이크로 서비스에 대 한 아키텍처 다이어그램":::
+:::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Azure Container Apps의 Dapr Hello World 마이크로서비스에 대한 아키텍처 다이어그램":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -39,7 +39,7 @@ ms.locfileid: "131578920"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 가이드에서는 다음과 같은 환경 변수를 사용 합니다.
+이 가이드에서는 다음 환경 변수를 사용합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -63,7 +63,7 @@ $STORAGE_ACCOUNT_CONTAINER="mycontainer"
 
 ---
 
-위의 코드 조각은 bash, zsh 또는 PowerShell을 사용 하 여 환경 변수를 설정 하는 데 사용할 수 있습니다.
+위의 조각은 bash, zsh 또는 PowerShell을 사용하여 환경 변수를 설정하는 데 사용할 수 있습니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -79,7 +79,7 @@ $STORAGE_ACCOUNT="<storage account name>"
 
 ---
 
-`STORAGE_ACCOUNT`에 대한 이름을 선택합니다. 이는 다음 단계에서 생성 됩니다. 계정 이름은 *Azure 내에서 고유* 해야 하며, 길이가 3 ~ 007e; 24 자 사이 여야 하며 숫자와 소문자만 포함할 수 있습니다. Storage
+`STORAGE_ACCOUNT`에 대한 이름을 선택합니다. 다음 단계에서 만들어집니다. Storage 계정 이름은 Azure *내에서 고유해야* 하며 길이가 3~24자 사이여야 하며 숫자와 소문자만 포함할 수 있습니다.
 
 ## <a name="setup"></a>설치 프로그램
 
@@ -101,7 +101,7 @@ az login
 
 ---
 
-업그레이드 명령을 통해 최신 버전의 CLI를 실행 하 고 있는지 확인 합니다.
+업그레이드 명령을 통해 최신 버전의 CLI를 실행하고 있는지 확인합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -135,7 +135,7 @@ az extension add `
 
 ---
 
-확장이 설치 되었으므로 `Microsoft.Web` 네임 스페이스를 등록 합니다.
+이제 확장이 설치되어 `Microsoft.Web` 네임스페이스를 등록합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -145,13 +145,13 @@ az provider register --namespace Microsoft.Web
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az provider register --namespace Microsoft.Web
 ```
 
 ---
 
-새 컨테이너 앱과 관련 된 서비스를 구성 하는 리소스 그룹을 만듭니다.
+리소스 그룹을 만들어 새 컨테이너 앱과 관련된 서비스를 구성합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -177,7 +177,7 @@ CLI가 업그레이드되고 새 리소스 그룹이 사용 가능해지면 컨�
 
 Azure Container Apps 환경은 컨테이너 앱 그룹 간의 격리 경계 역할을 합니다. 동일한 환경에 배포된 컨테이너 앱은 동일한 가상 네트워크에 배포되고 동일한 Log Analytics 작업 영역에 로그를 씁니다.
 
-Azure Log Analytics는 컨테이너 앱을 모니터링 하는 데 사용 되며 컨테이너 앱 환경을 만들 때 필요 합니다.
+Azure Log Analytics는 컨테이너 앱을 모니터링하는 데 사용되며 Container Apps 환경을 만들 때 필요합니다.
 
 다음 명령을 사용하여 새 Log Analytics 작업 영역을 만듭니다.
 
@@ -257,7 +257,7 @@ az containerapp env create `
 
 ### <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 
-다음 명령을 사용 하 여 새 Azure Storage 계정을 만듭니다.
+다음 명령을 사용하여 새 Azure Storage 계정을 만듭니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -283,13 +283,13 @@ az storage account create `
 
 ---
 
-Azure Blob Storage 계정을 만든 후에는이 자습서의 이후 단계에서 다음 값이 필요 합니다.
+Azure Blob Storage 계정이 만들어지면 이 자습서의 후속 단계에 다음 값이 필요합니다.
 
-* `storage_account_name``STORAGE_ACCOUNT`위에서 선택한 변수 값입니다.
+* `storage_account_name` 는 `STORAGE_ACCOUNT` 위에서 선택한 변수의 값입니다.
 
-* `storage_container_name` 위에서 정의한 값입니다 `STORAGE_ACCOUNT_CONTAINER` (예: `mycontainer` ). Azure Storage 계정에 아직 없는 경우에는이 이름을 사용 하 여 컨테이너를 만듭니다.
+* `storage_container_name` 는 위에서 `STORAGE_ACCOUNT_CONTAINER` 정의한 값입니다(예: `mycontainer` ). dapr은 Azure Storage 계정에 컨테이너가 없는 경우 이 이름으로 컨테이너를 만듭니다.
 
-다음 명령을 사용 하 여 저장소 계정 키를 가져옵니다.
+다음 명령을 통해 스토리지 계정 키를 얻습니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -315,7 +315,7 @@ echo $STORAGE_ACCOUNT_KEY
 
 ### <a name="configure-the-state-store-component"></a>상태 저장소 구성 요소 구성
 
-위의 단계에서 원본으로 사용 하는 속성을 사용 하 여 *구성 요소인 .yaml* 이라는 구성 파일을 만듭니다. 이 파일을 사용 하면 앱에서 사용자의 상태 저장소에 액세스할 수 있습니다. 다음 예제에서는 Azure Blob Storage 계정에 대해 구성 된 경우 *구성 요소. yaml* 파일을 표시 하는 방법을 보여 줍니다.
+위의 단계에서 원본으로 만든 속성을 사용하여 *components.yaml이라는* 구성 파일을 만듭니다. 이 파일을 사용하면 Dapr 앱이 상태 저장소에 액세스할 수 있습니다. 다음 예제에서는 Azure Blob Storage 계정에 대해 구성할 때 *components.yaml* 파일이 어떻게 표시되는지 보여 줍니다.
 
 ```yaml
 # components.yaml for Azure Blob storage component
@@ -334,17 +334,17 @@ echo $STORAGE_ACCOUNT_KEY
     value: <YOUR_STORAGE_CONTAINER_NAME>
 ```
 
-이 파일을 사용 하려면 대괄호 사이에 있는 자리 표시자 값을 `<>` 고유한 값으로 바꿔야 합니다.
+이 파일을 사용하려면 대괄호 사이의 자리 표시자 값을 `<>` 사용자 고유의 값으로 바꿔야 합니다.
 
 > [!NOTE]
-> 컨테이너 앱은 현재 기본 [Eapr 구성 요소 스키마](https://docs.dapr.io/operations/components/component-schema/)를 지원 하지 않습니다. 위의 예에서는 지원 되는 스키마를 사용 합니다.
+> Container Apps는 현재 네이티브 [Dapr 구성 요소 스키마 를](https://docs.dapr.io/operations/components/component-schema/)지원하지 않습니다. 위의 예제에서는 지원되는 스키마를 사용합니다.
 >
-> 프로덕션 등급 응용 프로그램에서 [비밀 관리](https://docs.dapr.io/operations/components/component-secrets) 지침에 따라 비밀을 안전 하 게 관리 합니다.
+> 프로덕션급 애플리케이션에서 비밀 [관리](https://docs.dapr.io/operations/components/component-secrets) 지침에 따라 비밀을 안전하게 관리합니다.
 
 
-## <a name="deploy-the-service-application-http-web-server"></a>서비스 응용 프로그램 배포 (HTTP 웹 서버)
+## <a name="deploy-the-service-application-http-web-server"></a>서비스 애플리케이션 배포(HTTP 웹 서버)
 
-*구성 요소인 yaml* 파일을 저장 한 디렉터리로 이동 하 고 아래 명령을 실행 하 여 서비스 컨테이너 앱을 배포 합니다.
+*components.yaml* 파일을 저장한 디렉터리로 이동하고 아래 명령을 실행하여 서비스 컨테이너 앱을 배포합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -384,12 +384,12 @@ az containerapp create `
 
 ---
 
-이 명령은 `--target-port 3000` `--dapr-app-id nodeapp` `--dapr-app-port 3000` 서비스 검색 및 호출을 위해 및로 구성 된 함께 제공 되는 사이드카와 함께 (앱의 포트)에 서비스 (노드) 앱 서버를 배포 합니다. 상태 저장소는 `--dapr-components ./components.yaml` 사이드카가 상태를 유지할 수 있도록 하는를 사용 하 여 구성 됩니다.
+이 명령은 서비스 검색 `--target-port 3000` 및 호출을 위해 및 로 구성된 함께 제공되는 Dapr 사이드카와 함께 서비스(노드) 앱 서버를 `--dapr-app-id nodeapp` (앱의 포트)에 `--dapr-app-port 3000` 배포합니다. 상태 저장소는 사이드카가 상태를 유지할 수 있도록 하는 를 사용하여 `--dapr-components ./components.yaml` 구성됩니다.
 
 
-## <a name="deploy-the-client-application-headless-client"></a>클라이언트 응용 프로그램 배포 (헤드리스 클라이언트)
+## <a name="deploy-the-client-application-headless-client"></a>클라이언트 애플리케이션(헤드리스 클라이언트) 배포
 
-클라이언트 컨테이너 앱을 배포 하려면 아래 명령을 실행 합니다.
+아래 명령을 실행하여 클라이언트 컨테이너 앱을 배포합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -421,33 +421,33 @@ az containerapp create `
 
 ---
 
-이 명령은 `pythonapp` 에 대 한 사이드카를 조회 하 고 안전 하 게 호출 하는 데 사용 되는 사이드카와 함께 실행 되는 배포 됩니다 `nodeapp` . 이 응용 프로그램은 헤드리스 응용 프로그램 이므로 `--target-port` 서버를 시작 하지 않으며 수신을 사용 하도록 설정 하지 않아도 됩니다.
+이 명령은 `pythonapp` 에 대한 Dapr 사이드카를 조회하고 안전하게 호출하는 데 사용되는 Dapr 사이드카와 함께 실행되는 를 `nodeapp` 배포합니다. 이 앱은 헤드리스이기 때문에 서버를 시작할 필요가 `--target-port` 없으며 수신을 사용하도록 설정할 필요도 없습니다.
 
 ## <a name="verify-the-result"></a>결과 확인
 
-### <a name="confirm-successful-state-persistence"></a>성공적인 상태 지 속성 확인
+### <a name="confirm-successful-state-persistence"></a>성공적인 상태 지속성 확인
 
-Azure Storage 계정의 데이터를 검토 하 여 서비스가 올바르게 작동 하는지 확인할 수 있습니다.
+Azure Storage 계정에서 데이터를 확인하여 서비스가 제대로 작동하는지 확인할 수 있습니다.
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com) 를 열고 저장소 계정으로 이동 합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com) 열고 스토리지 계정으로 이동합니다.
 
-1. 왼쪽에서 **컨테이너** 를 선택 합니다.
+1. 왼쪽에서 **컨테이너를** 선택합니다.
 
-1. **Mycontainer** 를 선택 합니다.
+1. **mycontainer** 를 선택합니다.
 
-1. 컨테이너에서 이름이 지정 된 파일을 볼 수 있는지 확인 합니다 `order` .
+1. 컨테이너에 라는 파일이 `order` 표시되는지 확인합니다.
 
-1. 파일을 클릭 합니다.
+1. 파일을 클릭합니다.
 
-1. **편집** 탭을 클릭 합니다.
+1. **편집** 탭을 클릭합니다.
 
-1. **새로 고침** 단추를 클릭 하 여 데이터가 자동으로 업데이트 되는 방식을 관찰 합니다.
+1. 새로 **고침** 단추를 클릭하여 데이터가 자동으로 업데이트하는 방법을 관찰합니다.
 
 ### <a name="view-logs"></a>로그 보기
 
-컨테이너 앱을 통해 기록 되는 데이터는 `ContainerAppConsoleLogs_CL` 사용자 지정 테이블의 Log Analytics 작업 영역에 저장 됩니다. Azure Portal 또는 CLI를 통해 로그를 볼 수 있습니다. 기록 된 데이터를 쿼리하려면 먼저 분석이 처음 도착할 때까지 몇 분 정도 기다려야 할 수 있습니다.
+컨테이너 앱을 통해 기록된 데이터는 `ContainerAppConsoleLogs_CL` Log Analytics 작업 영역의 사용자 지정 테이블에 저장됩니다. Azure Portal 또는 CLI를 통해 로그를 볼 수 있습니다. 기록된 데이터를 쿼리하기 전에 분석이 처음으로 도착할 때까지 몇 분 정도 기다려야 할 수 있습니다.
 
-다음 CLI 명령을 사용 하 여 명령줄에서 로그를 볼 수 있습니다.
+다음 CLI 명령을 사용하여 명령줄에서 로그를 봅니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -469,7 +469,7 @@ az monitor log-analytics query `
 
 ---
 
-다음 출력은 CLI 명령에서 예측할 응답 유형을 보여 줍니다.
+다음 출력에서는 CLI 명령에서 예상할 응답 형식을 보여 주는 출력입니다.
 
 ```console
 ContainerAppName_s    Log_s                            TableName      TimeGenerated
@@ -486,7 +486,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-완료 되 면 다음 명령을 실행 하 여 리소스 그룹을 삭제 하 여 컨테이너 앱 리소스를 정리 합니다.
+완료되면 다음 명령을 실행하여 컨테이너 앱 리소스를 정리하여 리소스 그룹을 삭제합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -504,12 +504,12 @@ az group delete `
 
 ---
 
-이 명령은 컨테이너 앱, 저장소 계정, 컨테이너 앱 환경 및 리소스 그룹의 다른 리소스를 모두 삭제 합니다.
+이 명령은 컨테이너 앱, 스토리지 계정, 컨테이너 앱 환경 및 리소스 그룹의 다른 리소스를 모두 삭제합니다.
 
 > [!NOTE]
-> `pythonapp` `nodeapp` 는 구성 된 상태 저장소에 유지 되는 메시지를 사용 하 여를 계속 호출 하므로 지속적으로 청구 가능한 작업을 방지 하기 위해 이러한 정리 단계를 완료 하는 것이 중요 합니다.
+> `pythonapp`구성된 상태 저장소에 유지되는 메시지를 사용하여 를 지속적으로 호출하기 때문에 `nodeapp` 지속적인 청구 가능 작업을 방지하려면 이러한 정리 단계를 완료하는 것이 중요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 수명 주기 관리](application-lifecycle-management.md)
+> [애플리케이션 수명 주기 관리](application-lifecycle-management.md)

@@ -7,22 +7,24 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 6088f87312215791ac815051b606606112160d19
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 4cf92148accf1d07aaafc0a1640de36e2884a9c5
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131859260"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893446"
 ---
 # <a name="customer-managed-keys---overview"></a>고객 관리형 키 - 개요
 
 Apache Cassandra용 Azure Managed Instance 사용자 고유의 키를 사용하여 디스크의 데이터를 암호화하는 기능을 제공합니다. 이 문서에서는 Azure Key Vault 사용하여 고객 관리형 키를 구현하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure Key Vault 사용하여 비밀을 설정합니다. [여기에서](/azure/key-vault/secrets/about-secrets)Azure Key Vault 대해 자세히 알아보세요.
 - 리소스 그룹에 가상 네트워크를 배포하고 Azure Cosmos DB 서비스 주체를 구성원으로 사용하여 네트워크 기여자 역할을 적용했습니다. 자세한 내용은 [Azure CLI 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance 만들기를](create-cluster-cli.md) 참조하세요. 
 
+> [!IMPORTANT]
+> 이 문서에는 Azure CLI 버전 2.30.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-cluster-with-system-assigned-identity"></a><a id="create-cluster"></a>시스템 할당 ID를 사용하여 클러스터 만들기
 

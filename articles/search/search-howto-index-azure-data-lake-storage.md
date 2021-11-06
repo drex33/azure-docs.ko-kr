@@ -2,17 +2,18 @@
 title: Azure Data Lake Storage Gen2의 데이터 인덱싱
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 콘텐츠와 메타데이터의 인덱싱을 자동화하도록 Azure Data Lake Storage Gen2 인덱서를 설정합니다.
-author: nitinme
-ms.author: nitinme
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 82999e8b30034b7322dba64cb464515754f84261
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 59b3d06af79d1b2c6f12f7dbb843ae31f203cab6
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023542"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894149"
 ---
 # <a name="index-data-from-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 데이터 인덱싱
 
@@ -20,7 +21,7 @@ ms.locfileid: "131023542"
 
 Azure Data Lake Storage Gen2는 Azure Storage를 통해 사용할 수 있습니다. Azure Storage 계정을 설정할 때 [계층 구조 네임스페이스](../storage/blobs/data-lake-storage-namespace.md)를 사용하도록 설정할 수 있습니다. 이를 통해 계정의 콘텐츠 컬렉션을 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성할 수 있습니다. 계층 구조 네임스페이스를 사용하도록 설정하여 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)를 활성화합니다.
 
-이 문서의 예제에서는 포털 및 REST Api를 사용 합니다. C #의 예제는 GitHub에서 [AZURE AD를 사용 하 여 인덱스 Data Lake Gen2](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) 를 참조 하세요.
+이 문서의 예제에서는 포털 및 REST API를 사용합니다. C#의 예제는 GitHub [Azure AD를 사용하여 Data Lake Gen2 인덱스를](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) 참조하세요.
 
 ## <a name="supported-access-tiers"></a>지원되는 액세스 계층
 
@@ -28,11 +29,11 @@ Data Lake Storage Gen2 [액세스 계층](../storage/blobs/access-tiers-overview
 
 ## <a name="access-control"></a>Access Control
 
-Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)와 POSIX 같은 ACL(액세스 제어 목록)을 모두 지원하는 [액세스 제어 모델](../storage/blobs/data-lake-storage-access-control.md)을 구현합니다. 액세스 제어 목록은 Azure Cognitive Search 시나리오에서 부분적으로 지원 됩니다.
+Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)와 POSIX 같은 ACL(액세스 제어 목록)을 모두 지원하는 [액세스 제어 모델](../storage/blobs/data-lake-storage-access-control.md)을 구현합니다. 액세스 제어 목록은 Azure Cognitive Search 시나리오에서 부분적으로 지원됩니다.
 
-+ Data Lake Storage Gen2의 콘텐츠에 대 한 인덱서 액세스에서 액세스 제어를 지원 합니다. 시스템 또는 사용자 할당 관리 id가 있는 검색 서비스의 경우 Azure Storage의 특정 파일 및 폴더에 대 한 인덱서 액세스를 결정 하는 역할 할당을 정의할 수 있습니다.
++ Data Lake Storage Gen2의 콘텐츠에 대한 인덱서 액세스에서 액세스 제어를 지원합니다. 시스템 또는 사용자 할당 관리 ID가 있는 검색 서비스의 경우 Azure Storage 특정 파일 및 폴더에 대한 인덱서 액세스를 결정하는 역할 할당을 정의할 수 있습니다.
 
-+ 인덱스에 대 한 문서 수준 사용 권한에 대 한 지원을 사용할 수 없습니다. 액세스 제어가 사용자별로 액세스 수준을 변경 하는 경우 해당 사용 권한을 검색 서비스의 검색 인덱스에 전달할 수 없습니다. 모든 사용자는 인덱스에서 검색 및 검색 가능한 모든 콘텐츠에 대 한 액세스 수준이 동일 합니다.
++ 인덱스에 대한 문서 수준 권한은 지원되지 않습니다. 액세스 제어가 사용자별로 액세스 수준을 변경하면 해당 사용 권한을 검색 서비스의 검색 인덱스로 전달할 수 없습니다. 모든 사용자는 인덱스의 검색 가능하고 검색 가능한 모든 콘텐츠에 대해 동일한 수준의 액세스 권한을 갖습니다.
 
 인덱스의 각 문서에 대한 액세스 제어를 유지하는 것이 중요한 경우에는 애플리케이션 개발자가 [보안 조정](./search-security-trimming-for-azure-search.md)을 구현하는 것이 중요합니다.
 
@@ -44,11 +45,11 @@ Azure Cognitive Search Blob 인덱서는 다음 문서 형식에서 텍스트를
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="indexing-through-the-azure-portal"></a>Azure Portal에서 인덱싱
+## <a name="indexing-through-the-azure-portal"></a>Azure Portal 통해 인덱싱
 
 Azure Portal은 Azure Data Lake Storage Gen2에서 데이터 가져오기를 지원합니다. Data Lake Storage Gen2에서 데이터를 가져오려면 Azure Portal에서 Azure Cognitive Search 서비스 페이지로 이동하여 **데이터 가져오기** 를 선택하고 **Azure Data Lake Storage Gen2** 를 선택한 다음 계속해서 데이터 가져오기 흐름을 따라 데이터 원본, 기술 세트, 인덱스 및 인덱서를 만듭니다.
 
-## <a name="indexing-with-the-rest-api"></a>REST API를 사용 하 여 인덱싱
+## <a name="indexing-with-the-rest-api"></a>REST API 인덱싱
 
 Data Lake Storage Gen2 인덱서는 REST API에서 지원됩니다. 데이터 원본, 인덱스 및 인덱서를 설정하려면 아래 지침을 따르세요.
 
@@ -99,7 +100,7 @@ SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다. �
 
 ### <a name="step-2---create-an-index"></a>2단계: 인덱스 만들기
 
-인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다. 모든 인덱서에서는 검색 인덱스 정의를 대상으로 지정해야 합니다. 다음 예에서는 [Create Index (REST API)](/rest/api/searchservice/create-index)를 사용 합니다. 
+인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다. 모든 인덱서에서는 검색 인덱스 정의를 대상으로 지정해야 합니다. 다음 예제에서는 [인덱스 만들기(REST API)](/rest/api/searchservice/create-index)를 사용합니다. 
 
 ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -123,7 +124,7 @@ SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다. �
 
 ### <a name="step-3---configure-and-run-the-indexer"></a>3단계 - 인덱서 구성 및 실행
 
-인덱스와 데이터 원본이 만들어지면 [인덱서를 만들](/rest/api/searchservice/create-indexer)준비가 된 것입니다.
+인덱스 및 데이터 원본이 만들어지면 [인덱서](/rest/api/searchservice/create-indexer)를 만들 준비가 된 것입니다.
 
 ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -140,7 +141,7 @@ SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다. �
     }
 ```
 
-이 인덱서는 즉시 실행 된 다음 2 시간 마다 [일정에 따라](search-howto-schedule-indexers.md) 실행 됩니다 (일정 간격이 "PT2H"로 설정 됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.
+이 인덱서가 즉시 실행된 다음 2시간마다 [일정에](search-howto-schedule-indexers.md) 따라 실행됩니다(일정 간격은 "PT2H"로 설정). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.
 
 <a name="DocumentKeys"></a>
 
@@ -267,11 +268,11 @@ api-key: [admin key]
 
 ## <a name="how-to-control-which-blobs-are-indexed"></a>인덱싱할 Blob을 제어하는 방법
 
-역할 할당, Blob의 파일 형식을 설정하거나 Blob 자체에서 속성을 설정하여 인덱서가 건너뛰도록 하여 인덱싱되는 Blob 및 건너뛰는 Blob을 제어할 수 있습니다.
+역할 할당, blob의 파일 형식을 설정 하거나 blob 자체의 속성을 설정 하 여 인덱서를 건너뛰고 인덱서를 건너뛸 blob을 제어할 수 있습니다.
 
 ### <a name="use-access-controls-and-role-assignments"></a>액세스 제어 및 역할 할당 사용
 
-시스템 또는 사용자 할당 관리 ID로 실행되는 인덱서에는 특정 파일 및 폴더에 대한 읽기 권한을 부여하는 읽기 권한자 또는 Storage Blob 데이터 판독기 역할의 멤버 자격이 있을 수 있습니다.
+시스템 또는 사용자 할당 관리 id에서 실행 되는 인덱서는 특정 파일 및 폴더에 대 한 읽기 권한을 부여 하는 판독기 또는 Storage Blob 데이터 판독기 역할의 멤버 자격이 있을 수 있습니다.
 
 ### <a name="include-specific-file-extensions"></a>특정 파일 확장명 포함
 
@@ -387,7 +388,7 @@ api-key: [admin key]
 
 ## <a name="see-also"></a>참고 항목
 
-+ [C# 샘플: Azure AD를 사용하여 Data Lake Gen2 인덱싱](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)
++ [C # 샘플: Azure AD를 사용 하 여 인덱스 Data Lake Gen2](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [인덱서 만들기](search-howto-create-indexers.md)
 + [Blob에 대한 AI 보강 개요](search-blob-ai-integration.md)

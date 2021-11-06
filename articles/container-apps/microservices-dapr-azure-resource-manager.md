@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4f8678dfd6871aa56a649c882b7b8636640bd3d4
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 8476ab0cd928d47b85506db7469e9040929ed936
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578276"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894194"
 ---
 # <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-an-arm-template"></a>자습서: ARM 템플릿을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램 배포
 
@@ -145,7 +145,7 @@ az provider register --namespace Microsoft.Web
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az provider register --namespace Microsoft.Web
 ```
 
@@ -617,4 +617,4 @@ az group delete `
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 수명 주기 관리](application-lifecycle-management.md)
+> [애플리케이션 수명 주기 관리](application-lifecycle-management.md)

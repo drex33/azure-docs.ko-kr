@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: mathoma
 ms.date: 09/21/2021
-ms.openlocfilehash: 2928ce1f58ddefce368a361b32fe65f9c79994cc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8dbe12ec428820f14cce427e4780ec4d5d4fd5c8
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630246"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893313"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>로그 재생 서비스(미리 보기)를 사용하여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -103,7 +103,7 @@ LRS에는 백업 파일에 대한 특정 명명 규칙이 필요하지 않습니
 - 백업 압축을 사용합니다.
 - Cloud Shell은 항상 최신 cdmlet 릴리스에 맞게 업데이트되므로 Cloud Shell을 사용해 스크립트를 실행합니다.
 - LRS을 시작한 후 36시간 이내에 마이그레이션을 완료하도록 계획합니다. 이는 시스템 관리 소프트웨어 패치를 설치할 수 없도록 하는 유예 기간입니다.
-- 개별 데이터베이스에 대한 모든 백업 파일을 단일 폴더에 배치합니다. 동일한 데이터베이스에 대 한 하위 폴더를 사용 하지 마십시오.
+- 개별 데이터베이스에 대한 모든 백업 파일을 단일 폴더에 배치합니다. 동일한 데이터베이스에 하위 폴더를 사용하지 마십시오.
 
 > [!IMPORTANT]
 > - 마이그레이션 프로세스가 완료될 때까지 LRS를 통해 복원되는 데이터베이스를 사용할 수 없습니다. 
@@ -382,9 +382,9 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 ```
 
 ### <a name="migration-of-multiple-databases"></a>여러 데이터베이스의 마이그레이션
-서로 다른 데이터베이스에 대 한 백업 파일을 Azure Blob Storage 컨테이너 내의 개별 폴더에 두어야 합니다. 단일 데이터베이스에 대 한 모든 백업 파일은 개별 데이터베이스에 대 한 하위 폴더를 포함 하지 않기 때문에 동일한 폴더 내에 배치 해야 합니다. LRS는 Azure Blob storage 컨테이너 및 개별 데이터베이스 폴더의 전체 URI 경로를 가리키는 각 데이터베이스에 대해 개별적으로 시작 해야 합니다.
+서로 다른 데이터베이스에 대한 백업 파일을 Azure Blob Storage 컨테이너 내의 별도 폴더에 배치해야 합니다. 단일 데이터베이스에 대한 모든 백업 파일은 개별 데이터베이스에 대한 하위 폴더가 없어야 하며 동일한 폴더 내에 배치되어야 합니다. Azure Blob Storage 컨테이너 및 개별 데이터베이스 폴더의 전체 URI 경로를 가리키는 각 데이터베이스에 대해 별도로 LRS를 시작해야 합니다.
 
-다음은 여러 데이터베이스에 대해 LRS를 호출할 때 필요한 폴더 구조 및 URI 사양의 예입니다. Azure Blob Storage 컨테이너 및 개별 데이터베이스 폴더에 대 한 전체 URI 경로를 지정 하 여 각 데이터베이스에 대해 개별적으로 LRS을 시작 합니다.
+다음은 여러 데이터베이스에 대해 LRS를 호출할 때 필요한 폴더 구조 및 URI 사양의 예입니다. 각 데이터베이스에 대해 별도로 LRS를 시작하여 Azure Blob Storage 컨테이너 및 개별 데이터베이스 폴더에 대한 전체 URI 경로를 지정합니다.
 
 ```URI
 -- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
@@ -405,9 +405,9 @@ LRS의 기능 제한 사항은 다음과 같습니다.
 - LRS를 사용하려면 `CHECKSUM` 옵션이 사용 설정된 상태에서 SQL Server의 데이터베이스가 백업되어야 합니다.
 - LRS에서 사용할 SAS 토큰은 전체 Azure Blob Storage 컨테이너에 대해 생성되어야 하며, 읽기 및 나열 권한만 있어야 합니다.
 - 서로 다른 데이터베이스에 대한 백업 파일은 Blob Storage에서 별도의 폴더에 있어야 합니다.
-- 파일 이름 에% 및 $ 문자를 포함 하는 백업 파일은 LRS에서 사용할 수 없습니다. 이러한 파일 이름 이름을 바꾸는 것이 좋습니다.
-- 개별 데이터베이스에 대 한 하위 폴더에 백업을 저장 하는 것은 지원 되지 않습니다. 단일 데이터베이스에 대 한 모든 백업은 단일 폴더의 루트에 배치 해야 합니다.
-- 여러 데이터베이스의 경우 각 데이터베이스에 대해 별도의 폴더에 백업 파일을 배치 해야 합니다. 개별 데이터베이스 폴더를 포함 하는 전체 URI 경로를 가리키는 각 데이터베이스에 대해 LRS을 별도로 시작 해야 합니다. 
+- 파일 이름에 % 및 $ 문자가 포함된 백업 파일은 LRS에서 사용할 수 없습니다. 이러한 파일 이름의 이름을 바꾸는 것이 좋습니다.
+- 개별 데이터베이스의 하위 폴더에 백업을 배치하는 것은 지원되지 않습니다. 단일 데이터베이스에 대한 모든 백업은 단일 폴더의 루트에 배치해야 합니다.
+- 여러 데이터베이스의 경우 백업 파일을 각 데이터베이스에 대한 별도의 폴더에 배치해야 합니다. 개별 데이터베이스 폴더를 포함하는 전체 URI 경로를 가리키는 각 데이터베이스에 대해 별도로 LRS를 시작해야 합니다. 
 - LRS는 단일 관리되는 인스턴스당 최대 100개의 동시 복원 프로세스를 지원할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -415,9 +415,9 @@ LRS의 기능 제한 사항은 다음과 같습니다.
 LRS 시작 후에는 모니터링 cmdlet(`get-azsqlinstancedatabaselogreplay` 또는 `az_sql_midb_log_replay_show`)을 사용하여 작업의 상태를 확인합니다. LRS가 시작되지 않고 오류가 발생하는 경우 가장 일반적인 문제를 확인합니다.
 
 - SQL Managed Instance의 기존 데이터베이스가 SQL Server에서 마이그레이션하려는 데이터베이스와 동일한 이름을 갖고 있나요? 데이터베이스 중 하나의 이름을 바꿔서 이 충돌을 해결합니다.
-- SQL Server에서 데이터베이스 백업이 `CHECKSUM` 옵션을 통해 이루어졌나요?
-- SAS 토큰에 대한 권한이 LRS에 대한 읽기 및 나열인가요?
-- `sv=2020-02-10...`으로 시작하는 콘텐츠를 포함하여 LRS에 대한 SAS 토큰에서 물음표(`?`) 이후 부분을 복사했나요? 
+- 옵션을 통해 SQL Server 데이터베이스 백업이 `CHECKSUM` 만들어졌나요?
+- SAS 토큰에 대한 사용 권한은 LRS에 대해서만 읽고 나열하나요?
+- 물음표() 뒤의 LRS에 대한 SAS 토큰을 복사했나요? `?` 콘텐츠가 다음과 같이 시작됩니다. `sv=2020-02-10...` ? 
 - SAS 토큰 유효 기간이 마이그레이션을 시작하고 완료하는 기간에 해당하나요? SQL Managed Instance 및 SAS 토큰에 사용되는 서로 다른 표준 시간대로 인해 불일치가 발생할 수 있습니다. SAS 토큰을 다시 생성하고 토큰의 유효 기간을 현재 날짜 전과 후로 늘립니다.
 - 데이터베이스 이름, 리소스 그룹 이름 및 관리 인스턴스 이름의 철자가 정확한가요?
 - 자동 완성 모드로 LRS를 시작한 경우, 지정된 마지막 백업 파일의 이름이 올바른가요?

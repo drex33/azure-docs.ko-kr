@@ -17,14 +17,20 @@ items:
   - name: 개념
     expanded: true
     items:
-      - name: IoT 데이터 흐름
+      - name: IoT 커넥터 데이터 흐름
         href: iot-data-flow.md
+      - name: IoT 커넥터 및 Azure Machine Learning Service
+        href: iot-connector-machine-learning.md
+      - name: IoT 커넥터 및 Microsoft Power BI
+        href: iot-connector-power-bi.md
+      - name: IoT 커넥터 및 Microsoft Teams
+        href: iot-connector-teams.md
   - name: 방법 가이드
     expanded: true
     items:
       - name: Azure IoT Hub를 통해 디바이스 데이터 수신
         href: device-data-through-iot-hub.md
-      - name: 장치 매핑 사용
+      - name: 디바이스 매핑 사용
         href: how-to-use-device-mapping-iot.md
       - name: FHIR 대상 매핑 사용
         href: how-to-use-fhir-mapping-iot.md

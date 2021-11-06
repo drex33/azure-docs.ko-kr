@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 대 한 VMware syslog 구성
 description: Azure VMware 솔루션 사설 클라우드에 대해 VMware syslog를 수집 하도록 진단 설정을 구성 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/24/2021
-ms.openlocfilehash: 2d7b2e2467c6d0d6dc0030a239edf2bd7abd9ade
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 48422f6c0769953cee20c373ade8b8056ff0fee7
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847029"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892776"
 ---
 # <a name="configure-vmware-syslogs-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 VMware syslog 구성
 
@@ -16,7 +16,7 @@ ms.locfileid: "131847029"
 
 이 문서에서는 Azure VMware 솔루션 사설 클라우드에 대해 VMware syslog를 수집 하도록 진단 설정을 구성 합니다. 저장소 계정에 syslog를 저장 하 여 vCenter 로그를 보고 진단 목적을 분석 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 VCenter 및 NSX Manager 인터페이스에 대 한 액세스 권한이 있는 Azure VMware 솔루션 사설 클라우드가 있는지 확인 합니다. 
 
@@ -52,7 +52,8 @@ VCenter 및 NSX Manager 인터페이스에 대 한 액세스 권한이 있는 Az
     1. **진단 설정** 의 대상 세부 정보에서 **이벤트 허브로 스트림을** 선택 합니다. 
     1. **이벤트 허브 네임 스페이스** 드롭다운 메뉴에서 로그를 보낼 위치를 선택 하 고,를 선택 하 고, **저장** 합니다.
     
-       :::image type="content" source="media/diagnostic-settings/stream-to-event-hub.png" alt-text="로그를 보낼 드릴 다운 경로를 보여 주는 스크린샷"::: 
+       :::image type="content" source="media/diagnostic-settings/stream-event-hub.png" alt-text="로그를 보낼 드릴 다운 경로를 보여 주는 스크린샷" lightbox="media/diagnostic-settings/stream-event-hub.png"::: 
+
 
 
 

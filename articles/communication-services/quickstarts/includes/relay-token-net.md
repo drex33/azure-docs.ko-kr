@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: shahen
-ms.openlocfilehash: df8298416c6acf159d9bdec13e5dfc50db54ed50
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: d41f9c56cfa9b2a41cb77355af8a35a0499adb7a
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "114471441"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893240"
 ---
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -31,7 +31,7 @@ ms.locfileid: "114471441"
 dotnet new console -o RelayTokenQuickstart
 ```
 
-1. 디렉터리를 새로 만든 앱 폴더로 변경하고 `dotnet build` 명령을 사용하여 애플리케이션을 컴파일합니다.
+2. 디렉터리를 새로 만든 앱 폴더로 변경하고 `dotnet build` 명령을 사용하여 애플리케이션을 컴파일합니다.
 
 ```console
 cd RelayTokenQuickstart
@@ -96,7 +96,7 @@ var client = new CommunicationIdentityClient(connectionString);
 Azure Communication Services는 경량 ID 디렉터리를 유지 관리합니다. `createUser` 메서드를 사용하여 고유한 `Id`가 있는 디렉터리에 새 항목을 만듭니다. 애플리케이션 사용자에게 매핑하여 수신된 ID를 저장합니다. 예를 들어 애플리케이션 서버의 데이터베이스에 저장합니다. ID는 나중에 액세스 토큰을 발급하는 데 필요합니다.
 
 ```csharp
-var identityResponse = await client.CreateUserAsync();
+var identityResponse = await client.CreateUserAsync().Result;
 var identity = identityResponse.Value;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
@@ -108,18 +108,18 @@ Azure Communication 토큰 서비스를 호출하여 TURN 서비스 토큰의 �
 ```csharp
 var relayClient = new CommunicationRelayClient("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
-Response<CommunicationRelayConfiguration> turnTokenResponse = await relayClient.GetRelayConfigurationAsync(identity);
+Response<CommunicationRelayConfiguration> turnTokenResponse = await relayClient.GetRelayConfigurationAsync(identity).Result;
 DateTimeOffset turnTokenExpiresOn = turnTokenResponse.Value.ExpiresOn;
-IReadOnlyList<CommunicationTurnServer> turnServers = turnTokenResponse.Value.TurnServers;
+IReadOnlyList<CommunicationIceServer> iceServers = turnTokenResponse.Value.IceServers;
 Console.WriteLine($"Expires On: {turnTokenExpiresOn}");
-foreach (CommunicationTurnServer turnServer in turnServers)
+foreach (CommunicationIceServer iceServer in iceServers)
 {
-    foreach (string url in turnServer.Urls)
+    foreach (string url in iceServer.Urls)
     {
         Console.WriteLine($"TURN Url: {url}");
     }
-    Console.WriteLine($"TURN Username: {turnServer.Username}");
-    Console.WriteLine($"TURN Credential: {turnServer.Credential}");
+    Console.WriteLine($"TURN Username: {iceServer.Username}");
+    Console.WriteLine($"TURN Credential: {iceServer.Credential}");
 }
 ```
 

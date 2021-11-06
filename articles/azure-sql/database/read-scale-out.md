@@ -10,35 +10,35 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 09/23/2021
-ms.openlocfilehash: f5acdf621c04ba48664004bbb1f28ae1c0914fcb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/5/2021
+ms.openlocfilehash: ce039347c2fe06f061aecc4a01cd05e92c43ae74
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447040"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893268"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>읽기 전용 복제본을 사용하여 읽기 전용 쿼리 워크로드의 오프로드
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [고가용성 아키텍처](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)의 일부인 프리미엄 및 중요 비즈니스용 서비스 계층의 각 단일 데이터베이스, 탄력적 풀 데이터베이스, 관리형 인스턴스는 주 읽기-쓰기 복제본과 여러 보조 읽기 전용 복제본으로 자동으로 프로비저닝됩니다. 보조 복제본은 주 복제본과 동일한 컴퓨팅 크기로 프로비저닝됩니다. ‘읽기 확장’ 기능을 사용하면 읽기 전용 복제본에서 실행하는 대신 읽기 전용 복제본 중 하나의 컴퓨팅 용량을 사용하여 읽기 전용 워크로드를 오프로드할 수 있습니다. 이러한 방식으로 일부 읽기 전용 워크로드는 읽기-쓰기 워크로드에서 격리될 수 있으며 성능은 그대로 유지됩니다. 이 기능은 분석과 같이 논리적으로 격리된 읽기 전용 워크로드를 포함한 애플리케이션을 위한 것입니다. 프리미엄 및 중요 비즈니스용 서비스 계층에서 애플리케이션은 추가 비용 없이 이 추가 용량을 사용하여 성능상의 이점을 얻을 수 있습니다.
 
-*읽기 확장* 기능은 하나 이상의 [보조 복제본이](service-tier-hyperscale-replicas.md) 추가된 경우 하이퍼스케일 서비스 계층에서도 사용할 수 있습니다. 명명된 하이퍼스케일 보조 [복제본은](service-tier-hyperscale-replicas.md#named-replica-in-preview) 독립적인 크기 조정, 액세스 격리, 워크로드 격리, 대규모 읽기 확장 및 기타 이점을 제공합니다. 여러 보조 HA 복제본은 하나의 보조 [HA 복제본에서](service-tier-hyperscale-replicas.md#high-availability-replica) 사용할 수 있는 것보다 더 많은 리소스가 필요한 읽기 전용 워크로드의 부하를 분산하는 데 사용할 수 있습니다. 
+*읽기 확장* 기능은 하나 이상의 [보조 복제본](service-tier-hyperscale-replicas.md) 이 추가 될 때 hyperscale 서비스 계층 에서도 사용할 수 있습니다. Hyperscale 보조 [복제본](service-tier-hyperscale-replicas.md#named-replica-in-preview) 은 독립적인 크기 조정, 액세스 격리, 워크 로드 격리, 대규모 읽기 확장 및 기타 혜택을 제공 합니다. 하나의 보조 HA 복제본에서 사용할 수 있는 것 보다 더 많은 리소스를 필요로 하는 부하 분산 읽기 전용 작업에는 여러 개의 보조 [ha 복제본](service-tier-hyperscale-replicas.md#high-availability-replica) 을 사용할 수 있습니다. 
 
-기본, 표준, 범용 서비스 계층의 고가용성 아키텍처에는 복제본이 포함되지 않습니다. 이러한 서비스 계층에서는 ‘읽기 확장’ 기능을 사용할 수 없습니다.
+기본, 표준, 범용 서비스 계층의 고가용성 아키텍처에는 복제본이 포함되지 않습니다. 이러한 서비스 계층에서는 ‘읽기 확장’ 기능을 사용할 수 없습니다. 그러나 [지역 복제본](active-geo-replication-overview.md) 은 이러한 서비스 계층에서 유사한 기능을 제공할 수 있습니다.
 
-다음 다이어그램에서는 Premium 및 중요 비즈니스용 데이터베이스와 관리되는 인스턴스의 기능을 보여 줍니다.
+다음 다이어그램에서는 Premium 및 중요 비즈니스용 데이터베이스와 관리 되는 인스턴스의 기능을 보여 줍니다.
 
 ![읽기 전용 복제본](./media/read-scale-out/business-critical-service-tier-read-scale-out.png)
 
 ‘읽기 확장’ 기능은 새 프리미엄, 중요 비즈니스용, 하이퍼스케일 데이터베이스에서 기본적으로 사용하도록 설정됩니다.
 
 > [!NOTE]
-> 읽기 확장은 항상 Managed Instance 중요 비즈니스용 서비스 계층 및 하나 이상의 보조 복제본이 있는 하이퍼스케일 데이터베이스에서 사용하도록 설정됩니다.
+> 읽기 확장은 Managed Instance의 중요 비즈니스용 서비스 계층 및 하나 이상의 보조 복제본이 있는 하이퍼 규모의 데이터베이스에서 항상 사용 하도록 설정 됩니다.
 
 SQL 연결 문자열이 `ApplicationIntent=ReadOnly`로 구성된 경우 해당 데이터베이스 또는 관리형 인스턴스의 읽기 전용 복제본으로 애플리케이션이 리디렉션됩니다. `ApplicationIntent` 속성을 사용하는 방법에 대한 자세한 내용은 [애플리케이션 의도 지정](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요.
 
-SQL 연결 문자열의 `ApplicationIntent` 설정에 관계없이 애플리케이션이 주 복제본에 연결되도록 하려면 데이터베이스를 만들 때 또는 구성을 변경할 때 읽기 확장을 명시적으로 사용 중지해야 합니다. 예를 들어 표준 또는 범용 계층에서 Premium 또는 중요 비즈니스용 데이터베이스를 업그레이드하고 모든 연결이 주 복제본으로 계속 이동하도록 하려면 읽기 스케일 아웃을 사용하지 않도록 설정합니다. 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [읽기 확장 사용 및 사용 안 함을 참조하세요.](#enable-and-disable-read-scale-out)
+SQL 연결 문자열의 `ApplicationIntent` 설정에 관계없이 애플리케이션이 주 복제본에 연결되도록 하려면 데이터베이스를 만들 때 또는 구성을 변경할 때 읽기 확장을 명시적으로 사용 중지해야 합니다. 예를 들어 표준 또는 일반 용도의 계층에서 Premium 또는 중요 비즈니스용로 데이터베이스를 업그레이드 하 고 모든 연결이 주 복제본으로 계속 진행 되도록 하려면 읽기 확장을 사용 하지 않도록 설정 합니다. 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [읽기 확장 사용 및 사용 안 함](#enable-and-disable-read-scale-out)을 참조 하세요.
 
 > [!NOTE]
 > 읽기 전용 복제본에서는 쿼리 저장소 및 SQL Profiler 기능이 지원되지 않습니다. 
@@ -85,9 +85,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 읽기 전용 복제본에 연결된 경우 DMV(동적 관리 뷰)는 복제본의 상태를 반영하며 모니터링 및 문제 해결을 위해 쿼리할 수 있습니다. 데이터베이스 엔진은 다양한 모니터링 데이터를 표시하기 위해 다양한 뷰를 제공합니다. 
 
-복제본 모니터링 및 문제 해결에 일반적으로 사용되는 보기는 다음과 같습니다.
+다음 뷰는 일반적으로 복제본 모니터링 및 문제 해결에 사용 됩니다.
 
-| Name | 목적 |
+| 속성 | 목적 |
 |:---|:---|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| CPU, 데이터 IO, 서비스 목표 한도와 관련된 로그 쓰기 사용률을 포함하여 지난 1시간 동안 리소스 사용률 메트릭을 제공합니다.|
 |[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| 데이터베이스 엔진 인스턴스에 대한 집계 대기 통계를 제공합니다. |
@@ -117,12 +117,12 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>읽기 전용 복제본에 대한 장기 실행 쿼리
 
-읽기 전용 복제본에서 실행되는 쿼리는 쿼리에서 참조된 개체(테이블, 인덱스, 통계 등)에 대한 메타데이터에 액세스해야 합니다. 드문 경우지만 쿼리가 읽기 전용 복제본의 동일한 개체에 대한 잠금을 보유하는 동안 주 복제본에서 개체 메타데이터가 수정되는 경우 쿼리는 주 복제본에서 읽기 전용 복제본으로 변경 내용을 적용하는 프로세스를 [차단할](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) 수 있습니다. 이러한 쿼리가 오랜 시간 동안 실행되는 경우 읽기 전용 복제본이 주 복제본과 동기화되지 않을 수 있습니다. 잠재적인 장애 조치(failover) 대상인 복제본(Premium 및 중요 비즈니스용 서비스 계층의 보조 복제본, 하이퍼스케일 HA 복제본 및 모든 지역 복제본)의 경우 장애 조치(failover)가 발생할 경우 데이터베이스 복구가 지연되어 예상보다 긴 가동 중지 시간이 발생합니다.
+읽기 전용 복제본에서 실행 되는 쿼리는 쿼리에서 참조 되는 개체의 메타 데이터 (테이블, 인덱스, 통계 등)에 액세스 해야 합니다. 드문 경우 지만 쿼리가 읽기 전용 복제본의 동일한 개체에 대 한 잠금을 보유 하는 동안 주 복제본에서 개체 메타 데이터를 수정 하면 쿼리는 주 복제본의 변경 내용을 읽기 전용 복제본에 적용 하는 프로세스를 [차단할](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) 수 있습니다. 이러한 쿼리가 오랜 시간 동안 실행되는 경우 읽기 전용 복제본이 주 복제본과 동기화되지 않을 수 있습니다. 잠재적인 장애 조치 (failover) 대상 복제본 (Premium 및 중요 비즈니스용 서비스 계층, 하이퍼 확장 HA 복제본 및 모든 지역 복제본)의 경우 장애 조치 (failover)가 발생 하는 경우 데이터베이스 복구를 지연 하 여 예상 가동 중지 시간 보다 오래 걸립니다.
 
-읽기 전용 복제본에서 장기 실행 쿼리로 인해 직접 또는 간접적으로 이러한 종류의 차단이 발생하는 경우 과도한 데이터 대기 시간 및 잠재적인 데이터베이스 가용성 영향을 방지하기 위해 자동으로 종료될 수 있습니다. 오류 1219, “높은 우선 순위 DDL 작업으로 인해 세션의 연결이 해제되었습니다.” 또는 오류 3947, “보조 컴퓨팅에서 다시 실행을 캐치업하지 못해 트랜잭션이 중단되었습니다. 트랜잭션을 다시 시도하세요.” 메시지가 세션에 표시됩니다.
+읽기 전용 복제본에 대 한 장기 실행 쿼리가 이러한 종류의 차단을 직접 또는 간접적으로 수행 하는 경우 과도 한 데이터 대기 시간과 잠재적 데이터베이스 가용성에 영향을 주지 않도록 자동으로 종료 될 수 있습니다. 오류 1219, “높은 우선 순위 DDL 작업으로 인해 세션의 연결이 해제되었습니다.” 또는 오류 3947, “보조 컴퓨팅에서 다시 실행을 캐치업하지 못해 트랜잭션이 중단되었습니다. 트랜잭션을 다시 시도하세요.” 메시지가 세션에 표시됩니다.
 
 > [!NOTE]
-> 읽기 전용 복제본에 대해 쿼리를 실행할 때 오류 3961, 1219 또는 3947이 발생하면 쿼리를 다시 시도합니다. 또는 장기 실행 쿼리가 보조 복제본에서 실행되는 동안 주 복제본에서 개체 메타데이터(스키마 변경, 인덱스 유지 관리, 통계 업데이트 등)를 수정하는 작업을 방지합니다.
+> 읽기 전용 복제본에 대해 쿼리를 실행할 때 오류 3961, 1219 또는 3947이 발생하면 쿼리를 다시 시도합니다. 또는 보조 복제본에서 장기 실행 쿼리가 실행 되는 동안 주 복제본에서 개체 메타 데이터 (스키마 변경, 인덱스 유지 관리, 통계 업데이트 등)를 수정 하는 작업을 방지 합니다.
 
 > [!TIP]
 > 프리미엄 및 중요 비즈니스용 서비스 계층에서 읽기 전용 복제본에 연결된 경우, [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV의 `redo_queue_size` 및 `redo_rate` 열을 사용하여 읽기 전용 복제본의 데이터 전파 대기 시간 지표로 제공되는 데이터 동기화 프로세스를 모니터링할 수 있습니다.
@@ -130,7 +130,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 ## <a name="enable-and-disable-read-scale-out"></a>읽기 확장 사용 설정 및 사용 중지
 
-읽기 확장은 프리미엄, 중요 비즈니스용, 하이퍼스케일 서비스 계층에서 기본적으로 사용하도록 설정되어 있습니다. 기본, 표준 또는 범용 서비스 계층에서는 읽기 확장을 사용하도록 설정할 수 없습니다. 읽기 확장은 0개의 보조 복제본으로 구성된 하이퍼스케일 데이터베이스에서 자동으로 비활성화됩니다.
+읽기 확장은 프리미엄, 중요 비즈니스용, 하이퍼스케일 서비스 계층에서 기본적으로 사용하도록 설정되어 있습니다. 기본, 표준 또는 범용 서비스 계층에서는 읽기 확장을 사용하도록 설정할 수 없습니다. 읽기 확장은 0 개의 보조 복제본으로 구성 된 Hyperscale 데이터베이스에서 자동으로 비활성화 됩니다.
 
 다음 방법을 사용하여 프리미엄 또는 중요 비즈니스용 서비스 계층의 단일 데이터베이스 및 탄력적 풀 데이터베이스에서 읽기 확장을 사용 중지하고 다시 사용 설정할 수 있습니다.
 

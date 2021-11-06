@@ -2,17 +2,18 @@
 title: 관리 ID를 사용하여 스토리지 계정에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법 알아보기
-author: nitinme
-ms.author: nitinme
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 20669c08b00e75ed7e1ec87b67f3f12269512e3b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d714c4cd1b507a8722bb6407fb991a2b158b72e6
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056132"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894377"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정
 
@@ -20,7 +21,7 @@ ms.locfileid: "131056132"
 
 시스템이 할당한 관리 ID나 사용자가 할당한 관리 ID(미리 보기)를 사용할 수 있습니다.
 
-이 문서에서는 인덱서 개념 및 구성에 익숙하다고 가정합니다. 인덱서가 익숙하지 않으면 다음 링크로 시작합니다.
+이 문서에서는 인덱서 개념 및 구성에 대해 잘 알고 있는 것으로 가정 합니다. 인덱서를 처음 접하는 경우 다음 링크를 사용 하 여 시작 합니다.
 
 * [인덱서 개요](search-indexer-overview.md)
 * [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)
@@ -29,9 +30,9 @@ ms.locfileid: "131056132"
 
 ## <a name="1---set-up-a-managed-identity"></a>1 - 관리 ID 설정
 
-다음 옵션 중 하나를 사용하여 Azure Cognitive Search 서비스에 대한 [관리 ID를](../active-directory/managed-identities-azure-resources/overview.md) 설정합니다. 
+다음 옵션 중 하나를 사용 하 여 Azure Cognitive Search 서비스에 대 한 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 설정 합니다. 
 
-검색 서비스는 기본 계층 이상이어야 합니다.
+검색 서비스는 기본 계층 이상 이어야 합니다.
 
 ### <a name="option-1---turn-on-system-assigned-managed-identity"></a>옵션 1 - 시스템이 할당한 관리 ID 켜기
 
@@ -59,7 +60,7 @@ ms.locfileid: "131056132"
 
 ID 속성은 유형과 하나 이상의 정규화된 사용자 할당 ID를 사용합니다.
 
-* **type** 은 ID 유형입니다. 유효한 값은 둘 다에 대해 "SystemAssigned", "UserAssigned" 또는 "SystemAssigned, UserAssigned"입니다. “None” 값은 검색 서비스에서 이전에 할당한 ID를 모두 지웁니다.
+* **type** 은 ID 유형입니다. 유효한 값은 "SystemAssigned", "UserAssigned" 또는 "SystemAssigned 됨, UserAssigned"입니다. “None” 값은 검색 서비스에서 이전에 할당한 ID를 모두 지웁니다.
 
 * **userAssignedIdentities** 에는 사용자가 할당한 관리 ID의 세부 정보가 포함됩니다. 형식:
 
@@ -67,7 +68,7 @@ ID 속성은 유형과 하나 이상의 정규화된 사용자 할당 ID를 사�
     /subscriptions/<your-subscription-ID>/resourcegroups/<your-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-managed-identity-name>
   ```
 
-사용자 할당 관리 ID 할당의 예:
+사용자 할당 관리 id 할당의 예:
 
 ```http
 PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
@@ -94,7 +95,7 @@ Content-Type: application/json
 
 ## <a name="2---add-a-role-assignment"></a>2 - 역할 할당 추가
 
-이 단계에서는 스토리지 계정에서 데이터를 읽을 수 있는 Azure Cognitive Search 서비스 또는 사용자 할당 관리 ID 권한을 부여합니다.
+이 단계에서는 Azure Cognitive Search 서비스 또는 사용자 할당 관리 id에 저장소 계정에서 데이터를 읽을 수 있는 권한을 부여 합니다.
 
 1. Azure Portal에서 인덱싱하려는 데이터가 포함된 스토리지 계정으로 이동합니다.
 
@@ -122,7 +123,7 @@ Content-Type: application/json
 
     ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
 
-C#의 코드 예제는 GitHub [Azure AD를 사용하여 Data Lake Gen2 인덱스를](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) 참조하세요.
+C #의 코드 예제는 GitHub에서 [AZURE AD를 사용 하 여 인덱스 Data Lake Gen2](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) 를 참조 하세요.
 
 ## <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 

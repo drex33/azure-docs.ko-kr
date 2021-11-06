@@ -10,12 +10,12 @@ metadata:
   ms.topic: how-to
   ms.date: 07/20/2020
   ms.author: sebansal
-  ms.openlocfilehash: 7341cad11d049217d282eb1e2c5c80aea0271ff2
-  ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-  ms.translationtype: HT
+  ms.openlocfilehash: 6b7893e84dce9b5fa7bf7993dfa5f145363811f1
+  ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/15/2021
-  ms.locfileid: "112124807"
+  ms.lasthandoff: 11/06/2021
+  ms.locfileid: "131893104"
 title: Azure Key Vault 인증서 가져오기 FAQ
 summary: 이 문서에서 Azure Key Vault 인증서 가져오기에 대한 질문과 대답을 확인하세요.
 sections:
@@ -71,4 +71,7 @@ sections:
   - question: "Key Vault으로 가져온 App Service 인증서가 표시되지 않는 이유는 무엇인가요? \n"
     answer: >
       인증서를 성공적으로 가져온 경우 **비밀** 창으로 이동하여 확인할 수 있습니다.
+  - question: "어떻게 할까요? 단일 에서 인증서를 결합합니다. PEM 또는 . 전체 인증서 번들을 가져오는 PFX 파일은 Key Vault? \n"
+    answer: >
+      인증 기관은 인증서를 개별적으로(루트, 중간, 리프) 다운로드하거나 모든 인증서를 단일 파일에 다운로드하는 옵션을 제공할 수 있습니다. Key Vault 인증서를 가져오는 동안 하나의 인증서 또는 전체 체인을 가져올 수 있습니다.
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [Azure Key Vault 인증서](./about-certificates.md)"

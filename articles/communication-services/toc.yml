@@ -143,6 +143,8 @@ items:
         href: concepts/identity-model.md
       - name: 인증
         href: concepts/authentication.md
+      - name: Network Traversal
+        href: concepts/network-traversal.md
       - name: 개인 정보 취급 방침
         href: concepts/privacy.md
       - name: 가격 책정

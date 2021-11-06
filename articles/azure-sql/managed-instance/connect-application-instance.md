@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, vanto
 ms.date: 08/20/2021
-ms.openlocfilehash: a1cb62bce41ce0003628ce4223fe06e6587317f5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d4c86b555502d662e681fcb5904426a7a891883d
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250503"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893465"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>애플리케이션을 Azure SQL Managed Instance에 연결
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -143,7 +143,7 @@ Azure App Service를 SQL Managed Instance에 연결하는 특수한 경우는 SQ
 
 - 가상 네트워크 피어링을 사용하는 경우 [게이트웨이 전송 허용 및 원격 게이트웨이 사용](#connect-from-on-premises) 설정을 위한 지침을 따랐는지 확인합니다.
 
-- 가상 네트워크 피어링을 사용하여 Azure App Service에서 호스트된 애플리케이션을 연결하고 SQL Managed Instance 가상 네트워크에 공용 IP 주소 범위가 있는 경우 호스트된 애플리케이션 설정에서 아웃바운드 트래픽을 공용 IP 네트워크로 라우팅할 수 있도록 해야 합니다. [지역 가상 네트워크 통합](../../app-service/overview-vnet-integration.md#regional-vnet-integration)의 지침을 따릅니다.
+- 가상 네트워크 피어링을 사용하여 Azure App Service에서 호스트된 애플리케이션을 연결하고 SQL Managed Instance 가상 네트워크에 공용 IP 주소 범위가 있는 경우 호스트된 애플리케이션 설정에서 아웃바운드 트래픽을 공용 IP 네트워크로 라우팅할 수 있도록 해야 합니다. [지역 가상 네트워크 통합](../../app-service/overview-vnet-integration.md#regional-virtual-network-integration)의 지침을 따릅니다.
 
 ## <a name="required-versions-of-drivers-and-tools"></a>드라이버 및 도구의 필요한 버전
 

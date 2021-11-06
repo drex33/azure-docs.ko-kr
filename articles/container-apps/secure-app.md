@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3de81d40065a37f3d8443594621a2dec99120017
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 6c5fe92da4eb891ab1d5b264ff1585730352db36
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578939"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894168"
 ---
 # <a name="secure-an-app-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 앱 보호
 
@@ -83,7 +83,7 @@ az containerapp create \
 - 매개 변수는 쉼표로 구분된 이름/값 쌍 집합을 허용합니다.
 - 각 쌍은 `=` 등호()로 구분됩니다.
 
-```powershell
+```azurecli
 az containerapp create `
   --resource-group "my-resource-group" `
   --name queuereader `
@@ -134,7 +134,7 @@ az containerapp create \
 
 이 예제에서는 Azure CLI 사용하여 환경 변수에서 참조되는 비밀이 있는 애플리케이션을 만듭니다.
 
-```powershell
+```azurecli
 az containerapp create `
   --resource-group "my-resource-group" `
   --name myQueueApp `

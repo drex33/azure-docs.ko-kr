@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/21/2021
-ms.openlocfilehash: 2b1d99beea620d0e88705d76df05f52af0c26f89
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.date: 11/05/2021
+ms.openlocfilehash: a01d1e0da99da4b662b85e1774c201e9adc56cf1
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554871"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893067"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -48,6 +48,8 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
 
 - 프라이빗 AKS 클러스터를 사용하려면(Azure Private Link 사용) 먼저 클러스터를 만든 다음, 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [프라이빗 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조하세요.
 
+- Azure Machine learning [에서는 개인 AKS 클러스터와 함께 공용 FQDN (정규화 된 도메인 이름)](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-fqdn) 을 사용할 __수 없습니다__ . 
+
 - AKS 클러스터에 대한 컴퓨팅 이름은 Azure ML 작업 영역 내에서 고유해야 합니다. 문자, 숫자 및 대시를 포함할 수 있습니다. 문자로 시작하여 문자 또는 숫자로 끝나야 하며, 길이는 3~24자여야 합니다.
  
  - 모델을 **GPU** 노드 또는 **FPGA** 노드(또는 특정 SKU)에 배포하려면 특정 SKU를 사용하여 클러스터를 만들어야 합니다. 보조 노드 풀을 기존 클러스터에 만들고 모델을 이 보조 노드 풀에 배포하는 것은 지원되지 않습니다.
@@ -57,7 +59,7 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
     > [!IMPORTANT]
     > __개발-테스트__ 클러스터는 프로덕션 수준 트래픽에 적합하지 않으며, 추론 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장하지 않습니다.
 
-- 클러스터를 만들거나 연결할 때 클러스터가 __프로덕션__ 에 사용될 경우 __3개__ 이상의 노드를 포함해야 합니다. 개발 __테스트__ 클러스터의 경우 노드가 1개 이상 포함되어야 합니다.
+- 클러스터를 만들거나 연결할 때 클러스터가 __프로덕션__ 에 사용 되는 경우 3 개 이상의 __노드__ 를 포함 해야 합니다. __개발-테스트__ 클러스터의 경우 노드를 하나 이상 포함 해야 합니다.
 
 - Azure Machine Learning SDK는 AKS 클러스터 크기 조정을 지원하지 않습니다. 클러스터 노드의 크기를 조정하려면 Azure Machine Learning 스튜디오에서 AKS 클러스터에 대한 UI를 사용합니다. 클러스터의 VM 크기가 아니라 노드 수만 변경할 수 있습니다. AKS 클러스터의 노드 크기를 조정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

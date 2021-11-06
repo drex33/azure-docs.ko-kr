@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 075e52647137841539e8db72a4c9fdae90bd8447
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: b956fa5847cce3f5fe85e91ea8e3846c47eabde7
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577026"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894035"
 ---
 # <a name="monitor-an-app-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 앱 모니터링
 
@@ -23,7 +23,7 @@ Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합
 
 [표준 출력(stdout) 또는 표준 오류(stderr) 스트림에](https://wikipedia.org/wiki/Standard_streams)쓸 때 Container Apps 로깅 에이전트는 각 메시지에 대한 로그를 작성합니다.
 
-메시지가 기록되면 다음 정보가 로그 테이블에 수집됩니다.
+메시지가 기록되면 로그 테이블에 다음 정보가 수집됩니다.
 
 | 속성 | 설명 |
 |---|---|
@@ -32,7 +32,7 @@ Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합
 | `ContainerGroupID` | |
 | `ContainerGroupName` | |
 | `ContainerImage` | |
-| `ContainerID` | 컨테이너의 고유 식별자입니다. 이 값을 사용하여 컨테이너 작동 중단을 식별할 수 있습니다. |
+| `ContainerID` | 컨테이너의 고유 식별자입니다. 이 값을 사용하여 컨테이너 충돌을 식별할 수 있습니다. |
 | `Stream` | `stdout`또는 가 `stderr` 로깅에 사용되는지 여부를 표시합니다. |
 | `EnvironmentName` | |
 
@@ -42,7 +42,7 @@ Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합
 
 | 데이터 형식 | Description |
 |---|---|
-| 한 줄의 텍스트 | 열에 텍스트가 `Log_s` 나타납니다. |
+| 텍스트 한 줄 | 열에 텍스트가 `Log_s` 나타납니다. |
 | 직렬화된 JSON | 데이터는 로깅 에이전트에 의해 구문 분석되고 JSON 개체 속성 이름과 일치하는 열에 표시됩니다. |
 
 ## <a name="viewing-logs"></a>로그 보기
@@ -84,7 +84,7 @@ az monitor log-analytics query \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az monitor log-analytics query `
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" `

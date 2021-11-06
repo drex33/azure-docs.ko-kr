@@ -4,16 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 6f7e7e9261eb0ea2969dbfb752426ca16dd3b33c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 270dbad3ea8b1fc76f147f967ee40d4d18924e68
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528359"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892874"
 ---
 이 기능은 쉽게 설정할 수 있지만 그렇다고 해서 환경에 문제가 발생하지 않는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 연결하려면 **도구** > **Kudu** 로 차례로 이동합니다. [sitename].scm.azurewebsites.net에서 Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드된 후 **디버그 콘솔** 탭으로 이동합니다. Azure Portal에서 호스트되는 콘솔에 연결하려면 앱에서 **도구** > **콘솔** 로 이동합니다.
 
 #### <a name="tools"></a>도구
+
 네이티브 Windows 앱에서 **ping**, **nslookup** 및 **tracert** 도구는 보안 제약 조건으로 인해 콘솔을 통해 작동하지 않습니다([사용자 지정 Windows 컨테이너](../articles/app-service/quickstart-custom-container.md)에서 작동). 공백을 채우기 위해 별도의 두 가지 도구가 추가되었습니다. DNS 기능을 테스트하기 위해 **nameresolver.exe** 라는 도구가 추가되었습니다. 구문은 다음과 같습니다.
 
 ```console
@@ -23,7 +24,7 @@ nameresolver.exe hostname [optional: DNS Server]
 nameresolver를 사용하여 앱이 의존하는 호스트 이름을 확인합니다. 이렇게 하면 DNS에 잘못 구성된 항목이 있는지 또는 DNS 서버에 대한 액세스가 없는지 테스트할 수 있습니다. 환경 변수 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 살펴보면 콘솔에서 앱이 사용하는 DNS 서버를 볼 수 있습니다.
 
 > [!NOTE]
-> nameresolver.exe는 현재 사용자 지정 Windows 컨테이너에서 작동하지 않습니다.
+> nameresolver.exe 도구는 현재 사용자 지정 Windows 컨테이너에서 작동 하지 않습니다.
 >
 
 다음 도구를 사용하여 호스트와 포트 조합에 대한 TCP 연결을 테스트할 수 있습니다. 이 도구는 **tcpping** 이라고 하며, 구문은 다음과 같습니다.
@@ -35,6 +36,7 @@ tcpping.exe hostname [optional: port]
 특정 호스트 및 포트에 연결할 수 있으면 **tcpping** 유틸리티에서 이를 알려줍니다. 호스트 및 포트 조합에서 수신 대기하는 애플리케이션이 있고 네트워크를 통해 앱에서 지정된 호스트 및 포트에 액세스할 수 있는 경우에만 성공으로 표시될 수 있습니다.
 
 #### <a name="debug-access-to-virtual-network-hosted-resources"></a>가상 네트워크에서 호스트되는 리소스에 대한 액세스 디버그
+
 특정 호스트와 포트에 앱이 도달하지 못하도록 방해할 만한 요소는 많이 있습니다. 대부분의 경우 다음 중 하나입니다.
 
 * **중간에 방화벽이 있음.** 중간에 방화벽이 있으면 TCP 시간 제한에 도달합니다. 이 경우 TCP 시간 제한은 21초입니다. **tcpping** 도구를 사용하여 연결을 테스트합니다. 방화벽 뒤에 있는 많은 항목으로 인해 TCP 시간 초과가 발생할 수 있지만 이 부분에서 시작하세요.
@@ -42,18 +44,20 @@ tcpping.exe hostname [optional: port]
 
 해당 항목이 문제에 응답하지 않는 경우 먼저 다음과 같은 사항을 확인합니다.
 
-**지역 VNet 통합**
-* 대상이 RFC1918 주소가 아니고 Route All이 활성화되어 있지 않나요?
+**지역 가상 네트워크 통합**
+
+* 대상이 RFC1918 주소가 아닌 주소 **를 사용할 수** 있나요?
 * 통합 서브넷에서 송신을 차단하는 NSG가 있나요?
 * Azure ExpressRoute 또는 VPN을 통하는 경우 온-프레미스 게이트웨이가 Azure로 트래픽을 다시 라우팅하도록 구성되어 있나요? 가상 네트워크의 엔드포인트에 연결할 수 있지만 온-프레미스에는 연결할 수 없는 경우 경로를 확인하세요.
-* 통합 서브넷에 대한 위임을 설정할 충분한 권한이 있나요? 지역 VNet 통합 구성 중에 통합 서브넷이 Microsoft.Web/serverFarms에 위임됩니다. VNet 통합 UI는 서브넷을 Microsoft.Web/serverFarms에 자동으로 위임합니다. 계정에 위임 설정을 위한 충분한 네트워킹 권한이 없는 경우 통합 서브넷에 특성을 설정하여 서브넷을 위임할 수 있는 사용자가 필요합니다. 통합 서브넷을 수동으로 위임하려면 Azure Virtual Network 서브넷 UI로 이동하여 Microsoft.Web/serverFarms에 대한 위임을 설정합니다.
+* 통합 서브넷에 대한 위임을 설정할 충분한 권한이 있나요? 지역 가상 네트워크 통합 구성 중에 통합 서브넷이 Microsoft 웹/serverFarms에 위임 됩니다. VNet 통합 UI는 서브넷을 Microsoft 웹/serverFarms에 자동으로 위임 합니다. 계정에 위임 설정을 위한 충분한 네트워킹 권한이 없는 경우 통합 서브넷에 특성을 설정하여 서브넷을 위임할 수 있는 사용자가 필요합니다. 통합 서브넷을 수동으로 위임하려면 Azure Virtual Network 서브넷 UI로 이동하여 Microsoft.Web/serverFarms에 대한 위임을 설정합니다.
 
-**필수 게이트웨이 VNet 통합**
+**게이트웨이-필요한 가상 네트워크 통합**
+
 * 지점과 사이트 간 주소 범위가 RFC 1918 범위(10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)에 있나요?
 * 게이트웨이가 포털에서 실행되고 있나요? 게이트웨이가 다운되어 있으면 다시 가동시킵니다.
-* 인증서가 동기화된 것으로 표시되거나 네트워크 구성이 변경된 것으로 의심되나요?  인증서가 동기화되지 않았거나 ASP와 동기화되지 않은 가상 네트워크 구성이 변경된 것으로 의심되는 경우 **네트워크 동기화** 를 선택합니다.
+* 인증서가 동기화된 것으로 표시되거나 네트워크 구성이 변경된 것으로 의심되나요? 인증서가 동기화되지 않았거나 ASP와 동기화되지 않은 가상 네트워크 구성이 변경된 것으로 의심되는 경우 **네트워크 동기화** 를 선택합니다.
 * VPN을 통하는 경우 온-프레미스 게이트웨이가 Azure로 트래픽을 다시 라우팅하도록 구성되어 있나요? 가상 네트워크의 엔드포인트에 연결할 수 있지만 온-프레미스에는 연결할 수 없는 경우 경로를 확인하세요.
-* 지점과 사이트 간 및 ExpressRoute를 모두 지원하는 공존 게이트웨이를 사용하려고 하나요? 공존 게이트웨이는 VNet 통합에서 지원되지 않습니다.
+* 지점과 사이트 간 및 ExpressRoute를 모두 지원하는 공존 게이트웨이를 사용하려고 하나요? 공존 게이트웨이는 가상 네트워크 통합에서 지원 되지 않습니다.
 
 특정 호스트:포트 조합에 대한 액세스를 차단하는 문제를 확인할 수 없기 때문에 네트워킹 문제를 디버깅하는 것은 어렵습니다. 몇 가지 원인은 다음과 같습니다.
 
@@ -66,17 +70,17 @@ tcpping.exe hostname [optional: port]
 
 앱이 실제로 사용하는 주소를 알 수 없습니다. 통합 서브넷 또는 지점과 사이트 간 주소 범위의 주소일 수 있으므로 전체 주소 범위의 액세스를 허용해야 합니다.
 
-추가적인 디버그 단계에는 다음 내용이 포함됩니다.
+추가 디버그 단계는 다음과 같습니다.
 
 * 가상 네트워크의 VM에 연결하고 이 위치에서 리소스 호스트:포트에 연결하려고 시도합니다. TCP 액세스를 테스트하려면 **test-netconnection** PowerShell 명령을 사용합니다. 구문은 다음과 같습니다.
-
-```powershell
-test-netconnection hostname [optional: -Port]
-```
+    
+    ```powershell
+    test-netconnection hostname [optional: -Port]
+    ```
 
 * VM에서 애플리케이션을 실행하고, **tcpping** 을 사용하여 앱에서 콘솔의 해당 호스트와 포트에 대한 액세스를 테스트합니다.
 
-#### <a name="on-premises-resources"></a>온-프레미스 리소스 ####
+#### <a name="on-premises-resources"></a>온-프레미스 리소스
 
 앱에서 온-프레미스 리소스에 연결할 수 없으면 가상 네트워크에서 리소스에 연결할 수 있는지 확인합니다. **test-netconnection** PowerShell 명령을 사용하여 TCP 액세스를 확인합니다. VM이 온-프레미스 리소스에 연결할 수 없는 경우 VPN 또는 ExpressRoute 연결이 제대로 구성되어 있지 않을 수 있습니다.
 
@@ -85,4 +89,4 @@ test-netconnection hostname [optional: -Port]
 * 온-프레미스 게이트웨이의 서브넷 또는 지점과 사이트 간 주소 범위에 사용자의 경로가 구성되어 있지 않습니다.
 * 네트워크 보안 그룹에서 지점과 사이트 간 IP 범위에 대한 액세스를 차단하고 있습니다.
 * 온-프레미스 방화벽에서 지점과 사이트 간 IP 범위의 트래픽을 차단하고 있습니다.
-* 지역 VNet 통합 기능을 사용하여 비 RFC 1918 주소에 연결하려고 합니다.
+* 지역 가상 네트워크 통합 기능을 사용 하 여 비 RFC 1918 주소에 연결 하려고 합니다.

@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 99f3bb2dc2095e8c9ae89afe78b4522dcdc23a07
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c954f411d14aaa0f33bf4a3423a67ae64204f932
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265365"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892861"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -70,14 +70,14 @@ Azure Functions는 두 종류의 가상 네트워크 통합을 지원합니다.
 
 Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 인프라를 사용합니다. 가상 네트워크 통합의 두 유형을 자세히 알아보려면 다음을 참조하세요.
 
-* [지역 가상 네트워크 통합](../app-service/overview-vnet-integration.md#regional-vnet-integration)
-* [게이트웨이 필요 가상 네트워크 통합](../app-service/overview-vnet-integration.md#gateway-required-vnet-integration)
+* [지역 가상 네트워크 통합](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
+* [게이트웨이 필요 가상 네트워크 통합](../app-service/overview-vnet-integration.md#gateway-required-virtual-network-integration)
 
-가상 네트워크 통합을 설정 하는 방법을 알아보려면 [Vnet 통합 사용](#enable-vnet-integration)을 참조 하세요.
+가상 네트워크 통합을 설정하는 방법을 알아보려면 [Vnet 통합 사용을 참조하세요.](#enable-vnet-integration)
 
 ## <a name="enable-vnet-integration"></a>VNet 통합 사용
 
-1. 함수 앱 포털에서 **네트워킹** 블레이드로 이동 합니다. **VNet 통합** 에서 **구성하려면 클릭** 을 선택하세요.
+1. 함수 앱 포털의 **네트워킹** 블레이드로 이동합니다. **VNet 통합** 에서 **구성하려면 클릭** 을 선택하세요.
 
 1. **VNet 추가** 를 선택합니다.
 
@@ -87,12 +87,12 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
     :::image type="content" source="./media/functions-networking-options/vnet-int-add-vnet-function-app.png" alt-text="VNet을 선택":::
 
-    * Premium 계획 함수는 지역 VNet 통합만 지원 합니다. VNet이 동일한 지역에 있는 경우 새 서브넷을 만들거나 비어 있는 기존 서브넷을 선택 합니다.
-    * 다른 지역에서 VNet을 선택하려면 사이트 간 사용이 프로비전된 VNet 게이트웨이가 필요합니다. 지역 간 VNet 통합은 전용 계획에 대해서만 지원 됩니다.
+    * Functions Premium 플랜은 지역 VNet 통합만 지원합니다. VNet이 동일한 지역에 있는 경우 새 서브넷을 만들거나 빈 기존 서브넷을 선택합니다.
+    * 다른 지역에서 VNet을 선택하려면 사이트 간 사용이 프로비전된 VNet 게이트웨이가 필요합니다. 지역 간 VNet 통합은 전용 계획에서만 지원됩니다.
 
-통합하는 동안에 앱이 다시 시작됩니다. 통합이 완료되면 통합된 VNet에 대한 세부 정보가 표시됩니다. 기본적으로 모두 라우팅은 사용 하도록 설정 되 고 모든 트래픽이 VNet으로 라우팅됩니다.
+통합하는 동안에 앱이 다시 시작됩니다. 통합이 완료되면 통합된 VNet에 대한 세부 정보가 표시됩니다. 기본적으로 모두 라우팅이 사용하도록 설정되고 모든 트래픽이 VNet으로 라우팅됩니다.
 
-개인 트래픽 ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) 트래픽)만 라우팅하도록 하려면 [app service 설명서](../app-service/overview-vnet-integration.md#application-routing)의 단계를 따르세요.
+프라이빗[트래픽(RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) 트래픽)만 라우팅하려면 [App Service 설명서](../app-service/overview-vnet-integration.md#application-routing)의 단계를 따르세요.
 
 ## <a name="regional-virtual-network-integration"></a>지역 가상 네트워크 통합
 
@@ -112,7 +112,7 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 * **경로 테이블(UDR)** : 통합 서브넷에 경로 테이블을 배치하여 원하는 위치에 아웃바운드 트래픽을 보낼 수 있습니다.
 
 > [!NOTE]
-> 모든 아웃바운드 트래픽을 VNet으로 라우팅하면 통합 서브넷에 적용되는 NSG 및 UDR이 적용됩니다. VNet을 통합 하는 경우 다른 곳에서 트래픽을 전달 하는 경로를 제공 하지 않는 한, 공용 IP 주소에 대 한 함수 앱의 아웃 바운드 트래픽은 앱 속성에 나열 된 주소에서 계속 전송 됩니다.
+> 모든 아웃바운드 트래픽을 VNet으로 라우팅하면 통합 서브넷에 적용되는 NSG 및 UDR이 적용됩니다. VNet이 통합되면 다른 곳에 트래픽을 보내는 경로를 제공하지 않는 한 함수 앱의 공용 IP 주소에 대한 아웃바운드 트래픽이 앱 속성에 나열된 주소에서 계속 전송됩니다.
 > 
 > 지역 VNet 통합은 포트 25를 사용할 수 없습니다.
 
@@ -143,7 +143,7 @@ VNet 통합은 전용 서브넷에 따라 다릅니다. 서브넷을 프로비�
 
 <sup>*</sup>어느 시점에서든 SKU 또는 크기를 스케일 업 또는 스케일 다운해야 한다고 가정합니다. 
 
-할당 후에는 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 정도로 충분히 큰 서브넷을 사용합니다. Functions Premium 계획의 서브넷 용량 문제를 방지하려면 Windows 256개의 주소가 있는 /24와 Linux의 경우 64개 주소가 있는 /26을 사용해야 합니다. 
+할당 후에는 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 정도로 충분히 큰 서브넷을 사용합니다. 함수 Premium 계획에 대 한 서브넷 용량과 관련 된 문제를 방지 하려면 Windows에 256 주소 및 Linux 용 64 주소가 있는/24를 사용 해야 합니다. 
 
 다른 플랜의 앱이 다른 플랜의 앱을 통해 이미 연결된 VNet에 도달하도록 하려면 기존 VNet 통합에서 사용 중인 서브넷과 다른 서브넷을 선택합니다.
 
@@ -151,26 +151,26 @@ VNet 통합은 전용 서브넷에 따라 다릅니다. 서브넷을 프로비�
 
 ### <a name="service-endpoints"></a>서비스 엔드포인트
 
-높은 수준의 보안을 제공하기 위해 서비스 엔드포인트를 사용하여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 지역 VNet 통합을 사용하면 함수 앱이 서비스 엔드포인트로 보호되는 Azure 서비스에 연결할 수 있습니다. 이 구성은 가상 네트워크 통합을 지원하는 모든 [요금제](functions-scale.md#networking-features)에서 지원됩니다. 서비스 엔드포인트 보안 서비스에 액세스하려면 다음을 수행해야 합니다.
+높은 수준의 보안을 제공하기 위해 서비스 엔드포인트를 사용하여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 지역 VNet 통합을 사용 하면 함수 앱이 서비스 끝점으로 보안이 유지 되는 Azure 서비스에 연결할 수 있습니다. 이 구성은 가상 네트워크 통합을 지원하는 모든 [요금제](functions-scale.md#networking-features)에서 지원됩니다. 서비스 엔드포인트 보안 서비스에 액세스하려면 다음을 수행해야 합니다.
 
-1. 특정 서브넷에 연결하도록 함수 앱과 지역 VNet 통합을 구성합니다.
+1. 특정 서브넷에 연결 하도록 함수 앱과 지역 VNet 통합을 구성 합니다.
 1. 대상 서비스로 이동하여 통합 서브넷에 대해 서비스 엔드포인트를 구성합니다.
 
 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
 ### <a name="network-security-groups"></a>네트워크 보안 그룹
 
-네트워크 보안 그룹을 사용하여 VNet의 리소스에 대한 인바운드 및 아웃바운드 트래픽을 차단할 수 있습니다. 지역 VNet 통합을 사용하는 앱은 [네트워크 보안 그룹을][VNETnsg] 사용하여 VNet 또는 인터넷의 리소스에 대한 아웃바운드 트래픽을 차단할 수 있습니다. 공용 주소에 대한 트래픽을 차단하려면 모두 라우팅을 사용하도록 설정된 VNet 통합이 있어야 합니다. NSG의 인바운드 규칙은 앱에 적용되지 않습니다. VNet 통합은 앱의 아웃바운드 트래픽에만 영향을 미치기 때문입니다.
+네트워크 보안 그룹을 사용하여 VNet의 리소스에 대한 인바운드 및 아웃바운드 트래픽을 차단할 수 있습니다. 지역 VNet 통합을 사용 하는 앱은 [네트워크 보안 그룹][VNETnsg] 을 사용 하 여 VNet 또는 인터넷의 리소스에 대 한 아웃 바운드 트래픽을 차단할 수 있습니다. 공용 주소에 대 한 트래픽을 차단 하려면 전체 경로와 VNet 통합이 사용 하도록 설정 되어 있어야 합니다. NSG의 인바운드 규칙은 앱에 적용되지 않습니다. VNet 통합은 앱의 아웃바운드 트래픽에만 영향을 미치기 때문입니다.
 
-앱에 대한 인바운드 트래픽을 제어하려면 액세스 제한 기능을 사용합니다. 통합 서브넷에 적용된 NSG는 통합 서브넷에 적용된 경로에 관계없이 적용됩니다. 함수 앱이 Route All이 사용하도록 설정된 VNet이고 통합 서브넷의 공용 주소 트래픽에 영향을 주는 경로가 없는 경우 모든 아웃바운드 트래픽은 여전히 통합 서브넷에 할당된 NSG의 적용을 받습니다. 모두 라우팅을 사용하도록 설정하지 않으면 NSG는 RFC1918 트래픽에만 적용됩니다.
+앱에 대한 인바운드 트래픽을 제어하려면 액세스 제한 기능을 사용합니다. 통합 서브넷에 적용된 NSG는 통합 서브넷에 적용된 경로에 관계없이 적용됩니다. 함수 앱이 모든 경로에 사용 하도록 설정 된 경로와 통합 된 VNet 인 경우 통합 서브넷의 공용 주소 트래픽에 영향을 주는 경로가 없으면 모든 아웃 바운드 트래픽은 여전히 통합 서브넷에 할당 된 NSGs에 적용 됩니다. 모든 경로를 사용 하도록 설정 하지 않은 경우 NSGs는 RFC1918 트래픽에만 적용 됩니다.
 
 ### <a name="routes"></a>경로
 
-경로 테이블을 사용하여 앱의 아웃바운드 트래픽을 원하는 위치로 라우팅할 수 있습니다. 기본적으로 경로 테이블은 RFC1918 대상 트래픽에만 영향을 줍니다. 모두 라우팅을 사용하도록 설정하면 모든 아웃바운드 호출이 영향을 받습니다. [모두 라우팅을](../app-service/overview-vnet-integration.md#application-routing) 사용하지 않도록 설정하면 프라이빗 트래픽(RFC1918)만 경로 테이블의 영향을 받습니다. 통합 서브넷에 설정된 경로는 인바운드 앱 요청에 대한 응답에 영향을 주지 않습니다. 일반적인 대상에는 방화벽 디바이스나 게이트웨이가 포함될 수 있습니다.
+경로 테이블을 사용하여 앱의 아웃바운드 트래픽을 원하는 위치로 라우팅할 수 있습니다. 기본적으로 경로 테이블은 RFC1918 대상 트래픽에만 영향을 줍니다. 모든 경로를 사용 하도록 설정 하면 모든 아웃 바운드 호출이 영향을 받습니다. [모든 경로](../app-service/overview-vnet-integration.md#application-routing) 를 사용 하지 않도록 설정 하면 RFC1918 (개인 트래픽)만 경로 테이블의 영향을 받습니다. 통합 서브넷에 설정된 경로는 인바운드 앱 요청에 대한 응답에 영향을 주지 않습니다. 일반적인 대상에는 방화벽 디바이스나 게이트웨이가 포함될 수 있습니다.
 
 모든 아웃바운드 트래픽을 온-프레미스로 라우팅하려면 경로 테이블을 사용하여 모든 아웃바운드 트래픽을 ExpressRoute 게이트웨이로 보낼 수 있습니다. 게이트웨이로 트래픽을 라우팅하는 경우에는 응답을 다시 보내도록 외부 네트워크에서 경로를 설정해야 합니다.
 
-BGP(Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. ExpressRoute 게이트웨이와 같은 항목의 BGP 경로가 있는 경우 앱 아웃바운드 트래픽이 영향을 받습니다. 기본적으로 BGP 경로는 RFC1918 대상 트래픽에만 영향을 줍니다. 함수 앱이 Route All과 통합된 VNet인 경우 모든 아웃바운드 트래픽은 BGP 경로의 영향을 받을 수 있습니다.
+BGP(Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. ExpressRoute 게이트웨이와 같은 항목의 BGP 경로가 있는 경우 앱 아웃바운드 트래픽이 영향을 받습니다. 기본적으로 BGP 경로는 RFC1918 대상 트래픽에만 영향을 줍니다. 함수 앱이 모든 경로를 사용 하는 VNet과 통합 된 VNet 인 경우 모든 아웃 바운드 트래픽은 BGP 경로의 영향을 받을 수 있습니다.
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS 프라이빗 영역 
 
@@ -178,7 +178,7 @@ BGP(Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Exp
 
 - 값이 `1`인 `WEBSITE_VNET_ROUTE_ALL`
 
-이 설정은 앱의 모든 아웃바운드 호출을 VNet으로 보내고 앱이 Azure DNS 프라이빗 영역에 액세스할 수 있도록 합니다. 이러한 설정을 통해 앱은 작업자 수준에서 DNS 프라이빗 영역을 쿼리하여 Azure DNS를 사용할 수 있습니다.  
+이 설정은 앱에서 VNet으로 모든 아웃 바운드 호출을 보내고 앱이 Azure DNS 개인 영역에 액세스할 수 있도록 합니다. 이러한 설정을 통해 앱은 작업자 수준에서 DNS 프라이빗 영역을 쿼리하여 Azure DNS를 사용할 수 있습니다.  
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
@@ -186,7 +186,7 @@ BGP(Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Exp
 
 * Azure DNS 프라이빗 영역과 통합합니다. VNet에 사용자 지정 DNS 서버가 없으면 자동으로 수행됩니다.
 * 앱에서 사용하는 DNS 서버에서 프라이빗 엔드포인트를 관리합니다. 이렇게 하려면 프라이빗 엔드포인트 주소를 알고 있어야 하며, A 레코드를 사용하여 해당 주소에 도달하려는 엔드포인트를 가리켜야 합니다.
-* Azure DNS 프라이빗 영역으로 전달하도록 자체 DNS 서버를 [구성합니다.](#azure-dns-private-zones)
+* 자체 DNS 서버를 [Azure DNS 개인 영역](#azure-dns-private-zones)으로 전달 하도록 구성 합니다.
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한 
 
@@ -198,7 +198,7 @@ BGP(Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Exp
 
 Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용할 수 있습니다. Azure Key Vault는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
 
-앱에 대해 가상 네트워크 통합이 구성된 경우 [Key Vault 참조를](../app-service/app-service-key-vault-references.md) 사용하여 네트워크 제한 자격 증명 모음에서 비밀을 검색할 수 있습니다.
+앱에 대해 가상 네트워크 통합이 구성 된 경우 [Key Vault 참조](../app-service/app-service-key-vault-references.md) 를 사용 하 여 네트워크 제한 자격 증명 모음에서 암호를 검색할 수 있습니다.
 
 ## <a name="virtual-network-triggers-non-http"></a>가상 네트워크 트리거(비 HTTP)
 
@@ -256,7 +256,7 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 
 아웃바운드 IP 제한은 프리미엄 계획, App Service 계획 또는 App Service Environment에서 사용할 수 있습니다. App Service Environment가 배포되는 가상 네트워크에 대한 아웃바운드 제한을 구성할 수 있습니다.
 
-프리미엄 계획 또는 App Service 계획에서 함수 앱과 가상 네트워크를 통합하는 경우 앱에서 기본적으로 인터넷에 아웃바운드 호출을 수행할 수 있습니다. 사용 하도록 설정 된 경로를 사용 하는 VNet과 함수 앱을 통합 하 여 모든 아웃 바운드 트래픽이 가상 네트워크로 전송 되도록 합니다 .이 경우 네트워크 보안 그룹 규칙을 사용 하 여 트래픽을 제한할 수 있습니다.
+프리미엄 계획 또는 App Service 계획에서 함수 앱과 가상 네트워크를 통합하는 경우 앱에서 기본적으로 인터넷에 아웃바운드 호출을 수행할 수 있습니다. 함수 앱을 Route All이 사용하도록 설정된 VNet과 통합하면 모든 아웃바운드 트래픽을 가상 네트워크로 보내도록 강제합니다. 여기서 네트워크 보안 그룹 규칙을 사용하여 트래픽을 제한할 수 있습니다.
 
 가상 네트워크를 사용하여 아웃바운드 IP를 제어하는 방법을 알아보려면 [자습서: Azure 가상 네트워크 NAT 게이트웨이를 사용하여 Azure Functions 아웃바운드 IP 제어](functions-how-to-use-nat-gateway.md)를 참조하세요. 
 

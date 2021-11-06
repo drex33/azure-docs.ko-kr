@@ -7,18 +7,18 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: f28b30be15ea4808490851b6fd29c642438a43f8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ef710559cb8d51b21e859bb08c50c5a2ed07b74c
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472659"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894206"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL - 단일 서버의 새로운 기능은 무엇인가요?
 
 [!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
-Azure Database for MySQL은 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 이 서비스는 [MySQL Community Edition](https://www.mysql.com/products/community/)(GPLv2 라이선스에서 사용 가능) 데이터베이스 엔진을 기반으로 하며 버전 5.6, 5.7 및 8.0을 지원합니다. [Azure Database for MySQL - 단일 서버](./overview.md#azure-database-for-mysql---single-server)는 데이터베이스 사용자 지정에 대한 최소한의 요구 사항으로 완전 관리형 데이터베이스 서비스를 제공하는 배포 모드입니다. 단일 서버 플랫폼은 최소한의 사용자 구성과 제어를 통해 패치, 백업, 고가용성 및 보안 등 대부분의 데이터베이스 관리 기능을 처리하도록 설계되었습니다.
+Azure Database for MySQL은 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 이 서비스는 [MySQL Community](https://www.mysql.com/products/community/) Edition(GPLv2 라이선스에서 사용 가능) 데이터베이스 엔진을 기반으로 하며 버전 5.6(사용 중지), 5.7 및 8.0을 지원합니다. [Azure Database for MySQL - 단일 서버](./overview.md#azure-database-for-mysql---single-server)는 데이터베이스 사용자 지정에 대한 최소한의 요구 사항으로 완전 관리형 데이터베이스 서비스를 제공하는 배포 모드입니다. 단일 서버 플랫폼은 최소한의 사용자 구성과 제어를 통해 패치, 백업, 고가용성 및 보안 등 대부분의 데이터베이스 관리 기능을 처리하도록 설계되었습니다.
 
 이 문서에서는 2021년 1월부터 Azure Database for MySQL - 단일 서버의 새로운 릴리스 및 기능을 요약합니다. 목록은 가장 최근의 업데이트가 먼저 있는 역방향 시간순으로 표시됩니다.
 

@@ -3,12 +3,12 @@ title: Bicep 파일 구조 및 구문
 description: 선언 구문을 사용하여 Bicep 파일의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.openlocfilehash: 7fa9126326bc1bc3922379c52a937013a33abd13
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f890f625abc4a6839cd090a49aa7e641ecef9145
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216317"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892024"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Bicep 파일의 구조 및 구문 이해
 
@@ -240,7 +240,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 }
 ```
 
-리소스 유형의 [인스턴스를 두 개 이상 배포](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md)하려면 `for` 식을 추가합니다. 식은 배열의 구성원을 반복할 수 있습니다.
+리소스 유형의 [인스턴스를 두 개 이상 배포](loops.md)하려면 `for` 식을 추가합니다. 식은 배열의 구성원을 반복할 수 있습니다.
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 740f1e3bd8c08ae7d1684613d1920cffd1bba619
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7000b403146f3468807582bb01ccaf05f8a70d0b
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129237304"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894595"
 ---
 Azure Functions에서 발생하는 오류는 다음 원본 중 하나에서 가져올 수 있습니다.
 
@@ -127,6 +127,23 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
         "delayInterval": "00:00:10"
     }
 }
+```
+
+함수에서 재시도 컨텍스트를 사용하는 python 샘플은 다음과 같습니다.
+
+```Python
+import azure.functions
+import logging
+
+
+def main(req: azure.functions.HttpRequest, context: azure.functions.Context) -> None:
+    logging.log(f'Current retry count: {context.retry_context.retry_count}')
+    
+    if context.retry_context.retry_count == context.retry_context.max_retry_count:
+        logging.log(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached")
+   
 ```
 
 # <a name="java"></a>[Java](#tab/java)
@@ -250,6 +267,23 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 }
 ```
 
+함수에서 재시도 컨텍스트를 사용하는 python 샘플은 다음과 같습니다.
+
+```Python
+import azure.functions
+import logging
+
+
+def main(req: azure.functions.HttpRequest, context: azure.functions.Context) -> None:
+    logging.log(f'Current retry count: {context.retry_context.retry_count}')
+    
+    if context.retry_context.retry_count == context.retry_context.max_retry_count:
+        logging.log(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached") 
+            
+```
+
 # <a name="java"></a>[Java](#tab/java)
 
 *function.json* 파일의 재시도 정책은 다음과 같습니다.
@@ -297,9 +331,9 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 |---------|---------|---------| 
 |전략|해당 없음|필수 요소. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
 |maxRetryCount|해당 없음|필수 요소. 함수 실행당 허용되는 최대 재시도 횟수입니다. `-1`은 무기한으로 재시도하는 것을 의미합니다.|
-|delayInterval|해당 없음|전략을 사용할 때 재시도 사이에 사용 되는 지연입니다 `fixedDelay` . 형식을 사용 하 여 문자열로 지정 `HH:mm:ss` 합니다.|
-|minimumInterval|해당 없음|전략을 사용 하는 경우 최소 재시도 지연 `exponentialBackoff` 입니다. 형식을 사용 하 여 문자열로 지정 `HH:mm:ss` 합니다.|
-|maximumInterval|해당 없음|`exponentialBackoff` 전략을 사용하는 경우 최대 재시도 지연 시간입니다. 형식을 사용 하 여 문자열로 지정 `HH:mm:ss` 합니다.| 
+|delayInterval|해당 없음|전략을 사용할 때 재시도 사이에 사용되는 `fixedDelay` 지연입니다. 형식의 문자열로 를 `HH:mm:ss` 지정합니다.|
+|minimumInterval|해당 없음|전략을 사용할 때 최소 재시도 `exponentialBackoff` 지연입니다. 형식의 문자열로 를 `HH:mm:ss` 지정합니다.|
+|maximumInterval|해당 없음|`exponentialBackoff` 전략을 사용하는 경우 최대 재시도 지연 시간입니다. 형식의 문자열로 를 `HH:mm:ss` 지정합니다.| 
 
 ### <a name="retry-limitations-during-preview"></a>미리 보기 중 재시도 제한 사항
 

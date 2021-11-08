@@ -1,19 +1,19 @@
 ---
 title: Azure Container Apps 미리 보기의 수정 버전
 description: Azure Container Apps에서 수정 버전을 만드는 방법 알아보기
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8b77ae0e43078b17c83de43ebc516bfeab9c5c13
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 543d0465e4fe16aafa911d486d2099259ac8a769
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579034"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026656"
 ---
 # <a name="revisions-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기의 수정 버전
 
@@ -48,7 +48,7 @@ ms.locfileid: "131579034"
 
 - 컨테이너 변경 내용
 - 크기 조정 규칙 추가 또는 업데이트
-- Dapr 설정 변경 내용
+- Dapr 설정 변경
 - 구성의 섹션에 영향을 주는 모든 변경 `template`
 
 ### <a name="application-scope-changes"></a>애플리케이션 범위 변경
@@ -64,10 +64,10 @@ ms.locfileid: "131579034"
 
 ## <a name="activation-state"></a>활성화 상태
 
-새 수정 버전은 비활성화하거나 컨테이너 앱을 설정하여 이전 수정 버전을 자동으로 비활성화할 때까지 활성 상태로 유지됩니다.
+새 수정 버전은 비활성화하거나 컨테이너 앱이 이전 수정 버전을 자동으로 비활성화하도록 설정할 때까지 활성 상태로 유지됩니다.
 
 - 비활성 수정 버전은 컨테이너 앱의 스냅샷 레코드로 특정 상태로 유지됩니다.
-- 비활성 수정에 대한 요금은 청구되지 않습니다.
+- 비활성 수정 버전에 대한 요금은 청구되지 않습니다.
 - 제거되기 전에 최대 100개의 수정 버전을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

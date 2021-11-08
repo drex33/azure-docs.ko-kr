@@ -1,19 +1,19 @@
 ---
 title: Azure Container Apps 환경 미리 보기
 description: Azure Container Apps에서 환경을 관리 하는 방법을 알아봅니다.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 07d54583b884c071708910daea45f3dcb94d14f3
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 122b172fc9fe2a66bae742f907d910cbccbf8fbc
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578314"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025801"
 ---
 # <a name="azure-container-apps-preview-environments"></a>Azure 컨테이너 앱 미리 보기 환경
 

@@ -482,7 +482,7 @@
               href: backup-azure-diagnostics-mode-data-model.md
     - name: Automation
       items:
-        - name: Azure Backup 자동화 사용
+        - name: 개요
           href: automation-backup.md
         - name: Azure Backup을 위한 기본 제공 Azure Policy
           items:

@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: 8f1710246158e953492fec23869ba91a77c78e60
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/06/2021
+ms.openlocfilehash: 2208c41ea49bae4ad3791a7e26f694e4cf4fbbd3
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177824"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997859"
 ---
 #  <a name="azure-web-pubsub-supported-json-websocket-subprotocol"></a>Azure Web PubSub 지원 JSON WebSocket 하위 프로토콜
      
@@ -54,11 +54,11 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
 {
     "type": "joinGroup",
     "group": "<group_name>",
-    "ackId" : 1 // optional
+    "ackId" : 1
 }
 ```
 
-* `ackId`는 선택 사항이며 이 명령 메시지의 증분 정수입니다. `ackId`가 지정되면 서비스에서 명령이 실행될 때 클라이언트에 [ack 응답 메시지](#ack-response)를 다시 보냅니다.
+* `ackId` 는 각 요청의 ID이며 고유해야 합니다. 서비스는 요청의 프로세스 결과를 알리기 위해 [ack 응답 메시지를](#ack-response) 보냅니다. 자세한 내용은 [AckId 및 Ack 응답에서](./concept-client-protocols.md#ackid-and-ack-response) 찾을 수 있습니다.
 
 ### <a name="leave-groups"></a>그룹 탈퇴
 
@@ -68,11 +68,11 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
 {
     "type": "leaveGroup",
     "group": "<group_name>",
-    "ackId" : 1 // optional
+    "ackId" : 1
 }
 ```
 
-* `ackId`는 선택 사항이며 이 명령 메시지의 증분 정수입니다. `ackId`가 지정되면 서비스에서 명령이 실행될 때 클라이언트에 [ack 응답 메시지](#ack-response)를 다시 보냅니다.
+* `ackId` 는 각 요청의 ID이며 고유해야 합니다. 서비스는 요청의 프로세스 결과를 알리기 위해 [ack 응답 메시지를](#ack-response) 보냅니다. 자세한 내용은 [AckId 및 Ack 응답에서](./concept-client-protocols.md#ackid-and-ack-response) 찾을 수 있습니다.
 
 ### <a name="publish-messages"></a>메시지 게시
 
@@ -82,15 +82,15 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
 {
     "type": "sendToGroup",
     "group": "<group_name>",
-    "ackId" : 1, // optional
+    "ackId" : 1,
     "noEcho": true|false,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
-* `ackId`는 선택 사항이며 이 명령 메시지의 증분 정수입니다. `ackId`가 지정되면 서비스에서 명령이 실행될 때 클라이언트에 [ack 응답 메시지](#ack-response)를 다시 보냅니다.
-* `noEcho`는 선택 사항입니다. True로 설정 된 경우이 메시지는 동일한 연결로 다시 에코 되지 않습니다. 설정 되지 않은 경우 기본값은 false입니다.
+* `ackId` 는 각 요청의 ID이며 고유해야 합니다. 서비스는 요청의 프로세스 결과를 알리기 위해 [ack 응답 메시지를](#ack-response) 보냅니다. 자세한 내용은 [AckId 및 Ack 응답에서](./concept-client-protocols.md#ackid-and-ack-response) 찾을 수 있습니다.
+* `noEcho`는 선택 사항입니다. true로 설정하면 이 메시지가 동일한 연결로 다시 에코되지 않습니다. 설정하지 않으면 기본값은 false입니다.
 * `dataType`은 `json`, `text`, `binary` 중 하나일 수 있습니다.
      * `json`: `data`는 JSON이 지원하는 모든 유형이 될 수 있으며 그대로 게시됩니다. `dataType`을 지정하지 않으면 기본값은 `json`입니다.
      * `text`: `data`는 문자열 형식이어야 하며 문자열 데이터가 게시됩니다.
@@ -102,7 +102,8 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
     "type": "sendToGroup",
     "group": "<group_name>",
     "dataType" : "text",
-    "data": "text data" 
+    "data": "text data",
+    "ackId": 1
 }
 ```
 
@@ -151,7 +152,8 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
     "type": "sendToGroup",
     "group": "<group_name>",
     "dataType" : "binary",
-    "data": "<base64_binary>"
+    "data": "<base64_binary>",
+    "ackId": 1
 }
 ```
 
@@ -175,10 +177,13 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
+
+* `ackId` 는 각 요청의 ID이며 고유해야 합니다. 서비스는 요청의 프로세스 결과를 알리기 위해 [ack 응답 메시지를](#ack-response) 보냅니다. 자세한 내용은 [AckId 및 Ack 응답에서](./concept-client-protocols.md#ackid-and-ack-response) 찾을 수 있습니다.
 
 `dataType`은 `text`, `binary`, `json` 중 하나일 수 있습니다.
 * `json`: 데이터는 JSON이 지원하는 모든 유형이 될 수 있으며 있는 그대로 게시됩니다. `dataType`을 지정하지 않으면 기본값은 `json`입니다.
@@ -190,6 +195,7 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "text",
     "data": "text data", 
 }
@@ -223,6 +229,7 @@ text data
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "json",
     "data": {
         "hello": "world"
@@ -260,6 +267,7 @@ ce-eventName: <event_name>
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "binary",
     "data": "base64_binary", 
 }
@@ -307,7 +315,7 @@ WebSocket 프레임은 텍스트 메시지 프레임의 경우 `text` 형식이�
     "ackId": 1, // The ack id for the request to ack
     "success": false, // true or false
     "error": {
-        "name": "NotFound|Forbidden|Timeout|InternalServerError",
+        "name": "Forbidden|InternalServerError|Duplicate",
         "message": "<error_detail>"
     }
 }

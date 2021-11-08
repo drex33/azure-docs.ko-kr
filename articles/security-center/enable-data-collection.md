@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/08/2021
+ms.date: 11/08/2021
 ms.author: memildin
-ms.openlocfilehash: 8d9fa0e724c20d0327d6b3907fee8e954deda41f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: de36239b769434fb9d3a61c70f0f79ed922687db
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131453101"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997536"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
 
@@ -29,7 +29,7 @@ Defender for Cloud를 시작하려면 Microsoft Azure에 대한 구독이 있어
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:          | **기능**: 자동 프로비저닝은 GA(일반 공급)입니다.<br>**에이전트 및 확장**: Azure VM용 Log Analytics 에이전트는 GA이고 Microsoft 종속성 에이전트는 미리 보기 상태이며, Kubernetes용 정책 추가 기능은 GA이고, 게스트 구성 에이전트는 미리 보기 상태입니다.  |
 | 가격 책정:                | Free                                                                                                                                                                                                                         |
-| 지원되는 대상: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure 머신<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc 머신<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes 노드<br>:::image type="icon" source="./media/icons/no-icon.png":::Virtual Machine Scale Sets |
+| 지원되는 대상: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure 머신<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc 머신<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes 노드<br>:::image type="icon" source="./media/icons/no-icon.png":::Virtual Machine Scale Sets |
 | 클라우드:                 | **기능**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure 중국 21Vianet<br>**에이전트 및 확장**:<br>Azure VM용 Log Analytics 에이전트는 모든 클라우드에서 사용할 수 있으며, Kubernetes용 정책 추가 기능은 모든 클라우드에서 사용할 수 있지만 게스트 구성 에이전트는 상업용 클라우드에서만 사용할 수 있습니다.  |
 |                         |                                                                                                                                                                                                                              |
 

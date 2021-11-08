@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a1653b9940f7b278d2d1a7e4b21bd2b9d57b9411
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 8e5f4e1a50b25fc9022444c25a2c1e091c5496e3
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474821"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997479"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -35,19 +35,19 @@ Azure Spring Cloud는 Azure Monitor, Application Insights 및 로그 분석을 �
 * Azure Spring Cloud는 완전한 TLS/SSL 및 인증서 관리를 제공합니다.
 * OpenJDK 및 Spring Cloud 런타임에 대한 중요 보안 패치는 가능한 한 빨리 Azure Spring Cloud에 적용됩니다.
 
-### <a name="how-does-azure-spring-cloud-host-my-applications"></a>내 애플리케이션을 호스트하는 Azure Spring Cloud 어떻게 할까요?
+### <a name="how-does-azure-spring-cloud-host-my-applications"></a>Azure 스프링 클라우드는 어떻게 응용 프로그램을 호스트 하나요?
 
-Azure Spring Cloud 각 서비스 인스턴스는 여러 작업자 노드가 있는 완전 전용 Kubernetes 클러스터에서 지원됩니다. Azure Spring Cloud 고가용성, 확장성, Kubernetes 버전 업그레이드 등을 포함하여 기본 Kubernetes 클러스터를 관리합니다.
+Azure 스프링 클라우드의 각 서비스 인스턴스는 여러 작업자 노드가 있는 완전히 전용 Kubernetes 클러스터에서 지원 됩니다. Azure 스프링 클라우드는 고가용성, 확장성, Kubernetes 버전 업그레이드 등을 포함 하 여 기본 Kubernetes 클러스터를 관리 합니다.
 
-Azure Spring Cloud 기본 Kubernetes 작업자 노드에서 애플리케이션을 지능적으로 예약합니다. 고가용성을 제공하기 위해 Azure Spring Cloud 서로 다른 노드에 2개 이상의 인스턴스가 있는 애플리케이션을 배포합니다.
+Azure 스프링 클라우드는 기본 Kubernetes 작업자 노드에서 응용 프로그램을 지능적으로 예약 합니다. 고가용성을 제공 하기 위해 Azure 스프링 클라우드는 서로 다른 노드에 2 개 이상의 인스턴스로 응용 프로그램을 배포 합니다.
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure Spring Cloud는 어떤 지역에서 사용할 수 있나요?
 
-미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 서부, 미국 서부 2, 서유럽, 북유럽, 영국 남부, 동남아시아, 오스트레일리아 동부, 캐나다 중부, 아랍에미리트 북부, 인도 중부, 한국 중부, 동아시아, 일본 동부, 남아프리카 공화국 북부 및 중국 동부 2(Mooncake). [자세한 내용](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 서 부, 미국 서 부 2, 유럽 서부, 북부 유럽, 영국 남부, 동남 아시아, 오스트레일리아 동부, 캐나다 중부, 아랍에미리트 북부, 인도 중부, 대한민국 중부, 동아시아, 일본 동부, 남아프리카 공화국 북부, 브라질 남부, 프랑스 중부 및 중국 동부 2 (Mooncake). [자세한 내용](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>지정된 지역 외부에 저장된 고객 데이터가 있나요?
 
-Azure Spring Cloud는 지역 서비스입니다. Azure Spring Cloud 모든 고객 데이터는 지정된 단일 지역에 저장됩니다. 지리적 위치 및 지역에 대한 자세한 내용은 [Azure의 데이터 보존](https://azure.microsoft.com/global-infrastructure/data-residency/)을 참조하세요.
+Azure Spring Cloud는 지역 서비스입니다. Azure 스프링 클라우드의 모든 고객 데이터는 지정 된 단일 지역에 저장 됩니다. 지리적 위치 및 지역에 대한 자세한 내용은 [Azure의 데이터 보존](https://azure.microsoft.com/global-infrastructure/data-residency/)을 참조하세요.
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure Spring Cloud의 알려진 제한 사항은 어떻게 되나요?
 
@@ -55,7 +55,7 @@ Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니�
 
 * `spring.application.name`은 각 애플리케이션을 만드는 데 사용되는 애플리케이션 이름으로 재정의됩니다.
 * `server.port`의 기본값은 포트 1025입니다. 다른 값이 적용되면 재정의됩니다. 또한 이 설정을 준수하고 코드에서 서버 포트를 지정하지 마십시오.
-* Azure Portal, Azure Resource Manager 템플릿 및 Terraform은 애플리케이션 패키지 업로드를 지원하지 않습니다. Azure CLI, Azure DevOps, Azure Spirng Cloud용 Maven 플러그 인, IntelliJ용 Azure Toolkit 및 Azure Spring Cloud Visual Studio Code 확장을 사용하여 애플리케이션 패키지를 업로드할 수 있습니다.
+* Azure Portal, Azure Resource Manager 템플릿 및 Terraform은 응용 프로그램 패키지 업로드를 지원 하지 않습니다. azure Spirng cloud에 대 한 Azure CLI, Azure DevOps, Maven 플러그 인, Azure Toolkit for IntelliJ 및 azure 스프링 클라우드의 Visual Studio Code 확장을 사용 하 여 응용 프로그램 패키지를 업로드할 수 있습니다.
 
 ### <a name="what-pricing-tiers-are-available"></a>어떤 가격 책정 계층을 사용할 수 있나요?
 
@@ -63,8 +63,8 @@ Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니�
 
 * Azure Spring Cloud는 기본 및 표준의 두 가지 가격 책정 계층을 제공합니다. 기본 계층은 개발/테스트 및 Azure Spring Cloud 사용을 대상으로 합니다. 표준 계층은 범용 프로덕션 트래픽을 실행하도록 최적화되어 있습니다. 제한 및 기능 수준 비교에 대한 자세한 내용은 [Azure Spring Cloud 가격 책정 정보](https://azure.microsoft.com/pricing/details/spring-cloud/)를 참조하세요.
 
-### <a name="whats-the-difference-between-service-binding-and-service-connector"></a>서비스 바인딩과 서비스 커넥터의 차이점은 무엇인가요?
-Service [Connector라는](/azure/service-connector/overview)새로운 Azure 전체 솔루션을 위해 서비스 바인딩에 대한 추가 기능을 적극적으로 개발하지 않습니다. 한편, 새 솔루션은 azure의 앱 호스팅 서비스(예: App Service)에서 일관된 통합 환경을 제공합니다. 반면에 MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage 등 가장 많이 사용되는 10개 이상의 대상 Azure 서비스를 지원하여 요구 사항을 더 잘 처리합니다. 서비스 커넥터는 현재 공개 미리 보기로 제공됩니다. 새로운 환경을 사용해 보시기 위해 초대합니다.
+### <a name="whats-the-difference-between-service-binding-and-service-connector"></a>서비스 바인딩과 서비스 커넥터 간의 차이점은 무엇 인가요?
+서비스 [커넥터](/azure/service-connector/overview)라는 새로운 Azure 기반 솔루션을 위해 서비스 바인딩에 대 한 추가 기능을 적극적으로 개발 하 고 있지 않습니다. 한편, 새 솔루션은 Azure의 앱 호스팅 서비스에서 App Service와 같은 일관 된 통합 환경을 제공 합니다. 반면, MySQL, SQL DB, Cosmos DB, postgres DB, Redis, Storage 등을 포함 하 여 10 + 가장 많이 사용 되는 대상 Azure 서비스를 지원 하기 시작 하 여 요구 사항을 더 잘 다룹니다. 서비스 커넥터는 현재 공개 미리 보기로 제공 되며 새 환경을 사용해 볼 수 있습니다.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
 

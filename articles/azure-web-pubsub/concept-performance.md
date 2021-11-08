@@ -3,15 +3,15 @@ title: Azure Web PubSub 서비스에 대한 성능 가이드
 description: Azure Web PubSub 서비스의 성능 및 벤치마크에 대한 개요입니다. 용량을 계획할 때 고려해야 할 주요 메트릭입니다.
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 11/08/2021
 ms.author: biqian
 author: bjqian
-ms.openlocfilehash: b27fa03f999e8f50f4f14c4ce1debd330c305d75
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: bfdba230408a25d7e463cf7c70ab84d0d5f8cf0f
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598480"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997555"
 ---
 # <a name="performance-guide-for-azure-web-pubsub-service"></a>Azure Web PubSub 서비스에 대한 성능 가이드
 

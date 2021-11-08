@@ -1,58 +1,58 @@
 ---
-title: 참조-Azure 웹 PubSub 지원 protobuf WebSocket 하위 프로토콜 `protobuf.webpubsub.azure.v1`
-description: 이 참조는 Azure 웹 PubSub 지원 WebSocket 하위 프로토콜을 설명 합니다 `protobuf.webpubsub.azure.v1` .
+title: 참조 - Azure Web PubSub 지원 protobuf WebSocket 하위 프로토콜 `protobuf.webpubsub.azure.v1`
+description: 이 참조는 Azure Web PubSub 지원 WebSocket 하위 프로토콜 에 대해 `protobuf.webpubsub.azure.v1` 설명합니다.
 author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.openlocfilehash: 045d7946a94ba9658dcdc235e1d30e36b4c4e09b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/08/2021
+ms.openlocfilehash: 8e801391e5ac2ebe2a4dee276f525885ff84f449
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626991"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997802"
 ---
-#  <a name="the-azure-web-pubsub-supported-protobuf-websocket-subprotocol"></a>Azure 웹 PubSub 지원 protobuf WebSocket 하위 프로토콜
+#  <a name="the-azure-web-pubsub-supported-protobuf-websocket-subprotocol"></a>Azure Web PubSub 지원 protobuf WebSocket 하위 프로토콜
      
 이 문서에서는 하위 프로토콜 `protobuf.webpubsub.azure.v1`을 설명합니다.
 
-클라이언트에서이 하위 프로토콜을 사용 하는 경우 나가는 데이터 프레임과 들어오는 데이터 프레임 모두 protobuf (프로토콜 버퍼) 페이로드가 필요 합니다.
+클라이언트가 이 하위 프로토콜을 사용하는 경우 나가는 데이터 프레임과 들어오는 데이터 프레임은 모두 프로토콜 버퍼(protobuf) 페이로드여야 합니다.
 
 ## <a name="overview"></a>개요
 
-하위 프로토콜을 `protobuf.webpubsub.azure.v1` 통해 클라이언트는 업스트림 서버에 대 한 왕복을 수행 하는 대신 게시-구독 (PubSub)을 직접 수행할 수 있습니다. 하위 프로토콜을 사용 하는 WebSocket 연결을 `protobuf.webpubsub.azure.v1` Pubsub WebSocket 클라이언트 라고 합니다.
+Subprotocol을 `protobuf.webpubsub.azure.v1` 사용하면 클라이언트가 업스트림 서버로 왕복하는 대신 게시-구독(PubSub)을 직접 수행할 수 있습니다. 하위 프로토콜과의 WebSocket 연결을 `protobuf.webpubsub.azure.v1` PubSub WebSocket 클라이언트라고 합니다.
 
-예를 들어 JavaScript에서 다음을 사용 하 여 protobuf 하위 프로토콜을 사용 하 여 PubSub WebSocket 클라이언트를 만들 수 있습니다.
+예를 들어 JavaScript에서는 다음을 사용하여 protobuf 하위 프로토콜을 사용하여 PubSub WebSocket 클라이언트를 만들 수 있습니다.
 
 ```js
 // PubSub WebSocket client
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.webpubsub.azure.v1');
 ```
 
-간단한 WebSocket 클라이언트의 경우 서버에는 클라이언트에서 이벤트를 처리 하는 *데 필요한* 역할이 있습니다. 간단한 WebSocket 연결은 항상 `message` 메시지를 보낼 때 이벤트를 트리거하고 항상 서버 쪽에 의존 하 여 메시지를 처리 하 고 다른 작업을 수행 합니다. 하위 프로토콜의 도움을 받아 `protobuf.webpubsub.azure.v1` 권한 있는 클라이언트는 [조인 요청](#join-groups) 을 사용 하 여 그룹에 연결 하 고 [게시 요청](#publish-messages) 을 직접 사용 하 여 그룹에 메시지를 게시할 수 있습니다. 또한 클라이언트는 [이벤트 요청](#send-custom-events) 을 사용 하 여 메시지가 속한 *이벤트* 를 사용자 지정 함으로써 다양 한 업스트림 이벤트 처리기로 메시지를 라우팅할 수 있습니다.
+간단한 WebSocket 클라이언트의 경우 서버는 클라이언트에서 이벤트를 처리하는 *데 필요한* 역할을 합니다. 간단한 WebSocket 연결은 메시지를 보낼 때 항상 `message` 이벤트를 트리거하며, 항상 서버 쪽을 사용하여 메시지를 처리하고 다른 작업을 수행합니다. 하위 프로토콜의 도움을 받아 권한 있는 `protobuf.webpubsub.azure.v1` 클라이언트는 [조인 요청을](#join-groups) 사용하여 그룹에 조인하고 게시 요청을 직접 사용하여 그룹에 메시지를 게시할 수 [있습니다.](#publish-messages) 클라이언트는 이벤트 [요청을](#send-custom-events) 사용하여 메시지가 속한 이벤트를 사용자 지정하여 메시지를 다양한 업스트림 *이벤트* 처리기로 라우팅할 수도 있습니다.
 
 > [!NOTE]
-> 현재 웹 PubSub 서비스는 [proto3](https://developers.google.com/protocol-buffers/docs/proto3)만 지원 합니다.
+> 현재 Web PubSub 서비스는 [proto3](https://developers.google.com/protocol-buffers/docs/proto3)만 지원합니다.
 
 ## <a name="permissions"></a>사용 권한
 
-PubSub WebSocket 클라이언트에 대 한 이전 설명에서 클라이언트는이 작업을 수행할 *권한이* 있는 경우에만 다른 클라이언트에 게시할 수 있음을 알게 되었을 것입니다. 클라이언트의 역할은 다음 표에 나열 된 대로 *초기* 권한을 결정 합니다.
+PubSub WebSocket 클라이언트에 대한 이전 설명에서 클라이언트는 권한이 *있는* 경우에만 다른 클라이언트에 게시할 수 있음을 알 수 있습니다. 클라이언트의 역할은 다음 표에 나열된 대로 *초기* 사용 권한을 결정합니다.
 
 | 역할 | 사용 권한 |
 |---|---|
 | 지정되지 않음 | 클라이언트는 이벤트 요청을 보낼 수 있습니다. |
-| `webpubsub.joinLeaveGroup` | 클라이언트는 모든 그룹에 참가 하거나 탈퇴할 수 있습니다. |
+| `webpubsub.joinLeaveGroup` | 클라이언트는 모든 그룹에 조인하거나 나갈 수 있습니다. |
 | `webpubsub.sendToGroup` | 클라이언트는 모든 그룹에 메시지를 게시할 수 있습니다. |
-| `webpubsub.joinLeaveGroup.<group>` | 클라이언트는 그룹에 참가 하거나 그룹을 벗어날 수 있습니다 `<group>` . |
+| `webpubsub.joinLeaveGroup.<group>` | 클라이언트는 그룹을 조인하거나 나갈 수 `<group>` 있습니다. |
 | `webpubsub.sendToGroup.<group>` | 클라이언트는 `<group>` 그룹에 메시지를 게시할 수 있습니다. |
 | | |
 
-서버 쪽은 REST Api 또는 서버 Sdk를 통해 동적으로 클라이언트의 사용 권한을 부여 하거나 해지할 수도 있습니다.
+또한 서버 쪽에서는 REST API 또는 서버 SDK를 통해 클라이언트의 권한을 동적으로 부여하거나 취소할 수 있습니다.
 
 ## <a name="requests"></a>요청
 
-모든 요청 메시지는 다음 protobuf 형식을 따릅니다.
+모든 요청 메시지는 다음 protobuf 형식을 준수합니다.
 
 ```protobuf
 syntax = "proto3";
@@ -69,23 +69,24 @@ message UpstreamMessage {
 
     message SendToGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
         MessageData data = 3;
     }
 
     message EventMessage {
         string event = 1;
         MessageData data = 2;
+        optional uint64 ack_id = 3;
     }
     
     message JoinGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 
     message LeaveGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 }
 
@@ -102,39 +103,39 @@ message MessageData {
 
 형식:
 
-`join_group_message.group`그룹 이름으로 설정 합니다.
+`join_group_message.group`그룹 이름으로 설정합니다.
 
-* `ackId`는 선택 사항입니다. 이 명령 메시지에 대 한 증분 정수입니다. 을 지정 하면 `ackId` 명령이 실행 될 때 서비스에서 [ack 응답 메시지](#ack-response) 를 클라이언트로 다시 보냅니다.
+* `ackId` 는 각 요청의 ID이며 고유해야 합니다. 서비스는 요청의 프로세스 결과를 알리기 위해 [ack 응답 메시지를](#ack-response) 보냅니다. 자세한 내용은 [AckId 및 Ack 응답에서](./concept-client-protocols.md#ackid-and-ack-response) 찾을 수 있습니다.
 
 ### <a name="leave-groups"></a>그룹 탈퇴
 
 형식:
 
-`leave_group_message.group`그룹 이름으로 설정 합니다.
+`leave_group_message.group`그룹 이름으로 설정합니다.
 
-* `ackId`는 선택 사항입니다. 이 명령 메시지에 대 한 증분 정수입니다. 을 지정 하면 `ackId` 명령이 실행 될 때 서비스에서 [ack 응답 메시지](#ack-response) 를 클라이언트로 다시 보냅니다.
+* `ackId` 는 각 요청의 ID이며 고유해야 합니다. 서비스는 요청의 프로세스 결과를 알리기 위해 [ack 응답 메시지를](#ack-response) 보냅니다. 자세한 내용은 [AckId 및 Ack 응답에서](./concept-client-protocols.md#ackid-and-ack-response) 찾을 수 있습니다.
 
 ### <a name="publish-messages"></a>메시지 게시
 
 형식:
 
-* `ackId`는 선택 사항입니다. 이 명령 메시지에 대 한 증분 정수입니다. 을 지정 하면 `ackId` 명령이 실행 될 때 서비스에서 [ack 응답 메시지](#ack-response) 를 클라이언트로 다시 보냅니다.
+* `ackId` 는 각 요청의 ID이며 고유해야 합니다. 서비스는 요청의 프로세스 결과를 알리기 위해 [ack 응답 메시지를](#ack-response) 보냅니다. 자세한 내용은 [AckId 및 Ack 응답에서](./concept-client-protocols.md#ackid-and-ack-response) 찾을 수 있습니다.
 
-`dataType` `protobuf` 설정 된에 따라, 또는 일 수 있는 `text` 암시적인가 있습니다 `binary` `data` `MessageData` . 수신자 클라이언트는를 사용 `dataType` 하 여 콘텐츠를 올바르게 처리할 수 있습니다.
+설정한 의 에 따라 , 또는 일 수 있는 암시적 가 `dataType` `protobuf` `text` `binary` `data` `MessageData` 있습니다. 수신기 클라이언트는 를 사용하여 콘텐츠를 올바르게 처리할 수 `dataType` 있습니다.
 
-* `protobuf`:를 설정 하는 경우 `send_to_group_message.data.protobuf_data` 암시적인 `dataType` 은 `protobuf` 입니다. `protobuf_data`[모든](https://developers.google.com/protocol-buffers/docs/proto3#any) 메시지 형식일 수 있습니다. 다른 모든 클라이언트는 protobuf SDK에 의해 deserialize 될 수 있는 protobuf 인코드된 이진 파일을 받습니다. 텍스트 기반 콘텐츠 (예:)만 지 원하는 클라이언트는 b a s e `json.webpubsub.azure.v1` 64로 인코딩된 이진 파일을 받습니다.
+* `protobuf`: 를 설정하는 경우 `send_to_group_message.data.protobuf_data` 암시적 `dataType` 는 `protobuf` 입니다. `protobuf_data` 는 [모든](https://developers.google.com/protocol-buffers/docs/proto3#any) 메시지 유형일 수 있습니다. 다른 모든 클라이언트는 protobuf로 인코딩된 이진 파일을 수신하며 protobuf SDK를 통해 deserialized할 수 있습니다. 텍스트 기반 콘텐츠(예: )만 지원하는 클라이언트는 `json.webpubsub.azure.v1` Base64로 인코딩된 이진을 받습니다.
 
-* `text`:를 설정 하는 경우 `send_to_group_message.data.text_data` 암시적인 `dataType` 은 `text` 입니다. `text_data` 는 문자열 이어야 합니다. 다른 프로토콜을 사용 하는 모든 클라이언트는 u t f-8로 인코딩된 문자열을 받습니다.
+* `text`: 를 설정하는 경우 `send_to_group_message.data.text_data` 암시적 `dataType` 는 `text` 입니다. `text_data` 는 문자열이어야 합니다. 다른 프로토콜을 사용하는 모든 클라이언트는 UTF-8로 인코딩된 문자열을 받습니다.
 
-* `binary`:를 설정 하는 경우 `send_to_group_message.data.binary_data` 암시적인 `dataType` 은 `binary` 입니다. `binary_data` 바이트 배열 이어야 합니다. 다른 프로토콜을 사용 하는 모든 클라이언트는 protobuf encoding 없이 원시 이진 파일을 받습니다. 텍스트 기반 콘텐츠 (예:)만 지 원하는 클라이언트는 b a s e `json.webpubsub.azure.v1` 64로 인코딩된 이진 파일을 받습니다.
+* `binary`: 를 설정하는 경우 `send_to_group_message.data.binary_data` 암시적 `dataType` 는 `binary` 입니다. `binary_data` 는 바이트 배열이어야 합니다. 다른 프로토콜을 가진 모든 클라이언트는 protobuf 인코딩 없이 원시 이진을 수신합니다. 텍스트 기반 콘텐츠(예: )만 지원하는 클라이언트는 `json.webpubsub.azure.v1` Base64로 인코딩된 이진을 받습니다.
 
 #### <a name="case-1-publish-text-data"></a>사례 1: 텍스트 데이터 게시
 
-을로 설정 하 `send_to_group_message.group` `group` 고 `send_to_group_message.data.text_data` 를로 설정 `"text data"` 합니다.
+`send_to_group_message.group`를 `group` 로 설정하고 를 `send_to_group_message.data.text_data` 로 `"text data"` 설정합니다.
 
-* 그룹의 protobuf 하위 프로토콜 클라이언트는 `group` 이진 프레임을 수신 하 고 [, Downstreammessage](#responses) 를 사용 하 여 deserialize 할 수 있습니다.
+* 그룹의 protobuf 하위 프로토콜 클라이언트는 `group` 이진 프레임을 수신하고 [DownstreamMessage를](#responses) 사용하여 역직렬화할 수 있습니다.
 
-* 그룹의 JSON 하위 프로토콜 클라이언트는 `group` 다음을 수신 합니다.
+* 그룹의 JSON 하위 프로토콜 클라이언트는 `group` 다음을 수신합니다.
 
     ```json
     {
@@ -146,7 +147,7 @@ message MessageData {
     }
     ```
 
-* 그룹의 원시 클라이언트는 `group` 문자열을 받습니다 `text data` .
+* 그룹의 원시 클라이언트는 `group` 문자열 을 받습니다. `text data`
 
 #### <a name="case-2-publish-protobuf-data"></a>사례 2: protobuf 데이터 게시
 
@@ -158,11 +159,11 @@ message MyMessage {
 }
 ```
 
-을로 설정 하 고를로 설정 `send_to_group_message.group` `group` `send_to_group_message.data.protobuf_data` `Any.pack(MyMessage)` `value = 1` 합니다.
+를 로 설정하고 `send_to_group_message.group` `group` 를 로 `send_to_group_message.data.protobuf_data` `Any.pack(MyMessage)` `value = 1` 설정합니다.
 
-* 그룹의 protobuf 하위 프로토콜 클라이언트는 `group` 이진 프레임을 수신 하 고 [, Downstreammessage](#responses) 를 사용 하 여 deserialize 할 수 있습니다.
+* 그룹의 protobuf 하위 프로토콜 클라이언트는 `group` 이진 프레임을 수신하고 [DownstreamMessage를](#responses) 사용하여 역직렬화할 수 있습니다.
 
-* 그룹의 하위 프로토콜 클라이언트는 `group` 다음을 수신 합니다.
+* 그룹의 하위 프로토콜 클라이언트는 `group` 다음을 받습니다.
 
     ```json
     {
@@ -175,9 +176,9 @@ message MyMessage {
     ```
 
     > [!NOTE]
-    > 데이터는 b a s e 64로 인코딩된 deserializeable protobuf binary입니다. 
+    > 데이터는 Base64로 인코딩되고 deserialize 가능한 protobuf 이진 파일입니다. 
 
-다음 protobuf 정의를 사용 하 고를 사용 하 여 deserialize 할 수 있습니다 `Any.unpack()` .
+다음 protobuf 정의를 사용하고 를 사용하여 `Any.unpack()` deserialize할 수 있습니다.
 
 ```protobuf
 syntax = "proto3";
@@ -187,7 +188,7 @@ message MyMessage {
 }
 ```
 
-* 그룹의 원시 클라이언트는 `group` 이진 프레임을 수신 합니다.
+* 그룹의 원시 클라이언트는 `group` 이진 프레임을 받습니다.
 
     ```
     # Show in hexadecimal
@@ -196,11 +197,11 @@ message MyMessage {
 
 #### <a name="case-3-publish-binary-data"></a>사례 3: 이진 데이터 게시
 
-을로 설정 하 `send_to_group_message.group` `group` 고 `send_to_group_message.data.binary_data` 를로 설정 `[1, 2, 3]` 합니다.
+`send_to_group_message.group`를 `group` 로 설정하고 를 `send_to_group_message.data.binary_data` 로 `[1, 2, 3]` 설정합니다.
 
-* 그룹의 protobuf 하위 프로토콜 클라이언트는 `group` 이진 프레임을 수신 하 고 [, Downstreammessage](#responses) 를 사용 하 여 deserialize 할 수 있습니다.
+* 그룹의 protobuf 하위 프로토콜 클라이언트는 `group` 이진 프레임을 수신하고 [DownstreamMessage를](#responses) 사용하여 역직렬화할 수 있습니다.
 
-* 그룹의 JSON 하위 프로토콜 클라이언트는 `group` 다음을 수신 합니다.
+* 그룹의 JSON 하위 프로토콜 클라이언트는 `group` 다음을 수신합니다.
 
     ```json
     {
@@ -212,9 +213,9 @@ message MyMessage {
     }
     ```
 
-    JSON 하위 프로토콜 클라이언트는 텍스트 기반 메시징과 지원 하기 때문에 이진 파일은 항상 b a s e 64로 인코딩됩니다.
+    JSON 하위 프로토콜 클라이언트는 텍스트 기반 메시징만 지원하므로 이진 파일은 항상 Base64로 인코딩됩니다.
 
-* 그룹의 원시 클라이언트는 이진 `group` 프레임의 이진 데이터를 수신 합니다.
+* 그룹의 원시 클라이언트는 `group` 이진 프레임의 이진 데이터를 받습니다.
 
     ```
     # Show in hexadecimal
@@ -223,19 +224,19 @@ message MyMessage {
 
 ### <a name="send-custom-events"></a>사용자 지정 이벤트 보내기
 
-사용자가 설정 하 `dataType` `protobuf` `text` `binary` 는에 따라, 또는 일 수 있는 암시적인가 있습니다 `dataType` . 수신자 클라이언트는를 사용 `dataType` 하 여 콘텐츠를 올바르게 처리할 수 있습니다.
+설정한 에 따라 , 또는 일 수 있는 암시적 `dataType` `protobuf` 가 `text` `binary` `dataType` 있습니다. 수신기 클라이언트는 를 사용하여 콘텐츠를 올바르게 처리할 수 `dataType` 있습니다.
 
-* `protobuf`:를 설정 하는 경우 `event_message.data.protobuf_data` 암시적인 `dataType` 은 `protobuf` 입니다. `protobuf_data` 지원 되는 protobuf 형식일 수 있습니다. 이벤트 처리기는 protobuf SDK에 의해 deserialize 될 수 있는 protobuf 인코딩된 이진 파일을 받습니다.
+* `protobuf`: 를 설정하는 경우 `event_message.data.protobuf_data` 암시적 `dataType` 는 `protobuf` 입니다. `protobuf_data` 는 지원되는 모든 protobuf 형식일 수 있습니다. 이벤트 처리기는 protobuf로 인코딩된 이진 파일을 수신하며, 모든 protobuf SDK에서 deserialized할 수 있습니다.
 
-* `text`:를 설정 하는 경우 `event_message.data.text_data` 암시적인은 `text` 입니다. `text_data` 는 문자열 이어야 합니다. 이벤트 처리기는 u t f-8로 인코딩된 문자열을 받습니다.
+* `text`: 를 설정하는 경우 `event_message.data.text_data` 암시적 는 `text` 입니다. `text_data` 는 문자열이어야 합니다. 이벤트 처리기는 UTF-8로 인코딩된 문자열을 받습니다.
 
-* `binary`:를 설정 하는 경우 `event_message.data.binary_data` 암시적인은 `binary` 입니다. `binary_data` 바이트 배열 이어야 합니다. 이벤트 처리기는 원시 이진 프레임을 받습니다.
+* `binary`: 를 설정하는 경우 `event_message.data.binary_data` 암시적 는 `binary` 입니다. `binary_data` 는 바이트 배열이어야 합니다. 이벤트 처리기는 원시 이진 프레임을 받습니다.
 
 #### <a name="case-1-send-an-event-with-text-data"></a>사례 1: 텍스트 데이터가 있는 이벤트 보내기
 
 `event_message.data.text_data`를 `"text data"`로 설정합니다.
 
-업스트림 이벤트 처리기는 다음과 유사한 요청을 받습니다. `Content-Type`CLOUDEVENTS HTTP 요청은입니다 `text/plain` . 여기서는 `dataType` = `text` 입니다.
+업스트림 이벤트 처리기는 다음과 유사한 요청을 받습니다. `Content-Type`CloudEvents HTTP 요청의 경우 는 `text/plain` 입니다. 여기서 `dataType` = `text` 입니다.
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -258,9 +259,9 @@ text data
 
 ```
 
-#### <a name="case-2-send-an-event-with-protobuf-data"></a>사례 2: protobuf 데이터를 사용 하 여 이벤트 보내기
+#### <a name="case-2-send-an-event-with-protobuf-data"></a>사례 2: protobuf 데이터를 통해 이벤트 보내기
 
-다음 고객 메시지를 수신 했다고 가정 합니다.
+다음 고객 메시지를 수신했다고 가정합니다.
 
 ```
 message MyMessage {
@@ -268,9 +269,9 @@ message MyMessage {
 }
 ```
 
-`event_message.data.protobuf_data`을 사용 하 여로 설정 `any.pack(MyMessage)``value = 1`
+`event_message.data.protobuf_data`다음을 사용하여 로 설정 `any.pack(MyMessage)``value = 1`
 
-업스트림 이벤트 처리기는 다음과 유사한 요청을 받습니다. `Content-Type`CLOUDEVENTS HTTP 요청에 대 한는입니다 `application/x-protobuf` . 여기서는 `dataType` = `protobuf` 입니다.
+업스트림 이벤트 처리기는 다음과 유사한 요청을 받습니다. `Content-Type`CloudEvents HTTP 요청에 대한 는 `application/x-protobuf` 입니다. 여기서 `dataType` = `protobuf` 입니다.
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -293,7 +294,7 @@ ce-eventName: <event_name>
 0A 2F 74 79 70 65 2E 67 6F 6F 67 6C 65 61 70 69 73 2E 63 6F 6D 2F 61 7A 75 72 65 2E 77 65 62 70 75 62 73 75 62 2E 54 65 73 74 4D 65 73 73 61 67 65 12 02 08 01
 ```
 
-데이터가 유효한 protobuf 이진 파일입니다. 다음을 사용 하 여 deserialize 할 수 있습니다 `proto` `any.unpack()` .
+데이터는 유효한 protobuf 이진 파일입니다. 다음 및 를 사용하여 `proto` `any.unpack()` 이를 deserialize할 수 있습니다.
 
 ```protobuf
 syntax = "proto3";
@@ -347,7 +348,7 @@ message DownstreamMessage {
     }
     
     message AckMessage {
-        int32 ack_id = 1;
+        uint64 ack_id = 1;
         bool success = 2;
         optional ErrorMessage error = 3;
     

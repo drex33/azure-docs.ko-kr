@@ -4,16 +4,18 @@ description: Azure RTOS용 Defender-IoT-micro-agent에 대한 API를 참조합�
 ms.topic: reference
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: e7000a7e6d8ba332432f1ececa12bd9543e9e4a7
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 291dfa88ea9be2c17706828ac59a2321fee11ef2
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018308"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131998020"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Azure RTOS API용 Defender-IoT-micro-agent(미리 보기)
 
-이 API는 Azure RTOS용 Defender-IoT-micro-agent에만 사용하도록 설계되었습니다. 추가 리소스는 [Azure RTOS GitHub 리소스에 대한 Defender-IoT-micro-agent](https://github.com/azure-rtos/azure-iot-preview/releases)를 참조하세요. 
+IoT 용 Defender Api는 [MICROSOFT Api 라이선스 및 사용 약관](/legal/microsoft-apis/terms-of-use)의 적용을 받습니다.
+
+이 API는 Azure RTOS용 Defender-IoT-micro-agent에만 사용하도록 설계되었습니다. 추가 리소스는 [Azure RTOS GitHub 리소스에 대한 Defender-IoT-micro-agent](https://github.com/azure-rtos/azure-iot-preview/releases)를 참조하세요.
 
 ## <a name="enable-defender-iot-micro-agent-for-azure-rtos"></a>Azure RTOS용 Defender-IoT-micro-agent를 사용하도록 설정
 
@@ -51,7 +53,6 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 **nx_azure_iot_security_module_disable**
 
-
 ### <a name="prototype"></a>프로토타입
 
 ```c
@@ -79,7 +80,6 @@ UINT nx_azure_iot_security_module_disable(NX_AZURE_IOT *nx_azure_iot_ptr);
 ### <a name="allowed-from"></a>허용되는 위치
 
 스레드
-
 
 ## <a name="next-steps"></a>다음 단계
 

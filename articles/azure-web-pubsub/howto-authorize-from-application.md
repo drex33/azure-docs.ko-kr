@@ -3,19 +3,19 @@ title: Azure 애플리케이션에서 Azure AD를 사용하여 Web PubSub 리소
 description: 이 문서에서는 Azure 애플리케이션에서 Azure AD를 사용하여 Web PubSub 리소스에 대한 요청 권한을 부여하는 방법을 제공합니다.
 author: terencefan
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 7bca3e4840cf78b497f5907e780a267221dd1b8b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9c6b0c520fbde3f028e933d7eec05d390cb209e8
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482957"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997650"
 ---
 # <a name="authorize-request-to-web-pubsub-resources-with-azure-ad-from-azure-applications"></a>Azure 애플리케이션에서 Azure AD를 사용하여 Web PubSub 리소스에 대한 요청 권한 부여
 
-Azure Web PubSub Service는 Azure 애플리케이션의 요청에 권한을 부여하는 azure AD(Azure Active Directory)를 [지원합니다.](../active-directory/develop/app-objects-and-service-principals.md) 
+Azure Web PubSub Service는 Azure 애플리케이션의 요청에 권한을 부여하는 Azure AD(Azure Active Directory)를 [지원합니다.](../active-directory/develop/app-objects-and-service-principals.md) 
 
 이 문서에서는 Azure 애플리케이션에서 Web PubSub 리소스에 대한 요청에 권한을 부여하도록 Web PubSub 리소스 및 코드를 구성하는 방법을 보여 줍니다.
 
@@ -88,7 +88,7 @@ Azure Web PubSub Service는 Azure 애플리케이션의 요청에 권한을 부�
 
    ![역할 할당 추가 스크린샷](./media/aad-authorization/add-role-assignment.png)
 
-1. **구성원** 탭의 **에 대한 액세스 할당** 섹션에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
+1. **멤버** 탭의 **액세스 권한 할당** 섹션에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
 
 1. **멤버 선택을** 클릭합니다.
 
@@ -119,7 +119,7 @@ Azure 역할 할당을 할당하고 관리하는 방법에 대한 자세한 내�
 |------|------
 | `AZURE_TENANT_ID` | Azure Active Directory 테넌트(디렉터리) ID입니다. |
 | `AZURE_CLIENT_ID` | 테넌트에서 앱 등록의 클라이언트(애플리케이션) ID입니다. |
-| `AZURE_CLIENT_SECRET` | 앱 등록을 위해 생성된 클라이언트 암호입니다. |
+| `AZURE_CLIENT_SECRET` | 앱 등록에 대해 생성된 클라이언트 암호입니다. |
 | `AZURE_CLIENT_CERTIFICATE_PATH` | 앱 등록을 인증할 수 있는 PEM 또는 PFX 형식의 인증서 및 프라이빗 키 쌍에 대한 경로입니다. |
 | `AZURE_USERNAME`  | Azure Active Directory 사용자 계정의 사용자 이름(upn이라고도 함)입니다. |
 | `AZURE_PASSWORD`  | Azure Active Directory 사용자 계정의 암호입니다. MFA를 사용하도록 설정된 계정은 지원하지 않습니다. |

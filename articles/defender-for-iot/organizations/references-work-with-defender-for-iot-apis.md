@@ -1,16 +1,18 @@
 ---
 title: Defender for IoT API 작업
 description: 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
-ms.date: 10/17/2021
+ms.date: 11/08/2021
 ms.topic: reference
-ms.openlocfilehash: f11627a35f2d91cb719866e6fc7d8fc480a50b17
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 0176fe3da6c2105c522f92614295500fb8ce0e81
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131583"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997669"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender for IoT 센서 및 관리 콘솔 API
+
+Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사용 약관.](/legal/microsoft-apis/terms-of-use)
 
 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
 
@@ -74,7 +76,7 @@ ms.locfileid: "130131583"
 
 - [시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
-- [경고 PCAP-/api/v2/alerts/pcap 검색](#retrieve-alert-pcap---apiv2alertspcap)
+- [경고 PCAP 검색 - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
 
 ### <a name="retrieve-device-information---apiv1devices"></a>디바이스 정보 검색-/api/v1/devices
 
@@ -1747,11 +1749,11 @@ response:
 > |--|--|--|
 > | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
 
-### <a name="retrieve-alert-pcap---apiv2alertspcap"></a>경고 PCAP-/api/v2/alerts/pcap 검색
+### <a name="retrieve-alert-pcap---apiv2alertspcap"></a>경고 PCAP 검색 - /api/v2/alerts/pcap
 
-이 API를 사용 하 여 경고와 관련 된 PCAP 파일을 검색 합니다.
+이 API를 사용하여 경고와 관련된 PCAP 파일 검색
 
-이 끝점은 권한 부여에 일반 액세스 토큰을 사용 하지 않습니다. 대신 CM의 API 끝점에서 만든 특수 토큰이 필요 `/external/v2/alerts/pcap` 합니다.
+이 엔드포인트는 권한 부여를 위해 일반 액세스 토큰을 사용하지 않습니다. 대신 `/external/v2/alerts/pcap` CM의 API 엔드포인트에서 만든 특수 토큰이 필요합니다.
 
 #### <a name="method"></a>방법
 
@@ -2681,7 +2683,7 @@ response:
 
 #### <a name="data-fields"></a>데이터 필드
 
-|이름|유형|Nullable|
+|Name|유형|Nullable|
 |-|-|-|
 |id|숫자|예|
 |xsenseId|숫자|예|

@@ -3,26 +3,28 @@ title: Horizon API
 description: 이 가이드에서는 일반적으로 사용되는 Horizon 메서드를 설명합니다.
 ms.date: 1/5/2021
 ms.topic: article
-ms.openlocfilehash: b65f7663df29e2c82faa5d1aeec3b820d5fbaf70
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 7fc49227f75ddb7648b0acbd179ef2fd40fd486c
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018527"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997384"
 ---
-# <a name="horizon-api"></a>Horizon API 
+# <a name="horizon-api"></a>Horizon API
 
 이 가이드에서는 일반적으로 사용되는 Horizon 메서드를 설명합니다.
 
-### <a name="getting-more-information"></a>자세한 정보 보기
+## <a name="getting-more-information"></a>자세한 정보 보기
+
+Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사용 약관.](/legal/microsoft-apis/terms-of-use)
 
 Horizon 및 Defender for IoT 플랫폼 사용에 대한 자세한 내용은 다음 정보를 참조하세요.
 
 - Horizon ODE(Open Development Environment) SDK의 경우 IoT용 Defender 담당자에게 문의하세요.
+
 - 지원 및 문제 해결 정보는 <support@cyberx-labs.com>에 문의하세요.
 
 - IoT용 Defender 콘솔에서 IoT용 Defender 사용자 가이드에 액세스하려면 :::image type="icon" source="media/references-horizon-api/profile.png":::을 선택한 다음 **사용자 가이드 다운로드** 를 선택합니다.
-
 
 ## `horizon::protocol::BaseParser`
 
@@ -35,7 +37,7 @@ Horizon 및 Defender for IoT 플랫폼 사용에 대한 자세한 내용은 다�
 
 플러그인에 호출되는 첫 번째 함수는 Horizon용 파서의 인스턴스를 만들어 이를 인식하고 등록합니다.
 
-### <a name="parameters"></a>매개 변수 
+### <a name="parameters"></a>매개 변수
 
 없음
 
@@ -45,15 +47,15 @@ Horizon 및 Defender for IoT 플랫폼 사용에 대한 자세한 내용은 다�
 
 ## `std::vector<uint64_t> horizon::protocol::BaseParser::processDissectAs(const std::map<std::string, std::vector<std::string>> &) const`
 
-이 함수는 위에 등록된 각 플러그인에 대해 호출됩니다. 
+이 함수는 위에 등록된 각 플러그인에 대해 호출됩니다.
 
 대부분의 경우 비어 있습니다. Horizon에 대한 예외를 throw하여 오류가 발생했음을 알 수 있습니다.
 
-### <a name="parameters"></a>매개 변수 
+### <a name="parameters"></a>매개 변수
 
 - 등록하려는 다른 플러그인의 config.js에 정의된 dissect_as 구조를 포함하는 맵입니다.
 
-### <a name="return-value"></a>반환 값 
+### <a name="return-value"></a>반환 값
 
 일종의 uint64_t로 처리되는 등록인 uint64_t 배열입니다. 즉, 맵에서 값이 uin64_t인 포트 목록이 표시됩니다.
 
@@ -70,7 +72,7 @@ main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 - 데이터를 저장하고 ILayer 및 필드 같은 SDK 관련 개체를 만드는 작업을 담당하는 SDK 조절 장치입니다.
 - 원시 패킷의 데이터를 읽기 위한 도우미입니다. config.json에서 정의한 바이트 순서를 사용하여 이미 설정되어 있습니다.
 
-### <a name="return-value"></a>반환 값 
+### <a name="return-value"></a>반환 값
 
 처리 결과입니다. *Success*, *Malformed* 또는 *Sanity* 중 하나일 수 있습니다.
 
@@ -82,7 +84,7 @@ main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 생성자
 
-### <a name="parameters"></a>매개 변수 
+### <a name="parameters"></a>매개 변수
 
 - config.json에 정의된 대로, Horizon에서 로깅하기 위해 사용하는 오류 코드를 정의합니다.
 
@@ -94,7 +96,7 @@ main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 생성자
 
-### <a name="parameters"></a>매개 변수  
+### <a name="parameters"></a>매개 변수
 
 - config.json에 정의된 오류 코드입니다.
 
@@ -110,7 +112,7 @@ main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 생성자입니다.
 
-### <a name="parameters"></a>매개 변수 
+### <a name="parameters"></a>매개 변수
 
 - 패킷의 방향(확인된 경우)입니다. 값은 *REQUEST* 또는 *RESPONSE* 가 될 수 있습니다.
 
@@ -127,15 +129,15 @@ main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 생성자입니다.
 
-### <a name="parameters"></a>매개 변수 
+### <a name="parameters"></a>매개 변수
 
--  경고. 이러한 이벤트는 실패하지 않지만, Horizon에 알림이 전송됩니다.
+- 경고. 이러한 이벤트는 실패하지 않지만, Horizon에 알림이 전송됩니다.
 
 ## `HorizonID HORIZON_FIELD(const std::string_view &)`
 
 필드 이름(예: function_code)에 대한 문자열 기반 참조를 HorizonID로 변환합니다.
 
-### <a name="parameters"></a>매개 변수 
+### <a name="parameters"></a>매개 변수
 
 - 변환할 문자열입니다.
 
@@ -163,7 +165,7 @@ main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 레이어에서 요청된 ID를 사용하여 64비트의 새 숫자 필드를 만듭니다.
 
-### <a name="parameters"></a>매개 변수 
+### <a name="parameters"></a>매개 변수
 
 - 이전에 만든 레이어입니다.
 - **HORIZON_FIELD** 매크로에 의해 만들어진 HorizonID입니다.
@@ -173,7 +175,7 @@ main 함수입니다. 특히 새 패킷이 파서에 도달할 때마다 플러�
 
 요청된 ID를 사용하여 레이어에 새 문자열 필드를 만듭니다. 메모리가 이동되므로 주의해야 합니다. 이 값은 다시 사용할 수 없습니다.
 
-### <a name="parameters"></a>매개 변수  
+### <a name="parameters"></a>매개 변수
 
 - 이전에 만든 레이어입니다.
 - **HORIZON_FIELD** 매크로에 의해 만들어진 HorizonID입니다.

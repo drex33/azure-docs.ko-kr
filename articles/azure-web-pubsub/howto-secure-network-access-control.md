@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/25/2021
-ms.openlocfilehash: 912de328332023e0e868a7ab0ac6088a2daeb33e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.date: 11/08/2021
+ms.openlocfilehash: 56e467b392a40a7d9e5389aa31f41468db7730c9
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167061"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997631"
 ---
 # <a name="configure-network-access-control-for-azure-web-pubsub-service"></a>Azure Web PubSub 서비스에 대한 네트워크 액세스 제어 구성
 
@@ -25,7 +25,7 @@ Azure Web PubSub 서비스에는 인터넷을 통해 액세스할 수 있는 퍼
 
 ## <a name="scenario-a---no-public-traffic"></a>시나리오 A - 퍼블릭 트래픽 없음
 
-모든 퍼블릭 트래픽을 완전히 거부하려면 먼저 요청 유형을 허용하지 않도록 공용 네트워크 규칙을 구성해야 합니다. 그런 다음, 특정 VNet 트래픽에 대한 액세스를 허가하는 규칙을 구성해야 합니다. 이 구성을 사용하면 애플리케이션에 대한 보안 네트워크 경계를 구축할 수 있습니다.
+모든 퍼블릭 트래픽을 완전히 거부하려면 먼저 요청 유형을 허용하지 않도록 퍼블릭 네트워크 규칙을 구성해야 합니다. 그런 다음, 특정 VNet 트래픽에 대한 액세스를 허가하는 규칙을 구성해야 합니다. 이 구성을 사용하면 애플리케이션에 대한 보안 네트워크 경계를 구축할 수 있습니다.
 
 ## <a name="scenario-b---only-client-connections-from-public-network"></a>시나리오 B - 공용 네트워크의 클라이언트만 연결
 
@@ -46,7 +46,7 @@ Azure Portal을 통해 Azure Web PubSub 서비스에 대한 네트워크 액세�
 1. 기본 작업을 편집하려면 **허용/거부** 단추를 설정/해제합니다.
 
     > [!TIP]
-    > 기본 작업은 일치하는 ACL 규칙이 없는 경우 수행하는 작업입니다. 예를 들어 기본 작업이 **거부** 인 경우 아래에서 명시적으로 승인되지 않은 요청 유형은 거부됩니다.
+    > 기본 작업은 일치하는 ACL 규칙이 없는 경우에 수행하는 작업입니다. 예를 들어 기본 작업이 **거부** 인 경우 아래에서 명시적으로 승인되지 않은 요청 유형은 거부됩니다.
 
 1. 공용 네트워크 규칙을 편집하려면 **공용 네트워크** 에서 허용되는 요청 유형을 선택합니다.
 

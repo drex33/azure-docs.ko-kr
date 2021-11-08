@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 08/06/2021
-ms.openlocfilehash: ac81c3422036abafc5e2d034e06e81e1f35d2e02
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 11/08/2021
+ms.openlocfilehash: 99045ab4675527f4f0a821025bf6f870d63bb296
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445394"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131998071"
 ---
 # <a name="quickstart-connect-to-the-azure-web-pubsub-instance-from-cli"></a>빠른 시작: CLI에서 Azure Web PubSub 인스턴스에 연결
 
@@ -39,6 +39,6 @@ ms.locfileid: "122445394"
 
 이 빠른 시작에서는 Web PubSub 서비스에 연결하는 방법과 연결된 클라이언트에 메시지를 게시하는 방법에 대한 기본 개념을 알아보았습니다.
 
-실제 애플리케이션에서는 다양한 언어의 SDK를 사용하여 고유한 애플리케이션을 빌드할 수 있습니다. 또한 서버리스 애플리케이션을 쉽게 빌드할 수 있는 함수 확장도 제공합니다.
+실제 애플리케이션에서는 다양한 언어의 SDK를 사용하여 고유한 애플리케이션을 빌드할 수 있습니다. 또한 서버리스 애플리케이션을 쉽게 빌드할 수 있도록 함수 확장도 제공합니다.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

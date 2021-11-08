@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 03/17/2021
-ms.openlocfilehash: cb4fead9c56eed8496e1eaf15f47815b1726d6dd
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 11/08/2021
+ms.openlocfilehash: 21a92c0e53a54450f82691a1e81a75a83e6d74ad
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445808"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131998003"
 ---
 # <a name="quickstart-create-a-web-pubsub-instance-from-azure-portal"></a>빠른 시작: Azure Portal에서 Web PubSub 인스턴스 만들기
 
@@ -31,6 +31,6 @@ ms.locfileid: "122445808"
 
 ## <a name="next-steps"></a>다음 단계
 
-실제 애플리케이션에서는 다양한 언어의 SDK를 사용하여 고유한 애플리케이션을 빌드할 수 있습니다. 또한 서버리스 애플리케이션을 쉽게 빌드할 수 있는 함수 확장도 제공합니다.
+실제 애플리케이션에서는 다양한 언어의 SDK를 사용하여 고유한 애플리케이션을 빌드할 수 있습니다. 또한 서버리스 애플리케이션을 쉽게 빌드할 수 있도록 함수 확장도 제공합니다.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

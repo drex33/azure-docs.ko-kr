@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: f28ab302aa6899e35c080821ccddf01d5e7cb76e
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.date: 11/08/2021
+ms.openlocfilehash: ba9ed9a90dc39ef51e7e1ee57940afb75b38f7f6
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579529"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997517"
 ---
 # <a name="python-server-sdk-for-azure-web-pubsub"></a>Azure 웹 PubSub 용 Python 서버 SDK
 
@@ -34,7 +34,7 @@ ms.locfileid: "131579529"
 python -m pip install azure-messaging-webpubsubservice==1.0.0b1
 ```
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 이 패키지를 사용 하려면 Python 2.7 또는 3.6 이상이 필요 합니다.
 - [Azure 구독][azure_sub].

@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 03/29/2021
-ms.openlocfilehash: 7f937e833a909f15cdc86af35c27bf5240abcfd8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/08/2021
+ms.openlocfilehash: e7bce9f9c5ac81d7f722e76162f38e4b0178a157
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131426832"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131994994"
 ---
 # <a name="billing-model-of-azure-web-pubsub-service"></a>Azure Web PubSub 서비스의 청구 모델
 

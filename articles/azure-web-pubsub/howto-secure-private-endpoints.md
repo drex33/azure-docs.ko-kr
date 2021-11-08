@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/23/2021
-ms.openlocfilehash: 58268750b1189552a31e2dc0b455bdd3eff4f5f0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.date: 11/08/2021
+ms.openlocfilehash: c05112ec35197f8a17220b31e5032ae5d2469cf8
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166999"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995051"
 ---
 # <a name="use-private-endpoints-for-azure-web-pubsub-service"></a>Azure Web PubSub 서비스에 프라이빗 엔드포인트 사용
 

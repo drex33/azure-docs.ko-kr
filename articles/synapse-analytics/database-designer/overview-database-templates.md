@@ -8,12 +8,12 @@ ms.subservice: database-editor
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: template-overview, ignite-fall-2021
-ms.openlocfilehash: f34ce2b785aa1515db39cb0266963d8da5c85558
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c3022ff0c5334b96fde38bf386c3340fb4b5c2e7
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131437431"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997593"
 ---
 # <a name="what-is-azure-synapse-database-templates"></a>Azure Synapse 데이터베이스 템플릿의 개념
 
@@ -32,7 +32,7 @@ ms.locfileid: "131437431"
 
 이 사용 사례는 소매 데이터베이스 템플릿에서 6개의 테이블을 선택하여 설정할 수 있습니다. 
 
-[[retail-database-template-example.png|alt=소매 데이터베이스 템플릿 예제]]
+![이미지](https://user-images.githubusercontent.com/84302758/140736847-9d93436d-47b4-4175-8b09-a33de0bcde05.png)
 
 일반적인 데이터베이스 템플릿은 특정 업계의 핵심 요구 사항을 해결하며 다음과 같이 구성됩니다. 
 

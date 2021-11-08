@@ -112,9 +112,11 @@
           href: websocket-api.md
         - name: GraphQL API 가져오기
           href: graphql-api.md
-        - name: 웹앱 가져오기
+        - name: App Service 웹 API 가져오기
           href: import-app-service-as-api.md
-        - name: 함수 앱 가져오기
+        - name: 컨테이너 앱 웹 API 가져오기
+          href: import-container-app-with-oas.md
+        - name: 함수 앱 웹 API 가져오기
           href: import-function-app-as-api.md
         - name: 논리 앱 가져오기
           href: import-logic-app-as-api.md

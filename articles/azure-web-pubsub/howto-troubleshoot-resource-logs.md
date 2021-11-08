@@ -5,13 +5,13 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/22/2021
-ms.openlocfilehash: 7e8d4c725c8e205f015774b8b5b01e26b5f89271
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/08/2021
+ms.openlocfilehash: e8bf85166b0557f30909d8109ecdd36782a4adc1
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482887"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995106"
 ---
 # <a name="how-to-troubleshoot-with-resource-logs"></a>리소스 로그 문제 해결 방법
 
@@ -140,12 +140,12 @@ userId | 사용자 ID
 message | 로그 이벤트의 세부 메시지
 hub | 사용자 정의 허브 이름 |
 routeTemplate | API의 경로 템플릿 |
-httpMethod | Http 메서드 (POST/GET/PUT/DELETE) |
-url | Uniform resource locator |
-traceId | 호출에 대 한 고유 식별자입니다. |
+httpMethod | Http 메서드(POST/GET/PUT/DELETE) |
+url | 균일한 리소스 로케이터 |
+traceId | 호출에 대한 고유 식별자입니다. |
 statusCode | Http 응답 코드 |
-duration | 요청 간의 기간이 수신 및 처리 됩니다. |
-headers | HTTP 요청 또는 응답을 사용 하 여 클라이언트와 서버에서 전달 하는 추가 정보 |
+duration | 요청이 수신되고 처리되는 기간 |
+headers | HTTP 요청 또는 응답을 사용하여 클라이언트와 서버에서 전달한 추가 정보 |
 
 다음 코드는 보관 로그 JSON 문자열에 대한 예입니다.
 
@@ -169,13 +169,13 @@ headers | HTTP 요청 또는 응답을 사용 하 여 클라이언트와 서버�
 
 ## <a name="troubleshoot-with-the-resource-logs"></a>리소스 로그 문제 해결
 
-예기치 않게 증가 하거나 삭제 한 연결을 찾을 때 리소스 로그를 활용 하 여 문제를 해결할 수 있습니다. 일반적인 문제는 연결의 예기치 않은 수량 변경, 연결의 연결 제한 도달 및 권한 부여 오류에 대한 경우가 많습니다.
+연결이 예기치 않게 증가하거나 삭제되면 리소스 로그를 활용하여 문제를 해결할 수 있습니다. 일반적인 문제는 연결의 예기치 않은 수량 변경, 연결의 연결 제한 도달 및 권한 부여 오류에 대한 경우가 많습니다.
 
 ### <a name="unexpected-connection-number-changes"></a>예기치 않은 연결 수 변경
 
 #### <a name="unexpected-connection-dropping"></a>예기치 않은 연결 끊김
 
-연결의 연결이 끊어지면 리소스 로그에서 또는를 사용 하 여이 연결 끊기 이벤트를 기록 합니다 `ConnectionAborted` `ConnectionEnded` `operationName` .
+연결이 끊어지면 리소스 로그는 이 연결 끊김 이벤트를 `ConnectionAborted` 또는 에 기록합니다. `ConnectionEnded` `operationName`
 
 `ConnectionAborted`와 `ConnectionEnded`의 차이점은 `ConnectionEnded`가 클라이언트 또는 서버 쪽에서 트리거되는 예상한 연결 끊김이라는 것입니다. `ConnectionAborted`는 일반적으로 예기치 않은 연결 끊김 이벤트이며, `message`에 중단 이유가 제공됩니다.
 
@@ -197,4 +197,4 @@ headers | HTTP 요청 또는 응답을 사용 하 여 클라이언트와 서버�
 
 ### <a name="throttling"></a>제한
 
-Azure 웹 PubSub 서비스에 대 한 클라이언트 연결을 설정할 수 없는 경우 리소스 로그를 확인 합니다. `Connection count reaches limit`리소스 로그에서 충족 하는 경우 연결 수 제한에 도달 하는 Azure 웹 PubSub 서비스에 너무 많은 연결을 설정할 수 있습니다. Azure Web PubSub 서비스 인스턴스를 스케일 업하는 것이 좋습니다. 리소스 로그에서 충족 하는 경우 `Message count reaches limit` 무료 계층을 사용 하 고 메시지 할당량을 사용 합니다. 더 많은 메시지를 보내려면 Azure Web PubSub 서비스 인스턴스를 표준 계층으로 변경하여 추가 메시지를 전송하는 것이 좋습니다. 자세한 내용은 [Azure Web PubSub 서비스 가격 책정](https://azure.microsoft.com/pricing/details/web-pubsub/)을 참조하세요.
+Azure Web PubSub 서비스에 대한 클라이언트 연결을 설정할 수 없는 경우 리소스 로그를 확인합니다. 리소스 로그에서 충족하는 경우 `Connection count reaches limit` 연결 수 제한에 도달하는 Azure Web PubSub 서비스에 너무 많은 연결을 설정합니다. Azure Web PubSub 서비스 인스턴스를 스케일 업하는 것이 좋습니다. 리소스 로그에서 충족하는 경우 `Message count reaches limit` 무료 계층을 사용하고 메시지 할당량을 사용한다는 의미입니다. 더 많은 메시지를 보내려면 Azure Web PubSub 서비스 인스턴스를 표준 계층으로 변경하여 추가 메시지를 전송하는 것이 좋습니다. 자세한 내용은 [Azure Web PubSub 서비스 가격 책정](https://azure.microsoft.com/pricing/details/web-pubsub/)을 참조하세요.

@@ -3,15 +3,15 @@ title: Azure 웹 pubsub의 Azure Active Directory을 사용 하 여 액세스 �
 description: 이 문서에서는 Azure Active Directory를 사용 하 여 Azure 웹 PubSub 서비스 리소스에 대 한 액세스 권한을 부여 하는 방법을 설명 합니다.
 author: terencefan
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: be8c2aa41f8680df9156d7b86dd8eb2bf24ca514
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 386ef4d27a8fc2fbe4d9c3f209d2016fa1911761
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482960"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997460"
 ---
 # <a name="authorize-access-to-web-pubsub-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 웹 PubSub 리소스에 대 한 액세스 권한 부여
 azure 웹 pubsub 서비스는 azure AD (Azure Active Directory)를 사용 하 여 웹 pubsub 리소스에 대 한 요청에 권한을 부여할 수 있도록 지원 합니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체<sup>[<a href="#security-principal">1</a>]</sup>에 대 한 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하는 Azure AD에서 인증 됩니다. 그런 다음 토큰을 사용 하 여 웹 PubSub 리소스에 대 한 요청을 인증할 수 있습니다.

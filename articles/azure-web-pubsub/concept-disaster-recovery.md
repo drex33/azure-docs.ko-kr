@@ -4,14 +4,14 @@ description: 복원 력 및 재해 복구를 위해 여러 Azure 웹 PubSub 서�
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 11/08/2021
 ms.author: lianwei
-ms.openlocfilehash: 3c14294a2a7d2ff2cb2f1f362b0474353c86b7ca
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 368c354f36cd6a289daacf1766c73021c1f08a3f
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431012"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997971"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-web-pubsub-service"></a>Azure 웹 PubSub 서비스의 복원 력 및 재해 복구
 

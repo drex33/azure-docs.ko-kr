@@ -3,15 +3,15 @@ title: 관리 id에서 Azure AD를 사용 하 여 웹 PubSub 리소스에 대 �
 description: 이 문서에서는 관리 되는 id의 Azure AD를 사용 하 여 웹 PubSub 리소스에 대 한 요청 권한 부여에 대 한 정보
 author: terencefan
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 8df789836bd0067868d4f9e6d90e640473a96f33
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7f0b5cff34b74953970672d0d48c4f027f4811b0
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482922"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997745"
 ---
 # <a name="authorize-request-to-web-pubsub-resources-with-azure-ad-from-managed-identities"></a>관리 id에서 Azure AD를 사용 하 여 웹 PubSub 리소스에 대 한 요청 권한 부여
 azure 웹 pubsub 서비스 [는 azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)에서 요청을 승인 하는 Azure Active Directory (azure AD)를 지원 합니다. 

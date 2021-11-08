@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: a7adef1e705d14578cdec9bec7a947cc9be0db20
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.date: 11/08/2021
+ms.openlocfilehash: ec1a0bfcc883e9434c8c80264c574c3630e395b0
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598490"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132000803"
 ---
 #  <a name="azure-web-pubsub-service-internals"></a>Azure Web PubSub 서비스 내부
 
@@ -248,7 +248,7 @@ Azure Portal 또는 CLI를 통해 이벤트 처리기 업스트림을 설정할 
 - 구성된 웹후크 URL을 통해 `code`가 제공되는 단순 인증입니다.
 - AAD 인증. 
    - AAD의 [앱 등록]에 클라이언트 암호를 추가하고 portal/cli를 통해 Azure Web PubSub에 [클라이언트 암호]를 제공합니다.
-   - portal/cli를 통해 Azure Web PubSub에 [ID](/azure/app-service/overview-managed-identity?tabs=dotnet)를 제공합니다.
+   - portal/cli를 통해 Azure Web PubSub에 [ID](../app-service/overview-managed-identity.md?tabs=dotnet)를 제공합니다.
 
 <a name="connection_manager"></a>
 

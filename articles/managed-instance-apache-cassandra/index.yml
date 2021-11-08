@@ -10,12 +10,12 @@ metadata:
   author: TheovanKraay
   ms.author: thvankra
   ms.date: 11/02/2021
-  ms.openlocfilehash: a81b79347a48ad0cfd7c7aa5876cc385b995b3f0
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: 4529009e1e35b2367d43c96410557cf3aa8c7598
+  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131061317"
+  ms.lasthandoff: 11/05/2021
+  ms.locfileid: "131844471"
 landingContent:
 - title: Apache Cassandra용 Azure Managed Instance 정보
   linkLists:
@@ -47,6 +47,8 @@ landingContent:
       url: deploy-cluster-databricks.md
   - linkListType: concept
     links:
+    - text: 보안 개요
+      url: security.md
     - text: 질문과 대답
       url: faq.md
 - title: 클러스터 리소스 구성 및 관리
@@ -59,5 +61,11 @@ landingContent:
     links:
     - text: Azure CLI를 사용하여 리소스 관리
       url: manage-resources-cli.md
+    - text: 클러스터 리소스 모니터링
+      url: monitor-clusters.md
+    - text: 고객 관리형 키 구성
+      url: customer-managed-keys.md
     - text: Grafana를 사용하여 Prometheus에서 메트릭 시각화
       url: visualize-prometheus-grafana.md
+    - text: 네트워킹 구성
+      url: network-rules.md

@@ -74,6 +74,8 @@
           items:
             - name: 리소스 카탈로그 만들기
               href: entitlement-management-catalog-create.md
+            - name: 카탈로그에 대한 사용자 지정 확장(논리 앱) 만들기
+              href: entitlement-management-logic-apps-integration.md
             - name: 액세스 패키지 관리자에 위임
               href: entitlement-management-delegate-managers.md
         - name: 액세스 패키지 관리자 및 액세스 패키지 할당 관리자

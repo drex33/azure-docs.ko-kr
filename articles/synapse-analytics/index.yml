@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 12/01/2020
-  ms.openlocfilehash: 1457bfcee61ba019a2b9009e734688d44117c349
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: d1cecd0ae685e7a55b4b9069ed4c3afb2aa80c40
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131008544"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131502676"
 landingContent:
 - title: Azure Synapse Analytics 정보
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: Azure Synapse란?
       url: overview-what-is.md
+    - text: 새로운 기능
+      url: whats-new.md
     - text: 용어
       url: overview-terminology.md
     - text: FAQ
@@ -75,6 +77,16 @@ landingContent:
     links:
     - text: Synapse Studio를 사용하여 Data Explorer 풀 만들기
       url: data-explorer/data-explorer-create-pool-studio.md
+- title: 데이터베이스 템플릿
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Synapse Analytics의 데이터베이스 템플릿
+      url: database-designer/overview-database-templates.md
+  - linkListType: quickstart
+    links:
+    - text: 데이터베이스 템플릿을 활용하여 새 Lake 데이터베이스 만들기
+      url: database-designer/quick-start-create-lake-database.md
 - title: Apache Spark
   linkLists:
   - linkListType: overview

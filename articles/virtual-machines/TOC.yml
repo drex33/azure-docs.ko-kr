@@ -169,12 +169,18 @@
               href: dv2-dsv2-series.md
             - name: Dv3 및 Dsv3 시리즈
               href: dv3-dsv3-series.md
+            - name: Dv4 및 Dsv4 시리즈
+              href: dv4-dsv4-series.md
             - name: Dav4 및 Dasv4 시리즈
               href: dav4-dasv4-series.md
             - name: Ddv4 및 Ddsv4 시리즈
               href: ddv4-ddsv4-series.md
-            - name: Dv4 및 Dsv4 시리즈
-              href: dv4-dsv4-series.md
+            - name: Dv5 및 Dsv5 시리즈
+              href: dv5-dsv5-series.md
+            - name: Ddv5 및 Ddsv5 시리즈
+              href: ddv5-ddsv5-series.md
+            - name: Dasv5 및 Dadsv5 시리즈
+              href: dasv5-dadsv5-series.md
         - name: 컴퓨팅 최적화
           items:
             - name: 개요
@@ -199,6 +205,12 @@
               href: edv4-edsv4-series.md
             - name: Ev4 및 Esv4 시리즈
               href: ev4-esv4-series.md
+            - name: Ev5 및 Esv5 시리즈
+              href: ev5-esv5-series.md
+            - name: Edv5 및 Edsv5 시리즈
+              href: edv5-edsv5-series.md
+            - name: Easv5 및 Eadsv5 시리즈
+              href: easv5-eadsv5-series.md
             - name: M 시리즈
               href: m-series.md
             - name: Msv2 및 Mdsv2 중간 메모리 시리즈
@@ -237,6 +249,8 @@
               href: nct4-v3-series.md
             - name: NDasrA100_v4-series
               href: nda100-v4-series.md
+            - name: NDm_A100_v4 시리즈
+              href: ndm-a100-v4-series.md
             - name: ND 시리즈
               href: nd-series.md
             - name: NDv2 시리즈
@@ -336,6 +350,248 @@
           href: azure-vms-no-temp-disk.yml
         - name: Azure VM 크기 명명 규칙
           href: vm-naming-conventions.md
+    - name: Azure Compute Gallery
+      items:
+        - name: 개요
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: ./shared-image-galleries.md
+        - name: 갤러리 만들기
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: create-gallery.md
+        - name: 갤러리 공유
+          href: share-gallery.md
+        - name: 이미지
+          items:
+            - name: 포털에서 VM 캡처
+              href: capture-image-portal.md
+            - name: 이미지 만들기
+              displayName: 'VM, image, VHD, storage account'
+              href: image-version.md
+            - name: VM 만들기
+              items:
+                - name: 일반화
+                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+                  href: vm-generalized-image-version.md
+                - name: 특수화
+                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+                  href: vm-specialized-image-version.md
+            - name: 이미지 리소스 업데이트
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+              href: update-image-resources.md
+            - name: 공유용 앱 등록
+              items:
+                - name: Linux
+                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+                  href: ./linux/share-images-across-tenants.md
+                - name: Windows
+                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+                  href: ./windows/share-images-across-tenants.md
+            - name: Resource Manager 템플릿
+              items:
+                - name: Azure Compute Gallery 만들기
+                  href: 'https://azure.microsoft.com/resources/templates/sig-create/'
+                - name: Azure Compute Gallery에서 이미지 정의 만들기
+                  href: 'https://azure.microsoft.com/resources/templates/sig-image-definition-create/'
+                - name: Azure Compute Gallery에서 이미지 버전 만들기
+                  href: 'https://azure.microsoft.com/resources/templates/sig-image-version-create/'
+            - name: 공유 이미지 문제 해결
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, troubleshooting, Azure Compute Gallery'
+              href: troubleshooting-shared-images.md
+            - name: 고객 관리형 키 사용
+              displayName: 'SSE, CMK, encrypt'
+              href: image-version-encryption.md
+            - name: 이미지 버전의 관리 디스크
+              href: managed-disk-from-image-version.md
+            - name: 구매 계획 정보
+              href: marketplace-images.md
+        - name: VM 애플리케이션
+          items:
+            - name: 개요
+              href: vm-applications.md
+            - name: VM 애플리케이션 배포
+              href: vm-applications-how-to.md
+    - name: 이미지
+      items:
+        - name: Azure Marketplace 이미지 찾기
+          items:
+            - name: CLI
+              displayName: 'Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms'
+              href: ./linux/cli-ps-findimage.md
+            - name: PowerShell
+              displayName: 'Images, imaging, marketplace, URN, purchase plan, terms'
+              href: ./windows/cli-ps-findimage.md
+            - name: Windows 클라이언트 이미지
+              displayName: 'Images, imaging, marketplace, Windows, Client'
+              href: ./windows/client-images.md
+            - name: Windows 10에 대해 다중 테넌트 호스팅 권한
+              displayName: 'MTHR, multi-tenant, multitenant, hosting, rights'
+              href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+        - name: Linux 사용자 지정 이미지
+          items:
+            - name: 개요
+              displayName: 'Linux custom images, custom, image'
+              href: ./linux/imaging.md
+            - name: Linux 프로비전
+              href: ./linux/provisioning.md
+            - name: Linux 배포 관련 요구 사항
+              items:
+                - name: 일반 단계
+                  displayName: 'Linux distribution specific requirements, generic'
+                  href: ./linux/create-upload-generic.md
+                - name: CentOS
+                  displayName: 'Linux distribution specific requirements, CentOS'
+                  href: ./linux/create-upload-centos.md
+                - name: Debian
+                  displayName: 'Linux distribution specific requirements, Debian'
+                  href: ./linux/debian-create-upload-vhd.md
+                - name: Flatcar Container Linux
+                  displayName: 'Linux distribution specific requirements, Flatcar, Container'
+                  href: ./linux/flatcar-create-upload-vhd.md
+                - name: FreeBSD
+                  displayName: 'Linux distribution specific requirements, FreeBSD'
+                  href: ./linux/freebsd-intro-on-azure.md
+                - name: Oracle Linux
+                  displayName: 'Linux distribution specific requirements, Oracle'
+                  href: ./linux/oracle-create-upload-vhd.md
+                - name: OpenBSD
+                  displayName: 'Linux distribution specific requirements, OpenBSD'
+                  href: ./linux/create-upload-openbsd.md
+                - name: Red Hat
+                  displayName: 'Linux distribution specific requirements, Redhat'
+                  href: ./linux/redhat-create-upload-vhd.md
+                - name: SUSE
+                  displayName: 'Linux distribution specific requirements, SUSE'
+                  href: ./linux/suse-create-upload-vhd.md
+                - name: Ubuntu
+                  displayName: 'Linux distribution specific requirements, Ubuntu'
+                  href: ./linux/create-upload-ubuntu.md
+            - name: cloud-init 사용
+              items:
+                - name: Cloud-init 개요
+                  href: ./linux/using-cloud-init.md
+                - name: 심층 분석
+                  href: ./linux/cloud-init-deep-dive.md
+                  displayname: cloud-init
+                - name: 문제 해결
+                  href: ./linux/cloud-init-troubleshooting.md
+                  displayname: cloud-init
+                - name: VM 호스트 이름 구성
+                  href: ./linux/cloudinit-update-vm-hostname.md
+                  displayname: cloud-init
+                - name: VM에서 패키지 업데이트
+                  href: ./linux/cloudinit-update-vm.md
+                  displayname: cloud-init
+                - name: VM에 사용자 추가
+                  href: ./linux/cloudinit-add-user.md
+                  displayname: cloud-init
+                - name: 스왑 파일 구성
+                  href: ./linux/cloudinit-configure-swapfile.md
+                  displayname: cloud-init
+                - name: 기존 Bash 스크립트 실행
+                  href: ./linux/cloudinit-bash-script.md
+                  displayname: cloud-init
+            - name: 프로비저닝 에이전트 없이 Linux 이미지 만들기
+              href: ./linux/no-agent.md
+            - name: Linux 에이전트 프로비전 비활성화
+              href: ./linux/disable-provisioning.md
+        - name: Windows 사용자 지정 이미지
+          items:
+            - name: 업로드할 VHD 준비
+              displayName: 'Windows custom images, images, windows, upload, prepare, VHD'
+              href: ./windows/prepare-for-upload-vhd-image.md
+            - name: VM 일반화
+              href: generalize.md
+            - name: VHD 업로드 및 관리형 이미지 만들기
+              displayName: 'Windows custom images, images, windows, upload, prepare, VHD, managed'
+              href: ./windows/upload-generalized-managed.md
+            - name: 관리형 이미지 캡처
+              displayName: 'Windows custom images, images, windows, upload, prepare, VHD, managed, capture'
+              href: ./windows/capture-image-resource.md
+            - name: 관리되는 이미지에서 VM 만들기
+              displayName: 'Windows custom images, images, windows, upload, prepare, VHD, create, managed'
+              href: ./windows/create-vm-generalized-managed.md
+            - name: Visual Studio
+              href: ./windows/using-visual-studio-vm.md
+        - name: 이미지 작성기
+          items:
+            - name: 개요
+              displayName: 'Image builder, images, building'
+              href: image-builder-overview.md
+            - name: CLI
+              items:
+                - name: Linux
+                  displayName: 'Image builder, images, building, cli, Linux'
+                  href: ./linux/image-builder.md
+                - name: Windows
+                  displayName: 'Image builder, images, building, cli, Windows'
+                  href: ./windows/image-builder.md
+            - name: PowerShell
+              items:
+                - name: Windows
+                  displayName: 'Image builder, images, building, PowerShell'
+                  href: ./windows/image-builder-powershell.md
+                - name: Windows Virtual Desktop
+                  href: ./windows/image-builder-virtual-desktop.md
+            - name: 보안
+              items:
+                - name: Azure Policy의 보안 컨트롤
+                  displayName: 'Image builder, images, building'
+                  href: ./security-controls-policy-image-builder.md
+            - name: VNET 사용
+              items:
+                - name: CLI
+                  displayName: 'Image builder, images, building'
+                  href: ./linux/image-builder-vnet.md
+                - name: PowerShell
+                  displayName: 'Image builder, images, building'
+                  href: ./windows/image-builder-vnet.md
+            - name: 네트워킹 옵션
+              displayName: 'Image builder, images, building'
+              href: ./linux/image-builder-networking.md
+            - name: 권한 구성
+              items:
+                - name: CLI
+                  displayName: 'Image builder, images, building'
+                  href: ./linux/image-builder-permissions-cli.md
+                - name: PowerShell
+                  displayName: 'Image builder, images, building'
+                  href: ./linux/image-builder-permissions-powershell.md
+            - name: DevOps 작업
+              displayName: 'Image builder, images, building'
+              href: ./linux/image-builder-devops-task.md
+            - name: Image Builder 템플릿 참조
+              displayName: 'Image builder, images, building, json, ARM, template'
+              href: ./linux/image-builder-json.md
+            - name: 이미지 갤러리용 빌드
+              items:
+                - name: Linux
+                  displayName: 'Image builder, images, building'
+                  href: ./linux/image-builder-gallery.md
+                - name: Windows
+                  displayName: 'Image builder, images, building'
+                  href: ./windows/image-builder-gallery.md
+            - name: 기존 이미지 업데이트
+              items:
+                - name: Linux
+                  displayName: 'Image builder, images, building, update'
+                  href: ./linux/image-builder-gallery-update-image-version.md
+                - name: Windows
+                  displayName: 'Image builder, images, building, update'
+                  href: ./windows/image-builder-gallery-update-image-version.md
+            - name: 스크립트 저장
+              displayName: 'Image builder, images, building, scripts'
+              href: ./linux/image-builder-user-assigned-identity.md
+            - name: 문제 해결
+              displayName: 'Image builder, images, building'
+              href: ./linux/image-builder-troubleshoot.md
+        - name: Packer로 이미지 빌드
+          items:
+            - name: Linux
+              displayName: 'Image builder, images, building, packer'
+              href: ./linux/build-image-with-packer.md
+            - name: Windows
+              displayName: 'Image builder, images, building, packer'
+              href: ./windows/build-image-with-packer.md
     - name: 전용 호스트
       displayName: 'sole-tenant, sole tenant, isolated, isolation'
       items:
@@ -345,6 +601,9 @@
         - name: 방법
           displayName: dedicated adh
           href: dedicated-hosts-how-to.md
+        - name: VM 패킹
+          displayName: 'dedicated, packing, dedicated host'
+          href: dedicated-host-packing.md
     - name: Azure Spot Virtual Machines
       items:
         - name: 개요
@@ -485,12 +744,17 @@
           href: ./windows/time-sync.md
     - name: 명령 실행
       items:
-        - name: Linux
+        - name: 개요
           displayName: Run command
+          href: run-command-overview.md
+        - name: Linux 작업 실행 명령
           href: ./linux/run-command.md
-        - name: Windows
-          displayName: Run command
+        - name: Windows 작업 실행 명령
           href: ./windows/run-command.md
+        - name: Linux 관리형 실행 명령(미리 보기)
+          href: ./linux/run-command-managed.md
+        - name: Windows 관리형 실행 명령(미리 보기)
+          href: ./windows/run-command-managed.md
     - name: 확장
       items:
         - name: 개요
@@ -672,242 +936,6 @@
         - name: FAQ
           displayName: 'classic, migration, classic to ARM, CSES, Cloud Services'
           href: migration-classic-resource-manager-faq.yml
-- name: 이미지
-  items:
-    - name: Azure Marketplace 이미지 찾기
-      items:
-        - name: CLI
-          displayName: 'Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms'
-          href: ./linux/cli-ps-findimage.md
-        - name: PowerShell
-          displayName: 'Images, imaging, marketplace, URN, purchase plan, terms'
-          href: ./windows/cli-ps-findimage.md
-        - name: Windows 클라이언트 이미지
-          displayName: 'Images, imaging, marketplace, Windows, Client'
-          href: ./windows/client-images.md
-        - name: Windows 10에 대해 다중 테넌트 호스팅 권한
-          displayName: 'MTHR, multi-tenant, multitenant, hosting, rights'
-          href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-    - name: Linux 사용자 지정 이미지
-      items:
-        - name: 개요
-          displayName: 'Linux custom images, custom, image'
-          href: ./linux/imaging.md
-        - name: Linux 프로비전
-          href: ./linux/provisioning.md
-        - name: Linux 배포 관련 요구 사항
-          items:
-            - name: 일반 단계
-              displayName: 'Linux distribution specific requirements, generic'
-              href: ./linux/create-upload-generic.md
-            - name: CentOS
-              displayName: 'Linux distribution specific requirements, CentOS'
-              href: ./linux/create-upload-centos.md
-            - name: Debian
-              displayName: 'Linux distribution specific requirements, Debian'
-              href: ./linux/debian-create-upload-vhd.md
-            - name: Flatcar Container Linux
-              displayName: 'Linux distribution specific requirements, Flatcar, Container'
-              href: ./linux/flatcar-create-upload-vhd.md
-            - name: FreeBSD
-              displayName: 'Linux distribution specific requirements, FreeBSD'
-              href: ./linux/freebsd-intro-on-azure.md
-            - name: Oracle Linux
-              displayName: 'Linux distribution specific requirements, Oracle'
-              href: ./linux/oracle-create-upload-vhd.md
-            - name: OpenBSD
-              displayName: 'Linux distribution specific requirements, OpenBSD'
-              href: ./linux/create-upload-openbsd.md
-            - name: Red Hat
-              displayName: 'Linux distribution specific requirements, Redhat'
-              href: ./linux/redhat-create-upload-vhd.md
-            - name: SUSE
-              displayName: 'Linux distribution specific requirements, SUSE'
-              href: ./linux/suse-create-upload-vhd.md
-            - name: Ubuntu
-              displayName: 'Linux distribution specific requirements, Ubuntu'
-              href: ./linux/create-upload-ubuntu.md
-        - name: cloud-init 사용
-          items:
-            - name: Cloud-init 개요
-              href: ./linux/using-cloud-init.md
-            - name: 심층 분석
-              href: ./linux/cloud-init-deep-dive.md
-              displayname: cloud-init
-            - name: 문제 해결
-              href: ./linux/cloud-init-troubleshooting.md
-              displayname: cloud-init
-            - name: VM 호스트 이름 구성
-              href: ./linux/cloudinit-update-vm-hostname.md
-              displayname: cloud-init
-            - name: VM에서 패키지 업데이트
-              href: ./linux/cloudinit-update-vm.md
-              displayname: cloud-init
-            - name: VM에 사용자 추가
-              href: ./linux/cloudinit-add-user.md
-              displayname: cloud-init
-            - name: 스왑 파일 구성
-              href: ./linux/cloudinit-configure-swapfile.md
-              displayname: cloud-init
-            - name: 기존 Bash 스크립트 실행
-              href: ./linux/cloudinit-bash-script.md
-              displayname: cloud-init
-        - name: 프로비저닝 에이전트 없이 Linux 이미지 만들기
-          href: ./linux/no-agent.md
-        - name: Linux 에이전트 프로비전 비활성화
-          href: ./linux/disable-provisioning.md
-    - name: Windows 사용자 지정 이미지
-      items:
-        - name: 업로드할 VHD 준비
-          displayName: 'Windows custom images, images, windows, upload, prepare, VHD'
-          href: ./windows/prepare-for-upload-vhd-image.md
-        - name: VM 일반화
-          href: generalize.md
-        - name: VHD 업로드 및 관리형 이미지 만들기
-          displayName: 'Windows custom images, images, windows, upload, prepare, VHD, managed'
-          href: ./windows/upload-generalized-managed.md
-        - name: 관리형 이미지 캡처
-          displayName: 'Windows custom images, images, windows, upload, prepare, VHD, managed, capture'
-          href: ./windows/capture-image-resource.md
-        - name: 관리되는 이미지에서 VM 만들기
-          displayName: 'Windows custom images, images, windows, upload, prepare, VHD, create, managed'
-          href: ./windows/create-vm-generalized-managed.md
-        - name: Visual Studio
-          href: ./windows/using-visual-studio-vm.md
-    - name: 공유 이미지 갤러리
-      items:
-        - name: 개요
-          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-          href: ./shared-image-galleries.md
-        - name: 갤러리 만들기
-          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-          href: create-gallery.md
-        - name: 갤러리 공유
-          href: share-gallery.md
-        - name: 포털에서 VM 캡처
-          href: capture-image-portal.md
-        - name: 이미지 만들기
-          displayName: 'VM, image, VHD, storage account'
-          href: image-version.md
-        - name: VM 만들기
-          items:
-            - name: 일반화
-              displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: vm-generalized-image-version.md
-            - name: 특수화
-              displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: vm-specialized-image-version.md
-        - name: 이미지 리소스 업데이트
-          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-          href: update-image-resources.md
-        - name: 공유용 앱 등록
-          items:
-            - name: Linux
-              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-              href: ./linux/share-images-across-tenants.md
-            - name: Windows
-              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-              href: ./windows/share-images-across-tenants.md
-        - name: Resource Manager 템플릿
-          items:
-            - name: Shared Image Gallery 만들기
-              href: 'https://azure.microsoft.com/resources/templates/sig-create/'
-            - name: 공유 이미지 갤러리에서 이미지 정의 만들기
-              href: 'https://azure.microsoft.com/resources/templates/sig-image-definition-create/'
-            - name: 공유 이미지 갤러리에서 이미지 버전 만들기
-              href: 'https://azure.microsoft.com/resources/templates/sig-image-version-create/'
-        - name: Ansible
-          href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
-        - name: 공유 이미지 문제 해결
-          displayName: 'Shared Image Gallery, SIG, sig, gallery, image, troubleshooting'
-          href: troubleshooting-shared-images.md
-        - name: 고객 관리형 키 사용
-          displayName: 'SSE, CMK, encrypt'
-          href: image-version-encryption.md
-        - name: 이미지 버전의 관리 디스크
-          href: managed-disk-from-image-version.md
-        - name: 구매 계획 정보
-          href: marketplace-images.md
-    - name: 이미지 작성기
-      items:
-        - name: 개요
-          displayName: 'Image builder, images, building'
-          href: image-builder-overview.md
-        - name: CLI
-          items:
-            - name: Linux
-              displayName: 'Image builder, images, building, cli, Linux'
-              href: ./linux/image-builder.md
-            - name: Windows
-              displayName: 'Image builder, images, building, cli, Windows'
-              href: ./windows/image-builder.md
-        - name: PowerShell
-          items:
-            - name: Windows
-              displayName: 'Image builder, images, building, PowerShell'
-              href: ./windows/image-builder-powershell.md
-            - name: Windows Virtual Desktop
-              href: ./windows/image-builder-virtual-desktop.md
-        - name: 보안
-          items:
-            - name: Azure Policy의 보안 컨트롤
-              displayName: 'Image builder, images, building'
-              href: ./security-controls-policy-image-builder.md
-        - name: VNET 사용
-          items:
-            - name: CLI
-              displayName: 'Image builder, images, building'
-              href: ./linux/image-builder-vnet.md
-            - name: PowerShell
-              displayName: 'Image builder, images, building'
-              href: ./windows/image-builder-vnet.md
-        - name: 네트워킹 옵션
-          displayName: 'Image builder, images, building'
-          href: ./linux/image-builder-networking.md
-        - name: 권한 구성
-          items:
-            - name: CLI
-              displayName: 'Image builder, images, building'
-              href: ./linux/image-builder-permissions-cli.md
-            - name: PowerShell
-              displayName: 'Image builder, images, building'
-              href: ./linux/image-builder-permissions-powershell.md
-        - name: DevOps 작업
-          displayName: 'Image builder, images, building'
-          href: ./linux/image-builder-devops-task.md
-        - name: Image Builder 템플릿 참조
-          displayName: 'Image builder, images, building, json, ARM, template'
-          href: ./linux/image-builder-json.md
-        - name: 이미지 갤러리용 빌드
-          items:
-            - name: Linux
-              displayName: 'Image builder, images, building'
-              href: ./linux/image-builder-gallery.md
-            - name: Windows
-              displayName: 'Image builder, images, building'
-              href: ./windows/image-builder-gallery.md
-        - name: 기존 이미지 업데이트
-          items:
-            - name: Linux
-              displayName: 'Image builder, images, building, update'
-              href: ./linux/image-builder-gallery-update-image-version.md
-            - name: Windows
-              displayName: 'Image builder, images, building, update'
-              href: ./windows/image-builder-gallery-update-image-version.md
-        - name: 스크립트 저장
-          displayName: 'Image builder, images, building, scripts'
-          href: ./linux/image-builder-user-assigned-identity.md
-        - name: 문제 해결
-          displayName: 'Image builder, images, building'
-          href: ./linux/image-builder-troubleshoot.md
-    - name: Packer로 이미지 빌드
-      items:
-        - name: Linux
-          displayName: 'Image builder, images, building, packer'
-          href: ./linux/build-image-with-packer.md
-        - name: Windows
-          displayName: 'Image builder, images, building, packer'
-          href: ./windows/build-image-with-packer.md
 - name: 가용성 및 규모
   items:
     - name: 개요
@@ -1600,7 +1628,7 @@
             - name: 포털
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
               href: virtual-machine-scale-sets-maintenance-control-portal.md
-    - name: 자동 VM 게스트 패치(미리 보기)
+    - name: 자동 VM 게스트 패치
       items:
         - name: 개요
           displayName: 'Automatic VM guest patching, guest, OS, patching'

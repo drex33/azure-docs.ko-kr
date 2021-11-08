@@ -406,7 +406,7 @@
               href: knowledge-store-projections-examples.md
             - name: 프로젝션 예제
               href: knowledge-store-projection-example-long.md
-            - name: Storage Explorer로 보기
+            - name: Storage Browser를 통해 보기
               href: knowledge-store-view-storage-explorer.md
             - name: Power BI로 연결
               href: knowledge-store-connect-power-bi.md

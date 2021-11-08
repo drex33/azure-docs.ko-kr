@@ -3,28 +3,29 @@ title: 서버용 Microsoft Defender - 이점 및 특징
 description: 서버용 Microsoft Defender의 이점 및 기능에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 09/05/2021
+ms.date: 11/02/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 121809ab32db6811eb6755c857f13a3469cbcfa0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a02c6305dd3fecfcc3e83d48f228e1753dda1e2b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131061051"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467590"
 ---
 # <a name="introduction-to-microsoft-defender-for-servers"></a>서버용 Microsoft Defender 소개
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-서버용 Microsoft Defender는 Windows 및 Linux 머신에 대한 위협 탐지 및 고급 방어를 추가합니다.
+서버용 Microsoft Defender는 Microsoft Defender for Cloud의 향상된 보안 기능 중 하나입니다. 이 기능을 사용하여 Azure, 온-프레미스 또는 다중 클라우드 환경에서 실행되는 Windows 및 Linux 머신에 위협 탐지 및 고급 방어 기능을 추가할 수 있습니다.
 
-Windows의 경우 클라우드용 Microsoft Defender가 Azure 서비스와 통합되어 Windows 기반 컴퓨터를 모니터링하고 보호합니다. Defender for Cloud는 이러한 모든 서비스의 경고 및 수정 제안을 사용하기 쉬운 형식으로 제공합니다.
+하이브리드 및 다중 클라우드 환경에서 머신을 보호하기 위해 Defender for Cloud는 [Azure Arc](../azure-arc/index.yml)를 사용합니다. 다음 빠른 시작에 설명된 대로 하이브리드 및 다중 클라우드 머신을 연결하세요.
+- [비 Azure 머신을 Microsoft Defender for Cloud에 연결](quickstart-onboard-machines.md)
+- [클라우드용 Microsoft Defender에 AWS 계정 연결](quickstart-onboard-aws.md)
 
-Linux의 경우 Defender for Cloud가 가장 일반적인 Linux 감사 프레임워크 중 하나인 auditd를 사용하여 Linux 컴퓨터에서 감사 레코드를 수집합니다.
-
+> [!TIP]
+> 다른 클라우드 환경에서 실행되는 머신과 관련된 서버용 Defender의 기능에 대한 자세한 내용은 [가상 머신 및 서버에 지원되는 기능](supported-machines-endpoint-solutions-clouds.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-)을 참조하세요.
 
 ## <a name="what-are-the-benefits-of-microsoft-defender-for-servers"></a>서버용 Microsoft Defender의 이점은 무엇인가요?
 
@@ -83,6 +84,14 @@ Linux의 경우 Defender for Cloud가 가장 일반적인 Linux 감사 프레임
     Linux용 Log Analytics 에이전트는 감사된 레코드를 수집하고 이를 이벤트로 강화 및 집계합니다. Defender for Cloud는 Linux 신호를 사용하여 클라우드 및 온-프레미스 Linux 컴퓨터에서 악의적인 동작을 탐지하는 새 분석을 지속적으로 추가합니다. Windows 기능과 비슷하게 이러한 분석은 의심스러운 프로세스, 의심스러운 로그인 시도, 커널 모듈 로드 및 기타 활동 전반에 걸쳐 있습니다. 이러한 활동은 컴퓨터가 공격을 받고 있거나 위반되었음을 나타낼 수 있습니다.  
 
     Linux 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-linux)를 참조하세요.
+
+## <a name="how-does-defender-for-servers-collect-data"></a>서버용 Defender는 데이터를 어떻게 수집하나요?
+
+Windows의 경우 클라우드용 Microsoft Defender가 Azure 서비스와 통합되어 Windows 기반 컴퓨터를 모니터링하고 보호합니다. Defender for Cloud는 이러한 모든 서비스의 경고 및 수정 제안을 사용하기 쉬운 형식으로 제공합니다.
+
+Linux의 경우 Defender for Cloud가 가장 일반적인 Linux 감사 프레임워크 중 하나인 auditd를 사용하여 Linux 컴퓨터에서 감사 레코드를 수집합니다.
+
+하이브리드 및 다중 클라우드 시나리오의 경우 Defender for Cloud는 [Azure Arc](../azure-arc/index.yml)와 통합되어 이러한 비 Azure 머신이 Azure 리소스로 표시되도록 합니다. 
 
 
 ## <a name="simulating-alerts"></a>경고 시뮬레이션

@@ -10,7 +10,7 @@
   items:
     - name: 첫 번째 앱 시작
       href: quickstart.md
-    - name: 마이크로서비스 빌드 및 실행
+    - name: 앱 빌드 및 실행
       expanded: true
       items:
         - name: 샘플 앱 소개
@@ -194,7 +194,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: 아키텍처
+- name: Architecture
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

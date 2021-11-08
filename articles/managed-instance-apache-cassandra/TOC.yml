@@ -29,6 +29,8 @@
           href: spark-migration.md
 - name: 개념
   items:
+    - name: 보안 개요
+      href: security.md
     - name: Azure Cosmos DB Cassandra API와 비교
       href: compare-cosmosdb-managed-instance.md
     - name: 질문과 대답
@@ -36,6 +38,12 @@
       href: faq.md
 - name: 방법 가이드
   items:
+    - name: 배포에 대한 서비스 주체 추가
+      href: add-service-principal.md
+    - name: 고객 관리형 키 구성
+      href: customer-managed-keys.md
+    - name: 관리되는 인스턴스 모니터링
+      href: monitor-clusters.md
     - name: Azure CLI로 관리
       displayName: 'az managed-cassandra, cluster, datacenter'
       href: manage-resources-cli.md

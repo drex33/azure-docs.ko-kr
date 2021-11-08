@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 06/15/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f2aae24d6a3e4fff70443107d769f0e23c82bfbc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bf53669dc4c6ca445ea43535a709804d387e855d
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046986"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989587"
 ---
 # <a name="azure-sentinel-dns-normalization-schema-reference-public-preview"></a>Azure Sentinel DNS 정규화 스키마 참조(퍼블릭 미리 보기)
 
@@ -60,9 +60,9 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 ### <a name="source-agnostic-parsers"></a>원본 중립적 파서
 
-기본 제공 파서 모두를 통합하는 소스에 구애받지 않는 파서 를 사용하고 구성된 모든 원본에서 분석이 실행되도록 하려면 다음 KQL 함수를 쿼리의 테이블 이름으로 사용합니다.
+기본 제공 파서 모두를 통합하는 소스에 구애받지 않는 파서와 구성된 모든 원본에서 분석이 실행되도록 하려면 다음 KQL 함수를 쿼리의 테이블 이름으로 사용합니다.
 
-| Name | 설명 | 사용 지침 |
+| 이름 | 설명 | 사용 지침 |
 | --- | --- | --- |
 | **imDNS** | *공용 구조체* 를 사용하여 모든 DNS 원본의 정규화된 이벤트를 포함하는 집계 파서입니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다. <br><br>- 원본 독립적 쿼리에서 이 함수를 사용합니다.|
 | **ASimDNS** | `imDns`함수와 비슷하지만 매개 변수가 지원되지 않으므로 **로그** 페이지 시간 선택기가 값을 사용하도록 강제하지 `custom` 않습니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다.<br><br>- 매개 변수를 사용할 계획이 없는 경우 소스에 구애받지 않는 쿼리에서 이 함수를 사용합니다.|
@@ -81,7 +81,7 @@ Azure Sentinel 다음과 같은 기본 제공 제품별 DNS 파서가 제공됩�
   - **Infoblox NIOS** - ASimDnsInfobloxNIOS(일반), vimDnsInfobloxNIOS(매개변수)
   - **GCP DNS** - ASimDnsGcp(일반), vimDnsGcp(매개변수)
   - **Corelight Zeek DNS 이벤트** - ASimDnsCorelightZeek(일반), vimDnsCorelightZeek(매개변수)
-  - Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집된 Windows(이벤트 22)용 **Sysmon은** Event 및 WindowsEvent 테이블인 ASimDnsMicrosoftSysmon(일반), vimDnsMicrosoftSysmon(매개변수)을 모두 지원합니다.
+  - Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집된 **Windows용 Sysmon(이벤트** 22) - Event 및 WindowsEvent 테이블 ASimDnsMicrosoftSysmon(일반), vimDnsMicrosoftSysmon(매개변수) 모두 지원
 
 파서는 [Azure Sentinel GitHub 리포지토리](https://aka.ms/azsentinelDNS)에서 배포할 수 있습니다.
 
@@ -100,10 +100,10 @@ Dns 정보 모델에 대한 사용자 지정 파서 구현 시 매개변수 파�
 | **Starttime** | Datetime | 이 시간 이후에 실행된 DNS 쿼리만 필터링합니다. |
 | **Endtime** | Datetime | 이 시간 또는 이전에 실행이 완료된 DNS 쿼리만 필터링합니다. |
 | **srcipaddr** | 문자열 | 이 원본 IP 주소에서 DNS 쿼리만 필터링합니다. |
-| **domain_has_any**| 동적 | `domain`(또는 `query` )에 이벤트 도메인의 일부를 포함하여 나열된 도메인 이름이 있는 DNS 쿼리만 필터링합니다.
+| **domain_has_any**| dynamic | `domain`(또는 `query` )에 이벤트 도메인의 일부를 포함하여 나열된 도메인 이름이 있는 DNS 쿼리만 필터링합니다.
 | **responsecodename** | 문자열 | 응답 코드 이름이 제공된 값과 일치하는 DNS 쿼리만 필터링합니다. 예: NXDOMAIN |
 | **response_has_ipv4** | 문자열 | 응답 필드가 제공된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. 단일 IP 주소 또는 접두사를 필터링하려는 경우 이 매개 변수를 사용합니다. 응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다.|
-| **response_has_any_prefix** | 동적| 응답 필드가 나열된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. IP 주소 또는 접두사 목록을 필터링하려는 경우 이 매개 변수를 사용합니다. 응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다. |
+| **response_has_any_prefix** | dynamic| 응답 필드가 나열된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. IP 주소 또는 접두사 목록을 필터링하려는 경우 이 매개 변수를 사용합니다. 응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다. |
 | **eventtype**| 문자열 | 지정된 형식의 DNS 쿼리만 필터링합니다. 값을 지정하지 않으면 조회 쿼리만 반환됩니다. |
 ||||
 
@@ -122,7 +122,7 @@ imDns (domain_has_any = torProxies)
 
 ## <a name="normalized-content"></a>정규화된 콘텐츠
 
-DNS ASIM 스키마에 대한 지원에는 정규화된 DNS 파서가 있는 다음과 같은 기본 제공 분석 규칙에 대한 지원도 포함됩니다. Azure Sentinel GitHub 리포지토리에 대한 링크가 참조로 아래에 제공되지만, 이러한 규칙은 [Azure Sentinel 분석 규칙 갤러리](detect-threats-built-in.md)에서도 찾을 수 있습니다. 연결된 GitHub 페이지를 사용하여 나열된 규칙에 대한 관련 헌팅 쿼리를 복사합니다.
+DNS ASIM 스키마에 대한 지원에는 정규화된 DNS 파서가 있는 다음과 같은 기본 제공 분석 규칙도 지원됩니다. Azure Sentinel GitHub 리포지토리에 대한 링크가 참조로 아래에 제공되지만, 이러한 규칙은 [Azure Sentinel 분석 규칙 갤러리](detect-threats-built-in.md)에서도 찾을 수 있습니다. 연결된 GitHub 페이지를 사용하여 나열된 규칙에 대한 관련 헌팅 쿼리를 복사합니다.
 
 다음 기본 제공 분석 규칙은 이제 정규화된 DNS 파서에서 작동합니다.
  - (미리 보기) TI 맵 도메인 엔터티를 Dns 이벤트(정규화된 DNS)
@@ -207,7 +207,7 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 | **IpAddr** | Alias | | SrcIpAddr의 별칭 |
 | <a name=query></a>**DnsQuery** | 필수 | FQDN | 확인해야 하는 도메인입니다. <br><br>**참고**: 일부 원본에서 여러 다른 형식으로 이 쿼리를 보냅니다. 예를 들어 DNS 프로토콜 자체에서 쿼리 끝에 점( **.** )이 있습니다. 이 점은 제거해야 합니다.<br><br>DNS 프로토콜에서는 단일 요청을 통해 여러 개를 쿼리할 수 있지만, 이 시나리오는 거의 발생하지 않습니다. 요청에 여러 쿼리가 있으면 첫 번째 쿼리를 이 필드에 저장하고 나머지는 선택적으로 [AdditionalFields](#additionalfields) 필드에 보관합니다.<br><br>예: `www.malicious.com` |
 | **도메인** | Alias | | [Query](#query)에 대한 별칭입니다. |
-| **DnsQueryType** | 선택 | 정수 | 이 필드에는 [DNS Resource Record Type 코드](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml))가 포함될 수 있습니다. <br><br>예: `28`|
+| **DnsQueryType** | 선택 | 정수 | 이 필드에는 [DNS 리소스 레코드 종류 코드가](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)포함 될 수 있습니다. <br><br>예: `28`|
 | **DnsQueryTypeName** | 권장 | Enumerated | 이 필드에는 [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) 이름이 포함될 수 있습니다. <br><br>**참고**: IANA는 값의 대소문자를 정의하지 않으므로 분석에서 필요에 따라 대소문자를 정규화해야 합니다. 원본이 쿼리 유형 이름이 아닌 숫자 쿼리 유형 코드만 제공하는 경우 파서는 이 값으로 보강할 조회 테이블을 포함해야 합니다.<br><br>예: `AAAA`|
 | <a name=responsename></a>**DnsResponseName** | 선택 | 문자열 | 레코드에 포함된 응답의 콘텐츠입니다.<br> <br> DNS 응답 데이터는 보고 디바이스 간에 일관되지 않고 구문 분석이 복잡하므로 원본 독립적 분석의 가치가 낮습니다. 따라서 정보 모델에 구문 분석 및 정규화가 필요하지 않으며 Azure Sentinel에서 보조 함수를 사용하여 응답 정보를 제공합니다. 자세한 내용은 [DNS 응답 처리](#handling-dns-response)를 참조하세요.|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  필수 | Enumerated | [DNS 응답 코드](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**참고**: IANA는 값의 대소문자를 정의하지 않으므로 분석에서 대소문자를 정규화해야 합니다. 원본이 응답 코드 이름이 아닌 숫자 응답 코드만 제공하는 경우 파서는 이 값으로 보강할 조회 테이블을 포함해야 합니다. <br><br> 이 레코드가 응답이 아닌 요청을 나타내는 경우 **NA** 로 설정합니다. <br><br>예: `NXDOMAIN` |

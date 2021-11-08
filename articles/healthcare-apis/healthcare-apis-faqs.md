@@ -6,14 +6,14 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 11/05/2021
 ms.author: ginle
-ms.openlocfilehash: 6debd85f084a68cc96133cc7128f97beefa2dfcb
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6ce51e4cf916baaa22d14e902872185901b4d5da
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259378"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988618"
 ---
 # <a name="frequently-asked-questions-about-azure-healthcare-apis-preview"></a>Azure 의료 Api (미리 보기)에 대 한 질문과 대답
 
@@ -49,17 +49,17 @@ Azure 의료 Api를 사용 하면 다음을 수행할 수 있습니다.
 #### <a name="workspace-logical-container"></a>작업 영역 (논리적 컨테이너):
 * 구독 당 200 인스턴스 (조정 불가능)
 
-#### <a name="dicom-server"></a>DICOM 서버:
+#### <a name="dicom-service"></a>DICOM 서비스:
 * 구독 당 800 인스턴스 (조정 불가능)
 * 작업 영역 당 DICOM 인스턴스 10 개 (조정 불가능)
 
-#### <a name="fhir-server"></a>서버 서버 (& e):
+#### <a name="fhir-service"></a>FHIR 서비스:
 * 구독 당 25 개 인스턴스 (조정 불가능)
 * 작업 영역 당 10 개 인스턴스 (조정할 수 없음)
 
 #### <a name="iot-connector"></a>IoT 커넥터:
-* 구독 당 25 개 IoT 커넥터 (Azure 지원 요청을 통해 조정 가능)
-* 작업 영역 당 IoT 커넥터 10 개 (Azure 지원 요청을 통해 조정 가능)
+* 구독 당 25 개 IoT 커넥터 (조정 불가능)
+* 작업 영역 당 10 개의 IoT 커넥터 (조정 불가능)
 * IoT 커넥터 당 단일 FHIR 대상 * (조정 불가능)
 
 (*-FHIR 대상은 IoT 커넥터의 자식 리소스)

@@ -26,6 +26,8 @@
       items:
         - name: Helm으로 개발
           href: quickstart-helm.md
+        - name: Dapr로 개발(미리 보기)
+          href: quickstart-dapr.md
     - name: Event Grid를 사용하여 AKS 이벤트 구독(미리 보기)
       href: quickstart-event-grid.md
 - name: 자습서
@@ -184,6 +186,8 @@
           href: availability-zones.md
         - name: 노드 풀 사용
           items:
+            - name: 노드 풀 스냅샷
+              href: node-pool-snapshot.md
             - name: 여러 노드 풀 사용
               href: use-multiple-node-pools.md
             - name: 스폿 노드 풀 사용(미리 보기)
@@ -270,6 +274,8 @@
               href: egress-outboundtype.md
             - name: 기본 부하 분산 장치 및 고정 IP 주소 사용
               href: egress.md
+            - name: 관리형 NAT Gateway(미리 보기)
+              href: nat-gateway.md
         - name: CoreDNS 사용자 지정
           href: coredns-custom.md
     - name: 보안 및 인증
@@ -300,6 +306,8 @@
               href: managed-aad.md
             - name: Azure AD 통합(레거시)
               href: azure-ad-integration-cli.md
+            - name: GMSA 통합 사용(미리 보기)
+              href: use-group-managed-service-accounts.md
         - name: Kubernetes 권한 부여에 Azure RBAC 사용
           href: manage-azure-rbac.md
         - name: Azure AD 통합에 Kubernetes RBAC 사용
@@ -313,8 +321,16 @@
           href: azure-disk-customer-managed-keys.md
         - name: 호스트 기반 암호화 사용
           href: enable-host-encryption.md
-        - name: CSI 비밀 저장소 드라이버(미리 보기)
-          href: csi-secrets-store-driver.md
+        - name: 비밀 저장소 CSI 드라이버
+          items:
+            - name: 비밀 저장소 CSI 드라이버 구성
+              href: csi-secrets-store-driver.md
+            - name: Azure Key Vault 액세스 권한 제공
+              href: csi-secrets-store-identity-access.md
+            - name: NGINX 수신 컨트롤러에 대한 TLS 구성
+              href: csi-secrets-store-nginx-tls.md
+            - name: 문제 해결
+              href: csi-secrets-store-troubleshooting.md
     - name: 모니터링 및 로깅
       items:
         - name: 모니터 AKS
@@ -365,14 +381,14 @@
           href: howto-deploy-java-liberty-app.md
         - name: Azure API Management 사용
           href: ../api-management/api-management-kubernetes.md
-        - name: Dapr 사용
+        - name: Dapr 사용(미리 보기)
           href: dapr.md
           maintainContext: true
     - name: 서비스 메시 배포
       items:
         - name: 서비스 메시 정보
           href: servicemesh-about.md
-        - name: Open Service Mesh AKS 추가 기능(미리 보기)
+        - name: Open Service Mesh AKS 추가 기능
           items:
             - name: OSM 개요
               href: open-service-mesh-about.md

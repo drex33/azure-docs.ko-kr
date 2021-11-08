@@ -78,6 +78,8 @@
           href: container-instances-encrypt-data.md
         - name: 전용 호스트에 배포
           href: container-instances-dedicated-hosts.md
+        - name: 가용성 영역에서 배포(미리 보기)
+          href: availability-zones.md
         - name: Logic Apps 커넥터 사용
           href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: 컨테이너 시나리오

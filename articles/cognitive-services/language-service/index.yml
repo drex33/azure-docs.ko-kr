@@ -11,7 +11,7 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 09/13/2021
+  ms.date: 11/02/2021
   ms.author: aahi
 highlightedContent:
   items:
@@ -30,6 +30,7 @@ highlightedContent:
 conceptualContent:
   items:
     - title: 정보 추출
+      summary: 'NLU(자연어 이해)를 사용하여 비정형 텍스트에서 정보를 추출합니다. 예를 들어 핵심 구 또는 PII(개인 식별 정보)를 식별하고, 텍스트를 요약하고, 명명된 엔터티를 인식하여 범주화하고, 도메인 세트를 기반으로 엔터티 추출 모델을 사용자 지정합니다.'
       links:
         - itemType: overview
           text: 핵심 구 추출
@@ -49,7 +50,11 @@ conceptualContent:
         - itemType: overview
           text: Text Analytics for health
           url: text-analytics-for-health/overview.md
+        - itemType: overview
+          text: 텍스트 요약
+          url: text-summarization/overview.md
     - title: 텍스트 분류
+      summary: NLU(자연어 이해)를 사용하여 언어를 탐지하거나 텍스트의 감정을 분류합니다. 데이터 세트에 대한 분류 모델을 사용자 지정하여 텍스트 문서를 분류할 수도 있습니다.
       links:
         - itemType: overview
           text: 감정 분석 및 의견 텍스트 마이닝
@@ -60,24 +65,24 @@ conceptualContent:
         - itemType: overview
           text: 사용자 지정 텍스트 분류
           url: custom-classification/overview.md
-    - title: 대화 이해 및 질문 답변
+    - title: 질문에 답변
+      summary: '미리 작성된 기능을 사용하여 비정형 텍스트로 묻는 질문에 대한 답변을 제공하거나, 제공하는 데이터에 대한 도메인 관련 QnA 쌍을 사용자 지정합니다.'
+      links:
+        - itemType: overview
+          text: 질문 답변
+          url: question-answering/overview.md
+    - title: 대화 이해
+      summary: 사용자 고유의 대화형 언어 이해 모델을 만들어 대화형 발화를 분류하고 대화형 발화에서 시나리오 이행을 위한 자세한 정보를 추출합니다.
       links:
         - itemType: overview
           text: 대화형 언어 이해
           url: conversational-language-understanding/overview.md
-        - itemType: overview
-          text: 질문 답변
-          url: question-answering/overview.md
     - title: 텍스트 번역
+      summary: 클라우드 기반 인공신경망 기계 번역을 사용하여 애플리케이션을 위한 인텔리전트 다국어 솔루션을 빌드합니다.
       links:
         - itemType: overview
           text: 텍스트에서 기계 번역을 사용합니다.
           url: ../translator/translator-overview.md
-    - title: 텍스트 요약
-      links:
-        - itemType: overview
-          text: 텍스트 요약
-          url: text-summarization/overview.md
 additionalContent:
   sections:
     - items:

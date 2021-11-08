@@ -23,6 +23,8 @@
       href: notebook-get-started.md
     - name: Azure Sentinel에서 Power BI 보고서 만들기
       href: powerbi.md
+    - name: 유인용 honeytoken 배포 및 모니터링
+      href: monitor-key-vault-honeytokens.md
 - name: 개념
   items:
     - name: Azure Sentinel 필수 구성 요소
@@ -135,7 +137,7 @@
             - name: Microsoft 365 Defender
               href: connect-microsoft-365-defender.md
             - name: Windows 보안 이벤트
-              href: connect-windows-security-events.md
+              href: data-connectors-reference.md#windows-security-events-via-ama
         - name: 형식별 연결 지침
           items:
             - name: 'Azure, Windows 및 Microsoft 커넥터'
@@ -316,6 +318,8 @@
               href: registry-event-normalization-schema.md
             - name: 레거시 네트워크 정규화 스키마
               href: normalization-schema-v1.md
+        - name: Windows 보안 이벤트 세트
+          href: windows-security-event-id-reference.md
     - name: 검색 및 분석 참조
       items:
         - name: 상위 Azure Sentinel 통합 문서

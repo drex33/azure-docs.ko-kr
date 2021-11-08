@@ -136,6 +136,8 @@
       items:
         - name: Azure AD를 사용하여 하이브리드 액세스 보호
           href: secure-hybrid-access.md
+        - name: 보안 하이브리드 액세스 파트너 통합
+          href: secure-hybrid-access-integrations.md
         - name: Datawiza
           href: datawiza-with-azure-ad.md
         - name: F5

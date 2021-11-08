@@ -9,16 +9,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/13/2020
 keywords: 의도 인식
-ms.openlocfilehash: bf84d9309974f645c2fb5011b82d2fb8159adca1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 221f5f0f022cba85df72979ed47b4033b2c3fdd1
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131024527"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988486"
 ---
 # <a name="what-is-intent-recognition"></a>의도 인식이란?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 이 개요에서는 의도 인식의 이점과 기능에 대해 알아봅니다. Cognitive Services Speech SDK는 아래에 설명된 두 가지 의도 인식 방법을 제공합니다. 의도란 항공권 예약, 날씨 확인, 호출 등 사용자가 수행하려는 것을 말합니다. 의도 인식을 사용하면 애플리케이션, 도구, 디바이스가 의도 인식기나 LUIS에서 정의된 옵션에 따라 사용자가 시작하거나 수행할 작업을 확인할 수 있습니다.
 

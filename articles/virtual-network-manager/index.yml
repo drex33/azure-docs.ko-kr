@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Virtual Network Manager 설명서
-summary: Azure Virtual Network Manager를 사용하여 Network Virtual Appliances와 가상 네트워크 간의 동적 라우팅을 간소화하는 방법을 알아봅니다.
+summary: Azure Virtual Network Manager를 사용하여 가상 네트워크 연결을 관리하고 Azure 구독에서 보안 규칙을 적용하는 방법을 알아봅니다.
 metadata:
   title: Azure Virtual Network Manager 설명서
   description: Azure Virtual Network Manager에 대해 알아보기
@@ -10,12 +10,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 11/02/2021
-  ms.openlocfilehash: 7b61df1521d2e80ff4c4e4847f54eff84669e4e6
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: a573a44075ecc5263f5533967194393ca78970ed
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131053696"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131444481"
 landingContent:
 - title: Azure Virtual Network Manager 정보
   linkLists:

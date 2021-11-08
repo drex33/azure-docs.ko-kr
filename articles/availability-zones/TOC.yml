@@ -1,7 +1,9 @@
 - name: Azure 복원력
   items:
     - name: Azure 복원력 기능 페이지
-      href: 'https://azure.microsoft.com/features/resiliency'
+      href: 'https://azure.microsoft.com/features/'
+    - name: Azure의 복원력
+      href: overview.md
     - name: Azure용 복원 애플리케이션 디자인
       href: /azure/architecture/framework/resiliency/app-design
 - name: 가용성 영역 기본 사항
@@ -97,21 +99,25 @@
           items:
             - name: Azure Active Directory Domain Services 인스턴스 만들기
               href: ../active-directory-domain-services/tutorial-create-instance.md
-    - name: Azure Orbital 설명서
-      items:
-        - name: Azure Orbital이란?
-          href: ../networking/azure-orbital-overview.md
 - name: 재해 복구
   items:
+    - name: Azure의 비즈니스 연속성 관리
+      href: business-continuity-management-program.md
+    - name: Azure의 지역 간 복제
+      href: cross-region-replication-azure.md
     - name: Azure Site Recovery 사용
       href: ../site-recovery/index.yml
-- name: Azure Backup
-  items:
     - name: Azure Backup 사용
       href: ../backup/index.yml
+    - name: Microsoft Azure Well-Architected Framework
+      href: /azure/architecture/framework/
 - name: 리소스
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Azure 지역
       href: 'https://azure.microsoft.com/regions/'
+- name: Azure Orbital 설명서
+  items:
+    - name: Azure Orbital이란?
+      href: ../networking/azure-orbital-overview.md

@@ -12,9 +12,15 @@
       href: quickstart-troubleshoot-bicep-deployment.md
 - name: 방법
   items:
-    - name: 배포 문제 해결
+    - name: 오류 코드 찾기
+      href: find-error-code.md
+    - name: 디버그 로깅 활성화
+      href: enable-debug-logging.md
+    - name: 문제 해결 템플릿 만들기
+      href: create-troubleshooting-template.md
+    - name: 오류 코드로 솔루션 찾기
       items:
-        - name: 배포 오류 문제 해결
+        - name: 일반적인 배포 오류
           href: common-deployment-errors.md
         - name: AccountNameInvalid
           href: error-storage-account-name.md
@@ -42,7 +48,7 @@
           href: error-resource-quota.md
         - name: SkuNotAvailable
           href: error-sku-not-available.md
-- name: 참고
+- name: 참조
   items:
     - name: Bicep 및 ARM 템플릿 참조
       href: /azure/templates/

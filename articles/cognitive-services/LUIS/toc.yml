@@ -191,6 +191,12 @@ items:
             displayName: roles
           - name: 데이터 스토리지
             href: luis-concept-data-storage.md
+      - name: 보안
+        items:
+          - name: 역할 기반 액세스 제어
+            href: role-based-access-control.md
+          - name: Azure Active Directory를 사용한 인증
+            href: ../authentication.md#authenticate-with-azure-active-directory
       - name: LUIS 및 QnA Maker 사용
         href: choose-natural-language-processing-service.md
         displayName: 'nlp, qna maker'

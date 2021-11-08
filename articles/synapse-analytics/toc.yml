@@ -8,6 +8,8 @@ items:
       - name: Azure Synapse란?
         href: overview-what-is.md
         displayName: overview
+      - name: 새로운 기능
+        href: whats-new.md
       - name: 용어
         href: overview-terminology.md
       - name: FAQ
@@ -24,28 +26,31 @@ items:
       - name: 2 서버리스 SQL 풀을 사용하여 분석
         href: get-started-analyze-sql-on-demand.md
         displayName: 'get, started'
-      - name: 3 서버리스 Spark 풀을 사용하여 분석
+      - name: 3 Data Explorer 풀을 사용하여 분석
+        href: get-started-analyze-data-explorer.md
+        displayName: 'get, started'
+      - name: 4 서버리스 Spark 풀을 사용하여 분석
         href: get-started-analyze-spark.md
         displayName: 'get, started'
-      - name: 4 전용 SQL 풀을 사용하여 분석
+      - name: 5 전용 SQL 풀을 사용하여 분석
         href: get-started-analyze-sql-pool.md
         displayName: 'get, started'
-      - name: 5 스토리지 계정에서 데이터 분석
+      - name: 6 스토리지 계정에서 데이터 분석
         href: get-started-analyze-storage.md
         displayName: 'get, started'
-      - name: 6 파이프라인과 통합
+      - name: 7 파이프라인과 통합
         href: get-started-pipelines.md
         displayName: 'get, started'
-      - name: 7 Power BI를 사용하여 시각화
+      - name: 8 Power BI를 사용하여 시각화
         href: get-started-visualize-power-bi.md
         displayName: 'get, started'
-      - name: 8 모니터링
+      - name: 9 모니터링
         href: get-started-monitor.md
         displayName: 'get, started'
-      - name: 9 지식 센터 살펴보기
+      - name: 10 지식 센터 살펴보기
         href: get-started-knowledge-center.md
         displayName: 'get, started'
-      - name: 10 관리자 추가
+      - name: 11 관리자 추가
         href: get-started-add-admin.md
         displayName: 'get, started'
   - name: 작업 영역
@@ -150,12 +155,10 @@ items:
                     href: ./security/synapse-workspace-synapse-rbac-roles.md
                   - name: Synapse RBAC 역할 이해
                     href: ./security/synapse-workspace-understand-what-role-you-need.md
-                  - name: Synapse 작업 영역 관리 ID
-                    href: ./security/synapse-workspace-managed-identity.md
                   - name: 시스템 및 사용자 할당 관리 ID
-                    href: ../data-factory/data-factory-service-identity.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+                    href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
                   - name: 사용자 할당 관리 ID에 대한 자격 증명
-                    href: ../data-factory/credentials.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+                    href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
       - name: 방법 가이드
         items:
           - name: 관리 및 모니터링
@@ -588,12 +591,50 @@ items:
             href: data-explorer/data-explorer-overview.md
           - name: Azure Data Explorer와 비교
             href: data-explorer/data-explorer-compare.md
+          - name: 데이터 수집
+            items:
+              - name: 데이터 수집 개요
+                href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+              - name: 데이터 수집 속성
+                href: data-explorer/ingest-data/data-explorer-ingest-data-properties.md
+              - name: 데이터 수집 형식
+                href: data-explorer/ingest-data/data-explorer-ingest-data-supported-formats.md
       - name: 빠른 시작
         items:
           - name: Azure Portal을 사용하여 Data Explorer 풀 만들기
             href: data-explorer/data-explorer-create-pool-portal.md
           - name: Synapse Studio를 사용하여 Data Explorer 풀 만들기
             href: data-explorer/data-explorer-create-pool-studio.md
+          - name: 데이터 수집
+            items:
+              - name: 개요
+                href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+              - name: 한 번 클릭으로 수집
+                href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
+              - name: 스트리밍 수집
+                href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
+              - name: 이벤트 허브
+                items:
+                  - name: 이벤트 허브 데이터 연결
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
+                  - name: Azure portal
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
+                  - name: 한 번 클릭
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-one-click.md
+                  - name: C#
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-csharp.md
+                  - name: Python
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md
+                  - name: Azure Resource Manager 템플릿
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
+              - name: Event Grid
+                items:
+                  - name: 이벤트 허브 데이터 연결
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md
+                  - name: Azure portal
+                    href: data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md
+              - name: 파이프라인을 사용하여 데이터 수집
+                href: data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md
           - name: 풀 모니터링 및 진단
             href: data-explorer/data-explorer-monitor-pools.md
       - name: Kusto 쿼리 언어
@@ -1012,7 +1053,7 @@ items:
                 href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: QuickBooks Online
                 href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: REST
+              - name: REST (영문)
                 href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Salesforce
                 href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics

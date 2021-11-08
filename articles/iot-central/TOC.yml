@@ -175,7 +175,9 @@
           href: core/howto-export-data.md
         - name: 클라우드 대상으로 데이터 내보내기(레거시)
           href: core/howto-export-data-legacy.md
-        - name: 데이터 변환
+        - name: 내보내기를 위해 데이터를 내부적으로 변환
+          href: core/howto-transform-data-internally.md
+        - name: 외부에서 데이터 변환
           href: core/howto-transform-data.md
         - name: 워크플로를 사용하여 다른 서비스와 통합
           href: core/howto-configure-rules-advanced.md

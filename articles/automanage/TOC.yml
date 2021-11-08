@@ -13,23 +13,25 @@
     - name: Windows Server용 Automanage
       href: automanage-windows-server.md
       items:
-        - name: Windows Server용 Automanage 서비스(미리 보기)
+        - name: Windows Server용 Automanage 서비스
           href: automanage-windows-server-services-overview.md
         - name: 새 가상 머신에 대한 핫패치
           href: automanage-hotpatch.md
+        - name: SMB over QUIC
+          href: automanage-smb-over-quic.md
     - name: Azure Arc 지원 서버용 Automanage
       href: automanage-arc.md
-    - name: Automanage 계정
-      href: automanage-account.md
 - name: 방법
   expanded: true
   items:
-    - name: 사용자 지정 기본 설정 만들기
-      href: virtual-machines-custom-preferences.md
+    - name: 사용자 지정 프로필 만들기
+      href: virtual-machines-custom-profile.md
     - name: Azure Policy를 통해 VM에서 사용
       href: virtual-machines-policy-enable.md
     - name: ARM 템플릿을 통해 VM에서 사용
       href: arm-deploy.md
+    - name: 머신을 최신 Automanage 버전으로 업그레이드
+      href: automanage-upgrade.md
     - name: 온보딩 문제 해결
       href: common-errors.md
     - name: 손상된 Automanage 계정 복구

@@ -509,8 +509,8 @@
       href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
     - name: 상용 마켓플레이스 검토 정책
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-    - name: Azure Marketplace 약관
-      href: 'https://azure.microsoft.com/support/legal/marketplace-terms/'
+    - name: 상업용 Marketplace 약관
+      href: /legal/marketplace/marketplace-terms
     - name: Microsoft Publisher 계약
       href: /legal/marketplace/msft-publisher-agreement
     - name: Microsoft Publisher 계약에 대한 변경 내용

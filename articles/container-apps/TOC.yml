@@ -4,6 +4,8 @@
   items:
     - name: Azure Container Apps 정보
       href: overview.md
+    - name: Azure의 컨테이너 옵션 비교
+      href: compare-options.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -11,7 +13,7 @@
       href: get-started.md
 - name: 개념
   items:
-    - name: Environment
+    - name: 환경
       href: environment.md
     - name: 컨테이너
       href: containers.md
@@ -35,6 +37,8 @@
       href: ingress.md
     - name: 여러 앱 연결
       href: connect-apps.md
+    - name: GitHub 작업을 통해 수정 버전 게시
+      href: github-actions-cli.md
 - name: 자습서
   items:
     - name: CLI를 사용하는 Dapr이 있는 마이크로 서비스
@@ -45,13 +49,11 @@
       href: background-processing.md
 - name: 참조
   items:
-    - name: Azure CLI
-      href: /cli/azure/containerapps
     - name: ARM API 사양
       href: azure-resource-manager-api-spec.md
 - name: 리소스
   items:
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/app-service/static/'
+      href: 'https://azure.microsoft.com/pricing/details/container-apps/'
     - name: 할당량
       href: quotas.md

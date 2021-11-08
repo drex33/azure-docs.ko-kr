@@ -1,0 +1,196 @@
+- name: 디자이너 알고리즘 및 구성 요소
+  href: component-reference.md
+- name: 데이터 입력 및 출력
+  items:
+    - name: 데이터 가져오기
+      href: import-data.md
+    - name: 수동으로 데이터 입력
+      href: enter-data-manually.md
+    - name: 데이터 내보내기
+      href: export-data.md
+- name: 데이터 변환
+  items:
+    - name: 열 추가
+      href: add-columns.md
+    - name: 행 추가
+      href: add-rows.md
+    - name: 수학 연산 적용
+      href: apply-math-operation.md
+    - name: SQL 변환 적용
+      href: apply-sql-transformation.md
+    - name: 누락 데이터 정리
+      href: clean-missing-data.md
+    - name: 값 잘라내기
+      href: clip-values.md
+    - name: CSV로 변환
+      href: convert-to-csv.md
+    - name: 데이터 세트로 변환
+      href: convert-to-dataset.md
+    - name: 표시기 값으로 변환
+      href: convert-to-indicator-values.md
+    - name: 메타데이터 편집
+      href: edit-metadata.md
+    - name: Bin으로 데이터 그룹화
+      href: group-data-into-bins.md
+    - name: 데이터 조인
+      href: join-data.md
+    - name: 데이터 정규화
+      href: normalize-data.md
+    - name: 파티션 및 샘플
+      href: partition-and-sample.md
+    - name: 중복 행 제거
+      href: remove-duplicate-rows.md
+    - name: SMOTE
+      href: smote.md
+    - name: 열 변환 선택
+      href: select-columns-transform.md
+    - name: 데이터 세트의 열 선택
+      href: select-columns-in-dataset.md
+    - name: 데이터 분할
+      href: split-data.md
+- name: 기능 선택
+  items:
+    - name: 필터 기반 기능 선택
+      href: filter-based-feature-selection.md
+    - name: 순열 기능 중요도
+      href: permutation-feature-importance.md
+- name: 통계 함수
+  items:
+    - name: 데이터 요약
+      href: summarize-data.md
+- name: 기계 학습 알고리즘
+  items:
+    - name: 회귀
+      items:
+        - name: 향상된 의사 결정 트리 회귀
+          href: boosted-decision-tree-regression.md
+        - name: 의사 결정 포리스트 회귀
+          href: decision-forest-regression.md
+        - name: 빠른 포리스트 분위수 회귀
+          href: fast-forest-quantile-regression.md
+        - name: 선형 회귀
+          href: linear-regression.md
+        - name: 신경망 회귀
+          href: neural-network-regression.md
+        - name: 포아송 회귀
+          href: poisson-regression.md
+    - name: Clustering
+      items:
+        - name: K-평균 클러스터링
+          href: k-means-clustering.md
+    - name: 분류
+      items:
+        - name: 다중 클래스 향상된 의사 결정 트리
+          href: multiclass-boosted-decision-tree.md
+        - name: 다중 클래스 의사 결정 포리스트
+          href: multiclass-decision-forest.md
+        - name: 다중 클래스 로지스틱 회귀
+          href: multiclass-logistic-regression.md
+        - name: 다중 클래스 인공신경망
+          href: multiclass-neural-network.md
+        - name: 하나와 모든 다중 클래스 비교
+          href: one-vs-all-multiclass.md
+        - name: 하나와 하나의 다중 클래스 비교
+          href: one-vs-one-multiclass.md
+        - name: 2클래스 평균 퍼셉트론
+          href: two-class-averaged-perceptron.md
+        - name: 2클래스 향상된 의사 결정 트리
+          href: two-class-boosted-decision-tree.md
+        - name: 2클래스 의사 결정 포리스트
+          href: two-class-decision-forest.md
+        - name: 2클래스 로지스틱 회귀
+          href: two-class-logistic-regression.md
+        - name: 2클래스 신경망
+          href: two-class-neural-network.md
+        - name: 2클래스 Support Vector Machine
+          href: two-class-support-vector-machine.md
+- name: 모델 학습
+  items:
+    - name: 클러스터링 모델 학습
+      href: train-clustering-model.md
+    - name: 모델 학습
+      href: train-model.md
+    - name: Pytorch 모델 학습
+      href: train-pytorch-model.md
+    - name: 모델 하이퍼 매개 변수 튜닝
+      href: tune-model-hyperparameters.md
+- name: 모델 채점 및 평가
+  items:
+    - name: 변환 적용
+      href: apply-transformation.md
+    - name: 클러스터에 데이터 할당
+      href: assign-data-to-clusters.md
+    - name: 모델 교차 유효성 검사
+      href: cross-validate-model.md
+    - name: 모델 평가
+      href: evaluate-model.md
+    - name: 이미지 모델 채점
+      href: score-image-model.md
+    - name: 모델 채점
+      href: score-model.md
+- name: Python 언어
+  items:
+    - name: Python 모델 만들기
+      href: create-python-model.md
+    - name: Python 스크립트 실행
+      href: execute-python-script.md
+- name: R 언어
+  items:
+    - name: R 스크립트 실행
+      href: execute-r-script.md
+- name: 텍스트 분석
+  items:
+    - name: Word를 벡터로 변환
+      href: convert-word-to-vector.md
+    - name: 텍스트에서 N-Gram 기능 추출
+      href: extract-n-gram-features-from-text.md
+    - name: 기능 해싱
+      href: feature-hashing.md
+    - name: 텍스트 전처리
+      href: preprocess-text.md
+    - name: 잠재적 Dirichlet 할당
+      href: latent-dirichlet-allocation.md
+    - name: Vowpal Wabbit 모델 점수 매기기
+      href: score-vowpal-wabbit-model.md
+    - name: Vowpal Wabbit 모델 학습
+      href: train-vowpal-wabbit-model.md
+- name: Computer Vision
+  items:
+    - name: 이미지 변환 적용
+      href: apply-image-transformation.md
+    - name: 이미지 디렉터리로 변환
+      href: convert-to-image-directory.md
+    - name: 이미지 변환 시작
+      href: init-image-transformation.md
+    - name: 이미지 디렉터리 분할
+      href: split-image-directory.md
+    - name: DenseNet
+      href: densenet.md
+    - name: ResNet
+      href: resnet.md
+- name: 권장
+  items:
+    - name: 추천 평가
+      href: evaluate-recommender.md
+    - name: SVD 추천 점수 매기기
+      href: score-svd-recommender.md
+    - name: 와이드 및 딥 추천 점수 매기기
+      href: score-wide-and-deep-recommender.md
+    - name: SVD 추천 학습
+      href: train-svd-recommender.md
+    - name: 와이드 및 딥 추천 학습
+      href: train-wide-and-deep-recommender.md
+- name: 이상 감지
+  items:
+    - name: PCA 기반 변칙 검색
+      href: pca-based-anomaly-detection.md
+    - name: 변칙 검색 모델 학습
+      href: train-anomaly-detection-model.md
+- name: 웹 서비스
+  items:
+    - name: 웹 서비스 입력/출력
+      href: web-service-input-output.md
+- name: 구성 요소 오류 및 문제 해결
+  href: designer-error-codes.md
+- name: 그래프 검색 쿼리 구문
+  href: graph-search-syntax.md

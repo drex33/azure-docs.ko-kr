@@ -7,13 +7,12 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1b7d5e5a418fd776197cdbc6108fc4871668292c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b2f5d680fda34d181264a72a0d745a36093c472a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064813"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472172"
 ---
 #  <a name="connect-your-gcp-accounts-to-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender에 GCP 계정 연결
 
@@ -23,17 +22,17 @@ ms.locfileid: "131064813"
 
 클라우드용 Microsoft Defender는 Azure, AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)의 워크로드를 보호합니다.
 
-Defender for Cloud에 GCP 계정을 온보딩하면 GCP 보안 명령과 클라우드용 Microsoft Defender가 통합됩니다. 따라서 Defender for Cloud는 이러한 클라우드 환경 모두에서 가시성과 보호를 지원하여 다음을 제공합니다.
+Azure 구독에 GCP 계정을 추가하면 Defender for Cloud를 GCP 보안 명령과 연결할 수 있습니다. 그러면 Defender for Cloud로 이러한 두 가지 클라우드 환경의 리소스를 보호하고 다음과 같은 기능을 제공할 수 있습니다.
 
 - 잘못된 보안 구성 검색
 - Defender for Cloud 권장 사항 및 GCP Security Command Center의 검사 결과를 보여 주는 단일 보기
 - Defender for Cloud의 보안 점수 계산에 GCP 리소스 통합
 - CIS 표준을 기반으로 하는 GCP Security Command Center 권장 사항을 Defender for Cloud의 규정 준수 대시보드에 통합
 
-아래 스크린샷에서는 Defender for Cloud의 개요 대시보드에 표시되는 GCP 프로젝트를 볼 수 있습니다.
+> [!IMPORTANT]
+> Ignite Fall 2021에서는 다른 클라우드 공급자의 계정을 연결하는 방법이 업데이트되었습니다. 이 방법은 새로운 **환경 설정** 페이지를 사용합니다. GCP 계정은 이 페이지에서 지원되지 않습니다. GCP 계정을 Azure 구독에 연결하려면 아래에 설명된 대로 클래식 클라우드 커넥터 환경을 사용해야 합니다.
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Defender for Cloud의 개요 대시보드에 나열된 3개의 GCP 프로젝트" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
-
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Microsoft Defender for Cloud의 개요 대시보드에 표시된 GCP 프로젝트의 스크린샷" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>가용성
 
@@ -111,7 +110,10 @@ GCP 계정을 특정 Azure 구독에 연결하는 경우 [Google Cloud 리소스
 
 
 ### <a name="step-5-connect-gcp-to-defender-for-cloud"></a>5단계. Defender for Cloud에 GCP 연결
-1. Defender for Cloud의 메뉴에서 **클라우드 커넥터** 를 선택합니다.
+1. Defender for Cloud의 메뉴에서 **환경 설정** 을 열고 클래식 커넥터 환경으로 다시 전환하는 옵션을 선택합니다.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Defender for Cloud에서 다시 클래식 클라우드 커넥터 환경으로 전환합니다.":::
+
 1. GCP 계정 추가를 선택합니다.
 1. 온보딩 페이지에서 다음을 수행한 후 **다음** 을 선택합니다.
     1. 선택한 구독의 유효성을 검사합니다.

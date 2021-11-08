@@ -8,14 +8,14 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: conceptual
-  ms.date: 07/21/2021
+  ms.date: 10/28/2021
   ms.author: aahi
-  ms.openlocfilehash: 3fe301fcbd933e126a7aa60d777fbfe5c706a469
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: f2490c0fbb02a84ed757b7daddf4879be8d30f38
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131011677"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131476740"
 title: Azure Cognitive Services 컨테이너에 대한 FAQ
 summary: ''
 sections:
@@ -83,7 +83,7 @@ sections:
       다음은 상태 메시지 및 오류입니다.
 
 
-      |상태  | 설명  |
+      |상태  | Description  |
 
       |---------|---------|
 
@@ -112,7 +112,7 @@ sections:
         * [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
         * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
   - question: 청구는 어떻게 작동하나요?
-    answer: "Cognitive Services 클라우드와 유사하게 사용량을 기준으로 요금이 청구됩니다. Azure에 계량 데이터를 보내도록 컨테이너를 구성해야 하며, 그에 따라 트랜잭션이 청구됩니다. 호스트되는 온-프레미스 서비스 전체에서 사용된 리소스는 계층별 가격 책정을 통해 단일 할당량에 합산되며 두 용도를 모두 계산합니다. 자세한 내용은 다음 가격 책정 페이지를 참조하세요.\n\n* [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)\n* [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md) \n* [Face](../face/overview.md)\n* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)\n* [언어 이해(LUIS)](../luis/luis-container-howto.md#billing)\n* [Speech Service API](../speech-service/speech-container-howto.md#billing)\n* [텍스트 분석](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)\n\n> [!IMPORTANT]\n> Cognitive Services 컨테이너는 계량을 위해 Azure에 연결하지 않고 실행할 수 있는 *라이선스가 없습니다*. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다.\n\n다음은 계량을 위해 컨테이너가 통신하는 정보의 예입니다.\n\n\n```json \n\"usageRequestBody\": {\n  \"id\": \"customer_subscriptionID\",\n  \"apiType\": \"textanalytics\",\n  \"containerType\": \"keyphrase\",\n  \"containerVersion\": \"1.1.00864.0001\",\n  \"containerId\": \"dep--keyphrase-\",\n  \"meter\": {\n    \"name\": \"CognitiveServices.TextAnalytics.Container.BatchScoring\",\n    \"quantity\": 10.0\n  }\n  ```\n"
+    answer: "Cognitive Services 클라우드와 유사하게 사용량을 기준으로 요금이 청구됩니다. Azure에 계량 데이터를 보내도록 컨테이너를 구성해야 하며, 그에 따라 트랜잭션이 청구됩니다. 호스트되는 온-프레미스 서비스 전체에서 사용된 리소스는 계층별 가격 책정을 통해 단일 할당량에 합산되며 두 용도를 모두 계산합니다. 자세한 내용은 다음 가격 책정 페이지를 참조하세요.\n\n* [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)\n* [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md) \n* [Face](../face/overview.md)\n* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)\n* [언어 이해(LUIS)](../luis/luis-container-howto.md#billing)\n* [Speech Service API](../speech-service/speech-container-howto.md#billing)\n* [언어 서비스 - 감정 분석](../language-service/sentiment-opinion-mining/how-to/use-containers.md#billing)\n* [언어 서비스 - 의료 분야 Text Analytics](../language-service/text-analytics-for-health/how-to/use-containers.md#billing)\n* [언어 서비스 - 언어 감지](../language-service/language-detection/how-to/use-containers.md#billing)\n* [언어 서비스 - 핵심 구 추출](../language-service/key-phrase-extraction/how-to/use-containers.md#billing)\n\n> [!IMPORTANT]\n> Cognitive Services 컨테이너는 계량을 위해 Azure에 연결하지 않고 실행할 수 있는 *라이선스가 없습니다*. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다.\n\n다음은 계량을 위해 컨테이너가 통신하는 정보의 예입니다.\n\n\n```json \n\"usageRequestBody\": {\n  \"id\": \"customer_subscriptionID\",\n  \"apiType\": \"textanalytics\",\n  \"containerType\": \"keyphrase\",\n  \"containerVersion\": \"1.1.00864.0001\",\n  \"containerId\": \"dep--keyphrase-\",\n  \"meter\": {\n    \"name\": \"CognitiveServices.TextAnalytics.Container.BatchScoring\",\n    \"quantity\": 10.0\n  }\n  ```\n"
   - question: 컨테이너에 대한 현재 지원 보증은 무엇인가요?
     answer: >
       미리 보기에 대한 보증은 없습니다. 엔터프라이즈 소프트웨어에 대한 Microsoft의 표준 보증은 컨테이너가 GA(일반 공급) 형태로 공식 발표될 때 적용됩니다.
@@ -139,7 +139,13 @@ sections:
 
       * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)
 
-      * [텍스트 분석](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#host-computer-requirements-and-recommendations)
+      * [언어 서비스 - 감정 분석](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+
+      * [언어 서비스 - 의료 분야 Text Analytics](../language-service/text-analytics-for-health/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+
+      * [언어 서비스 - 언어 감지](../language-service/language-detection/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+
+      * [언어 서비스 - 핵심 구 추출](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)
   - question: 이러한 컨테이너는 현재 Windows에서 지원되나요?
     answer: >
       Cognitive Services 컨테이너는 Linux 컨테이너이지만 Windows에서 Linux 컨테이너를 일부 지원합니다. Windows의 Linux 컨테이너에 대한 자세한 내용은 [Docker 설명서](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/)를 참조하세요.

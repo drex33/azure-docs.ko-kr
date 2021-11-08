@@ -4,15 +4,15 @@ description: 이 문서에서는 IoT 커넥터에서 FHIR 대상 매핑 템플�
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 10/26/2021
+ms.topic: how-to
+ms.date: 11/05/2021
 ms.author: jasteppe
-ms.openlocfilehash: 856355f2f511a9fecdce586e3b7ef4b176366f68
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0839376e1f04acc525cd7b33cd281edd3e66ee56
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468822"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990360"
 ---
 # <a name="how-to-use-the-fhir-destination-mappings"></a>FHIR 대상 매핑을 사용 하는 방법
 
@@ -24,17 +24,24 @@ ms.locfileid: "131468822"
 > [!TIP]
 > IoT 커넥터 장치 및 FHIR 대상 매핑의 편집, 테스트 및 문제 해결을 위해 [IoMT 커넥터 데이터 매퍼](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) 도구를 확인 하세요. Azure Portal에서 IoT connector로 업로드 하기 위한 매핑을 내보내거나, IoT 커넥터의 [오픈 소스 버전과](https://github.com/microsoft/iomt-fhir) 함께 사용 합니다.
 
+다음은 IoT 커넥터 내에서 표준화 및 변환 프로세스 중에 발생 하는 상황에 대 한 개념 예입니다.
+
+:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT 데이터 정규화 흐름 example1" lightbox="media/iot-data-normalization-high-level.png":::
+
 ## <a name="fhir-destination-mappings"></a>대상 매핑
 
-장치 콘텐츠가 정규화 된 모델로 추출 되 면 장치 식별자, 측정 유형 및 기간에 따라 데이터가 수집 되 고 그룹화 됩니다. 이 그룹화의 출력은 FHIR 리소스 (현재[관찰](https://www.hl7.org/fhir/observation.html) )로 변환 하기 위해 전송 됩니다. FHIR 대상 매핑 템플릿은 데이터가 FHIR 관찰에 매핑되는 방식을 제어 합니다. 특정 시점 또는 특정 시간에 대 한 관찰을 만들어야 하나요? 관찰에 추가 해야 하는 코드는 무엇입니까? 값은 [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData) 또는 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)로 표시 되어야 하나요? 이러한 데이터 형식은 모두 FHIR 대상 매핑 구성 컨트롤의 모든 옵션입니다.
+장치 콘텐츠가 정규화 된 모델로 추출 되 면 장치 식별자, 측정 유형 및 기간에 따라 데이터가 수집 되 고 그룹화 됩니다. 이 그룹화의 출력은 FHIR 리소스 (현재[관찰](https://www.hl7.org/fhir/observation.html) )로 변환 하기 위해 전송 됩니다. FHIR 대상 매핑 템플릿은 데이터가 FHIR 관찰에 매핑되는 방식을 제어 합니다. 특정 시점 또는 특정 시간에 대 한 관찰을 만들어야 하나요? 관찰에 추가 해야 하는 코드는 무엇입니까? 값을 [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData) 또는 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)로 표시 해야 하나요? 이러한 데이터 형식은 모두 FHIR 대상 매핑 구성 컨트롤의 모든 옵션입니다.
+
+> [!NOTE]
+> 매핑은 기본 blob 저장소에 저장 되 고 계산 실행 당 blob에서 로드 됩니다. 업데이트 되 면 즉시 적용 됩니다. 
 
 ### <a name="codevaluefhirtemplate"></a>Code-efrtemplate
 
 현재이 템플릿에서는 현재 유일한 템플릿 (현재는 FHIR 대상 매핑)이 지원 됩니다.  코드, 유효 기간 및 관찰 값을 정의할 수 있습니다. 여러 값 형식이 지원 됩니다. [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept)및 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). 이러한 구성 가능한 값과 함께 관찰 리소스의 식별자와 적절 한 장치 및 환자 리소스에 대 한 링크가 자동으로 처리 됩니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | ---
-|**TypeName**| 이 템플릿이 바인딩될 측정 형식입니다. 이 형식을 출력 하는 장치 매핑 템플릿이 하나 이상 있어야 합니다.
+|**T**| 이 템플릿이 바인딩될 측정 형식입니다. 이 형식을 출력 하는 장치 매핑 템플릿이 하나 이상 있어야 합니다.
 |**PeriodInterval**|관찰을 만든 기간이 표시 되는 시간입니다. 지원 되는 값은 0 (인스턴스), 60 (1 시간), 1440 (일)입니다.
 |**범주**|생성 되는 관찰 유형을 분류 하기 위한 [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) 수
 |**코드가**|만든 관찰에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.
@@ -54,7 +61,7 @@ ms.locfileid: "131468822"
 
 [Sampleddata](http://hl7.org/fhir/datatypes.html#SampledData) fhir 데이터 형식을 나타냅니다. 관찰 측정은 특정 시점에서 시작 하 고 정의 된 기간을 사용 하 여 전달 하는 값 스트림에 기록 됩니다. 값이 없는 경우이 `E` 데이터 스트림에 기록 됩니다. 두 개 이상의 값이 데이터 스트림의 동일한 위치를 차지 하는 기간이 면 최신 값이 사용 됩니다. SampledData를 사용 하는 관찰이 업데이트 되는 경우에도 동일한 논리가 적용 됩니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | ---
 |**DefaultPeriod**|사용할 기본 기간 (밀리초)입니다. 
 |**단위**|SampledData의 원점에 설정할 단위입니다. 
@@ -63,7 +70,7 @@ ms.locfileid: "131468822"
 
 [수량](http://hl7.org/fhir/datatypes.html#Quantity) fhir 데이터 형식을 나타냅니다. 그룹화에 두 개 이상의 값이 있는 경우 첫 번째 값만 사용 됩니다. 동일한 관찰에 매핑되는 새 값이 도착 하면 이전 값을 덮어씁니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | --- 
 |**단위**| 단위 표현입니다.
 |**코드**| 단위의 코딩 된 형태입니다.
@@ -73,9 +80,9 @@ ms.locfileid: "131468822"
 
 [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) fhir 데이터 형식을 나타냅니다. 실제 값은 사용 되지 않습니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | --- 
-|**텍스트**|일반 텍스트 표현입니다. 
+|**Text**|일반 텍스트 표현입니다. 
 |**코드가**|만든 관찰에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.
 |**코드 []. Code**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대 한 코드입니다.
 |**코드 []. 컴퓨터**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)을 위한 시스템입니다.
@@ -265,6 +272,8 @@ ms.locfileid: "131468822"
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
+이 문서에서는 FHIR 대상 매핑을 사용 하는 방법을 알아보았습니다. 장치 매핑을 사용 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
 >[!div class="nextstepaction"]
 >[장치 매핑을 사용 하는 방법](how-to-use-device-mapping-iot.md)

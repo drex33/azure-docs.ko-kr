@@ -12,16 +12,14 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 음성 번역
-ms.openlocfilehash: 19332b801493359dc0cf8a8f1d5bab951b9be983
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 13d82c334504b2d396f10b1c80b99c0c264c9ea0
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502752"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988884"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 이 개요에서는 오디오 스트림의 실시간 [다중 언어 음성-음성](language-support.md#speech-translation) 및 음성 텍스트 변환을 지원하는 음성 번역 서비의 이점과 기능에 대해 알아봅니다. Speech SDK를 사용하면 애플리케이션, 도구 및 디바이스를 통해 제공된 오디오의 원본 대화 내용 기록과 번역 결과에 액세스할 수 있습니다. 음성이 감지되면 임시 기록 및 번역 결과가 반환되고 최종 결과가 합성 음성으로 변환될 수 있습니다.
 

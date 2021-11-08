@@ -738,9 +738,9 @@
   items:
     - name: 동영상
       href: identity-videos.md
-    - name: Microsoft ID 플랫폼 개발자 블로그
-      href: 'https://developer.microsoft.com/identity/blogs/'
-    - name: Azure AD 블로그
+    - name: Microsoft ID 플랫폼 - Microsoft 365 개발자 블로그
+      href: 'https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/'
+    - name: Azure Active Directory ID 블로그
       href: 'https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'

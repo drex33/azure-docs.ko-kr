@@ -8,12 +8,12 @@ author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021
-ms.openlocfilehash: f59948204af76ce5e2d940c2910601b848bb4605
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5a1cf4366ffd86491cc3e3e09358e364d878cb87
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642995"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989340"
 ---
 # <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>자체 호스팅 통합 런타임 자동 업데이트 및 만료 알림
 
@@ -38,9 +38,11 @@ ms.locfileid: "122642995"
 > 자체 호스팅 통합 런타임 노드가 여러 개 있는 경우 자동 업데이트 중에 가동이 중지되지 않습니다. 다른 노드에서 작업을 진행하는 동안 한 노드에서 먼저 자동 업데이트가 수행됩니다. 첫 번째 노드에서 업데이트가 완료되면 다른 노드가 업데이트될 때 나머지 작업을 인수합니다. 자체 호스팅 통합 런타임이 하나만 있는 경우 자동 업데이트 중에 약간 가동이 중지됩니다.
 
 ## <a name="auto-update-version-vs-latest-version"></a>자동 업데이트 버전과 최신 버전
-자체 호스팅 통합 런타임의 안정성을 보장하기 위해 두 가지 버전이 릴리스되더라도 매달 한 가지 버전만 푸시됩니다. 따라서 경우에 따라 자동 업데이트 버전이 실제 최신 버전보다 이전 버전인 것을 확인할 수 있습니다. 최신 버전을 가져오려면 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)로 이동하면 됩니다.
+자체 호스팅 통합 런타임의 안정성을 보장하기 위해 두 가지 버전이 릴리스되더라도 매달 한 가지 버전만 푸시됩니다. 따라서 경우에 따라 자동 업데이트 버전이 실제 최신 버전보다 이전 버전인 것을 확인할 수 있습니다. 최신 버전을 가져오려면 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)로 이동하면 됩니다. 또한 버전에 대한 자동 업데이트가 관리됩니다. 변경할 수 없습니다. 최신 버전으로 업그레이드하려면 수동으로 업그레이드해야 합니다. 
 
 현재 버전이 오래된 경우 ADF 포털의 자체 호스팅 통합 런타임 **자동 업데이트** 페이지에 최신 버전이 표시됩니다. 자체 호스팅 통합 런타임이 온라인 상태인 경우 이 버전이 자동 업데이트 버전이며, 예약된 시간에 자체 호스팅 통합 런타임을 자동으로 업데이트합니다. 그러나 자체 호스팅 통합 런타임이 오프라인인 경우 이 페이지에 최신 버전만 표시됩니다.
+
+노드가 여러 대 있고 일부 노드가 자동으로 업데이트되지 않는 경우 그런 다음 이러한 노드는 자동 업데이트 전에 모든 노드에서 동일한 버전으로 롤백됩니다. 
 
 ## <a name="self-hosted-integration-runtime-expire-notification"></a>자체 호스팅 통합 런타임 만료 알림
 자체 호스팅 통합 런타임의 버전을 수동으로 제어하려는 경우 자동 업데이트 설정을 해제하고 수동으로 설치할 수 있습니다. 자체 호스팅 통합 런타임의 각 버전은 1년 후에 만료됩니다. 만료 메시지는 ADF 포털 및 자체 호스팅 통합 런타임 클라이언트에 만료 **90일** 전부터 표시됩니다.

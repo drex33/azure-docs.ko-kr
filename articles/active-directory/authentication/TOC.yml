@@ -94,6 +94,8 @@
           href: howto-mfa-mfasettings.md
         - name: 사용자 구성
           href: howto-mfa-userdevicesettings.md
+        - name: 검사 간격 찾기
+          href: how-to-authentication-find-coverage-gaps.md
         - name: 사용자별 MFA 사용
           href: howto-mfa-userstates.md
         - name: 인증 공급자 구성
@@ -162,6 +164,8 @@
           href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Microsoft Authenticator 설정으로 이동(미리 보기)
       href: how-to-nudge-authenticator-app.md
+    - name: Microsoft 관리 설정 사용
+      href: how-to-mfa-microsoft-managed.md
     - name: 임시 액세스 패스(미리 보기) 사용
       href: howto-authentication-temporary-access-pass.md
     - name: SMS 기반 인증 사용

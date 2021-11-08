@@ -23,7 +23,7 @@ items:
         href: iot-connector-machine-learning.md
       - name: IoT 커넥터 및 Microsoft Power BI
         href: iot-connector-power-bi.md
-      - name: IoT 커넥터 및 Microsoft Teams
+      - name: IoT 커넥터 및 Microsoft Teams 알림
         href: iot-connector-teams.md
   - name: 방법 가이드
     expanded: true
@@ -32,6 +32,8 @@ items:
         href: device-data-through-iot-hub.md
       - name: 디바이스 매핑 사용
         href: how-to-use-device-mapping-iot.md
+      - name: 사용자 지정 함수 사용
+        href: iot-connector-custom-functions.md
       - name: FHIR 대상 매핑 사용
         href: how-to-use-fhir-mapping-iot.md
       - name: 진단 설정을 통해 IoT 커넥터 메트릭 내보내기

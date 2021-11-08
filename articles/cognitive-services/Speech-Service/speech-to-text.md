@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: 음성 텍스트 변환, 음성 텍스트 변환 소프트웨어
-ms.openlocfilehash: 78db7165e44eb53a6d34c9095f70185874d0d8ce
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 02e9a0d78aa8d904be2c9ade4ba419ea4fefd40f
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509891"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989435"
 ---
 # <a name="what-is-speech-to-text"></a>음성 텍스트 변환이란?
 
@@ -36,8 +36,6 @@ ms.locfileid: "131509891"
 > [!NOTE]
 > Bing Speech는 2019년 10월 15일에 서비스가 해제되었습니다. 애플리케이션, 도구 또는 제품에서 Bing Speech API를 사용하는 경우 Speech Service로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.
 > - [Bing Speech에서 Speech Service로 마이그레이션](how-to-migrate-from-bing-speech.md)
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 ## <a name="get-started"></a>시작
 

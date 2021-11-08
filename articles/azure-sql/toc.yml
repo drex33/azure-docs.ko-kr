@@ -209,6 +209,8 @@
           items:
             - name: 쿼리 성능 문제 식별
               href: identify-query-performance-issues.md
+            - name: 성능 문제 해결
+              href: database/intelligent-insights-troubleshoot-performance.md
             - name: 성능에 대한 일괄 처리
               href: performance-improve-use-batching.md
             - name: BCP를 사용하여 데이터 로드
@@ -1450,6 +1452,8 @@
           href: database/troubleshoot-common-errors-issues.md
         - name: 일반적인 연결 문제
           href: database/troubleshoot-common-connectivity-issues.md
+        - name: 메모리 부족 오류 문제 해결
+          href: database/troubleshoot-memory-errors-issues.md
         - name: 가져오기/내보내기 서비스 중단
           href: database/database-import-export-hang.md
         - name: 트랜잭션 로그 오류

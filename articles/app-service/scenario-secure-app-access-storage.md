@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/16/2021
+ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: be170a07340fdea84b9b4af03bd329fcdf91483d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5eb3998821a8022a82c127a69279809e93d31056
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065554"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477348"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>자습서: 웹앱에서 Azure Storage 액세스
 
@@ -206,8 +206,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 
 ---
 
-## <a name="access-blob-storage-net"></a>Blob Storage에 액세스(.NET)
-
+## <a name="access-blob-storage"></a>Blob Storage에 액세스
+# <a name="c"></a>[C#](#tab/programming-language-csharp)
 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스는 Azure Storage에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다. 관리 ID를 사용하여 토큰을 가져오고 서비스 클라이언트에 연결하는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 다음 코드 예제는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 새 BLOB을 업로드합니다.
 
 이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity)을 참조하세요.
@@ -216,7 +216,7 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 
 Blob Storage와 함께 작동하도록 [Blob Storage NuGet 패키지](https://www.nuget.org/packages/Azure.Storage.Blobs/)를 설치하고, Azure AD 자격 증명으로 인증하도록 [.NET NuGet 패키지용 Azure ID 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Identity/)를 설치합니다. .NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 클라이언트 라이브러리를 설치합니다.
 
-# <a name="command-line"></a>[명령줄](#tab/command-line)
+#### <a name="net-core-command-line"></a>.NET Core 명령줄
 
 명령줄을 열고 프로젝트 파일이 포함된 디렉터리로 전환합니다.
 
@@ -228,8 +228,7 @@ dotnet add package Azure.Storage.Blobs
 dotnet add package Azure.Identity
 ```
 
-# <a name="package-manager"></a>[패키지 관리자](#tab/package-manager)
-
+#### <a name="package-manager-console"></a>패키지 관리자 콘솔
 Visual Studio에서 프로젝트 또는 솔루션을 열고 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 명령을 사용하여 콘솔을 엽니다.
 
 설치 명령을 실행합니다.
@@ -238,8 +237,6 @@ Install-Package Azure.Storage.Blobs
 
 Install-Package Azure.Identity
 ```
-
----
 
 ### <a name="example"></a>예
 
@@ -285,6 +282,40 @@ static public async Task UploadBlob(string accountName, string containerName, st
     }
 }
 ```
+
+# <a name="nodejs"></a>[Node.JS](#tab/programming-language-nodejs)
+[@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) 패키지의 `DefaultAzureCredential` 클래스는 Azure Storage에 대한 요청에 권한을 부여하기 위해 코드의 토큰 자격 증명을 가져오는 데 사용됩니다. [@azure/storage-blob](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) 패키지의 `BlobServiceClient` 클래스는 스토리지에 새 Blob을 업로드하는 데 사용됩니다. 관리 ID를 사용하여 토큰을 가져와 Blob 서비스 클라이언트에 연결하는 `DefaultAzureCredential` 클래스의 인스턴스를 만듭니다. 다음 코드 예제는 인증된 토큰 자격 증명을 가져와서 서비스 클라이언트 개체를 만드는 데 사용합니다. 이 개체는 새 BLOB을 업로드합니다.
+
+이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/1-WebApp-storage-managed-identity)에서 *StorageHelper.js* 를 참조하세요.
+
+### <a name="example"></a>예
+
+```nodejs
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+const defaultAzureCredential = new DefaultAzureCredential();
+
+// Some code omitted for brevity.
+
+async function uploadBlob(accountName, containerName, blobName, blobContents) {
+    const blobServiceClient = new BlobServiceClient(
+        `https://${accountName}.blob.core.windows.net`,
+        defaultAzureCredential
+    );
+
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+
+    try {
+        await containerClient.createIfNotExists();
+        const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+        const uploadBlobResponse = await blockBlobClient.upload(blobContents, blobContents.length);
+        console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
+    } catch (error) {
+        console.log(error);
+    }
+}
+```
+---
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

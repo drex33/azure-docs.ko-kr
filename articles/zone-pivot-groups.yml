@@ -826,16 +826,28 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-- id: app-service-ide
+- id: app-service-vscode-cli-portal
   title: 개발 환경
   prompt: 개발 환경 선택
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: 명령줄 인터페이스
+  - id: development-environment-azure-portal
+    title: Azure Portal
+- id: app-service-ide
+  title: 개발 환경
+  prompt: 배포 환경 선택
   pivots:
   - id: development-environment-vs
     title: Visual Studio
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
-    title: 명령줄 인터페이스
+    title: Azure CLI
+  - id: development-environment-ps
+    title: Azure PowerShell
 - id: app-service-ide-oss
   title: 개발 환경
   prompt: 개발 환경 선택
@@ -1126,6 +1138,14 @@ groups:
     title: Azure Portal에서
   - id: rest-api
     title: REST API 사용
+- id: connect-aws-accounts
+  title: AWS 계정을 Azure 구독에 연결
+  prompt: AWS 계정을 어떻게 연결하나요?
+  pivots:
+  - id: env-settings
+    title: 환경 설정 페이지
+  - id: classic-connector
+    title: 클래식 클라우드 커넥터
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: 운영 체제/콘솔
   prompt: 운영 체제 및 콘솔 선택
@@ -1373,9 +1393,9 @@ groups:
   - id: client-portaltier
     title: Azure portal
 metadata:
-  ms.openlocfilehash: 68d5906853d11b7309b716cc7f04c8e6be664c2b
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: 871fbc4fe1242f30d1fcb141e8be97be3cb02787
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131046492"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131466355"

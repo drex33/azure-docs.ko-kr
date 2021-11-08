@@ -96,7 +96,7 @@ items:
           - name: C#
             displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
             href: /dotnet/api/microsoft.cognitiveservices.speech
-          - name: Go
+          - name: 이동
             displayName: 'Go SDK, Go dev kit,reference,reference docs,ref documentation'
             href: 'https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go'
           - name: Java
@@ -374,8 +374,6 @@ items:
         href: keyword-recognition-guidelines.md
       - name: 지역 지원
         href: keyword-recognition-region-support.md
-  - name: 언어 식별
-    href: language-identification.md
   - name: 시나리오 심층 분석
     items:
       - name: 대화 시나리오

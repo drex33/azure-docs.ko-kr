@@ -8,13 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0e5c44033a5f03726dc7e1f1129287edef5350aa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 390a628640389b2d2b89afbf36b4aab41f1eb115
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014381"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422314"
 ---
 # <a name="connect-your-non-azure-machines-to-microsoft-defender-for-cloud"></a>비 Azure 머신을 Microsoft Defender for Cloud에 연결
 
@@ -28,6 +27,9 @@ Defender for Cloud는 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 - Azure Portal의 Defender for Cloud 페이지에서(**시작** 및 **인벤토리**)
 
 이 페이지에서 이러한 각 방법에 대해 설명합니다.
+
+> [!TIP]
+> 다른 클라우드 공급자의 머신을 연결하는 경우 [AWS 계정 연결](quickstart-onboard-aws.md) 또는 [GCP 계정 연결](quickstart-onboard-gcp.md)을 참조하세요.
 
 ::: zone pivot="azure-arc"
 

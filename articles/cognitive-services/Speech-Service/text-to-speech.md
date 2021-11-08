@@ -12,16 +12,14 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: a086ebf1d7e9da9f8394a6cdde411e5ee55a5f28
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: c3a4caa638debfa32fa6d571b473b2bf5bd0cf09
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131511050"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990379"
 ---
 # <a name="what-is-neural-text-to-speech"></a>인공신경망 텍스트 음성 변환이란 무엇인가요?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Microsoft 인공신경망 텍스트 음성 변환은 심층적인 인공신경망을 사용하여 컴퓨터의 음성을 녹음된 사람의 목소리와 거의 구별할 수 없도록 만듭니다. 인간과 유사한 자연스러운 운율 및 단어의 명확한 조음을 사용하면 AI 시스템과 상호 작용할 때 인공신경망 텍스트 음성 변환은 수신 피로도를 현저히 줄일 수 있습니다.
 
@@ -85,7 +83,7 @@ Microsoft 인공신경망 텍스트 음성 변환은 심층적인 인공신경�
 
 ## <a name="migrate-to-neural-voice"></a>인공신경망 음성으로 마이그레이션
 
-표준 음성은 **2024년 8월 31일** 에 중단되며 그 날짜 이후에는 더 이상 지원되지 않습니다.  **2021년 8월 31일** 이전에는 모든 기존 음성 구독으로 공지가 전송되었습니다. 사용 중지 기간 (**8 월 2021-31 2024 년 8 월 31 일까** 지) 동안 기존 표준 음성 사용자는 계속 해 서 표준 음성을 사용할 수 있습니다. 모든 새 사용자/새 음성 리소스는 신경망로 이동 해야 합니다.
+표준 음성은 **2024년 8월 31일** 에 중단되며 그 날짜 이후에는 더 이상 지원되지 않습니다.  **2021년 8월 31일** 이전에는 모든 기존 음성 구독으로 공지가 전송되었습니다. 사용 중지 **기간(2021년 8월 31일 - 2024년 8월 31일)** 동안 기존 표준 음성 사용자는 표준 음성을 계속 사용할 수 있으며, 모든 새 사용자/새 음성 리소스는 신경망 음성으로 이동해야 합니다.
 
 **필요한 동작**
 

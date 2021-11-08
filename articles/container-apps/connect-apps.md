@@ -1,19 +1,19 @@
 ---
 title: Azure Container Apps 미리 보기에서 애플리케이션 커넥트
 description: Azure Container Apps에서 함께 통신하는 여러 애플리케이션을 배포하는 방법을 알아봅니다.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b39e13aa8cf5953349af14c80317b67f05047919
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 75ccb6730d9fdad76f7b7f6f78d3695e86a349f0
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576342"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027397"
 ---
 # <a name="connect-applications-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 애플리케이션 커넥트
 

@@ -3,12 +3,12 @@ title: 모든 엔터프라이즈 센서가 검색하는 디바이스에 대해 �
 description: 온-프레미스 관리 콘솔에서 디바이스 인벤토리를 사용하여 연결된 센서에서 디바이스 정보에 대한 포괄적인 보기를 가져옵니다. 가져오기, 내보내기, 필터링 도구를 사용하여 이 정보를 관리합니다.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: 8016efe809d03cbc00bdb94b67f99caa7f98ac4c
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: 3a92d1950bd1fab5ea6e94a433aad1d74802fb23
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137819"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027264"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>디바이스 인벤토리에서 모든 엔터프라이즈 센서 검색 조사
 
@@ -42,7 +42,18 @@ ms.locfileid: "130137819"
 | **그룹** | 이 디바이스가 참여하는 그룹입니다. |
 | **마지막 작업** | 디바이스가 수행한 마지막 작업입니다. |
 | **Discovered** | 이 디바이스가 네트워크에서 처음으로 검색된 시기입니다. |
-| **PLC 모드 (미리 보기)** | PLC 운영 모드는 키 상태 (물리적) 및 실행 상태 (논리적)를 포함 합니다. 가능한 **주요** 상태는, 실행, 프로그램, 원격, 중지, 잘못 됨, 프로그래밍 사용 안 함입니다. 실행할 수 있습니다. 가능한 **실행** 상태는 실행, 프로그램, 중지, 일시 중지 됨, 예외, 중지 됨, 트랩 됨, 유휴 상태, 오프 라인 상태입니다. 두 상태가 동일 하면 oe 상태만 표시 됩니다. |
+| **SEN 모드(미리 보기)** | 량 운영 모드에는 키 상태(물리적) 및 실행 상태(논리)가 포함됩니다. 가능한 **주요** 상태에는 Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run이 포함됩니다. 가능한 **실행** 상태는 실행, 프로그램, 중지, 일시 중지, 예외, 중지, 트래핑, 유휴, 오프라인입니다. 두 상태가 같으면 oe 상태만 표시됩니다. |
+
+## <a name="what-is-an-inventory-device"></a>인벤토리 디바이스란?
+
+Defender for IoT 디바이스 인벤토리에는 조직 네트워크 및 관리형 엔드포인트를 모니터링하는 센서에서 검색하는 광범위한 디바이스 특성이 표시됩니다. Defender for IoT는 다음을 위해 인벤토리에서 디바이스를 단일 고유 네트워크 디바이스로 식별하고 분류합니다.
+
+1. 독립 실행형 IT/OT/IoT 디바이스(1개 또는 여러 NIC)
+1. 여러 백플레인 구성 요소로 구성된 디바이스(모든 랙/슬롯/모듈 포함)
+1. 스위치/라우터(여러 NIC 사용)와 같은 네트워크 인프라 역할을 하는 디바이스 
+
+공용 인터넷 IP 주소, 멀티캐스트 그룹 및 브로드캐스트 그룹은 인벤토리 디바이스로 간주되지 않습니다.
+60일 넘게 비활성 상태인 디바이스는 비활성 인벤토리 디바이스로 분류됩니다.
 
 ## <a name="integrate-data-into-the-enterprise-device-inventory"></a>엔터프라이즈 디바이스 인벤토리에 데이터 통합
 

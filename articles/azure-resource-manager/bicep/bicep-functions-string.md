@@ -5,16 +5,16 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/29/2021
-ms.openlocfilehash: a59be71415197242d636c577cff1c80b9f5fc639
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a73df839ff7dcaad992b8930c8fb2545e854951c
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131439883"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028081"
 ---
 # <a name="string-functions-for-bicep"></a>Bicep에 대한 문자열 함수
 
-이 문서에서는 문자열 작업을 위한 Bicep 함수에 대해 설명합니다.
+이 문서에서는 문자열 작업을 위한 Bicep 함수에 대해 설명 합니다.
 
 ## <a name="base64"></a>base64
 
@@ -22,7 +22,7 @@ ms.locfileid: "131439883"
 
 입력 문자열의 base64 표현을 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -52,7 +52,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -64,7 +64,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 base64 표현을 JSON 개체로 변환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -107,7 +107,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 base64 표현을 문자열로 변환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -340,7 +340,7 @@ output stringEmpty bool = empty(testString)
 
 문자열이 값으로 끝나는지 여부를 결정합니다. 비교는 대/소문자를 구분합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -383,7 +383,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 문자열의 첫 번째 문자 또는 배열의 첫 번째 요소를 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -423,7 +423,7 @@ output stringOutput string = first('One Two Three')
 
 입력 값에서 형식이 지정된 문자열을 만듭니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -461,7 +461,7 @@ output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting
 
 매개 변수로 제공된 값을 기반으로 고유 식별자 형식의 값을 만듭니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -500,6 +500,9 @@ guid(resourceGroup().id, deployment().name)
 
 고유 식별자 형식의 문자 36자를 포함하고 있는 문자열입니다.
 
+> [!NOTE]
+> 순서의 중요성: 동일한 매개 변수가 아니라 동일한 순서로 정렬되어야 합니다. 예: `guid('hello', 'world') != guid('world', 'hello')`
+
 ### <a name="examples"></a>예
 
 다음 예에서는 guid에서 결과를 반환합니다.
@@ -516,7 +519,7 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 
 문자열 내 값의 첫 번째 위치를 반환합니다. 비교는 대/소문자를 구분합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -559,7 +562,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 유효한 JSON 문자열을 JSON 데이터 형식으로 변환합니다. 자세한 내용은 [json 함수](./bicep-functions-object.md#json)를 참조하세요.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ## <a name="last"></a>last
 
@@ -567,7 +570,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 문자열의 마지막 문자 또는 배열의 마지막 요소를 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ### <a name="parameters"></a>매개 변수
 
@@ -607,7 +610,7 @@ output stringOutput string = last('One Two Three')
 
 문자열 내 값의 마지막 위치를 반환합니다. 비교는 대/소문자를 구분합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ### <a name="parameters"></a>매개 변수
 
@@ -648,7 +651,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 문자열의 문자 수, 배열의 요소 수 또는 개체의 루트 수준 속성 수를 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ### <a name="parameters"></a>매개 변수
 
@@ -700,13 +703,13 @@ output objectLength int = length(objectToTest)
 
 전역적으로 고유한 식별자의 형식으로 값을 반환합니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
 이 함수는 매개 변수의 기본값에 대한 언어 식 내에서만 사용할 수 있습니다. Bicep 파일의 다른 위치에서 이 함수를 사용하면 오류가 반환됩니다. 호출될 때마다 다른 값을 반환하는 함수이므로 Bicep 파일의 다른 부분에서는 허용되지 않습니다. 동일한 매개 변수를 사용하여 동일한 Bicep 파일을 배포하면 동일한 결과가 안정적으로 생성되지 않습니다.
 
-newGuid 함수는 매개 변수를 사용하지 않으므로 [guid](#guid) 함수와 다릅니다. 동일한 매개 변수를 사용하여 guid를 호출하면 매번 동일한 식별자를 반환합니다. 특정 환경에 대해 동일한 GUID를 안정적으로 생성해야 하는 경우 guid를 사용합니다. 테스트 환경에 리소스를 배포하는 것과 같이 매번 다른 식별자가 필요한 경우 newGuid를 사용합니다.
+newGuid 함수는 매개 변수를 사용하지 않으므로 [guid](#guid) 함수와 다릅니다. 동일한 매개 변수를 사용 하 여 guid를 호출 하면 매번 동일한 식별자를 반환 합니다. 특정 환경에 대해 동일한 GUID를 안정적으로 생성해야 하는 경우 guid를 사용합니다. 테스트 환경에 리소스를 배포하는 것과 같이 매번 다른 식별자가 필요한 경우 newGuid를 사용합니다.
 
 newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 사용하여 전역적으로 고유한 식별자를 생성합니다.
 
@@ -770,7 +773,7 @@ output nameOutput string = storageName
 
 지정된 총 길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -808,7 +811,7 @@ output stringOutput string = padLeft(testString, 10, '0')
 
 다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함한 새 문자열을 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -835,7 +838,7 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -976,7 +979,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 지정한 값을 문자열로 변환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1023,7 +1026,7 @@ output intOutput string = string(testInt)
 
 지정된 문자 위치에서 시작하고 지정한 개수의 문자를 포함하는 부분 문자열을 반환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1031,7 +1034,7 @@ output intOutput string = string(testInt)
 |:--- |:--- |:--- |:--- |
 | stringToParse |예 |문자열 |부분 문자열을 추출할 원래 문자열입니다. |
 | startIndex |예 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
-| length |예 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. 생략 하면 시작 위치에서 문자열의 나머지가 반환 됩니다.|
+| length |예 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. 생략하면 시작 위치에서 문자열의 나머지가 반환됩니다.|
 
 ### <a name="return-value"></a>반환 값
 
@@ -1068,7 +1071,7 @@ output substringOutput string = substring(testString, 4, 3)
 
 문자열 시작부터 지정된 수의 문자를 포함하는 문자열 또는 배열 시작부터 지정된 수의 요소를 포함하는 배열을 반환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1112,7 +1115,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 지정된 문자열을 소문자로 변환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1148,7 +1151,7 @@ output toUpperOutput string = toUpper(testString)
 
 지정된 문자열을 대문자로 변환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1184,7 +1187,7 @@ output toUpperOutput string = toUpper(testString)
 
 지정된 문자열에서 모든 선행 및 후행 공백 문자를 제거합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1218,7 +1221,7 @@ output return string = trim(testString)
 
 매개 변수로 제공된 값을 기반으로 결정 해시 문자열을 만듭니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1264,7 +1267,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
 }
 ```
 
-Bicep 파일을 배포할 때마다 새 고유 이름을 만들어야 하고 리소스를 업데이트 하지 않으려는 경우 uniqueString에 [utcNow](./bicep-functions-date.md#utcnow) 함수를 사용할 수 있습니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예제는 [utcNow](./bicep-functions-date.md#utcnow)를 참조하세요. 참고 utcNow 함수는 매개 변수의 기본값에 대해서만 식 내에서 사용할 수 있습니다.
+Bicep 파일을 배포할 때마다 새 고유 이름을 만들어야 하고 리소스를 업데이트 하지 않으려는 경우 uniqueString에 [utcNow](./bicep-functions-date.md#utcnow) 함수를 사용할 수 있습니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예제는 [utcNow](./bicep-functions-date.md#utcnow)를 참조하세요. utcNow 함수는 매개 변수의 기본값에 대한 식 내에서만 사용할 수 있습니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -1285,7 +1288,7 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 
 baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1344,7 +1347,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 URI를 인코딩합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1385,7 +1388,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 URI로 인코딩된 값의 문자열을 반환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ### <a name="parameters"></a>매개 변수
 

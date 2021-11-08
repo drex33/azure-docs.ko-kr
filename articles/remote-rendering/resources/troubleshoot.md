@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8e4bc76203ee84d71f4a9f201dac6e63d4728c34
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a6a9f2c4e480efdbb025fb3edf98dc7e6f599081
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238063"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025953"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -202,6 +202,10 @@ C++ NuGet 패키지 내에는 사용할 이진 버전을 정의하는 `microsoft
 확인할 또 다른 값은 `ServiceStatistics.LatencyPoseToReceiveAvg`입니다. 이 값은 지속적으로 100밀리초 미만이어야 합니다. 이 값을 초과하면 너무 멀리 떨어져 있는 데이터 센터에 연결되어 있을 수 있습니다.
 
 문제를 완화하는 데 도움이 될 수 있는 방법 목록은 [네트워크 연결 지침](../reference/network-requirements.md#guidelines-for-network-connectivity)을 참조하세요.
+
+## <a name="local-content-uis--on-hololens-2-renders-with-significantly-more-distortion-artifacts-than-without-arr"></a>HoloLens 2의 로컬 콘텐츠 (ui, ...)는 ARR을 사용 하지 않는 것 보다 훨씬 더 왜곡 된 아티팩트를 사용 하 여 렌더링 됩니다.
+
+이는 런타임 성능에 대 한 로컬 콘텐츠 프로젝션 품질을 지 원하는 기본 설정입니다. 로컬 콘텐츠가 ARR이 아닌 동일한 reprojection 품질 수준에서 렌더링 되도록 프로젝션 모드를 변경 하는 방법에 대 한 자세한 내용은 [reprojection 포즈 모드](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) 의 챕터를 참조 하세요.
 
 ## <a name="z-fighting"></a>z-fighting
 

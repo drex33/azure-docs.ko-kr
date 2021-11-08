@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
-ms.openlocfilehash: 16a6412c95bdb203d524959ef541f8b1488c8f5a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c7dfe80162ab406c6dde32ad54ff251e001f5416
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103194"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027682"
 ---
 # <a name="how-to-create-custom-ner-projects"></a>사용자 지정 NER 프로젝트를 만드는 방법
 
@@ -42,7 +42,7 @@ Azure 구독- [무료로 무료로 만드세요](https://azure.microsoft.com/fre
 
 [!INCLUDE [create a new resource from the Azure portal](../../custom-classification/includes/resource-creation-azure-portal.md)]
 
-# <a name="language-studio"></a>[언어 스튜디오](#tab/studio)
+# <a name="language-studio"></a>[Language Studio](#tab/studio)
 
 ### <a name="create-a-new-resource-from-language-studio"></a>언어 스튜디오에서 새 리소스 만들기
 
@@ -103,9 +103,9 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 다음으로, 언어 리소스에 연결 하기 위해 저장소 계정에 대 한 [올바른 역할](#roles-for-your-storage-account) 을 할당 해야 합니다. 
 
-## <a name="roles-for-your-azure-resource"></a>Azure 리소스에 대 한 역할
+## <a name="roles-for-your-azure-language-resource"></a>Azure 언어 리소스에 대 한 역할
 
-Azure 리소스에 소유자 또는 참가자 역할이 할당 되어 있어야 합니다.
+Azure 언어 리소스에 **소유자** 또는 **참가자** 역할이 할당 되어 있어야 합니다.
 
 ## <a name="enable-identity-management-for-your-resource"></a>리소스에 대해 id 관리를 사용 하도록 설정
 

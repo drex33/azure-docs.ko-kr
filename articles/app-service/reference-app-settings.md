@@ -3,12 +3,12 @@ title: 환경 변수 및 앱 설정 참조
 description: 일반적으로 사용되는 환경 변수와 앱 설정을 사용하여 수정할 수 있는 환경 변수에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: ae0f67ae935d31fc242350761e80e5d073a7273a
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: e315a51e7d160bcc2d8864cfa954924f0fe4c094
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892062"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025759"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Azure App Service 환경 변수 및 앱 설정
 
@@ -18,7 +18,7 @@ ms.locfileid: "131892062"
 
 다음 환경 변수는 일반적으로 앱 환경과 관련이 있습니다.
 
-| 설정 이름| 설명 | 예제 |
+| 설정 이름| 설명 | 예 |
 |-|-|-|
 | `WEBSITE_SITE_NAME` | 읽기 전용입니다. 앱 이름. ||
 | `WEBSITE_RESOURCE_GROUP` | 읽기 전용입니다. 앱 리소스를 포함하는 Azure 리소스 그룹 이름. ||
@@ -110,7 +110,7 @@ WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID
 
 Kudu 빌드 구성은 네이티브 Windows 앱에 적용되며, Git 기반 또는 ZIP 기반 배포의 동작을 제어하는 데 사용됩니다.
 
-| 설정 이름| 설명 | 예제 |
+| 설정 이름| 설명 | 예 |
 |-|-|-|
 | `SCM_BUILD_ARGS` | Msbuild 명령줄의 끝에 항목을 추가하여 기본 명령줄의 이전 부분을 재정의합니다. | 클린 빌드를 수행하려면 `-t:Clean;Compile`을 수행합니다.|
 | `SCM_SCRIPT_GENERATOR_ARGS` | Kudu는 [여기](http://blog.amitapple.com/post/38418009331/azurewebsitecustomdeploymentpart2)에 설명된 `azure site deploymentscript` 명령을 사용하여 배포 스크립트를 생성합니다. 언어 프레임워크 형식을 자동으로 검색하고 명령에 전달할 매개 변수를 결정합니다. 이 설정은 자동으로 생성된 매개 변수를 재정의합니다. | 리포지토리를 일반 콘텐츠 파일로 처리하려면 `--basic -p <folder-to-deploy>`을 수행합니다. |
@@ -158,7 +158,7 @@ Oryx 빌드 구성은 Linux 앱에 적용되며, Git 기반 또는 ZIP 기반 �
 
 # <a name="java"></a>[Java](#tab/java)
 
-| 설정 이름 | 설명 | 예제 |
+| 설정 이름 | 설명 | 예 |
 |-|-|-|
 | `JAVA_HOME` | Java 설치 디렉터리의 경로 ||
 | `JAVA_OPTS` | Java SE 앱의 경우, `java` 명령에 전달하는 환경 변수. 시스템 변수를 포함할 수 있습니다. Tomcat의 경우, `CATALINA_OPTS`을 사용합니다. | `-Dmysysproperty=%DRIVEPATH%` |
@@ -229,7 +229,7 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 
 # <a name="php"></a>[PHP](#tab/php)
 
-| 설정 이름 | 설명 | 예제|
+| 설정 이름 | 설명 | 예|
 |-|-|-|
 | `PHP_Extensions` | 쉼표로 구분된 PHP 확장 목록. | `extension1.dll,extension2.dll,Name1=value1` |
 | `PHP_ZENDEXTENSIONS` | 네이티브 앱 Windows의 경우, `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`과 같은 XDebug 확장의 경로로 설정합니다. Linux 앱의 경우, `xdebug`로 설정하여 PHP 컨테이너의 XDebug 버전을 사용합니다. ||
@@ -252,7 +252,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 # <a name="ruby"></a>[Ruby](#tab/ruby)
 
-| 설정 이름 | 설명 | 예제 |
+| 설정 이름 | 설명 | 예 |
 |-|-|-|
 | `PORT` | 읽기 전용입니다. Rails 앱이 컨테이너에서 수신 대기하는 포트. ||
 | `WEBSITE_ROLE_INSTANCE_ID` | 읽기 전용입니다. 현재 인스턴스의 ID. ||
@@ -268,7 +268,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 ## <a name="domain-and-dns"></a>도메인 및 DNS
 
-| 설정 이름| 설명 | 예제 |
+| 설정 이름| 설명 | 예 |
 |-|-|-|
 | `WEBSITE_DNS_SERVER` | 나가는 연결(예: 백 엔드 서비스)에 대한 기본 DNS 서버의 IP 주소. App Service에 대한 기본 DNS 서버는 IP 주소가 `168.63.129.16`인 Azure DNS입니다. 앱이 [VNet 통합](./overview-vnet-integration.md)을 사용하거나 [App Service environment](environment/intro.md)에 있는 경우, 기본적으로 VNet에서 DNS 서버 구성을 상속합니다. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | 나가는 연결에 대한 대체 DNS 서버의 IP 주소. `WEBSITE_DNS_SERVER`을 참조하세요. | |
@@ -293,12 +293,12 @@ DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
 
 자세한 내용은 [Azure App Service에서 스테이징 환경 설정](deploy-staging-slots.md)을 참조하세요.
 
-| 설정 이름| 설명 | 예제 |
+| 설정 이름| 설명 | 예 |
 |-|-|-|
 |`WEBSITE_SLOT_NAME`| 읽기 전용입니다. 현재 배포 슬롯의 이름. 프로덕션 슬롯의 이름은 `Production`입니다. ||
 |`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| 기본적으로 사이트 확장의 버전은 각 슬롯에 따라 다릅니다. 이렇게 하면 교환 후 확장 버전 변경으로 인한 예기치 않은 애플리케이션 동작이 방지됩니다. 확장 버전도 교환하려면, *모든 슬롯* 에서 `1`로 설정합니다. ||
 |`WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS`| 기본적으로 특정 설정을 [고정 또는 교환 불가능](deploy-staging-slots.md#which-settings-are-swapped)으로 지정합니다. 기본값은 `true`입니다. 대신, *모든 배포 슬롯* 을 교환할 수 있도록 이 설정을 `false` 또는 `0`로 설정합니다. 특정 설정 형식에 대한 세분화된 제어는 없습니다. ||
-|`WEBSITE_SWAP_WARMUP_PING_PATH`| 슬래시로 시작하는 교환에서 대상 슬롯을 준비하기 위한 ping 경로. 기본값은 루트 경로를 ping하는 `/`입니다. | `/statuscheck` |
+|`WEBSITE_SWAP_WARMUP_PING_PATH`| 슬래시로 시작하는 교환에서 대상 슬롯을 준비하기 위한 ping 경로. 기본값은 `/` HTTP를 통해 루트 경로를 ping하는 입니다. | `/statuscheck` |
 |`WEBSITE_SWAP_WARMUP_PING_STATUSES`| 교환 중 준비 작업에 대한 유효한 HTTP 응답 코드. 반환된 상태 코드가 목록에 없는 경우 준비 및 교환 작업이 중지됩니다. 기본적으로 모든 응답 코드는 유효합니다. | `200,202` |
 | `WEBSITE_SLOT_NUMBER_OF_TIMEOUTS_BEFORE_RESTART` | 슬롯 교환 중 특정 VM 인스턴스에서 사이트를 강제로 다시 시작하는 최대 시간 제한 수. 기본값은 `3`입니다. ||
 | `WEBSITE_SLOT_MAX_NUMBER_OF_TIMEOUTS` | 슬롯 교환 중 포기 전에 만들 단일 URL에 대한 최대 시간 제한 요청 수. 기본값은 `5`입니다. ||
@@ -312,7 +312,7 @@ DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
 
 사용자 지정 컨테이너에 대한 자세한 내용은 [Azure에서 사용자 지정 컨테이너 실행](quickstart-custom-container.md)을 참조하세요.
 
-| 설정 이름| 설명 | 예제 |
+| 설정 이름| 설명 | 예 |
 |-|-|-|
 | `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | 확장된 인스턴스 간에 `/home` 디렉터리를 공유할 수 있도록 하려면 `true`로 설정합니다. 사용자 지정 컨테이너에 대한 기본값은 `false`입니다. ||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | 컨테이너를 다시 시작하기 전에 컨테이너가 시작이 완료되기를 기다리는 시간(초). 기본값은 `230`입니다. 최대 `1800`까지 늘릴 수 있습니다. ||
@@ -348,7 +348,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 
 ## <a name="logging"></a>로깅
 
-| 설정 이름| 설명 | 예제 |
+| 설정 이름| 설명 | 예 |
 |-|-|-|
 | `WEBSITE_HTTPLOGGING_ENABLED` | 읽기 전용입니다. Windows 네이티브 앱에 대한 웹 서버 로깅을 사용할지(`1`) 말지(`0`) 여부를 표시합니다. ||
 | `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | 웹 서버 로그를 사용하는 경우, Windows 네이티브 앱에 대한 웹 서버 로그의 보존 기간(일). | `10` |

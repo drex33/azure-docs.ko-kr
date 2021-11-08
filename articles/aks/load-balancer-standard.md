@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 41d98bfa2fddc6575d53c2770e9411609acb68c1
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 1da7c5f189b3ffee7f74a4af94bda7fe2d755c74
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845840"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025782"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 공용 표준 Load Balancer 사용
 
@@ -193,16 +193,16 @@ az aks create \
 ### <a name="configure-the-allocated-outbound-ports"></a>할당된 아웃바운드 포트 구성
 
 > [!IMPORTANT]
-> 클러스터에 많은 수의 연결을 설정 해야 하는 응용 프로그램이 있는 경우, 예를 들어 SQL DB에 연결 하는 많은 프런트 엔드 인스턴스는 SNAT 포트 고갈 (연결에 사용할 포트 부족)가 발생 하기 쉽습니다. 이러한 시나리오에서는 부하 분산 장치에서 할당 된 아웃 바운드 포트 및 아웃 바운드 프런트 엔드 Ip를 늘리는 것이 좋습니다. 이러한 값을 적절 하 게 계산 하는 방법에 대 한 자세한 내용은 아래를 참조 하세요.
+> 데이터베이스에 연결 하는 프런트 엔드 응용 프로그램의 여러 인스턴스와 같이 작은 대상 집합에 대 한 많은 수의 연결을 설정할 수 있는 클러스터에 응용 프로그램이 있는 경우 SNAT 포트 소모 발생 가능성이 매우 높은 시나리오가 있을 수 있습니다. SNAT 포트 소모는 응용 프로그램이 다른 응용 프로그램 또는 호스트에 대 한 연결을 설정 하는 데 사용 하는 아웃 바운드 포트가 부족할 때 발생 합니다. SNAT 포트 소모를 발생 시킬 수 있는 시나리오가 있는 경우, 부하 분산 장치에서 할당 된 아웃 바운드 포트 및 아웃 바운드 프런트 엔드 Ip를 늘려 SNAT 포트 소모를 방지 하는 것이 좋습니다. 아웃 바운드 포트 및 아웃 바운드 프런트 엔드 IP 값을 올바르게 계산 하는 방법에 대 한 자세한 내용은 아래를 참조 하세요.
 
-별도로 지정하지 않는 한 AKS는 할당된 아웃바운드 포트의 기본값을 사용하여 이를 구성할 때 표준 Load Balancer를 정의합니다. 이 값은 아래 명령에 표시된 것처럼 AKS API에서 **null** 또는 SLB API에서 **0** 입니다.
+기본적으로 AKS는 부하 분산 장치에 *AllocatedOutboundPorts* 를로 설정 합니다 .이를 `0` 통해 클러스터를 만들 때 [백 엔드 풀 크기에 따라 자동 아웃 바운드 포트 할당][azure-lb-outbound-preallocatedports] 을 사용할 수 있습니다. 예를 들어 클러스터의 노드가 50 이하인 경우 1024 포트가 각 노드에 할당 됩니다. 클러스터의 노드 수가 증가 하면 노드당 사용할 수 있는 포트 수가 줄어듭니다. AKS 클러스터 부하 분산 장치에 대 한 *AllocatedOutboundPorts* 값을 표시 하려면를 사용 `az network lb outbound-rule list` 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az network lb outbound-rule list --resource-group $NODE_RG --lb-name kubernetes -o table
 ```
 
-이전 명령에는 부하 분산 장치에 대한 아웃바운드 규칙이 나열됩니다. 예를 들면 다음과 같습니다.
+다음 예제 출력은 클러스터에 대해 백 엔드 풀 크기에 따라 자동 아웃 바운드 포트 할당을 사용할 수 있음을 보여 줍니다.
 
 ```console
 AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
@@ -210,19 +210,31 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-이 출력은 클러스터에 0 개의 포트가 있지만 [백 엔드 풀 크기에 따라 자동 아웃 바운드 포트 할당][azure-lb-outbound-preallocatedports]을 사용 하는 것을 의미 하지는 않습니다. 예를 들어 클러스터의 노드가 50 이하인 경우 1024 포트가 각 노드에 할당 됩니다. 클러스터의 노드 수가 증가 하면 노드당 사용할 수 있는 포트 수가 줄어듭니다.
+클러스터를 만들거나 업데이트할 때 *AllocatedOutboundPorts* 및 아웃 바운드 IP 주소에 대 한 특정 값을 구성 하려면 `load-balancer-outbound-ports` 및, 또는 중 하나를 사용 `load-balancer-managed-outbound-ip-count` `load-balancer-outbound-ips` `load-balancer-outbound-ip-prefixes` 합니다. 아웃 바운드 포트 및 아웃 바운드 IP 주소에 대 한 특정 값을 설정 하거나 기존 값을 늘리려면 먼저 적절 한 수의 아웃 바운드 포트와 IP 주소를 계산 해야 합니다. 가장 가까운 정수로 반올림 되는이 계산에는 다음 수식을 사용 `64,000 ports per IP / <outbound ports per node> * <number of outbound IPs> = <maximum number of nodes in the cluster>` 합니다.
 
-할당 된 아웃 바운드 포트의 수를 정의 하거나 늘리려면 아웃 바운드 포트 수와 Ip 수에 대 한 적절 한 값을 계산 해야 합니다. 아웃 바운드 포트 수가 여기에 지정 된 값에 대 한 인스턴스당 고정 됩니다. 아웃 바운드 포트의 값은 8의 배수 여야 합니다.
+아웃 바운드 포트 및 Ip 수를 계산 하 고 값을 설정 하는 경우 다음을 고려 하십시오.
+* 아웃 바운드 포트 수는 사용자가 설정한 값을 기준으로 노드당 고정 됩니다.
+* 아웃 바운드 포트의 값은 8의 배수 여야 합니다.
+* 더 많은 Ip를 추가 하면 노드에 더 이상 포트가 추가 되지 않습니다. 클러스터의 더 많은 노드에 대 한 용량을 제공 합니다.
+* [Maxsurge 값][maxsurge]을 통해 지정 된 노드 수를 포함 하 여 업그레이드의 일부로 추가할 수 있는 노드를 고려해 야 합니다.
 
-IP를 더 추가해도 노드에 더 많은 포트가 추가되지는 않습니다. 대신 클러스터의 더 많은 노드에 대한 용량을 제공합니다. 이 계산을 수행할 때 [maxSurge 값을](upgrade-cluster.md#customize-node-surge-upgrade)통해 지정된 노드 수를 포함하여 업그레이드의 일부로 추가될 수 있는 노드를 고려해야 합니다. 필요한 IP 수에 대한 계산은 `(<maximum number of nodes in the cluster> * <outbound ports per node>) / 64000` 이며 가장 가까운 정수로 반올림됩니다.
+다음 예에서는 설정 하는 값에 따라 아웃 바운드 포트 및 IP 주소의 수가 어떻게 영향을 받는지 보여 줍니다.
+- 기본값이 사용 되 고 클러스터에 48 노드가 있는 경우 각 노드에 1024 포트를 사용할 수 있습니다.
+- 기본값이 사용 되 고 클러스터가 48에서 52 노드로 확장 될 경우 각 노드가 1024 포트에서 사용할 수 있는 512 포트에서 사용할 수 있는 것으로 업데이트 됩니다.
+- 아웃 바운드 포트를 1000로 설정 하 고 아웃 바운드 IP 수를 2로 설정 하면 클러스터에서 최대 128 노드 ()를 지원할 수 `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes` 있습니다.
+- 아웃 바운드 포트를 1000로 설정 하 고 아웃 바운드 IP 수를 7로 설정 하면 클러스터에서 최대 448 노드를 지원할 수 있습니다 `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes` .
+- 아웃 바운드 포트를 4000로 설정 하 고 아웃 바운드 IP 수를 2로 설정 하면 클러스터에서 최대 32 노드 ()를 지원할 수 `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes` 있습니다.
+- 아웃 바운드 포트를 4000로 설정 하 고 아웃 바운드 IP 수를 7로 설정 하면 클러스터에서 최대 112 노드를 지원할 수 있습니다 `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes` .
 
-예제:
-- 값이 제공되지 않고 클러스터에 48개의 노드가 있는 경우 각 노드에는 1024개의 포트를 사용할 수 있습니다.
-- 값이 제공되지 않고 클러스터가 52개 노드로 증가하면 이제 각 노드에 512개의 포트를 사용할 수 있습니다.
-- 아웃바운드 포트가 1,000으로 설정되고 아웃바운드 IP 수가 2로 설정된 경우 클러스터는 최대 128개의 노드(IP당 64,000개 포트/노드당 1,000개 포트 * 2 IP = 128개 노드)를 지원할 수 있습니다.
-- 아웃바운드 포트가 4,000으로 설정되고 아웃바운드 IP 수가 7로 설정된 경우 클러스터는 최대 112개의 노드(IP당 64,000개 포트/노드당 4,000개 포트 * 7 IP = 112개 노드)를 지원할 수 있습니다.
+> [!IMPORTANT]
+> 아웃 바운드 포트 및 Ip 수를 계산한 후 업그레이드 중 노드 서 수를 처리할 수 있는 추가 아웃 바운드 포트 용량이 있는지 확인 합니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분 한 초과 포트를 할당 하는 것이 중요 합니다. AKS는 업그레이드 작업에 대해 하나의 버퍼 노드로 설정 됩니다. [Maxsurge 수 값][maxsurge]을 사용 하는 경우 노드당 아웃 바운드 포트를 maxsurge 수 값으로 곱하여 필요한 포트 수를 결정 합니다. 예를 들어, 최대 100 노드를 포함 하는 클러스터에서 7 개의 IP 주소를 사용 하는 노드당 4000 포트와 최대 서 수를 2로 계산한 경우
+> * 2 개 노드-노드 수는 업그레이드 하는 동안 노드 지 수에 필요한 8000 포트 수 * 노드당 포트 수 * 4000.
+> * 100 노드 * 노드당 4000 포트 = 40만 포트는 클러스터에 필요 합니다.
+> * 클러스터에 사용할 수 있는 IP = 448000 포트의 7 개 ip * 64000 포트
+>
+> 위의 예제에서는 클러스터에 48000 포트의 용량이 초과 된 것을 보여 줍니다 .이는 업그레이드 하는 동안 노드 서 수에 필요한 8000 포트를 처리 하는 데 충분 합니다.
 
-값이 계산되면 다음 명령을 사용하여 클러스터에 적용할 수 있습니다.
+값을 계산 하 고 확인 한 후에는 `load-balancer-outbound-ports` `load-balancer-managed-outbound-ip-count` , 또는를 사용 하 여 `load-balancer-outbound-ips` `load-balancer-outbound-ip-prefixes` 클러스터를 만들거나 업데이트할 때 이러한 값을 적용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az aks update \
@@ -230,25 +242,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-managed-outbound-ip-count 7 \
     --load-balancer-outbound-ports 4000
-```
-
-이러한 값을 확인하려면 클러스터의 최대 크기가 100개 노드라고 가정하고 필요한 포트 수(400,000개)와 사용 가능한 포트 수(448,000개)를 계산합니다. 이 구성은 업그레이드 중에 노드 급증을 위한 공간이 있는 100개 노드 클러스터에 충분한 포트를 제공합니다.
-
-- 100개 노드 * 노드당 4000개 포트 = 400,000개 포트 필요
-- IP 7개 * IP당 64000개 포트 = 448,000개 포트 사용 가능.
-
-> [!IMPORTANT]
-> 연결 또는 크기 조정 문제를 방지하기 위해 *allocatedOutboundPorts를* 사용자 지정하기 전에 [필요한 할당량 계산 및 요구 사항 확인][요구 사항]을 수행해야 합니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분한 포트를 할당하는 것이 중요합니다. AKS는 업그레이드를 위해 기본적으로 하나의 버퍼 노드로 설정됩니다. [maxSurge 값을](upgrade-cluster.md#customize-node-surge-upgrade)사용하는 경우 노드당 아웃바운드 포트에 maxSurge 값을 곱하여 필요한 포트 수를 결정합니다.
-
-클러스터를 만들 때 **`load-balancer-outbound-ports`** 매개 변수를 사용해도 되지만 **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** 또는 **`load-balancer-outbound-ip-prefixes`** 도 지정해야 합니다.  예를 들면 다음과 같습니다.
-
-```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --load-balancer-sku standard \
-    --load-balancer-managed-outbound-ip-count 2 \
-    --load-balancer-outbound-ports 1024 
 ```
 
 ### <a name="configure-the-load-balancer-idle-timeout"></a>부하 분산 장치 유휴 시간 제한 구성
@@ -294,7 +287,7 @@ spec:
   - MY_EXTERNAL_IP_RANGE
 ```
 
-이 예제에서는 범위의 인바운드 외부 트래픽만 허용하도록 규칙을 `MY_EXTERNAL_IP_RANGE` 업데이트합니다. 를 내부 서브넷 IP 주소로 바꾸면 `MY_EXTERNAL_IP_RANGE` 트래픽은 클러스터 내부 IP로만 제한됩니다. 트래픽이 클러스터 내부 IP로 제한되는 경우 Kubernetes 클러스터 외부의 클라이언트는 부하 분산에 액세스할 수 없습니다.
+이 예에서는 범위에서 인바운드 외부 트래픽만 허용 하도록 규칙을 업데이트 합니다 `MY_EXTERNAL_IP_RANGE` . 를 `MY_EXTERNAL_IP_RANGE` 내부 서브넷 IP 주소로 바꾸면 트래픽이 클러스터 내부 ip로만 제한 됩니다. 트래픽이 클러스터 내부 Ip로 제한 되는 경우 Kubernetes 클러스터 외부의 클라이언트에서 부하 분산 장치에 액세스할 수 없습니다.
 
 > [!NOTE]
 > 인바운드, 외부 트래픽은 부하 분산 장치에서 AKS 클러스터의 가상 네트워크로 흐릅니다. 가상 네트워크에는 부하 분산 장치의 모든 인바운드 트래픽을 허용하는 NSG(네트워크 보안 그룹)가 있습니다. 이 NSG는 *LoadBalancer* 형식의 [서비스 태그][service-tags]를 사용하여 부하 분산 장치의 트래픽을 허용합니다.
@@ -330,7 +323,7 @@ spec:
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | 리소스 그룹의 이름            | 클러스터 인프라와 동일한 리소스 그룹에 있지 않은 부하 분산 장치 공용 IP의 리소스 그룹(노드 리소스 그룹)을 지정합니다.
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | 허용되는 서비스 태그 목록          | 허용되는 [서비스 태그][service-tags]를 쉼표로 구분한 목록을 지정합니다.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP 유휴 시간 제한(분)          | 부하 분산 장치에서 TCP 연결 유휴 시간 제한이 발생하는 시간을 분 단위로 지정합니다. 기본값 및 최솟값은 4입니다. 최댓값은 30입니다. 정수여야 합니다.
-|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | SLB에 대해 를 사용하지 않도록 `enableTcpReset` 설정합니다. Kubernetes 1.18에서 사용되지 않으며 1.20에서 제거되었습니다. 
+|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | SLB에 대해 사용 하지 않도록 설정 `enableTcpReset` 합니다. Kubernetes 1.18에서 사용 되지 않으며 1.20에서 제거 되었습니다. 
 
 
 ## <a name="troubleshooting-snat"></a>SNAT 문제 해결
@@ -427,3 +420,4 @@ SNAT 소모의 근본 원인은 아웃바운드 연결의 설정, 관리 또는 
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
+[maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade

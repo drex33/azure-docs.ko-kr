@@ -6,17 +6,17 @@ ms.author: pafarley
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 10/28/2021
-ms.openlocfilehash: 2fa5a5867bc64da126e24c65b1b6d0c5d618ae18
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/03/2021
+ms.openlocfilehash: 2f436f971b151fb4043ca459bb36442a2d504491
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446546"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026029"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 비용 계획 및 관리
 
-이 문서에서는 Azure Cognitive Services에 대한 비용을 계획하고 관리하는 방법을 설명합니다. 먼저, 비용을 예측하기 위해 서비스에 대한 리소스를 추가하기 전에 Azure 가격 계산기를 사용하여 Cognitive Services 비용을 계획할 수 있습니다. 그런 다음, Azure 리소스를 추가할 때 예상 비용을 검토합니다. Cognitive Services 리소스 (예: Speech, Computer Vision, LUIS, Language service, 번역기 등) 사용을 시작한 후에는 Cost Management 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링할 수 있습니다. 예상 비용을 검토하고 지출 추세를 파악하여 조치를 취하고자 하는 영역을 식별할 수도 있습니다. Cognitive Services 비용은 Azure 청구서의 월간 비용 중 일부에 불과합니다. 이 문서에서는 Cognitive Services에 대한 비용을 계획하고 관리하는 방법을 설명하지만 사용자에게는 타사 서비스를 비롯한 Azure 구독에 사용되는 모든 Azure 서비스 및 리소스에 대한 요금이 청구됩니다.
+이 문서에서는 Azure Cognitive Services에 대한 비용을 계획하고 관리하는 방법을 설명합니다. 먼저, 비용을 예측하기 위해 서비스에 대한 리소스를 추가하기 전에 Azure 가격 계산기를 사용하여 Cognitive Services 비용을 계획할 수 있습니다. 그런 다음, Azure 리소스를 추가할 때 예상 비용을 검토합니다. Cognitive Services 리소스(예: 음성, Computer Vision, LUIS, 언어 서비스, 번역기 등)를 사용하기 시작한 후 Cost Management 기능을 사용하여 예산을 설정하고 비용을 모니터링합니다. 예상 비용을 검토하고 지출 추세를 파악하여 조치를 취하고자 하는 영역을 식별할 수도 있습니다. Cognitive Services 비용은 Azure 청구서의 월간 비용 중 일부에 불과합니다. 이 문서에서는 Cognitive Services에 대한 비용을 계획하고 관리하는 방법을 설명하지만 사용자에게는 타사 서비스를 비롯한 Azure 구독에 사용되는 모든 Azure 서비스 및 리소스에 대한 요금이 청구됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -38,11 +38,13 @@ Cognitive Services를 추가하기 전에 [Azure 가격 계산기](https://azure
 
 Cognitive Services는 새 리소스를 배포할 때 [비용을 누적](https://azure.microsoft.com/pricing/details/cognitive-services/)하는 Azure 인프라에서 실행됩니다. 추가 인프라로 인해 비용이 누적될 수 있다는 것을 이해하는 것이 중요합니다. 배포된 리소스를 변경할 때 비용을 관리해야 합니다. 
 
-### <a name="how-youre-charged-for-cognitive-services"></a>Cognitive Services 청구 방법
+Cognitive Services 리소스를 만들거나 사용하면 사용하는 서비스에 따라 요금이 청구될 수 있습니다. Cognitive Services 사용할 수 있는 두 가지 청구 모델인 종량제 및 약정 계층이 있습니다.
 
-Cognitive Services 리소스를 만들거나 사용하는 경우 사용하는 서비스에 따라 다음 미터에 대한 요금이 청구될 수 있습니다.
+## <a name="pay-as-you-go"></a>종량제
 
-| 서비스 | 미터 | 대금 청구 정보 | 
+종량제 가격 책정에서는 청구 정보에 따라 사용하는 Cognitive Services 제품에 따라 요금이 청구됩니다.
+
+| 서비스 | 인스턴스 | 대금 청구 정보 | 
 |---------|-------|---------------------|
 | **Vision** | | |
 | [Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | 무료, 표준(S1) | 트랜잭션 수를 기준으로 청구됩니다. 트랜잭션당 가격은 기능(읽기, OCR, 공간 분석)에 따라 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/)을 참조하세요. |
@@ -59,6 +61,17 @@ Cognitive Services 리소스를 만들거나 사용하는 경우 사용하는 �
 | [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | 무료, 표준 | 트랜잭션 수를 기준으로 청구됩니다. | 
 | [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | 무료, 표준 | 트랜잭션 수를 기준으로 청구됩니다. |
 | [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | 무료, 표준(S0) | 월별 트랜잭션에 따라 청구됩니다. 스토리지 및 트랜잭션 할당량이 있습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/)을 참조하세요. | 
+
+## <a name="commitment-tier"></a>약정 계층
+
+종량제 모델 외에도 Cognitive Services 워크로드 요구 사항에 따라 예측 가능한 총 비용을 가질 수 있도록 고정 요금으로 여러 서비스 기능을 사용하도록 커밋할 수 있는 약정 계층이 있습니다.
+
+약정 계층 가격 책정을 사용하면 선택한 계획에 따라 요금이 청구됩니다. 사용 가능한 서비스, 등록 방법 및 플랜 구매 시 고려 사항에 대한 자세한 내용은 [빠른 시작: 구매 약정 계층 가격 책정을](commitment-tier.md) 참조하세요.
+
+> [!NOTE]
+> 약정 플랜에서 제공하는 할당량을 초과하는 리소스를 사용하는 경우 약정 플랜을 구매할 때 Azure Portal 언급된 초과분에 따라 추가 사용량에 대한 요금이 청구됩니다. 자세한 내용은 [Azure Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)을 참조하세요.
+
+
 
 
 ### <a name="costs-that-typically-accrue-with-cognitive-services"></a>일반적으로 Cognitive Services로 누적되는 비용

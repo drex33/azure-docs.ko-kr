@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 78351934381ebd76e32041987a4534f64cf151bf
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: b4342a70e5fa7c5a0a7a2fd51dcfe97476f34995
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892744"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027207"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -374,9 +374,9 @@ def main(req: azure.functions.HttpRequest,
 
 `invocation_id` 현재 함수 호출의 ID입니다.
 
-`trace_context` 분산 추적에 대한 컨텍스트입니다. 자세한 내용은  [`Trace Context`](https://www.w3.org/TR/trace-context/) 을 참조하세요.
+`trace_context` 분산 추적의 컨텍스트입니다. 자세한 내용은를 참조 하십시오  [`Trace Context`](https://www.w3.org/TR/trace-context/) .
 
-`retry_context` 함수에 대한 재시도 컨텍스트입니다. 자세한 내용은 [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) 을 참조하세요.
+`retry_context` 함수에 대 한 다시 시도 컨텍스트입니다. 자세한 내용은를 참조 하십시오 [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) .
 
 ## <a name="global-variables"></a>글로벌 변수
 
@@ -427,7 +427,8 @@ Azure Functions에서 지원하는 Python 버전은 다음과 같습니다.
 
 | Functions 버전 | Python<sup>*</sup> 버전 |
 | ----- | ----- |
-| 3.x | 3.9(미리 보기) <br/> 3.8<br/>3.7<br/>3.6 |
+| 4.x | 3.9<br/> 3.8<br/>3.7 |
+| 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>공식 CPython 배포판

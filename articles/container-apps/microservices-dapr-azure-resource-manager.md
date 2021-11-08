@@ -1,19 +1,19 @@
 ---
 title: '자습서: ARM 템플릿을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램 배포'
 description: ARM 템플릿을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램을 배포 합니다.
-services: app-service
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8476ab0cd928d47b85506db7469e9040929ed936
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: d38af387910551903d2781863deb3de3fcd36160
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894194"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026922"
 ---
 # <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-an-arm-template"></a>자습서: ARM 템플릿을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램 배포
 

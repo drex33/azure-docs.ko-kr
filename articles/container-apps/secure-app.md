@@ -1,19 +1,19 @@
 ---
 title: Azure Container Apps 미리 보기에서 앱 보호
 description: Azure Container Apps에서 애플리케이션을 보호하는 방법을 알아봅니다.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6c5fe92da4eb891ab1d5b264ff1585730352db36
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: aca235582babedaa9bf6a7c44a835734ba4cb5dc
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894168"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026998"
 ---
 # <a name="secure-an-app-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 앱 보호
 
@@ -100,7 +100,7 @@ az containerapp create `
 
 애플리케이션 비밀은 속성을 통해 `secretref` 참조됩니다. 비밀 값은 값이 애플리케이션 수준에서 `secretref` 선언된 비밀 이름과 일치하는 애플리케이션 수준 비밀에 매핑됩니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 예제에서는 애플리케이션 수준에서 연결 문자열을 선언하고 를 통해 구성 전체에서 사용되는 애플리케이션을 보여 `secretref` 줍니다.
 

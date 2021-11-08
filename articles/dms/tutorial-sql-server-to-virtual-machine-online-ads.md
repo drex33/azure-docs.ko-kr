@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 10/05/2021
-ms.openlocfilehash: 4ee20be013ab2771709a3b8d4e508d9689f1c456
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 67937f35449915a313b5958009573d9bf33139b5
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547117"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027416"
 ---
 # <a name="tutorial-migrate-sql-server-to-sql-server-on-azure-virtual-machine-online-using-azure-data-studio-with-dms-preview"></a>자습서: DMS와 함께 Azure Data Studio를 사용하여 온라인에서 Azure Virtual Machine의 SQL Server로 SQL Server 마이그레이션(미리 보기)
 
@@ -56,7 +56,6 @@ Azure Data Studio에서 Azure SQL 마이그레이션 확장을 사용하여 최�
     > [!IMPORTANT]
     > - 데이터베이스 백업 파일이 SMB 네트워크 공유에 제공된 경우 DMS 서비스가 데이터베이스 백업 파일을 업로드할 수 있도록 [Azure Storage 계정을 만듭니다](../storage/common/storage-account-create.md).  Azure Database Migration Service 인스턴스와 동일한 지역에 Azure Storage 계정을 만들어야 합니다.
     > - Azure Database Migration Service는 백업을 새로 시작하는 것이 아니라 사용자가 재해 복구 계획의 일부로 보유한 기존 백업을 마이그레이션에 사용합니다.
-    > - [`WITH CHECKSUM` 옵션을 사용하여 백업](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server)해야 합니다. 
     > - 각 백업은 별도의 백업 파일 또는 여러 백업 파일에 쓸 수 있습니다. 그러나 단일 백업 미디어에 여러 백업(예: 전체 및 t-log)을 추가하는 것은 지원되지 않습니다. 
     > - 압축된 백업을 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
 * 원본 SQL Server 인스턴스를 실행하는 서비스 계정에 데이터베이스 백업 파일이 포함된 SMB 네트워크 공유에 대한 읽기 및 쓰기 권한이 있는지 확인합니다.

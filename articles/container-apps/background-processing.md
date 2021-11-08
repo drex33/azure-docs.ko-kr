@@ -1,19 +1,19 @@
 ---
 title: '자습서: Azure Container Apps 미리 보기를 사용 하 여 백그라운드 처리 응용 프로그램 배포'
 description: Azure Container Apps를 사용 하 여 백그라운드에서 지속적으로 실행 되는 응용 프로그램을 만드는 방법을 알아봅니다.
-services: app-service
+services: container-apps
 author: jorgearteiro
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d09f5087616d942ddfcbdd7c33b39f5e54ce26f5
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: ca9fa15259222651570c1909f6c4557c79a87298
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892270"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028005"
 ---
 # <a name="tutorial-deploy-a-background-processing-application-with-azure-container-apps-preview"></a>자습서: Azure Container Apps 미리 보기를 사용 하 여 백그라운드 처리 응용 프로그램 배포
 
@@ -27,14 +27,14 @@ Azure Container Apps를 사용 하면 공용 끝점의 노출을 요구 하지 �
 > * 백그라운드 처리 응용 프로그램을 컨테이너 앱으로 배포
 > * 컨테이너 앱에서 큐 메시지를 처리 하는지 확인 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료 하려면 다음 항목이 필요 합니다.
 
 * **Azure CLI**: 로컬 컴퓨터에 Azure CLI 버전 2.29.0 이상이 설치 되어 있어야 합니다.
   * `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
   
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 이 자습서에서는 다음과 같은 환경 변수를 사용 합니다.
 

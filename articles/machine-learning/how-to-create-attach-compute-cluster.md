@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 07/09/2021
-ms.openlocfilehash: d36d7e91afc4b0bade9f3da08d1324aa7f56cba9
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: e658a8ed30b15327a68ce1671c19e55253ad6b06
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594142"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026713"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
 
@@ -46,7 +46,7 @@ Azure Machine Learning 컴퓨팅 클러스터를 사용하여 클라우드의 CP
 
 ## <a name="what-is-a-compute-cluster"></a>컴퓨팅 클러스터란?
 
-Azure Machine Learning 컴퓨팅 클러스터는 사용자가 단일 또는 다중 노드 컴퓨팅을 간편하게 만들 수 있는 관리형 컴퓨팅 인프라입니다. 컴퓨팅 클러스터는 작업 영역의 다른 사용자와 공유할 수 있는 리소스입니다. 작업이 제출될 때 컴퓨팅이 자동으로 확장되어 Azure Virtual Network에 배치될 수 있습니다. 컴퓨팅은 컨테이너화된 환경에서 실행되며 모델 종속성을 [Docker 컨테이너](https://www.docker.com/why-docker)로 패키지합니다.
+Azure Machine Learning 컴퓨팅 클러스터는 사용자가 단일 또는 다중 노드 컴퓨팅을 간편하게 만들 수 있는 관리형 컴퓨팅 인프라입니다. 컴퓨팅 클러스터는 작업 영역의 다른 사용자와 공유할 수 있는 리소스입니다. 작업이 제출될 때 컴퓨팅이 자동으로 확장되어 Azure Virtual Network에 배치될 수 있습니다. 계산 클러스터는 가상 네트워크에서 **공용 IP (미리 보기)** 배포도 지원 하지 않습니다. 컴퓨팅은 컨테이너화된 환경에서 실행되며 모델 종속성을 [Docker 컨테이너](https://www.docker.com/why-docker)로 패키지합니다.
 
 컴퓨팅 클러스터를 사용하면 기업에서 SSH 포트를 열지 않아도 [가상 네트워크 환경](how-to-secure-training-vnet.md)에서 작업을 안전하게 실행할 수 있습니다. 작업은 컨테이너화된 환경에서 실행되며 모델 종속성을 Docker 컨테이너로 패키지합니다. 
 

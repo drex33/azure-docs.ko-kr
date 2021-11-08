@@ -6,13 +6,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: b8d67c3c5b596627fc1795cf97d807d7f582e326
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/07/2021
+ms.openlocfilehash: 7894e187efedf91e3c586dd0d8caaf35e753be3c
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131442163"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028587"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>SAP R3 브리지 패밀리에 대한 메타데이터 추출 ABAP 함수 모듈을 배포
 
@@ -32,6 +32,12 @@ Sap Business Suite 4 HANA(S/4HANA), ECC, R/3 ERP 브리지를 사용하여 SAP �
 
 > [!Note]
 > 다음 지침은 SAP GUI v.7.2를 기반으로 컴파일되었습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+부서의 범위 Studio에서 ABAP 함수 모듈 소스 코드를 다운로드 합니다. 소스를 등록 하 고 [SAP ECC](register-scan-sapecc-source.md) 또는 [SAP S/4hana](register-scan-saps4hana-source.md)에 대 한 새 검색을 수행 하는 경우 위에서 다음과 같이 다운로드 링크를 찾을 수 있습니다. 
+
+:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="부서의 범위 Studio에서 ABAP 함수 모듈 소스 코드 다운로드" border="true":::
 
 ## <a name="deployment-of-the-module"></a>모듈 배포
 
@@ -65,7 +71,7 @@ Sap Business Suite 4 HANA(S/4HANA), ECC, R/3 ERP 브리지를 사용하여 SAP �
 
 1. 함수 그룹이 생성되면 해당 그룹을 선택합니다.
 
-2. 리포지토리 브라우저에서 함수 그룹 이름을 길게 누른(또는 마우스 오른쪽 단추로 클릭) 다음, **만들기,** **함수 모듈을** 차례로 선택합니다.
+2. 리포지토리 브라우저에서 함수 그룹 이름을 선택 하 고 길게 클릭 하거나 마우스 오른쪽 단추를 클릭 하 고 **만들기**, **함수 모듈** 을 차례로 선택 합니다.
 
 3. **함수 모듈** 필드에서 `Z_MITI_DOWNLOAD`를 입력합니다. **짧은 텍스트** 입력을 적절한 설명으로 채웁니다.
 
@@ -79,7 +85,7 @@ Sap Business Suite 4 HANA(S/4HANA), ECC, R/3 ERP 브리지를 사용하여 SAP �
 
 3. **소스 코드** 탭으로 이동합니다. 다음 두 가지 방법으로 함수에 대한 코드를 배포할 수 있습니다.
 
-   a. 주 메뉴에서 텍스트 파일인 [Z\_MITI\_DOWNLOAD](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap) 파일을 업로드합니다. 파일을 업로드하려면 **유틸리티**, **기타 유틸리티**, **업로드/다운로드**, **업로드** 를 차례로 선택합니다.
+   a. 주 메뉴에서 [필수 구성 요소](#prerequisites)에 설명 된 대로 부서의 범위 Studio에서 다운로드 한 텍스트 파일을 업로드 합니다. 파일을 업로드하려면 **유틸리티**, **기타 유틸리티**, **업로드/다운로드**, **업로드** 를 차례로 선택합니다.
 
    b. 또는 파일을 열고 콘텐츠를 복사하여 **소스 코드** 영역에 붙여넣습니다.
 
@@ -112,7 +118,7 @@ Sap Business Suite 4 HANA(S/4HANA), ECC, R/3 ERP 브리지를 사용하여 SAP �
 
 7. 함수를 저장합니다. ctrl+S를 누르거나, 주 메뉴에서 **함수 모듈**, **저장** 을 차례로 선택합니다.
 
-8. 도구 모음에서 **활성화** 아이콘(ctrl+F3)을 선택하고 대화 상자 창에서  **계속** 단추를 선택합니다. 메시지가 표시되면 생성된 항목들을 선택하여 주 함수 모듈과 함께 활성화해야 합니다.
+8. 도구 모음에서 **활성화** 아이콘 (Ctrl + F3)을 선택 하 고 대화 상자 창에서  **계속** 단추를 선택 합니다. 메시지가 표시되면 생성된 항목들을 선택하여 주 함수 모듈과 함께 활성화해야 합니다.
 
 ### <a name="testing-the-function"></a>함수 테스트
 

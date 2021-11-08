@@ -8,19 +8,44 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 10/21/2021
-ms.openlocfilehash: 5c2594e38db7a57e2861241d37405a8ce03b8494
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.date: 11/01/2021
+ms.openlocfilehash: 9f23037c5582b0e75107b3637f09a7b80c32a530
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563172"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028537"
 ---
 # <a name="azure-machine-learning-python-sdk-release-notes"></a>Azure Machine Learning Python SDK 릴리스 정보
 
 이 문서에서는 Azure Machine Learning Python SDK 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠를 보려면 Azure Machine Learning의 [**Python용 기본 SDK**](/python/api/overview/azure/ml/intro) 참조 페이지를 확인하세요.
 
 __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+## <a name="2021-11-08"></a>2021-11-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1360"></a>Azure Machine Learning Python용 SDK v1.36.0
+  + **azureml-automl-dnn-vision**
+    + 일부 오류 메시지에서 사소한 오타가 정리되었습니다.
+  + **azureml-contrib-reinforcementlearning**
+    + 시뮬레이터를 사용하는 보충 Learning 실행 제출은 더 이상 지원되지 않습니다.
+  + **azureml-core**
+    + 분할된 프리미엄 Blob에 대한 지원이 추가되었습니다.
+    + 관리 ID 인증에 대해 퍼블릭이 아닌 클라우드를 지정하는 것은 더 이상 지원되지 않습니다.
+    + 사용자는 AKS 웹 서비스를 CLI(v2)로 관리되는 온라인 엔드포인트 및 배포로 마이그레이션할 수 있습니다.
+    + Kubernetes 컴퓨팅 대상의 학습 작업에 대한 인스턴스 유형은 이제 RunConfiguration 속성인 run_config.kubernetescompute.instance_type을 통해 설정할 수 있습니다.
+  + **azureml-defaults**
+    + gunicorn 및 werkzeug와 같은 중복된 의존성 제거
+  + **azureml-interpret**
+    + azureml-interpret 패키지가 0.21.* 버전의 interpret-community로 업데이트됨
+  + **azureml-pipeline-steps**
+    + 파이프라인에서 ML 학습(분산 학습 포함)을 실행하기 위해 CommandStep을 사용하기 위해 MpiStep을 더 이상 사용하지 않습니다.
+  + **azureml-train-automl-rutime**
+    + AutoML 모델 테스트 예측 출력 형식 문서를 업데이트합니다.
+    + Naive, SeasonalNaive, Average 및 SeasonalAverage 예측 모델에 대한 문서 설명이 추가되었습니다.
+    + 기능화 요약은 이제 실행 시 아티팩트로 저장됩니다(outputs 폴더 아래의 'featurization_summary.json'이라는 파일 확인).
+    + Tabnet Learner에 대한 범주 표시기 지원을 사용하도록 설정합니다.
+    + 다운샘플 매개 변수를 automl_setup_model_explanations 추가하여 사용자가 이 매개 변수를 false로 설정하여 다운샘플링하지 않고도 모든 데이터에 대한 설명을 얻을 수 있도록 합니다.
+    
 
 ## <a name="2021-10-11"></a>2021-10-11
 

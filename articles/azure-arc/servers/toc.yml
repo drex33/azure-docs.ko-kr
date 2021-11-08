@@ -73,6 +73,8 @@
               href: manage-vm-extensions-powershell.md
             - name: ARM 템플릿을 사용하여 확장 배포
               href: manage-vm-extensions-template.md
+            - name: 자동 확장 업그레이드
+              href: manage-automatic-vm-extension-upgrade.md
         - name: 서버에서 관리 ID 사용
           href: managed-identity-authentication.md
         - name: 에이전트 관리

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-ms.openlocfilehash: 0f5b2c2d94a2b0e106bf0541e080cfa9d05b45ac
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 32ded30543e018b86f4329d7d08be100f84831d0
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441137"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027511"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -87,71 +87,71 @@ $sapcntrluri = "https://&quot; + $SAPHostName + &quot;:5&quot; + $InstanceNumber
 $sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
 $FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
 $sapcntrl.$Function($FunctionObject)
-
-11. **Repeat Steps 3-10 for each instance profile **.
+```
+11. * * 각 인스턴스 프로필에 대해 3-10 단계를 반복 합니다.
 
 >[!Important] 
->It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.
+>SAPControl 웹 메서드가 보호되지 않도록 하려면 SAP 시스템의 각 인스턴스에서 sapstartsrv 서비스를 다시 시작하는 것이 중요합니다.  이러한 읽기 전용 SOAP API는 NetWeaver 공급자가 SAP 시스템에서 메트릭 데이터를 가져오는 데 필요하며 이러한 메서드를 보호 해제하지 않으면 NetWeaver 메트릭 통합 문서에서 시각화가 비어 있거나 누락됩니다.
    
 >[!Tip]
-> Use an access control list (ACL) to filter the access to a server port. For more information, see [this SAP note](https://launchpad.support.sap.com/#/notes/1495075).
+> ACL(액세스 제어 목록)을 사용하여 서버 포트에 대한 액세스를 필터링합니다. 자세한 내용은 [이 SAP Note](https://launchpad.support.sap.com/#/notes/1495075)를 참조하세요.
 
-To install the NetWeaver provider on the Azure portal:
+Azure Portal에 NetWeaver 공급자를 설치하려면:
 
-1. Make sure you've completed the earlier prerequisite steps and that the server has been restarted.
-1. On the Azure portal, under **Azure Monitor for SAP Solutions**, select **Add provider**, and then:
+1. 이전 필수 구성 요소 단계를 완료하고 서버가 다시 시작되었는지 확인합니다.
+1. Azure Portal의 **SAP 솔루션을 위한 Azure Monitor** 에서 **공급자 추가** 를 선택한 후 다음을 수행합니다.
 
-   1. For **Type**, select **SAP NetWeaver**.
+   1. **유형** 으로 **SAP NetWeaver** 를 선택합니다.
 
-   1. For **Hostname**, enter the host name of the SAP system.
+   1. **호스트 이름** 에 SAP 시스템의 호스트 이름을 입력합니다.
 
-   1. For **Subdomain**, enter a subdomain if one applies.
+   1. **하위 도메인** 에 해당하는 경우 하위 도메인을 입력합니다.
 
-   1. For **Instance No**, enter the instance number that corresponds to the host name you entered. 
+   1. **인스턴스 번호** 에 입력한 호스트 이름에 해당하는 인스턴스 번호를 입력합니다. 
 
-   1. For **SID**, enter the system ID.
+   1. **SID** 에 시스템 ID를 입력합니다.
    
-   ![Screenshot showing the configuration options for adding a SAP NetWeaver provider.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+   ![SAP NetWeaver 공급자를 추가하기 위한 구성 옵션을 보여 주는 스크린샷.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
 
-1.    When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1.    완료되면 **공급자 추가** 를 선택합니다. 필요에 따라 다른 공급자를 계속 추가하거나 **검토 + 만들기** 를 선택하여 배포를 완료합니다.
 
 >[!Important]
->If the SAP application servers (ie. virtual machines) are part of a network domain, such as one managed by Azure Active Directory, then it is critical that the corresponding subdomain is provided in the Subdomain text box.  The Azure Monitor for SAP collector VM that exists inside the Virtual Network is not joined to the domain and as such will not be able to resolve the hostname of instances inside the SAP system unless the hostname is a fully qualified domain name.  Failure to provide this will result in missing / incomplete visualizations in the NetWeaver workbook.
+>SAP 애플리케이션 서버(예: 가상 머신)가 Azure Active Directory에서 관리하는 것과 같은 네트워크 도메인의 일부인 경우 해당 하위 도메인을 하위 도메인 텍스트 상자에 입력하는 것이 중요합니다.  가상 네트워크 내부에 있는 SAP 수집기 VM에 대한 Azure Monitor는 도메인에 가입되어 있지 않으므로 호스트 이름이 정규화된 도메인 이름이 아니면 SAP 시스템 내부의 인스턴스 호스트 이름을 확인할 수 없습니다.  이를 제공하지 않으면 NetWeaver 통합 문서에서 시각화가 누락되거나 불완전하게 됩니다.
  
->For example, if the hostname of the SAP system has a fully qualified domain name of "myhost.mycompany.global.corp" then please enter a Hostname of "myhost" and provide a Subdomain of "mycompany.global.corp".  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance's features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  "mycompany.global.corp" to build the fully qualified domain name of each instance in the SAP system.  
+>예를 들어 SAP 시스템의 호스트 이름에 정규화 된 도메인 이름 "myhost. mycompany"가 있는 경우 "myhost"의 호스트 이름을 입력 하 고 "mycompany. corp"의 하위 도메인을 제공 하세요.  NetWeaver 공급자가 SAP 시스템에서 GetSystemInstanceList API를 호출하면 SAP는 시스템에 있는 모든 인스턴스의 호스트 이름을 반환합니다.  수집기 VM은이 목록을 사용 하 여 추가 API 호출을 수행 하 여 각 인스턴스의 기능 (예:  ABAP, J2EE, MESSAGESERVER, 넣지, enqrep 등). 지정 하는 경우 수집기 VM은 하위 도메인 "mycompany. corp"를 사용 하 여 SAP 시스템에서 각 인스턴스의 정규화 된 도메인 이름을 작성 합니다.  
  
->Please DO NOT specify an IP Address for the hostname field if the SAP system is a part of network domain.
+>SAP 시스템이 네트워크 도메인의 일부인 경우 호스트 이름 필드에 IP 주소를 지정하지 마세요.
 
    
-### SAP HANA provider 
+### <a name="sap-hana-provider"></a>SAP HANA 공급자 
 
-1. Select the **Providers** tab to add the providers you want to configure. You can add multiple providers one after another, or add them after you deploy the monitoring resource. 
+1. **공급자** 탭을 선택하여 구성하려는 공급자를 추가합니다. 여러 공급자를 차례로 추가하거나 모니터링 리소스를 배포한 후에 추가할 수 있습니다. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Screenshot showing the tab where you add providers." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="공급자를 추가하는 탭을 보여 주는 스크린샷." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
-1. Select **Add provider**, and then:
+1. **공급자 추가** 를 선택한 후 다음을 수행합니다.
 
-   1. For **Type**, select **SAP HANA**. 
+   1. **유형** 으로 **SAP HANA** 를 선택합니다. 
 
       > [!IMPORTANT]
-      > Ensure that a SAP HANA provider is configured for the SAP HANA `master` node.
+      > SAP HANA `master` 노드에 대해 SAP HANA 공급자가 구성되어 있는지 확인합니다.
 
-   1. For **IP address**, enter the private IP address for the HANA server.
+   1. **IP 주소** 에 HANA 서버의 개인 IP 주소를 입력합니다.
 
-   1. For **Database tenant**, enter the name of the tenant you want to use. You can choose any tenant, but we recommend using **SYSTEMDB** because it enables a wider array of monitoring areas. 
+   1. **데이터베이스 테넌트** 에 사용할 테넌트의 이름을 입력합니다. 모든 테넌트를 선택할 수 있지만, 더 광범위한 모니터링 영역을 사용할 수 있도록 **SYSTEMDB** 를 사용하는 것이 좋습니다. 
 
-   1. For **SQL port**, enter the port number associated with your HANA database. It should be in the format of *[3]* + *[instance#]* + *[13]*. An example is **30013**. 
+   1. **SQL 포트** 에 HANA 데이터베이스와 연결된 포트 번호를 입력합니다. *[3]*  +  *[인스턴스#]*  +  *[13]* 형식이어야 합니다. 예를 들어 **30013** 입니다. 
 
-   1. For **Database username**, enter the username you want to use. Ensure the database user has the *monitoring* and *catalog read* roles assigned.
+   1. **데이터베이스 사용자 이름** 에 사용할 사용자 이름을 입력합니다. 데이터베이스 사용자에게 *모니터링* 및 *카탈로그 읽기* 역할이 할당되어 있는지 확인합니다.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Screenshot showing configuration options for adding an SAP HANA provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="SAP HANA 공급자를 추가하기 위한 구성 옵션을 보여 주는 스크린샷." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
-1. When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1. 완료되면 **공급자 추가** 를 선택합니다. 필요에 따라 다른 공급자를 계속 추가하거나 **검토 + 만들기** 를 선택하여 배포를 완료합니다.
 
    
-### Microsoft SQL Server provider
+### <a name="microsoft-sql-server-provider"></a>Microsoft SQL Server 공급자
 
-1. Before you add the Microsoft SQL Server provider, run the following script in SQL Server Management Studio to create a user with the appropriate permissions for configuring the provider.
+1. Microsoft SQL Server 공급자를 추가하기 전에 SQL Server Management Studio에서 다음 스크립트를 실행하여 공급자를 구성하기 위한 적절한 권한을 가진 사용자를 만듭니다.
 
    ```sql
    USE [<Database to monitor>]

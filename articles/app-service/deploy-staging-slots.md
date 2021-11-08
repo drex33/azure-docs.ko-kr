@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 77e374e43722554a215675fd09d0317899d7992f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: feea2bdccd5f4e7ea4c18b7dd155ee0f105b6c8f
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709050"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027568"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -217,7 +217,7 @@ ms.locfileid: "129709050"
 
 또한 다음 [앱 설정](configure-common.md) 중 하나 또는 둘 다 사용하여 준비 동작을 사용자 지정할 수 있습니다.
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트 준비를 ping을 실행할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예제는 `/statuscheck`입니다. 기본값은 `/`입니다. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트를 준비 하기 위해 HTTP를 통해 ping 할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예제는 `/statuscheck`입니다. 기본값은 `/`입니다. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. 예제는 `200,202`입니다. 반환된 상태 코드가 목록에 없는 경우 준비 및 교환 작업이 중지됩니다. 기본적으로 모든 응답 코드는 유효합니다.
 - `WEBSITE_WARMUP_PATH`: 슬롯 교환 시뿐만 아니라 사이트를 다시 시작할 때마다 ping을 실행해야 하는 사이트의 상대 경로입니다. 예제 값에는 `/statuscheck` 또는 루트 경로 `/`가 포함됩니다.
 

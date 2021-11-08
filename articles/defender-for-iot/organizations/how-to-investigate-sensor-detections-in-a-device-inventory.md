@@ -3,12 +3,12 @@ title: 특정 센서에서 검색된 디바이스에 대한 인사이트 얻기
 description: 디바이스 인벤토리는 센서가 감지하는 광범위한 디바이스 특성을 표시합니다.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 10df10a64059e5f5673a9e4ae6f18a09e4c41838
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
-ms.translationtype: HT
+ms.openlocfilehash: 423ddcb9b50be6aa758e28f20291f8d66e58e3f4
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113515276"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028195"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>디바이스 인벤토리에서 센서 감지 조사
 
@@ -26,7 +26,7 @@ ms.locfileid: "113515276"
 
 다음 특성은 디바이스 인벤토리 테이블에 표시됩니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
 | 이름 | 센서가 검색한 디바이스 이름이거나 사용자가 입력한 디바이스 이름입니다. |
 | 유형 | 센서에 의해 결정되거나 사용자가 입력한 디바이스의 유형입니다. |
@@ -45,7 +45,20 @@ ms.locfileid: "113515276"
 | 마지막 작업 | 디바이스에서 수행하는 마지막 작업입니다. |
 | Discovered | 이 디바이스가 네트워크에서 처음으로 표시되는 경우 |
 
-디바이스 인벤토리를 보려면 다음을 수행합니다.
+## <a name="what-is-an-inventory-device"></a>재고 장치인 이란?
+
+IoT 장치 인벤토리에 대 한 Defender는 조직 네트워크 및 관리 되는 끝점을 모니터링 하는 센서에 의해 검색 되는 광범위 한 자산 특성을 표시 합니다.
+
+IoT 용 Defender는 다음의 인벤토리에 있는 단일 고유 네트워크 장치로 장치를 식별 하 고 분류 합니다.
+
+1. 독립 실행형 IT/온/IoT 장치 (w/1 또는 여러 Nic)
+1. 여러 후면판 구성 요소로 구성 된 장치 (모든 랙/슬롯/모듈 포함)
+1. 스위치/라우터 (여러 Nic)와 같은 네트워크 인프라 역할을 하는 장치입니다. 
+
+공용 인터넷 IP 주소, 멀티 캐스트 그룹 및 브로드캐스트 그룹은 인벤토리 장치로 간주 되지 않습니다.
+60 일 넘게 비활성 상태인 장치는 비활성 인벤토리 장치로 분류 됩니다.
+
+**디바이스 인벤토리를 보려면 다음을 수행합니다.**
 
 1. 왼쪽 창에서 **디바이스** 를 선택합니다. 오른쪽에 **디바이스** 창이 열립니다.
 

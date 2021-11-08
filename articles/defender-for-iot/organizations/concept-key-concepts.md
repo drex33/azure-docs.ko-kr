@@ -3,12 +3,12 @@ title: 주요 장점
 description: Defender for IoT의 기본 개념을 알아봅니다.
 ms.date: 09/09/2021
 ms.topic: article
-ms.openlocfilehash: be5c7f31cb652bb40f4bae35fa42b76d7a576276
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 284301f7a797f2a161aafe90ec641fc062738933
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836476"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026466"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -113,7 +113,21 @@ Defender for IoT를 사용하면 여러 배포를 효과적으로 관리하고 �
 
 사용자 지정된 조건부 경고 트리거 및 메시징은 특정 네트워크 활동을 정확하게 파악하고 보안, IT, 운영 팀에 새로운 정보를 효과적으로 제공하는 데 도움이 됩니다.
 
-지원되는 프로토콜의 전체 목록은 [지원되는 프로토콜 을 참조하세요.](concept-supported-protocols.md#supported-protocols)
+지원 되는 프로토콜의 전체 목록은 [지원 되는 프로토콜](concept-supported-protocols.md#supported-protocols)을 참조 하세요.
+
+## <a name="what-is-an-inventory-device"></a>인벤토리 장치 란?
+
+IoT 장치 인벤토리에 대 한 Defender는 조직 네트워크 및 관리 되는 끝점을 모니터링 하는 센서에 의해 검색 되는 광범위 한 자산 특성을 표시 합니다.
+
+IoT 용 Defender는 다음의 인벤토리에 있는 단일 고유 네트워크 장치로 장치를 식별 하 고 분류 합니다.
+
+1. 독립 실행형 IT/온/IoT 장치 (w/1 또는 여러 Nic)
+1. 여러 후면판 구성 요소로 구성 된 장치 (모든 랙/슬롯/모듈 포함)
+1. 스위치/라우터 (여러 Nic)와 같은 네트워크 인프라 역할을 하는 장치입니다. 
+
+공용 인터넷 IP 주소, 멀티 캐스트 그룹 및 브로드캐스트 그룹은 인벤토리 장치로 간주 되지 않습니다.
+60 일 넘게 비활성 상태인 장치는 비활성 인벤토리 장치로 분류 됩니다.
+
 
 ## <a name="high-availability"></a>고가용성
 

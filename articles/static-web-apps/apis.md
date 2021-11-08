@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 11/08/2021
 ms.author: cshoe
-ms.openlocfilehash: 15df9d0bf25739fd1271f0f51f693e1a1d368637
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: b7ab83ddf6d3f20c28d030d48b50ebb88d6676ae
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138452"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027473"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에서 API 지원
 
@@ -22,7 +22,7 @@ Azure Static Web Apps는 [Azure Functions](../azure-functions/functions-overview
 
 - 사용자 지정 CORS 규칙 없이 웹앱에서 _api_ 경로를 안전하게 사용할 수 있도록 하는 **원활한 라우팅**.
 
-Azure 정적 Web Apps Api는 [호스팅 계획](plans.md#features)에 따라 다음과 같은 두 가지 구성에서 지원 됩니다.
+Azure Static Web Apps API는 [호스팅 계획에](plans.md#features)따라 두 가지 가능한 구성에서 지원됩니다.
 
 - **관리형 함수**: 기본적으로 정적 웹앱의 API는 몇 가지 제한과 관련된 Azure Static Web Apps에서 관리 및 배포하는 Azure Functions 애플리케이션입니다.
 
@@ -33,7 +33,7 @@ Azure 정적 Web Apps Api는 [호스팅 계획](plans.md#features)에 따라 다
 | 기능 | 관리형 함수 | 자체 Functions 가져오기 |
 | --- | --- | --- |
 | Azure Functions [트리거](../azure-functions/functions-triggers-bindings.md#supported-bindings)에 대한 액세스 | Http 전용 | 모두 |
-| 지원되는 Azure Functions [런타임](../azure-functions/supported-languages.md#languages-by-runtime-version) | Node.js 12<br>.NET Core 3.1<br>Python 3.8 | 모두 |
+| 지원되는 Azure Functions [런타임](../azure-functions/supported-languages.md#languages-by-runtime-version) | Node.js 12<br>.NET Core 3.1<br>.NET 6.0<br>Python 3.8 | 모두 |
 | 지원되는 Azure Functions [호스팅 계획](../azure-functions/functions-scale.md) | Consumption | Consumption<br>Premium<br>전용 |
 | 사용자 인증 및 역할 기반 권한 부여 데이터에 직접 액세스할 수 있는 [통합 보안](user-information.md) | ✔ | ✔ |
 | 사용자 지정 CORS 규칙 없이 웹앱에서 _api_ 경로를 안전하게 사용할 수 있도록 하는 [라우팅 통합](./configuration.md?#routes). | ✔ | ✔ |
@@ -49,7 +49,7 @@ API 엔드포인트는 _api_ 경로를 통해 웹앱에서 사용할 수 있습�
 
 | 관리형 함수 | 사용자 고유 함수 가져오기 |
 | --- | --- |
-| _Api_ 경로가 고정 되어 있는 동안 관리 되는 함수 앱의 소스 코드 폴더 위치를 제어할 수 있습니다. 리포지토리의 _.github/workflows_ 에 있는 [워크플로 YAML 파일을 편집](build-configuration.md)하여 이 위치를 변경할 수 있습니다. | _api_ 경로에 대한 요청은 기존 Azure Functions 앱으로 전송됩니다. |
+| _API_ 경로가 고정되어 있는 동안 관리되는 함수 앱의 소스 코드 폴더 위치를 제어할 수 있습니다. 리포지토리의 _.github/workflows_ 에 있는 [워크플로 YAML 파일을 편집](build-configuration.md)하여 이 위치를 변경할 수 있습니다. | _api_ 경로에 대한 요청은 기존 Azure Functions 앱으로 전송됩니다. |
 
 ## <a name="troubleshooting-and-logs"></a>문제 해결 및 로그
 
@@ -66,7 +66,7 @@ API 엔드포인트는 _api_ 경로를 통해 웹앱에서 사용할 수 있습�
 
 | 관리형 함수 | 사용자 고유 함수 가져오기 |
 | --- | --- |
-| <ul><li>트리거는 [HTTP](../azure-functions/functions-bindings-http-webhook.md)로 제한됩니다.</li><li>Azure Functions 앱은 Node.js 12, .NET Core 3.1 또는 Python 3.8에 있어야 합니다.</li><li>일부 애플리케이션 설정은 서비스에서 관리되므로 다음 접두사는 런타임에 예약됩니다.<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>Functions 앱 배포를 관리해야 합니다.</li></ul> |
+| <ul><li>트리거는 [HTTP](../azure-functions/functions-bindings-http-webhook.md)로 제한됩니다.</li><li>Azure Functions 앱은 Node.js 12, .NET Core 3.1, .NET 6.0 또는 Python 3.8에 있어야 합니다.</li><li>일부 애플리케이션 설정은 서비스에서 관리되므로 다음 접두사는 런타임에 예약됩니다.<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>Functions 앱 배포를 관리해야 합니다.</li></ul> |
 
 ## <a name="next-steps"></a>다음 단계
 

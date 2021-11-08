@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 832ae975a19fa7765666acd791c7dfec05a55c3c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d2840b5e8386801411a759d1b00f026bfbacad68
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130235037"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027701"
 ---
 # <a name="migrate-databases-with-azure-sql-migration-extension-for-azure-data-studio-preview"></a>Azure Data Studio에 대한 Azure SQL 마이그레이션 확장을 사용하여 데이터베이스 마이그레이션(미리 보기)
 
@@ -110,27 +110,6 @@ DMS는 Azure Data Factory의 자체 호스팅 통합 런타임을 사용하여 �
 - DMS를 사용한 데이터베이스 마이그레이션을 위해 Azure Data Factory에서 만든 기존 자체 호스팅 통합 런타임을 사용할 수 없습니다. 처음에 자체 호스팅 통합 런타임은 Azure Data Studio에서 Azure SQL 마이그레이션 확장을 사용하여 만들어야 하며 추가 데이터베이스 마이그레이션에 재사용할 수 있습니다.
 > [!IMPORTANT]
 > **여러 데이터베이스를 Azure VM의 SQL Server로 마이그레이션할 때 알려진 문제:** 여러 데이터베이스를 Azure VM의 동일한 SQL Server로 동시에 마이그레이션하면 대부분의 데이터베이스에서 마이그레이션이 실패합니다. 특정 시점에 단일 데이터베이스만 Azure VM의 SQL Server로 마이그레이션해야 합니다.  
-
-### <a name="regions"></a>영역
-미리 보기 중에 대상 Azure SQL Managed Instance 또는 Azure Virtual Machine의 SQL Server로 SQL Server 데이터베이스를 다음 지역 중 하나로 마이그레이션합니다.
-- 오스트레일리아 동부
-- 오스트레일리아 남동부
-- 캐나다 중부
-- 캐나다 동부
-- 인도 중부
-- 미국 중부
-- 미국 동부
-- 미국 동부 2
-- 프랑스 중부
-- 일본 동부
-- 미국 중북부
-- 미국 중남부
-- 동남아시아
-- 인도 남부
-- 영국 남부
-- 서유럽
-- 미국 서부
-- 미국 서부 2
 
 ## <a name="pricing"></a>가격 책정
 - Azure Database Migration Service는 Azure Data Studio의 Azure SQL 마이그레이션 확장과 함께 무료로 사용할 수 있습니다. 서비스 또는 Azure SQL 마이그레이션 확장을 사용하는 비용 없이 Azure Database Migration Service를 사용하여 여러 SQL Server 데이터베이스를 마이그레이션할 수 있습니다.

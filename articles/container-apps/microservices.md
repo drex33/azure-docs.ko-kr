@@ -1,19 +1,19 @@
 ---
 title: Azure 컨테이너 앱 미리 보기를 사용 하는 마이크로 서비스
 description: Azure Container Apps에서 마이크로 서비스을 빌드합니다.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 99903809a7809db0164025df1de80f13262c8c2c
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 39d095f28c9f642815e5463975b9836e228d9c3a
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577045"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028746"
 ---
 # <a name="microservices-with-azure-containers-apps-preview"></a>Azure 컨테이너 앱 미리 보기를 사용 하는 마이크로 서비스
 

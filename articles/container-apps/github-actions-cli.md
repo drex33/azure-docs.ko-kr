@@ -1,18 +1,18 @@
 ---
 title: Azure Container Apps 미리 보기에서 GitHub 작업을 사용 하 여 수정 버전 게시
 description: Azure Container Apps 미리 보기에서 GitHub 작업을 사용 하 여 새 수정 버전을 자동으로 만드는 방법을 알아봅니다.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.openlocfilehash: d83c6904f721d429488bca50359c3b32877ad50b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c06ce3b75ac9b33d0dd82b74ba068a6a0039bbee
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131483047"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027378"
 ---
 # <a name="publish-revisions-with-github-actions-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 GitHub 작업을 사용 하 여 수정 버전 게시
 

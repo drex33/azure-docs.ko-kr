@@ -1,21 +1,21 @@
 ---
-title: Container Apps 미리 보기 ARM 템플릿 API 사양
+title: Container Apps Preview ARM 템플릿 API 사양
 description: Container Apps ARM 템플릿에서 사용 가능한 속성을 탐색합니다.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: reference
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a0bc640e046074af94462c9e429102dc43ad442f
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 5313e8935791a16bc5046b50b23c68665c486705
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578238"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026447"
 ---
-# <a name="container-apps-preview-arm-template-api-specification"></a>Container Apps 미리 보기 ARM 템플릿 API 사양
+# <a name="container-apps-preview-arm-template-api-specification"></a>Container Apps Preview ARM 템플릿 API 사양
 
 Azure Container Apps 배포는 ARM(Azure Resource Manager) 템플릿을 통해 구동됩니다. 다음 표에서는 컨테이너 앱 ARM 템플릿에서 사용할 수 있는 속성에 대해 설명합니다.
 
@@ -45,7 +45,7 @@ Azure Container Apps 배포는 ARM(Azure Resource Manager) 템플릿을 통해 �
 | `latestRevisionName` | 최신 수정 버전 이름입니다. | 문자열 | Yes |
 | `latestRevisionFqdn` | 최신 수정 버전 URL입니다. | 문자열 | Yes |
 
-`environmentId`값은 다음 형식을 취합니다.
+`environmentId`값은 다음과 같은 형식을 취합니다.
 
 ```console
 /subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/environmentId/<ENVIRONMENT_NAME>
@@ -79,7 +79,7 @@ Azure Container Apps 배포는 ARM(Azure Resource Manager) 템플릿을 통해 �
 
 섹션에 대한 변경 `template` 내용은 새 수정 버전을 트리거하는 수정 범위 변경 [내용입니다.](revisions.md#revision-scope-changes)
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음은 컨테이너 앱을 배포하는 데 사용되는 ARM 템플릿 예제입니다.
 

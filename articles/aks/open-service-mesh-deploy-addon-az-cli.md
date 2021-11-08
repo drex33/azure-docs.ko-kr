@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: cf89b21c3aceee55e121d918f21db4bcf7c51d42
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 93ff4f0d8565f439bc16e887b0dd31e8f14249e9
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440491"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025752"
 ---
 # <a name="deploy-the-open-service-mesh-aks-add-on-using-azure-cli"></a>Azure CLI를 사용 하 여 Open Service 메시 AKS 추가 기능 배포
 
@@ -182,6 +182,39 @@ OSM 추가 기능을 사용하지 않도록 설정하려면 다음 명령을 실
 ```azurecli-interactive
 az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open-service-mesh
 ```
+OSM 추가 기능을 사용 하지 않도록 설정 하면 클러스터에 다음 리소스가 남아 있습니다.
+1. OSM meshconfig 사용자 지정 리소스
+2. OSM 제어 평면 비밀
+3. OSM 변경 webhook 구성
+4. OSM webhook 구성 유효성 검사
+5. OSM CRDs
+
+> [!IMPORTANT]
+> OSM 추가 기능을 사용 하지 않도록 설정한 후 이러한 추가 리소스를 제거 해야 합니다. 나중에 OSM 추가 기능을 다시 사용 하도록 설정 하는 경우 클러스터에 이러한 리소스를 두면 문제가 발생할 수 있습니다.
+
+이러한 나머지 리소스를 제거 하려면:
+
+1. Meshconfig config 리소스를 삭제 합니다.
+```azurecli-interactive
+kubectl delete --ignore-not-found meshconfig -n kube-system osm-mesh-config
+```
+
+2. OSM 제어 평면 비밀 삭제
+```azurecli-interactive
+kubectl delete --ignore-not-found secret -n kube-system osm-ca-bundle mutating-webhook-cert-secret validating-webhook-cert-secret crd-converter-cert-secret
+```
+
+3. OSM 변경 webhook 구성 삭제
+```azurecli-interactive
+kubectl delete mutatingwebhookconfiguration -l app.kubernetes.io/name=openservicemesh.io,app.kubernetes.io/instance=osm,app=osm-injector --ignore-not-found
+```
+
+4. OSM 유효성 검사 webhook 구성 삭제
+```azurecli-interactive
+kubectl delete validatingwebhookconfiguration -l app.kubernetes.io/name=openservicemesh.io,app.kubernetes.io/instance=osm,app=osm-controller --ignore-not-found
+```
+
+5. OSM CRDs를 삭제 합니다. OSM의 CRDs 및 삭제 방법에 대 한 지침은 [이 설명서](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/uninstall/#removal-of-osm-cluster-wide-resources)를 참조 하세요.
 
 <!-- Links -->
 <!-- Internal -->

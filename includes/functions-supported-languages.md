@@ -5,24 +5,24 @@ ms.topic: include
 ms.date: 06/01/2021
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6f0978a5177a499ccc48eda83c10b327d92b8b94
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2e5699a4522ef9da30b51a97eba49d7bc6e2c001
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599964"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025985"
 ---
-|언어                                 |1.x         |2.x| 3.x | 4.x (미리 보기) |
+|언어                                 |1.x         |2.x| 3.x | 4.x |
 |-----------------------------------------|------------|---| --- | --- |
-|[C#](../articles/azure-functions/functions-dotnet-class-library.md)|GA(.NET Framework 4.8)|GA (.NET Core 2.1<sup>1</sup>)| GA(.NET Core 3.1)<br/>[GA(.NET 5.0)](../articles/azure-functions/dotnet-isolated-process-guide.md) | Preview (.NET 6.0) |
-|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA(Node 6)|GA(Node 10 및 8)| GA(Node 14, 12 및 10) | Preview(Node 14) |
-|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA(.NET Framework 4.8)|GA (.NET Core 2.1<sup>1</sup>)| GA(.NET Core 3.1) | Preview (.NET 6.0) |
-|[Java](../articles/azure-functions/functions-reference-java.md)|해당 없음|GA(Java 8)| GA(Java 11 및 8)| Preview (Java 11 & 8)|
-|[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |해당 없음|GA(PowerShell Core 6)| GA(PowerShell 7.0 및 Core 6)| Preview (PowerShell 7.0)|
-|[Python](../articles/azure-functions/functions-reference-python.md#python-version)|해당 없음|GA(Python 3.7 및 3.6)| GA (Python 3.9, 3.8, 3.7, & 3.6)| Preview (Python 3.9, 3.8)|
-|[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript)<sup>2</sup> |해당 없음|GA| GA | 미리 보기 |
+|[C#](../articles/azure-functions/functions-dotnet-class-library.md)|GA(.NET Framework 4.8)|GA(.NET Core 2.1<sup>1)</sup>| GA(.NET Core 3.1)<br/>[GA(.NET 5.0)](../articles/azure-functions/dotnet-isolated-process-guide.md) | GA(.NET 6.0) |
+|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA(Node 6)|GA(Node 10 및 8)| GA(Node 14, 12 및 10) | GA(노드 14) |
+|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA(.NET Framework 4.8)|GA(.NET Core 2.1<sup>1)</sup>| GA(.NET Core 3.1) | GA(.NET 6.0) |
+|[Java](../articles/azure-functions/functions-reference-java.md)|해당 없음|GA(Java 8)| GA(Java 11 및 8)| GA(Java 11 및 8)|
+|[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |해당 없음|GA(PowerShell Core 6)| GA(PowerShell 7.0 및 Core 6)| GA(PowerShell 7.0)|
+|[Python](../articles/azure-functions/functions-reference-python.md#python-version)|해당 없음|GA(Python 3.7 및 3.6)| GA(Python 3.9, 3.8, 3.7, & 3.6)| GA(Python 3.9, 3.8)|
+|[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript)<sup>2</sup> |N/A|GA| GA | GA |
 
-<sup>1</sup> .net 버전 2.x를 대상으로 하는 .net 클래스 라이브러리 앱은 .net core 2.x의 .net core 3.1 호환 모드에서 실행 됩니다. 자세히 알아보려면 [Functions v2.x 고려 사항](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations)을 참조하세요.  
+<sup>1</sup> 런타임 버전 2.x를 대상으로 하는 .NET 클래스 라이브러리 앱은 .NET Core 2.x 호환성 모드의 .NET Core 3.1에서 실행됩니다. 자세히 알아보려면 [Functions v2.x 고려 사항](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations)을 참조하세요.  
 <sup>2</sup>JavaScript로의 변환 컴파일링(transpiling)을 통해 지원됩니다.
 
 지원되는 언어 버전에 대한 자세한 내용은 언어별 개발자 가이드 문서를 참조하세요.   

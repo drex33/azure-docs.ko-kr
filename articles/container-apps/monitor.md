@@ -1,23 +1,23 @@
 ---
 title: Azure Container Apps 미리 보기에서 앱 모니터링
 description: Azure Container Apps에서 애플리케이션을 모니터링하고 기록하는 방법을 알아봅니다.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b956fa5847cce3f5fe85e91ea8e3846c47eabde7
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: c9c324c90ad401d43be1e2d6768ea82121fc1ae8
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894035"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027841"
 ---
 # <a name="monitor-an-app-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 앱 모니터링
 
-Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합을 수집하고 Log Analytics 를 사용하여 [저장합니다.](../azure-monitor/logs/log-analytics-tutorial.md) 이 문서에서는 사용 가능한 로그 및 로그를 작성하고 보는 방법을 설명합니다.
+Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합을 수집하고 [Log Analytics를 사용하여 저장합니다.](../azure-monitor/logs/log-analytics-tutorial.md) 이 문서에서는 사용 가능한 로그 및 로그를 작성하고 보는 방법을 설명합니다.
 
 ## <a name="writing-to-a-log"></a>로그에 쓰기
 
@@ -32,7 +32,7 @@ Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합
 | `ContainerGroupID` | |
 | `ContainerGroupName` | |
 | `ContainerImage` | |
-| `ContainerID` | 컨테이너의 고유 식별자입니다. 이 값을 사용하여 컨테이너 충돌을 식별할 수 있습니다. |
+| `ContainerID` | 컨테이너의 고유 식별자입니다. 이 값을 사용하여 컨테이너 작동 중단을 식별할 수 있습니다. |
 | `Stream` | `stdout`또는 가 `stderr` 로깅에 사용되는지 여부를 표시합니다. |
 | `EnvironmentName` | |
 
@@ -42,7 +42,7 @@ Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합
 
 | 데이터 형식 | Description |
 |---|---|
-| 텍스트 한 줄 | 열에 텍스트가 `Log_s` 나타납니다. |
+| 한 줄의 텍스트 | 열에 텍스트가 `Log_s` 나타납니다. |
 | 직렬화된 JSON | 데이터는 로깅 에이전트에 의해 구문 분석되고 JSON 개체 속성 이름과 일치하는 열에 표시됩니다. |
 
 ## <a name="viewing-logs"></a>로그 보기

@@ -5,16 +5,16 @@ metadata:
   title: Azure Container Apps 설명서
   description: Azure Container Apps를 사용하면 오케스트레이션 또는 인프라에 대해 걱정 없이 컨테이너화된 애플리케이션을 실행할 수 있습니다.
   ms.topic: landing-page
-  ms.service: app-service
+  ms.service: container-apps
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 10/22/2021
-  ms.openlocfilehash: 75e0b19f44ff8ec83ecfc0b4ef6c931d8b160a0b
-  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+  ms.openlocfilehash: fd7d39ec39cb266f690930d092f0dddcce6650a7
+  ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/05/2021
-  ms.locfileid: "131846162"
+  ms.lasthandoff: 11/08/2021
+  ms.locfileid: "132028304"
 landingContent:
 - title: Azure Container Apps 정보
   linkLists:

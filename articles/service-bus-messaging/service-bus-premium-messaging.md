@@ -2,14 +2,14 @@
 title: Azure Service Bus 프리미엄 및 표준 계층
 description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 계층에 대해 설명합니다. 이러한 계층을 비교하고 기술적 차이점을 제공합니다.
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 11/08/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 67439ad4c3d51dc354007b11008179d210aeaca6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0734e6d7d54966617e66a5ac5876df4a1da9264f
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046815"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028784"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -25,14 +25,11 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케�
 | 예측 가능한 성능 |가변 대기 시간 |
 | 고정된 가격 책정 |종량제 가변 가격 |
 | 작업을 확장 및 축소하는 기능 |해당 없음 |
-| 최대 1MB의 메시지 크기 |최대 256KB의 메시지 크기 |
+| 메시지 크기는 최대 100MB입니다. 자세한 내용은 [큰 메시지 지원을 참조하세요.](#large-messages-support) |최대 256KB의 메시지 크기 |
 
 **Service Bus 프리미엄 메시지** 는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위* 라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임스페이스에 대해 1, 2, 4, 8 또는 16 메시징 단위를 구입할 수 있습니다. 단일 워크로드 또는 엔터티는 여러 메시징 단위에 걸쳐 있을 수 있으며 메시징 단위 수는 마음대로 변경할 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
 
 이로 인해 예측 가능성 및 가용성도 높아질 뿐 아니라 속도도 더 빨라집니다. 프리미엄 메시징을 사용할 경우 표준 계층을 사용하는 것보다 최고 성능이 훨씬 더 빠릅니다.
-
-> [!NOTE]
-> 프리미엄 메시징의 일괄 처리 크기 제한은 1MB입니다.
 
 ## <a name="premium-messaging-technical-differences"></a>프리미엄 메시징 기술 차이
 
@@ -94,7 +91,7 @@ Service Bus 프리미엄 네임스페이스에 할당된 메시징 단위 수는
 
 [Azure Resource Manager 템플릿을 사용하여 프리미엄 네임스페이스](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/)를 만들 수도 있습니다.
 
-## <a name="large-messages-support"></a>많은 메시지 지원
+## <a name="large-messages-support"></a>큰 메시지 지원
 Azure Service Bus 프리미엄 계층 네임스페이스는 최대 100MB의 대용량 메시지 페이로드를 전송하는 기능을 지원합니다. 이 기능은 주로 다른 엔터프라이즈 메시징 브로커에서 더 큰 용량의 메시지 페이로드를 사용하고 Azure Service Bus로 원활하게 마이그레이션하려는 레거시 워크로드를 대상으로 합니다.
 
 Azure Service Bus에서 대용량 메시지를 보낼 때 고려할 사항은 다음과 같습니다.

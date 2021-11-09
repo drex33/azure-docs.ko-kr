@@ -1,16 +1,16 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 09/03/2021
-ms.author: dacoulte
+ms.date: 10/12/2021
+ms.author: gwallace
 ms.custom: generated
-ms.openlocfilehash: 0fcc840d691a683a0e2adaa3288959deea71b26d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 9c2af5aed7fa2879a54088145395da9194977e75
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536412"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053420"
 ---
 ### <a name="find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group"></a>리소스 그룹에서 대/소문자를 구분하지 않는 특정 태그가 있는 스토리지 계정 찾기
 

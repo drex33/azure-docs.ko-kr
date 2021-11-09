@@ -1,24 +1,24 @@
 ---
 title: Azure Spring Cloud의 파란색-녹색 배포 전략
 description: 이 항목에서는 Azure Spring Cloud의 파란색-녹색 배포에 대한 두 가지 접근 방식을 설명합니다.
-author: yevster
-ms.author: yebronsh
+author: barbkess
+ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 3ed83d0bcc1998b63738eb586acaf83b3a281ee6
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
-ms.translationtype: HT
+ms.openlocfilehash: 194529a03a493ec22d22260576a678ab07401f4c
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838792"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056571"
 ---
 # <a name="blue-green-deployment-strategies-in-azure-spring-cloud"></a>Azure Spring Cloud의 파란색-녹색 배포 전략
 
 이 문서에서는 Azure Spring Cloud의 파란색-녹색 배포 지원에 대해 설명합니다.
 
-Azure Spring Cloud(표준 계층 이상)는 모든 앱에 대해 두 개의 배포를 허용하며,이 중 하나만 프로덕션 트래픽을 받습니다. 일반적으로 이 패턴을 파란색-녹색 배포라고 합니다. 파란색-녹색 배포에 대한 Azure Spring Cloud의 지원은 [CD(지속적인 배포)](/azure/devops/learn/what-is-continuous-delivery) 파이프라인 및 엄격한 자동화 테스트와 함께 높은 신뢰도를 가지고 민첩한 애플리케이션 배포를 가능하게 합니다.
+Azure Spring Cloud(표준 계층 이상)는 모든 앱에 대해 두 개의 배포를 허용하며,이 중 하나만 프로덕션 트래픽을 받습니다. 일반적으로 이 패턴을 파란색-녹색 배포라고 합니다. 파란색-녹색 배포에 대한 Azure Spring Cloud의 지원은 [CD(지속적인 배포)](/devops/deliver/what-is-continuous-delivery) 파이프라인 및 엄격한 자동화 테스트와 함께 높은 신뢰도를 가지고 민첩한 애플리케이션 배포를 가능하게 합니다.
 
 ## <a name="alternating-deployments"></a>대체 배포
 

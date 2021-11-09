@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 10/21/2021
 ms.custom: data4ml
-ms.openlocfilehash: a6e47fb02256056f104473769f3917a215ca789c
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 148b779e56b14652bfb8b9c4eaf0e68585203cf8
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555802"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061535"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -72,7 +72,7 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
     계정 선택 방법 | **수동으로 입력** 을 선택합니다.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     인증 유형 | **SAS 토큰** 을 선택합니다.
-    계정 키 | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
+    계정 키 | `ZPlDx0bFHFEqwoy8/B/ZZg1YKi/+cIiPamOPUrRptWbvkO6d84n4loitnSMorv/AxrvE0s86cUr6rULWaSGA2A==`
 
 1. **만들기** 를 선택하여 데이터 저장소를 만듭니다.
 

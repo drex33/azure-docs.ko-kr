@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 07/05/2021
-ms.openlocfilehash: 6ea06820a9f66c831847808d9f6de9a6bf4803b1
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 71efd629463f53519d98458afaa449c7a7f46ffb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073965"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062342"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정
 
@@ -135,7 +135,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 > [!NOTE]
 > 프라이빗 대상 그룹은 미리 보기 대상 그룹과 다릅니다. 일부 제품 유형에 대한 **가용성** 페이지에서 상업용 마켓플레이스에 라이브로 게시되기 전에 미리 볼 수 있는 대상을 정의할 수 있습니다. 프라이빗 대상 그룹은 특정 플랜에만 적용되는 한편, 미리 보기 대상 그룹은 모든 플랜(비공개 또는 공개)을 볼 수 있지만 플랜을 테스트하고 검증하는 제한된 미리 보기 기간 동안만 가능합니다.
 
-또한 제안이 관리되는 애플리케이션 또는 솔루션 템플릿의 일부로 배포될 경우 Azure Marketplace 플랜을 완전히 숨기도록 선택할 수도 있습니다.
+또한 제안이 관리되는 애플리케이션 또는 솔루션 템플릿의 일부로 배포될 경우 Azure Marketplace 플랜을 완전히 숨기도록 선택할 수 있습니다.
 
 ## <a name="free-trials"></a>무료 평가판
 
@@ -162,7 +162,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 > [!NOTE]
 > 고객이 플랜에 대한 요금을 지불하고 나면 무료 평가판을 지원하는 다른 플랜으로 전환하더라도 동일한 제품에 대한 무료 평가판을 다시 얻을 수 없습니다.
 
-현재 무료 평가판에 참여하는 고객 구독에 대한 정보를 얻으려면 true 또는 false로 표시되는 새 API 속성 `isFreeTrial`을 사용합니다. 자세한 내용은 [SaaS 구독 가져오기 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription)를 참조하세요.
+현재 무료 평가판에 참여하는 고객 구독에 대한 정보를 얻으려면 true 또는 false로 표시되는 새 API 속성 `isFreeTrial`을 사용합니다. 자세한 내용은 [SaaS 구독 가져오기 API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-subscription)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

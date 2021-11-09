@@ -1,15 +1,15 @@
 ---
 title: Azure Arc 지원 서버에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Arc 지원 서버 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블 사용을 보여 주는 Azure Arc 지원 서버에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 09/03/2021
+ms.date: 10/12/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 5e73647300e29650d31b6cb4dae08d99488fc32e
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 7e630fc7c931e835a1f8f9ec154192ca1a13b704
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541210"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132052985"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-arc-enabled-servers"></a>Azure Arc 지원 서버에 대한 Azure Resource Graph 샘플 쿼리
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 11/08/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e3c1da0e21f13357c5c537da2530e012101423dd
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 44a9da990b1f44f151ab6492cbca65d1b445ae65
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215703"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059548"
 ---
 # <a name="azure-firewall-dns-settings"></a>Azure Firewall DNS 설정
 
@@ -75,9 +75,9 @@ DNS 프록시 역할을 하도록 Azure Firewall을 구성할 수 있습니다. 
 
 Azure Firewall이 DNS 프록시인 경우 두 가지 캐싱 함수 형식이 가능합니다.
 
-- **긍정 캐시**: DNS 확인에 성공했습니다. 방화벽은 패킷 또는 개체의 TTL(time to live)을 사용합니다. 
+- **긍정 캐시**: DNS 확인에 성공했습니다. 방화벽은 응답의 TTL (time to live)에 따라 최대 1 시간까지 이러한 응답을 캐시 합니다. 
 
-- **부정 캐시**: DNS 확인 시 응답이 없거나 확인되지 않습니다. 방화벽은 1시간 동안 이 정보를 캐시합니다.
+- **부정 캐시**: DNS 확인 시 응답이 없거나 확인되지 않습니다. 방화벽은 응답의 TTL에 따라 최대 30 분까지 이러한 응답을 캐시 합니다.
 
 DNS 프록시는 네트워크 규칙의 FQDN에서 모든 확인된 IP 주소를 저장합니다. IP 주소 하나를 확인하는 FQDN을 사용하는 것이 가장 좋습니다.
 

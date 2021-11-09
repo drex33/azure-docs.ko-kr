@@ -4,12 +4,12 @@ description: 이 문서에서는 백업과 복구 지점이 저장되는 Recover
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 92b5c02024d9911cc179e81ebf6a38b43abe2de5
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: afb8485fe8baca002102f82a6f44f535075cadf8
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997783"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062627"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -46,14 +46,14 @@ CRR(지역 간 복원) 옵션을 사용하면 Azure 쌍을 이루는 보조 지�
 
 시작하기 전에
 - CRR은 다음과 같이 지원 됩니다.
-     - [GRS 복제 유형의](#set-storage-redundancy)자격 증명 모음에만 해당 합니다.
+     - [GRS 복제 유형의](#set-storage-redundancy)Recovery Services 자격 증명 모음에만 해당 합니다.
      - Azure vm (VM 또는 해당 디스크를 복원할 수 있음)은 ARM 기반 Azure vm 및 암호화 된 Azure Vm입니다. 클래식 Vm은 지원 되지 않습니다.  
      - Azure vm에 호스트 된 SQL/sap HANA 데이터베이스 (데이터베이스 또는 해당 파일을 복원할 수 있음)
      - 지원 되는 관리 되는 형식 및 지역 목록은 [지원 매트릭스](backup-support-matrix.md#cross-region-restore) 를 검토 하세요.
-     - CRR을 사용 하면 추가 요금이 발생 하 고 [자세한 정보](https://azure.microsoft.com/pricing/details/backup/)
-     - 옵트인 후에 **는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴** 수 있습니다.
-     - 현재 보호를 처음 시작한 후에는 CRR을 GRS 또는 LRS로 되돌릴 수 없습니다.
-     - 현재 RA-GRS(읽기 액세스 지역 중복 스토리지) 복제는 15분이나, 보조 지역 [RPO](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region)는 주 지역에서 최대 12시간입니다.
+- CRR을 사용 하면 추가 요금이 발생 하 고 [자세한 정보](https://azure.microsoft.com/pricing/details/backup/)
+- 옵트인 후에 **는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴** 수 있습니다.
+- 현재 보호를 처음 시작한 후에는 CRR을 GRS 또는 LRS로 되돌릴 수 없습니다.
+- 현재 RA-GRS(읽기 액세스 지역 중복 스토리지) 복제는 15분이나, 보조 지역 [RPO](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region)는 주 지역에서 최대 12시간입니다.
 
 ### <a name="configure-cross-region-restore"></a>지역 간 복원 구성
 

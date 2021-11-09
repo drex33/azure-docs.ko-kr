@@ -8,12 +8,12 @@ metadata:
   ms.date: 06/01/2020
   author: saasguide
   ms.author: souchak
-  ms.openlocfilehash: 0abeb7dd6573293a72e8b6aede6f5e281b553049
-  ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+  ms.openlocfilehash: 8666fdbb7618b1698d4480e187cfb4affdd49781
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129455307"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132063178"
 title: Marketplace 계량 청구 API - FAQ
 summary: 고객이 SaaS 서비스 또는 관리형 앱 요금제를 사용하는 Azure 애플리케이션을 구독하면 사용되는 각 청구 차원에 대한 사용량이 계량 청구를 통해 추적됩니다.  사용량이 고객이 선택한 기간에 대해 설정된 포함 수량을 초과하는 경우 서비스에서 사용 이벤트를 Microsoft에 내보냅니다.
 sections:
@@ -84,7 +84,7 @@ sections:
   - question: >
       활성 구독 및 구독 취소된 구독을 포함하여 모든 SaaS 구독 목록을 가져올 수 있나요?
     answer: >
-      예, [구독 목록 가져오기 API](partner-center-portal/pc-saas-fulfillment-api-v2.md#subscription-apis)를 호출하면 모든 SaaS 구독의 목록이 포함됩니다. 각 SaaS 구독에 대한 응답의 상태 필드에는 활성 구독인지, 아니면 구독 취소된 구독인지의 여부가 캡처되어 있습니다.
+      예, [구독 목록 가져오기 API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions)를 호출하면 모든 SaaS 구독의 목록이 포함됩니다. 각 SaaS 구독에 대한 응답의 상태 필드에는 활성 구독인지, 아니면 구독 취소된 구독인지의 여부가 캡처되어 있습니다.
   - question: >
       SaaS 구독 기간의 시작 및 종료 날짜와 초과분 사용량 내보내기가 연결되어 있나요?
     answer: "*구독됨* 상태의 기존 SaaS 구독에 대한 초과분 이벤트는 언제든지 내보낼 수 있습니다. 게시자는 청구 계획에 정의된 정책에 따라 사용 이벤트를 내보내야 합니다. 초과분은 SaaS 구독 기간에 정의된 날짜를 기준으로 계산해야 합니다. \n\n예를 들어 게시자가 100달러/월의 정액 요금이 책정된 1,000개의 이메일을 포함하는 SaaS 요금제를 정의하는 경우 1,000개를 초과하는 모든 이메일에는 사용자 지정 차원을 통해 1달러가 청구됩니다.\n\n고객이 1월 6일에 구독을 구매하고 활성화하면 정액 요금에 포함된 1,000개의 이메일이 이날부터 계산됩니다. 따라서 2월 5일(구독 첫 달의 끝)까지 900개의 이메일만 보내는 경우 고객은 이 구독의 첫 달에 대해서만 정액 요금을 지불하고, 게시자는 1월 6일부터 2월 5일까지 초과분 사용 이벤트를 내보내지 않습니다. 2월 6일에 구독이 자동으로 갱신되고 카운트가 다시 시작됩니다. 2월 15일에 고객이 보낸 이메일이 1,000개에 도달하면 3월 5일까지 보낸 나머지 이메일은 게시자가 내보낸 초과분 사용 이벤트에 따라 초과분 요금(이메일당 1달러)으로 청구됩니다.\n"

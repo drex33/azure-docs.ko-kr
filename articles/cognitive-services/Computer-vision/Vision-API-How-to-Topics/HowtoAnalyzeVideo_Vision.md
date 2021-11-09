@@ -3,20 +3,18 @@ title: 거의 실시간으로 비디오 분석 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석하는 방법을 알아봅니다.
 services: cognitive-services
-author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
-ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 8438775d7651d742349d5b94876ac00248814dfe
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bb35a93a2cfbd7fc90e614161eb7a95a5098871b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078164"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063687"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>거의 실시간으로 비디오 분석
 

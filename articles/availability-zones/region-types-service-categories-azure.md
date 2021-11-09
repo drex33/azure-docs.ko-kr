@@ -1,19 +1,19 @@
 ---
 title: Azure 서비스
 description: Azure의 지역 유형 및 서비스 범주에 대해 알아봅니다.
-author: prsandhu
+author: mamccrea
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: mamccrea
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: dc0adacbda491f7658056e7d313b9bdc923b43af
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 7a8159a10749e877c6502ef775071af6cc420f46
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129622456"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059517"
 ---
 # <a name="azure-services"></a>Azure 서비스
 
@@ -75,7 +75,7 @@ Azure 서비스는 범주별로 다음 표에 표시 됩니다. 일부 서비스
 > | Virtual Machines: Dv2 시리즈           | Azure Site Recovery                               | 
 > | Virtual Machines: Dv3 시리즈           | Azure Synapse Analytics                           |     
 > | Virtual Machines: ESv3 시리즈          | Azure Batch                                       | 
-> | Virtual Machines: Ev3 시리즈           | Azure Cloud Service: M 시리즈                     | 
+> | Virtual Machines: Ev3 시리즈           | Azure 클라우드 서비스: M 시리즈                     | 
 > | Azure Virtual Network                  | Azure Container Instances                         | 
 > | Azure VPN Gateway                      | Azure Container Registry                          | 
 > |                                        | Azure 데이터 팩터리                                | 
@@ -99,10 +99,10 @@ Azure 서비스는 범주별로 다음 표에 표시 됩니다. 일부 서비스
 > |                                        | Azure 가상 WAN                                 | 
 
 ### <a name="strategic-services"></a>전략적 서비스
-앞서 언급했듯이 Azure는 서비스를 기본, 일반 및 전략적의 세 가지 범주로 분류합니다. 서비스 범주는 일반 공급 시 할당됩니다. 종종 서비스는 전략적 서비스로 수명 주기를 시작하고 수요와 사용률이 증가하면 일반 또는 기본 서비스로 승격될 수 있습니다. 다음 표에서는 전략적 서비스를 나열합니다. 
+앞에서 설명한 것 처럼 Azure는 서비스를 기본, 일반 및 전략의 세 가지 범주로 분류 합니다. 서비스 범주는 일반 공급 시 할당됩니다. 일반적으로 서비스는 전략적 서비스로 수명 주기를 시작 하 고 수요 및 사용률이 늘어남에 따라 기본 또는 기본으로 확장 될 수 있습니다. 다음 표에서는 전략적 서비스를 나열 합니다. 
 
 > [!div class="mx-tableFixed"]
-> | ![이 서비스를 나타내는 아이콘은 전략적입니다.](media/icon-strategic.svg) 전략적                                          |
+> | ![이 서비스가 전략적 임을 나타내는 아이콘입니다.](media/icon-strategic.svg) 전략적                                          |
 > |------------------------------------------------------|
 > | FHIR용 Azure API                                   |
 > | Azure Analysis Services                              |
@@ -134,7 +134,7 @@ Azure 서비스는 범주별로 다음 표에 표시 됩니다. 일부 서비스
 > | Azure VMware Solution by CloudSimple                 |
 > | Azure Spatial Anchors                                |
 > | Storage: Archive Storage                             |
-> | Azure Ultra Disk Storage                             |
+> | Azure Ultra 디스크 저장소                             |
 > | 비디오 인덱서                                        |
 > | Virtual Machines: DASv4 시리즈                       |
 > | Virtual Machines: DAv4 시리즈                        |
@@ -153,13 +153,13 @@ Azure 서비스는 범주별로 다음 표에 표시 됩니다. 일부 서비스
 > | Virtual Machines: NVv4 시리즈                        | 
 > | Virtual Machines: SAP HANA(대규모 인스턴스)  |
 
-\*가용성 영역을 지원하는 VM: AV2 시리즈, B 시리즈, DSv2 시리즈, DSv3 시리즈, Dv2 시리즈, Dv3 시리즈, ESv3 시리즈, Ev3 시리즈, F 시리즈, FS 시리즈, FSv2 시리즈 및 M 시리즈.\*
+\*가용성 영역을 지 원하는 Vm: AV2 시리즈, B 시리즈, DSv2 시리즈, DSv3 시리즈, Dv2 시리즈, Dv3 시리즈, ESv3 시리즈, Ev3 시리즈, F 시리즈, FS 시리즈, FSv2 시리즈 및 M 시리즈.\*
 
-이전 세대의 서비스 또는 가상 머신은 나열되지 않습니다. 자세한 내용은 [이전 세대의 가상 머신 크기](../virtual-machines/sizes-previous-gen.md)를 참조하세요.
+서비스 또는 가상 컴퓨터의 이전 세대는 나열 되지 않습니다. 자세한 내용은 [이전 세대의 가상 머신 크기](../virtual-machines/sizes-previous-gen.md)를 참조하세요.
 
-아직 일반 공급되지 않은 미리 보기 서비스에 대해 자세히 알아보고 이러한 서비스 목록을 보려면 [지역별 사용 가능한 제품을](https://azure.microsoft.com/global-infrastructure/services/)참조하세요. 가용성 영역을 지원하는 서비스의 전체 목록은 가용성 영역을 [지원하는 Azure 서비스를 참조하세요.](az-region.md)
+아직 일반 공급이 아닌 미리 보기 서비스에 대 한 자세한 내용 및 이러한 서비스 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조 하세요. 가용성 영역을 지 원하는 서비스의 전체 목록은 [가용성 영역을 지 원하는 Azure 서비스](az-region.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가용성 영역을 지원하는 Azure 서비스](az-region.md)
+- [가용성 영역을 지 원하는 Azure 서비스](az-region.md)
 - [Azure의 영역 및 가용성 영역](az-overview.md)

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 11/08/2021
 ms.author: tisande
-ms.openlocfilehash: 74a3bb89b10a48d5485df29797e891f80839047f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2c2681f1d6e9abf66375d8a6a9d0f43683474dcc
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614848"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060418"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Azure Cosmos DB 전용 게이트웨이 - 개요(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -98,9 +98,9 @@ Azure Cosmos DB 계정에 연결하는 방법에는 다음 세 가지가 있습�
 공개 미리 보기 중에는 전용 게이트웨이에 다음과 같은 제한 사항이 있습니다.
 
 - 전용 게이트웨이는 SQL API 계정에서만 지원됩니다.
-- IP 방화벽 [또는](how-to-configure-private-endpoints.md) Private Link 구성된 Azure Cosmos DB 계정의 전용 [게이트웨이에](how-to-configure-firewall.md) 연결할 수 없습니다.
-- [Virtual Network(Vnet)의](how-to-configure-vnet-service-endpoint.md) Azure Cosmos DB 계정에서 전용 게이트웨이에 연결할 수 없습니다.
-- [가용성 영역을](high-availability.md#availability-zone-support) 사용하도록 설정된 Azure Cosmos DB 계정의 전용 게이트웨이에 연결할 수 없습니다.
+- [IP 방화벽](how-to-configure-firewall.md) 또는 [프라이빗 링크](how-to-configure-private-endpoints.md)가 구성된 Azure Cosmos DB 계정에서 전용 게이트웨이를 프로비전할 수 없습니다.
+- [Virtual Network(Vnet)의](how-to-configure-vnet-service-endpoint.md) Azure Cosmos DB 계정에서 전용 게이트웨이를 프로비전할 수 없습니다.
+- [가용성 영역이](high-availability.md#availability-zone-support)있는 Azure Cosmos DB 계정에서는 전용 게이트웨이를 프로비전할 수 없습니다.
 - [RBAC(역할 기반 액세스 제어)](how-to-setup-rbac.md)를 사용하여 전용 게이트웨이를 통해 라우팅되는 데이터 평면 요청을 인증할 수는 없습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
@@ -133,4 +133,4 @@ Azure Cosmos DB 계정에 연결하는 방법에는 다음 세 가지가 있습�
 - [통합 캐시 FAQ](integrated-cache-faq.md)
 - Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

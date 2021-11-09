@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ae71e4423011d5a69945b6bcce8ed73e0f093fc1
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 53b64b804b07f60741be1a72e671e8ade4710e15
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570093"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055115"
 ---
 # <a name="cli-v2-command-component-yaml-schema"></a>CLI (v2) 명령 구성 요소 YAML 스키마
 
@@ -91,7 +91,7 @@ ms.locfileid: "131570093"
 
 `az ml component`명령은 Azure Machine Learning 구성 요소를 관리 하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 명령 구성 요소 예제는 GitHub 리포지토리에서 사용할 수 있습니다. 에 대 한 예는 아래와 같습니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "131570093"
 
 ## <a name="hello-world-command-component"></a>Hello 세계 명령 구성 요소
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
 
 ## <a name="next-steps"></a>다음 단계
 

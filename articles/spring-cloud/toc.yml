@@ -96,6 +96,8 @@
           href: how-to-deploy-powershell.md
     - name: 관리
       items:
+        - name: 서비스 시작 또는 중지
+          href: how-to-start-stop-service.md
         - name: '앱 시작, 중지 및 삭제'
           href: how-to-start-stop-delete.md
         - name: 기본 제공 영구 스토리지 사용
@@ -194,7 +196,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Architecture
+- name: 아키텍처
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

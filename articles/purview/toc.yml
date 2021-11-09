@@ -271,6 +271,8 @@ items:
         href: disaster-recovery.md
       - name: Azure Monitor로 모니터링
         href: how-to-monitor-with-azure-monitor.md
+      - name: Azure 보안 제품과 통합
+        href: how-to-integrate-with-azure-security-products.md
       - name: 데이터 소유자 액세스 정책
         items:
           - name: 데이터 액세스 정책 Azure Storage

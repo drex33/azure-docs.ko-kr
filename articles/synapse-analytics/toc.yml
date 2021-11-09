@@ -1053,7 +1053,7 @@ items:
                 href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: QuickBooks Online
                 href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: REST (영문)
+              - name: REST
                 href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Salesforce
                 href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
@@ -1430,6 +1430,8 @@ items:
     items:
       - name: 비용 계획 및 관리
         href: plan-manage-costs.md
+      - name: ACL을 사용하여 ADLS Gen2 폴더 찾아보기
+        href: how-to-access-container-with-access-control-lists.md
   - name: 참조
     items:
       - name: Azure CLI

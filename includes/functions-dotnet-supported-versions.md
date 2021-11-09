@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 06/01/2021
 ms.author: glenga
-ms.openlocfilehash: 729275766806bf5fe47d35b04ddc58b11c58217b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f576840f87387ba6896c6fda3a5ef663cedaffaf
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128908495"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132040346"
 ---
 ## <a name="supported-versions"></a>지원되는 버전
 
@@ -19,12 +19,13 @@ Functions 런타임 버전은 .NET의 특정 버전과 호환됩니다. Function
 
 | Functions 런타임 버전 | In-Process<br/>([.NET 클래스 라이브러리](../articles/azure-functions/functions-dotnet-class-library.md)) | Out of Process<br/>([.NET 격리](../articles/azure-functions/dotnet-isolated-process-guide.md)) |
 | ---- | ---- | --- |
-| Functions 4.x(미리 보기) | .NET 6.0(미리 보기)| .NET 6.0(미리 보기)<sup>2</sup> |
-| Functions 3.x | .NET Core 3.1 | .NET 5.0 |
-| Functions 2.x | .NET Core 2.1<sup>1</sup> | 해당 없음 |
+| Functions 4.x | .NET 6.0 | .NET 6.0 |
+| Functions 3.x | .NET Core 3.1 | .NET 5.0<sup>1</sup> |
+| Functions 2.x | .NET Core 2.1<sup>2</sup> | 해당 없음 |
 | Functions 1.x | .NET Framework 4.8 | 해당 없음 |
 
-<sup>1</sup> 자세한 내용은 [Functions v2.x 고려 사항을 참조하세요.](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations)    
-<sup>2</sup> 현재는 Azure Functions Core Tools 사용하여 격리된 프로세스 함수만 만들 수 있습니다. 자세한 내용은 [빠른 시작: 명령줄에서 Azure에서 C# 함수 만들기를 참조하세요.](../articles/azure-functions/create-first-function-cli-csharp.md?tabs=isolated-process)  
+
+<sup>1</sup> 빌드 프로세스에는 [.NET Core 3.1 SDK도](https://dotnet.microsoft.com/download)필요합니다.   
+<sup>2</sup> 자세한 내용은 [Functions v2.x 고려 사항](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations)을 참조하세요.     
 
 특정한 이전 부 버전의 삭제를 비롯하여 Azure Functions 릴리스에 대한 최신 소식을 보려면 [Azure App Service 공지](https://github.com/Azure/app-service-announcements/issues)를 주기적으로 확인하세요.

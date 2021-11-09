@@ -1,27 +1,26 @@
 ---
 title: 다이제스트 관리 및 데이터베이스 확인
 description: 이 문서는 Azure SQL Database의 원장 데이터베이스에 대한 다이제스트 정보 및 데이터베이스 확인 관련 정보를 제공합니다.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: e133ee1c8492bf63cbfd4702e795743009abfdc7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: df0b87543c213b77a3cf47a7e9020f7f3c0e1866
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080096"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132064459"
 ---
 # <a name="digest-management-and-database-verification"></a>다이제스트 관리 및 데이터베이스 확인
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 공개 미리 보기로 제공되며 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 Azure SQL Database 원장은 *전달 무결성* 이라는 데이터 무결성의 형태를 제공하며, 이는 원장 테이블의 데이터에 대한 데이터 변조 증명 정보를 제공합니다. 예를 들어, 잔액이 `x` 값으로 업데이트된 원장 테이블에서 은행 거래가 발생하며 공격자가 이후에 잔액이 `x`에서 `y`가 되도록 데이터를 수정하면 데이터베이스 확인 기능이 이 변조 활동을 감지합니다.  
 
@@ -39,14 +38,14 @@ Azure SQL Database 원장은 *전달 무결성* 이라는 데이터 무결성의
 
 ### <a name="automatic-generation-and-storage-of-database-digests"></a>데이터베이스 다이제스트 자동 생성 및 스토리지
 
-Azure SQL Database 원장은 [Azure Blob Storage의 변경할 수 없는 스토리지 기능](../../storage/blobs/storage-blob-immutable-storage.md) 및 [Azure Confidential Ledger](../../confidential-ledger/index.yml)와 통합됩니다. 이러한 통합을 통해 Azure의 보안 스토리지 서비스를 활용하여 데이터베이스 다이제스트를 잠재적인 변조로부터 보호합니다. 이 통합은 가용성과 지리적 복제에 대한 걱정 없이 사용자가 다이제스트 관리를 자동화할 수 있는 간단하고 비용 효율적인 방법을 제공합니다. 
+Azure SQL Database 원장은 [Azure Blob Storage의 변경할 수 없는 스토리지 기능](../../storage/blobs/immutable-storage-overview.md) 및 [Azure Confidential Ledger](../../confidential-ledger/index.yml)와 통합됩니다. 이러한 통합을 통해 Azure의 보안 스토리지 서비스를 활용하여 데이터베이스 다이제스트를 잠재적인 변조로부터 보호합니다. 이 통합은 가용성과 지리적 복제에 대한 걱정 없이 사용자가 다이제스트 관리를 자동화할 수 있는 간단하고 비용 효율적인 방법을 제공합니다. 
 
 Azure Portal, PowerShell 또는 Azure CLI를 통해 데이터베이스 다이제스트의 자동 생성 및 스토리지를 구성할 수 있습니다. 자동 생성 및 스토리지를 구성하는 경우 데이터베이스 다이제스트가 미리 정의된 간격(30초)으로 생성되고 선택한 스토리지 서비스에 업로드됩니다. 시스템에서 30초 간격으로 트랜잭션이 발생하지 않으면 데이터베이스 다이제스트가 생성 및 업로드되지 않습니다. 이 메커니즘을 통해 데이터베이스에서 데이터가 업데이트된 경우에만 데이터베이스 다이제스트가 생성됩니다.
 
 :::image type="content" source="media/ledger/automatic-digest-management.png" alt-text="다이제스트 스토리지를 사용하도록 설정하기 위한 선택 옵션을 보여 주는 스크린샷"::: 
 
 > [!IMPORTANT]
-> 데이터베이스 다이제스트가 변조로부터 보호되도록 프로비전한 후에는 컨테이너에 [불변성 정책](../../storage/blobs/storage-blob-immutability-policies-manage.md)을 구성합니다.
+> 데이터베이스 다이제스트가 변조로부터 보호되도록 프로비전한 후에는 컨테이너에 [불변성 정책](../../storage/blobs/immutable-policy-configure-version-scope.md)을 구성합니다.
 
 ### <a name="manual-generation-and-storage-of-database-digests"></a>데이터베이스 다이제스트 수동 생성 및 스토리지
 
@@ -134,6 +133,7 @@ EXECUTE sp_verify_database_ledger N'
         "digest_time":  "2020-11-12T18:43:30.4701575"
     }
 ]
+'
 ```
 
 `sp_verify_database_ledger` 및 `sp_verify_database_ledger_from_digest_storage`에 대한 반환 코드는 `0`(성공) 또는 `1`(실패)입니다.

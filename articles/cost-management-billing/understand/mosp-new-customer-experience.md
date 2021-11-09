@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 8e58a31d37e4b6aece877e8a2d920e7abc91d8f8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 07c8b711ae32311cceba0c6ebe3353974b867356
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710945"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061780"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -148,7 +148,7 @@ Cost Management API에 액세스하여 상위 범위에서 결합된 비용 보�
 
 #### <a name="power-bi"></a>Power BI
 
-Power BI Desktop Cost Management 커넥터를 사용하면 Azure 사용량 및 지출에 대한 사용자 지정 시각화 및 보고서를 작성할 수 있습니다. 업데이트된 계정에 연결한 후 비용 및 사용량 데이터에 액세스합니다. Power BI Desktop Cost Management 커넥터에 대한 자세한 내용은 Power BI Desktop [Cost Management 커넥터를](/power-bi/connect-data/desktop-connect-azure-cost-management)사용하여 시각적 개체 및 보고서 만들기를 참조하세요.
+Power BI Desktop Cost Management 커넥터를 사용하면 Azure 사용량 및 지출에 대한 사용자 지정 시각화 및 보고서를 작성할 수 있습니다. 업데이트된 계정에 연결한 후 비용 및 사용량 데이터에 액세스합니다. Power BI Desktop Cost Management 커넥터에 대한 자세한 내용은 Power BI Desktop Cost Management 커넥터를 사용하여 시각적 개체 [및 보고서 만들기를](/power-bi/connect-data/desktop-connect-azure-cost-management)참조하세요.
 
 ### <a name="updated-capabilities"></a>업데이트된 기능
 
@@ -190,6 +190,34 @@ Azure 청구 계정에서 다음과 같은 업데이트된 기능을 사용할 �
 **새 환경에서 이전 청구서 사용 가능** 계정을 업데이트하기 전에 생성된 청구서가 Azure Portal에 계속 제공됩니다.
 
 **월 중간에 업데이트된 계정의 청구서** 계정이 월 중간에 업데이트되는 경우 계정이 업데이트될 때까지 누적된 요금에 대한 청구서를 하나 받게 됩니다. 그리고 해당 월의 나머지 기간에 대한 또 다른 청구서를 받게 됩니다. 예를 들어 계정에 구독이 하나 있는데, 9월 15일에 업데이트되었다고 가정하겠습니다. 이 경우 9월 15일까지 누적된 요금의 청구서를 하나 받게 됩니다. 그리고 9월 15~30일 기간에 대한 청구서를 하나 더 받게 됩니다. 10월부터는 매월 하나의 청구서를 받게 됩니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="you-get-an-email-to-accept-the-terms-of-the-microsoft-customer-agreement-but-the-link-in-the-email-doesnt-work"></a>Microsoft 고객 계약 약관에 동의하라는 이메일을 받게 되지만 메일의 링크가 작동하지 않습니다.
+
+Azure 청구 계정이 업데이트되면 Microsoft에서 Microsoft 고객 계약 약관에 동의하라는 이메일을 받게 됩니다. 다음과 같은 이유로 메일의 링크가 작동하지 않을 수 있습니다.
+
+- 다른 이메일 중 하나를 통해 청구 관리를 수행할 수 있습니다. 
+
+    이 문제는 일반적으로 Microsoft 고객 계약 약관에 동의하라는 이메일을 받을 때 발생합니다. 링크를 클릭하면 `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement` 같은 오류 메시지가 표시됩니다. 청구 관리를 수행할 수 있는 권한이 있는 이메일 주소로 로그인했는지 확인합니다.
+
+- 다른 ID를 통해 청구서에 액세스할 수 있습니다. 
+
+    일부 고객에게는 동일한 이메일 주소를 가진 두 개의 ID(회사 계정 및 Microsoft 계정)가 있습니다. 일반적으로 해당 ID 중 하나만 청구 관리를 수행할 수 있는 권한이 있습니다. 권한이 없는 ID로 로그인하면 약관에 동의할 수 없습니다. 올바른 ID를 사용하여 로그인하고 있는지 확인하세요.
+
+- 잘못된 Azure AD(Azure Active Directory) 테넌트에 로그인했습니다. 
+
+    청구 계정은 특정 Azure AD 테넌트와 연결되어 있습니다. 잘못된 테넌트에서 로그인한 경우 약관에 동의할 수 없습니다. 올바른 Azure AD 테넌트에 로그인했는지 확인하세요. 올바른 테넌트에 로그인하지 않은 경우 다음에 따라 Azure Portal에서 테넌트를 전환합니다.
+
+    1. 페이지 오른쪽 상단에서 이메일을 선택합니다.
+
+    2. **디렉터리 전환** 을 선택합니다.
+
+        ![포털에서 디렉터리 전환을 선택하는 것을 보여 주는 스크린샷](./media/mosp-new-customer-experience/select-switch-directory.png)
+
+    3. **모든** 디렉터리 섹션에서 디렉터리로 **전환을** 선택합니다.
+
+        ![포털에서 디렉터리를 선택하는 것을 보여 주는 스크린샷](./media/mosp-new-customer-experience/select-directory.png)
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.date: 10/08/2021
 ms.custom: template-tutorial, devx-track-azurepowershell
-ms.openlocfilehash: 52c5f10b0a41ec2362af09c972f29ed079ae70d7
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: a1ea898dd246977bbb7284a18349a265efd7655d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808053"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063121"
 ---
 # <a name="tutorial-manage-disks-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 디스크 관리
 
@@ -450,14 +450,6 @@ VM에 사용 가능한 디스크 공간이 부족한 경우 Azure 디스크를 �
 1. 먼저 `Get-AzVM` cmdlet을 사용하여 디스크가 연결된 VM을 선택합니다.
 
     ```azurepowershell-interactive
-    $vm = Get-AzVM `
-       -ResourceGroupName $azResourceGroup `
-       -Name $azVMName
-    ```
-
-1. `Get-AzDisk` cmdlet을 사용하여 제거하려는 디스크를 선택합니다.
-
-     ```azurepowershell-interactive
     $vm = Get-AzVM `
        -ResourceGroupName $azResourceGroup `
        -Name $azVMName

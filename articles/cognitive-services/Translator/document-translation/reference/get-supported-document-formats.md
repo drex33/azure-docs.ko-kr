@@ -3,19 +3,17 @@ title: 지원되는 문서 형식 가져오기 메서드
 titleSuffix: Azure Cognitive Services
 description: 지원되는 문서 형식 가져오기 메서드는 지원되는 문서 형식 목록을 반환합니다.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
-ms.openlocfilehash: 8100bca5d3628e571dc088de9d47a42e4035f109
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: 24ae8fe4ab215f6037726c8c88680f96b47ad99b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583611"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056723"
 ---
 # <a name="get-supported-document-formats"></a>지원되는 문서 형식 가져오기
 
@@ -47,7 +45,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다.
 
-|상태 코드|설명|
+|상태 코드|Description|
 |-----|-----|
 |200|OK. 지원되는 문서 파일 형식 목록을 반환합니다.|
 |500|내부 서버 오류.|
@@ -59,7 +57,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 성공적인 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|유형|Description|
+|Name|Type|Description|
 |--- |--- |--- |
 |값|FileFormat []|FileFormat[]에는 아래 나열된 세부 정보가 포함되어 있습니다.|
 |value.contentTypes|string[]|이 형식에 지원되는 콘텐츠 형식입니다.|
@@ -70,7 +68,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ### <a name="error-response"></a>오류 응답
 
-|Name|유형|설명|
+|Name|Type|설명|
 |--- |--- |--- |
  |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|

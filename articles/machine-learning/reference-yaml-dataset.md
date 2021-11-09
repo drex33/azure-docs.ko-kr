@@ -10,12 +10,12 @@ author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: b92324d61316ba59f964cff97ebbb9869d01dafb
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 00eff3758d3a279d5ffb6d993196def46a7c4420
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557987"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063537"
 ---
 # <a name="cli-v2-dataset-yaml-schema"></a>CLI(v2) 데이터 세트 YAML 스키마
 
@@ -46,41 +46,41 @@ ms.locfileid: "131557987"
 
 `az ml dataset`명령은 Azure Machine Learning 데이터 세트를 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/assets/dataset)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 
 ## <a name="yaml-datastore-file"></a>YAML: 데이터 저장소 파일
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file.yml":::
 
 ## <a name="yaml-datastore-folder"></a>YAML: 데이터 저장소 폴더
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder.yml":::
 
 ## <a name="yaml-https-file"></a>YAML: https 파일
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-https.yml":::
 
 ## <a name="yaml-https-folder"></a>YAML: https 폴더
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder-https.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-https.yml":::
 
 ## <a name="yaml-wasbs-file"></a>YAML: wasbs 파일
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-file-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-file-wasbs.yml":::
 
 ## <a name="yaml-wasbs-folder"></a>YAML: wasbs 폴더
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/cloud-folder-wasbs.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/cloud-folder-wasbs.yml":::
 
 ## <a name="yaml-local-file"></a>YAML: 로컬 파일
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/local-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-file.yml":::
 
 ## <a name="yaml-local-folder"></a>YAML: 로컬 폴더
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/dataset/local-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/dataset/local-folder.yml":::
 
 ## <a name="next-steps"></a>다음 단계
 

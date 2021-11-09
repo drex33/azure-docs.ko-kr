@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
-ms.openlocfilehash: b18e0329aeb4e95e021c3326b6b428c10edc0c6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: eaa1ef35432a0e31376bcff8f50bc8bdffbfaf58
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586417"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054672"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager의 메트릭 및 경고
 
@@ -62,6 +62,17 @@ Traffic Manager는 고객이 Traffic Manager의 사용량과 프로필의 엔드
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Traffic Manager 메트릭에 대한 경고
 Azure Monitor는 Traffic Manager의 메트릭 처리 및 표시 외에도 고객이 이러한 메트릭과 연결된 경고를 구성하고 받을 수 있도록 합니다. 경고가 발생하기 위해 이러한 메트릭에서 충족해야 하는 조건, 이러한 조건을 모니터링해야 하는 빈도 및 사용자에게 경고를 보내는 방법을 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 경고 설명서](../azure-monitor/alerts/alerts-metric.md)를 참조하세요.
+
+경고 모니터링은 프로브가 다운될 때 시스템에서 알릴 수 있도록 하는 데 중요합니다. 지나치게 중요한 모니터링은 방해가 될 수 있습니다. Traffic Manager 복원력을 높이기 위해 여러 프로브를 배포합니다. 프로브 상태에 대한 임계값은 0.5 미만이어야 합니다. **up** 상태의 평균이 0.5 미만으로 떨어지면(프로브의 50% 미만이 상승함) 엔드포인트 오류에 대한 경고가 있어야 합니다.
+
+> [!NOTE]
+> 복원력을 높이기 위해 여러 프로브가 배포됩니다. 하나의 프로브가 전송되는 많은 프로브에서 다운된 경우 엔드포인트가 다운되었다는 것을 반드시 반영하지는 않습니다. 엔드포인트는 반환된 대부분의 프로브가 다운된 경우에만 down으로 분류됩니다.
+
+다음 구성은 경고 설정의 예입니다.
+
+:::image type="content" source="./media/traffic-manager-metrics-alerts/alert-example.png" alt-text="프로브 임계값 경고 예제의 스크린샷.":::
+
+프로브 및 모니터링에 대한 자세한 내용은 [Traffic Manager 엔드포인트 모니터링을 참조하세요.](traffic-manager-monitoring.md)
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Monitor 서비스](../azure-monitor/essentials/metrics-supported.md)에 대해 자세히 알아봅니다.

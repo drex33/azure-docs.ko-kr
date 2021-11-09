@@ -3,17 +3,41 @@ title: Azure HDInsight에서 Apache HBase Master가 시작되지 않음
 description: Azure HDInsight에서 Apache HMaster(HBase Master)가 시작되지 않음
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/14/2019
-ms.openlocfilehash: c30077d0d8f359e93745b53755f9dae998073d4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/07/2021
+ms.openlocfilehash: 7870aa48a75de6a5443298d909f0fe7d59311a78
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98936898"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061628"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HMaster(HBase Master)가 시작되지 않음
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 발생하는 문제의 문제 해결 단계와 가능한 해결 방법을 설명합니다.
+
+## <a name="scenario-master-startup-cannot-progress-in-holding-pattern-until-region-comes-online"></a>시나리오: 지역이 온라인 상태가 될 때까지 유지 패턴에서 마스터 시작을 진행할 수 없습니다.
+
+### <a name="issue"></a>문제
+
+다음 경고 때문에 HMaster를 시작 하지 못했습니다.
+```output
+hbase:namespace,,<timestamp_region_create>.<encoded_region_name>.is NOT online; state={<encoded_region_name> state=OPEN, ts=<some_timestamp>, server=<server_name>}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region onlined. 
+```
+
+예를 들어, 매개 변수 값은 실제 메시지에 따라 달라질 수 있습니다.
+```output
+hbase:namespace,,1546588612000.0000010bc582e331e3080d5913a97000. is NOT online; state={0000010bc582e331e3080d5913a97000 state=OPEN, ts=1633935993000, server=<wn fqdn>,16000,1622012792000}; ServerCrashProcedures=false. Master startup cannot progress, in holding-pattern until region onlined.
+```
+
+### <a name="cause"></a>원인
+
+HMaster는 **열린** 영역을 온라인 상태로 전환 하기 전에 지역 서버에서 WAL 디렉터리를 확인 합니다. 이 경우 해당 디렉터리가 없으면 시작 되지 않은 것입니다.
+
+### <a name="resolution"></a>해결 방법
+
+1. 다음 명령을 사용 하 여이 더미 디렉터리를 만듭니다. `sudo -u hbase hdfs dfs -mkdir /hbase-wals/WALs/<wn fqdn>,16000,1622012792000`
+
+2. Ambari UI에서 HMaster 서비스를 다시 시작 합니다.
 
 ## <a name="scenario-atomic-renaming-failure"></a>시나리오: 원자성 이름 바꾸기 실패
 
@@ -134,16 +158,10 @@ HMaster가 HBase 클러스터에 표시되지 않았습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-hbase.rootdir: wasb://@.blob.core.windows.net/hbase를 설정하고 Ambari에서 서비스를 다시 시작합니다.
+`set hbase.rootdir: wasb://@.blob.core.windows.net/hbase` Ambari에서 서비스를 다시 시작 합니다.
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
-
-* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
-
-* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
-
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+[!INCLUDE [notes](../includes/hdinsight-troubleshooting-next-steps.md)]

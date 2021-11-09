@@ -3,12 +3,12 @@ title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Mic
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: d786b3d0e9afbf7ab4e895c6788209644d9f921f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 1a299843b402d03543adbf9a9efdf86800abd564
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092758"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063763"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -67,7 +67,7 @@ Service Bus는 연결 및 TLS를 설정한 후 다음과 같은 두 가지 SASL 
 
 이 기간 기반 모델은 TCP의 기간 기반 흐름 제어 개념과 유사하지만 소켓 내 세션 수준에서 진행됩니다. 이 프로토콜의 경우 여러 개의 동시 세션을 허용하는 개념이 존재하므로 고속도로의 경우처럼 우선 순위가 높은 트래픽이 제한된 일반 트래픽보다 빠르게 전달됩니다.
 
-Azure Service Bus는 현재 각 연결에 대해 정확히 하나의 세션을 사용합니다. Service Bus 표준에 대한 Service Bus 최대 프레임 크기는 262,144바이트(256K바이트)입니다. Service Bus 프리미엄 및 Event Hubs의 경우는 1,048,576(1MB)입니다. Service Bus는 세션 수준의 특정 제한 기간을 적용하지 않지만 링크 수준 흐름 제어의 일부로 해당 기간을 정기적으로 다시 설정합니다([다음 섹션](#links) 참조).
+Azure Service Bus는 현재 각 연결에 대해 정확히 하나의 세션을 사용합니다. Service Bus 표준에 대한 Service Bus 최대 프레임 크기는 262,144바이트(256K바이트)입니다. Service Bus Premium 및 Event Hubs 1048576(100MB)입니다. Service Bus는 세션 수준의 특정 제한 기간을 적용하지 않지만 링크 수준 흐름 제어의 일부로 해당 기간을 정기적으로 다시 설정합니다([다음 섹션](#links) 참조).
 
 연결, 채널 및 세션은 사용 후 삭제됩니다. 기본 연결이 축소되면 연결, TLS 터널, SASL 권한 부여 컨텍스트 및 세션을 다시 설정해야 합니다.
 

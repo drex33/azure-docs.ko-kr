@@ -5,24 +5,23 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: quickstart
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ms.reviewer: vanto
-ms.date: 07/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: ffde0d192888aea852eb4de73e24ce678c4a677a
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.date: 09/09/2021
+ms.openlocfilehash: 8538e725583aea6fe765a7afd6e0ac58f176b443
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666677"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063744"
 ---
 # <a name="quickstart-create-a-database-in-azure-sql-database-with-ledger-enabled"></a>빠른 시작: 원장이 활성화된 Azure SQL Database에서 데이터베이스 만들기
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 이 빠른 시작에서는 Azure SQL Database에서 [원장 데이터베이스](ledger-overview.md#ledger-database)를 만들고 Azure Portal을 사용하여 [Azure Blob Storage로 자동 다이제스트 스토리지](ledger-digest-management-and-database-verification.md#automatic-generation-and-storage-of-database-digests)를 구성합니다. 원장에 대한 자세한 내용은 [Azure SQL Database 원장](ledger-overview.md)을 참조하세요.
 

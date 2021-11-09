@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/29/2021
+ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: ef84fea20ce59af11abf2f76de409f1363db94c9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9d47a19e4890ac6e81a86aeb04e6a139be555599
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051081"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061195"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 리소스 보호
@@ -54,12 +54,12 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 |**가상 네트워크의 보안 리소스**| 개인 IP(프라이빗 엔드포인트) | 공용 IP(서비스 엔드포인트) <br> **또는** <br> 개인 IP(프라이빗 엔드포인트) | 프라이빗 IP | 프라이빗 IP  | 
 
 * **작업 영역** - 작업 영역의 프라이빗 엔드포인트를 만듭니다. 프라이빗 엔드포인트는 여러 개의 개인 IP 주소를 통해 VNet에 작업 영역을 연결합니다.
-    * **공용 액세스** - 필요에 따라 보안 작업 영역에 대한 공용 액세스를 사용하도록 설정할 수 있습니다.
-* **연결된 리소스** - 서비스 엔드포인트 또는 프라이빗 엔드포인트를 사용하여 Azure Storage, Azure Key Vault 같은 작업 영역 리소스에 연결합니다. Azure Container Services의 경우 프라이빗 엔드포인트를 사용합니다.
+    * **공용 액세스** -선택적으로 보안 작업 영역에 대 한 공용 액세스를 사용 하도록 설정할 수 있습니다.
+* **연결 된 리소스** -서비스 끝점 또는 개인 끝점을 사용 하 여 Azure storage와 같은 작업 영역 리소스에 연결 Azure Key Vault 합니다. Azure Container Service의 경우 개인 끝점을 사용 합니다.
     * **서비스 엔드포인트** 는 Azure 서비스에 대한 가상 네트워크의 ID를 제공합니다. 가상 네트워크에서 서비스 엔드포인트를 사용하면 가상 네트워크 규칙을 추가하여 가상 네트워크에 대한 Azure 서비스 리소스를 보호할 수 있습니다. 서비스 엔드포인트는 공용 IP 주소를 사용합니다.
     * **프라이빗 엔드포인트** 는 Azure Private Link를 통해 제공되는 서비스에 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet에 효과적으로 가져옵니다.
-* **컴퓨팅 액세스 학습** - 공용 IP 주소(미리 보기)를 Azure Machine Learning 컴퓨팅 인스턴스 및 Azure Machine Learning 컴퓨팅 클러스터와 같은 학습 컴퓨팅 대상에 액세스합니다.
-* **유추 컴퓨팅 액세스** - 개인 IP 주소를 통해 AKS(Azure Kubernetes Services) 컴퓨팅 클러스터에 액세스합니다.
+* **계산 액세스 교육** -액세스 교육 Azure Machine Learning 계산 인스턴스, 공용 IP 주소 (미리 보기)를 사용 하는 계산 클러스터 Azure Machine Learning 등의 계산 대상을 제공 합니다.
+* **유추 계산 액세스** -개인 IP 주소를 사용 하 여 AKS (Azure Kubernetes Services) 계산 클러스터에 액세스 합니다.
 
 
 다음 섹션에서는 위에서 설명한 네트워크 시나리오를 보호하는 방법을 보여 줍니다. 네트워크를 보호하려면 다음을 수행해야 합니다.
@@ -69,31 +69,33 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 1. [ **추론 환경**](#secure-the-inferencing-environment)을 보호합니다.
 1. 필요에 따라 [**스튜디오 기능을 사용**](#optional-enable-studio-functionality)합니다.
 1. [**방화벽 설정**](#configure-firewall-settings)을 구성합니다.
-1. [**DNS 이름 확인**](#custom-dns)를 구성합니다.
+1. [**DNS 이름 확인**](#custom-dns)을 구성 합니다.
 
-## <a name="public-workspace-and-secured-resources"></a>공용 작업 영역 및 보안 리소스
+## <a name="public-workspace-and-secured-resources"></a>공개 작업 영역 및 보안 리소스
 
-연결된 모든 리소스를 가상 네트워크에서 보호하면서 공용 인터넷을 통해 작업 영역에 액세스하려면 다음 단계를 사용합니다.
+가상 네트워크에서 관련 된 모든 리소스를 보호 하면서 공용 인터넷을 통해 작업 영역에 액세스 하려면 다음 단계를 사용 합니다.
 
-1. 작업 영역에서 사용하는 리소스를 포함할 [Azure Virtual Networks를](../virtual-network/virtual-networks-overview.md) 만듭니다.
-1. 다음 옵션 __중 하나를__ 사용하여 공개적으로 액세스할 수 있는 작업 영역을 만듭니다.
+1. 작업 영역에서 사용 하는 리소스를 포함 하는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 를 만듭니다.
+1. 다음 옵션 __중 하나__ 를 사용 하 여 공개적으로 액세스할 수 있는 작업 영역을 만듭니다.
 
-    * 가상 네트워크를 사용하지 __않는__ Azure Machine Learning 작업 영역을 만듭니다. 자세한 내용은 [Azure Machine Learning 작업 영역 관리](how-to-manage-workspace.md)를 참조하세요.
-    * VNet과 작업 영역 간에 통신을 사용하도록 설정하려면 [프라이빗 링크 사용 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint)을 만듭니다. 그런 [다음, 작업 영역에 대한 공용 액세스를 사용하도록 설정합니다.](#optional-enable-public-access)
+    * 가상 네트워크를 사용 __하지__ 않는 Azure Machine Learning 작업 영역을 만듭니다. 자세한 내용은 [Azure Machine Learning 작업 영역 관리](how-to-manage-workspace.md)를 참조하세요.
+    * VNet과 작업 영역 간에 통신을 사용하도록 설정하려면 [프라이빗 링크 사용 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint)을 만듭니다. 그런 다음 [작업 영역에 대 한 공용 액세스를 사용 하도록 설정](#optional-enable-public-access)합니다.
 
 1. __서비스 엔드포인트__ 또는 __프라이빗 엔드포인트__ 중 _하나_ 를 사용하여 다음 서비스를 가상 네트워크에 추가합니다. 또한 신뢰할 수 있는 Microsoft 서비스가 다음 서비스에 액세스할 수 있도록 허용합니다.
 
     | 서비스 | 엔드포인트 정보 | 신뢰할 수 있는 정보 허용 |
     | ----- | ----- | ----- |
     | __Azure Key Vault__| [서비스 엔드포인트](../key-vault/general/overview-vnet-service-endpoints.md)</br>[프라이빗 엔드포인트](../key-vault/general/private-link-service.md) | [신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 우회하도록 허용](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
-    | __Azure Storage 계정__ | [서비스 및 프라이빗 엔드포인트](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[프라이빗 엔드포인트](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [신뢰할 수 있는 Azure 서비스에 대한 액세스 권한 부여](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Storage 계정__ | [서비스 및 개인 끝점](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[프라이빗 엔드포인트](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [신뢰할 수 있는 Azure 서비스에 대한 액세스 권한 부여](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [프라이빗 엔드포인트](../container-registry/container-registry-private-link.md) | [신뢰할 수 있는 서비스 허용](../container-registry/allow-access-trusted-services.md) |
+
+1. 작업 영역에 대 한 Azure Storage 계정의 속성에서 클라이언트 IP 주소를 방화벽 설정의 허용 목록에 추가 합니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](/azure/storage/common/storage-network-security#configuring-access-from-on-premises-networks)을 참조 하세요.
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>작업 영역 및 연결된 리소스 보호
 
 작업 영역 및 연결된 리소스를 보호하려면 다음 단계를 수행합니다. 이러한 단계를 통해 서비스가 가상 네트워크에서 통신할 수 있습니다.
 
-1. 작업 영역 및 기타 리소스를 포함할 [Azure Virtual Networks를](../virtual-network/virtual-networks-overview.md) 만듭니다.
+1. 작업 영역 및 기타 리소스를 포함 하는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 를 만듭니다.
 1. VNet과 작업 영역 간에 통신을 사용하도록 설정하려면 [프라이빗 링크 사용 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint)을 만듭니다.
 1. __서비스 엔드포인트__ 또는 __프라이빗 엔드포인트__ 중 _하나_ 를 사용하여 다음 서비스를 가상 네트워크에 추가합니다. 또한 신뢰할 수 있는 Microsoft 서비스가 다음 서비스에 액세스할 수 있도록 허용합니다.
 
@@ -111,7 +113,6 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 ### <a name="limitations"></a>제한 사항
 
 가상 네트워크 내에서 작업 영역 및 연결된 리소스를 보호하는 경우 다음과 같은 제한 사항이 있습니다.
-- Azure 중국 21Vianet 지역에서는 프라이빗 엔드포인트로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
 - 모든 리소스는 동일한 VNet 뒤에 있어야 합니다. 그러나 동일한 VNet 내의 서브넷은 허용됩니다.
 
 ## <a name="secure-the-training-environment"></a>학습 환경 보호

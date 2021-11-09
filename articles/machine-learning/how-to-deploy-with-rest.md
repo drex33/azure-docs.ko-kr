@@ -11,12 +11,12 @@ ms.author: seramasu
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.openlocfilehash: 05622e6300dc19e28efaba114aded16fc1a26788
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 724c7a3108f1b0bb699c81444a76e34d795f1705
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557360"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056136"
 ---
 # <a name="deploy-models-with-rest-preview"></a>REST를 사용하여 모델 배포(미리 보기)
 
@@ -61,11 +61,11 @@ REST API는 표준 HTTP 동사를 사용하여 리소스를 만들고, 검색하
 
 관리 REST는 [서비스 사용자 인증 토큰](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token)을 요청합니다. `TOKEN`을 고유한 값으로 바꿉니다. 다음 명령을 사용하여 이 토큰을 검색할 수 있습니다.
 
-:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/deploy-rest.sh" id="get_access_token":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
 
 서비스 공급자는 `api-version` 인수를 사용하여 호환성을 보장합니다. `api-version` 인수는 서비스마다 다릅니다. 이후 버전을 수용할 수 있도록 API 버전을 변수로 설정합니다.
 
-:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/deploy-rest.sh" id="api_version":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
 
 ### <a name="get-storage-account-details"></a>스토리지 계정 세부 정보 가져오기
 
@@ -148,7 +148,7 @@ REST API는 표준 HTTP 동사를 사용하여 리소스를 만들고, 검색하
 * [Azure CLI를 사용](how-to-deploy-managed-online-endpoints.md)하여 모델을 배포하는 방법을 알아봅니다.
 * [스튜디오를 사용](how-to-use-managed-online-endpoint-studio.md)하여 모델을 배포하는 방법을 알아봅니다.
 * [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)에 대해 알아봅니다.
-* [관리 되는 온라인 끝점 및 관리 id (미리 보기)를 사용 하 여 Azure 리소스에 액세스](how-to-access-resources-from-endpoints-managed-identities.md) 하는 방법을 알아봅니다.
+* [관리형 온라인 엔드포인트 및 관리 ID를 사용하여 Azure 리소스에 액세스하는 방법 알아보기(미리 보기)](how-to-access-resources-from-endpoints-managed-identities.md)
 * [온라인 엔드포인트를 모니터링](how-to-monitor-online-endpoints.md)하는 방법을 알아봅니다.
 * [온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)](how-to-safely-rollout-managed-endpoints.md)에 대해 알아봅니다.
 * [Azure Machine Learning 관리형 온라인 엔드포인트 비용 보기(미리보기)](how-to-view-online-endpoints-costs.md).

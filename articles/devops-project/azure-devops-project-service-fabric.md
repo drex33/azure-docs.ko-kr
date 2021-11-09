@@ -1,19 +1,19 @@
 ---
 title: '자습서: Azure DevOps Starter를 사용하여 Azure Service Fabric에 ASP.NET Core 앱 배포'
 description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 몇 가지 빠른 단계로 ASP.NET Core 앱을 Azure Service Fabric으로 쉽게 배포할 수 있습니다.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
-ms.openlocfilehash: 078331c35c76a3cda97398b1a487933a3f0f5ab8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: georgewallace
+ms.openlocfilehash: fc2a86e9bf8105851f4fb9e5cfe444cd44f850d5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559310"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061554"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>자습서: Azure DevOps Starter를 사용하여 Azure Service Fabric에 ASP.NET Core 앱 배포
 
@@ -35,7 +35,7 @@ DevOps Starter는 다음 작업도 수행합니다.
 > * Git에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 

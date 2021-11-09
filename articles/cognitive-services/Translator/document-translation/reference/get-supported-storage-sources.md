@@ -3,19 +3,17 @@ title: 지원되는 스토리지 원본 가져오기 메서드
 titleSuffix: Azure Cognitive Services
 description: 지원되는 스토리지 원본 가져오기 메서드는 지원되는 스토리지 원본 목록을 반환합니다.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
-ms.openlocfilehash: b0cd1c179de36147169239ab50785a9d93dfa5bb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 4dae58196bda8978d503593241f3e74c9ef14c69
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458762"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056780"
 ---
 # <a name="get-supported-storage-sources"></a>지원되는 스토리지 원본 가져오기
 
@@ -65,7 +63,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ### <a name="error-response"></a>오류 응답
 
-|이름|Type|설명|
+|Name|Type|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|
@@ -76,7 +74,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ## <a name="examples"></a>예제
 
-### <a name="example-successful-response"></a>성공한 응답 예제
+### <a name="example-successful-response"></a>성공적인 응답 예
 
 다음은 성공한 응답 예제입니다.
 
@@ -88,8 +86,8 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 }
 ```
 
-### <a name="example-error-response"></a>오류 응답 예제
-다음은 오류 응답 예제입니다. 다른 오류 코드의 스키마는 동일합니다.
+### <a name="example-error-response"></a>오류 응답 예
+다음은 오류 응답 예제입니다. 다른 오류 코드에 대한 스키마는 동일합니다.
 
 상태 코드: 500
 

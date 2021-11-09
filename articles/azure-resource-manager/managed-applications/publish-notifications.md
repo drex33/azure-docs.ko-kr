@@ -2,15 +2,13 @@
 title: 알림을 사용하는 관리형 앱
 description: 관리형 애플리케이션 인스턴스의 생성, 업데이트, 삭제 및 오류에 대한 알림을 수신하도록 웹후크 엔드포인트를 사용하여 관리형 애플리케이션을 구성합니다.
 ms.topic: conceptual
-ms.author: ilahat
-author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 229abeb71a580444525a314f648ee09452585336
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: ef87fc014b2870602aa05b758afaffdde046f659
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971926"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060853"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>알림을 사용하는 Azure 관리형 애플리케이션
 

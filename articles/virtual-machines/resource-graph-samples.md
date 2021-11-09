@@ -1,18 +1,18 @@
 ---
 title: Azure Virtual Machines에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Virtual Machines 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블의 사용을 보여 주는 Azure Virtual Machines에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 09/03/2021
+ms.date: 10/12/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 464f12a7d8e9f0f6f4fceccf948197872c156043
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 7727c2a3990672e282fec68221027fd5e98cb25e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541948"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063235"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 Azure Resource Graph 샘플 쿼리
 

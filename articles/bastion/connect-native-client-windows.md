@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/01/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f4ca130713e28581bd2be66da206fcd4f2b80140
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 18c3165ceee5f76b1148adc59e4013f6de7bba1f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028176"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062456"
 ---
 # <a name="connect-to-a-vm-using-bastion-and-the-native-client-on-your-windows-computer"></a>Windows 컴퓨터에서 방호 및 native client를 사용 하 여 VM 커넥트
 
@@ -120,7 +120,7 @@ native client 지원을 사용 하 여 Windows vm에 연결 하려면 Windows vm
 1. Azure AD 로그인과 함께 다음 명령을 사용 하 여 대상 Windows VM에 로그인 합니다. azure ad를 사용 하 여 azure Windows vm에 로그인 하는 방법에 대해 자세히 알아보려면 [azure Windows vm 및 azure ad](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)를 참조 하세요.
 
       ```azurecli-interactive
-      az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "AAD"
+      az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
       ```
 
 1. 대상 VM에 로그인 하면 워크스테이션의 native client가 VM 세션 (RDP 세션의 경우 **mstsc** , ssh 세션의 경우 **ssh CLI 확장** )으로 열립니다.

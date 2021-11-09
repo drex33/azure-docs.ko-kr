@@ -2,16 +2,16 @@
 title: 웹 대시보드를 사용하여 Azure Kubernetes Service 클러스터를 관리합니다.
 description: AKS(Azure Kubernetes Service) 클러스터를 관리하는 데 기본 제공 Kubernetes 웹 UI 대시보드를 사용하는 방법 알아보기
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: article
 ms.date: 06/03/2020
-ms.author: mlearned
-ms.openlocfilehash: e7356319a875f3289531c24e5a053e745a543c0a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.author: gwallace
+ms.openlocfilehash: 64898c6e8782c0830439d35c023a3c90fa1ebe26
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124830144"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053182"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 

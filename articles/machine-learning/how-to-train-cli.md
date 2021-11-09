@@ -11,12 +11,12 @@ ms.author: amipatel
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 88e225d7af4b99a50fb54ddc34db714dbfed248e
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 1300a830fb3688c9ebc2b9f43b77e3b9214c731d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893636"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054318"
 ---
 # <a name="train-models-with-the-cli-v2-preview"></a>CLI를 사용 하 여 모델 학습 (v2) (미리 보기)
 
@@ -26,7 +26,7 @@ Azure CLI 확장인 Azure Machine Learning CLI(v2)를 사용하면 추적 및 �
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - CLI (v2)를 사용 하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 - [CLI를 설치 하 고 설정 합니다 (v2)](how-to-configure-cli.md).
@@ -38,7 +38,7 @@ Azure CLI 확장인 Azure Machine Learning CLI(v2)를 사용하면 추적 및 �
 
 학습 예제를 실행하려면 먼저 예제 리포지토리를 복제하고 `cli` 디렉터리로 변경합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="git_clone":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
 를 사용 하면 `--depth 1` 리포지토리에 대 한 최신 커밋을 사용 하 여 작업을 완료 하는 시간을 줄일 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure CLI 확장인 Azure Machine Learning CLI(v2)를 사용하면 추적 및 �
 
 명령줄에서 Azure Machine Learning 컴퓨팅 클러스터를 만들 수 있습니다. 예를 들어 다음 명령은 `cpu-cluster`라는 클러스터 하나와 `gpu-cluster`라는 클러스터 하나를 만듭니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/create-compute.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
 
 이 시점에서 계산에 대 한 요금은 청구 되지 `cpu-cluster` 않으며 `gpu-cluster` 작업이 제출 될 때까지 0 개의 노드에 남아 있게 됩니다. [AmlCompute의 비용을 관리하고 최적화](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute)하는 방법에 대해 자세히 알아보세요.
 
@@ -62,7 +62,7 @@ Azure Machine Learning CLI(v2)에서 작업은 YAML 형식으로 작성됩니다
 
 "hello world" 작업에는 세 항목이 모두 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
 
 > [!WARNING]
 > Python은 작업에 사용 되는 환경에 설치 해야 합니다. `apt-get update -y && apt-get install python3 -y`Dockerfile에서를 실행 하 여 필요한 경우 설치 하거나 Python이 이미 설치 된 기본 이미지에서 파생 합니다.
@@ -72,7 +72,7 @@ Azure Machine Learning CLI(v2)에서 작업은 YAML 형식으로 작성됩니다
 
 다음을 실행할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
 
 > [!TIP]
 > `--web`매개 변수는 기본 웹 브라우저를 사용 하 여 Azure Machine Learning studio에서 작업을 열려고 시도 합니다. `--stream`매개 변수를 사용 하 여 콘솔에 로그를 스트리밍하 고 추가 명령을 차단할 수 있습니다.
@@ -81,7 +81,7 @@ Azure Machine Learning CLI(v2)에서 작업은 YAML 형식으로 작성됩니다
 
 YAML 작업 사양 값은 `--set` 작업을 만들거나 업데이트할 때를 사용 하 여 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_set":::
 
 ## <a name="job-names"></a>작업 이름
 
@@ -89,35 +89,35 @@ YAML 작업 사양 값은 `--set` 작업을 만들거나 업데이트할 때를 
 
 스크립트 및 CI/CD 흐름에서 작업을 자동화 하려면를 추가 하 여 출력을 쿼리하고 제거 하 여 만들 때 작업의 이름을 캡처할 수 있습니다 `--query name -o tsv` . 구체적인 사항은 셸에 따라 다르지만 Bash의 경우에는 다음을 수행 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_name":::
 
 그런 다음 `$run_id` , 또는와 같은 후속 명령에서를 사용 `update` 합니다 `show` `stream` .
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_show":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_show":::
 
 ## <a name="organize-jobs"></a>작업 구성
 
 작업을 구성 하기 위해 표시 이름, 실험 이름, 설명 및 태그를 설정할 수 있습니다. 설명은 스튜디오에서 markdown 구문을 지원 합니다. 이러한 속성은 작업을 만든 후에 변경할 수 있습니다. 전체 예:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-org.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
 
 이 작업을 실행할 수 있습니다. 이러한 속성은 studio에서 즉시 표시 됩니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_org":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org":::
 
 을 사용 하 여 `--set` 작업을 만든 후 변경 가능한 값을 업데이트할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_org_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org_set":::
 
 ## <a name="environment-variables"></a>환경 변수
 
 작업에서 사용할 환경 변수를 설정할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
 
 이 작업을 실행할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_env_var":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_env_var":::
 
 > [!WARNING]
 > 에서 인수를 매개 변수화 하는 데를 사용 해야 합니다 `inputs` `command` . [입력 및 출력을](#inputs-and-outputs)참조 하세요.
@@ -136,7 +136,7 @@ YAML 작업 사양 값은 `--set` 작업을 만들거나 업데이트할 때를 
 
 코드를 지정 하는 작업을 살펴보겠습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-mlflow.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-mlflow.yml":::
 
 Python 스크립트는 로컬 소스 코드 디렉터리에 있습니다. 그런 다음 명령을 호출 `python` 하 여 스크립트를 실행 합니다. 다른 프로그래밍 언어에도 동일한 패턴을 적용할 수 있습니다.
 
@@ -155,11 +155,11 @@ Python 스크립트는 로컬 소스 코드 디렉터리에 있습니다. 그런
 
 를 사용 하 여 `mlflow` 매개 변수, 메트릭 및 아티팩트를 기록 하는 위의 작업에서 호출 된 Python 스크립트를 살펴보겠습니다.
 
-:::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-mlflow.py":::
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-mlflow.py":::
 
 Azure Machine Learning를 통해 클라우드에서이 작업을 실행할 수 있습니다 .이 작업을 추적 하 고 감사할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_mlflow":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_mlflow":::
 
 ### <a name="query-metrics-with-mlflow"></a>MLflow를 사용 하 여 메트릭 쿼리
 
@@ -167,7 +167,7 @@ Azure Machine Learning를 통해 클라우드에서이 작업을 실행할 수 �
 
 먼저 Azure Machine Learning 작업 영역에 대 한 mlflow 추적 URI를 검색 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="mlflow_uri":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="mlflow_uri":::
 
 `mlflow.set_tracking_uri(<YOUR_TRACKING_URI>)`MLflow를 가져온 Python 환경에서이 명령의 출력을 사용 합니다. mlflow 호출은 이제 Azure Machine Learning 작업 영역에 있는 작업에 해당 합니다.
 
@@ -179,15 +179,15 @@ Azure Machine Learning를 통해 클라우드에서이 작업을 실행할 수 �
 
 리터럴 입력은 명령에서 직접 확인 됩니다. 리터럴 입력을 사용 하도록 "hello 세계" 작업을 수정할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
 
 이 작업을 실행할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_input":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_input":::
 
 `--set`를 사용 하 여 입력을 재정의할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_input_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_input_set":::
 
 모델 학습에서 하이퍼 매개 변수 스윕에 대 한 작업에 대 한 리터럴 입력 [을 검색 공간 입력으로 변환할](#search-space-inputs) 수 있습니다.
 
@@ -200,15 +200,15 @@ Azure Machine Learning를 통해 클라우드에서이 작업을 실행할 수 �
 
 인수를 사용 하 고 임의의 메트릭을 기록 하는 간단한 Python 스크립트를 사용 하 여 개념을 살펴보겠습니다.
 
-:::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-sweep.py":::
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-sweep.py":::
 
 그리고 해당 스윕 작업을 만듭니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-sweep.yml":::
 
 다음을 실행 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_sweep":::
 
 ### <a name="data-inputs"></a>데이터 입력
 
@@ -216,23 +216,23 @@ Azure Machine Learning를 통해 클라우드에서이 작업을 실행할 수 �
 
 Iri CSV 파일에 대 한 경로를 인수로 사용 하는 Python 스크립트를 작성 하 고, 데이터 프레임로 읽어 오고, 처음 5 개 줄을 인쇄 하 고, 디렉터리에 저장할 수 있습니다 `outputs` .
 
-:::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/basics/src/hello-iris.py":::
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-iris.py":::
 
 Azure storage URI 입력을 지정 하 여 로컬 파일 시스템에 데이터를 탑재 하거나 다운로드할 수 있습니다. 단일 파일을 지정할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
 
 실행합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="iris_file":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="iris_file":::
 
 또는 전체 폴더를 지정 합니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
 
 실행합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="iris_folder":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="iris_folder":::
 
 #### <a name="private-data"></a>개인 데이터
 
@@ -241,11 +241,11 @@ Azure storage URI 입력을 지정 하 여 로컬 파일 시스템에 데이터�
 > [!WARNING]
 > 에서 같은 위치에 Iri CSV를 복사 하지 않은 경우 이러한 작업을 실행할 수 없습니다 `workspaceblobstore` .
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
 
 또는 전체 디렉터리:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
 
 ### <a name="default-outputs"></a>기본 출력
 
@@ -253,15 +253,15 @@ Azure storage URI 입력을 지정 하 여 로컬 파일 시스템에 데이터�
 
 "Hello 세계" 작업을 다음으로 인쇄 하는 대신 기본 출력 디렉터리의 파일로 출력 하도록 수정할 수 있습니다 `stdout` .
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
 
 이 작업을 실행할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_output":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_output":::
 
 다음 디렉터리에 있는 로그를 다운로드 합니다 `helloworld.txt` `<RUN_ID>/outputs/` .
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_world_output_download":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_output_download":::
 
 ### <a name="data-outputs"></a>데이터 출력
 
@@ -269,7 +269,7 @@ Azure storage URI 입력을 지정 하 여 로컬 파일 시스템에 데이터�
 
 이전 "hello 세계" 작업을 수정 하 여 명명 된 데이터 출력에 쓸 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output-data.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
 
 ## <a name="hello-pipelines"></a>Hello 파이프라인
 
@@ -277,69 +277,69 @@ Azure storage URI 입력을 지정 하 여 로컬 파일 시스템에 데이터�
 
 "Hello 세계" 작업을 두 개의 작업으로 분할할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline.yml":::
 
 다음을 실행 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_pipeline":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline":::
 
 "Hello" 및 "세계" 작업은 계산 대상에 사용 가능한 리소스가 있으면 각각 병렬로 실행 됩니다.
 
 파이프라인의 단계 간에 데이터를 전달 하려면 "hello" 작업에서 데이터 출력을 정의 하 고 이전 출력을 참조 하는 "세계" 작업에서 해당 입력을 정의 합니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-io.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-io.yml":::
 
 다음을 실행 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_pipeline_io":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_io":::
 
 이번에는 "hello" 작업이 완료 된 후 "세계" 작업이 실행 됩니다.
 
 파이프라인의 작업 간에 공통 설정이 중복 되지 않게 하려면 작업 외부에서 설정할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-settings.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-settings.yml":::
 
 다음을 실행할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_pipeline_settings":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_settings":::
 
 개별 작업에 대 한 해당 설정은 파이프라인 작업의 일반 설정을 재정의 합니다. 지금 까지의 개념은 "A", "B" 및 "C" 작업을 사용 하 여 3 단계 파이프라인 작업으로 결합할 수 있습니다. "C" 작업에는 "B" 작업에 대 한 데이터 종속성이 있으며 "A" 작업은 독립적으로 실행 될 수 있습니다. 또한 "A" 작업은 개별적으로 설정 된 환경을 사용 하 고 해당 입력 중 하나를 최상위 수준 파이프라인 작업 입력에 바인딩합니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-pipeline-abc.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
 
 다음을 실행할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="hello_pipeline_abc":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_abc":::
 
 ## <a name="train-a-model"></a>모델 학습
 
 이 시점에서 모델은 아직 학습 되지 않았습니다. `sklearn`MLflow 추적을 사용 하 여 Python 스크립트에 일부 코드를 추가 하 여 IRI CSV에서 모델을 학습 하겠습니다.
 
-:::code language="python" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/src/main.py":::
+:::code language="python" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/src/main.py":::
 
 Scikit 프레임 워크는 autologging에 대해 MLflow에서 지원 되므로 `mlflow.autolog()` 스크립트의 단일 호출은 모든 모델 매개 변수, 학습 메트릭, 모델 아티팩트 및 몇 가지 추가 아티팩트 (이 경우 혼동 행렬 이미지)를 기록 합니다.
 
 클라우드에서이를 실행 하려면를 작업으로 지정 합니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
 다음을 실행 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="sklearn_iris":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_iris":::
 
 모델을 등록 하려면 출력을 다운로드 하 고 로컬 디렉터리에서 모델을 만들 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="sklearn_download_register_model":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_download_register_model":::
 
 ## <a name="sweep-hyperparameters"></a>하이퍼 매개 변수 스윕
 
 하이퍼 매개 변수를 통해 스윕 되도록 이전 작업을 수정할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
 
 다음을 실행 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="sklearn_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_sweep":::
 
 > [!TIP]
 > 스튜디오에서 "자식 실행" 탭을 확인 하 여 진행률을 모니터링 하 고 매개 변수 차트를 봅니다.
@@ -354,25 +354,25 @@ Azure Machine Learning은 PyTorch, TensorFlow 및 MPI 기반 분산 교육을 �
 
 의 CIFAR-10 데이터 집합은 `torchvision` 디렉터리를 포함 하는 디렉터리를 입력으로 예상 합니다 `cifar-10-batches-py` . 압축 된 소스를 다운로드 하 고 로컬 디렉터리에 추출할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/create-datasets.sh" id="download_untar_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="download_untar_cifar":::
 
 그런 다음 기본 데이터 저장소에 업로드 되는 로컬 디렉터리에서 Azure Machine Learning 데이터 집합을 만듭니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/create-datasets.sh" id="create_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="create_cifar":::
 
 필요에 따라 로컬 파일 및 디렉터리를 제거 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/create-datasets.sh" id="cleanup_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
 데이터 집합 (파일만)은 `dataset` 데이터 입력의 키를 사용 하 여 작업에서 참조 될 수 있습니다. 형식은 이며,이는 `azureml:<DATASET_NAME>:<DATASET_VERSION>` 생성 된 CIFAR 데이터 집합의 경우 `azureml:cifar-10-example:1` 입니다.
 
 데이터 집합을 준비 하면 distributed PyTorch 작업을 작성 하 여 모델을 학습 시킬 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
 다음을 실행 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="pytorch_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pytorch_cifar":::
 
 ## <a name="build-a-training-pipeline"></a>학습 파이프라인 빌드
 
@@ -386,11 +386,11 @@ Azure Machine Learning은 PyTorch, TensorFlow 및 MPI 기반 분산 교육을 �
 
 파이프라인 작업 내에서이 세 작업을 오케스트레이션 할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines/cifar-10/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml":::
 
 실행합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/train.sh" id="pipeline_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pipeline_cifar":::
 
 재사용 가능한 구성 요소를 사용 하 여 Pipelines를 작성할 수도 있습니다. 자세한 내용은 [Azure Machine Learning CLI (미리 보기)를 사용 하 여 구성 요소 기반 기계 학습 파이프라인 만들기 및 실행](how-to-create-component-pipelines-cli.md)을 참조 하세요.
 

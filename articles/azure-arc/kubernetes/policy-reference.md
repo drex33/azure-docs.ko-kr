@@ -1,18 +1,16 @@
 ---
 title: Azure Arc 지원 Kubernetes에 대한 기본 제공 정책 정의
-description: Azure Arc 사용 가능한 Kubernetes에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
+description: Azure Arc 지원 Kubernetes에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
 ms.date: 10/11/2021
 ms.service: azure-arc
-author: mlearned
-ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7a2f32b3c324d66a2f4334351f09bd7ade0483e5
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 11fa76fc10b75715452c4c3d475cdff04b35a96e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811316"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056552"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에 대한 기본 제공 정의 Azure Policy
 

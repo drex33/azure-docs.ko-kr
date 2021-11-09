@@ -3,19 +3,17 @@ title: 번역 상태 가져오기
 titleSuffix: Azure Cognitive Services
 description: 번역 상태 가져오기 메서드는 제출된 일괄 처리 요청 목록과 각 요청의 상태를 반환합니다.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/22/2021
-ms.author: v-jansk
-ms.openlocfilehash: 5ed4c565ad784bb50ebbc464d4229bfcabb7a5d7
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: d16de5ccc4beddef8296211d7e5f0c154f10776d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540698"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059018"
 ---
 # <a name="get-translations-status"></a>번역 상태 가져오기
 
@@ -77,7 +75,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다.
 
-|상태 코드|설명|
+|상태 코드|Description|
 |--- |--- |
 |200|OK. 성공적으로 요청하고 모든 작업 상태를 반환합니다. HeadersRetry-After: integerETag: string|
 |400|잘못된 요청. 잘못된 요청입니다. 입력 매개 변수를 확인합니다.|
@@ -91,7 +89,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 성공한 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|유형|Description|
+|Name|Type|Description|
 |--- |--- |--- |
 |@nextLink|문자열|다음 페이지의 URL입니다. 사용 가능한 페이지가 더 이상 없으면 Null입니다.|
 |값|TranslationStatus[]|아래에 나열된 TranslationStatus[] 배열|
@@ -110,7 +108,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ### <a name="error-response"></a>오류 응답
 
-|Name|유형|설명|
+|Name|Type|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|
@@ -180,7 +178,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ```
 
-### <a name="example-error-response"></a>오류 응답 예제
+### <a name="example-error-response"></a>오류 응답 예
 
 다음은 오류 응답 예제입니다. 다른 오류 코드에 대한 스키마는 동일합니다.
 

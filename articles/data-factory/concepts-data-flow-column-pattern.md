@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 32d39c956121881da0073b53fe5b4196dbc179de
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/08/2021
+ms.openlocfilehash: 7b8343c06dd0815f8c0fb44fa00f85c2c0195b13
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828487"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058528"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름의 열 패턴 사용
 
@@ -81,11 +81,12 @@ ms.locfileid: "124828487"
 
 :::image type="content" source="media/data-flow/rule-based-hierarchy.png" alt-text="스크린샷은 계층 구조에 대해를 사용하는 규칙 기반 매핑을 보여 줍니다.":::
 
-위의 예는 복합 열의 모든 하위 열 `a`에서 일치합니다. `a`은 하위 열 `b`와 `c`을 포함합니다. 조건으로서 '이름'이 `$$`이되므로, 출력 스키마는 두 개의 열 `b`과 `c`를 포함합니다.
+위의 예는 복합 열의 모든 하위 열 `a`에서 일치합니다. `a`은 하위 열 `b`와 `c`을 포함합니다. 조건으로서 ‘이름’이 `$$`이 되므로, 출력 스키마는 두 개의 열 `b`와 `c`를 포함합니다.
 
-## <a name="pattern-matching-expression-values"></a>패턴 일치 식 값.
+## <a name="pattern-matching-expression-values"></a>패턴 일치 식 값
 
-* `$$`은 런타임에 각 일치 항목의 이름이나 값으로 변환합니다. `this`와 동등한 것으로 `$$`을 간주합니다.
+* `$$`은 런타임에 각 일치 항목의 이름이나 값으로 변환합니다. `$$`에 해당 하는 것으로 생각 합니다.`this`
+* `$0` 스칼라 형식에 대해 런타임에 현재 열 이름 일치 항목으로 변환 합니다. 계층 형식의 경우 `$0` 현재 일치 하는 열 계층 구조 경로를 나타냅니다.
 * `name`은 들어오는 각 열의 이름을 나타냅니다.
 * `type`은 수신되는 각 열의 데이터 형식을 나타냅니다. 데이터 흐름 형식 시스템의 데이터 형식 목록은 [여기](concepts-data-flow-overview.md#data-flow-data-types)에서 찾을 수 있습니다.
 * `stream`은 각 스트림 또는 흐름의 변환과 관련된 이름을 나타냅니다.

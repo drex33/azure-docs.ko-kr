@@ -10,12 +10,12 @@ author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 3a0048e0bba1e4772345845dbe1505cc636aba5b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c804d06f7a99590fcc7fd62e8b662e8eaadac2a5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556125"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062021"
 ---
 # <a name="cli-v2-azure-data-lake-gen1-yaml-schema"></a>CLI(v2) Azure Data Lake Gen1 YAML 스키마
 
@@ -27,7 +27,7 @@ ms.locfileid: "131556125"
 
 | 키 | 형식 | Description | 허용되는 값 | 기본값 |
 | --- | ---- | ----------- | -------------- | ------- |
-| `$schema` | 문자열 | YAML 스키마입니다. 파일의 맨 위에 있는 를 포함하여 Azure Machine Learning VS Code 확장명을 사용하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
+| `$schema` | 문자열 | YAML 스키마입니다. Azure Machine Learning VS Code 확장명을 사용하여 파일 맨 위에 있는 를 포함하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
 | `type` | 문자열 | **필수 사항입니다.** 데이터 저장소의 형식입니다. | `azure_data_lake_gen1` | |
 | `name` | 문자열 | **필수 사항입니다.** 데이터 저장소의 이름입니다. | | |
 | `description` | 문자열 | 데이터 저장소에 대한 설명입니다. | | |
@@ -44,17 +44,17 @@ ms.locfileid: "131556125"
 
 `az ml datastore` 명령은 Azure Machine Learning 데이터 저장소를 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 
 ## <a name="yaml-identity-based-access"></a>YAML: ID 기반 액세스
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1-credless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1-credless.yml":::
 
 ## <a name="yaml-tenant-id-client-id-client-secret"></a>YAML: 테넌트 ID, 클라이언트 ID, 클라이언트 암호
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/datastore/adls-gen1.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1.yml":::
 
 ## <a name="next-steps"></a>다음 단계
 

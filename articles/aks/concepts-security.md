@@ -2,16 +2,16 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 보안
 description: 마스터 및 노드 통신, 네트워크 정책 및 Kubernetes 비밀을 비롯한 AKS(Azure Kubernetes Service)의 보안에 대해 알아봅니다.
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.author: mlearned
-ms.openlocfilehash: bf589591ae1c4f9fa3dca2b16cc5382def0740e7
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 8fb1e35055bae35fa850bec638f07877e6d75cb3
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537338"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058640"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 

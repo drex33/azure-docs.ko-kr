@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 30347ccbea23fc91429a9653857aba9292afbc6a
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 710402b4222a01a5235bba43d30dcf318a322275
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560951"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063801"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -125,7 +125,7 @@ az ml workspace create -w <workspace-name>
 
 CLI를 사용하여 연결된 기존 리소스를 가져오는 동안 새 작업 영역을 만들려면, 먼저 구성 파일에서 작업 영역을 구성하는 방법을 정의해야 합니다.
 
-:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
+:::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
 
 그런 다음, 작업 영역 만들기 CLI 명령의 일부로 이 구성 파일을 참조할 수 있습니다.
 
@@ -202,7 +202,7 @@ az ml workspace create -w <workspace-name>
 
 프라이빗 링크를 사용하는 경우 작업 영역에서 이미지 빌드에 Azure Container Registry 태스크 컴퓨팅을 사용할 수 없습니다. 따라서 docker 이미지 환경 빌드에 사용할 CPU 컴퓨팅 클러스터 이름으로 image_build_compute 속성을 설정해야 합니다. public_network_access 속성을 사용하여 인터넷을 통해 프라이빗 링크 작업 영역에 액세스할 수 있는지 여부를 지정할 수도 있습니다.
 
-:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
+:::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
 ```azurecli-interactive
 az ml workspace create -g <resource-group-name> --file privatelink.yml
@@ -232,7 +232,7 @@ az network private-endpoint create \
 
 # <a name="10-cli"></a>[1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-매개 변수를 사용하여 키가 포함된 Azure Key Vault 지정하고 자격 증명 모음 `--cmk-keyvault` `--resource-cmk-uri` 내에서 키의 리소스 ID와 URI를 지정합니다.
+`--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 리소스 ID와 uri를 지정 합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `--hbi-workspace` 매개 변수를 추가로 지정할 수 있습니다. 
 
@@ -244,13 +244,13 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# <a name="20-cli---preview"></a>[2.0 CLI - 미리 보기](#tab/vnetpleconfigurationsv2cli)
+# <a name="20-cli---preview"></a>[2.0 CLI-미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-매개 변수 및 포함 및 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
+및 매개 변수를 포함 하는 및 매개 변수를 사용 `customer_managed_key` `key_vault` 하 여 `key_uri` 자격 증명 모음 내에서 키의 리소스 ID와 uri를 지정 합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `hbi_workspace` 속성을 추가로 지정할 수 있습니다. 
 
-:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
+:::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/cmk.yml":::
 
 그런 다음, 작업 영역 만들기 CLI 명령의 일부로 이 구성 파일을 참조할 수 있습니다.
 
@@ -325,7 +325,7 @@ az group delete -g <resource-group-name>
 
 자세한 내용은 [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) 설명서를 참조하세요.
 
-작업 영역을 실수로 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조하세요.
+작업 영역을 실수로 삭제 한 경우에도 계속 해 서 전자 필기장을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: banders
-ms.openlocfilehash: b98e9af17b20482a1c5c3178aa183198e936bef7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: c3e37fa2d4a24344c2d417bd54544bd786fc8e75
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069205"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054260"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서 보기 및 다운로드
 
@@ -247,7 +247,7 @@ MCA 또는 MPA 청구 프로필에 대한 송장 관리자 역할을 할당하�
 
            ![포털에서 디렉터리 전환을 선택하는 것을 보여 주는 스크린샷](./media/download-azure-invoice/select-switch-directory.png)
 
-        3. **모든 디렉터리** 섹션에서 디렉터리를 선택합니다.
+        3. **모든 디렉터리** 섹션에서 디렉터리에 대 한 **스위치** 를 선택 합니다.
 
            ![포털에서 디렉터리를 선택하는 것을 보여 주는 스크린샷](./media/download-azure-invoice/select-directory.png)
 

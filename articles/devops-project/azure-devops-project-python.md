@@ -3,8 +3,8 @@ title: '빠른 시작: Azure DevOps Starter를 사용하여 Python용 CI/CD 파�
 description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
-ms.author: mlearned
+author: georgewallace
+ms.author: gwallace
 manager: gwallace
 ms.date: 03/24/2020
 ms.prod: devops
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.custom: mvc, devx-track-python, mode-api
-ms.openlocfilehash: d2c739c78b4cbbc39cc41653972238f42f509708
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3f6fda9367ba27acbd47fcb316541d1b3d50aafc
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131016476"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061647"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Python용 CI/CD 파이프라인 만들기
 

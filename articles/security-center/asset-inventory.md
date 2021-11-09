@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 11/02/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 795d54406230dbc7ea6e9666cfef51c8f96219fe
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 548e622548f7b55259cb08a5937d45ab2766df3f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576190"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061119"
 ---
 # <a name="use-asset-inventory-to-manage-your-resources-security-posture"></a>자산 인벤토리를 사용 하 여 리소스의 보안 상태 관리
 
@@ -74,7 +74,7 @@ Microsoft Defender for Cloud의 asset inventory 페이지는 클라우드 용 Mi
 > [!TIP]
 > KQL 설명서에서는 언어에 대한 '느낌'을 얻을 수 있도록 샘플 데이터가 포함된 데이터베이스를 몇 가지 간단한 쿼리와 함께 제공합니다. [이 KQL 자습서에서 자세히 알아보세요](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-**자산 관리 옵션** - 인벤토리를 사용하면 복잡한 검색 쿼리를 수행할 수 있습니다. 쿼리와 일치하는 리소스를 찾았으면 인벤토리는 다음과 같은 작업에 대한 바로 가기를 제공합니다.
+**자산 관리 옵션** -쿼리와 일치 하는 리소스를 찾았으면 인벤토리는 다음과 같은 작업에 대 한 바로 가기를 제공 합니다.
 
 - 필터링된 리소스에 태그 할당 - 태그를 지정할 리소스 옆에 있는 확인란을 선택합니다.
 - 클라우드 용 Defender에 새 서버 등록- **비 Azure 서버 추가** 도구 모음 단추를 사용 합니다.
@@ -207,21 +207,21 @@ Azure 리소스 Graph 탐색기를 사용 하 여 소프트웨어 인벤토리 �
 
 인벤토리 보기는 CSPM (클라우드 보안 상태 관리) 관점에서 클라우드 연결 리소스에 대 한 Defender를 나열 합니다. 필터는 사용자 환경의 모든 리소스를 반환하는 것이 아니라 해결되지 않은(즉 '활성') 권장 사항이 있는 항목만 반환합니다. 
 
-예를 들어 다음 스크린샷은 8 개 구독에 대 한 액세스 권한이 있는 사용자를 보여 주지만 현재 7 개만 권장 됩니다. 따라서 **리소스 유형 = 구독** 을 기준으로 필터링 하는 경우 활성 권장 사항이 있는 해당 7 개의 구독만 인벤토리에 표시 됩니다.
+예를 들어 다음 스크린샷은 8개의 구독에 액세스할 수 있지만 현재 7개만 권장 사항을 가지고 있는 사용자를 보여줍니다. 따라서 **리소스 종류 = 구독으로** 필터링하는 경우 활성 권장 사항이 있는 7개의 구독만 인벤토리에 표시됩니다.
 
 :::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="활성 권장 구성이 없는 경우 일부 항목이 반환되지 않음" lightbox="./media/asset-inventory/filtered-subscriptions-some.png":::
 
-### <a name="why-do-some-of-my-resources-show-blank-values-in-the-defender-for-cloud-or-monitoring-agent-columns"></a>클라우드 또는 모니터링 에이전트 열에 대해 Defender에서 일부 리소스가 빈 값을 표시 하는 이유는 무엇 인가요?
+### <a name="why-do-some-of-my-resources-show-blank-values-in-the-defender-for-cloud-or-monitoring-agent-columns"></a>일부 리소스가 Defender for Cloud 또는 모니터링 에이전트 열에 빈 값을 표시하는 이유는 무엇인가요?
 
-클라우드 모니터링 리소스의 모든 Defender에 에이전트가 있습니다. 예를 들어 디스크, Logic Apps, Data Lake 분석 및 이벤트 허브와 같은 Azure Storage 계정 또는 PaaS 리소스는 Defender for Cloud에서 모니터링할 에이전트가 필요 하지 않습니다.
+모든 Defender for Cloud 모니터링 리소스에 에이전트가 있는 것은 아닙니다. 예를 들어 디스크, Logic Apps, Data Lake Analysis 및 Event Hub와 같은 Azure Storage 계정 또는 PaaS 리소스는 Defender for Cloud에서 모니터링할 에이전트가 필요하지 않습니다.
 
 가격 책정 또는 에이전트 모니터링이 리소스와 관련이 없는 경우 해당 인벤토리의 열에는 아무것도 표시되지 않습니다.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="일부 리소스는 모니터링 에이전트에서 빈 정보를 표시 하거나 클라우드 열에 대해 Defender를 표시 합니다." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="일부 리소스는 모니터링 에이전트 또는 Defender for Cloud 열에 빈 정보를 표시합니다." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft Defender for Cloud의 asset inventory 페이지에 대해 설명 했습니다.
+이 문서에서는 Microsoft Defender for Cloud의 자산 인벤토리 페이지에 대해 설명했습니다.
 
 관련 도구에 대한 자세한 내용은 다음 페이지를 참조하세요.
 

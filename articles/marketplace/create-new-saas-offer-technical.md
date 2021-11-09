@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.openlocfilehash: 6a0b7494d5ce33527640c144faf8630d523ab941
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 39e41febed0809486d2e6796284d86a0874c13f5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131061374"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059679"
 ---
 # <a name="add-technical-details-for-a-saas-offer"></a>SaaS 제품에 대한 기술 세부 정보 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "131061374"
   > [!IMPORTANT]
   > 방문 페이지를 가동하여 연중무휴 실행해야 합니다. 이것이 상업용 Marketplace에서 이루어지는 SaaS 제품의 신규 구매 또는 제품 활성 구독의 구성 요청에 대한 통지를 받을 수 있는 유일한 방법입니다. 방문 페이지 URL에 파운드 기호 문자(#)를 포함하지 마세요. 그렇지 않으면 고객은 방문 페이지에 액세스할 수 없습니다.
 
-- **연결 웹후크(필수)** – Microsoft에서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독이 취소된 경우)의 경우 [연결 웹후크 URL 을 제공해야](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service)합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
+- **연결 웹후크(필수)** – Microsoft에서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독이 취소된 경우)의 경우 [연결 웹후크 URL 을 제공해야](./partner-center-portal/pc-saas-fulfillment-webhook.md)합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
 
   > [!IMPORTANT]
   > 웹후크는 24/7까지 실행되어야 합니다. 이는 상업용 Marketplace를 통해 구매한 고객의 SaaS 구독에 대한 업데이트에 대한 알림을 받는 유일한 방법입니다.

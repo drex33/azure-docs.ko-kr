@@ -1,7 +1,7 @@
 ---
 title: 온라인 엔드포인트를 사용하여 ML 모델 배포(미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure에 있는 웹 서비스로 기계 학습 모델을 배포하는 방법을 알아봅니다.
+description: 기계 학습 모델을 Azure에 있는 웹 서비스로 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021
-ms.openlocfilehash: dba2e849fb28dfb0f6667b496c65bdef8cbdf046
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c535c31b41f1e95c7a7d49b3e7a310aeafcbe8bb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557550"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058376"
 ---
 # <a name="deploy-and-score-a-machine-learning-model-by-using-an-online-endpoint-preview"></a>온라인 엔드포인트를 사용하여 기계 학습 모델 배포 및 점수 매기기(미리 보기)
 
@@ -64,7 +64,7 @@ cd cli
 
 Unix의 경우 다음 명령을 실행합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
 > [!NOTE]
 > 최근에 CLI 인터페이스를 변경했습니다. 이전에는 및 를 둘 다 `endpoint` `deployment` `az ml endpoint` 사용했으며, 이제 및 로 `az ml online-endpoint` `az ml online-deployment` 구분했습니다.  이렇게 하면 CI/CD 스크립트에서 엔드포인트를 더 쉽게 사용할 수 있습니다.
@@ -74,9 +74,9 @@ Unix의 경우 다음 명령을 실행합니다.
 
 ## <a name="review-the-endpoint-and-deployment-configurations"></a>엔드포인트 및 배포 구성 검토
 
-다음 조각은 *endpoints/online/managed/sample/endpoint.yml* 파일을 보여줍니다. 
+다음 조각은 *엔드포인트/online/managed/sample/endpoint.yml* 파일을 보여줍니다. 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 > [!NOTE]
 > YAML에 대한 전체 설명은 [관리형 온라인 엔드포인트(미리 보기) YAML 참조](reference-yaml-endpoint-managed-online.md)를 참조하세요.
@@ -99,9 +99,9 @@ Unix의 경우 다음 명령을 실행합니다.
 
 다음 조각은 필요한 모든 *입력이 있는 엔드포인트/online/managed/sample/blue-deployment.yml* 파일을 보여줍니다. 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
-다음 표에서는 의 특성을 `deployment` 설명합니다.
+표에서는 의 특성을 `deployment` 설명합니다.
 
 | 키 | 설명 |
 | --- | --- |
@@ -117,7 +117,7 @@ YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참
 
 > [!NOTE]
 > 관리형 엔드포인트 대신 Kubernetes를 컴퓨팅 대상으로 사용하려면 다음을 수행합니다.
-> 1. Azure Machine Learning Studio 를 사용하여 Kubernetes 클러스터를 컴퓨팅 대상으로 만들고 [Azure Machine Learning](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster)작업 영역에 연결합니다.
+> 1. [Azure Machine Learning Studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster)를 사용하여 Kubernetes 클러스터를 컴퓨팅 대상으로 만들고 Azure Machine Learning 작업 영역에 연결합니다.
 > 1. [엔드포인트 YAML을](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) 사용하여 관리형 엔드포인트 YAML 대신 Kubernetes를 대상으로 지정합니다. `target`의 값을 등록된 컴퓨팅 대상의 이름으로 변경하려면 YAML을 편집해야 합니다.
 >
 > 이 문서에서 사용되는 모든 명령(선택적 SLA 모니터링 및 Azure Log Analytics 통합 제외)은 관리형 엔드포인트 또는 Kubernetes 엔드포인트에서 사용할 수 있습니다.
@@ -162,11 +162,11 @@ YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참
 
 먼저 엔드포인트를 만듭니다. 필요에 따라 로컬 엔드포인트의 경우 이 단계를 건너뛰고 배포(다음 단계)를 직접 만들어 필요한 메타데이터를 만들 수 있습니다. 이 방법은 개발 및 테스트 목적으로 유용합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
 
 이제 엔드포인트 아래에 라는 `blue` 배포를 만듭니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_deployment":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_deployment":::
 
 `--local` 플래그는 Docker 환경에 엔드포인트를 배포하도록 CLI에 지시합니다.
 
@@ -177,7 +177,7 @@ YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참
 
 상태를 확인하여 모델이 오류 없이 배포되었는지 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_status":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_status":::
 
 출력은 다음 JSON과 유사하게 표시됩니다. 여기서 `provisioning_state`는 `Succeeded`입니다.
 
@@ -198,7 +198,7 @@ YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참
 
 엔드포인트를 호출하여 편리한 명령 `invoke`를 사용하고 JSON 파일에 저장된 쿼리 매개 변수를 전달하여 모델을 채점합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
 
 REST 클라이언트(예: curl)를 사용하려면 채점 URI가 있어야 합니다. 채점 URI를 얻으려면 `az ml online-endpoint show --local -n $ENDPOINT_NAME`을 실행합니다. 반환된 데이터에서 `scoring_uri` 특성을 찾습니다. 샘플 curl 기반 명령은 이 문서의 후반부에서 사용할 수 있습니다.
 
@@ -206,7 +206,7 @@ REST 클라이언트(예: curl)를 사용하려면 채점 URI가 있어야 합�
 
 예제 *score.py* 파일에서 `run()` 메서드는 콘솔에 일부 출력을 로그합니다. `get-logs` 명령을 다시 사용하여 이 출력을 볼 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_logs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_logs":::
 
 ##  <a name="deploy-your-managed-online-endpoint-to-azure"></a>Azure에 관리형 온라인 엔드포인트 배포
 
@@ -216,11 +216,11 @@ REST 클라이언트(예: curl)를 사용하려면 채점 URI가 있어야 합�
 
 클라우드에서 엔드포인트를 만들려면 다음 코드를 실행합니다.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
 엔드포인트에서 라는 배포를 만들려면 `blue` 다음 코드를 실행합니다.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
 이 배포는 기본 환경/이미지가 처음으로 빌드되는지 여부에 따라 최대 15분 정도 걸릴 수 있습니다. 동일한 환경을 사용하는 후속 배포는 더 빨리 처리를 완료합니다.
 
@@ -236,7 +236,7 @@ REST 클라이언트(예: curl)를 사용하려면 채점 URI가 있어야 합�
 
 `show` 명령에는 엔드포인트 및 배포에 대한 정보가 `provisioning_status`에 포함되어 있습니다.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 `list` 명령을 사용하여 작업 영역의 모든 엔드포인트를 테이블 형식으로 나열할 수 있습니다.
 
@@ -248,7 +248,7 @@ az ml online-endpoint list --output table
 
 로그를 확인하여 모델이 오류 없이 배포되었는지 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 기본적으로 로그는 inference-server에서 풀합니다. 스토리지 이니셜라이저(모델 및 코드와 같은 자산을 컨테이너에 탑재함)의 로그를 보려면 `--container storage-initializer` 플래그를 추가합니다.
 
@@ -256,15 +256,15 @@ az ml online-endpoint list --output table
 
 선택한 `invoke` 명령 또는 REST 클라이언트를 사용하여 엔드포인트를 호출하고 일부 데이터를 채점할 수 있습니다. 
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
 다음 예제에서는 엔드포인트에 인증하는 데 사용되는 키를 얻는 방법을 보여줍니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
 다음으로 curl을 사용하여 데이터를 채점합니다.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
 
 및 명령을 사용하여 `show` `get-credentials` 인증 자격 증명을 얻습니다. 또한 플래그를 사용하여 `--query` 특성을 필요한 것으로만 필터링합니다. `--query`에 대한 자세한 내용은 [Azure CLI 명령 출력 쿼리](/cli/azure/query-azure-cli)를 참조하세요.
 
@@ -293,7 +293,7 @@ az ml online-endpoint list --output table
     
 1. `init()` 함수를 수정했기 때문에(`init()`은 엔드포인트가 생성되거나 업데이트될 때 실행됨) `Updated successfully` 메시지가 로그에 표시됩니다. 다음을 실행하여 로그를 검색합니다.
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 이 `update` 명령은 로컬 배포에서도 작동합니다. 동일한 `az ml online-deployment update` 명령에 `--local` 플래그를 사용합니다.
 
@@ -336,7 +336,7 @@ SLA에 따라 메트릭을 보고 알림을 설정하려면 [관리형 온라인
 
 배포를 사용하지 않을 경우 다음 코드를 실행하여 배포를 삭제해야 합니다(엔드포인트 및 모든 기본 배포 삭제).
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## <a name="next-steps"></a>다음 단계
 

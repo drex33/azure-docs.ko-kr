@@ -1,27 +1,26 @@
 ---
 title: Azure SQL Database 업데이트 가능한 원장 테이블
 description: 이 문서에서는 Azure SQL Database의 업데이트 가능한 원장 테이블, 원장 스키마 및 원장 보기에 대한 정보를 제공합니다.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: 4a84cb359a0840f593fd732339a4ef9f9f3588db
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 3010ba83f8d45083213f3725626f92b111fb839d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665514"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132064451"
 ---
 # <a name="azure-sql-database-updatable-ledger-tables"></a>Azure SQL Database 업데이트 가능한 원장 테이블
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 업데이트 가능한 원장 테이블은 사용자가 변조 방지 기능을 제공하면서 업데이트 및 삭제를 수행할 수 있는 시스템 버전 테이블입니다. 업데이트 또는 삭제가 발생하면 행의 모든 이전 버전이 기록 테이블이라고 하는 보조 테이블에 유지됩니다. 기록 테이블은 업데이트 가능 원장 테이블의 스키마를 미러링합니다. 행이 업데이트되면 행의 최신 버전은 원장 테이블에 남아 있고, 이전 버전은 시스템에 의해 애플리케이션과 투명하게 기록 테이블에 삽입됩니다. 
 

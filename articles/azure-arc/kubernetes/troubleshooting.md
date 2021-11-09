@@ -1,21 +1,19 @@
 ---
-title: 일반적인 Azure Arc 사용 가능한 Kubernetes 문제 해결
+title: 일반적인 Azure Arc 사용 Kubernetes 문제 해결
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/21/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
-description: Azure Arc 지원 Kubernetes 클러스터와 관련된 일반적인 문제 해결
+description: Azure Arc 사용 Kubernetes 클러스터와 관련 된 일반적인 문제 해결
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: f6f29b30f3a62653c032b7aae40cac5afdcf96b9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: acbc8293f5aed737dba6ed3992fc59cac0a4fd55
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546512"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059244"
 ---
-# <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Azure Arc 사용 가능한 Kubernetes 문제 해결
+# <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Azure Arc-사용 Kubernetes 문제 해결
 
 이 문서에서는 연결, 권한 및 에이전트 문제에 대한 문제 해결 가이드를 제공합니다.
 
@@ -32,7 +30,7 @@ az account show
 
 ### <a name="azure-arc-agents"></a>Azure Arc 에이전트
 
-Azure Arc 지원 Kubernetes에 대한 모든 에이전트는 네임스페이스에 Pod로 `azure-arc` 배포됩니다. 모든 Pod가 실행되고 상태 검사를 통과해야 합니다.
+Azure Arc 사용 Kubernetes의 모든 에이전트는 네임 스페이스에서 pod으로 배포 됩니다 `azure-arc` . 모든 Pod가 실행되고 상태 검사를 통과해야 합니다.
 
 먼저, Azure Arc Helm 릴리스를 확인합니다.
 
@@ -77,9 +75,9 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 클러스터를 Azure에 연결하려면 Azure 구독에 대한 액세스와 대상 클러스터에 대한 `cluster-admin` 액세스가 필요합니다. 클러스터에 연결할 수 없거나 사용 권한이 부족한 경우 클러스터를 Azure Arc에 연결하지 못합니다.
 
-### <a name="azure-cli-is-unable-to-download-helm-chart-for-azure-arc-agents"></a>Azure CLI Azure Arc 에이전트에 대한 Helm 차트를 다운로드할 수 없습니다.
+### <a name="azure-cli-is-unable-to-download-helm-chart-for-azure-arc-agents"></a>Azure CLI에서 Azure Arc 에이전트에 대 한 투구 차트를 다운로드할 수 없습니다.
 
-Helm 버전 >= 3.7.0을 사용하는 경우 가 `az connectedk8s connect` 실행되어 클러스터를 Azure Arc 연결할 때 다음 오류가 발생합니다.
+투구 버전 >= 3.7.0를 사용 하는 경우를 `az connectedk8s connect` 실행 하 여 클러스터를 Azure Arc에 연결 하면 다음 오류가 발생 합니다.
 
 ```console
 $ az connectedk8s connect -n AzureArcTest -g AzureArcTest
@@ -88,7 +86,7 @@ Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch
 Run 'helm --help' for usage.
 ```
 
-이 경우 이전 버전의 [Helm 3(버전 3.7.0)을](https://helm.sh/docs/intro/install/)설치해야 &lt; 합니다. 그 후 `az connectedk8s connect` 명령을 다시 실행하여 클러스터를 Azure Arc 연결합니다.
+이 경우 버전 3.7.0의 이전 버전의 [투구 3](https://helm.sh/docs/intro/install/)을 설치 해야 &lt; 합니다. 그런 다음 `az connectedk8s connect` 명령을 다시 실행 하 여 클러스터를 Azure Arc에 연결 합니다.
 
 ### <a name="insufficient-cluster-permissions"></a>클러스터 권한 부족
 
@@ -119,7 +117,7 @@ OpenShift 클러스터를 Azure Arc에 연결할 때 `az connectedk8s connect` �
 
 ### <a name="installation-timeouts"></a>설치 시간 초과
 
-Kubernetes 클러스터를 Azure Arc 지원 Kubernetes에 연결하려면 클러스터에 Azure Arc 에이전트를 설치해야 합니다. 클러스터가 저속 인터넷 연결을 통해 실행되는 경우 에이전트에 대한 컨테이너 이미지 풀링은 Azure CLI 시간 제한보다 오래 걸릴 수 있습니다.
+Kubernetes 클러스터를 Azure Arc 사용 Kubernetes에 연결 하려면 클러스터에 Azure Arc 에이전트를 설치 해야 합니다. 클러스터가 저속 인터넷 연결을 통해 실행되는 경우 에이전트에 대한 컨테이너 이미지 풀링은 Azure CLI 시간 제한보다 오래 걸릴 수 있습니다.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -142,7 +140,7 @@ ValidationError: Unable to install helm release: Error: customresourcedefinition
 
 이 문제에서 복구하려면 다음 단계를 수행합니다.
 
-1. Azure Portal Azure Arc 사용 가능한 Kubernetes 리소스를 삭제합니다.
+1. Azure Portal에서 Azure Arc 사용 Kubernetes 리소스를 삭제 합니다.
 2. 머신에서 다음 명령을 실행합니다.
     
     ```console
@@ -166,7 +164,7 @@ az k8s-configuration create <parameters> --debug
 
 ### <a name="create-configurations"></a>구성 만들기
 
-Azure Arc 사용 가능한 Kubernetes 리소스()에 대한 쓰기 `Microsoft.Kubernetes/connectedClusters/Write` 권한은 해당 클러스터에서 구성을 만드는 데 필요하며 충분합니다.
+Azure Arc 사용 Kubernetes 리소스 ()에 대 한 쓰기 권한이 `Microsoft.Kubernetes/connectedClusters/Write` 필요 하 고 해당 클러스터에 대 한 구성을 만드는 데에도 충분 합니다.
 
 ### <a name="configuration-remains-pending"></a>구성을 `Pending`으로 유지
 
@@ -243,7 +241,7 @@ Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the f
         az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
         ```
 
-    - 기존 Azure Arc 지원 Kubernetes 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정하는 경우 다음 명령을 실행합니다.
+    - 기존 Azure Arc 사용 Kubernetes 클러스터에서 사용자 지정 위치 기능을 사용 하도록 설정 하는 경우 다음 명령을 실행 합니다.
 
         ```console
         az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
@@ -251,7 +249,7 @@ Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the f
 
 위의 사용 권한이 부여되면 이제 클러스터에서 [사용자 지정 위치 기능을 사용하도록 설정](custom-locations.md#enable-custom-locations-on-cluster)할 수 있습니다.
 
-## <a name="azure-arc-enabled-open-service-mesh"></a>Azure Arc 사용 가능한 Open Service Mesh
+## <a name="azure-arc-enabled-open-service-mesh"></a>Azure Arc-활성화 된 서비스 메시 열기
 
 다음 문제 해결 단계에서는 클러스터에 있는 모든 Open Service Mesh 확장 구성 요소의 배포 유효성 검사에 대한 지침을 제공합니다.
 

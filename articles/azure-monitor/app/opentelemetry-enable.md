@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 3961f7233de1fcd09dc8a2199dfa424b505add27
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ae52a8977247903574b9d23fda795e5fd8b7ea3d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058106"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054432"
 ---
 # <a name="enable-azure-monitor-opentelemetry-exporter-for-net-nodejs-and-python-applications-preview"></a>.NET, Node.js 및 Python 응용 프로그램에 대 한 Azure Monitor OpenTelemetry 내보내기 사용 (미리 보기)
 
@@ -29,7 +29,7 @@ ms.locfileid: "131058106"
  - [라이브 메트릭](live-stream.md)
  - 로깅 API (콘솔 로그, 로깅 라이브러리 등)
  - 처리 되지 않은 예외 자동 캡처
- - [프로파일러](profiler-overview.md)
+ - [Profiler](profiler-overview.md)
  - [스냅샷 디버거](snapshot-debugger.md)
  - [오프 라인 디스크 저장소 및 재시도 논리](telemetry-channels.md#built-in-telemetry-channels)
  - [Azure AD 인증](azure-ad-authentication.md)
@@ -40,7 +40,7 @@ ms.locfileid: "131058106"
  - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의 하는 기능
  - 사용자 ID 또는 인증 된 사용자 ID를 수동으로 설정 하는 기능
  - 종속성 원격 분석에 작업 이름 전파
- - Azure Functions Worker를 통한 분산 추적 컨텍스트 전파 (계측 라이브러리)
+ - Azure Functions에서 [계측 라이브러리](#instrumentation-libraries) 지원
 
 모든 기능을 사용 해야 하는 사용자는 OpenTelemetry 기반 제품이 완성 될 때까지 기존 Application Insights [ASP.NET](asp-net.md) 또는 [ASP.NET Core](asp-net-core.md) SDK를 사용 해야 합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "131058106"
  - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의 하는 기능
  - 사용자 ID 또는 인증 된 사용자 ID를 수동으로 설정 하는 기능
  - 종속성 원격 분석에 작업 이름 전파
- - Azure Functions Worker를 통한 분산 추적 컨텍스트 전파 (계측 라이브러리)
+ - Azure Functions에서 [계측 라이브러리](#instrumentation-libraries) 지원
 
 모든 기능을 사용 해야 하는 사용자는 OpenTelemetry 기반 제품이 완성 될 때까지 기존 [Application Insights Python-OpenCensus SDK](opencensus-python.md) 를 사용 해야 합니다.
 
@@ -175,7 +175,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### <a name="net"></a>[.NET](#tab/net)
 
-다음 코드에서는 OpenTelemetry TracerProvider를 설정 하 여 c # 콘솔 응용 프로그램에서 OpenTelemetry를 사용 하도록 설정 하는 방법을 보여 줍니다. 이 코드는 응용 프로그램 시작에 있어야 합니다. ASP.NET Core의 경우 일반적으로 `ConfigureServices` 응용 프로그램 클래스의 메서드에서 수행 됩니다 `Startup` . ASP.NET 응용 프로그램의 경우에는 일반적으로에서 수행 됩니다 `Global.aspx.cs` .
+다음 코드에서는 OpenTelemetry TracerProvider를 설정 하 여 c # 콘솔 응용 프로그램에서 OpenTelemetry를 사용 하도록 설정 하는 방법을 보여 줍니다. 이 코드는 응용 프로그램 시작에 있어야 합니다. ASP.NET Core의 경우 일반적으로 `ConfigureServices` 응용 프로그램 클래스의 메서드에서 수행 됩니다 `Startup` . ASP.NET 응용 프로그램의 경우에는 일반적으로에서 수행 됩니다 `Global.asax.cs` .
 
 ```csharp
 using System.Diagnostics;
@@ -457,7 +457,7 @@ trace.set_tracer_provider(
 1. [계측 라이브러리](#instrumentation-libraries)에서 제공 하는 옵션 사용.
 2. 사용자 지정 범위 프로세서 추가
 
-이러한 특성에는 원격 분석에 사용자 지정 비즈니스 속성을 추가 하는 작업이 포함 될 수 있습니다. 특성을 사용 하 여 사용자 ID 또는 클라이언트 IP와 같은 Application Insights 스키마의 선택적 필드를 설정할 수도 있습니다.
+이러한 특성에는 원격 분석에 사용자 지정 속성을 추가 하는 작업이 포함 될 수 있습니다. 특성을 사용 하 여 클라이언트 IP와 같은 Application Insights 스키마의 선택적 필드를 설정할 수도 있습니다.
 
 > [!TIP]
 > "계측 라이브러리에서 제공 하는 옵션" (사용 가능한 경우)을 사용 하는 이점은 전체 컨텍스트를 사용할 수 있다는 것입니다. 즉, 사용자가 추가 특성을 추가 하거나 필터링 하도록 선택할 수 있습니다. 예를 들어, HttpClient 계측 라이브러리에는 사용자에 게 httpRequestMessage에 대 한 액세스 권한을 부여 하는 기능이 포함 되어 있습니다 .이 라이브러리에서 모든 항목을 선택 하 고 특성으로 저장할 수 있습니다.
@@ -586,6 +586,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 에서 다음 코드 줄을 변경 하는 것을 제외 하 고 [사용자 지정 속성 추가 예제](#add-custom-property)를 사용 합니다 `ActivityEnrichingProcessor.cs` .
 
 ```C#
+// only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
@@ -684,7 +685,7 @@ span._attributes["enduser.id"] = "<User ID>"
             .Build();
     ```
     
-    `ActivityFilteringProcessor.cs`아래 코드를 사용 하 여 프로젝트에를 추가 합니다.
+    `ActivityFilteringProcessor.cs`아래 코드를 사용하여 프로젝트에 를 추가합니다.
     
     ```csharp
     using System.Diagnostics;
@@ -705,7 +706,7 @@ span._attributes["enduser.id"] = "<User ID>"
     ```
 
 
-3. 를 사용 하 여 특정 소스를 명시적으로 추가 하지 않은 경우에 `AddSource("ActivitySourceName")` 는 해당 원본을 사용 하 여 만든 활동을 모두 내보내지 않습니다.
+3. 를 사용하여 특정 원본을 명시적으로 추가하지 않으면 `AddSource("ActivitySourceName")` 해당 원본을 사용하여 만든 활동을 내보내지 않습니다.
     
     <!---
     ### Get Trace ID or Span ID
@@ -723,9 +724,9 @@ span._attributes["enduser.id"] = "<User ID>"
 
 #### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-1. 여러 http 계측 라이브러리에서 제공 하는 url 옵션을 제외 합니다.
+1. 많은 http 계측 라이브러리에서 제공하는 url 옵션을 제외합니다.
 
-    다음은 [http/https 계측 라이브러리](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http)를 사용 하 여 추적에서 특정 url을 제외 하는 방법의 예입니다.
+    다음은 [http/https 계측 라이브러리](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http)를 사용하여 특정 URL을 추적하지 않도록 제외하는 방법의 예입니다.
     
     ```typescript
     ...
@@ -745,8 +746,8 @@ span._attributes["enduser.id"] = "<User ID>"
     
     ```
 
-2. 사용자 지정 프로세서 사용. 사용자 지정 범위 프로세서를 사용 하 여 특정 범위를 내보내지 않도록 제외할 수 있습니다. 범위를 내보내지 않도록 표시 하려면 `TraceFlag` 를로 설정 `DEFAULT` 합니다.
-다음 코드 줄을 변경 하는 경우를 제외 하 고 [사용자 지정 속성 추가 예제](#add-custom-property)를 사용 합니다.
+2. 사용자 지정 프로세서 사용. 사용자 지정 범위 프로세서를 사용하여 특정 범위를 내보내지 않도록 제외할 수 있습니다. 범위를 내보내지 않도록 표시하려면 해당 범위를 `TraceFlag` 로 `DEFAULT` 설정합니다.
+다음 코드 줄을 변경하는 것을 제외하고 [사용자 지정 속성 추가 예제](#add-custom-property)를 사용합니다.
 
     ```typescript
     ...
@@ -765,9 +766,9 @@ span._attributes["enduser.id"] = "<User ID>"
 
 #### <a name="python"></a>[Python](#tab/python)
 
-1. 여러 http 계측 라이브러리에서 제공 하는 url 옵션을 제외 합니다.
+1. 많은 http 계측 라이브러리에서 제공하는 url 옵션을 제외합니다.
 
-    [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) 계측을 사용 하 여 추적에서 특정 url을 제외 하는 방법의 예는 다음과 같습니다.
+    다음은 [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) 계측을 사용하여 특정 URL을 추적하지 않도록 제외하는 방법의 예입니다.
     
     ```python
     ...
@@ -784,7 +785,7 @@ span._attributes["enduser.id"] = "<User ID>"
     ...
     ```
 
-2. 사용자 지정 프로세서 사용. 사용자 지정 범위 프로세서를 사용 하 여 특정 범위를 내보내지 않도록 제외할 수 있습니다. 범위를 내보내지 않도록 표시 하려면 `TraceFlag` 를로 설정 `DEFAULT` 합니다.
+2. 사용자 지정 프로세서 사용. 사용자 지정 범위 프로세서를 사용하여 특정 범위를 내보내지 않도록 제외할 수 있습니다. 범위를 내보내지 않도록 표시하려면 해당 범위를 `TraceFlag` 로 `DEFAULT` 설정합니다.
     
     ```python
     ...
@@ -799,7 +800,7 @@ span._attributes["enduser.id"] = "<User ID>"
     ...
     ```
     
-    `SpanFilteringProcessor.py`아래 코드를 사용 하 여 프로젝트에를 추가 합니다.
+    `SpanFilteringProcessor.py`아래 코드를 사용하여 프로젝트에 를 추가합니다.
     
     ```python
     from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
@@ -837,18 +838,18 @@ span._attributes["enduser.id"] = "<User ID>"
 
 ---
 
-## <a name="enable-otlp-exporter"></a>이상 기능 내보내기 사용
+## <a name="enable-otlp-exporter"></a>OTLP 내보내기 사용
 
-Azure Monitor 내보내기와 함께 (OpenTelemetry Protocol) 내보내기를 사용 하도록 설정 하 여 두 위치에 원격 분석을 보낼 수 있습니다.
+Azure Monitor Exporter와 함께 OTLP(OpenTelemetry Protocol) 내보내기를 사용하도록 설정하여 원격 분석을 두 위치로 보낼 수 있습니다.
 
 > [!NOTE]
-> 이상에서 전용 LP 내보내기가 표시 됩니다. Microsoft는 정식 LP 내보내기 또는 구성 요소 또는 타사의 다운스트림 환경을 공식적으로 지원 하지 않습니다. Azure 지원 경계 밖의 OpenTelemetry 문제에 대 한 [OpenTelemetry-수집기](https://github.com/open-telemetry/opentelemetry-collector) 문제를 여는 것이 좋습니다.
+> 편의상 OTLP 내보내기가 표시됩니다. OTLP 내보내기 또는 구성 요소 또는 타사 환경 다운스트림을 공식적으로 지원하지 않습니다. Azure 지원 경계 외부에서 [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector) for OpenTelemetry 문제를 여는 것이 좋습니다.
 
 #### <a name="net"></a>[.NET](#tab/net)
 
-1. 프로젝트에 [OpenTelemetry](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) 와 함께 [OpenTelemetry OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) 패키지를 설치 합니다.
+1. 프로젝트에 [Azure.Monitor.OpenTelemetry.Exporter와](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) 함께 [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) 패키지를 설치합니다.
 
-2. 다음 코드 조각을 추가 합니다. 이 예에서는 OpenTelemetry 수집기에 수집기가 실행 되 고 있다고 가정 합니다. 자세한 내용은 [여기](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs)에서 예제를 참조 하세요.
+2. 다음 코드 조각을 추가합니다. 이 예제에서는 OTLP 수신기가 실행되는 OpenTelemetry 수집기 가 있다고 가정합니다. 자세한 내용은 여기의 예제를 [참조하세요.](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs)
 
 ```csharp
 // sends data to Application Insights as well as OTLP
@@ -865,7 +866,7 @@ using var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 #### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-1. 프로젝트에서 [Azure Monitor OpenTelemetry 내보내기와](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) 함께 [OpenTelemetry 수집기 내보내기](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) 패키지를 설치 합니다.
+1. 프로젝트에서 [openTelemetry 내보내기](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) Azure Monitor 함께 [OpenTelemetry](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) Collector Exporter 패키지를 설치합니다.
 
 
 ```sh
@@ -873,7 +874,7 @@ using var tracerProvider = Sdk.CreateTracerProviderBuilder()
     npm install @azure/monitor-opentelemetry-exporter
 ```
 
-2. 다음 코드 조각을 추가 합니다. 이 예에서는 OpenTelemetry 수집기에 수집기가 실행 되 고 있다고 가정 합니다. 자세한 내용은 [여기](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node)에서 예제를 참조 하세요.
+2. 다음 코드 조각을 추가합니다. 이 예제에서는 OTLP 수신기가 실행되는 OpenTelemetry 수집기 가 있다고 가정합니다. 자세한 내용은 여기의 예제를 [참조하세요.](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node)
 
 ```typescript
 const { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
@@ -891,9 +892,9 @@ provider.register();
 
 #### <a name="python"></a>[Python](#tab/python)
 
-1. [Opentelemetry](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) 및 [opentelemetry-lp](https://pypi.org/project/opentelemetry-exporter-otlp/) 패키지를 설치 합니다.
+1. [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) 및 [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) 패키지를 설치합니다.
 
-2. 다음 코드 조각을 추가 합니다. 이 예에서는 OpenTelemetry 수집기에 수집기가 실행 되 고 있다고 가정 합니다. 자세한 내용은이 [추가](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector)정보를 참조 하세요.
+2. 다음 코드 조각을 추가합니다. 이 예제에서는 OTLP 수신기가 실행되는 OpenTelemetry 수집기 가 있다고 가정합니다. 자세한 내용은 이 README 를 [참조하세요.](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector)
 
 ```python
 from opentelemetry import trace 
@@ -926,11 +927,11 @@ with tracer.start_as_current_span("test"):
 
 #### <a name="net"></a>[.NET](#tab/net)
 
-Azure Monitor 내보내기는 자체 내부 로깅에 EventSource를 사용 합니다. "OpenTelemetry" 라는 소스를 옵트인 하 여 모든 EventListener에서 내보내기 로그를 사용할 수 있습니다. 자세한 문제 해결 단계는 [ OpenTelemetry 문제 해결](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting) 을 참조 하세요.
+Azure Monitor 내보내기는 자체 내부 로깅에 EventSource를 사용합니다. 내보내기 로그는 "OpenTelemetry-AzureMonitor-Exporter"라는 원본을 옵트인하여 EventListener에서 사용할 수 있습니다. 자세한 문제 해결 단계는 [ OpenTelemetry 문제](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting) 해결을 참조합니다.
 
 #### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Azure Monitor 내보내기에서 내부 로그에 OpenTelemetry API로 거를 사용 합니다 .이는 다음 코드를 사용 하 여 활성화할 수 있습니다. 
+내보내기가 내부 로그에 OpenTelemetry API 로거를 사용하는 Azure Monitor 다음 코드를 사용하여 사용하도록 설정할 수 있습니다. 
 
 ```typescript
 const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
@@ -943,7 +944,7 @@ provider.register();
 
 #### <a name="python"></a>[Python](#tab/python)
 
-Azure Monitor 내보내기는 자체 내부 로깅을 위해 Python 표준 로깅 [라이브러리](https://docs.python.org/3/library/logging.html) 를 사용 합니다. OpenTelemetry API 및 Azure Monitor 내보내기 로그는 일반적으로 비정상적인 활동에 대 한 심각도 수준 경고 또는 오류와 정상/성공한 활동에 대 한 정보로 기록 됩니다. 기본 Python 로깅 라이브러리는 기본적으로 심각도 수준을 경고로 설정 하므로 심각도 수준을 변경 하 여이 심각도의 로그를 확인 해야 합니다. 다음은 모든 심각도의 로그를 콘솔과 파일로 출력 하는 방법의 예입니다.
+Azure Monitor 내보내기는 자체 내부 로깅에 Python 표준 로깅 [라이브러리를](https://docs.python.org/3/library/logging.html) 사용합니다. OpenTelemetry API 및 Azure Monitor 내보내기 로그는 일반적으로 심각도 수준 WARNING 또는 ERROR(불규칙한 활동의 경우 경고 또는 오류) 및 일반/성공 작업의 INFO에 기록됩니다. 기본 Python 로깅 라이브러리는 심각도 수준을 경고로 기본 설정하므로 이 심각도에서 로그를 보려면 심각도 수준을 변경해야 합니다. 다음은 모든 심각도의 로그를 콘솔 및 파일에 출력하는 방법의 예입니다.
 
 ```python
 ...
@@ -964,62 +965,62 @@ logger.addHandler(stream)
 
 ### <a name="known-issues"></a>알려진 문제
 
-Azure Monitor OpenTelemetry 내보내기에 대 한 알려진 문제는 다음과 같습니다. 
+Azure Monitor OpenTelemetry 내보내기에서 알려진 문제는 다음과 같습니다. 
 
-- 종속성 원격 분석에서 작업 이름이 누락 되어 오류 및 성능 탭 환경에 부정적인 영향을 줍니다.
-- 장치 모델이 요청 및 종속성 원격 분석에서 누락 되어 장치 코 호트 분석에 부정적인 영향을 줍니다.
-- 데이터베이스 서버 이름의 종속성 이름이 달라 서 다른 서버에서 이름이 같은 테이블을 잘못 집계 합니다.
+- 종속성 원격 분석에서 작업 이름이 누락되어 오류 및 성능 탭 환경이 저하됩니다.
+- 디바이스 모델이 요청 및 종속성 원격 분석에서 누락되어 디바이스 코호트 분석에 부정적인 영향을 미칩니다.
+- 데이터베이스 서버 이름은 종속성 이름에서 제외되며, 다른 서버에서 이름이 같은 테이블을 잘못 집계합니다.
 
 ## <a name="support"></a>지원
 
-- 이 문서의 문제 해결 단계를 검토 합니다.
-- Azure 지원에 대 한 문제는 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 엽니다.
+- 이 문서의 문제 해결 단계를 검토합니다.
+- Azure 지원 문제의 경우 [Azure 지원 티켓을](https://azure.microsoft.com/support/create-ticket/)엽니다.
 
 ### <a name="net"></a>[.NET](#tab/net)
 
-OpenTelemetry 문제는 [OpenTelemetry .net 커뮤니티](https://github.com/open-telemetry/opentelemetry-dotnet) 에 직접 문의 하세요.
+OpenTelemetry 문제의 경우 [OpenTelemetry .NET 커뮤니티에](https://github.com/open-telemetry/opentelemetry-dotnet) 직접 문의합니다.
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-OpenTelemetry 문제는 [OpenTelemetry JavaScript 커뮤니티](https://github.com/open-telemetry/opentelemetry-js) 에 직접 문의 하세요.
+OpenTelemetry 문제의 경우 [OpenTelemetry JavaScript 커뮤니티에](https://github.com/open-telemetry/opentelemetry-js) 직접 문의합니다.
 
 ### <a name="python"></a>[Python](#tab/python)
 
-OpenTelemetry 문제는 [OpenTelemetry Python 커뮤니티](https://github.com/open-telemetry/opentelemetry-python) 에 직접 문의 하세요.
+OpenTelemetry 문제의 경우 [OpenTelemetry Python 커뮤니티에](https://github.com/open-telemetry/opentelemetry-python) 직접 문의합니다.
 
 ---
 
 ## <a name="opentelemetry-feedback"></a>OpenTelemetry 피드백
 
-- OpenTelemetry 커뮤니티의 사용자 [의견 설문 조사](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform)를 작성 합니다.
-- [OpenTelemetry 초기 도입자 Community](https://aka.ms/AzMonOTel/)에 참여 하 여 Microsoft에 자신에 게 알려 주십시오.
-- [Microsoft의 기술 Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor)에서 다른 Azure Monitor 사용자와 참여 하세요.
+- OpenTelemetry 커뮤니티의 고객 [피드백 설문 조사](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform)를 작성합니다.
+- [OpenTelemetry 얼리 어답터 Community](https://aka.ms/AzMonOTel/)참여하여 Microsoft에 대해 조금 알려주세요.
+- [Microsoft Tech](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor)Community 다른 Azure Monitor 사용자와 소통합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 ### <a name="net"></a>[.NET](#tab/net)
 
-- [Azure Monitor 내보내기 GitHub 리포지토리에서](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter)소스 코드를 검토 합니다.
-- NuGet 패키지를 설치 하거나, 업데이트를 확인 하거나, 릴리스 정보를 보려면 [Azure Monitor 내보내기 NuGet 패키지](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/) 페이지를 방문 하세요.
-- [Azure Monitor 예제 응용 프로그램](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Tracing.Customization)을 사용 하 여 Azure Monitor Application Insights 및 OpenTelemetry에 더 친숙 합니다.
-- OpenTelemetry 및 해당 커뮤니티에 대해 자세히 알아보려면 [OpenTelemetry .net GitHub 리포지토리](https://github.com/open-telemetry/opentelemetry-dotnet)를 방문 하세요.
-- [웹/브라우저 사용자 모니터링](javascript.md) 에서 사용 환경을 사용 하도록 설정 합니다.
+- [Azure Monitor Exporter GitHub 리포지토리에서](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter)소스 코드를 검토합니다.
+- NuGet 패키지를 설치하거나, 업데이트를 확인하거나, 릴리스 정보 보기를 보려면 [Azure Monitor Exporter NuGet 패키지](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/) 페이지를 방문하세요.
+- Azure Monitor 예제 애플리케이션 에서 Application Insights 및 OpenTelemetry를 [Azure Monitor](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Tracing.Customization)익숙해집니다.
+- OpenTelemetry 및 해당 커뮤니티에 대한 자세한 내용은 [OpenTelemetry .NET GitHub 리포지토리를](https://github.com/open-telemetry/opentelemetry-dotnet)방문합니다.
+- [웹/브라우저 사용자 모니터링을](javascript.md) 사용하도록 설정하여 사용 환경을 사용하도록 설정합니다.
 
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-- [Azure Monitor 내보내기 GitHub 리포지토리에서](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter)소스 코드를 검토 합니다.
-- NPM 패키지를 설치 하거나, 업데이트를 확인 하거나, 릴리스 정보를 보려면 [Azure Monitor 내보내기 NPM 패키지](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) 페이지를 방문 하세요.
-- [Azure Monitor 예제 응용 프로그램](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples)을 사용 하 여 Azure Monitor Application Insights 및 OpenTelemetry에 더 친숙 합니다.
-- OpenTelemetry 및 해당 커뮤니티에 대 한 자세한 내용을 보려면 [OpenTelemetry JavaScript GitHub 리포지토리](https://github.com/open-telemetry/opentelemetry-js)를 방문 하세요.
-- [웹/브라우저 사용자 모니터링](javascript.md) 을 사용 하 여 사용 환경을 활성화 합니다.
+- [Azure Monitor Exporter GitHub 리포지토리에서](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter)소스 코드를 검토합니다.
+- NPM 패키지를 설치하거나, 업데이트를 확인하거나, 릴리스 정보 보기를 보려면 [Azure Monitor 내보내기 NPM 패키지](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) 페이지를 방문하세요.
+- Azure Monitor 예제 애플리케이션 에서 Application Insights 및 OpenTelemetry를 [Azure Monitor](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples)익숙해집니다.
+- OpenTelemetry 및 해당 커뮤니티에 대한 자세한 내용은 [OpenTelemetry JavaScript GitHub 리포지토리를](https://github.com/open-telemetry/opentelemetry-js)방문합니다.
+- 사용 환경을 사용하도록 설정하려면 [웹/브라우저 사용자 모니터링을](javascript.md) 사용하도록 설정합니다.
 
 ### <a name="python"></a>[Python](#tab/python)
 
-- [Azure Monitor 내보내기 GitHub 리포지토리에서](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)소스 코드를 검토 합니다.
-- PyPI 패키지를 설치 하거나, 업데이트를 확인 하거나, 릴리스 정보를 보려면 [Azure Monitor 내보내기 PyPI 패키지](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) 페이지를 방문 하세요.
--  [Azure Monitor 예제 응용 프로그램](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)을 사용 하 여 Azure Monitor Application Insights 및 OpenTelemetry에 더 친숙 합니다.
-- OpenTelemetry 및 해당 커뮤니티에 대해 자세히 알아보려면 [OpenTelemetry Python GitHub 리포지토리](https://github.com/open-telemetry/opentelemetry-python)를 방문 하세요.
-- [웹/브라우저 사용자 모니터링](javascript.md) 을 사용 하 여 사용 환경을 활성화 합니다.
+- [Azure Monitor Exporter GitHub 리포지토리에서](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)소스 코드를 검토합니다.
+- PyPI 패키지를 설치하거나, 업데이트를 확인하거나, 릴리스 정보 보기를 보려면 [Azure Monitor Exporter PyPI 패키지](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) 페이지를 방문하세요.
+-  Azure Monitor 예제 애플리케이션 에서 Application Insights 및 OpenTelemetry를 [Azure Monitor](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)익숙해집니다.
+- OpenTelemetry 및 해당 커뮤니티에 대한 자세한 내용은 [OpenTelemetry Python GitHub 리포지토리를](https://github.com/open-telemetry/opentelemetry-python)방문합니다.
+- 사용 환경을 사용하도록 설정하려면 [웹/브라우저 사용자 모니터링을](javascript.md) 사용하도록 설정합니다.
 
 ---

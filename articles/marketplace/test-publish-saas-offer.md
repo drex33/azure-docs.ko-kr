@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 09/27/2021
-ms.openlocfilehash: 7836792245a9618e2ac8168af697c0151f8e123b
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 21bb6df47c255da5ffc463d3d7f42e61da6de1cc
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080772"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063140"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>SaaS 제품을 테스트하고 상용 Marketplace에 게시하는 방법
 
@@ -30,11 +30,11 @@ ms.locfileid: "129080772"
 
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
 
-1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제품 페이지에서 게시 하려는 제품을 선택 합니다.
+1. Marketplace 제안 페이지에서 게시할 제안을 선택합니다.
 1. 포털의 오른쪽 위 모서리에서 **검토 및 게시** 를 선택합니다.
 1. 각 페이지의 **상태** 열에 **완료** 가 표시되는지 확인합니다. 가능한 세 가지 상태는 다음과 같습니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "129080772"
 
 다음 스크린샷은 SaaS 제품에 대한 **제품 개요** 페이지를 보여 주며 **시작하기** 단추 아래에 두 개의 미리 보기 링크가 있습니다. 이 페이지에 표시되는 유효성 검사 단계는 제품 작성 시 선택한 사항에 따라 다릅니다.
 
-[![파트너 센터의 제품에 대 한 게시 상태를 보여 줍니다. 라이브 이동 단추가 표시 됩니다. 유효성 검사 보고서 보기 링크도 자동 유효성 검사 아래에도 표시 됩니다. ](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
+[파트너 센터 제안에 대한 게시 상태를 보여 ![ 줍니다. 라이브로 이동 단추가 표시됩니다. 유효성 검사 보고서 보기 링크는 자동화된 유효성 검사에도 표시됩니다. ](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
 
 제품을 미리 보려면 다음 단계를 수행합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "129080772"
 
 1. SaaS 제품이 [상용 Marketplace 계량 서비스를 사용하는 요금 청구](./partner-center-portal/saas-metered-billing.md)를 지원하는 경우 [Marketplace 요금 청구 API](marketplace-metering-service-apis.md#development-and-testing-best-practices)에 자세히 설명된 테스트 모범 사례를 검토하고 따릅니다.
 
-1. 제품을 라이브로 게시하기 전에 [Microsoft 상용 Marketplace의 SaaS 처리 API 버전 2](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing)의 테스트 지침을 검토하고 수행하여 제품이 API와 성공적으로 연결되었는지 확인합니다.
+1. 제품을 라이브로 게시하기 전에 [Microsoft 상용 Marketplace의 SaaS 처리 API 버전 2](./partner-center-portal/pc-saas-fulfillment-webhook.md#development-and-testing)의 테스트 지침을 검토하고 수행하여 제품이 API와 성공적으로 연결되었는지 확인합니다.
 
 1. 제공 유효성 검사 단계에서 경고가 발생한 경우에는 **제품 개요** 페이지에 **유효성 검사 보고서 보기** 링크가 표시됩니다. **시작하기** 단추를 선택하기 전에 보고서를 검토 하 고 문제를 해결해야 합니다. 그렇지 않으면 인증이 실패하고 제품 릴리스가 지연될 가능성이 높습니다.
 

@@ -1,22 +1,22 @@
 ---
-title: Azure NetApp Files | 대한 네트워킹 FAQ Microsoft Docs
-description: Azure NetApp Files 네트워킹에 대한 FAQ(질문과 대답)입니다.
+title: Azure NetApp Files에 대 한 네트워킹 Faq | Microsoft Docs
+description: Azure NetApp Files 네트워킹에 대해 Faq (질문과 대답)를 답변 합니다.
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 author: b-juche
 ms.author: b-juche
-ms.date: 10/11/2021
-ms.openlocfilehash: 62dff22000c27125d278c06aa41228264150a8c0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/08/2021
+ms.openlocfilehash: 9539cf9cc327cb954a852c183cf8c94ee4d56ca1
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273759"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054793"
 ---
-# <a name="networking-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 네트워킹 FAQ
+# <a name="networking-faqs-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 네트워킹 Faq
 
-이 문서에서는 Azure NetApp Files 네트워킹에 대한 FAQ(질문과 대답)에 답변합니다. 
+이 문서에서는 Azure NetApp Files 네트워킹에 대해 Faq (질문과 대답)에 답변 합니다. 
 
 ## <a name="does-the-data-path-for-nfs-or-smb-go-over-the-internet"></a>NFS 또는 SMB의 데이터 경로는 인터넷을 통과하나요?  
 
@@ -43,11 +43,11 @@ ms.locfileid: "130273759"
 
 ## <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Azure NetApp Files는 이중 스택(IPv4 및 IPv6) VNet을 지원하나요?
 
-아니요, Azure NetApp Files는 현재 이중 스택(IPv4 및 IPv6) VNet을 지원하지 않습니다.  
+아니요, Azure NetApp Files는 현재 이중 스택 (IPv4 및 IPv6) 위임 된 서브넷에서 볼륨 배포를 지원 하지 않습니다. Azure NetApp Files 서비스에 대 한 위임 된 서브넷은 IPv4 전용 서브넷 이어야 합니다. 그러나 Azure NetApp Files는 이중 스택 서브넷 또는 (피어 링) VNet을 통해 IPv4를 통해 액세스할 수 있습니다.
 
-## <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>게스트 OS 탑재에 Azure VMware Solutions를 사용하는 IP 주소 수가 1000개로 제한되는가요?
+## <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>게스트 OS 탑재의 Azure VMware 솔루션을 사용 하는 IP 주소의 수가 1000 개로 제한 되나요?
 
-아니요. Azure VMware Solutions는 온-프레미스 시스템과 비슷하게 작동하는 ER 게이트웨이 뒤에 있습니다. AVS "호스트" 및 "게스트" 수는 Azure NetApp Files 표시되지 않으며 [1000 IP 주소 제한은](azure-netapp-files-resource-limits.md#resource-limits) 적용되지 않습니다.
+아니요. Azure VMware 솔루션은 온-프레미스 시스템과 유사 하 게 작동 하는 ER 게이트웨이 뒤에 있습니다. AVS "Hosts" 및 "Guests"의 수가 Azure NetApp Files에 표시 되지 않으며 [1000 IP 주소 제한이](azure-netapp-files-resource-limits.md#resource-limits) 적용 되지 않습니다.
  
 ## <a name="next-steps"></a>다음 단계  
 

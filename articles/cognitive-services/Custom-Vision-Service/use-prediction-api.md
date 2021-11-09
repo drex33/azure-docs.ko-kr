@@ -11,25 +11,28 @@ ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3b0090c1c75c8d341ff67b15e7e0391be45c157
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 99e2fbce479b575759a442f9dc278723adb2b25f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446698"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062378"
 ---
-# <a name="use-your-model-with-the-prediction-api"></a>예측 API와 함께 모델 사용
+# <a name="call-the-prediction-api"></a>예측 API 호출
 
-모델을 학습한 후에는 이미지를 예측 API 엔드포인트에 제출하여 프로그래밍 방식으로 테스트할 수 있습니다.
+모델을 학습 한 후에는 예측 API 끝점에 해당 이미지를 제출 하 여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 가이드에서는 예측 API를 호출 하 여 이미지의 점수를 매기는 방법을 배웁니다. 사용자 요구에 맞게 이 API의 동작을 구성할 수 있는 다양한 방법을 알아봅니다.
+
 
 > [!NOTE]
-> 이 문서에서는 C#을 사용하여 예측 API에 이미지를 제출하는 방법을 보여 줍니다. 자세한 내용과 예는 [예측 API 참조](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)를 참조하세요.
+> 이 문서에서는 c #에 대 한 .NET 클라이언트 라이브러리를 사용 하 여 예측 API에 이미지를 전송 하는 방법을 보여 줍니다. 자세한 내용과 예는 [예측 API 참조](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)를 참조하세요.
 
-## <a name="publish-your-trained-iteration"></a>학습된 반복 게시
+## <a name="setup"></a>설정
+
+### <a name="publish-your-trained-iteration"></a>학습된 반복 게시
 
 [Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택하고 __성능__ 탭을 선택합니다.
 
-예측 API에 이미지를 제출하려면 먼저 예측을 위해 반복을 게시해야 하는데 이 작업은 __게시__ 를 선택하고 게시된 반복의 이름을 지정하여 수행할 수 있습니다. 이렇게 하면 Custom Vision Azure 리소스의 예측 API에 모델이 액세스할 수 있습니다.
+예측 API에 이미지를 제출 하려면 먼저 예측을 위해 반복을 게시 해야 합니다 .이 작업은 __게시__ 를 선택 하 고 게시 된 반복의 이름을 지정 하 여 수행할 수 있습니다. 이렇게 하면 Custom Vision Azure 리소스의 예측 API에 모델이 액세스할 수 있습니다.
 
 ![게시 단추를 빨간색 사각형이 둘러싸고 있는 성능 탭이 표시됩니다.](./media/use-prediction-api/unpublished-iteration.png)
 
@@ -37,7 +40,7 @@ ms.locfileid: "131446698"
 
 ![게시된 레이블 및 게시된 반복의 이름이 빨간색 사각형으로 둘러싸고 있는 성능 탭이 표시됩니다.](./media/use-prediction-api/published-iteration.png)
 
-## <a name="get-the-url-and-prediction-key"></a>URL 및 예측 키 가져오기
+### <a name="get-the-url-and-prediction-key"></a>URL 및 예측 키 가져오기
 
 모델이 게시되고 나면 __예측 URL__ 을 선택하여 필요한 정보를 검색할 수 있습니다. 그러면 __예측 URL__ 및 __예측-키__ 를 포함하여 예측 API를 사용하기 위한 정보가 있는 대화 상자가 열립니다.
 
@@ -45,91 +48,50 @@ ms.locfileid: "131446698"
 
 ![이미지 파일 및 예측-키 값을 사용하기 위한 예측 URL 값을 빨간색 사각형이 둘러싸고 있는 성능 탭이 표시됩니다.](./media/use-prediction-api/prediction-api-info.png)
 
+## <a name="submit-data-to-the-service"></a>서비스에 데이터 제출
 
-이 가이드에서는 로컬 이미지를 사용하므로 **이미지 파일이 있는 경우** 에서 임시 위치로 URL을 복사합니다. 해당하는 __예측-키__ 값도 복사합니다.
+이 가이드에서는 **[](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)** `predictionClient` Custom Vision 예측 키 및 끝점 URL을 사용 하 여 라는 CustomVisionPredictionClient 개체를 이미 생성 했다고 가정 합니다. 이 기능을 설정 [하는 방법](quickstarts/image-classification.md)에 대 한 지침은 빠른 시작 중 하나를 수행 합니다.
 
-## <a name="create-the-application"></a>애플리케이션 만들기
+이 가이드에서는 로컬 이미지를 사용 하므로 학습 된 모델에 제출할 이미지를 다운로드 합니다. 다음 코드는 사용자에 게 로컬 경로를 지정 하 고 해당 경로에 있는 파일의 bytestream를 가져오는 메시지를 표시 합니다.
 
-1. Visual Studio에서 새 C# 콘솔 애플리케이션을 만듭니다.
+```csharp
+Console.Write("Enter image file path: ");
+string imageFilePath = Console.ReadLine();
+byte[] byteData = GetImageAsByteArray(imageFilePath);
+```
 
-1. 다음 코드를 __Program.cs__ 파일의 본문으로 사용합니다.
+다음과 같은 도우미 메서드를 포함 합니다.
 
-    ```csharp
-    using System;
-    using System.IO;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Threading.Tasks;
-
-    namespace CVSPredictionSample
-    {
-        public static class Program
-        {
-            public static void Main()
-            {
-                Console.Write("Enter image file path: ");
-                string imageFilePath = Console.ReadLine();
-
-                MakePredictionRequest(imageFilePath).Wait();
-
-                Console.WriteLine("\n\nHit ENTER to exit...");
-                Console.ReadLine();
-            }
-
-            public static async Task MakePredictionRequest(string imageFilePath)
-            {
-                var client = new HttpClient();
-
-                // Request headers - replace this example key with your valid Prediction-Key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "<Your prediction key>");
-
-                // Prediction URL - replace this example URL with your valid Prediction URL.
-                string url = "<Your prediction URL>";
-
-                HttpResponseMessage response;
-
-                // Request body. Try this sample with a locally stored image.
-                byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-                using (var content = new ByteArrayContent(byteData))
-                {
-                    content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                    response = await client.PostAsync(url, content);
-                    Console.WriteLine(await response.Content.ReadAsStringAsync());
-                }
-            }
-
-            private static byte[] GetImageAsByteArray(string imageFilePath)
-            {
-                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-                BinaryReader binaryReader = new BinaryReader(fileStream);
-                return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-        }
-    }
-    ```
-
-1. 다음 정보를 변경합니다.
-   * `namespace` 필드를 프로젝트 이름으로 설정합니다.
-   * 자리 표시자 `<Your prediction key>`를 이전에 검색한 키 값으로 바꿉니다.
-   * 자리 표시자 `<Your prediction URL>`을 이전에 검색한 URL로 바꿉니다.
-
-## <a name="run-the-application"></a>애플리케이션 실행
-
-애플리케이션을 실행할 때 콘솔에 이미지 파일의 경로를 입력하라는 메시지가 표시됩니다. 그런 다음 이미지가 Prediction API에 제출되고 예측 결과가 JSON 형식 문자열로 반환됩니다. 다음은 응답 예입니다.
-
-```json
+```csharp
+private static byte[] GetImageAsByteArray(string imageFilePath)
 {
-    "id":"7796df8e-acbc-45fc-90b4-1b0c81b73639",
-    "project":"8622c779-471c-4b6e-842c-67a11deffd7b",
-    "iteration":"59ec199d-f3fb-443a-b708-4bca79e1b7f7",
-    "created":"2019-03-20T16:47:31.322Z",
-    "predictions":[
-        {"tagId":"d9cb3fa5-1ff3-4e98-8d47-2ef42d7fb373","tagName":"cat", "probability":1.0},
-        {"tagId":"9a8d63fb-b6ed-4462-bcff-77ff72084d99","tagName":"dog", "probability":0.1087869}
-    ]
+    FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+    BinaryReader binaryReader = new BinaryReader(fileStream);
+    return binaryReader.ReadBytes((int)fileStream.Length);
 }
 ```
+
+**[ClassifyImageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.classifyimageasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_ClassifyImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_String_System_IO_Stream_System_String_System_Threading_CancellationToken_)** 메서드는 프로젝트 ID와 로컬에 저장 된 이미지를 사용 하 고 지정 된 모델에 대해 이미지의 점수를 지정 합니다.
+
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var result = predictionApi.ClassifyImageAsync(project.Id, publishedModelName, byteData);
+```
+
+## <a name="determine-how-to-process-the-data"></a>데이터 처리 방법 결정
+
+필요에 따라 대체 방법 ( **[CustomVisionPredictionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet)** 클래스의 메서드 참조)을 선택 하 여 서비스에서 점수 매기기 작업을 수행 하는 방법을 구성할 수 있습니다. 
+
+위의 메서드를 간소화 하기 위해 비 비동기 버전의 메서드를 사용할 수 있지만, 프로그램에서 상당한 시간 동안 잠길 수 있습니다.
+
+**-Withnostore** 메서드는 예측이 완료 된 후 서비스에서 예측 이미지를 유지 하지 않도록 요구 합니다. 일반적으로 서비스는 이러한 이미지를 유지 하므로 나중에 모델을 반복 하기 위한 학습 데이터로 추가할 수 있습니다.
+
+**-Withhttpmessages** 메서드는 API 호출의 원시 HTTP 응답을 반환 합니다.
+
+## <a name="get-results-from-the-service"></a>서비스에서 결과 가져오기
+
+서비스는 **[Imageprediction](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-dotnet)** 개체 형식으로 결과를 반환 합니다. **예측** 속성에는 각각 단일 개체 예측을 나타내는 **[PredictionModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet)** 개체의 목록이 포함 되어 있습니다. 여기에는 레이블의 이름과 이미지에서 개체가 검색 된 경계 상자 좌표가 포함 됩니다. 그러면 앱에서이 데이터를 구문 분석할 수 있습니다. 예를 들어 화면에 레이블이 지정 된 개체 필드가 있는 이미지를 표시할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

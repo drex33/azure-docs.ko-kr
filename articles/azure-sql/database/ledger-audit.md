@@ -1,27 +1,26 @@
 ---
 title: 원장 사용 테이블이 포함된 Azure SQL Database 감사 이벤트
 description: Azure SQL Database 원장 감사 기능 개요
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: d032b311809449d35a017fdd053fb97447b8479c
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 18e3c5ef5d9cb0316118e38f2ffb8dccc8c06fd7
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666746"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132064468"
 ---
 # <a name="azure-sql-database-audit-events-with-ledger-enabled-tables"></a>원장 사용 테이블이 포함된 Azure SQL Database 감사 이벤트
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 원장 사용 테이블을 사용하여 포렌식 활동을 수행하면 원장 보기 및 데이터베이스 원장에 데이터가 캡처됩니다. 다른 작업 ID도 SQL 감사 로그에 추가됩니다. 다음 표에서는 이러한 새로운 감사 로깅 이벤트를 간략하게 설명합니다. 이벤트를 트리거하는 조건은 각 테이블을 따릅니다.
 

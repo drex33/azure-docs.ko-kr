@@ -3,19 +3,17 @@ title: 번역 취소 메서드
 titleSuffix: Azure Cognitive Services
 description: 번역 취소 메서드는 현재 처리 중이거나 대기 중인 작업을 취소합니다.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/20/2021
-ms.author: v-jansk
-ms.openlocfilehash: eb8411717d0229b13571284176da7ccc113cf828
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: 8bf718da42dbd29c864736209cf441b03f3c9e1b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540743"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059263"
 ---
 # <a name="cancel-translation"></a>번역 취소
 
@@ -56,7 +54,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다.
 
-| 상태 코드| 설명|
+| 상태 코드| Description|
 |-----|-----|
 |200|OK. 취소 요청이 제출되었습니다.|
 |401|권한이 없습니다. 자격 증명을 확인하세요.|
@@ -70,7 +68,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 성공적인 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|유형|Description|
+|Name|Type|Description|
 |--- |--- |--- |
 |id|문자열|작업의 ID입니다.|
 |createdDateTimeUtc|문자열|작업을 만든 날짜와 시간입니다.|
@@ -87,7 +85,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 ### <a name="error-response"></a>오류 응답
 
-|Name|유형|설명|
+|Name|Type|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|

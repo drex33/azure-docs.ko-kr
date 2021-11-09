@@ -12,12 +12,12 @@ ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: 온-프레미스, OCR, Docker, 컨테이너
-ms.openlocfilehash: bfe2bbe061f92c4290e63d36e8dcd647b4f7f830
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8692ebd01c794165fc93e1aaaae912b33a4c1b52
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131078012"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062779"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Read OCR Docker 컨테이너 설치
 
@@ -26,6 +26,9 @@ ms.locfileid: "131078012"
 컨테이너를 사용하면 사용자 환경에서 Computer Vision API를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Computer Vision 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
 
 *Read* OCR 컨테이너를 사용하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대한 지원이 포함된 이미지와 문서로부터 인쇄된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [Read API 방법 가이드](Vision-API-How-to-Topics/call-read-api.md)를 참조하세요.
+
+## <a name="whats-new"></a>새로운 기능
+읽기 컨테이너의 기존 사용자의 경우 `3.2-model-2021-09-30-preview` 122개 언어 및 일반 성능 및 AI 향상을 지원하는 새 버전의 Read 컨테이너를 사용할 수 있습니다. [시작하려면 다운로드 지침을](#docker-pull-for-the-read-ocr-container) 따르세요.
 
 ## <a name="read-32-container"></a>Read 3.2 컨테이너
 
@@ -47,7 +50,7 @@ Read 3.2 OCR 컨테이너는 다음을 제공합니다.
 
 컨테이너를 사용하려면 먼저 다음 사전 요구 사항을 충족해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/install/#server)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
@@ -88,12 +91,19 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |-----------|------------|
-| Read 2.0 미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
+| Read 3.2 model-2021-09-30-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview` |
 | Read 3.2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
+| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 컨테이너 이미지를 다운로드합니다.
 
 ### <a name="docker-pull-for-the-read-ocr-container"></a>Read OCR 컨테이너에 대한 Docker pull
+
+최신 미리 보기의 경우:
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
 
 # <a name="version-32"></a>[버전 3.2](#tab/version-3-2)
 
@@ -123,6 +133,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
 
 `docker run`명령의 [예](computer-vision-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
+
+최신 미리 보기의 경우 3.2 경로를 다음으로 대체합니다.
+
+```
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+```
 
 # <a name="version-32"></a>[버전 3.2](#tab/version-3-2)
 
@@ -205,6 +221,10 @@ Azure Storage를 사용하여 처리할 이미지를 저장하는 경우 컨테�
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
 
+최신 미리 보기는 다음과 같습니다.
+
+5000 포트에서 3.2를 이미 배포한 경우 3.2와 동일한 Swagger 경로를 사용 하지만 다른 포트를 사용 합니다.
+
 # <a name="version-32"></a>[버전 3.2](#tab/version-3-2)
 
 컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. `http://localhost:5000/swagger/vision-v3.2-read/swagger.json`에서 Swagger 경로를 볼 수 있습니다.
@@ -217,6 +237,7 @@ Azure Storage를 사용하여 처리할 이미지를 저장하는 경우 컨테�
 
 ### <a name="asynchronous-read"></a>비동기 읽기
 
+최신 미리 보기의 경우 모든 것이 추가를 제외 하 고 3.2와 동일 합니다 `"modelVersion": "2021-09-30-preview"` .
 
 # <a name="version-32"></a>[버전 3.2](#tab/version-3-2)
 

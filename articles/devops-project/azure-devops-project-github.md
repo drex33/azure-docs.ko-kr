@@ -3,7 +3,7 @@ title: '자습서: Azure DevOps Starter를 사용하여 기존 코드용 CI/CD �
 description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 몇 가지 빠른 단계에서 DevOps Projects를 사용하면 사용자 고유의 코드와 GitHub 리포지토리를 사용하여 Azure 서비스에서 앱을 시작할 수 있습니다.
 services: vsts
 documentationcenter: vs-devops-build
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.workload: web
 ms.prod: devops
@@ -11,14 +11,14 @@ ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ms.custom: mvc
-ms.openlocfilehash: c03ba657ac264b72d035f28956354398421ed2f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9600dcc2c9cbd150783ed1a14afb2b785ba5b054
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566603"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056343"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 GitHub 리포지토리용 CI/CD 파이프라인 만들기
 
@@ -34,7 +34,7 @@ Azure DevOps Starter는 CI(연속 통합) 및 CD(지속적인 업데이트) 파�
 > * Azure Pipelines CI/CD 파이프라인 검사
 > * 리소스 정리
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 * .NET, Java, PHP, Node.js, Python 또는 정적 웹 코드가 포함된 GitHub 또는 외부 Git 리포지토리에 액세스합니다.

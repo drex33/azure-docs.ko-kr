@@ -3,19 +3,17 @@ title: 문서 상태 가져오기 메서드
 titleSuffix: Azure Cognitive Services
 description: 문서 상태 가져오기 메서드는 특정 문서의 상태를 반환합니다.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
-ms.openlocfilehash: 69172956d36aa4b43c88858a65771fdb183a39f6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 4ec9132a237ace9f43b33580f1956e38e6be634c
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453618"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058999"
 ---
 # <a name="get-document-status"></a>문서 상태 가져오기
 
@@ -81,7 +79,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ### <a name="error-response"></a>오류 응답
 
-|이름|Type|설명|
+|Name|Type|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|

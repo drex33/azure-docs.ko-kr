@@ -1,5 +1,5 @@
 ---
-title: 인덱스 만들기
+title: 인덱스 개요
 titleSuffix: Azure Cognitive Search
 description: 스키마 정의 및 물리적 데이터 구조를 포함하는 Azure Cognitive Search의 인덱싱 개념 및 도구를 소개합니다.
 manager: nitinme
@@ -7,21 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: cdfadc895de3af0f79c30a067f3e5376bfa8873b
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.date: 11/08/2021
+ms.openlocfilehash: ab1106ef927829589934485c2022d353339d5089
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769105"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062817"
 ---
-# <a name="creating-search-indexes-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 인덱스 만들기
+# <a name="search-indexes-in-azure-cognitive-search"></a>Azure Cognitive Search 인덱스 검색
 
 Cognitive Search는 ‘검색 인덱스’에서 전체 텍스트 및 필터링 된 쿼리에 사용되는 검색 가능한 콘텐츠를 저장합니다. 인덱스는 스키마에 의해 정의되고 서비스에 저장되며, 데이터 가져오기는 두 번째 단계로 수행됩니다. 
 
-인덱스는 ‘검색 문서’를 포함합니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 소매업체는 제품마다 문서가 있을 수 있으며 뉴스 조직은 기사마다 문서가 있을 수 있습니다. 이러한 개념을 좀 더 익숙한 데이터베이스 대응 개념과 연관 지어 살펴보면 ‘검색 인덱스’는 ‘테이블’에 해당하고 ‘문서’는 테이블의 ‘행’과 거의 비슷합니다.   
+이 문서에서는 검색 인덱스를 소개합니다. 시작하려고 합니까? [검색 인덱스 만들기를](search-how-to-create-search-index.md)참조하세요.
 
-## <a name="whats-an-index-schema"></a>인덱스 스키마란?
+## <a name="whats-a-search-index"></a>검색 인덱스란?
+
+Cognitive Search 인덱스는 *검색 문서* 를 포함합니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 소매점은 각 제품에 대한 문서를 가질 수 있고, 뉴스 조직에는 각 문서에 대한 문서가 있을 수 있습니다. 이러한 개념을 좀 더 익숙한 데이터베이스 대응 개념과 연관 지어 살펴보면 ‘검색 인덱스’는 ‘테이블’에 해당하고 ‘문서’는 테이블의 ‘행’과 거의 비슷합니다.   
 
 인덱스의 물리적 구조는 스키마에 의해 결정됩니다. 일반적으로 ‘필드’ 컬렉션이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 [데이터 형식](/rest/api/searchservice/Supported-data-types)이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다.
 
@@ -59,56 +61,9 @@ Cognitive Search는 ‘검색 인덱스’에서 전체 텍스트 및 필터링 
 
 다른 요소는 간결하게 축소되지만 다음 링크를 통해 세부 정보를 제공할 수 있습니다. 분석기 및 [CORS(교차 원본 원격 스크립팅)](#corsoptions) 설정에서 지원하는 언어 규칙 또는 기타 특성에 따라 토큰에 문자열을 처리하는 데 사용되는 [제안기](index-add-suggesters.md), [점수 매기기 프로필](index-add-scoring-profiles.md), [분석기](search-analyzers.md).
 
-## <a name="choose-a-client"></a>클라이언트 선택
+## <a name="field-definitions"></a>필드 정의
 
-여러 가지 방법으로 검색 인덱스를 만들 수 있습니다. 초기 개발 및 개념 증명 테스트에는 Azure Portal 또는 SDK를 사용하는 것이 좋습니다.
-
-개발하는 동안 다시 빌드하는 계획을 자주 세워야 합니다. 물리적 구조는 서비스에서 만들어지므로 기존 필드 정의를 대부분 수정하려면 [인덱스를 삭제하고 다시 만들어야](search-howto-reindex.md) 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다.
-
-### <a name="permissions"></a>권한
-
-정의에 대한 GET 요청을 포함하여 검색 인덱스와 관련된 모든 작업에는 요청에 대한 [관리자 API 키](search-security-api-keys.md)가 필요합니다.
-
-### <a name="limits"></a>제한
-
-[서비스 계층](search-limits-quotas-capacity.md#index-limits)마다 만들 수 있는 개체 수에 제한이 있습니다. 무료 계층을 실험하는 경우 지정된 시간에 3개의 인덱스만 가질 수 있습니다.
-
-### <a name="use-azure-portal-to-create-a-search-index"></a>Azure Portal을 사용하여 검색 인덱스 만들기
-
-포털은 검색 인덱스 생성을 위한 두 가지 옵션, 즉 [**데이터 가져오기 마법사**](search-import-data-portal.md)와 인덱스 스키마 지정을 위한 필드를 제공하는 **새 인덱스** 를 제공합니다. 마법사는 인덱서, 데이터 원본, 로딩 데이터를 만들어 추가 작업을 압축합니다. 원하는 것보다 많은 경우에는 **인덱스 추가** 또는 다른 방법만 사용하면 됩니다.
-
-다음 스크린샷은 포털에서 **인덱스 추가** 를 찾을 수 있는 위치를 보여 줍니다. 바로 옆에 **데이터 가져오기** 가 있습니다.
-
-  :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="인덱스 추가 명령" border="true":::
-
-> [!Tip]
-> 포털을 통한 인덱스 디자인은 숫자 필드에서 전체 텍스트 검색 기능을 허용하지 않는 등의 특정 데이터 형식에 대한 요구 사항 및 스키마 규칙을 적용합니다. 인덱스를 사용할 수 있으면 포털에서 JSON을 복사하여 솔루션에 추가할 수 있습니다.
-
-### <a name="use-a-rest-client"></a>REST 클라이언트 사용
-
-Postman과 Visual Studio Code(Azure Cognitive Search용 확장 사용)는 모두 검색 인덱스 클라이언트로 작동할 수 있습니다. 둘 중 어떤 도구를 사용하든 검색 서비스에 연결하고 [인덱스 만들기(REST)](/rest/api/searchservice/create-index) 요청을 보낼 수 있습니다. 개체를 만들기 위한 REST 클라이언트를 보여주는 다양한 자습서와 예제가 있습니다. 
-
-각 클라이언트에 대해 알아보려면 다음 문서 중 하나로 시작하세요.
-
-+ [REST 및 Postman을 사용하여 검색 인덱스 만들기](search-get-started-rest.md)
-+ [Visual Studio Code 및 Azure Cognitive Search 시작](search-get-started-vs-code.md)
-
-인덱스 요청을 작성하는 데 도움이 필요한 경우 [인덱스 작업(REST)](/rest/api/searchservice/index-operations)을 참조하세요.
-
-### <a name="use-an-sdk"></a>SDK 사용
-
-Cognitive Search의 경우 Azure SDK는 일반적으로 사용 가능한 기능을 구현합니다. 따라서 SDK를 사용하여 검색 인덱스를 만들 수 있습니다. 모두 인덱스를 만들고 업데이트하는 메서드가 있는 **SearchIndexClient** 를 제공합니다.
-
-| Azure SDK | 클라이언트 | 예제 |
-|-----------|--------|----------|
-| .NET | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) |
-| Java | [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) | [CreateIndexExample.java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java) |
-| JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [인덱스](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |
-| Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
-
-## <a name="define-fields"></a>필드 정의
-
-검색 문서는 `fields` 컬렉션에 의해 정의됩니다. 쿼리 및 키에 대한 필드가 필요합니다. 또한 필터, 패싯, 정렬을 지원할 필드도 필요합니다. 사용자에 표시되지 않는 데이터에 대한 필드도 필요할 수도 있습니다. 예를 들어 검색 순위를 수정하는 데 사용할 수 있는 이익률 또는 마케팅 프로모션에 대한 필드가 필요할 수 있습니다.
+검색 문서는 `fields` 컬렉션에 의해 정의됩니다. 문서 식별(키), 검색 가능한 텍스트 저장 및 필터, Facet 및 정렬을 지원하기 위한 필드가 필요합니다. 사용자에게 전혀 볼 수 없는 데이터에 대한 필드가 필요할 수도 있습니다. 예를 들어 검색 순위를 수정하는 데 사용할 수 있는 수익률 또는 마케팅 프로모션에 대한 필드를 원할 수 있습니다.
 
 Edm.String 형식의 필드 하나는 문서 키로 지정해야 합니다. 각 검색 문서를 고유하게 식별하는 데 사용하며 대/소문자를 구분합니다. 키를 기준으로 문서를 검색하여 세부 정보 페이지를 채울 수 있습니다.
 
@@ -140,7 +95,7 @@ Edm.String 형식의 필드 하나는 문서 키로 지정해야 합니다. 각 
 
 <a name="index-size"></a>
 
-## <a name="attributes-and-index-size-storage-implications"></a>특성 및 인덱스 크기(스토리지에 미치는 영향)
+## <a name="storage-implications-of-field-attributes"></a>필드 특성의 Storage 의미
 
 인덱스의 크기는 업로드하는 문서의 크기와 인덱스 구성(예: 제안기 포함 여부 및 개별 필드에 특성을 설정하는 방법)에 따라 결정됩니다. 
 
@@ -173,9 +128,11 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Cognitive Search에 대한 거의 모든 샘플 또는 연습을 사용하여 인덱스 만들기를 실습할 수 있습니다. 먼저 목차에서 빠른 시작 중 하나를 선택할 수 있습니다.
+Cognitive Search 대한 거의 모든 샘플 또는 연습을 사용하여 인덱스 만들기 실습 경험을 얻을 수 있습니다. 먼저 목차에서 빠른 시작 중 하나를 선택할 수 있습니다.
 
-하지만 데이터로 인덱스를 로드하는 방법론에 대해서도 알고 싶을 것입니다. 인덱스 정의 및 데이터 가져오기 전략은 동시에 정의됩니다. 다음 문서에서는 인덱스 로드에 대한 자세한 정보를 제공합니다.
+하지만 데이터로 인덱스를 로드하는 방법론에 대해서도 알고 싶을 것입니다. 인덱스 정의 및 데이터 가져오기 전략은 동시에 정의됩니다. 다음 문서는 인덱스를 만들고 로드 하는 방법에 대 한 자세한 정보를 제공 합니다.
+
++ [검색 인덱스 만들기](search-how-to-create-search-index.md)
 
 + [데이터 가져오기 개요](search-what-is-data-import.md)
 

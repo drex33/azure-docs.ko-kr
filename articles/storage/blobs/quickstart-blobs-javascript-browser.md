@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: bea5af6656aacd18805627f471d7227c2d1077bd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4fdcb48783a586baffe9bdeeec74c4d0a055a3e7
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616843"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060986"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -73,10 +73,10 @@ Azure Portal에서 스토리지 계정을 선택합니다. 새 CORS 규칙을 �
 
 |설정  |값  | Description |
 |---------|---------|---------|
-| **허용된 원본** | **\** _ | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `_`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
+| **허용된 원본** | * | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `*`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
 | **허용된 메서드** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** 및 **PUT** | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
-| **허용된 헤더** | **\** _ | 스토리지 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `_`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
-| **노출된 헤더** | **\** _ | 계정에서 허용되는 응답 헤더를 나열합니다. 값을 `_`로 설정하면 계정에서 모든 헤더를 보낼 수 있습니다. |
+| **허용된 헤더** | * | 스토리지 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `*`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
+| **노출된 헤더** | * | 계정에서 허용되는 응답 헤더를 나열합니다. 값을 `*`로 설정하면 계정에서 모든 헤더를 보낼 수 있습니다. |
 | **최대 기간** | **86400** | 브라우저에서 실행 전 OPTIONS 요청을 캐시하는 최대 시간(초)입니다. 값이 *86400* 이면 하루 동안 캐시를 유지할 수 있습니다. |
 
 필드가 이 표의 값으로 채워지면 **저장** 단추를 클릭합니다.

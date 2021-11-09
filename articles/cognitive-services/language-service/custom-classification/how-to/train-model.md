@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 2671796484f062440734d710acf95718a9a31998
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 466ddd800c70c27787a0a8ebcd8c14a4392e6c2f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053218"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061942"
 ---
 # <a name="how-to-train-a-text-classification-model"></a>텍스트 분류 모델을 학습 하는 방법
 
 
 학습은 모델이 [태그가 지정 된 데이터](tag-data.md)에서 학습 하는 프로세스입니다. 교육이 완료 된 후 모델 [평가 메트릭을 사용](../how-to/view-model-evaluation.md) 하 여 [모델을 개선](../how-to/improve-model.md)해야 하는지 여부를 결정할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 모델을 학습 하기 전에 다음이 필요 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "131053218"
 * 저장소 계정에 [업로드](create-project.md#prepare-training-data) 된 텍스트 데이터입니다.
 * [태그가 지정 된 데이터](tag-data.md)
 
-자세한 내용은 [응용 프로그램 개발 수명 주기](../overview.md#application-development-lifecycle) 를 참조 하세요.
+자세한 내용은 [응용 프로그램 개발 수명 주기](../overview.md#project-development-lifecycle) 를 참조 하세요.
 
 ## <a name="data-splits"></a>데이터 분할
 

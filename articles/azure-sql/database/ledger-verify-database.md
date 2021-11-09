@@ -5,24 +5,23 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ms.reviewer: vanto
-ms.date: 07/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: 7684cc6ecff0d4e36fec0d7df54edd8602aa145f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 272138471499cbd62085301df8e518ea47a7ddc3
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665497"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132064457"
 ---
 # <a name="verify-a-ledger-table-to-detect-tampering"></a>원장 테이블을 확인하여 변조 감지
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 Azure SQL Database 원장 테이블에 있는 데이터의 무결성을 확인합니다. [SQL Database를 만들 때](ledger-create-a-single-database-with-ledger-enabled.md) **자동 다이제스트 스토리지 사용** 을 선택한 경우 Azure Portal 지침을 따라 [쿼리 편집기](connect-query-portal.md)에서 데이터베이스 원장을 확인하는 데 필요한 T-SQL(Transact-SQL) 스크립트를 자동으로 생성해야 합니다. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)나 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)를 사용하여 T-SQL 지침을 따라도 됩니다.
 

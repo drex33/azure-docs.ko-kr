@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3cbe6b4c5cc4958eb471cb1b2d322cb73754a669
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: af2d2b1c1932cd46d4b823c23bf62b30eff5688b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052830"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060736"
 ---
 # <a name="file-integrity-monitoring-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud의 파일 무결성 모니터링
 
@@ -169,7 +168,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
 머신을 선택하면 선택한 기간 동안의 변경 내용을 식별하는 결과와 함께 쿼리가 나타납니다. 자세한 내용을 확인하려면 변경 내용을 펼칠 수 있습니다.
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/query-machine-changes.png" alt-text="클라우드용 Microsoft Defender의 파일 무결성 모니터링으로 식별된 변경 내용을 보여 주는 Log Analytics 쿼리" lightbox="./media/file-integrity-monitoring-overview/query-machine-changes.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/query-machine-changes.png" alt-text="클라우드용 Microsoft Defender의 파일 무결성 모니터링에서 식별된 변경 내용을 보여 있는 Log Analytics 쿼리" lightbox="./media/file-integrity-monitoring-overview/query-machine-changes.png":::
 
 **변경** 탭(아래 그림 참조)에는 선택한 기간 동안 작업 영역에 대한 모든 변경 내용이 나열됩니다. 대시보드에서 변경된 각 엔터티에 대해 나열하는 항목은 다음과 같습니다.
 
@@ -198,7 +197,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
       - 파일 콘텐츠
       - Windows 서비스
 
-      각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. 나열된 각 엔터티에 대해 Defender for Cloud는 FIM을 사용할 수 있는지(true) 여부를 식별합니다(false).  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+      각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. 나열된 각 엔터티에 대해 Defender for Cloud는 FIM 사용(true) 또는 사용 안 됨(false)을 식별합니다. 엔터티를 편집하여 FIM을 사용하거나 사용하지 않도록 설정합니다.
 
     :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="Microsoft Defender for Cloud에서 파일 무결성 모니터링을 위한 작업 영역 구성입니다.":::
 

@@ -4,13 +4,13 @@ description: Bicep 파일이 잘 작동하고 유지 관리하기 쉽도록 Bice
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: cea4adc3ed6843e9d07670cd2959e27311c2f22a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/02/2021
+ms.openlocfilehash: 65f55208f0a2e09db39cedc8e5074b622b232834
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131059721"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057673"
 ---
 # <a name="best-practices-for-bicep"></a>Bicep에 대한 모범 사례
 
@@ -18,7 +18,7 @@ ms.locfileid: "131059721"
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 
-Bicep 모범 사례 및 실습 지침에 대 한 자세한 내용은 **Microsoft Learn** 에 [대 한 공동 작업을 위한 Bicep 코드 구조](/learn/modules/structure-bicep-code-collaboration/) 를 참조 하세요.
+Bicep 모범 사례 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [협업을 위한 Bicep 코드 구조를 참조하세요.](/learn/modules/structure-bicep-code-collaboration/)
 
 ## <a name="parameters"></a>매개 변수
 
@@ -42,8 +42,6 @@ Bicep 매개 변수에 대한 자세한 내용은 [Bicep의 매개 변수](param
 
 ## <a name="variables"></a>변수
 
-* 같은 변수 이름에 대해 더 낮은 카멜식 대/소문자를 사용 `myVariableName` 합니다.
-
 * 변수를 정의할 때 [데이터 형식](data-types.md)은 필요하지 않습니다. 변수는 확인 값에서 형식을 유추합니다.
 
 * Bicep 함수를 사용하여 변수를 만들 수 있습니다.
@@ -52,13 +50,29 @@ Bicep 매개 변수에 대한 자세한 내용은 [Bicep의 매개 변수](param
 
 Bicep 변수에 대한 자세한 내용은 [Bicep의 변수](variables.md)를 참조하세요.
 
-## <a name="naming"></a>이름 지정
+## <a name="names"></a>이름
+
+* 이름에 대해 소문자(예: 또는 )를 `myVariableName` `myResource` 사용합니다.
 
 * [uniqueString() 함수](bicep-functions-string.md#uniquestring)는 전역적으로 고유한 리소스 이름을 만들 때 유용합니다. 동일한 매개 변수를 제공하면 매번 동일한 문자열이 반환됩니다. 리소스 그룹 ID를 전달하면 동일한 리소스 그룹에 대한 모든 배포에서 문자열이 동일하지만 다른 리소스 그룹 또는 구독에 배포할 때는 다릅니다.
 
 * 경우에 따라 `uniqueString()` 함수는 숫자로 시작하는 문자열을 만듭니다. 일부 Azure 리소스(예: 스토리지 계정)는 숫자로 시작하는 이름을 허용하지 않습니다. 이 요구 사항은 문자열 보간을 사용하여 리소스 이름을 만드는 것이 좋습니다. 고유 문자열에 접두사를 추가할 수 있습니다.
 
 * 템플릿 식을 사용하여 리소스 이름을 만드는 것이 좋은 경우가 자주 있습니다. 많은 Azure 리소스 종류에는 허용되는 문자 및 이름 길이에 대한 규칙이 있습니다. 템플릿에 리소스 이름 생성을 포함하면 템플릿을 사용하는 모든 사용자가 이러한 규칙을 따르기 위해 기억할 필요가 없다는 것을 의미합니다.
+
+* 기호 `name` 이름에 를 사용하지 않습니다. 기호 이름은 리소스 이름이 아니라 리소스를 나타냅니다. 예를 들어 다음은 사용하지 마세요.
+
+  ```bicep
+  resource cosmosDBAccountName 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
+  ```
+
+  다음을 사용합니다.
+
+  ```bicep
+  resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
+  ```
+
+* 접미사를 사용하여 변수와 매개 변수를 구분하지 않습니다.
 
 ## <a name="resource-definitions"></a>리소스 정의
 
@@ -70,19 +84,21 @@ Bicep 변수에 대한 자세한 내용은 [Bicep의 변수](variables.md)를 �
 
 * 가능하면 Bicep 파일에 [참조](./bicep-functions-resource.md#reference) 및 [resourceId](./bicep-functions-resource.md#resourceid) 함수를 사용하지 마십시오. 기호화된 이름을 사용하여 Bicep에서 모든 리소스에 액세스할 수 있습니다. 예를 들어 기호화된 이름이 toyDesignDocumentsStorageAccount인 스토리지 계정을 정의하는 경우 `toyDesignDocumentsStorageAccount.id` 식을 사용하여 해당 리소스 ID에 액세스할 수 있습니다. 기호화된 이름을 사용하여 리소스 간에 암시적 종속성을 만듭니다.
 
+* 명시적 의존성보다 암시적 의존성 사용을 선호합니다. 리소스 `dependsOn` 속성을 사용하면 리소스 간에 명시적 종속성을 선언할 수 있지만 일반적으로 해당 기호 이름을 사용하여 다른 리소스의 속성을 사용할 수 있습니다. 이렇게 하면 두 리소스 간에 암시적 종속성이 만들어지고 Bicep에서 관계 자체를 관리할 수 있습니다.
+
 * 리소스가 Bicep 파일에 배포되지 않은 경우, `existing` 키워드를 사용하여 리소스에 대한 기호화된 참조를 가져올 수 있습니다.
 
 ## <a name="child-resources"></a>자식 리소스
 
 * 너무 많은 계층을 깊게 중첩하지 않도록 합니다. 중첩이 너무 많으면 Bicep 코드를 읽고 작업하기가 더 어려워집니다.
 
-* 자식 리소스에 대한 리소스 이름을 생성하지 않는 것이 가장 좋습니다. Bicep이 리소스 간의 관계를 이해할 때 제공하는 이점을 잃게 됩니다. 대신 `parent` 속성 또는 중첩을 사용합니다.
+* 자식 리소스에 대한 리소스 이름을 생성하지 않습니다. Bicep이 리소스 간의 관계를 이해할 때 제공하는 이점을 잃게 됩니다. 대신 `parent` 속성 또는 중첩을 사용합니다.
 
 ## <a name="outputs"></a>출력
 
 * 중요한 데이터는 출력을 만들면 안 됩니다. 배포 기록에 액세스할 수 있는 사람은 누구나 출력 값에 액세스할 수 있습니다. 비밀을 처리하는 데 적합하지 않습니다.
 
-* 출력을 통해 속성 값을 전달하는 대신 `existing` 키워드를 사용하여 이미 존재하는 리소스의 속성을 조회합니다. 출력을 통해 전달하는 대신 다른 리소스에서 이러한 방식으로 키를 조회하는 것이 가장 좋습니다. 항상 최신 데이터를 얻을 수 있을 뿐 아니라
+* 출력을 통해 속성 값을 전달하는 대신 `[existing` 키워드](resource-declaration.md#existing-resources)를 사용하여 이미 존재하는 리소스의 속성을 조회합니다. 출력을 통해 전달하는 대신 다른 리소스에서 이러한 방식으로 키를 조회하는 것이 가장 좋습니다. 항상 최신 데이터를 얻을 수 있을 뿐 아니라
 
 Bicep 출력에 대한 자세한 내용은 [Bicep의 출력](outputs.md)을 참조하세요.
 

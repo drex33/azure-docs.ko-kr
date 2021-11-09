@@ -2,17 +2,17 @@
 title: AKS 가상 머신 호스트의 보안 강화
 description: AKS VM 호스트 OS의 보안 강화에 대해 알아보기
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: article
 ms.date: 03/29/2021
-ms.author: mlearned
+ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: fbdfec42038f48eefb707c85e54c1788841dd42d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9c39d67fbf52295fd6b31d417c7780cf7e240304
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528478"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055439"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>AKS 에이전트 노드 호스트 OS의 보안 강화
 

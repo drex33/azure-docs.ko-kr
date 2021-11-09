@@ -1,15 +1,15 @@
 ---
 title: 지원되는 Azure Resource Manager 리소스 종류
 description: Azure Resource Graph 및 변경 내역에서 지원되는 Azure Resource Manager 리소스 종류 목록을 제공합니다.
-ms.date: 09/03/2021
+ms.date: 10/12/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 9dfdd77d400dfa91ec26df23d323f8290dc97da0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 9b3ce54d9554164b375ed1a08fdbcce8429dbb21
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536070"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054812"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -32,6 +32,9 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 
 ## <a name="desktopvirtualizationresources"></a>desktopvirtualizationresources
 
+- microsoft. 감사/상태
+- microsoft. n e t/대상
+- microsoft. n e t/대상/기능
 - microsoft.desktopvirtualization/hostpools/sessionhosts
 
 ## <a name="extendedlocationresources"></a>extendedlocationresources
@@ -64,11 +67,16 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 ## <a name="iotsecurityresources"></a>iotsecurityresources
 
 - microsoft. iotsecurity/위치/s i d/devicegroups/alerts
+  - 예제 쿼리: [지난 30 일 동안 모든 새 경고 가져오기](../samples/samples-by-category.md#get-all-new-alerts-from-the-past-30-days)
 - microsoft. iotsecurity/위치/장치/장치
+  - 샘플 쿼리: [네트워크에 있는 IoT 장치의 수를 작업 시스템 별로 계산 합니다](../samples/samples-by-category.md#count-how-many-iot-devices-there-are-in-your-network-by-operation-system) .
 - microsoft. iotsecurity/위치/s i d 그룹/권장 사항
+  - 예제 쿼리: [높은 심각도 권장 사항을 모두 가져옵니다](../samples/samples-by-category.md#get-all-high-severity-recommendations) .
 - microsoft. iotsecurity/onpremisesensors
 - microsoft .exe 보안/센서
+  - 예제 쿼리: [유형별 모든 센서 수](../samples/samples-by-category.md#count-all-sensors-by-type)
 - microsoft .exe 보안/사이트
+  - 예제 쿼리: [특정 태그 값을 포함 하는 사이트 나열](../samples/samples-by-category.md#list-sites-with-a-specific-tag-value)
 
 ## <a name="kubernetesconfigurationresources"></a>kubernetesconfigurationresources
 
@@ -77,6 +85,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.kubernetesconfiguration/extensions
   - 샘플 쿼리: [Azure Monitor 확장이 있는 모든 Azure Arc 지원 Kubernetes 클러스터 나열](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension)
   - 샘플 쿼리: [Azure Monitor 확장이 없는 모든 Azure Arc 지원 Kubernetes 클러스터 나열](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
+- kubernetesconfiguration/fluxconfigurations
 - microsoft.kubernetesconfiguration/sourcecontrolconfigurations
 
 ## <a name="maintenanceresources"></a>maintenanceresources
@@ -129,14 +138,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.management/managementgroups
   - 샘플 쿼리: [관리 그룹당 구독 수](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
   - 샘플 쿼리: [지정된 관리 그룹에 대한 모든 관리 그룹 상위 항목 나열](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-management-group)
-- microsoft.resources/subscriptions(구독)
-  - 샘플 쿼리: [관리 그룹당 구독 수](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
-  - 샘플 쿼리: [구독 이름이 있는 키 자격 증명 모음](../samples/samples-by-category.md#key-vaults-with-subscription-name)
-  - 샘플 쿼리: [지정된 구독에 대 한 모든 관리 그룹 상위 항목 나열](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
-  - 샘플 쿼리: [지정된 관리 그룹의 모든 구독을 나열 ](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
-  - 샘플 쿼리: [결과창에 열 추가 또는 제거](../samples/samples-by-category.md#remove-columns-from-results)
-  - 샘플 쿼리: [관리 그룹당 보안 점수](../samples/samples-by-category.md#secure-score-per-management-group)
 - Microsoft.Resources/subscriptions/resourceGroups(리소스 그룹)
+  - 예제 쿼리: [두 쿼리의 결과를 단일 결과로 결합](../samples/samples-by-category.md)
   - 샘플 쿼리: [리소스 그룹에서 대/소문자를 구분하지 않는 특정 태그가 있는 스토리지 계정 찾기](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - 샘플 쿼리:[리소스 그룹에서 대/소문자를 구분하는 특정 태그가 있는 스토리지 계정 찾기](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
 
@@ -149,7 +152,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Citrix.Services/XenDesktopEssentials(Citrix Virtual Desktops Essentials)
 - conexlink.mycloudit/accounts
 - crypteron.datasecurity/apps
-- dynatrace.observability/monitors
+- Dynatrace 관찰성/monitor (Dynatrace)
 - GitHub.Enterprise/accounts(GitHub AE)
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
@@ -159,6 +162,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - incapsula.waf/accounts
 - LiveArena.Broadcast/services(LiveArena Broadcast)
 - Mailjet.Email/services(Mailjet 이메일 서비스)
+- micorosft/kubeenvironments
 - Microsoft.AAD/domainServices(Azure AD Domain Services)
 - microsoft.aadiam/azureadmetrics
 - microsoft.aadiam/privateLinkForAzureAD(Azure AD용 프라이빗 링크)
@@ -178,6 +182,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.AppPlatform/Spring(Azure Spring Cloud)
 - microsoft.archive/collections
 - Microsoft.Attestation/attestationProviders(증명 공급자)
+- microsoft. authorization/elevateaccessroleassignment
 - Microsoft.Authorization/resourceManagementPrivateLinks(리소스 관리 프라이빗 링크)
 - microsoft.automanage/accounts
 - microsoft.automanage/configurationprofilepreferences
@@ -196,6 +201,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.AzureArcData/sqlManagedInstances(SQL 관리형 인스턴스 - Azure Arc)
 - Microsoft.AzureArcData/sqlServerInstances(SQL Server - Azure Arc)
 - microsoft.azurecis/autopilotenvironments
+- azurecis/dstsserviceaccounts
+- azurecis/dstsserviceclientidentities
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -216,6 +223,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.azurestackhci/networkinterfaces
 - microsoft.azurestackhci/virtualharddisks
 - Microsoft.AzureStackHci/virtualMachines(Azure Stack HCI 가상 머신 - Azure Arc)
+- azurestackhci/virtualmachines/extensions
 - microsoft.azurestackhci/virtualnetworks
 - microsoft.backupsolutions/vmwareapplications
 - microsoft.baremetal/consoleconnections
@@ -242,8 +250,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.Cdn/Profiles/AfdEndpoints (엔드포인트)
 - microsoft.cdn/profiles/endpoints(엔드포인트)
 - Microsoft.CertificateRegistration/certificateOrders(App Service Certificate)
-- Microsoft.chaos/chaosexperiments(카오스 실험)
-- microsoft.chaos/experiments
+- chaosexperiments/감사 (비정상 실험 (클래식))
+- microsoft. 감사 안 (비정상 상황 실험)
 - microsoft.classicCompute/domainNames(클라우드 서비스(클래식))
 - Microsoft.ClassicCompute/VirtualMachines(가상 머신(클래식))
 - Microsoft.ClassicNetwork/networkSecurityGroups(네트워크 보안 그룹(클래식))
@@ -270,8 +278,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.Compute/diskEncryptionSets(디스크 암호화 집합)
 - Microsoft.Compute/disks(디스크)
 - Microsoft.Compute/galleries(공유 이미지 갤러리)
-- Microsoft.Compute/galleries/applications (갤러리 응용 프로그램)
-- Microsoft.Compute/galleries/applications/version (갤러리 응용 프로그램 버전)
+- Microsoft. Compute/갤러리/응용 프로그램 (VM 응용 프로그램)
+- Microsoft. Compute/갤러리/응용 프로그램/버전 (VM 응용 프로그램 버전)
 - Microsoft.Compute/galleries/images(이미지 정의)
 - Microsoft.Compute/galleries/images/versions(이미지 버전)
 - Microsoft.Compute/hostgroups(호스트 그룹)
@@ -309,6 +317,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.ConnectedVehicle/platformAccounts (연결된 차량 플랫폼)
 - microsoft.connectedvmwarevsphere/clusters
 - microsoft.connectedvmwarevsphere/datastores
+- connectedvmwarevsphere/호스트
 - microsoft.connectedvmwarevsphere/resourcepools
 - Microsoft.connectedVMwareVSphere/vCenters(VMware vCenters)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines(VMware + AVS 가상 머신)
@@ -346,7 +355,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.DataFactory/factories(데이터 팩터리(V2))
 - Microsoft.DataLakeAnalytics/accounts(Data Lake Analytics)
 - Microsoft.DataLakeStore/accounts(Data Lake Storage Gen1)
-  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
+  - 샘플 쿼리: [Azure 구독을 전송할 때 영향을 받은 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.datamigration/controllers
 - Microsoft.DataMigration/services(Azure Database Migration Services)
 - Microsoft.DataMigration/services/projects(Azure Database Migration Projects)
@@ -356,7 +365,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft DataProtection/resourceGuards (리소스 가드 (미리 보기))
 - microsoft.dataprotection/resourceoperationgatekeepers
 - microsoft.datareplication/replicationfabrics
-- microsoft.datareplication/replicationvaults
+- Microsoft.DataReplication/replicationVaults(Site Recovery Vault)
 - Microsoft.DataShare/accounts(Data Share)
 - Microsoft.DBforMariaDB/servers(Azure Database for MariaDB 서버)
 - Microsoft.DBforMySQL/flexibleServers(Azure Database for MySQL 유연한 서버)
@@ -446,10 +455,11 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.HybridCompute/machines(서버 - Azure Arc)
   - 샘플 쿼리: [도메인 별 Arc 사용 서버의 수 및 백분율을 가져옵니다](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
   - 샘플 쿼리: [Azure Arc 지원 서버에 설치된 모든 확장 나열](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
-  - 샘플 쿼리: [릴리스된 최신 에이전트 버전을 실행하지 않는 Arc 지원 서버 나열](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
+  - 예제 쿼리: [Arc 사용 서버가 최신 릴리스 에이전트 버전을 실행 하지 않는 목록을](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version) 표시 합니다.
 - microsoft.hybridcompute/machines/extensions
   - 샘플 쿼리: [Azure Arc 지원 서버에 설치된 모든 확장 나열](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes(Azure Arc 프라이빗 링크 범위)
+- hybridcontainerservice/provisionedclusters
 - Microsoft.HybridData/dataManagers(StorSimple Data Manager)
 - Microsoft.HybridNetwork/devices(Azure Network Function Manager – 디바이스(미리 보기))
 - Microsoft.HybridNetwork/networkFunctions(Azure Network Function Manager – 네트워크 기능(미리 보기))
@@ -539,7 +549,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.MarketplaceApps/classicDevServices(클래식 개발 서비스)
 - microsoft.media/mediaservices(Media Services)
 - microsoft.media/mediaservices/liveevents(라이브 이벤트)
-- microsoft.media/mediaservices/streamingEndpoints(스트리밍 엔드포인트)
+- microsoft media/windowsazure.mediaservices/streamingendpoints (스트리밍 끝점)
 - microsoft.media/mediaservices/transforms
 - microsoft.media/videoanalyzers(Video Analyzer)
 - microsoft.microservices4spring/appclusters
@@ -566,12 +576,14 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
 - Microsoft.MobileNetwork/sims(Sim)
 - microsoft.mobilenetwork/sims/simprofiles
+- microsoft. 모니터/계정
 - Microsoft.NetApp/netAppAccounts(NetApp 계정)
 - microsoft.netapp/netappaccounts/backuppolicies
 - Microsoft.NetApp/netAppAccounts/capacityPools(용량 풀)
 - Microsoft.NetApp/netAppAccounts/capacityPools/Volumes(볼륨)
 - microsoft.netapp/netappaccounts/capacitypools/volumes/mounttargets
 - Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots(스냅샷)
+- microsoft netapp/netappaccounts/capacitypools/볼륨/하위 볼륨
 - Microsoft.NetApp/netAppAccounts/snapshotPolicies (스냅샷 정책)
 - Microsoft.Network/applicationGateways(애플리케이션 게이트웨이)
 - Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies(웹 애플리케이션 방화벽 정책(WAF))
@@ -660,7 +672,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.OperationsManagement/solutions(솔루션)
 - microsoft.operationsmanagement/views
 - Microsoft.Orbital/contactProfiles(ContactProfiles)
-- microsoft.orbital/groundstations
+- Microsoft. 궤도/GroundStations (GroundStations)
 - microsoft.orbital/orbitalendpoints
 - microsoft.orbital/orbitalgateways
 - microsoft.orbital/orbitalgateways/orbitall2connections
@@ -678,6 +690,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.powerplatform/accounts
 - microsoft.powerplatform/enterprisepolicies
 - microsoft.projectbabylon/accounts
+- providerhubdevtest/regionalstresstests
 - Microsoft.Purview/Accounts(Purview 계정)
 - Microsoft.Quantum/Workspaces(Quantum 작업 영역)
 - Microsoft.RecommendationsService/accounts (Intelligent 권장 사항 계정)
@@ -696,14 +709,16 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.SaaS/applications(SaaS(클래식))
 - Microsoft.SaaS/resources(SaaS)
 - Microsoft.Scheduler/jobCollections(Scheduler 작업 컬렉션)
-- Microsoft.Scom/managedInstances(Aquila 리소스)
+- Microsoft Scom/managedInstances (Aquila Instances)
 - microsoft.scvmm/clouds
 - Microsoft.scvmm/virtualMachines(SCVMM 가상 머신 - Azure Arc)
 - microsoft.scvmm/virtualmachinetemplates
 - microsoft.scvmm/virtualnetworks
 - microsoft.scvmm/vmmservers
 - Microsoft.Search/searchServices(검색 서비스)
+- microsoft. 보안/할당
 - microsoft.security/automations
+- microsoft. security/customentitystor
 - microsoft.security/iotsecuritysolutions
 - microsoft.security/securityconnectors
 - Microsoft.SecurityDetonation/chambers(보안 데토네이션 챔버)
@@ -746,7 +761,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
   - 샘플 쿼리: [리소스 그룹에서 대/소문자를 구분하지 않는 특정 태그가 있는 스토리지 계정 찾기](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - 샘플 쿼리:[리소스 그룹에서 대/소문자를 구분하는 특정 태그가 있는 스토리지 계정 찾기](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
   - 샘플 쿼리: [특정 태그 값이 있는 모든 스토리지 계정 나열](../samples/samples-by-category.md#list-all-storage-accounts-with-specific-tag-value)
-  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
+  - 샘플 쿼리: [Azure 구독을 전송할 때 영향을 받은 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.storagecache/amlfilesystems
 - Microsoft.StorageCache/caches(HPC 캐시)
 - Microsoft.StoragePool/diskPools(디스크 풀)
@@ -797,6 +812,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.web/certificates
 - Microsoft.Web/connectionGateways(온-프레미스 데이터 게이트웨이)
 - Microsoft.Web/connections(API 연결)
+- microsoft.web/containerapps
 - Microsoft.Web/customApis(Logic Apps 사용자 지정 커넥터)
 - Microsoft.Web/HostingEnvironments(App Service Environment)
 - Microsoft.Web/KubeEnvironments(App Service Kubernetes 환경)
@@ -814,7 +830,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - NGINX.NGINXPLUS/nginxDeployments (NGINX 배포)
 - Paraleap.CloudMonix/services(CloudMonix)
 - Pokitdok.Platform/services(PokitDok 플랫폼)
-- Providers.Test/statefulIbizaEngines(애플리케이션 평가)
+- private.contoso/employees
+- Providers.Test/statefulIbizaEngines(내 리소스)
 - RavenHq.Db/databases(RavenHQ)
 - Raygun.CrashReporting/apps(Raygun)
 - Sendgrid.Email/accounts(SendGrid 계정)

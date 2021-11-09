@@ -2,13 +2,13 @@
 title: Azure Functions에서 프록시 사용
 description: Azure Functions 프록시를 사용하는 방법의 개요
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.openlocfilehash: 34873d3d7e0200d2c6ee58096af880f26c428732
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 11/08/2021
+ms.openlocfilehash: 415d090aff611a3c7fc7cd7fb1c511b43b0702db
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429607"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058621"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -19,7 +19,9 @@ ms.locfileid: "129429607"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE] 
-> 또한 애플리케이션에 [Azure API Management](../api-management/api-management-key-concepts.md) 사용하는 것도 고려해야 합니다. OpenAPI 통합, 속도 제한 및 고급 정책과 같은 API를 빌드하고 유지 관리하기 위한 다른 도구뿐만 아니라 Functions 프록시와 동일한 기능을 제공합니다. 
+> 프록시는 Azure Functions [버전](./functions-versions.md) 1.x에서 3. x로 사용할 수 있습니다.
+> 
+> 응용 프로그램에 [Azure API Management](../api-management/api-management-key-concepts.md) 를 사용 하는 것도 고려해 야 합니다. 이는 OpenAPI 통합, 요율 제한 및 고급 정책과 같은 Api 빌드 및 유지 관리를 위한 다른 도구 뿐만 아니라 함수 프록시와 동일한 기능을 제공 합니다. 
 
 ## <a name="create-a-proxy"></a><a name="create"></a>프록시 만들기
 

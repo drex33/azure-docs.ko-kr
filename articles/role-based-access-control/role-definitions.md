@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/28/2021
 ms.author: rolyon
 ms.custom: ''
-ms.openlocfilehash: c68849dcb3c0c5683bfc160a0b4a1cb03ae0e13a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e60c9f2e7cf4c2f2ed19612ff8e01260a5f8fcb7
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356050"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055108"
 ---
 # <a name="understand-azure-role-definitions"></a>Azure 역할 정의 이해
 
@@ -24,7 +24,7 @@ Azure 역할이 작동하는 방식을 이해하려거나 사용자 고유의 [A
 
 ## <a name="role-definition"></a>역할 정의
 
-*역할 정의* 는 권한 컬렉션입니다. 때로는 *역할* 이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열 됩니다. 또한 허용 되는 작업 또는 기본 데이터와 관련 된 작업에서 제외 된 작업을 나열할 수 있습니다.
+*역할 정의* 는 권한 컬렉션입니다. 때로는 *역할* 이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 허용 되는 작업 또는 기본 데이터와 관련 된 작업에서 제외 된 작업을 나열할 수 있습니다.
 
 다음은 Azure PowerShell를 사용하여 표시할 경우 역할 정의의 속성 예를 보여 줍니다.
 
@@ -86,7 +86,7 @@ assignableScopes []
 
 ### <a name="role-definition-example"></a>역할 정의 예제
 
-Azure PowerShell 및 Azure CLI에 표시되는 [기여자](built-in-roles.md#contributor) 역할 정의는 다음과 같습니다. 아래의 와일드 카드 ( `*` ) 작업은 `Actions` 이 역할에 할당 된 보안 주체가 모든 작업을 수행할 수 있음을 나타냅니다. 즉, 모든 항목을 관리할 수 있습니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가할 때 정의되는 작업도 포함됩니다. 아래의 작업을 `NotActions` 에서 뺍니다 `Actions` . [기여자](built-in-roles.md#contributor) 역할의 경우 `NotActions`는 리소스에 대한 액세스를 관리하고 Azure Blueprint 할당을 관리하는 이 역할의 기능을 제거합니다.
+Azure PowerShell 및 Azure CLI에 표시되는 [기여자](built-in-roles.md#contributor) 역할 정의는 다음과 같습니다. 아래의 와일드 카드 ( `*` ) 작업은 `Actions` 이 역할에 할당 된 보안 주체가 모든 작업을 수행할 수 있음을 나타냅니다. 즉, 모든 항목을 관리할 수 있습니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가할 때 정의되는 작업도 포함됩니다. 아래의 작업을 `NotActions` 에서 뺍니다 `Actions` . [참가자](built-in-roles.md#contributor) 역할의 경우는 `NotActions` 이 역할의 기능을 제거 하 여 리소스에 대 한 액세스를 관리 하 고 Azure 청사진 할당도 관리 합니다.
 
 Azure PowerShell에 표시되는 기여자 역할:
 
@@ -268,50 +268,50 @@ Bob의 권한은 [Storage Blob 데이터 기여자](built-in-roles.md#storage-bl
 | [Python용 Azure](/azure/python/) | 0.40.0 이상 |
 | [Ruby용 Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 이상 |
 
-REST API 데이터 작업을 보고 사용하려면 **api-version** 매개 변수를 다음 버전 이상으로 설정해야 합니다.
+REST API에서 데이터 작업을 보고 사용 하려면 **api-version** 매개 변수를 다음 버전 이상으로 설정 해야 합니다.
 
 - 2018-07-01
 
 ## <a name="actions"></a>동작
 
-`Actions`사용 권한은 역할이 수행할 수 있는 컨트롤 플레인 동작을 지정합니다. Azure 리소스 공급자의 보안 가능한 작업을 식별하는 문자열 컬렉션입니다. 다음은 에서 사용할 수 있는 컨트롤 플레인 작업의 몇 가지 `Actions` 예입니다.
+`Actions`권한은 역할이 수행할 수 있도록 허용 하는 제어 평면 동작을 지정 합니다. Azure 리소스 공급자의 보안 개체 작업을 식별 하는 문자열의 컬렉션입니다. 에서 사용할 수 있는 제어 평면 작업의 몇 가지 예는 다음과 같습니다 `Actions` .
 
 > [!div class="mx-tableFixed"]
 > | 작업 문자열    | Description         |
 > | ------------------- | ------------------- |
-> | `*/read` | 모든 Azure 리소스 공급자의 모든 리소스 종류에 대한 읽기 작업에 대한 액세스 권한을 부여합니다.|
-> | `Microsoft.Compute/*` | Microsoft.Compute 리소스 공급자의 모든 리소스 종류에 대한 모든 작업에 대한 액세스 권한을 부여합니다.|
-> | `Microsoft.Network/*/read` | Microsoft.Network 리소스 공급자의 모든 리소스 종류에 대한 읽기 작업에 대한 액세스 권한을 부여합니다.|
-> | `Microsoft.Compute/virtualMachines/*` | 가상 머신 및 해당 자식 리소스 유형의 모든 작업에 대한 액세스 권한을 부여합니다.|
+> | `*/read` | 모든 Azure 리소스 공급자의 모든 리소스 종류에 대 한 읽기 작업에 대 한 액세스 권한을 부여 합니다.|
+> | `Microsoft.Compute/*` | Microsoft. Compute 리소스 공급자에서 모든 리소스 유형에 대 한 모든 작업에 대 한 액세스 권한을 부여 합니다.|
+> | `Microsoft.Network/*/read` | Microsoft 네트워크 리소스 공급자의 모든 리소스 종류에 대 한 읽기 작업에 대 한 액세스 권한을 부여 합니다.|
+> | `Microsoft.Compute/virtualMachines/*` | 가상 컴퓨터의 모든 작업 및 해당 자식 리소스 종류에 대 한 액세스 권한을 부여 합니다.|
 > | `microsoft.web/sites/restart/Action` | 웹앱을 다시 시작하기 위한 액세스 권한을 부여합니다.|
 
 ## <a name="notactions"></a>NotActions
 
-`NotActions`사용 권한은 와일드카드( )가 있는 허용된 에서 빼거나 제외하는 컨트롤 `Actions` 플레인 동작을 지정합니다. `*` `NotActions`허용하려는 작업 집합이 와일드카드( )가 있는 에서 를 빼서 보다 쉽게 정의할 수 있는 경우 사용 권한을 `Actions` `*` 사용합니다. 역할(유효 권한)에서 부여된 액세스 권한은 작업에서 작업을 빼서 `NotActions` `Actions` 계산됩니다.
+`NotActions`사용 권한은 `Actions` 와일드 카드 ()를 포함 하는 허용 된에서 제외 되거나 제외 되는 제어 평면 작업을 지정 합니다 `*` . 허용 하려는 `NotActions` 작업 집합이 `Actions` 와일드 카드 ()를 사용 하 여에서 빼서 보다 쉽게 정의 되는 경우 사용 권한을 사용 합니다 `*` . 역할에 의해 부여 된 액세스 (유효 사용 권한)는 동작에서 작업을 빼서 계산 합니다 `NotActions` `Actions` .
 
 `Actions - NotActions = Effective control plane permissions`
 
-다음 표에서는 [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) 와일드카드 작업에 대한 유효 컨트롤 플레인 권한의 두 가지 예를 보여줍니다.
+다음 표에서는 [CostManagement](resource-provider-operations.md#microsoftcostmanagement) 와일드 카드 동작에 대 한 유효한 제어 평면 권한의 두 가지 예를 보여 줍니다.
 
 > [!div class="mx-tableFixed"]
-> | Actions | NotActions | 효과적인 컨트롤 플레인 권한 |
+> | Actions | NotActions | 유효한 제어 평면 권한 |
 > | --- | --- | --- |
 > | `Microsoft.CostManagement/exports/*` | *없음* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
 > | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
-> 사용자에게 에서 작업을 제외하는 역할이 `NotActions` 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 있습니다. `NotActions` 는 거부 규칙이 아닙니다. 특정 작업을 제외해야 하는 경우 허용된 작업 집합을 만드는 편리한 방법입니다.
+> 사용자에 게에서 작업을 제외 하는 역할이 할당 되 `NotActions` 고 동일한 작업에 대 한 액세스 권한을 부여 하는 두 번째 역할이 할당 된 경우 사용자는 해당 작업을 수행할 수 있습니다. `NotActions` 거부 규칙은 아닙니다. 특정 작업을 제외 해야 하는 경우 허용 되는 작업 집합을 만드는 편리한 방법일 뿐입니다.
 >
 
 ### <a name="differences-between-notactions-and-deny-assignments"></a>NotActions와 deny 할당 간의 차이점
 
-`NotActions` 및 deny 할당은 같지 않으며 서로 다른 용도를 제공합니다. `NotActions` 는 와일드카드( ) 작업에서 특정 작업을 빼는 편리한 `*` 방법입니다.
+`NotActions` 및 deny 할당은 같지 않으며 서로 다른 용도를 제공합니다. `NotActions` 는 와일드 카드 () 작업에서 특정 작업을 빼는 편리한 방법 `*` 입니다.
 
 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 작업을 사용자가 수행할 수 없도록 차단합니다. 자세한 내용은 [Azure 거부 할당 이해](deny-assignments.md)를 참조하세요.
 
 ## <a name="dataactions"></a>DataActions
 
-`DataActions`사용 권한은 역할이 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 평면 동작을 지정합니다. 예를 들어 사용자가 스토리지 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 스토리지 계정 내의 Blob을 읽을 수 있습니다. 다음은 에서 사용할 수 있는 데이터 작업의 몇 가지 `DataActions` 예입니다.
+`DataActions`이 권한은 해당 개체 내의 데이터에 대해 역할이 수행할 수 있도록 허용 하는 데이터 평면 동작을 지정 합니다. 예를 들어 사용자가 스토리지 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 스토리지 계정 내의 Blob을 읽을 수 있습니다. 에서 사용할 수 있는 데이터 작업의 몇 가지 예는 다음과 같습니다 `DataActions` .
 
 > [!div class="mx-tableFixed"]
 > | 데이터 작업 문자열    | Description         |
@@ -323,11 +323,11 @@ REST API 데이터 작업을 보고 사용하려면 **api-version** 매개 변�
 
 ## <a name="notdataactions"></a>NotDataActions
 
-`NotDataActions`사용 권한은 와일드카드( )가 있는 허용된 에서 빼거나 제외하는 데이터 평면 `DataActions` 동작을 지정합니다. `*` `NotDataActions`허용하려는 작업 집합이 와일드카드( )가 있는 에서 를 빼서 보다 쉽게 정의할 수 있는 경우 사용 권한을 `DataActions` `*` 사용합니다. 역할(유효 권한)에서 부여된 액세스 권한은 작업에서 작업을 빼서 `NotDataActions` `DataActions` 계산됩니다. 각 리소스 공급자는 데이터 작업을 수행하기 위해 각각의 API 집합을 제공합니다.
+`NotDataActions`사용 권한은 `DataActions` 와일드 카드 ()를 포함 하는 허용 된에서 빼고 제외 되는 데이터 평면 작업을 지정 합니다 `*` . 허용 하려는 `NotDataActions` 작업 집합이 `DataActions` 와일드 카드 ()를 사용 하 여에서 빼서 보다 쉽게 정의 되는 경우 사용 권한을 사용 합니다 `*` . 역할에 의해 부여 된 액세스 (유효 사용 권한)는 동작에서 작업을 빼서 계산 합니다 `NotDataActions` `DataActions` . 각 리소스 공급자는 데이터 작업을 수행 하기 위해 각각의 Api 집합을 제공 합니다.
 
 `DataActions - NotDataActions = Effective data plane permissions`
 
-다음 표에서는 [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) 와일드카드 작업에 대한 유효 날짜 평면 사용 권한의 두 가지 예를 보여줍니다.
+다음 표에서는 [Microsoft Storage](resource-provider-operations.md#microsoftstorage) 와일드 카드 동작에 대 한 유효 날짜 평면 권한의 두 가지 예를 보여 줍니다.
 
 > [!div class="mx-tableFixed"]
 > | DataActions | NotDataActions | 유효 데이터 평면 권한 |
@@ -336,12 +336,12 @@ REST API 데이터 작업을 보고 사용하려면 **api-version** 매개 변�
 > | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
-> 사용자에게 에서 데이터 작업을 제외하는 역할이 할당되고 동일한 데이터 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 `NotDataActions` 사용자는 해당 데이터 작업을 수행할 수 있습니다. `NotDataActions` 는 거부 규칙이 아닙니다. 특정 데이터 작업을 제외해야 할 때 허용되는 데이터 작업 집합을 만드는 편리한 방법입니다.
+> 사용자에 게에서 데이터 작업을 제외 하는 역할이 할당 되 `NotDataActions` 고 동일한 데이터 동작에 대 한 액세스 권한을 부여 하는 두 번째 역할이 할당 된 경우 사용자는 해당 데이터 작업을 수행할 수 있습니다. `NotDataActions` 거부 규칙은 아닙니다. 특정 데이터 작업을 제외 해야 하는 경우 허용 되는 데이터 작업 집합을 만드는 편리한 방법일 뿐입니다.
 >
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes`속성은 이 역할 정의를 할당할 수 있는 범위(관리 그룹, 구독 또는 리소스 그룹)를 지정합니다. 역할이 필요한 관리 그룹, 구독 또는 리소스 그룹에만 역할을 할당할 수 있습니다. 하나 이상의 관리 그룹, 구독 또는 리소스 그룹을 사용해야 합니다.
+`AssignableScopes`속성은이 역할 정의를 할당할 수 있는 범위 (관리 그룹, 구독 또는 리소스 그룹)를 지정 합니다. 역할이 필요한 관리 그룹, 구독 또는 리소스 그룹에만 역할을 할당할 수 있습니다. 하나 이상의 관리 그룹, 구독 또는 리소스 그룹을 사용해야 합니다.
 
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 

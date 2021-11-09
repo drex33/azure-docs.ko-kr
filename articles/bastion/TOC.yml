@@ -57,6 +57,8 @@
       href: upgrade-sku.md
     - name: 호스트 크기 조정 구성
       href: configure-host-scaling.md
+    - name: 네이티브 Windows 클라이언트를 통해 VM에 연결
+      href: connect-native-client-windows.md
     - name: 가상 머신 확장 집합에 연결
       href: bastion-connect-vm-scale-set.md
     - name: DevTest Labs 가상 머신에 연결

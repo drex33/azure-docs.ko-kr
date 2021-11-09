@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 09/10/2021
-ms.openlocfilehash: 7dcf326ea0834bdf644e2b717517f67d41d330e0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 83da2d9c1c242e49aac28067d1c315e1e382f2ef
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743279"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063649"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
@@ -260,7 +260,7 @@ Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하�
 
    Azure Portal에서 직접 초대를 열려면 Azure Portal에서 **데이터 공유 초대** 를 검색합니다. 그러면 데이터 공유 초대 목록으로 이동됩니다.
 
-   테넌트 게스트 사용자인 경우 처음으로 Data Share 초대를 보기 전에 테넌트 이메일 주소를 확인하라는 메시지가 표시됩니다. 확인되면 12개월 동안 유효합니다.
+   테넌트의 게스트 사용자인 경우 처음으로 Data Share 초대를 보기 전에 테넌트 이메일 주소를 확인하라는 메시지가 표시됩니다. 확인되면 12개월 동안 유효합니다.
 
    ![초대 목록](./media/invitations.png "초대 목록") 
 
@@ -364,9 +364,13 @@ SQL 원본의 데이터를 공유하는 경우 스냅샷 프로세스 중에 다
 ## <a name="sql-snapshot-performance"></a>SQL 스냅샷 성능
 SQL 스냅샷 성능은 여러 가지 요인의 영향을 받습니다. 항상 고유한 성능 테스트를 수행하는 것이 좋습니다. 다음은 성능에 영향을 주는 몇 가지 예제 요소입니다.
 
+* 원본 또는 대상 데이터 저장소 IOPS (초당 입력/출력 작업 수) 및 대역폭.
 * 원본과 대상 SQL 데이터 저장소의 하드웨어 구성(예: vCores, 메모리, DWU). 
-* 원본과 대상 데이터 저장소에 대한 동시 액세스. 같은 SQL 데이터 저장소에서 여러 테이블과 뷰를 공유하거나 같은 SQL 데이터 저장소에 여러 테이블과 뷰를 수신하는 경우 성능에 영향을 미칩니다.   
-* 원본과 대상 데이터 저장소의 위치. 
+* 원본과 대상 데이터 저장소에 대한 동시 액세스. 같은 SQL 데이터 저장소에서 여러 테이블과 뷰를 공유하거나 같은 SQL 데이터 저장소에 여러 테이블과 뷰를 수신하는 경우 성능에 영향을 미칩니다.
+* 원본 및 대상 데이터 저장소와 원본 및 대상 데이터 저장소의 위치 간의 네트워크 대역폭
+* 공유 되는 테이블 및 뷰의 크기입니다. SQL 스냅숏 공유는 전체 테이블의 전체 복사본을 만듭니다. 시간이 지남에 따라 테이블 크기가 증가 하는 경우 스냅숏은 더 오래 걸립니다. 
+
+증분 업데이트가 필요한 규모가 많은 테이블의 경우 저장소 계정으로 업데이트를 내보내고 저장소 계정의 증분 공유 기능을 활용 하 여 성능을 향상 시킬 수 있습니다.
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>SQL 스냅샷 실패 문제 해결
 스냅샷 실패의 가장 일반적인 원인은 Data Share에 원본 또는 대상 데이터 저장소에 대한 권한이 없기 때문입니다. 원본 또는 대상 Azure SQL Database 또는 Azure Synapse Analytics(이전에는 Azure SQL DW라고 함)에 Data Share 권한을 부여하려면 Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결할 때 제공된 SQL 스크립트를 실행해야 합니다. 추가 SQL 스냅샷 실패 문제를 해결하려면 [스냅샷 실패 문제 해결](data-share-troubleshoot.md#snapshots)을 참조하세요.

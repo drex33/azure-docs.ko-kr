@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.author: duau
-ms.openlocfilehash: da3be1f9fbfc2872c31ed4f40d01a1d38ef300ef
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: afcb09356c10a68b66870cf9594dd5fe9c6a18cb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482901"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058471"
 ---
 # <a name="configure-custom-bgp-communities-for-azure-expressroute-private-peering-preview"></a>Azure ExpressRoute 프라이빗 피어링에 대한 사용자 지정 BGP 커뮤니티 구성(미리 보기)
 
@@ -85,7 +85,7 @@ BGP 커뮤니티는 커뮤니티 값으로 태그가 지정된 IP 접두사 그�
         Name = 'myVirtualNetwork'
         ResourceGroupName = 'myERRG'
     } 
-    $vnet = Get-AzVirtualNewtork @virtualnetwork
+    $vnet = Get-AzVirtualNetwork @virtualnetwork
     ```
 
 1. 가상 `VirtualNetworkCommunity` 네트워크의 값을 업데이트합니다.

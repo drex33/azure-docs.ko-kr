@@ -1,16 +1,16 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 09/03/2021
-ms.author: dacoulte
+ms.date: 10/12/2021
+ms.author: gwallace
 ms.custom: generated
-ms.openlocfilehash: bb5da3ac6ae5b0b1ccd6105049321df12c65ec3e
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 80a57afb104a9f77221d9e4143c85a472e2f2877
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536397"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058426"
 ---
 ### <a name="list-azure-cosmos-db-with-specific-write-locations"></a>특정 쓰기 위치를 사용하여 Azure Cosmos DB 나열
 

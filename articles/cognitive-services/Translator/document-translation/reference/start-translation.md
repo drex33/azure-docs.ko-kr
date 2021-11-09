@@ -3,19 +3,17 @@ title: 번역 시작
 titleSuffix: Azure Cognitive Services
 description: 문서 번역 서비스를 사용하는 문서 번역 요청을 시작합니다.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/22/2021
-ms.author: v-jansk
-ms.openlocfilehash: 39173fbd5fd6725d8307d2e390bec6b397406cb7
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: eaa12d4fff9331f5170a2a7b7d28b5ebb4d06a74
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130062693"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061006"
 ---
 # <a name="start-translation"></a>번역 시작
 
@@ -25,7 +23,7 @@ ms.locfileid: "130062693"
 
 용어집/번역 메모리가 요청에 포함될 수 있으며 문서 번역 시 이 용어집/번역 메모리가 서비스에서 적용됩니다.
 
-용어집이 잘못되었거나 번역 중에 연결할 수 없는 경우 문서 상태에 오류가 표시됩니다. 이름이 같은 파일이 대상에 이미 있으면 작업은 실패 합니다. 각 대상 언어의 targetUrl은 고유해야 합니다.
+용어집이 잘못되었거나 번역 중에 연결할 수 없는 경우 문서 상태에 오류가 표시됩니다. 이름이 같은 파일이 대상에 이미 있으면 작업이 실패합니다. 각 대상 언어의 targetUrl은 고유해야 합니다.
 
 ## <a name="request-url"></a>요청 URL
 

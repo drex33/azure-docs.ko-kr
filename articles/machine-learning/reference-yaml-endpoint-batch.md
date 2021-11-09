@@ -10,12 +10,12 @@ author: tracychms
 ms.author: tracych
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: cfb475bef0cb308a8e7570a4cbad71e4e9bebb54
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c91de82d4b0eec1256d34a28132ae3161c62690a
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570089"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057768"
 ---
 # <a name="cli-v2-batch-endpoint-yaml-schema"></a>CLI (v2) batch 끝점 YAML 스키마
 
@@ -39,13 +39,13 @@ ms.locfileid: "131570089"
 
 `az ml batch-endpoint`명령은 Azure Machine Learning 끝점을 관리 하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예제는 [GitHub 리포지토리에서](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch)사용할 수 있습니다. 몇 가지는 다음과 같습니다.
 
 ## <a name="yaml-basic"></a>YAML: 기본
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: bcfa81dc4cf65252179ecb6411ce67f2ba9bdce7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 390e5fabe5c23c3b258e898eab0691f88c1828c0
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102942"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057179"
 ---
 # <a name="tag-text-data-for-training-your-model"></a>모델 학습을 위한 텍스트 데이터 태그 
 
 사용자 지정 텍스트 분류 모델을 만들기 전에 먼저 태그가 지정된 데이터가 있어야 합니다. 데이터에 태그가 아직 지정되지 않은 경우 Language Studio에서 태그를 지정할 수 있습니다. 태그가 지정된 데이터는 텍스트를 해석하는 방법을 모델에 알리며 학습 및 평가에 사용됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 데이터에 태그를 지정할 수 있으려면 다음이 필요합니다.
 * 구성된 Azure Blob Storage 계정으로 [성공적으로 만든 프로젝트](create-project.md) 
 * 스토리지 계정에 [업로드된](create-project.md#prepare-training-data) 텍스트 데이터입니다.
 
-자세한 내용은 [애플리케이션 개발 수명 주기를](../overview.md#application-development-lifecycle) 참조하세요.
+자세한 내용은 [애플리케이션 개발 수명 주기를](../overview.md#project-development-lifecycle) 참조하세요.
 
 <!--Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).-->
 

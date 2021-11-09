@@ -1,18 +1,18 @@
 ---
 title: Azure Container Registry에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Container Registry 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블의 사용을 보여 주는 Azure Container Registry에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 09/03/2021
+ms.date: 10/12/2021
 ms.topic: sample
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 2e8d8722ab1c132ccf81507ce1d4e45ed64555b4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e0b6ca50f68599a299a6eeea837a77934a741764
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540832"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060758"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-container-registry"></a>Azure Container Registry에 대한 Azure Resource Graph 샘플 쿼리
 

@@ -1,18 +1,18 @@
 ---
-title: 개별 VSS Azure 개발/테스트 크레딧 구독을 시작하는 방법
-description: 개인이 Azure 크레딧 구독에 액세스할 수 있는 두 가지 옵션을 다룹니다.
+title: 개별 Azure 개발/테스트 크레딧 사용 시작
+description: Visual Studio 구독자는 Azure 크레딧 구독에 액세스하는 방법을 알아봅니다.
 author: jamestramel
 ms.author: jametra
 ms.date: 10/20/2021
 ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
-ms.openlocfilehash: 2901d8a7ec602878fb02d4c501efa26465619dc4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 99dd3bb1f259fff02a46ee9ceb1930dee1327b06
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102870"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059964"
 ---
 # <a name="how-to-get-started-with-your-individual-azure-credit-subscription"></a>개별 Azure 크레딧 구독을 시작하는 방법  
 
@@ -21,14 +21,14 @@ Azure 크레딧 구독에 액세스할 때는 두 가지 방법으로 로그인�
 로그인할 때 개인 또는 회사 전자 메일 주소를 사용할 수 있습니다.  
 
 > [!NOTE]
-> 로그인에 사용하는 이메일 주소는 구독과 연결된 Azure AD(Azure Active Directory) 테넌트입니다.  
+> 로그인에 사용하는 이메일 주소는 구독과 연결된 azure AD(Azure Active Directory) 테넌트입니다.  
 
 ## <a name="using-a-personal-email-address-versus-a-work-account"></a>개인 메일 주소와 업무용 계정 사용  
 
 사용하는 전자 메일은 조직의 요구 사항을 따라야 합니다. 개인 메일을 사용하거나 조직에서 제공한 전자 메일을 사용합니다.
 
 **개인 메일 계정 또는 MSA(Microsoft 계정) 사용**  
-Gmail, Yahoo 또는 Hotmail과 같은 개인 계정을 사용하여 로그인하면 조직에서 업무에 액세스할 수 없으며 관리자가 해당 메일을 추가하지 않는 한 해당 Active Directory에 액세스할 수도 없습니다. 개인 전자 메일로 로그인하면 사용자 대신 Azure 테넌시와 함께 새 Azure Directory가 만들어집니다. 프로필은 다른 관리자 및 사용자를 추가할 수 있는 액세스 권한이 있는 Top-Level 관리자로 만들어집니다.  
+Gmail, Yahoo 또는 Hotmail과 같은 개인 계정을 사용하여 로그인하는 경우 조직은 업무에 액세스할 수 없으며 관리자가 해당 메일을 추가하지 않는 한 해당 Active Directory에 액세스할 수도 없습니다. 개인 전자 메일로 로그인하면 사용자 대신 Azure 테넌시와 함께 새 Azure Directory가 만들어집니다. 프로필은 다른 관리자 및 사용자를 추가할 수 있는 액세스 권한이 있는 Top-Level 관리자로 만들어집니다.  
 
 **회사 메일 계정 또는 WSA(회사 학교 계정) 사용**  
 조직의 계정으로 로그인하면 조직의 Active Directory 내에서 사용자로 추가되어 조직에서 계정 및 작업을 관리할 수 있는 액세스 권한을 부여합니다.  
@@ -48,7 +48,7 @@ my.visualstudio.com 라이선스를 받으면 my.visualstudio.com 또는 portal.
    ![About You 구독 페이지의 스크린샷.](media/quickstart-individual-credit/azure-about-you.png "정보를 입력하고 '다음'을 클릭합니다.")  
 3. 다음으로, 간단한 확인 코드를 사용하여 ID를 확인해야 합니다. 전화번호를 입력하고 문자 또는 전화를 통해 코드를 받을지 선택합니다. 받은 코드를 입력하고 **코드 확인** 을 선택합니다.  
 
-   ![휴대폰별 ID 확인 화면의 스크린샷.](media/quickstart-individual-credit/azure-identity.png)  
+   ![휴대폰으로 ID 확인 화면의 스크린샷.](media/quickstart-individual-credit/azure-identity.png)  
 4. 마지막 단계로 확인란을 선택하여 약관에 동의한 다음 **가입** 을 선택합니다.  
 
    ![계약 화면의 스크린샷.](media/quickstart-individual-credit/azure-agreement.png)  
@@ -63,7 +63,7 @@ my.visualstudio.com 라이선스를 받으면 my.visualstudio.com 또는 portal.
 
 1. 인증할 이메일 주소를 선택하거나 입력합니다.  
 
-   ![계정 선택 화면의 Microsoft Azure 스크린샷.](media/quickstart-individual-credit/pick-an-account.png "Azure Portal에 로그인할 계정을 선택합니다.")  
+   ![Microsoft Azure 계정 선택 화면의 스크린샷.](media/quickstart-individual-credit/pick-an-account.png "Azure Portal에 로그인할 계정을 선택합니다.")  
 2. 로그인하면 Azure 서비스 아래의 구독으로 이동합니다.  
 
    ![사용 가능한 Azure Portal 서비스의 스크린샷](media/quickstart-individual-credit/azure-services.png "Azure 서비스 아래에서 구독을 선택합니다.")  

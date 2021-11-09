@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47de9f252e70b7281b8499612718cbd4b23365a1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 8f2581033d0ffefa6d5014478e7eee68f786f49e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131444595"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057521"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Azure Image Builder 템플릿 만들기 
 
@@ -180,7 +180,7 @@ Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure 
             "offer": "UbuntuServer",
             "sku": "18.04-LTS",
             "version": "latest"
-        },
+        },  
 ```
 
 
@@ -292,7 +292,7 @@ Image Builder는 여러 '사용자 지정자'를 지원합니다. 사용자 지�
 사용자 지정 섹션은 배열입니다. Azure Image Builder는 이를 정렬된 순서로 실행합니다. 한 사용자 지정자라도 오류가 발생하면 빌드 프로세스가 실패합니다. 
 
 > [!NOTE]
-> 인라인 명령은 이미지 템플릿 정의에서 볼 수 있습니다. 중요한 정보(암호, SAS 토큰, 인증 토큰 등)가 있는 경우 액세스에 인증이 필요한 Azure Storage 스크립트로 이동해야 합니다.
+> 인라인 명령은 이미지 템플릿 정의에서 볼 수 있습니다. 중요 한 정보 (암호, SAS 토큰, 인증 토큰 등)가 있는 경우 액세스를 요구 하는 Azure Storage의 스크립트로 이동 해야 합니다.
  
 ### <a name="shell-customizer"></a>셸 사용자 지정자
 
@@ -328,7 +328,7 @@ OS 지원: Linux
     * sha256Checksum을 생성하려면 Mac/Linux에서 터미널을 사용하여 다음을 실행합니다. `sha256sum <fileName>`
 
 > [!NOTE]
-> 인라인 명령은 이미지 템플릿 정의의 일부로 저장되며, 이미지 정의를 덤프할 때 이러한 명령을 볼 수 있습니다. 중요한 명령 또는 값(암호, SAS 토큰, 인증 토큰 등)이 있는 경우 스크립트로 이동하고 사용자 ID를 사용하여 Azure Storage 인증하는 것이 좋습니다.
+> 인라인 명령은 이미지 템플릿 정의의 일부로 저장 되므로 이미지 정의를 덤프할 때이를 확인할 수 있습니다. 중요 한 명령 또는 값 (암호, SAS 토큰, 인증 토큰 등 포함)이 있는 경우 스크립트로 이동 하 고 사용자 id를 사용 하 여 Azure Storage에 인증 하는 것이 좋습니다.
 
 #### <a name="super-user-privileges"></a>슈퍼 사용자 권한
 슈퍼 사용자 권한으로 명령을 실행하려면 `sudo` 접두사를 사용해야 합니다. 접두사는 스크립트에 추가하거나 다음과 같이 인라인 명령으로 사용할 수 있습니다.
@@ -598,7 +598,7 @@ az resource show \
 > 이미지를 다른 지역에 배포하려면 배포 시간이 늘어나게 됩니다. 
 
 ### <a name="distribute-sharedimage"></a>Distribute: sharedImage 
-Azure Compute 갤러리는 이미지 영역 복제, 버전 관리 및 사용자 지정 이미지 공유를 관리할 수 있는 새로운 이미지 관리 서비스입니다. Azure Image Builder 이 서비스와의 배포를 지원하므로 Azure Compute 갤러리에서 지원하는 지역에 이미지를 배포할 수 있습니다. 
+Azure Compute 갤러리는 이미지 영역 복제, 버전 관리 및 사용자 지정 이미지 공유를 관리할 수 있는 새로운 이미지 관리 서비스입니다. Azure Image Builder 이 서비스의 배포를 지원하므로 Azure Compute 갤러리에서 지원하는 지역에 이미지를 배포할 수 있습니다. 
  
 Azure Compute 갤러리는 다음으로 구성됩니다. 
  
@@ -651,7 +651,7 @@ VHD로 출력할 수 있습니다. 그런 다음 VHD를 복사하여 Azure Marke
 { 
     "type": "VHD",
     "runOutputName": "<VHD name>",
-    "tags": {
+    "artifactTags": {
         "<name>": "<value>",
         "<name>": "<value>"
     }

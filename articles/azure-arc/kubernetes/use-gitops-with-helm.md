@@ -1,27 +1,25 @@
 ---
-title: Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
+title: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
-description: Azure Arc 지원 클러스터 구성을 위해 Helm에서 GitOps 사용
+description: Azure Arc 지원 클러스터 구성을 위해 Helm과 함께 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: df9b40764ec463553659803749f282bbc4587bde
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
-ms.translationtype: HT
+ms.openlocfilehash: bc0dc3f0583c346ae909bbb877a6e8a9a9d66a72
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449546"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053296"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
+# <a name="deploy-helm-charts-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
 
 Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT 및 Yum과 같은 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
-이 문서에서는 Azure Arc 사용 Kubernetes에서 Helm을 구성하고 사용하는 방법을 보여 줍니다.
+이 문서에서는 Azure Arc 지원 Kubernetes에서 Helm을 구성하고 사용하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 기존 Azure Arc 지원 Kubernetes 연결 클러스터.

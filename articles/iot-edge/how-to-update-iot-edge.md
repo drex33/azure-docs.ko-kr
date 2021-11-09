@@ -8,12 +8,12 @@ ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1899da83ff4e963c6fecf371f6d888b5bb120e7a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 90a03b86e54c214fb5dd17f11ea01247b7b77e9b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070473"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057216"
 ---
 # <a name="update-iot-edge"></a>IoT Edge 업데이트
 
@@ -138,6 +138,19 @@ curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 >Windows 상의 Linux용 IoT Edge의 공개 미리 보기 버전에서 일반적으로 사용 가능한 버전으로 장치를 업데이트하는 경우에는 Azure IoT Edge를 제거하고 다시 설치해야 합니다.
 >
 >현재 공개 미리 보기 버전을 사용하고 있는지 확인하려면 Windows 장치에서 **설정** > **Apps** 로 이동합니다. 앱 및 기능 목록에서 **Azure IoT Edge** 를 찾습니다. 표시된 버전이 1.0.x인 경우, 공개 미리 보기 버전을 실행하고 있는 것입니다. 앱을 제거한 후 [Windows 상의 Linux용 IoT Edge를 설치하고 프로 비전](how-to-provision-single-device-linux-on-windows-symmetric.md)합니다. 표시된 버전이 1.1.x 인 경우, 일반적으로 사용 가능한 버전을 실행하고 있는 것이며, Microsoft 업데이트를 통해 업데이트를 받을 수 있습니다.
+
+>[!IMPORTANT]
+>Windows에서 Linux 용 IoT Edge 버전의 Windows Server SKU 장치를 사용 가능한 최신 버전으로 업데이트 하는 경우 수동 마이그레이션을 수행 해야 합니다.
+>
+>업데이트 [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) 는 eflow Windows 서버 배포에 사용 되는 VM 기술 (HCS)에 대 한 변경 사항을 도입 했습니다. 다음 단계를 수행 하 여 VM 마이그레이션을 실행할 수 있습니다.
+> 1. Microsoft 업데이트를 사용 하 여 1.1.2110.03111 업데이트를 다운로드 하 고 설치 합니다 (EFLOW 업데이트를 사용 하는 경우 수동 단계를 수행 하지 않아도 됨).
+> 2. EFLOW 업데이트를 완료 한 후에는 상승 된 PowerShell 세션을 엽니다.
+> 3. 마이그레이션 스크립트를 실행 합니다.
+>  ```powershell
+>   Migrate-EflowVmFromHcsToVmms
+>   ```
+>
+> 참고: Windows Server sku에 새로 설치 된 eflow 1.1.2110.0311 msi를 사용 하면 VMMS 기술을 사용 하는 eflow 배포가 발생 하므로 마이그레이션이 필요 하지 않습니다.
 
 IoT Edge for Linux on Windows를 사용할 경우 IoT Edge는 Windows 디바이스에 호스트된 Linux 가상 머신에서 실행됩니다. 이 가상 머신은 IoT Edge와 함께 미리 설치되어 있으므로 IoT Edge 구성 요소를 수동으로 업데이트하거나 변경할 수 없습니다. 대신, 가상 머신은 자동으로 해당 구성 요소를 최신 상태로 유지할 수 있도록 Microsoft 업데이트를 통해 관리됩니다.
 

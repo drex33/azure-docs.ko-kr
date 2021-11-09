@@ -10,12 +10,12 @@ author: rsethur
 ms.author: seramasu
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 5b7637f16885e2eed5281273f1acad866e38e39e
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2fe01750fdce0a3d5c3fcb5211485666caf95bb4
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555859"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057749"
 ---
 # <a name="cli-v2-online-endpoint-yaml-schema"></a>CLI(v2) 온라인 엔드포인트 YAML 스키마
 
@@ -30,7 +30,7 @@ ms.locfileid: "131555859"
 
 | 키 | 형식 | Description | 허용되는 값 | 기본값 |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `$schema` | 문자열 | YAML 스키마입니다. Azure Machine Learning VS Code 확장명을 사용하여 파일 맨 위에 있는 를 포함하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
+| `$schema` | 문자열 | YAML 스키마입니다. 파일의 맨 위에 있는 를 포함하여 Azure Machine Learning VS Code 확장명을 사용하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
 | `name` | 문자열 | **필수 사항입니다.** 엔드포인트의 이름입니다. Azure 지역 수준에서 고유해야 합니다. <br><br> 명명 규칙은 [여기에서](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)정의됩니다.| | |
 | `description` | 문자열 | 엔드포인트에 대한 설명입니다. | | |
 | `tags` | 개체 | 엔드포인트에 대한 태그의 사전입니다. | | |
@@ -44,21 +44,21 @@ ms.locfileid: "131555859"
 
 `az ml online-endpoint`명령은 Azure Machine Learning 온라인 엔드포인트를 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 
-## <a name="yaml-basic"></a>YAML: basic
+## <a name="yaml-basic"></a>YAML: 기본
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 ## <a name="yaml-system-assigned-identity"></a>YAML: 시스템 할당 ID
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
 
 ## <a name="yaml-user-assigned-identity"></a>YAML: 사용자 할당 ID
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
 
 ## <a name="next-steps"></a>다음 단계
 

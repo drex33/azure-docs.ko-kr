@@ -1,16 +1,16 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 09/03/2021
-ms.author: dacoulte
+ms.date: 10/12/2021
+ms.author: gwallace
 ms.custom: generated
-ms.openlocfilehash: 90fa4736246be2fabc8797a0e77481647ea7c013
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f635ddb4951e6d1d013bf3530bbd808b15307e6b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536454"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056811"
 ---
 ### <a name="count-of-subscriptions-per-management-group"></a>관리 그룹당 구독 수
 

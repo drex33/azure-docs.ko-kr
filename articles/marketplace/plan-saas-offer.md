@@ -1,6 +1,6 @@
 ---
-title: Microsoft 상업적 marketplace에 대 한 SaaS 제품 계획-Azure Marketplace
-description: Microsoft 파트너 센터의 상용 마켓플레이스 프로그램을 사용 하 여 Microsoft AppSource, Azure Marketplace 또는 클라우드 솔루션 공급자 (CSP) 프로그램을 통해 나열 하거나 판매 하기 위한 새 SaaS (software as a service) 제품을 계획 합니다.
+title: Microsoft 상업용 Marketplace에 대한 SaaS 제안 계획 - Azure Marketplace
+description: Microsoft 파트너 센터 상업용 Marketplace 프로그램을 사용하여 Microsoft AppSource, Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 나열하거나 판매하기 위한 새로운 SaaS(Software as a Service) 제안을 계획합니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/26/2021
-ms.openlocfilehash: d2caec4bff61fde962a231858d3dfc675426d076
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: bcfeb7b4baa0b9eae419bb8535869053d63ba57d
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848271"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055815"
 ---
-# <a name="plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제안 계획
+# <a name="plan-a-saas-offer-for-the-commercial-marketplace"></a>상업용 Marketplace에 대한 SaaS 제안 계획
 
 이 문서에서는 Microsoft 상업용 Marketplace에 SaaS(Software as a Service) 제품을 게시하는 다양한 옵션과 요구 사항을 설명합니다. SaaS는 온라인 구독을 통해 고객에게 소프트웨어 솔루션 및 라이선스를 제공할 수 있는 제품입니다. SaaS 게시자는 고객의 제품 사용을 지원하는 데 필요한 인프라를 관리하고 비용을 지불해야 합니다. 이 문서는 파트너 센터를 통해 상업용 Marketplace에 게시할 제품을 준비하는 데 도움이 됩니다.
 
 > [!TIP]
-> Azure Portal에서 SaaS 제품 구매에 대 한 고객의 보기를 보려면 [Azure Portal에서 saas 제품 구매](/marketplace/purchase-saas-offer-in-azure-portal) 및 [Microsoft AppSource에서 saas 앱](/marketplace/purchase-software-appsource)구매를 참조 하세요.
+> Azure Portal SaaS 제품을 구매하는 고객의 보기를 보려면 Azure Portal [SaaS 제안 구매](/marketplace/purchase-saas-offer-in-azure-portal) 및 Microsoft AppSource [SaaS 앱 구매를 참조하세요.](/marketplace/purchase-software-appsource)
 
 ## <a name="listing-options"></a>나열 옵션
 
@@ -59,7 +59,7 @@ _지금 받기(무료)_ , _평가판_ 및 _Microsoft를 통해 판매_ 목록 �
 
 이러한 추가 기술 요구 사항은 _Microsoft를 통해 판매_(거래 가능) 목록 옵션에만 적용됩니다.
 
-- [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md)를 사용하여 Azure Marketplace 및 Microsoft AppSource와 통합해야 합니다. SaaS 구독과 상호 작용하여 사용자 계정 및 서비스 플랜을 생성, 업데이트 및 삭제할 수 있는 서비스를 노출해야 합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. 수집된 필드의 사용법을 보여주는 다이어그램과 설명은 [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md)에 대한 설명서에서 확인할 수 있습니다.
+- [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-apis.md)를 사용하여 Azure Marketplace 및 Microsoft AppSource와 통합해야 합니다. SaaS 구독과 상호 작용하여 사용자 계정 및 서비스 플랜을 생성, 업데이트 및 삭제할 수 있는 서비스를 노출해야 합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. 수집된 필드의 사용법을 보여주는 다이어그램과 설명은 [API](./partner-center-portal/pc-saas-fulfillment-apis.md)에 대한 설명서에서 확인할 수 있습니다.
 - 제품에 대한 플랜을 하나 이상 만들어야 합니다. 플랜 가격은 게시하기 전에 선택하는 가격 책정 모델(_정액제_ 또는 _사용자당_)을 기준으로 책정됩니다. [플랜](#plans)에 대한 자세한 내용은 이 문서의 뒷부분에 나와 있습니다.
 - 고객은 언제든지 제품을 취소할 수 있습니다.
 
@@ -69,13 +69,13 @@ _지금 받기(무료)_ , _평가판_ 및 _Microsoft를 통해 판매_ 목록 �
 
 - **방문 페이지 URL**: 사용자가 상업용 Marketplace에서 제품을 구매한 후 리디렉션되는 SaaS 사이트 URL(예: `https://contoso.com/signup`)이며, 새로 만든 SaaS 구독의 구성 프로세스를 트리거합니다. 이 URL은 대화형 등록 페이지에 대한 프로비전 세부 정보를 가져오기 위해 처리 API를 호출하는 데 사용할 수 있는 토큰을 수신합니다.
 
-  이 URL은 특정 고객의 SaaS 구매를 고유하게 식별하는 마켓플레이스 구매 ID 토큰 매개 변수를 사용하여 호출됩니다. [확인 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription)를 사용하여 이 토큰을 해당 SaaS 구독 세부 정보와 교환해야 합니다. 이러한 세부 정보 및 고객 대화형 웹 페이지에서 수집하려는 기타 정보는 고객 온보딩 환경을 시작하는 데 사용할 수 있으며, 최종적으로 구독 기간을 시작하기 위한 API 활성 호출로 마무리되어야 합니다. 이 페이지에서 사용자는 Azure AD(Azure Active Directory)를 사용하여 원클릭 인증을 통해 가입해야 합니다.
+  이 URL은 특정 고객의 SaaS 구매를 고유하게 식별하는 마켓플레이스 구매 ID 토큰 매개 변수를 사용하여 호출됩니다. [확인 API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription)를 사용하여 이 토큰을 해당 SaaS 구독 세부 정보와 교환해야 합니다. 이러한 세부 정보 및 고객 대화형 웹 페이지에서 수집하려는 기타 정보는 고객 온보딩 환경을 시작하는 데 사용할 수 있으며, 최종적으로 구독 기간을 시작하기 위한 API 활성 호출로 마무리되어야 합니다. 이 페이지에서 사용자는 Azure AD(Azure Active Directory)를 사용하여 원클릭 인증을 통해 가입해야 합니다.
 
   마켓플레이스 구매 식별 토큰 매개 변수를 사용하는 이 URL은 고객이 Azure Portal 또는 Microsoft 365 관리 센터에서 관리형 SaaS 환경을 시작할 때에도 호출됩니다. 제품을 구매한 신규 고객에게 처음으로 토큰을 제공하는 흐름과 SaaS 솔루션을 관리하는 기존 고객에게 다시 토큰을 제공하는 두 가지 흐름을 모두 처리해야 합니다.
 
     구성하는 방문 페이지는 연중무휴 가동되어야 합니다. 상업용 Marketplace에서 이루어지는 SaaS 제품의 신규 구매 또는 제품 활성 구독의 구성 요청에 대한 통지를 받을 수 있는 유일한 방법입니다.
 
-- **연결 webhook**: Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 된 경우)의 경우 [연결 webhook URL을 제공](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service)해야 합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
+- **연결 웹후크:** Microsoft에서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독이 취소된 경우)의 경우 [연결 웹후크 URL 을 제공해야](./partner-center-portal/pc-saas-fulfillment-webhook.md)합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
 
   파트너가 제공하는 webhook는 연중무휴 가동되어야 합니다. 고객이 상업용 Marketplace를 통해 구매한 SaaS 구독에 대한 업데이트 소식을 받을 수 있는 유일한 방법입니다.
 
@@ -116,8 +116,8 @@ SaaS 제품이 IT 솔루션(Azure Marketplace)인 *동시에* 비즈니스 솔�
 |---|---|---|---|
 | 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
 | 예             | 예         | 예          | Azure Marketplace 및 Azure Portal* |
-| 예             | 예          | 예          | Azure Portal만 |
-| 아니요              | 예          | 예          | Azure Portal 및 AppSource |
+| 예             | 아니요          | 예          | Azure Portal만 |
+| 아니요              | 아니요          | 예          | Azure Portal 및 AppSource |
 |||||
 
 &#42; 제안의 프라이빗 플랜은 Azure Portal 및 AppSource를 통해서만 사용할 수 있습니다.
@@ -142,7 +142,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
     
      Microsoft를 통해 제품을 판매하기로 선택하는 경우 고객 구독 활성화를 완료하는 데 필요한 기본 사용자 정보를 얻기 위해 방문 페이지에서 사용하도록 등록한 것과 동일한 AAD 앱 ID입니다. 자세한 지침은 [상업용 Marketplace의 거래 가능 SaaS 제품에 대한 방문 페이지 작성](azure-ad-transactable-saas-landing-page.md)을 참조하세요. 
     
-   -    연결하려는 SaaS 제품에서 작동하는 관련 추가 기능 목록을 제공합니다. 고객은 Microsoft AppSource E2E 솔루션을 검색할 수 있으며 관리자는 Microsoft 365 관리 센터 통해 동일한 프로세스에서 연결한 모든 관련 추가 기능과 SaaS를 모두 배포할 수 있습니다.
+   -    연결하려는 SaaS 제품에서 작동하는 관련 추가 기능 목록을 제공합니다. 고객은 Microsoft AppSource E2E 솔루션을 검색할 수 있으며 관리자는 Microsoft 365 관리 센터 통해 동일한 프로세스에서 연결한 SaaS 및 모든 관련 추가 기능 모두를 배포할 수 있습니다.
     
         관련 추가 기능을 연결하려면 추가 기능의 AppSource 링크를 제공해야 합니다. 즉, 추가 기능을 AppSource에 먼저 게시해야 합니다. 연결할 수 있는 지원되는 추가 기능 유형은 Teams 앱, Office 추가 기능 및 SPFx(SharePoint Framework) 솔루션입니다. 연결된 각 추가 기능은 SaaS 제품에 대해 고유해야 합니다. 
 

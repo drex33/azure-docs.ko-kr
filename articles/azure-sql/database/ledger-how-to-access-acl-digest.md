@@ -1,27 +1,26 @@
 ---
 title: Azure Confidential Ledger에 저장된 다이제스트에 액세스
 description: Azure SQL Database 원장을 사용하여 Azure Confidential Ledger에 저장된 다이제스트에 액세스합니다.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: 7a5253879daf3aaa9551b91a91c38135d29be10e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: f011494412b6f9cf1ac186f171b62fe82d02aaaa
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528456"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132064467"
 ---
 # <a name="access-the-digests-stored-in-confidential-ledger"></a>Confidential Ledger에 저장된 다이제스트 액세스
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 [Azure Confidential Ledger](../../confidential-ledger/index.yml)에 저장된 [Azure SQL Database 원장](ledger-overview.md) 다이제스트에 액세스하여 엔드투엔드 보안과 무결성을 보장하는 방법을 보여 줍니다. 문서 전체에서 저장된 정보에 액세스하고 무결성을 확인하는 방법을 설명합니다.
 

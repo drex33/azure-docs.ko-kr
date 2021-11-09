@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 분류 작업을 제출 하는 방법
+title: 사용자 지정 분류 작업을 제출하는 방법
 titleSuffix: Azure Cognitive Services
-description: 사용자 지정 텍스트 분류 요청을 보내는 방법에 대해 알아봅니다.
+description: 사용자 지정 텍스트 분류에 대한 요청을 보내는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,38 +11,38 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 16779224c26e45abe4960463a958085275bb2bfb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9ba640d5d0177c812ad25a76353bd89f2e696d81
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053139"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054717"
 ---
-# <a name="deploy-a-model-and-classify-text-using-the-runtime-api"></a>런타임 API를 사용 하 여 모델 배포 및 텍스트 분류
+# <a name="deploy-a-model-and-classify-text-using-the-runtime-api"></a>런타임 API를 사용하여 모델 배포 및 텍스트 분류
 
-모델에 만족 하 고 필요한 기능을 개선 한 후에는 배포 하 고 텍스트 분류를 시작할 수 있습니다. 모델을 배포 하면 런타임 API를 통해 사용할 수 있습니다.
+모델에 만족하고 필요한 사항을 개선한 후에는 모델을 배포하고 텍스트 분류를 시작할 수 있습니다. 모델을 배포하면 런타임 API를 통해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* Azure blob storage 계정이 구성 된 [사용자 지정 분류 프로젝트](create-project.md) 
-* 저장소 계정에 [업로드](create-project.md#prepare-training-data) 된 텍스트 데이터입니다.
-* [태그가 지정 된 데이터](tag-data.md) 및 성공적으로 [학습 된 모델](train-model.md)
-* 모델 [평가 세부 정보](view-model-evaluation.md) 를 검토 하 여 모델의 수행 방식을 확인 합니다.
-* 필드 성능이 만족 스 럽 면 모델을 [개선 했습니다](improve-model.md) . 
+* 구성된 Azure Blob Storage 계정이 있는 [사용자 지정 분류 프로젝트](create-project.md) 
+* 스토리지 계정에 [업로드된](create-project.md#prepare-training-data) 텍스트 데이터입니다.
+* [태그가 지정된 데이터](tag-data.md) 및 성공적으로 [학습된 모델](train-model.md)
+* [모델 평가 세부 정보를 검토하여 모델의](view-model-evaluation.md) 성능을 확인했습니다.
+* (선택 사항) 성능이 만족스럽지 않은 경우 모델을 [개선했습니다.](improve-model.md) 
 
-자세한 내용은 [응용 프로그램 개발 수명 주기](../overview.md#application-development-lifecycle) 를 참조 하세요.
+자세한 내용은 [애플리케이션 개발 수명 주기를](../overview.md#project-development-lifecycle) 참조하세요.
 
 ## <a name="deploy-your-model"></a>모델 배포
 
-1. [언어 스튜디오](https://aka.ms/custom-classification) 에서 프로젝트로 이동
+1. [Language Studio에서](https://aka.ms/custom-classification) 프로젝트로 이동
 
 2. 왼쪽 메뉴에서 **모델 배포** 를 선택합니다.
 
 3. 배포할 모델을 선택한 다음 **모델 배포** 를 선택합니다.
 
 > [!TIP]
-> 분류할 텍스트의 샘플을 전송 하 여 언어 스튜디오에서 모델을 테스트할 수 있습니다. 
-> 1. 언어 스튜디오에서 프로젝트의 왼쪽에 있는 메뉴에서 **테스트 모델** 을 선택 합니다.
+> 분류할 텍스트 샘플을 전송하여 Language Studio에서 모델을 테스트할 수 있습니다. 
+> 1. Language Studio의 프로젝트 왼쪽 메뉴에서 **모델 테스트를** 선택합니다.
 > 2. 테스트할 모델을 선택합니다.
 > 3. 텍스트 상자에 텍스트를 추가하고 `.txt` 파일을 업로드할 수도 있습니다. 
 > 4. **테스트 실행** 을 클릭합니다.
@@ -50,41 +50,41 @@ ms.locfileid: "131053139"
 
 ## <a name="send-a-text-classification-request-to-your-model"></a>모델에 텍스트 분류 요청 보내기
 
-# <a name="using-language-studio"></a>[언어 스튜디오 사용](#tab/language-studio)
+# <a name="using-language-studio"></a>[Language Studio 사용](#tab/language-studio)
 
-### <a name="using-language-studio"></a>언어 스튜디오 사용
+### <a name="using-language-studio"></a>Language Studio 사용
 
-1. 배포가 완료 되 면 사용 하려는 모델을 선택 하 고 맨 위 메뉴에서 **예측 Url 가져오기** 를 클릭 하 고 URL 및 본문을 복사 합니다.
+1. 배포가 완료되면 사용하려는 모델을 선택하고 위쪽 메뉴에서 **예측 URL 얻기를** 클릭하고 URL 및 본문을 복사합니다.
 
-    :::image type="content" source="../media/get-prediction-url-1.png" alt-text="실행-유추" lightbox="../media/get-prediction-url-1.png":::
+    :::image type="content" source="../media/get-prediction-url-1.png" alt-text="실행 유추" lightbox="../media/get-prediction-url-1.png":::
 
-2. 표시 되는 창의 **제출** 피벗 아래에서 샘플 요청을 명령줄에 복사 합니다.
+2. 표시되는 창의 **제출** 피벗 아래에서 샘플 요청을 명령줄에 복사합니다.
 
-3. `<YOUR_DOCUMENT_HERE>`분류 하려는 실제 텍스트로 대체 합니다.
+3. `<YOUR_DOCUMENT_HERE>`를 분류하려는 실제 텍스트로 대체합니다.
 
-    :::image type="content" source="../media/get-prediction-url-2.png" alt-text="실행-유추-2" lightbox="../media/get-prediction-url-2.png":::
+    :::image type="content" source="../media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../media/get-prediction-url-2.png":::
 
 4. 요청 제출
 
-5. 에서 추출 하는 응답 헤더의 `jobId` `operation-location` 형식은 다음과 같습니다. `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
+5. 응답 헤더에서 `jobId` 형식의 에서 `operation-location` 추출을 받습니다. `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
 
-6. 검색 요청을 복사 하 고 `<OPERATION-ID>` `jobId` 받은 양식 마지막 단계로 바꾸고 요청을 제출 합니다.
+6. 검색 요청을 복사하고 `<OPERATION-ID>` 을 `jobId` 받은 양식 마지막 단계로 바꾸고 요청을 제출합니다.
 
-    :::image type="content" source="../media/get-prediction-url-3.png" alt-text="실행-유추-3" lightbox="../media/get-prediction-url-3.png":::
+    :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 
- 결과에 대 한 자세한 내용은 다음 섹션에서 찾을 수 있습니다.
+ 결과에 대한 자세한 내용은 다음 섹션에서 확인할 수 있습니다.
 
 # <a name="using-the-api"></a>[API 사용](#tab/api)
 
 ### <a name="using-the-api"></a>API 사용
 
-먼저 리소스 키와 끝점을 가져와야 합니다.
+먼저 리소스 키와 엔드포인트를 얻어야 합니다.
 
 1. [Azure Portal](https://ms.portal.azure.com/#home)에서 리소스 개요 페이지로 이동합니다.
 
 2. 왼쪽 메뉴에서 **키 및 엔드포인트** 를 선택합니다. API 요청에 대한 엔드포인트를 사용합니다. 이 경우 `Ocp-Apim-Subscription-Key` 헤더에 대한 키가 필요합니다.
 
-    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Azure 끝점 가져오기" lightbox="../media/get-endpoint-azure.png":::
+    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Azure 엔드포인트를 얻습니다." lightbox="../media/get-endpoint-azure.png":::
 
 ### <a name="submit-text-classification-task"></a>텍스트 분류 작업 제출
 
@@ -165,14 +165,14 @@ ms.locfileid: "131053139"
 |--|--|
 |Ocp-Apim-Subscription-Key| 이 API에 대한 액세스를 제공하는 구독 키입니다.|
 
-결과에 대 한 자세한 내용은 다음 섹션에서 찾을 수 있습니다.
+결과에 대한 자세한 내용은 다음 섹션에서 확인할 수 있습니다.
 
 ---
 
 
-#### <a name="text-classification-task-results"></a>텍스트 분류 작업 결과
+#### <a name="text-classification-task-results"></a>텍스트 분류 태스크 결과
 
-Get result 호출에서 반환 된 응답은 다음 매개 변수를 사용 하는 JSON 문서입니다.
+Get 결과 호출에서 반환된 응답은 다음 매개 변수가 있는 JSON 문서입니다.
 
 ```json
 {

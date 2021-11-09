@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 08afa72507bb5689dbd1a003cb776958d6e63f1d
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 34f9948905a51fd020a0942836a37d2c9737f4e3
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746450"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059831"
 ---
 # <a name="telemetry-and-troubleshooting"></a>원격 분석 및 문제 해결
 
@@ -23,19 +23,49 @@ ms.locfileid: "111746450"
 
 ## <a name="enable-visualizations"></a>시각화 사용
 
-비디오 프레임에서 AI 인사이트 이벤트의 시각화를 사용하도록 설정하려면 데스크톱 컴퓨터에서 [공간 분석 작업](spatial-analysis-operations.md)의 `.debug` 버전을 사용해야 합니다. Azure Stack Edge 디바이스에서는 시각화가 가능하지 않습니다. 대신 네 가지 디버그 작업을 사용할 수 있습니다.
+비디오 프레임에서 AI 통찰력 이벤트의 시각화를 사용 하도록 설정 하려면 `.debug` 데스크톱 컴퓨터 또는 AZURE VM에서 [공간 분석 작업](spatial-analysis-operations.md) 의 버전을 사용 해야 합니다. Azure Stack Edge 디바이스에서는 시각화가 가능하지 않습니다. 대신 네 가지 디버그 작업을 사용할 수 있습니다.
 
-디바이스가 Azure Stack Edge 디바이스가 아닌 경우 올바른 값을 `DISPLAY` 환경 변수에 사용하도록 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)의 배포 매니페스트 파일을 편집합니다. 호스트 컴퓨터의 `$DISPLAY` 변수와 일치해야 합니다. 배포 매니페스트가 업데이트되면 컨테이너를 다시 배포합니다.
+장치가 로컬 데스크톱 컴퓨터 또는 Azure GPU VM (원격 데스크톱을 사용 하는 경우) 인 경우 `.debug` 모든 작업의 버전으로 전환 하 고 출력을 시각화할 수 있습니다.
 
-배포가 완료되면 `.Xauthority` 파일을 호스트 컴퓨터에서 컨테이너로 복사한 후 다시 시작해야 할 수 있습니다. 아래 예제에서 `peopleanalytics`는 호스트 컴퓨터의 컨테이너 이름입니다.
+1.  로컬에서 또는 공간 분석을 실행 하는 호스트 컴퓨터에서 원격 데스크톱 클라이언트를 사용 하 여 데스크톱을 엽니다. 
+2.  터미널 실행 `xhost +`
+3.  환경 변수의 값을 사용 하 여 모듈의 [배포 매니페스트](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 를 업데이트 `spaceanalytics` `DISPLAY` 합니다. 호스트 컴퓨터의 터미널에서를 실행 하 여 해당 값을 찾을 수 있습니다 `echo $DISPLAY` .
+    ```
+    "env": {        
+        "DISPLAY": {
+            "value": ":11"
+            }
+    }
+    ```
+4. 디버그 모드에서 실행 하려는 배포 매니페스트의 그래프를 업데이트 합니다. 아래 예제에서는 operationId를 cognitiveservices account로 업데이트 합니다. spatialanalysis-personcrossingpolygon. 새 매개 변수는 `VISUALIZER_NODE_CONFIG` 시각화 도우미 창을 사용 하도록 설정 하는 데 필요 합니다. 모든 작업은 디버그 버전에서 사용할 수 있습니다. 공유 노드를 사용 하는 경우 cognitiveservices account 작업을 사용 하 여 `VISUALIZER_NODE_CONFIG` 인스턴스 매개 변수에를 추가 합니다. 
 
-```bash
-sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
-sudo docker stop peopleanalytics
-sudo docker start peopleanalytics
-xhost +
-```
+    ```
+    "zonecrossing": {
+        "operationId" : "cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug",
+        "version": 1,
+        "enabled": true,
+        "parameters": {
+            "VIDEO_URL": "Replace http url here",
+            "VIDEO_SOURCE_ID": "zonecrossingcamera",
+            "VIDEO_IS_LIVE": false,
+            "VIDEO_DECODE_GPU_INDEX": 0,
+            "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0 }",
+            "CAMERACALIBRATOR_NODE_CONFIG": "{ \"gpu_index\": 0}",
+            "VISUALIZER_NODE_CONFIG": "{ \"show_debug_video\": true }",
+            "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.3,0.3],[0.3,0.9],[0.6,0.9],[0.6,0.3],[0.3,0.3]], \"threshold\":35.0}]}"
+        }
+    }
+    ```
+    
+5. 다시 배포 하면 호스트 컴퓨터에 시각화 도우미 창이 표시 됩니다.
+6. 배포가 완료 된 후 `.Xauthority` 호스트 컴퓨터의 파일을 컨테이너에 복사 하 고 다시 시작 해야 할 수 있습니다. 아래 예제에서 `peopleanalytics`는 호스트 컴퓨터의 컨테이너 이름입니다.
 
+    ```bash
+    sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
+    sudo docker stop peopleanalytics
+    sudo docker start peopleanalytics
+    xhost +
+    ```
 
 ## <a name="collect-system-health-telemetry"></a>시스템 상태 원격 분석 수집
 
@@ -423,7 +453,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 ## <a name="next-steps"></a>다음 단계
 
-* [인원수를 세는 웹 애플리케이션 배포](spatial-analysis-web-app.md)
+* [인원 수를 세는 웹 애플리케이션 배포](spatial-analysis-web-app.md)
 * [공간 분석 작업 구성](./spatial-analysis-operations.md)
 * [카메라 배치 가이드](spatial-analysis-camera-placement.md)
 * [영역 및 선 배치 가이드](spatial-analysis-zone-line-placement.md)

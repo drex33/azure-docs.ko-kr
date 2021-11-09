@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: f48acfc942e40b4316a72b2626c29900d1a9cd6f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c38ff365efb2be164304b67ce5ab083bb0f1b0fe
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428846"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057360"
 ---
 # <a name="enable-microsoft-defender-for-sql-servers-on-machines"></a>컴퓨터에서 SQL 서버에 대해 Microsoft Defender 사용 
 
@@ -28,10 +28,12 @@ ms.locfileid: "131428846"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|**머신의 SQL 서버용 Microsoft Defender는** [가격 책정 페이지에](https://azure.microsoft.com/pricing/details/security-center/) 표시된 대로 요금이 청구됩니다.|
-|보호되는 SQL 버전:|Azure SQL Server(Microsoft 지원에 포함된 모든 버전)|
+|가격 책정:|**머신의 SQL 서버용 Microsoft Defender는** 가격 책정 [페이지에](https://azure.microsoft.com/pricing/details/security-center/) 표시된 대로 요금이 청구됩니다.|
+|보호되는 SQL 버전:|SQL Server(현재 [Microsoft에서 지원되는](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions)버전)|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure 중국 21Vianet|
 |||
+
+
 
 ## <a name="set-up-microsoft-defender-for-sql-servers-on-machines"></a>컴퓨터에서 SQL 서버용 Microsoft Defender 설정
 
@@ -48,12 +50,12 @@ ms.locfileid: "131428846"
 
 - **Azure VM의 SQL Server** - [SQL IaaS Agent 확장에 SQL Server VM 등록](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)에 설명된 대로 SQL IaaS 에이전트 확장에 SQL Server VM를 등록합니다.
 
-- **Azure Arc의 SQL Server** - [Azure Arc 설명서](../azure-arc/servers/manage-vm-extensions.md)에 설명된 설치 방법에 따라 Azure Arc 에이전트를 설치합니다.
+- **Azure Arc 지원 서버에서 SQL Server** - Azure Arc 설명서에 설명된 설치 방법에 따라 Azure Arc 에이전트를 [설치합니다.](../azure-arc/servers/manage-vm-extensions.md)
 
 ### <a name="step-2-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>2단계. SQL server의 호스트에 Log Analytics 에이전트를 프로비전합니다.
 
 - **Azure VM의 SQL Server** - SQL 컴퓨터가 Azure VM에서 호스트되는 경우 [Log Analytics 에이전트 <a name="auto-provision-mma"></a>](enable-data-collection.md#auto-provision-mma)의 자동 프로비전을 사용하도록 설정할 수 있습니다. 또는 [Azure Stack Hub VM](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms)을 등록하는 수동 프로시저를 따를 수 있습니다.
-- **Azure Arc SQL Server** - Azure Arc 사용하도록 설정된 서버에서 [SQL Server](../azure-arc/index.yml) 관리하는 경우 Defender for Cloud 권장 사항 "Log Analytics 에이전트를 Windows 기반 Azure Arc 머신(미리 보기)에 설치해야 합니다."를 사용하여 Log Analytics 에이전트를 배포할 수 있습니다.
+- **Azure Arc 지원 서버에서 SQL Server** - SQL Server [Azure Arc](../azure-arc/index.yml) 사용하도록 설정된 서버에서 관리되는 경우 Defender for Cloud 권장 사항 "Log Analytics 에이전트를 Windows 기반 Azure Arc 머신(미리 보기)에 설치해야 합니다."를 사용하여 Log Analytics 에이전트를 배포할 수 있습니다.
 
 - **SQL Server 온-프레미스** - SQL Server Azure Arc 없이 온-프레미스 Windows 컴퓨터에서 호스트되는 경우 Azure에 연결하는 두 가지의 옵션이 있습니다.
     
@@ -66,7 +68,7 @@ ms.locfileid: "131428846"
 
 1. Defender for Cloud 메뉴에서 환경 **설정** 페이지를 엽니다.
 
-    - **클라우드의 기본 작업** 영역("defaultworkspace-[구독 ID]-[region]")을 사용하는 경우 관련 **구독을** 선택합니다.
+    - **클라우드용 Microsoft Defender의 기본 작업** 영역("defaultworkspace-[구독 ID]-[지역]")을 사용하는 경우 관련 **구독을** 선택합니다.
 
     - **기본값이 아닌 작업 영역** 을 사용하는 경우 관련 **작업 영역** 을 선택합니다(필요한 경우 필터에 작업 영역 이름을 입력).
 
@@ -96,7 +98,7 @@ Microsoft Defender for SQL 경고는 Defender for Cloud의 경고 페이지, 머
 
 1. 경고를 보려면 Defender for Cloud 메뉴에서 **보안 경고를** 선택하고 경고를 선택합니다.
 
-1. 경고는 각각 자세한 수정 단계 및 조사 정보와 함께 자체적으로 포함되도록 설계되었습니다. 더 넓은 보기를 위해 다른 Microsoft Defender for Cloud 및 Microsoft Sentinel 기능을 사용하여 더 자세히 조사할 수 있습니다.
+1. 경고는 각각 자세한 수정 단계 및 조사 정보와 함께 자체적으로 포함되도록 설계되었습니다. 더 넓은 보기를 위해 다른 Microsoft Defender for Cloud 및 Microsoft Sentinel 기능을 사용하여 자세히 조사할 수 있습니다.
 
     * 추가 조사를 위해 SQL Server의 감사 기능을 사용하도록 설정합니다. Microsoft Sentinel 사용자인 경우 Windows 보안 Log 이벤트에서 Sentinel로 SQL 감사 로그를 업로드하고 풍부한 조사 환경을 이용할 수 있습니다. [SQL Server 감사에 대해 자세히 알아보세요](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
     * 보안 태세를 개선하려면 각 경고에 표시된 호스트 머신에 대한 Defender for Cloud 권장 사항을 사용합니다. 이를 통해 향후 공격의 위험을 축소할 수 있습니다. 
@@ -104,14 +106,14 @@ Microsoft Defender for SQL 경고는 Defender for Cloud의 경고 페이지, 머
     [경고 관리 및 대응에 대해 자세히 알아보세요](managing-and-responding-alerts.md).
 
 
-## <a name="faq---microsoft-defender-for-sql-servers-on-machines"></a>FAQ - 머신의 SQL 서버용 Microsoft Defender
+## <a name="faq---microsoft-defender-for-sql-servers-on-machines"></a>FAQ - 컴퓨터의 SQL 서버용 Microsoft Defender
 
 ### <a name="if-i-enable-this-microsoft-defender-plan-on-my-subscription-are-all-sql-servers-on-the-subscription-protected"></a>내 구독에서 이 Microsoft Defender 계획을 사용하도록 설정하면 구독의 모든 SQL 서버가 보호됩니까? 
 
 아니요. Azure 가상 머신 또는 Azure Arc 지원 컴퓨터에서 실행되는 SQL Server SQL Server 배포를 방어하려면 Defender for Cloud에 다음이 필요합니다.
 
 - 컴퓨터의 Log Analytics 에이전트
-- 관련 Log Analytics 작업 영역에서 microsoft Defender for SQL 솔루션을 사용하도록 설정
+- Microsoft Defender for SQL 솔루션을 사용하도록 설정하기 위한 관련 Log Analytics 작업 영역
 
 Azure Portal의 SQL Server 페이지에 표시되는 구독 *상태* 는 기본 작업 영역 상태를 반영하여 연결된 모든 컴퓨터에 적용됩니다. Log Analytics 에이전트가 해당 작업 영역에 보고하는 호스트의 SQL 서버만 Defender for Cloud로 보호됩니다.
 

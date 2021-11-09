@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: e3ae63b202d826e48789bd8d15a197048d5566b7
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: e89f449d62a86d8a935647d0a60af25415f65b85
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567585"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058338"
 ---
 # <a name="create-a-query-that-invokes-semantic-ranking-and-returns-semantic-captions"></a>의미론적 순위를 호출하고 의미론적 캡션을 반환하는 쿼리 만들기
 
@@ -169,7 +169,7 @@ Cognitive Search의 여러 쿼리 기능은 관련성 점수 매기기를 거치
 
 + 필터, 모호성 검색 쿼리 및 정규식은 토큰화되지 않은 텍스트를 반복하여 콘텐츠에서 축자와 일치하는 항목을 검색합니다. 위의 모든 쿼리 형식에 대한 검색 점수는 균일한 1.0이며 의미 체계 순위 지정을 위한 의미 있는 입력을 제공하지 않습니다.
 
-+ 특정 필드에 대한 정렬(orderBy 절)도 검색 점수 및 의미 체계 점수를 재정의합니다. 의미 체계 점수가 결과를 정렬하는 데 사용된다는 점을 고려할 때 명시적 정렬 논리를 포함하면 HTTP 400 오류가 반환됩니다.
++ 특정 필드에 대한 정렬(orderBy 절)도 검색 점수 및 의미 체계 점수를 재정의합니다. 의미 체계 점수를 사용 하 여 결과를 정렬 하는 경우 명시적 정렬 논리를 비롯 하 여 HTTP 400 오류가 반환 됩니다.
 
 #### <a name="step-4-add-answers"></a>4단계: 답변 추가
 

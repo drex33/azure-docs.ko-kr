@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 55a17a70db3f23b169da90c746cd41f24273262e
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 2bee0e603d3cde38e56146900d682cc5e2b40bdc
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666564"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056476"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용하여 설정을 App Configuration으로 끌어오기
 
@@ -23,7 +23,8 @@ ms.locfileid: "114666564"
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - App Configuration 저장소 - [Azure Portal](https://portal.azure.com)에서 무료로 만드세요.
 - Azure DevOps 프로젝트 - [무료로 만들기](https://go.microsoft.com/fwlink/?LinkId=2014881)
-- Azure App Configuration 작업 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.)에서 무료로 다운로드하세요.  
+- Azure App Configuration 작업 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.)에서 무료로 다운로드하세요. 
+- [노드 10](https://nodejs.org/en/blog/release/v10.21.0/) -자체 호스팅 에이전트에서 작업을 실행 하는 사용자 
 
 ## <a name="create-a-service-connection"></a>서비스 연결 만들기
 

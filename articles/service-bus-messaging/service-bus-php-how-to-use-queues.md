@@ -5,12 +5,12 @@ services: service-bus-messaging
 ms.devlang: PHP
 ms.topic: how-to
 ms.date: 07/23/2021
-ms.openlocfilehash: d0909c4e2ea5ef53a1438ce05f5ddad485c80248
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b5f1a3b09594a6f47d285f03ca841f763b759a3c
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725134"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055929"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>PHP에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
@@ -159,7 +159,7 @@ catch(ServiceException $e){
 
 Service Bus 큐와 주고 받은 메시지는 [BrokeredMessage][BrokeredMessage] 클래스 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 표준 메서드 및 속성 세트와 임의 애플리케이션 데이터 본문이 있습니다.
 
-Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 큐 크기의 상한은 5GB입니다.
+Service Bus 큐는 [표준 계층에서](service-bus-premium-messaging.md) 최대 256KB, [Premium](service-bus-premium-messaging.md)계층에서 100MB의 최대 메시지 크기를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 큐 크기의 상한은 5GB입니다.
 
 ## <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 

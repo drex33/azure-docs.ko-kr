@@ -11,12 +11,12 @@ ms.author: minxia
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 351ef1c91ae665c170604543ac509562d2e2f0d0
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2c88c8954e334b5c6ffc80a60b2bd85cd98bda7a
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570185"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055534"
 ---
 # <a name="manage-azure-machine-learning-environments-with-the-cli-v2-preview"></a>CLI를 Azure Machine Learning 환경 관리(v2)(미리 보기)
 
@@ -38,7 +38,7 @@ Azure Machine Learning 환경은 작업 또는 배포에 대한 실행 환경을
 
 학습 예제를 실행하려면 먼저 예제 리포지토리를 복제하고 `cli` 디렉터리로 변경합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="git_clone":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
 `--depth 1`은 리포지토리에 대한 최신 커밋만 복제하여 작업을 완료하는 시간을 줄입니다.
 
@@ -46,7 +46,7 @@ Azure Machine Learning 환경은 작업 또는 배포에 대한 실행 환경을
 
 Azure ML 큐레이팅된 환경과 사용자 지정 환경이라는 두 가지 유형의 환경이 있습니다. 큐레이팅된 환경은 인기 있는 ML 프레임워크 및 도구를 포함하는 미리 정의된 환경입니다. 사용자 지정 환경은 사용자 정의이며 를 통해 만들 수 `az ml environment create` 있습니다.
 
-큐레이팅된 환경은 Azure ML 제공되며 기본적으로 작업 영역에서 사용할 수 있습니다. Azure ML 최신 프레임워크 버전 릴리스를 통해 이러한 환경을 정기적으로 업데이트하고 버그 수정 및 보안 패치를 위해 유지 관리합니다. 캐시된 Docker 이미지로 지원되어 작업 준비 비용과 모델 배포 시간을 줄일 수 있습니다.
+큐레이팅된 환경은 Azure ML 제공되며 기본적으로 작업 영역에서 사용할 수 있습니다. Azure ML 최신 프레임워크 버전 릴리스로 이러한 환경을 정기적으로 업데이트하고 버그 수정 및 보안 패치를 위해 유지 관리합니다. 캐시된 Docker 이미지로 지원되어 작업 준비 비용과 모델 배포 시간을 줄일 수 있습니다.
 
 구문을 사용하여 특정 환경을 참조하여 이러한 큐레이팅된 환경을 학습 또는 배포에 사용할 수 `azureml:<curated-environment-name>:<version>` 있습니다. 이러한 큐레이팅된 환경을 백업하는 Dockerfiles를 수정하여 사용자 지정 환경에 대한 참조로 사용할 수도 있습니다.
 
@@ -60,15 +60,15 @@ conda 사양, Docker 이미지 또는 Docker 빌드 컨텍스트에서 환경을
 az ml environment create --file my_environment.yml
 ```
 
-Azure ML 환경에 대한 YAML 참조 설명서는 [CLI(v2) 환경 YAML 스키마](reference-yaml-environment.md)를 참조하세요.
+Azure ML 환경에 대한 YAML 참조 설명서는 [CLI(v2) 환경 YAML 스키마를](reference-yaml-environment.md)참조하세요.
 
 ### <a name="create-an-environment-from-a-docker-image"></a>Docker 이미지에서 환경 만들기
 
-Docker 이미지에서 환경을 정의하려면 Docker Hub 또는 Azure Container Registry 같은 레지스트리에 호스트되는 이미지의 이미지 URI를 제공합니다. 
+Docker 이미지에서 환경을 정의하려면 Docker Hub 또는 Azure Container Registry 같은 레지스트리에 호스트된 이미지의 이미지 URI를 제공합니다. 
 
 다음 예제는 Docker 이미지에서 정의된 환경에 대한 YAML 사양 파일입니다. Docker Hub 공식 PyTorch 리포지토리의 이미지는 `image` YAML 파일의 속성을 통해 지정됩니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
 
 환경을 만들려면 다음을 수행합니다.
 
@@ -89,7 +89,7 @@ az ml environment create --file assets/environment/docker-image.yml
 
 이 예제에서 빌드 컨텍스트에는 라는 Dockerfile과 `Dockerfile` `requirements.txt` Python 패키지를 설치하기 위해 Dockerfile 내에서 참조되는 파일이 포함됩니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
 
 환경을 만들려면 다음을 수행합니다.
 
@@ -107,7 +107,7 @@ conda 환경에 대한 dependencies를 포함하는 표준 conda YAML 구성 파
 
 다음 예제는 conda 사양에서 정의된 환경에 대한 YAML 사양 파일입니다. 여기서 Azure ML 환경 YAML 파일의 conda 파일에 대한 상대 경로는 속성을 통해 `conda_file` 지정됩니다. 또는 별도 파일에서 정의하는 대신 속성을 사용하여 conda 사양 인라인을 정의할 수 `conda_file` 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
 
 환경을 만들려면 다음을 수행합니다.
 
@@ -154,7 +154,7 @@ az ml environment update --name docker-image-example --version 1 --set descripti
 > [!IMPORTANT]
 > 환경의 경우 및 만 `description` `tags` 업데이트할 수 있습니다. 다른 모든 속성은 불변입니다. 이러한 속성을 변경해야 하는 경우 새 버전의 환경을 만들어야 합니다.
 
-### <a name="delete"></a>DELETE
+### <a name="delete"></a>삭제
 
 특정 환경 삭제:
 
@@ -166,7 +166,7 @@ az ml environment delete --name docker-image-example --version 1
 
 학습 작업에 환경을 사용하려면 작업 `environment` YAML 구성의 필드를 지정합니다. 를 통해 기존의 등록된 Azure ML 환경을 `environment: azureml:<environment-name>:<environment-version>` 참조하거나 환경 사양을 인라인으로 정의할 수 있습니다. 환경 인라인을 정의하는 경우 및 필드를 지정하지 마십시오. `name` `version` 이러한 환경은 "익명" 환경으로 처리되고 환경 자산 레지스트리에서 추적되지 않기 때문에 입니다.
 
-학습 작업을 제출하면 새 환경 빌드에 몇 분 정도 걸릴 수 있습니다. 시간은 필요한 종속성의 크기에 따라 달라집니다. 환경은 서비스에서 캐시됩니다. 환경 정의가 변경되지 않는 한, 전체 설정을 한 번만 하면 됩니다.
+학습 작업을 제출하면 새 환경을 빌드하는 데 몇 분 정도 걸릴 수 있습니다. 시간은 필요한 종속성의 크기에 따라 달라집니다. 환경은 서비스에서 캐시됩니다. 환경 정의가 변경되지 않는 한, 전체 설정을 한 번만 하면 됩니다.
 
 작업에서 환경을 사용하는 방법에 대한 자세한 내용은 CLI를 사용하여 [모델 학습(v2)을 참조하세요.](how-to-train-cli.md)
 

@@ -10,12 +10,12 @@ author: mx-iao
 ms.author: minxia
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ff49606e2f1a3877b6949d9ec0ae8a125c533484
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: ecfd6d57d7f978e64bed0003253a05941effa910
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557930"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060967"
 ---
 # <a name="cli-v2-command-job-yaml-schema"></a>CLI(v2) 명령 작업 YAML 스키마
 
@@ -93,77 +93,77 @@ ms.locfileid: "131557930"
 
 `az ml job` 명령은 Azure Machine Learning 작업을 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/jobs)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 
 ## <a name="yaml-hello-world"></a>YAML: hello world
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
 
 ## <a name="yaml-display-name-experiment-name-description-and-tags"></a>YAML: 표시 이름, 실험 이름, 설명 및 태그
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-org.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
 
 ## <a name="yaml-environment-variables"></a>YAML: 환경 변수
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-env-var.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
 
 ## <a name="yaml-source-code"></a>YAML: 소스 코드
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-code.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-code.yml":::
 
 ## <a name="yaml-literal-inputs"></a>YAML: 리터럴 입력
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-input.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
 
 ## <a name="yaml-write-to-default-outputs"></a>YAML: 기본 출력에 쓰기
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
 
 ## <a name="yaml-write-to-named-data-output"></a>YAML: 명명된 데이터 출력에 쓰기
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-world-output-data.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
 
 ## <a name="yaml-datastore-uri-file-input"></a>YAML: 데이터 저장소 URI 파일 입력
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
 
 ## <a name="yaml-datastore-uri-folder-input"></a>YAML: 데이터 저장소 URI 폴더 입력
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-datastore-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
 
 ## <a name="yaml-uri-file-input"></a>YAML: URI 파일 입력
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
 
 ## <a name="yaml-uri-folder-input"></a>YAML: URI 폴더 입력
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-iris-folder.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
 
 ## <a name="yaml-notebook-via-papermill"></a>YAML: Papermill을 통한 Notebook
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-notebook.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-notebook.yml":::
 
 ## <a name="yaml-basic-python-model-training"></a>YAML: 기본 Python 모델 학습
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
 ## <a name="yaml-basic-r-model-training-with-local-docker-build-context"></a>YAML: 로컬 Docker 빌드 컨텍스트를 통해 기본 R 모델 학습
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/r/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/r/iris/job.yml":::
 
 ## <a name="yaml-distributed-pytorch"></a>YAML: 분산 PyTorch
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
 ## <a name="yaml-distributed-tensorflow"></a>YAML: 분산 TensorFlow
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
 
 ## <a name="yaml-distributed-mpi"></a>YAML: 분산 MPI
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
 ## <a name="next-steps"></a>다음 단계
 

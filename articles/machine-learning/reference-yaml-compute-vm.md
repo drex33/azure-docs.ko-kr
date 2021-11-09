@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 25eb702d61b98d9c418e20763e95a948cc2cbf05
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b639c4193a246ccf7f57520089132f0f49d16ebb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570095"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062437"
 ---
 # <a name="cli-v2-attached-virtual-machine-yaml-schema"></a>CLI(v2) 연결된 Virtual Machine YAML 스키마
 
@@ -27,7 +27,7 @@ ms.locfileid: "131570095"
 
 | 키 | 형식 | Description | 허용되는 값 | 기본값 |
 | --- | ---- | ----------- | -------------- | ------- |
-| `$schema` | 문자열 | YAML 스키마입니다. 파일의 맨 위에 있는 를 포함하여 Azure Machine Learning VS Code 확장명을 사용하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
+| `$schema` | 문자열 | YAML 스키마입니다. Azure Machine Learning VS Code 확장명을 사용하여 파일 맨 위에 있는 를 포함하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
 | `type` | 문자열 | **필수 사항입니다.** 컴퓨팅 유형입니다. | `virtualmachine` | |
 | `name` | 문자열 | **필수 사항입니다.** 컴퓨팅의 이름입니다. | | |
 | `description` | 문자열 | 컴퓨팅에 대한 설명입니다. | | |
@@ -40,15 +40,15 @@ ms.locfileid: "131570095"
 
 ## <a name="remarks"></a>설명
 
-`az ml compute`명령은 Azure Machine Learning 작업 영역에 연결된 VM(Virtual Machines)을 관리하는 데 사용할 수 있습니다.
+명령은 Azure Machine Learning `az ml compute` 작업 영역에 연결된 VM(Virtual Machines)을 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/resources/compute)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 
 ## <a name="yaml-basic"></a>YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/vm-attach.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/vm-attach.yml":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/26/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9db002f50675c45a0eeb7bb7e213d0dc65b64ab8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 00d00c8dc5419b524eb71172adfb5271905d668f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006625"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057787"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Azure API Management에서 클라이언트 인증서 인증을 사용한 백엔드 서비스 보호
 
@@ -79,7 +79,11 @@ API Management에 키 자격 증명 모음 인증서를 추가하려면 다음�
     > ID에는 키 자격 증명 모음에서 인증서를 가져오고 나열할 수 있는 권한이 필요합니다. 키 자격 증명 모음에 대한 액세스를 아직 구성하지 않은 경우 API Management는 필수적인 권한을 통해 ID를 자동으로 구성할 수 있도록 메시지를 표시합니다.
 1. **추가** 를 선택합니다.
 
+
+
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="키 자격 증명 모음 인증서 추가":::
+    
+1. **저장** 을 선택합니다.
 
 ## <a name="upload-a-certificate"></a>인증서 업로드
 
@@ -95,6 +99,9 @@ API Management에 클라이언트 인증서를 업로드하려면 다음을 수�
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="클라이언트 인증서 업로드":::
 
+
+1. **저장** 을 선택합니다.
+
 인증서를 업로드하면 **인증서** 창에 표시됩니다. 인증서가 많은 경우 [게이트웨이 인증](#configure-an-api-to-use-client-certificate-for-gateway-authentication)에 클라이언트 인증서를 사용하도록 API를 구성하려면 원하는 인증서의 지문을 기록해 둡니다.
 
 > [!NOTE]
@@ -105,8 +112,8 @@ API Management에 클라이언트 인증서를 업로드하려면 다음을 수�
 1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
 1. **API** 에서 **API** 를 선택합니다.
 1. 목록에서 API를 선택합니다. 
-2. **디자인** 탭에서 **백엔드** 섹션에 있는 편집기 아이콘을 선택합니다.
-3. **게이트웨이 자격 증명** 에서 **클라이언트 인증서** 를 선택하고 드롭다운 목록에서 인증서를 선택합니다.
+1. **디자인** 탭에서 **백엔드** 섹션에 있는 편집기 아이콘을 선택합니다.
+1. **게이트웨이 자격 증명** 에서 **클라이언트 인증서** 를 선택하고 드롭다운 목록에서 인증서를 선택합니다.
 1. **저장** 을 선택합니다.
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png" alt-text="게이트웨이 인증에 클라이언트 인증서 사용":::

@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: 8de9ab2942ab739fdf87086191a50ea8e76e48f5
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: bc176567721b3c023afcb82e920b33fca7ca0a53
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843312"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061233"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 PostgreSQL 확장
 
@@ -98,7 +98,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1.1             | 지구 표면의 대권거리 계산|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
 > |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | 키/값 쌍 집합을 저장하기 위한 데이터 형식|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.2             | 가상 인덱스 지원을 추가하는 확장 |
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.2             | 가상 인덱스에 대 한 지원 추가 확장 |
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | 정수 집계 및 열거자 (사용되지 않음)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | 국제 제품 번호 지정 표준에 대한 데이터 형식|
@@ -152,7 +152,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | 지구 표면의 대권거리 계산|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | 키/값 쌍 집합을 저장하기 위한 데이터 형식|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | 가상 인덱스 지원을 추가하는 확장 |
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | 가상 인덱스에 대 한 지원 추가 확장 |
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | 정수 집계 및 열거자 (사용되지 않음)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | 국제 제품 번호 지정 표준에 대한 데이터 형식|
@@ -217,7 +217,8 @@ pg_cron에서 모든 작업의 예약을 취소하려면
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
 > [!NOTE]
-> pg_cron postgres 데이터베이스의 모든 Azure Database for PostgreSQL 유연한 서버가 미리 로드되어 보안을 손상시키지 않고 PostgreSQL DB 인스턴스 내의 다른 데이터베이스에서 작업을 실행하도록 예약하는 기능을 제공합니다. 
+> pg_cron 확장은 postgres 데이터베이스 내의 모든 Azure Database for PostgreSQL 유연한 서버에 미리 로드 되어 보안을 손상 시 키 지 않고 PostgreSQL DB 인스턴스 내의 다른 데이터베이스에서 실행 되도록 작업을 예약할 수 있는 기능을 제공 합니다.
+
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 
 [pg_stat_statements 확장](https://www.postgresql.org/docs/current/pgstatstatements.html)은 모든 Azure Database for PostgreSQL 유연한 서버에 미리 로드되어 SQL 문의 실행 통계를 추적하는 수단을 제공합니다.

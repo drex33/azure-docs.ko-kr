@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 104d8665a1a7754475e0bcad14546775335c389f
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 7021f75bb63e7cb7e7467cf7827a365d81b09bd6
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131261"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059622"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>상업용 Marketplace 계량 서비스를 사용하여 SaaS 요금제 청구
 
@@ -23,7 +23,7 @@ ms.locfileid: "130131261"
 SaaS 제품에 요금제 청구를 사용하려면 먼저 다음을 수행해야 합니다.
 
 - [상업용 Marketplace에서 SaaS 제품 만들기](../create-new-saas-offer.md)에 설명된 대로 [Microsoft 제품을 통한 판매](../plan-saas-offer.md#listing-options)와 관련된 모든 제품 요구 사항을 충족합니다.
-- 고객이 제품에 프로비저닝하고 연결할 [SaaS 처리 API](./pc-saas-fulfillment-api-v2.md)와 통합합니다.  
+- 고객이 제품에 프로비저닝하고 연결할 [SaaS 처리 API](./pc-saas-fulfillment-apis.md)와 통합합니다.  
 - 고객에게 서비스 요금을 청구하는 경우 **정액제** 로 가격 책정 모델을 구성해야 합니다.  정액제 가격 책정 모델에서 차원을 늘리는 것은 선택 사항입니다. 
 
 그러면 SaaS 제품은 [상업용 Marketplace 계량 서비스 API](../marketplace-metering-service-apis.md)와 통합하여 청구 가능한 이벤트를 Microsoft에 알려줄 수 있습니다.
@@ -116,7 +116,7 @@ CNS SaaS 제품에 대한 구독을 구매하는 Azure 고객은 선택한 플�
 1. 해당 데이터를 파일로 내보냅니다.
 1. 파트너 센터에서 국가/지역별로 적절한 가격을 추가하고 파일을 가져옵니다.
 
-측정기의 사용자 인터페이스는 차원의 가격이 파일에서만 볼 수 있음을 반영하도록 변경됩니다.
+측정기의 사용자 인터페이스는 해당 차원 가격이 파일에만 표시 될 수 있다는 것을 반영 하도록 변경 됩니다.
 
 [![상업용 Marketplace 계량 서비스 차원](media/metering-service-dimensions.png "확대해서 보려면 클릭")](media/metering-service-dimensions.png)
 
@@ -132,7 +132,7 @@ CNS SaaS 제품에 대한 구독을 구매하는 Azure 고객은 선택한 플�
 
 ### <a name="locking-behavior"></a>잠금 동작
 
-상업용 마켓플레이스 계량 서비스와 함께 사용되는 차원은 고객이 서비스에 대해 지불하는 방식을 이해하기 때문에 차원에 대한 모든 세부 정보는 게시 후에 더 이상 편집할 수 없습니다.  게시하기 전에 플랜의 차원을 완전히 정의해야 합니다.
+상용 marketplace 계량 서비스에 사용 되는 차원은 고객이 서비스를 지불 하는 방법을 이해 하는 것 이므로, 게시 한 후에는 차원에 대 한 모든 세부 정보를 더 이상 편집할 수 없습니다.  게시하기 전에 플랜의 차원을 완전히 정의해야 합니다.
 
 차원을 사용하는 제품이 게시되면 해당 차원에 대한 제품 수준 세부 정보를 더 이상 변경할 수 없습니다.
 

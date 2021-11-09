@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 69846496c05716cc00ca782c979bc3c970537b0b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 220995b286824b2daf2eb79c6b0ec917c5549263
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029583"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061966"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema"></a>데이터 준비 및 스키마 정의 방법
 
-사용자 지정 분류 모델을 만들려면 학습을 위한 양질의 데이터가 필요합니다. 이 문서에서는 스키마 정의와 함께 데이터 선택 및 준비에 접근하는 방법을 다룹니다. 스키마는 런타임 시 모델이 텍스트를 분류하는 데 필요한 클래스를 정의하며 [사용자 지정 분류 애플리케이션 개발](../overview.md#application-development-lifecycle)의 첫 번째 단계입니다.
+사용자 지정 분류 모델을 만들려면 학습을 위한 양질의 데이터가 필요합니다. 이 문서에서는 스키마 정의와 함께 데이터 선택 및 준비에 접근하는 방법을 다룹니다. 스키마는 런타임 시 모델이 텍스트를 분류하는 데 필요한 클래스를 정의하며 [사용자 지정 분류 애플리케이션 개발](../overview.md#project-development-lifecycle)의 첫 번째 단계입니다.
 
 
 ## <a name="data-selection"></a>데이터 선택

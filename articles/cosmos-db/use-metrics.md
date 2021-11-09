@@ -7,14 +7,14 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 11/08/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e85fa72288ab31fd8e61fcda731debb3517057f
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: ba9fac9fef3e418cc48bc3185ca91af89dd7946f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393390"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057065"
 ---
 # <a name="monitor-and-debug-with-insights-in-azure-cosmos-db"></a>Azure Cosmos DB에서 인사이트를 사용하여 모니터링 및 디버그
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -27,13 +27,13 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cosmos DB 계정으로 이동합니다.
 
-1. **메트릭** 창 또는 **인사이트(미리 보기)** 창에서 계정 메트릭을 볼 수 있습니다.
+1. 메트릭 창 또는 **Insights** 창에서 계정 **메트릭을** 볼 수 있습니다.
 
    * **메트릭**. 이 창에서는 정기적으로 수집되며 특정 시간에 시스템의 일부 측면을 설명하는 수치 메트릭을 제공합니다. 예를 들어 [서버 측 대기 시간 메트릭](monitor-server-side-latency.md), [정규화된 요청 단위 사용량 메트릭](monitor-normalized-request-units.md) 등을 보고 모니터링할 수 있습니다.
 
-   * **인사이트(미리 보기)** : 이 창에서는 Azure Cosmos DB에 대한 사용자 지정 모니터링 환경을 제공합니다. Azure Monitor에서 수집되는 것과 동일한 메트릭과 로그를 사용하여 계정에 대한 집계 보기를 표시합니다.
+   * **Insights:** 이 창에서는 Azure Cosmos DB에 대한 사용자 지정된 모니터링 환경을 제공합니다. Azure Monitor에서 수집되는 것과 동일한 메트릭과 로그를 사용하여 계정에 대한 집계 보기를 표시합니다.
 
-1. **인사이트(미리 보기)** 창을 엽니다. 기본적으로 인사이트 창에는 계정의 컨테이너에 대한 처리량, 요청, 스토리지, 가용성, 대기 시간, 시스템 및 계정 관리 메트릭이 표시됩니다. 인사이트를 보려는 **시간 범위**, **데이터베이스** 및 **컨테이너** 를 선택할 수 있습니다. **개요** 탭에는 선택한 데이터베이스 및 컨테이너에 대한 RU/s 사용량, 데이터 사용량, 인덱스 사용량, 제한된 요청 및 정규화된 RU/s 사용량이 표시됩니다.
+1. **Insights** 창을 엽니다. 기본적으로 인사이트 창에는 계정의 컨테이너에 대한 처리량, 요청, 스토리지, 가용성, 대기 시간, 시스템 및 계정 관리 메트릭이 표시됩니다. 인사이트를 보려는 **시간 범위**, **데이터베이스** 및 **컨테이너** 를 선택할 수 있습니다. **개요** 탭에는 선택한 데이터베이스 및 컨테이너에 대한 RU/s 사용량, 데이터 사용량, 인덱스 사용량, 제한된 요청 및 정규화된 RU/s 사용량이 표시됩니다.
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Azure Portal의 Cosmos DB 성능 메트릭" lightbox="./media/use-metrics/performance-metrics.png" :::
 
@@ -65,7 +65,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 ## <a name="determine-the-throughput-consumption-by-a-partition-key-range"></a>파티션 키 범위별로 처리량 사용량 확인
 
-파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션 키 범위 ID로 분석하여 확인하려면 **인사이트(미리 보기)** 창으로 이동합니다. **처리량** 탭을 열면 서로 다른 파티션 키 범위에서 정규화된 RU/s 사용량이 차트에 표시됩니다.
+파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 파티션 키 범위의 ID로 분할된 모든 컨테이너의 처리량 분포를 확인하려면 **Insights** 창으로 이동합니다. **처리량** 탭을 열면 서로 다른 파티션 키 범위에서 정규화된 RU/s 사용량이 차트에 표시됩니다.
 
 :::image type="content" source="media/use-metrics/throughput-consumption-partition-key-range.png" alt-text="파티션 키 범위 ID별로 정규화된 처리량 사용량" lightbox="media/use-metrics/throughput-consumption-partition-key-range.png":::
 
@@ -73,7 +73,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 ## <a name="determine-the-data-and-index-usage"></a>데이터 및 인덱스 사용량 확인
 
-데이터 사용량, 인덱스 사용량 및 문서 사용량에 따라 분할된 컨테이너의 스토리지 배포를 결정하는 것이 중요합니다. 인덱스 사용량을 최소화하고, 데이터 사용량을 최대화하고, 쿼리를 최적화할 수 있습니다. 이 데이터를 가져오려면 **인사이트(미리 보기)** 창으로 이동하여 **스토리지** 탭을 엽니다.
+데이터 사용량, 인덱스 사용량 및 문서 사용량에 따라 분할된 컨테이너의 스토리지 배포를 결정하는 것이 중요합니다. 인덱스 사용량을 최소화하고, 데이터 사용량을 최대화하고, 쿼리를 최적화할 수 있습니다. 이 데이터를 얻으려면 **Insights** 창으로 이동하여 **Storage** 탭을 엽니다.
 
 :::image type="content" source="media/use-metrics/data-index-consumption.png" alt-text="데이터, 인덱스 및 문서 사용량" lightbox="media/use-metrics/data-index-consumption.png" :::
 

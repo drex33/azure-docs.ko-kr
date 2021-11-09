@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 4638139b6cc57e18b11382341b291a13b6c558c0
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: 224fda3a9f308bfb0b6683d58bbc6de3c2822259
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540066"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059320"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>상업용 마켓플레이스의 Azure AD 및 거래 가능한 SaaS 제품
 
@@ -53,7 +53,7 @@ Azure AD는 상업용 마켓플레이스 솔루션의 원활한 구매, 처리 �
 | ------------ | ------------- | ------------- |
 | 1. 구매자는 Azure ID ID를 사용하여 상업용 마켓플레이스에 로그인하고 SaaS 제품 선택합니다. | 게시자 작업이 필요하지 않습니다. | 해당 없음 |
 | 2. 구매 후에 구매자가 Azure 마켓플레이스에서 **계정 구성** 또는 AppSource에서 **지금 구성** 을 선택하면 해당 제품에 대한 게시자의 방문 페이지로 이동합니다. 구매자는 Azure AD SSO를 사용하여 게시자의 SaaS 애플리케이션에 로그인할 수 있어야 하며, Azure AD 관리자 승인이 필요하지 않은 최소한의 동의만 할 것을 요청 받아야 합니다. | 제품의 [방문 페이지](azure-ad-transactable-saas-landing-page.md)는 Azure AD 또는 MSA(Microsoft 계정) ID로 이용하고 필요한 추가 프로비전 또는 설치가 용이하도록 설계합니다. | 필수 |
-| 3. 게시자가 SaaS 처리 API로부터 구매 정보를 요청합니다. | 방문 페이지의 애플리케이션 ID에서 생성된 [액세스 토큰](./partner-center-portal/pc-saas-registration.md)을 사용하여 [엔드포인트 해결을 호출](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription)함으로써 구매 세부 정보를 검색합니다. | 필수 |
+| 3. 게시자가 SaaS 처리 API로부터 구매 정보를 요청합니다. | 방문 페이지의 애플리케이션 ID에서 생성된 [액세스 토큰](./partner-center-portal/pc-saas-registration.md)을 사용하여 [엔드포인트 해결을 호출](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription)함으로써 구매 세부 정보를 검색합니다. | 필수 |
 | 4. Azure AD 및 Microsoft Graph API를 통해 게시자는 게시자의 SaaS 애플리케이션에서 구매자를 프로비전하는 데 필요한 회사 및 사용자 세부 정보를 수집합니다.  | Azure AD 사용자 토큰을 해체하여 이름 및 이메일을 찾거나, [Microsoft Graph API를 호출](/graph/use-the-api)하고 위임된 권한을 사용하여 로그인한 사용자에 대한 [정보를 검색](/graph/api/user-get)합니다. | 필수 |
 ||||
 
@@ -67,7 +67,7 @@ Azure AD는 상업용 마켓플레이스 솔루션의 원활한 구매, 처리 �
 
 | 프로세스 단계 | 게시자 작업 | 게시자에 대한 권장 또는 필수 사항 |
 | ------------ | ------------- | ------------- |
-| 5. 게시자는 SaaS 처리 API를 통해 SaaS 애플리케이션 구독을 관리합니다. | [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md)를 통해 구독 변경 및 기타 관리 작업을 처리합니다.<br><br>이 단계에서는 프로세스 3 단계에서 설명한 대로 액세스 토큰이 필요합니다. | 필수 |
+| 5. 게시자는 SaaS 처리 API를 통해 SaaS 애플리케이션 구독을 관리합니다. | [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-apis.md)를 통해 구독 변경 및 기타 관리 작업을 처리합니다.<br><br>이 단계에서는 프로세스 3 단계에서 설명한 대로 액세스 토큰이 필요합니다. | 필수 |
 | 6. 계량 가격 책정을 사용하는 경우 게시자는 사용량 이벤트를 계량 서비스 API로 내보냅니다. | SaaS 앱이 사용량 기반 청구 기능을 제공하는 경우 [마켓플레이스 계량 서비스 API](marketplace-metering-service-apis.md)를 통해 사용량을 보고합니다.<br><br>이 단계에서는 3 단계에서 설명한 대로 액세스 토큰이 필요합니다. | 계량 시 필요 |
 ||||
 

@@ -1,20 +1,20 @@
 ---
 title: '자습서: Azure DevOps Starter를 사용하여 Azure Functions에 ASP.NET 앱 배포'
 description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Starter를 사용하면 몇 가지 빠른 단계로 ASP.NET 앱을 Azure Functions로 쉽게 배포할 수 있습니다.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef4a33fee3b06155ef02f043d61fcac5646d6a20
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355477"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053446"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>DevOps Starter를 사용하여 Azure Functions에 배포
 

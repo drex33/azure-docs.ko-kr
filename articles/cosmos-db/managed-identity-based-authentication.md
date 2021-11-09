@@ -9,12 +9,12 @@ ms.date: 07/02/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: c683af7a6f8889204f697a0ee36bf3b3719efa73
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.openlocfilehash: f8e97865f1d2d9cd0f9d6caa0e50ec1ab79c8bd4
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731979"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062494"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 ID를 사용하여 Azure Cosmos DB 데이터에 액세스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -186,7 +186,7 @@ namespace Monitor
             var result = await httpClient.PostAsync(endpoint, new StringContent(""));
 
             // Get the result back as a DatabaseAccountListKeysResult.
-            DatabaseAccountListKeysResult keys = await result.Content.ReadAsAsync<DatabaseAccountListKeysResult>();
+            DatabaseAccountListKeysResult keys = await result.Content.ReadFromJsonAsync<DatabaseAccountListKeysResult>();
 
             log.LogInformation("Starting to create the client");
 

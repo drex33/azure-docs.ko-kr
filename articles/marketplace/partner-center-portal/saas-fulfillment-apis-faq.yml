@@ -8,12 +8,12 @@ metadata:
   ms.date: 03/19/2021
   author: saasguide
   ms.author: souchak
-  ms.openlocfilehash: 4092ad53e67cc7ed526f66b4e5214a9bb9a1aeda
-  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+  ms.openlocfilehash: b16e1b8e014e28b1ec02f93a23a48aa6df57dbde
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/15/2021
-  ms.locfileid: "130043304"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132056174"
 title: SaaS 제공 API에 대한 일반적인 질문
 summary: 이 문서에서는 Azure 고객이 SaaS 제품을 구독할 수 있도록 Microsoft 상업용 Marketplace에 대한 몇 가지 통합 요구 사항에 대해 설명합니다.
 sections:
@@ -58,7 +58,7 @@ sections:
       ![고객 구독 흐름](media/saas-metering-service-integration-flow-a.png)
 
 
-      SaaS 제품의 수명 주기에서 거래 시나리오를 처리하기 위한 API 계약에 대한 자세한 내용은 [SaaS 공급 API](pc-saas-fulfillment-api-v2.md)를 참조하세요.
+      SaaS 제품의 수명 주기에서 거래 시나리오를 처리하기 위한 API 계약에 대한 자세한 내용은 [SaaS 공급 API](pc-saas-fulfillment-apis.md)를 참조하세요.
   - question: >
       사용자가 Azure에서 구독하는 SaaS 제품을 어떻게 알 수 있나요?
     answer: >

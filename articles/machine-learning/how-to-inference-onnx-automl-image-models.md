@@ -1,66 +1,66 @@
 ---
-title: AutoML 이미지에 ONNX를 사용하는 로컬 유추
+title: AutoML 이미지에 대 한 ONNX를 사용 하는 로컬 유추
 titleSuffix: Azure Machine Learning
-description: AZURE MACHINE LEARNING 자동화된 ML ONNX를 사용하여 분류, 개체 검색 및 구분을 위해 컴퓨터 비전 모델을 예측합니다.
+description: Azure Machine Learning 자동화 ML와 함께 onnx를 사용 하 여 분류, 개체 검색 및 구분에 대 한 컴퓨터 비전 모델에 대 한 예측을 만들 수 있습니다.
 author: vadthyavath
 ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.openlocfilehash: 01839f2a6f16584148d4cab86e07f3da0eefee43
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a8eded57142bf4682a0b555136c30462e9cf08ad
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076550"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060513"
 ---
-# <a name="make-predictions-with-onnx-on-computer-vision-models-from-automl"></a>AutoML의 컴퓨터 비전 모델에서 ONNX를 사용하여 예측 
+# <a name="make-predictions-with-onnx-on-computer-vision-models-from-automl"></a>AutoML의 컴퓨터 비전 모델에서 ONNX를 사용 하 여 예측 수행 
 
-이 문서에서는 ONNX(Open Neural Network Exchange)를 사용하여 Azure Machine Learning AutoML(자동화된 기계 학습)에서 생성된 컴퓨터 비전 모델을 예측하는 방법을 알아봅니다. 
+이 문서에서는 onnx (Open 신경망 Exchange)를 사용 하 여 Azure Machine Learning 자동 기계 학습 (automl)에서 생성 된 컴퓨터 비전 모델에 대 한 예측을 만드는 방법에 대해 알아봅니다. 
 
-예측에 ONNX를 사용하려면 다음을 수행해야 합니다. 
+예측에 ONNX를 사용 하려면 다음을 수행 해야 합니다. 
  
-1. AutoML 학습 실행에서 ONNX 모델 파일을 다운로드합니다.
-1. ONNX 모델의 입력 및 출력을 이해합니다.
-1. 입력 이미지에 필요한 형식이 되도록 데이터를 전처리합니다.
-1. Python용 ONNX 런타임을 통해 유추를 수행합니다.
-1. 개체 감지 및 구분 태스크에 대한 예측을 시각화합니다.
+1. AutoML 학습 실행에서 ONNX 모델 파일을 다운로드 합니다.
+1. ONNX 모델의 입/출력을 이해 합니다.
+1. 입력 이미지에 필요한 형식이 되도록 데이터를 전처리 합니다.
+1. Python 용 ONNX Runtime을 사용 하 여 유추를 수행 합니다.
+1. 개체 검색 및 조각화 태스크에 대 한 예측을 시각화 합니다.
 
-[ONNX는](https://onnx.ai/about.html) 기계 학습 및 딥 러닝 모델에 대한 개방형 표준입니다. 인기 있는 AI 프레임워크에서 모델 가져오기 및 내보내기(상호 운용성)를 지원합니다. 자세한 내용은 [ONNX GitHub 프로젝트를](https://github.com/onnx/onnx)살펴보세요.
+[Onnx](https://onnx.ai/about.html) 는 기계 학습 및 심층 학습 모델에 대 한 오픈 표준입니다. 널리 사용 되는 AI 프레임 워크에서 모델 가져오기 및 내보내기 (상호 운용성)를 사용할 수 있습니다. 자세한 내용은 [onnx GitHub 프로젝트](https://github.com/onnx/onnx)를 살펴보세요.
 
-[ONNX 런타임은](https://onnxruntime.ai/index.html) 플랫폼 간 유추를 지원하는 오픈 소스 프로젝트입니다. ONNX 런타임은 프로그래밍 언어(Python, C++, C#, C, Java 및 JavaScript 포함)에서 API를 제공합니다. 이러한 API를 사용하여 입력 이미지에 대한 유추를 수행할 수 있습니다. 모델을 ONNX 형식으로 내보낸 후에는 프로젝트에 필요한 프로그래밍 언어에서 이러한 API를 사용할 수 있습니다. 
+[Onnx Runtime](https://onnxruntime.ai/index.html) 은 플랫폼 간 유추를 지 원하는 오픈 소스 프로젝트입니다. ONNX Runtime은 프로그래밍 언어 (Python, c + +, c #, c, Java 및 JavaScript 포함) 간에 Api를 제공 합니다. 이러한 Api를 사용 하 여 입력 이미지에 대 한 유추를 수행할 수 있습니다. ONNX 형식으로 내보낸 모델을 만든 후에는 프로젝트에 필요한 모든 프로그래밍 언어에서 이러한 Api를 사용할 수 있습니다. 
 
-이 가이드에서는 [ONNX 런타임용 Python API를](https://onnxruntime.ai/docs/get-started/with-python.html) 사용하여 인기 있는 비전 작업에 대한 이미지를 예측하는 방법을 알아봅니다. 이러한 ONNX 내보낸 모델을 언어 간에 사용할 수 있습니다.
+이 가이드에서는 [ONNX Runtime 용 Python api](https://onnxruntime.ai/docs/get-started/with-python.html) 를 사용 하 여 인기 있는 비전 작업을 위한 이미지에 대 한 예측을 만드는 방법에 대해 알아봅니다. 이러한 ONNX로 내보낸 모델을 여러 언어로 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* 지원되는 이미지 작업(분류, 개체 검색 또는 구분)에 대한 AutoML 학습 컴퓨터 비전 모델을 가져옵니다. [Computer Vision 작업에 대한 AutoML 지원에 대해 자세히 알아보세요.](how-to-auto-train-image-models.md)
+* 지원 되는 모든 이미지 작업 (분류, 개체 검색 또는 구분)에 대해 AutoML 학습 된 컴퓨터 비전 모델을 가져옵니다. [컴퓨터 비전 작업의 AutoML 지원에 대해 자세히 알아보세요](how-to-auto-train-image-models.md).
 
-* [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) 패키지를 설치합니다. 이 문서의 메서드는 버전 1.3.0~1.8.0으로 테스트되었습니다.
+* [Onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) 패키지를 설치 합니다. 이 문서의 메서드는 1.8.0 1.3.0 버전으로 테스트 되었습니다.
 
 ## <a name="download-onnx-model-files"></a>ONNX 모델 파일 다운로드
 
-Azure Machine Learning Studio UI 또는 Azure Machine Learning Python SDK를 사용하여 AutoML 실행에서 ONNX 모델 파일을 다운로드할 수 있습니다. 실험 이름 및 부모 실행 ID를 가진 SDK를 통해 다운로드하는 것이 좋습니다. 
+Azure Machine Learning studio UI 또는 Azure Machine Learning Python SDK를 사용 하 여 automl 실행에서 onnx 모델 파일을 다운로드할 수 있습니다. 실험 이름 및 부모 실행 ID를 사용 하 여 SDK를 통해 다운로드 하는 것이 좋습니다. 
 
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 
-Azure Machine Learning Studio에서 학습 Notebook에 생성된 실험에 대한 하이퍼링크를 사용하거나 **자산** 아래의 실험 탭에서 실험 이름을 선택하여 **실험으로** 이동합니다. 그런 다음, 최상의 자식 실행을 선택합니다. 
+Azure Machine Learning studio에서 학습 노트북에 생성 된 실험에 대 한 하이퍼링크를 사용 하거나 **자산** 아래의 **실험** 탭에서 실험 이름을 선택 하 여 실험으로 이동 합니다. 그런 다음 최상의 자식 실행을 선택 합니다. 
 
-최상의 자식 실행 내에서 **출력 +로그**  >  **train_artifacts** 이동합니다. **다운로드** 단추를 사용하여 다음 파일을 수동으로 다운로드합니다.
+가장 적합 한 자식 실행 내에서 **출력 + 로그**  >  **train_artifacts** 로 이동 합니다. **다운로드** 단추를 사용 하 여 다음 파일을 수동으로 다운로드 합니다.
 
-- *labels.json:* 학습 데이터 세트의 모든 클래스 또는 레이블을 포함하는 파일입니다.
-- *model.onnx*: ONNX 형식의 모델입니다. 
+- *레이블. json*: 학습 데이터 집합의 모든 클래스나 레이블을 포함 하는 파일입니다.
+- *모델. onnx*: onnx 형식의 모델입니다. 
 
-![O N N X 모델 파일을 다운로드하기 위한 선택 항목을 보여 주는 스크린샷.](./media/how-to-inference-onnx-automl-image-models/onnx-files-manual-download.png)
+![O N N X 모델 파일 다운로드를 위한 선택 항목을 보여 주는 스크린샷](./media/how-to-inference-onnx-automl-image-models/onnx-files-manual-download.png)
 
-다운로드한 모델 파일을 디렉터리에 저장합니다. 이 문서의 예제에서는 *./automl_models* 디렉터리를 사용합니다. 
+다운로드 한 모델 파일을 디렉터리에 저장 합니다. 이 문서의 예제에서는 *./automl_models* 디렉터리를 사용 합니다. 
 
 ### <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning Python SDK
 
-SDK를 사용하면 실험 이름 및 부모 실행 ID를 사용하여 가장 적합한 자식 실행(기본 메트릭 기준)을 선택할 수 있습니다. 그런 다음 *labels.json* 및 *model.onnx* 파일을 다운로드할 수 있습니다.
+SDK를 사용 하면 실험 이름 및 부모 실행 ID를 사용 하 여 가장 적합 한 자식 실행 (기본 메트릭 기준)을 선택할 수 있습니다. 그런 다음,. *json* 및 *model. onnx* 파일을 다운로드할 수 있습니다.
 
-다음 코드는 관련 기본 메트릭에 따라 최상의 자식 실행을 반환합니다.
+다음 코드는 관련 된 기본 메트릭에 따라 가장 적합 한 자식 실행을 반환 합니다.
 
 ```python
 # Select the best child run
@@ -71,7 +71,7 @@ automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
 
-학습 데이터 세트의 모든 클래스와 레이블이 포함된 *labels.json* 파일을 다운로드합니다.
+학습 데이터 집합의 모든 클래스와 레이블을 포함 하는 *레이블. json* 파일을 다운로드 합니다.
 
 ```python
 import json
@@ -81,20 +81,20 @@ best_child_run.download_file(name="train_artifacts/labels.json", output_file_pat
 
 ```
 
-*model.onnx* 파일을 다운로드합니다.
+*Model. onnx* 파일을 다운로드 합니다.
 
 ```python
 onnx_model_path = "automl_models/model.onnx"
 best_child_run.download_file(name="train_artifacts/model.onnx", output_file_path=onnx_model_path)
 ```
 
-모델 다운로드 단계 후에는 ONNX 런타임 Python 패키지를 사용하여 *model.onnx* 파일을 사용하여 추론을 수행합니다. 데모를 위해 이 문서에서는 각 비전 작업에 대한 이미지 데이터 세트를 [준비하는 방법의 데이터 세트를](how-to-prepare-datasets-for-automl-images.md) 사용합니다. 
+모델 다운로드 단계 후에는 ONNX 런타임 Python 패키지를 사용 하 여 *추론 파일을* 사용 하 여 실행 합니다. 데모용으로이 문서에서는 각 비전 작업에 대해 [이미지 데이터 집합을 준비 하는 방법](how-to-prepare-datasets-for-automl-images.md) 의 데이터 집합을 사용 합니다. 
 
-ONNX 모델 유추를 보여주기 위해 각 데이터 세트를 사용하여 모든 비전 작업에 대한 모델을 학습시켰습니다.
+각 데이터 집합을 사용 하 여 모든 비전 작업을 위한 모델을 학습 하 여 ONNX 모델 유추를 설명 했습니다.
  
 ## <a name="load-the-labels-and-onnx-model-files"></a>레이블 및 ONNX 모델 파일 로드
 
-다음 코드 조각은 클래스 이름이 정렬되는 *labels.json* 을 로드합니다. 즉, ONNX 모델이 레이블 ID를 2로 예측하는 경우 *labels.json* 파일의 세 번째 인덱스에 지정된 레이블 이름에 해당합니다.
+다음 코드 *조각에서는 클래스* 이름이 정렬 된 상태에서, 즉, ONNX 모델에서 레이블 ID를 2로 예측 하는 경우에는 해당 레이블이 *json* 파일의 세 번째 인덱스에 지정 된 레이블 이름에 해당 합니다.
 
 ```python
 import onnxruntime
@@ -110,9 +110,9 @@ except Exception as e:
     print("Error loading ONNX file: ",str(e))
 ```
 
-## <a name="get-expected-input-and-output-details-for-an-onnx-model"></a>ONNX 모델에 대한 예상 입력 및 출력 세부 정보 얻기
+## <a name="get-expected-input-and-output-details-for-an-onnx-model"></a>ONNX 모델에 필요한 입력 및 출력 정보 가져오기
 
-모델이 있는 경우 모델별 세부 정보 및 작업별 세부 정보를 알고 있어야 합니다. 이러한 세부 정보로는 입력 수와 출력 수, 이미지 전처리를 위한 예상 입력 셰이프 또는 형식, 모델별 출력 또는 작업별 출력을 알 수 있는 출력 셰이프가 포함됩니다.
+모델을 사용할 경우 몇 가지 모델과 작업별 세부 정보를 알아야 합니다. 이러한 세부 정보에는 입력 수와 출력 수가 포함 되 고, 이미지를 전처리 하는 데 예상 되는 입력 모양 또는 형식이 포함 되며, 출력 셰이프를 통해 모델 특정 또는 작업별 출력을 확인할 수 있습니다.
 
 ```python
 sess_input = session.get_inputs()
@@ -134,56 +134,34 @@ for idx, output in enumerate(range(len(sess_output))):
     Output type  : {output_type}") 
 ``` 
 
-### <a name="expected-input-and-output-formats-for-the-onnx-model"></a>ONNX 모델에 대한 예상 입력 및 출력 형식
+### <a name="expected-input-and-output-formats-for-the-onnx-model"></a>ONNX 모델에 대 한 입력 및 출력 형식이 필요 합니다.
 
-모든 ONNX 모델에는 미리 정의된 입력 및 출력 형식 집합이 있습니다.
+모든 ONNX 모델에는 미리 정의 된 입력 및 출력 형식 집합이 있습니다.
 
 # <a name="multi-class-image-classification"></a>[다중 클래스 이미지 분류 ](#tab/multi-class)
 
-이 예제에서는 onNX 모델 유추를 설명하기 위해 134개의 이미지와 4개의 클래스/레이블이 [있는Objects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) 데이터 세트에서 학습된 모델을 적용합니다. 이미지 분류 작업 학습에 대한 자세한 내용은 [다중 클래스 이미지 분류 Notebook을 참조하세요.](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass)
+이 예제에서는 [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) 데이터 집합에서 학습 된 모델을 134 이미지와 4 개의 클래스/레이블로 적용 하 여 onnx 모델 유추를 설명 합니다. 이미지 분류 작업을 학습 하는 방법에 대 한 자세한 내용은 [다중 클래스 이미지 분류 노트북](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass)을 참조 하세요.
 
 ### <a name="input-format"></a>입력 형식
     
-입력은 전처리된 이미지입니다.
+입력은 전처리 된 이미지입니다.
 
-| 입력 이름  | 입력 셰이프  | 입력 형식 | 설명 |
+| 입력 이름  | 입력 셰이프  | 입력 형식 | Description |
 | -------- |----------:|-----|--------|
-| input1 | `(batch_size, num_channels, height, width)` | ndarray(float) | 입력은 `(1, 3, 224, 224)` 일괄 처리 크기가 1이고 높이와 너비가 224인 전처리 이미지입니다. 이러한 숫자는 학습 예제에서 에 사용되는 `crop_size` 값에 해당합니다. |
+| input1 | `(batch_size, num_channels, height, width)` | ndarray (float) | Input은 `(1, 3, 224, 224)` 일괄 처리 크기를 1로, 높이와 너비를 224로 하는 전처리 된 이미지입니다. 이러한 숫자는 학습 예제에서에 사용 되는 값에 해당 합니다 `crop_size` . |
     
 
 ### <a name="output-format"></a>출력 형식
 
-출력은 모든 클래스/레이블에 대한 logit 배열입니다.
+출력은 모든 클래스/레이블에 대 한 logits의 배열입니다.
          
-| 출력 이름   | 출력 셰이프  | 출력 형식 | 설명 |
+| 출력 이름   | 출력 모양  | 출력 형식 | Description |
 | -------- |----------|-----|------|
-| output1 | `(batch_size, num_classes)` | ndarray(float) | 모델은 (없이) logits를 `softmax` 반환합니다. 예를 들어 일괄 처리 크기 1 및 4 클래스의 경우 를 `(1, 4)` 반환합니다. |
+| output1 | `(batch_size, num_classes)` | ndarray (float) | 모델은 logits (없음 `softmax` )을 반환 합니다. 예를 들어 일괄 처리 크기 1 및 4 클래스의 경우를 반환 `(1, 4)` 합니다. |
 
 # <a name="multi-label-image-classification"></a>[다중 레이블 이미지 분류](#tab/multi-label)
 
-이 예제에서는 128개의 이미지와 4개의 클래스/레이블이 있는 [다중 레이블이 있는 labelobjects 데이터 세트에서](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) 학습된 모델을 사용하여 ONNX 모델 유추를 설명합니다. 다중 레이블 이미지 분류를 위한 모델 학습에 대한 자세한 내용은 [다중 레이블 이미지 분류 Notebook을 참조하세요.](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel)
-
-### <a name="input-format"></a>입력 형식
-
-입력은 전처리된 이미지입니다.
-
-| 입력 이름       | 입력 셰이프  | 입력 형식 | 설명 |
-| -------- |----------|-----|--------|
-| input1 | `(batch_size, num_channels, height, width)` | ndarray(float) | 입력은 `(1, 3, 224, 224)` 일괄 처리 크기가 1이고 높이와 너비가 224인 전처리 이미지입니다. 이러한 숫자는 학습 예제에서 에 사용되는 `crop_size` 값에 해당합니다. |
-        
-### <a name="output-format"></a>출력 형식
-
-출력은 모든 클래스/레이블에 대한 logit 배열입니다.
-    
-      
-| 출력 이름       | 출력 셰이프  | 출력 형식 | 설명 |
-| -------- |----------|-----|------
-| output1 | `(batch_size, num_classes)` | ndarray(float) | 모델은 (없이) logits를 `sigmoid` 반환합니다. 예를 들어 일괄 처리 크기 1 및 4 클래스의 경우 를 `(1, 4)` 반환합니다. |
-
-
-# <a name="object-detection-with-faster-r-cnn"></a>[더 빠른 R-CNN을 사용 하 여 개체 검색](#tab/object-detect-cnn)
-
-이 개체 검색 예제에서는 [fridgeObjects 검색 데이터 집합](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) 에서 학습 된 모델을 사용 하 여 128 이미지와 4 개의 클래스/레이블을 사용 하 여 onnx 모델 유추를 설명 합니다. 이 예제에서는 유추 단계를 보여 주기 위해 더 빠른 R-CNN 모델을 학습 합니다. 학습 개체 검색 모델에 대 한 자세한 내용은 [개체 검색 노트북](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection)을 참조 하세요.
+이 예제에서는 [fridgeObjects 데이터 집합](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) 에 대해 학습 된 모델을 128 이미지와 4 개 클래스/레이블로 사용 하 여 onnx 모델 유추를 설명 합니다. 다중 레이블 이미지 분류를 위한 모델 학습에 대 한 자세한 내용은 [다중 레이블 이미지 분류 노트북](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel)을 참조 하세요.
 
 ### <a name="input-format"></a>입력 형식
 
@@ -191,62 +169,87 @@ for idx, output in enumerate(range(len(sess_output))):
 
 | 입력 이름       | 입력 셰이프  | 입력 형식 | Description |
 | -------- |----------|-----|--------|
-| 입력 | `(batch_size, num_channels, height, width)` | ndarray (float) | Input은 `(1, 3, 600, 800)` 일괄 처리 크기 1에 대 한 모양과 높이가 600이 고 너비가 800 인 전처리 된 이미지입니다.|
+| input1 | `(batch_size, num_channels, height, width)` | ndarray (float) | Input은 `(1, 3, 224, 224)` 일괄 처리 크기를 1로, 높이와 너비를 224로 하는 전처리 된 이미지입니다. 이러한 숫자는 학습 예제에서에 사용 되는 값에 해당 합니다 `crop_size` . |
+        
+### <a name="output-format"></a>출력 형식
+
+출력은 모든 클래스/레이블에 대 한 logits의 배열입니다.
+    
+      
+| 출력 이름       | 출력 모양  | 출력 형식 | Description |
+| -------- |----------|-----|------
+| output1 | `(batch_size, num_classes)` | ndarray (float) | 모델은 logits (없음 `sigmoid` )을 반환 합니다. 예를 들어 일괄 처리 크기 1 및 4 클래스의 경우를 반환 `(1, 4)` 합니다. |
+
+
+# <a name="object-detection-with-faster-r-cnn"></a>[빠른 R-CNN을 통해 개체 감지](#tab/object-detect-cnn)
+
+이 개체 검색 예제에서는 128개의 이미지와 4개의 클래스/레이블로 된 128개의 [imagesObjects 검색 데이터 세트에서](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) 학습된 모델을 사용하여 ONNX 모델 유추를 설명합니다. 이 예제에서는 더 빠른 R-CNN 모델을 훈련하여 유추 단계를 보여 줍니다. 개체 검색 모델 학습에 대한 자세한 내용은 개체 감지 Notebook 을 [참조하세요.](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection)
+
+### <a name="input-format"></a>입력 형식
+
+입력은 전처리된 이미지입니다.
+
+| 입력 이름       | 입력 셰이프  | 입력 형식 | Description |
+| -------- |----------|-----|--------|
+| 입력 | `(batch_size, num_channels, height, width)` | ndarray(float) | 입력은 `(1, 3, 600, 800)` 일괄 처리 크기가 1이고 높이가 600이고 너비가 800인 전처리 이미지입니다.|
         
     
 ### <a name="output-format"></a>출력 형식
 
 출력은 상자, 레이블 및 점수의 튜플입니다.
   
-| 출력 이름       | 출력 모양  | 출력 형식 | 설명 |
+| 출력 이름       | 출력 셰이프  | 출력 형식 | Description |
 | -------- |----------|-----|------|
-| 상자로 | `(n_boxes, 4)`(각 상자에 `x_min, y_min, x_max, y_max` | ndarray (float) | 모델은 왼쪽 위 및 오른쪽 아래 좌표가 있는 *n* 개의 상자를 반환 합니다. |
-| 레이블 | `(n_boxes)`| ndarray (float) | 각 상자에 있는 개체의 레이블 또는 클래스 ID입니다. |  
-| 점수 | `(n_boxes)` | ndarray (float) | 각 상자에 있는 개체의 신뢰도 점수입니다. |    
+| 박스 | `(n_boxes, 4)`- 각 상자에 다음이 있습니다. `x_min, y_min, x_max, y_max` | ndarray(float) | 모델은 왼쪽 위와 오른쪽 아래 좌표가 있는 *n개의* 상자를 반환합니다. |
+| 레이블 | `(n_boxes)`| ndarray(float) | 각 상자에 있는 개체의 레이블 또는 클래스 ID입니다. |  
+| 점수 | `(n_boxes)` | ndarray(float) | 각 상자에 있는 개체의 신뢰도 점수입니다. |    
 
 
-# <a name="object-detection-with-yolo"></a>[YOLO를 사용 하 여 개체 검색](#tab/object-detect-yolo)
+# <a name="object-detection-with-yolo"></a>[YOLO를 통해 개체 검색](#tab/object-detect-yolo)
 
-이 개체 검색 예제에서는 [fridgeObjects 검색 데이터 집합](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) 에서 학습 된 모델을 사용 하 여 128 이미지와 4 개의 클래스/레이블을 사용 하 여 onnx 모델 유추를 설명 합니다. 이 예제에서는 유추 단계를 보여 주기 위해 YOLO 모델을 학습 합니다. 학습 개체 검색 모델에 대 한 자세한 내용은 [개체 검색 노트북](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection)을 참조 하세요. 
+이 개체 검색 예제에서는 128개의 이미지와 4개의 클래스/레이블로 된 128개의 [imagesObjects 검색 데이터 세트에서](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) 학습된 모델을 사용하여 ONNX 모델 유추를 설명합니다. 이 예제에서는 유추 단계를 보여 주도록 YOLO 모델을 훈련합니다. 개체 검색 모델 학습에 대한 자세한 내용은 개체 감지 Notebook 을 [참조하세요.](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection) 
 
 ### <a name="input-format"></a>입력 형식
 
-입력은 `(1, 3, 640, 640)` 일괄 처리 크기 1에 대 한 모양과 높이 및 너비가 640 인 전처리 된 이미지입니다. 이러한 숫자는 학습 예제에 사용 된 값에 해당 합니다.        
+입력은 `(1, 3, 640, 640)` 일괄 처리 크기가 1이고 높이와 너비가 640인 전처리 이미지입니다. 이러한 숫자는 학습 예제에 사용된 값에 해당합니다.        
 
 | 입력 이름       | 입력 셰이프  | 입력 형식 | Description |
 | -------- |----------|-----|--------|
-| 입력 | `(batch_size, num_channels, height, width)` | ndarray (float) | Input은 `(1, 3, 600, 800)` 일괄 처리 크기 1에 대 한 모양과 높이가 600이 고 너비가 800 인 전처리 된 이미지입니다.|
+| 입력 | `(batch_size, num_channels, height, width)` | ndarray(float) | 입력은 `(1, 3, 600, 800)` 일괄 처리 크기가 1이고 높이가 600이고 너비가 800인 전처리 이미지입니다.|
         
 ### <a name="output-format"></a>출력 형식
-출력은 상자, 레이블 및 점수 목록입니다. YOLO의 경우 상자, 레이블 및 점수를 추출 하기 위한 첫 번째 출력이 필요 합니다.
+출력은 상자, 레이블 및 점수 목록입니다. YOLO의 경우 상자, 레이블 및 점수를 추출하는 첫 번째 출력이 필요합니다.
     
-| 출력 이름       | 출력 모양  | 출력 형식 | 설명 |
+| 출력 이름       | 출력 셰이프  | 출력 형식 | Description |
 | -------- |----------|-----|------|
-| 출력 | `(n_boxes, 6)`(각 상자에 `x_min, y_min, x_max, y_max, confidence_score, class_id` | ndarray (float) | 모델은 개체 신뢰도 점수, 클래스 Id 또는 레이블 Id와 함께 왼쪽 위 좌표와 오른쪽 아래 좌표를 포함 하는 *n* 개의 상자를 반환 합니다. |
+| 출력 | `(n_boxes, 6)`- 각 상자에 다음이 있습니다. `x_min, y_min, x_max, y_max, confidence_score, class_id` | ndarray(float) | 모델은 개체 신뢰도 점수, 클래스 ID 또는 레이블 좌표와 함께 왼쪽 위 및 오른쪽 아래 좌표가 있는 *n개의* 상자를 반환합니다. |
 
-# <a name="instance-segmentation"></a>[인스턴스 조각화](#tab/instance-segmentation)
+# <a name="instance-segmentation"></a>[인스턴스 구분](#tab/instance-segmentation)
 
-이 인스턴스 조각화 예에서는 [fridgeObjects 데이터 집합](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) 에서 학습 된 R-Cnn 모델 마스크를 128 이미지와 4 개 클래스/레이블로 사용 하 여 onnx 모델 유추를 설명 합니다. 인스턴스 조각화 모델의 학습에 대 한 자세한 내용은 [인스턴스 분할 노트북](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation)을 참조 하세요.
+이 인스턴스 구분 예제에서는 128개의 이미지와 4개의 클래스/레이블이 있는 [128개의](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) images 및 4개의 클래스/레이블을 사용하여 onNX 모델 유추에 대해 학습된 Mask R-CNN 모델을 사용합니다. 인스턴스 구분 모델의 학습에 대한 자세한 내용은 인스턴스 구분 Notebook 을 [참조하세요.](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation)
+
+>[!IMPORTANT]
+> 인스턴스 구분 작업에는 Mask R-CNN만 지원됩니다. 입력 및 출력 형식은 마스크 R-CNN만을 기반으로 합니다.
 
 ### <a name="input-format"></a>입력 형식
 
-입력은 전처리 된 이미지입니다. R-CNN 마스크에 대 한 ONNX 모델을 내보내 다른 모양의 이미지를 사용할 수 있습니다. 성능 향상을 위해 학습 이미지 크기와 일치 하는 고정 된 크기로 크기를 조정 하는 것이 좋습니다.
+입력은 전처리된 이미지입니다. 다양한 모양의 이미지를 사용할 수 있도록 R-CNN 마스크에 대한 ONNX 모델을 내보냅니다. 성능 향상을 위해 학습 이미지 크기와 일치하는 고정 크기로 크기를 조정하는 것이 좋습니다.
     
 | 입력 이름       | 입력 셰이프  | 입력 형식 | Description |
 | -------- |----------|-----|--------|
-| 입력 | `(batch_size, num_channels, height, width)` | ndarray (float) | Input은 `(1, 3, input_image_height, input_image_width)` 일괄 처리 크기 1에 대 한 모양과 입력 이미지와 비슷한 높이 및 너비를 포함 하는 전처리 된 이미지입니다. |
+| 입력 | `(batch_size, num_channels, height, width)` | ndarray(float) | 입력은 `(1, 3, input_image_height, input_image_width)` 일괄 처리 크기가 1이고 높이와 너비가 입력 이미지와 유사한 전처리된 이미지입니다. |
         
     
 ### <a name="output-format"></a>출력 형식
 
-출력은 상자 (인스턴스), 레이블 및 점수의 튜플입니다.
+출력은 상자(인스턴스), 레이블 및 점수의 튜플입니다.
     
-| 출력 이름       | 출력 모양  | 출력 형식 | 설명 |
+| 출력 이름       | 출력 셰이프  | 출력 형식 | Description |
 | -------- |----------|-----|------|
-| 상자로 | `(n_boxes, 4)`(각 상자에 `x_min, y_min, x_max, y_max` | ndarray (float) | 모델은 왼쪽 위 및 오른쪽 아래 좌표가 있는 *n* 개의 상자를 반환 합니다. |
-| 레이블 | `(n_boxes)`| ndarray (float) | 각 상자에 있는 개체의 레이블 또는 클래스 ID입니다. |  
-| 점수 | `(n_boxes)` | ndarray (float) | 각 상자에 있는 개체의 신뢰도 점수입니다. |    
-| 마스크만 | `(n_boxes, 1, height, width)` | ndarray (float) | 입력 이미지의 셰이프 높이 및 너비를 사용 하 여 검색 된 개체의 마스크 (다각형)입니다. |    
+| 박스 | `(n_boxes, 4)`- 각 상자에 다음이 있습니다. `x_min, y_min, x_max, y_max` | ndarray(float) | 모델은 왼쪽 위와 오른쪽 아래 좌표가 있는 *n개의* 상자를 반환합니다. |
+| 레이블 | `(n_boxes)`| ndarray(float) | 각 상자에 있는 개체의 레이블 또는 클래스 ID입니다. |  
+| 점수 | `(n_boxes)` | ndarray(float) | 각 상자에 있는 개체의 신뢰도 점수입니다. |    
+| 마스크 | `(n_boxes, 1, height, width)` | ndarray(float) | 입력 이미지의 셰이프 높이와 너비를 사용하여 검색된 개체의 마스크(다각형)입니다. |    
 
 ---
 
@@ -254,18 +257,18 @@ for idx, output in enumerate(range(len(sess_output))):
 
 # <a name="multi-class-image-classification"></a>[다중 클래스 이미지 분류](#tab/multi-class)
 
-ONNX 모델 유추에 대해 다음과 같은 전처리 단계를 수행 합니다.
+ONNX 모델 유추에 대해 다음 전처리 단계를 수행합니다.
 
-1. 이미지를 RGB로 변환 합니다.
-2. 학습 하는 `valid_resize_size` `valid_resize_size` 동안 유효성 검사 데이터 집합의 변환에 사용 되는 값에 해당 하는 값과 이미지 크기를 조정 합니다. 의 기본값은 `valid_resize_size` 256입니다.
-3. 가운데로 이미지를 자릅니다 `height_onnx_crop_size` `width_onnx_crop_size` . 이 `valid_crop_size` 값은 기본값 224를 사용 하는에 해당 합니다.
+1. 이미지를 RGB로 변환합니다.
+2. 이미지의 크기를 `valid_resize_size` 및 `valid_resize_size` 학습 중에 유효성 검사 데이터 세트의 변환에 사용되는 값에 해당하는 값으로 조정합니다. 의 `valid_resize_size` 기본값은 256입니다.
+3. 가운데에서 이미지를 및 로 `height_onnx_crop_size` `width_onnx_crop_size` 자입니다. 이 값은 `valid_crop_size` 기본값이 224인 에 해당합니다.
 4. `HxWxC`을 `CxHxW`으로 변경합니다.
-5. Float 형식으로 변환 합니다.
-6. Imagenet의 및를 사용 하 여 정규화 `mean`  =  `[0.485, 0.456, 0.406]` `std`  =  `[0.229, 0.224, 0.225]` 합니다.
+5. float 형식으로 변환합니다.
+6. ImageNet의 및 로 정규화합니다. `mean`  =  `[0.485, 0.456, 0.406]` `std`  =  `[0.229, 0.224, 0.225]`
 
-하이퍼 [매개 변수](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) 및 학습 중에 다른 값을 선택한 경우 `valid_resize_size` `valid_crop_size` 해당 값을 사용 해야 합니다.
+[하이퍼parameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) 및 학습 중에 다른 값을 선택한 경우 `valid_resize_size` 해당 값을 사용해야 `valid_crop_size` 합니다.
 
-ONNX 모델에 필요한 입력 셰이프를 가져옵니다.
+ONNX 모델에 필요한 입력 셰이프를 얻습니다.
 
 ```python
 batch, channel, height_onnx_crop_size, width_onnx_crop_size = session.get_inputs()[0].shape
@@ -374,7 +377,7 @@ ONNX 모델 유추에 대해 다음 전처리 단계를 수행합니다. 이러�
 
 1. 이미지를 RGB로 변환합니다.
 2. 이미지의 크기를 `valid_resize_size` 및 `valid_resize_size` 학습 중에 유효성 검사 데이터 세트의 변환에 사용되는 값에 해당하는 값으로 조정합니다. 의 `valid_resize_size` 기본값은 256입니다.
-3. 가운데에서 이미지를 및 로 `height_onnx_crop_size` `width_onnx_crop_size` 자입니다. 이 값은 `valid_crop_size` 에 해당하며 기본값은 224입니다.
+3. 가운데에서 이미지를 및 로 `height_onnx_crop_size` `width_onnx_crop_size` 자입니다. 이 값은 `valid_crop_size` 기본값이 224인 에 해당합니다.
 4. `HxWxC`을 `CxHxW`으로 변경합니다.
 5. float 형식으로 변환합니다.
 6. ImageNet의 및 로 정규화합니다. `mean`  =  `[0.485, 0.456, 0.406]` `std`  =  `[0.229, 0.224, 0.225]`
@@ -488,7 +491,7 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 
 # <a name="object-detection-with-faster-r-cnn"></a>[빠른 R-CNN을 통해 개체 감지](#tab/object-detect-cnn)
 
-더 빠른 R-CNN 알고리즘을 통해 개체를 검색하려면 이미지 자르기만 제외하고 이미지 분류와 동일한 전처리 단계를 따릅니다. 높이와 너비를 사용하여 이미지의 크기를 조정하고 다음 코드를 사용하여 `600` `800` 예상 입력 높이와 너비를 얻을 수 있습니다.
+더 빠른 R-CNN 알고리즘을 통해 개체를 검색하려면 이미지 자르기만 제외하고 이미지 분류와 동일한 전처리 단계를 따릅니다. 높이와 너비를 사용하여 이미지의 크기를 변경할 수 `600` `800` 있습니다. 다음 코드를 사용하여 예상 입력 높이와 너비를 얻을 수 있습니다.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -537,7 +540,7 @@ display(img)
 img_data = preprocess(img, height_onnx, width_onnx)
 ```
 
-# <a name="object-detection-with-yolo"></a>[YOLO를 통해 개체 감지](#tab/object-detect-yolo)
+# <a name="object-detection-with-yolo"></a>[YOLO를 통해 개체 검색](#tab/object-detect-yolo)
 
 YOLO 알고리즘을 통해 개체를 검색하려면 이미지 자르기만 제외하고 이미지 분류와 동일한 전처리 단계를 따릅니다. 높이와 너비를 사용하여 이미지의 크기를 조정하고 다음 코드를 사용하여 `600` `800` 예상 입력 높이와 너비를 얻을 수 있습니다.
 
@@ -556,6 +559,8 @@ img_data, pad = preprocess(test_image_path)
 ```
 
 # <a name="instance-segmentation"></a>[인스턴스 구분](#tab/instance-segmentation)
+>[!IMPORTANT]
+> 인스턴스 구분 작업에는 Mask R-CNN만 지원됩니다. 전처리 단계는 R-CNN 마스크만을 기반으로 합니다.
 
 ONNX 모델 유추에 대해 다음 전처리 단계를 수행합니다.
 
@@ -613,6 +618,9 @@ img_data = preprocess(img, resize_height, resize_width)
 ## <a name="inference-with-onnx-runtime"></a>ONNX 런타임을 통해 유추
 
 ONNX 런타임을 통해 추론하는 것은 각 컴퓨터 비전 작업에 따라 다릅니다.
+
+>[!WARNING]
+> 일괄 처리 채점은 현재 모든 컴퓨터 비전 작업에 대해 지원되지 않습니다. 
 
 # <a name="multi-class-image-classification"></a>[다중 클래스 이미지 분류](#tab/multi-class)
 
@@ -692,7 +700,7 @@ def get_predictions_from_ONNX(onnx_session,img_data):
 boxes, labels, scores = get_predictions_from_ONNX(session, img_data)
 ```
 
-# <a name="object-detection-with-yolo"></a>[YOLO를 통해 개체 감지](#tab/object-detect-yolo)
+# <a name="object-detection-with-yolo"></a>[YOLO를 통해 개체 검색](#tab/object-detect-yolo)
 
 ```python
 def get_predictions_from_ONNX(onnx_session,img_data):
@@ -893,7 +901,7 @@ for detect in filtered_bounding_boxes:
 plt.show()
 ```
 
-# <a name="object-detection-with-yolo"></a>[YOLO를 통해 개체 감지](#tab/object-detect-yolo)
+# <a name="object-detection-with-yolo"></a>[YOLO를 통해 개체 검색](#tab/object-detect-yolo)
 
 다음 코드는 상자, 레이블 및 점수를 만듭니다. 이러한 경계 상자 세부 정보를 사용하여 더 빠른 R-CNN 모델에서 수행한 것과 동일한 후처리 단계를 수행합니다. 
 

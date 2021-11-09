@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 7f82c65a2aba8057ab3f7cbc6729b83ed597e12b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 813ef955a202f5645d8e4881efb3b2d083fa4d63
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564806"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063592"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)
 
@@ -56,7 +56,7 @@ ms.locfileid: "131564806"
 
 * 환경 변수 $ENDPOINT _NAME를 아직 설정 하지 않은 경우 지금 수행 합니다.
 
-   :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
 * (권장) 샘플 리포지토리를 복제하고 리포지토리의 `cli/` 디렉터리로 전환합니다. 
 
@@ -83,7 +83,7 @@ az ml online-deployment show --name blue --endpoint $ENDPOINT_NAME
 
 [관리 되는 온라인 끝점 (미리 보기)을 사용 하 여 machine learning 모델 배포 및 점수 매기기](how-to-deploy-managed-online-endpoints.md)에 설명 된 배포에서을 `instance_count` `1` 배포 yaml 파일의 값으로 설정 합니다. 다음 명령을 사용 하 여 규모를 확장할 수 있습니다 `update` .
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
 > [!Note]
 > 위의 명령에서를 사용 하 여 `--set` 배포 구성을 재정의 합니다. 또는 yaml 파일을 업데이트 하 고 `update` 입력을 사용 하 여 명령에 입력으로 전달할 수 있습니다 `--file` .
@@ -92,27 +92,27 @@ az ml online-deployment show --name blue --endpoint $ENDPOINT_NAME
 
 이라는 새 배포를 만듭니다 `green` . 
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
 녹색에는 명시적으로 트래픽을 할당 하지 않았으므로 0 개의 트래픽이 할당 됩니다. 다음 명령을 사용 하 여 확인할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
 
 ### <a name="test-the-new-deployment"></a>새 배포 테스트
 
 `green`에는 0%의 트래픽이 할당 되지만 이름을 지정 하 여이를 직접 호출할 수 있습니다 `--deployment` .
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green" :::
 
 REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포를 직접 호출하려면 다음 HTTP 헤더를 설정합니다. `azureml-model-deployment: <deployment-name>` 아래 코드 조각에서는 `curl` 를 사용 하 여 배포를 직접 호출 합니다. 코드 조각은 Unix/WSL 환경에서 작동 해야 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_using_curl" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_using_curl" :::
 
 ## <a name="test-the-new-deployment-with-a-small-percentage-of-live-traffic"></a>적은 비율의 라이브 트래픽으로 새 배포 테스트
 
 배포를 테스트 한 후 `green` 에는 적은 비율의 트래픽을 할당 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
 이제 `green` 배포는 요청의 10%를 받습니다. 
 
@@ -120,17 +120,17 @@ REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포
 
 `green` 배포가 완전히 만족스러우면 모든 트래픽을 여기로 전환합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
 
 ## <a name="remove-the-old-deployment"></a>이전 배포 제거
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
 
 ## <a name="delete-the-endpoint-and-deployment"></a>엔드포인트 및 배포 삭제
 
 배포를 사용 하지 않는 경우 다음을 사용 하 여 삭제 해야 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
 
 
 ## <a name="next-steps"></a>다음 단계

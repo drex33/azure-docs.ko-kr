@@ -2,16 +2,17 @@
 title: AKS(Azure Kubernetes Service)에서 시스템 노드 풀 사용
 description: AKS(Azure Kubernetes Service)에서 시스템 노드 풀을 만들고 관리하는 방법 알아보기
 services: container-service
+author: georgewallace
 ms.topic: article
 ms.date: 06/18/2020
-ms.author: mlearned
+ms.author: gwallace
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: 8b41b43c70f72ab327de2f1d59415cc1f49e5a5b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: c164323f6a181dd29e525e698cdbc55b5cb03892
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767406"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057559"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 시스템 노드 풀 관리
 

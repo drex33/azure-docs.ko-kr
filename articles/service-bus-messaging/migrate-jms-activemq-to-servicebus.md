@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2021
 ms.author: spelluru
 ms.custom: devx-track-java
-ms.openlocfilehash: 4d8faa2d3ed17b404ae0609573c9f981386f10a5
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 6009d3ee7ce1ea55e9ccd3191e4d1bb2eef09ea4
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154625"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063499"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS(Java Message Service) 2.0 애플리케이션 마이그레이션
 
@@ -40,7 +40,7 @@ Azure Service Bus와 Apache ActiveMQ는 모두 메시지 브로커이며, 클라
 | 애플리케이션 계층화 | 클러스터된 거대한 단일 조직 | 2 계층 <br> (게이트웨이 + 백 엔드) |
 | 프로토콜 지원 | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
 | 프로비저닝 모드 | <ul> <li> 서비스형 인프라(IaaS), 온-프레미스 </li> <li> Amazon MQ (서비스형 관리 platform) </li> | 서비스형 관리 platform(PaaS) |
-| 메시지 크기 | 고객 구성 가능 | 1 MB (프리미엄 계층) |
+| 메시지 크기 | 고객 구성 가능 | 100MB(Premium 계층) |
 | 고가용성 | 고객 관리 | 플랫폼 관리 |
 | 재해 복구 | 고객 관리 | 플랫폼 관리 | 
 

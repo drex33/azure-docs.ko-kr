@@ -6,15 +6,15 @@ ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 11/08/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11bc5a7f0880930e5680289a013c68dd2d04ee6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ac6aef98b06c485bc16777b130c39f9006e6ffff
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788162"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060606"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>자습서: Gremlin을 사용하여 Azure Cosmos DB Gremlin API 쿼리
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -26,7 +26,7 @@ Azure Cosmos DB [Gremlin API](graph-introduction.md)는 [Gremlin](https://github
 > [!div class="checklist"]
 > * Gremlin을 사용한 데이터 쿼리
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이러한 쿼리가 작동하려면 Azure Cosmos DB 계정이 있어야 하며 컨테이너에 그래프 데이터가 있어야 합니다. 이들 중 하나라도 없는가요? 그러면 [5분 퀵 스타트](create-graph-dotnet.md) 또는 [개발자 자습서](tutorial-query-graph.md)를 수행하여 계정을 만들고 데이터베이스를 채워 놓으세요. [Gremlin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) 또는 즐겨찾는 Gremlin 드라이버를 사용하여 다음 쿼리를 실행할 수 있습니다.
 
@@ -51,7 +51,7 @@ g.V().hasLabel('person').has('age', gt(40))
 `values` 단계를 사용하여 쿼리 결과에 특정 속성을 프로젝션할 수 있습니다.
 
 ```
-g.V().hasLabel('person').values('firstName')
+g.V().hasLabel('person').values('name')
 ```
 
 ## <a name="find-related-edges-and-vertices"></a>관련 가장자리 및 꼭짓점 찾기

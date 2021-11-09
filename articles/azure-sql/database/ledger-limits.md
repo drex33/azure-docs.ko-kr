@@ -1,27 +1,26 @@
 ---
 title: Azure SQL Database 원장에 대한 제한 사항
 description: Azure SQL Database에서 원장 기능의 제한 사항
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: 94bb5c606527cec34afc978323eb456ff4a8753e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 684ca40f1469b826029f1b0bcc51e33ae0d9c9a5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535674"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132064443"
 ---
 # <a name="limitations-for-azure-sql-database-ledger"></a>Azure SQL Database 원장에 대한 제한 사항
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 Azure SQL Database와 함께 사용되는 원장 테이블의 제한 사항에 대한 개요를 제공합니다.
 

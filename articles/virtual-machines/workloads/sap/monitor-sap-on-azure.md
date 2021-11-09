@@ -1,19 +1,19 @@
 ---
 title: Azure의 SAP 모니터링(미리 보기) | Microsoft Docs
 description: Azure의 SAP를 모니터링하는 방법을 알아보려면 여기에서 시작합니다.
-author: Ajayan1008
+author: mamccrea
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
 ms.date: 10/13/2021
-ms.author: v-hborys
-ms.openlocfilehash: 4f90fc00dc895617796cc478835690c931a55f51
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: mamccrea
+ms.openlocfilehash: cf68247c9d259aff6ffe6d2e7cd9be76eea6f237
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004866"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063273"
 ---
 # <a name="monitor-sap-on-azure-preview"></a>Azure의 SAP 모니터링(미리 보기)
 

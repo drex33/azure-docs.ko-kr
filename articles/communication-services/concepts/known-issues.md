@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 02c0d31ec07c210197968e514573e372ef24dd59
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9213d5fa18e2156962deb1e9cd6e49f592192728
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219113"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055458"
 ---
 # <a name="known-issues"></a>알려진 문제
 이 문서에서는 Azure Communication Services Calling SDK 및 Azure Communication Services Call Automation API와 관련된 제한 사항 및 알려진 문제에 대한 정보를 제공합니다.
@@ -26,6 +26,27 @@ ms.locfileid: "130219113"
 ### <a name="javascript-sdk"></a>JavaScript SDK
 
 이 섹션에서는 Azure Communication Services JavaScript 음성 및 비디오 통화 SDK와 관련된 알려진 문제에 대한 정보를 제공합니다.
+
+#### <a name="ios-151-regression---iossafari-will-crash-and-refresh-the-page-if-acs-user-tries-to-send-video-in-a-call"></a>iOS 15.1 회귀-iOS/Safari 작동이 중단 되 고 ACS 사용자가 호출에서 비디오를 보내려고 시도 하는 경우 페이지를 새로 고칩니다.
+
+---
+**중요**
+
+iOS 15.1은 iOS/Safari에 배치 된 비디오를 사용 하 여 대부분의 ACS 호출에 영향을 주는 버그를 도입 했습니다.
+
+---
+
+**문제 설명** 비디오를 켜는 모든 브라우저에서 iOS 15.1의 acs를 사용 하 여 acs 호출 또는 Teams 참여 하는 모임에 가입 하는 경우 Safari 브라우저의 작동이 중단 될 수 있습니다.
+
+**세부 정보** Ios 15.1 [에서 릴리스된 ios 15.1 Safari의 알려진 버그](https://bugs.webkit.org/show_bug.cgi?id=231505) 입니다. 이 문제는 iOS 15.2 인 경우 릴리스에서 수정 될 예정입니다. 현재 유일 하 게 알려진 해결 방법은 iOS 15.1 Safari에서 ACS를 사용 하는 경우 비디오를 끄지 않는 것입니다.
+
+**버전** iOS 15.1 및 모든 ACS 웹 SDK 버전
+
+**완화** acs 비디오 호출에 iOS 15.1 Safari를 사용 하 고 acs 비디오 통화 모임에 Microsoft Teams 하는 경우에서 비디오를 사용 (켜기) 하지 못하도록 합니다.
+다음 단계에서 해결 방법을 평가 하 고 Apple에서 작업 하 고 있습니다.
+
+다음 릴리스-iOS 15.2이이 문제를 해결 했습니다.
+
 
 #### <a name="refreshing-a-page-doesnt-immediately-remove-the-user-from-their-call"></a>페이지를 새로 고치면 통화에서 사용자가 즉시 제거되지 않습니다.
 
@@ -133,7 +154,7 @@ Communication Services 사용자가 JavaScript 통화 SDK를 사용하여 통화
 일부 브라우저(예: Safari)에서는 동일한 디바이스에서 사용자 고유의 스트림을 가져오면 경합 상태를 실행하는 부작용이 발생합니다. 다른 디바이스에서 스트림을 가져오면 USB/IO 대역폭이 부족해질 수 있으며 sourceUnavailableError 비율이 급증할 수 있습니다.  
 
 #### <a name="support-for-simulcast"></a>Simulcast 지원
-Simulcast는 클라이언트가 동일한 비디오 스트림을 서로 다른 해상도 및 비트 전송률로 인코딩하고 ACS 인프라가 클라이언트에서 받아야 하는 스트림을 결정 하는 데 사용할 수 있는 기술입니다. Windows, Android 또는 iOS 용 ACS 호출 라이브러리 SDK는 simulcast 스트림을 보내는 기능을 지원 합니다. ACS 웹 SDK는 현재 simulcast 스트림 전송을 지원 하지 않습니다.
+Simulcast는 클라이언트가 동일한 비디오 스트림을 서로 다른 해상도 및 비트 전송률로 두 번 인코딩하고 ACS 인프라가 클라이언트가 수신해야 하는 스트림을 결정하도록 하는 기술입니다. Windows, Android 또는 iOS용 ACS 통화 라이브러리 SDK는 동시 스트림 전송을 지원합니다. ACS 웹 SDK는 현재 simulcast 스트림 전송을 지원하지 않습니다.
 
 ## <a name="azure-communication-services-call-automation-apis"></a>Azure Communication Services Call Automation API
 

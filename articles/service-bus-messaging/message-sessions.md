@@ -3,12 +3,12 @@ title: Azure Service Bus 메시지 세션 | Microsoft Docs
 description: 이 문서에서는 세션을 사용하여 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 09/01/2021
-ms.openlocfilehash: 98430d7b9db857de6dc3dfb37e61908b236591f2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 55a5d432505d6c0aec7c2fc9b030eb9763413bee
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433443"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063292"
 ---
 # <a name="message-sessions"></a>메시지 세션
 Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. 세션은 **FIFO(선입 선출)** 및 **요청-응답** 패턴으로 사용할 수 있습니다. 이 문서에서는 Service Bus를 사용할 때 세션을 사용하여 이러한 패턴을 구현하는 방법을 보여 줍니다. 
@@ -54,7 +54,7 @@ Service Bus에서 FIFO 보장을 실현하려면 세션을 사용합니다. Serv
 
 세션 상태 기능을 통해 broker 내부의 메시지 세션에 대한 애플리케이션 정의 주석을 사용할 수 있기 때문에 세션을 새 프로세서로 가져올 때 해당 세션에 대해 기록된 처리 상태를 즉시 사용할 수 있습니다.
 
-Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 데이터(Service Bus Standard의 경우 256KB 및 Service Bus Premium의 경우 1MB)를 보유할 수 있는 불투명한 이진 개체입니다. 세션과 관련된 처리 상태는 세션 상태 내에 유지되거나 이러한 정보를 보유하는 스토리지 위치 또는 데이터베이스 레코드를 세션 상태가 가리킬 수 있습니다.
+Service Bus 관점에서 메시지 세션 상태는 메시지 크기의 데이터를 보관할 수 있는 불투명 이진 개체 (Service Bus 표준의 경우 256, Service Bus Premium의 경우 100 MB)입니다. 세션과 관련된 처리 상태는 세션 상태 내에 유지되거나 이러한 정보를 보유하는 스토리지 위치 또는 데이터베이스 레코드를 세션 상태가 가리킬 수 있습니다.
 
 세션 상태를 관리하는 메서드인 SetState 및 GetState는 세션 수신기 개체에서 찾을 수 있습니다. 이전에 세션 상태가 설정되지 않은 세션은 GetState에 대한 null 참조를 반환합니다. 이전에 설정된 세션 상태는 수신기의 SetState 메서드에 null을 전달하여 지울 수 있습니다.
 

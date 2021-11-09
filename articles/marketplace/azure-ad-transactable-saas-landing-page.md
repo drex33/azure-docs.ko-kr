@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.openlocfilehash: 8a0e7ab7fad8b0da025f143ab2401e5740972ec7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cd03abdf01d11fa3b6de869a7d95feafff0ca393
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078259"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060361"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>상용 마켓플레이스에서 거래 가능 SaaS 제품용 방문 페이지 빌드
 
@@ -81,7 +81,7 @@ Azure AD 로그인을 사용하는 간단한 웹 사이트를 구현할 수 있�
 
 ## <a name="resolve-the-marketplace-purchase-identification-token"></a>마켓플레이스 구매 식별 토큰 확인
 
-구매자가 사용자의 방문 페이지로 보내지면 URL 매개 변수에 토큰이 추가됩니다. 이 토큰은 Azure AD에서 발급한 토큰 및 서비스 간 인증에 사용되는 액세스 토큰과 다르며, 구독의 세부 정보를 가져오는 [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) 확인 호출용 입력으로 사용됩니다. SaaS 처리 API에 대한 모든 호출과 마찬가지로 서비스 간 요청도 앱의 Azure AD 애플리케이션 ID 사용자를 기반으로 하는 서비스 간 인증을 위한 액세스 토큰으로 인증됩니다.
+구매자가 사용자의 방문 페이지로 보내지면 URL 매개 변수에 토큰이 추가됩니다. 이 토큰은 Azure AD에서 발급한 토큰 및 서비스 간 인증에 사용되는 액세스 토큰과 다르며, 구독의 세부 정보를 가져오는 [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) 확인 호출용 입력으로 사용됩니다. SaaS 처리 API에 대한 모든 호출과 마찬가지로 서비스 간 요청도 앱의 Azure AD 애플리케이션 ID 사용자를 기반으로 하는 서비스 간 인증을 위한 액세스 토큰으로 인증됩니다.
 
 > [!NOTE]
 > 대부분의 경우 두 번째 단일 테넌트 애플리케이션에서 이 호출을 수행하는 것이 좋습니다. 이 문서 앞부분의 [두 AZURE AD 앱을 사용하여 프로덕션 환경에서 보안 강화](#use-two-azure-ad-apps-to-improve-security-in-production)를 참조하세요.
@@ -92,13 +92,13 @@ SaaS 처리 API를 사용하여 애플리케이션을 인증하려면 Azure AD O
 
 ### <a name="call-the-resolve-endpoint"></a>확인 엔드포인트 호출
 
-SaaS 처리 AAPI는 [확인](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) 엔드포인트를 구현하며, 이는 마켓플레이스 토큰의 유효성을 확인하고 구독 정보를 반환하기 위해 호출될 수 있습니다.
+SaaS 처리 AAPI는 [확인](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) 엔드포인트를 구현하며, 이는 마켓플레이스 토큰의 유효성을 확인하고 구독 정보를 반환하기 위해 호출될 수 있습니다.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>ID 토큰에 인코딩된 클레임에서 정보 읽기
 
 [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) 흐름의 일부로 Azure AD는 구매자가 방문 페이지로 이동할 때 요청에 [ID 토큰](../active-directory/develop/id-tokens.md)을 추가합니다. 이 토큰에는 이 표에 표시된 정보를 비롯하여 활성화 프로세스에서 유용하게 쓰일 수 있는 여러 가지 기본 정보가 포함되어 있습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | ------------ | ------------- |
 | aud | 이 토큰의 대상 그룹입니다. 이 경우 애플리케이션 ID와 일치해야 하며 유효성을 검사해야 합니다. |
 | preferred_username | 방문 사용자의 기본 사용자 이름입니다. 이메일 주소, 전화번호 또는 기타 식별자일 수 있습니다. |
@@ -113,7 +113,7 @@ SaaS 처리 AAPI는 [확인](./partner-center-portal/pc-saas-fulfillment-api-v2.
 
 ID 토큰에는 구매자를 식별하기 위한 기본 정보가 포함되어 있지만 온보딩 프로세스를 완료하려면 활성화 프로세스에서 구매자의 회사 같은 추가 세부 정보가 필요할 수 있습니다. [MICROSOFT GRAPH API](/graph/use-the-api)를 사용하여 이 정보를 요청하면 사용자가 같은 정보를 향후 다시 입력하지 않도록 방지할 수 있습니다. 표준 **사용자. 읽기** 권한에는 기본적으로 다음 정보가 포함됩니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | ------------ | ------------- |
 | displayName | 사용자의 주소록에 표시되는 이름입니다. |
 | givenName | 사용자의 이름입니다. |

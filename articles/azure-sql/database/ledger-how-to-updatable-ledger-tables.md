@@ -1,27 +1,26 @@
 ---
 title: 업데이트 가능한 원장 테이블 만들기 및 사용
 description: Azure SQL Database에서 업데이트 가능한 원장 테이블을 만들고 사용하는 방법을 알아봅니다.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
-ms.openlocfilehash: e4027bcaba4e89e89bec2ffa45d50c94e9a07b12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 39d7373fc3106501588d98c2b2e0177e92dd6176
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528850"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132064465"
 ---
 # <a name="create-and-use-updatable-ledger-tables"></a>업데이트 가능한 원장 테이블 만들기 및 사용
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 Azure SQL Database에서 [업데이트 가능한 원장 테이블](ledger-updatable-ledger-tables.md)을 만드는 방법을 보여줍니다. 다음으로, 업데이트 가능한 원장 테이블에 값을 삽입한 다음, 데이터를 업데이트합니다. 마지막으로 원장 보기를 사용하여 결과를 확인합니다. 은행 고객의 계좌 잔액을 추적하는 은행 애플리케이션을 예제로 사용하겠습니다. 이 예제에서는 업데이트 가능한 원장 테이블과 해당 기록 테이블 및 원장 보기 간의 관계를 실용적인 방법으로 보여 줍니다.
 

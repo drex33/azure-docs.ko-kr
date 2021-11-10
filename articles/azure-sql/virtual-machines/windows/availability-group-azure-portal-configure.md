@@ -10,27 +10,30 @@ ms.subservice: hadr
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 36b2d461b73b778541b79142633a6aafca9509e0
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: aeaeffec318ccf44e1557d592bd470556275ebe4
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162911"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158776"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Azure Portal을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹(미리 보기) 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹을 구성하는 방법을 설명합니다. 
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내의 [여러 서브넷에](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) SQL Server VM을 만들어 AG(Always On 가용성) 그룹에 대한 Azure Load Balancer 필요하지 않습니다.
+
+이 문서에서는 [Azure Portal](https://portal.azure.com) 사용하여 단일 서브넷 내의 Azure VM에서 SQL Server 가용성 그룹을 구성하는 방법을 설명합니다. 
 
 Azure Portal를 사용하여 새 클러스터를 만들거나 기존 클러스터를 온보딩한 다음 가용성 그룹, 수신기 및 내부 부하 분산 장치를 만듭니다. 
 
 이 기능은 현재 미리 보기로 제공됩니다. 
 
-이 문서에서는 Azure Portal을 사용하여 가용성 그룹 환경을 구성하지만, [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md), [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하거나 [수동으로](availability-group-manually-configure-tutorial.md)도 구성할 수 있습니다. 
+이 문서에서는 Azure Portal을 사용하여 가용성 그룹 환경을 구성하지만, [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md), [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하거나 [수동으로](availability-group-manually-configure-tutorial-single-subnet.md)도 구성할 수 있습니다. 
 
 > [!NOTE]
 > 이제 Azure Migrate를 사용하여 Azure VM의 SQL Server에 대한 가용성 그룹 솔루션을 리프트 앤 시프트할 수 있습니다. 자세한 내용은 [가용성 그룹 마이그레이션](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md)을 참조하세요. 

@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/07/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 3ad963def4866e7528527400ff259502441c9dbf
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: f4a79ae5b1083bf9091486e9f4d87c6fdad14747
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165638"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156899"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-DNN(분산 네트워크 이름)은 Azure VM의 SQL Server를 사용하여 트래픽을 클러스터된 적절한 리소스로 라우팅합니다. Azure Load Balancer 없이도 VNN(가상 네트워크 이름) 수신기보다 쉽게 Always On AG(가용성 그룹)에 연결하는 방법을 제공합니다.
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내의 [여러 서브넷에](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) SQL Server VM을 만들어 AG(Always On 가용성) 그룹에 대한 분산 네트워크 이름을 사용할 필요가 없습니다.
+
+단일 서브넷의 Azure VM에 SQL Server DNN(분산 네트워크 이름)은 트래픽을 적절한 클러스터형 리소스로 라우팅합니다. Azure Load Balancer 없이도 VNN(가상 네트워크 이름) 수신기보다 쉽게 Always On AG(가용성 그룹)에 연결하는 방법을 제공합니다.
 
 이 문서는 DNN 수신기를 구성하여 VNN 수신기를 대체하고 Azure VM의 SQL Server를 통해 가용성 그룹으로 트래픽을 라우팅하여 HADR(고가용성 및 재해 복구)을 실현하는 방법을 설명합니다.
 
@@ -45,7 +48,7 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 
 이 문서의 단계를 완료하기 전에 다음이 준비되어 있어야 합니다.
 
-- Windows Server 2016 이상에서 [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) 이상, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) 이상 또는 [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) 이상으로 시작 하는 SQL Server.
+- SQL Server [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) 이상, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) 이상 또는 Windows Server 2016 이상에서 [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) 이상부터 시작합니다.
 - 분산 네트워크 이름이 [HADR 솔루션에 적절한 연결 옵션](hadr-cluster-best-practices.md#connectivity)이라고 판단했습니다.
 - [Always On 가용성 그룹](availability-group-overview.md)을 구성했습니다. 
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치했습니다. 
@@ -144,9 +147,9 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 ## <a name="update-connection-string"></a>연결 문자열 업데이트
 
-DNN 수신기에 연결 해야 하는 모든 응용 프로그램에 대 한 연결 문자열을 업데이트 합니다. DNN 수신기에 대 한 연결 문자열은 DNN 포트 번호를 제공 하 고 연결 문자열에를 지정 해야 합니다 `MultiSubnetFailover=True` . SQL 클라이언트가 매개 변수를 지원 하지 않는 경우 `MultiSubnetFailover=True` DNN 수신기와 호환 되지 않습니다.  
+DNN 수신기에 연결해야 하는 모든 애플리케이션에 대한 연결 문자열을 업데이트합니다. DNN 수신기에 대한 연결 문자열은 DNN 포트 번호를 제공하고 연결 문자열에 를 지정해야 `MultiSubnetFailover=True` 합니다. SQL 클라이언트가 매개 변수를 지원하지 않는 경우 `MultiSubnetFailover=True` DNN 수신기와 호환되지 않습니다.  
 
-다음은 수신기 이름 **DNN_Listener** 및 포트 6789에 대 한 연결 문자열의 예입니다. 
+다음은 수신기 이름 **DNN_Listener** 및 포트 6789에 대한 연결 문자열의 예입니다. 
 
 `DataSource=DNN_Listener,6789,MultiSubnetFailover=True`
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 00aa377ffc7f713159f4ff8a55b562eaf809980b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d3b2be483c134724ceea37f1afb905eea498001c
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064300"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156011"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
 
@@ -101,7 +101,7 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
     > SAP **가져오기 옵션** 영역에 **Ignore Invalid Component Version**(잘못된 구성 요소 버전 무시) 옵션이 표시될 수 있습니다. 표시되면 이 옵션을 선택한 후 계속합니다.
     >
 
-1. SAP 변경 요청 *14(NPLK900140)* 를 가져와 **/MSFTSEN/SENTINEL_CONNECTOR** 라는 새 SAP 역할을 만듭니다. **STMS_IMPORT** SAP 트랜잭션 코드를 사용합니다.
+1. SAP 변경 요청 *14(NPLK900163)를* **가져와서 /MS MSPN/SENTINEL_CONNECTOR** 이라는 새 SAP 역할을 만듭니다. **STMS_IMPORT** SAP 트랜잭션 코드를 사용합니다.
 
     다음과 같이 필요한 권한으로 역할이 만들어졌는지 확인합니다.
 
@@ -173,15 +173,15 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
       --resource-group $kvgp
     ```
 
-1. 다음 방법 중 하나를 사용 하 여 GET, LIST 및 SET 권한을 포함 하 여 VM의 관리 되는 id에 대 한 액세스 정책을 할당 합니다.
+1. 다음 방법 중 하나를 사용하여 VM의 관리 ID에 GET, LIST 및 SET 권한을 포함한 액세스 정책을 할당합니다.
 
-    - **Azure Portal를 통해**:
+    - **Azure Portal 통해:**
 
         Azure Key Vault에서 **액세스 정책** > **액세스 정책 추가 - 비밀 권한: Get, List 및 Set** > **보안 주체 선택** 을 선택합니다. [VM의 이름](#deploy-a-linux-vm-for-your-sap-data-connector)을 입력한 다음, **추가** > **저장** 을 선택합니다.
 
         자세한 내용은 [Key Vault 설명서](../key-vault/general/assign-access-policy-portal.md)를 참조하세요.
 
-    - **Azure CLI를 통해**:
+    - **Azure CLI 통해:**
 
         1. 다음 명령을 실행하여 [VM의 보안 주체 ID](#deploy-a-linux-vm-for-your-sap-data-connector)를 가져오고 Azure 리소스 그룹의 이름을 입력합니다.
 
@@ -191,7 +191,7 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
 
             다음 단계에서 사용할 수 있도록 보안 주체 ID가 표시됩니다.
 
-        1. 다음 명령을 실행 하 여 Key Vault에 VM의 액세스 권한을 할당 하 고, 리소스 그룹의 이름 및 이전 단계에서 반환 된 사용자 ID 값을 입력 합니다.
+        1. 다음 명령을 실행하여 Key Vault VM의 액세스 권한을 할당하고, 리소스 그룹의 이름 및 이전 단계에서 반환된 보안 주체 ID 값을 입력합니다.
 
             ```azurecli
             az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set

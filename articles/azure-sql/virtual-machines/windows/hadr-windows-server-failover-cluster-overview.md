@@ -11,15 +11,15 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: dc007e4aeb68d3cecd156a650bd3c04de1fd26e0
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 66899b7b4c5a9cb77b7545d671ac27433f927d5a
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162201"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156874"
 ---
 # <a name="windows-server-failover-cluster-with-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -80,9 +80,11 @@ AG(Always On 가용성 그룹) 또는 FCI(장애 조치(failover) 클러스터 �
 
 ## <a name="virtual-network-name-vnn"></a>VNN(가상 네트워크 이름)
 
+가용성 그룹 수신기 또는 장애 조치(failover) 클러스터 인스턴스에 연결하기 위한 온-프레미스 환경과 일치하려면 동일한 가상 네트워크 내의 여러 서브넷에 SQL Server VM을 배포합니다. 서브넷이 여러 대 있으면 트래픽을 HADR 솔루션으로 라우팅하기 위해 Azure Load Balancer 대한 추가 종속성이 필요하지 않습니다.  자세한 내용은 [다중 서브넷 AG](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)및 다중 [서브넷 FCI를 참조하세요.](failover-cluster-instance-prepare-vm.md#subnets) 
+
 기존 온-프레미스 환경에서 장애 조치(failover) 클러스터 인스턴스 또는 Always On 가용성 그룹과 같은 클러스터형 리소스는 Virtual Network 이름을 사용하여 트래픽을 적절한 대상인 장애 조치(failover) 클러스터 인스턴스 또는 Always On 가용성 그룹의 수신기 중 하나로 라우팅합니다. 가상 이름은 DNS의 IP 주소를 바인딩하고 클라이언트는 현재 리소스를 소유하고 있는 노드에 관계없이 가상 이름이나 IP 주소를 사용하여 고가용성 대상에 연결할 수 있습니다. VNN은 클러스터에서 관리하는 네트워크 이름과 주소이며 클러스터 서비스는 장애 조치(failover) 이벤트 중에 노드 간에 네트워크 주소를 이동합니다. 실패가 발생하면 원래 주 복제본에서 주소가 오프라인 상태로 전환되고 새 주 복제본에서 온라인 상태가 됩니다.
 
-Azure Virtual Machines에서는 트래픽을 클라이언트에서 클러스터형 리소스의 Virtual Network 이름(장애 조치(failover) 클러스터 인스턴스 또는 가용성 그룹의 수신기)으로 라우팅하려면 추가 구성 요소가 필요합니다. Azure에서 부하 분산 장치는 클러스터형 SQL Server 리소스가 사용하는 VNN의 IP 주소를 보유하며 트래픽을 적절한 고가용성 대상으로 라우팅하는 데 필요합니다. 또한 부하 분산 장치는 네트워킹 구성 요소를 사용하여 실패를 감지하고 주소를 새 호스트로 이동합니다. 
+단일 서브넷의 Azure Virtual Machines 클라이언트에서 클러스터된 리소스의 Virtual Network 이름(장애 조치(failover) 클러스터 인스턴스 또는 가용성 그룹의 수신기)로 트래픽을 라우팅하려면 추가 구성 요소가 필요합니다. Azure에서 부하 분산 장치는 클러스터형 SQL Server 리소스가 사용하는 VNN의 IP 주소를 보유하며 트래픽을 적절한 고가용성 대상으로 라우팅하는 데 필요합니다. 또한 부하 분산 장치는 네트워킹 구성 요소를 사용하여 실패를 감지하고 주소를 새 호스트로 이동합니다. 
 
 부하 분산 장치는 프런트 엔드에 도착하는 인바운드 흐름을 배포한 다음, 해당 트래픽을 백 엔드 풀로 정의된 인스턴스로 라우팅합니다. 부하 분산 규칙과 상태 프로브를 사용하여 트래픽 흐름을 구성합니다. SQL Server FCI를 사용하면 백 엔드 풀 인스턴스는 SQL Server를 실행하는 Azure 가상 머신이 되며 가용성 그룹을 사용하면 백 엔드 풀이 수신기가 됩니다. 부하 분산 장치를 사용하는 경우 경미한 장애 조치(failover) 지연이 있습니다. 기본적으로 상태 프로브가 10초마다 연결 검사를 수행하기 때문입니다. 
 
@@ -92,11 +94,13 @@ Azure Virtual Machines에서는 트래픽을 클라이언트에서 클러스터�
 **지원되는 SQL 버전**: 모두   
 **지원되는 HADR 솔루션**: 장애 조치(failover) 클러스터 인스턴스 및 가용성 그룹   
 
-VNN 구성이 복잡할 수 있습니다. 이는 실패의 추가 원인이며 이로 인해 실패 검색에서 지연이 발생할 수 있으며 추가 리소스 관리와 관련된 오버헤드와 비용이 발생합니다. 이러한 제한 사항 중 일부를 해결하기 위해 SQL Server 2019에서는 분산 네트워크 이름 기능을 지원합니다. 
+VNN 구성이 복잡할 수 있습니다. 이는 실패의 추가 원인이며 이로 인해 실패 검색에서 지연이 발생할 수 있으며 추가 리소스 관리와 관련된 오버헤드와 비용이 발생합니다. 이러한 제한 사항 중 일부를 해결하기 위해 SQL Server 분산 네트워크 이름 기능에 대한 지원을 도입했습니다. 
 
 ## <a name="distributed-network-name-dnn"></a>DNN(분산 네트워크 이름)
 
-SQL Server 2019부터 분산 네트워크 이름 기능은 SQL Server 클라이언트가 부하 부산 장치를 사용하지 않고도 SQL Server 장애 조치(failover) 클러스터 인스턴스나 가용성 그룹 수신기에 연결할 수 있는 대체 방법을 제공합니다. 
+가용성 그룹 수신기 또는 장애 조치(failover) 클러스터 인스턴스에 연결하기 위한 온-프레미스 환경과 일치하려면 동일한 가상 네트워크 내의 여러 서브넷에 SQL Server VM을 배포합니다. 서브넷이 여러 대 있으면 트래픽을 HADR 솔루션으로 라우팅하기 위해 DNN에 대한 추가 종속성이 필요하지 않습니다. 자세한 내용은 [다중 서브넷 AG](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)및 다중 [서브넷 FCI를 참조하세요.](failover-cluster-instance-prepare-vm.md#subnets) 
+
+단일 서브넷에 배포된 SQL Server VM의 경우 분산 네트워크 이름 기능은 SQL Server 클라이언트가 부하 분산 기능을 사용하지 않고 SQL Server 장애 조치(failover) 클러스터 인스턴스 또는 가용성 그룹 수신기에 연결할 수 있는 대체 방법을 제공합니다. DNN 기능은 Windows Server 2016 이상에서 [SQL Server 2016 SP3,](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) [SQL Server 2017 CU25,](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) [SQL Server 2019 CU8부터](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72)사용할 수 있습니다.
 
 DNN 리소스가 생성되면 클러스터는 클러스터에 있는 모든 노드의 IP 주소를 DNS 이름에 바인딩합니다. 클라이언트는 이 목록에 있는 각 IP 주소에 연결을 시도하여 연결할 리소스를 찾습니다. 연결 문자열에 `MultiSubnetFailover=True`를 지정하면 이 프로세스를 가속화할 수 있습니다. 이 설정은 공급자가 모든 IP 주소를 병렬로 시도 하도록 지시하므로 클라이언트는 FCI 또는 수신기에 즉시 연결할 수 있습니다. 
 

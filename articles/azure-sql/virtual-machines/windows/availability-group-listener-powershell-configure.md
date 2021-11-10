@@ -11,34 +11,37 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/06/2019
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.reviewer: mathoma
-ms.openlocfilehash: bcf48bf068d48420c162effa563c4225baf7b990
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a443d65b6e96a96df164a828ac4783966297ab8b
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219643"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156296"
 ---
-# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
+# <a name="configure-one-or-more-always-on-availability-group-listeners"></a>하나 이상의 Always On 가용성 그룹 수신기 구성
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내의 [여러 서브넷에](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) SQL Server VM을 만들어 AG(Always On 가용성) 그룹에 대한 Azure Load Balancer 필요하지 않습니다.
 
 이 문서에서는 PowerShell을 사용하여 다음 작업 중 하나를 수행하는 방법을 보여 줍니다.
 - 부하 분산 장치 만들기
 - SQL Server 가용성 그룹의 기존 부하 분산 장치에 IP 주소 추가하기
 
-가용성 그룹 수신기는 데이터베이스 액세스를 위해 클라이언트에서 연결하는 가상 네트워크 이름입니다. Azure Virtual Machines에서 부하 분산 장치는 수신기의 IP 주소를 보유합니다. 부하 분산 장치는 프로브 포트에서 수신 대기하는 SQL Server의 인스턴스로 트래픽을 라우팅합니다. 일반적으로 가용성 그룹은 내부 부하 분산 장치를 사용합니다. Azure 내부 부하 분산 장치는 하나 이상의 IP 주소를 호스트할 수 있습니다. 각 IP 주소는 특정 프로브 포트를 사용합니다. 
+가용성 그룹 수신기는 데이터베이스 액세스를 위해 클라이언트에서 연결하는 가상 네트워크 이름입니다. 단일 서브넷의 Azure Virtual Machines 부하 분산기는 수신기의 IP 주소를 보유합니다. 부하 분산 장치는 프로브 포트에서 수신 대기하는 SQL Server의 인스턴스로 트래픽을 라우팅합니다. 일반적으로 가용성 그룹은 내부 부하 분산 장치를 사용합니다. Azure 내부 부하 분산 장치는 하나 이상의 IP 주소를 호스트할 수 있습니다. 각 IP 주소는 특정 프로브 포트를 사용합니다. 
 
-내부 부하 분산 장치에 여러 IP 주소를 할당하는 기능은 Azure에 새로 추가되었으며 Resource Manager 모델에서만 사용할 수 있습니다. 이 작업을 완료하려면 Resource Manager 모델의 Azure Virtual Machines에 SQL Server 가용성 그룹이 배포되어야 합니다. 두 SQL Server 가상 머신은 동일한 가용성 집합에 속해야 합니다. [Microsoft 템플릿](./availability-group-quickstart-template-configure.md)을 사용하여 Azure Resource Manager에서 가용성 그룹을 자동으로 만들 수 있습니다. 이 템플릿은 내부 부하 분산 장치를 포함하는 가용성 그룹을 자동으로 만듭니다. 원하는 경우 [수동으로 Always On 가용성 그룹을 구성](availability-group-manually-configure-tutorial.md)할 수 있습니다.
+내부 부하 분산 장치에 여러 IP 주소를 할당하는 기능은 Azure에 새로 추가되었으며 Resource Manager 모델에서만 사용할 수 있습니다. 이 작업을 완료하려면 Resource Manager 모델의 Azure Virtual Machines에 SQL Server 가용성 그룹이 배포되어야 합니다. 두 SQL Server 가상 머신은 동일한 가용성 집합에 속해야 합니다. [Microsoft 템플릿](./availability-group-quickstart-template-configure.md)을 사용하여 Azure Resource Manager에서 가용성 그룹을 자동으로 만들 수 있습니다. 이 템플릿은 내부 부하 분산 장치를 포함하는 가용성 그룹을 자동으로 만듭니다. 원하는 경우 [수동으로 Always On 가용성 그룹을 구성](availability-group-manually-configure-tutorial-single-subnet.md)할 수 있습니다.
 
 이 문서의 단계를 완료하려면 가용성 그룹이 이미 구성되어 있어야 합니다.  
 
 관련 항목은 다음과 같습니다.
 
-* [Azure VM의 Always On 가용성 그룹 구성(GUI)](availability-group-manually-configure-tutorial.md)   
+* [Azure VM의 Always On 가용성 그룹 구성(GUI)](availability-group-manually-configure-tutorial-single-subnet.md)   
 * [Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]

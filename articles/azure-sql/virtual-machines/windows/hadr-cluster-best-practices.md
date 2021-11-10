@@ -11,15 +11,15 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 40c68a77a3e432c5ff03da2a99e93255719e8898
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 8be0dc33d580314fd6b5e6472ed1cf41c5be2d4e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163419"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158440"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>HADR 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,13 +36,14 @@ ms.locfileid: "130163419"
 
 Windows 클러스터의 경우 모범 사례를 고려합니다. 
 
+* 가능 하면 SQL Server vm을 여러 서브넷에 배포 하 여 Azure Load Balancer 또는 분산 네트워크 이름 (DNN)에 대 한 종속성을 방지 하 여 HADR 솔루션으로 트래픽을 라우팅합니다. 
 * 일시적인 네트워크 실패 또는 Azure 플랫폼 유지 관리로 인한 예기치 않은 중단을 방지하기 위해 덜 적극적인 매개 변수로 클러스터를 변경합니다. 자세히 알아보려면 [하트비트 및 임계값 설정](#heartbeat-and-threshold)을 참조하세요. Windows Server 2012 이상에서는 다음 권장 값을 사용합니다. 
    - **SameSubnetDelay**: 1초
    - **SameSubnetThreshold**: 하트비트 40개
    - **CrossSubnetDelay**: 1초
    - **CrossSubnetThreshold**: 하트비트 40개
 * VM을 가용성 집합 또는 다른 가용성 영역에 배치합니다.  자세한 내용은 [VM 가용성 설정](#vm-availability-settings)을 참조하세요. 
-* 클러스터 노드당 하나의 NIC 및 단일 서브넷을 사용합니다. 
+* 클러스터 노드당 단일 NIC를 사용 합니다. 
 * 클러스터 [쿼럼 투표](#quorum-voting)를 구성하여 3개 이상의 홀수 투표를 사용합니다. DR 지역에 투표를 할당하지 마세요. 
 * 리소스 제약으로 인한 예기치 않은 재시작 또는 장애 조치(failover)를 방지하기 위해 [리소스 제한](#resource-limits)을 신중하게 모니터링합니다.
    - OS, 드라이버 및 SQL Server가 최신 빌드인지 확인합니다. 
@@ -58,7 +59,7 @@ SQL Server 가용성 그룹 또는 장애 조치(failover) 클러스터 인스�
    `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.   
    40초부터 시작합니다. 이전에 권장되었던 완화된 `SameSubnetThreshold` 및 `SameSubnetDelay` 값을 사용하는 경우 임대 시간 제한 값이 80초를 초과해서는 안 됩니다.   
    - **Max failures in a specified period(지정된 기간의 최대 실패 횟수)** : 이 값을 6으로 설정합니다. 
-* VNN(가상 네트워크 이름)을 사용하여 HADR 솔루션에 연결하는 경우 클러스터의 범위가 하나의 서브넷에 불과하더라도 연결 문자열에서 `MultiSubnetFailover = true`를 지정합니다. 
+* vnn (가상 네트워크 이름) 및 Azure Load Balancer를 사용 하 여 HADR 솔루션에 연결 하는 경우 `MultiSubnetFailover = true` 클러스터가 하나의 서브넷에만 걸쳐 있는 경우에도 연결 문자열에를 지정 합니다. 
    - 클라이언트에서 `MultiSubnetFailover = True`를 지원하지 않는 경우 `RegisterAllProvidersIP = 0` 및 `HostRecordTTL = 300`을 설정하여 더 짧은 기간 동안 클라이언트 자격 증명을 캐시해야 할 수 있습니다. 하지만 이렇게 하면 DNS 서버에 추가 쿼리가 발생할 수 있습니다. 
 - DNN(분산형 네트워크 이름)을 사용하여 HADR 솔루션에 연결하려면 다음 사항을 고려합니다.
    - `MultiSubnetFailover = True`를 지원하는 클라이언트 드라이버를 사용해야 하고, 이 매개 변수가 연결 문자열에 있어야 합니다. 
@@ -115,15 +116,20 @@ Windows Server 장애 조치(Failover) 클러스터에 참가하는 노드의 �
 
 ## <a name="connectivity"></a>연결
 
+가용성 그룹 수신기 또는 장애 조치 (failover) 클러스터 인스턴스에 연결 하기 위한 온-프레미스 환경을 일치 시키려면 동일한 가상 네트워크 내에서 여러 서브넷에 SQL Server vm을 배포 합니다. 서브넷이 여러 개 있으면 Azure Load Balancer에 대 한 추가 종속성이 필요 하거나 트래픽을 수신기로 라우팅하는 분산 네트워크 이름을 사용할 필요가 없습니다.  
 
-VNN(가상 네트워크 이름), 또는 SQL Server 2019부터 장애 조치(failover) 클러스터 인스턴스와 가용성 그룹 수신기 모두에 대해 DNN(분산 네트워크 이름)을 구성할 수 있습니다. 
+HADR 솔루션을 간소화 하려면 가능 하면 항상 여러 서브넷에 SQL Server vm을 배포 합니다.  자세히 알아보려면 [다중 서브넷 AG](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)및 [다중 서브넷 fci](failover-cluster-instance-prepare-vm.md#subnets)를 참조 하세요. 
+
+SQL Server vm이 단일 서브넷에 있는 경우에는 장애 조치 (failover) 클러스터 인스턴스와 가용성 그룹 수신기 모두에 대해 vnn (가상 네트워크 이름) 및 Azure Load Balancer 또는 DNN (분산 네트워크 이름)을 구성할 수 있습니다. 
 
 분산 네트워크 이름은 사용 가능한 경우 권장되는 연결 옵션입니다. 
 - 더 이상 부하 분산 장치 리소스를 유지 관리하지 않아도 되므로 엔드투엔드 솔루션이 더욱 강력해집니다. 
 - 부하 분산 장치 프로브를 제거하면 장애 조치(failover) 기간이 최소화됩니다. 
 - DNN은 Azure VM의 SQL Server를 사용하여 장애 조치(failover) 클러스터 인스턴스 또는 가용성 그룹 수신기의 프로비저닝 및 관리를 간소화합니다. 
 
-DNN을 사용하거나 여러 서브넷에 걸쳐 있는 AG 또는 FCI를 사용하는 경우 MultiSubnetFailover 매개 변수를 지원하는 클라이언트 드라이버를 사용하고, 연결 문자열에 MultiSubnetFailover=True를 지정해야 합니다. 가용성 그룹의 경우 연결 문자열에는 DNN 포트 번호가 포함 되어야 합니다(FCI에는 필요하지 않음). 
+다음 제한 사항을 고려하세요. 
+- 클라이언트 드라이버는 매개 변수를 지원 해야 합니다 `MultiSubnetFailover=True` . 
+- DNN 기능은 [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31), [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9)및 [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) on Windows Server 2016 이상부터 사용할 수 있습니다.
 
 자세히 알아보려면 [Windows Server 장애 조치(Failover) 클러스터 개요](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)를 참조하세요. 
 
@@ -134,7 +140,7 @@ DNN을 사용하거나 여러 서브넷에 걸쳐 있는 AG 또는 FCI를 사용
 DNN을 사용하는 경우 대부분의 SQL Server 기능이 FCI 및 가용성 그룹에서 투명하게 작동하지만 특별 고려 사항이 필요할 수 있는 특정 기능이 있습니다. 자세한 내용은 [FCI 및 DNN 상호 운용성](failover-cluster-instance-dnn-interoperability.md)과 [AG 및 DNN 상호 운용성](availability-group-dnn-interoperability.md)을 참조하세요. 
 
 >[!TIP]
-> 단일 서브넷에 걸친 HADR 솔루션에 대해서도 연결 문자열에서 MultiSubnetFailover parameter = true를 설정하여 연결 문자열 업데이트에 대한 필요성 없이 서브넷의 향후 확장을 지원합니다.  
+> 연결 문자열에서 MultiSubnetFailover 매개 변수 = true를 설정 하 여 연결 문자열을 업데이트할 필요 없이 서브넷의 이후 확장을 지원 하도록 단일 서브넷에 걸쳐 있는 HADR 솔루션에 대해서도 설정 합니다.  
 
 ## <a name="heartbeat-and-threshold"></a>하트비트와 임계값 
 
@@ -285,9 +291,11 @@ VM 또는 디스크 한계로 인해 리소스 병목 현상이 발생하고 클
 
 ## <a name="networking"></a>네트워킹
 
-서버당 단일 NIC (클러스터 노드)를 사용 합니다. Azure 네트워킹에는 Azure 가상 컴퓨터 게스트 클러스터에서 추가 Nic를 불필요 하 게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결할 수 있다는 경고를 표시합니다. Azure 가상 머신 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시할 수 있습니다. 
+가능하면 여러 서브넷에 SQL Server VM을 배포하여 HADR 솔루션으로 트래픽을 라우팅하는 Azure Load Balancer 또는 DNN(분산 네트워크 이름)에 대한 종속성을 방지합니다.
 
-특정 VM에 대 한 대역폭 제한은 nic에서 공유 되 고 추가 nic를 추가 하는 것은 Azure vm의 SQL Server에 대 한 가용성 그룹 성능을 향상 시 키 지 않습니다. 따라서 두 번째 NIC를 추가할 필요가 없습니다. 
+서버당 단일 NIC(클러스터 노드)를 사용합니다. Azure 네트워킹에는 물리적 중복성이 있어 Azure 가상 머신 게스트 클러스터에서 추가 NIC를 불필요하게 만듭니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결할 수 있다는 경고를 표시합니다. Azure 가상 머신 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시할 수 있습니다. 
+
+특정 VM에 대한 대역폭 제한은 NIC 간에 공유되며 추가 NIC를 추가해도 Azure VM의 SQL Server 가용성 그룹 성능이 향상되지 않습니다. 따라서 두 번째 NIC를 추가할 필요가 없습니다. 
 
 Azure에서 RFC를 준수하지 않는 DHCP 서비스를 사용할 경우 특정 장애 조치 클러스터 구성을 만들 수 없게 됩니다. 이 오류는 클러스터 네트워크 이름에 중복 IP 주소(예: 클러스터 노드 중 하나와 IP 주소가 같음)가 할당되기 때문에 발생합니다. Windows 장애 조치 클러스터 기능에 따라 달라지는 가용성 그룹을 사용하는 경우 해당 문제가 발생합니다.
 
@@ -300,10 +308,7 @@ Azure에서 RFC를 준수하지 않는 DHCP 서비스를 사용할 경우 특정
 5. NODE2가 NODE1에 연결을 시도하면 NODE1로 보내지는 패킷이 NODE1의 IP 주소 자체로 향하게 되므로 NODE2에서 출발 자체를 할 수 없습니다. 따라서 NODE2는 NODE1에 연결할 수 없고 쿼럼을 잃고 클러스터를 닫게 됩니다.
 6. NODE1은 NODE2로 패킷을 보낼 수 있지만, NODE2는 응답할 수 없습니다. NODE1도 쿼럼을 잃고 클러스터를 닫습니다.
 
-사용되지 않는 고정 IP 주소를 클러스터 네트워크 이름으로 할당하여 클러스터 네트워크 이름을 온라인 상태로 만들면 이런 상황을 방지할 수 있습니다. 예를 들어 169.254.1.1과 같은 링크-로컬 IP 주소를 사용할 수 있습니다. 이 절차를 간단히 수행하려면 [Azure에서 가용성 그룹에 Windows 장애 조치 클러스터 구성](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx)을 참조하세요.
-
-자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](./availability-group-quickstart-template-configure.md)을 참조하세요.
-
+클러스터 네트워크 이름을 온라인으로 가져오고 IP 주소를 Azure Load Balancer 추가하기 위해 사용되지 않는 고정 IP 주소를 클러스터 네트워크 이름에 할당하여 이 시나리오를 방지할 [수 있습니다.](availability-group-load-balancer-portal-configure.md)
 
 ## <a name="known-issues"></a>알려진 문제
 

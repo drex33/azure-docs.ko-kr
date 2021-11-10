@@ -7,12 +7,12 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 2dc71c72ebbc31af30e25834ece0e15dddcba5dc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 90abee8e5d776b1426e306fe915f5e19a9b1716c
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053738"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158421"
 ---
 # <a name="create-a-chaos-experiment-that-uses-an-agent-based-fault-to-add-cpu-pressure-to-a-linux-vm"></a>에이전트 기반 오류를 사용하여 Linux VM에 CPU 압력을 추가하는 비정상 오류 실험 만들기
 
@@ -21,12 +21,12 @@ ms.locfileid: "131053738"
 이러한 동일한 단계를 사용하여 에이전트 기반 오류에 대한 실험을 설정하고 실행할 수 있습니다. **에이전트 기반** 오류는 계측할 필요 없이 Azure 리소스에 대해 직접 실행되는 서비스 직접 오류와 달리 비정상 상태 에이전트를 설치하고 설치해야 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - Linux 가상 머신. 가상 머신이 없는 경우 다음 [단계에 따라 을 만들](../virtual-machines/linux/quick-create-portal.md)수 있습니다.
 - [가상 머신에 SSH를](../virtual-machines/ssh-keys-portal.md) 허용하는 네트워크 설정
-- 사용자가 할당한 관리 ID. 사용자 할당 관리 ID가 없는 경우 다음 [단계에 따라 만들](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) 수 있습니다.
+- **대상 가상 머신 또는 가상 머신 확장 집합 에 할당된** 사용자 할당 관리 ID입니다. 사용자 할당 관리 ID가 없는 경우 다음 [단계에 따라 만들](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) 수 있습니다.
 
 
 ## <a name="enable-chaos-studio-on-your-virtual-machine"></a>가상 머신에서 Chaos Studio 사용
@@ -35,7 +35,7 @@ Chaos Studio는 해당 가상 머신이 Chaos Studio에 먼저 온보딩되지 �
 
 ### <a name="install-stress-ng"></a>stress-ng 설치
 
-Linux용 Chaos Studio 에이전트에는 가상 머신에서 다양한 스트레스 이벤트를 일으킬 수 있는 오픈 소스 애플리케이션인 stress-ng가 필요합니다. [Linux 가상 머신에 연결하고](../virtual-machines/ssh-keys-portal.md) 패키지 관리자에 적절한 설치 명령을 실행하여 stress-ng를 설치할 수 있습니다. 예를 들면 다음과 같습니다.
+Linux용 Chaos Studio 에이전트에는 가상 머신에서 다양한 스트레스 이벤트를 일으킬 수 있는 오픈 소스 애플리케이션인 stress-ng가 필요합니다. [Linux 가상 머신에 연결하고](../virtual-machines/ssh-keys-portal.md) 패키지 관리자에 대한 적절한 설치 명령을 실행하여 stress-ng를 설치할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```bash
 sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng
@@ -48,6 +48,9 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 ```
 
 ### <a name="enable-chaos-target-capabilities-and-agent"></a>비정상대화 대상, 기능 및 에이전트 사용
+
+> [!IMPORTANT]
+> 아래 단계를 완료하기 전에 [사용자 할당 관리 ID를 만들고](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) 대상 가상 머신 또는 가상 머신 확장 집합에 할당해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 2. 검색 표시줄에서 **Chaos Studio(미리 보기)를** 검색합니다.
@@ -65,7 +68,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 이제 Linux 가상 머신을 Chaos Studio에 성공적으로 온보딩했습니다. **대상** 보기에서 이 리소스에 사용하도록 설정된 기능을 관리할 수도 있습니다. 리소스 옆에 있는 **작업 관리** 링크를 클릭하면 해당 리소스에 대해 사용하도록 설정된 기능이 표시됩니다.
 
 ## <a name="create-an-experiment"></a>실험 만들기
-이제 가상 머신이 온보딩되어 있으면 실험을 만들 수 있습니다. 비정상 상황에서는 대상 리소스에 대해 수행할 작업을 순차적으로 실행되는 단계와 병렬로 실행되는 분기로 구성하여 정의합니다.
+이제 가상 머신을 온보딩하면 실험을 만들 수 있습니다. 비정상 상황에서는 대상 리소스에 대해 수행할 작업을 순차적으로 실행되는 단계와 병렬로 실행되는 분기로 구성하여 정의합니다.
 
 1. Chaos Studio 탐색에서 **실험** 탭을 클릭합니다. 이 보기에서는 모든 비정실적 실험을 보고 관리할 수 있습니다. Azure Portal **실험** 
  ![ 추가 보기를 클릭합니다.](images/tutorial-agent-based-add.png)

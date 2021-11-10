@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: eur
-ms.openlocfilehash: 5de18cfe1f187f0531871dedce1ab842934569f2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 625f980c94536db7d4f23323393e19e0d735437e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131521054"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156687"
 ---
 압축된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)를 사용하여 구현됩니다. 라이선스 때문에 GStreamer 이진 파일이 컴파일되지 않고 Speech SDK로 연결되지 않습니다. 대신, Android용으로 미리 빌드된 이진 파일을 사용해야 합니다. 미리 빌드된 라이브러리를 다운로드하려면 [Android 개발용 설치](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)를 참조하세요.
 
-`libgstreamer_android.so`은 필수입니다. 아래의 Android.mk 파일에서 모든 GStreamer 플러그 인이 `libgstreamer_android.so`에 연결되어 있어야 합니다. GStreamer 버전 1.18.3에서 최신 Speech SDK(1.16 이상)를 사용하는 경우 `libc++_shared.so`가 Android NDK에 있어야 합니다.
+`libgstreamer_android.so`은 필수입니다. 아래의 Android.mk 파일에서 모든 GStreamer 플러그 인이 `libgstreamer_android.so`에 연결되어 있어야 합니다. GStreamer 버전 1.18.3에서 최신 음성 SDK(1.16 이상)를 사용하는 경우 `libc++_shared.so` android ndk에서도 가 있어야 합니다.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -77,7 +77,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-Ubuntu 16.04 또는 18.04에서 다음 명령을 사용하여 `libgstreamer_android.so`를 빌드할 수 있습니다. 다음 명령줄은 [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)를 사용하는 [GStreamer Android 버전 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2)에서만 테스트되었습니다.
+`libgstreamer_android.so`Ubuntu 18.04 또는 20.04에서 다음 명령을 사용하여 빌드할 수 있습니다. 다음 명령줄은 [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)를 사용하는 [GStreamer Android 버전 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2)에서만 테스트되었습니다.
 
 ```sh
 # Assuming wget and unzip already installed on the system

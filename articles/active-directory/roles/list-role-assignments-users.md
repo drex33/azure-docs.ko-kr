@@ -13,12 +13,12 @@ ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed1a0906e31691cae86547f165d5b44ac6e1f7c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 58647d37da29066c14457ae6624763c800e6f123
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529472"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776421"
 ---
 # <a name="list-azure-ad-role-assignments-for-a-user"></a>사용자의 Azure AD 역할 할당 나열
 
@@ -28,7 +28,7 @@ ms.locfileid: "122529472"
 
 - PowerShell 사용 시 AzureADPreview 모듈
 - PowerShell 사용 시 Microsoft.Graph 모듈
-- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+- Microsoft Graph API용 Graph Explorer 사용 시 관리자 동의
 
 자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
@@ -159,6 +159,6 @@ PowerShell을 사용하여 사용자에게 할당된 Azure AD 역할을 나열�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 역할 할당 나열](view-assignments.md).
+* [Azure AD 역할 할당을 나열](view-assignments.md)합니다.
 * [사용자에게 Azure AD 역할 할당](manage-roles-portal.md).
 * [그룹에 Azure AD 역할 할당](groups-assign-role.md)

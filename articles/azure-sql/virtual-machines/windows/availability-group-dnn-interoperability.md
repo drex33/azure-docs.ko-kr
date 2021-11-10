@@ -11,20 +11,23 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/08/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: dd8713bcbe96c16e24305e05f693bbf15af327ab
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 79aefd5c4b41e86aeeb2f7f02f2df57397c4b36b
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163046"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157483"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>AG 및 DNN 수신기와의 기능 상호 운용성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-하드 코딩된 VNN(가상 네트워크 이름)을 사용하는 특정 SQL Server 기능이 있습니다. 따라서 Always On 가용성 그룹과 Azure VM의 SQL Server 함께 DNN (분산 네트워크 이름) 수신기를 사용하는 경우 몇 가지 추가 고려 사항이 있을 수 있습니다. 
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내에서 [여러 서브넷](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) 에 SQL Server vm을 만들어 AG (Always On 가용성) 그룹에 대 한 분산 네트워크 이름이 필요 하지 않도록 합니다.
+
+하드 코딩된 VNN(가상 네트워크 이름)을 사용하는 특정 SQL Server 기능이 있습니다. 따라서 Always On 가용성 그룹과 함께 DNN (분산 네트워크 이름) 수신기를 사용 하 고 단일 서브넷의 Azure vm에서 SQL Server 하는 경우 몇 가지 추가 고려 사항이 있을 수 있습니다. 
 
 이 문서에서는 가용성 그룹 DNN 수신기와 SQL Server 기능 및 상호 운용성에 대해 자세히 설명합니다. 
 
@@ -129,9 +132,9 @@ AG DNN 수신기 이름 및 포트를 사용하여 연결된 서버를 구성합
 
    예. 클러스터는 서브넷에 관계없이 가용할 수 있는 모든 복제본의 실제 IP 주소로 DNS의 DNN을 바인딩합니다. SQL 클라이언트는 서브넷에 관계없이 DNS 이름의 모든 IP 주소를 시도합니다. 
 
-- 가용성 그룹 DNN 수신기가 읽기 전용 라우팅을 지원하나요? 
+- 가용성 그룹 DNN 수신기가 읽기 전용 라우팅을 지원 하나요? 
 
-   예. 읽기 전용 라우팅은 DNN 수신기에서 지원됩니다. 
+   예. 읽기 전용 라우팅은 DNN 수신기에서 지원 됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

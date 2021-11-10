@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: f333ea27279098d43065a9ffd613f994940ff340
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bf14e52e38a1fae06ef607a4c8c066249055acb8
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019707"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132155952"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항(퍼블릭 미리 보기)
 
@@ -68,6 +68,8 @@ SAP Basis 버전이 7.50 이하인 경우 다음 SAP 노트를 설치합니다.
 |     |         |
 
 [SAP 지원 Launchpad 사이트](https://support.sap.com/en/index.html)에서 SAP 노트에 액세스합니다.
+## <a name="requires-sap-ports-access"></a>SAP 포트 액세스 필요:
+SAP 환경 호스트는 TCP 포트 32xx, 5xx13 및 33xx를 통해 호스트합니다. 여기서 xx는 SAP 인스턴스 번호입니다.
 
 ## <a name="required-abap-authorizations"></a>필요한 ABAP 권한
 

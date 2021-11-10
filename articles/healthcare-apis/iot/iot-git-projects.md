@@ -7,12 +7,12 @@ ms.service: healthcare-apis
 ms.topic: reference
 ms.date: 10/28/2021
 ms.author: jasteppe
-ms.openlocfilehash: f82e1f2bacd0ae863b4ddac19a16a45e52ff173a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 85fa6aff2e9c1702813c1c865d7f5e85c315c343
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445954"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156462"
 ---
 # <a name="open-source-projects"></a>오픈 소스 프로젝트
 
@@ -22,11 +22,11 @@ IoT 커넥터를 사용하여 다양한 용도로 서비스를 배포하기 위�
 
 #### <a name="fhir-integration"></a>FHIR 통합
 
-* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)Azure Healthcare API IoT 커넥터 관리형 서비스의 오픈 소스 버전입니다. [FHIR R7](https://https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)&#174;지원하는 모든 전자 의료 기록 교환(FHIR&#174;) 서비스와 함께 사용할 수 있습니다.
+* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)Azure Healthcare API IoT 커넥터 관리형 서비스의 오픈 소스 버전입니다. FHIR R7&#174;지원하는 모든 [전자 의료 기록 교환(FHIR&#174;)](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491) 서비스와 함께 사용할 수 있습니다.
 
 #### <a name="device-and-fhir-destination-mappings"></a>디바이스 및 FHIR 대상 매핑
 
-* [IoMT 커넥터 데이터 매퍼:](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)IoT 커넥터 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위한 도구입니다. Azure Portal IoT 커넥터에 업로드하거나 오픈 소스 버전과 함께 사용하기 위한 매핑을 내보냅니다.
+* [IoMT 커넥터 데이터 매퍼:](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)IoT 커넥터 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위한 도구입니다. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 오픈 소스 버전과 함께 사용합니다.
 
 #### <a name="wearables-integration"></a>웨어러블 통합
 
@@ -54,4 +54,4 @@ Azure Portal IoT 커넥터를 배포하는 방법을 알아봅니다.
 >[!div class="nextstepaction"]
 >[IoT 커넥터 관리 서비스 배포](deploy-iot-connector-in-azure.md)
 
-(FHIR&#174;)는 HL7의 등록 상표이며 [HL7의](https://hl7.org/fhir/) 권한으로 사용됩니다.
+(FHIR&#174;)는 HL7의 등록 상표이며 [HL7의](https://hl7.org/fhir/) 사용 권한으로 사용됩니다.

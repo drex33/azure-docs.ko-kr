@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 31a7ed92f6fbdfc60753b91709738209acc38fc2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9c6fcc3fd0bff46bb3c1665b26502be188a3f83e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465481"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158699"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션 - Java용 Azure Monitor Application Insights
 
@@ -39,14 +39,14 @@ ms.locfileid: "131465481"
 
 ## <a name="configuration-file-path"></a>구성 파일 경로
 
-기본적으로 Application Insights Java 3.x는 구성 파일의 이름을 `applicationinsights.json`으로 지정하고 `applicationinsights-agent-3.2.2.jar`와 동일한 디렉터리에 위치하도록 합니다.
+기본적으로 Application Insights Java 3.x는 구성 파일의 이름을 `applicationinsights.json`으로 지정하고 `applicationinsights-agent-3.2.3.jar`와 동일한 디렉터리에 위치하도록 합니다.
 
 다음 중 하나를 사용하여 사용자 고유의 구성 파일 경로를 지정할 수 있습니다.
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` 환경 변수 또는
 * `applicationinsights.configuration.file` Java 시스템 속성
 
-상대 경로를 지정하면 `applicationinsights-agent-3.2.2.jar`이 있는 디렉터리를 기준으로 확인됩니다.
+상대 경로를 지정하면 `applicationinsights-agent-3.2.3.jar`이 있는 디렉터리를 기준으로 확인됩니다.
 
 ## <a name="connection-string"></a>연결 문자열
 
@@ -194,7 +194,6 @@ ms.locfileid: "131465481"
   ]
 }
 ```
-
 
 ## <a name="telemetry-processors-preview"></a>원격 분석 프로세서(미리 보기)
 
@@ -437,6 +436,31 @@ Application Insights Java 3.x는 설정된 경우 전역 `https.proxyHost` 및 `
 이를 통해 Azure Active Directory 인증에 필요한 [토큰 자격 증명](/java/api/overview/azure/identity-readme#credentials)을 생성하도록 에이전트를 구성할 수 있습니다.
 자세한 내용은 [인증](./azure-ad-authentication.md) 문서를 확인하세요.
 
+## <a name="instrumentation-keys-overrides-preview"></a>계측 키 재정의(미리 보기)
+
+이 기능은 3.2.3부터 미리 보기로 제공됩니다.
+
+계측 키 재정의를 사용하면 [기본 계측 키](#connection-string)를 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
+* 하나의 http 경로 접두사 에 대해 하나의 계측 키를 `/myapp1` 설정합니다.
+* 다른 http 경로 접두사 에 대해 다른 계측 키를 `/myapp2/` 설정합니다.
+
+```json
+{
+  "preview": {
+    "instrumentationKeyOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "instrumentationKey": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
+}
+```
+
 ## <a name="self-diagnostics"></a>자체 진단
 
 “자체 진단”은 Application Insights Java 3.x의 내부 로깅을 참조합니다.
@@ -463,7 +487,7 @@ Application Insights Java 3.x는 설정된 경우 전역 `https.proxyHost` 및 `
 
 `level`은 `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` 또는 `TRACE` 중 하나일 수 있습니다.
 
-`path`는 절대 또는 상대 경로일 수 있습니다. 상대 경로는 `applicationinsights-agent-3.2.2.jar`이 있는 디렉터리를 기준으로 확인됩니다.
+`path`는 절대 또는 상대 경로일 수 있습니다. 상대 경로는 `applicationinsights-agent-3.2.3.jar`이 있는 디렉터리를 기준으로 확인됩니다.
 
 `maxSizeMb`는 롤오버되기 전에 로그 파일의 최대 크기입니다.
 

@@ -131,6 +131,8 @@
           href: azure-netapp-files-create-netapp-account.md
         - name: Azure NetApp Files에 서브넷 위임
           href: azure-netapp-files-delegate-subnet.md
+        - name: 지역 액세스 요청
+          href: request-region-access.md
     - name: Active Directory 관리
       items:
         - name: Active Directory 연결 만들기 및 관리

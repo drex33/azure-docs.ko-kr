@@ -11,18 +11,21 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: b868de74376199fdc173c41e8711575b44e67200
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: adacd4e8264b7fcd4c0389f8d575247a17a664aa
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164797"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158971"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI 및 DNN의 기능 상호 운용성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내의 여러 서브넷에 SQL Server VM을 만들어 장애 조치(failover) 클러스터 인스턴스에 대한 DNN(분산 네트워크 이름)이 필요하지 않습니다.
 
 하드 코딩된 VNN(가상 네트워크 이름)을 사용하는 특정 SQL Server 기능이 있습니다. 따라서 DNN(분산 네트워크 이름) 리소스를 Azure VM의 장애 조치(failover) 클러스터 인스턴스 및 SQL Server와 사용할 때 몇 가지 추가 고려 사항이 있습니다. 
 

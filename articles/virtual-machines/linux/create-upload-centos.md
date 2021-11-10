@@ -1,18 +1,18 @@
 ---
 title: CentOS 기반 Linux VHD 생성 및 업로드
 description: CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 12/01/2020
-ms.author: danis
-ms.openlocfilehash: 0dd27e395dfcb1542600301c3f49c47b220ff6a4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.author: srijangupta
+ms.openlocfilehash: c7205e6c124369a3af13830c82c0ee60a4cb999e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689865"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157005"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 머신 준비
 
@@ -220,8 +220,7 @@ CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크
     logout
     ```
 
-17. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
-
+17. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [Azure에 업로드할](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)준비가 되었습니다.
 
 
 ## <a name="centos-70"></a>CentOS 7.0 이상
@@ -458,7 +457,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
     # logout
     ```
 
-15. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+15. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [Azure에 업로드할](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

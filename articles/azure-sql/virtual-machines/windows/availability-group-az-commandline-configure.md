@@ -10,25 +10,28 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 605a95142b74c06ae1b7a78cd832ab535b7345bf
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6607760ad11290daf0488a06357432bf5eb32306
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167075"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157832"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>PowerShell 또는 Azure CLI를 사용하여 Azure VM에 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 [PowerShell](/powershell/scripting/install/installing-powershell) 또는 [Azure CLI](/cli/azure/sql/vm)를 사용하여 Windows 장애 조치(failover) 클러스터를 배포하고, 클러스터에 SQL Server VM을 추가하고, Always On 가용성 그룹에 대한 내부 부하 분산 장치와 수신기를 만드는 방법을 설명합니다. 
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내에서 [여러 서브넷](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) 에 SQL Server vm을 만들어 AG (Always On availability) 그룹에 대 한 Azure Load Balancer 필요성을 제거 합니다.
+
+이 문서에서는 [PowerShell](/powershell/scripting/install/installing-powershell) 또는 [Azure CLI](/cli/azure/sql/vm) 를 사용 하 여 Windows 장애 조치 (failover) 클러스터를 배포 하 고, 클러스터에 SQL Server vm을 추가 하 고, 단일 서브넷 내에서 Always On 가용성 그룹에 대 한 내부 부하 분산 장치 및 수신기를 만드는 방법을 설명 합니다. 
 
 가용성 그룹 배포는 SSMS(SQL Server Management Studio) 또는 T-SQL(Transact-SQL)을 통해 계속 수동으로 수행됩니다. 
 
-이 문서에서는 PowerShell 및 AZ CLI를 사용하여 가용성 그룹 환경을 구성하는 반면, [Azure Portal](availability-group-azure-portal-configure.md)에서 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하거나 [수동으로](availability-group-manually-configure-tutorial.md) 구성할 수도 있습니다. 
+이 문서에서는 PowerShell 및 AZ CLI를 사용하여 가용성 그룹 환경을 구성하는 반면, [Azure Portal](availability-group-azure-portal-configure.md)에서 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하거나 [수동으로](availability-group-manually-configure-tutorial-single-subnet.md) 구성할 수도 있습니다. 
 
 > [!NOTE]
 > 이제 Azure Migrate를 사용하여 Azure VM의 SQL Server에 대한 가용성 그룹 솔루션을 리프트 앤 시프트할 수 있습니다. 자세한 내용은 [가용성 그룹 마이그레이션](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md)을 참조하세요. 

@@ -11,14 +11,14 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/01/2021
+ms.date: 11/10/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 592f2ae9b3d09ce84296dca31d68031b7d5fff84
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3eeeb1a2525877cad031d1f0acd38de6c45b2bac
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080919"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157700"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,9 @@ SQL Server 설치 된 azure VM (가상 머신)을 수동으로 배포 하거나 
 
 | 변경 | 세부 정보 |
 | --- | --- |
-| **SQL 평가** | 이제 [SQL 평가](sql-assessment-for-sql-vm.md) 를 사용 하 여 Azure Portal에서 SQL Server VM의 상태를 평가 하 고, 성능 향상을 위한 권장 사항을 제공 하 고, 누락 된 모범 사례 구성을 식별할 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. |
+| **HADR Azure Load Balancer 또는 DNN의 필요성을 제거 합니다.** | SQL Server vm을 여러 서브넷에 배포 하 여 Azure Load Balancer 또는 분산 네트워크 이름 (DNN)에 대 한 종속성을 제거 하 여 고가용성/재해 복구 (HADR) 솔루션으로 트래픽을 라우팅합니다. 자세히 알아보려면 [다중 서브넷 가용성 그룹](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) 자습서 또는 [fci에 대 한 VM SQL Server 준비](failover-cluster-instance-prepare-vm.md#subnets) 문서를 참조 하세요. | 
+| **SQL 평가** | 이제 [SQL 평가](sql-assessment-for-sql-vm.md) 사용 하 여 Azure Portal에서 SQL Server VM의 상태를 평가 하 고, 성능 향상을 위한 권장 사항을 제공 하 고, 누락 된 모범 사례 구성을 식별할 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. |
+| &nbsp; | &nbsp; |
 
 
 ## <a name="october-2021"></a>2021년 10월
@@ -37,6 +39,7 @@ SQL Server 설치 된 azure VM (가상 머신)을 수동으로 배포 하거나 
 | 변경 | 세부 정보 |
 | --- | --- |
 | **SQL 이제 IaaS 확장이 Ubuntu를 지원 합니다.** | 제한 된 기능을 위해 [SQL Server IaaS 확장](../linux/sql-server-iaas-agent-extension-linux.md) 을 사용 하 여 Ubuntu Linux 실행 중인 SQL Server VM을 [등록](../linux/sql-iaas-agent-extension-register-vm-linux.md) 하기 위한 지원이 추가 되었습니다. | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="september-2021"></a>2021년 9월
@@ -44,6 +47,7 @@ SQL Server 설치 된 azure VM (가상 머신)을 수동으로 배포 하거나 
 | 변경 | 세부 정보 |
 | --- | --- |
 | **SQL IaaS 확장 전체 모드를 더 이상 다시 시작할 필요가 없음** | [전체 모드](sql-agent-extension-manually-register-single-vm.md#full-mode)에서 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 SQL Server VM을 등록할 때 이제 SQL Server 서비스를 다시 시작하지 않아도 됩니다. | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="july-2021"></a>2021년 7월
@@ -51,6 +55,7 @@ SQL Server 설치 된 azure VM (가상 머신)을 수동으로 배포 하거나 
 | 변경 | 세부 정보 |
 | --- | --- |
 | **포털에서 SQL Server IaaS 확장 복구** | 이제 Azure Portal에서 직접 SQL Server IaaS 에이전트 확장의 상태를 확인하고, 필요한 경우 [복구](sql-agent-extension-manually-register-single-vm.md#repair-extension)할 수 있습니다. | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="june-2021"></a>2021년 6월
@@ -58,12 +63,15 @@ SQL Server 설치 된 azure VM (가상 머신)을 수동으로 배포 하거나 
 | 변경 | 세부 정보 |
 | --- | --- |
 | **Azure Portal의 향상된 보안 기능** | [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 사용하도록 설정하면 [Azure Portal의 SQL 가상 머신 리소스](manage-sql-vm-portal.md#security-center)에서 Security Center 권장 사항을 볼 수 있습니다. | 
+| &nbsp; | &nbsp; |
+
 
 ## <a name="may-2021"></a>2021년 5월
 
 | 변경 | 세부 정보 |
 | --- | --- |
 | **HADR 콘텐츠 새로 고침** | HADR(고가용성 및 재해 복구) 콘텐츠를 새로 고치고 개선했습니다. 이제 [Windows Server 장애 조치(failover) 클러스터 개요](hadr-windows-server-failover-cluster-overview.md)와 SQL Server VM에 대해 통합된 [쿼럼 구성 방법](hadr-cluster-quorum-configure-how-to.md)이 있습니다.  또한 클라우드에 도입된 보다 포괄적인 설정 권장 사항으로 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 개선했습니다.| 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="april-2021"></a>2021년 4월
@@ -71,14 +79,14 @@ SQL Server 설치 된 azure VM (가상 머신)을 수동으로 배포 하거나 
 | 변경 | 세부 정보 |
 | --- | --- |
 | **VM에 고가용성 마이그레이션** | Azure Migrate는 전체 고가용성 솔루션을 Azure VM의 SQL Server로 리프트 앤 시프트할 수 있도록 지원합니다. 지금 바로 Azure Migrate를 사용하여 [가용성 그룹](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) 또는 [장애 조치 클러스터 인스턴스](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)를 SQL Server VM으로 가져오세요. | 
-
+| &nbsp; | &nbsp; |
 
 ## <a name="march-2021"></a>2021년 3월
 
 | 변경 | 세부 정보 |
 | --- | --- |
 | **성능 모범 사례 새로 고침** | 성능 모범 사례 설명서를 다시 작성, 새로 고침, 업데이트했으며, 한 문서를 [검사 목록](performance-guidelines-best-practices-checklist.md), [VM 크기 지침](performance-guidelines-best-practices-vm-size.md), [스토리지 지침](performance-guidelines-best-practices-storage.md), [기준 지침 수집](performance-guidelines-best-practices-collect-baseline.md)으로 구성된 시리즈로 분할했습니다.   | 
-
+| &nbsp; | &nbsp; |
 
 
 ## <a name="2020"></a>2020

@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/07/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: a0290f85e1f408f9d1ec91cdc353a1acc87faeef
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: bc88b1dcebede150ca912244d482a2e926f13e2b
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130160923"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158148"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>장애 조치(failover) 클러스터 인스턴스에 대한 DNN 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내의 여러 서브넷에 SQL Server VM을 만들어 장애 조치(failover) 클러스터 인스턴스에 대한 DNN(분산 네트워크 이름)이 필요하지 않습니다.
 
 Azure 가상 머신에서 분산 네트워크 이름(DNN)은 적절한 클러스터 리소스로 트래픽을 라우팅합니다. Azure Load Balancer 없이 가상 네트워크 이름(VNN)보다 SQL Server 페일오버 클러스터 인스턴스(FCI)에 더 쉽게 연결하는 방법을 제공합니다. 
 

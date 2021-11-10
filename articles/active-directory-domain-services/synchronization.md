@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 10/11/2021
 ms.author: justinha
-ms.openlocfilehash: 6b61bfbc1419b59d21e8db583b3a8aad5145494e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 808b8ecf102fc8b305c1351d9af3d8dc08377964
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785917"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857003"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 개체 및 자격 증명을 동기화하는 방법
 
@@ -76,7 +76,7 @@ Azure AD에서 사용자를 만들면 Azure AD에서 암호를 변경해야 Azur
 | mailNickname |SAMAccountName(자동 생성되는 경우도 있음) |
 | manager |manager |
 | mobile |mobile |
-| objectid |msDS-AzureADObjectId |
+| objectid |msDS-aadObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl(DONT_EXPIRE_PASSWORD 비트를 설정하거나 지움) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |

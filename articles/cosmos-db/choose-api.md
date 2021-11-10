@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.openlocfilehash: 6d13f5f79da2906d1b994d4ab83e06d0593eaefe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e120d4fa4d85ba2d52821460da1aa62eafd0455d
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586646"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158022"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Azure Cosmos DB에서 API 선택
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ MongoDB, Cassandra, Gremlin 및 Table용 API는 오픈 소스 데이터베이스
 
 Oracle, DynamoDB, HBase 등의 다른 데이터베이스에서 마이그레이션하려고 하며 최신 기술을 사용하여 앱을 빌드하려면 SQL API가 권장되는 옵션입니다. SQL API는 분석을 지원하고 운영 및 분석 워크로드 간에 성능을 격리할 수 있도록 합니다.
 
-### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>MongoDB용 API로 마이그레이션하기 위한 용량 계획
+### <a name="capacity-planning-for-migration-to-api-for-sqlcoreapi"></a>SQL (코어) api에 대 한 api로 마이그레이션에 대 한 용량 계획
 
 기존 데이터베이스 클러스터에서 Azure Cosmos DB SQL API로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
 * 기존 분할 된 및 복제 된 데이터베이스 클러스터의 vcore 및 서버 수를 알고 있는 경우 [vcore 또는 vcore를 사용 하 여 요청 단위를 추정 하](convert-vcore-to-request-unit.md)는 방법을 참조 하세요.
@@ -95,4 +95,4 @@ Azure Table Storage에 대해 작성된 애플리케이션은 코드를 거의 �
 * [Azure Cosmos DB Table API 시작](create-table-dotnet.md)
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

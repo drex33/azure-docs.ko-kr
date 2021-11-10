@@ -12,12 +12,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 06/23/2021
-ms.openlocfilehash: 290065bb7410c42695cf2b0062cdd11cb02c9580
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8f056fd416b6bbb36296a57fca26906852eb3af8
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065535"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156578"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -82,21 +82,21 @@ DEK의 암호화를 위해 AKV에 저장된 TDE 보호기를 사용할 수 있�
 
 - 키 자격 증명 모음 및 SQL Database/관리되는 인스턴스는 동일한 Azure Active Directory 테넌트에 속해야 합니다. 교차 테넌트 키 자격 증명 모음 및 서버 상호 작용은 지원되지 않습니다. 나중에 리소스를 이동하려면 AKV를 사용하는 TDE를 다시 구성해야 합니다. [리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)에 관해 자세히 알아보세요.
 
-- 실수로 인한 키(또는 키 자격 증명 모음) 삭제로 인한 데이터 손실을 방지하려면 키 자격 증명 모음에서 [일시 삭제](../../key-vault/general/soft-delete-overview.md) 및 [제거 보호](../../key-vault/general/soft-delete-overview.md#purge-protection) 기능을 사용하도록 설정해야 합니다. 
-    - 일시 삭제된 리소스는 고객이 복구하거나 제거하지 않는 한 90일 동안 유지됩니다. *복구* 및 *제거* 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. 일시 삭제 기능은 Azure Portal, [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) 또는 [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli)사용하여 사용하도록 설정할 수 있습니다.
-    - [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) 또는 [PowerShell을](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell)사용하여 제거 보호를 켰을 수 있습니다. 제거 보호를 사용하도록 설정하면 보존 기간이 지났을 때까지 삭제된 상태의 자격 증명 모음 또는 개체를 제거할 수 없습니다. 기본 보존 기간은 90일이지만 Azure Portal 통해 7~90일로 구성할 수 있습니다.   
+- 키 자격 증명 모음에서 [소프트 삭제](../../key-vault/general/soft-delete-overview.md) 및 [제거 보호](../../key-vault/general/soft-delete-overview.md#purge-protection) 기능을 사용 하도록 설정 하 여 실수로 키 (또는 키 자격 증명 모음)를 삭제 하 여 데이터 손실을 방지 해야 합니다. 
+    - 일시 삭제 된 리소스는 고객이 복구 하거나 제거 하지 않는 한 90 일간 보존 됩니다. *복구* 및 *제거* 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. Azure Portal, [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) 또는 [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli)를 사용 하 여 일시 삭제 기능을 사용 하도록 설정할 수 있습니다.
+    - [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) 또는 [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell)을 사용 하 여 보호 제거를 설정할 수 있습니다. 보호 제거를 사용 하는 경우 보존 기간이 지날 때까지 삭제 된 상태의 자격 증명 모음 또는 개체를 제거할 수 없습니다. 기본 보존 기간은 90 일 이지만 Azure Portal에서 7 일에서 90 일로 구성할 수 있습니다.   
 
 > [!IMPORTANT]
-> 고객 관리형 TDE로 구성되는 서버와 고객 관리형 TDE를 사용하는 기존 서버에 대해 키 자격 증명 모음에서 일시 삭제 및 제거 보호를 모두 사용하도록 설정해야 합니다. 고객 관리형 TDE를 사용하는 서버의 경우 연결된 키 자격 증명 모음에서 일시 삭제 및 제거 보호를 사용하지 않는 경우 데이터베이스 만들기, 지역 복제 설정, 데이터베이스 복원, TDE 보호기 업데이트 등의 작업을 수행하면 다음 오류 메시지와 함께 *실패합니다. "제공된 Key Vault URI가 잘못되었습니다. 키 자격 증명 모음이 일시 삭제 및 제거 보호로 구성되었는지 확인하세요."*
+> 고객 관리 TDE를 사용 하 여 구성 되는 서버의 경우 키 자격 증명 모음 및 고객 관리 TDE를 사용 하는 기존 서버에 대해 일시 삭제 및 제거 보호를 모두 사용 하도록 설정 해야 합니다.
 
-- Azure Active Directory ID를 사용하여 키 자격 증명 *모음(get*, *wrapKey*, *unwrapKey)에* 대한 액세스 권한을 서버 또는 관리되는 인스턴스에 부여합니다. Azure Portal 사용하는 경우 서버를 만들 때 Azure AD ID가 자동으로 만들어집니다. PowerShell 또는 Azure CLI 사용하는 경우 Azure AD ID를 명시적으로 만들어야 하며 확인해야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-configure.md) 및 [SQL Managed Instance에 대해 BYOK 기반 TDE 구성](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md)을 참조하세요.
-    - 키 자격 증명 모음(액세스 정책 또는 Azure RBAC)의 권한 모델에 따라 키 자격 증명 모음에 대한 액세스 정책을 만들거나 암호화 서비스 [암호화 사용자](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations)Key Vault 역할로 새 Azure RBAC 역할 할당을 만들어 키 자격 증명 모음 액세스 권한을 부여할 수 있습니다.
+- Azure Active Directory id를 사용 하 여 서버 또는 관리 되는 인스턴스에 키 자격 증명 모음에 대 한 액세스 권한을 부여 합니다 (*get*, *wrapKey*, *unwrapKey*). Azure Portal 사용 하는 경우 서버를 만들 때 Azure AD id가 자동으로 생성 됩니다. PowerShell 또는 Azure CLI를 사용 하는 경우 Azure AD id를 명시적으로 만들고 확인 해야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-configure.md) 및 [SQL Managed Instance에 대해 BYOK 기반 TDE 구성](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md)을 참조하세요.
+    - 키 자격 증명 모음 (액세스 정책 또는 Azure RBAC)의 권한 모델에 따라 키 자격 증명 모음에 대 한 액세스 정책을 만들거나 [Crypto Service 암호화 사용자 Key Vault](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations)역할을 사용 하 여 새 Azure RBAC 역할 할당을 만들어 key vault 액세스 권한을 부여할 수 있습니다.
 
 - AKV와 함께 방화벽을 사용하는 경우 ‘신뢰할 수 있는 Microsoft 서비스가 방화벽을 우회하도록 허용’ 옵션을 사용하도록 설정해야 합니다.
 
 ### <a name="requirements-for-configuring-tde-protector"></a>TDE 보호기를 구성하기 위한 요구 사항
 
-- TDE 보호기는 비대칭, RSA 또는 RSA HSM 키여야 합니다. 지원되는 키 길이는 2048비트 및 3072비트입니다.
+- TDE 보호기는 비대칭, RSA 또는 RSA HSM 키여야 합니다. 지원 되는 키 길이는 2048 비트 및 3072 비트입니다.
 
 - 키 활성화 날짜(설정된 경우)는 과거의 날짜와 시간이어야 합니다. 만료 날짜(설정된 경우)는 미래 날짜 및 시간이어야 합니다.
 
@@ -121,7 +121,7 @@ DEK의 암호화를 위해 AKV에 저장된 TDE 보호기를 사용할 수 있�
 - 서로 다른 지역에 있는 두 개의 키 자격 증명 모음에 각 서버를 연결하고 동일한 키 자료를 보관하여 암호화된 데이터베이스의 고가용성을 보장합니다. TDE 보호기와 동일한 지역에 있는 키 자격 증명 모음의 키만 표시합니다. 동일한 지역의 키 자격 증명 모음에 영향을 주는 작동 중단이 발생하면 시스템은 원격 지역의 키 자격 증명 모음으로 자동으로 전환됩니다.
 
 > [!NOTE]
-> 고객 관리형 TDE를 유연하게 구성할 수 있도록 한 지역의 Azure SQL Database 서버 및 Managed Instance 이제 다른 지역의 키 자격 증명 모음에 연결할 수 있습니다. 서버와 키 자격 증명 모음은 동일한 지역에 공동 배치할 필요가 없습니다. 
+> 고객 관리 tde를 보다 유연 하 게 구성할 수 있도록 하기 위해 한 지역의 Azure SQL Database 서버와 Managed Instance를 이제 다른 지역의 key vault에 연결할 수 있습니다. 서버와 주요 자격 증명 모음은 동일한 지역에 배치 하지 않아도 됩니다. 
 
 ### <a name="recommendations-when-configuring-tde-protector"></a>TDE 보호기 구성 시 권장 사항
 
@@ -146,9 +146,9 @@ DEK의 암호화를 위해 AKV에 저장된 TDE 보호기를 사용할 수 있�
 
 키에 대한 액세스 권한을 복원한 후 데이터베이스를 다시 온라인 상태로 전환하려면 추가 시간과 단계가 필요하며, 이는 키에 액세스하지 않고 경과된 시간과 데이터베이스에 있는 데이터의 크기에 따라 달라질 수 있습니다.
 
-- 키 액세스가 8시간 이내에 복원되면 데이터베이스는 다음 시간 내에 자동 복구됩니다.
+- 키 액세스를 30 분 내에 복원 하는 경우 데이터베이스는 다음 시간 내에 autoheal 됩니다.
 
-- 키 액세스 복원이 8시간을 초과하면 자동 복구가 가능하지 않으며, 데이터베이스를 복구하려면 포털에서 추가 단계가 필요하고 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되면 [장애 조치(failover) 그룹](auto-failover-group-overview.md) 구성, 특정 시점 복원 기록 및 태그와 같은 이전에 구성된 서버 수준 설정이 **손실됩니다**. 따라서 8시간 내에 기본 키 액세스 문제를 식별하고 해결할 수 있는 알림 시스템을 구현하는 것이 좋습니다.
+- 키 액세스가 30 분 이상 후에 복원 되는 경우 autoheal를 사용할 수 없으며 데이터베이스를 다시 가져오면 포털에서 추가 단계가 필요 하며 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되면 [장애 조치(failover) 그룹](auto-failover-group-overview.md) 구성, 특정 시점 복원 기록 및 태그와 같은 이전에 구성된 서버 수준 설정이 **손실됩니다**. 따라서 30 분 내에 기본 키 액세스 문제를 식별 하 고 해결할 수 있는 알림 시스템을 구현 하는 것이 좋습니다.
 
 액세스할 수 없는 데이터베이스를 다시 온라인으로 전환하기 위해 포털에 필요한 추가 단계를 아래에서 확인합니다.
 

@@ -16,12 +16,12 @@ ms.date: 05/02/2017
 ms.author: rsetlem
 ms.custom: seo-lt-2019
 ms.reviewer: mathoma
-ms.openlocfilehash: e9f00376008e4c469318044d3a45280981be621a
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 687fac713abd4843431363214365d35821fa7d28
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166148"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157084"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
 
@@ -33,13 +33,13 @@ ms.locfileid: "130166148"
 
 다음 이미지는 Azure Virtual Machines의 일반적인 가용성 그룹 배포를 보여 줍니다.
 
-   !["Windows Server 장애 조치(Failover) 클러스터" 및 "Always On 가용성 그룹"을 사용하여 Azure Load Balancer 및 가용성 집합을 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+:::image type="content" source="./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png" alt-text="Windows Server 장애 조치(failover) 클러스터 및 Always On 가용성 그룹이 있는 Azure Load Balancer 및 가용성 집합을 보여 주는 다이어그램":::
 
 이 배포에서 모든 가상 머신은 하나의 Azure 지역에 있습니다. 가용성 그룹 복제본은 SQL-1 및 SQL-2에 대해 자동 장애 조치로 동기 커밋할 수 있습니다. 이 아키텍처를 작성하려면 [가용성 그룹 템플릿 또는 자습서](availability-group-overview.md)를 참조하세요.
 
 이 아키텍처는 Azure 지역에 액세스할 수 없게 될 경우 가동 중지 시간에 취약합니다. 이 취약점을 해결하려면 다른 Azure 지역에 복제본을 추가합니다. 다음 다이어그램은 새로운 아키텍처 모양을 보여 줍니다.
 
-   ![가용성 그룹 DR](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic-dr.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic-dr.png" alt-text="가용성 그룹 DR":::
 
 위 다이어그램에서는 SQL-3라는 새 가상 머신을 보여 줍니다. SQL-3는 다른 Azure 지역에 있습니다. SQL-3가 Windows Server 장애 조치 클러스터에 추가됩니다. SQL-3는 가용성 그룹 복제본을 호스트할 수 있습니다. 마지막으로 SQL-3에 대한 Azure 지역에는 새 Azure Load Balancer가 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "130166148"
 
 다음 다이어그램에서는 데이터 센터 간 네트워크 통신 방법을 보여 줍니다.
 
-   ![V P N 게이트웨이를 사용하여 통신하는 서로 다른 Azure 지역에 있는 두 개의 가상 네트워크를 보여 주는 다이어그램입니다.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png" alt-text="V P N 게이트웨이를 사용하여 통신하는 서로 다른 Azure 지역에 있는 두 개의 가상 네트워크를 보여 주는 다이어그램입니다.":::
 
 >[!IMPORTANT]
 >이 아키텍처에서는 Azure 지역 간에 복제되는 데이터에 대해 아웃바운드 데이터 요금이 부과됩니다. [대역폭 가격 책정](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.  
@@ -77,7 +77,7 @@ ms.locfileid: "130166148"
 
 1. [새 지역에서 SQL Server 가상 머신을 만듭니다](create-sql-vm-portal.md).
 
-1. [새 영역의 네트워크에는 Azure Load Balancer를 만듭니다](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
+1. [새 영역의 네트워크에는 Azure Load Balancer를 만듭니다](availability-group-manually-configure-tutorial-single-subnet.md#configure-internal-load-balancer).
 
    이 부하 분산 장치는 다음 조건을 충족해야 합니다.
 
@@ -89,36 +89,36 @@ ms.locfileid: "130166148"
    - 백 엔드 풀의 가상 머신이 단일 가용성 집합 또는 가상 머신 확장 집합에 포함되지 않는 경우 표준 Load Balancer여야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../../../load-balancer/load-balancer-overview.md)를 참조하세요.
    - 서로 다른 두 지역의 두 개의 가상 네트워크를 글로벌 VNet 피어링을 통해 피어링하는 경우, 표준 Load Balancer이어야 합니다. 자세한 내용은 [Azure Virtual Network FAQ(질문과 대답)](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)를 참조하십시오.
 
-1. [장애 조치(Failover) 클러스터링 기능을 새 SQL Server에 추가합니다](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [장애 조치(Failover) 클러스터링 기능을 새 SQL Server에 추가합니다](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-1. [새 SQL Server를 도메인에 연결합니다](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
+1. [새 SQL Server를 도메인에 연결합니다](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#joinDomain).
 
-1. [도메인 계정을 사용하도록 새 SQL Server 서비스 계정을 설정합니다](availability-group-manually-configure-prerequisites-tutorial.md#setServiceAccount).
+1. [도메인 계정을 사용하도록 새 SQL Server 서비스 계정을 설정합니다](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#setServiceAccount).
 
-1. [새 SQL Server를 Windows Server 장애 조치 클러스터에 추가합니다](availability-group-manually-configure-tutorial.md#addNode).
+1. [새 SQL Server를 Windows Server 장애 조치 클러스터에 추가합니다](availability-group-manually-configure-tutorial-single-subnet.md#addNode).
 
 1. 클러스터에 IP 주소 리소스를 추가합니다.
 
    장애 조치 클러스터 관리자에서 IP 주소 리소스를 만들 수 있습니다. 클러스터의 이름을 선택한 다음 **클러스터 코어 리소스** 에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 
 
-   ![클러스터 이름, "서버 이름" 및 "속성"이 선택된 "장애 조치(Failover) 클러스터 관리자"를 보여 주는 스크린샷](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png" alt-text="클러스터 이름 서버 이름 및 속성이 선택된 장애 조치(Failover) 클러스터 관리자 보여 주는 스크린샷.":::
 
    **속성** 대화 상자에서 **IP 주소** 아래의 **추가** 를 선택한 다음 원격 네트워크 지역의 클러스터 이름의 IP 주소를 추가합니다. **IP 주소** 대화 상자에서 **확인** 을 선택한 다음 **클러스터 속성** 대화 상자에서 다시 **확인** 을 선택하여 새 IP 주소를 저장합니다. 
 
-   ![클러스터 IP 추가](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png" alt-text="클러스터 IP 추가":::
 
 
 1. 코어 클러스터 이름에 대한 종속성으로 IP 주소를 추가합니다.
 
    클러스터 속성을 다시 열고 **종속성** 탭을 선택합니다. 두 개의 IP 주소에 대한 OR 종속성을 구성합니다. 
 
-   ![클러스터 속성](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png" alt-text="클러스터 속성":::
 
 1. 클러스터의 가용성 그룹 역할에 IP 주소 리소스를 추가합니다. 
 
    장애 조치(failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭하고 **리소스 추가**, **기타 리소스** 를 선택한 다음 **IP 주소** 를 선택합니다.
 
-   ![IP 주소 만들기](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png" alt-text="IP 주소 만들기":::
 
    이 IP 주소를 다음과 같이 구성합니다.
 
@@ -129,12 +129,12 @@ ms.locfileid: "130166148"
 
    다음 스크린 샷에는 올바르게 구성된 IP 주소 클러스터 리소스가 표시됩니다.
 
-   ![가용성 그룹](./media/availability-group-manually-configure-multiple-regions/50-configure-dependency-multiple-ip.png)
+   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/50-configure-dependency-multiple-ip.png" alt-text="가용성 그룹":::
 
    >[!IMPORTANT]
    >클러스터 리소스 그룹에는 두 IP 주소가 포함됩니다. 두 IP 주소는 수신기 클라이언트 액세스 지점에 대한 종속성입니다. 클러스터 종속성 구성에 **OR** 연산자를 사용합니다.
 
-1. [PowerShell에서 클러스터 매개 변수를 설정합니다](availability-group-manually-configure-tutorial.md#setparam).
+1. [PowerShell에서 클러스터 매개 변수를 설정합니다](availability-group-manually-configure-tutorial-single-subnet.md#setparam).
 
    새 지역의 부하 분산 장치에 대해 구성한 클러스터 네트워크 이름, IP 주소 및 프로브 포트를 사용하여 PowerShell 스크립트를 실행합니다.
 
@@ -151,23 +151,16 @@ ms.locfileid: "130166148"
 
 1. 새 SQL Server의 SQL Server 구성 관리자에서 [Always On 가용성 그룹을 사용하도록 설정합니다](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
-1. SQL Server Management Studio의 새 SQL Server에서 [시스템 계정 권한을 구성](availability-group-manually-configure-prerequisites-tutorial.md#configure-system-account-permissions)합니다.
+1. [새 SQL Server에서 방화벽 포트를 엽니다](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#endpoint-firewall). 열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 엔드포인트 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다.
+1. SQL Server Management Studio 새 SQL Server [시스템 계정 권한을 구성합니다.](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#configure-system-account-permissions)
 
-1. [새 SQL Server에서 방화벽 포트를 엽니다](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
-
-   열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 엔드포인트 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다.
-
-
-1. [새 SQL Server에서 가용성 그룹에 복제본을 추가합니다](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
-
-   원격 Azure 지역에 있는 복제본의 경우 수동 장애 조치를 사용한 비동기 복제에 대해 설정합니다.  
-   
+1. [새 SQL Server에서 가용성 그룹에 복제본을 추가합니다](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio). 원격 Azure 지역에 있는 복제본의 경우 수동 장애 조치를 사용한 비동기 복제에 대해 설정합니다.  
 
 ## <a name="set-connection-for-multiple-subnets"></a>여러 서브넷에 대한 연결 설정
 
 원격 데이터 센터의 복제본은 가용성 그룹의 일부이지만 다른 서브넷에 있습니다. 이 복제본이 주 복제본이 되면 애플리케이션 연결 시간 초과가 발생할 수 있습니다. 이 동작은 다중 서브넷 배포의 온-프레미스 가용성 그룹과 동일합니다. 클라이언트 애플리케이션에서의 연결을 허용하려면 클라이언트 연결을 업데이트하거나 클러스터 네트워크 이름 리소스에 대해 이름 확인 캐시를 구성합니다.
 
-경우에 따라서를 설정 하도록 클러스터 구성을 업데이트 하 `RegisterAllProvidersIP=1` 고 설정할 클라이언트 연결 문자열을 업데이트 `MultiSubnetFailover=Yes` 합니다. [MultiSubnetFailover로 연결](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0)을 참조하세요.
+가급적 설정할 클러스터 `RegisterAllProvidersIP=1` 구성을 업데이트하고 클라이언트 연결 문자열을 로 `MultiSubnetFailover=Yes` 설정합니다. [MultiSubnetFailover로 연결](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0)을 참조하세요.
 
 연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [시간 제한 오류 및 다중 서브넷 환경에서 SQL Server 2012 AlwaysOn 가용성 그룹 수신기에 연결할 수 없음](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)을 참조하세요.
 

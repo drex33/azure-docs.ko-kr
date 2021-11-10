@@ -7,14 +7,14 @@ ms.author: cashton
 ms.topic: troubleshooting
 ms.date: 11/01/2021
 ms.custom: template-troubleshooting, ignite-fall-2021
-ms.openlocfilehash: afe37f4e7600f248f6ea3be50b0a1972946e381d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 235dccf84d28f159a4ef5337a431c27c0316d6ec
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052947"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158935"
 ---
-# <a name="azure-chaos-studio-troubleshooting"></a>Azure 비정상 스튜디오 문제 해결
+# <a name="troubleshoot-issues-with-azure-chaos-studio"></a>Azure 비정상 스튜디오 문제 해결
 
 비정상 스튜디오를 사용 하는 경우 가끔 몇 가지 문제가 발생할 수 있습니다. 이 문서에서는 일반적인 문제 및 문제 해결 단계에 대해 자세히 설명 합니다.
 
@@ -47,6 +47,12 @@ AKS에 대해 비정상 메시 오류를 사용 하기 전에 먼저 비정상 �
 실험 페이지에서 실험 이름을 클릭 하 여 실험 세부 정보 뷰로 이동 합니다. 기록 섹션에서 실행 인스턴스에 대 한 세부 정보 링크를 클릭 하 여 자세한 정보를 확인 합니다.
 
 ![실험 기록](images/run-experiment-history.png)
+
+### <a name="my-agent-based-fault-failed-with-error-verify-that-the-target-is-correctly-onboarded-and-proper-read-permissions-are-provided-to-the-experiment-msi"></a>오류가 발생 하 여 에이전트 기반 오류가 실패 했습니다. 대상이 올바르게 등록 실험 msi에 적절 한 읽기 권한이 제공 되는지 확인 하세요.
+
+이 문제는 알려진 문제를 포함 하는 Azure Portal를 사용 하 여 에이전트를 등록 경우 발생할 수 있습니다. 에이전트 기반 대상을 사용 하도록 설정 해도 사용자 할당 관리 id를 가상 머신 또는 가상 머신 확장 집합에 할당 하지 않습니다.
+
+이 문제를 해결 하려면 Azure Portal에서 가상 머신 또는 가상 머신 확장 집합으로 이동 하 고, **id** 로 이동 하 여 **사용자 할당 됨** 탭을 열고, 사용자 할당 Id를 가상 머신에 **추가** 합니다. 완료 되 면 에이전트를 연결 하기 위해 가상 머신을 다시 부팅 해야 할 수 있습니다.
 
 ### <a name="how-do-i-collect-agent-logs-on-a-linux-virtual-machine"></a>Linux 가상 머신에서 에이전트 로그를 수집할 어떻게 할까요? 있나요?
 

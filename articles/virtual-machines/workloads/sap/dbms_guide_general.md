@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 6d7a391bcd90d54c7024da6deeef74849c178039
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bc9a29e97e32ba798b516901d01aea968c93eab1
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232078"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157638"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -325,7 +325,7 @@ SQL Server Always On 또는 HANA System Replication과 같은 기능에 사용�
 
 Azure는 기본 SKU와 표준 SKU의 두 가지 [부하 분산 장치 SKU](../../../load-balancer/load-balancer-overview.md)를 제공합니다. 설정 및 기능의 이점에 따라 Azure 부하 분산 장치의 표준 SKU를 사용해야 합니다. 부하 분산 장치의 표준 버전의 큰 이점 중 하나는 데이터 트래픽이 부하 분산 장치 자체를 통해 라우팅되지 않는다는 것입니다.
 
-내부 부하 분산 장치를 구성하는 방법의 예는 [자습서: Azure Virtual Machines에서 수동으로 SQL Server 가용성 그룹 구성](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer) 문서에서 찾을 수 있습니다.
+내부 부하 분산 장치를 구성하는 방법의 예는 [자습서: Azure Virtual Machines에서 수동으로 SQL Server 가용성 그룹 구성](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md#create-an-azure-load-balancer) 문서에서 찾을 수 있습니다.
 
 > [!NOTE]
 > 공용 IP 주소의 액세스와 관련된 기본 및 표준 SKU의 동작에 차이점이 있습니다. 공용 IP 주소에 액세스하는 표준 SKU의 제한을 해결하는 방법은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하여 Virtual Machines에 대한 공용 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md) 문서에 설명되어 있습니다.

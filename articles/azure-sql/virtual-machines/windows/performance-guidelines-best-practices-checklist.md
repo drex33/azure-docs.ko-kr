@@ -16,12 +16,12 @@ ms.date: 06/01/2021
 ms.author: pamela
 ms.custom: contperf-fy21q3
 ms.reviewer: mathoma
-ms.openlocfilehash: 1dd05395d921e2a75a56db353e0b0c740b094e49
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: bed0a193a66d9f7ae19a42b61ec4562d11448669
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164510"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157251"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>검사 목록: Azure VM의 SQL Server에 대한 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -126,6 +126,7 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
 
 Windows 클러스터의 경우 모범 사례를 고려합니다. 
 
+* 가능 하면 SQL Server vm을 여러 서브넷에 배포 하 여 Azure Load Balancer 또는 분산 네트워크 이름 (DNN)에 대 한 종속성을 방지 하 여 HADR 솔루션으로 트래픽을 라우팅합니다. 
 * 일시적인 네트워크 실패 또는 Azure 플랫폼 유지 관리로 인한 예기치 않은 중단을 방지하기 위해 덜 적극적인 매개 변수로 클러스터를 변경합니다. 자세히 알아보려면 [하트비트 및 임계값 설정](hadr-cluster-best-practices.md#heartbeat-and-threshold)을 참조하세요. Windows Server 2012 이상에서는 다음 권장 값을 사용합니다. 
    - **SameSubnetDelay**: 1초
    - **SameSubnetThreshold**: 하트비트 40개
@@ -149,7 +150,7 @@ SQL Server 가용성 그룹 또는 장애 조치(failover) 클러스터 인스�
     40초부터 시작합니다. 이전에 권장되었던 완화된 `SameSubnetThreshold` 및 `SameSubnetDelay` 값을 사용하는 경우 임대 시간 제한 값이 80초를 초과해서는 안 됩니다. 
    - **지정 된 기간 동안 최대 실패**:이 값을 6으로 설정할 수 있습니다.
    - **Healthcheck timeout**: 처음에는이 값을 6만로 설정 하 고 필요에 따라 조정할 수 있습니다. 
-* VNN(가상 네트워크 이름)을 사용하여 HADR 솔루션에 연결하는 경우 클러스터의 범위가 하나의 서브넷에 불과하더라도 연결 문자열에서 `MultiSubnetFailover = true`를 지정합니다. 
+* vnn (가상 네트워크 이름) 및 Azure Load Balancer를 사용 하 여 HADR 솔루션에 연결 하는 경우 `MultiSubnetFailover = true` 클러스터가 하나의 서브넷에만 걸쳐 있는 경우에도 연결 문자열에를 지정 합니다. 
    - 클라이언트에서 `MultiSubnetFailover = True`를 지원하지 않는 경우 `RegisterAllProvidersIP = 0` 및 `HostRecordTTL = 300`을 설정하여 더 짧은 기간 동안 클라이언트 자격 증명을 캐시해야 할 수 있습니다. 하지만 이렇게 하면 DNS 서버에 추가 쿼리가 발생할 수 있습니다. 
 - DNN(분산형 네트워크 이름)을 사용하여 HADR 솔루션에 연결하려면 다음 사항을 고려합니다.
    - `MultiSubnetFailover = True`를 지원하는 클라이언트 드라이버를 사용해야 하고, 이 매개 변수가 연결 문자열에 있어야 합니다. 

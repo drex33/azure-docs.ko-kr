@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 327c030708f37bffab05aa72884422a487b6b729
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 0eea2233a2b6b59c92b49ca325378a95301fc962
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166942"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158860"
 ---
 # <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>FCI VNN에 대한 Azure Load Balancer 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내의 여러 서브넷에 SQL Server VM을 만들어 장애 조치(failover) 클러스터 인스턴스에 대한 Azure Load Balancer 필요하지 않습니다.
 
 Azure Virtual Machines에서 클러스터는 한 번에 하나의 클러스터 노드에 있어야 하는 IP 주소를 저장하는 부하 분산 장치를 사용합니다. 이 솔루션에서 부하 분산 장치는 Azure의 클러스터형 리소스에서 사용하는 VNN(가상 네트워크 이름)의 IP 주소를 보유합니다. 
 

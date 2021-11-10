@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 6eb8af995b733fb796827d508ee003d83e46c67f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 29037a52284bb8af8adb68090f484061db6b9100
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167295"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157027"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +136,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="enable-the-availability-group-feature"></a>가용성 그룹 기능 사용 
 
-이 단계에서는 가용성 그룹 기능을 사용하도록 설정합니다. 이 단계에 익숙하지 않은 경우 [가용성 그룹 자습서](availability-group-manually-configure-tutorial.md#enable-availability-groups)를 참조하세요. 
+이 단계에서는 가용성 그룹 기능을 사용하도록 설정합니다. 이 단계에 익숙하지 않은 경우 [가용성 그룹 자습서](availability-group-manually-configure-tutorial-single-subnet.md#enable-availability-groups)를 참조하세요. 
 
 ## <a name="create-keys-and-certificates"></a>키 및 인증서 생성
 
@@ -281,7 +281,7 @@ GO
 
 ## <a name="configure-an-availability-group"></a>가용성 그룹 구성
 
-이 단계에서는 가용성 그룹을 구성하고 데이터베이스를 추가합니다. 지금은 수신기를 만들지 않습니다. 이 단계에 익숙하지 않은 경우 [가용성 그룹 자습서](availability-group-manually-configure-tutorial.md#create-the-availability-group)를 참조하세요. 장애 조치(failover)와 장애 복구(failback)를 시작하여 모두 제대로 작동하는지 확인해야 합니다. 
+이 단계에서는 가용성 그룹을 구성하고 데이터베이스를 추가합니다. 지금은 수신기를 만들지 않습니다. 이 단계에 익숙하지 않은 경우 [가용성 그룹 자습서](availability-group-manually-configure-tutorial-single-subnet.md#create-the-availability-group)를 참조하세요. 장애 조치(failover)와 장애 복구(failback)를 시작하여 모두 제대로 작동하는지 확인해야 합니다. 
 
    > [!NOTE]
    > 동기화 프로세스 중에 오류가 발생하는 경우 임시로 `NT AUTHORITY\SYSTEM`에 sysadmin 권한을 부여하여 `AGNode1`과 같은 첫 번째 노드에 클러스터 리소스를 만들어야 할 수 있습니다. 

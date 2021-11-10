@@ -2,19 +2,20 @@
 title: Azure Event Grid 시스템 항목에서 관리 ID 사용
 description: 이 문서에서는 Azure Event Grid 시스템 항목에 대해 관리형 서비스 ID를 사용하도록 설정하는 방법을 설명합니다.
 ms.topic: how-to
-ms.date: 08/20/2021
-ms.openlocfilehash: d5d8c15c818f1a9735b6cf32fe48276fb311e8ea
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.openlocfilehash: 825b1d22568b110f22e596d424a2f781b65de625
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633574"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157136"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-system-topic"></a>Event Grid 시스템 항목에 시스템 관리 ID 할당
-이 문서에서는 기존 Event Grid 시스템 항목에 시스템이 할당하거나 사용자가 할당한 ID를 할당하는 방법을 알아봅니다. 관리 ID에 대해 알아보려면 [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.  
+이 문서에서는 시스템 할당 또는 사용자 할당 ID를 Event Grid 시스템 항목에 할당하는 방법을 알아봅니다. 일반적으로 관리 ID에 대해 알아보려면 [Azure 리소스에 대한 관리 ID란?을 참조하세요.](../active-directory/managed-identities-azure-resources/overview.md)  
 
-> [!IMPORTANT]
-> 시스템 항목에서 시스템이 할당한 ID 또는 사용자가 할당한 ID를 사용할 수는 있지만, 둘 다 사용할 수는 없습니다. 시스템 항목에 할당된, 사용자가 할당한 ID는 최대 두 개일 수 있습니다. 
+> [!NOTE]
+> - 시스템 할당 ID 1개와 사용자 할당 ID를 최대 2개까지 시스템 토픽에 할당할 수 있습니다. 
+> - Azure 구독, 리소스 그룹 또는 Azure 지도 같은 글로벌 Azure 리소스와 연결된 시스템 토픽에 대한 ID를 사용하도록 설정할 수 있습니다. 이러한 글로벌 원본에 대한 시스템 항목도 특정 지역과 연결되지 않습니다.
 
 ## <a name="enable-managed-identity-for-an-existing-system-topic"></a>기존 시스템 항목에서 관리 ID 사용
 이 섹션에는 기존 시스템 항목에서 관리 ID를 사용하도록 설정하는 방법이 나와 있습니다. 
@@ -22,7 +23,7 @@ ms.locfileid: "122633574"
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 위쪽의 검색 창에서 **이벤트 그리드 시스템 항목** 을 검색합니다.
 3. 관리 ID를 사용하도록 설정할 **시스템 항목** 을 선택합니다. 
-4. 왼쪽 메뉴에서 **ID** 를 선택합니다. 글로벌 위치에 있는 시스템 항목에는 이 옵션이 표시되지 않습니다. 
+4. 왼쪽 메뉴에서 **ID** 를 선택합니다.  
 
 ### <a name="enable-system-assigned-identity"></a>시스템이 할당한 ID 사용
 1. 스위치를 **켜면** ID가 활성화됩니다. 
@@ -41,10 +42,10 @@ ms.locfileid: "122633574"
 1. 먼저, [사용자 할당 관리 ID 관리](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) 문서의 지침에 따라 사용자가 할당한 ID를 만듭니다. 
 1. **ID** 페이지의 오른쪽 창에서 **사용자 할당** 탭으로 전환한 다음 도구 모음에서 **+ 추가** 를 선택합니다.
 
-    :::image type="content" source="./media/managed-service-identity/system-topic-user-identity-add-button.png" alt-text="ID 페이지의 사용자 할당 탭에서 삭제된 추가 단추를 보여 주는 이미지.":::
+    :::image type="content" source="./media/managed-service-identity/system-topic-user-identity-add-button.png" alt-text="ID 페이지의 사용자 할당 탭에서 선택한 추가 단추를 보여주는 이미지.":::
 1. **사용자 관리 ID 추가** 창에서 다음 단계를 수행합니다.
-    1. 사용자가 할당한 ID가 있는 **Azure 구독** 을 선택합니다. 
-    1. **사용자가 할당한 ID** 를 선택합니다. 
+    1. 사용자 할당 ID가 있는 **Azure 구독** 을 선택합니다. 
+    1. **사용자 할당 ID** 를 선택합니다. 
     1. **추가** 를 선택합니다. 
 1. **사용자 할당** 탭에서 목록을 새로 고쳐 추가된 사용자가 할당한 ID를 확인합니다.
 
@@ -67,19 +68,13 @@ ms.locfileid: "122633574"
         
                 :::image type="content" source="./media/managed-service-identity/system-topic-creation-enable-user-identity.png" alt-text="사용자가 할당한 ID 옵션이 선택된 시스템 항목 만들기 마법사의 스크린샷을 보여 주는 이미지.":::            
             1. **사용자 관리 ID 추가** 창에서 다음 단계를 수행합니다.
-                1. 사용자가 할당한 ID가 있는 **Azure 구독** 을 선택합니다. 
-                1. **사용자가 할당한 ID** 를 선택합니다. 
+                1. 사용자 할당 ID가 있는 **Azure 구독** 을 선택합니다. 
+                1. **사용자 할당 ID** 를 선택합니다. 
                 1. **추가** 를 선택합니다.                         
 
 > [!NOTE]
-> 현재 시스템 항목을 지원하는 Azure 리소스에서 이벤트 구독을 만들 때 새 시스템 항목에 관리 ID를 사용하도록 설정할 수 없습니다. 
-
-
-## <a name="global-azure-sources"></a>글로벌 Azure 원본
-지역 Azure 리소스에 대해서만 시스템 관리 ID를 사용하도록 설정할 수 있습니다. Azure 구독, 리소스 그룹 또는 Azure Maps와 같은 글로벌 Azure 리소스와 관련된 시스템 항목에 대해서는 이 기능을 사용하도록 설정할 수 없습니다. 이러한 글로벌 소스에 대한 시스템 항목도 특정 지역과 관련이 없습니다. 위치가 **Global** 로 설정된 시스템 항목에 대한 **ID** 페이지가 표시되지 않습니다. 
-
-:::image type="content" source="./media/managed-service-identity/system-topic-location-global.png" alt-text="위치가 Global로 설정된 시스템 항목"::: 
-
+> - 현재 Azure Portal 시스템 항목을 만들 때 시스템 할당 ID와 사용자 할당 ID를 모두 할당할 수 없습니다. 시스템 토픽을 만든 후 둘 다 할당할 수 있습니다. 
+> - 현재 시스템 항목을 지원하는 Azure 리소스에서 이벤트 구독을 만들 때 새 시스템 항목에 관리 ID를 사용하도록 설정할 수 없습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,16 +12,16 @@ ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: 507ade69fc257b52a3fe632fcf652dcd5660d819
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: ec2bd2cb46ff96602ed39cf3c9c4e41ddcf5ab33
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104244"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132155987"
 ---
 # <a name="configure-openssl-for-linux"></a>Linux용 OpenSSL 구성
 
-1\.9.0 이전 버전의 Speech SDK를 사용하는 경우 [OpenSSL](https://www.openssl.org)은 호스트 시스템 버전으로 동적으로 구성됩니다. 이후 버전의 Speech SDK OpenSSL은 Speech SDK의 핵심 라이브러리에 정적으로 연결됩니다. Speech SDK 버전 1.9.0~1.16.0에서는 [OpenSSL 버전 1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)가 사용됩니다. Speech SDK 버전 1.17.0 이상에서는 [Open SSL 버전 1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html)가 사용됩니다.
+Speech SDK 버전 1.19.0 이상에서는 [OpenSSL](https://www.openssl.org) 가 호스트 시스템 버전에 동적으로 구성 됩니다. 이전 버전에서 OpenSSL은 SDK의 핵심 라이브러리에 정적으로 연결 됩니다.
 
 연결을 보장하려면 OpenSSL 인증서가 시스템에 설치되어 있는지 확인합니다. 다음 명령을 실행합니다.
 ```bash

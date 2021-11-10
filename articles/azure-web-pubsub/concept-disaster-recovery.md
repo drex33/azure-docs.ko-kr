@@ -6,12 +6,12 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/08/2021
 ms.author: lianwei
-ms.openlocfilehash: 368c354f36cd6a289daacf1766c73021c1f08a3f
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 14a6661196f7bfa16d3611137d1517c41f21b00d
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997971"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156514"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-web-pubsub-service"></a>Azure 웹 PubSub 서비스의 복원 력 및 재해 복구
 
@@ -29,7 +29,7 @@ ms.locfileid: "131997971"
 
 아키텍처를 보다 잘 설명 하기 위해 동일한 쌍의 앱 서버에 대해 웹 PubSub 서비스를 **기본** 서비스로 호출 합니다. 그리고 다른 쌍의 웹 PubSub 서비스를 앱 서버에 대 한 **보조** 서비스로 호출 합니다.
 
-응용 프로그램 서버는 [service health CHECK API](/rest/api/webpubsub/health-api/get-service-status) 를 사용 하 여 **기본** 및 **보조** 서비스가 정상 인지 여부를 검색할 수 있습니다. 예를 들어 이라는 웹 PubSub 서비스의 경우 `demo` , `https://demo.webpubsub.azure.com/api/health` 서비스가 정상 상태 이면 끝점은 200을 반환 합니다. 앱 서버는 끝점을 주기적으로 호출 하거나 요청 시 끝점을 호출 하 여 끝점이 정상 인지 확인할 수 있습니다. WebSocket 클라이언트는 일반적으로 웹 PubSub 서비스에 연결 하는 URL을 가져오기 위해 먼저 응용 프로그램 서버와 **협상** 하 고, 응용 프로그램은이 **negotiate** 단계를 사용 하 여 클라이언트를 다른 정상적인 **보조** 서비스로 장애 조치 (failover) 합니다. 자세한 단계는 다음과 같습니다.
+응용 프로그램 서버는 [service health CHECK API](/rest/api/webpubsub/dataplane/health-api/get-service-status) 를 사용 하 여 **기본** 및 **보조** 서비스가 정상 인지 여부를 검색할 수 있습니다. 예를 들어 이라는 웹 PubSub 서비스의 경우 `demo` , `https://demo.webpubsub.azure.com/api/health` 서비스가 정상 상태 이면 끝점은 200을 반환 합니다. 앱 서버는 끝점을 주기적으로 호출 하거나 요청 시 끝점을 호출 하 여 끝점이 정상 인지 확인할 수 있습니다. WebSocket 클라이언트는 일반적으로 웹 PubSub 서비스에 연결 하는 URL을 가져오기 위해 먼저 응용 프로그램 서버와 **협상** 하 고, 응용 프로그램은이 **negotiate** 단계를 사용 하 여 클라이언트를 다른 정상적인 **보조** 서비스로 장애 조치 (failover) 합니다. 자세한 단계는 다음과 같습니다.
 
 1. 클라이언트가 앱 서버와 **협상할** 때 앱 서버는 기본 웹 pubsub 서비스 끝점만 반환 해야 합니다. 따라서 일반적인 경우에만 클라이언트가 기본 끝점에 연결 합니다.
 1. 주 인스턴스가 다운 되 면 **negotiate** 는 정상 상태의 보조 끝점을 반환 하 여 클라이언트에서 계속 연결을 설정 하 고 클라이언트에서 보조 끝점에 연결 합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "131997971"
 전략을 SDK에 아직 통합 하지 않았으므로 지금은 응용 프로그램에서이 전략을 구현 해야 합니다. 
 
 요약 하자면 응용 프로그램 쪽에서 구현 해야 하는 항목은 다음과 같습니다.
-1. 상태 검사. 응용 프로그램은 서비스 [상태 검사 API](/rest/api/webpubsub/health-api/get-service-status) 를 사용 하 여 백그라운드에서 정기적으로 또는 모든 **negotiate** 호출에 대 한 요청에 따라 서비스가 정상 상태 인지 확인할 수 있습니다.
+1. 상태 검사. 응용 프로그램은 서비스 [상태 검사 API](/rest/api/webpubsub/dataplane/health-api/get-service-status) 를 사용 하 여 백그라운드에서 정기적으로 또는 모든 **negotiate** 호출에 대 한 요청에 따라 서비스가 정상 상태 인지 확인할 수 있습니다.
 1. 논리 협상. 응용 프로그램은 기본적으로 정상적인 **기본** 끝점을 반환 합니다. **기본** 끝점이 중단 되 면 응용 프로그램은 정상 상태의 **보조** 끝점을 반환 합니다.
 1. 브로드캐스트 논리. 여러 클라이언트에 메시지를 보낼 때 응용 프로그램은 메시지를 모든 **정상** 끝점으로 브로드캐스팅하는 지 확인 해야 합니다.
 

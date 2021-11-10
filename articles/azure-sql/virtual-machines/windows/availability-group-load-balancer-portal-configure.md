@@ -1,5 +1,5 @@
 ---
-title: 가용성 그룹 수신기 및 부하 분산 장치 구성(Azure Portal)
+title: 부하 분산 장치 & 가용성 그룹 수신기 구성 (Azure Portal)
 description: Azure Virtual Machines에서 SQL Server에 대한 Always On 가용성 그룹용 수신기를 만드는 단계별 지침
 services: virtual-machines
 documentationcenter: na
@@ -11,33 +11,36 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/16/2017
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.custom: seo-lt-2019
 ms.reviewer: mathoma
-ms.openlocfilehash: d0489295cbc161f98ebe036ff79bdc2f2861877a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0077b6a237cefd5547b70b79044087d86a9ea236
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250372"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157508"
 ---
-# <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치 구성
+# <a name="configure-a-load-balancer--availability-group-listener-sql-server-on-azure-vms"></a>가용성 그룹 수신기 & 부하 분산 장치 구성 (Azure vm에서 SQL Server)
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+> [!TIP]
+> 동일한 Azure 가상 네트워크 내에서 [여러 서브넷](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) 에 SQL Server vm을 만들어 AG (Always On availability) 그룹에 대 한 Azure Load Balancer 필요성을 제거 합니다.
 
-이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure Virtual Machines에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
+
+이 문서에서는 Azure Resource Manager를 사용 하 여 실행 되는 단일 서브넷 내에서 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대 한 부하 분산 장치를 만드는 방법을 설명 합니다. SQL Server 인스턴스가 Azure Virtual Machines에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
 
 이 작업을 완료하려면 Resource Manager로 실행 중인 Azure VM에 SQL Server Always On 가용성 그룹이 배포되어야 합니다. 두 SQL Server 가상 머신은 동일한 가용성 집합에 속해야 합니다. [Microsoft 템플릿](./availability-group-quickstart-template-configure.md)을 사용하여 Resource Manager에서 가용성 그룹을 자동으로 만들 수 있습니다. 이 템플릿은 내부 부하 분산 장치를 자동으로 만듭니다. 
 
-원하는 경우 [수동으로 가용성 그룹을 구성](availability-group-manually-configure-tutorial.md)할 수 있습니다.
+원하는 경우 [수동으로 가용성 그룹을 구성](availability-group-manually-configure-tutorial-single-subnet.md)할 수 있습니다.
 
 이 문서를 진행하려면 가용성 그룹이 이미 구성되어 있어야 합니다.  
 
 관련 문서 보기:
 
-* [Azure VM의 Always On 가용성 그룹 구성(GUI)](availability-group-manually-configure-tutorial.md)   
+* [Azure VM의 Always On 가용성 그룹 구성(GUI)](availability-group-manually-configure-tutorial-single-subnet.md)   
 * [Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 이 문서를 통해 Azure Portal에서 부하 분산 장치를 만들고 구성합니다. 프로세스 완료 후에는 가용성 그룹 수신기에 대한 부하 분산 장치에서 IP 주소를 사용하도록 클러스터를 구성합니다.

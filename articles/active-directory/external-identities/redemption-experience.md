@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/21/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766228eb291776c0ba4162f78238d6336d9194ae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a3d20d621b648fb84f2cedee08f206d6eb257f51
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529156"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227719"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -23,11 +23,10 @@ ms.locfileid: "122529156"
 
 게스트 사용자를 디렉터리에 추가하면 게스트 사용자 계정의 동의 상태가 처음에는 **PendingAcceptance** 로 설정됩니다(PowerShell에서 볼 수 있음). 이 설정은 게스트가 초대를 수락하고 개인정보처리방침 및 사용 약관에 동의할 때까지 유지됩니다. 그 후에는 동의 상태가 **동의함** 으로 바뀌고, 동의 페이지가 더 이상 게스트에게 표시되지 않습니다.
 
-   > [!IMPORTANT]
-   >
-   > - **2021년 7월 12일부터**, Azure AD B2B 고객이 사용자 지정 또는 기간 업무 애플리케이션에 대한 셀프 서비스 등록과 함께 사용하기 위해 새로운 Google 통합을 설정하는 경우 인증이 시스템 웹 보기로 이동될 때까지 Google ID를 사용한 인증이 작동하지 않습니다. [자세히 알아보기](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **2021년 9월 30부터** Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 [외부 사용자 초대](google-federation.md) 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로, 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
+> [!IMPORTANT]
+> - **2021년 7월 12일부터**, Azure AD B2B 고객이 사용자 지정 또는 기간 업무 애플리케이션에 대한 셀프 서비스 등록과 함께 사용하기 위해 새로운 Google 통합을 설정하는 경우 인증이 시스템 웹 보기로 이동될 때까지 Google ID를 사용한 인증이 작동하지 않습니다. [자세히 알아보기](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **2021년 9월 30부터** Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 [외부 사용자 초대](google-federation.md) 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **2021년 11월 1일부터** 모든 기존 테넌트용 이메일 일회용 암호 기능을 켜고 새 테넌트용 기능을 기본적으로 사용하도록 설정하는 변경 내용의 배포를 시작합니다. 이러한 변경의 일환으로 Microsoft는 B2B Collaboration 초대를 사용하는 동안에는 새로운 관리되지 않는(“바이럴”) Azure AD 계정 및 테넌트 만들기를 중지합니다. 휴일 및 배포 잠금 동안 중단을 최소화하기 위해 대부분의 테넌트에는 2022년 1월에 롤아웃되는 변경 사항이 표시됩니다. 게스트 사용자에게 원활한 대체 인증 방법을 제공하므로 이메일 일회용 암호 기능을 사용하고 있습니다. 하지만, 이 기능을 원하지 않는다면 [사용하지 않도록 설정](one-time-passcode.md#disable-email-one-time-passcode)할 수 있습니다. 
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>공통 엔드포인트를 통한 상환 및 로그인
 

@@ -6,19 +6,19 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: reference
-  ms.date: 10/13/2021
+  ms.date: 10/21/2021
   ms.author: mimart
   author: msmimart
   manager: celestedg
   ms.reviewer: mal
   ms.custom: it-pro, seo-update-azuread-jan
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: a714fbb9f5483c8b52480d5fbe41229d655609c8
-  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+  ms.openlocfilehash: dd15c9412cc9f7b0bed2ac4e0f622c827aaafe17
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/15/2021
-  ms.locfileid: "130072560"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130227655"
 title: Azure Active Directory B2B 협업 FAQ
 summary: >
   Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질문과 대답(FAQ)은 새 항목을 포함하도록 정기적으로 업데이트됩니다.
@@ -28,7 +28,7 @@ summary: >
 
   > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-web-view-sign-in-support)해야 합니다.
 
-  > - **2021년 11월 1일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 이때 모든 기존 테넌트의 이메일 일회용 암호 기능을 켜고 기본적으로 새 테넌트에서 사용하도록 설정하는 변경 작업을 롤아웃하기 시작합니다. 이 기능을 원하지 않는다면 [사용하지 않도록 설정](one-time-passcode.md#disable-email-one-time-passcode)할 수 있습니다.
+  > - **2021년 11월 1일부터** 모든 기존 테넌트용 이메일 일회용 암호 기능을 켜고 새 테넌트용 기능을 기본적으로 사용하도록 설정하는 변경 내용의 배포를 시작합니다. 이러한 변경의 일환으로 Microsoft는 B2B Collaboration 초대를 사용하는 동안에는 새로운, 관리되지 않는(“바이럴”) Azure AD 계정 및 테넌트 만들기를 중지합니다. 휴일 및 배포 잠금 동안 중단을 최소화하기 위해 대부분의 테넌트에는 2022년 1월에 롤아웃되는 변경 사항이 표시됩니다. 게스트 사용자에게 원활한 대체 인증 방법을 제공하므로 이메일 일회용 암호 기능을 사용하고 있습니다. 하지만, 이 기능을 원하지 않는다면 [사용하지 않도록 설정](one-time-passcode.md#disable-email-one-time-passcode)할 수 있습니다.
 sections:
 - name: 일반
   questions:

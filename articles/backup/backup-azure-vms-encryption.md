@@ -3,12 +3,12 @@ title: 암호화된 Azure VM 백업 및 복원
 description: Azure Backup 서비스를 사용하여 암호화된 Azure VM을 백업하고 복원하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: ef23abb7ba25675ce267fb6a4b0e273a1cc445a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ebd8280b24c0f99474f3847d7549db0da9a27516
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528123"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157518"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화된 Azure 가상 머신 백업 및 복원
 
@@ -152,25 +152,9 @@ Azure Backup은 ADE(Azure Disk Encryption)로 암호화된 OS/데이터 디스�
 
 1. **저장** 을 선택하여 Azure Backup에 권한을 제공합니다.
 
-## <a name="restore-an-encrypted-vm"></a>암호화된 VM 복원
-
-암호화된 VM은 아래에 설명된 대로 VM 디스크를 복원하는 방법으로만 복원할 수 있습니다. **기존 항목 바꾸기** 와 **VM 복원** 은 지원되지 않습니다.
-
-암호화된 VM을 다음과 같이 복원합니다.
-
-1. [VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-disks).
-
-   > [!NOTE]
-   > VM 디스크를 복원한 후에는 다시 만들지 않고도 원래 VM의 OS 디스크를 복원된 VM 디스크로 수동 전환할 수 있습니다. [자세한 정보](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
-
-2. 다음 작업 중 하나를 수행하여 가상 머신 인스턴스를 다시 만듭니다.
-    1. 복원 작업 중에 생성된 템플릿을 사용하여 VM 설정을 사용자 지정하고 VM 배포를 트리거합니다. [자세히 알아봅니다](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-       >[!NOTE]
-       >템플릿을 배포하는 동안 저장소 계정 컨테이너와 공용/개인 설정을 확인합니다.
-    1. PowerShell을 사용하여 복원된 디스크에서 새 VM을 만듭니다. [자세히 알아봅니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-1. Linux VM의 경우 데이터 디스크가 열리고 탑재되도록 ADE 확장을 다시 설치합니다.
-
 ## <a name="next-steps"></a>다음 단계
+
+[암호화된 Azure Virtual Machines 복원](restore-azure-encrypted-virtual-machines.md)
 
 문제가 발생하는 경우 다음 문서를 검토하세요.
 

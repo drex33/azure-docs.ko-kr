@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2b31e2e67058e6762e590f99e49eb1e4658b6c2e
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.openlocfilehash: 6bb3e3029a33a56791e1e77995b51f0bf8573b69
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131990080"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157971"
 ---
 # <a name="deploy-custom-content-from-your-repository-public-preview"></a>리포지토리에서 사용자 지정 콘텐츠 배포 (공개 미리 보기)
 
@@ -98,22 +98,26 @@ Azure 센티널 콘텐츠 허브에 제공 된 기본 제공 (기본 제공) 콘
 
         - 다른 모든 콘텐츠 형식의 경우 **새 연결 만들기** 창에서 콘텐츠 형식을 선택 하면 해당 콘텐츠만 Azure 센티널에 배포 됩니다. 다른 형식의 콘텐츠는 배포 되지 않습니다.
 
-    1. **만들기** 를 선택하여 연결을 만듭니다. 다음은 그 예입니다.
+    1. **만들기** 를 선택하여 연결을 만듭니다. 예를 들어:
 
         :::image type="content" source="media/ci-cd/create-new-connection-github.png" alt-text="새 GitHub 리포지토리 연결의 스크린샷":::
 
 
     # <a name="azure-devops"></a>[Azure DevOps](#tab/azure-devops)
 
-    현재 Azure 자격 증명을 사용 하 여 Azure DevOps에 자동으로 로그인 됩니다. azure 센티널에서 사용 하는 것과 동일한 자격 증명을 사용 하 여 Azure DevOps에 로그인 되어 있지 않은 경우 Azure DevOps에서 계정을 전환 하 여 azure 센티널의 계정과 일치 시킵니다.
+    > [!NOTE]
+    > Azure DevOps 연결을 만들 때 [게스트 사용자](/azure/active-directory/external-identities/what-is-b2b) 는 현재 자체 Azure Active Directory 테 넌 트에 없는 작업 영역에 연결할 수 없습니다. 이러한 교차 테 넌 트 시나리오는 Azure DevOps 연결에 대해 아직 지원 되지 않습니다.
+    >
 
+    현재 Azure 자격 증명을 사용 하 여 Azure DevOps에 대 한 권한이 자동으로 부여 됩니다. 유효한 연결을 보장 하려면 Azure 센티널에서 연결 하는 것 [과 동일한 Azure DevOps 계정에 대 한 권한을 부여 받았는지 확인](https://aex.dev.azure.com/) 하거나 InPrivate 브라우저 창을 사용 하 여 연결을 만듭니다.
+    
     1.  표시 되는 드롭다운 목록에서 Azure 센티널의 **조직**, **Project**, **리포지토리**, **분기** 및 **콘텐츠 형식을** 선택 합니다.
 
         - 파서와 검색 쿼리는 모두 **저장 된 검색** API를 사용 하 여 Azure 센티널에 콘텐츠를 배포 합니다. 이러한 콘텐츠 형식 중 하나를 선택 하 고 분기에 다른 형식의 콘텐츠가 있는 경우 두 콘텐츠 형식이 모두 배포 됩니다.
 
         - 다른 모든 콘텐츠 형식의 경우 **새 연결 만들기** 창에서 콘텐츠 형식을 선택 하면 해당 콘텐츠만 Azure 센티널에 배포 됩니다. 다른 형식의 콘텐츠는 배포 되지 않습니다.
 
-    1. **만들기** 를 선택하여 연결을 만듭니다. 다음은 그 예입니다.
+    1. **만들기** 를 선택하여 연결을 만듭니다. 예를 들어:
 
         :::image type="content" source="media/ci-cd/create-new-connection-devops.png" alt-text="새 GitHub 리포지토리 연결의 스크린샷":::
 
@@ -136,7 +140,7 @@ Azure 센티널 콘텐츠 허브에 제공 된 기본 제공 (기본 제공) 콘
 
 - 리포지토리에 저장 된 콘텐츠는 Azure 센티널 작업 영역에서 관련 Azure 센티널 페이지에 표시 됩니다.
 
-- **저장소** 페이지의 연결 세부 정보는 연결의 배포 로그에 대 한 링크로 업데이트 됩니다. 다음은 그 예입니다.
+- **저장소** 페이지의 연결 세부 정보는 연결의 배포 로그에 대 한 링크로 업데이트 됩니다. 예를 들어:
 
     :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="GitHub 리포지토리 연결의 배포 로그 스크린샷":::
 
@@ -164,7 +168,7 @@ GitHub 또는 Azure DevOps에서 콘텐츠 배포에 대 한 기본 구성이 �
 
     - **배포 트리거를 수정 하려면** `on` 워크플로 실행을 트리거하는 이벤트를 설명 하는 코드에서 섹션을 업데이트 합니다.
 
-        기본적으로이 구성은로 설정 됩니다 `on: push` . 즉, 기존 콘텐츠를 수정 하 고 리포지토리에 새 콘텐츠를 추가 하는 작업을 포함 하 여 연결 된 분기에 대 한 모든 푸시에서 워크플로가 트리거됩니다. 다음은 그 예입니다.
+        기본적으로이 구성은로 설정 됩니다 `on: push` . 즉, 기존 콘텐츠를 수정 하 고 리포지토리에 새 콘텐츠를 추가 하는 작업을 포함 하 여 연결 된 분기에 대 한 모든 푸시에서 워크플로가 트리거됩니다. 예를 들어:
 
         ```yml
         on:

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 9404d6052093880ff25ded0492e4a3fb87202f09
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1565ab6ecd0fe1c2f79237115c08f8d14091c158
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252500"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158991"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -51,10 +51,10 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  수동 QoS 볼륨에 할당된 최소 처리량     |    1MiB/s   |    No    |    
 |  수동 QoS 볼륨에 할당된 최대 처리량     |    4,500MiB/s    |    No    |    
 |  지역 간 복제 데이터 보호 볼륨(대상 볼륨) 수     |    10    |    예    |     
-|  볼륨당 최대 정책 기반(예약된) 백업 수  | <ul><li> 일일 보존 수: 1(최소) ~ 1019(최대) </li> <li> 주간 보존 수: 1(최소) ~ 1019(최대) </li> <li> 월간 보존 수: 1(최소) ~ 1019(최대) </ol></li> <br> 결합된 최대 일일, 주별 및  월별 백업 보존 수는 1019개입니다.  |  N  |
-|  보호된 볼륨의 최대 크기  |  100TiB  |  N  |
-|  구독당 백업할 수 있는 최대 볼륨 수   |  5  |  지원  |
-|  일별 볼륨당 최대 수동 백업 수 |  5  |  지원  |
+|  볼륨 당 정책 기반 (예약 된) 백업의 최대 수  | <ul><li> 일별 보존 횟수: 1 (최소값) ~ 1019 (최대값) </li> <li> 주간 보존 횟수: 1 (최소값) ~ 1019 (최대값) </li> <li> 월간 보존 횟수: 1 (최소값) ~ 1019 (최대값) </ol></li> <br> 최대 일별, 주별 및 월별 백업 *보존 횟수는 1019입니다.*  |  N  |
+|  보호 된 볼륨의 최대 크기  |  100TiB  |  N  |
+|  구독당 백업할 수 있는 최대 볼륨 수   |  5  |  Y  |
+|  매일 볼륨당 최대 수동 백업 수 |  5  |  Y  |
 
 자세한 내용은 [용량 관리 FAQ](faq-capacity-management.md)를 참조하세요.
 
@@ -102,30 +102,38 @@ Azure NetApp Files 볼륨에는 *maxfiles* 라는 한도가 있습니다. Maxfil
 
 Azure 지원 요청을 만들어 [리소스 제한](#resource-limits) 표에서 조정 가능한 한도를 늘릴 수 있습니다. 
 
-1. **지원 + 문제 해결** 아래의 **새 지원 요청** 으로 이동합니다.
-1. **문제 설명** 탭에서 요청된 정보를 입력합니다.
-1. **추가 세부 정보** 탭에서 요청 정보 필드에 **세부 정보 입력** 을 클릭합니다.  
+1. **지원 + 문제 해결** 아래의 **새 지원 요청** 으로 이동합니다.   
+
+2. **문제 설명** 탭에서 필요한 정보를 제공 합니다.
+    1. **문제 유형** 에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
+    2. **구독** 의 경우 사용자의 구독을 선택합니다. 
+    3. **할당량 유형** 에 대해 **Storage: Azure NetApp Files 제한** 을 선택 합니다.  
+
+    ![문제 설명 탭을 보여 주는 스크린샷](../media/azure-netapp-files/support-problem-descriptions.png)
+
+3. **추가 세부 정보** 탭에서 요청 정보 필드에 **세부 정보 입력** 을 클릭합니다.  
 
     ![세부 정보 탭과 세부 정보 입력 필드를 보여주는 스크린샷.](../media/azure-netapp-files/quota-additional-details.png)
 
-1. 표시되는 할당량 세부 정보 창에서:  
-
-    1. 할당량 유형에서 증가시킬 리소스의 유형을 선택합니다.  
-        예를 들면 다음과 같습니다.  
+4. 제한 증가를 요청 하려면 표시 되는 할당량 정보 창에서 다음 정보를 제공 합니다.
+    1. **할당량 유형** 에서 증가 시킬 리소스의 유형을 선택 합니다.  
+        예를 들면 다음과 같습니다.   
         * 구독당 지역 용량 할당량(TiB)
         * *구독당 Azure 지역별 NetApp 계정 수*
         * *구독당 볼륨 수*
 
-    1. 요청된 지역에서 지역을 선택합니다.   
+    2. **요청 된 지역** 에서 해당 지역을 선택 합니다.   
         현재 및 기본 크기는 할당량 상태 아래에 표시됩니다.
-    1. 지정한 할당량 유형의 증가를 요청하는 값을 입력합니다.
+    
+    3. 지정한 할당량 유형의 증가를 요청하는 값을 입력합니다.
     
     ![지역별 할당량에 대한 증가를 표시하고 요청하는 방법을 보여주는 스크린샷.](../media/azure-netapp-files/quota-details-regional-request.png)
 
-1. **다음** 과 **검토 + 만들기** 를 클릭하여 요청을 만듭니다.
+5. **저장 후 계속** 을 클릭합니다. **검토 + 만들기** 를 클릭 하 여 요청을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계  
 
 - [Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md)
 - [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md)
 - [Azure NetApp Files에 대 한 지역 용량 할당량](regional-capacity-quota.md)
+- [Azure NetApp Files에 대 한 요청 영역 액세스](request-region-access.md)

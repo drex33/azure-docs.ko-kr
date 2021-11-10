@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a0cda7edf93578e95ee9a6f15cc8c3c26274b49
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: bed6a0eb5c97905fa82b15b15f6997568c1d3c03
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823717"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262606"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
@@ -28,7 +28,7 @@ ms.locfileid: "122823717"
 - 상태 1: Azure AD의 외부 인스턴스에 속하며 초대하는 조직의 게스트 사용자로 표시됩니다. 이 경우 B2B 사용자는 초대된 테넌트에 속한 Azure AD 계정을 사용하여 로그인합니다. 파트너 조직이 Azure AD를 사용하지 않는 경우에도 Azure AD에서 게스트 사용자는 여전히 생성됩니다. 단, 본인의 초대를 사용해야 합니다. Azure AD에서는 해당 사용자의 전자 메일 주소를 확인합니다. 이것을 JIT(Just In Time) 테넌시, ‘바이럴’ 테넌시, 또는 관리되지 않는 Azure AD 테넌시라고도 합니다.
 
    > [!IMPORTANT]
-   > **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
+   > **2021년 11월 1일부터** 모든 기존 테넌트용 이메일 일회용 암호 기능을 켜고 새 테넌트용 기능을 기본적으로 사용하도록 설정하는 변경 내용의 배포를 시작합니다. 이러한 변경의 일환으로 Microsoft는 B2B Collaboration 초대를 사용하는 동안에는 새로운, 관리되지 않는(“바이럴”) Azure AD 계정 및 테넌트 만들기를 중지합니다. 휴일 및 배포 잠금 동안 중단을 최소화하기 위해 대부분의 테넌트에는 2022년 1월에 롤아웃되는 변경 사항이 표시됩니다. 게스트 사용자에게 원활한 대체 인증 방법을 제공하므로 이메일 일회용 암호 기능을 사용하고 있습니다. 하지만, 이 기능을 원하지 않는다면 [사용하지 않도록 설정](one-time-passcode.md#disable-email-one-time-passcode)할 수 있습니다.
 
 - 상태 2: Microsoft 또는 다른 계정에 속하고 호스트 조직의 게스트 사용자로 표시됩니다. 이 경우 게스트 사용자는 Microsoft 계정 또는 소셜 계정(google.com 또는 유사한)으로 로그인합니다. 초대된 사용자의 ID는 제안 상환 도중 초대 조직의 디렉터리에서 Microsoft 계정으로 만들어집니다.
 

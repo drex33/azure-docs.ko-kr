@@ -13,12 +13,12 @@ ms.date: 04/21/2021
 ms.author: jmprieur
 ms.reviewer: marsma, shermanouko
 ms.custom: aaddev
-ms.openlocfilehash: 2c7d4fdbcd27b4b8d7097d7a6978f80f5eb7fca4
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 2b698f351198daeceddc6b254eb62ddb5f58a008
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033249"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988903"
 ---
 # <a name="build-services-that-are-resilient-to-azure-ads-openid-connect-metadata-refresh"></a>Azure AD의 OpenID Connect 메타데이터 새로 고침에 탄력적으로 대응하는 서비스 빌드
 
@@ -33,18 +33,18 @@ ms.locfileid: "123033249"
 Startup.cs의 `ConfigureServices` 메서드에서 `JwtBearerOptions.RefreshOnIssuerKeyNotFound`가 true로 설정되어 있고 최신 Microsoft.IdentityModel.* 라이브러리를 사용하고 있는지 확인합니다. 이 속성은 기본적으로 사용하도록 설정되어 있습니다.
 
 ```csharp
-  services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
-  {
+services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
+{
     …
     // shouldn’t be necessary as it’s true by default
     options.RefreshOnIssuerKeyNotFound = true;
     …
-   };
+};
 ```
 
 ## <a name="aspnet-owin"></a>ASP.NET/ OWIN
 
-ASP.NET에서 개발이 중지되었으므로 ASP.NET Core로 이동하는 것이 좋습니다. 
+ASP.NET에서 개발이 중지되었으므로 ASP.NET Core로 이동하는 것이 좋습니다.
 
 ASP.NET 클래식을 사용하는 경우 최신 [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel)을 사용합니다.
 
@@ -55,18 +55,20 @@ OWIN에는 `OpenIdConnectConfiguration`에 대한 자동 24시간 새로 고침 
 토큰의 유효성을 직접 검사하는 경우, 예를 들어 Azure 함수에서 최신 버전의 [Microsoft.IdentityModel.*](https://www.nuget.org/packages?q=Microsoft.IdentityModel)을 사용하고 아래 코드 조각에 나와 있는 메타데이터 지침을 따릅니다.
 
 ```csharp
-ConfigurationManager<OpenIdConnectConfiguration> configManager = 
-  new ConfigurationManager<OpenIdConnectConfiguration>("http://someaddress.com", 
-                                                       new OpenIdConnectConfigurationRetriever());
-OpenIdConnectConfiguration config = await configManager.GetConfigurationAsync().ConfigureAwait(false);
-TokenValidationParameters validationParameters = new TokenValidationParameters()
+var configManager =
+  new ConfigurationManager<OpenIdConnectConfiguration>(
+    "http://someaddress.com",
+    new OpenIdConnectConfigurationRetriever());
+
+var config = await configManager.GetConfigurationAsync().ConfigureAwait(false);
+var validationParameters = new TokenValidationParameters()
 {
   …
   IssuerSigningKeys = config.SigningKeys;
   …
 }
 
-JsonWebTokenHandler tokenHandler = new JsonWebTokenHandler();
+var tokenHandler = new JsonWebTokenHandler();
 result = Handler.ValidateToken(jwtToken, validationParameters);
 if (result.Exception != null && result.Exception is SecurityTokenSignatureKeyNotFoundException)
 {
@@ -78,6 +80,7 @@ if (result.Exception != null && result.Exception is SecurityTokenSignatureKeyNot
     IssuerSigningKeys = config.SigningKeys,
     …
   };
+
   // attempt to validate token again after refresh
   result = Handler.ValidateToken(jwtToken, validationParameters);
 }

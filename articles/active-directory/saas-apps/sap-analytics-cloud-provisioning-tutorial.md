@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: thwimmer
-ms.openlocfilehash: 84842b751c0e4351da13d26654147c9541af6973
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 18761305ced552ae8cade7aeb647836ab5666a3e
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643399"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989034"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 SAP Analytics Cloud 구성
 
@@ -43,6 +43,10 @@ ms.locfileid: "128643399"
 * SAP Analytics Cloud 테넌트
 * 관리자 권한이 있는 SAP Identity Provisioning 관리 콘솔의 사용자 계정. Identity Provisioning 관리 콘솔에서 프록시 시스템에 액세스할 수 있는지 확인합니다. **Proxy Systems(프록시 시스템)** 타일이 표시되지 않으면 이 타일에 대한 액세스를 요청하는 **BC-IAM-IPS** 구성 요소에 대한 인시던트를 만듭니다.
 * SAP Analytics Cloud의 권한 부여 클라이언트 자격 증명이 있는 OAuth 클라이언트 방법을 알아보려면 다음을 참조하세요. [OAuth 클라이언트 및 신뢰할 수 있는 ID 공급자 관리](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 

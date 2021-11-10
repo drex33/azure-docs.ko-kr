@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ff0e43570b9bf30b84538cfeca841a69d025b26b
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 77722b2c83eee2c4b48ccb3cd6098cacfc37088b
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090388"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988524"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 계정 제한
 
@@ -130,6 +130,7 @@ Azure AD에 로그인하는 모든 계정에는 해당 계정에 연결된 고�
 ### <a name="check-the-expiration-policy-for-a-password"></a>암호에 대한 만료 정책 확인
 
 1. PowerShell 프롬프트를 열고 ‘전역 관리자’ 또는 ‘사용자 관리자’ 계정을 사용하여 [Azure AD 테넌트에 연결](/powershell/module/azuread/connect-azuread#examples)합니다. 
+
 1. 개별 사용자 또는 모든 사용자에 대해 다음 명령 중 하나를 실행합니다.
 
    * 단일 사용자의 암호가 만료되지 않도록 설정되어 있는지 확인하려면 다음 cmdlet을 실행합니다. `<user ID>`를 확인하려는 사용자의 사용자 ID(예: *driley\@contoso.onmicrosoft.com*)로 바꿉니다.
@@ -147,6 +148,7 @@ Azure AD에 로그인하는 모든 계정에는 해당 계정에 연결된 고�
 ### <a name="set-a-password-to-expire"></a>암호가 만료되도록 설정
 
 1. PowerShell 프롬프트를 열고 ‘전역 관리자’ 또는 ‘사용자 관리자’ 계정을 사용하여 [Azure AD 테넌트에 연결](/powershell/module/azuread/connect-azuread#examples)합니다. 
+
 1. 개별 사용자 또는 모든 사용자에 대해 다음 명령 중 하나를 실행합니다.
 
    * 특정 사용자의 암호가 만료되도록 설정하려면 다음 cmdlet을 실행합니다. `<user ID>` 를 확인하려는 사용자의 사용자 ID(예: *driley\@ contoso.onmicrosoft.com*)로 바꿉니다.

@@ -4,7 +4,7 @@ description: Azure Active Directory의 프로비저닝 로그 개요입니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 4/25/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d110abaf9621b638d698bef08d579a5ab2c4285f
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 167ba276023191abd894081e8540a83b8b4b0bee
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362074"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997194"
 ---
 # <a name="provisioning-logs-in-azure-active-directory"></a>Azure Active Directory의 프로비저닝 로그
 

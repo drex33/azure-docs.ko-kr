@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 996a3f5f48685630a6946a5708c26cfecaf3b0a0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7a2d152e18f039b88957a0dab32f5d451642d6bd
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566293"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058717"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 애플리케이션 등록 권한
 
@@ -46,7 +46,7 @@ ms.locfileid: "122566293"
 
 #### <a name="microsoftdirectoryapplicationscreate"></a>microsoft.directory/applications/create
 
-이 권한을 할당하면 생성된 앱 등록의 첫 번째 소유자로 작성자가 추가되지 않으며 생성된 앱 등록이 작성자의 250개 생성된 개체 할당량에 대해 계산되지 않습니다. 디렉터리 수준 할당량에 도달할 때까지는 담당자가 앱 등록 생성을 막을 수 없으므로 이 권한을 신중하게 사용하세요. 두 권한이 모두 할당된 경우 이 권한이 우선적으로 적용됩니다.
+이 권한을 할당하면 생성된 앱 등록의 첫 번째 소유자로 작성자가 추가되지 않으며 생성된 앱 등록이 작성자의 250개 생성된 개체 할당량에 대해 계산되지 않습니다. 디렉터리 수준 할당량에 도달할 때까지는 담당자가 앱 등록 생성을 막을 수 없으므로 이 권한을 신중하게 사용하세요.
 
 두 권한이 모두 할당된 경우 /create 권한이 우선으로 적용됩니다. /createAsOwner 권한은 만든 이를 자동으로 첫 번째 소유자로 추가하지 않지만, Graph API 또는 PowerShell cmdlet을 사용하는 경우 앱 등록을 만드는 동안 소유자를 지정할 수 있습니다.
 

@@ -4,7 +4,7 @@ description: Azure AD에서 더 이상 사용되지 않는 사용자 계정을 �
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032a8fddb836146a5e902b168ab5aea9763bdc31
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: efc82f409c6d05ea6441747e718ec2ea3c1429a6
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112376609"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131994975"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>방법: Azure AD의 비활성 사용자 계정 관리
 
@@ -61,6 +61,9 @@ ms.locfileid: "112376609"
 ### <a name="how-can-i-access-this-property"></a>이 속성에 액세스하려면 어떻게 해야 하나요?
 
 **lastSignInDateTime** 속성은 [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph)의 [signInActivity 리소스 종류](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true)에 의해 노출됩니다.   
+
+> [!NOTE]
+> signInActivity Graph API 엔드포인트는 아직 미국 정부 GCC High 환경에서 지원되지 않습니다.
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>Get-AzureAdUser cmdlet을 통해 lastSignInDateTime 속성을 사용할 수 있나요?
 

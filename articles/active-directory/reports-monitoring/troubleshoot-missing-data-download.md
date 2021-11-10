@@ -4,7 +4,7 @@ description: 다운로드한 Azure Active Directory 활동 로그에서 누락�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5003d7b644a0c75401a17ed6a37f31acd8180aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9084d30ad8fe978defa7f336030535f7b4a97a1a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85608078"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995410"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>다운로드한 Azure Active Directory 활동 로그에서 데이터를 찾을 수 없습니다.
 
@@ -42,5 +42,5 @@ Azure Portal에서 활동 로그를 다운로드할 때 규모를 가장 최근 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Active Directory 보고서 FAQ](reports-faq.md)
+* [Azure Active Directory 보고서 FAQ](reports-faq.yml)
 

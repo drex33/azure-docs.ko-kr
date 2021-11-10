@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: thwimmer
-ms.openlocfilehash: 0cd0dcf0bece7c145bdfddbad7b069c7d7d43f19
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 7132a8c5a0ce951328aa3d1d21130ed9e968db7c
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113759498"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989834"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 SmartFile 구성
 
@@ -34,6 +34,10 @@ ms.locfileid: "113759498"
 * Azure AD 테넌트.
 * [SmartFile 테넌트](https://www.SmartFile.com/pricing/)
 * 관리자 권한이 있는 SmartFile의 사용자 계정
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 
 ## <a name="assigning-users-to-smartfile"></a>SmartFile에 사용자 할당
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: e87105a05cde1a32a89d3e4fd404ad222245dce0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 4f210077fd5a2cc4155b9123b33f4638e63c1ee4
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996516"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026863"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Azure Active Directory 확인 가능한 자격 증명 소개(미리 보기)
 
@@ -121,6 +121,6 @@ VC 작동 원리를 설명하는 데 사용하는 시나리오에는 다음이 �
 
 DID 및 확인 가능한 자격 증명에 대해 알아보았으면, 시작 문서 또는 확인 가능한 자격 증명 개념에 대한 자세한 내용을 제공하는 문서 중 하나를 참고하여 직접 시도해보십시오.
 
-- [확인 가능한 자격 증명 시작](get-started-verifiable-credentials.md)
+- [확인 가능한 자격 증명 시작](verifiable-credentials-configure-tenant.md)
 - [자격 증명을 사용자 지정하는 방법](credential-design.md)
 - [확인 가능한 자격 증명 FAQ](verifiable-credentials-faq.md)

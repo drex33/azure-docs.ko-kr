@@ -5,18 +5,18 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 11/09/2021
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 661801e8eb184e8368cb5156d7f7b7f71612f8f2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 665f914d19f0ab73c8ed6ab6af75ba485c1d35bf
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130040154"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053373"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>등록 사용자 흐름에 API 커넥터 추가
 
@@ -76,6 +76,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000"
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",
@@ -146,6 +147,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "lastName":"Smith",
  "step": "PostFederationSignup",
@@ -199,6 +201,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",

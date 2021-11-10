@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: thwimmer
-ms.openlocfilehash: f751b3b705cd1cacc5ef1398fb343de60b8ede6b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ec63b60f4bb3ded457b3851d899cdbb6a051895f
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596793"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990043"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>자습서: 자동으로 사용자를 프로비저닝하도록 SAP Cloud Platform Identity Authentication 구성
 
@@ -34,6 +34,9 @@ ms.locfileid: "128596793"
 * Azure AD 테넌트
 * [A SAP Cloud Platform Identity Authentication 테넌트](https://www.sap.com/products/cloud-platform.html)
 * 관리자 권한이 있는 SAP Cloud Platform Identity Authentication의 사용자 계정
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="assigning-users-to-sap-cloud-platform-identity-authentication"></a>SAP Cloud Platform Identity Authentication에 사용자 할당
 

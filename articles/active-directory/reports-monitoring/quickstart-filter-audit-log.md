@@ -8,15 +8,15 @@ ms.topic: quickstart
 ms.date: 06/11/2021
 ms.author: markvi
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c684db974dfd939287cd15d63079693b4cf1d668
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 51bc001c5f6984e855adb11b1bdb7c938d2d5783
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008173"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995505"
 ---
 # <a name="quickstart-filter-your-azure-ad-audit-log"></a>빠른 시작: Azure AD 감사 로그 필터링 
 

@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf38a949d15faa896f4ac673fc53814078a087e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7d9b2f8ae5d679bf6642cd4cc2872e53b1234f11
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130231766"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989169"
 ---
 # <a name="tutorial-manage-the-lifecycle-of-your-group-based-licenses-in-azure-ad"></a>자습서: Azure AD에서 그룹 기반 라이선스의 수명 주기 관리
  
@@ -99,11 +99,11 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
  
     이 시나리오에서는 모든 직원들이 매년 Office 라이선스가 여전히 필요한지 여부를 검토하도록 하려고 합니다.
 
-    1.  **액세스 검토 필요** 에서 **예** 를 선택합니다.
-    2.  **시작 날짜** 는 현재 날짜로 둘 수 있습니다. 이 날짜는 액세스 검토를 시작하는 날짜입니다. 액세스 검토를 만든 후에는 해당 시작 날짜를 업데이트할 수 없습니다.
-    3.  검토가 매년 발생할 것이므로 **검토 빈도** 를 **매년** 으로 설정합니다. **검토 빈도** 상자는 액세스 검토를 실행하는 빈도를 결정합니다.
-    4.  **기간(일)** 을 지정합니다.  기간 상자는 각 액세스 검토를 실행하는 일 수를 지정합니다.
-    5.  **검토자** 로 **관리자** 를 선택합니다.
+    1. **액세스 검토 필요** 에서 **예** 를 선택합니다.
+    2. **시작 날짜** 는 현재 날짜로 둘 수 있습니다. 이 날짜는 액세스 검토를 시작하는 날짜입니다. 액세스 검토를 만든 후에는 해당 시작 날짜를 업데이트할 수 없습니다.
+    3. 검토가 매년 발생할 것이므로 **검토 빈도** 를 **매년** 으로 설정합니다. **검토 빈도** 상자는 액세스 검토를 실행하는 빈도를 결정합니다.
+    4. **기간(일)** 을 지정합니다.  기간 상자는 각 액세스 검토를 실행하는 일 수를 지정합니다.
+    5. **검토자** 로 **관리자** 를 선택합니다.
 
 ## <a name="step-6-review-and-create-your-access-package"></a>6단계: 액세스 패키지 검토 및 만들기
 

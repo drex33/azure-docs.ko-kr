@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 72490b729a244763cf5a3fa65a1e62128a5b28b2
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 46de9d29d79ee72ff19bb6bf465518176bb72d05
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765289"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988738"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 4me 구성
 
@@ -34,6 +34,9 @@ ms.locfileid: "113765289"
 * Azure AD 테넌트
 * [4me 테넌트](https://www.4me.com/trial/)
 * 관리자 권한이 있는 4me의 사용자 계정
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="add-4me-from-the-gallery"></a>갤러리에서 4me 추가
 

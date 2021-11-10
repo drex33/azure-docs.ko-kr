@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: thwimmer
-ms.openlocfilehash: a2e42e274fb65c06744f838ba4a40b2dc6119d5d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 662d848d9de2f2d219d24bb401c3cb628d6cea06
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327792"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989473"
 ---
 # <a name="tutorial-configure-github-enterprise-managed-user-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub Enterprise Managed User 구성
 
@@ -46,6 +46,9 @@ ms.locfileid: "122327792"
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * Enterprise Managed User는 GitHub Enterprise를 사용하도록 설정하고 Azure AD 테넌트를 통해 SAML SSO로 로그인하도록 구성되었습니다.
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.

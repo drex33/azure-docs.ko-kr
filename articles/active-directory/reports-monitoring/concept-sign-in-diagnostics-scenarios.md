@@ -4,7 +4,7 @@ description: Azure AD의 로그인 진단에서 지원하는 시나리오를 나
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/08/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4301caa11079604a19b8679311daf1e082b35b1f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 2f530f406f049876ca393610dc7b7fa02433116a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993495"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997156"
 ---
 # <a name="sign-in-diagnostics-for-azure-ad-scenarios"></a>Azure AD의 로그인 진단 시나리오
 

@@ -4,7 +4,7 @@ description: Azure Active Directory 포털의 사용량 및 인사이트 보고�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54bce5e839786862a6dac9aeb685dd364547a09a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9c7011a142f521b33fa8faea830cde90e1ae70a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685034"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995809"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 사용량 및 인사이트 보고서
 
@@ -31,7 +31,7 @@ ms.locfileid: "98685034"
 *   로그인 실패가 가장 많은 애플리케이션은 무엇인가요? 
 *   각 애플리케이션에서 가장 일반적인 로그인 오류는 무엇인가요?
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>전제 조건 
 
 사용량 및 인사이트 보고서의 데이터에 액세스하려면 다음과 같은 사항이 필요합니다.
 

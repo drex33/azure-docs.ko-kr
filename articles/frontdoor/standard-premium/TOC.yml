@@ -4,6 +4,8 @@
   items:
     - name: Azure Front Door 표준/프리미엄(미리 보기)이란?
       href: overview.md
+    - name: 적절한 부하 분산 장치 선택
+      href: /architecture/guide/technology-choices/load-balancing-overview.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: 계층 비교
       href: tier-comparison.md
 - name: 빠른 시작
@@ -17,86 +19,130 @@
       href: ../front-door-quickstart-template-samples.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: 자습서
   items:
-    - name: WAF 정책 구성
-      href: ../../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: 규칙 엔진을 사용하여 보안 헤더 구성
+      href: ../front-door-security-headers.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: 개념
   items:
-    - name: Front Door FAQ
-      href: faq.md
-    - name: Endpoint Manager
+    - name: Front Door 관리자
       href: concept-endpoint-manager.md
-    - name: 원본
-      href: concept-origin.md
-    - name: 경로
-      href: concept-route.md
-    - name: 규칙 집합
-      items:
-        - name: 규칙 집합
-          href: concept-rule-set.md
-        - name: 일치 조건
-          href: concept-rule-set-match-conditions.md
-        - name: 동작
-          href: concept-rule-set-actions.md
-        - name: URL 리디렉션 및 URL 재작성
-          href: concept-rule-set-url-redirect-and-rewrite.md
-    - name: 지역 필터링
-      href: geo-filtering.md
-    - name: 상태 프로브
-      href: concept-health-probes.md
-    - name: Private Link
-      href: concept-private-link.md
     - name: 캐싱
       href: concept-caching.md
-    - name: DDoS
-      href: concept-ddos.md
+    - name: 라우팅
+      items:
+        - name: 라우팅 아키텍처
+          href: ../front-door-routing-architecture.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+        - name: 경로 매칭
+          href: concept-route.md
+    - name: 원본
+      href: concept-origin.md
+    - name: 상태 프로브
+      href: ../front-door-health-probes.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: 와일드 카드 도메인
+      href: ../front-door-wildcard-domain.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: 규칙 집합
+      items:
+        - name: 규칙 엔진 아키텍처
+          href: concept-rule-set.md
+        - name: 규칙 일치 조건
+          href: concept-rule-set-match-conditions.md
+        - name: 규칙 동작
+          href: concept-rule-set-actions.md
+    - name: URL 리디렉션 및 URL 재작성
+      href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: /security/benchmark/azure/baselines/front-door-security-baseline?toc=/azure/frontdoor/standard-premium/TOC.json
+        - name: DDoS
+          href: ../front-door-ddos.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+        - name: 엔드투엔드 TLS 암호화
+          href: ../concept-end-to-end-tls.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+        - name: Private Link
+          href: concept-private-link.md
+        - name: 웹 애플리케이션 방화벽
+          items:
+            - name: 튜닝
+              href: ../../web-application-firewall/afds/waf-front-door-tuning.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: 관리 규칙
+              href: ../../web-application-firewall/afds/waf-front-door-drs.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: 사용자 지정 규칙
+              href: ../../web-application-firewall/afds/waf-front-door-custom-rules.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: 제외 목록
+              href: ../../web-application-firewall/afds/waf-front-door-exclusion.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: 정책 설정
+              href: ../../web-application-firewall/afds/waf-front-door-policy-settings.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: 지역 필터링
+              href: ../front-door-geo-filtering.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: 프로토콜
+      items:
+        - name: HTTP/2
+          href: ../front-door-http2.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: FAQ
+      href: faq.md
 - name: 방법 가이드
   items:
-    - name: Endpoint Manager 구성
-      href: how-to-configure-endpoint-manager.md
-    - name: 원본 그룹 구성
-      href: how-to-create-origin.md
-    - name: 사용자 지정 도메인 추가
-      href: how-to-add-custom-domain.md
-    - name: 사용자 지정 도메인에 HTTPS 사용
-      href: how-to-configure-https-custom-domain.md
-    - name: 경로 연결
-      href: how-to-configure-route.md
-    - name: 규칙 집합 구성
-      href: how-to-configure-rule-set.md
-    - name: 규칙 집합을 사용하여 보안 헤더 구성
-      href: how-to-add-security-headers.md
-    - name: 캐시 제거
-      href: how-to-cache-purge.md
-    - name: 압축
-      href: how-to-compression.md
-    - name: Private Link 사용
+    - name: 구성
       items:
-        - name: 내부 부하 분산 장치에 연결
-          href: how-to-enable-private-link-internal-load-balancer.md
-        - name: 스토리지 계정에 연결
-          href: how-to-enable-private-link-storage-account.md
-        - name: 웹앱에 연결
-          href: how-to-enable-private-link-web-app.md
-    - name: 로깅
-      href: how-to-logs.md
-    - name: 모니터링 및 경고
-      href: how-to-monitor-metrics.md
-    - name: 보고서
-      href: how-to-reports.md
+        - name: Front Door 관리자 구성
+          href: how-to-configure-endpoint-manager.md
+        - name: 사용자 지정 도메인 추가
+          href: how-to-add-custom-domain.md
+        - name: 사용자 지정 도메인에 HTTPS 구성
+          href: how-to-configure-https-custom-domain.md
+        - name: 원본 그룹 구성
+          href: how-to-create-origin.md
+        - name: 경로 구성
+          href: how-to-configure-route.md
+        - name: 규칙 엔진 구성
+          href: how-to-configure-rule-set.md
+        - name: 캐시 제거
+          href: how-to-cache-purge.md
+        - name: 원본 간 리소스 공유 구성
+          href: troubleshoot-cross-origin-resources.md
+        - name: 압축 구성
+          href: how-to-compression.md
+    - name: 보안
+      items:
+        - name: 웹 애플리케이션 방화벽 구성
+          items:
+            - name: 보안 정책 구성
+              href: ../../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: 지역 필터링 구성
+              href: ../front-door-tutorial-geo-filtering.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: 속도 제한 구성
+              href: ../../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+            - name: IP 제한 구성
+              href: ../../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+        - name: 원본 보안을 위한 Private Link 사용
+          items:
+            - name: 내부 부하 분산 장치에 연결
+              href: how-to-enable-private-link-internal-load-balancer.md
+            - name: 스토리지 계정에 연결
+              href: how-to-enable-private-link-storage-account.md
+            - name: 웹앱에 연결
+              href: how-to-enable-private-link-web-app.md
+    - name: 모니터 및 보고서
+      items:
+        - name: 진단 로그 구성
+          href: how-to-logs.md
+        - name: 모니터링 및 경고 설정
+          href: how-to-monitor-metrics.md
+        - name: Front Door 보고서 보기
+          href: how-to-reports.md
     - name: 문제 해결
       items:
-        - name: 라우팅 이슈
+        - name: 라우팅 문제
           href: troubleshoot-route-issues.md
-        - name: 압축
-          href: troubleshoot-compression.md
-        - name: 원본 간 리소스 공유
-          href: troubleshoot-cross-origin-resources.md
-        - name: 구독 제품 및 대역폭 제한
-          href: subscription-offers.md
         - name: 허용된 인증 기관
           href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
+        - name: 파일 압축
+          href: troubleshoot-compression.md
+        - name: 구독 제품 및 대역폭 제한
+          href: subscription-offers.md
 - name: 참조
   items:
+    - name: HTTP 헤더 프로토콜 지원
+      href: ../front-door-http-headers-protocol.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Azure Front Door 가장자리 위치
       items:
         - name: 지역별 가장자리 위치

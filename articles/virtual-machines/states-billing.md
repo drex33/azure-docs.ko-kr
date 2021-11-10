@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 38c43b168e4524529139dcb5c0807d8563e484eb
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 7458a35b6227ca620f08a02aaadc5b95e8528141
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132025820"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134351"
 ---
 # <a name="states-and-billing-status-of-azure-virtual-machines"></a>Azure Virtual Machines의 상태 및 청구 상태
 
@@ -93,7 +93,7 @@ OS 프로 비전 상태는 [일반화](./linux/imaging.md#generalized-images) �
 
 ## <a name="troubleshooting-vm-states"></a>VM 상태 문제 해결
 
-특정 vm 상태 문제를 해결 하려면 [vm 배포 Windows 문제 해결](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) 및 [Linux vm 배포 문제](https://docs.microsoft.comtroubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux)해결을 참조 하세요.
+특정 vm 상태 문제를 해결 하려면 [vm 배포 Windows 문제 해결](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) 및 [Linux vm 배포 문제](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux)해결을 참조 하세요.
 
 다른 문제 해결에 대 한 도움말은 [Azure Virtual Machines 문제 해결 설명서](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)를 참조 하세요.
 

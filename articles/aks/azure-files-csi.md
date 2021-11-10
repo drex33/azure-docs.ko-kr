@@ -3,14 +3,14 @@ title: AKS(Azure Kubernetes Service)에서 Azure Files용 CSI(Container Storage 
 description: AKS(Azure Kubernetes Service) 클러스터에서 Azure Files용 CSI(Container Storage Interface) 드라이버를 사용하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/09/2021
 author: palma21
-ms.openlocfilehash: c60b2301e6f0ea2767128224c4e76a677df69e0d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f1a0abb0a89ba9e2c913b29ccc17b591c7fa0d39
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567136"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137280"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files CSI(Container Storage Interface) 드라이버 사용
 
@@ -258,7 +258,10 @@ kubectl apply -f private-pvc.yaml
 
 [Azure Files는 NFS v4.1 프로토콜을 지원](../storage/files/storage-files-how-to-create-nfs-shares.md)합니다. Azure Files에 대한 NFS 4.1 지원은 완벽하게 관리되는 NFS 파일 시스템을 사용 가능하고 내구성이 뛰어난 배포 복원력 스토리지 플랫폼에 구축된 서비스로 제공합니다.
 
- 이 옵션은 내부 데이터 업데이트를 사용하는 임의 액세스 워크로드에 최적화되며 전체 POSIX 파일 시스템 지원을 제공합니다. 이 섹션에서는 AKS 클러스터에서 Azure 파일 CSI 드라이버를 사용하여 NFS 공유를 사용하는 방법을 보여 줍니다.
+이 옵션은 내부 데이터 업데이트를 사용하는 임의 액세스 워크로드에 최적화되며 전체 POSIX 파일 시스템 지원을 제공합니다. 이 섹션에서는 AKS 클러스터에서 Azure 파일 CSI 드라이버를 사용하여 NFS 공유를 사용하는 방법을 보여 줍니다.
+
+> [!NOTE]
+> 클러스터 `Control plane` ID(이름 `AKS Cluster Name` )에 vnet 리소스 그룹에 대한 권한이 있는지 확인합니다. `Contributor`
 
 ### <a name="create-nfs-file-share-storage-class"></a>NFS 파일 공유 스토리지 클래스 만들기
 

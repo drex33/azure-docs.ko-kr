@@ -484,6 +484,8 @@ items:
                 href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context
               - name: 워크로드 모니터링 - 포털
                 href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?context=/azure/synapse-analytics/context/context
+              - name: 쿼리 기록 및 분석
+                href: ./sql/query-history-storage-analysis.md
               - name: 워크로드 관리
                 items:
                   - name: 워크로드 분석
@@ -1053,7 +1055,7 @@ items:
                 href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: QuickBooks Online
                 href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: REST
+              - name: REST (영문)
                 href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Salesforce
                 href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics

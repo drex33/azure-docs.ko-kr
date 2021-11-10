@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: pafarley
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f866db833381b8dc6c75538265eefdc057445b3a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 31e712daa27a6fba0bdb834f57e6d6573cfba325
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131057897"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137315"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 설치 및 실행(미리 보기)
 
@@ -433,7 +433,7 @@ sudo az group create --name "<resource-group-name>" --location "<your-region>"
 ```
 사용 가능한 지역은 [지역 지원](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)을 참조하세요.
 ```bash
-sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+sudo az iot hub create --name "<iothub-name>" --sku S1 --resource-group "<resource-group-name>"
 ```
 ```bash
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled

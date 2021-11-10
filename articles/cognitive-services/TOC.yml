@@ -20,6 +20,8 @@
     - name: ARM 템플릿을 사용하여 새 리소스 만들기
       displayName: Resource Manager
       href: create-account-resource-manager-template.md
+    - name: 약정 계층 가격 책정을 사용하여 새 리소스 만들기
+      href: commitment-tier.md
 - name: 사용 방법
   items:
     - name: 비용 계획 및 관리

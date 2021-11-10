@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: bf81d49bbbfaae2b96dfb712ae69568695ba6f23
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 729c988bcf64cab30cf7644c85a5749ff9c592b7
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687518"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137010"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>사용자 지정 데이터와 Azure Virtual Machines에서의 Cloud-Int
 
@@ -84,7 +84,7 @@ Linux OS에서 사용자 지정 데이터는 ovf-env.xml 파일을 통해 VM에 
 
 ## <a name="faq"></a>FAQ
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>VM이 생성된 후 사용자 지정 데이터를 업데이트할 수 있나요?
-단일 VM의 경우, VM 모델의 사용자 지정 데이터는 업데이트할 수 없지만 VMSS에서는 [REST API](/rest/api/compute/virtualmachinescalesets/update)를 통해 VMSS 사용자 지정 데이터를 업데이트할 수 있습니다(PS 또는 AZ CLI 클라이언트에는 적용되지 않음). VMSS 모델에서 사용자 지정 데이터 업데이트:
+단일 Vm의 경우 VM 모델의 사용자 지정 데이터는 업데이트할 수 없지만 VMSS의 경우 [REST API](/rest/api/compute/virtualmachinescalesets/update), [Az CLI](/cli/azure/vmss?view=azure-cli-latest#az_vmss_update)또는 [AZ PowerShell](/powershell/module/az.compute/update-azvmss?view=azps-6.6.0)을 통해 vmss 사용자 지정 데이터를 업데이트할 수 있습니다. VMSS 모델에서 사용자 지정 데이터 업데이트:
 * VMSS의 기존 인스턴스는 새로 이미지를 생성하지 않는 한 업데이트된 사용자 지정 데이터를 가져오지 않습니다.
 * 업그레이드된 VMSS의 기존 인스턴스는 업데이트된 사용자 지정 데이터를 가져오지 않습니다.
 * 새 인스턴스는 새 사용자 지정 데이터를 받게 됩니다.

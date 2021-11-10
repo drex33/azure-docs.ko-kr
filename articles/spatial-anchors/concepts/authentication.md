@@ -9,12 +9,12 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp, subject-rbac-steps
-ms.openlocfilehash: ef49c6ebd356c97466b9b5a744cc58584c42bcb7
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
-ms.translationtype: HT
+ms.openlocfilehash: 7006cbf78e7a1a122837e7e2f294b161c230ee29
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113126035"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137072"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
@@ -112,7 +112,7 @@ Azure Active Directory 사용자를 대상으로 하는 애플리케이션의 �
         1.    애플리케이션에서 **내 조직만** 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. 예: contoso.microsoft.com
         2.    애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 **조직** 으로 바꿉니다.
         3.    애플리케이션이 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 **공용** 으로 바꿉니다.
-3.    토큰 요청에서 **범위** 를 **"`https://sts.<account-domain>//.default`"** 로 설정합니다. 여기서 `<account-domain>`은 Azure Spatial Anchors 계정에 대한 **계정 도메인** 으로 대체됩니다. 미국 동부 2 계정 도메인의 Azure Spatial Anchors 계정에 대한 범위 예는 **"`https://sts.mixedreality.azure.com//.default`"** 입니다. 이 범위는 애플리케이션이 Mixed Reality STS(보안 토큰 서비스)에 대한 토큰을 요청하고 있음을 Azure AD에 나타냅니다.
+3.    토큰 요청에서 **범위를** 로 **`https://sts.mixedreality.azure.com//.default`** 설정합니다. 이 범위는 애플리케이션이 Mixed Reality STS(보안 토큰 서비스)에 대한 토큰을 요청하고 있음을 Azure AD에 나타냅니다.
 
 이러한 단계를 완료한 후 애플리케이션은 MSAL에서 Azure AD 토큰을 얻을 수 있습니다. 다음과 같이 클라우드 세션 구성 개체에서 Azure AD 토큰을 `authenticationToken`으로 설정할 수 있습니다.
 
@@ -181,7 +181,7 @@ Azure AD 액세스 토큰은 [MSAL](../../active-directory/develop/msal-overview
 
 1.    고유의 Azure AD 애플리케이션의 애플리케이션 ID, 애플리케이션 비밀 및 리디렉션 URI를 MSAL의 **클라이언트 ID**, **비밀** 및 **RedirectUri** 매개 변수로 사용해야 합니다.
 2.    MSAL의 **authority** 매개 변수에서 테넌트 ID를 고유의 Azure AD 테넌트 ID로 설정합니다.
-3.    토큰 요청에서 **범위** 를 **"`https://sts.<account-domain>//.default`"** 로 설정합니다. 여기서 `<account-domain>`은 Azure Spatial Anchors 계정에 대한 **계정 도메인** 으로 대체됩니다. 미국 동부 2 계정 도메인의 Azure Spatial Anchors 계정에 대한 범위 예는 **"`https://sts.mixedreality.azure.com//.default`"** 입니다.
+3.    토큰 요청에서 **범위** 를로 설정 **`https://sts.mixedreality.azure.com//.default`** 합니다.
 
 이러한 단계를 완료한 후 백 엔드 서비스에서 Azure AD 토큰을 검색할 수 있습니다. 그런 다음 클라이언트로 다시 반환할 MR 토큰으로 교환할 수 있습니다. Azure AD 토큰을 사용한 MR 토큰 검색은 REST 호출을 통해 수행됩니다. 샘플 호출은 다음과 같습니다.
 

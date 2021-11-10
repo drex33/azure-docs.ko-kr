@@ -5,12 +5,12 @@ ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 8404078943f9398df6604c78413bc3750f13d655
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 0555bf71402230cf8264a271ce3ac6cf59357c12
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729086"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134042"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
@@ -22,6 +22,19 @@ ms.locfileid: "129729086"
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">지원 옵션</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">지원되는 버전</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">코드 샘플</a>
+
+
+## <a name="service-fabric-82"></a>Service Fabric 8.2
+
+Service Fabric 런타임의 8.2 릴리스가 도구 및 SDK 업데이트와 함께 다양한 Azure 지역에 롤아웃되기 시작했습니다. .NET SDK, Java SDK 및 Service Fabric 런타임의 업데이트는 웹 플랫폼 설치 관리자, NuGet 패키지 및 Maven 리포지토리를 통해 제공됩니다.
+
+### <a name="key-announcements"></a>주요 알림
+- 업그레이드가 영향을 미치는지 확인하기 위해 클러스터 관리자에서 API 노출
+
+### <a name="service-fabric-82-releases"></a>Service Fabric 8.2 릴리스
+| 릴리스 날짜 | 해제 | 추가 정보 |
+|---|---|---|
+| 2021년 10월 29일 | [Azure Service Fabric 8.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-2-release/ba-p/2895108)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82.md)|
 
 
 ## <a name="service-fabric-81"></a>Service Fabric 8.1
@@ -40,9 +53,9 @@ Service Fabric 런타임의 8.1 릴리스가 도구 및 SDK 업데이트와 함�
 | 릴리스 날짜 | 해제 | 추가 정보 |
 |---|---|---|
 | 2021년 7월 28일 | [Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-release/ba-p/2594194)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81.md)|
-| 2021년 8월 13일 | [Azure Service Fabric 8.1 최초 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-first-refresh-release/ba-p/2638798) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU1.md) |
-| 2021 년 9 월 9 일 | [Azure Service Fabric 8.1 초 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-second-refresh-release/ba-p/2734904) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU2.md) |
-| 10 월 06 2021 | [Azure Service Fabric 8.1 세 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-third-refresh-release/ba-p/2816117) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU3.md) |
+| 2021년 8월 13일 | [Azure Service Fabric 8.1 첫 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-first-refresh-release/ba-p/2638798) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU1.md) |
+| 2021년 9월 9일 | [Azure Service Fabric 8.1 두 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-second-refresh-release/ba-p/2734904) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU2.md) |
+| 2021년 10월 6일 | [Azure Service Fabric 8.1 세 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-third-refresh-release/ba-p/2816117) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU3.md) |
 
 
 ## <a name="service-fabric-80"></a>Service Fabric 8.0

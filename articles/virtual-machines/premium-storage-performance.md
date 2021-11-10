@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5c6530f138167cbd21ed1b40dee3b056ceb8c638
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0e0f99f4400b07791f65e8525894278ae9f9b9f5
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803852"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133538"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -208,7 +208,7 @@ IO 크기를 변경할 수 있는 애플리케이션을 사용하는 경우 다�
 | Standard_DS14 |16 |112GB |OS = 1023GB <br> 로컬 SSD = 224GB |32 |576GB |50,000 IOPS <br> 초당 512MB |4,000 IOPS 및 초당 33MB |
 | Standard_GS5 |32 |448GB |OS = 1023GB <br> 로컬 SSD = 896GB |64 |4224GB |80,000 IOPS <br> 초당 2,000MB |5,000 IOPS 및 초당 50MB |
 
-사용 가능한 모든 Azure VM 크기의 전체 목록을 보려면 [Azure의 가상 머신 크기](sizes.md)를 참조하세요. 또는 원하는 애플리케이션 성능 요구 사항에 충족하고 확장할 수 있는 VM 크기를 선택합니다. 이 외에도 VM 크기를 선택할 때 다음 중요한 고려 사항을 고려합니다.
+사용 가능한 모든 Azure VM 크기의 전체 목록을 보려면 [azure의 가상 머신 크기](sizes.md)를 참조 하세요. 원하는 애플리케이션 성능 요구 사항에 충족하고 확장할 수 있는 VM 크기를 선택합니다. 이 외에도 VM 크기를 선택할 때 다음 중요한 고려 사항을 고려합니다.
 
 *규모 제한*  
 VM당 및 디스크당 최대 IOPS 제한은 서로 다르고 독립적입니다. 애플리케이션이 연결된 프리미엄 디스크 뿐만 아니라 VM의 제한 내에서 IOPS를 구동하는지 확인합니다. 그렇지 않은 경우 애플리케이션 성능에 제한이 발생합니다.
@@ -311,7 +311,7 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 
 * **reiserFS** 의 경우 장애물을 사용하지 않도록 설정하려면 barrier=none mount 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 barrier=flush를 사용합니다.
 * **ext3/ext4** 의 경우 장애물을 사용하지 않도록 설정하려면 barrier=0 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 장애물 = 1을 사용합니다.
-* **XFS** 의 경우 장애물을 사용하지 않도록 설정하려면 nobarrier mount 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 barrier를 사용합니다. 주요 Linux 커널의 4.10 버전을 사용 하는 경우 XFS 파일 시스템 디자인은 항상 내구성을 보장 합니다. 장애물을 사용 하지 않도록 설정 해도 아무런 영향을 주지 않으며 "nobarrier" 옵션은 사용 되지 않습니다. 그러나 일부 Linux 배포판에서 이전 커널 버전을 사용 하는 배포 릴리스에 대 한 변경 내용을 포팅 했을 수 있습니다. 배포 공급 업체에 문의 하 여 실행 중인 배포 및 버전의 상태를 확인 하십시오.
+* **XFS** 의 경우 장애물을 사용하지 않도록 설정하려면 nobarrier mount 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 barrier를 사용합니다. 기본 Linux 커널 버전 4.10을 현재 XFS 파일 시스템의 디자인은 항상 내구성을 보장합니다. 장벽을 비활성화해도 아무런 효과가 없으며 "nobarrier" 옵션은 더 이상 사용되지 않습니다. 그러나 일부 Linux 배포판은 이전 커널 버전을 사용하여 배포 릴리스의 변경 내용을 백포칭했을 수 있습니다. 배포 공급업체에 문의하여 실행 중인 배포 및 버전의 상태를 확인합니다.
 
 ## <a name="disk-striping"></a>디스크 스트라이프
 

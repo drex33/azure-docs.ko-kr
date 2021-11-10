@@ -3,23 +3,25 @@ title: 주문형 디스크 버스팅 사용
 description: 관리 디스크에서 주문형 디스크 버스팅을 사용하도록 설정합니다.
 author: roygara
 ms.author: rogarana
-ms.date: 11/03/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f02bab9dc9a2561aeb605d91388151f41fb9a243
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 27a832f7f02fd10cde7f3c9f603f38d0d5e466b6
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501498"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136188"
 ---
 # <a name="enable-on-demand-bursting"></a>주문형 버스트 사용
 
 프리미엄 SSD(반도체 드라이브)에는 크레딧 기반 버스팅과 주문형 버스팅이라는 사용 가능한 두 가지 버스팅 모델이 있습니다. 이 문서에서는 주문형 버스팅으로 전환하는 방법을 설명합니다. 주문형 모델을 사용하는 디스크는 원래 프로비전된 대상을 벗어나 버스트할 수 있습니다. 주문형 버스팅은 최대 버스트 대상까지 워크로드에 필요한 만큼 자주 발생합니다. 주문형 버스팅에는 추가 요금이 발생합니다.
 
-디스크 버스팅에 대한 자세한 내용은 [관리 디스크 버스팅](disk-bursting.md)을 참조하세요.
+디스크 버스팅에 대한 자세한 내용은 [관리 디스크 버스팅](disk-bursting.md)을 참조하세요. 
+
+지원 되는 각 디스크의 최대 버스트 목표는 [VM 디스크의 확장성 및 성능 목표](disks-scalability-targets.md#premium-ssd-managed-disks-per-disk-limits)를 참조 하세요.
 
 > [!IMPORTANT]
 > 크레딧 기반 버스팅을 사용하기 위해 이 문서의 단계를 따를 필요가 없습니다. 기본적으로 크레딧 기반 버스팅은 모든 적격 디스크에서 활성화됩니다.

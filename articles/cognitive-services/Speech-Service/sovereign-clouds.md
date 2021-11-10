@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/24/2021
+ms.date: 11/09/2021
 ms.author: alexeyo
-ms.openlocfilehash: 2ebd9d6946996535f68b52f0093c2b3199c2e256
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: ae288de8ae05efc22534cfaf87c42261a5e6d59a
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509512"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135804"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>소버린 클라우드의 Speech Service
 
@@ -68,12 +68,33 @@ Azure Government의 Speech Services REST API 엔드포인트 형식은 다음과
 
 #### <a name="speech-sdk"></a>Speech SDK
 
-소버린 클라우드의 Speech SDK의 경우 `SpeechConfig` 클래스의 "호스트에서" 인스턴스화 또는 `--host`Speech CLI[의 ](spx-overview.md) 옵션을 사용해야 합니다. ("엔드포인트에서" 인스턴스화 및 `--endpoint` Speech CLI 옵션을 사용할 수도 있습니다.)
+소 버린 클라우드의 [SPEECH SDK](speech-sdk.md) 의 경우 `SpeechConfig` , `--host` [speech CLI](spx-overview.md)의 클래스 또는 옵션의 "호스트/호스트 포함" 인스턴스화를 사용 해야 합니다. ("끝점에서 시작/끝점" 인스턴스화 `--endpoint` 를 사용할 수도 있습니다. Speech CLI 옵션).
 
 `SpeechConfig` 클래스는 다음과 같이 인스턴스화되어야 합니다.
+
+# <a name="c"></a>[C#](#tab/c-sharp)
 ```csharp
 var config = SpeechConfig.FromHost(usGovHost, subscriptionKey);
 ```
+# <a name="c"></a>[C++](#tab/cpp)
+```cpp
+auto config = SpeechConfig::FromHost(usGovHost, subscriptionKey);
+```
+# <a name="java"></a>[Java](#tab/java)
+```java
+SpeechConfig config = SpeechConfig.fromHost(usGovHost, subscriptionKey);
+```
+# <a name="python"></a>[Python](#tab/python)
+```python
+import azure.cognitiveservices.speech as speechsdk
+speech_config = speechsdk.SpeechConfig(host=usGovHost, subscription=subscriptionKey)
+```
+# <a name="objective-c"></a>[Objective-C](#tab/objective-c)
+```objectivec
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:usGovHost subscription:subscriptionKey];
+```
+***
+
 Speech CLI는 다음과 같이 사용해야 합니다(`--host` 옵션 참고).
 ```dos
 spx recognize --host "usGovHost" --file myaudio.wav
@@ -139,12 +160,33 @@ Azure 중국의 Speech Services REST API 엔드포인트 형식은 다음과 같
 
 #### <a name="speech-sdk"></a>Speech SDK
 
-소버린 클라우드의 Speech SDK의 경우 `SpeechConfig` 클래스의 "호스트에서" 인스턴스화 또는 `--host`Speech CLI[의 ](spx-overview.md) 옵션을 사용해야 합니다. ("엔드포인트에서" 인스턴스화 및 `--endpoint` Speech CLI 옵션을 사용할 수도 있습니다.)
+소 버린 클라우드의 [SPEECH SDK](speech-sdk.md) 의 경우 `SpeechConfig` , `--host` [speech CLI](spx-overview.md)의 클래스 또는 옵션의 "호스트/호스트 포함" 인스턴스화를 사용 해야 합니다. ("끝점에서 시작/끝점" 인스턴스화 `--endpoint` 를 사용할 수도 있습니다. Speech CLI 옵션).
 
 `SpeechConfig` 클래스는 다음과 같이 인스턴스화되어야 합니다.
+
+# <a name="c"></a>[C#](#tab/c-sharp)
 ```csharp
 var config = SpeechConfig.FromHost(azCnHost, subscriptionKey);
 ```
+# <a name="c"></a>[C++](#tab/cpp)
+```cpp
+auto config = SpeechConfig::FromHost(azCnHost, subscriptionKey);
+```
+# <a name="java"></a>[Java](#tab/java)
+```java
+SpeechConfig config = SpeechConfig.fromHost(azCnHost, subscriptionKey);
+```
+# <a name="python"></a>[Python](#tab/python)
+```python
+import azure.cognitiveservices.speech as speechsdk
+speech_config = speechsdk.SpeechConfig(host=azCnHost, subscription=subscriptionKey)
+```
+# <a name="objective-c"></a>[Objective-C](#tab/objective-c)
+```objectivec
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:azCnHost subscription:subscriptionKey];
+```
+***
+
 Speech CLI는 다음과 같이 사용해야 합니다(`--host` 옵션 참고).
 ```dos
 spx recognize --host "azCnHost" --file myaudio.wav

@@ -1,7 +1,7 @@
 ---
-title: 온라인 끝점 배포 (미리 보기) 문제 해결
+title: 온라인 엔드포인트 배포 문제 해결(미리 보기)
 titleSuffix: Azure Machine Learning
-description: 온라인 끝점을 사용 하 여 몇 가지 일반적인 배포 및 점수 매기기 오류를 해결 하는 방법에 대해 알아봅니다.
+description: 온라인 엔드포인트를 사용하여 몇 가지 일반적인 배포 및 점수 매기기 오류를 해결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -11,16 +11,16 @@ ms.reviewer: laobri
 ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 06c8c9c128528b3e50c49e9c29a0849c9640d7eb
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 02f65a5c07536afb1fb20c3f85c444f2376c9b34
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560685"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137574"
 ---
-# <a name="troubleshooting-online-endpoints-deployment-and-scoring-preview"></a>온라인 끝점 배포 및 점수 매기기 (미리 보기) 문제 해결
+# <a name="troubleshooting-online-endpoints-deployment-and-scoring-preview"></a>온라인 엔드포인트 배포 및 점수 매기기 문제 해결(미리 보기)
 
-Azure Machine Learning 온라인 끝점 (미리 보기)의 배포 및 점수 매기기에서 일반적인 문제를 해결 하는 방법에 대해 알아봅니다.
+Azure Machine Learning 온라인 엔드포인트(미리 보기)의 배포 및 점수 매기기에서 일반적인 문제를 해결하는 방법을 알아봅니다.
 
 이 문서는 문제 해결에 접근하는 방식으로 구성됩니다.
 
@@ -43,7 +43,7 @@ Azure Machine Learning 온라인 끝점 (미리 보기)의 배포 및 점수 매
 로컬 배포는 로컬 Docker 환경에 모델을 배포합니다. 로컬 배포는 클라우드에 배포하기 전에 테스트 및 디버그하는 데 유용합니다.
 
 > [!TIP]
-> Visual Studio Code를 사용 하 여 끝점을 로컬로 테스트 하 고 디버그할 수 있습니다. 자세한 내용은 [Visual Studio Code에서 로컬로 온라인 끝점 디버그](how-to-debug-managed-online-endpoints-visual-studio-code.md)를 참조 하세요.
+> Visual Studio Code 사용하여 엔드포인트를 로컬로 테스트하고 디버그합니다. 자세한 내용은 [Visual Studio Code 로컬로 온라인 엔드포인트 디버그를](how-to-debug-managed-online-endpoints-visual-studio-code.md)참조하세요.
 
 로컬 배포는 로컬 엔드포인트의 생성, 업데이트 및 삭제를 지원합니다. 또한 엔드포인트에서 로그를 호출하고 얻을 수 있습니다. 로컬 배포를 사용하려면 `--local`을 적절한 CLI 명령에 추가합니다.
 
@@ -96,86 +96,47 @@ az ml online-deployment get-logs -h
 
 다음은 배포 작업 상태의 일부로 보고되는 일반적인 배포 오류 목록입니다.
 
-### <a name="err_1100-not-enough-quota"></a>ERR_1100: 할당량 부족
+* [OutOfQuota](#error-outofquota)
+* [OutOfCapacity](#error-outofcapacity)
+* [BadArgument](#error-badargument)
+* [ResourceNotReady](#error-resourcenotready)
+* [ResourceNotFound](#error-resourcenotfound)
+* [OperationCancelled](#error-operationcancelled)
+* [InternalServerError](#error-internalservererror)
+
+### <a name="error-outofquota"></a>오류: OutOfQuota
+
+다음은 Azure 서비스를 사용할 때 할당량이 부족할 수 있는 일반적인 리소스 목록입니다.
+
+* [CPU](#cpu-quota)
+* [역할 할당](#role-assignment-quota)
+* [엔드포인트](#endpoint-quota)
+* [Kubernetes](#kubernetes-quota)
+* [기타](#other-quota)
+
+#### <a name="cpu-quota"></a>CPU 할당량
 
 모델을 배포하기 전에 충분한 컴퓨팅 할당량이 있어야 합니다. 이 할당량은 구독, 작업 영역, SKU 및 지역별로 사용할 수 있는 가상 코어의 양을 정의합니다. 각 배포는 사용 가능한 할당량에서 차감하고 SKU 유형에 따라 삭제 후 다시 추가합니다.
 
-이를 완화할 수 있는 한 가지 방법은 사용되지 않은 배포를 삭제할 수 있는지 확인하는 것입니다. 또는 [할당량 증가 요청](./how-to-manage-quotas.md)을 제출할 수 있습니다.
+이를 완화할 수 있는 한 가지 방법은 사용되지 않은 배포를 삭제할 수 있는지 확인하는 것입니다. 또는 [할당량 증가 요청](how-to-manage-quotas.md#request-quota-increases)을 제출할 수 있습니다.
 
-### <a name="err_1101-out-of-capacity"></a>ERR_1101: 용량 부족
+#### <a name="role-assignment-quota"></a>역할 할당 할당량
 
-Azure Machine Learning 용량 부족으로 인해 지정된 VM 크기를 프로비저닝하지 못했습니다. 나중에 다시 시도하거나 다른 지역에 배포해 보세요.
+이 구독에서 사용되지 않는 역할 할당을 삭제해 보세요. Access Control 메뉴의 Azure Portal 모든 역할 할당을 확인할 수 있습니다.
 
-### <a name="err_1102-no-more-role-assignments"></a>ERR_1102: 역할 할당이 더 이상 없습니다.
+#### <a name="endpoint-quota"></a>엔드포인트 할당량
 
-이 구독에서 사용 되지 않는 역할 할당을 삭제 합니다. Access Control 메뉴에서 Azure Portal의 모든 역할 할당을 확인할 수 있습니다.
+이 구독에서 사용되지 않는 엔드포인트를 삭제해 보세요.
 
-### <a name="err_1103-endpoint-quota-reached"></a>ERR_1103: 끝점 할당량에 도달 했습니다.
+#### <a name="kubernetes-quota"></a>Kubernetes 할당량
 
-이 구독에서 사용 되지 않는 일부 끝점을 삭제 합니다.
+요청된 CPU 또는 메모리를 충족할 수 없습니다. 요청 또는 클러스터를 조정하세요.
 
-### <a name="err_1200-unable-to-download-user-container-image"></a>ERR_1200: 사용자 컨테이너 이미지를 다운로드할 수 없음
-
-컴퓨팅 프로비전 후 배포를 만드는 동안 Azure는 작업 영역 프라이빗 ACR(Azure Container Registry)에서 사용자 컨테이너 이미지를 풀하려고 합니다. 두 가지 가능한 문제가 있을 수 있습니다.
-
-- 사용자 컨테이너 이미지를 찾을 수 없습니다.
-
-  작업 영역 ACR에서 컨테이너 이미지를 사용할 수 있는지 확인합니다.
-예를 들어 이미지가 `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed011c3c42d35acb:latest`인 경우 `az acr repository show-tags -n testacr --repository azureml/azureml_92a029f831ce58d2ed011c3c42d35acb --orderby time_desc --output table`을 사용하여 리포지토리를 확인합니다.
-
-- ACR에 액세스하는 데 권한 문제가 있습니다.
-
-  이미지를 풀하기 위해 Azure는 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 ACR에 액세스합니다. 
-
-  - SystemAssigned를 사용하여 연결된 엔드포인트를 만든 경우 Azure RBAC(역할 기반 액세스 제어) 권한이 자동으로 부여되며 추가 권한이 필요하지 않습니다.
-  - UserAssigned를 사용하여 연결된 엔드포인트를 만든 경우 사용자의 관리 ID에는 작업 영역 ACR에 대한 AcrPull 권한이 있어야 합니다.
-
-이 오류에 대한 자세한 내용을 보려면 다음을 실행합니다.
-
-```azurecli
-az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
-```
-
-### <a name="err_1300-unable-to-download-user-modelcode-artifacts"></a>ERR_1300: 사user model\code 아티팩트를 다운로드할 수 없음
-
-컴퓨팅 리소스를 프로비전한 후 배포를 만드는 동안 Azure는 작업 영역 스토리지 계정의 사용자 컨테이너에 사용자 모델 및 코드 아티팩트를 탑재하려 합니다.
-
-- user model\code 아티팩트 찾을 수 없음.
-
-  - 모델 및 코드 아티팩트가 배포와 동일한 작업 영역에 등록되어 있는지 확인합니다. `show` 명령을 사용하여 작업 영역에서 모델 또는 코드 아티팩트에 대한 세부 정보를 표시합니다. 예를 들면 다음과 같습니다. 
-  
-    ```azurecli
-    az ml model show --name <model-name>
-    az ml code show --name <code-name> --version <version>
-    ```
-
-  - 작업 영역 스토리지 계정에 Blob이 있는지 확인할 수도 있습니다.
-
-    예를 들어 Blob이 `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`인 경우 이 명령을 사용하여 Blob이 있는지 확인할 수 있습니다. `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
-
-- ACR 액세스 권한 문제.
-
-  Blob을 풀하기 위해 Azure는 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 스토리지 계정에 액세스합니다.
-
-  - SystemAssigned를 사용하여 연결된 엔드포인트를 만든 경우 Azure RBAC(역할 기반 액세스 제어) 권한이 자동으로 부여되며 추가 권한이 필요하지 않습니다.
-
-  - UserAssigned를 사용하여 연결된 엔드포인트를 만든 경우 사용자의 관리 ID에는 작업 영역 스토리지 계정에 대한 스토리지 Blob 데이터 읽기 권한이 있어야 합니다.
-
-이 오류에 대한 자세한 내용을 보려면 다음을 실행합니다.
-
-```azurecli
-az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
-```
-
-### <a name="err_1350-unable-to-download-user-model-not-enough-space-on-the-disk"></a>ERR_1350: 사용자 모델을 다운로드할 수 없습니다. 디스크 공간이 부족합니다.
-
-이 문제는 모델의 크기가 사용 가능한 디스크 공간보다 큰 경우에 발생합니다. 더 많은 디스크 공간이 있는 SKU를 사용해 보세요.
-
-### <a name="err_2100-unable-to-start-user-container"></a>ERR_2100: 사용자 컨테이너를 시작할 수 없음
+#### <a name="other-quota"></a>기타 할당량
 
 배포의 일부로 제공된 `score.py`를 실행하기 위해 Azure는 `score.py`에 필요한 모든 리소스를 포함하는 컨테이너를 만들고 해당 컨테이너에서 채점 스크립트를 실행합니다.
 
-이 오류는 이 컨테이너를 시작할 수 없기 때문에 채점할 수 없음을 의미합니다. 컨테이너가 `instance_type`에서 지원할 수 있는 것보다 더 많은 리소스를 요청하고 있을 수 있습니다. 그렇다면 온라인 배포의 `instance_type`을 업데이트하는 것이 좋습니다.
+컨테이너를 시작할 수 없으면 점수 매기기 작업을 할 수 없습니다. 컨테이너가 지원할 수 있는 것보다 더 많은 리소스를 요청하고 있을 `instance_type` 수 있습니다. 그렇다면 온라인 배포의 `instance_type`을 업데이트하는 것이 좋습니다.
 
 오류에 대한 정확한 원인을 보려면 다음을 실행합니다. 
 
@@ -183,37 +144,104 @@ az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-### <a name="err_2101-kubernetes-unschedulable"></a>ERR_2101: Kubernetes 예약 불가능
+### <a name="error-outofcapacity"></a>오류: OutOfCapacity
 
-요청한 CPU 또는 메모리를 만족할 수 없습니다. 요청 또는 클러스터를 조정 하세요.
+Azure Machine Learning 용량 부족으로 인해 지정된 VM 크기를 프로비저닝하지 못했습니다. 나중에 다시 시도하거나 다른 지역에 배포해 보세요.
 
-### <a name="err_2102-resources-requests-invalid"></a>ERR_2102: 리소스 요청이 잘못 되었습니다.
+### <a name="error-badargument"></a>오류: BadArgument
 
-리소스에 대 한 요청은 한도 보다 작거나 같아야 합니다. 제한을 설정 하지 않으면 계산을 Azure Machine Learning 작업 영역에 연결할 때 기본값이 설정 됩니다. Azure Portal 또는 명령을 사용 하 여 제한을 확인할 수 있습니다 `az ml compute show` .
+다음은 이 오류가 발생할 수 있는 이유 목록입니다.
 
-### <a name="err_2200-user-container-has-crashedterminated"></a>ERR_2200: 사용자 컨테이너에 crashed\terminated가 있음
+* [리소스 요청이 제한보다 큽니다.](#resource-requests-greater-than-limits)
+* [리소스를 다운로드할 수 없음](#unable-to-download-resources)
 
-배포의 일부로 제공된 `score.py`를 실행하기 위해 Azure는 `score.py`에 필요한 모든 리소스를 포함하는 컨테이너를 만들고 해당 컨테이너에서 채점 스크립트를 실행합니다.  이 시나리오의 오류는 이 컨테이너를 실행할 때 충돌이 발생하여 채점할 수 없음을 의미합니다. 이 오류는 다음과 같은 경우에 발생합니다.
+#### <a name="resource-requests-greater-than-limits"></a>한도보다 큰 리소스 요청
+
+리소스에 대한 요청은 제한보다 적거나 같아야 합니다. 제한을 설정하지 않으면 컴퓨팅을 Azure Machine Learning 작업 영역에 연결할 때 기본값을 설정합니다. Azure Portal 또는 명령을 사용하여 제한을 확인할 수 `az ml compute show` 있습니다.
+
+#### <a name="unable-to-download-resources"></a>리소스를 다운로드할 수 없음
+
+컴퓨팅 리소스를 프로비전한 후 배포를 만드는 동안 Azure는 ACR(작업 영역 프라이빗 Azure Container Registry)에서 사용자 컨테이너 이미지를 끌어오고 사용자 모델 및 코드 아티팩트를 작업 영역 스토리지 계정의 사용자 컨테이너에 탑재하려고 합니다.
+
+먼저 ACR에 액세스하는 데 권한 문제가 있는지 확인합니다.
+
+Blob을 풀하기 위해 Azure는 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 스토리지 계정에 액세스합니다.
+
+  - SystemAssigned를 사용하여 연결된 엔드포인트를 만든 경우 Azure RBAC(역할 기반 액세스 제어) 권한이 자동으로 부여되며 추가 권한이 필요하지 않습니다.
+
+  - UserAssigned를 사용하여 연결된 엔드포인트를 만든 경우 사용자의 관리 ID에는 작업 영역 스토리지 계정에 대한 스토리지 Blob 데이터 읽기 권한이 있어야 합니다.
+
+이 프로세스 중에 작업이 실패한 단계에 따라 몇 가지 다른 문제가 발생합니다.
+
+* [사용자 컨테이너 이미지를 다운로드할 수 없음](#unable-to-download-user-container-image)
+* [사용자 모델 또는 코드 아티팩트 다운로드할 수 없음](#unable-to-download-user-model-or-code-artifacts)
+
+이러한 오류에 대한 자세한 내용을 얻으려면 다음을 실행합니다.
+
+```azurecli
+az ml online-deployment get-logs -n <endpoint-name> --deployment <deployment-name> --l 100
+``` 
+
+#### <a name="unable-to-download-user-container-image"></a>사용자 컨테이너 이미지를 다운로드할 수 없음
+
+사용자 컨테이너를 찾을 수 없는 것일 수 있습니다.
+
+작업 영역 ACR에서 컨테이너 이미지를 사용할 수 있는지 확인합니다.
+
+예를 들어 이미지가 `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed011c3c42d35acb:latest`인 경우 `az acr repository show-tags -n testacr --repository azureml/azureml_92a029f831ce58d2ed011c3c42d35acb --orderby time_desc --output table`을 사용하여 리포지토리를 확인합니다.
+
+#### <a name="unable-to-download-user-model-or-code-artifacts"></a>사용자 모델 또는 코드 아티팩트 다운로드할 수 없음
+
+사용자 모델 또는 코드 아티팩트 를 찾을 수 없을 수 있습니다.
+
+모델 및 코드 아티팩트가 배포와 동일한 작업 영역에 등록되어 있는지 확인합니다. `show` 명령을 사용하여 작업 영역에서 모델 또는 코드 아티팩트에 대한 세부 정보를 표시합니다. 
+
+- 예를 들면 다음과 같습니다. 
+  
+  ```azurecli
+  az ml model show --name <model-name>
+  az ml code show --name <code-name> --version <version>
+  ```
+ 
+  작업 영역 스토리지 계정에 Blob이 있는지 확인할 수도 있습니다.
+
+- 예를 들어 Blob이 인 경우 `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl` 이 명령을 사용하여 Blob이 있는지 확인할 수 있습니다.
+
+  `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+
+### <a name="error-resourcenotready"></a>오류: ResourceNotReady
+
+배포의 일부로 제공된 `score.py`를 실행하기 위해 Azure는 `score.py`에 필요한 모든 리소스를 포함하는 컨테이너를 만들고 해당 컨테이너에서 채점 스크립트를 실행합니다. 이 시나리오의 오류는 실행 시 이 컨테이너가 충돌한다는 것입니다. 즉, 채점이 발생할 수 없습니다. 이 오류는 다음과 같은 경우에 발생합니다.
 
 - `score.py`에 오류가 있습니다. `get-logs`를 사용하여 일반적인 문제를 진단합니다.
-    - 가져온 패키지는 conda 환경에 없습니다.
-    - 구문 오류
-    - `init()` 메서드의 실패
-- `get-logs`에서 로그를 생성 하지 않는 경우 일반적으로 컨테이너를 시작 하지 못했음을 의미 합니다. 이 문제를 디버그 하려면 [로컬로 배포](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) 해 보세요.
+    - 가져온 패키지이지만 conda 환경에 없는 패키지입니다.
+    - 구문 오류입니다.
+    - `init()`메서드의 오류입니다.
+- `get-logs`가 로그를 생성하지 않는 경우 일반적으로 컨테이너를 시작하지 못했는지를 의미합니다. 이 문제를 디버그하려면 대신 [로컬로 배포해](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) 보세요.
 - 준비 또는 활동성 프로브가 올바르게 설정되지 않았습니다.
 - 종속성 누락 등 컨테이너의 환경 설정에 오류가 있습니다.
 
-### <a name="err_5000-internal-error"></a>ERR_5000: 내부 오류
+### <a name="error-resourcenotfound"></a>오류: ResourceNotFound
 
-안정적이고 신뢰할 수 있는 서비스를 제공하기 위해 최선을 다하고 있지만, 때로는 계획대로 되지 않는 경우도 있습니다. 이 오류가 발생하면 당사 측에 문제가 있는 것이므로 당사가 해결해야 합니다. 모든 관련 정보와 함께 [고객 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출하면 문제를 해결하겠습니다.  
+이 오류는 Azure Resource Manager 필요한 리소스를 찾을 수 없을 때 발생합니다. 예를 들어 스토리지 계정이 참조되었지만 지정된 경로에서 찾을 수 없는 경우 이 오류가 표시됩니다. 정확한 경로 또는 이름의 철자로 제공되었을 수 있는 리소스를 다시 확인해야 합니다.
 
-## <a name="autoscaling-issues"></a>자동 크기 조정 문제
+자세한 내용은 [리소스를 찾을 수 없는 오류 해결을 참조하세요.](../azure-resource-manager/troubleshooting/error-not-found.md) 
 
-자동 크기 조정에 문제가 있는 경우 [Azure 자동 크기 조정 문제 해결](../azure-monitor/autoscale/autoscale-troubleshoot.md)을 참조 하세요.
+### <a name="error-operationcancelled"></a>오류: OperationCancelled
+
+Azure 작업은 특정 우선 순위 수준을 가지며 가장 높은 수준에서 가장 낮은 수준으로 실행됩니다. 이 오류는 우선 순위가 높은 다른 작업에 의해 작업이 재정의된 경우에 발생합니다. 작업을 다시 시도하면 취소 없이 작업을 수행할 수 있습니다.
+
+### <a name="error-internalservererror"></a>오류: InternalServerError
+
+안정적이고 안정적인 서비스를 제공하기 위해 최선을 다하지만 계획대로 진행되지 않는 경우도 있습니다. 이 오류가 발생하면 어떤 것이 우리 쪽에 맞지 않아서 수정해야 한다는 의미입니다. 모든 관련 정보와 함께 [고객 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출하면 문제를 해결하겠습니다. 
+
+## <a name="autoscaling-issues"></a>자동 조정 문제
+
+자동 크기 조정에 문제가 있는 경우 Azure 자동 크기 [조정 문제 해결을](../azure-monitor/autoscale/autoscale-troubleshoot.md)참조하세요.
 
 ## <a name="http-status-codes"></a>HTTP 상태 코드
 
-REST 요청을 사용 하 여 온라인 끝점에 액세스 하는 경우 반환 된 상태 코드는 [HTTP 상태 코드](https://aka.ms/http-status-codes)의 표준을 준수 합니다. 끝점 호출 및 예측 오류가 HTTP 상태 코드에 매핑되는 방법에 대 한 자세한 내용은 다음과 같습니다.
+REST 요청을 사용하여 온라인 엔드포인트에 액세스하는 경우 반환된 상태 코드는 HTTP 상태 코드에 대한 표준을 [준수합니다.](https://aka.ms/http-status-codes) 다음은 엔드포인트 호출 및 예측 오류가 HTTP 상태 코드에 매핑되는 방법에 대한 세부 정보입니다.
 
 | 상태 코드| 이유 구문 |  이 코드가 반환되는 이유 |
 | --- | --- | --- |
@@ -222,10 +250,10 @@ REST 요청을 사용 하 여 온라인 끝점에 액세스 하는 경우 반환
 | 404 | 찾을 수 없음 | URL이 올바르지 않습니다. |
 | 408 | 요청 시간 초과 | 모델 실행이 모델 배포 구성의 `request_settings`에 있는 `request_timeout_ms`에 제공된 제한 시간보다 오래 걸렸습니다.|
 | 413 | 페이로드가 너무 큼 | 요청 페이로드가 1.5MB보다 큽니다. |
-| 424 | 모델 오류 | 모델 컨테이너가 200이 아닌 응답을 반환하면 Azure는 424를 반환합니다. 응답 헤더 `ms-azureml-model-error-statuscode` 를 확인 하 고 `ms-azureml-model-error-reason` 자세한 내용을 확인 하세요. |
+| 424 | 모델 오류 | 모델 컨테이너가 200이 아닌 응답을 반환하면 Azure는 424를 반환합니다. 응답 헤더를 확인하고 `ms-azureml-model-error-statuscode` `ms-azureml-model-error-reason` 자세한 내용을 확인합니다. |
 | 424 | 응답 페이로드가 너무 큼 | 컨테이너가 1.5MB보다 큰 페이로드를 반환하는 경우 Azure는 424를 반환합니다. |
 | 429 | 속도 제한 | 엔드포인트에 초당 100개가 넘는 요청을 보내려고 했습니다. |
-| 429 | 보류 중인 요청이 너무 많음 | 모델이 처리할 수 있는 것보다 더 많은 요청을 받고 있습니다. 언제 든 지 2 * 개의 `max_concurrent_requests_per_instance`  *  `instance_count` 요청을 허용 합니다. 추가 요청이 거부됩니다. `request_settings` 및 `scale_settings` 아래의 모델 배포 구성에서 이러한 설정을 확인할 수 있습니다. 자동 크기 조정을 사용하는 경우 모델은 시스템을 스케일 업할 수 있는 것보다 더 빠르게 요청을 받고 있습니다. 자동 크기 조정을 사용하면 [지수 백오프](https://aka.ms/exponential-backoff)를 사용하여 요청을 다시 보낼 수 있습니다. 이렇게 하면 시스템이 조정할 시간을 확보할 수 있습니다. |
+| 429 | 보류 중인 요청이 너무 많음 | 모델이 처리할 수 있는 것보다 더 많은 요청을 받고 있습니다. 언제든지 2 `max_concurrent_requests_per_instance`  *  `instance_count` * 요청을 허용합니다. 추가 요청이 거부됩니다. `request_settings` 및 `scale_settings` 아래의 모델 배포 구성에서 이러한 설정을 확인할 수 있습니다. 자동 크기 조정을 사용하는 경우 모델은 시스템을 스케일 업할 수 있는 것보다 더 빠르게 요청을 받고 있습니다. 자동 크기 조정을 사용하면 [지수 백오프](https://aka.ms/exponential-backoff)를 사용하여 요청을 다시 보낼 수 있습니다. 이렇게 하면 시스템이 조정할 시간을 확보할 수 있습니다. |
 | 500 | 내부 서버 오류 | Azure ML 프로비전된 인프라가 실패합니다. |
 
 ## <a name="next-steps"></a>다음 단계

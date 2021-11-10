@@ -2,14 +2,17 @@
 title: Azure Backup에 대한 프라이빗 엔드포인트 만들기 및 사용
 description: 프라이빗 엔드포인트를 사용하여 리소스의 보안을 유지하는 Azure Backup에 대한 프라이빗 엔드포인트를 만드는 프로세스를 이해합니다.
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 11/09/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 246b3fa30b52b654e9210ddbf86ca5ede519f50d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: e474ae10e1461e834312e4ff52b36ece57bcc30e
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264677"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137904"
 ---
 # <a name="create-and-use-private-endpoints-for-azure-backup"></a>Azure Backup에 대한 프라이빗 엔드포인트 만들기 및 사용
 
@@ -525,7 +528,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Azure VM 또는 온-프레미스 컴퓨터에 대한 프록시 서버를 구성하려면 다음 단계를 따르세요.
 
-1. 프록시 서버에서 액세스해야 하는 다음 도메인을 추가합니다.
+1. 프록시 서버에서 액세스 해야 하는 다음 도메인을 추가 합니다.
    
    | 서비스 | 도메인 이름 | 포트 |
    | ------- | ------ | ---- |
@@ -542,9 +545,9 @@ Azure VM 또는 온-프레미스 컴퓨터에 대한 프록시 서버를 구성�
    >- [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
    >- [독일](../germany/germany-developer-guide.md#endpoint-mapping)
    >- [US Gov](../azure-government/documentation-government-developer-guide.md)
-   >- [지역 코드 목록 - 샘플 XML](scripts/geo-code-list.md)
+   >- [지역 코드 목록-샘플 XML](scripts/geo-code-list.md)
 
-다음 다이어그램에서는 VNet이 필요한 DNS 항목이 있는 프라이빗 DNS 영역에 연결된 프록시 서버에서 설정(Azure 프라이빗 DNS 영역을 사용하는 동안)을 보여 줍니다. 프록시 서버에는 자체 사용자 지정 DNS 서버가 있을 수도 있으며 위의 도메인은 조건부로 169.63.129.16으로 전달될 수 있습니다. DNS 확인에 사용자 지정 DNS 서버/호스트 파일을 사용하는 경우 DNS 항목 관리 및 [보호 구성에](#configure-backup)대한 섹션을 [참조하세요.](#manage-dns-records)
+다음 다이어그램에서는 VNet이 필요한 DNS 항목을 사용 하 여 개인 DNS 영역에 연결 되어 있는 프록시 서버와 함께 Azure 사설 DNS 영역을 사용 하는 동안 설치 프로그램을 보여 줍니다. 프록시 서버에는 자체 사용자 지정 DNS 서버가 있을 수 있으며 위의 도메인은 조건부로 168.63.129.16에 전달 될 수 있습니다. DNS 확인에 대 한 사용자 지정 DNS 서버/호스트 파일을 사용 하는 경우 [dns 항목 관리](#manage-dns-records) 및 [보호 구성](#configure-backup)에 대 한 섹션을 참조 하세요.
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="프록시 서버 설정을 보여 주는 다이어그램." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 

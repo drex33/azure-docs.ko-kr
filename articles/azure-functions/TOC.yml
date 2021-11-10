@@ -401,6 +401,8 @@
           href: configure-networking-how-to.md
         - name: 지리적 재해 복구
           href: functions-geo-disaster-recovery.md
+        - name: 지역 간 이동
+          href: functions-move-across-regions.md
     - name: 모니터
       items:
         - name: 모니터링 구성

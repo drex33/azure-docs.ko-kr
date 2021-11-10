@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.author: duau
-ms.openlocfilehash: afcb09356c10a68b66870cf9594dd5fe9c6a18cb
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 448438fd5bde23d3518099715f41a4a9739f4815
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132058471"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135837"
 ---
 # <a name="configure-custom-bgp-communities-for-azure-expressroute-private-peering-preview"></a>Azure ExpressRoute 프라이빗 피어링에 대한 사용자 지정 BGP 커뮤니티 구성(미리 보기)
 
 BGP 커뮤니티는 커뮤니티 값으로 태그가 지정된 IP 접두사 그룹화입니다. 이 값은 라우터의 인프라에 대한 라우팅 결정을 내리는 데 사용할 수 있습니다. BGP 커뮤니티 태그를 사용하여 Azure에서 온-프레미스로 전송된 트래픽에 대해 필터를 적용하거나 라우팅 기본 설정을 지정할 수 있습니다. 이 문서에서는 Azure PowerShell 사용하여 가상 네트워크에 사용자 지정 BGP 커뮤니티 값을 적용하는 방법을 설명합니다. 구성되면 지역 BGP 커뮤니티 가치와 가상 네트워크의 사용자 지정 커뮤니티 값을 볼 수 있습니다. 이 값은 해당 가상 네트워크에서 발생하는 경우 ExpressRoute를 통해 전송되는 아웃바운드 트래픽에 사용됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
@@ -91,7 +91,7 @@ BGP 커뮤니티는 커뮤니티 값으로 태그가 지정된 IP 접두사 그�
 1. 가상 `VirtualNetworkCommunity` 네트워크의 값을 업데이트합니다.
 
     ```azurepowershell-interactive
-    $vnet.BgpCommunities.VirtualNetworkCommunity = '12076:20002'
+    $vnet.BgpCommunities = @{VirtualNetworkCommunity = '12076:20002'}
     $vnet | Set-AzVirtualNetwork
     ```
 

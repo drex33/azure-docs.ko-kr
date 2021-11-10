@@ -1,6 +1,6 @@
 ---
-title: 계산 갤러리에서 VM 이미지 공유
-description: Azure 계산 갤러리를 사용 하 여 VM 이미지를 공유 하는 방법을 알아봅니다.
+title: 컴퓨팅 갤러리에서 VM 이미지 공유
+description: Azure Compute 갤러리를 사용하여 VM 이미지를 공유하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: fa87bdf9acca99b38f63ec6e9547d5cc5279afc5
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 9dd8978fe61bc8c952e4e06d8569141387caecca
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132060910"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133506"
 ---
-# <a name="store-and-share-images-in-an-azure-compute-gallery"></a>Azure 계산 갤러리에서 이미지 저장 및 공유
+# <a name="store-and-share-images-in-an-azure-compute-gallery"></a>Azure Compute 갤러리에 이미지 저장 및 공유
 
 **적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 
-이제 Azure Compute 갤러리에 기존 공유 이미지 갤러리 서비스와 새 [VM 응용 프로그램](vm-applications.md) 기능 및 기능이 포함 되어 있습니다.  
+이제 Azure Compute 갤러리에는 기존 Shared Image Gallery 서비스와 새 [VM 애플리케이션](vm-applications.md) 기능 및 기능이 포함됩니다.  
 
-Azure 계산 갤러리는 이미지 및 [응용 프로그램]) (applications.md)와 같은 Azure 리소스에 대 한 구조와 조직을 구축 하는 데 도움이 됩니다. Azure 계산 갤러리는 다음을 제공 합니다.
+Azure Compute 갤러리를 사용하면 이미지 및 애플리케이션과 같은 Azure 리소스를 중심으로 구조 및 [구성을 빌드할 수 있습니다.](vm-applications.md) Azure Compute 갤러리는 다음을 제공합니다.
 - 전역 복제.
-- 보다 쉽게 관리할 수 있도록 리소스의 버전 관리 및 그룹화.
-- 가용성 영역를 지 원하는 지역에서 ZRS (영역 중복 Storage) 계정을 사용 하는 항상 사용 가능한 리소스 ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
+- 보다 쉽게 관리하기 위해 리소스의 버전 관리 및 그룹화
+- 가용성 영역 지원하는 지역에서 ZRS(영역 중복 Storage) 계정이 있는 고가용성 리소스. ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
 - 프리미엄 스토리지 지원(Premium_LRS)
 - Azure RBAC를 사용하여 구독 간은 물론 AD(Active Directory) 테넌트 간에도 공유합니다.
-- 각 지역의 리소스 복제본으로 배포를 확장 합니다.
+- 각 지역의 리소스 복제본을 통해 배포 크기 조정
 
-갤러리를 사용 하 여 조직 내에서 여러 사용자, 서비스 주체 또는 AD 그룹에 리소스를 공유할 수 있습니다. 리소스는 배포를 빠르게 확장 하기 위해 여러 지역에 복제 될 수 있습니다.
+갤러리를 사용하면 조직 내의 다른 사용자, 서비스 주체 또는 AD 그룹에 리소스를 공유할 수 있습니다. 배포를 더 빠르게 확장하기 위해 리소스를 여러 지역에 복제할 수 있습니다.
 
-Azure 계산 갤러리에 응용 프로그램을 저장 하는 방법에 대 한 자세한 내용은 [VM 응용 프로그램](vm-applications.md) 을 참조 하세요.
+Azure Compute 갤러리에 애플리케이션을 저장하는 자세한 내용은 [VM 애플리케이션을 참조하세요.](vm-applications.md)
 
 ## <a name="image-management"></a>이미지 관리
 이미지는 생성 방식에 따라 완전한 VM(연결된 데이터 디스크 포함)의 복사본일 수도 있고 단순한 OS 디스크의 복사본일 수도 있습니다. 이미지에서 VM을 만드는 경우 이미지의 VHD 복사본을 사용하여 새 VM의 디스크를 만듭니다. 이미지는 스토리지에 유지되며 새 VM을 만들 때 계속 반복해서 사용할 수 있습니다.
 
-유지 관리 해야 하는 많은 수의 이미지가 있고 회사 전체에서 사용할 수 있도록 하려는 경우 Azure Compute 갤러리를 리포지토리로 사용할 수 있습니다. 
+유지 관리해야 하는 이미지가 많고 회사 전체에서 사용할 수 있도록 하려는 경우 Azure Compute 갤러리를 리포지토리로 사용할 수 있습니다. 
 
-갤러리를 사용 하 여 이미지를 저장할 때 생성 되는 여러 리소스 종류가 있습니다.
+에는 이미지를 저장하는 데 갤러리를 사용할 때 생성되는 여러 리소스 종류가 있습니다.
 
 | 리소스 | Description|
 |----------|------------|
-| **이미지 원본** | 이는 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 리소스입니다. 이미지 원본은 [일반화 되거나 특수화](#generalized-and-specialized-images)된 기존 Azure VM이 될 수 있습니다. 즉, 다른 갤러리의 관리 되는 이미지, 스냅숏, VHD 또는 이미지 버전을 사용할 수 있습니다. |
-| **갤러리** | Azure Marketplace와 마찬가지로 **갤러리** 는 이미지 및 기타 리소스를 관리 하 고 공유 하기 위한 리포지토리입니다 하지만 액세스 권한이 있는 사용자를 제어 합니다. |
-| **이미지 정의** | 이미지 정의는 갤러리 내에서 만들어지며 이미지에 대 한 정보와이를 사용 하 여 Vm을 만드는 데 필요한 요구 사항을 모두 포함 합니다. 여기에는 이미지가 Windows인지, Linux인지 여부, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. |
+| **이미지 원본** | 이는 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 리소스입니다. 이미지 원본은 [일반화되거나 특수화된](#generalized-and-specialized-images)기존 Azure VM, 관리형 이미지, 스냅샷, VHD 또는 다른 갤러리의 이미지 버전일 수 있습니다. |
+| **갤러리** | Azure Marketplace 마찬가지로 **갤러리는** 이미지 및 기타 리소스를 관리하고 공유하기 위한 리포지토리이지만 액세스 권한이 있는 사람을 제어합니다. |
+| **이미지 정의** | 이미지 정의는 갤러리 내에서 만들어지고 이미지에 대한 정보 및 VM을 만드는 데 사용하기 위한 요구 사항을 전달합니다. 여기에는 이미지가 Windows인지, Linux인지 여부, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. |
 | **이미지 버전** | **이미지 버전** 은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전** 을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
 
 <br>
@@ -99,7 +99,7 @@ VM을 만드는 데 사용하는 것은 **이미지 버전** 입니다. 사용 �
 
 ## <a name="generalized-and-specialized-images"></a>일반화 이미지와 특수화 이미지
 
-Azure Compute 갤러리에서 지 원하는 두 가지 운영 체제 상태가 있습니다. 일반적으로 이미지를 만드는 데 사용되는 VM을 일반화한 후 이미지를 가져와야 합니다. 일반화는 VM에서 머신 및 사용자 관련 정보를 제거하는 프로세스입니다. Windows의 경우 Sysprep 도구가 사용됩니다. Linux의 경우 [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` 또는 `-deprovision+user` 매개 변수를 사용할 수 있습니다.
+Azure Compute 갤러리에서 지원하는 운영 체제 상태는 두 가지입니다. 일반적으로 이미지를 만드는 데 사용되는 VM을 일반화한 후 이미지를 가져와야 합니다. 일반화는 VM에서 머신 및 사용자 관련 정보를 제거하는 프로세스입니다. Windows의 경우 Sysprep 도구가 사용됩니다. Linux의 경우 [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` 또는 `-deprovision+user` 매개 변수를 사용할 수 있습니다.
 
 특수화 VM은 머신 관련 정보와 계정을 제거하는 프로세스를 거치지 않았습니다. 또한 특수화 이미지로 만든 VM에는 `osProfile`이 연결되지 않습니다. 즉, 특수화 이미지는 이점도 있지만 몇 가지 제한이 있습니다.
 
@@ -114,8 +114,8 @@ Azure Compute 갤러리에서 지 원하는 두 가지 운영 체제 상태가 �
 
 ## <a name="limits"></a>제한 
 
-Azure 계산 갤러리를 사용 하 여 리소스를 배포 하기 위해 구독 당 제한이 있습니다.
-- 100 갤러리, 구독 당, 지역별
+Azure Compute 갤러리를 사용하여 리소스를 배포하는 데는 구독당 제한이 있습니다.
+- 구독당, 지역당 100개 갤러리
 - 구독마다, 지역마다 이미지 정의 1,000개
 - 구독마다, 지역마다 이미지 버전 10,000개
 - 구독마다, 지역마다 이미지 버전 복제본 10개
@@ -124,12 +124,12 @@ Azure 계산 갤러리를 사용 하 여 리소스를 배포 하기 위해 구�
 자세한 내용은 현재 사용량을 확인하는 방법에 대한 [제한을 기준으로 리소스 사용량 확인](../networking/check-usage-against-limits.md) 예제를 참조하세요.
  
 ## <a name="scaling"></a>확장
-Azure 계산 갤러리를 사용 하면 Azure에서 이미지를 유지할 복제본 수를 지정할 수 있습니다. 이렇게 하면 VM 배포를 여러 복제본으로 확대함으로써 단일 복제본 과부하로 인해 인스턴스 생성 처리가 제한될 가능성을 줄일 수 있으므로 다중 VM 배포 시나리오에 도움이 됩니다.
+Azure Compute 갤러리를 사용하면 Azure에서 이미지를 유지할 복제본 수를 지정할 수 있습니다. 이렇게 하면 VM 배포를 여러 복제본으로 확대함으로써 단일 복제본 과부하로 인해 인스턴스 생성 처리가 제한될 가능성을 줄일 수 있으므로 다중 VM 배포 시나리오에 도움이 됩니다.
 
-이제 Azure Compute 갤러리를 사용 하 여 가상 머신 확장 집합에 1000 VM 인스턴스를 배포할 수 있습니다 (관리 되는 이미지가 있는 600에서). 이미지 복제본은 보다 나은 배포 성능, 안정성 및 일관성을 제공합니다.   지역에 필요한 규모에 따라 각 대상 지역에 서로 다른 복제본 수를 설정할 수 있습니다. 각 복제본은 이미지의 전체 복사본이기 때문에 이렇게 하면 복제본을 추가할 때마다 선형적으로 배포를 확장할 수 있습니다. 두 개의 이미지 또는 지역이 똑같지는 않지만, 지역에서 복제본을 사용하는 방법에 대한 일반적인 지침은 다음과 같습니다.
+Azure Compute 갤러리를 사용하면 이제 가상 머신 확장 집합에 최대 1,000개의 VM 인스턴스를 배포할 수 있습니다(관리되는 이미지가 있는 600개에서). 이미지 복제본은 보다 나은 배포 성능, 안정성 및 일관성을 제공합니다.   지역에 필요한 규모에 따라 각 대상 지역에 서로 다른 복제본 수를 설정할 수 있습니다. 각 복제본은 이미지의 전체 복사본이기 때문에 이렇게 하면 복제본을 추가할 때마다 선형적으로 배포를 확장할 수 있습니다. 두 개의 이미지 또는 지역이 똑같지는 않지만, 지역에서 복제본을 사용하는 방법에 대한 일반적인 지침은 다음과 같습니다.
 
 - 가상 머신 확장 집합이 아닌 배포의 경우 - 동시에 20개의 VM을 만들 때마다 복제본 하나를 유지하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 120개의 VM을 만드는 경우 이미지 복제본을 6개 이상 유지하는 것이 좋습니다. 
-- 가상 머신 확장 집합 배포의 경우, 동시에 만든 각 확장 집합에 대해 하나의 복제본을 유지 하는 것이 좋습니다.
+- Virtual Machine Scale Set 배포의 경우 - 동시에 만드는 각 확장 집합에 대해 하나의 복제본을 유지하는 것이 좋습니다.
 
 이미지 크기, 콘텐츠, OS 형식 등의 요소를 감안하여 항상 복제본 수를 초과 프로비저닝하는 것이 좋습니다.
 
@@ -137,22 +137,22 @@ Azure 계산 갤러리를 사용 하면 Azure에서 이미지를 유지할 복�
 
 ## <a name="make-your-images-highly-available"></a>고가용성 이미지 만들기
 
-[Azure ZRS(영역 중복 스토리지)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/)는 지역에서 가용성 영역에 문제가 발생할 때 복원력을 제공합니다. Azure Compute 갤러리를 일반적으로 사용할 수 있으므로 가용성 영역를 사용 하 여 지역에서 ZRS 계정에 이미지를 저장 하도록 선택할 수 있습니다. 
+[Azure ZRS(영역 중복 스토리지)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/)는 지역에서 가용성 영역에 문제가 발생할 때 복원력을 제공합니다. Azure Compute 갤러리의 일반 공급으로 가용성 영역 있는 지역의 ZRS 계정에 이미지를 저장하도록 선택할 수 있습니다. 
 
 각 대상 지역의 계정 유형을 선택할 수도 있습니다. 기본 스토리지 계정 유형은 Standard_LRS지만, 가용성 영역이 지원되는 지역에는 Standard_ZRS를 선택할 수 있습니다. ZRS의 지역별 가용성에 대한 자세한 내용은 [데이터 중복성](../storage/common/storage-redundancy.md)을 참조하세요.
 
 ![ZRS를 보여주는 그래픽](./media/shared-image-galleries/zrs.png)
 
 ## <a name="replication"></a>복제
-Azure 계산 갤러리를 사용 하 여 다른 Azure 지역에 이미지를 자동으로 복제할 수도 있습니다. 각 이미지 버전은 조직에 적합 한 사항에 따라 서로 다른 지역에 복제 될 수 있습니다. 한 가지 예는 다중 지역에서 최신 이미지를 항상 복제하는 것이지만 이전 버전은 모두 1개 지역에서만 사용 가능합니다. 이를 통해 이미지 버전에 대 한 저장소 비용을 절감할 수 있습니다. 
+Azure Compute 갤러리를 사용하면 이미지를 다른 Azure 지역에 자동으로 복제할 수도 있습니다. 각 이미지 버전은 조직에 적합한 것에 따라 다른 지역에 복제할 수 있습니다. 한 가지 예는 다중 지역에서 최신 이미지를 항상 복제하는 것이지만 이전 버전은 모두 1개 지역에서만 사용 가능합니다. 이렇게 하면 이미지 버전의 스토리지 비용을 절감할 수 있습니다. 
 
-이미지 버전이 복제 되는 지역은 만든 시간 후에 업데이트할 수 있습니다. 여러 지역에 복제하는 데 걸리는 시간은 복사되는 데이터의 양과 버전이 복제되는 지역 수에 따라 다릅니다. 경우에 따라 몇 시간이 걸릴 수 있습니다. 복제가 진행 중일 때 지역별 복제 상태를 볼 수 있습니다. 한 지역에서 이미지 복제가 완료되면 해당 지역에서 해당 이미지 버전을 사용하여 VM 또는 확장 집합을 배포할 수 있습니다.
+이미지 버전이 복제되는 지역은 만든 후 업데이트할 수 있습니다. 여러 지역에 복제하는 데 걸리는 시간은 복사되는 데이터의 양과 버전이 복제되는 지역 수에 따라 다릅니다. 경우에 따라 몇 시간이 걸릴 수 있습니다. 복제가 진행 중일 때 지역별 복제 상태를 볼 수 있습니다. 한 지역에서 이미지 복제가 완료되면 해당 지역에서 해당 이미지 버전을 사용하여 VM 또는 확장 집합을 배포할 수 있습니다.
 
 ![이미지를 복제하는 방법을 보여 주는 그래픽](./media/shared-image-galleries/replication.png)
 
 ## <a name="access"></a>액세스 권한
 
-Azure Compute 갤러리, 이미지 정의 및 이미지 버전은 모든 리소스 이므로 기본 제공 되는 네이티브 Azure RBAC 컨트롤을 사용 하 여 공유할 수 있습니다. Azure RBAC를 사용하면 다른 사용자, 서비스 주체, 그룹에 리소스를 공유할 수 있습니다. 리소스가 생성된 테넌트 외부의 개별 리소스에 대한 액세스를 공유할 수도 있습니다. 사용자가 이미지 버전에 액세스할 수 있게 되 면 VM 또는 가상 머신 확장 집합을 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
+Azure Compute 갤러리, 이미지 정의 및 이미지 버전은 모두 리소스이기 때문에 기본 제공 네이티브 Azure RBAC 컨트롤을 사용하여 공유할 수 있습니다. Azure RBAC를 사용하면 다른 사용자, 서비스 주체, 그룹에 리소스를 공유할 수 있습니다. 리소스가 생성된 테넌트 외부의 개별 리소스에 대한 액세스를 공유할 수도 있습니다. 사용자가 이미지 버전에 액세스할 수 있게 되면 VM 또는 Virtual Machine Scale Set를 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
 
 | 공유한 항목     | Azure Compute Gallery | 이미지 정의 | 이미지 버전 |
 |----------------------|----------------------|--------------|----------------------|
@@ -164,7 +164,7 @@ Azure Compute 갤러리, 이미지 정의 및 이미지 버전은 모든 리소�
 다중 테넌트 앱 등록을 사용하여 테넌트 간에도 이미지를 대규모로 공유할 수 있습니다. 테넌트 간에 이미지를 공유하는 방법에 대한 자세한 내용은 [Azure CLI](./linux/share-images-across-tenants.md) 또는 [PowerShell](./windows/share-images-across-tenants.md)을 사용하여 “Azure 테넌트 간 갤러리 VM 이미지 공유”를 참조하세요.
 
 ## <a name="billing"></a>결제
-Azure Compute 갤러리 서비스 사용에 대 한 추가 요금은 부과 되지 않습니다. 다음 리소스에 대한 비용이 청구됩니다.
+Azure Compute 갤러리 서비스 사용에 대한 추가 요금은 없습니다. 다음 리소스에 대한 비용이 청구됩니다.
 - 각 복제본을 저장하는 데 드는 스토리지 비용. 스토리지 비용은 스냅샷으로 청구되며 이미지 버전의 사용되는 크기, 이미지 버전의 복제본 수 및 버전이 복제되는 지역 수를 기반으로 합니다. 
 - 이미지 버전을 원본 지역에서 복제된 지역으로 처음 복제할 때 발생하는 네트워크 송신 요금. 후속 복제본은 지역 내에서 처리되므로 추가 비용이 없습니다. 
 
@@ -173,7 +173,7 @@ Azure Compute 갤러리 서비스 사용에 대 한 추가 요금은 부과 되�
 
 ## <a name="updating-resources"></a>리소스 업데이트
 
-만든 후에는 갤러리 리소스를 일부 변경할 수 있습니다. 다음과 같은 제한이 있습니다.
+만든 후에는 갤러리 리소스를 변경할 수 있습니다. 다음과 같은 제한이 있습니다.
  
 Azure Compute 갤러리:
 - Description
@@ -192,7 +192,7 @@ Azure Compute 갤러리:
 
 ## <a name="sdk-support"></a>SDK 지원
 
-다음 SDK는 Azure Compute 갤러리 만들기를 지원합니다.
+다음 Sdk는 Azure Compute 갤러리 만들기를 지원 합니다.
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
@@ -202,7 +202,7 @@ Azure Compute 갤러리:
 
 ## <a name="templates"></a>템플릿
 
-템플릿을 사용하여 Azure Compute 갤러리 리소스를 만들 수 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
+템플릿을 사용 하 여 Azure Compute 갤러리 리소스를 만들 수 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
 - [갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
 - [갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
@@ -210,45 +210,45 @@ Azure Compute 갤러리:
 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 
-* [구독에서 모든 Azure Compute 갤러리 리소스를 나열하는 방법](#how-can-i-list-all-the-azure-compute-gallery-resources-across-subscriptions) 
-* [기존 이미지를 Azure Compute 갤러리로 이동할 수 있나요?](#can-i-move-my-existing-image-to-an-azure-compute-gallery)
+* [구독 간에 모든 Azure 계산 갤러리 리소스를 나열 하려면 어떻게 해야 하나요?](#how-can-i-list-all-the-azure-compute-gallery-resources-across-subscriptions) 
+* [기존 이미지를 Azure 계산 갤러리로 이동할 수 있나요?](#can-i-move-my-existing-image-to-an-azure-compute-gallery)
 * [특수화 디스크로 이미지 버전을 만들 수 있나요?](#can-i-create-an-image-version-from-a-specialized-disk)
 * [Azure Compute 갤러리 리소스를 만든 후 다른 구독으로 이동할 수 있나요?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
-* [Azure 중국 21Vianet, Azure 독일 또는 Azure Government Cloud와 같은 클라우드 간에 이미지 버전을 복제할 수 있나요?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [Azure 중국 21Vianet, Azure 독일 또는 Azure Government 클라우드와 같은 클라우드 간에 이미지 버전을 복제할 수 있나요?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
 * [이미지 버전을 구독 간에 복제할 수 있나요?](#can-i-replicate-my-image-versions-across-subscriptions)
 * [Azure AD 테넌트 간에 이미지 버전을 공유할 수 있나요?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [대상 지역 간에 이미지 버전을 복제하려면 얼마나 걸리나요?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
 * [원본 지역과 대상 지역의 차이점은 무엇인가요?](#what-is-the-difference-between-source-region-and-target-region)
 * [이미지 버전을 만드는 동안 원본 영역을 지정하는 방법은 무엇인가요?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
 * [각 지역에 만들 이미지 버전 복제본 수를 지정하는 방법은 무엇인가요?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
-* [이미지 정의 및 이미지 버전에 대한 갤러리와 다른 위치에 갤러리를 만들 수 있나요?](#can-i-create-the-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
-* [Azure Compute 갤러리 사용에 대한 요금은 어떻게 됩니까?](#what-are-the-charges-for-using-an-azure-compute-gallery)
-* [이미지를 만들 때 사용해야 하는 API 버전은 무엇인가요?](#what-api-version-should-i-use-when-creating-images)
-* [이미지 버전에서 VM 또는 Virtual Machine Scale Set를 만드는 데 사용해야 하는 API 버전은 무엇인가요?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [관리형 이미지를 사용하여 만든 Virtual Machine Scale Set를 업데이트하여 Azure Compute 갤러리 이미지를 사용할 수 있나요?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
+* [이미지 정의와 이미지 버전에 대 한 것과 다른 위치에서 갤러리를 만들 수 있나요?](#can-i-create-the-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
+* [Azure Compute 갤러리 사용에 대 한 요금은 얼마 인가요?](#what-are-the-charges-for-using-an-azure-compute-gallery)
+* [이미지를 만들 때 어떤 API 버전을 사용 해야 하나요?](#what-api-version-should-i-use-when-creating-images)
+* [이미지 버전에서 VM 또는 가상 머신 확장 집합을 만드는 데 사용 해야 하는 API 버전은 무엇 인가요?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [관리 이미지를 사용 하 여 만든 가상 머신 확장 집합을 업데이트 하 여 Azure Compute 갤러리 이미지를 사용할 수 있나요?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
 
-### <a name="how-can-i-list-all-the-azure-compute-gallery-resources-across-subscriptions"></a>구독에서 모든 Azure Compute 갤러리 리소스를 나열하는 방법
+### <a name="how-can-i-list-all-the-azure-compute-gallery-resources-across-subscriptions"></a>구독 간에 모든 Azure 계산 갤러리 리소스를 나열 하려면 어떻게 해야 하나요?
 
-Azure Portal 액세스할 수 있는 구독의 모든 Azure Compute 갤러리 리소스를 나열하려면 다음 단계를 수행합니다.
+Azure Portal에 대 한 액세스 권한이 있는 모든 구독에서 Azure 계산 갤러리 리소스를 모두 나열 하려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. 페이지를 아래로 스크롤하고 **모든 리소스** 를 선택합니다.
 1. 모든 리소스를 나열하려는 모든 구독을 선택합니다.
-1. 갤러리 , **Azure Compute** 형식의 리소스를 찾습니다.
+1. **Azure Compute 갤러리** 형식의 리소스를 찾습니다.
   
-권한이 있는 구독에서 모든 Azure Compute 갤러리 리소스를 나열하려면 Azure CLI 다음 명령을 사용합니다.
+사용 권한이 있는 모든 구독에서 Azure 계산 갤러리 리소스를 모두 나열 하려면 Azure CLI에서 다음 명령을 사용 합니다.
 
 ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-자세한 내용은 [이미지 리소스 나열, 업데이트 및 삭제를 참조하세요.](update-image-resources.md)
+자세한 내용은 [이미지 리소스 나열, 업데이트 및 삭제](update-image-resources.md)를 참조 하세요.
 
-### <a name="can-i-move-my-existing-image-to-an-azure-compute-gallery"></a>기존 이미지를 Azure Compute 갤러리로 이동할 수 있나요?
+### <a name="can-i-move-my-existing-image-to-an-azure-compute-gallery"></a>기존 이미지를 Azure 계산 갤러리로 이동할 수 있나요?
  
 예. 가지고 있는 이미지의 유형에 따라 3가지 시나리오가 있습니다.
 
- 시나리오 1: 관리형 이미지가 있는 경우 해당 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 자세한 내용은 [만들기 및 이미지 정의 및 이미지 버전 을](image-version.md)참조하세요.
+ 시나리오 1: 관리형 이미지가 있는 경우 해당 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 자세한 내용은 [만들기 및 이미지 정의 및 이미지 버전](image-version.md)을 참조 하세요.
 
  시나리오 2: 비관리형 이미지가 있는 경우 해당 이미지에서 관리형 이미지를 만든 다음, 관리형 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
 
@@ -263,7 +263,7 @@ Azure Portal 액세스할 수 있는 구독의 모든 Azure Compute 갤러리 �
 
 ### <a name="can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Azure Compute 갤러리 리소스를 만든 후 다른 구독으로 이동할 수 있나요?
 
-아니요, 갤러리 이미지 리소스를 다른 구독으로 이동할 수 없습니다. 갤러리의 이미지 버전을 다른 지역에 복제하거나 다른 [갤러리 에서 이미지를](image-version.md)복사할 수 있습니다.
+아니요, 갤러리 이미지 리소스를 다른 구독으로 이동할 수 없습니다. 갤러리의 이미지 버전을 다른 지역에 복제 하거나 [다른 갤러리에서 이미지](image-version.md)를 복사할 수 있습니다.
 
 
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Azure 중국 21Vianet, Azure 독일, Azure Government Cloud 등의 클라우드 간에 이미지 버전을 복제할 수 있나요?
@@ -303,31 +303,31 @@ Azure Portal 액세스할 수 있는 구독의 모든 Azure Compute 갤러리 �
 
 CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version create` 명령에 **--replica-count** 인수를 사용합니다.
 
-### <a name="can-i-create-the-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>이미지 정의 및 이미지 버전에 대한 갤러리와 다른 위치에 갤러리를 만들 수 있나요?
+### <a name="can-i-create-the-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>이미지 정의와 이미지 버전에 대 한 것과 다른 위치에서 갤러리를 만들 수 있나요?
 
-예, 구성할 수 있습니다. 그러나 리소스 그룹, 갤러리, 이미지 정의 및 이미지 버전을 동일한 위치에 유지하는 것이 좋습니다.
+예, 구성할 수 있습니다. 그러나 최상의 방법으로 리소스 그룹, 갤러리, 이미지 정의 및 이미지 버전을 동일한 위치에 유지 하는 것이 좋습니다.
 
-### <a name="what-are-the-charges-for-using-an-azure-compute-gallery"></a>Azure Compute 갤러리 사용에 대한 요금은 어떻게 됩니까?
+### <a name="what-are-the-charges-for-using-an-azure-compute-gallery"></a>Azure Compute 갤러리 사용에 대 한 요금은 얼마 인가요?
 
-이미지 버전을 저장하기 위한 스토리지 요금과 원본 지역에서 대상 지역으로 이미지 버전을 복제하는 네트워크 송신 요금 외에는 Azure Compute 갤러리 사용에 대한 요금이 부과되지 않습니다.
+이미지 버전을 저장 하기 위한 저장소 요금 및 이미지 버전을 원본 지역에서 대상 지역으로 복제 하기 위한 네트워크 송신 요금을 제외 하 고 Azure Compute 갤러리 사용에 대 한 요금은 청구 되지 않습니다.
 
-### <a name="what-api-version-should-i-use-when-creating-images"></a>이미지를 만들 때 사용해야 하는 API 버전은 무엇인가요?
+### <a name="what-api-version-should-i-use-when-creating-images"></a>이미지를 만들 때 어떤 API 버전을 사용 해야 하나요?
 
-갤러리, 이미지 정의 및 이미지 버전을 사용하려면 API 버전 2018-06-01을 사용하는 것이 좋습니다. ZRS(영역 중복 스토리지)에는 버전 2019-03-01 이상이 필요합니다.
+갤러리, 이미지 정의 및 이미지 버전으로 작업 하려면 API 버전 2018-06-01을 사용 하는 것이 좋습니다. ZRS(영역 중복 스토리지)에는 버전 2019-03-01 이상이 필요합니다.
 
-### <a name="what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>이미지 버전에서 VM 또는 Virtual Machine Scale Set를 만드는 데 사용해야 하는 API 버전은 무엇인가요?
+### <a name="what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>이미지 버전에서 VM 또는 가상 머신 확장 집합을 만드는 데 사용 해야 하는 API 버전은 무엇 인가요?
 
 이미지 버전을 사용한 VM 및 Virtual Machine Scale Set 배포의 경우 API 버전 2018-04-01 이상을 사용하는 것이 좋습니다.
 
-### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images"></a>관리형 이미지를 사용하여 만든 Virtual Machine Scale Set를 업데이트하여 Azure Compute 갤러리 이미지를 사용할 수 있나요?
+### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images"></a>관리 이미지를 사용 하 여 만든 가상 머신 확장 집합을 업데이트 하 여 Azure Compute 갤러리 이미지를 사용할 수 있나요?
 
-예, OS 유형, Hyper-V 생성 및 데이터 디스크 레이아웃이 이미지 간에 일치하는 경우 관리형 이미지에서 Azure Compute 갤러리 이미지로 확장 집합 이미지 참조를 업데이트할 수 있습니다.
+예, OS 유형, Hyper-v 생성 및 데이터 디스크 레이아웃이 이미지 사이에서 일치 하는 경우 관리 되는 이미지에서 Azure 계산 갤러리 이미지로 확장 집합 이미지 참조를 업데이트할 수 있습니다.
 
 ## <a name="troubleshoot"></a>문제 해결
-갤러리 리소스에서 작업을 수행하는 데 문제가 있는 경우 [문제 해결 가이드](troubleshooting-shared-images.md)의 일반적인 오류 목록을 참조하세요.
+갤러리 리소스에 대 한 작업을 수행 하는 동안 문제가 발생 한 경우 [문제 해결 가이드](troubleshooting-shared-images.md)에서 일반적인 오류 목록을 참조 하십시오.
 
 또한 [Q&A](/answers/topics/azure-virtual-machines-images.html)에서 `azure-virtual-machines-images`에 대한 질문을 게시하고 태그를 지정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Compute 갤러리를 사용하여 이미지를 배포하는 방법을 [알아봅니다.](create-gallery.md)
+[Azure Compute 갤러리](create-gallery.md)를 사용 하 여 이미지를 배포 하는 방법을 알아봅니다.

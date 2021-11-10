@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 모델을 온라인 엔드포인트로 배포하는 데 사용되는 YAML 파일에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: rsethur
 ms.author: seramasu
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 2fe01750fdce0a3d5c3fcb5211485666caf95bb4
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 462c781ae4f304d2b9cb46b9b89d2ff7fbf7eb22
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132057749"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137825"
 ---
 # <a name="cli-v2-online-endpoint-yaml-schema"></a>CLI(v2) 온라인 엔드포인트 YAML 스키마
 
@@ -30,7 +30,7 @@ ms.locfileid: "132057749"
 
 | 키 | 형식 | Description | 허용되는 값 | 기본값 |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `$schema` | 문자열 | YAML 스키마입니다. 파일의 맨 위에 있는 를 포함하여 Azure Machine Learning VS Code 확장명을 사용하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
+| `$schema` | 문자열 | YAML 스키마입니다. Azure Machine Learning VS Code 확장명을 사용하여 파일 맨 위에 있는 를 포함하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
 | `name` | 문자열 | **필수 사항입니다.** 엔드포인트의 이름입니다. Azure 지역 수준에서 고유해야 합니다. <br><br> 명명 규칙은 [여기에서](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)정의됩니다.| | |
 | `description` | 문자열 | 엔드포인트에 대한 설명입니다. | | |
 | `tags` | 개체 | 엔드포인트에 대한 태그의 사전입니다. | | |
@@ -44,7 +44,7 @@ ms.locfileid: "132057749"
 
 `az ml online-endpoint`명령은 Azure Machine Learning 온라인 엔드포인트를 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 

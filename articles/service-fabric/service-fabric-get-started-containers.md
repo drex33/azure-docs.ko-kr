@@ -4,12 +4,12 @@ description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플�
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fc819ea0141cac1305ca7a9c52d452b2f6e2961a
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96533777"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137383"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -384,7 +384,7 @@ Windows Server 컨테이너는 여러 OS 버전에서 호환되지 않을 수 �
          </ImageOverrides> 
       </ContainerHostPolicies> 
 ```
-WIndows Server 2016에 대한 빌드 버전은 14393이며 Windows Server 버전 1709의 빌드 버전은 16299입니다. 서비스 매니페스트는 다음과 같이 컨테이너 서비스당 하나의 이미지만 계속 지정합니다.
+Windows Server 2016 빌드 버전은 14393이고 Windows Server 버전 1709의 빌드 버전은 16299입니다. 서비스 매니페스트는 다음과 같이 컨테이너 서비스당 하나의 이미지만 계속 지정합니다.
 
 ```xml
 <ContainerHost>
@@ -598,6 +598,97 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
     } 
 ]
 ```
+
+## <a name="entrypoint-override"></a>EntryPoint 재정의
+8.2 버전의 ServiceFabric Runtime을 사용 하 여 **컨테이너** 및 **exe 호스트** 코드 패키지에 대 한 entrypoint를 재정의할 수 있습니다. 모든 매니페스트 요소가 동일 하 게 유지 되지만 컨테이너 이미지를 변경 해야 하는 경우에는 다른 앱 형식 버전을 프로 비전 하는 것이 더 이상 필요 하지 않으며 진입점은 동일 하 게 유지 되는 경우에 사용할 수 있습니다.
+
+컨테이너 진입점을 재정의 하는 방법에 대 한 예제는 다음과 같습니다.
+
+### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest ApplicationTypeName="MyFirstContainerType"
+                     ApplicationTypeVersion="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="ImageName" DefaultValue="myregistry.azurecr.io/samples/helloworldapp" />
+    <Parameter Name="Commands" DefaultValue="commandsOverride" />
+    <Parameter Name="FromSource" DefaultValue="sourceOverride" />
+    <Parameter Name="EntryPoint" DefaultValue="entryPointOverride" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <CodePackagePolicy CodePackageRef="Code">
+        <EntryPointOverride>
+         <ContainerHostOverride>
+            <ImageOverrides>
+              <Image Name="[ImageName]" />
+            </ImageOverrides>
+            <Commands>[Commands]</Commands>
+            <FromSource>[Source]</FromSource>
+            <EntryPoint>[EntryPoint]</EntryPoint>
+          </ContainerHostOverride>
+        </EntryPointOverride>
+      </CodePackagePolicy>
+    </Policies>
+  </ServiceManifestImport>
+</ApplicationManifest>
+```
+### <a name="servicemanifestxml"></a>ServiceManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="Guest1Pkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- This is the name of your ServiceType.
+         The UseImplicitHost attribute indicates this is a guest service. -->
+    <StatelessServiceType ServiceTypeName="Guest1Type" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
+      <ContainerHost>
+        <ImageName>default imagename</ImageName>
+        <Commands>default cmd</Commands>
+        <EntryPoint>default entrypoint</EntryPoint>
+        <FromSource>default source</FromSource>
+      </ContainerHost>
+    </EntryPoint>
+  </CodePackage>
+
+  <ConfigPackage Name="Config" Version="1.0.0" />
+</ServiceManifest>
+```
+응용 프로그램 매니페스트의 재정의를 지정 하면 이미지 이름이 myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride 및 entryPoint entryPointOverride 인 컨테이너가 시작 됩니다.
+
+마찬가지로 **ExeHost** 를 재정의 하는 방법에 대 한 예제는 다음과 같습니다.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Policies>
+  <CodePackagePolicy CodePackageRef="Code">
+    <EntryPointOverride>
+      <ExeHostOverride>
+        <Program>[Program]</Program>
+        <Arguments>[Entry]</Arguments>
+      </ExeHostOverride>
+    </EntryPointOverride>
+  </CodePackagePolicy>
+</Policies>
+```
+> [!NOTE]
+> 진입점 재정의가 SetupEntryPoint에 대해 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.

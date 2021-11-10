@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: f8d8547c2d4900e6258f7360c50d8dfc17157832
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 68e046d0a19af2d8a4f6a413b527c9bf49c0e6ec
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517247"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137135"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 비즈니스 연속성 개요
 
@@ -44,8 +44,7 @@ Azure Database for PostgreSQL은 지역 복원을 시작할 수 있는 지역 �
 
 **특정 시점 복원** 을 수행하면 알려진 특정 시점에서 서버의 복사본을 만들 수 있습니다. 이 특정 시점은 서버에 대해 구성한 백업 보존 기간 내에 있어야 합니다. 데이터가 새 서버로 복원된 후에는 원래 서버를 새로 복원된 서버로 바꾸거나 복원된 서버에서 원래 서버로 필요한 데이터를 복사할 수 있습니다.
 
-> [!IMPORTANT]
-> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금](../azure-resource-manager/management/lock-resources.md)을 사용하여 사고로 인한 서버 삭제를 방지할 수 있습니다.
+실수로 서버를 삭제 하는 것을 방지 하기 위해 [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용 하는 것이 좋습니다. 서버를 실수로 삭제 한 경우 최근 5 일 내에 삭제가 발생 한 경우 복구할 수 있습니다. 자세한 내용은 [삭제 된 Azure Database for PostgreSQL 서버 복원](howto-restore-dropped-server.md)을 참조 하세요.
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Azure 데이터 센터 중단에서 복구
 

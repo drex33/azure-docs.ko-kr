@@ -12,12 +12,12 @@ metadata:
   ms.date: 03/11/2021
   ms.author: eur
   ms.custom: devx-track-csharp
-  ms.openlocfilehash: 5b896e3f4bbd6cf00d4ee9b7eb2723cc75d07a5b
-  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+  ms.openlocfilehash: 6fec58c20c40371eb1c7226e7dbe6120217657fe
+  ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131508172"
+  ms.lasthandoff: 11/10/2021
+  ms.locfileid: "132133913"
 title: Speech Service 컨테이너 FAQ(질문과 대답)
 summary: Speech Service를 컨테이너와 함께 사용하는 경우 지원팀에 에스컬레이션하기 전에 아래 질문과 대답을 참고하는 것이 좋습니다. 이 문서에는 일반적인 부분에서 기술적인 부분까지 다양한 질문이 포함되어 있습니다. 답변을 펼치려면 질문을 클릭하세요.
 sections:
@@ -114,10 +114,7 @@ sections:
       최신 사용자 지정 모델로 학습하는 경우에는 현재 지원되지 않습니다. 이전 버전으로 학습하는 경우에는 사용할 수 있습니다. 최신 버전을 지원하기 위해 계속 노력하고 있습니다.
 
 
-      본래 사용자 지정 컨테이너는 Halide 또는 ONNX 기반 음향 모델(사용자 지정 학습 포털의 기본값)을 지원하지 않습니다. 사용자 지정 모델이 암호화되지 않았기 때문이며 ONNX 모델을 공개하지 않기 위해서 입니다. 단, 언어 모델은 괜찮습니다. 사용자 지정 학습을 위해서는 고객이 ONNX 이외의 이전 모델을 명시적으로 선택해야 합니다. 정확도는 영향을 받지 않습니다. 모델 크기가 더 클 수 있습니다(100MB).
-
-
-      > 지원 모델 > 20190220(v4.5 통합)
+      본래 사용자 지정 컨테이너는 Halide 또는 ONNX 기반 음향 모델(사용자 지정 학습 포털의 기본값)을 지원하지 않습니다. 사용자 지정 모델이 암호화되지 않았기 때문이며 ONNX 모델을 공개하지 않기 위해서 입니다. 단, 언어 모델은 괜찮습니다. 모델 크기가 더 클 수 있습니다(100MB).
 
 
       **오류 2:**

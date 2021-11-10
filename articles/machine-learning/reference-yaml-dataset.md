@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: CLI(v2) 데이터 세트 YAML 스키마에 대한 참조 설명서입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: reference
 author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 00eff3758d3a279d5ffb6d993196def46a7c4420
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 4a22fee30a28008fa440d606360623e156c332a0
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132063537"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133680"
 ---
 # <a name="cli-v2-dataset-yaml-schema"></a>CLI(v2) 데이터 세트 YAML 스키마
 
@@ -27,7 +27,7 @@ ms.locfileid: "132063537"
 
 | 키 | 형식 | Description | 허용되는 값 |
 | --- | ---- | ----------- | -------------- |
-| `$schema` | 문자열 | YAML 스키마입니다. 파일의 맨 위에 있는 를 포함하여 Azure Machine Learning VS Code 확장명을 사용하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | |
+| `$schema` | 문자열 | YAML 스키마입니다. Azure Machine Learning VS Code 확장명을 사용하여 파일 맨 위에 있는 를 포함하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | |
 | `name` | 문자열 | **필수 사항입니다.** 데이터 세트의 이름입니다. | |
 | `version` | 문자열 | 데이터 세트의 버전입니다. 생략하면 Azure ML 버전을 자동으로 생성합니다. | |
 | `description` | 문자열 | 데이터 세트에 대한 설명입니다. | |
@@ -46,7 +46,7 @@ ms.locfileid: "132063537"
 
 `az ml dataset`명령은 Azure Machine Learning 데이터 세트를 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/assets/dataset)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 

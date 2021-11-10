@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 840520f83a3c90a6c63c366e0e56a98d5ab71551
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: f0e5afcc4f0869c4fe12a634e34e7b0669da5c75
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892953"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137797"
 ---
 # <a name="index-data-from-sharepoint-online"></a>SharePoint Online의 데이터 인덱싱
 
@@ -54,7 +54,7 @@ SharePoint Online 인덱서를 설정하려면 Azure Portal 및 미리 보기 RE
 
 시스템 할당 관리 ID를 사용하도록 설정하면 Azure는 인덱서에서 사용할 수 있는 검색 서비스의 ID를 만듭니다. 이 ID는 검색 서비스가 프로비전되는 테넌트 자동 검색에 사용됩니다.
 
-SharePoint Online 사이트가 검색 서비스와 동일한 테넌트인 경우 검색 서비스에 대해 시스템 할당 관리 ID를 사용하도록 설정해야 합니다. SharePoint Online 사이트가 검색 서비스와 다른 테넌트에 있는 경우 시스템 할당 관리 ID를 사용하도록 설정할 필요가 없습니다.
+SharePoint Online 사이트가 검색 서비스와 동일한 테넌트에 있는 경우 검색 서비스에 대해 시스템 할당 관리 ID를 사용하도록 설정해야 합니다. SharePoint Online 사이트가 검색 서비스와 다른 테넌트에 있는 경우 시스템 할당 관리 ID를 사용하도록 설정할 필요가 없습니다.
 
 ![시스템이 할당한 관리 ID 사용](media/search-howto-index-sharepoint-online/enable-managed-identity.png "시스템이 할당한 관리 ID 사용")
 
@@ -152,6 +152,9 @@ api-key: [admin key]
 }
 
 ```
+
+> [!IMPORTANT]
+> [`metadata_spo_site_library_item_id`](#metadata)SharePoint Online 인덱서로 채워진 인덱스에서 키 필드로만 사용할 수 있습니다. 데이터 원본에 키 필드가 없으면 `metadata_spo_site_library_item_id` 가 키 필드에 자동으로 매핑됩니다.
 
 자세한 내용은 [인덱스 만들기(REST API)](/rest/api/searchservice/create-index)를 참조하세요.
 
@@ -263,6 +266,8 @@ api-key: [admin key]
 
 1.  인덱서 실행을 수동으로 다시 시작하고 인덱서 상태를 확인합니다. 이번에는 인덱서 실행이 성공적으로 시작되어야 합니다.
 
+<a name="metadata"></a>
+
 ## <a name="indexing-document-metadata"></a>문서 메타데이터 인덱싱
 문서 메타데이터를 인덱싱하도록 인덱서를 설정한 경우 다음 메타데이터를 인덱싱할 수 있습니다.
 
@@ -283,7 +288,7 @@ api-key: [admin key]
 SharePoint Online 인덱서는 각 문서 유형과 관련된 메타데이터도 지원합니다. 자세한 내용은 [Azure Cognitive Search에서 사용되는 콘텐츠 메타데이터 속성](search-blob-metadata-properties.md)을 참조하세요.
 
 > [!NOTE]
-> 사용자 지정 메타데이터를 인덱싱하려면 [ `additionalColumns` 쿼리 정의에 를 지정해야 합니다.](#query)
+> 사용자 지정 메타 데이터를 인덱싱 하려면 [ `additionalColumns` 쿼리 정의에를 지정 해야 합니다](#query) .
 
 <a name="controlling-which-documents-are-indexed"></a>
 

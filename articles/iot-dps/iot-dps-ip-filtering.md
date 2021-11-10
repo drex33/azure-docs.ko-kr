@@ -1,18 +1,18 @@
 ---
-title: Azure IoT DPS IP 연결 필터 | Microsoft Docs
-description: 특정 IP 주소에서 Azure IoT DPS 인스턴스로의 연결을 차단하도록 IP 필터링을 사용하는 방법입니다. 개별 또는 IP 주소 범위에서 연결을 차단할 수 있습니다.
-author: wesmc7777
-ms.author: wesmc
+title: Microsoft Azure IP 연결 필터 IoT DPS
+description: 특정 IP 주소에서 Azure IoT DPS 인스턴스로의 연결을 차단하도록 IP 필터링을 사용하는 방법입니다.
+author: anastasia-ms
+ms.author: v-stharr
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: e1b175a176255da465433b2db45cb3cb67d360d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/05/2021
+ms.openlocfilehash: 01a3449526166ceb54565e73683a6d3c7dc41603
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98934508"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133270"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Azure IoT DPS IP 연결 필터 사용
 
@@ -25,6 +25,9 @@ ms.locfileid: "98934508"
 * DPS는 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 합니다. 예를 들어 DPS를 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services)와 사용하여 DPS와 디바이스 간의 프라이빗 연결을 만드는 경우입니다.
 
 * DPS 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
+
+>[!Note]
+>IP 필터링을 사용하도록 설정하면 더 이상 Azure Portal 사용하여 서비스 작업(예: 등록 관리)을 수행할 수 없습니다. 포털을 사용하여 서비스 작업을 수행하려면 일시적으로 IP 필터링을 비활성화하고 작업을 완료한 다음 IP 필터링 기능을 다시 사용하도록 설정해야 합니다. 사용자 고유의 클라이언트를 사용하고 IP 필터 비활성화를 방지하려면 컴퓨터의 IP 주소를 에 추가하고 `ipFilterRules` CLI를 통해 DPS에서 등록을 관리하도록 선택할 수 있습니다.
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 

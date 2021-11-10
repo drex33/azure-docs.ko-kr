@@ -86,6 +86,8 @@
           href: tutorial-app-containerization-aspnet-app-service.md
         - name: Java 웹앱 컨테이너화 및 App Service로 마이그레이션
           href: tutorial-app-containerization-java-app-service.md
+        - name: 2일차 작업을 위한 CI/CD
+          href: tutorial-app-containerization-azure-pipeline.md
 - name: 개념
   items:
     - name: 일반

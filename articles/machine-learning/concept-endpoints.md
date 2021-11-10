@@ -11,12 +11,12 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2, ignite-fall-2021
 ms.date: 10/21/2021
-ms.openlocfilehash: 03d5c93d27587e88ae1f21e12b8a729fab042ac7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 7129286a0a91e27e80ebe4a6f3fc99e2b0e6c9b8
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554035"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135931"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>Azure Machine Learning 엔드포인트(미리 보기)란? 
 
@@ -61,7 +61,7 @@ Azure Machine Learning은 엔드포인트 및 배포 개념을 사용하여 [온
 
 **온라인 엔드포인트**(미리 보기)는 온라인(실시간) 유추에 사용되는 엔드포인트입니다. **일괄 처리 엔드포인트** 에 비해 **온라인 엔드포인트** 에는 클라이언트에서 데이터를 수신할 준비가 되어 있고 실시간으로 응답을 다시 보낼 수 있는 **배포** 가 포함되어 있습니다.
 
-다음 다이어그램은 '파란색' 및 '녹색'의 두 배포가 있는 온라인 엔드포인트를 보여 주는 다이어그램입니다. 파란색 배포는 CPU SKU가 있는 VM을 사용하고 모델의 v1을 실행합니다. 녹색 배포는 GPU SKU가 있는 VM을 사용하고 모델의 v2를 사용합니다. 엔드포인트는 들어오는 트래픽의 90%를 파란색 배포로 라우팅하도록 구성되고 녹색은 나머지 10%를 받습니다.
+다음 다이어그램에서는 '파란색' 및 '녹색'의 두 배포가 있는 온라인 엔드포인트를 보여 주는 다이어그램입니다. 파란색 배포는 CPU SKU가 있는 VM을 사용하고 모델의 v1을 실행합니다. 녹색 배포는 GPU SKU가 있는 VM을 사용하고 모델의 v2를 사용합니다. 엔드포인트는 들어오는 트래픽의 90%를 파란색 배포로 라우팅하도록 구성되고 녹색은 나머지 10%를 받습니다.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="트래픽을 두 배포로 분할하는 엔드포인트를 보여주는 다이어그램":::
 
@@ -129,7 +129,7 @@ Visual Studio Code 사용하면 엔드포인트를 대화형으로 디버그할 
 | **기본 로깅** | [엔드포인트 수준의 Azure Logs 및 Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 지원됨 |
 | **Application Insights** | 지원 여부 | 지원 여부 |
 | **관리 ID** | [지원됨](how-to-access-resources-from-endpoints-managed-identities.md) | 지원됨 |
-| **Virtual Network(VNET)** | 지원되지 않음(공개 미리 보기) | 지원됨 |
+| **Virtual Network(VNET)** | 아직 지원되지 않음(작업 중) | 지원됨 |
 | **비용 보기** | [엔드포인트 및 배포 수준](how-to-view-online-endpoints-costs.md) | 클러스터 수준 |
 
 ### <a name="managed-online-endpoints"></a>관리형 온라인 엔드포인트
@@ -161,7 +161,7 @@ Visual Studio Code 사용하면 엔드포인트를 대화형으로 디버그할 
 
 **일괄 처리 엔드포인트(미리** 보기)는 일정 기간 동안 대량의 데이터에 대한 일괄 처리 유추를 수행하는 데 사용되는 엔드포인트입니다.  **일괄 처리 엔드포인트** 는 데이터에 대한 포인터를 수신하고 작업을 비동기적으로 실행하여 컴퓨팅 클러스터에서 데이터를 병렬로 처리합니다. 일괄 처리 엔드포인트는 추가 분석을 위해 데이터 저장소에 출력을 저장합니다.
 
-:::image type="content" source="media/concept-endpoints/batch-endpoint.png" alt-text="단일 일괄 처리 엔드포인트가 요청을 여러 배포로 라우팅할 수 있음을 보여 주는 다이어그램이며, 그 중 하나가 기본값입니다.":::
+:::image type="content" source="media/concept-endpoints/batch-endpoint.png" alt-text="단일 일괄 처리 엔드포인트가 요청을 여러 배포로 라우팅할 수 있음을 보여 주는 다이어그램으로, 그 중 하나가 기본값입니다.":::
 
 ### <a name="batch-deployment-requirements"></a>Batch 배포 요구 사항
 
@@ -174,7 +174,7 @@ Visual Studio Code 사용하면 엔드포인트를 대화형으로 디버그할 
 
 [MLFlow 모델을](how-to-use-mlflow.md)배포하는 경우 둘 다 자동으로 생성되기 때문에 점수 매기기 스크립트 및 실행 환경을 제공할 필요가 없습니다.
 
-Azure CLI 및 스튜디오 웹 [포털에서 일괄 처리 엔드포인트를 배포하고 사용하는](how-to-use-batch-endpoint.md) 방법을 알아봅니다. [](how-to-use-batch-endpoints-studio.md)
+Azure CLI 및 Studio 웹 [포털에서 일괄 처리 엔드포인트를 배포하고 사용하는](how-to-use-batch-endpoint.md) 방법을 알아봅니다. [](how-to-use-batch-endpoints-studio.md)
 
 ### <a name="managed-cost-with-autoscaling-compute"></a>자동 크기 조정 컴퓨팅으로 관리되는 비용
 

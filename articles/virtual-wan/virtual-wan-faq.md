@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 65b39c7cae553663cc4b482ff98a4be3c2e03876
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 17482c9de7cc6c26355fa6ec629028739b209785
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132026048"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134338"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 
@@ -33,9 +33,9 @@ Virtual WAN은 다음 두 가지 버전으로 제공됩니다. 기본 및 표준
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Virtual WAN에서 가용성 영역 및 복원력은 어떻게 처리되나요?
 
-Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. 가상 WAN 허브에는 VPN, Express 경로 등과 같은 여러 서비스가 있습니다. 이러한 각 서비스는 지역에서 가용성 영역을 지 원하는 경우 Azure 방화벽을 제외 하 고 가용성 영역에 자동으로 배포 됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
+Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. Virtual WAN 허브에는 VPN, ExpressRoute 등과 같은 여러 서비스가 있습니다. 지역에서 가용성 영역 지원하는 경우 이러한 각 서비스는 가용성 영역(Azure Firewall 제외)에 자동으로 배포됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
 
-현재 azure 방화벽 관리자 포털,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용 하 여 가용성 영역을 지원 하도록 azure 방화벽을 배포할 수 있습니다. 현재는 가용성 영역 간에 배포 되도록 기존 방화벽을 구성할 수 있는 방법이 없습니다. Azure 방화벽을 삭제 하 고 다시 배포 해야 합니다. 
+현재 Azure Firewall Manager Portal,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용하여 가용성 영역 지원하기 위해 Azure Firewall 배포할 수 있습니다. 현재 가용성 영역에 배포할 기존 방화벽을 구성할 수 있는 방법은 없습니다. Azure Firewall 삭제하고 다시 배포해야 합니다. 
 
 Virtual WAN은 개념적으로는 글로벌이지만, 실제 Virtual WAN 리소스는 Resource Manager 기반이며 지역 단위로 배포됩니다. 가상 WAN 지역 자체에 문제가 있는 경우 해당 가상 WAN의 모든 허브는 계속해서 있는 그대로 작동하지만, 사용자는 가상 WAN 지역을 사용할 수 있을 때까지 새 허브를 만들 수 없게 됩니다.
 
@@ -321,7 +321,7 @@ Azure Firewall을 통해 인터넷이 중단되는 지점 및 사이트 간 사�
 
 Azure Route Server는 NVA(네트워크 가상 어플라이언스)가 DIY 허브 VNet의 경로 서버에서 경로를 학습하는 데 사용할 수 있는 BGP(Border Gateway Protocol) 피어링 서비스를 제공합니다. Virtual WAN 라우팅은 VNet 간 전송 라우팅, 사용자 지정 라우팅, 사용자 지정 경로 연결 및 전파를 포함한 여러 가지 기능을 제공하며, ExpressRoute, 사이트 VPN, 원격 사용자/대규모 P2S VPN 및 보안 허브(Azure Firewall) 기능을 제공하는 연결 서비스와 함께 완전 메시형 무인 허브 서비스를 제공합니다. NVA와 Azure Route Server 간에 BGP 피어링을 설정할 때 NVA의 IP 주소를 가상 네트워크에 보급할 수 있습니다. 전송 라우팅, 사용자 지정 라우팅 등의 모든 고급 라우팅 기능에서 Virtual WAN 라우팅을 사용할 수 있습니다.
 
-### <a name="if-i-am-using-a-third-party-security-provider-zscalar-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-the-azure-portal"></a>타사 보안 공급자(ZScalar, iBoss 또는 Checkpoint)를 사용하여 내 인터넷 트래픽을 보호하는 경우 Azure Portal에서 타사 보안 공급자와 연결된 VPN 사이트가 표시되지 않는 이유는 무엇인가요?
+### <a name="if-i-am-using-a-third-party-security-provider-zscaler-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-the-azure-portal"></a>타사 보안 공급자(Zscaler, iBoss 또는 Checkpoint)를 사용하여 인터넷 트래픽을 보호하는 경우 Azure Portal 타사 보안 공급자와 연결된 VPN 사이트가 표시되지 않는 이유는 무엇인가요?
 
 사용자에 대한 인터넷 액세스를 보호하기 위해 보안 파트너 공급자를 배포하도록 선택하는 경우 타사 보안 공급자는 사용자를 대신하여 VPN 사이트를 만듭니다. 타사 보안 공급자는 공급자에 의해 자동으로 생성되고 사용자가 만든 VPN 사이트는 아니므로 이 VPN 사이트는 Azure Portal에 표시되지 않습니다.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b0a5547928bd7d19343c50e40ab9fcb2c335e893
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c260f4ba164bfce60bde939bd8dbde10a6659326
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674534"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137856"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>PowerShell을 사용하여 Azure Database for PostgreSQL에서 읽기 복제본을 설정하고 관리하는 방법
 
@@ -46,21 +46,21 @@ PowerShell을 로컬로 사용하도록 선택한 경우 [Connect-AzAccount](/po
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
-  New-AzPostgreSqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
+  New-AzPostgreSqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-`New-AzPostgreSqlServerReplica` 명령에는 다음과 같은 매개 변수가 필요합니다.
+`New-AzPostgreSqlReplica` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
 | 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  복제본 서버가 만들어진 리소스 그룹입니다.  |
 | 이름 | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
 
-지역 간 읽기 복제본을 만들려면 **Location** 매개 변수를 사용합니다. 다음 예제에서는 **미국 서부** 지역의 복제본을 만듭니다.
+영역 간 읽기 복제본을 만들려면 **Location** 매개 변수를 사용합니다. 다음 예제에서는 **미국 서부** 지역의 복제본을 만듭니다.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzPostgreSQLServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzPostgreSqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 복제본을 만들 수 있는 지역에 대해 자세히 알아보려면 [읽기 복제본 개념 문서](concepts-read-replicas.md)를 참조하세요.

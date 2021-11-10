@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 98c077ff578cfbe70bfe3a871e5a1eb4d5fbd755
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 54155f2bacd9a593a1288c8d1f95a5843dca2602
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584259"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134783"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링에 대한 모범 사례
 
@@ -132,6 +132,8 @@ StorageBlobLogs
 
 감사의 “누구” 부분에서 `AuthenticationType`은 요청에 사용된 인증 유형을 보여줍니다. 이 필드는 계정 키, SAS 토큰 또는 Azure AD(Azure Active Directory) 인증 사용을 포함하여 Azure Storage가 지원하는 인증 유형을 표시할 수 있습니다.
 
+#### <a name="identifying-the-security-principal-used-to-authorize-a-request"></a>요청에 권한을 부여 하는 데 사용 되는 보안 주체 식별
+
 요청이 Azure AD를 사용하여 인증된 경우 `RequesterObjectId` 필드는 보안 주체를 식별하는 가장 안정적인 방법을 제공합니다. `RequesterObjectId` 필드를 사용하고 Azure Portal의 Azure AD 페이지에서 보안 주체를 검색하여 친숙한 해당 보안 주체의 이름을 찾을 수 있습니다. 다음 스크린샷에서는 Azure AD의 검색 결과를 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
@@ -149,7 +151,33 @@ StorageBlobLogs
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-공유 키 및 SAS 인증에서는 개별 ID를 감사할 수단을 제공하지 않습니다. 따라서 ID 기반 감사 기능을 개선하려면 Azure AD로 전환하고 공유 키와 SAS 인증을 방지하는 것이 좋습니다. 공유 키와 SAS 인증을 방지하는 방법을 알아보려면 [Azure Storage 계정에 대한 공유 키 인증 방지](../common/shared-key-authorization-prevent.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal)를 참조하세요. Azure AD를 시작하려면 [Azure Active Directory를 사용하여 blob에 대한 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조하세요
+공유 키 및 SAS 인증에서는 개별 ID를 감사할 수단을 제공하지 않습니다. 따라서 ID 기반 감사 기능을 개선하려면 Azure AD로 전환하고 공유 키와 SAS 인증을 방지하는 것이 좋습니다. 공유 키와 SAS 인증을 방지하는 방법을 알아보려면 [Azure Storage 계정에 대한 공유 키 인증 방지](../common/shared-key-authorization-prevent.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal)를 참조하세요. Azure AD를 시작 하려면 [Azure Active Directory를 사용 하 여 blob에 대 한 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조 하세요.
+
+#### <a name="identifying-the-sas-token-used-to-authorize-a-request"></a>요청에 권한을 부여 하는 데 사용 되는 SAS 토큰 식별
+
+SAS 토큰을 사용 하 여 권한이 부여 된 작업을 쿼리할 수 있습니다. 예를 들어이 쿼리는 SAS 토큰을 사용 하 여 권한이 부여 된 모든 쓰기 작업을 반환 합니다.
+
+```kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d)
+  and OperationName == "PutBlob"
+  and AuthenticationType == "SAS"
+| project TimeGenerated, AuthenticationType, AuthenticationHash, OperationName, Uri
+```
+
+보안상의 이유로 SAS 토큰은 로그에 표시 되지 않습니다. 그러나 SAS 토큰의 SHA-256 해시는이 쿼리에서 반환 되는 필드에 표시 됩니다 `AuthenticationHash` . 
+
+여러 SAS 토큰을 배포 하 고 어떤 SAS 토큰을 사용 하 고 있는지 확인 하려면 각 SAS 토큰을 SHA-256 해시로 변환한 다음 해당 해시를 로그에 표시 되는 해시 값과 비교 해야 합니다.
+
+먼저 각 SAS 토큰 문자열을 디코딩합니다. 다음 예제에서는 PowerShell을 사용 하 여 SAS 토큰 문자열을 디코딩합니다.
+
+```powershell
+[uri]::UnescapeDataString("<SAS token goes here>")
+```
+
+그런 다음 해당 문자열을 [Get FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) PowerShell cmdlet에 전달할 수 있습니다. 예제는 [예제 4: 문자열의 해시 계산](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string)을 참조 하세요.
+
+또는 디코딩된 문자열을 kusto 쿼리의 일부로 [hash_sha256 ()](/data-explorer/kusto/query/sha256hashfunction) 함수에 전달할 수 있습니다.
 
 ## <a name="optimize-cost-for-infrequent-queries"></a>자주 발생하지 않는 쿼리 비용 최적화
 

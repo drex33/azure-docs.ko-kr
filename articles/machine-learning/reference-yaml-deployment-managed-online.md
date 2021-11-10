@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: CLI(v2) 관리형 온라인 배포 YAML 스키마에 대한 참조 설명서입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: e356840d54ed156562d93b76bade6531a0b017d7
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 82c215dd0b7bccfcb53da0952cba82f89105c38a
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132060533"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137851"
 ---
 # <a name="cli-v2-managed-online-deployment-yaml-schema"></a>CLI(v2) 관리형 온라인 배포 YAML 스키마
 
@@ -69,7 +69,7 @@ ms.locfileid: "132060533"
 
 이 `az ml online-deployment` 명령은 Azure Machine Learning 관리 되는 온라인 배포를 관리 하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 예제는 [GitHub 리포지토리에서](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online)사용할 수 있습니다. 몇 가지는 다음과 같습니다.
 

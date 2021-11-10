@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Machine Learning용 Azure CLI 확장을 설치하고 설정하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 06e623887c1ff503982df19764876cb9e3db2f0e
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 778c58c2a1408ea7beb2a756d5c1700810f4bb63
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132061461"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137590"
 ---
 # <a name="install-and-set-up-the-cli-v2"></a>CLI(v2) 설치 및 설정
 
@@ -75,18 +75,18 @@ Linux를 사용하는 경우 필요한 CLI 버전과 Machine Learning 확장을 
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
-필요에 따라 다음 명령에서 사용 하기 위해 셸에서 일반적인 변수를 설정 합니다.
+필요에 따라 후속 명령에서 사용하기 위해 셸에서 일반 변수를 설치합니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="set_variables":::
 
 > [!WARNING]
-> 이는 변수 설정에 Bash 구문을 사용 합니다.--셸에 필요에 따라 조정 합니다. 변수를 사용 하는 대신 아래 명령의 값을 인라인으로 바꿀 수도 있습니다.
+> 이렇게 하면 Bash 구문을 사용하여 변수를 설정합니다. 셸에 필요한 대로 조정합니다. 변수를 사용하는 대신 인라인 아래 명령의 값을 바꿀 수도 있습니다.
 
 Azure 리소스 그룹이 아직 없는 경우 만들 수 있습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_group_create":::
 
-그리고 machine learning 작업 영역을 만듭니다.
+그리고 기계 학습 작업 영역을 만듭니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
@@ -97,15 +97,15 @@ Azure 리소스 그룹이 아직 없는 경우 만들 수 있습니다.
 > [!TIP]
 > 대부분의 코드 예제에서는 기본 작업 영역 및 리소스 그룹을 설정했다고 가정합니다. 명령줄에서 이러한 항목을 재정의할 수 있습니다.
 
-다음을 사용 하 여 현재 기본값을 표시할 수 있습니다 `--list-defaults/-l` .
+를 사용하여 현재 기본값을 표시할 수 있습니다. `--list-defaults/-l`
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="list_defaults":::
 
 > [!TIP]
-> 와를 함께 사용 `--output/-o` 하면 더 읽기 쉬운 출력 형식을 사용할 수 있습니다.
+> 와 를 `--output/-o` 결합하면 더 읽기 가능한 출력 형식을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [CLI를 사용 하 여 모델 학습 (v2)](how-to-train-cli.md)
+- [CLI를 사용하여 모델 학습(v2)](how-to-train-cli.md)
 - [Visual Studio Code Azure Machine Learning 확장 설정](how-to-setup-vs-code.md)
 - [Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 TensorFlow 모델 학습](tutorial-train-deploy-image-classification-model-vscode.md)

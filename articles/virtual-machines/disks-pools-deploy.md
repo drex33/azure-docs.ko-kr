@@ -4,16 +4,16 @@ description: Azure 디스크 풀을 배포하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7230bf83f5ca203aa40cb043b3ea02d983ba7a4a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c4c010d1c142a2f2e09c0a60122f446ab7df6530
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022195"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135373"
 ---
 # <a name="deploy-an-azure-disk-pool-preview"></a>Azure 디스크 풀(미리 보기) 배포
 
@@ -33,6 +33,8 @@ ms.locfileid: "131022195"
 
 - 디스크 풀에 추가하려는 관리 디스크 세트
 - 디스크 풀에 사용할 전용 서브넷이 있는 가상 네트워크
+    - 아웃바운드 포트 53, 443 및 5671이 열려 있어야 합니다.
+    - 네트워크 설정이 디스크 풀의 필요한 아웃바운드 의존성을 차단하지 않는지 확인합니다. [Azure PowerShell 모듈](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint?view=azps-6.6.0) 또는 [Azure CLI](/cli/azure/disk-pool?view=azure-cli-latest#az_disk_pool_list_outbound_network_dependency_endpoint) 사용하여 모든 아웃바운드 dependencies의 전체 목록을 얻을 수 있습니다.
 
 Azure PowerShell 모듈을 사용하려면 [버전 6.1.0 이상](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true)을 설치하세요.
 

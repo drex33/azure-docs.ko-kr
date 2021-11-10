@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 09/13/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 01acde63371fea6a8c3f752caf31fa883e5e617e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cc8cdfcfeee8c5deefe64799be7c6ee27cb644f6
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641221"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135807"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
@@ -24,16 +24,16 @@ Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록
 
 기존 Azure 엔드포인트는 2020년 8월 13일 이후 단계적으로 전환되었습니다. 새로 만든 모든 Azure TLS/SSL 엔드포인트에는 새로운 루트 CA에 연결하는 업데이트된 인증서가 포함되어 있습니다.
 
-모든 Azure 서비스는 해당 변경의 영향을 받습니다. 특정 서비스에 대한 추가 세부 정보:
+모든 Azure 서비스는 해당 변경의 영향을 받습니다. 특정 서비스에 대한 자세한 내용은 다음과 같습니다.
 
 - Azure AD([Azure Active Directory](../../active-directory/index.yml)) 서비스는 2020년 7월 7일에 이 전환을 시작했습니다.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) 및 [DPS](../../iot-dps/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Azure Storage](../../storage/index.yml)에 대 한 자세한 [내용을 보려면 여기를 클릭](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581)하세요.
+- [Azure Storage](../../storage/index.yml)자세한 내용을 [보려면 여기를 클릭하세요.](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581)
 - [Azure Cache for Redis](../../azure-cache-for-redis/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](../../azure-cache-for-redis/cache-whats-new.md).
-- Azure Instance Metadata Service는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
+- [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md?tabs=linux)의 경우 Azure [Instance Metadata Service-Attested 데이터 TLS: 중요한 변경 내용이 거의 여기에 있습니다!](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953) 참조하세요.
 
 > [!IMPORTANT]
-> Azure Storage에 연결 하려고 할 때 연결 오류가 발생 하지 않도록 하려면이 변경 후 응용 프로그램을 업데이트 해야 할 수 있습니다.
+> 고객은 Azure Storage 연결을 시도할 때 연결 오류를 방지하기 위해 이 변경 후 애플리케이션을 업데이트해야 할 수 있습니다.
 https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581
 ## <a name="what-is-changing"></a>변경되는 내용
 
@@ -70,7 +70,7 @@ Azure 서비스에서 사용하는 TLS 인증서는 다음과 같은 루트 CA �
 
 - Azure API 또는 다른 Azure 서비스와 통합되는 애플리케이션이 있고 해당 애플리케이션이 인증서 고정을 사용하는지 확실하지 않은 경우 애플리케이션 공급업체에 확인하세요.
 
-- Azure 서비스와 통신하는 여러 운영 체제 및 언어 런타임은 다음과 같은 새 루트를 사용하여 인증서 체인을 올바르게 빌드하는 추가 단계가 필요할 수 있습니다.
+- Azure 서비스와 통신하는 다양한 운영 체제 및 언어 런타임은 다음과 같은 새로운 루트를 사용하여 인증서 체인을 올바르게 빌드하기 위해 더 많은 단계가 필요할 수 있습니다.
     - **Linux**: 여러 배포판에서는 /etc/ssl/certs에 CA를 추가해야 합니다. 자세한 지침은 해당 배포판의 설명서를 참조하세요.
     - **Java**: 위에 나열된 CA가 Java 키 저장소에 들어 있어야 합니다.
     - **연결이 끊어진 환경에서 실행되는 Windows**: 연결이 끊어진 환경에서 실행되는 시스템은 새로운 루트를 신뢰할 수 있는 루트 인증 기관 저장소에 추가하고, 중간 인증서를 중간 인증 기관 저장소에 추가해야 합니다.

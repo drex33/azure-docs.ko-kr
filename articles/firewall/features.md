@@ -1,5 +1,5 @@
 ---
-title: Azure Firewall 기능
+title: Azure Firewall 표준 기능
 description: Azure Firewall 기능에 대해 알아보기
 services: firewall
 author: vhorne
@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 348a52aaee7569a4f98a4d67b83d1d957fd89f62
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0c9b871197085a6a220482c3b9d1d35f25d5b427
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130242220"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136749"
 ---
-# <a name="azure-firewall-features"></a>Azure Firewall 기능
+# <a name="azure-firewall-standard-features"></a>Azure Firewall 표준 기능
 
-[Azure Firewall](overview.md)은 Azure Virtual Network 리소스를 보호하는 클라우드 기반 관리 네트워크 보안 서비스입니다.
+[Azure Firewall](overview.md) 표준은 Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다.
 
-![방화벽 개요](media/overview/firewall-threat.png)
+:::image type="content" source="media/features/firewall-standard.png" alt-text="Azure Firewall 표준 기능":::
 
 Azure Firewall에는 다음과 같은 기능이 포함되어 있습니다.
 
@@ -30,6 +30,10 @@ Azure Firewall에는 다음과 같은 기능이 포함되어 있습니다.
 - FQDN 태그
 - 서비스 태그
 - 위협 인텔리전스
+- DNS 프록시
+- 사용자 지정 DNS
+- 네트워크 규칙의 FQDN
+- 강제 Tunnel 모드에서 공용 IP 주소가 없는 배포
 - 아웃바운드 SNAT 지원
 - 인바운드 DNAT 지원
 - 여러 공용 IP 주소
@@ -82,6 +86,30 @@ Azure Firewall은 레이어 3 및 레이어 4 네트워크 프로토콜의 상�
 ## <a name="threat-intelligence"></a>위협 인텔리전스
 
 방화벽에서 알려진 악성 IP 주소 및 도메인과 주고받는 트래픽을 경고하고 거부할 수 있도록 하기 위해 [위협 인텔리전스](threat-intel.md) 기반 필터링을 사용하도록 설정할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다.
+
+## <a name="dns-proxy"></a>DNS 프록시
+
+DNS 프록시를 사용하도록 설정하면 Azure Firewall Virtual Network DNS 쿼리를 처리하고 원하는 DNS 서버로 전달할 수 있습니다. 이 기능은 중요하며 네트워크 규칙에서 신뢰할 수 있는 FQDN 필터링이 필요합니다. Azure Firewall 및 방화벽 정책 설정에서 DNS 프록시를 사용하도록 설정할 수 있습니다. DNS 프록시에 대한 자세한 내용은 [DNS 설정 Azure Firewall 참조하세요.](dns-settings.md)
+
+## <a name="custom-dns"></a>사용자 지정 DNS
+
+사용자 지정 DNS를 사용하면 Azure Firewall 자체 DNS 서버를 사용하도록 구성하는 동시에 방화벽 아웃바운드 의존성을 Azure DNS 통해 확인할 수 있습니다. Azure Firewall 및 방화벽 정책 DNS 설정에서 단일 DNS 서버 또는 여러 서버를 구성할 수 있습니다. 사용자 지정 DNS에 대한 자세한 내용은 [DNS 설정 Azure Firewall 참조하세요.](dns-settings.md)
+
+Azure Firewall Azure 프라이빗 DNS 사용하여 이름을 확인할 수도 있습니다. Azure Firewall 있는 가상 네트워크는 Azure 프라이빗 영역에 연결되어야 합니다. 자세한 내용은 Private Link Azure Firewall [DNS 전달자로 사용을](https://github.com/adstuart/azure-privatelink-dns-azurefirewall)참조하세요.
+
+## <a name="fqdn-in-network-rules"></a>네트워크 규칙의 FQDN
+
+Azure Firewall 및 방화벽 정책의 DNS 확인에 따라 네트워크 규칙에서 FQDN(정규화된 도메인 이름)을 사용할 수 있습니다. 
+
+규칙 컬렉션에서 지정된 FQDN은 방화벽 DNS 설정에 따라 IP 주소로 변환됩니다. 이 기능을 사용하면 모든 TCP/UDP 프로토콜(NTP, SSH, RDP 등)에서 FQDN을 사용하여 아웃바운드 트래픽을 필터링할 수 있습니다. 이 기능은 DNS 확인에 기반하기 때문에 DNS 프록시를 사용하도록 설정하여 이름 확인이 보호된 가상 머신 및 방화벽과 일치하도록 하는 것이 좋습니다.
+
+## <a name="deploy-azure-firewall-without-public-ip-address-in-forced-tunnel-mode"></a>강제 Tunnel 모드에서 공용 IP 주소 없이 Azure Firewall 배포
+
+Azure Firewall 서비스에는 운영 목적으로 공용 IP 주소가 필요합니다. 보안이 보장되지만 일부 배포에서는 공용 IP 주소를 인터넷에 직접 노출하지 않는 것이 좋습니다. 
+
+이러한 경우 강제 Tunnel 모드에서 Azure Firewall 배포할 수 있습니다. 이 구성은 Azure Firewall 해당 작업에 사용하는 관리 NIC를 만듭니다. 테넌트 데이터 경로 네트워크는 공용 IP 주소 없이 구성할 수 있으며 인터넷 트래픽은 다른 방화벽으로 강제 터널되거나 완전히 차단될 수 있습니다.
+
+강제 Tunnel 모드는 런타임에 구성할 수 없습니다. 방화벽을 다시 배포하거나 중지 및 시작 기능을 사용하여 강제 Tunnel 모드에서 기존 Azure Firewall 다시 구성할 수 있습니다. Secure Hubs에 배포된 방화벽은 항상 강제 Tunnel 모드로 배포됩니다.
 
 ## <a name="outbound-snat-support"></a>아웃바운드 SNAT 지원
 

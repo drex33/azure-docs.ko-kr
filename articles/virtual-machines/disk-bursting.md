@@ -3,17 +3,17 @@ title: 관리 디스크 버스팅
 description: Azure 디스크 및 Azure 가상 머신의 디스크 버스팅에 대해 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 11/03/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bd9cc8e9a9e60655d7d1805c1ceae4168353ec20
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 1ff0997686b69cb2b688eec0829e0b39915a53e1
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506330"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134921"
 ---
 # <a name="managed-disk-bursting"></a>관리 디스크 버스팅
 

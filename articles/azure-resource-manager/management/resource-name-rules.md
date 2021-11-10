@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: 12d589088f17e3eeb3bda0fecbb2c1fc24b65203
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 11/09/2021
+ms.openlocfilehash: 868fa30779048447014fa0e7b048d6de8051931c
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084097"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137543"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -28,7 +28,7 @@ ms.locfileid: "129084097"
 * **0**~**9**(숫자)
 
 > [!NOTE]
-> 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](../templates/error-reserved-resource-name.md)을 참조 하세요.
+> 퍼블릭 엔드포인트가 있는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단된 단어 목록은 [예약된 리소스 이름 오류 해결을 참조하세요.](../templates/error-reserved-resource-name.md)
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -175,7 +175,7 @@ ms.locfileid: "129084097"
 > | --- | --- | --- | --- |
 > | availabilitySets | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | cloudservices | 리소스 그룹 | 1-15 <br><br>아래 참고 사항을 참조하세요. | 공백, 제어 문자 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
-> | diskEncryptionSets | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
+> | diskEncryptionSets | 리소스 그룹 | 1-80 | 영숫자, 밑줄 및 하이픈 |
 > | disks | 리소스 그룹 | 1-80 | 영숫자, 밑줄 및 하이픈 |
 > | galleries | 리소스 그룹 | 1-80 | 영숫자 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / applications | gallery | 1-80 | 영숫자, 하이픈 및 마침표<br><br>영숫자로 시작하고 끝납니다. |

@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: 6c589f3f0913609640ac14534c170c741c16a084
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fc02862b6d980854d20e90724d9192e33693b5db
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048173"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137130"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
@@ -39,7 +39,7 @@ ms.locfileid: "105048173"
 - [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
 
 - 최신 [pip](https://pip.pypa.io/en/stable/installing/) 패키지 설치 관리자.
-- 터미널 또는 명령 프롬프트 창에서 `pip install psycopg2`를 사용하여 [psycopg2](https://pypi.python.org/pypi/psycopg2/)를 설치합니다. 자세한 내용은 [설치 방법 `psycopg2`](http://initd.org/psycopg/docs/install.html)을 참조하세요.
+- 터미널 또는 명령 프롬프트 창에서 `pip install psycopg2-binary`를 사용하여 [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/)를 설치합니다. 자세한 내용은 [설치 방법 `psycopg2`](https://www.psycopg.org/docs/install.html)을 참조하세요.
 
 ## <a name="get-database-connection-information"></a>데이터베이스 연결 정보 가져오기
 Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다. Azure Portal에서 이 정보를 가져올 수 있습니다.
@@ -55,12 +55,12 @@ Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된
 >  다음 값을 바꿉니다.
 >   - `<server-name>` 및 `<admin-username>`을 Azure Portal에서 복사한 값으로 바꿉니다.
 >   - `<admin-password>`를 서버 암호로 바꿉니다.
->   - `<database-name>` *postgres* 라는 기본 데이터베이스는 서버를 만들 때 자동으로 생성되었습니다. SQL 명령을 사용하여 해당 데이터베이스의 이름을 바꾸거나 [새 데이터베이스를 생성](https://www.postgresql.org/docs/9.0/sql-createdatabase.html)할 수 있습니다.
+>   - `<database-name>` *postgres* 라는 기본 데이터베이스는 서버를 만들 때 자동으로 생성되었습니다. SQL 명령을 사용하여 해당 데이터베이스의 이름을 바꾸거나 [새 데이터베이스를 생성](https://www.postgresql.org/docs/current/sql-createdatabase.html)할 수 있습니다.
 
 ## <a name="step-1-connect-and-insert-data"></a>1단계: 데이터 연결 및 삽입
 다음 코드 예제에서는
--  [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) 함수를 사용하여 Azure Database for PostgreSQL 데이터베이스에 연결하고 SQL **INSERT** 문을 사용하여 데이터를 로드합니다.
-- [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) 함수는 데이터베이스에 대해 SQL 쿼리를 실행합니다.
+-  [psycopg2.connect](https://www.psycopg.org/docs/connection.html) 함수를 사용하여 Azure Database for PostgreSQL 데이터베이스에 연결하고 SQL **INSERT** 문을 사용하여 데이터를 로드합니다.
+- [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) 함수는 데이터베이스에 대해 SQL 쿼리를 실행합니다.
 
 ```Python
 import psycopg2
@@ -108,8 +108,8 @@ conn.close()
 
 ## <a name="step-2-read-data"></a>2단계: 데이터 읽기
 다음 코드 예제에서는 Azure Database for PostgreSQL 데이터베이스에 연결하고
-- SQL **SELECT** 에서 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)를 사용하여 데이터를 읽습니다.
-- [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall)은 쿼리를 수락하고 다음을 사용하여 반복할 결과 집합을 반환합니다.
+- SQL **SELECT** 에서 [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute)를 사용하여 데이터를 읽습니다.
+- [cursor.fetchall()](https://www.psycopg.org/docs/cursor.html#cursor.fetchall)은 쿼리를 수락하고 다음을 사용하여 반복할 결과 집합을 반환합니다.
 
 ```Python
 
@@ -126,7 +126,7 @@ for row in rows:
 [문제가 있나요? 알려주세요.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-3-update-data"></a>3단계: 데이터 업데이트
-다음 코드 예제에서는 SQL **UPDATE** 문에서 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)를 사용하여 데이터를 업데이트합니다.
+다음 코드 예제에서는 SQL **UPDATE** 문에서 [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute)를 사용하여 데이터를 업데이트합니다.
 
 ```Python
 
@@ -138,7 +138,7 @@ print("Updated 1 row of data")
 [문제가 있나요? 알려주세요.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-5-delete-data"></a>5단계: 데이터 삭제
-다음 코드 예제에서는 SQL **DELETE** 에서 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)를 실행하여 이전에 삽입된 인벤토리 항목을 삭제합니다.
+다음 코드 예제에서는 SQL **DELETE** 에서 [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute)를 실행하여 이전에 삽입된 인벤토리 항목을 삭제합니다.
 
 ```Python
 

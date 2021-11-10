@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 777ee0bcbf139c9edc9e4715133faec3318f692b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5ead71fc6dd4fdbea8db6d4915c145c5a60a071f
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434506"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135477"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -31,16 +31,16 @@ Translator 버전 3은 최신 JSON 기반 Web API를 제공합니다. 기존 기
 
 ## <a name="base-urls"></a>기준 URL
 
-번역기에 대 한 요청은 대부분의 경우 요청이 시작 된 위치와 가장 가까운 데이터 센터에 의해 처리 됩니다. 전역 끝점을 사용 하는 경우 데이터 센터 오류가 발생 하는 경우 요청은 지리 외부에서 라우팅될 수 있습니다.
+번역기 요청은 대부분의 경우 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 글로벌 엔드포인트를 사용할 때 데이터 센터 오류가 발생하면 요청이 지리 외부로 라우팅될 수 있습니다.
 
-특정 지리 내에서 요청을 강제로 처리 하려면 원하는 지리적 끝점을 사용 합니다. 모든 요청은 지리 내의 데이터 센터 간에 처리 됩니다. 
+특정 지리 내에서 요청을 강제로 처리하려면 원하는 지리적 엔드포인트를 사용합니다. 모든 요청은 지리 내의 데이터 센터 간에 처리됩니다. 
 
 |Geography|기준 URL(지리적 엔드포인트)|데이터 센터|
 |:--|:--|:--|
-|글로벌(비지역)|    api.cognitive.microsofttranslator.com|사용 가능한 가장 가까운 데이터 센터|
+|글로벌(비지역)|    api.cognitive.microsofttranslator.com|가장 가까운 사용 가능한 데이터 센터|
 |아시아 태평양|    api-apc.cognitive.microsofttranslator.com|한국 남부, 일본 동부, 동남 아시아 및 오스트레일리아 동부|
 |유럽|    api-eur.cognitive.microsofttranslator.com|북유럽, 서유럽|
-|미국|    api-nam.cognitive.microsofttranslator.com|미국 동부, 미국 서 부, 미국 중부, 미국 서 부 2|
+|미국|    api-nam.cognitive.microsofttranslator.com|미국 동부, 미국 중남부, 미국 중서부 및 미국 서부 2|
 
 <sup>1</sup> 스위스 북부 또는 스위스 서부에 리소스가 있는 고객은 텍스트 API 요청이 스위스 내에서 처리되도록 할 수 있습니다. 요청이 스위스에서 처리되도록 하려면 '리소스 지역' '스위스 북부' 또는 '스위스 서부'에 Translator 리소스를 만든 다음, API 요청에서 리소스의 사용자 지정 엔드포인트를 사용합니다. 예를 들어, Azure Portal ‘리소스 지역’을 ‘스위스 북부’로 하여 Translator 리소스를 만들고 리소스 이름이 ‘my-ch-n’인 경우 사용자 지정 엔드포인트는 “https://my-ch-n.cognitiveservices.azure.com”입니다. 그리고 번역할 샘플 요청은 다음과 같습니다.
 ```curl
@@ -120,8 +120,6 @@ Cognitive Services의 다중 서비스 리소스를 사용하는 경우입니다
 
 지역은 다중 서비스 Text API 구독에 필요합니다. 선택한 지역은 다중 서비스 구독 키를 사용하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역이며, Azure Portal을 통해 다중 서비스 구독에 가입할 때 선택한 것과 동일한 지역이어야 합니다.
 
-사용 가능한 지역은 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2` 및 `southafricanorth`입니다.
-
 `Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
 
 ### <a name="authenticating-with-an-access-token"></a>액세스 토큰을 사용하여 인증
@@ -151,31 +149,31 @@ Authorization: Bearer <Base64-access_token>
 
 인증 토큰은 10분 동안 유효합니다. Translator를 여러 번 호출할 때는 토큰을 다시 사용해야 합니다. 그러나 프로그램이 확장된 기간 동안 Translator에 대한 요청을 수행하는 경우 프로그램은 일정한 간격(예: 8분마다)으로 새 액세스 토큰을 요청해야 합니다.
 
-## <a name="authentication-with-azure-active-directory-azure-ad"></a>Azure Active Directory 인증 (Azure AD)
+## <a name="authentication-with-azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory 인증)
 
- 번역기 v 3.0은 Microsoft의 클라우드 기반 id 및 액세스 관리 솔루션인 Azure AD 인증을 지원 합니다.  권한 부여 헤더를 사용 하면 번역기 서비스에서 요청 하는 클라이언트에 리소스를 사용 하 고 요청을 완료할 수 있는 권한이 있는지 확인할 수 있습니다.
+ 번역기 v3.0은 Microsoft의 클라우드 기반 ID 및 액세스 관리 솔루션인 Azure AD 인증을 지원합니다.  권한 부여 헤더를 사용하면 번역기 서비스에서 요청 클라이언트에 리소스를 사용하고 요청을 완료할 권한이 있는지 확인할 수 있습니다.
 
 ### <a name="prerequisites"></a>**필수 구성 요소**
 
-* [**Azure Active Directory를 사용 하 여 인증**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory)하는 방법을 간략하게 설명 합니다.
+* [**Azure Active Directory 인증하는**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory)방법을 간략하게 이해합니다.
 
-* [**관리 id에 대 한 액세스 권한을 부여**](../../authentication.md?tabs=powershell#authorize-access-to-managed-identities)하는 방법을 간략하게 설명 합니다.
+* 관리 ID 에 대한 액세스 권한을 부여하는 방법을 간략하게 [**이해합니다.**](../../authentication.md?tabs=powershell#authorize-access-to-managed-identities)
 
 ### <a name="headers"></a>**헤더**
 
 |헤더|값|
 |:-----|:----|
-|권한 부여| 값은 Azure AD에서 생성 된 액세스 **전달자 토큰** 입니다.</br><ul><li> 전달자 토큰은 인증 증명을 제공 하 고 리소스를 사용 하기 위한 클라이언트의 권한 부여에 대 한 유효성을 검사 합니다.</li><li> 인증 토큰은 10 분 동안 유효 하며, 번역기을 여러 번 호출할 때 다시 사용 해야 합니다.</br></li>위의 [액세스 토큰을 사용 하 여 인증](#authenticating-with-an-access-token)을 *참조* 하세요. </ul>|
-|Ocp-Apim-Subscription-Region| 값은 **변환기 리소스** 의 지역입니다.</br><ul><li> 리소스가 전역 이면이 값은 선택 사항입니다.</li></ul>|
-|Ocp-Apim-ResourceId| 값은 번역기 리소스 인스턴스에 대 한 리소스 ID입니다.</br><ul><li>리소스 ID는 Azure Portal **번역기 리소스 → 속성** 에서 찾을 수 있습니다. </li><li>리소스 ID 형식: </br>/subscriptions/<**subscriptionId**>/Wsourcegs/<**resourceGroupName**>/providers/Microsoft.CognitiveServices/accounts/<**context.resourcename**>/</li></ul>|
+|권한 부여| 값은 Azure AD에서 생성된 액세스 **Bearer 토큰입니다.**</br><ul><li> 제공자 토큰은 인증 증명을 제공하고 리소스를 사용하기 위한 클라이언트 권한 부여의 유효성을 검사합니다.</li><li> 인증 토큰은 10분 동안 유효하며 번역기 여러 번의 호출을 할 때 다시 사용해야 합니다.</br></li>위의 [액세스 토큰을 사용하여 인증을](#authenticating-with-an-access-token) *참조하세요.* </ul>|
+|Ocp-Apim-Subscription-Region| 값은 **변환기 리소스** 의 지역입니다.</br><ul><li> 리소스가 전역인 경우 이 값은 선택 사항입니다.</li></ul>|
+|Ocp-Apim-ResourceId| 값은 번역기 리소스 인스턴스의 리소스 ID입니다.</br><ul><li>리소스 ID는 Azure Portal 번역기 Resource → 속성 에서 찾을 수 **있습니다.** </li><li>리소스 ID 형식: </br>/subscriptions/<**subscriptionId**>/resourceGroups/<**resourceGroupName**>/providers/Microsoft.CognitiveServices/accounts/<**resourceName**>/</li></ul>|
 
-##### <a name="translator-property-pageazure-portal"></a>**번역기 속성 페이지-Azure Portal**
+##### <a name="translator-property-pageazure-portal"></a>**번역기 속성 페이지- Azure Portal**
 
-:::image type="content" source="../media/managed-identities/resource-id-property.png" alt-text="스크린샷: Azure Portal의 속성 페이지를 번역기 합니다.":::
+:::image type="content" source="../media/managed-identities/resource-id-property.png" alt-text="스크린샷:Azure Portal 속성 페이지 번역기.":::
 
-### <a name="examples"></a>**예**
+### <a name="examples"></a>**예제**
 
-#### <a name="using-the-global-endpoint"></a>**전역 끝점 사용**
+#### <a name="using-the-global-endpoint"></a>**글로벌 엔드포인트 사용**
 
 ```curl
  // Using headers, pass a bearer token generated by Azure AD, resource ID, and the region.
@@ -188,7 +186,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translator/text/v3.0
      -data-raw "[{'Text':'Hello, friend.'}]"
 ```
 
-#### <a name="using-your-custom-endpoint"></a>**사용자 지정 끝점 사용**
+#### <a name="using-your-custom-endpoint"></a>**사용자 지정 엔드포인트 사용**
 
 ```curl
 // Using headers, pass a bearer token generated by Azure AD.
@@ -199,11 +197,11 @@ curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator
      -data-raw "[{'Text':'Hello, friend.'}]"
 ```
 
-### <a name="examples-using-managed-identities"></a>**관리 id를 사용 하는 예제**
+### <a name="examples-using-managed-identities"></a>**관리 ID를 사용하는 예제**
 
-번역기 v 3.0은 관리 되는 id에 대 한 액세스 권한 부여도 지원 합니다. 변환기 리소스에 대해 관리 id를 사용 하는 경우 관리 id로 생성 된 전달자 토큰을 요청 헤더에 전달할 수 있습니다.
+번역기 v3.0은 관리 ID에 대한 액세스 권한 부여도 지원합니다. 변환기 리소스에 대해 관리 ID를 사용하는 경우 요청 헤더에서 관리 ID에 의해 생성된 전달자 토큰을 전달할 수 있습니다.
 
-#### <a name="with-the-global-endpoint"></a>**전역 끝점 사용**
+#### <a name="with-the-global-endpoint"></a>**글로벌 엔드포인트를 통해**
 
 ```curl
 // Using headers, pass a bearer token generated either by Azure AD or Managed Identities, resource ID, and the region.
@@ -216,7 +214,7 @@ curl -X POST https://api.cognitive.microsofttranslator.com/translator/text/v3.0/
      -data-raw "[{'Text':'Hello, friend.'}]"
 ```
 
-#### <a name="with-your-custom-endpoint"></a>**사용자 지정 끝점 사용**
+#### <a name="with-your-custom-endpoint"></a>**사용자 지정 엔드포인트를 사용하면**
 
 ```curl
 //Using headers, pass a bearer token generated by Managed Identities.

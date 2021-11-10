@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: CLI(v2) Azure Files 데이터 저장소 YAML 스키마에 대한 참조 문서입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 63d1d2f6be0febea3404431b812e59aea356ac94
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: d70634b1df1ab194ef4f52c9b12ac982f023c53a
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062722"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136332"
 ---
 # <a name="cli-v2-azure-files-datastore-yaml-schema"></a>CLI(v2) Azure Files 데이터 저장소 YAML 스키마
 
@@ -27,7 +27,7 @@ ms.locfileid: "132062722"
 
 | 키 | 형식 | Description | 허용되는 값 | 기본값 |
 | --- | ---- | ----------- | -------------- | ------- |
-| `$schema` | 문자열 | YAML 스키마입니다. 파일의 맨 위에 있는 를 포함하여 Azure Machine Learning VS Code 확장명을 사용하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
+| `$schema` | 문자열 | YAML 스키마입니다. Azure Machine Learning VS Code 확장명을 사용하여 파일 맨 위에 있는 를 포함하여 YAML 파일을 작성하면 `$schema` 스키마 및 리소스 완성을 호출할 수 있습니다. | | |
 | `type` | 문자열 | **필수 사항입니다.** 데이터 저장소의 형식입니다. | `azure_file` | |
 | `name` | 문자열 | **필수 사항입니다.** 데이터 저장소의 이름입니다. | | |
 | `description` | 문자열 | 데이터 저장소에 대한 설명입니다. | | |
@@ -44,7 +44,7 @@ ms.locfileid: "132062722"
 
 `az ml datastore` 명령은 Azure Machine Learning 데이터 저장소를 관리하는 데 사용할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 예제는 [GitHub 리포지토리 예제에서](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore)사용할 수 있습니다. 아래에는 몇 가지가 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/26/2021
 ms.author: duau
-ms.openlocfilehash: 6b4353ad60f8ae2f4238762297d694cde1ae253a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3f29b308f4d0f198d444d874a4f53cf660feb8f9
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131473132"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136177"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute 연결 파트너 및 피어링 위치
 
@@ -165,6 +165,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **Vodacom** |지원 여부 |지원됨 |케이프타운, 요하네스버그|
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |지원됨 |지원됨 |암스테르담2, 런던, 싱가포르 |
 | **[Vodafone Idea](https://www.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | 지원됨 | 지원 여부 | 뭄바이2 |
+| **[XL Axiata]** | 지원됨 | 지원 여부 | 자카르타 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |지원됨 |지원 여부 |암스테르담, 시카고, 댈러스, 덴버, 런던, 로스앤젤레스, 몬트리올, 뉴욕, 파리, 피닉스, 시애틀, 실리콘밸리, 토론토, 워싱턴 DC, 워싱턴 DC2 |
 
  **+** 는 서비스 예정을 나타냄

@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버가 온-프레미스 데이터 원
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/09/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e83e2badf08293feb32efe13df56c2a535bc4631
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 302b61562e76c8e99f81febf936d8841f188e7ff
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145864"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136628"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
 
@@ -57,7 +57,7 @@ Azure Analysis Services 환경을 위해 설치할 때는 [Azure Analysis Servic
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |80 |Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. |
+| *.msftncsi.com |443 |Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. |
 | *.microsoftonline-p.com |443 |구성에 따라 인증에 사용합니다. |
 | dc.services.visualstudio.com    |443 |AppInsights에서 원격 분석 데이터를 수집하는 데 사용됩니다. |
 

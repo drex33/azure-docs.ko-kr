@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: azla
 ms.topic: how-to
 ms.date: 08/09/2021
-ms.openlocfilehash: 32d15d248154c61320fe12074373a6401fe3bdcd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a29eda23d12ca07057ff1081ae8d9bc4cfdc56ed
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528984"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137024"
 ---
 # <a name="create-parameters-to-use-in-workflows-across-environments-in-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps의 환경에 있는 워크플로에서 사용할 매개 변수 만들기
 
@@ -68,7 +68,7 @@ Azure Logic Apps에서 *매개 변수* 를 정의하여 개발, 테스트 및 �
 
 1. 만들 매개 변수에 대한 다음 정보를 제공합니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **이름** | 예 | 만들 매개 변수의 이름입니다. |
    | **형식** | 예 | **Array**, **Bool**, **Float**, **Int**, **Object** 및 **String** 과 같은 매개 변수의 데이터 형식입니다. <p><p>**참고**: 단일 테넌트 기반 워크플로에서는 `securestring` 및 `secureobject`와 같은 보안 데이터 형식이 지원되지 않습니다. |
@@ -159,10 +159,10 @@ Azure Logic Apps에서 *매개 변수* 를 정의하여 개발, 테스트 및 �
    "managedApiConnections": {
       "azureblob": {
          "api": {
-            "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/providers/Microsoft.Web/locations/@appsetting('WORKFLOWS_LOCATION_NAME')/managedApis/azureblob"
+            "id": "/subscriptions/@{appsetting('WORKFLOWS_SUBSCRIPTION_ID')}/providers/Microsoft.Web/locations/@{appsetting('WORKFLOWS_LOCATION_NAME')}/managedApis/azureblob"
          },
          "connection": {
-            "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/resourceGroups/@appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')/providers/Microsoft.Web/connections/azureblob"
+            "id": "/subscriptions/@{appsetting('WORKFLOWS_SUBSCRIPTION_ID')}/resourceGroups/@{appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')}/providers/Microsoft.Web/connections/azureblob"
          },
          "connectionRuntimeUrl": "@appsetting('BLOB_CONNECTION_RUNTIMEURL')",
          "authentication": "@parameters('blob_auth')"
@@ -170,6 +170,14 @@ Azure Logic Apps에서 *매개 변수* 를 정의하여 개발, 테스트 및 �
    }
 }
 ```
+
+> [!NOTE]
+> 일반 텍스트가 인라인인 식이 있는 경우 해당 식을 중괄호()로 묶어 해당 식에 보간된 형식을 사용해야 {} 합니다. 이 형식은 구문 분석 문제를 방지하는 데 도움이 됩니다.
+>
+> 예를 들어 가 있는 경우 `"<text>/@<function-name>('<parameter-name>')/<text>"` 대신 다음 버전을 `"<text>/@{<function-name>('<parameter-name>')}/<text>"` 사용합니다. 
+>
+> 자세한 내용은 [함수 사용에 대한 고려 사항을 검토하세요.](workflow-definition-language-functions-reference.md#function-considerations)
+     
 
 ## <a name="manage-parameters-files"></a>매개 변수 파일 관리
 

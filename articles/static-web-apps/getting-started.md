@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: 167d6a2fbe6ec782a83c8dc3cb7f3ea57832a594
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: a7b7504a99be6784e2767abe0daf9ba64066d0c1
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275908"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134619"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -79,9 +79,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    Angular 미리 설정이 있지만 이 애플리케이션에 적절한 출력 위치를 제공할 수 있도록 **사용자 지정** 옵션을 선택합니다.
-
-    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="애플리케이션 사전 설정: Angular":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="애플리케이션 사전 설정: Angular":::
 
     애플리케이션 파일의 위치로 **/** 를 입력합니다.
 

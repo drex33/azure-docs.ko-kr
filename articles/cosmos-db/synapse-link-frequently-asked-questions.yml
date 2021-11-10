@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/02/2021
   ms.custom: synapse-cosmos-db
-  ms.openlocfilehash: 8dc71afd5e134e1822df027e9b5f51dc33ed3b76
-  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.openlocfilehash: 0820524698e13e5fe2e73ac3f245232a0a7ac227
+  ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131425844"
+  ms.lasthandoff: 11/10/2021
+  ms.locfileid: "132137220"
 title: Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -52,16 +52,19 @@ sections:
       분석 저장소가 Cosmos DB 트랜잭션 SLA에 영향을 미칩니까?
     answer: >
       아니요, 영향을 주지 않습니다.
+  - question: >
+      Azure Cosmos DB 서버리스 계정에서 Synapse Link 사용할 수 있나요?
+    answer: "예, 지원합니다. 그러나 기존 컨테이너는 SQL API 컨테이너 및 Azure CLI 또는 PowerShell을 통해서만 지원됩니다.         \n"
 - name: Azure Cosmos DB 분석 저장소
   questions:
   - question: >
       기존 컨테이너에서 분석 저장소를 사용하도록 설정할 수 있나요?
     answer: >
-      현재는 새 컨테이너(신규 및 기존 계정 모두)에만 분석 저장소를 사용할 수 있습니다.
+      현재 기존 SQL API 컨테이너에 대해서만 분석 저장소를 사용하도록 설정할 수 있습니다.
   - question: >
       컨테이너를 만드는 동안 분석 저장소를 사용하도록 설정한 후 내 Azure Cosmos DB 컨테이너에서 사용하지 않도록 설정할 수 있나요?
     answer: >
-      현재, 컨테이너를 만드는 동안 분석 저장소를 사용하도록 설정했으면 Azure Cosmos DB 컨테이너에서 사용하지 않도록 설정할 수 없습니다.
+      현재 분석 저장소는 Azure Cosmos DB 컨테이너에서 사용하지 않도록 설정될 수 없습니다.
   - question: >
       처리량이 자동 크기 조정 프로비저닝된 Azure Cosmos DB 컨테이너에 대해 분석 저장소가 지원되나요?
     answer: >
@@ -108,7 +111,7 @@ sections:
       컨테이너의 특정 항목이 [분석을 위해 잘 정의된 스키마](analytical-store-introduction.md#analytical-schema)를 위반하면 해당 항목은 분석 저장소에 포함되지 않습니다. 분석을 위해 잘 정의된 스키마로 인해 차단된 시나리오가 있으면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 이메일로 도움을 요청하세요.
   - question: >
       분석 저장소의 데이터를 트랜잭션 저장소와 다르게 분할할 수 있나요?
-    answer: "기본적으로 분석 저장소는 분할 되지 않습니다.분석 쿼리에 자주 사용 되는 필터가 있는 경우이 필드를 기준으로 분할 하 여 쿼리 성능을 향상 시킬 수 있습니다. 자세히 알아보려면 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조 하세요.  \n"
+    answer: "기본적으로 분석 저장소는 분할되지 않습니다.분석 쿼리에 자주 사용되는 필터가 있는 경우 더 나은 쿼리 성능을 위해 이러한 필드를 기반으로 분할하는 옵션이 있습니다. 자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.  \n"
   - question: >
       분석 저장소에서 트랜잭션 데이터가 열 형식으로 변환되는 방식을 사용자 지정하거나 재정의할 수 있나요?
     answer: >
@@ -153,7 +156,7 @@ sections:
   - question: >
       Azure Synapse Link에서 고객 관리형 키를 사용할 수 있나요?
     answer: >
-      예, Azure Synapse Link는 Azure Cosmos DB 계정의 관리 ID를 사용하는 고객 관리형 키 구성을 지원합니다. 자동 및 투명한 방식으로 동일한 고객 관리 키를 사용하여 트랜잭션 및 분석 저장소에서 데이터를 원활하게 암호화할 수 있습니다. 자세한 내용은 [Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성 문서를 참조하세요.](how-to-setup-cmk.md#using-managed-identity)
+      예, Azure Synapse Link는 Azure Cosmos DB 계정의 관리 ID를 사용하는 고객 관리형 키 구성을 지원합니다. 자동 및 투명한 방식으로 동일한 고객 관리 키를 사용하여 트랜잭션 및 분석 저장소에서 데이터를 원활하게 암호화할 수 있습니다. 자세히 알아보려면 [Azure Cosmos DB 계정의 관리 되는 id를 사용 하 여 고객 관리 키 구성](how-to-setup-cmk.md#using-managed-identity) 문서를 참조 하세요.
   - question: >
       Azure Synapse Link에서 Azure Synapse 관리형 가상 네트워크와의 네트워크 격리를 제공하나요?
     answer: >
@@ -188,9 +191,23 @@ sections:
   questions:
   - question: >
       Azure Synapse Studio에서 분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너에 연결되어 있는지 어떻게 알 수 있나요?
-    answer: "분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너에는 다음 아이콘이 있습니다.\n\n:::image type=\"content\" source=\"./media/synapse-link-frequently-asked-questions/analytical-store-icon.png\" alt-text=\"분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘\":::\n\n트랜잭션 저장소 컨테이너는 다음 아이콘으로 표시됩니다.\n\n:::image type=\"content\" source=\"./media/synapse-link-frequently-asked-questions/transactional-store-icon.png\" alt-text=\"트랜잭션 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘\":::\n \n"
+    answer: >
+      분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너에는 다음 아이콘이 있습니다.
+
+
+      :::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
+
+
+      트랜잭션 저장소 컨테이너는 다음 아이콘으로 표시됩니다.
+
+
+      :::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="트랜잭션 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
   - question: >
       Azure Synapse Studio에서 Azure Cosmos DB 자격 증명을 어떻게 전달하나요?
     answer: >
       현재 Azure Cosmos DB 자격 증명은 Azure Cosmos DB 데이터베이스에 액세스할 수 있는 사용자가 연결된 서비스를 만드는 동안 전달됩니다. 이 저장소에 대한 액세스는 작업 영역에 액세스할 수 있는 다른 사용자가 사용할 수 있습니다.
+  - question: >
+      Synapse 서버 리스 SQL 풀을 사용 하 여 분석 저장소를 쿼리 하는 SQL Server Management Studio 사용할 수 있나요?
+    answer: >
+      예.
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n* [Azure Synapse Link의 이점](synapse-link.md#synapse-link-benefits) 알아보기\n\n* [Azure Synapse Link와 Azure Cosmos DB 간의 통합](synapse-link.md#synapse-link-integration)에 대해 알아봅니다."

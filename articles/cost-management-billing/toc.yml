@@ -180,7 +180,7 @@
               href: manage/azurestudents-subscription-disabled.md
             - name: AWS 통합 설정 및 구성
               href: costs/aws-integration-set-up-configure.md
-            - name: 청구서로 지불 설정
+            - name: 수표 또는 전신 송금으로 지불
               href: manage/pay-by-invoice.md
             - name: 추가 구독 만들기
               href: manage/create-subscription.md

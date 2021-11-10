@@ -5,19 +5,19 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/02/2021
+ms.date: 11/09/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: f7454d26c57795383cc6bc8464e2259b1b29ed38
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 7b1ac1f3b2fcb8c999276fecec495cf496108c12
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506331"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134930"
 ---
 ### <a name="on-demand-bursting"></a>주문형 버스팅
 
-디스크 버스팅의 주문형 버스팅 모델을 사용하는 프리미엄 SSD는 워크로드에서 필요한 만큼 자주 원래의 프로비저닝된 목표를 초과하여 최대 버스트 목표까지 버스트할 수 있습니다. 예를 들어 1TiB P30 디스크에서 프로비전된 IOPS는 5,000 IOPS입니다. 이 디스크에서 디스크 버스팅이 사용하도록 설정되면 워크로드에서 이 디스크에 대한 IO를 30,000 IOPS 및 1,000MBps의 최대 버스트 성능까지 실행할 수 있습니다.
+디스크 버스팅의 주문형 버스팅 모델을 사용하는 프리미엄 SSD는 워크로드에서 필요한 만큼 자주 원래의 프로비저닝된 목표를 초과하여 최대 버스트 목표까지 버스트할 수 있습니다. 예를 들어 1TiB P30 디스크에서 프로비전된 IOPS는 5,000 IOPS입니다. 이 디스크에서 디스크 버스팅이 사용하도록 설정되면 워크로드에서 이 디스크에 대한 IO를 30,000 IOPS 및 1,000MBps의 최대 버스트 성능까지 실행할 수 있습니다. 지원 되는 각 디스크의 최대 버스트 목표는 [VM 디스크의 확장성 및 성능 목표](../articles/virtual-machines/disks-scalability-targets.md#premium-ssd-managed-disks-per-disk-limits)를 참조 하세요.
 
 워크로드가 프로비전된 성능 목표를 초과하여 자주 실행될 필요가 있는 경우 디스크 버스팅은 비용 효율적이지 않습니다. 이 경우 더 나은 기준 성능을 위해 디스크의 성능 계층을 [더 높은 계층](../articles/virtual-machines/disks-performance-tiers.md)으로 변경하는 것이 좋습니다. 청구 세부 정보를 검토하고 워크로드의 트래픽 패턴과 비교하여 평가합니다.
 

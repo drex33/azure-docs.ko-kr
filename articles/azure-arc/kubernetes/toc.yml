@@ -58,12 +58,14 @@
           href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Defender를 사용하여 위협 보호 적용
           href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
-        - name: Azure Policy를 사용한 허용 제어 정책 정의
+        - name: Azure Policy를 사용한 클러스터 내 정책 시행
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Arc 지원 Open Service Mesh 배포
           href: tutorial-arc-enabled-open-service-mesh.md
         - name: 어디서나 클러스터에 안전하게 연결
           href: cluster-connect.md
+        - name: Azure Portal Kubernetes 리소스 뷰
+          href: kubernetes-resource-view.md
         - name: 권한 부여 확인에 Azure AD RBAC 사용
           href: azure-rbac.md
         - name: 사용자 지정 위치 만들기

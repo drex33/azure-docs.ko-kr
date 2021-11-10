@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: fd9984d6db66413f3c53d20fa63ffb4e1a106f3d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 712b1d3e7fde41991f9cea2d62e7e0864224509d
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131454545"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135208"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -178,6 +178,21 @@ df = spark.read\
 
 * Azure Synapse Spark는 이제 이름에 공백이 있는 속성을 지원합니다.
 
+* 다음 BSON 데이터 형식은 지원되지 않으며 분석 저장소에 표시되지 않습니다.
+  * Decimal128
+  * 정규식
+  * DB 포인터
+  * JavaScript
+  * 기호
+  * MinKey / MaxKey 
+
+* ISO 8601 UTC 표준을 따르는 DateTime 문자열을 사용하는 경우 다음과 같은 동작이 예상됩니다.
+  * Azure Synapse의 Spark 풀은 이러한 열을 `string`로 나타냅니다.
+  * Azure Synapse의 SQL 서버리스 풀은 이러한 열을 `varchar(8000)`로 나타냅니다.
+
+* Azure Synapse SQL 서버리스 풀은 최대 1000개의 열이 있는 결과 집합을 지원하며 중첩 열을 노출하는 것도 해당 제한에 포함됩니다. 데이터 아키텍처를 디자인하고 트랜잭션 데이터를 모델링할 때 이 정보를 고려하세요.
+
+
 ### <a name="schema-representation"></a>스키마 표현
 
 분석 저장소에는 두 가지 유형의 스키마 표현이 있습니다. 이러한 형식은 데이터베이스 계정의 모든 컨테이너에 대한 스키마 표현 메서드를 정의하며, 쿼리 환경의 단순성과 다형 스키마에 대한 보다 포괄적인 열 형식 표현의 편의성 간에 장단점이 있습니다.
@@ -192,7 +207,7 @@ Cosmos DB 계정에서 처음으로 Synapse Link 사용하도록 설정할 때 �
  * 이 옵션은 Synapse Link 사용하도록 **설정되지 않은** 계정에만 유효합니다.
  * 스키마 표현 형식을 잘 정의된 형식에서 전체 충실도로 또는 그 반대로 다시 설정할 수 없습니다.
  * 현재 Azure Cosmos DB API for MongoDB 계정은 이 스키마 표현 변경 가능성과 호환되지 않습니다. 모든 MongoDB 계정에는 항상 전체 충실도 스키마 표현 유형이 있습니다.
- * 현재 이 변경은 Azure Portal 통해 만들 수 없습니다. Azure Portal Synapse LinK를 사용하도록 설정된 모든 데이터베이스 계정에는 기본 스키마 표현 유형과 잘 정의된 스키마가 있습니다.
+ * 현재 이 변경은 Azure Portal 통해 만들 수 없습니다. Azure Portal Synapse LinK를 사용하도록 설정한 모든 데이터베이스 계정에는 기본 스키마 표현 유형인 잘 정의된 스키마가 있습니다.
  
 Azure CLI 또는 PowerShell을 사용하여 계정에서 Synapse Link 사용하도록 설정하는 동시에 스키마 표현 유형을 결정해야 합니다.
  
@@ -327,7 +342,7 @@ salary: 1000000
 
 ## <a name="partitioning"></a>분할
 
-분석 저장소 분할은 트랜잭션 저장소의 분할과 완전히 독립적입니다. 기본적으로 분석 저장소의 데이터는 분할 되지 않습니다. 분석 쿼리에 자주 사용 되는 필터가 있는 경우이 필드를 기준으로 분할 하 여 쿼리 성능을 향상 시킬 수 있습니다. 자세히 알아보려면 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조 하세요.  
+분석 저장소 분할은 트랜잭션 저장소의 분할과 완전히 독립적입니다. 기본적으로 분석 저장소의 데이터는 분할 되지 않습니다. 분석 쿼리에 자주 사용되는 필터가 있는 경우 더 나은 쿼리 성능을 위해 이러한 필드를 기반으로 분할하는 옵션이 있습니다. 자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.  
 
 ## <a name="security"></a>보안
 

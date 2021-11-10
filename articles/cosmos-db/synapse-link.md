@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: a051b2ebd49155f921ca76a851ef0a684f3f74bd
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 459aedbda8ea42fb0ee0990fb1074373efc38acc
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545720"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133927"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -117,11 +117,18 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 
 * Azure Cosmos DB용 Azure Synapse Link는 SQL API 및 Azure Cosmos DB API for MongoDB에 대해 지원됩니다. Gremlin API, Cassandra API 및 Table API에 대해서는 지원되지 않습니다.
 
-* 분석 저장소는 새 컨테이너에 대해서만 사용할 수 있습니다. 기존 컨테이너에 분석 저장소를 사용하려면 [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md)를 사용하여 기존 컨테이너의 데이터를 새 컨테이너로 마이그레이션합니다. 신규 및 기존 Azure Cosmos DB 계정에서 Synapse Link를 사용하도록 설정할 수 있습니다.
+* Synapse Link SQL API 및 MongoDB API 계정 모두에 대해 새 컨테이너에서 사용하도록 설정할 수 있지만 기존 컨테이너는 SQL API에 대해서만 지원됩니다.
 
-* 현재, 분석 저장소가 설정된 컨테이너의 경우 분석 저장소에서 데이터의 자동 백업 및 복원이 지원되지 않습니다. 데이터베이스 계정에서 Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 항상 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소(전용)에 있는 데이터의 [백업](./online-backup-and-restore.md)을 계속해서 자동으로 수행합니다. 분석 저장소가 설정된 컨테이너가 새 계정으로 복원되면 컨테이너는 트랜잭션 저장소로만 복원되고 분석 저장소는 사용하도록 설정되지 않습니다.
+* 분석 저장소에서 데이터의 백업 및 복원은 현재 지원되지 않습니다. 이 제한은 주기적 백업 모드와 연속 백업 모드 모두에 적용되며 Cosmos DB 트랜잭션 저장소 데이터에 영향을 미치지 않습니다.
+
+* 동일한 데이터베이스 계정에서 Synapse Link 및 주기적 백업 모드가 공존할 수 있습니다. 분석 저장소에서 데이터의 백업 및 복원은 지원되지 않지만
+
+* 동일한 데이터베이스 계정에서 Synapse Link 및 연속 백업 모드가 공존하는 것은 지원되지 않습니다.
 
 * Azure Synapse Dedicated SQL 풀을 사용하여 Azure Cosmos DB 분석 저장소에 액세스하는 것은 현재 지원되지 않습니다.
+
+* Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다.
+
 
 ## <a name="security"></a>보안
 

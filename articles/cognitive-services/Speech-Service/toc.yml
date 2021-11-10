@@ -96,7 +96,7 @@ items:
           - name: C#
             displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
             href: /dotnet/api/microsoft.cognitiveservices.speech
-          - name: 이동
+          - name: Go
             displayName: 'Go SDK, Go dev kit,reference,reference docs,ref documentation'
             href: 'https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go'
           - name: Java
@@ -619,6 +619,8 @@ items:
             href: speech-sdk.md
           - name: Speech SDK 설치
             href: quickstarts/setup-platform.md
+          - name: Speech SDK 문제 해결
+            href: troubleshooting.md
           - name: Speech SDK 릴리스 정보
             href: releasenotes.md
           - name: 참조

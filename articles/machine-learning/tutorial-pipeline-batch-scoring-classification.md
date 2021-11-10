@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 이 자습서에서는 일괄 처리 채점을 수행하는 기계 학습 파이프라인을 빌드합니다. 인프라와 자동화 대신 기계 학습에 중점을 둡니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: tutorial
 author: lobrien
 ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: 0fee13de8a1af520564004f029fa616f5ebb1119
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: db24cbb9bcff2f37969ce61f4101e9b2133800aa
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459481"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133741"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 

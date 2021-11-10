@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 필수 조건
 description: Azure HPC Cache를 사용하기 위한 필수 조건
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2021
-ms.author: femila
-ms.openlocfilehash: b075e41d8bd8865fcb5ed24c4ecba2b9f539d3dd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/03/2021
+ms.author: rohogue
+ms.openlocfilehash: 1929677370ddf6f505f2425f61bfdaf4466223bb
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078601"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137746"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC Cache의 필수 조건
 
@@ -79,6 +79,26 @@ Blob Storage만 사용하는 경우 Azure에서 기본 제공하는 DNS 서버�
 또한 단순형 DNS 서버를 사용하여 사용 가능한 모든 캐시 탑재 지점에서 발생하는 클라이언트 연결 부하를 분산할 수 있습니다.
 
 [Azure 가상 네트워크의 리소스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)에서 Azure 가상 네트워크 및 DNS 서버 구성에 대해 자세히 알아보세요.
+
+### <a name="ntp-access"></a>NTP 액세스
+
+HPC Cache 일반 작업을 위해 NTP 서버에 액세스해야 합니다. 가상 네트워크의 아웃바운드 트래픽을 제한하는 경우 하나 이상의 NTP 서버에 대한 트래픽을 허용해야 합니다. 기본 서버는 time.windows.com 캐시가 UDP 포트 123에서 이 서버에 연결합니다.
+
+캐시 네트워크의 [네트워크 보안 그룹에](../virtual-network/network-security-groups-overview.md) NTP 서버에 대한 아웃바운드 트래픽을 허용하는 규칙을 만듭니다. 규칙은 UDP 포트 123에서 모든 아웃바운드 트래픽을 허용하거나 더 많은 제한을 적용할 수 있습니다.
+
+이 예제에서는 time.windows.com 사용하는 주소인 IP 주소 168.61.215.74에 대한 아웃바운드 트래픽을 명시적으로 엽니다.
+
+| 우선 순위 | Name | 포트 | 프로토콜 | 원본 | 대상   | 작업 |
+|----------|------|------|----------|--------|---------------|--------|
+| 200      | NTP  | 모두  | UDP      | 모두    | 168.61.215.74 | 허용  |
+
+아웃바운드 액세스를 광범위하게 거부하는 규칙보다 NTP 규칙의 우선 순위가 높은지 확인합니다.
+
+NTP 액세스에 대한 추가 팁:
+
+* HPC Cache NTP 서버 간에 방화벽이 있는 경우 이러한 방화벽에서 NTP 액세스도 허용하는지 확인합니다.
+
+* **네트워킹** 페이지에서 HPC Cache 사용하는 NTP 서버를 구성할 수 있습니다. 자세한 내용은 [추가 설정 구성을](configuration.md#customize-ntp) 읽어보세요.
 
 ## <a name="permissions"></a>사용 권한
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 09/09/2021
-ms.openlocfilehash: 99d642a1cd534691e5089ac6956dc023d3a207d0
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: f242521b5ef683a125d86d7109b3e36d4d2e02be
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388853"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136985"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -62,13 +62,25 @@ ms.locfileid: "129388853"
 
 두 예제 중 어느 경우든 결과를 `customerName` 속성에 할당합니다.
 
-## <a name="considerations-for-using-functions"></a>함수 사용 시 고려 사항
+<a name="function-considerations"></a>
 
-* 함수 매개 변수는 왼쪽에서 오른쪽으로 계산됩니다.
+## <a name="considerations-for-using-functions"></a>함수 사용 시 고려 사항
 
 * 디자이너는 디자인 타임에 함수 매개 변수로 사용되는 런타임 식을 평가하지 않습니다. 디자이너는 디자인 타임에 모든 식을 완전히 평가할 수 있어야 합니다.
 
+* 함수 매개 변수는 왼쪽에서 오른쪽으로 계산됩니다.
+ 
 * 매개 변수 정의 구문에서 매개 변수 뒤에 나오는 물음표(?)는 해당 매개 변수가 선택 사항임을 의미합니다. 예를 들어 [getFutureTime()](#getFutureTime)을 참조하세요.
+
+* 일반 텍스트와 함께 인라인으로 표시 되는 함수 식은 중괄호 ( {} )를 사용 하 여 대신 식의 보간된 형식을 사용 해야 합니다. 이 형식은 구문 분석 문제를 방지 하는 데 도움이 됩니다. 함수 식이 일반 텍스트와 함께 인라인으로 표시 되지 않는 경우에는 중괄호가 필요 하지 않습니다.
+
+  다음 예에서는 올바른 구문이 나 잘못 된 구문을 보여 줍니다.
+
+  **수정**: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`
+ 
+  **잘못** 됨: `"<text>/@<function-name>('<parameter-name>')/<text>"`
+ 
+  **확인**: `"@<function-name>('<parameter-name>')"`
 
 다음 섹션에는 일반 용도를 기준으로 함수가 정렬되어 있으며, 이러한 함수를 [사전순](#alphabetical-list)으로 찾아볼 수도 있습니다.
 
@@ -1276,7 +1288,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름은 Microsoft [Windows 기본 표준 시간대 를 검토하세요.](/windows-hardware/manufacture/desktop/default-time-zones) |
+| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft Windows 기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones)를 검토 하세요. |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -1915,12 +1927,12 @@ float('<value>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | 예 | String | 변환할 유효한 부동 소수점 숫자가 있는 문자열입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
+| <*value*> | 예 | String | 변환할 유효한 부동 소수점 숫자가 포함 된 문자열입니다. 최소값과 최대값은 float 데이터 형식에 대 한 제한과 동일 합니다. |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | 지정된 문자열의 부동 소수점 숫자입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
+| <*float-value*> | Float | 지정 된 문자열의 부동 소수점 숫자입니다. 최소값과 최대값은 float 데이터 형식에 대 한 제한과 동일 합니다. |
 ||||
 
 *예제*
@@ -3298,7 +3310,7 @@ range(<startIndex>, <count>)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | 예 | 정수 | 배열을 첫 번째 항목으로 시작하는 정수 값 |
-| <*count*> | 예 | 정수 | 배열에 있는 정수의 수입니다. `count` 매개 변수 값은 100,000을 초과하지 않는 양의 정수여야 합니다. <p><p>**참고:** 및 값의 합계는 `startIndex` `count` 2,147,483,647을 초과할 수 없습니다. |
+| <*count*> | 예 | 정수 | 배열에 있는 정수의 수입니다. `count` 매개 변수 값은 100,000을 초과하지 않는 양의 정수여야 합니다. <p><p>**참고**: 및 값의 합계 `startIndex` 는 `count` 2147483647을 초과 하면 안 됩니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3727,7 +3739,7 @@ split('a_b_c', '_')
 
 *예 2*
   
-이 예에서는 문자열에 구분 기호가 없는 경우 단일 요소가 포함 된 배열을 만듭니다.
+이 예제에서는 문자열에 구분 기호가 없는 경우 단일 요소로 배열을 만듭니다.
 
 ```
 split('a_b_c', ' ')

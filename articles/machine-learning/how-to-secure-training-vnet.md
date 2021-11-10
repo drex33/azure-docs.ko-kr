@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/21/2021
+ms.date: 11/05/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: b480b86b75f87232dc5560b620fc11a58a070ae6
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: ec3a5feefa41a1bd0bb0448321fc87f7e11a55d9
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557493"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136289"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 학습 환경 보호
 
@@ -224,9 +224,9 @@ except ComputeTargetException:
 
 **공용 IP 없음을** 사용하도록 설정하면 컴퓨팅 클러스터는 모든 의존성과의 통신에 공용 IP를 사용하지 않습니다. 대신, 서비스/프라이빗 엔드포인트뿐만 아니라 Azure Private Link 에코시스템을 사용하여 가상 네트워크 내에서만 통신하므로 공용 IP가 완전히 필요하지 않습니다. 공용 IP는 인터넷에서 컴퓨팅 클러스터 노드의 액세스 및 검색 가능성을 제거하므로 심각한 위협 벡터를 제거합니다. **많은** 기업에서 공용 IP 정책을 준수하지 않는 공용 IP 클러스터는 없습니다. 
 
-**공용 IP가** 사용하도록 설정되지 않은 컴퓨팅 클러스터에는 공용 IP 컴퓨팅 클러스터에 대한 인바운드 통신 요구 사항과 비교하여 공용 인터넷의 **인바운드 통신 요구 사항이 없습니다.** 특히 인바운드 NSG 규칙( `BatchNodeManagement` , `AzureMachineLearning` )은 모두 필요하지 않습니다. VirtualNetwork 원본 및 모든 포트 원본에서 **VirtualNetwork의** 대상 및 **29876, 29877의** 대상 포트까지 인바운드를 허용해야 합니다.
+**공용 IP가** 사용하도록 설정되지 않은 컴퓨팅 클러스터에는 공용 IP 컴퓨팅 클러스터에 대한 인바운드 통신 요구 사항과 비교하여 공용 인터넷의 **인바운드 통신 요구 사항이 없습니다.** 특히 인바운드 NSG 규칙( `BatchNodeManagement` , `AzureMachineLearning` )은 모두 필요하지 않습니다. VirtualNetwork 원본 및 모든 포트 원본에서 **VirtualNetwork의** 대상 및 대상 포트 **29876, 29877까지의** 인바운드를 허용해야 합니다.
 
-공용 IP 클러스터는 [Azure Machine Learning](how-to-configure-private-link.md) 작업 영역에 대한 Azure Private Link 종속되지 **않습니다.** **공용 IP가 없는** 컴퓨팅 클러스터에서는 프라이빗 엔드포인트 네트워크 정책 및 프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이러한 요구 사항은 Azure 프라이빗 링크 서비스 및 프라이빗 엔드포인트에서 비롯되며 Azure Machine Learning 구체적이지 않습니다. [Private Link 서비스에 대한 네트워크 정책 사용 안 함의](../private-link/disable-private-link-service-network-policy.md) 지침에 따라 가상 네트워크 서브넷에서 및 매개 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 변수를 설정합니다.
+공용 IP 클러스터는 [Azure Machine Learning](how-to-configure-private-link.md) 작업 영역에 대한 Azure Private Link 종속되지 **않습니다.** **공용 IP가 없는** 컴퓨팅 클러스터에서는 프라이빗 엔드포인트 네트워크 정책 및 프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이러한 요구 사항은 Azure 프라이빗 링크 서비스 및 프라이빗 엔드포인트에서 비롯되며 Azure Machine Learning 구체적이지 않습니다. [Private Link 서비스에 대한 네트워크 정책 사용 안 함의 지침에](../private-link/disable-private-link-service-network-policy.md) 따라 가상 네트워크 서브넷에서 및 매개 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 변수를 설정합니다.
 
 **아웃바운드 연결이** 작동하려면 사용자 정의 경로를 사용하여 Azure Firewall과 같은 송신 방화벽을 설정해야 합니다. 예를 들어 [인바운드/아웃바운드 구성으로](how-to-access-azureml-behind-firewall.md) 설정된 방화벽을 사용하고 컴퓨팅 클러스터가 배포된 서브넷에 경로 테이블을 정의하여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사 0.0.0.0/0으로 방화벽의 개인 IP 주소에 대한 다음 홉을 설정할 수 있습니다.
 
@@ -239,7 +239,7 @@ ARM 템플릿을 통해 공용 IP 컴퓨팅 클러스터를 만들 수도 없습
 
 **문제 해결**
 
-* 클러스터를 만드는 동안 이 오류 메시지가 발생하면 "지정된 서브넷에 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints가 활성화되어 있습니다." 메시지가 표시된 경우 [Private Link 서비스에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 프라이빗 [엔드포인트에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-endpoint-network-policy.md)의 지침을 따르세요.
+* 클러스터를 만드는 동안 이 오류 메시지가 발생하면 "지정된 서브넷에 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints가 활성화되어 있습니다." 메시지가 표시된 경우 [Private Link 서비스에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 프라이빗 [엔드포인트에 대한 네트워크 정책 사용 안 함의](../private-link/disable-private-endpoint-network-policy.md)지침을 따르세요.
 
 * ACR 또는 Azure Storage 대한 연결 문제로 작업 실행이 실패하는 경우 고객이 서브넷에 ACR 및 Azure Storage 서비스 엔드포인트/프라이빗 엔드포인트를 추가하고 ACR/Azure Storage 서브넷에서의 액세스를 허용하는지 확인합니다.
 
@@ -253,7 +253,7 @@ ARM 템플릿을 통해 공용 IP 컴퓨팅 클러스터를 만들 수도 없습
 
 **공용 IP 없음을** 사용하도록 설정하면 컴퓨팅 인스턴스는 모든 의존성과의 통신에 공용 IP를 사용하지 않습니다. 대신, 서비스/프라이빗 엔드포인트뿐만 아니라 Azure Private Link 에코시스템을 사용하여 가상 네트워크 내에서만 통신하므로 공용 IP가 완전히 필요하지 않습니다. 공용 IP는 인터넷에서 컴퓨팅 인스턴스 노드의 액세스 및 검색 가능성을 제거하므로 심각한 위협 벡터를 제거합니다. 또한 컴퓨팅 인스턴스는 패킷 필터링을 수행하여 가상 네트워크 외부의 트래픽을 거부합니다. 공용 IP 인스턴스는 [Azure Machine Learning](how-to-configure-private-link.md) 작업 영역에 대한 Azure Private Link 종속되지 **않습니다.** 
 
-**아웃바운드 연결이** 작동하려면 사용자 정의 경로를 사용하여 Azure Firewall과 같은 송신 방화벽을 설정해야 합니다. 예를 들어, 컴퓨팅 인스턴스가 배포된 서브넷에서 경로 테이블을 정의하여 방화벽 설정을 [인바운드/아웃바운드 구성으로](how-to-access-azureml-behind-firewall.md) 사용하고 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사 0.0.0.0/0으로 방화벽의 개인 IP 주소에 대한 다음 홉을 설정할 수 있습니다.
+**아웃바운드 연결이** 작동하려면 사용자 정의 경로를 사용하여 Azure Firewall과 같은 송신 방화벽을 설정해야 합니다. 예를 [들어, 인바운드/아웃바운드 구성으로](how-to-access-azureml-behind-firewall.md) 설정된 방화벽을 사용하고 컴퓨팅 인스턴스가 배포된 서브넷에 경로 테이블을 정의하여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사 0.0.0.0/0으로 방화벽의 개인 IP 주소에 대한 다음 홉을 설정할 수 있습니다.
 
 **공용 IP가** 사용하도록 설정되지 않은 컴퓨팅 인스턴스에는 공용 IP 컴퓨팅 인스턴스에 대한 인바운드 통신 요구 사항과 비교하여 공용 인터넷의 **인바운드 통신 요구 사항이 없습니다.** 특히 인바운드 NSG 규칙( `BatchNodeManagement` , `AzureMachineLearning` )은 모두 필요하지 않습니다. **VirtualNetwork** 원본, 모든 포트 원본, **VirtualNetwork의** 대상 및 **29876, 29877, 44224의** 대상 포트에서 인바운드를 허용해야 합니다.
 

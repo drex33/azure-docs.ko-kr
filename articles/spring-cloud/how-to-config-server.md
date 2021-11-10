@@ -7,12 +7,12 @@ ms.author: karler
 author: karlerickson
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 0de08976f0391c995004265ac1b1a33cf4a5c491
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 00411cf37a6f2728d3f8d1d0565e1d836b839192
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835790"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135408"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>서비스용 Spring Cloud Config 서버 인스턴스 설정
 
@@ -107,7 +107,7 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 > 많은 `Git` 리포지토리 서버에서는 암호 대신 토큰을 HTTP 기본 인증에 사용하도록 지원합니다. 일부 리포지토리에서는 토큰을 무기한으로 유지할 수 있습니다. 그러나 Azure DevOps Server를 비롯한 일부 Git 리포지토리 서버는 몇 시간 안에 토큰을 강제로 만료시킵니다. 토큰이 만료되는 리포지토리는 Azure Spring Cloud에서 토큰 기반 인증을 사용하면 안 됩니다.
 > Github에서 암호 인증 지원이 제거되었으므로 Github에 암호 인증 대신 개인 액세스 토큰을 사용해야 합니다. 자세한 내용은 [토큰 인증](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)을 참조하세요.
 
-### <a name="git-repositories-with-pattern"></a>패턴을 사용하는 Git 리포지토리
+### <a name="git-additional-repositories"></a>Git 추가 리포지토리
 
 패턴을 사용하는 Git 리포지토리를 설정하는 데 사용되는 모든 구성 가능한 속성은 아래에 나와 있습니다.
 
@@ -128,6 +128,16 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 | `repos."host-key"`                 | 예             | Git 리포지토리 서버의 호스트 키이며, `host-key-algorithm`에 포함된 알고리즘 접두사를 포함하지 않아야 합니다. |
 | `repos."host-key-algorithm"`       | 예             | 호스트 키 알고리즘은 *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* 또는 *ecdsa-sha2-nistp521* 이어야 합니다. `host-key`가 있는 경우에만 *필요합니다*. |
 | `repos."strict-host-key-checking"` | 예             | 프라이빗 `host-key`를 활용하는 경우 Config 서버 인스턴스가 시작되지 않는지 여부를 나타냅니다. *true*(기본값) 또는 *false* 여야 합니다. |
+
+다음 표에서는 **추가 리포지토리** 섹션에 대한 몇 가지 예를 보여줍니다. 자세한 내용은 Spring 설명서의 [패턴 일치 및 다중 리포지토리를](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) 참조하세요.
+
+| 패턴                        | Description |
+| :------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| *test-config-server-app-0/\**   | 패턴 및 리포지토리 URI는 이름이 인 Spring Boot `test-config-server-app-0` 애플리케이션과 모든 프로필과 일치합니다.  |
+| *test-config-server-app-1/dev*  | 패턴 및 리포지토리 URI는 dev 프로필이 있는 라는 Spring Boot `test-config-server-app-1` 애플리케이션과 일치합니다.  |
+| *test-config-server-app-2/prod* | 패턴 및 리포지토리 URI는 prod 프로필이 있는 라는 Spring Boot `test-config-server-app-2` 애플리케이션과 일치합니다. |
+
+:::image type="content" source="media/spring-cloud-tutorial-config-server/additional-repositories.png" lightbox="media/spring-cloud-tutorial-config-server/additional-repositories.png" alt-text="'추가 리포지토리' 테이블의 패턴 열이 강조 표시된 Config Server 페이지를 보여주는 Azure Portal 스크린샷":::
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Azure Spring Cloud에 Config 서버 리포지토리 연결
 
@@ -175,9 +185,9 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
     ![인증 편집 창 SSH 인증](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
-#### <a name="pattern-repository"></a>패턴 리포지토리
+#### <a name="additional-repositories"></a>추가 리포지토리
 
-선택 사항인 **패턴 리포지토리** 를 사용하여 서비스를 구성하려면 **기본 리포지토리** 와 같은 방법으로 **URI** 및 **인증** 을 지정합니다. 패턴에 대한 **이름** 을 포함한 다음, **적용** 을 선택하여 인스턴스에 연결해야 합니다.
+선택적 **추가 리포지토리를** 사용하여 서비스를 구성하려면 **기본 리포지토리** 와 동일한 방식으로 **URI** 및 **인증을** 지정합니다. 패턴에 대한 **이름** 을 포함한 다음, **적용** 을 선택하여 인스턴스에 연결해야 합니다.
 
 ### <a name="enter-repository-information-into-a-yaml-file"></a>YAML 파일에 리포지토리 정보 입력
 

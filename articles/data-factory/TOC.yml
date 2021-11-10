@@ -444,7 +444,7 @@ items:
             href: connector-presto.md
           - name: QuickBooks Online
             href: connector-quickbooks.md
-          - name: REST
+          - name: REST (영문)
             href: connector-rest.md
             displayName: timeout
           - name: Salesforce
@@ -741,6 +741,8 @@ items:
                 href: monitor-install-analytics.md
           - name: SDK로 모니터링
             href: monitor-programmatically.md
+          - name: 파이프라인 오류 및 오류 처리
+            href: tutorial-pipeline-failure-error-handling.md
           - name: 이메일 알림을 통해 파이프라인 모니터링
             href: how-to-send-email.md
           - name: Microsoft Teams 알림을 통해 파이프라인 모니터링

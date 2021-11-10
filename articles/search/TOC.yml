@@ -126,6 +126,8 @@
       href: samples-rest.md
 - name: 개념
   items:
+    - name: 인덱스 검색
+      href: search-what-is-an-index.md
     - name: 전체 텍스트 검색
       href: search-lucene-query-architecture.md
     - name: 분석기
@@ -257,7 +259,7 @@
     - name: 인덱스
       items:
         - name: 인덱스 만들기
-          href: search-what-is-an-index.md
+          href: search-how-to-create-search-index.md
         - name: 다중 언어 인덱스 만들기
           href: search-language-support.md
         - name: 동의어

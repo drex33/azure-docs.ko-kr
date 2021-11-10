@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 710402b4222a01a5235bba43d30dcf318a322275
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 0203699087d57ff92389040b850ce5a94fd86740
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132063801"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136938"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -174,7 +174,7 @@ az ml workspace create -g <resource-group-name> --file workspace.yml
 ## <a name="advanced-configurations"></a>고급 구성
 ### <a name="configure-workspace-for-private-network-connectivity"></a>프라이빗 네트워크 연결을 위한 작업 영역 구성
 
-사용 사례 및 조직 요구 사항에 따라 프라이빗 네트워크 연결을 사용하여 Azure Machine Learning을 구성할 수 있습니다. Azure CLI를 사용하여 작업 영역 리소스에 대한 작업 영역 및 프라이빗 링크 엔드포인트를 배포할 수 있습니다. 작업 영역에서 프라이빗 엔드포인트 및 가상 네트워크를 사용하는 방법에 대한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 보호 개요](how-to-network-security-overview.md)를 참조하세요. 복잡한 리소스 구성의 경우, [Azure Resource Manager](how-to-create-workspace-template.md)를 비롯한 템플릿 기반 배포 옵션도 참조하세요.
+사용 사례 및 조직 요구 사항에 따라 프라이빗 네트워크 연결을 사용하여 Azure Machine Learning을 구성할 수 있습니다. Azure CLI를 사용하여 작업 영역 리소스에 대한 작업 영역 및 프라이빗 링크 엔드포인트를 배포할 수 있습니다. 작업 영역에서 프라이빗 엔드포인트 및 VNet(가상 네트워크)을 사용하는 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요를](how-to-network-security-overview.md)참조하세요. 복잡한 리소스 구성의 경우, [Azure Resource Manager](how-to-create-workspace-template.md)를 비롯한 템플릿 기반 배포 옵션도 참조하세요.
 
 # <a name="10-cli"></a>[1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
@@ -200,7 +200,7 @@ az ml workspace create -w <workspace-name>
 
 # <a name="20-cli---preview"></a>[2.0 CLI - 미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-프라이빗 링크를 사용하는 경우 작업 영역에서 이미지 빌드에 Azure Container Registry 태스크 컴퓨팅을 사용할 수 없습니다. 따라서 docker 이미지 환경 빌드에 사용할 CPU 컴퓨팅 클러스터 이름으로 image_build_compute 속성을 설정해야 합니다. public_network_access 속성을 사용하여 인터넷을 통해 프라이빗 링크 작업 영역에 액세스할 수 있는지 여부를 지정할 수도 있습니다.
+프라이빗 링크를 사용하는 경우 작업 영역에서 이미지 빌드에 Azure Container Registry 작업 컴퓨팅을 사용할 수 없습니다. 따라서 docker 이미지 환경 빌드에 사용할 CPU 컴퓨팅 클러스터 이름으로 image_build_compute 속성을 설정해야 합니다. public_network_access 속성을 사용하여 인터넷을 통해 프라이빗 링크 작업 영역에 액세스할 수 있는지 여부를 지정할 수도 있습니다.
 
 :::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
@@ -220,6 +220,48 @@ az network private-endpoint create \
     --connection-name workspace -l <location>
 ```
 
+작업 영역에 대한 프라이빗 DNS 영역 항목을 만들려면 다음 명령을 사용합니다.
+
+```azurecli-interactive
+# Add privatelink.api.azureml.ms
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.api.azureml.ms'
+
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.api.azureml.ms' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
+
+az network private-endpoint dns-zone-group create \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.api.azureml.ms' \
+    --zone-name 'privatelink.api.azureml.ms'
+
+# Add privatelink.notebooks.azure.net
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.notebooks.azure.net'
+
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.notebooks.azure.net' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
+
+az network private-endpoint dns-zone-group add \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.notebooks.azure.net' \
+    --zone-name 'privatelink.notebooks.azure.net'
+```
+
 ---
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>고객 관리형 키 및 높은 비즈니스 영향 작업 영역
@@ -232,7 +274,7 @@ az network private-endpoint create \
 
 # <a name="10-cli"></a>[1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-`--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 리소스 ID와 uri를 지정 합니다.
+매개 변수를 사용하여 키가 포함된 Azure Key Vault 지정하고 자격 증명 모음 `--cmk-keyvault` `--resource-cmk-uri` 내에서 키의 리소스 ID와 URI를 지정합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `--hbi-workspace` 매개 변수를 추가로 지정할 수 있습니다. 
 
@@ -244,9 +286,9 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# <a name="20-cli---preview"></a>[2.0 CLI-미리 보기](#tab/vnetpleconfigurationsv2cli)
+# <a name="20-cli---preview"></a>[2.0 CLI - 미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-및 매개 변수를 포함 하는 및 매개 변수를 사용 `customer_managed_key` `key_vault` 하 여 `key_uri` 자격 증명 모음 내에서 키의 리소스 ID와 uri를 지정 합니다.
+및 매개 변수를 포함하는 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `hbi_workspace` 속성을 추가로 지정할 수 있습니다. 
 
@@ -325,7 +367,7 @@ az group delete -g <resource-group-name>
 
 자세한 내용은 [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) 설명서를 참조하세요.
 
-작업 영역을 실수로 삭제 한 경우에도 계속 해 서 전자 필기장을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조 하세요.
+작업 영역을 실수로 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

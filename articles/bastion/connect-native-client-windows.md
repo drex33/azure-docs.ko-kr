@@ -9,20 +9,24 @@ ms.topic: how-to
 ms.date: 11/01/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 18c3165ceee5f76b1148adc59e4013f6de7bba1f
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 6332b7443e3abc36810fc3085f3f2c413a5d7d1c
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062456"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137803"
 ---
-# <a name="connect-to-a-vm-using-bastion-and-the-native-client-on-your-windows-computer"></a>Windows 컴퓨터에서 방호 및 native client를 사용 하 여 VM 커넥트
+# <a name="connect-to-a-vm-using-bastion-and-the-native-client-on-your-windows-computer-preview"></a>Windows 컴퓨터에서 방호 및 native client를 사용 하 여 VM에 커넥트 (미리 보기)
 
 이제 azure 방호는 Windows 워크스테이션의 native client를 사용 하 여 azure에서 대상 vm에 연결 하는 기능을 제공 합니다. 이 기능을 사용 하면 Azure CLI를 사용 하 여 방호를 통해 대상 Vm에 연결 하 고 로컬 SSH 키 쌍 및 Azure Active Directory (Azure AD)를 포함 하도록 로그인 옵션을 확장할 수 있습니다. 이 문서에서는 필요한 설정을 사용 하 여 방호를 구성한 다음 VNet의 VM에 연결 하는 방법을 설명 합니다. 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요.
 
 > [!NOTE]
 > 이 구성에는 Azure 방호의 표준 SKU가 필요 합니다.
 >
+
+> [!IMPORTANT]
+> 이 기능은 아직 전 세계에 배포 되 고 있습니다. Azure Portal에서 액세스할 수 없는 경우 며칠 동안 기다린 후 다시 시도 하세요.
+
 
 현재이 기능에는 다음과 같은 제한 사항이 있습니다.
 
@@ -36,7 +40,7 @@ ms.locfileid: "132062456"
 
 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
-* 최신 버전의 CLI 명령이 설치 됩니다. CLI 설치 명령에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
+* 최신 버전의 CLI 명령 (버전 2.30 이상)이 설치 되어 있습니다. CLI 설치 명령에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
 * Azure 가상 네트워크
 * 가상 네트워크의 가상 컴퓨터
 

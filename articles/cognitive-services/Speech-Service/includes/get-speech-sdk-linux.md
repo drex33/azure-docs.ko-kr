@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: eur
-ms.openlocfilehash: ae07075b91c21a56cd641d81319b863ced950139
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 34a45c4759954c0c0679dcafec13b5327a82cffd
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506549"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252344"
 ---
 :::row:::
     :::column span="3":::
-        Speech SDK는 Linux에서 사용할 때 다음 대상 아키텍처에서 **Ubuntu 16.04**(9월까지), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8** 및 **CentOS 7/8** 만 지원합니다.
+        Speech SDK는 Linux에서 사용하는 경우 다음 대상 아키텍처에서 **Ubuntu 16.04(2021년** 9월까지), **Ubuntu 18.04/20.04,** **Debian 9/10,** **Red Hat Enterprise Linux(RHEL) 7/8** 및 **CentOS 7/8만** 지원합니다.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Linux" src="/media/logos/logo_linux-color.svg" width="60px">
+            <img alt="Linux" src="https://docs.microsoft.com/media/logos/logo_linux.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -39,28 +39,22 @@ ms.locfileid: "131506549"
 원시 애플리케이션의 경우 Speech SDK는 `libMicrosoft.CognitiveServices.Speech.core.so`를 활용합니다. 대상 아키텍처(x86, x64)가 애플리케이션과 일치해야 합니다. Linux 버전에 따라 추가 종속성이 필요할 수도 있습니다.
 
 - GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
-- OpenSSL 라이브러리(`libssl.so.1.0.0` 또는 `libssl.so.1.0.2`)
-- ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
+- OpenSSL 라이브러리(`libssl`)
+- ALSA 애플리케이션의 공유 라이브러리(`libasound`)
 
-# <a name="ubuntu-160418042004"></a>[Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
+# <a name="ubuntu-18042004"></a>[Ubuntu 18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
+sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
-
-> [!NOTE]
-> libssl1.0.x를 사용할 수 없는 경우 libssl1.1을 대신 설치합니다.
 
 # <a name="debian-910"></a>[Debian 9/10](#tab/debian)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.2 libasound2 wget
+sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
-
-> [!NOTE]
-> libssl1.0.x를 사용할 수 없는 경우 libssl1.1을 대신 설치합니다.
 
 # <a name="rhel-78-and-centos-78"></a>[RHEL 7/8 및 CentOS 7/8](#tab/rhel-centos)
 

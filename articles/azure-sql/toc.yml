@@ -1227,39 +1227,56 @@
                     - name: 자동화된 백업(SQL 2014)
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: AG(가용성 그룹)
+                  displayName: 'Always On, alwayson, availability group'
                   items:
-                    - name: AG 만들기
+                    - name: AG 구성(다중 서브넷)
+                      displayName: 'Always On, alwayson, availability group'
+                      items:
+                        - name: 필수 구성 요소
+                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md
+                          displayName: 'Always On, alwayson, availability group'
+                        - name: 가용성 그룹 만들기
+                          href: virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet.md
+                          displayName: 'Always On, alwayson, availability group'
+                    - name: AG 구성(단일 서브넷)
+                      displayName: 'Always On, alwayson, availability group'
                       items:
                         - name: Azure portal
                           href: virtual-machines/windows/availability-group-azure-portal-configure.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: PowerShell 또는 Az CLI
                           href: virtual-machines/windows/availability-group-az-commandline-configure.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: Azure 빠른 시작 템플릿
                           href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: 다중 영역
                           href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                          displayName: 'Always On, alwayson, availability group'
                         - name: 도메인 독립형(작업 그룹)
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-                        - name: 수동으로 구성
+                          displayName: 'Always On, alwayson, availability group'
+                        - name: 수동
                           items:
-                            - name: 사전 요구 사항
-                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                            - name: 자습서
-                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: 필수 구성 요소
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet.md
+                              displayName: 'Always On, alwayson, availability group'
+                            - name: 가용성 그룹 만들기
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md
                             - name: 부하 분산 장치 - Azure Portal
                               href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
                             - name: 부하 분산 장치 - Azure PowerShell
                               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-                    - name: 연결 구성
-                      items:
-                        - name: VNN 수신기
-                          displayName: virtual network name
-                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
-                        - name: DNN 수신기
-                          displayName: distributed network name
-                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
-                        - name: DNN 상호 운용성
-                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
+                        - name: 연결 구성
+                          items:
+                            - name: VNN 수신기
+                              displayName: virtual network name
+                              href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                            - name: DNN 수신기
+                              displayName: distributed network name
+                              href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                            - name: DNN 상호 운용성
+                              href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: 장애 조치 클러스터 인스턴스(FCI)
                   items:
                     - name: FCI용 VM 준비
@@ -1272,7 +1289,7 @@
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
                         - name: 프리미엄 파일 공유(Win2012+)
                           href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-                    - name: 연결 구성
+                    - name: 연결 구성(단일 서브넷)
                       items:
                         - name: VNN(가상 네트워크 이름)
                           href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
@@ -1383,7 +1400,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM

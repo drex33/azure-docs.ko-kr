@@ -62,8 +62,6 @@
           href: howto-find-activity-reports.md
         - name: 사용자에 대한 로그인 오류 문제 해결
           href: howto-troubleshoot-sign-in-errors.md
-        - name: 위험 플래그가 지정된 사용자 수정
-          href: howto-remediate-users-flagged-for-risk.md
         - name: Reporting API를 위한 필수 구성 요소 구성
           href: howto-configure-prerequisites-for-reporting-api.md
         - name: Azure AD 통합 문서 사용 방법
@@ -95,6 +93,8 @@
 - name: 참조
   expanded: true
   items:
+    - name: 로그인 로그의 기본 정보 식별자
+      href: reference-basic-info-identifiers.md
     - name: 보고용 Azure AD PowerShell cmdlet
       href: reference-powershell-reporting.md
     - name: 감사 로그 API 참조
@@ -111,3 +111,9 @@
       href: reports-faq.yml
     - name: 로그인 로그 스키마
       href: reference-azure-monitor-sign-ins-log-schema.md
+    - name: 통합 문서
+      items:
+        - name: 조건부 액세스 간격 분석기
+          href: workbook-conditional-access-gap-analyzer.md
+        - name: 중요 작업 보고서
+          href: workbook-sensitive-operations-report.md

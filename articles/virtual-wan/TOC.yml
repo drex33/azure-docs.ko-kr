@@ -121,8 +121,6 @@
           href: virtual-wan-site-to-site-portal.md
         - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결
           href: connect-virtual-network-gateway-vwan.md
-        - name: 패킷 캡처 수행
-          href: virtual-wan-site-to-site-packet-capture.md
         - name: 사용자 지정 IPsec 정책 구성
           href: virtual-wan-custom-ipsec-portal.md
         - name: NAT 규칙 구성
@@ -201,6 +199,8 @@
           href: monitor-virtual-wan.md
         - name: Azure Monitor Insights
           href: azure-monitor-insights.md
+        - name: S2S VPN 패킷 캡처 구성
+          href: packet-capture-site-to-site-powershell.md
 - name: 참조
   items:
     - name: Azure PowerShell

@@ -205,19 +205,23 @@
           href: edge/production-readiness.md
 - name: 리소스
   items:
-    - name: Azure 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/'
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: 사용 가능한 지역
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all'
+    - name: Azure 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/'
     - name: FAQ
       items:
         - name: Edge 모듈 FAQ
           href: edge/faq.yml
         - name: 서비스 FAQ
           href: cloud/faq.yml
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: 할당량 및 제한 사항
       href: quotas-limitations.md
     - name: Terraform 리소스
       href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer'
+    - name: Video Analyzer 에지
+      href: 'https://aka.ms/ava-marketplace'
+    - name: Video Analyzer 서비스
+      href: 'https://aka.ms/ava-service'

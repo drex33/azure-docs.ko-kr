@@ -4,16 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: eur
-ms.openlocfilehash: f5e625686255e77454afbfe0f9a7f855454a5f2e
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 31d428455929b9cdfb14fb78f65dc8def889d563
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506515"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252473"
 ---
 :::row:::
     :::column span="3":::
-        C++ Speech SDK는 Windows, Linux 및 macOS에서 사용할 수 있습니다. 자세한 내용은 <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>를 참조하세요.
+        c + + Speech SDK는 Windows, Linux 및 macos에서 NuGet 패키지로 제공 됩니다. 자세한 내용은 <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">cognitiveservices account</a>를 참조 하세요.
+        C + + Speech SDK는에서 tar 패키지로도 사용할 수 있습니다 https://aka.ms/csspeech/linuxbinary .
     :::column-end:::
     :::column:::
         <br>

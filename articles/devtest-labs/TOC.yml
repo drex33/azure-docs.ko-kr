@@ -6,6 +6,8 @@
       href: devtest-lab-overview.md
 - name: 빠른 시작
   items:
+    - name: 랩 만들기 - 포털
+      href: devtest-lab-create-lab.md
     - name: 랩 만들기 - Resource Manager 템플릿
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
@@ -73,8 +75,6 @@
   items:
     - name: 랩 구성
       items:
-        - name: 랩 만들기
-          href: devtest-lab-create-lab.md
         - name: 네트워크 격리 랩 만들기
           href: network-isolation.md
         - name: Resource Manager 템플릿을 사용하여 랩 만들기 또는 수정

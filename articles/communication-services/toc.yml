@@ -135,6 +135,16 @@ items:
             href: concepts/ui-library/ui-library-overview.md
           - name: UI 라이브러리 사용 사례
             href: concepts/ui-library/ui-library-use-cases.md
+      - name: 모니터링 및 분석
+        items:
+          - name: 진단 설정에서 로깅 사용
+            href: concepts/analytics/enable-logging.md
+          - name: 통화 요약 및 통화 진단 로그
+            href: concepts/analytics/call-logs-azure-monitor.md
+          - name: Log Analytics
+            href: concepts/analytics/log-analytics.md
+          - name: 자세한 정보
+            href: concepts/analytics/insights.md
       - name: SDK 및 REST API
         href: concepts/sdk-options.md
       - name: 클라이언트 및 서버 아키텍처

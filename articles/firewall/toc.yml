@@ -30,7 +30,7 @@
       href: sample-powershell.md
 - name: 개념
   items:
-    - name: Azure Firewall 기능
+    - name: Azure Firewall 표준 기능
       href: features.md
     - name: Azure Firewall 프리미엄 기능
       href: premium-features.md
@@ -48,6 +48,8 @@
       href: logs-and-metrics.md
     - name: 위협 인텔리전스
       href: threat-intel.md
+    - name: 정책 규칙 집합
+      href: policy-rule-sets.md
     - name: 규칙 처리 논리
       href: rule-processing.md
     - name: 서비스 태그
@@ -133,7 +135,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/firewall
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md

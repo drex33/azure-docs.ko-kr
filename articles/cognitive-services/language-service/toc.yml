@@ -501,6 +501,8 @@ items:
             href: question-answering/how-to/manage-knowledge-base.md
           - name: 네트워크 격리 및 프라이빗 엔드포인트
             href: question-answering/how-to/network-isolation.md
+          - name: 미리 빌드된 API
+            href: question-answering/how-to/prebuilt.md
           - name: 문제 해결
             href: question-answering/how-to/troubleshooting.md
       - name: 개념

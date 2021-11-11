@@ -4,25 +4,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: eur
-ms.openlocfilehash: 07fa99c6183e98554f20af5c992d0c81734a1b63
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 642fa02cf8f40d7cc6a39a1951499cb7921ed100
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506532"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252404"
 ---
-macOS용으로 개발할 때 사용할 수 있는 세 가지 Speech SDK가 있습니다.
+macOS용으로 개발하는 경우 다음 Speech SDK를 사용할 수 있습니다.
 
-- Objective-C Speech SDK는 기본적으로 CocoaPod 패키지로 제공됩니다.
-- .NET Speech SDK는 .NET Standard 2.0을 구현하므로 **Xamarin.Mac** 과 함께 사용할 수 있습니다.
-- Python Speech SDK는 PyPI 모듈로 제공됩니다
-
-> [!TIP]
-> Swift와 함께 Objective-C Speech SDK를 사용하는 방법에 대한 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Swift로 Objective-C 가져오기</a>를 참조하세요.
+- Objective-C/Swift Speech SDK는 Mac x64 및 ARM 기반 실리콘용 CocoaPod 패키지로 기본적으로 제공됩니다. Swift와 함께 Objective-C Speech SDK를 사용하는 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Objective-C를 Swift로 가져오기를 </a>참조하세요.
+- .NET Speech SDK는 NuGet 패키지를 통해 사용할 수 있으며 **Xamarin.Mac** 및 **Unity** 애플리케이션 프레임워크에서 사용할 수 있습니다.
+- Python Speech SDK는 Python 버전 3.7 이상용 PyPI 모듈로 사용할 수 있습니다.
+- Java Speech SDK는 Maven 리포지토리를 통해 JAR 패키지로 사용할 수 있습니다.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 
-- macOS 버전 10.13 이상
+- macOS 버전 10.14 이상
 
 # <a name="xcode"></a>[Xcode](#tab/mac-xcode)
 
@@ -39,7 +37,7 @@ macOS용으로 개발할 때 사용할 수 있는 세 가지 Speech SDK가 있�
 :::row-end:::
 
 ```
-platform :ios, '9.3'
+platform :osx, 10.14
 use_frameworks!
 
 target 'MyApp' do

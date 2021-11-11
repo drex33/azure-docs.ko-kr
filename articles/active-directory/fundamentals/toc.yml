@@ -278,6 +278,10 @@
           href: license-users-groups.md
         - name: 삭제한 사용자 복원
           href: active-directory-users-restore.md
+    - name: 시나리오
+      items:
+        - name: Azure Active Directory를 사용하여 SAP 플랫폼 및 애플리케이션에 대한 액세스 보호
+          href: scenario-azure-first-sap-identity-integration.md
 - name: 문제 해결
   expanded: true
   items:

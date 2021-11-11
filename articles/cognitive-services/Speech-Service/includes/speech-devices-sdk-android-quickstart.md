@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: eur
-ms.openlocfilehash: a0abd4162e92564bf35eb65da89dfa1758f160bb
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 1de2eef939fcb4e6de7915275c293c2f60665bb7
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509812"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252263"
 ---
 이 빠른 시작에서는 Android용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription.md) 디바이스로 사용하는 방법을 알아봅니다.
 
@@ -96,7 +96,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
     종속성 섹션에 이 줄을 추가하여 **build.gradle(Module:app)** 을 업데이트합니다. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.17.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.19.0'
     ```
     
 1. 소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.

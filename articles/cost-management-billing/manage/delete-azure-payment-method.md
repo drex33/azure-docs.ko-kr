@@ -2,19 +2,19 @@
 title: Azure 청구 결제 방법 삭제
 description: Azure 구독에서 사용하는 결제 방법을 삭제하는 방법을 설명합니다.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/10/2021
 ms.author: banders
-ms.openlocfilehash: 1ba1a97acfe2345ed5632ae6f84caacc525f13e4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 6050b98d54cf46bf83168d7d33b9ca44d2bd6eda
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129544814"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132180009"
 ---
 # <a name="delete-an-azure-billing-payment-method"></a>Azure 청구 결제 방법 삭제
 
@@ -84,8 +84,7 @@ MOSP 구독에서 결제 방법을 사용하는 경우 다음 단계를 수행�
 1. **Cost Management + 청구** 로 이동합니다.
 1. 필요한 경우 청구 범위를 선택합니다.
 1. 왼쪽 메뉴 목록의 **청구** 아래에서 **결제 방법** 을 선택합니다.
-1. 결제 방법 영역에서 결제 방법이 설정된 _줄_ 을 선택합니다. 결제 방법 링크는 선택하지 마세요. 결제 방법을 선택했다는 시각적 표시가 없을 수 있습니다.
-1. **삭제** 를 선택합니다.  
+1. 지불 방법 영역의 지불 방법이 있는 행에서 줄임표 (**...**) 기호를 선택한 다음 **삭제** 를 선택 합니다.
     :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="MOSP 결제 방법을 분리하는 데 필요한 정정 작업을 보여 주는 예" :::
 1. 모든 조건이 충족되면 결제 방법 삭제 영역에서 **삭제** 를 선택합니다. [삭제]를 사용할 수 없는 경우 다음 단계로 계속 진행합니다.
 1. 조건 목록이 표시됩니다. 나열된 작업을 수행합니다. 결제 방법 삭제 영역에 표시된 링크를 선택합니다.  

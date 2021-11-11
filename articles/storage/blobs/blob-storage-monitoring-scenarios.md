@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 54155f2bacd9a593a1288c8d1f95a5843dca2602
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 222c78803e268cef95dc322952874f58346c2919
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134783"
+ms.locfileid: "132180171"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링에 대한 모범 사례
 
@@ -177,7 +177,9 @@ StorageBlobLogs
 
 그런 다음 해당 문자열을 [Get FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) PowerShell cmdlet에 전달할 수 있습니다. 예제는 [예제 4: 문자열의 해시 계산](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string)을 참조 하세요.
 
-또는 디코딩된 문자열을 kusto 쿼리의 일부로 [hash_sha256 ()](/data-explorer/kusto/query/sha256hashfunction) 함수에 전달할 수 있습니다.
+또는 Azure 데이터 탐색기를 사용 하는 경우 디코딩된 문자열을 쿼리의 일부로 [hash_sha256 ()](/azure/data-explorer/kusto/query/sha256hashfunction) 함수에 전달할 수 있습니다.
+
+SAS 토큰에는 id 정보가 포함 되어 있지 않습니다. 사용자 또는 조직의 활동을 추적 하는 한 가지 방법은 다양 한 SAS 토큰 해시에 대 한 사용자 또는 조직 매핑을 유지 하는 것입니다.
 
 ## <a name="optimize-cost-for-infrequent-queries"></a>자주 발생하지 않는 쿼리 비용 최적화
 

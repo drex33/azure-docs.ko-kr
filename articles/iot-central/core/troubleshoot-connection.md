@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: faeaf58537da4a40716f0c2e76b205980b727bf9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: a929e5d4bccc3a6b2d27125de6aad4472364d67e
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459109"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179149"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
 
@@ -130,7 +130,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| 디바이스 프로비저닝 상태 | 설명 | 가능한 완화 방법 |
+| 디바이스 프로비저닝 상태 | Description | 가능한 완화 방법 |
 | - | - | - |
 | 프로비전됨 | 즉시 인식할 수 있는 문제가 없습니다. | 해당 없음 |
 | 등록됨 | 디바이스가 아직 IoT Central에 연결되지 않았습니다. | 디바이스 로그에 연결 문제가 있는지 확인합니다. |
@@ -158,6 +158,18 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | 412 | 요청의 `ETag`가 RFC7232에 따라 기존 리소스의 `ETag`와 일치하지 않습니다. | [고객 지원팀을 통해 티켓을 제출](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)합니다. |
 | 429 | 서비스로 인해 작업이 제한되고 있습니다. 특정 서비스 제한은 [IoT Hub Device Provisioning Service 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits)을 참조하세요. | 메시지 빈도를 줄이고 더 많은 디바이스로 책임을 분담합니다. |
 | 500 | 내부 오류가 발생했습니다. | [고객 지원팀을 통해 티켓을 제출](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하여 더 유용하게 사용할 수 있는지 확인할 수 있습니다. |
+
+### <a name="detailed-authorization-error-codes"></a>자세한 권한 부여 오류 코드
+
+| 오류 | 하위 오류 코드 | 참고 |
+| - | - | - |
+| 401 권한 없음 | 401002 | 장치에서 잘못 되었거나 만료 된 자격 증명을 사용 하 고 있습니다. 이 오류는 DPS에서 보고 됩니다. |
+| 401 권한 없음 | 400209 | 장치가 운영자의 승인을 기다리고 있거나 운영자에 의해 차단 되었습니다. |
+| 401 IoTHubUnauthorized |  | 장치에서 만료 된 보안 토큰을 사용 하 고 있습니다. 이 오류는 IoT Hub에서 보고 됩니다. |
+| 401 IoTHubUnauthorized | DEVICE_DISABLED | 장치가이 IoT hub에서 사용 하지 않도록 설정 되어 있고 다른 IoT hub로 이동 했습니다. 디바이스를 다시 프로비전합니다. |
+| 401 IoTHubUnauthorized | DEVICE_BLOCKED | 운영자가 이 디바이스를 차단했습니다. |
+
+
 
 ### <a name="file-upload-error-codes"></a>파일 업로드 오류 코드
 

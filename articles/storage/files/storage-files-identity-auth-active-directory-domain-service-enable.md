@@ -8,12 +8,12 @@ ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f995b4b17330f6469f05c5399c2129fa7abc33bf
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 9823470a097035134f152002c35782aed2210afb
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462577"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132180156"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Azure Files에서 Azure Active Directory Domain Services 인증 사용
 
@@ -134,18 +134,18 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Azure CLI를 사용하여 SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 최신 CLI 버전(버전 2.0.70 이상)을 설치합니다. Azure CLI를 설치하는 방법에 관한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-새 스토리지 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create)를 호출하고 `--enable-files-aadds` 속성을 **true** 로 설정합니다. 다음 예제에서는 자리 표시자 값을 고유한 값으로 바꿔야 합니다. (이전 미리 보기 모듈을 사용하는 경우 기능을 사용하도록 설정하는 매개 변수는 **file-aad** 입니다.)
+새 스토리지 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create)를 호출하고 `--enable-files-aadds` 인수를 설정합니다. 다음 예제에서는 자리 표시자 값을 고유한 값으로 바꿔야 합니다. (이전 미리 보기 모듈을 사용하는 경우 기능을 사용하도록 설정하는 매개 변수는 **file-aad** 입니다.)
 
 ```azurecli-interactive
 # Create a new storage account
-az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds
 ```
 
 기존 스토리지 계정에서 이 기능을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive
 # Update a new storage account
-az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds
 ```
 ---
 

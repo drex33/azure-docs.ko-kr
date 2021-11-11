@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용�
 services: container-service
 ms.topic: article
 ms.date: 07/08/2021
-ms.openlocfilehash: c68783cd614ca5dc1a569f17365992a378d225b9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d303e00c7f1a7ef76bb048048123b65eb42de402
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566548"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179964"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
@@ -61,7 +61,7 @@ echo Storage account key: $STORAGE_KEY
 
 이전 단계에서 작성된 파일 공유에 액세스하려면 Kubernetes에 자격 증명이 필요합니다. 자격 증명은 [Kubernetes 비밀][kubernetes-secret]에 저장됩니다. Kubernetes 비밀은 Kubernetes Pod를 만들 때 참조됩니다.
 
-`kubectl create secret` 명령을 사용하여 비밀을 작성하세요. 다음 예제는 *azure-secret* 이라는 공유를 만들고 이전 단계에서 *azurestorageaccountname* 및 *azurestorageaccountkey* 를 생성합니다. 기존 Azure Storage 계정을 사용하려면 계정 이름과 키를 입력합니다.
+`kubectl create secret` 명령을 사용하여 비밀을 작성하세요. 다음 예제에서는 *azure-secret이라는* 비밀을 만들고 이전 *단계의 azurestorageaccountname* 및 *azurestorageaccountkey를* 채웁니다. 기존 Azure Storage 계정을 사용하려면 계정 이름과 키를 입력합니다.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a0f95f78b8ca84175be185088316209ea5eb1e97
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: b7a6e23ae5f1dde2feab830a484cd33107bd7212
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546826"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132180194"
 ---
 # <a name="manage-storage-account-access-keys"></a>스토리지 계정 액세스 키 관리
 
@@ -36,11 +36,11 @@ Azure Portal에서 스토리지 계정 액세스 키 또는 연결 문자열을 
 
 2. **보안 + 네트워킹** 에서 **액세스 키** 를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 
-3. **키 표시** 를 선택 하 여 액세스 키 및 연결 문자열을 표시 하 고 단추를 사용 하 여 값을 복사 합니다.
+3. **키 표시를** 선택하여 액세스 키 및 연결 문자열을 표시하고 단추를 사용하여 값을 복사할 수 있도록 합니다.
 
-4. **Key1** 에서 **키** 값을 찾습니다. **복사** 단추를 선택 하 여 계정 키를 복사 합니다.
+4. **key1** 아래에서 **키** 값을 찾습니다. **복사** 단추를 선택하여 계정 키를 복사합니다.
 
-5. 또는 전체 연결 문자열을 복사할 수 있습니다. **Key1** 에서 **연결 문자열** 값을 찾습니다. **복사** 단추를 선택 하 여 연결 문자열을 복사 합니다.
+5. 또는 전체 연결 문자열을 복사할 수 있습니다. **key1** 아래에서 **연결 문자열** 값을 찾습니다. **복사** 단추를 선택하여 연결 문자열을 복사합니다.
 
     :::image type="content" source="./media/storage-account-keys-manage/portal-connection-string.png" alt-text="Azure Portal에서 액세스 키를 확인하는 방법을 보여 주는 스크린 샷":::
 
@@ -95,19 +95,19 @@ Microsoft는 스토리지 계정을 안전하게 유지하기 위해 액세스 �
 
 #### <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal에서 키 만료 정책을 만들려면 다음을 수행 합니다.
+Azure Portal 키 만료 정책을 만들려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
 2. **보안 + 네트워킹** 에서 **액세스 키** 를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 
-3. **회전 미리 알림 설정** 링크를 선택 합니다.
+3. 회전 **미리 알림 설정** 링크를 선택합니다.
 
-4. **액세스 키를 회전 하는 미리 알림 설정** 에서 **키 회전 미리 알림 사용** 확인란을 선택 하 고 미리 알림 빈도를 설정 합니다.
+4. **액세스 키를 회전하도록 미리 알림 설정에서** 키 회전 미리 알림 사용 확인란을 선택하고 **미리 알림에** 대한 빈도를 설정합니다.
 
 5. **저장** 을 선택합니다.
 
-:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Azure Portal에서 키 만료 정책을 만드는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Azure Portal 키 만료 정책을 만드는 방법을 보여주는 스크린샷":::
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -199,7 +199,7 @@ StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated".
 쿼리 만료가 가까운지 확인하는 데 도움이 되는 쿼리를 생성할 수도 있습니다. 다음 쿼리는 이 정보를 제공합니다.
 
 ```kusto
-resources 
+StorageBlobLogs 
 | where type =~ 'microsoft.storage/storageAccounts'
 | extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
 | extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")

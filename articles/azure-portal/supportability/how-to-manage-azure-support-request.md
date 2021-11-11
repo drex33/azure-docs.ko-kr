@@ -3,13 +3,13 @@ title: Azure 지원 요청 관리
 description: 지원 요청을 보는 방법 및 메시지를 보내고, 파일을 업로드 하 고, 옵션을 관리 하는 방법에 대해 알아봅니다.
 tags: billing
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.openlocfilehash: 361ab4b643dac6fb54fae8d236dfac38ee024701
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.date: 11/10/2021
+ms.openlocfilehash: c74a6245da9023889be151415bce72ba0129881c
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508347"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179926"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
 
@@ -54,7 +54,7 @@ ms.locfileid: "131508347"
 
 ## <a name="allow-collection-of-advanced-diagnostic-information"></a>고급 진단 정보 수집 허용
 
-지원 요청을 만들 때 **고급 진단 정보** 섹션에서 **예** 또는 **아니요** 를 선택할 수 있습니다. 이 옵션은 Azure 지원에서 잠재적으로 문제를 해결 하는 데 도움이 될 수 있는 Azure 리소스의 [로그 파일과](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) 같은 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 를 수집할 수 있는지 여부를 결정 합니다.
+지원 요청을 만들 때 **고급 진단 정보** 섹션에서 **예** 또는 **아니요** 를 선택할 수 있습니다. 이 옵션은 Azure 지원에서 잠재적으로 문제를 해결 하는 데 도움이 될 수 있는 Azure 리소스의 [로그 파일과](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) 같은 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 를 수집할 수 있는지 여부를 결정 합니다. Azure Portal를 통해 사례를 만들고 허용할 수 있는 권한이 부여 된 경우에만 Azure 지원에서 고급 진단 정보에 액세스할 수 있습니다.
 
 요청을 만든 후에 **고급 진단 정보** 선택 항목을 변경 하려면 다음을 수행 합니다.
 
@@ -119,17 +119,17 @@ ms.locfileid: "131508347"
 
 ## <a name="close-a-support-request"></a>지원 요청 닫기
 
-지원 요청을 종결 하려면 [메시지를 보내고](#send-a-message) 요청을 종료 하 시겠습니까?를 알려 주세요.
+지원 요청을 닫려면 [메시지를 보내고](#send-a-message) 요청을 닫고 싶습니다.
 
 ## <a name="reopen-a-closed-request"></a>닫힌 요청 다시 열기
 
-닫힌 지원 요청을 다시 열려면 [새 메시지](#send-a-message)를 만듭니다. 그러면 요청이 자동으로 다시 열립니다.
+닫힌 지원 요청을 다시 열려면 요청을 자동으로 다시 여는 [새 메시지](#send-a-message)를 만듭니다.
 
 ## <a name="cancel-a-support-plan"></a>지원 플랜 취소
 
-지원 플랜을 취소 하려면 [지원 계획 취소](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan)를 참조 하세요.
+지원 계획을 취소하려면 [지원 계획 취소를 참조하세요.](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan)
 
 ## <a name="next-steps"></a>다음 단계
 
-- 프로세스를 검토 하 여 [Azure 지원 요청을 만듭니다](how-to-create-azure-support-request.md).
-- [Azure 지원 티켓 REST API](/rest/api/support)에 대해 알아봅니다.
+- 프로세스를 검토하여 [Azure 지원 요청을 만듭니다.](how-to-create-azure-support-request.md)
+- [Azure 지원 티켓 REST API](/rest/api/support)대해 알아봅니다.

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: dbeb1a776aa5d813806cec6622e1ad1e515ccfc5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f6cd42395b0255a7c0bd68285dd532363b2141f
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623687"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179834"
 ---
 # <a name="automatically-renew-reservations"></a>예약 자동 갱신
 
@@ -44,7 +44,7 @@ Azure Portal > **Reservations** 로 이동합니다.
 
 - 기존 예약의 소유자여야 합니다.
 - 예약 범위가 단일 구독 또는 리소스 그룹으로 지정된 경우에는 구독의 소유자여야 합니다.
-- 공유 범위 또는 관리 그룹 범위가 있는 경우 구독의 소유자 여야 합니다.
+- 공유 범위 또는 관리 그룹 범위가 있는 경우 구독의 소유자여야 합니다.
 
 ## <a name="default-renewal-settings"></a>기본 갱신 설정
 
@@ -85,11 +85,11 @@ Azure는 만료되는 예약에서 새 예약으로 권한을 복사합니다. �
 
 ## <a name="renewal-notification"></a>갱신 알림
 
-갱신 알림 이메일은 만료 30일 전과 만료 날짜에 다시 전송됩니다. 보내는 이메일 주소는 `azure-noreply@microsoft.com`입니다. 전자 메일 주소를 안전한 발신자 또는 allowlist에 추가 해야 할 수 있습니다.
+갱신 알림 이메일은 만료 30일 전과 만료 날짜에 다시 전송됩니다. 보내는 이메일 주소는 `azure-noreply@microsoft.com`입니다. 전자 메일 주소를 안전한 보낸 사람 또는 허용 목록에 추가할 수 있습니다.
 
 이메일은 구매 방법에 따라 다른 사람에게 전송됩니다.
 
-- EA 고객 - EA 포털에 설정된 알림 연락처로 이메일이 전송됩니다.
+- EA 고객 - EA 포털에 설정된 알림 연락처 또는 사용 알림을 받기 위해 자동으로 등록된 Enterprise 관리자에게 이메일이 전송됩니다.
 - 종량제 요금을 사용하는 개별 구독 고객 - 계정 관리자로 설정된 사용자에게 이메일이 전송됩니다.
 - 클라우드 솔루션 공급자 고객 - 파트너 알림 담당자에게 이메일이 전송됩니다.
 

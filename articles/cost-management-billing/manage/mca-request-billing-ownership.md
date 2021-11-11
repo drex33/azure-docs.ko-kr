@@ -7,56 +7,82 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/09/2021
 ms.author: banders
-ms.openlocfilehash: af3b4eabfb47fb64e9e3912c8edcf939d17e04f2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 482db68e048c645eddf16849b32e39f1dc397d09
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131476246"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179418"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 구독 청구 소유권 이전
 
-다음과 같은 경우 Azure 구독에 대한 청구 소유권을 양도해야 합니다.
-- 구독에 대한 청구 책임을 다른 청구 담당자로 이전하려고 합니다.
-- 한 사용권 계약에서 다른 사용권 계약으로 Azure 구독을 이전하려고 합니다. 예를 들어 기업계약 또는 MOSA(Microsoft 온라인 정기가입 계약)에서 Microsoft 고객 계약으로 이전할 수 있습니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-for-access).
+다음 경우에 Azure 구독에 대 한 청구 소유권을 양도 합니다.
 
-청구 소유권을 요청하는 사용자는 다음 역할 중 하나를 가지고 있어야 합니다.
+- 구독에 대한 청구 책임을 다른 청구 담당자로 이전하려고 합니다.
+- 한 사용권 계약에서 다른 사용권 계약으로 Azure 구독을 전송 하 고 있습니다. 예를 들어 기업계약 또는 MOSA(Microsoft 온라인 정기가입 계약)에서 Microsoft 고객 계약으로 이전할 수 있습니다.
+
+[Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-for-access).
+
+전환은 Azure 구독에 대 한 청구 담당자로 이동 합니다. 구독에 연결 된 Azure 리소스는 이동 하지 않으므로 Azure 서비스를 중단 하지 않습니다.
+
+이 프로세스에는 다음 작업이 포함 되며, 단계별로 안내 합니다.
+
+1. 청구 소유권 요청
+2. 전송 요청 검토/승인
+3. 전송 요청 상태 확인
+
+시작 하기 전에 청구 소유권을 요청 하는 사용자에 게 다음 역할 중 하나가 있는지 확인 합니다.
+
 - Microsoft 고객 계약의 경우 해당 개인에게는 청구 계정 또는 관련 청구 프로필 또는 청구서 섹션에 대한 소유자 또는 기여자 역할이 있어야 합니다. 자세한 내용은 [청구 역할 및 작업](understand-mca-roles.md#invoice-section-roles-and-tasks)을 참조하세요.
 - 기업계약의 경우 개인이 계정 소유자여야 합니다.
 - Microsoft 온라인 정기가입 계약의 경우 해당 개인은 계정 관리자여야 합니다.
 
+준비가 되 면 다음 지침을 사용 합니다. 프로세스의 각 단계를 설명 하는 다음 비디오를 사용할 수도 있습니다.
+
+>[!VIDEO https://www.youtube.com/embed/gfiUI2YLsgc]
+
 ## <a name="request-billing-ownership"></a>청구 소유권 요청
 
-1. Microsoft 고객 계약의 청구 계정에 대해 청구서 섹션 소유자 또는 기여자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Microsoft 고객 계약의 청구 계정에 대해 청구서 섹션 소유자 또는 기여자로 [Azure Portal](https://portal.azure.com)에 로그인합니다. Microsoft 고객 계약에 동의 하는 데 사용한 것과 동일한 자격 증명을 사용 합니다.
 1. **Cost Management + 청구** 를 검색합니다.  
     ![비용 관리 + 청구에 대한 Azure Portal 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. 청구 범위 페이지에서 **청구 범위** 를 선택한 다음, 구독 사용량에 대한 비용을 지불하는 데 사용되는 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이어야 합니다.  
-    [![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
+1. 청구 범위 페이지에서 **청구 범위** 를 선택한 다음 구독에서 Azure 사용량에 대 한 비용을 지불 하는 데 사용 되는 청구 계정을 선택 합니다. **Microsoft 고객 계약** 이라는 레이블이 지정 된 청구 계정을 선택 합니다.  
+    [![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)  
     > [!NOTE]
-    > Azure Portal은 사용자가 액세스한 마지막 청구 범위를 기억했다가 다음에 Cost Management + 청구 페이지로 이동하면 해당 범위를 표시합니다. 이전에 Cost Management + 청구 페이지를 방문한 경우 청구 범위 페이지가 표시되지 않습니다. 이런 경우, [올바른 범위](#check-for-access)에 있는지 확인하십시오. 그렇지 않으면, [범위를 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)하여 Microsoft 고객 계약에 대한 청구 계정을 선택하십시오.
+    >Azure Portal는 사용자가 액세스 하는 마지막 청구 범위를 기억 하 고 다음에 Cost Management + 청구 페이지로 이동할 때 범위를 표시 합니다. 이전에 Cost Management + 청구 페이지를 방문한 경우 청구 범위 페이지가 표시되지 않습니다. 이런 경우, [올바른 범위](#check-for-access)에 있는지 확인하십시오. 그렇지 않으면, [범위를 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)하여 Microsoft 고객 계약에 대한 청구 계정을 선택하십시오.
 1. 왼쪽에서 **청구 프로필** 을 선택합니다.  
     [![청구 프로필 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
-    > [!Note]
+    > [!NOTE]
     > 청구 프로필이 표시되지 않으면 올바른 청구 범위에 있지 않은 것입니다. Microsoft 고객 계약에 대한 청구 계정을 선택한 다음, 청구 프로필을 선택해야 합니다. 범위를 변경하는 방법을 알아보려면 [Azure Portal에서 청구 범위 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)을 참조하세요.
 1. 목록에서 **청구 프로필** 을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 이 청구 프로필로 청구됩니다.
 1. 왼쪽에서 **청구서 섹션** 을 선택합니다.  
     [![청구서 섹션 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
-1. 목록에서 청구서 섹션을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 청구 프로필 청구서의 이 섹션에 할당됩니다.
+1. 목록에서 청구서 섹션을 선택합니다. 각 청구 프로필은 기본적으로 청구서에 포함 됩니다. Azure 구독 사용이 전송 되는 Azure 구독 청구를 이동할 청구서를 선택 합니다.
 1. 왼쪽 아래에서 **전송 요청** 을 선택한 다음, **새 요청 추가** 를 선택합니다.  
     [![전송 요청 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. **요청 보내기** 를 선택합니다.  
+1. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. 사용자에 게 이전 구독에 대 한 계정 관리자 역할이 있어야 합니다. **요청 보내기** 를 선택합니다.  
     [![전송 요청 전송을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
+
+## <a name="review-and-approve-transfer-request"></a>전송 요청 검토 및 승인
+
 1. 사용자는 이전 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
     ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
-1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다.
-    [![검토 전송 요청을 보여주는 스크린샷](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox): 사용자가 Azure 제품을 전송하려는 청구 계정을 선택할 수 있습니다. 이를 선택하면 전송할 수 있는 적격 제품이 표시됩니다. **참고:** 사용하지 않도록 설정된 구독은 전송할 수 없으며, 해당하는 경우 "이전할 수 없는 Azure 제품" 목록에 표시됩니다. 전송될 Azure 제품이 선택되면 **유효성 검사** 를 선택합니다.
-1. **전송 유효성 검사 결과** 영역에서는 전송할 Azure 제품의 영향을 보여 줍니다. 가능한 상태는 다음과 같습니다.
+1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다.  
+
+    사용자가 Azure 제품을 전송 하려는 청구 계정을 선택 합니다. 이를 선택하면 전송할 수 있는 적격 제품이 표시됩니다. 전송될 Azure 제품이 선택되면 **유효성 검사** 를 선택합니다.
+
+    >[!NOTE]
+    > 사용 하지 않도록 설정 된 구독은 전송할 수 없으며, 해당 하는 경우 "비 전송할 수 Azure 제품" 목록에 표시 됩니다. 
+
+    [![검토 전송 요청을 보여 주는 스크린샷](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox)
+1. **전송 유효성 검사 결과** 영역에는 전송할 Azure 제품의 상태가 표시 됩니다. 가능한 상태는 다음과 같습니다.
     * **통과** - 이 Azure 제품에 대한 유효성 검사가 통과되었으며 전송될 수 있습니다.
-    * **경고** - 선택한 Azure 제품에 대한 경고가 있습니다. 제품을 계속 전송할 수 있지만 이렇게 하면 사용자가 완화 작업을 수행하려는 경우 사용자가 알고 있어야 하는 영향을 받을 수 있습니다. 예를 들어 전송되는 Azure 구독은 RI에서 혜택을 받고 있습니다. 전송 후에는 구독이 더 이상 해당 혜택을 받지 않습니다. 절감액을 최대화하려면 RI를 해당 혜택을 사용할 수 있는 다른 구독과 연결해야 합니다. 대신 사용자는 선택 페이지로 돌아가서 이 Azure 구독을 선택 취소하도록 선택할 수도 있습니다.
+    * **경고** - 선택한 Azure 제품에 대한 경고가 있습니다. 그래도 제품을 전송할 수 있지만 이렇게 하면 사용자가 완화 작업을 수행 하려는 경우 사용자가 알고 있어야 하는 결과가 발생할 수 있습니다. 예를 들어 전송되는 Azure 구독은 RI에서 혜택을 받고 있습니다. 전송 후에는 구독이 더 이상 해당 혜택을 받지 않습니다. 절감액을 최대화하려면 RI를 해당 혜택을 사용할 수 있는 다른 구독과 연결해야 합니다. 대신 사용자는 선택 페이지로 돌아가서 이 Azure 구독을 선택 취소하도록 선택할 수도 있습니다.
     * **실패** - 오류가 발생하여 선택한 Azure 제품을 전송할 수 없습니다. 사용자가 선택한 다른 Azure 제품을 전송하려면 선택 페이지로 돌아가서 이 제품을 선택 취소해야 합니다.  
     ![유효성 검사 환경을 보여주는 스크린샷](./media/mca-request-billing-ownership/validate-transfer-request.png)
+1. 유효성 검사가 **성공** 으로 완료 되 면 **전송** 을 선택 합니다. `Transfer is in progress`메시지가 표시 되 고 완료 되 면 `Transfer completed successfully` 메시지가 표시 됩니다.
 
 ## <a name="check-the-transfer-request-status"></a>전송 요청 상태 확인
 
@@ -139,7 +165,7 @@ ms.locfileid: "131476246"
 
 Azure 지원 플랜이 있고 모든 Azure 구독을 새 계약으로 이전하는 경우 구독으로는 지원 플랜이 이전되지 않으므로 플랜을 취소해야 합니다. 예를 들어 Microsoft 온라인 정기가입 계약(웹에서 구매한 Azure 구독)을 Microsoft 고객 계약으로 이전할 수 있습니다. 지원 플랜을 취소하려면 다음을 수행합니다.
 
-자격 증명이 새 Microsoft 고객 계약 계정에 액세스하는 데 사용되는 자격 증명과 다를 경우 이전 계정에 대한 계정 관리자 자격 증명을 사용해야 합니다.
+자격 증명이 새 Microsoft 고객 계약 계정에 액세스 하는 데 사용 된 자격 증명과 다를 경우 이전 계정에 대 한 계정 관리자 자격 증명을 사용 합니다.
 
 1.  [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1.  **Cost Management + 청구** 로 이동합니다.
@@ -156,7 +182,7 @@ Azure 지원 플랜이 있고 모든 Azure 구독을 새 계약으로 이전하�
 
 청구 소유권을 새 Microsoft 고객 계약 계정으로 이전한 후 이전 Microsoft 온라인 정기가입 계약 계정(웹에서 구매한 Azure 구독)에 대한 청구서에 액세스하고자 할 수 있습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
-자격 증명이 새 Microsoft 고객 계약 계정에 액세스하는 데 사용되는 자격 증명과 다를 경우 이전 계정에 대한 계정 관리자 자격 증명을 사용해야 합니다.
+자격 증명이 새 Microsoft 고객 계약 계정에 액세스 하는 데 사용 된 자격 증명과 다를 경우 이전 계정에 대 한 계정 관리자 자격 증명을 사용 합니다.
 
 1.  [https://portal.azure.com](https://portal.azure.com/ ) 에서 Azure Portal에 로그인합니다.
 1.  **Cost Management + 청구** 로 이동합니다.

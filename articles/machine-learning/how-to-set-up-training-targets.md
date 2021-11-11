@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 61419ec7e3e123ba1ab74a1400ee2c92c0e4c7aa
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 020296957e09743610ab46db74e663d86901d116
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553339"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179590"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -61,7 +61,7 @@ ScriptRunConfig 개체를 사용하여 학습 실험을 제출합니다.  이 �
 
 ## <a name="create-an-experiment"></a>실험 만들기
 
-작업 영역에서 [실험](concept-azure-machine-learning-architecture.md#experiments) 을 만듭니다. Experiemnt는 실행 제출을 구성 하 고 코드를 추적 하는 데 도움이 되는 경량 컨테이너입니다.
+작업 영역에서 [실험을](concept-azure-machine-learning-architecture.md#experiments) 만듭니다. experiemnt는 실행 제출을 구성하고 코드를 추적하는 데 도움이 되는 경량 컨테이너입니다.
 
 ```python
 from azureml.core import Experiment
@@ -81,7 +81,7 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 
 [!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
-## <a name="create-an-environment"></a>환경 만들기
+## <a name="create-an-environment"></a><a name="environment"></a> 환경 만들기
 Azure Machine Learning [환경](concept-environments.md)은 기계 학습이 수행되는 환경을 캡슐화한 것입니다. 학습 및 채점 스크립트와 관련된 Python 패키지, Docker 이미지, 환경 변수 및 소프트웨어 설정을 지정합니다. 또한 런타임(Python, Spark 또는 Docker)을 지정합니다.
 
 사용자 고유의 환경을 정의하거나 Azure ML 큐레이팅된 환경을 사용할 수 있습니다. [큐레이팅된 환경](./how-to-use-environments.md#use-a-curated-environment)은 기본적으로 작업 영역에서 사용할 수 있는 미리 정의된 환경입니다. 이러한 환경은 실행 준비 비용을 줄일 수 있는 캐시된 Docker 이미지에서 지원됩니다. 사용 가능한 큐레이팅된 환경의 전체 목록은 [Azure Machine Learning 큐레이팅된 환경](./resource-curated-environments.md)을 참조하세요.
@@ -113,7 +113,7 @@ myenv.python.user_managed_dependencies = True
 
 ## <a name="create-the-script-run-configuration"></a>스크립트 실행 구성 만들기
 
-이제 컴퓨팅 대상(`my_compute_target`)과 환경(`myenv`)이 있으므로 `project_folder` 디렉터리에 있는 학습 스크립트(`train.py`)를 실행하는 스크립트 실행 구성을 만듭니다.
+이제 컴퓨팅 `my_compute_target` 대상(, 필수 구성 [요소](#prerequisites) 및 환경 참조( , 환경 만들기 참조)이 있으니 `myenv` 디렉터리에 있는 학습 [](#environment)스크립트()를 실행하는 스크립트 실행 구성을 `train.py` `project_folder` 만듭니다.
 
 ```python
 from azureml.core import ScriptRunConfig

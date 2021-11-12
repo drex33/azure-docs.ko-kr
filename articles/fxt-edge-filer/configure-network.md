@@ -6,12 +6,12 @@ ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 10/07/2021
-ms.openlocfilehash: 2af1e6308cd572115c43d3dfd27b25499ae590ed
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a51f6654c8e82a46c1a31f2dd030cd2d5af754cd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086040"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347307"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>자습서: 클러스터의 네트워크 설정 구성
 
@@ -151,7 +151,7 @@ RRDNS 시스템이 구성된 후에는 탑재 명령에서 FXT 클러스터 주�
 * DNS 도메인 이름
 * DNS 검색 도메인
 
-자세한 정보는 클러스터 구성 가이드의 [DNS 설정](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>)을 참조하세요.
+자세한 정보는 클러스터 구성 가이드의 [DNS 설정](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

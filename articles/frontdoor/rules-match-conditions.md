@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yuajia
-ms.openlocfilehash: bb73ab8d36223a8bbac50fde2bb14d355ce26a10
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: df8f4340a7bdc91ac12567df46411a01210a3a9e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132161052"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324911"
 ---
 # <a name="azure-front-door-rules-match-conditions"></a>Azure 전방 도어 규칙 일치 조건
 
@@ -50,7 +50,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/device-type.png" alt-text="디바이스 유형 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/device-type.png" alt-text="디바이스 유형 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -108,7 +108,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/post-args.png" alt-text="POST 인수 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/post-args.png" alt-text="POST 인수 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -174,7 +174,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/query-string.png" alt-text="쿼리 문자열 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/query-string.png" alt-text="쿼리 문자열 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -235,7 +235,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/remote-address.png" alt-text="원격 주소 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/remote-address.png" alt-text="원격 주소 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -292,7 +292,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-body.png" alt-text="요청 본문 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-body.png" alt-text="요청 본문 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -352,7 +352,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-name.png" alt-text="요청 파일 이름 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-file-name.png" alt-text="요청 파일 이름 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -415,7 +415,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="요청 파일 확장명 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-file-extension.png" alt-text="요청 파일 확장명 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -477,7 +477,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-header.png" alt-text="요청 헤더 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-header.png" alt-text="요청 헤더 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -526,7 +526,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-method.png" alt-text="요청 메서드 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-method.png" alt-text="요청 메서드 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -583,7 +583,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-path.png" alt-text="요청 경로 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-path.png" alt-text="요청 경로 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -645,7 +645,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-protocol.png" alt-text="요청 프로토콜 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-protocol.png" alt-text="요청 프로토콜 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -702,7 +702,7 @@ azure front 도어 [규칙 엔진과](front-door-rules-engine.md) azure front �
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-url.png" alt-text="요청 URL 일치 조건을 보여 주는 포털 스크린샷":::
+:::image type="content" source="./media/rules-match-conditions/request-url.png" alt-text="요청 URL 일치 조건을 보여 주는 포털 스크린샷":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -797,7 +797,7 @@ Azure Front Door:
 * [첫 번째 규칙 엔진 을 구성하는](front-door-tutorial-rules-engine.md)방법을 알아봅니다. 
 * [규칙 엔진 작업](front-door-rules-engine-actions.md)에 대해 자세히 알아봅니다.
 
-Azure Front Door 표준/Premium:
+Azure Front Door Standard/Premium:
 
 * 표준/Premium [규칙 집합](standard-premium/concept-rule-set.md)Azure Front Door 대해 자세히 알아봅니다.
 * [첫 번째 규칙 집합을 구성](standard-premium/how-to-configure-rule-set.md)하는 방법을 알아봅니다.

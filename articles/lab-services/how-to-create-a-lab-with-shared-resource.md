@@ -5,12 +5,12 @@ author: emaher
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: efd33b95bd1a32c73712c7f094107717b4e5b973
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: db69c781c6b2f78e5ffbd6150d49775eb0c8cfbd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225778"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337191"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Azure Lab Services에서 공유 리소스가 있는 랩 만드는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "130225778"
 
 #### <a name="control-access"></a>액세스 제어
 라이선스 서버에 대한 액세스 제어가 핵심입니다.  VM을 설정한 후에도 계속해서 유지 관리, 문제 해결 및 업데이트를 위해 액세스해야 합니다.  이를 수행하는 몇 가지 방법이 있습니다.
-- [Azure Security Center 내에서 JIT(Just-in-time) 액세스를 설정합니다.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Microsoft Defender for Cloud 내에서 JIT(Just-In-Time) 액세스 설정](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
 - [네트워크 보안 그룹을 설정하여 액세스를 제한합니다.](../virtual-network/network-security-groups-overview.md)
 - [라이선스 서버에 안전하게 액세스할 수 있도록 하는 방법을 설정합니다.](https://azure.microsoft.com/services/azure-bastion/)
 
@@ -51,7 +51,8 @@ ms.locfileid: "130225778"
 공유 리소스를 사용하려면 랩 계정이 [피어링된 가상 네트워크](how-to-connect-peer-virtual-network.md)를 사용하도록 설정되어 있어야 합니다.  이 경우 공유 리소스를 보유하는 가상 네트워크로 피어링하게 됩니다.
 
 >[!WARNING]
->랩 계정이 공유 리소스 가상 네트워크에 **피어링되면** 클래스의 랩을 만들어야 합니다.  
-템플릿 컴퓨터
+>랩 계정이 공유 리소스 가상 네트워크에 **피어링되면** 클래스의 랩을 만들어야 합니다.
+
+## <a name="template-machine"></a>템플릿 컴퓨터
 
 랩 계정이 가상 네트워크에 피어링되면 이제 템플릿 컴퓨터에서 공유 리소스에 액세스할 수 있어야 합니다.  액세스 중인 공유 리소스에 따라 방화벽 규칙을 업데이트해야 할 수 있습니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5969c015a360d7f1c859070b1fc05df5bd469bbe
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735729"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327085"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Azure 네트워크 보안 모범 사례
 이 문서에서는 네트워크 보안을 향상시키기 위한 Azure 모범 사례 컬렉션을 설명합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -77,7 +77,7 @@ Azure 가상 네트워크는 온-프레미스 네트워크의 LAN과 비슷합�
 **세부 정보**: [Azure AD 조건부 액세스](../../active-directory/conditional-access/overview.md)를 사용하면 필요한 조건에 따라 자동화된 액세스 제어 결정을 구현하여 올바른 액세스 제어를 적용할 수 있습니다. 자세한 내용은 [조건부 액세스를 사용하여 Azure 관리에 대한 액세스 관리](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md)를 참조하세요.
 
 **모범 사례**: 워크플로 승인 후에만 포트 액세스를 사용합니다.  
-**세부 정보**: [Azure Security Center의 Just-In-Time VM 액세스](../../security-center/security-center-just-in-time.md)를 사용하여 Azure VM에 대한 인바운드 트래픽을 잠가서 공격에 대한 노출을 줄이는 동시에 VM에 쉽게 액세스하여 필요할 때 연결할 수 있습니다.
+**세부 정보**: [클라우드에 대 한 Microsoft DEFENDER의 just-in-time VM 액세스](../../security-center/security-center-just-in-time.md) 를 사용 하 여 Azure vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요에 따라 vm에 연결 하는 데 쉽게 액세스할 수 있도록 하 여 공격에 대 한 노출을 줄일 수 있습니다.
 
 **모범 사례**: 권한 있는 작업을 수행할 임시 권한을 부여하여 악의적 또는 권한이 없는 사용자가 권한이 만료된 후 액세스 권한을 획득하는 것을 방지합니다. 액세스 권한은 사용자에게 필요한 경우에만 부여됩니다.  
 **세부 정보**: Azure AD Privileged Identity Management 또는 타사 솔루션에서 Just-In-Time 액세스를 사용하여 권한 있는 작업을 수행할 권한을 부여합니다.
@@ -131,7 +131,7 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 하이브리드 IT 시나리오에는 일반적으로 몇 가지 유형의 프레미스 간 연결이 있습니다. 크로스-프레미스 연결을 사용하면 회사가 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 다음과 같은 두 가지 크로스-프레미스 연결 솔루션이 제공됩니다.
 
 * [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). 신뢰할 수 있고 안정적이며 인정된 기술이지만 연결이 인터넷을 통해 이루어집니다. 대역폭이 최대 약 1.25Gbps로 제한됩니다. 일부 시나리오에서는 사이트 간 VPN이 권장되는 옵션입니다.
-* **Azure ExpressRoute**. 크로스-프레미스 연결에 대해[ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Microsoft 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. ExpressRoute는 온-프레미스 위치 또는 Microsoft Exchange 호스팅 공급자 간에 설정된 전용 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않으므로 인터넷 통신의 잠재적 위험에 노출되지 않습니다.
+* **Azure ExpressRoute**. 크로스-프레미스 연결에 대해[ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. express 경로를 사용 하면 Azure, Microsoft 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. ExpressRoute는 온-프레미스 위치 또는 Microsoft Exchange 호스팅 공급자 간에 설정된 전용 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않으므로 인터넷 통신의 잠재적 위험에 노출되지 않습니다.
 
 ExpressRoute 연결 위치는 방화벽 기능, 확장성, 안정성 및 네트워크 트래픽 가시성에 영향을 줄 수 있습니다. 기존(온-프레미스) 네트워크에서 ExpressRoute를 종료하는 위치를 식별해야 합니다. 다음을 수행할 수 있습니다.
 
@@ -196,11 +196,11 @@ ExpressRoute 연결 위치는 방화벽 기능, 확장성, 안정성 및 네트�
 - 전용 WAN 링크가 일반적으로 더 안정적이고 성능이 뛰어납니다.
 
 ## <a name="secure-your-critical-azure-service-resources-to-only-your-virtual-networks"></a>가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호합니다.
-Azure 개인 링크를 사용 하 여 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database)에 액세스 합니다. 개인 끝점을 사용 하면 중요 한 Azure 서비스 리소스를 가상 네트워크에만 보안을 유지할 수 있습니다. 가상 네트워크에서 Azure 서비스로의 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 가상 네트워크를 공용 인터넷에 노출 하는 것은 더 이상 Azure PaaS 서비스를 사용할 필요가 없습니다. 
+azure 개인 링크를 사용 하 여 가상 네트워크의 개인 끝점을 통해 azure PaaS 서비스 (예: Azure Storage 및 SQL Database)에 액세스 합니다. 프라이빗 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 가상 네트워크에서 Azure 서비스로의 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 가상 네트워크를 공용 인터넷에 노출 하는 것은 더 이상 Azure PaaS 서비스를 사용할 필요가 없습니다. 
 
 Azure 개인 링크는 다음과 같은 이점을 제공 합니다.
 - **Azure 서비스 리소스에 대 한 보안 향상**: Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 가상 네트워크에 대 한 azure 서비스 리소스를 보호할 수 있습니다. 가상 네트워크에서 개인 끝점에 대 한 서비스 리소스를 보호 하면 리소스에 대 한 공용 인터넷 액세스를 완전히 제거 하 고 가상 네트워크의 개인 끝점 에서만 트래픽을 허용 하 여 향상 된 보안을 제공 합니다.
-- Azure **플랫폼에서 개인적으로 azure 서비스 리소스에 액세스**: 개인 끝점을 사용 하 여 azure의 서비스에 가상 네트워크를 연결 합니다. 공용 IP 주소가 필요 하지 않습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다.
+- 개인 끝점을 사용 하 여 azure에서 서비스에 가상 네트워크를 커넥트 하 **는 azure 플랫폼의 azure 서비스 리소스에 대해 개인적으로 액세스** 합니다. 공용 IP 주소가 필요 하지 않습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다.
 - **온-프레미스 및 피어 링 네트워크에서 액세스**: express 경로 개인 피어 링, VPN 터널 및 개인 끝점을 사용 하는 피어 링 가상 네트워크를 통해 온-프레미스에서 Azure에서 실행 되는 서비스에 액세스 합니다. 서비스에 연결하기 위해 ExpressRoute Microsoft 피어링을 구성하거나 인터넷을 트래버스할 필요가 없습니다. Private Link는 워크로드를 Azure로 안전하게 마이그레이션하는 방법을 제공합니다.
 - **데이터 유출 방지**: 프라이빗 엔드포인트는 전체 서비스가 아닌 PaaS 리소스 인스턴스에 매핑됩니다. 소비자는 특정 리소스에만 연결할 수 있습니다. 서비스의 다른 리소스에 대한 액세스는 차단됩니다. 이 메커니즘은 데이터 유출 위험을 방지합니다.
 - **글로벌 환경**: 다른 Azure 지역에서 실행되는 서비스에 비공개로 연결할 수 있습니다. 소비자의 가상 네트워크는 지역 A에 있을 수 있으며, 지역 B의 서비스에 연결할 수 있습니다.

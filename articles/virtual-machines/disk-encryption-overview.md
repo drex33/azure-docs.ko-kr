@@ -8,12 +8,12 @@ ms.author: mbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efc0626c0c5f2c9333e5459d7fb7ce6aa2865cc4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 989a7fcc058284c1c706cbfc30c97a77200de111
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105186"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315315"
 ---
 # <a name="overview-of-managed-disk-encryption-options"></a>관리 디스크 암호화 옵션 개요
 
@@ -29,7 +29,7 @@ ADE(Azure Disk Encryption), SSE(서버 쪽 암호화) 및 호스트의 암호화
 
 다음은 호스트의 SSE, ADE 및 암호화에 대한 비교입니다.
 
-| | 미사용 데이터 암호화(OS 및 데이터 디스크) | 임시 디스크 암호화 | 캐시 암호화 | 컴퓨팅과 스토리지 간에 암호화된 데이터 흐름 | 키에 대한 고객 제어 | Azure Security Center 디스크 암호화 상태 |
+| | 미사용 데이터 암호화(OS 및 데이터 디스크) | 임시 디스크 암호화 | 캐시 암호화 | 컴퓨팅과 스토리지 간에 암호화된 데이터 흐름 | 키에 대한 고객 제어 | 클라우드용 Microsoft Defender 디스크 암호화 상태 |
 |--|--|--|--|--|--|--|
 | **플랫폼 관리형 키(SSE+PMK)를 사용하여 미사용 데이터 암호화** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | 비정상, 예외인 경우 해당되지 않음 |
 | **고객 관리형 키(SSE+CMK)를 사용하여 미사용 데이터 암호화** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | 비정상, 예외인 경우 해당되지 않음 |
@@ -37,7 +37,7 @@ ADE(Azure Disk Encryption), SSE(서버 쪽 암호화) 및 호스트의 암호화
 | **호스트에서 암호화**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | 비정상, 예외인 경우 해당되지 않음 |
 
 > [!Important]
-> 호스트에서 암호화의 경우 Azure Security Center는 암호화 상태를 검색하지 않습니다.
+> 호스트에서 암호화의 경우 Microsoft Defender for Cloud는 암호화 상태를 검색하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

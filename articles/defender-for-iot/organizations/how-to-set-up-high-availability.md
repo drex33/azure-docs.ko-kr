@@ -1,14 +1,14 @@
 ---
 title: 고가용성 설정
 description: 온-프레미스 관리 콘솔 고가용성 어플라이언스를 설치하여 Defender for IoT 배포의 복원력을 높이세요. 고가용성 배포는 관리형 센서가 활성 온-프레미스 관리 콘솔에 지속적으로 보고하도록 합니다.
-ms.date: 07/11/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: d5ea894188c4801f9ca29379347bb0a737a8ed8f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: ee9fa916ef89de4fea2d73bf7fcb9263b31650a8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471783"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339652"
 ---
 # <a name="about-high-availability"></a>고가용성 정보
 

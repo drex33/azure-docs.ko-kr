@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 700c5a9254cbb3ae8fe69ccc0f2ea3b76bb66121
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 11a4892a6cd9a1ddda9cf5857165dd9b52e1392b
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356455"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371862"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -74,9 +74,9 @@ Runbook은 [리소스](/rest/api/resources/resources)(예: VM, 네트워크, 네
 
 ## <a name="security"></a>보안
 
-Azure Automation은 [ASC(Azure Security Center)](../security-center/security-center-introduction.md)를 사용하여 리소스에 대한 보안을 제공하고 Linux 시스템에서 보안 침해를 감지합니다. 리소스는 Azure에 있는지 여부와 관계없이 모든 워크로드에 보안이 제공됩니다. [Azure Automation의 인증 소개](automation-security-overview.md)를 참조하세요.
+Azure Automation Microsoft Defender [for Cloud를](../defender-for-cloud/defender-for-cloud-introduction.md) 사용하여 리소스에 대한 보안을 제공하고 Linux 시스템에서 손상 검색합니다. 리소스는 Azure에 있는지 여부와 관계없이 모든 워크로드에 보안이 제공됩니다. [Azure Automation의 인증 소개](automation-security-overview.md)를 참조하세요.
 
-ASC는 VM에서 서명되었거나 서명되지 않은 스크립트를 실행할 수 있는 사용자에게 제약 조건을 적용합니다. VM에 대한 루트 액세스 권한이 있는 사용자는 디지털 서명을 사용하여 머신을 명시적으로 구성하거나 해제해야 합니다. 그러지 않으면 Automation 계정을 만들고 적절한 기능을 사용하도록 설정한 후에만 스크립트를 실행하여 운영 체제 업데이트를 적용할 수 있습니다.
+Defender for Cloud는 VM에서 서명되거나 서명되지 않은 스크립트를 실행할 수 있는 사용자에게 제약 조건을 적용합니다. VM에 대한 루트 액세스 권한이 있는 사용자는 디지털 서명을 사용하여 머신을 명시적으로 구성하거나 해제해야 합니다. 그러지 않으면 Automation 계정을 만들고 적절한 기능을 사용하도록 설정한 후에만 스크립트를 실행하여 운영 체제 업데이트를 적용할 수 있습니다.
 
 ## <a name="subscriptions"></a>Subscriptions
 

@@ -1,6 +1,6 @@
 ---
-title: ASIM(Azure Sentinel 정보 모델) 스키마 | Microsoft Docs
-description: 이 문서에서는 ASIM(Azure Sentinel Information Model) 스키마와 이러한 스키마가 ASIM이 다양한 원본의 데이터를 균일한 프레젠테이션으로 표현으로 정규화하는 데 어떻게 도움이 되는지 설명합니다.
+title: 고급 SIEM 정보 모델 (ASIM) 스키마 | Microsoft Docs
+description: 이 문서에서는 ASIM (Advanced SIEM 정보 모델) 스키마에 대해 설명 하 고 ASIM에서 여러 다른 원본에서 균일 한 프레젠테이션으로 데이터를 정규화 하는 방법을 설명 합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c57b1db016ded00f813bd947d8b4226b751c3666
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d33602cf17ebd9004bd77d353d6315cd780e39d0
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075373"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373007"
 ---
-# <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>ASIM(Azure Sentinel 정보 모델) 스키마(퍼블릭 미리 보기)
+# <a name="advanced-siem-information-model-asim-schemas-public-preview"></a>고급 SIEM 정보 모델 (ASIM) 스키마 (공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "131075373"
 
 스키마 참조는 각 스키마를 구성하는 필드를 간략하게 설명합니다. ASIM은 현재 다음 스키마를 정의합니다.
 
- - [네트워크 세션](./network-normalization-schema.md)
+ - [네트워크 세션](normalization-schema.md)
  - [DNS 작업](dns-normalization-schema.md)
  - [DHCP 활동](dhcp-normalization-schema.md)
  - [프로세스 이벤트](process-events-normalization-schema.md)
@@ -50,23 +50,23 @@ ms.locfileid: "131075373"
 |개념  |설명  |
 |---------|---------|
 |**필드 이름**     |   각 스키마의 핵심은 필드 이름입니다. 필드 이름은 다음 그룹에 속합니다. <br><br>- 모든 스키마에 공통된 필드 <br>- 특정 스키마에 국한된 필드 <br>- 스키마에 참여하는 사용자와 같은 엔터티를 나타내는 필드 엔터티를 나타내는 필드는 [스키마 간에 유사합니다](#entities). <br><br>원본에 문서화된 스키마에 없는 필드가 있는 경우 일관성을 유지하기 위해 정규화됩니다. 추가 필드가 엔터티를 나타내는 경우 엔터티 필드 지침에 따라 정규화됩니다. 그렇지 않으면 스키마는 모든 스키마에서 일관성을 유지하려고 합니다.<br><br> 예를 들어, DNS 서버 활동 로그는 사용자 정보를 제공하지 않지만 엔드포인트의 DNS 활동 로그에는 사용자 엔터티 지침에 따라 정규화할 수 있는 사용자 정보가 포함될 수 있습니다.      |
-|**필드 형식**     |  각 데이터 필드에는 형식이 있습니다. Log Analytics 작업 영역에는 제한된 데이터 형식 세트가 집합이 있습니다. 따라서 Azure Sentinel은 Log Analytics에서 적용하지 않지만 스키마 호환성을 위해 필요한 많은 스키마 필드에 대해 논리적 형식을 사용합니다. 논리적 필드 형식은 값과 필드 이름이 원본 간에 일관되도록 합니다.  <br><br>자세한 내용은 [논리적 형식](#logical-types)을 참조하세요.     |
+|**필드 형식**     |  각 데이터 필드에는 형식이 있습니다. Log Analytics 작업 영역에는 제한된 데이터 형식 세트가 집합이 있습니다. 따라서 Microsoft 센티널은 여러 스키마 필드에 논리적 유형을 사용 합니다 .이 필드는 Log Analytics 적용 되지 않지만 스키마 호환성을 위해 필요 합니다. 논리적 필드 형식은 값과 필드 이름이 원본 간에 일관되도록 합니다.  <br><br>자세한 내용은 [논리적 형식](#logical-types)을 참조하세요.     |
 |**필드 클래스**     |필드에는 파서에서 필드를 구현해야 하는 경우를 정의하는 여러 클래스가 있을 수 있습니다. <br><br>-    **필수** 필드는 모든 파서에 나타나야 합니다. 원본이 이 값에 대한 정보를 제공하지 않거나 데이터를 추가할 수 없는 경우 정규화된 스키마를 참조하는 대부분의 콘텐츠 항목이 지원되지 않습니다.<br>-  **권장** 필드는 사용 가능한 경우 정규화해야 합니다. 그러나 모든 원본에서 사용할 수 있는 것은 아니며, 정규화된 스키마를 참조하는 콘텐츠 항목은 가용성을 고려해야 합니다. <br>-  **선택적** 필드(사용 가능한 경우)는 정규화되거나 원래 형식을 유지할 수 있습니다. 일반적으로 최소 파서는 성능상의 이유로 이러한 필드를 정규화하지 않습니다.    |
-|**엔터티**     | 이벤트는 사용자, 호스트, 프로세스 또는 파일과 같은 엔터티를 중심으로 진행되며 각 엔터티는 설명하는 데 여러 필드가 필요할 수 있습니다. 예를 들어 호스트에는 이름 및 IP 주소가 있을 수 있습니다. <br><br>단일 레코드에는 원본 및 대상 호스트와 같이 유형이 같은 엔터티가 여러 개 포함될 수 있습니다. <br><br>Azure Sentinel 정보 모델은 엔터티를 일관되게 설명하는 방법을 정의하며 엔터티는 스키마 확장을 허용합니다. <br><br>예를 들어 네트워크 세션 스키마에는 프로세스 정보가 포함되지 않지만 일부 이벤트 원본은 추가할 수 있는 프로세스 정보를 제공합니다. 자세한 내용은 [엔터티](#entities)를 참조하세요. |
+|**엔터티**     | 이벤트는 사용자, 호스트, 프로세스 또는 파일과 같은 엔터티를 중심으로 진행되며 각 엔터티는 설명하는 데 여러 필드가 필요할 수 있습니다. 예를 들어 호스트에는 이름 및 IP 주소가 있을 수 있습니다. <br><br>단일 레코드에는 원본 및 대상 호스트와 같이 유형이 같은 엔터티가 여러 개 포함될 수 있습니다. <br><br>고급 SIEM 정보 모델은 엔터티를 일관 되 게 설명 하는 방법을 정의 하며, 엔터티는 스키마 확장을 허용 합니다. <br><br>예를 들어 네트워크 세션 스키마에는 프로세스 정보가 포함되지 않지만 일부 이벤트 원본은 추가할 수 있는 프로세스 정보를 제공합니다. 자세한 내용은 [엔터티](#entities)를 참조하세요. |
 |**별칭**     |  경우에 따라 사용자마다 필드에 다른 이름을 지정하려고 할 수 있습니다. 예를 들어 DNS 용어에서는 `query`라는 필드가 예상되지만, 도메인 이름을 포함하는 경우가 좀 더 일반적입니다. 별칭은 지정된 값에 여러 이름을 허용하여 이러한 모호성 문제를 해결합니다. 별칭 클래스는 별칭이 있는 필드와 동일합니다.<br><br>Log Analytics는 별칭을 지원 하지 않습니다. 별칭 파서를 구현 하려면 연산자를 사용 하 여 원래 값의 복사본을 만듭니다 `extend` .        |
 | | |
 
 ## <a name="logical-types"></a>논리적 형식
 
-각 데이터 필드에는 형식이 있습니다. 일부는 기본 제공 Azure Log Analytics 형식(예: `string`, `int`, `datetime` 또는 `dynamic`)을 갖습니다. 필드 값을 정규화해야 하는 방법을 나타내는 논리적 형식을 갖는 필드도 있습니다.
+각 데이터 필드에는 형식이 있습니다. 일부는 기본 제공 Azure Log Analytics 형식(예: `string`, `int`, `datetime` 또는 `dynamic`)을 갖습니다. 다른 필드에는 필드 값을 정규화 하는 방법을 나타내는 논리적 형식이 있습니다.
 
 |데이터 형식  |실제 형식  |서식과 값  |
 |---------|---------|---------|
-|**Boolean**     |   Bool      |    부울 값의 숫자 또는 문자열 표현 대신 네이티브 KQL 부울 데이터 형식을 사용합니다.     |
+|**Boolean**     |   Bool      |    `bool`부울 값의 숫자 또는 문자열 표현이 아닌 기본 제공 KQL 데이터 형식을 사용 합니다.     |
 |**Enumerated**     |  String       |   필드에 대해 명시적으로 정의된 값 목록입니다. 스키마 정의에는 허용되는 값이 나열됩니다.      |
 |**날짜/시간**     |  수집 방법 기능에 따라 다음 물리적 표현을 내림차순으로 사용합니다. <br><br>- Log Analytics 기본 제공 날짜/시간 형식 <br>- Log Analytics 날짜/시간 숫자 표현을 사용하는 정수 필드 <br>- Log Analytics 날짜/시간 숫자 표현을 사용하는 문자열 필드 <br>- 지원되는 [Log Analytics 날짜/시간 형식](/azure/data-explorer/kusto/query/scalar-data-types/datetime)을 저장하는 문자열 필드       |  [Log Analytics 날짜/시간 표현](/azure/kusto/query/scalar-data-types/datetime)은 Unix 시간 표현과 비슷하지만 다른 점도 있습니다. 자세한 내용은 [변환 지침](/azure/kusto/query/datetime-timespan-arithmetic)을 참조하세요. <br><br>**참고**: 해당하는 경우 시간을 표준 시간대로 조정해야 합니다. |
-|**MAC 주소**     |  String       | 콜론으로 구분된 16진수 표기법        |
-|**IP 주소**     |String         |    Azure Sentinel 스키마에는 별도의 IPv4 및 IPv6 주소가 없습니다. 모든 IP 주소 필드에는 다음과 같이 IPv4 주소 또는 IPv6 주소가 포함될 수 있습니다. <br><br>- 점으로 구분된 10진수 표기법의 **IPv4**. 예를 들면 다음과 같습니다.  <br>- 8헥스텟 표기법의 **IPv6** 로, 짧은 형식을 사용할 수 있습니다.<br><br>예를 들면 다음과 같습니다.<br>`192.168.10.10`(IPv4)<br>`FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`(IPv6)<br>`1080::8:800:200C:417A`(IPv6 약식)     |
+|**MAC 주소**    |  String       | 콜론으로 구분된 16진수 표기법        |
+|**IP 주소**     |String         |    Microsoft 센티널 스키마에는 별도의 IPv4 및 IPv6 주소가 없습니다. 모든 IP 주소 필드에는 다음과 같이 IPv4 주소 또는 IPv6 주소가 포함될 수 있습니다. <br><br>- 점으로 구분 된 십진수 표기법의 **IPv4**<br>- 8헥스텟 표기법의 **IPv6** 로, 짧은 형식을 사용할 수 있습니다.<br><br>예를 들면 다음과 같습니다.<br>- **IPv4**: `192.168.10.10` <br>- **IPv6**: `FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 약식 형식**: `1080::8:800:200C:417A`     |
 |**FQDN**        |   문자열      |    점 표기법을 사용하는 정규화된 도메인 이름(예: `docs.microsoft.com`) |
 |**국가**     |   String      |    다음 우선 순위에 따라 [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html)을 사용하는 문자열입니다. <br><br> - 알파-2 코드(예: 미국의 경우 `US`) <br> - 알파-3 코드(예: 미국의 경우 `USA`) <br>- 약식 이름<br><br>코드 목록은 [ISO(국제 표준화 기구) 웹 사이트](https://www.iso.org/obp/ui/#search)에서 찾을 수 있습니다.|
 |**지역**     | String        |   ISO 3166-2를 사용하는 국가 지역 이름<br><br>코드 목록은 [ISO(국제 표준화 기구) 웹 사이트](https://www.iso.org/obp/ui/#search)에서 찾을 수 있습니다.|
@@ -77,40 +77,59 @@ ms.locfileid: "131075373"
 |**SHA1**     |   String      | 40개 16진수 문자        |
 |**SHA256**     | String        |  64개 16진수 문자       |
 |**SHA512**     |   String      |  128개 16진수 문자       |
-| | |
+| | | |
 
-## <a name="common-fields"></a>공용 필드
+## <a name="common-fields"></a><a name="common"></a>공용 필드
 
-다음 필드는 모든 ASIM 스키마에 공통됩니다. 여기에는 스키마마다 세부 사항이 다른 상황을 지원하기 위해 각 스키마에 대한 공통 필드가 나와 있습니다. 예를 들어, **EventSchemaVersion** 필드 값이 다를 수 있으므로 스키마마다 **EventType** 필드의 값이 다를 수 있습니다. 
+일부 필드는 모든 ASIM 스키마에 공통적으로 발생합니다. 각 스키마는 특정 스키마의 컨텍스트에서 일부 공통 필드를 사용하기 위한 지침을 추가할 수 있습니다. 예를 들어 **EventType** 필드에 허용되는 값은 **EventSchemaVersion** 필드의 값과 마찬가지로 스키마마다 다를 수 있습니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+다음 필드는 각 레코드에 대해 Log Analytics에서 생성되며 사용자 지정 커넥터 를 만들 때 [재정의할](create-custom-connector.md)수 있습니다.
+
+| 필드         | 형식     | 토론(Discussion)      |
+| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
+| **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블로 동일한 이벤트를 수신할 수 있고 [EventVendor](#eventvendor) 및 [EventProduct](#eventproduct) 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 테이블 또는 테이블에 수집될 수 `Event` `WindowsEvent` 있습니다. |
+| | | |
+
+> [!NOTE]
+> Log Analytics는 보안 사용 사례와 관련성이 낮은 다른 필드도 추가합니다. 자세한 내용은 [Azure Monitor 로그의 표준 열](../azure-monitor/logs/log-standard-columns.md)을 참조하세요.
+>
+
+
+다음 필드는 모든 스키마에 대해 ASIM에 의해 정의됩니다.
+
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name="timegenerated"></a>**TimeGenerated** | 기본 제공 | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
-| **_ResourceId**   | 기본 제공 |  guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
-| **형식** | 기본 제공 | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대한 두 채널을 통해 동일한 이벤트를 수신할 수 있지만 및 가 동일한 경우에 `EventVendor` `EventProduct` 유용합니다. 예를 들어 Sysmon 이벤트는 Event 테이블 또는 SecurityEvent 테이블에 수집할 수 있습니다. |
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
 | **EventStartTime**      | 필수   | 날짜/시간  |      원본에서 집계를 지원하고 레코드에서 여러 이벤트를 나타내는 경우 이 필드는 첫 번째 이벤트가 생성된 시간을 지정합니다. <br><br>그렇지 않은 경우 이 필드는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |
 | **EventEndTime**        | 필수   | Alias      |      [TimeGenerated](#timegenerated) 필드에 대한 별칭입니다.    |
-|  <a name=eventtype></a>**EventType**           | 필수   | Enumerated |    레코드에서 보고하는 작업을 설명합니다. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다. |
+|  <a name="eventtype"></a>**EventType**           | 필수   | Enumerated |    레코드에서 보고하는 작업을 설명합니다. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다. |
 | **EventSubType** | 선택 사항 | Enumerated | [EventType](#eventtype) 필드에 보고된 작업의 하위 작업에 대해 설명합니다. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다. |
 | <a name="eventresult"></a>**EventResult** | 필수 | Enumerated | **Success**, **Partial**, **Failure**, **NA**(해당 사항 없음) 값 중 하나입니다.<br> <br>값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 또는 원본에서 [EventResultDetails](#eventresultdetails) 필드만 제공할 수 있습니다. 이 필드는 EventResult 값을 도출하기 위해 분석되어야 합니다.<br><br>예: `Success`|
-| <a name=eventresultdetails></a>**EventResultDetails** | 필수 | Alias | [**EventResult**](#eventresult) 필드에 보고된 결과에 대한 이유 또는 세부 정보. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다.<br><br>예: `NXDOMAIN`|
+| <a name="eventresultdetails"></a>**EventResultDetails** | 필수 | Alias | [**EventResult**](#eventresult) 필드에 보고된 결과에 대한 이유 또는 세부 정보. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다.<br><br>예: `NXDOMAIN`|
 | **EventOriginalUid**    | 선택    | 문자열     |   원본에서 제공하는 경우 원래 레코드의 고유 ID입니다.<br><br>예: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | 선택    | 문자열     |   원본에서 제공하는 경우 원본 이벤트 유형 또는 ID입니다. 예를 들어 이 필드는 원래 Windows 이벤트 ID를 저장하는 데 사용됩니다.<br><br>예: `4624`|
-| <a name ="eventproduct"></a>**EventProduct**        | 필수   | String     |             이벤트를 생성하는 제품 <br><br>예: `Sysmon`<br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다.           |
+| <a name="eventproduct"></a>**EventProduct**        | 필수   | String     |             이벤트를 생성하는 제품 <br><br>예: `Sysmon`<br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다.           |
 | **EventProductVersion** | 선택    | 문자열     | 이벤트를 생성하는 제품의 버전 <br><br>예: `12.1`      |
-| **EventVendor**         | 필수   | String     |           이벤트를 생성하는 제품의 공급 업체 <br><br>예: `Microsoft`  <br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다.  |
-| **EventSchemaVersion**  | 필수   | String     |    스키마의 버전입니다. 각 스키마는 현재 버전을 문서화합니다.         |
+| <a name="eventvendor"></a>**EventVendor**         | 필수   | String     |           이벤트를 생성하는 제품의 공급 업체 <br><br>예: `Microsoft`  <br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다.  |
+| **EventSchemaVersion**  | 필수   | String     | 스키마의 버전입니다. 각 스키마는 현재 버전을 문서화합니다.         |
 | **EventReportUrl**      | 선택    | 문자열     | 이벤트에 대한 추가 정보를 제공하는 리소스에 대해 이벤트에 제공된 URL입니다.|
-| **Dvc** | 필수       | String     |               이벤트가 발생한 디바이스의 고유 식별자입니다. <br><br>이 필드는 [DvcId](#dvcid), [DvcHostname](#dvchostname) 또는 [DvcIpAddr](#dvcipaddr) 필드의 별칭을 지정할 수 있습니다. 명백한 디바이스가 없는 클라우드 원본의 경우 [이벤트 제품](#eventproduct) 필드와 동일한 값을 사용하세요.           |
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | 권장 | IP 주소 |         이벤트가 발생한 디바이스의 IP 주소입니다.  <br><br>예: `45.21.42.12`    |
-| <a name ="dvchostname"></a>**DvcHostname**         | 권장 | 호스트 이름   |               이벤트가 발생한 디바이스의 호스트 이름입니다. <br><br>예: `ContosoDc.Contoso.Azure`               |
-| <a name ="dvcid"></a>**DvcId**               | 선택    | 문자열     |  이벤트가 발생한 디바이스의 고유 ID입니다. <br><br>예: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
+| <a name="dvc"></a>**Dvc** | 필수       | String     | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 고유 식별자입니다. <br><br>이 필드는 [DvcFQDN,](#dvcfqdn) [DvcId,](#dvcid) [DvcHostname](#dvchostname)또는 [DvcIpAddr](#dvcipaddr) 필드에 별칭을 붙일 수 있습니다. 명백한 디바이스가 없는 클라우드 원본의 경우 [이벤트 제품](#eventproduct) 필드와 동일한 값을 사용합니다.            |
+| <a name ="dvcipaddr"></a>**DvcIpAddr**           | 권장 | IP 주소 | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 IP 주소입니다. <br><br>예: `45.21.42.12`    |
+| <a name ="dvchostname"></a>**DvcHostname**         | 권장 | 호스트 이름   | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 호스트 이름입니다. <br><br>예: `ContosoDc.Contoso.Azure`               |
+| <a name="dvcdomain"></a>**DvcDomain** | 권장 | String | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 도메인입니다.<br><br>예: `Contoso` |
+| <a name="dvcdomaintype"></a>**DvcDomainType** | 권장 | Enumerated | [DvcDomain의 형식(알려진](#dvcdomain) 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows`( 예: for) `contoso\mypc`<br>- `FQDN`( 예: for) `docs.microsoft.com`<br><br>**참고:** [DvcDomain](#dvcdomain) 필드를 사용하는 경우 이 필드가 필요합니다. |
+| <a name="dvcfqdn"></a>**DvcFQDN** | 선택 | 문자열 | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 호스트 이름입니다. <br><br> 예: `Contoso\DESKTOP-1282V4D`<br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [DvcDomainType](#dvcdomaintype) 필드는 사용된 형식을 반영합니다.  |
+| <a name ="dvcid"></a>**DvcId**               | 선택    | 문자열     | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 고유 ID입니다. <br><br>예: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
+| **DvcIdType** | 선택 사항 | Enumerated | [DvcId의](#dvcid)형식입니다(알려진 경우). 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 ID를 사용할 수 있는 경우 목록의 첫 번째 ID를 사용하고 각각  **DvcAzureResourceId** 및 **DvcMDEid** 필드 이름을 사용하여 다른 ID를 저장합니다.<br><br>**참고:** [DvcId](#dvcid) 필드를 사용하는 경우 이 필드가 필요합니다. |
 | **DvcMacAddr**          | 선택 사항    | MAC        |   이벤트가 발생한 디바이스의 MAC 주소입니다.  <br><br>예: `00:1B:44:11:3A:B7`       |
+| **DvcZone** | 선택 | 문자열 | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 네트워크입니다. 영역은 보고 디바이스에 의해 정의됩니다.<br><br>예: `Dmz` |
 | **DvcOs**               | 선택    | 문자열     |         이벤트가 발생한 디바이스에서 실행 중인 운영 체제입니다.    <br><br>예: `Windows`    |
 | **DvcOsVersion**        | 선택    | 문자열     |   이벤트가 발생한 디바이스의 운영 체제 버전입니다. <br><br>예: `10` |
-| **AdditionalFields**    | 선택 사항    | 동적    | 원본에서 보존할 가치가 있는 추가 정보를 제공하는 경우 원본 필드 이름으로 유지하거나 동적 **AdditionalFields** 필드를 만들고 추가 정보를 키/값 쌍으로 추가합니다.    |
+| **DvcAction** | 선택 | 문자열 | 보안 시스템을 보고하는 경우 해당되는 경우 시스템에서 수행되는 작업입니다. <br><br>예: `Blocked` |
+| <a name="additionalfields"></a>**AdditionalFields**    | 선택 사항    | 동적    | 원본에서 보존할 가치가 있는 추가 정보를 제공하는 경우 원본 필드 이름으로 유지하거나 동적 **AdditionalFields** 필드를 만들고 추가 정보를 키/값 쌍으로 추가합니다.    |
 | | | | |
 
 > [!NOTE]
@@ -126,12 +145,12 @@ ms.locfileid: "131075373"
 
 |지침  |설명  |
 |---------|---------|
-|**설명자 및 앨리어싱**     | 단일 이벤트에는 원본 및 대상 호스트와 같이 동일한 형식의 엔터티가 둘 이상 포함되어 있기 때문에 특정 엔터티와 연결된 모든 필드를 식별하기 위한 접두사로 *설명자* 가 사용됩니다. <br><br>정규화를 유지하기 위해 Azure Sentinel 정보 모델은 작은 표준 설명자 집합을 사용하여 엔터티의 특정 역할에 가장 적합한 설명자를 선택합니다.  <br><br>형식의 단일 엔터티가 이벤트와 관련된 경우 설명자를 사용할 필요가 없습니다. 또한 설명자가 없는 필드 집합은 각 형식에 대해 가장 많이 사용되는 엔터티를 별칭으로 사용합니다.  |
+|**설명자 및 앨리어싱**     | 단일 이벤트에는 원본 및 대상 호스트와 같이 동일한 형식의 엔터티가 둘 이상 포함되어 있기 때문에 특정 엔터티와 연결된 모든 필드를 식별하기 위한 접두사로 *설명자* 가 사용됩니다. <br><br>정규화를 유지하기 위해 고급 SIEM 정보 모델은 작은 표준 설명자 집합을 사용하여 엔터티의 특정 역할에 가장 적합한 설명자를 선택합니다.  <br><br>형식의 단일 엔터티가 이벤트와 관련된 경우 설명자를 사용할 필요가 없습니다. 또한 설명자가 없는 필드 집합은 각 형식에 대해 가장 많이 사용되는 엔터티를 별칭으로 사용합니다.  |
 |**식별자 및 형식**     | 정규화된 스키마를 사용하면 이벤트에 공존하게 하려는 각 엔터티에 대해 여러 식별자를 사용할 수 있습니다. 원본 이벤트에 정규화된 스키마에 매핑할 수 없는 다른 엔터티 식별자가 있는 경우 해당 식별자를 원본 양식에 유지하거나 `AdditionalFields` 동적 필드를 사용합니다. <br><br>식별자에 대한 형식 정보를 유지 관리하려면 해당하는 경우 형식을 동일한 이름 및 `Type` 접미사를 지정하여 필드에 저장합니다. `UserIdType`)을 입력합니다.         |
 |**특성**     |   엔터티에는 식별자로 사용되지 않아 설명자로 정규화할 수도 있는 다른 특성도 있습니다. 예를 들어 원본 사용자에게 도메인 정보가 있는 경우 정규화된 필드는 `SrcUserDomain`입니다.      |
 | | |
 
-각 스키마는 중앙 엔터티 및 엔터티 필드를 명시적으로 정의합니다. 다음 지침을 사용하면 중앙 스키마 필드를 이해할 수 있을 뿐만 아니라 스키마에서 명시적으로 정의되지 않은 다른 엔터티 또는 엔터티 필드를 사용하여 정규화된 방식으로 스키마를 확장할 수 있습니다.
+각 스키마는 중앙 엔터티 및 엔터티 필드를 명시적으로 정의합니다. 다음 지침을 통해 중앙 스키마 필드를 이해하고 스키마에 명시적으로 정의되지 않은 다른 엔터티 또는 엔터티 필드를 사용하여 정규화된 방식으로 스키마를 확장하는 방법을 이해할 수 있습니다.
 
 ### <a name="the-user-entity"></a>User 엔터티
 
@@ -177,7 +196,7 @@ ms.locfileid: "131075373"
 | | | |
 
 
-자세한 내용은 [Azure Sentinel 프로세스 이벤트 정규화 스키마 참조서(퍼블릭 미리 보기)](process-events-normalization-schema.md)를 참조하세요.
+자세한 내용은 [Microsoft 센티널 프로세스 이벤트 정규화 스키마 참조 (공개 미리 보기)](process-events-normalization-schema.md)를 참조 하세요.
 
 ### <a name="the-device-entity"></a>디바이스 엔터티
 
@@ -212,11 +231,11 @@ ms.locfileid: "131075373"
 > `Domain`은 디바이스의 일반적인 특성이지만 완전한 식별자가 아닙니다.
 >
 
-자세한 내용은 [Azure Sentinel 인증 정규화 스키마 참조서(퍼블릭 미리 보기)](authentication-normalization-schema.md)를 참조하세요.
+자세한 내용은 [Microsoft 센티널 인증 정규화 스키마 참조 (공개 미리 보기)](authentication-normalization-schema.md)를 참조 하세요.
 
 ### <a name="sample-entity-mapping"></a>샘플 엔터티 매핑
 
-이 섹션에서는 Azure Sentinel에 대해 이벤트 데이터를 정규화하는 방법을 설명하는 예제로 [Windows 이벤트 4624](/windows/security/threat-protection/auditing/event-4624)를 사용합니다.
+이 섹션에서는 [Windows 이벤트 4624](/windows/security/threat-protection/auditing/event-4624) 을 사용 하 여 Microsoft 센티널에 대해 이벤트 데이터를 정규화 하는 방법을 설명 합니다.
 
 이 이벤트에는 다음과 같은 엔터티가 있습니다.
 
@@ -257,10 +276,9 @@ ms.locfileid: "131075373"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel 정규화와 Azure Sentinel 정보 모델의 정규화 개요를 제공합니다.
+이 문서에서는 Microsoft Sentinel의 정규화 및 고급 SIEM 정보 모델에 대한 개요를 제공합니다.
 
 자세한 내용은 다음을 참조하세요.
-
-- [Azure Sentinel 정보 모델 개요](normalization.md)
-- [Azure Sentinel 정보 모델 파서](normalization-about-parsers.md)
-- [Azure Sentinel 정보 모델 콘텐츠](normalization-content.md)
+- [고급 SIEM 정보 모델 개요](normalization.md)
+- [고급 SIEM 정보 모델 파서](normalization-about-parsers.md)
+- [고급 SIEM 정보 모델 콘텐츠](normalization-content.md)

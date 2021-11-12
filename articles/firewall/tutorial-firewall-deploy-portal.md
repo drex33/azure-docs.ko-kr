@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 11/10/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 951e2406a387ed2aaedc4cec875c62a14cf5bb2e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: 99b7d27ef16414df161b7d6e120084f2b8220f46
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291949"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297528"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -140,7 +140,7 @@ VNet에 방화벽을 배포합니다.
 
    |설정  |값  |
    |---------|---------|
-   |Subscription     |\<your subscription\>|
+   |구독     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |지역     |전에 사용한 동일한 위치 선택|
@@ -156,6 +156,10 @@ VNet에 방화벽을 배포합니다.
 8. 방화벽 개인 및 공용 IP 주소를 확인합니다. 나중에 이러한 주소를 사용합니다.
 
 ## <a name="create-a-default-route"></a>기본 경로 만들기
+
+방화벽을 통해 아웃바운드 및 인바운드 연결에 대한 경로를 만들 때 가상 어플라이언스 개인 IP를 다음 홉으로 사용하여 0.0.0.0/0에 대한 기본 경로로 충분합니다. 이렇게 하면 방화벽을 통과하기 위해 나가는 연결과 들어오는 연결을 처리합니다. 예를 들어 방화벽이 TCP 핸드셰이크를 수행하고 들어오는 요청에 응답하는 경우 응답은 트래픽을 보낸 IP 주소로 전달됩니다. 이것은 의도적인 것입니다. 
+
+따라서 AzureFirewallSubnet IP 범위를 포함하기 위해 추가 UDR을 만들 필요가 없습니다. 이로 인해 연결이 끊어질 수 있습니다. 원래 기본 경로로 충분합니다.
 
 **Workload-SN** 서브넷의 경우 방화벽을 통과하도록 아웃바운드 기본 경로를 구성합니다.
 

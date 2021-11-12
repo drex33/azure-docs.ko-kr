@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d9dff0d6d9d8421e160c19c60efc9e871d7867ed
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 3e7ccb16efe21503087dcac035e2ca8f832ef7b7
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443577"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370350"
 ---
 # <a name="integrate-managed-hsm-with-azure-private-link"></a>Azure Private Link와 관리형 HSM 통합
 
@@ -23,6 +23,9 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 
 자세한 내용은 [Azure Private Link란?](../../private-link/private-link-overview.md)을 참조하세요.
 
+> [!NOTE]
+> 관리 되는 HSM은 현재 IP 규칙 또는 [Virtual Network 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md) 을 지원 하지 않습니다. 
+> 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Private Link와 관리형 HSM을 통합하려면 다음 항목이 필요합니다.
@@ -65,7 +68,7 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 
 ### <a name="allow-trusted-services-to-access-managed-hsm"></a>신뢰할 수 있는 서비스가 관리형 HSM에 액세스하도록 허용
 
-방화벽을 켜면 퍼블릭 인터넷과 Azure 서비스를 포함하여, 프라이빗 엔드포인트 연결을 사용하지 않는 위치에서의 HSM 액세스가 모두 거부됩니다. Microsoft 서비스가 관리형 HSM의 키에 액세스하도록 허용하려면 `--baypss AzureServices` 옵션을 사용합니다. 키에 액세스하려면 개별 엔터티(예: Azure Storage 계정 또는 Azure SQL Server)에 특정 역할이 할당되어 있어야 합니다. 
+방화벽을 켜면 퍼블릭 인터넷과 Azure 서비스를 포함하여, 프라이빗 엔드포인트 연결을 사용하지 않는 위치에서의 HSM 액세스가 모두 거부됩니다. Microsoft 서비스가 관리형 HSM의 키에 액세스하도록 허용하려면 `--bypass AzureServices` 옵션을 사용합니다. 키에 액세스하려면 개별 엔터티(예: Azure Storage 계정 또는 Azure SQL Server)에 특정 역할이 할당되어 있어야 합니다. 
 
 > [!NOTE]
 > 신뢰할 수 있는 특정 서비스 사용 시나리오만 지원됩니다. 자세한 내용은 [신뢰할 수 있는 서비스 사용 시나리오 목록](../general/overview-vnet-service-endpoints.md#trusted-services)을 참조하세요.

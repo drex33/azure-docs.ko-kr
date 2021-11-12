@@ -136,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -314,7 +314,7 @@
               href: service-fabric-cluster-nodetypes.md
             - name: Azure에서 클러스터 업그레이드
               href: service-fabric-cluster-upgrade.md
-            - name: 크기 조정
+            - name: 확장
               href: service-fabric-cluster-scaling.md
             - name: 클러스터 네트워킹 패턴
               href: service-fabric-patterns-networking.md
@@ -324,7 +324,7 @@
               href: service-fabric-standalone-clusters-overview.md
             - name: 독립 실행형 클러스터 업그레이드
               href: service-fabric-cluster-upgrade-standalone.md
-            - name: 크기 조정
+            - name: 확장
               href: service-fabric-cluster-scaling-standalone.md
         - name: 클러스터 리소스 관리자
           items:
@@ -415,7 +415,7 @@
         - name: 관리형 클러스터 가용성 영역 스패닝 구성
           href: how-to-managed-cluster-availability-zones.md
         - name: 관리형 클러스터 노드에 대해 디스크 암호화 사용
-          href: how-to-enable-managed-cluster-disk-encryption.md
+          href: how-to-managed-cluster-enable-disk-encryption.md
         - name: 관리형 클러스터 노드에 대한 관리 디스크 유형 선택
           href: how-to-managed-cluster-managed-disk.md
         - name: 관리형 클러스터 업그레이드 옵션 구성

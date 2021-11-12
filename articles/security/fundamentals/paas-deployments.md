@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2021
 ms.author: terrylan
-ms.openlocfilehash: 96223db4d9087395f6771a4922694592a9e51b5e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 558eebf12179b04fb9a76c3db0195c4e812e956c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037343"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335445"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -53,7 +53,7 @@ Microsoft는 물리적 인프라인 스택 맨 아래부터 시작하여 일반�
 
 또한 Azure 플랫폼은 다양한 네트워크 기반 기술을 사용하여 강력한 DDoS 보호 기능을 제공합니다. 하지만 모든 유형의 네트워크 기반 DDoS 보호 방법에는 링크별 및 데이터 센터별로 제한이 있습니다. 대규모 DDoS 공격의 영향을 피하기 위해 Azure의 핵심 클라우드 기능을 활용하여 DDoS 공격으로부터 자동으로 신속하게 확장할 수 있습니다. 권장 사례 항목에서 이 작업을 수행하는 방법에 대해 자세히 설명하겠습니다.
 
-## <a name="modernizing-the-defenders-mindset"></a>방어자의 사고 방식 현대화
+## <a name="modernizing-the-defender-for-clouds-mindset"></a>클라우드용 Defender의 사고방식 현대화
 PaaS를 배포하면 전반적인 보안 접근 방식이 바뀌게 됩니다. 스스로 모든 것을 제어해야 하는 것에서 Microsoft와 책임을 분담하는 것으로 태도를 바꾸어야 합니다.
 
 PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이점은 기본 보안 경계를 정의하는 새로운 개념에 있습니다. 전통적으로 기본 온-프레미스 보안 경계는 네트워크였으며 대부분의 온-프레미스 보안 설계에서는 네트워크를 기본 보안 중심축으로 사용하고 있습니다. 하지만 PaaS 배포의 경우 ID가 기본 보안 경계라고 생각하면 더 효과적으로 수행할 수 있습니다.
@@ -125,7 +125,7 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 **세부 정보**: [App Service Environment](../../app-service/environment/intro.md)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한할 수 있는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](../../app-service/overview-vnet-integration.md)을 참조하세요.
 
 **모범 사례**: App Service Environment의 보안 상태를 모니터링합니다.   
-**세부 정보**: Azure Security Center를 사용하여 App Service Environment를 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../../security-center/asset-inventory.md)을 만듭니다.
+**세부 정보:** Microsoft Defender for Cloud를 사용하여 App Service 환경을 모니터링합니다. Defender for Cloud가 잠재적인 보안 [취약성을](../../security-center/asset-inventory.md) 식별하면 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
 
 ## <a name="azure-cloud-services"></a>Azure Cloud Services
 [Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md)는 PaaS의 예제입니다. Azure App Service와 마찬가지로 이 기술은 확장성이 있고 안정적이며 운영 비용이 저렴한 애플리케이션을 지원하도록 설계되었습니다. App Service가 VM(가상 머신)에서 호스팅되는 것과 마찬가지로 Azure Cloud Services도 동일합니다. 하지만, VM보다 자세히 제어해야 합니다. 자체 소프트웨어를 Azure Cloud Services를 사용하는 VM에 설치하고 원격으로 액세스할 수 있습니다.

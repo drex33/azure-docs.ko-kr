@@ -3,12 +3,12 @@ title: Event Grid 문제 해결
 description: 이 문서에서는 Azure Event Grid 문제를 해결하는 다양한 방법을 제공합니다.
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.openlocfilehash: 5dd6450e1f849dca084bbe0e52a0bcab8f7a29ca
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
-ms.translationtype: HT
+ms.openlocfilehash: ab7f106a741c2f4371e5df0f5092213af987d340
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982307"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370369"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Azure Event Grid 문제 해결
 이 문서에서는 Azure Event Grid 문제를 해결하는 데 도움이 되는 정보를 제공합니다. 
@@ -32,6 +32,16 @@ Azure Event Grid 메트릭 및 활동 로그 작업에 대한 경고를 만듭�
 400, 409 및 403과 같은 오류 코드를 함 하는 오류 메시지가 표시되면 [Event Grid 오류 문제 해결](troubleshoot-errors.md)을 참조하세요. 
 
 ## <a name="distributed-tracing"></a>분산된 추적 
+
+Azure Event Hubs 또는 [Azure](handler-service-bus.md) [Service Bus Event Grid](handler-event-hubs.md) 구독에 엔드 투 엔드 추적을 사용하도록 설정하려면 [](delivery-properties.md) `traceparent` CloudEvent 확장 특성을 AMQP 애플리케이션 속성에 전달하도록 사용자 지정 배달 `Diagnostic-Id` 속성을 구성합니다. Event Hubs 대한 추적 배달 속성 구성이 있는 구독의 예:
+
+```azurecli
+az eventgrid event-subscription create --name <event-grid-subscription-name> \
+    --source-resource-id <event-grid-resource-id>
+    --endpoint-type eventhub \
+    --endpoint <event-hubs-endpoint> \
+    --delivery-attribute-mapping Diagnostic-Id dynamic traceparent
+```
 
 ### <a name="net"></a>.NET
 Event Grid .NET 라이브러리는 분산 추적을 지원합니다. 분산 추적에 대한 [CloudEvents 사양 지침](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md)을 준수하기 위해 라이브러리는 분산 추적을 사용하도록 설정한 경우 `CloudEvent`의 [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126)에서 `traceparent` 및 `tracestate`를 설정합니다. 애플리케이션에서 분산 추적을 사용하도록 설정하는 방법에 대한 자세한 내용은 Azure SDK [분산 추적 설명서](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)를 참조하세요.

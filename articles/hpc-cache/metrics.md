@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: femila
-ms.openlocfilehash: e52ee6e3ae9960418a72f7eaf5c4068e31943d4a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cc6846118607e2d6bc50d63035f1ce209758f55c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005350"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331284"
 ---
 # <a name="cache-metrics-and-monitoring"></a>캐시 메트릭 및 모니터링
 
@@ -36,7 +36,7 @@ Azure Portal에는 Azure HPC Cache 성능을 모니터링하는 데 사용할 �
 
 ![샘플 캐시에 대해 위에서 언급한 통계를 보여 주는 세 개의 선 그래프 스크린샷](media/hpc-cache-overview-stats.png)
 
-차트는 Azure의 기본 제공 모니터링 및 분석 도구에 포함됩니다. 이러한 기능에 대한 자세한 내용은 [Azure 모니터링 설명서](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal)를 참조하세요.
+차트는 Azure의 기본 제공 모니터링 및 분석 도구에 포함됩니다. [Azure Monitor 설명서](../azure-monitor/essentials/monitor-azure-resource.md)에서 이러한 기능에 대해 자세히 알아보세요.
 
 ## <a name="metrics-page"></a>메트릭 페이지
 

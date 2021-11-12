@@ -8,12 +8,12 @@ ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: a7068da201d87138c70418b3514ae025629fb267
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 0a20f0a420387fe70ccc41481c29fa698920ec25
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158162"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324706"
 ---
 # <a name="dataset-provisioning-by-data-owner-for-azure-storage"></a>Azure Storage 대한 데이터 소유자의 데이터 세트 프로비저닝
 
@@ -50,7 +50,7 @@ ms.locfileid: "132158162"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 > [!Important]
-> 이 섹션을 주의 깊게 읽어 읽습니다. 액세스 정책이 제대로 작동하려면 여러 가지 필수 조건이 있습니다.
+> 이 섹션을 주의 깊게 읽어 읽습니다. 액세스 정책이 제대로 작동하려면 여러 필수 구성 조건이 있습니다.
 
 ### <a name="select-an-isolated-test-subscription"></a>격리된 테스트 구독 선택
 격리된 테스트 구독을 만들거나 사용하고 아래 단계에 따라 해당 구독에 새 Azure Storage 계정과 새 Azure Purview 계정을 만듭니다.
@@ -74,7 +74,7 @@ Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderN
 마지막 명령의 출력에 "RegistrationState" 값이 "Registered"로 표시되면 이 기능에 대해 구독이 활성화됩니다.
 
 #### <a name="check-access-permissions-in-azure-storage"></a>Azure Storage 액세스 권한 확인
-액세스 정책에 대해 나중에 Azure Purview에 이 데이터 원본을 등록하려면 사용자가 Azure Storage 계정에서 "소유자" 역할이 있어야 합니다. [Azure 리소스에 대한 사용자 액세스 확인](../role-based-access-control/check-access.md)
+액세스 정책에 대해 나중에 Azure Purview에 이 데이터 원본을 등록하려면 사용자가 Azure Storage 계정에 "소유자" 역할이 있어야 합니다. [Azure 리소스에 대한 사용자 액세스 확인](../role-based-access-control/check-access.md)
 
 ### <a name="create-azure-purview-account"></a>Azure Purview 계정 만들기
 격리된 테스트 구독에서 새 기능을 사용하도록 설정된 지역에 새 Azure Purview 계정을 만듭니다. 새 Purview 계정을 만들려면  [빠른 시작: Azure Portal Azure Purview 계정 만들기를 참조하세요.](create-catalog-portal.md)
@@ -141,11 +141,11 @@ Purview에 각 데이터 원본을 등록하고 검사하여 나중에 액세스
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-source-type-storage.png" alt-text="이미지는 정책 문을 편집할 때 데이터 소유자가 데이터 리소스를 선택하는 방법을 보여줍니다.":::
 
-1. **계속** 단추를 선택하고 계층 구조를 반대로 전환하여 폴더 또는 파일을 선택합니다. 그런 **다음, 추가** 단추를 선택합니다. 그러면 정책 편집기로 돌아갑니다.
+1. **계속** 단추를 선택하고 계층을 가로로 전환하여 폴더 또는 파일을 선택합니다. 그런 **다음, 추가** 단추를 선택합니다. 그러면 정책 편집기로 돌아갑니다.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-asset-storage.png" alt-text="이미지는 정책 문을 만들거나 편집할 때 데이터 소유자가 자산을 선택하는 방법을 보여줍니다.":::
 
-1. **주체** 단추를 선택하고 주체 ID를 보안 주체, 그룹 또는 MSI로 입력합니다. 그런 다음, **확인** 단추를 선택합니다. 그러면 정책 편집기로 돌아갑니다.
+1. 주체 단추를 선택하고 **주체** ID를 주체, 그룹 또는 MSI로 입력합니다. 그런 다음, **확인** 단추를 선택합니다. 그러면 정책 편집기로 돌아갑니다.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-subject.png" alt-text="이미지는 정책 문을 만들거나 편집할 때 데이터 소유자가 제목을 선택하는 방법을 보여줍니다.":::
 
@@ -159,38 +159,60 @@ Purview에서 새 정책을 만드는 단계는 다음과 같습니다.
 
 1. Purview 포털에 로그인합니다.
 
-1. 왼쪽 패널을 사용하여 Purview 정책 앱으로 이동합니다.
+1. 왼쪽 패널을 사용 하 여 부서의 범위 정책 앱으로 이동 합니다.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/policy-onboard-guide-2.png" alt-text="이미지는 데이터 소유자가 정책을 업데이트하려고 할 때 Azure Purview의 정책 기능에 액세스할 수 있는 방법을 보여줍니다.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/policy-onboard-guide-2.png" alt-text="이미지는 정책을 업데이트 하려는 경우 데이터 소유자가 Azure 부서의 범위의 정책 기능에 액세스 하는 방법을 보여 줍니다.":::
 
-1. 정책 포털은 Purview에 기존 정책 목록을 표시합니다. 업데이트해야 하는 정책을 선택합니다.
+1. 정책 포털에서 부서의 범위의 기존 정책 목록이 표시 됩니다. 업데이트 해야 하는 정책을 선택 합니다.
 
-1. 편집 및 삭제 옵션을 포함한 정책 세부 정보 페이지가 표시됩니다. **편집** 단추를 선택하면 이 정책의 문에 대한 정책 문 작성기 가 표시됩니다. 이제 이 정책의 모든 문 부분을 업데이트할 수 있습니다. 정책을 삭제하려면 **삭제** 단추를 사용합니다.
+1. 정책 세부 정보 페이지가 표시 됩니다 (편집 및 삭제 옵션 포함). **편집** 단추를 선택 합니다 .이 단추는이 정책의 문에 대 한 정책 문 작성기를 표시 합니다. 이제이 정책에 있는 문의 모든 부분을 업데이트할 수 있습니다. 정책을 삭제 하려면 **삭제** 단추를 사용 합니다.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/edit-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책 문을 편집하거나 삭제하는 방법을 보여줍니다.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/edit-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책 문을 편집 하거나 삭제 하는 방법을 보여 줍니다.":::
 
 ### <a name="publish-the-policy"></a>정책 게시
 
-새로 만든 정책은 초안 상태입니다. 게시 프로세스는 거버넌스에서 하나 이상의 데이터 원본과 새 정책을 연결합니다.
-정책을 게시하는 단계는 다음과 같습니다.
+새로 만든 정책이 초안 상태입니다. 게시 프로세스는 새 정책을 거 버 넌 스에서 하나 이상의 데이터 원본에 연결 합니다.
+정책을 게시 하는 단계는 다음과 같습니다.
 
-1. Purview 포털에 로그인합니다.
+1. 부서의 범위 포털에 로그인 합니다.
 
-1. 왼쪽 패널을 사용하여 Purview 정책 앱으로 이동합니다.
+1. 왼쪽 패널을 사용 하 여 부서의 범위 정책 앱으로 이동 합니다.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/policy-onboard-guide-2.png" alt-text="이미지는 데이터 소유자가 정책을 게시하려고 할 때 Azure Purview의 정책 기능에 액세스할 수 있는 방법을 보여줍니다.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/policy-onboard-guide-2.png" alt-text="이미지는 정책을 게시 하려는 경우 데이터 소유자가 Azure 부서의 범위의 정책 기능에 액세스 하는 방법을 보여 줍니다.":::
 
-1. 정책 포털은 Purview에 기존 정책 목록을 표시합니다. 게시해야 하는 정책을 찾습니다. 페이지의 오른쪽 위 모서리에서 **게시** 단추를 선택합니다.
+1. 정책 포털에서 부서의 범위의 기존 정책 목록이 표시 됩니다. 게시 해야 하는 정책을 찾습니다. 페이지의 오른쪽 상단 모서리에 있는 **게시** 단추를 선택 합니다.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책을 게시하는 방법을 보여줍니다.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책을 게시할 수 있는 방법을 보여 줍니다.":::
 
-1. 데이터 원본 목록이 표시됩니다. 목록을 필터링하는 이름을 입력할 수 있습니다. 그런 다음, 이 정책을 게시할 각 데이터 원본을 선택한 **다음, 게시** 단추를 선택합니다. 게시는 백그라운드 작업입니다. 변경 내용이 데이터 원본에 반영되는 데 최대 2시간이 걸릴 수 있습니다.
+1. 데이터 원본 목록이 표시 됩니다. 이름을 입력 하 여 목록을 필터링 할 수 있습니다. 그런 다음이 정책을 게시할 각 데이터 원본을 선택 하 고 **게시** 단추를 선택 합니다.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책을 게시할 데이터 원본을 선택하는 방법을 보여줍니다.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책이 게시 될 데이터 원본을 선택할 수 있는 방법을 보여 줍니다.":::
+
+>[!NOTE]
+> Publish는 백그라운드 작업입니다. 변경 내용이 데이터 원본에 반영 되는 데 최대 **2 시간이** 걸릴 수 있습니다.
+
+## <a name="azure-purview-policy-action-to-azure-storage-action-mapping"></a>Azure Storage 작업 매핑을 위한 Azure 부서의 범위 정책 작업
+
+이 섹션에는 Azure 부서의 범위 데이터 정책의 작업이 Azure Storage의 특정 작업에 매핑되는 방법에 대 한 참조가 포함 되어 있습니다.
+
+| **부서의 범위 정책 작업** | **데이터 원본 관련 작업**                                                                |
+|---------------------------|-------------------------------------------------------------------------------------------------|
+|||
+| *읽기*                      |<sub>Microsoft DocumentDB/databaseAccounts/sqlDatabases/컨테이너/항목/읽기                        |
+|                           |<sub>Microsoft DocumentDB/databaseAccounts/sqlDatabases/컨테이너/executeQuery                      |
+|                           |<sub>Microsoft DocumentDB/databaseAccounts/sqlDatabases/컨테이너/readChangeFeed                    |
+|                           |<sub>Microsoft. Storage/storageAccounts/blobServices/containers/blobs/read                            |
+|||
+| *수정*                    |<sub>Microsoft. Storage/storageAccounts/blobServices/containers/blobs/read                            |
+|                           |<sub>Microsoft. Storage/storageAccounts/blobServices/containers/blobs/write                           |
+|                           |<sub>Microsoft. Storage/storageAccounts/blobServices/containers/blobs/add/action                      |
+|                           |<sub>Microsoft. Storage/storageAccounts/blobServices/containers/blobs/move/action                     |
+|                           |<sub>Microsoft. Storage/storageAccounts/blobServices/containers/blobs/delete                          |
+|||
 
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 가이드에 언급된 기능과 관련된 블로그 및 데모를 확인합니다.
+이 방법 가이드에 설명 된 기능과 관련 된 블로그 및 데모를 확인 합니다.
 
-* [Microsoft Ignite 2021의 Azure Purview의 새로운 내용](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
-* [Azure Storage 대한 액세스 정책 데모](https://www.youtube.com/watch?v=CFE8ltT19Ss)
+* [Microsoft Ignite 2021에서 제공 되는 Azure 부서의 범위의 새로운 기능](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* [Azure Storage에 대 한 액세스 정책 데모](https://www.youtube.com/watch?v=CFE8ltT19Ss)

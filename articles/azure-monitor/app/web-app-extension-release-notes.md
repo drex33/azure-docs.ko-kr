@@ -3,12 +3,12 @@ title: Azure 웹 앱 확장에 대 한 릴리스 정보-Application Insights
 description: Application Insights를 사용 하 여 런타임 계측에 대 한 Azure Web Apps 확장에 대 한 정보를 릴리스 합니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 8b0ddf90f5e6ffbe685c4aea1239323beea6c106
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 84d01a2bcc4e371ca03610f2d002eaaf73159b2a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828817"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316036"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Application Insights용 Azure 웹앱 확장에 대한 릴리스 정보
 
@@ -25,6 +25,26 @@ ms.locfileid: "124828817"
     - 더 이상 지원 되지 않으므로 개인 사이트 확장을 제거 합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2842"></a>2.8.42
+
+- JAVA 확장: 2.5.1에서 [Java Agent 3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) 로 업그레이드 되었습니다.
+- Node.js 확장: AI SDK를 2.1.7에서 [2.1.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.8) 로 업데이트 했습니다. 관리 id AAD 할당 된 사용자 및 시스템에 대 한 지원이 추가 되었습니다.
+- .NET Core: [.Net 시작 후크](https://github.com/dotnet/runtime/blob/main/docs/design/features/host-startup-hook.md)를 사용 하 여 자체 포함 된 배포 및 .net 6.0 지원을 추가 했습니다.
+
+### <a name="2841"></a>2.8.41
+
+- Node.js 확장: AI SDK를 2.1.3에서 [2.1.7](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.7) 로 업데이트 했습니다.
+- .NET Core: 지원 되지 않는 버전 (2.1)을 제거 했습니다. 지원 되는 버전은 3.1 및 5.0입니다.
+
+### <a name="2840"></a>2.8.40
+
+- JAVA 확장: 3.0.2에서 [GA (Java Agent 3.1.1)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.1) 로 업그레이드 되었습니다.
+- Node.js 확장: AI SDK를 1.8.8에서 [2.1.3](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.3) 로 업데이트 했습니다.
+
+### <a name="2839"></a>2.8.39
+
+- .NET Core: .NET Core 5.0 지원을 추가 했습니다.
 
 ### <a name="2838"></a>2.8.38
 

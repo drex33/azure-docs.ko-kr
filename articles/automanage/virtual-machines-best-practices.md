@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: fedcb0342a9d7aaa202ff491f59a3a09f166a3a6
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 7579e0bddfa483e9553147aa80505f024bb4acc1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132372988"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312960"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>가상 머신에 대한 Azure Automanage 모범 사례
 
@@ -28,7 +28,7 @@ ms.locfileid: "132372988"
 |-----------|---------------|----------------------|-------------------------|
 |VM Insights 모니터링    |VM용 Azure Monitor는 실행 중인 프로세스와 다른 리소스에 대한 종속성을 비롯하여 가상 머신의 성능과 상태를 모니터링합니다. [자세히](../azure-monitor/vm/vminsights-overview.md) 알아봅니다.    |Azure VM 모범 사례 - 프로덕션    |예    |
 |Backup    |Azure Backup은 VM에서 의도하지 않은 데이터 소멸을 방지하기 위해 독립적이고 격리된 백업을 제공합니다. [자세히](../backup/backup-azure-vms-introduction.md) 알아봅니다. 요금은 보호되는 VM 수와 크기를 기준으로 합니다. [자세히](https://azure.microsoft.com/pricing/details/backup/) 알아봅니다.    |Azure VM 모범 사례 - 프로덕션    |Yes    |
-|Microsoft Defender for Cloud    |Microsoft Defender for Cloud는 데이터 센터의 보안 태세를 강화하고 클라우드의 하이브리드 워크로드에서 고급 위협 방지 기능을 제공하는 통합 인프라 보안 관리 시스템입니다. [자세히](../defender-for-cloud/defender-for-cloud-introduction.md) 알아봅니다.  Automanage는 VM이 Microsoft Defender for Cloud의 무료 계층 제품에 상주하는 구독을 구성합니다. 구독이 이미 Microsoft Defender for Cloud에 온보딩된 경우 자동 관리에서 다시 구성하지 않습니다.    |Azure VM 모범 사례 – 프로덕션, Azure VM 모범 사례 – 개발/테스트    |No    |
+|Microsoft Defender for Cloud    |Microsoft Defender for Cloud는 데이터 센터의 보안 상태를 강화 하 고 클라우드의 하이브리드 워크 로드에서 고급 위협 방지를 제공 하는 통합 인프라 보안 관리 시스템입니다. [자세히](../security-center/security-center-introduction.md) 알아봅니다.  Automanage는 VM이 Microsoft Defender for Cloud의 무료 계층 제공에 상주 하는 구독을 구성 합니다. 구독이 이미 Microsoft Defender for Cloud로 등록는 경우 자동 관리를 통해 다시 구성 되지 않습니다.    |Azure VM 모범 사례 – 프로덕션, Azure VM 모범 사례 – 개발/테스트    |No    |
 |Microsoft 맬웨어 방지    |Azure용 Microsoft 맬웨어 방지 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 평가판 실시간 보호 기능입니다. 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 경고를 생성합니다. [자세히](../security/fundamentals/antimalware.md) 알아봅니다. |Azure VM 모범 사례 – 프로덕션, Azure VM 모범 사례 – 개발/테스트    |Yes    |
 |업데이트 관리    |Azure Automation의 업데이트 관리를 사용하여 가상 머신의 운영 체제 업데이트를 관리합니다. 모든 에이전트 머신에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버의 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다. [자세히](../automation/update-management/overview.md) 알아봅니다.    |Azure VM 모범 사례 – 프로덕션, Azure VM 모범 사례 – 개발/테스트    |No    |
 |변경 내용 추적 및 인벤토리    |변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다.  [자세히](../automation/change-tracking/overview.md) 알아봅니다.    |Azure VM 모범 사례 – 프로덕션, Azure VM 모범 사례 – 개발/테스트    |No    |

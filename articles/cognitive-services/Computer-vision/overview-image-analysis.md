@@ -11,16 +11,14 @@ ms.topic: overview
 ms.date: 06/21/2021
 ms.author: pafarley
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: eb7aba4367b7f8ce54141613e0d1f52ded1c26bb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 46e01af8fb0022e2e003565a07dca6e7e2713dda
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284778"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372571"
 ---
 # <a name="what-is-image-analysis"></a>이미지 분석이란?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Computer Vision 이미지 분석 서비스는 이미지에서 다양한 시각적 기능을 추출할 수 있습니다. 예를 들어 이미지에 성인 콘텐츠가 포함되어 있는지, 특정 브랜드 또는 개체를 찾거나, 사람의 얼굴을 찾는지 여부를 확인할 수 있습니다.
 

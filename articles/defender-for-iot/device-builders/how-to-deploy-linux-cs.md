@@ -2,13 +2,13 @@
 title: Linux C# 에이전트 설치 및 배포
 description: Defender for IoT C# 기반 보안 에이전트를 Linux에 설치하고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 8dd6119d4f1a6e8a738d34521234d2691ba8c883
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 5a403af7f5c0b6f2b8d5d497979be06fee404a19
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018119"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306095"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Linux용 Defender for IoT C# 기반 보안 에이전트 배포
 
@@ -74,8 +74,7 @@ ms.locfileid: "113018119"
 
     `systemctl status ASCIoTAgent.service`
 
-1. 로깅을 사용하도록 설정합니다.
-   에이전트가 시작되지 않는 경우 자세한 정보를 얻으려면 로깅을 설정합니다.
+1. 로깅을 사용하도록 설정합니다. 에이전트가 시작되지 않는 경우 자세한 정보를 얻으려면 로깅을 설정합니다.
 
    다음을 수행하여 로깅을 설정합니다.
 
@@ -110,7 +109,7 @@ ms.locfileid: "113018119"
 ## <a name="next-steps"></a>다음 단계
 
 - Defender for IoT 서비스 [개요](overview.md) 읽기
-- Defender for IoT [디바이스 빌더용 에이전트 기반 솔루션이란?](architecture-agent-based.md)에 대해 자세히 알아보기
+- Defender for IoT에 대한 자세한 내용 [디바이스 작성기용 에이전트 기반 솔루션](architecture-agent-based.md)
 - [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
-- [Azure Defender for IoT 에이전트 질문과 대답](resources-agent-frequently-asked-questions.md) 읽기
+- [IoT 에이전트에 대 한 Microsoft Defender 질문과 대답](resources-agent-frequently-asked-questions.md) 을 읽습니다.
 - [경고](concept-security-alerts.md)를 살펴봅니다.

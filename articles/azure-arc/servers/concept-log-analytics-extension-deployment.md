@@ -3,12 +3,12 @@ title: Arc 사용 서버에 Log Analytics 에이전트 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 다른 클라우드 환경에서 Azure Arc 사용 서버에 등록 된 Windows 및 Linux 기반 컴퓨터에 Log Analytics 에이전트를 배포 하는 다양 한 방법을 검토 합니다.
 ms.date: 10/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5ba1ccc8407903ca40677938b19846a7e6c205a0
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 173044962dc4ca6a8b01b4e5fbb1fa12c9ba461b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132369459"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312778"
 ---
 # <a name="understand-deployment-options-for-the-log-analytics-agent-on-azure-arc-enabled-servers"></a>Azure Arc 사용 서버의 Log Analytics 에이전트에 대 한 배포 옵션 이해
 
@@ -17,7 +17,7 @@ Azure Monitor에서는 Log Analytics 에이전트를 설치 하 고 Azure Arc �
 Log Analytics 에이전트는 다음을 수행 하려는 경우에 필요 합니다.
 
 * [VM insights](../../azure-monitor/vm/vminsights-overview.md)를 사용 하 여 컴퓨터 또는 서버에서 실행 중인 모든 워크 로드와 운영 체제를 모니터링 합니다. [Azure Monitor](../../azure-monitor/overview.md)의 다른 기능을 사용 하 여 추가로 분석 하 고 경고 합니다.
-* 클라우드 또는 [Microsoft 센티널](../../sentinel/overview.md) [용 microsoft Defender](../../defender-for-cloud/defender-for-cloud-introduction.md) 를 사용 하 여 Azure에서 보안 모니터링을 수행 합니다.
+* 클라우드 또는 [Microsoft 센티널](../../sentinel/overview.md) [용 microsoft Defender](../../security-center/security-center-introduction.md) 를 사용 하 여 Azure에서 보안 모니터링을 수행 합니다.
 * [Azure Automation 업데이트 관리](../../automation/update-management/overview.md)를 사용 하 여 운영 체제 업데이트를 관리 합니다.
 * [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md)를 사용 하 여 인벤토리를 수집 하 고 변경 내용을 추적 합니다.
 * [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 사용 하 여 컴퓨터에서 직접 또는 환경의 리소스에 대해 자동화 runbook을 실행 합니다.

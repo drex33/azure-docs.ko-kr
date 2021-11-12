@@ -11,12 +11,12 @@ ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ced6bd08895993c18a305418bd68ae8a0557301f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b2383b52184d4cdd66aaeebe2ec34c1ed4b62a1d
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131026679"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371698"
 ---
 # <a name="quickstart-python-client-library-sdk-v30--preview"></a>빠른 시작: Python 클라이언트 라이브러리 SDK v3.0 | 미리 보기
 
@@ -323,7 +323,7 @@ def analyze_invoice():
     )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-document", formUrl)
+            "prebuilt-invoice", formUrl)
     invoices = poller.result()
 
     for idx, invoice in enumerate(invoices.documents):

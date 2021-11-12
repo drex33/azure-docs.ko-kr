@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: d58398c42cdc6faed758e5dba3431e0841fc0b03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8f42a384c0ef8605de42243fcbb232d3ff615583
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555559"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301346"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Azure RBAC에 대한 모범 사례
 
@@ -34,7 +34,7 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 
 ## <a name="limit-the-number-of-subscription-owners"></a>구독 소유자 수 제한
 
-손상된 소유자에 의한 위반 가능성을 줄이려면 최대 3개의 구독 소유자가 있어야 합니다. 이 권장 사항은 Azure Security Center에서 모니터링할 수 있습니다. Security Center의 기타 ID 및 액세스 권장 사항은 [보안 권장 사항 - 참조 가이드](../security-center/recommendations-reference.md)를 참조하세요.
+손상된 소유자에 의한 위반 가능성을 줄이려면 최대 3개의 구독 소유자가 있어야 합니다. 이 권장 사항은 클라우드의 Microsoft Defender에서 모니터링할 수 있습니다. 클라우드에 대 한 Defender의 기타 id 및 액세스 권장 사항은 [보안 권장 사항-참조 가이드](../security-center/recommendations-reference.md)를 참조 하세요.
 
 ## <a name="use-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 사용
 

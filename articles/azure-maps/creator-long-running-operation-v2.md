@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: da61d170d0a4829ec7dede05d33fc3f70644cc61
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ba9ec841d4a1118a342032d81cbb534212b26786
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566337"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312781"
 ---
 # <a name="creator-long-running-operation-api-v2"></a>작성자 장기 실행 작업 API V2
 

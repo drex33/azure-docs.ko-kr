@@ -3,12 +3,12 @@ title: Azure Advisor 소개
 description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6d418e1fc574f1317617cc16969c43f569944418
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91405210"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316207"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -57,7 +57,7 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 Advisor는 Application Gateway, App Services, 가용성 집합, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure 공용 IP 주소, Azure Synapse Analytics, SQL Server, 스토리지 계정, Traffic Manager 프로필, 가상 머신에 대한 권장 사항을 제공합니다.
 
-Azure Advisor는 추가 리소스 종류에 대한 권장 사항이 포함될 수 있는 [Azure Security Center](../security-center/security-center-recommendations.md)의 권장 사항도 포함합니다.
+또한 Azure Advisor에는 추가 리소스 유형에 대 한 권장 사항을 포함할 수 있는 [Microsoft Defender For Cloud](../security-center/security-center-recommendations.md) 의 권장 사항이 포함 되어 있습니다.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 

@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure Lighthouse는 여러 Azure 서비스에서 테넌트 간 환경을 사용하도록 설정하고 개선합니다.
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 115f71148ddd2d18cd99be883bdef77b1c27ad1b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a9dbf51a965c1aa73489fdd2990736914b27177c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249688"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312460"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -50,12 +50,12 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- 대규모로 하이브리드 서버 관리 - [Azure Arc 지원 서버:](../../azure-arc/servers/overview.md)
+- 규모에 맞게 하이브리드 서버 관리- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md):
   - Azure에서 위임된 구독 및/또는 리소스 그룹에 [연결된 Azure 외부의 Windows Server 또는 Linux 시스템 관리](../../azure-arc/servers/onboard-portal.md)
   - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
   - 고객의 하이브리드 환경에 동일한 정책 집합이 적용되는지 확인
-  - Azure Security Center를 사용하여 고객의 하이브리드 환경에서 호환성 모니터링
-- 대규모로 하이브리드 Kubernetes 클러스터 관리 - [Azure Arc 지원 Kubernetes(미리 보기)](../../azure-arc/kubernetes/overview.md):
+  - 클라우드 용 Microsoft Defender를 사용 하 여 고객의 하이브리드 환경에서 호환성 모니터링
+- 대규모로 하이브리드 Kubernetes 클러스터 관리- [Azure Arc 사용 Kubernetes (미리 보기)](../../azure-arc/kubernetes/overview.md):
   - Azure에서 위임된 구독 및/또는 리소스 그룹에 [연결된 Kubernetes 클러스터 관리](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
   - 연결된 클러스터에 [GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) 사용
   - 연결된 클러스터에서 정책 적용
@@ -101,9 +101,9 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 - [로그 분석:](../../azure-monitor/logs/service-providers.md)여러 테넌트에서 원격 작업 영역에서 데이터를 쿼리합니다(고객 테넌트의 작업 영역에서 데이터에 액세스하는 데 사용되는 자동화 계정은 동일한 테넌트에서 만들어야 함).
 - 고객 테넌트에서 [메트릭 알림](../../azure-monitor/alerts/alerts-metric.md), [로그 알림](../../azure-monitor/alerts/alerts-log.md) 및 [활동 로그 알림](../../azure-monitor/alerts/alerts-activity-log.md) 생성, 보기 및 관리
 - 웹 후크를 통해 관리 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
-- 고객 테넌트에서 만든 작업 영역에서 [진단 설정을](../..//azure-monitor/essentials/diagnostic-settings.md) 만들어 관리 테넌트에서 작업 영역으로 리소스 로그 보내기
+- 고객 테 넌 트에서 생성 된 작업 영역에 [진단 설정을](../..//azure-monitor/essentials/diagnostic-settings.md) 만들어 리소스 로그를 관리 테 넌 트의 작업 영역으로 보냅니다.
 - SAP 워크로드의 경우 [고객 테넌트 전체에서 집계된 보기를 사용하여 SAP 솔루션 메트릭을 모니터링](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)합니다.
-- Azure AD B2C 경우 로그인 [및 감사 로그를](../../active-directory-b2c/azure-monitor.md) 다른 모니터링 솔루션으로 라우팅합니다.
+- Azure AD B2C의 경우 [로그인 및 감사 로그](../../active-directory-b2c/azure-monitor.md) 를 다른 모니터링 솔루션으로 라우팅합니다.
 
 [Azure 네트워킹](../../networking/fundamentals/networking-overview.md):
 
@@ -125,7 +125,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 
 - 이제 반환된 쿼리 결과에 테넌트 ID를 포함하여 구독이 관리 테넌트에 속하는지 여부를 식별할 수 있습니다.
 
-[Azure Security Center](../../security-center/index.yml):
+[클라우드 용 Microsoft Defender](../../security-center/index.yml):
 
 - 테넌트 간 표시 유형
   - 보안 정책에 대한 규정 준수를 모니터링하고 모든 테넌트의 리소스에서 보안 검사를 보장합니다.
@@ -141,13 +141,13 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
   - 적응형 네트워크 강화로 네트워크 보안 그룹 구성을 강화합니다.
   - 적응형 애플리케이션 제어를 사용하여 서버가 필요한 애플리케이션 및 프로세스만 실행하는지 확인합니다.
   - FIM(파일 무결성 모니터링)을 사용하여 중요한 파일 및 레지스트리 항목의 변경 내용을 모니터링합니다.
-- 전체 구독을 관리 테넌트에 위임해야 합니다. Azure Security Center 시나리오는 위임된 리소스 그룹에서 지원되지 않습니다.
+- 전체 구독을 관리 되는 테 넌 트에 위임 해야 합니다. 클라우드 용 Microsoft Defender 시나리오는 위임 된 리소스 그룹에서 지원 되지 않습니다.
 
-[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
+[Microsoft 센티널](../../sentinel/multiple-tenants-service-providers.md):
 
-- [고객 테넌트에서](../../sentinel/multiple-tenants-service-providers.md) Azure Sentinel 리소스를 관리합니다.
+- [고객 테 넌 트의](../../sentinel/multiple-tenants-service-providers.md) Microsoft 센티널 리소스 관리
 - [여러 테넌트에서 공격을 추적하고 보안 경고를 확인합니다](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899).
-- 테넌트에 걸쳐 분산되어 있는 여러 Azure Sentinel 작업 영역에서 [인시던트를 봅니다](../../sentinel/multiple-workspace-view.md).
+- 여러 Microsoft 센티널 작업 영역에서 여러 테 넌 트에 분산 되는 [인시던트 보기](../../sentinel/multiple-workspace-view.md)
 
 [Azure Service Health](../../service-health/index.yml):
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 195a0bfa-dff1-429b-b030-19ca95ee6abe
 ms.date: 06/08/2021
-ms.openlocfilehash: 909f3dcff9f8ad5af5f1128d1d067f2430a00525
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: aaaa6fb269178954ade464745c6c640845457612
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730118"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289227"
 ---
 # <a name="red-hat-jboss-eap-on-azure-best-practices"></a>Azure의 Red Hat JBoss EAP 모범 사례
 
@@ -106,7 +106,7 @@ Azure로 마이그레이션하기 위한 견고한 시작점을 제공하기 위
 - RHEL 8.3 클러스터형 가상 머신 확장 집합 기반 JBoss EAP 7.3(PAYG)
 - RHEL 8.3 클러스터형 가상 머신 확장 집합 기반 JBoss EAP 7.3(BYOS)
 
-:::image type="content" source="./media/red-hat-marketplace-image-1.png" alt-text="이미지는 GitHub 배포 링크를 사용하여 Red Hat 이미지를 배포하는 옵션을 보여 줍니다.":::
+:::image type="content" source="./media/red-hat-marketplace-image-1.png" alt-text="이미지 GitHub 배포 링크를 사용 하 여 red Hat 이미지를 배포 하는 옵션을 보여 줍니다.":::
 
 ### <a name="azure-quickstart-templates"></a>Azure 빠른 시작 템플릿
 
@@ -187,7 +187,7 @@ Azure는 UDP 멀티캐스트를 기준으로 하는 JGroups 검색 프로토콜�
 
 ## <a name="other-best-practices"></a>기타 모범 사례
 
-- VM에서 JBoss EAP 설치 관리자이 경우 VM의 보안을 보장하는 것이 중요합니다. 게스트 및 호스트 OS가 악성 소프트웨어에 감염될 위험이 크게 낮아집니다. VM을 보호하면 JBoss EAP에 대한 공격과 JBoss EAP에서 호스트되는 애플리케이션의 오작동이 줄어듭니다. [Azure RBAC(역할 기반 액세스 제어)](../../../role-based-access-control/overview.md)에서 [Azure Policy](https://azure.microsoft.com/services/azure-policy/) 및 [Azure 기본 제공 역할](../../../role-based-access-control/built-in-roles.md) 등의 기능을 사용하여 Azure VM에 대한 엑세스를 컨트롤 합니다. Microsoft Antimalware 또는 Microsoft 파트너의 엔드포인트 보호 솔루션을 설치하고 맬웨어 방지 솔루션을 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합하고 보호 상태를 모니터링하여 맬웨어로부터 VM을 보호합니다. RHEL VM에서는 포트 전달을 차단하고 루트 로그인을 차단하여 VM을 보호할 수 있으며, 이는 */에서 사용하지 않도록 설정할 수 있습니다.
+- VM에서 JBoss EAP 설치 관리자이 경우 VM의 보안을 보장하는 것이 중요합니다. 게스트 및 호스트 OS가 악성 소프트웨어에 감염될 위험이 크게 낮아집니다. VM을 보호하면 JBoss EAP에 대한 공격과 JBoss EAP에서 호스트되는 애플리케이션의 오작동이 줄어듭니다. [Azure RBAC(역할 기반 액세스 제어)](../../../role-based-access-control/overview.md)에서 [Azure Policy](https://azure.microsoft.com/services/azure-policy/) 및 [Azure 기본 제공 역할](../../../role-based-access-control/built-in-roles.md) 등의 기능을 사용하여 Azure VM에 대한 엑세스를 컨트롤 합니다. Microsoft Antimalware 또는 microsoft 파트너의 endpoint protection 솔루션을 설치 하 고 맬웨어 방지 솔루션을 [microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) 와 통합 하 여 보호 상태를 모니터링 함으로써 맬웨어에 대해 VM을 보호 합니다. RHEL VM에서는 포트 전달을 차단하고 루트 로그인을 차단하여 VM을 보호할 수 있으며, 이는 */에서 사용하지 않도록 설정할 수 있습니다.
 
 
 - 환경 변수를 사용하여 Azure VM에서 JBoss EAP를 쉽고 원활하게 사용할 수 있습니다. 예를 들어, EAP_HOME을 사용하여 여러 번 사용되는 JBoss EAP 설치 경로를 나타낼 수 있습니다. 이러한 경우 환경 변수가 유용하게 사용됩니다. 환경 변수는 서비스를 구성하고 웹 애플리케이션 비밀을 처리하는 일반적인 수단이기도 합니다. 내보내기 명령을 사용하여 셸에서 환경 변수를 설정하면 사용자 세션이 끝날 때 환경 변수의 존재도 끝납니다. 이러한 상황은 세션 간에 변수를 유지해야 하는 경우 문제가 됩니다. 특정 환경을 사용자 환경에 대해 영구적으로 만들기 위해 사용자의 프로필 스크립트에서 변수를 내보냅니다. bash_profile에서 유지하려는 모든 환경 변수에 대한 내보내기 명령을 추가합니다. VM에 액세스할 수 있는 모든 사용자에 대해 영구 전역 환경 변수를 설정하려면 기본 프로필에 추가할 수 있습니다. `/etc/profile.d`라는 디렉터리에 전역 환경 변수를 저장하는 것이 좋습니다. 이 디렉터리에는 전체 시스템에 대한 환경 변수를 설정하는 데 사용되는 파일 목록이 포함되어 있습니다. Windows Server 명령 프롬프트에서 set 명령을 사용하여 시스템 환경 변수를 설정해도 환경 변수가 영구적으로 설정되지는 않습니다. *setx* 명령 또는 제어판의 시스템 인터페이스를 사용합니다.

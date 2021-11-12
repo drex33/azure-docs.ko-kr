@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f8094fc0eaf646a026371db3726706f92c763f6d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ab2188e0a59216ab01b54f430506003529129bb7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460549"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342987"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 배포
 이 문서에서는 클라우드용 애플리케이션을 배포할 때 고려해야 할 보안 및 제어 작업에 관해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 릴리스 및 응답 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 목표는 더 안전한 애플리케이션을 배포하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하도록 돕는 것입니다.
@@ -68,18 +68,18 @@ ms.locfileid: "131460549"
 애플리케이션 모니터링을 지원하는 Azure 서비스는 다음과 같습니다.
 
   - Azure Application Insights
-  - Azure Security Center
+  - Microsoft Defender for Cloud
 
 #### <a name="application-insights"></a>Application Insights
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. Application Insights는 자동으로 성능 이상을 검색합니다. 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
-#### <a name="azure-security-center"></a>Azure Security Center
+#### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md)는 웹 애플리케이션을 포함한 Azure 리소스의 보안에 대한 향상된 가시성(및 제어권)을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. Azure Security Center은 달리 발견되지 않을 수 있는 위협을 검색하는 데 도움이 됩니다. 다양한 보안 솔루션에서 작동합니다.
+[Microsoft Defender for Cloud를](../../security-center/security-center-introduction.md) 사용하면 웹 애플리케이션을 비롯한 Azure 리소스의 보안에 대한 가시성을 높이고 제어하여 위협을 방지, 감지 및 대응할 수 있습니다. 클라우드용 Microsoft Defender는 달리 발견되지 않을 수 있는 위협을 검색하는 데 도움이 됩니다. 다양한 보안 솔루션에서 작동합니다.
 
-Security Center의 무료 계층에서는 Azure 리소스에만 사용 가능한 제한적 보안 기능이 제공됩니다. [Security Center 표준 계층](../../security-center/security-center-get-started.md)은 이러한 기능을 온-프레미스 리소스 및 기타 클라우드로 확장합니다.
-Security Center 표준은 다음을 수행하는 데 도움이 됩니다.
+Defender for Cloud의 무료 계층은 Azure 리소스에 대해서만 제한된 보안을 제공합니다. [Defender for Cloud Standard 계층은](../../security-center/security-center-get-started.md) 이러한 기능을 온-프레미스 리소스 및 기타 클라우드로 확장합니다.
+Defender for Cloud Standard를 사용하면 다음을 수행할 수 있습니다.
 
   - 보안 취약성을 찾아서 수정합니다.
   - 액세스 및 애플리케이션 제어를 적용하여 악의적인 활동을 차단 합니다.

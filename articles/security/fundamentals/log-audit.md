@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: f7481e22b9d03d7f49f4ee383bb52c4772631c16
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 5ac5d1557ab2ba247588971426e380e84d7b6e8e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529798"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342832"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Azure 보안 로깅 및 감사
 
@@ -42,7 +42,7 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 
 * **데이터 평면 로그** 는 Azure 리소스 사용의 일부로 발생한 이벤트에 대한 정보를 제공합니다. 이 로그 유형의 예로 VM(가상 머신)의 Windows 이벤트 시스템, 보안 및 애플리케이션 로그와 Azure Monitor를 통해 구성된 [진단 로그](../../azure-monitor/essentials/platform-logs-overview.md)가 있습니다.
 
-* **처리된 이벤트** 는 사용자를 대신하여 처리되어 분석된 이벤트/경고에 대한 정보를 제공합니다. 이 로그 유형의 예로 [Azure Security Center](../../security-center/security-center-introduction.md)에서 구독을 처리 및 분석하고 간결한 보안 경고를 제공하는 [Azure Security Center 경고](../../security-center/security-center-managing-and-responding-alerts.md)가 있습니다.
+* **처리된 이벤트** 는 사용자를 대신하여 처리되어 분석된 이벤트/경고에 대한 정보를 제공합니다. 이 유형의 예로는 microsoft defender for [cloud](../../security-center/security-center-introduction.md) 가 구독을 처리 및 분석 하 고 간결한 보안 경고를 제공 하는 [클라우드 경고에 대 한 microsoft defender](../../security-center/security-center-managing-and-responding-alerts.md) 가 있습니다.
 
 다음 표에는 Azure에서 사용할 수 있는 가장 중요한 유형의 로그가 나와 있습니다.
 
@@ -55,10 +55,10 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 |[Azure Storage 분석](/rest/api/storageservices/fileservices/storage-analytics)|스토리지 로깅(스토리지 계정에 대한 메트릭 데이터 제공)|추적 요청에 대한 인사이트를 제공하고, 사용 추세를 분석하며, 스토리지 계정과 관련된 문제를 진단합니다.| REST API 또는 [클라이언트 라이브러리](/dotnet/api/overview/azure/storage)|
 |[NSG(네트워크 보안 그룹) 흐름 로그](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|JSON 형식(규칙에 따라 아웃바운드 및 인바운드 흐름 표시)|네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 표시합니다.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application Insight](../../azure-monitor/app/app-insights-overview.md)|로그, 예외 및 사용자 지정 진단|  여러 플랫폼에서 웹 개발자를 위한 APM(애플리케이션 성능 모니터링) 서비스를 제공합니다.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|[데이터 처리/보안 경고](../../security-center/security-center-introduction.md)|   Azure Security Center 경고, Azure Monitor 로그 경고|    보안 정보 및 경고를 제공합니다.|  REST API, JSON|
+|[데이터 처리/보안 경고](../../security-center/security-center-introduction.md)|   클라우드 경고에 대 한 Microsoft Defender, Azure Monitor 로그 경고| 보안 정보 및 경고를 제공합니다.|  REST API, JSON|
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>온-프레미스 SIEM 시스템과 로그 통합
-[Security Center 경고 통합](../../security-center/security-center-partner-integration.md)에서는 Security Center 경고, Azure 진단 로그에서 수집한 가상 머신 보안 이벤트 및 Azure 감사 로그를 Azure Monitor 로그 또는 SIEM 솔루션과 동기화하는 방법을 설명합니다.
+[클라우드 경고를 위해 defender를 통합](../../security-center/security-center-partner-integration.md) 하면 클라우드 경고에 대해 defender를 동기화 하는 방법, azure 진단 로그에서 수집 된 가상 컴퓨터 보안 이벤트 및 Azure Monitor 로그 또는 siem 솔루션으로 azure 감사 로그를 동기화 하는 방법을 설명 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -68,4 +68,4 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 
 - [사이트 모음에 대한 감사 설정 구성](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): 사이트 모음 관리자인 경우 개별 사용자의 작업 기록과 특정 날짜 범위 동안 수행된 작업 기록을 검색할 수 있습니다.
 
-- [Microsoft 365 보안 센터에서 감사 로그 검색](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Microsoft 365 보안 센터를 사용하여 조직에서 통합 감사 로그를 검색하고 사용자와 관리자의 활동을 확인합니다.
+- [Microsoft 365 Defender 포털에서 감사 로그 검색](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Microsoft 365 Defender 포털을 사용 하 여 통합 된 감사 로그를 검색 하 고 조직에서 사용자 및 관리자 작업을 볼 수 있습니다.

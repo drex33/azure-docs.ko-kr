@@ -5,24 +5,23 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-ms.openlocfilehash: 52bb368ccf19c23c04bc062e7db50c07ecebaceb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 74d3544fd7e858a685b669ad826bc17e0eb6e64f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296065"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312923"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor-retired"></a>Azure Monitor(사용 중지됨)의 Wire Data 2.0(미리 보기) 솔루션
 
 ![Wire Data 기호](media/wire-data/wire-data2-symbol.png)
 
->[!NOTE]
->Wire Data 솔루션은 [VM 인사이트](../vm/vminsights-overview.md) 및 [서비스 맵 솔루션](../vm/service-map.md)으로 대체되었습니다.  둘 다 Log Analytics 에이전트와 Dependency Agent를 사용하여 네트워크 연결 데이터를 Azure Monitor로 수집합니다.
+> [!NOTE]
+> Wire Data 솔루션은 [VM 인사이트](../vm/vminsights-overview.md) 및 [서비스 맵 솔루션](../vm/service-map.md)으로 대체되었습니다.  둘 다 Log Analytics 에이전트와 Dependency Agent를 사용하여 네트워크 연결 데이터를 Azure Monitor로 수집합니다.
 >
->Wire Data 솔루션에 대한 지원이 **2022년 3월 31일** 에 종료됩니다.  사용 중지 날짜가 될 때까지 Wire Data 2.0(미리 보기) 솔루션을 사용하는 기존 고객은 이를 계속 사용할 수 있습니다.
+> Wire Data 솔루션에 대한 지원이 **2022년 3월 31일** 에 종료됩니다.  사용 중지 날짜가 될 때까지 Wire Data 2.0(미리 보기) 솔루션을 사용하는 기존 고객은 이를 계속 사용할 수 있습니다.
 >
->신규 및 기존 고객은 [VM 인사이트](../vm/vminsights-enable-overview.md) 또는 [서비스 맵 솔루션](../vm/service-map.md)을 설치해야 합니다.  수집하는 맵 데이터 세트는 Wire Data 2.0(미리 보기) 데이터 세트와 비교할 수 있습니다.  VM 인사이트에는 분석을 위한 추가 성능 데이터 및 기능과 함께 서비스 맵 데이터 세트가 포함되어 있습니다. 두 제품 모두 [Azure Sentinel과 연결](../../sentinel/connect-data-sources.md#map-data-types-with-azure-sentinel-connection-options)되어 있습니다.
- 
+> 신규 및 기존 고객은 [VM 인사이트](../vm/vminsights-enable-overview.md) 또는 [서비스 맵 솔루션](../vm/service-map.md)을 설치해야 합니다.  수집하는 맵 데이터 세트는 Wire Data 2.0(미리 보기) 데이터 세트와 비교할 수 있습니다.  VM 인사이트에는 분석을 위한 추가 성능 데이터 및 기능과 함께 서비스 맵 데이터 세트가 포함되어 있습니다. 두 제품 모두 [Microsoft 센티널에 연결](../../sentinel/connect-data-sources.md#map-data-types-with-microsoft-sentinel-connection-options)되어 있습니다.
 
 Wire Data는 사용자 환경의 Operations Manager에서 모니터링되는 데이터를 포함하여 Log Analytics 에이전트를 통해 Windows 연결 및 Linux 연결 컴퓨터에서 수집되는 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 다른 로그 데이터와 결합됩니다.
 
@@ -130,8 +129,8 @@ VMConnection
 
 Wire Data 2.0을 제거하려면 Log Analytics 작업 영역에서 솔루션을 제거하기만 하면 됩니다.  결과는 다음과 같습니다.
 
-* 작업 영역에 연결된 VM에서 Wire Data 관리 팩이 제거되고 있습니다. 
-* Wire Data 데이터 형식이 작업 영역에 더 이상 나타나지 않습니다.
+- 작업 영역에 연결 된 Vm에서 네트워크 데이터 관리 팩이 제거 되 고 있습니다.
+- 실시간 데이터 데이터 형식이 작업 영역에 더 이상 나타나지 않습니다.
 
 Wire Data 솔루션을 제거하려면 [이 지침](./solutions.md?tabs=portal#remove-a-monitoring-solution)을 따르세요.
 
@@ -161,7 +160,7 @@ Log Analytics 작업 영역에서 Wire Data가 활성화되면 해당 작업 영
 
 Linux에서 Dependency Agent를 완전히 제거하려면 에이전트 자체와 에이전트와 함께 자동으로 설치된 커넥터를 제거해야 합니다. 다음 단일 명령을 사용하여 둘 다 제거할 수 있습니다.
 
-```
+```bash
 rpm -e dependency-agent dependency-agent-connector
 ```
 
@@ -183,7 +182,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 마찬가지로 **로컬 서브넷** 블레이드를 사용하여 서브넷을 통해 이동하는 네트워크 트래픽의 양을 확인할 수 있습니다. 사용자는 종종 애플리케이션의 중요한 영역 주위 서브넷을 정의합니다. 이 블레이드는 해당 영역에 대한 뷰를 제공합니다.
 
-![각 LocalSubnet에 의해 사용되는 네트워크 대역폭을 보여 주는 Wire Data 2.0 대시보드의 로컬 서브넷 블레이드의 스크린샷](./media/wire-data/log-search-example02.png)
+![각 LocalSubnet 사용 되는 네트워크 대역폭을 보여 주는 Wire Data 2.0 대시보드의 로컬 서브넷 블레이드의 스크린샷](./media/wire-data/log-search-example02.png)
 
 **애플리케이션 수준 프로토콜** 블레이드는 사용 중인 프로토콜을 아는 데 도움이 되므로 유용합니다. 예를 들어 네트워크 환경에서 SSH가 사용되지 않는 것을 예상할 수 있습니다. 블레이드에서 사용할 수 있는 정보 보기는 사용자의 예상을 신속하게 확인하거나 예상이 틀렸음을 증명할 수 있습니다.
 

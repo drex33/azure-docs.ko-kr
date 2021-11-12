@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: e3fede7fbb0f4951633ec74284fad00d2d66257b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: ff2233f6a1b669856084cdd07591d99ee23dbe8c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570004"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331227"
 ---
 # <a name="evaluate-model-component"></a>모델 구성 요소 평가
 
@@ -137,8 +137,7 @@ ms.locfileid: "131570004"
   
      이 수치가 높으면 클러스터가 널리 분산된 것을 의미할 수 있습니다. 클러스터의 분산을 확인하려면 **클러스터 센터까지의 평균 거리** 와 이 통계를 함께 검토해야 합니다.   
 
--   결과의 각 섹션 아래쪽에 표시되는 **결합된 평가** 점수에는 해당 모델에서 생성된 클러스터에 대한 평균 점수가 나열됩니다.  
-  
+-   결과의 각 섹션 아래쪽에 있는 **결합된 평가** 점수에는 해당 특정 모델에서 만든 클러스터의 평균 점수가 나열됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

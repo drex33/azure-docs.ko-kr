@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/19/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
-ms.openlocfilehash: 4b4a91f8c8e1e5207973e621e87c17f9bbadb807
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f4eaee6afb134513da55b7f39e2d1f6df6c547b7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259538"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345333"
 ---
 # <a name="deploy-iot-connector-in-the-azure-portal"></a>Azure Portal IoT 커넥터 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "130259538"
 
 이 빠른 시작에서는 Azure Portal IoT 커넥터를 배포하는 방법을 알아봅니다. IoT 커넥터를 구성하면 디바이스 메시지에 Azure Event Hub를 사용하여 IoT(사물 인터넷)에서 전자 의료 기록 교환(FHIR&#174;) 서비스로 데이터를 수집할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Healthcare API에서 IoT 커넥터 인스턴스를 만드는 단계를 시작하기 전에 다음 필수 구성을 완료해야 합니다.
 
@@ -30,7 +30,6 @@ Azure Healthcare API에서 IoT 커넥터 인스턴스를 만드는 단계를 시
 * [Azure Portal 배포된 Event Hubs 네임스페이스 및 이벤트 허브](../../event-hubs/event-hubs-create.md)
 * [Azure Healthcare API에 배포된 작업 영역](../healthcare-apis-quickstart.md)  
 * [Azure Healthcare API에 배포된 FHIR 서비스](../fhir/fhir-portal-quickstart.md) 
-
 
 ## <a name="deploy-iot-connector"></a>IoT 커넥터 배포 
 
@@ -83,7 +82,7 @@ Azure Healthcare API에서 IoT 커넥터 인스턴스를 만드는 단계를 시
 ## <a name="configure-device-mapping-properties"></a>디바이스 매핑 속성 구성
 
 > [!TIP]
-> IoMT 커넥터 데이터 매퍼는 디바이스의 입력 데이터를 정규화하기 위한 매핑 구성을 시각화한 다음 FHIR 리소스로 변환하는 오픈 소스 도구입니다. 개발자는 이 도구를 사용하여 디바이스 및 FHIR 대상 매핑을 편집 및 테스트하고 Azure Portal IoT 커넥터에 업로드할 데이터를 내보낼 수 있습니다. 또한 이 도구를 사용하면 개발자가 디바이스의 디바이스 및 FHIR 대상 매핑 구성을 이해할 수 있습니다.
+> IoMT 커넥터 데이터 매퍼는 디바이스의 입력 데이터를 정규화하기 위한 매핑 구성을 시각화한 다음 FHIR 리소스로 변환하는 오픈 소스 도구입니다. 개발자는 이 도구를 사용하여 디바이스 및 FHIR 대상 매핑을 편집 및 테스트하고 데이터를 내보내 Azure Portal IoT 커넥터에 업로드할 수 있습니다. 또한 이 도구를 사용하면 개발자가 디바이스의 디바이스 및 FHIR 대상 매핑 구성을 이해할 수 있습니다.
 >
 > 자세한 내용은 오픈 소스 설명서를 참조하세요.
 >
@@ -130,7 +129,7 @@ Azure Healthcare API에서 IoT 커넥터 인스턴스를 만드는 단계를 시
 
 4. **대상 매핑** 아래에서 코드 편집기 내에 JSON 코드를 입력합니다.
 
-   매퍼 도구에 대한 자세한 내용은 [IoMT 커넥터 데이터 매퍼 도구 를 참조하세요.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)
+   매퍼 도구에 대한 자세한 내용은 [IoMT 커넥터 데이터 매퍼 도구를 참조하세요.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)
 
 5. **검토 + 만들기를** 선택하거나 태그를 구성하려는 경우 **다음: 태그 >** 선택할 수 있습니다.  
 
@@ -159,7 +158,7 @@ Azure Healthcare API에서 IoT 커넥터 인스턴스를 만드는 단계를 시
 
    ![Azure 최근 리소스 목록에 나열된 배포된 IoT 커넥터의 스크린샷.](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
-    이제 IoT 커넥터가 배포되었으므로 이벤트 허브 및 FHIR 서비스에 액세스할 수 있는 권한을 할당하는 단계를 안내합니다. 
+    이제 IoT 커넥터가 배포되었으므로 Event Hub 및 FHIR 서비스에 액세스할 수 있는 권한을 할당하는 단계를 안내합니다. 
 
 ## <a name="granting-iot-connector-access"></a>IoT 커넥터 액세스 권한 부여
 

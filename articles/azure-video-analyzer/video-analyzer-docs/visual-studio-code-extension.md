@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 663f9289d6cc11a162c2325bc46381c1e2369193
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b0faa61b724420ad04cc489d51539c134569dd05
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563970"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287118"
 ---
 # <a name="visual-studio-code-extension-for-azure-video-analyzer"></a>Azure Video Analyzer의 Visual Studio Code 확장
 
@@ -36,7 +36,7 @@ edge 장치에 연결 하도록 확장을 설정 하지 않은 경우 [Azure Vid
 
 ## <a name="live-pipelines"></a>라이브 파이프라인
 
-라이브 파이프라인을 만들려면 파이프라인 토폴로지 왼쪽에서 토폴로지 이름을 마우스 오른쪽 단추로 클릭하고 `Create live pipeline`을 선택합니다.  그런 다음 라이브 파이프라인 이름과 필수 매개 변수를 입력한 후에 진행해야 합니다.  그런 다음 오른쪽 상단에서 `Save`을 클릭하여 비활성 상태로 저장하거나 `Save and activate`를 클릭하여 라이브 파이프라인을 바로 시작할 수 있습니다. 
+라이브 파이프라인을 만들려면 파이프라인 토폴로지 왼쪽에서 토폴로지 이름을 마우스 오른쪽 단추로 클릭하고 `Create live pipeline`을 선택합니다.  계속 하기 전에 라이브 파이프라인 이름 및 모든 필수 매개 변수를 입력 해야 합니다.  그런 다음 오른쪽 상단에서 `Save`을 클릭하여 비활성 상태로 저장하거나 `Save and activate`를 클릭하여 라이브 파이프라인을 바로 시작할 수 있습니다. 
 
 기존 라이브 파이프라인을 활성화하려면 파이프라인 토폴로지 왼쪽에서 라이브 파이프라인 이름을 마우스 오른쪽 단추로 클릭하고 `Activate live pipeline`을 선택합니다.
 

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 11a4892a6cd9a1ddda9cf5857165dd9b52e1392b
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 341fb4241a038798c213ae04cf6d4876ff856d8f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371862"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308716"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -74,7 +74,7 @@ Runbook은 [리소스](/rest/api/resources/resources)(예: VM, 네트워크, 네
 
 ## <a name="security"></a>보안
 
-Azure Automation Microsoft Defender [for Cloud를](../defender-for-cloud/defender-for-cloud-introduction.md) 사용하여 리소스에 대한 보안을 제공하고 Linux 시스템에서 손상 검색합니다. 리소스는 Azure에 있는지 여부와 관계없이 모든 워크로드에 보안이 제공됩니다. [Azure Automation의 인증 소개](automation-security-overview.md)를 참조하세요.
+Azure Automation Microsoft Defender [for Cloud를](../security-center/security-center-introduction.md) 사용하여 리소스에 대한 보안을 제공하고 Linux 시스템에서 손상 검색합니다. 리소스는 Azure에 있는지 여부와 관계없이 모든 워크로드에 보안이 제공됩니다. [Azure Automation의 인증 소개](automation-security-overview.md)를 참조하세요.
 
 Defender for Cloud는 VM에서 서명되거나 서명되지 않은 스크립트를 실행할 수 있는 사용자에게 제약 조건을 적용합니다. VM에 대한 루트 액세스 권한이 있는 사용자는 디지털 서명을 사용하여 머신을 명시적으로 구성하거나 해제해야 합니다. 그러지 않으면 Automation 계정을 만들고 적절한 기능을 사용하도록 설정한 후에만 스크립트를 실행하여 운영 체제 업데이트를 적용할 수 있습니다.
 
@@ -99,9 +99,9 @@ Azure Automation은 [Azure Monitor](../azure-monitor/overview.md)를 사용하�
 
 ### <a name="log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트
 
-[Linux용 Log Analytics 에이전트](../azure-monitor/agents/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 루트 권한이 필요한 명령을 실행하는 특정 서비스 계정과 함께 설치됩니다. 자세한 내용은 [서비스 계정을 참조하세요.](./automation-hrw-run-runbooks.md#service-accounts)
+[Linux용 Log Analytics 에이전트](../azure-monitor/agents/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 루트 권한이 필요한 명령을 실행 하는 특정 서비스 계정으로 설치 됩니다. 자세한 내용은 [서비스 계정](./automation-hrw-run-runbooks.md#service-accounts)을 참조 하세요.
 
-Log Analytics 에이전트 로그는 에 `/var/opt/microsoft/omsagent/log/omsagent.log` 있습니다.
+Log Analytics 에이전트 로그는에 `/var/opt/microsoft/omsagent/log/omsagent.log` 있습니다.
 
 ## <a name="runbook-permissions"></a>Runbook 사용 권한
 

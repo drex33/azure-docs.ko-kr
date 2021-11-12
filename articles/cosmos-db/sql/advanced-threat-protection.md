@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 387a2aa7026dfce04a4d1be495f2dff090ec0709
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: ee08e92f7aedaf46733e21839b999369d4944091
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117133"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324307"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Advanced Threat Protection(미리 보기)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB용 Advanced Threat Protection은 Azure Cosmos DB 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 추가 보안 인텔리전스 계층을 제공합니다. 이 보호 계층을 통해 보안 전문가가 아니더라도 위협을 해결하고 중앙 보안 모니터링 시스템과 통합할 수 있습니다.
 
-보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합되며, 의심스러운 활동의 세부 정보와 위협을 조사하고 수정하는 방법에 대한 권장 사항을 포함하여 이메일을 통해 구독 관리자에게 전송됩니다.
+보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는  [클라우드 용 Microsoft Defender](https://azure.microsoft.com/services/security-center/)와 통합 되었으며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여, 구독 관리자에 게 전자 메일을 통해 전송 됩니다.
 
 > [!NOTE]
 >
@@ -104,7 +104,7 @@ Azure Policy를 사용하여 Cosmos DB에 대한 Advanced Threat Protection을 �
 
 Azure Cosmos DB 작업 변칙이 발생한 경우 의심스러운 보안 이벤트에 대한 정보와 함께 보안 경고가 트리거됩니다. 
 
- Azure Security Center에서 현재 [보안 경고](../../security-center/security-center-alerts-overview.md)를 검토 및 관리할 수 있습니다.  [Security Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0)에서 특정 경고를 클릭하여 잠재적 위협을 조사하고 완화하기 위한 가능한 원인과 권장 조치를 확인합니다. 다음 이미지는 Security Center에서 제공하는 경고 세부 정보의 예를 보여줍니다.
+ Microsoft Defender for Cloud에서 현재 [보안 경고](../../security-center/security-center-alerts-overview.md)를 검토 하 고 관리할 수 있습니다.  가능한 원인 및 권장 조치를 확인 하 여 잠재적인 위협을 조사 하 고 완화 하는 [클라우드 용 Defender](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) 의 특정 경고를 클릭 합니다. 다음 그림은 클라우드에 대 한 Defender에 제공 된 경고 정보의 예를 보여 줍니다.
 
  :::image type="content" source="./media/advanced-threat-protection/cosmos-db-alert-details.png" alt-text="위협 세부 정보":::
 
@@ -114,9 +114,9 @@ Azure Cosmos DB 작업 변칙이 발생한 경우 의심스러운 보안 이벤�
 
 ## <a name="cosmos-db-atp-alerts"></a>Cosmos DB ATP 경고
 
- Azure Cosmos DB 계정을 모니터링할 때 생성되는 경고 목록을 보려면 Azure Security Center 설명서의 [Cosmos DB 경고](../../security-center/alerts-reference.md#alerts-azurecosmos) 섹션을 참조하세요.
+ Azure Cosmos DB 계정을 모니터링할 때 생성 되는 경고 목록을 보려면 Microsoft Defender for Cloud 설명서의 [Cosmos DB alerts](../../security-center/alerts-reference.md#alerts-azurecosmos) 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos DB의 진단 로깅](../cosmosdb-monitor-resource-logs.md)에 대한 자세한 정보
-* [Azure Security Center](../../security-center/security-center-introduction.md)에 대한 자세한 정보
+* [클라우드 용 Microsoft Defender](../../security-center/security-center-introduction.md) 에 대 한 자세한 정보

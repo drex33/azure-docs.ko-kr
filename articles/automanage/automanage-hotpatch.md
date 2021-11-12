@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32441732385ebd16c2edaa9b77a75382051b6ee1
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 4794813af900df66fd2d7cd6fb8e238f79d18d4b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502885"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327598"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>새 가상 머신에 대한 핫패치(미리 보기)
 
 > [!IMPORTANT]
-> Hotpatch은 현재 공개 미리 보기로 제공 됩니다. 아래에 설명된 핫패치 기능을 사용하려면 옵트인 절차가 필요합니다.
+> 핫 패치는 현재 공개 미리 보기로 제공됩니다. 아래에 설명된 핫패치 기능을 사용하려면 옵트인 절차가 필요합니다.
 > 이 미리 보기는 서비스 수준 약정 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -51,13 +51,13 @@ ms.locfileid: "131502885"
 새 VM에서 핫패치 사용을 시작하려면 다음 단계를 수행합니다.
 1.  미리 보기 액세스 사용
     * 구독 당 일회성 미리 보기 액세스를 사용해야 합니다.
-    * 아래의 ' 미리 보기 액세스 사용 ' 섹션에 설명 된 대로 API, PowerShell 또는 CLI를 통해 미리 보기 액세스를 사용 하도록 설정할 수 있습니다.
-1.  Azure Portal에서 새 VM 만들기를 시작 합니다.
+    * 아래 '미리 보기 액세스 사용' 섹션에 설명된 대로 API, PowerShell 또는 CLI를 통해 미리 보기 액세스를 사용하도록 설정할 수 있습니다.
+1.  Azure Portal 새 VM 만들기 시작
     * 미리 보기 중에는 [이 링크](https://aka.ms/ws2022ae-portal-preview)를 사용하여 시작해야 합니다.
 1.  VM을 만드는 동안 세부 정보 제공
-    * 이미지 드롭다운에서 지원 되는 _Windows Server Azure 버전_ 이미지가 선택 되어 있는지 확인 합니다.  [이 가이드](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) 를 사용 하 여 지원 되는 이미지를 확인 합니다.
-    * 관리 탭의 ' 게스트 OS 업데이트 ' 섹션에서 ' hotpatch 사용 ' 확인란을 선택 하 여 미리 보기 상태에서 hotpatch를 평가 합니다.  패치 오케스트레이션 옵션은 ' 오케스트레이션 '로 설정 됩니다. 
-    * ' Azure Automanage ' 섹션의 관리 탭에서 ' Azure Automanage environment '의 ' 개발/테스트 ' 또는 ' 프로덕션 '을 선택 하 여 미리 보기 중에 자동 관리 컴퓨터 모범 사례를 평가 합니다.
+    * 이미지 드롭다운에서 지원되는 _Windows Server Azure Edition_ 이미지를 선택했는지 확인합니다.  [이 가이드를](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) 사용하여 지원되는 이미지를 확인합니다.
+    * '게스트 OS 업데이트' 섹션 아래의 관리 탭에서 '핫 패치 사용' 확인란을 선택하여 미리 보기로 있는 동안 핫 패치를 평가합니다.  패치 오케스트레이션 옵션은 'Azure 오케스트레이션'으로 설정됩니다. 
+    * 'Azure Automanage' 섹션 아래의 관리 탭에서 'Azure Automanage 환경'에 대해 '개발/테스트' 또는 '프로덕션'을 선택하여 미리 보기에 있는 동안 자동 관리 머신 모범 사례를 평가합니다.
     
 1. 새 VM 만들기
 

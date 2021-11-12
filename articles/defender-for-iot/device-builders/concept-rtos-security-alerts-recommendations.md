@@ -2,13 +2,13 @@
 title: Azure RTOS용 Defender-IoT-micro-agent 기본 제공/사용자 지정 가능한 경고 및 권장 사항
 description: Azure IoT Defender-IoT-micro-agent -RTOS를 사용하는 보안 경고 및 권장 수정 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: cfbd411617a0b80f4857e08f9803b34b80b873d4
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: ad6cd708bfdb53068895abc72abb3092e82db818
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018276"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293557"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Azure RTOS용 Defender-IoT-micro-agent 보안 경고 및 권장 사항(미리 보기)
 

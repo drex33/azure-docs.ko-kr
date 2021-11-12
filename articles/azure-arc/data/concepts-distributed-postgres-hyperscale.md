@@ -1,7 +1,7 @@
 ---
-title: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 사용하여 데이터를 배포하고 스케일 아웃하는 개념
+title: Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹을 사용 하 여 데이터를 분산 하 고 확장 하는 개념
 titleSuffix: Azure Arc-enabled data services
-description: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 사용하여 데이터를 배포하는 개념
+description: Azure Arc를 사용 하는 데이터 배포에 대 한 개념-사용 PostgreSQL Hyperscale 서버 그룹
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,14 +10,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 69405ac6386587e6621c67532a8bd7f41450370e
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: aee8700274d074d94b6f6f8e1e153f256cb6e158
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729941"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294203"
 ---
-# <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 사용하여 데이터를 배포하는 개념
+# <a name="concepts-for-distributing-data-with-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc를 사용 하는 데이터 배포에 대 한 개념-사용 PostgreSQL Hyperscale 서버 그룹
 
 이 문서에서는 Azure Arc 지원 PostgreSQL 하이퍼스케일을 최대한 활용할 수 있는 중요한 주요 개념을 설명합니다.
 아래 연결된 문서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에 대해 설명된 개념을 다룹니다. Azure Arc 지원 PostgreSQL 하이퍼스케일과 동일한 기술이므로 동일한 개념과 관점을 적용합니다.
@@ -25,9 +25,9 @@ ms.locfileid: "113729941"
 **두 서비스의 차이점은 무엇인가요?**
 - _Azure Database for PostgreSQL 하이퍼스케일(Citus)_
 
-Azure(PaaS)에서 Database as a Service로 제공되는 Postgres 데이터베이스 엔진의 하이퍼스케일 폼 팩터입니다. 하이퍼스케일 환경을 사용하는 Citus 확장으로 구동됩니다. 이 폼 팩터에서 서비스는 Microsoft 데이터 센터에서 실행되며 Microsoft가 운영합니다.
+Azure(PaaS)에서 Database as a Service로 제공되는 Postgres 데이터베이스 엔진의 하이퍼스케일 폼 팩터입니다. Citus 확장을 기반으로 하 여 하이퍼 크기 조정 환경을 가능 하 게 합니다. 이 폼 팩터에서 서비스는 Microsoft 데이터 센터에서 실행되며 Microsoft가 운영합니다.
 
-- ‘Azure Arc 지원 PostgreSQL 하이퍼스케일’
+- _Azure Azure Arc-사용 PostgreSQL Hyperscale_
 
 Azure Arc 지원 데이터 서비스와 함께 제공되는 Postgres 데이터베이스 엔진의 하이퍼스케일 폼 팩터입니다. 이 폼 팩터에서 고객은 시스템을 호스트하고 운영하는 인프라를 제공합니다.
 
@@ -73,4 +73,3 @@ Azure Arc 지원 Postgres 하이퍼스케일을 최대한 활용하려면 다음
 - [Arc 데이터 컨트롤러의 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 스케일 아웃하는 정보에 관해 알아보기](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Azure Arc 지원 Data Services에 관해 알아보기](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [Azure Arc에 대해 자세히 알아보세요.](https://aka.ms/azurearc)
-

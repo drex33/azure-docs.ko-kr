@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: 8df379fe175db6a70d44ab23acf808379d8720bb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0e2b1711ed8f5a5bcf7059242116ece3e70f1235
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131044288"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332196"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Windows 머신에 Log Analytics 에이전트 설치
 이 문서는 다음 방법을 사용하여 Windows 컴퓨터에 Log Analytics 에이전트를 설치하는 방법을 자세히 설명합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "131044288"
 Log Analytics 에이전트에서 지원하는 Windows 배포 목록은 [Azure Monitor 에이전트 개요](agents-overview.md#supported-operating-systems)를 참조하세요.
 
 ### <a name="sha-2-code-signing-support-requirement"></a>SHA-2 코드 서명 지원 요구 사항 
-Windows 에이전트는 2020년 8월 17일에 SHA-2 서명 독점 사용을 시작합니다. 이 변경 사항은 모든 Azure 서비스(Azure Monitor, Azure Automation, Azure 업데이트 관리, Azure 변경 내용 추적, Azure Security Center, Azure Sentinel, Windows Defender ATP)의 일부로 레거시 OS에서 Log Analytics 에이전트를 사용하는 고객에게 영향을 줍니다. 레거시 OS 버전(Windows 7, Windows Server 2008 R2 및 Windows Server 2008)에서 에이전트를 실행하는 경우 이외에는 이 변경에 따른 고객 조치가 필요 없습니다. 레거시 OS 버전에서 실행하는 고객은 2020년 8월 17일 전에 머신에서 다음 조치를 수행해야 합니다. 그렇지 않으면 해당 에이전트가 Log Analytics 작업 영역으로 데이터 전송을 중지합니다.
+Windows 에이전트는 2020년 8월 17일에 SHA-2 서명 독점 사용을 시작합니다. 이 변경 내용은 모든 Azure 서비스 (Azure Monitor, Azure Automation, azure 업데이트 관리, azure 변경 내용 추적, microsoft Defender for Cloud, microsoft 센티널, Windows Defender ATP)의 일부로 레거시 OS에서 Log Analytics 에이전트를 사용 하는 고객에 게 영향을 줍니다. 레거시 OS 버전(Windows 7, Windows Server 2008 R2 및 Windows Server 2008)에서 에이전트를 실행하는 경우 이외에는 이 변경에 따른 고객 조치가 필요 없습니다. 레거시 OS 버전에서 실행하는 고객은 2020년 8월 17일 전에 머신에서 다음 조치를 수행해야 합니다. 그렇지 않으면 해당 에이전트가 Log Analytics 작업 영역으로 데이터 전송을 중지합니다.
 
 1. OS의 최신 서비스 팩을 설치합니다. 필요한 서비스 팩 버전은 다음과 같습니다.
     - Windows 7 SP1

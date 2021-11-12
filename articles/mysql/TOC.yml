@@ -60,7 +60,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -153,7 +153,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: 서버 다시 시작
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -206,10 +206,12 @@
           items:
             - name: 서버 복원
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restore-server-cli.md
+            - name: 삭제된 서버 복원
+              href: flexible-server/how-to-restore-dropped-server.md
         - name: 문제 해결
           items:
             - name: 연결 오류 문제 해결
@@ -305,7 +307,7 @@
               displayName: firewall
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -350,7 +352,7 @@
               items:
                 - name: SSL 구성
                   href: concepts-ssl-connection-security.md
-            - name: Azure Defender를 사용하여 위협 보호
+            - name: Microsoft Defender for Cloud를 통한 위협 방지
               href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
             - name: 휴지 상태의 암호화
               items:

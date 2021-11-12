@@ -1,23 +1,23 @@
 ---
 title: 상업용 Marketplace를 대상으로 한 Azure 애플리케이션 제품 계획
-description: 파트너 센터를 사용 하 여 Azure Marketplace에 대 한 Azure 응용 프로그램 제품을 계획 합니다.
+description: 파트너 센터 사용하여 Azure Marketplace Azure 애플리케이션 제안을 계획합니다.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: d8058181ea56fdfc7465748f7ebf519c51422f64
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.date: 11/11/2021
+ms.openlocfilehash: c107f3a22869c204691053662373b599489ffb4e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070891"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308260"
 ---
 # <a name="plan-an-azure-application-offer"></a>Azure 애플리케이션 제안 계획
 
-이 문서에서는 상용 marketplace에 Azure 애플리케이션 제품을 게시 하기 위한 다양 한 옵션 및 요구 사항을 설명 합니다.
+이 문서에서는 상업용 Marketplace에 Azure 애플리케이션 제안을 게시하기 위한 다양한 옵션 및 요구 사항을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -46,7 +46,7 @@ Azure 애플리케이션 제품을 디자인, 빌드 및 테스트하려면 Azur
     - [Azure PowerShell](../azure-resource-manager/managed-applications/powershell-samples.md)
     - [관리되는 애플리케이션 솔루션](../azure-resource-manager/managed-applications/sample-projects.md)
 
-[Azure Marketplace에 대 한 솔루션 템플릿 및 관리 되는 응용](https://channel9.msdn.com/Events/Build/2018/BRK3603) 프로그램은 Azure 응용 프로그램 제품 유형에 대 한 포괄적인 소개를 제공 합니다.
+솔루션 [템플릿 빌드 및 Azure Marketplace 관리되는 애플리케이션](https://channel9.msdn.com/Events/Build/2018/BRK3603) 비디오는 Azure 애플리케이션 제안 유형을 포괄적으로 소개합니다.
 
 - 사용 가능한 제품 유형
 - 필요한 기술 자산
@@ -108,7 +108,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 
 ## <a name="offer-listing-details"></a>제품 목록 세부 정보
 
-파트너 센터에서 새 Azure 애플리케이션 제품을 만들 때 제품 목록 페이지에 텍스트, 이미지, 선택적 비디오, 기타 세부 정보를 입력합니다. 다음 예에 표시 된 것 처럼 Azure Marketplace에서 제품 목록을 검색할 때 표시 되는 정보입니다.
+파트너 센터에서 새 Azure 애플리케이션 제품을 만들 때 제품 목록 페이지에 텍스트, 이미지, 선택적 비디오, 기타 세부 정보를 입력합니다. 다음 예제와 같이 고객이 Azure Marketplace 제안 목록을 검색할 때 표시되는 정보입니다.
 
 :::image type="content" source="media/create-new-azure-app-offer/example-azure-marketplace-app.png" alt-text="이 제품이 Azure Marketplace에 어떻게 표시되는지 보여 줍니다.":::
 
@@ -131,7 +131,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 #### <a name="call-out-descriptions"></a>설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
@@ -173,7 +173,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
   - 로고가 늘어나지 않았는지 확인합니다.
 
 - **미디어 - 스크린샷**(선택 사항): 제품의 작동 방식을 보여 주는 스크린샷을 추가하는 것이 좋습니다. 다음 요구 사항에 따라 제품의 작동 방식을 보여 주는 스크린샷을 5개까지 추가할 수 있습니다.
-  - 1280x720 픽셀
+  - 1280x720픽셀
   - .PNG 파일
   - 자막 포함
 - **미디어 - 비디오**(선택 사항): 다음 요구 사항에 따라 제품을 설명하는 비디오를 5개까지 추가할 수 있습니다.

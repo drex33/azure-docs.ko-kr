@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: c0502b880d23e9f0a63564f11473f48e1c01b096
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: f92d776239bccb457f6d9fe9b073ea64a56178a8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236558"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286434"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
@@ -219,7 +219,7 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 이 차트를 통해 고객은 다른 문제 발생 여부에 관계없이, 추측을 하거나 지원을 요청하지 않고 직접 배포 문제를 해결할 수 있습니다. 잘못된 구성 또는 실패한 애플리케이션 때문에 상태 프로브가 실패했으므로 서비스는 사용할 수 없었습니다.
 </details>
 
-## <a name="configure-alerts-for-multi-dimensional-metrics"></a>다차원 메트릭에 대한 경고 구성 ###
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>다차원 메트릭에 대한 경고 구성
 
 Azure 표준 Load Balancer는 다차원 메트릭에 대해 쉽게 구성할 수 있는 경고를 지원합니다. 다양한 심각도 수준으로 경고를 트리거하도록 특정 메트릭에 대한 사용자 지정 임계값을 구성하여 터치리스 리소스 모니터링 환경을 강화합니다.
 

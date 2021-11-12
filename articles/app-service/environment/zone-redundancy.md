@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a60ab8498076eb6380657b9cd57a3f8d0db31da2
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 551146d18fa17aac365d62dbd1f8cbaa2d23a389
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576418"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284763"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Azure App Service Environment에 대한 가용성 영역 지원
 
@@ -49,7 +49,7 @@ ILB ASE는 특정 영역에 고정되므로 AZ에 명시적으로 배포된 ILB 
 
 영역 ILB ASE에 배포된 애플리케이션은 계속 실행되고 같은 지역의 다른 영역이 중단되는 경우에도 해당 ASE에 대한 트래픽을 제공합니다.  애플리케이션 서비스 플랜 스케일링, 애플리케이션 만들기, 애플리케이션 구성, 애플리케이션 게시를 포함한 런타임 이외 동작은 다른 가용성 영역에서 발생하는 중단의 영향을 계속 받을 수 있습니다. 영역 ILB ASE의 영역 고정 배포는 이미 배포된 애플리케이션의 지속적인 작동 시간만 보장합니다.
 
-## <a name="how-to-deploy-an-app-service-environment-in-an-availability-zone"></a>가용성 영역에서 App Service Environment를 배포하는 방법 ##
+## <a name="how-to-deploy-an-app-service-environment-in-an-availability-zone"></a>가용성 영역에서 App Service Environment를 배포하는 방법
 
 영역 ILB ASE는 ARM 템플릿을 사용하여 만들어야 합니다. 영역 ILB ASE는 ARM 템플릿을 통해 생성된 후 Azure Portal 및 CLI를 통해 보고 상호 작용할 수 있습니다.  ARM 템플릿은 영역 ILB ASE를 처음 만드는 경우에만 필요합니다.
 
@@ -57,7 +57,7 @@ ILB ASE는 특정 영역에 고정되므로 AZ에 명시적으로 배포된 ILB 
 
 아래 예제 ARM 템플릿 코드 조각에서는 ILB ASE를 영역 2에 고정하도록 지정하는 새로운 ***zones*** 속성을 보여 줍니다.
 
-```
+```json
 "resources": [
     {
         "type": "Microsoft.Web/hostingEnvironments",
@@ -85,7 +85,7 @@ ILB ASE는 특정 영역에 고정되므로 AZ에 명시적으로 배포된 ILB 
 
 앱 영역을 중복으로 만들려면 두 개의 영역 ILB ASE를 배포해야 합니다. 두 영역 ILB ASE는 개별 가용성 영역에 있어야 합니다. 그런 다음, 각 ILB ASE에 앱을 배포해야 합니다. 앱이 생성된 후 부하 분산 솔루션을 구성해야 합니다. 권장 솔루션은 영역 ILB ASE의 [영역 중복 Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) 업스트림을 배포하는 것입니다. 
 
-## <a name="in-region-data-residency"></a>지역 내 데이터 보존 ##
+## <a name="in-region-data-residency"></a>지역 내 데이터 보존
 
 가용성 영역에 배포된 ILB ASE는 영역 ILB ASE가 배포된 지역 내 고객 데이터만 저장합니다. 웹 사이트 파일 콘텐츠와 App Service에 저장된 고객이 제공한 설정 및 비밀은 둘 다 영역 ILB ASE가 배포된 지역 내에 남아 있습니다.
 

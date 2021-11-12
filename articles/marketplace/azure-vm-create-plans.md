@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/13/2021
-ms.openlocfilehash: 1e83714026ac0d2ac50a4b30d358e127b92e99b2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/10/2021
+ms.openlocfilehash: b8464f8f919b05647ef053c78573692975fd0b63
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433558"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305905"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>가상 머신 제품 플랜 만들기
 
@@ -239,14 +239,14 @@ Windows **릴리스** 또는 Linux **공급업체** 를 선택합니다.
 이 두 필수 필드는 위의 이전 이미지에 표시되어 있습니다.
 
 - **디스크 버전**: 제공하는 이미지의 버전입니다.
-- **OS VHD 링크**: Azure 공유 이미지 갤러리에 저장된 이미지입니다. [공유 이미지 갤러리](azure-vm-create-using-approved-base.md#capture-image)에서 이미지를 캡처하는 방법에 대해 알아보세요.
+- **OS VHD 링크**: Azure 계산 갤러리에 저장 된 이미지 (이전에는 공유 이미지 갤러리로 인식 됨). [Azure Compute 갤러리](azure-vm-create-using-approved-base.md#capture-image)에서 이미지를 캡처하는 방법에 대해 알아봅니다.
 
 데이터 디스크(**데이터 디스크 추가(최대 16개) 선택**)는 Azure 스토리지 계정에 저장된 VHD 공유 액세스 서명 URI이기도 합니다. 플랜에서 제출당 하나의 이미지만 추가합니다.
 
 사용하는 운영 체제에 관계없이 솔루션에 필요한 최소 수의 데이터 디스크만 추가합니다. 배포 중에 고객은 이미지의 일부인 디스크를 제거할 수 없지만, 배포 중 또는 배포 후에 언제든지 디스크를 추가할 수 있습니다.
 
 > [!NOTE]
-> SAS를 사용하여 이미지를 제공하고 데이터 디스크가 있는 경우, SAS URI로도 제공해야 합니다. 공유 이미지를 사용하는 경우 공유 이미지 갤러리에서 이미지의 일부로 캡처됩니다. 제품이 Azure Marketplace에 게시되면 Azure 스토리지 또는 공유 이미지 갤러리에서 이미지를 삭제할 수 있습니다.
+> SAS를 사용하여 이미지를 제공하고 데이터 디스크가 있는 경우, SAS URI로도 제공해야 합니다. 공유 이미지를 사용 하는 경우 Azure Compute 갤러리에서 이미지의 일부로 캡처됩니다. 제품이 Azure Marketplace 게시 되 면 Azure storage 또는 Azure Compute 갤러리에서 이미지를 삭제할 수 있습니다.
 
 **초안 저장** 을 선택한 다음 왼쪽 위에서 **← 플랜 개요** 를 선택하여 방금 만든 플랜을 확인합니다.
 

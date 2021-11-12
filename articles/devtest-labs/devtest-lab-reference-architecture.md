@@ -4,12 +4,12 @@ description: 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs에 
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e76219222db1dbe6aa7cdc7d7a2ef5be995109e1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4714d143fd0f31bfd1c0570c37013fc15c2887cc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652361"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283549"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈의 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs 기반 솔루션을 배포하는 데 도움이 되는 참조 아키텍처를 제공합니다. 이 문서의 내용은 다음과 같습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "128652361"
 
 ![참조 아키텍처 다이어그램](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 다음은 참조 아키텍처의 주요 요소입니다.
 
 - **Azure AD(Azure Active Directory)** : DevTest Labs에서는 [ID 관리에 Azure AD 서비스](../active-directory/fundamentals/active-directory-whatis.md)를 사용합니다. DevTest Labs를 기반으로 환경에 대한 액세스 권한을 사용자에게 부여하는 경우 다음 두 가지 주요 측면을 고려하세요.
@@ -57,7 +57,7 @@ DevTest Labs에는 단일 랩으로 작업하기 위한 뛰어난 관리자 인�
 - **랩 설정에 대한 변경 제한**: 종종 특정 설정(예: 마켓플레이스 이미지 사용 허용)을 제한해야 합니다. Azure Policy를 사용하여 리소스 종류에 대한 변경을 방지할 수 있습니다. 또는 사용자 지정 역할을 만들어 랩의 *소유자* 역할 대신 이 역할을 사용자에게 부여할 수 있습니다. 랩의 대부분 설정(내부 지원, 랩 알림, 허용된 VM 크기 등)에 대해 이처럼 할 수 있습니다.
 - **이 명명 규칙을 따르도록 요구**: 일반적으로 관리자는 클라우드 기반 개발 환경과 테스트 환경에 속한 VM을 쉽게 식별하고자 합니다. [Azure Policy](https://github.com/Azure/azure-policy/tree/master/samples/TextPatterns/allow-multiple-name-patterns)를 사용하여 이처럼 할 수 있습니다.
 
-DevTest Labs는 동일한 방식으로 관리되는 기본 Azure 리소스 (네트워킹, 디스크, 컴퓨팅 등)를 사용합니다. 예를 들어 Azure Policy는 랩에서 만든 가상 머신에 적용됩니다. Azure Security Center는 VM 준수에 대해 보고할 수 있고 Azure Backup 서비스는 랩의 VM에 대한 정기 백업을 제공할 수 있습니다.
+DevTest Labs는 동일한 방식으로 관리되는 기본 Azure 리소스 (네트워킹, 디스크, 컴퓨팅 등)를 사용합니다. 예를 들어 Azure Policy는 랩에서 만든 가상 머신에 적용됩니다. 클라우드 용 Microsoft Defender는 VM 준수에 대해 보고할 수 있습니다. Azure Backup 서비스는 랩의 VM에 대한 정기 백업을 제공할 수 있습니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 Azure DevTest Labs는 Azure에서 기존 리소스(컴퓨팅, 네트워킹 등)를 사용합니다. 따라서 플랫폼에 기본 제공되는 보안 기능을 자동으로 활용합니다. 예를 들어 들어오는 원격 데스크톱 연결이 회사 네트워크에서만 시작되도록 하려면 원격 데스크톱 게이트웨이의 가상 네트워크에 네트워크 보안 그룹을 추가하기만 하면 됩니다. 유일한 추가 보안 고려 사항은 일상적으로 랩을 사용하는 팀 구성원에게 부여하는 권한 수준입니다. 가장 일반적인 권한은 [*소유자* 와 *사용자*](devtest-lab-add-devtest-user.md)입니다. 역할에 대한 자세한 내용은 [Azure DevTest Labs에 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md)를 참조하세요.

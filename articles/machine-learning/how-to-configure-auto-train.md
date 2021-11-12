@@ -11,12 +11,12 @@ ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 0b8d9b3beaf965cc8c5c745d243da429c0de10e4
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c175c0340c954aa86f35cf808031b08130db7036
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131561027"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286301"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
@@ -100,7 +100,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 |**20,000개&nbsp;행보다&nbsp;더&nbsp;큼**| 학습/유효성 검사 데이터 분할이 적용됩니다. 기본값은 초기 학습 데이터 세트의 10%를 유효성 검사 세트로 사용하는 것입니다. 그러면 해당 유효성 검사 집합이 메트릭 계산에 사용됩니다.
 |**20,000개&nbsp;행보다&nbsp;더&nbsp;작음**| 교차 유효성 검사 방법이 적용됩니다. 기본 접기 횟수는 행의 수에 따라 달라집니다. <br> **데이터 세트의 행이 1,000개 이하인 경우** 10겹 접기가 사용됩니다. <br> **행이 1,000개~20,000개 사이인 경우** 3겹 접기가 사용됩니다.
 
-지금은 모델 평가를 위한 사용자 고유의 **테스트 데이터** 를 제공해야 합니다. 모델 평가를 위한 고유한 테스트 데이터를 가져오는 코드 예제는 [이 Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)의 **테스트** 섹션을 참조하세요.
+지금은 모델 평가를 위한 사용자 고유의 **테스트 데이터** 를 제공해야 합니다. 모델 평가를 위한 고유한 테스트 데이터를 가져오는 코드 예제는 [이 Jupyter Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)의 **테스트** 섹션을 참조하세요.
 
 ### <a name="large-data"></a>큰 데이터 
 
@@ -122,11 +122,11 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 다음으로, 모델을 학습할 위치를 결정합니다. 자동화된 ML 학습 실험은 다음과 같은 컴퓨팅 옵션에서 실행할 수 있습니다. [로컬 및 원격 컴퓨팅의 장단점](concept-automated-ml.md#local-remote) 옵션에 대해 알아봅니다. 
 
-* 데스크톱이나 랩톱 같은 사용자의 **로컬** 머신 - 일반적으로 데이터 세트가 작은 경우 및 아직 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
+* 데스크톱이나 랩톱 같은 사용자의 **로컬** 머신 - 일반적으로 데이터 세트가 작은 경우 및 아직 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
  
 * 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 계산 인스턴스는 계산 대상으로도 지원 됩니다.
 
-    Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
+    Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
 * Azure 구독의 **Azure Databricks 클러스터**. 자세한 내용은 [자동화된 ML에 대한 Azure Databricks 클러스터 설정](how-to-configure-databricks-automl-environment.md)에서 확인할 수 있습니다. Azure Databricks를 사용하는 Notebook의 예제는 [이 GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)를 참조하세요.
 
@@ -231,7 +231,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 정확한 값 대신 순위가 관심 있는 경우 `spearman_correlation` 실제 값과 예측 간의 순위 상관 관계를 측정하기 때문에 더 나은 선택이 될 수 있습니다.
 
-그러나 현재 회귀 주소에 대한 기본 메트릭은 상대적 차이가 없습니다. 이러한 `r2_score` `normalized_mean_absolute_error` 두 데이터 요소가 `normalized_root_mean_squared_error` 회귀를 위해 동일한 데이터 세트에 속하는 경우 , 및 는 $20k의 급여가 $30k인 작업자에 대해 $20k 예측 오류를 동일하게 처리합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). 상대적 차이 문제를 해결하기 위해 사용 가능한 기본 메트릭을 사용하여 모델을 학습한 다음, 또는 가 가장 적합한 모델을 선택할 수 `mean_absolute_percentage_error` `root_mean_squared_log_error` 있습니다.
+그러나 현재 회귀 주소에 대한 기본 메트릭은 상대적 차이가 없습니다. 이러한 `r2_score` `normalized_mean_absolute_error` 두 데이터 요소가 `normalized_root_mean_squared_error` 회귀를 위해 동일한 데이터 세트에 속하는 경우 , 및 는 $30k 급여가 $20,000인 작업자에 대해 $20k 예측 오류를 동일하게 처리합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). 상대적 차이 문제를 해결하기 위해 사용 가능한 기본 메트릭을 사용하여 모델을 학습한 다음, 또는 가 가장 적합한 모델을 선택할 수 `mean_absolute_percentage_error` `root_mean_squared_log_error` 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |

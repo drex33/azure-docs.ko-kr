@@ -9,12 +9,12 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 08/27/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2c75b1ae5112b758282941efb20be245fed4d22d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5affe181185d726432596bfda6dad6f4f041de80
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014242"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277926"
 ---
 # <a name="backup-and-restore-plan-to-protect-against-ransomware"></a>랜섬웨어로부터 보호하기 위한 백업 및 복원 계획
 
@@ -127,7 +127,7 @@ Azure Backup에 기본 제공되는 [보안 기능](../../backup/security-overvi
 | 복구에 필요한 지원 문서 및 시스템(예: 복원 절차 문서, CMDB 및 네트워크 다이어그램, SolarWinds 인스턴스)를 보호(또는 인쇄)합니다. | 복구 능력에 영향을 미치기 때문에 공격자는 이러한 리소스를 의도적으로 표적화합니다. |
 | 타사 지원, 특히 위협 인텔리전스 공급자, 맬웨어 방지 솔루션 공급자, 맬웨어 분석 공급자 등을 지원하기 위한 잘 문서화된 절차가 있는지 확인합니다. 이러한 절차를 보호(또는 인쇄)합니다. | 타사 연락처는 지정된 랜섬웨어 변형에 알려진 약점 또는 암호 해독 도구를 사용할 수 있는 경우에 유용할 수 있습니다. |
 | 백업 및 복구 전략에 다음이 포함되는지 확인합니다. <br><br>특정 시점에 데이터를 백업하는 기능. <br><br>여러 백업 복사본이 격리된 오프라인(air-gapped) 위치에 저장됩니다. <br><br>백업 정보를 신속하게 검색하고 프로덕션 환경에 배치하는 방법을 설정하는 복구 시간 목표. <br><br>프로덕션 환경/샌드박스 백업의 신속한 복원. | 백업은 조직이 공격당한 후의 복원력에 필수적입니다. 최대 보호 및 가용성에 대해 3-2-1 규칙 적용: 3개 사본 (원본 + 2개 백업), 2개의 저장소 유형, 1개의 오프사이트 또는 콜드 복사를 적용합니다. |
-| 고의적인 삭제 및 암호화로부터 백업을 보호합니다. <br><br>오프라인 또는 오프사이트 저장소 및 변경할 수 없는 저장소에 백업을 저장합니다. <br><br>온라인 백업을 수정하거나 지울 수 있도록 허용하기 전에, 대역 외 단계(예: [MFA](../../active-directory/authentication/concept-mfa-howitworks.md) 또는 보안 PIN)가 필요합니다. <br><br>Azure Virtual Network 내에서 프라이빗 엔드포인트를 만들어 Recovery Services 자격 증명 모음에서 데이터를 안전하게 백업하고 복원합니다. | 공격자가 액세스할 수 있는 백업은 비즈니스 복구에 사용할 수 없는 것으로 렌더링될 수 있습니다. <br><br>오프라인 스토리지를 통해 네트워크 대역폭을 사용하지 않고도 백업 데이터를 강력하게 전송할 수 있습니다. Azure Backup은 네트워크 대역폭을 사용하지 않고 오프라인으로 초기 백업 데이터를 전송하는 [오프라인 백업](../../backup/offline-backup-overview.md)을 지원합니다. 백업 데이터를 실제 스토리지 디바이스에 복사하는 메커니즘을 제공합니다. 그런 다음, 디바이스가 가까운 Azure 데이터 센터에 배송되어 [Recovery Services 자격 증명 모음](../../backup/backup-azure-recovery-services-vault-overview.md)에 업로드됩니다. <br><br>[Azure Blob](../../storage/blobs/immutable-storage-overview.md) 등 변경 불가능한 온라인 스토리지를 사용하면, 사용자가 중요 비즈니스용 데이터 개체를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. <br><br>[MFA(다단계 인증)는](../../active-directory/authentication/concept-mfa-howitworks.md) 모든 관리자 계정에 필수여야 하며 모든 사용자에게 매우 권장됩니다. 가능하면 SMS 또는 음성이 아닌 인증자 앱을 사용하는 것이 좋습니다. Azure Backup을 설정할 때, Azure Portal에서 생성된 보안 PIN을 사용하여 MFA를 사용하도록 복구 서비스를 구성할 수 있습니다. 이렇게 하면 복구 지점 업데이트 또는 제거와 같은 중요한 작업을 수행하기 위해 보안 pin이 생성됩니다. |
+| 고의적인 삭제 및 암호화로부터 백업을 보호합니다. <br><br>오프라인 또는 오프사이트 저장소 및 변경할 수 없는 저장소에 백업을 저장합니다. <br><br>온라인 백업을 수정하거나 지울 수 있도록 허용하기 전에, 대역 외 단계(예: [MFA](../../active-directory/authentication/concept-mfa-howitworks.md) 또는 보안 PIN)가 필요합니다. <br><br>Azure Virtual Network 내에서 프라이빗 엔드포인트를 만들어 Recovery Services 자격 증명 모음에서 데이터를 안전하게 백업하고 복원합니다. | 공격자가 액세스할 수 있는 백업은 비즈니스 복구에 사용할 수 없는 것으로 렌더링될 수 있습니다. <br><br>오프라인 스토리지를 통해 네트워크 대역폭을 사용하지 않고도 백업 데이터를 강력하게 전송할 수 있습니다. Azure Backup은 네트워크 대역폭을 사용하지 않고 오프라인으로 초기 백업 데이터를 전송하는 [오프라인 백업](../../backup/offline-backup-overview.md)을 지원합니다. 백업 데이터를 실제 스토리지 디바이스에 복사하는 메커니즘을 제공합니다. 그런 다음, 디바이스가 가까운 Azure 데이터 센터에 배송되어 [Recovery Services 자격 증명 모음](../../backup/backup-azure-recovery-services-vault-overview.md)에 업로드됩니다. <br><br>[Azure Blob](../../storage/blobs/immutable-storage-overview.md) 등 변경 불가능한 온라인 스토리지를 사용하면, 사용자가 중요 비즈니스용 데이터 개체를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. <br><br>[MFA (다단계 인증)](../../active-directory/authentication/concept-mfa-howitworks.md) 는 모든 관리자 계정에 반드시 필요 하며 모든 사용자에 게 적극 권장 됩니다. 가능하면 SMS 또는 음성이 아닌 인증자 앱을 사용하는 것이 좋습니다. Azure Backup을 설정할 때, Azure Portal에서 생성된 보안 PIN을 사용하여 MFA를 사용하도록 복구 서비스를 구성할 수 있습니다. 이렇게 하면 복구 지점 업데이트 또는 제거와 같은 중요한 작업을 수행하기 위해 보안 pin이 생성됩니다. |
 | [보호된 폴더](/windows/security/threat-protection/microsoft-defender-atp/controlled-folders)를 지정합니다. | 권한 없는 애플리케이션이 이러한 폴더의 데이터를 수정하기가 더 어려워집니다. |
 | 사용 권한을 검토합니다. <br><br>파일 공유, SharePoint 및 기타 솔루션에 대한 광범위한 쓰기/삭제 권한을 검색합니다. 광범위란 중요 비즈니스용 데이터에 대한 쓰기/삭제 권한이 있는 여러 사용자로 정의됩니다. <br><br>비즈니스 협업 요구 사항을 충족하는 한편, 광범위한 사용 권한을 줄입니다. <br><br>광범위한 권한이 다시 나타나지 않도록 감사 및 모니터링을 수행합니다. | 광범위한 액세스를 허용하는 랜섬웨어 활동의 위험을 줄입니다. |
 | 피싱 시도로부터 보호: <br><br>사용자가 피싱 시도를 식별하는 데 도움이 되는 보안 인식 교육을 정기적으로 수행하고 손상에 대한 초기 진입점이 되는 항목을 클릭하지 않도록 합니다. <br><br>이메일에 보안 필터링 컨트롤을 적용하여 성공적인 피싱 시도의 가능성을 감지하고 최소화합니다. | 공격자가 조직을 침입하는 데 사용하는 가장 일반적인 방법은 이메일을 통한 피싱 시도입니다. [EOP(Exchange Online Protection)](/microsoft-365/security/office-365-security/exchange-online-protection-overview)는 메일, 맬웨어 및 기타 이메일 위협으로부터 조직을 보호하는 클라우드 기반 필터링 서비스입니다. EOP는 Exchange Online 사서함이 있는 모든 Microsoft 365 조직에 포함됩니다. <br><br>이메일에 대한 보안 필터링 제어의 예로는 [Safe Links](/microsoft-365/security/office-365-security/safe-links)가 있습니다. Safe Links는 메일 흐름에서 인바운드 이메일 메시지의 URL 검색 및 재작성, URL 및 이메일 메시지와 기타 위치의 링크의 클릭 시 검증을 제공하는 Office 365에 대한 Defender의 기능입니다. EOP의 인바운드 메일 메시지에서 정기 스팸 방지 및 맬웨어 방지와 함께 Safe Links 검색이 수행됩니다. Safe Links 검색을 사용하면 피싱 및 기타 공격에 사용되는 악성 링크를 통해 조직을 보호할 수 있습니다. <br><br>[피싱 방지 보호](/microsoft-365/security/office-365-security/tuning-anti-phishing)에 대해 자세히 알아보세요. |
@@ -173,7 +173,7 @@ Microsoft Azure:
 
 - [Microsoft Azure Backup으로 랜섬웨어로부터 보호하기](https://www.youtube.com/watch?v=VhLOr2_1MCg)(26분 동영상)
 - [시스템 ID 손상으로부터 복구](./recover-from-identity-compromise.md)
-- [Azure Sentinel의 고급 다단계 공격 감지](../../sentinel/fusion.md#fusion-for-ransomware)
+- [Microsoft 센티널의 Advanced 다단계 공격 감지](../../sentinel/fusion.md#fusion-for-ransomware)
 
 Microsoft 365:
 

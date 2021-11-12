@@ -4,18 +4,18 @@ description: 이 문서에서는 Azure Resource Manager 템플릿을 통하여 �
 ms.date: 07/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f1ea92383242cb5b1b1a1d09f33f947ff07113c5
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: d0d23aa44de29eb71f64e80b8422a826ef7fa0f4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389810"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132348020"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용하여 Azure VM 확장 사용하기
 
 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Arc 지원 서버가 지원하는 Azure VM 확장을 배포하는 방법을 보여 줍니다.
 
-Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Arc 지원 서버가 지원하는 VM 확장을 통하여 Azure PowerShell을 사용하여 Linux나 Windows 컴퓨터에서 지원되는 VM 확장을 배포할 수 있습니다. 아래 각각의 샘플에는 템플릿에 제공할 샘플 값이 입력된 템플릿 파일과 매개 변수 파일이 들어 있습니다.
+Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Azure Arc 지원되는 서버에서 지원되는 VM 확장을 사용하면 linux 또는 Azure PowerShell 사용하여 Windows 머신에 지원되는 VM 확장을 배포할 수 있습니다. 아래 각각의 샘플에는 템플릿에 제공할 샘플 값이 입력된 템플릿 파일과 매개 변수 파일이 들어 있습니다.
 
 >[!NOTE]
 >여러 확장을 함께 일괄 처리하고 프로세스할 수 있지만, 설치는 순차적으로 진행됩니다. 첫 번째 확장 설치가 완료되면 다음 확장을 설치하려고 시도합니다.
@@ -143,7 +143,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 사용자 지정 스크립트 확장을 사용하기 위하여 Windows와 Linux에서 실행되는 다음 샘플이 제공됩니다. 사용자 지정 스크립트 확장에 익숙하지 않다면, [Windows용 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)이나 [Linux용 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-linux.md)을 참조하세요. 하이브리드 컴퓨터에 해당 확장을 사용할 때 반드시 알아야 하는 몇 가지 특성이 있습니다.
 
-* Azure VM 사용자 지정 스크립트 확장을 사용하는 지원되는 운영 체제 목록은 Azure Arc 지원 서버에 적용할 수 없습니다. Arc 지원 서버에 대하여 지원되는 OS 목록은 [여기](agent-overview.md#supported-operating-systems)에서 확인할 수 있습니다.
+* Azure VM 사용자 지정 스크립트 확장을 사용하는 지원되는 운영 체제 목록은 Azure Arc 지원 서버에 적용할 수 없습니다. Azure Arc 지원되는 서버에 대해 지원되는 OS 목록은 [여기에서](agent-overview.md#supported-operating-systems)찾을 수 있습니다.
 
 * Azure Virtual Machine Scale Sets 또는 클래식 VM과 관련된 구성 세부 정보는 적용할 수 없습니다.
 
@@ -529,15 +529,15 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 디스크에 템플릿 파일을 저장합니다. 그런 뒤에 다음 명령을 사용하여 연결된 컴퓨터에 해당 확장을 배포할 수 있습니다.
 
 > [!NOTE]
-> VM 확장에는 키 자격 증명 모음에 인증하기 위하여 할당된 시스템 할당 ID가 필요합니다. Windows 및 Linux Arc 지원 서버에 대하여 [관리형 ID를 사용하여 키 자격 증명 모음에 인증하는 방법](managed-identity-authentication.md)을 참조하세요.
+> VM 확장에는 키 자격 증명 모음에 인증하기 위하여 할당된 시스템 할당 ID가 필요합니다. Windows 및 Linux Azure Arc 지원 서버에 [대해 관리 ID를 사용하여](managed-identity-authentication.md) Key Vault 인증하는 방법을 참조하세요.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
 ```
 
-## <a name="deploy-the-azure-defender-integrated-scanner"></a>Azure Defender 통합 스캐너 배포하기
+## <a name="deploy-the-microsoft-defender-for-cloud-integrated-scanner"></a>클라우드용 Microsoft Defender 통합 스캐너 배포
 
-Azure Defender 통합 스캐너 확장을 사용하기 위하여 Windows와 Linux에서 실행되는 다음 샘플이 제공됩니다. 통합 스캐너에 익숙하지 않다면, 하이브리드 컴퓨터용 [Azure Defender의 취약성 평가 솔루션 개요](../../security-center/deploy-vulnerability-assessment-vm.md)를 참조하세요.
+클라우드용 Microsoft Defender 통합 스캐너 확장을 사용하기 위해 Windows 및 Linux에서 실행하기 위해 다음 샘플이 제공됩니다. 통합 스캐너에 익숙하지 않은 경우 하이브리드 [머신에 대한 클라우드용 Microsoft Defender 취약성 평가 솔루션 개요를](../../security-center/deploy-vulnerability-assessment-vm.md) 참조하세요.
 
 ### <a name="template-file-for-windows"></a>Windows용 템플릿 파일
 

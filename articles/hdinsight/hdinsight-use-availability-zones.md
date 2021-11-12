@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 09/01/2021
-ms.openlocfilehash: 1b516db029c5769526f8345d5f6ecdb96c5fad6c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 37d15255e469c369086954f08a1401a82641d838
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441490"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281819"
 ---
 # <a name="create-an-hdinsight-cluster-that-uses-availability-zones-preview"></a>가용성 영역 사용하는 HDInsight 클러스터 만들기(미리 보기)
 
 Azure HDInsight 클러스터는 여러 노드(헤드 노드, 작업자 노드, 게이트웨이 노드 및 Zookeeper 노드)로 구성됩니다. 기본적으로 가용성 영역 지원하는 지역에서는 가용성 영역이 프로비전되는 클러스터 노드를 제어할 수 없습니다. 
 
-이 새로운 가용성 영역 기능을 통해 사용자는 이제 HDInsight 클러스터의 모든 노드를 호스트할 가용성 영역을 지정할 수 있습니다. 클러스터 노드는 다른 가용성 영역과 물리적으로 분리되며 동일한 지역의 다른 가용성 영역 오류로부터 격리됩니다. 또한 이 배포 모델은 클러스터 내에서 저렴하고 짧은 대기 시간 네트워크 연결을 제공합니다. 
+이 새로운 가용성 영역 기능을 사용하면 사용자는 이제 HDInsight 클러스터의 모든 노드를 호스트할 가용성 영역을 지정할 수 있습니다. 클러스터 노드는 다른 가용성 영역에서 물리적으로 분리되며 동일한 지역의 다른 가용성 영역 오류로부터 격리됩니다. 또한 이 배포 모델은 클러스터 내에서 저렴하고 짧은 대기 시간 네트워크 연결을 제공합니다. 
 
 이 배포 모델을 여러 가용성 영역 복제하면 하드웨어 오류로부터 보호하기 위한 높은 수준의 가용성을 제공할 수 있습니다.
 
@@ -52,7 +52,7 @@ HDInsight 클러스터는 현재 다음 지역의 가용성 영역을 사용하�
 
 ## <a name="overview-of-availability-zones-for-hdinsight-clusters"></a>HDInsight 클러스터의 가용성 영역 개요
 
-가용성 영역은 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. Azure에서 지역에는 하나 이상의 가용성 영역 포함되어 있습니다. 지역 내에서 가용성 영역을 물리적으로 분리하는 것은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호합니다. 자세한 내용은 [Azure의 가용성 영역이란?을 참조하세요.](../availability-zones/az-overview.md)
+가용성 영역은 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. Azure에서 지역에는 하나 이상의 가용성 영역 포함되어 있습니다. 지역 내에서 가용성 영역을 물리적으로 분리하는 것은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호합니다. 자세한 내용은 [Azure의 가용성 영역이란?을](../availability-zones/az-overview.md)참조하세요.
 
 Azure HDInsight 클러스터는 하나의 가용성 영역 내에 배포하도록 구성할 수 있습니다. 헤드 노드 2개, Zookeeper 노드 3개, 게이트웨이 노드 2개, 작업자 노드 1개를 포함한 이 HDInsight 클러스터의 모든 노드는 지정된 가용성 영역에 배치됩니다.  예를 들어 미국 동부에는 세 개의 가용성 영역이 있습니다. 가용성 영역 1의 모든 노드를 통해 미국 동부의 HDInsight 클러스터를 만들 수 있습니다. 
 
@@ -101,7 +101,7 @@ HDInsight 클러스터가 준비되면 위치를 확인하여 배포된 가용�
 
 **단점**: 
 
- - HDInsight의 가용성 영역 기능은 관리 디스크가 필요한 클러스터를 지원하지 않습니다(Kafka 클러스터 및 가속 쓰기 기능 사용 HBase 클러스터). 
+ - HDInsight의 가용성 영역 기능은 관리 디스크가 필요한 클러스터(Kafka 클러스터 및 가속 쓰기 기능 사용 HBase 클러스터)를 지원하지 않습니다. 
 
 ## <a name="best-practices"></a>모범 사례
 

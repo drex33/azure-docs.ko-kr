@@ -352,9 +352,9 @@
           href: /power-bi/desktop-sap-bw-connector
         - name: Azure Data Factory는 SAP HANA 및 Business Warehouse 데이터 통합을 제공합니다.
           href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
-    - name: Azure Sentinel 위협 모니터링
+    - name: Microsoft Sentinel 위협 모니터링
       items:
-        - name: SAP용 Azure Sentinel 솔루션 배포
+        - name: SAP용 Microsoft Sentinel 솔루션 배포
           href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
         - name: 자세한 요구 사항
           href: ../../../sentinel/sap-solution-detailed-requirements.md

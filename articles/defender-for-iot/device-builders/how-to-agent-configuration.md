@@ -2,13 +2,13 @@
 title: 보안 에이전트 구성
 description: Defender for IoT 보안 서비스에 사용할 수 있도록 Defender for IoT 에이전트를 구성하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 09/09/2020
-ms.openlocfilehash: 5ac9a5cdb4cc13ed91c0e5e29447b9cdbe71bcce
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 8cccb5efc76f0a451cc0de992a0521d5b12978e4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018175"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335616"
 ---
 # <a name="tutorial-configure-security-agents"></a>자습서: 보안 에이전트 구성
 

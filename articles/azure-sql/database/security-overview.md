@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 08/23/2021
-ms.openlocfilehash: 9326797e16190b3570ed6faca4d724bec432bc86
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: cf4ac33d22b28eb508aef47778885cd1ba6aebfe
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122767917"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315865"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -89,7 +89,7 @@ SQL Database 및 SQL Managed Instance 감사는 데이터베이스 활동을 추
 
 ### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Advanced Threat Protection은 로그를 분석하여 비정상적인 동작 및 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 감지합니다. 경고는 SQL 삽입, 잠재적 데이터 침입 및 무차별 암호 대입 공격(brute force attack)과 같은 의심스러운 활동이 감지되거나, 권한 상승 및 위반된 자격 증명 사용을 포착하기 위한 액세스 패턴에 이상이 생겼을 때 만들어집니다. 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 확인할 수 있습니다. Azure Security Center에서는 의심스러운 활동의 세부 정보를 확인할 수 있으며 위협 완화를 위한 조치와 함께 추가 조사를 위한 권장 사항이 제공됩니다. 추가 요금으로 서버당 Advanced Threat Protection를 사용하도록 설정할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection](threat-detection-configure.md)을 참조하세요.
+Advanced Threat Protection은 로그를 분석하여 비정상적인 동작 및 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 감지합니다. 경고는 SQL 삽입, 잠재적 데이터 침입 및 무차별 암호 대입 공격(brute force attack)과 같은 의심스러운 활동이 감지되거나, 권한 상승 및 위반된 자격 증명 사용을 포착하기 위한 액세스 패턴에 이상이 생겼을 때 만들어집니다. 경고는  [클라우드에 대 한 Microsoft Defender](https://azure.microsoft.com/services/security-center/)에서 볼 수 있습니다. 여기에서 의심 스러운 활동의 세부 정보가 제공 되 고, 위협을 완화 하기 위한 작업과 함께 제공 되는 추가 조사에 대 한 권장 사항이 제공 됩니다. 추가 요금으로 서버당 Advanced Threat Protection를 사용하도록 설정할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection](threat-detection-configure.md)을 참조하세요.
 
 ![외부 공격자 및 악의적인 내부자로부터 웹앱에 대한 SQL 데이터베이스의 액세스를 모니터링하는 SQL Threat Detection을 보여 주는 다이어그램.](./media/security-overview/azure-database-td.jpg)
 
@@ -136,7 +136,7 @@ TDE( [투명한 데이터 암호화](/sql/relational-databases/security/encryp
 
 ### <a name="vulnerability-assessment"></a>취약점 평가
 
-[취약성 평가](sql-vulnerability-assessment.md)는 전반적인 데이터베이스 보안을 사전에 개선하기 위해 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 손쉽게 구성 가능한 서비스입니다. VA(취약성 평가)는 고급 SQL 보안 기능을 위한 통합 패키지인 Azure Defender for SQL 제품에 포함되어 있습니다. Azure Defender for SQL 중앙 포털을 통해 취약성 평가에 액세스하고 관리할 수 있습니다.
+[취약성 평가](sql-vulnerability-assessment.md)는 전반적인 데이터베이스 보안을 사전에 개선하기 위해 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 손쉽게 구성 가능한 서비스입니다. VA(취약성 평가)는 고급 SQL 보안 기능을 위한 통합 패키지인 microsoft Defender for SQL 제품의 일부입니다. 취약성 평가는 중앙 Microsoft Defender for SQL 포털을 통해 액세스하고 관리될 수 있습니다.
 
 ### <a name="data-discovery-and-classification"></a>데이터 검색 및 분류
 

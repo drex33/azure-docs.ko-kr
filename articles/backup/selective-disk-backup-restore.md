@@ -2,14 +2,17 @@
 title: Azure 가상 머신의 선택적 디스크 백업 및 복원
 description: 이 문서에서는 Azure 가상 머신 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e23c0729f44128172e4afd4902ce60e9c2ecb29c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/10/2021
+ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell3
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: f2b4eda015bca45e586d77302eeedef18b217fbc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613083"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312422"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 머신의 선택적 디스크 백업 및 복원
 
@@ -186,9 +189,9 @@ az backup recoverypoint show --vault-name {vaultname} --resource-group {resource
 ### <a name="remove-disk-exclusion-settings-and-get-protected-item-with-azure-cli"></a>Azure CLI를 사용하여 디스크 제외 설정을 제거하고 보호된 항목 가져오기
 
 ```azurecli
-az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting resetexclusionsettings
+az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --disk-list-setting resetexclusionsettings
 
-az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
+az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup}
 ```
 
 이 명령을 실행하면 `"diskExclusionProperties": null` 이 표시됩니다.

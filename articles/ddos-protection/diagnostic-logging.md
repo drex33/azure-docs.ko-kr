@@ -11,21 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: eded4bfc37df72b9163aeac51d66c973b24838b2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a867ab015dedcbe5c8053b4ff26a98f406cbd6af
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750267"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286937"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
 
-Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 로깅을 [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage와 통합하면 고급 분석을 사용할 수 있습니다.
+Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor Diagnostics 인터페이스를 통해 고급 분석을 위해 [Microsoft Sentinel,](../sentinel/data-connectors-reference.md#azure-ddos-protection)Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage 추가로 통합할 수 있습니다.
 
 Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습니다. 
 
 - **DDoSProtectionNotifications**: 알림은 공용 IP 리소스가 공격을 받고 있을 때 공격 완화 작업이 끝나면 사용자에게 알려줍니다.
-- **DDoSMitigationFlowLogs**: 공격 완화 흐름 로그를 사용하면 활성 DDoS 공격 중에 삭제된 트래픽, 전달된 트래픽 및 기타 흥미로운 데이터 요소를 거의 실시간으로 검토할 수 있습니다. 이벤트 허브를 통해 이 데이터의 지속적인 스트림을 Azure Sentinel 또는 타사 SIEM 시스템으로 수집하여 거의 실시간으로 모니터링하고, 잠재적인 작업을 수행하며, 방어 작업의 필요성을 해결할 수 있습니다.
+- **DDoSMitigationFlowLogs**: 공격 완화 흐름 로그를 사용하면 활성 DDoS 공격 중에 삭제된 트래픽, 전달된 트래픽 및 기타 흥미로운 데이터 요소를 거의 실시간으로 검토할 수 있습니다. 거의 실시간 모니터링을 위해 이벤트 허브를 통해 이 데이터의 상수 스트림을 Microsoft Sentinel 또는 타사 SIEM 시스템으로 수집하고, 잠재적 조치를 취하며, 방어 작업의 필요성을 해결할 수 있습니다.
 - **DDoSMitigationReports**: 공격 완화 보고서는 집계된 Netflow 프로토콜 데이터를 사용하여 리소스에 대한 공격에 대한 자세한 정보를 제공합니다. 공용 IP 리소스가 공격을 받을 때마다 완화가 시작되는 즉시 보고서 생성이 시작됩니다. 5분마다 생성되는 증분 보고서와 전체 완화 기간에 대한 사후 완화 보고서가 있습니다. 이렇게 하면 DDoS 공격이 더 오랜 시간 지속되는 경우 5분마다 완화 보고서의 최신 스냅샷을 볼 수 있고 공격 완화가 완료되면 전체 요약을 볼 수 있습니다. 
 - **Allmetrics**: DDoS 공격 기간 동안 사용 가능한 모든 메트릭을 제공합니다. 
 
@@ -165,11 +165,11 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 ## <a name="view-log-data-in-workbooks"></a>통합 문서에서 로그 데이터 보기
 
-### <a name="azure-sentinel-data-connector"></a>Azure Sentinel 데이터 커넥터
+### <a name="microsoft-sentinel-data-connector"></a>Microsoft Sentinel 데이터 커넥터
 
-로그를 Azure Sentinel에 연결하고, 통합 문서에서 데이터를 보고 분석하고, 사용자 지정 경고를 만들고, 조사 프로세스에 통합할 수 있습니다. Azure Sentinel에 연결하려면 [Azure Sentinel에 연결](../sentinel/data-connectors-reference.md#azure-ddos-protection)을 참조하세요. 
+로그를 Microsoft Sentinel에 연결하고, 통합 문서에서 데이터를 확인 및 분석하고, 사용자 지정 경고를 만들고, 조사 프로세스에 통합할 수 있습니다. Microsoft Sentinel에 연결하려면 [Microsoft Sentinel에 커넥트 참조하세요.](../sentinel/data-connectors-reference.md#azure-ddos-protection) 
 
-![Azure Sentinel DDoS 커넥터](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
+![Microsoft Sentinel DDoS 커넥터](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 
 ### <a name="azure-ddos-protection-workbook"></a>Azure DDoS Protection 통합 문서
 

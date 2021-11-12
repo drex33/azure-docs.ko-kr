@@ -397,7 +397,7 @@
           href: monitor-logic-apps.md
         - name: Azure Monitor 로그를 사용하여 논리 앱 모니터링
           href: monitor-logic-apps-log-analytics.md
-        - name: Azure Security Center에서 논리 앱 모니터링
+        - name: Microsoft Defender for Cloud에서 논리 앱 모니터링
           href: healthy-unhealthy-resource.md
         - name: Azure Monitor 로그를 사용하여 B2B 메시지 모니터링
           href: monitor-b2b-messages-log-analytics.md
@@ -487,6 +487,6 @@
     - name: Twitter
       href: 'https://twitter.com/logicappsio'
     - name: 제품 사용자 의견 제공
-      href: 'https://feedback.azure.com/forums/287593-logic-apps'
+      href: 'https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=logic-apps'

@@ -1,14 +1,14 @@
 ---
 title: 온-프레미스 관리 콘솔 활성화 및 설정
 description: 관리 콘솔을 활성화하면 센서가 Azure에 등록되고, 정보를 온-프레미스 관리 콘솔에 보내고, 온-프레미스 관리 콘솔에서 연결된 센서에 대한 관리 작업을 수행합니다.
-ms.date: 05/05/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 84506e9ebd12dab4198d075c6afea8ae23604a42
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 77f2a62cce7da4f9faac62820a85f38c0dd06ce5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531171"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306228"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>온-프레미스 관리 콘솔 활성화 및 설정 
 
@@ -76,9 +76,9 @@ ms.locfileid: "122531171"
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="라이선스가 만료되면 활성화 파일을 통해 라이선스를 업데이트해야 합니다.":::
 
-**라이선스를 활성화하려면,**
+**라이선스를 활성화하려면 다음을 수행합니다.**
 
-1. [고객 지원팀](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support)에서 사례를 엽니다.
+1. [고객 지원팀](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support)에서 사례를 엽니다.
 
 1. 지원은 활성화 ID 번호를 통해 제공됩니다.
 
@@ -135,7 +135,7 @@ CA 서명된 인증서가 업로드되면 화면을 새로 고쳐야 할 수도 
 
 센서에서 정보를 온-프레미스 관리 콘솔에 보내는지와 온-프레미스 관리 콘솔에서 백업을 수행하고, 경고를 관리하고, 센서에 대한 다른 작업을 수행할 수 있는지 확인합니다. 이렇게 하려면 다음 절차에 따라 센서와 온-프레미스 관리 콘솔 간에 초기에 연결했는지 확인합니다.
 
-Azure Defender for IoT 센서를 온-프레미스 관리 콘솔에 연결하는 데 다음 두 가지 옵션을 사용할 수 있습니다.
+IoT용 Microsoft Defender 센서를 온-프레미스 관리 콘솔에 연결하는 두 가지 옵션을 사용할 수 있습니다.
 
 - 센서 콘솔에서 연결
 

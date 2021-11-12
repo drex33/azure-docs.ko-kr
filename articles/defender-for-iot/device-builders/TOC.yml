@@ -1,4 +1,4 @@
-- name: 디바이스 빌더용 Azure Defender for IoT
+- name: 디바이스 빌더용 Microsoft Defender for IoT
   href: index.yml
   items: null
 - name: 개요
@@ -19,7 +19,7 @@
     - name: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
       displayName: 'package, authentication, methods, certificate, authenticate, version'
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
+    - name: Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)
       href: quickstart-create-micro-agent-module-twin.md
     - name: Azure RTOS용 Defender-IoT-micro-agent 구성
       href: quickstart-azure-rtos-security-module.md
@@ -86,7 +86,7 @@
         - name: 기초
           displayName: 'custom, setting, properties'
           href: concept-baseline.md
-        - name: Azure Defender for IoT용 Azure 보안 기준
+        - name: Microsoft Defender for IoT에 대한 Azure 보안 기준
           displayName: 'identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance'
           href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
         - name: Defender-IoT-micro-agent 클래식 이벤트 집계
@@ -100,10 +100,10 @@
           href: agent-based-recommendations.md
 - name: 방법 가이드
   items:
-    - name: Azure Sentinel에 연결
+    - name: Microsoft Sentinel에 연결
       displayName: 'log analytics, service notes'
       href: how-to-configure-with-sentinel.md
-    - name: 에이전트 기반 솔루션용 Azure Defender for IoT 구성
+    - name: Microsoft Defender for IoT 에이전트 기반 솔루션 구성
       displayName: 'data, collection, geolocation, log analytics, raw events'
       href: how-to-configure-agent-based-solution.md
     - name: CIS 벤치마크 권장 사항 조사
@@ -134,7 +134,7 @@
               href: how-to-deploy-linux-c.md
         - name: 보안 에이전트 문제 해결
           items:
-            - name: Azure Defender for IoT Linux 보안 에이전트 문제 해결
+            - name: Microsoft Defender for IoT Linux 보안 에이전트 문제 해결
               href: troubleshoot-agent.md
             - name: 로컬 구성 C
               href: azure-iot-security-local-configuration-c.md
@@ -155,7 +155,7 @@
           href: how-to-investigate-device.md
     - name: 문제 해결
       items:
-        - name: Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
+        - name: Defender for Cloud IoT 마이크로 에이전트 문제 해결(미리 보기)
           displayName: 'service status, review logs'
           href: troubleshoot-defender-micro-agent.md
 - name: 참조
@@ -179,8 +179,8 @@
   items:
     - name: Microsoft Learn을 통해 보안 기술 쌓기
       href: /learn/browse/?term=securityS&terms=securityS
-    - name: Azure Security Center 설명서
-      href: ../../security-center/
+    - name: Microsoft Defender for Cloud 설명서
+      href: ../../defender-for-cloud/
     - name: Azure 보안 설명서
       href: ../../security/index.yml
     - name: 'Azure IoT 보안, 개인 정보 보호 및 규정 준수 블로그'

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e6bfa172624ba65c161abcba6dfd97b557fb8d91
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 79c8fadfc7662438f5820e92cfd0c71a9b346ba9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950465"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326876"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 데이터, 애플리케이션 및 그 밖의 Azure 자산을 보호하기 위한 다양한 운영 모범 사례를 안내합니다.
@@ -90,39 +90,39 @@ Azure enrollment 등록 포털에서 관리자 연락처 정보에 보안 운영
 [Azure 스토리지 분석](../../storage/common/storage-analytics.md)은 로깅을 수행하며 Azure Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고, 사용량 추세를 분석하고, 스토리지 계정에 대한 문제를 진단하는 것이 좋습니다.
 
 ## <a name="prevent-detect-and-respond-to-threats"></a>위협 방지, 검색 및 대응
-[Azure Security Center](../../security-center/security-center-introduction.md)는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공함으로써 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. Azure 구독 전반에 걸친 통합 보안 모니터링 및 정책 관리 기능을 제공하는 Azure Security Center를 활용하면 일반적으로는 찾아내기가 어려운 위협을 검색할 수 있으며 다양한 보안 솔루션을 활용할 수 있습니다.
+[Microsoft Defender For Cloud](../../security-center/security-center-introduction.md) 를 사용 하면 Azure 리소스의 보안에 대 한 향상 된 가시성을 제공 하 여 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. Azure 구독 전반에 걸친 통합 보안 모니터링 및 정책 관리 기능을 제공하는 Azure Security Center를 활용하면 일반적으로는 찾아내기가 어려운 위협을 검색할 수 있으며 다양한 보안 솔루션을 활용할 수 있습니다.
 
-Security Center의 무료 계층에서는 Azure 리소스에만 사용 가능한 제한적 보안 기능이 제공됩니다. 표준 계층에서는 이러한 기능이 온-프레미스 및 기타 클라우드로 확대 제공됩니다. Security Center 표준을 사용하면 보안 취약성을 찾아서 수정하고, 액세스 및 애플리케이션 제어를 적용하여 악성 활동을 차단하고, 분석 및 인텔리전스를 사용하여 위협을 탐지하고, 공격을 받을 때 신속하게 대응할 수 있습니다. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. [Azure 구독을 Security Center 표준 계층으로 업그레이드](../../security-center/security-center-get-started.md)하는 것이 좋습니다.
+클라우드 용 Defender의 무료 계층은 Azure 리소스에 대 한 제한 된 보안을 제공 합니다. 표준 계층에서는 이러한 기능이 온-프레미스 및 기타 클라우드로 확대 제공됩니다. Defender for Cloud Standard를 사용 하면 보안 취약성을 찾아 해결 하 고, 액세스 및 응용 프로그램 제어를 적용 하 여 악의적인 활동을 차단 하 고, 분석 및 인텔리전스를 사용 하 여 위협을 감지 하 고, 공격에 따라 신속 하 게 처음 60 일 동안 무료로 클라우드 표준에 대해 Defender를 사용해 볼 수 있습니다. [클라우드 표준에 대해 Azure 구독을 Defender로 업그레이드](../../security-center/security-center-get-started.md)하는 것이 좋습니다.
 
-Security Center를 사용하면 모든 Azure 리소스의 보안 상태를 중앙에서 살펴볼 수 있습니다. 적합한 보안 제어 기능이 마련되어 있으며 올바르게 구성되어 있는지를 한눈에 확인하고 주의가 필요한 리소스를 빠르게 확인할 수 있습니다.
+클라우드 용 Defender를 사용 하 여 모든 Azure 리소스의 보안 상태를 중앙에서 볼 수 있습니다. 적합한 보안 제어 기능이 마련되어 있으며 올바르게 구성되어 있는지를 한눈에 확인하고 주의가 필요한 리소스를 빠르게 확인할 수 있습니다.
 
-Security Center는 포괄적인 EDR(엔드포인트 탐지 및 대응) 기능을 제공하는 [Microsoft Defender ATP(Advanced Threat Protection)](../../security-center/security-center-wdatp.md)와도 통합됩니다. Microsoft Defender ATP를 통합하면 비정상적인 상태를 정확히 파악할 수 있습니다. 그리고 Security Center에서 모니터링하는 서버 엔드포인트에 대한 고급 공격을 검색하고 적절하게 대응할 수 있습니다.
+또한 Defender for Cloud는 포괄적인 끝점 검색 및 응답 (EDR) 기능을 제공 하는 [Microsoft Defender ATP (Advanced Threat Protection)](../../security-center/security-center-wdatp.md)와 통합 됩니다. Microsoft Defender ATP를 통합하면 비정상적인 상태를 정확히 파악할 수 있습니다. 또한 Defender for Cloud에서 모니터링 하는 서버 끝점에 대 한 고급 공격을 감지 하 고 대응할 수 있습니다.
 
 거의 모든 엔터프라이즈 조직이 다양한 신호 수집 디바이스에서 수집한 로그 정보를 통합하여 새로 부상하는 위협을 식별하는 SIEM(보안 정보 및 이벤트 관리) 시스템을 사용합니다. 통합된 로그는 데이터 분석 시스템에 의해 분석되어, 모든 로그 수집 및 분석 솔루션에서 발생하는 잡음으로부터 의미 있는 데이터가 가려집니다.
 
-[Azure Sentinel](../../sentinel/overview.md)은 스케일링 가능한 클라우드 네이티브, SIEM(보안 정보 및 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Azure Sentinel은 알림 탐지, 위협 가시성, 사전 헌팅, 자동화된 위협 대응을 통해 인텔리전트 보안 분석 및 위협 인텔리전스를 제공합니다.
+[Microsoft 센티널](../../sentinel/overview.md) 은 확장 가능한 클라우드 기본, siem (보안 정보 및 이벤트 관리) 및 대화 충성도 (security orchestration 자동화 된 응답) 솔루션입니다. Microsoft 센티널은 경고 검색, 위협 가시성, 자동 관리 구하기 및 자동화 된 위협 대응을 통해 지능형 보안 분석과 위협 인텔리전스를 제공 합니다.
 
 다음은 위협을 방지하고 탐지하고 대응하기 위한 몇 가지 모범 사례입니다.
 
 **모범 사례**: 클라우드 기반 SIEM을 사용하여 SIEM 솔루션의 속도와 스케일링 성능을 높입니다.   
-**세부 정보**: [Azure Sentinel](../../sentinel/overview.md)의 특징과 기능을 살펴보고 현재 온-프레미스에서 사용 중인 기능과 비교해 봅니다. Azure Sentinel이 조직의 SIEM 요구 사항을 충족한다면 Azure Sentinel을 도입하세요.
+**세부 정보**: [Microsoft 센티널](../../sentinel/overview.md) 의 특징과 기능을 조사 하 여 현재 온-프레미스에서 사용 하 고 있는 기능의 기능과 비교 합니다. 조직의 SIEM 요구 사항을 충족 하는 경우 Microsoft 센티널을 채택 하는 것이 좋습니다.
 
 **모범 사례**: 가장 심각한 보안 취약점을 찾아서 조사의 우선 순위를 지정할 수 있습니다.   
-**세부 정보**: [Azure 보안 점수](../../security-center/secure-score-security-controls.md)를 검토하여 Azure Security Center에서 기본 제공하는 Azure 정책 및 이니셔티브의 권장 사항을 살펴봅니다. 권장 사항은 보안 업데이트, 엔드포인트 보호, 암호화, 보안 구성, 누락된 WAF, 인터넷에 연결된 VM을 비롯한 수많은 주요 위험에 대응할 수 있도록 도와줍니다.
+**세부 정보**: [azure 보안 점수](../../security-center/secure-score-security-controls.md) 를 검토 하 여 클라우드 용 Microsoft Defender에 기본 제공 되는 azure 정책 및 이니셔티브에서 얻은 권장 사항을 확인 하세요. 권장 사항은 보안 업데이트, 엔드포인트 보호, 암호화, 보안 구성, 누락된 WAF, 인터넷에 연결된 VM을 비롯한 수많은 주요 위험에 대응할 수 있도록 도와줍니다.
 
 CIS(Center for Internet Security) 컨트롤을 기반으로 하는 보안 점수를 활용하면 외부 소스를 기준으로 조직의 Azure 보안을 벤치마크할 수 있습니다. 외부 유효성 검사는 팀의 보안 전략의 유효성을 검사하고 보강하는 데 도움이 됩니다.
 
 **모범 사례**: 머신, 네트워크, 스토리지 및 데이터 서비스, 애플리케이션의 보안 상태를 모니터링하여 잠재적인 보안 문제를 찾아내고 우선적으로 대응합니다.  
-**세부 정보**: Security Center의 [보안 권장 사항](../../security-center/security-center-recommendations.md)에서 가장 우선 순위가 높은 항목부터 대응합니다.
+**세부 정보**: 우선 순위가 가장 높은 항목을 포함 하 여 클라우드를 시작 하기 위해 Defender의 [보안 권장 사항을](../../security-center/security-center-recommendations.md) 따릅니다.
 
-**모범 사례**: Security Center alerts 알림을 조직의 SIEM(보안 정보 및 이벤트 관리) 솔루션에 통합합니다.   
-**세부 정보**: SIEM을 시용하는 대부분의 조직에서는 이를 분석가의 대응이 필요한 중앙 보안 알림 센터로 사용합니다. Security Center에서 생성하는 처리된 이벤트는 Azure Monitor를 통해 사용할 수 있는 로그 형식 중 하나인 Azure 활동 로그에 게시됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 방법은 [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](../../security-center/export-to-siem.md)을 참조하세요. Azure Sentinel을 사용 중이라면 [Azure Security Center 연결](../../sentinel/connect-azure-security-center.md)을 참조하세요.
+**모범 사례**: 클라우드 경고에 대 한 Defender를 siem (보안 정보 및 이벤트 관리) 솔루션에 통합 합니다.   
+**세부 정보**: SIEM을 시용하는 대부분의 조직에서는 이를 분석가의 대응이 필요한 중앙 보안 알림 센터로 사용합니다. Defender for Cloud에 의해 생성 된 처리 된 이벤트는 Azure 활동 로그에 게시 됩니다. Azure Monitor를 통해 사용할 수 있는 로그 중 하나입니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 방법은 [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](../../security-center/export-to-siem.md)을 참조하세요. microsoft 센티널을 사용 하는 경우 [커넥트 microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md)를 참조 하세요.
 
 **모범 사례**: SIEM에 Azure 로그를 통합합니다.   
-**세부 정보**: [Azure Monitor를 사용하여 데이터를 수집하고 내보냅니다](../../azure-monitor/overview.md#integrate-and-export-data). 이는 보안 인시던트 조사를 위한 필수 단계이나, 온라인 로그 보존에는 제한이 있습니다. Azure Sentinel을 사용 중이라면 [데이터 원본 연결을 참조하세요](../../sentinel/connect-data-sources.md).
+**세부 정보**: [Azure Monitor를 사용하여 데이터를 수집하고 내보냅니다](../../azure-monitor/overview.md#integrate-and-export-data). 이는 보안 인시던트 조사를 위한 필수 단계이나, 온라인 로그 보존에는 제한이 있습니다. Microsoft Sentinel을 사용하는 경우 [데이터 원본 커넥트 참조하세요.](../../sentinel/connect-data-sources.md)
 
 **모범 사례**: 공격 조사에 EDR(엔드포인트 탐지 및 대응) 기능을 통합하여 조사 및 헌팅 프로세스의 속도를 높이고 가양성을 줄입니다.   
-**세부 정보**: Security Center 보안 정책을 통해 [엔드포인트용 Microsoft Defender 통합을 사용하도록 설정](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration)합니다. 위협 헌팅 및 인시던트 대응을 위해 Azure Sentinel을 사용하는 방안을 고려합니다.
+**세부 정보:** Defender for Cloud 보안 정책을 통해 [엔드포인트용 Microsoft Defender 통합을 사용하도록 설정합니다.](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) 위협 헌팅 및 인시던트 대응에 Microsoft Sentinel을 사용하는 것이 좋습니다.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>엔드투엔드 시나리오 기반 네트워크 모니터링
 고객은 가상 네트워크, ExpressRoute, Application Gateway, 부하 분산 장치 등의 네트워크 리소스를 결합하여 Azure에서 엔드투엔드 네트워크를 빌드합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.

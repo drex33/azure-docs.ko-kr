@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: e42078618ad15850420b8c9c57c66e3419d586d2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a02d03d3104c21b4aa289a105f3a5664da0dc180
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131466925"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369990"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3 및 Esv3 시리즈
 
@@ -36,6 +36,7 @@ Ev3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 [VM 생성 지원](generation-2.md): 1세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수/네트워크 대역폭 |
@@ -67,6 +68,7 @@ Esv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 버스트 캐시된 임시 스토리지 처리량: IOPS/MBps<sup>3</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>3</sup>| 최대 NIC/예상 네트워크 대역폭(Mbps) |

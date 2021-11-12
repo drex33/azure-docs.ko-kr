@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3824368a7cd1aa7c81827d74db20f0d4a4cb160f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95021017"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315751"
 ---
 # <a name="securing-azure-sql-edge"></a>Azure SQL Edge 보안 설정
 
@@ -111,4 +111,4 @@ Azure SQL Edge는 SQL Server와 동일한 감사 메커니즘을 제공합니다
 
 - [보안 기능 시작](/sql/linux/sql-server-linux-security-get-started)
 - [루트가 아닌 사용자로 Azure SQL Edge 실행](configure.md#run-azure-sql-edge-as-non-root-user)
-- [IoT용 Azure Security Center](../defender-for-iot/overview.md)
+- [IoT 용 Microsoft Defender](../defender-for-iot/overview.md)

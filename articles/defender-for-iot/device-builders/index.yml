@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: 디바이스 빌더용 Azure Defender for IoT 설명서
-summary: 'Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다. 참고: IoT용 Azure Defender의 이름이 Azure Defender for IoT로 변경됩니다. 문서는 곧 업데이트됩니다.'
+title: 디바이스 빌더용 Microsoft Defender for IoT 설명서
+summary: 'Microsoft Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다. 참고: Microsoft Defender for IoT의 이름이 Microsoft Defender for IoT로 변경됩니다. 문서는 곧 업데이트됩니다.'
 metadata:
-  title: 디바이스 빌더용 Azure Defender for IoT 설명서
-  description: Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
+  title: 디바이스 빌더용 Microsoft Defender for IoT 설명서
+  description: Microsoft Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
   services: service
   ms.service: defender-for-iot
   ms.topic: landing-page
@@ -11,19 +11,19 @@ metadata:
   author: elazark
   ms.author: v-ekrieg
   manager: raynew
-  ms.date: 06/17/2021
-  ms.openlocfilehash: 0c46acdd0a6e5f1278710b0ad66acc3eab9adb78
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.date: 11/09/2021
+  ms.openlocfilehash: 43c54696ec3ce5359d2c61c71e9f5d9803a1ba41
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131056607"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132283945"
 landingContent:
-- title: 디바이스 빌더용 Azure Defender for IoT 정보
+- title: 디바이스 빌더용 Microsoft Defender for IoT 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: 디바이스 빌더용 Azure Defender for IoT란 무엇인가요?
+    - text: 디바이스 빌더용 Microsoft Defender for IoT란?
       url: overview.md
     - text: 디바이스 빌더를 위한 에이전트 기반 솔루션 아키텍처
       url: architecture-agent-based.md
@@ -33,7 +33,7 @@ landingContent:
     links:
     - text: 에이전트 기반 솔루션에 대한 Defender for IoT 등록
       url: quickstart-onboard-iot-hub.md
-    - text: Azure Defender for IoT 솔루션 구성
+    - text: Microsoft Defender for IoT 솔루션 구성
       url: quickstart-configure-your-solution.md
 - title: 보안
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 에이전트 기반 솔루션용 Azure Defender for IoT 구성
+    - text: Microsoft Defender for IoT 에이전트 기반 솔루션 구성
       url: how-to-configure-agent-based-solution.md
     - text: OS 기준 조사
       url: how-to-investigate-cis-benchmark.md

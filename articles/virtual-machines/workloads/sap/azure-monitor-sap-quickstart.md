@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-ms.openlocfilehash: 32ded30543e018b86f4329d7d08be100f84831d0
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 82dc8aaa14aeae63549a872d887f40d16eebec96
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132027511"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315334"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -50,7 +50,7 @@ SAP 시작 서비스는 SAP 시스템 모니터링을 비롯한 서비스의 호
 3. 트랜잭션 RZ10을 실행합니다.
 4. 적절한 프로필(*DEFAULT.PFL*)을 선택합니다.
 5. **연장 유지 관리** > **변경** 을 선택합니다. 
-6. 프로필 매개 변수 "service/protectedwebmethods"를 선택 하 고 다음 값을 갖도록 수정한 다음 복사를 클릭 합니다.  
+6. 프로필 매개 변수 "service/protectedwebmethods"를 선택하고 다음 값을 포함하도록 수정한 다음 복사를 클릭합니다.  
 
    ```service/protectedwebmethods instruction
       SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList
@@ -88,7 +88,7 @@ $sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -cl
 $FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
 $sapcntrl.$Function($FunctionObject)
 ```
-11. * * 각 인스턴스 프로필에 대해 3-10 단계를 반복 합니다.
+11. **각 인스턴스 프로필에 대해 3-10단계 반복 **.
 
 >[!Important] 
 >SAPControl 웹 메서드가 보호되지 않도록 하려면 SAP 시스템의 각 인스턴스에서 sapstartsrv 서비스를 다시 시작하는 것이 중요합니다.  이러한 읽기 전용 SOAP API는 NetWeaver 공급자가 SAP 시스템에서 메트릭 데이터를 가져오는 데 필요하며 이러한 메서드를 보호 해제하지 않으면 NetWeaver 메트릭 통합 문서에서 시각화가 비어 있거나 누락됩니다.
@@ -118,7 +118,7 @@ Azure Portal에 NetWeaver 공급자를 설치하려면:
 >[!Important]
 >SAP 애플리케이션 서버(예: 가상 머신)가 Azure Active Directory에서 관리하는 것과 같은 네트워크 도메인의 일부인 경우 해당 하위 도메인을 하위 도메인 텍스트 상자에 입력하는 것이 중요합니다.  가상 네트워크 내부에 있는 SAP 수집기 VM에 대한 Azure Monitor는 도메인에 가입되어 있지 않으므로 호스트 이름이 정규화된 도메인 이름이 아니면 SAP 시스템 내부의 인스턴스 호스트 이름을 확인할 수 없습니다.  이를 제공하지 않으면 NetWeaver 통합 문서에서 시각화가 누락되거나 불완전하게 됩니다.
  
->예를 들어 SAP 시스템의 호스트 이름에 정규화 된 도메인 이름 "myhost. mycompany"가 있는 경우 "myhost"의 호스트 이름을 입력 하 고 "mycompany. corp"의 하위 도메인을 제공 하세요.  NetWeaver 공급자가 SAP 시스템에서 GetSystemInstanceList API를 호출하면 SAP는 시스템에 있는 모든 인스턴스의 호스트 이름을 반환합니다.  수집기 VM은이 목록을 사용 하 여 추가 API 호출을 수행 하 여 각 인스턴스의 기능 (예:  ABAP, J2EE, MESSAGESERVER, 넣지, enqrep 등). 지정 하는 경우 수집기 VM은 하위 도메인 "mycompany. corp"를 사용 하 여 SAP 시스템에서 각 인스턴스의 정규화 된 도메인 이름을 작성 합니다.  
+>예를 들어 SAP 시스템의 호스트 이름에 정규화된 도메인 이름이 "myhost.mycompany.global.corp"인 경우 호스트 이름 "myhost"를 입력하고 "mycompany.global.corp"의 하위 도메인을 제공하세요.  NetWeaver 공급자가 SAP 시스템에서 GetSystemInstanceList API를 호출하면 SAP는 시스템에 있는 모든 인스턴스의 호스트 이름을 반환합니다.  수집기 VM은 이 목록을 사용하여 각 인스턴스의 기능(예:  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP 등). 지정된 경우 수집기 VM은 하위 도메인 "mycompany.global.corp"를 사용하여 SAP 시스템에서 각 인스턴스의 정규화된 도메인 이름을 빌드합니다.  
  
 >SAP 시스템이 네트워크 도메인의 일부인 경우 호스트 이름 필드에 IP 주소를 지정하지 마세요.
 
@@ -176,7 +176,7 @@ Azure Portal에 NetWeaver 공급자를 설치하려면:
    ALTER ROLE [db_datareader] ADD MEMBER [AMS]
    ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
    GO
-   ``` 
+   ```
 
 1. **공급자 추가** 를 선택한 후 다음을 수행합니다.
 

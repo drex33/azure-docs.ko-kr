@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 054abdaeb184a37a995f14ab6196c378abbb470b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 63b420d65fcb60c35cba3eca6201255f3efba85d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707670"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331075"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강을 위한 팁
 
@@ -101,7 +101,7 @@ ms.locfileid: "129707670"
 예약된 인덱서의 경우 인덱싱은 마지막으로 알려진 좋은 문서에서 일정에 따라 다시 시작합니다. 처리되지 않은 이미지를 모두 처리할 때까지, 인덱서는 반복 일정을 사용하여 일련의 시간 또는 일이 지나는 동안 이미지 백로그를 통해 자기 방식대로 작동할 수 있습니다. 일정 구문에 대한 자세한 내용은 [인덱서 예약](search-howto-schedule-indexers.md)을 참조합니다.
 
 > [!NOTE]
-> 인덱서가 특정 일정으로 설정되어 있지만 실행될 때마다 같은 문서를 반복적으로 실패하는 경우 인덱서는 성공적으로 다시 진행될 때까지 빈도가 낮은 간격(최대 24시간마다 한 번 이상)으로 실행을 시작합니다.  인덱서가 특정 지점에서 고착되는 문제를 해결한 것으로 판단되는 경우 인덱서의 요청 시 실행을 수행할 수 있으며, 성공적으로 진행되면 인덱서는 설정된 일정 간격으로 다시 돌아갑니다.
+> 인덱서가 특정 일정으로 설정되어 있지만 실행될 때마다 같은 문서를 반복적으로 실패하는 경우 인덱서는 성공적으로 다시 진행될 때까지 빈도가 낮은 간격(최대 24시간마다 한 번 이상)으로 실행을 시작합니다.  인덱서가 특정 지점에서 고정되는 문제를 해결했다고 생각되면 인덱서의 주문형 실행을 수행할 수 있으며, 인덱서가 성공적으로 진행되면 인덱서가 설정된 일정 간격으로 다시 돌아갑니다.
 
 포털 기반 인덱싱의 경우(빠른 시작에서 설명한 대로) "한 번 실행" 인덱서 옵션을 선택하면 처리 시간을 1시간(`"maxRunTime": "PT1H"`)으로 제한합니다. 처리 창을 조금 더 길게 확장하고 싶을 수 있습니다.
 

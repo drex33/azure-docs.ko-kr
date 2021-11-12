@@ -2,14 +2,14 @@
 title: IoT 디바이스 보안 메시지에 대한 Defender 전송
 description: IoT용 Defender를 사용하여 보안 메시지를 보내는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 2/8/2021
+ms.date: 11/09/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 791e49c4e8f0e503c67f24e440fc229998b7b9da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7be4d8491983ce041b4434c08039629519c7e393
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680505"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283888"
 ---
 # <a name="send-security-messages-sdk"></a>보안 메시지 보내기 SDK
 
@@ -221,7 +221,7 @@ public void SendSecurityMessage(string message)
 - Defender for IoT 서비스 [개요](overview.md) 읽기
 - Defender for IoT에 대한 자세한 내용 [디바이스 작성기용 에이전트 기반 솔루션](architecture-agent-based.md)
 - [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
-- [Azure Defender for IoT 에이전트 질문과 대답](resources-agent-frequently-asked-questions.md) 읽기
+- [IoT용 Microsoft Defender 에이전트 질문과 대답을](resources-agent-frequently-asked-questions.md) 읽습니다.
 - [원시 보안 데이터](how-to-security-data-access.md)에 액세스하는 방법을 알아봅니다.
 - [추천 사항](concept-recommendations.md)을 살펴봅니다.
 - [경고](concept-security-alerts.md)를 살펴봅니다.

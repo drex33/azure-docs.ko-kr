@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 605c7641c5960bf5643a0ca26e29339d5cd21db0
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 70ad7876b56b12c6a9d6fd1654e12dc0a764aa00
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563248"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339975"
 ---
 # <a name="connect-devices-to-azure-video-analyzer"></a>Azure Video Analyzer로 장치 커넥트
 
@@ -109,7 +109,7 @@ IoT 장치는 직접 메서드를 등록 합니다  `tunnelOpen` . 여기서 �
    * HTTP "Authorization" 헤더를 "전달자 (remoteAuthorizationToken)"로 설정 합니다.
    * "Pnp 장치" 값을 사용 하 여 "TunnelConnectionSource" 헤더를 설정 합니다.
    * User-Agent를 구현을 식별 하는 데 도움이 되는 적절 한 값으로 설정 합니다. 
-      * 예를 들어 장치의 CPU, OS, 모델/제조업체의 아키텍처를 캡처할 수 있습니다.
+      * 예를 들어 CPU, OS, 장치의 모델/제조업체의 아키텍처를 캡처할 수 있습니다.
    * 웹 소켓 연결에 성공 하면 200을 반환 하 고 그렇지 않으면 적절 한 오류 코드를 반환 합니다.
 1. 반환 응답 (차단 안 함)
 1. IoT PnP 장치 구현이 websocket 및 RTSP 서버 TCP 연결 간에 TCP 데이터 양방향을 보내기 시작 합니다.

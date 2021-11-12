@@ -12,16 +12,14 @@ ms.date: 08/25/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 식별자, 이미지 인식 앱, custom vision
-ms.openlocfilehash: febd4b5921beff8f810b411dd1da96ac82b9a64d
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 6bf2f9de103416bc9dd35216bf85c609be966a23
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123309859"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372514"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Custom Vision은 이미지 인식 서비스입니다. 이를 통해 자체 이미지 식별자 모델을 빌드, 배포 및 개선할 수 있습니다. 이미지 식별자는 감지된 시각적 특성에 따라 이미지에 레이블(분류 또는 개체를 나타냄)을 적용합니다. [Computer Vision](../computer-vision/overview.md) 서비스와 달리 Custom Vision을 사용하면 고유의 레이블을 지정하고 이를 감지하도록 사용자 지정 모델을 학습시킬 수 있습니다.
 

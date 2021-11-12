@@ -1,26 +1,26 @@
 ---
 title: 제한 및 구성 참조 가이드
-description: Azure Logic Apps 대한 제한 및 구성 정보에 대한 참조 가이드입니다.
+description: Azure Logic Apps에 대 한 제한 및 구성 정보에 대 한 참조 가이드입니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
 ms.date: 11/02/2021
-ms.openlocfilehash: eda51c5adb4d266e714b3a7ca26523b198dbcbc3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 68d587888a915ed317b6a31f9000d0086adda21b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131442638"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283489"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Azure Logic Apps의 제한 및 구성 참조
 
-> Power Automate Power Automate [제한 및 구성을](/power-automate/limits-and-config)검토하세요.
+> Power Automate [Power Automate의 제한 및 구성](/power-automate/limits-and-config)을 검토 하세요.
 
 이 문서에서는 Azure Logic Apps의 제한 및 구성 정보와 관련 리소스를 설명합니다. 논리 앱 워크플로를 만들려면 시나리오, 솔루션 요구 사항, 원하는 기능 및 워크플로를 실행하려는 환경에 따라 **논리 앱** 리소스 종류를 선택합니다.
 
 > [!NOTE]
-> Azure Logic Apps 실행되는 사용 가능한 환경에서는 많은 제한이 동일하지만 차이점이 존재합니다. 
+> Azure Logic Apps를 실행 하는 사용 가능한 환경에서 많은 제한이 동일 하지만 존재 하는 위치에는 차이가 있습니다. 
 
 다음 표에는 원래 **논리 앱(소비)** 리소스 종류와 **논리 앱(표준)** 리소스 종류 간의 차이점이 간략하게 요약되어 있습니다. 또한 *단일 테넌트* 환경과 *다중 테넌트* 환경 및 *ISE(통합 서비스 환경)* 의 논리 앱 워크플로 배포, 호스트 및 실행 방법도 비교합니다.
 
@@ -359,14 +359,14 @@ Azure Logic Apps는 온-프레미스 데이터 게이트웨이를 통해 삽입 
 
 ## <a name="custom-connector-limits"></a>사용자 지정 커넥터 제한
 
-다중 테넌트 Azure Logic Apps 통합 서비스 환경에서만 기존 REST API 또는 SOAP API에 대한 래퍼인 [사용자 지정 관리형 커넥터](/connectors/custom-connectors)를 만들고 사용할 수 있습니다. 단일 테넌트 Azure Logic Apps [사용자 지정 기본 제공 커넥터만](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)만들고 사용할 수 있습니다.
+다중 테넌트 Azure Logic Apps 통합 서비스 환경에서만 기존 REST API 또는 SOAP API에 대한 래퍼인 [사용자 지정 관리 커넥터](/connectors/custom-connectors)를 만들고 사용할 수 있습니다. 단일 테넌트 Azure Logic Apps [사용자 지정 기본 제공 커넥터만](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)만들고 사용할 수 있습니다.
 
 다음 표에는 사용자 지정 커넥터 값이 나와 있습니다.
 
 | 이름 | 다중 테넌트 | 단일 테넌트 | 통합 서비스 환경 | 메모 |
 |------|--------------|---------------|---------------------------------|-------|
 | 사용자 지정 커넥터 | Azure 구독당 1,000개 | 제한 없음 | Azure 구독당 1,000개 ||
-| 사용자 지정 커넥터 - API 수 | SOAP 기반: 50 | 해당 없음 | SOAP 기반: 50 ||
+| 사용자 지정 커넥터-Api의 수 | SOAP 기반: 50 | 해당 없음 | SOAP 기반: 50 ||
 | 사용자 지정 커넥터의 분당 요청 | 연결마다 분당 500개 요청 | 구현 기준 | *사용자 지정 커넥터* 마다 분당 2,000개 요청 ||
 | 연결 제한 시간 | 2분 | 유휴 연결: <br>4분 <p><p>활성 연결: <br>10분 | 2분 ||
 ||||||
@@ -524,7 +524,7 @@ IP 주소를 사용하여 방화벽을 설정하기 전에 다음 사항을 검�
 >
 > 다음 커넥터는 Logic Apps 서비스에 대한 인바운드 웹후크 콜백을 수행합니다.
 >
-> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, Teamwork Projects, Typeform
+> Adobe Creative Cloud, adobe sign, adobe sign Demo, adobe sign 미리 보기, adobe sign Stage, Microsoft 센티널, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo 365, Fin & Ops, LiveChat, Office 365 Outlook, Outlook .com, Parserr, SAP *, Teamwork for Microsoft Teams, Projects, typeform
 >
 > \* **SAP**: 반환 호출자는 배포 환경이 다중 테넌트 Azure인지 ISE인지에 따라 다릅니다. 다중 테넌트 환경에서 온-프레미스 데이터 게이트웨이는 Logic Apps 서비스로 다시 호출합니다. ISE에서 SAP 커넥터는 Logic Apps 서비스로 다시 호출합니다.
 

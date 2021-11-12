@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: a15aaece5916ac9e9ff6129754b4f932878ac707
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 81ac751ca209c7741e3bf55082f7b041ff13022d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698638"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318164"
 ---
 # <a name="hbv2-series-virtual-machine-sizes"></a>HBv2 시리즈 가상 머신 크기
 
@@ -37,25 +37,21 @@ ms.locfileid: "122698638"
 
 OSU 마이크로벤치마크 제품군의 MPI 대기 시간 테스트가 실행됩니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)에 있습니다.
 
-
-```bash 
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
-``` 
- 
-:::image type="content" source="./media/latency-hbv2.png" alt-text="Azure HB의 MPI 대기 시간":::
+```
 
+:::image type="content" source="./media/latency-hbv2.png" alt-text="Azure HB의 MPI 대기 시간":::
 
 ## <a name="mpi-bandwidth"></a>MPI 대역폭
 
 OSU 마이크로벤치마크 제품군의 MPI 대역폭 테스트가 실행됩니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)에 있습니다.
 
-
 ```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
-``` 
+```
 
 :::image type="content" source="./media/bandwidth-hbv2.png" alt-text="Azure HB의 MPI 대역폭":::
-
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
 

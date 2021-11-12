@@ -1,14 +1,14 @@
 ---
 title: 경고 메시지 정보
 description: 경고 창에서 경고를 선택하여 세부 정보를 검토합니다.
-ms.date: 3/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 2fa2b265c7d3983ca6ae2d7507392dd37afabd27
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: d76b10943932825388075b7aef44f0f5b94c1d53
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019311"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278572"
 ---
 # <a name="about-alert-messages"></a>경고 메시지 정보
 

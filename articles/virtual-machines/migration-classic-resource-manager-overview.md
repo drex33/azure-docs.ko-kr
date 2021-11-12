@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 1d5391d90c4770377a85eb6d78cd8cc30f10ccee
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3909c87a256b6ae6afe230f9bad91d3fccdc62a7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249213"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346651"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션
 
@@ -140,7 +140,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 | 컴퓨팅 |XML VM 확장(BGInfo 1.*, Visual Studio 디버거, 웹 배포 및 원격 디버깅) |이는 지원되지 않습니다. 마이그레이션을 계속하려면 가상 머신에서 이러한 확장을 제거하는 것이 좋습니다. 그러지 않으면 마이그레이션 프로세스 중에 자동으로 삭제됩니다. |
 | 컴퓨팅 |Premium Storage를 사용한 부팅 진단 |마이그레이션을 계속하기 전에 VM에 대한 부팅 진단 기능을 비활성화합니다. 마이그레이션이 완료된 후에 Resource Manager 스택에서 부팅 진단을 재활성화할 수 있습니다. 또한 스크린샷 및 직렬 로그에 대해 사용되는 blob은 그러한 blob에 대해 요금이 부과되지 않도록 삭제해야 합니다. |
 | 컴퓨팅 | 둘 이상의 가용성 집합 또는 다중 가용성 집합을 포함하는 클라우드 서비스입니다. |현재는 지원되지 않습니다. 마이그레이션하기 전에 Virtual Machines를 동일한 가용성 집합으로 이동하세요. |
-| 컴퓨팅 | Azure Security Center 확장이 있는 VM | Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 Virtual Machines에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. Virtual Machines를 마이그레이션하려면 구독에 대해 Virtual Machines에서 Security Center 모니터링 확장을 제거하는 Security Center 정책을 사용하지 않도록 설정합니다. |
+| 컴퓨팅 | Microsoft Defender for Cloud 확장을 사용하는 VM | Microsoft Defender for Cloud는 Virtual Machines 자동으로 확장을 설치하여 보안을 모니터링하고 경고를 발생합니다. 이러한 확장은 일반적으로 구독에서 클라우드용 Microsoft Defender 정책을 사용하는 경우 자동으로 설치됩니다. Virtual Machines 마이그레이션하려면 구독에서 Defender for Cloud 정책을 사용하지 않도록 설정하면 Virtual Machines Defender for Cloud 모니터링 확장이 제거됩니다. |
 | 컴퓨팅 | 백업 또는 스냅샷 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 Virtual Machine에 설치됩니다. 이러한 VM의 마이그레이션은 지원되지 않지만 [클래식에서 Azure Resource Manager로의 마이그레이션에 관한 질문과 대답](./migration-classic-resource-manager-faq.yml)에 따라 마이그레이션 전에 수행된 백업을 유지합니다.  |
 | 컴퓨팅 | Azure Site Recovery 확장이 있는 VM | 해당 확장은 Azure Site Recovery 서비스를 사용하여 구성된 가상 머신에 설치됩니다. Site Recovery에 사용되는 스토리지 마이그레이션은 작동하지만, 현재 복제에 영향을 미칩니다. 스토리지 마이그레이션 후 VM 복제를 사용하지 않도록 설정한 다음 다시 사용하도록 설정해야 합니다. |
 | 네트워크 |가상 머신과 웹/작업자 역할이 포함된 가상 네트워크 |현재는 지원되지 않습니다. 마이그레이션하기 전에 웹/작업자 역할을 자체 Virtual Network로 이동하세요. 클래식 Virtual Network가 마이그레이션되면 마이그레이션된 Azure Resource Manager Virtual Network가 이전과 비슷한 구성을 얻기 위해 클래식 Virtual Network와 페어링될 수 있습니다.|

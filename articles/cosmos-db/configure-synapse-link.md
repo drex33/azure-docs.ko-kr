@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: 7514dca63dd22df841da7128737c736b5775b659
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 6baedff1ef084940b91c40b57572844f4b63de4b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132135063"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319399"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -196,65 +196,69 @@ except exceptions.CosmosResourceExistsError:
 
 ## <a name="enable-analytical-store-on-an-existing-container"></a><a id="update-analytical-ttl"></a> 기존 컨테이너에서 분석 저장소 사용
 
-단기 용량 제약 조건으로 인해 기존 컨테이너에서 Synapse 링크를 사용 하도록 등록 해야 합니다. 보류 중인 요청에 따라이 요청을 승인 하는 일은 한 주에서 1 주일까지 걸릴 수 있습니다. 요청 상태를 확인 하는 지침은 아래에 나와 있습니다. 문제나 궁금한 점이 있으면에 문의 하세요 [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) . 이 단계는 구독 당 한 번만 필요 하며, 모든 새 데이터베이스 계정 에서도이 기능을 사용할 수 있습니다.
+> [!NOTE]
+> 단기 용량 제약 조건으로 인해 기존 컨테이너에서 Synapse 링크를 사용 하도록 등록 해야 합니다. 보류 중인 요청에 따라이 요청을 승인 하는 일은 한 주에서 1 주일까지 걸릴 수 있습니다. 요청 상태를 확인하는 지침은 다음과 같습니다. 문제 또는 질문이 있는 경우 에 [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) 문의하세요. 이 단계는 구독당 한 번씩 필요하며, 모든 새 데이터베이스 계정에서도 이 기능을 사용할 수 있습니다.
 
-기존 Azure Cosmos DB SQL API 컨테이너에서 분석 저장소를 켤 수 있습니다. 이 기능은 일반적으로 사용할 수 있으며 프로덕션 작업에 사용할 수 있습니다. 초기 동기화 프로세스에 대 한 다음 세부 정보를 확인 하세요.
+> [!NOTE]
+> 기존 Azure Cosmos DB SQL API 컨테이너에서 분석 저장소를 설정할 수 있습니다. 이 기능은 일반 사용 가능하며 프로덕션 워크로드에 사용할 수 있습니다.
 
-* 분석 저장소 자동 동기화 프로세스의 동일한 성능 격리는 초기 동기화에 적용 되며 OLTP 워크 로드에 대 한 성능에 영향을 주지 않습니다.
+ 기존 컨테이너에서 Synapse Link 사용하도록 설정할 때 다음 세부 정보를 확인하세요.
 
-* 컨테이너의 초기 동기화를 분석 저장소와 함께 사용 하는 경우 데이터 볼륨 및 문서 복잡도에 따라 달라 집니다. 이 프로세스는 몇 초에서 며칠까지 걸릴 수 있습니다. Azure Portal를 사용 하 여 마이그레이션 진행률을 모니터링 하세요.
+* 분석 저장소 자동 동기화 프로세스의 동일한 성능 격리는 초기 동기화에 적용되며 OLTP 워크로드에 성능에 영향을 미치지 않습니다.
 
-* 컨테이너 또는 데이터베이스 계정의 처리량은 총 초기 동기화 시간에도 영향을 미칩니다. 이 마이그레이션에는 o s/s가 사용 되지 않지만 사용 가능한 총 r u/초는 프로세스의 성능에 영향을 미칩니다. 프로세스를 가속화 하기 위해 환경의 처리량을 일시적으로 늘릴 수 있습니다.
+* 분석 저장소와 컨테이너의 초기 동기화 총 시간은 데이터 볼륨 및 문서 복잡성에 따라 달라집니다. 이 프로세스는 몇 초에서 며칠까지 걸릴 수 있습니다. Azure Portal 사용하여 마이그레이션 진행 상황을 모니터링하세요.
 
-* 초기 동기화 프로세스가 끝날 때까지 기존 컨테이너의 분석 저장소를 쿼리할 수 없습니다. OLTP 워크 로드는 영향을 받지 않으며 일반적으로 데이터 읽기를 유지할 수 있습니다. 초기 동기화가 시작 된 후의 데이터 수집은 일반 분석 저장소 자동 동기화 프로세스를 통해 분석 저장소에 병합 됩니다.
+* 컨테이너 또는 데이터베이스 계정의 처리량도 총 초기 동기화 시간에 영향을 줍니다. 이 마이그레이션에는 RU/s가 사용되지 않지만 사용 가능한 총 RU/s는 프로세스의 성능에 영향을 미칩니다. 프로세스 속도를 높이기 위해 환경의 사용 가능한 CPU를 일시적으로 늘릴 수 있습니다.
 
-* 현재 기존 MongoDB API 컬렉션은 지원 되지 않습니다. 대안은 분석 저장소를 설정 하 여 만든 새 컬렉션으로 데이터를 마이그레이션하는 것입니다.
+* 해당 컨테이너에서 Synapse Link 사용하는 동안에는 기존 컨테이너의 분석 저장소를 쿼리할 수 없습니다. OLTP 워크로드는 영향을 받지 않으며 데이터를 정상적으로 읽을 수 있습니다. 초기 동기화가 시작된 후 수집된 데이터는 일반 분석 저장소 자동 동기화 프로세스에 의해 분석 저장소에 병합됩니다.
+
+* 현재 기존 MongoDB API 컬렉션은 지원되지 않습니다. 대신 분석 저장소가 켜져 있는 새 컬렉션으로 데이터를 마이그레이션할 수 있습니다.
  
 > [!NOTE]
-> 현재는 컨테이너에서 분석 저장소를 끌 수 없습니다. 분석 저장소 가격 책정에 대 한 자세한 내용을 보려면 [여기](analytical-store-introduction.md#analytical-store-pricing) 를 클릭 하세요.
+> 현재는 컨테이너에서 분석 저장소를 해제할 수 없습니다. 분석 저장소 가격 책정에 대한 자세한 내용을 보려면 [여기를](analytical-store-introduction.md#analytical-store-pricing) 클릭하세요.
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/)에 로그인합니다.
-2. Azure Cosmos DB 계정으로 이동 하 여 **통합** 섹션에서 **Synapse 링크 "** 탭을 엽니다. 이 탭에서는 다음을 수행할 수 있습니다.
-3. **등록** 을 클릭 하 여 구독에 대 한 승인을 요청 합니다. 요청 상태를 확인 하려면 동일한 포털 창으로 돌아옵니다.
-4. 승인 되 면 계정의 컨테이너 목록이 표시 되며,이를 통해 분석 저장소를 사용 하도록 설정할 수 있습니다.
-5. 필요에 따라 **통합** 섹션의 **Power BI** 탭으로 이동 하 여 Synapse Link 사용 컨테이너에 Power BI 대시보드를 만들 수 있습니다.
+2. Azure Cosmos DB 계정으로 이동하고 **통합** 섹션에서 **Synapse Link"** 탭을 엽니다. 이 탭에서는 다음을 수행할 수 있습니다.
+3. **등록을** 클릭하여 구독에 대한 승인을 요청합니다. 요청 상태를 보려면 동일한 포털 창으로 돌아가세요.
+4. 승인되면 계정의 컨테이너 목록이 표시되고 분석 저장소를 사용하도록 설정된 컨테이너를 선택할 수 있습니다.
+5. 필요에 따라 **통합** 섹션의 **Power BI** 탭으로 이동하여 Synapse Link 사용하도록 설정된 컨테이너에 Power BI 대시보드를 만들 수 있습니다.
 
 
 ### <a name="command-line-tools"></a>명령줄 도구
 
-속성을 `analytical TTL` 필요한 값으로 설정 하 여 분석 저장소를 사용 하도록 설정 된 컨테이너를 만듭니다. 허용 되는 값 목록은 [분석 TTL 지원 값](analytical-store-introduction.md#analytical-ttl) 문서를 참조 하세요.
+속성을 `analytical TTL` 필요한 값으로 설정하여 분석 저장소 사용 컨테이너를 만듭니다. 허용되는 값 목록은 [분석 TTL 지원 값](analytical-store-introduction.md#analytical-ttl) 문서를 참조하세요.
 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 기존 컨테이너에서 분석 저장소를 사용 하도록 설정 하려면 다음 단계를 사용 합니다. 속성을 `--analytical-storage-ttl` 필요한 값 (초)으로 설정 하거나 `-1` 무한 보존에 사용 합니다. 이 설정은 나중에 변경할 수 있습니다.
+Azure CLI 사용하여 기존 컨테이너에서 분석 저장소를 사용하도록 설정하려면 다음 단계를 사용합니다. 속성을 `--analytical-storage-ttl` 필요한 값(초)으로 설정하거나 `-1` 무한 보존에 사용합니다. 이 설정은 나중에 변경할 수 있습니다.
 
-* 을 사용 하 여 [승인을 위해 등록](/cli/azure/feature/registration) `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration` 합니다. 
-* 을 사용 하 여 [요청 상태를 확인](/cli/azure/feature/registration) 합니다 `az feature registration show --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration` .
-* 요청 승인 후 [분석 ttl](/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true) 을로 업데이트 `-1` 합니다.
-* Azure Portal의 마이그레이션 상태를 확인 합니다.
+* [을](/cli/azure/feature/registration) 사용하여 승인을 `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration` 등록합니다. 
+* [를](/cli/azure/feature/registration) 사용하여 요청 상태를 확인합니다. `az feature registration show --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`
+* 요청 승인 후 [분석 ttl을](/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true) 로 업데이트합니다. `-1`
+* Azure Portal 마이그레이션 상태를 확인합니다.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용 하 여 기존 컨테이너에서 분석 저장소를 사용 하도록 설정 하려면 다음 단계를 사용 합니다. 속성을 `-AnalyticalStorageTtl` 필요한 값 (초)으로 설정 하거나 `-1` 무한 보존에 사용 합니다. 이 설정은 나중에 변경할 수 있습니다.
+PowerShell을 사용하여 기존 컨테이너에서 분석 저장소를 사용하도록 설정하려면 다음 단계를 사용합니다. 속성을 `-AnalyticalStorageTtl` 필요한 값(초)으로 설정하거나 `-1` 무한 보존에 사용합니다. 이 설정은 나중에 변경할 수 있습니다.
 
-* 을 사용 하 여 [승인을 등록](/powershell/module/az.resources/register-azproviderfeature) `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"` 합니다.
-* [요청 상태를 확인](/powershell/module/az.resources/get-azproviderfeature)합니다.
-* 요청 승인 후 [분석 ttl](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) 을로 업데이트 `-1` 합니다.
-* Azure Portal의 마이그레이션 상태를 확인 합니다.
+* [을](/powershell/module/az.resources/register-azproviderfeature) 사용하여 승인을 `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"` 등록합니다.
+* [요청 상태를 확인합니다.](/powershell/module/az.resources/get-azproviderfeature)
+* 요청 승인 후 [분석 ttl을](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) 로 업데이트합니다. `-1`
+* Azure Portal 마이그레이션 상태를 확인합니다.
 
 
 
 ## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> 선택 사항 - 분석 저장소 TTL(Time to Live) 업데이트
 
-특정 TTL 값을 사용 하 여 분석 저장소를 사용 하도록 설정한 후에는이를 다른 유효한 값으로 업데이트할 수 있습니다. Azure portal, Azure CLI, PowerShell 또는 Cosmos DB SDK를 사용하여 값을 업데이트할 수 있습니다. 다양한 분석 TTL 구성 옵션에 대한 자세한 내용은 [분석 TTL 지원 값](analytical-store-introduction.md#analytical-ttl) 문서를 참조하세요.
+분석 저장소를 특정 TTL 값으로 사용하도록 설정한 후에는 다른 유효한 값으로 업데이트할 수 있습니다. Azure portal, Azure CLI, PowerShell 또는 Cosmos DB SDK를 사용하여 값을 업데이트할 수 있습니다. 다양한 분석 TTL 구성 옵션에 대한 자세한 내용은 [분석 TTL 지원 값](analytical-store-introduction.md#analytical-ttl) 문서를 참조하세요.
 
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal를 통해 분석 저장소 사용 컨테이너를 만든 경우에는의 기본값을 포함 `analytical TTL` `-1` 합니다. 다음 단계를 사용하여 이 값을 업데이트합니다.
+Azure Portal 통해 분석 저장소 사용 컨테이너를 만든 경우 기본값이 `analytical TTL` `-1` 포함됩니다. 다음 단계를 사용하여 이 값을 업데이트합니다.
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/)에 로그인합니다.
 1. Azure Cosmos DB 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
@@ -327,11 +331,11 @@ Spark 2 통합의 경우 [Spark 2를 사용하여 Azure Cosmos DB 분석 저장�
 
 ## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>서버리스 SQL 풀을 사용하여 Power BI에서 데이터 분석 및 시각화
 
-Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 만들 수 있습니다. 나중에 Azure Cosmos DB 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 Power BI를 사용 하 여 모델을 작성할 수 있습니다. 트랜잭션 워크로드에 대한 성능 또는 비용 영향은 없으며 ETL 파이프라인 관리의 복잡성도 없습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 자세한 내용은 [Synapse Link로 Azure Cosmos DB 데이터를 분석하기 위한 서버리스 SQL 풀](synapse-link-power-bi.md) 사용 방법 문서를 참조하세요.
+Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 만들 수 있습니다. 나중에 Azure Cosmos DB 컨테이너를 쿼리한 다음, 해당 쿼리를 반영하기 위해 해당 뷰에 대해 Power BI 사용하여 모델을 빌드할 수 있습니다. 트랜잭션 워크로드에 대한 성능 또는 비용 영향은 없으며 ETL 파이프라인 관리의 복잡성도 없습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 자세한 내용은 [Synapse Link로 Azure Cosmos DB 데이터를 분석하기 위한 서버리스 SQL 풀](synapse-link-power-bi.md) 사용 방법 문서를 참조하세요.
 
 ## <a name="configure-custom-partitioning"></a>사용자 지정 분할 구성
 
-사용자 지정 분할을 사용 하면 분석 쿼리에서 일반적으로 사용 되는 필드에 분석 저장소 데이터를 분할할 수 있으므로 쿼리 성능이 향상 됩니다.자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.
+사용자 지정 분할을 사용하면 분석 쿼리에서 일반적으로 필터로 사용되는 필드에 분석 저장소 데이터를 분할하여 쿼리 성능을 개선할 수 있습니다.자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 

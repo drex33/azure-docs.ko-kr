@@ -1,21 +1,21 @@
 ---
 title: Red Hat Enterprise Linux VHD 만들기 및 Azure에서 사용하도록 업로드
 description: RedHat Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 12/01/2020
-ms.author: danis
-ms.openlocfilehash: 24cccbbd1bed0fc4e1fbe357832095455dae7df8
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 11/10/2021
+ms.author: srijangupta
+ms.openlocfilehash: 11a7931126d451b2fbeff301a337f15fd6aecbf3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220008"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301232"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 
@@ -349,12 +349,13 @@ ms.locfileid: "123220008"
     다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     > [!CAUTION]
-    > 특정 가상 머신을 마이그레이션하고 일반화된 이미지를 만들지 않으려면 프로비전 해제 단계를 건너뜁니다. `waagent -force -deprovision` 명령을 실행하면 원본 머신을 사용할 수 없게 됩니다. 해당 단계는 일반화된 이미지를 만들기 위한 목적으로만 사용됩니다.
+    > 특정 가상 머신을 마이그레이션하고 일반화된 이미지를 만들지 않으려면 프로비전 해제 단계를 건너뜁니다. `waagent -force -deprovision+user` 명령을 실행하면 원본 머신을 사용할 수 없게 됩니다. 해당 단계는 일반화된 이미지를 만들기 위한 목적으로만 사용됩니다.
     ```console
-    # sudo waagent -force -deprovision
-
+    # sudo rm -f /var/log/waagent.log
+    # sudo cloud-init clean
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
     # export HISTSIZE=0
-
     # logout
     ```
     
@@ -536,14 +537,15 @@ ms.locfileid: "123220008"
     다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     ```console
-    # sudo waagent -force -deprovision
-
+    # sudo cloud-init clean
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    # sudo rm -f /var/log/waagent.log
     # export HISTSIZE=0
-
     # logout
     ```
     > [!CAUTION]
-    > 특정 가상 머신을 마이그레이션하고 일반화된 이미지를 만들지 않으려면 프로비전 해제 단계를 건너뜁니다. `waagent -force -deprovision` 명령을 실행하면 원본 머신을 사용할 수 없게 됩니다. 해당 단계는 일반화된 이미지를 만들기 위한 목적으로만 사용됩니다.
+    > 특정 가상 머신을 마이그레이션하고 일반화된 이미지를 만들지 않으려면 프로비전 해제 단계를 건너뜁니다. `waagent -force -deprovision+user` 명령을 실행하면 원본 머신을 사용할 수 없게 됩니다. 해당 단계는 일반화된 이미지를 만들기 위한 목적으로만 사용됩니다.
 
 
 1. Hyper-V 관리자에서 **작업** > **종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.

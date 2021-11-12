@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 7ca73ec55bdf88bad193bab563bcaf482d59274d
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 609ed203c794447f4fd0e0cd1a5267186a8eb67e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131561862"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301744"
 ---
 # <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에 대한 데이터베이스 엔진 설정 지정
 
@@ -45,9 +45,9 @@ ms.locfileid: "131561862"
 az postgres arc-server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'} --k8s-namespace <namespace> --use-k8s
 ```
 
-## <a name="show-current-custom-values-if-they-have-been-set"></a>설정된 경우 현재 사용자 지정 값 표시
+## <a name="show-current-custom-values-if-they-have-been-set"></a>설정 된 경우 현재 사용자 지정 값 표시
 
-**Az CLI 명령을 통해 다음을 수행합니다.**
+**Az CLI 명령을 사용 합니다.**
 
 ```azurecli
 az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
@@ -60,7 +60,7 @@ az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
 
-**또는 kubectl 명령을 통해 다음을 수행합니다.**
+**또는 kubectl 명령을 사용 하 여 다음을 수행 합니다.**
 ```console
    kubectl describe postgresql <server group name> -n <namespace name>
    ```
@@ -71,11 +71,11 @@ az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
    kubectl describe postgresql postgres01 -n arc
 ```
 
-이 두 명령은 모두 설정한 매개 변수가 표시되는 서버 그룹의 사양을 반환합니다. engine\settings 섹션이 없는 경우 모든 매개 변수가 해당 기본값에서 실행됨을 의미합니다.
+두 명령 모두 사용자가 설정한 매개 변수를 확인 하는 서버 그룹의 사양을 반환 합니다. engine\settings 섹션이 없는 경우 모든 매개 변수가 해당 기본값에서 실행됨을 의미합니다.
 
 :::row:::
     :::column:::
-        Postgres 엔진 설정에 대해 사용자 지정 값이 설정되지 않은 경우의 출력 예입니다. 사양에는 engine\settings 섹션이 표시되지 않습니다.
+        Postgres 엔진 설정에 대해 사용자 지정 값이 설정 되지 않은 경우의 출력 예입니다. 사양은 engine\settings. 섹션을 표시 하지 않습니다.
     :::column-end:::
     :::column:::
         ```console
@@ -145,26 +145,26 @@ General syntax of the command:
 az postgres arc-server edit -n <servergroup name> --engine-settings  '<ParameterName>=<CustomParameterValue>' --k8s-namespace <namespace> --use-k8s
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n postgres01 --engine-settings  'max_connections=51' --k8s-namespace arc --use-k8s
 ```
 
-**작업자 역할에서만 다음을 수행합니다.**
+**작업자 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --worker-settings '<ParameterName>=<CustomParameterValue>' --k8s-namespace <namespace> --use-k8s
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n postgres01 --worker-settings 'max_connections=52' --k8s-namespace arc --use-k8s
 ```
 
-**코디네이터 역할에서만 다음을 수행합니다.**
+**코디네이터 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --coordinator-settings '<ParameterName>=<CustomParameterValue>' --k8s-namespace <namespace> --use-k8s
 ```
@@ -178,33 +178,33 @@ az postgres arc-server edit -n postgres01 --coordinator-settings 'max_connection
 
 ### <a name="set-multiple-parameters-with-a-single-command"></a>단일 명령을 사용하여 여러 매개 변수 설정
 
-**코디네이터 및 작업자 역할 모두에서 다음을 수행합니다.**  
+**코디네이터 및 작업자 역할 모두:**  
  
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --engine-settings  '<ParameterName1>=<CustomParameterValue1>, ..., <ParameterNameN>=<CustomParameterValueN>' --k8s-namespace <namespace> --use-k8s
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers=8MB, max_connections=60' --k8s-namespace arc --use-k8s
 ```
 
-**작업자 역할에서만 다음을 수행합니다.**
+**작업자 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --worker-settings '<ParameterName1>=<CustomParameterValue1>, ..., <ParameterNameN>=<CustomParameterValueN>' --k8s-namespace <namespace> --use-k8s
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n postgres01 --worker-settings 'shared_buffers=8MB, max_connections=60' --k8s-namespace arc --use-k8s
 ```
 
-**코디네이터 역할에서만 다음을 수행합니다.**
+**코디네이터 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --coordinator-settings '<ParameterName1>=<CustomParameterValue1>, ..., <ParameterNameN>=<CustomParameterValueN>' --k8s-namespace <namespace> --use-k8s
 ```
@@ -214,11 +214,11 @@ az postgres arc-server edit -n <servergroup name> --coordinator-settings '<Param
 az postgres arc-server edit -n postgres01 --coordinator-settings 'shared_buffers=8MB, max_connections=60' --k8s-namespace arc --use-k8s
 ```
 
-### <a name="reset-one-parameter-to-its-default-value"></a>하나의 매개 변수를 기본값으로 다시 설정
+### <a name="reset-one-parameter-to-its-default-value"></a>하나의 매개 변수를 기본값으로 다시 설정 합니다.
 
-**코디네이터 및 작업자 역할 모두에서 다음을 수행합니다.**
+**코디네이터 및 작업자 역할 모두:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --engine-settings '<ParameterName>='  --coordinator-settings '<ParameterName>=' --worker-settings '<ParameterName>=' --k8s-namespace <namespace> --use-k8s
 ```
@@ -227,20 +227,20 @@ az postgres arc-server edit -n <servergroup name> --engine-settings '<ParameterN
 az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers='  --coordinator-settings 'shared_buffers=' --worker-settings 'shared_buffers=' --k8s-namespace arc --use-k8s
 ```
 
-**코디네이터 역할에서만 다음을 수행합니다.**
+**코디네이터 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --coordinator-settings '<ParameterName>=' --k8s-namespace <namespace> --use-k8s
 ```
-예를 들어:
+예를 들면 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n postgres01 --coordinator-settings 'shared_buffers=' --k8s-namespace arc --use-k8s
 ```
 
-**작업자 역할에서만 다음을 수행합니다.**
+**작업자 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --worker-settings '<ParameterName>=' --k8s-namespace <namespace> --use-k8s
 ```
@@ -251,21 +251,21 @@ az postgres arc-server edit -n postgres01 --worker-settings 'shared_buffers=' --
 
 ### <a name="reset-all-parameters-to-their-default-values"></a>모든 매개 변수를 기본값으로 다시 설정
 
-**코디네이터 및 작업자 역할 모두에서 다음을 수행합니다.**
+**코디네이터 및 작업자 역할 모두:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --engine-settings  `'`' --worker-settings `'`' --coordinator-settings `'`' --replace-settings --k8s-namespace <namespace> --use-k8s
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n postgres01 --engine-settings  `'`' --worker-settings `'`' --coordinator-settings `'`'  --replace-settings --k8s-namespace arc --use-k8s
 ```
 
-**코디네이터 역할에서만 다음을 수행합니다.**
+**코디네이터 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --coordinator-settings `'`'  --replace-settings --k8s-namespace <namespace> --use-k8s
 
@@ -275,9 +275,9 @@ az postgres arc-server edit -n <servergroup name> --coordinator-settings `'`'  -
 az postgres arc-server edit -n postgres01 --coordinator-settings `'`'  --replace-settings --k8s-namespace arc --use-k8s
 ```
 
-**작업자 역할에서만 다음을 수행합니다.**
+**작업자 역할의 경우에만:**
 
-명령의 일반 구문:
+명령의 일반적인 구문은 다음과 같습니다.
 ```azurecli
 az postgres arc-server edit -n <servergroup name> --worker-settings `'`'  --replace-settings --k8s-namespace <namespace> --use-k8s
 ```

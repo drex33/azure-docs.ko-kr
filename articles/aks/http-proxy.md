@@ -1,25 +1,25 @@
 ---
-title: HTTP 프록시를 Azure Kubernetes Service(AKS) 노드 구성
-description: AKS(Azure Kubernetes Service) 노드에 HTTP 프록시 구성 기능을 사용합니다.
+title: HTTP 프록시를 사용 하 여 AKS (Azure Kubernetes Service) 노드 구성
+description: AKS (Azure Kubernetes Service) 노드에 대 한 HTTP 프록시 구성 기능을 사용 합니다.
 services: container-service
 author: nickomang
 ms.topic: article
 ms.date: 09/09/2021
 ms.author: nickoman
-ms.openlocfilehash: 5817b4c484925342a98b22a307e256127cb518db
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 81631bfea3cc55b52dc95a81cb17c3420cf9638d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132135868"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346114"
 ---
-# <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service HTTP 프록시 지원(미리 보기)
+# <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service의 HTTP 프록시 지원 (미리 보기)
 
-관리형 또는 사용자 지정 가상 네트워크에 배포된 AKS(Azure Kubernetes Service) 클러스터에는 제대로 작동하는 데 필요한 특정 아웃바운드 dependencies가 있습니다. 이전에는 HTTP 프록시를 통해 인터넷 액세스를 라우팅해야 하는 환경에서는 이것이 문제였습니다. 노드는 인터넷 서비스에 액세스하는 데 필요한 구성, 환경 변수 및 인증서를 부트스트래핑할 방법이 없었습니다.
+관리 되는 가상 네트워크 또는 사용자 지정 가상 네트워크에 배포 된 경우와 상관 없이 Azure Kubernetes 서비스 (AKS) 클러스터에는 제대로 작동 하는 데 필요한 특정 아웃 바운드 종속성이 있습니다. 이전에는 인터넷 액세스가 HTTP 프록시를 통해 라우팅되는 환경에서 이것이 문제 였습니다. 노드는 인터넷 서비스에 액세스 하는 데 필요한 구성, 환경 변수 및 인증서를 부트스트래핑 하는 방법이 없습니다.
 
-이 기능은 AKS 클러스터에 HTTP 프록시 지원을 추가하여 클러스터 운영자가 프록시 종속 환경에서 AKS에 필요한 네트워크 트래픽을 보호하는 데 사용할 수 있는 간단한 인터페이스를 노출합니다.
+이 기능은 AKS 클러스터에 HTTP 프록시 지원을 추가 하 여 클러스터 운영자가 프록시 종속 환경에서 AKS-필요한 네트워크 트래픽을 보호 하는 데 사용할 수 있는 간단한 인터페이스를 노출 합니다.
 
-좀 더 복잡한 솔루션은 네트워크를 통해 보안 통신을 설정하기 위해 신뢰 체인을 만들어야 할 수 있습니다. 또한 이 기능을 사용하면 클러스터 부트스트랩의 일부로 노드에 신뢰할 수 있는 인증 기관을 설치할 수 있습니다.
+일부 복잡 한 솔루션은 네트워크를 통해 보안 통신을 설정 하기 위해 신뢰 체인을 만들어야 할 수 있습니다. 이 기능을 사용 하면 클러스터 부트스트래핑의 일부로 노드에 신뢰할 수 있는 인증 기관을 설치할 수도 있습니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -27,23 +27,23 @@ ms.locfileid: "132135868"
 
 다음 시나리오는 지원되지 **않습니다**.
 - 모니터링 추가 기능
-- 노드 풀당 다른 프록시 구성
-- 클러스터 생성 후 프록시 설정 업데이트
+- 노드 풀 당 다른 프록시 구성
+- 프록시 설정 업데이트 후 클러스터 만들기
 - 사용자/암호 인증
-- API 서버 통신을 위한 사용자 지정 CAS
+- API 서버 통신용 사용자 지정 Ca
 - Windows 기반 클러스터
-- VMAS(Virtual Machine 가용성 집합)를 사용하는 노드 풀
+- VMAS (가상 머신 가용성 집합)를 사용 하는 노드 풀
 
-기본적으로 *httpProxy*, *httpsProxy* 및 *trustedCa에는* 값이 없습니다.
+기본적으로 *Httpproxy*, *HttpsProxy 및* *ca* 에는 값이 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli)
 
 ### <a name="install-the-aks-preview-azure-cli"></a>`aks-preview` Azure CLI 설치
 
-*또한 aks-preview* Azure CLI 확장 버전 0.5.25 이상도 필요합니다. [Az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치 합니다.
+*Aks-preview* Azure CLI 확장 버전 0.5.25 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -74,11 +74,11 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/H
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="configuring-an-http-proxy-using-azure-cli"></a>Azure CLI 사용하여 HTTP 프록시 구성 
+## <a name="configuring-an-http-proxy-using-azure-cli"></a>Azure CLI를 사용 하 여 HTTP 프록시 구성 
 
-AKS를 HTTP 프록시와 함께 사용하면 클러스터를 만들 때 [az aks create][az-aks-create] 명령을 사용하고 구성을 JSON 파일로 전달합니다.
+HTTP 프록시에 AKS를 사용 하는 작업은 [az AKS create][az-aks-create] 명령을 사용 하 고 구성을 JSON 파일로 전달 하 여 클러스터를 만들 때 수행 됩니다.
 
-구성 파일의 스키마는 다음과 같습니다.
+구성 파일에 대 한 스키마는 다음과 같습니다.
 
 ```json
 {
@@ -91,18 +91,18 @@ AKS를 HTTP 프록시와 함께 사용하면 클러스터를 만들 때 [az aks 
 }
 ```
 
-`httpProxy`: 클러스터 외부에서 HTTP 연결을 만드는 데 사용할 프록시 URL입니다. URL 체계는 이어야 `http` 합니다.
-`httpsProxy`: 클러스터 외부에서 HTTPS 연결을 만드는 데 사용할 프록시 URL입니다. 이 를 지정하지 않으면 `httpProxy` 가 HTTP 및 HTTPS 연결 모두에 사용됩니다.
-`noProxy`: 프록시를 제외할 대상 도메인 이름, 도메인, IP 주소 또는 기타 네트워크 CIDR 목록입니다.
-`trustedCa`: 대체 CA 인증서 콘텐츠를 포함하는 `base64 encoded` 문자열입니다. 지금은 `PEM` 형식만 지원합니다. 또 다른 주의할 점은 k8s 시스템의 일부인 Go 기반 구성 요소와의 호환성을 위해 더 이상 사용되지 않는 일반 이름 인증서 대신 인증서가 지원되어야 한다는 `Subject Alternative Names(SANs)` 것입니다.
+`httpProxy`: 클러스터 외부에서 HTTP 연결을 만드는 데 사용할 프록시 URL입니다. URL 체계는 여야 합니다 `http` .
+`httpsProxy`: 클러스터 외부에서 HTTPS 연결을 만드는 데 사용할 프록시 URL입니다. 이를 지정 하지 않으면 `httpProxy` 은 HTTP 및 HTTPS 연결 모두에 사용 됩니다.
+`noProxy`: 프록시를 제외 하는 대상 도메인 이름, 도메인, IP 주소 또는 기타 네트워크 CIDRs의 목록입니다.
+`trustedCa`: 대체 CA 인증서 콘텐츠를 포함 하는 문자열 `base64 encoded` 입니다. 지금은 `PEM` 형식만 지원 합니다. K8s 시스템에 포함 된 Go 기반 구성 요소와의 호환성을 위해 인증서는 `Subject Alternative Names(SANs)` 사용 되지 않는 일반 이름 인증서 대신을 지원 해야 한다는 점을 고려해 야 합니다.
 
-예제 입력: CA 인증서는 PEM 형식 인증서 콘텐츠의 base64로 인코딩된 문자열이어야 합니다.
+예제 입력: CA 인증서는 PEM 형식 인증서 콘텐츠의 b a s e 64로 인코딩된 문자열 이어야 합니다.
 
 ```json
 {
   "httpProxy": "http://myproxy.server.com:8080/", 
   "httpsProxy": "https://myproxy.server.com:8080/", 
-  "noProxy": [
+  "noProxy": [
     "localhost",
     "127.0.0.1"
   ],
@@ -110,17 +110,17 @@ AKS를 HTTP 프록시와 함께 사용하면 클러스터를 만들 때 [az aks 
 }
 ```
 
-파일을 만들고 *httpProxy , httpsProxy* 및 *noProxy* 에 대한 값을 제공합니다.  환경에 필요한 경우 *trustedCa* 값도 제공합니다. 다음으로 클러스터를 배포하고 플래그를 통해 파일 이름을 `http-proxy-config` 전달합니다.
+파일을 만들고 *httpproxy*, *HttpsProxy* 및 *noproxy* 에 대 한 값을 제공 합니다. 환경에 필요한 경우에는 해당 하는 *ca* 값도 제공 합니다. 다음으로, 플래그를 통해 파일 이름을 전달 하 여 클러스터를 배포 `http-proxy-config` 합니다.
 
 ```azurecli
 az aks create -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config.json
 ```
 
-클러스터는 노드에 구성된 HTTP 프록시를 통해 초기화됩니다.
+클러스터는 노드에 구성 된 HTTP 프록시를 사용 하 여 초기화 됩니다.
 
-## <a name="configuring-an-http-proxy-using-azure-resource-manager-arm-templates"></a>ARM(Azure Resource Manager) 템플릿을 사용하여 HTTP 프록시 구성
+## <a name="configuring-an-http-proxy-using-azure-resource-manager-arm-templates"></a>ARM (Azure Resource Manager) 템플릿을 사용 하 여 HTTP 프록시 구성
 
-ARM 템플릿을 통해 구성된 HTTP 프록시를 통해 AKS 클러스터를 배포하는 것은 간단합니다. CLI 배포에 사용되는 동일한 스키마가 속성 아래 정의에 있습니다. `Microsoft.ContainerService/managedClusters`
+ARM 템플릿을 통해 구성 된 HTTP 프록시를 사용 하 여 AKS 클러스터를 배포 하는 것은 간단 합니다. CLI 배포에 사용 되는 것과 같은 스키마가 속성의 정의에 있습니다 `Microsoft.ContainerService/managedClusters` .
 
 ```json
 "properties": {
@@ -136,20 +136,20 @@ ARM 템플릿을 통해 구성된 HTTP 프록시를 통해 AKS 클러스터를 �
 }
 ```
 
-템플릿에서 *httpProxy , httpsProxy* 및 *noProxy* 에 대한 값을 제공합니다.  필요한 경우 '*trustedCa* 에 대한 값도 제공합니다. 템플릿을 배포하면 클러스터가 노드에 구성된 HTTP 프록시를 통해 초기화됩니다.
+템플릿에서 *Httpproxy*, *HttpsProxy* 및 *noproxy* 에 대 한 값을 제공 합니다. 필요한 경우 ' 트 *ca*'의 값도 제공 합니다. 템플릿을 배포 하 고 클러스터는 노드에 구성 된 HTTP 프록시를 사용 하 여 초기화 해야 합니다.
 
 ## <a name="handling-ca-rollover"></a>CA 롤오버 처리
 
-클러스터를 만든 후에는 *httpProxy*, *httpsProxy* 및 *noProxy* 값을 변경할 수 없습니다. 그러나 CA 인증서 롤링을 지원하기 위해 [az aks update][az-aks-update] 명령을 사용하여 *trustedCa* 값을 변경하고 클러스터에 적용할 수 있습니다.
+클러스터를 만든 후에는 *Httpproxy*, *HttpsProxy* 및 *noproxy* 의 값을 변경할 수 없습니다. 그러나 롤링 CA 인증서를 지원 하기 위해 [az aks update][az-aks-update] 명령을 사용 하 여 클러스터에 해당 하는 클러스터에 대 한 값을 변경 하 고 적용할 *수 있습니다.*
 
-예를 들어 *aks-proxy-config-2.json이라는* 새 CA 인증서의 base64로 인코딩된 문자열로 새 파일을 만들었다고 가정하면 다음 작업은 클러스터를 업데이트합니다.
+예를 들어 *aks* 이라는 새 CA 인증서의 base64 인코딩 문자열을 사용 하 여 새 파일을 만든 경우 다음 작업을 수행 하면 클러스터가 업데이트 됩니다.
 
 ```azurecli
 az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- AKS 클러스터의 네트워크 요구 사항에 대한 자세한 내용은 [AKS에서 클러스터 노드에 대한 송신 트래픽 제어를][aks-egress]참조하세요.
+- AKS 클러스터의 네트워크 요구 사항에 대 한 자세한 내용은 [AKS에서 클러스터 노드에 대 한 송신 트래픽 제어][aks-egress]를 참조 하세요.
 
 
 <!-- LINKS - internal -->

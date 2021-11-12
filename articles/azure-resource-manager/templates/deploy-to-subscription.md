@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드�
 ms.topic: conceptual
 ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8d171bde22bce1aac94e21c412b6773e6a4f39c5
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 0fd0bc94c899cf47e3e0b06f6acd9f9e9bd5d3c8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711488"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132310151"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 구독 배포
 
@@ -424,6 +424,6 @@ New-AzSubscriptionDeployment `
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Security Center에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)을 참조하세요.
+* 클라우드 용 Microsoft Defender에 대 한 작업 영역 설정 배포에 대 한 예제는 [deployASCwithWorkspaceSettings](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)를 참조 하세요.
 * 샘플 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments)에서 찾을 수 있습니다.
 * [관리 그룹 수준](deploy-to-management-group.md) 및 [테넌트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

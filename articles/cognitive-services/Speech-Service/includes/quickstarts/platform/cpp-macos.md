@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: eur
-ms.openlocfilehash: 90c86bbe258ebc73ef0bcb4b0da1b0124333ac46
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 73a6c99b3f35fa43852981edb3343cf9644e9662
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502422"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252214"
 ---
-이 가이드에서는 macOS 10.13 이상에서 C++용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
+이 가이드에서는 macOS 10.14 이상에서 C++용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여줍니다.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
-macOS 10.13 이상
+macOS 10.14 이상
 
 ## <a name="install-speech-sdk"></a>Speech SDK 설치
 
@@ -39,7 +39,7 @@ macOS 10.13 이상
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Speech SDK 프레임워크가 포함된 `.zip` 아카이브를 다운로드하여 추출합니다.
+1. Speech SDK xcframework가 포함된 `.zip` 아카이브를 다운로드하여 추출합니다.
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -52,7 +52,7 @@ macOS 10.13 이상
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   디렉터리 목록에는 타사 통지와 라이선스 파일은 물론 `MicrosoftCognitiveServicesSpeech.framework` 디렉터리도 포함해야 합니다.
+   디렉터리 목록에는 타사 통지와 라이선스 파일은 물론 `MicrosoftCognitiveServicesSpeech.xcframework` 디렉터리도 포함해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

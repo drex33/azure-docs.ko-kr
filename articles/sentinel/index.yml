@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure Sentinel 설명서
-summary: 이 문서에서는 Azure Sentinel을 사용하여 시작하기 위한 사용 사례를 제공합니다. 현대 세계에 맞게 재설계된 SIEM으로 위협이 해를 입히기 전에 확인하여 제거하세요. Azure Sentinel은 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다.
+title: Microsoft Sentinel 설명서
+summary: 이 문서에서는 Microsoft Sentinel을 사용하여 시작하기 위한 사용 사례를 제공합니다. 현대 세계에 맞게 재설계된 SIEM으로 위협이 해를 입히기 전에 확인하여 제거하세요. Microsoft Sentinel은 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다.
 metadata:
-  title: Azure Sentinel 설명서
-  description: '이 문서에서는 Azure Sentinel을 사용하여 시작하기 위한 사용 사례와 시나리오를 제공합니다. 현대 세계에 맞게 재설계된 SIEM으로 위협이 해를 입히기 전에 확인하여 제거하세요. Azure Sentinel은 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다. # 필수; 검색 결과에 표시되는 문서 설명입니다. 160개 미만의 문자.'
+  title: Microsoft Sentinel 설명서
+  description: '이 문서에서는 Microsoft Sentinel을 사용하여 시작하기 위한 사용 사례와 시나리오를 제공합니다. 현대 세계에 맞게 재설계된 SIEM으로 위협이 해를 입히기 전에 확인하여 제거하세요. Microsoft Sentinel은 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다. # 필수; 검색 결과에 표시되는 문서 설명입니다. 160개 미만의 문자.'
   services: sentinel
   ms.service: sentinel
   ms.subservice: azure-sentinel
@@ -11,25 +11,25 @@ metadata:
   ms.collection: collection
   author: yelevin
   ms.author: yelevin
-  ms.date: 06/25/2020
-  ms.openlocfilehash: 30589e2d2f7c1ceb0d5492983e7b189a410000b6
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.date: 11/09/2021
+  ms.openlocfilehash: 646e4d8401da416a1113d7c42eb7e9198053efc6
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131046796"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132277679"
 landingContent:
-- title: Azure Sentinel 정보
+- title: Microsoft Sentinel 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Azure Sentinel이란?
+    - text: Microsoft Sentinel이란?
       url: overview.md
     - text: 유용한 리소스
       url: resources.md
   - linkListType: whats-new
     links:
-    - text: Azure Sentinel의 새로운 기능
+    - text: Microsoft Sentinel의 새로운 기능
       url: whats-new.md
   - linkListType: concept
     links:
@@ -39,25 +39,25 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure Sentinel 등록
+    - text: Microsoft Sentinel 온보딩
       url: quickstart-onboard.md
   - linkListType: concept
     links:
-    - text: 전제 조건
+    - text: 필수 구성 요소
       url: prerequisites.md
   - linkListType: how-to-guide
     links:
-    - text: Azure Sentinel에 데이터 연결
+    - text: Microsoft Sentinel에 데이터 연결
       url: connect-data-sources.md
     - text: 수집된 데이터 시각화
       url: get-visibility.md
     - text: 인시던트 조사
       url: investigate-cases.md
-    - text: Azure Sentinel과 Microsoft 365 Defender 통합
+    - text: Microsoft Sentinel과 Microsoft 365 Defender 통합
       url: microsoft-365-defender-sentinel-integration.md
   - linkListType: learn
     links:
-    - text: Azure Sentinel에 대한 KQL 쿼리 만들기
+    - text: Microsoft Sentinel에 대한 KQL 쿼리 만들기
       url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - title: 데이터 수집
   linkLists:
@@ -89,15 +89,15 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Azure Sentinel의 위협 인텔리전스 이해
+    - text: Microsoft Sentinel의 위협 인텔리전스 이해
       url: understand-threat-intelligence.md
     - text: 위협 인텔리전스 통합
       url: threat-intelligence-integration.md
   - linkListType: how-to-guide
     links:
-    - text: 위협 인텔리전스 플랫폼을 Azure Sentinel에 연결
+    - text: 위협 인텔리전스 플랫폼을 Microsoft Sentinel에 연결
       url: connect-threat-intelligence-tip.md
-    - text: Azure Sentinel을 STIX/TAXII 피드에 연결
+    - text: Microsoft Sentinel을 STIX/TAXII 피드에 연결
       url: connect-threat-intelligence-taxii.md
     - text: 위협 지표 작업
       url: work-with-threat-indicators.md
@@ -149,7 +149,7 @@ landingContent:
       url: monitor-your-data.md
   - linkListType: reference
     links:
-    - text: 일반적으로 사용되는 Azure Sentinel 통합 문서
+    - text: 일반적으로 사용되는 Microsoft Sentinel 통합 문서
       url: top-workbooks.md
 - title: 대응
   linkLists:
@@ -165,7 +165,7 @@ landingContent:
       url: automate-incident-handling-with-automation-rules.md
     - text: 플레이북
       url: automate-responses-with-playbooks.md
-- title: Azure Sentinel 관리
+- title: Microsoft Sentinel 관리
   linkLists:
   - linkListType: concept
     links:

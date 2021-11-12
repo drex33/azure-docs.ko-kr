@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: d08d691b7ef990ac351984798efd1562171a023a
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c434319e48bb2bf1f7d0321a8200e9d42532e659
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553421"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289740"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너로 데이터 가져오기
 
@@ -66,8 +66,8 @@ ms.locfileid: "131553421"
 - 현재는 디자이너에서 테이블 형식 데이터 세트만 시각화할 수 있습니다. 디자이너 외부에서 파일 데이터 세트를 등록하는 경우 디자이너 캔버스에서 시각화할 수 없습니다.
 - 현재, 디자이너는 **Azure Blob Storage** 에 저장되는 미리 보기 출력만 지원합니다. 구성 요소의 오른쪽 패널에 있는 **매개 변수** 탭의 **출력 설정** 에서 출력 데이터 저장소를 확인 하 고 변경할 수 있습니다.
 - 데이터가 VNet(가상 네트워크)에 저장되어 있고 미리 보려는 경우 작업 영역 관리 ID를 사용하도록 설정해야 합니다.
-    1. 관련 데이터 저장소로 이동하여 **인증 업데이트** 를 클릭합니다.
-    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="자격 증명 업데이트":::
+    1. 관련 데이터 저장소로 이동한 후 **인증** 업데이트 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="자격 증명"::: 업데이트를 클릭 합니다.
     1. 작업 영역 관리 ID를 사용하도록 설정하려면 **예** 를 선택합니다.
     :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="작업 영역 관리 ID 사용":::
 

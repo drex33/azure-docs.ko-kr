@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 67ada228d3b4ed95b1247b221f0ad90bbbc74ba0
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: e3932ee9a0683689bd74fb2d912d98cd29715da6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416968"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343044"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 요청 모니터링하기
 
@@ -100,21 +100,21 @@ Azure Portal은 쿼리 대기 시간, 쿼리 로드(QPS) 및 제한에 대한 �
 
 현재 수치를 빠르게 확인하기 위해 서비스 개요 페이지의 **모니터링** 탭에 집계 형식을 변경하는 옵션을 사용하여 시간, 일 및 주 단위로 측정되는 고정된 간격에 대한 다음의 세 가지 메트릭이 표시됩니다. **검색 대기 시간**, **검색 쿼리 당 시간(초)(검색 단위 당)** , **제한된 검색 쿼리 백분율**
 
-보다 심층적으로 탐색하려면 데이터를 계층화하고 확대 및 시각화하여 추세 또는 변칙을 탐색할 수 있도록 **모니터링** 메뉴에서 메트릭 탐색기를 엽니다. 해당 [메트릭 차트 만들기 자습서](../azure-monitor/essentials/tutorial-metrics-explorer.md)에서 메트릭 탐색기에 대한 자세한 정보를 알아보세요.
+보다 심층적으로 탐색하려면 데이터를 계층화하고 확대 및 시각화하여 추세 또는 변칙을 탐색할 수 있도록 **모니터링** 메뉴에서 메트릭 탐색기를 엽니다. 해당 [메트릭 차트 만들기 자습서](../azure-monitor/essentials/tutorial-metrics.md)에서 메트릭 탐색기에 대한 자세한 정보를 알아보세요.
 
 1. 모니터링 섹션에서 **메트릭** 을 선택하여 검색 서비스에 설정된 범위에서 메트릭 탐색기를 엽니다.
 
-1. 메트릭의 드롭다운 목록에서 하나를 선택하여 기본 형식에 사용 가능한 집계 목록을 검토합니다. 집계는 수집된 값들이 각 시간 간격에 걸쳐 샘플링되는 방법을 정의합니다.
+2. 메트릭의 드롭다운 목록에서 하나를 선택하여 기본 형식에 사용 가능한 집계 목록을 검토합니다. 집계는 수집된 값들이 각 시간 간격에 걸쳐 샘플링되는 방법을 정의합니다.
 
    ![QPS 메트릭에 대한 메트릭 탐색기](./media/search-monitor-usage/metrics-explorer-qps.png "QPS 메트릭에 대한 메트릭 탐색기")
 
-1. 오른쪽 위 모서리에서 시간 간격을 설정합니다.
+3. 오른쪽 위 모서리에서 시간 간격을 설정합니다.
 
-1. 시각화 선택 기본값은 꺾은선형 차트입니다.
+4. 시각화 선택 기본값은 꺾은선형 차트입니다.
 
-1. **메트릭 추가** 를 선택하고 다른 집계를 선택하여 추가 집계를 계층화합니다.
+5. **메트릭 추가** 를 선택하고 다른 집계를 선택하여 추가 집계를 계층화합니다.
 
-1. 꺾은선형 차트에서 관심 영역을 확대합니다. 영역의 시작 부분에 마우스 포인터를 놓고 마우스 왼쪽 단추를 누른 채 영역의 반대쪽으로 끈 후 단추를 놓습니다. 그러면 해당 시간 범위에서 차트가 확대됩니다.
+6. 꺾은선형 차트에서 관심 영역을 확대합니다. 영역의 시작 부분에 마우스 포인터를 놓고 마우스 왼쪽 단추를 누른 채 영역의 반대쪽으로 끈 후 단추를 놓습니다. 그러면 해당 시간 범위에서 차트가 확대됩니다.
 
 ## <a name="return-query-strings-entered-by-users"></a>사용자가 입력한 쿼리 문자열 반환
 

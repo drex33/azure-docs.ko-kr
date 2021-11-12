@@ -3,12 +3,12 @@ title: 개념 증명 제공
 description: Azure DevTest Labs 엔터프라이즈 환경에 성공적으로 통합될 수 있도록 개념 증명을 제공하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 06/2/2020
-ms.openlocfilehash: 03c8cc087f33ea6385fc0690f5634f33a3cbf0fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fcd3ba364887fe26b13c74e16f3f50990d708549
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589970"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325185"
 ---
 # <a name="deliver-a-proof-of-concept"></a>개념 증명 제공 
 
@@ -19,7 +19,7 @@ Azure DevTest Labs에 대한 주요 시나리오 중 하나는 클라우드 내�
 * 가상 머신 및 기타 Azure 리소스에 대한 액세스를 사용하도록 설정하기
 * 개발자가 학습하고 실험해 볼 수 있는 샌드박스 영역 설정하기
 
-또한 DevTest Labs는 기업에서 회사 보안, 규정 및 규정 준수 정책을 준수하는 개발자에게 “셀프 서비스 Azure”를 제공하도록 지원하는 정책 가드 레일 및 비용 제어를 제공합니다. 
+DevTest Labs 정책 보호책 및 비용 제어를 통해 기업은 개발자에게 회사 보안, 규정 및 규정 준수 정책을 준수하는 "셀프 서비스 Azure"를 제공합니다. 
 
 기업마다 Azure DevTest Labs를 해당 환경에 성공적으로 통합하는 방법에 대한 요구 사항이 다릅니다. 이 문서는 성공적인 개념 증명을 위해 엔터프라이즈에서 완료해야 하는 가장 일반적인 단계에 대해 설명합니다. 개념 증명은 성공적인 엔드투엔드 배포를 위한 첫 번째 단계입니다. 
 
@@ -37,8 +37,8 @@ Azure DevTest Labs에 대한 주요 시나리오 중 하나는 클라우드 내�
 
 DevTest Labs를 사용하여 파일럿 또는 개념 증명을 성공적으로 완료하는 데 필요한 몇 가지 구성 요소가 있습니다. 
 
-* **Azure 구독**: 기업은 종종 Azure에 액세스할 수 있게 하는 기존의 [기업계약](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/)을 보유하고 있으며, DevTest Labs에 대한 기존 또는 새로운 구독을 사용할 수 있습니다. 또는 기업에서 파일럿 중에 [Visual Studio 구독](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/)을 사용할 수도 있습니다(무료 Azure 크레딧 활용). 이러한 옵션을 모두 사용할 수 없는 경우 기업은 [무료 Azure 계정](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ)을 만들고 사용할 수 있습니다. 기업계약이 있는 경우 [Enterprise 개발/테스트 구독](https://azure.microsoft.com/offers/ms-azr-0148p/)을 사용하면 Windows 10/Windows 8.1 클라이언트 운영 체제에 액세스하고 개발 및 테스트 워크로드에 대한 할인된 요금을 적용받을 수 있습니다. 
-* **Azure Active Directory 테넌트**: 사용자를 추가하거나 랩 소유자를 추가하는 등의 사용자 관리를 사용하도록 설정하려면, 해당 사용자가 파일럿에 대한 Azure 구독에 사용되는 [Azure Active Directory 테넌트](https://azure.microsoft.com/services/active-directory/)의 일부여야 합니다. 기업에서는 사용자가 클라우드에서 온-프레미스 ID를 사용할 수 있도록 [하이브리드 ID](../active-directory/hybrid/whatis-hybrid-identity.md)를 설정하지만, DevTest Labs 파일럿에는 이 작업이 필요하지 않습니다. 
+* **Azure 구독**: 기업은 종종 Azure에 액세스할 수 있게 하는 기존의 [기업계약](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/)을 보유하고 있으며, DevTest Labs에 대한 기존 또는 새로운 구독을 사용할 수 있습니다. 또는 기업에서 파일럿 중에 [Visual Studio 구독](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/)을 사용할 수도 있습니다(무료 Azure 크레딧 활용). 이러한 옵션을 모두 사용할 수 없는 경우 기업은 [무료 Azure 계정](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ)을 만들고 사용할 수 있습니다. 기업계약 있는 경우 [Enterprise 개발/테스트 구독이](https://azure.microsoft.com/offers/ms-azr-0148p/) 좋은 옵션입니다. Windows 10/Windows 8.1 클라이언트 운영 체제 및 개발 및 테스트 워크로드에 대한 할인된 요금에 액세스할 수 있습니다. 
+* **Azure Active Directory 테넌트:** 사용자 추가 또는 랩 소유자 추가와 같은 관리의 경우 사용자는 파일럿에서 사용하는 Azure 구독에 대한 [Azure Active Directory 테넌트](https://azure.microsoft.com/services/active-directory/) 중 일부여야 합니다. 종종 기업은 사용자가 클라우드에서 온-프레미스 [ID를](../active-directory/hybrid/whatis-hybrid-identity.md) 사용할 수 있도록 하이브리드 ID를 설정합니다. DevTest Labs 파일럿에는 하이브리드 ID가 필요하지 않습니다. 
 
 ## <a name="scoping-of-the-pilot"></a>파일럿의 범위 
 
@@ -56,11 +56,11 @@ DevTest Labs를 사용하여 파일럿 또는 개념 증명을 성공적으로 �
 * 파일럿 기간이란 무엇인가요? 2주 또는 1개월과 같이 계획된 범위에 잘 맞는 기간을 선택합니다. 
 * 파일럿이 완료되면 파일럿 중에 사용된 할당된 리소스에는 어떤 일이 발생하나요? 파일럿 리소스를 삭제할 계획인가요? 다음과 같이 생각할 수도 있습니다.
    
-   “파일럿이 종료될 때 가상 머신과 랩을 모두 제거하도록 계획할 수 있다면, 규모 출시 질문을 병렬로 확인하는 동안 파일럿에 대한 단일 구독을 설정하고 이에 대한 모든 작업을 수행할 수 있습니다.” 
+   "파일럿이 끝날 때 가상 머신과 랩을 버리려면 파일럿에 대한 단일 구독을 설정하고 모든 작업을 수행할 수 있습니다. 규모 롤아웃에 대한 질문을 병렬로 해결할 수 있습니다." 
 
-파일럿을 “완벽하게” 하는 경향이 있으므로 회사에서 서비스를 출시한 후 최종 상태를 동일하게 나타낼 수 있습니다. 그러한 추리는 사실이 아닙니다. “완벽하게” 될 수록, 파일럿을 시작하기 *전에* 완료해야 할 것이 많아집니다. 파일럿의 목적은 최종 서비스의 스케일 업 및 출시에 대한 적절한 결정을 내리는 것입니다. 
+파일럿을 "완벽"하게 만드는 경향이 있으므로 회사에서 서비스를 출시한 후의 최종 상태와 동일합니다. 이 가정은 false입니다. “완벽하게” 될 수록, 파일럿을 시작하기 *전에* 완료해야 할 것이 많아집니다. 파일럿의 목적은 최종 서비스를 확장하고 롤아웃할 때 적절한 결정을 내릴 수 있도록 하는 것입니다. 
 
-파일럿은 Azure DevTest Labs가 기업에 적합한 서비스인지 여부에 대한 질문에 대답하기 위해 필요한 최소한의 워크로드 및 종속성을 선택하는 것에 초점을 맞추어야 합니다. 가장 낮은 종속성이 있는 가장 간단한 워크로드를 선택하여 신속하고 명확한 성공을 보장하는 것이 좋습니다. 가능하지 않은 경우에는 잠재적 복잡성을 노출하는 가장 대표적인 워크로드를 선택하여 파일럿 단계에서 성공이 스케일 아웃 단계로 복제될 수 있도록 합니다. 
+파일럿은 필요한 최소 워크로드 및 의존도를 선택하고 Azure DevTest Labs 기업에 적합한지 여부를 결정하는 데 중점을 두어야 합니다. 빠르고 깔끔하게 성공할 수 있도록 가장 단순한 워크로드를 가장 적은 의존성으로 선택하는 것이 좋습니다. 가능하지 않은 경우 잠재적 복잡성을 노출하는 가장 대표적인 워크로드를 선택합니다. 따라서 스케일 아웃 단계에서 파일럿 성공을 복제할 수 있습니다. 
 
 다음 예제에서는 올바른 범위의 개념 증명을 보여줍니다. 
 
@@ -73,7 +73,7 @@ DevTest Labs를 사용하여 파일럿 또는 개념 증명을 성공적으로 �
 
 ### <a name="overview"></a>개요 
 
-Microsoft는 공급업체가 회사 네트워크에서 격리된 환경으로 사용할 수 있도록 DevTest 랩을 기반으로 하는 새 환경을 Azure에서 개발할 계획입니다. 솔루션이 요구 사항을 충족하는지 확인하기 위해 개념 증명을 개발하여 엔드투엔드 솔루션의 유효성을 검사합니다. 이를 사용해 보고 환경을 확인할 수 있는 몇 가지 공급 업체를 포함했습니다. 
+엔터프라이즈는 DevTest Labs를 기반으로 새 Azure 환경을 개발할 계획입니다. 이 환경은 회사 네트워크에서 격리됩니다. 솔루션이 요구 사항을 충족하는지 확인하기 위해 개념 증명을 개발하여 엔드투엔드 솔루션의 유효성을 검사합니다. 이를 사용해 보고 환경을 확인할 수 있는 몇 가지 공급 업체를 포함했습니다. 
 
 ### <a name="outcomes"></a>결과 
 
@@ -93,7 +93,7 @@ Microsoft는 공급업체가 회사 네트워크에서 격리된 환경으로 �
    * 문서(예: Microsoft Teams 또는 SharePoint)  
    * 대화(예: Microsoft Teams) 
    * 작업 항목(예: Azure Boards) 
-* 공급업체에 필요한 리소스는 무엇인가요? 여기에는 가상 머신 및 기타 필수 서버 모두에서 로컬로 네트워크에서 사용할 수 있는 애플리케이션이 포함됩니다. 
+* 공급업체에 필요한 리소스는 무엇인가요? 리소스에는 가상 머신과 다른 필수 서버 모두에서 로컬로 네트워크에서 사용할 수 있는 애플리케이션이 포함됩니다. 
 * 가상 머신이 Azure의 도메인에 조인되나요? 그렇다면 이는 Azure AD DS(Azure Active Directory Domain Services)나 혹은 다른 것인가요? 
 * 개념 증명의 대상이 되는 팀 또는 공급업체를 식별했나요? 환경에 대한 고객은 누구인가요?
 * 개념 증명에 사용되는 Azure 지역은 어디인가요? 
@@ -110,18 +110,18 @@ Microsoft는 공급업체가 회사 네트워크에서 격리된 환경으로 �
 * 공급업체는 해당 리소스에 성공적으로 연결하는 방법을 제공합니다. 특히, 사이트 간 VPN을 사용하면 공용 IP 주소 없이 직접 가상 머신에 액세스할 수 있습니다.
 * 아티팩트 집합에는 공급업체가 가상 머신에 필요로 하는 필수 소프트웨어가 포함됩니다.
 
-## <a name="additional-planning-and-design-decisions"></a>추가 계획 및 디자인 결정 
+## <a name="other-planning-and-design-decisions"></a>기타 계획 및 디자인 결정 
 
 전체 DevTest Labs 솔루션을 릴리스하기 전에 몇 가지 중요한 계획과 설계 결정을 내려야 합니다. 개념 증명을 사용하여 작업하는 환경은 이러한 결정을 내리는 데 도움이 될 수 있습니다. 추가 고려 사항은 다음과 같습니다. 
 
-* **구독 토폴로지**: Azure의 리소스에 대한 엔터프라이즈 수준의 요구 사항은 [단일 구독 내에서 사용 가능한 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)을 초과하여 확장할 수 있습니다. 이렇게 하면 초기 구독 제한을 늘리기 위한 여러 Azure 구독 및/또는 서비스 요청이 필요합니다. 구독에서 리소스를 배포하는 방법을 앞에서 결정하는 것이 중요합니다. 리소스를 나중에 다른 구독으로 이동하기 어렵기 때문에, 한 가지 중요한 리소스는 [구독 의사 결정 가이드](/azure/architecture/cloud-adoption/decision-guides/subscriptions/)입니다. 예를 들어 한번 만들어진 랩은 다른 구독으로 이동할 수 없습니다.  
+* **구독 토폴로지**: Azure의 리소스에 대한 엔터프라이즈 수준의 요구 사항은 [단일 구독 내에서 사용 가능한 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)을 초과하여 확장할 수 있습니다. 초기 구독 제한을 늘리려면 여러 Azure 구독 또는 서비스 요청이 필요할 수 있습니다. 나중에 리소스를 다른 구독으로 이동하기 어렵기 때문에 구독 간에 리소스를 배포하는 방법을 미리 결정하는 것이 중요합니다. 예를 들어 랩을 만든 후에는 다른 구독으로 이동할 수 없습니다. 한 가지 중요한 리소스는 [구독 결정 가이드](/azure/architecture/cloud-adoption/decision-guides/subscriptions/)입니다.   
 * **네트워크 토폴로지**: DevTest Labs에서 자동으로 만드는 [기본 네트워크 인프라](../app-service/networking-features.md)는 엔터프라이즈 사용자에 대한 요구 사항 및 제약 조건을 충족하기에 충분하지 않을 수 있습니다. 일반적으로 [Azure ExpressRoute 연결된 가상 네트워크](/azure/architecture/reference-architectures/hybrid-networking/), 구독 간 연결에 대한 [허브 및 스포크](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), 온-프레미스 연결만을 확인하기 위한 [강제 라우팅](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)을 볼 수 있습니다. DevTest Labs는 랩에서 새 가상 머신을 만들 때 기존 가상 네트워크를 랩에 연결하여 사용할 수 있도록 합니다. 
-* **가상 머신 원격 액세스**: DevTest Labs에 있는 가상 머신에 원격으로 액세스하는 다양한 옵션이 있습니다. 가장 쉬운 방법은 공용 IP 또는 공유 공용 IP를 사용하는 것입니다. 이러한 [설정은 랩에서 사용할 수](devtest-lab-shared-ip.md) 있습니다. 이러한 옵션이 충분하지 않은 경우에는 원격 액세스 게이트웨이를 사용할 수도 있습니다. 이 옵션은 [DevTest Labs 엔터프라이즈 참조 아키텍처](devtest-lab-reference-architecture.md)에 표시되며 [DevTest Labs 원격 데스크톱 게이트웨이 설명서](configure-lab-remote-desktop-gateway.md)에 추가로 설명되어 있습니다. 또한 기업에서는 ExpressRoute 또는 사이트 간 VPN을 사용하여 랩을 온-프레미스 네트워크에 연결할 수 있습니다. 이 옵션은 인터넷에 노출되지 않은 개인 IP 주소를 기반으로 가상 머신에 대한 직접 원격 데스크톱 또는 SSH 연결을 사용하도록 설정합니다. 
-* **권한 처리**: DevTest Labs에서 일반적으로 사용되는 두 가지 주요 권한은 [소유자 및 랩 사용자](devtest-lab-add-devtest-user.md)입니다. 랩에서 각 액세스 수준을 부여 받은 DevTest Labs를 널리 출시하기 전에 결정을 내려야 합니다. 일반적인 모델은 예산 소유자(예: 팀 리더)를 랩 소유자로, 팀 멤버를 랩 사용자로 하는 것입니다. 예산을 담당하는 사람(팀 리더)은 이 모델을 통해 정책 설정을 조정하고 팀을 예산 내로 유지할 수 있습니다.  
+* **가상 머신 원격 액세스**: DevTest Labs에 있는 가상 머신에 원격으로 액세스하는 다양한 옵션이 있습니다. 가장 쉬운 방법은 공용 IP 또는 공유 공용 IP를 사용하는 것입니다. [이러한 설정은](devtest-lab-shared-ip.md) 랩에서 사용할 수 있습니다. 이러한 옵션이 충분하지 않은 경우 원격 액세스 게이트웨이를 사용하는 것도 옵션입니다. [DevTest Labs 엔터프라이즈 참조 아키텍처에는](devtest-lab-reference-architecture.md) 이 옵션이 표시됩니다. 자세한 내용은 [원격 데스크톱 게이트웨이 사용하도록 랩 구성을](configure-lab-remote-desktop-gateway.md)참조하세요. 또한 기업에서는 ExpressRoute 또는 사이트 간 VPN을 사용하여 랩을 온-프레미스 네트워크에 연결할 수 있습니다. 이 옵션을 사용하면 개인 IP 주소를 기반으로 가상 머신에 대한 직접 원격 데스크톱 또는 SSH 연결을 사용할 수 있습니다. 인터넷에 노출되지 않습니다. 
+* **권한 처리**: DevTest Labs에서 일반적으로 사용되는 두 가지 주요 권한은 [소유자 및 랩 사용자](devtest-lab-add-devtest-user.md)입니다. DevTest Labs를 배포하기 전에 랩의 각 액세스 수준을 위임할 사람을 광범위하게 결정하는 것이 중요합니다. 일반적인 모델은 예산 소유자(예: 팀 리더)를 랩 소유자로, 팀 멤버를 랩 사용자로 하는 것입니다. 예산을 담당하는 사람(팀 리더)은 이 모델을 통해 정책 설정을 조정하고 팀을 예산 내로 유지할 수 있습니다.  
 
 ## <a name="completing-the-proof-of-concept"></a>개념 증명 완료 
 
-예상되는 학습이 적용되고 나면 파일럿을 완료해야 합니다. 사용자로부터 피드백을 수집하고, 파일럿에 성공했는지 확인하고, 조직이 엔터프라이즈에서 DevTest Labs의 규모 출시를 진행할 것인지 결정하는 시간입니다. 또한 규모 출시 전체에서 일관성을 유지하기 위해 DevTest Labs 및 관련 리소스의 배포를 자동화하는 것을 고려하기에 좋은 시간입니다. 
+예상 학습을 다뤄낸 후에는 파일럿을 완료해야 합니다. 사용자로부터 피드백을 수집하고, 파일럿이 성공했는지 확인하고, 조직이 DevTest Labs의 엔터프라이즈 규모 출시를 진행할지 여부를 결정합니다. 확장 출시 전체에서 일관성을 유지하기 위해 DevTest Labs 및 관련 리소스의 배포를 자동화하는 것도 좋습니다. 
 
 ## <a name="next-steps"></a>다음 단계 
 

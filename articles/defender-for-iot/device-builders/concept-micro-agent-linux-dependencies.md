@@ -2,13 +2,13 @@
 title: 마이크로 에이전트 Linux 종속성(미리 보기)
 description: 이 문서에서는 Defender for IoT 마이크로 에이전트의 여러 다른 Linux OS 종속성에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: 102cf31dbe19c068de344f1f7f294a6f3f0a722b
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 9fa1d53481e5e7f3b775855e54a0387fc04518ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967561"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284116"
 ---
 # <a name="micro-agent-linux-dependencies-preview"></a>마이크로 에이전트 Linux 종속성(미리 보기)
 

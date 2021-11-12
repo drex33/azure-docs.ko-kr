@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: eur
-ms.openlocfilehash: a65c99e54722a09e86e145a5e013ddec1ccd52cd
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 9f0323d92a32938fd8850a06d0f86b034a59dd4b
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502536"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132252507"
 ---
 이 가이드에서는 64비트 Java 8 JRE용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려는 경우에는 Maven 중앙 리포지토리에 Java SDK가 없습니다. Gradle 또는 `pom.xml` 종속성 파일을 사용하는 경우 `https://csspeechstorage.blob.core.windows.net/maven/`을 가리키는 사용자 지정 리포지토리를 추가해야 합니다(패키지 이름은 아래 참조).
 
@@ -29,7 +29,7 @@ ms.locfileid: "131502536"
 
 - Java Speech SDK 패키지는 다음과 같은 운영 체 제용으로 제공됩니다.
   - Windows: 64비트 전용
-  - Mac: macOS X 버전 10.13 이상
+  - Mac: macOS X 버전 10.14 이상
   - Linux; [지원되는 Linux 배포 및 대상 아키텍처](~/articles/cognitive-services/speech-service/speech-sdk.md)의 목록을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항

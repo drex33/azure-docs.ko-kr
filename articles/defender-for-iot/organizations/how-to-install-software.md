@@ -1,18 +1,18 @@
 ---
 title: Defender for IoT 설치
-description: Azure Defender for IoT용 센서 및 온-프레미스 관리 콘솔을 설치하는 방법을 알아봅니다.
-ms.date: 10/21/2021
+description: IoT 용 Microsoft Defender 용 센서 및 온-프레미스 관리 콘솔을 설치 하는 방법에 대해 알아봅니다.
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 0548b1caa269431bb27a54e2dcbd297b2d4734a0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 23776a9abf35cc8cdba512517163ab2f723b458d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247591"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343784"
 ---
 # <a name="defender-for-iot-installation"></a>Defender for IoT 설치
 
-이 문서에서는 IoT 용 Azure Defender 구성 요소를 설치 하는 방법을 설명 합니다.
+이 문서에서는 다음 IoT 용 Microsoft Defender 구성 요소를 설치 하는 방법을 설명 합니다.
 
 - **센서**: Defender for IoT 센서는 수동(에이전트 없는) 모니터링을 사용하여 ICS 네트워크 트래픽을 수집합니다. 수동 및 비간섭 센서는 OT 및 IoT 네트워크와 디바이스에 어떠한 영향도 주지 않습니다. 센서는 SPAN 포트 또는 네트워크 TAP에 연결하고 즉시 네트워크 모니터링을 시작합니다. 감지된 항목이 센서 콘솔에 표시됩니다. 여기에서 네트워크 맵, 디바이스 인벤토리, 광범위한 보고서의 검색 항목을 보고, 조사하고, 분석할 수 있습니다. 예를 들면 위험 평가 보고서, 데이터 마이닝 쿼리, 공격 벡터가 있습니다.
 
@@ -62,7 +62,7 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 
 ### <a name="hardware-specifications-for-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에 대한 하드웨어 사양
 
- | 항목 | Description |
+ | 항목 | 설명 |
  |----|--|
  **설명** | 다중 계층 아키텍처에서 온-프레미스 관리 콘솔은 지리적으로 분산된 사이트에 대한 표시 여부 및 제어 능력을 제공합니다. SIEM, 티켓 시스템, 차세대 방화벽, 보안 원격 액세스 플랫폼, Defender for IoT ICS 맬웨어 샌드박스를 비롯하여 SOC 보안 스택과 통합됩니다. |
  **배포 유형** | Enterprise |
@@ -73,7 +73,7 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 
 ### <a name="access-the-iso-installation-image"></a>ISO 설치 이미지에 액세스
 
-설치 이미지는 Defender for IoT 포털에서 액세스할 수 있습니다.
+설치 이미지는 Azure Portal의 IoT 용 Defender에서 액세스할 수 있습니다.
 
 파일에 액세스하려면 다음을 수행합니다.
 
@@ -176,7 +176,7 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 연결이 설정되면 BIOS를 구성할 수 있습니다.
 
-**Dell BIOS를 구성하려면:**
+**DELL BIOS를 구성 하려면**:
 
 1. [iDRAC IP 주소 구성](#configure-idrac-ip-address)
 
@@ -205,7 +205,7 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 #### <a name="configuring-the-bios"></a>BIOS 구성
 
-다음과 같은 경우 어플라이언스 BIOS를 구성해야 합니다.
+다음과 같은 경우 어플라이언스 BIOS를 구성 해야 합니다.
 
 - 화살표를 통해 어플라이언스를 구입하지 않았습니다.
 
@@ -213,9 +213,9 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
-**BIOS를 구성하려면:**
+**BIOS를 구성 하려면**:
 
-1. 키보드 및 화면을 사용하여 어플라이언스의 BIOS에 직접 액세스하거나 iDRAC를 사용합니다.
+1. 키보드 및 화면을 사용 하 여 직접 어플라이언스의 BIOS에 액세스 하거나 iDRAC를 사용 합니다.
 
    - 어플라이언스가 Defender for IoT 어플라이언스가 아닌 경우 브라우저를 열고 이전에 구성한 IP 주소로 이동합니다. Dell 기본 관리자 권한으로 로그인합니다. 사용자 이름에 **root** 를 사용하고 암호에 **calvin** 을 사용합니다.
 
@@ -356,7 +356,7 @@ BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
 다음 절차에서는 엔터프라이즈 및 SMB 어플라이언스에 대해 HPE BIOS를 구성하는 방법을 설명합니다.
 
-**HPE BIOS를 구성 하려면**:
+**HPE BIOS를 구성하려면:**
 
 1. **시스템 유틸리티** > **시스템 구성** > **BIOS/플랫폼 구성(RBSU)** 을 선택합니다.
 
@@ -408,7 +408,7 @@ BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
 1. 화면과 키보드를 어플라이언스에 연결한 다음 CLI에 연결합니다.
 
-1. Defender for IoT 포털의 **업데이트** 페이지에서 다운로드한 ISO 이미지와 키의 외부 CD 또는 디스크를 연결합니다.
+1. Azure Portal Defender for IoT의 **업데이트** 페이지에서 다운로드한 ISO 이미지로 키에 외부 CD 또는 디스크를 커넥트.
 
 1. 어플라이언스를 시작합니다.
 
@@ -494,7 +494,7 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
 1. 화면과 키보드를 어플라이언스에 연결한 다음 CLI에 연결합니다.
 
-1. Defender for IoT 포털의 **업데이트** 페이지에서 다운로드한 ISO 이미지와 키에 대한 외부 CD 또는 디스크를 연결합니다.
+1. Azure Portal Defender for IoT의 **업데이트** 페이지에서 다운로드한 ISO 이미지로 키에 외부 CD 또는 디스크를 커넥트.
 
 1. 어플라이언스를 시작합니다.
 
@@ -631,7 +631,7 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
 - 가상 머신에 사용 가능한 하드웨어 리소스
 
-- Azure Defender for IoT 센서용 ISO 설치 파일
+- IoT 용 Microsoft Defender 센서의 ISO 설치 파일
 
 하이퍼바이저가 실행 중인지 확인합니다.
 
@@ -812,8 +812,7 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="보조 NIC의 전체 아키텍처.":::
 
-두 NIC 모두 UI(사용자 인터페이스)를 지원합니다.
-보조 NIC를 배포하지 않도록 선택하면 주 NIC를 통해 모든 기능을 사용할 수 있습니다.
+두 NIC 모두 UI(사용자 인터페이스)를 지원합니다. 보조 NIC를 배포하지 않도록 선택하면 주 NIC를 통해 모든 기능을 사용할 수 있습니다.
 
 온-프레미스 관리 콘솔을 이미 구성했고 온-프레미스 관리 콘솔에 보조 NIC를 추가하려는 경우 다음 단계를 수행합니다.
 
@@ -1269,7 +1268,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 올바른 버전을 사용하고 있는지 확인합니다.
 
-**시스템의 버전을 확인하려면:**
+**시스템의 버전을 확인 하려면**:
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1279,7 +1278,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 설치 프로세스 중에 구성된 모든 입력 인터페이스가 실행 중인지 확인합니다.
 
-**시스템의 네트워크 상태를 확인하려면:**
+**시스템의 네트워크 상태를 확인 하려면**:
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1291,7 +1290,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 콘솔 웹 GUI에 액세스할 수 있는지 확인합니다.
 
-**관리가 UI에 액세스할 수 있는지 확인하려면:**
+**관리에서 UI에 대 한 액세스 권한이 있는지 확인 하려면**:
 
 1. 이더넷 케이블을 사용하여 랩톱을 관리 포트(**Gb1**)에 연결합니다.
 
@@ -1465,11 +1464,11 @@ Windows PowerShell 또는 Hyper-V 관리자를 통해 SPAN 가상 인터페이�
 
 1. **확인** 을 선택합니다.
 
-#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>가상 스위치에 대한 Microsoft NDIS 캡처 확장 사용
+#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>가상 스위치에 Microsoft NDIS 캡처 확장 사용
 
 Microsoft NDIS 캡처 확장을 새 가상 스위치에 사용하도록 설정해야 합니다.
 
-**새로 추가된 가상 스위치 에 대해 Microsoft NDIS 캡처 확장을 사용하도록 설정하려면:**
+**새로 추가 된 가상 스위치에 대해 MICROSOFT NDIS 캡처 확장을 사용 하도록 설정 하려면 다음을 수행 합니다**.
 
 1. Hyper-V 호스트에서 가상 스위치 관리자를 엽니다.
 
@@ -1512,13 +1511,13 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 |--|--|
 | vSwitch_Span | 새로 추가된 SPAN 가상 스위치 이름 |
 
-## <a name="access-sensors-from-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 센서에 액세스
+## <a name="access-sensors-from-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 센서 액세스
 
 사용자가 센서에 직접 액세스하지 못하도록 하여 시스템 보안을 강화할 수 있습니다. 대신, 사용자가 단일 방화벽 규칙을 사용하여 온-프레미스 관리 콘솔에서 센서에 액세스할 수 있도록 프록시 터널링을 사용합니다. 이 기술은 센서를 벗어나는 네트워크 환경에 대한 무단 액세스 가능성을 줄입니다. 센서에 로그인할 때의 사용자 환경은 동일하게 유지됩니다.
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="센서에 대한 액세스를 보여 주는 스크린샷.":::
 
-**터널링을 사용하도록 설정하려면:**
+**터널링을 사용 하려면**:
 
 1. **CyberX** 또는 **지원** 사용자 자격 증명을 사용하여 온-프레미스 관리 콘솔의 CLI에 로그인합니다.
 

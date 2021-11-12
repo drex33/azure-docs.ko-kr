@@ -2,13 +2,13 @@
 title: IoT Hub에 대한 사용자 지정 보안 경고
 description: Defender for IoT Hub의 기능 및 서비스를 통해 사용자 지정 가능한 보안 경고와 권장되는 수정 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/18/2021
-ms.openlocfilehash: e91587df3dbfb50700f95eaefea3bf80c2e18e04
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/09/2021
+ms.openlocfilehash: 3d72ee2d4cd91d0a922a7af61fbafd2cdb9a349a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249726"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319000"
 ---
 # <a name="defender-for-iot-hub-custom-security-alerts"></a>Defender for IoT Hub 사용자 지정 보안 경고
 

@@ -2,13 +2,13 @@
 title: 에이전트 기반 권장 사항
 description: 보안 권장 사항의 개념과 Defender for IoT 디바이스에 사용되는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/26/2021
-ms.openlocfilehash: 41a983f1c5d4e647d83751ea00e444f34e608559
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 11/09/2021
+ms.openlocfilehash: 4e0266d06f5be7937c056430aadd2d49f2f6a86d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083109"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343765"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>IoT 디바이스에 대한 보안 권장 사항
 

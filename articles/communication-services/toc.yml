@@ -87,6 +87,39 @@ items:
             href: concepts/chat/sdk-features.md
           - name: 채팅 개념
             href: concepts/chat/concepts.md
+      - name: 모니터링 및 분석
+        items:
+          - name: 진단 설정에서 로깅 사용
+            href: concepts/analytics/enable-logging.md
+          - name: 통화 요약 및 통화 진단 로그
+            href: concepts/analytics/call-logs-azure-monitor.md
+          - name: Log Analytics
+            href: concepts/analytics/log-analytics.md
+          - name: 자세한 정보
+            href: concepts/analytics/insights.md
+      - name: 서비스 이벤트(EventGrid)
+        items:
+          - name: 개요
+            href: ../event-grid/event-schema-communication-services.md
+            maintainContext: true
+          - name: 채팅 이벤트
+            href: ../event-grid/communication-services-chat-events.md
+            maintainContext: true
+          - name: 전화 통신 및 SMS 이벤트
+            href: ../event-grid/communication-services-telephony-sms-events.md
+            maintainContext: true
+          - name: 음성 및 비디오 통화 이벤트
+            href: ../event-grid/communication-services-voice-video-events.md
+            maintainContext: true
+          - name: 현재 상태 이벤트
+            href: ../event-grid/communication-services-presence-events.md
+            maintainContext: true
+      - name: Teams 상호 운용성
+        items:
+          - name: 개요
+            href: concepts/teams-interop.md
+          - name: Teams 회의 참가
+            href: concepts/join-teams-meeting.md
       - name: 전화 통신 및 SMS
         items:
           - name: SMS SDK 개요
@@ -107,6 +140,12 @@ items:
             href: concepts/telephony-sms/sms-faq.md
           - name: 메시징 정책
             href: concepts/telephony-sms/messaging-policy.md
+      - name: UI 라이브러리
+        items:
+          - name: UI 라이브러리 개요
+            href: concepts/ui-library/ui-library-overview.md
+          - name: UI 라이브러리 사용 사례
+            href: concepts/ui-library/ui-library-use-cases.md
       - name: 음성 및 비디오 통화
         items:
           - name: 통화 SDK 개요
@@ -129,22 +168,6 @@ items:
             href: concepts/best-practices.md
           - name: 알려진 문제
             href: concepts/known-issues.md
-      - name: UI 라이브러리
-        items:
-          - name: UI 라이브러리 개요
-            href: concepts/ui-library/ui-library-overview.md
-          - name: UI 라이브러리 사용 사례
-            href: concepts/ui-library/ui-library-use-cases.md
-      - name: 모니터링 및 분석
-        items:
-          - name: 진단 설정에서 로깅 사용
-            href: concepts/analytics/enable-logging.md
-          - name: 통화 요약 및 통화 진단 로그
-            href: concepts/analytics/call-logs-azure-monitor.md
-          - name: Log Analytics
-            href: concepts/analytics/log-analytics.md
-          - name: 자세한 정보
-            href: concepts/analytics/insights.md
       - name: SDK 및 REST API
         href: concepts/sdk-options.md
       - name: 클라이언트 및 서버 아키텍처
@@ -161,29 +184,6 @@ items:
         href: concepts/pricing.md
       - name: 푸시 알림
         href: concepts/notifications.md
-      - name: Teams 상호 운용성
-        items:
-          - name: 개요
-            href: concepts/teams-interop.md
-          - name: Teams 회의 참가
-            href: concepts/join-teams-meeting.md
-      - name: 서비스 이벤트(EventGrid)
-        items:
-          - name: 개요
-            href: ../event-grid/event-schema-communication-services.md
-            maintainContext: true
-          - name: 채팅 이벤트
-            href: ../event-grid/communication-services-chat-events.md
-            maintainContext: true
-          - name: 전화 통신 및 SMS 이벤트
-            href: ../event-grid/communication-services-telephony-sms-events.md
-            maintainContext: true
-          - name: 음성 및 비디오 통화 이벤트
-            href: ../event-grid/communication-services-voice-video-events.md
-            maintainContext: true
-          - name: 현재 상태 이벤트
-            href: ../event-grid/communication-services-presence-events.md
-            maintainContext: true
       - name: 로깅 및 진단
         href: concepts/logging-and-diagnostics.md
       - name: 메트릭

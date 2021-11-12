@@ -8,12 +8,12 @@ ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 1d3688e4051f2883c5316a13e59f5629481799e2
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 2cd4423d1d006555eedcbf7a6f08f04e415ea9bf
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864563"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292930"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md)는 서버리스 Azure 파일 공유를 직접 탑재하거나 Azure 파일 동기화를 사용하여 온-프레미스로 Azure 파일 공유를 캐싱하는 두 가지 방법으로 배포할 수 있습니다. 선택한 배포 옵션에 따라 배포 계획에서 고려해야 할 측면이 달라집니다. 
@@ -126,10 +126,10 @@ Azure Backup을 사용해 Azure Portal에서 항목 수준과 공유 수준 복�
 
 백업에 대한 자세한 내용은 [Azure 파일 공유 백업 정보](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
-### <a name="azure-defender-for-azure-files"></a>Azure Files용 Azure Defender 
-Azure Storage용 Azure Defender(이전의 Azure Storage용 Advanced Threat Protection)는 스토리지 계정에서 비정상적인 액세스 시도와 같은 비정상적인 활동을 검색했을 때 경고를 보내는 추가 보안 인텔리전스 계층을 제공합니다. 또한 맬웨어 해시 평판 분석을 실행하고 알려진 맬웨어에 대한 경고를 보냅니다. Azure Security Center를 통해 구독 또는 스토리지 계정 수준에서 Azure Defender를 구성할 수 있습니다. 
+### <a name="protect-azure-files-with-microsoft-defender-for-storage"></a>Microsoft Defender for Storage 사용하여 Azure Files 보호
+microsoft Defender for Storage 스토리지 계정에서 비정상적인 활동(예: 비정상적인 액세스 시도)을 감지할 때 경고를 생성하는 추가 보안 인텔리전스 계층을 제공합니다. 또한 맬웨어 해시 평판 분석을 실행하고 알려진 맬웨어에 대한 경고를 보냅니다. Microsoft Defender for Cloud를 통해 구독 또는 스토리지 계정 수준에서 Storage Microsoft Defender를 구성할 수 있습니다.
 
-자세한 내용은 [Storage용 Azure Defender 소개](../../security-center/defender-for-storage-introduction.md)를 참조하세요.
+자세한 내용은 [Storage Microsoft Defender 소개를](../../security-center/defender-for-storage-introduction.md)참조하세요.
 
 ## <a name="storage-tiers"></a>스토리지 계층
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

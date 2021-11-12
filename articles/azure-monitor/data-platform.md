@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 7356b9bb814f8bca5465fe74d48409b9dbca6d3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b97f7fdfb64f80fa1e132b0bdbd1dbb6d1382de1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731700"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279199"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 데이터 플랫폼
 
@@ -28,7 +28,7 @@ ms.locfileid: "101731700"
 ## <a name="observability-data-in-azure-monitor"></a>Azure Monitor의 가시성 데이터
 메트릭, 로그 및 분산 추적을 일반적으로 가시성의 세 핵심 요소라고 합니다. 모니터링 대상 시스템의 충분한 가시성을 제공하기 위해 모니터링 도구에서 수집하고 분석해야 하는 다양한 종류의 데이터를 나타냅니다. 가시성은 여러 핵심 요소의 데이터를 상호 연결하고 모니터링되는 전체 리소스 세트에서 데이터를 집계하여 달성할 수 있습니다. Azure Monitor는 여러 원본의 데이터를 함께 저장하므로 공통된 도구 세트를 사용하여 데이터를 상호 연결하고 분석할 수 있습니다. 또한 다른 서비스용 데이터를 호스트하는 것 외에도 여러 Azure 구독 및 테넌트 간에 데이터를 상호 연결합니다.
 
-Azure 리소스는 상당한 양의 모니터링 데이터를 생성합니다. Azure Monitor는 이 데이터를 다른 원본의 모니터링 데이터와 함께 메트릭 또는 로그 플랫폼으로 통합합니다. 각각은 특정 모니터링 시나리오에 맞게 최적화되며, Azure Monitor의 다양한 기능을 지원합니다. 데이터 분석, 시각화, 경고 등의 기능을 위해서는 필요한 시나리오를 가장 효율적이고 비용 효율적인 방식으로 구현할 수 있도록 차이점을 이해해야 합니다. [Application Insights](app/app-insights-overview.md) 또는 [VM Insights](vm/vminsights-overview.md) 와 같은 Azure Monitor의 정보에는 두 가지 유형의 데이터 간의 차이점을 이해 하지 않고도 특정 모니터링 시나리오에 집중할 수 있는 분석 도구가 있습니다. 
+Azure 리소스는 상당한 양의 모니터링 데이터를 생성합니다. Azure Monitor는 이 데이터를 다른 원본의 모니터링 데이터와 함께 메트릭 또는 로그 플랫폼으로 통합합니다. 각각은 특정 모니터링 시나리오에 맞게 최적화되며, Azure Monitor의 다양한 기능을 지원합니다. 데이터 분석, 시각화, 경고 등의 기능을 위해서는 필요한 시나리오를 가장 효율적이고 비용 효율적인 방식으로 구현할 수 있도록 차이점을 이해해야 합니다. [Application Insights](app/app-insights-overview.md) 또는 [VM Insights](vm/vminsights-overview.md) 와 같은 Azure Monitor Insights에는 두 가지 유형의 데이터 간의 차이점을 이해 하지 않고도 특정 모니터링 시나리오에 집중할 수 있는 분석 도구가 있습니다. 
 
 
 ### <a name="metrics"></a>메트릭
@@ -72,7 +72,7 @@ Azure Monitor의 분산 추적은 [Application Insights SDK](app/distributed-tra
 | 구조 | 샘플 시간, 모니터링되는 리소스, 숫자 값을 포함하는 표준 속성 세트입니다. 일부 메트릭에는 추가 정의를 위한 여러 차원이 포함됩니다. | 로그 유형에 따른 고유한 속성 세트입니다. |
 | 컬렉션 | 정기적으로 수집됩니다. | 이벤트가 생성될 레코드를 트리거할 때 산발적으로 수집될 수 있습니다. |
 | Azure Portal에서 보기 | 메트릭 탐색기 | Log Analytics |
-| 데이터 원본에 포함되는 항목 | Azure 리소스에서 수집되는 플랫폼 메트릭<br>Application Insights에서 모니터링하는 애플리케이션<br>애플리케이션 또는 API에서 정의된 사용자 지정 | 애플리케이션 및 리소스 로그<br>모니터링 솔루션<br>에이전트 및 VM 확장<br>애플리케이션 요청 및 예외<br>Azure Security Center<br>데이터 수집기 API |
+| 데이터 원본에 포함되는 항목 | Azure 리소스에서 수집되는 플랫폼 메트릭<br>Application Insights에서 모니터링하는 애플리케이션<br>애플리케이션 또는 API에서 정의된 사용자 지정 | 애플리케이션 및 리소스 로그<br>모니터링 솔루션<br>에이전트 및 VM 확장<br>애플리케이션 요청 및 예외<br>클라우드 용 Microsoft Defender.<br>데이터 수집기 API |
 
 ## <a name="collect-monitoring-data"></a>모니터링 데이터 수집
 여러 다른 [Azure Monitor 데이터 원본](agents/data-sources.md)이 Log Analytics 작업 영역(로그) 또는 Azure Monitor 메트릭 데이터베이스(메트릭) 중 하나 또는 둘 다에 기록됩니다. 일부 원본은 이러한 데이터 저장소에 직접 기록되고 다른 원본은 Azure Storage 등의 다른 위치에 기록될 수 있으며, 로그 또는 메트릭을 채우기 위한 구성이 필요할 수도 있습니다. 
@@ -90,4 +90,3 @@ Azure에서 도구를 사용하여 모니터링 데이터를 분석하는 것 �
 - [Azure Monitor의 메트릭](essentials/data-platform-metrics.md)에 대해 읽어보세요.
 - [Azure Monitor의 로그](logs/data-platform-logs.md)에 대해 읽어보세요.
 - Azure의 다양한 리소스에 [사용 가능한 모니터링 데이터](agents/data-sources.md)에 대해 알아봅니다.
-

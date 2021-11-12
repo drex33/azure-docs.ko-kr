@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/18/2021
-ms.openlocfilehash: 0197d3c4a76158663d721604cdd8e033b3d78153
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3bc4ee8d7d7491e577fba2e29d905262e37764cb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589647"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339545"
 ---
 # <a name="tutorial-migrate-azure-database-for-mysql--single-server-to-azure-database-for-mysql--flexible-server-with-minimal-downtime"></a>자습서: 최소한의 가동 중지 시간으로 Azure Database for MySQL – 단일 서버를 Azure Database for MySQL – 유연한 서버로 마이그레이션
 
@@ -168,7 +168,7 @@ mydumper/myloader 및 입력 데이터 복제와 같은 오픈 소스 도구의 
         iii. 입력 데이터 복제를 구성하려면 다음 명령을 실행합니다.
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, @cert);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, @cert);
         ```
 
         > [!Note]
@@ -177,7 +177,7 @@ mydumper/myloader 및 입력 데이터 복제와 같은 오픈 소스 도구의 
     * SSL 적용이 사용하도록 설정되지 않은 경우 다음 명령을 실행합니다.
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, ‘’);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, ‘’);
         ```
 
 9. 복제본 서버에서 복제를 시작하려면 아래 저장 프로시저를 호출합니다.

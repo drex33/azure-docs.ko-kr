@@ -2,17 +2,17 @@
 title: Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성
 description: NSG 규칙, RDP 포트 액세스, 부하 분산 규칙 등에 대해 Service Fabric 관리형 클러스터를 구성하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 8/23/2021
-ms.openlocfilehash: 3482f414029c79ceea9c0ee8bcc258ed2fc495e1
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.date: 11/10/2021
+ms.openlocfilehash: 2334618f11533d285154082e0d1b5dadbc41368f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558880"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289394"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성
 
-Service Fabric 관리형 클러스터는 기본 네트워킹 구성을 사용하여 만들어집니다. 이 구성은 공용 IP가 있는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md), 하나의 서브넷이 할당된 VNet 및 필수 클러스터 기능에 대해 구성된 NSG로 구성됩니다. 또한 고객 구성을 더 쉽게 하기 위해 기본값으로 모든 아웃바운드 트래픽을 허용하는 것과 같이 선택적 NSG 규칙이 적용됩니다. 이 문서에서는 다음 네트워킹 구성 옵션 등을 수정하는 방법을 안내합니다.
+Service Fabric 관리형 클러스터는 기본 네트워킹 구성을 사용하여 만들어집니다. 이 구성은 공용 IP가 있는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md), 하나의 서브넷이 할당된 VNet 및 필수 클러스터 기능에 대해 구성된 NSG로 구성됩니다. 기본적으로 모든 아웃 바운드 트래픽을 허용 하는 것과 같이 사용자가 쉽게 구성할 수 있도록 하기 위해 적용 되는 선택적 NSG 규칙도 있습니다. 이 문서에서는 다음 네트워킹 구성 옵션 등을 수정하는 방법을 안내합니다.
 
 - [NSG 규칙 관리](#nsgrules)
 - [RDP 액세스 관리](#rdp)
@@ -20,6 +20,9 @@ Service Fabric 관리형 클러스터는 기본 네트워킹 구성을 사용하
 - [IPv6 사용](#ipv6)
 - [사용자 고유의 가상 네트워크 가져오기](#byovnet)
 - [사용자 고유의 부하 분산 장치 가져오기](#byolb)
+- [가속화된 네트워킹 사용](#accelnet)
+- [보조 서브넷 구성](#auxsubnet)
+
 
 <a id="nsgrules"></a>
 ## <a name="manage-nsg-rules"></a>NSG 규칙 관리
@@ -199,8 +202,8 @@ Azure Portal을 사용하여 RDP(원격 데스크톱 프로토콜)에 대한 인
 
    ![인바운드 NAT 규칙][Inbound-NAT-Rules]
 
-   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트 할당은 5만에서 시작 하 고 대상 포트는 포트 3389 이며, 대상 노드의 RDP 서비스에 매핑됩니다.
-   >[!NOTE]
+   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트가 50000 이상 범위에 있고, 대상 포트는 포트 3389이며, 대상 노드의 RDP 서비스에 매핑됩니다.
+   > [!NOTE]
    > BYOLB 기능을 사용 하 고 RDP를 사용 하려는 경우에는 별도로 NAT 풀을 구성 해야 합니다. 이러한 노드 유형에 대 한 NAT 규칙을 자동으로 만들지 않습니다.
 
 4. 특정 노드(확장 집합 인스턴스)에 원격으로 연결합니다. 클러스터를 만들 때 설정한 사용자 이름 및 암호 또는 구성한 다른 자격 증명을 사용할 수 있습니다.
@@ -336,7 +339,6 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 > [!NOTE]
 > 클러스터가 만들어지고 관리형 클러스터가 제공된 서브넷에 NSG를 할당한 후에는 이 설정을 변경할 수 없습니다. NSG 할당을 재정의하지 마십시오. 그렇지 않으면 트래픽이 중단됩니다.
 
-
 **사용자 고유의 가상 네트워크 불러오기**
 
 1. Service Fabric 리소스 공급자 애플리케이션에 대한 구독에서 서비스 `Id`를 받습니다.
@@ -439,30 +441,38 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 
 <a id="byolb"></a>
 ## <a name="bring-your-own-azure-load-balancer-preview"></a>사용자 고유의 Azure Load Balancer 가져오기(미리 보기)
-관리형 클러스터는 주 및 보조 노드 유형 모두에 대해 고정적인 공용 IP를 사용하여 Azure Load Balancer 및 정규화된 도메인 이름을 만듭니다. 이 기능을 사용하면 인바운드 및 아웃바운드 트래픽 모두에 대해 보조 노드 유형에 대한 Azure Load Balancer 만들거나 다시 사용할 수 있습니다. 고유한 Azure Load Balancer 가져오는 경우 다음을 수행할 수 있습니다.
+관리 클러스터는 기본 및 보조 노드 형식에 대 한 고정 공용 IP를 사용 하 여 Azure public 표준 Load Balancer 및 정규화 된 도메인 이름을 만듭니다. 사용자 고유의 부하 분산 장치를 사용 하면 인바운드 및 아웃 바운드 트래픽 둘 다에 대 한 보조 노드 유형에 기존 Azure Load Balancer를 사용할 수 있습니다. 고유한 Azure Load Balancer 가져오는 경우 다음을 수행할 수 있습니다.
 
 * 개인 또는 공용 트래픽에 대해 미리 구성된 Load Balancer 고정 IP 주소 사용
 * 특정 노드 형식에 Load Balancer 매핑
-* 각 노드 유형이 고유한 NSG를 사용하여 자체 서브넷에 배포되기 때문에 노드 유형별 네트워크 보안 그룹 규칙 구성 
+* 각 노드 유형이 자체 서브넷에 배포 되기 때문에 노드 유형별 네트워크 보안 그룹 규칙을 구성 합니다.
 * 보유하고 있을 수 있는 기존 정책 및 컨트롤 유지
+* 내부 전용 부하 분산 장치를 구성 하 고 외부 트래픽에 대 한 기본 부하 분산 장치를 사용 합니다.
 
 > [!NOTE]
-> BYOVNET을 사용하는 경우 관리형 클러스터 리소스는 구성된 추가 부하 분산에 관계없이 하나의 NSG가 있는 하나의 서브넷에 배포됩니다.
+> BYOVNET을 사용 하는 경우 관리 되는 클러스터 리소스는 구성 된 추가 부하 분산 장치에 관계 없이 하나의 NSG가 있는 하나의 서브넷에 배포 됩니다.
 
 > [!NOTE]
-> 노드 유형에 대한 클러스터 배포 후 기본값에서 사용자 지정으로 전환할 수는 없지만 배포 후 사용자 지정 부하 분산 장치 구성을 수정할 수 있습니다.
+> 노드 유형을 배포한 후 기본 부하 분산 장치에서 사용자 지정 항목으로 전환할 수 없지만, 사용 하도록 설정 된 경우에는 사용자 지정 부하 분산 장치 구성을 수정할 수 있습니다.
 
 **기능 요구 사항**
  * 기본 및 표준 SKU Azure Load Balancer 형식이 지원됩니다.
- * 기존 Azure Load Balancer에 구성된 백 엔드 및 NAT 풀이 있어야 합니다. 예제는 전체 [여기에서 역할 만들기 및 할당하기 샘플](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json)을 참조하세요. 
+ * Azure Load Balancer에 백 엔드 및 NAT 풀이 구성 되어 있어야 합니다.
+ * 제공 된 공용 부하 분산 장치를 사용 하거나 기본 공용 부하 분산 장치를 사용 하 여 아웃 바운드 연결을 사용 하도록 설정 해야 합니다.
 
 다음은 고객이 사용할 수 있는 몇 가지 예제 시나리오입니다.
 
 이 예제에서 고객은 기존 고정 IP 주소로 구성된 기존 Azure Load Balancer 통해 트래픽을 두 노드 형식으로 라우팅하려고 합니다.
+
 ![사용자 고유의 Load Balancer 예제 1][sfmc-byolb-example-1]
 
-이 예제에서 고객은 기존 Azure Load Balancer를 통해 트래픽을 라우팅하여 별도의 노드 유형에 있는 애플리케이션에 대한 트래픽 흐름을 독립적으로 관리하려고 합니다. 이 예제처럼 설정하면 각 노드 유형은 관리할 수 있는 고유한 NSG 뒤에 있습니다.
+이 예제에서 고객은 기존 Azure Load Balancer를 통해 트래픽을 라우팅하여 별도의 노드 유형에 있는 애플리케이션에 대한 트래픽 흐름을 독립적으로 관리하려고 합니다. 이 예제와 같이 설정 하는 경우 각 노드 형식은 자체 관리 되는 NSG 뒤에 있습니다.
+
 ![사용자 고유의 Load Balancer 예제 2][sfmc-byolb-example-2]
+
+이 예에서는 고객이 기존 내부 Azure 부하 분산 장치를 통해 트래픽을 라우팅하 려 합니다. 이렇게 하면 별도의 노드 형식에 따라 독립적으로 해당 응용 프로그램에 대 한 트래픽 흐름을 관리할 수 있습니다. 이 예와 같이 설정 하는 경우 각 노드 형식은 자체 관리 되는 NSG 뒤에 있으며 외부 트래픽에 대 한 기본 부하 분산 장치를 사용 합니다.
+
+![사용자 고유의 Load Balancer 예제 3 가져오기][sfmc-byolb-example-3]
 
 사용자 고유의 부하 분산 장치 가져오기를 구성하려면 다음을 수행합니다.
 
@@ -495,7 +505,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 
 2. Service Fabric 리소스 공급자 애플리케이션으로 역할 할당을 추가합니다. 역할 할당을 추가하는 것은 일회성 작업입니다. 다음 PowerShell 명령을 실행하거나 아래에 설명된 대로 ARM(Azure Resource Manager) 템플릿을 구성하여 역할을 추가합니다.
 
-   다음 단계에서는 Existing-RG 리소스 그룹에서 Existing-LoadBalancer1이라는 기존 부하 분산 장치로 시작합니다.
+   다음 단계에서는 Existing-RG 리소스 그룹에서 Existing-LoadBalancer1이라는 기존 부하 분산 장치로 시작합니다. 
 
    기존 Azure Load Balancer에서 필요한 `Id` 속성 정보를 얻습니다. 우리는 
 
@@ -517,7 +527,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
    New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
    ```
 
-   또는 1단계, 및 에서 가져온 에 대한 적절한 값으로 구성된 ARM(Azure Resource Manager) 템플릿을 사용하여 역할 할당을 추가할 수 `principalId` `loadBalancerRoleAssignmentID` 있습니다. `roleDefinitionId`
+   또는 `principalId` ":"에 대 한 적절 한 값으로 구성 된 Azure Resource Manager (ARM) 템플릿을 사용 하 여 역할 할당을 추가할 수 있습니다 `roleDefinitionId` .
 
    ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
@@ -535,24 +545,103 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
    > [!NOTE]
    > loadBalancerRoleAssignmentID는 [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16)여야 합니다. 템플릿에 이 역할 할당을 포함하여 재배포하는 경우 GUID가 원래 사용된 것과 동일한지 확인합니다. 이 리소스는 한 번만 만들면 되므로, 배포 후 클러스터 템플릿에서 격리하거나 제거하는 것이 좋습니다.
 
-3. 필요한 아웃바운드 연결 구성 모든 노드는 포트 443의 아웃바운드를 ServiceFabric 리소스 공급자로 라우팅할 수 있어야 합니다. NSG에서 `ServiceFabric` 서비스 태그를 사용하여 트래픽 대상을 Azure 엔드포인트로 제한할 수 있습니다.
+   [공용 부하 분산 장치를 만들고 역할을 할당](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json)하려면이 예제 템플릿을 참조 하세요.
+
+
+3. 노드 형식에 대해 필요한 아웃 바운드 연결을 구성 합니다. 아웃 바운드 연결을 제공 하거나 기본 공용 부하 분산 장치를 사용 하도록 공용 부하 분산 장치를 구성 해야 합니다. 
+   
+   `outboundRules`아웃 바운드 연결을 제공 하도록 공용 부하 분산 장치를 구성 하려면 [부하 분산 장치 만들기 및 역할 할당 샘플 AZURE RESOURCE MANAGER (ARM) 템플릿](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json) 을 참조 하세요.
+   
+   또는
+   
+   기본 부하 분산 장치를 사용 하도록 노드 유형을 구성 하려면 템플릿에서 다음을 설정 합니다. 
+   
+   * Service Fabric 관리 되는 클러스터 리소스 apiVersion은 **2021-11-01-preview** 이상 이어야 합니다.
+
+   ```json
+      {
+      "apiVersion": "[variables('sfApiVersion')]",
+      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+      ...
+      "properties": {
+          "isPrimary": false,
+          "useDefaultPublicLoadBalancer": true
+          ...
+      }
+   ```
 
 4. 필요에 따라 기존 Azure Load Balancer에서 인바운드 애플리케이션 포트 및 관련 프로브를 구성합니다.
+   예제는 [사용자 고유의 부하 분산 장치 샘플 Azure Resource Manager (ARM) 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) 을 참조 하세요.
 
 5. 필요에 따라 노드 유형에 적용된 관리형 클러스터 NSG 규칙을 구성하여 Azure Load Balancer 구성한 모든 필수 트래픽 또는 트래픽이 차단되도록 합니다.
+   예제 인바운드 NSG 규칙 구성에 대해서는 [자체 부하 분산 장치 샘플 Azure Resource Manager (ARM) 템플릿 가져오기](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) 를 참조 하세요. 템플릿에서 속성을 찾습니다 `networkSecurityRules` .
 
-   인바운드 규칙을 여는 방법에 대한 예제는 [사용자 고유의 부하 분산 장치 샘플 ARM(Azure Resource Manager) 템플릿 가져오기](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB)를 참조하세요.
+6. 구성 된 관리 되는 클러스터 ARM 템플릿 배포이 단계에서는 [사용자 고유의 부하 분산 장치 샘플 Azure Resource Manager (ARM) 템플릿을](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) 사용 합니다.
 
-6. 구성된 관리형 클러스터 ARM 템플릿 배포
-
-   다음 예제에서는 `westus`에서 `MyResourceGroup`라는 리소스 그룹을 만들고 이 기능을 사용하도록 설정된 클러스터를 배포합니다.
+   다음은에서 호출 된 리소스 그룹을 `MyResourceGroup` 만들고 `westus` 기존 부하 분산 장치를 사용 하 여 클러스터를 배포 합니다.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
    ```
 
-   배포 후 보조 노드 유형은 인바운드 및 아웃바운드 트래픽에 대해 지정된 부하 분산 장치를 사용하도록 구성됩니다. Service Fabric 클라이언트 연결 및 게이트웨이 엔드포인트는 관리형 클러스터 주 노드 유형 고정 IP 주소의 공용 DNS를 가리킵니다.
+   배포 후에는 보조 노드 유형이 인바운드 및 아웃 바운드 트래픽에 대해 지정 된 부하 분산 장치를 사용 하도록 구성 됩니다. Service Fabric 클라이언트 연결 및 게이트웨이 엔드포인트는 관리형 클러스터 주 노드 유형 고정 IP 주소의 공용 DNS를 가리킵니다.
 
+
+
+<a id="accelnet"></a>
+## <a name="enable-accelerated-networking-preview"></a>가속 네트워킹 사용 (미리 보기)
+가속화 된 네트워킹을 사용 하면 단일 루트 i/o 가상화 (SR-IOV)를 노드 형식에 대 한 기본 리소스인 가상 머신 확장 집합 VM으로 사용할 수 있습니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회 하 여 가장 까다로운 네트워크 작업에 대 한 대기 시간, 지터 및 CPU 사용률을 줄입니다. 지원 되는 [VM sku](../virtual-machines/sizes.md)에서 가속화 된 네트워킹을 사용 하 여 Service Fabric 관리 클러스터 노드 유형을 프로 비전 할 수 있습니다. 추가 고려 사항에 대해서는이 [제한 사항 및 제약 조건](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) 을 참조 하세요. 
+
+* 가속화 된 네트워킹은 2 개 이상의 vCPUs가 포함 된 대부분의 범용 및 계산에 최적화 된 인스턴스 크기에서 지원 됩니다. 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다.
+
+다음과 같이 리소스 관리자 템플릿에서 속성을 선언 하 여 가속화 된 네트워킹을 사용 하도록 설정 `enableAcceleratedNetworking` 합니다.
+
+* Service Fabric 관리 되는 클러스터 리소스 apiVersion은 **2021-11-01-preview** 이상 이어야 합니다.
+
+```json
+   {
+   "apiVersion": "[variables('sfApiVersion')]",
+   "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+   ...
+   "properties": {
+       ...
+       "enableAcceleratedNetworking": true,
+       ...
+   }
+```
+
+기존 Service Fabric 클러스터에서 가속화 된 네트워킹을 사용 하도록 설정 하려면 먼저 새 노드 유형을 추가 하 여 Service Fabric 클러스터의 크기를 조정 하 고 다음을 수행 해야 합니다.
+
+1) 가속화 된 네트워킹을 사용 하는 노드 유형 프로 비전
+2) 가속화 된 네트워킹을 사용 하 여 서비스 및 해당 상태를 프로 비전 된 노드 형식으로 마이그레이션
+
+가속화된 네트워킹을 현재 위치에서 사용하도록 설정하면 가동 중지 시간이 발생하므로, 기존 클러스터에서 가속화된 네트워킹을 사용하려면 인프라를 확장해야 합니다. 기존 NIC에서 가속화된 네트워킹을 사용하도록 설정하기 전에 가용성 세트의 모든 가상 머신을 중지하고 할당을 취소해야 하기 때문입니다.
+
+
+<a id="auxsubnet"></a>
+## <a name="configure-auxiliary-subnets-preview"></a>보조 서브넷 구성 (미리 보기)
+보조 서브넷은 [개인 링크 서비스](../private-link/private-link-service-overview.md) 및 [요새 호스트](../bastion/bastion-overview.md)와 같은 시나리오를 지원 하기 위해 노드 형식 없이 추가 관리 서브넷을 만드는 기능을 제공 합니다.
+
+다음과 `auxiliarySubnets` 같이 리소스 관리자 템플릿에서 속성 및 필수 매개 변수를 선언 하 여 보조 서브넷을 구성 합니다.
+
+* Service Fabric 관리 되는 클러스터 리소스 apiVersion은 **2021-11-01-preview** 이상 이어야 합니다.
+
+```JSON
+    "resources": [
+        {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters",
+            ...
+            "properties": {
+                "auxiliarySubnets": [
+                  {
+                  "name" : "mysubnet",
+                  "enableIpv6" : "true"
+                  }
+                ]              
+```
+
+[사용할 수 있는 전체 매개 변수 목록](/azure/templates/microsoft.servicefabric/2021-11-01/managedclusters) 보기 
 
 ## <a name="next-steps"></a>다음 단계
 [Service Fabric 관리형 클러스터 구성 옵션](how-to-managed-cluster-configuration.md)
@@ -563,4 +652,5 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 [sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
 [sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-1.png
 [sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-2.png
+[sfmc-byolb-example-3]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-3.png
 

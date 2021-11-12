@@ -1,33 +1,33 @@
-- name: Azure Sentinel 설명서
+- name: Microsoft Sentinel 설명서
   href: index.yml
 - name: 개요
   expanded: true
   items:
-    - name: Azure Sentinel 정보
+    - name: Microsoft Sentinel 정보
       href: overview.md
-    - name: Azure Sentinel의 새로운 기능
+    - name: Microsoft Sentinel의 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
   items:
-    - name: Azure Sentinel에 온보딩
+    - name: Microsoft Sentinel에 등록
       href: quickstart-onboard.md
 - name: 자습서
   items:
     - name: UEBA를 사용하여 조사
       href: investigate-with-ueba.md
-    - name: Azure Sentinel에 대한 KQL 쿼리 만들기(학습 모듈)
+    - name: Microsoft Sentinel에 대한 KQL 쿼리 만들기(모듈 학습)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
     - name: 자동화를 사용하여 위협에 대응
       href: tutorial-respond-threats-playbook.md
     - name: Notebooks 및 MSTICPy 시작
       href: notebook-get-started.md
-    - name: Azure Sentinel에서 Power BI 보고서 만들기
+    - name: Microsoft Sentinel에서 Power BI 보고서 만들기
       href: powerbi.md
     - name: 유인용 honeytoken 배포 및 모니터링
       href: monitor-key-vault-honeytokens.md
 - name: 개념
   items:
-    - name: Azure Sentinel 필수 구성 요소
+    - name: Microsoft Sentinel 필수 구성 요소
       href: prerequisites.md
     - name: 모범 사례
       items:
@@ -43,11 +43,11 @@
           href: roles.md
         - name: 비용 및 청구
           href: azure-sentinel-billing.md
-        - name: 작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
+        - name: 작업 영역 및 테넌트에 걸쳐 Microsoft Sentinel 확장
           href: extend-sentinel-across-workspaces-tenants.md
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
-    - name: Azure Sentinel 콘텐츠
+    - name: Microsoft Sentinel 콘텐츠
       items:
         - name: Sentinel 콘텐츠 정보
           href: sentinel-solutions.md
@@ -57,7 +57,7 @@
       items:
         - name: 데이터 수집 방법
           href: connect-data-sources.md
-        - name: 정규화 및 ASIM(Azure Sentinel 정보 모델)
+        - name: 정규화 및 ASIM(고급 SIEM 정보 모델)
           items:
             - name: ASIM 개요
               href: normalization.md
@@ -71,7 +71,7 @@
           href: entities-in-azure-sentinel.md
     - name: 위협 인텔리전스
       items:
-        - name: Azure Sentinel의 위협 인텔리전스 이해
+        - name: Microsoft Sentinel의 위협 인텔리전스 이해
           href: understand-threat-intelligence.md
         - name: 위협 인텔리전스 통합
           href: threat-intelligence-integration.md
@@ -113,9 +113,9 @@
           href: azure-sentinel-billing.md
         - name: 작업 영역 액세스 관리
           href: resource-context-rbac.md
-    - name: Azure Sentinel로 마이그레이션
+    - name: Microsoft Sentinel로 마이그레이션
       href: migration.md
-    - name: Azure Sentinel 콘텐츠 관리
+    - name: Microsoft Sentinel 콘텐츠 관리
       items:
         - name: 기본 제공 콘텐츠 검색 및 배포
           href: sentinel-solutions-deploy.md
@@ -132,7 +132,7 @@
               href: connect-aws.md
             - name: Azure Active Directory
               href: connect-azure-active-directory.md
-            - name: Azure Defender
+            - name: Microsoft Defender for Cloud
               href: connect-azure-security-center.md
             - name: Microsoft 365 Defender
               href: connect-microsoft-365-defender.md
@@ -146,7 +146,7 @@
               href: connect-common-event-format.md
             - name: Syslog(원시) 원본
               href: connect-syslog.md
-            - name: Azure Sentinel 데이터 수집기 API
+            - name: Microsoft Sentinel Data Collector API
               href: connect-rest-api-template.md
             - name: Azure Functions API 연결
               href: connect-azure-functions-template.md
@@ -236,31 +236,31 @@
           href: customize-entity-activities.md
         - name: Microsoft Teams에서 협업
           href: collaborate-in-microsoft-teams.md
-        - name: Azure Sentinel로 플레이북 인증
+        - name: Microsoft Sentinel에 플레이북 인증
           href: authenticate-playbooks-to-sentinel.md
         - name: 플레이북에서 트리거 및 작업 사용
           href: playbook-triggers-actions.md
         - name: 템플릿에서 플레이북 사용자 지정
           href: use-playbook-templates.md
-    - name: Azure Sentinel 관리
+    - name: Microsoft Sentinel 관리
       items:
-        - name: MSSP용 Azure Sentinel
+        - name: MSSP용 Microsoft Sentinel
           items:
             - name: 다중 테넌트 관리(MSSP)
               href: multiple-tenants-service-providers.md
             - name: 여러 작업 영역에서 인시던트 작업
               href: multiple-workspace-view.md
-            - name: Azure Sentinel에서 지적 재산 관리
+            - name: Microsoft Sentinel에서 지적 재산 관리
               href: mssp-protect-intellectual-property.md
         - name: 고객 관리형 키 설정
           href: customer-managed-keys.md
         - name: 인시던트 메트릭을 사용하여 SOC 관리
           href: manage-soc-with-incident-metrics.md
-        - name: Azure 활동 로그를 사용하여 Azure Sentinel 감사
+        - name: Azure 활동 로그를 사용하여 Microsoft Sentinel 감사
           href: audit-sentinel-data.md
-        - name: 작업 영역에서 Azure Sentinel 제거
+        - name: 작업 영역에서 Microsoft Sentinel 제거
           href: offboard.md
-- name: SAP와 Azure Sentinel 통합
+- name: SAP와 Microsoft Sentinel 통합
   items:
     - name: SAP 연속 위협 모니터링 배포
       href: sap-deploy-solution.md
@@ -278,21 +278,21 @@
       href: sap-deploy-troubleshoot.md
 - name: 참조
   items:
-    - name: Azure Sentinel REST-API
+    - name: Microsoft Sentinel REST-API
       href: /rest/api/securityinsights/
     - name: 관리 참조
       items:
-        - name: Azure Sentinel Logic Apps 커넥터
+        - name: Microsoft Sentinel Logic Apps 커넥터
           href: /connectors/azuresentinel/
         - name: Azure CLI
           href: /cli/azure/sentinel
-        - name: Azure Sentinel PowerShell
+        - name: Microsoft Sentinel PowerShell
           href: /powershell/module/az.securityinsights/
         - name: Azure RBAC 역할
           items:
             - name: 모든 Azure 역할
               href: ../role-based-access-control/built-in-roles.md#all
-            - name: Azure Sentinel 역할
+            - name: Microsoft Sentinel 역할
               href: ../role-based-access-control/built-in-roles.md#security
     - name: 데이터 수집 참조
       items:
@@ -322,7 +322,7 @@
           href: windows-security-event-id-reference.md
     - name: 검색 및 분석 참조
       items:
-        - name: 상위 Azure Sentinel 통합 문서
+        - name: 상위 Microsoft Sentinel 통합 문서
           href: top-workbooks.md
         - name: 엔터티 참조
           href: entities-reference.md
@@ -348,15 +348,19 @@
               href: watchlist-with-rest-api.md
             - name: REST-API를 사용하여 지리적 위치 데이터로 엔터티 강화
               href: geolocation-data-api.md
-        - name: Microsoft 365 Defender에 온보딩되지 않은 MCAS 경고
+        - name: Defender for Cloud Apps 경고가 Microsoft 365 Defender로 온보딩되지 않음
           href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
+    - name: 자동화 및 응답 참조
+      items:
+        - name: SOAR 콘텐츠 카탈로그
+          href: sentinel-soar-content.md
 - name: 리소스
   items:
     - name: 유용한 리소스
       href: resources.md
     - name: 샘플 작업 영역 아키텍처
       href: sample-workspace-designs.md
-    - name: Azure Sentinel 블로그
+    - name: Microsoft Sentinel 블로그
       href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'

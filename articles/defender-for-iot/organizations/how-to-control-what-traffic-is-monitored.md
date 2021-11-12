@@ -1,14 +1,14 @@
 ---
 title: 모니터링된 트래픽 제어
 description: 센서는 IT 및 OT 트래픽의 딥 패킷 검색을 자동으로 수행하고 디바이스 특성과 네트워크 동작 등 네트워크 디바이스에 대한 정보를 확인합니다. 각 센서가 검색하는 트래픽 유형을 제어하는 데 사용할 수 있는 여러 도구가 있습니다.
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 76923afc40469ba30e4a2ce8ead6696f056a7580
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020804"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305943"
 ---
 # <a name="control-what-traffic-is-monitored"></a>모니터링된 트래픽 제어
 
@@ -230,7 +230,7 @@ DNS 서버를 정의하려면:
 
 ## <a name="configure-windows-endpoint-monitoring"></a>Windows 엔드포인트 모니터링 구성
 
-Windows 엔드포인트 모니터링 기능을 사용하면 Windows 시스템을 선택적으로 검색하도록 Azure Defender for IoT를 구성할 수 있습니다. 이렇게 하면 서비스 팩 수준 등 디바이스에 대한 보다 집중적이고 정확한 정보를 얻을 수 있습니다.
+Windows 끝점 모니터링 기능을 사용 하 여 IoT 용 Microsoft Defender를 구성 하 여 Windows 시스템을 선택적으로 검색할 수 있습니다. 이렇게 하면 서비스 팩 수준 등 디바이스에 대한 보다 집중적이고 정확한 정보를 얻을 수 있습니다.
 
 특정 범위 및 호스트를 사용하여 검색을 구성하고, 원하는 경우에만 수행되도록 구성할 수 있습니다. Windows 시스템을 관리하는 데 사용되는 Microsoft의 표준 스크립팅 언어인 WMI(Windows Management Instrumentation)를 사용하여 선택적 검색을 수행합니다.
 

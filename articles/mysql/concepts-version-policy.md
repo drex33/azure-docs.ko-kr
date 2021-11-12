@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 11/03/2020
-ms.openlocfilehash: e60c675c40345ccd9220453cb66125e2fc55582a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 248234c816cc3341929417282521d30c2105c671
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113089434"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323256"
 ---
 # <a name="azure-database-for-mysql-version-support-policy"></a>Azure Database for MySQL 버전 지원 정책
 
@@ -26,7 +26,7 @@ Azure Database for MySQL은 [MySQL 커뮤니티 버전](https://www.mysql.com/pr
 
 현재 Azure Database for MySQL은 다음과 같은 주 버전 및 부 버전의 MySQL을 지원합니다.
 
-| 버전 | [단일 서버](overview.md) <br/> 현재 부 버전 |[유연한 서버(미리 보기)](./flexible-server/overview.md) <br/> 현재 부 버전  |
+| 버전 | [단일 서버](overview.md) <br/> 현재 부 버전 |[유연한 서버](./flexible-server/overview.md) <br/> 현재 부 버전  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL 버전 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(사용 중지됨) | 지원되지 않음|
 |MySQL 버전 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
@@ -72,5 +72,5 @@ Azure Database for MySQL은 정기적 유지 관리의 일환으로서 Azure 기
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Database for MySQL - 단일 서버에서 [지원되는 버전](./concepts-supported-versions.md)을 참조하세요.
-- Azure Database for MySQL - 유연한 서버(미리 보기)에서 [지원되는 버전](flexible-server/concepts-supported-versions.md)을 참조하세요.
+- Azure Database for MySQL-유연한 서버 [지원 버전](flexible-server/concepts-supported-versions.md) 을 참조 하세요.
 - 업그레이드를 수행하려면 MySQL [덤프 및 복원](./concepts-migrate-dump-restore.md)을 참조하세요.

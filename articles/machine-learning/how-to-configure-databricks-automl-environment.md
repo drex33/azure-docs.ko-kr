@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: c46803ae300acfe36163edcb92770c069ae67382
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: 0e3270c827e25ff13bd53c5a7d7d2610ce36c921
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132179900"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286181"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Azure Machine Learning에서 Azure Databricks 및 AutoML을 사용하여 개발 환경 설정 
 
@@ -53,7 +53,7 @@ Azure Databricks는 Azure Machine Learning 및 해당 AutoML 기능과 통합됩
 | 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |always| yourclustername |
-| Databricks Runtime 버전 |always| 런타임 7.3 LTS - ML 않음|
+| Databricks Runtime 버전 |always| 런타임 7.3 LTS-ML 하지 않음|
 | Python 버전 |always| 3 |
 | 작업자 유형 <br>(최대 동시 반복 횟수를 결정합니다.) |자동화된 ML<br>전용| 메모리 최적화 VM 기본 설정 |
 | 작업자 |always| 2 이상 |
@@ -97,12 +97,11 @@ Azure Databricks는 Azure Machine Learning 및 해당 AutoML 기능과 통합됩
   ![Databricks용 Azure Machine Learning SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
 
 ## <a name="add-the-azure-ml-sdk-with-automl-to-databricks"></a>Databricks에 AutoML을 사용하여 Azure ML SDK 추가
-Databricks Runtime 7.3 LTS(ML *않음)를* 사용하여 클러스터를 만든 경우 Notebook의 첫 번째 셀에서 다음 명령을 실행하여 AML SDK를 설치합니다.
+클러스터가 Databricks Runtime 7.3 lts (ML가 *아님* )를 사용 하 여 만들어진 경우 노트북의 첫 번째 셀에서 다음 명령을 실행 하 여 AML SDK를 설치 합니다.
 
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
 ```
-Databricks Runtime 7.0 이하의 경우 [초기화 스크립트](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md)를 사용하여 Azure Machine Learning SDK를 설치합니다.
 
 ### <a name="automl-config-settings"></a>AutoML 구성 설정
 

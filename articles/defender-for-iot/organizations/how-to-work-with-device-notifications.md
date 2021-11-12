@@ -1,14 +1,14 @@
 ---
 title: 디바이스 알림 작업
 description: 알림을 통해 주의가 필요한 네트워크 작업에 대한 정보를 제공하며 이 작업을 처리하는 데 필요한 권장 사항도 제공합니다.
-ms.date: 12/12/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 27f42f27920d41643f571efed1d5c033ebb47f40
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019103"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315391"
 ---
 # <a name="work-with-device-notifications"></a>디바이스 알림 작업
 

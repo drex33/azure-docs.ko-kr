@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: c51829c8f046f68d3a7d1e47083f18eb7f4c8416
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 2affaf7b66c1a7872e1db2b92871c5d07e77cdd2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858465"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324634"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -68,35 +68,35 @@ ms.locfileid: "129858465"
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDeviceUpdate** | IoT Hub에 대 한 장치 업데이트. | 모두 | 예 | 예 |
+| **AzureDeviceUpdate** | IoT Hub 대한 디바이스 업데이트입니다. | 모두 | 예 | 예 |
 | **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDevOps** | Azure Dev Ops.<br/><br/>**참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다.| 인바운드 | 예 | 예 |
-| **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>**참고**:이 태그 또는이 태그에 포함 된 IP 주소는 이벤트 경로에 대해 구성 된 끝점에 대 한 액세스를 제한 하는 데 사용할 수 있습니다. 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다. | 인바운드 | 예 | 예 |
+| **AzureDevOps** | Azure Dev Ops.<br/><br/>**참고:** 이 태그는 현재 Azure Portal 통해 구성할 수 없습니다.| 인바운드 | 예 | 예 |
+| **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>**참고:** 이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 이벤트 경로에 대해 구성된 엔드포인트에 대한 액세스를 제한할 수 있습니다. 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다. | 인바운드 | 예 | 예 |
 | **AzureEventGrid** | Azure Event Grid. | 모두 | 예 | 예 |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door입니다. | 모두 | 예 | 예 |
-| **AzureInformationProtection** | Azure Information Protection입니다.<br/><br/>**참고**:이 태그는 **AzureActiveDirectory**, **AzureFrontDoor** 및 **AzureFrontDoor** 태그에 종속 됩니다. | 아웃바운드 | 예 | 예 |
+| **AzureInformationProtection** | Azure Information Protection입니다.<br/><br/>**참고:** 이 태그는 **AzureActiveDirectory,** **AzureFrontDoor.Frontend** 및 **AzureFrontDoor.FirstParty** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureIoTHub** | Azure IoT Hub입니다. | 아웃바운드 | 예 | 예 |
-| **AzureKeyVault** | Azure Key Vault.<br/><br/>**참고**:이 태그는 **AzureActiveDirectory** 태그에 종속 되어 있습니다. | 아웃바운드 | 예 | 예 |
+| **AzureKeyVault** | Azure Key Vault.<br/><br/>**참고:** 이 태그는 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureLoadBalancer** | Azure 인프라 부하 분산 장치입니다. 이 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](./network-security-groups-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. 이는 백엔드 리소스에 대한 실제 트래픽이 아닌 프로브 트래픽만 포함합니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 모두 | 예 | 예 |
 | **AzureMachineLearning** | Azure Machine Learning입니다. | 모두 | 예 | 예 |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon 및 사용자 지정 메트릭(GIG 엔드포인트)입니다.<br/><br/>**참고**: Log Analytics의 경우 **Storage** 태그도 필요 합니다. Linux 에이전트를 사용하는 경우 **GuestAndHybridManagement** 태그도 필요합니다. | 아웃바운드 | 예 | 예 |
-| **AzureOpenDatasets** | Azure Open Datasets입니다.<br/><br/>**참고**:이 태그는 **AzureFrontDoor** 및 **Storage** 태그에 종속 됩니다. | 아웃바운드 | 예 | 예 |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon 및 사용자 지정 메트릭(GIG 엔드포인트)입니다.<br/><br/>**참고:** Log Analytics의 경우 **Storage** 태그도 필요합니다. Linux 에이전트를 사용하는 경우 **GuestAndHybridManagement** 태그도 필요합니다. | 아웃바운드 | 예 | 예 |
+| **AzureOpenDatasets** | Azure Open Datasets입니다.<br/><br/>**참고:** 이 태그는 **AzureFrontDoor.Frontend** 및 **Storage** 태그에 종속되어 있습니다. | 아웃바운드 | 예 | 예 |
 | **AzurePlatformDNS** | 기본 인프라(기본값) DNS 서비스입니다.<br/><br>이 태그를 사용하여 기본 DNS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzurePlatformIMDS** | 기본 인프라 서비스인 Azure IMDS(Instance Metadata Service)입니다.<br/><br/>이 태그를 사용하여 기본 IMDS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzurePlatformLKM** | Windows 라이선스 또는 키 관리 서비스입니다.<br/><br/>이 태그를 사용하여 라이선스에 대한 기본값을 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다.  또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzureResourceManager** | Azure Resource Manager입니다. | 아웃바운드 | 예 | 예 |
 | **AzureSignalR** | Azure SignalR입니다. | 아웃바운드 | 예 | 예 |
-| **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>**참고**:이 태그는 **AzureActiveDirectory**, **azurekeyvault**, **EventHub**,**GuestAndHybridManagement** 및 **Storage** 태그에 종속 됩니다. | 아웃바운드 | 예 | 아니요 |
-| **AzureSphere** | 이 태그 또는이 태그가 적용 되는 IP 주소를 사용 하 여 Azure Sphere 보안 서비스에 대 한 액세스를 제한할 수 있습니다. </br> **참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다. | 모두 | 예 | 예 | 
-| **AzureStack** | 브리지 서비스를 Azure Stack 합니다. </br> 이 태그는 지역별 Azure Stack 브리지 서비스 끝점을 나타냅니다. </br> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 |
+| **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>**참고:** 이 태그는 **AzureActiveDirectory,** **AzureKeyVault,** **EventHub,****GuestAndHybridManagement** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 아니요 |
+| **AzureSphere** | 이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 Azure Sphere Security Services에 대한 액세스를 제한할 수 있습니다. </br> **참고:** 이 태그는 현재 Azure Portal 통해 구성할 수 없습니다. | 모두 | 예 | 예 | 
+| **AzureStack** | Azure Stack Bridge 서비스. </br> 이 태그는 지역당 Azure Stack Bridge 서비스 엔드포인트를 나타냅니다. </br> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 |
 | **AzureTrafficManager** | Azure Traffic Manager 프로브 IP 주소입니다.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md)를 참조하세요. | 인바운드 | 예 | 예 |  
-| **AzureUpdateDelivery** | Windows 업데이트에 액세스합니다. <br/><br/>**참고**:이 태그는 Windows 업데이트 metadata services에 대 한 액세스를 제공 합니다. 업데이트를 성공적으로 다운로드하려면 **AzureFrontDoor.FirstParty** 서비스 태그를 사용하도록 설정하고 다음과 같이 정의된 프로토콜과 포트를 사용하여 아웃바운드 보안 규칙을 구성해야 합니다. <ul><li>AzureUpdateDelivery: TCP, 포트 443</li><li>AzureFrontDoor.FirstParty: TCP, 포트 80</li></ul>*이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다.*| 아웃바운드 | 예 | 아니요 |  
+| **AzureUpdateDelivery** | Windows 업데이트에 액세스합니다. <br/><br/>**참고:** 이 태그는 Windows 업데이트 메타데이터 서비스에 대한 액세스를 제공합니다. 업데이트를 성공적으로 다운로드하려면 **AzureFrontDoor.FirstParty** 서비스 태그를 사용하도록 설정하고 다음과 같이 정의된 프로토콜과 포트를 사용하여 아웃바운드 보안 규칙을 구성해야 합니다. <ul><li>AzureUpdateDelivery: TCP, 포트 443</li><li>AzureFrontDoor.FirstParty: TCP, 포트 80</li></ul>*이 태그는 현재 Azure Portal 통해 구성할 수 없습니다.*| 아웃바운드 | 예 | 아니요 |  
 | **BatchNodeManagement** | Azure Batch 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **CognitiveServicesManagement** | Azure Cognitive Services에 대한 트래픽 주소 범위입니다. | 모두 | 예 | 예 |
 | **DataFactory**  | Azure 데이터 팩터리 | 모두 | 예 | 예 |
 | **DataFactoryManagement** | Azure Data Factory에 대한 관리 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **Dynamics365ForMarketingEmail** | Dynamics 365 마케팅 메일 서비스의 주소 범위입니다. | 아웃바운드 | 예 | 아니요 |
-| **EOPExternalPublishedIPs** | 이 태그는 보안 및 준수 센터 PowerShell에 사용되는 IP 주소를 나타냅니다. [자세한 내용은 EXO V2 모듈을 사용하여 보안 및 준수 센터 PowerShell에 연결](/powershell/exchange/connect-to-scc-powershell)을 참조하세요. <br/><br/> **참고:** 이 태그는 현재 Azure Portal 통해 구성할 수 없습니다. | 모두 | 예 | 예 |
+| **EOPExternalPublishedIPs** | 이 태그는 보안 및 준수 센터 PowerShell에 사용되는 IP 주소를 나타냅니다. [자세한 내용은 EXO V2 모듈을 사용하여 보안 및 준수 센터 PowerShell에 연결](/powershell/exchange/connect-to-scc-powershell)을 참조하세요. <br/><br/> **참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다. | 모두 | 예 | 예 |
 | **EventHub** | Azure Event Hubs입니다. | 아웃바운드 | 예 | 예 |
 | **GatewayManager** | Azure VPN Gateway 및 Application Gateway 전용 배포에 대한 관리 트래픽입니다. | 인바운드 | 예 | 예 |
 | **GuestAndHybridManagement** | Azure Automation 및 게스트 구성입니다. | 아웃바운드 | 예 | 예 |
@@ -104,11 +104,11 @@ ms.locfileid: "129858465"
 | **인터넷** | 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간입니다.<br/><br/>주소 범위에는 [Azure에서 소유하는 퍼블릭 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다. | 모두 | 예 | 예 |
 | **LogicApps** | Logic Apps입니다. | 모두 | 예 | 예 |
 | **LogicAppsManagement** | Logic Apps에 대한 관리 트래픽입니다. | 인바운드 | 예 | 아니요 |
-| **MicrosoftAzureFluidRelay** | 이 태그는 Azure Microsoft Fluid Relay Server에 사용되는 IP 주소를 나타냅니다. | 아웃바운드 | 예 | 예 |
-| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security입니다. | 아웃바운드 | 예 | 예 |
-| **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리입니다. <br/><br/>**참고:** 이 태그는 **AzureFrontDoor.FirstParty** 태그에 종속되어 있습니다. | 아웃바운드 | 예 | 예 |
-| **PowerBI** | 게시합니다. **참고:** 이 태그는 현재 Azure Portal 통해 구성할 수 없습니다. | 모두 | 예 | 아니요|
-| **PowerPlatformInfra** | 이 태그는 인프라에서 Power Platform 서비스를 호스트하는 데 사용하는 IP 주소를 나타냅니다. **참고:** 이 태그는 현재 Azure Portal 통해 구성할 수 없습니다. | 아웃바운드 | 예 | 예 |
+| **MicrosoftAzureFluidRelay** | 이 태그는 Azure Microsoft 유체 Relay 서버에 사용 되는 IP 주소를 나타냅니다. | 아웃바운드 | 예 | 예 |
+| **MicrosoftCloudAppSecurity** | 클라우드 앱 용 Microsoft Defender. | 아웃바운드 | 예 | 예 |
+| **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리입니다. <br/><br/>**참고**:이 태그는 **AzureFrontDoor** 태그에 종속 되어 있습니다. | 아웃바운드 | 예 | 예 |
+| **PowerBI** | 게시합니다. **참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다. | 모두 | 예 | 아니요|
+| **PowerPlatformInfra** | 이 태그는 인프라에서 전원 플랫폼 서비스를 호스트 하는 데 사용 하는 IP 주소를 나타냅니다. **참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다. | 아웃바운드 | 예 | 예 |
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>**참고:** 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https:// westus.servicefabric.azure.com). | 모두 | 예 | 예 |

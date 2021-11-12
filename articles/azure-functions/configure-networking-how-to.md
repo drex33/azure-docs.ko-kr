@@ -4,12 +4,12 @@ description: Azure Functions에 대해 특정 가상 네트워킹 작업을 수�
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 91555099c7144d976b5f0b5ef2fe639912857bce
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: db0567456156f8ea74ba048e991000b57ae271b2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048820"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332386"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>가상 네트워크를 사용하여 Azure Functions를 구성하는 방법
 
@@ -47,7 +47,7 @@ ms.locfileid: "131048820"
     | `AzureWebJobsStorage`| 스토리지 연결 문자열 | 보안 스토리지 계정에 대한 연결 문자열입니다. |
     | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  스토리지 연결 문자열 | 보안 스토리지 계정에 대한 연결 문자열입니다. |
     | `WEBSITE_CONTENTSHARE` | 파일 공유 | 보안 스토리지 계정에 생성된 파일 공유(여기에 프로젝트 배포 파일이 상주)의 이름입니다. |
-    | `WEBSITE_CONTENTOVERVNET` | 1 | 새 설정 |
+    | `WEBSITE_CONTENTOVERVNET` | 1 | 값 1은 저장소 계정이 가상 네트워크로 제한 된 경우 함수 앱의 크기를 조정할 수 있도록 합니다. 스토리지 계정을 가상 네트워크로 제한할 때 이 설정을 사용하도록 설정해야 합니다. |
     | `WEBSITE_VNET_ROUTE_ALL` | 1 | 모든 아웃바운드 트래픽이 가상 네트워크를 통과하도록 강제합니다. 스토리지 계정에서 프라이빗 엔드포인트 연결을 사용 중인 경우에 필요합니다. |
 
 1. **저장** 을 선택하여 애플리케이션 설정을 저장합니다. 앱 설정을 변경하면 앱이 다시 시작됩니다.  

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 인증서를 회�
 services: container-service
 ms.topic: article
 ms.date: 11/03/2021
-ms.openlocfilehash: c623d15ff17f966f8c294e929c5419bb52a60bb3
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: cd1e55df9609adcc8d5d1d33b1853ba855889b8f
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132135179"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371622"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 인증서 회전
 
@@ -57,9 +57,9 @@ az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-
 
 ## <a name="certificate-auto-rotation"></a>인증서 자동 회전
 
-Azure Kubernetes Service는 클러스터에 대 한 가동 중지 시간 없이 만료 되기 전에 제어 평면과 에이전트 노드 모두에서 비 ca 인증서를 자동으로 회전 합니다.
+Azure Kubernetes Service 클러스터에 대한 가동 중지 시간 없이 만료되기 전에 제어 평면 및 에이전트 노드 모두에서 ca가 아닌 인증서를 자동으로 회전합니다.
 
-AKS에서 CA가 아닌 인증서를 자동으로 회전 하려면 클러스터에 [TLS 부트스트래핑](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/)이 있어야 합니다. TLS 부트스트래핑은 현재 다음 지역에서 사용할 수 있습니다.
+AKS가 CA가 아닌 인증서를 자동으로 회전하려면 클러스터에 [TLS 부트스트랩](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/)이 있어야 합니다. TLS 부트스트래핑은 현재 다음 지역에서 사용할 수 있습니다.
 
 * eastus2euap
 * centraluseuap
@@ -69,18 +69,23 @@ AKS에서 CA가 아닌 인증서를 자동으로 회전 하려면 클러스터�
 * australiacentral
 * australiaest
 
+#### <a name="how-to-check-whether-current-agent-node-pool-is-tls-bootstrapping-enabled"></a>현재 에이전트 노드 풀이 TLS 부트스트래핑을 사용하도록 설정되어 있는지 확인하는 방법
+클러스터에서 TLS 부트스트래핑을 사용할 수 있는지 확인하려면 다음 경로로 이동하세요.  Linux 노드: /var/lib/kubelet/bootstrap-kubeconfig의 Windows 노드에서는 c:\k\bootstrap-config입니다.
+
+> [참고] 나중에 k8s 버전이 발전함에 따라 파일 경로가 변경 될 수 있습니다.
+
 > [!IMPORTANT]
->지역이 구성 된 후에는 새 클러스터를 만들거나 ' az aks upgrade-g $RESOURCE _GROUP_NAME-n $CLUSTER _NAME '로 업그레이드 하 여 해당 클러스터를 자동 인증서 회전으로 설정 합니다. 
+>지역이 구성되면 새 클러스터를 만들거나 'az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME'을 기존 클러스터로 업그레이드하여 자동 인증서 회전을 위해 해당 클러스터를 설정합니다. 
 
-### <a name="limititation"></a>Limititation
+### <a name="limitation"></a>제한 사항
 
-비 rbac 클러스터에서는 자동 인증서 회전이 사용 되지 않습니다.
+rbac가 아닌 클러스터에서 자동 인증서 회전을 사용할 수 없습니다.
 
 
 ## <a name="rotate-your-cluster-certificates"></a>클러스터 인증서 회전
 
 > [!WARNING]
-> 를 사용 하 여 인증서를 회전 `az aks rotate-certs` 하면 모든 노드와 해당 OS 디스크가 다시 생성 되며 AKS 클러스터에 대해 최대 30 분의 가동 중지 시간이 발생할 수 있습니다.
+> 를 사용하여 인증서를 `az aks rotate-certs` 회전하면 모든 노드와 해당 OS 디스크가 다시 만들어지고 AKS 클러스터에 최대 30분의 가동 중지 시간이 발생할 수 있습니다.
 
 AKS 클러스터에 로그인하려면 [az aks get-credentials][az-aks-get-credentials]를 사용합니다. 또한 이 명령은 로컬 머신에서 `kubectl` 클라이언트 인증서를 다운로드하고 구성합니다.
 

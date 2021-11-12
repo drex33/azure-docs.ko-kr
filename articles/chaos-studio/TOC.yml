@@ -31,11 +31,7 @@
 - name: 방법 가이드
   items:
     - name: 실험 만들기 및 실행 - 서비스 직접 오류
-      items:
-        - name: 포털
-          href: chaos-studio-tutorial-service-direct-portal.md
-        - name: CLI
-          href: chaos-studio-tutorial-service-direct-cli.md
+      href: chaos-studio-tutorial-service-direct.md
     - name: 실험 만들기 및 실행 - 에이전트 기반 오류
       items:
         - name: 포털
@@ -43,11 +39,7 @@
         - name: CLI
           href: chaos-studio-tutorial-agent-based-cli.md
     - name: 실험 만들기 및 실행 - AKS에서 Chaos Mesh 오류
-      items:
-        - name: 포털
-          href: chaos-studio-tutorial-aks-portal.md
-        - name: CLI
-          href: chaos-studio-tutorial-aks-cli.md
+      href: chaos-studio-tutorial-aks.md
     - name: 일반적인 문제 해결
       href: troubleshooting.md
 - name: 참조

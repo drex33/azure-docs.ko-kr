@@ -1,7 +1,7 @@
 ---
 title: Speech SDK 마이크 배열 권장 사항
 titleSuffix: Azure Cognitive Services
-description: Speech SDK 마이크 배열 권장 사항 이러한 배열 구조는 Microsoft 오디오 스택과 함께 사용하는 것이 좋습니다.
+description: 음성 SDK 마이크 배열 권장 사항. 이러한 배열 구조는 Microsoft 오디오 스택과 함께 사용하는 것이 좋습니다.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: aface1bb2b34975426a2fffb3b75d8c6d14b835a
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: a804e7eb9b98eb462e7a32f49c439afefeaca76f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506432"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312498"
 ---
 # <a name="speech-sdk-microphone-array-recommendations"></a>Speech SDK 마이크 배열 권장 사항
 
-이 문서에서는 Speech SDK용 마이크 배열을 디자인하는 방법을 알아봅니다.
+이 문서에서는 Speech SDK 용 마이크 배열을 디자인 하는 방법에 대해 알아봅니다.
 
-Speech SDK는 마이크 기하 도형 및 구성 요소 선택을 포함하여 다음 지침에 따라 설계된 마이크 배열에서 가장 잘 작동합니다. 통합 및 전기적 고려 사항에 대한 지침도 제공됩니다.
+음성 SDK는 마이크 기 하 도형 및 구성 요소 선택을 포함 하 여 다음 지침에 따라 디자인 된 마이크 배열에서 가장 잘 작동 합니다. 통합 및 전기적 고려 사항에 대한 지침도 제공됩니다.
 
 ## <a name="microphone-geometry"></a>마이크 기하 구조
 
@@ -104,7 +104,7 @@ Microsoft 오디오 스택과 함께 사용할 경우 다음 배열 기하 구�
 
 ## <a name="electrical-architecture-considerations"></a>전기 아키텍처 고려 사항
 
-해당하는 경우 배열은 USB 호스트(예: Microsoft 오디오 스택을 실행하는 SoC) 및 음성 서비스 또는 기타 애플리케이션에 대한 인터페이스에 연결할 수 있습니다.
+해당 하는 경우, 배열은 USB 호스트 (예: Microsoft 오디오 스택을 실행 하는 SoC)에 연결 되 고 음성 서비스 또는 기타 응용 프로그램에 대 한 인터페이스를 사용할 수 있습니다.
 
 PDM에서 TDM으로의 변환과 같은 하드웨어 구성 요소는 마이크의 동적 범위와 SNR이 리샘플러 내에서 유지되도록 해야 합니다.
 
@@ -113,4 +113,4 @@ PDM에서 TDM으로의 변환과 같은 하드웨어 구성 요소는 마이크�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [오디오 처리에 대한 자세한 정보](audio-processing-overview.md)
+> [오디오 처리에 대 한 자세한 정보](audio-processing-overview.md)

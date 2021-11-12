@@ -3,15 +3,15 @@ title: 환경의 보안 경고
 description: 이 문서에서는 DevTest Labs에서 환경에 대한 보안 경고를 확인하고 적절한 조치를 취하는 방법을 보여 줍니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 437117e29ac09e52d2cd15740d60d942170b9c0d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0dccf45f32d6eaf272a464198edd0c5043dbc364
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654198"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325166"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Azure DevTest Labs의 환경에 대한 보안 경고
-이제 랩 사용자는 랩 환경에 대한 Azure Security Center 경고를 볼 수 있습니다. 보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다. [Azure Security Center의 보안 경고에 대해 자세히 알아봅니다.](../security-center//security-center-alerts-overview.md)  
+랩 사용자는 이제 랩 환경에 대 한 클라우드 경고에 대해 Microsoft Defender를 볼 수 있습니다. Defender for Cloud는 방화벽 및 끝점 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결 된 파트너 솔루션의 로그 데이터를 자동으로 수집, 분석 및 통합 하 여 실제 위협을 감지 하 고 가양성을 줄입니다. 우선 순위가 지정 된 보안 경고의 목록은 문제를 신속 하 게 조사 하는 데 필요한 정보 및 공격을 해결 하는 방법에 대 한 권장 사항을 포함 하 여 클라우드에 대해 Defender에 표시 됩니다. [Microsoft Defender For Cloud의 보안 경고에 대해 자세히 알아보세요](../security-center//security-center-alerts-overview.md).  
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -26,7 +26,7 @@ ms.locfileid: "128654198"
 
     ![‘보안 경고 보기’가 선택된 보안 경고 페이지를 보여 주는 스크린샷입니다.](./media/environment-security-alerts/view-security-alerts-menu.png)
     
-3. 경고 및 관리자 권장 사항에 대한 자세한 내용이 표시됩니다. [Azure Security Center에서 보안 경고 관리 및 대응](../security-center/security-center-managing-and-responding-alerts.md)에 대해 자세히 알아봅니다.
+3. 경고 및 관리자 권장 사항에 대한 자세한 내용이 표시됩니다. [Microsoft Defender For Cloud의 보안 경고 관리 및 대응](../security-center/security-center-managing-and-responding-alerts.md)에 대해 자세히 알아보세요.
 
     ![보안 경고 보기](./media/environment-security-alerts/advisor-recommendations.png)
 

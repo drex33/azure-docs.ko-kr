@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: dba2c43f0b146816fcbb07419efa7ff4cd926ebe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8d4d9b393c698b2b638a119b7eb4386e0099d514
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566616"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347920"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점 
 
@@ -29,7 +29,7 @@ Azure NetApp Files는 Azure의 고성능 파일 스토리지 서비스입니다.
 
 ## <a name="sample-blueprints"></a>샘플 청사진
 
-다음 샘플 청사진에서는 Azure NetApp Files와 Azure Virtual Desktop의 통합을 보여 줍니다. 풀링된 데스크톱 시나리오에서 사용자는 [다중 세션 가상 머신](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session)을 사용하여 풀에서 가장 적합한 세션([폭 우선 모드](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) 호스트로 이동합니다. 반면 개인 데스크톱은 각 사용자가 고유의 가상 머신을 가지는 시나리오를 위해 예약되어 있습니다.
+다음 샘플 청사진에서는 Azure NetApp Files와 Azure Virtual Desktop의 통합을 보여 줍니다. 풀링된 데스크톱 시나리오에서 사용자는 [다중 세션 가상 머신](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session)을 사용하여 풀에서 가장 적합한 세션([폭 우선 모드](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-algorithm)) 호스트로 이동합니다. 반면 개인 데스크톱은 각 사용자가 고유의 가상 머신을 가지는 시나리오를 위해 예약되어 있습니다.
 
 ### <a name="pooled-desktop-scenario"></a>풀링된 데스크톱 시나리오
 

@@ -11,12 +11,12 @@ ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl,contperf-fy21q2
 ms.date: 10/21/2021
-ms.openlocfilehash: 5dcd0f5fffd485f49225bae31ad81a74bdb1cde3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 90fdc6f9c3ec552f8eb0ed98b9be05d4ae931c84
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559108"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281687"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>자동화된 Machine Learning 데이터 기능화
 
@@ -326,7 +326,7 @@ BERT를 호출하려면 automl_settings에서 `enable_dnn: True`을 설정하고
 
 자동화된 Machine Learning은 BERT에 대해 다음 단계를 수행합니다. 
 
-1. **모든 text 열의 전처리 및 토큰화** 입니다. 예를 들어 "StringCast" 변환기는 최종 모델의 기능화 요약에서 찾을 수 있습니다. 모델의 기능화 요약을 생성하는 방법에 대한 예제는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)에서 찾을 수 있습니다.
+1. **모든 text 열의 전처리 및 토큰화** 입니다. 예를 들어 "StringCast" 변환기는 최종 모델의 기능화 요약에서 찾을 수 있습니다. 모델의 기능화 요약을 생성하는 방법에 대한 예제는 [이 Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)에서 찾을 수 있습니다.
 
 2. **모든 텍스트 열을 단일 텍스트 열** 로 연결하기 때문에 따라서 최종 모델의 `StringConcatTransformer`입니다. 
 

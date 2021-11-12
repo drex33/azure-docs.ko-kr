@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 08/09/2021
 author: palma21
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fefdb4619c017d7c43e4dfa84c8099450310ca2f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8a19cc69d14e32a20819618efcf60594aef34be9
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529058"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371983"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 중지 및 시작
 
 업무 시간에만 사용되는 개발 클러스터와 같이 AKS 워크로드를 지속적으로 실행할 필요가 없을 수도 있습니다. 이로 인해 AKS(Azure Kubernetes Service) 클러스터가 유휴 상태가 되어 시스템 구성 요소만 실행되는 시기가 발생합니다. [모든 `User` 노드 풀을 0으로 확장](scale-cluster.md#scale-user-node-pools-to-0)하여 클러스터 공간을 줄일 수 있지만, 클러스터가 실행되는 동안에는 시스템 구성 요소를 실행 하는 데에도 [ `System` 풀이](use-system-pools.md) 필요 합니다.
-이러한 기간 동안 비용을 더 최적화 하려면 클러스터를 완전히 해제(중지) 할 수 있습니다. 이 작업을 수행하면 제어 평면과 에이전트 노드가 모두 중지 되므로 모든 계산 비용을 절감할 수 있을 뿐만 아니라 다시 시작할 때에 저장된 모든 개체 및 클러스터 상태를 유지할 수 있습니다. 그러면 주말 이후, 중지한 지점에서 바로 다시 시작하거나 일괄 작업을 실행하는 동안에만 클러스터를 실행할 수 있습니다.
+이러한 기간 동안 비용을 더 최적화 하려면 클러스터를 완전히 해제(중지) 할 수 있습니다. 이 작업을 수행 하면 제어 평면과 에이전트 노드가 모두 중지 되므로 모든 개체 (독립 실행형 pod 제외) 및 다시 시작할 때 저장 된 클러스터 상태를 유지 하면서 모든 계산 비용을 절감할 수 있습니다. 그러면 주말 이후, 중지한 지점에서 바로 다시 시작하거나 일괄 작업을 실행하는 동안에만 클러스터를 실행할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -30,6 +30,7 @@ ms.locfileid: "122529058"
 - 중지된 AKS 클러스터의 클러스터 상태는 최대 12개월 동안 보존됩니다. 클러스터가 12개월 넘게 중지된 경우 클러스터 상태를 복구할 수 없습니다. 자세한 내용은 [AKS 지원 정책](support-policies.md)을 참조하세요.
 - 중지된 AKS 클러스터를 시작하거나 삭제할 수만 있습니다. 스케일링 또는 업그레이드와 같은 작업을 수행하려면 먼저 클러스터를 시작합니다.
 - 프라이빗 클러스터에 연결된 고객이 프로비전한 PrivateEndpoints는 중지된 AKS 클러스터를 시작할 때 삭제하고 다시 만들어야 합니다.
+- 중지 프로세스는 모든 노드를 드레이닝 하기 때문에 독립 실행형 pod (즉, 배포에 의해 관리 되지 않는 pod, StatefulSet, DaemonSet, Job 등)가 삭제 됩니다.
 
 ## <a name="stop-an-aks-cluster"></a>AKS 클러스터 중지
 

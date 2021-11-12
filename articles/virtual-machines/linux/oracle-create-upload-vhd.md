@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta
-ms.openlocfilehash: 8ccf7f7761da56cc25fb63b4995c993ed1a11591
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 26eb625604d1947b5e246c27f766af63777b6239
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132156996"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309551"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 머신 준비
 
@@ -297,10 +297,10 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 15. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
+    **참고:** 특정 가상 머신을 마이그레이션하고 일반화된 이미지를 만들지 않으려면 프로비전 해제 단계를 건너뜁니다.
+    
     ```console
-    # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
-    # sudo rm -rf /var/lib/waagent/
+    # sudo cloud-init clean
     # sudo rm -f /var/log/waagent.log
 
     # waagent -force -deprovision+user

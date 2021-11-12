@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/02/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 4af1ae8edc94abe3a7bd640ce7562fc86a0655f1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a1c61f2689bc6bf9d4a11b324aaaa739640b8189
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131448617"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305487"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -47,7 +47,7 @@ Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔
 
 * 실시간 WAF 로그를 사용하여 웹 애플리케이션에 대한 공격을 모니터링합니다. 이 로그는 [Azure Monitor](../../azure-monitor/overview.md)와 통합되어 WAF 경고를 추적하고 추세를 쉽게 모니터링합니다.
 
-* Application Gateway WAF는 Azure Security Center와 통합됩니다. 중앙의 Security Center에서 모든 Azure 리소스의 보안 상태를 살펴볼 수 있습니다.
+* Application Gateway WAF는 Microsoft Defender for Cloud와 통합됩니다. Defender for Cloud는 모든 Azure, 하이브리드 및 다중 클라우드 리소스의 보안 상태에 대한 중앙 보기를 제공합니다.
 
 ### <a name="customization"></a>사용자 지정
 
@@ -105,7 +105,7 @@ Application Gateway는 사용자 지정 규칙도 지원합니다. 사용자 지
 
 ### <a name="bot-mitigation"></a>봇 완화
 
-관리형 규칙 세트와 함께 관리형 봇 보호 규칙 세트를 WAF에 사용하도록 설정하여 알려진 악성 IP 주소의 요청을 차단하거나 기록할 수 있습니다. IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공됩니다. Intelligent Security Graph는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다.
+관리형 규칙 세트와 함께 관리형 봇 보호 규칙 세트를 WAF에 사용하도록 설정하여 알려진 악성 IP 주소의 요청을 차단하거나 기록할 수 있습니다. IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공됩니다. 지능형 보안 Graph Microsoft 위협 인텔리전스를 강화하며 Microsoft Defender for Cloud를 비롯한 여러 서비스에서 사용됩니다.
 
 봇 보호를 사용하면 악의적 봇의 클라이언트 IP와 일치하는 수신 요청이 방화벽 로그에 기록됩니다. 자세한 내용은 아래를 참조하세요. 스토리지 계정, 이벤트 허브 또는 로그 분석에서 WAF 로그에 액세스할 수 있습니다. 
 
@@ -141,7 +141,7 @@ OWASP는 트래픽 차단 여부를 결정하는 기존 모드와 변칙 채점 
 
 ### <a name="waf-monitoring"></a>WAF 모니터링
 
-Application Gateway의 상태를 모니터링하는 것이 중요합니다. WAF 및 WAF가 보호하는 애플리케이션의 상태를 모니터링하는 기능은 Azure Security Center, Azure Monitor 및 Azure Monitor 로그와의 통합을 통해 제공됩니다.
+Application Gateway의 상태를 모니터링하는 것이 중요합니다. WAF 및 WAF가 보호하는 애플리케이션의 상태를 모니터링하는 것은 Microsoft Defender for Cloud, Azure Monitor 및 Azure Monitor 로그와의 통합을 통해 지원됩니다.
 
 ![Application Gateway WAF 진단 다이어그램](../media/ag-overview/diagnostics.png)
 
@@ -149,15 +149,15 @@ Application Gateway의 상태를 모니터링하는 것이 중요합니다. WAF 
 
 Application Gateway 로그는 [Azure Monitor](../../azure-monitor/overview.md)와 통합됩니다. 이를 통해 WAF 경고 및 로그를 포함하여 진단 정보를 추적할 수 있습니다. 포털에 있는 Application Gateway 리소스의 **진단** 탭에서 또는 Azure Monitor를 통해 직접 이 기능에 액세스할 수 있습니다. 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md)을 참조하세요.
 
-#### <a name="azure-security-center"></a>Azure Security Center
+#### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Security Center](../../security-center/security-center-introduction.md)를 통해 위협을 예방하고, 탐지하고, 대응할 수 있습니다. Security Center를 사용하면 Azure 리소스의 보안 상태를 보다 명확히 파악하고 제어할 수 있습니다. Application Gateway는 [Security Center와 통합됩니다](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions). Security Center는 사용자 환경을 검사하여 보호되지 않는 웹 애플리케이션을 검색합니다. 이처럼 취약한 리소스를 보호하도록 애플리케이션 게이트웨이 WAF를 권장할 수 있습니다. Security Center에서 직접 방화벽을 만듭니다. 이러한 WAF 인스턴스는 Security Center와 통합됩니다. WAF 인스턴스는 경고와 상태 정보를 Security Center로 보내서 보고합니다.
+[Defender for Cloud는](../../security-center/security-center-introduction.md) 위협을 방지, 감지 및 대응하는 데 도움이 됩니다. Security Center를 사용하면 Azure 리소스의 보안 상태를 보다 명확히 파악하고 제어할 수 있습니다. Application Gateway [Defender for Cloud 와 통합됩니다.](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions) Defender for Cloud는 환경을 검사하여 보호되지 않는 웹 애플리케이션을 검색합니다. 이처럼 취약한 리소스를 보호하도록 애플리케이션 게이트웨이 WAF를 권장할 수 있습니다. Defender for Cloud에서 직접 방화벽을 만듭니다. 이러한 WAF 인스턴스는 Defender for Cloud와 통합됩니다. 보고용 Defender for Cloud에 경고 및 상태 정보를 보냅니다.
 
-![Security Center 개요 창](../media/ag-overview/figure1.png)
+![Defender for Cloud 개요 창](../media/ag-overview/figure1.png)
 
-#### <a name="azure-sentinel"></a>Azure Sentinel
+#### <a name="microsoft-sentinel"></a>Microsoft Sentinel
 
-Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Azure Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
+Microsoft Sentinel은 확장 가능한 클라우드 네이티브 SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Microsoft Sentinel은 엔터프라이즈 전체에 지능형 보안 분석 및 위협 인텔리전스를 제공하여 경고 검색, 위협 가시성, 사전 예방적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
 
 기본 제공 Azure WAF 방화벽 이벤트 통합 문서를 사용하면 WAF의 보안 이벤트에 대한 개요를 볼 수 있습니다. 여기에는 이벤트, 일치 규칙 및 차단 규칙 및 방화벽 로그에 기록되는 모든 항목이 포함됩니다. 로깅에 대해 아래에서 자세히 참조하세요. 
 

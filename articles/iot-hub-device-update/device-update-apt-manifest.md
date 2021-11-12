@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 24c0d04b6a29b813dc23604594ca4b1b1235dc37
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561171"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373216"
 ---
 # <a name="device-update-apt-manifest"></a>디바이스 업데이트 APT 매니페스트
 
@@ -21,7 +21,7 @@ APT 매니페스트는 APT 업데이트 처리기에 필요한 업데이트 상�
 
 ## <a name="overview"></a>개요
 
-APT 매니페스트가 디바이스 업데이트 에이전트에 업데이트로 배달되는 경우 에이전트는 매니페스트를 처리하고 필요한 작업을 수행합니다. 이러한 작업에는 APT 매니페스트 파일에 지정된 패키지를 다운로드하고 설치하는 작업과 그 종속성이 포함됩니다.
+APT 매니페스트가 디바이스 업데이트 에이전트에 업데이트로 배달되는 경우 에이전트는 매니페스트를 처리하고 필요한 작업을 수행합니다. 이러한 작업에는 APT 매니페스트 파일에 지정 된 패키지를 다운로드 하 고 설치 하는 작업과 지정 된 리포지토리에서의 종속성이 포함 됩니다.
 
 디바이스 업데이트는 APT UpdateType와 APT 업데이트 처리기를 지원합니다. 이 지원을 통해 디바이스 업데이트 에이전트는 설치된 Debian 패키지를 평가하고 필요한 패키지를 업데이트할 수 있습니다. 
 

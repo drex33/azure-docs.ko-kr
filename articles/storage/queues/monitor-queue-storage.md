@@ -5,24 +5,24 @@ author: normesta
 services: storage
 ms.author: normesta
 ms.reviewer: fryu
-ms.date: 10/26/2020
+ms.date: 11/10/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 05dae168df808cf0abd55b7908f181044fa8651f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dfd31111844bc6969d0d2d61caac53b663b1c05c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804389"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346632"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Azure Queue Storage 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Queue Storage에서 생성하는 모니터링 데이터 및 Azure Monitor 기능을 사용하여 이러한 데이터에 대한 경고를 분석하는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
@@ -71,7 +71,7 @@ Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azu
 일반 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 > [!NOTE]
-> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -322,6 +322,17 @@ Azure Queue Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록
    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
 ```
 
+#### <a name="reading-metric-values-with-dimensions"></a>차원을 사용하여 메트릭 값 읽기
+
+메트릭이 차원을 지원하는 경우 메트릭 값을 읽고 차원 값을 사용하여 필터링할 수 있습니다. [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet을 사용합니다.
+
+```powershell
+$resourceId = "<resource-ID>"
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetMessages" 3> $null)
+Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
+```
+
+
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
@@ -340,6 +351,14 @@ Azure Queue Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
+```
+
+#### <a name="reading-metric-values-with-dimensions"></a>차원을 사용하여 메트릭 값 읽기
+
+메트릭이 차원을 지원하는 경우 메트릭 값을 읽고 차원 값을 사용하여 필터링할 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) 명령을 사용합니다.
+
+```azurecli
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetMessages' " --aggregation "Total" 
 ```
 
 ### <a name="net-sdk"></a>[.NET SDK](#tab/azure-portal)

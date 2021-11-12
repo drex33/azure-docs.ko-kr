@@ -1,18 +1,18 @@
 ---
 title: 주요 장점
 description: Defender for IoT의 기본 개념을 알아봅니다.
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 284301f7a797f2a161aafe90ec641fc062738933
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 271af4bbfe56771576dec32799b19f2c7aebf258
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132026466"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293443"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
-이 문서에서는 Azure Defender for IoT의 주요 이점을 설명합니다.
+이 문서에서는 Microsoft Defender for IoT의 주요 이점을 설명 합니다.
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>신속한 비침입적 배포 및 수동 모니터링
 
@@ -57,7 +57,7 @@ Defender for IoT는 업계에서 유일하게 독점적 NTA(네트워크 트래�
 
 센서 클라우드 관리 모드는 디바이스, 경고 및 센서가 탐지하는 기타 정보가 표시되는 위치를 결정합니다.
 
-**클라우드 연결 센서** 의 경우 센서에서 탐지한 정보가 센서 콘솔에 표시됩니다. 경고 정보는 IoT 허브를 통해 전달되며 다른 Azure 서비스(예: Azure Sentinel)와 공유할 수 있습니다.
+**클라우드 연결 센서** 의 경우 센서에서 탐지한 정보가 센서 콘솔에 표시됩니다. 경고 정보는 IoT hub를 통해 전달 되며 Microsoft 센티널와 같은 다른 Azure 서비스와 공유할 수 있습니다.
 
 **로컬로 연결된 센서** 의 경우 센서에서 탐지한 정보가 센서 콘솔에 표시됩니다. 탐지 정보는 센서가 연결된 온-프레미스 관리 콘솔과 공유됩니다.
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 10/22/2021
 ms.author: victorh
-ms.openlocfilehash: d421986ebeb308efb0e076b1a80f537d49082ec5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f39a858b99bf21a17a250d7e62f4af39c7d8213d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130242352"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343252"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -55,13 +55,13 @@ ms.locfileid: "130242352"
 
 PowerShell을 사용하여 진단 로깅을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값은 다음과 같은 형식입니다.
+1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값의 형식은 다음과 같습니다.
 
    `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    구독의 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-2. 방화벽의 리소스 ID를 적어둡니다. 이 값은 다음과 같은 형식입니다.
+2. 방화벽의 리소스 ID를 적어둡니다. 이 값의 형식은 다음과 같습니다.
 
    `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
@@ -85,13 +85,13 @@ PowerShell을 사용하여 진단 로깅을 사용하도록 설정하려면 다�
 
 Azure CLI를 사용하여 진단 로깅을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값은 다음과 같은 형식입니다.
+1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값의 형식은 다음과 같습니다.
 
    `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    구독의 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-2. 방화벽의 리소스 ID를 적어둡니다. 이 값은 다음과 같은 형식입니다.
+2. 방화벽의 리소스 ID를 적어둡니다. 이 값의 형식은 다음과 같습니다.
 
    `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
@@ -113,7 +113,7 @@ Azure CLI를 사용하여 진단 로깅을 사용하도록 설정하려면 다�
 
 * **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-monitor/essentials/activity-log.md) 문서에 자세히 나와 있습니다.
 * **Power BI** - [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 무료로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
-* **Azure Sentinel**: Azure Firewall 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 데이터를 볼 수 있도록 설정하고, 이 데이터를 사용하여 사용자 지정 경고를 만들고, 이 경고를 통합하여 조사를 개선할 수 있습니다. Azure Sentinel의 Azure Firewall 데이터 커넥터는 현재 공용 미리 보기로 제공됩니다. 자세한 내용은 [Azure Firewall에서 데이터 연결](../sentinel/data-connectors-reference.md#azure-firewall)을 참조하세요.
+* **Microsoft 센티널**: Azure 방화벽 로그를 microsoft 센티널에 연결 하 여 통합 문서에서 로그 데이터를 보고,이를 사용 하 여 사용자 지정 경고를 만들고,이를 통합 하 여 조사를 개선할 수 있습니다. Microsoft 센티널의 Azure 방화벽 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Azure Firewall에서 데이터 연결](../sentinel/data-connectors-reference.md#azure-firewall)을 참조하세요.
 
    개요는 Mohit Kumar의 다음 비디오를 참조하십시오.
    > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4nn]

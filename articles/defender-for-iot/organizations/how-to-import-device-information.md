@@ -1,18 +1,18 @@
 ---
 title: 디바이스 정보 가져오기
 description: Defender for IoT 센서는 미러링된 트래픽을 모니터링하고 분석합니다. 이러한 경우에는 이미 검색된 디바이스에 대한 정보를 보강하기 위해 데이터를 가져올 수 있습니다.
-ms.date: 12/06/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: eb82a3e5d360913acfead06adc03194d80f7fccb
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 3446a82ec71b03c8e1647b6f95db937e7ef7f488
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020263"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293253"
 ---
 # <a name="import-device-information-to-a-sensor"></a>디바이스 정보를 센서로 가져오기
 
-Azure Defender for IoT 센서는 미러링된 트래픽을 모니터링하고 분석합니다. 일부 경우에는 조직별 네트워크 구성 정책 때문에 일부 정보가 전송되지 않을 수 있습니다.
+IoT 센서에 대 한 Microsoft Defender는 미러된 트래픽을 모니터링 하 고 분석 합니다. 일부 경우에는 조직별 네트워크 구성 정책 때문에 일부 정보가 전송되지 않을 수 있습니다.
 
 이러한 경우 이미 검색된 디바이스에 대한 정보를 보강하기 위해 데이터를 가져올 수 있습니다. 센서에 정보를 가져오는 데 사용할 수 있는 두 가지 옵션은 다음과 같습니다.
 

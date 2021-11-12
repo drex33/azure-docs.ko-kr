@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: 29aeee156ee87c055a3581e9dc2fd0bd86a2064d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a659b4cdd404e9090fee177d383f26733aa4496b
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551048"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371867"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -288,7 +288,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-definition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> 역할 할당 만들기
 
@@ -343,7 +343,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-assignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Azure AD로 SDK 초기화
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 9c007ddd8c5a463838dbe7e324f07a18d056ce4d
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 6b6efd823d8e89fd481c05d1c02affe8bb557b45
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132332367"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372627"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
 
@@ -196,10 +196,10 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    ) 
-    String content, 
+    )
+    String content,
     final ExecutionContext context) {
-      context.getLogger().info("Event content: " + content);      
+      context.getLogger().info("Event content: " + content);
   }
 ```
 
@@ -232,8 +232,8 @@ public class EventSchema {
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    ) 
-    EventSchema event, 
+    )
+    EventSchema event,
     final ExecutionContext context) {
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);
@@ -428,7 +428,8 @@ Azure Functions 2.x 이상의 경우 Event Grid 트리거에 대해 다음 매�
 > [!NOTE]
 > `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우, 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
-### <a name="additional-types"></a>추가 형식 
+### <a name="additional-types"></a>추가 형식
+
 Event Grid 확장의 버전 3.0.0 이상을 사용하는 앱은 [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent) 네임스페이스의 `EventGridEvent` 유형을 사용합니다. 또한 [Azure.Messaging](/dotnet/api/azure.messaging.cloudevent) 네임스페이스의 `CloudEvent` 유형에 바인딩할 수 있습니다.
 
 # <a name="java"></a>[Java](#tab/java)

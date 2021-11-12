@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files |를 사용 하 여 새 볼륨으로 스냅숏 복원 Microsoft Docs
-description: Azure NetApp Files를 사용 하 여 스냅숏에서 새 볼륨을 만드는 방법에 대해 설명 합니다.
+title: Azure NetApp Files | 사용하여 스냅샷을 새 볼륨으로 복원 Microsoft Docs
+description: Azure NetApp Files 사용하여 스냅샷에서 새 볼륨을 만드는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 4c3f65d61cac7f6bafd6d483383c3f85bb3e2516
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1d6c74acffe68fb75fbad72a4e0ad052f4c4cef0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634304"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327427"
 ---
-# <a name="restore-a-snapshot-to-a-new-volume-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 새 볼륨으로 스냅숏 복원
+# <a name="restore-a-snapshot-to-a-new-volume-using-azure-netapp-files"></a>Azure NetApp Files 사용하여 스냅샷을 새 볼륨으로 복원
 
-[스냅숏은](snapshots-introduction.md) 볼륨의 지정 시간 복구를 사용 하도록 설정 합니다. 현재 새 볼륨으로만 스냅샷을 복원할 수 있습니다. 
+[스냅샷을](snapshots-introduction.md) 사용하면 볼륨을 적시에 복구할 수 있습니다. 현재 새 볼륨으로만 스냅샷을 복원할 수 있습니다. 
 
 ## <a name="steps"></a>단계
 
 1. 볼륨 블레이드에서 **스냅샷** 을 선택하여 스냅샷 목록을 표시합니다. 
 2. 복원할 스냅샷을 마우스 오른쪽 단추로 클릭하고 메뉴 옵션에서 **새 볼륨으로 복원** 을 선택합니다.  
 
-    ![새 볼륨 복원 메뉴를 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
+    ![새 볼륨 복원 메뉴를 보여 주는 스크린샷.](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. 볼륨 만들기 창에서 다음과 같은 새 볼륨 정보를 입력합니다.  
     * **Name**   
@@ -41,7 +41,7 @@ ms.locfileid: "128634304"
     * **할당량**  
         볼륨에 할당하려는 논리 스토리지의 크기를 지정합니다.  
 
-    ![볼륨 만들기 창을 보여 주는 스크린샷](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
+    ![볼륨 만들기 창을 보여 주는 스크린샷.](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
 4. **검토+만들기** 를 클릭합니다.  **만들기** 를 클릭합니다.   
     새 볼륨은 스냅샷에서 사용하는 것과 동일한 프로토콜을 사용합니다.   
@@ -49,7 +49,7 @@ ms.locfileid: "128634304"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스냅숏에 대 한 자세한 정보](snapshots-introduction.md)
+* [스냅샷에 대한 자세한 정보](snapshots-introduction.md)
 * [볼륨 및 스냅샷 메트릭 모니터링](azure-netapp-files-metrics.md#volumes)
 * [스냅샷 정책 문제 해결](troubleshoot-snapshot-policies.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)

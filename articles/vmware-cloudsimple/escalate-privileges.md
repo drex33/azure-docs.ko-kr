@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c0fa83dbec3c5d3ea7547d5b04ee395e09a96164
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 36a8929b679f4c5aed1d7067dce855bef304986b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129618632"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132322249"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>프라이빗 클라우드 vCenter에서 관리 기능을 수행하기 위한 CloudSimple 권한 에스컬레이션
 

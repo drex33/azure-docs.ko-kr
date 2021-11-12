@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 86fd1a8a6dbf8ea18d630996dd0d5fc94537f363
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 72ef8193215d3dc35f576a96a005bde8bf40e49f
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465747"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371945"
 ---
 # <a name="azure-automanage-for-machines-best-practices---windows-server"></a>컴퓨터용 Azure Automanage 모범 사례 - Windows Server
 
@@ -37,7 +37,7 @@ Automanage는 다음 Windows Server 버전을 지원합니다.
 |-----------|---------------|----------------------|
 |[컴퓨터 인사이트 모니터링](../azure-monitor/vm/vminsights-overview.md)    |컴퓨터용 Azure Monitor는 실행 중인 프로세스와 다른 리소스에 대한 종속성을 비롯해 가상 머신의 성능과 상태를 모니터링합니다.    |프로덕션    |
 |[Backup](../backup/backup-overview.md)    |Azure Backup은 컴퓨터에서 의도 하지 않은 데이터 소멸 으로부터 보호 하기 위해 독립적인 격리 된 백업을 제공 합니다. 요금은 보호되는 VM 수와 크기를 기준으로 합니다.    |프로덕션    |
-|[Azure Security Center](../security-center/security-center-introduction.md)    |Azure Security Center는 데이터 센터의 보안 상태를 강화하는 통합 인프라 보안 관리 시스템으로, 클라우드의 하이브리드 워크로드에서 Advanced Threat Protection을 제공합니다.  Automanage는 VM이 Azure Security Center의 체험 계층 제품으로 상주하는 구독을 구성합니다. 구독이 이미 Azure Security Center에 등록된 경우 Automanage는 해당 구독을 다시 구성하지 않습니다.    |프로덕션, 개발/테스트    |
+|[Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md)    |Microsoft Defender for Cloud는 데이터 센터의 보안 상태를 강화 하 고 클라우드의 하이브리드 워크 로드에서 고급 위협 방지를 제공 하는 통합 인프라 보안 관리 시스템입니다.  Automanage는 VM이 Microsoft Defender for Cloud의 무료 계층 제공에 상주 하는 구독을 구성 합니다. 구독이 이미 Microsoft Defender for Cloud로 등록 자동 관리를 통해 다시 구성 되지 않습니다.    |프로덕션, 개발/테스트    |
 |[Microsoft Antimalware](../security/fundamentals/antimalware.md)    |Azure용 Microsoft 맬웨어 방지 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 평가판 실시간 보호 기능입니다. 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 경고를 생성합니다. **참고:** Microsoft Antimalware를 사용하려면 다른 맬웨어 방지 소프트웨어가 설치되어 있지 않아야 합니다. 그렇지 않으면 작동하지 않을 수 있습니다. |프로덕션, 개발/테스트    |
 |[업데이트 관리](../automation/update-management/overview.md)    |Azure Automation의 업데이트 관리를 사용하여 컴퓨터 운영 체제 업데이트를 관리합니다. 모든 에이전트 머신에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버의 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.    |프로덕션, 개발/테스트    |
 |[변경 내용 추적 및 인벤토리](../automation/change-tracking/overview.md) |변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다.    |프로덕션, 개발/테스트    |

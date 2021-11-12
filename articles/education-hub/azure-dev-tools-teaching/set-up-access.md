@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa06b7aa3210afc6ade1167ec86f449cc46ea6ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92676533"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343423"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Azure Dev 도구에 대한 액세스 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "92676533"
 
 자세한 내용은 [Azure for Education 웹 사이트](https://azureforeducation.microsoft.com)를 참조하세요.
 
-## <a name="for-administrators-only"></a>관리자 전용  
+## <a name="for-administrators-only"></a>관리자 전용
 관리자는 [Visual Studio Subscription 포털](https://my.visualstudio.com/)을 통해 Azure 개발 도구에 액세스합니다.
 
 Visual Studio Subscription에 대한 액세스를 요청하기 위해 [관리 포털](https://azureforeducation.microsoft.com/account/Subscriptions)을 통해 수행할 수 있습니다. 승인된 후에는 Visual Studio Subscriptions 포털에 액세스할 수 있습니다. Visual Studio Subscription 포털에 처음으로 액세스하는 경우 등록할 때 제공된 이메일 주소와 Microsoft 계정을 연결하라는 메시지가 표시됩니다. 구독자 ID 또는 혜택 액세스 번호, 관리자의 성과 이름 및 등록 중에 제공된 이메일을 사용하여 이러한 계정을 연결해야 합니다. 계정을 연결한 후에는 Visual Studio 구독자 포털에 액세스할 수 있습니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 11/02/2021
 ms.author: duau
-ms.openlocfilehash: 0e62c64aa5e1aa3f29c58510bb53f092b9417bb6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5e0cac6f9ba6a245ec201666adb2c5cfeed79c38
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482878"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343100"
 ---
 # <a name="end-to-end-tls-with-azure-front-door"></a>Azure Front 도어를 사용 하 여 종단 간 TLS
 
@@ -54,6 +54,8 @@ HTTPS 연결의 경우 Azure Front 도어가 백 엔드 *호스트* 이름과 �
 
 보안 관점에서 Microsoft는 인증서 주체 이름 확인을 사용 하지 않도록 설정 하는 것을 권장 하지 않습니다. 예를 들어 테스트용으로와 같은 특정 사용 사례에서 원본은 자체 서명 된 인증서를 사용 해야 합니다. 실패 한 HTTPS 연결을 해결 하기 위한 해결 방법으로, Azure Front 문에 대해 인증서 주체 이름 확인을 사용 하지 않도록 설정할 수 있습니다. 사용 하지 않도록 설정 하는 옵션은 Azure Portal의 Azure Front 도어 설정과 Azure Front 도어 API의 BackendPoolsSettings에 있습니다. 
 
+## <a name="frontend-tls-connection-client-to-front-door"></a>프런트 엔드 TLS 연결 (클라이언트에서 전면 도어로)
+
 Azure Front 도어 사용자 지정 도메인의 콘텐츠를 안전 하 게 배달 하기 위해 HTTPS 프로토콜을 사용 하도록 설정 하려면 Azure Front 도어에서 관리 되는 인증서를 사용 하거나 사용자 고유의 인증서를 사용 하도록 선택할 수 있습니다.  
 
 * Azure 전면 도어 관리 되는 인증서는 DigiCert을 통해 표준 TLS/SSL 인증서를 제공 하며 Azure Front 도어의 Key Vault에 저장 됩니다.   
@@ -62,11 +64,13 @@ Azure Front 도어 사용자 지정 도메인의 콘텐츠를 안전 하 게 배
 
 * 자체 서명된 인증서는 지원되지 않습니다.  [사용자 지정 도메인에 대해 HTTPS를 사용 하도록 설정 하는 방법을](front-door-custom-domain-https.md)알아봅니다.
 
-Azure Front 도어 관리 되는 인증서의 경우 인증서는 Azure Front 도어에 의해 90 일 이내에 관리 되 고 autorotate 됩니다. Azure Front 도어 관리 되는 인증서를 사용 하 고 인증서 만료 날짜가 60 일 미만인 경우 지원 티켓을 제출 합니다. 
+### <a name="certificate-autorotation"></a>인증서 autorotation
+
+Azure Front 도어 관리 인증서 옵션의 경우 인증서가 관리 되 고 Azure Front 도어가 만료 시간 90 일 이내에 자동으로 회전 합니다. azure front 도어 Standard/Premium 관리 되는 인증서 옵션의 경우 인증서가 관리 되 고 azure Front 도어가 만료 시간 45 일 이내에 자동으로 회전 합니다. Azure Front 도어 관리 되는 인증서를 사용 하 고 있고 표준/Premium SKU의 인증서 만료 날짜가 60 일 또는 30 일 미만인 경우 지원 티켓을 제출 합니다. 
 
 사용자 고유의 사용자 지정 TLS/SSL 인증서:
 
-1. 키 자격 증명 모음에서 최신 버전의 인증서를 사용할 수 있는 경우 인증서가 최신 버전으로 자동으로 회전 되도록 비밀 버전을 ' 최신 '으로 설정 합니다. 사용자 지정 인증서의 경우 인증서가 만료 된 시간에 관계 없이 1-2 일 이내에 최신 버전의 인증서를 사용 하 여 autorotated을 가져옵니다.
+1. 키 자격 증명 모음에서 최신 버전의 인증서를 사용할 수 있는 경우 인증서가 최신 버전으로 자동으로 회전 되도록 비밀 버전을 ' 최신 '으로 설정 합니다. 사용자 지정 인증서의 경우 인증서가 만료 된 시간에 관계 없이 인증서가 1-2 일 이내에 최신 버전의 인증서로 자동 회전 됩니다.
 
 1. 특정 버전을 선택 하면 autorotation 지원 되지 않습니다. 인증서를 회전 하려면 새 버전을 수동으로 다시 선택 해야 합니다. 새 버전의 인증서/비밀을 배포하는 데 최대 24시간이 걸립니다.
 
@@ -74,7 +78,7 @@ Azure Front 도어 관리 되는 인증서의 경우 인증서는 Azure Front �
 
 ## <a name="supported-cipher-suites"></a>지원 되는 암호 그룹
 
-### <a name="for-tls12-the-following-cipher-suites-are-supported"></a>TLS 1.2의 경우 지원되는 암호 그룹은 다음과 같습니다.
+TLS 1.2의 경우 지원되는 암호 그룹은 다음과 같습니다.
 
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -84,7 +88,7 @@ Azure Front 도어 관리 되는 인증서의 경우 인증서는 Azure Front �
 > [!NOTE]
 > Windows 10 이상 버전의 경우 보안을 강화하기 위해 두 ECDHE 암호 그룹 중 하나 또는 둘 다를 사용하도록 설정하는 것이 좋습니다. Windows 8.1, 8 및 7은 이러한 ECDHE 암호 그룹과 호환되지 않습니다. DHE 암호 그룹은 이러한 운영 체제와의 호환성을 위해 제공되었습니다.
 
-### <a name="using-custom-domains-with-tls1011-enabled-the-following-cipher-suites-are-supported"></a>TLS1.0/1.1이 설정된 사용자 지정 도메인을 사용하면 다음과 같은 암호 도구 모음이 지원됩니다.
+TLS1.0/1.1이 설정된 사용자 지정 도메인을 사용하면 다음과 같은 암호 도구 모음이 지원됩니다.
 
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -106,6 +110,8 @@ Azure Front 도어 관리 되는 인증서의 경우 인증서는 Azure Front �
 * TLS_RSA_WITH_AES_128_CBC_SHA
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+
+Azure 전면 도어는 특정 암호 그룹을 구성 하는 기능을 지원 하지 않습니다. 인증 기관에서 사용자 고유의 사용자 지정 TLS/SSL 인증서를 가져올 수 있습니다 (예: Verisign, Entrust 또는 DigiCert). 그런 다음 인증서를 생성할 때 특정 암호 그룹을 인증서에 표시합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

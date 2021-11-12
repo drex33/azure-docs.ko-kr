@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: ec58e921940be71b0189bcba96596c18b1b8786b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5ae2ac35cc01ed8dfbc34ab2ff90117c46298980
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537135"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325565"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Avere vFXT for Azure에 대한 재해 복구 지침
 
@@ -61,7 +61,7 @@ Azure Blob Storage에서 데이터를 보호하기 위한 모범 사례는 다�
 
 * 다른 지역의 다른 스토리지 계정에 중요한 데이터를 종종 복사합니다(빈도는 재해 복구 계획에 따름).
 * 실수로 삭제하거나 손상되지 않도록 모든 대상 시스템에서 데이터에 대한 액세스를 제어합니다. 데이터 스토리지에 [리소스 잠금](../azure-resource-manager/management/lock-resources.md) 사용을 고려해 보세요.
-* Blob 코어 파일러에 Avere vFXT for Azure [클라우드 스냅샷](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) 기능을 사용하도록 설정합니다.
+* Blob 코어 파일러에 Avere vFXT for Azure [클라우드 스냅샷](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html) 기능을 사용하도록 설정합니다.
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Avere vFXT 코어 파일러 데이터를 백업 계정에 복사
 
@@ -73,7 +73,7 @@ Azure Blob Storage에서 데이터를 보호하기 위한 모범 사례는 다�
 
    클러스터에 컨테이너를 추가할 때(컨테이너를 원래 클러스터에 다시 추가하는 경우에도) 이 키를 제공해야 합니다.
 
-   자세한 내용은 [클라우드 암호화 설정](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html>)을<!-- link to legacy doc site --> 참조하세요.
+   자세한 내용은 [클라우드 암호화 설정](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html)을<!-- link to legacy doc site --> 참조하세요.
 
    컨테이너가 Azure의 기본 제공 암호화만 사용하는 경우 이 단계를 건너뛸 수 있습니다.
 

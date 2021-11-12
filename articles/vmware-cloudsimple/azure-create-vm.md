@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cc382f0316f5f7f0d80d2d1fc5cf9612d623e754
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3403f91c7369fd733abd404b37bd19832fe81981
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129618293"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132322744"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>VMware 인프라에서 VM 템플릿을 사용하여 Azure에서 가상 머신 만들기
 
@@ -71,7 +71,7 @@ CloudSimple 관리자가 구독에 대해 사용하도록 설정한 VMware 인�
 
     디스크의 경우 **디스크 추가** 를 클릭하고 다음 설정을 구성합니다.
 
-    | 항목 | Description |
+    | 항목 | 설명 |
     | ------------ | ------------- |
     | 이름 | 디스크를 식별하는 이름을 입력합니다.  |
     | 크기 | 사용 가능한 크기 중 하나를 선택합니다.  |
@@ -88,7 +88,7 @@ CloudSimple 관리자가 구독에 대해 사용하도록 설정한 VMware 인�
 
 2. **CloudSimple 가상 머신** 을 검색합니다.
 
-3. 만들어진 프라이빗 클라우드를 선택합니다.
+3. 프라이빗 클라우드를 만든 가상 머신을 선택합니다.
 
     ![CloudSimple 가상 머신의 목록](media/list-cloudsimple-virtual-machines.png)
 

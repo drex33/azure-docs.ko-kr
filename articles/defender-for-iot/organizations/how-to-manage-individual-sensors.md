@@ -1,14 +1,14 @@
 ---
 title: 개별 센서 관리
 description: 활성화 파일 관리, 인증서, 백업 수행 및 독립 실행형 센서 업데이트를 포함 하 여 개별 센서를 관리 하는 방법에 대해 알아봅니다.
-ms.date: 08/25/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: fd708b2ab259b38ea6983c4d4a6dac319e416218
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: dbbf08f1e139a265b947cc99c7287765d6a6d03a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424290"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339956"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "123424290"
 
 ## <a name="manage-sensor-activation-files"></a>센서 활성화 파일 관리
 
-센서는 Azure Portal의 Azure Defender for IoT로 온보딩되었습니다. 각 센서는 로컬로 연결된 센서 또는 클라우드 연결 센서로 온보딩되었습니다.
+센서는 Azure Portal의 IoT 용 Microsoft Defender와 등록 되었습니다. 각 센서는 로컬로 연결된 센서 또는 클라우드 연결 센서로 온보딩되었습니다.
 
 고유한 활성화 파일은 배포하는 각 센서에 업로드됩니다. 새 파일을 사용하는 시점 및 방법에 대한 자세한 내용은 [새 활성화 파일 업로드](#upload-new-activation-files)를 참조하세요. 파일을 업로드할 수 없으면 [활성화 파일 업로드 문제 해결](#troubleshoot-activation-file-upload)을 참조하세요.
 
@@ -78,11 +78,11 @@ ms.locfileid: "123424290"
 
 활성화 파일을 업로드할 수 없는 경우 오류 메시지가 표시됩니다. 다음 이벤트가 발생했을 수 있습니다.
 
-- **로컬로 연결된 센서**: 활성화 파일이 유효하지 않습니다. 파일이 유효하지 않으면 Defender for IoT 포털로 이동합니다. **센서 관리** 페이지에서 유효하지 않은 파일이 있는 센서를 선택하고 새 활성화 파일을 다운로드합니다.
+- **로컬로 연결된 센서**: 활성화 파일이 유효하지 않습니다. 파일이 유효 하지 않으면 [Azure Portal에서 IoT 용 Defender](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)로 이동 합니다. **센서 관리** 페이지에서 유효하지 않은 파일이 있는 센서를 선택하고 새 활성화 파일을 다운로드합니다.
 
 - **클라우드 연결 센서**: 센서를 인터넷에 연결할 수 없습니다. 센서의 네트워크 구성을 확인합니다. 인터넷에 액세스하기 위해 웹 프록시를 통해 센서를 연결해야 하는 경우 **센서 네트워크 구성** 화면에서 프록시 서버가 올바르게 구성되어 있는지 확인합니다. \*.azure-devices.net:443이 방화벽 및/또는 프록시에서 허용되는지 확인합니다. 와일드카드가 지원되지 않거나 더 많은 제어를 원하는 경우 특정 Defender for IoT 허브에 대한 FQDN을 방화벽 및/또는 프록시에서 열어야 합니다. 자세한 내용은 [참조 - IoT Hub 엔드포인트](../../iot-hub/iot-hub-devguide-endpoints.md)를 참조하세요.  
 
-- **클라우드 연결 센서의 경우**: 활성화 파일이 유효하지만 Defender for IoT가 해당 파일을 거부했습니다. 이 문제를 해결할 수 없는 경우 Defender for IoT 포털 사이트 및 센서 페이지에서 다른 활성화 파일을 다운로드할 수 있습니다. 그래도 문제가 해결되지 않을 경우 Microsoft 지원에 문의하세요.
+- **클라우드 연결 센서의 경우**: 활성화 파일이 유효하지만 Defender for IoT가 해당 파일을 거부했습니다. 이 문제를 해결할 수 없는 경우 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)의 **사이트 및 센서** 페이지에서 다른 정품 인증을 다운로드할 수 있습니다. 그래도 문제가 해결되지 않을 경우 Microsoft 지원에 문의하세요.
 
 ## <a name="manage-certificates"></a>인증서 관리
 
@@ -164,7 +164,7 @@ ms.locfileid: "123424290"
 
 이름을 변경하는 방법은 다음과 같습니다.
 
-1. Azure Defender for IoT 포털에서 사이트 및 센서 페이지로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)사이트 및 센서 페이지로 이동합니다.
 
 1. 사이트 및 센서 페이지에서 센서를 삭제합니다.
 

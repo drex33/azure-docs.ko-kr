@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/21/2021
-ms.openlocfilehash: cc403561784deea26e238063f585873c24cd39d3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: d5034f59cc71352518c0570e525f952f0f657c71
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562735"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343138"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning의 Enterprise 보안 및 거버넌스
 
@@ -107,7 +107,7 @@ Azure Machine Learning은 Azure 플랫폼에서 다양한 컴퓨팅 리소스 �
 
 ## <a name="vulnerability-scanning"></a>취약성 검색
 
-[Azure Security Center](../security-center/security-center-introduction.md)는 하이브리드 클라우드 워크로드에서 통합 보안 관리 및 지능형 위협 방지 기능을 제공합니다. Azure Machine Learning의 경우 [Azure Container Registry](../container-registry/container-registry-intro.md) 리소스 및 Azure Kubernetes Service 리소스 검사를 사용하도록 설정해야 합니다. 자세한 내용은 [Security Center를 통한 Azure Container Registry 이미지 검사](../security-center/defender-for-container-registries-introduction.md) 및 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조하세요.
+[Microsoft Defender for Cloud는](../security-center/security-center-introduction.md) 하이브리드 클라우드 워크로드에서 통합 보안 관리 및 고급 위협 방지 기능을 제공합니다. Azure Machine Learning의 경우 [Azure Container Registry](../container-registry/container-registry-intro.md) 리소스 및 Azure Kubernetes Service 리소스 검사를 사용하도록 설정해야 합니다. 자세한 내용은 [Defender for Cloud의 Azure Container Registry 이미지 검색](../security-center/defender-for-container-registries-introduction.md) 및 Defender for [Cloud와 Azure Kubernetes Services 통합을 참조하세요.](../security-center/defender-for-kubernetes-introduction.md)
 
 ## <a name="audit-and-manage-compliance"></a>규정 준수 감사 및 관리
 

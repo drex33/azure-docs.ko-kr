@@ -8,12 +8,12 @@ ms.date: 12/15/2020
 ms.author: helohr
 ms.service: virtual-desktop
 manager: femila
-ms.openlocfilehash: e26a4b60edc413080a34687dbeb136c07ec0f412
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e453f6f104a79ee4d364b7f52ab7c805741e3a22
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467058"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326838"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -50,21 +50,19 @@ Azure Virtual Desktop은 Azure의 서비스입니다. Azure Virtual Desktop 배�
 
 다음 섹션에서는 Azure 에코시스템을 보호하기 위한 모범 사례에 대해 설명합니다.
 
-### <a name="enable-azure-security-center"></a>Azure Security Center 활성화
+### <a name="enable-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender 사용
 
-Azure Security Center 표준을 구독, 가상 머신, 키 자격 증명 모음 및 스토리지 계정에 사용하도록 설정하는 것이 좋습니다.
+클라우드용 Microsoft Defender의 향상된 보안 기능을 사용하도록 설정하여 다음을 수행할 것을 권장합니다.
 
-Azure Security Center 표준을 사용하면 다음을 수행할 수 있습니다.
+- 취약성을 관리합니다.
+- PCI와 같은 일반적인 프레임워크의 규정 준수를 평가합니다.
+- 환경에 대한 전체 보안을 강화합니다.
 
-* 취약성을 관리합니다.
-* PCI와 같은 일반적인 프레임워크의 규정 준수를 평가합니다.
-* 환경에 대한 전체 보안을 강화합니다.
-
-자세한 내용은 [Security Center 표준에 Azure 구독 온보딩](../security-center/security-center-get-started.md)을 참조하세요.
+자세한 내용은 [향상된 보안 기능 사용을 참조하세요.](../security-center/enable-enhanced-security.md)
 
 ### <a name="improve-your-secure-score"></a>보안 점수 향상
 
-보안 점수는 전체 보안을 향상시키기 위한 권장 사항 및 모범 사례 권장 사항을 제공합니다. 이러한 권장 사항은 가장 중요한 항목을 선택하는 데 도움이 되도록 우선 순위가 지정되며, 빠른 수정 옵션은 잠재적 취약성을 빠르게 해결하는 데 도움이 됩니다. 또한 이러한 권장 사항은 시간이 지남에 따라 업데이트되므로 환경 보안을 유지하는 가장 좋은 방법을 최신 상태로 유지할 수 있습니다. 자세한 내용은 [Azure Security Center의 보안 점수 향상](../security-center/secure-score-security-controls.md)을 참조하세요.
+보안 점수는 전체 보안을 향상시키기 위한 권장 사항 및 모범 사례 권장 사항을 제공합니다. 이러한 권장 사항은 가장 중요한 항목을 선택하는 데 도움이 되도록 우선 순위가 지정되며, 빠른 수정 옵션은 잠재적 취약성을 빠르게 해결하는 데 도움이 됩니다. 또한 이러한 권장 사항은 시간이 지남에 따라 업데이트되므로 환경 보안을 유지하는 가장 좋은 방법을 최신 상태로 유지할 수 있습니다. 자세한 내용은 [클라우드용 Microsoft Defender에서 보안 점수 향상을 참조하세요.](../security-center/secure-score-security-controls.md)
 
 ## <a name="azure-virtual-desktop-security-best-practices"></a>Azure Virtual Desktop 보안 모범 사례
 
@@ -109,11 +107,11 @@ FSLogix와 같은 프로필 솔루션 또는 VHD 파일을 탑재하는 기타 �
 
 ### <a name="install-an-endpoint-detection-and-response-product"></a>엔드포인트 검색 및 응답 제품 설치
 
-고급 검색 및 응답 기능을 제공하려면 EDR(엔드포인트 검색 및 응답) 제품을 설치하는 것이 좋습니다. [Azure Security Center](../security-center/security-center-services.md)가 사용하도록 설정된 서버 운영 체제의 경우 EDR 제품을 설치하면 Defender ATP가 배포됩니다. 클라이언트 운영 체제의 경우 [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) 또는 타사 제품을 해당 엔드포인트에 배포할 수 있습니다.
+고급 검색 및 응답 기능을 제공하려면 EDR(엔드포인트 검색 및 응답) 제품을 설치하는 것이 좋습니다. Microsoft Defender for [Cloud를](../security-center/security-center-services.md) 사용하도록 설정된 서버 운영 체제의 경우 EDR 제품을 설치하면 Defender ATP가 배포됩니다. 클라이언트 운영 체제의 경우 [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) 또는 타사 제품을 해당 엔드포인트에 배포할 수 있습니다.
 
 ### <a name="enable-threat-and-vulnerability-management-assessments"></a>위협 및 취약성 관리 평가 사용
 
-운영 체제 및 애플리케이션에 있는 소프트웨어 취약성을 식별하는 것은 환경을 안전하게 유지하는 데 매우 중요합니다. Azure Security Center는 서버 운영 체제에 대한 취약성 평가를 통해 문제 지점을 식별하는 데 도움이 될 수 있습니다. 데스크톱 운영 체제에 대한 위협 및 취약성 관리를 제공하는 Defender ATP를 사용할 수도 있습니다. Azure Security Center 및 Defender ATP를 사용하는 것이 좋지만 원하는 경우 타사 제품을 사용할 수도 있습니다.
+운영 체제 및 애플리케이션에 있는 소프트웨어 취약성을 식별하는 것은 환경을 안전하게 유지하는 데 매우 중요합니다. Microsoft Defender for Cloud는 서버 운영 체제에 대한 취약성 평가를 통해 문제 지점을 식별하는 데 도움이 될 수 있습니다. 데스크톱 운영 체제에 대한 위협 및 취약성 관리를 제공하는 Defender ATP를 사용할 수도 있습니다. 클라우드용 Microsoft Defender 및 Defender ATP를 사용하는 것이 좋더라도 타사 제품을 사용할 수도 있습니다.
 
 ### <a name="patch-software-vulnerabilities-in-your-environment"></a>사용자 환경에서 소프트웨어 취약성 패치
 

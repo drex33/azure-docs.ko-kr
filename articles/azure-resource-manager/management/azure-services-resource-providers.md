@@ -4,12 +4,12 @@ description: Azure Resource Manager에 대한 모든 리소스 공급자 네임�
 ms.topic: conceptual
 ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a8a460407df41e6f80436ffc4e663dacc427d84f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 12a483b7d33e8a3d3b93903c88139105f1aed0e8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711610"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132310170"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
@@ -99,8 +99,8 @@ ms.locfileid: "129711610"
 | Microsoft.HanaOnAzure | [Azure의 SAP HANA(대규모 인스턴스)](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
-| Microsoft.HealthcareApis(Azure API for FHIR) | [FHIR용 Azure API](../../healthcare-apis/azure-api-for-fhir/index.yml) |
-| Microsoft.HealthcareApis(의료 API) | [Healthcare API](../../healthcare-apis/index.yml) |
+| HealthcareApis (FHIR 용 Azure API) | [FHIR용 Azure API](../../healthcare-apis/azure-api-for-fhir/index.yml) |
+| HealthcareApis (의료 Api) | [Healthcare API](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc 지원 서버](../../azure-arc/servers/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [네트워크 기능 관리자](../../network-function-manager/index.yml) |
@@ -156,7 +156,7 @@ ms.locfileid: "129711610"
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
-| Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
+| Microsoft.SecurityInsights | [Microsoft Sentinel](../../sentinel/index.yml) |
 | Microsoft.SerialConsole - [registered](#registration) | [Windows의 Azure 직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |

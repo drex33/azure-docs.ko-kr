@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/1/2021
 ms.author: jol
-ms.openlocfilehash: 6445f26494394e551795390f29d16b59fca877d7
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 2246b54b6831d0e88581c80aedc4e39388c6f377
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131511690"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327389"
 ---
 # <a name="smb-over-quic-with-automanage-machine-best-practices"></a>Automanage를 통한 SMB 및 컴퓨터의 Automanage 모범 사례
 
@@ -24,7 +24,7 @@ ms.locfileid: "131511690"
 ## <a name="how-to-get-started"></a>시작하는 방법
 
 > [!NOTE]
-> 자동 관리 컴퓨터 모범 사례 사용에 대 한 필수 구성 요소 [는 Azure Portal의 vm에서 사용](quick-create-virtual-machines-portal.md)을 참조 하세요. 
+> 자동 관리 컴퓨터 모범 사례 사용에 대 한 필수 구성 요소 [는 Azure Portal의 vm에서 사용](quick-create-virtual-machines-portal.md)을 참조 하세요.
 
 > [!NOTE]
 > 미리 보기 단계에서 [이 링크](https://aka.ms/automanage-ws-portal-preview)를 사용 하 여 Azure Portal를 시작할 수 있습니다.
@@ -34,10 +34,12 @@ ms.locfileid: "131511690"
 VM에서 SMB에 대 한 컴퓨터 모범 사례 자동 관리를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. 위의 미리 보기 링크를 사용 하 여 Azure Portal에 로그인 합니다.
+
 2. _Windows server 2022 Datacenter: azure Edition_ 이미지를 사용 하 여 azure VM을 만들어 azure에서 사용 하는 Windows 서버 기능에 대 한 automanage를 가져옵니다.
+
 3. **관리** 탭의 Azure Automanage Environment 설정에서 **개발/테스트** 또는 **프로덕션** 을 선택 하 여 컴퓨터 모범 사례 자동 관리를 사용 하도록 설정 합니다.
 
-:::image type="content" source="media\automanage-smb-over-quic\create-vm-automanage-setting.png" alt-text="VM을 만들 때 Automanage를 사용 하도록 설정 합니다.":::
+    :::image type="content" source="media\automanage-smb-over-quic\create-vm-automanage-setting.png" alt-text="VM을 만들 때 Automanage를 사용 하도록 설정 합니다.":::
 
 4. 필요에 따라 추가 설정을 구성 하 고 VM을 만듭니다.
 
@@ -48,7 +50,7 @@ VM에서 SMB에 대 한 컴퓨터 모범 사례 자동 관리를 사용 하도�
 1. 이전에 만든 VM으로 이동 합니다.
 2. Automanage 메뉴를 선택 하 고 **개발/테스트** 또는 **프로덕션** 환경을 선택한 다음 **사용** 을 클릭 합니다.
 
-:::image type="content" source="media\automanage-smb-over-quic\vm-enable-automanage.png" alt-text="기존 VM에 대해 Automanage를 사용 하도록 설정 합니다.":::
+    :::image type="content" source="media\automanage-smb-over-quic\vm-enable-automanage.png" alt-text="기존 VM에 대해 Automanage를 사용 하도록 설정 합니다.":::
 
 ## <a name="viewing-automanage-best-practice-compliance"></a>Automanage 모범 사례 준수 보기
 

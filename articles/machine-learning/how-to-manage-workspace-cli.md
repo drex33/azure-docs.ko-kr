@@ -10,19 +10,19 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0203699087d57ff92389040b850ce5a94fd86740
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 8f98b1d5d020df0b8a2047fa5881c6d978a0ad94
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136938"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281744"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning 작업 영역 관리
 
 이 문서에서는 Azure CLI를 사용하여 Azure Machine Learning 작업 영역을 만드는 방법을 알아봅니다. Azure CLI는 Azure 리소스 관리를 위한 명령을 제공하며, Azure를 빠르게 사용할 수 있도록 자동화에 초점을 두고 설계되었습니다. CLI에 대한 Machine Learning 확장은 Azure Machine Learning 리소스를 사용하기 위한 명령을 제공합니다.
 
 > [!NOTE]
-> 이 문서의 예제는 1.0 CLI 및 2.0 CLI 버전을 모두 참조합니다. 명령에 대해 지정된 버전이 없는 경우 1.0 또는 2.0 CLI에서 작동합니다. 기계 학습 2.0 CLI는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
+> 이 문서의 예제에서는 1.0 CLI 및 2.0 CLI 버전을 모두 참조 합니다. 명령에 대 한 버전을 지정 하지 않으면 1.0 또는 2.0 CLI와 함께 작동 합니다. Machine learning 2.0 CLI는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -93,7 +93,7 @@ Azure Machine Learning 작업 영역을 배포하는 경우, [종속 관련 리�
 > * Azure Blob 및 Azure File 기능 모두 사용
 > * Hierarchical Namespace(ADLS Gen 2)를 사용하지 않습니다. 이러한 요구 사항은 작업 영역에서 사용하는 _기본_ 스토리지 계정에만 적용됩니다.
 >
-> Azure 컨테이너 레지스트리를 연결할 때, Azure Machine Learning 작업 영역에서 사용할 수 있으려면 컨테이너 레지스트리에 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 사용하도록 설정해야 합니다.
+> Azure container registry를 연결할 때 Azure Machine Learning 작업 영역에서 사용할 수 있으려면 먼저 [관리자 계정을](../container-registry/container-registry-authentication.md#admin-account) 사용 하도록 설정 해야 합니다.
 
 # <a name="create-with-new-resources"></a>[새 리소스를 사용하여 만들기](#tab/createnewresources)
 
@@ -104,7 +104,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # <a name="bring-existing-resources-10-cli"></a>[기존 리소스 가져오기(1.0 CLI)](#tab/bringexistingresources1)
-기존 리소스를 사용하는 작업 영역을 만들려면, 각 리소스에 대한 리소스 ID를 제공해야 합니다. Azure Portal 통해 각 리소스의 '속성' 탭을 통해 또는 Azure CLI 사용하여 다음 명령을 실행하여 이 ID를 얻을 수 있습니다.
+기존 리소스를 사용하는 작업 영역을 만들려면, 각 리소스에 대한 리소스 ID를 제공해야 합니다. Azure Portal를 통해 각 리소스의 ' 속성 ' 탭을 통해 또는 Azure CLI를 사용 하 여 다음 명령을 실행 하 여이 ID를 가져올 수 있습니다.
 
   * **Azure Storage Account**:     `az storage account show --name <storage-account-name> --query "id"`
   * **Azure Application Insights**:     `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
@@ -121,7 +121,7 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# <a name="bring-existing-resources-20-cli---preview"></a>[기존 리소스 가져오기(2.0 CLI - 미리 보기)](#tab/bringexistingresources2)
+# <a name="bring-existing-resources-20-cli---preview"></a>[기존 리소스 가져오기 (2.0 CLI-미리 보기)](#tab/bringexistingresources2)
 
 CLI를 사용하여 연결된 기존 리소스를 가져오는 동안 새 작업 영역을 만들려면, 먼저 구성 파일에서 작업 영역을 구성하는 방법을 정의해야 합니다.
 
@@ -133,7 +133,7 @@ CLI를 사용하여 연결된 기존 리소스를 가져오는 동안 새 작업
 az ml workspace create -g <resource-group-name> --file workspace.yml
 ```
 
-기존 리소스를 연결하는 경우, 리소스에 대한 ID를 제공해야 합니다. Azure Portal 각 리소스의 '속성' 탭을 통해 또는 Azure CLI 사용하여 다음 명령을 실행하여 이 ID를 얻을 수 있습니다.
+기존 리소스를 연결하는 경우, 리소스에 대한 ID를 제공해야 합니다. Azure Portal의 각 리소스에 대 한 ' 속성 ' 탭을 통해 또는 Azure CLI를 사용 하 여 다음 명령을 실행 하 여이 ID를 가져올 수 있습니다.
 
 * **Azure Storage Account**:     `az storage account show --name <storage-account-name> --query "id"`
 * **Azure Application Insights**:     `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
@@ -174,7 +174,7 @@ az ml workspace create -g <resource-group-name> --file workspace.yml
 ## <a name="advanced-configurations"></a>고급 구성
 ### <a name="configure-workspace-for-private-network-connectivity"></a>프라이빗 네트워크 연결을 위한 작업 영역 구성
 
-사용 사례 및 조직 요구 사항에 따라 프라이빗 네트워크 연결을 사용하여 Azure Machine Learning을 구성할 수 있습니다. Azure CLI를 사용하여 작업 영역 리소스에 대한 작업 영역 및 프라이빗 링크 엔드포인트를 배포할 수 있습니다. 작업 영역에서 프라이빗 엔드포인트 및 VNet(가상 네트워크)을 사용하는 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요를](how-to-network-security-overview.md)참조하세요. 복잡한 리소스 구성의 경우, [Azure Resource Manager](how-to-create-workspace-template.md)를 비롯한 템플릿 기반 배포 옵션도 참조하세요.
+사용 사례 및 조직 요구 사항에 따라 프라이빗 네트워크 연결을 사용하여 Azure Machine Learning을 구성할 수 있습니다. Azure CLI를 사용하여 작업 영역 리소스에 대한 작업 영역 및 프라이빗 링크 엔드포인트를 배포할 수 있습니다. 작업 영역에서 개인 끝점 및 VNet (가상 네트워크)을 사용 하는 방법에 대 한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조 하세요. 복잡한 리소스 구성의 경우, [Azure Resource Manager](how-to-create-workspace-template.md)를 비롯한 템플릿 기반 배포 옵션도 참조하세요.
 
 # <a name="10-cli"></a>[1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
@@ -198,9 +198,9 @@ az ml workspace create -w <workspace-name>
 
 이러한 명령을 사용하는 방법에 대한 자세한 내용은 [CLI 참조 페이지](/cli/azure/ml(v1)/workspace)를 참조하세요.
 
-# <a name="20-cli---preview"></a>[2.0 CLI - 미리 보기](#tab/vnetpleconfigurationsv2cli)
+# <a name="20-cli---preview"></a>[2.0 CLI-미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-프라이빗 링크를 사용하는 경우 작업 영역에서 이미지 빌드에 Azure Container Registry 작업 컴퓨팅을 사용할 수 없습니다. 따라서 docker 이미지 환경 빌드에 사용할 CPU 컴퓨팅 클러스터 이름으로 image_build_compute 속성을 설정해야 합니다. public_network_access 속성을 사용하여 인터넷을 통해 프라이빗 링크 작업 영역에 액세스할 수 있는지 여부를 지정할 수도 있습니다.
+개인 링크를 사용 하는 경우 작업 영역에서 이미지 작성을 위해 Azure Container Registry 작업 계산을 사용할 수 없습니다. 따라서 Docker 이미지 환경 빌드에 사용할 CPU 계산 클러스터 이름으로 image_build_compute 속성을 설정 해야 합니다. Public_network_access 속성을 사용 하 여 인터넷을 통해 개인 링크 작업 영역에 액세스할 수 있어야 하는지 여부를 지정할 수도 있습니다.
 
 :::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
@@ -208,7 +208,7 @@ az ml workspace create -w <workspace-name>
 az ml workspace create -g <resource-group-name> --file privatelink.yml
 ```
 
-작업 영역을 만든 후 [Azure 네트워킹 CLI 명령을](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) 사용하여 작업 영역에 대한 프라이빗 링크 엔드포인트를 만듭니다.
+작업 영역을 만든 후에는 [Azure 네트워킹 CLI 명령을](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) 사용 하 여 작업 영역에 대 한 개인 링크 끝점을 만듭니다.
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -220,7 +220,7 @@ az network private-endpoint create \
     --connection-name workspace -l <location>
 ```
 
-작업 영역에 대한 프라이빗 DNS 영역 항목을 만들려면 다음 명령을 사용합니다.
+작업 영역에 대 한 개인 DNS 영역 항목을 만들려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 # Add privatelink.api.azureml.ms
@@ -288,7 +288,7 @@ az ml workspace create -w <workspace-name>
 
 # <a name="20-cli---preview"></a>[2.0 CLI - 미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-및 매개 변수를 포함하는 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
+매개 변수 및 포함 및 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `hbi_workspace` 속성을 추가로 지정할 수 있습니다. 
 

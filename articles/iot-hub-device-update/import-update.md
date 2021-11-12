@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: f616fee894c1eb436770cdafbab7b60d7a1417db
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: caa58c1affc9e4a9cc9d3ec5b63e0b396e289144
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537143"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370425"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Device Update for IoT Hub에 업데이트 추가
 Device Update for IoT Hub에 새 업데이트를 추가하는 방법을 알아봅니다.
@@ -38,7 +38,7 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
 
 ## <a name="create-a-device-update-import-manifest"></a>Device Update 가져오기 매니페스트 만들기
 
-아직 수행하지 않았다면 기본 [가져오기 개념](import-concepts.md)을 숙지해야 합니다.
+아직 수행하지 않은 경우 기본 [가져오기 개념](import-concepts.md)를 숙지하고 [먼저 이미지 기반](device-update-raspberry-pi.md) 또는 패키지 [기반](device-update-ubuntu-agent.md) 자습서를 사용해 보세요.
 
 1. 업데이트 파일이 PowerShell에서 액세스할 수 있는 디렉터리에 있는지 확인합니다.
 
@@ -78,7 +78,7 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
 
 ## <a name="review-the-generated-import-manifest"></a>생성된 가져오기 매니페스트 검토
 
-예제 매니페스트 출력은 다음과 같습니다. 항목에 대한 질문이 있는 경우 전체 [가져오기 매니페스트 스키마](import-schema.md)를 확인합니다. 
+예제 매니페스트 출력은 다음과 같습니다. 이 예제에는 이 업데이트를 구성하는 두 개의 파일인 .json 파일과 .zip 파일이 있습니다. 항목에 대한 질문이 있는 경우 전체 [가져오기 매니페스트 스키마](import-schema.md)를 확인합니다. 
 ```json
 {
   "updateId": {

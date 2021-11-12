@@ -9,16 +9,16 @@ ms.subservice: terminate-notification
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7a0992c67657647d6350c8437f549134f1706443
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 807ae8405ac8a4726a37329e5ef9ddda58714c3a
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132289341"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373301"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 종료 알림
 
-**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일한 확장 집합 :heavy_check_mark: 유연한 확장 집합
 
 확장 집합 인스턴스는 인스턴스 종료 알림을 받도록 허용하고 종료 작업에 미리 정의된 지연 제한 시간을 설정할 수 있습니다. 종료 알림은 재부팅 및 재배포와 같은 영향력이 강한 작업에 대한 알림을 제공하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송됩니다. 이 솔루션은 Scheduled Events 목록에 또 다른 이벤트(종료)를 추가하며, 종료 이벤트의 관련 지연 시간은 확장 집합 모델 구성에서 사용자가 지정한 지연 시간 제한에 따라 달라집니다.
 

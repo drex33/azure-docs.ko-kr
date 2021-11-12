@@ -5,16 +5,16 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9346c4e060e5cf4dcd3db7ee58f093f61cc2c646
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 12074ad5eb94f422fb60b1d5f0797bd1b6cc8fcd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818820"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335483"
 ---
 # <a name="monitoring-azure-table-storage"></a>Azure Table Storage 모니터링
 
@@ -317,6 +317,16 @@ Azure Table Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록
    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
 ```
 
+#### <a name="reading-metric-values-with-dimensions"></a>차원을 사용 하 여 메트릭 값 읽기
+
+메트릭이 차원을 지 원하는 경우 메트릭 값을 읽고 차원 값을 사용 하 여 필터링 할 수 있습니다. [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet을 사용합니다.
+
+```powershell
+$resourceId = "<resource-ID>"
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "QueryEntities" 3> $null)
+Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
+```
+
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
@@ -335,6 +345,14 @@ Azure Table Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
+```
+
+#### <a name="reading-metric-values-with-dimensions"></a>차원을 사용 하 여 메트릭 값 읽기
+
+메트릭이 차원을 지 원하는 경우 메트릭 값을 읽고 차원 값을 사용 하 여 필터링 할 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) 명령을 사용합니다.
+
+```azurecli
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'QueryEntities' " --aggregation "Total" 
 ```
 
 ### <a name="net-sdk"></a>[.NET SDK](#tab/azure-portal)
@@ -494,7 +512,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 로그에 표시되는 필드에 대한 자세한 내용은 [Azure Table Storage 모니터링 데이터 참조](monitor-table-storage-reference.md)에서 확인할 수 있습니다.
 
 > [!NOTE]
-> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
 
 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정에 테이블 엔드포인트의 활동은 있지만 Blob 또는 큐 엔드포인트의 활동이 없는 경우 Table 서비스와 관련된 로그만 만들어집니다. Azure Storage는 스토리지 서비스에 대해 성공한 요청과 실패한 요청의 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 

@@ -1,14 +1,14 @@
 ---
 title: SNMP MIB 모니터링 설정
 description: SNMP를 사용하여 센서 상태 모니터링을 수행할 수 있습니다. 센서는 권한 있는 모니터링 서버에서 보낸 SNMP 쿼리에 응답합니다.
-ms.date: 12/14/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 14803fd2f9c088fb4454f97ff1524e8d651ccd05
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: dc9baa68c39ec049f1ca717f1bb34a364d6bad10
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019524"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278724"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>SNMP MIB 모니터링 설정
 
@@ -33,7 +33,7 @@ SNMP 모니터링 구성을 시작하기 전에 방화벽에서 UDP 161 포트�
 | 디스크 사용량 | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | 0~100에 대한 표시 |
 | 서비스 상태 | 1.3.6.1.4.1.53313.5  |STRING | 네 가지 중요한 구성 요소 중 하나가 다운된 경우 온라인 또는 오프라인 |
 | 서비스 상태 | 1.3.6.1.4.1.53313.5  |STRING | 네 가지 중요한 구성 요소 중 하나가 다운된 경우 온라인 또는 오프라인 |
-| 로컬/클라우드 연결 | 1.3.6.1.4.1.53313.6   |STRING | 센서가 Defender for IoT에 연결되어 있는지, 아니면 온-프레미스에서만 관리되는지 나타냅니다. |
+| 로컬/클라우드 연결 | 1.3.6.1.4.1.53313.6   |STRING | 센서가 Azure의 Defender for IoT에 연결되어 있는지 또는 온-프레미스에서만 관리되는지를 나타냅니다. |
 | 라이선스 상태 | 1.3.6.1.4.1.53313.5  |STRING | 활성화 파일이 만료되었는지 여부를 나타냅니다. |
 
    - 존재하지 않는 키는 [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200)를 기반으로 null, HTTP 200을 사용하여 응답합니다.

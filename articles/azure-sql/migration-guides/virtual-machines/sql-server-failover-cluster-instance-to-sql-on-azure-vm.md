@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 27b0841e601fb7d2eaa7712495b7440a0b886d7c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: a1ae8cd56d705df0234425488029ca7073c6dfea
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113769253"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347711"
 ---
 # <a name="migrate-failover-cluster-instance-to-sql-server-on-azure-vms"></a>Azure VM의 SQL Server로 장애 조치 클러스터 인스턴스 마이그레이션
 
@@ -107,7 +107,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     - 이 단추를 선택한 후에는 이 프로젝트의 대상 지역을 변경할 수 없습니다.
     - 이후의 모든 마이그레이션은 이 지역으로 수행됩니다.
 
-1. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠어요?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
+1. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
 1. **복제 어플라이언스 소프트웨어를 다운로드하고 설치합니다.** 에서 어플라이언스 설치 관리자 및 등록 키를 다운로드합니다. 어플라이언스를 등록하려면 키가 필요합니다. 키는 다운로드한 후 5일 동안 유효합니다.
 
     ![공급자 다운로드](../../../migrate/media/tutorial-migrate-physical-virtual-machines/download-provider.png)
@@ -228,7 +228,7 @@ Mobility Service를 설치하려면 다음 단계를 수행합니다.
 
     ![게스트 자격 증명 필드가 강조 표시된 복제 화면에 있는 원본 설정 탭의 스크린샷.](../../../migrate/media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-1. **Virtual Machines** 의 **평가에서 마이그레이션 설정을 가져오시겠어요?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정** 을 그대로 유지합니다.
+1. **Virtual Machines** 의 **평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정** 을 그대로 유지합니다.
 1. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정** 을 선택합니다.
 
     ![VM 선택](../../../migrate/media/tutorial-migrate-physical-virtual-machines/select-vms.png)
@@ -325,7 +325,7 @@ VM이 마이그레이션된 후 클러스터를 다시 구성합니다. 다음 �
    NumberofNodes | 선택 사항 | 장애 조치 클러스터 인스턴스의 노드 수를 지정합니다. 이 매개 변수는 만들 공유 디스크에 적합한 SKU를 식별하는 데 사용됩니다. 기본적으로 스크립트는 클러스터의 노드 수가 2개라고 가정합니다.   
    DiskNamePrefix | 선택 사항 | 공유 디스크의 이름에 추가할 접두사를 지정합니다. 
    
-   ```powershell 
+   ```powershell
    ./Create-SharedDisks.ps1 -ResourceGroupName $resoucegroupname -NumberofNodes $nodesincluster -DiskNamePrefix $disknameprefix 
    ```
 
@@ -336,7 +336,7 @@ VM이 마이그레이션된 후 클러스터를 다시 구성합니다. 다음 �
    ResourceGroupName | 필수 | 마이그레이션된 서버를 포함하는 리소스 그룹의 이름을 지정합니다.
    StartingLunNumber | 선택 사항 |연결할 공유 디스크에 사용할 수 있는 시작 LUN 번호를 지정합니다. 기본적으로 스크립트는 0부터 시작하여 LUN에 공유 디스크를 연결하려고 시도합니다.  
    
-   ```powershell 
+   ```powershell
    ./Attach-ShareDisks.ps1 -ResourceGroupName $resoucegroupname 
    ```
 
@@ -374,10 +374,10 @@ SQL Server 장애 조치 클러스터 인스턴스가 준비되었습니다.
     - [Azure Backup 서비스](../../../backup/quick-backup-vm-portal.md)를 통해 Azure VM을 백업하면 데이터 보안을 유지할 수 있습니다. 
     - [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md)를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다.
 - 보안 강화:
-    - [Azure Security Center - Just-In-Time 관리](../../../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
+    - [Microsoft Defender for Cloud - Just-In-Time 관리를](../../../security-center/security-center-just-in-time.md)사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
     - [네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
     - [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
-    - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
+    - [IaaS 리소스 보안에](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)대해 자세히 알아보고 [Microsoft Defender for Cloud를](https://azure.microsoft.com/services/security-center/)방문합니다.
 - 모니터링 및 관리 앱:
     - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md)를 배포하는 것이 좋습니다.
 

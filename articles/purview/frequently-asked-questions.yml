@@ -7,12 +7,12 @@ metadata:
   ms.service: purview
   ms.topic: conceptual
   ms.date: 05/08/2021
-  ms.openlocfilehash: cdde004521c6f99136bfa75f33359f3599b675df
-  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+  ms.openlocfilehash: 8ab2749a1a0134f90644e1af082006b414a9b91f
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "130555857"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132301364"
 title: Azure Purview에 대한 FAQ(질문과 대답)
 summary: ''
 sections:
@@ -93,7 +93,7 @@ sections:
   - question: >
       Azure Purview는 내 SharePoint 및 OneDrive에서 메일, PDF 등을 검색하고 분류하나요?
     answer: >
-      온-프레미스 SharePoint 사이트 및 라이브러리에 대한 검색은 Azure Information Protection 스캐너를 통해 제공됩니다. 스캐너는 AIP P1, EMS E3 및 Microsoft 365 E3 고객의 Microsoft 365 구독을 통해 사용할 수 있습니다. 이러한 SKU 중 하나를 사용하는 경우 Azure Information Protection 스캐너 사용을 시작하려면 올바른 권한이 있어야 합니다.
+      현재 Purview는 검사 SharePoint 및 OneDrive 지원하지 않습니다. 온-프레미스 SharePoint 사이트 및 라이브러리에 대한 검색은 Azure Information Protection 스캐너를 통해 제공됩니다. 스캐너는 AIP P1, EMS E3 및 Microsoft 365 E3 고객의 Microsoft 365 구독을 통해 사용할 수 있습니다. 이러한 SKU 중 하나를 사용하는 경우 Azure Information Protection 스캐너 사용을 시작하려면 올바른 권한이 있어야 합니다.
   - question: >
       검색에 사용되는 컴퓨팅은 무엇인가요?
     answer: >

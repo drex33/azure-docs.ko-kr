@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 1cd2c87f919e5dc68d4dfb7dcf6b38da9d9f67a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9941db10efb39a5b68181224f06f1096bce5be7f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528285"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132310498"
 ---
 # <a name="creator-service-geographic-scope"></a>작성자 서비스 지리적 범위
 

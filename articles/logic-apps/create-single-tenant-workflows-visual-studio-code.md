@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 08690347f9a0dae5237ad74bfda9ad3eb6c8ef84
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b4859103c90e7f54b70be23d49bad0a59a79a3c8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072860"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347430"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Visual Studio Code에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
@@ -81,7 +81,7 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
   * [Visual Studio Code 확장용 C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)-F5 기능을 사용하여 논리 앱을 실행할 수 있습니다.
 
-  * [Azure Functions Core Tools -](https://github.com/Azure/azure-functions-core-tools/releases) MSI(Microsoft Installer) 버전()을 사용하는 최신 버전입니다. `func-cli-X.X.XXXX-x*.msi`
+  * [Azure Functions Core Tools-](https://github.com/Azure/azure-functions-core-tools/releases) Microsoft INSTALLER (MSI) 버전을 사용 하는 최신 버전입니다 `func-cli-X.X.XXXX-x*.msi` .
 
     이러한 도구에는 Azure Logic Apps(표준) 확장이 Visual Studio Code에서 사용하는 Azure Functions 런타임을 구동하는 동일한 런타임 버전이 포함되어 있습니다.
 
@@ -306,7 +306,7 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
 이 예제의 워크플로는 이 트리거와 다음 작업을 사용합니다:
 
-* 기본 제공 [요청 트리거](../connectors/connectors-native-reqres.md) - **HTTP 요청** 이 수신될 때 인바운드 호출 또는 요청을 수신하고 다른 서비스 또는 논리 앱이 호출할 수 있는 엔드포인트를 만듭니다.
+* **HTTP 요청** 을 받으면 인바운드 호출 또는 요청을 수신 하 고 다른 서비스 또는 논리 앱이 호출할 수 있는 끝점을 만드는 기본 제공 [요청 트리거입니다](../connectors/connectors-native-reqres.md).
 
 * [Office 365 Outlook 작업](../connectors/connectors-create-api-office365-outlook.md), **이메일 보내기**.
 
@@ -316,13 +316,13 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
 1. 디자이너 옆의 **트리거 추가** 창의 **작업 선택** 검색 상자에서 **기본 제공** 이 선택되어 있는지 확인하고 기본적으로 실행되는 트리거를 선택할 수 있습니다.
 
-1. **작업 선택** 검색 상자에 `when a http request`을(를) 입력하고 **HTTP 요청을 수신하는 경우** 라는 이름의 기본 제공 요청 트리거를 선택합니다.
+1. **작업 선택** 검색 상자에를 입력 하 `when a http request` 고 **HTTP 요청을 받을 때** 이름이 지정 된 기본 제공 요청 트리거를 선택 합니다.
 
-   ![워크플로 디자이너와 "HTTP 요청을 수신하는 경우" 트리거가 선택된 **트리거 추가** 창을 보여주는 스크린샷입니다.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
+   !["HTTP 요청을 받았을 때" 트리거가 선택 된 상태에서 워크플로 디자이너 및 * * 트리거 추가 * * 창을 보여 주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
 
    트리거가 디자이너에 표시되면 트리거의 세부 정보 창이 열리고 트리거의 속성, 설정 및 기타 작업이 표시됩니다.
 
-   !["HTTP 요청을 수신하는 경우" 트리거가 선택되고 트리거 세부 정보 창이 열려 있는 워크플로 디자이너를 보여주는 스크린샷입니다.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
+   !["HTTP 요청을 받았을 때" 트리거를 선택 하 고 트리거 세부 정보 창이 열려 있는 workflow designer를 보여 주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > 세부 정보 창이 표시되지 않으면 디자이너에서 트리거를 선택했는지 확인합니다.

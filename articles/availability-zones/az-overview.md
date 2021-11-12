@@ -8,16 +8,16 @@ ms.date: 10/01/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 48cb14166a229e6bcaf3337f0be92b7d07acb3d6
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: a980cd71f86086a0a0b07354295d12251305bb4f
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843122"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369705"
 ---
 # <a name="regions-and-availability-zones"></a>지역 및 가용성 영역
 
-Azure 지역 및 가용성 영역은 업무상 중요 한 워크 로드에 대 한 복원 력 및 안정성을 달성할 수 있도록 설계 되었습니다. Azure는 여러 지리적 위치를 유지 관리 합니다. 이러한 불연속 demarcations은 하나 또는 여러 Azure 지역에서 재해 복구 및 데이터 상주 경계를 정의 합니다. 많은 지역을 유지 관리 하면 전 세계에서 고객이 지원 됩니다. 
+Azure 지역 및 가용성 영역은 업무상 중요 한 워크 로드에 대 한 복원 력 및 안정성을 달성할 수 있도록 설계 되었습니다. Azure는 여러 지리적 위치를 유지 관리 합니다. 이러한 불연속 demarcations은 하나 또는 여러 Azure 지역에서 재해 복구 및 데이터 상주 경계를 정의 합니다. 많은 지역을 유지 관리 하면 전 세계에서 고객이 지원 됩니다.
 
 ## <a name="regions"></a>영역
 
@@ -25,7 +25,7 @@ Azure 지역 및 가용성 영역은 업무상 중요 한 워크 로드에 대 �
 
 ## <a name="availability-zones"></a>가용성 영역
 
-Azure *가용성 영역은* 로컬 장애를 허용 하는 각 azure 지역 내에서 물리적으로 별도의 위치입니다. 오류는 소프트웨어 및 하드웨어 오류에서 지진, 초과 및 발생과 같은 이벤트에 이르기까지 다양 합니다. Azure 서비스의 중복성 및 논리적 격리 때문에 실패에 대 한 허용 오차를 얻을 수 있습니다. 복원 력을 보장 하기 위해 모든 가용성 영역을 사용 하는 지역에는 최소 3 개의 별도 가용성 영역이 제공 됩니다. 
+Azure *가용성 영역은* 로컬 장애를 허용 하는 각 azure 지역 내에서 물리적으로 별도의 위치입니다. 오류는 소프트웨어 및 하드웨어 오류에서 지진, 초과 및 발생과 같은 이벤트에 이르기까지 다양 합니다. Azure 서비스의 중복성 및 논리적 격리 때문에 실패에 대 한 허용 오차를 얻을 수 있습니다. 복원 력을 보장 하기 위해 모든 가용성 영역을 사용 하는 지역에는 최소 3 개의 별도 가용성 영역이 제공 됩니다.
 
 Azure 가용성 영역은 왕복 대기 시간이 2 밀리초 미만인 고성능 네트워크를 통해 연결 됩니다. 이를 통해 데이터를 동기화 된 상태로 유지 하 고 문제가 발생할 때 액세스할 수 있습니다. 각 영역은 독립 된 전원, 냉각 및 네트워킹 인프라를 갖춘 하나 이상의 데이터 센터로 구성 됩니다. 가용성 영역은 한 영역이 영향을 받을 경우 나머지 두 영역에서 지역 서비스, 용량 및 고가용성을 지원 하도록 설계 되었습니다.
 
@@ -44,6 +44,7 @@ Azure *가용성 영역 사용 서비스* 는 적절 한 수준의 복원 력 �
 ![다른 지역을 사용 하 여 지역화 된 재해 및 지역 또는 대기업 재해 로부터 보호 하는 가용성 영역을 보여 주는 이미지](media/availability-zones-region-geography.png)
 
 ## <a name="azure-regions-with-availability-zones"></a>가용성 영역을 사용 하는 Azure 지역
+
 Azure는 클라우드 공급자의 가장 광범위 한 전역 공간을 제공 하 고 새 지역 및 가용성 영역을 신속 하 게 엽니다.
 
 | 아메리카 | 유럽 | 아프리카 | 아시아 태평양 |

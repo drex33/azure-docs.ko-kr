@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 8f18b4f7c39ba16fbd70301c36d08319c2e3fcf9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d7fa588c0711285c968c13ab14e319fb803e9785
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065288"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323470"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Azure Portal에서 또는 Python SDK를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -185,7 +185,7 @@ Azure Machine Learning Python SDK는 프라이빗 엔드포인트를 사용하�
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 
-Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center가 리소스를 검색할 수 있게 허용하고 권장 사항에 따라야 합니다. 자세한 내용은 [Security Center에서 Azure Container Registry 이미지 검색](../security-center/defender-for-container-registries-introduction.md) 및 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조하세요.
+Microsoft Defender for Cloud는 하이브리드 클라우드 워크로드 전반에 걸쳐 통합 보안 관리 및 고급 위협 보호를 제공합니다. Microsoft Defender for Cloud를 사용 하 여 리소스를 검색 하 고 권장 사항을 따르는 것이 좋습니다. 자세한 Azure Container Registry 내용은 Cloud for Cloud 및 [Azure Kubernetes Services와 defender For cloud의 통합](../security-center/defender-for-kubernetes-introduction.md) [이미지 검색](../security-center/defender-for-container-registries-introduction.md) 을 참조 하세요.
 
 ### <a name="advanced"></a>고급
 
@@ -337,7 +337,7 @@ Workspace.list('<subscription-id>')
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-작업 영역을 실수로 삭제 한 경우에도 계속 해 서 전자 필기장을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조 하세요.
+작업 영역을 실수로 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -392,7 +392,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 작업 영역 만들기 예제:
 * Azure Portal을 사용하여 [작업 영역 및 컴퓨팅 인스턴스 만들기](quickstart-create-resources.md)

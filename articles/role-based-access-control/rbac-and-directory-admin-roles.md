@@ -15,12 +15,12 @@ ms.date: 05/20/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: d339f058e94f27c26b4d5ae9bfcce4c66f279554
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f5e989394b42cb0f880ce6caa5ad069f53445c9e
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463631"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373172"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -124,7 +124,7 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목�
 
 여러 Azure AD 역할은 전역 관리자 및 사용자 관리자 역할 같은 Azure AD 및 Microsoft 365를 포괄합니다. 예를 들어 전역 관리자 역할의 구성원은 Azure AD 및 Microsoft 365에서 Microsoft Exchange와 Microsoft SharePoint를 변경하는 등의 전역 관리자 기능을 사용할 수 있습니다. 그러나 기본적으로 전역 관리자는 Azure 리소스에 액세스할 수 없습니다.
 
-![Azure RBAC 역할과 Azure AD 역할 비교](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
+![Azure RBAC 역할과 Azure AD 역할 비교](./media/rbac-and-directory-admin-roles/azure-roles-azure-ad-roles.png)
 
 ## <a name="next-steps"></a>다음 단계
 

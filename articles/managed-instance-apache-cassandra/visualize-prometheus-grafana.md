@@ -7,21 +7,21 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4464db95637511339e0000235b85da86306b4cef
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8fe10e1706667bba10133131f7a1d50a6e3fa110
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051024"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309813"
 ---
 # <a name="configure-grafana-to-visualize-metrics-emitted-from-the-managed-instance-cluster"></a>관리되는 인스턴스 클러스터에서 내보낸 메트릭을 시각화하도록 Grafana 구성
 
 Azure Managed Instance for Apache Cassandra를 배포할 때 서비스는 다양한 클라이언트 도구에서 사용할 수 있는 [Prometheus](https://prometheus.io/)를 호스팅하는 서버를 프로비저닝합니다. Prometheus는 오픈 소스 모니터링 솔루션입니다. 관리되는 인스턴스는 메트릭을 내보내고 10분 또는 10GB의 데이터를 유지합니다(먼저 도달하는 임계값을 기준으로 함). 이 문서에서는 관리되는 인스턴스 클러스터에서 내보낸 메트릭을 시각화하도록 Grafana를 구성하는 방법을 설명합니다. 메트릭을 시각화하려면 다음 작업이 필요합니다.
 
-* 관리되는 인스턴스가 있는 Azure Virtual Network 내부에 Ubuntu 가상 머신을 배포합니다.
+* 관리 되는 인스턴스가 있는 Azure Virtual Network 내에 Ubuntu 가상 컴퓨터를 배포 합니다.
 * 오픈 소스 [Grafana 도구](https://grafana.com/grafana/)를 설치하여 대시보드를 빌드하고 Prometheus에서 내보낸 메트릭을 시각화합니다.
 
-## <a name="deploy-a-ubuntu-server"></a>Ubuntu 서버 배포
+## <a name="deploy-an-ubuntu-server"></a>Ubuntu 서버 배포
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 

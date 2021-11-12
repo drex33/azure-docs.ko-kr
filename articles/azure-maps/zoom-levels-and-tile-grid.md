@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: b607037d56ab0c9d9bd119b12f4dc3a7200ff981
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bdda831f07d91ad13553814e198cac743314671a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529094"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284819"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 
@@ -33,7 +33,7 @@ Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합�
 
 웹 및 Android용 Azure Maps 대화형 지도 컨트롤은 25개의 확대/축소 수준(0-24)을 지원합니다. 그러나 도로 데이터는 타일을 사용할 수 있는 경우의 확대/축소 수준에서만 사용할 수 있습니다.
 
-다음 표에서는 위도 0에서 타일 크기가 512픽셀 정사각형인 확대/축소 수준의 전체 값 목록을 제공합니다.
+다음 표에서는 타일 크기가 위도 **0에서 512픽셀** 정사각형인 확대/축소 수준에 대한 값의 전체 목록을 제공합니다.
 
 |확대/축소 수준|미터/픽셀|미터/타일 측|
 |--- |--- |--- |

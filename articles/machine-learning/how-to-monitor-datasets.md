@@ -11,12 +11,12 @@ author: buchananwp
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
-ms.openlocfilehash: 05d7136b48f206cc9d091f5f73ee763cc24135fa
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: f80489726617b05e4a4c025893fdb24ec1f2d05c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558823"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335712"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>데이터 세트에서 데이터 드리프트(미리 보기) 검색
 
@@ -274,7 +274,7 @@ monitor = monitor.enable_schedule()
 
 대상 데이터 세트도 시간별로 프로파일링됩니다. 각 특징의 기준 분포 사이 통계적 거리는 시간별로 대상 데이터 세트와 비교됩니다.  개념적으로 이것은 데이터 드리프트 규모와 유사합니다.  단, 이러한 통계적 거리는 모든 특징보다는 개별 특징에 대한 것입니다. 최소, 최대 및 평균도 사용할 수 있습니다.
 
-Azure Machine Learning 스튜디오에서 그래프의 막대를 클릭하면 해당 날짜의 특징 수준 세부 정보를 볼 수 있습니다. 기본적으로 기준 데이터 세트의 분포 및 동일한 특징의 가장 최근 실행 분포가 표시됩니다.
+Azure Machine Learning studio에서 그래프의 막대를 클릭 하 여 해당 날짜에 대 한 기능 수준 세부 정보를 확인 합니다. 기본적으로 기준 데이터 세트의 분포 및 동일한 특징의 가장 최근 실행 분포가 표시됩니다.
 
 :::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="특징별 드리프트 규모":::
 

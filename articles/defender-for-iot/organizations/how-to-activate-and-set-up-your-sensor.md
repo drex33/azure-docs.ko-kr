@@ -1,14 +1,14 @@
 ---
 title: 센서 활성화 및 설정
 description: 이 문서에서는 센서 콘솔 로그인 및 활성화 방법을 설명합니다.
-ms.date: 04/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 256e2b941d0eb2f24331abd892b798014cf0eb5d
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 86c5215e91a32fd67a29e157df2c3ab8606f15b8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020964"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278971"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>센서 활성화 및 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "113020964"
 
 ## <a name="sign-in-and-activation-for-administrator-users"></a>관리자 사용자에 대한 로그인 및 활성화
 
-최초로 로그인하는 관리자는 센서 온보딩 중에 다운로드한 활성화 및 암호 복구 파일에 액세스할 수 있는지 확인해야 합니다. 그렇지 못하다면 Azure 보안 관리자, 구독 기여자 또는 구독 소유자 권한이 있어야 Azure Defender for IoT 포털에서 이 파일을 생성할 수 있습니다.
+최초로 로그인하는 관리자는 센서 온보딩 중에 다운로드한 활성화 및 암호 복구 파일에 액세스할 수 있는지 확인해야 합니다. 그렇지 않은 경우 Azure Portal Defender for IoT를 통해 이러한 파일을 생성하려면 Azure 보안 관리자, 구독 기여자 또는 구독 소유자 권한이 필요합니다.
 
 ### <a name="first-time-sign-in-and-activation-checklist"></a>최초 로그인 및 활성화 검사 목록
 
@@ -32,22 +32,22 @@ ms.locfileid: "113020964"
 
 - 초기 암호입니다. Arrow를 통해 미리 구성된 센서를 구매한 경우, 최초 로그인 시 암호를 생성해야 합니다.
 
-- 이 센서와 연결된 활성화 파일입니다. 이 파일은 Defender for IoT 포털에서 센서 온보딩 중에 생성 및 다운로드되었습니다.
+- 이 센서와 연결된 활성화 파일입니다. Defender for IoT에서 센서를 온보딩하는 동안 파일이 생성되고 다운로드되었습니다.
 
 - 회사에서 요구하는 SSL/TLS CA 서명 인증서입니다.
 
 ### <a name="about-activation-files"></a>활성화 파일 정보
 
-센서가 특정 관리 모드에서 Azure Defender for IoT에 온보딩되었습니다.
+센서가 특정 관리 모드에서 IoT용 Microsoft Defender에 온보딩되었습니다.
 
 | 모드 유형 | 설명 |
 |--|--|
-| **클라우드 연결 모드** | 센서가 검색한 정보는 센서 콘솔에 표시됩니다. 경고 정보는 IoT 허브를 통해서도 배달되며 다른 Azure 서비스(예: Azure Sentinel)와 공유할 수 있습니다. 자동 위협 인텔리전스 업데이트를 사용하도록 설정할 수도 있습니다. |
+| **클라우드 연결 모드** | 센서가 검색한 정보는 센서 콘솔에 표시됩니다. 경고 정보는 IoT Hub를 통해 전달되며 Microsoft Sentinel과 같은 다른 Azure 서비스와 공유할 수 있습니다. 자동 위협 인텔리전스 업데이트를 사용하도록 설정할 수도 있습니다. |
 | **로컬 연결 모드** | 센서가 검색한 정보는 센서 콘솔에 표시됩니다. 검색 정보는 센서가 연결된 경우 온-프레미스 관리 콘솔과도 공유됩니다. |
 
 이 센서에 대해 온보딩 중에 로컬 연결 또는 클라우드 연결 활성화 파일이 생성되어 다운로드되었습니다. 활성화 파일에는 센서의 관리 모드에 대한 지침이 포함되어 있습니다. *고유한 활성화 파일을 배포하는 각 센서에 업로드해야 합니다.*  처음 로그인할 때 이 센서의 관련 활성화 파일을 업로드해야 합니다.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Azure Defender for IoT 포털, 센서 온보딩":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Azure Portal Defender for IoT, 온보딩 센서.":::
 
 ### <a name="about-certificates"></a>인증서 정보
 
@@ -77,7 +77,7 @@ ms.locfileid: "113020964"
 
 1. 설치 중에 정의한 IP를 사용하여 브라우저에서 센서 콘솔로 이동합니다. 로그인 대화 상자가 열립니다.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender for IoT 센서":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Microsoft Defender for IoT 센서.":::
 
 1. 센서 설치 중에 정의한 자격 증명을 입력하거나 **암호 복구** 옵션을 선택합니다. Arrow를 통해 미리 구성된 센서를 구매한 경우 먼저 암호를 생성합니다. 암호 복구에 대한 자세한 내용은 [초기 로그인 시 암호 실패 조사](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in)를 참조하세요.
 
@@ -130,7 +130,7 @@ CA 서명된 인증서를 업로드한 후에는 화면을 새로 고쳐야 할 
 
 **라이선스를 활성화하려면 다음을 수행합니다.**
 
-1. [고객 지원팀](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support)에서 사례를 엽니다.
+1. [고객 지원팀](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support)에서 사례를 엽니다.
 
 1. 지원은 활성화 ID 번호를 통해 제공됩니다.
 
@@ -146,15 +146,15 @@ CA 서명된 인증서를 업로드한 후에는 화면을 새로 고쳐야 할 
 
 ### <a name="subsequent-sign-ins"></a>후속 로그인
 
-처음 활성화한 후에는 활성화 파일 없는 로그인 이후에 Azure Defender for IoT 센서 콘솔이 열립니다. 본인의 로그인 자격 증명만 필요합니다.
+처음 활성화 한 후에는 활성화 파일 없이 로그인 하면 Microsoft Defender for IoT 센서 콘솔이 열립니다. 본인의 로그인 자격 증명만 필요합니다.
 
-로그인하면 Azure Defender for IoT 콘솔이 열립니다.
+로그인 한 후에 Microsoft Defender for IoT 콘솔이 열립니다.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-log-in-screen-dashboard-v2.png" alt-text="Azure Defender for IoT 콘솔":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-log-in-screen-dashboard-v2.png" alt-text="IoT 용 Microsoft Defender 콘솔.":::
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>초기 설정 및 학습(관리자용)
 
-처음 로그인하면 Azure Defender for IoT 센서가 자동으로 네트워크를 모니터링하기 시작합니다. 디바이스 맵 및 디바이스 인벤토리 섹션에 네트워크 디바이스가 표시됩니다. Azure Defender for IoT가 네트워크에서 발생하는 모든 보안 및 운영 인시던트에 대한 검색과 경고를 시작하게 됩니다. 그러면 검색된 정보를 기반으로 보고서 및 쿼리를 만들 수 있습니다.
+처음 로그인 하면 IoT 용 Microsoft Defender 센서가 네트워크를 자동으로 모니터링 하기 시작 합니다. 디바이스 맵 및 디바이스 인벤토리 섹션에 네트워크 디바이스가 표시됩니다. IoT 용 Microsoft Defender는 네트워크에서 발생 하는 모든 보안 및 운영 인시던트에 대해 검색 하 고이를 경고 하기 시작 합니다. 그러면 검색된 정보를 기반으로 보고서 및 쿼리를 만들 수 있습니다.
 
 처음에는 이 작업을 학습 모드에서 수행하여 센서가 네트워크의 일상적 활동을 학습하게 합니다. 예를 들어, 센서는 네트워크에서 검색된 디바이스와 프로토콜, 특정 디바이스 간에 발생하는 파일 전송을 학습합니다. 이 활동이 네트워크 기준 활동이 됩니다.
 
@@ -176,7 +176,7 @@ CA 서명된 인증서를 업로드한 후에는 화면을 새로 고쳐야 할 
 
 ### <a name="disable-learning-mode"></a>학습 모드 사용 안 함
 
-시스템 설정을 조정한 후에는 시스템 검색이 네트워크 활동을 정확하게 반영한다고 생각될 때까지 Azure Defender for IoT 센서를 학습 모드에서 실행되게 할 수 있습니다.
+시스템 설정을 조정한 후에는 시스템 검색에서 네트워크 작업을 정확 하 게 반영 하는 것으로 보일 때까지 Microsoft Defender for IoT 센서가 학습 모드에서 실행 되도록 할 수 있습니다.
 
 학습 모드는 네트워크 규모 및 복잡도에 따라 약 2~6주 동안 실행해야 합니다. 학습 모드를 사용하지 않도록 설정한 후에는 기준 활동과 다른 활동이 발생하면 경고가 트리거됩니다.
 
@@ -224,7 +224,7 @@ CA 서명된 인증서를 업로드한 후에는 화면을 새로 고쳐야 할 
 | 시간 범위 | 아이콘 | 설명 |
 |---|---|---|
 | 사용자 | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | 다양한 액세스 수준으로 사용자와 역할을 정의합니다. |
-| 전달 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | 경고 정보를 파트너, Defender for IoT와 통합하는 내부 원본(예: Azure Sentinel), 이메일 주소, 웹후크 서버 등으로 전달합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md)을 참조하세요. |
+| 전달 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | 파트너에 게 경고 정보를 전달 하 고, 내부 원본 (예: Microsoft 센티널)과 IoT 용 Defender, 전자 메일 주소, webhook 서버 등에 통합 합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md)을 참조하세요. |
 | 시스템 설정 | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | 시스템 설정을 구성합니다. 예를 들어 DHCP 설정을 정의하거나, 메일 서버 세부 정보를 제공하거나, 포트 별칭을 만듭니다. |
 | 설정 가져오기 | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | **가져오기 설정** 창을 표시합니다. 디바이스 정보를 수동으로 변경할 수 있습니다.<br /> 자세한 내용은 [디바이스 정보 가져오기](how-to-import-device-information.md)를 참조하세요. |
 

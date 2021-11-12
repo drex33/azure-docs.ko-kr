@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 046b2cefb20f9c413798e310f760a90a15dee441
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 728943aa79e208eb2d6cd6dcdcfaf7876033e2f8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805338"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347411"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
-Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 로깅을 [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage와 통합하면 고급 분석을 사용할 수 있습니다.
+Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor Diagnostics 인터페이스를 통해 고급 분석을 위해 [Microsoft Sentinel,](../sentinel/data-connectors-reference.md#azure-ddos-protection)Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage 추가로 통합할 수 있습니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
@@ -91,7 +91,7 @@ Azure DDoS Protection 표준에는 다음 [메트릭](../azure-monitor/essential
 2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
 3. **범위** 를 선택합니다. 로깅할 공용 IP 주소가 포함된 **구독** 을 선택하고 **리소스 종류** 로 **공용 IP 주소** 를 선택한 다음, 메트릭을 로깅할 특정 공용 IP 주소를 선택한 후, **적용** 을 선택합니다.
 4. **집계** 유형을 **최대** 로 선택합니다.
-5. **필터 추가** 를 선택합니다. **속성** 에서 **보호된 IP 주소** 를 선택하고 연산자를 **=** 로 설정해야 합니다. **값** 에는 DDoS 보호를 사용하여 보호되는 가상 네트워크와 연결된 공용 IP 주소의 드롭다운이 표시됩니다. 
+5. **필터 추가** 를 선택합니다. **속성** 에서 **보호된 IP 주소** 를 선택하고 연산자를 **=** 로 설정해야 합니다. **값** 아래에 DDoS 보호를 사용하도록 설정된 가상 네트워크와 연결된 공용 IP 주소 드롭다운이 표시됩니다. 
 
 ![DDoS 진단 설정](./media/ddos-attack-telemetry/vnet-ddos-metrics.png)
 

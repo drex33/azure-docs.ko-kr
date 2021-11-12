@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 2f81cd3e37b6fefea1a76a8a4bb50c756ff1fca4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: afe4ce82b779a6f8913ed61a44f3cf15992ba7e1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131463528"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335521"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 
@@ -102,11 +102,11 @@ Azure Active Directory B2C는 [셀프 서비스 암호 재설정](../../active-d
 
 맬웨어 방지 보호 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 됩니다. [Microsoft Antimalware](../fundamentals/antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 및 [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
 
-[Microsoft Antimalware](../fundamentals/antimalware.md)에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 컬렉션과 같은 기능이 포함되어 있습니다. 배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/security-center-partner-integration.md)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
+[Microsoft Antimalware](../fundamentals/antimalware.md)에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 컬렉션과 같은 기능이 포함되어 있습니다. 간편 하 게 배포 하 고 기본 제공 검색 (경고 및 인시던트)을 위해 [Microsoft Defender for Cloud](../../security-center/security-center-partner-integration.md) 와 Microsoft Antimalware 및 파트너 솔루션을 통합할 수 있습니다.
 
 ### <a name="dont-cache-sensitive-content"></a>중요한 콘텐츠를 캐시하지 말 것
 
-브라우저에서 중요한 콘텐츠를 캐시하지 마세요. 브라우저는 캐싱 및 기록에 대한 정보를 저장할 수 있습니다. 캐시된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더 같은 폴더에 저장됩니다. 이러한 페이지를 다시 참조할 때 브라우저는 캐시의 페이지를 표시합니다. 중요한 정보(주소, 신용 카드 세부 정보, 사회 보장 번호, 사용자 이름)가 사용자에게 표시되는 경우 브라우저의 캐시에 정보를 저장하고 브라우저의 캐시를 검사하거나 브라우저의 **뒤로** 단추를 눌러 검색할 수 있습니다.
+브라우저에서 중요한 콘텐츠를 캐시하지 마세요. 브라우저는 캐싱 및 기록에 대한 정보를 저장할 수 있습니다. 캐시된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더 같은 폴더에 저장됩니다. 이러한 페이지를 다시 참조할 때 브라우저는 캐시의 페이지를 표시합니다. 중요 한 정보 (주소, 신용 카드 정보, 주민 등록 번호, 사용자 이름)가 사용자에 게 표시 되는 경우 정보는 브라우저의 캐시에 저장 되 고 브라우저의 캐시를 검사 하거나 브라우저의 **뒤로** 단추를 누르기만 하면 검색할 수 있습니다.
 
 ## <a name="verification"></a>확인
 

@@ -8,12 +8,12 @@ ms.date: 10/01/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 58d483c56f27dd346c672f2ec2013dce934993ee
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: 2c039bb9cabdd1d4786d4f0d76d591887781e2b5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131866528"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132302124"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지 원하는 Azure 서비스
 
@@ -127,7 +127,7 @@ Azure 지역에서 가용성 영역을 지 원하는 Azure 서비스 목록은 [
 | [Azure 디스크 암호화](../virtual-machines/disks-redundancy.md)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg) |
 | [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg)  |
 | [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg)  |
-| [Azure Functions](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg)  |
+| [Azure 기능](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg)  |
 | [AKS(Azure Kubernetes Service)](../aks/availability-zones.md)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg) ![이 서비스가 영역 임을 나타내는 아이콘입니다.](media/icon-zonal.svg)  |
 | [Azure Monitor](../azure-monitor/logs/availability-zones.md)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg)  |
 | [Azure Monitor: Application Insights](../azure-monitor/logs/availability-zones.md)  | ![이 서비스가 영역 중복 임을 나타내는 아이콘입니다.](media/icon-zone-redundant.svg)  |
@@ -154,11 +154,11 @@ Azure 지역에서 가용성 영역을 지 원하는 Azure 서비스 목록은 [
 | Virtual Machines: [Esv4 시리즈](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![이 서비스를 나타내는 아이콘은 영역입니다.](media/icon-zonal.svg)  |
 | Virtual Machines: [Ev4 시리즈](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![이 서비스를 나타내는 아이콘은 영역입니다.](media/icon-zonal.svg)  |
 | Virtual Machines: [Fsv2 시리즈](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![이 서비스를 나타내는 아이콘은 영역입니다.](media/icon-zonal.svg)  |
-| Virtual Machines: M [시리즈](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![이 서비스를 나타내는 아이콘은 영역입니다.](media/icon-zonal.svg)  |
+| Virtual Machines: [M 시리즈](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![이 서비스를 나타내는 아이콘은 영역입니다.](media/icon-zonal.svg)  |
 | [Azure 가상 WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)  | ![이 서비스를 나타내는 아이콘은 영역 중복입니다.](media/icon-zone-redundant.svg)  |
 | Virtual WAN: [Azure ExpressRoute](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)  | ![이 서비스를 나타내는 아이콘은 영역 중복입니다.](media/icon-zone-redundant.svg)  |
 | Virtual WAN: 지점 [및 사이트 VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![이 서비스를 나타내는 아이콘은 영역 중복입니다.](media/icon-zone-redundant.svg)  |
-| Virtual WAN: 사이트 [간의 VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![이 서비스를 나타내는 아이콘은 영역 중복입니다.](media/icon-zone-redundant.svg)  |
+| Virtual WAN: [사이트 간의 VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![이 서비스를 나타내는 아이콘은 영역 중복입니다.](media/icon-zone-redundant.svg)  |
 
 ### <a name="an-icon-that-signifies-this-service-is-strategic-strategic-services"></a>![이 서비스를 나타내는 아이콘은 전략적입니다.](media/icon-strategic.svg) 전략적 서비스
 
@@ -180,7 +180,7 @@ Azure 지역에서 가용성 영역을 지 원하는 Azure 서비스 목록은 [
 | Azure Blueprints  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Bot Service  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Front Door  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
-| IoT용 Azure Defender  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
+| IoT용 Microsoft Defender  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Front Door  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Information Protection  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Lighthouse  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
@@ -189,7 +189,7 @@ Azure 지역에서 가용성 영역을 지 원하는 Azure 서비스 목록은 [
 | Azure Performance Diagnostics  | ![이 서비스를 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Policy  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Resource Graph  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
-| Azure Sentinel  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
+| Microsoft 센티널  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Stack  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Stack Edge  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Cloud Shell  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
@@ -199,9 +199,9 @@ Azure 지역에서 가용성 영역을 지 원하는 Azure 서비스 목록은 [
 | Microsoft Intune  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Peering Service  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure portal  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
-| Microsoft Cloud App Security  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
+| 클라우드 앱 용 Microsoft Defender  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Microsoft Graph  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
-| Azure Security Center  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
+| Microsoft Defender for Cloud  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 | Azure Traffic Manager  | ![이 서비스는 항상 사용할 수 있음을 나타내는 아이콘입니다.](media/icon-always-available.svg) |
 
 Azure 지역에서 가용성 영역을 지 원하는 Azure 서비스 목록은 [가용성 영역 설명서](az-overview.md)를 참조 하세요.

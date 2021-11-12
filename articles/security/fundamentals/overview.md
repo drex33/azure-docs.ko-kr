@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: 413e8387e6e6e1c1386aa9477aebe37b2488c098
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: f5438d471b9f203761a1e2237e5a4c4f944c7043
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950558"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337060"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 
@@ -54,11 +54,11 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 이 섹션에서는 보안 작업의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
-### <a name="azure-security-center"></a>Azure Security Center
+### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[보안 센터](../../security-center/security-center-introduction.md)는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+[클라우드 용 Defender](../../security-center/security-center-introduction.md) 는 Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 통해 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-또한 Security Center는 즉시 수행할 수 있는 경고와 권장 사항을 보여 주는 단일 대시보드를 제공하여 보안 운영을 지원합니다. 종종 Security Center 콘솔에서 한 번의 클릭으로 문제를 해결할 수 있습니다.
+또한 Defender for Cloud는 즉시 작업을 수행할 수 있는 경고 및 권장 사항을 표시 하는 단일 대시보드를 제공 하 여 보안 작업에 도움을 줍니다. 클라우드 콘솔의 Defender 내에서 한 번의 클릭으로 문제를 해결할 수 있는 경우가 많습니다.
 
 ### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
@@ -86,7 +86,7 @@ Azure Monitor 로그는 포렌식 및 기타 보안 분석에서 유용한 도�
 
 ### <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](../../advisor/advisor-overview.md)는 Azure 배포를 최적화하는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용 원격 분석을 분석 합니다. 그런 다음 [전체 Azure 사용을 줄일](../../advisor/advisor-cost-recommendations.md) 수 있는 기회를 찾는 동안 [성능](../../advisor/advisor-performance-recommendations.md), [보안](../../advisor/advisor-security-recommendations.md) 및 [안정성](../../advisor/advisor-high-availability-recommendations.md)을 향상시키는 데 도움이 되는 솔루션을 사용하는 것이 좋습니다. Azure Advisor는 보안 권장 사항을 제공하므로 Azure에 배포하는 솔루션의 전반적인 보안 상태를 크게 향상시킬 수 있습니다. 이러한 권장 사항은 [Azure Security Center](../../security-center/security-center-introduction.md)에서 수행한 보안 분석에서 가져온 것입니다.
+[Azure Advisor](../../advisor/advisor-overview.md)는 Azure 배포를 최적화하는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용 원격 분석을 분석 합니다. 그런 다음 [전체 Azure 사용을 줄일](../../advisor/advisor-cost-recommendations.md) 수 있는 기회를 찾는 동안 [성능](../../advisor/advisor-performance-recommendations.md), [보안](../../advisor/advisor-security-recommendations.md) 및 [안정성](../../advisor/advisor-high-availability-recommendations.md)을 향상시키는 데 도움이 되는 솔루션을 사용하는 것이 좋습니다. Azure Advisor는 보안 권장 사항을 제공하므로 Azure에 배포하는 솔루션의 전반적인 보안 상태를 크게 향상시킬 수 있습니다. 이러한 권장 사항은 [Microsoft Defender For Cloud](../../security-center/security-center-introduction.md) 에서 수행 하는 보안 분석에서 가져옵니다.
 
 ## <a name="applications"></a>애플리케이션
 
@@ -288,15 +288,15 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 
 - 규칙 카운터: 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용되는 횟수에 대한 항목을 포함합니다.
 
-### <a name="security-center"></a>Security Center
+### <a name="defender-for-cloud"></a>Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md)는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약성을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../../security-center/security-center-recommendations.md)을 만듭니다.
+[Microsoft Defender for Cloud는](../../security-center/security-center-introduction.md) 네트워크 보안 모범 사례를 위해 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Defender for Cloud가 잠재적인 보안 취약성을 식별하면 리소스를 강화하고 보호하기 위해 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
 ## <a name="compute"></a>컴퓨팅
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신
-Azure IaaS를 사용하면 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersky와 같은 보안 공급업체의 맬웨어 방지 소프트웨어를 통해 악성 파일, 애드웨어 및 기타 위협으로부터 가상 머신을 보호할 수 있습니다. Azure Cloud Services 및 Virtual Machines를 위한 [Microsoft 맬웨어 방지 프로그램](antimalware.md)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 보호 기능입니다. Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다. 또한 Microsoft 맬웨어 방지 프로그램은 Azure Security Center를 통해 배포할 수도 있습니다.
+Azure IaaS를 사용하면 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersky와 같은 보안 공급업체의 맬웨어 방지 소프트웨어를 통해 악성 파일, 애드웨어 및 기타 위협으로부터 가상 머신을 보호할 수 있습니다. Azure Cloud Services 및 Virtual Machines를 위한 [Microsoft 맬웨어 방지 프로그램](antimalware.md)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 보호 기능입니다. Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다. Microsoft Antimalware Microsoft Defender for Cloud를 사용하여 배포할 수도 있습니다.
 
 ### <a name="hardware-security-module"></a>하드웨어 보안 모듈
 암호화 및 인증은 키 자체가 보호되지 않는 한 보안을 향상시키지 않습니다. 중요한 비밀과 키를 [Azure Key Vault](../../key-vault/general/overview.md)에 저장하여 관리와 보안을 단순화할 수 있습니다. Key Vault는 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 저장할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption)를 위한 SQL Server 암호화 키는 애플리케이션의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
@@ -324,7 +324,7 @@ AKV(Azure Key Vault) 서비스는 안전하고 가용성이 높은 위치에서 
 패치 업데이트는 기업에서 배포해야 하는 소프트웨어 업데이트의 수를 줄이고 규정 준수를 모니터링하는 기능을 향상시킴으로써 잠재적인 문제를 찾아 수정하고 소프트웨어 업데이트 관리 프로세스를 간소화할 수 있는 기반을 제공합니다.
 
 ### <a name="security-policy-management-and-reporting"></a>보안 정책 관리 및 보고
-[Security Center](../../security-center/security-center-introduction.md)는 위협을 예방, 검색 및 대응하는 데 도움이 되며, Azure 리소스의 보안에 대한 향상된 가시성과 제어를 제공합니다. Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
+[Defender for Cloud는](../../security-center/security-center-introduction.md) 위협을 방지, 검색 및 대응하는 데 도움이 되며, Azure 리소스의 보안에 대한 향상된 가시성과 제어를 제공합니다. Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 시스템, 애플리케이션 및 데이터 보안은 ID 기반 액세스 제어로 시작합니다. Microsoft 비즈니스 제품 및 서비스에 기본 제공되는 ID 및 액세스 관리 기능을 사용하면, 권한이 없는 액세스로부터 조직 및 개인 정보를 보호하는 한편, 합법적인 사용자가 필요할 때마다 어디서나 사용할 수 있습니다.
@@ -369,4 +369,4 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 - [클라우드에서의 공동 책임](shared-responsibility.md)을 이해합니다.
 
-- [Azure Security Center](../../security-center/security-center-introduction.md)를 통해 Azure 리소스의 보안에 대한 향상된 가시성과 제어권으로 위협을 예방하고 검색하며 위협에 대응할 수 있는 방법을 알아봅니다.
+- Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 통해 위협을 예방, 감지 및 대응 하는 데 [Microsoft Defender For Cloud](../../security-center/security-center-introduction.md) 를 어떻게 활용할 수 있는지 알아보세요.

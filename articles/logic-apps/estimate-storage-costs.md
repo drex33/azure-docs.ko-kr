@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.openlocfilehash: 65374b66f1b914a2a5e36150de788909bc33e247
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 995c620eeafc5a627a9f9d94733c80de47f2928d
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132297433"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369401"
 ---
 # <a name="estimate-storage-costs-for-workflows-in-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps에 대한 워크플로 비용 예측
 
@@ -72,7 +72,7 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
     * **큐** - Azure 큐의 큐 클래스 2 작업용.
     * **테이블** - Azure Table Storage 작업용.
 
-    각 작업의 최소, 최대 및 "최선의 추측" 수가 있습니다. 개별 시나리오에 따라 [스토리지 작업 비용을 예상하는](#estimate-storage-costs) 데 사용할 가장 관련성이 큰 수를 선택합니다. 정확도를 위해 "최적 추측" 개수를 사용하는 것이 좋습니다. 그러나 최대 수를 사용하여 비용 추산치에 버퍼가 있는지 확인할 수도 있습니다.
+    각 작업의 최소, 최대 및 "최선의 추측" 수가 있습니다. 개별 시나리오에 따라 [스토리지 작업 비용을 예상하는](#estimate-storage-costs) 데 사용할 가장 관련성이 큰 수를 선택합니다. 권장 사항으로 정확도를 위해 "최상의 추측" 수를 사용 합니다. 그러나 최대 수를 사용하여 비용 추산치에 버퍼가 있는지 확인할 수도 있습니다.
 
     :::image type="content" source="./media/estimate-storage-costs/storage-calculator-results.png" alt-text="예상 작업이 있는 출력이 표시되는 Logic Apps 스토리지 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/storage-calculator-results.png":::
 
@@ -106,12 +106,9 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
 
 1. 기타 설정은 필요에 따라 조정합니다.
 
-1. **쓰기 작업** 에서 Logic Apps 스토리지 계산기의 **Blob(쓰기)** 작업 번호를 *있는 그대로* 입력합니다.
+1. **쓰기 작업** 에서 Logic Apps 저장소 계산기의 **Blob (쓰기)** 작업 번호를 *1만으로 나눈* 값을 입력 합니다. 계산기가 저장소 작업을 위한 트랜잭션 단위로 작동 하기 때문에이 단계가 필요 합니다.
 
-   > [!NOTE]
-   > 이 나누기 단계는 테이블 및 큐 작업에만 적용되므로 Blob 쓰기 및 읽기 작업 수를 10,000으로 나눌 필요가 없습니다. Logic Apps 스토리지 계산기는 트랜잭션 테이블 및 큐 작업에서 작동합니다.
-
-1. **읽기 작업에서** Logic Apps 스토리지 계산기의 **Blob(읽기)** 작업 번호를 *있는 그대로* 입력합니다.
+1. **읽기 작업** 에서 Logic Apps 저장소 계산기의 **Blob (읽기)** 작업 번호를 *1만으로 나눈* 값을 입력 합니다. 계산기가 저장소 작업을 위한 트랜잭션 단위로 작동 하기 때문에이 단계가 필요 합니다.
 
 1. 예상 Blob 스토리지 작업 비용을 검토합니다.
 

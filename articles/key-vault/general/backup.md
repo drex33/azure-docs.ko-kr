@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 3/18/2021
 ms.author: sudbalas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 296b2e2a6d006d878036e633c27e9b8c8aec1f95
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
-ms.translationtype: HT
+ms.openlocfilehash: 70f4e8627f22b400ee2b890dd05fa886137ff4b2
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112521373"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369743"
 ---
-# <a name="azure-key-vault-backup"></a>Azure Key Vault 백업
+# <a name="azure-key-vault-backup-and-restore"></a>Azure Key Vault 백업 및 복원
 
 이 문서에서는 키 자격 증명 모음에 저장된 비밀, 키 및 인증서를 백업하는 방법을 보여줍니다. 백업은 키 자격 증명 모음에 액세스할 수 없는 경우에 모든 비밀의 오프라인 복사본을 제공하기 위한 것입니다.
 
@@ -152,4 +152,6 @@ Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
 
 ## <a name="next-steps"></a>다음 단계
 
-Key Vault에 대한 [로깅 및 모니터링](./logging.md)을 설정합니다.
+
+- [지역 간에 Azure 키 자격 증명 모음 이동](move-region.md)
+- Key Vault에 대 한 [Key Vault 로깅 사용](howto-logging.md)

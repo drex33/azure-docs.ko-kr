@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6092476180614fe11f8c1199c079b0599f829779
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.openlocfilehash: b01049e8b2ceb851680cc73837f5f0609818372b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554429"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132336851"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 머신에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.
@@ -134,18 +134,18 @@ Azure 가상 네트워크는 물리적 Azure 네트워크 패브릭 위에 구�
 
 ## <a name="security-policy-management-and-reporting"></a>보안 정책 관리 및 보고
 
-Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center를 사용하면 Azure 리소스의 보안을 보다 명확히 파악하고 제어할 수 있습니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
+Microsoft Defender for Cloud를 사용하면 위협을 방지, 감지 및 대응할 수 있습니다. Defender for Cloud를 사용하면 Azure 리소스의 보안에 대한 가시성을 높이고 제어할 수 있습니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-Security Center는 다음과 같은 방법을 통해 가상 머신의 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
+클라우드 용 Defender는 다음을 통해 가상 컴퓨터의 보안을 최적화 하 고 모니터링 하는 데 도움이 됩니다.
 
 * 가상 머신에 대한 [보안 권장 사항](../../security-center/security-center-recommendations.md) 제공. 예: 시스템 업데이트 적용, ACL 엔드포인트 구성, 맬웨어 방지 프로그램 활성화, 네트워크 보안 그룹 활성화 및 디스크 암호화 적용.
 * 가상 머신의 상태 모니터링.
 
 자세한 정보:
 
-* [Azure Security Center 소개](../../security-center/security-center-introduction.md)
-* [Azure Security Center 질문과 대답](../../security-center/faq-general.yml)
-* [Azure Security Center 계획 및 작업](../../security-center/security-center-planning-and-operations-guide.md)
+* [클라우드 용 Microsoft Defender 소개](../../security-center/security-center-introduction.md)
+* [Microsoft Defender for Cloud 질문과 대답](../../security-center/faq-general.yml)
+* [클라우드 계획 및 작업을 위한 Microsoft Defender](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>규정 준수
 

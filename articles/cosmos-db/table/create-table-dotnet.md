@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a815fe51815a967c23de9b0d95a0411e70dbd35
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e76341f8d3d0e7b7c67be6a19ab3fb8c5b902794
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131423321"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324178"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 
@@ -52,10 +52,10 @@ git clone https://github.com/Azure-Samples/msdocs-azure-data-tables-sdk-dotnet
 
 | 지침    | 스크린샷 |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="위쪽 도구 모음의 검색 상자를 사용하여 Azure에서 Cosmos DB 계정을 찾는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="Azure의 Cosmos DB 계정 페이지에서 [만들기] 단추 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="선택할 올바른 옵션으로 Azure Table 옵션을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-4.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="[Cosmos DB 계정 만들기] 페이지에서 필드를 채우는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="위쪽 도구 모음의 검색 상자를 사용하여 Azure에서 Cosmos DB 계정을 찾는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="Azure의 Cosmos DB 계정 페이지에서 [만들기] 단추 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="선택할 올바른 옵션으로 Azure Table 옵션을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="[Cosmos DB 계정 만들기] 페이지에서 필드를 채우는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -123,9 +123,9 @@ New-AzCosmosDBAccount `
 
 | 지침    | 스크린샷 |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db table step 1](<./includes/create-table-dotnet/create-cosmos-table-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="위쪽 도구 모음의 검색 상자를 사용하여 Cosmos DB 계정을 찾는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db table step 2](<./includes/create-table-dotnet/create-cosmos-table-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="[테이블 추가] 단추의 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db table step 3](<./includes/create-table-dotnet/create-cosmos-table-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="Cosmos DB 테이블에 대한 [새 테이블] 대화 상자를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3.png":::           |
+| [!INCLUDE [Create cosmos db table step 1](./includes/create-table-dotnet/create-cosmos-table-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="위쪽 도구 모음의 검색 상자를 사용하여 Cosmos DB 계정을 찾는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1.png":::           |
+| [!INCLUDE [Create cosmos db table step 2](./includes/create-table-dotnet/create-cosmos-table-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="[테이블 추가] 단추의 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2.png":::           |
+| [!INCLUDE [Create cosmos db table step 3](./includes/create-table-dotnet/create-cosmos-table-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="Cosmos DB 테이블에 대한 [새 테이블] 대화 상자를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3.png":::           |
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -165,8 +165,8 @@ Cosmos DB의 테이블에 액세스하려면 앱에 CosmosDB Storage 계정에 �
 
 | 지침    | 스크린샷 |
 |:----------------|-----------:|
-| [!INCLUDE [Get cosmos db table connection string step 1](<./includes/create-table-dotnet/get-cosmos-connection-string-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="Cosmos DB 페이지에서 연결 문자열 링크의 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1.png":::           |
-| [!INCLUDE [Get cosmos db table connection string step 2](<./includes/create-table-dotnet/get-cosmos-connection-string-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="애플리케이션에서 선택하고 사용할 연결 문자열을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2.png":::           |
+| [!INCLUDE [Get cosmos db table connection string step 1](./includes/create-table-dotnet/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="Cosmos DB 페이지에서 연결 문자열 링크의 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1.png":::           |
+| [!INCLUDE [Get cosmos db table connection string step 2](./includes/create-table-dotnet/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="애플리케이션에서 선택하고 사용할 연결 문자열을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2.png":::           |
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -627,9 +627,9 @@ public void RemoveEntity(string partitionKey, string rowKey)
 
 | 지침    | 스크린샷 |
 |:----------------|-----------:|
-| [!INCLUDE [Delete resource group step 1](<./includes/create-table-dotnet/remove-resource-group-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-1-240px.png" alt-text="리소스 그룹을 검색하는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-1.png"::: |
-| [!INCLUDE [Delete resource group step 2](<./includes/create-table-dotnet/remove-resource-group-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-2-240px.png" alt-text="[리소스 그룹 삭제] 단추의 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-2.png"::: |
-| [!INCLUDE [Delete resource group step 3](<./includes/create-table-dotnet/remove-resource-group-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-3-240px.png" alt-text="리소스 그룹 삭제에 대한 확인 대화 상자를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-3.png"::: |
+| [!INCLUDE [Delete resource group step 1](./includes/create-table-dotnet/remove-resource-group-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-1-240px.png" alt-text="리소스 그룹을 검색하는 방법을 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Delete resource group step 2](./includes/create-table-dotnet/remove-resource-group-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-2-240px.png" alt-text="[리소스 그룹 삭제] 단추의 위치를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Delete resource group step 3](./includes/create-table-dotnet/remove-resource-group-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-3-240px.png" alt-text="리소스 그룹 삭제에 대한 확인 대화 상자를 보여주는 스크린샷" lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-3.png"::: |
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

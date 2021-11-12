@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 725b483d4da7ce55b3ae9e866aa60a09226be7e9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 47acffc242973e70f9fe89db9304d193307c5695
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233288"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335749"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용하여 일반적인 보안 요구 사항을 해결하는 방법에 대한 플레이북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -625,7 +625,7 @@ Azure 플랫폼에서는 DDoS 보호가 자동으로 사용됩니다. 여기에�
 - Advanced Threat Protection **무차별 암호 대입 SQL 자격 증명** 경고는 무차별 암호 대입 공격을 감지하는 데 도움이 됩니다. 경우에 따라 경고가 침투 테스트 워크로드를 구분할 수도 있습니다.
 
 - SQL Database에 연결하는 Azure VM 호스팅 애플리케이션:
-  - Azure Security Center에서 인터넷 엔드포인트를 통한 액세스 제한의 권장 사항을 따릅니다.
+  - 권장 사항에 따라 클라우드의 Microsoft Defender에서 인터넷 연결 끝점을 통해 액세스를 제한 합니다.
   - 가상 머신 확장 집합을 사용하여 Azure VM에서 애플리케이션의 여러 인스턴스를 실행합니다.
   - 인터넷에서 RDP 및 SSH를 사용하지 않도록 설정하여 무차별 암호 대입 공격을 방지합니다.
 
@@ -647,7 +647,7 @@ Advanced Threat Protection을 사용하면 비정상적인 활동에 대한 보�
 
 **모범 사례**:
 
-- 특정 서버 또는 관리형 인스턴스에 대해 [Azure Defender for SQL](azure-defender-for-sql.md)을 구성합니다. Azure Defender 을 사용하도록 설정하여 구독의 모든 서버 및 관리되는 인스턴스에 대해 [SQL Azure Defender](../../security-center/security-center-pricing.md)구성할 수도 있습니다.
+- 특정 서버 또는 관리 되는 인스턴스에 대 한 [SQL에 대해 Microsoft Defender](azure-defender-for-sql.md)를 구성   합니다. 또한 microsoft defender for [Cloud](../../security-center/security-center-pricing.md)를 사용 하도록 설정 하 여 구독의 모든 서버 및 관리 되는 인스턴스에 대해 microsoft defender SQL를 구성할 수 있습니다.
 
 - 전체 조사 환경에는  [SQL Database 감사](../../azure-sql/database/auditing-overview.md)를 사용하도록 설정하는 것이 좋습니다. 감사를 사용하면 데이터베이스 이벤트를 추적하고 Azure Storage 계정 또는 Azure Log Analytics 작업 영역의 감사 로그에 기록할 수 있습니다.
 
@@ -734,7 +734,7 @@ Advanced Threat Protection을 사용하면 비정상적인 활동에 대한 보�
 
 - 권장하는 중요 데이터의 상태를 SQL 취약성 평가에서 지속적으로 모니터링합니다. 중요한 데이터 검색 규칙을 추적하고 분류에 대한 권장 열의 드리프트를 확인합니다.  
 
-- 조직의 요구 사항에 부합하는 방식으로 분류를 사용합니다. Azure Security Center의 [SQL Information Protection](../../security-center/security-center-info-protection-policy.md) 정책에서 Information Protection 정책(민감도 레이블, 정보 유형, 검색 논리)을 사용자 지정합니다.
+- 조직의 요구 사항에 부합하는 방식으로 분류를 사용합니다. Microsoft Defender for Cloud의 [SQL Information Protection](../../security-center/security-center-info-protection-policy.md) 정책에서 Information Protection 정책 (민감도 레이블, 정보 유형, 검색 논리)을 사용자 지정 합니다.
 
 ### <a name="track-access-to-sensitive-data"></a>중요한 데이터에 대한 액세스 추적
 
@@ -757,7 +757,7 @@ Advanced Threat Protection을 사용하면 비정상적인 활동에 대한 보�
 
 **구현 방법**:
 
-- [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)에서 SQL 관련 보안 권장 사항 및 활성 위협을 모니터링합니다.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/documentation/services/security-center/)에서 SQL 관련 보안 권장 사항 및 활성 위협을 모니터링 합니다.
 
 ## <a name="common-security-threats-and-potential-mitigations"></a>일반적인 보안 위협 및 가능한 완화 방법
 

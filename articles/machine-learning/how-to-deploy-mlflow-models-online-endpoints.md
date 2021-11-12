@@ -11,12 +11,12 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment
-ms.openlocfilehash: d17db7c63d4e17009bffab948f335cedffb85e2e
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: a2328490185032e805a95f85b430d6742c76435c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132060076"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289891"
 ---
 # <a name="deploy-mlflow-models-to-managed-online-endpoint-preview"></a>관리형 online 끝점 (미리 보기)에 MLflow 모델 배포
 
@@ -24,11 +24,11 @@ ms.locfileid: "132060076"
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
-* MLflow 모델이 있어야 합니다. 이 문서의 예는의 모델을 기반으로 합니다 [https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow) .
+* MLflow 모델이 있어야 합니다. 이 문서의 예는의 모델을 기반으로 합니다 [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow) .
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
@@ -68,9 +68,13 @@ ms.locfileid: "132060076"
 
 ### <a name="invoke-the-endpoint"></a>엔드포인트 호출
 
-배포가 완료 되 면 다음 명령을 사용 하 여 배포 된 끝점에 대 한 점수 매기기 요청을 만듭니다. 이 명령에 사용 되는 [샘플 요청-](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/endpoints/online/mlflow/sample-request-sklearn.json) 파일 스페이스 파일은 `/cli/endpoints/online/mlflow` azure-예제 리포지토리의 디렉터리에 있습니다.
+배포가 완료 되 면 다음 명령을 사용 하 여 배포 된 끝점에 대 한 점수 매기기 요청을 만듭니다. 이 명령에 사용 되는 [샘플 요청-](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/mlflow/sample-request-sklearn.json) 파일 스페이스 파일은 `/cli/endpoints/online/mlflow` azure-예제 리포지토리의 디렉터리에 있습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
+
+**샘플-요청-기능 정보. json**
+
+:::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
 
 응답은 다음 텍스트와 유사 합니다.
 
@@ -91,7 +95,7 @@ ms.locfileid: "132060076"
 
 이 예에서는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 관리 되는 온라인 끝점에 mlflow 모델을 배포할 수 있는 방법을 보여 줍니다.
 
-1. 다음 YAML 및 CLI 명령을 사용 하 여 MLflow 형식으로 모델을 등록 합니다. YAML은에서 scikit MLflow 모델을 사용 [https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow) 합니다.
+1. 다음 YAML 및 CLI 명령을 사용 하 여 MLflow 형식으로 모델을 등록 합니다. YAML은에서 scikit MLflow 모델을 사용 [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow) 합니다.
 
     __샘플-mlflow-모델 .yaml__
 
@@ -147,7 +151,7 @@ ms.locfileid: "132060076"
     > [!NOTE]
     > `mlflow.autolog()`학습 스크립트에를 사용한 경우 작업 실행 기록에 모델 아티팩트가 표시 됩니다. Azure Machine Learning은 MLflow의 추적 기능과 통합됩니다. `mlflow.autolog()`를 몇 가지 일반적인 ML 프레임워크에 사용하여 모델 매개 변수, 성능 메트릭, 모델 아티팩트 및 기능 중요도 그래프를 로그할 수 있습니다.
     >
-    > 자세한 내용은 [CLI를 사용 하 여 모델 학습](how-to-train-cli.md#model-tracking-with-mlflow)을 참조 하세요. 또한 GitHub 리포지토리에서 [학습 작업 샘플](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/jobs/single-step) 을 참조 하세요.
+    > 자세한 내용은 [CLI를 사용 하 여 모델 학습](how-to-train-cli.md#model-tracking-with-mlflow)을 참조 하세요. 또한 GitHub 리포지토리에서 [학습 작업 샘플](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step) 을 참조 하세요.
 
     # <a name="azure-machine-learning-studio"></a>[Azure Machine Learning Studio](#tab/studio)
 

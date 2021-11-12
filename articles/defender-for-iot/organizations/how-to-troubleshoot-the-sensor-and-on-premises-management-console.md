@@ -1,14 +1,14 @@
 ---
 title: 센서 및 온-프레미스 관리 콘솔 문제 해결
 description: 센서 및 온-프레미스 관리 콘솔 문제를 해결하여 발생하는 모든 문제를 제거합니다.
-ms.date: 10/17/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 791df9cc7b95ac32dfcc794136bc53df51e3a0a8
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 66e4d9b221176bb8a1413e679656c6df401459dd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131314"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278648"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>센서 및 온-프레미스 관리 콘솔 문제 해결
 
@@ -16,7 +16,7 @@ ms.locfileid: "130131314"
 
 **경고**: 트래픽을 모니터링하는 센서 인터페이스가 다운된 경우 경고가 생성됩니다.
 
-**SNMP**: 센서 상태는 SNMP를 통해 모니터링됩니다. Azure Defender for IoT는 권한 있는 모니터링 서버에서 보낸 SNMP 쿼리에 응답합니다.
+**SNMP**: 센서 상태는 SNMP를 통해 모니터링됩니다. IoT 용 Microsoft Defender는 권한 있는 모니터링 서버에서 보낸 SNMP 쿼리에 응답 합니다.
 
 **시스템 알림**: 관리 콘솔에서 센서를 제어할 때 실패한 센서 백업 및 연결이 끊긴 센서에 대한 경고를 전달할 수 있습니다.
 

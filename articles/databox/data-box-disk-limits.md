@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: ab759cf81ce95ca7cf61a3777092fd92040baf6c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: ce8cc86727c92f8c0091abafa8f5d91ee1ab21ad
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208479"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347635"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -93,7 +93,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 | 엔터티 | 규칙                                             |
 |-------------------|-----------------------------------------------------------|
-| 관리 디스크 이름       | <li> 이름은 1~80자 길이여야 합니다. </li><li> 이름은 문자나 숫자로 시작하고 문자, 숫자 또는 밑줄로 끝나야 합니다. </li><li> 이름은 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. </li><li>   이름에는 공백이나 `/`를 사용할 수 없습니다.                                              |
+| 관리 디스크 이름       | <li> 이름은 1~80자 길이여야 합니다. </li><li> 이름은 문자나 숫자로 시작하고 문자, 숫자 또는 밑줄로 끝나야 합니다. </li><li> 이름은 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. </li><li>     이름에는 공백이나 `/`를 사용할 수 없습니다.                     |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 6d6e5ca910bfd24a8d10952d92441fcc7fe6fcfa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c5b4f6611dc5ad5a514eaf1affd0517c14fcd353
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529111"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337115"
 ---
 # <a name="comparison-chart---azure-database-for-postgresql-single-server-and-flexible-server"></a>비교 차트 - Azure Database for PostgreSQL 단일 서버 및 유연한 서버
 
@@ -110,7 +110,7 @@ ms.locfileid: "122529111"
 | **기타 기능** | | |
 | 고객 관리형 키(BYOK) | 예 | 아니요 |
 | 경고 | 예 | 예 |
-| Azure defender | 예 | 아니요 |
+| Microsoft Defender for Cloud | Yes | 아니요 |
 | 리소스 상태 | 예 | 아니요 |
 | 서비스 상태 | 예 | 예 |
 | 성능 인사이트(iPerf) | Yes | 예(미리 보기) |

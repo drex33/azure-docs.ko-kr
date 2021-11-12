@@ -7,12 +7,12 @@ ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 475d1d580d1330cd3f65d21338a8dea050d37da7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6867b624e4de138ef4d62030970c34f7c6c382f5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464208"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337247"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -977,7 +977,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [원시](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [관리 ID](#managed-identity-authentication) | **논리 앱 (소비)**: <p><p>- **기본 제공**: Azure API Management, Azure 앱 Services, AZURE FUNCTIONS, HTTP, http Webhook <p><p>- **관리 되는 커넥터** (미리 보기): <p><p>--- **단일 인증**: Azure AD ID 보호, Azure Automation, Azure Container Instance, azure 데이터 탐색기, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, azure 센티널, azure AD와의 HTTP <p><p>--- **다중 인증**: Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**논리 앱 (표준)**: <p><p>- **기본 제공**: HTTP, http Webhook <p><p>- **관리 되는 커넥터** (미리 보기): <p>--- **단일 인증**: Azure AD ID 보호, Azure Automation, Azure Container Instance, azure 데이터 탐색기, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, azure 센티널, azure AD와의 HTTP <p><p>--- **다중 인증**: Azure Blob Storage, SQL Server |
+| [관리 ID](#managed-identity-authentication) | **논리 앱(사용량)**: <p><p>- **기본 제공:** Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP 웹후크 <p><p>- **관리 커넥터(미리** 보기): <p><p>--- **단일 인증:** Azure AD ID 보호, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, Azure AD를 사용하는 HTTP <p><p>--- **다중 인증:** Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**논리 앱(표준)**: <p><p>- **기본 제공:** HTTP, HTTP 웹후크 <p><p>- **관리 커넥터(미리** 보기): <p>--- **단일 인증:** Azure AD ID 보호, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, Microsoft Sentinel, Azure AD를 사용하는 HTTP <p><p>--- **다중 인증:** Azure Blob Storage, SQL Server |
 |||
 
 <a name="basic-authentication"></a>
@@ -1143,11 +1143,11 @@ Authorization: OAuth realm="Photos",
 
 #### <a name="managed-identity-authentication"></a>관리 ID 인증
 
-관리 [ID](../active-directory/managed-identities-azure-resources/overview.md) [인증을 지원하는 트리거 또는 작업에서 관리 ID](#add-authentication-outbound)옵션을 사용할 수 있는 경우 논리 앱은 자격 증명, 비밀 또는 Azure AD 토큰이 아닌 azure AD(Azure Active Directory)로 보호되는 Azure 리소스에 대한 액세스를 인증하는 데 이 ID를 사용할 수 있습니다. Azure는 ID를 관리하며, 사용자가 비밀을 관리하거나 Azure AD 토큰을 직접 사용하지 않기 때문에 자격 증명을 보호하는 데 유용합니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
+관리 [ID](../active-directory/managed-identities-azure-resources/overview.md) [인증을 지원하는 트리거 또는 작업에서 관리 ID](#add-authentication-outbound)옵션을 사용할 수 있는 경우 논리 앱은 이 ID를 사용하여 자격 증명, 비밀 또는 Azure AD 토큰이 아닌 Azure AD(Azure Active Directory)로 보호되는 Azure 리소스에 대한 액세스를 인증할 수 있습니다. Azure는 ID를 관리하며, 사용자가 비밀을 관리하거나 Azure AD 토큰을 직접 사용하지 않기 때문에 자격 증명을 보호하는 데 유용합니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
 
 * **논리 앱(소비)** 리소스 종류는 시스템 할당 ID 또는 수동으로 만든 *단일* 사용자 할당 ID를 사용할 수 있습니다.
 
-* **논리 앱 (표준)** 리소스 유형은 자동으로 사용 하도록 설정 된 시스템 할당 id만 사용할 수 있습니다. 사용자 할당 id를 현재 사용할 수 없습니다.
+* **논리 앱(표준)** 리소스 종류는 자동으로 사용하도록 설정되는 시스템 할당 ID만 사용할 수 있습니다. 사용자 할당 ID는 현재 사용할 수 없습니다.
 
 1. 논리 앱이 관리 ID를 사용할 수 있으려면 그 전에 [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](../logic-apps/create-managed-service-identity.md)의 단계를 따르세요. 이 단계는 논리 앱에서 관리 ID를 사용하도록 설정하고 대상 Azure 리소스에 대한 해당 ID의 액세스 권한을 설정합니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 098f9a65af4537dace4f6ac0edb2ff71df34c3d2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5a674141acb3b344ba2436cac3c493843480b62e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232012"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132322173"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위해 CloudSimple 프라이빗 클라우드 최적화
 
@@ -50,7 +50,7 @@ Oracle RAC 가상 머신에는 특정 기능에 사용되는 여러 디스크가
 | GRID                                      | Oracle Grid 소프트웨어의 설치 위치     | 아니요          |
 | DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | 아니요          |
 | ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | 아니요          |
-| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장되는 디스크   | Yes         |
+| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장되는 디스크   | 예         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 다시 실행 로그 디스크                                | Yes         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | Yes         |
 | FRA1, FRA2                                | 빠른 복구 영역 디스크                      | Yes         |
@@ -201,7 +201,7 @@ Oracle용 VM을 만들려면 기존 VM을 복제하거나 새 VM을 만듭니다
 14. 설정을 검토하고 **확인** 을 클릭하여 새 VM을 만듭니다.
 15. VM의 전원을 켭니다. 운영 체제 및 필요한 업데이트를 설치합니다.
 
-운영 체제가 설치된 후에는 두 번째 VM을 복제할 수 있습니다. VM 항목을 마우스 오른쪽 단추로 클릭하고 복제 옵션을 선택합니다.
+운영 체제가 설치된 후에는 두 번째 VM을 복제할 수 있습니다. VM 항목을 마우스 오른쪽 단추로 클릭 하 고 및 복제 옵션을 선택 합니다.
 
 ### <a name="create-shared-disks-for-vms"></a>VM에 대한 공유 디스크 만들기
 

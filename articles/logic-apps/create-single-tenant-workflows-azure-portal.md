@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/05/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 507e7a97c0ec884580b0a29fd8a8691035221751
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 72e869b1439e5fd9bcb77af57bd4e0d3d8f6a677
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131085983"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324805"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Azure Portal에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
@@ -56,7 +56,7 @@ ms.locfileid: "131085983"
 
 * [Application Insights](../azure-monitor/app/app-insights-overview.md) 사용을 지원하는 설정으로 논리 앱 리소스를 만드는 경우, 필요에 따라 논리 앱에 진단 로깅 및 추적을 사용하도록 설정할 수 있습니다. 논리 앱을 만들 때 또는 배포 후에 설정할 수 있습니다. Application Insights 인스턴스가 필요하지만, 논리 앱을 만들 때 [미리](../azure-monitor/app/create-workspace-resource.md) 또는 배포 후에 이 리소스를 만들 수 있습니다.
 
-* **논리 앱 (표준)** 리소스를 [App Service Environment v3 (ASEv3)](../app-service/environment/overview.md)에 배포 하려면 먼저이 환경 리소스를 만들어야 합니다. 그런 다음 논리 앱 리소스를 만들 때이 환경을 배포 위치로 선택할 수 있습니다. 자세한 내용은 [리소스 유형 및 환경](single-tenant-overview-compare.md#resource-environment-differences) 을 검토 하 고 [App Service Environment를 만듭니다](../app-service/environment/creation.md).
+* **논리 앱(표준)** 리소스를 [App Service Environment v3(ASEv3)에](../app-service/environment/overview.md)배포하려면 먼저 이 환경 리소스를 만들어야 합니다. 그런 다음 논리 앱 리소스를 만들 때 배포 위치로 이 환경을 선택할 수 있습니다. 자세한 내용은 [리소스 유형 및 환경 및](single-tenant-overview-compare.md#resource-environment-differences) App Service Environment [만들기를](../app-service/environment/creation.md)검토하세요.
 
 <a name="create-logic-app-resource"></a>
 
@@ -66,7 +66,7 @@ ms.locfileid: "131085983"
 
 1. Azure Portal 검색 상자에 `logic apps`를 입력하고, **논리 앱** 을 선택합니다.
 
-   !["논리 앱" 검색 용어와 "논리 앱" 그룹이 선택 된 Azure Portal 검색 상자를 보여 주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
+   !["논리 앱" 검색어와 "논리 앱" 그룹이 선택된 Azure Portal 검색 상자를 보여주는 스크린샷.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
 1. **Logic Apps** 페이지에서 **추가** 를 선택합니다.
 
@@ -76,10 +76,10 @@ ms.locfileid: "131085983"
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 논리 앱에 사용할 Azure 구독입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 논리 앱 및 관련 리소스를 만드는 Azure 리소스 그룹입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows-RG`라는 리소스 그룹을 만듭니다. |
-   | **형식** | 예 | **Standard** | 이 논리 앱 리소스 종류는 단일 테 넌 트 Azure Logic Apps 환경에서 실행 되며 [표준 사용량, 청구 및 가격 책정 모델](logic-apps-pricing.md#standard-pricing)을 사용 합니다. |
-   | **논리 앱 이름** | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows`라는 논리 앱을 만듭니다. <p><p>**참고**: 논리 앱 `.azurewebsites.net` **(표준)** 리소스는 Azure Functions 확장성 모델을 사용 하 고 Azure Functions 런타임에서 확장으로 호스트 되는 단일 테 넌 트 Azure Logic Apps 런타임으로 구동 되기 때문에 논리 앱의 이름은 자동으로 접미사를 가져옵니다. Azure Functions는 동일한 앱 명명 규칙을 사용 합니다. |
+   | **형식** | 예 | **Standard** | 이 논리 앱 리소스 유형은 단일 테넌트 Azure Logic Apps 환경에서 실행되며 [표준 사용량, 청구 및 가격 책정 모델을](logic-apps-pricing.md#standard-pricing)사용합니다. |
+   | **논리 앱 이름** | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows`라는 논리 앱을 만듭니다. <p><p>**참고:** `.azurewebsites.net` **논리 앱(표준)** 리소스는 Azure Functions 확장성 모델을 사용하고 Azure Functions 런타임에서 확장으로 호스트되는 단일 테넌트 Azure Logic Apps 런타임에 의해 구동되므로 논리 앱의 이름은 자동으로 접미사를 가져옵니다. Azure Functions 동일한 앱 명명 규칙을 사용합니다. |
    | **게시** | 예 | <*deployment-environment*> | 논리 앱의 배포 대상입니다. 기본적으로 **워크플로** 는 단일 테넌트 Azure Logic Apps에 배포하도록 선택됩니다. Azure에서 첫 번째 워크플로를 추가해야 하는 빈 논리 앱 리소스를 만듭니다. <p><p>**참고**: 현재 **Docker 컨테이너** 옵션을 사용하려면 Azure Arc 지원 Kubernetes 클러스터에서 [*사용자 지정 위치*](../azure-arc/kubernetes/conceptual-custom-locations.md)가 필요하며 [Azure Arc 지원 Logic Apps(미리 보기)](azure-arc-enabled-logic-apps-overview.md)와 함께 사용할 수 있습니다. 논리 앱, 사용자 지정 위치 및 클러스터의 리소스 위치는 모두 동일해야 합니다. |
-   | **지역** | 예 | <*Azure-region*> | 리소스 그룹 및 리소스를 만들 때 사용할 위치입니다. 이 예제에서는 샘플 논리 앱을 Azure에 배포하고 **미국 서부** 를 사용합니다. <p>- **Docker 컨테이너** 를 선택한 경우 사용자 지정 위치를 선택 합니다. <p>-먼저 존재 해야 하는 [ASEv3](../app-service/environment/overview.md) 리소스에 배포 하려면 **지역** 목록에서 해당 환경 리소스를 선택 합니다. |
+   | **지역** | 예 | <*Azure-region*> | 리소스 그룹 및 리소스를 만들 때 사용할 위치입니다. 이 예제에서는 샘플 논리 앱을 Azure에 배포하고 **미국 서부** 를 사용합니다. <p>- **Docker 컨테이너** 를 선택한 경우 사용자 지정 위치를 선택합니다. <p>- 먼저 존재해야 하는 [ASEv3](../app-service/environment/overview.md) 리소스에 배포하려면 **지역** 목록에서 해당 환경 리소스를 선택합니다. |
    |||||
 
    다음 예제에서는 **논리 앱 만들기(표준)** 페이지를 보여 줍니다.
@@ -148,7 +148,7 @@ ms.locfileid: "131085983"
 
 이 예제에서는 다음 단계로 구성되는 워크플로를 빌드합니다.
 
-* 기본 제공 [요청 트리거](../connectors/connectors-native-reqres.md) - **HTTP 요청** 이 수신될 때 인바운드 호출 또는 요청을 수신하고 다른 서비스 또는 논리 앱이 호출할 수 있는 엔드포인트를 만듭니다.
+* **HTTP 요청** 을 받으면 인바운드 호출 또는 요청을 수신 하 고 다른 서비스 또는 논리 앱이 호출할 수 있는 끝점을 만드는 기본 제공 [요청 트리거입니다](../connectors/connectors-native-reqres.md).
 
 * [Office 365 Outlook 작업](../connectors/connectors-create-api-office365-outlook.md), **이메일 보내기**.
 
@@ -158,13 +158,13 @@ ms.locfileid: "131085983"
 
 1. 디자이너 화면 옆에 있는 **트리거 추가** 창의 **작업 선택** 검색 상자 아래에서 **기본 제공** 탭을 선택합니다. 이 탭은 Azure Logic Apps에서 기본적으로 실행되는 트리거를 표시합니다.
 
-1. **작업 선택** 검색 상자에 `when a http request`을(를) 입력하고 **HTTP 요청을 수신하는 경우** 라는 이름의 기본 제공 요청 트리거를 선택합니다.
+1. **작업 선택** 검색 상자에를 입력 하 `when a http request` 고 **HTTP 요청을 받을 때** 이름이 지정 된 기본 제공 요청 트리거를 선택 합니다.
 
-   ![디자이너와 "HTTP 요청을 수신하는 경우" 트리거가 선택된 **트리거 추가** 창을 보여주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
+   ![디자이너를 표시 하는 스크린샷 및 "HTTP 요청을 받은 경우" 트리거가 선택 된 상태에서 * * 트리거 추가 * * 창을 표시 합니다.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
 
    트리거가 디자이너에 표시되면 트리거의 세부 정보 창이 열리고 트리거의 속성, 설정 및 기타 작업이 표시됩니다.
 
-   !["HTTP 요청을 수신하는 경우" 트리거가 선택되고 트리거 세부 정보 창이 열려 있는 디자이너를 보여주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
+   !["HTTP 요청을 받았을 때" 트리거를 선택 하 고 트리거 세부 정보 창이 열려 있는 디자이너를 보여 주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > 세부 정보 창이 표시되지 않으면 디자이너에서 트리거를 선택했는지 확인합니다.
@@ -260,7 +260,7 @@ Azure Portal에서 논리 앱을 배포하고 워크플로를 실행하기 전�
 
 이 예제의 워크플로는 요청 트리거가 인바운드 요청을 수신할 때 실행되고, 인바운드 요청은 트리거에서 만든 엔드포인트의 URL로 전송됩니다. 워크플로를 처음으로 저장할 때 Logic Apps 서비스가 자동으로 이 URL을 생성합니다. 따라서 이 요청을 보내서 워크플로를 트리거하려면 먼저 이 URL을 찾아야 합니다.
 
-1. 워크플로 디자이너에서 **HTTP 요청을 수신하는 경우** 요청 트리거를 선택합니다.
+1. 워크플로 디자이너에서 HTTP 요청을 받을 때 라는 **요청 트리거를** 선택합니다.
 
 1. 세부 정보 창이 열리면 **매개 변수** 탭에서 **HTTP POST URL** 속성을 찾습니다. 생성된 URL을 복사하려면 **Rrl 복사**(파일 복사 아이콘)를 선택하고, 지금은 다른 위치에 URL을 저장합니다. URL은 다음 형식을 따릅니다.
 

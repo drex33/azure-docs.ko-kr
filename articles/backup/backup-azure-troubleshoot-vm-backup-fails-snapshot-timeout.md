@@ -2,14 +2,16 @@
 title: 에이전트 및 확장 문제 해결
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
 ms.topic: troubleshooting
-ms.date: 05/25/2021
+ms.date: 11/10/2021
 ms.service: backup
-ms.openlocfilehash: cefb166363677e0d4a7c52eae967b92a8216c825
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+author: v-amallick
+ms.author: v-amallick
+ms.openlocfilehash: 464b2e6ed2c968ea57d5396570d8a928d9d9bace
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264640"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301953"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -129,6 +131,9 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 메시지**: Backup에는 암호화된 VM을 백업하기 위한 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다. <br>
 
 백업 작업이 암호화된 VM에서 성공할 수 있도록 키 자격 증명 모음에 액세스할 수 있는 사용 권한이 있어야 합니다. 사용 권한은 [Azure Portal](./backup-azure-vms-encryption.md) 또는 [PowerShell](./backup-azure-vms-automation.md#enable-protection)을 통해 설정할 수 있습니다.
+
+>[!Note]
+>키 자격 증명 모음에 액세스하는 데 필요한 권한이 이미 설정된 경우 잠시 후 작업을 다시 시도합니다.
 
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - 가상 머신에 네트워크 연결이 없으므로 스냅샷 작업이 실패했습니다.
 

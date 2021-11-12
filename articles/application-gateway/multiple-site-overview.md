@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 08/31/2021
 ms.author: azhussai
 ms.topic: conceptual
-ms.openlocfilehash: 5feb112a9d1c9b7eb229c65f8bcce3845a3f23ad
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 5687c4af0321e26d20906932fd9ac3b06b983651
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131844984"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373083"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
 
-다중 사이트 호스팅을 사용하면 퍼블릭 연결 수신기를 사용하여 동일한 애플리케이션 게이트웨이 포트에 둘 이상의 웹 애플리케이션을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 contoso.com, fabrikam.com 및 adatum.com이라는 세 개의 도메인이 애플리케이션 게이트웨이의 IP 주소를 가리킵니다. 3개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각각의 수신기를 구성합니다. 
+다중 사이트 호스팅을 사용하면 퍼블릭 연결 수신기를 사용하여 동일한 애플리케이션 게이트웨이 포트에 둘 이상의 웹 애플리케이션을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 contoso.com, fabrikam.com 및 adatum.com이라는 세 개의 도메인이 애플리케이션 게이트웨이의 IP 주소를 가리킵니다. 3개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각각의 수신기를 구성합니다.
 
 또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](#wildcard-host-names-in-listener-preview)을 참조하세요.
 
@@ -71,6 +71,8 @@ Azure Portal 다중 사이트 수신기에서 **다중/와일드카드** 호스�
 * `*` - 허용되는 범위에서 여러 문자와 일치 가능함
 * `?` - 허용되는 범위에서 단일 문자와 일치 가능함
 
+<!-- docutune:disable -->
+
 ### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>수신기에서 와일드카드 문자 및 여러 호스트 이름을 사용하는 경우의 조건
 
 * 단일 수신기에서는 최대 5개의 호스트 이름만 사용할 수 있습니다.
@@ -78,6 +80,8 @@ Azure Portal 다중 사이트 수신기에서 **다중/와일드카드** 호스�
 * 호스트 이름에는 최대 두 개의 별표(`*`)가 있을 수 있습니다. 예를 들어 `*.contoso.*`는 유효하고 `*.contoso.*.*.com`은 잘못된 것입니다.
 * 호스트 이름에는 와일드카드 문자가 최대 4개만 사용될 수 있습니다. 예를 들어 `????.contoso.com`, `w??.contoso*.edu.*`는 유효하지만 `????.contoso.*`는 잘못된 것입니다.
 * 호스트 이름 구성 요소에 별표(`*`)와 물음표(`?`)를 함께 사용하는 것(`*?`, `?*` 또는 `**`)은 잘못된 것입니다. 예를 들어 `*?.contoso.com` 및 `**.contoso.com`은 잘못된 것입니다.
+
+<!-- docutune:enable -->
 
 ### <a name="considerations-and-limitations-of-using-wildcard-or-multiple-host-names-in-a-listener"></a>수신기에서 와일드카드 또는 여러 호스트 이름을 사용하는 경우의 고려 사항 및 제한 사항
 

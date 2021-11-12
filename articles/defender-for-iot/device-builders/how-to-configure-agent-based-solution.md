@@ -1,22 +1,22 @@
 ---
-title: 에이전트 기반 솔루션용 Azure Defender for IoT 구성
-description: Azure Defender for IoT 에이전트 기반 솔루션에서 데이터 수집을 구성하는 방법을 알아봅니다.
-ms.date: 05/26/2021
+title: IoT용 Microsoft Defender 에이전트 기반 솔루션 구성
+description: Microsoft Defender for IoT 에이전트 기반 솔루션에서 데이터 수집을 구성하는 방법 알아보기
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 94f8548895da57efe450342a25bd5de086af0998
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 65e3febe4a1715ee1a55b377a5c54cbb4f3f88c6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018156"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306209"
 ---
-# <a name="configure-azure-defender-for-iot-agent-based-solution"></a>에이전트 기반 솔루션용 Azure Defender for IoT 구성  
+# <a name="configure-microsoft-defender-for-iot-agent-based-solution"></a>IoT용 Microsoft Defender 에이전트 기반 솔루션 구성  
 
-이 문서에서는 Azure Defender for IoT 에이전트 기반 솔루션에서 데이터 수집을 구성하는 방법을 설명합니다.
+이 문서에서는 Microsoft Defender for IoT 에이전트 기반 솔루션에서 데이터 수집을 구성하는 방법을 설명합니다.
 
 ## <a name="configure-data-collection"></a>데이터 수집 구성
 
-Azure Defender for IoT 에이전트 기반 솔루션에서 데이터 수집을 구성하려면: 
+Microsoft Defender for IoT 에이전트 기반 솔루션에서 데이터 수집을 구성하려면 다음을 수행합니다. 
 
 1. Azure Portal로 이동하고 Defender for IoT가 연결된 IoT Hub를 선택합니다. 
 

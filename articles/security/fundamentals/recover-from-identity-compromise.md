@@ -1,6 +1,6 @@
 ---
 title: Microsoft 및 Azure 보안 리소스를 사용하여 시스템 ID 손상으로부터 복구 | Microsoft Docs
-description: 'Microsoft 및 Azure 보안 리소스(예: Microsoft 365 Defender, Azure Sentinel, Azure Active Directory, Azure Security Center)와 Microsoft 권장 사항을 사용하여 2020년 12월 Nobelium 공격(Solorigate)과 유사한 시스템 ID 손상으로부터 시스템을 보호하는 방법을 알아봅니다.'
+description: 2020년 12월의 Microsoft 365 Defender, Microsoft Sentinel, Azure Active Directory, Microsoft Defender for Cloud와 같은 Microsoft 및 Azure 보안 리소스와 시스템 ID 손상(2020년 12월의 한정자)과 유사한 시스템 ID 손상에 대비하여 시스템을 보호하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: bagol
-ms.openlocfilehash: f2f99e7c9a901b6e76b3d4bbe87967527f836d1b
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: b858cb8d2830d305a90dfb8ecbda9fe2154e11f9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864346"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323200"
 ---
 # <a name="recovering-from-systemic-identity-compromise"></a>시스템 ID 손상으로부터 복구
 
@@ -88,18 +88,18 @@ ms.locfileid: "122864346"
 
 다음 Microsoft 보안 제품에서 업데이트를 확인하고 권장되는 변경 사항을 구현합니다.
 
-- [Azure Sentinel](../../sentinel/index.yml)
+- [Microsoft Sentinel](../../sentinel/index.yml)
 - [Microsoft 365 보안 솔루션 및 서비스](/microsoft-365/security/)
 - [Windows 10 Enterprise 보안](/windows/security/)
-- [Microsoft Cloud App Security](/cloud-app-security/)
+- [Cloud Apps용 Microsoft Defender ](/cloud-app-security/)
 
 새 업데이트를 구현하면 이전 캠페인을 식별하고 시스템에 대한 향후 캠페인을 방지하는 데 도움이 됩니다. IOC 목록은 완전하지 않을 수 있으며 조사가 계속되면서 확장될 수 있다는 점에 유의해야 합니다.
 
 따라서 다음 작업도 수행하는 것이 좋습니다.
 
-- [Azure 보안 벤치마크 설명서](/security/benchmark/azure/)를 적용했는지 확인하고 [Azure Security Center](../../security-center/index.yml)를 통해 규정 준수를 모니터링하고 있는지 확인합니다.
+- [Azure 보안 벤치마크 설명서](/security/benchmark/azure/)를 적용하고 [Microsoft Defender for Cloud를](../../security-center/index.yml)통해 규정 준수를 모니터링하고 있는지 확인합니다.
 
-- [Azure Sentinel](../../sentinel/understand-threat-intelligence.md)에서 Microsoft 365 데이터 커넥터를 구성하는 등의 방식으로 위협 인텔리전스 피드를 SIEM에 통합합니다.
+- [Microsoft Sentinel에서](../../sentinel/understand-threat-intelligence.md)Microsoft 365 데이터 커넥터를 구성하는 등 위협 인텔리전스 피드를 SIEM에 통합합니다.
 
 자세한 내용은 Microsoft의 보안 설명서를 참조하세요.
 
@@ -171,9 +171,9 @@ Microsoft의 보안 서비스는 자세한 조사를 위한 광범위한 리소�
 > 조직의 전역 관리자 계정 및/또는 신뢰할 수 있는 SAML 토큰 서명 인증서에 대한 액세스를 제공하는 시스템 손상을 통해 얻은 관리 권한의 증거가 조사에 의해 발견되면, [관리 제어권을 수정하고 유지](#remediate-and-retain-administrative-control)하기 위한 조치를 취하는 것이 좋습니다.
 >
 
-### <a name="monitoring-with-azure-sentinel"></a>Azure Sentinel로 모니터링
+### <a name="monitoring-with-microsoft-sentinel"></a>Microsoft Sentinel을 사용하여 모니터링
 
-Azure Sentinel에는 조사에 도움이 되는 기본 제공 리소스가 많이 있습니다. 예를 들어, 헌팅 통합 문서 및 분석 규칙은 환경의 관련 영역에서 공격을 탐지하는 데 도움이 될 수 있습니다.
+Microsoft Sentinel에는 사용자 환경의 관련 영역에서 공격을 탐지하는 데 도움이 되는 헌팅 통합 문서 및 분석 규칙과 같이 조사에 도움이 되는 많은 기본 제공 리소스가 있습니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -184,7 +184,7 @@ Azure Sentinel에는 조사에 도움이 되는 기본 제공 리소스가 많�
 
 엔드포인트용 Microsoft 365 Defender 및 Microsoft Defender 바이러스 백신에서 공격과 관련된 특정 지침을 확인하는 것이 좋습니다.
 
-Microsoft 365 Defender, Microsoft 365 Defender for Identity 및 Microsoft Cloud App Security와 같은 Microsoft 보안 센터에서 탐지, 헌팅 쿼리 및 위협 분석 보고서의 다른 예를 확인하세요. 적용 범위를 보장하려면 모든 도메인 컨트롤러와 함께 ADFS 서버에 [Microsoft Defender for Identity 에이전트](/defender-for-identity/install-step4)를 설치해야 합니다.
+Microsoft 365 Defender, Microsoft 365 Defender for Identity 및 Cloud Apps용 Microsoft Defender와 같은 Microsoft 보안 센터에서 검색, 헌팅 쿼리 및 위협 분석 보고서의 다른 예제를 확인합니다. 적용 범위를 보장하려면 모든 도메인 컨트롤러와 함께 ADFS 서버에 [Microsoft Defender for Identity 에이전트](/defender-for-identity/install-step4)를 설치해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -193,7 +193,7 @@ Microsoft 365 Defender, Microsoft 365 Defender for Identity 및 Microsoft Cloud 
 
 ### <a name="monitoring-with-azure-active-directory"></a>Azure Active Directory로 모니터링
 
-Azure Active Directory 로그인 로그는 다단계 인증이 올바르게 사용되고 있는지 여부를 표시할 수 있습니다. 로그인 로그는 Azure Portal의 Azure Active Directory 영역에서 직접 액세스하거나 **Get-AzureADAuditSignInLogs** cmdlet을 사용하거나 Azure Sentinel의 **로그** 영역에서 볼 수 있습니다.
+Azure Active Directory 로그인 로그는 다단계 인증이 올바르게 사용되고 있는지 여부를 표시할 수 있습니다. Azure Portal Azure Active Directory 영역에서 직접 로그인 로그에 액세스하거나 **Get-AzureADAuditSignInLogs** cmdlet을 사용하거나 Microsoft Sentinel의 **로그** 영역에서 봅니다.
 
 예를 들어 **MFA 결과** 필드에 **MFA 요구 사항이 토큰의 클레임으로 충족됨** 값이 있는 경우 결과를 검색하거나 필터링합니다. 조직에서 ADFS를 사용하는 경우 기록된 클레임이 ADFS 구성에 포함되어 있지 않으면 해당 클레임은 공격자 활동을 나타낼 수 있습니다.
 
@@ -227,7 +227,7 @@ Azure Active Directory 로그인 로그는 다단계 인증이 올바르게 사�
 
 - **[Microsoft 보안 점수](/microsoft-365/security/mtp/microsoft-secure-score)를 검토하여** 사용하는 Microsoft 제품 및 서비스에 맞게 사용자 지정된 보안 기본 권장 사항을 확인하세요.
 
-- [엔드포인트용 Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) 및 [Azure Sentinel](../../sentinel/overview.md)과 같은 **EDR 및 SIEM 솔루션이 조직에 있는지 확인** 합니다.
+- 조직에 EDR 및 SIEM 솔루션(예: [엔드포인트용 Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) 및 [Microsoft Sentinel)이](../../sentinel/overview.md)있는지 **확인합니다.**
 
 - **Microsoft의 [엔터프라이즈 액세스 모델](/security/compass/privileged-access-access-model)을 검토합니다**.
 
@@ -444,15 +444,13 @@ ID 관련 보안 상태를 보장하기 위해 다음 작업을 수행하는 것
     - [Azure Active Directory에서 긴급 상황 시 사용자 액세스 해지](../../active-directory/enterprise-users/users-revoke-access.md)
     - [Revoke-AzureADUserAllRefreshToken PowerShell 설명서](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
-- 상단 탐색 모음에서 **도움말**( **?** ) 단추를 선택하여 Microsoft 365 보안 센터, Microsoft 365 Security & Compliance 센터, Microsoft Defender 보안 센터를 포함한 **Microsoft 제품 내부에서 도움말을 참고하세요**.
+- 위쪽 탐색 **모음에서 도움말(****?**) 단추를 선택하여 Microsoft 365 Defender 포털, Microsoft 365 규정 준수 센터 및 Office 365 Security & Compliance  Center를 비롯한 Microsoft 제품 내에서 도움을 받을 수 있습니다.
 
 - **배포 지원이 필요한 경우** [FastTrack](https://fasttrack.microsoft.com)에 문의해주세요.
 
-- **제품 지원 관련 요구 사항이 있는 경우** https://support.microsoft.com/contactus 에서 Microsoft 지원 사례를 제출하세요.
+- **제품 지원 관련 요구 사항이 있는 경우** Microsoft 지원 사례를 [제출합니다.](https://support.microsoft.com/contactus)
 
     > [!IMPORTANT]
     > 손상을 입었다고 생각되어 인시던트 대응을 통한 지원이 필요한 경우 **Sev A** Microsoft 지원 사례를 열어주세요.

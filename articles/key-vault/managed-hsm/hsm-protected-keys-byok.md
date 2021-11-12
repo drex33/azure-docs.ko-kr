@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ffdec82c7009ca696b04b4ee5fff31a92bd77d50
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 3afe9135c620b808ad6853705c5886aa3628ab7a
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440947"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370312"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>HSM 보호 키를 Managed HSM으로 가져오기(BYOK)
 
@@ -78,21 +78,21 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 |키 이름|키 유형|키 크기/곡선|원본|Description|
 |---|---|---|---|---|
-|KEK(키 교환 키)|RSA| 2048비트<br />3072비트<br />4096비트|관리형 HSM|관리되는 HSM에서 생성된 HSM 지원 RSA 키 쌍|
+|KEK(키 교환 키)|RSA-HSM| 2048비트<br />3072비트<br />4096비트|관리형 HSM|관리되는 HSM에서 생성된 HSM 지원 RSA 키 쌍|
 |대상 키|
-||RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리되는 HSM으로 전송할 키|
-||EC|P-256<br />P-384<br />P-521|공급업체 HSM|관리되는 HSM으로 전송할 키|
-||대칭 키(oct-HSM)|128비트<br />192비트<br />256비트|공급업체 HSM|관리되는 HSM으로 전송할 키|
+||RSA-HSM|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리되는 HSM으로 전송할 키|
+||EC-HSM|P-256<br />P-384<br />P-521|공급업체 HSM|관리되는 HSM으로 전송할 키|
+||대칭 키(oct-hsm)|128비트<br />192비트<br />256비트|공급업체 HSM|관리되는 HSM으로 전송할 키|
 ||||
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>키를 생성하여 관리되는 HSM으로 전송
 
 키를 생성하여 관리되는 HSM으로 전송하려면 다음을 수행합니다.
 
-* [1단계: KEK 생성](#step-1-generate-a-kek)
-* [2단계: KEK 공개 키 다운로드](#step-2-download-the-kek-public-key)
-* [3단계: 키를 생성하고 전송 준비](#step-3-generate-and-prepare-your-key-for-transfer)
-* [4단계: 관리되는 HSM으로 키 전송](#step-4-transfer-your-key-to-managed-hsm)
-
+  - [1단계: KEK 생성](#step-1-generate-a-kek)
+  - [2단계: KEK 공개 키 다운로드](#step-2-download-the-kek-public-key)
+  - [3단계: 키를 생성하고 전송 준비](#step-3-generate-and-prepare-your-key-for-transfer)
+  - [4단계: 관리되는 HSM으로 키 전송](#step-4-transfer-your-key-to-managed-hsm) 
+   
 ### <a name="step-1-generate-a-kek"></a>1단계: KEK 생성
 
 KEK는 관리되는 HSM에서 생성되는 RSA 키입니다. KEK는 가져오려는 키(*대상* 키)를 암호화하는 데 사용됩니다.

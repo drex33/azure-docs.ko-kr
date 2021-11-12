@@ -1,14 +1,14 @@
 ---
 title: 독점 프로토콜 관리(Horizon)
 description: Defender for IoT Horizon은 독점 프로토콜을 실행하는 IoT 및 ICS 디바이스를 보호하는 데 사용되는 ODE(개방형 개발 환경)를 제공합니다.
-ms.date: 12/12/2020
+ms.date: 11/09/2021
 ms.topic: reference
-ms.openlocfilehash: cf38c79d3703fd1beb3a402587b7d388e89ce14e
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: 6a9995ec70f061381f1315e03c3781537733d97f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114673838"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347288"
 ---
 # <a name="defender-for-iot-horizon"></a>Defender for IoT Horizon
 

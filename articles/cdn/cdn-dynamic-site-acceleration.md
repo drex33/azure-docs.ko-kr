@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: duau
-ms.openlocfilehash: f793d236db1c840e3866c7b8e9856720077e429a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 113232c44be6eb886c61a617d68f63f0a3225a8c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131426604"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327465"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -179,8 +179,6 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
     ![DSA에 대한 규칙 엔진](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 
+또는 동적 자산을 제공하는 DSA를 사용하여 최적화된 엔드포인트와 일반 웹 배달 등의 고정 최적화 형식을 사용하여 최적화된 다른 엔드포인트 등 두 개의 CDN 엔드포인트를 사용하여 캐싱 가능한 자산을 제공할 수 있습니다. 웹 페이지 URL을 수정하여 사용하려는 CDN 엔드포인트의 자산에 직접 연결합니다.
 
-
-또는 동적 자산을 제공하는 DSA를 사용하여 최적화된 엔드포인트와 일반 웹 배달 등의 고정 최적화 형식을 사용하여 최적화된 다른 엔드포인트 등 두 개의 CDN 엔드포인트를 사용하여 캐싱 가능한 자산을 제공할 수 있습니다. 웹 페이지 URL을 수정하여 사용하려는 CDN 엔드포인트의 자산에 직접 연결합니다. 
-
-예: `mydynamic.azureedge.net/index.html`은 동적 페이지이고 DSA 엔드포인트에서 로드됩니다.  html 페이지는 `mystatic.azureedge.net/banner.jpg` 및 `mystatic.azureedge.net/scripts.js` 등의 정적 CDN 엔드포인트에서 로드한 JavaScript 라이브러리 또는 이미지와 같은 여러 정적 자산을 참조합니다.
+예를 들어 `mydynamic.azureedge.net/index.html` 는 동적 페이지이며 DSA 엔드포인트에서 로드됩니다.  HTML 페이지는 JavaScript 라이브러리 또는 정적 CDN 엔드포인트에서 로드된 이미지(예: 및 )와 같은 여러 정적 자산을 `mystatic.azureedge.net/banner.jpg` `mystatic.azureedge.net/scripts.js` 참조합니다.

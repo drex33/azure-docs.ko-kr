@@ -2,13 +2,13 @@
 title: 에이전트 기반 보안 사용자 지정 경고
 description: Defender for IoT 디바이스의 기능 및 서비스를 사용하여 사용자 지정 가능한 보안 경고 및 권장 수정 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 2/16/2021
-ms.openlocfilehash: 2fb1385c12cbd9d0479d8528f54aad8816393ad1
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 8b1ea13ce6fef5a20c6e172a9de79bec2aa4a93e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018351"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289972"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>Defender for IoT 디바이스 사용자 지정 보안 경고
 

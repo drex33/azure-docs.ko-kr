@@ -7,12 +7,12 @@ ms.topic: how-to
 author: ebolton-cyber
 ms.author: edewebolton
 ms.date: 03/10/2021
-ms.openlocfilehash: 876f4b42c77caba27ed94b42d784004b0bfd32ce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4e3e3b281e90236704ebd50cd8ee1420947c4d56
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598159"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331246"
 ---
 # <a name="test-a-virtual-machine-image"></a>가상 머신 이미지 테스트
 
@@ -20,12 +20,12 @@ ms.locfileid: "128598159"
 
 ## <a name="deploy-an-azure-vm"></a>Azure VM 배포
 
-Shared Image Gallery 이미지에서 VM을 배포하려면 다음을 수행합니다.
+Azure 계산 갤러리 (이전의 공유 이미지 갤러리) 이미지에서 VM을 배포 하려면 다음을 수행 합니다.
 
-1. Shared Image Gallery 이미지 버전으로 이동합니다.
-1. VM 만들기를 클릭합니다.
-1. 가상 머신 이름을 제공하고 VM 크기를 선택합니다.
-1. 검토 + 만들기를 클릭합니다. 유효성 검사를 통과하면 만들기를 클릭합니다.
+1. Azure Compute 갤러리 이미지 버전으로 이동 합니다.
+1. **VM 만들기** 를 선택 합니다.
+1. 가상 컴퓨터 이름을 지정 하 고 VM 크기를 선택 합니다.
+1. **검토 + 만들기** 를 선택합니다. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
 
 > [!NOTE]
 > Vhd 파일에서 VM을 만들어야 하는 경우, 다음 문서의 지침을 따르세요. [Azure Resource Manager 템플릿 준비](#connect-the-certification-tool-to-a-vm-image) 또는 [PowerShell을 사용하여 Azure VM 배포](#how-to-use-powershell-to-consume-the-self-test-api)를 참조하세요.

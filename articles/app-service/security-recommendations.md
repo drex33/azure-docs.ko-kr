@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 5c8a6974778e76afc6f2ca7018e034ad5655690c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 42eaec619097d673c77b6b233a2f2316605971b6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262530"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132348429"
 ---
 # <a name="security-recommendations-for-app-service"></a>App Service에 대한 보안 권장 사항
 
@@ -56,7 +56,7 @@ ms.locfileid: "130262530"
 
 | 권장 | 주석 |
 |-|-|
-|App Service Azure Security Center Azure Defender 사용 | [App Service 대한 Azure Defender](../security-center/defender-for-app-service-introduction.md) 기본적으로 Azure App Service 통합됩니다. Security Center App Service 계획에서 다루는 리소스를 평가하고 그 결과에 따라 보안 권장 사항을 생성합니다. [이러한 권장 사항의]()자세한 지침을 사용합니다. /security-center/recommendations-reference.md#appservices-recommendations)를 사용하여 App Service 리소스를 강화합니다. 또한 Azure Defender 위협 방지 기능을 제공하며, 사전 공격부터 명령 및 제어까지 거의 모든 MITRE ATT&CK 전술 목록을 포함하는 다양한 위협을 검색할 수 있습니다. Azure App Service 경고의 전체 목록은 [App Service 경고에 대한 Azure Defender 참조하세요.](../security-center/alerts-reference.md#alerts-azureappserv)|
+|클라우드의 Microsoft defender for App Service 용 Microsoft Defender 사용 | [Microsoft Defender for App Service](../security-center/defender-for-app-service-introduction.md) 는 기본적으로 Azure App Service와 통합 됩니다. Defender for Cloud는 App Service 요금제에 포함 된 리소스를 평가 하 고 그 결과에 따라 보안 권장 사항을 생성 합니다. [이러한 권장 사항]()에 대 한 자세한 지침을 사용 합니다. /security-center/recommendations-reference.md # appservices-권장)를 통해 App Service 리소스를 강화할 수 있습니다. 또한 Microsoft Defender for Cloud는 위협 방지 기능을 제공 하 고 MITRE AT&T&접시 헤드 전략의 전체 목록을 포함 하는 다 수의 위협을 명령 및 제어에 대 한 사전 공격으로 감지할 수 있습니다. Azure App Service 경고의 전체 목록은 [App Service 경고에 대 한 Microsoft Defender](../security-center/alerts-reference.md#alerts-azureappserv)를 참조 하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

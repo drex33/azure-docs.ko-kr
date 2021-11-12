@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/28/2021
+ms.date: 11/11/2021
 ms.author: allensu
-ms.openlocfilehash: b9291a7d69bd2aeb5a9343d88d05d42d94d080e0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d0af0d38ef53e4ba90dcf0e7f4cbcc60c52b87a8
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249047"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373140"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
@@ -36,7 +36,7 @@ NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일�
 NAT 게이트웨이를 구성하고 사용하는 작업은 의도적으로 간단합니다.  
 
 NAT 게이트웨이 리소스:
-- 지역 또는 영역(영역 격리) NAT 게이트웨이 리소스를 만듭니다.
+- 지역 또는 영역 NAT 게이트웨이 리소스 만들기
 - IP 주소를 할당합니다.
 - 필요한 경우 TCP 유휴 시간 제한을 수정합니다(선택 사항).  기본값을 변경하기 <ins>전에</ins> [타이머](#timers)를 검토합니다.
 
@@ -45,84 +45,20 @@ NAT 게이트웨이 리소스:
 
 사용자 정의 경로는 필요하지 않습니다.
 
-## <a name="resource"></a>리소스
-
-리소스는 다음 Azure Resource Manager 예제에서 템플릿과 같은 형식으로 볼 수 있듯이 간단하게 설계되었습니다.  이 템플릿과 같은 형식은 개념과 구조를 설명하기 위해 여기에 나와 있습니다.  사용자 요구에 맞게 예제를 수정합니다.  이 문서는 자습서로 제공되지 않습니다.
-
-다음 다이어그램에서는 다양한 Azure Resource Manager 리소스 간의 쓰기 가능한 참조를 보여 줍니다.  화살표는 쓰기 가능한 위치에서 시작되는 참조의 방향을 나타냅니다. 검토 
-
-<p align="center">
-  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT 개체 모델">
-</p>
-
-*그림: Virtual Network NAT 개체 모델*
-
-[풀 기반 Load Balancer 아웃바운드 연결](../../load-balancer/load-balancer-outbound-connections.md)에 대한 특정 종속성이 없는 경우 NAT를 대부분의 워크로드에 사용하는 것이 좋습니다.  
-
-[아웃바운드 규칙](../../load-balancer/load-balancer-outbound-connections.md#outboundrules)을 포함한 표준 부하 분산 장치 시나리오에서 NAT 게이트웨이로 마이그레이션할 수 있습니다. 마이그레이션하려면 공용 IP 및 공용 IP 접두사 리소스를 부하 분산 장치 프런트 엔드에서 NAT 게이트웨이로 이동합니다. NAT 게이트웨이에는 새 IP 주소가 필요하지 않습니다. 표준 공용 IP 주소 리소스 및 공용 IP 접두사 리소스는 합계가 16개의 IP 주소를 초과하지 않는 한 다시 사용할 수 있습니다. 전환 중에 서비스 중단을 고려하여 마이그레이션을 계획합니다.  프로세스를 자동화하여 중단을 최소화할 수 있습니다. 먼저 스테이징 환경에서 마이그레이션을 테스트합니다.  전환 중에는 인바운드에서 시작된 흐름이 영향을 받지 않습니다.
-
-
-다음 예제는 Azure Resource Manager 템플릿의 코드 조각입니다.  이 템플릿은 NAT 게이트웨이를 비롯한 여러 리소스를 배포합니다.  이 예제에서 템플릿의 매개 변수는 다음과 같습니다.
-
-- **natgatewayname** - NAT 게이트웨이의 이름입니다.
-- **location** - 리소스가 있는 Azure 지역입니다.
-- **publicipname** - NAT 게이트웨이와 연결된 아웃바운드 공용 IP의 이름입니다.
-- **vnetname** - 가상 네트워크의 이름입니다.
-- **subnetname** - NAT 게이트웨이와 연결된 서브넷의 이름입니다.
-
-모든 IP 주소 및 접두사 리소스에서 제공하는 총 IP 주소 수는 총 16개를 초과할 수 없습니다. 1-16 개의 모든 IP 주소가 허용됩니다.
-
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="81-96":::
-
-NAT 게이트웨이 리소스가 만들어지면 가상 네트워크에 있는 하나 이상의 서브넷에서 사용할 수 있습니다. 이 NAT 게이트웨이 리소스를 사용하는 서브넷을 지정합니다. NAT 게이트웨이는 둘 이상의 가상 네트워크에 걸쳐 있을 수 없습니다. 가상 네트워크의 모든 서브넷에 동일한 NAT 게이트웨이를 할당할 필요는 없습니다. 개별 서브넷은 서로 다른 NAT 게이트웨이 리소스를 사용하여 구성할 수 있습니다.
-
-가용성 영역을 사용하지 않는 시나리오는 지역(지정된 영역 없음) 시나리오입니다. 가용성 영역을 사용하는 경우 NAT를 특정 영역으로 격리하는 영역을 지정할 수 있습니다. 영역 중복성은 지원되지 않습니다. NAT [가용성 영역](#availability-zones)을 검토합니다.
-
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
-
-NAT 게이트웨이는 가상 네트워크 내의 서브넷에 대한 속성으로 정의됩니다. **vnetname** 가상 네트워크의 **subnetname** 서브넷에 있는 가상 머신에서 만든 흐름은 NAT 게이트웨이를 사용합니다. 모든 아웃바운드 연결은 **natgatewayname** 와 연결된 IP 주소를 원본 IP 주소로 사용합니다.
-
-이 예제에서 사용된 Azure Resource Manager 템플릿에 대한 자세한 내용은 다음을 참조하세요.
-
-- [빠른 시작: NAT 게이트웨이 만들기 - Resource Manager 템플릿](quickstart-create-nat-gateway-template.md)
-- [Virtual Network NAT](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm/)
 
 ## <a name="design-guidance"></a>디자인 지침
 
 이 섹션을 검토하여 NAT를 통해 가상 네트워크를 설계할 때 고려해야 하는 사항을 숙지합니다.  
 
-1. [비용 최적화](#cost-optimization)
-1. [인바운드 및 아웃바운드의 동시 사용](#coexistence-of-inbound-and-outbound)
-2. [기본 리소스 관리](#managing-basic-resources)
-3. [가용성 영역](#availability-zones)
+### <a name="connecting-to-azure-services"></a>Azure 서비스에 연결
 
-### <a name="cost-optimization"></a>비용 최적화
+Azure 서비스에 연결 하는 경우 [개인 링크](../../private-link/private-link-overview.md)를 활용 하는 것이 좋습니다. 
 
-[서비스 엔드포인트](../virtual-network-service-endpoints-overview.md) 및 [프라이빗 링크](../../private-link/private-link-overview.md)는 비용을 최적화하기 위해 고려해야 하는 옵션입니다. 이러한 서비스에는 NAT가 필요하지 않습니다. 서비스 엔드포인트 또는 프라이빗 링크로 전달되는 트래픽은 가상 네트워크의 NAT에서 처리되지 않습니다.  
+개인 링크를 사용 하 여 Azure 리소스를 가상 네트워크에 연결 하 고 Azure 서비스 리소스에 대 한 액세스를 제어 합니다. 예를 들어 Azure storage에 액세스 하는 경우 저장소에 대 한 개인 끝점을 사용 하 여 연결이 완전히 개인 지 확인 합니다.
 
-서비스 엔드포인트는 Azure 서비스 리소스를 가상 네트워크에 연결하고 Azure 서비스 리소스에 대한 액세스를 제어합니다. 예를 들어 Azure 스토리지에 액세스하는 경우 서비스 엔드포인트를 스토리지에 사용하여 데이터 처리 NAT 요금이 발생하지 않도록 방지할 수 있습니다. 서비스 엔드포인트는 무료입니다.
+### <a name="connecting-to-the-internet"></a>인터넷에 연결
 
-프라이빗 링크는 Azure PaaS 서비스(또는 프라이빗 링크를 통해 호스팅되는 다른 서비스)를 가상 네트워크 내의 프라이빗 엔드포인트로 공개합니다.  프라이빗 링크에 대한 요금은 처리된 기간 및 데이터를 기준으로 청구됩니다.
-
-이러한 방법 중 하나 또는 둘 모두가 시나리오에 적합한지 평가하고 필요에 따라 이를 사용합니다.
-
-### <a name="coexistence-of-inbound-and-outbound"></a>인바운드 및 아웃바운드의 동시 사용
-
-NAT 게이트웨이와 호환되는 리소스는 다음과 같습니다.
-
- - 표준 부하 분산 장치
- - 표준 공용 IP
- - 표준 공용 IP 접두사
-
-새 배포를 개발하는 경우 표준 SKU부터 시작합니다.
-
-<p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
-</p>
-
-*그림: 인터넷으로의 아웃바운드를 위한 Virtual Network NAT*
-
-NAT 게이트웨이에서 제공하는 인터넷 아웃바운드 전용 시나리오는 인터넷 기능에서 인바운드를 사용하여 확장할 수 있습니다. 각 리소스는 흐름이 시작되는 방향을 인식합니다. NAT 게이트웨이가 있는 서브넷에서 인터넷으로의 모든 아웃바운드 시나리오가 NAT 게이트웨이로 대체됩니다. 인터넷으로부터의 인바운드 시나리오는 해당 리소스에서 제공합니다.
+NAT는 공용 끝점에 연결 해야 하는 모든 프로덕션 워크 로드에 대 한 아웃 바운드 시나리오에 권장 됩니다. 다음 시나리오는 아웃 바운드에 대 한 NAT 게이트웨이와 인바운드의 공존을 보장 하는 방법의 예입니다.
 
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>인스턴스 수준 공용 IP를 사용하는 NAT 및 VM
 
@@ -139,7 +75,7 @@ NAT 게이트웨이에서 제공하는 인터넷 아웃바운드 전용 시나�
 
 VM은 NAT 게이트웨이를 아웃바운드에 사용합니다.  시작된 인바운드는 영향을 받지 않습니다.
 
-#### <a name="nat-and-vm-with-public-load-balancer"></a>공용 Load Balancer를 사용하는 NAT 및 VM
+#### <a name="nat-and-vm-with-standard-public-load-balancer"></a>표준 공용 Load Balancer를 사용 하는 NAT 및 VM
 
 <p align="center">
   <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM">
@@ -154,7 +90,7 @@ VM은 NAT 게이트웨이를 아웃바운드에 사용합니다.  시작된 인�
 
 부하 분산 규칙 또는 아웃바운드 규칙의 모든 아웃바운드 구성이 NAT 게이트웨이로 대체됩니다.  시작된 인바운드는 영향을 받지 않습니다.
 
-#### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>인스턴스 수준 공용 IP 및 공용 Load Balancer를 사용하는 NAT 및 VM
+#### <a name="nat-and-vm-with-instance-level-public-ip-and-standard-public-load-balancer"></a>인스턴스 수준 공용 IP 및 표준 공용 Load Balancer를 사용 하는 NAT 및 VM
 
 <p align="center">
   <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="인스턴스 수준 공용 IP 및 공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM">
@@ -168,62 +104,6 @@ VM은 NAT 게이트웨이를 아웃바운드에 사용합니다.  시작된 인�
 | 아웃바운드 | NAT 게이트웨이 |
 
 부하 분산 규칙 또는 아웃바운드 규칙의 모든 아웃바운드 구성이 NAT 게이트웨이로 대체됩니다.  또한 VM은 NAT 게이트웨이를 아웃바운드에 사용합니다.  시작된 인바운드는 영향을 받지 않습니다.
-
-### <a name="managing-basic-resources"></a>기본 리소스 관리
-
-표준 부하 분산 장치, 공용 IP 및 공용 IP 접두사는 NAT 게이트웨이와 호환됩니다. NAT 게이트웨이는 서브넷 범위에서 작동합니다. 이러한 서비스의 기본 SKU는 NAT 게이트웨이가 없는 서브넷에 배포해야 합니다. 이러한 격리를 통해 두 SKU 변형이 동일한 가상 네트워크에서 공존할 수 있습니다.
-
-NAT 게이트웨이는 서브넷의 아웃바운드 시나리오보다 우선적으로 적용됩니다. 기본 부하 분산 장치 또는 공용 IP(및 이를 사용하여 구축된 모든 관리되는 서비스)는 올바른 변환으로 조정할 수 없습니다. NAT 게이트웨이는 서브넷의 인터넷 트래픽에 대한 아웃바운드 작업을 제어합니다. 기본 부하 분산 장치 및 공용 IP에 대한 인바운드 트래픽을 사용할 수 없습니다. 기본 부하 분산 장치 및 VM에 구성된 공용 IP에 대한 인바운드 트래픽을 사용할 수 없습니다.
-
-### <a name="availability-zones"></a>가용성 영역
-
-#### <a name="zone-isolation-with-zonal-stacks"></a>영역 스택을 사용하여 영역 격리
-
-<p align="center">
-  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="영역 격리를 사용 하는 NAT Virtual Network 여러 영역 스택 만들기">
-</p>
-
-*그림: 영역 격리를 사용하는 Virtual Network NAT, 여러 "영역 스택" 만들기*
-
-가용성 영역이 없는 경우에도 NAT는 복원력이 있으며 여러 인프라 구성 요소 오류에서 유지할 수 있습니다.  가용성 영역은 NAT에 대한 영역 격리 시나리오를 통해 이러한 복원력을 기반으로 합니다.
-
-가상 네트워크 및 해당 서브넷은 지역 기반의 구조입니다.  서브넷은 영역으로 제한되지 않습니다.
-
-NAT 게이트웨이 리소스를 사용하는 가상 머신 인스턴스가 NAT 게이트웨이 리소스 및 해당 공용 IP 주소와 동일한 영역에 있는 경우 영역 격리에 대한 영역 프라미스가 존재합니다. 영역 격리에 사용하려는 패턴은 가용성 영역별로 영역 스택을 만듭니다.  이 "영역 스택"은 동일한 영역에만 서비스를 제공하는 것으로 간주되는 서브넷의 가상 머신 인스턴스, NAT 게이트웨이 리소스, 공용 IP 주소 및/또는 접두사 리소스로 구성됩니다.   그러면 컨트롤 플레인과 데이터 평면이 정렬된 후 지정된 영역으로 제한됩니다. 
-
-시나리오가 있는 영역 이외의 영역에서의 오류는 NAT에 영향을 주지 않습니다. 영역 격리로 인해 동일한 영역에 있는 가상 머신의 아웃바운드 트래픽이 실패합니다.  
-
-#### <a name="integrating-inbound-endpoints"></a>인바운드 엔드포인트 통합
-
-시나리오에 인바운드 엔드포인트가 필요한 경우 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
-
-| 옵션 | 패턴 | 예제 | Pro | Con |
-|---|---|---|---|---|
-| (1) | 아웃바운드에 대해 만드는 각 **영역 스택** 과 인바운드 엔드포인트를 **맞춥니다**. | 영역별 프런트 엔드가 있는 표준 부하 분산 장치를 만듭니다. | 인바운드 및 아웃바운드의 상태 모델 및 오류 모드가 동일합니다. 운영 방법이 간단합니다. | 영역별 개별 IP 주소를 일반적인 DNS 이름으로 마스킹해야 할 수도 있습니다. |
-| (2) | 영역 스택을 **영역 간** 인바운드 엔드포인트로 **오버레이** 합니다. | 영역 중복 프런트 엔드가 있는 표준 부하 분산 장치를 만듭니다. | 인바운드 엔드포인트에 단일 IP 주소를 사용합니다. | 인바운드 및 아웃바운드의 상태 모델 및 오류 모드가 다릅니다.  운영 방법이 복잡합니다. |
-
->[!NOTE]
-> 영역 격리된 NAT 게이트웨이에는 NAT 게이트웨이의 영역과 일치하는 IP 주소가 필요합니다. 다른 영역의 IP 주소가 있거나 영역이 없는 NAT 게이트웨이 리소스는 허용되지 않습니다.
-
-#### <a name="cross-zone-outbound-scenarios-not-supported"></a>영역 간 아웃바운드 시나리오는 지원되지 않음
-
-<p align="center">
-  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Virtual Network NAT는 영역 스패닝 서브넷과 호환되지 않음">
-</p>
-
-*그림: Virtual Network NAT는 영역 스패닝 서브넷과 호환되지 않음*
-
-가상 머신 인스턴스가 동일한 서브넷 내의 여러 영역에 배포된 경우에는 NAT 게이트웨이 리소스를 사용하여 영역 프라미스를 달성할 수 없습니다.   여러 영역 NAT 게이트웨이가 서브넷에 연결된 경우에도 가상 머신 인스턴스는 어떤 NAT 게이트웨이 리소스를 선택해야 하는지 알 수 없습니다.
-
-영역 프라미스는 a) 가상 머신 인스턴스의 영역과 영역 NAT 게이트웨이의 영역이 맞춰지지 않았거나, b) 지역 NAT 게이트웨이 리소스가 영역 가상 머신 인스턴스와 함께 사용되는 경우에는 존재하지 않습니다.
-
-시나리오가 작동하는 것처럼 보이지만, 상태 모델 및 오류 모드는 가용성 영역 관점에서 정의되지 않습니다. 그 대신 영역 스택 또는 모든 지역을 사용하는 방법을 고려해야 합니다.
-
->[!NOTE]
->NAT 게이트웨이 리소스의 영역 속성은 변경할 수 없습니다.  원하는 지역 또는 영역 기본 설정을 사용하여 NAT 게이트웨이 리소스를 다시 배포합니다.
-
->[!NOTE] 
->영역이 지정되지 않은 경우 IP 주소 자체는 영역 중복이 아닙니다.  IP 주소를 특정 영역에 만들지 않은 경우 [표준 Load Balancer의 프런트 엔드는 영역 중복](../../load-balancer/load-balancer-standard-availability-zones.md)입니다.  이는 NAT에 적용되지 않습니다.  지역 또는 영역 격리만 지원됩니다.
 
 ## <a name="performance"></a>성능
 
@@ -335,10 +215,8 @@ SNAT 포트는 5초 후에 동일한 대상 IP 주소 및 대상 포트에 다�
 
 ## <a name="limitations"></a>제한 사항
 
-- NAT는 표준 SKU 공용 IP, 공용 IP 접두사 및 부하 분산 장치 리소스와 호환됩니다.   기본 리소스(예: 기본 부하 분산 장치) 및 이러한 리소스에서 파생된 제품은 NAT와 호환되지 않습니다.  기본 리소스는 NAT에서 구성되지 않은 서브넷에 배치해야 합니다.
-- IPv4 주소 패밀리가 지원됩니다.  IPv6 주소 패밀리는 NAT와 상호 작용하지 않습니다.  NAT는 IPv6 접두사가 있는 서브넷에 배포할 수 없습니다.
-- NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
-- IP 조각화는 지원되지 않습니다.
+- 기본 Load Balancer 및 기본 공용 IP 주소는 NAT와 호환 되지 않습니다. 대신 표준 SKU 부하 분산 장치 및 공용 Ip를 사용 합니다.
+- IP 조각화는 NAT 게이트웨이를 통해 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

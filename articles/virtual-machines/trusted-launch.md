@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 03bbb681c61f28c2b4fbed580094fd8f47017de0
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0db7b5a92820e299658d793e66edba1e6e84c087
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131466774"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281460"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 신뢰할 수 있는 시작
 
@@ -91,7 +91,7 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 
 또한 신뢰할 수 있는 시작은 Azure VM에 vTPM을 도입합니다. TPM2.0 사양 규격인 하드웨어 [신뢰할 수 있는 플랫폼 모듈](/windows/security/information-protection/tpm/trusted-platform-module-overview)의 가상화된 버전입니다. 키 및 측정을 위한 전용 보안 자격 증명 모음 역할을 합니다. 신뢰할 수 있는 시작은 VM의 범위 외부에 있는 보안 환경에서 실행되는 고유한 전용 TPM 인스턴스를 VM에 제공합니다. vTPM은 VM(UEFI, OS, 시스템 및 드라이버)의 전체 부팅 체인을 측정하여 [증명](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation)을 사용합니다. 
 
-신뢰할 수 있는 시작은 클라우드에서 원격 증명을 수행하는 데 vTPM을 사용합니다. 이는 플랫폼 상태 검사 및 신뢰 기반 결정을 내리는 데 사용됩니다. 상태 검사를 통해 신뢰할 수 있는 시작은 VM이 올바르게 부팅되었음을 암호화하여 인증할 수 있습니다. VM이 인증되지 않은 구성 요소를 실행하고 있어서 프로세스가 실패하는 경우 Azure Security Center는 무결성 경고를 합니다. 경고에는 무결성 검사를 통과하지 못한 구성 요소에 대한 세부 정보가 포함됩니다.
+신뢰할 수 있는 시작은 클라우드에서 원격 증명을 수행하는 데 vTPM을 사용합니다. 이는 플랫폼 상태 검사 및 신뢰 기반 결정을 내리는 데 사용됩니다. 상태 검사를 통해 신뢰할 수 있는 시작은 VM이 올바르게 부팅되었음을 암호화하여 인증할 수 있습니다. VM이 권한 없는 구성 요소를 실행하고 있기 때문에 프로세스가 실패하면 Microsoft Defender for Cloud에서 무결성 경고를 실행합니다. 경고에는 무결성 검사를 통과하지 못한 구성 요소에 대한 세부 정보가 포함됩니다.
 
 ## <a name="virtualization-based-security"></a>가상화 기반 보안
 
@@ -102,20 +102,20 @@ HVCI는 악성 또는 확인되지 않은 코드의 삽입 및 실행에 대해 
 신뢰할 수 있는 시작 및 VBS를 사용하면 Windows Defender Credential Guard를 사용할 수 있습니다. 이 기능은 권한 있는 시스템 소프트웨어만 액세스할 수 있도록 암호를 격리하고 보호합니다. PtH(Pass-the-Hash) 공격과 같은 비밀 및 자격 증명 탈취 공격에의 무단 액세스를 방지하는 데 유용합니다. 자세한 내용은 [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard)를 참조하세요.
 
 
-## <a name="security-center-integration"></a>Security Center 통합
+## <a name="defender-for-cloud-integration"></a>Defender for Cloud 통합
 
-신뢰할 수 있는 시작은 VM이 올바르게 구성되었는지 확인하기 위해 Azure Security Center와 통합됩니다. Azure Security Center는 계속해서 호환 가능한 VM을 평가하고 관련 권장 사항을 발급합니다.
+신뢰할 수 있는 시작은 Microsoft Defender for Cloud와 통합되어 VM이 제대로 구성되었는지 확인합니다. Microsoft Defender for Cloud는 호환되는 VM을 지속적으로 평가하고 관련 권장 사항을 발급합니다.
 
-- **보안 부팅을 사용하도록 설정하는 권장 사항** -이 권장 사항은 신뢰할 수 있는 시작을 지원하는 VM에만 적용됩니다. Azure Security Center는 보안 부팅을 사용할 수 있지만 사용하지 않는 VM을 식별합니다. 이 기능을 사용하도록 낮은 심각도 권장 사항을 발급합니다.
-- **vTPM 사용에 대한 권장 사항** - VM에서 vTPM을 사용하도록 설정된 경우 Azure Security Center는 이를 사용해 게스트 증명을 수행하고 고급 위협 패턴을 식별할 수 있습니다. Azure Security Center가 신뢰할 수 있는 시작을 지원하고 vTPM을 사용하지 않도록 설정된 VM을 식별하는 경우 낮은 심각도 권장 사항을 발급하여 사용하도록 합니다. 
-- **게스트 증명 확장을 설치하는 권장 사항** - VM에서 보안 부팅 및 vTPM을 사용하도록 설정했지만 게스트 증명 확장이 설치되지 않은 경우 Azure Security Center 게스트 증명 확장을 설치하기 위한 낮은 심각도 권장 사항을 발급합니다. 이 확장을 사용하면 Azure Security Center VM의 부팅 무결성을 사전에 파악하고 모니터링할 수 있습니다. 부팅 무결성은 원격 증명을 통해 증명됩니다.  
-- **증명 상태 평가** -Vm에서 vtpm을 사용 하도록 설정 하 고 증명 확장이 설치 된 경우 vm이 정상적인 방식으로 부팅 되었는지 원격으로 확인할 수 Azure Security Center. 이를 원격 증명이라고 합니다. Azure Security Center는 원격 증명의 상태를 나타내는 평가를 발급합니다.
+- **보안 부팅을 사용하도록 설정하는 권장 사항:** 이 권장 사항은 신뢰할 수 있는 출시를 지원하는 VM에만 적용됩니다. Microsoft Defender for Cloud는 보안 부팅을 사용하도록 설정할 수 있지만 사용하지 않도록 설정한 VM을 식별합니다. 이 기능을 사용하도록 낮은 심각도 권장 사항을 발급합니다.
+- **vTPM을 사용하도록 설정하는 권장 사항:** VM에서 vTPM을 사용하도록 설정한 경우 Microsoft Defender for Cloud에서 VM을 사용하여 게스트 증명을 수행하고 고급 위협 패턴을 식별할 수 있습니다. Microsoft Defender for Cloud가 신뢰할 수 있는 발사를 지원하고 vTPM을 사용하지 않도록 설정한 VM을 식별하는 경우 사용하도록 설정하기 위해 낮은 심각도 권장 사항을 실행합니다. 
+- **게스트 증명 확장을 설치하는 권장 사항:** VM에서 보안 부팅 및 vTPM을 사용하도록 설정했지만 게스트 증명 확장이 설치되지 않은 경우 Microsoft Defender for Cloud는 낮은 심각도 권장 사항을 발급하여 게스트 증명 확장을 설치합니다. 이 확장을 통해 Microsoft Defender for Cloud는 VM의 부팅 무결성을 사전에 점검하고 모니터링할 수 있습니다. 부팅 무결성은 원격 증명을 통해 증명됩니다.  
+- **증명 상태 평가:** VM에 vTPM이 사용하도록 설정되고 증명 확장이 설치된 경우 Microsoft Defender for Cloud는 VM이 정상으로 부팅되었는지 원격으로 확인할 수 있습니다. 이를 원격 증명이라고 합니다. 클라우드용 Microsoft Defender는 원격 증명의 상태를 나타내는 평가를 실행합니다.
 
-## <a name="azure-defender-integration"></a>Azure Defender 통합
+## <a name="microsoft-defender-for-cloud-integration"></a>클라우드용 Microsoft Defender 통합
 
-VM이 신뢰할 수 있는 시작으로 올바르게 설정된 경우 Azure Defender는 VM 상태 문제를 감지하고 경고할 수 있습니다.
+VM이 신뢰할 수 있는 시작으로 올바르게 설정된 경우 Microsoft Defender for Cloud는 VM 상태 문제를 감지하고 경고할 수 있습니다.
 
-- **VM 증명 실패에 대한 경고** - Azure Defender는 주기적으로 VM에 대한 증명을 수행합니다. VM이 부팅된 후에도 이 증명을 수행합니다. 증명이 실패하면 보통 심각도 경고가 트리거됩니다.
+- **VM 증명 실패에 대한 경고:** Microsoft Defender for Cloud는 VM에서 정기적으로 증명을 수행합니다. VM이 부팅된 후에도 이 증명을 수행합니다. 증명이 실패하면 보통 심각도 경고가 트리거됩니다.
     VM 증명은 다음과 같은 이유로 실패할 수 있습니다.
     - 부팅 로그를 포함하는 증명된 정보가 신뢰할 수 있는 기준에서 벗어납니다. 이는 신뢰할 수 없는 모듈이 로드되었으며 OS가 손상되었을 수 있음을 나타낼 수 있습니다.
     - 증명된 VM의 vTPM에서 가져온 증명 견적을 확인할 수 없습니다. 이는 맬웨어가 있고 vTPM에 대한 트래픽을 가로챌 수 있음을 나타낼 수 있습니다.
@@ -123,7 +123,7 @@ VM이 신뢰할 수 있는 시작으로 올바르게 설정된 경우 Azure Defe
     > [!NOTE]
     >  이 경고는 vTPM을 사용하고 증명 확장이 설치된 VM에 사용할 수 있습니다. 증명을 통과하려면 보안 부팅을 사용하도록 설정해야 합니다. 보안 부팅을 사용하지 않도록 설정하면 증명이 실패합니다. 보안 부팅을 사용하지 않도록 설정해야 하는 경우, 가양성을 방지하기 위해 이 경고를 억제할 수 있습니다.
 
-- **신뢰할 수 없는 Linux 커널 모듈에 대한 경고** - 보안 부팅을 사용하는 신뢰할 수 있는 시작의 경우, 커널 드라이버가 유효성 검사에 실패하고 로드가 금지되어도 VM이 부팅될 수 있습니다. 이 문제가 발생하는 경우 Azure Defender는 낮은 심각도 경고를 발급합니다. 신뢰할 수 없는 드라이버가 로드되지 않았기 때문에 즉각적인 위협은 없지만 이러한 이벤트는 조사해야 합니다. 다음을 살펴보세요.
+- **신뢰할 수 없는 Linux 커널 모듈에 대한 경고:** 보안 부팅을 사용하도록 설정된 신뢰할 수 있는 시작의 경우 커널 드라이버가 유효성 검사에 실패하고 로드가 금지된 경우에도 VM이 부팅될 수 있습니다. 이 경우 Microsoft Defender for Cloud는 낮은 심각도 경고를 발생합니다. 신뢰할 수 없는 드라이버가 로드되지 않았기 때문에 즉각적인 위협은 없지만 이러한 이벤트는 조사해야 합니다. 다음을 살펴보세요.
     - 어떤 커널 드라이버가 실패했나요? 이 드라이버에 익숙하고 로드될 것으로 생각하나요?
     - 예상되는 드라이버 버전이 정확한가요? 드라이버 바이너리가 손상되지 않았나요? 타사 드라이버인 경우 공급업체에서 OS 준수 테스트를 통과하여 서명되었나요?
 
@@ -146,24 +146,25 @@ VM이 신뢰할 수 있는 시작으로 올바르게 설정된 경우 Azure Defe
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>무결성 오류가 검색되면 어떻게 되나요?
 
-Azure 가상 머신의 신뢰할 수 있는 시작은 고급 위협에 대해 모니터링됩니다. 이러한 위협이 검색되면 경고가 트리거됩니다. 경고는 Azure Security Center의 [표준 계층](../security-center/security-center-pricing.md)에서만 사용 가능합니다.
-Azure Security Center는 주기적으로 증명을 수행합니다. 증명이 실패하면 보통 심각도 경고가 트리거됩니다. 신뢰할 수 있는 시작 증명은 다음과 같은 이유로 실패할 수 있습니다. 
+Azure 가상 머신의 신뢰할 수 있는 시작은 고급 위협에 대해 모니터링됩니다. 이러한 위협이 검색되면 경고가 트리거됩니다. 경고는 [Defender for Cloud의 향상된 보안 기능을](../security-center/enable-enhanced-security.md) 사용하도록 설정한 경우에만 사용할 수 있습니다.
+
+Defender for Cloud는 정기적으로 증명을 수행합니다. 증명이 실패하면 보통 심각도 경고가 트리거됩니다. 신뢰할 수 있는 시작 증명은 다음과 같은 이유로 실패할 수 있습니다.
+
 - TCB(신뢰할 수 있는 컴퓨팅 기반)의 로그가 포함된 증명된 정보가 신뢰할 수 있는 기준(예: 보안 부팅을 사용함)에서 벗어납니다. 이는 신뢰할 수 없는 모듈이 로드되었으며 OS가 손상되었을 수 있음을 나타낼 수 있습니다.
-- 증명된 VM의 vTPM에서 가져온 증명 견적을 확인할 수 없습니다. 이는 맬웨어가 있고 TPM에 대한 트래픽을 가로챌 수 있음을 나타낼 수 있습니다. 
+- 증명된 VM의 vTPM에서 가져온 증명 견적을 확인할 수 없습니다. 이는 맬웨어가 있고 TPM에 대한 트래픽을 가로챌 수 있음을 나타낼 수 있습니다.
 - VM의 증명 확장이 응답하지 않습니다. 이는 맬웨어 또는 OS 관리자에 의한 서비스 거부 공격을 나타낼 수 있습니다.
 
-  
 ### <a name="how-does-trusted-launch-compared-to-hyper-v-shielded-vm"></a>신뢰할 수 있는 시작은 Hyper-V 보호된 VM과 어떻게 다른가요?
 
 Hyper-V 보호된 VM은 현재 Hyper-V에서만 사용할 수 있습니다. [Hyper-V 보호된 VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)은 일반적으로 보호된 패브릭과 함께 배포됩니다. 보호된 패브릭은 HGS(호스트 보호 서비스), 하나 이상의 보호된 호스트 및 보호된 VM 집합으로 구성됩니다. Hyper-V 보호된 VM은 Hyper-V 호스트에서 실행될 수 있는 패브릭 관리자와 신뢰할 수 없는 소프트웨어 모두에서 가상 머신의 데이터와 상태를 보호해야 하는 패브릭에서 사용하기 위한 것입니다. 반면에 신뢰할 수 있는 시작은 HGS를 추가 배포하고 관리하지 않고도 Azure의 독립 실행형 가상 머신 또는 Virtual Machine Scale Sets로 배포할 수 있습니다. 배포 코드를 간단하게 변경하거나 Azure Portal 확인란을 선택하여 모든 신뢰할 수 있는 시작 기능을 사용할 수 있습니다.  
 
 ### <a name="how-can-i-convert-existing-vms-to-trusted-launch"></a>기존 VM을 신뢰할 수 있는 시작으로 변환하려면 어떻게 해야 하나요?
 
-2 세대 VM의 경우 신뢰할 수 있는 시작으로 변환 하는 마이그레이션 경로는 GA (일반 공급) 후 대상입니다.
+2세대 VM의 경우 신뢰할 수 있는 시작으로 변환할 마이그레이션 경로는 GA(일반 공급) 이후 대상으로 지정됩니다.
 
-### <a name="what-is-vm-guest-state-vmgs"></a>VM 게스트 상태 (VMGS) 란?  
+### <a name="what-is-vm-guest-state-vmgs"></a>VMGS(VM 게스트 상태)란?  
 
-VM 게스트 상태 (VMGS)는 신뢰할 수 있는 시작 VM에만 적용 됩니다. Azure에서 관리 되는 blob 이며, UEFI (통합 된 확장 가능 펌웨어 인터페이스) 보안 부팅 서명 데이터베이스 및 기타 보안 정보를 포함 합니다. VMGS blob의 수명 주기는 OS 디스크와 연결 됩니다.  
+VMGS(VM 게스트 상태)는 신뢰할 수 있는 시작 VM에만 해당됩니다. Azure에서 관리되며 UEFI(통합 확장 가능 펌웨어 인터페이스) 보안 부팅 서명 데이터베이스 및 기타 보안 정보를 포함하는 Blob입니다. VMGS Blob의 수명 주기는 OS 디스크의 수명 주기와 연결됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

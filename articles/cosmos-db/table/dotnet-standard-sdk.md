@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/03/2021
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 47d0862eefd713aa814ab7da2737565c33160cd3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: fdf88bd530eedb37ff2637c7daf43433d9a0e427
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559298"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284420"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard API: 다운로드 및 릴리스 정보
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -76,7 +76,8 @@ ms.locfileid: "131559298"
 * 일반 공급 릴리스
 
 ### <a name="0110-preview"></a><a name="0.11.0-preview"></a>0.11.0-preview
-* CloudTableClient를 구성할 수 있는 방법이 변경되었습니다. 이제 생성하는 동안 TableClientConfiguration 개체를 사용합니다. TableClientConfiguration은 대상 엔드포인트가 Cosmos DB Table API 또는 Azure Storage Table API에 따라 클라이언트 동작을 구성하는 다양한 속성을 제공합니다.
+
+* CloudTableClient를 구성할 수 있는 방법이 변경되었습니다. 이제 구성 중에 TableClientConfiguration 개체를 가져옵니다. TableClientConfiguration은 대상 엔드포인트가 Cosmos DB Table API 또는 Azure Storage Table API에 따라 클라이언트 동작을 구성하는 다양한 속성을 제공합니다.
 * 사용자 지정 열에 정렬된 순서로 결과를 반환하도록 TableQuery에 대한 지원이 추가되었습니다. 이 기능은 Cosmos DB Table 엔드포인트에서만 지원됩니다.
 * 다양한 결과 형식에 대한 RequestCharges를 노출하는 지원이 추가되었습니다. 이 기능은 Cosmos DB Table 엔드포인트에서만 지원됩니다.
 

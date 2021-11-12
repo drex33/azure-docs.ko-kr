@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7be8e6fdda7977c6cff389ee5886d1753cbe720b
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f9f49cf1fa651f1e52c4abbb84e7f8f7840fbb9d
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993172"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373235"
 ---
 # <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>하이브리드 가상 머신에 대한 VM 인사이트 사용
 이 문서에서는 온-프레미스 및 기타 클라우드 환경을 포함하여 Azure 외부의 가상 머신에 대해 VM 인사이트를 사용하도록 설정하는 방법을 설명합니다.
@@ -42,8 +42,8 @@ Log Analytics 에이전트에 대한 방화벽 요구 사항은 [Log Analytics �
 
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.11.17500 | 0883C9AC5A130EC662CB5C8ECDC4E3BD2B60AF2DECF58205C54F7E8588C5CA04  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.11.17500 | F6C72D7B72FB863CAB466E9BAF5EA3195762906165087E6CA8A3F9ACF570C7C3 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.12.18430 | 9CE3B53D3A67A2C3239E1162364BF94B772764B4ADD78C48559E56F46B98C484  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.12.18430 | 04BD3D2F449220B19DD1DA47A6995087123140B13E45747C743BAD79A312ACE6 |
 
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Windows에 종속성 에이전트 설치

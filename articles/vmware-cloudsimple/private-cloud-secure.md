@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9ca38542dd794aca6661565d6b4c02fe50d31f7e
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 54731484a72743d38028a40ec34fbf7d44c7ffc8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616192"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132322078"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>프라이빗 클라우드 환경을 보호하는 방법
 

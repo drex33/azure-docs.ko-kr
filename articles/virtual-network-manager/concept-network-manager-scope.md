@@ -7,16 +7,16 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: e21cfe528c3cba9c190ba667552deb7070884aa3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9a5a78fc77a2b0f0891bfdd2922ad1cd771aba42
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102899"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132322903"
 ---
 # <a name="understand-and-work-with-azure-virtual-network-manager-preview-scopes"></a>Azure Virtual Network Manager(미리 보기) 범위 이해 및 작업
 
-이 문서에서는 Azure Virtual Network Manager에서 *범위* 개념을 사용하여 관리 그룹 또는 구독이 Virtual Network Manager의 특정 기능을 사용하도록 설정하는 방법에 대해 알아봅니다. 또한 Virtual Network Manager를 사용할 때 *계층 구조와* 계층 구조가 사용자에게 미치는 영향에 대해서도 알아봅니다. 
+이 문서에서는 Azure Virtual Network Manager에서 *범위* 개념을 사용하여 관리 그룹 또는 구독이 Virtual Network Manager의 특정 기능을 사용하도록 설정하는 방법에 대해 알아봅니다. 또한 Virtual Network Manager를 사용할 때 *계층 구조* 및 계층 구조가 사용자에게 미치는 영향에 대해 알아봅니다. 
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager는 현재 공개 미리 보기로 제공됩니다.
@@ -29,7 +29,7 @@ ms.locfileid: "131102899"
 
 * **네트워크 그룹** - 특정 연결 또는 보안 관리자 정책을 적용할 수 있는 전체 범위의 하위 집합입니다.
 
-* **구성** - Azure Virtual Network Manager는 연결 구성과 보안 구성이라는 두 가지 유형의 구성을 제공합니다. 연결 구성을 사용하면 네트워크 토폴로지 만들 수 있지만 보안 구성을 사용하면 가상 네트워크에서 적용할 수 있는 규칙 컬렉션을 만들 수 있습니다.
+* **구성** - Azure Virtual Network Manager는 연결 구성 및 보안 구성이라는 두 가지 유형의 구성을 제공합니다. 연결 구성을 사용하면 네트워크 토폴로지 만들 수 있지만 보안 구성을 사용하면 가상 네트워크에서 적용할 수 있는 규칙 컬렉션을 만들 수 있습니다.
 
 * 규칙 - 규칙 컬렉션은 가상 네트워크에 대한 전역 수준에서 네트워크 트래픽을 허용하거나 거부할 수 있는 네트워크 보안 규칙 집합입니다. 
 
@@ -37,12 +37,12 @@ ms.locfileid: "131102899"
 > Azure Virtual Network Manager를 삭제하려면 모든 자식 리소스를 제거해야 합니다.
 >
 
-## <a name="scope"></a>범위
+## <a name="scope"></a>Scope
 
 Azure Virtual Network Manager 내의 *범위는* 기능을 적용할 수 있는 리소스 집합입니다. 범위를 지정할 때 네트워크 관리자가 리소스를 관리할 수 있는 액세스 권한을 제한합니다. 범위의 값은 관리 그룹 수준 또는 구독 수준에 있을 수 있습니다. 리소스 계층을 관리하는 방법을 알아보려면 [Azure 관리 그룹](../governance/management-groups/overview.md)를 참조하세요. 관리 그룹을 범위로 선택하면 모든 자식 리소스가 범위 내에 포함됩니다. 
 
 > [!NOTE]
-> 동일한 계층 구조의 범위가 겹치는 여러 네트워크 관리자를 만드는 것은 지원되지 않습니다.
+> 동일한 계층 구조의 겹치는 범위와 동일한 기능이 선택된 여러 Azure Virtual Network Manager를 만들 수 없습니다.
 > 
 
 ## <a name="features"></a>기능
@@ -55,7 +55,7 @@ Azure Virtual Network Manager 내의 *범위는* 기능을 적용할 수 있는 
 
 ## <a name="hierarchy"></a>계층
 
-Azure Virtual Network Manager를 사용하면 계층 구조에서 네트워크 리소스를 관리합니다. 계층 구조는 여러 Virtual Network Manager 인스턴스가 겹치는 범위를 관리할 수 있고 각 Virtual Network Manager 내의 구성이 서로 오버레이할 수도 있다는 것을 의미합니다. 예를 들어 한 Virtual Network Manager의 최상위 [관리 그룹을](../governance/management-groups/overview.md) 가질 수 있으며 자식 관리 그룹을 다른 Virtual Network Manager의 범위로 사용할 수 있습니다. 동일한 리소스를 포함하는 서로 다른 Virtual Network Manager 인스턴스 간에 구성 충돌이 있는 경우 범위가 더 높은 Virtual Network Manager의 구성이 적용됩니다.
+Azure Virtual Network Manager를 사용하면 계층에서 네트워크 리소스를 관리합니다. 계층 구조는 여러 Virtual Network Manager 인스턴스가 겹치는 범위를 관리할 수 있고 각 Virtual Network Manager 내의 구성이 서로 오버레이할 수도 있다는 것을 의미합니다. 예를 들어 한 Virtual Network Manager의 최상위 [관리 그룹을](../governance/management-groups/overview.md) 가질 수 있으며 자식 관리 그룹을 다른 Virtual Network Manager의 범위로 사용할 수 있습니다. 동일한 리소스를 포함하는 서로 다른 Virtual Network Manager 인스턴스 간에 구성 충돌이 있는 경우 범위가 더 높은 Virtual Network Manager의 구성이 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

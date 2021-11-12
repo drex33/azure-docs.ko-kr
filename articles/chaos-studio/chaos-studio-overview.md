@@ -8,12 +8,12 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021
-ms.openlocfilehash: 3612a72b13ded7eace24c56f70c722e6cf2270d7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7375457b539fc24fad8dce34e416c341ce4abf68
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030933"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371508"
 ---
 # <a name="what-is-azure-chaos-studio-preview"></a>Azure Chaos Studio Preview란?
 
@@ -53,5 +53,5 @@ Chaos Studio를 사용하면 안전하고 제어된 방식으로 Azure 리소스
 
 ## <a name="next-steps"></a>다음 단계
 아래 링크를 사용하여 Chaos Studio를 통해 애플리케이션 복원력을 개선하기 위한 카오스 상황을 만들고 실행합니다.
-- [첫 번째 실험 만들기 및 실행](chaos-studio-tutorial-service-direct.md)
+- [첫 번째 실험 만들기 및 실행](chaos-studio-tutorial-service-direct-portal.md)
 - [카오스 엔지니어링 자세히 알아보기](chaos-studio-chaos-engineering-overview.md)

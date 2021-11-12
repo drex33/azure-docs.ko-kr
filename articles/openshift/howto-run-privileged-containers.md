@@ -7,17 +7,17 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
-ms.openlocfilehash: 77e75232b7f9d23f1d07931cc7dc231174e1312d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 167a031098feb7764b205b81bcf63f68422be10e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633565"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308208"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 권한 있는 컨테이너 실행
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11은 2022년 6월 30일부터 사용이 중지됩니다. 새로운 Azure Red Hat OpenShift 3.11 클러스터 만들기 지원은 2020년 11월 30일까지 계속됩니다. 사용 중지 후에는 보안 취약성을 방지하기 위해 남아 있는 Azure Red Hat OpenShift 3.11 클러스터가 종료됩니다.
+> Azure Red Hat OpenShift 3.11은 2022년 6월 30일부터 사용이 중지됩니다. 새 Azure Red Hat OpenShift 3.11 클러스터 만들기 지원은 2020년 11월 30일까지 계속됩니다. 사용 중지 후에는 보안 취약성을 방지하기 위해 남아 있는 Azure Red Hat OpenShift 3.11 클러스터가 종료됩니다.
 > 
 > 이 가이드를 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
 > 궁금한 점은 [Microsoft에 문의](mailto:arofeedback@microsoft.com)하세요.
@@ -181,7 +181,7 @@ oc create -f twistlock_route.yaml
 
 Twistlock 설명서를 따릅니다.
 
-### <a name="install-defender"></a>Defender 설치
+### <a name="install-defender-for-cloud"></a>Defender for Cloud 설치
 
 2단계의 `oc create -f defender.yaml`에서 클러스터 역할 및 클러스터 역할 바인딩을 만들 때 오류가 발생합니다.
 이런 예외는 무시할 수 있습니다.

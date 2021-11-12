@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: b24fcbac37288dd3c49fe64fe517dd31bbab03d2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4fd6360d1d549cd5c184dd5a1f3105d238ab9319
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788404"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335806"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,11 +62,11 @@ ms.locfileid: "124788404"
 
 데이터 검색 및 분류는 민감도 레이블 집합 및 정보 유형과 검색 논리 집합을 기본적으로 제공합니다. 이 분류법을 사용자 지정하고, 사용자 환경에 맞게 분류 구문 집합과 순위를 정의할 수 있습니다.
 
-전체 Azure 조직에 대해 중앙의 한 위치에서 분류 체계를 정의하고 사용자 지정합니다. 해당 위치는 보안 정책의 일부로 [Azure Security Center](../../security-center/security-center-introduction.md)에 있습니다. 조직의 루트 관리 그룹에 대한 관리 권한이 있는 사람만이 이 작업을 수행할 수 있습니다.
+전체 Azure 조직에 대해 중앙의 한 위치에서 분류 체계를 정의하고 사용자 지정합니다. 해당 위치는 보안 정책의 일부로 [클라우드의 Microsoft Defender](../../security-center/security-center-introduction.md)에 있습니다. 조직의 루트 관리 그룹에 대한 관리 권한이 있는 사람만이 이 작업을 수행할 수 있습니다.
 
 정책 관리의 일환으로, 사용자 지정 레이블을 정의하고, 순위를 지정하고, 선택한 정보 유형 세트와 연결할 수 있습니다. 사용자 고유의 사용자 지정 정보 유형을 추가하고 문자열 패턴을 사용하여 구성할 수도 있습니다. 패턴은 데이터베이스에서 이러한 유형의 데이터를 식별하기 위한 검색 논리에 추가됩니다.
 
-자세한 내용은 [Azure Security Center에서 SQL 정보 보호 정책 사용자 지정(미리 보기)](../../security-center/security-center-info-protection-policy.md)을 참조하세요.
+자세한 내용은 [클라우드 용 Microsoft Defender에서 SQL information protection 정책 사용자 지정 (미리 보기)](../../security-center/security-center-info-protection-policy.md)을 참조 하세요.
 
 조직 전체 정책을 정의한 후에는 사용자 지정된 정책을 사용하여 개별 데이터베이스 분류를 계속할 수 있습니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "124788404"
 
 분류의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다. [Azure SQL 감사](../../azure-sql/database/auditing-overview.md) 기능이 개선되어 `data_sensitivity_information`이라는 감사 로그에 새 필드가 포함되었습니다. 이 필드는 쿼리에 의해 반환된 데이터의 민감도 분류(레이블)를 기록합니다. 예를 들면 다음과 같습니다.
 
-[ ![감사 로그](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+[![감사 로그](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
 
 이러한 활동은 실제로 민감도 정보를 사용하여 감사할 수 있습니다.
 - ALTER TABLE ... DROP COLUMN

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 9d40ea656f74df1083eadc276eea8a109abd44b0
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 0906c255c3fd77be4de670a980bdc0a2f108c121
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294567"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347107"
 ---
 # <a name="best-practices-for-azure-kubernetes-service-and-azure-database-for-mysql"></a>Azure Kubernetes Service 및 Azure Database for MySQL에 대한 모범 사례
 
@@ -24,7 +24,7 @@ AKS(Azure Kubernetes Service)는 Azure에서 사용할 수 있는 관리형 Kube
 Azure Database for MySQL에는 두 가지 배포 옵션이 있습니다.
 
 - 단일 서버
-- 유연한 서버(미리 보기)
+- 유연한 서버
 
 단일 서버는 단일 가용성 영역을 지원하고 유연한 서버는 여러 가용성 영역을 지원합니다. 반면에 AKS는 단일 또는 여러 가용성 영역을 사용하도록 설정하는 것도 지원합니다.  먼저 데이터베이스 서버를 만들어 서버가 있는 가용성 영역을 확인한 다음, 동일한 가용성 영역에 AKS 클러스터를 만듭니다. 이렇게 하면 네트워킹 대기 시간을 줄여 애플리케이션의 성능을 향상시킬 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 215b9486af06c58cd1e7a6990bfc10ad43d4407f
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 26d2b6123e40f163d261009ff1c2f706f7597825
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567455"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309608"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE 50 PERCENT;
 ```
 
-*product\_category* 와 *product<\_sub\_category* 사이에 상관 관계가 있으므로, 이러한 열을 동시에 액세스하는 경우 다중 열 통계 개체가 유용할 수 있습니다.
+*product\_category* 와 *product<\_sub\_category* 사이에 상관 관계가 있으므로, 이러한 열을 동시에 액세스하는 경우 다중 열 통계 개체가 유용할 수 있습니다. 이 테이블을 쿼리할 때 다중 열 통계는 조인, GROUP BY 집계, 고유 개수 및 WHERE 필터에 대한 카디널리티 예상치를 향상시킵니다(기본 통계 열이 필터의 일부인 경우).
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>테이블의 모든 열에 대한 통계 만들기
 

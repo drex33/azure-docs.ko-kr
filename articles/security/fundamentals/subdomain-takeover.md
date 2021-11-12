@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b815914d4a34d50e2bb566097620ee29e15f957
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 665cb2c8db360f061023294d563082321aae70e8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677529"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305810"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현수 DNS 항목 방지 및 하위 도메인 인수 방지
 
@@ -144,15 +144,15 @@ DNS 영역을 검토하고 현수 또는 인수된 CNAME 레코드를 식별합�
 
 일부 Azure 서비스는 예방 조치를 구현하는 데 도움이 되는 기능을 제공하며 아래에 자세히 설명되어 있습니다. 이 문제를 방지하는 다른 방법은 조직의 모범 사례 또는 표준 운영 절차를 통해 정립해야 합니다.
 
-### <a name="enable-azure-defender-for-app-service"></a>Azure Defender for App Service 사용
+### <a name="enable-microsoft-defender-for-app-service"></a>Microsoft Defender for App Service 사용
 
-Azure Security Center의 CWPP(통합 클라우드 워크로드 보호 플랫폼)인 Azure Defender는 Azure, 하이브리드, 다중 클라우드 리소스 및 워크로드를 보호하는 다양한 플랜을 제공합니다.
+클라우드용 Microsoft Defender의 CWPP(통합 클라우드 워크로드 보호 플랫폼) Microsoft Defender for Cloud는 Azure, 하이브리드 및 다중 클라우드 리소스와 워크로드를 보호하기 위한 다양한 계획을 제공합니다.
 
-**Azure Defender for App Service** 플랜에는 현수 DNS 검색이 포함됩니다. 이 플랜을 사용하도록 설정하면 App Service 웹 사이트를 서비스 해제했지만 DNS 등록 기관에서 해당 사용자 지정 도메인을 제거하지 않은 경우 보안 경고가 발생합니다.
+**microsoft Defender for App Service** 계획에는 기존 DNS 검색이 포함됩니다. 이 플랜을 사용하도록 설정하면 App Service 웹 사이트를 서비스 해제했지만 DNS 등록 기관에서 해당 사용자 지정 도메인을 제거하지 않은 경우 보안 경고가 발생합니다.
 
-Azure Defender의 현수 DNS 보호는 도메인이 Azure DNS 또는 외부 도메인 등록 기관으로 관리되는지 여부에 관계없이 사용할 수 있고 Windows의 App Service 및 Linux의 App Service 모두에 적용합니다.
+클라우드용 Microsoft Defender의 기존 DNS 보호는 도메인이 Azure DNS 또는 외부 도메인 등록 기관으로 관리되는지 여부에 관계없이 사용할 수 있으며 Windows Linux의 App Service 적용됩니다.
 
-[Azure defender for App Service 소개](../../security-center/defender-for-app-service-introduction.md)에서 이 Azure Defender 플랜의 이점을 자세히 알아보세요.
+이 Microsoft Defender 플랜의 이점 및 기타 이점에 대해 자세히 [알아보려면 App Service Microsoft Defender 소개를](../../security-center/defender-for-app-service-introduction.md)참조합니다.
 
 ### <a name="use-azure-dns-alias-records"></a>Azure DNS 별칭 레코드 사용
 
@@ -211,7 +211,7 @@ Azure App Service에 대한 DNS 항목을 만들 때 도메인 확인 ID를 사�
 
 하위 도메인 인수로부터 보호하는 데 사용할 수 있는 관련 서비스 및 Azure 기능에 대해 자세히 알아보려면 다음 페이지를 참조하세요.
 
-- [Azure Defender for App Service 사용](../../security-center/defender-for-app-service-introduction.md) - 현수 DNS 항목이 검색되면 경고를 수신
+- [microsoft Defender for App Service 사용](../../security-center/defender-for-app-service-introduction.md) - 기존 DNS 항목이 검색될 때 경고를 받습니다.
 
 - [Azure DNS를 사용하여 현수 DNS 레코드 방지](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

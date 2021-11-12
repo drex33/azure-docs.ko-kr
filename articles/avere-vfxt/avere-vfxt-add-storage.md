@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 59b48f00e46a86720d7488a348db66e314c38928
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001527"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279370"
 ---
 # <a name="configure-storage"></a>스토리지 구성
 
@@ -156,7 +156,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
    * 필요에 따라 **암호화 유형** 을 **없음** 으로 설정합니다.  Azure Storage는 기본적으로 암호화되어 있습니다.
    * **파일러 추가** 를 클릭합니다.
 
-   자세한 내용은 Avere 클러스터 구성 가이드의 [새 클라우드 코어 파일러 추가](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>)를 참조하세요.
+   자세한 내용은 Avere 클러스터 구성 가이드의 [새 클라우드 코어 파일러 추가](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html)를 참조하세요.
 
 페이지가 새로 고쳐지거나 페이지를 새로 고쳐 새 코어 파일러를 표시할 수 있습니다.
 

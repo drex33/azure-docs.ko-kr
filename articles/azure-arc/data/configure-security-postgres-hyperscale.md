@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 48732ac1f22d090afd3dd4b5607bd3d64ae51c8b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 92a8e44352d287cd6be1b48ed2c0aa3bc004b75d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555441"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294222"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
 
@@ -52,7 +52,7 @@ Azure Arc 설정을 호스팅하는 데 사용되는 디스크를 암호화하�
 CREATE EXTENSION pgcrypto;
 ```
 
-> 연결 방법에 대한 자세한 내용은 [여기를](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md) 확인하세요.
+> 연결 방법 [에 대 한](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md) 자세한 내용을 확인 하세요.
 
 #### <a name="verify-the-list-the-extensions-ready-to-use-in-your-server-group"></a>서버 그룹에서 사용할 준비가 된 확장 목록을 확인합니다.
 
@@ -104,19 +104,19 @@ select hmac('Les sanglots longs des violons de l_automne', 'md5', 'sha256');
 
 또 다른 예시로, 암호 같이 암호화된 데이터를 저장합니다.
 
-- 애플리케이션은 다음 표에 비밀을 저장합니다.
+- 응용 프로그램은 다음 표에 있는 암호를 저장 합니다.
 
    ```console
    create table mysecrets(USERid int, USERname char(255), USERpassword char(512));
    ```
 
-- 사용자를 만들 때 암호를 암호화합니다.
+- 사용자를 만들 때 암호를 암호화 합니다.
 
    ```console
    insert into mysecrets values (1, 'Me', crypt('MySecretPasswrod', gen_salt('md5')));
    ```
 
-- 암호가 암호화되어 있습니다.
+- 암호가 암호화 되어 있는지 확인 합니다.
 
    ```console
    select * from mysecrets;
@@ -130,10 +130,10 @@ select hmac('Les sanglots longs des violons de l_automne', 'md5', 'sha256');
 - USERpassword: $1$Uc7jzZOp$NTfcGo7F10zGOkXOwjHy31
 ```
 
-애플리케이션에 연결하고 암호를 전달하면 테이블에서 찾은 `mysecrets` 다음, 애플리케이션에 제공된 암호와 테이블에 저장된 암호가 일치하는 경우 사용자 이름을 반환합니다. 예를 들어:
+응용 프로그램에 연결 하 고 암호를 전달 하면 테이블에서 조회 되 고, `mysecrets` 응용 프로그램에 제공 된 암호와 테이블에 저장 된 암호 사이에 일치 하는 항목이 있는 경우 사용자의 이름을 반환 합니다. 예를 들면 다음과 같습니다.
 
 
-- 잘못된 암호를 전달합니다.
+- 잘못 된 암호를 전달 합니다.
    
    ```console
    select USERname from mysecrets where (USERpassword = crypt('WrongPassword', USERpassword));
@@ -147,11 +147,11 @@ select hmac('Les sanglots longs des violons de l_automne', 'md5', 'sha256');
    (0 rows)
    ```
 
-- 올바른 암호를 전달합니다.
+- 올바른 암호를 전달 합니다.
 
    ```console
    select USERname from mysecrets where (USERpassword = crypt('MySecretPasswrod', USERpassword));
-   ``` 
+   ```
 
    출력:
 
@@ -168,7 +168,7 @@ select hmac('Les sanglots longs des violons de l_automne', 'md5', 'sha256');
 
 ### <a name="general-perspectives"></a>일반적인 큐브 뷰
 
-Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 역할 및 사용자를 구성하려면 표준 Postgres 방법을 사용하여 역할 및 사용자를 관리합니다. 자세한 내용은 [여기를 읽어보세요.](https://www.postgresql.org/docs/12/user-manag.html) 역할의 정의 및 구성은 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 구성하는 모든 Postgres 인스턴스에 자동으로 전파됩니다.
+Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에서 역할 및 사용자를 구성 하려면 표준 Postgres 방법을 사용 하 여 역할 및 사용자를 관리 합니다. 자세한 내용은 [여기](https://www.postgresql.org/docs/12/user-manag.html)를 참조 하세요. 역할의 정의와 구성은 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 Postgres 인스턴스에 자동으로 전파 됩니다.
 
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>_postgres_ 관리 사용자의 암호 변경
 
@@ -229,7 +229,7 @@ AZDATA_PASSWORD **세션** 환경 변수의 값이 존재하되 값이 없거나
    ```
 
 > [!NOTE]
-> AZDATA_PASSWORD 세션의 환경 변수가 존재하며 어떤 값을 가지고 있는지 확인하려면 다음을 실행합니다.
+> AZDATA_PASSWORD 세션의 환경 변수가 있는지 확인 하려면 다음을 실행 합니다.
 > - Linux 클라이언트에서 다음을 실행합니다.
 >
 > ```console

@@ -5,14 +5,14 @@ author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 6/3/2021
+ms.date: 11/10/2021
 ms.author: srijangupta
-ms.openlocfilehash: 4e9d7eec14e994d88f4212df4d0e848de1ea6476
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: e3d68e704ce91cddfabeb8518a60bba469b7adf7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689775"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301201"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
 
@@ -159,3 +159,7 @@ az vm create \
 >4. tarball을 VM(`scp ./image_buster_azure_amd64.vhd.tar.gz <vm>:~`)에 복사합니다.
 >5. VM에서 VHD를 추출합니다. `tar -xf ./image_buster_azure_amd64.vhd.tar.gz`(파일 크기를 지정하는 데 약간의 시간이 소요됩니다).
 >6. 마지막으로 VM에서 `azcopy`(위의 명령)를 사용하여 VHD를 Azure Disk에 복사합니다.
+
+
+**다음 단계:** 이제 Debian Linux 가상 하드 디스크를 사용 하 여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)를 참조하세요.
+

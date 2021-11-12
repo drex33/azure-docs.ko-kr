@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
-ms.openlocfilehash: 5a5c76ed125a600458b87b3c5f4c451a62b13e8c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c42028b10a71a039a208f82cfacb58e5ba8e07cc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053677"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347730"
 ---
 # <a name="entity-components"></a>엔터티 구성 요소
 
@@ -57,7 +57,7 @@ ms.locfileid: "131053677"
 
 이 옵션은 다양 한 구성 요소에서 가능한 가장 긴 예측을 추출 하는 데 관심이 있는 경우에 가장 적합 합니다. 이 메서드는 혼동 (중복)이 있을 때마다 반환 되는 구성 요소가 가장 긴 것을 보장 합니다.
 
-#### <a name="examples"></a>예제
+#### <a name="examples"></a>예
 
 "Palm 해변"이 목록 구성 요소와 일치 하 고 학습 된 구성 요소에서 "팜 해변 확장"을 예측 한 경우이 겹치는 부분에서 가장 긴 문자 집합 이기 때문에 "**palm 해변 확장**"이 반환 됩니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "131053677"
 
 이 옵션은 여러 구성 요소를 동시에 검색 해야 하는 엄격한 엔터티가 추출 될 때 가장 적합 합니다.
 
-#### <a name="examples"></a>예제
+#### <a name="examples"></a>예
 
 "Palm 해변"이 목록 구성 요소와 일치 하 고 학습 된 구성 요소에서 "Palm 해변"을 예측 했 고 이러한 구성 요소가 엔터티에 정의 된 유일한 두 구성 요소인 경우 모든 구성 요소가 정확히 동일한 문자를 중첩 하 여 "**palm** 해변"이 반환 됩니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "131053677"
 
 이 옵션은 회수를 최적화 하 고 결합할 수 있는 가장 긴 일치 항목을 가져오려고 시도 하는 경우에 가장 적합 합니다.
 
-#### <a name="examples"></a>예제
+#### <a name="examples"></a>예
 
 "Palm 해변"이 목록 구성 요소에 의해 일치 하 고 "Palm 해변 확장"이 학습 된 구성 요소에 의해 예측 된 경우 "palm **해변 extension**"이 반환 됩니다 .이는 겹치는 부분의 시작 부분에 있는 첫 번째 문자가 "palm"의 "P"이 고 겹치는 구성 요소의 끝에 있는 마지막 문자는 "Extension"의 "n"입니다.
 
@@ -117,7 +117,7 @@ ms.locfileid: "131053677"
 
 이 옵션은 예측 후에 엔터티에 대해 고유한 중첩 논리를 적용 하려는 경우에 가장 적합 합니다.
 
-#### <a name="examples"></a>예제
+#### <a name="examples"></a>예
 
 "Palm 해변"이 목록 구성 요소와 일치 하 고 학습 된 구성 요소에서 "팜 해변 확장"을 예측 한 경우 엔터티는 두 개의 인스턴스를 반환 합니다. 하나는 "**팜 해변**"이 고 다른 하나는 "**팜 해변 확장**"입니다.
 

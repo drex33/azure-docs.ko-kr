@@ -9,12 +9,12 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 367a0b7f231fcdd88a28237e83916995fd58062b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 485ace0d04375a406c8013d60d45635a596964a1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129220438"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319520"
 ---
 # <a name="manually-promote-a-resource-manager-template-to-each-environment"></a>Resource Manager 템플릿을 각 환경으로 수동으로 승격
 
@@ -36,7 +36,7 @@ Azure Data Factory 연속 통합 및 제공을 위해 Resource Manager 템플릿
 
    :::image type="content" source="media/continuous-integration-delivery/custom-deployment-edit-template.png" alt-text="템플릿 편집":::
 
-1. 설정 섹션에서 연결된 서비스 자격 증명과 같은 구성 값을 입력합니다. 완료되면 **구매** 를 선택하여 Resource Manager 템플릿을 배포합니다.
+1. 설정 섹션에서 배포에 필요한 연결된 서비스 자격 증명과 같은 구성 값을 입력합니다. 완료되면 **검토 + 만들기를** 선택하여 Resource Manager 템플릿을 배포합니다.
 
    :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image5.png" alt-text="설정 섹션":::
 
@@ -47,4 +47,4 @@ Azure Data Factory 연속 통합 및 제공을 위해 Resource Manager 템플릿
 - [Resource Manager 템플릿에서 사용자 지정 매개 변수 사용](continuous-integration-delivery-resource-manager-custom-parameters.md)
 - [연결된 Resource Manager 템플릿](continuous-integration-delivery-linked-templates.md)
 - [핫픽스 프로덕션 환경 사용](continuous-integration-delivery-hotfix-environment.md)
-- [샘플 배포 전 및 배포 후 스크립트](continuous-integration-delivery-sample-script.md)
+- [ 샘플 배포 전 및 배포 후 스크립트](continuous-integration-delivery-sample-script.md)

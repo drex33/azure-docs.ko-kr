@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c6a80a4d17fd5bf9584a6aaa8b50802f5a4ec5a6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4e7ce4f07e49b7efc0f62ff668e72542fc3def77
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468881"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132302010"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -84,7 +84,8 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
                     });
                 })
             .UseStartup<Startup>());
-    ```   
+    ```
+
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp

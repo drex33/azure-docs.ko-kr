@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0e3797e7f78b0938a50e2803f46962b4cacdcd33
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b2d8dcbee2b8308a78982122aea79c9775580642
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998165"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347050"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -218,7 +218,7 @@ Azure에서 특정 기능을 담당하는 그룹이나 개별 역할을 지정�
 **모범 사례**: 직접적인 운영 책임이 있는 보안 팀에게 적절한 권한을 부여합니다.
 **세부 정보**: 적절한 역할을 할당할 수 있도록 Azure 기본 제공 역할을 검토합니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만들면 됩니다. 기본 제공 역할과 마찬가지로 구독, 리소스 그룹 및 리소스 범위에서 사용자 지정 역할을 사용자, 그룹 및 서비스 주체에 할당할 수 있습니다.
 
-**모범 사례**: Azure Security Center 액세스 권한이 필요한 보안 역할에 액세스 권한을 부여합니다. 보안 팀은 Security Center를 통해 신속하게 위험을 식별하고 수정할 수 있습니다.
+**모범 사례:** 클라우드용 Microsoft Defender에 필요한 보안 역할에 대한 액세스 권한을 부여합니다. Defender for Cloud를 사용하면 보안 팀이 위험을 신속하게 식별하고 수정할 수 있습니다.
 **세부 정보**: 보안 정책을 살펴보고, 보안 상태를 살펴보고, 보안 정책을 편집하고, 경고 및 권장 사항을 살펴보고, 경고 및 권장 사항을 해제할 수 있도록 이 요구 사항이 있는 보안 팀을 Azure RBAC [보안 관리자](../../role-based-access-control/built-in-roles.md#security-admin) 역할에 추가합니다. 책임의 범위에 따라 루트 관리 그룹 또는 세그먼트 관리 그룹을 사용하여 이 작업을 수행할 수 있습니다.
 
 Azure RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지 않는 조직은 해당 사용자에게 필요 이상으로 많은 권한을 부여하게 될 수 있습니다. 이로 인해 사용자가 액세스 권한을 가지면 안 되는 형식의 데이터(예: 높은 비즈니스 영향)에 액세스할 수 있게 되어 데이터가 손상될 수 있습니다.

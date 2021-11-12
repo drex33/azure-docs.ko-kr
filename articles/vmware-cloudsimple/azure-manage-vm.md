@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26f35e9b34278a5fe7aaacbfef5672cd5b5c8d80
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 4bbab40f094c11ab2f791352364e8e2e953b92a8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129618160"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132322648"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Azure에서 CloudSimple 프라이빗 클라우드 가상 머신 관리
 
@@ -51,7 +51,7 @@ ms.locfileid: "129618160"
 
 VM 디스크를 추가하려면 선택한 VM에 대한 **디스크** 페이지를 엽니다. 디스크를 추가하려면 **디스크 추가** 를 클릭합니다. 인라인 옵션을 입력하거나 선택하여 다음 설정을 각각 구성합니다. **저장** 을 클릭합니다.
 
-   | 항목 | Description |
+   | 항목 | 설명 |
    | ------------ | ------------- |
    | 이름 | 디스크를 식별하는 이름을 입력합니다.  |
    | 크기 | 사용 가능한 크기 중 하나를 선택합니다.  |

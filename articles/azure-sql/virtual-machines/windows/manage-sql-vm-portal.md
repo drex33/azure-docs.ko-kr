@@ -14,12 +14,12 @@ ms.date: 05/30/2021
 ms.author: pamela
 ms.reviewer: mathoma
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 16b2a041dc384e8c04df077638a51db1a7823da2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 602cb3affc441c92dfa29ac41de893c96a617ff7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072119"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301877"
 ---
 # <a name="manage-sql-server-vms-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server VM 관리
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -118,12 +118,13 @@ SQL 가상 머신 리소스의 **보안 구성** 페이지를 사용하여 사�
 
 자세한 내용은 [보안 모범 사례](security-considerations-best-practices.md)를 참조하세요.
 
+<a name="security-center"></a>
 
-## <a name="security-center"></a>Security Center 
+## <a name="defender-for-cloud"></a>Defender for Cloud 
 
-SQL 가상 머신 리소스의 **Security Center** 페이지를 사용하여 SQL 가상 머신 블레이드에서 직접 Security Center 권장 사항을 볼 수 있습니다. 자세한 내용은 [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 참조하세요. 
+SQL 가상 머신 리소스의 defender **for SQL** 페이지를 사용하여 SQL 가상 머신 블레이드에서 직접 Defender for Cloud 권장 사항을 볼 수 있습니다. 이 기능을 활용하려면 [SQL Microsoft Defender를](../../../security-center/defender-for-sql-usage.md) 사용하도록 설정합니다. 
 
-![SQL 가상 머신 리소스를 사용하여 Azure Portal의 SQL Server Security Center 설정 구성](./media/manage-sql-vm-portal/sql-vm-security-center.png)
+![SQL 가상 머신 리소스를 사용하여 Azure Portal SQL Server Defender for Cloud 설정 구성](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
 ## <a name="sql-assessment-preview"></a>SQL 평가(미리 보기)
 
@@ -131,7 +132,7 @@ SQL 가상 머신 리소스의 SQL **평가** 페이지를 사용하여 SQL Serv
 
 :::image type="content" source="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png" alt-text="SQL 가상 머신 리소스 페이지의 Azure Portal SQL 평가를 봅니다." lightbox="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png":::
 
-자세한 내용은 [Azure VM에서 SQL Server SQL 평가를 참조하세요.](sql-assessment-for-sql-vm.md)
+자세한 내용은 [Azure VM의 SQL Server 대한 SQL 평가를 참조하세요.](sql-assessment-for-sql-vm.md)
 
 ## <a name="next-steps"></a>다음 단계
 

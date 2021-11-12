@@ -1,7 +1,7 @@
 ---
 title: SAP HANA에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 SAP HANA에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 SAP HANA 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
@@ -9,23 +9,23 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: db36f9adee68f28634a7976301efa9ecb6b3af8f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a773828f74205c982ebdbef7f74f98c93f2c167c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764016"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327544"
 ---
-# <a name="copy-data-from-sap-hana-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 SAP HANA에서 데이터 복사
+# <a name="copy-data-from-sap-hana-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 SAP HANA 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-sap-hana-connector.md)
 > * [현재 버전](connector-sap-hana.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 SAP HANA 데이터베이스에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 SAP HANA 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->Sap 데이터 통합 시나리오에 대 한 전반적인 지원에 대 한 자세한 내용은 sap [데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 각 sap 커넥터에 대 한 자세한 소개, 비교 및 지침을 참조 하세요.
+>SAP 데이터 통합 시나리오에 대한 전반적인 지원에 대해 알아보려면 각 SAP 커넥터, 비교 및 지침에 대한 자세한 소개가 있는 SAP [데이터 통합 백서를](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -91,7 +91,7 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SapHana** 로 설정해야 합니다. | 예 |
-| connectionString | **기본 인증** 또는 **Windows 인증** 을 사용하여 SAP HANA 연결에 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수(기본 포트는 30015)이고, 기본 인증을 사용하는 경우 사용자 이름 및 암호는 필수입니다. 추가 고급 설정은 [SAP HANA ODBC 연결 속성](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)을 참조하세요.<br/>Azure Key Vault에 암호를 넣고 연결 문자열에서 암호 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
+| connectionString | **기본 인증** 또는 **Windows 인증** 을 사용하여 SAP HANA 연결에 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수(기본 포트는 30015)이고, 기본 인증을 사용하는 경우 사용자 이름 및 암호는 필수입니다. 추가 고급 설정은 [SAP HANA ODBC 연결 속성](https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html)을 참조하세요.<br/>Azure Key Vault에 암호를 넣고 연결 문자열에서 암호 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | userName | Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. 예: `user@domain.com` | 예 |
 | password | 사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
@@ -169,7 +169,7 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
 SAP HANA의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SapHanaTable** 로 설정해야 합니다. | 예 |
 | 스키마 | SAP HANA 데이터베이스의 스키마 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -264,7 +264,7 @@ SAP HANA 커넥터는 SAP HANA 데이터를 병렬로 복사하는 기본 제공
 | 시나리오                                           | 제안된 설정                                           |
 | -------------------------------------------------- | ------------------------------------------------------------ |
 | 큰 테이블에서 전체 로드입니다.                        | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행 중에 서비스는 지정된 SAP HANA 테이블의 실제 파티션 유형을 자동으로 검색하고 해당 파티션 전략을 선택합니다.<br>- **범위 분할**: 테이블에 대해 정의된 파티션 열 및 파티션 범위를 가져오고 범위별로 데이터를 복사합니다. <br>- **해시 분할:** 해시 파티션 키를 파티션 열로 사용한 다음 서비스에서 계산한 범위에 따라 데이터를 분할하고 복사합니다. <br>- **라운드 로빈 분할** 또는 **파티션 없음:** 기본 키를 파티션 열로 사용한 다음 서비스에서 계산한 범위에 따라 데이터를 분할하고 복사합니다. |
-| 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다. | **파티션 옵션**: 동적 범위 파티션.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 동적 범위 파티션을 적용하는 데 사용되는 열을 지정합니다. <br><br>실행 중에 서비스는 먼저 병렬 복사 설정인 고유 파티션 열 값 수에 따라 여러 버킷의 행을 균등하게 분산한 다음 를 각 파티션에 `?AdfHanaDynamicRangePartitionCondition` 대한 파티션 열 값 범위 필터링으로 바꾸고 를 SAP HANA 보냅니다.<br><br>여러 열을 파티션 열로 사용하려는 경우 각 열의 값을 쿼리에서 하나의 열로 결합하고 과 같이 파티션 열로 지정할 수 `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition` 있습니다. |
+| 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다. | **파티션 옵션**: 동적 범위 파티션.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 동적 범위 파티션을 적용하는 데 사용되는 열을 지정합니다. <br><br>실행 중에 서비스는 먼저 병렬 복사 설정인 고유 파티션 열 값 수에 따라 여러 버킷의 행을 균등하게 분산한 다음 를 각 파티션의 `?AdfHanaDynamicRangePartitionCondition` 파티션 열 값 범위 필터링으로 바꾸고 을 SAP HANA 전송하여 지정된 파티션 열의 값 범위를 계산합니다.<br><br>여러 열을 파티션 열로 사용하려는 경우 각 열의 값을 쿼리에서 하나의 열로 결합하고 과 같이 파티션 열로 지정할 수 `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition` 있습니다. |
 
 **예: 테이블의 물리적 파티션이 있는 쿼리**
 

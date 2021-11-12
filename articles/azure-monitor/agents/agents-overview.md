@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 7bd926b12a85b62b79f55be3afd3dbbd67af4a25
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 92468fc96148dd22aab33e5cf7c4ff7a42c5ef65
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058429"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308639"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -32,7 +32,7 @@ ms.locfileid: "131058429"
 | **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요합니다. |
 | **수집되는 데이터** | 이벤트 로그<br>성능 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<br>파일 기반 로그<br>IIS 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<sup>1</sup> | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
-| **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
+| **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | VM 인사이트<br>서비스 맵 |
 
 ### <a name="linux-agents"></a>Linux 에이전트
 
@@ -42,7 +42,7 @@ ms.locfileid: "131058429"
 | **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요합니다. |
 | **수집되는 데이터** | Syslog<br>성능 | Syslog<br>성능 | 성능 | Syslog<br>성능| 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<sup>1</sup> | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
-| **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
+| **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | VM 인사이트<br>서비스 맵 |
 
 <sup>1</sup> Azure Monitor 메트릭 사용에 대한 다른 제한 내용을 [검토하려면 여기를 클릭하세요.](../essentials/metrics-custom-overview.md#quotas-and-limits) Linux에서는 Azure Monitor 메트릭을 유일한 대상으로 사용하는 것이 v.1.10.9.0 이상에서 지원됩니다. 
 
@@ -53,23 +53,25 @@ ms.locfileid: "131058429"
 다음 작업을 수행해야 하는 경우 Azure Monitor 에이전트를 사용합니다.
 
 - Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. ( Azure Arc 사용[가능한 서버는](../../azure-arc/servers/overview.md) Azure 외부의 머신에 필요합니다.) 
-- [데이터 수집 규칙](./data-collection-rule-overview.md)을 사용하여 중앙에서 데이터 수집 구성을 관리하고 전체 관리를 위해 ARM(Azure Resource Manager) 템플릿 또는 정책을 사용합니다.
-- Azure Monitor 사용하여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭(미리 보기)에 데이터를 보냅니다. 
-- Windows 및 Linux에서 로그에 대한 Windows 이벤트 필터링 또는 멀티 호밍 활용
+- 데이터 수집 규칙을 사용하여 [중앙에서 데이터 수집](./data-collection-rule-overview.md) 구성을 관리하고 전체 관리를 위해 ARM(Azure Resource Manager) 템플릿 또는 정책을 사용합니다.
+- Azure Monitor 사용하여 분석하기 위해 Azure Monitor 로그 및 Azure Monitor 메트릭(미리 보기)으로 데이터를 보냅니다. 
+- Windows 및 Linux의 로그에 Windows 이벤트 필터링 또는 멀티 호밍을 사용합니다.
+
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Available in private preview.)
+- Manage the security of your machines using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)  or [Microsoft Sentinel](../../sentinel/overview.md). (Available in private preview.)
 - Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
-- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
+- Manage the security of your machines using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)  or [Microsoft Sentinel](../../sentinel/overview.md).
 - Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
 -->
+
 Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
-- 프로덕션에서 Log Analytics 솔루션을 사용할 수 없습니다(미리 보기에서만 사용 가능, [지원되는 기능 보기](./azure-monitor-agent-overview.md#supported-services-and-features)).
+
+- 프로덕션에서 Azure Monitor 에이전트를 사용할 수 없습니다(미리 보기에서만 사용 가능, [지원되는 기능 참조).](./azure-monitor-agent-overview.md#supported-services-and-features)
 - 프라이빗 링크와 관련된 네트워킹 시나리오는 아직 지원되지 않습니다. 
 - 사용자 지정 로그(파일) 또는 IIS 로그 파일 수집은 아직 지원되지 않습니다. 
 - 대상으로 Event Hubs 및 Storage 계정을 지원하지 않습니다.
 - Hybrid Runbook 작업자를 지원하지 않습니다.
-
 
 ## <a name="log-analytics-agent"></a>Log Analytics 에이전트
 
@@ -83,7 +85,7 @@ Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
 * Azure 가상 머신 또는 Azure 외부에 호스트된 하이브리드 머신에서 로그 및 성능 데이터를 수집합니다.
 * Log Analytics 작업 영역으로 데이터를 전송하여 [로그 쿼리](../logs/log-query-overview.md) 같은 [Azure Monitor 로그](../logs/data-platform-logs.md)에서 지원되는 기능을 활용합니다.
 * 대규모로 머신을 모니터링할 수 있도록 하며 다른 리소스 및 외부 프로세스에 대한 프로세스 및 종속성을 모니터링하는 [VM 인사이트](../vm/vminsights-overview.md)를 사용합니다.  
-* [Azure Security Center](../../security-center/security-center-introduction.md) 또는 [Azure Sentinel](../../sentinel/overview.md)을 사용하여 머신의 보안을 관리합니다.
+* [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) 또는 Microsoft [Sentinel을](../../sentinel/overview.md)사용하여 머신의 보안을 관리합니다.
 * [Azure Automation 업데이트 관리](../../automation/update-management/overview.md), [Azure Automation 상태 구성](../../automation/automation-dsc-overview.md) 또는 [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md)를 사용하여 Azure 및 비 Azure 머신에 대한 포괄적인 관리를 제공합니다.
 * 다른 [솔루션](../monitor-reference.md#insights-and-curated-visualizations)을 사용하여 특정 서비스 또는 애플리케이션을 모니터링합니다.
 
@@ -129,7 +131,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 - 종속성 에이전트를 사용하려면 Log Analytics 에이전트를 동일한 머신에 설치해야 합니다.
 - Linux 머신에서는 Azure 진단 확장 전에 Log Analytics 에이전트를 설치해야 합니다.
-- Dependency Agent Windows 및 Linux 버전 모두에서 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용하여 수행됩니다. 
+- Dependency Agent Windows 및 Linux 버전에서 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용하여 수행됩니다. 
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
@@ -199,7 +201,8 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 <sup>1</sup> 머신에 Python(2 또는 3)을 설치해야 합니다.
 
-<sup>3</sup> 1.9.0 이전 버전의 Syslog 이벤트 수집에 관한 알려진 문제
+<sup>3</sup> 1.9.0 이전 버전에서 Syslog 이벤트를 수집 하는 알려진 문제
+
 #### <a name="dependency-agent-linux-kernel-support"></a>종속성 에이전트 Linux 커널 지원
 
 종속성 에이전트는 커널 수준에서 작동하므로 지원은 커널 버전에도 좌우됩니다. 다음 표에는 종속성 에이전트에 대한 주 및 부 Linux OS 릴리스와 지원되는 커널 버전이 나와 있습니다.

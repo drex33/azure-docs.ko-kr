@@ -2,18 +2,17 @@
 title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: 6dc2bad744118e57b9e958658814f5c194f633ad
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/09/2021
+ms.openlocfilehash: 0e53d2919d8af3f0e8162d4aca9f55f2ec0ab740
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216621"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335882"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
 함수 앱 인스턴스를 만들 때 Azure Functions에는 Azure Storage 계정이 필요합니다. 함수 앱에서 사용할 수 있는 스토리지 서비스는 다음과 같습니다.
-
 
 |스토리지 서비스  | Functions 사용  |
 |---------|---------|
@@ -52,6 +51,10 @@ ms.locfileid: "130216621"
 ### <a name="shared-storage-accounts"></a>공유 스토리지 계정
 
 여러 함수 앱에서 문제 없이 동일한 스토리지 계정을 공유할 수 있습니다. 예를 들어 Visual Studio에서 Azure Storage 에뮬레이터를 사용하여 여러 앱을 개발할 수 있습니다. 이 경우 에뮬레이터는 단일 스토리지 계정처럼 작동합니다. 함수 앱에서 사용하는 동일한 스토리지 계정을 사용하여 애플리케이션 데이터를 저장할 수도 있습니다. 그러나 프로덕션 환경에서는 이 접근 방법이 항상 좋은 것은 아닙니다.
+
+### <a name="lifecycle-management-policy-considerations"></a>수명 주기 관리 정책 고려 사항
+
+함수는 Blob 저장소를 사용 하 여 [기능 액세스 키](functions-bindings-http-webhook-trigger.md#authorization-keys)와 같은 중요 한 정보를 유지 합니다. Blob Storage 계정에 [수명 주기 관리 정책을](../storage/blobs/lifecycle-management-overview.md) 적용 하는 경우이 정책은 기능 호스트에 필요한 blob를 제거할 수 있습니다. 따라서 함수에서 사용 하는 저장소 계정에 이러한 정책을 적용 하면 안 됩니다. 이러한 정책을 적용 해야 하는 경우 일반적으로 또는로 시작 하는 함수에 사용 되는 컨테이너를 제외 해야 `azure-webjobs` 합니다 `scm` .
 
 ### <a name="optimize-storage-performance"></a>스토리지 성능 최적화
 

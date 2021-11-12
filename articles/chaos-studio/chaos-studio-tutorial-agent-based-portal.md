@@ -7,12 +7,12 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: f83f43b92573aa575b432a7dd75e6f0ec060e475
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: c034b3c3a443532a8f16fe7d33e24a05157312c1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371365"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132352787"
 ---
 # <a name="create-a-chaos-experiment-that-uses-an-agent-based-fault-to-add-cpu-pressure-to-a-linux-vm-with-the-azure-portal"></a>에이전트 기반 오류를 사용하여 linux VM에 CPU 압력을 추가하는 비정상 상황에서 Azure Portal
 
@@ -21,7 +21,7 @@ ms.locfileid: "132371365"
 이러한 동일한 단계를 사용하여 에이전트 기반 오류에 대한 실험을 설정하고 실행할 수 있습니다. **에이전트 기반** 오류는 계측할 필요 없이 Azure 리소스에 대해 직접 실행되는 서비스 직접 오류와 달리 비정상 상태 에이전트를 설치하고 설치해야 합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - Linux 가상 머신. 가상 머신이 없는 경우 다음 [단계에 따라 을 만들](../virtual-machines/linux/quick-create-portal.md)수 있습니다.
@@ -84,7 +84,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
  ![ 실험 검토 및 만들기](images/tutorial-agent-based-add-review.png)
 
 ## <a name="give-experiment-permission-to-your-virtual-machine"></a>가상 머신에 실험 권한 부여
-비정상 상황에서 실험을 만들면 Chaos Studio는 대상 리소스에 대해 오류를 실행하는 시스템 할당 관리 ID를 만듭니다. 실험을 성공적으로 실행하려면 이 ID에 대상 리소스에 [대한 적절한 권한이](chaos-studio-fault-providers.md) 부여되어야 합니다.
+Chaos 실험을 만들 때 Chaos Studio는 대상 리소스에 대해 오류를 실행하는 시스템 할당 관리 ID를 만듭니다. 실험을 성공적으로 실행하려면 이 ID에 대상 리소스에 [대한 적절한 권한이](chaos-studio-fault-providers.md) 부여되어야 합니다.
 
 1. 가상 머신으로 이동하여 **액세스 제어(IAM)** 를 클릭합니다.
 ![가상 머신 개요 페이지](images/tutorial-agent-based-access-resource.png)
@@ -105,5 +105,5 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 
 ## <a name="next-steps"></a>다음 단계
 이제 에이전트 기반 실험을 실행했으므로 다음을 수행할 준비가 되었습니다.
-- [서비스 직접 오류를 사용하는 실험 만들기](chaos-studio-tutorial-service-direct-portal.md)
+- [서비스 직접 오류를 사용하는 실험 만들기](chaos-studio-tutorial-service-direct.md)
 - [실험 관리](chaos-studio-run-experiment.md)

@@ -5,12 +5,12 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: dc44fc58b8832c30ed1b740eb6637f1fc8ed1413
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 878bead652cf9962febc7622ef98ade0abc6cce5
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129454965"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399696"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>VM v2 시작/중지(미리 보기) 배포
 
@@ -192,11 +192,11 @@ VM을 시작하도록 논리 앱을 구성하는 것이 지원됩니다.
     }
     ```
 
-1. 논리 앱에 대 한 개요 창에서 **사용** 을 선택 합니다.  
+1. 논리 앱의 개요 창에서 **사용을** 선택합니다.  
 
 ## <a name="sequenced-start-and-stop-scenario"></a>순차화된 시작 및 중지 시나리오
 
-분산 애플리케이션 아키텍처에서 여러 Azure Resource Manager VM에 둘 이상의 구성 요소를 포함하는 환경에서 구성 요소가 시작되고 중지되는 순서를 지원하는 것이 중요합니다.
+분산 애플리케이션 아키텍처에서 여러 Azure Resource Manager VM에 둘 이상의 구성 요소를 포함하는 환경에서 구성 요소가 시작되고 중지되는 순서를 지원하는 것이 중요합니다. 이 시나리오를 구성하기 전에 [개요 페이지에](../../azure-functions/start-stop-vms/overview.md#overview) 설명된 대로 **sequencestart** 및 **sequencestop** 태그를 대상 VM에 적용했는지 확인합니다.
 
 1. 논리 앱 목록에서 순차 시작을 구성하려면 **ststv2_vms_Sequenced_start** 를 선택합니다. 순차 중지를 구성하려면 **ststv2_vms_Sequenced_stop** 을 선택합니다.
 

@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/18/2021
+ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 52849228540c23f0e9b43e63a681c6140fca765b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c6d0422e3341a93188160b99cb3e62e58bd93016
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806463"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397455"
 ---
-# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes-deprecated"></a>SQL API용 Azure Cosmos DB .NET SDK v2: 다운로드 및 릴리스 정보(사용되지 않습니다.)
+# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes-deprecated"></a>Azure Cosmos DB .net SDK v2 for SQL API: 다운로드 및 릴리스 정보 (사용 되지 않음)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -49,15 +49,15 @@ ms.locfileid: "124806463"
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 > [!IMPORTANT]
-> 2024년 8월 31일에 Azure Cosmos DB .NET SDK v2.x가 사용 중지됩니다. SDK 및 SDK를 사용하는 모든 애플리케이션은 계속 작동합니다. Azure Cosmos DB는 이 SDK에 대한 추가 유지 관리 및 지원을 제공하기 위해 중단됩니다. 최신 버전의 .NET SDK v3 SDK로 마이그레이션하려면 다음 지침을 따르는 것이 좋습니다.
+> 2024 년 8 월 31 일에 Azure Cosmos DB .net sdk v2. x가 사용 중지 됩니다. sdk 및 sdk를 사용 하는 모든 응용 프로그램은 계속 작동 합니다. Azure Cosmos DB이 SDK에 대 한 추가 유지 관리 및 지원을 제공 하는 것은 간단 합니다. 최신 버전의 .NET SDK v3 SDK로 마이그레이션하려면 다음 지침을 따르는 것이 좋습니다.
 >
 
 > [!NOTE]
 > .NET Framework를 사용하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전 3.x를 참조하세요.
 
-다음 .NET SDK 하위 버전은 2.x.x 버전에서 사용할 수 있습니다.
+## <a name="release-history"></a>릴리스 기록
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
+릴리스 기록은 Azure Cosmos DB .net SDK 원본 리포지토리에서 유지 관리 됩니다. .NET Sdk의 다른 하위 버전은 2.x 버전에서 사용할 수 있습니다. 각 릴리스에서 수정 된 기능 릴리스 및 버그에 대 한 자세한 목록은 [SDK 변경 로그 설명서](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) 를 참조 하세요.
 
 ## <a name="faq"></a>FAQ
 

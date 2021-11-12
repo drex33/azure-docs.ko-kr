@@ -118,6 +118,8 @@
       items:
         - name: PowerShell
           href: how-to-assign-app-role-managed-identity-powershell.md
+        - name: CLI
+          href: how-to-assign-app-role-managed-identity-cli.md
     - name: 관리 ID 작업 보기
       href: how-to-view-managed-identity-activity.md
 - name: 참조

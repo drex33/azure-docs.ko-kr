@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 93383fa4b681dd7f0768f5ea30c24e64e9dcb2b9
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 3daabe070d0745c95bc16582262897da9f4c5aae
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123036594"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399507"
 ---
 # <a name="understanding-total-azure-virtual-desktop-deployment-costs"></a>총 Azure Virtual Desktop 배포 비용 이해
 
@@ -114,3 +114,4 @@ Azure Virtual Desktop을 배포한 후 [Azure Cost Management](../../cost-manage
 
 - [라이선스 및 사용자별 액세스 가격 책정 이해](licensing.md)
 - [Azure Virtual Desktop의 사용자별 앱 스트리밍 비용 예상](streaming-costs.md)
+- [비용을 관리하기 위해 Azure Virtual Desktop 리소스에 태그를 추가합니다.](../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)

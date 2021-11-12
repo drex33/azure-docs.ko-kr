@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 7ede1ecbbe86f0ec5ef3a79d38b42ff58b653b0b
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 61d80fb7e187910416958b7e3e0183a875590344
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005356"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399829"
 ---
 # <a name="access-your-application-in-a-private-network"></a>개인 네트워크에서 애플리케이션에 액세스
 
@@ -41,7 +41,7 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 
 #### <a name="cli"></a>[CLI](#tab/azure-CLI)
 
-1. 구독, 리소스 그룹 및 Azure Spring Cloud 인스턴스에 대한 변수를 정의합니다. 실제 환경에 따라 값을 사용자 지정합니다.
+1. 구독, 리소스 그룹 및 Azure 스프링 클라우드 인스턴스에 대 한 변수를 정의 합니다. 실제 환경에 따라 값을 사용자 지정합니다.
 
    ```azurecli
    SUBSCRIPTION='subscription-id'
@@ -56,7 +56,7 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
    az account set --subscription ${SUBSCRIPTION}
    ```
 
-1. 프라이빗 DNS 영역을 만듭니다. 
+1. 개인 DNS 영역을 만듭니다. 
 
    ```azurecli
    az network private-dns zone create --resource-group $RESOURCE_GROUP \
@@ -89,7 +89,7 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 
 #### <a name="cli"></a>[CLI](#tab/azure-CLI)
 
-방금 만든 프라이빗 DNS 영역을 Azure Spring Cloud 서비스가 있는 가상 네트워크에 연결합니다.
+방금 만든 개인 DNS 영역을 Azure 스프링 클라우드 서비스를 보유 하 고 있는 가상 네트워크에 연결 합니다.
 
    ```azurecli
    az network private-dns link vnet create --resource-group $RESOURCE_GROUP \
@@ -148,7 +148,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 #### <a name="cli"></a>[CLI](#tab/azure-CLI)
 
-1. Spring Cloud 서비스의 IP 주소를 찾습니다. 실제 환경에 따라 Spring Cloud 이름의 값을 사용자 지정합니다.
+1. 스프링 클라우드 서비스의 IP 주소를 찾습니다. 실제 환경에 따라 스프링 클라우드 이름 값을 사용자 지정 합니다.
 
    ```azurecli
    SPRING_CLOUD_NAME='spring-cloud-name'
@@ -162,7 +162,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
        --output tsv`
    ```
 
-1. 이 IP 주소를 사용하여 DNS 영역에 A 레코드를 만듭니다. 
+1. 이 IP 주소를 사용 하 여 DNS 영역에 A 레코드를 만듭니다. 
 
    ```azurecli
    az network private-dns record-set a add-record \
@@ -192,7 +192,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 #### <a name="cli"></a>[CLI](#tab/azure-CLI)
 
-엔드포인트를 할당하도록 앱을 업데이트합니다. 실제 환경에 따라 Spring 앱 이름의 값을 사용자 지정합니다.
+앱을 업데이트 하 여 끝점을 할당 합니다. 실제 환경에 따라 스프링 앱 이름 값을 사용자 지정 합니다.
 
 ```azurecli
 SPRING_CLOUD_APP='your spring cloud app'
@@ -212,7 +212,7 @@ az spring-cloud app update --name $SPRING_CLOUD_APP \
 
 ## <a name="next-steps"></a>다음 단계
 
-- [애플리케이션을 인터넷에 노출 - Application Gateway 및 Azure Firewall 사용](./expose-apps-gateway-azure-firewall.md)
+- [응용 프로그램을 인터넷에 노출-Application Gateway 사용](./expose-apps-gateway.md)
 
 ## <a name="see-also"></a>참고 항목
 

@@ -4,15 +4,15 @@ description: Azure Automation에 사용할 수 있는 Azure Policy 규정 준수
 ms.date: 09/17/2021
 ms.topic: sample
 author: mgoedtel
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 1634a3c4ab2a96aaa74b0cf6fa86a20cca741144
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 40fe41d9f1fa122047206047cf1a875cddf37751
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603159"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400835"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Azure Automation에 대한 Azure Policy 규정 준수 컨트롤
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: devx-track-java
 ms.author: ssarwa
 ms.date: 10/12/2021
-ms.openlocfilehash: caa5e21fc573809993e9873b40bb4301d36a3086
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c7706bfe4f237d0785cfcd2b57f889df35873378
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002988"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402127"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-bicep"></a>빠른 시작: Bicep을 사용하여 Azure Spring Cloud 프로비저닝
 
@@ -172,5 +172,5 @@ echo "Press [ENTER] to continue ..."
    - [MySQL 통합을 사용하는 펫 클리닉 앱 ](https://github.com/azure-samples/spring-petclinic-microservices)(MySQL 백 엔드를 사용하는 마이크로 서비스).
    - [간단한 Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Azure Spring Cloud에서 [사용자 지정 도메인](tutorial-custom-domain.md)을 사용합니다.
-- [Azure Application Gateway](expose-apps-gateway-azure-firewall.md)를 사용하여 Azure Spring Cloud 애플리케이션을 인터넷에 노출합니다.
+- [Azure Application Gateway](expose-apps-gateway.md)를 사용하여 Azure Spring Cloud 애플리케이션을 인터넷에 노출합니다.
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)를 기반으로 하는 안전한 엔드투엔드 [Azure Spring Cloud 참조 아키텍처](reference-architecture.md)를 확인합니다.

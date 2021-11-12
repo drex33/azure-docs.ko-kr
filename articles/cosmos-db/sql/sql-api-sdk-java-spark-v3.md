@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: ffa863ba95614a680b933a612e1695ea3c8abbb7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3bf3be5df08ee114c080d5ec846c59e884fc22fe
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644584"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400474"
 ---
 # <a name="azure-cosmos-db-apache-spark-3-oltp-connector-for-core-sql-api-release-notes-and-resources"></a>Core(SQL) API용 Azure Cosmos DB Apache Spark 3 OLTP 커넥터: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -39,4 +39,46 @@ ms.locfileid: "128644584"
 > * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
-[!INCLUDE[README](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-1_2-12/README.md)]
+**Azure Cosmos DB OLTP Spark 커넥터는** SQL API를 사용하여 Azure Cosmos DB에 대한 Apache Spark 지원을 제공합니다. Azure Cosmos DB는 개발자가 SQL, MongoDB, Cassandra, Graph 및 Table과 같은 표준 API를 사용하여 데이터를 사용할 수 있도록 하는 전역 분산 데이터베이스 서비스입니다.
+
+환경을 개선하는 방법에 대한 피드백 또는 아이디어가 있는 경우 [SDK GitHub 리포지토리에서 문제를 만듭니다.](https://github.com/Azure/azure-sdk-for-java/issues/new)
+
+## <a name="documentation-links"></a>문서 링크
+
+* [시작](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)
+* [Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md)
+* [구성 매개 변수 참조](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md)
+
+## <a name="version-compatibility"></a>버전 호환성
+
+| 커넥터     | 최소 Spark 버전 | 최소 Java 버전 | 지원되는 Scala 버전 | 지원되는 Databricks 런타임 |
+| ------------- | --------------------- | -------------------- | -----------------------  | ----------------------------- |
+| 4.4.0         | 3.1.1                 | 8                    | 2.12                     | 8. \* , 9.\*                    |
+| 4.3.1         | 3.1.1                 | 8                    | 2.12                     | 8. \* , 9.\*                    |
+| 4.3.0         | 3.1.1                 | 8                    | 2.12                     | 8. \* , 9.\*                    |
+| 4.2.0         | 3.1.1                 | 8                    | 2.12                     | 8.\*                          |
+| 4.1.0         | 3.1.1                 | 8                    | 2.12                     | 8.\*                          |
+| 4.0.0         | 3.1.1                 | 8                    | 2.12                     | 8.\*                          |
+| 4.0.0-beta.3  | 3.1.1                 | 8                    | 2.12                     | 8.\*                          |
+| 4.0.0-beta.2  | 3.1.1                 | 8                    | 2.12                     | 8.\*                          |
+| 4.0.0-beta.1  | 3.1.1                 | 8                    | 2.12                     | 8.\*                          |
+
+## <a name="download"></a>다운로드
+
+jar의 maven 좌표를 사용하여 Maven에서 Databricks Runtime 8에 Spark 커넥터를 자동으로 설치할 수 있습니다. `com.azure.cosmos.spark:azure-cosmos-spark_3-1_2-12:4.4.0`
+
+SBT 프로젝트에서 Cosmos DB Spark 커넥터를 통합할 수도 있습니다.
+
+```scala
+libraryDependencies += "com.azure.cosmos.spark" % "azure-cosmos-spark_3-1_2-12" % "4.4.0"
+```
+
+Azure Cosmos DB Spark 커넥터는 [Maven Central Repo](https://search.maven.org/search?q=g:com.azure.cosmos.spark)에서 사용할 수 있습니다.
+
+버그가 발생하거나 기능 변경을 제안하려면 [문제를 제출합니다.](https://github.com/Azure/azure-sdk-for-java/issues/new) 
+
+## <a name="next-steps"></a>다음 단계
+
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 대해 자세히 알아보세요.
+
+[Apache Spark](https://spark.apache.org/)에 대해 자세히 알아봅니다.

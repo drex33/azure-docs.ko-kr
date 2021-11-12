@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e1ccf10041c36b26b70bf5c4e5a107c0f6bf19ac
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 83b8867ae750fe85bc848e339ddb0409cba85093
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131021622"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400607"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Form Recognizer 리소스의 관리 ID 만들기 및 사용
 
@@ -29,6 +29,10 @@ Azure 관리 ID는 Azure 관리되는 리소스에 대한 Azure AD(Azure Active 
 관리 ID는 프라이빗 및 퍼블릭 액세스가 가능한 Azure Blob Storage 계정을 둘 다 지원합니다.  퍼블릭 액세스 권한이 있는 스토리지 계정의 경우 SAS(공유 액세스 서명)를 사용하여 제한된 액세스 권한을 부여하도록 선택할 수 있습니다.   이 문서에서는 Form Recognizer 인스턴스에 대해 시스템 할당 관리 ID를 사용하도록 설정하는 방법을 알아봅니다.
 
 ## <a name="private-storage-account-access"></a>프라이빗 스토리지 계정 액세스
+> [!NOTE]
+>
+> 양식 인식기는 현재 시스템 할당 관리 id만 지원 합니다. 사용자 할당 관리 id는 로드맵에 있으며 가까운 장래에 사용 하도록 설정 됩니다. 
+
 
  프라이빗 Azure Storage 계정 액세스 및 인증은 [Azure 리소스용 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에서 지원됩니다. VNet(가상 네트워크) 또는 방화벽으로 보호되는 Azure Storage 계정이 있거나 BYOS(사용자 고유의 스토리지 가져오기)를 사용하도록 설정한 경우, Form Recognizer는 스토리지 계정 데이터에 직접 액세스할 수 없습니다. 그러나 관리 ID가 사용하도록 설정되면 Form Recognizer 서비스는 할당된 관리 ID 자격 증명을 사용하여 스토리지 계정에 액세스할 수 있습니다.
 

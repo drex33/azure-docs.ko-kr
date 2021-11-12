@@ -1,31 +1,29 @@
 ---
-title: Azure Functions의 .NET 5.0에 대한 .NET 격리 프로세스 가이드
-description: .NET 격리 프로세스를 사용하여 Azure의 .NET 5.0 Out of Process에서 C# 함수를 실행하는 방법에 대해 알아봅니다.
+title: '격리 된 프로세스에서 c # Azure Functions를 실행 하기 위한 가이드'
+description: '.Net 격리 프로세스를 사용 하 여 .NET 5.0 이상 버전을 지 원하는 Azure에서 c # 함수를 실행 하는 방법에 대해 알아봅니다.'
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: template-concept
 recommendations: false
-ms.openlocfilehash: b427d0b4d94497039f5949115246b7920b0e0116
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: b12841b83e4c2f6f2756ddffdd4adc7bde77e73a
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829400"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401272"
 ---
-# <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행하는 방법에 대한 가이드
+# <a name="guide-for-running-c-azure-functions-in-an-isolated-process"></a>격리 된 프로세스에서 c # Azure Functions를 실행 하기 위한 가이드
 
-이 문서에서는 C#를 사용하여 Azure Functions에서 Out of Process를 실행하는 .NET 격리 프로세스 함수를 개발하는 방법을 소개합니다. Out of Process를 실행하면 Azure Functions 런타임에서 함수 코드를 분리할 수 있습니다. 또한 현재 .NET 5.0 릴리스를 대상으로 하는 함수를 만들고 실행하는 방법을 제공합니다. 
+이 문서에서는 C#를 사용하여 Azure Functions에서 Out of Process를 실행하는 .NET 격리 프로세스 함수를 개발하는 방법을 소개합니다. Out of Process를 실행하면 Azure Functions 런타임에서 함수 코드를 분리할 수 있습니다. Isolated 프로세스 c # 함수는 .NET 5.0 및 .NET 6.0에서 모두 실행 됩니다. [In-process c # 클래스 라이브러리 함수](functions-dotnet-class-library.md) 는 .net 5.0에서 지원 되지 않습니다. 
 
 | 시작 | 개념| 샘플 |
 |--|--|--| 
 | <ul><li>[Visual Studio Code 사용](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[명령줄 도구 사용](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Visual Studio 사용](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[참조 샘플](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
-.NET 5.0을 지원하거나 함수 Out of Process를 실행하지 않아도 되는 경우 대신 [C# 클래스 라이브러리 함수를 개발](functions-dotnet-class-library.md)할 수 있습니다.
-
 ## <a name="why-net-isolated-process"></a>.NET 격리 프로세스를 사용하는 이유는 무엇인가요?
 
-이전에 Azure Functions는 .NET 함수에 대해 호스트와 동일한 프로세스에서 [클래스 라이브러리로](functions-dotnet-class-library.md) 실행되는 긴밀하게 통합된 모드만 지원했습니다. 이 모드는 호스트 프로세스와 함수 간의 긴밀한 통합을 제공합니다. 예를 들어 .NET 클래스 라이브러리 함수는 바인딩 API 및 형식을 공유할 수 있습니다. 그러나 이 통합에는 호스트 프로세스와 .NET 함수 간의 보다 긴밀한 결합도 필요합니다. 예를 들어 In Process를 실행하는 .NET 함수는 Functions 런타임과 동일한 버전의 .NET에서 실행해야 합니다. 이러한 제약 조건을 벗어나 실행할 수 있도록 이제 격리 프로세스에서 실행하도록 선택할 수 있습니다. 이 프로세스 격리를 통해 Functions 런타임에서 기본적으로 지원하지 않는 최신 .NET 릴리스(예: .NET 5.0)를 사용하는 함수를 개발할 수도 있습니다.
+이전에 Azure Functions는 .NET 함수에 대해 호스트와 동일한 프로세스에서 [클래스 라이브러리로](functions-dotnet-class-library.md) 실행되는 긴밀하게 통합된 모드만 지원했습니다. 이 모드는 호스트 프로세스와 함수 간의 긴밀한 통합을 제공합니다. 예를 들어 .NET 클래스 라이브러리 함수는 바인딩 API 및 형식을 공유할 수 있습니다. 그러나 이 통합에는 호스트 프로세스와 .NET 함수 간의 보다 긴밀한 결합도 필요합니다. 예를 들어 In Process를 실행하는 .NET 함수는 Functions 런타임과 동일한 버전의 .NET에서 실행해야 합니다. 이러한 제약 조건을 벗어나 실행할 수 있도록 이제 격리 프로세스에서 실행하도록 선택할 수 있습니다. 이 프로세스 격리를 통해 Functions 런타임에서 기본적으로 지원하지 않는 최신 .NET 릴리스(예: .NET 5.0)를 사용하는 함수를 개발할 수도 있습니다. 격리 된 프로세스와 in-process c # 클래스 라이브러리 함수는 모두 .NET 6.0에서 실행 됩니다. 자세한 내용은 [지원 되는 버전](#supported-versions)을 참조 하세요. 
 
 이러한 함수는 별도의 프로세스에서 실행되기 때문에 .NET 격리 함수 앱과 .NET 클래스 라이브러리 함수 앱 사이에는 몇 가지 [특징 및 기능 차이](#differences-with-net-class-library-functions)가 있습니다 .
 
@@ -41,7 +39,7 @@ Out of Process를 실행하는 경우 .NET 함수는 다음과 같은 이점을 
 
 ## <a name="net-isolated-project"></a>.NET 격리 프로젝트
 
-.NET 격리 함수 프로젝트는 기본적으로 .NET 5.0를 대상으로 하는 .NET 콘솔 앱 프로젝트입니다. 다음은 .NET 격리 프로젝트에 필요한 기본 파일입니다.
+.NET isolated 함수 프로젝트는 기본적으로 지원 되는 .NET 런타임을 대상으로 하는 .NET 콘솔 응용 프로그램 프로젝트입니다. 다음은 .NET 격리 프로젝트에 필요한 기본 파일입니다.
 
 + [host.json](functions-host-json.md) 파일.
 + [local.settings.json](functions-develop-local.md#local-settings-file) 파일.
@@ -178,11 +176,11 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 함수에 전달되는 [
 
 ## <a name="differences-with-net-class-library-functions"></a>.NET 클래스 라이브러리 함수와의 차이점
 
-이 섹션에서는 In Process를 실행하는 .NET 클래스 라이브러리 함수에 비해 .NET 5.0 Out of Process에서 실행되는 함수 및 동작 차이의 현재 상태에 대해 설명합니다.
+이 섹션에서는 in-process로 실행 되는 .NET 클래스 라이브러리 함수에 비해 out-of-process에서 실행 되는 함수 및 동작 차이점의 현재 상태에 대해 설명 합니다.
 
-| 기능/동작 |  In Process(.NET Core 3.1) | Out Of Process(.NET 5.0) |
+| 기능/동작 |  In-Process | Out of Process  |
 | ---- | ---- | ---- |
-| .NET 버전 | LTS(.NET Core 3.1) | 현재(.NET 5.0) |
+| .NET 버전 | .NET Core 3.1<br/>.NET 6.0 | .NET 5.0<br/>.NET 6.0 |
 | 핵심 패키지 | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | 바인딩 확장 패키지 | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) 아래 | 
 | 로깅 | 함수에 전달된 [ILogger] | [FunctionContext]에서 얻은 [ILogger] |
@@ -198,11 +196,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 함수에 전달되는 [
 | 종속성 주입 | [지원됨](functions-dotnet-dependency-injection.md)  | [지원됨](#dependency-injection) |
 | 미들웨어 | 지원되지 않음 | 지원됨 |
 | 콜드 시작 시간 | 일반 | Just-In-Time 시작이므로 더 오래 걸립니다. 잠재적 지연을 줄이기 위해 Windows 대신 Linux에서 실행합니다. |
-| ReadyToRun | [지원됨](functions-dotnet-class-library.md#readytorun) | _TBD_ |
-
-## <a name="known-issues"></a>알려진 문제
-
-.NET 격리 프로세스 함수 실행의 알려진 문제를 해결하는 방법에 대한 자세한 내용은 [이 알려진 문제 페이지](https://aka.ms/AAbh18e)를 참조하세요. 문제를 보고하려면 [이 GitHub 리포지토리에서 문제를 만듭니다](https://github.com/Azure/azure-functions-dotnet-worker/issues/new/choose).  
+| ReadyToRun | [지원됨](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
 
 ## <a name="next-steps"></a>다음 단계
 

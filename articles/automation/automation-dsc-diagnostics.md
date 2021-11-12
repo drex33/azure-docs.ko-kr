@@ -5,17 +5,17 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.date: 08/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: fb968d527bea4b9daeed4e12f0fdea16158d90c4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 77f9eadb6b0d2d1bad5749864290b0234b4cb30a
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530647"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401006"
 ---
 # <a name="integrate-azure-automation-state-configuration-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure Automation State Configuration 통합
 

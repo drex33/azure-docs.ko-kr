@@ -3,17 +3,17 @@ title: Resource Manager 템플릿을 사용하여 Azure Automation 계정 만들
 titleSuffix: Azure Automation
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Automation 계정을 만드는 방법을 보여줍니다.
 services: automation
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.date: 08/27/2021
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom: mvc, subject-armqs, mode-arm
-ms.openlocfilehash: db69e08db30a2b2ffcf7acc780619f23d8b41feb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 58c1c239b0049d80cb1482be3c2041b5daa62427
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031692"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400815"
 ---
 # <a name="create-an-azure-automation-account-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure Automation 계정 만들기
 
@@ -63,7 +63,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 구성 정보를 �
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 |설명 |
+    |속성 |Description |
     |---|---|
     |구독 |드롭다운 목록에서 Azure 구독을 선택합니다.|
     |Resource group |드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|

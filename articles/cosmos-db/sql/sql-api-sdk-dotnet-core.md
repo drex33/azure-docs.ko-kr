@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/15/2021
+ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c0b7d5fdfb38e5e3ac4f0c104fe39a4c10bda85d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: ab14ff4fafa4150340b325082d413dab4d422f0b
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116916"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397512"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB .NET Core SDK v2: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -50,9 +50,9 @@ ms.locfileid: "123116916"
 > [!NOTE]
 > .NET Core를 사용하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전 3.x를 참조하세요.
 
-다음 .NET SDK 하위 버전은 2.x.x 버전에서 사용할 수 있습니다.
+## <a name="release-history"></a>릴리스 기록
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
+릴리스 기록은 Azure Cosmos DB .NET SDK 원본 리포지토리에서 유지 관리됩니다. .NET SDK의 다른 하위 버전은 2.x.x 버전에서 사용할 수 있습니다. 각 릴리스에서 수정된 기능 릴리스 및 버그의 자세한 목록은 [SDK changelog 설명서를 참조하세요.](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
 
 ## <a name="see-also"></a>참고 항목
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: e71f6b6dde1ae12a68f425dcb372cca73456de73
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 7edd651e5c6a52f707cfebd87310e0a104fef0d4
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858135"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401210"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>VM v2 시작/중지(미리 보기) 개요
 
@@ -45,13 +45,13 @@ VM v2 시작/중지(미리 보기)가 다시 디자인되고 [이전 버전](../
 
  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md)는 JSON 페이로드를 사용하여 함수를 호출하여 VM 작업 수행에 대한 시작 및 중지 일정을 구성하고 관리하는 데 사용됩니다. 기본적으로 초기 배포 중에는 다음 시나리오에 대한 총 5개의 Logic Apps가 생성됩니다.
 
-- **예약 -** 시작 및 중지 작업은 Azure Resource Manager 및 클래식 VM에 대해 지정한 일정에 따라 수행됩니다. **ststv2_vms_Scheduled_start** 및 **ststv2_vms_Scheduled_stop** 은 예약된 시작 및 중지를 구성합니다.
+- **예약 -** 시작 및 중지 작업은 Azure Resource Manager 및 클래식 VM에 대해 지정한 일정을 기반으로 합니다. **ststv2_vms_Scheduled_start** 및 **ststv2_vms_Scheduled_stop** 은 예약된 시작 및 중지를 구성합니다.
 
 - **시퀀스됨** - 시작 및 중지 작업은 미리 정의된 시퀀싱 태그가 있는 VM을 대상으로 하는 일정을 기반으로 합니다. 두 개의 명명된 태그(**sequencestart** 및 **sequencestop**)만 지원됩니다. **ststv2_vms_Sequenced_start** 및 **ststv2_vms_Sequenced_stop** 은 시퀀싱된 시작 및 중지를 구성합니다. 
 
-    시퀀스 기능을 사용하는 적절한 방법은 시퀀스에서 시작하려는 각 VM에 **sequencestart라는** 태그를 만드는 것입니다. 태그 값은 해당 범위의 각 VM에 대해 1에서 N까지의 정수여야 합니다. 태그는 선택 사항이며, 없는 경우 VM은 단순히 시퀀싱에 참여하지 않습니다. 태그 이름만 다른 VM을 중지하고 이 경우 **sequencestop을** 사용하는 경우에도 동일한 기준이 적용됩니다. 시작 및 중지 작업을 수행하려면 각 VM의 태그를 모두 구성해야 합니다.
+    시퀀스 기능을 사용하는 적절한 방법은 시퀀스에서 시작하려는 각 VM에 **sequencestart라는** 태그를 만드는 것입니다. 태그 값은 해당 범위의 각 VM에 대해 1에서 N까지의 정수여야 합니다. 태그는 선택 사항이며, 없는 경우 VM은 단순히 시퀀싱에 참여하지 않습니다. 태그 이름만 다른 VM을 중지하고 이 경우 **sequencestop을** 사용하는 경우에도 동일한 기준이 적용됩니다. 시작 및 중지 작업을 수행하려면 각 VM의 태그를 모두 구성해야 합니다. 둘 이상의 VM이 동일한 태그 값을 공유하는 경우 해당 VM은 동시에 시작되거나 중지됩니다.
 
-    예를 들어 다음 표에서는 시퀀스가 반대인 두 VM이 동일한 순서로 실행되는 방법을 보여 있습니다.
+    예를 들어 다음 표에서는 시작 및 중지 동작이 모두 태그 값에 따라 오름차순으로 처리된다는 것을 보여줍니다.
 
     :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="시퀀스 설정 태그 예제를 보여 주는 표":::
 

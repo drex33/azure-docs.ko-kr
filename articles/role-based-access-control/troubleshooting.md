@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 11/12/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3273285aeee7497c43fc4002b2bdabe0b6ef13de
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: e0ce4f4b0408b63c12c023ad56d473cc50a44027
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390067"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398310"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "129390067"
 Azure는 구독당 최대 **2000** 개의 역할 할당을 지원합니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함되지만 관리 그룹 범위에는 포함되지 않습니다. 역할을 할당 시 ‘더 이상의 역할 할당을 만들 수 없습니다(코드: RoleAssignmentLimitExceeded)’라는 오류 메시지가 표시되면, 구독에 역할을 할당하여 역할 할당 수를 줄여 보세요.
 
 > [!NOTE]
-> 역할 할당 제한은 구독 당 **2000** 개로 고정되어 있고 늘릴 수 없습니다.
+> 2021년 11월부터 구독에 대한 역할 할당 제한은 향후 몇 개월 동안 **2000에서** **4000으로** 증가됩니다. 한도에 가까운 구독의 우선 순위가 먼저 정해지게 됩니다. 나머지 구독에 대한 제한은 시간이 지남에 따라 증가합니다.
 
 해당 한도에 근접하는 경우 다음 몇 가지 방법으로 역할 할당 수를 줄일 수 있습니다.
 

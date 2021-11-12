@@ -5,13 +5,13 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 07/27/2021
-ms.openlocfilehash: b2bdd5ee189d4fe350171d37e51d0f88b3e3ac20
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/12/2021
+ms.openlocfilehash: c95c92c1f592cc5f042975e832df66e585d99740
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536714"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402488"
 ---
 # <a name="set-up-an-appliance-for-servers-in-a-vmware-environment"></a>VMware 환경에서 서버의 어플라이언스 설정
 
@@ -64,11 +64,7 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
    
     예: `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-1. Azure 퍼블릭 클라우드에 대한 최신 어플라이언스 버전 및 해시 값 확인:
-    
-    **알고리즘** | **다운로드** | **SHA256**
-    --- | --- | ---
-    VMware(11.9GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+1. 위 명령의 결과를 [여기에](/azure/migrate/tutorial-discover-vmware#verify-security)설명된 값과 비교하여 최신 해시 값을 확인합니다.
 
 #### <a name="create-the-appliance-server"></a>어플라이언스 서버 만들기
 

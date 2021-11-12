@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d7d06180caedf23fb79b05ca9bbc345038722ea2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: a04dfd002250f3c88684f239a4501852aae72ee0
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116995"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400645"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v3 for SQL API: 다운로드 및 릴리스 정보
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -49,7 +49,9 @@ ms.locfileid: "123116995"
 |**Entity Framework Core 자습서**|[Azure Cosmos DB 공급자를 사용하는 Entity Framework Core](/ef/core/providers/cosmos/#get-started)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]
+## <a name="release-history"></a>릴리스 기록
+
+릴리스 기록은 Azure Cosmos DB .NET SDK 원본 리포지토리에서 유지 관리됩니다. .NET SDK의 다른 하위 버전은 3.x.x 버전에서 사용할 수 있습니다. 각 릴리스에서 수정된 기능 릴리스 및 버그의 자세한 목록은 [SDK changelog 설명서를 참조하세요.](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md)
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]

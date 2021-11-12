@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure Automation 에이전트 기반 Hybrid Run
 services: automation
 ms.subservice: ''
 author: mgoedtel
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.date: 10/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 623e36b4efc3a0ecd0a7a5d7f7097e1f5aa64788
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 05a791a2b30be5d722f72a05d270212a190a6dce
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179225"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400569"
 ---
 # <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Automation의 에이전트 기반 Hybrid Runbook Worker 문제 해결
 
@@ -382,7 +382,7 @@ Start-Service -Name HealthService
 
 ## <a name="next-steps"></a>다음 단계
 
-여기에 문제가 표시 되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 사용해 보세요.
+여기에서 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 시도하여 추가 지원을 요청하세요.
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가의 답변을 얻습니다.
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 102b6e24c0d945cfd8e9bef8b7ae3a9c1992087e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 7ca093294cb1782da5adeb02888696b38f57de4c
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132335369"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400113"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Azure Synapse Analytics Apache Spark 풀 크기 자동 조정
 
@@ -26,8 +26,8 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 |메트릭|Description|
 |---|---|
-|보류 중인 총 CPU|보류 중인 모든 작업의 실행을 시작하는 데 필요한 총 코어 수입니다.|
-|보류 중인 총 메모리|보류 중인 모든 작업의 실행을 시작하는 데 필요한 총 메모리(MB)입니다.|
+|보류 중인 총 CPU|모든 보류 중인 작업의 실행을 시작 하는 데 필요한 총 코어 수입니다.|
+|보류 중인 총 메모리|모든 보류 중인 작업의 실행을 시작 하는 데 필요한 총 메모리 (MB)입니다.|
 |사용 가능한 총 CPU|활성 노드에서 사용되지 않는 모든 코어의 합계입니다.|
 |사용 가능한 총 메모리|활성 노드에서 사용되지 않는 메모리(MB)의 합계입니다.|
 |노드당 사용되는 메모리|노드의 로드입니다. 메모리 사용량이 10GB인 노드는 메모리 사용량이 2GB인 작업자보다 부하가 많은 것으로 간주됩니다.|
@@ -45,7 +45,7 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 강화를 위해 Azure Synapse 자동 크기 조정 서비스는 현재 CPU 및 메모리 요구 사항을 충족하는 데 필요한 새 노드 수를 계산한 다음, 필요한 노드 수를 추가하기 위한 강화 요청을 실행합니다.
 
-스케일 다운의 경우 실행기 수, 노드당 애플리케이션 마스터, 현재 CPU 및 메모리 요구 사항에 따라 자동 크기 조정은 특정 개수의 노드를 제거하라는 요청을 실행합니다. 또한 서비스는 현재 작업 실행을 기반으로 제거할 후보를 검색합니다. 스케일 다운 작업은 먼저 노드를 해제한 다음, 클러스터에서 제거합니다.
+실행 기 수, 노드당 응용 프로그램 마스터, 현재 CPU 및 메모리 요구 사항을 기반으로 하는 축소의 경우 자동 크기 조정에서 특정 수의 노드를 제거 하는 요청을 발급 합니다. 또한 서비스는 현재 작업 실행을 기반으로 제거할 후보를 검색합니다. 스케일 다운 작업은 먼저 노드를 해제한 다음, 클러스터에서 제거합니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -60,6 +60,26 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
     * **최대** 노드 수입니다.
 
 초기 노드 수는 최소입니다. 이 값은 생성 시 인스턴스의 초기 크기를 정의합니다. 최소 노드 수는 3개보다 적을 수 없습니다.
+
+필요에 따라 Spark 작업의 여러 단계에서 실행자 요구 사항이 크게 다르거나 처리 된 데이터 양이 시간에 따라 변동 되는 시나리오에서 실행자의 동적 할당을 사용 하도록 설정할 수 있습니다. 실행자는 동적 할당을 사용 하도록 설정 하 여 필요에 따라 용량을 활용할 수 있습니다.
+
+Spark 풀을 만드는 동안 실행 기의 동적 할당을 사용 하는 경우 사용 가능한 노드 제한에 따라 최소 및 최대 노드 수를 설정할 수 있습니다. 이러한 값은 기본적으로 풀 내에서 생성 되는 모든 새 세션에 대해 설정 됩니다.
+
+Apache Spark를 사용 하면 아래와 같이 코드를 통해 실행 자의 동적 할당을 구성할 수 있습니다.
+
+```
+    %%configure -f
+    {
+        "conf" : {
+            "spark.dynamicAllocation.maxExecutors" : "6",
+            "spark.dynamicAllocation.enable": "true",
+            "spark.dynamicAllocation.minExecutors": "2"
+     }
+    }
+```
+코드를 통해 지정 된 기본값은 사용자 인터페이스를 통해 설정 된 값을 재정의 합니다.
+
+동적 할당을 사용 하도록 설정 하는 경우 실행자는 실행 기의 사용률에 따라 확장 또는 축소 됩니다. 이렇게 하면 실행 되는 작업의 필요에 따라 실행 기를 프로 비전 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 

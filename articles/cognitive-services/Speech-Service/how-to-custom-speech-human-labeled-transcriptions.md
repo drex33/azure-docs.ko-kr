@@ -1,7 +1,7 @@
 ---
 title: 휴먼 레이블 대화 기록 지침 - Speech Service
 titleSuffix: Azure Cognitive Services
-description: 단어를 삭제하거나 잘못 대체하는 경우와 같이 음성 인식 정확도를 향상시키기 위해 오디오 데이터와 함께 휴먼 레이블 대화 기록을 사용할 수 있습니다. 휴먼 레이블 대화 기록은 오디오 파일의 단어별, 약어 대화 내용 기록입니다.
+description: 오디오 데이터와 함께 사람이 레이블이 지정한 전사를 사용하여 음성 인식 정확도를 향상시킵니다. 이는 단어를 삭제하거나 잘못 바꿀 때 특히 유용합니다.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: eur
-ms.openlocfilehash: 35cb9d2ea9f370043639f1c80b2cf901c6bcc510
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 913d8e0ef9a0ae74db2530167e99cefc92e75bb5
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508272"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397247"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 대화 기록을 만드는 방법
 
-단어를 삭제하거나 잘못 대체했을 때 발생하는 문제, 특히 인식 정확도를 향상시키려는 경우 오디오 데이터와 함께 휴먼 레이블 대화 기록을 사용하는 것이 좋습니다. 휴먼 레이블 대화 기록이란? 이는 간단하며, 오디오 파일의 단어별, 약어 대화 내용 기록입니다.
+사람이 레이블이 지정한 전사는 오디오 파일의 단어별 전사입니다. 사람이 레이블이 지정한 전사를 사용하여 인식 정확도를 향상시킵니다. 특히 단어가 삭제되거나 잘못 대체되는 경우입니다.
 
-인식 기능을 향상시키기 위해 많은 대화 내용 기록 데이터 샘플이 필요하며, 1~20시간의 대화 내용 기록 데이터를 제공하는 것이 좋습니다. Speech Service는 교육을 위해 최대 20시간의 오디오를 사용합니다. 이 페이지에서는 고품질의 대화 내용 기록을 만들 수 있도록 설계된 지침을 검토합니다. 이 가이드는 미국 영어, 북경어 중국어 및 독일어 섹션을 사용하여 로캘로 구분됩니다.
+인식을 향상하려면 전사 데이터의 큰 샘플이 필요합니다. 1~20시간의 전사 데이터를 제공하는 것이 좋습니다. Speech Service는 교육을 위해 최대 20시간의 오디오를 사용합니다. 이 페이지에서는 고품질의 대화 내용 기록을 만들 수 있도록 설계된 지침을 검토합니다. 이 가이드는 미국 영어, 북경어 중국어 및 독일어 섹션을 사용하여 로캘로 구분됩니다.
 
 > [!NOTE]
 > 모든 기본 모델이 오디오 파일의 사용자 지정을 지원하지는 않습니다. 기본 모델이 지원하지 않는 경우 학습은 관련 텍스트가 사용되는 것과 동일한 방식으로 대화 내용 기록의 텍스트를 사용합니다. [언어 지원](language-support.md#speech-to-text)을 참조하여 오디오 데이터를 통한 학습을 지원하는 기본 모델의 목록을 확인하세요.
@@ -41,7 +41,7 @@ ms.locfileid: "131508272"
 | ------------------- | ------------ | ----- |
 | “Hello world” | "Hello world" | 여는 따옴표와 닫는 따옴표를 적절한 ASCII 문자로 대체했습니다. |
 | John’s day | John's day | 아포스트로피를 적절한 ASCII 문자로 대체했습니다. |
-| it was good—no, it was great! | it was good--no, it was great! | em 대시는 두 개의 하이픈으로 대체되었습니다. |
+| 좋습니다. 아니요, 좋네요! | it was good--no, it was great! | em 대시는 두 개의 하이픈으로 대체되었습니다. |
 
 ### <a name="text-normalization-for-us-english"></a>미국 영어에 대한 텍스트 정규화
 
@@ -57,7 +57,7 @@ ms.locfileid: "131508272"
 
 다음은 대화 내용 기록에서 수행해야 하는 정규화의 몇 가지 예제입니다.
 
-| 원래 텍스트               | 정규화 후 텍스트              |
+| 원래 텍스트               | 정규화 후 텍스트(사람)      |
 | --------------------------- | ------------------------------------- |
 | Dr. Bruce Banner            | Doctor Bruce Banner                   |
 | James Bond, 007             | James Bond, double oh seven           |
@@ -68,6 +68,7 @@ ms.locfileid: "131508272"
 | Water is H20                | Water is H 2 O                        |
 | Play OU812 by Van Halen     | Play O U 8 1 2 by Van Halen           |
 | UTF-8 with BOM              | U T F 8 with BOM                      |
+| It costs \$3.14             | 34개의 비용이 듭니다.               |
 
 다음 정규화 규칙은 자동으로 대화 내용 기록에 적용됩니다.
 
@@ -77,7 +78,7 @@ ms.locfileid: "131508272"
 
 다음은 대화 내용 기록에 대해 자동으로 수행되는 정규화의 몇 가지 예제입니다.
 
-| 원래 텍스트                          | 정규화 후 텍스트          |
+| 원래 텍스트                          | 정규화 후 텍스트(자동) |
 | -------------------------------------- | --------------------------------- |
 | “Holy cow!” said Batman.               | holy cow said batman              |
 | “What?” said Batman's sidekick, Robin. | what said batman's sidekick robin |
@@ -86,7 +87,6 @@ ms.locfileid: "131508272"
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| It costs \$3.14                        | it costs three fourteen           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어(zh-CN)
 
@@ -120,7 +120,7 @@ ms.locfileid: "131508272"
 - 전자 문자를 반자 문자로 변환
 - 모든 영어 단어에 대문자 사용
 
-다음은 대화 내용 기록에 대해 자동으로 수행되는 정규화의 몇 가지 예제입니다.
+자동 전사 정규화의 몇 가지 예는 다음과 같습니다.
 
 | 원래 텍스트 | 정규화 후 텍스트 |
 | ------------- | ------------------------ |
@@ -170,7 +170,7 @@ ms.locfileid: "131508272"
 | ---------------- | ------------------------ |
 | Frankfurter Ring | frankfurter ring         |
 | ¡Eine Frage!     | eine frage               |
-| wir, haben       | wir haben                |
+| Wir, haben       | wir haben                |
 
 ### <a name="text-normalization-for-japanese"></a>일본어에 대한 텍스트 정규화
 

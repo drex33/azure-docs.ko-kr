@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: jushiman
-ms.openlocfilehash: 5027fdc53b59383d7fc4bc7475d1d3eea6450a78
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: f287fddc2f7639f2ff61588c9d0fe8068cb675dc
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132372021"
+ms.locfileid: "132402165"
 ---
 # <a name="fx-series"></a>FX 시리즈
 
@@ -28,7 +28,7 @@ FX 시리즈 VM은 [Intel® Turbo Boost Technology 2.0](https://www.intel.com/co
 [VM 생성 지원](generation-2.md): 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
-[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)지원됨 <br>
 <br>
 
 | 크기 | vCPU 수 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 442bf95401f4816a192940191c3bee96aed4aa97
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d3ce22128b209a65d5f9036b0943f2425e2c5de3
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827329"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401253"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse 분석을 사용 하 여 IBM Informix 간에 데이터 복사
 
@@ -37,7 +37,7 @@ Informix 원본에서 지원되는 싱크 데이터 저장소로 또는 지원�
 이 Informix 커넥터를 사용하려면 다음을 수행해야 합니다.
 
 - 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
-- 통합 런타임 컴퓨터에 데이터 저장소에 대한 Informix ODBC 드라이버를 설치합니다. 드라이버 설치 및 설정에 대한 자세한 내용은 IBM 지식 센터의 [Informix ODBC 드라이버 가이드](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) 문서를 참조하거나, 드라이버 설치 지침은 IBM 지원 팀에 문의하십시오.
+- 64 비트 Client SDK for Informix를 다운로드 하 여 Integration Runtime 컴퓨터의 데이터 저장소에 대 한 ODBC 연결을 만듭니다. SDK 다운로드 및 설치에 대 한 자세한 내용은이 [문서](https://www.ibm.com/support/pages/informix-client-software-development-kit-client-sdk-and-informix-connect-system-requirements) 를 참조 하거나, 드라이버 설치 지침은 IBM 지원 팀에 문의 하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -74,7 +74,7 @@ Informix 원본에서 지원되는 싱크 데이터 저장소로 또는 지원�
 
 다음은 Informix 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Informix** 로 설정해야 합니다. | 예 |
 | connectionString | 자격 증명 부분을 제외한 ODBC 연결 문자열입니다. 연결 문자열을 지정하거나 Integration Runtime 컴퓨터에 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(이에 따라 연결된 서비스에서 자격 증명 부분도 계속 지정해야 함). <br> Azure Key Vault에 암호를 넣고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.| 예 |
@@ -145,7 +145,7 @@ Informix의 데이터를 복사하려는 경우 다음과 같은 속성이 지�
 
 Informix에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **InformixSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 11/12/2021
 ms.author: rolyon
-ms.openlocfilehash: 21bab82044e3c661ccd797030b43987a60c0cdce
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: 667709d8f924556c43a741151c55f5469fb92639
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787566"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399962"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당을 나열합니다.
 
@@ -136,6 +136,8 @@ ms.locfileid: "109787566"
 ## <a name="list-number-of-role-assignments"></a>역할 할당 목록 수
 
 각 구독에서 최대 **2000** 개의 역할 할당을 유지할 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 이 제한을 추적하는 데 도움이 되도록 **역할 할당** 탭에는 현재 구독에 대한 역할 할당 수를 나열하는 차트가 포함됩니다.
+
+구독에 대한 역할 할당 제한은 현재 증가하고 있습니다. 자세한 내용은 [Azure RBAC 문제 해결](troubleshooting.md#azure-role-assignments-limit)을 참조하세요.
 
 ![액세스 제어 - 역할 할당 차트 수](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

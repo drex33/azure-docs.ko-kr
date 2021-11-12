@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3fab06386a6f7030a9c3b6a78b5939883eb5d3e3
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 0ac7719d108ab888b5573d03a8c45d545bcb135d
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132370729"
+ms.locfileid: "132398671"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4 및 Ddsv4 시리즈
 
@@ -38,7 +38,7 @@ Ddv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에�
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
-[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)지원됨 <br>
 <br> 
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/MBps<sup>*</sup> | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
@@ -74,7 +74,7 @@ Ddsv4 시리즈는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실�
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
-[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)지원됨 <br>
 <br> 
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/MBps<sup>*</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |

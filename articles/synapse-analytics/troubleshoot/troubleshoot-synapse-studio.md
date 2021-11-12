@@ -8,12 +8,12 @@ ms.subservice: troubleshooting
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 16608f77971c3c19836d8f956512f28f945d3667
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
-ms.translationtype: HT
+ms.openlocfilehash: fd560856ab087727d73317eaef5de01950281db9
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809061"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399481"
 ---
 # <a name="synapse-studio-troubleshooting"></a>Synapse Studio 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "109809061"
 ![증상 2](media/troubleshooting-synapse-studio/symptom2.png)
  
 
-## <a name="troubleshooting-steps"></a>문제 해결 단계
+### <a name="troubleshooting-steps"></a>문제 해결 단계
 
 > [!NOTE] 
 >    다음 문제 해결 단계는 Chromium Edge 및 Chrome 사용자를 위한 것입니다. 다른 브라우저(예: FireFox)에서도 동일한 문제 해결 단계를 수행할 수 있지만 "개발자 도구" 창의 레이아웃이 이 TSG의 스크린샷과 다를 수 있습니다. 특정 상황에서는 부정확한 정보가 표시될 수 있으므로 가능한 한 클래식 Edge는 문제 해결에 사용하지 마세요.
@@ -100,6 +100,47 @@ Url 열이 다음 패턴과 일치하는 항목을 찾습니다.
 ![developer tool console settings](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
 ![show time stamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
+
+## <a name="notebook-websocket-connection-issue"></a>Notebook websocket 연결 문제
+
+### <a name="symptom"></a>증상
+오류 메시지 표시: Notebook 연결이 예기치 않게 닫혔습니다. 연결을 다시 설정하려면 Notebook을 다시 실행합니다. 진단 정보: websocket_close_error(상관 관계 ID) 
+
+![Notebook websocket 연결 문제](media/troubleshooting-synapse-studio/notebook-websocket-connection-issue.png)
+
+### <a name="root-cause"></a>근본 원인: 
+Notebook 실행은 다음 URL에 대한 WebSocket 연결 설정에 따라 달라집니다. 
+``` 
+wss://{workspace}.dev.azuresynapse.net/jupyterApi/versions/1/sparkPools/{spark-pool}/api/kernels/{kernel-id}/channels 
+``` 
+
++ **{workspace}는** Synapse 작업 영역의 이름입니다. 
++ **{spark-pool}은** 현재 작업 중인 Spark 풀의 이름입니다. 
++ **{kernel-id}는** Notebook 세션을 구분하는 데 사용되는 GUID입니다. 
+
+WebSocket 연결을 설정하는 경우 Synapse Studio WebSocket 요청의 Sec-WebSocket-Protocol 헤더에 액세스 토큰(JWT bearer token)을 포함합니다. 
+
+경우에 따라 WebSocket 요청이 차단되거나 요청 헤더의 JWT 토큰이 네트워크 환경에서 수정될 수 있습니다. 이로 인해 Synapse Notebook에서 서버에 대한 연결을 설정하고 Notebook을 실행할 수 없습니다. 
+
+### <a name="action"></a>작업: 
+
+가능하면 회사 네트워크 내부/외부와 같은 네트워크 환경을 전환하거나 다른 워크스테이션에서 Synapse Notebook에 액세스하세요. 
+
++ 동일한 워크스테이션과 다른 네트워크 환경에서 Notebook을 실행할 수 있는 경우 네트워크 관리자에게 문의하여 WebSocket 연결이 차단되었는지 확인하세요. 
+
++ 다른 워크스테이션과 동일한 네트워크 환경에서 Notebook을 실행할 수 있는 경우 WebSocket 요청을 차단할 수 있는 브라우저 플러그 인을 설치하지 않았는지 확인하세요. 
+
+그렇지 않으면 네트워크 관리자에게 문의하고 다음 URL 패턴이 있는 아웃바운드 WebSocket 요청이 허용되고 해당 요청 헤더가 수정되지 않았는지 확인하세요. 
+
+``` 
+wss://{workspace}.dev.azuresynapse.net/{path} 
+``` 
++ **{workspace}는** Synapse 작업 영역 이름입니다. 
+
++ **{path}는** URI에 하위 경로(즉, 슬래시 문자가 포함됨)를 나타냅니다. 
+
+이 URL 패턴은 향후 잠재적인 연결 문제 없이 Synapse에 새 WebSocket 종속 기능을 추가할 수 있기 때문에 "근본 원인" 섹션에 표시된 패턴보다 느려질 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 이전 단계가 문제를 해결하는 데 도움이 되지 않았다면 [지원 티켓을 만듭니다](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).

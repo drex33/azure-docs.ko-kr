@@ -3,15 +3,21 @@ title: 환경의 보안 경고
 description: 이 문서에서는 DevTest Labs에서 환경에 대한 보안 경고를 확인하고 적절한 조치를 취하는 방법을 보여 줍니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0dccf45f32d6eaf272a464198edd0c5043dbc364
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 57f1a0b240035d75746b9d23482446be71d1b1f9
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132325166"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398044"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Azure DevTest Labs의 환경에 대한 보안 경고
-랩 사용자는 이제 랩 환경에 대 한 클라우드 경고에 대해 Microsoft Defender를 볼 수 있습니다. Defender for Cloud는 방화벽 및 끝점 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결 된 파트너 솔루션의 로그 데이터를 자동으로 수집, 분석 및 통합 하 여 실제 위협을 감지 하 고 가양성을 줄입니다. 우선 순위가 지정 된 보안 경고의 목록은 문제를 신속 하 게 조사 하는 데 필요한 정보 및 공격을 해결 하는 방법에 대 한 권장 사항을 포함 하 여 클라우드에 대해 Defender에 표시 됩니다. [Microsoft Defender For Cloud의 보안 경고에 대해 자세히 알아보세요](../security-center//security-center-alerts-overview.md).  
+랩 사용자는 랩에 대 한 클라우드 경고에 대해 Microsoft Defender를 볼 수 있습니다. Defender for Cloud는 로그 데이터를 자동으로 수집, 분석 및 통합 합니다. 데이터는 방화벽 및 끝점 보호와 같은 Azure 리소스, 네트워크 및 연결 된 솔루션에서 제공 됩니다. 클라우드 용 Defender는 실제 위협을 검색 하 고 가양성을 줄입니다. 클라우드 용 Defender:
+
+- 우선 순위가 지정 된 보안 경고를 나열 합니다.
+- 문제를 신속 하 게 조사 하는 정보를 제공 합니다.
+- 공격을 수정 하는 방법을 권장 합니다.
+
+[Microsoft Defender For Cloud의 보안 경고에 대해 자세히 알아보세요](../security-center//security-center-alerts-overview.md).
 
 
 ## <a name="prerequisites"></a>필수 구성 요소

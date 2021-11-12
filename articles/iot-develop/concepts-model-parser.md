@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: a4deb82ad3d9029483813e6aa1fd9813c7d815fa
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: eec6c2e70ff11d9da162db79867279abb10d4506
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406546"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399279"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>디지털 트윈 모델 파서 이해
 
@@ -28,7 +28,7 @@ dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
 > [!NOTE]
-> 이 문서를 작성할 당시 파서 버전은 `3.12.5`입니다.
+> 이 문서를 작성할 당시 파서 버전은 `3.12.7`입니다.
 
 ## <a name="use-the-parser-to-validate-a-model"></a>파서를 사용하여 모델 유효성 검사
 

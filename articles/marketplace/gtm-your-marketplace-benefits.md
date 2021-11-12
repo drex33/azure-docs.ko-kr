@@ -1,18 +1,18 @@
 ---
-title: Go-To-Market 서비스 - 상업용 Marketplace 혜택 | Azure Marketplace
-description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출 서비스 - Microsoft 리소스에 대해 설명합니다.
+title: 시장 출시 서비스-상용 marketplace 혜택, Azure Marketplace
+description: 시장 출시 서비스-게시자가 사용할 수 있는 Microsoft 리소스에 대해 설명 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/23/2021
+ms.date: 11/05/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 9d957adf84bf6f9cf9b48c5d5554d27206d8c382
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 667ca5c0b273aaf022d6e256626e7f51eef1f95c
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708382"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402571"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 

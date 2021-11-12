@@ -1,36 +1,39 @@
 ---
-title: 모니터링 및 로깅-Azure Video Analyzer 서비스
-description: 이 문서에서는 Azure Video Analyzer 서비스의 모니터링 및 로깅에 대 한 개요를 제공 합니다.
+title: 모니터링 및 로깅 - Azure Video Analyzer 서비스
+description: 이 문서에서는 Azure Video Analyzer 서비스의 모니터링 및 로깅에 대한 개요를 제공합니다.
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 370904873a3f86ebee1cd530f349c55306588d08
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: d4a2a6b37c02aad5779085514bc5854df4d8a823
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564008"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400545"
 ---
 # <a name="monitor-and-log"></a>모니터링 및 로깅
 
-[!INCLUDE [header](includes/cloud-env.md)]
+![클라우드 아이콘](media/env-icon/cloud.png)  
+또는 [에지에서 모니터 및 로그온을 확인합니다.](../edge/monitor-log-edge.md)
 
-이 문서에서는 Azure Video Analyzer 서비스에서 생성 되는 이벤트 및 로그에 대해 알아봅니다. 또한 서비스에서 생성 하는 로그를 사용 하는 방법 및 서비스 이벤트를 모니터링 하는 방법을 알아봅니다.
+---
+
+이 문서에서는 Azure Video Analyzer 서비스에서 생성된 이벤트 및 로그에 대해 알아봅니다. 또한 서비스에서 생성하는 로그를 사용하는 방법과 서비스 이벤트를 모니터링하는 방법을 알아봅니다.
 
 ## <a name="taxonomy-of-events"></a>이벤트 분류
 
-아래 다이어그램은 Video Analyzer 서비스에서 내보내는 이벤트 또는 원격 분석 데이터에 사용 되는 일반적인 분류를 나타냅니다.
+아래 다이어그램은 Video Analyzer 서비스에서 내보낸 이벤트 또는 원격 분석 데이터에 사용되는 일반적인 분류를 나타냅니다.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-taxonomy-cloud.png" alt-text="이벤트의 분류를 보여 주는 다이어그램.":::
 
 ## <a name="event-schema"></a>이벤트 스키마
 
- Video Analyzer 서비스에서 생성 되는 이벤트는 시스템 속성, 응용 프로그램 속성 및 본문으로 구성 됩니다.
+ Video Analyzer 서비스에서 생성된 이벤트는 시스템 속성, 애플리케이션 속성 및 본문으로 구성됩니다.
 
 ### <a name="common-properties"></a>공용 속성
 
-모든 이벤트에는 다음과 같은 공용 속성 집합이 있습니다.
+모든 이벤트에는 다음과 같은 공통 속성 집합이 있습니다.
 
 | 속성      | 속성 형식       | 데이터 형식 | Description                                                  |
 | ------------- | ------------------- | --------- | ------------------------------------------------------------ |
@@ -38,24 +41,24 @@ ms.locfileid: "131564008"
 | `resourceId`  | applicationProperty | 문자열    | Azure Video Analyzer 계정의 ARM 경로입니다.               |
 | `subject`     | applicationProperty | 문자열    | 이벤트를 내보내는 엔터티의 하위 경로입니다.                    |
 | `time`        | applicationProperty | 문자열    | 이벤트가 생성된 시간입니다.                                |
-| `category`    | 시스템              | 문자열    | 감사, 운영, 진단입니다.                              |
-| `operationName`| applicationProperty| 문자열    | 이벤트 유형 식별자 (다음 섹션 참조)          |
-| `level`        | 시스템             | 문자열    | 이벤트 수준 (정보, 경고, 오류, 중요)입니다.           |
+| `category`    | 시스템              | 문자열    | 감사, 운영, 진단.                              |
+| `operationName`| applicationProperty| 문자열    | 이벤트 유형 식별자(다음 섹션 참조)          |
+| `level`        | 시스템             | string    | 이벤트 수준(정보, 경고, 오류, 위험).           |
 | `body`        | 본문                | object    | 특정 이벤트 데이터입니다.                                       |
-| `operationVersion` | 시스템         | 문자열    | 이벤트 데이터 버전 {Major}. 주                           |
+| `operationVersion` | 시스템         | string    | 이벤트 데이터 버전 {Major}. {Minor}                           |
 
 ## <a name="event-types"></a>일정 유형
-Video Analyzer 서비스는 다음과 같은 유형의 이벤트 데이터를 내보냅니다.
+Video Analyzer 서비스는 다음과 같은 유형의 이벤트 데이터를 내비니다.
 
-**작동:** [파이프라인](../pipeline.md)을 실행 하는 동안 또는 사용자 작업에 의해 생성 된 이벤트입니다.
-* 볼륨: 낮음 (몇 분 a 분 또는 그 미만)으로 예상 됩니다. 예제:
+**운영:** 사용자의 작업 또는 [파이프라인](../pipeline.md)실행 중에 생성된 이벤트입니다.
+* 볼륨: 낮을 것으로 예상됩니다(분당 몇 번 또는 더 낮음). 예:
 
 | 이벤트        | Level               | 간단한 설명                                              |
 | ------------- | ------------------- |  ------------------------------------------------------------ |
-|RecordingStarted   |정보 제공| 미디어 기록이 시작 됨|
-|RecordingAvailable |정보 제공| 미디어 기록 사용 가능|
-|RecordingStopped 됨   |정보 제공| 미디어 기록이 중지 됨|
-|PipelineStateChanged   |정보 제공| 파이프라인 상태가 변경 됨|
+|RecordingStarted   |정보| 미디어 녹화가 시작되었습니다.|
+|RecordingAvailable |정보| 사용 가능한 미디어 녹화|
+|RecordingStopped   |정보| 미디어 녹화가 중지되었습니다.|
+|PipelineStateChanged   |정보| 파이프라인 상태가 변경되었습니다.|
 
    *샘플 작업 이벤트*
       
@@ -81,20 +84,20 @@ Video Analyzer 서비스는 다음과 같은 유형의 이벤트 데이터를 �
 }
 ```
 
-**진단:** 문제 및/또는 성능을 진단 하는 데 도움이 되는 이벤트입니다.
-   * 볼륨: 높을 수 있습니다 (1 분에 몇 번). 저장소 비용에도 영향을 줄 수 있습니다. 진단을 필요로 하거나 문제를 해결 하기 위해 이러한 이벤트만 사용 하도록 권장 합니다. 예제:
+**진단:** 문제 및/또는 성능을 진단하는 데 도움이 되는 이벤트입니다.
+   * 볼륨: 높을 수 있으며(분당 여러 번) 스토리지 비용에 영향을 줄 수도 있습니다. 진단이 필요한 경우에만 이러한 이벤트를 사용하도록 설정하거나 문제 해결을 위해 사용하는 것이 좋습니다. 예:
     
 | 이벤트             | Level           | 간단한 설명                                            |
 | ----------------- | ----------------| ------------------------------------------------------------ |
-|AuthenticationError|오류|서버/클라이언트 인증 오류|
-|AuthorizationError |   오류|  서버/클라이언트 권한 부여 오류|
-|FormatError        |   오류|  패키징, 형식 지정 또는 인코딩 문제|
-|MediaSessionEstablished|   정보 제공|  SDP 또는 기타 세션 정보|
-|NetworkError        |  오류|  DNS, 네트워크 오류|
-|ProtocolError        | 오류|  RTSP 또는 기타 프로토콜 오류|
-|StorageError        |  오류|  읽기/쓰기 오류 Storage|
-|RtspPlaybackSessionEstablished|    정보 제공| RTSP 재생 세션이 설정 되었습니다.|
-|RtspPlaybackSessionClosed| 정보 제공|  RTSP 재생 세션이 닫혔습니다.|
+|AuthenticationError|Error|서버/클라이언트 인증 오류|
+|AuthorizationError |   Error|  서버/클라이언트 권한 부여 오류|
+|FormatError        |   Error|  패키징, 형식 또는 인코딩 문제|
+|MediaSessionEstablished|   정보|  SDP 또는 기타 세션 정보|
+|NetworkError        |  Error|  DNS, 네트워크 오류|
+|ProtocolError        | Error|  RTSP 또는 기타 프로토콜 오류|
+|StorageError        |  Error|  읽기/쓰기 오류 Storage|
+|RtspPlaybackSessionEstablished|    정보| RTSP 재생 세션이 설정됩니다.|
+|RtspPlaybackSessionClosed| 정보|  RTSP 재생 세션이 닫힘|
 
 *샘플 진단 이벤트*
   
@@ -117,8 +120,8 @@ Video Analyzer 서비스는 다음과 같은 유형의 이벤트 데이터를 �
 }
 
 ```
-**감사:** 이벤트는 API 액세스를 기록 하는 데 사용 됩니다. 
-  * 볼륨: 낮음, 감사가 필요한 경우에만 이러한 이벤트를 사용 하도록 권장 합니다.
+**감사:** 이벤트는 API 액세스를 기록하는 데 사용됩니다. 
+  * 볼륨: 낮음, 감사가 필요한 경우에만 이러한 이벤트를 사용하도록 설정하는 것이 좋습니다.
 
 *샘플 감사 이벤트*
   
@@ -153,35 +156,35 @@ Video Analyzer 서비스는 다음과 같은 유형의 이벤트 데이터를 �
 ```
 ## <a name="metrics"></a>메트릭
 
-Video Analyzer 서비스는 [파이프라인](../pipeline.md)에 대 한 메트릭을 생성 합니다. 비디오 분석기 계정의 관리 창에서 모니터링 섹션으로 이동 하 여 Azure Portal를 사용 하 여 메트릭에 액세스할 수 있습니다.
+Video Analyzer 서비스는 파이프라인에 대한 메트릭을 [생성합니다.](../pipeline.md) Video Analyzer 계정의 관리 창에서 모니터링 섹션으로 이동하여 Azure Portal 사용하여 메트릭에 액세스할 수 있습니다.
 
 | 메트릭 이름                           | 유형    | 차원                                                                              | Description                                                  |
 | ------------------------------------- | ------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| 수신 바이트              | 카운터   | 파이프라인 종류, 상태, 토폴로지 이름                                 | 파이프라인이 받은 총 바이트 수입니다. RTSP 원본에 대해서만 지원 됩니다.           |
-| 파이프라인                  | 카운터   | 파이프라인 종류, 상태, 토폴로지 이름                        | 여러 상태의 파이프라인을 제공 합니다. 일정 한 간격으로 내보내집니다. |
+| 수신 바이트              | 카운터   | 파이프라인 종류, 상태, 토폴로지 이름                                 | 파이프라인에서 받은 총 바이트 수입니다. RTSP 원본에 대해서만 지원됩니다.           |
+| Pipelines                  | 카운터   | 파이프라인 종류, 상태, 토폴로지 이름                        | 파이프라인을 다양한 상태로 제공합니다. 정기적인 간격으로 내전됩니다. |
 
 ## <a name="monitoring-of-events"></a>이벤트 모니터링
 
-Video Analyzer 서비스에서 생성 된 이벤트를 저장소 계정에 저장 하 고 Azure monitor를 사용 하 여 사용할 수 있습니다.
+Video Analyzer 서비스에서 생성된 이벤트를 스토리지 계정에 저장하고 Azure Monitor를 사용하여 사용할 수 있습니다.
 
-**Azure Monitor events 컬렉션**
+**Azure Monitor 이벤트 컬렉션**
 
-현재 Video Analyzer 서비스는 저장소 계정에 원격 분석 이벤트를 쓰고 이러한 이벤트를 사용 하 Azure Monitor를 사용 하는 것을 지원 합니다. [Azure Monitor](../../../azure-monitor/overview.md) 를 사용 하 여 서비스에 의해 생성 된 이벤트를 사용 하 고 고객은 Azure Monitor를 통해 기본 제공 되는 모니터링 환경을 제공 합니다.
+Video Analyzer 서비스는 현재 스토리지 계정에 원격 분석 이벤트를 작성하고 Azure Monitor 사용하여 해당 이벤트를 사용하도록 지원합니다. [Azure Monitor](../../../azure-monitor/overview.md) 사용하여 서비스에서 생성된 이벤트를 사용하며, 고객은 Azure Monitor 통해 기본 제공 모니터링 환경을 사용할 수 있습니다.
 
-Azure Monitor를 사용 하 여 모니터링 및 이벤트 수집을 사용 하도록 설정 하는 단계를 수행 합니다.
-* Azure Portal에서 Video Analyzer 계정의 **모니터링** 섹션으로 이동한 다음 **진단 설정** 을 선택 합니다.
-* **진단 설정 추가** 를 클릭 하 여 다음 로그의 컬렉션을 사용 하도록 설정 합니다.
+다음 단계에 따라 Azure Monitor 모니터링 및 이벤트 수집을 사용하도록 설정합니다.
+* Azure Portal Video Analyzer 계정의 **모니터링** 섹션으로 이동한 **다음, 진단 설정을** 선택합니다.
+* 진단 **설정 추가를** 클릭하여 다음 로그의 컬렉션을 사용하도록 설정합니다.
     *   작동
     *   진단
     *   감사
-* 사용 하도록 설정할 로그 범주와 해당 보존 기간을 선택 합니다.
-* 대상 세부 정보에 대해 **저장소 계정에 보관** 을 선택 하 고 이러한 이벤트 로그를 저장할 저장소 계정을 지정 합니다.
+* 사용하도록 설정할 로그 범주와 해당 보존 기간을 선택합니다.
+* 대상 세부 정보는 **스토리지 계정에 보관을** 선택하고 이러한 이벤트 로그를 저장할 스토리지 계정을 지정합니다.
     > [!IMPORTANT]
-    > 현재 Video Analyzer 서비스는 Azure storage 이외의 대상으로 진단을 보내는 기능을 지원 하지 않습니다.
+    > Video Analyzer 서비스는 현재 Azure Storage 이외의 대상으로 진단 전송을 지원하지 않습니다.
 
-* 진단 설정을 구성한 후 **저장** 을 클릭 합니다.
-* 진단 로그에 액세스 하려면 저장소 탐색기로 이동 하 여 저장소 계정을 확장 합니다. 그러면 Blob 컨테이너가 표시 됩니다. ' Insights-로그-범주 ' 컨테이너는 JSON 파일 형식의 로그를 포함 합니다. 
-* 원하는 로그 파일을 다운로드 하면 다운로드 한 로그 파일의 내용이 아래 샘플과 같이 표시 됩니다.
+* 진단 설정을 구성한 후 **저장을** 클릭합니다.
+* 진단 로그에 액세스하려면 Storage Explorer로 이동한 다음, 스토리지 계정을 확장하면 Blob 컨테이너가 표시됩니다. 'insights-logs-category' 컨테이너에는 JSON 파일 형식의 로그가 있습니다. 
+* 원하는 로그 파일 다운로드 및 다운로드한 로그 파일의 콘텐츠는 아래 샘플과 유사합니다.
 
 ```json
 {
@@ -220,7 +223,7 @@ Azure Monitor를 사용 하 여 모니터링 및 이벤트 수집을 사용 하�
     }
 ```
 
-**활동 로그** 는 파이프라인 작업에 대해 자동으로 생성 되며, Azure Portal에서 Video Analyzer 계정의 ' 활동 로그 ' 섹션으로 이동 하 여 액세스할 수 있습니다. 계정에 대 한 ARM API 호출 기록과 관련 세부 정보를 볼 수 있습니다.
+또한 **활동 로그는** 파이프라인 작업에 대해 자동으로 생성되며 Azure Portal Video Analyzer 계정의 '활동 로그' 섹션으로 이동하여 액세스할 수 있습니다. 계정에 대한 ARM API 호출의 기록 및 관련 세부 정보를 볼 수 있습니다.
 
 ![활동 로그 샘플](./media/activity-log.png)
 

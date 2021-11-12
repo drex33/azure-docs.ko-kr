@@ -2,13 +2,13 @@
 title: 잘못된 템플릿 오류
 description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
-ms.date: 05/22/2020
-ms.openlocfilehash: f91da0287a0464291e457e3f58de35a1a5e0fc3d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/11/2021
+ms.openlocfilehash: 2565a68b63e23ecd81338c0bfbbdc36878c1a95a
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102984"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401918"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -54,66 +54,11 @@ Message=Deployment template validation failed
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>해결 방법 2 - 잘못된 세그먼트 길이
 
-리소스 이름이 올바른 형식이 아닐 경우 다른 잘못된 템플릿 오류가 발생합니다.
-
-```
-Code=InvalidTemplate
-Message=Deployment template validation failed: 'The template resource {resource-name}'
-for type {resource-type} has incorrect segment lengths.
-```
-
-루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가 1개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는 2개 세그먼트가 형식에 있고 1개 세그먼트가 이름에 있으므로 **유효한 이름** 입니다.
-
-```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "name": "myHostingPlanName",
-  ...
-}
-```
-
-하지만 그 다음 예제의 경우 형식과 이름의 세그먼트 수가 같으므로 **유효한 이름이 아닙니다** .
-
-```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "name": "appPlan/myHostingPlanName",
-  ...
-}
-```
-
-자식 리소스의 경우 형식과 이름의 세그먼트 수는 같아야 합니다. 자식 리소스의 이름과 형식 전체에 부모 리소의 이름과 형식이 포함되기 때문에 이 세그먼트 수는 적합합니다. 이에 따라 전체 이름에는 여전히 전체 형식보다 하나가 적은 세그먼트가 있습니다.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.KeyVault/vaults",
-    "name": "contosokeyvault",
-    ...
-    "resources": [
-      {
-        "type": "secrets",
-        "name": "appPassword",
-        ...
-      }
-    ]
-  }
-]
-```
-
-리소스 공급자 간에 적용되는 Resource Manager 형식에서 세그먼트를 제대로 갖추는 것이 까다로울 수 있습니다. 예를 들어 웹 사이트에 리소스 잠금을 적용하려면 4개 세그먼트가 있는 형식이 필요합니다. 따라서 이름에는 다음과 같이 3개 세그먼트가 있습니다.
-
-```json
-{
-  "type": "Microsoft.Web/sites/providers/locks",
-  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-  ...
-}
-```
+리소스 이름이 올바른 형식이 아닐 경우 다른 잘못된 템플릿 오류가 발생합니다. 이 오류를 해결하려면 [이름 및 형식 불일치 오류 해결을](error-invalid-name-segments.md)참조하세요.
 
 <a id="parameter-not-valid"></a>
 
-## <a name="solution-3---parameter-is-not-valid"></a>해결 방법 3 - 잘못된 매개 변수
+## <a name="solution-3---parameter-isnt-valid"></a>솔루션 3 - 매개 변수가 잘못되었습니다.
 
 허용되지 않는 매개 변수 값을 제공하면 다음과 비슷한 오류 메시지가 표시됩니다.
 

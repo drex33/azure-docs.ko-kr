@@ -7,12 +7,12 @@ ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 18a1114c3253a9a8debb9289a3749df10ade7d54
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 71f7402fbd593d2fc97c2ec9574a48a2c28d53cb
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535657"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402469"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 에이전트 및 IoT Edge 허브 모듈 쌍의 속성
 
@@ -32,7 +32,7 @@ IoT Edge 에이전트 및 IoT Edge 허브는 IoT Edge 런타임을 구성하는 
 
 IoT Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 디바이스에서 실행 중인 IoT Edge 에이전트와 IoT Hub 간의 통신을 조정합니다. 단일 디바이스 또는 대규모 배포의 일부로 특정 디바이스에 배포 매니페스트를 적용할 때 desired 속성이 설정됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | -------- | ----------- | -------- |
 | schemaVersion | “1.0” 또는 “1.1”. IoT Edge 버전 1.0.10에서 도입된 버전 1.1을 사용하는 것이 좋습니다. | 예 |
 | runtime.type | "docker"여야 합니다. | 예 |
@@ -83,7 +83,6 @@ IoT Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 �
 | lastDesiredVersion | 이 정수는 IoT Edge 에이전트에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
 | lastDesiredStatus.code | 해당 상태 코드는 IoT Edge 에이전트에서 마지막으로 표시된 desired 속성을 나타내는 상태 코드입니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `412` 잘못된 스키마 버전, `417` 비어 있는 desired 속성, `500` 실패 |
 | lastDesiredStatus.description | 상태에 대한 텍스트 설명입니다. |
-| configurationHealth.{deploymentId}.health | {deploymentId} 배포에서 설정한 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`이고, 그렇지 않으면 `unhealthy`입니다. |
 | runtime.platform.OS | 디바이스에서 실행 중인 OS를 보고합니다. |
 | runtime.platform.architecture | 디바이스의 CPU 아키텍처를 보고합니다. |
 | systemModules.edgeAgent.runtimeStatus | IoT Edge 에이전트의 보고된 상태: {“running” \| “unhealthy”} |

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: ecec077db8ca0b9b1a5285256eabb67791d461f2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 209fc857296556124cb5fa2003fb0c578dfe3317
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117152"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397569"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Async Java SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -60,7 +60,10 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 | **성능 팁**| [Github 추가 정보](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
 | **지원되는 최소 런타임**|[JDK 8](/java/azure/jdk/) | 
 
-[!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
+## <a name="release-history"></a>릴리스 기록
+
+릴리스 기록은 Azure Cosmos DB Java SDK 원본 리포지토리에서 유지 관리 됩니다. 각 릴리스에서 수정 된 기능 릴리스 및 버그에 대 한 자세한 목록은 [SDK 변경 로그 설명서](https://github.com/Azure/azure-cosmosdb-java/blob/master/changelog/README.md) 를 참조 하세요.
+
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 

@@ -4,12 +4,12 @@ ms.service: iot-dps
 ms.topic: include
 ms.date: 10/10/2021
 ms.author: v-stharr
-ms.openlocfilehash: fa416ff3e3ef5b502b65ac414558692ccd7071b5
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: ac1d2554df675dc055530ab4b721a0510f2fddfb
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129866154"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399405"
 ---
 > [!NOTE]
 > 이 서비스의 일부 영역에는 조정 가능한 한도가 있습니다. 아래 표에 조정 가능? 열과 함께 표시되어 있습니다. 제한을 조정할 수 있는 경우 ‘조정 가능 여부’ 값은 ‘예’입니다. 
@@ -42,4 +42,3 @@ Device Provisioning Service에는 다음과 같은 속도 제한이 있습니다
 | 디바이스 등록 | 200/분/서비스 | 예 |
 | 디바이스 폴링 작업 | 5/10초/디바이스 | 아니요 |
 
-DPS의 각 API 호출은 하나의 *작업* 으로 청구됩니다. 여기에는 모든 서비스 API 및 디바이스 등록 API가 포함됩니다. 디바이스 등록 폴링 작업에는 요금이 청구되지 않습니다.

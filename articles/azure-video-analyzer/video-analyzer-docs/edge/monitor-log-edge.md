@@ -4,16 +4,19 @@ description: 이 문서에서는 Azure Video Analyzer의 모니터링 및 로깅
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 557f463b3cf2cbc46818f83d9cd41ddbfac38fb7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: ed86a5de4fd5d65ec3e5a3b8112cb96c95f01811
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131552775"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399942"
 ---
 # <a name="monitor-and-log-on-iot-edge"></a>IoT Edge 모니터링 및 로그온
 
-[!INCLUDE [header](includes/edge-env.md)]
+![에지 아이콘](media/env-icon/edge.png)  
+또는 모니터를 체크 [아웃하고 서비스에 로그인합니다.](../cloud/monitor-log-cloud.md)
+
+---
 
 이 문서에서는 Azure Video Analyzer IoT Edge 모듈에서 원격 모니터링에 대한 이벤트를 수신하는 방법을 알아봅니다. 
 

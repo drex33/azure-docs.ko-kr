@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 8f42a384c0ef8605de42243fcbb232d3ff615583
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 3d24676edd3c839406af86430b9333ec3459edb7
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301346"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402279"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Azure RBAC에 대한 모범 사례
 
@@ -44,7 +44,7 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 
 ## <a name="assign-roles-to-groups-not-users"></a>사용자가 아닌 그룹에 역할 할당
 
-역할 할당을 보다 쉽게 관리하려면 사용자에게 직접 역할을 할당하지 마세요. 대신 그룹에 역할을 할당하세요. 사용자 대신 그룹에 역할을 할당하면 역할 할당 수를 최소화할 수 있습니다. 이 경우 [구독당 역할 할당이 2000개](troubleshooting.md#azure-role-assignments-limit)로 제한됩니다. 
+역할 할당을 보다 쉽게 관리하려면 사용자에게 직접 역할을 할당하지 마세요. 대신 그룹에 역할을 할당하세요. 사용자 대신 그룹에 역할을 할당 하면 [구독 당 역할 할당 한도가](troubleshooting.md#azure-role-assignments-limit)있는 역할 할당의 수를 최소화할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

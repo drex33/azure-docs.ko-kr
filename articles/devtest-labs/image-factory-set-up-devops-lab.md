@@ -3,12 +3,12 @@ title: Azure DevOps에서 이미지 팩터리 실행
 description: 이 문서에서는 Azure DevOps(이전의 Visual Studio Team Services)에서 이미지 팩터리를 실행하는 데 필요한 모든 준비 사항을 설명합니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: bc12dc67160a68898191ab802cc9f6e9bd3f3f62
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 22598594f4da2f931b8bb591903bad6c23b7e9ba
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604863"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398994"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps에서 이미지 팩터리 실행
 이 문서에서는 Azure DevOps(이전의 Visual Studio Team Services)에서 이미지 팩터리를 실행하는 데 필요한 모든 준비 사항을 설명합니다.
@@ -31,21 +31,21 @@ ms.locfileid: "128604863"
 이 섹션의 문서에서는 이 스크립트 및 템플릿에 대한 자세한 정보를 제공합니다.
 
 ## <a name="create-an-azure-devops-team-project"></a>Azure DevOps 팀 프로젝트 만들기
-Azure DevOps를 사용하면 소스 코드를 저장하고 Azure PowerShell을 한 곳에서 실행할 수 있습니다. 되풀이 실행을 예약하여 이미지를 최신 상태로 유지할 수 있습니다. 결과를 기록하여 문제를 진단할 수 있는 좋은 기능이 있습니다.  Azure DevOps 사용이 필수 요건은 아니지만 사용할 경우 원하는 도구/엔진으로 Azure에 연결할 수 있고 Azure PowerShell을 실행할 수 있습니다.
+Azure DevOps를 사용하면 소스 코드를 저장하고 Azure PowerShell을 한 곳에서 실행할 수 있습니다. 반복 실행을 예약하여 이미지를 최신 상태로 유지할 수 있습니다. 결과를 기록하여 문제를 진단할 수 있는 좋은 기능이 있습니다.  Azure DevOps 사용이 필수 요건은 아니지만 사용할 경우 원하는 도구/엔진으로 Azure에 연결할 수 있고 Azure PowerShell을 실행할 수 있습니다.
 
 대신 사용할 기존 DevOps 계정 또는 프로젝트가 있는 경우 이 단계를 건너뜁니다.
 
-시작하려면 Azure DevOps에서 체험 계정을 만듭니다. https://www.visualstudio.com/ 을 방문하여 **Azure DevOps**(이전의 VSTS) 바로 아래의 **체험판 시작하기** 를 선택합니다. 고유한 계정 이름을 선택하고 Git을 사용하여 코드를 관리하도록 선택해야 합니다. 계정을 만든 후에는 팀 프로젝트에 URL을 저장합니다. 샘플 URL로 `https://<accountname>.visualstudio.com/MyFirstProject`가 있습니다.
+시작하려면 Azure DevOps에서 체험 계정을 만듭니다. https://www.visualstudio.com/ 을 방문하여 **Azure DevOps**(이전의 VSTS) 바로 아래의 **체험판 시작하기** 를 선택합니다. 고유한 계정 이름을 선택하고 Git을 사용하여 코드를 관리하도록 선택해야 합니다. 계정을 만든 후 팀 프로젝트에 URL을 저장합니다. 샘플 URL로 `https://<accountname>.visualstudio.com/MyFirstProject`가 있습니다.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Git에 이미지 팩터리 체크 인
-이미지 팩터리의 모든 PowerShell, 템플릿, 구성은 [퍼블릭 DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory)에 있습니다. 새 팀 프로젝트로 코드를 가져오는 가장 빠른 방법은 리포지토리를 가져오는 것입니다. 이렇게 하면 전체 DevTest Labs 리포지토리를 풀하므로 추가 문서 및 샘플을 얻을 수 있습니다.
+이미지 팩터리의 모든 PowerShell, 템플릿, 구성은 [퍼블릭 DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory)에 있습니다. 새 팀 프로젝트로 코드를 가져오는 가장 빠른 방법은 리포지토리를 가져오는 것입니다. 가져오기는 전체 DevTest Labs 리포지토리에서 가져옵니다(따라서 추가 문서 및 샘플을 가져옵니다).
 
 1. 이전 단계에서 만든 Azure DevOps 프로젝트를 방문합니다(URL은 **https:\//\<accountname>.visualstudio.com/MyFirstProject** 와 유사함).
 2. **리포지토리 가져오기** 를 선택합니다.
 3. DevTest Labs 리포지토리의 **복제본 URL** `https://github.com/Azure/azure-devtestlab`을 입력합니다.
 4. **가져오기** 를 선택합니다.
 
-    ![Git 리포지토리 가져오기](./media/set-up-devops-lab/import-git-repo.png)
+    ![Git 리포지토 가져오기를 보여 주는 스크린샷.](./media/set-up-devops-lab/import-git-repo.png)
 
 정확히 필요한 항목(이미지 팩터리 파일)만 체크 인하려면 [여기](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs)에 나오는 단계에 따라 Git 리포지토리를 복제하고 **scripts/ImageFactory** 디렉터리에 있는 파일만 푸시합니다.
 
@@ -57,13 +57,13 @@ Azure DevOps를 사용하면 소스 코드를 저장하고 Azure PowerShell을 �
 
 1. 시작하려면 DevOps 프로젝트 홈페이지에서 **빌드 설정** 을 선택합니다.
 
-    ![빌드 설정 단추](./media/set-up-devops-lab/setup-build-button.png)
+    ![빌드 설정 단추를 보여 주는 스크린샷.](./media/set-up-devops-lab/setup-build-button.png)
 2. 빌드 **이름** 을 지정합니다(예: 이미지를 빌드하여 DevTest Labs에 전달).
 3. **빈** 빌드 정의를 선택하고 **적용** 을 선택하여 빌드를 만듭니다.
 4. 이 단계에서 빌드 에이전트에 대해 **호스트됨** 을 선택할 수 있습니다.
 5. 빌드 정의를 **저장** 합니다.
 
-    ![빌드 정의](./media/set-up-devops-lab/build-definition.png)
+    ![빌드 정의를 보여 주는 스크린샷.](./media/set-up-devops-lab/build-definition.png)
 
 ## <a name="configure-the-build-variables"></a>빌드 변수 구성
 명령줄 매개 변수를 간소화하려면 이미지 팩터리를 구동하는 키 값을 빌드 변수 세트로 캡슐화합니다. **변수** 탭을 선택하면 여러 기본 변수 목록이 표시됩니다. 다음은 Azure DevOps에 입력할 변수 목록입니다.
@@ -71,33 +71,33 @@ Azure DevOps를 사용하면 소스 코드를 저장하고 Azure PowerShell을 �
 
 | 변수 이름 | 값 | 참고 |
 | ------------- | ----- | ----- |
-| ConfigurationLocation | /Scripts/ImageFactory/Configuration | 리포지토리에서 **구성** 폴더의 전체 경로입니다. 위에서 전체 리포지토리를 가져온 경우 왼쪽의 값이 맞습니다. 전체 리포지토리를 가져오지 않은 경우 구성 위치를 가리키도록 업데이트하세요. |
+| ConfigurationLocation | /Scripts/ImageFactory/Configuration | 이 위치는 **구성** 폴더에 대한 리포지토리의 전체 경로입니다. 위에서 전체 리포지토리를 가져온 경우 왼쪽의 값이 맞습니다. 전체 리포지토리를 가져오지 않은 경우 구성 위치를 가리키도록 업데이트하세요. |
 | DevTestLabName | MyImageFactory | 이미지를 생성하는 데 팩터리로 사용되는 Azure DevTest Labs의 랩 이름입니다. 랩이 없는 경우 랩을 만듭니다. 랩이 서비스 엔드포인트에서 액세스할 수 있는 동일한 구독에 있는지 확인합니다. |
 | ImageRetention | 1 | 형식마다 저장할 이미지 수입니다. 기본값은 1로 설정합니다. |
-| MachinePassword | ******* | 가상 머신의 기본 제공 관리자 계정 암호입니다. 임시 계정이므로 보호되는지 확인해야 합니다. 오른쪽의 작은 잠금 아이콘을 선택하여 보안 문자열인지 확인합니다. |
-| MachineUserName | ImageFactoryUser | 가상 머신의 기본 제공 관리자 계정 사용자 이름입니다. 임시 계정입니다. |
+| MachinePassword | ******* | 가상 머신의 기본 제공 관리자 계정 암호입니다. 이 계정은 일시적이므로 안전한지 확인합니다. 오른쪽의 작은 잠금 아이콘을 선택하여 보안 문자열인지 확인합니다. |
+| MachineUserName | ImageFactoryUser | 가상 머신의 기본 제공 관리자 계정 사용자 이름입니다. 이 계정은 일시적입니다. |
 | StandardTimeoutMinutes | 30 | 정기 Azure 작업 중 대기해야 하는 시간 제한입니다. |
 | SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | 랩이 있고 서비스 엔드포인트에서 액세스할 수 있는 구독의 ID입니다. |
 | VMSize | Standard_A3 | **만들기** 단계에 사용할 가상 머신의 크기입니다. 만들어지는 VM은 임시 VM입니다. 크기는 [랩에 사용할 수 있는](devtest-lab-set-lab-policy.md) 크기여야 합니다. [구독 코어 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)이 충분한지 확인합니다.
 
-![변수 빌드](./media/set-up-devops-lab/configure-build-variables.png)
+![변수 빌드를 보여 주는 스크린샷](./media/set-up-devops-lab/configure-build-variables.png)
 
 ## <a name="connect-to-azure"></a>Azure에 연결
-다음 단계에서는 서비스 주체를 설정합니다. 사용자 대신 DevOps 빌드 에이전트가 Azure에서 작동할 수 있도록 하는 Azure Active Directory의 ID입니다. 설정하려면 먼저 Azure PowerShell 빌드 단계를 추가합니다.
+다음 단계는 서비스 주체를 설정하는 것입니다. 서비스 주체는 DevOps 빌드 에이전트가 사용자를 대신하여 Azure에서 작동할 수 있도록 하는 Azure Active Directory ID입니다. 설정하려면 먼저 Azure PowerShell 빌드 단계를 추가합니다.
 
 1. **작업 추가** 를 선택합니다.
 2. **Azure PowerShell** 을 검색합니다.
-3. 찾은 후에는 **추가** 를 선택하여 빌드에 작업을 추가합니다. 이렇게 하면 추가된 작업이 왼쪽에 표시됩니다.
+3. 찾은 후에는 **추가** 를 선택하여 빌드에 작업을 추가합니다. **추가를** 선택하면 작업이 추가된 대로 왼쪽에 표시됩니다.
 
-![PowerShell 설정 단계](./media/set-up-devops-lab/set-up-powershell-step.png)
+![PowerShell 설정 단계를 보여 주는 스크린샷.](./media/set-up-devops-lab/set-up-powershell-step.png)
 
-서비스 주체를 설정하는 가장 빠른 방법은 Azure DevOps에서 이 작업을 수행하도록 허용하는 것입니다.
+서비스 주체를 설정하는 가장 빠른 방법은 Azure DevOps 서비스 주체를 설정하는 것입니다.
 
 1. 방금 추가한 **작업** 을 선택합니다.
 2. **Azure 연결 형식** 의 경우 **Azure Resource Manager** 를 선택합니다.
 3. **관리** 링크를 선택하여 서비스 주체를 설정합니다.
 
-자세한 내용은 이 [블로그 게시물](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)을 참조하세요. **관리** 링크를 선택하면 DevOps에서 Azure에 대한 연결을 설정하는 데 적합한 위치(블로그 게시물의 두 번째 스크린샷)로 이동합니다. 연결을 설정하는 경우 **Azure Resource Manager 서비스 엔드포인트** 를 선택해야 합니다.
+자세한 내용은 이 [블로그 게시물](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)을 참조하세요. **관리** 링크를 선택하면 DevOps에서 Azure에 대한 연결을 설정하는 데 적합한 위치(블로그 게시물의 두 번째 스크린샷)로 이동합니다. 연결을 설정하는 **경우 Azure Resource Manager 서비스 엔드포인트를** 선택해야 합니다.
 
 ## <a name="complete-the-build-task"></a>빌드 작업 완료
 빌드 작업을 선택하면 오른쪽 창에 채워야 하는 모든 세부 정보가 표시됩니다.
@@ -109,7 +109,7 @@ Azure DevOps를 사용하면 소스 코드를 저장하고 Azure PowerShell을 �
 5. **MakeGoldenImageVMs.ps1** 스크립트로 이동합니다.
 6. 스크립트 매개 변수는 다음과 유사합니다. `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
-    ![빌드 정의 완료](./media/set-up-devops-lab/complete-build-definition.png)
+    ![빌드 정의 완료를 보여 주는 스크린샷](./media/set-up-devops-lab/complete-build-definition.png)
 
 
 ## <a name="queue-the-build"></a>빌드 큐 대기

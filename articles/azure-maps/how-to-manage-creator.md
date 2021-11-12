@@ -3,20 +3,20 @@ title: Microsoft Azure Maps Creator 관리
 description: 이 문서에서는 Microsoft Azure Maps Creator를 관리하는 방법을 알아봅니다.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/08/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 09a70e55d796e0eb16d0806fb9a0726ff67ea812
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 124b75aa0a80f84299fd0e113f2d4d7f1a427213
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729770"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400209"
 ---
 # <a name="manage-azure-maps-creator"></a>Azure Maps Creator 관리
 
-Azure Maps Creator를 사용하면 프라이빗 실내 맵 데이터를 만들 수 있습니다. Azure Maps API 및 실내 맵 모듈을 사용하여 대화형 및 동적 실내 지도 웹 애플리케이션을 개발할 수 있습니다. 가격 책정 정보는 [Azure Maps에서 올바른 가격 책정 계층 선택](choose-pricing-tier.md)을 참조하세요.
+Azure Maps Creator를 사용하면 프라이빗 실내 맵 데이터를 만들 수 있습니다. Azure Maps API 및 실내 맵 모듈을 사용하여 대화형 및 동적 실내 지도 웹 애플리케이션을 개발할 수 있습니다. 가격 책정 정보는 Azure [지도 가격 책정의](https://aka.ms/CreatorPricing) *작성자* 섹션을 참조하세요.
 
 이 문서에서는 Azure Maps 계정에서 Creator 리소스를 만들고 삭제하는 단계를 안내합니다.
 
@@ -32,7 +32,7 @@ Azure Maps Creator를 사용하면 프라이빗 실내 맵 데이터를 만들 �
 
     :::image type="content" border="true" source="./media/how-to-manage-creator/creator-blade-settings.png" alt-text="Azure Maps Creator 만들기 페이지":::
 
-4. 작성자 리소스의 이름, 위치 및 맵 프로 비전 저장소 단위를 입력 한 다음 **검토 + 만들기** 를 선택 합니다.
+4. Creator 리소스의 이름, 위치 및 맵 프로비저닝 스토리지 단위를 입력한 다음, **검토 + 만들기를** 선택합니다.
 
    :::image type="content" source="./media/how-to-manage-creator/creator-creation-dialog.png" alt-text="Creator 계정 정보 페이지 입력":::
 
@@ -59,7 +59,7 @@ Creator 리소스를 삭제하려면:
 2. **삭제** 를 선택합니다.
 
     >[!WARNING]
-    >Azure Maps 계정의 Creator 리소스를 삭제하는 경우 Creator 서비스를 사용하여 만든 변환, 데이터 세트, 타일 세트 및 기능 상태 세트도 삭제됩니다.
+    >Azure Maps 계정의 Creator 리소스를 삭제하는 경우 Creator 서비스를 사용하여 만든 변환, 데이터 세트, 타일 세트 및 기능 상태 세트도 삭제됩니다. Creator 리소스가 삭제되면 실행 취소할 수 없습니다.
 
      :::image type="content" source="./media/how-to-manage-creator/creator-delete.png" alt-text="삭제 단추가 있는 Creator 페이지":::
 

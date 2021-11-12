@@ -3,28 +3,28 @@ title: 학습에 Azure DevTest Labs 사용
 description: 이 문서에서는 Azure DevTest Labs에서 학습을 위한 랩을 설정하는 자세한 단계를 제공합니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: b7de17f89e5e7a23290e00402e13c7035df03578
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6809ee2a9d08e059184ccbcb98c20ac5ea2160fa
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130228999"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398120"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>학습에 Azure DevTest Labs 사용
-Azure DevTest Labs는 개발/테스트 외에도 여러 주요 시나리오를 구현하는 데 사용할 수 있습니다. 이러한 시나리오 중 하나는 학습용 랩을 설정하는 것입니다. Azure DevTest Labs를 통해 각 실습생이 동일하고 격리된 학습용 환경을 만드는 데 사용할 수 있는 사용자 지정 템플릿을 제공할 수 있는 랩을 만들 수 있습니다. 각 실습생이 필요할 때에만 교육 환경을 이용할 수 있도록 하고 교육에 필요한 리소스(예: 가상 머신)를 충분히 포함하는 정책을 적용할 수 있습니다. 마지막으로 실습생과 랩을 쉽게 공유할 수 있고 실습생은 한 번의 클릭으로 액세스할 수 있습니다.
+Azure DevTest Labs 사용하여 개발/테스트 외에도 많은 주요 시나리오를 구현할 수 있습니다. 한 가지 시나리오는 학습을 위한 랩을 설정하는 것입니다. Azure DevTest Labs 사용하면 각 실습생이 동일하고 격리된 학습 환경을 만들 수 있는 사용자 지정 템플릿을 제공하는 랩을 만들 수 있습니다. 각 실습생이 필요할 때만 학습 환경을 사용할 수 있도록 정책을 적용하고 학습에 충분한 리소스(예: 가상 머신)를 포함할 수 있습니다. 마지막으로 실습생이 한 번의 클릭으로 액세스할 수 있도록 랩을 쉽게 공유할 수 있습니다.
 
 ![학습에 DevTest Labs 사용](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
-Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필요한 다음과 같은 요구 사항을 충족합니다. 
+Azure DevTest Labs 모든 가상 환경에서 교육을 수행하기 위한 다음 요구 사항을 충족합니다. 
 
 * 실습생은 다른 실습생이 만든 VM을 볼 수 없습니다.
-* 모든 학습 컴퓨터는 동일해야 합니다.
+* 모든 학습 머신은 동일해야 합니다.
 * 실습생은 학습 환경을 신속하게 프로비전할 수 있습니다.
-* 실습생이 학습에 필요한 만큼의 VM만 사용하고 사용하지 않을 때는 VM을 종료하도록 하여 비용을 제어합니다.
-* 각 실습생과 학습 랩을 쉽게 공유합니다.
-* 학습 랩을 반복해서 다시 사용합니다.
+* 학습생이 필요한 것보다 더 많은 VM을 얻을 수 없도록 하여 비용을 제어하고 VM을 사용하지 않을 때 VM을 종료합니다.
+* 학습 랩을 각 실습생과 쉽게 공유합니다.
+* 학습 랩을 반복해서 다시 사용하십시오.
 
-이 문서에서는 앞에서 설명한 학습 요구 사항을 충족하는 데 사용할 수 있는 여러 Azure DevTest Labs 기능과 학습용 랩을 설정하는 데 수행할 수 있는 자세한 단계에 대해 학습합니다.  
+이 문서에서는 학습 요구 사항을 충족하는 데 사용할 수 있는 다양한 Azure DevTest Labs 기능에 대해 알아봅니다. 자세한 단계에 따라 학습을 위한 랩을 설정할 수 있습니다.  
 
 ## <a name="implementing-training-with-azure-devtest-labs"></a>Azure DevTest Labs로 학습 구현
 1. **랩 만들기** 
@@ -38,7 +38,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    | [Azure DevTest Labs에서 랩 만들기](devtest-lab-create-lab.md) |Azure Portal의 Azure DevTest Labs에서 랩을 만드는 방법을 알아봅니다. |
 2. **바로 사용할 수 있는 마켓플레이스 이미지 및 사용자 지정 이미지를 사용하여 몇 분 만에 학습 VM 만들기** 
    
-    Azure Marketplace의 다양한 이미지에서 바로 사용할 수 있는 이미지를 선택하고 랩의 실습생이 사용하도록 할 수 있습니다. 바로 사용할 수 있는 이미지가 요구 사항을 충족하지 않을 경우 Azure Marketplace에서 바로 사용할 수 있는 이미지를 사용하여 랩 VM을 만들고, 학습에 필요한 모든 소프트웨어를 설치하고, 랩의 사용자 지정 이미지로 VM을 지정함으로써 사용자 지정 이미지를 만들 수 있습니다. 
+    Azure Marketplace의 다양한 이미지에서 바로 사용할 수 있는 이미지를 선택하고 랩의 실습생이 사용하도록 할 수 있습니다. 즉시 사용할 수 있는 이미지가 요구 사항을 충족하지 않는 경우 사용자 지정 이미지를 만들 수 있습니다. Azure Marketplace 미리 만든 이미지를 사용하여 랩 VM을 만들고, 학습에 필요한 소프트웨어를 설치하고, 랩에서 VM을 사용자 지정 이미지로 저장합니다. 
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
@@ -57,9 +57,9 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    | [VM을 만드는 DevTest Labs 수식 관리](devtest-lab-manage-formulas.md) |이미지, VM 크기(CPU와 RAM의 조합) 및 가상 네트워크를 선택하여 수식을 만들 수 있는 방법을 알아봅니다. |
 4. **비용 제어**
    
-    Azure DevTest Labs를 통해 랩에서 실습생이 만들 수 있는 VM의 최대 수를 지정하는 정책을 랩에 설정할 수 있습니다. 
+    Azure DevTest Labs 사용하면 랩에서 정책을 설정하여 실습생이 랩에서 만들 수 있는 최대 VM 수를 지정할 수 있습니다. 
    
-    며칠 간 학습 시 하루 중 특정 시간에 모든 VM을 중지했다가 다음 날 자동으로 다시 시작하도록 하려면 랩에서 자동 종료 및 자동 시작 정책을 설정하여 쉽게 수행할 수 있습니다. 
+    여러 날의 교육을 수행하는 경우 하루 중 특정 시간에 모든 VM을 중지한 다음, 다음 날 자동으로 다시 시작할 수 있습니다. 이렇게 하려면 랩에서 자동 종료 및 자동 시작 정책을 설정합니다. 
    
     마지막으로 학습이 완료되면 단일 PowerShell 스크립트를 실행하여 모든 VM을 한 번에 삭제할 수 있습니다. 
    

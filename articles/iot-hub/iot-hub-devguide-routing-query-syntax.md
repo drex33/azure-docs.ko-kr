@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 814ed1001c39b48a5aa93162cb54ec520050eb66
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 7d56a9747627bd81e9bc0cc72fce804a64af91e4
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457566"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398082"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -53,7 +53,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 시스템 속성을 사용하면 메시지의 콘텐츠 및 소스를 식별할 수 있습니다. 
 
-| 속성 | 형식 | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | contentType | 문자열 | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
 | contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
@@ -149,10 +149,9 @@ deviceClient.sendEvent(message, (err, res) => {
 > [!NOTE] 
 > javascript에서 본문 인코딩을 처리하는 방법을 보여 줍니다. C#에서 샘플을 보려는 경우 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)을 다운로드합니다. master.zip 파일의 압축을 풉니다. Visual Studio solution *SimulatedDevice* 의 Program.cs 파일은 메시지를 인코딩하여 IoT Hub로 제출하는 방법을 보여 줍니다. [메시지 라우팅 자습서](tutorial-routing.md)에 설명된 것처럼 메시지 라우팅을 테스트하는 데 사용되는 것과 동일한 샘플입니다. 또한 Program.cs의 맨 아래에는 인코딩된 파일 중 하나에서 읽고 디코드하고 ASCII로 다시 작성하여 읽을 수 있도록 하는 메서드가 있습니다. 
 
-
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 본문에 대한 쿼리는 접두사로 `$body`을 사용해야 합니다. 쿼리 식에 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 또한 쿼리 식은 본문 참조를 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
+메시지 본문에 대 한 쿼리에는 접두사가와 야 `$body` 합니다. 쿼리 식에 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 또한 쿼리 식은 본문 참조를 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다.
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -170,9 +169,16 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
-> [!NOTE] 
+> [!NOTE]
+> 변경 된 내용에 따라 쌍 알림 페이로드를 필터링 하려면 메시지 본문에 대해 쿼리를 실행 합니다.
+>
+> ```sql
+> $body.properties.desired.telemetryConfig.sendFrequency
+> ```
+
+> [!NOTE]
 > 쿼리 및 함수는 본문 참조의 속성에 대해서만 실행할 수 있습니다. 전체 본문 참조에서 쿼리 또는 함수를 실행할 수 없습니다. 예를 들어 다음 쿼리는 *지원되지* 않으며 `undefined`를 반환합니다.
-> 
+>
 > ```sql
 > $body[0] = 'Feb'
 > ```

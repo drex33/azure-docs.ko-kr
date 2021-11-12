@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 23f472b68ca1a3e1167cb389a85889ddbeadde5f
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 897ae578ca1ff088e2f3f937bb9f00977ee233ad
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373026"
+ms.locfileid: "132399355"
 ---
 # <a name="ev5-and-esv5-series"></a>Ev5 및 Esv5 시리즈
 
@@ -38,7 +38,7 @@ Ev5 시리즈는 표준 SSD 및 표준 HDD 디스크 유형을 지원 합니다.
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 필수 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
-[중첩 된 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): 지원 됨 <br>
+[중첩 된 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): 지원 됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 NIC 수|최대 네트워크 대역폭 (Mbps) |
@@ -71,7 +71,7 @@ Esv5 시리즈는 표준 SSD, 표준 HDD 및 Premium SSD 디스크 유형을 지
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹:](../virtual-network/create-vm-accelerated-networking-cli.md)필수 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
-[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)지원됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 캐시되지 않은 최대 버스트 디스크 처리량: IOPS/MBps<sup>5</sup> | 최대 NIC 수 | 최대 네트워크 대역폭(Mbps) |
@@ -87,11 +87,11 @@ Esv5 시리즈는 표준 SSD, 표준 HDD 및 Premium SSD 디스크 유형을 지
 | Standard_E96s_v5<sup>3</sup>   | 96  | 672 | 원격 스토리지 전용 | 32 | 80000/2600  | 80000/4000 | 8 | 35000  |
 | Standard_E104is_v5<sup>4</sup> | 104 | 672 | 원격 스토리지 전용 | 64 | 120000/4000 | 120000/4000 | 8 | 100000 |
 
-<sup>1</sup> 가속화된 네트워킹이 필요하며 모든 Esv5 가상 머신에서 기본적으로 켜져 있습니다.<br>
-<sup>2</sup> 가속화된 네트워킹은 두 개의 NIC에 적용할 수 있습니다.<br>
-<sup>3</sup> 사용 가능한 [제한된 코어](constrained-vcpu.md) 크기입니다.<br>
-<sup>4</sup> 인스턴스는 단일 고객 전용 하드웨어로 [격리됩니다.](../security/fundamentals/isolation-choices.md#compute-isolation)<br>
-<sup>5개의</sup> Esv5 시리즈 VM은 디스크 성능을 [버스트하고](disk-bursting.md) 한 번에 최대 30분 동안 최대 버스트 최대값을 얻을 수 있습니다.
+<sup>1</sup> 가속화 된 네트워킹은 모든 Esv5 가상 머신에서 기본적으로 설정 되 고 설정 됩니다.<br>
+<sup>2 2</sup> 개의 nic에 가속화 된 네트워킹을 적용할 수 있습니다.<br>
+<sup>3</sup> [제한 된 코어](constrained-vcpu.md) 크기를 사용할 수 있습니다.<br>
+<sup>4</sup> 인스턴스는 단일 고객 전용의 하드웨어에 [격리](../security/fundamentals/isolation-choices.md#compute-isolation) 되어 있습니다.<br>
+<sup>5</sup> Esv5 시리즈 vm은 디스크 성능을 증가 [시킬 수 있으며](disk-bursting.md) 한 번에 최대 30 분 동안 버스트 max를 얻을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

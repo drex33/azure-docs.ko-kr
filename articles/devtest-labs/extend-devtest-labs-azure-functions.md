@@ -1,17 +1,17 @@
 ---
-title: Azure Functions 사용하여 Azure DevTest Labs 확장
+title: Azure Functions를 사용 하 여 Azure DevTest Labs 확장
 description: Azure Functions를 사용하여 Azure DevTest Labs를 확장하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 8a6200dbfce99ee7904dc1a65965e95d81e98471
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a3160335bc233d0873c6e9cae5d32aef4f494ab9
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623649"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401120"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Azure Functions를 사용하여 DevTest Labs 연장
-Azure Functions를 사용하여 DevTest Labs에서 이미 지원하는 것 이상의 추가 시나리오를 지원할 수 있습니다. Azure Functions를 사용하여 비즈니스 관련 요구에 맞게 서비스의 기본 제공 기능을 확장할 수 있습니다. 다음 목록에서는 가능한 몇 가지 시나리오를 제공합니다. 이 문서에서는 이러한 샘플 시나리오 중 하나를 구현하는 방법을 보여 줍니다.
+Azure Functions를 사용 하 여 DevTest Labs가 이미 지 원하는 것 보다 더 많은 시나리오를 지원할 수 있습니다. Azure Functions를 사용 하 여 비즈니스 관련 요구에 맞게 서비스의 기본 제공 기능을 확장할 수 있습니다. 다음 목록에서는 가능한 몇 가지 시나리오를 제공합니다. 이 문서에서는 이러한 샘플 시나리오 중 하나를 구현하는 방법을 보여 줍니다.
 
 - 랩에서 VM(가상 머신)에 대한 최상위 수준 요약 제공
 - [원격 데스크톱 게이트웨이를 사용하도록 랩 구성](configure-lab-remote-desktop-gateway.md)
@@ -20,11 +20,11 @@ Azure Functions를 사용하여 DevTest Labs에서 이미 지원하는 것 이�
 - [DevTest Labs 이벤트 기반 워크플로 시작](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
 
 ## <a name="overview"></a>개요
-[Azure Functions](../azure-functions/functions-overview.md)는 Azure의 서버리스 컴퓨팅 플랫폼입니다. DevTest Labs를 사용하여 솔루션에서 Azure Functions를 사용하면 기존 기능을 사용자 지정 코드를 사용하여 확장할 수 있습니다. Azure Functions에 대한 자세한 내용은 [Azure Functions 설명서](../azure-functions/functions-overview.md)를 참조하세요. Azure Functions가 DevTest Labs에서 요구 사항 또는 전체 시나리오를 충족시키는 데 도움이 될 수 있는 방법을 설명하기 위해 이 문서에서는 다음과 같이 랩에서 VM에 대한 최상위 요약을 제공하는 예제를 사용합니다.
+[Azure Functions](../azure-functions/functions-overview.md)는 Azure의 서버리스 컴퓨팅 플랫폼입니다. DevTest Labs를 사용하여 솔루션에서 Azure Functions를 사용하면 기존 기능을 사용자 지정 코드를 사용하여 확장할 수 있습니다. Azure Functions에 대한 자세한 내용은 [Azure Functions 설명서](../azure-functions/functions-overview.md)를 참조하세요. 이 문서에서는 DevTest Labs에서 요구 사항 또는 전체 시나리오를 충족 하 Azure Functions는 데 도움이 되는 방법을 설명 하기 위해 다음과 같이 랩에서 Vm에 대 한 최상위 요약을 제공 하는 예제를 사용 합니다.
 
-**예제 요구 사항/시나리오**: 사용자는 운영 체제, 소유자 및 적용된 모든 아티팩트를 포함하는 랩의 모든 VM에 대한 세부 정보를 볼 수 있습니다.  또한 **Windows 업데이트 적용** 아티팩트가 최근에 적용되지 않은 경우 이를 적용하는 쉬운 방법이 있습니다.
+**예제 요구 사항/시나리오**: 사용자는 운영 체제, 소유자 및 적용된 모든 아티팩트를 포함하는 랩의 모든 VM에 대한 세부 정보를 볼 수 있습니다.  또한 **적용 Windows 업데이트** 아티팩트가 최근에 적용 되지 않은 경우에는이를 적용 하는 쉬운 방법이 있습니다.
 
-시나리오를 완료하려면 다음 다이어그램에 설명된 대로 두 개의 함수를 사용합니다.  
+시나리오를 완료 하려면 다음 다이어그램에 설명 된 것 처럼 두 개의 함수를 사용 합니다.  
 
 ![전체 흐름](./media/extend-devtest-labs-azure-functions/flow.png)
 
@@ -38,15 +38,15 @@ Azure Functions를 사용하여 DevTest Labs에서 이미 지원하는 것 이�
 
 **새로 고치려면 여기를 선택** 단추를 선택하는 경우 페이지는 첫 번째 Azure 함수: **UpdateInternalSupportPage** 를 호출합니다. 함수는 정보에 대해 DevTest Labs를 쿼리한 다음, **내부 지원** 페이지를 새 정보로 다시 작성합니다.
 
-Windows 업데이트 아티팩트가 최근에 적용되지 않은 모든 VM에 대해 수행할 수 있는 추가 작업이 있습니다. VM에 Windows 업데이트를 적용하는 단추가 있습니다. VM에 대해 ***Windows 업데이트 실행** 단추를 선택하면 페이지에서 두 번째 Azure Function: **ApplyWindowsUpdateArtifact** 를 호출합니다. 이 함수는 가상 머신이 실행되고 있는지 여부를 확인하고, 그렇다면 [Windows 업데이트](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) 아티팩트를 직접 적용합니다.
+다른 작업을 수행할 수 있습니다. 최근에 적용 된 Windows 업데이트 아티팩트가 없는 모든 vm의 경우 vm에 Windows 업데이트를 적용 하는 단추가 있습니다. VM에 대해 ***Windows 업데이트 실행** 단추를 선택하면 페이지에서 두 번째 Azure Function: **ApplyWindowsUpdateArtifact** 를 호출합니다. 이 함수는 가상 머신이 실행되고 있는지 여부를 확인하고, 그렇다면 [Windows 업데이트](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) 아티팩트를 직접 적용합니다.
 
 ## <a name="step-by-step-walkthrough"></a>단계별 안내
-이 섹션에서는 **내부 지원** 페이지를 업데이트하는 데 필요한 Azure 리소스를 설정하는 방법에 대한 단계별 지침을 제공합니다. 이 연습에서는 DevTest Labs를 확장하는 한 가지 예제를 제공합니다. 다른 시나리오에 이 패턴을 사용할 수 있습니다.
+이 섹션에서는 **내부 지원** 페이지를 업데이트하는 데 필요한 Azure 리소스를 설정하는 방법에 대한 단계별 지침을 제공합니다. 이 연습에서는 DevTest Labs를 확장하는 한 가지 예제를 제공합니다. 이 패턴은 다른 시나리오에 사용할 수 있습니다.
 
 ### <a name="step-1-create-a-service-principal"></a>1단계: 서비스 주체 만들기 
 첫 번째 단계는 랩을 포함하는 구독에 대한 사용 권한이 있는 서비스 주체를 가져오는 것입니다. 서비스 주체는 암호 기반 인증을 사용해야 합니다. [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps) 또는 [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)을 사용하여 이 작업을 수행할 수 있습니다. 사용할 서비스 주체가 이미 있는 경우 이 단계를 건너뛸 수 있습니다.
 
-서비스 주체의 **애플리케이션 ID**, **키** 및 **테넌트 ID** 를 적어둡니다. 이 연습의 뒷부분에서 필요합니다. 
+서비스 주체의 **애플리케이션 ID**, **키** 및 **테넌트 ID** 를 적어둡니다. 이 연습의 뒷부분에서 필요 합니다. 
 
 ### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>2단계: 샘플 다운로드 및 Visual Studio 2019에서 열기
 리포지토리를 복제하거나 [여기](https://github.com/Azure/azure-devtestlab/archive/master.zip)에서 리포지토리를 다운로드하여 [C# Azure Functions 샘플](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp)의 복사본을 로컬로 다운로드합니다.  
@@ -74,7 +74,7 @@ Visual Studio의 **솔루션 탐색기** 창에서 **AzureFunctions** 프로젝�
     ![Azure 함수 URL](./media/extend-devtest-labs-azure-functions/function-url.png)
 4. URL을 복사하고 저장합니다. 다른 Azure 함수에 대해서도 이러한 단계를 반복합니다. 
 
-또한 서비스 주체에 대한 추가 정보(예: 애플리케이션 ID, 키 및 테넌트 ID)가 필요합니다.
+또한 서비스 주체 (예: 응용 프로그램 ID, 키 및 테 넌 트 ID)에 대 한 정보가 필요 합니다.
 
 
 ### <a name="step-5--update-application-settings"></a>5단계: 애플리케이션 설정 업데이트

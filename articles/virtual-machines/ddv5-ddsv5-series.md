@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 003b53a733e3b64c5ff5c822743f48df361a214b
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: f2f4cb3a9d0af5bdf5dd873151b7adc899a24295
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132370028"
+ms.locfileid: "132401994"
 ---
 # <a name="ddv5-and-ddsv5-series"></a>Ddv5 및 Ddsv5 시리즈
 
@@ -36,7 +36,7 @@ Ddv5 시리즈 가상 머신은 표준 SSD 및 표준 HDD 디스크 유형을 �
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹:](../virtual-network/create-vm-accelerated-networking-cli.md)필수 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
-[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)지원됨 <br>
 <br> 
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시된 최대 및 임시 스토리지 처리량: IOPS/MBps<sup>*</sup> | 최대 NIC 수|최대 네트워크 대역폭(Mbps) |
@@ -67,7 +67,7 @@ Ddsv5 시리즈 가상 머신은 표준 SSD, 표준 HDD 및 Premium SSD 디스�
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹:](../virtual-network/create-vm-accelerated-networking-cli.md)필수 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
-[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)지원됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)지원됨 <br>
 <br> 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Spring Cloud | 자체 영구 스토리지를 사용하도록 설정하는 방법 Microsoft Docs
+title: Azure Spring Cloud | 고유한 영구 스토리지를 사용하도록 설정하는 방법 Microsoft Docs
 description: Azure Spring Cloud 자체 스토리지를 영구 스토리지로 가져오는 방법
 author: karlerickson
 ms.service: spring-cloud
@@ -7,26 +7,26 @@ ms.topic: conceptual
 ms.date: 10/28/2021
 ms.author: xuycao
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 2bf84684851b19665e33af0cbfe902145b8ea565
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 25af6e4fe8ab2aa097812e504b27e8023ee30fc9
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131483107"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402146"
 ---
-# <a name="how-to-enable-your-own-persistent-storage-in-azure-spring-cloud"></a>Azure Spring Cloud 자체 영구 스토리지를 사용하도록 설정하는 방법
+# <a name="how-to-enable-your-own-persistent-storage-in-azure-spring-cloud"></a>Azure Spring Cloud 고유한 영구 스토리지를 사용하도록 설정하는 방법
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 이 문서에서는 Azure Spring Cloud 고유한 영구 스토리지를 사용하도록 설정하는 방법을 보여 줍니다.
 
-Azure Spring Cloud 기본 제공 영구 스토리지를 사용하는 경우 애플리케이션에서 생성된 아티팩트 Azure Storage 계정에 업로드됩니다. Microsoft는 이러한 아티팩트에 대한 미사용 데이터 암호화 및 수명 관리 정책을 제어합니다. 
+Azure Spring Cloud 기본 제공 영구 스토리지를 사용하면 애플리케이션에서 생성된 아티팩트들이 Azure Storage 계정에 업로드됩니다. Microsoft는 이러한 아티팩트에 대한 미사용 데이터 암호화 및 수명 관리 정책을 제어합니다. 
 
 BYOS(Bring Your Own Storage)를 사용하면 이러한 아티팩트는 사용자가 제어하는 스토리지 계정에 업로드됩니다. 즉, 미사용 데이터 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 제어할 수 있습니다. 그러나 해당 스토리지 계정과 관련된 비용은 사용자가 부담합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 기존 Azure Storage 계정 및 미리 만들어진 Azure 파일 공유. Azure에서 스토리지 계정 및 파일 공유를 만들어야 하는 경우 [Azure 파일 공유 만들기를](../storage/files/storage-how-to-create-file-share.md)참조하세요.
+* 기존 Azure Storage 계정 및 미리 만든 Azure 파일 공유. Azure에서 스토리지 계정 및 파일 공유를 만들어야 하는 경우 [Azure 파일 공유 만들기를](../storage/files/storage-how-to-create-file-share.md)참조하세요.
 * Azure CLI 대한 Azure Spring Cloud [확장](/cli/azure/azure-cli-extensions-overview)
 
 ## <a name="use-the-azure-cli-to-enable-your-own-extra-persistent-storage"></a>Azure CLI 사용하여 고유한 추가 영구 스토리지를 사용하도록 설정
@@ -82,7 +82,7 @@ BYOS(Bring Your Own Storage)를 사용하면 이러한 아티팩트는 사용자
     az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
     ```
 
-1. 필요에 따라 다음 명령을 사용하여 특정 스토리지 리소스의 기존 영구 스토리지를 모두 나열합니다.
+1. 필요에 따라 다음 명령을 사용하여 특정 스토리지 리소스의 모든 기존 영구 스토리지를 나열합니다.
 
    ```azurecli
    az spring-cloud storage list-persistent-storage -g <resource-group-name> -s <spring-instance-name> -n <storage-resource-name>
@@ -109,7 +109,7 @@ Azure Spring Cloud 고유한 영구 스토리지를 추가할 때 사용하는 �
 
 다음은 Azure Spring Cloud 함께 고유한 영구 스토리지를 사용하는 것에 대한 FAQ(질문과 대답)입니다.
 
-- 기본 제공 영구 스토리지를 사용하도록 설정한 다음, 내 스토리지를 추가 영구 스토리지로 사용하도록 설정한 경우 내 데이터가 내 Storage 계정으로 마이그레이션될까요?
+- 기본 제공 영구 스토리지를 사용하도록 설정한 다음, 내 스토리지를 추가 영구 스토리지로 사용하도록 설정한 경우 내 데이터는 내 Storage 계정으로 마이그레이션될까요?
 
    *아니요. 하지만 곧 직접 마이그레이션하는 데 도움이 되는 문서를 제공할 예정입니다.*
 
@@ -126,7 +126,7 @@ Azure Spring Cloud 고유한 영구 스토리지를 추가할 때 사용하는 �
 
 - 사용 가능한 탑재 옵션은 무엇인가요?
 
-   *현재 지원되는 탑재 옵션은 다음과 같습니다.*
+   *현재 다음 탑재 옵션을 지원합니다.*
    - `uid`
    - `gid`
    - `file_mode`
@@ -136,5 +136,5 @@ Azure Spring Cloud 고유한 영구 스토리지를 추가할 때 사용하는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [애플리케이션 및 서비스 할당량](./quotas.md)에 대해 자세히 알아봅니다.
+* [Logback을 사용하여 사용자 고유의 영구 스토리지 에 로그를 쓰는 방법에 ](./how-to-write-log-to-custom-persistent-storage.md)대해 알아봅니다.
 * [수동으로 애플리케이션 크기를 조정](./how-to-scale-manual.md)하는 방법을 알아봅니다.

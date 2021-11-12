@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: how-to
 ms.custom: deploy
-ms.openlocfilehash: fa5c362db03af7004751e39708553edf79f5827a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 14fb372a00621806ed4423813ee5e23b3c313688
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446530"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402431"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>로컬 컴퓨터에서 Azure Machine Learning을 사용하여 학습된 모델 배포 
 
@@ -188,7 +188,7 @@ Docker를 사용하여 모델을 웹 서비스로 배포하는 것이 가장 일
 - 명령줄에서 `az ml model download`를 사용합니다. ([모델 다운로드](/cli/azure/ml/model#az_ml_model_download) 참조)
 - Python SDK `Model.download()` 메서드를 사용합니다. ([모델 클래스](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-) 참조)
 
-Azure 모델은 Python pickle 파일(확장명 .pkl)로 패키지된 하나 이상의 직렬화된 Python 개체입니다. pickle 파일의 내용은 기계 학습 라이브러리나 모델 학습에 사용되는 기법에 따라 달라집니다. 예를 들어 자습서에서 모델을 사용하는 경우 다음을 사용하여 모델을 로드할 수 있습니다.
+Azure 모델은 프레임워크에서 사용하는 모든 형식일 수 있지만 일반적으로 Python pickle 파일(.pkl 확장명)로 패키지된 하나 이상의 직렬화된 Python 개체입니다. pickle 파일의 내용은 기계 학습 라이브러리나 모델 학습에 사용되는 기법에 따라 달라집니다. 예를 들어 자습서에서 모델을 사용하는 경우 다음을 사용하여 모델을 로드할 수 있습니다.
 
 ```python
 import pickle

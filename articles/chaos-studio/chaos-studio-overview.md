@@ -4,20 +4,22 @@ description: 서비스에 오류를 주입한 다음 이로 인한 중단에 서
 services: chaos-studio
 author: johnkemnetz
 ms.topic: overview
-ms.date: 11/01/2021
+ms.date: 11/11/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021
-ms.openlocfilehash: 7375457b539fc24fad8dce34e416c341ce4abf68
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 4df530e20733e5f24db930e88bb30894293416a7
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371508"
+ms.locfileid: "132399336"
 ---
 # <a name="what-is-azure-chaos-studio-preview"></a>Azure Chaos Studio Preview란?
 
 Azure Chaos Studio는 Azure 애플리케이션에 오류를 주입하여 복원력을 개선하는 관리형 서비스입니다. 애플리케이션에 대해 통제된 오류 주입 실험을 진행하는 이 카오스 엔지니어링이라는 방식을 사용하면 지역 정전이나 VM의 CPU 활용률을 높이는 애플리케이션 오류 같이 실제 인시던트에 대한 복원력을 측정, 파악, 개선할 수 있습니다.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Videos/Azure-Chaos-Studio-Curious-to-control-chaos/player]
 
 ## <a name="why-should-i-use-chaos-studio"></a>Chaos Studio를 사용해야 하는 이유는 무엇인가요?
 

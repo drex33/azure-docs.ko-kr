@@ -1,19 +1,18 @@
 ---
 title: Azure Maps Creator에서 실내 맵 작업
 description: 이 문서에서는 Azure Maps Creator 서비스에 적용되는 개념을 소개합니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: c3e6632f607ca9168f63538e4c2a6d96d6197d8a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.openlocfilehash: 0e4f25e140c9b7d2693c94ead25b375e2298adbc
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032144"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400018"
 ---
 # <a name="creator-for-indoor-maps"></a>실내 맵용 Creator
 
@@ -30,7 +29,10 @@ Creator를 사용하여 실내 맵 데이터를 기준으로 하는 맵 기능�
 
 ## <a name="create-azure-maps-creator"></a>Azure Maps Creator 만들기
 
-Creator 서비스를 사용하려면 Azure Maps Creator를 Azure Maps 계정에 만들어야 합니다. Azure Maps에서 Azure Maps Creator를 만드는 방법에 대한 자세한 내용은 [Azure Maps Creator 관리](how-to-manage-creator.md)를 참조하세요.
+Creator 서비스를 사용하려면 Gen 2 가격 책정 계층이 있는 Azure 지도 계정에서 Azure 지도 Creator를 만들어야 합니다. Azure Maps에서 Azure Maps Creator를 만드는 방법에 대한 자세한 내용은 [Azure Maps Creator 관리](how-to-manage-creator.md)를 참조하세요.
+
+> [!TIP]
+> 가격 책정 정보는 Azure [지도 가격 책정의](https://aka.ms/CreatorPricing) *작성자* 섹션을 참조하세요.
 
 ## <a name="creator-authentication"></a>Creator 인증
 
@@ -117,7 +119,7 @@ Azure Maps Creator는 맵 만들기를 지원하는 다음 서비스를 제공�
 
 ### <a name="render-v2-get-map-tile-api"></a>Render V2–맵 타일 가져오기 API
 
-Azure Maps [Render V2 - 맵 타일 가져오기 API](/rest/api/maps/renderv2/getmaptilepreview)가 Creator 타일 세트를 지원하도록 확장되었습니다.
+Azure Maps [Render V2 - 맵 타일 가져오기 API](/rest/api/maps/render-v2/get-map-tile)가 Creator 타일 세트를 지원하도록 확장되었습니다.
 
 애플리케이션은 Render V2-맵 타일 가져오기 API를 사용하여 타일 세트를 요청할 수 있습니다. 그런 다음, 타일 세트를 맵 컨트롤 또는 SDK에 통합할 수 있습니다. Render V2 서비스를 사용하는 맵 컨트롤의 예제는 [실내 맵 모듈](#indoor-maps-module)을 참조하세요.
 
@@ -146,7 +148,7 @@ Azure Maps [Render V2 - 맵 타일 가져오기 API](/rest/api/maps/renderv2/get
  Azure Maps Creator 나열, 업데이트 및 삭제 API를 사용하여 데이터 세트, 타일 세트 및 기능 상태 세트를 나열, 업데이트 및 삭제할 수 있습니다.
 
 >[!NOTE]
->항목 목록을 검토하여 항목을 삭제할지 결정할 때 해당 삭제로 인해 모든 종속 API 또는 애플리케이션에 미치는 영향을 고려합니다. 예를 들어, [Render V2-맵 타일 가져오기 API](/rest/api/maps/renderv2/getmaptilepreview)를 통해 애플리케이션에서 사용하는 타일 세트를 삭제하면 애플리케이션이 해당 타일 세트를 렌더링하지 못합니다.
+>항목 목록을 검토하여 항목을 삭제할지 결정할 때 해당 삭제로 인해 모든 종속 API 또는 애플리케이션에 미치는 영향을 고려합니다. 예를 들어, [Render V2-맵 타일 가져오기 API](/rest/api/maps/render-v2/get-map-tile)를 통해 애플리케이션에서 사용하는 타일 세트를 삭제하면 애플리케이션이 해당 타일 세트를 렌더링하지 못합니다.
 
 ### <a name="example-updating-a-dataset"></a>예제: 데이터 세트 업데이트
 

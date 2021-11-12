@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/14/2021
+ms.date: 11/12/2021
 ms.author: rolyon
-ms.openlocfilehash: 1f1b8f627a60a6e9f9b866ffb48324ecd146ffbe
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 19f7459debe48bfd689e0ccff93b7957bacd7d52
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362070"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398367"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Azure 역할 할당 단계
 
@@ -50,7 +50,7 @@ ms.locfileid: "129362070"
 
 1. 해당 문서에서 권한을 부여하려는 리소스의 서비스 범주(컴퓨팅, 스토리지, 데이터베이스 등)로 이동합니다. 원하는 항목을 찾는 가장 쉬운 방법은 일반적으로 페이지에서 "BLOB", "가상 머신" 등의 관련 키워드를 검색하는 것입니다.
 
-1. 서비스 범주에 대해 나열된 역할을 검토하고 필요한 특정 작업을 식별합니다. 다시 말씀드리지만, 항상 가장 제한된 역할로 시작합니다.
+1. 서비스 범주에 대해 나열 된 역할을 검토 하 고 필요한 특정 작업을 식별 합니다. 다시 말씀드리지만, 항상 가장 제한된 역할로 시작합니다.
 
     예를 들어, 보안 주체가 Azure 스토리지 계정의 Blob을 읽어야 하지만 쓰기 권한은 필요 없는 경우 [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) 대신 [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)를 선택합니다(관리자 수준의 [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) 역할은 해당 없음). 나중에 필요에 따라 언제든지 역할 할당을 업데이트할 수 있습니다.
 
@@ -83,7 +83,9 @@ ms.locfileid: "129362070"
 
 ## <a name="step-5-assign-role"></a>5단계. 역할 할당
 
-보안 주체, 역할 및 범위에 대해 알고 있으면 역할을 할당할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI, Azure SDK 또는 REST API를 사용하여 역할을 할당할 수 있습니다. 각 구독에서 최대 **2000** 개의 역할 할당을 유지할 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 각 관리 그룹에서 최대 **500** 개의 역할 할당을 유지할 수 있습니다.
+보안 주체, 역할 및 범위에 대해 알고 있으면 역할을 할당할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI, Azure SDK 또는 REST API를 사용하여 역할을 할당할 수 있습니다.
+
+각 구독에서 최대 **2000** 개의 역할 할당을 유지할 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 각 관리 그룹에서 최대 **500** 개의 역할 할당을 유지할 수 있습니다. 구독에 대 한 역할 할당 한도가 현재 증가 하 고 있습니다. 자세한 내용은 [Azure RBAC 문제 해결](troubleshooting.md#azure-role-assignments-limit)을 참조하세요.
 
 역할을 할당하는 방법에 대한 자세한 단계는 다음 문서를 확인하세요.
 

@@ -1,21 +1,24 @@
 ---
 title: Azure Video Analyzer 문제 해결 - Azure
-description: 이 문서에서는 Azure Video Analyzer edge 모듈에 대 한 문제 해결 단계를 다룹니다.
+description: 이 문서에서는 Azure Video Analyzer 에지 모듈에 대한 문제 해결 단계를 다룹니다.
 ms.topic: troubleshooting
-ms.date: 10/22/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 89c14c4a8199f811359d76550b5e281c857a1469
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 38451ae2fe8d42e335a887d093bbab9322d13d81
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103016"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398158"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Azure Video Analyzer 문제 해결
 
-[!INCLUDE [header](includes/edge-env.md)]
+![에지 아이콘](media/env-icon/edge.png)  
+또는 [서비스에서 문제 해결을 확인합니다.](../cloud/troubleshoot.md)
 
-이 문서에서는 Azure Video Analyzer edge 모듈에 대 한 문제 해결 단계를 다룹니다.
+---
+
+이 문서에서는 Azure Video Analyzer 에지 모듈에 대한 문제 해결 단계를 다룹니다.
 
 ## <a name="troubleshoot-deployment-issues"></a>배포 문제 해결
 
@@ -32,7 +35,7 @@ Video Analyzer 배포의 일부로 IoT Hub 및 IoT Edge 디바이스와 같은 A
 
 ### <a name="issues-when-using-arm-template"></a>ARM 템플릿 사용 시 발생하는 문제
 
-ARM 템플릿 (단추)을 사용할 때 문제가 발생 하는 경우 `Deploy to Azure` 이 [빠른](get-started-detect-motion-emit-events-portal.md) 시작의 단계를 사용 하 여 필요한 리소스를 수동으로 배포 합니다. 
+ARM 템플릿(단추)을 사용할 때 문제가 발생하는 경우 `Deploy to Azure` 이 [빠른 시작의](get-started-detect-motion-emit-events-portal.md) 단계를 사용하여 필요한 리소스를 수동으로 배포합니다. 
 
 ### <a name="pre-deployment-issues"></a>배포 전 문제
 
@@ -46,17 +49,17 @@ JSON 코드가 제대로 구성되지 않은 경우 다음 오류가 표시될 �
 
 이 오류가 발생하면 JSON에 누락된 괄호가 있는지 또는 파일 구조와 관련된 기타 문제가 있는지 확인하는 것이 좋습니다. 파일 구조의 유효성을 검사하려면 [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer)과 같은 클라이언트 또는 [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/)와 같은 온라인 도구를 사용하면 됩니다.
 
-### <a name="during-deployment-iot-edge-runtime-response"></a>배포 하는 동안: IoT Edge 런타임 응답
+### <a name="during-deployment-iot-edge-runtime-response"></a>배포 중: 런타임 응답 IoT Edge
 
-IoT Edge 장치에 비디오 분석기 모듈이 올바르게 배포 된 후 Azure Portal를 사용 하 여 [IoT Edge 런타임](../../../iot-edge/iot-edge-runtime.md)진단을 실행할 수 있습니다.
+Video Analyzer 모듈이 IoT Edge 디바이스에 올바르게 배포되면 Azure Portal 사용하여 [IoT Edge 런타임의](../../../iot-edge/iot-edge-runtime.md)진단을 실행할 수 있습니다.
 
 1. Azure Portal에서 IoT Edge 디바이스에 연결된 IoT 허브로 이동합니다.
 1. **자동 디바이스 관리** 를 찾은 다음, **IoT Edge** 를 선택합니다.
-1. 에 지 장치 목록에서 진단 하려는 장치를 선택 하 고 관리 블레이드를 엽니다.
+1. Edge 디바이스 목록에서 진단할 디바이스를 선택하고 관리 블레이드를 엽니다.
 
    ![Edge 디바이스 목록을 보여주는 Azure Portal 스크린샷](./media/troubleshoot/ava-sample-device.png)
 
-1. IoT Edge 런타임 응답 코드가 _200_ 인지 확인 합니다. 다른 응답 코드는 다음과 같습니다.
+1. IoT Edge 런타임 응답 코드가 _200-OK인지 확인합니다._ 다른 응답 코드는 다음과 같습니다.
 
    - 400 - 배포 구성이 잘못되었거나 유효하지 않습니다.
    - 417 - 디바이스에 배포 구성 집합이 없습니다.
@@ -67,29 +70,29 @@ IoT Edge 장치에 비디오 분석기 모듈이 올바르게 배포 된 후 Azu
    > [!TIP]
    > 환경에서 Azure IoT Edge 모듈을 실행하는 데 문제가 있는 경우 **[Azure IoT Edge 표준 진단 단계](../../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** 를 문제 해결 및 진단 지침으로 사용하세요.
 
-### <a name="post-deployment-reported-properties-and-direct-methods"></a>배포 후: 보고 된 속성 및 직접 메서드
+### <a name="post-deployment-reported-properties-and-direct-methods"></a>배포 후: Reported 속성 및 직접 메서드
 
-Azure Portal에서 Video Analyzer edge 모듈의 관리 블레이드를 선택 하 여 엽니다.
-먼저 보고 된 속성 및 desired 속성을 확인 합니다 .이 속성을 통해 모듈 속성이 배포와 동기화 되었는지 여부를 파악할 수 있습니다. 그렇지 않은 경우 IoT Edge 디바이스를 다시 시작할 수 있습니다. **배포에 지정** **되 고 장치 열에서 보고 되** 는가 _예_ 를 나타내는 경우 **직접 메서드** 메뉴 옵션을 클릭 하 여 Video Analyzer 모듈에서 직접 메서드를 호출할 수 있습니다.
+Azure Portal Video Analyzer 에지 모듈에 대한 관리 블레이드를 선택하고 엽니다.
+먼저 모듈 속성이 배포와 동기화되었는지 여부를 이해하는 데 도움이 될 수 있는 reported 및 desired 속성을 확인합니다. 그렇지 않은 경우 IoT Edge 디바이스를 다시 시작할 수 있습니다. **배포에서 지정되고 디바이스에서** **보고** 열에 _예_ 가 표시되면 직접 메서드 메뉴 옵션을 클릭하여 Video Analyzer 모듈에서 **직접 메서드를** 호출할 수 있습니다.
 
-[직접 메서드](direct-methods.md) 가이드를 사용 하 여 몇 가지 메서드, 특히와 같은 간단한 메서드를 호출할 수 있습니다 `pipelineTopologyList` . 이 가이드에도 예상되는 요청 및 응답 페이로드와 오류 코드가 설명되어 있습니다. 간단한 직접 메서드를 성공적으로 실행 한 후에는 Video Analyzer edge 모듈이 기능적으로 정상 임을 확신할 수 있습니다.
+직접 메서드 가이드를 사용하여 몇 가지 [메서드,](direct-methods.md) 특히 와 같은 간단한 메서드를 호출할 수 `pipelineTopologyList` 있습니다. 이 가이드에도 예상되는 요청 및 응답 페이로드와 오류 코드가 설명되어 있습니다. 간단한 직접 메서드가 성공하면 Video Analyzer 에지 모듈이 기능적으로 정상임을 확신할 수 있습니다.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/troubleshoot/direct-method.png" alt-text="IoT Edge 모듈에 대한 직접 메서드 창 스크린샷" lightbox="./media/troubleshoot/direct-method.png":::
 
 고려할 사항은 다음과 같습니다.
-1. 상태 `501 code`가 표시되면 직접 메서드 이름이 정확한지 확인합니다. 메서드 이름과 요청 페이로드가 정확한 경우 200의 성공 코드와 함께 결과를 가져와야 합니다.
+1. 상태 `501 code`가 표시되면 직접 메서드 이름이 정확한지 확인합니다. 메서드 이름 및 요청 페이로드가 정확한 경우 성공 코드 200과 함께 결과를 얻게 됩니다.
 1. 요청 페이로드가 정확하지 않으면 상태 `400 code`와 오류 코드 및 메시지를 나타내는 응답 페이로드를 받게 되고, 이 정보는 직접 메서드 호출 관련 문제를 진단하는 데 도움이 됩니다.
 
-### <a name="post-deployment-diagnostic-logs-for-issues"></a>배포 후: 문제에 대 한 진단 로그
+### <a name="post-deployment-diagnostic-logs-for-issues"></a>배포 후: 문제에 대한 진단 로그
 
-라이브 비디오를 분석 하는 동안 발생 하는 문제를 디버그 하는 데 도움이 되는 진단 정보는 IoT Edge 모듈의 컨테이너 로그에 포함 되어 있어야 합니다. [컨테이너 로그에서 문제를 확인](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) 하 고 문제를 스스로 진단할 수 있습니다.
+IoT Edge 모듈의 컨테이너 로그에는 라이브 비디오를 분석하는 동안 발생하는 문제를 디버그하는 데 도움이 되는 진단 정보가 포함되어야 합니다. [컨테이너 로그에서 문제를 확인하고 문제를](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) 자체 진단할 수 있습니다.
 
 앞의 모든 검사를 실행해도 여전히 문제가 발생하면 Azure 팀의 추가 분석을 위해 [`support bundle` 명령을 사용하여](../../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) IoT Edge 디바이스에서 로그를 수집합니다. 지원에 대해 [문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)하고 수집된 로그를 제출할 수 있습니다.
 
 ## <a name="common-error-resolutions"></a>일반적인 오류 해결
 
-Video Analyzer edge 모듈은 IoT Edge 에이전트 및 허브 모듈과 공동으로 작동 합니다. 배포 시 발생 하는 일반적인 오류 중 일부는 기본 IoT 인프라 문제로 인해 발생 합니다. 이러한 오류는 다음과 같습니다.
+Video Analyzer 에지 모듈은 IoT Edge 에이전트 및 허브 모듈과 공동으로 작동합니다. 배포 시 발생하는 일반적인 오류 중 일부는 기본 IoT 인프라 관련 문제로 인해 발생합니다. 이러한 오류는 다음과 같습니다.
 
 - [IoT Edge 에이전트가 약 1분 후 중지됩니다](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-stops-after-about-a-minute).
 - [IoT Edge 에이전트가 모듈의 이미지에 액세스할 수 없습니다(403)](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-cant-access-a-modules-image-403).
@@ -106,7 +109,7 @@ Video Analyzer edge 모듈은 IoT Edge 에이전트 및 허브 모듈과 공동�
 
 ### <a name="working-with-external-modules"></a>외부 모듈 작업
 
-파이프라인 확장 프로세서를 사용 하 여 HTTP 또는 gRPC 프로토콜을 사용 하 여 다른 IoT Edge 모듈에서 데이터를 보내고 받도록 파이프라인을 확장할 수 있습니다. 특정 한 [예로](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension),이 라이브 파이프라인은 yolo v3과 같은 외부 유추 모듈에 이미지로 비디오 프레임을 보내고 HTTP 프로토콜을 사용 하 여 JSON 기반 분석 결과를 받을 수 있습니다. 이러한 토폴로지에서 이벤트의 대상은 대부분 IoT 허브입니다. 허브에 유추 이벤트가 표시되지 않는 경우 다음을 확인합니다.
+파이프라인 확장 프로세서를 사용하면 HTTP 또는 gRPC 프로토콜을 사용하여 다른 IoT Edge 모듈에서 데이터를 보내고 받도록 파이프라인을 확장할 수 있습니다. 특정 [예제인](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension)이 라이브 파이프라인은 Yolo v3와 같은 외부 유추 모듈에 이미지로 비디오 프레임을 보내고 HTTP 프로토콜을 사용하여 JSON 기반 분석 결과를 받을 수 있습니다. 이러한 토폴로지에서 이벤트의 대상은 대부분 IoT 허브입니다. 허브에 유추 이벤트가 표시되지 않는 경우 다음을 확인합니다.
 
 - 라이브 파이프라인이 게시되는 허브와 검사 중인 허브가 동일한지 확인합니다. 여러 배포를 만드는 경우 여러 허브가 생성되어 잘못된 허브에서 이벤트를 잘못 확인할 수 있습니다.
 - Azure Portal에서 외부 모듈이 배포되어 실행되고 있는지 확인합니다. 여기 예시 이미지에서 rtspsim, yolov3, tinyyolov3, logAnalyticsAgent는 avaedge 모듈 외부에서 실행되는 IoT Edge 모듈입니다.
@@ -154,11 +157,11 @@ Video Analyzer는 여러 토폴로지와 여러 파이프라인을 설정하는 
 1. [자세한 로그를 수집하도록 Video Analyzer 모듈 구성](#configure-video-analyzer-module-to-collect-verbose-logs)
 1. [디버그 로그 켜기](#video-analyzer-edge-module-debug-logs)
 1. 문제 재현
-1. Video Analyzer edge 모듈을 다시 시작 합니다. 
+1. Video Analyzer 에지 모듈을 다시 시작합니다. 
     > [!NOTE]
-    > 이 단계는에 지 모듈을 정상적으로 종료 하 고 이벤트를 삭제 하지 않고 사용 가능한 형식으로 모든 로그 파일을 가져오는 데 필요 합니다.   
+    > 이 단계는 에지 모듈을 정상적으로 종료하고 이벤트를 삭제하지 않고 모든 로그 파일을 사용 가능한 형식으로 얻는 데 필요합니다.   
     
-    IoT Edge 장치에서을 (를) `<avaedge>` Video Analyzer Edge 모듈의 이름으로 바꾼 후 다음 명령을 사용 합니다.
+    IoT Edge 디바이스에서 를 `<avaedge>` Video Analyzer 에지 모듈의 이름으로 대체한 후 다음 명령을 사용합니다.
     
     ```cmd
     sudo iotedge restart <avaedge>
@@ -213,9 +216,9 @@ IoT Edge 디바이스에서 로그를 수집해야 하는 경우 가장 쉬운 �
 
 1. _support_bundle.zip_ 파일을 지원 티켓에 첨부합니다.
 
-### <a name="video-analyzer-edge-module-debug-logs"></a>Video Analyzer edge 모듈 디버그 로그
+### <a name="video-analyzer-edge-module-debug-logs"></a>Video Analyzer 에지 모듈 디버그 로그
 
-디버그 로그를 생성 하도록 Video Analyzer edge 모듈을 구성 하려면 다음을 수행 합니다.
+디버그 로그를 생성하도록 Video Analyzer 에지 모듈을 구성하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT 허브로 이동합니다.
 1. 왼쪽 창에서 **IoT Edge** 를 선택합니다.
@@ -288,7 +291,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ### <a name="monitoring-and-balancing-the-load-of-cpu-and-gpu-resources-when-these-resources-become-bottlenecks"></a>CPU 및 GPU 리소스의 부하 분산 및 모니터링(해당 리소스가 병목 상태가 되는 경우)
 
-Video Analyzer edge 모듈은 하드웨어 리소스 모니터링을 모니터링 하거나 제공 하지 않습니다. 개발자는 하드웨어 제조업체의 모니터링 솔루션을 사용해야 합니다. 단, Kubernetes 컨테이너를 사용하면 [Kubernetes 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 사용하여 디바이스를 모니터링할 수 있습니다.
+Video Analyzer 에지 모듈은 하드웨어 리소스 모니터링을 모니터링하거나 제공하지 않습니다. 개발자는 하드웨어 제조업체의 모니터링 솔루션을 사용해야 합니다. 단, Kubernetes 컨테이너를 사용하면 [Kubernetes 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 사용하여 디바이스를 모니터링할 수 있습니다.
 
 .NET Core 문서의 gRPC는 [성능 모범 사례](/aspnet/core/grpc/performance?view=aspnetcore-5.0&preserve-view=true) 및 [부하 분산](/aspnet/core/grpc/performance?view=aspnetcore-5.0&preserve-view=true#load-balancing)에 대한 몇 가지 중요한 정보를 공유합니다.
 
@@ -296,7 +299,7 @@ Video Analyzer edge 모듈은 하드웨어 리소스 모니터링을 모니터�
 
 문제에 대한 자세한 정보를 얻기 위해 수행할 수 있는 몇 가지 작업이 있습니다.
 
-- Video Analyzer 모듈의 desired 속성에 "**mediaPipeline** 로그 범주를 포함 하 고 로그 수준이로 설정 되었는지 확인 `Information` 합니다.
+- Video Analyzer 모듈의 desired 속성에 "**mediaPipeline** 로그 범주를 포함하고 로그 수준이 로 설정되어 있는지 `Information` 확인합니다.
 - 네트워크 연결을 테스트하려면 에지 디바이스에서 다음 명령을 실행하면 됩니다.
 
   ```
@@ -311,18 +314,18 @@ Video Analyzer edge 모듈은 하드웨어 리소스 모니터링을 모니터�
 
 gRPC 데이터 전송 계약의 일환으로, Video Analyzer가 gRPC 유추 서버로 보내는 모든 메시지는 승인(Acknowledged)되어야 합니다. 이미지 프레임 수신을 승인하지 않으면 데이터 계약이 중단되고 원치 않는 상황이 발생할 수 있습니다.
 
-비디오 분석기 edge 모듈에서 gRPC 서버를 사용 하려면 최상의 성능을 위해 공유 메모리를 사용할 수 있습니다. 이렇게 하려면 프로그래밍 언어/환경에서 노출하는 Linux 공유 메모리 기능을 사용해야 합니다.
+Video Analyzer 에지 모듈에서 gRPC 서버를 사용하려면 최상의 성능을 위해 공유 메모리를 사용할 수 있습니다. 이렇게 하려면 프로그래밍 언어/환경에서 노출하는 Linux 공유 메모리 기능을 사용해야 합니다.
 
 1. Linux 공유 메모리 핸들을 엽니다.
 1. 프레임이 수신되면 공유 메모리 내의 주소 오프셋에 액세스합니다.
-1. 비디오 분석기 edge 모듈에서 메모리를 회수할 수 있도록 프레임 처리 완료를 승인 합니다.
+1. Video Analyzer 에지 모듈에서 메모리를 회수할 수 있도록 프레임 처리 완료를 승인합니다.
 
    > [!NOTE]
    > Video Analyzer에 대한 프레임 수신 승인이 오랫동안 지연되면 공유 메모리가 가득 차서 데이터가 삭제될 수 있습니다.
 
 1. 유추 서버에서 각 프레임을 원하는 데이터 구조(목록, 배열 등)에 저장합니다.
 1. 그런 다음, 원하는 수의 이미지 프레임이 있을 때 처리 논리를 실행할 수 있습니다.
-1. 준비가 되 면 추론 결과를 Video Analyzer edge 모듈에 다시 반환 합니다.
+1. 준비가 되면 추론 결과를 Video Analyzer 에지 모듈로 다시 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Event Hubs의 스키마 레지스트리 �
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 95db225c83bb760b0f5de12a39b20d24c1613d62
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f9e405a82b73530cc53ec98f22b2c1f4473b2550
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449850"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398522"
 ---
 # <a name="azure-schema-registry-in-azure-event-hubs"></a>Azure Event Hubs의 Azure 스키마 레지스트리
 많은 이벤트 스트리밍 및 메시징 시나리오에서 이벤트 또는 메시지 페이로드는 구조화된 데이터를 포함합니다. [Apache Avro](https://avro.apache.org/)와 같은 스키마 기반 형식은 종종 이러한 구조화된 데이터를 직렬화하거나 역직렬화하는 데 사용됩니다. 
 
-:::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.png" alt-text="스키마 기반 직렬화/역직렬화":::
+:::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.svg" alt-text="스키마 기반 직렬화/역직렬화":::
 
 생산자 애플리케이션은 스키마 문서를 사용하여 이벤트 페이로드를 직렬화하고 Event Hubs와 같은 이벤트 브로커에 게시합니다. 마찬가지로 소비자 애플리케이션은 브로커에서 이벤트 페이로드를 읽고 동일한 스키마 문서를 사용하여 역직렬화합니다. 따라서 생산자와 소비자는 스키마 문서를 사용하여 데이터 무결성의 유효성을 검사할 수 있습니다. 
 
@@ -26,7 +26,7 @@ ms.locfileid: "131449850"
 ## <a name="azure-schema-registry"></a>Azure Schema Registry
 **Azure 스키마 레지스트리** 는 스키마 문서에 대한 중앙 리포지토리를 이벤트 구동 및 메시징 중심 애플리케이션에 제공하는 Event Hubs의 기능입니다. 스키마를 관리하고 공유하지 않고도 생산자 및 소비자 애플리케이션에서 데이터를 교환할 수 있는 유연성을 제공합니다. 또한 스키마 레지스트리는 재사용 가능한 스키마에 대한 간단한 거버넌스 프레임워크를 제공하고, 그룹화 구문(스키마 그룹)을 통해 스키마 간의 관계를 정의합니다.
 
-:::image type="content" source="./media/schema-registry-overview/schema-registry.png" alt-text="스키마 레지스트리":::
+:::image type="content" source="./media/schema-registry-overview/schema-registry.svg" alt-text="스키마 레지스트리":::
 
 Apache Avro와 같은 스키마 구동 직렬화 프레임워크를 사용하면 직렬화 메타데이터를 공유 스키마로 구체화하면 JSON과 같은 태그가 지정된 형식을 사용하는 경우처럼 모든 데이터 세트에 포함된 형식 정보 및 필드 이름의 메시지당 오버헤드를 크게 줄일 수 있습니다. 이벤트와 함께 이벤트 인프라 내에 스키마를 저장하면 직렬화/역직렬화하는 데 필요한 메타데이터가 항상 가까운 곳에 있고 스키마를 잘못 배치할 수 없습니다. 
 
@@ -36,7 +36,7 @@ Apache Avro와 같은 스키마 구동 직렬화 프레임워크를 사용하면
 ## <a name="schema-registry-information-flow"></a>스키마 레지스트리 정보 흐름 
 스키마 레지스트리를 사용하는 경우 정보 흐름은 Azure Event Hubs에서 이벤트를 게시하거나 소비하는 데 사용하는 모든 프로토콜에 대해 동일합니다. 다음 다이어그램에서는 사용자 스키마 레지스트리를 나타내는 Kafka 이벤트 생산자 및 소비자 시나리오의 정보 흐름을 보여 줍니다. 
 
-:::image type="content" source="./media/schema-registry-overview/information-flow.png" lightbox="./media/schema-registry-overview/information-flow.png" alt-text="스키마 레지스트리 정보 흐름을 보여주는 이미지.":::
+:::image type="content" source="./media/schema-registry-overview/information-flow.svg" lightbox="./media/schema-registry-overview/information-flow.svg" alt-text="스키마 레지스트리 정보 흐름을 보여주는 이미지.":::
 
 
 정보 흐름은 스키마 문서를 사용하 여 Kafka 생산자가 데이터를 직렬화하는 생산자 쪽에서 시작 됩니다. 

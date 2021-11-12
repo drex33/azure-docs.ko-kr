@@ -5,17 +5,17 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 8d35eee9d0c205e2d55093d1a6bcec1d762c78a8
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
-ms.translationtype: HT
+ms.openlocfilehash: 94b853f07536af81d553645e38eb697620070b9f
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113651642"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400949"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Azure Automation State Configuration 사용
 
@@ -324,7 +324,7 @@ Azure VM Desired State Configuration 확장의 상태를 보는 방법은 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작하려면 [Azure Automation State Configuration 시작](automation-dsc-getting-started.md)을 참조하세요.
+- 시작하려면 [Azure Automation State Configuration 시작하기](automation-dsc-getting-started.md)를 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.

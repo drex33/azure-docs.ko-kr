@@ -1,15 +1,15 @@
 ---
 title: Azure Automation 네트워크 구성 세부 정보
 description: 이 문서에서는 Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, 업데이트 관리, 변경 내용 추적 및 인벤토리에 필요한 네트워크 세부 정보를 제공합니다.
-ms.author: magoedte
+ms.author: v-ssudhir
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 2dd5d0d0c309e835fee8a55e9fa991a0efeaf729
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: a4d8ee0f6e28e1b4b514d7aaaade54c691097069
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231599"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400809"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Azure Automation 네트워크 구성 세부 정보
 

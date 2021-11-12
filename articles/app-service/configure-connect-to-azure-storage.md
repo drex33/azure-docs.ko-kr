@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: e485efa572dd1b786b714b74b4d6df49d7a44853
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 12f2cc667cc568132eb4e91a1f739f81b075fd80
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236453"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400094"
 ---
 # <a name="mount-azure-storage-as-a-local-share-in-a-container-app-in-app-service"></a>App Service의 컨테이너 앱에서 로컬 공유로 Azure Storage 탑재
 
@@ -26,7 +26,7 @@ ms.locfileid: "130236453"
 
 ::: zone pivot="container-linux"
 
-이 가이드에서는 Azure Storage를 App Service의 기본 제공 Linux 컨테이너 또는 사용자 지정 Linux 컨테이너에 네트워크 공유로 탑재하는 방법을 보여줍니다. 사용자 지정 탑재 스토리지의 이점은 다음과 같습니다.
+이 가이드에서는 Azure Storage를 App Service의 기본 제공 Linux 컨테이너 또는 사용자 지정 Linux 컨테이너에 네트워크 공유로 탑재하는 방법을 보여줍니다. [로컬 공유로 Azure Storage를 탑재 하는 방법](https://www.youtube.com/watch?v=OJkvpWYr57Y)비디오를 참조 하세요. 사용자 지정 탑재 스토리지의 이점은 다음과 같습니다.
 
 ::: zone-end
 
@@ -99,6 +99,7 @@ ms.locfileid: "130236453"
 - 사용자 지정 탑재 스토리지에 대한 FTP/FTPS 액세스는 지원되지 않습니다([Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 사용).
 - Azure CLI, Azure PowerShell 및 Azure SDK 지원은 미리 보기로 제공됩니다.
 - `/` 또는 `/home`을 사용자 지정 탑재 스토리지에 매핑할 수 없습니다.
+- `/tmp`앱을 시작 하는 동안 시간 초과가 발생할 수 있으므로 사용자 지정 저장소 탑재를 또는 해당 하위 디렉터리에 매핑하지 마세요.
 - 스토리지 탑재는 [배포 슬롯](deploy-staging-slots.md)을 만드는 동안 복제 설정 옵션과 함께 사용할 수 없습니다.
 - 스토리지 탑재는 [앱을 백업](manage-backup.md)할 때 백업되지 않습니다. 모범 사례에 따라 Azure Storage 계정을 백업해야 합니다. 
 
@@ -118,7 +119,7 @@ ms.locfileid: "130236453"
 1. 다음 표에 따라 스토리지 탑재를 구성합니다. 완료되었으면 **확인** 을 클릭합니다.
 
     ::: zone pivot="container-windows"
-    | 설정 | 설명 |
+    | 설정 | Description |
     |-|-|
     | **이름** | 탑재 구성의 이름입니다. 공백은 허용되지 않습니다. |
     | **구성 옵션** | 저장소 계정에서 [전용 끝점](../storage/common/storage-private-endpoints.md)을 사용 하지 않는 경우 **기본** 을 선택 합니다. 사용하고 있으면 **고급** 를 선택합니다. |
@@ -128,7 +129,7 @@ ms.locfileid: "130236453"
     | **탑재 경로** | Azure Storage에 탑재할 Windows 컨테이너 내의 디렉터리입니다. 루트 디렉터리 ( `[C-Z]:\` 또는 `/` ) 또는 `home` 디렉터리 (또는 `[C-Z]:\home` )를 사용 하지 마십시오 `/home` .|
     ::: zone-end
     ::: zone pivot="container-linux"
-    | 설정 | 설명 |
+    | 설정 | Description |
     |-|-|
     | **이름** | 탑재 구성의 이름입니다. 공백은 허용되지 않습니다. |
     | **구성 옵션** | 스토리지 계정에서 [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 또는 [프라이빗 엔드포인트](../storage/common/storage-private-endpoints.md)를 사용하고 있지 않으면 **기본** 을 선택합니다. 사용하고 있으면 **고급** 를 선택합니다. |
@@ -248,5 +249,6 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 ::: zone pivot="container-linux"
 
 - [사용자 지정 컨테이너 구성](configure-custom-container.md?pivots=platform-linux)
+- [비디오: 로컬 공유로 Azure Storage를 탑재 하는 방법](https://www.youtube.com/watch?v=OJkvpWYr57Y)
 
 ::: zone-end

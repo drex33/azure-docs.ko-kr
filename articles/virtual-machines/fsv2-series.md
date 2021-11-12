@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9dc0378ff232fd7743989860ca89baf264de8d2b
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 4c652a9292caf8e7ac198ac6922b11b78a85781e
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132370463"
+ms.locfileid: "132401424"
 ---
 # <a name="fsv2-series"></a>Fsv2 시리즈
 
@@ -30,7 +30,7 @@ Fsv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
-[중첩 된 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): 지원 됨 <br>
+[중첩된 가상화:](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)지원됨 <br>
 <br>
 
 | 크기 | vCPU 수 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> |최대 NIC 수|예상 네트워크 대역폭(Mbps) |

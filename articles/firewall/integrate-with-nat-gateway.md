@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2fa0bef35d6bbc76f30ca1f0dde3199780743a14
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 30d1da573bec205212658fa6aff5ac3b71ad2e50
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131044934"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399013"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Azure NAT Gateway를 사용하여 SNAT 포트 스케일링
 
@@ -28,7 +28,7 @@ NAT Gateway 리소스가 Azure Firewall 서브넷과 연결되면 모든 아웃�
 이 아키텍처에서 NAT는 하나만 있습니다. Azure Firewall 인스턴스는 Azure Firewall 공용 IP 주소가 아닌 개인 IP 주소를 사용하여 NAT Gateway로 트래픽을 보냅니다.
 
 > [!NOTE]
-> [여러 가용성 영역에 Azure 방화벽](deploy-availability-zone-powershell.md)을 배포한 경우 현재 Azure NAT Gateway 사용은 Azure Firewall과 호환되지 않습니다. 자세한 내용은 [Azure NAT Gateway 및 가용성 영역](../virtual-network/nat-gateway/nat-gateway-resource.md#cross-zone-outbound-scenarios-not-supported)을 참조하세요.
+> Azure NAT Gateway 사용은 현재 여러 가용성 영역에 Azure Firewall 배포한 경우 Azure Firewall 호환되지 [않습니다.](deploy-availability-zone-powershell.md)
 
 ## <a name="associate-nat-gateway-with-azure-firewall-subnet---azure-powershell"></a>NAT Gateway와 Azure Firewall 서브넷 연결 - Azure PowerShell
 

@@ -9,12 +9,12 @@ metadata:
   author: johnkemnetz
   ms.author: johnkem
   ms.date: 08/24/2021
-  ms.openlocfilehash: 540fb41d74babdda1e36c7fcb77c877d23043c80
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: 5d4f68ac59b001886636f9a2ddb4214e17ffebe9
+  ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132293785"
+  ms.lasthandoff: 11/12/2021
+  ms.locfileid: "132372533"
 landingContent:
 - title: Azure Chaos Studio 정보
   linkLists:
@@ -29,11 +29,11 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 서비스 직접 오류를 사용하여 Azure Cosmos DB 인스턴스를 장애 조치(failover)하는 카오스 실험 만들기
-      url: chaos-studio-tutorial-service-direct.md
+      url: chaos-studio-tutorial-service-direct-portal.md
     - text: Azure Chaos Studio에서 에이전트 기반 오류를 사용하는 실험 만들기
       url: chaos-studio-tutorial-agent-based-portal.md
     - text: Azure Chaos Studio에서 AKS Chaos Mesh 오류를 사용하는 실험 만들기
-      url: chaos-studio-tutorial-aks.md
+      url: chaos-studio-tutorial-aks-portal.md
 - title: 참고
   linkLists:
   - linkListType: reference

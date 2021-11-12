@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bb05fcd0e13aded505ee3fd9d1095338622b949c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87543931"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339412"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 인프라 보안
 Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에서 실행됩니다. 지리적으로 분산된 데이터 센터는 보안 및 안정성을 위해 ISO/IEC 27001:2013 및 NIST SP 800-53과 같은 주요 산업 표준을 준수합니다. 데이터 센터는 Microsoft 운영 담당자에 의해 관리되고 모니터링됩니다. 운영 담당자는 연중 무휴로 사용하여 세계에서 가장 규모가 큰 온라인 서비스를 제공하는 환경을 경험했습니다.
@@ -43,4 +43,4 @@ Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에
 
 - [클라우드에서의 공동 책임](shared-responsibility.md)을 이해합니다.
 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 Azure 리소스의 보안에 대한 향상된 가시성과 제어권으로 위협을 예방하고 검색하며 위협에 대응할 수 있는 방법을 알아봅니다.
+- Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 통해 위협을 예방, 감지 및 대응 하는 데 [Microsoft Defender For Cloud](https://azure.microsoft.com/services/security-center/) 를 어떻게 활용할 수 있는지 알아보세요.

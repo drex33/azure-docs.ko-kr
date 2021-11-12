@@ -1,14 +1,14 @@
 ---
 title: 필수 어플라이언스 식별
 description: 인증된 Defender for IoT 센서 및 온-프레미스 관리 콘솔의 하드웨어 및 가상 어플라이언스에 대해 알아봅니다.
-ms.date: 06/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 22a79bc1f78536df1dd1c248b75eb3b4db8b443d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1b0f96ac19c014ff2cc89df10cae3f21b38211ff
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238551"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343594"
 ---
 # <a name="identify-required-appliances"></a>필수 어플라이언스 식별
 
@@ -271,7 +271,6 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Defender for IoT 설치 정보](how-to-install-software.md)
+[IoT용 Microsoft Defender 설치 정보](how-to-install-software.md)
 
-[Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)
-
+[IoT용 Microsoft Defender 네트워크 설정 정보](how-to-set-up-your-network.md)

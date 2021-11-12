@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: f76996f721287679982f92345ecc075c3db55aba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7e21115bd1f55d79b1ba09b91cea05576a74dd75
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612931"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312537"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub를 사용한 디바이스 관리 개요
 
@@ -69,7 +69,7 @@ Azure IoT Hub는 디바이스 및 백 엔드 개발자가 강력한 디바이스
     * [디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
     * [디바이스 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)
     * [대규모로 IoT 디바이스 구성 및 모니터링](./iot-hub-automatic-device-management.md)
-    * [조직에서 포괄적인 위협 탐지를 제공하는 Azure Defender for IoT](../defender-for-iot/organizations/overview.md)
+    * [포괄적인 위협 탐지를 제공하는 조직용 Microsoft Defender for IoT](../defender-for-iot/organizations/overview.md)
     * [IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례](iot-hub-configuration-best-practices.md)
 
 * **사용 중지**: 오류가 발생하거나, 업그레이드 주기 후에 또는 서비스 수명 주기가 끝나면 디바이스를 교체하거나 서비스를 해제합니다.  디바이스 쌍을 사용하여 물리적 디바이스를 바꾸는 경우 디바이스 정보를 유지하거나 사용이 중지될 경우 보관합니다. IoT Hub ID 레지스트리를 사용하여 디바이스 ID 및 자격 증명을 안전하게 해지합니다.
@@ -100,9 +100,9 @@ IoT Hub는 다음과 같은 디바이스 관리 패턴을 가능하게 합니다
 
 ## <a name="device-updates"></a>디바이스 업데이트
 
-[IoT Hub 대한 디바이스 업데이트는](../iot-hub-device-update/understand-device-update.md)  고객이 작은 센서에서 게이트웨이 수준 디바이스에 이르는 모든 것에 대한 무선 업데이트를 게시, 배포 및 관리하는 데 사용할 수 있는 포괄적인 플랫폼입니다. IoT Hub 대한 디바이스 업데이트를 사용하면 고객은 사용자 지정 업데이트 플랫폼을 빌드하는 데 더 많은 개발 및 유지 관리 비용을 발생시키지 않고도 보안 위협에 신속하게 대응하고 비즈니스 목표를 충족하는 기능을 배포할 수 있습니다.
+[IoT Hub 대한 디바이스 업데이트는](../iot-hub-device-update/understand-device-update.md)  고객이 작은 센서에서 게이트웨이 수준 디바이스에 이르는 모든 것에 대한 무선 업데이트를 게시, 배포 및 관리하는 데 사용할 수 있는 포괄적인 플랫폼입니다. IoT Hub 대한 디바이스 업데이트를 사용하면 고객이 사용자 지정 업데이트 플랫폼을 빌드하는 데 더 많은 개발 및 유지 관리 비용을 발생시키지 않고도 보안 위협에 신속하게 대응하고 비즈니스 목표를 충족하는 기능을 배포할 수 있습니다.
 
-IoT Hub 대한 디바이스 업데이트는 Azure IoT Hub와의 통합을 통해 최적화된 업데이트 배포 및 간소화된 작업을 제공합니다. Azure IoT Edge를 통한 확장된 도달 범위를 통해 거의 모든 디바이스를 연결하는 클라우드 호스팅 솔루션을 제공합니다. Linux 및 Azure RTOS(실시간 운영 체제)를 비롯한 광범위한 IoT 운영 체제를 지원하며 오픈 소스를 통해서도 더 다양합니다. 일부 기능은 다음과 같습니다.
+IoT Hub 대한 디바이스 업데이트는 Azure IoT Hub와의 통합을 통해 최적화된 업데이트 배포 및 간소화된 작업을 제공합니다. Azure IoT Edge를 통한 확장된 도달 범위를 통해 거의 모든 디바이스를 연결하는 클라우드 호스팅 솔루션을 제공합니다. Linux 및 Azure RTOS(실시간 운영 체제)를 비롯한 광범위한 IoT 운영 체제를 지원하며 오픈 소스를 통해 extensible입니다. 일부 기능은 다음과 같습니다.
 
 * Azure IoT Edge의 호스트 수준 구성 요소를 포함하여 에지 디바이스 업데이트 지원
 * Azure IoT Hub와 통합된 관리 UX 업데이트

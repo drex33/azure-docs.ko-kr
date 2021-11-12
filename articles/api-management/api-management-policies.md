@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 950684fdbaa1553447b818c0751b13f4a8e26f34
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e5eda2df72afd7fa82a63dcd31adbf117d58bfe2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031768"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340346"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.
@@ -26,7 +26,7 @@ ms.locfileid: "131031768"
 ##  <a name="policies"></a><a name="ProxyPolicies"></a> 정책
 
 -   [액세스 제한 정책](api-management-access-restriction-policies.md#AccessRestrictionPolicies)
-    -   [HTTP 헤더 확인](api-management-access-restriction-policies.md#CheckHTTPHeader) - HTTP 헤더의 존재 및/또는 값을 적용합니다.
+    -   [Http 헤더 확인](api-management-access-restriction-policies.md#CheckHTTPHeader) -http 헤더의 존재 및/또는 값을 적용 합니다.
     -   [구독으로 호출 속도 제한](api-management-access-restriction-policies.md#LimitCallRate) - 구독을 기준으로 호출 속도를 제한하여 API 사용량 급증을 방지합니다.
     -   [키로 호출 속도 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) - 키를 기준으로 호출 속도를 제한하여 API 사용량 급증을 방지합니다.
     -   [호출자 IP 제한](api-management-access-restriction-policies.md#RestrictCallerIPs) - 특정 IP 주소 및/또는 주소 범위의 호출을 필터링(허용/거부)합니다.
@@ -86,8 +86,8 @@ ms.locfileid: "131031768"
     - [매개 변수 유효성 검사](validation-policies.md#validate-parameters) - API 스키마에 대한 요청 헤더, 쿼리 또는 경로 매개 변수의 유효성을 검사합니다.
     - [헤더 유효성 검사](validation-policies.md#validate-headers) - API 스키마에 대한 응답 헤더의 유효성을 검사합니다.
     - [상태 코드 유효성 검사](validation-policies.md#validate-status-code) - API 스키마에 대한 응답에서 HTTP 상태 코드의 유효성을 검사합니다.
-- [Graph QL 유효성 검사 정책](graphql-validation-policies.md)
-    - [GraphQL 요청 유효성 검사](graphql-validation-policies.md#validate-graphql-request) - GraphQL API에 대한 요청의 유효성을 검사하고 권한을 부여합니다.
+- [Graph Q) 유효성 검사 정책](graphql-validation-policies.md)
+    - [GraphQL Request 유효성 검사](graphql-validation-policies.md#validate-graphql-request) -GraphQL API에 대 한 요청의 유효성을 검사 하 고 권한을 부여 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/23/2021
-ms.openlocfilehash: d6a43a64cbe24bc547ef1c6e61d4c0e3c340d76f
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.date: 11/10/2021
+ms.openlocfilehash: 90e0703313db99bee1a7d06e9c1bc9d0efac135f
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067272"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372969"
 ---
 # <a name="usage-metering-billing-and-pricing-models-for-azure-logic-apps"></a>Azure Logic Apps의 사용량 계량, 청구 및 가격 책정 모델
 
@@ -73,10 +73,10 @@ ms.locfileid: "130067272"
 
 단일 테넌트 Azure Logic Apps에서 논리 앱과 해당 워크플로는 가격 책정 및 청구에 대한 [**표준** 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)를 따릅니다. 예를 들어 **논리 앱(표준)** 리소스 종류를 선택하거나 Visual Studio Code에서 **Azure Logic Apps(표준)** 확장을 사용할 때 이러한 논리 앱을 다양한 방법으로 만들 수 있습니다. 이 가격 책정 모델에서는 논리 앱에서 호스팅 계획 및 가격 책정 계층을 사용해야 합니다. 이는 사용하는지 여부에 관계없이 요금이 예약된 용량 및 전용 리소스에 대해 청구된다는 점에서 사용량 요금제와 다릅니다.
 
+**논리 앱 (표준)** 리소스 종류를 사용 하 여 논리 앱을 만들거나 배포할 때 모든 Azure 지역에서 워크플로 표준 호스팅 계획을 사용할 수 있습니다. 또한 기존 **App Service Environment v3** 리소스를 배포 위치로 선택 하는 옵션을 사용할 수 있지만이 옵션을 사용 하 여 App Service 계획만 사용할 수 있습니다. 이 옵션을 선택 하면 App Service 계획에서 사용 하는 인스턴스와 논리 앱 워크플로를 실행 하는 데 대 한 요금이 청구 됩니다. 다른 요금은 적용 되지 않습니다.
+
 > [!IMPORTANT]
-> **논리 앱 (표준)** 리소스 종류를 사용 하 여 논리 앱을 만들거나 배포할 때 모든 Azure 지역에서 워크플로 표준 호스팅 계획을 사용할 수 있습니다. 기존 **App Service Environment v3 (ASEv3)** 리소스를 논리 앱 리소스를 만들고 배포 하는 지역으로 사용 하는 경우에 *만* App Service 호스팅 계획을 사용할 수 있습니다.
->
-> 다음 옵션은 Azure 지역에서 **논리 앱 (표준)** 리소스 형식의 공용 릴리스와 더 이상 사용할 수 없거나 지원 되지 않습니다. 함수 Premium 계획, App Service Environment v1 및 App Service Environment v2입니다. ASEv3를 제외 하 고는 App Service 계획을 사용할 수 없으며 지원 되지 않습니다.
+> 다음 계획 및 리소스는 Azure 지역에서 **논리 앱 (표준)** 리소스 형식의 공용 릴리스와 더 이상 사용할 수 없거나 지원 되지 않습니다. 함수 Premium 계획, App Service Environment v1 및 App Service Environment v2. ASEv3를 제외 하 고는 App Service 요금제를 사용할 수 없으며 지원 되지 않습니다.
 
 다음 표에는 단일 테넌트 Azure Logic Apps에서 논리 앱 및 워크플로와 함께 사용하는 경우 표준 모델에서 다음 구성 요소에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
 
@@ -178,7 +178,7 @@ ms.locfileid: "130067272"
 | 작업 유형 | Description | 계량 및 요금 청구 |
 |----------------|-------------|----------------------|
 | [*기본 제공*](../connectors/built-in.md) | 이러한 작업은 Azure Logic Apps 런타임 및 논리 앱 워크플로와 동일한 ISE에서 기본적으로 직접 실행됩니다. 이러한 작업은 디자이너의 **기본 제공** 레이블에서 찾을 수 있지만, 각 작업에는 **CORE** 레이블도 표시됩니다. <p>예를 들어 HTTP 트리거 및 요청 트리거는 기본 제공 트리거입니다. HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 기타 기본 제공 작업에는 루프 및 조건, 데이터 작업, 일괄 처리 작업 등과 같은 워크플로 제어 작업이 포함됩니다. | ISE 모델에는 이러한 작업이 *무료로* 포함되지만, [Azure Logic Apps의 ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)이 적용됩니다. |
-| [*관리형 커넥터*](../connectors/managed.md) | *표준* 또는 *엔터프라이즈* 인지의 여부에 관계없이 커넥터 또는 작업에서 **ISE** 레이블을 표시하는지 여부에 따라 관리형 커넥터 작업은 ISE 또는 다중 테넌트 Azure에서 실행됩니다. <p><p>- **ISE** 레이블: 이러한 작업은 논리 앱과 동일한 ISE에서 실행되며 [온-프레미스 데이터 게이트웨이](#data-gateway) 없이 작동합니다. <p><p>- **ISE** 없음 레이블: 이러한 작업은 다중 테넌트 Azure에서 실행됩니다. | ISE 모델에는 **ise** 를 모두 포함 하 고 있습니다 .이 작업에는 *사용 가능한 작업에 대 한* **Ise가 없으며** [Azure Logic Apps의 ise 제한이](logic-apps-limits-and-config.md#integration-service-environment-ise)적용 됩니다. |
+| [*관리형 커넥터*](../connectors/managed.md) | *표준* 또는 *엔터프라이즈* 인지의 여부에 관계없이 커넥터 또는 작업에서 **ISE** 레이블을 표시하는지 여부에 따라 관리형 커넥터 작업은 ISE 또는 다중 테넌트 Azure에서 실행됩니다. <p><p>- **ISE** 레이블: 이러한 작업은 논리 앱과 동일한 ISE에서 실행되며 [온-프레미스 데이터 게이트웨이](#data-gateway) 없이 작동합니다. <p><p>- **ISE** 없음 레이블: 이러한 작업은 다중 테넌트 Azure에서 실행됩니다. | ISE 모델에는 **무료 ISE** 및 **ISE** 레이블이 지정되지 않은 작업이 모두 포함되어 있지만 [Azure Logic Apps ISE 제한이](logic-apps-limits-and-config.md#integration-service-environment-ise)적용됩니다. |
 | [*사용자 지정 커넥터*](../connectors/apis-list.md#custom-apis-and-connectors) | 이러한 작업은 디자이너의 **사용자 지정** 레이블에서 찾을 수 있습니다. | ISE 모델에는 이러한 작업이 *무료로* 포함되지만, [Azure Logic Apps의 사용자 지정 커넥터 제한](logic-apps-limits-and-config.md#custom-connector-limits)이 적용됩니다. |
 ||||
 
@@ -190,7 +190,7 @@ ISE 모델이 루프와 같은 다른 작업 내에서 실행하고, 배열과 �
 
 다음 표에는 사용량, 표준 및 ISE 모델에서 루프와 같은 다른 작업 내에서 실행하고, 배열과 같은 여러 항목을 처리하고, 정책을 다시 시도하는 작업을 처리하는 방법이 요약되어 있습니다.
 
-| 작업(Operation) | Description | Consumption | Standard | ISE |
+| 작업(Operation) | Description | Consumption | 표준 | ISE |
 |-----------|-------------|-------------|----------|-----|
 | [루프 작업](logic-apps-control-flow-loops.md) | **For each** 또는 **Until** 루프와 같은 루프 작업에는 각 루프 주기 동안 실행되는 다른 작업이 포함될 수 있습니다. | 포함된 기본 제공 작업의 초기 수를 제외하고는 루프 주기가 실행될 때마다 루프 작업 및 루프의 각 작업이 계량됩니다. 작업에서 컬렉션의 항목(예: 목록 또는 배열)을 처리하는 경우 항목 수도 계량 계산에 사용됩니다. <p><p>예를 들어 목록을 처리하는 작업이 있는 **For each** 루프가 있다고 가정합니다. 서비스는 루프의 작업 수와 목록 항목 수를 곱하고, 루프를 시작하는 작업을 추가합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. <p><p>가격 책정은 작업 유형이 기본 제공, 표준 또는 엔터프라이즈인지 여부를 기반으로 합니다. | 포함된 기본 제공 작업을 제외하고는 사용량 모델과 동일합니다. | 계량되거나 청구되지 않습니다. |
 | [재시도 정책](logic-apps-exception-handling.md#retry-policies) | 지원되는 작업에서 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정하여 기본 예외 및 오류 처리를 구현할 수 있습니다. | 기본 제공 작업의 초기 수를 제외하고 원래 실행과 재시도된 각 실행이 계량됩니다. 예를 들어 5번의 재시도로 실행되는 작업은 6번의 실행으로 계량되고 청구됩니다. <p><p>가격 책정은 작업 유형이 기본 제공, 표준 또는 엔터프라이즈인지 여부를 기반으로 합니다. | 포함된 기본 제공 작업을 제외하고는 사용량 모델과 동일합니다. | 계량되거나 청구되지 않습니다. |

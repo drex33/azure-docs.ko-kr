@@ -10,23 +10,22 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: c147dfb2dbb16e350214dedff39a36625735834d
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: f5e581e979a1c02d58b9ef9f89bc43b06117ddfb
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062950"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371926"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: SQL Server를 Azure SQL Database로
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하기 위한 옵션 및 고려 사항을 알아봅니다. 
 
-온-프레미스에서 실행되는 SQL Server 데이터베이스를 마이그레이션할 수 있습니다. 
+다음에서 실행되는 기존 SQL Server 데이터베이스를 마이그레이션할 수 있습니다. 
 
-- Azure Virtual Machines의 SQL Server  
-- Azure SQL Database(PaaS).
-- Azure SQL Managed Instance(PaaS).
+- 온-프레미스를 SQL Server.  
+- Azure Virtual Machines의 SQL Server
 - AWS(Amazon Web Services) EC2(Elastic Compute Cloud)
 - RDS(AWS Relational Database Service)
 - GCP(Google Cloud Platform)의 컴퓨팅 엔진  

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: bb32a407813ba7e85f55fc39790fba81ca452c50
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: bb777c952e4166b764032317f859419ebc3c94dd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693401"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312023"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>HBv3 시리즈 가상 머신 성능
 
@@ -38,9 +38,10 @@ ms.locfileid: "122693401"
 
 OSU 마이크로 벤치마크 제품군의 MPI 대기 시간 테스트는 다음에 따라 실행할 수 있습니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)에 있습니다.
 
-```bash 
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
-``` 
+```
+
 ## <a name="mpi-bandwidth"></a>MPI 대역폭
 OSU 마이크로 벤치마크 제품군의 MPI 대역폭 테스트는 다음에 따라 실행할 수 있습니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)에 있습니다.
 ```bash

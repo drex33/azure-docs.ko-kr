@@ -9,21 +9,21 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 11/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b34ecc7b2ef83f6f9e3f609163f193825f7cce8b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 41a46f2ccb925a51aec92bad94d1c1e2164745f4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452113"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312042"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
 Azure Monitor 로그는 클라우드와 온-프레미스 자산 간의 모니터링 기능을 제공합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Windows용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
 > [!NOTE]
-> Azure Arc 지원 서버를 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및 Linux 머신으로 배포, 제거 및 업데이트하여 수명 주기 동안 하이브리드 머신의 관리를 간소화할 수 있습니다. 자세한 내용은 Azure Arc 지원 서버를 사용하여 [VM 확장 관리를 참조하세요.](../../azure-arc/servers/manage-vm-extensions.md)
+> azure Arc 사용 서버를 사용 하면 Log Analytics 에이전트 VM 확장을 azure가 아닌 Windows 및 Linux 컴퓨터에 배포, 제거 및 업데이트할 수 있으므로 해당 수명 주기 동안 하이브리드 컴퓨터의 관리를 간소화할 수 있습니다. 자세한 내용은 [Azure Arc 사용 서버를 사용 하 여 VM 확장 관리](../../azure-arc/servers/manage-vm-extensions.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -38,7 +38,7 @@ Azure Monitor 로그는 클라우드와 온-프레미스 자산 간의 모니터
 | 10.20.18053| 1.0.18053.0 | 2020년 10월   | <ul><li>새 에이전트 문제 해결사</li><li>에이전트에서 Azure 서비스에 대한 인증서 변경을 처리하는 방법 업데이트</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | 2020년 8월   | <ul><li>Azure Arc에서 문제 해결</li></ul> |
 | 10.20.18038 | 1.0.18038 | 2020년 4월   | <ul><li>Azure Monitor Private Link 범위를 사용하여 Private Link를 통한 연결 활성화</li><li>작업 영역에 수집에서 갑작스럽고 우발적인 유입을 방지하기 위해 수집 제한을 추가합니다.</li><li>추가 Azure Government 클라우드 및 지역에 대한 지원을 추가합니다.</li><li>HealthService.exe가 충돌하는 버그를 해결합니다.</li></ul> |
-| 10.20.18029 | 1.0.18029 | 2020년 3월   | <ul><li>SHA-2 코드 서명 지원 추가</li><li>VM 확장 설치 및 관리 개선</li><li>Azure Arc 지원 서버 통합을 사용하여 버그를 해결합니다.</li><li>고객 지원을 위한 기본 제공 문제 해결 도구 추가</li><li>추가 Azure Government 지역에 대한 지원을 추가합니다.</li> |
+| 10.20.18029 | 1.0.18029 | 2020년 3월   | <ul><li>SHA-2 코드 서명 지원 추가</li><li>VM 확장 설치 및 관리 개선</li><li>Azure Arc 사용 서버 통합을 사용 하 여 버그를 해결 합니다.</li><li>고객 지원을 위한 기본 제공 문제 해결 도구 추가</li><li>추가 Azure Government 지역에 대한 지원을 추가합니다.</li> |
 | 10.20.18018 | 1.0.18018 | 2019년 10월 | <ul><li> 사소한 버그 수정 및 안정화 개선 </li></ul> |
 | 10.20.18011 | 1.0.18011 | 2019년 7월 | <ul><li> 사소한 버그 수정 및 안정화 개선 </li><li> MaxExpressionDepth를 10000으로 증가 </li></ul> |
 | 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 개선 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용하지 않도록 설정하는 기능 추가(WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원) </li></ul>|
@@ -50,9 +50,9 @@ Azure Monitor 로그는 클라우드와 온-프레미스 자산 간의 모니터
 | 8.0.11072 | 1.0.11072 | 2017년 9월 | |
 | 8.0.11049 | 1.0.11049 | 2017년 2월 | |
 
-### <a name="azure-security-center"></a>Azure Security Center
+### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-Azure Security Center는 자동으로 Log Analytics 에이전트를 프로비전하고 Azure 구독의 기본 Log Analytics 작업 영역에 연결합니다. Azure Security Center를 사용하는 경우 이 문서의 단계를 실행하지 마세요. 이렇게 하면 구성된 작업 영역을 덮어쓰고 Azure Security Center와의 연결을 끊습니다.
+Microsoft Defender for Cloud는 Log Analytics 에이전트를 자동으로 프로 비전 하 고 Azure 구독의 기본 Log Analytics 작업 영역에 연결 합니다. 클라우드 용 Microsoft Defender를 사용 하는 경우이 문서의 단계를 실행 하지 마십시오. 이렇게 하면 구성 된 작업 영역을 덮어쓰고 클라우드의 Microsoft Defender와의 연결이 끊어집니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

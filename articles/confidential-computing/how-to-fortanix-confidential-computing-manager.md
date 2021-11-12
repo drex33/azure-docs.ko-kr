@@ -1,20 +1,20 @@
 ---
 title: Azure 관리형 애플리케이션의 Fortanix 기밀 컴퓨팅 관리자
 description: Azure Portal의 관리형 애플리케이션에 Fortanix CCM(기밀 컴퓨팅 관리자)을 배포하는 방법에 대해 알아봅니다.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.author: jencook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 51432b2d5de800cbfc3748da82f7b9fe26220731
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fa811a3f528fb0d1bf20e053910540a6204eb724
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131024508"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315917"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Azure 관리형 애플리케이션의 Fortanix 기밀 컴퓨팅 관리자
 

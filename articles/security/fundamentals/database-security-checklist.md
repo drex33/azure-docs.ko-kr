@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 80455b442bbfb9c8a7d40799b2ddd5fc25460578
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c462e4084cc1fd2e46d7eec268501402cee7c887
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595583"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342968"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
@@ -54,7 +54,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 |<br>애플리케이션 액세스| <ul><li>[행 수준 보안](/sql/relational-databases/security/row-level-security) - 보안 정책을 사용하는 동시에 사용자의 ID, 역할 또는 실행 컨텍스트에 따라 행 수준 액세스를 제한합니다.</li><li>[동적 데이터 마스킹](../../azure-sql/database/dynamic-data-masking-overview.md) - 권한 및 정책을 사용하여 권한이 없는 사용자에게 중요한 데이터를 마스킹함으로써 이러한 데이터의 노출을 제한합니다.</li></ul>|
 |**사전 모니터링**||  
 | <br>추적 및 검색| <ul><li>[감사](../../azure-sql/database/auditing-overview.md) - 데이터베이스 이벤트를 추적하고 [Azure Storage 계정](../../storage/common/storage-account-create.md)의 감사 로그/활동 로그에 이벤트를 기록합니다.</li><li>[Azure Monitor 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)를 사용하여 Azure 데이터베이스 상태를 추적합니다.</li><li>[위협 검색](../../azure-sql/database/threat-detection-configure.md) - 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다. </li></ul> |
-|<br>Azure Security Center| <ul><li>[데이터 모니터링](../../security-center/security-center-remediate-recommendations.md) - SQL 및 기타 Azure 서비스에 대한 중앙 집중식 보안 모니터링 솔루션으로 Azure Security Center를 사용합니다.</li></ul>|        
+|<br>Microsoft Defender for Cloud| <ul><li>[데이터 모니터링](../../security-center/security-center-remediate-recommendations.md) 클라우드 용 Microsoft Defender를 SQL 및 기타 Azure 서비스에 대 한 중앙 집중식 보안 모니터링 솔루션으로 사용 합니다.</li></ul>|        
 
 ## <a name="conclusion"></a>결론
 Azure 데이터베이스는 다양한 조직 및 규정 준수 요구 사항을 충족하는 모든 보안 기능을 갖춘 강력한 데이터베이스 플랫폼입니다. 데이터에 대한 물리적 액세스를 제어하고 투명한 데이터 암호화, 셀 수준 암호화 또는 행 수준 보안이 포함된 다양한 데이터 보안 옵션을 파일, 열 또는 행 수준에서 사용하여 데이터를 쉽게 보호할 수 있습니다. 또한 Always Encrypted를 사용하면 암호화된 데이터에 대한 작업을 수행하여 애플리케이션 업데이트 프로세스를 간소화할 수 있습니다. 따라서 SQL Database 활동의 감사 로그에 액세스하면 필요한 정보를 얻을 수 있으므로 데이터에 액세스하는 방법과 시기를 알 수 있습니다.

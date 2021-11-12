@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 06/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: d08f7678fa2a38f501c28938395bf152c6be7126
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: aa4c83d5e702c8f39a88c285c716a84ba2716d45
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715836"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337569"
 ---
 # <a name="route-cloud-events-to-webhooks-with-azure-event-grid-on-kubernetes"></a>Kubernetes의 Azure Event Grid를 사용하여 클라우드 이벤트를 웹후크로 라우팅
 이 빠른 시작에서는 Kubernetes의 Event Grid에서 토픽을 만들고 토픽에 대한 구독을 만든 다음, 토픽에 샘플 이벤트를 보내 시나리오를 테스트합니다. 
@@ -80,7 +80,7 @@ Azure 위치 확장인 사용자 지정 위치를 사용하면 Azure Arc 지원 
 
 1. 문서 페이지에서 **Azure에 배포** 를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to deploy to Azure."></a>
 1. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 
     배포에 실패하면 오류 메시지를 확인합니다. 웹 사이트 이름이 이미 사용되었기 때문일 수 있습니다. 템플릿을 다시 배포하고 사이트에 대해 다른 이름을 선택합니다. 

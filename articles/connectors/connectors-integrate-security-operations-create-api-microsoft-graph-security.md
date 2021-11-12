@@ -9,16 +9,16 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b32d5aee270e3380899a81f49b12a55c468f2bc5
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: f6661a794e03bdeb1069b0f04a25d8bf8abdcdc1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122865013"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297680"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Microsoft Graph Security 및 Azure Logic Apps와 보안 작업을 통합하여 위협 방지 향상
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Microsoft Graph Security](/graph/security-concept-overview) 커넥터를 사용하면 Microsoft 보안 제품, 서비스 및 파트너를 통합하는 자동화된 워크플로를 만들어 앱이 위협을 탐지 및 방지하고 이에 대응하는 방식을 향상할 수 있습니다. 예를 들어 Microsoft Graph Security 엔터티(예: 경고)를 모니터링하고 관리하는 [Azure Security Center 플레이북](../security-center/workflow-automation.md)을 만들 수 있습니다. Microsoft Graph Security 커넥터가 지원하는 몇 가지 시나리오는 다음과 같습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Microsoft Graph Security](/graph/security-concept-overview) 커넥터를 사용하면 Microsoft 보안 제품, 서비스 및 파트너를 통합하는 자동화된 워크플로를 만들어 앱이 위협을 탐지 및 방지하고 이에 대응하는 방식을 향상할 수 있습니다. 예를 들어 경고와 같은 Microsoft Graph Security 엔터티를 모니터링하고 관리하는 클라우드용 Microsoft [Defender 플레이북을](../security-center/workflow-automation.md) 만들 수 있습니다. Microsoft Graph Security 커넥터가 지원하는 몇 가지 시나리오는 다음과 같습니다.
 
 * 쿼리 또는 경고 ID를 기준으로 경고를 가져옵니다. 예를 들어 높은 심각도 경고를 포함하는 목록을 가져올 수 있습니다.
 
@@ -117,8 +117,8 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 | 작업 | Description |
 |--------|-------------|
-| **경고 가져오기** | 하나 이상의 [경고 속성](/graph/api/resources/alert)을 기준으로 필터링 된 경고를 가져옵니다. 예: `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
-| **ID로 경고 가져오기** | 경고 ID를 기준으로 특정 경고를 가져옵니다. | 
+| **경고 가져오기** | 하나 이상의 [경고 속성](/graph/api/resources/alert)을 기준으로 필터링 된 경고를 가져옵니다. 예: `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. |
+| **ID로 경고 가져오기** | 경고 ID를 기준으로 특정 경고를 가져옵니다. |
 | **경고 업데이트** | 경고 ID를 기준으로 특정 경고를 업데이트합니다. 요청에 필수 속성과 편집 가능한 속성을 전달하려면 [경고의 편집 가능한 속성](/graph/api/alert-update)을 참조하세요. 예를 들어 조사할 수 있도록 보안 분석가에게 경고를 할당하려면 경고의 **할당 대상** 속성을 업데이트할 수 있습니다. |
 |||
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 68feb1c2df14c3325ae74ef36874e7008bf9d108
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449288"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371033"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Azure Front Door의 백 엔드 및 백 엔드 풀
 이 문서에서는 Azure Front Door를 사용하여 웹 애플리케이션 배포를 매핑하는 방법에 대한 개념을 설명합니다. 또한 애플리케이션 백 엔드와 관련된 Front Door 구성에서 사용되는 다양한 용어를 설명합니다.
@@ -45,7 +45,7 @@ Front Door에서 백 엔드로 전달된 요청에는 백 엔드가 대상 리�
 
 예를 들어 `www.contoso.com`에 대한 요청에는 호스트 헤더 www.contoso.com이 있습니다. Azure Portal을 사용하여 백 엔드를 구성하는 경우 이 필드의 기본값은 백 엔드의 호스트 이름입니다. 백 엔드가 contoso-westus.azurewebsites.net인 경우 Azure Portal에서 백 엔드 호스트 헤더에 자동으로 채워지는 값은 contoso-westus.azurewebsites.net입니다. 그러나 이 필드를 명시적으로 설정하지 않고 Azure Resource Manager 템플릿 또는 다른 방법을 사용하는 경우, Front Door는 들어오는 호스트 이름을 호스트 헤더 값으로 보냅니다. www\.contoso.com에 대한 요청이 수행되고 백 엔드가 빈 헤더 필드를 포함하는 contoso-westus.azurewebsites.net인 경우 Front Door는 호스트 헤더를 www\.contoso.com으로 설정합니다.
 
-대부분의 앱 백 엔드(Azure Web Apps, Blob Storage, Cloud Services)에서는 호스트 헤더가 백 엔드의 도메인과 일치해야 합니다. 그러나 백 엔드로 라우팅하는 프런트 엔드 호스트는 www.contoso.net과 같은 다른 호스트 이름을 사용합니다.
+대부분의 앱 백 엔드(Azure Web Apps, Blob 스토리지, Cloud Services)에서는 호스트 헤더가 백 엔드의 도메인과 일치해야 합니다. 그러나 백 엔드로 라우팅하는 프런트 엔드 호스트는 `www.contoso.net`과 같은 다른 호스트 이름을 사용합니다.
 
 백 엔드에서 백 엔드 호스트 이름과 일치하는 호스트 헤더를 요구하는 경우 백 엔드 호스트 헤더에 백 엔드의 호스트 이름이 포함되어 있는지 확인합니다.
 
@@ -96,4 +96,4 @@ Front Door는 구성된 각 백 엔드에 주기적으로 HTTP/HTTPS 프로브 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Front Door 프로필 만들기](quickstart-create-front-door.md)
-- [Front Door의 작동 방식](front-door-routing-architecture.md)
+- [Front Door 작동 원리](front-door-routing-architecture.md)

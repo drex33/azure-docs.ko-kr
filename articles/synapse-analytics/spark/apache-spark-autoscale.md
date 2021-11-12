@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 102b6e24c0d945cfd8e9bef8b7ae3a9c1992087e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93313633"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335369"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Azure Synapse Analytics Apache Spark 풀 크기 자동 조정
 
@@ -26,8 +26,8 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 |메트릭|Description|
 |---|---|
-|보류 중인 총 CPU|보류 중인 모든 노드의 실행을 시작하는 데 필요한 총 코어 수입니다.|
-|보류 중인 총 메모리|보류 중인 모든 노드의 실행을 시작하는 데 필요한 총 메모리(MB)입니다.|
+|보류 중인 총 CPU|보류 중인 모든 작업의 실행을 시작하는 데 필요한 총 코어 수입니다.|
+|보류 중인 총 메모리|보류 중인 모든 작업의 실행을 시작하는 데 필요한 총 메모리(MB)입니다.|
 |사용 가능한 총 CPU|활성 노드에서 사용되지 않는 모든 코어의 합계입니다.|
 |사용 가능한 총 메모리|활성 노드에서 사용되지 않는 메모리(MB)의 합계입니다.|
 |노드당 사용되는 메모리|노드의 로드입니다. 메모리 사용량이 10GB인 노드는 메모리 사용량이 2GB인 작업자보다 부하가 많은 것으로 간주됩니다.|
@@ -45,7 +45,7 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 강화를 위해 Azure Synapse 자동 크기 조정 서비스는 현재 CPU 및 메모리 요구 사항을 충족하는 데 필요한 새 노드 수를 계산한 다음, 필요한 노드 수를 추가하기 위한 강화 요청을 실행합니다.
 
-실행기 수, 노드당 애플리케이션 마스터 및 현재 CPU와 메모리 요구 사항을 기반으로 하는 스케일 다운의 경우 자동 크기 조정에서 특정 노드 수를 제거하는 요청을 실행합니다. 또한 서비스는 현재 작업 실행을 기반으로 제거할 후보를 검색합니다. 스케일 다운 작업은 먼저 노드를 해제한 다음, 클러스터에서 제거합니다.
+스케일 다운의 경우 실행기 수, 노드당 애플리케이션 마스터, 현재 CPU 및 메모리 요구 사항에 따라 자동 크기 조정은 특정 개수의 노드를 제거하라는 요청을 실행합니다. 또한 서비스는 현재 작업 실행을 기반으로 제거할 후보를 검색합니다. 스케일 다운 작업은 먼저 노드를 해제한 다음, 클러스터에서 제거합니다.
 
 ## <a name="get-started"></a>시작하기
 

@@ -9,18 +9,18 @@ ms.author: jassha
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1178eaa37170228c58f044a616a2bfe230bd3f4c
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 86902147b68272fb0ff2ef5873ad6cca80654843
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166693"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312403"
 ---
 # <a name="job-router-concepts"></a>작업 라우터 개념
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services 작업 라우터는 일부 추상 공급과 시스템의 일부 추상 수요를 일치시키는 문제를 해결합니다. Azure Event Grid 통합된 작업 라우터는 거의 실시간으로 알림을 제공하므로 작업 라우터 인스턴스의 동작을 제어하는 반응형 애플리케이션을 빌드할 수 있습니다.
+Azure Communication Services 작업 라우터는 일부 추상 공급과 시스템의 일부 추상 수요를 일치시키는 문제를 해결합니다. Azure Event Grid 통합된 작업 라우터는 거의 실시간으로 알림을 제공하므로 반응형 애플리케이션을 빌드하여 작업 라우터 인스턴스의 동작을 제어할 수 있습니다.
 
 ## <a name="job-router-overview"></a>작업 라우터 개요
 
@@ -28,7 +28,7 @@ Azure Communication Services 작업 라우터는 일부 추상 공급과 시스�
 
 ## <a name="job-router-architecture"></a>작업 라우터 아키텍처
 
-Azure Communication Services 작업 라우터는 이벤트를 사용하여 서비스 내의 작업에 대해 애플리케이션에 알립니다. 다음 다이어그램에서는 작업 라우터에 공통된 간소화된 흐름을 보여 줍니다. 작업 제출, 작업자 등록, 작업 제안 처리
+Azure Communication Services 작업 라우터는 이벤트를 사용하여 서비스 내의 동작에 대해 애플리케이션에 알립니다. 다음 다이어그램에서는 작업 라우터에 공통된 간소화된 흐름을 보여 줍니다. 작업 제출, 작업자 등록, 작업 제안 처리
 
 ### <a name="job-submission-flow"></a>작업 제출 흐름
 
@@ -46,7 +46,7 @@ Azure Communication Services 작업 라우터는 이벤트를 사용하여 서�
 
 ### <a name="matching-and-accepting-a-job-flow"></a>작업 흐름 일치 및 수락
 
-1. 작업 라우터는 작업에 대해 일치하는 작업자를 찾은 경우 Contoso 애플리케이션이 수신할 **RouterWorkerOfferIssued를** 보내고 Azure SignalR Service 같은 플랫폼을 사용하여 연결된 사용자에게 신호를 전송하여 작업을 제공합니다.
+1. 작업 라우터는 작업에 대해 일치하는 작업자를 찾은 경우 Contoso 애플리케이션이 수신할 **RouterWorkerOfferIssued를** 보내고 Azure SignalR Service 같은 플랫폼을 사용하여 연결된 사용자에게 신호를 보내 작업을 제공합니다.
 2. 작업자가 제안을 수락합니다.
 3. 작업 라우터는 Worker가 작업에 할당된 Contoso 애플리케이션에 **RouterWorkerOfferAccepted를** 보냅니다.
 
@@ -74,7 +74,7 @@ Azure Communication Services 작업 라우터는 단순 **활성,** **비활성*
 
 ## <a name="policies"></a>정책
 
-Azure Communication Services 작업 라우터는 유연한 정책을 적용하여 동적 동작을 시스템의 다양한 측면에 연결합니다. 정책에 따라 작업의 레이블을 & 사용하여 작업의 우선 순위를 변경하고 큐에 대기하는 등의 작업을 평가할 수 있습니다. 작업 라우터의 특정 정책은 PowerFx를 사용하여 인라인 함수 처리를 제공하거나 더 복잡한 시나리오의 경우 Azure 함수에 대한 콜백을 제공합니다.
+Azure Communication Services 작업 라우터는 유연한 정책을 적용하여 동적 동작을 시스템의 다양한 측면에 연결합니다. 정책에 따라 작업의 레이블을 & 사용하여 작업의 우선 순위를 변경하고 큐에 대기하는 등의 작업을 평가할 수 있습니다. 작업 라우터의 특정 정책은 PowerFx를 사용하는 인라인 함수 처리를 제공하거나 더 복잡한 시나리오의 경우 Azure 함수에 대한 콜백을 제공합니다.
 
 **분류 정책 -** 분류 정책은 작업 라우터가 큐, 우선 순위를 정의하는 데 도움이 되며, 전송자가 제출 시 이러한 매개 변수를 인식할 수 없거나 인식하지 못하는 경우 작업자 선택기를 변경할 수 있습니다. 분류에 대한 자세한 내용은 분류 개념 페이지를 [참조하세요.](classification-concepts.md)
 

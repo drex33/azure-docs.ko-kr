@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 33ef1ecd96c416cb500ff9be241bc99d0ee699e2
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 1009b5a9154205b83b83fb462b733551fabc800c
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071761"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372002"
 ---
 # <a name="m-series"></a>M 시리즈
 
@@ -31,6 +31,7 @@ M 시리즈 VM의 기능은 Intel&reg; Hyper-Threading 기술입니다.
 [Write Accelerator](./how-to-enable-write-accelerator.md): 지원됨<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
+[중첩 된 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): 지원 됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |

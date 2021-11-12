@@ -1491,7 +1491,7 @@
     - name: 개요
       displayName: Security Overview
       href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
-    - name: Azure Security Center
+    - name: Microsoft Defender for Cloud
       href: ../security-center/security-center-introduction.md
     - name: 보안 기준
       items:

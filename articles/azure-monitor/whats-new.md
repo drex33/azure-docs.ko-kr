@@ -2,28 +2,115 @@
 title: Azure Monitor 설명서의 새로운 기능
 description: Azure Monitor 설명서의 새로운 기능
 ms.topic: conceptual
-ms.date: 09/07/2021
-ms.openlocfilehash: 3c7a433ed3c13e7853cab9a72bdd6b7a447bb3a0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/10/2021
+ms.openlocfilehash: 58e5ff2bbb95e14e0a99750004a6b4ca5f17821f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219892"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290355"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능
 
 이 문서에서는 Azure Monitor 설명서의 중요한 변경 내용을 나열합니다.
 
+## <a name="october-2021"></a>2021년 10월
+
+### <a name="general"></a>일반
+
+**새 문서**
+
+- [Azure Monitor 배포 - 경고 및 자동화된 작업](best-practices-alerts.md)
+- [Azure Monitor 모범 사례 - 데이터 분석 및 시각화](best-practices-analysis.md)
+- [Azure Monitor 모범 사례 - 데이터 수집 구성](best-practices-data-collection.md)
+- [Azure Monitor 모범 사례 - 모니터링 전략 및 구성 계획](best-practices-plan.md)
+- [Azure Monitor 모범 사례](best-practices.md)
+
+**업데이트된 문서**
+
+- [Azure Monitor에서 모니터링하는 항목](monitor-reference.md)
+- [Azure Monitor 데이터 시각화](visualizations.md)
+### <a name="agents"></a>에이전트
+
+**업데이트된 문서**
+
+- [Linux용 Log Analytics 에이전트의 문제를 해결하는 방법](agents/agent-linux-troubleshoot.md)
+- [Azure Monitor 에이전트 개요](agents/agents-overview.md)
+- [Azure Monitor 에이전트 설치](agents/azure-monitor-agent-install.md)
+
+### <a name="alerts"></a>경고
+
+**업데이트된 문서**
+
+- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](alerts/alerts-activity-log.md)
+- [Resource Manager 템플릿을 사용하여 로그 경고 만들기](alerts/alerts-log-create-templates.md)
+- [로그 경고 규칙의 웹후크 작업](alerts/alerts-log-webhook.md)
+- [Azure Monitor의 로그 경고 규칙에 대한 Resource Manager 템플릿 샘플](alerts/resource-manager-alerts-log.md)
+
+### <a name="application-insights"></a>Application Insights
+
+**새 문서**
+
+- [Azure 애플리케이션 Insights Statsbeat](app/statsbeat.md)
+- [.NET, Node.js 및 Python 애플리케이션에 Azure Monitor OpenTelemetry Exporter 사용(미리 보기)](app/opentelemetry-enable.md)
+- [OpenTelemetry 개요](app/opentelemetry-overview.md)
+
+**업데이트된 문서**
+
+- [온-프레미스 서버용 Azure Monitor Application Insights 에이전트 배포](app/status-monitor-v2-overview.md)
+- [JVM args 업데이트에 대한 팁 - Java용 Azure Monitor 애플리케이션 Insights](app/java-standalone-arguments.md)
+- [Python 애플리케이션용 Azure Monitor 설정](app/opencensus-python.md)
+- [Azure Monitor Application Insights 통해 Java 코드리스 애플리케이션 모니터링](app/java-in-process-agent.md)
+- [구성 옵션 - Java용 Azure Monitor Application Insights](app/java-standalone-config.md)
+
+### <a name="containers"></a>컨테이너
+
+**업데이트된 문서**
+
+- [컨테이너 인사이트 문제 해결](containers/container-insights-troubleshoot.md)
+- [컨테이너 인사이트에서 권장되는 메트릭 경고(미리 보기)](containers/container-insights-metric-alerts.md)
+
+### <a name="essentials"></a>Essentials
+
+**업데이트된 문서**
+
+- [Azure Monitor에서 지원되는 메트릭](essentials/metrics-supported.md)
+- [Azure Monitor 리소스 로그에 지원되는 범주](essentials/resource-logs-categories.md)
+- [Azure Monitor 메트릭 개요](essentials/data-platform-metrics.md)
+- [Azure Monitor 사용자 지정 메트릭(미리 보기)](essentials/metrics-custom-overview.md)
+- [Azure 리소스 로그에 대한 일반 및 서비스별 스키마](essentials/resource-logs-schema.md)
+- [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](essentials/diagnostic-settings.md)
+
+### <a name="logs"></a>로그
+
+**업데이트된 문서**
+
+- [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)](logs/logs-data-export.md)
+- [Azure Monitor 고객 관리형 키](logs/customer-managed-keys.md)
+- [Azure Monitor 로그 전용 클러스터](logs/logs-dedicated-clusters.md)
+- [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](logs/manage-cost-storage.md)
+
+### <a name="virtual-machines"></a>Virtual Machines
+
+**업데이트된 문서**
+
+- [Azure Policy를 사용하여 VM 인사이트 사용](vm/vminsights-enable-policy.md)
+
+## <a name="visualizations"></a>시각화
+
+**업데이트된 문서**
+
+- [Grafana에서 Azure 서비스 모니터링](visualize/grafana-plugin.md)
 ## <a name="september-2021"></a>2021년 9월
 ### <a name="general"></a>일반
 
 **업데이트된 문서**
 
-- [Azure Policy를 사용 하 여 규모에 Azure Monitor 배포](./best-practices.md)
+- [Azure Policy 사용하여 대규모로 Azure Monitor 배포](./best-practices.md)
 - [Azure Monitor 파트너 통합](partners.md)
 - [Azure Monitor에 대한 Resource Manager 템플릿 샘플](resource-manager-samples.md)
 - [Azure Monitor의 역할, 권한 및 보안](roles-permissions-security.md)
-- [Azure Monitor의 사용량 및 예상 비용 모니터링](usage-estimated-costs.md)
+- [Azure Monitor 사용량 및 예상 비용 모니터링](usage-estimated-costs.md)
 
 ### <a name="agents"></a>에이전트
 
@@ -35,18 +122,18 @@ ms.locfileid: "130219892"
 
 **새 문서**
 
-- [Azure App Service 및 ASP.NET에 대 한 응용 프로그램 모니터링](app/azure-web-apps-net.md)
-- [Azure App Service 및 Java에 대 한 응용 프로그램 모니터링](app/azure-web-apps-java.md)
-- [Azure App Service 및 ASP.NET Core에 대 한 응용 프로그램 모니터링](app/azure-web-apps-net-core.md)
-- [Azure App Service 및 Node.js에 대 한 응용 프로그램 모니터링 ](app/azure-web-apps-nodejs.md)
+- [Azure App Service 및 ASP.NET 대한 애플리케이션 모니터링](app/azure-web-apps-net.md)
+- [Azure App Service 및 Java용 애플리케이션 모니터링](app/azure-web-apps-java.md)
+- [Azure App Service 및 ASP.NET Core 대한 애플리케이션 모니터링](app/azure-web-apps-net-core.md)
+- [Azure App Service 및 Node.js대한 애플리케이션 모니터링 ](app/azure-web-apps-nodejs.md)
 
 **업데이트된 문서**
 
-- [Azure App Service 및 ASP.NET에 대 한 응용 프로그램 모니터링](app/azure-web-apps-net.md)
+- [Azure App Service 및 ASP.NET 대한 애플리케이션 모니터링](app/azure-web-apps-net.md)
 - [Application Insights SDK에서 원격 분석 필터링 및 전처리](app/api-filtering-sampling.md)
 - [Microsoft.ApplicationInsights.SnapshotCollector에 대한 릴리스 정보](app/snapshot-collector-release-notes.md)
-- [Azure Monitor application insights에 대 한 자동 계측 이란?](app/codeless-overview.md)
-- [Azure App Service 개요에 대 한 응용 프로그램 모니터링](app/azure-web-apps.md)
+- [Azure Monitor Application Insights에 대한 자동 계측이란?](app/codeless-overview.md)
+- [Azure App Service 대한 애플리케이션 모니터링 개요](app/azure-web-apps.md)
 
 ### <a name="containers"></a>컨테이너
 
@@ -76,7 +163,7 @@ ms.locfileid: "130219892"
 - [Azure Monitor의 에이전트 상태 솔루션](insights/solution-agenthealth.md)
 - [Azure Monitor의 모니터링 솔루션](insights/solutions.md)
 - [SQL 인사이트를 사용하여 SQL 배포 모니터링(미리 보기)](insights/sql-insights-overview.md)
-- [SQL insights (미리 보기) 문제 해결](insights/sql-insights-troubleshoot.md)
+- [SQL 인사이트 문제 해결(미리 보기)](insights/sql-insights-troubleshoot.md)
 
 ### <a name="logs"></a>로그
 
@@ -90,9 +177,9 @@ ms.locfileid: "130219892"
 - [Azure Monitor 고객 관리형 키](logs/customer-managed-keys.md)
 - [Azure Monitor 로그 전용 클러스터](logs/logs-dedicated-clusters.md)
 - [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)](logs/logs-data-export.md)
-- [Azure Portal를 사용 하 여 Log Analytics 작업 영역을 다른 영역으로 이동](logs/move-workspace-region.md)
+- [Azure Portal 사용하여 Log Analytics 작업 영역을 다른 지역으로 이동](logs/move-workspace-region.md)
 
-## <a name="august-2021"></a>8 월, 2021
+## <a name="august-2021"></a>2021년 8월
 
 ### <a name="agents"></a>에이전트
 
@@ -140,7 +227,7 @@ ms.locfileid: "130219892"
 
 **새 문서**
 
-- [로그에 대 한 Azure AD 인증](logs/azure-ad-authentication-logs.md)
+- [로그에 대한 Azure AD 인증](logs/azure-ad-authentication-logs.md)
 - [Azure Portal을 사용하여 Log Analytics 작업 영역을 다른 지역으로 이동](logs/move-workspace-region.md)
 - [Azure Monitor의 가용성 영역](logs/availability-zones.md)
 - [Azure CLI에서 Azure Monitor 로그 관리](logs/azure-cli-log-analytics-workspace-sample.md)

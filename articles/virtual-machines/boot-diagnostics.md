@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: ceae158a8fab584b3674c62c621530dd2e6b25b9
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: fdb7b3bcaac2825e64111bdba4ad98554bfc02ae
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132155931"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339260"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 부팅 진단
 
@@ -48,6 +48,9 @@ Azure Portal에서 VM을 만들 때 기본 설정은 관리형 스토리지 계�
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>CLI를 사용하여 관리형 부팅 진단 사용
 관리형 스토리지 계정을 사용한 부팅 진단은 Azure CLI 2.12.0 이상에서 지원됩니다. 스토리지 계정에 대한 이름 또는 URI를 입력하지 않으면 관리형 계정이 사용됩니다. 자세한 내용 및 코드 샘플은 [부팅 진단에 대한 CLI 설명서](/cli/azure/vm/boot-diagnostics)를 참조하세요.
+
+### <a name="enable-managed-boot-diagnostics-using-powershell"></a>PowerShell을 사용하여 관리되는 부팅 진단 사용
+관리되는 스토리지 계정으로 부팅 진단은 Azure PowerShell 6.6.0 이상에서 지원됩니다. 스토리지 계정에 대한 이름 또는 URI를 입력하지 않으면 관리형 계정이 사용됩니다. 자세한 내용 및 코드 샘플은 [부팅 진단에 대한 PowerShell 설명서를 참조하세요.](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic?view=azps-6.6.0)
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>ARM(Azure Resource Manager) 템플릿을 사용하여 관리형 부팅 진단 사용
 API 버전 2020-06-01 이후의 모든 항목은 관리형 부팅 진단을 지원합니다. 자세한 내용은 [부팅 진단 인스턴스 보기](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics)를 참조하세요.

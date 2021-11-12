@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 63cf40d5d7fcea55cd5de27d2b4d65691d9d0311
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 17e50b602bcab7dd3a40e6823bea44eb63603b9d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652000"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313093"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -36,7 +36,7 @@ Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF(웹
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Standard_v2 및 WAF_v2 SKU는 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부, 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아  한국 중부, 한국 남부, 영국 남부, 인도 중부, 인도 서부, 인도 남부, 인도 서부 Jio 인도 서부, 노르웨이 동부, 스위스 북부, 아랍에미리트 북부, 남아프리카 북부, 독일 중서부.
+Standard_v2 및 WAF_v2 SKU는 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부, 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아  한국 중부, 한국 남부, 영국 남부, 인도 중부, 인도 서부, 인도 남부, 인도 서부 Jio 인도 서부, 노르웨이 동부, 스위스 북부, 아랍에미리트 북부, 남부 Arica 북부, 독일 중서부.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -107,7 +107,7 @@ Azure Application Gateway는 고가용성이 유지되는 방식으로 배포됩
 |FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|
 |네트워크 감시자 통합|지원되지 않습니다.|
-|Azure Security Center 통합|아직 사용할 수 없습니다.
+|Microsoft Defender for Cloud 통합|아직 사용할 수 없습니다.
 
 ## <a name="migrate-from-v1-to-v2"></a>v1에서 v2로 마이그레이션
 

@@ -5,23 +5,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-ms.openlocfilehash: 408103657b3d1485d8807768e83cc1d9721fd22b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: b5522cb26f7f8fe486b4b690938a23c7e75c746a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130182381"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315961"
 ---
 # <a name="azure-monitor-best-practices---configure-data-collection"></a>Azure Monitor 모범 사례-데이터 컬렉션 구성
 이 문서는 [Azure Monitor를 구성](best-practices.md)하는 권장 사항 시나리오의 일부입니다. Azure 및 하이브리드 응용 프로그램 및 리소스에 대해 Azure Monitor 기능을 사용 하도록 설정 하는 데 필요한 데이터 수집을 구성 하는 권장 단계에 대해 설명 합니다.
 
-
 > [!IMPORTANT]
 > Azure Monitor 기능과 해당 구성은 사용 가능한 기능의 비용과 균형을 이루는 비즈니스 요구 사항에 따라 달라집니다. 아래 각 단계에서 잠재적 비용이 있는지 여부를 확인 하 고 계속 하기 전에 이러한 비용을 평가 해야 합니다. 전체 가격 책정 정보는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
-> 
 
 ## <a name="create-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
-[Azure Monitor 로그](logs/data-platform-logs.md)를 사용하도록 설정하려면 하나 이상의 Log Analytics 작업 영역이 필요합니다. 이는 Azure 리소스에서 로그와 같은 데이터를 수집하고, Azure 가상 머신의 게스트 운영 체제에서 데이터를 수집하고, 대부분의 Azure Monitor 인사이트에 필요합니다. Azure Sentinel 및 Azure Security Center와 같은 다른 서비스도 Log Analytics 작업 영역을 사용하며 Azure Monitor를 위해 사용하는 것과 동일한 작업 영역을 공유할 수 있습니다. 이 모니터링을 지원하기 위해 단일 작업 영역으로 시작할 수 있지만 여러 작업 영역을 사용해야 하는 경우에 대한 지침은 [Azure Monitor 로그 배포 설계](logs/design-logs-deployment.md)를 참조하세요.
+[Azure Monitor 로그](logs/data-platform-logs.md)를 사용하도록 설정하려면 하나 이상의 Log Analytics 작업 영역이 필요합니다. 이는 Azure 리소스에서 로그와 같은 데이터를 수집하고, Azure 가상 머신의 게스트 운영 체제에서 데이터를 수집하고, 대부분의 Azure Monitor 인사이트에 필요합니다. Microsoft 센티널 및 Microsoft Defender for Cloud와 같은 기타 서비스는 Log Analytics 작업 영역을 사용 하 고 Azure Monitor에 사용 하는 것과 동일한 작업 영역을 공유할 수 있습니다. 이 모니터링을 지원하기 위해 단일 작업 영역으로 시작할 수 있지만 여러 작업 영역을 사용해야 하는 경우에 대한 지침은 [Azure Monitor 로그 배포 설계](logs/design-logs-deployment.md)를 참조하세요.
 
 Log Analytics 작업 영역을 만드는 데 드는 비용은 없지만 수집할 데이터를 구성하면 잠재적인 비용이 발생할 수 있습니다. 자세한 내용은 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](logs/manage-cost-storage.md)를 참조하세요.  
 
@@ -127,4 +125,4 @@ Application Insights의 스냅샷 디버거는 .NET 애플리케이션에서 예
 
 ## <a name="next-steps"></a>다음 단계
 
-- 모든 Azure 리소스에 대해 구성 된 데이터 컬렉션을 사용 하 여 데이터 [분석 및 시각화](best-practices-analysis.md) 를 참조 하 여이 데이터를 분석 하는 옵션을 확인 합니다. 
+- 모든 Azure 리소스에 대해 구성된 데이터 수집을 사용하여 [데이터 분석 및 시각화를](best-practices-analysis.md) 참조하여 이 데이터를 분석하는 옵션을 확인합니다. 

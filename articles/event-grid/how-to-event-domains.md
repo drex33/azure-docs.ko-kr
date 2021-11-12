@@ -4,12 +4,12 @@ description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규�
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1e8187f43da38d7986c62a2c154c89f3576cf1ae
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8fd32086adb853380a63c24bc5055ac39e187942
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047799"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343404"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -122,7 +122,7 @@ New-AzEventGridSubscription `
 
 이벤트를 구독할 테스트 엔드포인트가 필요한 경우 들어오는 이벤트를 표시하는 [미리 빌드된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 언제든지 배포할 수 있습니다. `https://<your-site-name>.azurewebsites.net/api/updates`에서 테스트 웹 사이트에 이벤트를 보낼 수 있습니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to deploy to Azure."></a>
 
 토픽에 대해 설정되고 Azure Active Directory에 저장된 권한은 명시적으로 삭제해야 합니다. 구독이 토픽에 대한 쓰기 권한을 갖고 있는 경우 이벤트 구독을 삭제해도 이벤트 구독을 만드는 사용자 액세스 권한이 철회되지 않습니다.
 
@@ -197,7 +197,7 @@ Get-AzEventGridDomainKey `
 
 ## <a name="search-lists-of-topics-or-subscriptions"></a>토픽 또는 구독의 검색 목록
 
-많은 수의 토픽 또는 구독을 검색하고 관리하기 위해 Event Grid API는 목록 및 페이지 매김을 지원합니다.
+많은 수의 토픽 또는 구독을 검색 하 고 관리 하기 위해 Event Grid Api는 목록 및 페이지 매김 기능을 지원 합니다.
 
 ### <a name="using-cli"></a>CLI 사용
 예를 들어 다음 명령은 이름에 `mytopic`이 포함된 모든 토픽을 나열합니다. 

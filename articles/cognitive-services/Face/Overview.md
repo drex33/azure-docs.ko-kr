@@ -11,19 +11,17 @@ ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 25e79bb8ab2d37c5b32a6519158cd53d79c1d94b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 370d6c17dfaf2d3544506e4e2ab4218f1a48d1fa
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071423"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370805"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
 > [!WARNING]
 > 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다. 새 얼굴 리소스를 만들 때는 Azure Portal에서 이 서비스를 미국의 경찰서를 통해 또는 경찰서를 위해 사용하지 않을 것이며, [RAI(Responsible AI) 설명서](../cognitive-services-apis-create-account-cli.md#prerequisites)를 검토했으며 이 서비스를 그에 따라 사용할 것임을 인정하고 동의합니다.
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 AI 알고리즘을 제공합니다. 얼굴 인식 소프트웨어는 ID 검증, 터치리스 액세스 제어, 개인 정보 보호를 위한 얼굴 흐림 처리 등 다양한 시나리오에서 중요합니다.
 

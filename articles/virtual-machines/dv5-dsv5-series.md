@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 0bdd2c517a6bfef059ad89d7c3cbf1a825aba526
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: 1185a217e33e653f199fbd99874fbc10b7ff05e1
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131866788"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372059"
 ---
 # <a name="dv5-and-dsv5-series"></a>Dv5 및 Dsv5 시리즈
 
@@ -38,6 +38,7 @@ Dv5 시리즈 가상 머신은 임시 저장소를 갖지 않으므로 항목의
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 필수 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+[중첩 된 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): 지원 됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 NIC 수|최대 네트워크 대역폭 (Mbps) |
@@ -65,13 +66,14 @@ Dsv5 시리즈 가상 머신은 임시 저장소를 갖지 않으므로 항목�
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
-[가속화된 네트워킹:](../virtual-network/create-vm-accelerated-networking-cli.md)필수 <br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 필수 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+[중첩 된 가상화](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): 지원 됨 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 캐시되지 않은 최대 버스트 디스크 처리량: IOPS/MBps<sup>3</sup> | 최대 NIC 수 | 최대 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 버스트 캐시 되지 않은 디스크 처리량: IOPS/MBps<sup>3</sup> | 최대 NIC 수 | 최대 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v5<sup>1,2</sup> | 2  | 8   | 원격 스토리지 전용 | 4  | 3750/85    | 10000/1200 | 2 | 12500 |
+| Standard_D2s_v5<sup>1, 2</sup> | 2  | 8   | 원격 스토리지 전용 | 4  | 3750/85    | 10000/1200 | 2 | 12500 |
 | Standard_D4s_v5               | 4  | 16  | 원격 스토리지 전용 | 8  | 6400/145   | 20000/1200 | 2 | 12500 |
 | Standard_D8s_v5               | 8  | 32  | 원격 스토리지 전용 | 16 | 12800/290  | 20000/1200 | 4 | 12500 |
 | Standard_D16s_v5              | 16 | 64  | 원격 스토리지 전용 | 32 | 25600/600  | 40000/1200 | 8 | 12500 |
@@ -80,9 +82,9 @@ Dsv5 시리즈 가상 머신은 임시 저장소를 갖지 않으므로 항목�
 | Standard_D64s_v5              | 64 | 256 | 원격 스토리지 전용 | 32 | 80000/1735 | 80000/3000 | 8 | 30000 |
 | Standard_D96s_v5              | 96 | 384 | 원격 스토리지 전용 | 32 | 80000/2600 | 80000/4000 | 8 | 35000 |
 
-<sup>1</sup> 가속화된 네트워킹이 필요하며 모든 Dsv5 가상 머신에서 기본적으로 켜져 있습니다.<br>
-<sup>2</sup> 가속화된 네트워킹은 두 개의 NIC에 적용할 수 있습니다.<br>
-<sup>3</sup> Dsv5 시리즈 가상 머신은 디스크 성능을 [버스트하고](disk-bursting.md) 한 번에 최대 30분 동안 최대 버스트 최대값을 얻을 수 있습니다.
+<sup>1</sup> 가속화 된 네트워킹은 모든 Dsv5 가상 머신에서 기본적으로 설정 되 고 설정 됩니다.<br>
+<sup>2 2</sup> 개의 nic에 가속화 된 네트워킹을 적용할 수 있습니다.<br>
+<sup>3</sup> Dsv5 시리즈 가상 머신은 디스크 성능을 [버스트](disk-bursting.md) 하 고 한 번에 최대 30 분 동안 최대 버스트를 받을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

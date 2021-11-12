@@ -12,16 +12,14 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 24d30a475071667fa9f701776302aa81c652fbe2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 75a040b8c2b480d0c82ef2cab6a953d230f6ffb7
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045050"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371109"
 ---
 # <a name="what-is-the-anomaly-detector-univariate-api"></a>Anomaly Detector 일변량 API란?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Anomaly Detector API를 사용하면 기계 학습을 몰라도 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다. Anomaly Detector API의 알고리즘은 업계, 시나리오 또는 데이터 볼륨에 관계없이 가장 적합한 모델을 자동으로 식별하여 데이터에 적용하여 조정됩니다. 이 API는 시계열 데이터를 사용하여 변칙 검색, 예상 값 및 어떤 데이터 요소가 변칙인지에 대한 경계를 결정합니다.
 

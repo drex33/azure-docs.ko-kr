@@ -1,25 +1,25 @@
 ---
 title: Azure Healthcare API란?
-description: 이 문서는 Azure Healthcare API의 개요입니다.
+description: 이 문서는 Azure Healthcare API에 대한 개요입니다.
 services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: overview
 ms.date: 07/09/2021
 ms.author: ginle
-ms.openlocfilehash: 8078dcb2cc0db6786881a834540922e66f47eac8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f243f43e50c4739cda36ee8d2374772df436d9f7
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468878"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370387"
 ---
 # <a name="what-is-azure-healthcare-apis-preview"></a>Azure Healthcare API(미리 보기)란?
 
 > [!IMPORTANT]
 > Azure Healthcare API는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
-작업하는 상태 데이터는 여러 시스템 및 형식에 걸쳐 조각화됩니다. 이 데이터를 관리하는 것은 충분히 어렵기 때문에 인사이트를 얻는 것은 불가능해 보입니다. 이러한 서로 다른 모든 시스템과 데이터를 결합하는 방법을 찾아야 합니다. 의료 데이터에 대한 통합된 접근 방식을 사용하면 운영 및 임상 인사이트를 검색하거나, 새로운 최종 사용자 애플리케이션을 연결하거나, 새 연구 프로젝트를 사용하도록 설정할 수 있습니다. Azure Healthcare API는 서로 다른 PHI 집합을 통합하고 기계 학습, 분석 및 AI용 도구와 엔드투엔드 연결하여 검색된 인사이트를 통해 의료 분야를 개선할 수 있는 도구 및 커넥터 집합입니다.
+Azure Healthcare API는 워크플로를 통해 의료 서비스를 개선하고 확장 가능하고 안전한 의료 솔루션을 제공할 수 있는 개방형 표준 및 프레임워크를 기반으로 하는 관리되는 API 서비스 세트입니다. 환자 및 의료 소비자로부터 수집된 의료 데이터는 여러 시스템, 디바이스 유형 및 데이터 형식에서 조각화될 수 있으므로 의료 산업 전용의 관리되는 API 서비스 및 프레임워크 집합을 사용하는 것이 중요하고 유용합니다. 의료 데이터에서 인사이트를 얻는 것은 모집단과 개인 건강 및 전반적인 건강 이해를 유지하는 데 있어 가장 큰 장애물 중 하나입니다. 현재 서로 다른 시스템, 워크플로 및 상태 데이터를 통합하는 것이 더 중요합니다. 의료 데이터 액세스, 표준화 및 추세 캡처에 대한 통합되고 정렬된 접근 방식을 통해 운영 및 임상 인사이트를 검색할 수 있습니다. 새 디바이스 애플리케이션을 연결하는 프로세스를 간소화하고 새 연구 프로젝트를 사용하도록 설정할 수 있습니다. Azure Healthcare API를 확장 가능하고 안전한 의료 솔루션으로 사용하면 PHI(보호된 의료 정보) 데이터 세트를 함께 가져오고 기계 학습, 분석 및 AI용 도구로 엔드투엔드 연결하여 검색된 인사이트를 통해 워크플로를 통해 의료를 개선할 수 있습니다. 
 
 Azure Healthcare API는 다음과 같은 이점을 제공합니다.
 * 데이터를 일관된 방식으로 한 곳에서 수집하고 액세스할 수 있도록 하여 새 워크로드가 PHI를 활용할 수 있도록 합니다.
@@ -42,7 +42,7 @@ Azure Healthcare API를 사용하면 다음을 수행할 수 있습니다.
 
 **DICOM 서비스 소개**
 
-Azure Healthcare API에는 이제 DICOM 서비스에 대한 지원이 포함됩니다. DICOM을 사용하면 이미지 데이터와 관련 메타데이터를 안전하게 교환할 수 있습니다. DICOM은 의료 이미징 정보를 전송, 저장, 검색, 인쇄, 처리 및 표시하는 국제 표준이며 의료 전반에 허용되는 기본 의료 이미징 표준입니다. DICOM 서비스에 대한 자세한 내용은 [DICOM 개요를 참조하세요.](./dicom/dicom-services-overview.md)
+이제 Azure Healthcare API에는 DICOM 서비스에 대한 지원이 포함됩니다. DICOM을 사용하면 이미지 데이터와 관련 메타데이터를 안전하게 교환할 수 있습니다. DICOM은 의료 이미징 정보를 전송, 저장, 검색, 인쇄, 처리 및 표시하는 국제 표준이며 의료 전반에 허용되는 기본 의료 이미징 표준입니다. DICOM 서비스에 대한 자세한 내용은 [DICOM 개요를 참조하세요.](./dicom/dicom-services-overview.md)
 
 **FHIR 서비스에 대한 증분 변경**
 

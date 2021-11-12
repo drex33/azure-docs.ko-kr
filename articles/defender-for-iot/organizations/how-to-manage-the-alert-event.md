@@ -1,14 +1,14 @@
 ---
 title: 경고 이벤트 관리
 description: 네트워크에서 검색된 경고 이벤트를 관리합니다.
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 57d6a2225cc5380d8c1bf4be0955c1b728501cc1
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 64f8abc405b80c86107b8e90503d148286a1ea8c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019815"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339804"
 ---
 # <a name="manage-alert-events"></a>경고 이벤트 관리
 

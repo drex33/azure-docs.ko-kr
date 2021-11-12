@@ -10,23 +10,22 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: avgupta
-ms.openlocfilehash: 4edbeadd2615fc8d58761bc5b15a93ae626a6613
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 133c788b3bbe787f87cea3e5c72699c8dd0c4f6f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265596"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316188"
 ---
 # <a name="reload-secrets-and-certificates-from-key-vault-automatically"></a>Key Vault에서 자동으로 비밀 및 인증서 다시 로드
 
-App Configuration 및 Key Vault는 많은 애플리케이션에서 함께 사용되는 보완 서비스입니다. App Configuration 사용하면 Key Vault 저장된 비밀 또는 인증서를 참조하는 App Configuration 저장소에 키를 만들어 서비스를 함께 사용할 수 있습니다. Key Vault는 인증서의 공개 및 프라이빗 키 쌍을 비밀로 저장하므로 애플리케이션은 Key Vault에서 모든 인증서를 비밀로 검색할 수 있습니다.
+App Configuration 및 Key Vault는 많은 애플리케이션에서 함께 사용되는 보완 서비스입니다. 앱 구성을 사용 하면 Key Vault에 저장 된 암호 또는 인증서를 참조 하는 앱 구성 저장소에서 키를 만들어 서비스를 함께 사용할 수 있습니다. Key Vault는 인증서의 공개 및 프라이빗 키 쌍을 비밀로 저장하므로 애플리케이션은 Key Vault에서 모든 인증서를 비밀로 검색할 수 있습니다.
 
 우수한 보안 방법으로 [비밀](../key-vault/secrets/tutorial-rotation.md) 및 [인증서](../key-vault/certificates/tutorial-rotate-certificates.md)를 주기적으로 교체해야 합니다. Key Vault에서 순환된 후에는 애플리케이션이 최신 비밀 및 인증서 값을 선택하기를 원할 것입니다. 애플리케이션을 다시 시작하지 않고 이를 수행할 수 있는 두 가지 방법이 있습니다.
 - Sentinel 키-값을 업데이트하여 전체 구성 새로 고침을 트리거함으로써 모든 Key Vault 비밀 및 인증서를 다시 로드합니다. 자세한 내용은 [ASP.NET Core 앱에서 동적 구성 사용](./enable-dynamic-configuration-aspnet-core.md) 방법을 참조하세요.
 - Key Vault에서 일부 또는 모든 비밀 및 인증서를 주기적으로 다시 로드합니다.
 
 첫 번째 옵션에서는 Key Vault에서 비밀 및 인증서를 교체할 때마다 앱 구성에서 Sentinel 키-값을 업데이트해야 합니다. 이 접근 방식은 애플리케이션에서 비밀 및 인증서를 즉시 다시 로드하려는 경우에 적합합니다. 그러나 Key Vault에서 비밀과 인증서가 자동으로 순환될 때 Sentinel 키-값을 제때 업데이트하지 않으면 애플리케이션에 오류가 발생할 수 있습니다. 두 번째 옵션을 사용하면 이 프로세스를 완전히 자동화할 수 있습니다. 순환 시간으로부터 허용 가능한 대기 시간 내에 Key Vault에서 비밀 및 인증서를 다시 로드하도록 애플리케이션을 구성할 수 있습니다. 이 자습서에서는 두 번째 옵션을 안내합니다.
-
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

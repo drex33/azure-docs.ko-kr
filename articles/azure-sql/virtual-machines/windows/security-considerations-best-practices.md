@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2021
 ms.author: pamela
 ms.reviewer: mathoma
-ms.openlocfilehash: 6927d3d4c9cc7839acc2d17faef88ccd98fd6b21
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 327c2fa71fc8c95da654e7fca9450a8d0372e1ab
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164548"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301786"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,15 +31,15 @@ Azure는 가상 머신에서 실행되는 SQL Server로 호환되는 솔루션�
 
 이 항목에서 설명하는 방법 외에도 기존 온-프레미스 보안 방법과 가상 머신 보안 모범 사례 모두에서 보안 모범 사례를 검토하고 구현하는 것이 좋습니다. 
 
-## <a name="azure-defender-for-sql"></a>Azure Defender for SQL 
+## <a name="microsoft-defender-for-sql"></a>Microsoft Defender for SQL 
 
-[Azure Defender for SQL](../../../security-center/defender-for-sql-introduction.md)을 통해 취약성 평가 및 보안 경고와 같은 Azure Security Center 보안 기능을 사용할 수 있습니다. 자세한 내용은 [Azure Defender for SQL 사용](../../../security-center/defender-for-sql-usage.md)을 참조하세요. 
+[Microsoft Defender for SQL](../../../security-center/defender-for-sql-introduction.md) 사용하면 취약성 평가 및 보안 경고와 같은 클라우드용 Microsoft Defender 보안 기능을 사용할 수 있습니다. 자세한 내용은 [SQL Microsoft Defender](../../../security-center/defender-for-sql-usage.md) 사용을 참조하세요. 
 
 ## <a name="portal-management"></a>포털 관리
 
 [SQL IaaS 확장을 사용하여 SQL Server VM을 등록](sql-agent-extension-manually-register-single-vm.md)한 후에는 Azure Portal에서 [SQL 가상 머신 리소스](manage-sql-vm-portal.md)를 사용하여 Azure Key Vault 통합 또는 SQL 인증 사용과 같은 다양한 보안 설정을 구성할 수 있습니다. 
 
-또한 [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 사용하도록 설정한 후에는 Azure Portal의 [SQL 가상 머신 리소스](manage-sql-vm-portal.md) 내에서 취약성 평가 및 보안 경고와 같은 Security Center 기능을 직접 볼 수 있습니다. 
+또한 [microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md) 사용하도록 설정한 후에는 취약성 평가 및 보안 경고와 같은 Azure Portal SQL 가상 머신 [리소스](manage-sql-vm-portal.md) 내에서 직접 Defender for Cloud 기능을 볼 수 있습니다. 
 
 자세한 내용은 [포털에서 SQL Server VM 관리](manage-sql-vm-portal.md)를 참조하세요. 
 
@@ -133,5 +133,3 @@ Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure Virtual Ma
 - [보안](security-considerations-best-practices.md)
 - [HADR 설정](hadr-cluster-best-practices.md)
 - [기준 수집](performance-guidelines-best-practices-collect-baseline.md)
-
-

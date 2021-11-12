@@ -7,16 +7,16 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 7ede1c917bb44dd31aa59855a0b7c83eb478700a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 819509e08a5604957f01452e5c6ec33c20de2b2a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651727"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297490"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Azure Firewall 위협 인텔리전스 구성
 
-Azure Firewall 정책에 위협 인텔리전스 기반 필터링을 구성하여 악성 IP 주소와 도메인에서 보내고 받는 트래픽을 경고하고 거부할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence)는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다.<br>
+Azure Firewall 정책에 위협 인텔리전스 기반 필터링을 구성하여 악성 IP 주소와 도메인에서 보내고 받는 트래픽을 경고하고 거부할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) microsoft 위협 인텔리전스를 구동 하 고 클라우드 용 microsoft Defender를 비롯 한 여러 서비스에서 사용 됩니다.<br>
 
 위협 인텔리전스 기반 필터링을 구성한 경우 관련 규칙이 NAT 규칙, 네트워크 규칙 또는 애플리케이션 규칙보다 먼저 처리됩니다.
 

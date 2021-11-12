@@ -9,12 +9,12 @@ metadata:
   ms.subservice: v1
   ms.topic: conceptual
   ms.date: 10/22/2021
-  ms.openlocfilehash: 1557693510b8db97fc942cdb864de6c9f9527827
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 0a85978ffd2fed13e441bc7109ca013c347b4373
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "131464569"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132301668"
 title: Azure Data Factory - 질문과 대답
 summary: >
   > [!NOTE]
@@ -198,7 +198,7 @@ sections:
     answer: "**offset** 속성을 사용하여 조각을 생성할 시간을 지정합니다. 이 속성에 대한 자세한 내용은 [데이터 세트 가용성](data-factory-create-datasets.md#dataset-availability) 섹션을 참조하세요. 간단한 예제는 다음과 같습니다.\n\n```json\n\"availability\":\n{\n    \"frequency\": \"Day\",\n    \"interval\": 1,\n    \"offset\": \"06:00:00\"\n}\n```\n기본값인 자정 대신 **오전 6시** 에 시작하는 일별 조각입니다.     \n"
   - question: >
       어떻게 조각을 다시 실행할 수 있나요?
-    answer: "다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.\n\n* 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions)을 참조하세요.   \n* Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행** 을 클릭합니다.\n* 조각의 상태를 **Waiting** 으로 설정하여 **Set-AzDataFactorySliceStatus** cmdlet을 실행합니다.   \n\n    ```powershell\n    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime \"02/26/2015 19:00:00\" -EndDateTime \"02/26/2015 20:00:00\"\n    ```\n  cmdlet에 대한 자세한 내용은 [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-Azdatafactoryslicestatus)를 참조하세요.\n"
+    answer: "다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.\n\n* 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions)을 참조하세요.   \n* Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행** 을 클릭합니다.\n* 조각의 상태를 **Waiting** 으로 설정하여 **Set-AzDataFactorySliceStatus** cmdlet을 실행합니다.   \n\n  ```powershell\n  Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime \"02/26/2015 19:00:00\" -EndDateTime \"02/26/2015 20:00:00\"\n  ```\n  \n  cmdlet에 대한 자세한 내용은 [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-Azdatafactoryslicestatus)를 참조하세요.\n"
   - question: >
       조각을 처리하는 데 얼마나 오래 걸렸나요?
     answer: "모니터링 및 관리 앱에서 작업 창 탐색기를 사용하여 데이터 조각을 처리하는 데 걸린 시간을 확인합니다. 자세한 내용은 [작업 창 탐색기](data-factory-monitor-manage-app.md#activity-window-explorer)를 참조하세요.\n\nAzure 포털에서 다음을 수행할 수도 있습니다.  \n\n1. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **데이터 세트** 타일을 클릭합니다.\n2. **데이터 세트** 블레이드에서 특정 데이터 세트를 클릭합니다.\n3. **테이블** 블레이드의 **최근 조각** 목록에서 관심 있는 조각을 선택합니다.\n4. **데이터 조각** 블레이드의 **작업 실행** 목록에서 작업 실행을 클릭합니다.\n5. **작업 실행 세부 정보** 블레이드에서 **속성** 타일을 클릭합니다.\n6. **기간** 필드와 값이 표시됩니다. 이 값은 조각을 처리하는 데 소요된 시간입니다.   \n"

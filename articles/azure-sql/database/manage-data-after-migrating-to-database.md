@@ -12,12 +12,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: mathoma
 ms.date: 02/13/2019
-ms.openlocfilehash: a8b0e2d0183f29ebf9ecdee576abeca6acc1827c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: c8a8eba07d29ae590a55586819a220a95f026507
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229735"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298107"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>클라우드의 새 DBA - 마이그레이션 후 Azure SQL Database 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -95,7 +95,7 @@ SQL Database는 보안 및 개인 정보 보호를 매우 중대하게 실행합
 - 실제 데이터 보호([TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 [AE[Always Encrypted]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - 중요 및 권한 있는 데이터에 대한 액세스 제어([행 수준 보안](/sql/relational-databases/security/row-level-security) 및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)).
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 Azure, 온-프레미스 및 기타 클라우드에서 실행되는 작업 전반에 걸친 중앙 집중식 보안 관리를 제공합니다. [감사](../../azure-sql/database/auditing-overview.md) 및 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)와 같은 필수 SQL Database 보호가 모든 리소스에 구성되었는지 보고, 고유의 요구 사항에 따라 정책을 만들 수 있습니다.
+[Microsoft Defender for Cloud는](https://azure.microsoft.com/services/security-center/) Azure, 온-프레미스 및 기타 클라우드에서 실행되는 워크로드 전반에 걸쳐 중앙 집중식 보안 관리를 제공합니다. [감사](../../azure-sql/database/auditing-overview.md) 및 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)와 같은 필수 SQL Database 보호가 모든 리소스에 구성되었는지 보고, 고유의 요구 사항에 따라 정책을 만들 수 있습니다.
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>어떤 사용자 인증 방법이 SQL Database에서 제공되나요?
 
@@ -104,7 +104,7 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 - [Azure Active Directory 인증](authentication-aad-overview.md)
 - [SQL 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-기존 Windows 인증은 지원되지 않습니다. Azure AD(Azure Active Directory)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이를 통해 조직의 직원에게 SSO(Single Sign-On) 액세스를 매우 편리하게 제공할 수 있습니다. 즉, 자격 증명이 더 간단한 인증을 위해 Azure 서비스 간에 공유됩니다.
+기존 Windows 인증은 지원되지 않습니다. Azure AD(Azure Active Directory)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이를 통해 조직의 직원에게 SSO(Single Sign-On) 액세스를 매우 편리하게 제공할 수 있습니다. 즉, 자격 증명은 더 간단한 인증을 위해 Azure 서비스 간에 공유됩니다.
 
 Azure AD는 [Azure AD 다단계 인증](authentication-mfa-ssms-overview.md)을 지원하며 [클릭 몇 번](../../active-directory/hybrid/how-to-connect-install-express.md)으로 Azure AD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 SQL Database 및 Azure Synapse Analytics에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 
@@ -245,7 +245,7 @@ Query Performance Insights를 사용하면 애플리케이션이 언제나 최�
 
 SQL Database는 데이터를 보호하도록 도와주는 조치 가능 보안 권장 사항 및 데이터베이스에 잠재적 스레드를 노출할 수 있는 의심스러운 데이터베이스 활동을 식별 및 조사하기 위한 위협 탐지를 제공합니다. [취약성 평가](sql-vulnerability-assessment.md)는 데이터베이스의 보안 상태를 대규모로 모니터링하고, 보안 위험을 파악하고, 사용자가 정의한 보안 기준에서 드리프트할 수 있는 데이터베이스 검사 및 보고 서비스입니다. 모든 검사 후 실행 가능한 단계 및 재구성 스크립트의 사용자 지정 목록이 규정 준수 요구 사항을 충족하는 데 사용할 수 있는 평가 보고서와 함께 제공됩니다.
 
-Azure Security Center를 사용하여 한 번의 클릭으로 보드에서 보안 권장 사항을 식별하고 적용합니다.
+Microsoft Defender for Cloud를 사용 하 여 보드에서 보안 권장 사항을 확인 하 고 한 번의 클릭으로 적용 합니다.
 
 ### <a name="cost-optimization"></a>비용 최적화
 

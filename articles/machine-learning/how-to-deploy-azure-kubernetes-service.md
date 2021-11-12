@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/21/2021
-ms.openlocfilehash: e970108e225ef527b7772573b317272be1a775ce
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: aa24ce0f540137f516b7de8452a0ca85c684100e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557721"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337210"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -389,7 +389,7 @@ print(token)
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 
-Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center가 리소스를 검색할 수 있게 허용하고 권장 사항에 따라야 합니다. 자세한 내용은 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조하세요.
+Microsoft Defender for Cloud는 하이브리드 클라우드 워크로드 전반에 걸쳐 통합 보안 관리 및 고급 위협 보호를 제공합니다. Microsoft Defender for Cloud가 리소스를 검사하고 권장 사항을 따르도록 허용해야 합니다. 자세한 내용은 [Defender for Cloud와 Azure Kubernetes Services 통합을 참조하세요.](../security-center/defender-for-kubernetes-introduction.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021
-ms.openlocfilehash: c535c31b41f1e95c7a7d49b3e7a310aeafcbe8bb
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 2bcd276b5c6d80de9266e41a95e1f59b3453a63c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132058376"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289853"
 ---
 # <a name="deploy-and-score-a-machine-learning-model-by-using-an-online-endpoint-preview"></a>온라인 엔드포인트를 사용하여 기계 학습 모델 배포 및 점수 매기기(미리 보기)
 
@@ -74,7 +74,7 @@ Unix의 경우 다음 명령을 실행합니다.
 
 ## <a name="review-the-endpoint-and-deployment-configurations"></a>엔드포인트 및 배포 구성 검토
 
-다음 조각은 *엔드포인트/online/managed/sample/endpoint.yml* 파일을 보여줍니다. 
+다음 조각은 *endpoints/online/managed/sample/endpoint.yml* 파일을 보여줍니다. 
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
@@ -101,7 +101,7 @@ Unix의 경우 다음 명령을 실행합니다.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
-표에서는 의 특성을 `deployment` 설명합니다.
+다음 표에서는 의 특성을 `deployment` 설명합니다.
 
 | 키 | 설명 |
 | --- | --- |
@@ -111,13 +111,13 @@ Unix의 경우 다음 명령을 실행합니다.
 | `code_configuration.scoring_script` | `code_configuration.code.local_path` 채점 디렉터리에 있는 Python 파일입니다. 이 Python 코드에는 `init()` 함수와 `run()` 함수가 있어야 합니다. `init()` 함수는 모델을 만들거나 업데이트한 후에 호출됩니다(모델을 메모리에 캐시하는 등의 용도로 사용할 수 있음). `run()` 함수는 실제 채점/예측을 수행하도록 엔드포인트를 호출할 때마다 호출됩니다. |
 | `environment` | 모델 및 코드를 호스트할 환경의 세부 정보를 포함합니다. 이 예제에는 를 포함하는 인라인 정의가 `path` 있습니다. 이미지에 `environment.docker.image`를 사용합니다. `conda_file` 종속성은 이미지 위에 설치됩니다. 자세한 내용은 다음 섹션의 팁을 참조하세요. |
 | `instance_type` | 배포 인스턴스를 호스트할 VM SKU입니다. 자세한 내용은 [관리형 온라인 엔드포인트 지원 VM SKU](reference-managed-online-endpoints-vm-sku-list.md)를 참조하세요. |
-| `instance_count` | 배포의 인스턴스 수입니다. 예상되는 워크로드 값을 기준으로 합니다. 고가용성을 위해 `scale_settings.instance_count`를 `3` 이상으로 설정하는 것이 좋습니다. |
+| `instance_count` | 배포의 인스턴스 수입니다. 예상되는 워크로드 값을 기준으로 합니다. 고가용성을 위해 `instance_count`를 `3` 이상으로 설정하는 것이 좋습니다. |
 
 YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참조](reference-yaml-endpoint-managed-online.md)를 참조하세요.
 
 > [!NOTE]
 > 관리형 엔드포인트 대신 Kubernetes를 컴퓨팅 대상으로 사용하려면 다음을 수행합니다.
-> 1. [Azure Machine Learning Studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster)를 사용하여 Kubernetes 클러스터를 컴퓨팅 대상으로 만들고 Azure Machine Learning 작업 영역에 연결합니다.
+> 1. Azure Machine Learning Studio 를 사용하여 Kubernetes 클러스터를 컴퓨팅 대상으로 만들고 [Azure Machine Learning](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster)작업 영역에 연결합니다.
 > 1. [엔드포인트 YAML을](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) 사용하여 관리형 엔드포인트 YAML 대신 Kubernetes를 대상으로 지정합니다. `target`의 값을 등록된 컴퓨팅 대상의 이름으로 변경하려면 YAML을 편집해야 합니다.
 >
 > 이 문서에서 사용되는 모든 명령(선택적 SLA 모니터링 및 Azure Log Analytics 통합 제외)은 관리형 엔드포인트 또는 Kubernetes 엔드포인트에서 사용할 수 있습니다.
@@ -155,7 +155,7 @@ YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참
 
 > [!IMPORTANT]
 > 로컬 엔드포인트 배포의 목표는 Azure에 배포하기 전에 코드 및 구성의 유효성을 검사하고 디버그하는 것입니다. 로컬 배포에는 다음과 같은 제한 사항이 있습니다.
-> - 로컬 엔드포인트는 트래픽 규칙, 인증, 스케일링 설정 또는 프로브 설정을 지원하지 *않습니다*. 
+> - 로컬 엔드포인트는 트래픽 규칙, 인증 또는 프로브 설정을 지원하지 *않습니다.* 
 > - 로컬 엔드포인트는 엔드포인트당 하나의 배포만 지원합니다. 
 
 ### <a name="deploy-the-model-locally"></a>로컬에서 모델 배포
@@ -272,7 +272,7 @@ az ml online-endpoint list --output table
 
 ### <a name="optional-update-the-deployment"></a>(선택 사항) 배포 업데이트
 
-코드, 모델, 환경 또는 스케일링 설정을 업데이트하려면 YAML 파일을 업데이트하고 `az ml online-endpoint update` 명령을 실행합니다. 
+코드, 모델 또는 환경을 업데이트하려면 YAML 파일을 업데이트한 다음 `az ml online-endpoint update` 명령을 실행합니다. 
 
 > [!Note]
 > 단일 명령에서 인스턴스 수 및 를 다른 모델 설정(코드, 모델 또는 환경)과 함께 업데이트하는 경우 `update` 먼저 크기 조정 작업이 수행되고 다른 업데이트가 적용됩니다. 프로덕션 환경에서는 이러한 작업을 별도로 수행하는 것이 좋습니다.

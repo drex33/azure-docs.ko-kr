@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel | NRT(근 실시간) 검색 분석 규칙 사용 Microsoft Docs
-description: 이 문서에서는 Azure Sentinel NRT(근 실시간) 검색 분석 규칙을 보고 만드는 방법을 설명합니다.
+title: Microsoft Sentinel | NRT(근 실시간) 검색 분석 규칙 사용 Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel에서 NRT(근 실시간) 검색 분석 규칙을 보고 만드는 방법을 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 24492258021e3fc50a94926baad6578631b06125
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9e807363a1a1cc058d6b54c009f9ff90d6a5aa93
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053722"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277888"
 ---
-# <a name="work-with-near-real-time-nrt-detection-analytics-rules-in-azure-sentinel"></a>Azure Sentinel NRT(근 실시간) 검색 분석 규칙 사용
+# <a name="work-with-near-real-time-nrt-detection-analytics-rules-in-microsoft-sentinel"></a>Microsoft Sentinel에서 거의 실시간(NRT) 검색 분석 규칙 작업
 
 > [!IMPORTANT]
 >
 > - NRT(근 실시간) 규칙은 현재 미리 **보기** 에 있습니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Sentinel [거의 실시간에 가까운 분석 규칙은](near-real-time-rules.md) 새로운 위협 탐지 기능을 제공합니다. 이 유형의 규칙은 단 1분 간격으로 쿼리를 실행하여 응답성이 뛰어나도록 설계되었습니다.
+Microsoft Sentinel의 [근 실시간 분석 규칙은](near-real-time-rules.md) 가장 가까운 시간 위협 탐지 기능을 제공합니다. 이 유형의 규칙은 단 1분 간격으로 쿼리를 실행하여 응답성이 뛰어나도록 설계되었습니다.
 
 당분간 이러한 템플릿은 아래에 설명된 대로 애플리케이션이 제한되어 있지만 기술이 빠르게 진화하고 성장하고 있습니다.
 
 ## <a name="view-near-real-time-nrt-rules"></a>NRT(근 실시간) 규칙 보기
 
-1. Azure Sentinel 탐색 메뉴에서 **Analytics** 를 선택합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
 
 1. **분석** 블레이드의 **활성 규칙** 탭에서 **NRT** 템플릿 목록을 필터링합니다.
 
     1. **규칙 유형** 필터를 클릭한 다음 아래에 표시되는 드롭다운 목록을 클릭합니다.
 
-    1. Select all **표시를 해제한** 다음 **NRT를** 표시합니다.
+    1. Select all **표시를 해제한** 다음 **NRT** 를 표시합니다.
 
     1. 필요한 경우 드롭다운 목록의 맨 위를 클릭하여 취소한 다음 **확인** 을 클릭합니다.
 
@@ -48,7 +48,7 @@ Azure Sentinel [거의 실시간에 가까운 분석 규칙은](near-real-time-r
 
 정기적인 예약 쿼리 분석 규칙을 만드는 것과 동일한 방식으로 NRT [규칙을 만듭니다.](detect-threats-custom.md)
 
-1. Azure Sentinel 탐색 메뉴에서 **Analytics** 를 선택합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
 
 1. 단추 모음에서 **만들기를** 선택한 다음, 드롭다운 목록에서 **NRT 쿼리 규칙을** 선택합니다.
 
@@ -82,7 +82,7 @@ Azure Sentinel [거의 실시간에 가까운 분석 규칙은](near-real-time-r
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel NRT(근 실시간) 분석 규칙을 만드는 방법을 배웠습니다.
+이 문서에서는 Microsoft Sentinel에서 NRT(근 실시간) 분석 규칙을 만드는 방법을 배웠습니다.
 
-- [Azure Sentinel NRT(근 실시간) 분석 규칙에](near-real-time-rules.md)대해 자세히 알아보세요.
+- [Microsoft Sentinel의 NRT(근 실시간) 분석 규칙에](near-real-time-rules.md)대해 자세히 알아보세요.
 - 다른 [분석 규칙 유형](detect-threats-built-in.md)을 탐색합니다.

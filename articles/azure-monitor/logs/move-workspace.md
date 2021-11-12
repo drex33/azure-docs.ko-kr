@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 392b9d5b753ff75ab64a2f21a87301ba17de24c3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4962849bb08983bb821d5ffed90a8312a52e9172
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058011"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335787"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -23,7 +23,7 @@ ms.locfileid: "131058011"
 ## <a name="verify-active-directory-tenant"></a>Active Directory 테넌트 확인
 작업 영역 원본 및 대상 구독은 동일한 Azure Active Directory 테넌트 내에 있어야 합니다. Azure PowerShell을 사용하여 두 구독에 동일한 테넌트 ID가 있는지 확인할 수 있습니다.
 
-``` PowerShell
+```powershell
 (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
@@ -36,13 +36,13 @@ ms.locfileid: "131058011"
   - 업데이트 관리
   - 변경 내용 추적
   - 작업이 없는 동안 VM 시작/중지
-  - Azure Security Center
+  - Microsoft Defender for Cloud
 
 >[!IMPORTANT]
-> **Azure Sentinel 고객**
-> - 현재, Azure Sentinel이 작업 영역에 배포된 후 작업 영역을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원되지 않습니다. 
+> **Microsoft Sentinel 고객**
+> - 현재 Microsoft Sentinel이 작업 영역에 배포된 후에는 작업 영역을 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다. 
 > - 작업 영역을 이미 이동한 경우 **Analytics** 에서 모든 활성 규칙을 사용하지 않도록 설정하고 5분 후에 다시 사용하도록 설정합니다. 이 방법이 대부분의 경우에 효과적인 솔루션이어야 하지만, 이는 지원되지 않으며 사용자의 책임하에 수행됩니다.
-> - 완료 하는 데 몇 시간 Azure Resource Manager 걸릴 수 있으며, 작업 중에 솔루션이 응답 하지 않을 수 있습니다.
+> - 완료하는 데 몇 시간 Azure Resource Manager 걸릴 수 있으며 작업 중에 솔루션이 응답하지 않을 수 있습니다.
 > 
 > **경고 다시 만들기**
 > - 권한은 작업 영역을 이동하거나 리소스 이름을 변경하는 중에 변경되는 작업 영역 리소스 ID를 기준으로 하기 때문에 모든 경고를 다시 만들어야 합니다. 2019년 6월 1일 이후에 만들어진 작업 영역 또는 [레거시 Log Analytics 경고 API에서 scheduledQueryRules API로 업그레이드](../alerts/alerts-log-api-switch.md)된 작업 영역의 경고는 템플릿에서 내보내고 이동 후 배포할 수 있습니다. [작업 영역에서 경고 시 scheduledQueryRules API가 사용되는지 확인](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace)할 수 있습니다. 또는 대상 작업 영역에서 경고를 수동으로 구성할 수 있습니다.
@@ -69,7 +69,7 @@ ms.locfileid: "131058011"
 
 PowerShell을 사용하여 솔루션을 제거하려면 다음 예제와 같이 [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet을 사용합니다.
 
-``` PowerShell
+```powershell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -113,7 +113,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 ### <a name="powershell"></a>PowerShell
 PowerShell을 사용하여 작업 영역을 이동하려면 [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource)를 다음 예제와 같이 사용합니다.
 
-``` PowerShell
+```powershell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: 크기 조정에 대 한 모범 사례
+title: 크기 조정 모범 사례
 titleSuffix: Azure Cache for Redis
 description: Azure Cache for Redis의 크기를 조정하는 방법을 알아봅니다.
 author: shpathak-msft
@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 7aa65bbddc03eaf7c80717aa83fe41054617d116
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b0d43e062db591600d1cbcc0cdb18b7ce6b8ebac
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598673"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323508"
 ---
 # <a name="scaling"></a>크기 조정
 

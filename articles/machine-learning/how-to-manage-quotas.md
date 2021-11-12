@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 224ee0d4cc789349151bdc75ab164cc123119105
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 809f87ea7d8c4bdf3c6f21fe742ef5a5f2b595d9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564863"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335635"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가
 
@@ -119,8 +119,8 @@ Azure Machine Learning 관리되는 온라인 엔드포인트에는 다음 표�
 | 배포당 인스턴스 수 | 20 |
 | 엔드포인트 수준에서 최대 요청 시간 초과  | 90 초 |
 | 모든 배포에 대 한 끝점 수준에서 초당 총 요청 수  | 500 <sup>2</sup> |
-| 모든 배포에 대 한 끝점 수준 초당 총 연결 수  | 100 <sup>2</sup> |
-| 모든 배포에 대해 끝점 수준에서 활성화 되는 총 연결  | 100 <sup>2</sup> |
+| 모든 배포에 대 한 끝점 수준 초당 총 연결 수  | 500 <sup>2</sup> |
+| 모든 배포에 대해 끝점 수준에서 활성화 되는 총 연결  | 500 <sup>2</sup> |
 | 모든 배포에 대 한 끝점 수준의 총 대역폭  | 5MBPS <sup>2</sup> |
 
 <sup>1</sup> ,와 같은 단일 파선 `my-endpoint-name` 은 끝점 및 배포 이름에 허용 됩니다.

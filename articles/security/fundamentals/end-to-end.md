@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: 9e68df70afdc0f8e35ec862d9f9570dd13306191
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: eb96e21644f6318320ee8a5c7c33b83a73a59c94
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114466058"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335502"
 ---
 # <a name="end-to-end-security-in-azure"></a>Azure 엔드투엔드 보안
 Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다. Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공하는 한편 투명한 책임도 가능하게 합니다.
@@ -48,9 +48,9 @@ Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 �
 
 :::image type="content" source="media/end-to-end/secure-and-protect.svg" alt-text="클라우드 리소스를 보호하는 데 도움이 되는 Azure 서비스를 보여주는 다이어그램입니다." border="false":::
 
-| 서비스 | Description |
+| 서비스 | 설명 |
 |------|--------|
-| [Azure Security Center](../../security-center/security-center-introduction.md)| 데이터 센터의 보안 상태를 강화하고, 온-프레미스뿐 아니라 Azure에 있는지 여부와 관계없이 클라우드의 전체 하이브리드 워크로드에 대해 지능형 위협 방지 기능을 제공하는 통합된 인프라 보안 관리 시스템입니다. |
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| 데이터 센터의 보안 상태를 강화하고, 온-프레미스뿐 아니라 Azure에 있는지 여부와 관계없이 클라우드의 전체 하이브리드 워크로드에 대해 지능형 위협 방지 기능을 제공하는 통합된 인프라 보안 관리 시스템입니다. |
 | **ID&nbsp;&&nbsp;액세스&nbsp;관리** | |
 | [Azure AD(Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md)| Microsoft 클라우드 기반 ID 및 액세스 관리 서비스.  |
 |  | [조건부 액세스](../../active-directory/conditional-access/overview.md)는 ID 신호를 한데 가져와 결정을 내리고 조직 정책을 적용하기 위해 Azure AD에서 사용하는 도구입니다. |
@@ -85,38 +85,38 @@ Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 �
 
 :::image type="content" source="media/end-to-end/detect-threats.svg" alt-text="위협을 검색하는 Azure 서비스를 보여주는 다이어그램" border="false":::
 
-| 서비스 | Description |
+| 서비스 | 설명 |
 |------|--------|
-| [Azure Defender](../../security-center/azure-defender.md) | Azure, 하이브리드 리소스, 워크로드에 고급 지능형 보호를 제공합니다. Security Center의 Azure Defender 대시보드는 사용자 환경에 대한 클라우드 워크로드 보호 기능의 가시성 및 제어 기능을 제공합니다. |
-| [Azure Sentinel](../../sentinel/overview.md) | 확장 가능한 클라우드 네이티브, SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다. |
+| [Microsoft Defender for Cloud](../../security-center/azure-defender.md) | Azure, 하이브리드 리소스, 워크로드에 고급 지능형 보호를 제공합니다. Defender for Cloud의 작업 보호 대시보드는 사용자 환경에 대 한 클라우드 워크 로드 보호 기능에 대 한 가시성 및 제어를 제공 합니다. |
+| [Microsoft 센티널](../../sentinel/overview.md) | 확장 가능한 클라우드 네이티브, SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다. |
 | **ID&nbsp;&&nbsp;액세스&nbsp;관리** |  |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) | 엔드포인트, ID, 메일 및 애플리케이션 전반에서 감지, 방지, 조사, 응답을 기본적으로 조정하여 정교한 공격에 대비한 통합 보호를 제공하는 통합된 위반 전후 엔터프라이즈 방어 도구 모음입니다. |
 |  | [Microsoft Defender For Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)는 엔터프라이즈 네트워크가 고급 위협을 방지, 검색, 조사 및 대응하는 데 도움이 되도록 설계된 엔터프라이즈 엔드포인트 보안 플랫폼입니다. |
 |  | [Microsoft Defender for Identity](/defender-for-identity/what-is)는 온-프레미스 Active Directory 신호를 활용하여 고급 위협, 손상된 ID 및 사용자의 조직을 대상으로 한 악의적인 내부자 작업을 식별하고 검색하고 조사하는 클라우드 기반 보안 솔루션입니다. |
 | [Azure AD ID 보호](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | 사용자 위험 및 위험 검색을 관리하는 데 도움이 되는 두 가지 유형의 자동화된 알림 이메일을 보냅니다(감지된 위험 사용자 이메일과 주간 요약 이메일). |
 | **인프라 및 네트워크** |  |
-| [IoT용 Azure Defender](../../defender-for-iot/overview.md) | IoT/OT 디바이스, 취약성 및 위협을 식별하는 통합 보안 솔루션입니다. 기존 IoT/OT 디바이스를 보호해야 하든 아니면 새로운 IoT 혁신의 보안을 구축해야 하든, 이 솔루션은 전체 IoT/OT 환경을 보호합니다. |
+| [IoT용 Microsoft Defender](../../defender-for-iot/overview.md) | IoT/OT 디바이스, 취약성 및 위협을 식별하는 통합 보안 솔루션입니다. 기존 IoT/OT 디바이스를 보호해야 하든 아니면 새로운 IoT 혁신의 보안을 구축해야 하든, 이 솔루션은 전체 IoT/OT 환경을 보호합니다. |
 | [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Azure 가상 네트워크의 리소스를 모니터링 및 진단하고, 메트릭을 조회하고, 리소스에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다. Network Watcher는 Virtual Machines, Virtual Networks, Application Gateways, 부하 분산 장치를 포함하는 IaaS 제품의 네트워크 상태를 모니터링하고 복구하도록 설계되었습니다. |
 | [Azure Policy 감사 로깅](../../governance/policy/overview.md) | 조직의 표준을 적용하고 규정 준수를 규모에 맞게 평가할 수 있습니다. Azure Policy는 자동으로 사용하도록 설정되는 활동 로그를 사용하여 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함시킵니다. |
 | **데이터 및 애플리케이션** |  |
-| [컨테이너 레지스트리용 Azure Defender](../../security-center/defender-for-container-registries-introduction.md) | Azure Resource Manager 기반 Azure Container Registry 레지스트리의 이미지를 검사하고 이미지의 취약성에 대한 보다 심층적인 가시성을 제공하는 취약성 검사기가 포함되어 있습니다. |
-| [Kubernetes용 Azure Defender](../../security-center/defender-for-kubernetes-introduction.md) | AKS(Azure Kubernetes Service)에서 검색한 로그를 통해 AKS 관리형 서비스를 모니터링하여 클러스터 수준 위협 방지를 제공합니다. |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) | 여러 클라우드에서 작동하는 CASB(Cloud Access Security Broker)입니다. 다양한 가시성, 데이터 이동 제어 및 정교한 분석을 제공하여 모든 클라우드 서비스에서의 사이버 위협을 식별하고 대처합니다. |
+| [컨테이너 레지스트리용 Microsoft Defender](../../security-center/defender-for-container-registries-introduction.md) | Azure Resource Manager 기반 Azure Container Registry 레지스트리의 이미지를 검사하고 이미지의 취약성에 대한 보다 심층적인 가시성을 제공하는 취약성 검사기가 포함되어 있습니다. |
+| [Microsoft Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) | AKS(Azure Kubernetes Service)에서 검색한 로그를 통해 AKS 관리형 서비스를 모니터링하여 클러스터 수준 위협 방지를 제공합니다. |
+| [Cloud Apps용 Microsoft Defender](/cloud-app-security/what-is-cloud-app-security) | 여러 클라우드에서 작동하는 CASB(클라우드 액세스 보안 브로커)입니다. 다양한 가시성, 데이터 이동 제어 및 정교한 분석을 제공하여 모든 클라우드 서비스에서의 사이버 위협을 식별하고 대처합니다. |
 
 ## <a name="investigate-and-respond"></a>조사 및 대응
 
 :::image type="content" source="media/end-to-end/investigate-and-respond.svg" alt-text="위협을 조사하고 위협에 대응하는 데 도움이 되는 Azure 서비스를 보여주는 다이어그램입니다." border="false":::
 
-| 서비스 | Description |
+| 서비스 | 설명 |
 |------|--------|
-| [Azure Sentinel](../../sentinel/hunting.md) | 조직의 데이터 원본에서 보안 위협을 헌팅하는 강력한 검색 및 쿼리 도구입니다. |
+| [Microsoft Sentinel](../../sentinel/hunting.md) | 조직의 데이터 원본에서 보안 위협을 헌팅하는 강력한 검색 및 쿼리 도구입니다. |
 | [Azure&nbsp;모니터&nbsp;로그&nbsp;및&nbsp;메트릭](../../azure-monitor/overview.md) | 클라우드 및 온-프레미스 환경에서 원격 분석의 수집, 분석 및 작업에 대한 포괄적인 솔루션을 제공합니다. Azure Monitor는 다양한 원본의 [데이터를 수집하여](../../azure-monitor/data-platform.md#observability-data-in-azure-monitor) 분석, 시각화 및 경고 생성에 사용할 수 있는 공통 데이터 플랫폼으로 집계합니다. |
 | **ID&nbsp;&&nbsp;액세스&nbsp;관리** |  |
 | [Azure&nbsp;AD&nbsp;보고서&nbsp;및&nbsp;모니터링](../../active-directory/reports-monitoring/index.yml) | [Azure AD 보고서](../../active-directory/reports-monitoring/overview-reports.md)는 환경에서 작업의 포괄적인 보기를 제공합니다. |
 |  | [Azure AD 모니터링](../../active-directory/reports-monitoring/overview-monitoring.md)을 사용하여 Azure AD 활동 로그를 다른 엔드포인트로 라우팅할 수 있습니다.|
 | [Azure AD PIM 감사 기록](../../active-directory/privileged-identity-management/pim-how-to-use-audit-log.md) | 권한이 있는 모든 역할에 대해 지난 30일 이내에 모든 역할 할당 및 활성화를 표시합니다. |
 | **데이터 및 애플리케이션** |  |
-| [Microsoft Cloud App Security](/cloud-app-security/investigate) | 클라우드 환경에서 발생하는 일에 대해 더 자세히 알 수 있는 도구를 제공합니다. |
+| [Cloud Apps용 Microsoft Defender](/cloud-app-security/investigate) | 클라우드 환경에서 발생하는 일에 대해 더 자세히 알 수 있는 도구를 제공합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

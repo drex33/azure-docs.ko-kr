@@ -6,12 +6,12 @@ ms.author: sandeepshah
 ms.service: purview
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: d357a85449a6ae734b3311f2649180b36646d4f4
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: bb5ba8386ab84f9ca4b3da6a34714a27fea38738
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214335"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301421"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure Purview 배포 모범 사례
 
@@ -25,12 +25,12 @@ ms.locfileid: "129214335"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 개발 또는 프로덕션 구독을 통해 Microsoft Azure에 액세스
-* Purview를 포함한 Azure 리소스 만드는 기능
-* 테스트, 개발 또는 프로덕션 환경에서 Azure Data Lake Storage 또는 Azure SQL과 같은 데이터 원본에 액세스
-  * Data Lake Storage는 검색을 위해 읽기 권한자 역할이 필요
-  * SQL의 경우 ID는 분류 샘플링을 위해 테이블을 쿼리할 수 있어야 합니다.
-* 데이터 레이블 지정을 위해 Security Center 관리자와 협업하는 Azure Security Center 또는 기능에 액세스
+- 개발 또는 프로덕션 구독을 통해 Microsoft Azure에 액세스
+- Purview를 포함한 Azure 리소스 만드는 기능
+- 테스트, 개발 또는 프로덕션 환경에서 Azure Data Lake Storage 또는 Azure SQL과 같은 데이터 원본에 액세스
+  - Data Lake Storage는 검색을 위해 읽기 권한자 역할이 필요
+  - SQL의 경우 ID는 분류 샘플링을 위해 테이블을 쿼리할 수 있어야 합니다.
+- Microsoft Defender for Cloud에 대한 액세스 또는 데이터 레이블 지정을 위해 Defender for Cloud Admin과 공동 작업하는 기능
 
 ## <a name="identify-objectives-and-goals"></a>개체 및 목표 확인
 
@@ -197,7 +197,7 @@ Purview에는 카탈로그 관리자가 수명 주기 동안 일관성 및 유�
 |[Power BI 검색](register-scan-power-bi-tenant.md)|조직에서 Power BI 사용하는 경우 스토리지 레이어의 계보를 포함해야 하는 요구 사항이 있는 데이터 과학자 또는 데이터 분석가가 사용 중인 모든 데이터 자산을 수집하기 위해 Power BI를 검색할 수 있습니다.|1~2주|
 |[용어집 용어 가져오기](how-to-create-import-export-glossary.md)|대부분의 경우 조직은 이미 자산에 대한 용어집 용어 및 용어 할당 컬렉션을 개발할 수 있습니다. .csv 파일을 통해 Purview로 가져오기 프로세스가 필요합니다.|1주|
 |자산에 연락처 추가|상위 자산의 경우 다른 가상 사용자가 연락처를 할당하거나 REST API를 통해 가져올 수 있도록 하는 프로세스를 설정할 수 있습니다.|1주|
-|중요한 레이블 및 검색 추가|이는 Microsoft 365의 레이블 사용에 따라 일부 조직에서 선택 사항 일 수 있습니다.|1~2주|
+|중요한 레이블 및 검색 추가|Microsoft 365 레이블 지정의 사용량에 따라 일부 조직에서는 선택 사항일 수 있습니다.|1~2주|
 |분류 및 중요한 정보 얻기|Purview의 보고 및 인사이트를 위해 이 기능에 액세스하여 다양한 보고서를 얻고 경영진에게 프레젠테이션을 제공할 수 있습니다.|1일|
 |Purview 관리형 사용자를 사용하여 추가 사용자 온보딩|이 단계에서는 Purview 관리자가 Azure Active Directory 관리자와 협력하여 Purview에 대한 액세스 권한을 부여할 새 보안 그룹을 설정해야 합니다.|1주|
 

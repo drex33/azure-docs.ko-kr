@@ -3,13 +3,13 @@ title: '빠른 시작: Azure RTOS용 Defender-IoT-micro-agent 구성 및 사용'
 description: 이 빠른 시작에서는 Azure IoT Hub에서 Azure RTOS용 Defender-IoT-micro-agent 서비스를 온보딩하고 활성화하는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.topic: quickstart
-ms.date: 07/01/2021
-ms.openlocfilehash: 11705b33efcd594296dea087e0aaf914cb494a0c
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.date: 11/09/2021
+ms.openlocfilehash: 1fc60bd489931cd802ccc8f14cdfca12120ec2ff
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138516"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293500"
 ---
 # <a name="quickstart-defender-iot-micro-agent-for-azure-rtos"></a>빠른 시작: Azure RTOS용 Defender-IoT-micro-agent
 

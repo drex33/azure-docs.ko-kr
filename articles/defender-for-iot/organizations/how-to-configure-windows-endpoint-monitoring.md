@@ -1,18 +1,18 @@
 ---
 title: Windows 엔드포인트 모니터링 구성
 description: WMI(Windows 엔드포인트 모니터링)를 통해 디바이스에서 해결된 데이터를 보강합니다.
-ms.date: 05/03/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 4d701cfda88a2c257b001a52a19853a937661714
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 7b59c0b5dcb14b57ee5e4e12c2dc3e925e30d37d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020903"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281838"
 ---
 # <a name="configure-windows-endpoint-monitoring-wmi"></a>WMI(Windows 엔드포인트 모니터링) 구성
 
-Windows 엔드포인트 모니터링 기능을 사용하여 Windows 시스템을 선택적으로 검색하도록 Azure Defender for IoT를 구성할 수 있습니다. 이렇게 하면 서비스 팩 수준 등 디바이스에 대한 보다 집중적이고 정확한 정보를 얻을 수 있습니다.
+Windows 끝점 모니터링 기능을 사용 하 여 IoT 용 Microsoft Defender를 구성 하 여 Windows 시스템을 선택적으로 검색할 수 있습니다. 이렇게 하면 서비스 팩 수준 등 디바이스에 대한 보다 집중적이고 정확한 정보를 얻을 수 있습니다.
 
 특정 범위 및 호스트를 사용하여 검색을 구성하고, 원하는 경우에만 수행되도록 구성할 수 있습니다. Windows 시스템을 관리하는 데 사용되는 Microsoft의 표준 스크립팅 언어인 WMI(Windows Management Instrumentation)를 사용하여 선택적 검색을 수행합니다.
 

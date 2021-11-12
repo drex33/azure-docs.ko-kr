@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
-ms.openlocfilehash: 51c5303c86c83c93e6ec38064a6b7eea74cc7bc6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 80de5c094175a4c2372befeaedddbe1ac56bba8a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068480"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308333"
 ---
 # <a name="iot-connector-data-flow"></a>IoT 커넥터 데이터 흐름
 
@@ -50,10 +50,10 @@ ms.locfileid: "131068480"
 ## <a name="transform"></a>변환
 변환 단계에서 그룹화된 정규화된 메시지는 FHIR 대상 매핑 템플릿을 통해 처리됩니다. 템플릿 형식과 일치하는 메시지는 매핑을 통해 지정된 대로 FHIR 기반 관찰 리소스로 변환됩니다.
 
-이 시점에서 [디바이스](https://www.hl7.org/fhir/device.html) 리소스는 연결된 [환자](https://www.hl7.org/fhir/patient.html) 리소스와 함께 메시지에 있는 디바이스 식별자를 사용하여 FHIR 서비스에서도 검색됩니다. 이러한 리소스는 생성되는 관찰 리소스에 대한 참조로 추가됩니다.
+이 시점에서 [디바이스](https://www.hl7.org/fhir/device.html) 리소스는 연결된 [환자](https://www.hl7.org/fhir/patient.html) 리소스와 함께 메시지에 있는 디바이스 식별자를 사용하여 FHIR 서비스에서도 검색됩니다. 이러한 리소스는 생성되는 Observation 리소스에 대한 참조로 추가됩니다.
 
 > [!NOTE]
-> FHIR 서비스의 부하를 줄이기 위해 확인되면 모든 ID 조회가 캐시됩니다. 여러 환자와 함께 디바이스를 다시 사용하려는 경우 환자와 관련된 가상 디바이스 리소스를 만들고 메시지 페이로드에 가상 디바이스 식별자를 보내는 것이 좋습니다. 가상 디바이스는 부모로 실제 디바이스 리소스에 연결할 수 있습니다.
+> 모든 ID 조회는 FHIR 서비스의 부하를 줄이기 위해 확인되면 캐시됩니다. 여러 환자와 함께 디바이스를 다시 사용하려는 경우 환자와 관련된 가상 디바이스 리소스를 만들고 메시지 페이로드에 가상 디바이스 식별자를 보내는 것이 좋습니다. 가상 디바이스는 부모로서 실제 디바이스 리소스에 연결할 수 있습니다.
 
 지정된 디바이스 식별자의 디바이스 리소스가 FHIR 서비스에 없는 경우 결과는 생성 시 설정된 값에 따라 `Resolution Type` 달라집니다. 로 설정하면 `Lookup` 특정 메시지가 무시되고 파이프라인이 다른 들어오는 메시지를 계속 처리합니다. 로 설정하면 `Create` IoT 커넥터가 FHIR 서비스에 미설치 디바이스 및 환자 리소스를 만듭니다.  
 
@@ -70,4 +70,4 @@ ms.locfileid: "131068480"
 > [!div class="nextstepaction"]
 > [FHIR 대상 매핑](how-to-use-fhir-mapping-iot.md)
 
-(FHIR&#174;)는 HL7의 등록 상표이며 [HL7의](https://hl7.org/fhir/) 권한으로 사용됩니다.
+(FHIR&#174;)는 HL7의 등록 상표이며 [HL7의](https://hl7.org/fhir/) 사용 권한으로 사용됩니다.

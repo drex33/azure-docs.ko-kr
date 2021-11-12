@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: bf0972342cf70b542bef01a070f777dec615c13b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 0789e9bb28868ce4d75aa48beb956fcb4dd74031
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564369"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345806"
 ---
 # <a name="show-the-configuration-of-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 구성 표시
 
@@ -55,7 +55,7 @@ kubectl get pods -n <namespace>
 
 명령은 Pod 목록을 반환합니다. 서버 그룹에 지정한 이름에 따라 서버 그룹에서 사용하는 Pod가 표시됩니다. 예를 들면 다음과 같습니다.
 
-```console 
+```console
 NAME                 READY   STATUS    RESTARTS   AGE
 bootstrapper-4jrtl   1/1     Running   0          12d
 control-kz8gh        2/2     Running   0          12d
@@ -76,10 +76,10 @@ postgres01w0-2       3/3     Running   0          2d19h
 postgres01w0-3       3/3     Running   0          2d19h
 ```
 
-### <a name="what-pod-is-used-for-what-role-in-the-server-group"></a>서버 그룹에서 어떤 역할에 어떤 Pod가 사용됩니까?
+### <a name="what-pod-is-used-for-what-role-in-the-server-group"></a>서버 그룹의 역할에 사용되는 Pod는 무엇인가요?
 
-`c` 접미사가 붙은 모든 Pod 이름은  코디네이터 노드를 나타냅니다. 으로 접미사가 붙는 노드 이름은 `w`  작업자 노드입니다.
-예를 들어 서버 그룹을 호스트하는 Pod 5개는 다음과 같습니다.
+`c` 접미사가 붙은 모든 Pod 이름은  코디네이터 노드를 나타냅니다. 으로 접미사가 붙는 노드 이름은 `w`  서버 그룹을 호스트하는 5개의 Pod와 같은 작업자 노드입니다.
+
 - `postgres01c0-0` 코디네이터 노드
 - `postgres01w0-0` 작업자 노드
 - `postgres01w0-1` 작업자 노드
@@ -88,14 +88,13 @@ postgres01w0-3       3/3     Running   0          2d19h
 
 지금은 `0` `c` 및 `w` (ServerGroupName `c0` -x 또는 ServerGroupName `w0` -x) 이후에 표시되는 문자를 무시할 수 있습니다. 제품이 고가용성 환경을 제공할 때 사용되는 표기입니다.
 
-
 ### <a name="what-is-the-status-of-the-pods"></a>Pod의 상태는 어떤가요?
 
 `kubectl get pods -n <namespace>`를 실행하고 `STATUS` 열을 확인합니다.
 
-### <a name="what-persistent-volume-claims-pvcs-are-being-used"></a>어떤 PVC(영구적 볼륨 클레임)를 사용 중인가요? 
+### <a name="what-persistent-volume-claims-pvcs-are-being-used"></a>어떤 PVC(영구적 볼륨 클레임)를 사용 중인가요?
 
-사용되는 PVC와 데이터, 로그 및 백업에 사용되는 PVC를 이해하려면 다음을 실행합니다. 
+사용되는 PVC와 데이터, 로그 및 백업에 사용되는 PVC를 이해하려면 다음을 실행합니다.
 
 ```console
 kubectl get pvc -n <namespace>
@@ -379,11 +378,11 @@ Status:
 Events:                      <none>
 ```
 
-####  <a name="interpret-the-configuration-information"></a>구성 정보 해석
+#### <a name="interpret-the-configuration-information"></a>구성 정보 해석
 
 위에 표시된 `servergroup`의 설명에서 특정 관심 사항을 확인해 보겠습니다. 이 서버 그룹에 대해 어떤 점을 알려주나요?
 
-- Postgres 버전 12이며 Citus 확장을 실행합니다. 
+- Postgres 버전 12이며 Citus 확장을 실행합니다.
 
    ```output
    Spec:
@@ -410,7 +409,7 @@ Events:                      <none>
           Workers:        4
    ```
 
-- 리소스 구성: 이 예제에서 코디네이터와 작업자는 256Mi 메모리를 보장합니다. 코디네이터와 작업자 노드는 1Gi 메모리를 더 많이 사용할 수 없습니다. 코디네이터와 작업자는 둘 다 하나의 vCore를 보장하며 두 개 이상의 vCore를 사용할 수 없습니다. 
+- 리소스 구성: 이 예제에서 코디네이터와 작업자는 256Mi 메모리를 보장합니다. 코디네이터와 작업자 노드는 1Gi 메모리를 더 많이 사용할 수 없습니다. 코디네이터와 작업자는 둘 다 하나의 vCore를 보장하며 두 개 이상의 vCore를 사용할 수 없습니다.
 
    ```console
         Scheduling:
@@ -437,8 +436,8 @@ Events:                      <none>
                Memory:  256Mi
    ```
 
- - 서버 그룹의 상태는 무엇인가요? 내 애플리케이션에 사용할 수 있나요? 
- 
+- 서버 그룹의 상태는 무엇인가요? 내 애플리케이션에 사용할 수 있나요?
+
    예, 모든 Pod(코디네이터 노드 및 4개의 작업자 노드가 모두 준비되었습니다.)
 
    ```console
@@ -450,7 +449,8 @@ Events:                      <none>
 Az CLI 명령을 사용합니다.
 
 ### <a name="what-are-the-postgres-server-groups-deployed-and-how-many-workers-are-they-using"></a>배포된 Postgres 서버 그룹은 무엇이며 얼마나 많은 작업자를 사용하고 있나요?
-다음 명령을 실행합니다. 
+
+다음 명령을 실행합니다.
 
    ```azurecli
    az postgres arc-server list --k8s-namespace <namespace> --use-k8s
@@ -479,7 +479,7 @@ Az CLI 명령을 사용합니다.
 az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
@@ -488,6 +488,7 @@ az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
 kubectl에서 반환한 것과 유사한 형식 및 콘텐츠로 정보를 반환합니다. 선택한 도구를 사용하여 시스템과 상호 작용합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - [Azure Arc 지원 PostgreSQL 하이퍼스케일의 개념에 대해 읽어보기](concepts-distributed-postgres-hyperscale.md)
 - [서버 그룹을 확장(작업자 노드 추가)하는 방법에 대해 읽어보기](scale-out-in-postgresql-hyperscale-server-group.md)
 - [서버 그룹을 확장/축소(메모리 및/또는 vCore 증가 또는 감소)하는 방법에 대해 읽어보기](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)

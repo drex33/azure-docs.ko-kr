@@ -9,18 +9,18 @@ ms.author: jassha
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1a7f554fbc6284c1a5611cce2e555b0a47359154
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 5d53f2492888323107fa539283f128ed6b6ebd7c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075862"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319228"
 ---
 # <a name="job-router-rules-engine-concepts"></a>작업 라우터 규칙 엔진 개념
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services 작업 라우터는 데이터를 처리하고 작업 및 작업자에 대한 결정을 내리는 데 사용할 수 있는 규칙 엔진을 사용합니다. 이 문서에서는 규칙 엔진의 수행 내용과 구현에 규칙 엔진을 적용하려는 이유를 설명합니다.
+Azure Communication Services 작업 라우터는 데이터를 처리하고 작업 및 작업자에 대한 결정을 내리는 데 사용할 수 있는 규칙 엔진을 사용합니다. 이 문서에서는 규칙 엔진의 수행 및 구현에 적용하려는 이유를 설명합니다.
 
 ## <a name="rules-engine-overview"></a>규칙 엔진 개요
 

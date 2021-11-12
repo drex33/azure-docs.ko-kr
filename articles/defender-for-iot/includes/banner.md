@@ -1,16 +1,18 @@
 ---
+title: include
 author: ElazarK
 ms.author: v-ekrieg
-ms.date: 10/21/2021
-ms.service: security-center
+ms.date: 11/09/2021
 ms.topic: include
-ms.openlocfilehash: db80792e929c206b1a0304fd47c003cefe8431c2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b7de7e82dbadca3cf50377cb64eed142113b153b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011218"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278888"
 ---
+<!-- docutune:disable -->
+
 > [!NOTE]
 >
 > IoT용 Azure Defender의 이름이 Azure Defender for IoT로 변경됩니다. 문서는 곧 업데이트됩니다.

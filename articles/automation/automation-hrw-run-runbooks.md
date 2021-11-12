@@ -3,15 +3,15 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용하여 로컬 데이터 센터 또는 기타 클라우드 공급자에 있는 머신에서 Runbook을 실행하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/01/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71f13679a1f19672368a7b72987e28813232f846
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 368622d7f0ea914541ce1385405a40e28ca2576b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465558"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282199"
 ---
 # <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 자동화 runbook 실행
 
@@ -199,7 +199,9 @@ Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose
 
 Write-Output ("Importing certificate into $env:computername local machine root store from " + $CertPath)
 $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
-Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
+Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword | Write-Verbose
+
+Remove-Item -Path $CertPath -ErrorAction SilentlyContinue | Out-Null
 
 # Test to see if authentication to Azure Resource Manager is working
 $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
@@ -227,6 +229,11 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 1. Runbook을 게시합니다.
 1. 실행 계정을 사용하여 Runbook을 실행 및 인증하는 Hybrid Runbook Worker 그룹을 대상으로 Runbook을 실행합니다. 
 1. 작업 스트림이 인증서를 로컬 머신 저장소로 가져오려는 시도를 보고하고 있으며 그 뒤에 여러 줄이 있는지 검토합니다. 이 동작은 구독에 몇 개의 Automation 계정을 정의했는지와 인증의 성공 정도에 따라 달라집니다.
+
+>[!NOTE]
+>  무제한 액세스의 경우, VM 참가자 권한이 있는 사용자 또는 하이브리드 작업자 컴퓨터에 대해 명령을 실행할 수 있는 권한이 있는 사용자는 Azure cmdlet과 같은 다른 소스를 사용 하 여 하이브리드 작업자 컴퓨터에서 인증서로 실행 되는 Automation 계정을 사용할 수 있습니다. 이로 인해 Azure 환경의 보안이 손상 될 수 있습니다. </br> </br>
+>  팀 내에서 작업을 나누고 작업에 따라 사용자에 게 필요한 사용 권한 및 액세스 권한을 부여 하는 것이 좋습니다. 하이브리드 runbook worker 역할을 호스트 하는 컴퓨터에 무제한 권한을 제공 하지 마십시오.
+
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker에서 서명된 Runbook으로 작업
 

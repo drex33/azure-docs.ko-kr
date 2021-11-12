@@ -8,12 +8,12 @@ ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5a898f0c34ed92eaa4a19757e3d017a87c84d491
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 878cec7021ebcd7c3b63ae4af1f29a0793977280
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131082705"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277282"
 ---
 # <a name="troubleshoot-azure-disk-pools-preview"></a>Azure 디스크 풀(미리 보기) 문제 해결
 
@@ -40,6 +40,7 @@ ms.locfileid: "131082705"
 |DeploymentFailureQuotaExceeded     |디스크 풀을 배포하는 데 사용되는 구독이 이 지역의 VM 코어 할당량을 벗어났습니다. Dsv3 시리즈에 대해 [Azure VM 시리즈당 vCPU 할당량 한도 증가를 요청](../azure-portal/supportability/per-vm-quota-requests.md)할 수 있습니다.         |
 |DeploymentFailurePolicyViolation     |구독에 대한 정책으로 인해 디스크 풀을 지원하는 데 필요한 Azure 리소스를 배포할 수 없습니다. 자세한 내용은 오류를 참고하세요.         |
 |DeploymentTimeout     |이 오류는 디스크 풀 인프라의 배포가 고정되고 할당된 시간에 완료되지 않을 때 발생합니다. 배포를 다시 시도합니다. 문제가 지속되면 Azure 지원에 문의하고 오류 메시지의 추적 ID를 제공합니다.         |
+|GoalStateApplicationTimeoutError     |디스크 풀 인프라가 리소스 공급자에 대한 응답을 중지할 때 발생합니다. 네트워킹 필수 구성 조건이 충족하는지 확인한 다음 배포를 다시 [시도합니다.](disks-pools-deploy.md#prerequisites) 문제가 지속되면 Azure 지원에 문의하고 오류의 추적 ID를 제공합니다.         |
 |OngoingOperationInProgress     |디스크 풀에서 진행 중인 작업이 진행 중입니다. 해당 작업이 완료될 때까지 기다린 다음, 배포를 다시 시도합니다.         |
 
 ## <a name="common-failure-codes-when-enabling-iscsi-on-disk-pools"></a>디스크 풀에서 iSCSI를 사용할 때 발생하는 일반적인 오류 코드
@@ -47,7 +48,7 @@ ms.locfileid: "131082705"
 |코드  |Description  |
 |---------|---------|
 |GoalStateApplicationError     |iSCSI 대상 구성이 잘못되어 디스크 풀에 적용할 수 없는 경우에 발생합니다. 배포를 다시 시도합니다. 문제가 지속되면 Azure 지원에 문의하고 오류의 추적 ID를 제공합니다.         |
-|GoalStateApplicationTimeoutError     |디스크 풀 인프라가 리소스 공급자에 대한 응답을 중지할 때 발생합니다. 배포를 다시 시도합니다. 문제가 지속되면 Azure 지원에 문의하고 오류의 추적 ID를 제공합니다.         |
+|GoalStateApplicationTimeoutError     |디스크 풀 인프라가 리소스 공급자에 대한 응답을 중지할 때 발생합니다. 네트워킹 필수 구성 조건이 충족하는지 확인한 다음 배포를 다시 [시도합니다.](disks-pools-deploy.md#prerequisites) 문제가 지속되면 Azure 지원에 문의하고 오류의 추적 ID를 제공합니다.         |
 |OngoingOperationInProgress     |디스크 풀에서 진행 중인 작업이 진행 중입니다. 해당 작업이 완료될 때까지 기다린 다음, 배포를 다시 시도합니다.         |
 
 ## <a name="next-steps"></a>다음 단계

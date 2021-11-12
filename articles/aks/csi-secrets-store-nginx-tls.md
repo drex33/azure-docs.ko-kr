@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 10/19/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f7c40dbcf0944ca5c78182d72346f3fc295ef50c
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: dd6945da0b3c4170082d20e5481d06048b7c3dde
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848746"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284800"
 ---
 # <a name="set-up-secrets-store-csi-driver-to-enable-nginx-ingress-controller-with-tls"></a>TLS를 사용하여 NGINX 수신 컨트롤러를 사용하도록 비밀 저장소 CSI 드라이버 설정
 
@@ -26,10 +26,9 @@ ms.locfileid: "131848746"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- 시작하기 전에 Azure CLI 버전이 >= 인지 `2.30.0` 확인하거나 [최신 버전을 설치합니다.](/cli/azure/install-azure-cli)
+- 시작하기 전에 Azure CLI 버전이 = >있는지 `2.30.0` 확인하거나 [최신 버전을 설치합니다.](/cli/azure/install-azure-cli)
 - 비밀 저장소 CSI 드라이버가 구성된 AKS 클러스터.
 - Azure Key Vault 인스턴스입니다.
-
 
 ## <a name="generate-a-tls-certificate"></a>TLS 인증서 생성
 
@@ -66,7 +65,8 @@ kubectl create ns $NAMESPACE
 ```
 
 액세스 [ID를 제공하고][csi-ss-identity-access] 그에 따라 SecretProviderClass YAML을 구성하는 방법을 선택합니다. 추가 필수 구성 요소:
-- `objectType=secret`AKV에서 프라이빗 키와 인증서를 가져오는 유일한 방법이기 때문에 를 사용해야 합니다.
+
+- `objectType=secret`AKV에서 프라이빗 키와 인증서를 가져오는 유일한 방법인 를 사용해야 합니다.
 - `kubernetes.io/tls` `type` `secretObjects` 을 섹션의 로 설정합니다.
 
 SecretProviderClass의 예는 다음을 참조하세요.
@@ -133,7 +133,7 @@ helm install ingress-nginx/ingress-nginx --generate-name \
 수신 컨트롤러의 배포는 비밀 저장소 CSI 드라이버의 Azure Key Vault 공급자를 참조합니다.
 
 > [!NOTE]
-> 액세스 방법으로 Azure Active Directory(AAD) Pod ID를 사용하지 않는 경우 를 사용하여 줄을 제거합니다.`--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
+> 액세스 방법으로 Azure Active Directory(AAD) Pod ID를 사용하지 않는 경우 을 사용하여 줄을 제거합니다.`--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
 
 ```bash
 helm install ingress-nginx/ingress-nginx --generate-name \
@@ -338,7 +338,7 @@ nginx-ingress-1588032400-default-backend   ClusterIP      10.0.223.214   <none> 
 
 ## <a name="test-ingress-secured-with-tls"></a>TLS를 통해 보안이 유지되는 테스트 수신
 
-를 사용하여 `curl` 수신이 TLS로 제대로 구성되었는지 확인합니다. 이전 단계에서 얻은 외부 IP를 사용해야 합니다.
+를 사용하여 `curl` 수신이 TLS로 올바르게 구성되었는지 확인합니다. 이전 단계에서 얻은 외부 IP를 사용해야 합니다.
 
 ```bash
 curl -v -k --resolve demo.test.com:443:52.xx.xx.xx https://demo.test.com
@@ -352,6 +352,6 @@ curl -v -k --resolve demo.test.com:443:52.xx.xx.xx https://demo.test.com
 ```
 
 <!-- LINKS INTERNAL -->
-[csi-ss-identity-access]: ./csi-secrets-store-identity-access.md 
+[csi-ss-identity-access]: ./csi-secrets-store-identity-access.md
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls

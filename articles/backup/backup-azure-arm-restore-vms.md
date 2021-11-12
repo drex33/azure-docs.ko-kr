@@ -3,13 +3,16 @@ title: Azure Portal을 사용하여 VM 복원
 description: 지역 간 복원 기능을 포함한 Azure Portal을 사용하여 복구 지점에서 Azure 가상 머신을 복원합니다.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: a848a36632a4c0474c9f20de58c415bd779da198
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/09/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 65cf378ffc4e627d482999b5ea65e4d238b8d368
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265039"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308563"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원하는 방법
 
@@ -85,7 +88,7 @@ VM을 복원(새 VM 만들기)하려면 VM 복원 작업에 대한 올바른 Azu
 1. **가상 머신 복원** > **새로 만들기** > **복원 유형** 에서 **가상 머신 만들기** 를 선택합니다.
 1. **가상 머신 이름** 에서 구독에 없는 VM을 지정합니다.
 1. **리소스 그룹** 에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
-1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 활성 상태이고 선호도 그룹에 연결되지 않은 자격 증명 모음과 동일한 위치에 있는 구독과 연결된 모든 VNet이 표시됩니다. 서브넷을 선택합니다.
+1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 활성 상태이 고 선호도 그룹과 연결 되지 않은 자격 증명 모음과 동일한 위치에 있는 구독과 연결 된 모든 Vnet 표시 됩니다. 서브넷을 선택합니다.
 
    기본적으로 첫 번째 서브넷이 선택됩니다.
 
@@ -163,7 +166,7 @@ CRR을 사용하도록 설정된 경우 보조 지역에서 백업 항목을 볼
 1. **보조 지역** 을 선택하여 보조 지역의 항목을 봅니다.
 
 >[!NOTE]
->CRR 기능을 지원하는 백업 관리 유형만 목록에 표시됩니다. 현재 보조 지역에 대한 보조 지역 데이터 복원만 지원됩니다.<br></br>Azure VM용 CRR은 Azure Managed VM(암호화된 Azure VM 포함)에 지원됩니다.
+>CRR 기능을 지원하는 백업 관리 유형만 목록에 표시됩니다. 현재 보조 지역에 대한 보조 지역 데이터 복원만 지원됩니다.<br></br>Azure VM용 CRR은 Azure Managed VM(암호화된 Azure VM 포함)에 지원됩니다. 지역 [간 복원을 지원하는 관리 유형을](/azure/backup/backup-support-matrix#cross-region-restore)참조하세요.
 
 ![보조 지역의 가상 머신](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 
@@ -197,7 +200,7 @@ CRR을 사용하도록 설정된 경우 보조 지역에서 백업 항목을 볼
  - 원본 VM이 영역으로 고정되고 암호화되지 않음
  - 복구 지점은 자격 증명 모음 계층에만 있습니다(스냅샷만 또는 스냅샷 및 자격 증명 모음 계층은 지원되지 않음).
  - 복구 옵션은 새 VM을 만들거나 디스크를 복원하는 것입니다(디스크 바꾸기 옵션은 원본 데이터를 대체하므로 가용성 영역 옵션은 적용되지 않음).
- - 자격 증명 모음의 스토리지 중복성이 ZRS인 경우 동일한 지역에 VM/디스크 만들기(원본 VM이 영역 고정된 경우에도 자격 증명 모음의 스토리지 중복이 GRS인 경우 작동하지 않습니다.)
+ - 자격 증명 모음의 스토리지 중복성이 ZRS인 경우 동일한 지역에 VM/디스크 만들기(원본 VM이 영역 고정된 경우에도 자격 증명 모음의 스토리지 중복성이 GRS인 경우 작동하지 않습니다.)
  - 지역 간 복원 및 쌍을 이루는 지역에서 영역을 지원하는 경우 자격 증명 모음의 스토리지 중복성을 사용하도록 설정된 경우 쌍을 이루는 지역에 VM/디스크 만들기
 
 

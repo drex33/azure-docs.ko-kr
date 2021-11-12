@@ -6,7 +6,7 @@ ms.date: 08/13/2021
 ms.author: nibaccam
 ms.openlocfilehash: 44486112b8bf896cd8aef9f89c09262c918e3f88
 ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2021
 ms.locfileid: "122635554"

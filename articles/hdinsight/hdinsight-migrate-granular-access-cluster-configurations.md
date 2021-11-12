@@ -4,12 +4,12 @@ description: HDInsight 클러스터 구성에 대한 세분화된 역할 기반 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 1ab7e8e9a85ebbb822e1b1a1d53298a48a85cb85
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: cfaaf73751e188f88d06e6a12fc7e3e7613c7f81
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771004"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278211"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -54,13 +54,13 @@ ms.locfileid: "108771004"
 
 다음 API가 변경되거나 더 이상 사용되지 않습니다.
 
-- [**GET /configurations/{configurationName}** ](/rest/api/hdinsight/hdinsight-cluster#get-configuration)(중요한 정보 제거)
+- [**GET /configurations/{configurationName}**](/rest/api/hdinsight/hdinsight-cluster#get-configuration)(중요한 정보 제거)
     - 이전에는 개별 구성 유형(암호 포함)을 가져오는 데 사용되었습니다.
     - 2019년 9월 3일부터 이 API 호출은 암호가 생략된 개별 구성 유형을 반환합니다. 비밀을 비롯한 모든 구성을 얻으려면 새 POST /configurations 호출을 사용합니다. 게이트웨이 설정만 가져오려면 새 POST /getGatewaySettings 호출을 사용합니다.
 - [**GET /configurations**](/rest/api/hdinsight/hdinsight-cluster#get-configuration)(사용되지 않음)
     - 이전에 모든 구성(암호 포함)을 가져오는 데 사용
     - 2019년 9월 3일부터 이 API 호출은 사용되지 않으며 더 이상 지원되지 않습니다. 앞으로 진행되는 구성을 가져오려면 새 POST /configurations 호출을 사용합니다. 중요한 매개 변수가 생략된 구성을 얻으려면 GET /configurations/{configurationName} 호출을 사용합니다.
-- [**POST /configurations/{configurationName}** ](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)(사용되지 않음)
+- [**POST /configurations/{configurationName}**](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)(사용되지 않음)
     - 이전에 게이트웨이 자격 증명을 업데이트하는 데 사용되었습니다.
     - 2019년 9월 3일부터 이 API 호출은 사용되지 않으며 더 이상 지원되지 않습니다. 대신 새 POST /updateGatewaySettings를 사용합니다.
 

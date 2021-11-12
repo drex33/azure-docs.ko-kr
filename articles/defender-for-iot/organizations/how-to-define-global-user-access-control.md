@@ -1,14 +1,14 @@
 ---
 title: 전역 사용자 액세스 제어 정의
 description: 대규모 조직의 경우 사용자 권한은 복잡할 수 있으며 표준 사이트 및 영역 구조 외에도 전역 조직 구조에 의해 결정될 수 있습니다.
-ms.date: 12/08/2020
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 70437ceeadba0b1c8af9559037ccf718d7a251d4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020484"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283831"
 ---
 # <a name="define-global-access-control"></a>전역 액세스 제어 정의
 
@@ -16,7 +16,7 @@ ms.locfileid: "113020484"
 
 전역적이고 보다 복잡한 사용자 액세스 권한에 대한 요구를 지원하기 위해, 비즈니스 단위, 지역 및 사이트를 기반으로 하는 전역 비즈니스 토폴로지를 만들 수 있습니다. 그런 다음 해당 엔터티에 대해 사용자 액세스 권한을 정의할 수 있습니다.
 
-비즈니스 토폴로지용 액세스 도구를 활용하면 조직은 Azure Defender for IoT 플랫폼에서 사용자가 디바이스를 관리하고 분석하는 위치를 더욱 효과적으로 제어할 수 있기 때문에 제로 트러스트 전략을 구현할 수 있습니다.
+비즈니스 토폴로지용 액세스 도구를 사용하면 조직이 Microsoft Defender for IoT 플랫폼에서 디바이스를 관리하고 분석하는 위치를 더 잘 제어하여 제로 트러스트 전략을 구현할 수 있습니다.
 
 ## <a name="about-access-groups"></a>액세스 그룹 정보
 

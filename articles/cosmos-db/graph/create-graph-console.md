@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
 ms.author: mansha
-ms.openlocfilehash: 0fc2b11f924a5ae50cf1f6ae96f0ed82ab1813ad
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 41dfcdf3a30084eafebcda70a4385508a432a3c0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131041082"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279522"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -34,7 +34,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행됩니다. [Apache TinkerPop 사이트](https://tinkerpop.apache.org/downloads.html)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에서 Azure Cosmos DB 계정을 만들려면 Azure 구독이 있어야 합니다.
 
@@ -77,7 +77,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
    ```yaml
    hosts: [your_database_server.gremlin.cosmos.azure.com] 
    port: 443
-   username: /dbs/your_database_account/colls/your_collection
+   username: /dbs/your_database/colls/your_collection
    password: your_primary_key
    connectionPool: {
      enableSsl: true
@@ -103,7 +103,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 
 간단한 count () 명령을 사용해 보겠습니다. 프롬프트에서 콘솔에 다음을 입력합니다.
 
-```java
+```console
 g.V().count()
 ```
 
@@ -113,7 +113,7 @@ g.V().count()
 
 입력(Thomas):
 
-```java
+```console
 g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
@@ -125,7 +125,7 @@ g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen'
 
 입력(Mary Kay):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
@@ -139,7 +139,7 @@ g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Anderse
 
 입력(Robin):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
@@ -151,7 +151,7 @@ g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield'
 
 입력(Ben):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
@@ -164,7 +164,7 @@ g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').pro
 
 입력(Jack):
 
-```java
+```console
 g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
@@ -179,7 +179,7 @@ g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').pr
 
 입력(Thomas -> Mary Kay):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
@@ -191,7 +191,7 @@ g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLa
 
 입력(Thomas -> Robin):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
@@ -203,7 +203,7 @@ g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLa
 
 입력(Robin -> Ben):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
@@ -218,7 +218,7 @@ g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLab
 *45* 세라는 나이로 *Thomas* 꼭짓점을 업데이트하겠습니다.
 
 입력:
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 출력:
@@ -235,7 +235,7 @@ g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 
 입력(필터 쿼리):
 
-```java
+```console
 g.V().hasLabel('person').has('age', gt(40))
 ```
 
@@ -249,7 +249,7 @@ g.V().hasLabel('person').has('age', gt(40))
 
 입력(필터 + 프로젝션 쿼리):
 
-```java
+```console 
 g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
@@ -265,7 +265,7 @@ Thomas의 친구를 모두 반환하는 그래프를 트래버스하겠습니다
 
 입력(Thomas의 친구):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
@@ -280,7 +280,7 @@ g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel
 
 입력(Thomas의 친구의 친구):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 출력:
@@ -295,7 +295,7 @@ g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel
 
 입력(Jack 꼭짓점 삭제):
 
-```java
+```console 
 g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
@@ -305,7 +305,7 @@ g.V().hasLabel('person').has('firstName', 'Jack').drop()
 
 입력:
 
-```java
+```console
 g.E().drop()
 g.V().drop()
 ```

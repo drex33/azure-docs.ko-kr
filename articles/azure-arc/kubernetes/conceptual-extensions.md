@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: 이 문서에서는 Azure Arc 사용 Kubernetes의 클러스터 확장 기능에 대 한 개념적 개요를 제공 합니다.
-ms.openlocfilehash: 1f6bc02e111041e9a89e8066a57586c331c1a297
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6ae9270822ae16608a2c470ed818bcb8e6c2aa38
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273956"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279275"
 ---
 # <a name="cluster-extensions"></a>클러스터 확장
 
-Azure Monitor 및 Azure Defender for Kubernetes와 같은 관리 서비스 또는 Azure 앱 서비스와 같은 서비스는 클러스터 확장 기능을 통해 Kubernetes 클러스터에서 인스턴스화될 수 있습니다. [Helm 차트](https://helm.sh/)는 가장 복잡한 Kubernetes 애플리케이션을 정의, 설치 및 업그레이드하는 데 필요한 빌딩 블록도 제공하여 Kubernetes 애플리케이션을 관리하는 데 도움이 됩니다. 클러스터 확장 기능은 kubernetes 클러스터에서 사용 하도록 설정 하려는 서비스 인스턴스의 설치 및 수명 주기 관리에 대 한 Azure Resource Manager 구동 환경을 제공 하 여 투구의 패키징 구성 요소 위에 구축 됩니다. 클러스터 운영자 또는 관리자는 클러스터 확장 기능을 사용 하 여 
+Azure Monitor 및 Microsoft Defender for Kubernetes와 같은 관리 서비스 또는 Azure 앱 서비스와 같은 서비스는 클러스터 확장 기능을 통해 Kubernetes 클러스터에서 인스턴스화될 수 있습니다. [Helm 차트](https://helm.sh/)는 가장 복잡한 Kubernetes 애플리케이션을 정의, 설치 및 업그레이드하는 데 필요한 빌딩 블록도 제공하여 Kubernetes 애플리케이션을 관리하는 데 도움이 됩니다. 클러스터 확장 기능은 kubernetes 클러스터에서 사용 하도록 설정 하려는 서비스 인스턴스의 설치 및 수명 주기 관리에 대 한 Azure Resource Manager 구동 환경을 제공 하 여 투구의 패키징 구성 요소 위에 구축 됩니다. 클러스터 운영자 또는 관리자는 클러스터 확장 기능을 사용 하 여 
 
 - 원하는 기능에 대해 다양 한 확장을 설치 하 고 Azure Portal, CLI, SDK 등과 같은 Azure 인터페이스에서 해당 클러스터에 설치 된 모든 클러스터 및 확장의 인벤토리를 가져옵니다. 
 - 다른 Azure 리소스와 마찬가지로 Azure 역할 기반 Access Control (RBAC)를 사용 하 여 클러스터 확장 리소스에 대 한 액세스를 제어할 수 있습니다.
@@ -25,7 +25,7 @@ Azure Monitor 및 Azure Defender for Kubernetes와 같은 관리 서비스 또�
 - 확장에 대 한 자동 업그레이드를 설정 하거나 특정 버전에 고정 하 여 업데이트를 관리 합니다.
 - 확장 속성 또는 하나 이상의 확장 인스턴스 삭제에 대 한 업데이트를 포함 하 여 확장의 수명 주기를 관리 합니다.
 
-확장은 클러스터 범위 또는 네임 스페이스 범위를 지정할 수 있습니다. 각 확장 유형 (예: Azure Monitor, Azure Defender, Azure 앱 services)은 클러스터에서 작동 하는 범위를 정의 합니다. 
+확장은 클러스터 범위 또는 네임 스페이스 범위를 지정할 수 있습니다. 각 확장 유형 (예: Azure Monitor, Microsoft Defender for Cloud, Azure 앱 services)은 클러스터에서 작동 하는 범위를 정의 합니다. 
 
 ## <a name="architecture-for-azure-arc-enabled-kubernetes-clusters"></a>Azure Arc 사용 Kubernetes 클러스터의 아키텍처
 

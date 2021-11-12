@@ -2,13 +2,16 @@
 title: Azure Stack VM에서 파일 백업
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 ms.topic: conceptual
-ms.date: 06/05/2018
-ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/11/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: a6c92485ec89e06f9bf545181fe7e6341cd7bff4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89180986"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284439"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업
 
@@ -133,5 +136,10 @@ Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 �
 
 Azure Backup Server를 사용하여 다른 워크로드를 보호하는 방법에 대한 내용은 다음 아티클 중 하나를 참조하세요.
 
+* [Azure Backup 서비스 정보](./backup-overview.md)
+* [Azure AD 정보](../active-directory/fundamentals/active-directory-whatis.md)
+* [Azure Recovery Services 자격 증명 모음 정보](./backup-azure-recovery-services-vault-overview.md)
+* [Azure Storage 정보](../storage/common/storage-introduction.md)
+* [Azure Stack Hub 정보](/azure-stack/operator/azure-stack-overview)
 * [SharePoint 팜 백업](./backup-mabs-sharepoint-azure-stack.md)
 * [SQL Server 백업](./backup-mabs-sql-azure-stack.md)

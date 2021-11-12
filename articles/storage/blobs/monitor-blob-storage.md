@@ -5,16 +5,16 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bcfd37ff8c030136e37b4289bc37006012891412
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 656877f04c51b151168065c68cdc5016892f2a7f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128617548"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308168"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링
 
@@ -208,10 +208,10 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 
 2. ID가 둘 이상의 구독과 연결된 경우 활성 구독을 로그를 사용하도록 설정할 스토리지 계정에 대한 구독으로 설정합니다.
 
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
+   ```azurecli
+      az account set --subscription <subscription-id>
    ```
-
+   
    `<subscription-id>` 자리 표시자 값을 구독의 ID로 바꿉니다.
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
@@ -272,7 +272,7 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
-정책 정의를 사용하여 진단 설정을 만들 수 있습니다. 이렇게 하면 만들거나 업데이트한 모든 계정에 대해 진단 설정이 생성되었는지 확인할 수 있습니다. 자세한 내용은 [Azure Policy 기본 제공 정의 Azure Storage](../common/policy-reference.md)을 참조 하세요.
+정책 정의를 사용하여 진단 설정을 만들 수 있습니다. 이렇게 하면 만들거나 업데이트한 모든 계정에 대해 진단 설정이 생성되었는지 확인할 수 있습니다. 자세한 내용은 [Azure Storage 대한 Azure Policy 기본 제공 정의를 참조하세요.](../common/policy-reference.md)
 
 ---
 
@@ -463,6 +463,17 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
 ```
 
+#### <a name="reading-metric-values-with-dimensions"></a>차원을 사용하여 메트릭 값 읽기
+
+메트릭이 차원을 지원하는 경우 메트릭 값을 읽고 차원 값을 사용하여 필터링할 수 있습니다. [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet을 사용합니다.
+
+```powershell
+$resourceId = "<resource-ID>"
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetBlob" 3> $null)
+Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
+```
+
+
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
@@ -471,7 +482,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
 
-```azurecli-interactive
+```azurecli
    az monitor metrics list-definitions --resource <resource-ID>
 ```
 
@@ -479,8 +490,16 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 스토리지 계정 또는 Blob Storage 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) 명령을 사용합니다.
 
-```azurecli-interactive
+```azurecli
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
+```
+
+#### <a name="reading-metric-values-with-dimensions"></a>차원을 사용하여 메트릭 값 읽기
+
+메트릭이 차원을 지원하는 경우 메트릭 값을 읽고 차원 값을 사용하여 필터링할 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) 명령을 사용합니다.
+
+```azurecli
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
 ```
 
 ### <a name="template"></a>[템플릿](#tab/template)

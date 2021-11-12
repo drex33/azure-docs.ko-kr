@@ -8,16 +8,16 @@ ms.service: cache
 ms.topic: how-to
 ms.date: 11/3/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 11e855f5cae1a9a3a678e44669351ded07a2a55b
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 8fd6ae4eb82c7b8cb1439f621f26eef7860bcc0d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132159086"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340227"
 ---
 # <a name="monitor-azure-cache-for-redis-data-using-diagnostic-settings"></a>진단 설정을 사용하여 Azure Cache for Redis 데이터 모니터링
 
-Azure의 진단 설정은 리소스 로그를 수집하는 데 사용됩니다. Azure 리소스 로그를 리소스에서 내보내고, 해당 리소스의 작업에 대한 풍부하고 빈도 높은 데이터를 제공합니다. 이러한 로그는 요청별로 캡처되며 "데이터 평면 로그"라고도 합니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
+Azure의 진단 설정은 리소스 로그를 수집하는 데 사용됩니다. Azure 리소스 로그를 리소스에서 내보내고, 해당 리소스의 작업에 대한 풍부하고 빈도 높은 데이터를 제공합니다. 이러한 로그는 요청당 캡처되며 "데이터 평면 로그"라고도 합니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
 
 Azure Cache for Redis Azure 진단 설정을 사용하여 캐시에 대한 모든 클라이언트 연결에 대한 정보를 기록합니다. 이 진단 설정을 로깅하고 분석하면 캐시에 연결하는 사용자와 해당 연결의 타임스탬프를 이해하는 데 도움이 됩니다. 로그 데이터를 사용하여 보안 위반의 범위를 식별하고 보안 감사를 목적으로 할 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Cache for Redis 인스턴스에 대한 진단 설정을 켜고 리소스 �
 
 진단 요구 사항에 대한 자세한 내용은 [진단 설정을 참조하세요.](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD)
 
-두 대상에 진단 로그를 보낼 때 스토리지 계정 및 이벤트 허브 사용량에 대한 일반 데이터 요금이 청구됩니다. Azure Cache for Redis 않은 Azure Monitor 요금이 청구됩니다. Log Analytics에 로그를 보내는 경우 **Log Analytics** 데이터 수집에 대해서만 요금이 청구됩니다.
+두 대상에 진단 로그를 보낼 때 스토리지 계정 및 이벤트 허브 사용량에 대한 일반 데이터 요금이 청구됩니다. Azure Cache for Redis 않은 Azure Monitor 요금이 청구됩니다. **Log Analytics에** 로그를 보내는 경우 Log Analytics 데이터 수집에 대해서만 요금이 청구됩니다.
 
 자세한 가격 책정 정보는 [가격 책정을 Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/)
 
@@ -99,7 +99,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 ## <a name="create-diagnostic-setting-via-azure-cli"></a>Azure CLI를 통해 진단 설정 만들기
 
-명령을 사용하여 `az monitor diagnostic-settings create` Azure CLI 진단 설정을 만듭니다. 명령 및 매개 변수 설명에 대한 자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 보내는 진단 설정 만들기를 참조하세요.](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create&preserve-view=true)
+명령을 `az monitor diagnostic-settings create` 사용하여 Azure CLI 진단 설정을 만듭니다. 명령 및 매개 변수 설명에 대한 자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 보내는 진단 설정 만들기를 참조하세요.](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest&branch=main&preserve-view=true#az_monitor_diagnostic_settings_create)
 
 ```azurecli
 az monitor diagnostic-settings create 

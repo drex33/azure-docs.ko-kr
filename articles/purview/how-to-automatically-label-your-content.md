@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 80bb6aac5d6eb80f82372fd90d77fa0c2a082957
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6bcb751c58b4ba14e84f529ec268beacc93fdcf4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166715"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339564"
 ---
 # <a name="how-to-automatically-apply-sensitivity-labels-to-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 민감도 레이블을 자동으로 적용하는 방법
 
@@ -54,7 +54,7 @@ Azure Purview에서 자산에 대한 레이블 지정을 확장한 후에는 게
 
 **새 민감도 레이블을 만들거나 기존 레이블을 수정하려면 다음을 수행합니다.**
 
-1. Microsoft 365 [보안 및 규정 준수 센터를 엽니다.](https://compliance.microsoft.com/)
+1. [Microsoft 365 규정 준수 센터](https://compliance.microsoft.com/)엽니다.
 
 1. **솔루션** 에서 **Information Protection** 을 선택한 다음, **레이블 만들기** 를 선택합니다.
 

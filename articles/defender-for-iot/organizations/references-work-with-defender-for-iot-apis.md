@@ -1,14 +1,14 @@
 ---
 title: Defender for IoT API 작업
 description: 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
-ms.date: 11/08/2021
+ms.date: 11/09/2021
 ms.topic: reference
-ms.openlocfilehash: 0176fe3da6c2105c522f92614295500fb8ce0e81
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 3d7fdf855e33c84ce966bbe89e564434b2a8a748
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997669"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325299"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender for IoT 센서 및 관리 콘솔 API
 
@@ -20,7 +20,7 @@ Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사�
 
 ## <a name="getting-started"></a>시작
 
-일반적으로 Azure Defender for IoT 센서 또는 온-프레미스 관리 콘솔에 대한에서 외부 API를 사용하는 경우 액세스 토큰을 생성해야 합니다. 센서 및 온-프레미스 관리 콘솔에서 사용하는 인증 API에는 토큰이 필요하지 않습니다.
+일반적으로 Microsoft Defender for IoT 센서 또는 온-프레미스 관리 콘솔에서 외부 API를 사용하는 경우 액세스 토큰을 생성해야 합니다. 센서 및 온-프레미스 관리 콘솔에서 사용하는 인증 API에는 토큰이 필요하지 않습니다.
 
 토큰을 생성하려면 다음을 수행합니다.
 
@@ -1812,7 +1812,7 @@ response:
 
 ### <a name="alert-exclusions"></a>경고 제외
 
-경고를 보내지 않을 조건을 정의합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외되어야 하는 디바이스 또는 서브넷, 제외되어야 하는 Defender for IoT 엔진을 정의하고 업데이트합니다. 예를 들어 유지 관리 기간 동안 중요한 디바이스에 대한 맬웨어 경고를 제외하고 모든 경고의 경고 제공을 중지할 수 있습니다. 여기서 정의한 항목은 온-프레미스 관리 콘솔의 경고 제외 창에 읽기 전용 제외 규칙으로 표시됩니다.
+경고를 보내지 않을 조건을 정의합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외되어야 하는 디바이스 또는 서브넷, 제외되어야 하는 Defender for IoT 엔진을 정의하고 업데이트합니다. 예를 들어 유지 관리 기간 동안 중요한 디바이스에 대한 맬웨어 경고를 제외하고 모든 경고의 경고 제공을 중지할 수 있습니다. 여기에서 정의한 항목은 온-프레미스 관리 콘솔의 경고 제외 창에 읽기 전용 제외 규칙으로 표시됩니다.
 
 #### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
 
@@ -2683,12 +2683,12 @@ response:
 
 #### <a name="data-fields"></a>데이터 필드
 
-|Name|유형|Nullable|
+|이름|유형|Nullable|
 |-|-|-|
 |id|숫자|예|
 |xsenseId|숫자|예|
 |xsenseAlertId|숫자|예|
-|downloadUrl|String|예|
+|downloadUrl|String|No|
 |token|String|예|
 
 #### <a name="response-example"></a>응답 예제

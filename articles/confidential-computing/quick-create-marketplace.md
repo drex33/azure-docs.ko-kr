@@ -1,20 +1,20 @@
 ---
 title: 빠른 시작 - Azure Marketplace에서 Intel SGX VM 만들기
 description: Marketplace에서 Intel SGX VM을 신속하게 만드는 방법을 학습 하여 배포를 시작하세요.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 43a6e24ac887336854b59f747233b1cd355f4686
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b46bae979d3045d1f301f68841cadcfe46448733
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077860"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290270"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-marketplace"></a>빠른 시작: Azure Marketplace에서 Intel SGX VM 만들기
 

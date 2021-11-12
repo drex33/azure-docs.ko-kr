@@ -11,21 +11,21 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 401188de54050be932fc8d52f5cc4466378e15cd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: e1582d45ea6108872f9e1ea03d890a5070fc5b98
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772036"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297395"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Azure IoT(사물 인터넷) 배포에 대한 보안 권장 사항
 
 이 문서에는 IoT에 대한 보안 권장 사항이 포함되어 있습니다. 이러한 권장 사항을 구현하면 공유 책임 모델에 설명된 대로 보안 의무를 충족하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 책임을 충족하기 위해 수행하는 작업에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)을 참조하세요.
 
-이 문서에 포함된 일부 권장 사항은 Azure Defender for IoT에서 자동으로 모니터링할 수 있습니다. Azure Defender for IoT는 Azure에서 리소스를 보호하는 첫 번째 방어선입니다. 이는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음 이를 해결하는 방법에 대한 권장 사항을 제공합니다.
+이 문서에 포함 된 일부 권장 사항은 Azure에서 리소스를 보호 하는 첫 번째 방어선 인 IoT 용 Microsoft Defender에서 자동으로 모니터링할 수 있습니다. 이는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음 이를 해결하는 방법에 대한 권장 사항을 제공합니다.
 
-- Azure Defender for IoT 권장 사항에 대한 자세한 내용은 [Azure Defender for IoT의 보안 권장 사항](../security-center/security-center-recommendations.md)을 참조하세요.
-- Azure Defender for IoT에 대한 내용은 [Azure Defender for IoT란?](../security-center/security-center-introduction.md)을 참조하세요.
+- IoT 용 Microsoft Defender 권장 사항에 대 한 자세한 내용은 [iot 용 Microsoft defender의 보안 권장 사항](../security-center/security-center-recommendations.md)을 참조 하세요.
+- IoT 용 Microsoft Defender에 대 한 자세한 내용은 [iot 용 Microsoft defender 란?](../security-center/security-center-introduction.md) 을 참조 하세요.
 
 ## <a name="general"></a>일반
 
@@ -59,7 +59,7 @@ ms.locfileid: "122772036"
 
 ## <a name="monitoring"></a>모니터링
 
-| 권장 | 주석 | Azure Defender 지원 |
+| 권장 | 주석 | IoT 용 Microsoft Defender에서 지원 |
 |-|----|--|
 | 디바이스에 대한 무단 액세스 모니터링 |  디바이스 운영 체제의 로깅 기능을 사용하여 보안 위반이나 디바이스 또는 해당 포트의 물리적 변조를 모니터링합니다. | Yes |
 | 클라우드에서 IoT 솔루션 모니터링 | [Azure Monitor 메트릭](../iot-hub/monitor-iot-hub.md)을 사용하여 IoT Hub 솔루션의 전반적인 상태를 모니터링합니다. | Yes |

@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: d83b8080d275417f6ad58456ffa732f5118f0995
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 00a3f7f43a533b66f6671b260290811667f38107
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012362"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325546"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Azure Diagnostics 확장 개요
 Azure Diagnostics 확장은 가상 머신을 포함한 Azure 컴퓨팅 리소스에서 모니터링 데이터를 수집하는 [Azure Monitor의 에이전트](../agents/agents-overview.md)입니다. 이 문서에서는 지원하는 특정 기능과, 설치 및 구성 옵션을 포함한 Azure Diagnostics 확장의 개요를 제공합니다. 
 
 > [!NOTE]
-> Azure Diagnostics 확장은 컴퓨팅 리소스의 게스트 운영 체제에서 모니터링 데이터를 수집하는 데 사용할 수 있는 에이전트 중 하나입니다. 다른 에이전트에 대한 설명과 요구 사항에 맞는 에이전트를 선택하기 위한 지침은 [Azure Monitor 에이전트의 개요](../agents/agents-overview.md)를 참조하세요.
+> Azure Diagnostics 확장은 컴퓨팅 리소스의 게스트 운영 체제에서 모니터링 데이터를 수집하는 데 사용할 수 있는 에이전트 중 하나입니다. 다른 에이전트에 대 한 설명과 요구 사항에 적합 한 에이전트를 선택 하는 방법에 대 한 지침은 [Azure Monitor 에이전트 개요](../agents/agents-overview.md) 를 참조 하세요.
 
 ## <a name="primary-scenarios"></a>기본 시나리오
 Diagnostics 확장에서 처리하는 주요 시나리오는 다음과 같습니다.
@@ -33,7 +33,7 @@ Azure Monitor의 Log Analytics 에이전트를 사용하여 가상 머신의 게
 
 - Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
 - Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md)(Windows만 해당) 및 Event Hubs로 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](../logs/data-platform-logs.md)에 수집합니다.
-- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-curated-visualizations), [VM 인사이트](../vm/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml) 등의 기타 서비스에 필요합니다.
+- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-curated-visualizations), [VM Insights](../vm/vminsights-overview.md)및 [Microsoft Defender for Cloud](../../security-center/index.yml)와 같은 기타 서비스에 필요 합니다.
 
 ## <a name="costs"></a>비용
 Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한 요금이 발생할 수 있습니다. 데이터를 수집하는 대상에 대한 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)를 확인하세요.

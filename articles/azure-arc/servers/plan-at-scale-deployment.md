@@ -3,12 +3,12 @@ title: Azure Arc 지원 서버를 계획하고 배포하는 방법
 description: Azure Arc 지원 서버에서 많은 수의 머신을 사용하도록 설정하여 Azure에서 필수적인 보안, 관리, 모니터링 기능의 구성을 간소화하는 방법을 알아봅니다.
 ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a8bd9187d3d8d2394fe340eb1822f45e17a50b7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: b32090caf8167874e61bbca0c5f3782557abd620
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708967"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340290"
 ---
 # <a name="plan-and-deploy-azure-arc-enabled-servers"></a>Azure Arc 지원 서버 계획 및 배포
 
@@ -35,7 +35,7 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 
 * 머신이 Connected Machine 에이전트에 대해 [지원되는 운영 체제](agent-overview.md#supported-operating-systems)를 실행합니다.
 * 머신이 직접적이든 프록시 서버를 통해서든 온-프레미스 네트워크 또는 다른 클라우드 환경에서 Azure의 리소스에 대한 연결을 보유하고 있습니다.
-* Azure Arc 지원 서버 Connected Machine 에이전트를 설치하고 구성하려면 컴퓨터에 관리자 권한(즉, 관리자 또는 루트) 권한이 있는 계정입니다.
+* Azure Arc 지원 서버 Connected Machine 에이전트를 설치하고 구성하려면 컴퓨터에서 관리자 권한(즉, 관리자 또는 루트) 권한이 있는 계정입니다.
 * 머신을 등록하려면 **Azure Connected Machine Onboarding** 역할의 멤버여야 합니다.
 * 머신을 읽고, 수정하고, 삭제하려면 **Azure Connected Machine 리소스 관리자** 역할의 구성원이어야 합니다.
 
@@ -67,7 +67,7 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 | RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md)) 구성 | Azure Arc 지원 서버를 관리할 수 있는 액세스 권한이 있는 사람과 다른 Azure 서비스 및 솔루션에서 해당 데이터를 볼 수 있는 기능을 제어하는 액세스 계획을 개발합니다. | 1일 |
 | Log Analytics 에이전트가 이미 설치된 머신 식별 | [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md)에서 다음 로그 쿼리를 실행하여 기존 Log Analytics 에이전트 배포를 확장 관리형 에이전트로 변환하도록 지원합니다.<br> 하트비트 <br> &#124; where TimeGenerated > ago(30d) <br> &#124; where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") <br> &#124; summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment | 1시간 |
 
-<sup>1</sup> Log Analytics 작업 영역 디자인을 평가하는 과정에서 중요한 고려 사항은 업데이트 관리와 변경 내용 추적 및 인벤토리 기능을 지원하는 Azure Automation, 그리고 Azure Security Center 및 Azure Sentinel과의 통합입니다. 조직에 이미 Automation 계정이 있고 Log Analytics 작업 영역에 연결된 관리 기능을 사용하도록 설정한 경우, 기존 리소스를 사용하는 것과 중복 계정, 작업 영역 등을 생성하는 것을 비교하여 관리 작업을 중앙 집중화하고 간소화하며 비용을 최소화할 수 있는지를 평가할 수 있습니다.
+<sup>1</sup> Log Analytics 작업 영역 디자인 평가의 일환으로 고려해야 할 중요한 사항은 클라우드 및 Microsoft Sentinel용 Microsoft Defender뿐만 아니라 업데이트 관리 및 변경 내용 추적 및 인벤토리 기능을 지원하는 Azure Automation와의 통합입니다. 조직에 이미 Automation 계정이 있고 Log Analytics 작업 영역에 연결된 관리 기능을 사용하도록 설정한 경우, 기존 리소스를 사용하는 것과 중복 계정, 작업 영역 등을 생성하는 것을 비교하여 관리 작업을 중앙 집중화하고 간소화하며 비용을 최소화할 수 있는지를 평가할 수 있습니다.
 
 ## <a name="phase-2-deploy-azure-arc-enabled-servers"></a>2단계: Azure Arc 지원 서버 배포
 

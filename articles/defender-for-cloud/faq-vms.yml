@@ -1,0 +1,47 @@
+### YamlMime:FAQ
+metadata:
+  title: Microsoft Defender for Cloud FAQ - 가상 머신에 대한 질문
+  description: 위협을 방지, 검색 및 대응하는 데 도움이 되는 제품인 Microsoft Defender for Cloud의 가상 머신에 대한 질문과 대답
+  services: security-center
+  documentationcenter: na
+  author: memildin
+  manager: rkarlin
+  ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
+  ms.service: security-center
+  ms.devlang: na
+  ms.topic: conceptual
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 11/09/2021
+  ms.author: memildin
+  ms.openlocfilehash: c34a9a61939b3956d0ab9ae3d8784138bbd7315d
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132352715"
+title: FAQ - 가상 머신에 대한 질문
+summary: ''
+sections:
+- name: 무시됨
+  questions:
+  - question: >
+      어떤 유형의 가상 머신이 지원되나요?
+    answer: >
+      [클래식 및 Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)을 모두 사용하여 작성된 VM(가상 머신)에 대해 모니터링 및 권장 사항이 제공됩니다.
+
+
+      지원되는 플랫폼 목록은 [Microsoft Defender for Cloud에서](security-center-os-coverage.md) 지원되는 플랫폼을 참조하세요.
+  - question: >
+      Microsoft Defender for Cloud가 내 Azure VM에서 실행되는 맬웨어 방지 솔루션을 인식하지 못하는 이유는 무엇인가요?
+    answer: >
+      Microsoft Defender for Cloud는 Azure 확장을 통해 설치된 맬웨어 방지를 볼 수 있습니다. 예를 들어 Defender for Cloud는 사용자가 제공한 이미지에 미리 설치된 맬웨어 방지를 검색할 수 없거나, 사용자 고유의 프로세스(예: 구성 관리 시스템)를 사용하여 가상 머신에 맬웨어 방지를 설치한 경우 검색할 수 없습니다.
+  - question: >
+      VM에 대해 "검사 데이터 누락" 메시지가 표시되는 이유는 무엇인가요?
+    answer: >
+      VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다. Microsoft Defender for Cloud에서 데이터 수집을 사용하도록 설정한 후 검색 데이터가 채워지는 데 약간의 시간(1시간 미만)이 걸릴 수 있습니다. 검색 데이터를 처음 입력한 후에는 검색 데이터가 전혀 없거나 최근 검색 데이터가 없기 때문에 이 메시지가 나타날 수 있습니다. VM이 중지된 상태이면 검사를 수행해도 데이터가 입력되지 않습니다. Windows 에이전트의 보존 정책에 따라 최근에(기본값은 30일) 검색 데이터가 입력되지 않은 경우에도 이 메시지가 나타날 수 있습니다.
+  - question: >
+      Defender for Cloud는 운영 체제 취약성, 시스템 업데이트 및 엔드포인트 보호 문제를 얼마나 자주 검사하나요?
+    answer: "다음은 Defender for Cloud에서 취약성, 업데이트 및 문제를 검사하는 대기 시간입니다.\n\n- 운영 체제 보안 구성 - 데이터가 48시간 이내 업데이트됩니다.\n- 시스템 업데이트 – 데이터가 24시간 이내 업데이트됩니다.\n- Endpoint Protection 문제 – 데이터가 8시간 이내 업데이트됩니다.\n\nDefender for Cloud는 일반적으로 매시간 새 데이터를 검색하고 그에 따라 권장 사항을 새로 고칩니다. \n\n> [!NOTE]\n> Defender for Cloud는 Log Analytics 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [클라우드 플랫폼 마이그레이션용 Microsoft Defender를 참조하세요.](./enable-data-collection.md)\n"
+  - question: "\"VM 에이전트가 누락됨\" 메시지가 표시되는 이유는 무엇인가요?\n"
+    answer: 데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure Marketplace에서 배포된 VM에는 VM 에이전트가 기본적으로 설치되어 있습니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.

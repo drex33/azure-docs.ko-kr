@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.openlocfilehash: b2dd3b61ae3b612879e92b4c5ef8feb79b71b6fe
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5956f8fb7a1de3baaac0a69ef9e5b63d445416eb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131430011"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327123"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps"></a>Azure Logic Apps 플랫 파일 인코딩 및 디코딩
 
@@ -232,7 +232,7 @@ B2B(business-to-business) 시나리오에서 비즈니스 파트너에게 XML �
 
 1. 검색 상자에 `flat file`를 입력합니다. 작업 목록에서 **플랫 파일 디코딩이라는** 작업을 선택합니다.
 
-   ![검색 상자에 "플랫 파일"이 있고 "플랫 파일 디코딩" 작업이 선택된 Azure Portal 및 표준 워크플로 디자이너를 보여주는 스크린샷.](./media/logic-apps-enterprise-integration-flatfile/flat-file-decoding-standard.png)
+   ![검색 상자에 "플랫 파일"이 있고 "플랫 파일 디코딩" 작업이 선택된 Azure Portal 및 표준 워크플로 디자이너를 보여주는 스크린샷](./media/logic-apps-enterprise-integration-flatfile/flat-file-decoding-standard.png)
 
 1. **콘텐츠** 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시합니다. 목록의 **HTTP 요청이 수신되는 경우** 섹션에서 트리거의 요청 본문 출력과 디코딩할 콘텐츠를 포함하는 **본문** 속성을 선택합니다.
 
@@ -247,7 +247,7 @@ B2B(business-to-business) 시나리오에서 비즈니스 파트너에게 XML �
    ![디코딩에 사용할 스키마가 선택된 표준 워크플로 디자이너 및 열린 "이름" 목록을 보여주는 스크린샷.](./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema-standard.png)
 
    > [!NOTE]
-   > 목록에 스키마가 표시되지 않으면 표준 논리 앱 리소스에 디코딩에 사용할 스키마 파일이 포함되지 않습니다. [표준 논리 앱 리소스 에 사용하려는 스키마를 업로드하는](logic-apps-enterprise-integration-schemas.md)방법을 알아봅니다.
+   > 목록에 스키마가 표시되지 않으면 표준 논리 앱 리소스에 디코딩에 사용할 스키마 파일이 포함되지 않습니다. [사용하려는 스키마를 표준 논리 앱 리소스 에 업로드하는](logic-apps-enterprise-integration-schemas.md)방법을 알아봅니다.
 
 1. 워크플로를 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 

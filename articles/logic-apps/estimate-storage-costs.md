@@ -3,15 +3,15 @@ title: 단일 테넌트 Azure Logic Apps의 스토리지 비용 예측
 description: Logic Apps 스토리지 계산기를 사용하여 워크플로의 스토리지 비용을 예측합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/13/2021
-ms.openlocfilehash: 860e84bf8e2378d4a9c433df81c5adfb6741169e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 11/10/2021
+ms.openlocfilehash: 65374b66f1b914a2a5e36150de788909bc33e247
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953825"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297433"
 ---
 # <a name="estimate-storage-costs-for-workflows-in-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps에 대한 워크플로 비용 예측
 
@@ -35,8 +35,11 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
 예측할 워크플로가 있는 경우 워크플로에 대한 JSON 코드를 가져옵니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
 1. **논리 앱** 서비스로 이동하여 워크플로를 선택합니다.
+
 1. 논리 앱 메뉴의 **개발 도구** 에서 **논리 앱 코드 보기** 를 선택합니다.
+
 1. 워크플로의 JSON 코드를 복사합니다.
 
 ## <a name="estimate-storage-needs"></a>스토리지 요구량 계산
@@ -57,7 +60,9 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
    * 페이로드가 32KB를 초과하는 모든 작업을 선택하는 옵션.
 
 1. **월별 실행** 에 매월 워크플로를 실행하는 횟수를 입력합니다.
+
 1. **계산** 을 선택하고 계산이 실행될 때까지 기다립니다.
+
 1. **스토리지 작업 분석 및 계산 단계** 에서 예상 **작업 수** 를 검토합니다.
 
     실행별 및 월별 예상 작업 수를 두 테이블로 볼 수 있습니다. 다음 작업이 표시됩니다.
@@ -67,7 +72,7 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
     * **큐** - Azure 큐의 큐 클래스 2 작업용.
     * **테이블** - Azure Table Storage 작업용.
 
-    각 작업의 최소, 최대 및 "최선의 추측" 수가 있습니다. 개별 시나리오에 따라 [스토리지 작업 비용을 예상하는](#estimate-storage-costs) 데 사용할 가장 관련성이 큰 수를 선택합니다. 일반적으로 정확도에는 "최선의 추측" 수를 사용하는 것이 좋습니다. 그러나 최대 수를 사용하여 비용 추산치에 버퍼가 있는지 확인할 수도 있습니다.
+    각 작업의 최소, 최대 및 "최선의 추측" 수가 있습니다. 개별 시나리오에 따라 [스토리지 작업 비용을 예상하는](#estimate-storage-costs) 데 사용할 가장 관련성이 큰 수를 선택합니다. 정확도를 위해 "최적 추측" 개수를 사용하는 것이 좋습니다. 그러나 최대 수를 사용하여 비용 추산치에 버퍼가 있는지 확인할 수도 있습니다.
 
     :::image type="content" source="./media/estimate-storage-costs/storage-calculator-results.png" alt-text="예상 작업이 있는 출력이 표시되는 Logic Apps 스토리지 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/storage-calculator-results.png":::
 
@@ -81,22 +86,33 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
 
 ### <a name="estimate-blob-storage-operations-costs"></a>Blob 스토리지 작업 비용 예측
 
-> [!NOTE]
-> 현재 이 기능은 사용할 수 없습니다. 일단은 계산기를 사용하여 [큐 스토리지](#estimate-queue-operations-costs) 및 [테이블 스토리지](#estimate-table-operations-costs)를 예측할 수 있습니다.
-
 논리 앱의 Blob 스토리지 작업의 월별 비용을 예측하려면 다음을 수행합니다.
 
 1. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)로 이동합니다.
+
 1. **제품** 탭에서 **스토리지** &gt; **스토리지 계정** 을 선택합니다. 또는 **검색 표시줄** 검색 상자에 **스토리지 계정** 을 입력하고 타일을 선택합니다.
-    :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="스토리지 계정 보기를 추가하는 타일이 표시된 Azure 가격 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
+   :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="스토리지 계정 보기를 추가하는 타일이 표시된 Azure 가격 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
 1. **스토리지 계정 추가** 알림에서 **보기** 를 선택하여 계산기의 **스토리지 계정** 섹션을 확인합니다. 또는 **스토리지 계정** 섹션으로 직접 이동합니다.
+
 1. **지역** 에 대해 논리 앱의 지역을 선택합니다.
+
 1. **유형** 에 대해 **블록 Blob 스토리지** 를 선택합니다.
+
 1. **성능 계층** 에 대해 성능 계층을 선택합니다.
+
 1. **중복성** 에 대해 중복성 수준을 선택합니다.
+
 1. 기타 설정은 필요에 따라 조정합니다.
-1. **쓰기 작업** 에 Logic Apps 스토리지 계산기의 **Blob(쓰기)** 작업 번호를 있는 그대로 입력합니다.
-1. **읽기 작업** 에 Logic Apps 스토리지 계산기의 **Blob(읽기)** 작업 번호를 있는 그대로 입력합니다.
+
+1. **쓰기 작업** 에서 Logic Apps 스토리지 계산기의 **Blob(쓰기)** 작업 번호를 *있는 그대로* 입력합니다.
+
+   > [!NOTE]
+   > 이 나누기 단계는 테이블 및 큐 작업에만 적용되므로 Blob 쓰기 및 읽기 작업 수를 10,000으로 나눌 필요가 없습니다. Logic Apps 스토리지 계산기는 트랜잭션 테이블 및 큐 작업에서 작동합니다.
+
+1. **읽기 작업에서** Logic Apps 스토리지 계산기의 **Blob(읽기)** 작업 번호를 *있는 그대로* 입력합니다.
+
 1. 예상 Blob 스토리지 작업 비용을 검토합니다.
 
 ### <a name="estimate-queue-operations-costs"></a>큐 작업 비용 추산
@@ -104,14 +120,23 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
 논리 앱의 큐 스토리지 작업의 월별 비용을 추산하려면 다음을 수행합니다.
 
 1. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)로 이동합니다.
+
 1. **제품** 탭에서 **스토리지** &gt; **스토리지 계정** 을 선택합니다. 또는 **검색 표시줄** 검색 상자에 **스토리지 계정** 을 입력하고 타일을 선택합니다.
-    :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="스토리지 계정 보기를 추가하는 타일이 표시된 Azure 가격 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
+   :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="스토리지 계정 보기를 추가하는 타일이 표시된 Azure 가격 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
 1. **스토리지 계정 추가** 알림에서 **보기** 를 선택하여 계산기의 **스토리지 계정** 섹션을 확인합니다. 또는 **스토리지 계정** 섹션으로 직접 이동합니다.
+
 1. **지역** 에 대해 논리 앱의 지역을 선택합니다.
+
 1. **유형** 에 대해 **Queue Storage** 를 선택합니다.
+
 1. **스토리지 계정 유형** 에 대해 스토리지 계정 유형을 선택합니다.
+
 1. **중복성** 에 대해 중복성 수준을 선택합니다.
+
 1. **큐 클래스 2 작업** 에서 Logic Apps 스토리지 계산기의 **큐** 작업 번호를 10,000으로 나눈 값으로 입력합니다. 계산기가 큐 작업의 트랜잭션 단위로 작동하므로 이 단계는 필수적입니다.
+
 1. 추산된 큐 작업 비용을 검토합니다.
 
 ### <a name="estimate-table-operations-costs"></a>테이블 작업 비용 예측
@@ -119,14 +144,23 @@ Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/ind
 논리 앱의 테이블 스토리지 작업의 월별 비용을 예측하려면 다음을 수행합니다.
 
 1. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)로 이동합니다.
+
 1. **제품** 탭에서 **스토리지** &gt; **스토리지 계정** 을 선택합니다. 또는 **검색 표시줄** 검색 상자에 **스토리지 계정** 을 입력하고 타일을 선택합니다.
-    :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="스토리지 계정 보기를 추가하는 타일이 표시된 Azure 가격 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
+   :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="스토리지 계정 보기를 추가하는 타일이 표시된 Azure 가격 계산기의 스크린샷." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
 1. **스토리지 계정 추가** 알림에서 **보기** 를 선택하여 계산기의 **스토리지 계정** 섹션을 확인합니다. 또는 **스토리지 계정** 섹션으로 직접 이동합니다.
+
 1. **지역** 에 대해 논리 앱의 지역을 선택합니다.
+
 1. **유형** 에 대해 **테이블 스토리지** 를 선택합니다.
+
 1. **계층** 에 대해 성능 계층을 선택합니다.
+
 1. **중복성** 에 대해 중복성 수준을 선택합니다.
+
 1. **스토리지 트랜잭션** 에서 Logic Apps 스토리지 계산기의 **테이블** 작업 번호를 10,000으로 나눈 값으로 입력합니다. 계산기가 큐 작업의 트랜잭션 단위로 작동하므로 이 단계는 필수적입니다.
+
 1. 추산된 테이블 스토리지 작업 비용을 검토합니다.
 
 ## <a name="next-step"></a>다음 단계

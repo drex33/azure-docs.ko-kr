@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: 06a37bc77d5eda453740881af9ca45ad4b8746e8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 9eb84e0b685a41cd0ead7aae1feb38c475465f83
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715172"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325675"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-analyze-monitoring-data"></a>Azure Monitor를 사용하여 가상 머신 모니터링: 모니터링 데이터 분석
 이 문서는 [Azure Monitor에서 가상 머신 및 해당 워크로드 모니터링](monitor-virtual-machine.md) 시나리오의 일부입니다. 구성을 완료한 후 가상 머신에 대한 모니터링 데이터를 분석하는 방법을 설명합니다.
@@ -96,7 +96,7 @@ VM 인사이트에는 모니터링되는 머신의 작동 상태, 시간별 성�
 | 가상 머신 게스트 | 메트릭을 사용하는 모든 Azure Monitor 기능에 사용할 수 있는 게스트 운영 체제 및 애플리케이션 성능 데이터입니다. | [데이터 수집 규칙](../agents/data-collection-rule-overview.md)을 사용하여 [Azure Monitor 에이전트](../agents/azure-monitor-agent-overview.md)가 설치되어 있어야 합니다. |
 
 ## <a name="analyze-log-data-with-log-analytics"></a>Log Analytics를 사용하여 로그 데이터 분석
-Log Analytics를 사용하면 로그 데이터의 사용자 지정 분석이 가능합니다. VM 인사이트에서 보기를 만드는 데 사용되는 데이터의 심층적 분석을 수행하려는 경우 Log Analytics를 사용합니다. 해당 데이터의 다양한 논리와 집계를 분석하거나, Azure Security Center와 Azure Sentinel에서 수집한 보안 데이터와 상태 및 가용성 데이터 간 상관 관계를 표시하거나, [워크로드](monitor-virtual-machine-workloads.md)에 대해 수집된 데이터를 사용하는 것이 좋습니다.
+Log Analytics를 사용하면 로그 데이터의 사용자 지정 분석이 가능합니다. VM 인사이트에서 보기를 만드는 데 사용되는 데이터의 심층적 분석을 수행하려는 경우 Log Analytics를 사용합니다. 해당 데이터의 다양한 논리 및 집계를 분석하거나, Microsoft Defender for Cloud 및 Microsoft Sentinel에서 수집한 보안 데이터를 상태 및 가용성 데이터와 상호 연결하거나, [워크로드에](monitor-virtual-machine-workloads.md)대해 수집된 데이터로 작업할 수 있습니다.
 
 Log Analytics를 사용하기 위해 로그 쿼리 작성 방법을 반드시 이해할 필요는 없습니다. 선택하여 수정 없이 실행하거나 사용자 지정 쿼리의 시작점으로 사용할 수 있는 여러 쿼리가 미리 빌드되어 있습니다. Log Analytics 화면의 맨 위에서 **쿼리** 를 선택하고 **리소스 종류** 가 **가상 머신** 이나 **가상 머신 확장 집합** 인 쿼리를 확인합니다. 해당 쿼리를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor Log Analytics에서 쿼리 사용](../logs/queries.md)을 참조하세요. Log Analytics를 사용하여 쿼리를 실행하고 결과를 사용하는 방법에 대한 자습서는 [Log Analytics 자습서](../logs/log-analytics-tutorial.md)를 참조하세요.
 

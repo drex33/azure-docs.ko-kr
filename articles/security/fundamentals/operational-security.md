@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab54243eb7109965941cf60edd9358133550c7d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 797f8b3ae5812ce4eaadc410252bd2ba2bc4e706
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046643"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297509"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -43,7 +43,7 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 이 백서는 Microsoft Azure 클라우드 플랫폼 내에서 Azure 운영 보안에 대한 Microsoft 접근 방식을 간략히 설명하고 다음 서비스를 다룹니다.
 1.  [Azure Monitor](../../azure-monitor/index.yml)
 
-2.  [Azure Security Center](../../security-center/security-center-introduction.md)
+2.  [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 
 3.  [Azure Monitor](../../azure-monitor/overview.md)
 
@@ -112,15 +112,15 @@ Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저
 
 배포를 만들 때 [Azure Automation](../../automation/automation-intro.md)의 runbook을 사용하여 필요한 업데이트를 설치합니다. 이 전체 프로세스를 포털에서 관리할 수 있으며 기본적인 세부 사항에 대해 걱정할 필요가 없습니다.
 
-## <a name="azure-security-center"></a>Azure Security Center
+## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독에 대한 정책뿐만 아니라 [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)에 대한 정책도 정의할 수 있으므로 더욱 세분화할 수 있습니다.
+Microsoft Defender for Cloud는 Azure 리소스를 보호 하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독에 대한 정책뿐만 아니라 [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)에 대한 정책도 정의할 수 있으므로 더욱 세분화할 수 있습니다.
 
 ### <a name="security-policies-and-recommendations"></a>보안 정책 및 권장 사항
 
 보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다.
 
-Security Center에서 회사의 보안 요구 사항 및 애플리케이션 유형 또는 데이터 민감도에 따라 정책을 정의합니다.
+클라우드의 Defender에서 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 데이터의 민감도에 따라 정책을 정의 합니다.
 
 ![보안 정책 및 권장 사항](./media/operational-security/azure-operational-security-fig5.png)
 
@@ -130,11 +130,11 @@ Security Center에서 회사의 보안 요구 사항 및 애플리케이션 유�
 
 ### <a name="data-collection"></a>데이터 수집
 
-Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 제공하며 위협에 경고하기 위해 VM(가상 머신)에서 데이터를 수집합니다. Security Center에 처음 액세스하는 경우 구독의 모든 VM에서 데이터 수집이 활성화됩니다. 데이터 수집을 사용하는 것이 좋지만 Security Center 정책에서 데이터 수집 해제를 설정할 수 있습니다.
+Defender for Cloud는 가상 머신 (Vm)에서 데이터를 수집 하 여 보안 상태를 평가 하 고, 보안 권장 사항을 제공 하 고, 위협에 대 한 경고를 제공 합니다. 클라우드의 첫 번째 액세스 Defender를 사용 하는 경우 구독의 모든 Vm에서 데이터 수집을 사용 하도록 설정 합니다. 데이터 컬렉션을 선택 하는 것이 좋지만, Defender에서 클라우드 정책에 대 한 데이터 수집을 해제 하 여 옵트아웃 (opt out) 할 수 있습니다.
 
 ### <a name="data-sources"></a>데이터 원본
 
-- Azure Security Center에서는 다음 소스의 데이터를 분석하여 보안 상태에 대한 가시성을 제공하고, 취약점을 식별하고, 완화 방법을 권장하고, 활성 위협을 감지합니다.
+- 클라우드 용 Microsoft Defender는 다음 원본에서 데이터를 분석 하 여 보안 상태에 대 한 가시성을 제공 하 고, 취약성을 파악 하 고, 완화를 권장 하며, 활성 위협을 검색 합니다.
 
 -   Azure 서비스: 해당 서비스의 리소스 공급자와 통신하여 배포한 Azure 서비스의 구성에 대한 정보를 사용합니다.
 
@@ -146,7 +146,7 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 ### <a name="data-protection"></a>데이터 보호
 
-고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
+고객이 위협을 방지, 감지 및 대응 하는 데 도움이 되도록 Microsoft Defender for Cloud는 구성 정보, 메타 데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함 하 여 보안 관련 데이터를 수집 하 고 처리 합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
 
 -   **데이터 분리**: 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
 
@@ -156,11 +156,11 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 ### <a name="data-location"></a>데이터 위치
 
-Azure Security Center는 크래시 덤프 파일의 임시 복사본을 수집하고 이용 시도 및 손상 성공의 증거를 찾기 위해 분석합니다. Azure Security Center는 작업 영역과 동일한 지역 내에서 이 분석을 수행하고 분석이 완료되면 임시 복사본을 삭제합니다. 컴퓨터 아티팩트는 VM과 동일한 지역에 중앙 집중식으로 저장됩니다.
+Microsoft Defender for Cloud는 크래시 덤프 파일의 임시 복사본을 수집하고 악용 시도 및 성공적인 손상의 증거를 분석합니다. Microsoft Defender for Cloud는 작업 영역과 동일한 지역 내에서 이 분석을 수행하고 분석이 완료되면 삭제 복사본을 삭제합니다. 컴퓨터 아티팩트는 VM과 동일한 지역에 중앙 집중식으로 저장됩니다.
 
 -   **Storage 계정**: 가상 머신이 실행되는 각 지역에 대해 지정됩니다. 그러면 데이터를 수집하는 가상 머신과 동일한 지역에 데이터를 저장할 수 있습니다.
 
--   **Azure Security Center Storage**: 보안 경고(파트너 경고 포함), 권장 사항 및 보안 상태에 대한 정보는 현재 미국에 있는 Azure Security Center Storage에 중앙 집중식으로 저장됩니다. 이 정보는 필요한 가상 머신에서 수집된 관련된 구성 정보 및 보안 이벤트를 포함하여 보안 경고, 권장 사항 또는 보안 상태를 제공할 수 있습니다.
+-   **Microsoft Defender for Cloud Storage:** 파트너 경고, 권장 사항 및 보안 상태를 포함한 보안 경고에 대한 정보는 현재 미국 중앙에 저장됩니다. 이 정보는 필요한 가상 머신에서 수집된 관련된 구성 정보 및 보안 이벤트를 포함하여 보안 경고, 권장 사항 또는 보안 상태를 제공할 수 있습니다.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -341,4 +341,4 @@ Microsoft는 클라우드 인프라의 탄력성을 보장하고 공격으로부
 
 Microsoft 보안 데이터 및 분석을 사용하여 더 지능적이고 효과적인 위협 검색을 수행합니다.
 
-- [Azure Security Center 계획 및 작업 가이드](../../security-center/security-center-planning-and-operations-guide.md) - 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 보안 센터를 최적으로 사용하기 위해 수행할 수 있는 일단의 단계 및 작업입니다.
+- [클라우드 계획 및 작업을 위한 Microsoft Defender](../../security-center/security-center-planning-and-operations-guide.md) 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 클라우드의 Defender 사용을 최적화 하기 위해 수행할 수 있는 일련의 단계 및 작업입니다.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2021
-ms.openlocfilehash: 043427f288a5e757e63aefe79b97953f40a15c69
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a7d998499285dbaa400269bc87d027febfd0ca14
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131461934"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325622"
 ---
 # <a name="send-log-data-to-azure-monitor-by-using-the-http-data-collector-api-preview"></a>HTTP 데이터 수집기 API를 사용하여 Azure Monitor에 로그 데이터 전송(미리 보기)
 
@@ -263,7 +263,6 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
     $authorization = 'SharedKey {0}:{1}' -f $customerId,$encodedHash
     return $authorization
 }
-
 
 # Create the function to create and post the request
 Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
@@ -569,7 +568,7 @@ public class ApiExample {
 | 대체 | Description | 가장 적합한 용도 |
 |---|---|---|
 | [사용자 지정 이벤트:](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties) Application Insights의 네이티브 SDK 기반 수집 | 일반적으로 애플리케이션 내에서 SDK를 통해 계측되는 Application Insights는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 전송할 수 있는 기능을 제공합니다. | <ul><li> 애플리케이션 내에서 생성되지만 기본 데이터 형식(요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택하지 않는 데이터</li><li> Application Insights의 다른 애플리케이션 데이터와 가장 상관 관계가 있는 데이터 </li></ul> |
-| Azure Monitor Logs의 데이터 수집기 API | Azure Monitor Logs의 데이터 수집기 API는 데이터를 수집하는 완전히 개방형 방식입니다. JSON 개체에 형식이 지정된 모든 데이터는 여기에서 전송할 수 있습니다. 전송된 데이터는 처리 과정을 거쳐 Monitor Logs의 다른 데이터와 상관 관계를 지정하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있게 됩니다. <br/><br/> 데이터를 Azure Blob Storage에 파일로 쉽게 업로드할 수 있으며, 여기에서 파일이 처리되어 Log Analytics에 업로드됩니다. 구현 샘플은 [데이터 수집기 API를 사용하여 데이터 파이프라인 만들기](./create-pipeline-datacollector-api.md)를 참조하세요. | <ul><li> Application Insights 내에서 계측된 애플리케이션 내에서 생성할 필요가 없는 데이터<br>예: 조회 및 팩트 테이블, 참조 데이터, 미리 집계된 통계 등 </li><li> 다른 Azure Monitor 데이터(Application Insights, 기타 Monitor Logs 데이터 형식, Security Center, Container Insights, 가상 머신 등)에 대해 상호 참조되는 데이터 </li></ul> |
+| Azure Monitor Logs의 데이터 수집기 API | Azure Monitor Logs의 데이터 수집기 API는 데이터를 수집하는 완전히 개방형 방식입니다. JSON 개체에 형식이 지정된 모든 데이터는 여기에서 전송할 수 있습니다. 전송된 데이터는 처리 과정을 거쳐 Monitor Logs의 다른 데이터와 상관 관계를 지정하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있게 됩니다. <br/><br/> 데이터를 Azure Blob Storage에 파일로 쉽게 업로드할 수 있으며, 여기에서 파일이 처리되어 Log Analytics에 업로드됩니다. 구현 샘플은 [데이터 수집기 API를 사용하여 데이터 파이프라인 만들기](./create-pipeline-datacollector-api.md)를 참조하세요. | <ul><li> Application Insights 내에서 계측된 애플리케이션 내에서 생성할 필요가 없는 데이터<br>예: 조회 및 팩트 테이블, 참조 데이터, 미리 집계된 통계 등 </li><li> 다른 Azure Monitor 데이터 (Application Insights, 다른 모니터 로그 데이터 형식, 클라우드 용 Defender, 컨테이너 Insights 및 virtual machines 등)에 대해 상호 참조 되는 데이터입니다. </li></ul> |
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | 이제 일반 공급되는 Azure Data Explorer는 Application Insights Analytics 및 Azure Monitor Logs를 구동하는 데이터 플랫폼입니다. 원시 형식의 데이터 플랫폼을 사용하면 클러스터(Kubernetes RBAC(역할 기반 액세스 제어), 보존율, 스키마 등)를 통해 완전한 유연성을 얻을 수 있지만 관리 오버헤드가 필요합니다. Azure Data Explorer는 [CSV, TSV 및 JSON](/azure/kusto/management/mappings) 파일을 비롯한 다양한 [수집 옵션](/azure/data-explorer/ingest-data-overview#ingestion-methods)을 제공합니다. | <ul><li> Application Insights 또는 Monitor Logs의 다른 데이터와 상관 관계가 없는 데이터 </li><li> 현재 Azure Monitor 로그에 없는 고급 수집 또는 처리 기능이 필요한 데이터 </li></ul> |
 
 

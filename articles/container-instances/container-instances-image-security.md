@@ -4,12 +4,12 @@ description: Azure Container Instances의 보안 이미지 및 비밀에 대한 
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 721e3f27af768bd3a31d069100d1f3b84fb5e624
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 9f0a30095605ae9ff52f5780bdf2f94454cf85a8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091453"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315732"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure 컨테이너 인스턴스에 대한 보안 고려 사항
 
@@ -34,7 +34,7 @@ ms.locfileid: "110091453"
 
 솔루션을 활용하여 프라이빗 레지스트리에서 컨테이너 이미지를 스캔하고 잠재적인 취약성을 식별합니다. 다양한 솔루션이 제공하는 위협 탐지의 깊이를 이해하는 것이 중요합니다.
 
-예를 들어, Azure Container Registry는 선택적으로 [Azure Security Center와 통합](../security-center/defender-for-container-registries-introduction.md)하여 레지스트리에 푸시된 모든 Linux 이미지를 자동으로 스캔합니다. Azure Security Center의 통합 Qualys 스캐너는 이미지 취약성을 감지하고 분류하고 수정 지침을 제공합니다.
+예를 들어 Azure Container Registry 필요에 따라 [Microsoft Defender for Cloud와 통합되어 레지스트리에](../security-center/defender-for-container-registries-introduction.md) 푸시된 모든 Linux 이미지를 자동으로 검색합니다. Microsoft Defender for Cloud의 통합 Qualys 스캐너는 이미지 취약성을 감지하고 분류하며 수정 지침을 제공합니다.
 
 [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) 및 [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview)와 같은 보안 모니터링 및 이미지 스캔 솔루션도 Azure Marketplace를 통해 사용할 수 있습니다.  
 
@@ -138,7 +138,7 @@ ms.locfileid: "110091453"
 
 Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지를 포함하여 컨테이너 에코시스템에 대한 관리 액세스에 대한 정확한 감사 추적을 유지 관리합니다. 이러한 로그는 감사 목적으로 필요할 수 있으며 보안 인시던트 후 포렌식 증거로 유용합니다. Azure 솔루션에는 다음이 포함됩니다.
 
-* 클러스터 환경의 보안 구성을 모니터링하고 보안 권장 사항을 생성하기 위한 [Azure Kubernetes Service와 Azure Security Center 통합](../security-center/defender-for-kubernetes-introduction.md)
+* [Microsoft Defender for Cloud와 Azure Kubernetes Service 통합하여](../security-center/defender-for-kubernetes-introduction.md) 클러스터 환경의 보안 구성을 모니터링하고 보안 권장 사항을 생성합니다.
 * [Azure Container Monitoring 솔루션](../azure-monitor/containers/containers.md)
 * [Azure Container Instances](container-instances-log-analytics.md) 및 [Azure Container Registry](../container-registry/monitor-service.md)에 대한 리소스 로그
 
@@ -146,6 +146,6 @@ Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지
 
 * 배포의 보안 상태를 개선하는 데 도움이 되는 포괄적인 권장 사항은 [Container Instances에 대한 Azure 보안 기준](security-baseline.md)을 참조하세요.
 
-* 컨테이너화된 환경에서 실시간 위협 탐지를 위해 [Azure Security Center](../security-center/container-security.md)를 사용하는 방법에 대해 자세히 알아보세요.
+* 컨테이너화된 환경에서 실시간 위협 탐지를 [위해 Microsoft Defender for Cloud를](../security-center/container-security.md) 사용하는 방법에 대해 자세히 알아보세요.
 
 * [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) 및 [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/)의 솔루션으로 컨테이너 취약성을 관리하는 방법에 대해 자세히 알아보세요.

@@ -1,0 +1,42 @@
+### YamlMime:FAQ
+metadata:
+  title: Microsoft Defender for Cloud FAQ - 사용 권한에 대한 질문
+  description: 이 FAQ는 위협을 방지, 검색 및 대응하는 데 도움이 되는 제품인 Microsoft Defender for Cloud의 사용 권한에 대한 질문에 답변합니다.
+  services: security-center
+  documentationcenter: na
+  author: memildin
+  manager: rkarlin
+  ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
+  ms.service: security-center
+  ms.devlang: na
+  ms.topic: conceptual
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 11/09/2021
+  ms.author: memildin
+  ms.openlocfilehash: 21450652a3f40a46059b597e2f6b339c4d078454
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132352716"
+title: 권한
+summary: ''
+sections:
+- name: 무시됨
+  questions:
+  - question: Microsoft Defender for Cloud에서 사용 권한은 어떻게 작동하나요?
+    answer: >
+      Microsoft Defender for Cloud는 Azure의 사용자, 그룹 및 서비스에 할당할 수 [있는 기본 제공 역할을](../role-based-access-control/built-in-roles.md) 제공하는 Azure [RBAC(Azure 역할 기반 액세스 제어)를](../role-based-access-control/role-assignments-portal.md)사용합니다.
+
+
+      Defender for Cloud는 리소스 구성을 평가하여 보안 문제와 취약성을 식별합니다. Defender for Cloud에는 리소스가 속한 구독 또는 리소스 그룹에 대한 소유자, 기여자 또는 읽기 프로그램의 역할이 할당된 경우에만 리소스와 관련된 정보가 표시됩니다.
+
+
+      [Defender for Cloud의](permissions.md) 역할 및 허용되는 작업에 대한 자세한 내용은 Microsoft Defender for Cloud의 권한을 참조하세요.
+  - question: 보안 정책을 누가 수정할 수 있나요?
+    answer: >-
+      보안 정책을 수정하려면 해당 구독의 보안 관리자이거나 소유자 또는 기여자여야 합니다.
+
+
+      보안 정책을 구성하는 방법을 알아보려면 [Microsoft Defender for Cloud에서 보안 정책 설정을 참조하세요.](tutorial-security-policy.md)

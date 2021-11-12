@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: b2675f6633da27c12e067cf93463f6cba94b473c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 073fd4918cec0a1ec1dc679285b62fd63fe078d3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769393"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325736"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -26,7 +26,7 @@ ms.locfileid: "122769393"
 > [!NOTE]
 > Azure Resource Manager 속성 변경 내용을 추적하려면 Azure Resource Graph [변경 기록](../../governance/resource-graph/how-to/get-resource-changes.md)을 참조하세요.
 
-변경 내용 추적 및 인벤토리는 [Azure Security Center FIM(파일 무결성 모니터링)](../../security-center/security-center-file-integrity-monitoring.md)을 사용하여 운영 체제 및 애플리케이션 파일과 Windows 레지스트리를 검사합니다. FIM에서 이러한 엔터티를 모니터링하는 동안 변경 내용 추적 및 인벤토리는 기본적으로 다음을 추적합니다.
+변경 내용 추적 및 인벤토리는 운영 체제 및 응용 프로그램 파일, Windows 레지스트리를 검사 하기 위해 [FIM (Cloud File Integrity Monitoring) 용 Microsoft Defender](../../security-center/security-center-file-integrity-monitoring.md) 를 사용 합니다. FIM에서 이러한 엔터티를 모니터링하는 동안 변경 내용 추적 및 인벤토리는 기본적으로 다음을 추적합니다.
 
 - 소프트웨어 변경 내용
 - Windows 서비스
@@ -34,7 +34,7 @@ ms.locfileid: "122769393"
 
 변경 내용 추적 및 인벤토리에 포함된 모든 기능을 사용하도록 설정하면 추가 요금이 발생할 수 있습니다. 계속하기 전에 [Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/) 및 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 검토하세요.
 
-변경 내용 추적 및 인벤토리는 데이터를 Azure Monitor 로그에 전달하고 이렇게 수집된 데이터는 Log Analytics 작업 영역에 저장됩니다. FIM(파일 무결성 모니터링) 기능은 **서버용 Azure Defender** 를 사용하도록 설정한 경우에만 사용할 수 있습니다. 자세한 내용은 Azure Security Center [가격 책정](../../security-center/security-center-pricing.md)을 참조하세요. FIM은 변경 내용 추적 및 인벤토리의 데이터를 저장하기 위해 만든 것과 동일한 Log Analytics 작업 영역에 데이터를 업로드합니다. 연결된 Log Analytics 작업 영역을 모니터링하여 정확한 사용량을 추적하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석하는 방법에 대한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.
+변경 내용 추적 및 인벤토리는 데이터를 Azure Monitor 로그에 전달하고 이렇게 수집된 데이터는 Log Analytics 작업 영역에 저장됩니다. FIM (파일 무결성 모니터링) 기능은 **서버에 대 한 Microsoft Defender** 를 사용 하도록 설정한 경우에만 사용할 수 있습니다. 자세한 내용은 클라우드 [가격](../../security-center/security-center-pricing.md) 에 대 한 Microsoft Defender를 참조 하세요. FIM은 변경 내용 추적 및 인벤토리의 데이터를 저장하기 위해 만든 것과 동일한 Log Analytics 작업 영역에 데이터를 업로드합니다. 연결된 Log Analytics 작업 영역을 모니터링하여 정확한 사용량을 추적하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석하는 방법에 대한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.
 
 Log Analytics 작업 영역에 연결된 가상 머신은 설치된 소프트웨어, Windows 서비스, Windows 레지스트리와 파일, 모니터링되는 서버의 Linux 디먼에 대한 변경 내용의 데이터를 수집하기 위해 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 사용합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 로그에 데이터를 보냅니다. Azure Monitor 로그는 수신한 데이터에 논리를 적용하고, 데이터를 기록하고, 분석에 사용할 수 있게 만듭니다.
 

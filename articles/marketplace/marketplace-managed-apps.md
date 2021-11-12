@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
-ms.date: 09/04/2020
-ms.openlocfilehash: 73c8daf49ccdfeee1903a3c0ad823cdd3e52c141
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.date: 11/11/2021
+ms.openlocfilehash: 3a0ebed6767666373095b9ec33d2f20228c9d373
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537853"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289664"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Azure 관리형 애플리케이션 게시 가이드
 
@@ -28,11 +28,11 @@ Azure *관리형 애플리케이션* 은 Azure Marketplace에 Azure 애플리케
 >[!NOTE]
 >예를 들어, 파트너는 시스템 통합자 또는 MSP(관리되는 서비스 공급자)일 수 있습니다.  
 
-## <a name="managed-application-offer-requirements"></a>관리형 애플리케이션 제품 요구 사항
+## <a name="managed-application-offer-requirements"></a>관리되는 응용 프로그램 제품 요구 사항
 
 |요구 사항 |세부 정보  |
 |---------|---------|
-|Azure 구독 | 관리형 애플리케이션은 고객의 구독에 배포되어야 하지만 타사에서 관리할 수 있습니다. |
+|Azure 구독 | 관리되는 응용 프로그램은 고객의 구독에 배포되어야 하지만 타사에서 관리할 수 있습니다. |
 |청구 및 계량    |  리소스는 고객의 Azure 구독에서 제공됩니다. 종량제 지불 모델을 사용하는 Azure 리소스는 Microsoft를 통해 고객과 거래되며 고객의 Azure 구독을 통해 청구됩니다. <br><br> BYOL Azure 리소스의 경우 Microsoft는 고객 구독에 청구된 모든 인프라 비용을 청구하지만 사용자는 고객에게 직접 소프트웨어 라이선스 요금을 청구합니다.        |
 |Azure 관리형 애플리케이션 패키지    |   고객의 구독에 애플리케이션을 배포하는 데 사용되는 구성된 Azure Resource Manager 템플릿 및 UI 정의 만들기입니다.<br><br>관리형 애플리케이션을 만드는 방법에 대한 자세한 내용은 [관리형 애플리케이션 개요](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)를 참조하세요.|
 

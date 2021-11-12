@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: dad46e21b35225855d787c367d112362fc95a463
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
-ms.translationtype: HT
+ms.openlocfilehash: 140f15f8940f61c14994b8e72a78c1b5b4f360f2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010544"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327104"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Azure IoT 디바이스 제조업체를 위한 보안 방식
 IoT 디바이스를 출시하는 제조업체가 증가하기 때문에, 일반적인 방식에 대한 지침을 확인하는 것이 유용합니다. 이 문서에는 Azure IoT DPS(Device Provisioning Service)에서 사용할 디바이스를 제조할 때 고려할만한 권장 보안 방식이 요약되어 있습니다.  
@@ -188,6 +188,6 @@ TPM 칩이 있는 디바이스를 제조하는 경우 중요한 단계는 TPM의
 
 이 문서에 포함된 권장 보안 방식 외에, Azure IoT는 보안 하드웨어를 선택하고 보안 IoT 배포를 만드는 데 유용한 리소스를 제공합니다. 
 - Azure IoT [보안 권장 사항](../iot-fundamentals/security-recommendations.md)은 배포 프로세스를 안내합니다. 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/)는 보안 IoT 배포를 만드는 데 유용한 서비스를 제공합니다. 
+- [Microsoft Defender for Cloud는](https://azure.microsoft.com/services/security-center/) 보안 IoT 배포를 만드는 데 도움이 되는 서비스를 제공합니다. 
 - 하드웨어 환경을 평가하는 데 도움이 필요하면 [IoT 보안 평가](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf) 백서를 참조하세요. 
 - 보안 하드웨어를 선택하는 데 도움이 필요하면 [IoT 배포에 적합한 보안 하드웨어](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf)를 참조하세요. 

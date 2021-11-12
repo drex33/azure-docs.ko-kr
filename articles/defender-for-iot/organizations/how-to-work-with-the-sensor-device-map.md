@@ -1,14 +1,14 @@
 ---
 title: 센서 디바이스 맵 작업
 description: 디바이스 맵은 검색된 네트워크 디바이스를 그래픽으로 표시합니다. 이 맵을 사용하여 디바이스 정보, 네트워크 슬라이스를 분석 및 관리하고 보고서를 생성합니다.
-ms.date: 1/7/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 58ccb69606f41a279424d0faa0241befbe9914bf
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: 559c3691ac83fa031c71b563bd43dce4fa77c31e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137796"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315447"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>디바이스 맵에서 센서 검색 조사
 
@@ -269,7 +269,7 @@ IT 서브넷을 축소하려면:
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="경고 수"::: | 디바이스와 연결된 경고 수입니다. |
 | :::image type="icon" source="media/how-to-work-with-maps/type-v2.png" border="false"::: | 디바이스 유형 아이콘입니다(예: 스토리지, PLC 또는 히스토리언). |
 | :::image type="content" source="media/how-to-work-with-maps/grouped-v2.png" alt-text="그룹화된 디바이스"::: | IT 네트워크의 서브넷에 그룹화된 디바이스 수입니다. 이 예에서는 8입니다. |
-| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="디바이스 학습 기간"::: | 학습 기간 후에 검색되었고 네트워크 디바이스로 인증되지 않은 디바이스입니다. |
+| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="디바이스 학습 기간"::: | Learning 기간 후에 검색 되었으며 네트워크 장치로 권한이 부여 되지 않은 장치입니다. |
 | 실선 | 디바이스 간의 논리적 연결입니다. |
 | :::image type="content" source="media/how-to-work-with-maps/new-v2.png" alt-text="새 디바이스"::: | 학습을 완료한 후 검색된 새 디바이스입니다. |
 
@@ -320,7 +320,7 @@ IT 서브넷을 축소하려면:
 | 운영 체제 | 센서에서 검색한 디바이스 OS입니다. |
 | Purdue 계층 | 다음을 포함하여 이 디바이스에서 센서에 의해 식별된 Purdue 계층입니다. <br /> - 자동 <br /> - 공정 제어 <br /> - 감독 <br /> - 엔터프라이즈 |
 | Description | 자유 텍스트 필드입니다. <br /> 디바이스에 대한 자세한 정보를 추가합니다. |
-| 특성 | 디바이스에서 추가 정보가 발견되었습니다. 예를 들어, 다음을 확인 합니다. 실행 하 고 키 상태, 보안 상태, 또는 상태 변경 된 경우에 대 한 정보입니다.  <br /> 정보는 읽기 전용이며 특성 섹션에서 업데이트할 수 없습니다. |
+| 특성 | 장치에서 추가 정보가 검색 되었습니다. 예를 들어 PLC 실행 및 키 상태, PLC의 보안 상태 또는 상태가 변경 된 시간에 대 한 정보를 확인 합니다.  <br /> 정보는 읽기 전용 이며 특성 섹션에서 업데이트할 수 없습니다. |
 | 설정 | 가양성을 방지하기 위해 디바이스 설정을 수동으로 변경할 수 있습니다. <br /> - **인증된 디바이스**: 학습 기간 중에 네트워크에서 검색된 모든 디바이스가 인증된 디바이스로 식별됩니다. 학습 기간 후에 검색되는 디바이스는 기본적으로 인증되지 않은 디바이스로 표시됩니다. 이 정의는 수동으로 변경할 수 있습니다. <br /> - **스캐너로 알려짐**:이 디바이스가 스캐너로 알려져 있고 이에 관해 경고할 필요가 없음을 알고 있는 경우 이 옵션을 사용하도록 설정합니다. <br /> - **프로그래밍 디바이스**:이 디바이스가 프로그래밍 디바이스로 알려져 있고 프로그래밍 변경을 수행하는 데 사용되는 것을 알고 있는 경우 이 옵션을 사용하도록 설정합니다. 이 디바이스를 프로그래밍 디바이스로 식별하면 이 자산에서 발생한 프로그래밍 변경에 대한 경고가 방지됩니다. |
 | 사용자 지정 그룹 | 이 디바이스가 참여하는 디바이스 맵의 사용자 지정 그룹입니다. |
 | 시스템 상태 | 디바이스의 보안 및 인증 상태: <br /> - 경고가 없는 경우 상태는 `Secured`입니다 <br /> - 디바이스에 대한 경고가 있으면 경고 수가 표시됩니다 <br /> - 학습 기간 후 네트워크에 추가된 디바이스는 `Unauthorized` 상태가 표시됩니다 설정에서 수동으로 디바이스를 `Authorized Device`로 정의할 수 있습니다. <br /> - 이 디바이스의 주소가 동적 주소로 정의되는 경우 `DHCP`가 상태에 추가됩니다. |

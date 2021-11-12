@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4fb4981925593a22ed65df9d3ed0da5f45062f23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a62e6d5b9450ded54d4dce51cbd4469abbbdcd3b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578932"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297376"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
@@ -79,13 +79,13 @@ NSG는 애플리케이션 계층 검사 또는 인증된 액세스 제어를 제
 
 * [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md)
 
-#### <a name="asc-just-in-time-vm-access"></a>ASC Just-In-Time VM 액세스
+#### <a name="defender-for-cloud-just-in-time-vm-access"></a>클라우드 just-in-time VM 액세스를 위한 Defender
 
-[Azure Security Center](../../security-center/security-center-introduction.md)는 VM에서 NSG를 관리하고 적절한 Azure 역할 기반 액세스 제어 [Azure RBAC](../../role-based-access-control/overview.md) 권한이 있는 사용자가 액세스를 요청할 때까지 VM에 대한 액세스를 잠글 수 있습니다. 사용자에게 성공적으로 권한이 부여된 경우 ASC는 NSG를 수정하여 지정된 시간 동안 선택한 포트에 대한 액세스를 허용합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
+[클라우드 용 Microsoft Defender](../../security-center/security-center-introduction.md) 는 Vm에서 nsgs를 관리 하 고 적절 한 azure 역할 기반 액세스 제어 [azure RBAC](../../role-based-access-control/overview.md) 권한이 있는 사용자가 액세스를 요청할 때까지 vm에 대 한 액세스를 잠글 수 있습니다. 사용자가 성공적으로 권한이 부여 되 면 Defender는 지정 된 시간 동안 선택한 포트에 대 한 액세스를 허용 하도록 NSGs를 수정 합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
 
 자세한 정보:
 
-* [Azure Security Center 적시 액세스](../../security-center/security-center-just-in-time.md)
+* [클라우드 Just-in-time 액세스를 위한 Microsoft Defender](../../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>서비스 엔드포인트
 
@@ -325,7 +325,7 @@ Microsoft에서는 Azure 플랫폼의 일부로 **기본** 으로 알려진 DDoS
 * **적응형 튜닝:** 지능형 트래픽 프로파일링으로 시간별 애플리케이션 트래픽을 학습하고, 사용자의 서비스에 가장 적합한 프로필을 업데이트합니다. 트래픽이 시간이 지남에 따라 변경되면서 프로필이 조정됩니다. 계층 3~계층 7 보호: 웹 애플리케이션 방화벽과 함께 사용될 경우 전체 스택 DDoS 보호를 제공합니다.
 * **광범위한 완화 규모:** 가장 큰 규모로 알려진 DDoS 공격으로부터 시스템을 보호할 수 있는 글로벌 역량으로 60가지 공격을 완화할 수 있습니다.
 * **공격 메트릭:** Azure Monitor를 통해 각 공격으로부터 요약된 메트릭에 액세스할 수 있습니다.
-* **공격 경고:** 기본 제공되는 공격 메트릭을 사용하여 공격 시작 및 중지 시, 그리고 공격이 진행되는 동안 경고를 구성할 수 있습니다. 경고는 Microsoft Azure Monitor 로그, Splunk, Azure Storage, 메일 및 Azure Portal과 같은 작업 소프트웨어에 통합됩니다.
+* **공격 경고:** 기본 제공되는 공격 메트릭을 사용하여 공격 시작 및 중지 시와 공격이 진행되는 동안 경고를 구성할 수 있습니다. 경고는 Microsoft Azure Monitor 로그, Splunk, Azure Storage, 메일 및 Azure Portal과 같은 작업 소프트웨어에 통합됩니다.
 * **비용 보장:** 문서화된 DDoS 공격에 대한 데이터 전송 및 애플리케이션 확장 서비스 크레딧이 제공됩니다.
 * **DDoS 빠른 응답** DDoS Protection 표준 고객은 이제 활성 공격 중에 빠른 응답 팀에 액세스할 수 있습니다. DRR은 공격 조사, 공격 중 사용자 지정 완화 및 공격 후 분석에 도움이 될 수 있습니다.
 
@@ -369,11 +369,11 @@ Network Watcher 및 사용자 실험실에서 몇 가지 기능 테스트를 시
 > [!NOTE]
 > 이 서비스의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=network-watcher)를 참조하세요.
 
-### <a name="azure-security-center"></a>Azure Security Center
+### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-Azure Security Center는 위협을 예방, 감지 및 대응하는 데 도움이 되며 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 다양한 보안 솔루션 집합에서 작동합니다.
+클라우드 용 Microsoft Defender는 위협을 예방, 감지 및 대응 하는 데 도움이 되며 Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 제공 합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 다양한 보안 솔루션 집합에서 작동합니다.
 
-Security Center는 다음과 같은 방법을 통해 네트워크 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
+클라우드 용 Defender는 다음을 통해 네트워크 보안을 최적화 하 고 모니터링 하는 데 도움이 됩니다.
 
 * 네트워크 보안 권장 사항 제공
 * 네트워크 보안 구성의 상태 모니터링
@@ -381,7 +381,7 @@ Security Center는 다음과 같은 방법을 통해 네트워크 보안을 최�
 
 자세한 정보:
 
-* [Azure Security Center 소개](../../security-center/security-center-introduction.md)
+* [클라우드 용 Microsoft Defender 소개](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>가상 네트워크 TAP
 

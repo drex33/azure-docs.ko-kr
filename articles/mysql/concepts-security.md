@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f2e089532ce0091c633bab86ee5bed0fcf948e98
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 1aa2367a4bf9f4bebab6358d60b86ac19b6d3bf7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642202"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297471"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Azure Database for MySQL의 보안
 
@@ -49,7 +49,7 @@ Azure Database for MySQL 서버를 만드는 동안 관리자 계정 사용자�
 
 ## <a name="threat-protection"></a>위협 보호
 
-서버에 액세스하거나 악용하려는 시도 같은 비정상적이고 잠재적으로 유해한 활동을 검색하는 [오픈 소스 관계형 데이터베이스용 Azure Defender](../security-center/defender-for-databases-introduction.md)에 옵트인 할 수 있습니다.
+비정상적이고 잠재적으로 유해한 서버 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색하는 [오픈 소스 관계형 데이터베이스용 Microsoft Defender에](../security-center/defender-for-databases-introduction.md) 옵트인할 수 있습니다.
 
 [감사 로깅](concepts-audit-logs.md)은 데이터베이스의 활동을 추적하는 데 사용할 수 있습니다. 
 

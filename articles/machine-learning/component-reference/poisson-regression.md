@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 3c77b0ac501d6829429cde79ca9165a1df450215
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 0ab03efd4ca6bf372b90ba04744c929082e85796
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570249"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339583"
 ---
 # <a name="poisson-regression"></a>포아송 회귀
 
@@ -95,13 +95,13 @@ ms.locfileid: "131570249"
     > 
     > - **매개 변수 범위** 옵션을 선택하고 매개 변수에 단일 값을 입력하는 경우 다른 매개 변수가 값 범위에서 변경되더라도 지정한 단일 값은 스윕 전체에서 사용됩니다.
 
-8.  파이프라인을 제출합니다.
+8. 파이프라인을 제출합니다.
 
 ## <a name="results"></a>결과
 
 학습 완료 후 다음이 수행됩니다.
 
-+ 학습된 모델의 스냅샷을 저장하려면 학습 구성 요소를 선택한 다음, 오른쪽 패널에서 출력 +로그 탭으로 **전환합니다.** **데이터 세트 등록** 아이콘을 클릭합니다.  저장된 모델을 구성 요소 트리에서 구성 요소로 찾을 수 있습니다. 
+- 학습된 모델의 스냅샷을 저장하려면 학습 구성 요소를 선택한 다음, 오른쪽 패널에서 출력 +로그 탭으로 **전환합니다.** **데이터 세트 등록** 아이콘을 클릭합니다.  저장된 모델을 구성 요소 트리에서 구성 요소로 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

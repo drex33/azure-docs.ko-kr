@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 0b936ecbd80ba0b258cea8b043f4bef789b67a35
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 0183e56d9bdf0c995dbbcf273914790eb0909e7d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751304"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297548"
 ---
 # <a name="generate-maps"></a>맵 생성
 
@@ -43,7 +43,7 @@ Sentinel과 관련된 종속성은 다음과 같습니다.
 
 - 위성 이미지를 다운로드하기 위해 Sentinel 성능을 사용합니다. Sentinel 성능 상태 및 유지 관리 [작업](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome)을 확인합니다.
 - Sentinel은 사용자당 두 개의 동시 [다운로드 스레드](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services)만 허용합니다.
-- 정밀도 맵 생성은 [Sentinel 적용 범위 및 다시 방문 빈도]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage)의 영향을 받습니다.
+- 정밀도 맵 생성은 [Sentinel 적용 범위 및 다시 방문 빈도](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage)의 영향을 받습니다.
 
 ## <a name="create-a-sensor-placement-map"></a>센서 배치 맵 만들기
 이 섹션에서는 센서 배치 맵을 만드는 절차에 대해 자세히 설명합니다.

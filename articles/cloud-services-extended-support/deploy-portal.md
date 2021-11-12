@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: a147d4ca7b947c6a1cdfeec1587e9ae6b2d27fa0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4e35814e898e35a7ba9251d3eb36f6bde4d086e1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448910"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339994"
 ---
 # <a name="deploy-a-azure-cloud-services-extended-support-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Cloud Services(추가 지원) 배포
 이 문서에서는 Azure Portal을 사용하여 Azure Cloud Service(추가 지원) 배포를 만드는 방법에 대해 설명합니다. 
@@ -65,4 +65,4 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.
-- [Cloud Services(추가 지원) 샘플 리포지토리](https://github.com/Azure-Samples/cloud-services-extended-support)를 방문합니다.
+- [Cloud Services(추가 지원) 샘플 리포지토리](https://github.com/Azure-Samples/cloud-services-extended-support) 방문

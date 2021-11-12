@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 269769c8bc80986230cbbee4225a38523f605724
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 8114492c9740cf706e9d2ba6fbd99f22029ba769
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570168"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289834"
 ---
 # <a name="train-anomaly-detection-model-component"></a>변칙 검색 모델 구성 요소 학습
 
-이 문서에서는 Azure Machine Learning Designer에서 변칙 검색 모델 학습 구성 요소를 사용하여 학습된 변칙 검색 모델을 만드는 방법을 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 변칙 검색 모델 학습 구성 요소를 사용하여 학습된 변칙 검색 모델을 만드는 방법을 설명합니다.
 
 구성 요소는 변칙 검색 모델 및 레이블이 지정되지 않은 데이터 세트에 대한 매개 변수 집합을 입력으로 사용합니다. 학습 데이터에 대한 레이블 세트와 함께 학습된 변칙 검색 모델을 반환합니다.  
 
@@ -26,7 +26,7 @@ ms.locfileid: "131570168"
 
 ## <a name="how-to-configure-train-anomaly-detection-model"></a>변칙 검색 모델 학습을 구성하는 방법 
 
-1.  디자이너에서 파이프라인에 **변칙 검색 모델 학습** 구성 요소를 추가합니다. 이 구성 요소는 **변칙 검색** 범주에서 찾을 수 있습니다.
+1.  디자이너의 파이프라인에 **변칙 검색 모델 학습** 구성 요소를 추가합니다. 이 구성 요소는 **변칙 검색** 범주에서 찾을 수 있습니다.
 
 2. 커넥트 [PCA 기반 변칙](pca-based-anomaly-detection.md)검색과 같은 변칙 검색용으로 설계된 구성 요소 중 하나입니다.
 
@@ -48,10 +48,8 @@ ms.locfileid: "131570168"
 
 + 학습된 모델의 스냅샷을 저장하려면 구성 요소를 선택합니다. 그런 다음, 오른쪽 패널의 **출력 + 로그** 탭 아래에서 **데이터 세트 등록** 아이콘을 선택합니다.   
 
- 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Machine Learning [사용할 수 있는 구성 요소 집합을](component-reference.md) 참조하세요. 
 
 디자이너 구성 [요소와 관련한 오류](designer-error-codes.md) 목록은 디자이너의 예외 및 오류 코드를 참조하세요.
-'

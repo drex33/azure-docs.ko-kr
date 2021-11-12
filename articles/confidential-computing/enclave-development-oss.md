@@ -1,20 +1,20 @@
 ---
 title: Azure 기밀 컴퓨팅에서 오픈 소스 솔루션을 사용 하 여 응용 프로그램 enclaves 개발
 description: 도구를 사용 하 여 Azure 기밀 컴퓨팅을 위한 Intel SGX 응용 프로그램을 개발 하는 방법을 알아봅니다.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e056bc01b77bf94850fe0459b9d99cf5dc4a1c5f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 71be688b3f69860468ce6c638e484caae0ba72f5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102819"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290213"
 ---
 # <a name="open-source-solutions-to-build-enclave-applications"></a>Enclave 응용 프로그램을 빌드하기 위한 오픈 소스 솔루션
 

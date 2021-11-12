@@ -16,12 +16,12 @@ ms.date: 06/01/2021
 ms.author: pamela
 ms.custom: contperf-fy21q3
 ms.reviewer: mathoma
-ms.openlocfilehash: bed0a193a66d9f7ae19a42b61ec4562d11448669
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: f698b4c9393d536152d7058115ab7d82ad29b151
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132157251"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298113"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>검사 목록: Azure VM의 SQL Server에 대한 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,7 +62,7 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
     - 로그 드라이브의 경우 [프리미엄 P30 - P80 디스크](../../../virtual-machines/disks-types.md#premium-ssds)를 평가하는 동안 용량 및 테스트 성능과 비용에 대해 계획합니다.
       - 밀리초보다 적은 단위의 스토리지 대기 시간이 필요한 경우 트랜잭션 로그에 [Azure 울트라 디스크](../../../virtual-machines/disks-types.md#ultra-disks)를 사용합니다. 
       - M 시리즈 가상 머신 배포의 경우 Azure 울트라 디스크를 사용하는 것보다 [쓰기 가속기](../../../virtual-machines/how-to-enable-write-accelerator.md)를 사용하는 것이 좋습니다.
-    - [](/sql/relational-databases/databases/tempdb-database) `D:\` 최적의 VM 크기를 선택한 후에 대부분의 SQL Server 작업에 대해 로컬 임시 SSD (기본) 드라이브에 tempdb를 넣습니다. 
+    - 최적의 VM 크기를 선택한 후 대부분의 SQL Server 워크로드에 대한 로컬 임시 SSD(기본 ) 드라이브에 [tempdb를](/sql/relational-databases/databases/tempdb-database) `D:\` 배치합니다. 
       - tempdb를 배치하기에 로컬 드라이브의 용량이 부족한 경우 VM의 크기를 조정하는 것이 좋습니다. 자세한 내용은 [데이터 파일 캐싱 정책](performance-guidelines-best-practices-storage.md#data-file-caching-policies)을 참조하세요.
 - 대상 가상 머신의 최대 IOPS 및 처리량 한계까지 I/O 대역폭을 늘리려면 [스토리지 공간](/windows-server/storage/storage-spaces/overview)을 사용하여 여러 Azure 데이터 디스크를 스트라이프합니다.
 - 데이터 파일 디스크에 대해 [호스트 캐싱](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits)을 읽기 전용으로 설정합니다.
@@ -112,8 +112,8 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
 - [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 등록하여 다양한 [기능 이점](sql-server-iaas-agent-extension-automate-management.md#feature-benefits)의 잠금을 해제합니다.
 - SQL Server 작업에 가장 적합한 [백업 및 복원 전략](backup-restore.md#decision-matrix)을 활용합니다.
 - 가상 머신에서 [가속화된 네트워킹을 사용할 수](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) 있는지 확인합니다.
-- [Azure Security Center](../../../security-center/index.yml)를 활용하여 가상 머신 배포의 전반적인 보안 상태를 향상시킵니다.
-- 취약성 평가 및 Just-In-Time 액세스를 비롯한 특정 [SQL Server VM 검사](../../../security-center/defender-for-sql-introduction.md)에 대해 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합된 [Azure Defender](../../../security-center/azure-defender.md)를 활용하여 필요한 경우 합법적인 사용자가 가상 머신에 액세스할 수 있도록 허용하는 동시에 공격 서비스를 줄일 수 있습니다. 자세한 내용은 [취약성 평가](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [SQL Server VM에 대한 취약성 평가 사용](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) 및 [Just-In-Time 액세스](../../../security-center/just-in-time-explained.md)를 참조하세요. 
+- [Microsoft Defender for Cloud를](../../../security-center/index.yml) 활용하여 가상 머신 배포의 전반적인 보안 태세를 개선합니다.
+- Microsoft [Defender for Cloud와](../../../security-center/azure-defender.md)통합된 [클라우드용 Microsoft Defender를](https://azure.microsoft.com/services/security-center/)활용하여 취약성 평가 및 Just-In-Time 액세스를 비롯한 특정 [SQL Server VM 적용 범위에](../../../security-center/defender-for-sql-introduction.md) 대해 적법한 사용자가 필요한 경우 가상 머신에 액세스할 수 있도록 허용하면서 공격 서비스를 줄입니다. 자세한 내용은 [취약성 평가](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [SQL Server VM에 대한 취약성 평가 사용](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) 및 [Just-In-Time 액세스](../../../security-center/just-in-time-explained.md)를 참조하세요. 
 - [Azure Advisor](../../../advisor/advisor-overview.md)를 활용하여 [성능](../../../advisor/advisor-performance-recommendations.md), [비용](../../../advisor/advisor-cost-recommendations.md), [안정성](../../../advisor/advisor-high-availability-recommendations.md), [운영 효율성](../../../advisor/advisor-operational-excellence-recommendations.md) 및 [보안 권장 사항](../../../advisor/advisor-security-recommendations.md)을 해결합니다.
 - [Azure Monitor](../../../azure-monitor/vm/monitor-virtual-machine.md)를 활용하여 SQL Server 환경에서 원격 분석 데이터를 수집, 분석 및 조치합니다. 여기에는 [VM 인사이트](../../../azure-monitor/vm/vminsights-overview.md)를 사용하여 인프라 문제를 식별하고 심층 진단을 위해 [Log Analytics](../../../azure-monitor/logs/log-query-overview.md)로 데이터를 모니터링하는 작업이 포함됩니다.
 - 개발 및 테스트 환경에 대해 [자동 종료](../../../automation/automation-solution-vm-management.md)를 사용하도록 설정합니다. 
@@ -126,7 +126,7 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
 
 Windows 클러스터의 경우 모범 사례를 고려합니다. 
 
-* 가능 하면 SQL Server vm을 여러 서브넷에 배포 하 여 Azure Load Balancer 또는 분산 네트워크 이름 (DNN)에 대 한 종속성을 방지 하 여 HADR 솔루션으로 트래픽을 라우팅합니다. 
+* AZURE LOAD BALANCER 또는 DNN(분산 네트워크 이름)에 대한 종속성을 방지하여 HADR 솔루션으로 트래픽을 라우팅하기 위해 가능하면 여러 서브넷에 SQL Server VM을 배포합니다. 
 * 일시적인 네트워크 실패 또는 Azure 플랫폼 유지 관리로 인한 예기치 않은 중단을 방지하기 위해 덜 적극적인 매개 변수로 클러스터를 변경합니다. 자세히 알아보려면 [하트비트 및 임계값 설정](hadr-cluster-best-practices.md#heartbeat-and-threshold)을 참조하세요. Windows Server 2012 이상에서는 다음 권장 값을 사용합니다. 
    - **SameSubnetDelay**: 1초
    - **SameSubnetThreshold**: 하트비트 40개

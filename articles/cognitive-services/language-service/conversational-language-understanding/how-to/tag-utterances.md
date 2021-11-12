@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
-ms.openlocfilehash: 697a42d32fd0af80737ad65a8350b719ffc5c7a6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 73ab3df8a7f13ec2c734206772f55bee626b871a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100909"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339937"
 ---
 # <a name="how-to-tag-utterances"></a>태그를 발화에 지정하는 방법
 
-프로젝트에 대한 [스키마가 빌드](build-schema.md)되면 학습 발화를 프로젝트에 추가해야 합니다. 발화는 사용자가 프로젝트와 상호 작용할 때 사용하는 것과 비슷합니다. 발화를 추가하는 경우 해당 발화가 속하는 의도를 할당해야 합니다. 발화가 추가되면 프로젝트의 엔터티를 레이블로 발화 내의 단어에 지정합니다. 엔터티에 대한 레이블은 다양한 발화에서 일관되어야 합니다. 
+프로젝트에 대한 [스키마가 빌드](build-schema.md)되면 학습 발화를 프로젝트에 추가해야 합니다. 발화는 사용자가 프로젝트와 상호 작용할 때 사용하는 것과 비슷합니다. 발화를 추가하는 경우 해당 발화가 속하는 의도를 할당해야 합니다. 발화가 추가되면 프로젝트의 엔터티를 레이블로 발화 내의 단어에 지정합니다. 엔터티에 대한 레이블은 다양한 발화에서 일관되어야 합니다.
 
 태그 지정은 발화를 의도에 할당하고 엔터티를 레이블로 지정하는 프로세스입니다. 태그를 발화에 지정하는 데 시간을 소모할 수 있습니다. 즉, 프로젝트에 대한 기본 기계 학습 모델을 학습시킬 데이터를 도입하고 구체화합니다. 기계 학습 모델은 사용자가 제공하는 예제를 기반으로 하여 일반화됩니다. 더 많은 예제를 제공할수록 모델에서 더 많은 데이터 요소를 사용하여 더 효율적인 일반화를 만들어야 합니다.
 

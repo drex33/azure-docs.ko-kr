@@ -1,7 +1,7 @@
 ---
 title: SAP BW에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 SAP Business Warehouse 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 SAP Business Warehouse에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
@@ -9,23 +9,23 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 7a1f472858480fff785f28abef9262721bcbc799
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2cbdd3dc237c3f2e7b3cf23bb844a06fdd40d605
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836075"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325850"
 ---
-# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 SAP Business Warehouse 데이터 복사
+# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 SAP Business Warehouse에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [현재 버전](connector-sap-business-warehouse.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 BW(SAP Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 SAP Business Warehouse (BW)에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대한 서비스의 전반적인 지원을 알아보려면 각 SAP 커넥터, 비교 및 지침에 대한 자세한 소개와 함께 Azure Data Factory 사용하여 SAP [데이터 통합 백서를](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 참조하세요.
+>SAP 데이터 통합 시나리오에 대 한 서비스의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 및 각 sap 커넥터에 대 한 자세한 소개, 비교 및 지침을 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -41,6 +41,9 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 - SAP Business Warehouse **버전 7.x**
 - MDX 쿼리를 사용하여 **InfoCubes 및 QueryCubes**(BEx 쿼리 포함)에서 데이터를 복사합니다.
 - 기본 인증을 사용하여 데이터를 복사합니다.
+
+>[!NOTE]
+>SAP Business Warehouse 커넥터는 현재 MDX를 사용 하는 매개 변수를 지원 하지 않습니다.  MDX 매개 변수를 사용 하 여 필터링 해야 하는 경우 대신 대체 [SAP Open Hub 커넥터](connector-sap-business-warehouse-open-hub.md) 를 사용 하는 것을 고려할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -197,7 +200,7 @@ SAP BW에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW에 대한 데이터 형식 매핑
 
-SAP BW 데이터를 복사할 때 SAP BW 데이터 형식에서 서비스 내에서 내부적으로 사용되는 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+SAP BW에서 데이터를 복사 하는 경우 SAP BW 데이터 형식에서 서비스 내부에 사용 되는 중간 데이터 형식으로 다음 매핑이 사용 됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 | SAP BW 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |

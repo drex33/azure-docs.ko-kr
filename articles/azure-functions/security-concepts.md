@@ -3,12 +3,12 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 97a58c38f08e3b22f25ca2834a26692452fcff9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f215e67f3ea27e789ebd10e7baa487528339ee8e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529183"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316169"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -22,9 +22,9 @@ ms.locfileid: "122529183"
 
 이 섹션에서는 함수 앱을 최대한 안전하게 구성하고 실행하는 방법을 안내합니다. 
 
-### <a name="security-center"></a>Security Center
+### <a name="defender-for-cloud"></a>클라우드 용 Defender
 
-Security Center는 포털의 함수 앱과 통합됩니다. 잠재적인 구성 관련 보안 취약성에 대한 빠른 평가를 무료로 제공합니다. 전용 계획에서 실행되는 함수 앱은 Security Center의 실시간 보안 기능을 사용할 수 있으며, 이 경우 추가 비용이 듭니다. 자세히 알아보려면 [Azure App Service 웹 앱 및 API 보호](../security-center/defender-for-app-service-introduction.md)를 참조하세요. 
+클라우드의 Defender는 포털의 함수 앱과 통합 됩니다. 잠재적인 구성 관련 보안 취약성에 대한 빠른 평가를 무료로 제공합니다. 전용 계획에서 실행 되는 함수 앱은 추가 비용을 위해 클라우드의 향상 된 보안 기능을 위해 Defender를 사용할 수도 있습니다. 자세히 알아보려면 [Azure App Service 웹 앱 및 API 보호](../security-center/defender-for-app-service-introduction.md)를 참조하세요. 
 
 ### <a name="log-and-monitor"></a>로그 및 모니터
 
@@ -32,7 +32,7 @@ Security Center는 포털의 함수 앱과 통합됩니다. 잠재적인 구성 
 
 Functions는 또한 더욱 쉬운 분석을 위해 함수 앱 로그를 시스템 이벤트와 통합할 수 있도록 Azure Monitor 로그와 통합됩니다. 진단 설정을 사용하여 Logs Analytics 작업 영역 등 사용자가 선택한 대상으로 함수에 대한 플랫폼 로그 및 메트릭의 스트리밍 내보내기를 구성할 수 있습니다. 자세한 내용은 [Azure Monitor 로그를 사용한 Azure Functions 모니터링](functions-monitor-log-analytics.md)을 참조하세요. 
 
-엔터프라이즈 수준 위협 감지 및 응답 자동화의 경우 로그 및 이벤트를 Logs Analytics 작업 영역으로 스트리밍합니다. 그런 다음 이 작업 영역에 Azure Sentinel을 연결할 수 있습니다. 자세한 내용을 알아보려면 [Azure Sentinel이란?](../sentinel/overview.md)을 참조하세요.  
+엔터프라이즈 수준 위협 감지 및 응답 자동화의 경우 로그 및 이벤트를 Logs Analytics 작업 영역으로 스트리밍합니다. 그런 다음이 작업 영역에 Microsoft 센티널을 연결할 수 있습니다. 자세히 알아보려면 [Microsoft 센티널 이란?](../sentinel/overview.md)을 참조 하세요.  
 
 가시성에 대한 보안 권장 사항은 [Azure Functions용 Azure 보안 기준](security-baseline.md#logging-and-monitoring)을 참조하세요. 
 

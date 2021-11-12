@@ -1,14 +1,14 @@
 ---
 title: 온-프레미스 관리 콘솔 관리
 description: 백업 및 복원과 같은 온-프레미스 관리 콘솔 옵션, 호스트 이름 정의, 센서에 대한 프록시 설정에 대해 알아봅니다.
-ms.date: 1/12/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 9b956dbfa640862d10d0e47aef97e5a1727052c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3604b4674a86d719f2fecf841347c0a55f5b9757
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625224"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339709"
 ---
 # <a name="manage-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 관리
 
@@ -24,7 +24,7 @@ Azure Portal에서 온-프레미스 관리 콘솔을 온보딩합니다.
 
 **활성화 파일을 업로드하려면:**
 
-1. Azure Defender for IoT **가격 책정** 페이지로 이동합니다.
+1. IoT 용 Microsoft Defender **가격 책정** 페이지로 이동 합니다.
 1. **관리 콘솔 탭의 활성화 파일 다운로드** 를 선택하면 활성화 파일이 다운로드됩니다.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="활성화 파일 다운로드.":::
@@ -35,9 +35,9 @@ Azure Portal에서 온-프레미스 관리 콘솔을 온보딩합니다.
 
 ## <a name="manage-certificates"></a>인증서 관리
 
-온-프레미스 관리 콘솔을 설치한 후 로컬 자체 서명된 인증서가 생성되어 웹 애플리케이션에 액세스하는 데 사용됩니다. 온-프레미스 관리 콘솔에 처음으로 로그인하면 관리자에게 SSL/TLS 인증서를 제공하라는 메시지가 표시됩니다. 
+온-프레미스 관리 콘솔을 설치한 후에는 로컬 자체 서명 된 인증서가 생성 되어 웹 응용 프로그램에 액세스 하는 데 사용 됩니다. 처음으로 온-프레미스 관리 콘솔에 로그인 하는 경우 관리자 사용자에 게 SSL/TLS 인증서를 제공 하 라는 메시지가 표시 됩니다. 
 
-관리자는 초기 로그인 후 업로드된 인증서를 업데이트해야 할 수 있습니다. 인증서가 만료된 경우와 같이 발생할 수 있습니다.
+관리자는 초기 로그인 후에 업로드 된 인증서를 업데이트 해야 할 수 있습니다. 예를 들어 인증서가 만료 된 경우이 오류가 발생할 수 있습니다.
 
 **인증서를 업데이트하려면 다음을 수행합니다.**
 
@@ -47,21 +47,21 @@ Azure Portal에서 온-프레미스 관리 콘솔을 온보딩합니다.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/certificate-upload.png" alt-text="인증서 업로드":::
 
-1. SSL/TLS 인증서 대화 상자에서 기존 인증서를 삭제하고 새 인증서를 추가합니다.
+1. SSL/TLS 인증서 대화 상자에서 기존 인증서를 삭제 하 고 새 인증서를 추가 합니다.
 
     - 인증서 이름을 추가합니다.
-    - CRT 파일 및 키 파일을 업로드.
+    - CRT 파일 및 키 파일을 업로드 합니다.
     - 필요한 경우 PEM 파일을 업로드합니다.
 
-업로드가 실패하면 보안 또는 IT 관리자에게 문의하거나 인증서 정보 의 정보를 [검토합니다.](how-to-deploy-certificates.md)
+업로드에 실패 하는 경우 보안 또는 IT 관리자에 게 문의 하거나 [인증서](how-to-deploy-certificates.md)정보를 검토 합니다.
 
-**인증서 유효성 검사 설정을 변경하려면 다음을 수행합니다.**
+**인증서 유효성 검사 설정을 변경 하려면:**
 
-1. 인증서 유효성 **검사 사용** 토글을 사용하거나 사용하지 않도록 설정합니다. 옵션을 사용할 수 있고 유효성 검사가 실패하면 관련 구성 요소 간의 통신이 중지되고 유효성 검사 오류가 콘솔에 표시됩니다. 사용하지 않도록 설정하면 인증서 유효성 검사가 수행되지 않습니다. 자세한 내용은 [인증서 유효성 검사](how-to-deploy-certificates.md#about-certificate-validation) 정보를 참조하세요.
+1. **인증서 유효성 검사 사용** 설정/해제를 사용 하도록 설정 합니다. 이 옵션을 사용 하도록 설정 하 고 유효성 검사에 실패 하면 관련 구성 요소 간의 통신이 중단 되 고 콘솔에 유효성 검사 오류가 표시 됩니다. 사용 하지 않도록 설정 된 경우 인증서 유효성 검사가 수행 되지 않습니다. 자세한 내용은 [인증서 유효성 검사 정보](how-to-deploy-certificates.md#about-certificate-validation) 를 참조 하세요.
 
 1. **저장** 을 선택합니다.
 
-처음 인증서 업로드에 대한 자세한 내용은 [최초 로그인 및 활성화 검사 목록을 참조하세요.](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
+첫 번째 인증서 업로드에 대 한 자세한 내용은 [첫 번째 로그인 및 정품 인증 검사 목록](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist) 을 참조 하세요.
 
 ## <a name="define-backup-and-restore-settings"></a>백업 및 복원 설정 정의
 

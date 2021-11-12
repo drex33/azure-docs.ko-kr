@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: b8ada581eabe0a2fedda08d0fbb1fa9585da0cca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f0ea867dd07192b066a7944a2b392bbc91913759
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121800935"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132353829"
 ---
 **데이터 컬렉션 볼륨 및 보존** 
 
 | 계층 | 일일 제한 | 데이터 보존 | 의견 |
 |:---|:---|:---|:---|
 | 현재 GB당 가격 책정 계층<br>(2018년 4월에 도입) | 제한 없음 | 30~730일 | 데이터를 31일 넘게 보존하려면 추가 요금을 내야 합니다. Azure Monitor 가격에 대해 자세히 알아봅니다. |
-| 레거시 무료 계층<br>(2016년 4월에 도입) | 500MB | 7 일 | 작업 영역이 일일 500MB 제한에 도달하면 데이터 수집이 중지되고 다음 날부터 다시 시작됩니다. 1일은 UTC를 기준으로 합니다. Azure Security Center에서 수집하는 데이터는 이 500MB 일일 제한에 합산되지 않으며 이 제한을 초과해도 계속 수집됩니다.  |
+| 레거시 무료 계층<br>(2016년 4월에 도입) | 500MB | 7 일 | 작업 영역이 일일 500MB 제한에 도달하면 데이터 수집이 중지되고 다음 날부터 다시 시작됩니다. 1일은 UTC를 기준으로 합니다. Microsoft Defender for Cloud에서 수집한 데이터는 이 일일 500MB 제한에 포함되지 않으며 이 제한을 초과하여 계속 수집됩니다.  |
 | 레거시 독립 실행형 GB당 계층<br>(2016년 4월에 도입) | 제한 없음 | 30~730일 | 데이터를 31일 넘게 보존하려면 추가 요금을 내야 합니다. Azure Monitor 가격에 대해 자세히 알아봅니다. |
 | 레거시 노드당(OMS)<br>(2016년 4월에 도입) | 제한 없음 | 30~730일 | 데이터를 31일 넘게 보존하려면 추가 요금을 내야 합니다. Azure Monitor 가격에 대해 자세히 알아봅니다. |
 | 레거시 표준 계층 | 제한 없음 | 30일  | 보존 기간을 조정할 수 없음 |

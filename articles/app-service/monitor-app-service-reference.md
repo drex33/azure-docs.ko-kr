@@ -7,12 +7,12 @@ ms.author: msangapu
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: bf48bd5fd5155b7409d3868635ee3529cfd97b92
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 914587d60b5932d2f9af6eef400a1a5067974652
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131471063"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290555"
 ---
 # <a name="monitoring-app-service-data-reference"></a>App Service 데이터 모니터링 참조
 
@@ -44,7 +44,7 @@ App Service에는 차원이 포함된 메트릭이 없습니다.
 
 이 섹션에는 App Service에 대해 수집할 수 있는 리소스 로그 유형이 나열되어 있습니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |
@@ -54,7 +54,7 @@ App Service에는 차원이 포함된 메트릭이 없습니다.
 | AppServiceAppLogs | ASP.NET | ASP.NET | Java SE 및 Tomcat 이미지 <sup>1</sup> | Java SE & Tomcat Blessed Images<sup>1</sup> | 애플리케이션 로그 전송 사용 |
 | AppServiceIPSecAuditLogs  | 예 | 예 | 예 | 예 | IP 규칙에서 보낸 요청 |
 | AppServicePlatformLogs  | TBA | 예 | 예 | 예 | 컨테이너 작업 로그 |
-| AppServiceAntivirusScanAuditLogs | 예 | 예 | 예 | 예 | Microsoft Defender를 사용한 [바이러스 백신 검사 로그](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html)(**프리미엄 계층만 사용 가능**) | 
+| AppServiceAntivirusScanAuditLogs | 예 | 예 | 예 | 예 | 클라우드 용 Microsoft Defender를 사용 하 여 [바이러스 백신 검사 로그](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) **Premium 계층에만 사용할 수 있습니다** . | 
 
 <sup>1</sup>Java SE 앱의 경우 앱 설정에 “$WEBSITE _AZMON_PREVIEW_ENABLED”를 추가하고 1 또는 true로 설정합니다.
 

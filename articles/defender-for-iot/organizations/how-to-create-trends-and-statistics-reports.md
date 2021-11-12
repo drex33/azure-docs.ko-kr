@@ -1,14 +1,14 @@
 ---
 title: 추세 및 통계 보고서 만들기
 description: IoT 추세 및 통계 위젯에 Defender를 사용하여 네트워크 활동, 통계 및 추세에 대한 인사이트를 확보하세요.
-ms.date: 2/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: b4539e20ff485f1b6be69fee8e6849298540adcb
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: f84f739a9566bff2a9fe8286d301aa31d1e74199
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020556"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284040"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>센서 추세 및 통계 보고서
 

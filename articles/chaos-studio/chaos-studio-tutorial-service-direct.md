@@ -7,20 +7,20 @@ ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/01/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: df9dc3bc114f486b86b3621a6aa8d0fbddd73431
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fd945f5a96228bc30c7d1f801fcc16ca34717cde
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102752"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293823"
 ---
-# <a name="create-a-chaos-experiment-that-uses-a-service-direct-fault-to-fail-over-an-azure-cosmos-db-instance"></a>서비스 직접 오류를 사용하여 Azure Cosmos DB 인스턴스를 장애 조치(fail over)하는 비정상 사례 실험 만들기
+# <a name="create-a-chaos-experiment-that-uses-a-service-direct-fault-to-fail-over-an-azure-cosmos-db-instance"></a>서비스 직접 오류를 사용하여 Azure Cosmos DB 인스턴스를 장애 조치(failover)하는 카오스 실험 만들기
 
 비정상 상황에서는 비정상 상황에서 이러한 오류를 발생시켜 애플리케이션이 오류에 대해 복원력이 있는지 확인할 수 있습니다. 이 가이드에서는 Chaos 실험 및 Azure Chaos Studio를 사용하여 다중 읽기 단일 쓰기 Azure Comos DB 장애 조치(failover)를 발생합니다. 이 실험을 실행하면 장애 조치(failover) 이벤트가 발생할 때 데이터 손실을 방어할 수 있습니다.
 
 이러한 동일한 단계를 사용하여 서비스 직접 오류에 대한 실험을 설정하고 실행할 수 있습니다. **서비스 직접** 오류는 비정상 상태 에이전트를 설치해야 하는 에이전트 기반 오류와 달리 계측할 필요 없이 Azure 리소스에 대해 직접 실행됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - Azure Cosmos DB 계정. Azure Cosmos DB 계정이 없는 경우 다음 단계에 [따라 하나를 만들](../cosmos-db/sql/create-cosmosdb-resources-portal.md)수 있습니다.
@@ -35,7 +35,7 @@ Chaos Studio는 해당 리소스가 Chaos Studio에 먼저 온보딩되지 않�
 2. 검색 표시줄에서 **Chaos Studio(미리 보기)를** 검색합니다.
 3. **대상을** 클릭하고 Azure Cosmos DB 계정으로 이동합니다.
 ![Azure Portal 대상 보기](images/tutorial-service-direct-targets.png)
-4. Azure Cosmos DB 계정 옆의 확인란을 선택하고 드롭다운 메뉴에서 **대상 사용,** **서비스 직접 대상 사용을** 차례로 클릭합니다.
+4. Azure Cosmos DB 계정 옆의 확인란을 **선택하고, 대상 사용을** 클릭한 다음, 드롭다운 메뉴에서 서비스 직접 대상 **사용을** 클릭합니다.
 ![Azure Portal 대상 사용](images/tutorial-service-direct-targets-enable.png)
 5. 선택한 리소스가 사용하도록 설정되었음을 나타내는 알림이 표시됩니다.
 ![대상을 사용하도록 설정됨을 보여주는 알림](images/tutorial-service-direct-targets-enable-confirm.png)
@@ -43,7 +43,7 @@ Chaos Studio는 해당 리소스가 Chaos Studio에 먼저 온보딩되지 않�
 이제 Azure Cosmos DB 계정을 Chaos Studio에 성공적으로 온보딩했습니다. **대상** 보기에서 이 리소스에 사용하도록 설정된 기능을 관리할 수도 있습니다. 리소스 옆에 있는 **작업 관리** 링크를 클릭하면 해당 리소스에 대해 사용하도록 설정된 기능이 표시됩니다.
 
 ## <a name="create-an-experiment"></a>실험 만들기
-Azure Cosmos DB 계정이 온보딩된 경우 실험을 만들 수 있습니다. 비정상 상황에서는 대상 리소스에 대해 수행할 작업을 순차적으로 실행되는 단계와 병렬로 실행되는 분기로 구성하여 정의합니다.
+이제 Azure Cosmos DB 계정이 온보딩되어 있으면 실험을 만들 수 있습니다. 비정상 상황에서는 대상 리소스에 대해 수행할 작업을 순차적으로 실행되는 단계와 병렬로 실행되는 분기로 구성하여 정의합니다.
 
 1. Chaos Studio 탐색에서 **실험** 탭을 클릭합니다. 이 보기에서는 모든 비정실적 실험을 보고 관리할 수 있습니다. Azure Portal **실험** 
  ![ 추가 보기를 클릭합니다.](images/tutorial-service-direct-add.png)
@@ -51,7 +51,7 @@ Azure Cosmos DB 계정이 온보딩된 경우 실험을 만들 수 있습니다.
  ![ 정보 추가를 클릭합니다.](images/tutorial-service-direct-add-basics.png)
 3. 이제 Chaos Studio 실험 디자이너에 있습니다. 실험 디자이너를 사용하면 단계, 분기 및 오류를 추가하여 실험을 빌드할 수 있습니다. **단계** 및 **분기에** 친숙한 이름을 지정한 다음 **오류 추가를** 클릭합니다.
 ![실험 디자이너](images/tutorial-service-direct-add-designer.png)
-4. 드롭다운에서 **CosmosDB 장애 조치(failover)를** 선택한 다음, 실패를 지속할 시간(분)으로 **기간을** 입력하고 Azure Cosmos DB 계정의 읽기 지역으로 **readRegion을** 입력합니다. **다음: 대상 리소스 >** 
+4. 드롭다운에서 **CosmosDB 장애 조치(failover)를** 선택한 다음, 실패를 지속할 시간(분)으로  기간을 입력하고 Azure Cosmos DB 계정의 읽기 지역으로 **readRegion을** 입력합니다. **다음: 대상 리소스 >** 
  ![ 오류 속성을 클릭합니다.](images/tutorial-service-direct-add-fault.png)
 5. Azure Cosmos DB 계정을 선택하고 **다음** 
  ![ 대상 추가를 클릭합니다.](images/tutorial-service-direct-add-target.png)
@@ -79,5 +79,5 @@ Chaos 실험을 만들 때 Chaos Studio는 대상 리소스에 대해 오류를 
 
 ## <a name="next-steps"></a>다음 단계
 이제 Azure Cosmos DB 서비스 직접 실험을 실행했으므로 다음을 수행할 준비가 되었습니다.
-- [에이전트 기반 오류를 사용하는 실험 만들기](chaos-studio-tutorial-agent-based.md)
+- [에이전트 기반 오류를 사용하는 실험 만들기](chaos-studio-tutorial-agent-based-portal.md)
 - [실험 관리](chaos-studio-run-experiment.md)

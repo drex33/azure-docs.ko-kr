@@ -3,12 +3,12 @@ title: Azure Event Grid를 사용하여 Blob 스토리지 이벤트를 웹 엔�
 description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 Blob Storage 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다.'
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 9f4f552f4f6a796bef0fcfb011c34317500500f2
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 62ab7d3196b00f1d59038928a01f3ba50614cbe2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113219083"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278591"
 ---
 # <a name="use-azure-event-grid-to-route-blob-storage-events-to-web-endpoint-azure-portal"></a>Azure Event Grid를 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅(Azure Portal)
 Event Grid는 다양한 Azure 서비스 및 애플리케이션에서 이벤트를 쉽게 관리할 수 있는 완전 관리형 서비스입니다. 이벤트 기반 및 서버리스 애플리케이션 빌드를 간소화합니다. 서비스에 대한 개요는 [Event Grid 개요](overview.md)를 참조하세요.
@@ -53,7 +53,7 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
 
 1. **Azure에 배포** 를 선택하여 구독에 솔루션을 배포합니다. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to deploy to Azure."></a>
 2. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다. 
     1. **리소스 그룹** 에서 스토리지 계정을 만들 때 생성된 것과 동일한 리소스 그룹을 선택합니다. 자습서를 완료한 후 리소스 그룹을 삭제하면 더 쉽게 정리할 수 있습니다.  
     2. **사이트 이름** 에 웹앱의 이름을 입력합니다.

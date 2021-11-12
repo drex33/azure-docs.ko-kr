@@ -5,12 +5,12 @@ author: yossiy
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
-ms.openlocfilehash: 13633eefff454cc6f2352264d76ea91367442166
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 01d7852e514931a1546a9ab66c3b582bea115f2b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131062229"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319627"
 ---
 # <a name="move-a-log-analytics-workspace-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Log Analytics 작업 영역을 다른 영역으로 이동
 
@@ -20,7 +20,7 @@ Log Analytics 작업 영역을 한 지역에서 다른 지역으로 이동할 �
 
 작업 영역 환경은 복잡 하 고 연결 된 원본, 관리형 솔루션, 연결 된 서비스, 경고 및 쿼리 팩을 포함할 수 있습니다. 모든 리소스를 리소스 관리자 템플릿에서 내보낼 수 있는 것은 아니고, 작업 영역을 이동할 때 일부 리소스는 별도의 구성이 필요 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 다른 지역에 배포할 수 있는 템플릿으로 작업 영역 구성을 내보내려면 [Log Analytics 참여자](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) 또는 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할이 필요 합니다.
 
@@ -77,7 +77,7 @@ Log Analytics 작업 영역을 한 지역에서 다른 지역으로 이동할 �
 1. 작업 영역, 솔루션, 저장 된 검색, 경고, 쿼리 팩 및 사용자가 보유 한 기타 작업 영역 관련 리소스 (예: Automation 계정)를 선택 합니다. 그런 다음 도구 모음에서 **템플릿 내보내기** 를 선택 합니다.
     
     > [!NOTE]
-    > Azure 센티널은 템플릿으로 내보낼 수 없습니다. [센티널](../../sentinel/quickstart-onboard.md) 을 대상 작업 영역에 등록 해야 합니다.
+    > Microsoft 센티널은 템플릿으로 내보낼 수 없습니다. [센티널](../../sentinel/quickstart-onboard.md) 을 대상 작업 영역에 등록 해야 합니다.
    
 1. 도구 모음 **에서 배포를 선택 하** 여 배포용 템플릿을 편집 하 고 준비 합니다.
 1. 도구 모음에서 **매개 변수 편집** 을 선택 하 여 온라인 편집기에서 *parameters. json* 파일을 엽니다.
@@ -286,7 +286,7 @@ Log Analytics 작업 영역을 한 지역에서 다른 지역으로 이동할 �
 1. 선택한 리소스를 비롯 한 작업 영역이 이제 대상 지역에 배포 됩니다. Paring 기능에 대 한 작업 영역에서 남은 구성을 원래 작업 영역으로 완료할 수 있습니다.
    - *커넥트 에이전트*: 데이터 수집 규칙을 비롯 하 여 사용 가능한 옵션 중 하나를 사용 하 여 가상 머신 및 가상 머신 확장 집합에 필요한 에이전트를 구성 하 고 새 대상 작업 영역을 대상으로 지정 합니다.
    - *진단 설정*: 대상 작업 영역을 대상으로 하 여 식별 된 리소스의 진단 설정을 업데이트 합니다.
-   - *솔루션 설치*: [Azure 센티널](../../sentinel/quickstart-onboard.md)와 같은 일부 솔루션에는 특정 등록 절차가 필요 하며 템플릿에 포함 되지 않았습니다. 새 작업 영역에 별도로 등록 해야 합니다.
+   - *솔루션 설치*: [Microsoft 센티널](../../sentinel/quickstart-onboard.md)와 같은 일부 솔루션에는 특정 등록 절차가 필요 하며 템플릿에 포함 되지 않았습니다. 새 작업 영역에 별도로 등록 해야 합니다.
    - 데이터 *수집기 Api 구성*: 데이터 수집기 api 인스턴스를 구성 하 여 대상 작업 영역에 데이터를 보냅니다.
    - *경고 규칙 구성*: 템플릿에서 경고가 내보내지지 않는 경우 대상 작업 영역에서 수동으로 구성 해야 합니다.
 1. 새 데이터가 원본 작업 영역으로 수집 되지 않았는지 확인 합니다. 원본 작업 영역에서 다음 쿼리를 실행 하 고 마이그레이션 후 수집이 수행 되지 않는지 확인 합니다.

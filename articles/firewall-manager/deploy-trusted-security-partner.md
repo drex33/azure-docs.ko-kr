@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 11/10/2021
 ms.author: victorh
-ms.openlocfilehash: 7b8dd13c5d2c3c080ca20115dfc41b23dd6e545e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 252a4e71a5fdcc823ab357e8528a50bd737ff1c2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528252"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283564"
 ---
 # <a name="deploy-a-security-partner-provider"></a>보안 파트너 공급자 배포
 
@@ -102,6 +102,10 @@ Virtual WAN에서 기존 허브를 선택하고 *보안 가상 허브* 로 변�
 3. 허브를 선택하고 **보안 구성** 으로 이동합니다.
 
    허브에 타사 공급자를 배포하면 허브를 *보안 가상 허브* 로 변환합니다. 이렇게 하면 타사 공급자가 0.0.0.0/0(기본값) 경로를 허브로 보급합니다. 그러나 이 기본 경로를 가져올 연결을 옵트인하지 않는 한, 허브에 연결된 VNet 연결 및 사이트는 이 경로를 가져오지 않습니다.
+
+   > [!NOTE]
+   > 분기 보급 알림에 대해 BGP를 통해 0.0.0.0/0(기본값) 경로를 수동으로 만들지 마십시오. 이 작업은 타사 보안 공급자를 통해 보안 가상 허브 배포를 위해 자동으로 수행됩니다. 이렇게 하면 배포 프로세스가 중단됩니다.
+
 4. Azure Firewall을 통해 **인터넷 트래픽** 을 설정하고 신뢰할 수 있는 보안 파트너를 통해 **프라이빗 트래픽** 을 설정하여 Virtual WAN 보안을 구성합니다. 그러면 Virtual WAN의 개별 연결이 자동으로 보호됩니다.
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="보안 구성":::

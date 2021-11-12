@@ -1,20 +1,20 @@
 ---
 title: 전역, 지역 및 로컬 위협에 대한 인사이트 확보
 description: 온-프레미스 관리 콘솔에서 사이트 맵을 사용하여 전역, 지역, 로컬 위협에 대한 인사이트를 확보합니다.
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: db3b9fbca9acd6c4ce1cfe137a4024f66d8a6292
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 6cef79e708f5aff5eff2c02f2b0fe612aa11a224
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020372"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293234"
 ---
 # <a name="gain-insight-into-global-regional-and-local-threats"></a>전역, 지역 및 로컬 위협에 대한 인사이트 확보
 
 온-프레미스 관리 콘솔의 사이트 맵은 비즈니스 토폴로지를 반영하는 지리적 및 논리적 세그먼트로 네트워크를 나누어 전체 보안 범위를 달성할 수 있도록 도와줍니다.
 
-- **지리적 시설 수준**: 사이트는 맵에 표시된 지리적 위치에 따라 그룹화된 여러 디바이스를 반영합니다. 기본적으로 Azure Defender for IoT는 세계 지도를 제공합니다. 조직 또는 비즈니스 구조를 반영하도록 맵을 업데이트하세요. 예를 들어 특정 국가, 구/군/시 또는 산업 캠퍼스에 걸친 사이트를 반영하는 맵을 사용합니다. 맵에서 사이트 색이 변경되면 시설의 위험 시스템 상태를 SOC 팀에게 알리는 것입니다.
+- **지리적 시설 수준**: 사이트는 맵에 표시된 지리적 위치에 따라 그룹화된 여러 디바이스를 반영합니다. 기본적으로 Microsoft Defender for IoT는 세계 지도를 제공 합니다. 조직 또는 비즈니스 구조를 반영하도록 맵을 업데이트하세요. 예를 들어 특정 국가, 구/군/시 또는 산업 캠퍼스에 걸친 사이트를 반영하는 맵을 사용합니다. 맵에서 사이트 색이 변경되면 시설의 위험 시스템 상태를 SOC 팀에게 알리는 것입니다.
 
   맵을 대화형이며 각 사이트를 열고 이 사이트의 정보를 살펴볼 수 있습니다.
 

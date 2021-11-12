@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 10/27/2021
-ms.openlocfilehash: 32d9607ea292dcce971fc4274717112d2669d01f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2655c3d5943902c94e364ba379ab6682d86c049d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131081356"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343974"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SSIS(SQL Server Integration Services)와 함께 Azure SQL Managed Instance 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "131081356"
 
         1. 조인할 Azure-SSIS IR의 가상 네트워크를 선택합니다.
             - **다른 서브넷** 을 사용하여 Managed Instance와 동일한 가상 네트워크 내부
-            - 가상 네트워크 피어링(글로벌 VNet 피어링 제약 조건으로 인해 동일한 지역으로 제한됨) 또는 가상 네트워크 간 연결을 통해 Managed Instance와는 다른 가상 네트워크 내부
+            - 관리되는 인스턴스가 아닌 다른 가상 네트워크 내에서 가상 네트워크 피어링(글로벌 VNet 피어링 제약 조건으로 인해 동일한 지역으로 제한) 또는 가상 네트워크에서 가상 네트워크로의 연결을 통해.
 
             SQL Managed Instance 연결에 관한 자세한 내용은 [Azure SQL Managed Instance에 애플리케이션 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조하세요.
 
@@ -111,7 +111,7 @@ ms.locfileid: "131081356"
            |---|---|---|---|---|---|
            | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |SQL Managed Instance에 대한 아웃바운드 트래픽을 허용합니다. 연결 정책이 **리디렉션** 대신 **프록시** 로 설정된 경우에는 포트 1433만 필요합니다. |
            | TCP | VirtualNetwork | * | AzureCloud | 443 | 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
-           | TCP | VirtualNetwork | * | 인터넷 | 80 | (선택 사항) 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. 이 트래픽을 차단하면 IR을 시작할 때 성능이 다운그레이드되고 인증서 사용을 위해 인증서 해지 목록을 확인하는 기능이 손실될 수 있습니다. 대상의 범위를 특정 Fqdn으로 세분화 하려는 경우 [UDRs (사용자 정의 경로) 구성](azure-ssis-integration-runtime-standard-virtual-network-injection.md#udr)을 참조 하세요.|
+           | TCP | VirtualNetwork | * | 인터넷 | 80 | (선택 사항) 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. 이 트래픽을 차단하면 IR을 시작할 때 성능이 다운그레이드되고 인증서 사용을 위해 인증서 해지 목록을 확인하는 기능이 손실될 수 있습니다. 대상 범위를 특정 FQDN으로 더 좁히려면 [UDR(사용자 정의 경로) 구성을 참조하세요.](azure-ssis-integration-runtime-standard-virtual-network-injection.md#udr)|
            | TCP | VirtualNetwork | * | 스토리지 | 445 | (선택 사항) 이 규칙은 Azure Files에 저장된 SSIS 패키지를 실행하려는 경우에만 필요합니다. |
            |||||||
 

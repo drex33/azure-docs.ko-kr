@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: fbb169924498b30284ea26d172f605596e6a0379
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 8edb225316dfd12acff5c1f6a036246d68d746c8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568291"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306438"
 ---
 # <a name="disable-monitoring-of-your-vms-in-vm-insights"></a>VM 인사이트에서 VM 모니터링 사용 안 함
 
@@ -51,7 +51,7 @@ Log Analytics 작업 영역이 여전히 다른 원본의 모니터링을 지원
 >다음의 경우 Log Analytics 에이전트를 제거하지 마세요. 
 >
 > * Azure Automation은 프로세스를 오케스트레이션하거나 구성 또는 업데이트를 관리하기 위해 VM을 관리합니다. 
-> * Azure Security Center에서는 보안 및 위협 탐지를 위해 VM을 관리합니다. 
+> * Microsoft Defender for Cloud는 보안 및 위협 탐지를 위해 VM을 관리합니다. 
 >
 > Log Analytics 에이전트를 제거하면 해당 서비스 및 솔루션이 VM을 사전에 관리하지 못하게 됩니다. 
 

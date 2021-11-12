@@ -2,13 +2,13 @@
 title: 디바이스 빌더용 Azure Defender for IoT의 새로운 기능
 description: 최신 릴리스와 Defender for IoT 디바이스 빌더의 최신 기능에 대해 알아보세요.
 ms.topic: overview
-ms.date: 11/02/2021
-ms.openlocfilehash: 4d6d931082f55a08667da20283d28c655a9fb584
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/09/2021
+ms.openlocfilehash: e49dbbdf1cb0000e69157b57d63e86c9d85c5e6f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438591"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278889"
 ---
 # <a name="whats-new-in-azure-defender-for-iot-for-device-builders"></a>디바이스 빌더용 Azure Defender for IoT의 새로운 기능은 무엇인가요?  
 

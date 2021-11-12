@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c49dcb4158785170d67742df5c8c797b139edbe5
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: df65f882ff99b4c40f0cffa49d3674f8c13ce1a1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620301"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305639"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 프라이빗 클라우드 권한 모델
 
@@ -32,7 +32,7 @@ CloudSimple은 프라이빗 클라우드 환경에 대한 모든 관리 액세�
 
 ### <a name="pre-created-groups"></a>미리 만든 그룹
 
-| 그룹 이름 | 목적 | 역할 |
+| 그룹 이름 | 용도 | 역할 |
 | -------- | ------- | ------ |
 | 클라우드 소유자 그룹 | 이 그룹의 구성원은 프라이빗 클라우드 vCenter에 대한 관리 권한을 가집니다. | [클라우드 소유자 역할](#cloud-owner-role) |
 | 클라우드 글로벌 클러스터 관리자 그룹 | 이 그룹의 구성원은 프라이빗 클라우드 vCenter 클러스터에 대한 관리 권한을 가집니다. | [클라우드 클러스터 관리자 역할](#cloud-cluster-admin-role) |
@@ -55,7 +55,7 @@ CloudSimple은 프라이빗 클라우드 환경에 대한 모든 관리 액세�
 | **권한** | 권한 수정 |
 | **콘텐츠 라이브러리** | 라이브러리 항목 추가 <br> 로컬 라이브러리 만들기 <br> 구독 라이브러리 만들기 <br> 라이브러리 항목 삭제 <br> 로컬 라이브러리 삭제 <br> 구독 라이브러리 삭제 <br> 파일 다운로드 <br> 라이브러리 항목 제거 <br> 구독 라이브러리 제거 <br> 스토리지 가져오기 <br> 구독 정보 검색 <br> 스토리지 읽기 <br> 라이브러리 항목 동기화 <br> 구독 라이브러리 동기화 <br> 검사 입력 <br> 구성 설정 업데이트 <br> 파일 업데이트 <br> 라이브러리 업데이트 <br> 라이브러리 항목 업데이트 <br> 로컬 라이브러리 업데이트 <br> 구독 라이브러리 업데이트 <br> 구성 설정 보기 |
 | **암호화 작업** | 디스크 추가 <br> 복제 <br> 암호 해독 <br> 직접 액세스 <br> Encrypt <br> 암호화 신규 <br> KMS 관리 <br> 암호화 정책 관리 <br> 키 관리 <br> 마이그레이션 <br> 암호 해독 <br> VM 등록 <br> 호스트 등록 |
-| **dvPort 그룹** | 생성 <br> DELETE <br> 수정 <br> 정책 작업 <br> 범위 작업 |
+| **dvPort 그룹** | 생성 <br> 삭제 <br> 수정 <br> 정책 작업 <br> 범위 작업 |
 | **Datastore** | 공간 할당 <br> 데이터 저장소 찾아보기 <br> 데이터 저장소 구성 <br> 하위 수준 파일 작업 <br> 데이터 저장소 이동 <br> 데이터 저장소 제거 <br> 파일 제거 <br> 데이터 저장소 이름 바꾸기 <br> 가상 머신 파일 업데이트 <br> 가상 머신 메타데이터 업데이트 |
 | **ESX 에이전트 관리자** | Config <br> 수정 <br> 보기 |
 | **내선 번호** | 확장 등록 <br> 확장 등록 취소 <br> 확장 업데이트 |
@@ -125,7 +125,7 @@ CloudSimple은 프라이빗 클라우드 환경에 대한 모든 관리 액세�
 
 | **범주** | **권한** |
 |----------|-----------|
-| **dvPort 그룹** | 생성 <br> DELETE <br> 수정 <br> 정책 작업 <br> 범위 작업 |
+| **dvPort 그룹** | 생성 <br> 삭제 <br> 수정 <br> 정책 작업 <br> 범위 작업 |
 | **Network** | Assign network <br> 구성 <br> 네트워크 이동 <br> 제거 |
 | **가상 머신 > 구성** | 디바이스 설정 수정 |
 

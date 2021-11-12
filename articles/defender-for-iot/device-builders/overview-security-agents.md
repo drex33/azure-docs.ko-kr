@@ -1,20 +1,20 @@
 ---
 title: 보안 에이전트
-description: IoT 디바이스에서 Azure Defender for IoT 보안 서비스 에이전트를 이해, 구성, 배포, 사용하는 방법을 시작하세요.
+description: IoT 장치에서 IoT 보안 서비스 에이전트에 대 한 이해, 구성, 배포 및 사용을 시작 하세요.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: d25adad695e12d7ee104fdf9af616baefb98150c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 86c0295726989d142e10e01e8f4950cfcf385126
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018804"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331550"
 ---
-# <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Azure Defender for IoT 디바이스 마이크로 에이전트 시작
+# <a name="get-started-with-microsoft-defender-for-iot-device-micro-agents"></a>IoT 용 Microsoft Defender 장치 마이크로 에이전트 시작
 
 Defender for IoT 보안 에이전트는 운영 체제 구성 모범 사례 모니터링과 같은 향상된 보안 기능을 제공합니다. 단일 서비스에서 디바이스 필드 위협 방지 및 보안 태세를 제어합니다.
 
-Defender for IoT 보안 에이전트는 디바이스 운영 체제의 원시 이벤트 수집, 비용을 줄이기 위한 이벤트 집계 및 디바이스 모듈 쌍을 통한 구성을 처리합니다. 보안 메시지는 IoT Hub를 통해 Defender for IoT 분석 서비스에 전송됩니다.
+IoT 용 Defender 보안 에이전트는 장치 운영 체제에서 원시 이벤트 수집을 처리 하 고, 비용을 절감 하 고, 장치 모듈 쌍을 통해 구성을 처리 합니다. 보안 메시지는 IoT Hub를 통해 Defender for IoT 분석 서비스에 전송됩니다.
 
 다음 워크플로를 사용하여 Defender for IoT 보안 에이전트를 배포하고 테스트합니다.
 

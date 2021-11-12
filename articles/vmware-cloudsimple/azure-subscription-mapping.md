@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7fa189e16f71c2b0f04c27911fbcb6e811de45f6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8ba2716849295b2a83d88cf3fc190545cceb2369
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129618065"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283262"
 ---
 # <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Azure 구독 매핑을 사용하여 프라이빗 클라우드의 리소스 풀 만들기
 Azure 구독 매핑을 사용하면 사용 가능한 vSphere 리소스 풀에서 프라이빗 클라우드의 리소스 풀을 만들 수 있습니다. CloudSimple 포털에서 프라이빗 클라우드에 대한 Azure 구독을 보고 관리할 수 있습니다.

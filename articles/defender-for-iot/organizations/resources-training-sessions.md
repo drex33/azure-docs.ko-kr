@@ -1,14 +1,14 @@
 ---
 title: 기술 커뮤니티 Ninja 학습
 description: Defender for IoT 학습 세션 수행
-ms.date: 07/10/2021
+ms.date: 11/09/2021
 ms.topic: reference
-ms.openlocfilehash: b476e5d0007948524864567b0a8c6061ad603618
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 52ab8ee9772d91354cfb1727a57d608e1747e7e0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114482001"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278287"
 ---
 # <a name="view-tech-community-training-sessions"></a>기술 Community 교육 세션 보기
 

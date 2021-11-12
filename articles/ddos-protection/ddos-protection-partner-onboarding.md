@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 67b8e9e5c913323d1786427fcd102de9b98d2827
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 5168cbf417bf433632b6e2653dfa39dcdad11f92
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310457"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306354"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준 파트너 제휴
 이 문서에서는 Azure DDoS Protection 표준에서 구현되는 파트너 제휴 기회에 대해 설명합니다. 이 문서는 제품 관리자 및 비즈니스 개발 역할이 투자 경로를 이해하도록 돕고 파트너 제휴 가치 제안에 대한 통찰을 제공하기 위해 작성되었습니다.
@@ -39,7 +39,7 @@ Azure DDoS Protection 표준은 레이어 3 및 레이어 4 DDoS 공격에 대�
 ### <a name="attack-analytics-telemetry-monitoring-and-alerting"></a>공격 분석, 원격 분석, 모니터링 및 경고
 Azure DDoS Protection은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다.
 
-- Azure Security Center에서 관리하는 구독에 보호되는 리소스가 있는 경우 DDoS Protection 표준은 보호되는 애플리케이션에 대해 DDoS 공격이 감지되고 완화될 때마다 Security Center에 경고를 자동으로 보냅니다.
+- 보호된 리소스가 Microsoft Defender for Cloud에서 적용되는 구독에 있는 경우 DDoS Protection Standard는 DDoS 공격이 감지되고 보호된 애플리케이션에 대해 완화될 때마다 Defender for Cloud에 경고를 자동으로 보냅니다.
 - 또는, 보호되는 공용 IP에 대한 활성 완화가 발생할 때 알림을 받으려면 DDoS 공격 진행 여부 메트릭에서 [경고를 구성](alerts.md)합니다.
 - 다른 DDoS 메트릭에 대한 경고를 만들고 [공격 원격 분석을 구성](telemetry.md)하여 공격의 규모, 손실되는 트래픽, 공격 벡터, 상위 기여자 및 기타 세부 내용을 이해할 수 있습니다.
 

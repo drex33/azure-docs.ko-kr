@@ -1,14 +1,14 @@
 ---
 title: 포트 및 VLAN 이름 확인 향상
 description: 센서에서 포트 및 VLAN 이름을 사용자 지정하여 디바이스 확인을 보강합니다.
-ms.date: 12/13/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 5c4f29f43534a797c5e8ac7142fd9633830f7859
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020444"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331493"
 ---
 # <a name="enhance-port-vlan-and-os-resolution"></a>포트, VLAN 및 OS 확인 향상
 
@@ -16,7 +16,7 @@ ms.locfileid: "113020444"
 
 ## <a name="customize-port-names"></a>포트 이름 사용자 지정
 
-Azure Defender for IoT는 DHCP 또는 HTTP와 같이 가장 보편적으로 예약되는 포트에 이름을 자동으로 할당합니다. Defender for IoT가 검색하는 다른 포트의 포트 이름을 사용자 지정할 수 있습니다. 예를 들어 비정상적으로 높은 활동을 보이는 예약되지 않은 포트에 이름을 할당합니다.
+IoT 용 Microsoft Defender는 DHCP 또는 HTTP와 같은 가장 일반적으로 예약 된 포트에 이름을 자동으로 할당 합니다. Defender for IoT가 검색하는 다른 포트의 포트 이름을 사용자 지정할 수 있습니다. 예를 들어 비정상적으로 높은 활동을 보이는 예약되지 않은 포트에 이름을 할당합니다.
 
 이러한 이름이 표시되는 경우는 다음과 같습니다.
 

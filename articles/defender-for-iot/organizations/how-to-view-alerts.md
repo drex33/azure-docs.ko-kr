@@ -1,14 +1,14 @@
 ---
 title: 경고 페이지에서 경고 필터링 및 관리
 description: 다양한 범주에 따라 경고를 확인하고, 검색 기능을 사용하여 관심 있는 경고를 쉽게 찾을 수 있습니다.
-ms.date: 05/31/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 616072a83df91e047a0105e7a5cac560dcf5e6fd
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: d7c8207a8dcd36fd52d9271bcc840ee6730f76da
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019375"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278629"
 ---
 # <a name="filter-and-manage-alerts-from-the-alerts-page"></a>경고 페이지에서 경고 필터링 및 관리 
 

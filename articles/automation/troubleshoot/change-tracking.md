@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 21699d306742c2a732155ac8df78608f5c3dd7ae
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101723829"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346025"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
 
@@ -136,7 +136,8 @@ Windows용 Log Analytics 에이전트(**HealthService.exe**)가 머신에서 실
 
 Linux용 Log Analytics 에이전트(**omsagent**)의 디먼이 머신에서 실행되고 있는지 확인합니다. Automation 계정에 연결된 Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
 
-```loganalytics Copy
+```loganalytics
+Copy
 Heartbeat
 | summarize by Computer, Solutions
 ```
@@ -153,7 +154,7 @@ OMS 로그 수집기 도구를 사용하여 로그 및 명령줄 출력 컬렉�
 
 ##### <a name="fim-conflicts"></a>FIM 충돌
 
-Azure Security Center의 FIM 기능이 Linux 파일의 무결성에 대해 잘못된 유효성 검사를 할 수 있습니다. FIM이 작동하고 Linux 파일 모니터링에 대해 올바르게 구성되어 있는지 확인합니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking/overview.md)를 참조하세요.
+클라우드용 Microsoft Defender의 FIM 기능이 Linux 파일의 무결성에 대한 유효성을 잘못 검사할 수 있습니다. FIM이 작동하고 Linux 파일 모니터링에 대해 올바르게 구성되어 있는지 확인합니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking/overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

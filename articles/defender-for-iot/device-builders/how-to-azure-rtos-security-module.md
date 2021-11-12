@@ -2,13 +2,13 @@
 title: Azure RTOS용 Defender-IoT-micro-agent 구성 및 사용자 지정
 description: Azure RTOS용 Defender-IoT-micro-agent를 구성하고 사용자 지정하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 03/07/2021
-ms.openlocfilehash: 38e0b7cd1226d26caf45ed454c93e253a2ead240
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: dc6e522e1d9453264d92100c6e7e830506d8284b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138426"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306286"
 ---
 # <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos"></a>Azure RTOS용 Defender-IoT-micro-agent 구성 및 사용자 지정
 

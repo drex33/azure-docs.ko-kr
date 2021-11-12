@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 77b920f52f699cb4492764aaf5ecb8b5f8ee2a7e
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: fa2f6c4ec9a64dacc719f62f6a87c6d9d6e112d2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559412"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319334"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>자습서: 비디오를 사용하여 추론 메타데이터 녹화 및 스트리밍
 
@@ -31,7 +31,7 @@ ms.locfileid: "131559412"
 * [빠른 시작: 자체 모델로 라이브 비디오 분석l - HTTP](analyze-live-video-use-your-model-http.md)
 * [빠른 시작: 라이브 비디오의 개체 추적](track-objects-live-video.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서의 필수 구성 요소는 [!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]입니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "131559412"
 
 다이어그램에서 볼 수 있듯이, 파이프라인에서 [RTSP 원본](../pipeline.md#rtsp-source) 노드를 사용하여 고속도로에서 시뮬레이션된 라이브 교통 비디오를 캡처하고 해당 비디오를 두 개의 경로로 보냅니다.
 
-* 첫 번째 경로는 HTTP 확장 노드에 대한 것입니다. HTTP 확장 노드는 프록시 역할을 수행합니다. 매 10번째 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음, HTTP를 통해 이미지를 HTTP 엔드포인트 내부에서 AI 모델을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 해당 에지 모듈은 다양한 형식의 개체를 감지할 수 있는 YOLOv3 모델을 사용하여 빌드됩니다. HTTP 확장 프로세서 노드는 감지 결과를 수집하고 이러한 결과와 모든 비디오 프레임(10번째 프레임뿐만 아니라)을 개체 추적기 노드로 보냅니다. 개체 추적기 노드는 광학 흐름 기술을 사용하여 AI 모델이 적용되지 않은 9개 프레임의 개체를 추적합니다. 추적기 노드는 결과를 비디오 싱크 노드 및 IoT Hub 싱크 노드에 게시합니다. [비디오 싱크](../pipeline.md#video-sink) 노드는 녹화된 비디오와 함께 재생될 개체 추적기 노드의 추론 메타데이터를 사용합니다. 그러면 [IoT Hub 메시지 싱크](../pipeline.md#iot-hub-message-sink) 노드에서는 이러한 이벤트를 [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub)에 보냅니다.
+* 첫 번째 경로는 HTTP 확장 노드에 대한 것입니다. HTTP 확장 노드는 프록시 역할을 수행합니다. 매 10번째 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음 HTTP를 통해 이미지를 HTTP 엔드포인트 뒤에서 AI 모델을 실행하는 다른 에지 모듈로 릴레이합니다. 이 예에서 해당 에지 모듈은 다양한 형식의 개체를 감지할 수 있는 YOLOv3 모델을 사용하여 빌드됩니다. HTTP 확장 프로세서 노드는 감지 결과를 수집하고 이러한 결과와 모든 비디오 프레임(10번째 프레임뿐만 아니라)을 개체 추적기 노드로 보냅니다. 개체 추적기 노드는 광학 흐름 기술을 사용하여 AI 모델이 적용되지 않은 9개 프레임의 개체를 추적합니다. 추적기 노드는 결과를 비디오 싱크 노드 및 IoT Hub 싱크 노드에 게시합니다. [비디오 싱크](../pipeline.md#video-sink) 노드는 녹화된 비디오와 함께 재생될 개체 추적기 노드의 추론 메타데이터를 사용합니다. 그러면 [IoT Hub 메시지 싱크](../pipeline.md#iot-hub-message-sink) 노드에서는 이러한 이벤트를 [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub)에 보냅니다.
 
 * 두 번째 경로는 비디오를 연속 녹화하기 위해 RTSP 원본에서 비디오 싱크 노드로 직접 전달하는 것입니다. 이 자습서에서 사용되는 비디오는 [고속도로 교차로 샘플 비디오](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)입니다.
 

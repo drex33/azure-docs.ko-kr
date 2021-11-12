@@ -1,14 +1,14 @@
 ---
 title: CIS 벤치마크 권장 사항 조사
 description: OS 기준 권장 사항을 기반으로 하는 기본 및 고급 조사를 수행합니다.
-ms.date: 08/11/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 295345d43c48736f9f4572c8845f96560ce4f184
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8777b4c134dc92cd8e8a94424f57355239ee32c5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536193"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293576"
 ---
 # <a name="investigate-os-baseline-based-on-cis-benchmark-recommendation"></a>OS 기준(CIS 벤치마크 기반) 권장 사항 조사
 
@@ -16,13 +16,13 @@ OS 기준 권장 사항을 기반으로 하는 기본 및 고급 조사를 수�
 
 ## <a name="basic-os-baseline-security-recommendation-investigation"></a>기본 OS 기준 보안 권장 사항 조사  
 
-**IoT Hub** 아래에서 Azure Defender for IoT 포털로 이동하여 OS 기준 권장 사항을 조사할 수 있습니다. 자세한 내용은 [보안 권장 사항을 조사](quickstart-investigate-security-recommendations.md)하는 방법을 참조하세요.
+[Azure Portal에서 IoT 용 Defender](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)로 이동 하 여 OS 기준 권장 사항을 조사할 수 있습니다. 자세한 내용은 [보안 권장 사항을 조사](quickstart-investigate-security-recommendations.md)하는 방법을 참조하세요.
 
 ## <a name="advanced-os-baseline-security-recommendation-investigation"></a>고급 OS 기준 보안 권장 사항 조사  
 
 이 섹션에서는 OS 기준 테스트 결과를 보다 잘 이해하고 Azure Log Analytics에서 이벤트를 쿼리하는 방법을 설명합니다.  
 
-고급 OS 기준 보안 권장 사항 조사는 Log Analytics를 사용하는 경우에만 지원됩니다. 계속하기 전에 Defender for IoT를 Log Analytics 작업 영역에 연결합니다. 고급 OS 기준 보안 권장 사항에 대한 자세한 내용은 [Azure Defender for IoT 에이전트 기반 솔루션 구성](how-to-configure-agent-based-solution.md) 방법을 참조하세요.
+고급 OS 기준 보안 권장 사항 조사는 Log Analytics를 사용하는 경우에만 지원됩니다. 계속하기 전에 Defender for IoT를 Log Analytics 작업 영역에 연결합니다. 고급 OS 기준 보안 권장 사항에 대 한 자세한 내용은 [IoT 에이전트 기반 솔루션용 Microsoft Defender를 구성](how-to-configure-agent-based-solution.md)하는 방법을 참조 하세요.
 
 경고를 위해 Log Analytics에서 IoT 보안 이벤트를 쿼리하려면:
 

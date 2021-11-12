@@ -6,14 +6,14 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 11/11/2021
 ms.author: banders
-ms.openlocfilehash: 932f8bd68ee36d34bb35d2e50acc8ac5954275b7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4632cd70192387da98f62a3ee96fcf0a3650aad1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425807"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284382"
 ---
 # <a name="create-an-additional-azure-subscription"></a>추가 Azure 구독 만들기
 
@@ -71,6 +71,21 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 |Customer    | 선택한 고객에 대한 구독이 생성됩니다. 고객이 한 명만 있는 경우 선택 영역이 회색으로 표시됩니다.  |
 |Reseller    | 고객에게 서비스를 제공하는 재판매인입니다. 이 필드는 CSP 2계층 모델에서 간접 공급자에만 적용되는 선택적 필드입니다. |
 |Name     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+
+## <a name="create-a-subscription-as-a-partner-for-a-customer"></a>고객을 위한 파트너로 서 구독 만들기
+
+Microsoft 파트너 계약이 있는 파트너는 다음 단계를 사용 하 여 고객에 대 한 새 Microsoft Azure 계획 구독을 만듭니다. 구독은 파트너의 청구 계정 및 청구 프로필 아래에 생성 됩니다.
+
+1.  파트너 센터 계정을 사용 하 여 Azure Portal에 로그인 합니다.
+고객의 테 넌 트가 아니라 파트너 센터 디렉터리 (테 넌 트)에 있는지 확인 합니다.
+1.  **Cost Management + 청구** 로 이동합니다.
+1.  고객 계정이 있는 청구 계정에 대 한 청구 범위를 선택 합니다.
+1.  **청구** 아래의 왼쪽 메뉴에서 **고객** 을 선택 합니다.
+1.  고객 페이지에서 고객을 선택 합니다.
+1.  왼쪽 메뉴의 **제품 + 서비스** 에서 **Azure 구독** 을 선택 합니다.
+1.  Azure 구독 페이지에서 **+ 추가** 를 선택 하 여 구독을 만듭니다.
+1.  구독에 대 한 세부 정보를 입력 하 고 완료 되 면 **검토 + 만들기** 를 선택 합니다.
+
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>프로그래밍 방식으로 추가 Azure 구독 만들기
 

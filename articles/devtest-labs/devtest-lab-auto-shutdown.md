@@ -3,12 +3,12 @@ title: 랩 및 가상 머신에 대한 자동 종료 정책 구성
 description: 매일 특정 시간에 VM을 종료하도록 Azure DevTest Labs 또는 개별 VM(가상 머신)에 대한 자동 종료 일정 및 정책을 설정하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.openlocfilehash: b795ab8baaec5ea84823d4741f1bfcc48c990204
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 622d9c2da013ad9eb8c3a0eef46a21999f54ee76
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503421"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286738"
 ---
 # <a name="configure-auto-shutdown-for-labs-and-vms-in-devtest-labs"></a>DevTest Labs에서 랩 및 VM에 대한 자동 종료 구성
 
@@ -24,7 +24,7 @@ Azure DevTest Labs 랩 소유자는 특정 시간 또는 야간에 랩의 모든
 
 1. 랩의 홈 페이지에서 **구성 및 정책** 을 선택합니다.
 1. 왼쪽 메뉴의 **일정** 섹션에서 자동 **종료를** 선택합니다.
-1. 자동 **종료** 화면에서 **사용의** 경우 **켜기를** 선택하여 자동 종료를 사용하도록 설정하고 **끄기를** 선택하여 사용하지 않도록 설정합니다.
+1. 자동 **종료** 화면의 **사용에서** **켜기를** 선택하여 자동 종료를 사용하도록 설정하고 **끄기를** 선택하여 사용하지 않도록 설정합니다.
 1. **예약된 종료** 및 **표준 시간대** 의 경우 자동 종료를 설정한 경우 모든 랩 VM을 종료할 표준 시간대를 지정합니다.
 1. **자동 종료 전에 알림 보내기?** 의 경우 지정된 자동 종료 시간 30분 전에 알림을 보내는 옵션에 대해 **예** 또는 **아니요를** 선택합니다. **예를** 선택하는 경우 알림을 게시하거나 보낼 이메일 주소 아래에 웹후크 URL 또는 세미콜론으로 구분된 **이메일 주소** 아래에 **웹후크 URL** 엔드포인트를 입력합니다. 자세한 내용은 자동 [종료 알림 섹션을 참조하세요.](#auto-shutdown-notifications)
 1. **저장** 을 선택합니다.
@@ -34,11 +34,11 @@ Azure DevTest Labs 랩 소유자는 특정 시간 또는 야간에 랩의 모든
 기본적으로 이 일정은 랩의 모든 VM에 적용됩니다. 특정 VM에서 이 설정을 제거하려면 정책에서 허용되는 경우 VM의 관리 창을 열고 **자동 종료** 설정을 변경합니다.
 
 > [!NOTE]
-> 랩 또는 VM의 자동 종료 일정을 이전에 예약된 종료 시간의 30분 이내에 업데이트하면 새 종료 시간이 다음 날에 적용됩니다.
+> 이전에 예약된 종료 시간에서 30분 이내에 랩 또는 VM에 대한 자동 종료 일정을 업데이트하면 새 종료 시간이 다음 날에 적용됩니다.
 
 ## <a name="configure-lab-auto-shutdown-policy"></a>랩 자동 종료 정책 구성
 
-랩 소유자는 랩에 대한 자동 종료 정책 설정을 관리하여 비용을 제어하고 랩의 낭비를 최소화할 수 있습니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs 랩 정책 정의를](devtest-lab-set-lab-policy.md)참조하세요. 
+랩 소유자는 랩에 대한 자동 종료 정책 설정을 관리하여 비용을 제어하고 랩의 낭비를 최소화할 수 있습니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs 랩 정책 정의를](devtest-lab-set-lab-policy.md)참조하세요.
 
 > [!IMPORTANT]
 > 자동 종료 정책 변경 내용은 랩에서 만든 새 VM에만 적용됩니다. 기존 VM에는 적용되지 않습니다.
@@ -64,7 +64,7 @@ Azure DevTest Labs 랩 소유자는 특정 시간 또는 야간에 랩의 모든
 자동 종료 정책에 따라 개별 랩 VM에 대한 자동 종료 일정을 설정할 수도 있습니다.
 
 1. VM 홈페이지의 왼쪽 메뉴에 있는 **작업** 섹션에서 자동 **종료를** 선택합니다.
-1. 자동 **종료** 화면에서 **사용의** 경우 **켜기를** 선택하여 자동 종료를 사용하도록 설정하고 **끄기를** 선택하여 사용하지 않도록 설정합니다.
+1. 자동 **종료** 화면의 **사용에서** **켜기를** 선택하여 자동 종료를 사용하도록 설정하고 **끄기를** 선택하여 사용하지 않도록 설정합니다.
 1. **예약된 종료** 및 **표준 시간대** 의 경우 자동 종료를 설정한 경우 모든 랩 VM을 종료할 표준 시간대를 지정합니다.
 1. **자동 종료 전에 알림 보내기?** 의 경우 지정된 자동 종료 시간 30분 전에 알림을 보내는 옵션에 대해 **예** 또는 **아니요를** 선택합니다. **예를** 선택하는 경우 웹후크 URL **아래에** 웹후크 URL 엔드포인트를 입력하거나 알림을 게시하거나 보낼 이메일 주소 아래에 이메일 **주소를** 입력합니다. 자세한 내용은 자동 [종료 알림 섹션을 참조하세요.](#auto-shutdown-notifications)
 1. **저장** 을 선택합니다.
@@ -89,12 +89,12 @@ Azure DevTest Labs 랩 소유자는 특정 시간 또는 야간에 랩의 모든
 알림은 다른 사용자가 계속 작업해야 하는 경우 각 VM에 대해 다음 작업을 허용하는 링크를 제공할 수도 있습니다.
 
 - 이번에는 자동 종료를 건너뜁니다.
-- 1시간 동안 자동 종료를 다시 알림
+- 1시간 동안 자동 종료를 다시 알림합니다.
 - 2시간 동안 자동 종료를 다시 알림.
 
 webhook를 사용하여 사용자 고유의 알림을 구현할 수 있습니다. 특정 이벤트를 구독하는 통합을 설정합니다. 이러한 이벤트 중 하나가 발생하면 HTTP POST 페이로드가 웹후크의 URL로 전송됩니다.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Slack과 같은 앱은 webhook를 광범위하게 지원합니다. 웹후크에 응답하는 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩 개요 및](../azure-functions/functions-bindings-http-webhook.md) Azure Logic Apps HTTP 트리거 [추가를](../connectors/connectors-native-http.md#add-an-http-trigger)참조하세요.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Slack과 같은 앱은 webhook를 광범위하게 지원합니다. 웹후크에 응답하는 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩 개요 및 Azure Logic Apps](../azure-functions/functions-bindings-http-webhook.md) HTTP 트리거 [추가를](../connectors/connectors-native-http.md#add-an-http-trigger)참조하세요.
 
 다음 예제에서는 Logic Apps 사용하여 VM 소유자에게 이메일을 보내는 자동 종료 알림을 구성하는 방법을 보여줍니다.
 
@@ -213,19 +213,19 @@ Logic Apps Office 365 및 Twitter와 같은 다른 클라이언트와 서비스�
 
    ![디자이너의 새 단계를 보여 주는 스크린샷.](media/devtest-lab-auto-shutdown/new-step.png)
 
-1. 작업 **선택** 페이지의 검색 필드에 *Office 365 Outlook - 이메일 보내기를* 입력한 다음 **작업에서** **이메일 보내기(V2)를** 선택합니다.
+1. 작업 **선택** 페이지의 검색 필드에 *Office 365 Outlook - 이메일 보내기를* 입력한 다음, **작업에서** **이메일 보내기(V2)를** 선택합니다.
 
    ![이메일 V2 보내기 옵션을 보여 주는 스크린샷.](media/devtest-lab-auto-shutdown/select-send-email.png)
 
-1. 이메일 **보내기(V2)** 양식에서 **받는 사람,** **제목** 및 **본문** 필드를 입력합니다. 
+1. 이메일 **보내기(V2)** 양식에서 **받는 사람,** **제목** 및 **본문** 필드를 입력합니다.
 
-   **동적 콘텐츠 추가를** 선택하여 앱 및 커넥터에서 사용하는 값으로 알림을 자동으로 채웁니다. 예를 들어 **To** 에 **대해 소유자** 를 선택합니다. **제목을** **vmName** 및 **labName** 으로 채웁합니다. **skipUrl** 및 **delayUrl과** 같은 콘텐츠를 메시지 본문에 추가합니다.
+   **동적 콘텐츠 추가를** 선택하여 앱 및 커넥터에서 사용하는 값으로 알림을 자동으로 채웁니다. 예를 들어 **To** 에 **대해 소유자** 를 선택합니다. **제목을** **vmName** 및 **labName** 으로 채웁합니다. **skipUrl** 및 **delayUrl** 값과 같은 콘텐츠를 메시지 본문에 추가합니다.
 
    ![알림 이메일 예제를 보여 주는 스크린샷.](media/devtest-lab-auto-shutdown/email-options.png)
 
 1. 도구 모음에서 **저장** 을 선택합니다.
 
-이제 웹후크 URL을 복사할 수 있습니다. HTTP **요청을 받은 경우** 단계를 선택한 다음, 복사 단추를 선택하여 HTTP POST URL을 클립보드에 복사합니다. 이 웹후크 URL을 자동 종료 알림 설정에 붙여넣습니다.
+이제 웹후크 URL을 복사할 수 있습니다. HTTP **요청을 받은 경우** 단계를 선택한 다음 복사 단추를 선택하여 HTTP POST URL을 클립보드에 복사합니다. 이 웹후크 URL을 자동 종료 알림 설정에 붙여넣습니다.
 
 ![웹후크 URL 복사를 보여 주는 스크린샷](media/devtest-lab-auto-shutdown/webhook-url.png)
 

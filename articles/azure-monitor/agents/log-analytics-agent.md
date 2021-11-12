@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/02/2021
-ms.openlocfilehash: 1fa0763c9d4ccdb4e0233a5c6159be7c0d745be6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2044e40c61e5683d9c21051ed38af471dbd73991
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470398"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294051"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 
-Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 머신 및 [System Center Operations Manager](/system-center/scom/)에서 모니터링하는 Windows 및 Linux 가상 머신의 원격 분석을 수집하고 Azure Moniter의 Log Analytics 작업 영역으로 수집한 데이터를 보냅니다. Log Analytics 에이전트는 [VM 인사이트](../vm/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 배포 모델을 상세히 살펴봅니다.
+Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 머신 및 [System Center Operations Manager](/system-center/scom/)에서 모니터링하는 Windows 및 Linux 가상 머신의 원격 분석을 수집하고 Azure Moniter의 Log Analytics 작업 영역으로 수집한 데이터를 보냅니다. Log Analytics 에이전트는 VM 인사이트, [클라우드용 Microsoft Defender](../../security-center/index.yml)및 Azure Automation 같은 Azure Monitor 인사이트 [및](../../automation/automation-intro.md)기타 서비스도 [지원합니다.](../vm/vminsights-enable-overview.md) 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 배포 모델을 상세히 살펴봅니다.
 
 > [!NOTE]
 > Log Analytics 에이전트를 Microsoft Monitoring Agent(MMA)라고도 합니다.
@@ -27,7 +27,7 @@ Azure Monitor의 [Azure 진단 확장](./diagnostics-extension-overview.md)을 �
 
 - Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
 - Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md)(Windows만 해당) 및 Event Hubs로 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](../logs/data-platform-logs.md)에 보냅니다.
-- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-curated-visualizations), [VM 인사이트](../vm/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml) 등의 기타 서비스에 필요합니다.
+- Log Analytics 에이전트는 [솔루션,](../monitor-reference.md#insights-and-curated-visualizations) [VM 인사이트](../vm/vminsights-overview.md)및 기타 서비스(예: [Microsoft Defender for Cloud)에](../../security-center/index.yml)필요합니다.
 
 ## <a name="costs"></a>비용
 
@@ -55,7 +55,7 @@ Log Analytics 에이전트는 Azure Monitor의 Log Analytics 작업 영역으로
 
 ## <a name="other-services"></a>기타 서비스
 
-Linux 및 Windows용 에이전트는 Azure Monitor 연결에만 사용되지 않습니다. Azure Security Center 및 Azure Sentinel과 같은 기타 서비스도 에이전트 및 에이전트와 연결된 Log Analytics 작업 영역을 사용합니다. 에이전트는 [변경 내용 추적](../../automation/change-tracking/overview.md), [업데이트 관리](../../automation/update-management/overview.md), [Azure Security Center](../../security-center/security-center-introduction.md) 등의 Hybrid Runbook Worker 역할 및 기타 서비스를 호스트하도록 Azure Automation도 지원합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
+Linux 및 Windows용 에이전트는 Azure Monitor 연결에만 사용되지 않습니다. Microsoft Defender for Cloud 및 Microsoft Sentinel과 같은 다른 서비스는 에이전트 및 연결된 Log Analytics 작업 영역을 기반으로 합니다. 또한 에이전트는 Hybrid Runbook Worker 역할 및 기타 서비스(예: 변경 내용 추적, [업데이트 관리](../../automation/change-tracking/overview.md)및 [Microsoft Defender for Cloud)를](../../security-center/security-center-introduction.md)호스트하는 [Azure Automation](../../automation/update-management/overview.md)지원합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
 ## <a name="workspace-and-management-group-limitations"></a>작업 영역 및 관리 그룹 제한 사항
 
@@ -78,20 +78,20 @@ Operations Manager 관리 그룹에 에이전트를 연결하는 방법에 대�
 ### <a name="azure-virtual-machine"></a>Azure 가상 머신
 
 - [VM 인사이트](../vm/vminsights-enable-overview.md)는 에이전트를 대규모로 사용할 수 있는 다양한 방법을 제공합니다. 여기에는 Log Analytics 에이전트와 Dependency 에이전트의 설치가 포함됩니다. 
-- 보안 취약점과 위협을 모니터링하도록 설정된 경우 Azure Security Center는 지원되는 모든 Azure VM과 새로 생성되는 VM에서 [Log Analytics 에이전트를 프로비저닝할 수 있습니다](../../security-center/security-center-enable-data-collection.md).
+- Microsoft Defender for Cloud는 지원되는 모든 Azure VM 및 보안 취약성 및 위협을 모니터링할 수 있는 경우 생성된 모든 새 VM에 [Log Analytics 에이전트를 프로비전할 수](../../security-center/security-center-enable-data-collection.md) 있습니다.
 - [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md) 용 Log Analytics VM 확장은 Azure Portal, Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿과 함께 설치할 수 있습니다.
 - [Azure Portal에서 수동으로](../vm/monitor-virtual-machine.md?toc=%2fazure%2fazure-monitor%2ftoc.json) 개별 Azure 가상 머신을 설치합니다.
 
 ### <a name="windows-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Windows 가상 머신
 
-- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다. [배포 옵션](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) 을 검토 하 여 Arc 사용 서버에 등록 된 컴퓨터에서 확장에 사용할 수 있는 다양 한 배포 방법을 파악 합니다.
+- [Azure Arc 지원 서버를](../../azure-arc/servers/overview.md) 사용하여 Log Analytics VM 확장을 배포하고 관리합니다. 배포 [옵션을](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) 검토하여 Arc 지원 서버에 등록된 컴퓨터에서 확장에 사용할 수 있는 다양한 배포 방법을 이해합니다.
 - 명령줄에서 에이전트를 [수동으로 설치](../agents/agent-windows.md)합니다.
 - [Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation)를 사용하여 설치를 자동화합니다.
 - [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) 사용
 
 ### <a name="linux-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Linux 가상 머신
 
-- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다. [배포 옵션](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) 을 검토 하 여 Arc 사용 서버에 등록 된 컴퓨터에서 확장에 사용할 수 있는 다양 한 배포 방법을 파악 합니다.
+- [Azure Arc 지원 서버를](../../azure-arc/servers/overview.md) 사용하여 Log Analytics VM 확장을 배포하고 관리합니다. 배포 [옵션을](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) 검토하여 Arc 지원 서버에 등록된 컴퓨터에서 확장에 사용할 수 있는 다양한 배포 방법을 이해합니다.
 - GitHub에 호스트된 래퍼 스크립트를 호출하는 에이전트를 [수동으로 설치](../vm/monitor-virtual-machine.md)합니다.
 - Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 [System Center Operations Manager](./om-agents.md)와 Azure Monitor를 통합합니다.
 

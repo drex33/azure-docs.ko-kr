@@ -1,5 +1,5 @@
 ---
-title: 연결 엔드포인트를 & Azure Arc 사용하도록 설정된 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 문자열 만들기
+title: 연결 엔드포인트를 얻고 Azure Arc 사용하도록 설정된 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 문자열 만들기
 titleSuffix: Azure Arc-enabled data services
 description: 연결 엔드포인트를 & Azure Arc 사용하도록 설정된 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 문자열 만들기
 services: azure-arc
@@ -10,14 +10,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: f340cf95072015a3896291484ef1289a9d34d6ed
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 35a7a184ae3b699d5ed4d25c1cb6b78269dcea11
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564103"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279306"
 ---
-# <a name="get-connection-endpoints--create-the-connection-strings-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>연결 엔드포인트를 & Azure Arc 사용하도록 설정된 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 문자열을 만듭니다.
+# <a name="get-connection-endpoints--create-the-connection-strings-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>연결 엔드포인트를 & Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 문자열을 만듭니다.
 
 이 문서에서는 서버 그룹의 연결 엔드포인트를 검색하는 방법과 애플리케이션 및/또는 도구에서 사용할 수 있는 연결 문자열을 구성하는 방법을 설명합니다.
 
@@ -35,7 +35,7 @@ az postgres arc-server endpoint list -n <server group name> --k8s-namespace <nam
 az postgres arc-server endpoint list -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
-PostgreSQL 엔드포인트, 로그 검색 대시보드(Kibana) 및 메트릭 대시보드(Grafana)와 같은 엔드포인트 목록을 반환합니다. 예를 들면 다음과 같습니다. 
+엔드포인트 목록을 반환합니다. PostgreSQL 엔드포인트, 로그 검색 대시보드(Kibana) 및 메트릭 대시보드(Grafana). 예를 들면 다음과 같습니다. 
 
 ```output
 {
@@ -95,10 +95,11 @@ kubectl get postgresqls/postgres01 -n arc
 ```
 
 이러한 명령은 아래와 같은 출력을 생성합니다. 해당 정보를 사용하여 연결 문자열을 구성할 수 있습니다.
+
 ```console
 NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
 postgres01   Ready   3/3          12.345.567.89:5432   9d
-``` 
+```
 
 ## <a name="form-connection-strings"></a>폼 연결 문자열
 

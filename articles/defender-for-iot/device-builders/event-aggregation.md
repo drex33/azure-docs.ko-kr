@@ -2,13 +2,13 @@
 title: Defender-IoT-micro-agent 클래식 이벤트 집계
 description: Defender for IoT 이벤트 집계에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 06/20/2021
-ms.openlocfilehash: 105c889102ed6880719abfa5315c7030f18c71f0
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 2e7ad46dd7e94c955b722e0d7a3f06237828c9b4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135935"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306305"
 ---
 # <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Defender-IoT-micro-agent 클래식 이벤트 집계
 

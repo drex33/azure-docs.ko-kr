@@ -2,13 +2,13 @@
 title: 클래식 에이전트 기반 보안 경고
 description: 클래식 버전의 Defender for IoT의 보안 경고와 Defender for IoT 디바이스의 기능 및 서비스를 사용한 권장 해결 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: c62a0216a68f685244c1e9ef4e14c4487c9f8b3e
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 11/09/2021
+ms.openlocfilehash: 27e0cebd04ad2c8fbea6d9f42422840a695a184a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081969"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284154"
 ---
 # <a name="classic-defender-for-iot-devices-security-alerts"></a>클래식 Defender for IoT 디바이스 보안 경고
 

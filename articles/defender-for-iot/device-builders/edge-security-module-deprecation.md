@@ -1,18 +1,18 @@
 ---
 title: 기능 지원 및 사용 중지
 description: Defender for IoT는 2022년 3월 1일까지 C, C# 및 Edge를 계속 지원합니다.
-ms.date: 07/18/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 37848fea276b7925e4e8bd711dd1abe4c0bd338e
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: 441f01261ff3f22a39ac6754221fb671a362c387
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114400889"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281876"
 ---
 # <a name="feature-support-and-retirement"></a>기능 지원 및 사용 중지
 
-이 문서에서는 Azure Defender for IoT 기능 및 Defender for IoT 내의 다양한 기능에 대한 지원을 설명합니다.
+이 문서에서는 iot 용 Microsoft Defender 기능에 대해 설명 하 고 IoT 용 Defender 내에서 다양 한 기능에 대 한 지원을 제공 합니다.
 
 ## <a name="defender-for-iot-c-c-and-edge-defender-iot-micro-agent-deprecation"></a>Defender for IoT C, C# 및 Edge Defender-IoT-micro-agent 사용 중단
 
@@ -38,4 +38,4 @@ Defender for IoT는 2022년 3월 1일까지 C, C# 및 Edge를 계속 지원합�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Defender for IoT 에이전트 질문과 대답](resources-agent-frequently-asked-questions.md)을 확인하세요.
+[Microsoft Defender에서 IoT agent에 대 한 질문과 대답을](resources-agent-frequently-asked-questions.md)확인 하세요.

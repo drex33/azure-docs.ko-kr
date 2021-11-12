@@ -2,13 +2,13 @@
 title: Azure RTOS용 Defender-IoT-micro-agent에 대한 기본 개념 설명
 description: Azure RTOS 개념 및 워크플로용 Defender-IoT-micro-agent에 대한 기본 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 07/01/2021
-ms.openlocfilehash: 5555b7806f3cf2bfe685ab442b85d44d03e1f406
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 084c7130c9fe033fb96fcb0a2e3c2820ef2c77e5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113139182"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278952"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos"></a>Azure RTOS용 Defender-IoT-micro-agent
 

@@ -2,13 +2,13 @@
 title: 보안 에이전트 로컬 구성(C)
 description: C의 에이전트 로컬 구성을 위한 Defender에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 24445ce60b3a6d070805cf04a23d7834c24f01e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: 9ffe4ae98cd745c4c9362f09a9a29258a8d48a2e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680506"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286662"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>LocalConfiguration. json 파일 이해 - C 에이전트
 
@@ -32,7 +32,7 @@ Defender for IoT 보안 에이전트는 로컬 구성 파일의 구성을 사용
 | ID | "DPS", "SecurityModule", "Device" | 인증 ID - DPS를 통해 인증하는 경우 DPS, Defender-IoT-micro-agentcredentials를 사용하여 인증하는 경우 SecurityModule, 디바이스 자격 증명을 사용하여 인증하는 경우 device |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | 인증에 대한 사용자 비밀 - 사용 비밀이 대칭 키인 경우 SasToken을 선택하고, 비밀이 자체 서명된 인증서인 경우 자체 서명된 인증서를 선택합니다.  |
 | FilePath | 파일 경로(문자열) | 인증 비밀을 포함하는 파일의 경로 |
-| HostName | 문자열 | Azure IoT 허브의 호스트 이름. 일반적으로 \<my-hub\> .azure-devices.net |
+| HostName | 문자열 | Azure IoT 허브의 호스트 이름. 일반적으로 \<my-hub\> azure-devices.net |
 | DeviceId | 문자열 | Azure IoT Hub에 등록된 디바이스 ID |
 | DPS | JsonObject | DPS 관련 구성 |
 | IDScope | 문자열 | DPS의 ID 범위 |

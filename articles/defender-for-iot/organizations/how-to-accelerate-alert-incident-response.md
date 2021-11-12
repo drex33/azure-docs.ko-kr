@@ -1,18 +1,18 @@
 ---
 title: 경고 워크플로 가속화
 description: 경고 및 인시던트 워크플로를 개선합니다.
-ms.date: 12/02/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: fa8e00fb8b3fdbb01d23aa7213c3bf21db7e9479
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: e570cff67630a483d6926f6090165708a5ca17b4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113021204"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283983"
 ---
 # <a name="accelerate-alert-workflows"></a>경고 워크플로 가속화
 
-이 문서에서는 Azure Defender for IoT에서 경고 설명, 경고 그룹 및 사용자 지정 경고 규칙을 사용하여 경고 워크플로를 가속화하는 방법을 설명합니다.  이러한 도구는 다음과 같은 경우에 유용합니다.
+이 문서에서는 Microsoft Defender for IoT에서 경고 설명, 경고 그룹 및 사용자 지정 경고 규칙을 사용 하 여 경고 워크플로를 가속화 하는 방법을 설명 합니다.  이러한 도구는 다음과 같은 경우에 유용합니다.
 
 - 네트워크에서 검색된 많은 양의 경고 이벤트를 분석하고 관리합니다.
 
@@ -114,8 +114,7 @@ ms.locfileid: "113021204"
 - 선택한 범주를 기준으로 하는 조건(예: 프로토콜, 파일 이름, 포트 또는 전송 번호에 연결된 함수)입니다.
 - 날짜 및 시간 참조를 기준으로 하는 조건(예: 검색이 특정 날 또는 해당 날의 특정 부분에 수행되었는지)
 
-센서가 규칙에 설명된 활동을 감지하면 경고가 전송됩니다.
-개별 센서가 검색하는 정보. 예를 들어, 센서에 원본 IP, 대상 IP 또는 명령(프로토콜 내)을 기준으로 경고를 트리거하도록 지시하는 규칙을 정의합니다. 센서가 규칙에 정의된 트래픽을 감지하면 경고나 이벤트가 생성됩니다.
+센서가 규칙에 설명된 활동을 감지하면 경고가 전송됩니다. 개별 센서가 검색하는 정보. 예를 들어, 센서에 원본 IP, 대상 IP 또는 명령(프로토콜 내)을 기준으로 경고를 트리거하도록 지시하는 규칙을 정의합니다. 센서가 규칙에 정의된 트래픽을 감지하면 경고나 이벤트가 생성됩니다.
 
 또한 경고 규칙 작업을 사용하여 Defender for IoT에 다음을 수행하도록 지시할 수 있습니다.
 

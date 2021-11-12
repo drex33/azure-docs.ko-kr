@@ -1,16 +1,16 @@
 ---
 title: 기준 및 사용자 지정 검사
-description: Azure Defender for IoT 기준의 개념에 대해 알아봅니다.
+description: IoT 기준에 대 한 Microsoft Defender의 개념에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/07/2019
-ms.openlocfilehash: 1b8b9d62918e40262da6b3df48d0fece842e050f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 80cb204008c60964ed90c63885ce8b99d23ca30b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018295"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284135"
 ---
-# <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure Defender for IoT 기준 및 사용자 지정 검사
+# <a name="microsoft-defender-for-iot-baseline-and-custom-checks"></a>IoT 기준 및 사용자 지정 확인을 위한 Microsoft Defender
 
 이 문서에서는 Defender for IoT 기준을 설명하고 기준 사용자 지정 검사의 모든 관련 속성을 요약합니다.
 

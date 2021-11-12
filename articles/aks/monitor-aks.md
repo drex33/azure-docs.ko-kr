@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2021
-ms.openlocfilehash: 464e848814da046600b05a1feea632a1ceaa141a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 7c0da13660f3fc987766554f40bc36020845dd85
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713839"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287403"
 ---
 # <a name="monitoring-azure-kubernetes-service-aks-with-azure-monitor"></a>Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링
 이 시나리오에서는 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service)의 상태 및 성능을 모니터링하는 방법을 설명합니다. 여기에는 추세를 식별하기 위해 수집된 데이터의 모니터링, 분석 및 시각화에 중요한 원격 분석 컬렉션과 중요한 문제에 대해 사전에 알림을 받도록 경고를 구성하는 방법이 포함됩니다.
@@ -21,13 +21,13 @@ ms.locfileid: "129713839"
 ## <a name="scope-of-the-scenario"></a>시나리오의 범위
 이 시나리오는 Azure Monitor를 사용하여 AKS를 모니터링하는 고객을 대상으로 합니다. 다음 콘텐츠는 포함되지 않으며, 다만 시나리오에 대한 후속 업데이트에서 추가될 수 있습니다.
 
-- Azure Arc 지원 Kubernetes에 대한 기존 콘텐츠를 참조하는 경우를 제외하고 Azure 외부의 Kubernetes 클러스터 모니터링 
+- Azure Arc를 사용 하는 Kubernetes에 대 한 기존 콘텐츠를 참조 하는 점을 제외 하 고 Azure 외부에서 Kubernetes 클러스터 모니터링. 
 - Azure Monitor 이외의 도구로 AKS 모니터링(Azure Monitor 및 컨테이너 인사이트의 공백을 채우는 경우 제외)
 
 > [!NOTE]
-> Azure Monitor는 클라우드 리소스의 가용성과 성능을 모니터링하도록 설계되었습니다. Azure Monitor에 저장된 작동 데이터는 보안 인시던트를 조사하는 데 유용할 수 있지만 Azure의 다른 서비스는 보안을 모니터링하도록 설계되었습니다. AKS에 대한 보안 모니터링은 [Azure Sentinel](../sentinel/overview.md) 및 [Azure Security Center](../security-center/security-center-introduction.md)를 통해 수행됩니다. Azure의 보안 모니터링 도구 및 Azure Monitor와의 관계에 대한 설명은 [Azure Monitor를 사용하여 가상 머신 모니터링 - 보안 모니터링](../azure-monitor/vm/monitor-virtual-machine-security.md)을 참조하세요.
+> Azure Monitor는 클라우드 리소스의 가용성과 성능을 모니터링하도록 설계되었습니다. Azure Monitor에 저장된 작동 데이터는 보안 인시던트를 조사하는 데 유용할 수 있지만 Azure의 다른 서비스는 보안을 모니터링하도록 설계되었습니다. AKS에 대 한 보안 모니터링은 [Microsoft 센티널](../sentinel/overview.md) 및 [클라우드 용 microsoft Defender](../security-center/security-center-introduction.md)를 사용 하 여 수행 됩니다. Azure의 보안 모니터링 도구 및 Azure Monitor와의 관계에 대한 설명은 [Azure Monitor를 사용하여 가상 머신 모니터링 - 보안 모니터링](../azure-monitor/vm/monitor-virtual-machine-security.md)을 참조하세요.
 >
-> 보안 서비스를 사용하여 AKS를 모니터링하는 방법에 대한 자세한 내용은 [Azure Defender for Kubernetes - 이점 및 특징](../security-center/defender-for-kubernetes-introduction.md)과 [AKS(Azure Kubernetes Service) 진단 로그를 Azure Sentinel에 연결](../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks)을 참조하세요.
+> 보안 서비스를 사용 하 여 AKS를 모니터링 하는 방법에 대 한 자세한 내용은 [Kubernetes 용 microsoft Defender-혜택 및 기능](../security-center/defender-for-kubernetes-introduction.md) 을 참조 하 고 [AKS (Azure Kubernetes Service) 진단 로그를 microsoft 센티널에 커넥트](../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks).
 ## <a name="container-insights"></a>컨테이너 인사이트
 AKS는 다른 Azure 리소스와 마찬가지로 기본 상태 및 성능을 모니터링하는 데 사용할 수 있는 [플랫폼 메트릭 및 리소스 로그](monitor-aks-reference.md)를 생성합니다. 모니터링을 확장하려면 [컨테이너 인사이트](../azure-monitor/containers/container-insights-overview.md)를 사용하도록 설정합니다. 컨테이너 인사이트는 다른 클러스터 구성 외에도 AKS에서 호스팅되는 관리되는 Kubernetes 클러스터의 상태 및 성능을 모니터링하는 Azure Monitor의 기능입니다. 컨테이너 인사이트는 다양한 모니터링 시나리오에 대해 수집된 데이터를 분석하는 대화형 보기와 통합 문서를 제공합니다. 
 
@@ -43,7 +43,7 @@ AKS는 다른 Azure 리소스와 마찬가지로 기본 상태 및 성능을 모
 ### <a name="create-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 컨테이너 인사이트를 지원하고 AKS 클러스터에 대한 다른 원격 분석을 수집하고 분석하려면 Log Analytics 작업 영역이 하나 이상 필요합니다. 작업 영역에 대한 비용은 없지만 데이터를 수집할 때 수집 및 보존 비용이 발생합니다. 자세한 내용은 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.
 
-Azure Monitor를 시작하는 경우에는 단일 작업 영역으로 시작하고 요구 사항이 발전함에 따라 추가 작업 영역을 만드는 것이 좋습니다. 많은 환경에서 모니터링하는 모든 Azure 리소스에 대해 단일 작업 영역을 사용합니다. 가용성 및 성능 원격 분석을 보안 데이터와 분리하도록 선택하는 고객이 많지만 [Azure Security Center 및 Azure Sentinel](../azure-monitor/vm/monitor-virtual-machine-security.md)에 사용되는 작업 영역을 공유할 수도 있습니다. 
+Azure Monitor를 시작하는 경우에는 단일 작업 영역으로 시작하고 요구 사항이 발전함에 따라 추가 작업 영역을 만드는 것이 좋습니다. 많은 환경에서 모니터링하는 모든 Azure 리소스에 대해 단일 작업 영역을 사용합니다. 많은 고객이 보안 데이터에서 가용성 및 성능 원격 분석을 분리 하도록 선택 하는 경우 [에도 Microsoft Defender에서 클라우드 및 Microsoft 센티널에](../azure-monitor/vm/monitor-virtual-machine-security.md)사용 하는 작업 영역을 공유할 수도 있습니다. 
 
 [Azure Monitor 로그 배포 디자인](../azure-monitor/logs/design-logs-deployment.md)에서 작업 영역 구성을 디자인할 때 고려해야 하는 논리에 대한 자세한 내용을 참조하세요.
 

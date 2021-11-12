@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대�
 ms.topic: conceptual
 ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: fdccee2795a4e1b2c967c53dc17d15a6520f4402
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: f21a7189eee020be7599188bb1791373e8c233e5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546523"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294260"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -52,7 +52,7 @@ Windows Server 노드의 경우 Windows 업데이트가 자동으로 실행되�
 
 ### <a name="are-there-additional-security-threats-relevant-to-aks-that-customers-should-be-aware-of"></a>고객이 알고 있어야 하는 AKS와 관련된 추가 보안 위협이 있나요?
 
-Microsoft는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 같은 서비스를 통해 워크로드를 보호하기 위해 수행할 수 있는 추가 작업에 대한 지침을 제공합니다. 다음은 고객이 알고 있어야 하는 AKS 및 Kubernetes와 관련된 추가 보안 위협 목록입니다.
+Microsoft는 [클라우드 용 Microsoft Defender](https://azure.microsoft.com/services/security-center/)와 같은 서비스를 통해 워크 로드를 보호 하기 위해 수행할 수 있는 추가 작업에 대 한 지침을 제공 합니다. 다음은 고객이 알고 있어야 하는 AKS 및 Kubernetes와 관련된 추가 보안 위협 목록입니다.
 
 * [새 대규모 캠페인 대상 Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - 2021년 6월 8일
 

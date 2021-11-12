@@ -1,26 +1,36 @@
 ---
-title: Azure 비정상 스튜디오를 사용 하 여 비정상 실험 만들기 및 실행
+title: Azure Chaos Studio를 사용하여 카오스 실험 만들기 및 실행
 description: 10 분 내에 비정상 스튜디오 실험을 만들고 실행 하는 단계를 이해 합니다.
 services: chaos-studio
 author: prashabora
 ms.topic: article
-ms.date: 10/21/2021
+ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a5635307b3b736f535dd21f54b3c2b1ec326e5b0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ec89106c1aee40bc11e6ee2246ef2e01cb8fd466
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102762"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282104"
 ---
 # <a name="quickstart-create-and-run-a-chaos-experiment-using-azure-chaos-studio"></a>빠른 시작: Azure 비정상 스튜디오를 사용 하 여 비정상 실험 만들기 및 실행 
 VM 종료 서비스-direct 실험을 사용 하 여 비정상 스튜디오를 시작 하 여 실제 서비스에서 해당 오류에 대 한 복원 력을 향상 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
-- [Azure Portal](https://portal.azure.com)을 엽니다.
-- 가상 머신 - 가상 컴퓨터가 없는 경우 [다음 단계를 수행 하](../virtual-machines/linux/quick-create-portal.md)여 가상 컴퓨터를 만들 수 있습니다.
+## <a name="prerequisites"></a>필수 구성 요소
+- Azure 구독 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- Linux 가상 머신. 가상 컴퓨터가 없는 경우 [다음 단계를 수행 하](../virtual-machines/linux/quick-create-portal.md)여 가상 컴퓨터를 만들 수 있습니다.
+
+## <a name="register-the-chaos-studio-resource-provider"></a>비정상 스튜디오 리소스 공급자 등록
+비정상 스튜디오를 처음 사용 하는 경우 리소스를 온 보 딩 하 고 실험을 만들기 전에 먼저 비정상 스튜디오 리소스 공급자를 등록 해야 합니다. 이러한 작업은 비정상 스튜디오를 사용 하는 각 구독에 대해 수행 해야 합니다.
+
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
+2. 구독을 **검색 하 여** 구독 관리 페이지를 엽니다.
+3. 비정상 스튜디오를 사용할 구독을 클릭 합니다.
+4. 왼쪽 탐색 영역에서 **리소스 공급자** 를 클릭 합니다.
+5. 표시 되는 리소스 공급자 목록에서 **Microsoft에서 감사** 를 검색 합니다.
+6. Microsoft의 감사 공급자를 클릭 하 고 **등록** 단추를 클릭 합니다.
 
 ## <a name="enable-chaos-studio-on-the-virtual-machine-you-created"></a>만든 가상 머신에서 비정상 스튜디오 사용
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
@@ -121,4 +131,4 @@ VM 종료 서비스-direct 실험을 사용 하 여 비정상 스튜디오를 �
 
 ## <a name="next-steps"></a>다음 단계
 이제 VM 종료 서비스 직접 실험을 실행 했으므로 다음을 수행할 준비가 되었습니다.
-- [에이전트 기반 오류를 사용 하는 실험 만들기](chaos-studio-tutorial-agent-based.md)
+- [에이전트 기반 오류를 사용 하는 실험 만들기](chaos-studio-tutorial-agent-based-portal.md)

@@ -3,12 +3,12 @@ title: 레지스트리 관련 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure 컨테이너 레지스트리에 액세스할 때 발생하는 일반적인 문제에 대한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: f5c51f14eb5ed5a950272e43e701ec7bcc44b901
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4d3962a99fd462cfe3b613a4f0a9409b309b462f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446489"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287137"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리 관련 네트워크 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "131446489"
 * Azure Portal 또는 Azure CLI를 사용하여 레지스트리 설정을 확인하거나 볼 수 없습니다.
 * 가상 네트워크 설정 또는 공용 액세스 규칙을 추가하거나 수정할 수 없습니다.
 * ACR 작업에서 이미지를 푸시하거나 끌어올 수 없습니다.
-* Azure Security Center의 레지스트리에서 이미지를 검색할 수 없거나 검색 결과가 Azure Security Center에 표시되지 않습니다.
+* Microsoft Defender for Cloud가 레지스트리의 이미지를 검색할 수 없거나, 검색 결과가 클라우드의 Microsoft Defender에 표시 되지 않습니다.
 * 프라이빗 엔드포인트로 구성된 레지스트리에 액세스하려고 할 때 `host is not reachable` 오류를 수신합니다.
 
 ## <a name="causes"></a>원인
@@ -35,7 +35,7 @@ ms.locfileid: "131446489"
 * 클라이언트 방화벽 또는 프록시에서 액세스 방지 - [솔루션](#configure-client-firewall-access)
 * 레지스트리의 공용 네트워크 액세스 규칙에서 액세스 방지 - [솔루션](#configure-public-access-to-registry)
 * 가상 네트워크 또는 프라이빗 엔드포인트 구성에서 액세스 방지 - [솔루션](#configure-vnet-access)
-* 프라이빗 엔드포인트, 서비스 엔드포인트 또는 공용 IP 액세스 규칙을 포함하는 레지스트리와 Azure Security Center 또는 다른 특정 Azure 서비스를 통합하려고 시도합니다. - [솔루션](#configure-service-access)
+* 클라우드 또는 다른 특정 Azure 서비스에 대 한 Microsoft Defender를 개인 끝점, 서비스 끝점 또는 공용 IP 액세스 규칙을 포함 하는 레지스트리로 통합 하려고 합니다.- [솔루션](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>추가 진단 
 
@@ -114,7 +114,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 현재 여러 Azure 서비스에서 네트워크 제한이 있는 컨테이너 레지스트리에 대한 액세스를 허용하지 않습니다.
 
-* Azure Security Center는 프라이빗 엔드포인트, 선택한 서브넷 또는 IP 주소에 대한 액세스를 제한하는 레지스트리에서 [이미지 취약성 검사](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json)를 수행할 수 없습니다. 
+* Microsoft Defender for Cloud는 전용 끝점, 선택한 서브넷 또는 IP 주소에 대 한 액세스를 제한 하는 레지스트리에서 [이미지 취약성 검사](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) 를 수행할 수 없습니다. 
 * 특정 Azure 서비스의 리소스는 Azure App Service 및 Azure Container Instances를 포함하여 네트워크 제한이 있는 컨테이너 레지스트리에 액세스할 수 없습니다.
 
 이러한 Azure 서비스에 액세스하거나 컨테이너 레지스트리와 통합해야 하는 경우 네트워크 제한을 제거합니다. 예를 들어 레지스트리의 프라이빗 엔드포인트를 제거하거나 레지스트리의 공용 액세스 규칙을 제거하거나 수정합니다.
@@ -123,7 +123,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 관련 링크:
 
-* [Security Center에서 Azure Container Registry 이미지 검색](../security-center/defender-for-container-registries-introduction.md)
+* [컨테이너 레지스트리 용 Microsoft Defender에서 이미지 스캔 Azure Container Registry](../security-center/defender-for-container-registries-introduction.md)
 * [피드백](https://feedback.azure.com/d365community/idea/cbe6351a-0525-ec11-b6e6-000d3a4f07b8) 제공
 * [신뢰할 수 있는 서비스에서 네트워크 제한 컨테이너 레지스트리에 안전하게 액세스하도록 허용](allow-access-trusted-services.md)
 

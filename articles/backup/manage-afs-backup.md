@@ -6,16 +6,16 @@ ms.date: 11/03/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 021a24cbe5c1e2ba9f504ca99c149b135bc40fc4
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 465331a39f5fc05d81a4ff06cd58c3962b301831
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131844736"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332044"
 ---
 # <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리
 
-이 문서에서는 [Azure Backup](./backup-overview.md)에 의해 백업된 Azure 파일 공유를 관리하고 모니터링하는 일반적인 작업에 대해 설명합니다. **백업 센터에서** 관리 작업을 수행하는 방법을 알아봅니다.
+이 문서에서는 [Azure Backup](./backup-overview.md)에 의해 백업된 Azure 파일 공유를 관리하고 모니터링하는 일반적인 작업에 대해 설명합니다. **백업 센터** 에서 관리 작업을 수행 하는 방법을 알아봅니다.
 
 ## <a name="monitor-jobs"></a>작업 모니터링
 
@@ -23,77 +23,80 @@ ms.locfileid: "131844736"
 
 **Backup 작업** 페이지를 열려면:
 
-1. 백업 **센터로** 이동하여 **모니터링** 섹션에서 **백업 작업을** 선택합니다.
+1. **백업 센터** 로 이동 하 고 **모니터링** 섹션에서 **백업 작업** 을 선택 합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-list-inline.png" alt-text="모니터링 섹션의 백업 작업을 보여주는 스크린샷." lightbox="./media/manage-afs-backup/backup-center-jobs-list-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-list-inline.png" alt-text="모니터링 섹션에서 백업 작업을 보여 주는 스크린샷" lightbox="./media/manage-afs-backup/backup-center-jobs-list-expanded.png":::
 
-   **백업 작업** 창에는 모든 작업의 상태가 나열됩니다.
+   **백업 작업** 창에는 모든 작업의 상태가 나열 됩니다.
 
-1. 데이터 원본 유형으로 **Azure Files(Azure Storage)를** 선택하고 행을 선택하여 특정 작업에 대한 세부 정보를 확인합니다.
+1. datasource 형식으로 **Azure Files (Azure Storage)** 를 선택 하 고 행을 선택 하 여 특정 작업의 세부 정보를 확인 합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="작업 목록을 보여주는 화면 표시." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="작업 목록을 보여 주는 screenshow" lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
+   
+    >[!NOTE]
+    >자격 증명 모음으로 전송 된 데이터는 없기 때문에 Azure Files에 해당 하는 백업 작업에 대해 MB 단위로 전송 된 데이터는 0입니다.
 
-## <a name="monitor-using-azure-backup-reports"></a>Azure Backup 보고서를 사용하여 모니터링
+## <a name="monitor-using-azure-backup-reports"></a>Azure Backup 보고서를 사용 하 여 모니터링
 
-Azure Backup [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial.md) 및 Azure 통합 문서를 사용하는 보고 솔루션을 [제공합니다.](../azure-monitor/visualize/workbooks-overview.md) 이러한 리소스는 백업에 대한 풍부한 인사이트를 얻는 데 도움이 됩니다. 이러한 보고서를 활용하여 Azure Files 백업 항목, 항목 수준의 작업 및 활성 정책의 세부 정보를 파악할 수 있습니다. Backup 보고서에서 사용할 수 있는 보고서 메일 보내기 기능을 사용하면 자동화된 작업을 만들어 메일을 통해 정기적으로 보고서를 받을 수 있습니다. Azure Backup 보고서를 구성하고 보는 방법을 [알아봅니다.](./configure-reports.md#get-started)
+Azure Backup [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial.md) 및 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 사용 하는 보고 솔루션을 제공 합니다. 이러한 리소스는 백업에 대 한 풍부한 통찰력을 얻는 데 도움이 됩니다. 이러한 보고서를 활용 하 여 Azure Files 백업 항목, 항목 수준의 작업 및 활성 정책의 세부 정보를 파악할 수 있습니다. Backup 보고서에서 사용할 수 있는 보고서 메일 보내기 기능을 사용하면 자동화된 작업을 만들어 메일을 통해 정기적으로 보고서를 받을 수 있습니다. Azure Backup 보고서를 구성 하 고 보는 방법에 [대해 알아봅니다](./configure-reports.md#get-started) .
 
 ## <a name="create-a-new-policy"></a>새 정책 만들기
 
-**Backup 센터의** 백업 정책 섹션에서 Azure 파일 공유를 백업하는 새 **정책을** 만들 수 있습니다. 파일 공유에 대한 백업을 구성할 때 만든 모든 정책은 **정책 유형** 이 **Azure 파일 공유** 로 표시됩니다.
+**백업 센터** 의 **백업 정책** 섹션에서 Azure 파일 공유를 백업 하는 새 정책을 만들 수 있습니다. 파일 공유에 대한 백업을 구성할 때 만든 모든 정책은 **정책 유형** 이 **Azure 파일 공유** 로 표시됩니다.
 
-새 백업 정책을 만들려면 다음 단계를 수행합니다.
+새 백업 정책을 만들려면 다음 단계를 수행 합니다.
 
-1. Backup **센터의 Backup** **정책** 창에서 **+추가를** 선택합니다.
+1. **백업 센터** 의 **백업 정책** 창에서 **+ 추가** 를 선택 합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-center-add-policy-inline.png" alt-text="새 백업 정책 만들기를 시작하는 옵션을 보여주는 스크린샷." lightbox="./media/manage-afs-backup/backup-center-add-policy-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-add-policy-inline.png" alt-text="새 백업 정책 만들기를 시작 하는 옵션을 보여 주는 스크린샷" lightbox="./media/manage-afs-backup/backup-center-add-policy-expanded.png":::
 
-1. 데이터 원본 유형으로 **Azure Files(Azure Storage)를** 선택하고 정책을 만들 자격 증명 모음을 선택한 다음 **계속을** 클릭합니다.
+1. 데이터 원본 유형으로 **Azure Files (Azure Storage)** 를 선택 하 고 정책을 만들어야 하는 자격 증명 모음을 선택한 다음 **계속** 을 클릭 합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/azure-file-share-select-vault-for-policy.png" alt-text="정책 유형으로 Azure 파일 공유를 선택하는 방법을 보여주는 스크린샷.":::
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share-select-vault-for-policy.png" alt-text="Azure 파일 공유를 정책 형식으로 선택 하는 것을 보여 주는 스크린샷":::
 
-1. **Azure 파일 공유에** 대한 **백업 정책** 창이 열리면 정책 이름을 지정합니다.
+1. **Azure 파일 공유** 에 대 한 **백업 정책** 창이 열리면 정책 이름을 지정 합니다.
 
-1. **백업 일정** 에서 백업에 대한 적절한 빈도(매일 또는  **매시간)를** 선택합니다.
+1. **백업 일정** 에서 백업에 대 한 적절 한 빈도 ( **매일** 또는 **매시간**)를 선택 합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="백업 빈도 유형을 보여주는 스크린샷.":::
+   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="백업 빈도 유형을 보여 주는 스크린샷":::
 
-   - **매일:** 하루에 하나의 백업을 트리거합니다. 매일 빈도로 적절한 값을 선택합니다.
+   - **매일**: 하루에 한 번 백업을 트리거합니다. 일별 빈도에서 적절 한 값을 선택 합니다.
 
-     - **시간:** 백업 작업을 트리거해야 하는 타임스탬프입니다.
-     - **표준 시간대:** 백업 작업에 해당하는 표준 시간대입니다.
+     - **시간**: 백업 작업을 트리거해야 하는 타임 스탬프입니다.
+     - **표준 시간대**: 백업 작업에 해당 하는 표준 시간대입니다.
 
-   - **매시간:** 하루에 여러 백업을 트리거합니다. 시간별 빈도로 적절한 값을 선택합니다.
+   - **매시간**: 하루에 여러 백업을 트리거합니다. 매시간 빈도에 대해 적절 한 값을 선택 합니다.
    
-     - **일정:** 연속 백업 간의 시간 간격(시간)입니다.
-     - **시작 시간:** 하루의 첫 번째 백업 작업을 트리거해야 하는 시간입니다.
-     - **기간:** 백업 기간(시간)을 나타냅니다. 즉, 선택한 일정에 따라 백업 작업을 트리거해야 하는 시간 범위를 나타냅니다.
-     - **표준 시간대:** 백업 작업에 해당하는 표준 시간대입니다.
+     - **일정**: 연속 백업 간의 시간 간격 (시간)입니다.
+     - **시작 시간**: 해당 요일의 첫 번째 백업 작업을 트리거해야 하는 시간입니다.
+     - **기간**: 선택한 일정에 따라 백업 작업을 트리거해야 하는 시간 범위 (시간)를 나타냅니다.
+     - **표준 시간대**: 백업 작업에 해당 하는 표준 시간대입니다.
      
-     예를 들어 RPO(복구 지점 목표) 요구 사항은 4시간이고 근무 시간은 오전 9시에서 오후 9시까지입니다. 이러한 요구 사항을 충족하기 위해 백업 일정에 대한 구성은 다음과 같습니다.
+     예를 들어 RPO (복구 지점 목표) 요구 사항은 4 시간이 고 작업 시간은 오전 9 시에서 오후 9 시 사이입니다. 이러한 요구 사항을 충족 하기 위해 백업 일정에 대 한 구성은 다음과 같습니다.
     
      - 일정: 4시간마다
      - 시작 시간: 오전 9시 
      - 기간: 12시간 
      
-     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="시간별 백업 빈도 값의 예를 보여주는 스크린샷":::
+     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="시간별 백업 빈도 값의 예를 보여 주는 스크린샷":::
 
-     선택한 항목에 따라 백업 작업 세부 정보(백업 작업이 트리거될 때 타임스탬프)가 백업 정책 블레이드에 표시됩니다.
+     선택 사항에 따라 백업 작업 세부 정보 (백업 작업이 트리거될 때의 타임 스탬프)가 backup 정책 블레이드에 표시 됩니다.
 
-1. **보존 범위에서** 백업에 대해 매일, 매주, 매월 또는 매년 태그가 지정된 적절한 보존 값을 지정합니다.
+1. **보존 범위** 에서 매일, 매주, 매월 또는 매년으로 태그가 지정 된 백업에 대 한 적절 한 보존 값을 지정 합니다.
 
-1. 정책의 모든 특성을 정의한 후 **만들기를** 클릭합니다.
+1. 정책의 모든 특성을 정의한 후 **만들기** 를 클릭 합니다.
   
 ### <a name="view-policy"></a>정책 보기
 
 기존 백업 정책을 보려면 다음을 수행합니다.
 
-1. 백업 **센터로** 이동하여 **관리** 섹션에서 **백업 정책을** 선택합니다.
+1. **백업 센터** 로 이동 하 고 **관리** 섹션에서 **백업 정책** 을 선택 합니다.
 
-   자격 증명 모음에 구성된 모든 Backup 정책이 표시됩니다.
+   자격 증명 모음에서 구성 된 모든 백업 정책이 표시 됩니다.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-center-policies-list-inline.png" alt-text="모든 백업 정책을 보여주는 스크린샷." lightbox="./media/manage-afs-backup/backup-center-policies-list-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-policies-list-inline.png" alt-text="모든 백업 정책을 보여 주는 스크린샷" lightbox="./media/manage-afs-backup/backup-center-policies-list-expanded.png":::
 
-1. **Azure Files(Azure Storage)** 관련 정책을 보려면 데이터 원본 유형으로 **Azure 파일 공유를** 선택합니다.
+1. **Azure Files (Azure Storage)** 관련 정책을 보려면 데이터 원본 유형으로 **Azure 파일 공유** 를 선택 합니다.
 
 ## <a name="modify-policy"></a>정책 수정
 
@@ -101,19 +104,19 @@ Azure Backup [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial
 
 정책을 수정하려면 다음을 수행합니다.
 
-1. 백업 **센터로** 이동하여 **관리** 섹션에서 **백업 정책을** 선택합니다.
+1. **백업 센터** 로 이동 하 고 **관리** 섹션에서 **백업 정책** 을 선택 합니다.
 
-   자격 증명 모음에 구성된 모든 Backup 정책이 표시됩니다.
+   자격 증명 모음에서 구성 된 모든 백업 정책이 표시 됩니다.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-center-policies-list-inline.png" alt-text="자격 증명 모음의 모든 Backup 정책을 보여주는 스크린샷." lightbox="./media/manage-afs-backup/backup-center-policies-list-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-policies-list-inline.png" alt-text="자격 증명 모음의 모든 백업 정책을 보여 주는 스크린샷" lightbox="./media/manage-afs-backup/backup-center-policies-list-expanded.png":::
 
-1. Azure 파일 공유와 관련한 정책을 보려면 데이터 원본 유형으로 **Azure Files(Azure Storage)를** 선택합니다.
+1. Azure 파일 공유와 관련 된 정책을 보려면 datasource 형식으로 **Azure Files (Azure Storage)** 를 선택 합니다.
 
-   업데이트하려는 정책을 클릭합니다.
+   업데이트 하려는 정책을 클릭 합니다.
 
 1. **일정** 창이 열립니다. 필요에 따라 **백업 일정** 및 **보존 기간** 을 편집하고 **저장** 을 선택합니다.
 
-   창에 업데이트 _진행 중_ 메시지가 표시됩니다. 정책이 성공적으로 업데이트된 후 백업 정책을 _업데이트했습니다.라는_ 메시지가 표시됩니다.
+   창에 _진행 중인 업데이트_ 메시지가 표시 됩니다. 정책 변경이 성공적으로 업데이트 되 면 _백업 정책이 성공적으로 업데이트_ 된 것을 볼 수 있습니다.
 
    ![수정된 정책 저장](./media/manage-afs-backup/save-policy.png)
 
@@ -128,11 +131,11 @@ Azure 파일 공유를 중지하는 두 가지 방법이 있습니다.
 
 Azure 파일 공유 보호를 중지하려면:
 
-1. 백업 **센터로** 이동하여 메뉴에서 **백업 인스턴스를** 선택한 다음, 데이터 원본 유형으로 **Azure Files(Azure Storage)를** 선택합니다.
+1. **백업 센터** 로 이동 하 고 메뉴에서 **백업 인스턴스** 를 선택한 다음 **Azure Files (Azure Storage)** 를 데이터 원본 유형으로 선택 합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances-inline.png" alt-text="데이터 형식으로 Azure Files 선택하는 스크린샷." lightbox="./media/manage-afs-backup/azure-file-share-backup-instances-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances-inline.png" alt-text="데이터 형식으로 Azure Files를 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/manage-afs-backup/azure-file-share-backup-instances-expanded.png":::
 
-1. 보호를 중지할 백업 항목을 선택합니다.
+1. 보호를 중지할 백업 항목을 선택 합니다.
 
 1. **백업 중지** 옵션을 선택합니다.
 
@@ -148,11 +151,11 @@ Azure 파일 공유 보호를 중지하려면:
 
 Azure 파일 공유에 대한 보호를 다시 시작하려면 다음을 수행합니다.
 
-1. 백업 **센터로** 이동하여 메뉴에서 **백업 인스턴스를** 선택한 다음, 데이터 원본 유형으로 **Azure Files(Azure Storage)를** 선택합니다.
+1. **백업 센터** 로 이동 하 고 메뉴에서 **백업 인스턴스** 를 선택한 다음 **Azure Files (Azure Storage)** 를 데이터 원본 유형으로 선택 합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances-inline.png" alt-text="데이터 원본 유형으로 Azure Files 선택하는 방법을 보여주는 스크린샷." lightbox="./media/manage-afs-backup/azure-file-share-backup-instances-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances-inline.png" alt-text="Datasource 형식으로 Azure Files를 선택 하도록 보여 주는 스크린샷" lightbox="./media/manage-afs-backup/azure-file-share-backup-instances-expanded.png":::
 
-1. 보호를 다시 시작할 백업 항목을 선택합니다.
+1. 보호를 다시 시작 하려는 백업 항목을 선택 합니다.
 
 1. **백업 다시 시작** 옵션을 선택합니다.
 
@@ -162,7 +165,7 @@ Azure 파일 공유에 대한 보호를 다시 시작하려면 다음을 수행�
 
 1. 백업 정책을 선택한 후 **저장** 을 선택합니다.
 
-   포털에 진행 _중인 업데이트_ 메시지가 표시됩니다. 백업이 성공적으로 다시 시작되고 나면 _보호된 Azure 파일 공유에 대한 백업 정책을 업데이트했습니다.라는_ 메시지가 표시됩니다.
+   포털에서 _진행 중인 업데이트_ 메시지가 표시 됩니다. 백업이 성공적으로 다시 시작되고 나면 _보호된 Azure 파일 공유에 대한 백업 정책을 업데이트했습니다.라는_ 메시지가 표시됩니다.
 
    ![백업 정책을 업데이트함](./media/manage-afs-backup/successfully-updated.png)
 

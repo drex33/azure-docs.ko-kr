@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿에 리소스를 배포하는 방�
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 818ace7b20ed1c4a21748c9c734da4bace100523
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: dac7741000465f9678f478555fb55b47c2c44600
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390048"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282123"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 리소스 그룹 배포
 
@@ -318,4 +318,4 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Security Center에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)을 참조하세요.
+* 클라우드 용 Microsoft Defender에 대 한 작업 영역 설정 배포에 대 한 예제는 [deployASCwithWorkspaceSettings](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)를 참조 하세요.

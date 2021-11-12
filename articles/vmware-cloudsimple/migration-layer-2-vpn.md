@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5156be86fdaf2830abc66ed270edd1217be13bfb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: b70f282b1429b2233914a239e68a655f1958dd33
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614235"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283395"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
@@ -261,7 +261,7 @@ POST  https://192.168.110.201/api/v1/vpn/ipsec/tunnel-profiles
 
 ### <a name="create-a-local-endpoint"></a>로컬 엔드포인트 만들기
 
-``` 
+```
 POST https://192.168.110.201/api/v1/vpn/ipsec/local-endpoints
  
 {
@@ -356,7 +356,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 다음 POST 명령의 경우 L2VPN 서비스 ID는 방금 가져온 ID이며 IPsec VPN 세션 ID는 이전 섹션에서 가져온 ID입니다.
 
-```    
+```
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {
@@ -414,7 +414,7 @@ ENCAP       : GENEVE
 
 ## <a name="obtain-the-peer-code-for-l2vpn-on-the-nsx-t-side"></a>NSX-T 쪽의 L2VPN에 대한 피어 코드 가져오기
 
-NSX-T 엔드포인트의 피어 코드를 가져옵니다. 원격 엔드포인트를 구성하는 경우 피어 코드가 필요합니다. \<session-id\>이전 섹션에서 L2VPN를 가져올 수 있습니다. 자세한 내용은 [NSX-T 2.3 API 가이드](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html)를 참조하세요.
+NSX-T 엔드포인트의 피어 코드를 가져옵니다. 원격 엔드포인트를 구성하는 경우 피어 코드가 필요합니다. L2VPN은 \<session-id\> 이전 섹션에서 가져올 수 있습니다. 자세한 내용은 [NSX-T 2.3 API 가이드](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html)를 참조하세요.
 
 ```
 GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes

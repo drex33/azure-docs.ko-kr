@@ -1,20 +1,20 @@
 ---
 title: 보안 에이전트 시작 문제 해결(Linux)
-description: Linux용 Azure Defender for IoT 보안 에이전트를 사용할 때 발생하는 문제를 해결합니다.
+description: Linux 용 IoT 보안 에이전트에 대해 Microsoft Defender를 사용 하 여 작업을 해결 합니다.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 203a6112f2926bb714022e1fd26b282dedaa8104
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: c0e85e0628599af88d86c567b559ca6c721ab732
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018756"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306000"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>보안 에이전트 문제 해결 가이드(Linux)
 
 이 문서에서는 보안 에이전트 시작 프로세스에서 발생할 수 있는 문제를 해결하는 방법을 설명합니다.
 
-Azure Defender for IoT 에이전트는 설치 후 바로 자동으로 시작됩니다. 에이전트 시작 프로세스에는 로컬 구성을 읽고, Azure IoT Hub에 연결하고, 원격 쌍 구성을 검색하는 작업이 포함됩니다. 해당 단계 중 하나라도 실패하면 보안 에이전트가 실패할 수 있습니다.
+IoT 용 Microsoft Defender 에이전트는 설치 직후에 자동으로 시작 됩니다. 에이전트 시작 프로세스에는 로컬 구성을 읽고, Azure IoT Hub에 연결하고, 원격 쌍 구성을 검색하는 작업이 포함됩니다. 해당 단계 중 하나라도 실패하면 보안 에이전트가 실패할 수 있습니다.
 
 이 문제 해결 가이드에서 다음을 수행하는 방법을 알아봅니다.
 

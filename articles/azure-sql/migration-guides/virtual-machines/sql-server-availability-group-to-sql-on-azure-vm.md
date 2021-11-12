@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: a432f62c3eb01843d20858bc37a5f30fdb437572
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0c3cb5671dfb0a38626e68ba6dd25fb380e70942
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131081109"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294032"
 ---
 # <a name="migrate-availability-group-to-sql-server-on-azure-vm"></a>Azure VM의 SQL Server로 가용성 그룹 마이그레이션
 
@@ -346,10 +346,10 @@ Always On 가용성 그룹이 준비되었습니다.
     - [Azure Backup 서비스](../../../backup/quick-backup-vm-portal.md)를 통해 Azure VM을 백업하면 데이터 보안을 유지할 수 있습니다. 
     - [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md)를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다.
 - 보안 강화:
-    - [Azure Security Center - Just-In-Time 관리](../../../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
+    - [클라우드 just-in-time 관리를 위해 Microsoft Defender](../../../security-center/security-center-just-in-time.md)를 사용 하 여 인바운드 트래픽 액세스를 잠그고 제한 합니다.
     - [네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
     - [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
-    - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
+    - [IaaS 리소스 보안](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 읽고 [클라우드 용 Microsoft Defender](https://azure.microsoft.com/services/security-center/)를 방문 하세요.
 - 모니터링 및 관리 앱:
     - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md)를 배포하는 것이 좋습니다.
 

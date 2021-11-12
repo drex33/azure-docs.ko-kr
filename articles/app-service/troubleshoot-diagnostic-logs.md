@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 7e477f3d8df098f53abc4b1ad5f963f019b79ead
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 64a8259f859bb53be6464a9f522c4dcb5491ba21
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470892"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279332"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -193,7 +193,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원되는 로그 유형 및 그 설명을 표시합니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |
@@ -203,7 +203,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | 애플리케이션 로그 전송 사용 |
 | AppServiceIPSecAuditLogs  | 예 | 예 | 예 | 예 | IP 규칙에서 보낸 요청 |
 | AppServicePlatformLogs  | TBA | 예 | 예 | 예 | 컨테이너 작업 로그 |
-| AppServiceAntivirusScanAuditLogs <sup>3</sup> | 예 | 예 | 예 | 예 | Microsoft Defender를 사용한 [바이러스 백신 검사 로그](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html)(**프리미엄 계층만 사용 가능**) | 
+| AppServiceAntivirusScanAuditLogs <sup>3</sup> | 예 | 예 | 예 | 예 | Microsoft Defender for Cloud를 사용하여 [로그를 검사하는 바이러스 백신;](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) **Premium 계층에만 사용 가능** | 
 
 <sup>1</sup> Tomcat 앱의 경우 앱 설정에 `TOMCAT_USE_STARTUP_BAT`를 추가하고 `false` 또는 `0`으로 설정합니다. *최신* Tomcat 버전에 있어야 하며 *java.util.logging* 을 사용해야 합니다.
 

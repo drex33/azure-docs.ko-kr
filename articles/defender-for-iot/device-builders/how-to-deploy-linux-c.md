@@ -2,13 +2,13 @@
 title: Linux C 에이전트 설치 및 배포
 description: IoT용 Defender C 기반 보안 에이전트를 Linux에 설치하고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 46677a971165c65440310e21933f586cc685b771
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: 1b1c81b73c6e7b0c32031de256b029a1a1164f4d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584871"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306114"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Linux용 Defender for IoT C 기반 보안 에이전트 배포
 
@@ -80,5 +80,5 @@ ms.locfileid: "128584871"
 - Defender for IoT 서비스 [개요](overview.md) 읽기
 - Defender for IoT에 대한 자세한 내용 [디바이스 작성기용 에이전트 기반 솔루션](architecture-agent-based.md)
 - [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
-- [Azure Defender for IoT 에이전트 질문과 대답](resources-agent-frequently-asked-questions.md)을 참조하세요.
+- [IoT 에이전트에 대 한 Microsoft Defender 질문과 대답](resources-agent-frequently-asked-questions.md) 을 읽습니다.
 - [보안 경고](concept-security-alerts.md)를 살펴봅니다.

@@ -2,13 +2,16 @@
 title: Azure VM을 만들 때 백업 사용
 description: Azure Backup를 사용하여 Azure VM을 만들 때 백업을 사용하도록 스냅샷 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 48798dc276c10276e0effd458bd15e9cfbab32dd
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
-ms.translationtype: HT
+ms.date: 11/09/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: d94faf113fb3d75c1c0f5c878369c1856366b1be
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006062"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332121"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
@@ -30,6 +33,9 @@ Azure Backup 서비스를 사용하여 Azure VM(가상 머신)을 백업할 수 
 
 2. Azure Marketplace에서 **Compute** 를 선택한 후 VM 이미지를 선택합니다.
 
+   >[!Note]
+   >Marketplace가 아닌 이미지에서 VM을 만들거나 Marketplace가 아닌 이미지를 사용 하 여 vm의 OS 디스크를 교환 하려면 VM에서 계획 정보를 제거 합니다. 이렇게 하면 원활한 VM 복원에 도움이 됩니다.
+
 3. [Windows](../virtual-machines/windows/quick-create-portal.md) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md) 지침에 따라 VM을 설정합니다.
 
 4. **관리** 탭의 **백업 사용** 에서 **켜기** 를 선택합니다.
@@ -49,7 +55,7 @@ Azure Backup 서비스를 사용하여 Azure VM(가상 머신)을 백업할 수 
       ![기본 백업 정책](./media/backup-during-vm-creation/daily-policy.png)
 
 >[!NOTE]
->[SSE 및 PMK는](backup-encryption.md) Azure VM의 기본 암호화 방법입니다. Azure Backup은 Gen2 VM의 백업 및 복원을 지원합니다.
+> [SSE 및 PMK는](backup-encryption.md) Azure VM의 기본 암호화 방법입니다. Azure Backup은 Gen2 VM의 백업 및 복원을 지원합니다.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>가상 머신에 대한 Azure Backup 리소스 그룹
 

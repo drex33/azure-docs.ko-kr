@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 95bda32a3ffc305a4523e952f0cc975917996292
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 9b479950bc5abc47cfc0f86a21262511a74f6852
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555308"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279307"
 ---
 # <a name="list-the-azure-arc-enabled-postgresql-hyperscale-server-groups-created-in-an-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러에서 만든 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 나열
 

@@ -1,14 +1,14 @@
 ---
 title: 온-프레미스 관리 콘솔에서 센서 관리
-description: 센서 버전 업데이트, 센서에 시스템 설정 푸시, 인증서 관리, 센서에서 엔진 활성화 및 비활성화를 포함하여 관리 콘솔에서 센서를 관리하는 방법을 알아봅니다.
-ms.date: 07/08/2021
+description: 센서 버전 업데이트, 센서에 시스템 설정 푸시, 인증서 관리, 센서에서 엔진 사용 및 사용 안 함을 포함 하 여 관리 콘솔에서 센서를 관리 하는 방법에 대해 알아봅니다.
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: dbdee98fc1f7e6bc294bd54d72e64fa8f053eb8e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 1015810f8999671665cf48d74058e9ad3fc47558
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431191"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278838"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>관리 콘솔에서 센서 관리
 
@@ -76,7 +76,7 @@ ms.locfileid: "123431191"
 
 1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
 
-1. Azure Defender for IoT로 이동합니다.
+1. IoT 용 Microsoft Defender로 이동 합니다.
 
 1. **업데이트** 페이지로 이동합니다.
 
@@ -129,7 +129,7 @@ ms.locfileid: "123431191"
 
 위협 인텔리전스의 데이터 패키지는 새로운 Defender for IoT 각 버전에 제공되거나 필요한 경우 릴리스 사이에 제공됩니다. 패키지에는 서명(맬웨어 서명 포함), CVE, 기타 보안 콘텐츠가 포함됩니다. 
 
-Defender for IoT 포털의 **업데이트** 페이지에서 이 파일을 수동으로 업로드하고 센서에 자동으로 업데이트할 수 있습니다. 
+Azure Portal에서이 파일을 수동으로 업로드 하 고 센서에 자동으로 업데이트할 수 있습니다. 
 
 **위협 인텔리전스 데이터를 업데이트하려면 다음을 수행합니다.**
 

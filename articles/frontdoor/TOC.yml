@@ -55,7 +55,7 @@
         - name: 규칙 일치 조건
           href: rules-match-conditions.md
         - name: 규칙 동작
-          href: front-door-rules-engine-actions.md
+          href: rules-actions.md
     - name: URL 다시 쓰기
       href: front-door-url-rewrite.md
     - name: URL 리디렉션
@@ -131,7 +131,7 @@
         - name: 지역별 가장자리 위치
           href: edge-locations-by-region.md
         - name: 약어별 가장자리 위치
-          href: edge-locations-abbreviation.md
+          href: edge-locations-by-abbreviation.md
     - name: Azure CLI
       href: /cli/azure/afd/
     - name: Azure PowerShell

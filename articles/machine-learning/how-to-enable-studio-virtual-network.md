@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/01/2021
+ms.date: 11/10/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: c978e214e9a3c7e7bef5afc60f11263c1e9efe12
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b978955c375ff30f677a395ea549276b960a80d9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562488"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293101"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용
 
@@ -71,17 +71,17 @@ ms.locfileid: "131562488"
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
 
-AutoML 실험을 제출하는 데 필요한 `azureml-filestore` 폴더를 기본 파일 저장소가 자동으로 만들지 않는 알려진 문제가 있습니다. 해당 문제는 사용자가 작업 영역을 만드는 동안 기존 파일 저장소를 가져와 기본 파일 저장소로 설정할 때 발생합니다.
+AutoML 실험을 제출하는 데 필요한 `azureml-filestore` 폴더를 기본 파일 저장소가 자동으로 만들지 않는 알려진 문제가 있습니다. 이 문제는 작업 영역을 만드는 동안 사용자가 기존 파일 저장소를 기본 파일 저장소로 설정하도록 가져올 때 발생합니다.
 
-문제를 방지할 수 있는 두 가지 옵션이 있습니다. 1) 작업 영역을 만들 때 자동으로 만들어지는 기본 파일 저장소를 사용합니다. 2) 고유한 파일 저장소를 가져오려면 작업 영역을 만드는 동안 파일 저장소가 VNet 외부에 있는지 확인합니다. 작업 영역을 만든 후 가상 네트워크에 스토리지 계정을 추가합니다.
+이 문제를 방지하려면 두 가지 옵션이 있습니다. 1) 작업 영역 만들기를 수행하도록 자동으로 만들어지는 기본 파일 저장소 사용. 2) 사용자 고유의 파일 저장소를 가져오려면 작업 영역을 만드는 동안 파일 저장소가 VNet 외부에 있는지 확인합니다. 작업 영역을 만든 후 가상 네트워크에 스토리지 계정을 추가합니다.
 
-문제를 해결하려면 가상 네트워크에서 파일 저장소 계정을 제거한 다음 가상 네트워크에 다시 추가합니다.
+이 문제를 해결하려면 가상 네트워크에서 파일 저장소 계정을 제거한 다음 가상 네트워크에 다시 추가합니다.
 
 ### <a name="designer-sample-pipeline"></a>디자이너 샘플 파이프라인
 
-사용자가 디자이너 홈페이지에서 샘플 파이프라인을 실행할 수 없는 알려진 문제가 있습니다. 샘플 파이프라인에서 사용되는 샘플 데이터 세트는 Azure Gloabal 데이터 세트이며 모든 가상 네트워크 환경을 충족할 수는 없습니다.
+사용자가 디자이너 홈페이지에서 샘플 파이프라인을 실행할 수 없는 알려진 문제가 있습니다. 샘플 파이프라인에서 사용되는 샘플 데이터 세트는 Azure 글로벌 데이터 세트이며 모든 가상 네트워크 환경을 충족할 수는 없습니다.
 
-이 문제를 해결하려면 공용 작업 영역을 사용하여 샘플 파이프라인을 실행하여 디자이너를 사용하는 방법을 파악한 다음, 샘플 데이터 세트를 작업 영역의 사용자 고유의 데이터 세트로 바꿀 수 있습니다.
+이 문제를 해결하려면 공용 작업 영역을 사용하여 샘플 파이프라인을 실행하여 디자이너를 사용하는 방법을 파악한 다음, 샘플 데이터 세트를 가상 네트워크 내 작업 영역의 고유한 데이터 세트로 바꿀 수 있습니다.
 
 ## <a name="datastore-azure-storage-account"></a>데이터 저장소: Azure Storage 계정
 
@@ -94,10 +94,10 @@ Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용
 
     자세한 내용은 [Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 기본 제공 역할을 참조하세요.
 
-1. **스토리지 프라이빗 엔드포인트에 대한 '읽기 권한자' 역할을 작업 영역 관리 ID에 부여합니다**. 스토리지 서비스가 __프라이빗 엔드포인트__ 를 사용하는 경우 작업 영역 관리 ID에 프라이빗 엔드포인트에 대한 **읽기 권한자** 액세스 권한을 부여합니다. Azure AD의 작업 영역 관리 ID는 Azure Machine Learning 작업 영역과 이름이 같습니다.
+1. **스토리지 프라이빗 엔드포인트에 대한 '읽기 권한자' 역할을 작업 영역 관리 ID에 부여합니다**. 스토리지 서비스에서 프라이빗 __엔드포인트를__ 사용하는 경우 작업 영역의 관리 ID **읽기** 권한자 액세스 권한을 프라이빗 엔드포인트에 부여합니다. Azure AD에서 작업 영역의 관리 ID는 Azure Machine Learning 작업 영역과 이름이 같습니다.
 
     > [!TIP]
-    > 스토리지 계정에는 여러 개의 프라이빗 엔드포인트가 있을 수 있습니다. 예를 들어 하나의 스토리지 계정에는 Blob 및 파일 스토리지에 대해 별도의 프라이빗 엔드포인트가 있을 수 있습니다. 두 엔드포인트에 관리 ID를 추가합니다.
+    > 스토리지 계정에는 여러 개의 프라이빗 엔드포인트가 있을 수 있습니다. 예를 들어 하나의 스토리지 계정에는 Blob, 파일 및 dfs(Azure Data Lake Storage Gen2)에 대한 별도의 프라이빗 엔드포인트가 있을 수 있습니다. 이러한 모든 엔드포인트에 관리 ID를 추가합니다.
 
     자세한 내용은 [판독기](../role-based-access-control/built-in-roles.md#reader) 기본 제공 역할을 참조하세요.
 
@@ -113,7 +113,7 @@ Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용
     |작업 영역 기본 Blob 스토리지| 디자이너의 모델 자산을 저장합니다. 디자이너에서 모델을 배포하려면 해당 스토리지 계정에서 관리 ID 인증을 사용하도록 설정합니다. <br> <br> 관리 ID를 사용하도록 구성된 기본이 아닌 데이터 저장소를 사용하는 경우 디자이너 파이프라인을 시각화하고 실행할 수 있습니다. 그러나 기본 데이터 저장소에서 관리 ID를 사용하도록 설정하지 않고 학습된 모델을 배포하려고 하면 어떤 데이터 저장소를 사용 중이든 배포가 실패합니다.|
     |작업 영역 기본 파일 저장소| AutoML 실험 자산을 저장합니다. AutoML 실험을 제출하려면 해당 스토리지 계정에서 관리 ID 인증을 사용하도록 설정합니다. |
 
-1. **관리 ID 인증을 사용하도록 데이터 저장소 구성**. [서비스 엔드포인트](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)나 [프라이빗 엔드포인트](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts)를 사용하여 가상 네트워크에 Azure 스토리지 계정을 추가한 후 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용하도록 데이터 저장소를 구성해야 합니다. 그러면 스튜디오에서 스토리지 계정의 데이터에 액세스할 수 있습니다.
+1. **관리 ID 인증을 사용하도록 데이터 저장소 구성**. [서비스 엔드포인트](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts) 또는 [프라이빗](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts)엔드포인트 를 사용하여 가상 네트워크에 Azure Storage 계정을 추가한 [후에는 관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용하도록 데이터 저장소를 구성해야 합니다. 그러면 스튜디오에서 스토리지 계정의 데이터에 액세스할 수 있습니다.
 
     Azure Machine Learning은 [데이터 저장소](concept-data.md#datastores)를 사용하여 스토리지 계정에 연결합니다. 새 데이터 저장소를 생성할 때 관리 ID 인증을 사용하도록 데이터 저장소를 구성하려면 다음 단계를 따르세요.
 
@@ -127,19 +127,19 @@ Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용
 
         ![작업 영역 관리 ID를 사용하도록 설정하는 방법을 보여주는 스크린샷](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-    해당 단계는 Azure RBAC를 사용하여 새 스토리지 서비스에 작업 영역 관리 ID를 __읽기 권한자__ 로 추가합니다. __읽기 권한자__ 액세스를 사용하면 작업 영역에서 리소스를 볼 수 있지만 변경할 수는 없습니다.
+    다음 단계에서는 Azure RBAC를 사용하여 작업 영역의 관리 __ID를__ 읽기로 새 스토리지 서비스에 추가합니다. __읽기 권한자__ 액세스를 사용하면 작업 영역에서 리소스를 볼 수 있지만 변경할 수는 없습니다.
 
 ## <a name="datastore-azure-data-lake-storage-gen1"></a>데이터 저장소: Azure Data Lake Storage Gen1 사용
 
-Azure Data Lake Storage Gen1을 데이터 저장소로 사용하는 경우 POSIX 스타일 액세스 제어 목록만 사용할 수 있습니다. 다른 보안 원칙과 마찬가지로 리소스에 작업 영역 관리 ID 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요.
+Azure Data Lake Storage Gen1을 데이터 저장소로 사용하는 경우 POSIX 스타일 액세스 제어 목록만 사용할 수 있습니다. 다른 보안 주체와 마찬가지로 리소스에 작업 영역의 관리 ID 액세스를 할당할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요.
 
 ## <a name="datastore-azure-data-lake-storage-gen2"></a>데이터 저장소: Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2를 데이터 저장소로 사용하는 경우 Azure RBAC 및 POSIX 스타일 ACL(액세스 제어 목록)을 모두 사용하여 가상 네트워크 내부의 데이터 액세스를 제어할 수 있습니다.
 
-**Azure RBAC를 사용하려면** [Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할에 작업 영역 관리 ID를 추가합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)를 참조하세요.
+**Azure RBAC를 사용하려면** 이 문서의 [데이터 저장소: Azure Storage 계정](#datastore-azure-storage-account) 섹션의 단계를 따릅니다. Data Lake Storage Gen2는 Azure Storage 기반으로 하므로 Azure RBAC를 사용할 때 동일한 단계가 적용됩니다.
 
-**ACL을 사용하려면** 다른 보안 원칙과 마찬가지로 작업 영역 관리 ID에 액세스 권한을 할당하면 됩니다. 자세한 내용은 [파일 및 디렉터리에 대한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조하세요.
+**ACL을 사용하려면** 다른 보안 주체와 마찬가지로 작업 영역의 관리 ID에 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [파일 및 디렉터리에 대한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조하세요.
 
 ## <a name="datastore-azure-sql-database"></a>데이터 저장소: Azure SQL 데이터베이스
 
@@ -149,11 +149,11 @@ SQL 포함된 사용자를 만든 후에는 [GRANT T-SQL 명령](/sql/t-sql/stat
 
 ## <a name="intermediate-component-output"></a>중간 구성 요소 출력
 
-Azure Machine Learning designer 중간 구성 요소 출력을 사용 하는 경우 디자이너의 모든 구성 요소에 대 한 출력 위치를 지정할 수 있습니다. 보안, 로깅 또는 감사를 위해 중간 데이터 세트를 별도의 위치에 저장하는 데 사용할 수 있습니다. 출력을 지정하려면 다음 단계를 사용합니다.
+Azure Machine Learning 디자이너 중간 구성 요소 출력을 사용하는 경우 디자이너의 모든 구성 요소에 대한 출력 위치를 지정할 수 있습니다. 보안, 로깅 또는 감사를 위해 중간 데이터 세트를 별도의 위치에 저장하는 데 사용할 수 있습니다. 출력을 지정하려면 다음 단계를 사용합니다.
 
-1. 출력에 지정할 구성 요소를 선택 합니다.
-1. 오른쪽에 표시 되는 구성 요소 설정 창에서 **출력 설정** 을 선택 합니다.
-1. 각 구성 요소 출력에 사용 하려는 데이터 저장소를 지정 합니다.
+1. 출력을 지정할 구성 요소를 선택합니다.
+1. 오른쪽에 표시되는 구성 요소 설정 창에서 **출력 설정** 을 선택합니다.
+1. 각 구성 요소 출력에 사용할 데이터 저장소를 지정합니다.
 
 가상 네트워크의 중간 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 액세스 권한이 없으면 파이프라인이 실패합니다.
 

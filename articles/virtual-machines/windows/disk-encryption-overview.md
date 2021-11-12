@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc3c40e9f4bad9a15b94ee7aa529438f45b97498
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 1203b44225be723fa453dac8333e2ea6e7f29d33
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692612"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318183"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows VM을 위한 Azure Disk Encryption
 
@@ -24,9 +24,9 @@ Azure Disk Encryption은 조직의 보안 및 규정 준수 약정에 따라 데
 
 Azure Disk Encryption은 Virtual Machines와 동일한 방식으로 영역 복원력이 있습니다. 자세한 내용은 [가용성 영역을 지원하는 Azure Services](../../availability-zones/az-region.md)를 참조하세요.
 
-[Azure Security Center](../../security-center/index.yml)를 사용하는 경우 암호화되지 않은 VM이 있는 경우 경고 메시지가 표시됩니다. 이 경고는 심각도가 높다고 표시되며 이러한 VM을 암호화하도록 권장합니다.
+[클라우드용 Microsoft Defender를](../../security-center/index.yml)사용하는 경우 암호화되지 않은 VM이 있는 경우 경고가 생성됩니다. 이 경고는 심각도가 높다고 표시되며 이러한 VM을 암호화하도록 권장합니다.
 
-![Azure Security Center 디스크 암호화 경고](../media/disk-encryption/security-center-disk-encryption-fig1.png)
+![클라우드용 Microsoft Defender 디스크 암호화 경고](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
 > - 이전에 VM을 암호화하기 위해 Azure AD에서 Azure Disk Encryption을 사용한 적이 있다면 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다. 자세한 내용은 [Azure AD(이전 릴리스)를 포함한 Azure Disk Encryption](disk-encryption-overview-aad.md)을 참조하세요. 

@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 10/17/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 87aeb36a8bdd843f4ad1c0e228299b201321db44
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 37b6411dbddd92f9a0ba8ba8908b1f848d761683
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131461915"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319703"
 ---
-# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리
 
 > [!NOTE]
 > 이 문서에서는 Azure Monitor 로그의 비용을 이해하고 관리하는 방법을 설명합니다. 관련 문서인 [사용량 및 예상 비용 모니터링](../usage-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다. 이 문서의 모든 가격과 비용은 예시 목적으로만 제시한 것입니다. 
@@ -45,7 +45,7 @@ Log Analytics에 대한 기본 가격은 수집된 데이터 볼륨을 기반으
 
 모든 가격 책정 계층에서 이벤트의 데이터 크기는 데이터가 에이전트에서 보내는지 아니면 수집 프로세스 중에 추가되는지에 관계없이 이 이벤트에 대해 Log Analytics에 저장된 속성의 문자열 표현에서 계산됩니다. 여기에는 데이터가 수집되고 Log Analytics에 저장될 때 추가되는 [사용자 지정 필드](custom-fields.md)가 포함됩니다. 일부 [Log Analytics 표준 속성](./log-standard-columns.md)을 포함하여 모든 데이터 형식에 공통되는 몇 가지 속성은 이벤트 크기 계산에서 제외됩니다. 여기에는 `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` 및 `Type`이 포함됩니다. Log Analytics에 저장된 다른 모든 속성은 이벤트 크기 계산에 포함됩니다. 일부 데이터 형식(예: [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage) 및 [Operation](/azure/azure-monitor/reference/tables/operation) 형식)에는 데이터 수집 비용이 전혀 없습니다. 일부 솔루션에는 무료 데이터 수집에 대한 더 많은 솔루션별 정책이 있습니다. 예를 들어 [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/)는 서버 평가의 처음 180일 동안 종속성 시각화 데이터 비용을 청구하지 않습니다. 이벤트가 데이터 수집에 대한 청구에서 제외되었는지 여부를 확인하려면 [아래](#data-volume-for-specific-events)와 같이 [_IsBillable](log-standard-columns.md#_isbillable) 속성을 사용할 수 있습니다. 사용량은 GB(10^9바이트) 단위로 보고됩니다. 
 
-또한 [Azure Defender(Security Center)](https://azure.microsoft.com/pricing/details/azure-defender/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [구성 관리](https://azure.microsoft.com/pricing/details/automation/)와 같은 일부 솔루션에는 자체의 고유한 가격 책정 모델이 있습니다. 
+또한 [Microsoft Defender For Cloud](https://azure.microsoft.com/pricing/details/azure-defender/), [Microsoft 센티널](https://azure.microsoft.com/pricing/details/azure-sentinel/)및 [Configuration management](https://azure.microsoft.com/pricing/details/automation/) 와 같은 일부 솔루션에는 고유한 가격 책정 모델이 있습니다. 
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics 전용 클러스터
 
@@ -55,9 +55,9 @@ Log Analytics에 대한 기본 가격은 수집된 데이터 볼륨을 기반으
 
 클러스터 사용량에 대한 두 가지 청구 모드가 있습니다. 이러한 모드는 `billingType` 매개 변수로 [클러스터를 만들 때](logs-dedicated-clusters.md#create-a-dedicated-cluster) 지정하거나 만든 후에 설정할 수 있습니다. 두 모드는 다음과 같습니다. 
 
-- **클러스터**: 이 경우(기본값) 수집된 데이터에 대한 청구는 클러스터 수준에서 수행됩니다. 클러스터에 연결된 각 작업 영역에서 수집된 데이터 양을 집계하여 클러스터에 대한 일일 청구액을 계산합니다. [Azure Defender(Security Center)](../../security-center/index.yml)의 노드당 할당량은 클러스터의 모든 작업 영역에서 집계된 데이터를 이 방식으로 집계하기 전에 작업 영역 수준에서 적용됩니다. 
+- **클러스터**: 이 경우(기본값) 수집된 데이터에 대한 청구는 클러스터 수준에서 수행됩니다. 클러스터에 연결된 각 작업 영역에서 수집된 데이터 양을 집계하여 클러스터에 대한 일일 청구액을 계산합니다. [클라우드의 Microsoft Defender](../../security-center/index.yml) 에서 노드 별 할당은 클러스터의 모든 작업 영역에서 집계 된 데이터를 집계 하기 전에 작업 영역 수준에서 적용 됩니다. 
 
-- **작업 영역**: 클러스터의 약정 계층 비용은 각 작업 영역의 데이터 수집 볼륨에 따라 클러스터의 작업 영역에 비례하여 계산됩니다(각 작업 영역에 대한 [Azure Defender(Security Center)](../../security-center/index.yml)의 노드별 할당량을 고려한 후). 클러스터에 하루 동안 수집된 총 데이터 볼륨이 약정 계층보다 적은 경우 각 작업 영역에서 수집된 데이터에 대해 약정 계층의 일부만 청구하여 유효 GB당 약정 계층 비율로 청구하고, 약정 계층 중 사용하지 않은 부분은 클러스터 리소스에 청구됩니다. 클러스터에 하루 동안 수집된 총 데이터 볼륨이 약정 계층보다 많은 경우 각 작업 영역에 대한 요금은 해당 일에 수집된 데이터의 일부를 기준으로 약정 계층의 일부 및 약정 계층을 초과하여 수집된 데이터의 일부에 대해 청구됩니다. 작업 영역에 하루 동안 수집된 총 데이터 볼륨이 약정 계층을 초과하는 경우 클러스터 리소스에 대한 요금이 청구되지 않습니다.
+- **작업 영역**: 클러스터에 대 한 약정 계층 비용은 각 작업 영역의 데이터 수집 볼륨 (각 작업 영역에 대해 [클라우드의 Microsoft Defender](../../security-center/index.yml) 에서 노드당 할당에 대 한 계정 지정)에 따라 클러스터의 작업 영역에 대 한 특성을 사용 합니다. 하루 동안 클러스터로 수집 되는 총 데이터 볼륨이 약정 계층 보다 작은 경우 각 작업 영역에는 약정 계층의 분수로 청구 하 여 해당 수집 데이터에 대 한 요금이 청구 되 고 약정 계층의 사용 되지 않는 부분은 클러스터 리소스로 청구 됩니다. 클러스터에 하루 동안 수집된 총 데이터 볼륨이 약정 계층보다 많은 경우 각 작업 영역에 대한 요금은 해당 일에 수집된 데이터의 일부를 기준으로 약정 계층의 일부 및 약정 계층을 초과하여 수집된 데이터의 일부에 대해 청구됩니다. 작업 영역에 하루 동안 수집된 총 데이터 볼륨이 약정 계층을 초과하는 경우 클러스터 리소스에 대한 요금이 청구되지 않습니다.
 
 클러스터 청구 옵션에서 데이터 보존은 각 작업 영역에 대해 청구됩니다. 클러스터 요금 청구는 작업 영역이 클러스터에 연결되었는지 여부에 관계 없이 클러스터를 만들 때부터 시작됩니다. 클러스터에 연결된 작업 영역에는 더 이상 가격 책정 계층이 없습니다.
 
@@ -71,16 +71,16 @@ Azure Monitor 로그를 아직 사용하고 있지 않다면 [Azure Monitor 가�
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Azure 청구서에서 Log Analytics 사용량 보기 
 
-부분 Log Analytics 작업 영역에 대한 청구된 사용량을 보는 가장 쉬운 방법은 작업 영역의 **개요** 페이지로 이동하고 페이지 맨 위에 있는 Essentials 섹션의 오른쪽 위 모서리에 있는 **비용 보기를** 클릭하는 것입니다. 그러면 이미 이 작업 영역으로 범위가 Azure Cost Management + Billing 비용 분석이 시작됩니다.  
+Partciular Log Analytics 작업 영역에 대 한 청구 된 사용량을 확인 하는 가장 쉬운 방법은 작업 영역의 **개요** 페이지로 이동 하 여 페이지 맨 위에 있는 Essentials 섹션의 오른쪽 위 모서리에서 **비용 보기** 를 클릭 하는 것입니다. 이렇게 하면 이미이 작업 영역으로 범위가 지정 된 Azure Cost Management + 청구에서 비용 분석을 시작 합니다.  
 
-또는 [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 시작할 수 있습니다. 여기서는 "비용 분석" 기능을 사용하여 Azure 리소스 비용을 볼 수 있습니다. Log Analytics 지출을 추적하려면 "리소스 종류" 기준 필터를 추가할 수 있습니다(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/cluster에 추가). **그룹화 방법** 으로 **미터 범주** 또는 **미터** 를 선택합니다. Azure Defender(Security Center) 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
+또는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 시작할 수 있습니다. 여기에서 "비용 분석" 기능을 사용 하 여 Azure 리소스 비용을 볼 수 있습니다. Log Analytics 지출을 추적하려면 "리소스 종류" 기준 필터를 추가할 수 있습니다(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/cluster에 추가). **그룹화 방법** 으로 **미터 범주** 또는 **미터** 를 선택합니다. 클라우드 및 Microsoft 센티널 용 Microsoft Defender와 같은 기타 서비스는 Log Analytics 작업 영역 리소스에 대 한 사용량을 청구 하기도 합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
 
 사용량을 보다 잘 이해하려면 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/understand/download-azure-daily-usage.md)할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별(예: Log Analytics 작업 영역) 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서 Log Analytics 작업 영역의 사용량은 먼저 “Log Analytics”, “Insight and Analytics”(일부 레거시 가격 책정 계층에서 사용됨) 및 “Azure Monitor”(약정 계층 가격 책정 계층에서 사용됨)를 표시하도록 “미터 범주” 열을 필터링한 다음, “작업 영역 포함” 또는 “클러스터 포함”(후자의 경우 Log Analytics 클러스터 사용량을 포함)인 필터를 “인스턴스 ID” 열에 추가하여 확인할 수 있습니다. 사용량은 "사용한 수량" 열에 표시되며 각 항목에 대한 단위는 "측정 단위" 열에 표시됩니다. 자세한 내용은 [개별 Azure 구독 청구서 검토](../../cost-management-billing/understand/review-individual-bill.md)를 참조하세요. 
 
 ## <a name="understand-your-usage-and-optimizing-your-pricing-tier"></a>사용량 이해 및 가격 책정 계층 최적화
 <a name="understand-your-usage-and-estimate-costs"></a>
 
-사용량 추세에 대해 알아보고 가장 비용 효율적인 log Analytics 가격 책정 계층을 선택하려면 **Log Analytics 사용량 및 예상 비용을** 사용합니다. 각 솔루션에서 수집되는 데이터의 양, 보존되는 데이터의 양 및 최근 데이터 수집 패턴에 따라 각 가격 책정 계층에 대한 예상 비용을 보여 줍니다. 
+사용량 추세에 대해 알아보고 가장 비용 효율적인 log Analytics 가격 책정 계층을 선택 하려면 **Log Analytics 사용량 및 예상 비용** 을 사용 합니다. 이는 각 솔루션에 의해 수집 되는 데이터의 양, 보존 되는 데이터의 양과 최근 데이터 수집 패턴을 기반으로 하는 각 가격 책정 계층의 예상 비용을 보여 줍니다. 
 
 :::image type="content" source="media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="사용량 및 예상 비용":::
 
@@ -139,11 +139,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 
 ### <a name="tracking-pricing-tier-changes"></a>가격 책정 계층 변경 내용 추적
 
-작업 영역에 대 한 변경 내용은 "작업 영역 만들기" 라는 작업이 포함 된 이벤트와 함께 [활동 로그](../essentials/activity-log.md) 에 기록 됩니다. 이벤트의 **변경 기록** 탭에는 행의 이전 및 새 가격 책정 계층이 표시 됩니다  `properties.sku.name` .  작업 영역에서 "활동 로그" 옵션을 클릭 하 여 특정 작업 영역으로 범위가 지정 된 이벤트를 확인 합니다. 가격 책정 계층의 변경 내용을 모니터링 하기 위해 "작업 영역 만들기" 작업에 대 한 경고를 만들 수 있습니다. 
+작업 영역의 가격 책정 변경 내용은 활동 [로그에](../essentials/activity-log.md) "작업 영역 만들기"라는 작업이 있는 이벤트와 함께 기록됩니다. 이벤트의 변경 **기록** 탭에 이전 및 새 가격 책정 계층이  `properties.sku.name` 행에 표시됩니다.  작업 영역에서 "활동 로그" 옵션을 클릭하여 특정 작업 영역으로 범위가 한정된 이벤트를 확인합니다. 가격 책정 계층의 변경 내용을 모니터링하려면 "작업 영역 만들기" 작업에 대한 경고를 만들 수 있습니다. 
 
 ## <a name="legacy-pricing-tiers"></a>레거시 가격 책정 계층
 
-2018년 4월 2일에 Log Analytics 작업 영역 또는 Application Insights 리소스가 포함되거나, 2019년 2월 1일 이전에 시작되어 여전히 활성 상태인 기업계약에 연결된 구독은 **평가판**, **독립 실행형(GB당)** 및 **노드당(OMS)** 등 레거시 가격 책정 계층을 계속 사용할 수 있습니다. 평가판 가격 책정 계층의 작업 영역에는 일일 데이터 수집이 500MB로 제한되며([Azure Defender(Security Center)](../../security-center/index.yml)에서 수집된 보안 데이터 형식 제외), 데이터 보존 기간은 7일로 제한됩니다. 평가판 가격 책정 계층은 평가 목적으로만 사용됩니다. 무료 계층에 대해서는 SLA가 제공되지 않습니다.  독립 실행형 또는 노드당 가격 책정 계층의 작업 영역은 사용자 구성 가능 보존 기간이 30~730일입니다.
+2018년 4월 2일에 Log Analytics 작업 영역 또는 Application Insights 리소스가 포함되거나, 2019년 2월 1일 이전에 시작되어 여전히 활성 상태인 기업계약에 연결된 구독은 **평가판**, **독립 실행형(GB당)** 및 **노드당(OMS)** 등 레거시 가격 책정 계층을 계속 사용할 수 있습니다. 무료 평가판 가격 책정 계층의 작업 영역에는 일일 데이터 수집이 500MB로 제한되고(Microsoft [Defender for Cloud에서](../../security-center/index.yml)수집한 보안 데이터 형식 제외) 데이터 보존은 7일로 제한됩니다. 평가판 가격 책정 계층은 평가 목적으로만 사용됩니다. 무료 계층에 대해서는 SLA가 제공되지 않습니다.  독립 실행형 또는 노드당 가격 책정 계층의 작업 영역은 사용자 구성 가능 보존 기간이 30~730일입니다.
 
 독립 실행형 가격 책정 계층의 사용량은 수집된 데이터 볼륨을 기준으로 청구됩니다. 이는 **Log Analytics** 서비스에서 보고되고, 미터의 이름은 "분석된 데이터"로 지정됩니다. 
 
@@ -151,20 +151,20 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 
 - **노드**: 노드 개월 단위로 모니터링되는 노드(VM) 수에 대한 사용량입니다.
 - **노드당 데이터 초과분**: 집계된 데이터 할당량을 초과하여 수집된 데이터의 GB 수입니다.
-- **노드당 포함된 데이터**: 집계된 데이터 할당량에 포함된 수집된 데이터의 양입니다. 이 미터는 작업 영역이 모든 가격 책정 계층에 있는 경우에도 Azure Defender(Security Center)에서 처리하는 데이터 양을 표시하는 데 사용됩니다.
+- **노드당 포함된 데이터**: 집계된 데이터 할당량에 포함된 수집된 데이터의 양입니다. 이 미터는 작업 영역이 모든 가격 책정 계층에 있는 경우에도 사용되어 Microsoft Defender for Cloud에서 적용되는 데이터의 양을 표시합니다.
 
 > [!TIP]
 > 작업 영역에서 **노드당** 가격 책정 계층에 액세스할 수 있으며 다만 종량제 계층에서 비용이 더 저렴한지 여부가 궁금한 경우, [아래의 쿼리를 사용](#evaluating-the-legacy-per-node-pricing-tier)하면 권장 사항을 쉽게 확인할 수 있습니다. 
 
 2016년 4월 이전에 만든 작업 영역은 데이터 보존 기간이 각각 30일 및 365일로 정해진 **표준** 및 **프리미엄** 가격 책정 계층을 계속 사용할 수도 있습니다. **표준** 또는 **프리미엄** 가격 책정 계층에서는 새 작업 영역을 만들 수 없으며, 작업 영역을 이러한 계층 밖으로 옮기면 다시 이동할 수 없습니다. 이러한 레거시 계층에 대한 Azure 청구서의 데이터 수집 미터를 "분석된 데이터"라고 합니다.
 
-### <a name="legacy-pricing-tiers-and-azure-defender-security-center"></a>레거시 가격 책정 계층 및 Azure Defender (Security Center)
+### <a name="legacy-pricing-tiers-and-microsoft-defender-for-cloud"></a>레거시 가격 책정 계층 및 Microsoft Defender for Cloud
 
-레거시 Log Analytics 계층의 사용과 [Azure Defender(Security Center)](../../security-center/index.yml)의 사용량에 대한 요금이 청구되는 방식 간에도 몇 가지 동작이 있습니다. 
+레거시 Log Analytics 계층 사용과 [Microsoft Defender for Cloud에](../../security-center/index.yml)대한 사용량 청구 방법 간에도 몇 가지 동작이 있습니다. 
 
-- 작업 영역이 레거시 표준 또는 프리미엄 계층에 있는 경우 Azure Defender는 노드당이 아닌 Log Analytics 데이터 수집에 대해서만 요금이 청구됩니다.
-- 작업 영역이 레거시 노드당 계층에 있는 경우 Azure Defender는 현재 [Azure Defender 노드 기반 가격 책정 모델](https://azure.microsoft.com/pricing/details/security-center/)을 사용하여 요금이 청구됩니다. 
-- 그 밖의 다른 가격 책정 계층(약정 계층 포함)에서 Azure Defender가 2017년 6월 19일 이전에 사용하도록 설정된 경우 Azure Defender에 대한 요금은 Log Analytics 데이터 수집에 대해서만 청구됩니다. 그렇지 않은 경우 Azure Defender에 대한 요금은 현재 Azure Defender 노드 기반 가격 책정 모델을 사용하여 청구됩니다.
+- 작업 영역이 레거시 표준 또는 Premium 계층에 있는 경우 Microsoft Defender for Cloud는 노드가 아닌 Log Analytics 데이터 수집에 대해서만 요금이 청구됩니다.
+- 작업 영역이 레거시 노드당 계층에 있는 경우 클라우드용 Microsoft Defender는 현재 [클라우드용 Microsoft Defender 노드 기반 가격 책정 모델을](https://azure.microsoft.com/pricing/details/security-center/)사용하여 요금이 청구됩니다. 
+- 다른 가격 책정 계층(약정 계층 포함)에서 2017년 6월 19일 이전에 Microsoft Defender for Cloud를 사용하도록 설정한 경우 Microsoft Defender for Cloud는 Log Analytics 데이터 수집에 대해서만 요금이 청구됩니다. 그렇지 않으면 클라우드용 Microsoft Defender는 현재 클라우드용 Microsoft Defender 노드 기반 가격 책정 모델을 사용하여 요금이 청구됩니다.
 
 가격 책정 계층 제한 사항에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces)에서 확인할 수 있습니다.
 
@@ -173,9 +173,9 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 > [!NOTE]
 > System Center용 OMS E1 Suite, OMS E2 Suite 또는 OMS 추가 기능을 구매할 때 제공되는 자격을 사용하려면 Log Analytics의 *노드별* 가격 책정 계층을 선택합니다.
 
-## <a name="log-analytics-and-azure-defender-security-center"></a>Log Analytics 및 Azure Defender(Security Center)
+## <a name="log-analytics-and-microsoft-defender-for-cloud"></a>Log Analytics 및 Microsoft Defender for Cloud
 
-[Security Center (Azure Defender For Servers)](../../security-center/index.yml) 요금은 Log Analytics 청구와 밀접 하 게 연관 되어 있습니다. Azure Defender는 모니터링 되는 [서비스 수를 기준으로 요금을 청구](https://azure.microsoft.com/pricing/details/azure-defender/) 500 하며 다음 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, 업데이트 관리 솔루션이 작업 영역에서 실행 되지 않을 때 Securityalert, securityalert, SecurityBaselineSummary, Securityalert, Securityalert, windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus) 및 Update 및 UpdateSummary 데이터 형식 이온 대상 지정이 사용 됩니다 ([자세한 정보](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)). 모니터링 되는 서버 수는 시간별 세분성에서 계산 됩니다. 모니터링 되는 각 서버의 일일 데이터 할당 기여도는 작업 영역 수준에서 집계 됩니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Azure Defender 및 Log Analytics 할당량이 결합되어 청구 가능한 모든 수집된 데이터에 공동으로 적용됩니다.  
+[서버용 Microsoft Defender(Defender for Cloud)](../../security-center/index.yml) 청구는 Log Analytics 청구와 밀접하게 연관되어 있습니다. Microsoft Defender for Cloud는 [모니터링되는 서비스 수로 요금을 청구하고](https://azure.microsoft.com/pricing/details/azure-defender/) 다음과 같은 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) 하위 집합에 적용되는 500MB/서버/일 데이터 할당을 제공합니다(WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) 및 업데이트 관리 솔루션이 작업에서 실행되고 있지 않은 경우 Update 및 UpdateSummary 데이터 형식 공간 또는 솔루션 대상 지정을 사용할 수 있습니다([자세한 정보).](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance) 모니터링되는 서버 수는 시간 단위로 계산됩니다. 모니터링되는 각 서버의 일일 데이터 할당 기여도는 작업 영역 수준에서 집계됩니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 클라우드용 Microsoft Defender 및 Log Analytics 할당이 결합되어 청구 가능한 모든 수집 데이터에 공동으로 적용됩니다.  
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
@@ -201,7 +201,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 
 작업 영역을 기반으로 한 Application Insights 리소스의 데이터 형식(`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` 및 `AppTraces`)은 기본적으로 무료로 90일 동안 보존됩니다. 이들 데이터 형식의 보존 기간은 데이터 형식별 보존 기간 기능을 적용하여 조정할 수 있습니다. 
 
-Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge)는 보존 청구에 영향을 미치지 않으며 매우 제한된 경우에만 사용됩니다. 보존 요금을 줄이려면 작업 영역 또는 특정 데이터 형식에 대한 보존 기간을 줄여야 합니다. [Log Analytics 및 Application Insights에 저장 된 개인 데이터](./personal-data-mgmt.md)를 관리 하는 방법에 대해 자세히 알아보세요.
+Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge)는 보존 청구에 영향을 미치지 않으며 매우 제한된 경우에만 사용됩니다. 보존 요금을 줄이려면 작업 영역 또는 특정 데이터 형식에 대한 보존 기간을 줄여야 합니다. [Log Analytics 및 Application Insights 저장된 개인 데이터](./personal-data-mgmt.md)관리에 대해 자세히 알아봅니다.
 
 ### <a name="retention-by-data-type"></a>데이터 형식별 보존 기간
 
@@ -238,7 +238,7 @@ Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge)는 보�
     }
 ```
 
-에 유효한 값 `retentionInDays` 은 4에서 730 까지입니다.
+의 유효한 `retentionInDays` 값은 4에서 730까지입니다.
 
 사용자 지정 보존 기간을 적용하여 `Usage` 및 `AzureActivity` 데이터 형식을 설정할 수 없습니다. 이들 데이터 형식은 기본 작업 영역 보존 기간의 최대값 또는 90일을 사용합니다. 
 
@@ -263,7 +263,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 > 일일 상한은 데이터 수집을 지정된 상한 수준으로 정확하게 중지할 수 없으며, 특히 작업 영역에서 많은 양의 데이터를 받는 경우 일부 초과 데이터가 예상됩니다. 한도를 초과하여 데이터를 수집하면 요금이 계속 청구됩니다. 일일 상한 동작을 연구하는 데 도움이 되는 쿼리는 이 문서의 [일일 상한 효과 보기](#view-the-effect-of-the-daily-cap) 섹션을 참조하세요. 
 
 > [!WARNING]
-> 일일 상한은 2017년 6월 19일 이전에 Azure Defender(Security Center)가 설치된 작업 영역을 제외하고는 **WindowsEvent**, **SecurityAlert**, **SecurityBaseline**, **SecurityBaselineSummary**, **SecurityDetection**, **SecurityEvent**, **WindowsFirewall**, **MaliciousIPCommunication**, **LinuxAuditLog**, **SysmonEvent**, **ProtectionStatus**, **Update**, and **UpdateSummary** 데이터 형식의 수집을 중지하지 않습니다. 
+> 일일 상한은 Microsoft Defender for Cloud가 6월 이전에 설치된 작업 영역을 제외하고 **WindowsEvent,** **SecurityAlert,** **SecurityBaseline**, **SecurityBaselineSummary,** **SecurityDetection**, **SecurityEvent,** **WindowsFirewall,** **MaliciousIPCommunication**, **LinuxAuditLog,** **SysmonEvent,** **ProtectionStatus**, Update 및 **UpdateSummary** 데이터 형식의 수집을 중지하지 않습니다.  19, 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
 
@@ -278,7 +278,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 3. 기본적으로 **일일 상한** 은 **꺼짐** 으로 설정되어 있습니다. 일일 상한을 사용하도록 설정하려면 **켜짐** 을 선택한 다음, 데이터 볼륨 한도를 GB/일 단위로 설정합니다.
 
 :::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Log Analytics 데이터 제한 구성":::
-    
+
 Azure Resource Manager를 사용하여 일일 상한을 구성할 수 있습니다. 일일 상한을 구성하려면 [작업 영역 - 만들기 또는 업데이트](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping)에서 설명한 대로 `WorkspaceCapping` 아래에서 `dailyQuotaGb` 매개 변수를 설정합니다. 
 
 다음 쿼리를 사용하여 일일 상한에 대한 변경 내용을 추적할 수 있습니다.
@@ -415,7 +415,7 @@ Event
 | where EventID == 5145 or EventID == 5156
 | where _IsBillable == true
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
-``` 
+```
 
 여기서 `where _IsBillable = true` 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. `_IsBillable`에 대해 [자세히 알아보세요](./log-standard-columns.md#_isbillable).
 
@@ -526,7 +526,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 > [!WARNING]
 > **Usage** 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **Computer** 일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
 
-## <a name="late-arriving-data"></a>지연 도착 데이터   
+## <a name="late-arriving-data"></a>지연 도착 데이터
 
 데이터가 이전 타임스탬프로 수집되는 상황이 발생할 수 있습니다. 예를 들어 연결 문제로 인해 에이전트가 Log Analytics와 통신할 수 없거나 호스트에 시간 날짜/시간이 잘못된 경우입니다. 이는 **Usage** 데이터 형식에서 보고한 수집된 데이터와 이벤트가 생성될 때의 타임스탬프인 **TimeGenerated** 로 지정된 특정 날에 대한 원시 데이터의 **_BilledSize** 합계를 합한 쿼리 간의 명백한 불일치로 인해 매니페스트할 수 있습니다.
 
@@ -573,7 +573,7 @@ W3CIISLog
 | -------------------------- | ------------------------- |
 | 데이터 수집 규칙      | [Azure Monitor 에이전트](../agents/azure-monitor-agent-overview.md)는 데이터 수집 규칙을 사용하여 데이터 수집을 관리합니다. 사용자 지정 XPath 쿼리를 사용하여 [데이터 수집을 제한](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)할 수 있습니다. | 
 | 컨테이너 인사이트         | 필요한 데이터만 수집하도록 [컨테이너 인사이트를 구성](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost)합니다. |
-| Azure Sentinel | 최근에 추가 데이터 볼륨의 원본으로 사용하도록 설정한 [Sentinel 데이터 원본](../../sentinel/connect-data-sources.md)을 검토합니다. Sentinel 비용 및 청구에 대해 [자세히 알아봅니다](../../sentinel/azure-sentinel-billing.md). |
+| Microsoft 센티널 | 최근에 추가 데이터 볼륨의 원본으로 사용하도록 설정한 [Sentinel 데이터 원본](../../sentinel/connect-data-sources.md)을 검토합니다. Sentinel 비용 및 청구에 대해 [자세히 알아봅니다](../../sentinel/azure-sentinel-billing.md). |
 | 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](../../security-center/security-center-enable-data-collection.md#data-collection-tier)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [레지스트리 감사](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10)) <br> - [파일 시스템 감사](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10)) <br> - [커널 개체 감사](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10)) <br> - [핸들 조작 감사](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10)) <br> - 이동식 스토리지 감사 |
 | 성능 카운터       | [성능 카운터 구성](../agents/data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](../agents/data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트는 수집하지 않습니다. |
@@ -642,9 +642,9 @@ union
 
 이러한 평가를 보다 수월하게 진행하기 위해 다음 쿼리를 사용하여 작업 영역의 사용 패턴을 기반으로 최적의 가격 책정 계층을 추천할 수 있습니다. 이 쿼리는 지난 7일 동안 작업 영역에서 모니터링된 노드 및 수집된 데이터를 각각 확인하며 각 날짜별로 가장 적합한 가격 책정 계층을 평가합니다. 쿼리를 사용하려면 다음을 지정해야 합니다.
 
-- **workspaceHasSecurityCenter** 를 **true** 또는 **false** 로 설정하여 작업 영역에서 Azure Defender(Security Center)를 사용하는지 여부 
+- **작업 영역HasSecurityCenter를** **true** 또는 **false로** 설정하여 작업 영역에서 클라우드용 Microsoft Defender를 사용하는지 여부입니다. 
 - 특정 할인이 있는 경우 가격을 업데이트합니다.
-- **daysToEvaluate** 를 설정하여 되돌아가 분석할 기간(일 수)를 지정해야 합니다. 이 방법은 쿼리가 7일간의 데이터를 확인하는 데 너무 많은 시간이 걸리는 경우에 도움이 됩니다. 
+- **daysToEvaluate** 를 설정하여 되돌아가 분석할 기간(일 수)를 지정해야 합니다. 이 방법은 쿼리가 7일간의 데이터를 확인하는 데 너무 많은 시간이 걸리는 경우에 도움이 됩니다.
 
 가격 책정 계층 권장 사항 쿼리는 다음과 같습니다.
 
@@ -652,8 +652,8 @@ union
 // Set these parameters before running query
 // Pricing details available at https://azure.microsoft.com/pricing/details/monitor/
 let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
-let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure Security Center
-let PerNodePrice = 15.; // Enter your montly price per monitored nodes
+let workspaceHasSecurityCenter = false;  // Specify if the workspace has Defender for Cloud (formerly known as Azure Security Center)
+let PerNodePrice = 15.; // Enter your monthly price per monitored nodes
 let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
 let CommitmentTier100Price = 196.; // Enter your price for the 100 GB/day commitment tier
@@ -756,7 +756,7 @@ union *
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Log Analytics를 사용하여 데이터 전송 요금 청구
 
-Log Analytics로 데이터를 전송하면 데이터 대역폭 요금이 발생할 수 있습니다. 그렇지만 Log Analytics 에이전트가 설치된 Virtual Machines로 제한되며, 진단 설정을 사용하거나 Azure Sentinel에 기본 제공되는 다른 커넥터를 사용하는 경우에는 적용되지 않습니다. [Azure Bandwidth 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)에 설명된 바와 같이, 두 지역의 Azure 서비스 간 데이터 전송 요금은 일반 요율을 적용한 아웃바운드 데이터 전송 요금으로 청구되었습니다. 인바운드 데이터 전송은 무료입니다. 다만 이 요금은 Log Analytics 데이터 수집에 드는 비용에 비해 매우 적습니다. 따라서 Log Analytics에 대한 비용을 제어하려면 [수집된 데이터 볼륨](#understanding-ingested-data-volume)에 집중해야 합니다. 
+Log Analytics로 데이터를 전송하면 데이터 대역폭 요금이 발생할 수 있습니다. 그러나 Log Analytics 에이전트가 설치된 Virtual Machines 제한되며 진단 설정 또는 Microsoft Sentinel에 기본 제공되는 다른 커넥터를 사용할 때 적용되지 않습니다. [Azure Bandwidth 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)에 설명된 바와 같이, 두 지역의 Azure 서비스 간 데이터 전송 요금은 일반 요율을 적용한 아웃바운드 데이터 전송 요금으로 청구되었습니다. 인바운드 데이터 전송은 무료입니다. 다만 이 요금은 Log Analytics 데이터 수집에 드는 비용에 비해 매우 적습니다. 따라서 Log Analytics에 대한 비용을 제어하려면 [수집된 데이터 볼륨](#understanding-ingested-data-volume)에 집중해야 합니다. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
 
@@ -787,7 +787,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 - 검색 언어를 사용하는 방법을 알아보려면 [Azure Monitor 로그에서 로그 검색](../logs/log-query-overview.md)을 참조하세요. 사용량 현황 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.
 - [새 로그 경고 만들기](../alerts/alerts-metric.md)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
 - [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
-- [Azure Defender(Security Center) 필터링 정책](../../security-center/security-center-enable-data-collection.md)을 검토하여 효과적인 이벤트 컬렉션 정책을 구성합니다.
+- 효과적인 이벤트 수집 정책을 구성하려면 [Microsoft Defender for Cloud 필터링 정책을](../../security-center/security-center-enable-data-collection.md)검토합니다.
 - [성능 카운터 구성](../agents/data-sources-performance-counters.md)을 변경합니다.
 - 이벤트 컬렉션 설정을 수정하려면 [이벤트 로그 구성](../agents/data-sources-windows-events.md)을 검토합니다.
 - syslog 컬렉션 설정을 수정하려면 [syslog 구성](../agents/data-sources-syslog.md)을 검토합니다.

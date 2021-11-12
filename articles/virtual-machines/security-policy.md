@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 2010347f2b796a7cac181d0b574401ad34b6f859
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: a0f292a3ea3df213c1e9be76da0c2d35ce8554ce
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697261"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345171"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Azure에서 보안 적용 및 정책 사용
 
@@ -25,11 +25,11 @@ ms.locfileid: "122697261"
 
 클라우드 환경에 대한 최신 위협 환경은 동적이며 규정 준수 및 보안 요구 사항을 충족하기 위해 압력을 늘려서 효과적으로 보호를 유지합니다. [Azure를 위한 Microsoft 맬웨어 방지 프로그램](../security/fundamentals/antimalware.md)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 무료 실시간 보호 기능입니다. 알려진 악성 또는 원치 않는 소프트웨어가 VM에서 스스로의 설치나 실행을 시도하는 경우 알리도록 경고를 구성할 수 있습니다. Linux 또는 Windows Server 2008을 실행하는 VM에서는 지원되지 않습니다.
 
-## <a name="azure-security-center"></a>Azure Security Center
+## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Azure Security Center](../security-center/security-center-introduction.md)를 통해 VM에 대한 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center는 Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
+[Microsoft Defender for Cloud를](../security-center/security-center-introduction.md) 사용하면 VM에 대한 위협을 방지, 감지 및 대응할 수 있습니다. Defender for Cloud는 Azure 구독에서 통합 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수 있는 위협을 감지하고, 광범위한 보안 솔루션 에코시스템에서 작동합니다.
 
-VM 배포 전반에 걸쳐 Security Center의 Just-In-Time 액세스를 적용하면 Azure VM으로의 인바운드 트래픽을 차단하여 공격에 대한 노출은 줄이고 필요할 때 VM에 쉽게 액세스하여 연결할 수 있습니다. Just-In-Time을 사용하도록 설정한 상태에서 사용자가 VM 액세스를 요청하면 Security Center에서는 VM에 대한 사용자 권한을 확인합니다. 사용자에게 올바른 권한이 있으면 요청이 승인되며, Security Center는 제한된 시간 동안 선택한 포트로의 인바운드 트래픽을 허용하도록 NSG(네트워크 보안 그룹)를 자동으로 구성합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 
+Defender for Cloud의 Just-In-Time 액세스를 VM 배포 전체에 적용하여 Azure VM에 대한 인바운드 트래픽을 잠글 수 있으며, 필요할 때 VM에 쉽게 연결할 수 있는 액세스를 제공하면서 공격에 대한 노출을 줄일 수 있습니다. Just-In-Time을 사용하도록 설정되고 사용자가 VM에 대한 액세스를 요청하는 경우 Defender for Cloud는 사용자가 VM에 대해 가진 권한을 확인합니다. 올바른 권한이 있는 경우 요청이 승인되고 Defender for Cloud는 제한된 시간 동안 선택한 포트에 대한 인바운드 트래픽을 허용하도록 NSG(네트워크 보안 그룹)를 자동으로 구성합니다. 시간이 만료된 후 Defender for Cloud는 NSG를 이전 상태로 복원합니다. 
 
 ## <a name="encryption"></a>암호화
 
@@ -75,4 +75,4 @@ Azure AD(Azure Active Directory)의 Azure 리소스에 대한 관리 ID 기능�
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Linux](../security/fundamentals/overview.md) 또는 [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security)용 Azure Security Center를 사용하여 가상 컴퓨터 보안을 모니터링하는 단계를 안내합니다.
+- [Linux용](../security/fundamentals/overview.md) Microsoft Defender for Cloud 또는 [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security)사용하여 가상 머신 보안을 모니터링하는 단계를 안내합니다.

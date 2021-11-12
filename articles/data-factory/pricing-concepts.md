@@ -8,18 +8,18 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 944a49b0c58d1c6e197d385fd6bd029aa29631c5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 45d8b3dea72555470059cb14b3268e4d9b4e9611
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251949"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319519"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
+이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.  더 구체적인 시나리오에 대해서는 [Azure 가격 계산기를](https://azure.microsoft.com/pricing/calculator/) 참조하고 서비스를 사용하기 위해 향후 비용을 예상할 수도 있습니다.
 
 > [!NOTE]
 > 아래 예제에 사용된 가격은 가상이며 실제 가격 책정을 의미하지는 않습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "130251949"
 
 3. 파이프라인을 1시간마다 실행하는 일정 트리거
 
-   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="다이어그램에서 일정 트리거를 사용 하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 집합으로 전달 되 고,이는 W S S3 연결 된 서비스로 이동 하 고, 복사 작업은 Azure Storage 연결 된 서비스로 흐르는 출력 데이터 집합으로 흐릅니다.":::
+   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="다이어그램은 일정 트리거가 있는 파이프라인을 보여줍니다. 파이프라인에서 복사 작업은 입력 데이터 세트로 흐릅니다. 이 데이터 세트는 A W S3 연결된 서비스로 흐르고 복사 작업은 출력 데이터 세트로도 흐릅니다. 이 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.":::
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -52,9 +52,9 @@ ms.locfileid: "130251949"
 
 - Data Factory 작업 = **$0.0001**
   - 읽기/쓰기 = 10 \* 0.00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - 모니터링 = 2 \* 0.000005 = $0.00001 [1 모니터링 = $0.25/50000 = 0.000005]
+  - 모니터링 = \* 2 0.000005 = $0.00001 [1 모니터링 = $0.25/50000 = 0.000005]
 - 파이프라인 오케스트레이션 &amp; 실행 = **$0.168**
-  - 활동 실행 = 0.001 \* 2 = $0.002 [1 run = $1/1000 = 0.001]
+  - 활동 실행 = 0.001 \* 2 = $0.002 [1 실행 = $1/1000 = 0.001]
   - 데이터 이동 활동 = $0.166(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.25/시간)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>데이터를 복사하고 Azure Databricks를 사용하여 시간별 변환
@@ -67,7 +67,7 @@ ms.locfileid: "130251949"
 2. 데이터 변환에 대한 하나의 Azure Databricks 작업
 3. 파이프라인을 1시간마다 실행하는 하나의 일정 트리거
 
-:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="다이어그램에서 일정 트리거를 사용 하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 집합, 출력 데이터 집합 및 Azure Databricks에서 실행 되는 DataBricks 작업으로 흐릅니다. 입력 데이터 집합은 W S S3 연결 된 서비스로 흐릅니다. 출력 데이터 집합은 연결 된 Azure Storage 서비스로 흐릅니다.":::
+:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="다이어그램은 일정 트리거가 있는 파이프라인을 보여줍니다. 파이프라인에서 복사 작업은 Azure Databricks 실행되는 입력 데이터 세트, 출력 데이터 세트 및 DataBricks 작업으로 흐릅니다. 입력 데이터 세트는 A W S3 연결된 서비스로 흐릅니다. 출력 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.":::
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -84,9 +84,9 @@ ms.locfileid: "130251949"
 
 - Data Factory 작업 = **$0.00012**
   - 읽기/쓰기 = 11 \* 0.00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
-  - 모니터링 = 3 \* 0.000005 = $0.00001 [1 모니터링 = $0.25/50000 = 0.000005]
+  - 모니터링 = \* 3 0.000005 = $0.00001 [1 모니터링 = $0.25/50000 = 0.000005]
 - 파이프라인 오케스트레이션 &amp; 실행 = **$0.16904**
-  - 활동 실행 = 0.001 \* 3 = $0.003 [1 run = $1/1000 = 0.001]
+  - 활동 실행 = 0.001 \* 3 = $0.003 [1 실행 = $1/1000 = 0.001]
   - 데이터 이동 활동 = $0.166(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.25/시간)
   - 외부 파이프라인 활동 = $0.000041(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.00025/시간)
 
@@ -101,7 +101,7 @@ ms.locfileid: "130251949"
 3. 데이터 변환에 대한 하나의 Azure Databricks 작업
 4. 파이프라인을 1시간마다 실행하는 하나의 일정 트리거
 
-:::image type="content" source="media/pricing-concepts/scenario3.png" alt-text="다이어그램에서 일정 트리거를 사용 하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 집합, 출력 데이터 집합 및 Azure Databricks에서 실행 되는 DataBricks 작업으로 이동 하는 조회 작업으로 흐릅니다. 입력 데이터 집합은 W S S3 연결 된 서비스로 흐릅니다. 출력 데이터 집합은 연결 된 Azure Storage 서비스로 흐릅니다.":::
+:::image type="content" source="media/pricing-concepts/scenario3.png" alt-text="다이어그램은 일정 트리거가 있는 파이프라인을 보여줍니다. 파이프라인에서 복사 작업은 입력 데이터 세트, 출력 데이터 세트 및 Azure Databricks 실행되는 DataBricks 작업으로 흐르는 조회 작업으로 흐릅니다. 입력 데이터 세트는 A W S3 연결된 서비스로 흐릅니다. 출력 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.":::
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -121,20 +121,20 @@ ms.locfileid: "130251949"
   - 읽기/쓰기 = 11 \* 0.00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
   - 모니터링 = 4 \* 0.000005 = $0.00002 [1 모니터링 = $0.25/50000 = 0.000005]
 - 파이프라인 오케스트레이션 &amp; 실행 = **$0.17007**
-  - 활동 실행 = 0.001 \* 4 = $0.004 [1 실행 = $1/1000 = 0.001]
+  - 활동 실행 = 0.001 \* 4 = $0.004 [1 run = $1/1000 = 0.001]
   - 데이터 이동 활동 = $0.166(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.25/시간)
   - 파이프라인 활동 = $0.00003(실행 시간의 1분에 대해 비례합니다. Azure Integration Runtime에서 $0.002/시간)
   - 외부 파이프라인 활동 = $0.000041(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.00025/시간)
 
-## <a name="run-ssis-packages-on-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에서 SSIS 패키지 실행
+## <a name="run-ssis-packages-on-azure-ssis-integration-runtime"></a>Azure에서 SSIS 패키지 실행-SSIS 통합 런타임
 
-Azure-SSIS IR(통합 런타임)은 ADF(Azure Data Factory)에서 SSIS 패키지 실행을 위한 Azure VM(가상 머신)의 특수 클러스터입니다. 프로비전하는 경우 SSIS 패키지를 실행하는 데 사용하는지 여부에 관계없이 다른 전용 Azure VM과 마찬가지로 요금이 청구됩니다. 실행 비용과 관련하여 ADF 포털의 설정 창에 시간당 예상 비용이 표시됩니다. 예를 들면 다음과 같습니다.  
+Azure-SSIS (SSIS 통합 런타임)는 ADF (Azure Data Factory)에서 SSIS 패키지를 실행 하기 위한 Azure Vm (가상 머신)의 특수 클러스터입니다. 프로 비전 할 때 사용자를 위한 것 이므로, SSIS 패키지를 실행 하는 데 사용 하는지 여부에 관계 없이 계속 실행 되는 동안 다른 전용 Azure Vm과 마찬가지로 요금이 청구 됩니다. 실행 비용을 고려 하 여 ADF 포털의 설정 창에서 시간당 예상치를 확인할 수 있습니다. 예를 들면 다음과 같습니다.  
 
-:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="SSIS 가격 책정 예제":::
+:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="SSIS 가격 책정 예":::
 
-위의 예제에서 Azure-SSIS IR 2시간 동안 계속 실행하면 **2(시간) x US$1.158/시간 = US$2.316이** 청구됩니다.
+위의 예제에서 2 시간 동안 Azure-SSIS IR를 실행 하는 경우 **2 (시간) x us $1.158/hour = us $2.316** 요금이 청구 됩니다.
 
-Azure-SSIS IR 실행 비용을 관리하려면 VM 크기를 축소하고, 클러스터 크기를 확장하고, 상당한 절감을 제공하는 AHB(Azure 하이브리드 혜택) 옵션을 통해 사용자 고유의 SQL Server 라이선스를 가져오거나, [가격 책정 Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/)참조하거나, SSIS 워크로드를 처리하기 위해 편리하거나 주문형/적시에 Azure-SSIS IR 중지하기 & 시작할 수 있습니다.  [Azure-SSIS IR 다시 구성](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) 및 Azure-SSIS IR [예약을](how-to-schedule-azure-ssis-integration-runtime.md)참조하세요.
+Azure-SSIS IR 실행 비용을 관리 하기 위해 VM 크기를 축소 하 고, 클러스터 크기를 확장 하 고, 상당한 절감 [Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/)효과를 제공 하는 Azure 하이브리드 혜택 (AHB)를 통해 사용자 고유의 SQL Server 라이선스를 가져올 수 있습니다 .이 옵션을 사용 하면 편리한/주문형/주문형/SSIS 작업을 처리할 때 언제 든 지 &을 중지할 수 있습니다.  [Azure-SSIS IR 다시 구성](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) 및 [일정 Azure-SSIS IR](how-to-schedule-azure-ssis-integration-runtime.md)을 참조 하세요.
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>일반 workday에 대한 매핑 데이터 흐름 디버그 사용
 
@@ -174,15 +174,15 @@ Azure-SSIS IR 실행 비용을 관리하려면 VM 크기를 축소하고, 클러
 
 - Data Factory 작업 = **$0.0001**
   - 읽기/쓰기 = 10 \* 0.00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - 모니터링 = \* 2 0.000005 = $0.00001 [1 모니터링 = $0.25/50000 = 0.000005]
+  - 모니터링 = 2 \* 0.000005 = $0.00001 [1 모니터링 = $0.25/50000 = 0.000005]
 - 파이프라인 오케스트레이션 &amp; 실행 = **$1.463**
-  - 활동 실행 = 0.001 \* 2 = $0.002 [1 실행 = $1/1000 = 0.001]
+  - 활동 실행 = 0.001 \* 2 = $0.002 [1 run = $1/1000 = 0.001]
   - 데이터 흐름 활동 = $1.461, 20분(10분 실행 시간 + 10분 TTL)에 비례하여 계산됩니다. 16 코어 일반 컴퓨팅을 사용하는 Azure Integration Runtime의 $0.274/시간
 
 ## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Azure Data Factory 관리 VNET의 데이터 통합
 이 시나리오에서는 Azure Blob Storage에서 원래 파일을 삭제하고, Azure SQL Database에서 Azure Blob Storage로 데이터를 복사하려고 합니다. 서로 다른 파이프라인에서 이 실행을 두 번 수행합니다. 이러한 두 파이프라인의 실행 시간은 겹칩니다.
 :::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="시나리오 4":::
-이 시나리오를 수행하려면 다음 항목을 사용하여 두 개의 파이프라인을 만들어야 합니다.
+시나리오를 수행 하려면 다음 항목을 사용 하 여 두 개의 파이프라인을 만들어야 합니다.
   - 파이프라인 활동 – 활동 삭제.
   - Azure Blob storage에서 복사될 데이터에 대한 입력 데이터 세트가 있는 복사 작업
   - Azure SQL Database의 데이터에 대한 출력 데이터 세트
@@ -204,10 +204,10 @@ Azure-SSIS IR 실행 비용을 관리하려면 VM 크기를 축소하고, 클러
 **총 시나리오 가격 책정: $1.45523**
 
 - Data Factory 작업 = $0.00023
-  - 읽기/쓰기 = 20*0.00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
-  - 모니터링 = 6*0.000005 = $0.00003 [1 모니터링 = $0.25/50000 = 0.000005]
+  - 읽기/쓰기 = 20 * 0.00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
+  - Monitoring = 6 * 0.000005 = $0.00003 [1 Monitoring = $0.25/50000 = 0.000005]
 - 파이프라인 오케스트레이션 및 실행 = $1.455
-  - 활동 실행 = 0.001*6 = $0.006 [1 실행 = $1/1000 = 0.001]
+  - 활동 실행 = 0.001 * 6 = $0.006 [1 run = $1/1000 = 0.001]
   - 데이터 이동 활동 = $0.333(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.25/시간)
   - 파이프라인 작업 = $1.116(7분의 실행 시간에 60분 TTL을 더한 시간에 대해 비례합니다. Azure Integration Runtime에서 $1/시간)
 

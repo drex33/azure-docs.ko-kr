@@ -1,14 +1,14 @@
 ---
 title: Horizon SDK
-description: Azure Defender for IoT 개발자는 Horizon SDK를 사용하여 자동화된 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있도록 네트워크 트래픽을 디코딩하는 디섹터 플러그 인을 설계할 수 있습니다.
-ms.date: 1/13/2021
+description: Horizon SDK를 사용하면 Microsoft Defender for IoT 개발자가 자동화된 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있도록 네트워크 트래픽을 디코딩하는 배포자 플러그 인을 디자인할 수 있습니다.
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: a6b9f69daeb39b79ccdabea273efe825f6a9d1ff
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: 9affe81bc905e2852732b3892aaac26003c1e8f5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114673991"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286757"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Horizon 독점 프로토콜 디섹터
 
@@ -24,7 +24,7 @@ Horizon은 독점 프로토콜을 실행하는 IoT 및 ICS 디바이스를 보�
 
 - 중요한 정보 유출 없이 독점 개발할 수 있도록 지원하는 보안 기능
 
-Azure Defender for IoT 개발자는 Horizon SDK를 사용하여 자동화된 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있도록 네트워크 트래픽을 디코딩하는 디섹터 플러그 인을 설계할 수 있습니다.
+Horizon SDK를 사용하면 Microsoft Defender for IoT 개발자가 자동화된 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있도록 네트워크 트래픽을 디코딩하는 배포자 플러그 인을 디자인할 수 있습니다.
 
 프로토콜 디섹터는 외부 플러그 인으로 개발되며 포괄적인 Defender for IoT 서비스 범위와 통합됩니다. 예를 들면 모니터링, 경고, 보고 기능을 제공하는 서비스입니다.
 
@@ -1617,7 +1617,7 @@ Horizon 콘솔 **개요** 창에서는 업로드한 플러그 인에 대한 정�
 | 필드 | Description |
 |--|--|
 | 애플리케이션 | 업로드한 플러그 인의 이름입니다. |
-| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="설정 및 해제 스위치."::: | 플러그 인을 **설정** 하거나 **해제** 합니다. Defender for IoT는 플러그 인을 해제하는 경우 플러그 인에 정의된 프로토콜 트래픽을 처리하지 않습니다. |
+| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="켜기/끄기 스위치입니다."::: | 플러그 인을 **설정** 하거나 **해제** 합니다. Defender for IoT는 플러그 인을 해제하는 경우 플러그 인에 정의된 프로토콜 트래픽을 처리하지 않습니다. |
 | 시간 | 데이터를 마지막으로 분석한 시간입니다. 5초마다 업데이트됩니다. |
 | PPS | 초당 패킷 수입니다. |
 | 대역폭 | 최근 5초 이내에 검색된 평균 대역폭입니다. |

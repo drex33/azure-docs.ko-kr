@@ -11,23 +11,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 1ea079802a2628b8a698e108f6f689ff5e58f08b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 315f97e6c392578e10159c767c56111e6c34f544
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750289"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286936"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>DDoS 보호 경고 보기 및 구성
 
-Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 로깅을 [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage와 통합하면 고급 분석을 사용할 수 있습니다.
+Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor Diagnostics 인터페이스를 통해 고급 분석을 위해 [Microsoft Sentinel,](../sentinel/data-connectors-reference.md#azure-ddos-protection)Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage 추가로 통합할 수 있습니다.
 
 이 자습서에서 학습할 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Azure Monitor를 통해 경고 구성
 > * 포털을 통해 경고 구성
-> * Azure Security Center의 경고 보기
+> * 클라우드용 Microsoft Defender에서 경고 보기
 > * 경고 유효성 검사 및 테스트
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -74,16 +74,16 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 
 경고를 만들기 위해 [웹후크 구성](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Logic Apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아볼 수도 있습니다.
 
-## <a name="view-alerts-in-azure-security-center"></a>Azure Security Center의 경고 보기
+## <a name="view-alerts-in-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender에서 경고 보기
 
-Azure Security Center는 문제를 조사하고 수정하는 데 도움이 되는 정보와 함께 [보안 경고](../security-center/security-center-managing-and-responding-alerts.md) 목록을 제공합니다. 이 기능을 통해 DDoS 공격 관련 경고, 가까운 시간에 공격을 완화하기 위해 취한 조치를 포함한 경고의 통합 보기를 얻을 수 있습니다.
+Microsoft Defender for Cloud는 문제를 조사하고 해결하는 데 도움이 되는 정보와 함께 [보안 경고](../security-center/security-center-managing-and-responding-alerts.md)목록을 제공합니다. 이 기능을 통해 DDoS 공격 관련 경고, 가까운 시간에 공격을 완화하기 위해 취한 조치를 포함한 경고의 통합 보기를 얻을 수 있습니다.
 DDoS 공격 탐지 및 완화에 대해 다음과 같은 두 가지 경고가 표시됩니다.
 
 - **공용 IP에 대한 DDoS 공격이 탐지됨**: 이 경고는 DDoS 보호 서비스에서 공용 IP 주소 중 하나가 DDoS 공격의 대상인 것을 탐지할 때 생성됩니다.
 - **공용 IP에 대한 DDoS 공격이 완화됨**: 이 경고는 공용 IP 주소에 대한 공격이 완화된 경우에 생성됩니다.
-경고를 보려면 Azure Portal에서 **Security Center** 를 엽니다. **위협 보호** 아래에서 **보안 경고** 를 선택합니다. 다음 스크린샷은 DDoS 공격 경고의 예를 보여줍니다.
+경고를 보려면 Azure Portal **Defender for Cloud를** 엽니다. **위협 보호** 아래에서 **보안 경고** 를 선택합니다. 다음 스크린샷은 DDoS 공격 경고의 예를 보여줍니다.
 
-![Azure Security Center의 DDoS 경고](./media/manage-ddos-protection/ddos-alert-asc.png)
+![클라우드용 Microsoft Defender의 DDoS 경고](./media/manage-ddos-protection/ddos-alert-asc.png)
 
 경고에는 공격을 받는 공용 IP 주소에 대한 일반 정보, 지역 및 위협 인텔리전스 정보 및 수정 단계가 포함됩니다.
 
@@ -97,7 +97,7 @@ DDoS 공격을 시뮬레이션하여 경고의 유효성을 검사하려면 [DDo
 
 - Azure Monitor를 통해 경고 구성
 - 포털을 통해 경고 구성
-- Azure Security Center의 경고 보기
+- 클라우드용 Microsoft Defender에서 경고 보기
 - 경고 유효성 검사 및 테스트
 
 DDoS 공격을 테스트하고 시뮬레이션하는 방법을 알아보려면 시뮬레이션 테스트 가이드를 참조하세요.

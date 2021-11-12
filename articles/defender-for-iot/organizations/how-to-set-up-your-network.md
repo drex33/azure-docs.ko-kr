@@ -1,24 +1,24 @@
 ---
 title: 네트워크 설정
 description: Azure Defender for IoT 어플라이언스에 사용할 수 있도록 네트워크를 성공적으로 설정하는 데 필요한 솔루션 아키텍처, 네트워크 준비, 필수 구성 요소 및 기타 정보에 대해 알아봅니다.
-ms.date: 11/07/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 150612e8e9d429e9fc2b8eb74f3ea7167a41495c
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 1e41cc1f8e491e92d2fe4896b90e61b4cd3fe835
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028366"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278819"
 ---
-# <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
+# <a name="about-microsoft-defender-for-iot-network-setup"></a>IoT 용 Microsoft Defender 네트워크 설정 정보
 
-Azure Defender for IoT는 연속적 ICS 위협 모니터링 및 디바이스 검색을 제공합니다. 이 플랫폼은 다음 구성 요소를 포함합니다.
+IoT 용 Microsoft Defender는 연속 ICS 위협 모니터링 및 장치 검색을 제공 합니다. 이 플랫폼은 다음 구성 요소를 포함합니다.
 
 **Defender for IoT 센서:** 센서는 패시브(에이전트 없는) 모니터링을 사용하여 ICS 네트워크 트래픽을 수집합니다. 패시브/비침입적인 이 센서는 OT 및 IoT 네트워크와 디바이스 성능에 어떠한 영향도 주지 않습니다. 센서는 SPAN 포트 또는 네트워크 TAP에 연결하고 즉시 네트워크 모니터링을 시작합니다. 검색은 센서 콘솔에 표시됩니다. 여기에서 네트워크 맵, 디바이스 인벤토리, 광범위한 보고서의 검색 항목을 보고, 조사하고, 분석할 수 있습니다. 예를 들면 위험 평가 보고서, 데이터 마이닝 쿼리, 공격 벡터가 있습니다.
 
 **Defender for IoT 온-프레미스 관리 콘솔**: 온-프레미스 관리 콘솔은 모든 네트워크 디바이스의 통합 보기를 제공합니다. 이 콘솔은 시설 전체의 주요 OT 및 IoT 위험 지표와 경고의 실시간 보기를 제공합니다. SOC 워크플로 및 플레이북과 긴밀하게 통합되어 있어서 위협 완화 작업의 우선 순위와 위협의 사이트 간 상관 관계를 쉽게 파악할 수 있습니다.
 
-**Defender for IoT 포털:** Defender for IoT 애플리케이션은 솔루션 어플라이언스를 구매하고, 소프트웨어를 설치 및 업데이트하고, TI 패키지를 업데이트하는 데 도움이 됩니다.
+**Azure Portal의 IoT 용 Defender:** IoT 용 Defender 응용 프로그램은 솔루션 어플라이언스를 구매 하 고, 소프트웨어를 설치 및 업데이트 하 고, TI 패키지를 업데이트 하는 데 도움이 됩니다.
 
 이 문서에서는 Azure Defender for IoT 어플라이언스에 사용할 수 있도록 네트워크를 성공적으로 설정하는 데 도움이 되는 솔루션 아키텍처, 네트워크 준비, 필수 구성 요소 등에 대한 정보를 제공합니다. 이 문서의 정보는 OT 및 IoT 네트워크를 운영하고 관리한 경험이 있는 독자를 대상으로 합니다. 자동화 엔지니어, 공장 관리자, OT 네트워크 인프라 서비스 공급자, 사이버 보안 팀, CISO 또는 CIO를 예로 들 수 있습니다.
 
@@ -135,9 +135,9 @@ IoT 용 Defender에 대 한 추가 서비스를 허용 하려면 이러한 포�
 | SMTP | TCP | 아웃 | 25 | Email | 경고 및 이벤트에 대 한 전자 메일을 보내기 위해 고객의 메일 서버를 여는 데 사용 됩니다. | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
 | Syslog | UDP | 아웃 | 514 | LEEF | 온-프레미스 관리 콘솔에서 Syslog 서버로 전송 되는 로그입니다. | 온-프레미스 관리 콘솔 및 센서 | Syslog 서버 |
 | DNS | TCP/UDP | 입/출력 | 53 | DNS | DNS 서버 포트입니다. | 온-프레미스 관리 콘솔 및 센서 | DNS 서버 |
-| [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP/UDP | 아웃 | 135, 1025-65535 | 모니터링 | Windows 끝점 모니터링. | 센서 | 관련 네트워크 요소 |
-| 터널링 | TCP | In(다음 안에) | 9000 </br></br> 포트 443 외에도 </br></br> 센서 또는 최종 사용자의 온-프레미스 관리 콘솔에 대 한 액세스를 허용 합니다. </br></br> 포트 22를 센서에서 온-프레미스 관리 콘솔로 설정 합니다. | 모니터링 | 터널링 | 센서 | 온-프레미스 관리 콘솔 |
-| Proxy (프록시) | TCP/UDP | 입/출력 | 443 | Proxy (프록시) | 프록시 서버에 센서를 연결 하려면 | 온-프레미스 관리 콘솔 및 센서 | 프록시 서버 |
+| [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP/UDP | 아웃 | 135, 1025-65535 | 모니터링 | Windows 엔드포인트 모니터링. | 센서 | 관련 네트워크 요소 |
+| 터널링 | TCP | In(다음 안에) | 9000 </br></br> 포트 443 외에 </br></br> 센서 또는 최종 사용자가 온-프레미스 관리 콘솔에 액세스할 수 있도록 허용합니다. </br></br> 센서에서 온-프레미스 관리 콘솔로 포트 22. | 모니터링 | 터널링 | 센서 | 온-프레미스 관리 콘솔 |
+| Proxy (프록시) | TCP/UDP | 입/출력 | 443 | Proxy (프록시) | 센서를 프록시 서버에 연결하려면 | 온-프레미스 관리 콘솔 및 센서 | 프록시 서버 |
 
 ### <a name="plan-rack-installation"></a>랙 설치 계획
 
@@ -151,7 +151,7 @@ IoT 용 Defender에 대 한 추가 서비스를 허용 하려면 이러한 포�
 
 1. 관리를 네트워크 스위치에 연결할 LAN 케이블을 준비합니다.
 
-1. 스위치 범위 (미러) 포트를 연결 하기 위한 LAN 케이블과 IoT 어플라이언스 용 Defender에 네트워크 탭을 준비 합니다.
+1. 스위치 SPAN(미러) 포트를 연결하기 위해 LAN 케이블을 준비하고 Defender for IoT 어플라이언스에 대한 네트워크 탭을 준비합니다.
 
 1. 아키텍처 검토 세션에 설명된 대로 미러링된 스위치에서 SPAN 포트를 구성 및 연결하고 유효성을 검사합니다.
 
@@ -161,7 +161,7 @@ IoT 용 Defender에 대 한 추가 서비스를 허용 하려면 이러한 포�
 
 ## <a name="about-passive-network-monitoring"></a>패시브 네트워크 모니터링 정보
 
-어플라이언스는 스위치 미러 포트(SPAN 포트) 또는 네트워크 TAP를 통해 여러 원본에서 트래픽을 수신합니다. 관리 포트는 온-프레미스 관리 콘솔 또는 Defender for IoT 포털에 연결된 비즈니스, 회사 또는 센서 관리 네트워크에 연결됩니다.
+어플라이언스는 스위치 미러 포트(SPAN 포트) 또는 네트워크 TAP를 통해 여러 원본에서 트래픽을 수신합니다. 관리 포트는 온-프레미스 관리 콘솔 또는 Azure Portal Defender for IoT에 연결된 비즈니스, 회사 또는 센서 관리 네트워크에 연결됩니다.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch-with-port-mirroring.png" alt-text="포트 미러링이 포함된 관리되는 스위치의 다이어그램.":::
 
@@ -605,7 +605,7 @@ Wireshark 애플리케이션을 통해 이미 구성된 SPAN 포트에 노트북
     > [!NOTE]
     > Defender for IoT 어플라이언스는 스위치의 포트 간 트래픽을 확인하는 하위 수준 스위치에 연결되어야 합니다.  
 
-1. **커밋된 디바이스** - 모니터링할 대략적인 디바이스 수를 제공합니다. Azure Defender for IoT에 구독을 온보딩할 때 이 정보가 필요합니다. 온보딩 프로세스 중에 1,000단위로 디바이스 수를 입력하라는 메시지가 표시됩니다.
+1. **커밋된 디바이스** - 모니터링할 대략적인 디바이스 수를 제공합니다. Azure Portal에서 IoT 용 Defender에 구독을 온 보 딩 하는 경우이 정보가 필요 합니다. 온보딩 프로세스 중에 1,000단위로 디바이스 수를 입력하라는 메시지가 표시됩니다.
 
 1. **(선택 사항) 서브넷 목록** - 프로덕션 네트워크에 대한 서브넷 목록 및 설명(선택 사항)을 제공합니다.
 

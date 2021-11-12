@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: f87ea1e1c9f43de4e9e0f94d1cd855615a0a880c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 81306e06d4ac6d0168215cebe7d45b4fb4c051de
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712048"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305791"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
@@ -115,13 +115,13 @@ Azure AD Identity Protection은 의심스러운 로그인 활동 및 잠재적 �
 * [Azure Active Directory ID 보호](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-## <a name="security-center"></a>Security Center
+## <a name="defender-for-cloud"></a>클라우드 용 Defender
 
-Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center로 Azure 리소스와 하이브리드 클라우드 환경의 보안 성능을 더욱 잘 확인하고 제어할 수 있습니다. 
+클라우드 용 Microsoft Defender는 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. 클라우드 용 Defender는 하이브리드 클라우드 환경에 있는 Azure 리소스 및 Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 제공 합니다. 
 
-Security Center는 연결된 리소스에 대한 보안 평가를 지속적으로 수행하고, [Azure Security 벤치마크](../benchmarks/introduction.md) 에 대한 구성과 배포를 비교함으로써 사용자 환경에 맞게 조정된 세부적인 보안 기능을 추천합니다.
+Defender for Cloud는 연결 된 리소스에 대 한 지속적인 보안 평가를 수행 하 고 [Azure 보안 벤치 마크](../benchmarks/introduction.md) 에 대 한 구성 및 배포를 비교 하 여 환경에 맞게 조정 된 세부 보안 권장 사항을 제공 합니다.
 
-보안 센터는 다음과 같은 방법을 통해 Azure 리소스의 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
+클라우드 용 Defender는 다음을 통해 Azure 리소스의 보안을 최적화 하 고 모니터링 하는 데 도움이 됩니다.
 
 - 다음에 따라 Azure 구독 리소스에 대한 정책을 정의할 수 있습니다.
     - 조직의 보안 요구 사항.
@@ -132,8 +132,8 @@ Security Center는 연결된 리소스에 대한 보안 평가를 지속적으�
 
 자세한 정보:
 
-* [Azure Security Center 소개](../../security-center/security-center-introduction.md)
-* [Azure Security Center의 보안 점수 개선](../../security-center/secure-score-security-controls.md)
+* [클라우드 용 Microsoft Defender 소개](../../security-center/security-center-introduction.md)
+* [Microsoft Defender for Cloud에서 보안 점수 개선](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

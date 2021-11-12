@@ -1,18 +1,18 @@
 ---
 title: 사용자 만들기 및 관리
 description: 센서 및 온-프레미스 관리 콘솔의 사용자를 만들고 관리합니다. 사용자는 관리자, 보안 분석가 또는 읽기 전용 사용자의 역할로 할당될 수 있습니다.
-ms.date: 05/20/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: fa10961218d536faf09a1f7062c8a8c77dc99ce4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 73e08c7cdca6e57445566a99cb779a322306f944
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434037"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318943"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Defender for IoT 콘솔 사용자 정보
 
-이 문서에서는 센서 및 온-프레미스 관리 콘솔의 사용자를 만들고 관리하는 방법을 설명합니다. 사용자 역할에는 관리자, 보안 분석가 또는 읽기 전용 사용자가 포함됩니다. 각 역할은 센서 또는 온-프레미스 관리 콘솔용 도구에 대한 권한 범위와 관련이 있습니다. 역할은 Azure Defender for IoT에 대한 세부적인 보안 액세스가 용이하도록 설계되었습니다.
+이 문서에서는 센서 및 온-프레미스 관리 콘솔의 사용자를 만들고 관리하는 방법을 설명합니다. 사용자 역할에는 관리자, 보안 분석가 또는 읽기 전용 사용자가 포함됩니다. 각 역할은 센서 또는 온-프레미스 관리 콘솔용 도구에 대한 권한 범위와 관련이 있습니다. 역할은 Microsoft Defender for IoT에 대한 세부적인 보안 액세스를 용이하게 하기 위해 설계되었습니다.
 
 사용자 활동을 추적하고 Active Directory 로그인을 지원하는 기능도 제공됩니다.
 

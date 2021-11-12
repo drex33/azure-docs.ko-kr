@@ -6,16 +6,16 @@ manager: markkie
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 2/20/2019
+ms.date: 11/10/2021
 ms.author: raiye
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b6db47d812b13bced9d0e52530ec8c59b58be19
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: c76e19101fbf6c325d66af2f14dbdc6e063ace9e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770800"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331056"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
 
@@ -45,7 +45,7 @@ SAP 관련 VM 구성에는 OS 디스크에 Write Accelerator를 사용하도록 
 Azure 디스크/VHD에 Write Accelerator를 사용하는 경우 적용되는 제한 사항은 다음과 같습니다.
 
 - 프리미엄 디스크 캐싱을 '없음' 또는 '읽기 전용'으로 설정해야 합니다. 다른 모든 캐싱 모드는 지원되지 않습니다.
-- 쓰기 가속기 지원 디스크용으로 스냅샷이 현재 지원되지 않습니다. 백업 중에 Azure Backup 서비스는 VM에 연결된 쓰기 가속기 지원 디스크를 자동으로 제외합니다.
+- 스냅샷은 현재 OS 디스크가 아닌 쓰기 가속기 지원되는 데이터 디스크에 대해서만 지원됩니다. 백업하는 동안 Azure Backup 서비스는 VM에 연결된 쓰기 가속기 사용 가능한 데이터 디스크를 자동으로 백업하고 보호합니다.
 - 더 작은 I/O 크기(512KiB 이하)에서만 가속화된 경로를 사용합니다. 데이터가 대량으로 로드되거나 여러 DBMS의 트랜잭션 로그 버퍼가 스토리지에 유지되기 전에 더 많이 채워지는 워크로드 상황에서 디스크에 기록된 I/O는 가속화된 경로를 사용하지 않을 수 있습니다.
 
 Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수는 제한됩니다. 이 제한은 현재 다음과 같습니다.

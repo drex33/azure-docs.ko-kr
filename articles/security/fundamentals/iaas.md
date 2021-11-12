@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 3099ff7525e07a2361a63382eea0d3dc6e689ee7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 55e8caee298d8aab2b724b8c4fb5804e2b58f563
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956844"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305848"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -50,7 +50,7 @@ VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정�
 
 - [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM을 관리할 수 있으나 해당 컴퓨터가 연결된 가상 네트워크 또는 스토리지 계정은 관리할 수 없습니다.
 - [클래식 Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): 클래식 배포 모델을 사용하여 만든 VM을 관리할 수 있으나 VM이 연결된 가상 네트워크 또는 스토리지 계정은 관리할 수 없습니다.
-- [보안 관리자](../../role-based-access-control/built-in-roles.md#security-admin): Security Center에서만 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행할 수 있습니다.
+- [보안 관리자:](../../role-based-access-control/built-in-roles.md#security-admin)Defender for Cloud에서만: 보안 정책을 보고, 보안 상태를 보고, 보안 정책을 편집하고, 경고 및 권장 사항을 보고, 경고 및 권장 사항을 해제할 수 있습니다.
 - [DevTest 실습 사용자](../../role-based-access-control/built-in-roles.md#devtest-labs-user): 모든 항목을 볼 수 있으며 VM을 연결, 시작, 다시 시작 및 종료할 수 있습니다.
 
 구독 관리자 및 공동 관리자는 이 설정을 변경하여 구독에서 모든 VM의 관리자로 만들 수 있습니다. 모든 구독 관리자 및 공동 관리자를 신뢰하여 모든 머신에 로그인하도록 합니다.
@@ -72,13 +72,13 @@ VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 
 
 Microsoft 맬웨어 방지 프로그램에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 컬렉션과 같은 기능이 포함됩니다. 프로덕션 환경과는 별도로 호스트되는 환경의 경우 VM 및 클라우드 서비스를 보호하는 데 맬웨어 방지 확장을 사용할 수 있습니다.
 
-배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/index.yml)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
+간편한 배포 및 기본 제공 검색(경고 및 인시던트)을 위해 Microsoft Antimalware 및 파트너 솔루션을 [Microsoft Defender for Cloud와](../../security-center/index.yml) 통합할 수 있습니다.
 
 **모범 사례**: 맬웨어로부터 보호하는 맬웨어 방지 솔루션 설치   
 **세부 정보**: [Microsoft 파트너 솔루션 또는 Microsoft 맬웨어 방지 프로그램 설치](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
 
-**모범 사례**: 보호 상태를 모니터링하기 위해 Security Center와 맬웨어 방지 솔루션 통합   
-**세부 정보**: [Security Center를 사용하여 엔드포인트 보호 문제 관리](../../security-center/security-center-partner-integration.md)
+**모범 사례:** Defender for Cloud와 맬웨어 방지 솔루션을 통합하여 보호 상태를 모니터링합니다.   
+**세부 정보:** [Defender for Cloud를 통해 엔드포인트 보호 문제 관리](../../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>VM 업데이트 관리
 모든 온-프레미스 VM과 같이 Azure VM은 사용자가 관리하도록 합니다. Azure에서 Windows 업데이트를 푸시하지 않습니다. VM 업데이트를 관리해야 합니다.
@@ -102,7 +102,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 **세부 정보**: [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
 
 **모범 사례**: VM에 보안 업데이트를 신속하게 적용합니다.   
-**세부 정보**: Azure Security Center(무료 계층 또는 표준 계층)를 사용하여 [누락된 보안 업데이트를 식별하고 적용](../../security-center/asset-inventory.md)합니다.
+**세부 정보:** 클라우드용 Microsoft Defender(무료 계층 또는 표준 계층)를 사용하여 [누락된 보안 업데이트를 식별하고 적용합니다.](../../security-center/asset-inventory.md)
 
 **모범 사례**: 최신 보안 업데이트 설치   
 **세부 정보**: 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure VM이 인터넷에 액세스할 수 있어야 하는 애플리케이션 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 파트너 애플리케이션의 취약점을 패치하지 않으면 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
@@ -119,7 +119,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 ## <a name="manage-your-vm-security-posture"></a>VM 보안 태세 관리
 사이버 위협은 진화하고 있습니다. VM을 보호하려면 신속하게 위협을 감지하고 리소스에 대한 무단 액세스를 방지하고 경고를 트리거하며 거짓 오류를 줄일 수 있는 모니터링 기능이 필요합니다.
 
-[Windows](../../security-center/security-center-introduction.md) 및 [Linux VM](../../security-center/security-center-introduction.md)의 보안 태세를 모니터링하기 위해 [Azure Security Center](../../security-center/security-center-introduction.md)를 사용합니다. Security Center에서 다음 기능을 활용하여 VM을 보호합니다.
+[Windows](../../security-center/security-center-introduction.md) 및 [Linux VM의](../../security-center/security-center-introduction.md)보안 태세를 모니터링하려면 [Microsoft Defender for Cloud를](../../security-center/security-center-introduction.md)사용합니다. Defender for Cloud에서 다음 기능을 활용하여 VM을 보호합니다.
 
 - 권장된 구성 규칙으로 OS 보안 설정 적용
 - 누락될 수 있는 시스템 보안 및 중요 업데이트 식별 및 다운로드
@@ -128,9 +128,9 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 - 취약점 평가 및 수정
 - 위협 감지
 
-Security Center는 위협을 적극적으로 모니터링할 수 있으며 잠재적 위협은 보안 경고에 표시됩니다. 상호 관련된 위협은 보안 인시던트라고 하는 단일 보기로 집계됩니다.
+클라우드 용 Defender는 위협을 적극적으로 모니터링할 수 있으며 잠재적 위협은 보안 경고에 노출 됩니다. 상호 관련된 위협은 보안 인시던트라고 하는 단일 보기로 집계됩니다.
 
-Security Center는 [Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md)에 데이터를 저장합니다. Azure Monitor 로그는 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
+Defender for Cloud는 [Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md)에 데이터를 저장 합니다. Azure Monitor 로그는 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
 
 VM에 대해 강력한 보안을 적용하지 않는 조직은 권한이 없는 사용자가 보안 컨트롤을 억제하는 잠재적인 시도를 알지 못하는 상태가 됩니다.
 
@@ -175,10 +175,10 @@ VM 직접 인터넷 연결을 모니터링하고 제한합니다. 공격자는 �
 **세부 정보**: Azure RBAC를 사용하여 리소스에 대한 사용 권한이 중앙 네트워킹 그룹에만 있는지 확인합니다.
 
 **모범 사례**: “임의” 원본 IP 주소에서 액세스할 수 있는 노출된 VM을 식별하고 수정합니다.   
-**세부 정보**: Azure Security Center를 사용합니다. Security Center는 네트워크 보안 그룹에 “임의” 원본 IP 주소에서 액세스할 수 있도록 하는 인바운드 규칙이 하나 이상 있는 경우 인터넷 엔드포인트를 통한 액세스를 제한할 것을 권장합니다. Security Center는 실제로 액세스가 필요한 원본 IP 주소에 대한 [액세스를 제한](../../security-center/security-center-network-recommendations.md)하도록 해당 인바운드 규칙을 편집할 것을 권장합니다.
+**세부 정보**: 클라우드에 Microsoft Defender를 사용 합니다. 네트워크 보안 그룹에 "any" 원본 IP 주소에 대 한 액세스를 허용 하는 하나 이상의 인바운드 규칙이 있는 경우, 클라우드 용 Defender는 인터넷 연결 끝점을 통해 액세스를 제한 하는 것이 좋습니다. 클라우드 용 Defender는 이러한 인바운드 규칙을 편집 하 여 실제로 액세스 해야 하는 원본 IP 주소에 대 한 [액세스를 제한](../../security-center/security-center-network-recommendations.md) 하는 것이 좋습니다.
 
 **모범 사례**: 관리 포트(RDP, SSH)를 제한합니다.   
-**세부 정보**: [JIT(Just-In-Time) VM 액세스](../../security-center/security-center-just-in-time.md)를 사용하면 Azure VM에 대한 인바운드 트래픽을 잠가 공격에 대한 노출을 줄이는 동시에 VM에 쉽게 액세스하여 필요할 때 연결할 수 있습니다. JIT를 사용하도록 설정하면 Security Center에서 네트워크 보안 그룹 규칙을 만들어 Azure VM에 대한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 해당 포트는 JIT 솔루션에 의해 제어됩니다.
+**세부 정보**: [JIT(Just-In-Time) VM 액세스](../../security-center/security-center-just-in-time.md)를 사용하면 Azure VM에 대한 인바운드 트래픽을 잠가 공격에 대한 노출을 줄이는 동시에 VM에 쉽게 액세스하여 필요할 때 연결할 수 있습니다. JIT를 사용 하는 경우 Defender for Cloud는 네트워크 보안 그룹 규칙을 만들어 Azure Vm에 대 한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 해당 포트는 JIT 솔루션에 의해 제어됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.

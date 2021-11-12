@@ -4,15 +4,15 @@ description: 파트너 센터의 Microsoft 상업용 마켓플레이스 제품�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2021
-ms.openlocfilehash: 71efd629463f53519d98458afaa449c7a7f46ffb
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: e91e85982bb021193224010e2bd51df301240c69
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062342"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277983"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정
 
@@ -80,7 +80,7 @@ ms.locfileid: "132062342"
 
 - **시장**: 모든 플랜은 하나 이상의 시장에서 사용할 수 있어야 합니다.  Microsoft에서 사용자를 대신하여 판매세(sales tax)와 사용세(use tax)를 납부하는 “세금 납부” 국가만 선택할 수 있습니다.
 - **가격 책정**: 가격 책정 모델은 Azure 관리되는 애플리케이션, SaaS 및 Azure 가상 머신 제품에 대한 플랜에만 적용됩니다. 동일한 제품의 모든 플랜은 동일한 가격 책정 모델을 사용해야 합니다.  
-- **계획 표시** 유형: 제안 유형에 따라 개인 사용자를 정의 하거나 Azure Marketplace에서 제품 또는 계획을 숨길 수 있습니다. 이는 이 문서 뒷부분의 [플랜 표시](#plan-visibility)에 자세히 설명되어 있습니다.
+- **계획 표시 유형:** 제안 유형에 따라 프라이빗 대상을 정의하거나 Azure Marketplace 제안 또는 계획을 숨길 수 있습니다. 이는 이 문서 뒷부분의 [플랜 표시](#plan-visibility)에 자세히 설명되어 있습니다.
 
 > [!TIP]
 > 대상 고객 기반의 사용량 패턴에 가장 적합한 플랜을 만드는 것이 좋습니다. 이렇게 하면 사용자가 사용량 변화에 따라 플랜을 자주 전환하는 것을 줄일 수 있습니다. 3개의 데이터 통신 청구 플랜을 사용하는 SaaS 제품의 예는 [샘플 제품](./partner-center-portal/saas-metered-billing.md#sample-offer)을 참조하세요.
@@ -126,7 +126,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 ## <a name="plan-visibility"></a>플랜 표시 여부
 
-공개적으로 사용할 수 있거나 특정 (프라이빗) 대상에 대해서만 사용할 수 있는 일부 제품 유형에 대한 플랜을 만들 수 있습니다. 프라이빗 플랜이 포함된 제품은 Azure Portal에 게시됩니다. [Microsoft 상업용 마켓플레이스의 프라이빗 제품](private-offers.md)에서 프라이빗 플랜에 대해 자세히 알아봅니다.
+공개적으로 사용할 수 있거나 특정 (프라이빗) 대상에 대해서만 사용할 수 있는 일부 제품 유형에 대한 플랜을 만들 수 있습니다. 프라이빗 플랜이 포함된 제품은 Azure Portal에 게시됩니다. [Microsoft 상업용 마켓플레이스의 프라이빗 플랜에서 프라이빗 플랜에](private-plans.md)대해 자세히 알아보세요.
 
 제품 유형에 따라 Azure 테넌트 ID 또는 Azure 구독 ID를 사용하여 프라이빗 대상을 정의합니다. 최대 10개의 ID를 수동으로 입력하거나 .csv 파일을 사용하여 최대 10,00개의 구독 ID 또는 20,000개의 테넌트 ID(해당하는 경우)를 가져올 수 있습니다. 플랜이 없는 컨설팅 서비스 및 Dynamics 365 제품에 대한 프라이빗 대상을 정의할 수도 있습니다.
 
@@ -135,7 +135,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 > [!NOTE]
 > 프라이빗 대상 그룹은 미리 보기 대상 그룹과 다릅니다. 일부 제품 유형에 대한 **가용성** 페이지에서 상업용 마켓플레이스에 라이브로 게시되기 전에 미리 볼 수 있는 대상을 정의할 수 있습니다. 프라이빗 대상 그룹은 특정 플랜에만 적용되는 한편, 미리 보기 대상 그룹은 모든 플랜(비공개 또는 공개)을 볼 수 있지만 플랜을 테스트하고 검증하는 제한된 미리 보기 기간 동안만 가능합니다.
 
-또한 제안이 관리되는 애플리케이션 또는 솔루션 템플릿의 일부로 배포될 경우 Azure Marketplace 플랜을 완전히 숨기도록 선택할 수 있습니다.
+또한 제안이 관리되는 애플리케이션 또는 솔루션 템플릿의 일부로 배포될 경우 Azure Marketplace 플랜을 완전히 숨기도록 선택할 수도 있습니다.
 
 ## <a name="free-trials"></a>무료 평가판
 

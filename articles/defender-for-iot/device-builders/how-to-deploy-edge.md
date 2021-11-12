@@ -2,19 +2,17 @@
 title: IoT Edge 보안 모듈 배포
 description: IoT Edge에 Defender for IoT 보안 에이전트를 배포하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/23/2021
-ms.openlocfilehash: 67c60841d4d1e9080c95cf50a71be6ad4a845ef1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/09/2021
+ms.openlocfilehash: deb6a9e458351d512ccda4a1e5ef42fc921e628a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238627"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306152"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 디바이스에 보안 모듈 배포
 
-**Defender for IoT** 모듈은 IoT Edge 디바이스를 위한 포괄적인 보안 솔루션을 제공합니다.
-보안 모듈은 운영 체제 및 컨테이너 시스템에서 원시 보안 데이터를 수집하고 집계하고 분석하여 실행 가능한 보안 권장 사항 및 경고로 변환합니다.
-자세한 내용은 [IoT Edge용 보안 모듈](security-edge-architecture.md)을 참조하세요.
+**Defender for IoT** 모듈은 IoT Edge 디바이스를 위한 포괄적인 보안 솔루션을 제공합니다. 보안 모듈은 운영 체제 및 컨테이너 시스템에서 원시 보안 데이터를 수집하고 집계하고 분석하여 실행 가능한 보안 권장 사항 및 경고로 변환합니다. 자세한 내용은 [IoT Edge용 보안 모듈](security-edge-architecture.md)을 참조하세요.
 
 이 문서에서는 IoT Edge 디바이스에 보안 모듈을 배포하는 방법에 대해 알아봅니다.
 
@@ -41,7 +39,7 @@ ms.locfileid: "130238627"
 
 1. Azure Portal에서 **Marketplace** 를 엽니다.
 
-1. **사물 인터넷** 을 선택한다음 **IoT용 Azure Security Center** 를 검색하고 선택합니다.
+1. **사물 인터넷** 선택한 **다음, Microsoft Defender for IoT를** 검색하여 선택합니다.
 
    :::image type="content" source="media/howto/edge-onboarding.png" alt-text="Defender for IoT 선택":::
 

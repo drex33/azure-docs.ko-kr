@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Services)에서 컨테이너 이미지를 관�
 services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 998d8602b6aa0e71a04f75aff1c29551ba09c8a3
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
-ms.translationtype: HT
+ms.openlocfilehash: e6c767d1fdf765739f361b91df21e5bc104bc171
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105122"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306532"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례
 
@@ -29,7 +29,7 @@ ms.locfileid: "107105122"
 
 [클러스터 보안][best-practices-cluster-security] 및 [Pod 보안][best-practices-pod-security]에 대한 모범 사례를 참조할 수도 있습니다.
 
-[Security Center의 컨테이너 보안][security-center-containers]을 사용하여 컨테이너에서 취약점을 검색할 수도 있습니다. Security Center와의 [Azure Container Registry 통합][security-center-acr]도 취약점으로부터 이미지 및 레지스트리를 보호하는 데 도움이 됩니다.
+또한 [Defender For Cloud의 컨테이너 보안][security-center-containers] 을 사용 하 여 컨테이너에서 취약성을 검색 하는 데 도움이 될 수 있습니다. 클라우드에 대 한 Defender와 [Azure Container Registry 통합][security-center-acr] 하면 취약성 으로부터 이미지 및 레지스트리를 보호할 수 있습니다.
 
 ## <a name="secure-the-images-and-run-time"></a>이미지 및 런타임 보호
 

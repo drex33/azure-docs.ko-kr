@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터 구성
 description: 자동 OS 업그레이드, NSG 규칙 등에 대해 Service Fabric 관리 클러스터를 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.openlocfilehash: 808b7e96778821c695ed5fca08648e95f4290959
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: aad982def0a1dd2e4b6f847a72e270337abcd460
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060633"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286035"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Service Fabric 관리 클러스터 구성 옵션
 
@@ -19,12 +19,12 @@ ms.locfileid: "131060633"
 * 클러스터 [네트워크 설정](how-to-managed-cluster-networking.md) 구성
 * [대규모 가상 머신 확장 집합](how-to-managed-cluster-large-virtual-machine-scale-sets.md)에 대한 노드 유형 구성
 * 클러스터 노드 유형에서 [관리 ID](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) 구성
-* 클러스터 노드에서 [OS 및 데이터 디스크 암호화](how-to-enable-managed-cluster-disk-encryption.md) 사용
-* 보조 노드 [유형에 대 한](how-to-managed-cluster-autoscale.md) 자동 크기 조정 구성
-* [수동으로 노드 형식의 크기 조정](how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-portal)
-* 클러스터 노드 형식에서 [자동 OS 이미지 업그레이드](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) 사용
-* 노드 유형에 사용 되는 [OS 이미지](how-to-managed-cluster-modify-node-type.md#modify-the-os-image-for-a-node-type-with-portal) 수정
-* 노드 형식에 대 한 [배치 속성](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type-with-portal) 구성
+* 클러스터 노드에서 [OS 및 데이터 디스크 암호화](how-to-managed-cluster-enable-disk-encryption.md) 사용
+* 보조 노드 유형에서 [자동 조정](how-to-managed-cluster-autoscale.md) 구성
+* [노드 형식 수동 크기 조정](how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-portal)
+* 클러스터 노드 유형에서 [자동 OS 이미지 업그레이드 사용](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades)
+* 노드 유형에 사용되는 [OS 이미지](how-to-managed-cluster-modify-node-type.md#modify-the-os-image-for-a-node-type-with-portal) 수정
+* 노드 형식에 대한 [배치 속성](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type-with-portal) 구성
 * 클러스터 [관리 디스크 유형](how-to-managed-cluster-managed-disk.md) SKU 선택
 * 런타임 업데이트를 위한 클러스터 [업그레이드 옵션](how-to-managed-cluster-upgrades.md) 구성
 

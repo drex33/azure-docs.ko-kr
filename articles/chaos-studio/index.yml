@@ -9,12 +9,12 @@ metadata:
   author: johnkemnetz
   ms.author: johnkem
   ms.date: 08/24/2021
-  ms.openlocfilehash: 8ae0b6d778d71b05b45cdc23d27be26bd6b0cfa9
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: 540fb41d74babdda1e36c7fcb77c877d23043c80
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131052948"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132293785"
 landingContent:
 - title: Azure Chaos Studio 정보
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
     - text: 서비스 직접 오류를 사용하여 Azure Cosmos DB 인스턴스를 장애 조치(failover)하는 카오스 실험 만들기
       url: chaos-studio-tutorial-service-direct.md
     - text: Azure Chaos Studio에서 에이전트 기반 오류를 사용하는 실험 만들기
-      url: chaos-studio-tutorial-agent-based.md
+      url: chaos-studio-tutorial-agent-based-portal.md
     - text: Azure Chaos Studio에서 AKS Chaos Mesh 오류를 사용하는 실험 만들기
       url: chaos-studio-tutorial-aks.md
 - title: 참고
@@ -44,3 +44,5 @@ landingContent:
       url: chaos-studio-fault-providers.md
     - text: REST API 설명서
       url: https://docs.microsoft.com/rest/api/chaosstudio
+    - text: Python SDK
+      url: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview

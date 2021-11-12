@@ -4,12 +4,12 @@ description: 이 자습서에서는 지역에서 Event Grid 서비스가 비정�
 ms.topic: tutorial
 ms.date: 04/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25fdd7306ab36401af7f36dc5b0ee85188a81231
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 052b47430ca7a0123efb3abc8219e7188d90ae91
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112376237"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293215"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 이 자습서에서는 특정 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "112376237"
 
 1. **Azure에 배포** 를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to deploy to Azure."></a>
 
 1. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 나중에 필요하므로 이 URL을 메모해 두세요.

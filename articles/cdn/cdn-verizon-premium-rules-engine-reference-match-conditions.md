@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: duau
-ms.openlocfilehash: 61576e21bbf8fa260a5003bee62ac40b63d342c7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2c0c509b2e2fedabb779e135fc3234d116df6b57
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446736"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282066"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Verizon Premium의 Azure CDN 규칙 엔진 일치 조건
 
@@ -60,7 +60,7 @@ ms.locfileid: "131446736"
 | [스마트폰 여부](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Smartphone.htm) | 디바이스가 스마트폰인지 여부에 따라 요청을 식별합니다.
 | [태블릿 여부](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Tablet.htm) | 디바이스가 태블릿인지 여부에 따라 요청을 식별합니다. |
 | [터치 스크린 여부](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Touchscreen.htm) | 디바이스의 기본 포인팅 디바이스가 터치 스크린인지 여부에 따라 요청을 식별합니다. |
-| [Windows Phone 여부](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | 디바이스가 Windows Mobile 6.5/Windows Phone 7 이상인지 여부에 따라 요청을 식별합니다. |
+| [Windows Phone 여부](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | 장치가 Windows Mobile 6.5/Windows Phone 7 이상 인지 여부에 따라 요청을 식별 합니다. |
 | [무선 디바이스 여부](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Wireless-Device.htm) | 디바이스가 무선인지 여부에 따라 요청을 식별합니다. 
 | 마케팅 이름 | 디바이스의 마케팅 이름이 다음과 일치하는지 여부에 따라 요청을 식별합니다. <br> **-** 특정 값([마케팅 이름 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Literal.htm)) <br> **-** 정규식([마케팅 이름 정규식](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Regex.htm)) <br> **-** 특정 패턴([마케팅 이름 와일드카드](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Wildcard.htm)) |
 | 모바일 브라우저 | 디바이스의 브라우저가 다음과 일치하는지 여부에 따라 요청을 식별합니다. <br> **-** 특정 값([모바일 브라우저 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Literal.htm)) <br> **-** 정규식([모바일 브라우저 정규식](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Regex.htm)) <br> **-** 특정 패턴([모바일 브라우저 와일드카드](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Wildcard.htm)) |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: pafarley
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 31e712daa27a6fba0bdb834f57e6d6573cfba325
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: beda19bd951cf2750d071286ba066bb3a79c0e94
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137315"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319286"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 설치 및 실행(미리 보기)
 
@@ -348,7 +348,7 @@ VM 크기를 찾으려면 "모든 크기 보기"를 선택한 다음, 아래에 
 
 :::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="프로모션 선택" lightbox="media/spatial-analysis/promotional-selection.png":::
 
-그런 다음, VM을 만듭니다. 만든 후에는 Azure Portal에서 VM 리소스로 이동하고 왼쪽 창에서 `Extensions`를 선택합니다. "추가"를 클릭하여 사용 가능한 모든 확장이 있는 확장 창을 표시합니다. 를 검색하여 선택하고 `NVIDIA GPU Driver Extension` 만들기를 클릭한 다음 마법사를 완료합니다.
+그런 다음, VM을 만듭니다. 만든 후에는 Azure Portal에서 VM 리소스로 이동하고 왼쪽 창에서 `Extensions`를 선택합니다. "추가"를 클릭 하면 사용 가능한 모든 확장으로 확장 창이 표시 됩니다. 을 검색 하 여 선택 `NVIDIA GPU Driver Extension` 하 고 만들기를 클릭 한 다음 마법사를 완료 합니다.
 
 확장이 성공적으로 적용되면 Azure Portal의 VM 기본 페이지로 이동하고 `Connect`를 클릭합니다. VM은 SSH 또는 RDP를 통해 액세스할 수 있습니다. RDP가 유용합니다. 시각화 도우미 창을 볼 수 있기 때문입니다(뒷부분에 설명되어 있음). [이 단계](../../virtual-machines/linux/use-remote-desktop.md)를 수행하고 VM에 대한 원격 데스크톱 연결을 열어서 RDP 액세스를 구성합니다.
 
@@ -556,7 +556,7 @@ sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-nam
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>녹화된 비디오 파일로 공간 분석 실행
 
-공간 분석은 녹화된 비디오 또는 라이브 비디오 모두에 사용할 수 있습니다. 녹화된 비디오에 공간 분석을 사용하려면 비디오 파일을 녹화하고 mp4 파일로 저장해 보세요. Azure에서 Blob 스토리지 계정을 만들거나 기존 계정을 사용합니다. 그런 다음, Azure Portal에서 다음 Blob 스토리지 설정을 업데이트합니다.
+공간 분석은 녹화된 비디오 또는 라이브 비디오 모두에 사용할 수 있습니다. 기록 된 비디오에 공간 분석을 사용 하려면 비디오 파일을 기록 하 고 mp4 파일로 저장 해 보세요. Azure에서 Blob 스토리지 계정을 만들거나 기존 계정을 사용합니다. 그런 다음, Azure Portal에서 다음 Blob 스토리지 설정을 업데이트합니다.
     1. **보안 전송 필요** 를 **사용 안 함** 으로 변경합니다.
     2. **Blob 공용 액세스 허용** 을 **사용** 으로 설정합니다.
 

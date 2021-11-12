@@ -1,16 +1,16 @@
 ---
-title: 디바이스 작성기용 Azure Defender for IoT 질문과 대답
-description: IoT 에이전트용 Azure Defender에 대해 자주 받는 질문에 대한 대답을 알아봅니다.
+title: 디바이스 작성기용 Microsoft Defender for IoT에 대한 질문과 대답
+description: Microsoft Defender for IoT 에이전트에 대한 가장 자주 묻는 질문에 대한 답변을 찾습니다.
 ms.topic: conceptual
-ms.date: 07/07/2021
-ms.openlocfilehash: 3c2e099ca0a6c7cde2fa8a33ed766ba1d4b91fd1
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.date: 11/09/2021
+ms.openlocfilehash: 9075424368a6d3e8c2e17306a573f768cb4a0e45
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434321"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293481"
 ---
-# <a name="azure-defender-for-iot-for-device-builders-frequently-asked-questions"></a>디바이스 작성기용 Azure Defender for IoT 질문과 대답
+# <a name="microsoft-defender-for-iot-for-device-builders-frequently-asked-questions"></a>디바이스 작성기용 Microsoft Defender for IoT에 대한 질문과 대답
 
 이 문서에서는 IoT 에이전트용 Defender에 대한 질문과 대답 목록을 제공합니다.
 

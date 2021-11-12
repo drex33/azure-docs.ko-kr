@@ -10,12 +10,12 @@ ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 10/21/2021
-ms.openlocfilehash: 3469b316b48c876965fb1aaec9bfd5feed33909e
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 45c8f82729bd4cb16e0d0d36d9a9e70b66a7dbe2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131561786"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345352"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Python으로 시계열 예측 모델을 학습시키도록 AutoML 설정
 
@@ -145,9 +145,9 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 작업을 
 |-------|-------|-------|
 |`time_column_name`|시계열을 작성하고 해당 빈도를 유추하는 데 사용되는 날짜/시간 열을 입력 데이터에 지정하는 데 사용됩니다.|✓|
 |`forecast_horizon`|앞으로 어느 정도의 기간에 대해 예측할 것인지 정의합니다. 구간은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
-|`enable_dnn`|[예측 DNN을 사용하도록 설정]()합니다.||
-|`time_series_id_column_names`|타임스탬프가 동일한 여러 행이 있는 데이터에서 시계열을 고유하게 식별하는 데 사용되는 열 이름입니다. 시계열 식별자가 정의되지 않은 경우 데이터 세트는 하나의 시계열로 간주됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
-|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [frequency]에 대해 자세히 알아보세요. (#frequency-target-data-aggregation)||
+|`enable_dnn`|[예측 DNN을 사용하도록 설정](#enable-deep-learning)합니다.||
+|`time_series_id_column_names`|타임스탬프가 동일한 여러 행이 있는 데이터에서 시계열을 고유하게 식별하는 데 사용되는 열 이름입니다. 시계열 식별자가 정의되지 않은 경우 데이터 세트는 하나의 시계열로 간주됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)을 참조하세요.||
+|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [Frequency]에 대해 자세히 알아보세요. (#frequency-대상-데이터 집계)||
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
 |`feature_lags`| 지연에 대한 기능은 `target_lags`가 설정되고 `feature_lags`가 `auto`로 설정된 경우 자동화된 ML에 의해 자동으로 결정됩니다. 기능 지연을 사용하도록 설정하면 정확도를 향상시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용하지 않도록 설정되어 있습니다. ||
 |`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 이동 기간 집계](#target-rolling-window-aggregation)에 대해 자세히 알아봅니다.||
@@ -287,7 +287,7 @@ featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": 
 ### <a name="enable-deep-learning"></a>딥 러닝 사용
 
 > [!NOTE]
-> 자동화된 Machine Learning의 예측에 대한 DNN 지원은 **미리 보기** 로 제공되며, 로컬 실행 또는 Databricks에서 시작된 실행에는 지원되지 않습니다.
+> 자동화 Machine Learning의 예측에 대 한 DNN 지원은 **미리 보기** 상태 이며 Databricks에서 시작 된 로컬 실행 또는 실행에 대해 지원 되지 않습니다.
 
 심층 신경망, 즉 DNN을 사용한 딥 러닝을 적용하여 모델의 점수를 개선할 수도 있습니다. 자동화된 ML의 딥 러닝을 사용하여 단변량 및 다변량 시계열 데이터를 예측할 수 있습니다.
 
@@ -309,7 +309,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Azure Machine Learning 스튜디오에서 만든 AutoML 실험에 DNN을 사용하도록 설정하려면 [스튜디오에서 작업 유형 설정 방법](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)을 참조하세요.
 
-DNN을 사용하는 상세한 코드 예제는 [음료 생산 예측 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)을 확인합니다.
+DNN을 사용하는 상세한 코드 예제는 [음료 생산 예측 Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)을 확인합니다.
 
 ### <a name="target-rolling-window-aggregation"></a>대상 이동 기간 집계
 종종 예측자가 보유할 수 있는 최상의 정보는 대상의 최신 값입니다.  대상 이동 기간 집계를 사용하면 데이터 값의 이동 집계를 기능으로 추가할 수 있습니다. 이러한 기능을 추가적인 상황별 데이터로 생성하여 사용하면 학습 모델의 정확도에 도움이 됩니다.
@@ -320,7 +320,7 @@ DNN을 사용하는 상세한 코드 예제는 [음료 생산 예측 Notebook](h
 
 ![대상 이동 기간](./media/how-to-auto-train-forecast/target-roll.svg)
 
-[대상 이동 기간 집계 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)을 적용하는 Python 코드 예제를 확인합니다.
+[대상 이동 기간 집계 기능](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)을 적용하는 Python 코드 예제를 확인합니다.
 
 ### <a name="short-series-handling"></a>짧은 계열 처리
 
@@ -505,13 +505,13 @@ hts_parameters = HTSTrainParameters(
 
 ## <a name="example-notebooks"></a>노트북 예제
 
-다음을 포함하는 고급 예측 구성의 자세한 코드 예제는 [예측 샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)을 참조하세요.
+다음을 포함하는 고급 예측 구성의 자세한 코드 예제는 [예측 샘플 Notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml)을 참조하세요.
 
-* [휴일 검색 및 기능화](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [이동 원본 교차 유효성 검사](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [구성 가능한 지연](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [롤링 기간 집계 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [DNN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
+* [휴일 검색 및 기능화](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [이동 원본 교차 유효성 검사](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [구성 가능한 지연](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [롤링 기간 집계 기능](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [DNN](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
 
 ## <a name="next-steps"></a>다음 단계
 

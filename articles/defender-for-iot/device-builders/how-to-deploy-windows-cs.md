@@ -2,13 +2,13 @@
 title: Windows 디바이스에 C# 에이전트 설치
 description: 32비트 또는 64비트 Windows 디바이스에 Defender for IoT 에이전트를 설치하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 1a9bab1f9e24fba6a2b04b6d0bb5d9f2560dcc1d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: 1bd5017f7c5e6a59aac29dfd35834ef5768682e8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643976"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306076"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Windows용 Defender for IoT C# 기반 보안 에이전트 배포
 
@@ -131,5 +131,5 @@ Get-Help 예제: ```Get-Help .\InstallSecurityAgent.ps1```
 * Defender for IoT 서비스 [개요](overview.md) 읽기
 * Defender for IoT에 대한 자세한 내용 [디바이스 작성기용 에이전트 기반 솔루션](architecture-agent-based.md)
 * [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
-* [Azure Defender for IoT 에이전트 질문과 대답](resources-agent-frequently-asked-questions.md) 읽기
+* [IoT용 Microsoft Defender 에이전트 질문과 대답을](resources-agent-frequently-asked-questions.md) 읽습니다.
 * [경고](concept-security-alerts.md)를 살펴봅니다.

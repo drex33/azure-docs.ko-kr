@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab3c9db7cc06add6019be7a92faf3f523e50f039
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 39f05737b84676fc4e993293c06a87d3b35a4ca5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368061"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332443"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>가동 중지 시간이 0인 Durable Functions 배포
 
@@ -65,42 +65,42 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
 
 ![배포 슬롯 및 스토리지 계정](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples&quot;></a>host.json 예제
+### <a name="hostjson-examples"></a>host.json 예제
 
 다음 JSON 조각은 *host.js* 파일에 있는 연결 문자열 설정의 예제입니다.
 
-#### <a name=&quot;functions-20&quot;></a>함수 2.0
+#### <a name="functions-20"></a>함수 2.0
 
 ```json
 {
-  &quot;version&quot;: 2.0,
-  &quot;extensions&quot;: {
-    &quot;durableTask&quot;: {
-      &quot;hubName&quot;: &quot;MyTaskHub&quot;,
-      &quot;storageProvider&quot;: {
-        &quot;connectionStringName&quot;: &quot;DurableManagementStorage&quot;
+  "version": 2.0,
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
       }
     }
   }
 }
 ```
 
-#### <a name=&quot;functions-1x&quot;></a>Functions 1.x
+#### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
-  &quot;durableTask&quot;: {
-    &quot;azureStorageConnectionStringName&quot;: &quot;DurableManagementStorage&quot;
+  "durableTask": {
+    "azureStorageConnectionStringName": "DurableManagementStorage"
   }
 }
 ```
 
-### <a name=&quot;cicd-pipeline-configuration&quot;></a>CI/CD 파이프라인 구성
+### <a name="cicd-pipeline-configuration"></a>CI/CD 파이프라인 구성
 
 함수 앱에 보류 중이거나 실행 중인 오케스트레이션 인스턴스가 없는 경우에만 배포하도록 CI/CD 파이프라인을 구성합니다. Azure Pipelines를 사용하는 경우 다음 예제와 같이 이러한 조건을 확인하는 함수를 만들 수 있습니다.
 
 ```csharp
-[FunctionName(&quot;StatusCheck")]
+[FunctionName("StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
     [DurableClient] IDurableOrchestrationClient client,

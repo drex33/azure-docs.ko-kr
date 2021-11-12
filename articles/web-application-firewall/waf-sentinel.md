@@ -1,22 +1,22 @@
 ---
-title: Azure Web Application Firewall과 함께 Azure Sentinel 사용
-description: 이 문서에서는 Azure Sentinel을 WAF(Azure Web Application Firewall)와 함께 사용하는 방법을 보여 줍니다.
+title: Azure Web Application Firewall Microsoft Sentinel 사용
+description: 이 문서에서는 WAF(Azure Web Application Firewall)에서 Microsoft Sentinel을 사용하는 방법을 보여줍니다.
 services: web-application-firewall
 author: TreMansdoerfer
 ms.service: web-application-firewall
 ms.date: 10/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 3d905dd1e6acab8f9f6d3885c882dd9c32133cb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c888b364bfac5687996bb88472b5725244ea1bcb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596437"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305468"
 ---
-# <a name="using-azure-sentinel-with-azure-web-application-firewall"></a>Azure Web Application Firewall과 함께 Azure Sentinel 사용
+# <a name="using-microsoft-sentinel-with-azure-web-application-firewall"></a>Azure Web Application Firewall Microsoft Sentinel 사용
 
-Azure Sentinel과 결합된 WAF(Azure Web Application Firewall)는 WAF 리소스에 대한 보안 정보 이벤트 관리를 제공할 수 있습니다. Azure Sentinel은 WAF 데이터를 쉽게 분할하고 볼 수 있는 Log Analytics를 사용하여 보안 분석을 제공합니다. Azure Sentinel을 사용하여 미리 빌드된 통합 문서에 액세스하고 조직의 요구 사항에 가장 적합하도록 수정할 수 있습니다. 통합 문서는 Azure CDN(Content Delivery Network)의 WAF, Azure Front Door의 WAF, 그리고 여러 구독 및 작업 영역에 걸친 Application Gateway의 WAF에 대한 분석을 표시할 수 있습니다.
+Microsoft Sentinel과 결합된 WAF(Azure Web Application Firewall)는 WAF 리소스에 대한 보안 정보 이벤트 관리를 제공할 수 있습니다. Microsoft Sentinel은 LOG Analytics를 사용하여 보안 분석을 제공하며, 이를 통해 WAF 데이터를 쉽게 분석하고 볼 수 있습니다. Microsoft Sentinel을 사용하여 미리 빌드된 통합 문서에 액세스하고 조직의 요구에 가장 잘 맞게 수정할 수 있습니다. 통합 문서는 Azure CDN(Content Delivery Network)의 WAF, Azure Front Door의 WAF, 그리고 여러 구독 및 작업 영역에 걸친 Application Gateway의 WAF에 대한 분석을 표시할 수 있습니다.
 
 ## <a name="waf-log-analytics-categories"></a>WAF 로그 분석 범주
 
@@ -66,7 +66,7 @@ WAF 통합 문서는 모든 Azure Front Door, Application Gateway, CDN WAF에서
 
    :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="진단 설정":::
 
-4. Azure 홈페이지의 검색 창에서 **Azure Sentinel** 을 입력하고 **Azure Sentinel** 리소스를 선택합니다. 
+4. Azure 홈페이지의 검색 창에 *Microsoft Sentinel을* 입력하고 **Microsoft Sentinel** 리소스를 선택합니다. 
 2. 이미 활성화된 작업 영역을 선택하거나 새 작업 영역을 만듭니다. 
 3. **구성** 아래의 왼쪽 패널에서 **데이터 커넥터** 를 선택합니다.
 4. **Microsoft 웹 애플리케이션 방화벽** 을 검색하고 **Microsoft WAF**(웹 애플리케이션 방화벽)를 선택합니다. 오른쪽 아래에서 **커넥터 페이지 열기** 를 선택합니다.
@@ -81,5 +81,5 @@ WAF 통합 문서는 모든 Azure Front Door, Application Gateway, CDN WAF에서
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Sentinel에 대해 자세히 알아봅니다](../sentinel/overview.md)
+- [Microsoft Sentinel에 대한 자세한 정보](../sentinel/overview.md)
 - [Azure Monitor 통합 문서에 대해 알아봅니다](../azure-monitor/visualize/workbooks-overview.md)

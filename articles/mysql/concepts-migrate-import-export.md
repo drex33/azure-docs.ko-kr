@@ -7,12 +7,12 @@ ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 954e764cfa454cdfa3175a614093eda6ea8d6173
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: b26cfa516cc9080faac7d47c512b054e5909c1c6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598381"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345246"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 
@@ -80,7 +80,7 @@ MySQL Workbench, Toad 또는 Navicat을 사용하여 Azure Database for MySQL �
 MySQL Workbench에서는 개체 브라우저 상황에 맞는 메뉴 또는 탐색기 창이라는 두 가지 방법을 통해 데이터를 내보내고 가져올 수 있습니다. 각 방법은 서로 다른 용도로 사용됩니다.
 
 > [!NOTE]
-> MySQL Workbench에서 MySQL 단일 서버 또는 유연한 서버(미리 보기)에 연결을 추가하려면 다음을 수행합니다.
+> Mysql 워크 벤치에서 MySQL 단일 서버 또는 유연한 서버에 대 한 연결을 추가 하는 경우 다음을 수행 합니다.
 >
 > - MySQL 단일 서버에서는 사용자 이름이 *\<username@servername>* 형식인지 확인합니다.
 > - MySQL 유연한 서버에서는 *\<username>* 만 사용합니다. *\<username@servername>* 을 사용하여 연결하면 연결이 실패합니다.

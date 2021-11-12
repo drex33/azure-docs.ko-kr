@@ -2,13 +2,13 @@
 title: 기본 제공 & 사용자 지정 경고 목록
 description: Defender for IoT Hub의 기능 및 서비스를 사용하여 보안 경고 및 권장 수정 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/19/2021
-ms.openlocfilehash: a5161fc0e535f1f711a14fcbe6e50a2dd4d95269
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/09/2021
+ms.openlocfilehash: 89fb77bed6116fcbae847b19b79e90d4dff34a23
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130263689"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293538"
 ---
 # <a name="defender-for-iot-hub-security-alerts"></a>Defender for IoT Hub 보안 경고
 

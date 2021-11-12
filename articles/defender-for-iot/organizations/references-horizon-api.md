@@ -1,14 +1,14 @@
 ---
 title: Horizon API
 description: 이 가이드에서는 일반적으로 사용되는 Horizon 메서드를 설명합니다.
-ms.date: 1/5/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 7fc49227f75ddb7648b0acbd179ef2fd40fd486c
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: db3fd241593f2d5c3e43485bcca4790a73f975fd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997384"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331322"
 ---
 # <a name="horizon-api"></a>Horizon API
 
@@ -16,7 +16,7 @@ ms.locfileid: "131997384"
 
 ## <a name="getting-more-information"></a>자세한 정보 보기
 
-Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사용 약관.](/legal/microsoft-apis/terms-of-use)
+IoT 용 Defender Api는 [MICROSOFT Api 라이선스 및 사용 약관](/legal/microsoft-apis/terms-of-use)의 적용을 받습니다.
 
 Horizon 및 Defender for IoT 플랫폼 사용에 대한 자세한 내용은 다음 정보를 참조하세요.
 

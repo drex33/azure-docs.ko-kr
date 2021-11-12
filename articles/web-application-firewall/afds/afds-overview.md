@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 06/09/2021
 ms.author: victorh
-ms.openlocfilehash: d7e0cc01d15e33e86f7e9446537fff6d43652256
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
-ms.translationtype: HT
+ms.openlocfilehash: 09c184f9f3e62d8f26a2baaaa3fb31f06f4dbfca
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892857"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292911"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Front Door의 Azure 웹 애플리케이션 방화벽
 
@@ -102,7 +102,7 @@ Azure 관리형 규칙 세트는 일반적인 보안 위협에 대한 보호를 
 
 지원되는 세 가지 봇 범주는 불량, 양호 및 알 수 없음입니다. Bot 서명은 WAF 플랫폼에 의해 관리되고 동적으로 업데이트됩니다.
 
-불량 봇에는 악성 IP 주소의 봇과 신원을 위조한 봇이 포함됩니다. 악성 IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공되며 1시간마다 업데이트됩니다. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence)는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다.
+불량 봇에는 악성 IP 주소의 봇과 신원을 위조한 봇이 포함됩니다. 악성 IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공되며 1시간마다 업데이트됩니다. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) microsoft 위협 인텔리전스를 구동 하 고 클라우드 용 microsoft Defender를 비롯 한 여러 서비스에서 사용 됩니다.
 
 올바른 봇에는 유효성 검사가 완료된 검색 엔진이 포함됩니다. 알 수 없는 범주에는 자신을 봇으로 식별한 추가 봇 그룹이 포함됩니다. 예: 시장 분석기, 피드 페처(fetcher) 및 데이터 수집 에이전트. 
 

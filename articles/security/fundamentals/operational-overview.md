@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 2d0187dcac4de0fc49bbc504d8a3010801d44ecb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6d65666103526768d904501e93b3c974dd436b30
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781328"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277964"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -52,7 +52,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 
 ### <a name="site-recovery"></a>Site Recovery
 
-[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery)는 온-프레미스 가상 컴퓨터 및 실제 컴퓨터를 Azure 또는 보조 사이트로 복제하는 작업을 오케스트레이션하여 비즈니스 연속성을 제공합니다. 기본 사이트를 사용할 수 없는 경우 사용자가 계속 작업할 수 있도록 보조 위치에 장애 조치(Failover)하고, 시스템이 다시 정상 상태가 되면 장애 복구합니다. Azure Security Center를 사용하여 좀 더 지능적이고 효과적인 위협 검색을 수행할 수 있습니다.
+[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery)는 온-프레미스 가상 컴퓨터 및 실제 컴퓨터를 Azure 또는 보조 사이트로 복제하는 작업을 오케스트레이션하여 비즈니스 연속성을 제공합니다. 기본 사이트를 사용할 수 없는 경우 사용자가 계속 작업할 수 있도록 보조 위치에 장애 조치(Failover)하고, 시스템이 다시 정상 상태가 되면 장애 복구합니다. Microsoft Defender for Cloud를 사용하여 보다 지능적이고 효과적인 위협 탐지를 수행합니다.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -75,11 +75,11 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 
 Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
-## <a name="azure-security-center"></a>Azure Security Center
+## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md)는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
+[Microsoft Defender for Cloud를](../../security-center/security-center-introduction.md) 사용하면 Azure 리소스의 보안에 대한 가시성을 높이고 제어하여 위협을 방지, 감지 및 대응할 수 있습니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-가상 머신의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 [VM(가상 머신) 데이터를 보호](../../security-center/security-center-introduction.md)합니다. Security Center는 다음의 목적으로 가상 머신을 모니터링할 수 있습니다.
+가상 머신의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 [VM(가상 머신) 데이터를 보호](../../security-center/security-center-introduction.md)합니다. Defender for Cloud는 다음을 위해 가상 머신을 모니터링할 수 있습니다.
 
 - 권장된 구성 규칙으로 운영 체제 보안 설정
 - 시스템 보안 및 누락된 중요 업데이트
@@ -87,14 +87,14 @@ Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 
 - 디스크 암호화 유효성 검사
 - 네트워크 기반 공격
 
-Security Center는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용합니다. Azure RBAC는 Azure에서 사용자, 그룹 및 서비스에 할당될 수 있는 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 제공합니다.
+Defender for Cloud는 [Azure RBAC(Azure 역할 기반 액세스 제어)를](../../role-based-access-control/role-assignments-portal.md)사용합니다. Azure RBAC는 Azure에서 사용자, 그룹 및 서비스에 할당될 수 있는 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 제공합니다.
 
-Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받은 경우에만 리소스와 관련된 정보를 볼 수 있습니다.
+Defender for Cloud는 리소스 구성을 평가하여 보안 문제와 취약성을 식별합니다. Defender for Cloud에는 리소스가 속한 구독 또는 리소스 그룹에 대한 소유자, 기여자 또는 읽기 프로그램의 역할이 할당된 경우에만 리소스와 관련된 정보가 표시됩니다.
 
 >[!Note]
->Security Center의 역할 및 허용된 작업에 대해 알아보려면 [Azure Security Center의 권한](../../security-center/security-center-permissions.md)을 참조하세요.
+>Defender for Cloud의 역할 및 허용된 작업에 대한 자세한 내용은 클라우드용 [Microsoft Defender의 권한을](../../security-center/security-center-permissions.md)참조하세요.
 
-Security Center에서는 Microsoft Monitoring Agent를 사용하며, Azure Monitor 서비스에서 사용하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](../../azure-monitor/logs/manage-access.md) 중 하나에 저장됩니다.
+Defender for Cloud는 Microsoft Monitoring Agent 사용합니다. Azure Monitor 서비스에서 사용하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](../../azure-monitor/logs/manage-access.md) 중 하나에 저장됩니다.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -192,5 +192,5 @@ Microsoft Azure와 같은 클라우드 플랫폼은 기존 병목 현상을 제�
 보안 및 감사 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [보안 및 규정 준수](https://azure.microsoft.com/overview/trusted-cloud/)
-- [Azure Security Center](../../security-center/security-center-introduction.md)
+- [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 - [Azure Monitor](../../azure-monitor/overview.md)

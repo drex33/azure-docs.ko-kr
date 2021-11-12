@@ -9,22 +9,22 @@ ms.author: jassha
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 97f954f3906b95fb530fba06ea09b5b0d171c9ed
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: fdc64b5d789d017e6fcb8aab2cd48103235535ec
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075864"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319247"
 ---
 # <a name="job-distribution-concepts"></a>작업 배포 개념
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services 작업 라우터는 유연한 배포 프로세스를 사용하며, 여기에는 정책 및 작업 제안 수명 주기를 사용하여 작업자를 할당하는 과정이 포함됩니다. 이 문서에서는 작업을 배포할 수 있는 다양한 방법, 작업 제공 수명 주기 및 이 프로세스가 작업자에 미치는 영향에 대해 설명합니다.
+Azure Communication Services Job Router는 유연한 배포 프로세스를 사용합니다. 여기에는 정책 및 작업 제안 수명 주기를 사용하여 작업자를 할당하는 과정이 포함됩니다. 이 문서에서는 작업을 배포할 수 있는 다양한 방법, 작업 제공 수명 주기 및 이 프로세스가 작업자에 미치는 영향에 대해 설명합니다.
 
 ## <a name="job-distribution-overview"></a>작업 배포 개요
 
-작업자에게 작업을 배포하는 방법을 결정하는 것은 작업 라우터의 주요 기능이며, SDK는 환경을 사용자 지정할 수 있도록 비슷하게 유연하고 강화 가능한 모델을 제공합니다. [분류 개념](classification-concepts.md) 가이드에 설명된 대로 작업이 분류되면 작업 라우터는 작업 및 배포 정책의 특성에 따라 적합한 작업자를 찾습니다. 또는 작업자가 사용 중인 경우 작업자를 사용할 수 있게 되면 작업 라우터에서 적합한 작업을 찾습니다. 작업자 적합성은 세 가지 특성으로 결정됩니다. [사용 가능한 채널,](#channel-configurations)해당 [기능](#worker-abilities) 및 [상태.](#worker-status) 적합한 작업자가 발견되면 작업을 할당할 수 있는 열린 채널이 있는지 확인합니다.
+작업자에게 작업을 배포하는 방법을 결정하는 것은 작업 라우터의 주요 기능이며 SDK는 사용자 환경을 사용자 지정할 수 있도록 비슷하게 유연하고 강화 가능한 모델을 제공합니다. [분류 개념](classification-concepts.md) 가이드에 설명된 대로 작업이 분류되면 작업 라우터는 작업 및 배포 정책의 특성에 따라 적합한 작업자를 찾습니다. 또는 작업자가 사용 중인 경우 작업자를 사용할 수 있게 되면 작업 라우터가 적합한 작업을 찾습니다. 작업자 적합성은 세 가지 특성으로 결정됩니다. [사용 가능한 채널,](#channel-configurations)해당 [기능](#worker-abilities) 및 [상태.](#worker-status) 적합한 작업자가 발견되면 작업을 할당할 수 있는 열린 채널이 있는지 확인합니다.
 
 이러한 두 가지 방법은 작업 라우터가 작업 또는 작업자 검색을 시작하는 방법의 주요 개념입니다.
 
@@ -56,7 +56,7 @@ Azure Communication Services 작업 라우터는 유연한 배포 프로세스�
 
 ### <a name="channel-configurations"></a>채널 구성
 
-각 작업에는 미리 구성된 작업 라우터 채널 또는 사용자 지정 채널을 나타내는 채널 ID 속성이 필요합니다. 채널 구성은 `channelId` 문자열과 `capacityCostPerJob` 숫자로 구성됩니다. 함께 통신의 추상 모드와 해당 모드의 비용을 나타냅니다. 예를 들어 대부분의 사용자는 한 번에 한 번의 전화 통화만 할 수 있으므로 `Voice` 채널의 비용이 높을 수 `100` 있습니다. 또는 채팅과 같은 특정 워크로드의 동시성이 높을 수 있습니다. 즉, 비용이 더 낮습니다. 채널 구성은 작업을 할당하거나 연결할 수 있는 열린 슬롯으로 간주할 수 있습니다. 다음 예제에서는 이 점에 대해 설명합니다.
+각 작업에는 미리 구성된 작업 라우터 채널 또는 사용자 지정 채널을 나타내는 채널 ID 속성이 필요합니다. 채널 구성은 `channelId` 문자열과 `capacityCostPerJob` 숫자로 구성됩니다. 함께 통신의 추상 모드와 해당 모드의 비용을 나타냅니다. 예를 들어 대부분의 사용자는 한 번에 한 번의 전화 통화만 할 수 있으므로 `Voice` 채널의 비용이 높을 수 `100` 있습니다. 또는 채팅과 같은 특정 워크로드의 동시성이 높을 수 있습니다. 즉, 비용이 더 낮습니다. 채널 구성은 작업을 할당하거나 연결할 수 있는 열린 슬롯으로 생각할 수 있습니다. 다음 예제에서는 이 점에 대해 설명합니다.
 
 ```csharp
 await client.RegisterWorkerAsync(
@@ -235,4 +235,4 @@ await client.CreateJobAsync(
 
 ## <a name="distribution-summary"></a>배포 요약
 
-작업자의 상태, 채널 구성/용량, 배포 정책의 모드 및 제안 동시성과 같은 여러 요인에 따라 작업 제공이 생성되는 방식에 영향을 줄 수 있습니다. 간단한 구현으로 시작하고 요구 사항에 따라 복잡성을 추가하는 것이 좋습니다.
+작업자의 상태, 채널 구성/용량, 배포 정책 모드 및 제안 동시성과 같은 여러 요인에 따라 작업 제공이 생성되는 방식에 영향을 줄 수 있습니다. 간단한 구현으로 시작하고 요구 사항에 따라 복잡성을 추가하는 것이 좋습니다.

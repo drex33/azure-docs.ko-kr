@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그
 services: container-service
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 7560e9aaabf8b21729e1e9d8e008c0b6a0e8cefb
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: f6894ed6795b66cb851a459ac8bfd39a780d3b8e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453325"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306551"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -26,7 +26,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 �
 
 [컨테이너 이미지 관리][best-practices-container-image-management] 및 [Pod 보안][best-practices-pod-security]에 대한 모범 사례를 참조할 수도 있습니다.
 
-또한 [Azure Kubernetes Services와 Security Center 통합][security-center-aks]을 사용하여 AKS 클러스터 보안을 위한 위협을 감지하고 권장 사항을 볼 수 있습니다.
+또한 [Azure Kubernetes Services와 Defender For Cloud를 통합][security-center-aks] 하 여 위협을 감지 하 고 AKS 클러스터를 보호 하기 위한 권장 사항을 확인할 수 있습니다.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>API 서버 및 클러스터 노드에 대한 액세스 보안 유지
 

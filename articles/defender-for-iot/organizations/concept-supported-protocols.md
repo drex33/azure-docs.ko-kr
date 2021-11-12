@@ -1,22 +1,22 @@
 ---
-title: Azure Defender for IoT 지원하는 프로토콜
-description: Azure Defender for IoT 지원하는 프로토콜에 대해 알아봅니다.
-ms.date: 09/20/2021
+title: Microsoft Defender for IoT에서 지원하는 프로토콜
+description: Microsoft Defender for IoT에서 지원하는 프로토콜에 대해 알아봅니다.
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 9320b43cf645e62d68baac39cdf4f06dd1825305
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ebfd983baf2e925fda66c5fc23edc380420db591
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644432"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305963"
 ---
 # <a name="support-for-iot-ot-ics-and-scada-protocols"></a>IoT, OT, ICS 및 SCADA 프로토콜 지원
 
-Azure Defender for IoT 개방형 상호 운용 가능한 OT(Operation Technology) 사이버 보안 플랫폼을 제공합니다. Defender for IoT는 다양한 위치에 배포되며 모든 산업 수직 및 지역에서 복잡하고 까다로운 OT 환경에서 배포를 통해 IoT, IT 및 ICS 위험을 줄입니다.
+Microsoft Defender for IoT는 개방형 상호 운용 가능한 OT(Operation Technology) 사이버 보안 플랫폼을 제공합니다. Defender for IoT는 다양한 위치에 배포되며 모든 산업 수직 및 지역에서 복잡하고 까다로운 OT 환경에서 배포를 통해 IoT, IT 및 ICS 위험을 줄입니다.
 
 ## <a name="supported-protocols"></a>지원되는 프로토콜
 
-Azure Defender for IoT 다양한 기업에서 광범위한 프로토콜을 지원하며 모든 산업 부문, 엔터프라이즈 네트워크 및 BMS(건물 관리 시스템) 환경에서 산업 자동화 장비를 포함합니다. 사용자 지정 또는 독점 프로토콜의 경우 Microsoft는 사용자 지정 프로토콜 분석기를 플러그 인으로 쉽게 개발, 테스트 및 배포할 수 있는 SDK를 제공합니다. SDK는 프로토콜을 디자인하는 방법과 같은 독점 정보를 공개하거나 중요한 정보를 포함할 수 있는 PCAP를 공유하지 않고 이 모든 작업을 수행합니다. 지원되는 프로토콜은 다음과 같습니다.
+Microsoft Defender for IoT는 다양한 기업에서 광범위한 프로토콜을 지원하며, 모든 산업 부문, 엔터프라이즈 네트워크 및 BMS(건물 관리 시스템) 환경에서 산업 자동화 장비를 포함합니다. 사용자 지정 또는 독점 프로토콜의 경우 Microsoft는 사용자 지정 프로토콜 분석기를 플러그 인으로 쉽게 개발, 테스트 및 배포할 수 있는 SDK를 제공합니다. SDK는 프로토콜을 디자인하는 방법과 같은 독점 정보를 공개하거나 중요한 정보를 포함할 수 있는 PCAP를 공유하지 않고 이 모든 작업을 수행합니다. 지원되는 프로토콜은 다음과 같습니다.
 
 ### <a name="supported-protocols-passive-monitoring"></a>지원되는 프로토콜(수동 모니터링)
 
@@ -62,11 +62,11 @@ Azure Defender for IoT 다양한 기업에서 광범위한 프로토콜을 지�
 
 **Rockwell Automation:** ENIP, EtherNet/IP CIP(Rockwell 확장 포함), 이더넷/IP CIP FW 버전 27 이상
 
-**2018년 10월** Modbus/TCP, Modbus TCP–Unity Extensions, OASYS(텔리전트 텔반) 
+**2018년 10월** Modbus/TCP, Modbus TCP–Unity Extensions, OASYS(일반전기 텔반) 
 
 **2018년 10월 20일, 2016년 10월** 20일 Foxstation Evo, Foxstation I/A, Trident, TriGP, TriStation
 
-**2016년 3월 20일, 2016년** Modbus RTU
+**히터 일렉트릭/한정자:** Modbus RTU
 
 **2016년 3월 20일, 2016년** Wonderware Suitelink
 
@@ -74,7 +74,7 @@ Azure Defender for IoT 다양한 기업에서 광범위한 프로토콜을 지�
 
 **Toshiba:** Toshiba 컴퓨터 링크
 
-**Yokogawa:** Centum ODEQ(Centum /ProSafe DCS), HIS Equalize, Vnet/IP
+**Yokogawa:** Centum ODEQ(Centum/ ProSafe DCS), HIS Equalize, Vnet/IP
 
 ### <a name="supported-protocols-active-monitoring"></a>지원되는 프로토콜(활성 모니터링)
 
@@ -88,7 +88,7 @@ Azure Defender for IoT 다양한 기업에서 광범위한 프로토콜을 지�
 
 **Siemens:** Siemens S7
 
-## <a name="quickly-add-support-for-proprietary-restricted-protocols"></a>독점적인 제한된 프로토콜에 대한 지원을 신속하게 추가
+## <a name="quickly-add-support-for-proprietary-restricted-protocols"></a>독점적인 제한된 프로토콜에 대한 지원을 빠르게 추가
 
 디지털화로 인해 수십억 개의 IoT 디바이스가 배포되고 IT 네트워크와 OT 네트워크 간의 연결이 크게 증가합니다. 즉, 산업 제어 시스템에 대한 위험한 사이버 공격의 위험을 포함하여 공격 표면이 증가하고 있습니다.
 
@@ -119,4 +119,5 @@ Horizon SDK를 사용하면 트래픽에서 DPI(심층 패킷 검사)를 사용�
 ## <a name="next-steps"></a>다음 단계
 
 Horizon 전용 [프로토콜 배포자](references-horizon-sdk.md)에 대해 자세히 알아봅니다.
+
 [Horizon API를](references-horizon-api.md)확인하세요.

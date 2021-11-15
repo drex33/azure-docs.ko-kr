@@ -1,19 +1,18 @@
 ---
-title: 클라우드용 Microsoft Defender 및 Microsoft Defender를 사용하여 컨테이너 보안
+title: 클라우드용 Microsoft Defender의 컨테이너 보안
 description: 클라우드용 Microsoft Defender의 컨테이너 보안 기능에 대해 알아보기
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 04/06/2021
+ms.date: 11/02/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: e3b839d572437e3fd9677ebabb111de68ef4d005
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 947aa4c5506b01ee3d22cd4372a4e5a5f0ca4992
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010090"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579315"
 ---
 # <a name="container-security-in-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender의 컨테이너 보안
 
@@ -23,7 +22,7 @@ ms.locfileid: "131010090"
 
 Defender for Cloud는 다음과 같은 컨테이너 리소스 종류를 보호할 수 있습니다.
 
-| 리소스 종류 | Defender for Cloud에서 제공하는 보호 |
+| 리소스 유형 | Defender for Cloud에서 제공하는 보호 |
 |:--------------------:|-----------|
 | ![Kubernetes 서비스.](./media/container-security/icon-kubernetes-service-rec.png)<br>**Kubernetes 클러스터** | 클러스터를 지속적으로 평가하여 잘못된 구성에 대한 가시성과 식별된 위협을 완화할 수 있는 지침을 제공합니다. [보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.<br><br>클러스터 및 Linux 노드에 대한 위협 방지. 의심스러운 활동에 대한 경고는 [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)에서 제공됩니다. 이 계획은 AKS(Azure Kubernetes Service), 온-프레미스 또는 다른 클라우드 공급자에서 호스트되는 Kubernetes 클러스터를 보호합니다. 클러스터. <br>[Kubernetes 노드 및 클러스터의 런타임 보호](#run-time-protection-for-kubernetes-nodes-and-clusters)에 대해 자세히 알아보세요.|
 | ![컨테이너 호스트.](./media/container-security/icon-container-host-rec.png)<br>**컨테이너 호스트**<br>(Docker를 실행하는 VM) | Docker 환경을 지속적으로 평가하여 잘못된 구성에 대한 가시성과 선택 사항인 [서버용 Microsoft Defender](defender-for-servers-introduction.md)를 통해 식별된 위협을 완화하는 데 도움이 되는 지침을 제공합니다.<br>[보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.|

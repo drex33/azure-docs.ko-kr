@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C 청구 모델
 description: Azure AD B2C의 MAU(월간 활성 사용자) 청구 모델, Azure AD B2C 테넌트를 Azure 구독에 연결하는 방법 및 적절한 프리미엄 계층 가격을 선택하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/26/2021
-ms.author: mimart
+ms.date: 09/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b0b5a35a85a8b0564112d62401c722e65505f2e
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: aa03c0ec560102ce44aa0cbf2bede5dd59423296
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186230"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065068"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 청구 모델
 
@@ -65,18 +65,20 @@ Azure AD B2C 테넌트에 연결된 구독은 Azure AD B2C 사용 또는 추가 
 * 구독에 연결할 [Azure AD B2C 테넌트](tutorial-create-tenant.md).
   * 테넌트 관리자여야 합니다.
   * 테넌트가 구독에 이미 연결되어 있지 않아야 합니다.
+  * 테넌트는 Azure Government 환경에서 만들면 안 됩니다.
 
 ### <a name="create-the-link"></a>링크 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음 사용하려는 Azure 구독을 포함하는 디렉터리(Azure AD B2C 테넌트를 포함하는 디렉터리 아님)를 선택합니다.
-3. **리소스 만들기** 를 선택하고 **Marketplace 검색** 필드에 `Active Directory B2C`를 입력한 다음 **Azure Active Directory B2C** 를 선택합니다.
-4. **만들기** 를 선택합니다.
-5. **내 Azure 구독에 기존 Azure AD B2C 테넌트 연결** 을 선택합니다.
-6. 드롭다운에서 **Azure AD B2C 테넌트** 를 선택합니다. 전역 관리자이고 구독에 아직 연결되지 않은 테넌트만 표시됩니다. **Azure AD B2C 리소스 이름** 필드는 선택한 Azure AD B2C 테넌트의 도메인 이름으로 채워집니다.
-7. 관리자인 활성 Azure **구독** 을 선택합니다.
-8. **리소스 그룹** 에서 **새로 만들기** 를 선택한 다음 **리소스 그룹 위치** 를 지정합니다. 여기에서 선택한 리소스 그룹 설정은 Azure AD B2C 테넌트 위치, 성능 또는 청구 상태에 영향을 주지 않습니다.
-9. **만들기** 를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리가 아니라 Azure AD 구독이 있는 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
+1. **리소스 만들기** 를 선택하고 **Marketplace 검색** 필드에 `Active Directory B2C`를 입력한 다음 **Azure Active Directory B2C** 를 선택합니다.
+1. **만들기** 를 선택합니다.
+1. **내 Azure 구독에 기존 Azure AD B2C 테넌트 연결** 을 선택합니다.
+1. 드롭다운에서 **Azure AD B2C 테넌트** 를 선택합니다. 전역 관리자이고 구독에 아직 연결되지 않은 테넌트만 표시됩니다. **Azure AD B2C 리소스 이름** 필드는 선택한 Azure AD B2C 테넌트의 도메인 이름으로 채워집니다.
+1. 관리자인 활성 Azure **구독** 을 선택합니다.
+1. **리소스 그룹** 에서 **새로 만들기** 를 선택한 다음 **리소스 그룹 위치** 를 지정합니다. 여기에서 선택한 리소스 그룹 설정은 Azure AD B2C 테넌트 위치, 성능 또는 청구 상태에 영향을 주지 않습니다.
+1. **만들기** 를 선택합니다.
 
     ![Azure Portal의 Azure AD B2C 리소스 생성 페이지](./media/billing/portal-01-create-b2c-resource-page.png)
 
@@ -90,15 +92,17 @@ Azure AD B2C 테넌트에 사용하려는 기능에 따라 테넌트를 적절�
 
 1. Azure Portal에 로그인합니다.
 
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음 Azure B2C 테넌트가 연결된 Azure 구독을 포함하는 디렉터리를 선택합니다(Azure AD B2C 테넌트 자체를 포함하는 디렉터리를 선택하지 마세요).
+1. Azure AD B2C 테넌트 자체가 아니라 Azure B2C 테넌트가 연결된 Azure 구독이 포함된 Azure AD 디렉터리를 선택하려면 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
 
-3. 포털 맨 위에 있는 검색 상자에 Azure AD B2C 테넌트의 이름을 입력합니다. 그런 다음 **리소스** 아래 검색 결과에서 테넌트를 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 
-4. 리소스 **개요** 페이지의 **가격 책정 계층** 에서 **변경** 을 선택합니다.
+1. 포털 맨 위에 있는 검색 상자에 Azure AD B2C 테넌트의 이름을 입력합니다. 그런 다음 **리소스** 아래 검색 결과에서 테넌트를 선택합니다.
+
+1. 리소스 **개요** 페이지의 **가격 책정 계층** 에서 **변경** 을 선택합니다.
 
    ![가격 책정 계층 변경](media/billing/change-pricing-tier.png)
  
-5. 사용하도록 설정하려는 기능이 포함된 가격 책정 계층을 선택합니다.
+1. 사용하도록 설정하려는 기능이 포함된 가격 책정 계층을 선택합니다.
 
    ![가격 책정 계층 선택](media/billing/select-tier.png)
 
@@ -111,22 +115,18 @@ MAU(월간 활성 사용자) 청구로의 전환은 **취소할 수 없습니다
 기존 Azure AD B2C 리소스를 MAU 청구로 전환하는 방법은 다음과 같습니다.
 
 1. Azure AD B2C 리소스에 대한 관리 권한이 있는 구독 소유자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음 MAU 청구로 업그레이드하려는 Azure AD B2C 디렉터리를 선택합니다.<br/>
-
-    ![Azure Portal의 디렉터리 및 구독 필터](./media/billing/portal-mau-01-select-b2c-directory.png)
-
-3. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-
-4. Azure AD B2C 테넌트의 **개요** 페이지에 있는 **리소스 이름** 에서 링크를 선택합니다. Azure AD 테넌트의 Azure AD B2C 리소스로 리디렉션됩니다.<br/>
+1. MAU 청구로 업그레이드할 Azure AD B2C 디렉터리를 선택하려면 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. Azure AD B2C 테넌트의 **개요** 페이지에 있는 **리소스 이름** 에서 링크를 선택합니다. Azure AD 테넌트의 Azure AD B2C 리소스로 리디렉션됩니다.<br/>
 
     ![Azure Portal에 강조 표시된 Azure AD B2C 리소스 링크](./media/billing/portal-mau-02-b2c-resource-link.png)
 
-5. Azure AD B2C 리소스의 **개요** 페이지에 있는 **청구 단위** 에서 **인증별(MAU로 변경)** 링크를 선택합니다.<br/>
+1. Azure AD B2C 리소스의 **개요** 페이지에 있는 **청구 단위** 에서 **인증별(MAU로 변경)** 링크를 선택합니다.<br/>
 
     ![Azure Portal에 강조 표시된 MAU로 변경 링크](./media/billing/portal-mau-03-change-to-mau-link.png)
 
-6. **확인** 을 선택하여 MAU 청구로 업그레이드를 완료합니다.<br/>
+1. **확인** 을 선택하여 MAU 청구로 업그레이드를 완료합니다.<br/>
 
     ![Azure Portal의 MAU 기반 청구 확인 대화 상자](./media/billing/portal-mau-04-confirm-change-to-mau.png)
 

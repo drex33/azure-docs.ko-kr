@@ -1,5 +1,6 @@
 ---
-title: Home Realm Discovery 정책을 통해 Azure AD에서 로그인 자동 가속 방지
+title: Home Realm Discovery 정책을 통해 로그인 자동 가속 방지
+titleSuffix: Azure AD
 description: 페더레이션된 IDP로 domain_hint 자동 가속을 방지하는 방법에 대해 알아봅니다.
 services: active-directory
 author: davidmu1
@@ -11,14 +12,14 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: davidmu
 ms.reviewer: hirsin
-ms.openlocfilehash: c85c4028c1931c1e5eee061b9be7b2ebffc5b951
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: db874b82a8d0c966dbe6cdbecd14cf3c5fe521d2
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113566931"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615736"
 ---
-# <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>사용자가 Home Realm Discovery 정책을 사용하여 로그인하는 동안 페더레이션된 IDP에 대해 자동 가속 비활성화
+# <a name="disable-auto-acceleration-sign-in-in-azure-active-directory"></a>Azure Active Directory에서 자동 가속 로그인 사용 안 함
 
 HRD[(Home Realm Discovery) 정책](/graph/api/resources/homeRealmDiscoveryPolicy)은 관리자에게 사용자가 인증하는 방법 및 위치를 제어하는 여러 방법을 제공합니다. HRD 정책의 `domainHintPolicy` 섹션은 페더레이션된 사용자가 항상 Azure AD 로그인 페이지를 방문하고 도메인 힌트로 인해 페더레이션된 IDP로 자동 가속되지 않도록 함으로써 [FIDO](../authentication/howto-authentication-passwordless-security-key.md)와 같은 클라우드 관리 자격 증명으로 마이그레이션하는 데 사용됩니다.
 
@@ -41,7 +42,7 @@ HRD 정책의 DomainHintPolicy 섹션은 관리자가 도메인 힌트 사용에
 
 DomainHintPolicy 논리는 도메인 힌트가 포함된 들어오는 각 요청에서 실행되고 요청에 포함된 두 개의 데이터(도메인 힌트의 도메인 및 클라이언트 ID(앱))에 따라 가속화됩니다. 간단히 말해서 도메인이나 앱에 대한 "적용"은 주어진 도메인이나 애플리케이션에 대한 도메인 힌트를 "무시"하라는 지침보다 우선합니다.
 
-1. 도메인 힌트 정책이 없는 경우 또는 4개 섹션에서 언급된 앱이나 도메인 힌트를 참조하지 않는 경우 [나머지 HRD 정책이 평가됩니다](configure-authentication-for-federated-users-portal.md#priority-and-evaluation-of-hrd-policies).
+1. 도메인 힌트 정책이 없는 경우 또는 4개 섹션에서 언급된 앱이나 도메인 힌트를 참조하지 않는 경우 [나머지 HRD 정책이 평가됩니다](home-realm-discovery-policy.md#priority-and-evaluation-of-hrd-policies).
 1. `RespectDomainHintForApps` 또는 `RespectDomainHintForDomains` 섹션 중 하나(또는 둘 다)가 요청에서 앱 또는 도메인 힌트를 포함하는 경우 요청된 대로 사용자가 페더레이션된 IDP로 자동 가속됩니다.
 1. `IgnoreDomainHintsForApps` 또는 `IgnoreDomainHintsForDomains` 중 하나(또는 둘 다)가 요청에서 앱 또는 도메인 힌트를 참조하고 "적용" 섹션에서 참조되지 않는 경우 요청을 자동으로 가속하지 않으며 사용자는 Azure AD 로그인 페이지에서 사용자 이름을 제공하는 상태로 유지됩니다.
 

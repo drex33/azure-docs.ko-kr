@@ -1,5 +1,5 @@
 ---
-title: '자습서: Akamai와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: Akamai와 Azure AD SSO 통합'
 description: Azure Active Directory와 Akamai 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 10/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 38b0ea6b65c3fcb01e8a49cd3a416533bcab5688
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 46763926a03fc4cb58803bfb2c716f09ece1b71b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803362"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456400"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>자습서: Akamai와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-akamai"></a>자습서: Akamai와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Akamai를 통합하는 방법에 대해 알아봅니다. Azure AD와 Akamai를 통합하면 다음을 수행할 수 있습니다.
 
@@ -519,7 +519,7 @@ ID 공급자를 할당합니다.
 
 1. EAADelegation 계정에 대한 [위임] 탭을 클릭합니다.
 
-    ![SPN을 구성하는 명령을 보여주는 관리자 명령 프롬프트의 스크린샷](./media/header-akamai-tutorial/spn.png)
+    ![SPN을 구성하는 명령을 보여주는 관리자 명령 프롬프트의 스크린샷](./media/header-akamai-tutorial/delegation.png)
 
     * [모든 인증 프로토콜 사용]을 지정합니다.
     * [추가]를 클릭하고 Kerberos 웹 사이트의 앱 풀 계정을 추가합니다. 올바르게 구성되었다면 올바른 SPN으로 자동 확인됩니다.

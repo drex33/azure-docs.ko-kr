@@ -4,13 +4,15 @@ metadata:
   description: 다음의 일반적인 질문에 대한 답변
   ms.topic: article
   ms.service: backup
-  ms.date: 06/10/2021
-  ms.openlocfilehash: cf4539afef4df4f09da7eacdf3c195cb08a70e44
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 11/02/2021
+  author: v-amallick
+  ms.author: v-amallick
+  ms.openlocfilehash: afa49f9f586540611e41983407f9381de971614b
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122254252"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131507154"
 title: Azure Backup - 질문과 대답
 summary: 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
 sections:
@@ -33,7 +35,7 @@ sections:
   - question: >
       자격 증명 모음당 몇 개의 정책을 만들 수 있나요?
     answer: >
-      자격 증명 모음당 최대 200개의 정책만 만들 수 있습니다. 그러나 ARM(Azure Resource Manager) 템플릿 또는 Azure 자동화 클라이언트(예: Powershell, CLI)를 통해 새 백업 정책을 추가하거나 현재 정책을 편집하는 것은 24시간 동안 50개로 제한됩니다.
+      자격 증명 모음당 최대 200개의 정책만 만들 수 있습니다. 그러나 ARM(Azure Resource Manager) 템플릿 또는 Azure 자동화 클라이언트(예: PowerShell, CLI)를 통해 새 백업 정책을 추가하거나 현재 정책을 편집하는 것은 24시간 동안 50개로 제한됩니다.
   - question: >
       내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 자격 증명 모음의 다른 서버에서 데이터를 어떻게 격리할 수 있나요?
     answer: >
@@ -194,6 +196,10 @@ sections:
       Recovery Services 자격 증명 모음에 전송된 데이터가 백업을 위해 선택한 데이터의 크기보다 작은 이유는 무엇인가요?
     answer: >
       Azure Backup 에이전트 또는 DPM 또는 Azure Backup 서버에서 백업된 데이터를 전송하기 전에 압축하고 암호화합니다. 압축 및 암호화를 적용하면 자격 증명 모음에 있는 데이터 크기가 30-40% 줄어듭니다.
+  - question: >
+      복구 지점의 만료 시간을 볼 수 있나요?
+    answer: >
+      아니요, 예약된 백업의 만료 시간은 볼 수 없습니다. 그러나 백업 작업을 통해 주문형 백업의 만료 시간을 볼 수 있습니다.
   - question: >
       자격 증명 모음의 복구 지점에서 개별 파일을 삭제할 수 있나요?
     answer: >

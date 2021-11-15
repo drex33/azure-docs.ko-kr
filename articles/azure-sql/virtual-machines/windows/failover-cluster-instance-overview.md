@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: rsetlem
-ms.openlocfilehash: 317c02a71f555328dfd4d646eb294541df11a0b7
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: d86b7b59e05aa923efd3e4d9228d8ac422fc863d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161526"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219535"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,6 +75,8 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 - Filestream을 지원합니다.
 - 프리미엄 SSD는 가용성 집합을 지원합니다. 
 
+> [!NOTE]
+> Azure 공유 디스크는 [표준 SSD 크기](../../../virtual-machines/disks-shared.md#disk-sizes)도 지원하지만 성능 제한으로 인해 SQL Server 워크로드에 표준 SSD를 사용하지 않는 것이 좋습니다.
 
 **단점**: 
 - 가상 머신은 동일한 가용성 집합 및 근접 배치 그룹에 배치하는 것이 좋습니다.

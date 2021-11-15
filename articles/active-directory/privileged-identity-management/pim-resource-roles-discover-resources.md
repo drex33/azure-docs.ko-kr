@@ -4,22 +4,23 @@ description: Azure AD PIM(Privileged Identity Management)에서 관리할 Azure 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/29/2020
+ms.date: 10/19/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d38990289169412f06b0c7e4bcbdf67f688da7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d9214936073106424301d8e7b85867d51cbeb22
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539012"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253698"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Privileged Identity Management에서 관리할 Azure 리소스 검색
 
@@ -28,7 +29,11 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 - 이미 Privileged Identity Management을 사용하여 Azure AD 역할을 보호하는 조직
 - 프로덕션 리소스를 보호하려는 관리 그룹 및 구독 소유자
 
-먼저 Azure 리소스에 대한 Privileged Identity Management을 설정할 때 Privileged Identity Management에서 보호할 리소스를 검색하고 선택해야 합니다. Privileged Identity Management로 관리할 수 있는 리소스 수에는 제한이 없습니다. 그러나 가장 중요한 프로덕션 리소스부터 시작하는 것을 추천합니다.
+Azure 리소스에 대한 Privileged Identity Management를 처음 설정할 때 Privileged Identity Management에서 보호할 리소스를 검색하고 선택해야 합니다. Privileged Identity Management로 관리할 수 있는 리소스 수에는 제한이 없습니다. 그러나 가장 중요한 프로덕션 리소스부터 시작하는 것을 추천합니다.
+
+## <a name="required-permissions"></a>필요한 사용 권한
+
+사용자 액세스 관리자 또는 소유자 역할과 같은 Microsoft.Authorization/roleAssignments/쓰기 권한이 있는 관리 그룹 또는 구독을 보고 관리할 수 있습니다. 구독 소유자가 아니지만 전역 관리자이며 관리할 Azure 구독 또는 관리 그룹이 표시되지 않는 경우 [액세스 권한을 높여 리소스를 관리](../../role-based-access-control/elevate-access-global-admin.md)할 수 있습니다.
 
 ## <a name="discover-resources"></a>리소스 검색
 

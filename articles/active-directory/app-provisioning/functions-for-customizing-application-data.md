@@ -3,24 +3,24 @@ title: Azure Active Directory 애플리케이션 프로비저닝에서 특성 �
 description: Azure Active Directory에서 SaaS 앱 개체의 자동화된 프로비전 중 허용되는 형식으로 특성 값을 변환하기 위해 식 매핑을 사용하는 방법에 대해 알아봅니다. 함수의 참조 목록을 포함합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/30/2021
+ms.date: 10/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c91d4f98928f2d446a15b123a4155b971377159a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 2962c033ee42b91913324f22dbba3ca3cae49fdf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223833"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456369"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory에서 특성 매핑에 대한 식을 작성하기 위한 참조
 
-SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
+SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 매핑의 경우 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
 
 ## <a name="syntax-overview"></a>구문 개요
 
@@ -38,7 +38,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 ## <a name="list-of-functions"></a>함수 목록
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RandomString](#randomstring) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Append
@@ -56,7 +56,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 
 #### <a name="append-constant-suffix-to-user-name"></a>사용자 이름에 상수 접미사 추가
-예: Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사용자 이름에 추가 접미사를 추가해야 할 수 있습니다.
+예: Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사용자 이름에 다른 접미사를 추가해야 할 수 있습니다.
 
 **식:**  
 `Append([userPrincipalName], ".test")`
@@ -94,8 +94,8 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | 이름 | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **value1** |필수 |num |value2를 사용하여 AND로 입력해야 하는 숫자 값|
-| **value2** |필수 |num |value1을 사용하여 AND로 입력해야 하는 숫자 값|
+| **value1** |필수 |Num |value2를 사용하여 AND로 입력해야 하는 숫자 값|
+| **value2** |필수 |Num |value1을 사용하여 AND로 입력해야 하는 숫자 값|
 
 **예:** 
 `BitAnd(&HF, &HF7)`
@@ -112,9 +112,9 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:** 
 
-| 이름 | 필수/ 반복 | Type | 메모 |
+| 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **expression** |필수 | 식 | 유효한 식 |
+| **식** |필수 | 식 | 유효한 식 |
 
 **예:** 
 `CBool([attribute1] = [attribute2])`                                                                    
@@ -130,9 +130,9 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. DateTime�
 
 **매개 변수:** 
 
-| 이름 | 필수/ 반복 | Type | 메모 |
+| 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **expression** |필수 | 식 | 날짜/시간을 나타내는 유효한 문자열입니다. 지원되는 형식은 [.NET 사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. |
+| **식** |필수 | 식 | 날짜/시간을 나타내는 유효한 문자열입니다. 지원되는 형식은 [.NET 사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. |
 
 **설명:**  
 반환된 문자열은 항상 UTC이며 **M/d/yyyy h:mm:ss tt** 형식을 따릅니다.
@@ -416,9 +416,9 @@ Switch([Active], ,
 
 **매개 변수:** 
 
-| 이름 | 필수/ 반복 | Type | 메모 |
+| 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **expression** | 필수 | 식 | 계산할 식 |
+| **식** | 필수 | 식 | 계산할 식 |
 
 **예 1: 특성이 Null인 경우 전달하지 않음** <br>
 `IgnoreFlowIfNullOrEmpty([department])` <br>
@@ -478,9 +478,9 @@ SuccessFactors 특성 *prefix* 가 다음 식 매핑을 사용하여 온-프레�
 
 **매개 변수:** 
 
-| 이름 | 필수/ 반복 | Type | 메모 |
+| 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **expression** |필수 |식 |계산할 식 |
+| **식** |필수 |식 |계산할 식 |
 
 **예:** 
 `IsNull([displayName])`
@@ -496,9 +496,9 @@ SuccessFactors 특성 *prefix* 가 다음 식 매핑을 사용하여 온-프레�
 
 **매개 변수:** 
 
-| 이름 | 필수/ 반복 | Type | 메모 |
+| 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **expression** |필수 |식 |계산할 식 |
+| **식** |필수 |식 |계산할 식 |
 
 **예:** 
 `IsNullOrEmpty([displayName])`
@@ -513,9 +513,9 @@ SuccessFactors 특성 *prefix* 가 다음 식 매핑을 사용하여 온-프레�
 
 **매개 변수:** 
 
-| 이름 | 필수/ 반복 | Type | 메모 |
+| 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **expression** |필수 |식 |계산할 식 |
+| **식** |필수 |식 |계산할 식 |
 
 **예:** 
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -528,9 +528,9 @@ SuccessFactors 특성 *prefix* 가 다음 식 매핑을 사용하여 온-프레�
 
 **매개 변수:** 
 
-| 이름 | 필수/ 반복 | Type | 메모 |
+| 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **expression** |필수 |식 |계산할 식 |
+| **식** |필수 |식 |계산할 식 |
 
 ---
 ### <a name="item"></a>항목
@@ -565,7 +565,7 @@ SuccessFactors 특성 *prefix* 가 다음 식 매핑을 사용하여 온-프레�
 
 ---
 ### <a name="left"></a>왼쪽
-**함수:** Left(String,NumChars)
+**함수:** Left(String, NumChars)
 
 **설명:** Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다. numChars = 0 인 경우, 빈 문자열을 반환합니다.
 numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
@@ -596,7 +596,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 | --- | --- | --- | --- |
 | **source** |필수 |String |일반적으로 특성 이름입니다. |
 | **start** |필수 |정수 |하위 문자열이 시작되어야 하는 **source** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
-| **length** |필수 |정수 |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
+| **length** |필수 |정수 |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 substring을 반환합니다. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -613,28 +613,28 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 | 분음 부호가 있는 문자  | 정규화된 문자 | 분음 부호가 있는 문자  | 정규화된 문자 | 
 | --- | --- | --- | --- | 
-| ä, à, â, ã, å, á, ą, ă | a | Ä, À, Â, Ã, Å, Á, Ą, Ă | A | 
-| æ | ae | Æ | AE | 
-| ç, č, ć | c | Ç, Č, Ć | C | 
-| ď | 일 | Ď | D | 
-| ë, è, é, ê, ę, ě, ė | e | Ë, È, É, Ê, Ę, Ě, Ė | E | 
-| ğ | g | Ğ | G | 
-| Ï, Î, Ì, Í, İ | I | ï, î, ì, í, ı | i | 
-| ľ, ł | l |  Ł, Ľ | L | 
-| ñ, ń, ň | n |  Ñ, Ń, Ň | N | 
-| ö, ò, ő, õ, ô, ó | o |  Ö, Ò, Ő, Õ, Ô, Ó | O | 
-| ø | oe |  Ø | OE | 
-| ř | r |  Ř | R | 
+| ä, à, â, ã, å, á, ą, ă, ā, ā́, ā̀, ā̂, ā̃, ǟ, ā̈, ǡ, a̱, å̄ | a | Ä, À, Â, Ã, Å, Á, Ą, Ă, Ā, Ā́, Ā̀, Ā̂, Ā̃, Ǟ, Ā̈, Ǡ, A̱, Å̄ | A | 
+| æ, ǣ | ae | Æ, Ǣ | AE | 
+| ç, č, ć, c̄, c̱ | c | Ç, Č, Ć, C̄, C̱ | C | 
+| ď, d̄, ḏ | 일 | Ď, D̄, Ḏ | D | 
+| ë, è, é, ê, ę, ě, ė, ē, ḗ, ḕ, ē̂, ē̃, ê̄, e̱, ë̄, e̊̄ | e | Ë, È, É, Ê, Ę, Ě, Ė, Ē, Ḗ, Ḕ, Ē̂, Ē̃, Ê̄, E̱, Ë̄, E̊̄ | E | 
+| ğ, ḡ, g̱ | g | Ğ, Ḡ, G̱ | G | 
+| ï, î, ì, í, ı, ī, ī́, ī̀, ī̂, ī̃, i̱ | i | Ï, Î, Ì, Í, İ, Ī, Ī́, Ī̀, Ī̂, Ī̃, I̱ | I |  
+| ľ, ł, l̄, ḹ, ḻ | l |  Ł, Ľ, L̄, Ḹ, Ḻ | L | 
+| ñ, ń, ň, n̄, ṉ | n |  Ñ, Ń, Ň, N̄, Ṉ | N | 
+| ö, ò, ő, õ, ô, ó, ō, ṓ, ṑ, ō̂, ō̃, ȫ, ō̈, ǭ, ȭ, ȱ, o̱ | o |  Ö, Ò, Ő, Õ, Ô, Ó, Ō, Ṓ, Ṑ, Ō̂, Ō̃, Ȫ, Ō̈, Ǭ, Ȭ, Ȱ, O̱ | O | 
+| ø, ø̄, œ̄  | oe |  Ø, Ø̄, Œ̄ | OE | 
+| ř, r̄, ṟ, ṝ | r |  Ř, R̄, Ṟ, Ṝ | R | 
 | ß | ss | | | 
-| š, ś, ș, ş | 초 |  Š, Ś, Ș, Ş | S | 
-| ť, ț | t | Ť, Ț | T | 
-| ü, ù, û, ú, ů, ű | u |  Ü, Ù, Û, Ú, Ů, Ű | U | 
-| ÿ, ý | y | Ÿ, Ý | 지원 | 
-| ź, ž, ż | z | Ź, Ž, Ż | Z | 
+| š, ś, ș, ş, s̄, s̱ | 초 |  Š, Ś, Ș, Ş, S̄, S̱ | S | 
+| ť, ț, t̄, ṯ | t | Ť, Ț, T̄, Ṯ | T | 
+| ü, ù, û, ú, ů, ű, ū, ū́, ū̀, ū̂, ū̃, u̇̄, ǖ, ṻ, ṳ̄, u̱ | u |  Ü, Ù, Û, Ú, Ů, Ű, Ū, Ū́, Ū̀, Ū̂, Ū̃, U̇̄, Ǖ, Ṻ, Ṳ̄, U̱ | U | 
+| ÿ, ý, ȳ, ȳ́, ȳ̀, ȳ̃, y̱ | y | Ÿ, Ý, Ȳ, Ȳ́, Ȳ̀, Ȳ̃, Y̱ | Y | 
+| ź, ž, ż, z̄, ẕ | z | Ź, Ž, Ż, Z̄, Ẕ | Z | 
 
 
 #### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
-예: 악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자를 바꿔야 합니다.
+예: 악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자로 대체합니다.
 
 **식:** NormalizeDiacritics([givenName])
 
@@ -688,6 +688,74 @@ Now 함수는 현재 UTC DateTime을 나타내는 문자열을 **M/d/yyyy h:mm:s
 
 
 ---
+### <a name="pcase"></a>PCase
+**함수:** PCase(source, wordSeparators)
+
+**설명:** PCase 함수는 문자열 내의 각 단어의 첫 문자를 대문자로 변환하고 다른 모든 문자를 소문자로 변환합니다.
+
+**매개 변수:** 
+
+| Name | 필수/선택 | 형식 | 참고 |
+| --- | --- | --- | --- |
+| **source** |필수 |String |적절한 대/소문자로 변환할 **원본** 값입니다. |
+| **wordSeparators** |선택 |문자열 |단어 구분 기호로 사용되는 문자 집합을 지정합니다(예: ",-'"). |
+
+**설명:**
+
+* *wordSeparators* 매개 변수가 지정되지 않은 경우 PCase는 내부적으로 .NET 함수 [ToTitleCase](/dotnet/api/system.globalization.textinfo.totitlecase)를 호출하여 *원본* 문자열을 적절한 대/소문자로 변환합니다. .NET 함수 *ToTitleCase* 는 단어 구분 기호로 포괄적인 [유니코드 문자 범주](https://www.unicode.org/reports/tr44/#General_Category_Values)의 집합을 지원합니다. 
+  * 공백 문자
+  * 줄 바꿈 문자
+  * CRLF와 같은 *제어* 문자
+  * *형식* 제어 문자
+  * 밑줄과 같은 *ConnectorPunctuation* 문자
+  * 대시, 하이픈과 같은 *DashPunctuation* 문자(En 대시, Em 대시, 이중 하이픈과 같은 문자 포함)
+  * 괄호, 중괄호, 꺾쇠 괄호 등과 같은 쌍으로 발생하는 *OpenPunctuation* 및 *ClosePunctuation* 문자 
+  * 작은따옴표, 큰따옴표 및 각따옴표와 같은 *InitialQuotePunctuation* 및 *FinalQuotePunctuation* 문자 
+  * 느낌표, 숫자 기호, 백분율 기호, 앰퍼샌드, 별표, 쉼표, 마침표, 콜론, 세미 콜론과 같은 *OtherPunctuation* 문자 
+  * 더하기 기호, 보다 작음, 보다 큼 부호, 세로줄, 물결표, 등호와 같은 *MathSymbol* 문자
+  * 달러 기호, 센트 기호, 파운드 기호, 유로 기호 등과 같은 *CurrencySymbol* 문자 
+  * 매크로, 악센트, 화살표 헤드 등과 같은 *ModifierSymbol* 문자 
+  * 저작권 기호, 학위 기호, 등록된 서명 등과 같은 *OtherSymbol* 문자 
+* *wordSeparators* 매개 변수가 지정된 경우 PCase는 단어 구분 기호로 지정된 문자만 사용합니다. 
+
+**예:**
+
+SAP SuccessFactors에서 *firstName* 및 *lastName* 특성을 소싱하고 있으며 HR에서는 이 두 특성이 모두 대문자라고 가정해 봅니다. PCase 함수를 사용하여 아래와 같이 이름을 적절한 대/소문자로 변환할 수 있습니다. 
+
+| 식 | 입력 | 출력 | 참고 |
+| --- | --- | --- | --- |
+| `PCase([firstName])` | *firstName* = "PABLO GONSALVES(SECOND)" | "Pablo Gonsalves(Second)" | *wordSeparators* 매개 변수가 지정되지 않은 경우 *PCase* 함수는 기본 단어 구문 문자 집합을 사용합니다. |
+| `PCase([lastName]," '-")` | *lastName* = "PINTO-DE'SILVA" | "Pinto-De'Silva" | *PCase* 함수는 *wordSeparators* 매개 변수의 문자를 사용하여 단어를 식별하고 이를 적절한 대/소문자로 변환합니다. |
+| `PCase(Join(" ",[firstName],[lastName]))` | *firstName* = GREGORY, *lastName* = "JAMES" | "Gregory James" | PCase 내에서 조인 함수를 중첩할 수 있습니다. *wordSeparators* 매개 변수가 지정되지 않은 경우 *PCase* 함수는 기본 단어 구문 문자 집합을 사용합니다.  |
+
+
+---
+
+### <a name="randomstring"></a>RandomString
+**함수:** RandomString(Length, MinimumNumbers, MinimumSpecialCharacters, MinimumCapital, MinimumLowerCase, CharactersToAvoid)
+
+**설명:** RandomString 함수는 지정된 조건에 따라 임의 문자열을 생성합니다. 허용되는 문자를 [여기](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference)에서 식별할 수 있습니다.
+
+**매개 변수:** 
+
+| 이름 | 필수/ 반복 | Type | 참고 |
+| --- | --- | --- | --- |
+| **길이** |필수 |Number |임의 문자열의 총 길이입니다. 이 값은 MinimumNumbers, MinimumSpecialCharacters 및 MinimumCapital의 합계보다 크거나 같아야 합니다. 최대 256자입니다.|
+| **MinimumNumbers** |필수 |Number |임의 문자열의 최소 숫자입니다.|
+| **MinimumSpecialCharacters** |필수 |Number |최소 특수 문자 수입니다.|
+| **MinimumCapital** |필수 |Number |임의 문자열의 최소 대문자 수입니다.|
+| **MinimumLowerCase** |필수 |Number |임의 문자열의 최소 소문자 수입니다.|
+| **CharactersToAvoid** |선택 |문자열 |임의 문자열을 생성할 때 제외할 문자입니다.|
+
+
+**예제 1:** - 특수 문자 제한 없이 임의 문자열을 생성합니다. `RandomString(6,3,0,0,3)`
+6자로 임의 문자열을 생성합니다. 문자열은 3개의 숫자와 3개의 소문자(1a73qt)를 포함합니다.
+
+**예제 2:** - 특수 문자 제한이 있는 임의 문자열을 생성합니다. `RandomString(10,2,2,2,1,"?,")`
+10자로 임의 문자열을 생성합니다. 문자열은 2개 이상의 숫자, 2개의 특수 문자, 2개의 대문자, 1개의 소문자를 포함하고 "?" 및 ","(1 @! 2BaRg53) 문자를 제외합니다.
+
+---
+
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **함수:** RemoveDuplicates(attribute)
 
@@ -757,10 +825,11 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **설명:** 최소 두 개의 인수가 필요하며, 이는 식을 사용하여 정의된 고유한 값 생성 규칙입니다. 함수는 각 규칙을 평가한 후 대상 앱/디렉터리에서 생성된 값이 고유한지 확인합니다. 발견된 첫 번째 고유한 값이 반환됩니다. 모든 값이 이미 대상에 있는 경우 항목은 위탁되고 감사 로그에 이유가 기록됩니다. 제공할 수 있는 인수 수에 상한은 없습니다.
 
 
- - 최상위 레벨 함수이므로 중첩할 수 없습니다.
+ - 이 함수는 최상위 수준에 있어야 하며 중첩할 수 없습니다.
  - 우선 순위가 일치하는 특성에는 이 함수를 적용할 수 없습니다.     
  - 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만** 으로 설정합니다.
  - 이 함수는 현재 “Workday에서 Active Directory로의 사용자 프로비저닝” 및 “SuccessFactors에서 Active Directory로의 사용자 프로비저닝”에서만 지원됩니다. 다른 프로비저닝 애플리케이션에서는 사용할 수 없습니다. 
+ - *SelectUniqueValue* 기능이 온-프레미스 Active Directory에서 수행하는 LDAP 검색은 분음 부호와 같은 특수 문자를 이스케이프하지 않습니다. 특수 문자가 포함된 "Jéssica Smith"와 같은 문자열을 전달하면 처리 오류가 발생합니다. 아래 예제에 표시된 것과 같이 [NormalizeDiacritics](#normalizediacritics) 문자를 중첩하여 특수 문자를 정규화하세요. 
 
 
 **매개 변수:** 
@@ -856,7 +925,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 | **value** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
 
 #### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
-예: Azure AD에 저장된 상태 코드를 기반으로 사용자의 표준 시간대를 정의해야 합니다.  상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
+예제: Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 정의합니다.  상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
 
 **식:**  
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
@@ -942,7 +1011,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 이 섹션에서는 더 많은 식 함수 사용 예제를 제공합니다. 
 
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거
-사용자 이름을 가져오려면 사용자의 메일에서 알려진 도메인 이름을 제거해야 합니다.  예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
+사용자 이름을 가져오려면 사용자의 이메일에서 알려진 도메인 이름을 제거합니다.  예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
 
 **식:**  
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -954,7 +1023,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>이름과 성의 부분을 연결하여 사용자 별칭을 생성합니다.
-사용자의 이름 중 처음 3개 문자 및 사용자 성의 처음 5개 문자를 사용하여 사용자 별칭을 생성해야 합니다.
+사용자의 이름 중 처음 3개 문자 및 사용자 성의 처음 5개 문자를 사용하여 사용자 별칭을 생성합니다.
 
 **식:**  
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`

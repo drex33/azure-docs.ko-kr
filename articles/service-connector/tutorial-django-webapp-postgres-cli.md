@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2021
 zone_pivot_groups: postgres-server-options
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 24c6d2cee0748d342c0d8d797d4a07692f6da9db
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f2a3307cfea56d18cbbe0186cd3c927fafdd4074
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131444917"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853036"
 ---
 # <a name="tutorial-using-service-connector-preview-to-build-a-django-app-with-postgres-on-azure-app-service"></a>자습서: 서비스 커넥터(미리 보기)를 사용하여 Postgres on Azure App Service로 Django 앱 빌드
 
@@ -58,7 +58,7 @@ ms.locfileid: "131444917"
 
 1. 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 이상</a>을 설치합니다.
-1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
+1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
 
 터미널 창을 열고 Python 버전이 3.6 이상인지 확인합니다.
 
@@ -82,13 +82,13 @@ py -3 --version
 
 ---
 
-Azure CLI 버전이 2.18.0 이상인지 확인합니다.
+Azure CLI 버전이 2.30.0 이상인지 확인합니다.
 
 ```azurecli
 az --version
 ```
 
-업그레이드해야 하는 경우 `az upgrade` 명령(버전 2.11 이상 필요)을 시도하거나 <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI 설치</a>를 참조하세요.
+업그레이드해야 하는 경우 `az upgrade` 명령(버전 2.30.0 이상 필요)을 시도하거나 <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI 설치</a>를 참조하세요.
 
 그런 다음, CLI를 통해 Azure에 로그인합니다.
 

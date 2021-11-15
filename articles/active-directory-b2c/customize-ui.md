@@ -3,22 +3,22 @@ title: 사용자 인터페이스 사용자 지정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C를 사용하는 애플리케이션의 사용자 인터페이스를 사용자 지정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2021
+ms.date: 10/21/2021
 ms.custom: project-no-code, b2c-support
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f227c63ef837b0de60ee72e2f33084e744f2f96f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 70331a45936f2608f8eb9a4aadfd182056e11a77
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535602"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222728"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -72,7 +72,8 @@ Azure Active Directory [회사 브랜딩](../active-directory/fundamentals/custo
 ::: zone pivot="b2c-user-flow"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
 1. 사용자 지정하려는 사용자 흐름을 선택합니다.
@@ -198,7 +199,8 @@ Azure Active Directory [회사 브랜딩](../active-directory/fundamentals/custo
 **회사 브랜딩** 내에서 배너 로고, 배경 이미지, 배경색을 설정하여 시작합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **관리** 에서 **회사 브랜딩** 을 선택합니다.
 1. [조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가](../active-directory/fundamentals/customize-branding.md)에 나온 단계를 따릅니다.
@@ -225,7 +227,7 @@ Azure AD B2C 회사 브랜딩을 구성할 때 다음 사항을 염두에 두어
 
 사용자 흐름의 모든 페이지를 브랜딩하려면 사용자 흐름의 각 페이지 레이아웃에 대한 페이지 레이아웃 버전을 설정합니다.
 
-![Azure Portal의 Azure AD B2C에서 페이지 레이아웃 선택](media/customize-ui/portal-02-page-layout-select.png)
+:::image type="content" source="media/customize-ui/portal-02-page-layout-select.png" alt-text="Azure Portal의 Azure AD B2C에서 페이지 레이아웃 선택.":::
 
 ::: zone-end
 
@@ -277,6 +279,25 @@ Azure AD B2C 회사 브랜딩을 구성할 때 다음 사항을 염두에 두어
   </ContentDefinition>
 </ContentDefinitions>
 ```
+
+::: zone-end
+
+::: zone pivot="b2c-user-flow"
+
+## <a name="re-order-input-fields-in-the-sign-up-form"></a>등록 양식에서 입력 필드 순서 다시 정렬
+로컬 계정 양식에 대한 등록 페이지의 입력 필드 순서를 다시 정렬하려면 다음 단계를 수행합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. 왼쪽 메뉴에서 **사용자 흐름** 을 선택합니다.
+1. 입력 필드의 순서를 다시 지정하려는 사용자 흐름(로컬 계정에만 해당)을 선택합니다.
+1. 왼쪽 메뉴에서 **페이지 레이아웃** 을 선택합니다.
+1. 테이블에서 **로컬 계정 등록 페이지** 행을 선택합니다.
+1. **사용자 특성** 아래에서 순서를 다시 정렬하려는 입력 필드를 선택하고, 위 또는 아래로 끌어서 놓거나 **위로 이동** 또는 **아래로 이동** 컨트롤을 사용하여 원하는 순서를 달성합니다. 
+1. 페이지 맨 위에서 **저장** 을 선택합니다.
+
+  :::image type="content" source="media/customize-ui/portal-02-page-layout-fields.png" alt-text="Azure Portal의 사용자 흐름 페이지에 있는 템플릿 선택 드롭다운.":::
 
 ::: zone-end
 

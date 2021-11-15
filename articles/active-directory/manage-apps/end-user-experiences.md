@@ -1,5 +1,6 @@
 ---
-title: 애플리케이션에 대한 최종 사용자 환경 - Azure Active Directory
+title: 애플리케이션에 대한 최종 사용자 환경
+titleSuffix: Azure AD
 description: Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
 services: active-directory
 author: davidmu1
@@ -11,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: davidmu
 ms.reviewer: lenalepa
-ms.openlocfilehash: 5cf4fe927d7079d866e90a789bb210730a6c4867
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9480370a263c58984277d652965f099ac5951bd3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536238"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617761"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 
@@ -37,7 +38,7 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 
 내 앱은 Azure Portal과 별개이며, 사용자에게 Azure 구독이나 Microsoft 365 구독이 필요하지 않습니다.
 
-Azure AD 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Azure AD 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="microsoft-365-application-launcher"></a>Microsoft 365 애플리케이션 시작 관리자
 

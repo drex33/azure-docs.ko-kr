@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e35f88ef38367a9c25da6a77b556f4009880af0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 35dcb1125451e378d79aa7bab4c4e066ccab9acb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566826"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044311"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션
 
@@ -96,6 +96,8 @@ ms.locfileid: "122566826"
 - Windows 10, 버전 1903 이상에서 비영구 VDI를 설정한 경우 페더레이션된 도메인에 유지해야 합니다. 관리되는 도메인으로의 이동은 비영구 VDI에서 지원되지 않습니다. 자세한 내용은 [디바이스 ID 및 데스크톱 가상화](../devices/howto-device-identity-virtual-desktop-infrastructure.md)를 참조하세요.
 
 - 등록 기관 또는 스마트 카드 사용자 역할을 하는 페더레이션 서버를 통해 발급된 인증서가 포함된 비즈니스용 Windows Hello 하이브리드 인증서 트러스트가 있는 경우에는 단계적 롤아웃에서 이 시나리오가 지원되지 않습니다. 
+
+- Autopilot 등록은 단계적 롤아웃에서 지원되지 않습니다. 단계적 롤아웃에 대해 사용하도록 설정된 사용자는 autopilot 등록 시 페더레이션된 인증을 계속 사용합니다. 디바이스에 Windows 10 버전 1903 이상이 있는 경우 autopilot 등록 후 모든 인증 요청은 단계적 롤아웃을 거칩니다. 
 
   >[!NOTE]
   >여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션형에서 관리형으로 전환하지 않습니다.  도메인 컷오버에 대한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](./migrate-from-federation-to-cloud-authentication.md) 및 [페더레이션에서 통과 인증으로 마이그레이션](./migrate-from-federation-to-cloud-authentication.md)을 참조하세요.

@@ -1,20 +1,20 @@
 ---
-title: '자습서: IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포'
+title: '자습서: IntelliJ를 사용하여 Spring Boot 애플리케이션 배포'
 description: IntelliJ를 사용하여 Azure Spring Cloud에 애플리케이션을 배포합니다.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 11/03/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: c3f1ead5d0c7e9ab7011a1179badc41b40912c83
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: af1932ddaba8416a25b6095d8b6a7cccb16f6796
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015385"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576032"
 ---
-# <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
+# <a name="deploy-spring-boot-applications-using-intellij"></a>IntelliJ를 사용하여 Spring Boot 애플리케이션 배포
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java
 
@@ -81,11 +81,11 @@ Azure에 배포하려면 Azure 계정으로 로그인하고 구독을 선택해�
 
 1. 플러그 인은 프로젝트에서 `mvn package` 명령을 실행한 다음, 새 앱을 만들고 `package` 명령으로 생성된 jar을 배포합니다.
 
-1. 출력 창에 앱 URL이 표시되지 않으면 Azure Portal에서 가져옵니다. 리소스 그룹에서 Azure Spring Cloud의 인스턴스로 이동합니다.  그런 다음, **앱** 을 선택합니다.  실행 중인 앱이 나열됩니다.
+1. 출력 창에 앱 URL이 표시되지 않으면 Azure Portal에서 가져옵니다. 리소스 그룹에서 Azure Spring Cloud의 인스턴스로 이동합니다.  그런 다음, **앱** 을 선택합니다.  실행 중인 앱이 나열됩니다. 앱을 선택한 다음, **URL** 또는 **테스트 엔드포인트** 를 복사합니다.
 
     ![테스트 URL 가져오기](media/spring-cloud-intellij-howto/get-test-url.png)
 
-1. 브라우저에서 URL로 이동합니다.
+1. 브라우저에서 URL 또는 테스트 엔드포인트로 이동합니다.
 
     ![브라우저 2에서 탐색](media/spring-cloud-intellij-howto/navigate-in-browser-2.png)
 

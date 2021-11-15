@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 10/05/2021
 ms.author: justinha
-ms.openlocfilehash: 8fbde10ccf5a7f083f5fbddaadd6668d880a1fac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955d37144220ec455f6f95bab2102123b54cd0c1
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619830"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536190"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대한 사용자 프로필 동기화를 지원하도록 Azure Active Directory Domain Services 구성
 
@@ -33,12 +33,11 @@ SharePoint Server에는 사용자 프로필을 동기화하는 서비스가 포�
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 자습서를 완료하여 [Azure Active Directory Domain Services 관리되는 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
+    * 필요한 경우 자습서를 완료하여 [Azure Active Directory Domain Services의 관리되는 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리되는 도메인에 연결된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료하여 [관리 VM을 만듭니다][tutorial-create-management-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
-* 사용자 프로필 동기화 서비스에 대한 SharePoint 서비스 계정입니다.
-    * 필요한 경우 [SharePoint Server의 관리 및 서비스 계정 플랜][sharepoint-service-account]을 참조하세요.
+* 사용자 프로필 동기화 서비스에 대한 SharePoint 서비스 계정 이름입니다. [프로필 동기화 계정][sharepoint-service-account]에 대한 자세한 내용은 *SharePoint Server의 관리 및 서비스 계정 계획* 을 참조하세요. SharePoint 중앙 관리 웹 사이트에서 *프로필 동기화 계정* 이름을 가져오려면 **애플리케이션 관리** > **서비스 애플리케이션 관리** > **사용자 프로필 서비스 애플리케이션** 을 클릭합니다. 자세한 내용은 [SharePoint Server에서 SharePoint Active Directory 가져오기를 사용하여 프로필 동기화 구성](/SharePoint/administration/configure-profile-synchronization-by-using-sharepoint-active-directory-import)을 참조하세요.
 
 ## <a name="service-accounts-overview"></a>서비스 계정 개요
 
@@ -69,9 +68,6 @@ Azure AD DS 관리 VM에서 다음 단계를 완료합니다.
 
     ![AAD DC 서비스 계정 보안 그룹에 SharePoint 서비스 계정 추가](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
-## <a name="next-steps"></a>다음 단계
-
-자세한 내용은 [SharePoint Server에서 사용자 프로필 동기화 관리](/SharePoint/administration/manage-profile-synchronization)를 참조하세요.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

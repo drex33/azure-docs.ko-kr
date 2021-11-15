@@ -3,22 +3,22 @@ title: 고객 등록 시 메일 확인 사용 안 함
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 고객 등록 시 메일 확인 사용을 중지하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a7aab8497baa5c6b9a53a98ed76e6760fa54ffb0
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 902b7575f7da414abcd34acbfbcd426e0415a948
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864437"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130222612"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 고객 등록 시 메일 확인 사용 안 함
 
@@ -41,7 +41,8 @@ ms.locfileid: "122864437"
 메일 확인을 사용하지 않으려면 다음 단계를 따르세요.
 
 1. [Azure 포털](https://portal.azure.com)
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용하여 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
 1. 메일 확인을 사용하지 않을 사용자 흐름을 선택합니다.
@@ -79,12 +80,13 @@ ms.locfileid: "122864437"
 ## <a name="test-your-policy"></a>정책 테스트 
 
 1. [Azure 포털](https://portal.azure.com)
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용하여 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
 1. 메일 확인을 사용하지 않을 사용자 흐름을 선택합니다. 예를 들어 *B2C_1_signinsignup* 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 이름의 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 을 클릭합니다.
 1. 유효성 검사 없이 메일 주소를 사용하여 등록할 수 있습니다.
 
@@ -95,7 +97,8 @@ ms.locfileid: "122864437"
 ## <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
 1. **ID 경험 프레임워크** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택한 후 변경한 두 정책 파일을 업로드합니다.

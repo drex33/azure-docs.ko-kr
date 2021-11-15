@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849d6b208208e42700037179b60b286658bc1fd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8d472587800c536f6bebe7e0cf41a2b6fdac2606
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779410"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451543"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -81,6 +81,8 @@ Identity Protection의 데이터는 보관 및 추가 조사와 상관 관계를
 
 Identity Protection 정보를 Azure Sentinel과 통합하는 방법에 대한 정보는 [Azure AD Identity Protection에서 정보 연결](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) 문서에서 확인할 수 있습니다.
 
+또한 조직은 Azure AD에서 RiskyUsers 및 UserRiskEvents 데이터를 Log Analytics 작업 영역에 전송하도록 진단 설정을 변경하여 데이터를 더 오랜 기간 저장하거나, 데이터를 스토리지 계정에 보관하거나, 데이터를 이벤트 허브로 스트리밍하거나, 파트너 솔루션에 전송하도록 선택할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [방법: 위험 데이터 내보내기](howto-export-risk-data.md) 문서에서 찾을 수 있습니다.
+
 ## <a name="permissions"></a>사용 권한
 
 Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보안 운영자, 보안 관리자, 글로벌 독자 또는 글로벌 관리자여야 액세스할 수 있습니다.
@@ -102,15 +104,15 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 
 | 기능 | 세부 정보  | Azure AD Free / Microsoft 365 앱 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 예 |예 | 
-| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  예 |예 |
-| 보안 보고서 | 개요 |  아니요 | 예 |예 |
+| 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 아니요 |예 | 
+| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  아니요 |예 |
+| 보안 보고서 | 개요 |  아니요 | 아니요 |예 |
 | 보안 보고서 | 위험한 사용자  | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 모든 권한|
 | 보안 보고서 | 위험한 로그인  | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 모든 권한|
 | 보안 보고서 | 위험 탐지   | 예 | 제한된 정보. 세부 정보 서랍이 없습니다.| 모든 권한|
-| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 예 |예 |
-| 공지 | 주 단위 요약| 아니요 | 예 | 예 | 
-| | MFA 등록 정책 | 아니요 | 예 | 예 |
+| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 아니요 |예 |
+| 공지 | 주 단위 요약| 아니요 | 아니요 | 예 | 
+| | MFA 등록 정책 | 아니요 | 아니요 | 예 |
 
 이러한 풍부한 보고서에 대한 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md#navigating-the-reports) 문서를 참조하세요.
 

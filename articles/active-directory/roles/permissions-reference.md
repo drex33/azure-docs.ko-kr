@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 10/15/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e05bfa8a024cb823a552f01e585f1c4843bd6df9
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 768814932b54dab3a8d761d5502310b6b7315f2d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866457"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245465"
 ---
 # <a name="azure-ad-built-in-roles"></a>Azure AD 기본 제공 역할
 
@@ -57,6 +57,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | [디렉터리 쓰기 권한자](#directory-writers) | 기본 디렉터리 정보를 읽고 쓸 수 있습니다. 애플리케이션에 대한 액세스 권한은 사용자를 위한 것이 아닙니다. | 9360feb5-f418-4baa-8175-e2a00bac4301 |
 > | [도메인 이름 관리자](#domain-name-administrator) | 클라우드 및 온-프레미스에서 도메인 이름을 관리할 수 있습니다. | 8329153b-31d0-4727-b945-745eb3bc5f31 |
 > | [Dynamics 365 관리자](#dynamics-365-administrator) | Dynamics 365 제품의 모든 측면을 관리할 수 있습니다. | 44367163-eba1-44c3-98af-f5787879f96a |
+> | [Edge 관리자](#edge-administrator) | Microsoft Edge의 모든 측면을 관리합니다. | 3f1acade-1e04-4fbc-9b69-f0302cd84aef |
 > | [Exchange 관리자](#exchange-administrator) | Exchange 제품의 모든 측면을 관리할 수 있습니다. | 29232cdf-9323-42fd-ade2-1d097af3e4de |
 > | [Exchange 받는 사람 관리자](#exchange-recipient-administrator) | Exchange Online 조직 내에서 Exchange Online 수신자를 만들거나 업데이트할 수 있습니다. | 31392ffb-586c-42d1-9346-e59415a2cc4e |
 > | [외부 ID 사용자 흐름 관리자](#external-id-user-flow-administrator) | 사용자 흐름의 모든 측면을 만들고 관리할 수 있습니다. | 6e591065-9bad-43ed-90f3-e9424366d2f0 |
@@ -70,7 +71,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | [하이브리드 ID 관리자](#hybrid-identity-administrator) | AD에서 Azure AD로 클라우드 프로비저닝, Azure AD Connect 및 페더레이션 설정을 관리할 수 있습니다. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Identity Governance 관리자](#identity-governance-administrator) | ID 거버넌스 시나리오에 Azure AD를 사용하여 액세스를 관리합니다. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Insights 관리자](#insights-administrator) | Microsoft 365 Insights 앱에서 관리 권한이 있습니다. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
-> | [Insights 비즈니스 리더](#insights-business-leader) | M365 Insights 앱을 통해 대시보드 및 인사이트를 보고 공유할 수 있습니다. | 31e939ad-9672-4796-9c2e-873181342d2d |
+> | [Insights 비즈니스 리더](#insights-business-leader) | Microsoft 365 Insights 앱을 통해 대시보드 및 인사이트를 보고 공유할 수 있습니다. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Intune 관리자](#intune-administrator) | Intune 제품의 모든 측면을 관리할 수 있습니다. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
 > | [Kaizala 관리자](#kaizala-administrator) | Microsoft Kaizala의 설정을 관리할 수 있습니다. | 74ef975b-6605-40af-a5d2-b9539d836353 |
 > | [지식 관리자](#knowledge-administrator) | 지식, 학습 및 기타 인텔리전트 기능을 구성할 수 있습니다. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
@@ -106,6 +107,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | [Teams 디바이스 관리자](#teams-devices-administrator) | Teams 인증 디바이스에서 관리 관련 작업을 수행할 수 있습니다. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
 > | [사용 요약 보고서 읽기 권한자](#usage-summary-reports-reader) | Microsoft 365 사용량 현황 분석 및 생산성 점수에서 테넌트 수준 집계만 볼 수 있습니다. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [사용자 관리자](#user-administrator) | 제한된 관리자의 암호 재설정을 비롯하여 사용자 및 그룹의 모든 측면을 관리할 수 있습니다. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
+> | [Windows 365 관리자](#windows-365-administrator) | 클라우드 PC의 모든 측면을 프로비전하고 관리할 수 있습니다. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows 업데이트 배포 관리자](#windows-update-deployment-administrator) | 비즈니스용 Windows 업데이트 배포 서비스를 통해 Windows 업데이트 배포의 모든 측면을 만들고 관리할 수 있습니다. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 
 ## <a name="application-administrator"></a>애플리케이션 관리자
@@ -135,9 +137,11 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/applications/basic/update | 애플리케이션의 기본 속성 업데이트 |
 > | microsoft.directory/applications/credentials/update | 애플리케이션 자격 증명 업데이트 |
 > | microsoft.directory/applications/extensionProperties/update | 애플리케이션의 확장 속성 업데이트 |
+> | microsoft.directory/applications/notes/update | 애플리케이션의 메모 업데이트 |
 > | microsoft.directory/applications/owners/update | 애플리케이션 소유자 업데이트 |
 > | microsoft.directory/applications/permissions/update | 모든 유형의 애플리케이션에서 공개된 권한 및 필요한 권한 업데이트 |
 > | microsoft.directory/applications/policies/update | 애플리케이션 정책 업데이트 |
+> | microsoft.directory/applications/tag/update | 애플리케이션의 태그 업데이트 |
 > | microsoft.directory/applications/verification/update | applicationsverification 속성 업데이트 |
 > | microsoft.directory/applications/synchronization/standard/read | 애플리케이션 개체와 연결된 프로비저닝 설정 읽기 |
 > | microsoft.directory/applicationTemplates/instantiate | 애플리케이션 템플릿에서 갤러리 애플리케이션 인스턴스화 |
@@ -174,6 +178,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/servicePrincipals/authentication/update | 서비스 주체의 인증 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/basic/update | 서비스 주체의 기본 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/credentials/update | 서비스 주체의 자격 증명 업데이트 |
+> | microsoft.directory/servicePrincipals/notes/update | 서비스 주체의 메모 업데이트 |
 > | microsoft.directory/servicePrincipals/owners/update | 서비스 주체의 소유자 업데이트 |
 > | microsoft.directory/servicePrincipals/permissions/update | 서비스 주체의 권한 업데이트 |
 > | microsoft.directory/servicePrincipals/policies/update | 서비스 주체의 정책 업데이트 |
@@ -247,8 +252,12 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
+> | microsoft.directory/users/authenticationMethods/create | 사용자에 대한 인증 방법 만들기 |
+> | microsoft.directory/users/authenticationMethods/delete | 사용자에 대한 인증 방법 삭제 |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | 사용자에 대한 개인 식별 정보를 포함하지 않는 인증 방법의 표준 속성 읽기 |
+> | microsoft.directory/users/authenticationMethods/basic/update | 사용자에 대한 인증 방법의 기본 속성 업데이트 |
 > | microsoft.directory/users/invalidateAllRefreshTokens | 사용자 새로 고침 토큰을 무효화하여 강제로 로그아웃 |
-> | microsoft.directory/users/strongAuthentication/update | 사용자의 강력한 인증 속성 업데이트 |
+> | microsoft.directory/users/password/update | 모든 사용자 암호 재설정 |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health 읽기 및 구성 |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓 만들기 및 관리 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 관리 센터에서 Service Health 읽기 및 구성 |
@@ -331,7 +340,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 
 ## <a name="b2c-ief-keyset-administrator"></a>B2C IEF 키 세트 관리자
 
-사용자는 토큰 암호화, 토큰 서명 및 클레임 암호화/암호 해독을 위한 정책 키와 비밀을 만들고 관리할 수 있습니다.  기존 키 컨테이너에 새 키를 추가하면 이 제한된 관리자는 기존 애플리케이션에 영향을 주지 않고 필요에 따라 비밀을 롤오버할 수 있습니다.  이 사용자는 이러한 비밀을 만든 후에도 비밀의 전체 콘텐츠와 만료 날짜를 볼 수 있습니다.
+사용자는 토큰 암호화, 토큰 서명 및 클레임 암호화/암호 해독을 위한 정책 키와 비밀을 만들고 관리할 수 있습니다. 기존 키 컨테이너에 새 키를 추가하면 이 제한된 관리자는 기존 애플리케이션에 영향을 주지 않고 필요에 따라 비밀을 롤오버할 수 있습니다.  이 사용자는 이러한 비밀을 만든 후에도 비밀의 전체 콘텐츠와 만료 날짜를 볼 수 있습니다.
 
 > [!IMPORTANT]
 > 이 역할은 중요한 역할입니다.  사전 프로덕션 및 프로덕션 단계에서 키 세트 관리자 역할을 신중하게 감사하고 할당해야 합니다.
@@ -400,9 +409,11 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/applications/basic/update | 애플리케이션의 기본 속성 업데이트 |
 > | microsoft.directory/applications/credentials/update | 애플리케이션 자격 증명 업데이트 |
 > | microsoft.directory/applications/extensionProperties/update | 애플리케이션의 확장 속성 업데이트 |
+> | microsoft.directory/applications/notes/update | 애플리케이션의 메모 업데이트 |
 > | microsoft.directory/applications/owners/update | 애플리케이션 소유자 업데이트 |
 > | microsoft.directory/applications/permissions/update | 모든 유형의 애플리케이션에서 공개된 권한 및 필요한 권한 업데이트 |
 > | microsoft.directory/applications/policies/update | 애플리케이션 정책 업데이트 |
+> | microsoft.directory/applications/tag/update | 애플리케이션의 태그 업데이트 |
 > | microsoft.directory/applications/verification/update | applicationsverification 속성 업데이트 |
 > | microsoft.directory/applications/synchronization/standard/read | 애플리케이션 개체와 연결된 프로비저닝 설정 읽기 |
 > | microsoft.directory/applicationTemplates/instantiate | 애플리케이션 템플릿에서 갤러리 애플리케이션 인스턴스화 |
@@ -433,6 +444,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/servicePrincipals/authentication/update | 서비스 주체의 인증 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/basic/update | 서비스 주체의 기본 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/credentials/update | 서비스 주체의 자격 증명 업데이트 |
+> | microsoft.directory/servicePrincipals/notes/update | 서비스 주체의 메모 업데이트 |
 > | microsoft.directory/servicePrincipals/owners/update | 서비스 주체의 소유자 업데이트 |
 > | microsoft.directory/servicePrincipals/permissions/update | 서비스 주체의 권한 업데이트 |
 > | microsoft.directory/servicePrincipals/policies/update | 서비스 주체의 정책 업데이트 |
@@ -638,9 +650,11 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/applications/authentication/update | 모든 유형의 애플리케이션에서 인증 업데이트 |
 > | microsoft.directory/applications/basic/update | 애플리케이션의 기본 속성 업데이트 |
 > | microsoft.directory/applications/credentials/update | 애플리케이션 자격 증명 업데이트 |
+> | microsoft.directory/applications/notes/update | 애플리케이션의 메모 업데이트 |
 > | microsoft.directory/applications/owners/update | 애플리케이션 소유자 업데이트 |
 > | microsoft.directory/applications/permissions/update | 모든 유형의 애플리케이션에서 공개된 권한 및 필요한 권한 업데이트 |
 > | microsoft.directory/applications/policies/update | 애플리케이션 정책 업데이트 |
+> | microsoft.directory/applications/tag/update | 애플리케이션의 태그 업데이트 |
 > | microsoft.directory/authorizationPolicy/standard/read | 애플리케이션 정책의 표준 속성 읽기 |
 > | microsoft.directory/organization/dirSync/update | 조직 디렉터리 동기화 속성 업데이트 |
 > | microsoft.directory/policies/create | Azure AD에서 정책 만들기 |
@@ -670,6 +684,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/servicePrincipals/authentication/update | 서비스 주체의 인증 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/basic/update | 서비스 주체의 기본 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/credentials/update | 서비스 주체의 자격 증명 업데이트 |
+> | microsoft.directory/servicePrincipals/notes/update | 서비스 주체의 메모 업데이트 |
 > | microsoft.directory/servicePrincipals/owners/update | 서비스 주체의 소유자 업데이트 |
 > | microsoft.directory/servicePrincipals/permissions/update | 서비스 주체의 권한 업데이트 |
 > | microsoft.directory/servicePrincipals/policies/update | 서비스 주체의 정책 업데이트 |
@@ -742,6 +757,17 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓 만들기 및 관리 |
 > | microsoft.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면 관리 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 관리 센터에서 Service Health 읽기 및 구성 |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Microsoft 365 서비스 요청 만들기 및 관리 |
+> | microsoft.office365.webPortal/allEntities/standard/read | Microsoft 365 관리 센터에서 모든 리소스의 기본 속성 읽기 |
+
+## <a name="edge-administrator"></a>Edge 관리자
+
+이 역할의 사용자는 Microsoft Edge에서 Internet Explorer 모드에 필요한 엔터프라이즈 사이트 목록을 만들고 관리할 수 있습니다. 이 역할은 사이트 목록을 만들고, 편집하고, 게시할 수 있는 권한을 부여하고, 추가적으로 지원 티켓을 관리할 수 있는 액세스 권한을 허용합니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2165707)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | microsoft.edge/allEntities/allProperties/allTasks | Microsoft Edge의 모든 측면 관리 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Microsoft 365 서비스 요청 만들기 및 관리 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Microsoft 365 관리 센터에서 모든 리소스의 기본 속성 읽기 |
 
@@ -822,12 +848,16 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/allTasks | Azure AD에서 액세스 검토 작성 및 삭제, 액세스 검토의 모든 속성 읽기 및 업데이트 |
+> | microsoft.directory/accessReviews/allProperties/allTasks | Azure AD에서 액세스 검토 작성 및 삭제, 액세스 검토의 모든 속성 업데이트 및 그룹의 액세스 검토 관리 |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | 관리 단위(구성원 포함)를 만들고 관리합니다. |
 > | microsoft.directory/applications/allProperties/allTasks | 애플리케이션 만들기 및 삭제, 모든 속성 읽기 및 업데이트 |
 > | microsoft.directory/applications/synchronization/standard/read | 애플리케이션 개체와 연결된 프로비저닝 설정 읽기 |
 > | microsoft.directory/applicationTemplates/instantiate | 애플리케이션 템플릿에서 갤러리 애플리케이션 인스턴스화 |
 > | microsoft.directory/auditLogs/allProperties/read | 권한 있는 속성을 포함하여 감사 로그의 모든 속성 읽기 |
+> | microsoft.directory/users/authenticationMethods/create | 사용자에 대한 인증 방법 만들기 |
+> | microsoft.directory/users/authenticationMethods/delete | 사용자에 대한 인증 방법 삭제 |
+> | microsoft.directory/users/authenticationMethods/standard/read | 사용자에 대한 인증 방법의 표준 속성 읽기 |
+> | microsoft.directory/users/authenticationMethods/basic/update | 사용자에 대한 인증 방법의 기본 속성 업데이트 |
 > | microsoft.directory/authorizationPolicy/allProperties/allTasks | 권한 부여 정책의 모든 측면 관리 |
 > | microsoft.directory/bitlockerKeys/key/read | 디바이스의 bitlocker 메타데이터 및 키 읽기 |
 > | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Microsoft Cloud App Security에서 모든 리소스 만들기 및 삭제, 표준 속성 읽기 및 업데이트 |
@@ -901,8 +931,10 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.azure.informationProtection/allEntities/allTasks | Azure Information Protection의 모든 측면 관리 |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health 읽기 및 구성 |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓 만들기 및 관리 |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Windows 365의 모든 측면 관리 |
 > | microsoft.commerce.billing/allEntities/allTasks | Office 365 청구의 모든 측면 관리 |
 > | microsoft.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면 관리 |
+> | microsoft.edge/allEntities/allProperties/allTasks | Microsoft Edge의 모든 측면 관리 |
 > | microsoft.flow/allEntities/allTasks | Microsoft Power Automate의 모든 측면 관리 |
 > | microsoft.intune/allEntities/allTasks | Microsoft Intune의 모든 측면 관리 |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Office 365 준수 관리자의 모든 측면을 관리합니다. |
@@ -953,51 +985,54 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/read |  |
-> | microsoft.directory/administrativeUnits/allProperties/read |  |
+> | microsoft.directory/accessReviews/allProperties/read | 액세스 검토의 모든 속성 읽기 |
+> | microsoft.directory/administrativeUnits/allProperties/read | 관리 단위의 모든 속성 읽기 |
 > | microsoft.directory/applications/allProperties/read | 모든 유형의 애플리케이션에서 권한 있는 속성을 포함한 모든 속성 읽기 |
 > | microsoft.directory/applications/synchronization/standard/read | 애플리케이션 개체와 연결된 프로비저닝 설정 읽기 |
 > | microsoft.directory/auditLogs/allProperties/read | 권한 있는 속성을 포함하여 감사 로그의 모든 속성 읽기 |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | 사용자에 대한 개인 식별 정보를 포함하지 않는 인증 방법의 표준 속성 읽기 |
 > | microsoft.directory/authorizationPolicy/standard/read | 애플리케이션 정책의 표준 속성 읽기 |
 > | microsoft.directory/bitlockerKeys/key/read | 디바이스의 bitlocker 메타데이터 및 키 읽기 |
-> | microsoft.directory/cloudAppSecurity/allProperties/read |  |
+> | microsoft.directory/cloudAppSecurity/allProperties/read | 클라우드 앱 보안에 대한 모든 속성 읽기 |
 > | microsoft.directory/connectors/allProperties/read | 애플리케이션 프록시 커넥터의 모든 속성 읽기 |
 > | microsoft.directory/connectorGroups/allProperties/read | 애플리케이션 프록시 커넥터 그룹의 모든 속성 읽기 |
-> | microsoft.directory/contacts/allProperties/read |  |
+> | microsoft.directory/contacts/allProperties/read | 연락처에 대한 모든 속성 읽기 |
 > | microsoft.directory/devices/allProperties/read | 디바이스에서 모든 속성 읽기 |
-> | microsoft.directory/directoryRoles/allProperties/read |  |
-> | microsoft.directory/directoryRoleTemplates/allProperties/read |  |
+> | microsoft.directory/directoryRoles/allProperties/read | Azure AD 역할에 대한 모든 속성 읽기 |
+> | microsoft.directory/directoryRoleTemplates/allProperties/read | 역할 템플릿에 대한 모든 속성 읽기 |
 > | microsoft.directory/domains/allProperties/read | 도메인의 모든 속성 읽기 |
 > | microsoft.directory/entitlementManagement/allProperties/read | Azure AD 권한 관리에서 모든 속성 읽기 |
 > | microsoft.directory/groups/allProperties/read | 역할 할당 가능한 그룹을 포함한 보안 그룹과 Microsoft 365 그룹의 모든 속성(권한 있는 속성 포함) 읽기 |
-> | microsoft.directory/groupSettings/allProperties/read |  |
-> | microsoft.directory/groupSettingTemplates/allProperties/read |  |
+> | microsoft.directory/groupSettings/allProperties/read | 그룹 설정의 모든 속성 읽기 |
+> | microsoft.directory/groupSettingTemplates/allProperties/read | 그룹 설정 템플릿의 모든 속성 읽기 |
 > | microsoft.directory/identityProtection/allProperties/read | Azure AD Identity Protection에서 모든 리소스 읽기 |
-> | microsoft.directory/loginOrganizationBranding/allProperties/read |  |
-> | microsoft.directory/oAuth2PermissionGrants/allProperties/read |  |
-> | microsoft.directory/organization/allProperties/read |  |
+> | microsoft.directory/loginOrganizationBranding/allProperties/read | 조직의 브랜드 로그인 페이지에 대한 모든 속성 읽기 |
+> | microsoft.directory/oAuth2PermissionGrants/allProperties/read | OAuth 2.0 권한 부여의 모든 속성 읽기 |
+> | microsoft.directory/organization/allProperties/read | 조직에 대한 모든 속성 읽기 |
 > | microsoft.directory/permissionGrantPolicies/standard/read | 권한 부여 정책의 표준 속성 읽기 |
-> | microsoft.directory/policies/allProperties/read |  |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/read |  |
-> | microsoft.directory/crossTenantAccessPolicies/allProperties/read |  |
+> | microsoft.directory/policies/allProperties/read | 모든 정책 속성 읽기 |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/read | 조건부 액세스 정책의 모든 속성 읽기 |
+> | microsoft.directory/crossTenantAccessPolicies/allProperties/read | 테넌트 간 정책의 모든 속성 읽기 |
 > | microsoft.directory/deviceManagementPolicies/standard/read | 디바이스 관리 애플리케이션 정책의 표준 속성 읽기 |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | 디바이스 등록 정책의 표준 속성 읽기 |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Privileged Identity Management에서 모든 리소스 읽기 |
 > | microsoft.directory/provisioningLogs/allProperties/read | 프로비저닝 로그의 모든 속성을 읽습니다. |
-> | microsoft.directory/roleAssignments/allProperties/read |  |
-> | microsoft.directory/roleDefinitions/allProperties/read |  |
-> | microsoft.directory/scopedRoleMemberships/allProperties/read |  |
+> | microsoft.directory/roleAssignments/allProperties/read | 역할 할당의 모든 속성 읽기 |
+> | microsoft.directory/roleDefinitions/allProperties/read | 역할 정의의 모든 속성 읽기 |
+> | microsoft.directory/scopedRoleMemberships/allProperties/read | 관리 단위의 멤버 보기 |
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Getavailableextentionproperties 서비스 작업 수행 가능 |
 > | microsoft.directory/servicePrincipals/allProperties/read | servicePrincipals에서 권한 있는 속성을 포함한 모든 속성 읽기 |
 > | microsoft.directory/servicePrincipalCreationPolicies/standard/read | 서비스 주체 만들기 정책의 표준 속성 읽기 |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | 서비스 주체와 연결된 프로비저닝 설정 읽기 |
 > | microsoft.directory/signInReports/allProperties/read | 권한 있는 속성을 포함하여 로그인 보고서의 모든 속성 읽기 |
-> | microsoft.directory/subscribedSkus/allProperties/read |  |
+> | microsoft.directory/subscribedSkus/allProperties/read | 제품 구독의 모든 속성 읽기 |
 > | microsoft.directory/users/allProperties/read | 모든 사용자 속성 읽기 |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | 확인 가능한 자격 증명 카드를 읽습니다. |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | 확인 가능한 자격 증명 계약을 읽습니다. |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | 확인 가능한 자격 증명을 만들고 관리하는 데 필요한 구성 읽기 |
+> | microsoft.cloudPC/allEntities/allProperties/read | Windows 365의 모든 측면 읽기 |
 > | microsoft.commerce.billing/allEntities/read | Office 365 청구의 모든 리소스 읽기 |
+> | microsoft.edge/allEntities/allProperties/read | Microsoft Edge의 모든 측면 읽기 |
 > | microsoft.office365.exchange/allEntities/standard/read | Exchange Online의 모든 리소스 읽기 |
 > | microsoft.office365.messageCenter/messages/read | Microsoft 365 관리 센터의 메시지 센터에서 보안 메시지를 제외한 메시지 읽기 |
 > | microsoft.office365.messageCenter/securityMessages/read | Microsoft 365 관리 센터의 메시지 센터에서 보안 메시지 읽기 |
@@ -1101,10 +1136,11 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/applications/audience/update | 애플리케이션의 대상 그룹 속성 업데이트 |
 > | microsoft.directory/applications/authentication/update | 모든 유형의 애플리케이션에서 인증 업데이트 |
 > | microsoft.directory/applications/basic/update | 애플리케이션의 기본 속성 업데이트 |
-> | microsoft.directory/applications/credentials/update | 애플리케이션 자격 증명 업데이트 |
+> | microsoft.directory/applications/notes/update | 애플리케이션의 메모 업데이트 |
 > | microsoft.directory/applications/owners/update | 애플리케이션 소유자 업데이트 |
 > | microsoft.directory/applications/permissions/update | 모든 유형의 애플리케이션에서 공개된 권한 및 필요한 권한 업데이트 |
 > | microsoft.directory/applications/policies/update | 애플리케이션 정책 업데이트 |
+> | microsoft.directory/applications/tag/update | 애플리케이션의 태그 업데이트 |
 > | microsoft.directory/applications/synchronization/standard/read | 애플리케이션 개체와 연결된 프로비저닝 설정 읽기 |
 > | microsoft.directory/applicationTemplates/instantiate | 애플리케이션 템플릿에서 갤러리 애플리케이션 인스턴스화 |
 > | microsoft.directory/auditLogs/allProperties/read | 권한 있는 속성을 포함하여 감사 로그의 모든 속성 읽기 |
@@ -1126,6 +1162,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/servicePrincipals/authentication/update | 서비스 주체의 인증 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/basic/update | 서비스 주체의 기본 속성 업데이트 |
 > | microsoft.directory/servicePrincipals/credentials/update | 서비스 주체의 자격 증명 업데이트 |
+> | microsoft.directory/servicePrincipals/notes/update | 서비스 주체의 메모 업데이트 |
 > | microsoft.directory/servicePrincipals/owners/update | 서비스 주체의 소유자 업데이트 |
 > | microsoft.directory/servicePrincipals/permissions/update | 서비스 주체의 권한 업데이트 |
 > | microsoft.directory/servicePrincipals/policies/update | 서비스 주체의 정책 업데이트 |
@@ -1147,14 +1184,13 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | 동작 | 설명 |
 > | --- | --- |
 > | microsoft.directory/accessReviews/allProperties/allTasks | Azure AD에서 액세스 검토 작성 및 삭제, 액세스 검토의 모든 속성 업데이트 및 그룹의 액세스 검토 관리 |
-> | microsoft.directory/accessReviews/definitions.applications/allTasks  | Azure AD에서 애플리케이션 역할 할당의 액세스 검토 관리 | 
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Azure AD 권한 관리에서 리소스 만들기 및 삭제, 모든 속성 읽기 및 업데이트 |
 > | microsoft.directory/groups/members/update | 역할 할당 가능 그룹을 제외한 보안 그룹과 Microsoft 365 그룹의 구성원 업데이트 |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 서비스 주체 역할 할당 업데이트 |
 
 ## <a name="insights-administrator"></a>Insights 관리자
 
-이 역할의 사용자는 [M365 Insights 애플리케이션](https://go.microsoft.com/fwlink/?linkid=2129521)의 모든 관리 기능에 액세스할 수 있습니다. 이 역할은 디렉터리 정보를 읽고 서비스 상태를 모니터링하고 지원 티켓을 제출하고 Insights 관리자 설정에 액세스할 수 있습니다.
+이 역할의 사용자는 [Microsoft 365 Insights 애플리케이션](https://go.microsoft.com/fwlink/?linkid=2129521)의 모든 관리 기능에 액세스할 수 있습니다. 이 역할은 디렉터리 정보를 읽고 서비스 상태를 모니터링하고 지원 티켓을 제출하고 Insights 관리자 설정에 액세스할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
@@ -1168,7 +1204,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 
 ## <a name="insights-business-leader"></a>Insights 비즈니스 리더
 
-이 역할의 사용자는 [M365 insights 애플리케이션](https://go.microsoft.com/fwlink/?linkid=2129521)을 통해 대시보드 및 정보 세트에 액세스할 수 있습니다. 여기에는 모든 대시보드에 대한 전체 액세스 권한과 제공되는 인사이트 및 데이터 탐색 기능이 포함됩니다. 이 역할의 사용자는 제품 구성 설정에 액세스할 수 없습니다. 제품 구성 설정은 Insights 관리자 역할의 책임입니다.
+이 역할의 사용자는 [Microsoft 365 insights 애플리케이션](https://go.microsoft.com/fwlink/?linkid=2129521)을 통해 대시보드 및 정보 세트에 액세스할 수 있습니다. 여기에는 모든 대시보드에 대한 전체 액세스 권한과 제공되는 인사이트 및 데이터 탐색 기능이 포함됩니다. 이 역할의 사용자는 제품 구성 설정에 액세스할 수 없습니다. 제품 구성 설정은 Insights 관리자 역할의 책임입니다.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
@@ -1217,6 +1253,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.directory/users/manager/update | 사용자의 관리자 업데이트 |
 > | microsoft.directory/users/photo/update | 사용자 사진 업데이트 |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓 만들기 및 관리 |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Windows 365의 모든 측면 관리 |
 > | microsoft.intune/allEntities/allTasks | Microsoft Intune의 모든 측면 관리 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Microsoft 365 서비스 요청 만들기 및 관리 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Microsoft 365 관리 센터에서 모든 리소스의 기본 속성 읽기 |
@@ -1377,9 +1414,11 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 > | microsoft.directory/applications/authentication/update | 모든 유형의 애플리케이션에서 인증 업데이트 |
 > | microsoft.directory/applications/basic/update | 애플리케이션의 기본 속성 업데이트 |
 > | microsoft.directory/applications/credentials/update | 애플리케이션 자격 증명 업데이트 |
+> | microsoft.directory/applications/notes/update | 애플리케이션의 메모 업데이트 |
 > | microsoft.directory/applications/owners/update | 애플리케이션 소유자 업데이트 |
 > | microsoft.directory/applications/permissions/update | 모든 유형의 애플리케이션에서 공개된 권한 및 필요한 권한 업데이트 |
 > | microsoft.directory/applications/policies/update | 애플리케이션 정책 업데이트 |
+> | microsoft.directory/applications/tag/update | 애플리케이션의 태그 업데이트 |
 > | microsoft.directory/contacts/create | 연락처 만들기 |
 > | microsoft.directory/contacts/delete | 연락처 삭제 |
 > | microsoft.directory/contacts/basic/update | 연락처의 기본 속성 업데이트 |
@@ -1423,9 +1462,11 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 > | microsoft.directory/applications/authentication/update | 모든 유형의 애플리케이션에서 인증 업데이트 |
 > | microsoft.directory/applications/basic/update | 애플리케이션의 기본 속성 업데이트 |
 > | microsoft.directory/applications/credentials/update | 애플리케이션 자격 증명 업데이트 |
+> | microsoft.directory/applications/notes/update | 애플리케이션의 메모 업데이트 |
 > | microsoft.directory/applications/owners/update | 애플리케이션 소유자 업데이트 |
 > | microsoft.directory/applications/permissions/update | 모든 유형의 애플리케이션에서 공개된 권한 및 필요한 권한 업데이트 |
 > | microsoft.directory/applications/policies/update | 애플리케이션 정책 업데이트 |
+> | microsoft.directory/applications/tag/update | 애플리케이션의 태그 업데이트 |
 > | microsoft.directory/contacts/create | 연락처 만들기 |
 > | microsoft.directory/contacts/delete | 연락처 삭제 |
 > | microsoft.directory/contacts/basic/update | 연락처의 기본 속성 업데이트 |
@@ -1555,8 +1596,12 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
+> | microsoft.directory/users/authenticationMethods/create | 사용자에 대한 인증 방법 만들기 |
+> | microsoft.directory/users/authenticationMethods/delete | 사용자에 대한 인증 방법 삭제 |
+> | microsoft.directory/users/authenticationMethods/standard/read | 사용자에 대한 인증 방법의 표준 속성 읽기 |
+> | microsoft.directory/users/authenticationMethods/basic/update | 사용자에 대한 인증 방법의 기본 속성 업데이트 |
 > | microsoft.directory/users/invalidateAllRefreshTokens | 사용자 새로 고침 토큰을 무효화하여 강제로 로그아웃 |
-> | microsoft.directory/users/strongAuthentication/update | 사용자의 강력한 인증 속성 업데이트 |
+> | microsoft.directory/users/password/update | 모든 사용자 암호 재설정 |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health 읽기 및 구성 |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓 만들기 및 관리 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 관리 센터에서 Service Health 읽기 및 구성 |
@@ -1924,7 +1969,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 ## <a name="user-administrator"></a>사용자 관리자
 
-이 역할의 사용자는 사용자를 만들고, 사용자의 모든 것을 제한적으로(아래 표 참조) 관리하고, 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자에게는 대부분의 관리자 역할에 속한 사용자의 일부 사용자 속성을 관리할 수 있는 권한이 없습니다. 이 역할의 사용자는 MFA를 관리할 권한이 없습니다. 다음 표에는 이 제한이 적용되지 않는 예외적인 역할이 나열되어 있습니다.
+이 역할의 사용자는 사용자를 만들고, 사용자의 모든 것을 제한적으로(아래 표 참조) 관리하고, 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자에게는 대부분의 관리자 역할에 속한 사용자의 일부 사용자 속성을 관리할 수 있는 권한이 없습니다. 이 역할의 관리자에게는 MFA를 관리하거나 공유 사서함을 관리할 수 있는 권한이 없습니다. 다음 표에는 이 제한이 적용되지 않는 예외적인 역할이 나열되어 있습니다.
 
 | 사용자 관리자 권한 | 메모 |
 | --- | --- |
@@ -1986,6 +2031,50 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 > | microsoft.office365.supportTickets/allEntities/allTasks | Microsoft 365 서비스 요청 만들기 및 관리 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Microsoft 365 관리 센터에서 모든 리소스의 기본 속성 읽기 |
 
+## <a name="windows-365-administrator"></a>Windows 365 관리자
+
+서비스가 있는 경우 이 역할의 사용자에게는 Windows 365 리소스에 대한 전역 권한이 있습니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 디바이스를 관리하는 기능을 포함합니다.
+
+이 역할은 보안 그룹을 만들고 관리할 수 있지만, Microsoft 365 그룹에 대한 관리자 권한이 없습니다. 즉, 관리자는 조직에서 Microsoft 365 그룹의 소유자 또는 멤버 자격을 업데이트할 수 없습니다. 그러나 관리자는 자신이 만드는 Microsoft 365 그룹을 관리할 수 있습니다. 이는 최종 사용자 권한의 일부입니다. 따라서 관리자가 만드는 Microsoft 365 그룹(보안 그룹이 아님)은 250개의 할당량에 대해 계산됩니다.
+
+다음 작업을 수행해야 하는 사용자에게 Windows 365 관리자 역할을 할당합니다.
+
+- Microsoft Endpoint Manager에서 Windows 365 클라우드 PC 관리
+- 사용자 및 정책 할당을 포함하여 Azure AD에서 디바이스 등록 및 관리
+- 역할을 할당할 수 있는 그룹이 아닌 보안 그룹 만들기 및 관리
+- Microsoft 365 관리 센터에서 기본 속성 보기
+- Microsoft 365 관리 센터에서 사용 현황 보고서 읽기
+- Azure AD 및 Microsoft 365 관리 센터에서 지원 티켓 만들기 및 관리
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | microsoft.directory/devices/create | 디바이스 만들기(Azure AD에 등록) |
+> | microsoft.directory/devices/delete | Azure AD에서 디바이스 삭제 |
+> | microsoft.directory/devices/disable | Azure AD에서 디바이스를 사용하지 않도록 설정 |
+> | microsoft.directory/devices/enable | Azure AD에서 디바이스를 사용하도록 설정 |
+> | microsoft.directory/devices/basic/update | 디바이스의 기본 속성 업데이트 |
+> | microsoft.directory/devices/extensionAttributeSet1/update | 디바이스에서 extensionAttribute1을 extensionAttribute5 속성으로 업데이트 |
+> | microsoft.directory/devices/extensionAttributeSet2/update | 디바이스에서 extensionAttribute6을 extensionAttribute10 속성으로 업데이트 |
+> | microsoft.directory/devices/extensionAttributeSet3/update | 디바이스에서 extensionAttribute11을 extensionAttribute15 속성으로 업데이트 |
+> | microsoft.directory/devices/registeredOwners/update | 등록된 디바이스 소유자 업데이트 |
+> | microsoft.directory/devices/registeredUsers/update | 등록된 디바이스 사용자 업데이트 |
+> | microsoft.directory/groups.security/create | 역할 할당 가능 그룹을 제외한 보안 그룹 만들기 |
+> | microsoft.directory/groups.security/delete | 역할 할당 가능 그룹을 제외한 보안 그룹 삭제 |
+> | microsoft.directory/groups.security/basic/update | 역할 할당 가능 그룹을 제외한 보안 그룹의 기본 속성 업데이트 |
+> | microsoft.directory/groups.security/classification/update | 역할 할당 가능 그룹을 제외한 보안 그룹의 분류 속성 업데이트 |
+> | microsoft.directory/groups.security/dynamicMembershipRule/update | 역할 할당 가능 그룹을 제외하고 보안 그룹의 동적 멤버 자격 규칙 업데이트 |
+> | microsoft.directory/groups.security/members/update | 역할 할당 가능 그룹을 제외한 보안 그룹의 구성원 업데이트 |
+> | microsoft.directory/groups.security/owners/update | 역할 할당 가능 그룹을 제외한 보안 그룹의 소유자 업데이트 |
+> | microsoft.directory/groups.security/visibility/update | 역할 할당 가능 그룹을 제외한 보안 그룹의 가시성 속성 업데이트 |
+> | microsoft.directory/deviceManagementPolicies/standard/read | 디바이스 관리 애플리케이션 정책의 표준 속성 읽기 |
+> | microsoft.directory/deviceRegistrationPolicy/standard/read | 디바이스 등록 정책의 표준 속성 읽기 |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓 만들기 및 관리 |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Windows 365의 모든 측면 관리 |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Microsoft 365 서비스 요청 만들기 및 관리 |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Office 365 사용량 보고서 읽기 |
+> | microsoft.office365.webPortal/allEntities/standard/read | Microsoft 365 관리 센터에서 모든 리소스의 기본 속성 읽기 |
+
 ## <a name="windows-update-deployment-administrator"></a>Windows 업데이트 배포 관리자
 
 이 역할의 사용자는 비즈니스용 Windows 업데이트 배포 서비스를 통해 Windows 업데이트 배포의 모든 측면을 만들고 관리할 수 있습니다. 배포 서비스를 사용하면 사용자가 업데이트 배포 시기와 방법에 대한 설정을 정의하고 테넌트에서 디바이스 그룹에 제공되는 업데이트를 지정할 수 있습니다. 사용자가 업데이트 진행 상황도 모니터링할 수 있도록 합니다.
@@ -2009,7 +2098,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 | --- | --- |
 | namespace | 작업을 노출하고 앞에 `microsoft`가 붙는 제품 또는 서비스입니다. 예를 들어 Azure AD의 모든 작업은 `microsoft.directory` 네임스페이스를 사용합니다. |
 | 엔터티 | Microsoft Graph의 서비스에서 노출하는 논리적 기능 또는 구성 요소입니다. 예를 들어 Azure AD는 사용자 및 그룹을 노출하고, OneNote는 노트를 노출하고, Exchange는 사서함과 달력을 노출합니다. 네임스페이스의 모든 엔터티를 지정하는 특수 키워드 `allEntities`가 있습니다. 이 키워드는 전체 제품에 대한 액세스 권한을 부여하는 역할에 자주 사용됩니다. |
-| propertySet | 액세스 권한이 부여되는 엔터티의 속성 또는 요소입니다. 예를 들어 `microsoft.directory/applications/authentication/read`는 Azure AD의 애플리케이션 개체에서 회신 URL, 로그아웃 URL 및 암시적 흐름 속성을 읽을 수 있는 기능을 부여합니다.<ul><li>`allProperties`는 권한 있는 속성을 포함하여 엔터티의 모든 속성을 지정합니다.</li><li>`standard`는 공통 속성을 지정하지만 `read` 작업과 관련된 권한 있는 속성을 제외합니다. 예를 들어 `microsoft.directory/user/standard/read`는 공용 전화 번호 및 이메일 주소와 같은 표준 속성을 읽을 수 있지만, 다단계 인증에 사용되는 프라이빗 보조 전화 번호 또는 이메일 주소는 읽을 수 없습니다.</li><li>`basic`은 공통 속성을 지정하지만 `update` 작업과 관련된 권한 있는 속성을 제외합니다. 읽을 수 있는 속성 세트는 업데이트할 수 있는 속성과 다를 수 있습니다. 이를 반영하기 위해 `standard` 및 `basic` 키워드가 있습니다.</li></ul> |
+| propertySet | 액세스 권한이 부여되는 엔터티의 속성 또는 요소입니다. 예를 들어 `microsoft.directory/applications/authentication/read`는 Azure AD의 애플리케이션 개체에서 회신 URL, 로그아웃 URL 및 암시적 흐름 속성을 읽을 수 있는 기능을 부여합니다.<ul><li>`allProperties`는 권한 있는 속성을 포함하여 엔터티의 모든 속성을 지정합니다.</li><li>`standard`는 공통 속성을 지정하지만 `read` 작업과 관련된 권한 있는 속성을 제외합니다. 예를 들어 `microsoft.directory/user/standard/read`는 퍼블릭 전화 번호 및 이메일 주소와 같은 표준 속성을 읽을 수 있지만, 다단계 인증에 사용되는 프라이빗 보조 전화 번호 또는 이메일 주소는 읽을 수 없습니다.</li><li>`basic`은 공통 속성을 지정하지만 `update` 작업과 관련된 권한 있는 속성을 제외합니다. 읽을 수 있는 속성 세트는 업데이트할 수 있는 속성과 다를 수 있습니다. 이를 반영하기 위해 `standard` 및 `basic` 키워드가 있습니다.</li></ul> |
 | action | 부여되는 작업. 대부분 만들기, 읽기, 업데이트 또는 삭제(CRUD) 작업입니다. 위의 모든 기능(만들기, 읽기, 업데이트 및 삭제)을 지정하는 특수 키워드 `allTasks`가 있습니다. |
 
 ## <a name="deprecated-roles"></a>사용되지 않는 역할

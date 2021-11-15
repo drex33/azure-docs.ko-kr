@@ -1,5 +1,6 @@
 ---
-title: Azure AD를 사용해 그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
+title: 그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
+titleSuffix: Azure AD
 description: 그룹 및 팀 소유자가 그룹 또는 팀의 데이터에 액세스할 수 있는 애플리케이션에 동의할 수 있는지를 관리하는 방법을 알아봅니다.
 services: active-directory
 author: davidmu1
@@ -8,20 +9,28 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1ce7254f92c4cc3d2a7dcf77885be88eda37099b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 0613875ad8ecfb12590ac7c2ec51924c0523162d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113567993"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619769"
 ---
-# <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
+# <a name="configure-group-owner-consent-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 그룹 소유자 동의 구성
 
 그룹 및 팀 소유자는 타사 공급업체에서 게시한 애플리케이션과 같은 애플리케이션에 권한을 부여하여 그룹과 연결된 조직의 데이터에 액세스하도록 할 수 있습니다. 예를 들어 Microsoft 팀 소유자는 앱이 팀의 모든 팀 메시지를 읽거나 그룹 멤버의 기본 프로필을 나열하도록 허용할 수 있습니다. 자세히 알아보려면 [Microsoft Teams의 리소스 관련 동의](/microsoftteams/resource-specific-consent)를 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+이 가이드의 작업을 완료하려면 다음이 필요합니다.
+
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- 전역 관리자 역할.
+- Azure AD PowerShell을 설정합니다. [Azure AD PowerShell](/powershell/azure/) 참조
 
 ## <a name="manage-group-owner-consent-to-apps"></a>앱에 대한 그룹 소유자의 동의 관리
 
@@ -74,7 +83,7 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](/powershell/module/azuread/?
 
 1. 설정 값을 이해합니다. 앱에서 해당 그룹의 데이터에 액세스하도록 허용할 수 있는 사용자를 정의하는 두 가지 설정 값이 있습니다.
 
-    | 설정       | 유형         | Description  |
+    | 설정       | Type         | Description  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | 부울 | 그룹 소유자가 그룹 관련 권한을 부여할 수 있는지 여부를 나타내는 플래그입니다. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | _EnableGroupSpecificConsent_ 를 "True"로 설정하고 이 값을 그룹의 개체 ID로 설정하면 식별된 그룹의 멤버가 자신이 소유한 그룹에 대한 그룹 관련 권한을 부여할 수 있습니다. |

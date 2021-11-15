@@ -236,6 +236,8 @@
           href: azure-stack-hci-overview.md
         - name: Azure Stack HCI FAQ(미리 보기)
           href: azure-stack-hci-faq.yml
+    - name: Azure Virtual Desktop 리소스에 태그 지정
+      href: tag-virtual-desktop-resources.md
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'

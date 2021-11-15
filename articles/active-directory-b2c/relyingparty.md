@@ -1,22 +1,22 @@
 ---
-title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
+title: RelyingParty - Azure Active Directory B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책의 RelyingParty 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/27/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 0ce866514aef703f3b79980d94fba156c83b10f5
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: b4344626318799a79fa668784e5674730e1731cd
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981469"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065499"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -221,6 +221,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | Description | 0:1 | 기술 프로필의 설명이 들어 있는 문자열입니다. |
 | 프로토콜 | 1:1 | 페더레이션에 사용되는 프로토콜입니다. |
 | 메타데이터 | 0:1 | 신뢰 당사자와 기타 커뮤니티 참가자 간의 상호 작용을 구성하기 위한 트랜잭션 과정에서 엔드포인트와의 통신을 위해 프로토콜에서 사용하는 키/값 쌍의 *Item* 컬렉션입니다. |
+| InputClaims | 1:1 | 기술 프로필의 입력으로 가져오는 클레임 형식 목록입니다. 이러한 각 요소는 **ClaimsSchema** 섹션 또는 이 정책 파일이 상속을 하는 정책에 이미 정의되어 있는 **ClaimType** 에 대한 참조를 포함합니다. |
 | OutputClaims | 1:1 | 기술 프로필의 출력으로 가져오는 클레임 형식 목록입니다. 이러한 각 요소는 **ClaimsSchema** 섹션 또는 이 정책 파일이 상속을 하는 정책에 이미 정의되어 있는 **ClaimType** 에 대한 참조를 포함합니다. |
 | SubjectNamingInfo | 1:1 | 토큰에 사용되는 주체 이름입니다. |
 
@@ -244,6 +245,21 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | WantsSignedResponses| 예 | Azure AD B2C SAML 응답의 `Response` 섹션에 서명할지 여부를 나타냅니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.  |
 | RemoveMillisecondsFromDateTime| 예 | SAML 응답 내의 날짜/시간 값에서 밀리초를 제거할지 여부를 나타냅니다. 여기에는 IssueInstant, NotBefore, NotOnOrAfter 및 AuthnInstant가 포함됩니다. 가능한 값은 `false`(기본값) 또는 `true`입니다.  |
 
+### <a name="inputclaims"></a>InputClaims
+
+**InputClaims** 요소에는 다음 요소가 포함됩니다.
+
+| 요소 | 발생 수 | 설명 |
+| ------- | ----------- | ----------- |
+| InputClaim | 0:n | 필요한 입력 클레임 유형입니다. |
+
+**InputClaim** 요소에는 다음 특성이 포함됩니다.
+
+| attribute | 필수 | 설명 |
+| --------- | -------- | ----------- |
+| ClaimTypeReferenceId | 예 | 정책 파일의 **ClaimsSchema** 섹션에 이미 정의되어 있는 **ClaimType** 에 대한 참조입니다. |
+| DefaultValue | 예 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
+| PartnerClaimType | 예 | ClaimType 정의에 구성되어 있는 다른 이름으로 클레임을 보냅니다. |
 
 ### <a name="outputclaims"></a>OutputClaims
 

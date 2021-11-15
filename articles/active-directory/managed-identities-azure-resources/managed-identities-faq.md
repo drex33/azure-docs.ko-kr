@@ -12,14 +12,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/08/2021
+ms.date: 10/20/2021
 ms.author: barclayn
-ms.openlocfilehash: 07b106630cffae75c5e4588d14de7ae938945614
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 48d3d5e0e1b6adfb1c0763d1fb7824d604628962
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534122"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266139"
 ---
 # <a name="managed-identities-for-azure-resources-frequently-asked-questions---azure-ad"></a>Azure 리소스의 관리 ID 자주 묻는 질문 - Azure AD
 
@@ -38,11 +38,12 @@ ms.locfileid: "107534122"
 az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
 ```
 
+### <a name="which-azure-rbac-permissions-are-required-to-use-a-managed-identity-on-a-resource"></a>리소스에서 관리 ID를 사용하기 위한 Azure RBAC 권한은 무엇인가요?
 
-### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>리소스에서 관리 ID에 필요한 Azure RBAC 권한은 무엇인가요? 
-
-- 시스템이 할당한 관리형 ID: 리소스에 대한 쓰기 권한이 필요합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 이 작업은 [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)와 같은 리소스별 기본 제공 역할에 포함됩니다.
-- 사용자가 할당한 관리형 ID: 리소스에 대한 쓰기 권한이 필요합니다. 예를 들어 가상 머신의 경우 Microsoft.Compute/virtualMachines/write가 필요합니다. 관리 ID에 대한 [관리 ID 운영자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 할당도 필요합니다.
+- 시스템이 할당한 관리형 ID: 리소스에 대한 쓰기 권한이 필요합니다. 예를 들어 가상 머신의 경우 `Microsoft.Compute/virtualMachines/write`가 필요합니다. 이 작업은 [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)와 같은 리소스별 기본 제공 역할에 포함됩니다.
+- 리소스에 사용자 할당 관리 ID 할당: 리소스에 대한 쓰기 권한이 있어야 합니다. 예를 들어 가상 머신의 경우 `Microsoft.Compute/virtualMachines/write`가 필요합니다. 사용자 할당 ID에 대한 `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` 작업도 필요합니다. 이 작업은 [관리 ID 연산자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 기본 제공 역할에 포함되어 있습니다.
+- 사용자 할당 관리 ID 관리: 사용자 할당 관리 ID를 만들거나 삭제하려면 [관리 ID 기여자](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) 역할 할당이 필요합니다.
+- 관리 ID에 대한 역할 할당 관리: 액세스 권한을 부여하는 리소스에 대한 [소유자](../../role-based-access-control/built-in-roles.md#all) 또는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#all) 역할 할당이 필요합니다. 시스템 할당 ID가 있는 리소스 또는 역할 할당이 제공되는 사용자 할당 ID에 대한 [Reader](../../role-based-access-control/built-in-roles.md#all) 역할 할당이 필요합니다. 읽기 액세스 권한이 없는 경우 역할 할당을 추가하는 동안 관리 ID로 검색하는 대신 "사용자, 그룹 또는 서비스 주체"로 검색하여 ID의 지원 서비스 주체를 찾을 수 있습니다. [Azure 역할 할당에 대해 자세히 알아보세요](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>사용자가 할당한 관리 ID 만들기를 방지하려면 어떻게 해야 하나요?
 
@@ -128,7 +129,7 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 
 아니요. 구독을 다른 디렉터리로 이동하면 관리 ID를 수동으로 다시 만들고 다시 Azure 역할 할당을 부여해야 합니다.
 - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
-- 사용자가 할당한 관리 ID: 삭제한 후 다시 만들어서 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
+- 사용자 할당 관리 ID: 삭제한 후 다시 만들어서 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>관리 ID를 사용하여 다른 디렉터리/테넌트의 리소스에 액세스할 수 있나요?
 

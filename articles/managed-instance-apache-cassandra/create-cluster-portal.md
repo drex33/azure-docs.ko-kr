@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: references_regions, devx-track-azurecli, ignite-fall-2021
-ms.openlocfilehash: 32e21c102bec3c66c066cad9083ab6a561105289
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8c266f1fc338ca35b05730d9f737a836bdf8949d
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084997"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893142"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Managed Instance for Apache Cassandra 클러스터 만들기
 
@@ -42,24 +42,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    * **리소스 그룹** - 새 리소스 그룹을 만들지 또는 기존 집합을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 개요 문서를 참조하세요.
    * **클러스터 이름** - 클러스터의 이름을 입력합니다.
    * **위치** - 클러스터가 배포되는 위치입니다.
-   * **SKU** - 클러스터의 SKU 형식입니다.
-   * **노드 수** - 클러스터의 노드 수입니다. 이러한 노드는 데이터의 복제본 역할을 합니다.
    * **최초 Cassandra 관리자 암호** - 클러스터를 만드는 데 사용되는 암호입니다.
    * **Cassandra 관리자 암호 확인** - 암호를 다시 입력합니다.
-
-   > [!NOTE]
-   > 현재 *미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 북유럽, 서유럽, 동남 아시아, 인도 중부, 오스트레일리아 동부* 지역에서 관리되는 인스턴스 클러스터를 만들 수 있습니다.
+   * **Virtual Network** - Virtual Network 종료 및 서브넷을 선택하거나 새 서브넷을 만듭니다. 
+   * **역할 할당** - 관리되는 Cassandra 클러스터를 배포할 수 있도록 하려면 Virtual Networks에 특별한 권한이 필요합니다. 새 Virtual Network를 만들거나 권한이 적용되지 않은 기존 Virtual Network를 사용하는 경우 이 확인란을 선택된 상태로 유지합니다. Managed Instance Cassandra 클러스터를 이미 배포한 가상 네트워크를 사용하는 경우 이 옵션을 선택 취소합니다.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="클러스터 만들기 양식을 작성합니다." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
-1. 다음으로 **네트워킹** 탭을 선택합니다.
-
-1. **네트워킹** 창에서 **가상 네트워크** 이름과 **서브넷** 을 선택합니다. 기존 가상 네트워크를 선택하거나 새로 만들 수 있습니다.
-
-   :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="네트워킹 세부 정보를 구성합니다." lightbox="./media/create-cluster-portal/networking.png" border="true":::
-
    > [!NOTE]
-   > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다.
+   > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다. 자세한 내용은 [필수 아웃바운드 네트워크 규칙](network-rules.md)을 참조하세요.
    > - Azure Storage
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
@@ -67,16 +58,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    > - Azure Active Directory
    > - Azure Security
 
-1. 마지막 단계에서 새 VNet을 만든 경우 8단계로 건너뜁니다. 기존 VNet을 선택한 경우 클러스터를 만들기 전에 가상 네트워크 및 서브넷에 몇 가지 특수 권한을 적용해야 합니다. 이렇게 하려면 `az role assignment create` 명령을 사용하여 `<subscription ID>`, `<resource group name>` 및 `<VNet name>`을 적절한 값으로 바꿉니다.
+1. 다음으로, **데이터 센터** 탭을 선택합니다.
 
-   ```azurecli-interactive
-   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
-   ```
+1. 다음 세부 정보를 입력합니다.
 
-   > [!NOTE]
-   > 이전 명령의 `assignee` 및 `role` 값은 고정된 값이므로 명령에 설명된 대로 이러한 값을 정확하게 입력합니다. 그렇게 하지 않으면 클러스터를 만들 때 오류가 발생합니다. 이 명령을 실행할 때 오류가 발생하면 실행할 권한이 없는 것일 수 있습니다. 관리자에게 문의하여 권한을 받으세요.
+   * **데이터 센터 이름** - 드롭다운에서 Azure 구독을 선택합니다.
+   * **가용성 영역** - 가용성 영역을 사용하도록 설정하려면 이 확인란을 선택합니다.
+   * **SKU 크기** - 사용 가능한 가상 머신 SKU 크기 중에서 선택합니다.
+   * **디스크 수** - 각 Cassandra 노드에 연결할 p30 디스크 수를 선택합니다.
+   * **노드 수** - 이 데이터 센터에 배포할 Cassandra 노드 수를 선택합니다.
 
-1. 이제 네트워킹은 완료되었으므로 **검토 + 만들기** > **만들기** 를 클릭합니다.
+   :::image type="content" source="./media/create-cluster-portal/create-datacenter-page.png" alt-text="요약을 검토하고 데이터 센터를 만듭니다." lightbox="./media/create-cluster-portal/create-datacenter-page.png" border="true":::
+
+   > [!WARNING]
+   > 모든 하위 지역에서 가용성 영역이 지원되지 않습니다. 가용성 영역이 지원되지 않는 하위 지역을 선택하면 배포에 실패합니다. [여기](/azure/availability-zones/az-overview#azure-regions-with-availability-zones)에서 지원되는 지역을 참조하세요. 또한 가용성 영역을 성공적으로 배포하는 경우 지정된 하위 지역의 모든 영역에서 컴퓨팅 리소스를 사용할 수 있습니다. 선택한 SKU 또는 용량을 모든 영역에서 사용할 수 없는 경우 배포가 실패할 수 있습니다. 
+
+1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다
 
    > [!NOTE]
    > 클러스터를 만드는 데 최대 15분이 소요될 수 있습니다.
@@ -87,9 +84,51 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    :::image type="content" source="./media/create-cluster-portal/managed-instance.png" alt-text="클러스터를 만든 후의 개요 페이지." lightbox="./media/create-cluster-portal/managed-instance.png" border="true":::
 
-1. 클러스터 노드를 탐색하려면 클러스터를 만드는 데 사용한 가상 네트워크 창으로 이동하고 **개요** 창을 열어 확인합니다.
+1. 클러스터 노드를 찾아보려면 클러스터 리소스로 이동하고 **데이터 센터** 창을 열어서 확인합니다.
 
-   :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="클러스터 리소스를 확인합니다." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/datacenter-1.png" alt-text="데이터 센터 노드를 봅니다." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
+
+<!-- ## <a id="create-account"></a>Add a datacenter
+
+1. To add another datacenter, click the add button in the **Data Center** pane:
+
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="Click on add datacenter." lightbox="./media/create-cluster-portal/add-datacenter.png" border="true":::
+
+   > [!WARNING]
+   > If you are adding a datacenter in a different region, you will need to select a different virtual network. You will also need to ensure that this virtual network has connectivity to the primary region's virtual network created above (and any other virtual networks that are hosting datacenters within the managed instance cluster). Take a look at [this article](/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks) to learn how to peer virtual networks using Azure portal. You also need to make sure you have applied the appropriate role to your virtual network before attempting to deploy a managed instance cluster, using the below CLI command.
+   >
+   > ```azurecli-interactive  
+   >     az role assignment create \
+   >     --assignee a232010e-820c-4083-83bb-3ace5fc29d0b \
+   >     --role 4d97b98b-1d4f-4787-a291-c67834d212e7 \
+   >     --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>
+   > ```
+
+1. Fill in the appropriate fields:
+
+   * **Datacenter name** - From the drop-down, select your Azure subscription.
+   * **Availability zone** - Check this box if you want availability zones to be enabled in this datacenter.
+   * **Location** - Location where your datacenter will be deployed to.
+   * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
+   * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
+   * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
+   * **Virtual Network** - Select an Exiting Virtual Network and Subnet.  
+
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter-2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/add-datacenter-2.png" border="true":::
+
+   > [!WARNING]
+   > Notice that we do not allow creation of a new virtual network when adding a datacenter. You need to choose an existing virtual network, and as mentioned above, you need to ensure there is connectivity between the target subnets where datacenters will be deployed. You also need to apply the appropriate role to the VNet to allow deployment (see above).
+
+1. When the datacenter is deployed, you should be able to view all datacenter information in the **Data Center** pane:
+
+   :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/multi-datacenter.png" border="true":::
+
+## Troubleshooting
+
+If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
+
+> [!NOTE] 
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.   -->
 
 ## <a name="connecting-to-your-cluster"></a>클러스터에 연결
 
@@ -116,14 +155,6 @@ initial_admin_password="Password provided when creating the cluster"
 cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
 
-## <a name="troubleshooting"></a>문제 해결
-
-Virtual Network에 권한을 적용할 때 *'e5007d2c-4b13-4a74-9b6a-605d99f03501'에 대한 그래프 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수 없음* 과 같은 오류가 발생하는 경우 Azure Portal에서 동일한 권한을 수동으로 적용할 수 있습니다. 포털에서 권한을 적용하려면 기존 가상 네트워크의 **액세스 제어(IAM)** 창으로 이동하여 "Azure Cosmos DB"에 대한 역할 할당을 "네트워크 관리자" 역할에 추가합니다. "Azure Cosmos DB"를 검색할 때 두 개의 항목이 나타나면 다음 이미지에 표시된 대로 항목을 추가합니다. 
-
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="권한 적용" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
-
-> [!NOTE] 
-> Azure Cosmos DB 역할 할당은 배포 목적으로만 사용됩니다. Azure Managed Instanced for Apache Cassandra에는 Azure Cosmos DB에 대한 백 엔드 종속성이 없습니다.   
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

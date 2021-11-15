@@ -1,5 +1,6 @@
 ---
-title: 관리 동의 워크플로 구성 - Azure Active Directory | Microsoft Docs
+title: 관리자 동의 워크플로 구성
+titleSuffix: Azure AD
 description: 최종 사용자가 관리자 동의가 필요한 애플리케이션에 대한 액세스를 요청하는 방법을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: davidmu1
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 10/06/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5611de6dde5ef1380a819ba3f3a2e6050d79374b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07254d54d535616aa3a6b1c17a2b1b81d8fe16bb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536241"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659206"
 ---
-# <a name="configure-the-admin-consent-workflow"></a>관리자 동의 워크플로 구성
+# <a name="configure-the-admin-consent-workflow-in-azure-active-directory"></a>Azure Active Directory에서 관리자 동의 워크플로 구성
 
 이 문서에서는 최종 사용자에게 관리자 동의가 필요한 애플리케이션에 대한 액세스를 요청하는 방법을 제공하는 관리 동의 워크플로 기능을 사용하도록 설정하는 방법을 설명합니다.
 
@@ -90,7 +91,7 @@ ms.locfileid: "122536241"
 
 8. 요청을 평가하고 적절한 조치를 취합니다.
 
-   * **요청 승인**. 요청을 승인하려면 애플리케이션에 관리자 동의를 부여합니다. 요청이 승인되면 모든 요청자에게 액세스 권한이 부여되었다는 알림이 표시됩니다.  
+   * **요청 승인**. 요청을 승인하려면 애플리케이션에 관리자 동의를 부여합니다. 요청이 승인되면 모든 요청자에게 액세스 권한이 부여되었다는 알림이 표시됩니다. 요청을 승인하면 사용자 할당으로 달리 제한하지 않는 한 테넌트의 모든 사용자가 애플리케이션에 액세스할 수 있습니다. 
    * **요청 거부**. 요청을 거부하려면 모든 요청자에게 제공되는 근거를 제공해야 합니다. 요청이 거부되면 모든 요청자에게 애플리케이션에 대한 액세스가 거부되었다는 알림이 표시됩니다. 요청이 거부되더라도 사용자는 나중에 앱에 대한 관리자 동의를 다시 요청할 수 있습니다.  
    * **요청 차단**. 요청을 차단하려면 모든 요청자에게 제공되는 근거를 제공해야 합니다. 요청이 차단되면 모든 요청자에게 애플리케이션에 대한 액세스가 거부되었다는 알림이 표시됩니다. 요청을 차단하면 테넌트의 애플리케이션에 대한 서비스 주체 개체가 사용하지 않도록 설정된 상태로 만들어집니다. 사용자는 이후로 애플리케이션에 대한 관리자 동의를 요청할 수 없습니다.
 

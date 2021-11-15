@@ -1,7 +1,6 @@
 ---
 title: Azure AD Multi-Factor Authentication을 위한 배포 고려 사항
 description: Azure AD Multi-Factor Authentication의 성공적인 구현을 위한 배포 고려 사항 및 전략에 대해 알아봅니다.
-services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
@@ -11,12 +10,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e97e62980427fb83c6bf7884da92dd9c5e1f7
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 42ce13335c3bab4a853de5001760eca0d85fdf7b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602318"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352636"
 ---
 # <a name="plan-an-azure-active-directory-multi-factor-authentication-deployment"></a>Azure Active Directory Multi-Factor Authentication 배포 계획 
 
@@ -64,13 +63,13 @@ Azure AD(Azure Active Directory) MFA(Multi-Factor Authentication)는 데이터�
 
 테넌트에서 사용 가능한 인증 방법을 제어할 수 있습니다. 예를 들어 SMS와 같은 가장 안전하지 않은 몇 가지 방법을 차단할 수 있습니다.
 
-| 인증 방법 | 관리 위치 | 범위 지정 |
+| 인증 방법    | 관리 위치 | 범위 지정 |
 |-----------------------|-------------|---------|
 | Microsoft Authenticator(푸시 알림 및 암호 없는 휴대폰 로그인)    | MFA 설정 또는
 인증 방법 정책 | Authenticator 암호 없는 휴대폰 로그인의 범위를 사용자와 그룹으로 지정할 수 있음 |
 | FIDO2 보안 키 | 인증 방법 정책 | 범위를 사용자와 그룹으로 지정할 수 있음 |
 | 소프트웨어 또는 하드웨어 OATH 토큰 | MFA 설정 |     |
-| SMS 확인 | MFA 설정 | 인증 정책에서 기본 인증을 위한 SMS 로그인을 관리합니다. SMS 로그인의 범위를 사용자와 그룹으로 지정할 수 있습니다. |
+| SMS 확인 | MFA 설정 | 인증 정책에서 기본 인증을 위한 SMS 로그인을 관리합니다.    SMS 로그인의 범위를 사용자와 그룹으로 지정할 수 있습니다. |
 | 음성 통화 | 인증 방법 정책 |       |
 
 
@@ -117,7 +116,7 @@ Azure AD MFA를 요구하는 일반적인 사용 사례는 다음과 같습니�
 
 사용자가 사용자별로 적용된 Azure AD Multi-Factor Authentication을 사용하도록 설정했다면 다음 PowerShell을 사용하여 조건부 액세스 기반 Azure AD Multi-Factor Authentication으로 변환하는 데 도움을 받을 수 있습니다.
 
-ISE 창에서 이 PowerShell을 실행하거나 로컬에 실행할 `.PS1` 파일로 저장합니다. [MSOnline 모듈](/powershell/module/msonline/?view=azureadps-1.0#msonline)을 통해서만 작업을 수행할 수 있습니다. 
+ISE 창에서 이 PowerShell을 실행하거나 로컬에 실행할 `.PS1` 파일로 저장합니다. [MSOnline 모듈](/powershell/module/msonline#msonline)을 통해서만 작업을 수행할 수 있습니다. 
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -170,7 +169,7 @@ Azure AD ID 보호는 Azure AD MFA 사례에 대한 등록 정책과 자동화�
 Azure AD ID 보호를 사용하는 경우, 사용자가 다음에 대화형으로 로그인할 때 등록하라는 메시지를 표시하도록 [Azure AD MFA 등록 정책을 구성](../identity-protection/howto-identity-protection-configure-mfa-policy.md)합니다.
 
 ### <a name="registration-without-identity-protection"></a>ID 보호를 사용하지 않는 등록
-Azure AD ID 보호를 사용할 수 있는 라이선스가 없는 경우 다음에 로그인 시 MFA가 필요할 때 MFA를 등록하라는 메시지가 사용자에게 표시됩니다. 사용자가 MFA를 사용하도록 요구하려면 조건부 액세스 정책을 사용하고 HR 시스템과 같은, 자주 사용하는 애플리케이션을 대상으로 지정할 수 있습니다. 사용자 암호가 손상된 경우 계정을 제어하고 MFA에 등록하는 데 사용할 수 있습니다. 따라서 신뢰할 수 있는 디바이스와 위치를 요구하는 [조건부 액세스 정책을 사용하여 보안 등록 프로세스를 보호](../conditional-access/howto-conditional-access-policy-registration.md)하는 것이 좋습니다. [임시 액세스 패스](howto-authentication-temporary-access-pass.md)도 요청하여 프로세스 보안을 강화할 수 있습니다. 강력한 인증 요구 사항을 충족하고 암호 없는 방법을 비롯한 다른 인증 방법을 온보딩하는 데 사용할 수 있는, 관리자가 발급한 시간 제한형 암호입니다.
+Azure AD ID 보호를 사용할 수 있는 라이선스가 없는 경우 다음에 로그인 시 MFA가 필요할 때 MFA를 등록하라는 메시지가 사용자에게 표시됩니다. 사용자가 MFA를 사용하도록 요구하려면 조건부 액세스 정책을 사용하고 HR 시스템과 같은, 자주 사용하는 애플리케이션을 대상으로 지정할 수 있습니다. 사용자의 암호가 손상된 경우 계정을 제어하고 MFA에 등록하는 데 사용할 수 있습니다. 따라서 신뢰할 수 있는 디바이스와 위치를 요구하는 [조건부 액세스 정책을 사용하여 보안 등록 프로세스를 보호](../conditional-access/howto-conditional-access-policy-registration.md)하는 것이 좋습니다. [임시 액세스 패스](howto-authentication-temporary-access-pass.md)도 요청하여 프로세스 보안을 강화할 수 있습니다. 강력한 인증 요구 사항을 충족하고 암호 없는 방법을 비롯한 다른 인증 방법을 온보딩하는 데 사용할 수 있는, 관리자가 발급한 시간 제한형 암호입니다.
 
 ### <a name="increase-the-security-of-registered-users"></a>등록된 사용자의 보안 강화
 SMS 또는 음성 통화를 사용하여 MFA에 등록한 사용자가 있는 경우 Microsoft Authenticator 앱과 같은 더 안전한 방법으로 이동하는 것이 좋습니다. 이제 Microsoft는 로그인하는 동안 사용자에게 Microsoft Authenticator 앱을 설정하라는 메시지를 표시하는 기능을 퍼블릭 미리 보기로 제공합니다. 그룹으로 프롬프트를 설정하여 메시지가 표시되는 사용자를 제어하고 대상 캠페인에서 사용자를 더 안전한 방법으로 이동하도록 설정할 수 있습니다. 
@@ -182,7 +181,7 @@ SMS 또는 음성 통화를 사용하여 MFA에 등록한 사용자가 있는 �
 - 관리자 권한으로 방법을 업데이트합니다. 이렇게 하려면 Azure Portal에서 사용자를 선택한 다음, 인증 방법을 선택하고 방법을 업데이트합니다.
 사용자 통신
 
-사용자에게 예정된 변경 내용, Azure AD MFA 등록 요구 사항, 필요한 모든 사용자 작업에 대해 알리는 것이 중요합니다. Microsoft는 [통신 템플릿](https://aka.ms/mfatemplates) 및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md)를 제공하여 통신 초안을 간단하게 작성할 수 있도록 지원합니다. 사용자를 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/)으로 보내 해당 페이지에서 **보안 정보** 링크를 선택하여 등록하게 합니다.
+사용자에게 예정된 변경 내용, Azure AD MFA 등록 요구 사항, 필요한 모든 사용자 작업에 대해 알리는 것이 중요합니다. Microsoft는 [통신 템플릿](https://aka.ms/mfatemplates) 및 [최종 사용자 설명서](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8)를 제공하여 통신 초안을 간단하게 작성할 수 있도록 지원합니다. 사용자를 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/)으로 보내 해당 페이지에서 **보안 정보** 링크를 선택하여 등록하게 합니다.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>온-프레미스 시스템과 통합 계획
 
@@ -207,11 +206,11 @@ RADIUS 인증을 사용하는 애플리케이션의 경우 SAML, Open ID Connect
 
 - Citrix 게이트웨이
 
-  [Citrix 게이트웨이](https://docs.citrix.com/en-us/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods)는 RADIUS 및 NPS 확장 통합과 SAML 통합을 둘 다 지원합니다.
+  [Citrix 게이트웨이](https://docs.citrix.com/en-us/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods)는 RADIUS와 NPS 확장 통합 및 SAML 통합을 모두 지원합니다.
 
 - Cisco VPN
-  - Cisco VPN은 RADIUS와 [SSO용 SAML 인증](../saas-apps/cisco-anyconnect.md)을 둘 다 지원합니다.
-  - RADIUS 인증에서 SAML로 전환하면 NPS 확장을 배포하지 않고 Cisco VPN을 통합할 수 있습니다.
+  - Cisco VPN은 RADIUS와 [SSO용 SAML 인증](../saas-apps/cisco-anyconnect.md)을 모두 지원합니다.
+  - RADIUS 인증에서 SAML으로 전환하면 NPS 확장을 배포하지 않고 Cisco VPN을 통합할 수 있습니다.
 
 - 모든 VPN
 

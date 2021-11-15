@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b69d4473529f585d6a0c997bafca42516e91a2
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 38f602d41d8891aadc45a9dd35d2ea62afda897d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203165"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998241"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -217,7 +217,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 
 ### <a name="minimize-the-number-of-conditional-access-policies"></a>조건부 액세스 정책 수 최소화
 
-각 앱에 대한 정책을 만드는 것은 비효율적이며 관리가 어려워집니다. 조건부 액세스는 사용자당 초기 195개 정책만 적용합니다. 앱을 분석하여 동일한 사용자에 대한 동일한 리소스 요구 사항이 있는 애플리케이션으로 그룹화하는 것이 좋습니다. 예를 들어 모든 Microsoft 365 앱 또는 모든 HR 앱에 동일한 사용자에 대한 동일한 요구 사항이 있는 경우 단일 정책을 만들고 해당 정책이 적용되는 모든 앱을 포함합니다. 
+각 앱에 대한 정책을 만드는 것은 비효율적이며 관리가 복잡해집니다. 각 Azure AD 테넌트에는 최대 195개의 조건부 액세스가 있을 수 있습니다. 앱을 분석하고 동일한 액세스 요구 사항이 있는 정책으로 그룹화하는 것이 좋습니다. 예를 들어 모든 Microsoft 365 앱 또는 모든 HR 앱에 동일한 사용자에 대한 동일한 요구 사항이 있는 경우 각 앱에 대한 정책을 추가하는 대신 단일 정책을 만들고 이러한 앱을 모두 포함합니다.
 
 ### <a name="set-up-emergency-access-accounts"></a>응급 액세스 계정 설정
 

@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6a1e887b9cbab6c8393dacf83a0e148ba257630d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 8768d188ae56896fe1f7272ee18533e95343e69c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452626"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131846561"
 ---
 # <a name="tutorial-deploy-web-application-connected-to-azure-storage-blob-with-service-connector"></a>자습서: 서비스 커넥터를 사용하여 Azure Storage Blob에 연결된 웹 애플리케이션 배포
 
@@ -26,10 +26,10 @@ ms.locfileid: "131452626"
 ## <a name="1-set-up-your-initial-environment"></a>1. 초기 환경 설정
 
 1. 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
+2. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
 
 
-Azure CLI 버전이 2.18.0 이상인지 확인합니다.
+Azure CLI 버전이 2.30.0 이상인지 확인합니다.
 
 ```Azure CLI
 az --version

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6cb9d7dad1b55e6d49fdbe40a0ecd9dd052ba8
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 3427384d41b4ebdd5f65d9c7e9ecdde911b5f08e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228399"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807648"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -76,12 +76,12 @@ Microsoft의 암호 없는 인증 방법으로 다양한 시나리오가 가능�
 
 | 필수 조건| Microsoft Authenticator 앱| FIDO2 보안 키|
 | - | -|-|
-| [결합된 Azure AD MFA(Multi-Factor Authenticaiton) 및 SSPR(셀프 서비스 암호 재설정 등록)](howto-registration-mfa-sspr-combined.md)이 사용하도록 설정됩니다.| √| √|  |
-| [사용자가 Azure AD MFA를 수행할 수 있습니다.](howto-mfa-getstarted.md)| √| √|  |
-| [사용자가 Azure AD MFA 및 SSPR에 등록했습니다.](howto-registration-mfa-sspr-combined.md)| √| √|  |
-| [사용자가 모바일 디바이스를 Azure Active Directory에 등록했습니다.](../devices/overview.md)| √| |  |
-| Microsoft Edge 또는 Mozilla Firefox(버전 67 이상)와 같은 지원되는 브라우저를 사용하는 Windows 10 버전 1809 이상 네이티브 지원을 위해 버전 1903 이상이 권장됩니다.| | √|  |
-| 호환되는 보안 키. [Microsoft에서 테스트하고 확인한 FIDO2 보안 키](concept-authentication-passwordless.md) 또는 기타 호환되는 FIDO2 보안 키를 사용하고 있는지 확인합니다.| | √|  |
+| [결합된 Azure AD MFA(Multi-Factor Authenticaiton) 및 SSPR(셀프 서비스 암호 재설정 등록)](howto-registration-mfa-sspr-combined.md)이 사용하도록 설정됩니다.| √| √|
+| [사용자가 Azure AD MFA를 수행할 수 있습니다.](howto-mfa-getstarted.md)| √| √|
+| [사용자가 Azure AD MFA 및 SSPR에 등록했습니다.](howto-registration-mfa-sspr-combined.md)| √| √|
+| [사용자가 모바일 디바이스를 Azure Active Directory에 등록했습니다.](../devices/overview.md)| √| |
+| Microsoft Edge 또는 Mozilla Firefox(버전 67 이상)와 같은 지원되는 브라우저를 사용하는 Windows 10 버전 1809 이상 네이티브 지원을 위해 버전 1903 이상이 권장됩니다.| | √|
+| 호환되는 보안 키. [Microsoft에서 테스트하고 확인한 FIDO2 보안 키](concept-authentication-passwordless.md) 또는 기타 호환되는 FIDO2 보안 키를 사용하고 있는지 확인합니다.| | √|
 
 
 ### <a name="windows-hello-for-business"></a>비즈니스용 Windows Hello
@@ -109,11 +109,11 @@ Microsoft의 암호 없는 인증 방법으로 다양한 시나리오가 가능�
 
 * [Azure AD MFA 및 SSPR의 결합 등록 지침](howto-registration-mfa-sspr-combined.md)
 
-* [Microsoft Authenticator 앱 다운로드](../user-help/user-help-auth-app-download-install.md)
+* [Microsoft Authenticator 앱 다운로드](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
 * [Microsoft Authenticator 앱에 등록](howto-authentication-passwordless-phone.md)
 
-* [휴대폰으로 로그인](../user-help/user-help-auth-app-sign-in.md)
+* [휴대폰으로 로그인](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)
 
 Microsoft는 최종 사용자를 위한 커뮤니케이션 템플릿을 제공합니다. 커뮤니케이션 초안을 작성하는 데 도움이 되는 [인증 롤아웃 자료](https://aka.ms/MFAtemplates)를 다운로드합니다. 롤아웃 자료에는 조직의 향후 암호 없는 인증 옵션에 대해 사용자에게 알리는 데 사용할 수 있는 사용자 지정 가능한 포스터와 이메일 템플릿이 포함되어 있습니다.
 
@@ -130,11 +130,11 @@ Microsoft는 최종 사용자를 위한 커뮤니케이션 템플릿을 제공�
 
 ## <a name="plan-for-and-deploy-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 계획 및 배포
 
-[Microsoft Authenticator 앱](concept-authentication-passwordless.md)으로 iOS 또는 Android 휴대폰이 강력한 암호 없는 자격 증명으로 바뀝니다. Google Play 또는 Apple App Store에서 무료로 다운로드할 수 있습니다. 사용자가 [Microsoft Authenticator 앱을 다운로드](../user-help/user-help-auth-app-download-install.md)하고 지침에 따라 휴대폰 로그인을 사용 설정하도록 합니다.
+[Microsoft Authenticator 앱](concept-authentication-passwordless.md)으로 iOS 또는 Android 휴대폰이 강력한 암호 없는 자격 증명으로 바뀝니다. Google Play 또는 Apple App Store에서 무료로 다운로드할 수 있습니다. 사용자가 [Microsoft Authenticator 앱을 다운로드](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)하고 지침에 따라 휴대폰 로그인을 사용 설정하도록 합니다.
 
 ### <a name="technical-considerations"></a>기술 고려 사항
 
-**AD FS(Active Directory Federation Services) 통합** - 사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 하이브리드 테넌트의 사용자는 "암호를 대신 사용합니다."를 선택하지 않는 한, 로그인을 위해 ADFS로 이동되지 않습니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 PTA(통과 인증) 흐름을 무시합니다. 그러나 login_hint가 지정된 경우 사용자가 AD FS로 전달되고 암호 없는 자격 증명을 사용하는 옵션이 바이패스됩니다.
+**AD FS(Active Directory Federation Services) 통합** - 사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 하이브리드 테넌트의 사용자는 "암호를 대신 사용합니다."를 선택하지 않는 한, 로그인을 위해 AD FS로 이동되지 않습니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 PTA(통과 인증) 흐름을 무시합니다. 그러나 login_hint가 지정된 경우 사용자가 AD FS로 전달되고 암호 없는 자격 증명을 사용하는 옵션이 바이패스됩니다.
 
 **Azure MFA 서버** - 조직의 온-프레미스 Azure MFA 서버를 통한 다단계 인증을 사용하는 최종 사용자는 단일 암호 없는 휴대폰 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명으로 Microsoft Authenticator 앱의 여러 설치(5개 이상)를 업그레이드하려고 시도하면 이 변경으로 인해 오류가 발생할 수 있습니다.
 
@@ -294,7 +294,6 @@ FIDO2 보안 키를 사용하여 Windows 10 로그인을 사용하도록 설정�
 
 ### <a name="troubleshoot-security-key-sign-in"></a>보안 키 로그인 문제 해결
 
-
 | 시나리오| 솔루션 |
 | - | -|
 | 사용자가 결합된 등록을 수행할 수 없습니다.| [결합된 등록](concept-registration-mfa-sspr-combined.md)이 사용하도록 설정되어 있는지 확인합니다. |
@@ -305,10 +304,9 @@ FIDO2 보안 키를 사용하여 Windows 10 로그인을 사용하도록 설정�
 | 사용자가 Windows 10 버전 1809에서 내 보안 키를 관리할 수 없습니다.| 버전 1809에서는 FIDO2 키 공급업체에서 제공하는 보안 키 관리 소프트웨어를 사용해야 합니다. 공급업체에 지원을 문의하세요. |
 | FIDO2 보안 키에 결함이 있는 것 같습니다. 어떻게 테스트할 수 있나요?| [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)으로 이동하고, 테스트 계정에 대한 자격 증명을 입력하고, 의심스러운 보안 키를 연결하고, 화면 오른쪽 위에 있는 + 단추를 선택하고, 만들기를 선택하고, 만들기 프로세스를 진행합니다. 이 시나리오에서 오류가 발생하면 디바이스에 결함이 있을 수 있습니다. |
 
-
 ## <a name="manage-passwordless-authentication"></a>암호 없는 인증 관리
 
-[Azure Portal](https://portal.azure.com/)에서 사용자의 암호 없는 인증 방법을 관리하려면 사용자 계정을 선택한 다음 인증 방법을 선택합니다.
+[Azure Portal](https://portal.azure.com/)에서 사용자의 암호 없는 인증 방법을 관리하려면 사용자 계정을 선택한 다음, 인증 방법을 선택합니다.
 
 ### <a name="microsoft-graph-apis"></a>Microsoft Graph API 
 
@@ -320,7 +318,7 @@ Microsoft Graph의 인증 방법 API를 사용하여 암호 없는 인증 방법
 
 * 보안 키 및 Microsoft Authenticator 앱에 대한 인증 방법 정책을 관리합니다.
 
-Microsoft Graph에서 관리할 수 있는 인증 방법에 대한 자세한 내용은 [Azure AD 인증 방법 API 개요](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 참조하세요.
+Microsoft Graph에서 관리할 수 있는 인증 방법에 대한 자세한 내용은 [Azure AD 인증 방법 API 개요](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)를 참조하세요.
 
 ### <a name="rollback"></a>롤백
 
@@ -340,12 +338,11 @@ Azure AD에는 기술 및 비즈니스 인사이트를 제공하는 보고서가
 
 다음 표에서는 일반적인 보고 시나리오의 몇 가지 예를 제공합니다.
 
-| 위험 관리| 생산성 향상| 거버넌스 및 규정 준수|
-|-|-|-|
+| 위험 관리| 생산성 향상| 거버넌스 및 규정 준수| other|
+|-|-|-|-|
 | 보고서 유형| 인증 방법 - 사용자가 결합된 보안 등록에 등록함| 인증 방법 – 사용자가 앱 알림에 등록함| 로그인: 테넌트에 액세스하는 사용자 및 방법 검토 |
 | 잠재적 작업| 대상 사용자가 아직 등록되지 않음| Microsoft Authenticator 앱 또는 보안 키의 도입 주도| 관리자에 대해 액세스 해지 또는 추가 보안 정책 적용 |
 
- 
 
 #### <a name="track-usage-and-insights"></a>사용량 및 인사이트 추적
 

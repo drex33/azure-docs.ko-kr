@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 4f521f21ad61eb0163460b552199f2ef5d7b6152
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 41c11c922eec62b282855fee1cd75a94cb912bb6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124821809"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451353"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>자습서: Overdrive와 Azure Active Directory 통합
 

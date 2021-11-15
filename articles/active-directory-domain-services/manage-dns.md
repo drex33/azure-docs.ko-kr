@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 09/16/2021
 ms.author: justinha
-ms.openlocfilehash: 935abb1a1eae362e3036c323da35aa5fd7b9b018
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: a02dbe66e255cd56865a0ce75310260fd690b069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707973"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546995"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 DNS를 관리하고 조건부 전달자 만들기
 
@@ -28,7 +28,7 @@ Azure AD DS에는 관리되는 도메인에 대한 이름 확인을 제공하는
 이 문서에서는 DNS 서버 도구를 설치한 다음 DNS 콘솔을 사용하여 Azure AD DS에서 레코드를 관리하고 조건부 전달자를 만드는 방법을 보여 줍니다.
 
 >[!NOTE]
->서버 수준 DNS 전달자를 만들거나 변경하는 기능은 지원되지 않으며 Azure AD DS 관리되는 도메인과 관련된 문제가 발생합니다.
+>루트 힌트 또는 서버 수준 DNS 전달자를 만들거나 변경하는 기능은 지원되지 않으며 Azure AD DS 관리형 도메인과 관련된 문제가 발생합니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

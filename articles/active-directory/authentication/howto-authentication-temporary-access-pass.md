@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 10/22/2021
 ms.author: justinha
-author: justinha
+author: inbarckMS
 manager: daveba
-ms.reviewer: inbarckms
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb911bb58413e6551224d98371cf56ecbd8e01f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ef246412a172b6f5fcafcd409e4b6e29eb12c847
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528745"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471443"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>암호 없는 인증 방법을 등록하기 위해 Azure AD에서 임시 액세스 패스 구성(미리 보기)
 
@@ -26,7 +26,6 @@ Microsoft Authenticator 앱을 통해 FIDO2 및 암호 없는 휴대폰 로그�
 - TAP(임시 액세스 패스) 사용 
 
 임시 액세스 패스는 강력한 인증 요구 사항을 충족하고 암호 없는 방법을 비롯한 다른 인증 방법을 등록하는 데 사용할 수 있는 관리자가 발급한 시간 제한형 암호입니다. 임시 액세스 패스를 사용하면 사용자가 FIDO2 보안 키 또는 Microsoft Authenticator 앱과 같은 강력한 인증 요소를 분실하거나 잊어버린 경우에도 좀 더 쉽게 복구할 수 있지만 새로운 강력한 인증 방법을 등록하려면 로그인해야 합니다.
-
 
 이 문서에서는 Azure Portal을 사용하여 Azure AD에서 임시 액세스 패스를 사용하도록 설정하고 사용하는 방법을 보여 줍니다. REST API를 사용하여 이러한 작업을 수행할 수도 있습니다. 
 
@@ -120,13 +119,23 @@ c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True        
 이제 사용자가 로그인되어 FIDO2 보안 키와 같은 방법을 업데이트하거나 등록할 수 있습니다. 자격 증명이나 디바이스가 손실되어 인증 방법을 업데이트하는 사용자는 이전 인증 방법을 제거해야 합니다.
 사용자는 암호를 사용하여 계속 로그인할 수도 있습니다. TAP는 사용자의 암호를 대체하지 않습니다.
 
-사용자는 자신의 임시 액세스 패스를 사용하여 Authenticator 앱에서 직접 암호 없는 휴대폰 로그인을 등록할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱에 회사 또는 학교 계정 추가](../user-help/user-help-auth-app-add-work-school-account.md)를 참조하세요.
+### <a name="passwordless-phone-sign-in"></a>암호 없는 휴대폰 로그인
+
+사용자는 자신의 임시 액세스 패스를 사용하여 Authenticator 앱에서 직접 암호 없는 휴대폰 로그인을 등록할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱에 회사 또는 학교 계정 추가](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c)를 참조하세요.
 
 ![회사 또는 학교 계정을 사용하여 임시 액세스 패스를 입력하는 방법을 보여 주는 스크린샷](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
 
-## <a name="delete-a-temporary-access-pass"></a>임시 액세스 패스 삭제
+### <a name="guest-access"></a>게스트 액세스
 
-만료된 임시 액세스 패스는 사용할 수 없습니다. 사용자에 대한 **인증 방법** 에서 **세부 정보** 열에는 임시 액세스 패스가 만료된 시간이 표시됩니다. 다음 단계를 사용하여 만료된 임시 액세스 패스를 삭제할 수 있습니다.
+게스트 사용자는 임시 액세스 패스에서 홈 테넌트 인증 요구 사항을 충족하는 경우 홈 테넌트에서 발급한 임시 액세스 패스를 사용하여 리소스 테넌트로 로그인할 수 있습니다. 리소스 테넌트에서 MFA가 필요한 경우 게스트 사용자는 리소스에 대한 액세스 권한을 얻기 위해 MFA를 수행해야 합니다.
+
+### <a name="expiration"></a>만료
+
+만료되거나 삭제된 임시 액세스 패스는 대화형 또는 비대화형 인증에 사용할 수 없습니다. 사용자는 임시 액세스 패스가 만료되거나 삭제된 후 다른 인증 방법으로 다시 인증해야 합니다. 
+
+## <a name="delete-an-expired-temporary-access-pass"></a>만료된 임시 액세스 패스 삭제
+
+사용자에 대한 **인증 방법** 에서 **세부 정보** 열에는 임시 액세스 패스가 만료된 시간이 표시됩니다. 다음 단계를 사용하여 만료된 임시 액세스 패스를 삭제할 수 있습니다.
 
 1. Azure AD 포털에서 **사용자** 로 이동한 후 사용자(예: *Tap 사용자*)를 선택하고 **인증 방법** 을 선택합니다.
 1. 목록에 표시된 **임시 액세스 패스(미리 보기)** 인증 방법의 오른쪽에서 **삭제** 를 선택합니다.
@@ -152,7 +161,6 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 다음 제한 사항에 유의하세요.
 
 - 일회용 임시 액세스 패스를 사용하여 FIDO2 또는 휴대폰 로그인과 같은 암호 없는 방법을 등록하는 경우 사용자는 일회성 임시 액세스 패스를 사용하여 10분 이내에 등록을 완료해야 합니다. 이 제한은 두 번 이상 사용할 수 있는 임시 액세스 패스에는 적용되지 않습니다.
-- 게스트 사용자는 임시 액세스 패스를 사용하여 로그인할 수 없습니다.
 - 임시 액세스 패스는 퍼블릭 미리 보기로 제공되며 현재 미국 정부용 Azure에서 사용할 수 없습니다.
 - SSPR(셀프 서비스 암호 재설정) 등록 정책 *또는* [ID 보호 Multi-Factor Authentication 등록 정책](../identity-protection/howto-identity-protection-configure-mfa-policy.md) 범위에 있는 사용자는 임시 액세스 패스를 사용하여 로그인한 후 인증 방법을 등록해야 합니다. 이러한 정책에 대한 범위에 있는 사용자는 [결합된 등록의 인터럽트 모드](concept-registration-mfa-sspr-combined.md#combined-registration-modes)로 리디렉션됩니다. 이 환경은 현재 FIDO2 및 휴대폰 로그인 등록을 지원하지 않습니다. 
 - 임시 액세스 패스는 NPS(네트워크 정책 서버) 확장 및 AD FS(Active Directory Federation Services) 어댑터와 함께 사용하거나 Windows 설치/OOBE(Out-of-Box-Experience), Autopilot 또는 비즈니스용 Windows Hello를 배포하는 데 사용할 수 없습니다. 
@@ -173,4 +181,3 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory에서 암호 없는 인증 배포 계획](howto-authentication-passwordless-deployment.md)
-

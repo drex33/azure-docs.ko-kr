@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 912aa02fadef0f950f5d89535bfe38133b61137b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c7018ad879e5877c131af041685722d30b2906b2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101500"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520783"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 
@@ -57,8 +57,29 @@ Azure 스토리지 계정을 만들고 언어 리소스에 연결한 후에는 �
 
 ## <a name="create-a-custom-classification-project"></a>사용자 지정 분류 프로젝트 만들기
 
-[!INCLUDE [Language Studio project creation](../create-project.md)]
+1. [Language Studio](https://aka.ms/languageStudio)에 로그인합니다. 구독 및 언어 리소스를 선택할 수 있는 창이 표시됩니다. 위의 단계에서 만든 리소스를 선택합니다.
 
+2. Language Studio의 **텍스트 분류** 섹션 아래의 사용 가능한 서비스에서 **사용자 지정 텍스트 분류** 를 선택하여 리소스를 선택합니다.
+
+3. 프로젝트 페이지의 상단 메뉴에서 **새 프로젝트 만들기** 를 선택합니다. 프로젝트를 만들면 태그를 데이터에 지정하고, 모델을 학습시키고, 평가하고, 향상시키고, 배포할 수 있습니다. 
+
+    :::image type="content" source="../../media/create-project.png" alt-text="프로젝트 만들기 페이지의 스크린샷" lightbox="../../media/create-project.png":::
+<!--
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible. If you connect a storage account to your resource, you cannot disconnect it later.
+
+    :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
+-->
+4. 위의 단계를 사용하여 리소스를 만든 경우 **커넥트 스토리지** 단계가 이미 완료되었을 것입니다. 그렇지 않으면 리소스에 연결하기 전에 [스토리지 계정에 대한 역할](../../how-to/create-project.md#roles-for-your-storage-account)을 할당해야 합니다.
+
+5. 프로젝트에 있는 파일의 이름, 설명 및 언어를 포함한 프로젝트 정보를 입력합니다. 프로젝트 이름은 나중에 변경할 수 없습니다.
+    >[!TIP]
+    > 데이터 세트는 완전히 동일한 언어로 되어 있지 않아도 됩니다. 지원되는 언어가 각각 다른 여러 파일을 사용할 수 있습니다. 데이터 세트에 다른 언어의 파일이 포함되어 있거나 런타임 중에 다른 언어를 사용하는 경우 프로젝트에 대한 기본 정보를 입력할 때 **다국어 데이터 세트 사용** 을 선택합니다.
+
+6. 프로젝트 형식을 선택합니다. 이 빠른 시작에서는 여러 클래스를 동일한 파일에 할당할 수 있는 다중 레이블 분류 프로젝트를 만듭니다. 그런 후 **Next** 를 클릭합니다. [프로젝트 형식](../../glossary.md#project-types)에 대한 자세한 정보
+
+7. 데이터를 업로드한 컨테이너를 선택합니다. 이 빠른 시작에서는 컨테이너에서 사용할 수 있는 기존 태그 파일을 사용합니다. 그런 후 **Next** 를 클릭합니다.
+
+8. 입력한 데이터를 검토하고, **프로젝트 만들기** 를 선택합니다.
     
 ## <a name="train-your-model"></a>모델 학습
 

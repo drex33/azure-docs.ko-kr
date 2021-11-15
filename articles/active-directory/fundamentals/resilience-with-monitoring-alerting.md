@@ -13,16 +13,20 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccb3876799c0a1473f06c1838536df17eab03398
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648520"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754386"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>모니터링 및 분석을 통한 복원력
 
 모니터링은 애플리케이션 및 서비스의 가용성과 성능을 극대화합니다. 모니터링은 인프라와 애플리케이션에서 원격 분석 데이터를 수집, 분석하고 작업을 수행하기 위한 포괄적인 솔루션을 제공합니다. 경고는 서비스 또는 애플리케이션에서 문제가 발견되면 사전에 알려 줍니다. 서비스의 최종 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. [Azure AD Log Analytics](https://azure.microsoft.com/services/monitor/?OCID=AID2100131_SEM_6d16332c03501fc9c1f46c94726d2264:G:s&ef_id=6d16332c03501fc9c1f46c94726d2264:G:s&msclkid=6d16332c03501fc9c1f46c94726d2264#features)는 감사 로그와 로그인 로그를 분석 및 검색하고 사용자 지정 보기를 빌드하는 데 도움이 됩니다.
+
+Azure Monitor를 사용하여 Azure AD B2C에서 모니터링 및 보고를 설정하는 방법을 알아보려면 이 비디오를 시청하세요.
+
+>[!Video https://www.youtube.com/embed/Mu9GQy-CbXI]
 
 ## <a name="monitor-and-get-notified-through-alerts"></a>모니터링 및 경고를 통해 알림 받기
 

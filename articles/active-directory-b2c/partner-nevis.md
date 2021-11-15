@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 42e244249ecb0539637918ae2439bdb4f5da4b38
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 0bbbe80a9f4c743fb658aa313641ab790e194509
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588482"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234341"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>암호 없는 인증을 위해 Azure Active Directory B2C를 구성하는 방법에 대한 자습서
 
@@ -46,7 +46,7 @@ ms.locfileid: "107588482"
 
 ![Azure AD B2C 및 Nevis를 사용하는 높은 수준의 암호 로그인 흐름](./media/partner-nevis/nevis-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 Azure AD B2C 로그인 및 등록 정책을 통해 애플리케이션에 로그인 또는 등록을 시도합니다.
 | 2. | 등록하는 동안 Nevis 액세스 앱은 QR 코드를 사용하여 사용자 디바이스에 등록됩니다. 사용자 디바이스에 프라이빗 키가 생성되고 이는 사용자 요청을 서명하는 데 사용됩니다.
@@ -270,4 +270,4 @@ ms.locfileid: "107588482"
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

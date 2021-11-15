@@ -11,14 +11,18 @@ ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26112b1e799cbde3145e7137c686b4b336db4bab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66980ff85a3b539c81653f2abce39a1ced50003b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919938"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427611"
 ---
-# <a name="disable-pta-when-using-azure-ad-connect"></a>Azure AD Connect를 사용할 때 PTA 사용하지 않도록 설정
+# <a name="disable-pta"></a>PTA 사용 안 함 
+
+PTA를 사용하지 않도록 설정하려면 [Azure AD Connect를 사용할 때 PTA 사용 안 함](#disable-pta-when-using-azure-ad-connect) 및 이 문서의 [PowerShell에서 PTA 사용 안 함](#disable-pta-in-powershell)에서 설명하는 단계를 완료합니다.
+
+## <a name="disable-pta-when-using-azure-ad-connect"></a>Azure AD Connect를 사용할 때 PTA 사용하지 않도록 설정
 
 Azure AD Connect에서 PTA(통과 인증)이 **"구성 안 함"** 으로 설정되어 있는 경우 이를 사용하지 않도록 설정할 수 있습니다. 
 
@@ -29,12 +33,12 @@ Azure AD Connect에서 PTA(통과 인증)이 **"구성 안 함"** 으로 설정�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 필요한 필수 구성 요소는 다음과 같습니다.
-- PTA 에이전트가 설치된 모든 Windows 컴퓨터 
+- PTA 에이전트가 설치된 모든 Windows 머신 
 - 에이전트는 1.5.1742.0 버전 이상이어야 합니다. 
 - Azure 전역 관리자 계정을 통해 PowerShell cmdlet을 실행하여 PTA를 사용하지 않도록 설정합니다.
 
 >[!NOTE]
-> 에이전트가 오래된 경우 이 작업을 완료하는 데 필요한 cmdlet이 없을 수 있습니다. Azure Portal에서 새 에이전트를 가져와 Windows 컴퓨터에 설치하고 관리자 자격 증명을 제공할 수 있습니다. 에이전트를 설치해도 클라우드의 PTA 상태는 영향을 받지 않습니다.
+> 에이전트가 오래된 경우 이 작업을 완료하는 데 필요한 cmdlet이 없을 수 있습니다. Azure Portal에서 새 에이전트를 가져와 Windows 머신에 설치하고 관리자 자격 증명을 제공할 수 있습니다. 에이전트를 설치해도 클라우드의 PTA 상태는 영향을 받지 않습니다.
 
 > [!IMPORTANT]
 > Azure Government 클라우드를 사용하는 경우 다음 값을 사용하여 ENVIRONMENTNAME 매개 변수를 전달해야 합니다. 
@@ -44,8 +48,10 @@ Azure AD Connect에서 PTA(통과 인증)이 **"구성 안 함"** 으로 설정�
 >| AzureUSGovernment | US Gov|
 
 
-## <a name="to-disable-pta"></a>PTA를 사용하지 않도록 설정하려면
+## <a name="disable-pta-in-powershell"></a>PowerShell에서 PTA 사용 안 함
+
 PowerShell 세션 내에서 다음을 사용하여 PTA를 사용하지 않도록 설정합니다.
+
 1. PS C:\Program Files\Microsoft Azure AD Connect Authentication Agent> `Import-Module .\Modules\PassthroughAuthPSModule`
 2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` 또는 `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
 3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` 또는 `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`

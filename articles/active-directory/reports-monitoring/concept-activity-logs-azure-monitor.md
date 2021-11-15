@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e21e22e231ea5998cf15c7b2982180da91fe49aa
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e7d66bd74263bd23c02cf465b1483ffe610179ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733433"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657921"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
@@ -41,7 +41,7 @@ ms.locfileid: "113733433"
 
 이 기능을 사용하여 Azure AD 감사 로그 및 로그인 로그를 Azure Storage 계정, 이벤트 허브, Azure Monitor 로그 또는 사용자 지정 솔루션으로 라우팅할 수 있습니다. 
 
-* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
+* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 사용자 및 그룹 관리 또는 테넌트 리소스에 적용된 업데이트와 같이 테넌트에 적용된 변경 사항에 대한 정보에 액세스할 수 있습니다.
 * **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
 
 > [!NOTE]

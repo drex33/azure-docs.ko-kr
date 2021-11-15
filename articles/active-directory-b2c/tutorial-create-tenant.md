@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 10/29/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 48577b7625b80954d856d02fcee9e0696393bc55
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0ff64806531f1d99ced2ad2b5747ae73e54114bd
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036260"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505103"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -59,7 +59,7 @@ ms.locfileid: "131036260"
 1. 사용 중인 Azure 구독에 대한 리소스 공급자로 **Microsoft.AzureActiveDirectory** 를 추가합니다([자세히 알아보기](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)).
 
     1. Azure Portal에서 **구독** 을 검색하고 선택합니다.
-    2. 구독을 선택한 다음, 왼쪽 메뉴에서 **리소스 공급자** 를 선택합니다. 왼쪽 메뉴가 표시되지 않으면 페이지의 왼쪽 위에 있는 **<구독 이름>에 메뉴 표시** 아이콘을 선택하고 엽니다.
+    2. 구독을 선택한 다음, 왼쪽 메뉴에서 **리소스 공급자** 를 선택합니다. 왼쪽 메뉴가 표시되지 않으면 페이지의 왼쪽 위에 있는 **<구독 이름>에 메뉴 표시** 아이콘을 선택하여 확장합니다.
     3. **Microsoft.AzureActiveDirectory** 행에 **등록됨** 상태가 표시되는지 확인합니다. 표시되지 않으면 행을 선택한 다음, **등록** 을 선택합니다.
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
@@ -85,6 +85,9 @@ ms.locfileid: "131036260"
 1. 디렉터리 설정을 검토합니다. 그런 다음 **만들기** 를 선택합니다. [배포 오류 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)에 대해 자세히 알아보세요.
 
 청구 목적으로 여러 Azure AD B2C 테넌트를 단일 Azure 구독에 연결할 수 있습니다. 테넌트를 연결하려면 Azure AD B2C 테넌트의 관리자여야 하고 Azure 구독 내에서 적어도 기여자 역할을 할당받아야 합니다. [구독에 Azure AD B2C 테넌트 연결](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription)을 참조하세요.
+
+> [!NOTE]
+> Azure AD B2C 디렉터리를 만든 경우 `b2c-extensions-app`라는 애플리케이션이 새 디렉터리 안에 자동으로 만들어집니다. 수정하거나 삭제하지 마세요. 애플리케이션은 Azure AD B2C에서 사용자 데이터를 저장하는 데 사용됩니다. [Azure AD B2C: 확장 앱](extensions-app.md)에 대해 자세히 알아보세요.
 
 ## <a name="select-your-b2c-tenant-directory"></a>B2C 테넌트 디렉터리 선택
 

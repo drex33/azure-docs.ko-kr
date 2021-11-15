@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 23c77e7072755dfb04005c2028358823d669deee
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1ff1ef66fd8dc4e9d8d52b048da197274bdee89d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124825380"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>자습서: Trakstar와 Azure Active Directory 통합
 
@@ -77,15 +77,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **기본 SAML 구성** 섹션의 다음 입력 상자에 다음 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 Trakstar(설정 > 인증 및 SSO) 내에 있는 **ACS(소비자) URL** 에서 찾은 값을 `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>` 형식으로 복사합니다.
-
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://app.trakstar.com` 기본값을 그대로 둡니다.
-
+    | 필드 이름 | 값 | 참고 | 
+    | ---------------------- | ----- | ---- |
+    | **회신 URL(Assertion Consumer Service URL)** | `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>` | `<YOUR_NAMESPACE>`를 Trakstar Perform의 **ACS(소비자) URL** 필드에 표시되는 실제 값으로 바꿉니다. 이 테이블 뒤 표시되는 참고를 참조하세요. |
+    | **URL에 로그인** | `https://app.trakstar.com/auth/saml/?namespace=<YOUR_NAMESPACE>` | 이 URL은 이전 URL과 _비슷하지만_ `/callback` 부분이 없습니다. |
+    | **ID(엔터티 ID)** | `https://app.trakstar.com` | |
+    
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 Trakstar에 관리자로 로그인하세요.
-    > 설정 내에서 "인증 및 SSO" 탭이 표시되지 않으면 기능이 없을 수도 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 예제일 뿐입니다. 애플리케이션에 로그인하고 **설정** > **인증 및 SSO** > **SAML 2.0** > **구성** 으로 이동하여 표시되는 Trakstar Perform에서 네임스페이스와 관련된 값을 사용해야 합니다.
+    > 
+    > **설정** 내에서 **인증 및 SSO** 탭이 표시되지 않으면 이 기능이 없을 수 있으며 Trakstar 고객 지원에 문의해야 합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 

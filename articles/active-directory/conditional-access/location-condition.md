@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 10/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, olhuan
+ms.reviewer: calebb, mewal
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 09dbcf3557dd45d005a61f9aed99e29abbc684e6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ef2a7671b1db13e1db9fae8339ae33726a2eb3b1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626421"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444285"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>조건부 액세스 정책에서 위치 조건 사용 
 
@@ -80,7 +80,7 @@ IPv4/IPv6 주소 범위로 정의된 명명된 위치는 다음과 같은 제한
 > [!NOTE]
 > IPv6 주소의 로그인은 국가 또는 지역에 매핑할 수 없으며 알 수 없는 영역으로 간주됩니다. IPv4 주소만 국가 또는 지역에 매핑할 수 있습니다.
 
-**GPS 좌표로 위치 결정(미리 보기)** 을 선택하는 경우 사용자는 모바일 장치에 Microsoft Authenticator 앱을 설치해야 합니다. 시스템은 매시간 사용자의 Microsoft Authenticator 앱에 연락하여 사용자의 모바일 장치의 GPS 위치를 수집합니다.
+**GPS 좌표로 위치 결정** 을 선택하는 경우 사용자는 모바일 디바이스에 Microsoft Authenticator 앱을 설치해야 합니다. 시스템은 매시간 사용자의 Microsoft Authenticator 앱에 연락하여 사용자의 모바일 장치의 GPS 위치를 수집합니다.
 
 사용자가 Microsoft Authenticator 앱에서 처음으로 자신의 위치를 공유해야 하는 경우 사용자는 앱에서 알림을 받게 됩니다. 사용자는 앱을 열고 위치 권한을 부여해야 합니다. 
 

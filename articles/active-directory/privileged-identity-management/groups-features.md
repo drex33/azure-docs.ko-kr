@@ -16,12 +16,12 @@ ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86ad08d7c50195332460eab285f3d32d45eec8cb
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 8300499b722b88b8c8007d8f7e44ed3d5ccc7833
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668013"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459295"
 ---
 # <a name="management-capabilities-for-privileged-access-groups-preview"></a>권한 있는 액세스 그룹의 관리 기능(미리 보기)
 

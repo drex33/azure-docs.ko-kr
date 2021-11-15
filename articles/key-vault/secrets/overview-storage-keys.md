@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6e8ad07ac5a03e1ad4df9762dfc1fbb81d820dd2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a0232775be0bc87d4e69d78d855ecc0d268ad339
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593556"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841585"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 > [!IMPORTANT]
@@ -30,6 +30,9 @@ Key Vault 관리형 스토리키 계정 키 기능을 사용하여 키를 나열
 - Key Vault에서만 스토리지 계정 키를 관리해야 합니다. 키를 직접 관리하거나 Key Vault 프로세스를 방해하지 마세요.
 - 단일 Key Vault 개체에서만 스토리지 계정 키를 관리해야 합니다. 여러 개체에서 키를 관리하도록 허용하지 마세요.
 - Key Vault만을 사용하여 키를 다시 생성해야 합니다. 스토리지 계정 키를 수동으로 다시 생성하지 않습니다.
+
+> [!IMPORTANT]
+> 스토리지 계정에서 직접 키를 다시 생성하면 관리 스토리지 계정 설정이 중단되고 사용중인 SAS 토큰이 무효화되어 가동 중단이 발생할 수 있습니다.
 
 ## <a name="service-principal-application-id"></a>서비스 주체 애플리케이션 ID
 

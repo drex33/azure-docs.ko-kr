@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: overview
 author: peterclu
 ms.author: peterlu
-ms.date: 08/23/2021
+ms.date: 10/21/2021
 adobe-target: true
-ms.openlocfilehash: d2b3a18341c782cf848ebd8740577004340be0f8
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 09f4a047d3cccb5b34834a9315893c4c1687bc1b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351883"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556239"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -44,7 +44,7 @@ ms.locfileid: "129351883"
 
 + **Azure Machine Learning 디자이너**
 
-  디자이너를 사용하여 코드를 작성하지 않고도 기계 학습 모델을 학습하고 배포할 수 있습니다. 데이터 세트 및 모듈을 끌어서 놓아 ML 파이프라인을 만듭니다. [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 사용해 보세요.
+  디자이너를 사용하여 코드를 작성하지 않고도 기계 학습 모델을 학습하고 배포할 수 있습니다. 데이터 세트 및 구성 요소를 끌어서 놓아 ML 파이프라인을 만듭니다. [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 사용해 보세요.
 
     ![Azure Machine Learning 디자이너 예](media/concept-designer/designer-drag-and-drop.gif)
 

@@ -3,21 +3,21 @@ title: Azure Active Directory 애플리케이션 프록시를 사용하여 온-�
 description: 온-프레미스 웹 애플리케이션을 외부에 원격 사용자에게 게시할 때 애플리케이션 프록시를 사용하는 이유를 이해합니다. 애플리케이션 프록시 아키텍처, 커넥터, 인증 방법 및 보안 이점에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
-ms.openlocfilehash: 16761e71cdb3b87454bc8409fa8896d13779f66d
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 5968de16c25fd8f559caebaa2af5a9292688076c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539059"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987787"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -77,7 +77,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 이 기능의 구성 요소에는 클라우드에서 실행되는 애플리케이션 프록시 서비스, 온-프레미스 서버에서 실행되는 경량 에이전트인 애플리케이션 프록시 커넥터 및 ID 공급자인 Azure AD가 있습니다. 세 가지 구성 요소가 함께 작동하여 온-프레미스 웹 애플리케이션에 액세스할 수 있는 Single Sign-On 환경을 사용자에게 제공합니다.
 
-외부 사용자는 로그인한 후 익숙한 URL 또는 데스크톱이나 iOS/MAC 디바이스에서 [MyApps](../user-help/my-apps-portal-end-user-access.md)를 사용하여 온-프레미스 웹 애플리케이션에 액세스할 수 있습니다. 예를 들어 앱 프록시는 원격 데스크톱, SharePoint 사이트, Tableau, Qlik, 웹용 Outlook 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
+외부 사용자는 로그인한 후 익숙한 URL 또는 데스크톱이나 iOS/MAC 디바이스에서 [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 사용하여 온-프레미스 웹 애플리케이션에 액세스할 수 있습니다. 예를 들어 앱 프록시는 원격 데스크톱, SharePoint 사이트, Tableau, Qlik, 웹용 Outlook 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 
 ![Azure AD 애플리케이션 프록시 아키텍처](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
@@ -92,7 +92,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 앱 프록시는 다음 네이티브 인증 프로토콜을 사용하는 앱에서 작동합니다.
 
-* **[IWA(Windows 통합 인증)](./application-proxy-configure-single-sign-on-with-kcd.md).** IWA의 경우 애플리케이션 프록시 커넥터는 Kerberos 애플리케이션에 사용자를 인증하는 데 KCD(Kerberos 제한된 위임)를 사용합니다.
+* [**IWA(Windows 통합 인증)** ](./application-proxy-configure-single-sign-on-with-kcd.md). IWA의 경우 애플리케이션 프록시 커넥터는 Kerberos 애플리케이션에 사용자를 인증하는 데 KCD(Kerberos 제한된 위임)를 사용합니다.
 
 앱 프록시는 타사 통합 또는 특정 구성 시나리오에서 다음 인증 프로토콜을 지원합니다.
 

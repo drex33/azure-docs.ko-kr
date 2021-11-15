@@ -2,24 +2,24 @@
 title: 일반적인 Azure 기밀 컴퓨팅 시나리오 및 사용 사례
 description: 시나리오에서 기밀 컴퓨팅을 사용하는 방법을 이해합니다.
 services: virtual-machines
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 11/01/2021
-ms.author: jencook
+ms.date: 11/04/2021
+ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 17462eaeacf36c7748c2654841e8ef11614a6c73
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2fd30934f71df8a84bf718445972ab9d0ff2d469
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080347"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347825"
 ---
 # <a name="use-cases-and-scenarios"></a>사용 사례 및 시나리오
 기밀 컴퓨팅은 정부, 금융 서비스 및 의료 기관과 같은 규제 산업의 데이터를 보호하기 위한 다양한 사용 사례에 적용됩니다. 예를 들어 중요한 데이터에 대한 액세스를 방지하면 데이터를 저장하는 클라우드 공급자를 포함하여 관련된 모든 당사자로부터 시민 디지털 ID를 보호할 수 있습니다. 동일한 중요한 데이터에는 아동 착취의 알려진 이미지를 찾아서 제거하고, 인신매매를 방지하며, 디지털 과학수사를 지원하는 데 사용되는 생체 인식 데이터가 포함될 수 있습니다.
 
-![기밀 컴퓨팅 사용 사례](media/use-cases-scenarios/use_cases.jpg)
+:::image type="content" source="media/use-cases-scenarios/use-cases.png" alt-text="정부, 금융 서비스, 의료 시나리오를 비롯한 Azure 기밀 컴퓨팅에 대한 사용 사례의 스크린샷.":::
 
 이 문서에서는 Azure 기밀 컴퓨팅에 대한 몇 가지 일반적인 시나리오에 대해 간략하게 설명합니다. 이 문서의 추천 사항은 기밀 컴퓨팅 서비스와 프레임워크를 사용하여 애플리케이션을 개발하는 시작 지점으로 제공됩니다.
 
@@ -57,7 +57,7 @@ Azure 기밀 컴퓨팅을 사용하면 입력 데이터를 다른 당사자에�
 
 이러한 금융 기관은 기밀 컴퓨팅을 통해 사기 탐지율을 높이고, 자금 세탁 시나리오를 처리하고, 가양성을 줄이고, 더 큰 데이터 세트를 계속 학습할 수 있습니다.
 
-![은행용 다자간 데이터 공유](media/use-cases-scenarios/mpc_banks.jpg)
+:::image type="content" source="media/use-cases-scenarios/mpc-banks.png" alt-text="기밀 컴퓨팅에서 사용하는 데이터 이동을 보여 주는 은행 단체 다자간 데이터 공유 그래픽.":::
 
 ### <a name="drug-development-in-healthcare"></a>의료 분야의 의약품 개발
 

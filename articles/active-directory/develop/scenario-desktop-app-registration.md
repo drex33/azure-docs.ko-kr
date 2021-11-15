@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b0295c994a736e26d7b581bd13b6167819833360
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d196fa6eabd0a6f9fc08b8d1b1d60e649d02ee1b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748712"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234968"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 API를 호출하는 데스크톱 앱: 앱 등록
 
@@ -53,7 +53,7 @@ Azure Portal의 **앱 등록** 에서 앱에 대한 [플랫폼 설정을 구성]
 - macOS용 네이티브 Objective-C 또는 Swift 앱을 빌드하는 경우 애플리케이션의 번들 식별자를 기준으로 하는 리디렉션 URI를  `msauth.<your.app.bundle.id>://auth` 형식으로 등록합니다. `<your.app.bundle.id>`을(를) 애플리케이션의 번들 식별자로 바꿉니다.
 - Node.js Electron 앱을 빌드하는 경우, 예를 들어 `msal://redirect`과(와) 같은 권한 부여 흐름의 리디렉션 단계를 처리하기 위해 일반 웹(https://) 리디렉션 URI 대신 사용자 지정 파일 프로토콜을 사용합니다. 사용자 지정 파일 프로토콜 이름은 명확하게 추측되어서는 안 되며 [네이티브 앱에 대한 OAuth2.0 사양](https://tools.ietf.org/html/rfc8252#section-7.1)의 제안 사항을 따라야 합니다.
 - 앱에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용하는 경우 애플리케이션에 대한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft Identity 플랫폼 v2.0 엔드포인트를 대상으로 왕복을 수행합니다. 애플리케이션은 특정 URI에서 다시 호출되지 않습니다.
-- [디바이스 코드 흐름](scenario-desktop-acquire-token.md#device-code-flow), [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication), [사용자 이름 및 암호](scenario-desktop-acquire-token.md#username-and-password)와 [디먼 애플리케이션](scenario-daemon-overview.md)에서 사용되는 클라이언트 자격 증명 흐름을 사용하는 기밀 클라이언트 애플리케이션을 구분하려면(모두 리디렉션 URI가 필요하지 않음) 퍼블릭 클라이언트 애플리케이션으로 구성합니다. 이 구성을 설정하려면
+- [디바이스 코드 흐름](scenario-desktop-acquire-token-device-code-flow.md), [Windows 통합 인증](scenario-desktop-acquire-token-integrated-windows-authentication.md), [사용자 이름 및 암호](scenario-desktop-acquire-token-username-password.md)와 [디먼 애플리케이션](scenario-daemon-overview.md)에서 사용되는 클라이언트 자격 증명 흐름을 사용하는 기밀 클라이언트 애플리케이션을 구분하려면(모두 리디렉션 URI가 필요하지 않음) 퍼블릭 클라이언트 애플리케이션으로 구성합니다. 이 구성을 설정하려면
 
     1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>의 **앱 등록** 에서 앱을 선택한 다음 **인증** 을 선택합니다.
     1. **고급 설정** > **퍼블릭 클라이언트 흐름 허용** > **다음 모바일 및 데스크톱 흐름 사용** 에서 **예** 를 선택합니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: thwimmer
-ms.openlocfilehash: e4c342025adc46850484535b5270b0889163cbc4
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 50ac8f30f4b0f9ad04b76710958772dfec458c28
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767567"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989974"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 iPass SmartConnect 구성
 
@@ -34,6 +34,10 @@ ms.locfileid: "113767567"
 * Azure AD 테넌트.
 * [iPass SmartConnect 테넌트](https://www.ipass.com/buy-ipass/)
 * 관리자 권한이 있는 iPass SmartConnect의 사용자 계정
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 
 ## <a name="assigning-users-to-ipass-smartconnect"></a>iPass SmartConnect에 사용자 할당
 

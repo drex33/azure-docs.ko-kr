@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95226ba8eb0d780ee20d761e3132a9c6bfd9e19
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 8ed5291ee08d990d563d1ac3e2c3648d6a975280
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112200765"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458513"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 
@@ -58,13 +58,8 @@ Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
 1. **Azure Active Directory** > **사용자** > **모든 사용자** 를 선택합니다.
 1. 사용자를 선택한 다음 **디바이스** 를 선택합니다.
-1. **표시** 아래에서 **설정 및 앱 데이터를 동기화하는 디바이스** 를 선택하여 동기화 상태를 표시합니다.
-  
-   ![디바이스 동기화 데이터 설정의 이미지](./media/enterprise-state-roaming-enable/sync-status.png)
-  
-1. 이 사용자에게 동기화된 디바이스가 있는 경우 여기에 표시된 대로 디바이스가 표시됩니다.
-  
-   ![디바이스 동기화 열 형식 데이터의 이미지](./media/enterprise-state-roaming-enable/device-status-row.png)
+1. **설정 및 앱 데이터를 동기화하는 디바이스 보기** 를 선택하여 동기화 상태를 표시합니다.
+1. 사용자에 대한 디바이스 동기화가 표시되며 다운로드할 수 있습니다.
 
 ## <a name="data-retention"></a>데이터 보존
 

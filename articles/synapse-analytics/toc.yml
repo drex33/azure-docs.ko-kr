@@ -215,6 +215,9 @@ items:
           - name: 데이터베이스 템플릿 개요
             href: database-designer/overview-database-templates.md
             displayName: overview
+          - name: 데이터 개요 매핑
+            href: database-designer/overview-map-data.md
+            displayName: map data
       - name: 빠른 시작
         items:
           - name: 레이크 데이터베이스 만들기

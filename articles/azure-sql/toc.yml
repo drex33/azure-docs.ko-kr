@@ -67,7 +67,7 @@
               href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
             - name: Always Encrypted
               href: database/always-encrypted-landing.yml
-            - name: Azure Defender for SQL
+            - name: Microsoft Defender for SQL
               href: database/azure-defender-for-sql.md
             - name: Advanced Threat Protection
               href: database/threat-detection-overview.md
@@ -479,6 +479,8 @@
                   href: database/ledger-limits.md
             - name: 네트워크 액세스 컨트롤
               href: database/network-access-controls-overview.md
+            - name: 아웃바운드 방화벽 규칙
+              href: database/outbound-firewall-rule-overview.md
             - name: Private Link
               href: database/private-endpoint-overview.md
             - name: VNet 엔드포인트
@@ -1400,7 +1402,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM

@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: f7d62b6fa3523accbeba9a083c74330ff344e2ae
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6cbfd1432945bdf45fc1461440b835783e0b2079
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786373"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456160"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 Blazor Server 앱 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "124786373"
 
 마지막으로 앱이 보호된 API(이 경우 Microsoft Graph)를 호출하기 때문에 해당 API를 호출하는 액세스 토큰을 요청할 때 해당 ID를 확인하기 위해 클라이언트 암호가 필요합니다.
 
-1. 동일한 앱 등록 내 **관리** 에서 **인증서 및 비밀** 을 선택합니다.
+1. 동일한 앱 등록 내 **관리** 에서 **인증서 및 비밀** 을 선택한 후 **클라이언트 암호** 를 선택합니다.
 2. 만료되지 않는 **새 클라이언트 암호** 를 만듭니다.
 3. 다음 단계에서 사용하기 위해 비밀의 **값** 을 기록해 둡니다. 이 창에서 다른 곳으로 이동하면 다시 액세스할 수 없습니다. 그러나 필요에 따라 다시 만들 수 있습니다.
 

@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 199d85d2805b92e1421330be8f299c769637b649
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0b7b167971fbbe1554512ed62ab609f8fdab01e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578467"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072597"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -205,12 +205,15 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 | :--- | :--- |
 | identifierUris | 문자열 배열 |
 
-Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 사용자 지정 도메인 안에서 웹앱을 고유하게 식별하는 사용자 정의 URI입니다.
+Azure AD 테넌트 또는 확인된 고객 소유 도메인 내에서 웹앱을 고유하게 식별하는 사용자 정의 URI입니다.
+애플리케이션을 리소스 앱으로 사용하는 경우 identifierUri 값을 사용하여 리소스를 고유하게 식별하고 액세스합니다.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 예제:
 
 ```json
-    "identifierUris": "https://MyRegisteredApp",
+    "identifierUris": "https://contoso.onmicrosoft.com/fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed",
 ```
 
 ### <a name="informationalurls-attribute"></a>informationalUrls 특성

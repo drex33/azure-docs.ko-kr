@@ -3,20 +3,20 @@ title: SCIM 지원 앱으로의 Azure AD 온-프레미스 앱 프로비저닝
 description: 이 문서에서는 Azure AD 프로비저닝 서비스를 사용하여 SCIM을 사용하는 온-프레미스 앱에 사용자를 프로비전하는 방법을 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2021
+ms.date: 10/16/2021
 ms.author: billmath
 ms.reviewer: arvinh
-ms.openlocfilehash: 11bd751ebc95b1a9486534b34c771fde64eced21
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 232735af49cd0f38ff169c224a48b76b0707c97d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437352"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261142"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-to-scim-enabled-apps"></a>SCIM 지원 앱으로의 Azure AD 온-프레미스 애플리케이션 프로비저닝
 
@@ -61,12 +61,10 @@ SCIM 사용 앱에 사용자를 프로비전하려면 다음을 수행합니다.
 * [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) 구현이 Azure [AD SCIM 요구 사항](use-scim-to-provision-users-and-groups.md)을 충족하는지 확인합니다.
   
   Azure AD는 개발자가 SCIM 구현을 부트스트랩하는 데 사용할 수 있는 오픈 소스 [참조 코드](https://github.com/AzureAD/SCIMReferenceCode/wiki)를 제공합니다. 코드는 있는 그대로 사용합니다.
-* /schemaDiscovery 엔드포인트를 지원하여 Azure Portal에 필요한 구성을 줄입니다. 
+* /schemas 엔드포인트를 지원하여 Azure Portal에 필요한 구성을 줄입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [앱 프로비저닝](user-provisioning.md)
-- [Azure AD ECMA 커넥터 호스트 설치](on-premises-ecma-install.md)
-- [Azure AD ECMA 커넥터 호스트 구성](on-premises-ecma-configure.md)
 - [일반 SQL 커넥터](on-premises-sql-connector-configure.md)
 - [자습서: ECMA 커넥터 호스트 일반 SQL 커넥터](tutorial-ecma-sql-connector.md)

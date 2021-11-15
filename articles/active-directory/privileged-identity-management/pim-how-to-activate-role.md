@@ -4,22 +4,23 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 역할�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 05/28/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d5e6102a46e8015fa4fb7a1a148950e98629681
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ae2bc007d6172e6f7ef2bfc7e22af89acf2c8afb
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793902"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669438"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
 
@@ -29,18 +30,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 이 문서는 Privileged Identity Management에서 해당 Azure AD 역할을 활성화해야 하는 관리자를 위해 작성되었습니다.
 
-## <a name="determine-your-version-of-pim"></a>PIM 버전 확인
-
-2019년 11월부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치하는 새 버전으로 업데이트됩니다. 그러면 [기존 API에 대한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성됩니다. 새 버전이 롤아웃되는 동안 이 문서에서 수행하는 절차는 현재 보유하고 있는 Privileged Identity Management 버전에 따라 달라집니다. 이 섹션의 단계에 따라 사용 중인 Privileged Identity Management 버전을 확인합니다. Privileged Identity Management 버전을 확인한 후에는 이 문서에서 해당 버전과 일치하는 절차를 선택할 수 있습니다.
-
-1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. **Azure AD Privileged Identity Management** 를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우 이 문서의 **새 버전** 탭에 있는 지침을 따릅니다. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
-
-    [![Azure AD > Privileged Identity Management를 선택합니다.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
-
-# <a name="new-version"></a>[새 버전](#tab/new)
-
-## <a name="activate-a-role-for-new-version"></a>새 버전에 대한 역할 활성화
+## <a name="activate-a-role"></a>역할 활성화
 
 Azure AD 역할을 가정해야 하는 경우 Privileged Identity Management에서 **내 역할** 을 열어 활성화를 요청할 수 있습니다.
 
@@ -60,7 +50,7 @@ Azure AD 역할을 가정해야 하는 경우 Privileged Identity Management에�
 
     ![Azure AD 역할 - 활성화 페이지에 기간 및 범위가 포함됨](./media/pim-how-to-activate-role/activate-page.png)
 
-1. **추가 확인 필요**”**를 선택하고 지침에 따라 추가 보안 확인을 제공합니다. 세션당 한 번만 인증해야 합니다.
+1. **추가 확인 필요** 를 선택하고 지침에 따라 추가 보안 확인을 제공합니다. 세션당 한 번만 인증해야 합니다.
 
     ![PIN 코드와 같은 보안 확인을 제공하는 화면](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
@@ -80,7 +70,127 @@ Azure AD 역할을 가정해야 하는 경우 Privileged Identity Management에�
 
     ![활성화 요청이 승인 보류 중입니다.](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests-for-new-version"></a>새 버전에 대한 요청 상태 보기
+## <a name="activate-a-role-using-graph-api"></a>Graph API를 사용하여 역할 활성화
+
+### <a name="get-all-eligible-roles-that-you-can-activate"></a>활성화할 수 있는 모든 적격 역할 얻기
+
+사용자가 그룹 구성원 자격을 통해 역할 자격을 얻는 경우 이 Graph 요청은 해당 자격을 반환하지 않습니다.
+
+#### <a name="http-request"></a>HTTP 요청
+
+````HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on='principal')  
+````
+
+#### <a name="http-response"></a>HTTP 응답
+
+여기서는 공간을 절약하기 위해 하나의 역할에 대한 응답만 표시하지만 실제로 활성화할 수 있는 모든 적격 역할 할당이 나열됩니다.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(unifiedRoleEligibilityScheduleRequest)", 
+    "value": [ 
+        { 
+            "@odata.type": "#microsoft.graph.unifiedRoleEligibilityScheduleRequest", 
+            "id": "<request-ID-GUID>", 
+            "status": "Provisioned", 
+            "createdDateTime": "2021-07-15T19:39:53.33Z", 
+            "completedDateTime": "2021-07-15T19:39:53.383Z", 
+            "approvalId": null, 
+            "customData": null, 
+            "action": "AdminAssign", 
+            "principalId": "<principal-ID-GUID>", 
+            "roleDefinitionId": "<definition-ID-GUID>", 
+            "directoryScopeId": "/", 
+            "appScopeId": null, 
+            "isValidationOnly": false, 
+            "targetScheduleId": "<schedule-ID-GUID>", 
+            "justification": "test", 
+            "createdBy": { 
+                "application": null, 
+                "device": null, 
+                "user": { 
+                    "displayName": null, 
+                    "id": "<user-ID-GUID>" 
+                } 
+            }, 
+            "scheduleInfo": { 
+                "startDateTime": "2021-07-15T19:39:53.3846704Z", 
+                "recurrence": null, 
+                "expiration": { 
+                    "type": "noExpiration", 
+                    "endDateTime": null, 
+                    "duration": null 
+                } 
+            }, 
+            "ticketInfo": { 
+                "ticketNumber": null, 
+                "ticketSystem": null 
+            } 
+        },
+} 
+````
+
+### <a name="activate-a-role-assignment-with-justification"></a>근거에 따라 역할 할당 활성화
+
+#### <a name="http-request"></a>HTTP 요청
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{ 
+    "action": "SelfActivate", 
+    "justification": "adssadasasd", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>" 
+} 
+````
+
+#### <a name="http-response"></a>HTTP 응답
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
+    "status": "PendingApprovalProvisioning", 
+    "createdDateTime": "2021-07-15T19:51:07.1870599Z", 
+    "completedDateTime": "2021-07-15T19:51:17.3903028Z", 
+    "approvalId": "<approval-ID-GUID>", 
+    "customData": null, 
+    "action": "SelfActivate", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": null, 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT5H30M" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
+
+## <a name="view-the-status-of-activation-requests"></a>활성화 요청의 상태 보기
 
 보류 중인 요청의 상태를 보고 활성화할 수 있습니다.
 
@@ -106,115 +216,11 @@ Azure AD 역할을 가정해야 하는 경우 Privileged Identity Management에�
 
    ![취소 작업이 강조 표시된 내 요청 목록](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot-for-new-version"></a>새 버전에 대한 문제 해결
+## <a name="troubleshoot-portal-delay"></a>포털 지연 문제 해결
 
-### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
+### <a name="permissions-arent-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
 
 Privileged Identity Management에서 역할을 활성화하는 경우 해당 활성화는 권한 있는 역할을 필요로 하는 모든 포털에 즉시 전파되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파되더라도 포털의 웹 캐싱 때문에 변경 내용이 즉시 적용되지 않을 수 있습니다. 활성화가 지연되면 작업을 수행하려는 포털에서 로그아웃되었다가 다시 로그인됩니다. Azure Portal에서 PIM은 자동으로 로그아웃되었다가 다시 로그인됩니다.
-
-# <a name="previous-version"></a>[이전 버전](#tab/previous):
-
-## <a name="activate-a-role-previous-version"></a>역할 활성화(이전 버전)
-
-Azure AD 역할을 담당해야 하는 경우 Privileged Identity Management에서 **내 역할** 탐색 옵션을 사용하여 활성화를 요청할 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-
-1. **Azure AD Privileged Identity Management** 를 엽니다. 대시보드에 Privileged Identity Management 타일을 추가하는 방법에 대한 내용은 [Privileged Identity Management 사용 시작](pim-getting-started.md)을 참조하세요.
-
-1. **Azure AD 역할** 을 선택합니다.
-
-1. **내 역할** 을 클릭하여 적격인 Azure AD 역할 목록을 확인합니다.
-
-    ![Azure AD 역할 - 적격 또는 활성 역할 목록을 표시하는 내 역할](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
-
-1. 활성화하려는 역할을 찾습니다.
-
-    ![Azure AD 역할 - 활성화 링크를 보여 주는 내 적격 역할 목록](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
-
-1. **활성화** 를 선택하여 역할 활성화 세부 정보 창을 엽니다.
-
-1. 역할에 MFA(Multi-Factor Authentication)가 필요한 경우 **진행하기 전에 ID 확인** 을 선택합니다. 세션당 한 번만 인증해야 합니다.
-
-    ![역할을 활성화하기 전에 MFA를 사용하여 ID 창 확인](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
-
-1. **ID 확인** 을 선택하고 지침에 따라 추가 보안 확인을 제공합니다.
-
-    ![사용자에게 연락하는 방법을 묻는 추가 보안 확인 페이지](./media/pim-how-to-activate-role/additional-security-verification.png)
-
-1. **활성화** 를 선택하여 활성화 창을 엽니다.
-
-    ![시작 시간, 기간, 티켓 및 이유를 지정하는 활성화 창](./media/pim-how-to-activate-role/directory-roles-activate.png)
-
-1. 필요한 경우 사용자 지정 활성화 시작 시간을 지정합니다.
-
-1. 활성화 기간을 지정합니다.
-
-1. **활성화 이유** 상자에 활성화 요청의 이유를 입력합니다. 일부 역할은 문제 티켓 번호를 제공해야 합니다.
-
-    ![사용자 지정 시작 시간, 기간, 티켓 및 이유를 사용하여 완료된 활성화 창](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
-
-1. **활성화** 를 선택합니다.
-
-    역할에 승인이 필요하지 않은 경우 활성화 상태를 표시하는 **활성화 상태** 창이 표시됩니다.
-
-    ![활성화의 세 단계를 보여 주는 활성화 상태 페이지](./media/pim-how-to-activate-role/activation-status.png)
-
-    모든 단계가 완료되면 **로그아웃** 링크를 선택하여 Azure Portal에서 로그아웃합니다. 포털에 다시 로그인하면 이제 역할을 사용할 수 있습니다.
-
-    [역할을 활성화하는 데 승인이 필요](./azure-ad-pim-approval-workflow.md)한 경우 브라우저의 오른쪽 위 모서리에 요청이 승인 보류 중임을 알려주는 Azure 알림이 표시됩니다.
-
-## <a name="view-the-status-of-your-requests-previous-version"></a>요청 상태 보기(이전 버전)
-
-보류 중인 요청의 상태를 보고 활성화할 수 있습니다.
-
-1. Azure AD Privileged Identity Management를 엽니다.
-
-1. **Azure AD 역할** 을 선택합니다.
-
-1. **내 요청** 을 선택하여 요청 목록을 봅니다.
-
-    ![Azure AD 역할 - 내 요청 목록](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
-
-## <a name="deactivate-a-role-previous-version"></a>역할 비활성화(이전 버전)
-
-역할이 활성화된 후 시간 제한(적격 기간)에 도달하면 자동으로 비활성화됩니다.
-
-관리자 작업이 일찍 완료되면 Azure AD Privileged Identity Management에서 역할을 수동으로 비활성화할 수도 있습니다.
-
-1. Azure AD Privileged Identity Management를 엽니다.
-
-1. **Azure AD 역할** 을 선택합니다.
-
-1. **내 역할** 을 선택합니다.
-
-1. **활성 역할** 을 선택하여 활성 역할 목록을 표시합니다.
-
-1. 사용하고 있는 역할을 찾은 다음, **비활성화** 를 선택합니다.
-
-## <a name="cancel-a-pending-request-previous-version"></a>보류 중인 요청 취소(이전 버전)
-
-승인이 필요한 역할을 활성화할 필요가 없으면 언제든지 보류 중인 요청을 취소할 수 있습니다.
-
-1. Azure AD Privileged Identity Management를 엽니다.
-
-1. **Azure AD 역할** 을 선택합니다.
-
-1. **내 요청** 을 선택합니다.
-
-1. 취소하려는 역할에 대해 **취소** 단추를 선택합니다.
-
-    **취소** 를 선택하면 해당 요청이 취소됩니다. 역할을 다시 활성화하려면 활성화 요청을 새로 제출해야 합니다.
-
-   ![취소 단추가 강조 표시된 내 요청 목록](./media/pim-how-to-activate-role/directory-role-cancel.png)
-
-## <a name="troubleshoot-previous-version"></a>문제 해결(이전 버전)
-
-### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
-
-Privileged Identity Management에서 역할을 활성화하면 Office 365 포털과 같은 Azure Portal 이외의 관리 포털에서 활성화가 지연될 수 있습니다. 활성화가 지연되면 현재 포털에서 로그아웃한 다음, 다시 로그인합니다. 그런 다음, Privileged Identity Management를 사용하여 본인이 역할의 멤버로 나열되는지 확인합니다.
-
- ---
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 7fbe4e45e48d3416f530b6845faf702959f92463
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: aaddev
+ms.openlocfilehash: 1e12b2d9512bd7c62a2657e13e74790af6556cd4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067340"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507762"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 디바이스용 Microsoft Enterprise SSO 플러그 인(미리 보기)
 
@@ -221,7 +221,7 @@ Apple은 App Store에서 번들 ID를 가져오는 편리한 방법을 제공하
 
 #### <a name="allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser"></a>사용자가 알 수 없는 애플리케이션 및 Safari 브라우저에서 로그인할 수 있도록 허용
 
-기본적으로 Microsoft Enterprise SSO 플러그 인은 MSAL 또는 ADAL(Azure Active Directory 인증 라이브러리)과 같은 Microsoft ID 플랫폼 라이브러리를 사용하는 앱에서 로그인한 경우에만 권한 있는 앱에 대한 SSO를 제공합니다. Microsoft Enterprise SSO 플러그 인은 새로운 토큰 획득 동안 Microsoft ID 플랫폼 라이브러리를 사용하는 다른 앱에서 호출되는 경우 공유 자격 증명을 획득할 수도 있습니다.
+기본적으로 Microsoft Enterprise SSO 플러그 인은 MSAL과 같은 Microsoft ID 플랫폼 라이브러리를 사용하는 앱에서 로그인한 경우에만 권한 있는 앱에 대한 SSO를 제공합니다. Microsoft Enterprise SSO 플러그 인은 새로운 토큰 획득 동안 Microsoft ID 플랫폼 라이브러리를 사용하는 다른 앱에서 호출되는 경우 공유 자격 증명을 획득할 수도 있습니다.
 
 `browser_sso_interaction_enabled` 플래그를 사용하는 경우 Microsoft ID 플랫폼 라이브러리를 사용하지 않는 앱은 초기 부트스트랩을 수행하고 공유 자격 증명을 가져올 수 있습니다. Safari 브라우저는 초기 부트스트랩을 수행하고 공유 자격 증명을 가져올 수도 있습니다. 
 

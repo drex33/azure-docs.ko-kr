@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 10/19/2020
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4815eec021e4ebecda065667dca4568ded703ac5
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.custom: b2c-support
+ms.openlocfilehash: c54f5636ee7af8142bf5fcd401a2160a69cf550c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131044877"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436900"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 일회용 암호 기술 프로필을 정의합니다
 
@@ -76,7 +77,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 | CodeExpirationInSeconds | 예 | 코드 만료까지의 시간(초)입니다. 최소: `60`; 최대: `1200`; 기본값: `600`. 코드를 제공할 때마다(새 코드, 또는 `ReuseSameCode`를 사용하는 동일한 코드) 코드 만료가 연장됩니다. 이 시간은 재시도 시간 제한(최대 시도 횟수에 도달하면 사용자가 이 시간이 만료될 때까지 새 코드를 가져오지 못하도록 잠김)을 설정하는 데도 사용됩니다 |
 | CodeLength | 예 | 코드의 길이입니다. 기본값은 `6`입니다. |
 | CharacterSet | 예 | 정규식에 사용하기 위해 서식이 지정된 코드에 대한 문자 집합입니다. 정의합니다(예: `a-z0-9A-Z`). 기본값은 `0-9`입니다. 문자 집합에는 지정된 집합에 최소 10개의 다른 문자가 포함되어야 합니다. |
-| NumRetryAttempts | 예 | 코드가 잘못되었다고 간주되기 전의 확인 시도 횟수입니다. 기본값은 `5`입니다. |
+| NumRetryAttempts | 예 | 코드가 잘못되었다고 간주되기 전의 확인 시도 횟수입니다. 기본값은 `5`입니다. 예를 들어 NumRetryAttempts를 2로 설정하면 총 2번의 시도만 허용됩니다(첫 번째 + 1회 재시도). 세 번째 시도의 경우 코드가 올바른지 여부에 관계없이 도달한 최대 시도를 throw합니다.|
 | NumCodeGenerationAttempts | 예 | 식별자당 최대 코드 생성 시도 횟수입니다. 지정하지 않으면 기본값은 10입니다. |
 | 작업 | 예 | 수행할 작업입니다. 가능한 값: `GenerateCode`. |
 | ReuseSameCode | 예 | 지정된 코드가 만료되지 않고 여전히 유효한 경우 새 코드를 생성하는 대신 동일한 코드를 제공해야 하는지 여부입니다. 기본값은 `false`입니다.  |
@@ -134,7 +135,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 
 다음 설정을 사용하여 코드 확인 모드를 설정할 수 있습니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 작업 | 예 | 수행할 작업입니다. 가능한 값: `VerifyCode`. |
 

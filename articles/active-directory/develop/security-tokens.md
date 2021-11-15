@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6d9f5538d377be1414089e591559344bde4f381a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2567a75c0accd7e2bb932d8578e1a225518f5ce3
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98795638"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092759"
 ---
 # <a name="security-tokens"></a>보안 토큰
 
@@ -26,7 +26,7 @@ ms.locfileid: "98795638"
 
 **액세스 토큰**: 액세스 토큰은 [OAuth 2.0](active-directory-v2-protocols.md) 흐름의 일환으로 [인증 서버](developer-glossary.md#authorization-server)를 통해 발급되는 보안 토큰입니다. 토큰에 사용할 사용자 및 리소스에 대한 정보를 포함합니다. 이 정보를 사용하여 웹 API 및 기타 보호되는 리소스에 액세스할 수 있습니다. 클라이언트 앱에 액세스 권한을 부여하기 위해 리소스에서 액세스 토큰의 유효성을 검사합니다. Microsoft ID 플랫폼에서 액세스 토큰을 발급하는 방법에 대해 자세히 알아보려면 [액세스 토큰](access-tokens.md)을 참조하세요.
 
-**새로 고침 토큰**: 액세스 토큰은 단기간 동안에만 유효하기 때문에 인증 서버가 액세스 토큰을 발급하는 동시에 새로 고침 토큰을 발급하는 경우도 있습니다. 클라이언트 애플리케이션은 필요한 경우 새 액세스 토큰을 이 새로 고침 토큰으로 교환할 수 있습니다. Microsoft ID 플랫폼이 권한을 철회하기 위해 새로 고침 토큰을 사용하는 방법에 대해 자세히 알아보려면 [토큰 해지](access-tokens.md#token-revocation)를 참조하세요.
+**새로 고침 토큰**: 액세스 토큰은 단기간 동안에만 유효하기 때문에 인증 서버가 액세스 토큰을 발급하는 동시에 새로 고침 토큰을 발급하는 경우도 있습니다. 클라이언트 애플리케이션은 필요한 경우 새 액세스 토큰을 이 새로 고침 토큰으로 교환할 수 있습니다. Microsoft ID 플랫폼이 권한을 철회하기 위해 새로 고침 토큰을 사용하는 방법에 대해 자세히 알아보려면 [토큰 새로 고침](refresh-tokens.md)을 참조하세요.
 
 **ID 토큰**: ID 토큰은 [OpenID Connect](v2-protocols-oidc.md) 흐름의 일환으로 클라이언트 애플리케이션에 전송됩니다. 액세스 토큰 대신 또는 함께 전송할 수 있습니다. ID 토큰은 클라이언트에서 사용자를 인증하는 데 사용됩니다. Microsoft ID 플랫폼에서 ID 토큰을 발급하는 방법에 대해 자세히 알아보려면 [ID 토큰](id-tokens.md)을 참조하세요.
 

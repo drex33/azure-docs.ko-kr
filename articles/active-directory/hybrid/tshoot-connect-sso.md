@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba5db5208d53996d074dca15bdc8b7b3088e4dec
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 8b1947d9b78ef77644dd5df8aabe4298de90f9e8
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111198"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754276"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -39,6 +39,7 @@ ms.locfileid: "113111198"
 - 로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL(`https://autologon.microsoftazuread-sso.com`)을 추가하면 *사용자가 로그인하지 못하도록 차단* 됩니다.
 - Seamless SSO는 Kerberos에 대한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 유형을 지원합니다. AzureADSSOAcc$ 계정의 암호화 유형은 AES256_HMAC_SHA1 또는 추가 보안을 위해 AES 및 RC4 유형 중 하나로 설정하는 것이 좋습니다. 암호화 유형은 Active Directory에 있는 계정의 msDS-SupportedEncryptionTypes 특성에 저장됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.yml)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
 -  포리스트 트러스트가 있는 포리스트가 둘 이상인 경우 포리스트 중 하나에서 SSO를 사용하도록 설정하면 트러스트된 모든 포리스트에서 SSO를 사용할 수 있습니다. 이미 SSO를 사용하도록 설정된 포리스트에서 SSO를 사용하도록 설정하면 포리스트에서 SSO가 이미 사용하도록 설정되었다는 오류가 표시됩니다.
+-  Seamless SSO를 사용하도록 설정하는 정책에는 25600자 제한이 있습니다. 이 제한은 Seamless SSO를 사용하도록 설정하려는 포리스트 이름을 포함하여 정책에 포함된 모든 것에 적용됩니다. 환경에 포리스트 수가 많은 경우 문자 제한에 도달할 수 있습니다. 포리스트 간에 트러스트가 있는 경우 하나의 포리스트에서만 Seamless SSO를 사용하도록 설정하는 것으로 충분합니다. 예를 들어 contoso.com 및 fabrikam.com이 있고 둘 간에 트러스트가 있는 경우 contoso.com에서만 Seamless SSO를 사용하도록 설정할 수 있으며 이는 fabrikam.com에도 적용됩니다. 이러한 방식으로 정책에서 사용하도록 설정된 포리스트 수를 줄이고 정책 char 제한에 도달하지 않도록 할 수 있습니다.
 
 ## <a name="check-status-of-feature"></a>기능의 상태 확인
 
@@ -128,8 +129,12 @@ ms.locfileid: "113111198"
    >사용되는 도메인 관리자 계정은 보호된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패합니다.
 
 2. `Disable-AzureADSSOForest -OnPremCredentials $creds`을 호출합니다. 이 명령은 이 특정 Active Directory 포리스트에 대한 온-프레미스 도메인 컨트롤러에서 `AZUREADSSOACC` 컴퓨터 계정을 제거합니다.
-3. 기능을 설정한 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 
+   >[!NOTE]
+   >어떤 이유로든 AD 온-프레미스에 액세스할 수 없는 경우 **3.1단계** 및 **3.2단계** 를 건너뛰고 대신 `Disable-AzureADSSOForest -DomainFqdn <Domain name from the output list in step 2>`을 호출할 수 있습니다. 
+   
+3. 기능을 설정한 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
+ 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4단계: 각 Active Directory 포리스트에 대한 Seamless SSO 사용 설정
 
 1. `Enable-AzureADSSOForest`을 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.

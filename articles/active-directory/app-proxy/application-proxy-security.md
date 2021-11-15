@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시에 대한 보안 고�
 description: Azure AD 애플리케이션 프록시를 사용하는 경우 보안 고려 사항 설명
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/21/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: a6951b6d52fad3b0d2bbed41422600d5f28892f0
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 96d2fac930b65ffb9bc05330e37e52bc7af3d4dc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186737"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043532"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -158,9 +158,9 @@ Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용�
 
 요청에 따라 애플리케이션 프록시는 다음 작업 중 하나를 수행합니다.
 
-* 요청이 RESTful *GET* 요청과 함께 그대로 사용하는, 본문 내에 데이터가 없는 것처럼 간단한 작업인 경우 커넥터는 대상 내부 리소스에 대한 연결을 만들고 응답을 기다립니다.
+* 요청이 간단한 작업의 경우(예: RESTful API `GET` 요청과 같이 본문 내에 데이터가 없는 경우) 커넥터는 대상 내부 리소스에 대한 연결을 만든 다음, 응답을 기다립니다.
 
-* 요청에 본문에 있는 내용과 연결된 데이터가 있는 경우(예: RESTful *POST* 작업) 커넥터는 클라이언트 인증서를 사용하여 애플리케이션 프록시 인스턴스로 아웃바운드 연결을 만듭니다. 이 연결을 만들어서 데이터를 요청하고 내부 리소스에 대한 연결을 엽니다. 커넥터에서 요청을 받은 후에 애플리케이션 프록시 서비스는 사용자로부터 콘텐츠를 수락하고 데이터를 커넥터에 전달합니다. 그러면 커넥터가 데이터를 내부 리소스에 전달합니다.
+* 요청에 본문에 있는 내용과 연결된 데이터가 있는 경우(예: RESTful API `POST` 작업) 커넥터는 클라이언트 인증서를 사용하여 애플리케이션 프록시 인스턴스로 아웃바운드 연결을 만듭니다. 이 연결을 만들어서 데이터를 요청하고 내부 리소스에 대한 연결을 엽니다. 커넥터에서 요청을 받은 후에 애플리케이션 프록시 서비스는 사용자로부터 콘텐츠를 수락하고 데이터를 커넥터에 전달합니다. 그러면 커넥터가 데이터를 내부 리소스에 전달합니다.
 
 #### <a name="4-the-connector-waits-for-a-response"></a>4. 커넥터에서 응답 대기
 

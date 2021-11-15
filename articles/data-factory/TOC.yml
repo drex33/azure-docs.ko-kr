@@ -444,7 +444,7 @@ items:
             href: connector-presto.md
           - name: QuickBooks Online
             href: connector-quickbooks.md
-          - name: REST (영문)
+          - name: REST
             href: connector-rest.md
             displayName: timeout
           - name: Salesforce
@@ -1075,5 +1075,7 @@ items:
         href: 'https://azure.microsoft.com/global-infrastructure/services/'
       - name: 지원 옵션
         href: 'https://azure.microsoft.com/support/options/'
+      - name: 지원에서 할당량 증가 요청
+        href: quota-increase.md
       - name: 제한
         href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

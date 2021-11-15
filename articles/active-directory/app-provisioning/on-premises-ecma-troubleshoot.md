@@ -1,5 +1,5 @@
 ---
-title: ECMA 커넥터 호스트 및 Azure AD 관련 문제 해결
+title: 온-프레미스 애플리케이션에 대한 프로비저닝 문제 해결
 description: ECMA 커넥터 호스트를 설치하고 사용할 때 발생할 수 있는 다양한 문제를 해결하는 방법을 설명합니다.
 services: active-directory
 author: billmath
@@ -7,24 +7,24 @@ manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 002c57afde5909a6f02644b554b389d02735def0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a364995ae443f121112c7e259525735bc7b8a13c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991134"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456350"
 ---
-# <a name="troubleshoot-ecma-connector-host-issues"></a>ECMA 커넥터 호스트 문제 해결
+# <a name="troubleshoot-on-premises-application-provisioning"></a>온-프레미스 애플리케이션 프로비전 문제 해결
 
 >[!IMPORTANT]
 > 온-프레미스 프로비저닝 미리 보기는 현재 초대 전용 미리 보기로 제공됩니다. 기능에 대한 액세스를 요청하려면 [액세스 요청 양식](https://aka.ms/onpremprovisioningpublicpreviewaccess)을 사용하세요. 일반 공급을 준비하면서 향후 몇 개월 동안 더 많은 고객과 커넥터에 미리 보기를 공개할 예정입니다.
 
 ## <a name="troubleshoot-test-connection-issues"></a>테스트 연결 문제 해결
-ECMA 호스트와 프로비저닝 에이전트를 구성한 후에는 Azure AD(Azure Active Directory) 프로비저닝 서비스에서 프로비저닝 에이전트, ECMA 호스트, 애플리케이션으로의 연결을 테스트해야 합니다. 이 엔드투엔드 테스트를 수행하려면 Azure Portal의 애플리케이션에서 **연결 테스트** 를 선택합니다. 연결 테스트에 실패한 경우 다음 문제 해결 단계를 시도합니다.
+프로비저닝 에이전트와 ECMA 호스트를 구성한 후에는 Azure AD(Azure Active Directory) 프로비저닝 서비스에서 프로비저닝 에이전트, ECMA 호스트, 애플리케이션으로의 연결을 테스트해야 합니다. 이 엔드투엔드 테스트를 수행하려면 Azure Portal의 애플리케이션에서 **연결 테스트** 를 선택합니다. 연결 테스트에 실패한 경우 다음 문제 해결 단계를 시도합니다.
 
  1. 에이전트와 ECMA 호스트가 실행되고 있는지 확인합니다.
      1. 에이전트가 설치된 서버에서 **시작** > **실행** > **Services.msc** 로 이동하여 **서비스** 를 엽니다.

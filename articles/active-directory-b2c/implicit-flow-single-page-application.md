@@ -3,30 +3,30 @@ title: 암시적 흐름을 사용하여 단일 페이지 로그인
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 로그인을 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7c3197a8eb9f6734cdd04d609ea0f59465ffa86d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 9003d6eb0d0f9ebc364ee84c307e85c32357c6d7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535514"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038691"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 로그인
 
-대부분의 최신 애플리케이션에는 주로 Javascript로 작성되는 단일 페이지 앱 프런트엔드가 있습니다. 앱은 종종 React, Angular 또는 Vue.js과 같은 프레임워크를 사용하여 작성됩니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증에 대한 몇 가지 추가 과제가 있습니다.
+대부분의 최신 애플리케이션에는 주로 JavaScript로 작성되는 SPA(단일 페이지 앱) 프런트엔드가 있습니다. 앱은 종종 React, Angular 또는 Vue.js과 같은 프레임워크를 사용하여 작성됩니다. 주로 브라우저에서 실행되는 SPA 및 기타 JavaScript 앱에는 인증에 대한 몇 가지 추가 과제가 있습니다.
 
 - 이러한 앱의 보안적인 특성은 기존의 서버 기반 웹 애플리케이션과 차이가 있습니다.
 - 많은 권한 부여 서버 및 ID 공급자에서 CORS(원본 간 리소스 공유) 요청을 지원하지 않습니다.
 - 앱에서 전체 페이지 브라우저를 리디렉션하면 사용자 환경에 침투할 수 있습니다.
 
-단일 페이지 애플리케이션을 지원하기 위해 권장되는 방법은 [PKCE를 사용하는 OAuth 2.0 인증 코드 흐름](./authorization-code-flow.md)입니다.
+SPA를 지원하기 위해 권장되는 방법은 [PKCE를 사용하는 OAuth 2.0 인증 코드 흐름](./authorization-code-flow.md)입니다.
 
 [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) 같은 일부 프레임워크는 암시적 권한 부여 흐름만 지원합니다. 이러한 경우 Azure AD B2C(Azure Active Directory B2C)는 OAuth 2.0 권한 부여 암시적 부여 흐름을 지원합니다. 흐름은 [OAuth 2.0 사양의 섹션 4.2](https://tools.ietf.org/html/rfc6749)에 설명되어 있습니다. 암시적 흐름에서 앱은 서버 간 교환 없이 Azure AD(Azure Active Directory) 권한 부여 엔드포인트에서 직접 토큰을 받습니다. 모든 인증 논리 및 세션 처리는 페이지 리디렉션 또는 팝업 상자를 사용하여 JavaScript 클라이언트에서 전적으로 수행됩니다.
 
@@ -68,7 +68,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 이 시점에서 정책의 워크플로를 완료하도록 사용자에게 요청합니다. 사용자는 사용자 이름 및 암호를 입력하거나, 소셜 ID로 로그인하거나, 디렉터리에 가입하는 등 특정한 단계를 수행해야 할 수 있습니다. 사용자 작업은 사용자 흐름을 정의한 방식에 따라 다릅니다.
 
-사용자가 사용자 흐름을 완료하면 Azure AD에서 앱에 대한 응답을 `redirect_uri`에 사용한 값으로 반환합니다. `response_mode` 매개 변수에 지정된 메서드를 사용합니다. 실행된 사용자 흐름과 관계 없이 사용자 작업 시나리오 각각에 대한 응답은 정확히 동일합니다.
+사용자가 사용자 흐름을 완료하면 Azure AD B2C에서 앱에 대한 응답을 `redirect_uri`에 사용한 값으로 반환합니다. `response_mode` 매개 변수에 지정된 메서드를 사용합니다. 실행된 사용자 흐름과 관계 없이 사용자 작업 시나리오 각각에 대한 응답은 정확히 동일합니다.
 
 ### <a name="successful-response"></a>성공적인 응답
 `response_mode=fragment` 및 `response_type=id_token+token`을 사용하는 성공적인 응답은 다음과 같으며, 쉽게 읽을 수 있도록 줄 바꿈이 적용되었습니다.
@@ -83,7 +83,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=arbitrary_data_you_sent_earlier
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | access_token | 앱에서 요청한 액세스 토큰입니다. |
 | token_type | 토큰 형식 값입니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -102,7 +102,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | error | 발생하는 오류 유형을 분류하는 데 사용하는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -126,7 +126,9 @@ https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
-ID 토큰에 서명하는 데 사용된 사용자 흐름(및 메타데이터를 가져올 위치)을 결정하려면 두 가지 옵션이 있습니다. 먼저 사용자 흐름 이름이 `id_token`의 `acr` 클레임에 포함됩니다. ID 토큰에서 클레임을 구문 분석하는 방법에 대한 내용은 [Azure AD B2C 토큰 참조](tokens-overview.md)를 참조하세요. 다른 옵션은 요청을 발급할 때 사용자 흐름을 `state` 매개 변수의 값으로 인코딩한 다음, `state` 매개 변수를 디코딩하여 어떤 사용자 흐름이 사용되었는지 확인하는 것입니다. 두 방법 중 하나는 유효합니다.
+ID 토큰에 서명하는 데 사용된 사용자 흐름(및 메타데이터를 가져올 위치)을 결정하기 위한 두 가지 옵션이 있습니다.
+-  사용자 흐름 이름이 `id_token`의 `acr` 클레임에 포함됩니다. ID 토큰에서 클레임을 구문 분석하는 방법에 대한 내용은 [Azure AD B2C 토큰 참조](tokens-overview.md)를 참조하세요. 
+- 요청을 발급할 때 `state` 매개 변수의 값으로 사용자 흐름을 인코딩합니다. `state` 매개 변수를 디코딩하여 어떤 사용자 흐름이 사용되었는지 확인하는 것입니다. 두 방법 중 하나는 유효합니다.
 
 OpenID Connect 메타데이터 엔드포인트에서 메타데이터 문서를 가져오면 이 엔드포인트에 있는 RSA-256 공개 키를 사용하여 ID 토큰의 서명에 대한 유효성을 검사할 수 있습니다. 지정된 시간에 이 엔드포인트에 나열된 키가 여러 개 있을 수 있으며, 각 키는 `kid`로 식별됩니다. `id_token`의 헤더에는 `kid` 클레임도 포함되어 있으며, 이는 이러한 키 중에서 ID 토큰 서명에 사용된 키를 나타냅니다. [토큰 유효성을 검사하는 방법](tokens-overview.md)을 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](tokens-overview.md)를 참조하세요.
 <!--TODO: Improve the information on this-->
@@ -150,7 +152,7 @@ ID 토큰의 유효성을 검사한 후에는 사용자가 포함된 세션을 �
 ## <a name="get-access-tokens"></a>액세스 토큰 가져오기
 웹앱에서 사용자 흐름만 실행해야 하는 경우 다음 몇 가지 섹션을 건너뛸 수 있습니다. 다음 섹션의 정보는 Web API에 대해 인증된 호출을 수행해야 하며 Azure AD B2C로 보호되는 웹앱에만 적용할 수 있습니다.
 
-사용자가 단일 페이지 앱에 로그인되도록 했으므로 Azure AD를 통해 보안이 유지되는 웹 API를 호출하기 위한 액세스 토큰을 가져올 수 있습니다. `token` 응답 형식을 사용하여 토큰을 이미 받았더라도 이 메서드를 사용하여 사용자가 다시 로그인하도록 리디렉션하지 않고도 추가 리소스에 대한 토큰을 얻을 수 있습니다.
+이제 사용자를 SPA에 로그인했으므로 Azure AD를 통해 보안이 유지되는 웹 API를 호출하기 위한 액세스 토큰을 가져올 수 있습니다. `token` 응답 형식을 사용하여 토큰을 이미 받았더라도 이 메서드를 사용하여 사용자가 다시 로그인하도록 리디렉션하지 않고도 추가 리소스에 대한 토큰을 얻을 수 있습니다.
 
 일반적인 웹앱 흐름에서는 `/token` 엔드포인트에 요청합니다. 하지만 엔드포인트는 CORS 요청을 지원하지 않으므로 AJAX 호출을 통해 새로 고침 토큰을 가져오는 것은 옵션이 아닙니다. 대신 숨겨진 HTML iFrame 요소에서 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다. 다음은 쉽게 읽을 수 있도록 줄 바꿈을 적용한 예제입니다.
 
@@ -195,7 +197,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | access_token |앱이 요청한 토큰입니다. |
 | token_type |토큰 형식은 항상 Bearer(전달자)입니다. |
@@ -212,7 +214,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -220,7 +222,7 @@ error=user_authentication_required
 iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다.
 
 ## <a name="refresh-tokens"></a>새로 고침 토큰
-ID 토큰 및 액세스 토큰은 모두 짧은 기간 후에 만료됩니다. 이러한 토큰을 정기적으로 새로 고치려면 앱을 준비해야 합니다.  두 가지 형식의 토큰을 새로 고치려면 `prompt=none` 매개 변수를 통해 Azure AD 단계를 제어하여 이전 예제에서 사용한 것과 동일한 숨겨진 iFrame 요청을 수행합니다.  새 `id_token` 값을 받으려면 `response_type=id_token`, `scope=openid` 및 `nonce` 매개 변수를 사용해야 합니다.
+ID 토큰 및 액세스 토큰은 모두 짧은 기간 후에 만료됩니다. 이러한 토큰을 정기적으로 새로 고치려면 앱을 준비해야 합니다. 암시적 흐름에서는 보안상의 이유로 새로 고침 토큰을 얻을 수 없습니다. 두 가지 유형의 토큰을 새로 고치려면 숨겨진 HTML iframe 요소에서 암시적 흐름을 사용합니다. 권한 부여 요청에 `prompt=none` 매개 변수를 포함합니다. 새 id_token 값을 받으려면 `response_type=id_token`, `scope=openid` 및 `nonce` 매개 변수를 사용해야 합니다.
 
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 사용자를 앱에서 로그아웃하려는 경우 사용자를 Azure AD로 리디렉션하여 로그아웃합니다. 사용자를 리디렉션하지 않으면 자격 증명을 다시 입력하지 않고 앱에 다시 인증할 수 있습니다. Azure AD에 유효한 Single Sign-On 세션이 있기 때문입니다.
@@ -245,4 +247,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## <a name="next-steps"></a>다음 단계
 
-[JavaScript 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 로그인](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c) 코드 샘플을 참조하세요.
+코드 샘플: [JavaScript SPA에서 Azure AD B2C를 사용하여 로그인](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c)을 참조하세요.

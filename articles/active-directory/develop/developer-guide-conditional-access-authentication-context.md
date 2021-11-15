@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: kkrishna
 ms.workload: identity
 ms.custom: aaddev
-ms.openlocfilehash: 0a310df6793d2caecda095f0c89244ffee5e46eb
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 48e9598acac2739b7663fcd9a46006208d44783c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113728033"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459504"
 ---
 # <a name="developers-guide-to-conditional-access-authentication-context"></a>조건부 액세스 인증 컨텍스트에 대한 개발자 가이드
 
@@ -43,7 +43,7 @@ IT 관리자와 규제자는 사용자에게 인증에 대한 추가 요소를 �
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-**먼저** 인증 및 권한 부여를 위해 [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) 프로토콜을 사용하여 앱을 Microsoft ID 플랫폼과 통합해야 합니다. [Microsoft ID 플랫폼 인증 라이브러리](reference-v2-libraries.md)를 사용하여 Azure Active Directory로 애플리케이션을 통합하고 보호하는 것이 좋습니다. [Microsoft ID 플랫폼 설명서](index.yml)는 앱을 Microsoft ID 플랫폼과 통합하는 방법에 대한 학습을 시작하는 데 적합합니다. 조건부 액세스 인증 컨텍스트 기능 지원은 업계 표준 [OpenID Connect](v2-protocols-oidc.md) 프로토콜에서 제공하는 프로토콜 확장을 기반으로 합니다. 개발자는 [클레임 요청](claims-challenge.md) 매개 변수와 함께 [조건부 액세스 인증 컨텍스트 참조](/graph/api/resources/authenticationcontextclassreference) **값** 을 사용하여 앱에 정책을 트리거하고 충족하는 방법을 제공합니다.
+**먼저** 인증 및 권한 부여를 위해 [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) 프로토콜을 사용하여 앱을 Microsoft ID 플랫폼과 통합해야 합니다. [Microsoft ID 플랫폼 인증 라이브러리](reference-v2-libraries.md)를 사용하여 Azure Active Directory로 애플리케이션을 통합하고 보호하는 것이 좋습니다. [Microsoft ID 플랫폼 설명서](index.yml)는 앱을 Microsoft ID 플랫폼과 통합하는 방법에 대한 학습을 시작하는 데 적합합니다. 조건부 액세스 인증 컨텍스트 기능 지원은 업계 표준 [OpenID Connect](v2-protocols-oidc.md) 프로토콜에서 제공하는 프로토콜 확장을 기반으로 합니다. 개발자는 [클레임 요청](claims-challenge.md) 매개 변수와 함께 [조건부 액세스 인증 컨텍스트 참조](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences) **값** 을 사용하여 앱에 정책을 트리거하고 충족하는 방법을 제공합니다.
 
 **두 번째로** [조건부 액세스](../conditional-access/overview.md)에는 Azure AD Premium P1 라이선스가 필요합니다. 라이선스에 대한 자세한 내용은 [Azure AD 가격 책정 페이지](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)에서 확인할 수 있습니다.
 

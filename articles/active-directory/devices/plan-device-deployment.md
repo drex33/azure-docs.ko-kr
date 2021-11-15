@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2ae8a38305b74f2bccba55b02d98626b5afc1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5f64ce0313bf985dfb4ce84253e7d83ab2a03e96
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528224"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234265"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 디바이스 배포 계획
 
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory)를 사용하면 조직에서 디바이스 ID �
 
 * 사용자 환경 개선 – Azure AD의 디바이스 ID를 통해 사용자에게 개인 및 회사 디바이스 모두에서 조직의 클라우드 기반 리소스에 대한 손쉬운 액세스를 제공할 수 있습니다. 관리자는 모든 Windows 디바이스에서 통합된 환경에 대한 [Enterprise State Roaming](enterprise-state-roaming-overview.md)을 사용하도록 설정할 수 있습니다.
 
-* 배포 및 관리 간소화 – 디바이스 ID 관리를 사용하면 [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [대량 프로비전](/mem/intune/enrollment/windows-bulk-enroll) 및 [셀프 서비스: OOBE(첫 실행 경험)](../user-help/user-help-join-device-on-network.md)를 통해 Azure AD로 디바이스를 가져오는 프로세스가 간소화됩니다. [Microsoft Intune](/mem/intune/fundamentals/what-is-intune)과 같은 MDM(모바일 디바이스 관리) 도구 및 [Azure Portal](https://portal.azure.com/)에서 해당 ID를 사용하여 이러한 디바이스를 관리할 수 있습니다.
+* 배포 및 관리 간소화 – 디바이스 ID 관리를 사용하면 [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [대량 프로비전](/mem/intune/enrollment/windows-bulk-enroll) 및 [셀프 서비스: OOBE(첫 실행 경험)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)를 통해 Azure AD로 디바이스를 가져오는 프로세스가 간소화됩니다. [Microsoft Intune](/mem/intune/fundamentals/what-is-intune)과 같은 MDM(모바일 디바이스 관리) 도구 및 [Azure Portal](https://portal.azure.com/)에서 해당 ID를 사용하여 이러한 디바이스를 관리할 수 있습니다.
 
 ### <a name="training-resources"></a>학습 리소스
 
@@ -121,7 +121,7 @@ iOS 및 Android 디바이스는 Azure AD만 등록할 수 있습니다. 다음 �
 | 조건부 액세스 <br> (디바이스를 준수 상태로 표시해야 함) <br> (MDM에서 관리해야 함)| ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png) | ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png)|![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png) |
 조건부 액세스 <br>(하이브리드 Azure AD 조인된 디바이스 필요)| | | ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png)
 | Windows 로그인 화면에서 셀프 서비스 암호 재설정| | ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png) |
-| Windows hello PIN 다시 설정| | ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png) |
+| Windows Hello PIN 다시 설정| | ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png) |
 | 여러 디바이스에서 Enterprise State Roaming| | ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대한 확인 표시](./media/plan-device-deployment/check.png) |
 
 
@@ -149,7 +149,7 @@ BYOD 및 회사 소유 모바일 디바이스는 회사 포털 앱을 설치하�
 
 * [Azure AD 등록 디바이스](concept-azure-ad-register.md)에 대한 개요입니다.
 
-* 이 최종 사용자 설명서는 [조직의 네트워크에 개인 디바이스를 등록](../user-help/user-help-register-device-on-network.md)하는 방법에 대해 설명합니다.
+* 이 최종 사용자 설명서는 [조직의 네트워크에 개인 디바이스를 등록](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)하는 방법에 대해 설명합니다.
 
 ## <a name="azure-ad-join"></a>Azure AD 조인
 
@@ -171,7 +171,7 @@ Azure AD 조인을 프로비전하려면 다음 방법을 사용합니다.
 
 Windows 10 Professional 또는 Windows 10 Enterprise가 디바이스에 설치된 경우 환경은 기본적으로 회사 소유의 디바이스에 대한 설정 프로세스로 지정됩니다.
 
-* [Windows OOBE(첫 실행 경험) 또는 Windows 설정](../user-help/user-help-join-device-on-network.md)
+* [Windows OOBE(첫 실행 경험) 또는 Windows 설정](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 * [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 

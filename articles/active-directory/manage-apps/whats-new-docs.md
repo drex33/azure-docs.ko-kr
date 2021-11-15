@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 애플리케이션 관리의 새로운 기능
 description: Azure Active Directory 애플리케이션 관리에 대한 새로운 설명서 및 업데이트된 설명서입니다.
-ms.date: 08/03/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,74 @@ ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
 reviewer: napuri
-ms.openlocfilehash: d95c81256dcb58b64273d6062563daf38dfdb4fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 260473c428e7bdc2bfd968aa2ba5469e578c1005
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535695"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533137"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 애플리케이션 관리: 새로운 기능
 
 Azure Active Directory 애플리케이션 관리 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. 애플리케이션 관리 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="september-2021"></a>2021년 9월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure Active Directory의 애플리케이션에 대한 홈 영역 검색](home-realm-discovery-policy.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당](assign-user-or-group-access-portal.md)
+- [홈 영역 검색 정책을 사용한 애플리케이션에 대한 로그인 동작 구성](configure-authentication-for-federated-users-portal.md)
+- [사용자가 Azure Active Directory에서 애플리케이션에 로그인하는 방법 사용 안 함](disable-user-sign-in-portal.md)
+- [Azure Active Directory에서 엔터프라이즈 애플리케이션 숨기기](hide-application-from-user-portal.md)
+- [Azure Active Directory에서 셀프 서비스 애플리케이션 할당 사용](manage-self-service-access.md)
+- [사용자가 홈 영역 검색 정책을 사용하여 로그인하는 동안 페더레이션된 IDP에 대해 자동 가속 비활성화](prevent-domain-hints-with-home-realm-discovery.md)
+- [Azure Active Directory에서 앱에 대한 액세스 관리](what-is-access-management.md)
+- [자습서: OKTA에서 Azure Active Directory로 애플리케이션 마이그레이션](migrate-applications-from-okta-to-azure-active-directory.md)
+- [자습서: OKTA 페더레이션을 Azure Active Directory 관리형 인증으로 마이그레이션](migrate-okta-federation-to-azure-active-directory.md)
+- [자습서: OKTA 로그온 정책을 Azure AD 조건부 액세스로 마이그레이션](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [자습서: OKTA 동기화 프로비저닝을 Azure AD Connect 기반 동기화로 마이그레이션](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Azure Active Directory 파트너 통합을 통해 하이브리드 액세스 보호](secure-hybrid-access-integrations.md)
+- [Azure Active Directory 애플리케이션 관리: 새로운 기능](whats-new-docs.md)
+- [빠른 시작: Azure Active Directory에서 사용자 계정 만들기 및 할당](add-application-portal-assign-users.md)
+- [빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션 속성 구성](add-application-portal-configure.md)
+- [Azure Active Directory에서 OpenID Connect 기반 Single Sign-On 애플리케이션 추가](add-application-portal-setup-oidc-sso.md)
+- [빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션에 Single Sign-On을 사용하도록 설정](add-application-portal-setup-sso.md)
+- [빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션 추가](add-application-portal.md)
+- [빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션 삭제](delete-application-portal.md)
+- [빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션 보기](view-applications-portal.md)
+- [내 앱 포털에서 컬렉션 만들기](access-panel-collections.md)
+- [앱 동의 정책 관리](manage-app-consent-policies.md)
+- [Azure Active Directory의 애플리케이션에 연결된 Single Sign-On 추가](configure-linked-sign-on.md)
+- [Azure Active Directory의 애플리케이션에 암호 기반 Single Sign-On 추가](configure-password-single-sign-on-non-gallery-applications.md)
+- [Azure Active Directory에서 Single Sign-On 배포 계획](plan-sso-deployment.md)
+- [Azure Active Directory의 Single Sign-On이란?](what-is-single-sign-on.md)
+
+
+## <a name="august-2021"></a>2021년 8월
+
+### <a name="new-articles"></a>새 문서
+
+- [동의 피싱으로부터 보호](protect-against-consent-phishing.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [권한 분류 구성](configure-permission-classifications.md)
+- [그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성](configure-user-consent-groups.md)
+- [Azure Active Directory에서 권한 초과 또는 의심스러운 애플리케이션에 대한 조치 수행](manage-application-permissions.md)
+- [애플리케이션에 대한 동의 관리 및 동의 요청 평가](manage-consent-requests.md)
+- [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
+- [빠른 시작: 테넌트에 애플리케이션 추가](add-application-portal.md)
+- [엔터프라이즈 애플리케이션에 사용자 및 그룹 할당](assign-user-or-group-access-portal.md)
+- [앱에 대한 액세스 관리](what-is-access-management.md)
+- [Azure Active Directory 애플리케이션 관리: 새로운 기능](whats-new-docs.md)
+- [Azure Active Directory 내 앱 구성 계획](my-apps-deployment-plan.md)
+- [SAML 토큰의 고급 인증서 서명 옵션](certificate-signing-options.md)
+- [내 앱 포털에서 컬렉션 만들기](access-panel-collections.md)
+
 
 ## <a name="july-2021"></a>2021년 7월
 

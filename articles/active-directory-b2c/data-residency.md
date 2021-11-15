@@ -1,7 +1,7 @@
 ---
 title: 지역 가용성 및 데이터 상주
 titleSuffix: Azure AD B2C
-description: 지역 가용성, 데이터 보존, Azure Active Directory B2C 미리 보기 테넌트에 관한 정보입니다.
+description: 지역 가용성, 데이터 보존, 고가용성, SLA 및 Azure Active Directory B2C 미리 보기 테넌트에 관한 정보입니다.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 08/16/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 91b2c287b42d0a60a3b813b87f8e1eb2368da395
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 52fc2cc1e9658ef63b331d7d3983fdc47d13489e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130040230"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424423"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 
@@ -33,8 +33,7 @@ Azure AD B2C는 **미국, 유럽 또는 아시아 태평양 또는 오스트레�
 
 ## <a name="region-availability"></a>지역 가용성
 
-Azure AD B2C는 Azure 퍼블릭 클라우드를 통해 전 세계에서 사용할 수 있습니다. Azure의 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지 및 [Azure Active Directory B2C 가격 계산기](https://azure.microsoft.com/pricing/details/active-directory-b2c/)에서 이 기능의 예를 확인할 수 있습니다.
-
+Azure AD B2C는 Azure 퍼블릭 클라우드를 통해 전 세계에서 사용할 수 있습니다. Azure의 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지 및 [Azure Active Directory B2C 가격 계산기](https://azure.microsoft.com/pricing/details/active-directory-b2c/)에서 이 서비스의 가용성을 확인할 수 있습니다. 또한 Azure AD B2C 서비스는 항상 사용 가능합니다. [Azure Active Directory B2C용 SLA(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1)에 대해 자세히 알아보세요.
 ## <a name="data-residency"></a>데이터 상주
 
 Azure AD B2C는 미국, 유럽 또는 아시아 태평양 지역 또는 오스트레일리아에 사용자 데이터를 저장합니다.

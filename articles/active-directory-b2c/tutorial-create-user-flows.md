@@ -11,12 +11,12 @@ ms.date: 10/18/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63af3b70ebfde53078d71955a95e55e03a6c591b
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5cdf2cfb9b530721a8de31501c2f763f0c61bd21
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162482"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240892"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 만들기
 
@@ -145,7 +145,7 @@ ms.locfileid: "130162482"
 > 이 문서에서는 테넌트를 수동으로 설정하는 방법을 설명합니다. 이 문서에서 프로세스 전체를 자동화할 수 있습니다. 자동화하면 등록 및 로그인, 암호 재설정, 프로필 편집 과정을 제공하는 Azure AD B2C [SocialAndLocalAccountsWithMFA 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 배포합니다. 아래 연습을 자동화하려면 [IEF 설치 앱](https://aka.ms/iefsetup)을 방문하여 지침을 따르세요.
 
 
-## <a name="add-signing-and-encryption-keys"></a>서명 및 암호화 키 추가
+## <a name="add-signing-and-encryption-keys-for-identity-experience-framework-applications"></a>Identity Experience Framework 애플리케이션에 대한 서명 및 암호화 키 추가
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
@@ -276,33 +276,6 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 1. `ProxyIdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 ProxyIdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다.
 1. 파일을 저장합니다.
 
-## <a name="upload-the-policies"></a>정책 업로드
-
-1. Azure Portal에서 B2C 테넌트의 **Identity Experience Framework** 메뉴 항목을 선택합니다.
-1. **사용자 지정 정책 업로드** 를 선택합니다.
-1. 이 순서로 정책 파일을 업로드합니다.
-    1. *TrustFrameworkBase.xml*
-    2. *TrustFrameworkLocalization.xml*
-    3. *TrustFrameworkExtensions.xml*
-    4. *SignUpOrSignin.xml*
-    5. *ProfileEdit.xml*
-    6. *PasswordReset.xml*
-
-파일을 업로드하면 Azure에서 각 파일에 `B2C_1A_` 접두사를 추가합니다.
-
-> [!TIP]
-> XML 편집기에서 유효성 검사를 지원하는 경우 시작 팩의 루트 디렉터리에 있는 `TrustFrameworkPolicy_0.3.0.0.xsd` XML 스키마에 대해 파일의 유효성을 검사합니다. 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다.
-
-## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
-
-1. **사용자 지정 정책** 에서 **B2C_1A_signup_signin** 을 선택합니다.
-1. 사용자 지정 정책의 개요 페이지에 있는 **애플리케이션 선택** 에서 이전에 등록한 *webapp1* 이라는 웹 애플리케이션을 선택합니다.
-1. **회신 URL** `https://jwt.ms`인지 확인합니다.
-1. **지금 실행** 을 선택합니다.
-1. 이메일 주소를 사용하여 가입합니다. 아직 **Facebook** 옵션을 사용하지 마세요. 
-1. **지금 실행** 을 다시 선택합니다.
-1. 동일한 계정으로 로그인하여 올바르게 구성되었는지 확인합니다.
-
 ## <a name="add-facebook-as-an-identity-provider"></a>Facebook을 ID 공급자로 추가
 
 **SocialAndLocalAccounts** 스타터 팩에는 Facebook 소셜 로그인이 포함되어 있습니다. Facebook은 사용자 지정 정책을 사용하는 데 필요하지 *않지만* 여기서는 사용자 지정 정책에서 페더레이션된 소셜 로그인을 사용하도록 설정하는 방법을 보여주기 위해 사용되었습니다.
@@ -328,7 +301,7 @@ Facebook 애플리케이션의 [앱 비밀](identity-provider-facebook.md)을 �
 1. **만들기** 를 선택합니다.
 
 ### <a name="update-trustframeworkextensionsxml-in-custom-policy-starter-pack"></a>사용자 지정 정책 스타터 팩에서 TrustFrameworkExtensions.xml 업데이트
-1. `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** 파일에서 `client_id`의 값을 Facebook 애플리케이션 ID로 바꿉니다.
+`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** 파일에서 `client_id`의 값을 Facebook 애플리케이션 ID로 바꾼 후 변경 내용을 저장합니다.
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
@@ -337,11 +310,34 @@ Facebook 애플리케이션의 [앱 비밀](identity-provider-facebook.md)을 �
        <Item Key="client_id">00000000000000</Item>
    ```
 
-1. 테넌트에 *TrustFrameworkExtensions.xml* 파일을 업로드합니다.
+
+## <a name="upload-the-policies"></a>정책 업로드
+
+1. Azure Portal에서 B2C 테넌트의 **Identity Experience Framework** 메뉴 항목을 선택합니다.
+1. **사용자 지정 정책 업로드** 를 선택합니다.
+1. 이 순서로 정책 파일을 업로드합니다.
+    1. *TrustFrameworkBase.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
+
+파일을 업로드하면 Azure에서 각 파일에 `B2C_1A_` 접두사를 추가합니다.
+
+> [!TIP]
+> XML 편집기에서 유효성 검사를 지원하는 경우 시작 팩의 루트 디렉터리에 있는 `TrustFrameworkPolicy_0.3.0.0.xsd` XML 스키마에 대해 파일의 유효성을 검사합니다. 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다.
+
+## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
+
 1. **사용자 지정 정책** 에서 **B2C_1A_signup_signin** 을 선택합니다.
-1. **지금 실행** 을 선택하고 Facebook을 선택하여 Facebook에 로그인하고 사용자 지정 정책을 테스트합니다.
-
-
+1. 사용자 지정 정책의 개요 페이지에 있는 **애플리케이션 선택** 에서 이전에 등록한 *webapp1* 이라는 웹 애플리케이션을 선택합니다.
+1. **회신 URL** `https://jwt.ms`인지 확인합니다.
+1. **지금 실행** 을 선택합니다.
+1. 이메일 주소를 사용하여 가입합니다.
+1. **지금 실행** 을 다시 선택합니다.
+1. 동일한 계정으로 로그인하여 올바르게 구성되었는지 확인합니다.
+1. **지금 실행** 을 다시 선택하고 Facebook을 선택하여 Facebook에 로그인하고 사용자 지정 정책을 테스트합니다.
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계

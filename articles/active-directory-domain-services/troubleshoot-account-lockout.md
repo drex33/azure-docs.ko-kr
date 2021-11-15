@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 487befb0e0d48a1ccf61a38af29c17c596fa70b8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103198954"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350095"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인의 계정 잠금 문제 해결
 
@@ -97,9 +97,12 @@ AADDomainServicesAccountManagement
 
 03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
 
-진단 캡처를 구성할 수 있도록 NSG의 내 DC에 대한 RDP를 백 엔드에 사용하도록 설정합니다(즉, Netlogon). https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules 이미 기본 NSG를 수정한 경우 PSlet을 수행하여 사용하시기 바랍니다. https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+진단 캡처를 구성할 수 있도록 NSG의 내 DC에 대한 RDP를 백 엔드에 사용하도록 설정합니다(즉, netlogon).
+[인바운드 보안 규칙](alert-nsg.md#inbound-security-rules)
 
-모든 서버에서 Netlogon 로그를 사용하도록 설정하는 방법: https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
+기본 NSG를 이미 수정한 경우 [포트 3389 - 원격 데스크톱을 사용한 관리](network-considerations.md#port-3389---management-using-remote-desktop) 단계를 수행합니다.
+
+모든 서버에서 Netlogon 로그를 사용하도록 설정하려면 [Netlogon 서비스에 대한 디버그 로깅 사용](/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service) 단계를 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

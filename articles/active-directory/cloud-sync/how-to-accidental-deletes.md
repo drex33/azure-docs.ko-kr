@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da54bd28c1d9ea933e88b6c86cf6092c10d036a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5055b847eab1ee53688abfa308b5969f7526f668
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98785188"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742674"
 ---
 # <a name="accidental-delete-prevention"></a>실수로 인한 삭제 방지
 
@@ -27,6 +27,10 @@ ms.locfileid: "98785188"
 - 이 시나리오를 위해 문제가 되는 동기화 작업이 격리되면 메일 알림을 받을 수 있도록 알림 메일 주소를 설정합니다. 
 
 이 기능을 사용하기 위해서는 삭제된 경우 동기화가 중지되어야 하는 개체 수의 임계값을 설정합니다.  이 경우 설정된 임계값에 도달하면 동기화가 중지되고 지정된 메일로 알림이 전송됩니다.  이 알림을 통해 진행 상황을 조사할 수 있습니다.
+
+추가 정보 및 예제는 다음 비디오를 참조하세요.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mV]
 
 
 ## <a name="configure-accidental-delete-prevention"></a>실수로 인한 삭제 방지 구성

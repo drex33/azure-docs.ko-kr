@@ -14,16 +14,23 @@ ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee84f80110975f6a12a6371ae204ca85401a2adf
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 9b12c1c69f160a51fbcf5650a3ebe30045584106
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986514"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471253"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격 규칙의 유효성 검사(미리 보기)
 
 이제 Azure AD(Azure Active Directory)에서 동적 그룹 규칙의 유효성을 검사하는 방법을 제공합니다(공개 미리 보기). **규칙 유효성 검사** 탭에서 샘플 그룹 멤버에 대해 동적 규칙의 유효성을 검사하여 규칙이 예상대로 작동하는지 확인할 수 있습니다. 관리자는 동적 그룹 규칙을 만들거나 업데이트할 때 사용자 또는 디바이스가 그룹의 멤버인지 여부를 확인하려고 합니다. 이를 통해 사용자 또는 디바이스가 규칙 조건을 충족하는지 여부를 평가하고, 멤버 자격이 예상되지 않을 때 문제를 해결하는 데 도움이 됩니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+동적 그룹 규칙 멤버 자격 평가 기능을 사용하려면 관리자에게 전역 관리자, 그룹 관리자 또는 Intune 관리자 규칙 중 하나를 직접 할당해야 합니다.
+
+> [!TIP]
+> 간접 그룹 멤버 자격을 통해 필요한 역할 중 하나를 할당하는 것은 아직 지원되지 않습니다.
+>
 
 ## <a name="step-by-step-walk-through"></a>단계별 안내
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47215f936ebc43b7aa720bc68f2caba294f03d46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952765"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595354"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용하여 문제 해결
 
@@ -67,6 +67,9 @@ Azure Portal의 **[조건부 액세스 - 정책](https://portal.azure.com/#blade
 ### <a name="cloud-apps"></a>클라우드 앱
 
 이 설정의 기본값은 **모든 클라우드 앱** 입니다. 기본 설정은 사용자 환경의 사용 가능한 모든 정책에 대한 평가를 수행합니다. 특정 클라우드 앱에 영향을 주는 정책으로 범위를 좁힐 수 있습니다.
+
+> [!NOTE]
+> What If 도구를 사용하는 경우 [조건부 액세스 서비스 종속성](service-dependencies.md)을 테스트하지 않습니다. 예를 들어 What If를 사용하여 Microsoft Teams에 대한 조건부 액세스 정책을 테스트하는 경우 결과는 Microsoft Teams에 대한 조건부 액세스 서비스 종속성인 Office 365 Exchange Online에 적용되는 정책을 고려하지 않습니다.
 
 ### <a name="ip-address"></a>IP 주소
 

@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 09/13/2021
 ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c9e92d09ce929b47cd9a71559eabb4e7c40858
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 951431ca79bfeb182eb5d1252851edb767120039
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537282"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658244"
 ---
 # <a name="assign-azure-ad-roles-at-different-scopes"></a>다양한 범위에서 Azure AD 역할 할당
 
-이 문서에서는 다양한 범위에서 Azure AD 역할을 할당하는 방법을 설명합니다. Azure AD의 범위 지정을 이해하려면 [Azure AD의 RBAC 개요](custom-overview.md) 문서를 참조하세요. 일반적으로 역할 할당을 제한하려는 범위 내에 있어야 합니다. 예를 들어 [관리 단위](administrative-units.md)에 대해 범위 지정된 기술 지원팀 관리자 역할을 할당하려면 **Azure AD > 관리 단위 > {관리 단위} > 역할 및 관리자** 로 이동한 후 역할 할당을 수행해야 합니다. 그러면 전체 테넌트가 아니라 관리 단위로 범위가 지정된 역할 할당이 만들어집니다.
+Azure AD(Azure Active Directory)에서는 일반적으로 전체 테넌트에 적용되도록 Azure AD 역할을 할당합니다. 그러나 관리 단위나 애플리케이션 등록과 같은 Azure AD 역할을 다른 리소스에 대해 할당할 수도 있습니다. 예를 들어 전체 테넌트가 아닌 특정 관리 단위에만 적용되도록 기술 지원팀 관리자 역할을 할당할 수 있습니다. 또한 역할 할당이 적용되는 리소스는 범위를 호출합니다. 이 문서에서는 테넌트, 관리 단위 및 애플리케이션 등록 범위에서 Azure AD 역할을 할당하는 방법을 설명합니다. 범위에 대한 자세한 내용은 [Azure AD의 RBAC 개요](custom-overview.md#scope)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -123,7 +123,9 @@ PowerShell을 사용하여 Azure AD 역할을 할당하려면 다음 단계를 �
 
 ## <a name="assign-roles-scoped-to-an-administrative-unit"></a>관리 단위에 범위가 지정된 역할 할당
 
-### <a name="azure-portal"></a>Azure portal
+이 섹션에서는 [관리 단위](administrative-units.md) 범위에서 역할을 할당하는 방법을 설명합니다.
+
+### <a name="azure-portal"></a>Azure Portal
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
@@ -227,7 +229,9 @@ PowerShell을 사용하여 관리 단위 범위에서 Azure AD 역할을 할당�
 
 ## <a name="assign-roles-scoped-to-an-app-registration"></a>앱 등록 범위가 지정된 역할 할당
 
-### <a name="azure-portal"></a>Azure portal
+이 섹션에서는 애플리케이션 등록 범위에서 역할을 할당하는 방법을 설명합니다.
+
+### <a name="azure-portal"></a>Azure Portal
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
@@ -340,6 +344,6 @@ PowerShell을 사용하여 애플리케이션 범위에서 Azure AD 역할을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 역할 할당 나열](view-assignments.md)
-* [사용자에게 Azure AD 역할 할당](manage-roles-portal.md)
+* [Azure AD 역할 할당을 나열](view-assignments.md)합니다.
+* [사용자에게 Azure AD 역할 할당](manage-roles-portal.md).
 * [그룹에 Azure AD 역할 할당](groups-assign-role.md)

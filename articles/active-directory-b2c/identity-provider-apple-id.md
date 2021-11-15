@@ -3,24 +3,24 @@ title: Apple ID로 등록 및 로그인 설정
 titleSuffix: Azure AD B2C
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Apple ID로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c150fdae1820dee3ae440f4d4acdacff04e14e66
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: c3d3fa84e615a60092d0f42acd401be0421bc3f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530519"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448636"
 ---
-# <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Azure Active Directory B2C를 사용하여 Apple ID로 등록 설정 및 로그인(미리 보기)
+# <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Apple ID로 가입 설정 및 로그인
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "122530519"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -78,9 +78,10 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Apple ID로 로그�
 ## <a name="configure-apple-as-an-identity-provider"></a>Apple을 ID 공급자로 구성
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
-1. **ID 공급자** 를 선택한 다음, **Apple(미리 보기)** 을 선택합니다.
+1. **ID 공급자** 를 선택한 다음, **Apple** 을 선택합니다.
 1. **이름** 은 **Apple로 로그인** 을 입력합니다. 
 1. **Apple 개발자 ID(팀 ID)** 를 입력합니다.
 1. **Apple 서비스 ID(클라이언트 ID)** 를 입력합니다.
@@ -91,8 +92,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Apple ID로 로그�
 
 > [!IMPORTANT] 
 > - Apple로 로그인하려면 관리자가 6개월마다 클라이언트 암호를 갱신해야 합니다. 
-> - 이 기능의 공개 미리 보기 기간 중에는 Apple 클라이언트 암호가 만료되면 수동으로 갱신해야 합니다. Apple ID 공급자 소셜 IDP 구성 페이지에서 사전에 경고가 표시되지만 미리 알림을 설정하는 것이 좋습니다. 
-> - 비밀을 갱신해야 하는 경우 Azure Portal에서 Azure AD B2C를 열고 **ID 공급자** > **Apple** 로 이동한 다음 **비밀 갱신** 을 선택합니다.
+> - Apple 클라이언트 암호는 만료되면 자동으로 갱신됩니다. 비밀을 수동으로 갱신해야 하는 경우 Azure Portal에서 Azure AD B2C를 열고 **ID 공급자** > **Apple** 로 이동한 다음, **비밀 갱신** 을 선택합니다.
 > - [Apple에 로그인 단추를 제공](#customize-your-user-interface)하는 방법에 대한 지침을 따르세요.
 
 ## <a name="add-the-apple-identity-provider-to-a-user-flow"></a>사용자 흐름에 Apple ID 공급자 추가
@@ -101,7 +101,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Apple ID로 로그�
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. Apple ID 공급자를 추가하고자 하는 사용자 흐름을 선택합니다. 
-1. **소셜 ID 공급자** 에서 **Apple(미리 보기)** 을 선택합니다.
+1. **소셜 ID 공급자** 에서 **Apple** 을 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
 1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
@@ -126,6 +126,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Apple ID로 로그�
 
     - **appleTeamId**: Apple 개발자 팀 ID
     - **appleServiceId**: Apple 서비스 ID(및 클라이언트 ID)
+    - **appleKeyId**: JWT 헤더에 저장된 10자리 키 ID입니다(Apple에서 필요).
     - **p8key**: PEM 형식 키. .p8 파일을 텍스트 편집기에서 열고 `-----BEGIN PRIVATE KEY-----`와 `-----END PRIVATE KEY-----` 사이에 있는 모든 내용을 줄 바꿈 없이 복사하면 이를 가져올 수 있습니다.
  
 다음 json은 Azure 기능 호출의 예제입니다.
@@ -134,6 +135,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Apple ID로 로그�
 {
     "appleTeamId": "ABC123DEFG",
     "appleServiceId": "com.yourcompany.app1",
+    "appleKeyId": "URKEYID001",
     "p8key": "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg+s07NiAcuGEu8rxsJBG7ttupF6FRe3bXdHxEipuyK82gCgYIKoZIzj0DAQehRANCAAQnR1W/KbbaihTQayXH3tuAXA8Aei7u7Ij5OdRy6clOgBeRBPy1miObKYVx3ki1msjjG2uGqRbrc1LvjLHINWRD"
 }
 ```
@@ -151,8 +153,9 @@ Azure 기능은 적절한 형식의 서명된 클라이언트 암호 JWT로 응�
 이전에 Azure AD B2C 테넌트에서 기록했던 클라이언트 비밀을 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
 1. **개요** 페이지에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 에서 **수동** 을 선택합니다.

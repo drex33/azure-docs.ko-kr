@@ -10,12 +10,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 338798b017bd36be2dd3c717b67515064a245ebb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f43d48d4ce0f66fbd1663d58eb92728532833783
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101767"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563381"
 ---
 # <a name="what-is-azure-synapse-data-explorer-preview"></a>Azure Synapse Data Explorer란? (미리 보기)
 
@@ -72,7 +72,7 @@ Data Explorer는 반구조적 데이터(JSON) 및 비구조적 데이터(자유 
 
 ### <a name="kusto-query-language"></a>Kusto 쿼리 언어
 
-KQL에는 Azure Monitor, Azure Application Insights, Azure Sentinel, Azure Data Explore 및 기타 Microsoft 제품을 빠르게 채택하여 성장하고 있는 대규모 커뮤니티가 있습니다. 읽기 쉬운 구문으로 잘 설계된 이 언어는 간단한 한 줄짜리에서 복잡한 데이터 처리 쿼리로 원활하게 전환할 수 있습니다. 이를 통해 Data Explorer는 다양한 Intellisense 지원과 다양한 언어 구문 및 원격 분석 데이터의 신속한 탐색을 위해 SQL에서는 사용할 수 없는 집계, 시계열 및 사용자 분석 기능을 기본 제공합니다.
+KQL에는 Azure Monitor Log Analytics 및 Application Insights, Azure Sentinel, Azure Data Explore 및 기타 Microsoft 제품을 빠르게 채택하여 성장하고 있는 대규모 커뮤니티가 있습니다. 읽기 쉬운 구문으로 잘 설계된 이 언어는 간단한 한 줄짜리에서 복잡한 데이터 처리 쿼리로 원활하게 전환할 수 있습니다. 이를 통해 Data Explorer는 다양한 Intellisense 지원과 다양한 언어 구문 및 원격 분석 데이터의 신속한 탐색을 위해 SQL에서는 사용할 수 없는 집계, 시계열 및 사용자 분석 기능을 기본 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

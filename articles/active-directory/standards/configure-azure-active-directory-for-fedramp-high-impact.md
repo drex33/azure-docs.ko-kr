@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8baa5cc0188c590f639135d2a0baeea4f2efa8b
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 20eafed03b9dd63bf6c59445d744d7a3c67c5614
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112454855"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601751"
 ---
 # <a name="configure-azure-active-directory-to-meet-fedramp-high-impact-level"></a>FedRAMP High 영향 수준을 충족하도록 Azure Active Directory 구성
 
@@ -54,7 +54,7 @@ FedRAMP 리소스 목록은 다음과 같습니다.
 
 * [Azure 규정 준수 제품](https://aka.ms/azurecompliance)
 
-* [FedRAMP High 청사진 개요](../../governance/blueprints/samples/fedramp-h/index.md)
+* [FedRAMP High Azure Policy 기본 제공 이니셔티브 정의](../../governance/policy/samples/fedramp-high.md)
 
 * [Microsoft 365 규정 준수 센터](/microsoft-365/compliance/microsoft-365-compliance-center)
 

@@ -3,21 +3,21 @@ title: ADAL에서 MSAL로 Node.js 애플리케이션 마이그레이션 | Azure
 titleSuffix: Microsoft identity platform
 description: ADAL(Active Directory 인증 라이브러리) 대신 인증 및 권한 부여에 MSAL (Microsoft 인증 라이브러리)을 사용하도록 기존 Node.js 애플리케이션을 업데이트하는 방법입니다.
 services: active-directory
-author: derisen
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
-ms.author: v-doeris
+ms.author: marsma
 ms.custom: has-adal-ref
-ms.openlocfilehash: 55cf58924bca9839225eafaa3e4084d60db5f898
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 33dd6efdbd03ce14beaf392e7bc24e051381903e
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568132"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503018"
 ---
 # <a name="how-to-migrate-a-nodejs-app-from-adal-to-msal"></a>ADAL에서 MSAL로 Node.js 앱을 마이그레이션하는 방법
 
@@ -125,8 +125,8 @@ const msalConfig = {
     auth: {
         clientId: "YOUR_CLIENT_ID",
         authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
-        clientSecret: "YOUR_TENANT_ID",
-        knownAuthorities: [], 
+        clientSecret: "YOUR_CLIENT_SECRET",
+        knownAuthorities: [],
     },
     cache: {
         // your implementation of caching
@@ -297,7 +297,7 @@ var authorityURI = "https://login.microsoftonline.com/common";
 var context = new AuthenticationContext(authorityURI, true, cache);
 ```
 
-MSAL Node는 기본값으로 메모리 내 토큰 캐시를 사용합니다. 명시적으로 가져올 필요는 없습니다. `ConfidentialClientApplication`과 `PublicClientApplication` 클래스의 일부로 공개됩니다.
+MSAL Node는 기본값으로 메모리 내 토큰 캐시를 사용합니다. 명시적으로 가져올 필요는 없습니다. 메모리 내 토큰 캐시는 `ConfidentialClientApplication`과 `PublicClientApplication` 클래스의 일부로 공개됩니다.
 
 ```javascript
 const msalTokenCache = publicClientApplication.getTokenCache();
@@ -312,13 +312,13 @@ const msal = require('@azure/msal-node');
 
 const msalConfig = {
     auth: {
-        // authentication related parameters 
+        // authentication related parameters
     },
     cache: {
         cachePlugin // your implementation of cache plugin
     },
     system: {
-        // logging related options 
+        // logging related options
     }
 }
 
@@ -438,9 +438,9 @@ adal.Logging.setLoggingOptions({
 });
 
 // Auth code request URL template
-var templateAuthzUrl = 'https://login.microsoftonline.com/' 
-    + tenant + '/oauth2/authorize?response_type=code&client_id=' 
-    + clientId + '&redirect_uri=' + redirectUri 
+var templateAuthzUrl = 'https://login.microsoftonline.com/'
+    + tenant + '/oauth2/authorize?response_type=code&client_id='
+    + clientId + '&redirect_uri=' + redirectUri
     + '&state=<state>&resource=' + resource;
 
 // Initialize express
@@ -456,7 +456,7 @@ app.get('/auth', function(req, res) {
         app.locals.state = buf.toString('base64')
             .replace(/\//g, '_')
             .replace(/\+/g, '-');
-        
+
         // Construct auth code request URL
         var authorizationUrl = templateAuthzUrl
             .replace('<state>', app.locals.state);
@@ -472,15 +472,15 @@ app.get('/redirect', function(req, res) {
     }
 
     // Initialize an AuthenticationContext object
-    var authenticationContext = 
+    var authenticationContext =
         new adal.AuthenticationContext(authorityUrl);
-    
+
     // Exchange auth code for tokens
     authenticationContext.acquireTokenWithAuthorizationCode(
-        req.query.code, 
-        redirectUri, 
-        resource, 
-        clientId, 
+        req.query.code,
+        redirectUri,
+        resource,
+        clientId,
         clientSecret,
         function(err, response) {
             res.send(response);
@@ -488,8 +488,8 @@ app.get('/redirect', function(req, res) {
     );
 });
 
-app.listen(3000, function() { 
-    console.log(`listening on port 3000!`); 
+app.listen(3000, function() {
+    console.log(`listening on port 3000!`);
 });
 ```
 
@@ -528,7 +528,7 @@ const cca = new msal.ConfidentialClientApplication(config);
 const app = express();
 
 app.get('/auth', (req, res) => {
-    
+
     // Construct a request object for auth code
     const authCodeUrlParameters = {
         scopes: ["user.read"],
@@ -543,7 +543,7 @@ app.get('/auth', (req, res) => {
 });
 
 app.get('/redirect', (req, res) => {
-    
+
     // Use the auth code in redirect request to construct
     // a token request object
     const tokenRequest = {
@@ -559,7 +559,7 @@ app.get('/redirect', (req, res) => {
         }).catch((error) => res.status(500).send(error));
 });
 
-app.listen(3000, () => 
+app.listen(3000, () =>
     console.log(`listening on port 3000!`));
 ```
 

@@ -7,22 +7,26 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd14ed8d149cdc5296229c52ceb74afb2ce7b23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70a480fba6b7923ffb327b22822e4baa3a54acdc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98613544"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749960"
 ---
 # <a name="azure-ad-connect-cloud-sync-supported-topologies-and-scenarios"></a>Azure AD Connect 클라우드 동기화에서 지원하는 토폴로지 및 시나리오
 이 문서에서는 Azure AD Connect 클라우드 동기화를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성 및 시나리오만 포함되어 있습니다.
 
 > [!IMPORTANT]
 > Microsoft는 공식적으로 문서화된 구성 또는 작업 외의 Azure AD Connect 클라우드 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 해당 구성 또는 작업으로 인해 Azure AD Connect 클라우드 동기화의 불일치 또는 지원되지 않는 상태가 발생할 수 있으며, 그 결과 Microsoft가 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
+
+자세한 내용은 다음 비디오를 참조하세요.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 ## <a name="things-to-remember-about-all-scenarios-and-topologies"></a>모든 시나리오 및 토폴로지에 대해 기억할 사항
 다음은 솔루션을 선택할 때 염두에 두어야 하는 정보 목록입니다.

@@ -1,24 +1,44 @@
 ---
 title: Azure Active Directory 애플리케이션 프로비저닝의 새로운 기능
 description: Azure Active Directory 애플리케이션 프로비저닝을 위한 새로운 설명서 및 업데이트된 설명서입니다.
-ms.date: 08/03/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: mtillman
-ms.openlocfilehash: 23d3c074ee1a4cb07b4770b27ee1ead145bae28a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+manager: karenh444
+ms.openlocfilehash: 7404e91f9a5f71276749b704355a080f5c3cc29f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566556"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990523"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Active Directory 애플리케이션 프로비저닝: 새로운 기능
 
 Azure Active Directory 애플리케이션 프로비저닝 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. 프로비저닝 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="september-2021"></a>2021년 9월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure AD 프로비저닝 서비스에서 실수로 인한 삭제 방지 사용(미리 보기)](accidental-deletions.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory에서 애플리케이션 프로비전이 작동하는 방식](how-provisioning-works.md)
+
+
+## <a name="august-2021"></a>2021년 8월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory에서 특성 매핑에 대한 식을 작성하기 위한 참조](functions-for-customizing-application-data.md)
+- [Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법](application-provisioning-config-problem-scim-compatibility.md)
+- [자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)
+
 
 ## <a name="july-2021"></a>2021년 7월
 

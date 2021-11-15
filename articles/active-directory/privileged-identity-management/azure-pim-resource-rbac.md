@@ -14,12 +14,12 @@ ms.date: 04/20/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36f78327459c8bf6efc3a1cad9d4c5b306e4ba1f
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 45e8fb5d37d5fcfe5054a1eb4c677c2afe71b310
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668317"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451448"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대한 작업 및 감사 기록 보기
 
@@ -70,7 +70,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
     ![Excel에 표시된 대로 CSV 파일로 내보낸 역할 할당](media/azure-pim-resource-rbac/export-csv.png)
 
-## <a name="view-resource-audit-history&quot;></a>리소스 감사 기록 보기
+## <a name="view-resource-audit-history"></a>리소스 감사 기록 보기
 
 리소스 감사를 통해 리소스에 대한 모든 역할 작업을 볼 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
 
-    [![필터를 사용하는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-resource-audit.png &quot;필터를 사용하는 리소스 감사 목록")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    [![필터를 사용하는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-resource-audit.png "필터를 사용하는 리소스 감사 목록")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. **감사 유형** 으로 **활성화(할당됨 + 활성화됨)** 을 선택합니다.
 
@@ -94,7 +94,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
     ![특정 작업에 대한 사용자 작업 세부 정보](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-## <a name="view-my-audit&quot;></a>내 감사 보기
+## <a name="view-my-audit"></a>내 감사 보기
 
 내 감사를 통해 자신의 개인 역할 작업을 볼 수 있습니다.
 
@@ -108,7 +108,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
 
-    [![현재 사용자에 대한 감사 목록](media/azure-pim-resource-rbac/my-audit-time.png &quot;현재 사용자에 대한 감사 목록")](media/azure-pim-resource-rbac/my-audit-time.png)
+    [![현재 사용자에 대한 감사 목록](media/azure-pim-resource-rbac/my-audit-time.png "현재 사용자에 대한 감사 목록")](media/azure-pim-resource-rbac/my-audit-time.png)
 
 > [!NOTE]
 > 감사 기록에 액세스하려면 전역 관리자 또는 권한 있는 역할 관리자 역할이 필요합니다.

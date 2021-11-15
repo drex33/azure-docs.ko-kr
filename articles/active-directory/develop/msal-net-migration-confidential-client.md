@@ -13,12 +13,12 @@ ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: e00eff9bfaa64abc4d37d7e4f6d66552b2f674cb
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 4e362812224f8e538d7a36dfa5378e23f6438d6e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530867"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462825"
 ---
 # <a name="migrate-confidential-client-applications-from-adalnet-to-msalnet"></a>기밀 클라이언트 애플리케이션을 ADAL.NET에서 MSAL.NET으로 마이그레이션
 
@@ -38,7 +38,7 @@ ms.locfileid: "122530867"
    - `resourceId` 문자열입니다. 이 변수는 호출하려는 웹 API의 앱 ID URI입니다.
    - `IClientAssertionCertificate`의 인스턴스이거나 `ClientAssertion`입니다. 이 인스턴스는 앱의 ID를 증명하기 위해 앱의 클라이언트 자격 증명을 제공합니다.
 
-1. ADAL.NET을 사용하는 앱이 있음을 확인한 후 MSAL.NET NuGet 패키지 [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)를 설치하고 프로젝트 라이브러리 참조를 업데이트합니다. 자세한 내용은 [NuGet 패키지 설치](https://www.bing.com/search?q=install+nuget+package)를 참조하세요.
+1. ADAL.NET을 사용하는 앱이 있음을 확인한 후 MSAL.NET NuGet 패키지 [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)를 설치하고 프로젝트 라이브러리 참조를 업데이트합니다. 자세한 내용은 [NuGet 패키지 설치](https://www.bing.com/search?q=install+nuget+package)를 참조하세요. 토큰 캐시 직렬 변환기를 사용하려는 경우 [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache)도 설치합니다.
 
 1. 기밀 클라이언트 시나리오에 따라 코드를 업데이트합니다. 일부 단계는 공통이며 모든 기밀 클라이언트 시나리오에 적용됩니다. 다른 단계는 시나리오마다 고유합니다. 
 
@@ -149,6 +149,8 @@ public partial class AuthWrapper
 
   var authResult = await app.AcquireTokenForClient(
               new [] { $"{resourceId}/.default" })
+              // .WithTenantId(specificTenant)
+              // See https://aka.ms/msal.net/withTenantId
               .ExecuteAsync()
               .ConfigureAwait(false);
 
@@ -171,7 +173,7 @@ public partial class AuthWrapper
 
 ### <a name="migrate-a-web-api-that-calls-downstream-web-apis"></a>다운스트림 웹 API를 호출하는 웹 API 마이그레이션
 
-다운스트림 웹 API를 호출하는 웹 API는 OAuth2.0 [OBO(대체)](v2-oauth2-on-behalf-of-flow.md) 흐름을 사용합니다. 웹 API의 코드는 HTTP 권한 있는 헤더에서 검색된 토큰을 사용하고 유효성을 검사합니다. 이 토큰은 다운스트림 웹 API를 호출하기 위해 토큰과 교환됩니다. 이 토큰은 ADAL.NET과 MSAL.NET 모두에서 `UserAssertion` 인스턴스로 사용됩니다.
+다운스트림 웹 API를 호출하는 웹 API는 OAuth2.0 [OBO(대체)](v2-oauth2-on-behalf-of-flow.md) 흐름을 사용합니다. 웹 API는 HTTP **권한 있는** 헤더에서 검색된 액세스 토큰을 사용하고 이 토큰의 유효성을 검사합니다. 그런 다음, 이 토큰은 다운스트림 웹 API를 호출하기 위해 토큰과 교환됩니다. 이 토큰은 ADAL.NET과 MSAL.NET 모두에서 `UserAssertion` 인스턴스로 사용됩니다.
 
 #### <a name="find-out-if-your-code-uses-obo"></a>코드에서 OBO를 사용하는지 확인
 
@@ -272,6 +274,8 @@ public partial class AuthWrapper
   var authResult = await app.AcquireTokenOnBehalfOf(
               new string[] { $"{resourceId}/.default" },
               userAssertion)
+              // .WithTenantId(specificTenant) 
+              // See https://aka.ms/msal.net/withTenantId
               .ExecuteAsync()
               .ConfigureAwait(false);
   
@@ -300,9 +304,9 @@ app.UseInMemoryTokenCaches(); // or a distributed token cache.
 
 사용자를 로그인하고 사용자를 대신하여 웹 API를 호출하는 웹앱은 OAuth2.0 [인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 사용합니다. 일반적으로 다음과 같습니다.
 
-1. 웹앱은 인증 코드 흐름의 첫 번째 구간을 실행하여 사용자를 로그인합니다. Azure AD(Azure Active Directory)의 권한 부여 엔드포인트로 이동하여 이 작업을 수행합니다. 사용자가 로그인하고 필요한 경우 다단계 인증을 수행합니다. 이 작업의 결과로 앱은 인증 코드를 받습니다. 지금까지 ADAL과 MSAL은 관련되지 않습니다.
-2. 앱은 인증 코드 흐름의 두 번째 구간을 실행합니다. 인증 코드를 사용하여 액세스 토큰, ID 토큰, 새로 고침 토큰을 가져옵니다. 애플리케이션은 Azure AD가 보안 토큰을 제공할 URI인 `redirectUri` 값을 제공해야 합니다. 앱에서 해당 URI를 수신한 후 일반적으로 ADAL 또는 MSAL의 `AcquireTokenByAuthorizationCode`를 호출하여 코드를 사용하고 토큰 캐시에 저장할 토큰을 가져옵니다.
-3. 앱은 ADAL 또는 MSAL을 사용하여 `AcquireTokenSilent`를 호출하여 필요한 웹 API를 호출하기 위한 토큰을 가져올 수 있습니다. 이 작업은 웹앱 컨트롤러에서 수행됩니다.
+1. 웹앱은 인증 코드 흐름의 첫 번째 구간을 실행하여 사용자를 로그인합니다. Microsoft ID 플랫폼 권한 부여 엔드포인트로 이동하여 이를 수행합니다. 사용자가 로그인하고 필요한 경우 다단계 인증을 수행합니다. 이 작업의 결과로 앱은 인증 코드를 받습니다. 이 단계에서는 인증 라이브러리가 사용되지 않습니다.
+1. 앱은 인증 코드 흐름의 두 번째 구간을 실행합니다. 인증 코드를 사용하여 액세스 토큰, ID 토큰, 새로 고침 토큰을 가져옵니다. 애플리케이션은 Microsoft ID 플랫폼 엔드포인트에서 보안 토큰을 제공하는 URI인 `redirectUri` 값을 제공해야 합니다. 앱에서 해당 URI를 수신한 후 일반적으로 ADAL 또는 MSAL의 `AcquireTokenByAuthorizationCode`를 호출하여 코드를 사용하고 토큰 캐시에 저장할 토큰을 가져옵니다.
+1. 앱은 ADAL 또는 MSAL을 사용하여 `AcquireTokenSilent`를 호출하여 필요한 웹 API를 호출하기 위한 토큰을 가져올 수 있습니다. 이 작업은 웹앱 컨트롤러에서 수행됩니다.
 
 #### <a name="find-out-if-your-code-uses-the-auth-code-flow"></a>코드에서 인증 코드 흐름을 사용하는지 확인
 
@@ -327,6 +331,10 @@ ADAL.NET 및 MSAL.NET의 샘플 권한 부여 코드 흐름을 비교한 내용�
 :::row:::
    :::column span="":::
 ```csharp
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+
 public partial class AuthWrapper
 {
  const string ClientId = "Guid (AppID)";
@@ -363,34 +371,51 @@ public partial class AuthWrapper
    :::column-end:::
    :::column span="":::
 ```csharp
+using Microsoft.Identity.Client;
+using Microsoft.Identity.Web;
+using System;
+using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+
 public partial class AuthWrapper
 {
  const string ClientId = "Guid (Application ID)";
- const string authority 
-     = "https://login.microsoftonline.com/{tenant}";
+ const string authority
+    = "https://login.microsoftonline.com/{tenant}";
  private Uri redirectUri = new Uri("host/login_oidc");
  X509Certificate2 certificate = LoadCertificate();
 
- IConfidentialClientApplication app;
-
- public async Task<AuthenticationResult> GetAuthenticationResult(
-  string resourceId,
-  string authorizationCode)
+ public IConfidentialClientApplication CreateApplication()
  {
-  if (app == null)
-  {
-   app = ConfidentialClientApplicationBuilder.Create(ClientId)
-           .WithCertificate(certificate)
-           .WithAuthority(authority)
-           .WithRedirectUri(redirectUri.ToString())
-           .Build();
-  }
+  IConfidentialClientApplication app;
+
+  app = ConfidentialClientApplicationBuilder.Create(ClientId)
+               .WithCertificate(certificate)
+               .WithAuthority(authority)
+               .WithRedirectUri(redirectUri.ToString())
+               .WithLegacyCacheCompatibility(false)
+               .Build();
+
+  // Add a token cache. For details about other serialization
+  // see https://aka.ms/msal-net-cca-token-cache-serialization
+  app.AddInMemoryTokenCache();
+
+  return app;
+ }
+
+ // Called from 'code received event'.
+ public async Task<AuthenticationResult> GetAuthenticationResult(
+      string resourceId,
+      string authorizationCode)
+ {
+  IConfidentialClientApplication app = CreateApplication();
 
   var authResult = await app.AcquireTokenByAuthorizationCode(
-              new [] { $"{resourceId}/.default" },
-              authorizationCode)
-              .ExecuteAsync()
-              .ConfigureAwait(false);
+                  new[] { $"{resourceId}/.default" },
+                  authorizationCode)
+                  .ExecuteAsync()
+                  .ConfigureAwait(false);
 
   return authResult;
  }
@@ -399,7 +424,42 @@ public partial class AuthWrapper
    :::column-end:::
 :::row-end:::
 
-`AcquireTokenByAuthorizationCode`를 호출하면 토큰을 토큰 캐시에 추가합니다. 다른 리소스 또는 테넌트의 추가 토큰을 획득하려면 컨트롤러에서 `AcquireTokenSilent`를 사용합니다.
+`AcquireTokenByAuthorizationCode`를 호출하면 인증 코드가 수신될 때 토큰 캐시에 토큰이 추가됩니다. 다른 리소스 또는 테넌트의 추가 토큰을 획득하려면 컨트롤러에서 `AcquireTokenSilent`를 사용합니다.
+
+```csharp
+public partial class AuthWrapper
+{
+ // Called from controllers
+ public async Task<AuthenticationResult> GetAuthenticationResult(
+      string resourceId2,
+      string authority)
+ {
+  IConfidentialClientApplication app = CreateApplication();
+  AuthenticationResult authResult;
+
+  var scopes = new[] { $"{resourceId2}/.default" };
+  var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
+
+  try
+  {
+   // try to get an already cached token
+   authResult = await app.AcquireTokenSilent(
+               scopes,
+               account)
+                // .WithTenantId(specificTenantId) 
+                // See https://aka.ms/msal.net/withTenantId
+                .ExecuteAsync().ConfigureAwait(false);
+  }
+  catch (MsalUiRequiredException)
+  {
+   // The controller will need to challenge the user
+   // including asking for claims={ex.Claims}
+   throw;
+  }
+  return authResult;
+ }
+}
+```
 
 #### <a name="benefit-from-token-caching"></a>토큰 캐싱의 이점
 
@@ -410,6 +470,9 @@ public partial class AuthWrapper
 app.UseInMemoryTokenCaches(); // or a distributed token cache.
 ```
 
+#### <a name="handling-msaluirequiredexception"></a>MsalUiRequiredException 처리
+
+컨트롤러가 다른 범위/리소스에 대한 토큰을 자동으로 획득하려고 하면 MSAL.NET은 `MsalUiRequiredException`을 throw할 수 있습니다. 예를 들어 사용자가 다시 로그인해야 하거나 리소스에 대한 액세스에 더 많은 클레임이 필요한 경우(예를 들어 조건부 액세스 정책으로 인해) 이 작업이 필요합니다. 완화에 대한 자세한 내용은 [MSAL.NET에서 오류 및 예외를 처리](msal-error-handling-dotnet.md)하는 방법을 참조하세요.
 
 [웹 API를 호출하는 웹앱에 대해 자세히 알아보고](scenario-web-app-call-api-overview.md) 새 애플리케이션에서 MSAL.NET 또는 Microsoft.Identity.Web으로 구현하는 방법을 알아보세요.
 
@@ -438,6 +501,8 @@ app.UseInMemoryTokenCaches(); // or a distributed token cache.
 
 ## <a name="troubleshooting"></a>문제 해결
 
+### <a name="msalserviceexception"></a>MsalServiceException
+
 다음 문제 해결 정보에서는 두 가지를 가정합니다. 
 
 - ADAL.NET 코드가 작동했습니다.
@@ -453,10 +518,19 @@ app.UseInMemoryTokenCaches(); // or a distributed token cache.
 
 다음 단계를 사용하여 예외 문제를 해결할 수 있습니다.
 
-1. 최신 버전의 MSAL.NET을 사용하고 있는지 확인합니다.
+1. 최신 버전의 [MSAL.NET](https://www.nuget.org/packages/Microsoft.Identity.Client/)을 사용하고 있는지 확인합니다.
 1. 기밀 클라이언트 애플리케이션을 빌드할 때 설정한 기관 호스트와 ADAL과 함께 사용한 기관 호스트가 비슷한지 확인합니다. 특히 동일한 [클라우드](msal-national-cloud.md)(Azure Government, Azure 중국 21Vianet 또는 Azure 독일)인가요?
+
+### <a name="msalclientexception"></a>MsalClientException
+
+다중 테넌트 애플리케이션에서는 애플리케이션을 빌드할 때 공동 인증 기관을 지정하지만 웹 API를 호출할 때 특정 테넌트(예: 사용자의 테넌트)를 대상으로 지정하려는 시나리오가 있을 수 있습니다. MSAL.NET 4.37.0이므로 애플리케이션 생성 시 `.WithAzureRegion`을 지정할 때 토큰 요청 중에 `.WithAuthority`를 사용하여 기관을 더 이상 지정할 수 없습니다. 이 경우 이전 버전의 MSAL.NET에서 업데이트할 때 다음 오류가 발생합니다.
+
+  `MsalClientException - "You configured WithAuthority at the request level, and also WithAzureRegion. This is not supported when the environment changes from application to request. Use WithTenantId at the request level instead."`
+
+이 문제를 해결하려면 AcquireTokenXXX 식에서 `.WithAuthority`를 `.WithTenantId`로 대체합니다. GUID 또는 도메인 이름을 사용하여 테넌트를 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[ADAL.NET과 MSAL.NET 앱의 차이점](msal-net-differences-adal-net.md)에 관해 자세히 알아봅니다.
-[MSAL.NET의 토큰 캐시 직렬화](msal-net-token-cache-serialization.md)에 대해 자세히 알아보기
+다음에 대해 자세히 알아봅니다.
+- [ADAL.NET과 MSAL.NET 앱 간의 차이점](msal-net-differences-adal-net.md)
+- [MSAL.NET에서 토큰 캐시 직렬화](msal-net-token-cache-serialization.md)

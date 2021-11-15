@@ -2,26 +2,20 @@
 title: Azure AD Connect 동기화 서비스 섀도 특성 | Microsoft Docs
 description: Azure AD Connect 동기화 서비스에서 섀도 특성이 작동하는 방식을 설명합니다.
 services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/13/2017
+ms.date: 09/29/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b2274099803961fb477f0929c801e2fc341dd4b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90088973"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355281"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 동기화 서비스 섀도 특성
 대부분의 특성은 온-프레미스 Active Directory에 있을 때와 동일한 방식으로 Azure AD에 표현됩니다. 하지만 일부 특성은 조작 방법이 특별하며 Azure AD의 특성 값이 Azure AD Connect가 동기화하는 값과 다를 수 있습니다.
@@ -62,9 +56,62 @@ proxyAddresses에서도 확인된 도메인만 포함하기 위한 동일한 프
 
 proxyAddresses에 대한 이 논리를 **ProxyCalc** 라고 합니다. 다음과 같은 경우 사용자에 대한 모든 변경 내용과 함께 ProxyCalc가 호출됩니다.
 
-- 사용자가 Exchange를 사용하도록 허가되지 않은 경우에도 Exchange Online을 포함하는 서비스 계획이 사용자에게 할당되었습니다. 사용자에게 Office E3 SKU가 할당되었지만 SharePoint Online만 할당된 경우를 예로 들 수 있습니다. 사서함이 계속 온-프레미스에 있는 경우에도 마찬가지입니다.
+- 사용자가 Exchange를 사용하도록 허가되지 않은 경우에도 Exchange Online을 포함하는 서비스 계획이 사용자에게 할당되었습니다. 사용자에게 Office E3 SKU가 할당되었지만 SharePoint Online만 할당된 경우를 예로 들 수 있습니다. 이 조건은 사서함이 계속 온-프레미스에 있는 경우에도 마찬가지입니다.
 - msExchRecipientTypeDetails 특성에 값이 있습니다.
 - 사용자가 proxyAddresses 또는 userPrincipalName을 변경합니다.
+
+ShadowProxyAddresses에 확인되지 않은 도메인이 포함되어 있고 클라우드 사용자에게 다음 속성 중 하나가 구성된 경우 ProxyCalc에서 주소를 지울 수 있습니다. 
+- 사용자에게 EXO 서비스 유형 플랜이 활성화된 상태로 라이선스가 부여됩니다(MyAnalytics 제외).  
+- 사용자에게 MSExchRemoteRecipientType이 설정되어 있습니다(null이 아님).  
+- 사용자는 공유 리소스로 간주됩니다.
+
+공유 리소스로 간주되기 위해 클라우드 사용자는 CloudMSExchRecipientDisplayType에 설정된 다음 값 중 하나를 갖게 됩니다. 
+
+ |개체 표시 유형|값(10진수)|
+ |-----|-----|
+ |MailboxUser|  0|
+ |DistributionGroup|    1|
+ |PublicFolder| 2|
+ |DynamicDistributionGroup| 3|
+ |조직| 4|
+ |PrivateDistributionList|  5|
+ |RemoteMailUser|   6|
+ |ConferenceRoomMailbox|    7|
+ |EquipmentMailbox| 8|
+ |ArbitrationMailbox|   10|
+ |MailboxPlan|  11|
+ |LinkedUser|   12|
+ |RoomList| 15|
+ |SyncedMailboxUser|    -2147483642|
+ |SyncedUDGasUDG|   -2147483391|
+ |SyncedUDGasContact|   -2147483386|
+ |SyncedPublicFolder|   -2147483130|
+ |SyncedDynamicDistributionGroup|   -2147482874|
+ |SyncedRemoteMailUser| -2147482106|
+ |SyncedConferenceRoomMailbox|  -2147481850|
+ |SyncedEquipmentMailbox|   -2147481594|
+ |SyncedUSGasUDG|   -2147481343|
+ |SyncedUSGasContact|   -2147481338|
+ |ACLableSyncedMailboxUser| -1073741818|
+ |ACLableSyncedRemoteMailUser|  -1073740282|
+ |ACLableSyncedUSGasContact|    -1073739514|
+ |SyncedUSGasUSG|   -1073739511|
+ |SecurityDistributionGroup|    1043741833|
+ |SyncedUSGasUSG|   1073739511|
+ |ACLableSyncedUSGasContact|    1073739514|
+ |RBAC 역할 그룹|  1073741824|
+ |ACLableMailboxUser|   1073741824|
+ |ACLableRemoteMailUser|    1073741830|
+
+
+>[!NOTE]
+> CloudMSExchRecipientDisplayType은 Azure AD 쪽에서 볼 수 없으며 Exchange Online cmdlet [Get-Recipient](/powershell/module/exchange/get-recipient)와 같은 것을 사용해야만 볼 수 있습니다.  
+>
+>예제:
+> ```PowerShell
+>   Get-Recipient admin | fl *type*
+> ```
+>
 
 ProxyCalc는 사용자에 대한 변경 내용을 처리하는 데 다소 시간이 걸릴 수 있으며 Azure AD Connect 내보내기 프로세스와 동기화되지 않습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Cisco Webex와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
+title: '자습서: Cisco Webex와 Azure AD SSO 통합'
 description: Azure Active Directory 및 Cisco Webex 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 11/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 94e025c3a76ac2a6722e0fa21b39718624d8645c
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 3647f3d8736d59aaeee4f73211dbf75c690f2446
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042829"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474537"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-ad-sso-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Cisco Webex를 통합하는 방법에 대해 알아봅니다. Azure AD와 Cisco Webex를 통합하는 경우 다음을 수행할 수 있습니다.
 
@@ -26,12 +26,13 @@ ms.locfileid: "130042829"
 * 사용자가 해당 Azure AD 계정으로 Cisco Webex에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Cisco Webex SSO(Single Sign-On)가 설정된 구독
+*  Cisco Webex의 서비스 공급자 메타데이터 파일
 
 ## <a name="scenario-description"></a>시나리오 설명
 

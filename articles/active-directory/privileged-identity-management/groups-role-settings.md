@@ -4,23 +4,23 @@ description: Azure AD PIM(Privileged Identity Management)에서 역할 할당 �
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: badc03111d7c657685742505e53642498db344e9
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564639"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668583"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Privileged Identity Management에서 권한 있는 액세스 그룹 설정 구성(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "105564639"
 
 다음 단계에 따라 Azure 권한 있는 액세스 그룹 역할 설정을 엽니다.
 
-1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할의 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [전역 관리자](../roles/permissions-reference.md#global-administrator) 역할의 사용자 또는 그룹 소유자로 할당된 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management** 를 엽니다.
 
@@ -90,19 +90,19 @@ ms.locfileid: "105564639"
 > [!NOTE]
 > 리소스 관리자는 지정된 종료 날짜가 있는 모든 할당을 갱신할 수 있습니다. 또한 사용자는 [역할 할당을 확장 또는 갱신](pim-resource-roles-renew-extend.md)하도록 셀프 서비스 요청을 시작할 수 있습니다.
 
-## <a name="require-multi-factor-authentication"></a>다단계 인증 필요
+## <a name="require-multifactor-authentication"></a>다단계 인증 필요
 
-Privileged Identity Management는 두 가지 서로 다른 시나리오에 대해 Azure Multi-Factor Authentication의 선택적 적용 기능을 제공합니다.
+Privileged Identity Management는 서로 다른 두 가지 시나리오에 대해 선택적인 Azure AD Multi-Factor Authentication 적용을 제공합니다.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>활성 할당에 대한 Multi-Factor Authentication 필요
+### <a name="require-multifactor-authentication-on-active-assignment"></a>활성 할당 시 Multi-Factor Authentication 필요
 
-사용자 또는 그룹을 단기간(예: 하루) 동안 역할에 할당하려는 경우가 있을 수 있습니다. 이 경우 할당된 사용자가 활성화를 요청할 필요가 없습니다. 이 시나리오에서는 사용자가 할당된 순간부터 역할에 대해 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 사용할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
+이 옵션을 사용하려면 관리자가 적격 역할 할당이 아닌 활성 역할을 만들기 전에 다단계 인증을 완료해야 합니다. 사용자가 할당된 순간부터 역할에서 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 사용할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
 
-할당을 수행하는 리소스 관리자가 자신이 말하는 본인이 맞는지 확인하기 위해 **활성 할당에 대한 Multi-Factor Authentication 필요** 확인란을 선택하여 활성 할당에 다단계 인증을 적용할 수 있습니다.
+활성 역할 할당을 만들 때 다단계 인증을 요구하려면 **활성 할당 시 Multi-Factor Authentication 필요** 옵션을 선택합니다.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>활성화 시 Multi-Factor Authentication 필요
+### <a name="require-multifactor-authentication-on-activation"></a>활성화 시 Multi-Factor Authentication 필요
 
-활성화하기 전에 역할에 대한 자격이 있는 사용자가 Azure AD Multi-Factor Authentication을 사용하여 증명하도록 요구할 수 있습니다. Multi-Factor Authentication을 통해 사용자가 확실하게 당사자 본인임을 확인할 수 있습니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
+역할을 수행할 자격이 있는 사용자가 활성화하기 전에 Azure AD Multi-Factor Authentication을 사용하여 본인 인증을 하도록 요구할 수 있습니다. MFA(Multi-Factor Authentication)를 통해 사용자가 확실하게 본인 인증을 받을 수 있습니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
 
 활성화하기 전에 다단계 인증을 요구하려면 **활성화 시 Multi-Factor Authentication 필요** 확인란을 선택합니다.
 
@@ -110,11 +110,11 @@ Privileged Identity Management는 두 가지 서로 다른 시나리오에 대�
 
 ## <a name="activation-maximum-duration"></a>최대 활성화 기간
 
-**최대 활성화 기간** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간을 설정합니다. 이 값은 1시간에서 24시간까지 가능합니다.
+**최대 활성화 기간** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간을 설정합니다. 이 값은 1~24시간일 수 있습니다.
 
 ## <a name="require-justification"></a>근거 필요
 
-사용자는 활성화 시 비즈니스 타당성을 입력해 달라고 요구할 수 있습니다. 근거를 요구하려면 **활성 할당에 대한 근거 필요** 확인란 또는 **활성화에 대한 근거 필요** 확인란을 선택합니다.
+사용자 활성화 시 비즈니스 타당성을 입력하도록 요구할 수 있습니다. 근거를 요구하려면 **활성 할당에 대한 근거 필요** 확인란 또는 **활성화에 대한 근거 필요** 확인란을 선택합니다.
 
 ## <a name="require-approval-to-activate"></a>활성화할 승인 필요
 

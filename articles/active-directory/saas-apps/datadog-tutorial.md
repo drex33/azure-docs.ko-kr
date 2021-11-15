@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: d0a2a7e86edb4593386befbde7a487a3452cc6cf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fad71a2c98f28e9c3ae770e61acc409bd5f341b3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124783675"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432551"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>자습서: Datadog와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124783675"
 * 사용자가 자신의 Azure AD 계정으로 Datadog에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -60,7 +60,7 @@ Datadog에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 �
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Datadog SSO 구성](#configure-datadog-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Datadog 테스트 사용자 만들기](#create-datadog-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Datadog에 만듭니다.
+    1. Datadog 테스트 사용자 만들기 - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Datadog에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -68,29 +68,30 @@ Datadog에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 �
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 **Datadog** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
-   ![기본 SAML 구성 편집](common/edit-urls.png)
+1. 애플리케이션이 Azure와 이미 미리 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
 
-1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
-
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 을 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://app.datadoghq.com/account/login/id/<CUSTOM_IDENTIFIER>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Datadog 클라이언트 지원 팀](mailto:support@datadoghq.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. [ SAML 설정](https://app.datadoghq.com/organization-settings/login-methods/saml)에서 실제 로그온 URL로 값을 업데이트합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다. IdP 시작 로그인 및 SP 시작 로그인을 함께 사용하려면 Azure에서 구ACS URL의 두 버전이 모두 구성되어야 합니다.
 
 1. **저장** 을 클릭합니다.
 
+1. **SAML로 Single Sign-On 설정** 페이지의 **사용자 특성 및 클레임** 에서 연필 아이콘을 클릭하여 설정을 편집합니다.
+
+1. **그룹 클레임 추가** 단추를 클릭합니다. 기본적으로 Azure AD에서 그룹 클레임 이름은 URL입니다. 예: `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`. 이 값을 **그룹** 과 같은 표시 이름 값으로 변경하려면 **고급 옵션** 을 선택한 다음, 그룹 클레임의 이름을 **그룹** 으로 변경합니다.
+
+   > [!NOTE]
+   > 원본 특성은 `Group ID`로 설정됩니다. Azure AD에서 그룹의 UUID입니다. 즉, 그룹 ID가 그룹 이름이 아니라 그룹 클레임 특성 값으로 Azure AD에서 전송됩니다. 그룹 이름 대신 그룹 ID에 매핑하도록 Datadog의 매핑을 변경해야 합니다. 자세한 내용은 [Datadog SAML 매핑](https://docs.datadoghq.com/account_management/saml/#mapping-saml-attributes-to-datadog-roles)을 참조하세요.
+
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
-    ![인증서 다운로드 링크](common/metadataxml.png)
-
 1. **Datadog 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
-
-    ![구성 URL 복사](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -118,15 +119,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-datadog-sso"></a>Datadog SSO 구성
 
-**Datadog** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Datadog 지원 팀](mailto:support@datadoghq.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-### <a name="create-datadog-test-user"></a>Datadog 테스트 사용자 만들기
-
-이 섹션에서는 Datadog에서 B.Simon이라는 사용자를 만듭니다. Datadog 플랫폼에서 사용자를 추가하려면 [Datadog 지원 팀](mailto:support@datadoghq.com)에 문의하세요.
+**Datadog** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **페더레이션 메타데이터 XML** 을 [Datadog SAML 설정](https://app.datadoghq.com/organization-settings/login-methods/saml)에서 업로드해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
+다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
 #### <a name="sp-initiated"></a>SP 시작:
 
@@ -138,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Datadog에 자동으로 로그인됩니다. 
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Datadog 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Datadog에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱 포털에서 Datadog 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Datadog에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 포털 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>테넌트의 모든 사용자가 앱으로 인증할 수 있도록 설정
 

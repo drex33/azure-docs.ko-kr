@@ -3,22 +3,22 @@ title: HTML 템플릿을 사용하여 사용자 인터페이스 사용자 지정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C를 사용하는 애플리케이션의 사용자 인터페이스를 HTML 템플릿을 사용하여 사용자 지정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 10/14/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0a3312559ee46b70b97a99a5dae16e4a26cad273
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: f662b1a1a47dba27457c4c5754d600bb920c7b2f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031844"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222669"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 HTML 템플릿을 사용하여 사용자 인터페이스 사용자 지정
 
@@ -208,30 +208,34 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 이 가이드에서는 Azure Blob Storage를 사용하여 콘텐츠를 호스팅합니다. 웹 서버에서 콘텐츠를 호스팅하도록 선택할 수 있지만 [웹 서버에서 CORS를 사용하도록 설정](https://enable-cors.org/server.html)(영문)해야 합니다.
 
+> [!NOTE]
+> Azure AD B2C 테넌트에서는 Blob 스토리지를 프로비전할 수 없습니다. 이 리소스는 Azure AD 테넌트에서 만들어야 합니다.
+
 Blob 스토리지에서 HTML 콘텐츠를 호스트하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **허브** 메뉴에서 **새로 만들기** > **스토리지** > **스토리지 계정** 을 차례로 선택합니다.
+1. 구독이 있는 Azure AD 테넌트를 포함하는 디렉터리를 사용하고 있는지 확인합니다. 
+    1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+    1. **포털 설정 | 디렉터리 + 구독** 페이지의 디렉터리 이름 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
+1. Azure Portal에서 **스토리지 계정** 을 검색하여 선택합니다.
+1. **+ 만들기** 를 선택합니다.
 1. 스토리지 계정에 대한 **구독** 을 선택합니다.
 1. **리소스 그룹** 을 만들거나 기존 그룹을 선택합니다.
-1. 스토리지 계정의 고유한 **이름** 을 입력합니다.
-1. 스토리지 계정에 대한 **지리적 위치** 를 선택합니다.
-1. **배포 모델** 은 **Resource Manager** 로 유지하면 됩니다.
+1. 스토리지 계정에 고유한 **스토리지 계정 이름** 을 입력합니다.
+1. 스토리지 계정의 지리적 **지역** 을 선택합니다.
 1. **성능** 은 **표준** 으로 유지하면 됩니다.
-1. **계정 종류** 를 **Blob Storage** 로 변경합니다.
-1. **복제** 는 **RA-GRS** 로 유지하면 됩니다.
-1. **액세스 계층** 은 **핫** 으로 유지하면 됩니다.
-1. **검토 + 만들기** 를 선택하여 스토리지 계정을 만듭니다.
-    배포가 완료되면 **스토리지 계정** 페이지가 자동으로 열립니다.
-
+1. **중복성** 은 **GRS(지역 중복 스토리지)** 로 유지하면 됩니다.
+1. **검토 + 만들기** 를 선택하고 Azure AD가 유효성 검사를 실행할 때까지 몇 초 정도 기다립니다. 
+1. **만들기** 를 선택하여 스토리지 계정을 만듭니다. 배포가 완료되면 스토리지 계정 페이지가 자동으로 열리거나 **리소스로 이동** 을 선택합니다.
 #### <a name="21-create-a-container"></a>2.1 컨테이너 만들기
 
 Blob 스토리지에 퍼블릭 컨테이너를 만들려면 다음 단계를 수행합니다.
 
-1. 왼쪽 메뉴의 **Blob service** 에서 **Blob** 을 선택합니다.
+1. 왼쪽 메뉴의 **데이터 스토리지** 에서 **컨테이너** 를 선택합니다.
 1. **+컨테이너** 를 선택합니다.
 1. **이름** 으로 *root* 를 입력합니다. 해당 이름을 직접 선택(예: *contoso*)할 수도 있지만, 이 예제에서는 간단히 하기 위해 *root* 를 사용합니다.
-1. **퍼블릭 액세스 수준** 에 대해 **Blob**, **확인** 을 차례로 선택합니다.
+1. **공용 액세스 수준** 에 대해 **Blob** 을 선택합니다.
+1. **만들기** 를 선택하여 컨테이너를 만듭니다.
 1. **root** 를 선택하여 새 컨테이너를 엽니다.
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2.2 사용자 지정 페이지 콘텐츠 파일 업로드
@@ -249,13 +253,14 @@ Blob 스토리지에 퍼블릭 컨테이너를 만들려면 다음 단계를 수
 
 다음 단계를 수행하여 CORS(원본 간 리소스 공유)에 Blob 스토리지를 구성합니다.
 
-1. 메뉴에서 **CORS** 를 선택합니다.
+1. 스토리지 계정으로 이동합니다. 
+1. 왼쪽 메뉴의 **설정** 에서 **리소스 공유(CORS)** 를 선택합니다.
 1. **허용된 원본** 에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예들 들어 `https://fabrikam.b2clogin.com`입니다. 테넌트 이름을 입력할 때는 모두 소문자를 사용합니다.
 1. **허용된 메소드** 에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 1. **허용된 헤더** 에 별표(*)를 입력합니다.
 1. **노출된 헤더** 에 별표(*)를 입력합니다.
 1. **최대 기간** 에 200을 입력합니다.
-1. **저장** 을 선택합니다.
+1. 페이지 맨 위에서 **저장** 을 선택합니다.
 
 #### <a name="31-test-cors"></a>3.1 CORS 테스트
 
@@ -268,21 +273,26 @@ Blob 스토리지에 퍼블릭 컨테이너를 만들려면 다음 단계를 수
     결과는 `XHR status: 200`여야 합니다. 
     오류가 발생하는 경우 CORS 설정이 올바른지 확인합니다. Ctrl+Shift+P를 눌러 브라우저 캐시를 비우거나 개인 검색 세션을 열어야 할 수도 있습니다.
 
+[Azure 스토리지 계정을 만들고 관리하는 방법](../storage/common/storage-account-create.md)에 대해 자세히 알아보세요.
+
 ::: zone pivot="b2c-user-flow"
 
 ### <a name="4-update-the-user-flow"></a>4. 사용자 흐름 업데이트
 
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-1. **사용자 흐름**, *B2C_1_signupsignin1* 사용자 흐름을 차례로 선택합니다.
-1. **페이지 레이아웃** 을 선택한 다음, **통합 가입 또는 로그인 페이지** 아래에서 **사용자 지정 페이지 콘텐츠 사용** 에 대해 **예** 를 클릭합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 
+    1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+    1. **포털 설정 | 디렉터리 + 구독** 페이지의 디렉터리 이름 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. 왼쪽 메뉴에서 **사용자 흐름** 을 선택한 다음, *B2C_1_signupsignin1* 사용자 흐름을 선택합니다.
+1. **페이지 레이아웃** 을 선택한 다음, **통합 가입 또는 로그인 페이지** 아래에서 **사용자 지정 페이지 콘텐츠 사용** 에 대해 **예** 를 선택합니다.
 1. **사용자 지정 페이지 URI** 에서 이전에 기록한 *custom-ui.html* 파일의 URI를 입력합니다.
 1. 페이지 맨 위에서 **저장** 을 선택합니다.
 
 ### <a name="5-test-the-user-flow"></a>5. 사용자 흐름 테스트
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택하고, *B2C_1_signupsignin1* 사용자 흐름을 선택합니다.
-1. 페이지 맨 위에서 **사용자 흐름 실행** 을 클릭합니다.
-1. **사용자 흐름 실행** 단추를 클릭합니다.
+1. 페이지 맨 위에서 **사용자 흐름 실행** 을 선택합니다.
+1. 오른쪽 창에서 **사용자 흐름 실행** 단추를 선택합니다.
 
 생성한 CSS 파일에 따라 요소가 중심에 있는 다음 예제와 유사한 페이지가 표시됩니다.
 
@@ -301,7 +311,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 1. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 복사한 **ContentDefinitions** 의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다.
 1. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예들 들어 `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`입니다.
 
     사용자 지정 정책은 다음 코드 조각과 비슷해야 합니다.
 
@@ -326,7 +336,8 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 
 #### <a name="51-upload-the-custom-policy"></a>5.1 사용자 지정 정책 업로드
 
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택합니다.

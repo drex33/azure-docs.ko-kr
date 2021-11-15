@@ -1,7 +1,7 @@
 ---
-title: 테넌트 제한을 사용하여 SaaS 앱에 대한 액세스 관리 - Azure AD
+title: 테넌트 제한을 사용하여 SaaS 앱에 대한 액세스 관리
 description: 테넌트 제한을 사용하여 Azure AD 테넌트를 기준으로 앱에 액세스할 수 있는 사용자를 관리하는 방법입니다.
-services: active-directory
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d013d383192b206fdc05f36f320b01fe57526bb8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8b5cdbbe4955063d6a241949be14cd7dcd0af0a5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528744"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997519"
 ---
-# <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
+# <a name="restrict-access-to-a-tenant-in-azure-active-directory"></a>Azure Active Directory에서 테넌트에 대한 액세스 제한
 
 보안을 강조하는 대규모 조직에서는 Microsoft 365와 같은 클라우드 서비스로 이동하려는 상황에서 사용자가 승인된 리소스에만 액세스할 수 있다는 사실을 인식하고 있어야 합니다. 일반적으로 회사에서는 액세스를 관리하려는 경우에 도메인 이름 또는 IP 주소를 제한합니다. 이 방법은 SaaS(Software as a Service) 앱이 퍼블릭 클라우드에서 호스트되고 [outlook.office.com](https://outlook.office.com/) 및 [login.microsoftonline.com](https://login.microsoftonline.com/)과 같은 공유 도메인 이름으로 실행되는 환경에서는 실패합니다. 이러한 주소를 차단하면 사용자가 단순히 승인된 ID 및 리소스로만 제한되는 것이 아니라 웹상의 Outlook에 완전히 액세스할 수 없게 됩니다.
 
@@ -83,7 +83,7 @@ Login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 나�
 > [!TIP]
 > [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인한 후 **Azure Active Directory** 를 선택하고 **속성** 을 선택합니다.
 >
-> 디렉터리 ID 또는 도메인 이름이 동일한 테넌트를 참조하는지 확인하려면 이 URL`https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`에서 <tenant> 대신 해당 ID나 도메인을 사용합니다.  도메인 및 ID를 포함하는 결과가 동일한 경우 동일한 테넌트를 나타내는 것입니다.
+> 디렉터리 ID 또는 도메인 이름이 동일한 테넌트를 참조하는지 확인하려면 이 URL`https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`에서 \<tenant\> 대신 해당 ID나 도메인을 사용합니다.  도메인 및 ID를 포함하는 결과가 동일한 경우 동일한 테넌트를 나타내는 것입니다.
 
 사용자가 승인되지 않은 테넌트에 와 자체 HTTP 헤더를 삽입하지 못하도록 하기 위해 프록시는 *Restrict-Access-To-Tenants* 헤더가 들어오는 요청에 이미 있는 경우 바꾸어야 합니다.
 
@@ -225,5 +225,5 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처** 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [업데이트된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) 참조
+- [업데이트된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/) 참조
 - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 검토

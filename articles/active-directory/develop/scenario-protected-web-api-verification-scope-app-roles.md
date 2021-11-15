@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 10/19/2021
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2243f149ebe89bcb3d52d5940ba930891925d788
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 23b9f2e8bb14d74a7f2b722945251acb182b71db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528225"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222574"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호된 웹 API: 범위 및 앱 역할 확인
 
@@ -26,11 +26,10 @@ ms.locfileid: "122528225"
 - 올바른 범위를 가진 사용자를 대신하는 애플리케이션
 - 올바른 애플리케이션 역할이 있는 디먼 앱
 
-> [!NOTE]
-> 이 문서의 코드 조각은 GitHub의 다음 코드 샘플에서 추출됩니다.
->
-> - [ASP.NET Core 웹 API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
-> - [ASP.NET Web API 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
+이 문서의 코드 조각은 GitHub의 다음 코드 샘플에서 추출됩니다.
+
+- [ASP.NET Core 웹 API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
+- [ASP.NET Web API 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
 
 ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 `[Authorize]` 특성을 다음 항목 중 하나에 추가해야 합니다.
 
@@ -233,7 +232,7 @@ public class TodoListController : ApiController
     }
 ```
 
-아래에는 `ValidateScopes`의 간소화된 버전이 나와 있습니다.
+다음은 `ValidateScopes`의 간소화된 버전입니다.
 
 ```csharp
 private void ValidateScopes(IEnumerable<string> acceptedScopes)
@@ -253,7 +252,7 @@ private void ValidateScopes(IEnumerable<string> acceptedScopes)
 }
 ```
 
-ASP.NET Core용 `ValidateScopes`의 전체 버전은 [*ScopesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs)입니다.
+ASP.NET Core용 `ValidateScopes`의 전체 버전은 [_ScopesRequiredHttpContextExtensions.cs_](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs)입니다.
 
 ---
 
@@ -291,7 +290,6 @@ MyController : ApiController
 ```
 
 그러나 이 경우에는 Startup.cs 파일의 “roles”에 역할 클레임을 매핑해야 합니다.
-
 
 ```CSharp
  services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
@@ -340,7 +338,7 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-ASP.NET Core용 `ValidateAppRole`의 전체 버전은 [*RolesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs) 코드를 참조하세요.
+ASP.NET Core용 `ValidateAppRole`의 전체 버전은 [_RolesRequiredHttpContextExtensions.cs_](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs) 코드를 참조하세요.
 
 ---
 
@@ -368,7 +366,7 @@ ASP.NET Core에서 Microsoft.Identity.Web을 사용하는 경우 ACL 기반 권�
 System.UnauthorizedAccessException: IDW10201: Neither scope or roles claim was found in the bearer token.
 ```
 
- 이 예외를 방지하려면 appsettings.json에서나 프로그래매틱 방식으로 `AllowWebApiToBeAuthorizedByACL` 구성 속성을 true로 설정합니다.
+이 예외를 방지하려면 appsettings.json에서나 프로그래매틱 방식으로 `AllowWebApiToBeAuthorizedByACL` 구성 속성을 true로 설정합니다.
 
 ```Json
 {

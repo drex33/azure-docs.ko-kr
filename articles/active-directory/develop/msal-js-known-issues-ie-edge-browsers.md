@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 91ef36a5dbbfb7e0edb7fe1d75d77d2f2dc4870b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: ef1cce7905e07c1fa407c0194d585bb196ecdfd6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357610"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232207"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제(MSAL.js)
 
@@ -36,7 +36,7 @@ IE 및 Microsoft Edge의 인증 관련 문제에 대해 여러 번 보고받았�
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **팝업을 통해 로그인을 사용하여 인증할 때 팝업 창이 닫히지 않거나 멈춰버립니다.** 자격 증명을 입력하고 로그인한 후에 Microsoft Edge 또는 IE(InPrivate)의 팝업 창을 통해 인증할 때 보안 영역에 있는 여러 도메인이 탐색에 포함되는 경우 MSAL.js에서 팝업 창에 대한 핸들이 손실되므로 팝업 창이 닫히지 않습니다.
+- **팝업 창을 통해 로그인을 사용하여 인증할 때 팝업 창이 닫히지 않거나 멈춰버립니다.** 자격 증명을 입력하고 로그인한 후에 Microsoft Edge 또는 IE(InPrivate)의 팝업 창을 통해 인증할 때 보안 영역에 있는 여러 도메인이 탐색에 포함되는 경우 `MSAL.js`에서 팝업 창에 대한 핸들이 손실되므로 팝업 창이 닫히지 않습니다.
 
 ### <a name="update-fix-available-in-msaljs-023"></a>업데이트: MSAL.js 0.2.3에서 사용할 수 있는 수정 사항
 인증 리디렉션 루프 문제에 대한 수정 사항은 [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)에 릴리스되었습니다. 이 수정 사항을 사용하려면 MSAL.js 구성에서 `storeAuthStateInCookie` 플래그를 사용하도록 설정합니다. 기본적으로 이 플래그는 false로 설정됩니다.
@@ -44,7 +44,7 @@ IE 및 Microsoft Edge의 인증 관련 문제에 대해 여러 번 보고받았�
 `storeAuthStateInCookie` 플래그를 사용하는 경우 MSAL.js는 인증 흐름의 유효성 검사에 필요한 요청 상태를 저장하기 위해 브라우저 쿠키를 사용합니다.
 
 > [!NOTE]
-> 이 수정 사항은 msal-angular 및 msal angularjs 래퍼에는 아직 사용할 수 없습니다. 이 수정 사항은 팝업 창에서 발생하는 문제를 해결하지 않습니다.
+> 이 수정 사항은 아직 `msal-angular` 및 `msal-angularjs` 래퍼에 사용할 수 없습니다. 이 수정 사항은 팝업 창에서 발생하는 문제를 해결하지 않습니다.
 
 아래의 해결 방법을 사용하세요.
 
@@ -63,7 +63,7 @@ IE 및 Microsoft Edge의 인증 관련 문제에 대해 여러 번 보고받았�
 
 ## <a name="issues-due-to-popup-blockers"></a>팝업 차단 기능으로 인한 문제
 
-IE 또는 Microsoft Edge에서 팝업이 차단되는 경우가 있습니다. 예를 들어 [다단계 인증](../authentication/concept-mfa-howitworks.md) 중에 두 번째 팝업이 발생하는 경우입니다. 브라우저에서 팝업을 한 번 또는 항상 허용하도록 하는 경고가 표시됩니다. 허용하도록 선택하면 브라우저에서 팝업 창이 자동으로 열리고 해당 창에 대한 `null` 핸들이 반환됩니다. 결과적으로 라이브러리에는 창에 대한 핸들이 없으며 팝업 창을 닫을 수 있는 방법이 없습니다. Chrome에서는 팝업을 허용하라는 메시지가 사용자에게 표시되면 동일한 문제가 발생하지 않습니다. Chrome에서 팝업 창이 자동으로 열리지 않기 때문입니다.
+IE 또는 Microsoft Edge에서 팝업이 차단되는 경우가 있습니다. 예를 들어 [다단계 인증](../authentication/concept-mfa-howitworks.md) 중에 두 번째 팝업이 발생하는 경우입니다. 브라우저에서 팝업 창을 한 번 또는 항상 허용하도록 하는 경고가 표시됩니다. 허용하도록 선택하면 브라우저에서 팝업 창이 자동으로 열리고 해당 창에 대한 `null` 핸들이 반환됩니다. 결과적으로 라이브러리에는 창에 대한 핸들이 없으며 팝업 창을 닫을 수 있는 방법이 없습니다. Chrome에서는 팝업 창을 허용하라는 메시지가 사용자에게 표시되면 동일한 문제가 발생하지 않습니다. Chrome에서 팝업 창이 자동으로 열리지 않기 때문입니다.
 
 **해결 방법** 은 개발자가 앱 사용을 시작하기 전에 IE 및 Microsoft Edge에서 팝업을 허용하여 이 문제를 방지하는 것입니다.
 

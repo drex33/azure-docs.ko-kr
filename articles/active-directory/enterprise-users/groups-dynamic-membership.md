@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 088273ff23b28bd54a4a14ab9485a0e28ae42cef
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1a30e270b202989f041ea9e07dc69e67c33b8e87
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986552"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448275"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -52,19 +52,19 @@ Azure AD는 중요한 규칙을 더 신속하게 만들고 업데이트하는 �
 
 ![동적 그룹 멤버 관리 규칙 추가](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
-### <a name="rule-syntax-for-a-single-expression&quot;></a>단일 식에 대한 규칙 구문
+### <a name="rule-syntax-for-a-single-expression"></a>단일 식에 대한 규칙 구문
 
 단일 식은 가장 간단한 형태의 멤버 자격 규칙이며 위에서 언급한 세 부분만 있습니다. 단일 식이 있는 규칙은 `Property Operator Value`과 비슷합니다. 여기서 속성에 대한 구문은 object.property의 이름입니다.
 
 단일 식을 사용하여 올바르게 구성된 멤버 자격 규칙의 예제는 다음과 같습니다.
 
 ```
-user.department -eq &quot;Sales&quot;
+user.department -eq "Sales"
 ```
 
 단일 식에서 괄호는 선택 사항입니다. 멤버 자격 규칙 본문의 전체 길이는 3072자를 초과할 수 없습니다.
 
-## <a name=&quot;constructing-the-body-of-a-membership-rule&quot;></a>멤버 자격 규칙 본문 구성
+## <a name="constructing-the-body-of-a-membership-rule"></a>멤버 자격 규칙 본문 구성
 
 사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
 
@@ -74,7 +74,7 @@ user.department -eq &quot;Sales&quot;
 
 식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
 
-## <a name=&quot;supported-properties&quot;></a>지원되는 속성
+## <a name="supported-properties"></a>지원되는 속성
 
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
@@ -84,18 +84,18 @@ user.department -eq &quot;Sales&quot;
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
 
-### <a name=&quot;properties-of-type-boolean&quot;></a>부울 형식의 속성
+### <a name="properties-of-type-boolean"></a>부울 형식의 속성
 
 | 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
-### <a name=&quot;properties-of-type-string&quot;></a>문자열 형식의 속성
+### <a name="properties-of-type-string"></a>문자열 형식의 속성
 
 | 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
-| city |임의의 문자열 값 또는 *null* 입니다. |(user.city -eq &quot;value") |
+| city |임의의 문자열 값 또는 *null* 입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null* 입니다. |(user.country -eq "value") |
 | companyName | 임의의 문자열 값 또는 *null* 입니다. | (user.companyName -eq "value") |
 | department |임의의 문자열 값 또는 *null* 입니다. |(user.department -eq "value") |

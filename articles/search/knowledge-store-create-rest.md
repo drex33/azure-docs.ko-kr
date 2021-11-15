@@ -7,17 +7,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/02/2021
-ms.openlocfilehash: a19fd4aad4ee8e5bac7dc7cde2a5be4609a346fc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/03/2021
+ms.openlocfilehash: ad30dc4f59816f286f6ffe40909b76410e963c16
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796574"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555782"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>REST 및 Postman을 사용하여 지식 저장소 만들기
 
-지식 저장소는 후속 지식 마이닝, 데이터 분석 또는 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 기술 세트 출력을 Azure Storage에 보내는 Azure Cognitive Search의 한 기능입니다. 지식 저장소가 채워지면 [Storage Explorer](knowledge-store-view-storage-explorer.md) 또는 [Power BI](knowledge-store-connect-power-bi.md)와 같은 도구를 사용하여 콘텐츠를 검색할 수 있습니다.
+지식 저장소는 후속 지식 마이닝, 데이터 분석 또는 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 기술 세트 출력을 Azure Storage에 보내는 Azure Cognitive Search의 한 기능입니다. 지식 저장소가 채워지면 [Storage Browser](knowledge-store-view-storage-explorer.md) 또는 [Power BI](knowledge-store-connect-power-bi.md)와 같은 도구를 사용하여 콘텐츠를 검색할 수 있습니다.
 
 이 문서에서는 REST API를 사용하여 Azure Storage의 지식 저장소에 있는 호텔 숙박에 대한 일단의 고객 리뷰를 수집, 보강 및 검색합니다. 최종 결과는 원본에서 끌어온 원본 텍스트 콘텐츠와 영어가 아닌 고객 의견의 감정 점수, 핵심 구 추출, 언어 감지 및 텍스트 번역이 포함된 AI 생성 콘텐츠가 포함된 지식 저장소입니다.
 
@@ -38,11 +38,11 @@ ms.locfileid: "124796574"
 
    **StorageV2(범용 V2)** 계정 유형을 선택합니다.
 
-1. Azure Storage 리소스에서 **Storage Explorer** 를 사용하여 **hotel-reviews** 라는 Blob 컨테이너를 만듭니다.
+1. Azure Storage 리소스에서 **Storage Browser** 를 사용하여 **hotel-reviews** 라는 Blob 컨테이너를 만듭니다.
 
 1. 페이지 위쪽에서 **업로드** 를 선택하여 이전 단계에서 다운로드한 **HotelReviews-Free.csv** 파일을 로드합니다.
 
-   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="업로드된 파일 및 왼쪽 탐색 창이 있는 Storage Explorer의 스크린샷" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="업로드된 파일 및 왼쪽 탐색 창이 있는 Storage Browser의 스크린샷" border="true":::
 
 1. 이 리소스를 거의 완료했지만 이러한 페이지를 나가기 전에 왼쪽 탐색 창에서 **액세스 키** 를 선택하여 인덱서를 통해 이 데이터를 검색할 수 있도록 연결 문자열을 가져옵니다.
 
@@ -372,13 +372,13 @@ Postman에서 **보내기** 를 선택하여 인덱서를 만들고 실행합니
 
 Azure Portal에서 Azure Cognitive Search 서비스의 **개요** 페이지로 이동합니다. **인덱서** 탭을 선택한 다음, **hotels-reviews-ixr** 을 선택합니다. 상태가 1~2분 내에 오류 및 경고 없이 "진행 중"에서 "성공"으로 진행되어야 합니다.
 
-## <a name="check-tables-in-storage-explorer"></a>Storage Explorer에서 테이블 확인
+## <a name="check-tables-in-storage-browser"></a>Storage Browser에서 테이블 확인
 
-Azure Portal에서 Azure Storage 계정으로 전환하고, **Storage Explorer** 를 사용하여 새 테이블을 봅니다. 기술 세트에 정의된 각 프로젝션에 대해 하나씩 6개의 테이블이 표시됩니다.
+Azure Portal에서 Azure Storage 계정으로 전환하고, **Storage Browser** 를 사용하여 새 테이블을 봅니다. 기술 세트에 정의된 각 프로젝션에 대해 하나씩 6개의 테이블이 표시됩니다.
 
 각 테이블은 쿼리에서 테이블을 교차 연결하는 데 필요한 ID를 사용하여 생성됩니다. 테이블을 열 때 이러한 필드를 지나면서 스크롤하여 파이프라인에서 추가한 콘텐츠 필드를 봅니다.
 
-   :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Storage Explorer의 지식 저장소 테이블에 대한 스크린샷" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Storage Browser의 지식 저장소 테이블에 대한 스크린샷" border="true":::
 
 이 연습에서 지식 저장소는 테이블을 셰이핑하고 구조화하는 다양한 방법을 보여주는 다양한 테이블로 구성됩니다. 1~3 테이블은 Shaper 기술의 출력을 사용하여 열과 행을 결정합니다. 4~6 테이블은 프로젝션 자체 내에 포함된 인라인 모양 지정 명령에서 생성됩니다. 두 방법 중 하나를 사용하여 동일한 결과를 얻을 수 있습니다.
 
@@ -404,9 +404,9 @@ Azure Portal에서 Azure Storage 계정으로 전환하고, **Storage Explorer**
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Cognitive Services를 사용하여 데이터를 보강하고 결과를 지식 저장소에 프로젝션했으므로 Storage Explorer 또는 다른 앱을 사용하여 보강된 데이터 세트를 검색할 수 있습니다.
+이제 Cognitive Services를 사용하여 데이터를 보강하고 결과를 지식 저장소에 프로젝션했으므로 Storage Browser 또는 다른 앱을 사용하여 보강된 데이터 세트를 검색할 수 있습니다.
 
-Storage Explorer를 사용하여 이 지식 저장소를 검색하는 방법을 알아보려면 다음 연습을 참조하세요.
+Storage Browser를 사용하여 이 지식 저장소를 검색하는 방법을 알아보려면 다음 연습을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Storage Explorer를 사용하여 보기](knowledge-store-view-storage-explorer.md)
+> [Storage Browser를 통해 보기](knowledge-store-view-storage-explorer.md)

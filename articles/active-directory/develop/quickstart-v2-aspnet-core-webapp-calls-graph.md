@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/17/2021
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bc5983ebafe39b7b0595106ec280cc81291163ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 244736501dbd9a996ddb89159f0a7289244e51b1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128573794"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466108"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>빠른 시작: 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph를 호출하는 ASP.NET Core 웹앱
 
@@ -45,7 +45,7 @@ ms.locfileid: "128573794"
 > 1. **관리** 에서 **인증** 을 선택합니다.
 > 1. `https://localhost:44321/signout-oidc`의 **프런트 채널 로그 아웃 URL** 을 입력합니다.
 > 1. **저장** 을 선택합니다.
-> 1. **관리** 아래에서 **인증서 및 비밀** > **새 클라이언트 암호** 를 선택합니다.
+> 1. **관리** 아래에서 **인증서 및 비밀** > **클라이언트 암호** > **새 클라이언트 암호** 를 선택합니다.
 > 1. **설명** 을 입력합니다(예: `clientsecret1`).
 > 1. 비밀 만료에 대해 **1년 후** 를 선택합니다.
 > 1. **추가** 를 선택하고 이후 단계에서 사용할 비밀의 **값** 을 즉시 기록합니다. 비밀 값은 *다시 표시되지 않으며*, 어떤 방법으로도 검색할 수 없습니다. 암호와 마찬가지로 안전한 위치에 기록해 둡니다.

@@ -3,20 +3,20 @@ title: Azure Active Directory 및 SAP SuccessFactors 통합 참조
 description: Azure Active Directory용 SAP SuccessFactors-HR 기반 프로비저닝에 대한 기술 심층 분석입니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/11/2021
 ms.author: kenwith
 ms.reviewer: chmutali
-ms.openlocfilehash: 7c7ba58383481e2b776b27015f98080b35f3084d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8c215c8b032fb3981771d2091b449b1934e78533
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784938"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990833"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Azure Active Directory 프로비저닝이 SAP SuccessFactors와 통합되는 방법 
 
@@ -72,6 +72,8 @@ SuccessFactors의 모든 사용자에 대해 Azure AD 프로비저닝 서비스�
 | 22 | EmployeeClass 선택 목록                 | employmentNav/jobInfoNav/employeeClassNav | `employeeClass`가 매핑된 경우에만 |
 | 23 | EmplStatus 선택 목록                    | employmentNav/jobInfoNav/emplStatusNav | `emplStatus`가 매핑된 경우에만 |
 | 24 | AssignmentType 선택 목록                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | `assignmentType`이 매핑된 경우에만 |
+| 25 | 위치                               | employmentNav/jobInfoNav/positionNav | `positioNav`이 매핑된 경우에만 |
+| 26 | 관리자 사용자                           | employmentNav/jobInfoNav/managerUserNav | `managerUserNav`이 매핑된 경우에만 |
 
 ## <a name="how-full-sync-works"></a>전체 동기화 방식
 특성 매핑을 기반으로 Azure AD 프로비저닝 서비스는 전체 동기화를 수행하는 동안 다음 'GET' OData API 쿼리를 전송하여 모든 활성 사용자의 유효 데이터를 가져옵니다. 
@@ -285,6 +287,16 @@ Employee Central의 사용자에게 동시/다중 직무가 있는 경우 *assig
 1. 변경 내용을 저장합니다. 
 1. 프로비저닝을 다시 시작합니다. 
 
+### <a name="retrieving-position-details"></a>위치 세부 정보 검색
+
+SuccessFactors 커넥터는 위치 개체의 확장을 지원합니다. 특정 언어에서 작업 수준 또는 위치 이름과 같은 위치 개체 특성을 확장하고 검색하려면 아래와 같이 JSONPath 식을 사용할 수 있습니다. 
+
+| 특성 이름 | JSONPath 식 |
+| -------------- | ------------------- |
+| positionJobLevel | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.jobLevel |
+| positionNameFR | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_fr_FR |
+| positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
+
 ## <a name="writeback-scenarios"></a>쓰기 저장 시나리오
 
 이 섹션에서는 다양한 쓰기 저장 시나리오에 대해 설명합니다. SuccessFactors에서 이메일 및 전화 번호를 설정하는 방법에 따라 권장하는 구성 방법이 달라집니다.
@@ -302,6 +314,36 @@ Employee Central의 사용자에게 동시/다중 직무가 있는 경우 *assig
 * 쓰기 저장 특성 매핑에 전화 번호 매핑이 없는 경우에는 이메일만 쓰기 저장에 포함됩니다.
 * Employee Central에서 신입 직원을 등록할 때는 회사 이메일 및 전화 번호를 사용할 수 없습니다. 등록 중에 회사 이메일 및 회사 전화를 기본으로 설정하는 것이 필수인 경우 신입 직원을 생성할 때 회사 전화 및 이메일에 대한 더미 값을 설정할 수 있습니다. 이 값은 나중에 쓰기 저장 앱에 의해 업데이트됩니다.
  
+### <a name="enabling-writeback-with-userid"></a>UserID를 사용하여 쓰기 저장을 사용하도록 설정
+
+SuccessFactors 쓰기 저장 앱은 다음 논리를 사용하여 사용자 개체 특성을 업데이트합니다. 
+* 첫 번째 단계로 변경 집합에서 *userId* 특성을 찾습니다. 이 특성이 있는 경우 SuccessFactors API 호출을 위해 "UserId"를 사용합니다. 
+* *userId* 가 없는 경우 기본적으로 *personIdExternal* 특성 값을 사용합니다. 
+
+일반적으로 SuccessFactors의 *personIdExternal* 특성 값은 *userId* 특성 값과 일치합니다. 그러나 재고용 및 작업자 전환과 같은 시나리오에서 SuccessFactors의 직원은 두 개의 고용 레코드(하나는 활성 및 하나는 비활성)를 가질 수 있습니다. 이러한 시나리오에서 쓰기 저장이 활성 사용자 프로필을 업데이트하도록 하려면 아래 설명된 대로 SuccessFactors 프로비저닝 앱의 구성을 업데이트하세요. 이 구성은 *userId* 가 커넥터에 표시되는 변경 집합에 항상 존재하고 SuccessFactors API 호출에 사용되도록 합니다.
+
+1. Azure AD 사용자 프로비저닝 앱에서 SuccessFactors를 열거나 온-프레미스 AD 사용자 프로비저닝 앱에서 SuccessFactors를 엽니다. 
+1. Azure AD의 extensionAttribute *(extensionAttribute1-15)* 는 모든 작업자의 활성 고용 레코드의 *userId* 를 항상 저장해야 합니다. 이는 Azure AD의 extensionAttribute에 SuccessFactors *userId* 특성을 매핑하여 달성할 수 있습니다. 
+    > [!div class="mx-imgBorder"]
+    > ![인바운드 UserID 특성 매핑](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
+1. JSONPath 설정에 대한 지침은 [재고용 시나리오 처리](#handling-rehire-scenario) 섹션을 참조하여 활성 고용 레코드의 *userId* 값이 Azure AD로 흐르는지 확인하세요. 
+1. 변경 내용을 저장합니다. 
+1. 프로비저닝 작업을 실행하여 *userId* 값이 Azure AD로 흐르도록 합니다. 
+    > [!NOTE]
+    > 온-프레미스 Active Directory 사용자 프로비저닝에 SuccessFactors를 사용하는 경우 온-프레미스 Active Directory의 *userId* 특성 값을 Azure AD로 동기화하도록 AAD Connect를 구성합니다.   
+1. Azure Portal에서 SuccessFactors 쓰기 저장 앱을 엽니다. 
+1. userId 값을 포함하는 원하는 *extensionAttribute* 를 SuccessFactors *userId* 특성에 매핑합니다.
+    > [!div class="mx-imgBorder"]
+    > ![쓰기 저장 UserID 특성 매핑](./media/sap-successfactors-integration-reference/userid-attribute-mapping.png)
+1. 변경 내용을 저장합니다. 
+1. *특성 매핑 -> 고급 -> 스키마 검토* 로 이동하여 JSON 스키마 편집기를 엽니다.
+1. 스키마 복사본을 백업으로 다운로드합니다. 
+1. 스키마 편집기에서 Ctrl-F를 누르고 userId 매핑이 포함된 JSON 노드를 검색합니다. 여기서 원본 Azure AD 특성에 매핑됩니다. 
+1. 아래와 같이 flowBehavior 특성을 "FlowWhenChanged"에서 "FlowAlways"로 업데이트합니다. 
+    > [!div class="mx-imgBorder"]
+    > ![매핑 흐름 동작 업데이트](./media/sap-successfactors-integration-reference/mapping-flow-behavior-update.png)
+1. 주문형 프로비저닝을 사용하여 변경 내용을 저장하고 쓰기 저장 시나리오를 테스트합니다. 
+
 ### <a name="unsupported-scenarios-for-phone-and-email-write-back"></a>전화 및 이메일 쓰기 저장에 대해 지원하지 않는 시나리오
 
 * Employee Central에서 등록하는 동안 개인 이메일 및 개인 전화는 기본으로 설정됩니다. 쓰기 저장 앱은 이 설정을 변경하고 회사 이메일 및 회사 전화를 기본으로 설정할 수 없습니다.

@@ -1,5 +1,6 @@
 ---
-title: Microsoft 애플리케이션에 로그인하는 문제 | Microsoft Docs
+title: Microsoft 애플리케이션에 로그인하는 문제
+titleSuffix: Azure AD
 description: Microsoft 365와 같은 Azure AD를 사용하여 자사 Microsoft 애플리케이션에 로그인할 때 직면하는 일반적인 문제 해결
 services: active-directory
 author: davidmu1
@@ -12,16 +13,16 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52cd2062745bd3506f687492dff240d15bbcc1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 345d5e014631ef4f4a5dc0897face90a6267d032
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566895"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619088"
 ---
-# <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
+# <a name="problems-signing-in-to-a-microsoft-application-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 애플리케이션에 로그인하는 문제
 
-Microsoft 애플리케이션(예: Exchange, SharePoint, Yammer 등)은 Single Sign-On을 위해 Azure AD와 통합하는 타사 SaaS 애플리케이션 또는 다른 애플리케이션과 약간 다른 방식으로 할당 및 관리됩니다.
+Microsoft 애플리케이션(예: Exchange, SharePoint, Yammer 등)은 타사 SaaS 애플리케이션이나 Single Sign-On을 위해 Azure AD와 통합하는 다른 애플리케이션과는 약간 다른 방식으로 할당되고 관리됩니다.
 
 사용자는 세 가지 방법으로 Microsoft 게시 애플리케이션에 대한 액세스 권한을 얻을 수 있습니다.
 

@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory의 앱에 사용자를 할당하는 방법 이해
+title: 사용자가 앱에 할당되는 방법 이해
 description: ID 관리를 위해 Azure Active Directory를 사용하는 앱에 사용자를 할당하는 방법을 이해합니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 081ae6506949407c0cc5331abf542367f7cc4c84
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a7955a183893540e6c8de3981ad561200e31f70
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566887"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613570"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Azure Active Directory의 앱에 사용자를 할당하는 방법 이해
 
@@ -34,8 +35,8 @@ ms.locfileid: "122566887"
   * 클라우드에서 만든 [동적 보안 그룹](../enterprise-users/groups-dynamic-membership.md)
   * 클라우드에서 만든 Microsoft 365 그룹
   * [모든 사용자](../fundamentals/active-directory-groups-create-azure-portal.md) 그룹
-* 관리자가 [셀프 서비스 애플리케이션 액세스](./manage-self-service-access.md)를 통해 사용자가 **비즈니스 승인 없이** [My Apps](../user-help/my-apps-portal-end-user-access.md)**앱 추가** 를 사용하여 애플리케이션을 추가하도록 허용
-* 관리자가 [셀프 서비스 애플리케이션 액세스](./manage-self-service-access.md)를 통해 사용자가 **선택된 비즈니스 승인자 세트의 사전 승인이 있는 경우에만** [내 앱](../user-help/my-apps-portal-end-user-access.md)**앱 추가** 를 사용하여 애플리케이션을 추가하도록 허용
+* 관리자가 [셀프 서비스 애플리케이션 액세스](./manage-self-service-access.md)를 통해 사용자가 **비즈니스 승인 없이** [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)**앱 추가** 를 사용하여 애플리케이션을 추가하도록 허용
+* 관리자가 [셀프 서비스 애플리케이션 액세스](./manage-self-service-access.md)를 통해 사용자가 **선택된 비즈니스 승인자 세트의 사전 승인이 있는 경우에만** [내 앱](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)**앱 추가** 를 사용하여 애플리케이션을 추가하도록 허용
 * 관리자가 [셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)를 통해 사용자가 **비즈니스 승인 없이** 애플리케이션이 할당된 그룹에 가입하도록 허용
 * 관리자가 [셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)를 통해 사용자가 **선택된 비즈니스 승인자 세트의 사전 승인이 있는 경우에만** 애플리케이션이 할당된 그룹에 가입하도록 허용
 * 관리자가 [Microsoft 365](https://products.office.com/)와 같은 자사 애플리케이션에 대해 직접, 사용자에게 라이선스 할당

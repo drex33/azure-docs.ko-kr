@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1604d79ce5eb9949028cd677b340bf3d4b09f6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6bb7b35dc4a0e41278fcadd8ed487a7da0f00fc4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96172842"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045959"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Azure Active Directory로 OAuth 2.0 인증
 
@@ -26,9 +26,9 @@ OAuth 2.0은 권한 부여를 위한 업계 프로토콜입니다. 이를 통해
 
 OAuth 2.0은 OIDC(OpenID Connect)와 직접적으로 관련이 있습니다. OIDC는 OAuth 2.0을 기반으로 구축된 인증 및 권한 부여 계층이므로 이전 버전인 OAuth 1.0과 호환되지 않습니다. Azure AD(Azure Active Directory)는 모든 OAuth 2.0 흐름을 지원합니다. 
 
-## <a name="use-when"></a>사용하는 경우:
+## <a name="use-for"></a>다음과 같은 경우에 사용됩니다.
 
-풍부한 클라이언트/최신 앱 시나리오 및 RESTful Web API 액세스
+풍부한 클라이언트 및 최신 앱 시나리오와 RESTful 웹 API 액세스.
 
 ![아키텍처 다이어그램](./media/authentication-patterns/oauth.png)
 

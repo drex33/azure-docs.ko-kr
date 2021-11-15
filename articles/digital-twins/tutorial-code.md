@@ -1,18 +1,18 @@
 ---
 title: '자습서: 클라이언트 앱 코딩'
 titleSuffix: Azure Digital Twins
-description: .NET(C#) SDK를 사용하여 클라이언트 앱의 최소 코드를 작성하는 자습서입니다.
+description: 이 자습서에 따라 .NET(C#) SDK를 사용하여 Azure Digital Twins 클라이언트 앱에 대한 최소 코드를 작성하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 04/28/2021
+ms.date: 10/18/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 2146d07ce28cf0d14bb1b1416a0aa5b8ebf1febe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: df99bfd1dfd07749b4906e9bd7f9f62ece68066b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612076"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501707"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -27,7 +27,7 @@ Azure Digital Twins를 사용하는 개발자는 일반적으로 Azure Digital T
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서에서는 설정 및 프로젝트 작업에 명령줄을 사용합니다. 따라서 원하는 코드 편집기를 사용하여 연습 과정을 진행할 수 있습니다.
+이 Azure Digital Twins 자습서에서는 설정 및 프로젝트 작업에 명령줄을 사용합니다. 따라서 원하는 코드 편집기를 사용하여 연습 과정을 진행할 수 있습니다.
 
 시작하기 위해 필요한 사항:
 * 코드 편집기
@@ -130,7 +130,7 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 DTDL 파일에 �
 > [!TIP] 
 > DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [모델 구문 분석 및 유효성 검사](how-to-parse-models.md)를 참조하세요.
 
-다음으로 *Program.cs* 에 코드를 추가하여 방금 만든 모델을 Azure Digital Twins 인스턴스에 업로드합니다.
+다음으로 *Program.cs* 에 코드를 추가하여 만든 모델을 Azure Digital Twins 인스턴스에 업로드합니다.
 
 먼저, 파일 맨 위에 몇 개의 `using`문을 추가합니다.
 
@@ -162,7 +162,7 @@ dotnet run
 
 **이 새 코드를 테스트하기 위해 프로그램을 다시 실행하기 전에** 프로그램을 마지막으로 실행할 때 모델을 업로드했음을 기억하세요. Azure Digital Twins에서는 동일한 모델을 두 번 업로드할 수 없으므로 동일한 모델을 다시 업로드하려고 하면 프로그램에서 예외를 throw해야 합니다.
 
-이를 염두에 두고 명령 창에서 다음 명령을 사용하여 프로그램을 다시 실행합니다.
+이 정보를 염두에 두고 명령 창에서 다음 명령을 사용하여 프로그램을 다시 실행합니다.
 
 ```cmd/sh
 dotnet run
@@ -196,7 +196,7 @@ Azure Digital Twins에 모델을 업로드했으므로 이제 이 모델 정의�
 
 그런 다음, 프로그램을 다시 실행합니다. 
 
-트윈이 두 번째로 만들어지는 경우, 첫 번째 실행 후에 트윈이 이미 존재해도 오류가 throw되지 않습니다. 모델 생성과 달리 트윈 생성은 REST 수준에서 *upsert* 의미 체계를 사용하는 *PUT* 호출입니다. 즉, 트윈이 이미 있는 경우 동일한 트윈을 다시 만들려고 하면 원래 트윈으로 바뀝니다. 오류가 throw되지 않습니다.
+트윈이 두 번째로 만들어지는 경우, 첫 번째 실행 후에 트윈이 이미 존재해도 오류가 throw되지 않습니다. 모델 생성과 달리 트윈 생성은 REST 수준에서 *upsert* 의미 체계를 사용하는 *PUT* 호출입니다. 이러한 유형의 REST 호출을 사용하는 경우 트윈이 이미 있을 때 동일한 트윈을 다시 만들려고 하면 원래 트윈으로 바뀝니다. 오류가 throw되지 않습니다.
 
 ### <a name="create-relationships"></a>관계 만들기
 

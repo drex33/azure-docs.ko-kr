@@ -3,20 +3,20 @@ title: 애플리케이션 및 API를 b2clogin.com으로 마이그레이션
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 리디렉션 URL에 b2clogin.com을 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.author: mimart
+ms.date: 09/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 95fe619ecb33e3b7e79c37b4cddb5950836b4cd5
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 21f881dd0213c59c32f0acfe96b3c3cfc809fdcf
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113223719"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039869"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -45,7 +45,7 @@ b2clogin.com으로의 전환은 사용자 인증에 Azure AD B2C 정책(사용�
 
 * 쿠키 헤더에서 Microsoft 서비스가 사용하는 공간이 줄어듭니다.
 * URL에 더 이상 Microsoft에 대한 참조를 포함할 필요가 없습니다.
-* JavaScript 클라이언트 측 코드가 사용자 지정 페이지에서 지원됩니다(현재 [미리 보기](javascript-and-page-layout.md)로 제공됨). 보안 제약 조건으로 인해 *login.microsoftonline.com* 을 사용하는 경우 JavaScript 코드 및 HTML 양식 요소가 사용자 지정 페이지에서 삭제됩니다.
+* [JavaScript 클라이언트 측 코드](javascript-and-page-layout.md)는 사용자 지정된 페이지에서 지원됩니다. 보안 제약 조건으로 인해 *login.microsoftonline.com* 을 사용하는 경우 JavaScript 코드 및 HTML 양식 요소가 사용자 지정 페이지에서 삭제됩니다.
 
 ## <a name="overview-of-required-changes"></a>필수 변경 사항 개요
 

@@ -12,39 +12,26 @@
       href: whats-new.md
     - name: Operations Manager에서 마이그레이션
       href: azure-monitor-operations-manager.md
-- name: 빠른 시작
-  items:
-    - name: Azure 리소스 모니터링
-      href: essentials/quick-monitor-azure-resource.md
-    - name: 작업 영역에 활동 로그 보내기
-      items:
-        - name: Azure portal
-          href: essentials/quick-collect-activity-log-portal.md
-        - name: ARM 템플릿
-          displayName: Resource Manager
-          href: essentials/quick-collect-activity-log-arm.md
-    - name: 애플리케이션 모니터링
-      items:
-        - name: ASP.NET Core 애플리케이션
-          href: app/dotnet-quickstart.md
-        - name: Node.js 애플리케이션
-          href: app/nodejs-quick-start.md
-        - name: 모바일 애플리케이션
-          href: app/mobile-center-quickstart.md
-        - name: 웹 애플리케이션
-          href: app/website-monitoring.md
 - name: 자습서
   items:
-    - name: 메트릭 차트 만들기
-      href: essentials/tutorial-metrics-explorer.md
-    - name: Azure 리소스에서 로그 수집
+    - name: Azure 리소스 모니터링
+      href: essentials/monitor-azure-resource.md
+    - name: 메트릭 데이터 분석
+      href: essentials/tutorial-metrics.md
+    - name: 메트릭 경고 만들기
+      href: alerts/tutorial-metric-alert.md
+    - name: 리소스 로그 수집 및 보기
       href: essentials/tutorial-resource-logs.md
-    - name: 로그 쿼리 작성
-      href: logs/get-started-queries.md
-    - name: 로그 쿼리에서 대시보드 만들기
-      href: visualize/tutorial-logs-dashboards.md
-    - name: 성능 및 일정에 대한 자동 크기 조정
-      href: autoscale/tutorial-autoscale-performance-schedule.md
+    - name: 로그 쿼리 경고 만들기
+      href: alerts/tutorial-log-alert.md
+    - name: 가상 머신
+      items:
+        - name: 모니터링 사용
+          href: vm/tutorial-monitor-vm-enable.md
+        - name: 머신 다운에 대한 경고
+          href: vm/tutorial-monitor-vm-alert.md
+        - name: 게스트 로그 및 메트릭 수집
+          href: vm/tutorial-monitor-vm-guest.md
     - name: Application Insights
       items:
         - name: 애플리케이션 런타임 예외 찾기
@@ -57,6 +44,8 @@
           href: app/tutorial-users.md
         - name: 애플리케이션 데이터가 있는 대시보드
           href: app/tutorial-app-dashboards.md
+        - name: 모바일 애플리케이션 모니터링
+          href: app/mobile-center-quickstart.md
 - name: 샘플
   items:
     - name: 리소스 관리자 템플릿
@@ -284,6 +273,9 @@
             - name: 개요
               displayname: 'log query, log queries, query, queries'
               href: logs/log-query-overview.md
+            - name: 시작
+              displayname: 'log query, log queries, query, queries'
+              href: logs/get-started-queries.md
             - name: KQL 참조
               href: /azure/data-explorer/kusto/query/
             - name: 샘플 쿼리
@@ -1287,7 +1279,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

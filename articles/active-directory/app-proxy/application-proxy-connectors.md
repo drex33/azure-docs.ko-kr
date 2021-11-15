@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시 커넥터 이해
 description: Azure Active Directory 애플리케이션 프록시 커넥터에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: ae7da354b16dbea3e84f8d75fbf97e805387c4b0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.reviewer: ashishj
+ms.openlocfilehash: 09574963b674160c271176204c49443f09174285
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952104"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989687"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -33,7 +33,7 @@ ms.locfileid: "111952104"
 ### <a name="windows-server"></a>Windows Server
 애플리케이션 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 이상을 실행하는 서버가 필요합니다. 서버를 Azure의 애플리케이션 프록시 서비스 및 게시 중인 온-프레미스 애플리케이션에 연결해야 합니다.
 
-Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 프록시 커넥터를 설치해야 합니다. 서버에서 TLS 1.2를 사용하도록 설정하려면
+TLS 1.2를 사용하도록 설정한 후 서버에서 애플리케이션 프록시 커넥터를 설치해야 합니다. 서버에서 TLS 1.2를 사용하도록 설정하려면
 
 1. 다음 레지스트리 키를 설정합니다.
 
@@ -133,7 +133,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 ## <a name="domain-joining"></a>도메인 가입
 
-도메인 가입되지 않은 컴퓨터에서 커넥터를 실행할 수 있습니다. 하지만 Windows 통합 인증(IWA)을 사용하는 애플리케이션에 SSO(Single Sign-On)를 사용하려는 경우에는 도메인 가입된 컴퓨터가 필요합니다. 이 경우 커넥터 컴퓨터는 게시된 애플리케이션에 대한 사용자를 대신하여 [Kerberos](https://web.mit.edu/kerberos) 제한된 위임을 수행할 수 있는 도메인에 가입되어야 합니다.
+도메인 가입되지 않은 컴퓨터에서 커넥터를 실행할 수 있습니다. 하지만 Windows 통합 인증(IWA)을 사용하는 애플리케이션에 SSO(Single Sign-On)를 사용하려는 경우에는 도메인 가입된 머신이 필요합니다. 이 경우 커넥터 컴퓨터는 게시된 애플리케이션에 대한 사용자를 대신하여 [Kerberos](https://web.mit.edu/kerberos) 제한된 위임을 수행할 수 있는 도메인에 가입되어야 합니다.
 
 커넥터는 부분 신뢰하는 포리스트의 도메인 또는 읽기 전용 도메인 컨트롤러에 가입할 수도 있습니다.
 

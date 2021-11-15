@@ -13,12 +13,12 @@ ms.date: 06/09/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 7b7f94b5e71719b53e724c76f9604f40ba7990e2
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 5dfc0c3c006c42f6e56e9f2f15311a2b99396fe4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568086"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424100"
 ---
 # <a name="differences-between-adalnet-and-msalnet-apps"></a>ADAL.NET과 MSAL.NET 앱 간의 차이점
 
@@ -50,10 +50,10 @@ ADAL.NET 및 개발자용 Azure AD(v1.0) 엔드포인트에 이미 익숙한 경
 
 허용                             | MSAL.NET                                                                                                                     | ADAL.NET                                                                                                                                                                                                   |
 --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-대화형                       | [MSAL.NET에서 대화형으로 토큰 획득](scenario-desktop-acquire-token.md#acquire-a-token-interactively)    | [대화형 인증](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)                                              |
-Windows 통합 인증 | [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication)         | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos))  |
-사용자 이름/암호               | [사용자 이름 암호 인증](scenario-desktop-acquire-token.md#username-and-password)                      | [사용자 이름 및 암호를 사용하여 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
-디바이스 코드 흐름                  | [디바이스 코드 흐름](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser)                    | [웹 브라우저가 없는 디바이스에 대한 디바이스 프로필](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers)                                |
+대화형                       | [MSAL.NET에서 대화형으로 토큰 획득](scenario-desktop-acquire-token-interactive.md)    | [대화형 인증](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)                                              |
+Windows 통합 인증 | [Windows 통합 인증](scenario-desktop-acquire-token-integrated-windows-authentication.md)         | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos))  |
+사용자 이름/암호               | [사용자 이름 - 암호 인증](scenario-desktop-acquire-token-username-password.md)                      | [사용자 이름 및 암호를 사용하여 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
+디바이스 코드 흐름                  | [디바이스 코드 흐름](scenario-desktop-acquire-token-device-code-flow.md)                    | [웹 브라우저가 없는 디바이스에 대한 디바이스 프로필](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers)                                |
 
 ### <a name="confidential-client-applications"></a>기밀 클라이언트 애플리케이션
 
@@ -139,7 +139,7 @@ MSAL.NET을 사용하면 [AcquireTokenSilent](https://github.com/AzureAD/microso
 ```csharp
 catch(MsalUiRequiredException exception)
 {
- try {“try to authenticate interactively”}
+ try {"try to authenticate interactively"}
 }
 ```
 
@@ -159,6 +159,18 @@ catch(AdalException exception)
 ```
 
 자세한 내용은 ADAL.NET을 사용하여 [퍼블릭 클라이언트 애플리케이션에서 토큰을 획득하기 위한 권장 패턴](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token)을 참조하세요.
+
+### <a name="prompt-behavior"></a>프롬프트 동작
+
+MSAL.NET의 프롬프트 동작은 ADAL.NET의 프롬프트 동작과 동일합니다.
+
+|  ADAL.NET | MSAL.NET | Description |
+| ----------- | ----------- | -------------|
+| `PromptBehavior.Auto`| `NoPrompt`| Azure AD는 사용자가 계정 하나를 사용하여 로그인한 경우 자동으로 로그인하거나 여러 계정으로 로그인하는 경우 계정 선택기를 표시하여 최상의 동작을 선택합니다. |
+| `PromptBehavior.Always`| `ForceLogin` | 로그인 상자를 다시 설정하고 사용자가 자격 증명을 다시 입력하도록 합니다. |
+| `PromptBehavior.RefreshSession`| `Consent`| 사용자가 모든 사용 권한에 강제로 다시 동의하도록 합니다. |
+| `PromptBehavior.Never`| `Never`| 사용하지 않습니다. 대신 [퍼블릭 클라이언트 앱에 권장되는 패턴](scenario-desktop-acquire-token.md?tabs=dotnet)을 사용합니다. |
+| `PromptBehavior.SelectAccount`| `SelectAccount`| 계정 선택기를 표시하고 사용자에게 계정을 강제로 선택하도록 합니다. |
 
 ### <a name="handling-claim-challenge-exceptions"></a>클레임 챌린지 예외 처리
 

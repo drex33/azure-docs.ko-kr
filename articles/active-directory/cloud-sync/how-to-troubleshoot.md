@@ -4,16 +4,16 @@ description: 이 문서에서는 클라우드 프로비저닝 에이전트에서
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 01/19/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 863d043bc3185b5fd7f44056ba13bca5ed700f30
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4fa397505d7bb98235a97e5818409baee9c9c9e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131018246"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451866"
 ---
 # <a name="cloud-sync-troubleshooting"></a>클라우드 동기화 관련 문제 해결
 
@@ -22,11 +22,12 @@ ms.locfileid: "131018246"
 
 ## <a name="common-troubleshooting-areas"></a>일반적인 문제 해결 영역
 
-|속성|설명|
+|이름|Description|
 |-----|-----|
 |[에이전트 문제](#agent-problems)|에이전트가 올바르게 설치되었는지와 Azure AD(Azure Active Directory)와 통신하는지 확인합니다.|
 |[개체 동기화 문제](#object-synchronization-problems)|프로비저닝 로그를 사용하여 개체 동기화 문제를 해결합니다.|
 |[프로비저닝 격리 문제](#provisioning-quarantined-problems)|프로비저닝 격리 문제와 해결 방법을 이해합니다.|
+|[비밀번호 쓰기 저장](#password-writeback)|일반적인 비밀번호 쓰기 기록 문제 및 해결 방법을 이해합니다.|
 
 
 ## <a name="agent-problems"></a>에이전트 문제
@@ -185,7 +186,7 @@ Azure Portal에서 프로비저닝 로그를 사용하여 개체 동기화 문�
 
 워터마크를 지우고 프로비저닝 작업에서 델타 동기화를 실행하려면 상태를 마우스 오른쪽 단추로 클릭하고 **격리 지우기** 를 선택합니다.
 
-격리가 지워진다는 알림이 표시되어야 합니다.
+격리가 해제되고 있다는 알림이 표시되어야 합니다.
 
 ![격리가 지워진다는 알림을 보여 주는 스크린샷.](media/how-to-troubleshoot/quarantine-5.png)
 
@@ -230,6 +231,19 @@ Azure Portal를 사용하여 프로비저닝 작업을 다시 시작합니다. �
       ```
 
    5. 이 작업이 완료되면 계정이 성공적으로 복구된 것입니다.
+
+## <a name="password-writeback"></a>비밀번호 쓰기 저장
+클라우드 동기화에서 비밀번호 쓰기 저장을 사용하도록 설정 및 사용하는 것과 관련하여 다음 정보를 유의해야 합니다.
+
+- [gMSA 권한](how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions)을 업데이트해야 하는 경우 이러한 권한으로 디렉터리의 모든 개체를 복제하는 데 한 시간 이상 걸릴 수 있습니다. 이러한 권한을 할당하지 않으면 쓰기 저장이 올바르게 구성된 것처럼 표시되지만 사용자가 클라우드에서 온-프레미스 암호를 업데이트할 때 오류가 발생할 수 있습니다. **만료되지 않은 암호** 가 표시되도록 하려면 “이 개체 및 모든 하위 개체”에 사용 권한을 적용해야 합니다. 
+- 일부 사용자 계정의 암호가 온-프레미스 디렉터리에 다시 기록되지 않는 경우 온-프레미스 AD DS 환경의 계정에 대해 상속이 비활성화되어 있지 않은지 확인합니다. 기능이 제대로 작동하려면 암호에 대한 쓰기 권한을 하위 개체에 적용해야 합니다. 
+- 온-프레미스 AD DS 환경의 암호 정책에 따라 암호 재설정이 올바르게 처리되지 않을 수 있습니다. 이 기능을 테스트하고 사용자 암호를 하루에 두 번 이상 다시 설정하려면 최소 암호 사용 기간에 대한 그룹 정책을 0으로 설정해야 합니다. 이 설정은 **gpmc.msc** 내의 **컴퓨터 구성 > 정책 > Windows 설정 > 보안 설정 > 계정 정책** 아래에서 확인할 수 있습니다. 
+     - 그룹 정책을 업데이트하는 경우 업데이트된 정책이 복제될 때까지 기다리거나 gpupdate /force 명령을 사용합니다. 
+     - 암호를 즉시 변경하려면 최소 암호 사용 기간을 0으로 설정해야 합니다. 그러나 사용자가 온-프레미스 정책을 준수하고 최소 암호 사용 기간을 0보다 큰 값으로 설정한 경우 온-프레미스 정책이 평가되면 비밀번호 쓰기 저장이 작동하지 않습니다. 
+
+
+
+
 
 ## <a name="next-steps"></a>다음 단계 
 

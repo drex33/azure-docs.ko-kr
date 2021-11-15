@@ -4,22 +4,23 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 역할�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28b901643e150cf98b97633f0dbec0a348b3995
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 408ae958cb82557d6dabd92cd92e3967b9a8b40e
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112232868"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667975"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 감사 기록 보기
 
@@ -39,7 +40,7 @@ Azure AD 역할에 대한 감사 기록을 보려면 다음 단계를 따르세�
 
 1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
 
-    ![필터를 사용하는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![필터를 사용하는 Azure AD 역할 감사 목록](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 ## <a name="view-my-audit"></a>내 감사 보기
 

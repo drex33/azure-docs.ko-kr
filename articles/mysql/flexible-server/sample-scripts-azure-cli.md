@@ -8,22 +8,18 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: 7f68da581378d9050ad0026930196f09b744371f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8ae33838b4dff052006f1124eea3dbec59cc7666
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604685"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844273"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버(미리 보기)용 Azure CLI 샘플 
+# <a name="azure-cli-samples-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버용 Azure CLI 샘플
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 다음 표에는 Azure Database for MySQL - 유연한 서버용 Azure CLI 샘플 스크립트에 대한 링크가 포함되어 있습니다.
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
 
 | 샘플 링크 | Description  |
 |---|---|

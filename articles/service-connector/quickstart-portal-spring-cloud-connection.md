@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f242eb1557a1b44f3698e06f33dc2a943658af15
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 320cd5af7a6f64d6f74eb55ac9abfd7f07af18ce
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029481"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843148"
 ---
 # <a name="quickstart-create-a-service-connection-in-spring-cloud-from-azure-portal"></a>빠른 시작: Azure Portal의 Spring Cloud에서 서비스 연결 만들기
 
@@ -31,18 +31,19 @@ Azure 계정을 사용하여 [https://portal.azure.com/](https://portal.azure.co
 Service Connector를 사용하여 Spring Cloud에서 새 서비스 연결을 만듭니다.
 
 1. Azure Portal 왼쪽에 있는 **모든 리소스** 단추를 선택합니다. 필터에 **Spring Cloud** 를 입력하고 목록에서 사용할 Spring Cloud의 이름을 클릭합니다.
-1. **앱** 을 선택하고 목록에서 애플리케이션 이름을 선택합니다. 
-1. **배포** 를 선택하고 목록에서 **기본값** 을 선택합니다. 왼쪽 목차에서 **서비스 커넥터(미리 보기)** 를 선택합니다. 그런 다음 **만들기** 를 선택합니다.
+1. **앱** 을 선택하고 목록에서 애플리케이션 이름을 선택합니다.
+1. 왼쪽 목차에서 **서비스 커넥터(미리 보기)** 를 선택합니다. 그런 다음 **만들기** 를 선택합니다.
 1. 다음 설정을 선택하거나 입력합니다.
 
-    | 설정      | 제안 값  | 설명                                        |
+    | 설정      | 제안 값  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독 중 하나 | 대상 서비스(연결할 서비스)가 있는 구독입니다. 기본값은 이 App Service가 있는 구독입니다. |
-    | **서비스 유형** | Storage Blob 컨테이너 | 대상 서비스 유형입니다. Storage Blob 컨테이너가 없는 경우 [하나를 만들거나](../storage/blobs/storage-quickstart-blobs-portal.md) 다른 서비스 유형을 사용할 수 있습니다. |
+    | **서비스 유형** | Blob Storage | 대상 서비스 유형입니다. Blob 스토리지가 없는 경우 [하나를 만들거나](../storage/blobs/storage-quickstart-blobs-portal.md) 다른 서비스 형식을 사용할 수 있습니다. |
     | **연결 이름** | 생성된 고유 이름 | App Service와 대상 서비스 간의 연결을 식별하는 연결 이름  |
-    | **스토리지 계정** | 해당 스토리지 서버 | 연결하려는 대상 데이터베이스 서비스입니다. 다른 서비스 유형을 선택하는 경우 해당되는 대상 서비스 인스턴스를 선택합니다. |
+    | **스토리지 계정** | 스토리지 계정 | 연결하려는 대상 스토리지 계정입니다. 다른 서비스 유형을 선택하는 경우 해당하는 대상 서비스 인스턴스를 선택합니다. |
 
-4. **검토 + 만들기** 를 선택하여 연결 설정을 검토합니다. 그런 다음 **만들기** 를 선택하여 서비스 연결 만들기를 시작합니다.
+1. **다음: 인증** 을 선택하여 인증 형식을 선택합니다. 그런 다음 **연결 문자열** 을 선택하여 액세스 키를 사용하여 Blob 스토리지 계정을 연결합니다.
+1. 그런 다음을 **다음: 검토 + 만들기** 를 선택하여 제공된 정보를 검토합니다. 그런 다음 **만들기** 를 선택하여 서비스 연결을 만듭니다. 작업을 완료하는 데 1분 정도 걸릴 수 있습니다.
 
 ## <a name="view-service-connections-in-spring-cloud"></a>Spring Cloud에서 서비스 연결 보기
 

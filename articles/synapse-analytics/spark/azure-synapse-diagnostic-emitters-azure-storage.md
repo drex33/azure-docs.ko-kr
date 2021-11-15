@@ -1,5 +1,5 @@
 ---
-title: Azure Storage 계정을 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집(미리 보기)
+title: Azure Storage 계정을 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집
 description: 이 문서에서는 Synapse Spark 진단 내보내기 확장을 사용하여 로그, 이벤트 로그 및 metrics.cluster를 수집하고 Grafana 대시보드를 통합하는 방법을 알아봅니다.
 services: synapse-analytics
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
-ms.openlocfilehash: c29cdbd9879397b3e171160f93ccd0ac712467db
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 52d9c903cbd4aafe8799151663a37b09ed5676c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544750"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241044"
 ---
-# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-storage-accountpreview"></a>Azure Storage 계정을 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집(미리 보기)
+# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-storage-account"></a>Azure Storage 계정을 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집
 
 Synapse Apache Spark 진단 내보내기 확장은 Apache Spark 애플리케이션에서 로그, 이벤트 로그 및 메트릭을 Azure Log Analytics, Azure Storage 및 Azure Event Hubs를 포함한 하나 이상의 대상으로 내보낼 수 있도록 하는 라이브러리입니다. 
 
@@ -55,7 +55,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <storage-access-key>
 
 작업을 구성된 Apache Spark 풀에 제출하면 대상 스토리지 계정의 로그 및 메트릭 파일을 볼 수 있습니다.
 로그는 `<workspaceName>.<sparkPoolName>.<livySessionId>`의 다른 애플리케이션에 따라 해당 경로에 배치됩니다.
-모든 로그 파일은 JSON 줄 형식(줄 바꿈으로 구분된 JSON, 즉 ndjson이라고도 함)으로 되어 있어 데이터 처리에 매우 편리합니다.
+모든 로그 파일은 JSON 줄 형식(줄 바꿈으로 구분된 JSON, 즉 ndjson이라고도 함)으로 되어 있어 데이터 처리가 편리합니다.
 
 ## <a name="available-configurations"></a>사용 가능한 구성
 
@@ -111,6 +111,6 @@ Azure Synapse Analytics 작업 영역에서는 작업 영역에 대한 데이터
    > [!div class="mx-imgBorder"]
    > ![관리형 프라이빗 엔드포인트 만들기 2](./media/azure-synapse-diagnostic-emitters-azure-storage/create-private-endpoint-2.png)
 3. 프라이빗 엔드포인트를 프로비전할 때까지 몇 분 정도 기다립니다.
-4. Azure Portal의 스토리지 계정으로 이동하여 **네트워킹** > **프라이빗 엔드포인트 연결** 페이지에서 방금 프로비전된 연결을 선택하고, **승인** 을 선택합니다.
+4. Azure Portal의 스토리지 계정으로 이동하여 **네트워킹** > **프라이빗 엔드포인트 연결** 페이지에서 프로비저닝된 연결을 선택하고, **승인** 을 선택합니다.
 
 

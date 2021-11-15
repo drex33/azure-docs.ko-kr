@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: thwimmer
-ms.openlocfilehash: 5a4c3d697926f5b64548ec631761fb7c4e22277f
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 7a31240c6074be759033324a1abb447d98cc2355
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122207685"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444044"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Fortes Change Cloud 구성
 
@@ -140,6 +140,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 * [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
+
+## <a name="change-log"></a>로그 변경
+
+* 2021년 10월 28일 - **스키마 검색** 을 사용하도록 설정했습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

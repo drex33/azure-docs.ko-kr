@@ -4,7 +4,7 @@ description: Azure Active Directory의 로그인 로그 개요
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/16/2021
+ms.date: 10/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5940205b9a1a17a6d6d51d96a6ab792ac744d3f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ad322032237d8e65fd82fea74bf359fcd65c3840
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051632"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997232"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Azure Active Directory 로그인 로그
 
@@ -280,6 +280,7 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 로그인 보고서에 있는 **인증 세부 정보** 탭에서는 각 인증 시도에 대한 다음 정보를 제공합니다.
 
 - 적용된 인증 정책 목록(예: 조건부 액세스, 사용자별 MFA, 보안 기본값)
+- 적용된 세션 수명 정책 목록(예: 로그인 빈도, MFA 기억, 구성 가능한 토큰 수명)
 - 로그인에 사용되는 인증 방법 시퀀스
 - 인증 시도 성공 여부
 - 인증 시도 성공 또는 실패 이유에 대한 세부 정보
@@ -287,6 +288,7 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 관리자는 이 정보를 사용하여 사용자 로그인의 각 단계와 관련된 문제를 해결하고 다음을 추적할 수 있습니다.
 
 - 다단계 인증으로 보호된 로그인 볼륨 
+- 세션 수명 정책에 따른 인증 프롬프트 이유
 - 각 인증 방법의 사용량 및 성공률 
 - 암호 없는 인증 방법(예: 암호 없는 휴대폰 로그인, FIDO2, 비즈니스용 Windows Hello) 사용량 
 - 토큰 클레임이 인증 요구 사항을 충족하는 빈도(사용자에게 암호, SMS OTP 등을 입력하라는 메시지를 대화형으로 표시하지 않는 경우)
@@ -330,7 +332,7 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 
 ## <a name="microsoft-365-activity-logs"></a>Microsoft 365 활동 로그
 
-[Microsoft 365 관리 센터](/office365/admin/admin-overview/about-the-admin-center)에서 Microsoft 365 활동 로그를 볼 수 있습니다. Microsoft 365 활동 및 Azure AD 활동 로그는 상당 수의 디렉터리 리소스를 공유한다는 점을 고려하십시오. Microsoft 365 관리 센터에서만 Microsoft 365 활동 로그에 대한 전체 보기를 제공합니다. 
+[Microsoft 365 관리 센터](/office365/admin/admin-overview/about-the-admin-center)에서 Microsoft 365 활동 로그를 볼 수 있습니다. Microsoft 365 활동 및 Azure AD 활동 로그는 상당 수의 디렉터리 리소스를 공유한다는 점을 고려하세요. Microsoft 365 관리 센터에서만 Microsoft 365 활동 로그에 대한 전체 보기를 제공합니다. 
 
 [Office 365 관리 API](/office/office-365-management-api/office-365-management-apis-overview)를 사용하여 프로그래밍 방식으로 Microsoft 365 활동 로그에 액세스할 수도 있습니다.
 

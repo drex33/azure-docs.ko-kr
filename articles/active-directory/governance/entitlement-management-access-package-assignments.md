@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/12/2021
+ms.date: 10/05/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed289789576df7c81368b2b98001968c358c0e0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f944caecae6d35e680f5c5beb1a6e23fc422e698
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440204"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618096"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 대한 할당 보기, 추가, 제거
 
@@ -72,7 +72,7 @@ $assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackage
 $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 ```
 
-## <a name="directly-assign-a-user"></a>사용자 직접 할당
+## <a name="directly-assign-a-user"></a>사용자 직접 할당 
 
 경우에 따라 사용자가 액세스 패키지를 요청하는 프로세스를 진행할 필요가 없도록 특정 사용자를 액세스 패키지에 직접 할당할 수 있습니다. 사용자를 직접 할당하려면 액세스 패키지에 관리자 직접 할당을 허용하는 정책이 있어야 합니다.
 
@@ -108,6 +108,38 @@ $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 1. **추가** 를 클릭하여 선택한 사용자를 액세스 패키지에 직접 할당합니다.
 
     잠시 후에 **새로 고침** 을 클릭하여 할당 목록에서 사용자를 확인합니다.
+    
+> [!NOTE]
+> 사용자를 액세스 패키지에 할당하는 경우 관리자는 기존 정책 요구 사항에 따라 사용자가 해당 액세스 패키지에 적합한지 확인해야 합니다. 그렇지 않으면 사용자가 액세스 패키지에 성공적으로 할당되지 않습니다. 액세스 패키지가 사용자 요청 승인을 요구하는 정책을 포함하는 경우 사용자는 지정된 승인자로부터 필요한 승인 없이 패키지에 직접 할당될 수 없습니다.
+
+## <a name="directly-assign-any-user-preview"></a>모든 사용자 직접 할당(미리 보기)
+Azure AD 권한 관리를 사용하면 외부 사용자를 액세스 패키지에 직접 할당하여 파트너와 더 쉽게 협업할 수도 있습니다. 이렇게 하려면 액세스 패키지에 아직 디렉터리에 없는 사용자가 액세스를 요청할 수 있는 정책이 있어야 합니다.
+
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
+
+1.  Azure Portal에서 **Azure Active Directory** 를 선택한 다음, **ID 거버넌스** 를 선택합니다.
+
+1.  왼쪽 메뉴에서 **액세스 패키지** 를 클릭한 다음, 사용자를 추가할 액세스 패키지를 엽니다.
+
+1.  왼쪽 메뉴에서 **할당** 을 클릭합니다.
+
+1.  **새 할당** 을 선택하여 **액세스 패키지에 사용자 추가** 를 엽니다.
+
+1.  **정책 선택** 목록에서 **디렉터리에 없는 사용자용** 으로 설정된 정책을 선택합니다.
+
+1. **모든 사용자** 를 선택합니다. 이 액세스 패키지에 할당할 사용자를 지정할 수 있습니다.
+    ![할당 - 액세스 패키지에 사용자 추가](./media/entitlement-management-access-package-assignments/assignments-add-any-user.png)
+
+1. 사용자의 **이름**(선택 사항) 및 사용자의 **이메일 주소**(필수)를 입력합니다.
+
+    > [!NOTE]
+    > - 추가하려는 사용자는 정책 범위 내에 있어야 합니다. 예를 들어 정책이 **연결된 특정 조직** 으로 설정된 경우 사용자의 이메일 주소는 선택한 조직의 도메인에 있어야 합니다. 추가하려는 사용자에게 jen@*foo.com* 이메일 주소가 있지만 선택한 조직의 도메인이 *bar.com* 인 경우 해당 사용자를 액세스 패키지에 추가할 수 없습니다.
+    > - 마찬가지로 **구성된 모든 연결된 조직** 을 포함하도록 정책을 설정한 경우 사용자의 이메일 주소는 구성된 연결 조직 중 하나에서 가져온 주소여야 합니다. 그렇지 않으면 사용자가 액세스 패키지에 추가되지 않습니다.
+    > - 액세스 패키지에 사용자를 추가하려는 경우 정책을 구성할 때 **모든 사용자(연결된 모든 조직 + 외부 사용자)** 를 선택해야 합니다.
+
+1.  선택한 사용자의 할당을 시작하고 종료할 날짜 및 시간을 설정합니다. 종료 날짜를 지정하지 않으면 정책의 수명 주기 설정이 사용됩니다.
+1.  **추가** 를 클릭하여 선택한 사용자를 액세스 패키지에 직접 할당합니다.
+1.  잠시 후에 **새로 고침** 을 클릭하여 할당 목록에서 사용자를 확인합니다.
 
 ## <a name="directly-assigning-users-programmatically"></a>프로그래밍 방식으로 사용자 직접 할당
 ### <a name="assign-a-user-to-an-access-package-with-microsoft-graph"></a>Microsoft Graph로 액세스 패키지에 사용자 할당

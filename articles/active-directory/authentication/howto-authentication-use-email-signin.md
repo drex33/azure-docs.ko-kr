@@ -10,12 +10,12 @@ ms.author: justinha
 author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0a4ad5d9aaa9bb851a651ddc77bd1acb773b6019
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 7cee43e911c2713b13f7e8e729a00b4c2379ce22
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113485710"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251094"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>메일을 대체 로그인 ID로 사용하여 Azure AD에 로그인(미리 보기)
 
@@ -64,13 +64,13 @@ ms.locfileid: "113485710"
     * [하이브리드 Azure AD 가입 디바이스](../devices/concept-azure-ad-join-hybrid.md)
     * [Azure AD 조인 디바이스](../devices/concept-azure-ad-join.md)
     * [Azure AD 등록 디바이스](../devices/concept-azure-ad-register.md)
-    * [매끄러운 SSO](../hybrid/how-to-connect-sso.md)
     * [ROPC(리소스 소유자 암호 자격 증명)를 사용하는 애플리케이션](../develop/v2-oauth-ropc.md)
     * POP3 및 SMTP와 같은 레거시 인증을 사용하는 애플리케이션
     * 비즈니스용 Skype
     * macOS의 Microsoft Office
     * 웹상의 Microsoft Teams
     * OneDrive(로그인 흐름에 Multi-Factor Authentication이 포함되지 않는 경우)
+    * Microsoft 365 관리 포털
 
 * **지원되지 않는 앱** - `unique_name` 또는 `preferred_username` 클레임이 불변하거나 항상 UPN과 같은 특정 사용자 특성과 일치한다고 가정하는 경우 일부 타사 애플리케이션이 예상대로 작동하지 않을 수 있습니다.
 

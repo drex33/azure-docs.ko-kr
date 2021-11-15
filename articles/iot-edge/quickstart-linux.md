@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d06a4af7d9280eb3bab076ff103968d94fd38839
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: dcefed148b8def1b40d824554852c230fcbdaaad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215393"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242258"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -102,7 +102,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 ### <a name="deploy-the-iot-edge-device"></a>IoT Edge 디바이스 배포
 
-이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 새 가상 머신을 만들고 IoT Edge 런타임을 설치합니다. 사용자 고유의 Linux 디바이스를 대신 사용하려면 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 설치 단계를 수행한 다음, 이 빠른 시작으로 돌아오면 됩니다.
+이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 새 가상 머신을 만들고 IoT Edge 런타임을 설치합니다. 사용자 고유의 Linux 디바이스를 대신 사용하려는 경우 [단일 Linux IoT Edge 디바이스를 수동으로 프로비저닝](how-to-provision-single-device-linux-symmetric.md)의 설치 단계를 수행한 다음, 이 빠른 시작으로 돌아오면 됩니다.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

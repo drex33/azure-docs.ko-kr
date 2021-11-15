@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9096b11331a4e935bb0d9a23e648404b5c0d5bab
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 7f193a59386be49e00d975b4614b583c368694a3
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271668"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893522"
 ---
 # <a name="samples"></a>샘플
 
@@ -30,6 +30,7 @@ Azure Communication Services에는 사용자 고유의 애플리케이션 또는
 | [Contoso 의료 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | 환자-의사 흐름을 보여주는 샘플 앱입니다.                     | 웹 및 Node.js                      |
 | [Contoso 소매 앱](https://github.com/Azure-Samples/communication-services-contoso-retail-app)     | 소매 지원 흐름을 보여주는 샘플 앱입니다.                     | ASP.NET, .NET Core, JavaScript/Web |
 | [WPF 통화 샘플](https://github.com/Azure-Samples/communication-services-web-calling-wpf-sample) | 호출 기능을 보여주는 Windows용 샘플 앱          | WPF / Node.js                      |
+| [WPF Network Traversal 샘플]( https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/communication/communication-network-traversal) | Network Traversal 기능을 보여 주는 샘플 앱          | WPF / Node.js 
 
 ## <a name="quickstart-samples"></a>빠른 시작 샘플
 설명서에 있는 빠른 시작에 대한 코드 샘플에 액세스합니다.

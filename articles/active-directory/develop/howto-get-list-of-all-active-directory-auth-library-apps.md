@@ -13,12 +13,12 @@ ms.date: 07/22/2021
 ms.author: shermanouko
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
-ms.openlocfilehash: 07f6c7f481e815e788b22782f01ad9369bd2c9f6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: c0b54b7c7e424c8c7f645fe41d7b7b57c105ca65
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039699"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993780"
 ---
 # <a name="get-a-complete-list-of-apps-using-adal-in-your-tenant"></a>테넌트에서 ADAL을 사용하여 앱의 전체 목록 가져오기
 
@@ -28,17 +28,21 @@ ADAL(Active Directory 인증 라이브러리)에 대한 지원은 2022년 6월 3
 
 통합 문서는 Azure AD(Azure Active Directory) 로그에서 사용할 수 있는 정보를 수집하고 시각화하는 쿼리 세트입니다. [여기에서 로그인 로그 스키마에 대해 자세히 알아보세요](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). 이제 Azure AD 관리 포털의 로그인 통합 문서에는 ADAL을 사용하는 애플리케이션과 사용 빈도를 결정하는 데 도움이 되는 표가 있습니다. 먼저 애플리케이션 목록에 대한 시각화를 표시하기 전에 통합 문서에 액세스하는 방법을 자세히 설명합니다.
 
-## <a name="step-1-integrate-audit-logs-with-azure-monitor"></a>1단계: Azure Monitor와 감사 로그 통합
+## <a name="step-1-send-azure-ad-sign-in-events-to-azure-monitor"></a>1단계: Azure AD 로그인 이벤트를 Azure Monitor에 보내기
 
-통합 문서에 액세스하기 전에 [Azure Monitor와 Azure AD 로그인 및 감사 로그 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)의 단계를 따르세요. Azure Monitor 통합 후에 생성된 로그인 및 감사 이벤트만 저장됩니다.
+Azure AD는 기본적으로 Azure Monitor의 로그인 통합 문서에 필요한 로그인 이벤트를 Azure Monitor에 보내지 않습니다.
+
+[Azure AD 로그인 및 감사 로그를 Azure Monitor와 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)의 단계에 따라 로그인 이벤트를 Azure Monitor에 보내도록 AD를 구성합니다. **진단 설정** 구성 단계에서 **SignInLogs** 확인란을 선택합니다.
+
+Azure Monitor로 이벤트를 보내도록 Azure AD를 구성하기 *전* 에 발생한 로그인 이벤트는 로그인 통합 문서에 표시되지 않습니다.
 
 ## <a name="step-2-access-sign-ins-workbook-in-azure-portal"></a>2단계: Azure Portal의 로그인 통합 문서에 액세스
 
 Azure Monitor 통합에 지정된 대로 Azure AD 로그인 및 감사 로그를 Azure Monitor와 통합했으면 로그인 통합 문서에 액세스합니다.
 
-   1. Azure Portal에 로그인합니다. 
-   1.  **Azure Active Directory** > **모니터링** > **통합 문서** 로 이동합니다. 
-   1. **사용** 섹션에서  **로그인** 통합 문서를 엽니다. 
+   1. Azure Portal에 로그인합니다.
+   1. **Azure Active Directory** > **모니터링** > **통합 문서** 로 이동
+   1. **사용** 섹션에서 **로그인** 통합 문서를 엽니다.
 
    :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="로그인 통합 문서를 강조 표시하는 Azure Active Directory 포털 통합 문서 인터페이스의 스크린샷":::
 

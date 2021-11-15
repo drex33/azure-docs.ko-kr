@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: be14a8cb9d72c439f5ba127858ccd3a3249b8a14
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 19692739814a4db3ef2f981461254de415c9bdcc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770773"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444177"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 애플리케이션
 
-SPA(단일 페이지 애플리케이션)를 빌드하는 데 필요한 모든 것을 알아보세요.
+SPA(단일 페이지 애플리케이션)를 빌드하는 데 필요한 모든 것을 알아보세요. Azure Static Web Apps에 대한 지침은 대신 [Static Web Apps에 대한 인증 및 권한 부여](../../static-web-apps/authentication-authorization.md)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -35,7 +35,11 @@ SPA(단일 페이지 애플리케이션)를 빌드하는 데 필요한 모든 �
 
 Microsoft ID 플랫폼은 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스하는 다음과 같은 **두 가지** 옵션을 제공합니다.
 
-- [OAuth 2.0 인증 코드 흐름(PKCE 사용)](./v2-oauth2-auth-code-flow.md). 권한 부여 코드 흐름을 사용하면 인증된 사용자를 나타내는 **ID** 토큰과 보호된 API를 호출하는 데 필요한 **액세스** 토큰의 권한 부여 코드를 애플리케이션에서 교환할 수 있습니다. PKCE는 코드 교환을 위한 증명 키이며 여러 공격을 방지하고 퍼블릭 클라이언트에서 OAuth 교환을 안전하게 수행할 수 있도록 설계되었습니다. PKCE는 RFC 7636에 문서화된 IETF 표준입니다. 뿐만 아니라 애플리케이션은 해당 사용자와의 상호 작용을 요구하지 않고 사용자 대신 리소스에 대한 장기 액세스 권한을 제공하는 **새로 고침** 토큰을 반환합니다. 이 방법을 사용하는 것이 **좋습니다**.
+- [OAuth 2.0 인증 코드 흐름(PKCE 사용)](./v2-oauth2-auth-code-flow.md). 권한 부여 코드 흐름을 사용하면 인증된 사용자를 나타내는 **ID** 토큰과 보호된 API를 호출하는 데 필요한 **액세스** 토큰의 권한 부여 코드를 애플리케이션에서 교환할 수 있습니다. 
+
+    코드 교환용 증명 키 또는 _PKCE_ 는 권한 부여 코드 삽입 공격을 방지하기 위한 인증 코드 흐름의 확장입니다. 이 IETF 표준은 권한 부여 코드를 가로채는 위협을 완화하고 [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)에 설명된 대로 퍼블릭 클라이언트에서 보안 OAuth 교환을 사용하도록 설정합니다. 뿐만 아니라 해당 사용자의 상호 작용을 요구하지 않고 사용자 대신 리소스에 대한 장기 액세스 권한을 제공하는 **새로 고침** 토큰을 반환합니다. 
+
+    PKCE와 함께 권한 부여 코드 흐름을 사용하는 것이 네이티브 및 브라우저 기반 JavaScript 앱뿐만 아니라 다른 모든 유형의 OAuth 클라이언트에서도 더 안전하고 **권장되는** 권한 부여 방법입니다.
 
 ![단일 페이지 애플리케이션 인증](./media/scenarios/spa-app-auth.svg)
 

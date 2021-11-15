@@ -13,12 +13,12 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b4eb89c9c30915f72f45ebe9a26e063c8a44bce2
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 518fc85aff920ffece511e383b2322d8e81266ee
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164420"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091866"
 ---
 # <a name="logging-in-msalnet"></a>MSAL.NET의 로깅
 
@@ -26,11 +26,11 @@ ms.locfileid: "108164420"
 
 ## <a name="configure-logging-in-msalnet"></a>MSAL.NET에서 로깅 구성
 
-MSAL 3.x에서 로깅은 앱을 만들 때 `.WithLogging` 작성기 한정자를 사용하여 앱별로 설정됩니다. 이 메서드에서 사용하는 매개 변수는 다음과 같습니다.
+MSAL에서 로깅은 `.WithLogging` 작성기 한정자를 사용하여 애플리케이션 생성 시 설정됩니다. 이 메서드에서 사용하는 매개 변수는 다음과 같습니다.
 
 - `Level`을 사용하면 원하는 로깅 수준을 결정할 수 있습니다. Errors로 설정하면 오류만 발생합니다.
-- `PiiLoggingEnabled`를 사용하여 true로 설정하면 개인 및 조직 데이터를 기록할 수 있습니다. 애플리케이션에서 개인 데이터를 기록하지 않도록 기본적으로 false로 설정됩니다.
-- `LogCallback`은 로깅을 수행하는 대리자로 설정됩니다. `PiiLoggingEnabled`가 true이면 이 메서드에서 메시지를 두 번 받습니다. 첫 번째는 `containsPii` 매개 변수가 false이고 개인 데이터가 없는 메시지이며, 두 번째는 `containsPii` 매개 변수가 true이고 개인 데이터가 포함될 수 있는 메시지입니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
+- `PiiLoggingEnabled`를 사용하여 true로 설정하면 개인 및 조직 데이터(PII)를 기록할 수 있습니다. 애플리케이션에서 개인 데이터를 기록하지 않도록 기본적으로 false로 설정됩니다.
+- `LogCallback`은 로깅을 수행하는 대리자로 설정됩니다. `PiiLoggingEnabled`가 true이면 이 메서드는 PII를 포함할 수 있는 메시지를 받습니다. 이 경우 `containsPii` 플래그가 true로 설정됩니다.
 - `DefaultLoggingEnabled`는 플랫폼에 대한 기본 로깅을 사용하도록 설정합니다. 기본적으로 false입니다. true로 설정하면 데스크톱/UWP 애플리케이션의 이벤트 추적, iOS의 NSLog, Android의 logcat을 사용합니다.
 
 ```csharp

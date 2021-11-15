@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 특성 정의 | Microsoft Docs
+title: Azure Active Directory B2C에서 사용자 지정 특성 정의
 description: Azure Active Directory B2C에서 애플리케이션에 대한 사용자 지정 특성을 정의하여 고객에 대한 정보를 수집합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 836802e65c8eb76f17bbf053e54ed9dbedf54049
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ad60fd02ac8707af6bc5dfff5bb23ce7223d48b5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536321"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130231879"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
@@ -48,7 +48,7 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 1. 사용자 지정 특성(예: "ShoeSize")에 대해 **이름** 을 제공합니다.
 1. **데이터 형식** 을 선택합니다. **문자열**, **부울** 및 **Int** 만 사용할 수 있습니다.
 1. 필요에 따라 정보 제공을 위해 **설명** 을 입력합니다.
-1. **만들기** 를 클릭합니다.
+1. **만들기** 를 선택합니다.
 
 이제 사용자 지정 특성을 **사용자 특성** 목록 및 사용자 흐름에서 사용할 수 있습니다. 사용자 지정 특성은 **사용자 특성** 목록에 추가될 때가 아니라 사용자 흐름에 사용될 때 처음으로 만들어집니다.
 
@@ -58,9 +58,9 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. 정책(예: "B2C_1_SignupSignin")을 선택하여 엽니다.
-1. **사용자 특성** 을 선택하고 사용자 지정 특성을 선택합니다(예: "ShoeSize"). **저장** 을 클릭합니다.
+1. **사용자 특성** 을 선택하고 사용자 지정 특성을 선택합니다(예: "ShoeSize"). **저장** 을 선택합니다.
 1. **애플리케이션 클레임** 을 선택하고 사용자 지정 특성을 선택합니다.
-1. **저장** 을 클릭합니다.
+1. **저장** 을 선택합니다.
 
 새로 만든 사용자 지정 특성을 사용하는 사용자 흐름을 사용하여 새 사용자를 만든 후에는 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)에서 개체를 쿼리할 수 있습니다. 또는 사용자 흐름에 대해 [사용자 흐름 실행](./tutorial-create-user-flows.md) 기능을 사용하여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize** 가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.
 
@@ -72,10 +72,11 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 ::: zone pivot="b2c-user-flow"
 
-애플리케이션 ID를 가져오려면:
+### <a name="get-extensions-apps-application-id"></a>확장 앱의 애플리케이션 ID 가져오기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **앱 등록** 을 선택하고 **모든 응용 프로그램** 을 선택합니다.
 1. `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` 애플리케이션을 선택합니다.
@@ -85,10 +86,11 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 ::: zone pivot="b2c-custom-policy"
 
-응용 프로그램 속성을 가져옵니다.
+### <a name="get-extensions-apps-application-properties"></a>확장 앱의 애플리케이션 속성 가져오기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **앱 등록** 을 선택하고 **모든 응용 프로그램** 을 선택합니다.
 1. `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` 애플리케이션을 선택합니다.
@@ -128,10 +130,11 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 ## <a name="upload-your-custom-policy"></a>사용자 지정 정책 업로드
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
-4. **ID 경험 프레임워크** 를 선택합니다.
-5. **사용자 지정 정책 업로드** 를 선택한 후 변경한 TrustFrameworkExtensions.xml 파일을 업로드합니다.
+1. Azure B2C AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
+1. **ID 경험 프레임워크** 를 선택합니다.
+1. **사용자 지정 정책 업로드** 를 선택한 후 변경한 TrustFrameworkExtensions.xml 파일을 업로드합니다.
 
 > [!NOTE]
 > Azure AD 기술 프로필은 디렉터리에 클레임을 처음으로 유지할 때 사용자 지정 특성이 있는지 여부를 확인합니다. 없으면 사용자 지정 특성을 만듭니다.  
@@ -180,11 +183,41 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 ## <a name="using-custom-attribute-with-ms-graph-api"></a>MS Graph API와 함께 사용자 지정 특성 사용
 
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙 `extension_ApplicationClientID_attributename`을 사용하여 이름이 지정됩니다. 여기서 `ApplicationClientID`는 `b2c-extensions-app` 응용 프로그램의 **응용 프로그램(클라이언트) ID** 입니다. 확장 특성 이름에 표시되는 **응용 프로그램(클라이언트) ID** 에는 하이픈이 포함되지 않습니다. 예를 들면 다음과 같습니다.
+Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙 `extension_ApplicationClientID_attributename`을 사용하여 이름이 지정됩니다. 여기서 `ApplicationClientID`는 `b2c-extensions-app` 응용 프로그램의 **응용 프로그램(클라이언트) ID** 입니다. 확장 특성 이름에 표시되는 **응용 프로그램(클라이언트) ID** 에는 하이픈이 포함되지 않습니다. 예:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
 ``` 
+
+## <a name="remove-extension-attribute"></a>확장 특성 제거
+
+기본 제공 특성과 달리 확장/사용자 지정 특성을 제거할 수 있습니다. 확장 특성의 값도 제거할 수 있습니다. 
+
+> [!Important]
+> 확장/사용자 지정 특성을 제거하기 전에 디렉터리에 있는 각 계정에 대해 확장 특성 값을 null로 설정합니다.  이러한 방식으로 확장 특성의 값을 명시적으로 제거합니다. 그런 다음, 확장 특성 자체를 계속 제거합니다. 확장/사용자 지정 특성은 MS Graph API를 사용하여 쿼리할 수 있습니다. 
+
+::: zone pivot="b2c-user-flow"
+
+다음 단계를 사용하여 사용자 흐름에서 확장/사용자 지정 특성을 제거합니다.
+
+1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다.
+    1.  포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+    1. **포털 설정 | 디렉터리 + 구독** 페이지의 디렉터리 이름 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **사용자 특성** 을 선택한 다음, 삭제할 특성을 선택합니다.
+1. **삭제** 를 선택한 다음, **예** 를 선택하여 확인합니다.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+사용자 지정 특성을 제거하려면 [MS Graph API](microsoft-graph-operations.md)를 사용하고 [Delete](/graph/api/application-delete-extensionproperty) 명령을 사용합니다.
+
+::: zone-end
+
+ 
+
 
 ## <a name="next-steps"></a>다음 단계
 

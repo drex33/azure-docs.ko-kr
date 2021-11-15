@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: fe61b971dbe1a3a82a085228ff8723f3cf47df20
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 71ee3e826eb1219a838a8e075e9f1a55e5f1ec8f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129638272"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444513"
 ---
-이 문서에서는 사용자를 Azure AD(Azure Active Directory)에서 SQL 데이터베이스로 자동으로 프로비전 및 프로비전 해제하기 위해 수행해야 하는 단계에 대해 설명합니다.  Azure AD ECMA 커넥터 호스트를 통해 일반 SQL 커넥터를 설정하고 사용하는 방법을 설명합니다. 
+이 문서에서는 사용자를 Azure AD(Azure Active Directory)에서 SQL 데이터베이스로 자동으로 프로비전 및 프로비전 해제하기 위해 수행해야 하는 단계에 대해 설명합니다.  
  
 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../articles/active-directory/app-provisioning/user-provisioning.md)를 참조하세요.
 
-## <a name="prerequisites-for-the-azure-ad-ecma-connector-host"></a>Azure AD ECMA 커넥터 호스트의 필수 구성 요소
+## <a name="prerequisites-for-provisioning-to-a-sql-database"></a>SQL Database에 프로비저닝하기 위한 필수 구성 요소
 
 >[!IMPORTANT]
 > 온-프레미스 프로비저닝 미리 보기는 현재 초대 전용 미리 보기로 제공됩니다. 기능에 대한 액세스를 요청하려면 [액세스 요청 양식](https://aka.ms/onpremprovisioningpublicpreviewaccess)을 사용하세요. 일반 공급을 준비하면서 향후 몇 개월 동안 더 많은 고객과 커넥터에 미리 보기를 공개할 예정입니다.
@@ -19,7 +19,6 @@ ms.locfileid: "129638272"
 ### <a name="on-premises-prerequisites"></a>온-프레미스 필수 조건
 
  - 사용자가 만들고, 업데이트하고, 삭제할 수 있는 SQL 데이터베이스와 같은 대상 시스템입니다.
- - 내보내기, 스키마 검색 및 선택적으로 전체 가져오기 또는 델타 가져오기 작업을 지원하는 대상 시스템에 대한 ECMA 2.0 이상 커넥터입니다. 구성하는 동안 ECMA 커넥터가 준비되지 않은 경우 환경에 SQL Server가 있고 일반 SQL 커넥터를 사용하는 경우 엔드투엔드 흐름의 유효성을 검사할 수 있습니다.
  - 인터넷에 액세스할 수 있는 TCP/IP 주소를 사용하는 Windows Server 2016 이상 컴퓨터, 대상 시스템에 대한 연결 및 login.microsoftonline.com에 대한 아웃바운드 연결. 예를 들어 Azure IaaS 또는 프록시 뒤에서 호스트되는 Windows Server 2016 가상 머신이 있습니다. 이 서버에는 3GB 이상의 RAM이 있어야 합니다.
  - .NET Framework 4.7.1이 설치된 컴퓨터.
 
@@ -83,7 +82,9 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
  4. 추가된 **온-프레미스 ECMA 앱** 을 선택합니다.
  5. **시작** 아래의 **3. 사용자 계정 프로비전** 상자에서 **시작** 을 선택합니다.
  6. 위쪽에서 **프로비전 편집** 을 선택합니다.
- 7. **온-프레미스 연결** 아래에서 에이전트 설치 관리자를 다운로드합니다.
+ 7. **온-프레미스 연결** 아래에서 에이전트 설치 관리자를 다운로드합니다.     
+     >[!NOTE]
+     >온-프레미스 애플리케이션 프로비저닝 및 Azure AD Connect 클라우드 동기화/HR 기반 프로비저닝에 다른 프로비저닝 에이전트를 사용하세요. 세 가지 시나리오를 모두 같은 에이전트에서 관리하면 안 됩니다. 
  8. Azure AD Connect 프로비저닝 설치 관리자 **AADConnectProvisioningAgentSetup.msi** 를 실행합니다.
  9. **Microsoft Azure AD Connect 프로비저닝 에이전트 패키지** 화면에서 사용 조건에 동의하고 **설치** 를 선택합니다.
      ![Microsoft Azure AD Connect 프로비저닝 에이전트 패키지 화면](media/active-directory-app-provisioning-sql/install-1.png)</br>
@@ -210,7 +211,7 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
      ![프로비전 해제 페이지를 보여 주는 스크린샷](.\media\active-directory-app-provisioning-sql\conn-14.png)</br>
 
 
-## <a name="ensure-ecma2host-service-is-running"></a>ECMA2Host 서비스가 실행되고 있는지 확인
+## <a name="ensure-the-ecma2host-service-is-running"></a>ECMA2Host 서비스가 실행되고 있는지 확인
  1. Azure AD ECMA 커넥터 호스트를 실행하는 서버에서 **시작** 을 선택합니다.
  2. 상자에서 **run**, **services.msc** 를 차례로 입력합니다.
  3. **서비스** 목록에서 **Microsoft ECMA2Host** 가 있고 실행 중인지 확인합니다. 그렇지 않은 경우 **시작** 을 선택합니다.
@@ -222,11 +223,11 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
  1. Azure Portal에 로그인합니다.
  2. **엔터프라이즈 애플리케이션** 및 **온-프레미스 ECMA 앱** 애플리케이션으로 이동합니다.
  3. **프로비전 편집** 으로 이동합니다.
- 4. 10분 후 **관리자 자격 증명** 섹션에서 다음 URL을 입력합니다. `connectorName` 부분을 ECMA 호스트의 커넥터 이름으로 바꿉니다. 또한 `localhost`를 호스트 이름으로 바꿀 수도 있습니다.
+ 4. 10분 후 **관리자 자격 증명** 섹션에서 다음 URL을 입력합니다. `{connectorName}` 부분을 ECMA 호스트의 커넥터 이름으로 바꿉니다. 또한 `localhost`를 호스트 이름으로 바꿀 수도 있습니다.
 
  |속성|값|
  |-----|-----|
- |테넌트 URL|https://localhost:8585/ecma2host_connectorName/scim|
+ |테넌트 URL|https://localhost:8585/ecma2host_{connectorName}/scim|
  
  5. 커넥터를 만들 때 정의한 **비밀 토큰** 값을 입력합니다.
  6. **연결 테스트** 를 선택하고, 1분 동안 기다립니다.

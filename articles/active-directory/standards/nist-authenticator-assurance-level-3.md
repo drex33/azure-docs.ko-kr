@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95bfadd23e1a8e0d2db70952c81667d24dc4230
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: e8821d2c3390ddfd07c7230b20e27b46330e6229
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771025"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816157"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-3-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 NIST 인증자 보증 수준 3 달성
 
@@ -38,7 +38,7 @@ Microsoft는 필요한 NIST 인증 유형을 충족할 수 있는 인증 방법�
 | FIDO2 보안 키<br>또는<br> 스마트 카드(AD FS[Active Directory Federation Services])<br>또는<br>하드웨어 TPM을 사용하는 비즈니스용 Windows Hello| 다단계 암호화 하드웨어 |
 | **추가 방법**|   |
 | 암호<br> 및<br>(하드웨어 TPM과 조인된 하이브리드 Azure AD <br>또는 <br> 하드웨어 TPM과 조인된 Azure AD)| 저장된 비밀<br>및<br> 단일 단계 암호화 하드웨어 |
-| 암호 <br>및<br>(단일 단계 일회용 암호 하드웨어(OTP 제조업체에서 제공) <br>또는<br>소프트웨어 TPM과 조인된 하이브리드 Azure AD <br>또는 <br> 소프트웨어 TPM과 조인된 Azure AD <br>또는<br> 호환되는 관리 디바이스)| 저장된 비밀 <br>및<br>단일 단계 일회용 암호 하드웨어<br> 및<br>단일 단계 암호화 소프트웨어 |
+| 암호 <br>및<br>단일 단계 일회용 암호 하드웨어(OTP 제조업체에서 제공) <br>및<br>(소프트웨어 TPM과 조인된 하이브리드 Azure AD <br>또는 <br> 소프트웨어 TPM과 조인된 Azure AD <br>또는<br> 호환되는 관리 디바이스)| 저장된 비밀 <br>및<br>단일 단계 일회용 암호 하드웨어<br> 및<br>단일 단계 암호화 소프트웨어 |
 
 ### <a name="our-recommendations"></a>권장 사항 
 

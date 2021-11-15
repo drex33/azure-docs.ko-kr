@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 09/01/2021
-ms.openlocfilehash: 52447010cb43cbe088fdaa71e8ee3f0043b64dbc
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: a4ac4425a3eeba6dafcaf11eb4c73f900c8fa04d
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469944"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842787"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>자습서: Azure IoT Central(OpenVINO&trade;)에서 비디오 분석 - 개체 및 동작 감지 애플리케이션 만들기
 
@@ -116,13 +116,13 @@ IoT Central ‘비디오 분석 - 개체 및 동작 감지’ 애플리케이션
 
 [!INCLUDE [iot-central-video-analytics-part3](../../../includes/iot-central-video-analytics-part3.md)]
 
-### <a name="replace-the-manifest"></a>매니페스트 바꾸기
+### <a name="edit-the-manifest"></a>매니페스트 편집
 
-**LVA Edge 게이트웨이 v2** 페이지에서 **+ 매니페스트 바꾸기** 를 선택합니다.
+**LVA Edge 게이트웨이 v2** 페이지에서 **매니페스트 편집하기** 를 선택합니다.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-openvino/replace-manifest.png" alt-text="매니페스트 바꾸기":::
 
-*lva-configuration* 폴더로 이동하고 이전에 편집한 *deployment.openvino.amd64.json* 매니페스트 파일을 선택합니다. **업로드** 를 선택합니다. 유효성 검사가 완료되면 **바꾸기** 를 선택합니다.
+**새로운 파일로 바꾸기** 를 선택하고 *Iva-구성* 폴더로 이동하고 이전에 편집한 *deployment.openvino.amd64.json* 매니페스트 파일을 선택한 다음 **저장하기** 를 선택합니다.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
 

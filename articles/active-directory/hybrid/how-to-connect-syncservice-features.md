@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 9/14/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261ab5d0f039705a2566b7c28ff4c06778bb661a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 676eb07a031aeae0e03d4352639a690bdc9b4cae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94410541"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612570"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
 
@@ -85,6 +85,15 @@ Azure AD 디렉터리에서 이 기능을 사용하도록 설정하지 않은 �
 
 ```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
+```
+
+## <a name="blocksoftmatch"></a>BlockSoftMatch
+이 기능을 사용하도록 설정하면 소프트 일치 기능이 차단됩니다. 고객은 이 기능을 사용하도록 설정하고 테넌시에 대해 소프트 일치가 다시 필요할 때까지 사용하도록 설정하는 것이 좋습니다. 이 플래그는 소프트 일치가 완료되고 더 이상 필요하지 않은 후에 다시 사용하도록 설정해야 합니다.
+
+예 - 테넌트에서 소프트 일치를 차단하려면 다음 cmdlet을 실행합니다.
+
+```
+PS C:\> Set-MsolDirSyncFeature -Feature BlockSoftMatch -Enable $True
 ```
 
 ## <a name="synchronize-userprincipalname-updates"></a>UserPrincipalName 업데이트 동기화

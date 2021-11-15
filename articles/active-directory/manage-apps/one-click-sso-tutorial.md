@@ -1,6 +1,7 @@
 ---
-title: Azure Marketplace 애플리케이션의 한 번 클릭 SSO(Single Sign-On) 구성 | Microsoft Docs
+title: Azure Marketplace 애플리케이션의 한 번 클릭 SSO(Single Sign-On) 구성
 description: Azure Marketplace의 애플리케이션에 대한 SSO 한 번 클릭 구성을 위한 단계입니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 06/11/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
-ms.openlocfilehash: bec4df252a98fc105f0eec1480452021fefb0031
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 97cdedac91fa80c45ec8b36bad4a1368e48e3e81
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566635"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615793"
 ---
-# <a name="one-click-app-configuration-of-single-sign-on"></a>Single Sign-On의 한 번 클릭 앱 구성
+# <a name="one-click-app-configuration-of-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 Single Sign-On의 한 번 클릭 앱 구성
 
  이 자습서에서는 Azure Marketplace에서 SAML 지원 Azure AD(Azure Active Directory) 애플리케이션에 대해 한 번 클릭 SSO(Single Sign-On) 구성을 수행하는 방법에 대해 알아봅니다.
 
@@ -36,7 +37,7 @@ ms.locfileid: "122566635"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - SSO를 사용하여 구성할 애플리케이션의 활성 구독. 관리자 자격 증명도 필요합니다.
-- 브라우저에 설치된 Microsoft의 **내 앱 보안 로그인 확장**. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+- 브라우저에 설치된 Microsoft의 **내 앱 보안 로그인 확장**. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 참조하세요.
 
 ## <a name="one-click-sso-configuration-steps"></a>한 번 클릭 SSO 구성 단계
 
@@ -81,4 +82,4 @@ ms.locfileid: "122566635"
 ## <a name="additional-resources"></a>추가 리소스
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
-- [내 앱 보안 로그인 브라우저 확장이란?](../user-help/my-apps-portal-end-user-access.md)
+- [내 앱 보안 로그인 브라우저 확장이란?](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)

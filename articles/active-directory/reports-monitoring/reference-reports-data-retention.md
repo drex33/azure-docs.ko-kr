@@ -4,7 +4,7 @@ description: Azure에서 다양한 유형의 보고 데이터를 보관하는 �
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc9658cddb17bf948fe562d806916d20bd28ba31
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97093641"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131995372"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD에서는 보고 데이터를 얼마나 오래 보관하나요?
 
@@ -63,8 +63,8 @@ ms.locfileid: "97093641"
 
 | 보고서                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
-| 감사 로그             | 7 일        | 30일             | 30일             |
-| 로그인               | 7 일        | 30일             | 30일             |
+| 감사 로그             | 7일        | 30일             | 30일             |
+| 로그인               | 7일        | 30일             | 30일             |
 | Azure AD MFA 사용량        | 30일       | 30일             | 30일             |
 
 Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에서 설명한 기본 보존 기간보다 오랫동안 감사 및 로그인 활동 데이터를 유지할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요.
@@ -73,8 +73,11 @@ Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에�
 
 | 보고서         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| 위험에 노출된 사용자  | 7 일        | 30일             | 90일             |
+| 위험한 사용자    | 제한 없음      | 제한 없음            | 제한 없음            |
 | 위험한 로그인 | 7 일        | 30일             | 90일             |
+
+> [!NOTE]
+> 위험한 사용자는 위험이 수정될 때까지 삭제되지 않습니다.
 
 ---
 

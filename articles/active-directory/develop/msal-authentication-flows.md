@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ac453bb70c6889e1a69e7c0c40a88f623813ff
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755027"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235120"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -27,11 +27,11 @@ MSAL(Microsoft 인증 라이브러리)은 여러 애플리케이션 시나리오
 |--|--|--|
 | [인증 코드](#authorization-code) | 웹 API와 같은 보호된 리소스에 대한 액세스 권한을 얻기 위해 디바이스에 설치된 앱에서 사용됩니다. 모바일 및 데스크톱 앱에 로그인 및 API 액세스를 추가할 수 있도록 합니다. | [데스크톱 앱](scenario-desktop-overview.md), [모바일 앱](scenario-mobile-overview.md), [웹앱](scenario-web-app-call-api-overview.md) |
 | [클라이언트 자격 증명](#client-credentials) | 애플리케이션의 ID를 사용하여 웹에 호스트된 리소스에 액세스할 수 있습니다. 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. | [디먼 앱](scenario-daemon-overview.md) |
-| [디바이스 코드](#device-code) | 사용자가 스마트 TV, IoT 디바이스 또는 프린터와 같은 입력이 제한된 디바이스에 로그인할 수 있습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
+| [디바이스 코드](#device-code) | 사용자가 스마트 TV, IoT 디바이스 또는 프린터와 같은 입력이 제한된 디바이스에 로그인할 수 있습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token-device-code-flow.md) |
 | [암시적 부여](#implicit-grant) | 앱이 백 엔드 서버 자격 증명 교환을 수행하지 않고 토큰을 가져올 수 있습니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있도록 합니다. | [SPA(단일 페이지 애플리케이션)](scenario-spa-overview.md) |
 | [On-behalf-of](#on-behalf-of) | 애플리케이션이 서비스 또는 웹 API를 호출하고 차례로 다른 서비스 또는 웹 API를 호출해야 합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. | [Web API](scenario-web-api-call-api-overview.md) |
-| [사용자 이름/암호](#usernamepassword) | 암호를 직접 처리하여 애플리케이션에 사용자가 로그인할 수 있도록 허용합니다. 이 흐름은 권장되지 않습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#username-and-password) |
-| [Windows 통합 인증](#integrated-windows-authentication) | 도메인 또는 Azure AD(Azure Active Directory)에 연결된 컴퓨터의 애플리케이션에서 사용자의 UI 상호 작용 없이 자동으로 토큰을 획득할 수 있습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [사용자 이름/암호](#usernamepassword) | 암호를 직접 처리하여 애플리케이션에 사용자가 로그인할 수 있도록 허용합니다. 이 흐름은 권장되지 않습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token-username-password.md) |
+| [Windows 통합 인증](#integrated-windows-authentication) | 도메인 또는 Azure AD(Azure Active Directory)에 연결된 컴퓨터의 애플리케이션에서 사용자의 UI 상호 작용 없이 자동으로 토큰을 획득할 수 있습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token-integrated-windows-authentication.md) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>각 흐름에서 토큰 및 코드를 내보내는 방법
 
@@ -167,7 +167,7 @@ MSAL 기반 애플리케이션은 먼저 토큰을 *자동* 으로 획득한 다
 > [!WARNING]
 > 이 흐름은 권장되지 않습니다. 높은 수준의 신뢰 및 자격 증명 노출이 필요합니다. 보다 안전한 다른 흐름을 사용할 수 *없는 경우에만* 이 흐름을 사용해야 합니다. 자세한 내용은 [암호 문제 증가에 대한 해결책](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)을 참조하세요.
 
-Windows 도메인에 가입된 컴퓨터에서 자동으로 토큰을 획득하는 기본 흐름은 [Windows 통합 인증](#integrated-windows-authentication)입니다. 다른 경우에는 [디바이스 코드 흐름](#device-code)을 사용합니다.
+Windows 도메인 조인 머신에서 자동으로 토큰을 획득하는 기본 흐름은 [Windows 통합 인증](#integrated-windows-authentication)입니다. 다른 경우에는 [디바이스 코드 흐름](#device-code)을 사용합니다.
 
 DevOps와 같은 일부 시나리오에서는 사용자 이름/암호 흐름이 유용할 수 있지만 사용자 고유의 UI를 제공하는 대화형 시나리오에서 사용자 이름/암호를 사용하려는 경우에는 이 방법을 사용하지 않습니다.
 

@@ -5,19 +5,19 @@ services: active-directory
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: include
-ms.date: 06/08/2021
+ms.date: 11/12/2021
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ce394713b6976ab5abf42abd3bf41ad9af1b7442
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
-ms.translationtype: HT
+ms.openlocfilehash: caba2ffb30aae5c4624182f11bbeb7bf8afa2b7b
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111815008"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132430063"
 ---
 | 리소스 | 제한 |
 | --- | --- |
-| [Azure 구독당 Azure 역할 할당](../../articles/role-based-access-control/overview.md) | 2,000 |
+| [Azure 구독당 Azure 역할 할당](../../articles/role-based-access-control/overview.md)<br/>구독에 대 한 역할 할당 한도가 현재 증가 하 고 있습니다. 자세한 내용은 [Azure RBAC 문제 해결](../../articles/role-based-access-control/troubleshooting.md#azure-role-assignments-limit)을 참조하세요. | 2,000 |
 | [관리 그룹당 Azure 역할 할당](../../articles/role-based-access-control/overview.md) | 500 |
 | [Azure 역할 할당의 설명 크기](../../articles/role-based-access-control/conditions-faq.md) | 2KB |
 | [Azure 역할 할당의 조건 크기](../../articles/role-based-access-control/conditions-overview.md) | 8KB |

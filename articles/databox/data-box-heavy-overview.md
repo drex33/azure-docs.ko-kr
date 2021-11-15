@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 10/20/2021
 ms.author: alkohli
-ms.openlocfilehash: 2f1f01a8cfa25c222848e7cc5c86dc3532eba348
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57a5ccb94f94fdc12083f49394235123b0e26d96
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80437784"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251873"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Azure Data Box Heavy란?
 
@@ -102,26 +102,23 @@ Data Box Heavy는 다음과 같은 구성 요소를 포함합니다.
 
 Data Box Heavy는 서비스가 배포되는 지역, 디바이스가 배송되는 국가/지역 및 데이터를 전송하는 대상 Azure 스토리지 계정에 따라 데이터를 전송할 수 있습니다.
 
-- **서비스 가용성** - 이 릴리스의 경우 Data Box Heavy는 다음과 같은 지역에서 사용할 수 있습니다.
-    - 미국 내 모든 퍼블릭 클라우드 지역 - 미국 중서부, 미국 서부 2, 미국 서부, 미국 중남부, 미국 중부, 미국 중북부, 미국 동부 및 미국 동부 2.
-    - 유럽 연합 - 유럽 서부 및 유럽 북부.
-    - 영국 - 영국 남부 및 영국 서부.
-    - 프랑스 - 프랑스 중부 및 프랑스 남부.
+- **서비스 가용성** - Data Box Heavy는 미국과 EU 국가에서 사용할 수 있습니다.
+
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.
 
 Data Box Heavy의 지역 가용성에 대한 최신 정보를 보려면 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요.
 
-## <a name="sign-up"></a>등록
+<!--## Sign up
 
-Data Box Heavy에 가입하려면 다음 단계를 수행합니다.
+Take the following steps to sign up for Data Box Heavy:
 
-1. [Azure Portal에 로그인](https://portal.azure.com)합니다.
-2. **+ 리소스 만들기** 를 클릭하여 새 리소스를 추가합니다. **Azure Data Box** 를 검색합니다. **Azure Data Box** 서비스를 선택합니다.
-3. **만들기** 를 클릭합니다.
-4. Data Box Heavy에서 사용하려는 구독을 선택합니다. Data Box Heavy 리소스를 배포할 지역을 선택합니다. **Data Box Heavy** 옵션에서 **등록** 을 클릭합니다.
-5. 데이터 상주 국가/지역, 시간 프레임, 데이터 전송 대상 Azure 서비스, 네트워크 대역폭 및 데이터 전송 빈도에 관한 질문에 대답합니다. 개인정보 취급방침 및 약관을 검토하고 Microsoft가 이메일 주소를 사용하여 연락할 수 있다는 확인란을 선택합니다.
+1. [Sign into the Azure portal](https://portal.azure.com).
+2. Click **+ Create a resource** to create a new resource. Search for **Azure Data Box**. Select **Azure Data Box** service.
+3. Click **Create**.
+4. Pick the subscription that you want to use for Data Box Heavy. Select the region where you want to deploy the Data Box Heavy resource. In the **Data Box Heavy** option, click **Sign up**.
+5. Answer the questions regarding data residence country/region, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review Privacy and terms and select the checkbox against Microsoft can use your email address to contact you.
 
-가입 후 Data Box Heavy를 주문할 수 있습니다.
+Once you're signed up, you can order a Data Box Heavy.-->
 
     

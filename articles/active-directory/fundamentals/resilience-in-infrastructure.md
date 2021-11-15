@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64fe4b8c217ec46cbb6dd046339c3ac65eebb121
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fc12433a187f030a0349247680c731c04a76274
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724680"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402814"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>ID 및 액세스 관리 인프라의 복원력 빌드
 
@@ -56,15 +56,15 @@ Azure AD와 같은 토큰 기반 인증 시스템에서 사용자의 애플리�
  
 * [자격 증명 관리를 사용하여 복원력 빌드](resilience-in-credentials.md)
 
-* [디바이스 상태를 사용하여 복원력 빌드](resilience-with-device-states.md)
+* [장치 상태를 사용하여 복원력 빌드](resilience-with-device-states.md)
 
-* [CAE(지속적인 액세스 권한 평가)를 사용하여 복원력 빌드](resilience-with-continuous-access-evaluation.md)
+* [CAE(연속 액세스 평가)를 사용하여 복원력 빌드](resilience-with-continuous-access-evaluation.md)
 
 * [외부 사용자 인증에서 복원력 빌드](resilience-b2b-authentication.md)
 
 * [하이브리드 인증에서 복원력 빌드](resilience-in-hybrid.md)
 
-* [애플리케이션 프록시를 사용하여 애플리케이션 액세스에서 복원력 빌드](resilience-on-premises-access.md)
+* [응용 프로그램 프록시를 사용하여 응용 프로그램 액세스에서 복원력 빌드](resilience-on-premises-access.md)
 
 개발자를 위한 복원력 리소스
 

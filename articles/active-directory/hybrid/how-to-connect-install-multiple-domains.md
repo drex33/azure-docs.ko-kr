@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 671c9f9eadb7a272e718587417e78ff85d182b07
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1af2a466dc5906f752970cbc6b8898aeeea39475
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131049371"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477500"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Microsoft 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -42,7 +42,7 @@ Azure AD로 여러 최상위 도메인을 페더레이션하려면 하나의 최
 
 두 개 이상의 최상위 도메인을 추가하는 경우에 문제가 발생합니다.  예를 들어 Azure AD와 온-프레미스 환경 간 페더레이션을 설정했다고 가정합니다.  이 문서의 경우 도메인, bmcontoso.com이 사용 중입니다.  두 번째 최상위 도메인 bmfabrikam.com이 추가되었습니다.
 
-![여러 최상위 도메인 스크린샷](./media/how-to-connect-install-multiple-domains/domains.png)
+![여러 최상위 도메인을 보여주는 스크린샷](./media/how-to-connect-install-multiple-domains/domains.png)
 
 bmfabrikam.com 도메인을 페더레이션되도록 변환할 때 오류가 발생합니다.  Azure AD가 IssuerUri 속성에서 둘 이상의 도메인에 같은 값을 허용하지 않는 제약 조건을 갖는 것이 이유입니다.  
 

@@ -16,12 +16,12 @@ ms.date: 06/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2ff57c06fba085fd28e7e0b13ec6e503517cab7
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 665ca1dca46dbfcf1cdc5e07b0c4672f79dc586a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768682"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546817"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD(Azure Active Directory) Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -75,7 +75,7 @@ Active Directory 환경 보안에 대한 자세한 내용은 [Active Directory �
 - 전역 관리자가 MFA를 사용하도록 설정한 경우 URL https://secure.aadcdn.microsoftonline-p.com 이 반드시 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 이 사이트를 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
 - 동기화를 위해 Azure AD Connect Health를 사용하려는 경우 Azure AD Connect Health에 대한 필수 조건도 충족되는지 확인합니다. 자세한 내용은 [Azure AD Connect Health 에이전트 설치](how-to-connect-health-agent-install.md)를 참조하세요.
 
-#### <a name="harden-your-azure-ad-connect-server"></a>Azure AD Connect 서버 강화 
+### <a name="harden-your-azure-ad-connect-server"></a>Azure AD Connect 서버 강화 
 IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역을 줄이려면 Azure AD Connect 서버를 강화하는 것이 좋습니다. 이러한 권장 사항을 따르면 조직에 대한 일부 보안 위험을 완화하는 데 도움이 됩니다.
 
 - Azure AD Connect를 도메인 컨트롤러 및 기타 계층 0 리소스와 동일하게 취급합니다. 자세한 내용은 [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 참조하세요.
@@ -87,6 +87,7 @@ IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역�
 - 조직의 정보 시스템에 대해 권한 있는 액세스가 있는 모든 직원에 대해 전용 [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)을 구현합니다. 
 - 이러한 [추가 지침](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)에 따라 Active Directory 환경의 공격 표면을 줄입니다.
 - [페더레이션 구성에 대한 변경 내용 모니터링](how-to-connect-monitor-federation-changes.md)에 따라 경고를 설정하여 Idp와 Azure AD 간에 설정된 트러스트의 변경 내용을 모니터링합니다. 
+- Azure AD 또는 AD에서 권한 있는 액세스 권한이 있는 모든 사용자에 대해 MFA(Multi-factor Authentication)를 사용하도록 설정합니다. AADConnect 사용 시 보안 문제 중 하나는 공격자가 Azure AD Connect 서버에 대한 제어 권한을 얻을 수 있는 경우 Azure AD에서 사용자를 조작할 수 있다는 것입니다. 공격자가 이러한 기능을 사용하여 Azure AD 계정을 사용하지 못하도록 방지하기 위해 MFA는 보호 기능을 제공하므로 공격자가 Azure AD Connect를 사용하여 사용자의 암호를 재설정하는 경우에도 두 번째 단계를 무시할 수 없도록 보호 기능을 제공합니다.
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
 * Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2019 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 합니다. SQL Server 설치 유형은 [Azure AD Connect 성능](./plan-connect-performance-factors.md#sql-database-factors)에 영향을 줄 수 있습니다.

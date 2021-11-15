@@ -1,29 +1,27 @@
 ---
-title: Azure Active Directory B2C의 하위 사용자 경험 | Microsoft Docs
+title: Azure Active Directory B2C의 하위 사용자 경험
 description: Azure Active Directory B2C에서 사용자 지정 정책의 하위 사용자 경험 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
-ms.author: mimart
+ms.date: 10/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cb3ebfbc3125e26f1b922ee43360c7527c7fb35
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97386870"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063966"
 ---
 # <a name="sub-journeys"></a>하위 사용자 경험
 
 하위 사용자 경험을 통해 사용자 경험 내에서 오케스트레이션 단계의 흐름을 구성하고 간소화할 수 있습니다. [사용자 경험](userjourneys.md)은 명시적 경로를 지정합니다. 이 경로를 통해 정책은 신뢰 당사자 애플리케이션이 사용자에 대해 원하는 클레임을 가져오도록 허용합니다. 이러한 경로를 통해 사용자를 가져와서 신뢰 당사자에게 표시할 클레임을 검색합니다. 즉, 사용자 경험은 Azure AD B2C ID 경험 프레임워크가 요청을 처리할 때 최종 사용자에게 적용되는 비즈니스 논리를 정의합니다. 사용자 경험은 트랜잭션을 정상적으로 수행하려면 따라야 하는 오케스트레이션 시퀀스로 표시됩니다. 오케스트레이션 단계의 [ClaimsExchange](userjourneys.md#claimsexchanges) 요소는 실행되는 단일 [기술 프로필](technicalprofiles.md)에 연결됩니다.
 
 하위 사용자 경험은 사용자 경험 내의 어느 지점에서든 호출할 수 있는 오케스트레이션 단계를 그룹화한 것입니다. 하위 사용자 경험을 사용하여 재사용 가능한 단계 시퀀스를 만들거나 비즈니스 논리를 더 효과적으로 구현하기 위한 분기를 실행할 수 있습니다.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="user-journey-branching"></a>사용자 경험 분기
 

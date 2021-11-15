@@ -1,23 +1,23 @@
 ---
-title: 토큰 구성 - Azure Active Directory B2C | Microsoft Docs
+title: 토큰 구성 - Azure Active Directory B2C
 description: Azure Active Directory B2C에서 토큰 수명 및 호환성 설정을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0f5586b43143763ebf36adb15d96fdb2a91b5f5c
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 70be31920e96c651285c4e77ace161b65ccd3118
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443477"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066037"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 토큰 구성
 
@@ -53,13 +53,19 @@ ms.locfileid: "106443477"
 사용자 흐름 토큰 수명을 구성하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **사용자 흐름(정책)** 을 선택합니다.
 1. 이전에 만든 사용자 흐름을 엽니다.
 1. **속성** 을 선택합니다.
 1. **토큰 수명** 에서 애플리케이션의 요구 사항에 맞게 속성을 조정합니다.
 1. **저장** 을 클릭합니다.
+
+
+
+:::image type="content" source="./media/configure-tokens/configure-tokens.png" alt-text="Azure Portal에서 사용자 흐름 토큰을 구성합니다.":::
+
 
 ::: zone-end
 
@@ -152,10 +158,10 @@ ms.locfileid: "106443477"
     </ClaimType>
     ```
 
-    **OutputClaims** 요소에 다음 요소를 추가합니다.
+    [신뢰 당사자 정책](relyingparty.md)의 **OutputClaims** 요소 아래에 다음 출력 클레임을 추가합니다.
 
     ```xml
-    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" PartnerClaimType="tfp" />
     ```
 
     ACR의 경우 **AuthenticationContextReferenceClaimPattern** 항목을 제거합니다.

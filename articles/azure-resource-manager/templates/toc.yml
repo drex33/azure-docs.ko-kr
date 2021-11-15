@@ -269,7 +269,7 @@
           href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Key Vault - 비밀
           href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Security Center
+        - name: Defender for Cloud
           href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: 스토리지
       items:
@@ -474,7 +474,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

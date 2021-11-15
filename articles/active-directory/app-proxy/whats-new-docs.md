@@ -1,24 +1,38 @@
 ---
 title: Azure Active Directory 애플리케이션 프록시의 새로운 기능
 description: Azure Active Directory 애플리케이션 프록시에 대한 신규 및 업데이트된 설명서입니다.
-ms.date: 08/03/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: mtillman
-ms.openlocfilehash: f4fd9a1ac646e4a78598b4d07ba8197ed89da148
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+manager: karenh444
+ms.openlocfilehash: cc0404f14a0c7014bb8bbec6e618480905d1f81e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535907"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987749"
 ---
 # <a name="azure-active-directory-application-proxy-whats-new"></a>Azure Active Directory 애플리케이션 프록시: 새로운 기능
 
 Azure Active Directory 애플리케이션 프록시 설명서의 새로운 기능을 시작합니다. 이 문서에는 지난 3개월 동안 추가된 새 문서와 중요한 업데이트가 있었던 문서가 나열되어 있습니다. 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="september-2021"></a>2021년 9월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [문서의 새로운 기능](whats-new-docs.md)
+
+## <a name="august-2021"></a>2021년 8월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 구성](application-proxy-configure-custom-domain.md)
+
+
 ## <a name="july-2021"></a>2021년 7월
 
 ### <a name="updated-articles"></a>업데이트된 문서

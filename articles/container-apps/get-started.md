@@ -5,15 +5,15 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: quickstart
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7c6865d574204f22c8b81afe04dd10561674876b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7111391f1a066e386384f6623fa6a3d593592123
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101148"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508762"
 ---
 # <a name="quickstart-deploy-your-first-container-app"></a>빠른 시작: 첫 번째 컨테이너 앱 배포
 
@@ -61,7 +61,23 @@ az extension add `
 
 ---
 
-다음 환경 변수를 설정합니다.
+확장이 설치되었으므로 `Microsoft.Web` 네임스페이스를 등록합니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+az provider register --namespace Microsoft.Web
+```
+
+---
+
+다음으로, 다음 환경 변수를 설정합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -198,7 +214,8 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
-  --ingress 'external'
+  --ingress 'external' \
+  --query configuration.ingress.fqdn
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -210,14 +227,15 @@ az containerapp create `
   --environment $CONTAINERAPPS_ENVIRONMENT `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
-  --ingress 'external'
+  --ingress 'external' `
+  --query configuration.ingress.fqdn
 ```
 
 ---
 
-`--ingress`을 `external`로 설정하면 컨테이너 앱에서 공개 요청을 사용할 수 있습니다.
+`--ingress`를 `external`로 설정하면 컨테이너 앱에서 퍼블릭 요청을 사용할 수 있습니다.
 
-`create` 명령은 컨테이너 앱의 정규화된 도메인 이름을 반환합니다. 이 위치를 웹 브라우저에 복사하면 다음 메시지가 표시됩니다.
+여기서 `create` 명령은 컨테이너 앱의 정규화된 도메인 이름을 반환합니다. 이 위치를 웹 브라우저에 복사하면 다음 메시지가 표시됩니다.
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="첫 Azure Container Apps 배포.":::
 

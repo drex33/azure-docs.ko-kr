@@ -6,15 +6,15 @@ author: agowdamsft
 ms.service: container-service
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 2/08/2021
+ms.date: 11/04/2021
 ms.author: amgowda
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e63e8d2caba6fe9ca5fa7b4a239f2194976dd569
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2c082d901bd2b48b9d220d9b1b373335b295b377
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101786"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131845357"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Azure Kubernetes Service의 기밀 컴퓨팅 노드
 
@@ -24,7 +24,7 @@ ms.locfileid: "131101786"
 
 AKS(Azure Kubernetes Service)는 Intel SGX에서 제공되는 [DCsv2 기밀 컴퓨팅 노드](confidential-computing-enclaves.md) 추가를 지원합니다. 이러한 노드를 통해 하드웨어 기반 TEE(신뢰 실행 환경) 내에서 중요한 워크로드를 실행할 수 있습니다. TEE를 사용하면 CPU를 통해 코드를 직접 실행하기 위해 컨테이너의 사용자 수준 코드에서 메모리의 프라이빗 영역을 할당할 수 있습니다. CPU를 통해 직접 실행되는 이러한 프라이빗 메모리 영역을 enclave라고 합니다. enclave는 동일한 노드에서 실행되는 다른 프로세스로부터 데이터 기밀성, 데이터 무결성 및 코드 무결성을 보호하는 데 도움이 됩니다. 또한 Intel SGX 실행 모델은 게스트 OS, 호스트 OS 및 하이퍼바이저의 중간 계층을 제거하여 공격 노출 영역을 줄입니다. 노드의 *컨테이너 격리 실행별 하드웨어 기반* 모델을 사용하면 컨테이너별로 암호화된 특수 메모리 블록을 유지하면서 애플리케이션에서 CPU를 통해 직접 실행할 수 있습니다. 기밀 컨테이너를 사용하는 기밀 컴퓨팅 노드는 제로 트러스트 보안 계획 및 심층 방어 컨테이너 전략에 매우 적합한 추가 요소입니다.
 
-![SGX 노드 개요](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
+:::image type="content" source="./media/confidential-nodes-aks-overview/sgx-aks-node.png" alt-text="내부에서 보안이 설정된 기밀 컨테이너와 코드 및 데이터를 보여 주는 AKS 기밀 컴퓨팅 노드의 그래픽입니다.":::
 
 ## <a name="aks-confidential-nodes-features"></a>AKS 기밀 노드 기능
 

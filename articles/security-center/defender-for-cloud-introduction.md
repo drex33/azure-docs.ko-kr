@@ -6,17 +6,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/02/2021
+ms.custom: mvc
+ms.date: 11/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0d75d3c3a7276e15f114f7356941f38ac2ac7c64
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2b6c756b0dd752d3e4de349b624f17342fad1c9d
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100993"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576456"
 ---
-# <a name="what-is-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud란?
+# <a name="what-is-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender란?
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -37,7 +37,7 @@ Defender for Cloud는 클라우드 및 온-프레미스에서 리소스 및 워�
 
 ## <a name="posture-management-and-workload-protection"></a>상태 관리 및 워크로드 보호
 
-Microsoft Defenders for Cloud의 기능은 클라우드 보안의 두 가지 광범위한 핵심 요소인 클라우드 보안 상태 관리와 클라우드 워크로드 보호를 처리합니다.
+Microsoft Defender for Cloud의 기능은 클라우드 보안의 두 가지 광범위한 핵심 요소인 클라우드 보안 상태 관리와 클라우드 워크로드 보호를 처리합니다.
 
 ### <a name="cloud-security-posture-management-cspm"></a>CSPM(클라우드 보안 태세 관리)
 
@@ -65,7 +65,7 @@ Defender for Cloud는 [Microsoft 위협 인텔리전스](https://go.microsoft.co
 
 Defender for Cloud는 Azure 네이티브 서비스이므로 배포 없이도 많은 Azure 서비스를 모니터링하고 보호합니다.
 
-필요한 경우 Defender for Cloud는 Log Analytics 에이전트를 자동으로 배포하여 보안 관련 데이터를 수집할 수 있습니다. Azure 컴퓨터의 경우 배포가 직접 처리됩니다. 하이브리드 및 다중 클라우드 환경의 경우 [Azure Arc](https://azure.microsoft.com/services/azure-arc/)의 지원을 통해 수행됩니다.
+필요한 경우 Defender for Cloud는 Log Analytics 에이전트를 자동으로 배포하여 보안 관련 데이터를 수집할 수 있습니다. Azure 컴퓨터의 경우 배포가 직접 처리됩니다. 하이브리드 및 다중 클라우드 환경의 경우 Microsoft Defender 요금제는 [Azure Arc](https://azure.microsoft.com/services/azure-arc/)의 도움을 통해 비 Azure 머신으로 확장됩니다. CSPM 기능은 에이전트가 필요 없이 다중 클라우드 머신으로 확장됩니다([다른 클라우드에서 실행되는 리소스 방어](#defend-resources-running-on-other-clouds) 참조).
 
 
 ### <a name="azure-native-protections"></a>Azure 네이티브 보호
@@ -84,17 +84,17 @@ Azure 환경을 방어하는 것 외에도 Defender for Cloud 기능을 하이�
 
 보호를 온-프레미스 컴퓨터로 확장하려면 [Azure Arc](https://azure.microsoft.com/services/azure-arc/)를 배포하고 Defender for Cloud의 향상된 보안 기능을 사용하도록 설정합니다. [Azure Arc를 사용하여 비 Azure 머신 추가](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc)에서 자세히 알아보세요.
 
-
 ### <a name="defend-resources-running-on-other-clouds"></a>다른 클라우드에서 실행되는 리소스 방어 
 
 Defender for Cloud는 다른 클라우드(예: AWS 및 GCP)의 리소스를 보호할 수 있습니다. 
 
-다중 클라우드 보호 계획은 다음과 같습니다.
+예를 들어 [AWS(Amazon Web Services) 계정](quickstart-onboard-aws.md)을 Azure 구독에 연결한 경우 다음과 같은 보호를 사용하도록 설정할 수 있습니다.
 
-- **CSPM** - 다른 클라우드 공급자의 리소스에 대한 보안 점수 및 강화 권장 사항을 제공합니다.
-- **Microsoft Defender for Kubernetes** - Kubernetes 클러스터에 대한 환경 강화, 워크로드 보호 및 런타임 보호를 제공합니다.
-- **서버용 Microsoft Defender** - 위협 탐지 및 고급 방어 기능을 Windows 및 Linux 컴퓨터에 제공합니다.
+- **Defender for Cloud의 CSPM 기능** 은 AWS 리소스로 확장됩니다. 이 에이전트 없는 플랜은 AWS 관련 보안 권장 사항에 따라 AWS 리소스를 평가하며, 평가 결과는 보안 점수에 포함됩니다. 또한 리소스가 AWS(AWS CIS, AWS PCI DSS 및 AWS Foundational 보안 모범 사례)와 관련된 기본 제공 표준을 준수하는지 여부도 평가됩니다. Defender for Cloud의 [자산 인벤토리 페이지](asset-inventory.md)는 Azure 리소스와 함께 AWS 리소스를 관리하는 데 도움이 되는 다중 클라우드 지원 기능입니다.
+- **Kubernetes용 Microsoft Defender** 는 컨테이너 위협 탐지 및 고급 방어를 **Amazon EKS Linux 클러스터** 로 확장합니다.
+- **서버용 Microsoft Defender** 는 위협 탐지 및 고급 방어를 Windows 및 Linux EC2 인스턴스로 확장합니다. 이 플랜에는 엔드포인트용 Microsoft Defender의 통합 라이선스, 보안 기준 및 OS 수준 평가, 취약성 평가 검사, AAC(적응형 애플리케이션 제어), FIM(파일 무결성 모니터링) 등이 포함됩니다.
 
+[AWS](quickstart-onboard-aws.md) 및 [GCP](quickstart-onboard-gcp.md) 계정을 Microsoft Defender for Cloud에 연결하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="vulnerability-assessment-and-management"></a>취약성 평가 및 관리
 
@@ -108,7 +108,7 @@ Defender for Cloud 내에서 이러한 취약성 스캐너의 결과를 검토�
 
 다음 페이지에서 자세히 알아보세요.
 
-- [ Azure 및 하이브리드 컴퓨터에 대한 Defender for Cloud의 통합 Qualys 스캐너](deploy-vulnerability-assessment-vm.md)
+- [Azure 및 하이브리드 머신을 위한 Defender for Cloud의 통합 Qualys 스캐너](deploy-vulnerability-assessment-vm.md)
 - [Azure 컨테이너 레지스트리의 이미지 취약성 식별](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 
@@ -163,7 +163,7 @@ Microsoft Defender for Cloud의 **Defender 계획** 페이지에서 제공하는
 
 - Defender for Cloud를 시작하려면 Microsoft Azure에 대한 구독이 필요합니다. 구독이 없는 경우 [평가판에 가입](https://azure.microsoft.com/free/)하세요.
 
-- Defender for Cloud의 무료 요금제는 Azure Portal에서 Defender for Cloud 대시보드를 처음 방문하거나 REST API를 통해 프로그래밍 방식으로 사용하도록 설정된 경우 현재의 모든 Azure 구독에서 사용하도록 설정됩니다. 고급 보안 관리 및 위협 탐지 기능을 활용하려면 향상된 보안 기능을 사용하도록 설정해야 합니다. 이러한 기능은 처음 30일 동안 무료입니다. [가격 책정에 대해 자세히 알아보세요](https://azure.microsoft.com/pricing/details/security-center/).
+- Defender for Cloud의 무료 요금제는 Azure Portal에서 Defender for Cloud 페이지를 처음 방문하거나 REST API를 통해 프로그래밍 방식으로 사용하도록 설정된 경우 현재의 모든 Azure 구독에서 사용하도록 설정됩니다. 고급 보안 관리 및 위협 탐지 기능을 활용하려면 향상된 보안 기능을 사용하도록 설정해야 합니다. 이러한 기능은 처음 30일 동안 무료입니다. [가격 책정에 대해 자세히 알아보세요](https://azure.microsoft.com/pricing/details/security-center/).
 
 - 이제 향상된 보안 기능을 사용하도록 설정할 준비가 되었으면 [빠른 시작: 향상된 보안 기능 사용](enable-enhanced-security.md)에서 단계를 안내합니다.
 

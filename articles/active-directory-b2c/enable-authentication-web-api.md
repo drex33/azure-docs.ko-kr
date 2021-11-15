@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C를 사용하여 웹 API에서 인증을 사용하도록 설정
 description: 이 문서에서는 Azure Active Directory B2C를 사용하여 웹 API를 보호 하는 방법을 설명 합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/25/2021
-ms.author: mimart
+ms.date: 10/26/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: cbbaf7d3698a1027ae310f73041e906a55117258
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 38a60dee9d4a5b7c0516b8e3278e848e0be26c2e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535514"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424442"
 ---
 # <a name="enable-authentication-in-your-own-web-api-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 사용자 자체 웹 API에서 인증을 사용합니다.
 
@@ -377,7 +377,7 @@ app.get('/hello',
 
 ## <a name="step-5-configure-the-web-server"></a>다섯 번째 단계에서는 웹 서버 구성을 합니다.
 
-개발 환경에서 들어오는 HTTP 요청 포트 번호에서 수신 대기하도록 웹 API를 설정합니다. 이 예제에서는 HTTP 포트 6000을 사용합니다. 웹 API의 기본 URI는 다음과 같습니다. <’ http://localhost:6000 ’>
+개발 환경에서 들어오는 HTTP 또는 HTTPS 요청 포트 번호에서 수신 대기하도록 웹 API를 설정합니다. 이 예제에서는 HTTP 포트 6000 및 HTTPS 포트 6001을 사용합니다. 웹 API의 기본 URI는 HTTP에 대해서 `http://localhost:6000`이며 HTTPS에 대해서 `https://localhost:6001`입니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/csharpclient)
 
@@ -388,14 +388,17 @@ JSON 코드 조각을 *appSettings.json* 파일에 추가합니다.
     "EndPoints": {
       "Http": {
         "Url": "http://localhost:6000"
-      }
+      },
+      "Https": {
+         "Url": "https://localhost:6001"   
+        }
     }
   }
 ```
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejsgeneric)
 
-다음 JavaScript 코드를 *app.js* 파일에 추가합니다. 
+다음 JavaScript 코드를 *app.js* 파일에 추가합니다. [노드 애플리케이션에 대한 HTTP 및 HTTPS 엔드포인트를 설정](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function)할 수 있습니다. 
 
 ```javascript
 // Starts listening on port 6000
@@ -533,6 +536,10 @@ Example app listening on port 6000!
 액세스 토큰 없이 보호된 웹 API 엔드포인트를 호출해 보세요. 브라우저를 열고 `http://localhost:6000/hello`으로 이동합니다. API는 권한 없는 HTTP 오류 메시지를 반환하여 웹 API가 전달자 토큰이 보호하고 있는 것을 확인합니다.
 
 웹 API를 호출하도록 앱을 계속 구성합니다. 자세한 내용은 [필수 요구 사항](#prerequisites) 섹션을 참조하세요.
+
+이 비디오를 시청하여 Azure AD B2C가 API와 통합하는 몇 가지 모범 사례에 대해 알아보세요.
+
+>[!Video https://www.youtube.com/embed/wuUu71RcsIo]
 
 ## <a name="next-steps"></a>다음 단계
 

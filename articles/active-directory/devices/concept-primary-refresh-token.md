@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 09/13/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29b000ee3231361ccdca4c2909e093cdaef6bc04
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 9927232ca01473d8c51ac034f6c0ed24b07a2b39
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866520"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707225"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
 
@@ -67,6 +67,9 @@ Azure AD 등록 디바이스 시나리오에서 Azure AD WAM 플러그 인은 �
 > [!NOTE]
 > 타사 ID 공급자는 Windows 10 디바이스에서 PRT 발급이 이루어지도록 WS-Trust 프로토콜을 지원해야 합니다. WS-Trust를 사용하지 않으면 하이브리드 Azure AD 조인 또는 Azure AD 조인 디바이스에서 사용자에게 PRT를 발급할 수 없습니다. ADFS에서는 usernamemixed 엔드포인트만 필요합니다. adfs/services/trust/2005/windowstransport 및 adfs/services/trust/13/windowstransport는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며, 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 **노출되어서는 안됩니다**.
 
+> [!NOTE]
+> Azure AD 조건부 액세스 정책은 PRT가 발급될 때 평가되지 않습니다.
+
 ## <a name="what-is-the-lifetime-of-a-prt"></a>PRT의 수명은 얼마나 되나요?
 
 PRT는 일단 발급되면 14일 동안 유효하며 사용자가 디바이스를 적극적으로 사용하는 동안에는 계속 갱신됩니다.  
@@ -76,7 +79,7 @@ PRT는 일단 발급되면 14일 동안 유효하며 사용자가 디바이스�
 PRT는 다음과 같은 Windows의 두 가지 주요 구성 요소에서 사용됩니다.
 
 * **Azure AD CloudAP 플러그 인**: Windows 로그인 중에 Azure AD CloudAP 플러그 인은 사용자가 제공한 자격 증명을 사용하여 Azure AD에서 PRT를 요청합니다. 또한 사용자가 인터넷 연결에 액세스할 수 없는 경우 캐시된 로그인을 사용하도록 PRT를 캐시합니다.
-* **Azure AD WAM 플러그 인**: 사용자가 애플리케이션에 액세스하려고 하면 Azure AD WAM 플러그 인에서 PRT를 사용하여 Windows 10에서 SSO를 사용하도록 설정합니다. Azure AD WAM 플러그 인은 PRT를 사용하여 토큰 요청에 대해 WAM를 사용하는 애플리케이션에 대한 새로 고침 및 액세스 토큰을 요청합니다. 또한 브라우저 요청에 PRT를 삽입하여 브라우저에서 SSO를 사용하도록 설정합니다. Windows 10의 브라우저 SSO는 Microsoft Edge(기본적으로), Chrome([Windows 10 계정](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) 또는 [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) 확장을 통해) 또는 Mozilla Firefox v91 이상([Windows SSO 설정](https://support.mozilla.org/en-US/kb/windows-sso)을 통해)에서 지원됩니다.
+* **Azure AD WAM 플러그 인**: 사용자가 애플리케이션에 액세스하려고 하면 Azure AD WAM 플러그 인에서 PRT를 사용하여 Windows 10에서 SSO를 사용하도록 설정합니다. Azure AD WAM 플러그 인은 PRT를 사용하여 토큰 요청에 대해 WAM를 사용하는 애플리케이션에 대한 새로 고침 및 액세스 토큰을 요청합니다. 또한 브라우저 요청에 PRT를 삽입하여 브라우저에서 SSO를 사용하도록 설정합니다. Windows 10의 브라우저 SSO는 Microsoft Edge(기본적으로), Chrome([Windows 10 계정](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) 또는 [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) 확장을 통해) 또는 Mozilla Firefox v91 이상(Firefox [Windows SSO 설정](https://support.mozilla.org/kb/windows-sso))에서 지원됩니다.
 
 ## <a name="how-is-a-prt-renewed"></a>PRT는 어떻게 갱신되나요?
 
@@ -90,6 +93,9 @@ PRT는 다음 두 가지 방법으로 갱신됩니다.
 ADFS 환경에서는 도메인 컨트롤러를 직접 보지 않고도 PRT를 갱신할 수 있습니다. PRT를 갱신하려면 WS-Trust를 사용하여 프록시에서 /adfs/services/trust/2005/usernamemixed 및 /adfs/services/trust/13/usernamemixed 엔드포인트만 사용하도록 설정하면 됩니다.
 
 Windows 전송 엔드포인트는 암호를 변경하는 경우에만 암호 인증을 위해 필요하며, PRT 갱신에는 필요하지 않습니다.
+
+> [!NOTE]
+> Azure AD 조건부 액세스 정책은 PRT가 갱신될 때 평가되지 않습니다.
 
 ### <a name="key-considerations"></a>주요 고려 사항
 
@@ -147,7 +153,7 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 > [!NOTE]
 > Azure AD 조인 디바이스에서 이러한 교환은 비동기식으로 발생하여 사용자가 Windows에 로그온할 수 있도록 먼저 PRT가 발급됩니다. 하이브리드 Azure AD 조인 디바이스에서 온-프레미스 Active Directory는 기본 인증 기관입니다. 따라서 사용자는 TGT를 획득하여 로그인할 수 있을 때까지만 대기하지만, PRT 발급은 비동기식으로 발생합니다. 로그온 시 Azure AD 자격 증명을 사용하지 않으므로 이 시나리오가 Azure AD 등록 디바이스에는 적용되지 않습니다.
 
-| 단계 | Description |
+| 단계 | 설명 |
 | :---: | --- |
 | A | 사용자가 로그인 UI에 암호를 입력합니다. LogonUI는 인증 버퍼의 자격 증명을 LSA에 전달하며 LSA에서는 이 자격 증명을 내부적으로 CloudAP에 전달합니다. CloudAP는 이 요청을 CloudAP 플러그 인으로 전달합니다. |
 | b | CloudAP 플러그 인은 사용자에 대한 ID 공급자를 식별하기 위한 영역 검색 요청을 시작합니다. 사용자의 테넌트에 페더레이션 공급자가 설정된 경우 Azure AD는 페더레이션 공급자의 MEX(Metadata Exchange Endpoint) 엔드포인트를 반환합니다. 그렇지 않은 경우 Azure AD는 사용자가 관리되고 있으므로 사용자가 Azure AD에서 인증을 받을 수 있음을 나타냅니다. |
@@ -160,7 +166,7 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 
 ![후속 로그온 시 PRT 갱신](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 | :---: | --- |
 | A | 사용자가 로그인 UI에 암호를 입력합니다. LogonUI는 인증 버퍼의 자격 증명을 LSA에 전달하며 LSA에서는 이 자격 증명을 내부적으로 CloudAP에 전달합니다. CloudAP는 이 요청을 CloudAP 플러그 인으로 전달합니다. |
 | b | 사용자가 이전에 로그온한 적이 있는 경우 Windows는 캐시된 로그인을 시작하고 자격 증명이 유효한지 검사하여 사용자를 로그인합니다. 4시간마다 CloudAP 플러그 인은 비동기식으로 PRT 갱신을 시작합니다. |
@@ -177,7 +183,7 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 
 ![앱 토큰 요청 중에 PRT 사용](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 | :---: | --- |
 | A | 애플리케이션(예: Outlook, OneNote 등)은 WAM에 대한 토큰 요청을 시작합니다. 그런 다음, WAM은 Azure AD WAM 플러그 인에 토큰 요청을 제공하도록 요청합니다. |
 | b | 애플리케이션에 대한 새로 고침 토큰을 이미 사용할 수 있는 경우 Azure AD WAM 플러그 인은 이 토큰을 사용하여 액세스 토큰을 요청합니다. 디바이스 바인딩 증명을 제공하기 위해 WAM 플러그 인은 세션 키를 사용하여 요청에 서명합니다. Azure AD는 세션 키가 유효한지 검사하고, 세션 키로 암호화된 앱에 대해 액세스 토큰 및 새 새로 고침 토큰을 발급합니다. WAM 플러그 인은 토큰의 암호를 해독하도록 CloudAP 플러그 인에 요청합니다. 그러면 CloudAP 플러그 인은 세션 키를 사용하여 암호를 해독하도록 TPM에 요청하고 WAM 플러그 인은 두 토큰을 모두 가져옵니다. 그런 다음, WAM 플러그 인은 DPAPI를 사용하여 새로 고침 토큰을 다시 암호화한 후 자체 캐시에 저장하지만 애플리케이션에 액세스 토큰만 제공합니다.  |
@@ -189,7 +195,7 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 
 ![PRT를 사용하는 브라우저 SSO](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 | :---: | --- |
 | A | 사용자는 자격 증명을 사용하여 Windows에 로그인한 후 PRT를 가져옵니다. 사용자가 브라우저를 열면 브라우저(또는 확장)가 레지스트리에서 URL을 로드합니다. |
 | b | 사용자가 Azure AD 로그인 URL을 열면 브라우저나 확장에서 레지스트리에서 가져온 URL로 해당 URL이 유효한지 검사합니다. 두 URL이 일치하는 경우 브라우저는 토큰을 가져오기 위해 네이티브 클라이언트 호스트를 호출합니다. |
@@ -203,4 +209,4 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 
 ## <a name="next-steps"></a>다음 단계
 
-PRT 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md) 문서를 참조하세요.
+PRT 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md#troubleshoot-post-join-authentication-issues) 문서를 참조하세요.

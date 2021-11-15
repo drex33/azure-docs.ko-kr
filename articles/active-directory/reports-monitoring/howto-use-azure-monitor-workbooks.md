@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 5/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9cde3940f09d3612ebe6411804fe4780e5bcfc18
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3cbbfd54861cc926fe74b748e6b9a82b4457c9f9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469201"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444215"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Monitor 통합 문서를 Azure Active Directory 보고서에 사용하는 방법
 
@@ -31,6 +31,8 @@ ms.locfileid: "110469201"
 - [조건부 액세스 정책](../conditional-access/overview.md)이 사용자의 로그인 환경에 미치는 영향 이해
 
 - 로그인 오류 문제를 해결하여 조직의 로그인 상태를 보다 정확하게 파악하고 문제를 보다 신속하게 해결
+
+- 테넌트의 위험한 사용자 및 위험 검색 추세를 이해하나요?
 
 - 레거시 인증을 사용하여 환경에 로그인하는 사람이 누구인지 알아보기 ([레거시 인증을 차단](../conditional-access/block-legacy-authentication.md)하면 테넌트 보안을 강화할 수 있습니다.)
 
@@ -292,9 +294,25 @@ Monitor 통합 문서를 사용하려면 다음 항목이 필요합니다.
     ![사용자 작업을 기다리는 로그인 요약](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
+## <a name="identity-protection-risk-analysis"></a>ID 보호 위험 분석
 
+**사용 섹션** 의 **ID 보호 위험 분석 통합 문서** 를 사용하여 다음 사항을 이해합니다.
 
+- 위험 사용자 분포 및 수준 및 유형별 위험 검색
+- 위험을 더 잘 수정할 수 있는 기회
+- 전 세계 위험이 검색되는 위치
 
+다음을 수행하여 위험 검색 추세를 필터링할 수 있습니다.
+- 검색 타이밍 유형
+- 위험 수준
+
+실시간 위험 검색은 인증 시점에서 검색할 수 있는 위험 검색입니다. 조건부 액세스를 사용하여 다단계 인증을 요구하는 위험한 로그인 정책에 의해 이러한 검색에 어려움을 겪을 수 있습니다. 
+
+다음을 수행하여 위험한 사용자 추세를 필터링할 수 있습니다.
+- 위험 세부 정보
+- 위험 수준
+
+"아무런 조치도 수행되지 않은" 위험한 사용자가 많은 경우 사용자가 위험성이 높은 경우 보안 암호 변경을 요구하도록 조건부 액세스 정책을 사용하도록 설정하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

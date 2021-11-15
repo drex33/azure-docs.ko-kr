@@ -11,13 +11,13 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 09/10/2021
-  ms.openlocfilehash: 738d016c3ba341e3fb8e31a7b01847573e7a4178
-  ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+  ms.date: 11/4/2021
+  ms.openlocfilehash: 440cb18b41a37358fc170655783cc2f5c61bc01b
+  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/26/2021
-  ms.locfileid: "129059552"
+  ms.lasthandoff: 11/05/2021
+  ms.locfileid: "131843157"
 title: Azure SQL Database 하이퍼스케일 FAQ
 summary: >
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -339,6 +339,10 @@ sections:
       추가 컴퓨팅 복제본을 프로비전하면 내 처리량에 영향을 주나요?
     answer: >
       스토리지가 공유되고 주 및 보조 컴퓨팅 복제본 간에 직접적인 물리적 복제가 발생하지 않으므로 보조 복제본을 추가해도 주 복제본의 처리량에 직접적인 영향을 주지 않습니다. 그러나 보조 복제본에 대한 읽기 성능이 저하되지 않도록 방지하기 위해 주 복제본에서 지속적이고 공격적인 쓰기 워크로드를 제한하여 캐치업할 보조 복제본 및 페이지 서버에 대한 로그 적용을 허용할 수 있습니다.
+  - question: >
+      하이퍼스케일이 리소스를 많이 사용하는 장기 실행 쿼리 및 트랜잭션에 적합합니까?
+    answer: >
+      예. 그러나 장기 실행 쿼리를 중단하고 트랜잭션을 롤백할 수 있는 일시적인 오류로 인해 연결이 매우 드물게 종료될 수 있습니다. 일시적인 오류의 한 가지 원인은 시스템이 지속적인 컴퓨팅 및 스토리지 리소스 가용성을 보장하거나 계획된 유지 관리를 수행하기 위해 데이터베이스를 다른 컴퓨팅 노드로 신속하게 이동할 때 입니다. 이러한 재구성 이벤트는 10초 이내에 완료됩니다. 데이터베이스에 연결하는 애플리케이션은 재시도 로직을 구현하여 이러한 드문 일시적인 오류를 예상하고 허용하도록 빌드해야 합니다. 또한 계획된 유지 관리로 인한 일시적인 오류를 방지하기 위해 워크로드 일정과 일치하는 [유지 관리 기간](maintenance-window.md)을 구성하는 것이 좋습니다.
   - question: >
       하이퍼스케일 데이터베이스의 성능 문제를 진단하고 해결하려면 어떻게 할까요?
     answer: >

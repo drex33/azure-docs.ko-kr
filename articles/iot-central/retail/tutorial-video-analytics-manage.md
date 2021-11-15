@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 509709b26a51a4202736fcab7e032ec8f91419eb
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832609"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851138"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>자습서: 비디오 분석 - 개체 및 동작 감지 애플리케이션 모니터링 및 관리
 
@@ -52,6 +52,22 @@ IoT Central 애플리케이션에서 이전에 만든 **LVA Gateway 001** 디바
 
 > [!NOTE]
 > **LVA Edge 개체 감지기** 디바이스 템플릿은 이미 애플리케이션에 있습니다.
+
+장치에서 연결에 실패하는 경우 장치에서 모듈의 상태를 확인합니다.
+
+* SSH를 사용하여 장치에서 셸을 엽니다.
+* 셸에서 다음 명령을 실행합니다.
+
+    `sudo iotedge list`
+
+모듈이 제대로 실행되는 경우 다음과 같은 출력이 표시 됩니다.
+
+```
+    LvaEdgeGatewayModule                      running          Up 2 minutes     mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64
+    lvaEdge                                   running          Up 2 minutes     mcr.microsoft.com/media/live-video-analytics:2
+```
+
+자세한 내용은 [IoT 에지 디바이스 문제 해결](../../iot-edge/troubleshoot.md)을 참조하세요.
 
 ## <a name="add-a-motion-detection-camera-optional"></a>동작 감지 카메라 추가(선택 사항)
 

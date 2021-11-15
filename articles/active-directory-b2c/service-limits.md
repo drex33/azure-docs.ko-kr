@@ -3,20 +3,21 @@ title: Azure AD B2C 서비스 한도 및 제한 사항
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C 서비스에 대한 서비스 한도 및 제한 사항에 대한 참조입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/02/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 27fe9f4c7d63a5e0674bde6db3f387f813bed749
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.custom: b2c-support
+ms.openlocfilehash: 8e3ceab429f92340a080a6a42afd095375ce51b1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409400"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266090"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Azure Active Directory B2C 서비스 한도 및 제한 사항
 
@@ -46,8 +47,8 @@ ms.locfileid: "111409400"
 |특성당 문자열 제한      |250개 문자          |
 |구독당 B2C 테넌트 수      |20         |
 |사용자 지정 정책의 [상속](custom-policy-overview.md#inheritance-model) 수준     |10         |
-|Azure AD B2C 테넌트당 정책 수      |200          |
-|최대 정책 파일 크기      |400KB          |
+|Azure AD B2C 테넌트당 정책 수(사용자 흐름 + 사용자 지정 정책)     |200          |
+|최대 정책 파일 크기      |1024KB          |
 
 <sup>1</sup> 또한 [Azure AD 서비스 한도 및 제한 사항](../active-directory/enterprise-users/directory-service-limits-restrictions.md)을 참조하세요.
 

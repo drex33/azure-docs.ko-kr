@@ -1,21 +1,21 @@
 ---
 title: Google BigQuery 프로젝트에 연결 및 관리
 description: 이 가이드에서는 Azure Purview에서 Google BigQuery 쿼리 프로젝트에 연결하고 Purview의 기능을 사용하여 Google BigQuery 원본을 검사하고 관리하는 방법을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: e264aaef00eb0e1af12db3a7a2f3047de5e6e3e5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f28de0520e4b69970549f7258a5a41dd109d2b48
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056227"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852582"
 ---
-# <a name="connect-to-and-manage-google-bigquery-projects-in-azure-purview"></a>Azure Purview에서 Google BigQuery 프로젝트에 연결 및 관리
+# <a name="connect-to-and-manage-google-bigquery-projects-in-azure-purview-preview"></a>Azure Purview에서 Google BigQuery 프로젝트에 연결 및 관리(미리 보기)
 
 이 문서에서는 Google BigQuery 프로젝트를 등록하는 방법과 Azure Purview에서 Google BigQuery를 인증하고 상호 작용하는 방법을 간략하게 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
 
@@ -26,12 +26,12 @@ ms.locfileid: "131056227"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| [예](how-to-lineage-google-bigquery.md)|
+| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예](how-to-lineage-google-bigquery.md)|
 
 > [!Important]
 > 지원되는 Google BigQuery 버전은 11.0.0입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -98,8 +98,8 @@ ms.locfileid: "131056227"
     1. **자격 증명**: BigQuery 자격 증명을 구성하는 동안 다음을 수행해야 합니다.
 
         * 인증 방법으로 **기본 인증** 을 선택합니다.
-        * 사용자 이름 필드에서 서비스 계정의 이메일 ID를 제공합니다. 예를 들어 xyz\@developer.gserviceaccount.com입니다.
-        * 서비스 계정의 프라이빗 키 파일을 키 자격 증명 모음의 비밀에 JSON 형식으로 저장합니다.
+        * 사용자 이름 필드에서 서비스 계정의 이메일 ID를 제공합니다. 예를 들어 `xyz\@developer.gserviceaccount.com`
+        * 아래 단계를 수행하여 프라이빗 키를 생성하고, JSON을 복사하여 Key Vault 암호 값으로 저장합니다.
 
         Google의 클라우드 플랫폼에서 새 프라이빗 키를 만들려면 다음을 수행합니다.
         1. 탐색 메뉴에서 IAM 및 관리 -\> 서비스 계정 -\> 프로젝트 선택 -\>을 선택합니다. 

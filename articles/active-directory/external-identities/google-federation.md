@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 10/01/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687e23c7267991eee171e205a537a45546da73b2
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 510e2207a2c25c5da5f4de08f3bf16fbf6cf4c7d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864581"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354312"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -31,7 +31,7 @@ Google을 사용하여 페더레이션을 설정하면 초대된 사용자가 Mi
 > [!IMPORTANT]
 >
 > - **2021년 7월 12일부터**, Azure AD B2B 고객이 셀프 서비스 등록에 사용하거나 사용자 지정 또는 LOB(기간 업무) 애플리케이션에 외부 사용자를 초대하기 위해 새 Google 통합을 설정하는 경우 Gmail 사용자에 대한 인증이 차단될 수 있습니다(아래 [예상 결과](#what-to-expect)에 오류 화면이 표시됨). 이 문제는 2021년 7월 12일 이후 셀프 서비스 가입 사용자 흐름 또는 초대에 대한 Google 통합을 만들고 사용자 지정 또는 기간 업무 애플리케이션의 Gmail 인증이 시스템 웹 보기로 전환되지 않은 경우에만 발생합니다. 시스템 웹 보기는 기본적으로 사용하도록 설정되어 있으므로 대부분의 앱은 영향을 받지 않습니다. 이 문제를 방지하려면 셀프 서비스 가입을 위한 새로운 Google 통합을 만들기 전에 Gmail 인증을 시스템 브라우저로 전환하는 것이 좋습니다. [포함된 웹 보기에 필요한 작업](#action-needed-for-embedded-frameworks)을 참조하세요.
-> - **2021년 9월 30일부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 외부 사용자 초대 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다. [자세한 정보를 알아보세요](#deprecation-of-web-view-sign-in-support).
+> - **2021년 9월 30일부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 외부 사용자 초대 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다. [자세한 정보를 알아보세요](#deprecation-of-web-view-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 사용자를 위한 환경이란?
 
@@ -58,7 +58,7 @@ Google 게스트 사용자는 테넌트 정보가 포함된 애플리케이션 �
 
 ## <a name="deprecation-of-web-view-sign-in-support"></a>웹 보기 로그인 지원 중단
 
-2021년 9월 30부터 Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 [외부 사용자 초대](google-federation.md) 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다.
+2021년 9월 30부터 Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 [외부 사용자 초대](google-federation.md) 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다.
 
 Gmail 사용자에게 영향을 주는 알려진 시나리오는 다음과 같습니다.
 - Windows의 Microsoft 앱(예: Teams 및 Power Apps) 
@@ -72,11 +72,7 @@ Gmail 사용자에게 영향을 주는 알려진 시나리오는 다음과 같�
 - 웹 사이트를 통해 액세스되는 Microsoft 365 서비스(예: SharePoint Online, Office 웹앱 및 Teams 웹앱)
 - 인증에 시스템 웹 보기를 사용하는 모바일 앱(iOS의 경우 [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller), Android의 경우 [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/)).  
 - Google Workspace ID(예: Google Workspace에서 [SAML 기반 페더레이션](direct-federation.md)을 사용하는 경우)
-
-이 변경 내용이 다음에 영향을 주는지 여부를 Google을 통해 확인하고 있습니다.
 - WAM(웹 계정 관리자) 또는 WAB(웹 인증 브로커)를 사용하는 Windows 앱.  
-
-다양한 플랫폼과 시나리오를 계속해서 테스트하고 있으며, 이에 따라 이 문서를 업데이트합니다.
 
 ### <a name="action-needed-for-embedded-web-views"></a>포함된 웹 보기에 필요한 작업
 
@@ -84,20 +80,55 @@ Gmail 사용자에게 영향을 주는 알려진 시나리오는 다음과 같�
 
 ### <a name="what-to-expect"></a>필요한 항목
 
-Google이 해당 변경 내용을 2021년 9월 30일에 적용하기 전에 Microsoft에서는 여전히 포함된 웹 보기를 사용하는 앱에 대한 해결 방법을 배포하여 인증이 차단되지 않도록 할 예정입니다. 포함된 웹 보기에서 Gmail 계정으로 로그인하는 사용자는 로그인을 완료하기 위해 별도의 브라우저에 코드를 입력하라는 메시지가 표시됩니다.
+9월 30일부터 Microsoft는 인증이 차단되지 않도록 포함된 웹 보기를 사용하는 앱에 대한 해결 방법으로 사용되는 디바이스 로그인 흐름을 전 세계적으로 출시할 예정입니다.
+
+### <a name="how-to-sign-in-with-the-device-sign-in-flow"></a>디바이스 로그인 흐름을 사용하여 로그인하는 방법
+
+디바이스 로그인 흐름은 포함된 웹 보기에서 Gmail 계정으로 로그인하는 사용자에게 로그인을 완료하기 전에 별도의 브라우저에 코드를 입력하라는 메시지를 표시합니다. 사용자가 브라우저에서 활성 세션 없이 처음으로 Gmail 계정을 사용하여 로그인하는 경우 다음과 같은 화면 시퀀스가 표시됩니다. 기존 Gmail 계정이 이미 로그인되어 있는 경우 이러한 단계 중 일부를 제거할 수 있습니다.
+
+1. **로그인** 화면에서 사용자는 해당 Gmail 주소를 입력하고 **다음** 을 선택합니다.
+
+   ![로그인 화면을 보여주는 스크린샷](media/google-federation/1-sign-in.png)
+
+1. 다음 화면이 나타나 사용자에게 새 창을 열고 https://microsoft.com/devicelogin 으로 이동하여 9자리 영숫자 코드를 입력하라는 메시지를 표시합니다.
+
+   ![9자리 코드를 보여주는 스크린샷](media/google-federation/2-sign-in-code.png)
+
+1. 사용자가 코드를 입력할 수 있는 디바이스 로그인 페이지가 열립니다. 
+
+   ![디바이스 로그인 페이지를 보여주는 스크린샷](media/google-federation/3-enter-code.png)
+
+1. 코드가 일치하면 보안을 위해 사용자에게 이메일을 다시 입력하여 앱과 로그인 위치를 확인하라는 메시지가 표시됩니다.
+
+   ![이메일을 다시 입력할 화면을 보여주는 스크린샷](media/google-federation/4-sign-in-reenter-email.png)
+
+1. 사용자는 해당 이메일 및 암호를 사용하여 Google에 로그인합니다.
+
+   ![Google 로그인 화면을 보여주는 스크린샷](media/google-federation/5-sign-in-with-google.png)
+
+1. 다시 한 번 로그인하는 앱을 확인하라는 메시지가 표시됩니다.
+
+   ![애플리케이션 확인 화면을 보여주는 스크린샷](media/google-federation/6-confirm-sign-in.png)
+
+1. 사용자는 **계속** 을 선택합니다. 로그인했음을 확인하는 메시지가 표시됩니다. 사용자가 탭 또는 창을 닫으면 현재 앱에 로그인된 첫 번째 화면으로 돌아갑니다.
+
+   ![로그인 확인을 보여주는 스크린샷](media/google-federation/7-app-sign-in-confirmed.png)
 
 또는 기존 및 신규 Gmail 사용자가 이메일 일회용 암호로 로그인하도록 할 수 있습니다. Gmail 사용자가 이메일 일회용 암호를 사용하도록 하려면 다음을 수행합니다.
+
 1. [이메일 일회용 암호를 사용하도록 설정](one-time-passcode.md#enable-email-one-time-passcode)
 2. [Google 페더레이션 제거](google-federation.md#how-do-i-remove-google-federation)
 3. 앞으로 이메일 1회용 암호를 사용할 수 있도록 Gmail 사용자의 [사용 상태를 재설정](reset-redemption-status.md)합니다.
+
+확장을 요청하려는 경우 영향을 받는 OAuth 클라이언트 ID를 가진 영향을 받는 고객은 2022년 1월 31일에 완료되어야 하는 일회용 정책 적용 확장에 관한 다음 정보를 포함하는 Google 개발자로부터 이메일을 받아야 합니다.
+
+- "필요한 경우 2022년 1월 31일까지 나열된 각 OAuth 클라이언트 ID에 대해 **포함된 웹 보기에 대한 일회성 정책 적용 확장** 을 요청할 수 있습니다. 명확하게 하기 위해 포함된 웹 보기에 대한 정책은 예외 또는 연장 없이 2022년 2월 1일에 적용됩니다."
 
 인증 가능한 웹 보기로 마이그레이션되는 애플리케이션은 영향을 받지 않으며, 사용자는 평소처럼 Google을 통해 인증할 수 있습니다.
 
 애플리케이션이 인증 가능한 웹 보기로 마이그레이션되지 않은 경우 영향을 받는 Gmail 사용자에게는 다음 화면이 표시됩니다.
 
 ![앱이 시스템 브라우저로 마이그레이션되지 않은 경우 Google 로그인 오류 발생](media/google-federation/google-sign-in-error-ewv.png)
-
-Google에서 날짜 및 추가 세부 정보 공유 시 이 문서를 업데이트할 예정입니다.
 
 ### <a name="distinguishing-between-cefelectron-and-embedded-web-views"></a>CEF/Electron과 포함된 웹 보기 구분
 

@@ -9,28 +9,34 @@ metadata:
   author: emilyre
   ms.author: v-emread
   ms.date: 03/11/2020
+  ms.openlocfilehash: 1710a89cbe419ea0d44614acf0e15bbe5abc8814
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132340208"
 landingContent:
-  - title: Azure Australia 정보
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure Australia란?
-            url: australia-overview.md
-  - title: 보안
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 데이터 보안
-            url: secure-your-data.md
-          - text: Azure VPN Gateway 구성
-            url: vpn-gateway.md
-          - text: Azure Key Vault
-            url: azure-key-vault.md
-  - title: 게이트웨이
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: '게이트웨이 로깅, 감사 및 표시 유형'
-            url: gateway-log-audit-visibility.md
-          - text: 게이트웨이의 보안 원격 관리
-            url: gateway-secure-remote-administration.md
+- title: Azure Australia 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Australia란?
+      url: australia-overview.md
+- title: 보안
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 데이터 보안
+      url: secure-your-data.md
+    - text: Azure VPN Gateway 구성
+      url: vpn-gateway.md
+    - text: Azure Key Vault
+      url: azure-key-vault.md
+- title: 게이트웨이
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 게이트웨이 로깅, 감사 및 표시 유형
+      url: gateway-log-audit-visibility.md
+    - text: 게이트웨이의 보안 원격 관리
+      url: gateway-secure-remote-administration.md

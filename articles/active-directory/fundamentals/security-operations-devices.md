@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9298c3c6f7d6c634ed5647a6473e0780cd82bf1d
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: bbe50839beb886d22ad05414e220781f87e5f75b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799441"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045467"
 ---
 # <a name="azure-active-directory-security-operations-for-devices"></a>디바이스에 대한 Azure Active Directory 보안 작업
 
@@ -56,19 +56,19 @@ ms.locfileid: "113799441"
 
 * [로그인 로그](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide.md) 
+* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault 로그](../..//key-vault/general/logging.md?tabs=Vault)
 
-Azure Portal에서 Azure AD 감사 로그를 보고 CSV(쉼표로 구분된 값) 또는 JSON(JavaScript Object Notation) 파일로 다운로드할 수 있습니다. Azure Portal에는 모니터링 및 경고의 자동화를 향상시킬 수 있는 다른 도구와 Azure AD 로그를 통합하는 몇 가지 방법이 있습니다.
+Azure Portal에서 Azure AD 감사 로그를 보고, CSV(쉼표로 구분된 값) 또는 JSON(JavaScript Object Notation) 파일로 다운로드할 수 있습니다. Azure Portal에는 모니터링 및 경고를 더 효율적으로 자동화하도록 허용하는 다른 도구와 Azure AD 로그를 통합하는 몇 가지 방법이 있습니다.
 
-* **[Azure Sentinel](../../sentinel/overview.md)** 은 SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 지능형 보안 분석을 지원합니다. 
+* **[Azure Sentinel](../../sentinel/overview.md)** - SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 인텔리전트 보안 분석을 가능하게 합니다. 
 
-* **[Azure Monitor](../..//azure-monitor/overview.md)** 를 사용하면 다양한 조건을 자동으로 모니터링하고 경고할 수 있습니다. 통합 문서를 만들거나 사용하여 다른 원본의 데이터를 결합할 수 있습니다.
+* **[Azure Monitor](../..//azure-monitor/overview.md)** - 다양한 조건에 대한 자동화된 모니터링 및 경고를 가능하게 합니다. 통합 문서를 만들거나 사용하여 다른 원본의 데이터를 결합할 수 있습니다.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) -SIEM과 통합**- [Azure AD 로그는 Azure Event Hub 통합을 통해 Splunk, ArcSight, QRadar 및 Sumo Logic과 같은 다른 SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)에 통합될 수 있습니다.
 
-* **[MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security)** - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱 규정 준수를 확인할 수 있습니다. 
+* **[MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security)** - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱의 규정 준수를 확인할 수 있습니다. 
 
 모니터링하고 경고할 항목의 대부분은 조건부 액세스 정책의 영향입니다. [조건부 액세스 인사이트 및 보고 통합 문서](../conditional-access/howto-conditional-access-insights-reporting.md)를 사용하여 로그인에 대한 하나 이상의 조건부 액세스 정책과 디바이스 상태를 포함한 정책 결과를 조사할 수 있습니다. 이 통합 문서를 사용하면 영향 요약을 보고 특정 기간 동안의 영향을 식별할 수 있습니다. 통합 문서를 사용하여 특정 사용자의 로그인을 조사할 수도 있습니다. 
 
@@ -214,7 +214,7 @@ Windows용 Azure AD 로그인을 사용하면 조직에서 RDP(원격 데스크�
 
 다음 추가 보안 작업 가이드 문서를 참조하세요.
 
-[Azure AD 보안 운영 개요](security-operations-introduction.md)
+[Azure AD 보안 작업 개요](security-operations-introduction.md)
 
 [사용자 계정에 대한 보안 작업](security-operations-user-accounts.md)
 

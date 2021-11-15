@@ -4,23 +4,24 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/01/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10242d867c5d9676b4f6833151863b820b2f11d1
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: d2b3707fd3b9b56131d24274555761f616991600
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481808"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508743"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 설정 구성
 
@@ -93,19 +94,19 @@ Azure 리소스 역할 설정을 구성할 때 Azure AD(Azure Active Directory) 
 > [!NOTE]
 > 리소스 관리자는 지정된 종료 날짜가 있는 모든 할당을 갱신할 수 있습니다. 또한 사용자는 [역할 할당을 확장 또는 갱신](pim-resource-roles-renew-extend.md)하도록 셀프 서비스 요청을 시작할 수 있습니다.
 
-## <a name="require-multi-factor-authentication"></a>다단계 인증 필요
+## <a name="require-multifactor-authentication"></a>다단계 인증 필요
 
 Privileged Identity Management는 서로 다른 두 가지 시나리오에 대해 선택적인 Azure AD Multi-Factor Authentication 적용을 제공합니다.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>활성 할당에 대한 Multi-Factor Authentication 필요
+### <a name="on-active-assignment"></a>활성 할당 시
 
-사용자 또는 그룹을 단기간(예: 하루) 동안 역할에 할당하려는 경우가 있을 수 있습니다. 이 경우 할당된 사용자가 활성화를 요청할 필요가 없습니다. 이 시나리오에서는 사용자가 할당된 순간부터 역할에 대해 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 사용할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
+이 옵션을 사용하려면 관리자가 적격 역할 할당이 아닌 활성 역할을 만들기 전에 다단계 인증을 완료해야 합니다. 사용자가 할당된 순간부터 역할에서 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 활성화할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
 
-할당을 수행하는 리소스 관리자가 자신이 말하는 본인이 맞는지 확인하기 위해 **활성 할당에 대한 Multi-Factor Authentication 필요** 확인란을 선택하여 활성 할당에 다단계 인증을 적용할 수 있습니다.
+활성 역할 할당을 만들 때 다단계 인증을 요구하려면 **활성 할당에 대한 Multi-Factor Authentication 필요** 상자를 선택하여 활성 할당에 다단계 인증을 적용할 수 있습니다.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>활성화 시 Multi-Factor Authentication 필요
+### <a name="on-activation"></a>활성화 시
 
-역할을 수행할 자격이 있는 사용자가 활성화하기 전에 Azure AD Multi-Factor Authentication을 사용하여 본인 인증을 하도록 요구할 수 있습니다. Multi-Factor Authentication을 통해 사용자가 확실하게 본인 인증을 받을 수 있습니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
+역할을 수행할 자격이 있는 사용자가 활성화하기 전에 Azure AD Multi-Factor Authentication을 사용하여 본인 인증을 하도록 요구할 수 있습니다. MFA(Multi-Factor Authentication)를 통해 사용자가 확실하게 본인 인증을 받을 수 있습니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
 
 활성화하기 전에 다단계 인증을 요구하려면 **활성화 시 Multi-Factor Authentication 필요** 확인란을 선택합니다.
 
@@ -113,7 +114,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 ## <a name="activation-maximum-duration"></a>최대 활성화 기간
 
-**최대 활성화 기간** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간을 설정합니다. 이 값은 1~24시간일 수 있습니다.
+**최대 활성화 기간** 슬라이더를 사용하여 역할 할당이 만료되기 전에 활성 상태로 지속되는 최대 시간을 설정합니다. 이 값은 1~24시간일 수 있습니다.
 
 ## <a name="require-justification"></a>근거 필요
 

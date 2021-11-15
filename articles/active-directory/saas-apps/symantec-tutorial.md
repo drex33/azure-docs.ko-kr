@@ -1,5 +1,5 @@
 ---
-title: '자습서: Symantec WSS(Web Security Service)와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Symantec WSS(Web Security Service)와 Azure AD 통합'
 description: Azure Active Directory와 Symantec WSS(Web Security Service) 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/24/2021
+ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 7eb68e8e460c12336e6f10eb65701a542fcc1b3a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 90abed6597f123b291a5af281f109f07df990be5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124751897"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471215"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>자습서: Symantec WSS(Web Security Service)와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-symantec-web-security-service-wss"></a>자습서: Symantec WSS(Web Security Service)와 Azure AD 통합
 
 이 자습서에서는 WSS가 SAML 인증을 사용하여 Azure AD에서 프로비전된 최종 사용자를 인증하고 사용자 또는 그룹 수준 정책 규칙을 적용할 수 있도록 Symantec WSS(Web Security Service) 계정을 Azure AD(Azure Active Directory) 계정과 통합하는 방법에 대해 알아봅니다.
 
 Symantec WSS(Web Security Service)를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- WSS 계정에서 사용하는 모든 최종 사용자와 그룹을 Azure AD Portal에서 관리합니다.
+* WSS 계정에서 사용하는 모든 최종 사용자와 그룹을 Azure AD Portal에서 관리합니다.
 
-- 최종 사용자가 자신의 Azure AD 자격 증명을 사용하여 WSS에서 자신을 인증할 수 있습니다.
+* 최종 사용자가 자신의 Azure AD 자격 증명을 사용하여 WSS에서 자신을 인증할 수 있습니다.
 
-- WSS 계정에 정의된 사용자 및 그룹 수준 정책 규칙을 적용합니다.
+* WSS 계정에 정의된 사용자 및 그룹 수준 정책 규칙을 적용합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,6 +36,9 @@ Symantec WSS(Web Security Service)를 Azure AD와 통합하면 다음과 같은 
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Symantec WSS(Web Security Service) SSO(Single Sign-On)가 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678ff6595f99d634a84b338f9b4b52de09a1d67a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 79c4e91d129a3fb71f9cabb1b8e5dc775e9e4bbd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131059102"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477424"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>REST API 호출을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -41,7 +41,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
 - 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 Azure 역할이 할당되어야 합니다.
 
-  - [가상 머신 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): 가상 머신 확장 집합을 만들고, 가상 머신 확장 집합에서 시스템 및/또는 사용자 할당 관리 ID를 사용하도록 설정하고 제거합니다.
+  - [가상 머신 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): 가상 머신 확장 집합을 만들고, 가상 머신 확장 집합에서 시스템 및/또는 사용자가 할당한 관리 ID를 사용하도록 설정하고 제거합니다.
 
   - [관리 ID 참가자](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) 역할: 사용자 할당 관리 ID를 만듭니다.
 

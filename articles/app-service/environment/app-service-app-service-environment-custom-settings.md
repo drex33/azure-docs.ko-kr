@@ -4,15 +4,15 @@ description: 전체 Azure App Service 환경에 적용되는 설정을 구성합
 author: madsd
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 11/03/2021
 ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e95f8a4434f0ca27c57791edfe8663df9e77bbaa
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 863a3fe9ae7b51f347055def7dcaaaa5445293c9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002716"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510041"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
@@ -49,7 +49,7 @@ App Service Environment가 없는 경우 [템플릿에서 ASEv1을 만드는 방
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Azure 리소스 탐색기를 사용하여 App Service Environment 업데이트
 또는 [Azure 리소스 탐색기](https://resources.azure.com)를 사용하여 App Service Environment를 업데이트할 수 있습니다.  
 
-1. 리소스 탐색기에서 App Service Environment 노드(**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**)로 이동합니다. 그런 다음 업데이트하려는 특정 App Service Environment를 클릭합니다.
+1. 리소스 탐색기에서 App Service Environment에 대한 노드(**subscriptions** >  **{your Subscription}**  > **resourceGroups** >  **{your Resource Group}**  > **providers** > **Microsoft.Web** > **hostingEnvironments**)로 이동합니다. 그런 다음 업데이트하려는 특정 App Service Environment를 클릭합니다.
 2. 오른쪽 창의 위쪽 도구 모음에서 **읽기/쓰기** 를 클릭하여 리소스 탐색기에서 대화형 편집을 허용합니다.  
 3. 파란색 **편집** 단추를 클릭하여 리소스 관리자 템플릿을 편집 가능하도록 설정합니다.
 4. 오른쪽 창의 아래쪽으로 스크롤합니다. **clusterSettings** 특성은 거의 맨 아래쪽에 있습니다. 여기에서 해당 값을 입력하거나 업데이트할 수 있습니다.

@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory 내 앱 구성 계획
+title: 내 앱 구성 계획
 description: 조직에서 내 앱을 효과적으로 사용하기 위한 계획 가이드입니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -8,22 +9,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/25/2021
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
-ms.openlocfilehash: 36da44521169c516888489bd0ac60015adcc432f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eb85784ff37e78557a510c1b09f5656294d50696
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566636"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615831"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Azure Active Directory 내 앱 구성 계획
 
 > [!NOTE]
 > 이 문서는 조직의 내 앱 포털의 구성을 계획해야 하는 IT 전문가를 위해 작성되었습니다.
 >
-> **최종 사용자 문서를 위해서는 [내 앱 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)** 을 참조하세요.
+> **최종 사용자 문서를 위해서는 [내 앱 포털에서 앱에 로그인하여 시작](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)** 을 참조하세요.
 
 Azure AD(Azure Active Directory) 내 앱은 앱을 시작하고 관리하기 위한 웹 기반 포털입니다. 내 앱 페이지를 사용하면 사용자가 작업을 시작하는 공간과 액세스 권한이 있는 모든 애플리케이션을 찾을 수 있습니다. 사용자는 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 내 앱에 액세스합니다.
 
@@ -36,7 +37,6 @@ Azure AD(Azure Active Directory) 내 앱은 앱을 시작하고 관리하기 위
 다음 두 조건이 모두 충족되면 Azure Active Directory 엔터프라이즈 애플리케이션 목록에 있는 모든 애플리케이션이 표시됩니다.
 
 * 앱의 가시성 설정은 true로 설정되어 있습니다.
-
 * 앱은 모든 사용자 또는 그룹에 할당됩니다. 할당된 사용자에 대해 표시됩니다.
 
 포털을 구성하면 적절한 사람들이 적절한 앱을 쉽게 찾을 수 있습니다.
@@ -46,27 +46,18 @@ Azure AD(Azure Active Directory) 내 앱은 앱을 시작하고 관리하기 위
 사용자는 다음을 위해 내 앱 포털에 액세스합니다.
 
 * 액세스 권한이 있는 모든 조직의 Azure AD 연결 애플리케이션을 검색하고 액세스합니다.
-
    * 사용자에게 최상의 환경을 제공하기 위해 앱이 SSO(Single Sign-On)가 구성되었는지 확인하는 것이 가장 좋습니다.
-
 * 셀프 서비스를 사용하도록 구성된 새 앱에 대한 액세스를 요청합니다.
-
 * 앱의 개인 컬렉션을 만듭니다.
-
 * 애플리케이션에 대한 액세스 권한을 부여하는 데 사용되는 그룹 소유자 또는 위임된 컨트롤의 역할을 할당받은 경우 다른 사용자를 위해 앱에 대한 액세스를 관리합니다.
 
 관리자는 다음을 구성할 수 있습니다.
 
 * 서비스 약관을 포함한 [승인 환경](../manage-apps/configure-user-consent.md).
-
 * [셀프 서비스 애플리케이션 검색 및 액세스 요청](../manage-apps/access-panel-manage-self-service-access.md)
-
 * [애플리케이션 컬렉션](../manage-apps/access-panel-collections.md).
-
 * 애플리케이션에 아이콘 할당
-
 * 사용자에게 친숙한 애플리케이션 이름
-
 * 내 앱에 표시되는 회사 브랜딩
 
 ## <a name="plan-consent-configuration"></a>동의 구성 계획
@@ -102,7 +93,6 @@ Microsoft는 [이메일에 대한 사용자 지정 가능한 템플릿과 내 �
 Azure AD는 여러 SSO 옵션을 지원합니다.
 
 * 자세히 알아보려면 [Azure AD의 Single Sign-On 옵션](sso-options.md)을 참조하세요.
-
 * Azure AD를 앱의 ID 공급자로 사용하는 방법을 자세히 알아보려면 [애플리케이션 관리에 대한 빠른 시작 시리즈](../manage-apps/view-applications-portal.md)를 참조하세요.
 
 ### <a name="use-federated-sso-if-possible"></a>가능하면 페더레이션된 SSO 사용
@@ -120,12 +110,11 @@ Azure AD는 여러 SSO 옵션을 지원합니다.
 
 ![스크린샷](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
-확장에 대한 자세한 내용은 [내 앱 브라우저 확장 설치](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+확장에 대한 자세한 내용은 [내 앱 브라우저 확장 설치](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
-이러한 애플리케이션을 통합해야 하는 경우 [지원되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용하여 확장을 대규모로 배포하는 메커니즘을 정의해야 합니다. 다음 옵션을 사용할 수 있습니다.
+이러한 애플리케이션을 통합해야 하는 경우 [지원되는 브라우저](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 사용하여 확장을 대규모로 배포하는 메커니즘을 정의해야 합니다. 다음 옵션을 사용할 수 있습니다.
 
 * [Chrome, Firefox, Microsoft Edge 또는 IE에 대한 사용자 중심 다운로드 및 구성](../user-help/my-apps-portal-end-user-access.md)
-
 * [Internet Explorer용 Configuration Manager](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 확장을 통해 사용자는 검색 표시줄에서 앱을 시작하고 최근에 사용한 애플리케이션에 대한 액세스를 찾고 내 앱 페이지에 대한 링크를 얻을 수 있습니다.
@@ -151,7 +140,6 @@ Azure AD는 여러 SSO 옵션을 지원합니다.
 최종 사용자는 다음을 통해 환경을 사용자 지정할 수도 있습니다.
 
 * 자신의 앱 컬렉션을 만듭니다.
-
 * [앱 컬렉션을 숨기고 다시 정렬](access-panel-collections.md)합니다.
 
 ![셀프 서비스 구성의 스크린샷](./media/my-apps-deployment-plan/collections.png)
@@ -174,9 +162,7 @@ Azure AD는 여러 SSO 옵션을 지원합니다.
 사용자가 내 앱 패널을 통해 애플리케이션에 대한 액세스를 검색하고 요청하도록 설정할 수 있습니다. 그러기 위해서는 먼저 다음을 수행해야 합니다.
 
 * 셀프 서비스 그룹 관리 사용
-
 * SSO에 대해 앱 사용
-
 * 애플리케이션 액세스를 위한 그룹 만들기
 
 ![내 앱 셀프 서비스 구성의 스크린샷](./media/my-apps-deployment-plan/my-apps-self-service.png)

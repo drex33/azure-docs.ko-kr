@@ -11,140 +11,146 @@ metadata:
   ms.date: 07/08/2021
   author: CelesteDG
   ms.author: CelesteDG
+  ms.openlocfilehash: 4ce23b540b79bfc421a4ee44717bbc47d10cde9f
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132314979"
 landingContent:
-  - title: 기본 사항
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: 애플리케이션 관리란?
-            url: what-is-application-management.md
-      - linkListType: concept
-        links:
-          - text: Azure AD가 어떤 앱 유형의 앱을 지원하는가?
-            url: ../develop/v2-app-types.md
-          - text: Single Sign-On이란?
-            url: what-is-single-sign-on.md
-  - title: 앱 개발
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 인증 및 권한 부여
-            url: ../develop/authentication-vs-authorization.md
-      - linkListType: how-to-guide
-        links:
-          - text: Microsoft ID 또는 소셜 계정을 사용하여 앱 빌드
-            url: ../develop/v2-overview.md
-  - title: 테넌트와 앱 통합
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 앱 통합 시작
-            url: plan-an-application-integration.md
-          - text: 사전 통합된 클라우드 응용 프로그램 추가
-            url: add-application-portal.md
-          - text: 앱 등록
-            url: ../develop/quickstart-register-app.md
-          - text: AD FS 앱을 Azure AD에 마이그레이션
-            url: migrate-adfs-apps-to-azure.md
-  - title: 앱 구성
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 앱 속성 구성
-            url: add-application-portal-configure.md
-          - text: 사용자 및 그룹 할당
-            url: assign-user-or-group-access-portal.md
-          - text: Single Sign-On 구성
-            url: plan-sso-deployment.md
-          - text: 앱 프로비전
-            url: ../governance/what-is-provisioning.md
-          - text: 내 앱 구성
-            url: my-apps-deployment-plan.md
-  - title: 앱 보호
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 조건부 액세스 설정
-            url: ../conditional-access/concept-conditional-access-cloud-apps.md
-          - text: 다단계 인증 설정
-            url: ../authentication/howto-mfa-getstarted.md
-          - text: 인증서 관리
-            url: manage-certificates-for-federated-single-sign-on.md
-          - text: 테넌트 제한 설정
-            url: tenant-restrictions.md
-          - text: 토큰 암호화 구성
-            url: howto-saml-token-encryption.md
-          - text: Cloud App Security 사용
-            url: cloud-app-security.md
-          - text: 과도한 권한 및 의심스러운 앱에 대한 조치
-            url: manage-application-permissions.md
-  - title: 앱 액세스 관리
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: ID 거버넌스
-            url: ../governance/identity-governance-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: 역할 할당
-            url: ../develop/howto-add-app-roles-in-azure-ad-apps.md
-          - text: 사용자 동의 구성
-            url: configure-user-consent.md
-          - text: 관리자 동의 구성
-            url: configure-admin-consent-workflow.md
-          - text: 권한 분류 구성
-            url: configure-permission-classifications.md
-          - text: 권한 관리
-            url: ../governance/entitlement-management-scenarios.md
-  - title: 앱 유지 관리
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: '테넌트에서 앱 목록 보기, 검색, 정렬, 필터링'
-            url: view-applications-portal.md
-          - text: 로그인 오류 문제 해결
-            url: ../reports-monitoring/howto-troubleshoot-sign-in-errors.md
-          - text: 앱에 대한 사용자 로그인 비활성화
-            url: disable-user-sign-in-portal.md
-          - text: 앱에 대한 사용자 액세스 권한 제거
-            url: methods-for-removing-user-access.md
-          - text: 앱 삭제
-            url: delete-application-portal.md
-  - title: 앱 모니터링
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 로그인 로그
-            url: ../reports-monitoring/concept-sign-ins.md
-          - text: 사용량 및 인사이트 보고서
-            url: ../reports-monitoring/concept-usage-insights-report.md
-          - text: 감사 로그
-            url: ../reports-monitoring/concept-audit-logs.md
-          - text: 프로비저닝 로그
-            url: ../reports-monitoring/concept-provisioning-logs.md
-      - linkListType: how-to-guide
-        links:
-          - text: 로그 다운로드
-            url: ../reports-monitoring/howto-download-logs.md
-          - text: 활동 보고서 찾기
-            url: ../reports-monitoring/howto-find-activity-reports.md
-          - text: 액세스 검토 설정
-            url: ../governance/deploy-access-reviews.md
-  - title: 온-프레미스 앱에 대한 원격 액세스
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 애플리케이션 프록시
-            url: ../app-proxy/application-proxy.md
-      - linkListType: how-to-guide
-        links:
-          - text: 애플리케이션 프록시 배포
-            url: ../app-proxy/application-proxy-deployment-plan.md
-          - text: 커넥터 설정
-            url: ../app-proxy/application-proxy-connectors.md
-          - text: Single Sign-On 구성
-            url: ../app-proxy/application-proxy-config-sso-how-to.md
-          - text: 네이티브 클라이언트 응용 프로그램 게시
-            url: ../app-proxy/application-proxy-configure-native-client-application.md
-          - text: 클레임 인식 애플리케이션 게시
-            url: ../app-proxy/application-proxy-configure-for-claims-aware-applications.md
+- title: 기본 사항
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 애플리케이션 관리란?
+      url: what-is-application-management.md
+  - linkListType: concept
+    links:
+    - text: Azure AD가 어떤 앱 유형의 앱을 지원하는가?
+      url: ../develop/v2-app-types.md
+    - text: Single Sign-On이란?
+      url: what-is-single-sign-on.md
+- title: 앱 개발
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 인증 및 권한 부여
+      url: ../develop/authentication-vs-authorization.md
+  - linkListType: how-to-guide
+    links:
+    - text: Microsoft ID 또는 소셜 계정을 사용하여 앱 빌드
+      url: ../develop/v2-overview.md
+- title: 테넌트와 앱 통합
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 앱 통합 시작
+      url: plan-an-application-integration.md
+    - text: 사전 통합된 클라우드 응용 프로그램 추가
+      url: add-application-portal.md
+    - text: 앱 등록
+      url: ../develop/quickstart-register-app.md
+    - text: AD FS 앱을 Azure AD에 마이그레이션
+      url: migrate-adfs-apps-to-azure.md
+- title: 앱 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 앱 속성 구성
+      url: add-application-portal-configure.md
+    - text: 사용자 및 그룹 할당
+      url: assign-user-or-group-access-portal.md
+    - text: Single Sign-On 구성
+      url: plan-sso-deployment.md
+    - text: 앱 프로비전
+      url: ../governance/what-is-provisioning.md
+    - text: 내 앱 구성
+      url: my-apps-deployment-plan.md
+- title: 앱 보호
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 조건부 액세스 설정
+      url: ../conditional-access/concept-conditional-access-cloud-apps.md
+    - text: 다단계 인증 설정
+      url: ../authentication/howto-mfa-getstarted.md
+    - text: 인증서 관리
+      url: manage-certificates-for-federated-single-sign-on.md
+    - text: 테넌트 제한 설정
+      url: tenant-restrictions.md
+    - text: 토큰 암호화 구성
+      url: howto-saml-token-encryption.md
+    - text: Defender for Cloud 앱 사용
+      url: cloud-app-security.md
+    - text: 과도한 권한 및 의심스러운 앱에 대한 조치
+      url: manage-application-permissions.md
+- title: 앱 액세스 관리
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ID 거버넌스
+      url: ../governance/identity-governance-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 역할 할당
+      url: ../develop/howto-add-app-roles-in-azure-ad-apps.md
+    - text: 사용자 동의 구성
+      url: configure-user-consent.md
+    - text: 관리자 동의 구성
+      url: configure-admin-consent-workflow.md
+    - text: 권한 분류 구성
+      url: configure-permission-classifications.md
+    - text: 권한 관리
+      url: ../governance/entitlement-management-scenarios.md
+- title: 앱 유지 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 테넌트에서 앱 목록 보기, 검색, 정렬, 필터링
+      url: view-applications-portal.md
+    - text: 로그인 오류 문제 해결
+      url: ../reports-monitoring/howto-troubleshoot-sign-in-errors.md
+    - text: 앱에 대한 사용자 로그인 비활성화
+      url: disable-user-sign-in-portal.md
+    - text: 앱에 대한 사용자 액세스 권한 제거
+      url: methods-for-removing-user-access.md
+    - text: 앱 삭제
+      url: delete-application-portal.md
+- title: 앱 모니터링
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 로그인 로그
+      url: ../reports-monitoring/concept-sign-ins.md
+    - text: 사용량 및 인사이트 보고서
+      url: ../reports-monitoring/concept-usage-insights-report.md
+    - text: 감사 로그
+      url: ../reports-monitoring/concept-audit-logs.md
+    - text: 프로비저닝 로그
+      url: ../reports-monitoring/concept-provisioning-logs.md
+  - linkListType: how-to-guide
+    links:
+    - text: 로그 다운로드
+      url: ../reports-monitoring/howto-download-logs.md
+    - text: 활동 보고서 찾기
+      url: ../reports-monitoring/howto-find-activity-reports.md
+    - text: 액세스 검토 설정
+      url: ../governance/deploy-access-reviews.md
+- title: 온-프레미스 앱에 대한 원격 액세스
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 애플리케이션 프록시
+      url: ../app-proxy/application-proxy.md
+  - linkListType: how-to-guide
+    links:
+    - text: 애플리케이션 프록시 배포
+      url: ../app-proxy/application-proxy-deployment-plan.md
+    - text: 커넥터 설정
+      url: ../app-proxy/application-proxy-connectors.md
+    - text: Single Sign-On 구성
+      url: ../app-proxy/application-proxy-config-sso-how-to.md
+    - text: 네이티브 클라이언트 응용 프로그램 게시
+      url: ../app-proxy/application-proxy-configure-native-client-application.md
+    - text: 클레임 인식 애플리케이션 게시
+      url: ../app-proxy/application-proxy-configure-for-claims-aware-applications.md

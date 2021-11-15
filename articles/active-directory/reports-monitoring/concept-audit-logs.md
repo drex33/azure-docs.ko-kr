@@ -4,7 +4,7 @@ description: Azure Active Directory의 감사 로그 개요입니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ccca25bf140a51755c229f8c438e053a7ac7de
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d551124491c33cd74f3fbdf1f4b401ada99399d4
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319266"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997175"
 ---
 # <a name="audit-logs-in-azure-active-directory"></a>Azure Active Directory의 감사 로그 
 
@@ -103,7 +103,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 ![감사 로그 열기](./media/concept-audit-logs/audit-logs-menu.png)
 
-[이 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents)를 사용하여 감사 로그를 직접 얻을 수도 있습니다.
+또한 [이 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents)를 사용하여 감사 로그로 직접 이동할 수 있습니다.
 
 
 Microsoft Graph API를 통해서 감사 로그에 액세스할 수도 있습니다.
@@ -227,6 +227,9 @@ Graph API를 사용하여 모든 감사 활동 목록을 가져올 수 있습니
 [Microsoft 365 관리 센터](/office365/admin/admin-overview/about-the-admin-center)에서 Microsoft 365 활동 로그를 볼 수 있습니다. Microsoft 365 활동 로그와 Azure AD 활동 로그는 여러 디렉터리 리소스를 공유하지만 Microsoft 365 관리 센터에서만 Microsoft 365 활동 로그를 전체적으로 확인할 수 있습니다. 
 
 [Office 365 관리 API](/office/office-365-management-api/office-365-management-apis-overview)를 사용하여 프로그래밍 방식으로 Microsoft 365 활동 로그에 액세스할 수도 있습니다.
+
+> [!NOTE]
+> 대부분의 독립 실행형 또는 번들 Microsoft 365 구독에는 Microsoft 365 데이터 센터 경계 내의 일부 하위 시스템에 대한 백 엔드 종속성이 있습니다. 종속성에는 디렉터리를 동기화된 상태로 유지하고 기본적으로 Exchange Online에 대한 구독 옵트인에서 무료로 온보딩을 가능하게 하기 위해 일부 정보 쓰기 저장이 필요합니다. 이러한 쓰기 저장의 경우 감사 로그 항목은 "Microsoft Substrate Management"에서 수행하는 작업을 표시합니다. 이러한 감사 로그 항목은 Exchange Online에서 Azure AD로 실행한 만들기/업데이트/삭제 작업을 나타냅니다. 항목은 정보 제공용이므로 어떤 조치도 필요하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

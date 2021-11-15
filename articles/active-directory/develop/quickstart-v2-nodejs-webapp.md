@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 26e0ae48c65953312757eb7ac4d6cb51ba2a44c5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f0b75b49ce36ef4fb3e45b76ace5402dd5c39efe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590084"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456198"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
@@ -47,7 +47,7 @@ ms.locfileid: "128590084"
 1. **프런트 채널 로그 아웃 URL**`https://localhost:3000`을 입력합니다.
 1. 이 샘플에서는 사용자를 로그인할 수 있도록 [암시적 권한 부여 흐름](./v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 하므로, **암시적 권한 부여 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택합니다.
 1. **구성** 을 선택합니다.
-1. **관리** 아래에서 **인증서 및 비밀** > **새 클라이언트 암호** 를 선택합니다.
+1. **관리** 아래에서 **인증서 및 비밀** > **클라이언트 암호** > **새 클라이언트 암호** 를 선택합니다.
 1. 키 설명(인스턴스 앱 비밀에 대한)을 입력합니다.
 1. 키 기간을 **1년 후, 2년 후** 또는 **만료 기한 제한 없음** 으로 선택합니다.
 1. **추가** 를 선택합니다. 키 값이 표시됩니다. 키 값을 복사하고 나중에 사용할 수 있도록 안전한 위치에 저장합니다.

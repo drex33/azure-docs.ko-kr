@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb1347b0dfcb2be5c485e503fb87c5a70dd7d30c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92363456"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153789"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>앱을 게시자 확인으로 표시
 
@@ -42,13 +42,13 @@ ms.locfileid: "92363456"
 
 1. 게시자 확인으로 표시할 앱 및 파트너 센터의 MPN 계정을 변경할 권한이 있는 조직(Azure AD) 계정에 [다단계 인증](../fundamentals/concept-fundamentals-mfa-get-started.md)을 사용하여 로그인했는지 확인합니다.
 
-    - Azure AD에서 이 사용자는 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 글로벌 관리자와 같은 [역할](../roles/permissions-reference.md) 중 하나의 구성원이어야 합니다. 
+    - Azure AD에서 이 사용자는 애플리케이션 관리자, 클라우드 애플리케이션 관리자 또는 전역 관리자와 같은 [역할](../roles/permissions-reference.md) 중 하나의 구성원이어야 합니다. 
 
     - 파트너 센터에서 이 사용자는 [역할](/partner-center/permissions-overview)로 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할) 중 하나가 할당되어야 합니다. 
 
-1. 앱 등록 포털로 이동합니다.  
+1. **앱 등록** 블레이드로 이동합니다.  
 
-1. 게시자 확인으로 표시하고자 하는 앱을 클릭하고 브랜딩 블레이드를 엽니다. 
+1. 게시자 확인으로 표시하고자 하는 앱을 클릭하고 **브랜딩** 블레이드를 엽니다. 
 
 1. 앱의 [게시자 도메인](howto-configure-publisher-domain.md)이 설정되어 있는지 확인합니다. 
 

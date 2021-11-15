@@ -139,7 +139,7 @@
           href: ./afds/waf-front-door-tutorial-geo-filtering.md
         - name: 모니터링 및 로깅
           href: ./afds/waf-front-door-monitor.md
-    - name: 웹 애플리케이션 방화벽을 사용하는 Azure Sentinel 사용
+    - name: Web Application Firewall에서 Microsoft Sentinel 사용
       href: waf-sentinel.md
     - name: 문제 해결
       items:

@@ -3,17 +3,17 @@ title: Azure IoT Central이란? | Microsoft Docs
 description: Azure IoT Central은 IoT 솔루션 만들기를 간소화하고 IoT 관리 작업 및 개발에 대한 부담과 및 비용을 줄여주는 IoT 애플리케이션 플랫폼입니다. 이 문서에서는 Azure IoT Central의 기능에 대한 개요를 제공합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/19/2021
+ms.date: 11/05/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperf-fy21q2, contperf-fy22q1
-ms.openlocfilehash: 98de0994e430ccf8bc3ab5026e9ef739c603368a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
+ms.openlocfilehash: 2362bfae3d06a217b24f2297ea00ac6a7e3732c5
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131024280"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866699"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -23,25 +23,16 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 
 이 문서에서는 IoT Central에 대해 개략적으로 설명합니다.
 
-- 프로젝트와 관련된 일반적인 사용자 역할
 - 애플리케이션을 만드는 방법.
 - 디바이스를 애플리케이션에 연결하는 방법
 - 애플리케이션을 다른 서비스와 통합하는 방법
 - 애플리케이션을 관리하는 방법
+- 프로젝트와 관련된 일반적인 사용자 역할
 - 가격 책정 옵션
-
-## <a name="user-roles"></a>사용자 역할
-
-IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 네 개의 사용자 역할을 나타냅니다.
-
-- _솔루션 작성기_ 는 [애플리케이션 생성](quick-deploy-iot-central.md), [규칙 및 작업 구성](quick-configure-rules.md), [다른 서비스와의 통합 정의](quick-export-data.md) 및 운영자와 디바이스 개발자를 위해 애플리케이션을 추가로 사용자 지정하는 작업을 담당합니다.
-- _운영자_ 는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices-individually.md)합니다.
-- _관리자_ 는 애플리케이션 내 [사용자 역할 및 권한](howto-administer.md) 관리와 [관리 ID의 다른 서비스로의 안전한 연결 구성](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)과 같은 관리 작업을 담당합니다.
-- _디바이스 개발자_ 는 애플리케이션에 연결된 [디바이스에서 실행되는 코드를 만들](concepts-telemetry-properties-commands.md)거나 [IoT Edge 모듈](concepts-iot-edge.md)을 만듭니다.
 
 ## <a name="create-your-iot-central-application"></a>IoT Central 애플리케이션 만들기
 
-새로운 IoT Central 애플리케이션을 빠르게 배포한 다음, 특정 요구 사항에 맞게 사용자 지정할 수 있습니다. 일반 _애플리케이션 템플릿_ 또는 산업에 초점을 둔 애플리케이션 템플릿 중 하나를 시작합니다.
+[새로운 IoT Central 애플리케이션을 빠르게 배포](quick-deploy-iot-central.md)한 다음, 특정 요구 사항에 맞게 사용자 지정할 수 있습니다. 일반 _애플리케이션 템플릿_ 또는 산업에 초점을 둔 애플리케이션 템플릿 중 하나를 시작합니다.
 
 - [정품](../retail/overview-iot-central-retail.md)
 - [에너지](../energy/overview-iot-central-energy.md)
@@ -80,7 +71,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 ### <a name="customize-the-ui"></a>UI 사용자 지정
 
-또한 애플리케이션의 일상적인 사용을 담당하는 운영자를 위해 IoT Central 애플리케이션 UI를 사용자 지정할 수 있습니다. 사용자 지정 작업은 다음과 같습니다.
+애플리케이션의 일상적인 사용을 담당하는 운영자를 위해 IoT Central 애플리케이션 UI를 사용자 지정할 수 있습니다. 사용자 지정 작업은 다음과 같습니다.
 
 - 운영자가 인사이트를 발견하고 문제를 더 빨리 해결할 수 있도록 사용자 지정 대시보드 구성.
 - 연결된 디바이스에서 시계열 데이터를 탐색하는 사용자 지정 분석 구성.
@@ -136,6 +127,15 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 
 - *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5대의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.
 - *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 0**, **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [IoT Central 가격 책정](https://aka.ms/iotcentral-pricing)에 대해 자세히 알아보세요.
+
+## <a name="user-roles"></a>사용자 역할
+
+IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 네 개의 사용자 역할을 나타냅니다.
+
+- _솔루션 작성기_ 는 [애플리케이션 생성](quick-deploy-iot-central.md), [규칙 및 작업 구성](quick-configure-rules.md), [다른 서비스와의 통합 정의](quick-export-data.md) 및 운영자와 디바이스 개발자를 위해 애플리케이션을 추가로 사용자 지정하는 작업을 담당합니다.
+- _운영자_ 는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices-individually.md)합니다.
+- _관리자_ 는 애플리케이션 내 [사용자 역할 및 권한](howto-administer.md) 관리와 [관리 ID의 다른 서비스로의 안전한 연결 구성](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)과 같은 관리 작업을 담당합니다.
+- _디바이스 개발자_ 는 애플리케이션에 연결된 [디바이스에서 실행되는 코드를 만들](concepts-telemetry-properties-commands.md)거나 [IoT Edge 모듈](concepts-iot-edge.md)을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

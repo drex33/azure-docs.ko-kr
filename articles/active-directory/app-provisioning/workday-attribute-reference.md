@@ -3,7 +3,7 @@ title: Azure Active Directory에 대한 Workday 특성 참조
 description: Azure Active Directory의 XPATH 쿼리를 사용하여 Workday에서 가져올 수 있는 특성에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: beb15748086db6d2fb813a4ff636650d38472e36
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 7ab95bc97f76ac58009ad5f31a793cce8522100d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784686"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990542"
 ---
 # <a name="workday-attribute-reference-for-azure-active-directory"></a>Azure Active Directory에 대한 Workday 특성 참조
 
@@ -205,7 +205,7 @@ ms.locfileid: "109784686"
 | 76 | UserID                                | wd:Worker/wd:Worker\_Data/wd:User\_ID/text\(\)                                                                                                                                                                                                                                                                                                                                         |
 | 77 | WID                                   | wd:Worker/wd:Worker\_Reference/wd:ID\[@wd:type='WID'\]/text\(\)                                                                                                                                                                                                                                                                                                                        |
 | 78 | WorkerID                              | wd:Worker/wd:Worker\_Data/wd:Worker\_ID/text\(\)                                                                                                                                                                                                                                                                                                                                       |
-| 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Worker\_Type\_Reference/wd:ID\[@wd:type="Employee\_Type\_ID"\]/text\(\)                                                                                                                                                                                                 |
+| 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary\_Job=1]/wd:Position\_Data/wd:Worker\_Type\_Reference\[wd:ID/@wd:type="Contingent\_Worker\_Type\_ID" 또는 wd:ID/@wd:type="Employee\_Type\_ID"]/@wd:Descriptor                                                                                                                                                                                                 |
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
 ## <a name="custom-xpath-values"></a>사용자 지정 XPATH 값

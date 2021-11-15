@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58924d8ea9aef9e5c5faa5771572acec99587cdd
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88612472"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234816"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인 구성 후 작업
 
@@ -63,7 +63,7 @@ SCP(서비스 연결점)는 디바이스에서 자동 등록에 사용하는 Azu
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Windows 하위 수준 디바이스에 Azure AD Seamless SSO를 사용
 
-조직에서 암호 해시 동기화 또는 통과 인증을 사용하여 Azure AD에 로그인하는 경우 해당 로그인 방법에 Azure AD Seamless SSO를 사용하여 Windows 하위 수준 디바이스를 인증합니다(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+조직에서 암호 해시 동기화 또는 통과 인증을 사용하여 Azure AD에 로그인하는 경우 해당 로그인 방법에 [Azure AD Seamless SSO](/azure/active-directory/connect/active-directory-aadconnect-sso)를 사용하여 Windows 하위 수준 디바이스를 인증합니다.
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Windows 하위 수준 디바이스에 대한 Azure AD 정책을 설정
 

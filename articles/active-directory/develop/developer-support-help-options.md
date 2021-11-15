@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2021
+ms.date: 10/28/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: has-adal-ref
-ms.openlocfilehash: 931d7385b9c7afe48d7c163aad3570c8485ae8d1
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: b99b69b403603d347dfd49fd97de580a3871e799
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122767890"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466170"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -26,10 +26,10 @@ ms.locfileid: "122767890"
 ## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='./media/common/logo_azure.svg'>
 </div>
 
-지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
+다양한 [Azure 지원 옵션](https://azure.microsoft.com/support/plans)을 살펴보고 가장 적합한 계획을 선택합니다. Azure Portal에서 지원 요청을 만들고 관리하는 두 가지 옵션이 있습니다.
 
 - Azure 지원 플랜이 이미 있는 경우 [여기에서 지원 요청을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -39,7 +39,7 @@ ms.locfileid: "122767890"
 
 <div class='icon is-large'>
     <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
-</div>             
+</div>
 
 Microsoft 엔지니어, Azure MVP(Most Valuable Professional), 전문가 커뮤니티의 구성원으로부터 직접 ID 앱 개발과 관련된 질문에 대한 답변을 받을 수 있습니다.
 
@@ -47,9 +47,8 @@ Microsoft 엔지니어, Azure MVP(Most Valuable Professional), 전문가 커뮤�
 
 Microsoft Q&A에서 검색하여 문제에 대한 답변을 찾을 수 없는 경우 새 질문을 제출합니다. [높은 수준의 질문](/answers/articles/24951/how-to-write-a-quality-question.html)을 하기 위해 다음 태그를 사용할 수 있습니다.
 
-| 구성 요소/영역| 태그들  |
-|------------|---------------------------|
-| ADAL(Active Directory 인증 라이브러리)                              | [[adal]](/answers/topics/azure-ad-adal-deprecation.html)                |
+| 구성 요소/영역                                                              | 태그들                                                                    |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | MSAL(Microsoft 인증 라이브러리)                                     | [[msal]](/answers/topics/azure-ad-msal.html)                            |
 | OWIN(Open Web Interface for .NET) 미들웨어                               | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 | [Azure AD B2B/외부 ID](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
@@ -65,22 +64,22 @@ Microsoft Q&A에서 검색하여 문제에 대한 답변을 찾을 수 없는 �
 
 MSAL(Microsoft 인증 라이브러리)에 대한 도움이 필요한 경우 GitHub의 리포지토리에서 문제를 엽니다.
 
-| MSAL 라이브러리 | GitHub 문제 URL|
-| --- | --- |
-| Android용 MSAL | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
-| MSAL Angular | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| iOS 및 macOS용 MSAL| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
-| MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
-| MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
-| MSAL 노드 | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
-| MSAL 반응  | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL                   | GitHub 문제 URL                                                              |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| Android용 MSAL       | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
+| MSAL Angular           | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
+| iOS 및 macOS용 MSAL | https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues    |
+| MSAL Java              | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues    |
+| MSAL.js                | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
+| MSAL.NET               | https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues  |
+| MSAL 노드              | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
+| MSAL Python            | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues  |
+| MSAL 반응              | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>업데이트 및 새 릴리스의 최신 정보 수신
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
+    <img alt='Stay informed' src='./media/common/i_blog.svg'>
 </div>
 
 - [Azure 업데이트](https://azure.microsoft.com/updates/?category=identity): 중요한 제품 업데이트, 로드맵, 공지에 대해 알아봅니다.

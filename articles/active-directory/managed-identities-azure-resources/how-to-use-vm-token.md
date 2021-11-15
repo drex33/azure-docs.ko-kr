@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db83f9f2f5e7f93686506ec0f7f94153ef3501e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: f923cafa9e43d965674050e43c2f2c6a14917dea
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080492"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266142"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -54,7 +54,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 | [C#을 사용하여 토큰 가져오기](#get-a-token-using-c) | C# 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [Java를 사용하여 토큰 가져오기](#get-a-token-using-java) | Java 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [Go를 사용하여 토큰 가져오기](#get-a-token-using-go) | Go 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
-| [Azure PowerShell을 사용하여 토큰 가져오기](#get-a-token-using-azure-powershell) | PowerShell 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
+| [PowerShell을 사용하여 토큰 가져오기](#get-a-token-using-powershell) | PowerShell 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [CURL을 사용하여 토큰 가져오기](#get-a-token-using-curl) | Bash/CURL 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | 토큰 캐싱 처리 | 만료된 액세스 토큰을 처리하는 지침 |
 | [오류 처리](#error-handling) | Azure 리소스에 대한 관리 ID 토큰 엔드포인트에서 반환된 HTTP 오류를 처리하기 위한 지침 |
@@ -282,7 +282,7 @@ func main() {
 }
 ```
 
-## <a name="get-a-token-using-azure-powershell"></a>Azure PowerShell을 사용하여 토큰 가져오기
+## <a name="get-a-token-using-powershell"></a>PowerShell을 사용하여 토큰 가져오기
 
 다음 예제에는 PowerShell 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 방법을 보여줍니다.
 
@@ -347,7 +347,7 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 
 오류가 발생하면 해당하는 HTTP 응답 본문에는 다음과 같은 오류 세부 정보와 함께 JSON이 포함됩니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 | ------- | ----------- |
 | error   | 오류 식별자 |
 | error_description | 오류의 자세한 설명입니다. **오류 설명은 언제든지 변경할 수 있습니다. 오류 설명의 값을 기반으로 분기하는 코드를 작성하지 마십시오.**|
@@ -367,6 +367,9 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 |           | unsupported_response_type | 권한 부여 서버는 이 메서드를 사용하여 액세스 토큰을 획득하도록 지원하지 않습니다. |  |
 |           | invalid_scope | 요청된 범위가 잘못되었거나, 알려지지 않거나, 형식이 잘못되었습니다. |  |
 | 500 내부 서버 오류 | 알 수 없음 | Active directory에서 토큰을 검색하지 못했습니다. 자세한 내용은 *\<file path\>* 에서 로그를 참조하세요. | VM에서 Azure 리소스에 대한 관리ID가 사용되도록 설정되어 있는지 확인합니다. VM을 구성하는 데 도움이 필요한 경우 [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-portal-windows-vm.md)을 참조하세요.<br><br>또한 HTTP GET 요청 URI의 형식, 특히 쿼리 문자열에서 지정된 리소스 URI가 올바르게 지정되었는지 확인합니다. 예제는 이전 REST 섹션에서 "샘플 요청"을 참조하세요. 또는 서비스 및 각 리소스 ID의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](./services-support-managed-identities.md)를 참조하세요.
+
+> [!IMPORTANT]
+> - IMDS는 프록시 뒤에서 사용할 수 없으며 지원되지 않습니다. 프록시를 바이패스하는 방법의 예는 [Azure 인스턴스 메타데이터 샘플](https://github.com/microsoft/azureimds)을 참조하세요.  
 
 ## <a name="retry-guidance"></a>다시 시도 지침 
 

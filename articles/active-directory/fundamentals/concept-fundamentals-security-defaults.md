@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 09/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: a82b2632d5415091986c418ca7cd3871e519b374
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: b88cb7baa3c8eb8d40bd23d8697f563406bd1fdb
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634187"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535018"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
@@ -58,17 +58,21 @@ Microsoft는 모든 사용자가 보안 기본값을 사용할 수 있도록 합
 
 권한 있는 액세스 권한이 있는 사용자는 사용자 환경에 대해 강화된 액세스 권한을 갖습니다. 이러한 계정은 권한이 크기 때문에 특별히 주의해서 처리해야 합니다. 권한 있는 계정의 보호를 향상하는 한 가지 일반적인 방법은 로그인 시 보다 강력한 형태의 계정 확인을 요구하는 것입니다. Azure AD에서 다단계 인증을 요구하면 보다 강력한 계정 확인이 가능합니다.
 
-Azure AD Multi-Factor Authentication 등록을 완료한 후에는 로그인할 때마다 추가 인증을 수행하기 위해 다음 9개의 Azure AD 관리자 역할이 필요합니다.
+Azure AD Multi-Factor Authentication 등록을 완료한 후에는 로그인할 때마다 추가 인증을 수행하기 위해 다음 Azure AD 관리자 역할이 필요합니다.
 
-- 전역 관리자
-- SharePoint 관리자
-- Exchange 관리자
-- 조건부 액세스 관리자
-- 보안 관리자
-- 기술 지원팀 관리자
-- 대금 청구 관리자
-- 사용자 관리자
+- 글로벌 관리자
+- 애플리케이션 관리자
 - 인증 관리자
+- 대금 청구 관리자
+- 클라우드 애플리케이션 관리자
+- 조건부 액세스 관리자
+- Exchange 관리자
+- 기술 지원팀 관리자
+- 암호 관리자
+- 권한 있는 인증 관리자
+- 보안 관리자
+- SharePoint 관리자
+- 사용자 관리자
 
 > [!WARNING]
 > 디렉터리에 전역 관리자 권한이 할당된 계정이 두 개 이상 있는지 확인합니다. 이렇게 하면 전역 관리자 한명이 잠겨 있는 경우에 도움이 됩니다. 자세한 내용은 [Azure AD의 응급 액세스 계정 관리](../roles/security-emergency-access.md) 문서를 참조하세요.

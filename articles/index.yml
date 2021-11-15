@@ -10,7 +10,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/08/2021
+  ms.date: 11/07/2021
   featureFlags:
     - clicktale
 highlightedContent:
@@ -518,6 +518,12 @@ productDirectory:
         - featured
         - compute
       url: ./virtual-machines/index.yml
+    - title: Azure Container Apps(미리 보기)
+      summary: 서버리스 컨테이너를 사용하여 최신 앱 및 마이크로 서비스 빌드 및 배포
+      imageSrc: ./media/index/container-apps.svg
+      azureCategories:
+        - containers
+      url: container-apps/index.yml
     - title: Azure Dev 공간
       summary: Azure AKS에서 마이크로 서비스 앱을 테스트하고 반복적으로 개발
       imageSrc: ./media/index/AzureDevSpaceController_50x.svg
@@ -734,7 +740,7 @@ productDirectory:
         - hybrid
         - networking
       url: expressroute/index.yml
-    - title: Azure Sentinel
+    - title: Microsoft Sentinel
       summary: 클라우드 네이티브 SIEM 및 인텔리전트 보안 분석을 적용하여 엔터프라이즈 보호
       imageSrc: 'https://static.docs.com/ui/media/product/azure/sentinel.svg'
       azureCategories:
@@ -765,13 +771,6 @@ productDirectory:
       azureCategories:
         - hybrid
       url: ./databox-online/index.yml
-    - title: Security Center
-      summary: 하이브리드 클라우드 워크로드 전체에서 보안 관리 통합 및 고급 위협 방지 사용
-      imageSrc: 'https://static.docs.com/ui/media/product/azure/security-center.svg'
-      azureCategories:
-        - hybrid
-        - security
-      url: security-center/index.yml
     - title: Azure IoT Edge
       summary: 클라우드 인텔리전스 및 분석 기능을 에지 디바이스로 확장
       imageSrc: 'https://static.docs.com/ui/media/product/azure/iot-edge.svg'
@@ -1077,13 +1076,13 @@ productDirectory:
       azureCategories:
         - networking
       url: bastion/index.yml
-    - title: Azure Defender
-      summary: 하이브리드 클라우드 워크로드 보호
+    - title: Microsoft Defender for Cloud
+      summary: 'Azure, 하이브리드 및 다중 클라우드 워크로드 전반의 보안 태세 관리 및 고급 위협 방지'
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: security-center/azure-defender.md
-    - title: IoT용 Azure Defender
+      url: security-center/index.yml
+    - title: Microsoft Defender for IoT
       summary: 비관리형 및 관리형 IoT/OT 디바이스 모두에 대한 지속적인 자산 관리 및 위협 탐지
       imageSrc: ./media/index/defender-iot.svg
       azureCategories:

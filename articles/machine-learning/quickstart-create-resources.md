@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 06/10/2021
+ms.date: 10/21/2021
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: c20c5f96820ae4cbf8aa361b29483fac260ec5ae
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 749400cc3f5c798b16dc08485f0cbff14cb276e7
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824186"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556950"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Machine Learning을 시작하는 데 필요한 작업 영역 리소스 만들기
 
@@ -81,7 +81,7 @@ ms.locfileid: "124824186"
 
     * **Notebooks** 섹션을 사용하면 Jupyter Notebook을 만들고, 샘플 Notebook을 복사하고, Notebook 및 Python 스크립트를 실행할 수 있습니다.
     * **자동화된 ML** 은 코드를 작성하지 않고 기계 학습 모델을 단계적으로 만듭니다.
-    * **디자이너** 는 사전에 빌드된 모듈을 사용하여 모델을 빌드하는 끌어서 놓기 기능을 제공합니다.
+    * **디자이너** 는 사전에 빌드된 구성 요소를 사용하여 모델을 빌드하는 끌어서 놓기 기능을 제공합니다.
 
 * 스튜디오의 **자산** 섹션은 작업을 실행할 때 만드는 자산을 추적하는 데 도움이 됩니다.  새 작업 영역이 있는 경우 이러한 섹션에는 아직 아무것도 없습니다.
 

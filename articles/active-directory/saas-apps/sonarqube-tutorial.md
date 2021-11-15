@@ -1,5 +1,5 @@
 ---
-title: '자습서: Sonarqube와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
+title: '자습서: Sonarqube와 Azure AD SSO 통합'
 description: Azure Active Directory와 Sonarqube 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: e6f366fcc1f268f3c0fa629bd1903be4f8c8d2b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8d209990a84464aa31d4f32a66c30de9f2047804
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785803"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462483"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>자습서: Sonarqube와 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-ad-sso-integration-with-sonarqube"></a>자습서: Sonarqube와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Sonarqube를 연결하는 방법에 대해 알아봅니다. Azure AD와 Sonarqube를 연결하면 다음을 수행할 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "124785803"
 * 사용자가 해당 Azure AD 계정으로 Sonarqube에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -78,7 +78,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **회신 URL** 텍스트 상자에서 `https://servicessonar.<YOUR_ORGANIZATION>.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **회신 URL** 텍스트 상자에서 ` https://sonar.<companyspecificurl>.io/oauth2/callback/saml` 패턴을 사용하여 URL을 입력합니다.
 
     b. **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 

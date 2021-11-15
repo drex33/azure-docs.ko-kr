@@ -12,12 +12,12 @@ ms.date: 02/17/2021
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: e561b34ae624b800d65885999f7029235fce31b6
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e9b8f17429c0cfead600361b60e2f752110a23ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990390"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444310"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -65,6 +65,7 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 > ```
 >
 > 다음 명령을 사용하여 PowerShell을 통해 키를 설정할 수 있습니다.
+>
 > ```
 > Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
 > ```
@@ -101,7 +102,7 @@ TLS 1.2를 사용하도록 설정하려면:
 
 1. 서버를 다시 시작합니다.
 
-> [!Note]
+> [!NOTE]
 > Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이렇게 변경하는 이유는 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기 때문입니다. 자세한 내용은 [Azure TLS 인증서 변경](../../security/fundamentals/tls-certificate-changes.md)을 참조하세요.
 
 ## <a name="prepare-your-on-premises-environment"></a>온-프레미스 환경 준비
@@ -127,19 +128,20 @@ TLS 1.2를 사용하도록 설정하려면:
 다음 URL에 대한 액세스를 허용합니다.
 
 | URL | 포트 | 사용 방법 |
-| ------------------------------------------------------------ | --------- | ------------------------------------------------------------ |
-| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net         | 443/HTTPS | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP   | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다.        |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
-| ctldl.windowsupdate.com                                      | 80/HTTP   | 커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
+| --- | --- | --- |
+| `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
+| `crl3.digicert.com` <br> `crl4.digicert.com` <br> `ocsp.digicert.com` <br> `crl.microsoft.com` <br> `oneocsp.microsoft.com` <br> `ocsp.msocsp.com`<br> | 80/HTTP   | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다.        |
+| `login.windows.net` <br> `secure.aadcdn.microsoftonline-p.com` <br> `*.microsoftonline.com` <br> `*.microsoftonline-p.com` <br> `*.msauth.net` <br> `*.msauthimages.net` <br> `*.msecnd.net` <br> `*.msftauth.net` <br> `*.msftauthimages.net` <br> `*.phonefactor.net` <br> `enterpriseregistration.windows.net` <br> `management.azure.com` <br> `policykeyservice.dc.ad.msft.net` <br> `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 443/HTTPS | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| `ctldl.windowsupdate.com` | 80/HTTP | 커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
 
-방화벽 또는 프록시에서 도메인 접미사에 따라 액세스 규칙을 구성할 수 있는 경우 &ast;.msappproxy.net, &ast;.servicebus.windows.net 및 위의 기타 URL에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽 또는 프록시에서 도메인 접미사에 따라 액세스 규칙을 구성할 수 있는 경우 `*.msappproxy.net`, `*.servicebus.windows.net` 및 위의 기타 URL에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+
 > [!IMPORTANT]
 > Azure AD 애플리케이션 프록시 커넥터와 Azure AD 애플리케이션 프록시 클라우드 서비스 간의 아웃바운드 TLS 통신에서 모든 형태의 인라인 검사 및 종료를 방지합니다.
 
 ### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Azure AD 애플리케이션 프록시 엔드포인트에 대한 DNS 이름 확인
 
-Azure AD 애플리케이션 프록시 엔드포인트에 대한 공용 DNS 레코드는 A 레코드를 가리키는 연결된 CNAME 레코드입니다. 이렇게 하면 내결함성 및 유연성이 보장됩니다. Azure AD 애플리케이션 프록시 커넥터에서 항상 도메인 접미사 _*.msappproxy.net_ 또는 _*.servicebus.windows.net_ 을 사용하여 호스트 이름에 액세스하도록 보장됩니다. 그러나 이름 확인 중에 CNAME 레코드에는 호스트 이름 및 접미사가 다른 DNS 레코드가 포함될 수 있습니다.  이로 인해 디바이스(설정 - 커넥터 서버, 방화벽, 아웃바운드 프록시에 따라)에서 체인의 모든 레코드를 확인하고 확인된 IP 주소에 대한 연결을 허용할 수 있는지 확인해야 합니다. 체인의 DNS 레코드는 수시로 변경될 수 있으므로 목록 DNS 레코드를 제공할 수 없습니다.
+Azure AD 애플리케이션 프록시 엔드포인트에 대한 공용 DNS 레코드는 A 레코드를 가리키는 연결된 CNAME 레코드입니다. 이렇게 하면 내결함성 및 유연성이 보장됩니다. Azure AD 애플리케이션 프록시 커넥터에서 항상 도메인 접미사 `*.msappproxy.net` 또는 `*.servicebus.windows.net`을 사용하여 호스트 이름에 액세스하도록 보장됩니다. 그러나 이름 확인 중에 CNAME 레코드에는 호스트 이름 및 접미사가 다른 DNS 레코드가 포함될 수 있습니다. 이로 인해 디바이스(설정 - 커넥터 서버, 방화벽, 아웃바운드 프록시에 따라)에서 체인의 모든 레코드를 확인하고 확인된 IP 주소에 대한 연결을 허용할 수 있는지 확인해야 합니다. 체인의 DNS 레코드는 수시로 변경될 수 있으므로 목록 DNS 레코드를 제공할 수 없습니다.
 
 ## <a name="install-and-register-a-connector"></a>커넥터 설치 및 등록
 
@@ -148,7 +150,7 @@ Azure AD 애플리케이션 프록시 엔드포인트에 대한 공용 DNS 레�
 
 커넥터를 설치하려면:
 
-1. 애플리케이션 프록시를 사용하는 디렉터리의 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 예를 들어, 테넌트 도메인이 contoso.com이면 관리자는 admin@contoso.com 또는 해당 도메인에 있는 다른 관리자 별칭이어야 합니다.
+1. 애플리케이션 프록시를 사용하는 디렉터리의 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 예를 들어, 테넌트 도메인이 `contoso.com`이면 관리자는 `admin@contoso.com` 또는 해당 도메인에 있는 다른 관리자 별칭이어야 합니다.
 1. 오른쪽 위 모서리에서 사용자 이름을 선택합니다. 애플리케이션 프록시를 사용하는 디렉터리에 로그인했는지 확인합니다. 디렉터리를 변경해야 할 경우 **디렉터리 전환** 을 선택하고 애플리케이션 프록시를 사용하는 디렉터리를 선택합니다.
 1. 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택합니다.
 1. **관리** 아래에서 **애플리케이션 프록시** 를 선택합니다.
@@ -216,7 +218,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
     | 필드  | Description |
     | :--------------------- | :----------------------------------------------------------- |
     | **이름** | 내 앱 및 Azure Portal에 표시될 애플리케이션의 이름입니다. |
-    | **내부 URL** | 프라이빗 네트워크 내부에서 애플리케이션에 액세스하기 위한 URL입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.<br><br>경로를 게시하는 경우 애플리케이션에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어 앱이 https:\//yourapp/app에 위치하고 https:\//yourapp/media에 있는 이미지를 사용하는 경우 https:\//yourapp/를 경로로 게시해야 합니다. 이 내부 URL은 사용자에게 표시되는 방문 페이지일 필요가 없습니다. 자세한 내용은 [게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요. |
+    | **내부 URL** | 프라이빗 네트워크 내부에서 애플리케이션에 액세스하기 위한 URL입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.<br><br>경로를 게시하는 경우 애플리케이션에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어 앱이 `https://yourapp/app`에 있고 `https://yourapp/media`에 있는 이미지를 사용하는 경우 경로로 `https://yourapp/`을 게시해야 합니다. 이 내부 URL은 사용자에게 표시되는 방문 페이지일 필요가 없습니다. 자세한 내용은 [게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요. |
     | **외부 URL** | 사용자가 네트워크 외부에서 앱에 액세스하기 위한 주소입니다. 기본 애플리케이션 프록시 도메인을 사용하지 않으려면 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업](./application-proxy-configure-custom-domain.md)을 참조하세요. |
     | **사전 인증** | 애플리케이션 프록시가 사용자에게 애플리케이션에 대한 액세스 권한을 부여하기 전에 사용자를 확인하는 방법입니다.<br><br>**Azure Active Directory** - 애플리케이션 프록시는 Azure AD를 사용하여 로그인하도록 사용자를 리디렉션하여 디렉터리와 애플리케이션에 대한 사용 권한을 인증합니다. 조건부 액세스 및 Multi-Factor Authentication과 같은 Azure AD 보안 기능을 활용할 수 있도록 이 옵션을 기본값으로 유지하는 것이 좋습니다. **Azure Active Directory** 는 Microsoft 클라우드 애플리케이션 보안을 사용하여 애플리케이션을 모니터링하는 데 필요합니다.<br><br>**통과** - 사용자는 애플리케이션에 액세스하기 위해 Azure AD에 대해 인증할 필요가 없습니다. 백 엔드에 대한 인증 요구 사항은 여전히 설정할 수 있습니다. |
     | **커넥터 그룹** | 커넥터는 애플리케이션에 대한 원격 액세스를 처리하고, 커넥터 그룹은 지역, 네트워크 또는 용도별로 커넥터와 앱을 구성하는 데 도움을 줍니다. 아직 만든 커넥터 그룹이 없는 경우 앱이 **Default**(기본값)로 할당됩니다.<br><br>애플리케이션에서 연결에 Websocket을 사용하는 경우 그룹의 모든 커넥터는 버전 1.5.612.0 이상이어야 합니다. |

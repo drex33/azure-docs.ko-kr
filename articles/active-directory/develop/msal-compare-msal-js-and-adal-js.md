@@ -3,21 +3,21 @@ title: ADAL.js에서 MSAL.js로 JavaScript 애플리케이션 마이그레이션
 titleSuffix: Microsoft identity platform
 description: ADAL(Active Directory 인증 라이브러리) 대신 인증 및 권한 부여에 MSAL(Microsoft 인증 라이브러리)을 사용하도록 기존 JavaScript 애플리케이션을 업데이트하는 방법입니다.
 services: active-directory
-author: derisen
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
-ms.author: v-doeris
+ms.author: marsma
 ms.custom: has-adal-ref
-ms.openlocfilehash: a67f493666c458637a2cd48b7e0d78e0bcf59862
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 6614c1d06dd1e5093dfbe7e3ea3a20ff13ec74c1
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530875"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501042"
 ---
 # <a name="how-to-migrate-a-javascript-app-from-adaljs-to-msaljs"></a>ADAL.js에서 MSAL.js로 JavaScript 앱을 마이그레이션하는 방법
 
@@ -98,7 +98,7 @@ ADAL.js와 MSAL.js에서 권한 URI는 지정하지 않으면 기본적으로 `h
 
 [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext)를 초기화할 때 사용되는 [ADAL.js의 구성 옵션](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context) 중 일부는 MSAL.js에서 더 이상 사용되지 않으며, 일부 새로운 구성 옵션이 도입되었습니다. [사용 가능한 전체 옵션 목록](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md)을 참조하세요. `clientId`를 제외하고 해당 옵션 중 대부분이 토큰 획득 중에 재정의되므로 ‘요청별’ 기준으로 설정할 수 있다는 점이 중요합니다. 예를 들어 토큰을 획득할 때 초기화 중에 설정한 것과 다른 **권한 URI** 또는 **리디렉션 URI** 를 사용할 수 있습니다.
 
-또한 더 이상 구성 옵션을 통해 로그인 경험(즉, 팝업 창 사용 또는 페이지 리디렉션 여부)을 지정할 필요가 없습니다. 대신 MSAL.js는 `PublicClientApplication` 인스턴스를 통해 `loginPopup` 및 `loginRedirect` 메서드를 노출합니다.
+또한 더 이상 구성 옵션을 통해 로그인 경험(즉, 팝업 창 사용 또는 페이지 리디렉션 여부)을 지정할 필요가 없습니다. 대신 `MSAL.js`는 `PublicClientApplication` 인스턴스를 통해 `loginPopup` 및 `loginRedirect` 메서드를 노출합니다.
 
 ## <a name="enable-logging"></a>로깅 사용
 
@@ -324,7 +324,7 @@ npm start
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script 
+  <script
     type="text/javascript"
     src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js">
   </script>
@@ -377,8 +377,8 @@ npm start
 
     tokenButton.addEventListener('click', () => {
         authContext.acquireTokenPopup(
-            "https://graph.microsoft.com", 
-            null, null, 
+            "https://graph.microsoft.com",
+            null, null,
             function (error, token) {
                 console.log(error, token);
             }
@@ -401,8 +401,8 @@ npm start
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script 
-    type="text/javascript" 
+  <script
+    type="text/javascript"
     src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js">
   </script>
 </head>

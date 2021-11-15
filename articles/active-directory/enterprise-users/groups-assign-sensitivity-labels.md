@@ -4,22 +4,22 @@ description: 그룹에 민감도 레이블을 할당하는 방법을 알아봅�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/28/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bb00c2554b17ec68cfd1cffa0902bed421b9e4e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: c026a571a087008d86e34e8c2806745a06ae89cb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433074"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986761"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory의 Microsoft 365 그룹에 민감도 레이블 할당
 
@@ -45,11 +45,13 @@ Azure AD(Azure Active Directory)는 [Microsoft 365 규정 준수 센터](https:/
 1. Azure AD 조직에 대한 현재 그룹 설정을 가져옵니다.
 
     ```PowerShell
-    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+    $setting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
+    $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+    $setting = $template.CreateDirectorySetting()
     ```
 
     > [!NOTE]
-    > 이 Azure AD 조직에 대해 그룹 설정이 생성되지 않은 경우 "Cannot bind argument to parameter 'Id' because it is null"("'Id' 매개 변수가 null이므로 인수를 해당 매개 변수에 바인딩할 수 없습니다.")라는 오류 메시지가 위 cmdlet에 표시됩니다. 이 경우 먼저 설정을 만들어야 합니다. [그룹 설정을 구성하는 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)의 단계에 따라 이 Azure AD 조직에 대한 그룹 설정을 만듭니다.
+    > 이 Azure AD 조직에 대해 그룹 설정이 생성되지 않은 경우 "Cannot bind argument to parameter 'Id' because it is null"("'Id' 매개 변수가 null이므로 인수를 해당 매개 변수에 바인딩할 수 없습니다.")라는 오류 메시지가 표시됩니다. 이 경우 먼저 설정을 만들어야 합니다. [그룹 설정을 구성하는 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)의 단계에 따라 이 Azure AD 조직에 대한 그룹 설정을 만듭니다.
 
 1. 그런 다음 현재 그룹 설정을 표시합니다.
 
@@ -66,7 +68,7 @@ Azure AD(Azure Active Directory)는 [Microsoft 365 규정 준수 센터](https:/
 1. 그런 다음 변경 내용을 저장하고 설정을 적용합니다.
 
     ```PowerShell
-    Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
+    New-AzureADDirectorySetting -DirectorySetting $setting
     ```
 
 또한 민감도 레이블을 Azure AD와 동기화해야 합니다. 자세한 내용은 [컨테이너에서 민감도 레이블을 사용하도록 설정하고 레이블을 동기화하는 방법](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels)을 참조하세요.
@@ -139,9 +141,9 @@ Azure AD(Azure Active Directory)는 [Microsoft 365 규정 준수 센터](https:/
 1. 선택한 그룹의 페이지에서 **속성** 을 선택하고 목록에서 새 민감도 레이블을 선택합니다.
 1. **저장** 을 선택합니다.
 
-### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>게시된 레이블에 대한 그룹 설정 변경 내용이 그룹에서 업데이트되지 않는 경우
+### <a name="group-setting-changes-to-published-labels-arent-updated-on-the-groups"></a>게시된 레이블에 대한 그룹 설정 변경 내용이 그룹에서 업데이트되지 않는 경우
 
-모범 사례로, 레이블을 그룹에 적용한 후에는 레이블에 대한 그룹 설정을 변경하지 않는 것이 좋습니다. [Microsoft 365 규정 준수 센터](https://sip.protection.office.com/homepage)에서 게시된 레이블과 연결된 그룹 설정을 변경하는 경우 해당 정책 변경 내용은 영향을 받는 그룹에 자동으로 적용되지 않습니다.
+[Microsoft 365 규정 준수 센터](https://sip.protection.office.com/homepage)에 게시된 레이블에 대한 그룹 설정을 변경하는 경우 해당 정책 변경 내용은 레이블이 지정된 그룹에 자동으로 적용되지 않습니다. 민감도 레이블이 게시되고 그룹에 적용되면 Microsoft 365 준수 센터에서 레이블에 대한 그룹 설정을 변경하지 않는 것이 좋습니다.
 
 변경해야 하는 경우 [Azure AD PowerShell 스크립트](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)를 사용하여 영향을 받는 그룹에 업데이트를 수동으로 적용합니다. 이 방법을 사용하면 기존의 모든 그룹이 새 설정을 적용합니다.
 

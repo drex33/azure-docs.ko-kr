@@ -3,20 +3,20 @@ title: SharePoint에 대한 원격 액세스 사용 - Azure Active Directory 애
 description: 온-프레미스 SharePoint Server를 Azure Active Directory 애플리케이션 프록시와 통합하는 방법에 대한 기본 사항을 다룹니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 669b03d0d1d6f5f328cc4af368a756d0bbdab787
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.reviewer: ashishj
+ms.openlocfilehash: 261faaa471956a1f91bf09a21656a6d01203cdfc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727835"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989307"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 SharePoint에 대한 원격 액세스 활성화
 
@@ -65,7 +65,7 @@ ms.locfileid: "113727835"
    1. **내부 애플리케이션 SPN** 을 이전에 설정한 값으로 설정합니다. 이 예제에서 값은 `HTTP/sharepoint`입니다.
    1. **위임된 로그인 ID** 에서 Active Directory 포리스트 구성에 가장 적합한 옵션을 선택합니다. 예를 들어, 포리스트에 단일 Active Directory 도메인이 있는 경우 다음 스크린샷에 표시된 것처럼 **온-프레미스 SAM 계정 이름** 을 선택합니다. 그러나 사용자가 SharePoint와 동일한 도메인 및 애플리케이션 프록시 커넥터 서버에 있지 않은 경우 **온-프레미스 사용자 계정 이름**(스크린샷에는 표시되지 않음)을 선택합니다.
 
-   ![SSO용 통합 Windows 인증 구성](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
+   ![SSO용 Windows 통합 인증 구성](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
 1. 애플리케이션 설정을 완료하려면 **사용자 및 그룹** 섹션으로 이동하고 이 애플리케이션에 액세스할 사용자를 할당합니다. 
 

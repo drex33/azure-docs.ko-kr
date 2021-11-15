@@ -1,5 +1,6 @@
 ---
 title: Microsoft Cloud App Security에서 제공하는 앱 표시 유형 및 제어
+titleSuffix: Azure AD
 description: 앱 위험 수준을 식별하고, 위반 및 유출을 실시간으로 차단하고, 앱 커넥터를 사용하여 표시 유형 및 거버넌스를 위한 공급자 API를 활용하는 방법을 알아봅니다.
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/29/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: bokacevi, dacurwin
-ms.openlocfilehash: ffc4a35aef2304a650f5673a26f0e4fd532e23be
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 52c17d521ca1a3a4e191c4a4a82d37a98371f879
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528816"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619845"
 ---
-# <a name="cloud-app-visibility-and-control"></a>클라우드 앱 표시 유형 및 제어
+# <a name="cloud-app-visibility-and-control-in-azure-active-directory"></a>Azure Active Directory의 클라우드 앱 표시 유형 및 제어
 
 클라우드 앱 및 서비스를 최대한 활용하려면 IT 팀이 액세스를 지원하면서도 중요한 데이터 보호에 대한 제어를 유지하기 위한 적절한 균형점을 찾아야 합니다. Microsoft Cloud App Security는 다양한 가시성, 데이터 이동 제어 및 정교한 분석을 제공하여 모든 Microsoft 및 타사 클라우드 서비스에서의 사이버 위협을 식별하고 대처합니다.
 

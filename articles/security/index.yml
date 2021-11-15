@@ -4,7 +4,7 @@ summary: '보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로�
 brand: azure
 metadata:
   title: Azure 보안 설명서
-  description: 'Azure의 보안에 대해 알아보세요. 보안 기본 사항, 모범 사례 및 패턴 및 Azure Security Center에 대한 정보를 참조하세요.'
+  description: 'Azure의 보안에 대해 알아보세요. 보안 기본 사항, 모범 사례, 패턴 및 Microsoft Defender for Cloud에 대한 정보를 참조하세요.'
   services: security
   ms.service: security
   ms.subservice: na
@@ -115,7 +115,7 @@ conceptualContent:
       links:
         - url: ../security-center/security-center-get-started.md
           itemType: quickstart
-          text: Security Center에 구독 온보딩
+          text: Defender for Cloud에 구독 온보딩
         - url: ../security-center/security-center-just-in-time.md
           itemType: how-to-guide
           text: Just-In-Time 가상 머신 액세스
@@ -129,13 +129,13 @@ conceptualContent:
       links:
         - url: ../defender-for-iot/overview.md
           itemType: overview
-          text: IoT용 Azure Security Center 소개
+          text: Microsoft Defender for IoT 소개
         - url: ../defender-for-iot/architecture.md
           itemType: how-to-guide
-          text: IoT용 Azure Security Center 아키텍처
+          text: Microsoft Defender for IoT 아키텍처
         - url: ../defender-for-iot/getting-started.md
           itemType: how-to-guide
-          text: IoT용 Azure Security Center 시작
+          text: Microsoft Defender for IoT 시작
       footerLink:
         url: /azure/asc-for-iot/
         text: 자세히 보기
@@ -143,13 +143,13 @@ conceptualContent:
       links:
         - url: ../sentinel/overview.md
           itemType: overview
-          text: Azure Sentinel이란?
+          text: Microsoft Sentinel이란?
         - url: ../sentinel/quickstart-onboard.md
           itemType: quickstart
-          text: Azure Sentinel 등록
+          text: Microsoft Sentinel 온보딩
         - url: ../sentinel/get-visibility.md
           itemType: quickstart
-          text: Azure Sentinel 시작
+          text: Microsoft Sentinel 시작
       footerLink:
         url: ../sentinel/index.yml
         text: 자세히 보기
@@ -157,13 +157,13 @@ conceptualContent:
       links:
         - url: ../security-center/security-center-alerts-overview.md
           itemType: concept
-          text: Azure Security Center의 보안 경고
+          text: Microsoft Defender for Cloud의 보안 경고
         - url: ../storage/common/azure-defender-storage-configure.md
           itemType: concept
-          text: 스토리지용 Azure Defender
+          text: 스토리지용 Microsoft Defender
         - url: ../azure-sql/database/threat-detection-overview.md
           itemType: concept
-          text: SQL용 Azure Defender
+          text: Microsoft Defender for SQL
       footerLink:
         url: ./fundamentals/threat-detection.md
         text: 자세히 보기

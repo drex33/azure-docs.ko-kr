@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 10/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660d233c4fc0690799e8ec25e6a07e516035a90b
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 294e66b8b7cef3cec9931b5369562a51b138ab28
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113506334"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448674"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Azure AD Connect 프로비저닝 에이전트 설치
 이 문서에서는 Azure AD(Azure Active Directory) Connect 프로비저닝 에이전트의 설치 프로세스와 Azure Portal에 이를 처음으로 구성하는 방법을 안내합니다.
@@ -27,8 +27,12 @@ ms.locfileid: "113506334"
 >[!NOTE]
 >이 문서에서는 마법사를 사용하여 프로비저닝 에이전트를 설치하는 방법을 다룹니다. CLI(명령줄 인터페이스)를 사용하여 Azure AD Connect 프로비저닝 에이전트를 설치하는 방법에 대한 자세한 내용은 [CLI 및 PowerShell을 사용하여 Azure AD Connect 프로비저닝 에이전트 설치](how-to-install-pshell.md)를 참조하세요.
 
+추가 정보 및 예제는 다음 비디오를 참조하세요.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
+
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-gMSA(그룹 관리 서비스 계정)는 자동 암호 관리, 간소화된 SPN(서비스 사용자 이름) 관리 및 다른 관리자에게 관리를 위임하는 기능을 제공하는 관리되는 도메인 계정입니다. 또한 이 기능을 여러 서버로 확장합니다. Azure AD Connect 클라우드 동기화는 에이전트를 실행하는 그룹 관리 서비스 계정 사용을 지원하고 권장합니다. 그룹 관리 서비스 계정에 대한 자세한 내용은 [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)을 참조하세요.
+gMSA(그룹 관리 서비스 계정)는 자동 암호 관리, 간소화된 SPN(서비스 사용자 이름) 관리 및 다른 관리자에게 관리를 위임하는 기능을 제공하는 관리되는 도메인 계정입니다. 또한 이 기능을 여러 서버로 확장합니다. Azure AD Connect 클라우드 동기화는 에이전트를 실행하는 그룹 관리 서비스 계정 사용을 지원하고 권장합니다. 그룹 관리 서비스 계정에 대한 자세한 내용은 [그룹 관리 서비스 계정](how-to-prerequisites.md#group-managed-service-accounts)을 참조하세요.
 
 
 ### <a name="upgrade-an-existing-agent-to-use-the-gmsa"></a>gMSA를 사용하도록 기존 에이전트 업그레이드
@@ -100,6 +104,18 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음을 수행합�
 
 >[!IMPORTANT]
 >에이전트가 설치되었지만 에이전트가 사용자 동기화를 시작하기 전에 에이전트를 구성하고 사용하도록 설정해야 합니다. 새 에이전트를 구성하려면 [Azure AD Connect 클라우드 동기화에 대한 새 구성 만들기](how-to-configure.md)를 참조하세요.
+
+### <a name="enable-password-writeback-in-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에서 비밀번호 쓰기 저장 사용 
+
+비밀번호 쓰기 저장을 사용하고 SSPR 서비스가 클라우드 동기화 에이전트를 검색하도록 설정하려면 `Set-AADCloudSyncPasswordWritebackConfiguration` cmdlet 및 테넌트의 전역 관리자 자격 증명을 사용해야 합니다. 
+
+  ```   
+   Import-Module "C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll" 
+   Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)
+  ```
+
+Azure AD Connect 클라우드 동기화에서 비밀번호 쓰기 저장 사용에 대한 자세한 내용은 다음을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계 
 

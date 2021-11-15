@@ -1,5 +1,6 @@
 ---
-title: Azure AD 내 앱에서 애플리케이션에 로그인할 때의 문제 해결
+title: 내 앱 포털에서 애플리케이션에 로그인하는 문제 해결
+titleSuffix: Azure AD
 description: Azure AD 내 앱에서 애플리케이션에 로그인할 때의 문제 해결
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 116aaeddb9ca3378c076b70c4a0e53d18fe3244f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e4f03e2f7540b4724b7dfe001f5fc77ac3c0706e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566896"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617837"
 ---
-# <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 애플리케이션에 로그인할 때의 문제 해결
+# <a name="troubleshoot-application-sign-in-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 로그인 문제 해결
 
 내 앱은 웹 기반 포털로 Azure AD(Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자로부터 액세스 권한을 부여받은 클라우드 기반 애플리케이션을 보고 시작할 수 있도록 합니다. 내 앱은 [https://myapps.microsoft.com](https://myapps.microsoft.com)에서 웹 브라우저를 사용하여 액세스할 수 있습니다.
 
@@ -43,7 +44,7 @@ Azure AD를 앱의 ID 공급자로 사용하는 방법을 자세히 알아보려
 
 ## <a name="general-issues-to-check-first"></a>먼저 확인해야 할 일반적인 문제
 
-- [내 앱 지원 브라우저](../user-help/my-apps-portal-end-user-access.md)를 참조하여 웹 브라우저가 요구 사항을 충족하는지 확인합니다.
+- [내 앱 지원 브라우저](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하여 웹 브라우저가 요구 사항을 충족하는지 확인합니다.
 - 사용자의 브라우저에서 해당 **신뢰할 수 있는 사이트** 에 애플리케이션의 URL을 추가했는지 확인합니다.
 - 애플리케이션이 올바르게 **구성** 되었는지 확인합니다.
 - 사용자의 계정이 로그인에 대해 **활성화** 되었는지 확인합니다.

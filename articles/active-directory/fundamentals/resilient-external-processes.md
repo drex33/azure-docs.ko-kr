@@ -13,16 +13,16 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3c159c615d928a8d56d3913c8e1cab846c7580
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fede718111b6f1dcc9e49e8c96ec88a967b31b20
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462096"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042337"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>외부 프로세스를 사용하는 복원력 있는 인터페이스
 
-이 문서에서는 RESTFul API 관련 계획을 수립하고 사용자 경험에 이를 구현하여 API 오류에 대한 애플리케이션의 복원력을 향상하는 방법에 대한 지침을 제공합니다.
+이 문서에서는 RESTful API 관련 계획을 수립하고 사용자 경험에 이를 구현하여 API 오류에 대한 애플리케이션의 복원력을 향상하는 방법에 대한 지침을 제공합니다.
 
 ![외부 프로세스 구성 요소가 포함된 인터페이스를 보여 주는 이미지](media/resilient-external-processes/external-processes-architecture.png)
 
@@ -40,7 +40,7 @@ IEF(Identity Experience Framework) 정책을 사용하면 [RESTful API 기술 �
 
 - [기본 제공 사용자 등록 흐름의 API 커넥터](../../active-directory-b2c/api-connectors-overview.md)를 사용하면 단계에 구애받지 않고 등록하는 동안 ID 공급자를 통해 페더레이션한 후 또는 사용자를 만들기 전에 웹 API와 통합할 수 있습니다. 사용자 흐름은 이미 널리 테스트되었으므로 사용자 흐름 수준의 기능, 성능 또는 규모를 테스트할 필요가 없을 수 있습니다. 그러나 애플리케이션의 기능, 성능, 규모는 테스트해야 합니다.
 
-- Azure AD RESTFul API [기술 프로필](../../active-directory-b2c/restful-technical-profile.md)은 캐싱 동작을 제공하지 않습니다. 대신 RESTFul API 프로필은 정책에 기본 제공되는 다시 시도 논리와 시간 제한을 구현합니다.
+- Azure AD RESTful API [기술 프로필](../../active-directory-b2c/restful-technical-profile.md)은 캐싱 동작을 제공하지 않습니다. 대신 RESTful API 프로필은 정책에 기본 제공되는 다시 시도 논리와 시간 제한을 구현합니다.
 
 - 데이터 작성이 필요한 API의 경우 백그라운드 작업자가 이러한 작업을 실행하도록 작업을 큐에 추가합니다. [Azure 큐](../../storage/queues/storage-queues-introduction.md)와 같은 서비스를 사용할 수 있습니다. 이렇게 하면 API가 효율적으로 반환되고 정책 실행 성능이 향상됩니다.  
 
@@ -52,7 +52,7 @@ API는 Azure AD B2C 시스템 외부에 있기 때문에 기술 프로필 내에
 
 - 다양한 이유로 API에 오류가 발생할 수 있으며, 이러한 오류로부터 애플리케이션을 복원할 수 있어야 합니다. API가 요청을 완료할 수 없는 경우 [HTTP 4XX 오류 메시지를 반환](../../active-directory-b2c/restful-technical-profile.md#returning-validation-error-message)합니다. Azure AD B2C 정책에서 API의 사용 불가 상태를 정상적으로 처리하고 축소된 환경을 렌더링하려고 합니다.
 
-- [일시적인 오류를 정상적으로 처리](../../active-directory-b2c/restful-technical-profile.md#error-handling)합니다. RESTFul API 프로필을 사용하면 다양한 [회로 차단기](/azure/architecture/patterns/circuit-breaker)에 대해 오류 메시지를 구성할 수 있습니다.
+- [일시적인 오류를 정상적으로 처리](../../active-directory-b2c/restful-technical-profile.md#error-handling)합니다. RESTful API 프로필을 사용하면 다양한 [회로 차단기](/azure/architecture/patterns/circuit-breaker)에 대해 오류 메시지를 구성할 수 있습니다.
 
 - 사전에 모니터링하고 CICD(연속 통합/지속적인 업데이트)를 사용하여 [기술 프로필 엔진](../../active-directory-b2c/restful-technical-profile.md)에서 사용하는 암호, 인증서와 같은 API 액세스 자격 증명을 순환합니다.
 

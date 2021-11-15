@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2685570bb14cf177f0a658196aa1750f9d8e02a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465677"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558351"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt를 구성하기 위한 자습서
 
@@ -76,37 +76,22 @@ Saviynt 통합에는 다음 구성 요소가 포함됩니다.
 ### <a name="create-an-azure-ad-application-for-saviynt"></a>Saviynt용 Azure AD 애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com/#home)에 로그인합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션의 이름을 입력합니다. 예를 들어 Saviynt라고 입력하고 **만들기** 를 선택합니다.
+1. **API 사용 권한** 으로 이동하여 **+ 사용 권한 추가** 를 선택합니다.
+1. API 사용 권한 요청 페이지가 나타납니다. **Microsoft APIs** 탭을 선택하고 일반적으로 사용되는 Microsoft API인 **Microsoft Graph** 를 선택합니다.
+1. 다음 페이지로 이동하여 **애플리케이션 사용 권한** 을 선택합니다.
+1. **디렉터리** 를 선택하고 **Directory.Read.All** 및 **Directory.ReadWrite.All** 확인란을 선택합니다.
+1. **사용 권한 추가** 를 선택합니다. 추가된 사용 권한을 검토합니다.
+1. **기본 디렉터리에 대한 관리자 동의 부여** > **저장** 을 선택합니다.
+1. **인증서 및 암호** 로 이동하고 **+ 클라이언트 암호 추가** 를 선택합니다. 클라이언트 암호 설명을 입력하고 만료 옵션을 선택한 다음 **추가** 를 선택합니다.
+1. 비밀 키가 생성되고 클라이언트 암호 섹션에 표시됩니다. 나중에 사용해야 합니다.
 
-2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-
-3. Azure Portal에서 **Azure AD B2C** 를 검색하여 선택합니다.
-
-4. **앱 등록** > **새 등록** 을 선택합니다.
-
-5. 애플리케이션의 이름을 입력합니다. 예를 들어 Saviynt라고 입력하고 **만들기** 를 선택합니다.
-
-6. **API 사용 권한** 으로 이동하여 **+ 사용 권한 추가** 를 선택합니다.
-
-7. API 사용 권한 요청 페이지가 나타납니다. **Microsoft APIs** 탭을 선택하고 일반적으로 사용되는 Microsoft API인 **Microsoft Graph** 를 선택합니다.
-
-8. 다음 페이지로 이동하여 **애플리케이션 사용 권한** 을 선택합니다.
-
-9. **디렉터리** 를 선택하고 **Directory.Read.All** 및 **Directory.ReadWrite.All** 확인란을 선택합니다.
-
-10. **사용 권한 추가** 를 선택합니다. 추가된 사용 권한을 검토합니다.
-
-11. **기본 디렉터리에 대한 관리자 동의 부여** > **저장** 을 선택합니다.
-
-12. **인증서 및 암호** 로 이동하고 **+ 클라이언트 암호 추가** 를 선택합니다. 클라이언트 암호 설명을 입력하고 만료 옵션을 선택한 다음 **추가** 를 선택합니다.
-
-13. 비밀 키가 생성되고 클라이언트 암호 섹션에 표시됩니다.
-
-    >[!NOTE]
-    > 나중에 클라이언트 암호가 필요합니다.
-
-14. **개요** 로 이동하여 **클라이언트 ID** 및 **테넌트 ID** 를 가져옵니다.
-
-15. Saviynt의 설정을 완료하려면 테넌트 ID, 클라이언트 ID, 클라이언트 암호가 필요합니다.
+1. **개요** 로 이동하여 **클라이언트 ID** 및 **테넌트 ID** 를 가져옵니다.
+1. Saviynt의 설정을 완료하려면 테넌트 ID, 클라이언트 ID, 클라이언트 암호가 필요합니다.
 
 ### <a name="enable-saviynt-to-delete-users"></a>Saviynt를 통해 사용자 삭제
 
@@ -131,10 +116,10 @@ Saviynt 애플리케이션 테넌트를 찾아보고 사용자 수명 주기 관
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 정보를 얻으려면 다음 문서를 검토하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 - [웹 API 애플리케이션 생성](./add-web-api-application.md)

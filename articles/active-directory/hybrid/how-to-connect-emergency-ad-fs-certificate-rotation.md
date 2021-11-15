@@ -1,8 +1,6 @@
 ---
 title: AD FS 인증서의 긴급 회전 | Microsoft Docs
 description: 이 문서에서는 AD FS 인증서를 즉시 철회 및 업데이트하는 방법을 설명합니다.
-services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9741c2e85a7cd3523ffe7fe8262e5f5d821b62c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3b03dc507a76254f8568989af27f76aa75ad4e20
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126600"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222441"
 ---
 # <a name="emergency-rotation-of-the-ad-fs-certificates"></a>AD FS 인증서의 긴급 회전
 AD FS 인증서를 즉시 회전해야 하는 경우 이 섹션의 아래에 설명된 단계를 수행할 수 있습니다.
@@ -31,8 +29,8 @@ AD FS 인증서를 즉시 회전해야 하는 경우 이 섹션의 아래에 설
 ## <a name="determine-your-token-signing-certificate-thumbprint"></a>토큰 서명 인증서 지문 확인
 현재 사용 중인 AD FS 이전 토큰 서명 인증서를 철회하려면 토큰 서명 인증서의 지문을 확인해야 합니다.  이렇게 하려면 다음 단계를 따릅니다.
 
- 1. Microsoft 온라인 서비스 `PS C:\>Connect-MsolService`에 연결합니다.
- 2. 온-프레미스 및 클라우드 토큰 서명 인증서 지문 및 만료 날짜를 모두 문서화합니다.
+ 1.    Microsoft 온라인 서비스 `PS C:\>Connect-MsolService`에 연결합니다.
+ 2.    온-프레미스 및 클라우드 토큰 서명 인증서 지문 및 만료 날짜를 모두 문서화합니다.
 `PS C:\>Get-MsolFederationProperty -DomainName <domain>` 
  3.  지문을 복사합니다.  나중에 기존 인증서를 제거하는 데 사용됩니다.
 
@@ -43,7 +41,7 @@ AD FS 관리를 사용하고, 서비스/인증서로 이동하고, 인증서를 
 
 `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`의 AD FS에서 Windows PowerShell 명령을 실행합니다.
 
-AutoCertificateRollover 속성은 AD FS가 토큰 서명 및 토큰 암호 해독 인증서를 자동으로 갱신하도록 구성되었는지 여부를 설명합니다.  AutoCertificateRollover가 TRUE로 설정된 경우 아래 [AutoCertificateRollover가 TRUE로 설정된 경우 새 자체 서명된 인증서 생성]에서 설명된 지침을 따르세요.  AutoCertificateRollover가 FALSE로 설정된 경우 아래 [AutoCertificateRollover가 FALSE로 설정된 경우 새 인증서를 수동으로 생성]에서 설명된 지침을 따르세요.
+AutoCertificateRollover 속성은 AD FS가 토큰 서명 및 토큰 암호 해독 인증서를 자동으로 갱신하도록 구성되었는지 여부를 설명합니다.  AutoCertificateRollover가 TRUE로 설정된 경우 아래 [AutoCertificateRollover가 TRUE로 설정된 경우 새 자체 서명된 인증서 생성](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true)에서 설명된 지침을 따르세요.  AutoCertificateRollover가 FALSE로 설정된 경우 아래 [AutoCertificateRollover가 FALSE로 설정된 경우 새 인증서를 수동으로 생성](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false)에서 설명된 지침을 따르세요.
 
 
 ## <a name="generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true"></a>AutoCertificateRollover이 TRUE로 설정된 경우 자체 서명된 새 인증서를 생성합니다.
@@ -103,10 +101,10 @@ AD FS에서 새 인증서를 가져온 후 구성했으므로 이제 기본 인�
 ## <a name="update-azure-ad-with-the-new-token-signing-certificate"></a>새 토큰 서명 인증서를 사용하여 Azure AD 업데이트
 Windows PowerShell용 Microsoft Azure Active Directory 모듈을 엽니다. 또는 Windows PowerShell을 열고 `Import-Module msonline` 명령을 실행합니다.
 
-명령 `Connect-MsolService`를 실행하여 Azure AD에 연결하고 전역 관리자 자격 증명을 입력합니다.
+명령 `Connect-MsolService`를 실행하여 Azure AD에 연결한 다음, 전역 관리자 자격 증명을 입력합니다.
 
 >[!Note]
-> 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 먼저 `Set-MsolADFSContext –Computer <servername>` 명령을 입력합니다. <servername>을 AD FS 서버의 이름으로 바꿉니다. 그런 다음 메시지가 표시되면 서버의 관리자 자격 증명을 입력합니다.
+> 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 먼저 `Set-MsolADFSContext –Computer <servername>` 명령을 입력합니다. \<servername\>을 AD FS 서버의 이름으로 바꿉니다. 그런 다음 메시지가 표시되면 서버의 관리자 자격 증명을 입력합니다.
 
 원하는 경우 Azure AD에서 현재 인증서 정보를 확인하여 업데이트가 필요한지를 확인합니다. 이렇게 하려면 `Get-MsolFederationProperty` 명령을 실행합니다. 메시지가 표시되면 페더레이션 도메인의 이름을 입력합니다.
 
@@ -122,9 +120,8 @@ SSL 인증서 해지는 인증서를 발급한 CA(인증 기관)에서 수행해
 
 이전 SSL 인증서가 해지되고 새 인증서가 발급되면 SSL 인증서를 바꿀 수 있습니다. 자세한 내용은 [AD FS에 대한 SSL 인증서 바꾸기](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)를 참조하세요.
 
-
 ## <a name="remove-your-old-certificates"></a>이전 인증서 제거
-이전 인증서는 바꾼 후에도 계속 사용될 수 있기 때문에 이전 인증서를 제거해야 합니다. . 이렇게 하려면 아래 단계를 수행하세요.  이렇게 하려면 아래 단계를 수행합니다.
+이전 인증서는 바꾼 후에도 계속 사용될 수 있기 때문에 이전 인증서를 제거해야 합니다. 이렇게 하려면 아래 단계를 수행합니다.
 
 1. 기본 AD FS 서버에 로그온했는지 확인합니다.
 2. 관리자 권한으로 Windows PowerShell을 엽니다. 

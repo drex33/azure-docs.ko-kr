@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cd3cbfd92f3448bd8b494b579a641bfb580ecd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0b014cc8fb1c6ca2e318125aeaefed34950175eb
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052449"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578014"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Microsoft 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "131052449"
 > [!NOTE]
 > **모든 브랜딩 요소는 선택 사항이며 변경되지 않은 경우 기본값으로 유지됩니다.** 예를 들어 배경 이미지가 없는 배너 로고를 지정하는 경우 로그인 페이지는 대상 사이트(예: Microsoft 365)의 기본 배경 이미지를 사용하여 로고를 표시합니다.<br><br>또한 로그인 페이지 브랜딩은 개인 Microsoft 계정에 적용되지 않습니다. 사용자 또는 비즈니스 게스트가 개인 Microsoft 계정을 사용하여 로그인하는 경우 로그인 페이지는 조직의 브랜딩을 반영하지 않습니다.
 
-### <a name="to-customize-your-branding"></a>브랜딩을 사용자 지정하려면
+### <a name="to-configure-your-branding-for-the-first-time"></a>처음으로 브랜딩을 구성하려면 다음을 수행합니다.
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **Azure Active Directory** 를 선택한 다음, **회사 브랜딩** 을 선택하고, **구성** 을 선택합니다.
@@ -102,7 +102,7 @@ ms.locfileid: "131052449"
 
 3. 브랜딩 추가를 완료한 후에 **저장** 을 선택합니다.
 
-    이 프로세스에서 첫 번째 사용자 지정 브랜딩 구성을 생성하면 테넌트에 대한 기본값이 됩니다. 추가 구성이 있는 경우 기본 구성을 선택할 수 있습니다.
+    이 프로세스는 첫 번째 사용자 지정 브랜딩 구성을 만들고 테넌트의 기본값이 됩니다. 기본 사용자 지정 브랜딩 구성은 모든 언어별 브랜딩 구성에 대한 대체 옵션으로 사용됩니다. 구성을 만든 후에는 제거할 수 없습니다.
     
     >[!IMPORTANT]
     >회사 브랜딩을 테넌트에 더 추가하려면 **Contoso - 회사 브랜딩** 페이지에서 **새 언어** 를 선택해야 합니다. 그러면 **구성 회사 브랜딩** 페이지가 열립니다. 여기서는 위와 동일한 단계를 따르면 됩니다.

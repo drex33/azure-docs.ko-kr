@@ -1,19 +1,19 @@
 ---
 title: SAP ECC 원본에 연결 및 관리
 description: 이 가이드에서는 Azure Purview에서 SAP ECC에 연결하고 Purview의 기능을 사용하여 SAP ECC 원본을 검사하고 관리하는 방법을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: f1cd45b16c9569eb5069fa1cfb6a1f09eb97f3fb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: edc70416671e57624b5e36d90de37f0e9cefd74c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023769"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850644"
 ---
 # <a name="connect-to-and-manage-sap-ecc-in-azure-purview"></a>Azure Purview에서 SAP ECC에 연결 및 관리
 
@@ -23,9 +23,11 @@ ms.locfileid: "131023769"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| [예](how-to-lineage-sapecc.md)|
+| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예**](how-to-lineage-sapecc.md)|
 
-## <a name="prerequisites"></a>사전 요구 사항
+\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -38,6 +40,10 @@ ms.locfileid: "131023769"
 * [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)이 자체 호스팅 통합 런타임이 설치된 가상 머신에 설치되어 있는지 확인합니다.
 
 * Visual Studio 2012용 Visual C++ 재배포 가능 패키지 업데이트 4가 자체 호스팅 통합 런타임 컴퓨터에 설치되어 있는지 확인합니다. 이 업데이트가 설치되어 있지 않으면 [여기서 다운로드할 수 있습니다](https://www.microsoft.com/download/details.aspx?id=30679).
+
+* SAP 웹 사이트에서 64비트 [Microsoft .NET용 SAP Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)을 다운로드하고 이를 자체 호스팅 통합 런타임 컴퓨터에 설치합니다. 설치 도중 **선택적 설치 단계** 창에서 **GAC에 어셈블리 설치** 를 선택해야 합니다.
+
+    :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="필수 구성 요소" border="true":::
 
 * 커넥터에서 [SAP Java Connector(JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0 API를 사용하여 SAP에서 메타데이터를 읽습니다. Java Connector가 자체 호스팅 통합 런타임이 설치된 가상 머신에서 사용 가능해야 합니다. 환경에 대해 올바른 JCo 배포를 사용하고 있는지 확인합니다. 예를 들어 Microsoft Windows 컴퓨터의 경우 sapjco3.jar 및 sapjco3.dll 파일을 사용할 수 있어야 합니다.
 

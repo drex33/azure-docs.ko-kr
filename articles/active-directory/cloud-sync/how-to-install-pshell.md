@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c150f4bf18f9c4f5b9215122a45df1de32f48c32
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 9587c60cc37badc29a9a9f3ba80a77f6f193a3a9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113506244"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583048"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent-by-using-a-cli-and-powershell"></a>CLI 및 PowerShell을 사용하여 Azure AD Connect 프로비저닝 에이전트 설치
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure AD(Azure Active Directory) Connect 프로비저닝 에이전트를 설치하는 방법을 보여줍니다.
@@ -35,12 +35,12 @@ PowerShell cmdlet을 사용하여 Azure AD Connect 프로비저닝 에이전트�
 
  1. Azure Portal에 로그인한 다음 **Azure Active Directory** 로 이동합니다.
  1. 왼쪽 메뉴에서 **Azure AD Connect** 를 선택합니다.
- 1. **프로비저닝 관리(미리 보기)**  > **모든 에이전트 검토** 를 선택합니다.
+ 1. **프로비저닝 관리** > **모든 에이전트 검토** 를 선택합니다.
  1. Azure Portal에서 Azure AD Connect 프로비저닝 에이전트를 다운로드합니다.
 
     ![온-프레미스 에이전트 다운로드를 보여주는 스크린샷.](media/how-to-install/install-9.png)</br>
 
- 1. 이러한 지침의 목적에 따라 에이전트는 C:\ProvisioningSetup 폴더에 다운로드되었습니다. 
+ 1. 이러한 지침의 목적에 따라 에이전트는 C:\temp 폴더에 다운로드되었습니다. 
  1. 자동 모드에서 ProvisioningAgent를 설치합니다.
 
        ```

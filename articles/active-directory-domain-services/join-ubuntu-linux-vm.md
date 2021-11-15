@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 10/11/2021
 ms.author: justinha
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 79c3481f523efba4a88a0c559e7e1dcccbeba545
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: ea50fc8bfbaaf7383eb71b433fee97729967c061
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112516848"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856983"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ubuntu Linux 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 
@@ -35,7 +35,7 @@ ms.locfileid: "112516848"
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 관리되는 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
-* 관리되는 도메인의 일부인 사용자 계정
+* 관리되는 도메인의 일부인 사용자 계정 사용자의 SAMAccountName 특성이 자동으로 생성되지 않았는지 확인합니다. Azure AD 테넌트의 여러 사용자 계정에 동일한 mailNickname 특성이 있는 경우 각 사용자에 대한 SAMAccountName 특성이 자동으로 생성됩니다. 자세한 내용은 [Azure Active Directory Domain Services 관리형 도메인에서 개체 및 자격 증명을 동기화하는 방법](synchronization.md)을 참조하세요.
 * Active Directory에서 충돌을 일으킬 수 있는 잘린 이름을 방지하기 위한 최대 15자의 고유한 Linux VM 이름
 
 ## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Ubuntu Linux VM 만들기 및 연결

@@ -12,16 +12,18 @@ ms.date: 09/16/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 7c350c04071dd5f01804aaea57dd7390dc00bad5
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 4c5802d9cd1fc9a7a41d38bc70e9d384882a1ea1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130236716"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424328"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 강제 재설정 흐름 설정
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="overview"></a>개요
 
@@ -33,11 +35,19 @@ ms.locfileid: "130236716"
 
 암호 재설정 흐름은 로그인을 위해 암호와 함께 [이메일 주소](sign-in-options.md#email-sign-in) 또는 [사용자 이름](sign-in-options.md#username-sign-in)을 사용하는 Azure AD B2C의 로컬 계정에 적용됩니다.
 
-::: zone pivot="b2c-user-flow"
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+이 기능은 현재 사용자 흐름에만 사용할 수 있습니다. 설정 단계에서 위의 **사용자 흐름** 을 선택합니다. 사용자 지정 정책의 경우 아래 필수 구성 요소와 함께 첫 번째 로그온 시 암호를 강제 재설정하는 [GitHub 샘플](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon)을 사용합니다.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="configure-your-user-flow"></a>사용자 흐름 구성
 
@@ -116,12 +126,6 @@ Content-type: application/json
 ### <a name="password-expiry-duration"></a>암호 만료 기간
 
 암호 만료 기간 기본값은 **90** 일입니다. 이 값은 Windows PowerShell용 Azure Active Directory 모듈에서 [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet을 사용하여 구성할 수 있습니다. 이 명령은 테넌트를 업데이트하여 구성한 일 수 후에 모든 사용자의 암호가 만료되도록 합니다.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-이 기능은 현재 사용자 흐름에만 사용할 수 있습니다. 설정 단계에서 위의 **사용자 흐름** 을 선택합니다. 사용자 지정 정책의 경우 첫 번째 로그온 시 암호를 강제 재설정하는 [GitHub 샘플](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon)을 사용합니다.
 
 ::: zone-end
 

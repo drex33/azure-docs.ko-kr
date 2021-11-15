@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: c89cb9c43ae274170e0cedb01b1908a874b7317e
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 35415a42f6970a7a0aabc0fb210775a15fc1d481
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039951"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585449"
 ---
 # <a name="modify-the-accounts-supported-by-an-application"></a>애플리케이션에서 지원되는 계정 수정
 
@@ -35,7 +35,7 @@ Microsoft ID 플랫폼을 사용하여 애플리케이션을 등록할 때 해�
 기존 앱 등록에서 지원되는 계정 유형에 대해 다른 설정을 지정하려면 다음을 수행합니다.
 
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 앱이 등록된 테넌트로 전환합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** 을 선택한 다음, 애플리케이션을 선택합니다.
 1. 이제 애플리케이션을 사용할 수 있는 사용자(*로그인 대상* 이라고도 함)를 지정합니다.

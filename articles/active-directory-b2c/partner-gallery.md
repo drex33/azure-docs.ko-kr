@@ -3,20 +3,20 @@ title: Azure AD B2C에 대한 ISV 파트너 갤러리
 titleSuffix: Azure AD B2C
 description: ISV 파트너와 통합하여 사용자의 요구에 맞게 최종 사용자 환경을 조정하는 방법을 알아봅니다. 파트너 네트워크는 솔루션 기능을 확장합니다. MFA, 보안 고객 인증, 역할 기반 액세스 제어를 사용하도록 설정하고 ID 검증 교정을 통해 사기 행위를 방지합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4935b42efa6e6fd17d66ddfba744ae36653ed952
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: bf58338bfc16e2e0cea11183ad4fdf3e72961bb3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539038"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224926"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C ISV 파트너
 
@@ -47,6 +47,7 @@ Microsoft는 MFA 및 암호 없는 인증을 위해 다음 ISV와 파트너 관�
 |:-------------------------|:--------------|
 | ![bloksec 로고의 스크린샷](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md)은 암호 없는 인증 및 토큰 없는 MFA 솔루션으로, 실시간 동의 기반 서비스를 제공하고 암호 스터핑, 피싱 및 중간자(man-in-the-middle) 공격과 같은 ID 중심 사이버 공격으로부터 고객을 보호합니다. |
 | ![Hypr 로고의 스크린샷](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md)는 암호를 공개 키 암호화로 바꿔 사기 행위, 피싱 및 자격 증명 재사용을 제거하는 암호 없는 인증 공급자입니다. |
+| ![idemia 로고의 스크린샷](./media/partner-gallery/idemia-logo.png) | [IDEMIA](./partner-idemia.md)는 암호 없는 인증 공급자로, faceID 및 지문 인식과 같은 생체 인식 인증을 통해 실시간 동의 기반 서비스를 제공하여 사기 행위 및 자격 증명 재사용을 제거합니다. |
 | ![itsme 로고의 스크린샷](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md)는 eiDAS(전자 ID, 인증 및 신뢰 서비스) 호환 디지털 ID 솔루션으로 사용자가 카드 판독기, 암호, 2단계 인증 및 여러 PIN 코드 없이도 안전하게 로그인 할 수 있도록 합니다. |
 |![Keyless 로고의 스크린샷](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md)는 얼굴 생체 인식 검색의 형태로 인증을 제공하고 사기 행위, 피싱 및 자격 증명 재사용을 제거하는 암호 없는 인증 공급자입니다.
 | ![Nevis 로고 스크린샷](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md)는 암호 없는 인증을 가능하게 하며, 강력한 고객 인증을 위해 Nevis Access 앱을 통해 모바일 중심의 완전한 최종 사용자 환경을 제공하고 PSD2 트랜잭션 요구 사항을 준수합니다. |
@@ -72,6 +73,7 @@ Microsoft는 온-프레미스 애플리케이션에 대한 안전한 하이브�
 | ISV 파트너 | 설명 및 통합 연습 |
 |:-------------------------|:--------------|
 | ![Datawiza 로고의 스크린샷](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md)는 애플리케이션에 대한 SSO 및 세부적인 액세스 제어를 지원하고 온-프레미스 레거시 애플리케이션을 보호하기 위해 Azure AD B2C를 확장합니다.  |
+| ![F5 로고의 스크린샷](./media/partner-gallery/f5-logo.png) | [F5](./partner-f5.md)를 사용하면 Azure AD B2C 사전 인증, CA(조건부 액세스) 및 SSO와 결합된 BIG-IP 보안을 통해 레거시 애플리케이션을 인터넷에 안전하게 노출할 수 있습니다.  |
 | ![Ping 로고의 스크린샷](./media/partner-gallery/ping-logo.png) | [Ping ID](./partner-ping-identity.md)는 여러 클라우드에서 온-프레미스 레거시 애플리케이션에 대한 안전한 하이브리드 액세스를 가능하게 합니다. |
 | ![Strata 로고의 스크린샷](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md)는 일관된 액세스 정책을 적용하고 ID를 동기화된 상태로 유지하고 레거시 ID 시스템에서 Azure AD B2C에 의해 제공되는 표준 기반 인증 및 액세스 제어로 애플리케이션을 간단하게 전환할 수 있도록 하여 온-프레미스 애플리케이션에 대한 안전한 하이브리드 액세스를 제공합니다. |
 | ![Zscaler 로고의 스크린샷](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md)는 VPN의 비용, 번거로움 또는 보안 위험 없이 프라이빗 애플리케이션 및 자산에 대한 정책 기반 보안 액세스를 제공합니다. |

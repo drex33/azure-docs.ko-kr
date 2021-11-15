@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: vc, devx-track-azurecli
-ms.openlocfilehash: d311dbc14f5a2227f10a29a553adafdbbc28494c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ce9b80187bdab50ac05cd426fd04db7e31ccdc0e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472735"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853247"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>자습서: Azure Database for MySQL - 유연한 서버를 사용하여 AKS에 WordPress 앱 배포
 
@@ -140,7 +140,7 @@ az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 
 ```
 
-```wp-config-sample.php```의 이름을 ```wp-config.php```로 바꾸고 21~32번 줄을 다음 코드 조각으로 바꿉니다. 아래 코드 조각은 Kubernetes 매니페스트 파일에서 데이터베이스 호스트, 사용자 이름 및 암호를 읽습니다.
+```wp-config-sample.php``` 이름을 ```wp-config.php```로 바꾸고 ```// ** MySQL settings - You can get this info from your web host ** //``` 맨 앞 줄에서 ```define( 'DB_COLLATE', '' );``` 줄까지를 아래 코드 조각으로 바꿉니다. 아래 코드는 Kubernetes 매니페스트 파일에서 데이터베이스 호스트, 사용자 이름 및 암호를 읽습니다.
 
 ```php
 //Using environment variables for DB connection information
@@ -151,9 +151,10 @@ az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 $connectstr_dbhost = getenv('DATABASE_HOST');
 $connectstr_dbusername = getenv('DATABASE_USERNAME');
 $connectstr_dbpassword = getenv('DATABASE_PASSWORD');
+$connectst_dbname = getenv('DATABASE_NAME');
 
 /** MySQL database name */
-define('DB_NAME', 'flexibleserverdb');
+define('DB_NAME', $connectst_dbname);
 
 /** MySQL database username */
 define('DB_USER', $connectstr_dbusername);
@@ -236,11 +237,11 @@ spec:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "SERVERNAME.mysql.database.azure.com"
+          value: "SERVERNAME.mysql.database.azure.com" #Update here
         - name: DATABASE_USERNAME
-          value: "YOUR-DATABASE-USERNAME"
+          value: "YOUR-DATABASE-USERNAME"  #Update here
         - name: DATABASE_PASSWORD
-          value: "YOUR-DATABASE-PASSWORD"
+          value: "YOUR-DATABASE-PASSWORD"  #Update here
         - name: DATABASE_NAME
           value: "flexibleserverdb"
       affinity:
@@ -288,20 +289,20 @@ service "php-svc" created
 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용합니다.
 
 ```azurecli-interactive
-kubectl get service wordpress-blog --watch
+kubectl get service php-svc --watch
 ```
 
 처음에는 *wordpress-blog* 서비스에 대한 *EXTERNAL-IP* 가 *pending* 으로 표시됩니다.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-wordpress-blog   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+php-svc  LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 *EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```output
-wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
+  php-svc  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 ### <a name="browse-wordpress"></a>WordPress 찾아보기

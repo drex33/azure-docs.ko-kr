@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 08/25/2021
+ms.date: 11/03/2021
 ms.author: sngun
-ms.openlocfilehash: 1cb2b9057a1be20896523eba5e1111046a2901ed
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: aa065a4c5cd8100ee9e6cb235555f9aefc910643
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798943"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504781"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "124798943"
 > 이제 Azure Cosmos DB의 Table API에서 [서버리스 용량 모드](../serverless.md)를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> .NET Cosmos DB Table 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)이 유지 관리 모드에 있으며 곧 사용 중지될 예정됩니다. 새 .NET Azure Tables SDK [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/)로 업그레이드하여 Table API에서 지원하는 최신 기능을 계속 유지하세요.
+> .NET Azure Tables SDK [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/)는 Table API에서 지원하는 최신 기능을 제공합니다. Azure Tables 클라이언트 라이브러리는 코드 변경 없이 Azure Table Storage 또는 Azure Cosmos DB 테이블 서비스 엔드포인트를 원활하게 대상으로 지정할 수 있습니다.
 
 ## <a name="table-offerings"></a>Table 제품
 

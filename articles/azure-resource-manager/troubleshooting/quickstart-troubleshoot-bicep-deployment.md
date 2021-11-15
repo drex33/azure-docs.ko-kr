@@ -1,15 +1,15 @@
 ---
 title: Bicep 파일 배포 문제 해결
 description: Bicep 파일 배포를 모니터링하고 문제를 해결하는 방법을 알아봅니다. 활동 로그 및 배포 기록을 표시합니다.
-ms.date: 10/26/2021
+ms.date: 11/04/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44c98be9a0553d3e255b2272a3a8797bae61d3da
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 31d212ef608b5fbabb4430b5320ae033ae2be325
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101410"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131849447"
 ---
 # <a name="quickstart-troubleshoot-bicep-file-deployments"></a>빠른 시작: Bicep 파일 배포 문제 해결
 
@@ -17,11 +17,11 @@ ms.locfileid: "131101410"
 
 배포와 관련된 세 가지 유형의 오류가 있습니다.
 
-- **검증 오류** 는 배포가 시작되기 전에 발생하며 파일의 구문 오류로 인해 발생합니다. 편집자는 이러한 오류를 포착할 수 있습니다.
-- **실행 전 오류** 는 배포를 시작한 후 리소스가 배포되기 전에 발생합니다. 이러한 오류는 배포를 시작하지 않고 발견됩니다. 예를 들어 매개 변수 값이 잘못된 경우 실행 전 유효성 검사에서 오류가 발견됩니다.
+- **검증 오류** 는 배포가 시작되기 전에 발생하며 파일의 구문 오류로 인해 발생합니다. 편집기에서 이러한 오류를 식별할 수 있습니다.
+- 배포 명령이 실행되지만 리소스가 배포되지 않은 경우 **실행 전 유효성 검사 오류** 가 발생합니다. 이러한 오류는 배포를 시작하지 않고 발견됩니다. 예를 들어 매개 변수 값이 잘못된 경우 실행 전 유효성 검사에서 오류가 발견됩니다.
 - **배포 오류** 는 배포 프로세스 중에 발생하며 배포 진행 상황을 평가해야만 찾을 수 있습니다.
 
-모든 오류 유형에서 배포 문제를 해결하는 데 사용하는 오류 코드를 반환합니다. 유효성 검사 및 실행 전 오류는 배포 기록에 표시되지 않습니다.
+모든 오류 유형에서 배포 문제를 해결하는 데 사용하는 오류 코드를 반환합니다. 유효성 검사 및 실행 전 오류는 활동 로그에 표시되지만 배포 기록에는 표시되지 않습니다. 구문 오류가 있는 Bicep 파일은 JSON으로 컴파일되지 않으며 활동 로그에 표시되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -126,7 +126,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-Azure Resource Manager는 스토리지 계정의 이름에 허용되지 않는 문자가 포함되어 있는지 확인합니다. 배포를 시도하지 않습니다. 
+Azure Resource Manager는 스토리지 계정의 이름에 허용되지 않는 문자가 포함되어 있는지 확인합니다. 배포를 시도하지 않습니다.
 
 실행 전 유효성 검사가 실패했음을 나타내는 오류 메시지가 표시됩니다. 또한 스토리지 계정 이름의 길이는 3~24자여야 하고 숫자와 소문자만 사용해야 한다는 메시지가 표시됩니다. 제공한 접두사가 해당 요구 사항을 충족하지 않습니다. 이 오류 코드에 대한 자세한 내용은 [스토리지 계정 이름 오류 해결](error-storage-account-name.md)을 참조하세요.
 
@@ -148,14 +148,20 @@ Azure Resource Manager는 스토리지 계정의 이름에 허용되지 않는 �
 
 ```azurecli
 az group create --name troubleshootRG --location westus
-az deployment group create --resource-group troubleshootRG --template-file troubleshoot.bicep --parameters prefixName=stg
+az deployment group create \
+  --resource-group troubleshootRG \
+  --template-file troubleshoot.bicep \
+  --parameters prefixName=stg
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name troubleshootRG -Location westus
-New-AzResourceGroupDeployment -ResourceGroupName troubleshootRG -TemplateFile troubleshoot.bicep -prefixName stg
+New-AzResourceGroupDeployment `
+  -ResourceGroupName troubleshootRG `
+  -TemplateFile troubleshoot.bicep `
+  -prefixName stg
 ```
 
 ---

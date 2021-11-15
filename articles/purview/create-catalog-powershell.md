@@ -7,12 +7,12 @@ ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-api
-ms.openlocfilehash: b4bcd427508f3ecf66b0cca4bdade023c3f87d61
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0924c0eab925c0ba15f8e0bde841d3005535e23f
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037818"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843217"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기
 
@@ -133,7 +133,15 @@ Purview에 대한 자세한 내용은 [개요 페이지를 참조](overview.md)�
     ---
 
 1. 배포 명령에서 결과를 반환합니다. `ProvisioningState`를 찾아서 배포에 성공했는지 확인합니다.
-    
+
+1. 사용자 계정 대신 서비스 주체를 사용하여 Azure Purview 계정을 배포한 경우 Azure CLI 아래 명령도 실행해야 합니다.
+
+    ```azurecli
+    az purview account add-root-collection-admin --account-name --resource-group [--object-id]
+    ```
+  
+    이 명령은 Azure Purview 계정의 루트 컬렉션에 대한 사용자 계정 [컬렉션 관리자](catalog-permissions.md#roles) 권한을 부여합니다. 이렇게 하면 사용자가 Purview 스튜디오에 액세스하고 다른 사용자에 대한 권한을 추가할 수 있습니다. Azure Purview의 권한에 대한 자세한 내용은 [사용 권한 가이드](catalog-permissions.md)를 참조하세요. 컬렉션에 대한 자세한 내용은 [컬렉션 문서 관리](how-to-create-and-manage-collections.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 Azure Purview 계정을 만드는 방법을 알아보았습니다.
@@ -141,5 +149,5 @@ Purview에 대한 자세한 내용은 [개요 페이지를 참조](overview.md)�
 Purview Studio를 탐색하고, 컬렉션을 만들고, Purview에 대해 액세스 권한을 부여하는 방법을 알아보려면 다음 문서를 참조하세요.
 
 * [Purview Studio를 사용하는 방법](use-purview-studio.md)
-* [컬렉션 만들기](quickstart-create-collection.md)
 * [Azure Purview 계정에 사용자 추가](catalog-permissions.md)
+* [컬렉션 만들기](quickstart-create-collection.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5cc264171c6c2dc5588156af2d3d0deb21e4fe94
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 2b1b16eb910cb924983efb349dd4d093ac656346
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228088"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216980"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -107,7 +107,7 @@ ms.locfileid: "114228088"
      {
      // ...
      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
       // ...
@@ -137,7 +137,7 @@ Microsoft Graph를 호출하려면 *Microsoft.Identity.Web* 을 통해 직접 `G
      {
      // ...
      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
                .AddInMemoryTokenCaches();
@@ -382,7 +382,7 @@ def authorized():
 ## <a name="token-cache"></a>토큰 캐시
 
 > [!IMPORTANT]
-> 웹앱 또는 웹 API에 대한 토큰 캐시 구현은 데스크톱 애플리케이션에 대한 구현과 다르며, 이는 종종 [파일 기반](scenario-desktop-acquire-token.md#file-based-token-cache)입니다.
+> 웹앱 또는 웹 API에 대한 토큰 캐시 구현은 데스크톱 애플리케이션에 대한 구현과 다르며, 이는 종종 [파일 기반](msal-net-token-cache-serialization.md)입니다.
 > 보안 및 성능상의 이유로, 웹앱 및 웹 API의 경우 사용자 계정마다 하나의 토큰 캐시가 있는지 확인하는 것이 중요합니다. 각 계정의 토큰 캐시를 직렬화해야 합니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
@@ -420,13 +420,13 @@ services.AddDistributedSqlServerCache(options =>
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-웹앱 또는 웹 API에 대한 토큰 캐시 구현은 데스크톱 애플리케이션에 대한 구현과 다르며, 이는 종종 [파일 기반](scenario-desktop-acquire-token.md#file-based-token-cache)입니다.
+웹앱 또는 웹 API에 대한 토큰 캐시 구현은 데스크톱 애플리케이션에 대한 구현과 다르며, 이는 종종 [파일 기반](msal-net-token-cache-serialization.md)입니다.
 
 웹앱 구현에서는 ASP.NET 세션 또는 서버 메모리를 사용할 수 있습니다. 예를 들어 [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58)에서 MSAL.NET 애플리케이션을 만든 후 캐시 구현이 후크되는 방법을 참조하세요.
 
 
 먼저 이러한 구현을 사용하려면 다음을 수행합니다.
-- Microsoft.Identity.Web Nuget 패키지를 추가합니다. 이러한 토큰 캐시 직렬 변환기는 원치 않는 종속성을 피하기 위해 MSAL.NET에서 직접 가져오지 않습니다. ASP.NET Core의 상위 수준 외에도 Microsoft.Identity.Web은 MSAL.NET용 도우미 클래스를 제공합니다. 
+- Microsoft.Identity.Web NuGet 패키지를 추가합니다. 이러한 토큰 캐시 직렬 변환기는 원치 않는 종속성을 피하기 위해 MSAL.NET에서 직접 가져오지 않습니다. ASP.NET Core의 상위 수준 외에도 Microsoft.Identity.Web은 MSAL.NET용 도우미 클래스를 제공합니다. 
 - 코드에서 Microsoft.Identity.Web 네임스페이스를 사용합니다.
 
   ```csharp

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
-ms.openlocfilehash: d016d7b5a88aa5413652fa3ed032c04680030142
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 1c2d35709ab512eb27579db6991567cd27b23376
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539034"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044557"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
 
@@ -133,11 +133,11 @@ Windows 도메인에 조인되거나 Azure AD(Azure Active Directory)에서 조�
 
 ![디바이스 코드 흐름](media/scenarios/device-code-flow-app.svg)
 
-이를 사용하지 않는 것이 좋지만, [사용자 이름/암호 흐름](scenario-desktop-acquire-token.md#username-and-password)은 퍼블릭 클라이언트 애플리케이션에서 사용할 수 있습니다. 이 흐름은 여전히 DevOps와 같은 일부 시나리오에서 필요합니다.
+이를 사용하지 않는 것이 좋지만, [사용자 이름/암호 흐름](scenario-desktop-acquire-token-username-password.md)은 퍼블릭 클라이언트 애플리케이션에서 사용할 수 있습니다. 이 흐름은 여전히 DevOps와 같은 일부 시나리오에서 필요합니다.
 
 사용자 이름/암호 흐름을 사용하면 애플리케이션이 제한됩니다. 예를 들어 애플리케이션이 Azure AD에서 다단계 인증 또는 조건부 액세스 도구를 사용해야 하는 사용자를 로그인할 수 없습니다. 또한 애플리케이션에서 Single Sign-On의 이점을 누릴 수 없습니다. 사용자 이름/암호 흐름을 사용하는 인증은 최신 인증 원칙에 위반되며, 레거시 용도로만 제공됩니다.
 
-데스크톱 앱에서 토큰 캐시를 영구적으로 유지하려면 [토큰 캐시 직렬화](scenario-desktop-acquire-token.md#file-based-token-cache)를 사용자 지정할 수 있습니다. [이중 토큰 캐시 직렬화](scenario-desktop-acquire-token.md#dual-token-cache-serialization-msal-unified-cache--adal-v3)를 구현하면 이전 버전 및 이후 버전과 호환되는 토큰 캐시를 사용할 수 있습니다. 이러한 토큰은 이전 세대의 인증 라이브러리를 지원합니다. 특정 라이브러리에는 .NET용 Azure AD 인증 라이브러리(ADAL.NET) 버전 3 및 4가 포함됩니다.
+데스크톱 앱에서 토큰 캐시를 영구적으로 유지하려면 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md)를 사용자 지정할 수 있습니다. [이중 토큰 캐시 직렬화](msal-net-token-cache-serialization.md#dual-token-cache-serialization-msal-unified-cache-and-adal-v3)를 구현하면 이전 버전 및 이후 버전과 호환되는 토큰 캐시를 사용할 수 있습니다. 이러한 토큰은 이전 세대의 인증 라이브러리를 지원합니다. 특정 라이브러리에는 .NET용 Azure AD 인증 라이브러리(ADAL.NET) 버전 3 및 4가 포함됩니다.
 
 자세한 내용은 [웹 API를 호출하는 데스크톱 앱](scenario-desktop-overview.md)을 참조하세요.
 
@@ -160,7 +160,7 @@ MSAL iOS 및 MSAL Android는 기본적으로 시스템 웹 브라우저를 사�
 
 ### <a name="protected-web-api"></a>보호된 웹 API
 
-Microsoft ID 플랫폼 엔드포인트를 사용하여 앱의 RESTful 웹 API와 같은 웹 서비스를 보호할 수 있습니다. 보호된 웹 API는 액세스 토큰을 통해 호출됩니다. 토큰은 API의 데이터를 보호하고 들어오는 요청을 인증하는 데 도움이 됩니다. 웹 API 호출자는 액세스 토큰을 HTTP 요청의 인증 헤더에 추가합니다.
+Microsoft ID 플랫폼 엔드포인트를 사용하여 앱의 RESTful API와 같은 웹 서비스를 보호할 수 있습니다. 보호된 웹 API는 액세스 토큰을 통해 호출됩니다. 토큰은 API의 데이터를 보호하고 들어오는 요청을 인증하는 데 도움이 됩니다. 웹 API 호출자는 액세스 토큰을 HTTP 요청의 인증 헤더에 추가합니다.
 
 ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 액세스 토큰의 유효성을 검사합니다. 이 유효성 검사를 위해 ASP.NET JWT 미들웨어를 사용합니다. 유효성 검사는 MSAL.NET이 아니라 [.NET용 IdentityModel 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) 라이브러리에서 수행합니다.
 
@@ -224,7 +224,7 @@ MSAL의 [클라이언트 자격 증명](scenario-daemon-acquire-token.md#acquire
  </tr>
 
   <tr>
-   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt="Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
    <td rowspan="4"><a href="scenario-desktop-overview.md">Web API를 호출하는 데스크톱 앱</a></td>
    <td>대화형(PKCE가 있는 <a href="v2-oauth2-auth-code-flow.md">권한 부여 코드</a> 사용)</td>
    <td>회사/학교 계정, 개인 계정 및 Azure AD B2C</td>
@@ -241,7 +241,7 @@ MSAL의 [클라이언트 자격 증명](scenario-daemon-acquire-token.md#acquire
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="scenario-desktop-acquire-token-device-code-flow.md"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">디바이스 코드</a></td>
    <td>회사/학교 계정, 개인 계정(Azure AD B2C 제외)</td>
  </tr>

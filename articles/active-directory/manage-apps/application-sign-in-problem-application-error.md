@@ -1,5 +1,6 @@
 ---
-title: 로그인한 후 앱 페이지에 오류 메시지가 표시됩니다. | Microsoft Docs
+title: 로그인한 후 앱 페이지에 오류 메시지가 표시됩니다.
+titleSuffix: Azure AD
 description: 앱에서 오류를 내보내는 경우 Azure AD 로그인에서 발생한 문제를 해결하는 방법
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c1910eb106e7a3e405f58ba672c38fa108544d2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 499ce4c7875a1805b5845614221ffef0641816d6
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528820"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617780"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>사용자가 로그인하면 앱 페이지에 오류 메시지가 표시됨
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in-azure-active-directory"></a>사용자가 Azure Active Directory에 로그인하면 앱 페이지에 오류 메시지가 표시됩니다.
 
 이 시나리오에서 Azure Active Directory (Azure AD)는 사용자를 로그인시킵니다. 그러나 애플리케이션은 오류 메시지를 표시하고 사용자가 로그인 흐름을 완료하지 않도록 합니다. 문제는 앱이 Azure AD에서 발급한 응답을 수락하지 않았다는 것입니다.
 

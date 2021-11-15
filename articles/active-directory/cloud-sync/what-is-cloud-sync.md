@@ -11,12 +11,12 @@ ms.date: 10/07/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4bda35abff8bed8795d9cc6257b45bb22ef961c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: ff693e9985f0c741a329d5e4bc17398461bb224d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709872"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424081"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화란?
 Azure AD Connect 클라우드 동기화는 사용자, 그룹 및 연락처를 Azure AD에 동기화하기 위한 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft의 새로운 제품입니다.  Azure AD Connect 애플리케이션 대신 Azure AD 클라우드 프로비저닝 에이전트를 사용하여 이 작업을 수행합니다.  그러나 Azure AD Connect 동기화와 함께 사용할 수 있으며 다음과 같은 이점을 제공합니다.
@@ -68,7 +68,9 @@ Azure AD Connect 클라우드 동기화를 사용하면 AD에서 Azure AD로의 
 | 최소 특성 집합이 동기화되도록 허용(MinSync) |● |● |
 | AD에서 Azure AD로의 흐름에서 특성 제거 허용 |● |● |
 | 특성 흐름에 대한 고급 사용자 지정 허용 |● | |
-| 쓰기 저장에 대한 지원(암호, 디바이스, 그룹) |● | |
+| 암호 쓰기 저장 지원 |● |● |
+| 디바이스 쓰기 저장 지원|● | |
+| 그룹 쓰기 저장 지원|● | |
 | Azure AD Domain Services 지원|● | |
 | [Exchange 하이브리드 쓰기 저장](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | AD 도메인당 개체 수 제한 없음 |● | |

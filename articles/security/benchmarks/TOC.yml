@@ -107,7 +107,7 @@
       href: /azure/databricks/scenarios/security-baseline
     - name: Azure DDOS Protection 표준 보안 기준
       href: ../fundamentals/ddos-protection-security-baseline.md
-    - name: Azure Defender for IoT 보안 기준
+    - name: Microsoft Defender for IoT 보안 기준
       href: ../../defender-for-iot/security-baseline.md
     - name: Azure DevTest Labs 보안 기준
       href: ../../devtest-labs/security-baseline.md
@@ -151,7 +151,7 @@
       href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
     - name: Azure Resource Manager 보안 기준
       href: ../../azure-resource-manager/management/security-baseline.md
-    - name: Azure Sentinel 보안 기준
+    - name: Microsoft Sentinel 보안 기준
       href: ../../sentinel/security-baseline.md
     - name: Azure SignalR Service 보안 기준
       href: ../../azure-signalr/security-baseline.md
@@ -199,7 +199,7 @@
       href: ../../governance/policy/samples/guest-configuration-baseline-linux.md?toc=/azure/security/benchmarks/toc.json
     - name: Logic Apps 보안 기준
       href: ../../logic-apps/security-baseline.md
-    - name: Microsoft Cloud App Security 기준
+    - name: Microsoft Defender for Cloud Apps 기준
       href: /cloud-app-security/security-baseline
     - name: Microsoft Defender for Identity 보안 기준
       href: /defender-for-identity/security-baseline
@@ -207,7 +207,7 @@
       href: ../../network-watcher/security-baseline.md
     - name: Power BI 기준
       href: /security/benchmark/azure/baselines/power-bi-security-baseline
-    - name: Security Center 기준
+    - name: Defender for Cloud 기준
       href: ../../security-center/security-baseline.md
     - name: Service Bus 기준
       href: ../../service-bus-messaging/security-baseline.md
@@ -247,7 +247,7 @@
       href: ../fundamentals/index.yml
     - name: 클라우드의 공동 책임
       href: ../fundamentals/shared-responsibility.md
-    - name: Azure Security Center
+    - name: Microsoft Defender for Cloud
       href: ../../security-center/index.yml
     - name: Azure Security Benchmark Foundation 청사진 샘플
       href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md

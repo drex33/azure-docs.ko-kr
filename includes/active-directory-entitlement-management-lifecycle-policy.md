@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: db13884e3deed8e990d21d82e215a1e837371275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f078710392f895dc672c9562ac3a7b03f4623e1e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98052754"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019142"
 ---
 ## <a name="lifecycle"></a>수명 주기
 
 **수명 주기** 탭에서 액세스 패키지에 대한 사용자의 할당이 만료되는 시기를 지정합니다. 사용자가 할당을 확장할 수 있는지 여부를 지정할 수도 있습니다.
 
-1. **만료** 섹션에서 **액세스 패키지 할당 만료** 를 **날짜**, **일 수** 또는 **없음** 으로 설정합니다.
+1. **만료** 섹션에서 **액세스 패키지 할당 만료** 를 **날짜**, **일 수**, **시간** 또는 **없음** 으로 설정합니다.
 
     **날짜** 에 대해 이후의 만료 날짜를 선택합니다.
 
     **일 수** 의 경우 0~3660일 사이의 숫자를 지정합니다.
+
+    **시간** 에 시간을 지정합니다.
 
     선택 사항에 따라 액세스 패키지에 대한 사용자의 할당은 특정 날짜, 승인 후 특정 기간(일) 또는 없음에 따라 만료됩니다.
 

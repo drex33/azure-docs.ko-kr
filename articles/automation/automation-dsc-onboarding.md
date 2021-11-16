@@ -4,18 +4,15 @@ description: 이 문서에서는 Azure Automation State Configuration을 사용�
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: v-ssudhir
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: 94b853f07536af81d553645e38eb697620070b9f
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: fc14ccca588a51271f3cb52c90904375b6739802
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132400949"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484449"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Azure Automation State Configuration 사용
 

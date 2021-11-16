@@ -253,6 +253,8 @@
       href: /samples/browse/?expanded=azure&products=azure-iot-central
     - name: 지원 및 도움말 옵션
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+    - name: 비디오 리소스
+      href: 'https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG'
     - name: IoT 용어집
       href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
     - name: Azure IoT 서비스

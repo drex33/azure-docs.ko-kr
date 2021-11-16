@@ -22,31 +22,33 @@
       items:
         - name: 일반적인 배포 오류
           href: common-deployment-errors.md
-        - name: AccountNameInvalid
+        - name: 잘못된 계정 이름
           href: error-storage-account-name.md
-        - name: DeploymentQuotaExceeded
+        - name: 배포 할당량 초과
           href: deployment-quota-exceeded.md
-        - name: InvalidTemplate
+        - name: 잘못된 템플릿
           href: error-invalid-template.md
-        - name: JobSizeExceeded
+        - name: 작업 크기 초과
           href: error-job-size-exceeded.md
-        - name: NoRegisteredProviderFound
+        - name: 등록된 공급자 찾을 수 없음
           href: error-register-resource-provider.md
-        - name: NotFound
+        - name: 찾을 수 없음
           href: error-not-found.md
-        - name: ParentResourceNotFound
+        - name: 대상 리소스를 찾을 수 없음
           href: error-parent-resource.md
         - name: Linux의 프로비전 및 할당 문제
           href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
         - name: Windows의 프로비전 및 할당 문제
           href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-        - name: RequestDisallowedByPolicy
+        - name: 정책에 의해 요청이 허용되지 않음
           href: error-policy-requestdisallowedbypolicy.md
-        - name: ReservedResourceName
+        - name: 예약된 리소스 이름
           href: error-reserved-resource-name.md
-        - name: ResourceQuotaExceeded
+        - name: 리소스 이름 및 유형 형식
+          href: error-invalid-name-segments.md
+        - name: 리소스 할당량 초과
           href: error-resource-quota.md
-        - name: SkuNotAvailable
+        - name: SKU 사용할 수 없음
           href: error-sku-not-available.md
 - name: 참조
   items:

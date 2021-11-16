@@ -5,16 +5,16 @@ titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c4c2867382ffd3c3369417b0e83fb89bc6dd6561
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 635153d510b18bc0ce97033094abf21a3b6d3d74
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460947"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491631"
 ---
 # <a name="configure-kubernetes-clusters-for-machine-learning-preview"></a>기계 학습을 위한 Kubernetes 클러스터 구성(미리 보기)
 
@@ -28,7 +28,7 @@ Azure Arc 지원 기계 학습을 사용하면 Azure Kubernetes Service 또는 A
 
 ## <a name="machine-learning-on-azure-kubernetes-service"></a>Azure Kubernetes Service Machine Learning
 
-Azure Machine Learning 학습 및 유추 워크로드에 Azure Kubernetes Service 클러스터를 사용하려면 Azure Arc 연결할 필요가 없습니다.
+Azure Machine Learning 학습 및 유추 워크로드에 Azure Kubernetes Service 클러스터를 사용하려면 클러스터를 Azure Arc 연결할 필요가 없습니다.
 
 인바운드 및 아웃바운드 네트워크 트래픽을 구성해야 합니다. 자세한 내용은 [AKS(인바운드 및 아웃바운드 네트워크 트래픽) 구성을](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1)참조하세요.
 
@@ -49,7 +49,7 @@ Azure Kubernetes Service 클러스터에 Azure Machine Learning 확장을 배포
     >
     > 자세한 내용은 [인바운드 및 아웃바운드 네트워크 트래픽 구성(Azure Arc 지원 Kubernetes) 을 참조하세요.](how-to-access-azureml-behind-firewall.md#arc-kubernetes)
 
-* [Azure Arc 지원 Kubernetes 클러스터 확장 필수 구성 조건 를 충족합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
+* [Azure Arc 지원 Kubernetes 클러스터 확장 필수 구성 요소는 충족합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
   * Azure CLI 버전 >= 2.24.0
   * Azure CLI k8s-extension extension version >= 1.0.0
 
@@ -70,7 +70,7 @@ Azure Kubernetes Service 클러스터에 Azure Machine Learning 확장을 배포
         를 실행하고 `oc edit scc privileged` 다음을 추가합니다. 
 
         * ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
-        * ```system:serviceaccount:azureml:{EXTENSION NAME}-kube-state-metrics```**(참고:** ```{EXTENSION NAME}``` **여기서는 단계에서 사용된 확장 이름과 일치해야** ```az k8s-extension create --name``` **합니다.)**
+        * ```system:serviceaccount:azureml:{EXTENSION NAME}-kube-state-metrics```**(참고:** ```{EXTENSION NAME}``` **여기서는 단계에서 사용된 확장 이름과 일치해야 합니다.)** ```az k8s-extension create --name``` 
         * ```system:serviceaccount:azureml:cluster-status-reporter```
         * ```system:serviceaccount:azureml:prom-admission```
         * ```system:serviceaccount:azureml:default```
@@ -90,7 +90,7 @@ Azure Arc 지원 Kubernetes에는 Azure Policy 정의, 모니터링, 기계 학�
 * [학습 및 추론](#training-inferencing)
 
 > [!TIP]
-> 학습 전용 클러스터는 Azure Machine Learning Pipelines 일부로 일괄 처리 유추도 지원합니다.
+> 학습 전용 클러스터는 Azure Machine Learning Pipelines 일부로 일괄 처리 추론도 지원합니다.
 
 Azure CLI 확장 명령을 사용하여 `k8s-extension` [`create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true) Azure Arc 지원 Kubernetes 클러스터에 Azure Machine Learning 확장을 배포합니다.
 
@@ -104,17 +104,17 @@ Azure CLI 확장 명령을 사용하여 `k8s-extension` [`create`](/cli/azure/k8
 > [!TIP]
 > 매개 `openshift` 변수를 로 `True` 설정하여 ARO 및 OCP Kubernetes 클러스터에 Azure Machine Learning 확장을 배포합니다.
 
-| 구성 설정 키 이름  | 설명  | 학습 | 유추 | 학습 및 유추 |
+| 구성 설정 키 이름  | 설명  | 교육 | 유추 | 학습 및 유추 |
 |---|---|---|---|---|
-| ```enableTraining``` | 기본값은 `False`입니다. `True`로 설정하여 기계 학습 모델 학습을 위한 확장 인스턴스를 만듭니다. |  **&check;** | N/A |  **&check;** |
+| ```enableTraining``` | 기본값은 `False`입니다. `True`로 설정하여 기계 학습 모델 학습을 위한 확장 인스턴스를 만듭니다. |  **&check;** | 해당 없음 |  **&check;** |
 |```logAnalyticsWS```  | 기본값은 `False`입니다. Azure Machine Learning 확장은 Azure LogAnalytics 작업 영역과 통합됩니다. LogAnalytics 작업 영역을 통해 로그 보기 및 분석 기능을 제공하려면 `True`로 설정합니다. LogAnalytics 작업 영역 비용이 적용될 수 있습니다. | 선택 사항 | 선택 사항 | 선택 사항 |
 |```installNvidiaDevicePlugin```  | 기본값은 `True`입니다. Nvidia GPU 하드웨어에서 학습 및 추론하려면 Nvidia 디바이스 플러그 인이 필요합니다. Azure Machine Learning 확장은 Kubernetes 클러스터에 GPU 하드웨어가 있는지 여부에 관계없이 Azure Machine Learning 인스턴스를 만드는 동안 기본적으로 Nvidia 디바이스 플러그인을 설치합니다. `False`GPU를 사용할 계획이 없거나 Nvidia 디바이스 플러그 인이 이미 설치된 경우 로 설정합니다.  | 선택 사항 |선택 사항 | 선택 사항 |
-| ```enableInference``` | 기본값은 `False`입니다.  로 `True`  설정하여 기계 학습 모델을 유추하기 위한 확장 인스턴스를 만듭니다. | N/A | **&check;** |  **&check;** |
-| ```allowInsecureConnections``` | 기본값은 `False`입니다. 및 가 `True` 제공되지 않은 경우 유추를 위해 HTTP 엔드포인트를 지원하는 Azure Machine Learning 확장 배포의 경우 로 ```sslCertPemFile``` ```sslKeyPemFile``` 설정합니다. | N/A | 선택 사항 |  선택 사항 |
-| ```sslCertPemFile``` & ```ssKeyPMFile``` | SSL 인증서 및 키 파일(PEM 인코딩)의 경로입니다. 유추를 위해 HTTPS 엔드포인트를 지원하는 AzureML 확장 배포에 필요합니다. | N/A | 선택 사항 |  선택 사항 |
-| ```privateEndpointNodeport``` | 기본값은 `False`입니다.  `True`NodePort를 사용하여 기계 학습 유추 프라이빗 엔드포인트 지원을 사용하는 Azure Machine Learning 확장 배포의 경우 로 설정합니다. | N/A | 선택 사항 |  선택 사항 |
-| ```privateEndpointILB``` | 기본값은 `False`입니다.  `True`serviceType 내부 부하 분산 Azure Machine Learning 사용하여 Machine Learning 유추 프라이빗 엔드포인트 지원을 사용하는 확장 배포의 경우 로 설정합니다. | N/A| 선택 사항 |  선택 사항 |
-| ```inferenceLoadBalancerHA``` | 기본값은 `True`입니다. 기본적으로 Azure Machine Learning 확장은 고가용성을 위해 여러 수신 컨트롤러 복제본을 배포합니다. 클러스터 `False` 리소스가 제한되거나 개발 및 테스트용으로만 Azure Machine Learning 확장을 배포하려는 경우 로 설정합니다. 고가용성 부하 분산 장치는 사용하지 않고 수신 컨트롤러 복제본을 하나만 배포합니다. | N/A | 선택 사항 |  선택 사항 |
+| ```enableInference``` | 기본값은 `False`입니다.  로 `True`  설정하여 기계 학습 모델을 유추하기 위한 확장 인스턴스를 만듭니다. | 해당 없음 | **&check;** |  **&check;** |
+| ```allowInsecureConnections``` | 기본값은 `False`입니다. 및 가 `True` 제공되지 않은 경우 유추를 위해 HTTP 엔드포인트를 지원하는 Azure Machine Learning 확장 배포의 경우 로 ```sslCertPemFile``` ```sslKeyPemFile``` 설정합니다. | 해당 없음 | 선택 사항 |  선택 사항 |
+| ```sslCertPemFile``` & ```ssKeyPMFile``` | SSL 인증서 및 키 파일(PEM 인코딩)의 경로입니다. 유추를 위해 HTTPS 엔드포인트를 지원하는 AzureML 확장 배포에 필요합니다. | 해당 없음 | 선택 사항 |  선택 사항 |
+| ```privateEndpointNodeport``` | 기본값은 `False`입니다.  `True`NodePort를 사용하여 기계 학습 유추 프라이빗 엔드포인트 지원을 사용하는 Azure Machine Learning 확장 배포의 경우 로 설정합니다. | 해당 없음 | 선택 사항 |  선택 사항 |
+| ```privateEndpointILB``` | 기본값은 `False`입니다.  `True`serviceType 내부 부하 분산 Azure Machine Learning 사용하여 Machine Learning 유추 프라이빗 엔드포인트 지원을 사용하는 확장 배포의 경우 로 설정합니다. | 해당 없음| 선택 사항 |  선택 사항 |
+| ```inferenceLoadBalancerHA``` | 기본값은 `True`입니다. 기본적으로 Azure Machine Learning 확장은 고가용성을 위해 여러 수신 컨트롤러 복제본을 배포합니다. 클러스터 `False` 리소스가 제한되거나 개발 및 테스트용으로만 Azure Machine Learning 확장을 배포하려는 경우 로 설정합니다. 고가용성 부하 분산 장치는 사용하지 않고 수신 컨트롤러 복제본을 하나만 배포합니다. | 해당 없음 | 선택 사항 |  선택 사항 |
 |```openshift``` | 기본값은 `False`입니다. `True`ARO 또는 OCP 클러스터에서 Azure Machine Learning 확장 배포의 경우로 설정 합니다. 배포 프로세스는 자동으로 각 노드에서 정책 패키지를 컴파일하고 정책 패키지를 로드 하므로 Azure Machine Learning 서비스 작업이 제대로 작동할 수 있습니다. | 선택 사항 | 선택 사항 |  선택 사항 |
 
 > [!WARNING]
@@ -193,30 +193,30 @@ az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureM
 
 Azure Machine Learning 확장이 배포 되 면 클러스터에서 실행 하는 작업에 따라 Azure에서 Kubernetes 클러스터에 대해 다음과 같은 리소스가 생성 됩니다.
 
-|리소스 이름  |리소스 유형 |학습 |유추 |학습 및 유추|
+|리소스 이름  |리소스 유형 |교육 |유추 |학습 및 유추|
 |---|---|---|---|---|
 |Azure ServiceBus|Azure 리소스|**&check;**|**&check;**|**&check;**|
 |Azure Relay|Azure 리소스|**&check;**|**&check;**|**&check;**|
 |{확장 이름}|Azure 리소스|**&check;**|**&check;**|**&check;**|
-|aml-연산자|Kubernetes 배포|**&check;**|N/A|**&check;**|
+|aml-연산자|Kubernetes 배포|**&check;**|해당 없음|**&check;**|
 |{EXTENSION-NAME}-kube|Kubernetes 배포|**&check;**|**&check;**|**&check;**|
 |{EXTENSION-NAME}-프로메테우스-연산자|Kubernetes 배포|**&check;**|**&check;**|**&check;**|
-|amlarc-controller|Kubernetes 배포|N/A|**&check;**|**&check;**|
-|amlarc-프록시|Kubernetes 배포|N/A|**&check;**|**&check;**|
-|azureml-fe|Kubernetes 배포|N/A|**&check;**|**&check;**|
-|유추-연산자-컨트롤러-관리자|Kubernetes 배포|N/A|**&check;**|**&check;**|
+|amlarc-controller|Kubernetes 배포|해당 없음|**&check;**|**&check;**|
+|amlarc-프록시|Kubernetes 배포|해당 없음|**&check;**|**&check;**|
+|azureml-fe|Kubernetes 배포|해당 없음|**&check;**|**&check;**|
+|유추-연산자-컨트롤러-관리자|Kubernetes 배포|해당 없음|**&check;**|**&check;**|
 |메트릭-컨트롤러-관리자|Kubernetes 배포|**&check;**|**&check;**|**&check;**|
 |relayserver|Kubernetes 배포|**&check;**|**&check;**|**&check;**|
 |클러스터-상태-보고자|Kubernetes 배포|**&check;**|**&check;**|**&check;**|
-|nfd-마스터|Kubernetes 배포|**&check;**|N/A|**&check;**|
+|nfd-마스터|Kubernetes 배포|**&check;**|해당 없음|**&check;**|
 |gateway|Kubernetes 배포|**&check;**|**&check;**|**&check;**|
-|csi-controller|Kubernetes 배포|**&check;**|N/A|**&check;**|
-|csi-node|Kubernetes daemonset|**&check;**|N/A|**&check;**|
+|csi-controller|Kubernetes 배포|**&check;**|해당 없음|**&check;**|
+|csi-node|Kubernetes daemonset|**&check;**|해당 없음|**&check;**|
 |흐름 비트|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|
 |k8s-daemonset|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|
-|nfd-worker|Kubernetes daemonset|**&check;**|N/A|**&check;**|
+|nfd-worker|Kubernetes daemonset|**&check;**|해당 없음|**&check;**|
 |프로메테우스-prom-프로메테우스|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|
-|frameworkcontroller|Kubernetes statefulset|**&check;**|N/A|**&check;**|
+|frameworkcontroller|Kubernetes statefulset|**&check;**|해당 없음|**&check;**|
 
 > [!IMPORTANT]
 > Azure ServiceBus 및 Azure Relay 리소스는 Arc 클러스터 리소스와 동일한 리소스 그룹에 있습니다. 이러한 리소스를 사용 하 여 Kubernetes 클러스터와 통신 하 고 수정 하면 연결 된 계산 대상이 중단 됩니다.
@@ -265,7 +265,7 @@ Azure Arc 사용 Kubernetes 클러스터를 연결 하면 작업 영역에서 �
 
 ### <a name="python-sdk"></a>[Python SDK](#tab/sdk)
 
-Azure Machine Learning Python SDK를 사용하여 Azure Arc 지원 Kubernetes 클러스터를 컴퓨팅 대상으로 연결할 수 [`attach_configuration`](/python/api/azureml-core/azureml.core.compute.kubernetescompute.kubernetescompute?view=azure-ml-py&preserve-view=true) 있습니다.
+Azure Machine Learning Python SDK를 사용하여 Azure Arc 지원 Kubernetes 클러스터를 메서드를 사용하는 컴퓨팅 대상으로 연결할 수 [`attach_configuration`](/python/api/azureml-core/azureml.core.compute.kubernetescompute.kubernetescompute?view=azure-ml-py&preserve-view=true) 있습니다.
 
 다음 Python 코드는 Azure Arc 지원 Kubernetes 클러스터를 연결하고 관리 ID를 사용하도록 설정된 컴퓨팅 대상으로 사용하는 방법을 보여 줍니다.
 
@@ -319,7 +319,7 @@ Azure Machine Learning 2.0 CLI(미리 보기)를 사용하여 AKS 또는 Azure A
 Azure Machine Learning CLI 명령을 사용하고 [`attach`](/cli/azure/ml/compute?view=azure-cli-latest&preserve-view=true) `--type` 인수를 로 `kubernetes` 설정하여 Azure Machine Learning 2.0 CLI를 사용하여 Kubernetes 클러스터를 연결합니다.
 
 > [!NOTE]
-> AKS 또는 Azure Arc 사용하도록 설정된 Kubernetes 클러스터에 대한 컴퓨팅 연결 지원을 사용하려면 >`ml` = 2.0.1a4의 Azure CLI 확장 버전이 필요합니다. 자세한 내용은 [CLI 설치 및 설정(v2)을 참조하세요.](how-to-configure-cli.md)
+> AKS 또는 Azure Arc 사용하도록 설정된 Kubernetes 클러스터에 대한 컴퓨팅 연결 지원을 사용하려면 Azure CLI `ml` 확장 버전 >= 2.0.1a4가 필요합니다. 자세한 내용은 [CLI 설치 및 설정(v2)을 참조하세요.](how-to-configure-cli.md)
 
 다음 명령은 Azure Arc 지원 Kubernetes 클러스터를 연결하고 관리 ID를 사용하도록 설정된 컴퓨팅 대상으로 사용하는 방법을 보여 줍니다.
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77a0a8f1a02fa970965d3393dada2a7720ab3e4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: f3f8d5fb55d547a1c0602843fb36f19ad45dbc2a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821377"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536594"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금을 사용하여 공격으로부터 사용자 계정 보호
 
@@ -24,7 +24,7 @@ ms.locfileid: "122821377"
 
 ## <a name="how-smart-lockout-works"></a>스마트 잠금 작동 방법
 
-기본적으로 스마트 잠금은 Azure 공용 테넌트에서 10번의 시도가 실패한 후 1분 동안 로그인 시도에서 계정을 잠그고, Azure 미국 정부 테넌트에서는 3번 로그인을 시도하지 못하도록 합니다. 후속 로그인 시도가 실패할 때마다 계정이 다시 잠기는데, 처음에는 1분간 잠기고 그 이후에는 더 길게 잠깁니다. 공격자가 이 동작을 해결할 수 있는 방법을 최소화하기 위해 추가 로그인 시도 실패에 대해 잠금 기간이 증가하는 속도를 공개하지 않습니다.
+기본적으로 스마트 잠금은 Azure 공용 및 Azure 중국 21Vianet 테넌트에서 10번의 시도가 실패한 후 1분 동안 로그인 시도에서 계정을 잠그고, Azure 미국 정부 테넌트에서는 3번 로그인을 시도하지 못하도록 합니다. 후속 로그인 시도가 실패할 때마다 계정이 다시 잠기는데, 처음에는 1분간 잠기고 그 이후에는 더 길게 잠깁니다. 공격자가 이 동작을 해결할 수 있는 방법을 최소화하기 위해 추가 로그인 시도 실패에 대해 잠금 기간이 증가하는 속도를 공개하지 않습니다.
 
 스마트 잠금 기능은 동일한 암호에 대해 잠금 카운터가 증가하는 것을 방지하기 위해 마지막 세 개의 잘못된 암호 해시를 추적합니다. 누군가가 동일한 잘못된 암호를 여러 번 입력하는 경우 이 동작으로 인해 계정이 잠기지 않습니다.
 
@@ -65,7 +65,7 @@ AD FS 2016 및 AF FS 2019를 사용하는 페더레이션된 배포는 [AD FS �
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Azure AD 스마트 잠금 값 관리
 
-조직의 요구 사항에 따라 Azure AD 스마트 잠금 값을 사용자 지정할 수 있습니다. 조직에 특수한 값이 있는 스마트 잠금 설정의 사용자 지정에는 Azure AD Premium P1 또는 사용자에 대한 높은 라이선스가 필요합니다.
+조직의 요구 사항에 따라 Azure AD 스마트 잠금 값을 사용자 지정할 수 있습니다. 조직에 특수한 값이 있는 스마트 잠금 설정의 사용자 지정에는 Azure AD Premium P1 또는 사용자에 대한 높은 라이선스가 필요합니다. Azure 중국 21Vianet 테넌트에 대해서는 스마트 잠금 설정의 사용자 지정을 사용할 수 없습니다.
 
 조직의 스마트 잠금 값을 확인하거나 수정하려면 다음 단계를 완료합니다.
 
@@ -84,13 +84,19 @@ AD FS 2016 및 AF FS 2019를 사용하는 페더레이션된 배포는 [AD FS �
 
 ![Azure Portal에서 Azure AD 스마트 잠금 정책 사용자 지정](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>스마트 잠금 기능이 작동하는지 여부를 확인하는 방법
+## <a name="testing-smart-lockout"></a>스마트 잠금 테스트
 
 스마트 잠금 임계값이 트리거되면 계정이 잠겨 있는 동안 다음 메시지가 표시됩니다.
 
 *무단 사용을 방지하기 위해 회원님의 계정을 일시적으로 잠갔습니다. 나중에 다시 시도하세요. 이 문제가 계속되면 관리자에게 문의하세요.*
 
 스마트 잠금을 테스트하는 경우 Azure AD 인증 서비스의 지리적으로 분산되고 부하가 분산된 특성으로 인해 로그인 요청은 다른 데이터 센터에서 처리될 수 있습니다. 이 시나리오에서 각 Azure AD 데이터 센터가 독립적으로 잠금을 추적하기 때문에 잠금을 유발하는 잠금 임계값 시도 횟수를 정의하는 것보다 더 많은 시간이 걸릴 수 있습니다. 사용자는 완전히 잠기기 전에 최대 (*threshold_limit * datacenter_count*)번의 잘못된 시도를 할 수 있습니다.
+
+스마트 잠금 기능은 동일한 암호에 대해 잠금 카운터가 증가하는 것을 방지하기 위해 마지막 세 개의 잘못된 암호 해시를 추적합니다. 누군가가 동일한 잘못된 암호를 여러 번 입력하는 경우 이 동작으로 인해 계정이 잠기지 않습니다.
+
+
+## <a name="default-protections"></a>기본 보호
+Azure AD는 스마트 잠금 외에도 IP 트래픽을 비롯한 신호를 분석하고 비정상 동작을 식별하여 공격으로부터 보호합니다. Azure AD는 기본적으로 이러한 악성 로그인을 차단하고 암호 유효성에 관계없이 [AADSTS50053 IdsLocked 오류 코드](../develop/reference-aadsts-error-codes.md)를 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

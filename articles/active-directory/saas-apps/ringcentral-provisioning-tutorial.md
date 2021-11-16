@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: thwimmer
-ms.openlocfilehash: 9e8385faadc4c3c9d34471741cc238e964ed67a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4999669aee35b9e0d7303ae1156f10318c775562
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589172"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989777"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 RingCentral 구성
 
@@ -38,6 +38,10 @@ ms.locfileid: "128589172"
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * [RingCentral 테넌트](https://www.ringcentral.com/office/plansandpricing.html)
 * 관리자 권한이 있는 RingCentral의 사용자 계정.
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
@@ -152,6 +156,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * 2020년 9월 10일 - "displayName" 및 "manager" 특성에 대한 지원이 제거되었습니다.
 * 2021/03/15 - 인증 방법이 영구 전달자 토큰에서 OAuth 코드 부여 흐름으로 업데이트되었습니다.
+* 2021년 10월 28일 - **mail-> emails[type eq “work”].value** 에 대한 기본 매핑이 업데이트되었습니다.
+* 2021년 10월 28일 - 속도 제한이 읽기의 경우 300/분, 쓰기의 경우 1000/분으로 업데이트되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

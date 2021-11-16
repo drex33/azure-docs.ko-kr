@@ -1,19 +1,19 @@
 ---
 title: Teradata에 연결 및 관리
 description: 이 가이드에서는 Azure Purview에서 Teradata에 연결하고 Purview의 기능을 사용하여 Teradata 원본을 검사하고 관리하는 방법을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 9e049c6e277846661b33e54756ca5ef9f8707fdd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ebaad16ff413b33f175815a1ddadb2fa1d5b63ae
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010894"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841926"
 ---
 # <a name="connect-to-and-manage-teradata-in-azure-purview"></a>Azure Purview에서 Teradata에 연결 및 관리
 
@@ -23,12 +23,13 @@ ms.locfileid: "131010894"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| [예](how-to-lineage-teradata.md)|
+| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예**](how-to-lineage-teradata.md)|
 
-> [!Important]
-> 지원되는 Teradata 데이터베이스 버전은 12.x ~ 16.x입니다.
+\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 
-## <a name="prerequisites"></a>사전 요구 사항
+지원되는 Teradata 데이터베이스 버전은 12.x~16.x입니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -103,24 +104,24 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
 
         자격 증명에 대한 자세한 내용은 [여기](./manage-credentials.md)에 있는 링크를 참조하세요.
 
-1. **스키마**: 가져올 스키마의 하위 집합을 나열하며, 세미콜론으로 구분된 목록으로 표현됩니다. 예: schema1; schema2. 목록이 비어 있으면 모든 사용자 스키마를 가져옵니다. 모든 시스템 스키마(예: SysAdmin) 및 개체는 기본적으로 무시됩니다. 목록이 비어 있는 경우 모든 사용 가능한 스키마를 가져옵니다.
+    1. **스키마**: 가져올 스키마의 하위 집합을 나열하며, 세미콜론으로 구분된 목록으로 표현됩니다. 예: `schema1; schema2`. 목록이 비어 있으면 모든 사용자 스키마를 가져옵니다. 모든 시스템 스키마(예: SysAdmin) 및 개체는 기본적으로 무시됩니다. 목록이 비어 있는 경우 모든 사용 가능한 스키마를 가져옵니다.
 
-    SQL LIKE 식 구문을 사용하는 허용 가능한 스키마 이름 패턴에는 % 사용이 포함됩니다. 예: A%; %B; %C%; D
-     * A로 시작합니다. 또는
-     * B로 끝납니다. 또는
-     * C를 포함합니다. 또는
-     * D와 같습니다.
+        SQL LIKE 식 구문을 사용하는 허용 가능한 스키마 이름 패턴에는 % 사용이 포함됩니다. 예: `A%; %B; %C%; D`
+        * A로 시작합니다. 또는
+        * B로 끝납니다. 또는
+        * C를 포함합니다. 또는
+        * D와 같습니다.
 
-    NOT 및 특수 문자는 허용되지 않습니다.
+        NOT 및 특수 문자는 허용되지 않습니다.
 
-1. **드라이버 위치**: VM에서 자체 호스팅 통합 런타임이 실행 중인 JDBC 드라이버 위치의 경로를 지정합니다. 이 경로는 유효한 JAR 폴더 위치에 대한 경로여야 합니다.
+    1. **드라이버 위치**: VM에서 자체 호스팅 통합 런타임이 실행 중인 JDBC 드라이버 위치의 경로를 지정합니다. 이 경로는 유효한 JAR 폴더 위치에 대한 경로여야 합니다.
 
-1. **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 Teradata 원본의 크기에 따라 달라집니다.
+    1. **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 Teradata 원본의 크기에 따라 달라집니다.
 
-    > [!Note]
-    > 일반적으로 1000개 테이블당 2GB 메모리를 제공하세요.
+        > [!Note]
+        > 일반적으로 1000개 테이블당 2GB 메모리를 제공하세요.
 
-    :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="검사 설정" border="true":::
+        :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="검사 설정" border="true":::
 
 1. **계속** 을 선택합니다.
 

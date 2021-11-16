@@ -3,7 +3,7 @@ title: Azure Active Directory 애플리케이션 프록시의 와일드카드 �
 description: Azure Active Directory 애플리케이션 프록시에서 와일드카드 애플리케이션을 사용하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: da2ea074a717189c038705f95f77e538d1bd9680
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d84ca4e53ada2310097e0c7af5314bdf05fd2613
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962148"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988564"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
 

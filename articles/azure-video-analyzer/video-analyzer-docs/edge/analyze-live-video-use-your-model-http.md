@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 42845d87a8c1679a9b186cf71a9b82a9413fb005
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c7770c61ce6d768f3fdd3216da94c87466310e74
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563590"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484233"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>빠른 시작: 자체 모델로 라이브 비디오 분석l - HTTP
 
@@ -35,7 +35,7 @@ ms.locfileid: "131563590"
 
 Azure 리소스가 설치되면 고속도로 교통에 대한 짧은 비디오가 IoT Edge 디바이스로 사용하는 Azure의 Linux VM에 복사됩니다. 이 빠른 시작에서는 비디오 파일을 사용하여 라이브 스트림을 시뮬레이션합니다.
 
-[VLC 미디어 플레이어](https://www.videolan.org/vlc/)와 같은 애플리케이션을 엽니다. Ctrl+N을 선택한 다음, [고속도로 교차로 샘플 비디오](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) 링크를 붙여넣어 재생을 시작합니다. 고속도로 교통에서 이동하는 많은 차량의 영상이 표시됩니다.
+[VLC 미디어 플레이어](https://www.videolan.org/vlc/)와 같은 애플리케이션을 엽니다. Ctrl+N을 선택한 다음, [고속도로 교차로 샘플 비디오](https://avamedia.blob.core.windows.net/public/camera-300s.mkv) 링크를 붙여넣어 재생을 시작합니다. 고속도로 교통에서 이동하는 많은 차량의 영상이 표시됩니다.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 

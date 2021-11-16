@@ -8,12 +8,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: helohr
   manager: femila
-  ms.openlocfilehash: e6633e117fc06e9d7e337d6bece2cc2f7c36193c
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 0546f6186fbf725e14a105b0d735db0b7ecef2cc
+  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253330"
+  ms.lasthandoff: 11/05/2021
+  ms.locfileid: "131841605"
 title: Windows 10 Enterprise 다중 세션 FAQ
 summary: 이 문서에서는 Windows 10 Enterprise 다중 세션에 대해 자주 묻는 질문에 답하고 모범 사례에 대해 설명합니다.
 sections:
@@ -92,4 +92,6 @@ sections:
       5. **사용 안 함** 을 선택한 다음 **확인** 을 선택합니다.
 
       6. **적용** 을 선택합니다.
+  - question: Windows 10 또는 11 Enterprise 다중 세션이 WSUS(Windows Server Update Services)를 통해 기능 업데이트를 받을 수 있나요?
+    answer: "현재 WSUS는 Windows 10 또는 11 Enterprise 다중 세션에 기능 업데이트를 제공할 수 없습니다.\n         \n"
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n   \nAzure Virtual Desktop 및 Windows 10 Enterprise 다중 세션에 대한 자세한 내용은 다음을 참조하세요.\n        \n- [Azure Virtual Desktop 설명서](overview.md) 읽기\n- [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 방문하기\n- [ Virtual Desktop 자습서](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참고하여 Azure Virtual Desktop 배포 설정"

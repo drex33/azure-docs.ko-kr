@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: 204de2d0b3ed6e75d8b599e094a58e0b2e1826b0
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 0501f703ce32df37a755c05240b24b8262ccf314
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576114"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491168"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -35,6 +35,8 @@ Azure Load Balancer에는 기본, 표준 및 게이트웨이의 3 개 sku가 있
 | --- | --- | --- |
 | **시나리오** |  고성능 및 매우 짧은 대기 시간이 필요한 경우 부하 분산 네트워크 계층 트래픽을 준비 합니다. 는 전 세계 및 여러 지역에서 트래픽을 라우팅하고, 높은 복원 력을 위해 가용성 영역으로 라우팅합니다. | 고가용성 또는 중복성이 필요 하지 않은 소규모 응용 프로그램을 위한 것입니다. 가용성 영역과 호환 되지 않습니다. |
 | **백 엔드 형식** | IP 기반, NIC 기반 | NIC 기반 |
+| **프로토콜** | TCP, UDP | TCP, UDP |
+| **[프런트 엔드 IP 구성](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 에서는 최대 600의 구성을 지원 합니다. | 에서는 최대 200의 구성을 지원 합니다. |
 | **[백 엔드 풀 크기](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 최대 1000개 인스턴스를 지원합니다. | 최대 300개 인스턴스를 지원합니다. |
 | **백 엔드 풀 엔드포인트** | 단일 가상 네트워크에 있는 가상 머신 또는 가상 머신 확장 집합 | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신. |
 | **[상태 프로브](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
@@ -49,6 +51,9 @@ Azure Load Balancer에는 기본, 표준 및 게이트웨이의 3 개 sku가 있
 | **관리 작업** | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초 |
 | **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | 사용할 수 없음 | 
 | **글로벌 VNet 피어링 지원** | 표준 ILB는 글로벌 VNet 피어링을 통해 지원됩니다. | 지원되지 않음 | 
+| **[NAT 게이트웨이 지원](https://docs.microsoft.com/azure/virtual-network/nat-gateway/nat-overview)** | 표준 ILB와 표준 공용 LB는 Nat 게이트웨이를 통해 지원 됩니다. | 지원되지 않음 | 
+| **[개인 링크 지원](https://docs.microsoft.com/azure/private-link/private-link-overview)** | 표준 ILB는 개인 링크를 통해 지원 됩니다. | 지원되지 않음 | 
+| **[지역 간 부하 분산 (미리 보기)](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)** | 표준 공용 LB는 지역 간 LB를 통해 지원 됩니다. | 지원되지 않음 | 
 
 자세한 내용은 [Load Balancer 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)을 참조하세요. 표준 Load Balancer 세부 내용은 [개요](./load-balancer-overview.md), [가격](https://aka.ms/lbpricing) 및 [SLA](https://aka.ms/lbsla)를 참조하세요.
 

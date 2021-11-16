@@ -3,16 +3,17 @@ title: 함수에 대 한 Azure SQL 출력 바인딩
 description: Azure Functions에서 Azure SQL 출력 바인딩을 사용 하는 방법을 알아봅니다.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/9/2021
+ms.date: 11/12/2021
 ms.author: drskwier
-ms.openlocfilehash: f2909917f7cdab501fd3667a452c835c9cb8f915
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.reviewer: cachai
+ms.openlocfilehash: 37a9601f30c64108b079ec8573553a05088c8629
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132352736"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493270"
 ---
-# <a name="azure-sql-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure SQL 출력 바인딩
+# <a name="azure-sql-output-binding-for-azure-functions-preview"></a>Azure Functions (미리 보기)에 대 한 Azure SQL 출력 바인딩
 
 Azure SQL 출력 바인딩을 사용 하면 데이터베이스에 쓸 수 있습니다.
 

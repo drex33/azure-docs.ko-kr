@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory의 애플리케이션 관리란?
-description: 클라우드 및 온-프레미스 애플리케이션에 대한 IAM(ID 및 액세스 관리) 시스템으로 Azure AD(Active Directory)를 사용하는 개요입니다.
+title: 애플리케이션 관리란?
+description: Azure Active Directory에서 애플리케이션의 수명 주기를 관리하는 방법에 대한 개요입니다.
 titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
@@ -9,84 +9,132 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/22/2021
+ms.date: 10/22/2021
 ms.author: davidmu
 ms.reviewer: sureshja, napuri
-ms.openlocfilehash: cb5cb0e5d1e2f86abac70826edc8fa3ebbc04ad6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3b1e814def005283fb08ab7eeb3c23a8a38e3ee2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613532"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257401"
 ---
-# <a name="what-is-application-management"></a>애플리케이션 관리란?
+# <a name="what-is-application-management-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 관리란?
 
-Azure AD는 IAM(ID 및 액세스 관리) 시스템입니다. 디지털 ID에 대한 정보를 저장할 수 있는 단일 장소를 제공합니다. 사용자 정보가 저장되는 위치로 Azure AD를 사용하도록 소프트웨어 애플리케이션을 구성할 수 있습니다.
+Azure AD(Azure Active Directory)의 애플리케이션 관리는 클라우드에서 애플리케이션을 만들고, 구성하고, 관리하고, 모니터링하는 프로세스입니다. [애플리케이션](../develop/app-objects-and-service-principals.md)을 Azure AD 테넌트에 등록하는 경우 해당 애플리케이션에 할당된 사용자는 애플리케이션에 안전하게 액세스할 수 있습니다. 여러 유형의 애플리케이션을 Azure AD에 등록할 수 있습니다. 자세한 내용은 [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](../develop/v2-app-types.md)을 참조하세요.
 
-Azure AD는 애플리케이션과 통합되도록 구성되어야 합니다. 즉, ID용으로 사용하는 앱을 알아야 합니다. Azure AD에서 이러한 앱을 인식하고 이를 처리하는 방법을 애플리케이션 관리라고 합니다.
+이 문서에서는 애플리케이션의 수명 주기를 관리하는 다음과 같은 중요한 측면에 대해 알아봅니다.
 
-Azure Active Directory 포털의 관리 섹션에 있는 **엔터프라이즈 애플리케이션** 페이지에서 애플리케이션을 관리합니다.
+- **개발, 추가 또는 연결** – 사용자 애플리케이션을 개발하는지, 미리 통합된 애플리케이션을 사용하는지 또는 온-프레미스 애플리케이션에 연결하는지에 따라 다른 경로를 따릅니다.
+- **액세스 관리** – 액세스는 SSO(Single Sign-On)를 사용하고, 리소스를 할당하고, 액세스 권한을 부여하고 동의하는 방식을 정의하고, 자동화된 프로비저닝을 사용하여 관리할 수 있습니다.
+- **속성 구성** – 애플리케이션에 로그인하기 위한 요구 사항과 애플리케이션이 사용자 포털에 표시되는 방식을 구성합니다.
+- **애플리케이션 보안** – 권한 구성, MFA(다단계 인증), 조건부 액세스, 토큰 및 인증서를 관리합니다.
+- **통제 및 모니터링** – 권한 관리, 보고 및 모니터링 리소스를 사용하여 상호 작용을 관리하고 작업을 검토합니다.
+- **정리** – 애플리케이션이 더 이상 필요하지 않은 경우 해당 애플리케이션에 대한 액세스를 제거하고 애플리케이션을 삭제하여 테넌트를 정리합니다.
 
-![Azure AD 포털의 관리 섹션 아래에서 엔터프라이즈 애플리케이션 옵션을 선택합니다.](media/what-is-application-management/enterprise-applications-in-nav.png)
+## <a name="develop-add-or-connect"></a>개발, 추가 또는 연결
 
-## <a name="what-is-an-identity-and-access-management-iam-system"></a>IAM(ID 및 액세스 관리) 시스템이란?
+Azure AD에서 애플리케이션을 관리하는 방법에는 여러 가지가 있습니다. 애플리케이션 관리를 시작하는 가장 쉬운 방법은 Azure AD 갤러리에서 사전 통합된 애플리케이션을 사용하는 것입니다. 사용자 고유의 애플리케이션을 개발하고 Azure AD에 등록하는 것은 한 가지 옵션이며, 온-프레미스 애플리케이션을 계속 사용할 수도 있습니다.
 
-애플리케이션은 일부 용도로 사용되는 소프트웨어의 일부입니다. 대부분의 앱은 사용자가 로그인해야 합니다.
+다음 이미지는 이러한 애플리케이션이 Azure AD와 상호 작용하는 방법을 보여 줍니다.
 
-중앙 집중식 ID 시스템은 모든 애플리케이션에서 사용할 수 있는 사용자 정보를 저장하는 단일 장소를 제공합니다. 이러한 시스템은 IAM(ID 및 액세스 관리) 시스템이라고 합니다. Azure Active Directory는 Microsoft 클라우드의 IAM 시스템입니다.
+:::image type="content" source="media/what-is-application-management/app-management-overview.png" alt-text="사용자가 직접 개발한 앱, 사전 통합된 앱 및 온-프레미스 앱을 엔터프라이즈 앱으로 사용할 수 있는 방법을 보여 주는 다이어그램":::
 
->[!TIP]
->IAM 시스템은 사용자 ID를 추적하는 단일 장소를 제공합니다. Azure AD는 Microsoft 클라우드의 IAM 시스템입니다.
+### <a name="pre-integrated-applications"></a>사전 통합된 애플리케이션
 
-## <a name="why-manage-applications-with-a-cloud-solution"></a>클라우드 솔루션을 사용하여 애플리케이션을 관리하는 이유는 무엇인가요?
+많은 애플리케이션은 이미 사전 통합되어 있으며(위의 이미지에 "클라우드 애플리케이션"으로 표시됨) 최소한의 노력으로 설정할 수 있습니다. Azure AD 갤러리의 각 애플리케이션에 대해 [애플리케이션을 구성](../saas-apps/tutorial-list.md)하는 데 필요한 단계를 보여 주는 문서를 사용할 수 있습니다. 갤러리에서 Azure AD 테넌트에 애플리케이션을 추가하는 방법에 대한 간단한 예제는 [빠른 시작: 엔터프라이즈 애플리케이션 추가](add-application-portal.md)를 참조하세요.
 
-조직에는 사용자가 작업하는 데 사용해야 하는 수백 개의 애플리케이션이 있을 수 있습니다. 사용자는 많은 디바이스 및 위치에서 이러한 애플리케이션에 액세스합니다. 항상 새 애플리케이션이 추가, 개발 및 중단됩니다. 앱과 액세스 포인트가 너무 많기 때문에 이들 모두와 함께 작동하는 ID 솔루션을 사용하는 것이 중요합니다.
+### <a name="your-own-applications"></a>사용자 고유의 애플리케이션
 
->[!TIP]
->Azure AD 앱 갤러리에는 이미 Azure AD를 ID 공급자로 사용하도록 미리 구성된 많은 인기 있는 애플리케이션이 포함되어 있습니다.
+고유한 비즈니스 애플리케이션을 개발하는 경우 Azure AD에 등록하여 테넌트가 제공하는 보안 기능을 활용할 수 있습니다. **앱 등록** 에서 애플리케이션을 등록하거나 **엔터프라이즈 애플리케이션** 에서 새 애플리케이션을 추가할 때 **사용자 고유의 애플리케이션 만들기** 링크를 사용하여 등록할 수 있습니다. Azure AD와의 통합을 위해 애플리케이션에서 [인증](../develop/authentication-vs-authorization.md)을 구현하는 방법을 고려합니다. 
 
-## <a name="how-does-azure-ad-work-with-apps"></a>Azure AD는 앱에서 어떻게 작동합니까?
+갤러리를 통해 애플리케이션을 사용할 수 있게 하려면 [요청을 제출하여 추가](../develop/v2-howto-app-gallery-listing.md)할 수 있습니다.
 
-Azure AD는 중간에 위치하며 클라우드 및 온-프레미스 앱에 대한 ID 관리를 제공합니다.
 
-![Azure AD를 통해 페더레이션된 애플리케이션을 보여주는 다이어그램](media/what-is-application-management/app-management-overview.png)
+### <a name="on-premises-applications"></a>온-프레미스 애플리케이션
 
->[!TIP]
->사용자를 회사 HR 시스템에 추가할 때 Azure AD에 자동으로 추가되도록 [사용자 프로비저닝을 자동화](../app-provisioning/user-provisioning.md)하여 관리 비용을 절감합니다.
+온-프레미스 애플리케이션을 계속 사용하지만 Azure AD에서 제공하는 기능을 활용하려는 경우 [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용하여 Azure AD에 연결합니다. 외부에서 온-프레미스 애플리케이션을 게시하려는 경우 애플리케이션 프록시를 구현할 수 있습니다. 이렇게 하면 내부 애플리케이션에 액세스해야 하는 원격 사용자가 안전하게 액세스할 수 있습니다.
 
-## <a name="what-types-of-applications-can-i-integrate-with-azure-ad"></a>어떤 유형의 애플리케이션을 Azure AD와 통합할 수 있나요?
+## <a name="manage-access"></a>액세스 관리
 
-거의 모든 앱에 대한 ID 시스템으로서 Azure AD를 사용할 수 있습니다. 이미 많은 앱이 미리 구성되어 있으며 최소한의 노력으로 설정할 수 있습니다. 이러한 미리 구성된 앱은 [Azure AD 앱 갤러리](/azure/active-directory/saas-apps/)에 게시됩니다.
+애플리케이션에 대한 [액세스를 관리](what-is-access-management.md)하려면 다음 질문에 대답합니다.
 
-앱이 아직 갤러리에 없는 경우 대부분의 앱을 Single Sign-On에 대해 수동으로 구성할 수 있습니다. Azure AD는 몇 가지 SSO 옵션을 제공합니다. 가장 널리 사용되는 것은 SAML 기반 SSO와 OIDC 기반 SSO입니다. SSO를 사용하도록 앱을 통합하는 방법에 대한 자세한 내용은 [Single Sign-On 옵션](sso-options.md)을 참조하세요.
+- 애플리케이션에 대해 액세스 권한을 부여하고 동의하는 방법은 무엇인가요?
+- 애플리케이션이 SSO를 지원하나요?
+- 애플리케이션에 어떤 사용자, 그룹 및 소유자를 할당해야 하나요? 
+- 애플리케이션을 지원하는 다른 ID 공급자가 있나요?
+- 사용자 ID 및 역할 프로비저닝을 자동화하는 데 도움이 되나요?
 
-조직에서 온-프레미스 앱을 사용합니까? 앱 프록시를 사용하여 통합할 수 있습니다. 자세한 내용은 [Azure AD의 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스 제공](../app-proxy/application-proxy.md)을 참조하세요.
+### <a name="access-and-consent"></a>액세스 및 동의
 
->[!TIP]
->고유한 기간 업무 애플리케이션을 빌드할 경우 Azure AD와 통합하여 Single Sign-On을 지원할 수 있습니다. Azure AD용 앱을 개발하는 방법에 대한 자세한 내용은 [Microsoft ID 플랫폼](..//develop/v2-overview.md)을 참조하세요.
+[사용자 동의 설정을 관리](configure-user-consent.md)하여 사용자가 애플리케이션 또는 서비스에서 사용자 프로필 및 조직 데이터에 액세스할 수 있도록 허용할지 여부를 선택할 수 있습니다. 애플리케이션에 액세스 권한이 부여되면 사용자는 Azure AD와 통합된 애플리케이션에 로그인할 수 있으며, 애플리케이션은 조직의 데이터에 액세스하여 풍부한 데이터 기반 환경을 제공할 수 있습니다.
 
-## <a name="manage-risk-with-conditional-access-policies"></a>조건부 액세스 정책을 사용하여 위험 관리
+사용자는 애플리케이션이 요청하는 사용 권한에 동의할 수 없는 경우가 많습니다. 사용자가 근거를 제공하고 관리자의 애플리케이션 검토 및 승인을 요청할 수 있도록 [관리자 동의 워크플로](configure-admin-consent-workflow.md)를 구성합니다.
 
-Azure AD SSO(Single Sign-On)를 [조건부 액세스](../conditional-access/concept-conditional-access-cloud-apps.md)와 연결하면 애플리케이션 액세스에 대한 높은 수준의 보안이 제공됩니다. 조건부 액세스 정책은 설정한 조건에 따라 앱을 세부적으로 제어할 수 있습니다.
+관리자는 [테넌트 전체 애플리케이션 사용 권한 관리자 동의를 부여](grant-admin-consent.md)할 수 있습니다. 일반 사용자에게 허용되지 않는 권한이 애플리케이션에 필요하고 조직에서 자체 검토 프로세스를 구현할 수 있도록 하려면 테넌트 전체 관리자 동의가 필요합니다. 동의를 부여하기 전에 애플리케이션에서 요청하는 권한을 항상 신중하게 검토합니다. 애플리케이션에 테넌트 전체 관리자 동의가 부여되면 사용자 할당을 요구하도록 구성되지 않은 한 모든 사용자가 애플리케이션에 로그인할 수 있습니다.
 
-## <a name="improve-productivity-with-single-sign-on"></a>Single Sign-On으로 생산성 개선
+### <a name="single-sign-on"></a>Single Sign-On
 
-SSO(Single Sign-On)는 Microsoft 365와 사용자가 사용하는 다른 모든 앱 간에 통합된 사용자 환경을 제공합니다. 더 이상 사용자 이름과 암호를 계속 입력할 필요가 없습니다.
+애플리케이션에서 SSO를 구현하는 것이 좋습니다. SSO에 대한 대부분의 애플리케이션을 수동으로 구성할 수 있습니다. Azure AD에서 가장 자주 사용되는 옵션은 [SAML 기반 SSO 및 OpenID Connect 기반 SSO](../develop/active-directory-v2-protocols.md)입니다. 시작하기 전에 SSO에 대한 요구 사항 및 [배포 계획](plan-sso-deployment.md) 방법을 이해해야 합니다. Azure AD 테넌트에서 엔터프라이즈 애플리케이션에 대해 SAML 기반 SSO를 구성하는 방법에 대한 간단한 예제는 [빠른 시작: 엔터프라이즈 애플리케이션에 Single Sign-On 사용](add-application-portal-setup-sso.md)을 참조하세요.
 
-Single Sign-On에 대한 자세한 내용은 [Single Sign-On이란?](what-is-single-sign-on.md)을 참조하세요.
+### <a name="user-group-and-owner-assignment"></a>사용자, 그룹 및 소유자 할당
 
-## <a name="address-governance-and-compliance"></a>거버넌스 및 규정 준수 처리
+기본적으로 모든 사용자는 엔터프라이즈 애플리케이션에 할당되지 않아도 해당 애플리케이션에 액세스할 수 있습니다. 그러나 사용자 집합에 애플리케이션을 할당하려는 경우 애플리케이션에 사용자 할당이 필요합니다. 사용자 계정을 만들고 애플리케이션에 할당하는 방법에 대한 간단한 예제는 [빠른 시작: 사용자 계정 만들기 및 할당](add-application-portal-assign-users.md)을 참조하세요. 
 
-SIEM(보안 인시던트 및 이벤트 모니터링) 도구를 사용하는 보고서를 통해 앱을 모니터링합니다. 포털 또는 API에서 보고서에 액세스할 수 있습니다. 애플리케이션에 액세스할 수 있는 사용자를 프로그래밍 방식으로 감사하고 액세스 검토를 통해 비활성 사용자에 대한 액세스를 제거합니다.
+구독에 포함된 경우 그룹 소유자에게 지속적 액세스 관리를 위임할 수 있도록 [애플리케이션에 그룹을 할당](assign-user-or-group-access-portal.md)합니다. 
 
-## <a name="manage-costs"></a>비용 관리
+[소유자 할당](assign-app-owners.md)은 애플리케이션에 대한 Azure AD 구성의 모든 측면을 관리하는 기능을 부여하는 간단한 방법입니다. 소유자는 애플리케이션의 조직별 구성을 관리할 수 있습니다.
 
-Azure AD로 마이그레이션하면 비용을 절약하고 온-프레미스 인프라를 관리하는 번거로움을 제거할 수 있습니다. 또한 Azure AD는 애플리케이션에 대한 셀프 서비스 액세스를 제공하므로 관리자와 사용자의 시간이 절약됩니다. Single Sign-On을 사용하면 애플리케이션별 암호가 필요 없습니다. 한 번 로그온하는 이 기능을 사용하면 애플리케이션의 암호 재설정 및 암호 검색 시 손실된 생산성에 관련된 비용이 절약됩니다.
+### <a name="automate-provisioning"></a>프로비저닝 자동화
 
-인적 자원에 중점을 둔 애플리케이션 또는 사용자가 많은 기타 애플리케이션의 경우 애플리케이션 프로비저닝을 사용하면 보다 쉽게 수행할 수 있습니다. 앱 프로비저닝은 사용자를 추가하고 제거하는 프로세스를 자동화합니다. 자세한 내용은 [애플리케이션 프로비저닝이란?](../app-provisioning/user-provisioning.md)을 참조하세요.
+Azure AD에서 [애플리케이션 프로비저닝](../app-provisioning/user-provisioning.md)은 사용자가 액세스해야 하는 애플리케이션에서 사용자 ID와 역할을 자동으로 만드는 것을 의미합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다.
+
+### <a name="identity-providers"></a>ID 공급자
+
+Azure AD와 상호 작용하려는 ID 공급자가 있나요? [홈 영역 검색](home-realm-discovery-policy.md)은 Azure AD에서 사용자가 로그인할 때 사용자가 인증을 받아야 하는 ID 공급자를 결정하는 데 사용할 수 있는 구성을 제공합니다.
+
+### <a name="user-portals"></a>사용자 포털
+
+Azure AD는 조직의 사용자에게 애플리케이션을 배포하는 사용자 지정 가능한 방법을 제공합니다. 예를 들어 [내 앱 포털 또는 Microsoft 365 애플리케이션 시작 관리자](end-user-experiences.md)가 있습니다. 내 앱을 사용하면 사용자가 작업을 시작하는 공간과 액세스 권한이 있는 모든 애플리케이션을 찾을 수 있습니다. 애플리케이션의 관리자는 [조직의 사용자가 내 앱을 사용하는 방식을 계획](my-apps-deployment-plan.md)해야 합니다.
+
+## <a name="configure-properties"></a>속성 구성
+
+Azure AD 테넌트에 애플리케이션을 추가하는 경우 사용자가 로그인할 수 있는 방법에 영향을 주는 [속성을 구성](add-application-portal-configure.md)할 수 있습니다. 로그인할 수 있는 기능을 사용하거나 사용하지 않도록 설정할 수 있으며 사용자 할당이 필요할 수 있습니다. 애플리케이션의 표시 여부, 애플리케이션을 나타내는 로고 및 애플리케이션에 대한 정보를 확인할 수도 있습니다.
+
+## <a name="secure-the-application"></a>애플리케이션 보안
+
+엔터프라이즈 애플리케이션의 보안을 유지하는 데 도움이 되는 몇 가지 방법이 있습니다. 예를 들어, [테넌트 액세스를 제한](tenant-restrictions.md)하고, [표시 유형, 데이터 및 분석을 관리](cloud-app-security.md)하고, [하이브리드 액세스](secure-hybrid-access.md)를 제공할 수 있습니다. 엔터프라이즈 애플리케이션을 안전하게 유지하려면 권한, MFA, 조건부 액세스, 토큰 및 인증서의 구성을 관리해야 합니다.
+
+### <a name="permissions"></a>권한
+
+주기적으로 [애플리케이션 또는 서비스에 부여된 사용 권한을 검토](manage-application-permissions.md)하고 필요한 경우 관리하는 것이 중요합니다. 의심스러운 활동이 있는지 주기적으로 평가하여 애플리케이션에 대해 적절한 액세스만 허용해야 합니다.
+
+[권한 분류](configure-permission-classifications.md)를 사용하면 조직의 정책 및 위험 평가에 따라 서로 다른 권한에 적용되는 영향을 식별할 수 있습니다. 예를 들어 동의 정책에서 권한 분류를 사용하여 사용자가 동의할 수 있는 권한 세트를 식별할 수 있습니다.
+
+### <a name="multifactor-authentication-and-conditional-access"></a>다단계 인증 및 조건부 액세스
+
+Azure AD MFA는 데이터와 애플리케이션에 대한 액세스를 보호하고, 두 번째 형태의 인증을 사용하여 다른 보안 계층을 제공하는 데 도움이 됩니다. 2단계 인증에 사용할 수 있는 여러 가지 방법이 있습니다. 시작하기 전에 조직의 [애플리케이션에 대한 MFA 배포를 계획](../authentication/howto-mfa-getstarted.md)합니다.
+
+조직에서는 [조건부 액세스](../conditional-access/overview.md)와 MFA를 사용하여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다. 관리자는 조건부 액세스 정책을 사용하여 특정 [애플리케이션, 작업 또는 인증 컨텍스트](../conditional-access/concept-conditional-access-cloud-apps.md)에 제어를 할당할 수 있습니다.
+
+### <a name="tokens-and-certificates"></a>토큰 및 인증서
+
+사용되는 프로토콜에 따라 Azure AD의 인증 흐름에서 다양한 유형의 보안 토큰을 사용합니다. 예를 들어 [SAML 토큰](../develop/reference-saml-tokens.md)은 SAML 프로토콜에 사용되고 [ID 토큰](../develop/id-tokens.md) 및 [액세스 토큰](../develop/access-tokens.md)은 OpenID Connect 프로토콜에 사용됩니다. 토큰은 Azure AD 및 특정 표준 알고리즘에서 생성된 고유한 인증서로 서명됩니다. 
+
+[토큰을 암호화](howto-saml-token-encryption.md)하여 보다 강력한 보안을 제공할 수 있습니다. 애플리케이션에 [허용되는 역할](../develop/howto-add-app-roles-in-azure-ad-apps.md)을 포함하는 정보를 토큰에 관리할 수도 있습니다.
+
+Azure AD에서는 기본적으로 [SHA-256 알고리즘](certificate-signing-options.md)을 사용하여 SAML 응답에 서명합니다. 애플리케이션에 SHA-1이 필요하지 않으면 SHA-256를 사용합니다. [인증서의 수명을 관리](manage-certificates-for-federated-single-sign-on.md)하는 프로세스를 설정합니다. 서명 인증서의 최대 수명은 3년입니다. 인증서 만료에 따른 중단 문제를 예방하거나 최소화하려면 역할 및 이메일 배포 목록을 사용하여 인증서 관련 변경 알림이 면밀히 모니터링되는지 확인합니다. 
+
+## <a name="govern-and-monitor"></a>통제 및 모니터링
+
+Azure AD의 [권한 관리](../governance/entitlement-management-scenarios.md)를 통해 애플리케이션 및 관리자, 카탈로그 소유자, 액세스 패키지 관리자, 승인자 및 요청자 간의 상호 작용을 관리할 수 있습니다.
+
+Azure AD 보고 및 모니터링 솔루션은 법적, 보안 및 운영 요구 사항과 기존 환경 및 프로세스에 따라 달라집니다. Azure AD에서 유지 관리되는 여러 로그가 있으며, 애플리케이션에 대한 최상의 환경을 유지하기 위해 [배포 보고 및 모니터링을 계획](../reports-monitoring/plan-monitoring-and-reporting.md)해야 합니다.
+
+## <a name="clean-up"></a>정리
+
+애플리케이션에 대한 액세스 권한을 정리할 수 있습니다. 예를 들어, [사용자 액세스 권한을 제거](methods-for-removing-user-access.md)할 수 있습니다. [사용자가 로그인하는 방법을 사용하지 않도록 설정](disable-user-sign-in-portal.md)할 수도 있습니다. 마지막으로, 조직에 더 이상 필요하지 않은 애플리케이션을 삭제할 수 있습니다. Azure AD 테넌트에서 엔터프라이즈 애플리케이션을 삭제하는 방법에 대한 간단한 예제는 [빠른 시작: 엔터프라이즈 애플리케이션 삭제](delete-application-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
-- [애플리케이션 통합 시작](plan-an-application-integration.md)
-- [프로비저닝 자동화 방법 알아보기](../app-provisioning/user-provisioning.md)
+- 먼저 [빠른 시작: 엔터프라이즈 애플리케이션 추가](add-application-portal.md)를 사용하여 첫 번째 엔터프라이즈 애플리케이션을 추가하세요.

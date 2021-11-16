@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 �
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: cb7ce27f7e4b5816e64898cded2ab9edbd4a3641
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 1bc5df8780236a8707fb592f2e40e3e728ed4296
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530698"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489949"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "122530698"
 
 또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-또한 이 문서에서는 통합 ACR이 있는 기존 AKS 클러스터가 있다고 가정합니다. 통합 ACR을 통해 AKS 클러스터를 만드는 자세한 내용은 [Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증][aks-integrated-acr]을 참조하세요.
+또한 이 문서에서는 통합 ACR을 포함하는 기존 AKS 클러스터가 있다고 가정합니다. 통합 ACR을 통해 AKS 클러스터를 만드는 자세한 내용은 [Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증][aks-integrated-acr]을 참조하세요.
 
 ## <a name="basic-configuration"></a>기본 구성
 기본값을 사용자 지정하지 않고 간단한 NGINX 수신 컨트롤러를 만들려면 helm을 사용합니다.
@@ -60,10 +60,10 @@ helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --name
 REGISTRY_NAME=<REGISTRY_NAME>
 CONTROLLER_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v0.48.1
+CONTROLLER_TAG=v1.0.4
 PATCH_REGISTRY=docker.io
 PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.1
+PATCH_TAG=v1.5.2
 DEFAULTBACKEND_REGISTRY=k8s.gcr.io
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
@@ -74,7 +74,7 @@ az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBA
 ```
 
 > [!NOTE]
-> 컨테이너 이미지를 ACR로 가져오는 것 외에도 Helm 차트를 ACR로 가져올 수도 있습니다. 자세한 내용은 [Azure Container Registry에 Helm 차트 푸시 및 가져오기][acr-helm]를 참조하세요.
+> 컨테이너 이미지를 ACR로 가져오는 것 외에도 Helm 차트를 ACR로 가져올 수도 있습니다. 자세한 내용은 [Azure 컨테이너 레지스트리에 Helm 차트 푸시 및 끌어오기][acr-helm]를 참조하세요.
 
 ### <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
@@ -83,14 +83,11 @@ az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBA
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예제에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만들고 해당 네임스페이스 내에서 작동합니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
+> 다음 예제는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만들고 해당 네임스페이스 내에서 작동하도록 작성되었습니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
 >  
 > 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지를 사용하는 수신 컨트롤러를 사용하는 경우 SSL 통과는 작동하지 않습니다.
 
 ```console
-# Set the namespace to be used 
-NAMESPACE=ingress-basic
-
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
@@ -99,21 +96,23 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --create-namespace --namespace $NAMESPACE \
+    --namespace ingress-basic --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
     --set controller.image.image=$CONTROLLER_IMAGE \
     --set controller.image.tag=$CONTROLLER_TAG \
-     --set controller.image.digest="" \
+    --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set controller.admissionWebhooks.patch.image.digest="" \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
-    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
+    --set defaultBackend.image.digest=""
 ```
 
 ## <a name="check-the-load-balancer-service"></a>부하 분산 장치 서비스 확인

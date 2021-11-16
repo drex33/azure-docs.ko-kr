@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 음성 번역
-ms.openlocfilehash: 13d82c334504b2d396f10b1c80b99c0c264c9ea0
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.openlocfilehash: 3c71682028f1fb54b55e9faddde5928883f44916
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131988884"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485578"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -43,7 +43,7 @@ ms.locfileid: "131988884"
 
 ## <a name="sample-code"></a>예제 코드
 
-Speech SDK의 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 싱글샷 인식/번역, 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다.
+Speech SDK의 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일이 나 스트림에서 오디오를 읽고, 연속 및 시작 시 인식/번역을 수행 하 고, 사용자 지정 모델을 사용 하는 등의 일반적인 시나리오를 다룹니다.
 
 * [음성 텍스트 변환 및 번역 샘플(SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 

@@ -1,6 +1,7 @@
 ---
 title: AD FS에서 Azure Active Directory로 애플리케이션 인증 이동
 description: Azure Active Directory를 사용하여 AD FS(Active Directory Federation Services)를 대체하고 사용자에게 모든 애플리케이션에 대한 Single Sign-On을 제공하는 방법을 알아봅니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 6633d7a6ed7def1a2c3ee7f0262c16b106275bfa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a9d6ca9769e19f300242a50c2016d1e942663567
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567044"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614786"
 ---
-# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동
+# <a name="move-application-authentication-to-azure-active-directory"></a>애플리케이션 인증을 Azure Active Directory로 이동
 
 [Azure AD(Active Directory)](../fundamentals/active-directory-whatis.md)는 사용자, 파트너, 고객에게 애플리케이션에 액세스하고 모든 플랫폼과 디바이스에서 협업하는 단일 ID를 활용할 수 있도록 하는 범용 ID 플랫폼을 제공합니다. Azure AD에는 [전체 ID 관리 기능 도구 모음](../fundamentals/active-directory-whatis.md)이 있습니다. 애플리케이션 인증 및 권한 부여를 Azure AD로 표준화하면 이와 같은 이점을 누릴 수 있습니다.
 
@@ -413,7 +414,7 @@ Azure Portal에서 신뢰할 수 있는 위치에 대해 제외 옵션을 구성
 | :- | :- |
 | OAuth/OpenID Connect| **엔터프라이즈 애플리케이션 > 권한** 을 선택하고 앱의 사용자 설정에서 애플리케이션에 동의했는지 확인합니다.|
 | SAML 기반 SSO | **Single Sign-On** 에 있는 [SAML 설정 테스트](debug-saml-sso-issues.md) 단추를 사용합니다. |
-| 암호 기반 SSO |  [MyApps 보안 로그인](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[확장](../user-help/my-apps-portal-end-user-access.md)을 다운로드하고 설치합니다. 해당 확장을 사용하면 SSO 프로세스를 사용해야 하는 조직의 클라우드 앱을 시작할 수 있습니다. |
+| 암호 기반 SSO |  [MyApps 보안 로그인](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[-](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[확장](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 다운로드하고 설치합니다. 해당 확장을 사용하면 SSO 프로세스를 사용해야 하는 조직의 클라우드 앱을 시작할 수 있습니다. |
 | 애플리케이션 프록시 | 커넥터가 실행 중이고 애플리케이션에 할당되었는지 확인합니다. 자세한 내용은 [애플리케이션 프록시 문제 해결 가이드](../app-proxy/application-proxy-troubleshoot.md)를 참조하세요. |
 
 > [!NOTE]

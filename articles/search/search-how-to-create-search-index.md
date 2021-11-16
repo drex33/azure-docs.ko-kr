@@ -8,20 +8,22 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 11/12/2021
-ms.openlocfilehash: 2e2b10b5fd42a51951d35f7a1e73e1fcac68ba82
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 203b4c6c55c4476e27dad484a2edef4609211343
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371679"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488003"
 ---
 # <a name="create-a-search-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 인덱스 만들기
 
-Azure Cognitive Search 쿼리 요청은 검색 인덱스에서 검색 가능한 텍스트를 대상으로 합니다. 이 문서에서는 Azure Cognitive Search에서 지 원하는 소프트웨어나 중 하나를 사용 하 여 검색 인덱스를 정의 하 고 게시 하는 단계를 알아봅니다. 
+Cognitive Search Azure의 쿼리는 검색 인덱스에서 검색 가능한 텍스트를 대상으로 합니다. 이 문서에서는 Azure Cognitive Search에서 지 원하는 소프트웨어나 중 하나를 사용 하 여 검색 인덱스를 정의 하 고 게시 하는 단계를 알아봅니다. 
 
-[인덱서](search-howto-create-indexers.md)를 사용 하지 않는 경우 인덱스를 만들고 인덱스를 채우는 작업은 별개의 작업입니다. 인덱서가 아닌 시나리오의 경우 인덱스를 만든 후 다음 단계는 [데이터 가져오기](search-what-is-data-import.md)입니다. 자세한 배경 정보는 [Azure Cognitive Search에서 인덱스 검색](search-what-is-an-index.md)을 참조 하세요.
+[인덱서](search-howto-create-indexers.md)를 사용 하지 않는 경우 인덱스를 만들고 인덱스를 채우는 작업은 별도의 두 작업입니다. 인덱서가 아닌 시나리오의 경우 인덱스를 만든 후 다음 단계는 [데이터 가져오기](search-what-is-data-import.md)입니다. 
 
-## <a name="prerequisites"></a>필수 조건
+인덱스 관련 개념에 대 한 자세한 내용은 [Azure Cognitive Search에서 인덱스 검색](search-what-is-an-index.md)을 참조 하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 요청에 대 한 [관리 API 키](search-security-api-keys.md) 를 통해 부여 되는 인덱스를 만들고 로드 하려면 쓰기 권한이 필요 합니다. 또는 Azure Active Directory [역할 기반 액세스 제어 공개 미리 보기](search-security-rbac.md)에 참여 하는 경우 검색 참가자 역할의 구성원으로 요청을 실행할 수 있습니다.
 
@@ -37,7 +39,7 @@ Azure Cognitive Search 쿼리 요청은 검색 인덱스에서 검색 가능한 
 
 ## <a name="allowed-updates"></a>허용 된 업데이트
 
-[Create Index](/rest/api/searchservice/create-index) 는 검색 서비스에 물리적 데이터 구조 (파일 및 반전 된 인덱스)를 만드는 작업입니다. [업데이트 인덱스](/rest/api/searchservice/update-index) 를 사용 하 여 변경 내용을 적용 하는 기능은 수정 시 해당 물리적 구조를 무효화 하는지 여부에 따라 결정 됩니다. 인덱스에서 필드를 만든 후에는 대부분의 필드 특성을 변경할 수 없습니다.
+[**Create Index**](/rest/api/searchservice/create-index) 는 검색 서비스에 물리적 데이터 구조 (파일 및 반전 된 인덱스)를 만드는 작업입니다. 인덱스를 만든 후 [**업데이트 인덱스**](/rest/api/searchservice/update-index) 를 사용 하 여 변경 내용을 적용 하는 기능은 수정으로 실제 구조가 무효화 되는지 여부에 따라 결정 됩니다. 인덱스에서 필드를 만든 후에는 대부분의 필드 특성을 변경할 수 없습니다.
 
 디자인 프로세스의 변동를 최소화 하기 위해 다음 표에서는 스키마에서 수정 되 고 유연성이 있는 요소에 대해 설명 합니다. 고정 된 요소를 변경 하려면 인덱스를 다시 작성 해야 하지만 유연 요소는 물리적 구현에 영향을 주지 않고 언제 든 지 변경할 수 있습니다. 
 
@@ -47,9 +49,9 @@ Azure Cognitive Search 쿼리 요청은 검색 인덱스에서 검색 가능한 
 | 키 | No |
 | 필드 이름 및 형식 | No |
 | 필드 특성 (검색, 필터링, 패싯 가능, 정렬 가능) | No |
-| Field attribute (검색할 때) | Yes |
+| Field attribute (검색할 때) | 예 |
 | [분석기](search-analyzers.md) | 인덱스에서 사용자 지정 분석기를 추가 하 고 수정할 수 있습니다. 문자열 필드에 대 한 분석기 할당과 관련 하 여 "searchAnalyzer"만 수정할 수 있습니다. 다른 모든 할당과 수정 작업을 수행 하려면 다시 빌드해야 합니다. |
-| [점수 매기기 프로필](index-add-scoring-profiles.md) | Yes |
+| [점수 매기기 프로필](index-add-scoring-profiles.md) | 예 |
 | [확인기](index-add-suggesters.md) | No |
 | [CORS (원본 간 원격 스크립팅)](#corsoptions) | 예 |
 | [암호화](search-security-manage-encryption-keys.md) | 예 |
@@ -67,7 +69,7 @@ Azure Cognitive Search 쿼리 요청은 검색 인덱스에서 검색 가능한 
 
 1. 고유 값을 포함 하는 원본 데이터에서 한 필드를 식별 하 여 인덱스의 키 필드 역할을 할 수 있도록 합니다. 예를 들어 Blob Storage에서 인덱싱하는 경우 저장소 경로가 주로 문서 키로 사용 됩니다. 
 
-   모든 인덱스에는 *문서 키* ("문서 ID" 라고도 함) 역할을 하는 하나의 필드가 필요 합니다. 키는 원본 데이터의 고유 식별자에 매핑되어야 합니다. 특정 검색 문서를 고유 하 게 식별 하는 기능은 검색 인덱스에서 특정 문서를 검색 하 고, 문서 단위 수준에서 선택적 데이터를 처리 하는 데 필요 합니다.
+   모든 인덱스에는 *문서 키* ("문서 ID" 라고도 함) 역할을 하는 하나의 필드가 필요 합니다. 키는 검색 인덱스에서 문자열이 되지만 원본 데이터의 고유 식별자에 매핑할 수 있습니다. 특정 검색 문서를 고유 하 게 식별 하는 기능은 검색 결과에서 레코드 또는 엔터티를 reconstituting 하 고, 검색 인덱스에서 특정 문서를 검색 하 고, 문서당 수준에서 선택적 데이터를 처리 하는 데 필요 합니다.
 
 1. 인덱스에서 검색 가능한 콘텐츠를 제공할 데이터 원본의 필드를 식별 합니다. 검색 가능한 콘텐츠에는 전체 텍스트 검색 엔진을 사용 하 여 쿼리 되는 짧고 긴 문자열이 포함 됩니다. 콘텐츠가 자세한 (작은 구 이상 청크) 인 경우 다른 분석기를 시험해 보고 텍스트가 토큰화 되는 방법을 확인 합니다.
 

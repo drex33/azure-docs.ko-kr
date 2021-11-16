@@ -165,8 +165,6 @@
               href: best-practices-analysis.md
             - name: 경고 및 자동화된 작업
               href: best-practices-alerts.md
-        - name: Azure 리소스 모니터링
-          href: essentials/monitor-azure-resource.md
         - name: 가상 머신 모니터링
           items:
             - name: 개요

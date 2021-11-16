@@ -3,20 +3,20 @@ title: 온-프레미스 앱에 대한 원격 액세스 - Azure AD 애플리케�
 description: Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스를 제공합니다. Azure AD에 Single Sign-On 되면 사용자는 외부 URL 또는 내부 애플리케이션 포털을 통해 클라우드와 온-프레미스 애플리케이션에 모두 액세스할 수 있습니다. 예를 들어 애플리케이션 프록시는 원격 데스크톱, SharePoint, Teams, Tableau, Qlik 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: f45dcde6368cefe0d8eb869bd042e36f364589cf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.reviewer: ashishj
+ms.openlocfilehash: cdffc6188256b5c69b765fe8f59efef835981468
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963881"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988472"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격으로 액세스
 

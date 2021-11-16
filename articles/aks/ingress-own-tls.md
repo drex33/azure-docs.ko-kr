@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고유한 인증�
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: cf533b6fdc46dc3f840bb7e4c6828af10b348b8c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7cc96287aad032e86f19dc5d7f2433bc4f5015ed
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535903"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486067"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -37,16 +37,16 @@ Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 
 
 ## <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Helm 차트에서 사용하는 이미지를 ACR로 가져오기
 
-이 문서에서는 세 개의 컨테이너 이미지가 사용되는 [NGINX 수신 컨트롤러 Helm 차트][ingress-nginx-helm-chart]를 사용합니다. `az acr import`를 사용하여 해당 이미지를 ACR로 가져옵니다.
+이 문서에서는 세 개의 컨테이너 이미지를 사용하는 [NGINX 수신 컨트롤러 Helm 차트][ingress-nginx-helm-chart]를 사용합니다. `az acr import`를 사용하여 해당 이미지를 ACR로 가져옵니다.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
 CONTROLLER_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v0.48.1
+CONTROLLER_TAG=v1.0.4
 PATCH_REGISTRY=docker.io
 PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.1
+PATCH_TAG=v1.5.2
 DEFAULTBACKEND_REGISTRY=k8s.gcr.io
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
@@ -72,9 +72,6 @@ az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBA
 > 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래의 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지가 활성화된 수신 컨트롤러를 사용하는 경우 TLS 통과는 작동하지 않습니다.
 
 ```console
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
-
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
@@ -83,7 +80,7 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
+    --namespace ingress-basic --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
@@ -94,10 +91,12 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set controller.admissionWebhooks.patch.image.digest="" \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
-    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
+    --set defaultBackend.image.digest=""
 ```
 
 설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 이 공용 IP 주소는 수신 컨트롤러의 수명 동안만 고정됩니다. 수신 컨트롤러를 삭제하면 공용 IP 주소 할당이 손실됩니다. 추가 수신 컨트롤러를 만들면 새 공용 IP 주소가 할당됩니다. 공용 IP 주소를 계속 사용하려는 경우에는 대신 [고정 공용 IP 주소로 수신 컨트롤러를 만들][aks-ingress-static-tls] 수 있습니다.

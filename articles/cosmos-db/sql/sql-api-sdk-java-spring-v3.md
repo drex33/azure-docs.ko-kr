@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d97270c130545e8a54f924dcc4f50c4a1f36420b
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 5cf49696bb162bff92acc52db1e2ab95cee3927c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387699"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487714"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core(SQL) API용 Spring Data Azure Cosmos DB v3: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -91,11 +91,14 @@ Core(SQL) 용 Spring Data Azure Cosmos DB 버전 3을 통해 개발자는 Spring
 | **Azure Cosmos DB 워크샵 및 랩** |[Cosmos DB 워크샵 홈페이지](https://aka.ms/cosmosworkshop)
 
 > [!IMPORTANT]
-> * 3\.10.0 릴리스 - 버전 3.10.0 이상을 사용하는 것이 좋습니다.
 > * 3\.5.0 릴리스는 Spring Boot 2.4.3 이상을 지원합니다.
 
 ## <a name="release-history"></a>릴리스 기록
 릴리스 기록은 azure-sdk-java 리포지토리에서 유지 관리 됩니다. 자세한 릴리스 목록은 변경 [로그 파일](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)을 참조 하세요.
+
+## <a name="recommended-version"></a>추천 버전
+
+3.10.0 이상 버전을 사용 하는 것이 좋습니다.
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
 

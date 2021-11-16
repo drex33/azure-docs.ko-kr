@@ -4,22 +4,23 @@ description: Azure AD PIM(Privileged Identity Management)에서 관리할 수 �
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 05/11/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c72587c5486ed61215fd20c215a1dd194f4b7bc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ae4f269bbd34a0f8f863799c24f592f4fc20196
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92372415"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253556"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Privileged Identity Management에서 관리할 수 없는 역할
 
@@ -40,7 +41,8 @@ Privileged Identity Management에서는 다음과 같은 클래식 구독 관리
 Exchange 관리자 및 SharePoint 관리자와 같은 Azure AD 역할 및 관리자 포털 환경에서 모든 Microsoft 365 역할을 지원하지만 Exchange RBAC 또는 SharePoint RBAC 내에서 특정 역할은 지원하지 않습니다. 이러한 Microsoft 365 서비스에 대한 자세한 내용은 [Microsoft 365 관리자 역할](/office365/admin/add-users/about-admin-roles)을 참조하세요.
 
 > [!NOTE]
-> SharePoint 관리자 역할, 디바이스 관리자 역할 및 Microsoft 보안 및 준수 센터에 액세스하려는 모든 역할의 적격 사용자는 해당 역할을 활성화한 후 최대 몇 시간이 지연될 수 있습니다. Microsoft는 문제를 해결하기 위해 이러한 팀과 함께 작업하고 있습니다.
+> - SharePoint 관리자 역할, 디바이스 관리자 역할 및 Microsoft 보안 및 준수 센터에 액세스하려는 모든 역할의 적격 사용자는 해당 역할을 활성화한 후 최대 몇 시간이 지연될 수 있습니다. Microsoft는 문제를 해결하기 위해 이러한 팀과 함께 작업하고 있습니다.
+> - Azure AD 조인 디바이스 로컬 관리자 역할 활성화 지연에 대한 자세한 내용은 [Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법](../devices/assign-local-admin.md#manage-the-device-administrator-role)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

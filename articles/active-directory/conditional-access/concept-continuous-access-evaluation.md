@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jlu
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a1e5f8ee6bb3641fce243233a654d15363e254
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0a0eaee3c6e265063270d5cb3b2ea43d3c22fbb0
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012627"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131553079"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -172,6 +172,9 @@ CAE 설정이 조건부 액세스 아래로 이동했습니다. 이전에 보안
 ### <a name="strict-enforcement"></a>엄격한 적용 
 
 조건부 액세스에서 최신 CAE 설정을 사용하는 경우 엄격한 적용은 IP 주소 변형 및 클라이언트 기능의 두 가지 요인에 따라 보안을 강화할 수 있는 새로운 기능입니다. 이 기능은 지정된 정책에 대한 CAE 옵션을 사용자 지정하는 동안 사용하도록 설정할 수 있습니다. 엄격한 적용을 켜면 CAE는 [IP 주소 변형](#ip-address-variation) 또는 CAE [클라이언트 기능 부족](#client-capabilities) 인스턴스를 검색할 때 액세스 권한을 철회합니다.
+
+> [!NOTE] 
+> 모든 클라이언트 애플리케이션이 CAE를 지원하고 Azure AD 및 리소스 공급자(예: Exchange 온라인 및 Azure Resource Manager)에서 볼 수 있는 모든 IP 주소를 조건부 액세스 아래의 위치 정책에 포함시킨 후에만 엄격한 적용을 사용하도록 설정해야 합니다. 그렇지 않으면 차단될 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

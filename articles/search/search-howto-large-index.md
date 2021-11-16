@@ -2,18 +2,18 @@
 title: 기본 제공 인덱서를 사용하여 큰 데이터 세트 인덱싱
 titleSuffix: Azure Cognitive Search
 description: 일괄 처리 모드, 리소싱 및 예약, 병렬 및 분산된 인덱싱의 기술을 통해 큰 데이터 인덱싱 또는 계산 집약적 인덱싱에 대한 전략입니다.
-manager: liamca
+manager: nitinme
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: c754c47bda03987c00b763d39c608f9de3d84deb
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.date: 11/12/2021
+ms.openlocfilehash: 0c7dccdc484a99e751a7676729a760499b501672
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558816"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487980"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 대용량 데이터 세트를 인덱싱하는 방법
 
@@ -23,11 +23,11 @@ Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [
 
 동일한 기술이 장기 실행 프로세스에도 적용됩니다. 특히 [병렬 인덱싱](#parallel-indexing)에서 설명된 단계는 [AI 보강 파이프라인](cognitive-search-concept-intro.md)에서의 이미지 분석 또는 자연어 처리와 같은 계산 집약적인 인덱싱에 유용합니다.
 
-다음 섹션에서는 푸시 API와 인덱서를 모두 사용하여 대용량 데이터를 인덱싱하는 기술을 살펴봅니다.
+다음 섹션에서는 푸시 API와 인덱서 모두를 사용하여 대량의 데이터를 인덱싱하는 기술에 대해 설명합니다.
 
 ## <a name="use-the-push-api"></a>푸시 API 사용
 
-[문서 추가 REST API](/rest/api/searchservice/addupdate-or-delete-documents) 또는 [IndexDocuments 메서드](/dotnet/api/azure.search.documents.searchclient.indexdocuments)를 사용하여 데이터를 인덱스로 푸시할 때 인덱스 생성 속도에 영향을 미치는 몇 가지 주요 고려 사항이 있습니다. 이러한 요소는 아래 섹션에 설명되어 있으며 서비스 용량 설정에서 코드 최적화에 이르기까지 다양합니다.
+[문서 추가 REST API](/rest/api/searchservice/addupdate-or-delete-documents) 또는 [IndexDocuments 메서드(.NET)를](/dotnet/api/azure.search.documents.searchclient.indexdocuments)사용하여 인덱스에 데이터를 푸시하는 경우 인덱싱 속도에 영향을 주는 몇 가지 주요 고려 사항이 있습니다. 이러한 요소는 아래 섹션에 설명되어 있으며 서비스 용량 설정에서 코드 최적화에 이르기까지 다양합니다.
 
 푸시 모델 인덱싱을 설명하는 코드 샘플 및 자세한 내용은 [자습서: 인덱싱 속도 최적화](tutorial-optimize-indexing-push-api.md)를 참조하세요.
 

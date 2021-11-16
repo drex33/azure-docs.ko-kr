@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 90d1233a1374d4ad65410c818ab6e42b36a4e6f9
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
-ms.translationtype: HT
+ms.openlocfilehash: bf3aae99eb62a76885040589560c505ba2a8a2c3
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579653"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487942"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Virtual WAN 허브에 Azure Firewall 구성
 
@@ -67,6 +67,9 @@ Virtual WAN **개요** 페이지에서 보안 허브를 선택합니다. 허브 
 허브 **개요** 페이지로 돌아가려면 다음 그림에 표시된 화살표와 같이 경로를 클릭하여 다시 탐색할 수 있습니다.
 
 :::image type="content" source="./media/howto-firewall/arrow.png" alt-text="개요 페이지로 돌아가는 방법을 보여 주는 스크린샷" lightbox="./media/howto-firewall/arrow.png":::
+
+## <a name="upgrade-to-azure-firewall-premium"></a>Azure Firewall Premium 업그레이드
+언제든지 이러한 지침에 따라 Azure Firewall 표준에서 Premium 업그레이드할 수 [있습니다.](https://docs.microsoft.com/azure/firewall/premium-migrate#migrate-a-secure-hub-firewall) 최소 가동 중지 시간이 생성되므로 이 작업을 수행하려면 유지 관리 시간이 필요합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,10 +1,10 @@
 ### YamlMime:Hub
-title: IoT용 Azure Defender
-summary: 'Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.'
+title: Microsoft Defender for IoT
+summary: 'Microsoft Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.'
 brand: azure
 metadata:
-  title: Azure Defender for IoT 설명서
-  description: Azure 기반 클라우드 보안 서비스인 Azure Defender for IoT가 포괄적인 IoT 디바이스 위협 보호를 제공하는 방법을 알아봅니다.
+  title: IoT용 Microsoft Defender 설명서
+  description: Azure 기반 클라우드 보안 서비스인 Microsoft Defender for IoT가 포괄적인 IoT 디바이스 위협 방지를 제공하는 방법을 알아봅니다.
   services: service
   ms.service: defender-for-iot
   ms.topic: landing-page
@@ -12,10 +12,10 @@ metadata:
   author: elazark
   ms.author: v-ekrieg
   manager: raynew
-  ms.date: 06/16/2021
+  ms.date: 11/09/2021
 highlightedContent:
   items:
-    - title: 최종 사용자 조직용 Azure Defender for IoT란?
+    - title: 최종 사용자 조직용 Microsoft Defender for IoT란 무엇인가요?
       itemType: overview
       url: organizations/overview.md
     - title: 최종 사용자 조직의 새로운 기능은 무엇인가요?
@@ -24,7 +24,7 @@ highlightedContent:
     - title: 최종 사용자 조직을 위한 에이전트 없는 솔루션 아키텍처
       itemType: architecture
       url: organizations/architecture.md
-    - title: 디바이스 빌더용 Azure Defender for IoT란?
+    - title: 디바이스 빌더용 Microsoft Defender for IoT란?
       itemType: overview
       url: device-builders/overview.md
     - title: 디바이스 빌더를 위한 새로운 기능
@@ -35,7 +35,7 @@ highlightedContent:
       url: device-builders/architecture-agent-based.md
 conceptualContent:
   items:
-    - title: 최종 사용자 조직용 Azure Defender for IoT
+    - title: 최종 사용자 조직용 Microsoft Defender for IoT
       links:
         - url: organizations/quickstart-system-prerequisites.md
           itemType: quickstart
@@ -48,24 +48,24 @@ conceptualContent:
           text: 주요 개념
         - url: organizations/how-to-set-up-your-network.md
           itemType: how-to-guide
-          text: Azure Defender for IoT 네트워크 설정 정보
+          text: Microsoft Defender for IoT 네트워크 설정 정보
       footerLink:
         url: organizations/index.yml
         text: 자세히 보기
-    - title: 디바이스 빌더용 Azure Defender for IoT
+    - title: 디바이스 빌더용 Microsoft Defender for IoT
       links:
         - url: device-builders/quickstart-onboard-iot-hub.md
           itemType: quickstart
           text: 에이전트 기반 솔루션에 대한 Defender for IoT 등록
         - url: device-builders/quickstart-configure-your-solution.md
           itemType: quickstart
-          text: Azure Defender for IoT 솔루션 구성
+          text: Microsoft Defender for IoT 솔루션 구성
         - url: device-builders/concept-recommendations.md
           itemType: concept
           text: IoT Hub에 대한 보안 추천 사항
         - url: device-builders/how-to-configure-agent-based-solution.md
           itemType: how-to-guide
-          text: Azure Defender for IoT 구성
+          text: Microsoft Defender for IoT 구성
       footerLink:
         url: device-builders/index.yml
         text: 자세히 보기

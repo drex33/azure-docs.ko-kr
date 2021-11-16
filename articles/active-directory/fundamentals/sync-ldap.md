@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 224b0685b922e6ddd833637ddc1b628f0479ec70
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 61703654b11543f2c0f41fa68964cae287d940b8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112200819"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563744"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Azure Active Directory를 사용하여 LDAP 동기화
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)는 Azure AD Connect를 사용하여 LDAP 동기
 
 * **웹앱**: LDAP v3 디렉터리에 대한 종속성이 있는 애플리케이션입니다.
 
-* **Azure AD**: Azure AD는 Azure AD Connect를 통해 조직의 온-프레미스 LDAP 디렉터리에서 ID 정보(사용자, 그룹, 암호)를 동기화합니다. 
+* **Azure AD**: Azure AD는 Azure AD Connect를 통해 조직의 온-프레미스 LDAP 디렉터리에서 ID 정보(사용자, 그룹)를 동기화합니다. 
 
 * **Azure AD Connect**: 온-프레미스 ID 인프라를 Microsoft Azure AD에 연결하기 위한 도구입니다. 마법사 및 안내 방식 환경을 통해 연결에 필요한 필수 조건과 구성 요소를 배포하고 구성할 수 있습니다. 
 

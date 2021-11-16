@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/11/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
-ms.openlocfilehash: 2b8e8c73286eb058f5fcd183ac43998801a0ebe8
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: ebd3b0f8ffc5b00ebbce55884c889549501ab3ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038433"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466222"
 ---
 # <a name="use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -38,11 +38,11 @@ Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할�
 ### <a name="check-azure-ad-permissions"></a>Azure AD 권한 확인
 
 1. **Azure Active Directory** 를 선택합니다.
-1. 역할을 기록해 둡니다. **사용자** 역할이 있는 경우 비관리자가 애플리케이션을 등록할 수 있는지 확인해야 합니다.
+1. **개요**->**내 피드** 에서 역할을 찾습니다. **사용자** 역할이 있는 경우 비관리자가 애플리케이션을 등록할 수 있는지 확인해야 합니다.
 
-   ![자신의 역할을 찾습니다. 사용자인 경우 관리자가 아닌 사람이 앱을 등록할 수 있는지 확인하세요.](./media/howto-create-service-principal-portal/view-user-info.png)
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="역할을 찾는 방법을 보여 주는 스크린샷":::
 
-1. 왼쪽 창에서 **사용자 설정** 을 선택합니다.
+1. 왼쪽 창에서 **사용자** 를 선택한 다음, **사용자 설정** 을 선택합니다.
 1. **앱 등록** 설정을 확인합니다. 이 값은 관리자만 설정할 수 있습니다. **예** 로 설정하면 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.
 
 앱 등록 설정이 **아니요** 로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [Azure AD 기본 제공 역할](../roles/permissions-reference.md#all-roles)을 참조하세요. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정이 관리자로 제한되어 있다면, 관리자에게 앱 등록과 관련된 모든 요소를 만들고 관리할 수 있는 관리자 역할 중 하나를 할당해 달라고 요청하거나 사용자가 앱을 등록할 수 있게 해달라고 요청하세요.
@@ -67,9 +67,9 @@ Azure 구독 권한을 확인하려면
 
    ![서비스 주체를 만들 구독을 선택합니다.](./media/howto-create-service-principal-portal/view-details.png)
 
-1. **역할 할당** 에서 **보기** 를 선택하여 할당된 역할을 확인하고, AD 앱에 역할을 할당할 수 있는 적절한 권한이 있는지 확인합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서는 사용자에게 소유자 역할이 할당됩니다. 따라서 사용자는 적절한 권한이 있습니다.
+1. **역할 할당** 을 선택하여 할당된 역할을 확인하고, AD 앱에 역할을 할당할 수 있는 적절한 권한이 있는지 확인합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서는 사용자에게 소유자 역할이 할당됩니다. 따라서 사용자는 적절한 권한이 있습니다.
 
-   ![이 예제에서는 사용자에게 소유자 역할을 할당하는 작업을 보여 줍니다.](./media/howto-create-service-principal-portal/view-user-role.png)
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="사용자에게 소유자 역할이 할당된 것을 보여 주는 스크린샷":::
 
 ## <a name="register-an-application-with-azure-ad-and-create-a-service-principal"></a>Azure AD를 이용한 애플리케이션 등록 및 서비스 주체 만들기
 
@@ -157,7 +157,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서 관리](/do
 1. **Azure Active Directory** 를 선택합니다.
 1. Azure AD의 **앱 등록** 에서 애플리케이션을 선택합니다.
 1. **인증서 및 비밀** 을 선택합니다.
-1. **인증서 업로드** 를 선택하고 인증서(기존 인증서 또는 내보낸 자체 서명된 인증서)를 선택합니다.
+1. **인증서** > **인증서 업로드** 를 선택하고 인증서(기존 인증서 또는 내보낸 자체 서명된 인증서)를 선택합니다.
 
     ![인증서 업로드를 선택하고 추가할 인증서를 선택합니다.](./media/howto-create-service-principal-portal/upload-cert.png)
 

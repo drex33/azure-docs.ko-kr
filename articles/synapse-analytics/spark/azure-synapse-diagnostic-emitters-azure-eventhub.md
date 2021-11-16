@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs를 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집(미리 보기)
+title: Azure Event Hubs를 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집
 description: 이 자습서에서는 Synapse Apache Spark 진단 내보내기 확장을 사용하여 Apache Spark 애플리케이션의 로그, 이벤트 로그 및 메트릭을 Azure Event Hubs으로 내보내는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
-ms.openlocfilehash: c3b8fbda0eaaa932f784540cc55d0a4e583927f0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: da6a02c12c9e24d4091c632fbf73a0cc97255afa
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544715"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223104"
 ---
-# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-event-hubs-preview"></a>Azure Event Hubs를 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집(미리 보기)
+# <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-event-hubs"></a>Azure Event Hubs를 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집 
 
 Synapse Apache Spark 진단 내보내기 확장은 Apache Spark 애플리케이션에서 로그, 이벤트 로그 및 메트릭을 Azure Log Analytics, Azure Storage 및 Azure Event Hubs를 포함한 하나 이상의 대상으로 내보낼 수 있도록 하는 라이브러리입니다. 
 
@@ -29,7 +29,7 @@ Synapse Apache Spark 진단 내보내기 확장은 Apache Spark 애플리케이�
 Azure Event Hubs로 진단 로그 및 메트릭을 수집하기 위해 기존 Azure Event Hubs 인스턴스를 사용할 수 있습니다.
 또는 이벤트 허브가 없는 경우 [이벤트 허브를 만들](../../event-hubs/event-hubs-create.md) 수 있습니다.
 
-### <a name="step-2-create-a-apache-spark-configuration-file"></a>2단계: Apache Spark 구성 파일 만들기
+### <a name="step-2-create-an-apache-spark-configuration-file"></a>2단계: Apache Spark 구성 파일 만들기
 
 `diagnostic-emitter-azure-event-hub-conf.txt`를 만들고, 다음 내용을 이 파일에 복사합니다. 또는 Apache Spark 풀을 구성하기 위한 [샘플 템플릿 파일](https://go.microsoft.com/fwlink/?linkid=2169375)을 다운로드합니다.
 

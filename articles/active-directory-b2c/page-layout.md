@@ -3,20 +3,20 @@ title: 페이지 레이아웃 버전
 titleSuffix: Azure AD B2C
 description: 사용자 지정 정책에서 UI 사용자 지정을 위한 페이지 레이아웃 버전 기록입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
-ms.author: mimart
+ms.date: 09/22/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: aa60cf86a8bc59b9eed2adc8ac0ba2cfb89be584
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: ef18f8391962520daada2e7abf5677863d503a91
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835613"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036097"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
@@ -56,6 +56,23 @@ Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리]
 
 ## <a name="self-asserted-page-selfasserted"></a>자체 어설션 페이지(selfasserted)
 
+**2.1.8**
+
+- 클레임 이름은 사용자의 특성 입력 요소를 둘러싼 `<li>` HTML 요소의 `class` 특성에 추가됩니다. 클래스 이름을 사용하면 CSS 선택기를 만들어 특정 사용자 특성 입력 요소의 부모 `<li>`를 선택할 수 있습니다. 다음 HTML 태그는 등록 페이지에 대한 클래스 특성을 보여줍니다.
+  
+  ```html
+  <div id="attributeList" class="attr">
+    <ul>
+      <li class="EmailBox email_li">...</li>
+      <li class="Password newPassword_li">...</li>
+      <li class="Password reenterPassword_li">...</li>
+      <li class="TextBox displayName_li">...</li>
+      <li class="TextBox givenName_li">...</li>
+      <li class="TextBox surname_li">...</li>
+      <li class="TextBox extension_age_li">...</li>
+    </ul>
+  </div>
+  ```
 **2.1.7**
 - 요청이 실패하도록 하는 언어 인코딩 문제를 해결했습니다.
 - 양식 제출 시에만 인라인 오류 메시지를 표시하는 접근성 버그를 수정했습니다.

@@ -3,7 +3,7 @@ title: Azure Active Directory에서 애플리케이션을 프로비저닝하는 
 description: Azure Active Directory에서 애플리케이션 프로비저닝이 작동하는 방식을 이해합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 415824041c8e721c96ad9a9d480d5e50436310e4
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 5508f2e4c85de64e92a5c3b33cd774c595e0ca72
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964773"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991492"
 ---
 # <a name="how-application-provisioning-works-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 프로비저닝이 작동하는 방식
 
@@ -78,7 +78,10 @@ Azure AD에서 SaaS 애플리케이션으로의 아웃바운드 프로비저닝�
 
 Azure AD 사용자 프로비저닝 서비스를 사용하여 Azure AD의 B2B(또는 게스트) 사용자를 SaaS 애플리케이션으로 프로비저닝할 수 있습니다. 그러나 B2B 사용자가 Azure AD를 사용하여 SaaS 애플리케이션에 로그인하려면 SaaS 애플리케이션의 SAML 기반 Single Sign-On 기능을 특정 방식으로 구성해야 합니다. B2B 사용자의 로그인을 지원하도록 SaaS 애플리케이션을 구성하는 방법에 대한 자세한 내용은 [B2B 협업을 위한 SaaS 앱 구성](../external-identities/configure-saas-apps.md)을 참조하세요.
 
-게스트 사용자의 userPrincipalName은 보통 “alias#EXT#@domain.com”으로 저장되는 경우가 많습니다. userPrincipalName이 특성 매핑에 원본 특성으로 포함된 경우 #EXT#이 userPrincipalName에서 제거됩니다. #EXT#을 포함해야 하는 경우에는 userPrincipalName을 원본 특성과 동일한 originalUserPrincipalName으로 바꾸세요. 
+> [!NOTE]
+게스트 사용자의 userPrincipalName은 “alias#EXT#@domain.com”으로 표시되는 경우가 많습니다. userPrincipalName이 특성 매핑에 원본 특성으로 포함된 경우 #EXT#이 userPrincipalName에서 제거됩니다. #EXT#을 포함해야 하는 경우에는 userPrincipalName을 원본 특성과 동일한 originalUserPrincipalName으로 바꾸세요. 
+
+userPrincipalName = alias@domain.com originalUserPrincipalName = alias#EXT#@domain.com
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>프로비저닝 주기: 초기 및 증분
 

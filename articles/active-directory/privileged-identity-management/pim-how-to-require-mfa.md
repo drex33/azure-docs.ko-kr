@@ -1,31 +1,32 @@
 ---
 title: MFA 또는 2FA 및 Privileged Identity Management - Azure AD | Microsoft Docs
-description: Azure AD PIM(Privileged Identity Management)에서 MFA(Multi-Factor Authentication)의 유효성을 검사하는 방법을 알아봅니다.
+description: Azure AD PIM(Privileged Identity Management)에서 MFA(다단계 인증)의 유효성을 검사하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4344e769cc8466287dab1e98e95cc3fbe705ffbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e263de51c234c0572584911b3bd8f7d4eb7c487c
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94835002"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667215"
 ---
-# <a name="multi-factor-authentication-and-privileged-identity-management"></a>Multi-Factor Authentication 및 Privileged Identity Management
+# <a name="multifactor-authentication-and-privileged-identity-management"></a>다단계 인증 및 Privileged Identity Management
 
-모든 관리자에 대해 Multi-Factor Authentication(MFA)을 요구하는 것이 좋습니다. 이렇게 하면 손상된 암호로 인한 공격의 위험이 줄어듭니다.
+모든 관리자에 대해 다단계 인증(MFA 또는 2FA)을 요구하는 것이 좋습니다. 다단계 인증은 손상된 암호를 사용하는 공격의 위험을 줄여줍니다.
 
-사용자가 로그인할 때 다단계 인증 챌린지를 완료하도록 요구할 수 있습니다. 사용자가 Azure AD(Active Directory) PIM(Privileged Identity Management)의 역할을 활성화하는 경우 다단계 인증 챌린지를 완료하도록 요구할 수도 있습니다. 이러한 방식으로 사용자가 로그인 시 다단계 인증 챌린지를 완료하지 않은 경우 Privileged Identity Management를 사용하여 완료하라는 메시지가 표시됩니다.
+사용자가 로그인할 때 다단계 인증 챌린지를 완료하도록 요구할 수 있습니다. 사용자가 Azure AD(Active Directory) PIM(Privileged Identity Management)의 역할을 활성화하는 경우 다단계 인증 챌린지를 완료하도록 요구할 수도 있습니다. 이렇게 하면 사용자가 로그인할 때 다단계 인증을 완료하지 않은 경우에도 Privileged Identity Management에서 해당 인증을 수행하라는 메시지가 표시됩니다.
 
 > [!IMPORTANT]
 > 현재, Azure AD Multi-Factor Authentication은 회사 또는 학교 계정에서만 작동하며 Microsoft 개인 계정(일반적으로 Skype, Xbox 또는 Outlook.com과 같은 Microsoft 서비스에 로그인하는 데 사용되는 개인 계정)에서는 작동하지 않습니다. 이 때문에 개인 계정을 사용하는 사용자는 다단계 인증을 사용하여 해당 역할을 활성화할 수 없기 때문에 적격 관리자가 될 수 없습니다. 이 사용자들이 Microsoft 계정을 사용하여 계속 워크로드를 관리해야 하는 경우 영구 관리자로 승격하세요.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2021
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 6d5d88ba1629dce89acb0345d727896c49680cbe
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 94b3056f6766be37451a5d309243592eb31256dd
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505009"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488433"
 ---
 # <a name="how-to-use-language-identification"></a>언어 식별을 사용하는 방법
 
@@ -32,18 +32,18 @@ ms.locfileid: "131505009"
 
 ## <a name="language-identification-with-speech-to-text"></a>음성 텍스트 변환을 사용하는 언어 식별
 
-현재 언어 식별에는 1단계 인식을 위한 **4개의 언어** 와 연속 인식을 위한 **10개의 언어** 로 제한되어 있습니다. `AutoDetectSourceLanguageConfig` 개체를 구성할 때 이러한 제한을 염두에 두세요. 아래 샘플에서는 `AutoDetectSourceLanguageConfig`를 사용하여 식별할 수 있는 언어 목록을 정의한 다음, 음성 인식을 실행할 때 이러한 언어를 참조합니다.
+언어 식별에는 현재 시작 시 인식을 위한 **4개 언어와** 연속 인식을 위한 **10개 언어로 제한됩니다.** `AutoDetectSourceLanguageConfig` 개체를 구성할 때 이러한 제한을 염두에 두세요. 아래 샘플에서는 `AutoDetectSourceLanguageConfig`를 사용하여 식별할 수 있는 언어 목록을 정의한 다음, 음성 인식을 실행할 때 이러한 언어를 참조합니다.
 
 > [!IMPORTANT]
 > 연속 언어 식별은 C#, C++ 및 Python에서만 지원됩니다.
 
 ::: zone pivot="programming-language-csharp"
 
-다음 예제에서는 1단계 인식을 실행하고 `Latency`의 우선 순위를 지정합니다. 사용 사례에 대한 우선 순위에 따라 이 속성을 `Accuracy`로 설정할 수도 있습니다. `Latency`는 대기 시간이 짧은 결과가 필요하지만(예: 라이브 스트리밍 시나리오의 경우) 오디오 샘플에서 언어를 모를 경우 사용하기에 가장 좋은 옵션입니다. 
+다음 예제에서는 시작 시 인식을 실행하여 우선 순위를 `Latency` 지정합니다. 사용 사례에 대한 우선 순위에 따라 이 속성을 `Accuracy`로 설정할 수도 있습니다. `Latency`는 대기 시간이 짧은 결과가 필요하지만(예: 라이브 스트리밍 시나리오의 경우) 오디오 샘플에서 언어를 모를 경우 사용하기에 가장 좋은 옵션입니다. 
 
 `Accuracy`는 오디오 품질이 저하될 수 있으며 더 많은 대기 시간이 허용되는 시나리오에서 사용해야 합니다. 예를 들어 음성 메일에는 배경 노이즈가 있을 수 있으며, 처음에는 약간의 소음을 발생시킬 수 있고, 엔진에 더 많은 시간 허용하면 인식 결과가 향상됩니다.
 
-두 경우 모두 동일한 오디오 샘플 내에서 언어가 변경될 수 있는 시나리오에는 아래와 같이 1단계 인식을 **사용하면 안 됩니다**. 이러한 유형의 시나리오에 대한 연속 인식을 보려면 아래를 참조하세요.
+두 경우 모두 아래와 같이 시작 시 인식은 동일한 오디오 샘플 내에서 언어가 변경될 수 있는 시나리오에 **사용하면 안** 됩니다. 이러한 유형의 시나리오에 대한 연속 인식을 보려면 아래를 참조하세요.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -163,11 +163,11 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 
 ::: zone pivot="programming-language-cpp"
 
-다음 예제에서는 1단계 인식을 실행하고 `Latency`의 우선 순위를 지정합니다. 사용 사례에 대한 우선 순위에 따라 이 속성을 `Accuracy`로 설정할 수도 있습니다. `Latency`는 대기 시간이 짧은 결과가 필요하지만(예: 라이브 스트리밍 사례) 오디오 샘플에서 언어를 모를 경우 사용하기에 가장 좋은 옵션입니다. 
+다음 예제에서는 시작 시 인식을 실행하여 우선 순위를 `Latency` 지정합니다. 사용 사례에 대한 우선 순위에 따라 이 속성을 `Accuracy`로 설정할 수도 있습니다. `Latency`는 대기 시간이 짧은 결과가 필요하지만(예: 라이브 스트리밍 사례) 오디오 샘플에서 언어를 모를 경우 사용하기에 가장 좋은 옵션입니다. 
 
 `Accuracy`는 오디오 품질이 저하될 수 있으며 더 많은 대기 시간이 허용되는 시나리오에서 사용해야 합니다. 예를 들어 음성 메일에는 배경 노이즈가 있을 수 있으며, 처음에는 약간의 소음을 발생시킬 수 있고, 엔진에 더 많은 시간 허용하면 인식 결과가 향상됩니다.
 
-두 경우 모두 동일한 오디오 샘플 내에서 언어가 변경될 수 있는 시나리오에는 아래와 같이 1단계 인식을 **사용하면 안 됩니다**. 이러한 유형의 시나리오에 대한 연속 인식을 보려면 아래를 참조하세요.
+두 경우 모두 아래와 같이 시작 시 인식은 동일한 오디오 샘플 내에서 언어가 변경될 수 있는 시나리오에 **사용하면 안** 됩니다. 이러한 유형의 시나리오에 대한 연속 인식을 보려면 아래를 참조하세요.
 
 ```cpp
 using namespace std;

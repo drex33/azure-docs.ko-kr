@@ -2,14 +2,14 @@
 title: 비디오 연속 녹화 및 재생 자습서 - Azure Video Analyzer
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디오를 클라우드에 연속 녹화하고 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 09/27/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c7fb6e35b3fa4f06734ab5aedb4c7b8df6d8ba27
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4b01a1a02e6e9c7901f6b366ff79b1e84891e44d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030974"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493308"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>자습서: 연속 비디오 녹화 및 재생
 
@@ -59,7 +59,7 @@ ms.locfileid: "131030974"
 > :::image type="content" source="../media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="CVR에 대한 Video Analyzer 파이프라인":::
 <!-- ./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg -->
 
-이 자습서에서는 [Live555 Media Server](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555)를 사용하여 빌드된 에지 모듈을 사용하여 RTSP 카메라를 시뮬레이션합니다. 파이프라인 내에서 [RTSP 원본](../pipeline.md#rtsp-source) 노드를 사용하여 라이브 피드를 가져온 다음, 해당 비디오를 Video Analyzer 계정에 기록할 [비디오 싱크 노드](../pipeline.md#video-sink)로 보냅니다. 이 자습서에서 사용되는 비디오는 [고속도로 교차로 샘플 비디오](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)입니다.
+이 자습서에서는 [Live555 Media Server](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555)를 사용하여 빌드된 에지 모듈을 사용하여 RTSP 카메라를 시뮬레이션합니다. 파이프라인 내에서 [RTSP 원본](../pipeline.md#rtsp-source) 노드를 사용하여 라이브 피드를 가져온 다음, 해당 비디오를 Video Analyzer 계정에 기록할 [비디오 싱크 노드](../pipeline.md#video-sink)로 보냅니다. 이 자습서에서 사용되는 비디오는 [고속도로 교차로 샘플 비디오](https://avamedia.blob.core.windows.net/public/camera-300s.mkv)입니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

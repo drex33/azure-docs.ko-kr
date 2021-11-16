@@ -7,12 +7,12 @@ ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b3de27af4dab9dd8968f97487cb120dbcd0d08c8
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 341c3df126d0ff949c3ba40e5d679bb2e3147ff6
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554491"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488642"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>자습서: Computer Vision과 함께 라이브 비디오를 사용하여 공간 분석(미리 보기)
 
@@ -160,7 +160,7 @@ ms.locfileid: "131554491"
 1. `avaedge`의 `IpcMode`와 `spatialanalysis` 모듈 createOptions는 동일해야 하며 **host** 로 설정되어야 합니다.
 1. RTSP 시뮬레이터가 작동하려면 Azure Stack Edge 디바이스를 사용할 때 볼륨 범위를 설정해야 합니다.
 
-   1. [SMB 공유에 연결](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share)하고 [샘플 소매점 비디오 파일](https://lvamedia.blob.core.windows.net/public/retailshop-15fps.mkv)을 로컬 공유에 복사합니다.
+   1. [SMB 공유에 연결](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share)하고 [샘플 소매점 비디오 파일](https://avamedia.blob.core.windows.net/public/retailshop-15fps.mkv)을 로컬 공유에 복사합니다.
 
       > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMIPP]
 

@@ -1,40 +1,40 @@
 ---
-title: Service Fabric 관리형 클러스터 노드에 대해 디스크 암호화 사용
+title: Service Fabric 관리 클러스터 노드에 대해 디스크 암호화 사용
 description: ARM 템플릿을 사용하여 Windows에서 Azure Service Fabric 관리 클러스터 노드에 디스크 암호화를 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 11/8/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd16cdea3a5c8fa4f235ff14ab75bdd07e348db0
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d1d1db17d6914904d9995883903c50982de84daa
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132352696"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486940"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Service Fabric 관리형 클러스터 노드에 디스크 암호화 사용
 
-Service Fabric 관리형 클러스터는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호하는 데 도움이 되는 두 가지 디스크 암호화 옵션을 지원합니다. 권장되는 옵션은 호스트의 암호화이지만 Azure Disk Encryption 지원합니다. 디스크 [암호화 옵션을](../virtual-machines/disk-encryption-overview.md) 검토하고 선택한 옵션이 요구 사항을 충족하는지 확인합니다.
+Service Fabric 관리 클러스터는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하는 데 도움이 되는 두 가지 디스크 암호화 옵션을 지원 합니다. 권장 옵션은 호스트에서 암호화 이지만 Azure Disk Encryption도 지원 합니다. [디스크 암호화 옵션](../virtual-machines/disk-encryption-overview.md) 을 검토 하 고 선택한 옵션이 사용자의 요구를 충족 하는지 확인 합니다.
 
 
-## <a name="enable-encryption-at-host-preview"></a>호스트에서 암호화 사용(미리 보기)
+## <a name="enable-encryption-at-host-preview"></a>호스트에서 암호화 사용 (미리 보기)
 
-이 암호화 방법은 [Azure Storage](how-to-managed-cluster-enable-disk-encryption.md) 서비스에서 데이터를 암호화하여 VM에 대해 사용자 지정 이미지를 비롯한 모든 OS 유형 및 이미지를 지원하여 Azure Disk Encryption 향상시킵니다. 이 방법은 VM CPU를 사용하지 않으며 워크로드가 사용 가능한 모든 VM SKU 리소스를 사용할 수 있도록 VM 성능에 영향을 주지 않습니다.
-
-> [!Note]
-> 기존 노드 형식에서는 를 사용하도록 설정할 수 없습니다. 새 노드 유형을 프로비전하고 워크로드를 마이그레이션해야 합니다.
+이 암호화 방법은 Azure Storage 서비스에서 데이터를 암호화 하 여 vm에 대 한 사용자 지정 이미지를 비롯 한 모든 OS 유형 및 이미지를 지원 함으로써 [Azure Disk Encryption](how-to-managed-cluster-enable-disk-encryption.md) 를 향상 시킵니다. 이 방법은 Vm CPU를 사용 하지 않으며 vm 성능에 영향을 주므로 사용 가능한 모든 Vm SKU 리소스를 사용 하도록 작업을 설정 합니다.
 
 > [!Note]
-> Azure Security Center 호스트에서 암호화를 사용하는 경우 현재 디스크 암호화 상태가 비정상으로 표시됩니다.
+> 기존 노드 형식에 대해을 사용 하도록 설정할 수 없습니다. 새 노드 유형을 프로 비전 하 고 워크 로드를 마이그레이션해야 합니다.
 
-다음 단계에 따라 이 [샘플 템플릿을](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption) 참조하여 호스트 암호화를 사용하도록 설정된 새 Service Fabric 관리형 클러스터를 배포합니다.
+> [!Note]
+> 호스트에서 암호화를 사용 하는 경우 현재 디스크 암호화 상태가 비정상으로 표시 됩니다. Azure Security Center
 
-1. 다음 [제한 사항을](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) 검토하여 요구 사항을 충족하는지 확인합니다.
+다음 단계를 수행 하 고이 [샘플 템플릿을](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-HostEncryption) 참조 하 여 호스트 암호화를 사용 하도록 설정 된 새 Service Fabric 관리 클러스터를 배포 합니다.
 
-2. 클러스터를 배포하기 전에 필요한 [필수 구성을](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) 설정합니다.
+1. 다음 [제한](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#restrictions) 사항을 검토 하 여 요구 사항을 충족 하는지 확인 합니다.
 
-3. 구성 된 `enableEncryptionAtHost` 각 노드 유형 디스크 암호화에 대 한 관리 되는 클러스터 템플릿에서 속성이 필요 합니다. 샘플은 미리 구성되어 있습니다.
+2. 클러스터를 배포 하기 전에 필요한 [필수 구성 요소](../virtual-machines/windows/disks-enable-host-based-encryption-powershell.md#prerequisites) 를 설정 합니다.
 
-   * Service Fabric 관리형 클러스터 리소스 apiVersion은 **2021-11-01-preview** 이상이어야 합니다.
+3. `enableEncryptionAtHost`각 노드 유형에 대 한 관리 클러스터 템플릿에서 속성을 구성 합니다. 디스크 암호화가 필요 합니다. 이 샘플은 미리 구성 되어 있습니다.
+
+   * Service Fabric 관리 되는 클러스터 리소스 apiVersion은 **2021-11-01-preview** 이상 이어야 합니다.
 
    ```json
         {
@@ -51,7 +51,7 @@ Service Fabric 관리형 클러스터는 조직의 보안 및 규정 준수 약�
 
 4. 배포 및 확인
 
-   호스트 암호화를 사용하도록 설정된 관리형 클러스터를 배포합니다.
+   호스트 암호화를 사용 하도록 설정 하 여 구성 된 관리 되는 클러스터를 배포 합니다.
 
    ```powershell
    $clusterName = "<clustername>" 
@@ -60,7 +60,7 @@ Service Fabric 관리형 클러스터는 조직의 보안 및 규정 준수 약�
    New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug -Verbose 
    ```
 
-   `Get-AzVmssDiskEncryption` 명령을 사용하여 노드 유형의 기본 확장 집합에서 디스크 암호화 상태를 확인할 수 있습니다. 먼저 관리형 클러스터의 지원 리소스 그룹 이름(기본 가상 네트워크, 부하 분산 장치, 공용 IP, NSG, 확장 집합 및 스토리지 계정 포함)을 찾아야 합니다. `VmssName`을 확인하려는 클러스터 노드 유형 이름(배포 템플릿에 지정된 이름)으로 수정해야 합니다.
+   `Get-AzVmss` 명령을 사용하여 노드 유형의 기본 확장 집합에서 디스크 암호화 상태를 확인할 수 있습니다. 먼저 관리 되는 클러스터의 지원 리소스 그룹 이름 (기본 가상 네트워크, 부하 분산 장치, 공용 IP, NSG, 확장 집합 및 저장소 계정 포함)을 확인 해야 합니다. `NodeTypeNAme`을 확인하려는 클러스터 노드 유형 이름(배포 템플릿에 지정된 이름)으로 수정해야 합니다.
 
    ```powershell
    $NodeTypeName = "NT2"
@@ -71,7 +71,7 @@ Service Fabric 관리형 클러스터는 조직의 보안 및 규정 준수 약�
    $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
    ```
 
-   반환 출력은 다음과 유사하게 표시됩니다.
+   반환 출력은 다음과 유사 하 게 표시 됩니다.
 
    ```console
    $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
@@ -79,13 +79,13 @@ Service Fabric 관리형 클러스터는 조직의 보안 및 규정 준수 약�
    ```
 
 ## <a name="enable-azure-disk-encryption"></a>Azure Disk Encryption 사용
-Azure Disk Encryption Linux의 DM-Crypt 기능 또는 Windows BitLocker 기능을 사용하여 Azure VM(가상 머신)의 OS 및 데이터 디스크에 볼륨 암호화를 제공합니다. ADE는 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다.
+Azure Disk Encryption은 Linux의 DM-Crypt 기능 또는 Windows의 BitLocker 기능을 사용 하 여 Azure Vm (가상 머신)의 OS 및 데이터 디스크에 대 한 볼륨 암호화를 제공 합니다. ADE는 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다.
 
 이 가이드에서는 ARM(Azure Resource Manager) 템플릿을 통해 [가상 머신 확장 집합](../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md)에 대한 [Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) 기능을 사용하여 Windows에서 Service Fabric 관리 클러스터 노드에 디스크 암호화를 사용하도록 설정하는 방법을 알아봅니다.
 
 1. Azure Disk Encryption 등록
 
-   가상 머신 확장 집합용 디스크 암호화 미리 보기에는 자체 등록이 필요합니다. 다음 명령을 실행합니다.
+   가상 머신 확장 집합용 디스크 암호화 미리 보기에는 자체 등록이 필요합니다. 다음 명령 실행:
 
    ```powershell
    Register-AzProviderFeature -FeatureName "UnifiedDiskEncryption" -ProviderNamespace "Microsoft.Compute"
@@ -105,7 +105,7 @@ Azure Disk Encryption Linux의 DM-Crypt 기능 또는 Windows BitLocker 기능�
 
 3. 디스크 암호화가 설정된 키 자격 증명 모음 만들기
 
-   다음 명령을 실행하여 디스크 암호화를 위한 새 키 자격 증명 모음을 만듭니다. Key Vault 지역이 클러스터와 동일한 지역에 있는지 확인합니다.
+   다음 명령을 실행하여 디스크 암호화를 위한 새 키 자격 증명 모음을 만듭니다. Key Vault에 대 한 지역이 클러스터와 동일한 지역에 있는지 확인 합니다.
 
    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -239,7 +239,7 @@ Azure Disk Encryption Linux의 DM-Crypt 기능 또는 Windows BitLocker 기능�
 
 ## <a name="next-steps"></a>다음 단계
 
-[샘플: 표준 SKU Service Fabric 관리형 클러스터, 디스크 암호화를 사용하도록 설정된 하나의 노드 유형](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DiskEncryption)
+[샘플: 표준 SKU Service Fabric 관리 되는 클러스터, 디스크 암호화를 사용 하는 노드 유형 하나](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DiskEncryption)
 
 [Windows VM용 Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md)
 

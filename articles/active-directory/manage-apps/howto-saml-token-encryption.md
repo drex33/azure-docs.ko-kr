@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory의 SAML 토큰 암호화
+title: SAML 토큰 암호화
 description: Azure Active Directory SAML 토큰 암호화를 구성하는 방법을 알아봅니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 03/13/2020
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dc7169055f006ca12c2f291d20683022a27d7a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d15e4425b7506ada2ac1dcaf9f83bb4112a21639
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567285"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617647"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Azure AD SAML 토큰 암호화를 구성하는 방법
+# <a name="configure-azure-active-directory-saml-token-encryption"></a>Azure Active Directory SAML 토큰 암호화 구성
 
 > [!NOTE]
 > 토큰 암호화는 Azure AD(Azure Active Directory) 프리미엄 기능입니다. Azure AD 버전, 기능 및 가격 책정에 대한 자세한 내용은 [Azure AD 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.

@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: danlep
-ms.openlocfilehash: 7bc73c3134d01dd88112dd1564b12ecfe5f710b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fb27e1a96152885446da2e77e0901680affe3569
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639055"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494846"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Azure API Management에서 Power Platform으로 API 내보내기 
 
@@ -43,6 +43,9 @@ Microsoft [Power Platform](https://powerplatform.microsoft.com)을 사용하는 
 커넥터를 만들었으면 [Power Apps](https://make.powerapps.com) 또는 [Power Automate](https://flow.microsoft.com) 환경으로 이동합니다. **데이터 > 사용자 지정 커넥터** 아래에 API가 나열되는 것을 볼 수 있습니다.
 
 :::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Power Platform의 사용자 지정 커넥터":::
+
+> [!NOTE]
+> PowerApps 테스트 콘솔에서 API를 호출 하려면 https://flow.microsoft.com API Management 인스턴스에서 [CORS 정책의](api-management-cross-domain-policies.md#CORS) 원본으로 "" URL을 추가 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,27 +3,26 @@ title: Azure AD B2C 사용자 지정 도메인 사용
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 리디렉션 URL에 사용자 지정 도메인을 사용하도록 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/16/2021
-ms.author: mimart
+ms.date: 09/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b64806b3683db8f6cd3ec665b462f4f6f26397eb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: edddf44509e6eeff6f50b4361fe8c40a7832a8a8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770155"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130222877"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 사용자 지정 도메인 사용
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 이 문서에서는 Azure AD B2C(Azure Active Directory B2C)의 리디렉션 Url에 사용자 지정 도메인을 사용하도록 설정하는 방법을 설명합니다. 애플리케이션에 사용자 지정 도메인을 사용하면 보다 원활한 사용자 환경을 제공할 수 있습니다. 사용자의 관점에서 이들은 로그인 과정에서 Azure AD B2C 기본 도메인인 *&lt;tenant-name&gt;.b2clogin.com* 으로 리디렉션되지 않고 도메인에 그대로 있습니다.
 
@@ -36,8 +35,8 @@ ms.locfileid: "122770155"
 다음 다이어그램은 Azure Front Door 통합을 보여 줍니다.
 
 1. 애플리케이션에서 사용자는 로그인 단추를 선택하여 Azure AD B2C 로그인 페이지로 이동합니다. 이 페이지에서는 사용자 지정 도메인 이름을 지정합니다.
-1. 웹 브라우저에서는 Azure Front Door IP 주소에 대한 사용자 지정 도메인 이름을 확인합니다. DNS를 확인하는 동안 사용자 지정 도메인 이름이 포함된 CNAME(정식 이름) 레코드는 Front Door 기본 프런트 엔드 호스트(예: `contoso.azurefd.net`)를 가리킵니다. 
-1. 사용자 지정 도메인(예: `login.contoso.com`)으로 가는 트래픽은 지정된 Front Door 기본 프런트 엔드 호스트(`contoso.azurefd.net`)로 라우팅됩니다.
+1. 웹 브라우저에서는 Azure Front Door IP 주소에 대한 사용자 지정 도메인 이름을 확인합니다. DNS를 확인하는 동안 사용자 지정 도메인 이름이 포함된 CNAME(정식 이름) 레코드는 Front Door 기본 프런트 엔드 호스트(예: `contoso-frontend.azurefd.net`)를 가리킵니다. 
+1. 사용자 지정 도메인(예: `login.contoso.com`)으로 가는 트래픽은 지정된 Front Door 기본 프런트 엔드 호스트(`contoso-frontend.azurefd.net`)로 라우팅됩니다.
 1. Azure Front Door가 Azure AD B2C `<tenant-name>.b2clogin.com` 기본 도메인을 사용하여 Azure AD B2C 콘텐츠를 호출합니다. Azure AD B2C 엔드포인트에 대한 요청은 원래 사용자 지정 도메인 이름을 포함합니다.
 1. Azure AD B2C는 관련 콘텐츠와 원래 사용자 지정 도메인을 표시하여 요청에 응답합니다.
 
@@ -100,7 +99,8 @@ ms.locfileid: "122770155"
   
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **디렉터리 + 구독** 을 선택하고 Azure Front Door에 사용할 Azure 구독이 있는 디렉터리를 선택합니다. 이 디렉터리는 Azure AD B2C 테넌트를 포함하는 디렉터리가 ‘아니어야’ 합니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리가 *아니라* Azure Front Door에 사용할 Azure 구독을 포함하는 디렉터리를 선택하려면 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다. 
 1. 홈 페이지 또는 Azure 메뉴에서 **리소스 만들기** 를 선택합니다. **네트워킹** > **모두 보기** > **Front Door** 를 선택합니다.
 1. **Front Door 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택한 다음, **다음: 구성** 을 선택합니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "122770155"
 
 프런트 엔드 호스트는 애플리케이션에서 사용되는 도메인 이름입니다. Front Door를 만들 때 기본 프런트 엔드 호스트는 `azurefd.net`의 하위 도메인입니다.
 
-Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하여 Azure AD B2C 사용자 인터페이스를 Front Door 소유 도메인 이름이 아닌 URL의 사용자 지정 도메인과 연결합니다. 예: `https://login.contoso.com`
+Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하여 Azure AD B2C 사용자 인터페이스를 Front Door 소유 도메인 이름이 아닌 URL의 사용자 지정 도메인과 연결합니다. `https://login.contoso.com`)을 입력합니다.
 
 프런트 엔드 호스트를 추가하려면 다음 단계를 수행합니다.
 
@@ -137,7 +137,7 @@ Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 
 
 1. **백 엔드 추가** 블레이드에서 다음 정보를 선택한 다음, **추가** 를 선택합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | --- | --- |
     | **백 엔드 호스트 유형**| **사용자 지정 호스트** 를 선택합니다.| 
     | **백 엔드 호스트 이름**| [Azure AD B2C](tenant-management.md#get-your-tenant-name) 이름인 `<tenant-name>.b2clogin.com`을 선택합니다. 예를 들어 contoso.b2clogin.com을 입력합니다.|
@@ -171,11 +171,11 @@ Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 
 
 ### <a name="31-create-a-cname-dns-record"></a>3.1 CNAME DNS 레코드 만들기
 
-Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급 기업을 사용하여 Front Door의 기본 프런트 엔드 호스트(contoso.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다.
+Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급 기업을 사용하여 Front Door의 기본 프런트 엔드 호스트(contoso-frontend.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다.
 
 CNAME 레코드는 원본 도메인을 대상 도메인 이름(별칭)에 매핑하는 DNS 레코드의 형식입니다. Azure Front Door의 경우 원본 도메인 이름은 사용자 지정 도메인 이름이고, 대상 도메인 이름은 [2.1단계](#21-add-frontend-host)에서 구성한 Front Door 기본 호스트 이름입니다. 
 
-Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: login.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: `contoso.azurefd.net`)로 라우팅됩니다. 자세한 내용은 [Front Door에 사용자 지정 도메인 추가](../frontdoor/front-door-custom-domain.md)를 참조하세요. 
+Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: login.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: `contoso-frontend.azurefd.net`)로 라우팅됩니다. 자세한 내용은 [Front Door에 사용자 지정 도메인 추가](../frontdoor/front-door-custom-domain.md)를 참조하세요. 
 
 사용자 지정 도메인에 대한 CNAME 레코드를 만들려면:
 
@@ -187,13 +187,13 @@ Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용
 
     | 원본          | Type  | 대상           |
     |-----------------|-------|-----------------------|
-    | `<login.contoso.com>` | CNAME | `contoso.azurefd.net` |
+    | `<login.contoso.com>` | CNAME | `contoso-frontend.azurefd.net` |
 
    - 원본: 사용자 지정 도메인 이름(예: login.contoso.com)을 입력합니다.
 
    - 유형: *CNAME* 를 입력합니다.
 
-   - 대상: [2.1단계](#21-add-frontend-host)에서 만드는 기본 Front Door 프런트 엔드 호스트를 입력합니다. format: _&lt;hostname&gt;_ .azurefd.net 형식이어야 합니다. 예: `contoso.azurefd.net`
+   - 대상: [2.1단계](#21-add-frontend-host)에서 만드는 기본 Front Door 프런트 엔드 호스트를 입력합니다. format: _&lt;hostname&gt;_ .azurefd.net 형식이어야 합니다. `contoso-frontend.azurefd.net`)을 입력합니다.
 
 1. 변경 내용을 저장합니다.
 
@@ -253,7 +253,8 @@ HTML 템플릿을 사용하여 [Azure AD B2C 사용자 인터페이스를 사용
 ## <a name="test-your-custom-domain"></a>사용자 지정 도메인 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 에서 **사용자 흐름(정책)** 을 선택합니다.
 1. 사용자 흐름을 선택한 다음 **사용자 흐름 실행** 을 선택합니다.
@@ -375,7 +376,7 @@ https://<domain-name>/11111111-1111-1111-1111-111111111111/v2.0/
 - **가능한 원인** - 이 문제는 DNS 구성 또는 Azure Front Door 백 엔드 구성과 관련이 있을 수 있습니다. 
 - **해결 방법**:  
     1. Azure AD B2C 테넌트에서 사용자 지정 도메인을 [등록하고 확인](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant)합니다.
-    1. [사용자 지정 도메인](../frontdoor/front-door-custom-domain.md)을 올바르게 구성합니다. `CNAME`사용자 지정 도메인의 레코드는 Azure Front Door 기본 프런트 엔드 호스트(예: contoso.azurefd.net)를 가리켜야 합니다.
+    1. [사용자 지정 도메인](../frontdoor/front-door-custom-domain.md)을 올바르게 구성합니다. 사용자 지정 도메인의 `CNAME` 레코드는 Azure Front Door 기본 프런트 엔드 호스트(예: contoso-frontend.azurefd.net)를 가리켜야 합니다.
     1. [Azure Front Door 백 엔드 풀 구성](#22-add-backend-and-backend-pool)이 사용자 지정 도메인 이름을 설정하고 사용자 흐름 또는 사용자 지정 정책이 저장되는 테넌트를 가리키도록 합니다.
 
 
@@ -409,6 +410,10 @@ Azure Front Door는 사용자의 원래 IP 주소를 전달합니다. 이는 감
 
 Azure Front Door 앞에서 자체 웹 애플리케이션 방화벽을 사용하려면 Azure AD B2C 사용자 흐름이나 사용자 지정 정책에서 모든 것이 올바르게 작동하도록 구성하고 유효성을 검사해야 합니다.  
 
+### <a name="can-my-azure-front-door-instance-be-hosted-in-a-different-subscription-than-my-azure-ad-b2c-tenant"></a>내 Azure Front Door 인스턴스를 내 Azure AD B2C 테넌트와 다른 구독에서 호스팅할 수 있나요?
+    
+예, Azure Front Door는 다른 구독에 있을 수 있습니다.
+    
 ## <a name="next-steps"></a>다음 단계
 
 [OAuth 권한 부여 요청](protocols-overview.md)에 대해 알아봅니다.

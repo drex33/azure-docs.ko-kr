@@ -7,34 +7,37 @@ ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
-ms.openlocfilehash: 863281f85eac1d467e7935f47a90aacf1b3134dd
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 13d220dc0b168ade0bd6493025d858e01772a980
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153447"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131893958"
 ---
-# <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
+# <a name="azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버 
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 MySQL 커뮤니티 버전에서 제공하는 Azure Database for MySQL은 두 가지 배포 모드로 사용할 수 있습니다.
 
+- 유연한 서버
 - 단일 서버
-- 유연한 서버(미리 보기)
 
 이 문서에서는 유연한 서버 배포 모델의 핵심 개념에 대한 개요 및 소개를 제공합니다. 작업에 적합한 배포 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure에서 올바른 MySQL 서버 옵션 선택](./../select-right-deployment-type.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
-Azure Database for MySQL 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 이 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처는 사용자가 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 중지/시작하는 기능과 버스트 가능 SKU를 제공하므로 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 적합합니다. 이 서비스는 현재 MySQL 커뮤니티 버전 5.7 및 8.0을 지원합니다. 이 서비스는 현재 미리 보기로 제공되며, 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 사용할 수 있습니다.
+Azure Database for MySQL 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 컨트롤과 유연성을 제공하도록 설계된 완전 관리형 프로덕션-레디 데이터베이스 서비스입니다. 유연한 서버 아키텍처는 사용자가 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 유연한 서버는 서버를 중지/시작하는 기능과 버스트 가능 컴퓨팅 계층을 통해 비용을 최적화할 수 있으므로 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 적합합니다. 유연한 서버는 또한 예약 인스턴스를 지원하여 최대 63%의 비용을 절감할 수 있으며 예측 가능한 컴퓨팅 용량 요구 사항이 있는 프로덕션 워크로드에 적합합니다. 이 서비스는 커뮤니티 버전 MySQL 5.7 및 8.0을 지원합니다. 이 서비스는 현재 다양한 [Azure 지역](overview.md#azure-regions)에서 일반 공급됩니다.
+
+유연한 서버 배포 옵션은 버스트 가능, 범용 및 메모리 최적화라는 세 가지 컴퓨팅 계층을 제공합니다. 각 계층은 데이터베이스 워크로드를 지원하기 위해 다양한 컴퓨팅 및 메모리 용량을 제공합니다. 한 달에 몇 달러로 버스트 가능한 계층에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은 [Compute 및 Storage](concepts-compute-storage.md)를 참조하세요.
 
 유연한 서버는 다음에 가장 적합합니다.
-
-- 더 나은 제어 및 사용자 지정이 필요한 애플리케이션 개발
-- 영역 중복 고가용성
-- 관리되는 유지 관리 기간
+- 백업, 고가용성, 보안 및 모니터링과 같은 기능에 대한 배포 용이성, 기본 크기 조정 및 낮은 데이터베이스 관리 오버헤드
+- 더 나은 컨트롤 및 사용자 지정을 통해 커뮤니티 버전의 MySQL이 필요한 애플리케이션 개발
+- 동일한 영역, 영역 중복 고가용성 및 관리되는 유지 관리 기간의 프로덕션 워크로드
+- 간소화된 개발 환경 
+- Enterprise급 보안, 규정 준수 및 개인 정보
 
 유연한 서버에 대한 최신 업데이트는 [Azure Database for MySQL - 유연한 서버의 새로운 사항](whats-new.md)을 참조하세요.
 
@@ -50,7 +53,7 @@ Azure Database for MySQL 유연한 서버는 데이터베이스 관리 기능 �
 
 ## <a name="high-availability-within-and-across-availability-zones"></a>가용성 영역의 고가용성
 
-Azure Database for MySQL 유연한 서버(미리 보기)를 사용하면 자동 장애 조치(failover)로 고가용성을 구성할 수 있습니다. 고가용성 솔루션은 커밋된 데이터가 오류로 인해 손실되지 않도록 하고 애플리케이션의 전반적인 작동 시간을 개선하도록 설계되었습니다.고가용성이 구성되면 유연한 서버가 대기 복제본을 자동으로 프로비저닝하고 관리합니다. 다음 두 가지의 고가용성 아키텍처 모델이 있습니다. 
+Azure Database for MySQL 유연한 서버를 사용하면 자동 장애 조치(failover)로 고가용성을 구성할 수 있습니다. 고가용성 솔루션은 커밋된 데이터가 오류로 인해 손실되지 않도록 하고 애플리케이션의 전반적인 작동 시간을 개선하도록 설계되었습니다.고가용성이 구성되면 유연한 서버가 대기 복제본을 자동으로 프로비저닝하고 관리합니다. 다음 두 가지의 고가용성 아키텍처 모델이 있습니다. 
 
 - **영역 중복 HA(고가용성):** 이 옵션은 여러 가용성 영역에서 인프라의 완전한 격리 및 중복성을 위해 선호됩니다. 최고 수준의 가용성을 제공하지만 영역 간에 애플리케이션 중복성을 구성해야 합니다. 영역 중복 HA는 가용성 영역의 모든 인프라 장애에 대해 최고 수준의 가용성을 확보하고 가용성 영역 전체의 대기 시간이 허용되는 경우 선호됩니다. 영역 중복 HA는 지역이 여러 가용성 영역을 지원하고 영역 중복 프리미엄 파일 공유를 사용할 수 있는  [Azure 지역의 하위 집합](overview.md#azure-regions) 에서 사용할 수 있습니다. 
 
@@ -70,7 +73,7 @@ Azure Database for MySQL 유연한 서버(미리 보기)를 사용하면 자동 
 
 ## <a name="automatic-backups"></a>자동 백업
 
-유연한 서버 서비스는 자동으로 서버 백업을 만들어 사용자가 로컬로 구성한 중복 스토리지 또는 지역 중복 스토리지에 저장합니다. 백업을 통해 백업 보존 기간 내의 특정 지점으로 서버를 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 보존 기간은 선택적으로 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+유연한 서버 서비스는 자동으로 서버 백업을 만들어 사용자가 로컬로 구성한 중복 스토리지 또는 지역 중복 스토리지에 저장합니다. 백업을 통해 백업 보존 기간 내의 특정 지점으로 서버를 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 데이터 보존은 선택적으로 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
 자세한 내용은 [백업 개념](concepts-backup-restore.md)을 참조하세요.
 
@@ -118,11 +121,11 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 
 ## <a name="stopstart-server-to-optimize-cost"></a>서버를 중지/시작하여 비용 최적화
 
-유연한 서버 서비스를 사용하면 요청 시 서버를 중지하고 시작하여 비용을 최적화할 수 있습니다. 서버가 중지되는 즉시 컴퓨팅 계층에 대한 대금 청구가 중지됩니다. 이렇게 하면 개발, 테스트 및 시간 제한 예측 가능한 프로덕션 워크로드의 비용을 대폭 절감할 수 있습니다. 서버는 다시 시작하지 않는 한 7일 동안 중지된 상태로 유지됩니다.
+유연한 서버 서비스를 사용하면 요청 시 서버를 중지하고 시작하여 비용을 최적화할 수 있습니다. 서버가 중지되는 즉시 컴퓨팅 계층에 대한 대금 청구가 중지됩니다. 이렇게 하면 개발, 테스트 및 시간 제한 예측 가능한 프로덕션 워크로드에 상당한 비용을 절감할 수 있습니다. 서버는 다시 시작하지 않는 한 30일 동안 중지된 상태로 유지됩니다.
 
 자세한 내용은 [서버 개념](concept-servers.md)을 참조하세요.
 
-## <a name="enterprise-grade-security-and-privacy"></a>엔터프라이즈급 보안 및 프라이버시
+## <a name="enterprise-grade-security-compliance-and-privacy"></a>Enterprise급 보안, 규정 준수 및 개인 정보
 
 유연한 서버 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터 및 쿼리를 실행하는 동안 생성된 임시 파일이 암호화됩니다. 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다(기본값).
 
@@ -136,7 +139,13 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
-유연한 서버 서비스는 기본 제공 성능 모니터링 및 경고 기능을 갖추고 있습니다. 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 서비스는 리소스 사용률을 모니터링하도록 호스트 서버 메트릭을 노출하고, 쿼리 로그를 느리게 구성할 수 있도록 합니다. 이러한 도구를 사용하여 워크로드를 신속하게 최적화하고 최적의 성능을 얻을 수 있도록 서버를 구성할 수 있습니다. 또한 [MySQL Flexible Server에서의 Percona 모니터링 및 관리](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545) 등, 커뮤니티 모니터링 도구를 사용하고 통합할 수도 있습니다. 
+유연한 서버 서비스는 기본 제공 성능 모니터링 및 경고 기능을 갖추고 있습니다. 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 서비스는 리소스 사용률을 모니터링하도록 호스트 서버 메트릭을 노출하고, 쿼리 로그를 느리게 구성할 수 있도록 허용합니다. 이러한 도구를 사용하여 워크로드를 신속하게 최적화하고 최적의 성능을 얻을 수 있도록 서버를 구성할 수 있습니다. Azure Database for MySQL 유연한 서버를 사용하면 Azure Monitor 통합 문서를 사용하여 쿼리 및 감사 로그 데이터를 느리게 시각화할 수 있습니다. 통합 문서를 사용하면 데이터를 분석하고 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있는 유연한 캔버스를 얻을 수 있습니다. Azure Database for MySQL 유연한 서버는 시각화 서버 개요, [감사](tutorial-configure-audit.md) 및 [쿼리 성능 Insight](tutorial-query-performance-insights.md)가 기본 제공되는 세 가지 통합 문서 템플릿을 제공합니다. [Query Performance Insight](tutorial-query-performance-insights.md)는 다음과 같은 정보를 제공하여 데이터베이스 성능 문제를 해결하는 데 걸리는 시간을 줄이는 데 도움이 되도록 설계되었습니다.
+
+* 상위 N개의 장기 실행 쿼리 및 해당 추세
+* 쿼리 세부 정보: 쿼리 텍스트와 실행 기록(최소, 최대, 평균 및 표준 편차 쿼리 시간 포함)을 봅니다.
+* 리소스 사용률(CPU, 메모리 및 스토리지).
+
+또한 [MySQL Flexible Server에서의 Percona 모니터링 및 관리](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545) 등, 커뮤니티 모니터링 도구를 사용하고 통합할 수도 있습니다. 
 
 자세한 내용은 [모니터링 개념](concepts-monitoring.md)을 참조하세요.
 
@@ -153,7 +162,7 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 
 간단한 5단계를 통해 Azure Database for MySQL - 단일 서버에서 유연한 서버로 마이그레이션하려면 [이 블로그](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057)를 참조하세요.
 
-자세한 내용은 [Azure Database for MySQL 모니터링 가이드](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)를 참조하세요.
+자세한 내용은 [Azure Database for MySQL로 마이그레이션하기 위한 적합한 도구 선택](../../mysql/how-to-decide-on-right-migration-tools.md)을 참조하세요
 
 ## <a name="azure-regions"></a>Azure 지역
 
@@ -163,7 +172,7 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | --- | --- | --- | --- |
 | 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 오스트레일리아 남동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| 브라질 남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 브라질 남부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 캐나다 동부 | :heavy_check_mark: | :x: | :x: |
 | 인도 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -177,19 +186,22 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 일본 서부 | :heavy_check_mark: | :x: | :x: |
 | 한국 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 한국 남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 중북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 북유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 중북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 노르웨이 동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 미국 중남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 남아프리카 북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 중남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 스위스 북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 아랍에미리트 북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 영국 서부 | :heavy_check_mark: | :x: | :x: |
-| 아랍에미리트 북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 중서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 서유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 미국 서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 서유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 미국 중서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 서부 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## <a name="contacts"></a>연락처
 
@@ -199,7 +211,7 @@ Azure Database for MySQL 유연한 서버에 대한 질문이나 제안이 있�
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql)를 통해 항목을 만드세요.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0)를 통해 항목을 만드세요.
 
 ## <a name="next-steps"></a>다음 단계
 

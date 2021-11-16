@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: cc7a7c478ada34aeea5815ec937b8442aa2bd98c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 555269beeb5e8b36597998a8941e2b64120691b4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101189"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484171"
 ---
 # <a name="tutorial-enrich-a-cognitive-search-index-with-custom-entities-from-your-data"></a>자습서: 데이터에서 사용자 지정 엔터티를 사용하여 Cognitive Search 인덱스 보강
 
@@ -49,7 +49,7 @@ ms.locfileid: "131101189"
 
 4. 다음과 같은 프로젝트 정보를 입력합니다.
 
-    | 키 | 설명 |
+    | 키 | Description |
     |--|--|
     | Name | 프로젝트의 이름입니다. 프로젝트가 만들어지면 해당 이름을 바꿀 수 없습니다. |
     | 설명 | 프로젝트에 대한 설명 |
@@ -115,7 +115,7 @@ ms.locfileid: "131101189"
 
 ### <a name="prepare-configuration-file"></a>구성 파일 준비
 
-1. 방금 다운로드한 폴더에서 [샘플 구성 파일](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/configs.json)을 찾습니다. 텍스트 편집기에서 엽니다. 
+1. 방금 다운로드한 폴더에서 [샘플 구성 파일](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/configs.json)을 찾습니다. 텍스트 편집기에서 엽니다. 
 
 2. 다음을 수행하여 스토리지 계정 연결 문자열을 가져옵니다.
     1. [Azure Portal](https://ms.portal.azure.com/#home)에서 스토리지 계정 개요 페이지로 이동합니다.
@@ -137,7 +137,7 @@ ms.locfileid: "131101189"
 
 ### <a name="prepare-schema-file"></a>스키마 파일 준비
 
-이전에 다운로드한 폴더에서 [샘플 스키마 파일](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/app-schema.json)을 찾습니다. 텍스트 편집기에서 엽니다. 
+이전에 다운로드한 폴더에서 [샘플 스키마 파일](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/app-schema.json)을 찾습니다. 텍스트 편집기에서 엽니다. 
 
 `entityNames` 배열의 항목은 프로젝트를 만드는 동안 할당한 엔터티 이름이 됩니다. [언어 스튜디오](https://aka.ms/custom-extraction)의 프로젝트에서 복사하여 붙여넣을 수 있거나, 
 

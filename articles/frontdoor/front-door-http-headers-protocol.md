@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: 807138187e37deef6f23121ce085e62f520ad335
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d102978b12c37033d2d52c7ee749c1e7f7878c7c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528720"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489060"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Azure Front Door의 HTTP 헤더에 대한 프로토콜 지원
 이 문서에서는 Front Door가 호출 경로의 일부와 함께 지원하는 프로토콜에 대해 간략하게 설명합니다(이미지 참조). 다음 섹션에서는 Front Door가 지원하는 HTTP 헤더에 대해 자세히 설명합니다.
@@ -27,7 +27,10 @@ ms.locfileid: "122528720"
 >Front Door는 여기에 설명되지 않은 HTTP 헤더를 인증하지 않습니다.
 
 ## <a name="client-to-front-door"></a>클라이언트-Front Door
+
 Front Door는 들어오는 요청을 수정하지 않고 대부분의 헤더를 허용합니다. 일부 예약된 헤더는 X-FD-* 접두사가 있는 헤더를 포함하여 전송되는 경우 들어오는 요청에서 제거됩니다.
+
+디버그 요청 헤더 "DebugInfo"는 프런트 도어에 대 한 추가 디버깅 정보를 제공 합니다. 프런트 도어에서 클라이언트로 [선택적인 응답 헤더](#optional-debug-response-headers) 를 받으려면 클라이언트에서 front 도어로 "DebugInfo: 1" 요청 헤더를 전송 해야 합니다. 
 
 ## <a name="front-door-to-backend"></a>Front Door-백 엔드
 
@@ -55,6 +58,8 @@ Front Door에는 제한으로 인해 제거되지 않는 한 들어오는 요청
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Front Door가 제공하는 요청을 식별하는 고유한 참조 문자열로 액세스 로그를 검색하는 데 사용되므로 문제 해결에 중요합니다.|
 | X-Cache | *X-Cache:* 이 헤더는 요청의 캐싱 상태를 설명합니다. <br/> - *X-Cache: TCP_HIT*: 요청의 첫 번째 바이트는 Front Door 에지의 캐시 적중입니다. <br/> - *X-Cache: TCP_REMOTE_HIT*: 요청의 첫 번째 바이트는 지역 캐시(원본 보호 계층)의 캐시 적중이지만 에지 캐시에서 누락됩니다. <br/> - *X-Cache: TCP_MISS*: 요청의 첫 번째 바이트는 캐시 누락이며 콘텐츠는 원본에서 제공됩니다. <br/> - *X-Cache: PRIVATE_NOSTORE*: Cache-Control 응답 헤더가 private 또는 no-store로 설정되어 있으므로 요청을 캐시할 수 없습니다. <br/> - *X-Cache: CONFIG_NOCACHE*: 요청이 Front Door 프로필에 캐시되지 않도록 구성되어 있습니다. |
+
+### <a name="optional-debug-response-headers"></a>선택적 디버그 응답 헤더
 
 다음과 같은 선택적 응답 헤더를 사용하도록 설정하려면 "X-Azure-DebugInfo: 1" 요청 헤더를 전송해야 합니다.
 

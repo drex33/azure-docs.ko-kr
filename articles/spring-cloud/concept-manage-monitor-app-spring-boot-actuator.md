@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: d9c24868fa847ef3b8be13ca0d7775e24b3116cc
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 001b88e5abe0fc8710d7c87d792de23db4135e16
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567531"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486292"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Azure Spring Boot Actuator를 사용하여 앱 관리 및 모니터링
 
@@ -22,7 +22,7 @@ ms.locfileid: "122567531"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 문서에서는 Azure Spring Cloud 서비스에서 성공적으로 배포, 부팅할 수 있는 Spring Boot 2.x 애플리케이션을 보유하고 있는 것으로 가정합니다.  [빠른 시작 - Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)을 참조하세요.
+이 문서에서는 Azure Spring Cloud 서비스에서 성공적으로 배포, 부팅할 수 있는 Spring Boot 2.x 애플리케이션을 보유하고 있는 것으로 가정합니다.  [빠른 시작: Azure Portal 사용하여 Azure Spring Cloud 기존 애플리케이션 시작](./quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>테스트 엔드포인트를 통해 앱 확인
 

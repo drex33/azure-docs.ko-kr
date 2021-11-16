@@ -3,19 +3,15 @@ title: Azure Automation 상태 구성을 위해 기존 서버에서 구성 만�
 description: 이 문서에서는 Azure Automation 상태 구성을 위해 기존 서버에서 구성을 만드는 방법을 설명합니다.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8fc5210ad64d534f8be015d324a454b513b7fccc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 0240fd14a8e5dd5975fd499839e10caa0756953f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758342"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491510"
 ---
 # <a name="create-configurations-from-existing-servers"></a>기존 서버에서 구성 만들기
 

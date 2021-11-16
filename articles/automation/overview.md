@@ -5,12 +5,12 @@ services: automation
 keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 관리, 변경 내용 추적, DSC, 인벤토리, Runbook, Python, 그래픽
 ms.date: 10/25/2021
 ms.topic: overview
-ms.openlocfilehash: e641908666c081ca66a76999c63a29e73befe6aa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d6a703a04aeec9b764f74a7574cde4baea875604
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030992"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491491"
 ---
 # <a name="what-is-azure-automation"></a>Azure Automation 정의
 
@@ -116,10 +116,10 @@ Azure Automation은 인프라와 애플리케이션의 수명 주기 전반에 �
 
 이러한 Azure 서비스는 HTTP 웹후크 또는 API 메서드를 사용하여 Automation 작업 및 Runbook 리소스와 함께 작동할 수 있습니다.
 
-* [Azure Logic Apps](/connectors/built-in.md)
-* [Azure Power Apps](/connectors/azureautomation.md)
+* [Azure Logic Apps](/azure/connectors/built-in)
+* [Azure Power Apps](/connectors/azureautomation)
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
-* [Azure Power Automate](/connectors/azureautomation.md)
+* [Azure Power Automate](/connectors/azureautomation)
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

@@ -4,24 +4,25 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure Active Dir
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
-editor: markwahl-msft
+manager: KarenH444
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 08/06/2021
+ms.date: 10/19/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2988d846001876185d377672db1910e783aa3f8
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 51385ce98da9e163be0d70d0c0662f51094094a3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538942"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222517"
 ---
 # <a name="extend-or-renew-azure-ad-role-assignments-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당 연장 또는 갱신
 
@@ -43,11 +44,14 @@ Privileged Identity Management에서 관리자와 영향을 받는 역할의 사
 
 ### <a name="self-extend-expiring-assignments"></a>만료되는 할당 자체 연장
 
-역할에 할당된 사용자 또는 그룹은 **내 역할** 페이지의 **적격** 또는 **활성** 탭에서 또는 Privileged Identity Management 포털의 **Azure AD 역할** 또는 최상위 수준 **내 역할** 페이지에서 만료되는 역할 할당을 직접 연장할 수 있습니다. 사용자 또는 그룹은 앞으로 14일 안에 만료될 적격 할당 및 활성 역할 할당을 연장하도록 요청할 수 있습니다.
+역할에 할당된 사용자는 **내 역할** 페이지의 **적격** 또는 **활성** 탭에서 또는 Privileged Identity Management 포털의 **Azure AD 역할** 또는 최상위 수준 **내 역할** 페이지에서 만료되는 역할 할당을 직접 연장할 수 있습니다. 포털에서 사용자는 앞으로 14일 이내에 만료될 적격 및 활성(할당됨) 역할을 연장하도록 요청할 수 있습니다.
 
 ![Azure AD 역할 - 작업 열이 있는 적격 역할을 나열하는 내 역할 페이지](./media/pim-how-to-renew-extend/pim-extend-link-in-portal.png)
 
 할당 종료 날짜-시간이 14일 이내이면 **연장** 단추가 사용자 인터페이스에서 활성 링크가 됩니다. 다음 예제에서는 현재 날짜가 3월 27일이라고 가정합니다.
+
+>[!Note]
+>역할에 할당된 그룹의 경우 상속된 할당이 있는 사용자가 그룹 할당을 확장할 수 없도록 **확장** 링크를 사용할 수 없게 됩니다.
 
 ![활성화 또는 연장 링크를 포함하는 작업 열](./media/pim-how-to-renew-extend/pim-extend-within-fourteen.png)
 
@@ -89,6 +93,74 @@ Privileged Identity Management에서 관리자와 영향을 받는 역할의 사
 역할 할당을 연장하려면 Privileged Identity Management에서 역할 또는 할당 보기로 이동합니다. 연장해야 하는 할당을 찾습니다. 그런 다음 작업 열에서 **연장** 을 선택합니다.
 
 ![Azure AD 역할 - 연장할 링크가 있는 적격 역할을 나열하는 할당 페이지](./media/pim-how-to-renew-extend/extend-admin-extend.png)
+
+## <a name="extend-role-assignments-using-graph-api"></a>Graph API를 사용하여 역할 할당 확장
+
+Graph API를 사용하여 활성 할당을 확장합니다.
+
+#### <a name="http-request"></a>HTTP 요청
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+ 
+{ 
+    "action": "AdminExtend", 
+    "justification": "abcde", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    `"principalId": "<principal-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "AfterDuration", 
+            "duration": "PT3H" 
+        } 
+    } 
+}
+````
+
+#### <a name="http-response"></a>HTTP 응답
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "<assignment-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T20:26:44.865248Z", 
+    "completedDateTime": "2021-07-15T20:26:47.9434068Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminExtend", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T20:26:47.9434068Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT3H" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
 
 ## <a name="renew-role-assignments"></a>역할 할당 갱신
 

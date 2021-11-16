@@ -3,22 +3,22 @@ title: 등록 및 로그인 흐름 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 등록 및 로그인 흐름을 설정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.author: mimart
+ms.date: 10/21/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0c1871921160b0b5862e7655a3826949406ac111
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 8b1607609bafabc210572717fd84bfcb25da8022
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777804"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231992"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 등록 및 로그인 흐름 설정
 
@@ -34,6 +34,10 @@ ms.locfileid: "122777804"
 * 암호 재설정
 
 ![프로필 편집 흐름](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
+
+이 비디오를 시청하여 사용자 등록 및 로그인 정책이 작동하는 방법을 알아보세요. 
+
+>[!Video https://www.youtube.com/embed/c8rN1ZaR7wk]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -65,8 +69,8 @@ ms.locfileid: "122777804"
 1. **ID 공급자** 에서 하나 이상의 ID 공급자를 선택합니다.
 
    * **로컬 계정** 에서 **이메일 등록**, **사용자 ID 등록**, **전화 등록**, **전화/이메일 등록** 또는 **없음** 중 하나를 선택합니다. [자세한 정보](sign-in-options.md).
-   * **소셜 ID 공급자** 에서 설정한 외부 소셜 또는 엔터프라이즈 ID 공급자 주 하나를 선택합니다. [자세한 정보](add-identity-provider.md).
-1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세한 정보](multi-factor-authentication.md).
+   * **소셜 ID 공급자** 에서 설정한 외부 소셜 또는 엔터프라이즈 ID 공급자 주 하나를 선택합니다. [자세히 알아보기](add-identity-provider.md).
+1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세히 알아보기](multi-factor-authentication.md).
 1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세한 정보](conditional-access-user-flow.md?pivots=b2c-user-flow).
 1. **사용자 특성 및 토큰 클레임** 에서 등록 중에 사용자로부터 수집하려는 속성과 토큰에서 반환하려는 클레임을 선택합니다. 전체 값 목록에서 **자세히 표시** 를 선택하고 값, **확인** 을 차례로 선택합니다.
 
@@ -77,6 +81,10 @@ ms.locfileid: "122777804"
 
 1. **만들기** 를 선택하여 사용자 흐름을 추가합니다. *B2C_1* 이라는 접두사가 이름 앞에 자동으로 붙습니다.
 1. 등록 또는 로그인 정책 내에서 ["암호를 잊으셨나요?" 흐름을 처리](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended)하려면 단계에 따릅니다.
+
+
+### <a name="re-order-the-sign-up-form"></a>등록 양식 다시 정렬
+[로컬 계정에 대한 사용자 흐름 입력 필드를 다시 정렬하는 방법](customize-ui.md#re-order-input-fields-in-the-sign-up-form) 알아보기
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 

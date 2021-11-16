@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: magoedte
-ms.openlocfilehash: 6d22e93fe8bd36e24520108bc310d5b08c25120c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 388afa5936b0cc84dcbee57302d48798d957a2bc
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560024"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492022"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
@@ -27,6 +27,8 @@ ms.locfileid: "102560024"
 
 > [!NOTE]
 > 약간 다른 스키마 예제가 제공될 수 있습니다. 스키마 변경은 2016년 10월 릴리스에서 수행되었습니다. 자세한 내용은 [이전 형식에서 업데이트](#update-from-a-previous-format)를 참조하세요.
+>
+> DSC 확장을 사용하도록 설정하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있으며 [게스트 구성이라는](../../governance/policy/concepts/guest-configuration.md)Azure Policy 기능으로 관리됩니다. 게스트 구성 기능은 DSC(Desired State Configuration) 확장 처리기, Azure Automation State Configuration 기능 및 고객 피드백에서 가장 일반적으로 요청된 기능을 결합합니다. 게스트 구성에는 Arc 지원 서버를 통한 하이브리드 머신 지원도 [포함됩니다.](../../azure-arc/servers/overview.md)
 
 ## <a name="template-example-for-a-windows-vm"></a>Windows VM의 템플릿 예제
 

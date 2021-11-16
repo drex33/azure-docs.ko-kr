@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048b78c7d59b3358dbffe2e3e6eedf41decabb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20719182a9b97bc783ef2bdc16ccad327dba79aa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554278"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742575"
 ---
 # <a name="on-demand-provisioning-in-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화의 주문형 프로비전
 
@@ -24,6 +24,10 @@ Azure AD (Azure Active Directory) Connect의 클라우드 동기화 기능을 �
 
 > [!IMPORTANT] 
 > 주문형 프로비전을 사용하는 경우, 범위 지정 필터는 선택한 사용자에게 적용되지 않습니다. 지정한 조직 구성 단위 외부에 있는 사용자에 대해 주문형 프로비전을 사용할 수 있습니다.
+
+추가 정보 및 예제는 다음 비디오를 참조하세요.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mW]
 
 ## <a name="validate-a-user"></a>사용자 유효성 검사
 주문형 프로비전을 사용하려면 다음 단계를 수행합니다.

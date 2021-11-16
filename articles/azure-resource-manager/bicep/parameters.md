@@ -4,13 +4,13 @@ description: Bicep 파일에서 매개 변수를 정의하는 방법을 설명�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: b90fb108df58c41578bf9472390574b4bc174111
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 11/12/2021
+ms.openlocfilehash: 4345269d9c1191545a28998a38aeedb14b37e0bc
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363497"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486607"
 ---
 # <a name="parameters-in-bicep"></a>Bicep의 매개 변수
 
@@ -22,11 +22,19 @@ Resource Manager는 배포 작업을 시작하기 전에 매개 변수 값을 �
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 
-매개 변수에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [매개 변수를 사용 하 여 재사용 가능한 Bicep 템플릿 빌드](/learn/modules/build-reusable-bicep-templates-parameters) 를 참조 하세요.
+매개 변수에 대한 자세한 내용과 실습 지침은 **Microsoft Learn** [매개 변수를 사용하여 재사용 가능한 Bicep 템플릿 빌드를](/learn/modules/build-reusable-bicep-templates-parameters) 참조하세요.
 
 ## <a name="declaration"></a>선언
 
-각 매개 변수에는 이름과 형식이 필요합니다. 매개 변수는 동일한 범위에 있는 변수, 리소스, 출력 또는 다른 매개 변수와 동일한 이름을 가질 수 없습니다.
+각 매개 변수에는 이름 및 [데이터 형식이 있습니다.](data-types.md) 필요에 따라 매개 변수의 기본값을 제공할 수 있습니다.
+
+```bicep
+param <parameter-name> <parameter-data-type> = <default-value>
+```
+
+매개 변수는 동일한 범위에 있는 변수, 리소스, 출력 또는 다른 매개 변수와 동일한 이름을 가질 수 없습니다.
+
+다음 예제에서는 매개 변수의 기본 선언을 보여줍니다.
 
 ```bicep
 param demoString string
@@ -56,9 +64,9 @@ param location string = resourceGroup().location
 
 ## <a name="decorators"></a>데코레이터
 
-매개 변수는 제약 조건 또는 메타데이터에 데코레이터를 사용합니다. 데코레이터는 `@expression` 형식이며 매개 변수의 선언 위에 배치됩니다. 매개 변수를 보안으로 표시 하 고, 허용 되는 값을 지정 하 고, 문자열에 대 한 최소 및 최대 길이를 설정 하 고, 정수에 대 한 최소값과 최대값을 설정 하 고, 매개 변수에 대 한 설명을 제공할 수 있습니다.
+매개 변수는 제약 조건 또는 메타데이터에 데코레이터를 사용합니다. 데코레이터는 `@expression` 형식이며 매개 변수의 선언 위에 배치됩니다. 매개 변수를 안전한 것으로 표시하고, 허용되는 값을 지정하고, 문자열의 최소 및 최대 길이를 설정하고, 정수의 최소값과 최대값을 설정하고, 매개 변수에 대한 설명을 제공할 수 있습니다.
 
-다음 예제에서는 데코레이터에 대 한 두 가지 일반적인 사용을 보여 줍니다.
+다음 예제에서는 데코레이터에 대한 두 가지 일반적인 용도를 보여 있습니다.
 
 ```bicep
 @secure()
@@ -68,7 +76,20 @@ param demoPassword string
 param virtualMachineSize string = 'Standard_DS1_v2'
 ```
 
-데코레이터은 [sys 네임 스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 동일한 이름을 가진 다른 항목의 데코레이터를 구분 해야 하는 경우 데코레이터 앞에를 붙입니다 `sys` . 예를 들어 Bicep 파일에 라는 매개 변수가 포함 된 경우 `description` **설명** 데코레이터를 사용 하는 경우 sys 네임 스페이스를 추가 해야 합니다.
+다음 표에서는 사용할 수 있는 데코레이터와 그 사용 방법에 대해 설명합니다.
+
+| 데코레이터 | 적용 대상 | 인수 | Description |
+| --------- | ---- | ----------- | ------- |
+| [허용됨](#allowed-values) | 모두 | array | 매개 변수에 허용되는 값입니다. 해당 데코레이터를 사용하여 사용자가 올바른 값을 제공하는지 확인합니다. |
+| [description](#description) | 모두 | 문자열 | 매개 변수를 사용하는 방법을 설명하는 텍스트입니다. 포털을 통해 사용자에게 설명이 표시됩니다. |
+| [maxLength](#length-constraints) | 배열, 문자열 | int | 문자열 및 배열 매개 변수의 최대 길이입니다. 해당 값이 포함되어 있습니다. |
+| [maxValue](#integer-constraints) | int | int | 정수 매개 변수의 최댓값입니다. 해당 값이 포함되어 있습니다. |
+| metadata | 모두 | 개체 | 매개 변수에 적용할 사용자 지정 속성입니다. 설명 데코레이터와 동일한 Description 속성을 포함할 수 있습니다. |
+| [minLength](#length-constraints) | 배열, 문자열 | int | 문자열 및 배열 매개 변수의 최소 길이입니다. 해당 값이 포함되어 있습니다. |
+| [minValue](#integer-constraints) | int | int | 정수 매개 변수의 최솟값입니다. 해당 값이 포함되어 있습니다. |
+| [secure](#secure-parameters) | 문자열, 개체 | 없음 | 매개 변수를 안전하다고 표시합니다. 보안 매개 변수의 값은 배포 기록에 저장되지 않으며 기록되지 않습니다. 자세한 내용은 [보안 문자열 및 개체](data-types.md#secure-strings-and-objects)를 참조하세요. |
+
+데코레이터는 [sys 네임스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 동일한 이름의 다른 항목과 데코레이터를 구분해야 하는 경우 데코레이터의 앞면에 를 으로 `sys` 하십시오. 예를 들어 Bicep 파일에 라는 매개 변수가 포함된 경우 `description` **설명** 데코레이터를 사용할 때 sys 네임스페이스를 추가해야 합니다.
 
 ```bicep
 @sys.description('The name of the instance.')
@@ -77,7 +98,7 @@ param name string
 param description string
 ```
 
-사용 가능한 데코레이터 다음 섹션에 설명 되어 있습니다.
+사용 가능한 데코레이터는 다음 섹션에 설명되어 있습니다.
 
 ### <a name="secure-parameters"></a>보안 매개 변수
 

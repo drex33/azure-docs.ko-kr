@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/08/2021
-ms.openlocfilehash: aa968196653b5975b4182ac224e12f121eac14a0
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 256dbd5e988f95f8e4df7ea6fd1c83b88bc45d46
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132332063"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487426"
 ---
 # <a name="azure-web-pubsub-service-client-library-for-python"></a>Python용 Azure Web PubSub 서비스 클라이언트 라이브러리
 
@@ -19,7 +19,7 @@ ms.locfileid: "132332063"
 
 아래 다이어그램과 같이 앱 서버 쪽에서 이 라이브러리를 사용하여 WebSocket 클라이언트 연결을 관리할 수 있습니다.
 
-![오버플로](https://user-images.githubusercontent.com/668244/140014067-25a00959-04dc-47e8-ac25-6957bd0a71ce.png)
+![오버플로 다이어그램은 서비스 클라이언트 라이브러리를 사용하는 의 오버플로를 보여줍니다.](media/sdk-reference/service-client-overflow.png)
 
 이 라이브러리를 사용하여 다음을 수행합니다.
 - 허브 및 그룹에 메시지를 보냅니다.

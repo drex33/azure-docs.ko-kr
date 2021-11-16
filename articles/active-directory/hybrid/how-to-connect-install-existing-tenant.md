@@ -1,27 +1,20 @@
 ---
 title: 'Azure AD Connect: Azure AD가 이미 있는 경우 | Microsoft Docs'
 description: 이 문서에서는 기존 Azure AD 테넌트가 있을 때 Connect를 사용하는 방법에 대해 설명합니다.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61785fbdf4fe3e79b2c36a5ffa6a9ccb43259666
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93420532"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272817"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: 기존 테넌트가 있는 경우
 Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Azure AD 테넌트로 시작하고 여기에는 사용자 또는 다른 개체가 없다고 가정하고 있습니다. 그러나 이미 Azure AD 테넌트로 시작하여 사용자와 다른 개체를 제공한 후에 Connect를 사용하려는 경우 이 문서가 도움이 됩니다.
@@ -56,16 +49,18 @@ Azure AD가 Connect에서 나오는 개체의 특성 값과 동일하고 Azure A
 ### <a name="hard-match-vs-soft-match"></a>하드 일치 및 소프트 일치
 Connect를 새로 설치하는 경우 소프트 일치와 하드 일치 사이에 실질적인 차이가 없습니다. 차이점은 재해 복구 상황에 있습니다. Azure AD Connect를 사용하여 서버를 잃어버린 경우 데이터 손실 없이 새 인스턴스를 다시 설치할 수 있습니다. sourceAnchor가 있는 개체는 초기 설치 시 Connect로 보내집니다. 그런 다음 Azure AD에서 동일하게 수행하는 것보다 훨씬 빠른 클라이언트(Azure AD Connect)에서 일치를 평가할 수 있습니다. 하드 일치는 Connect와 Azure AD 모두에서 평가되지만, 소프트 일치는 Azure AD에서만 평가됩니다.
 
+ Azure AD Connect에서 소프트 일치 기능을 사용하지 않도록 설정하는 구성 옵션을 추가했습니다. 고객이 클라우드 전용 계정을 사용해야 하는 경우를 제외하고 소프트 일치를 사용하지 않도록 설정하는 것이 좋습니다. 이 [문서](/powershell/module/msonline/set-msoldirsyncfeature)에서는 소프트 일치를 사용하지 않도록 설정하는 방법을 보여줍니다.
+
 ### <a name="other-objects-than-users"></a>사용자 이외의 다른 개체
 메일이 설정된 그룹 및 연락처의 경우 proxyAddresses에 따라 소프트 매치를 수행할 수 있습니다. 하드 매치는 사용자 전용의 sourceAnchor/immutableID(PowerShell 사용)만을 업데이트할 수 있으므로 적용되지 않습니다. 메일이 사용되지 않는 그룹의 경우 현재 소프트 매치 또는 하드 매치가 지원되지 않습니다.
 
 ### <a name="admin-role-considerations"></a>관리자 역할 고려 사항
 신뢰할 수 없는 온-프레미스 사용자가 관리자 역할이 있는 클라우드 사용자와 일치하지 않도록 하기 위해 Azure AD Connect는 온-프레미스 사용자 개체를 관리자 역할이 있는 개체와 일치시키지 않습니다. 이 기능은 기본적으로 설정됩니다. 이 동작을 해결하려면 다음을 수행할 수 있습니다.
 
-1.  클라우드 전용 사용자 개체에서 디렉터리 역할을 제거합니다.
-2.  사용자 동기화 시도가 실패한 경우 클라우드에서 격리된 개체를 영구 삭제합니다.
-3.  동기화를 트리거합니다.
-4.  필요에 따라 일치가 발생한 후 디렉터리 역할을 클라우드의 사용자 개체에 다시 추가합니다.
+1.    클라우드 전용 사용자 개체에서 디렉터리 역할을 제거합니다.
+2.    사용자 동기화 시도가 실패한 경우 클라우드에서 격리된 개체를 영구 삭제합니다.
+3.    동기화를 트리거합니다.
+4.    필요에 따라 일치가 발생한 후 디렉터리 역할을 클라우드의 사용자 개체에 다시 추가합니다.
 
 
 

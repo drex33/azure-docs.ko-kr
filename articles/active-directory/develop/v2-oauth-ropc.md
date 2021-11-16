@@ -13,12 +13,12 @@ ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2ee33ec1ff87a73e31e55f06fe70672314384a6e
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: bbfb5923228b3f581981ad23d933e047cee7212a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059476"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435982"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft ID 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -30,7 +30,7 @@ Microsoft ID 플랫폼은 [OAuth 2.0 ROPC(리소스 소유자 암호 자격 증�
 
 > [!IMPORTANT]
 >
-> * Microsoft ID 플랫폼은 Azure AD 테넌트의 ROPC만 지원하고 개인 계정은 지원하지 않습니다. 이는 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`) 또는 `organizations` 엔드포인트를 사용해야 함을 의미합니다.
+> * Microsoft ID 플랫폼은 Azure AD 테넌트 내의 ROPC만 지원하고 개인 계정은 지원하지 않습니다. 이는 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`) 또는 `organizations` 엔드포인트를 사용해야 함을 의미합니다.
 > * Azure AD 테넌트에 초대된 개인 계정은 ROPC를 사용할 수 없습니다.
 > * 암호가 없는 계정은 ROPC로 로그인할 수 없습니다. 즉, SMS 로그인, FIDO 및 Authenticator 앱과 같은 기능이 해당 흐름에서 작동하지 않습니다. 앱 또는 사용자에게 이러한 기능이 필요한 경우 ROPC가 아닌 다른 흐름을 사용합니다.
 > * 사용자가 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용하여 애플리케이션에 로그인해야 하는 경우, 사용자가 차단됩니다.
@@ -63,7 +63,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용자를 로그인할 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 이 매개 변수는 `common` 또는 `consumers`로 설정할 수 없고 `organizations`로 설정할 수 있습니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID |

@@ -1,6 +1,7 @@
 ---
-title: Azure AD에서 앱 동의 정책 관리
+title: 앱 동의 정책 관리
 description: 기본 제공 및 사용자 지정 앱 동의 정책을 관리하여 동의를 제공할 수 있는 시점을 제어하는 방법을 알아봅니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2112afeafa10ae9226a3d183489b9e13a094cab7
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: f9fb2c01a3e6cffd4091049579e570d77cdb35e2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568535"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459390"
 ---
-# <a name="manage-app-consent-policies"></a>앱 동의 정책 관리
+# <a name="manage-app-consent-policies-in-azure-active-directory"></a>Azure Active Directory에서 앱 동의 정책 관리
 
 Azure AD PowerShell을 사용하면 앱 동의 정책을 보고 관리할 수 있습니다.
 

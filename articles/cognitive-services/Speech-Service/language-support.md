@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 67ac8e5cc3f7d555086ad6f643b82e8615168fa3
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 379d842f465b6e199f86137057dc037b903613a4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028119"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490613"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
-언어 지원은 Speech Service 기능에 따라 달라 집니다. 다음 표에는 음성 텍스트 변환, [텍스트](#text-to-speech)음성 변환, [음성](#speech-to-text)번역 및 [Speaker Recognition](#speaker-recognition) 서비스 제공에 대한 [언어](#speech-translation) 지원이 요약되어 있습니다.
+언어 지원은 Speech Service 기능에 따라 달라 집니다. 다음 표에는 음성 텍스트 변환, [텍스트](#text-to-speech)음성 변환, [음성](#speech-to-text) [번역](#speech-translation) 및 [Speaker Recognition](#speaker-recognition) 서비스 제공에 대한 언어 지원이 요약되어 있습니다.
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
@@ -98,7 +98,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 아일랜드어(아일랜드)                    | `ga-IE` | 텍스트<br>발음                  |                           |                          |
 | 이탈리아어(이탈리아)                    | `it-IT` | 오디오(20201016)<br>텍스트<br>발음|      예                     |                          |
 | 일본어(일본)                   | `ja-JP` | 텍스트                                   |      예                     |                          |
-| 카나다어 (인도)                   | `kn-IN` | 텍스트                                   |                           |                          |
+| 카나다어(인도)                   | `kn-IN` | 텍스트                                   |                           |                          |
 | 한국어(한국)                     | `ko-KR` | 오디오(20201015)<br>텍스트                 |      예                     |                          |
 | 라트비아어(라트비아)                   | `lv-LV` | 텍스트<br>발음                  |                           |                          |
 | 리투아니아어(리투아니아)             | `lt-LT` | 텍스트<br>발음                  |                           |                          |
@@ -199,8 +199,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 벵골어(방글라데시) | `bn-BD` | Male | `bn-BD-PradeepNeural` <sup>새로 생성</sup>  | 일반 |
 | 불가리아어(불가리아) | `bg-BG` | Female | `bg-BG-KalinaNeural` | 일반 |
 | 불가리아어(불가리아) | `bg-BG` | Male | `bg-BG-BorislavNeural` | 일반 |
-| Barmština (미얀마) | `my-MM` | Female | `my-MM-NilarNeural` <sup>새로 생성</sup>  | 일반 |
-| 버마어어어(대만어) | `my-MM` | Male | `my-MM-ThihaNeural` <sup>새로 생성</sup>  | 일반 |
+| 버마어어어(대만어) | `my-MM` | Female | `my-MM-NilarNeural` <sup>새로 생성</sup>  | 일반 |
+| Barmština (미얀마) | `my-MM` | Male | `my-MM-ThihaNeural` <sup>새로 생성</sup>  | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-AlbaNeural` | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-JoanaNeural` | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Male | `ca-ES-EnricNeural` | 일반 |
@@ -255,7 +255,6 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(탄자니아) | `en-TZ` | Female | `en-TZ-ImaniNeural` <sup>새로 생성</sup>  | 일반 |
 | 영어(탄자니아) | `en-TZ` | Male | `en-TZ-ElimuNeural` <sup>새로 생성</sup>  | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
-| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>받아볼 10 월 30 일, 아래 참조</sup> | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-SoniaNeural` | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AmberNeural` | 일반 |
@@ -354,8 +353,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 슬로바키아어(슬로바키아) | `sk-SK` | Male | `sk-SK-LukasNeural` | 일반 |
 | 슬로베니아어(슬로베니아) | `sl-SI` | Female | `sl-SI-PetraNeural` | 일반 |
 | 슬로베니아어(슬로베니아) | `sl-SI` | Male | `sl-SI-RokNeural` | 일반 |
-| 2018년 3월 21일, | `so-SO` | Female | `so-SO-UbaxNeural` <sup>새로 생성</sup>  | 일반 |
-| 2018년 3월 21일, | `so-SO`| Male | `so-SO-MuuseNeural` <sup>새로 생성</sup>  | 일반 |
+| 2012년 3월 21일, | `so-SO` | Female | `so-SO-UbaxNeural` <sup>새로 생성</sup>  | 일반 |
+| 2012년 3월 21일, | `so-SO`| Male | `so-SO-MuuseNeural` <sup>새로 생성</sup>  | 일반 |
 | 스페인어(아르헨티나) | `es-AR` | Female | `es-AR-ElenaNeural` | 일반 |
 | 스페인어(아르헨티나) | `es-AR` | Male | `es-AR-TomasNeural` | 일반 |
 | 스페인어(볼리비아) | `es-BO` | Female | `es-BO-SofiaNeural` <sup>새로 생성</sup>  | 일반 |
@@ -413,8 +412,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 타밀어(인도) | `ta-IN` | Male | `ta-IN-ValluvarNeural` | 일반 |
 | 타밀어(싱가포르) | `ta-SG` | Female | `ta-SG-VenbaNeural` <sup>새로 생성</sup>  | 일반 |
 | 타밀어(싱가포르) | `ta-SG` | Male | `ta-SG-AnbuNeural` <sup>새로 생성</sup>  | 일반 |
-| 타밀어 (스리랑카) | `ta-LK` | Female | `ta-LK-SaranyaNeural` <sup>새로 생성</sup>  | 일반 |
-| 타밀어 (스리랑카) | `ta-LK` | Male | `ta-LK-KumarNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(스리루) | `ta-LK` | Female | `ta-LK-SaranyaNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(스리루) | `ta-LK` | Male | `ta-LK-KumarNeural` <sup>새로 생성</sup>  | 일반 |
 | 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` | 일반 |
 | 텔루구어(인도) | `te-IN` | Male | `te-IN-MohanNeural` | 일반 |
 | 태국어(태국) | `th-TH` | Female | `th-TH-AcharaNeural` | 일반 |
@@ -424,22 +423,18 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 터키어(터키) | `tr-TR` | Male | `tr-TR-AhmetNeural` | 일반 |
 | 우크라이나어(우크라이나) | `uk-UA` | Female | `uk-UA-PolinaNeural` | 일반 | 
 | 우크라이나어(우크라이나) | `uk-UA` | Male | `uk-UA-OstapNeural` | 일반 | 
-| 우르두어 (인도) | `ur-IN` | Female | `ur-IN-GulNeural` <sup>새로 생성</sup>  | 일반 |
-| 우르두어 (인도) | `ur-IN` | Male | `ur-IN-SalmanNeural` <sup>새로 생성</sup>  | 일반 |
+| Urdu(인도) | `ur-IN` | Female | `ur-IN-GulNeural` <sup>새로 생성</sup>  | 일반 |
+| Urdu(인도) | `ur-IN` | Male | `ur-IN-SalmanNeural` <sup>새로 생성</sup>  | 일반 |
 | 우르두어(파키스탄) | `ur-PK` | Female | `ur-PK-UzmaNeural`  | 일반 | 
 | 우르두어(파키스탄) | `ur-PK` | Male | `ur-PK-AsadNeural` | 일반 | 
-| 우즈베크어 (우즈베키스탄) | `uz-UZ` | Female | `uz-UZ-MadinaNeural` <sup>새로 생성</sup>  | 일반 |
-| 우즈베크어 (우즈베키스탄) | `uz-UZ` | Male | `uz-UZ-SardorNeural` <sup>새로 생성</sup>  | 일반 |
+| 푸즈베크어(푸즈벤치) | `uz-UZ` | Female | `uz-UZ-MadinaNeural` <sup>새로 생성</sup>  | 일반 |
+| 푸즈베크어(푸즈벤치) | `uz-UZ` | Male | `uz-UZ-SardorNeural` <sup>새로 생성</sup>  | 일반 |
 | 베트남어(베트남) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | 일반 |
 | 베트남어(베트남) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | 일반 |
 | 웨일스어(영국) | `cy-GB` | Female | `cy-GB-NiaNeural` | 일반 | 
 | 웨일스어(영국) | `cy-GB` | Male | `cy-GB-AledNeural` | 일반 | 
-| 줄루어 (남아프리카 공화국) | `zu-ZA` | Female | `zu-ZA-ThandoNeural` <sup>새로 생성</sup>  | 일반 |
-| 줄루어 (남아프리카 공화국) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` <sup>새로 생성</sup>  | 일반 |
-
-> [!IMPORTANT]
-> 영어 (영국) 음성은 `en-GB-MiaNeural` **2021 년 10 월 30** 일에 사용 중지 됩니다. 에 대 한 모든 서비스 요청 `en-GB-MiaNeural` 은 `en-GB-SoniaNeural` **30 년 10 2021 월 30** 일 이후에 자동으로 다시 전달 됩니다.
-> 컨테이너 신경망을 사용 하는 경우 **2021 년 10 월 30** 일 전에 최신 버전을 [다운로드](speech-container-howto.md#get-the-container-image-with-docker-pull) 하 여 배포 하세요. **2021 년 10 월 30** 일 이후에는 이전 버전의 모든 요청이 거부 됩니다.
+| Zulu(남아프리카 공화국) | `zu-ZA` | Female | `zu-ZA-ThandoNeural` <sup>새로 생성</sup>  | 일반 |
+| Zulu(남아프리카 공화국) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` <sup>새로 생성</sup>  | 일반 |
 
 #### <a name="neural-voices-in-preview"></a>미리 보기로 제공되는 인공신경망 음성
 
@@ -448,9 +443,9 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | 영어(미국) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>새로 생성</sup> | [SSML을 사용](speech-synthesis-markup.md#create-an-ssml-document)하여 사용할 수 있는 일반적인 다국어 기능 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>새로 생성</sup> | 갑작스런 대화에 최적화 됨 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>새로 생성</sup> | 컨버지드 대화에 최적화 |
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>새로 생성</sup> | 고객 서비스에 최적화 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>새로 생성</sup> | 자식 음성, 자식 스토리 및 채팅에 최적화 됨 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일|
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>새로 생성</sup> | 자식 스토리 및 채팅에 최적화된 자식 음성 [SSML을 사용하여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일|
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>새로 생성</sup> | Narrating에 최적화 됨 |
 
 > [!IMPORTANT]
@@ -581,19 +576,19 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 | 중국어(북경어, 간체) | `zh-CN` | 예 | 예 |
 | 중국어(북경어, 간체), 영어 이중 언어 | `zh-CN` 이중 언어 | 예 | 예 |
 | 중국어(대만어) | `zh-TW` | 예 | 아니요 |
-| 체코어(체코) | `cs-CZ` | Yes | 아니요 |
+| 체코어(체코) | `cs-CZ` | 예 | 아니요 |
 | 네덜란드어(네덜란드) | `nl-NL` | 예 | 아니요 |
 | 영어(오스트레일리아) | `en-AU` | 예 | 예 |
 | 영어(캐나다) | `en-CA` | 예 | 아니요 |
 | 영어(인도) | `en-IN` | 예 | 아니요 |
-| 영어(아일랜드) | `en-IE` | Yes | 아니요 |
+| 영어(아일랜드) | `en-IE` | 예 | 아니요 |
 | 영어(영국) | `en-GB` | 예 | 예 |
 | 영어(미국) | `en-US` | 예 | 예 |
 | 프랑스어(캐나다) | `fr-CA` | 예 | 예 |
 | 프랑스어(프랑스) | `fr-FR` | 예 | 예 |
-| 독일어(오스트리아) | `de-AT` | Yes | 아니요 |
+| 독일어(오스트리아) | `de-AT` | 예 | 아니요 |
 | 독일어(독일) | `de-DE` | 예 | 예 |
-| 헝가리어(헝가리) | `hu-HU` | Yes | 아니요 |
+| 헝가리어(헝가리) | `hu-HU` | 예 | 아니요 |
 | 이탈리아어(이탈리아) | `it-IT` | 예 | 예 |
 | 일본어(일본) | `ja-JP` | 예 | 예 |
 | 한국어(한국) | `ko-KR` | 예 | 예 |
@@ -601,11 +596,11 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 | 포르투갈어(브라질) | `pt-BR` | 예 | 예 |
 | 포르투갈어(포르투갈) | `pt-PT` | 예 | 아니요 |
 | 러시아어(러시아) | `ru-RU` | 예 | 예 |
-| 슬로바키아어(슬로바키아) | `sk-SK` | Yes | 아니요 |
+| 슬로바키아어(슬로바키아) | `sk-SK` | 예 | 아니요 |
 | 스페인어(멕시코) | `es-MX` | 예 | 예 |
 | 스페인어(스페인) | `es-ES` | 예 | 예 |
 | 터키어(터키) | `tr-TR` | 예 | 아니요 |
-| 베트남어(베트남) | `vi-VN` | Yes | 아니요 |
+| 베트남어(베트남) | `vi-VN` | 예 | 아니요 |
 
 사용자 지정 음성 모델을 학습하는 데 사용할 학습 데이터와 일치하는 올바른 로캘을 선택합니다. 예를 들어, 보유하고 있는 기록 데이터가 영국식 영어로 말하는 경우 `en-GB`를 선택합니다.
 

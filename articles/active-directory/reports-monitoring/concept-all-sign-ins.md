@@ -17,12 +17,12 @@ ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbd65204534e978446109c99ca7286c0af00d68
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 9455883bea37602e572a538862eaf5de9c17bbbc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580389"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669420"
 ---
 # <a name="sign-in-logs-in-azure-active-directory---preview"></a>Azure Active Directory 로그인 로그 - 미리 보기
 
@@ -112,7 +112,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 
 
-### <a name="interactive-user-sign-ins&quot;></a>대화형 사용자 로그인
+### <a name="interactive-user-sign-ins"></a>대화형 사용자 로그인
 
 
 대화형 사용자 로그인은 사용자가 Azure AD에 인증 요소를 제공하거나 Azure AD 또는 Microsoft Authenticator 앱과 같은 도우미 앱과 직접 상호 작용하는 로그인입니다. 사용자가 제공하는 요인에는 사용자가 Azure AD 또는 도우미 앱에 제공하는 암호, MFA 문제에 대한 응답, 생체 인식 요인 또는 QR 코드가 포함됩니다.
@@ -148,7 +148,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 도구 모음에서 **열** 을 클릭하여 목록 보기를 사용자 지정할 수 있습니다.
 
-![대화형 사용자 로그인 열](./media/concept-all-sign-ins/columns-interactive.png &quot;대화형 사용자 로그인 열")
+![대화형 사용자 로그인 열](./media/concept-all-sign-ins/columns-interactive.png "대화형 사용자 로그인 열")
 
 
 
@@ -177,7 +177,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 - 클라이언트는 OAuth 2.0 인증 코드를 사용하여 액세스 토큰을 얻고 토큰을 새로 고칩니다.
 
-- 사용자는 Azure AD 조인 PC에서 웹 또는 Windows 앱에 대한 SSO(Single Sign-On)를 수행합니다.
+- 사용자는 인증 요소를 제공하거나 Azure AD 프롬프트와 상호 작용하지 않고 Azure AD 조인 PC에서 웹 또는 Windows 앱에 대해 SSO(Single Sign-On)를 수행합니다.
 
 - 사용자가 FOCI(클라이언트 ID 제품군)를 사용하여 모바일 디바이스에서 세션을 수행하는 동안 두 번째 Microsoft Office 앱에 로그인합니다.
 

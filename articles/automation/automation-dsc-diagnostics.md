@@ -2,20 +2,16 @@
 title: Azure Monitor 로그와 Azure Automation State Configuration 통합
 description: 이 문서에서는 Azure Automation State Configuration에서 Azure Monitor 로그로 Desired State Configuration 보고 데이터를 보내는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: v-ssudhir
 ms.date: 08/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: 77f9eadb6b0d2d1bad5749864290b0234b4cb30a
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 51404418080176792fc7dfce6cbc6b144dcdde41
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132401006"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494195"
 ---
 # <a name="integrate-azure-automation-state-configuration-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure Automation State Configuration 통합
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 10/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dadaa832e065163186ef590989c22c0f7e7700a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 19e4a99967e8fdc64eb7d10c66649cac59db048a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233907"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456254"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱으로 암호 없는 로그인을 사용하도록 설정 
 
@@ -28,15 +28,15 @@ ms.locfileid: "130233907"
 
 Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정하는 사람은 앱에서 번호를 탭하도록 요청하는 메시지가 표시됩니다. 사용자 이름 또는 암호를 묻는 메시지가 표시되지 않습니다. 앱에서 로그인 프로세스를 완료하려면 사용자가 다음 작업을 수행해야 합니다.
 
-1. 숫자를 찾습니다.
-2. **승인** 을 선택합니다.
-3. PIN 또는 생체 인식 기능을 제공합니다.
+1. 로그인 화면에 표시되는 숫자를 Microsoft Authenticator 앱 대화 상자에 입력합니다.
+1. **승인** 을 선택합니다.
+1. PIN 또는 생체 인식 기능을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용하려면 다음 사전 요구 사항을 충족해야 합니다.
 
-- Azure AD Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용됩니다. 스마트폰 또는 태블릿에 알림을 푸시하여 Authenticator 앱에서 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지하도록 할 수 있습니다. Authenticator 앱은 푸시 알림을 수행하도록 설정된 경우 자동으로 코드를 생성하므로 디바이스가 연결되지 않은 경우에도 사용자에게 백업 로그인 방법이 있습니다. 
+- 권장: 푸시 알림이 확인 방법으로 허용되는 Azure AD Multi-Factor Authentication. 스마트폰 또는 태블릿에 알림을 푸시하여 Authenticator 앱에서 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지하도록 할 수 있습니다. Authenticator 앱은 푸시 알림을 수행하도록 설정된 경우 자동으로 코드를 생성하므로 디바이스가 연결되지 않은 경우에도 사용자에게 백업 로그인 방법이 있습니다. 
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 - Microsoft Authenticator 앱이 설치된 디바이스를 Azure AD 테넌트 내에 개별 사용자에게 등록해야 한다는 것입니다. 
 
@@ -68,7 +68,7 @@ Azure AD를 사용하면 로그인 프로세스 중에 사용할 수 있는 인�
 다음 단계를 사용하여 사용자는 Azure AD의 암호 없는 인증 방법으로 등록됩니다.
 
 1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 으로 이동합니다.
-1. 로그인한 다음 **메서드 추가 > authenticator 앱**, 이후 **추가** 를 차례로 선택하여 인증자 앱을 추가합니다.
+1. 로그인한 다음, **메서드 추가** > **Authenticator 앱** > **추가** 를 클릭하여 Authenticator 앱을 추가합니다.
 1. 지침에 따라 디바이스에 Microsoft Authenticator 앱을 설치하고 구성합니다.
 1. **완료** 를 선택하여 Authenticator 구성을 완료합니다.
 1. **Microsoft Authenticator** 에서 등록된 계정에 대한 드롭다운 메뉴에서 **휴대폰 로그인 사용** 을 선택합니다.
@@ -93,7 +93,7 @@ Azure AD를 사용하면 로그인 프로세스 중에 사용할 수 있는 인�
 3. 필요한 경우 **다른 로그인 방법** 을 선택합니다.
 4. **내 Microsoft Authenticator 앱에서 요청 승인** 을 선택합니다.
 
-그러면 사용자에게 숫자가 표시됩니다. 앱은 사용자에게 암호를 입력하는 대신 적절한 번호를 선택하여 인증하라는 메시지를 표시합니다.
+그러면 사용자에게 숫자가 표시됩니다. 앱은 사용자에게 암호를 입력하는 대신 적절한 번호를 입력하여 인증하라는 메시지를 표시합니다.
 
 사용자가 암호 없는 휴대폰 로그인을 사용한 후 앱은 이 방법을 통해 사용자를 계속 안내합니다. 그러나 사용자에게 다른 방법을 선택하는 옵션이 표시됩니다.
 
@@ -122,7 +122,7 @@ Azure AD를 사용하면 로그인 프로세스 중에 사용할 수 있는 인�
 
 ### <a name="azure-mfa-server"></a>Azure MFA 서버
 
-최종 사용자는 온-프레미스 Azure MFA 서버를 통해 MFA(multi-factor authentication)를 사용하도록 설정할 수 있습니다. 사용자는 여전히 단일 암호 없는 휴대폰 로그인 자격 증명을 만들고 활용할 수 있습니다.
+최종 사용자는 온-프레미스 Azure MFA 서버를 통해 MFA(다단계 인증)를 사용하도록 설정할 수 있습니다. 사용자는 여전히 단일 암호 없는 휴대폰 로그인 자격 증명을 만들고 활용할 수 있습니다.
 
 사용자가 암호 없는 휴대폰 로그인 자격 증명으로 Microsoft Authenticator 앱의 여러 설치(5개 이상)를 업그레이드하려고 시도하면 이 변경으로 인해 오류가 발생할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel | NRT(근 실시간) 분석 규칙을 사용하여 위협을 빠르게 검색 Microsoft Docs
+title: Microsoft Sentinel | NRT(근 실시간) 분석 규칙을 사용하여 위협을 빠르게 검색합니다. Microsoft Docs
 description: 이 문서에서는 새로운 NRT(근 실시간) 분석 규칙을 통해 Microsoft Sentinel에서 위협을 신속하게 검색하는 방법을 설명합니다.
 services: sentinel
 cloud: na
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 70fbed7df5ece53eb4403fea7f055563eaac1633
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 8214df6bf4a6cf50ccf1c6cb1a46cf5919808470
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132308189"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491586"
 ---
-# <a name="detect-threats-quickly-with-near-real-time-nrt-analytics-rules-in-microsoft-sentinel"></a>Microsoft Sentinel에서 거의 실시간(NRT) 분석 규칙을 사용하여 위협을 신속하게 검색
+# <a name="detect-threats-quickly-with-near-real-time-nrt-analytics-rules-in-microsoft-sentinel"></a>Microsoft Sentinel에서 거의 실시간(NRT) 분석 규칙을 사용하여 위협을 빠르게 검색
 
 > [!IMPORTANT]
 >
@@ -32,13 +32,13 @@ ms.locfileid: "132308189"
 
 보안 위협에 직면하는 경우 시간과 속도가 가장 핵심입니다. 위협이 구체화될 때 위협을 파악하여 신속하게 분석하고 대응하여 포함할 수 있어야 합니다. Microsoft Sentinel의 NRT(근 실시간) 분석 규칙은 온-프레미스 SIEM에 더 가까운 빠른 위협 탐지와 특정 시나리오에서 응답 시간을 단축하는 기능을 제공합니다.
 
-Microsoft Sentinel의 [근 실시간 분석 규칙은](detect-threats-built-in.md#nrt) 가장 가까운 시간 위협 탐지 기능을 제공합니다. 이 유형의 규칙은 단 1분 간격으로 쿼리를 실행하여 응답성이 뛰어나도록 설계되었습니다.
+Microsoft Sentinel의 [거의 실시간 분석 규칙은](detect-threats-built-in.md#nrt) 가장 가까운 시간 동안 위협 탐지 기능을 제공합니다. 이 유형의 규칙은 단 1분 간격으로 쿼리를 실행하여 응답성이 뛰어나도록 설계되었습니다.
 
 ## <a name="how-do-they-work"></a>어떻게 작동 합니까?
 
-NRT 규칙은 1분마다 한 번씩 실행되고 이전 분에 수집된 이벤트를 캡처하도록 하드 코딩되므로 최대한 많은 정보를 제공할 수 있습니다.
+NRT 규칙은 1분마다 한 번씩 실행되고 이전 1분 동안 수집된 이벤트를 캡처하도록 하드 코딩되므로 최대한 많은 정보를 제공할 수 있습니다.
 
-기본 제공 5분 지연에서 실행되는 일반 예약된 규칙과 달리 NRT 규칙은 단 2분 지연으로 실행되어 원본(TimeGenerated 필드)에서 생성 시간이 아닌 이벤트의 집계 시간을 쿼리하여 집계 지연 문제를 해결합니다. 이렇게 하면 검색에서 빈도와 정확도가 모두 향상됩니다. (이 문제를 완전히 이해하려면 [쿼리 예약 및 경고 임계값 및](detect-threats-custom.md#query-scheduling-and-alert-threshold) Microsoft [Sentinel 예약된 경고 규칙에서의 검색 지연 처리에서](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)언급된 연결된 문서를 참조하세요.)
+기본 제공 5분 지연에서 실행되는 일반 예약된 규칙과 달리 NRT 규칙은 단 2분 지연으로 실행되어 원본(TimeGenerated 필드)에서 생성 시간이 아닌 이벤트의 집계 시간을 쿼리하여 집계 지연 문제를 해결합니다. 따라서 검색에서 빈도와 정확도가 모두 향상됩니다. (이 문제를 완전히 이해하려면 [쿼리 예약 및 경고 임계값 및](detect-threats-custom.md#query-scheduling-and-alert-threshold) [예약된 분석 규칙에서의 검색 지연 처리](ingestion-delay.md)를 참조하세요.)
 
 NRT 규칙에는 예약된 분석 규칙과 동일한 많은 기능이 있습니다. 전체 경고 보강 기능 집합을 사용할 수 있습니다. 엔터티를 매핑하고 사용자 지정 세부 정보를 표면화할 수 있으며 경고 세부 정보를 위해 동적 콘텐츠를 구성할 수 있습니다. 경고를 인시던트로 그룹화하는 방법을 선택하고, 결과를 생성한 후 쿼리 실행을 일시적으로 표시하지 않을 수 있으며, 규칙에서 생성된 경고 및 인시던트 대응으로 실행할 자동화 규칙 및 플레이북을 정의할 수 있습니다.
 

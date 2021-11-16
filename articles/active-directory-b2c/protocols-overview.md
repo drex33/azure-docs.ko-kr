@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C의 인증 프로토콜 | Microsoft Docs
+title: Azure Active Directory B2C의 인증 프로토콜
 description: Azure Active Directory B2C에서 지원하는 프로토콜을 사용하여 앱을 직접 빌드하는 방법입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c01602182972c375843fde5a1720dcff2cc6d341
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78183908"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035641"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: 인증 프로토콜
 Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토콜인 OpenID Connect 및 OAuth 2.0을 지원하여 앱에 대한 Identity-as-a-Service를 제공합니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현에는 약간의 차이가 있을 수 있습니다.
@@ -40,7 +40,10 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 거의 모든 OAuth 및 OpenID Connect 흐름에서 다음과 같이 네 주체가 교환에 포함됩니다.
 
-![OAuth 2.0 역할을 보여주는 다이어그램](./media/protocols-overview/protocols_roles.png)
+
+
+
+:::image type="content" source="./media/protocols-overview/protocols_roles.png" alt-text="네 가지 OAuth 2.0 역할을 보여주는 다이어그램.":::
 
 * **권한 부여 서버** 는 Azure AD 엔드포인트입니다. 사용자 정보 및 액세스와 관련된 모든 것을 안전하게 처리합니다. 또한 흐름에서 당사자 간의 트러스트 관계를 처리합니다. 사용자 ID를 확인하고 리소스에 대한 액세스 권한을 부여 및 해지하고, 토큰을 발급합니다. ID 공급자라고도 합니다.
 

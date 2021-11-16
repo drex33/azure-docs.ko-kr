@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfc0ca4250cc6cfefbf7c68d27996ccd81fd2857
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90563865"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993628"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect 동기화: 아키텍처 이해
 이 항목에서는 Azure AD Connect 동기화의 기본 아키텍처에 대해 설명합니다. 다양한 측면에서 이전 버전의 MIIS 2003, ILM 2007, FIM 2010과 비슷합니다. Azure AD Connect 동기화는 이러한 기술이 진화된 모습입니다. 이러한 앞의 기술에 대해 잘 알고 있다면 이 항목의 내용 역시 이해하기 쉽습니다. 동기화를 처음 접하는 경우 이 항목이 도움이 될 것입니다. 하지만 Azure AD Connect 동기화(이 토픽에서는 동기화 엔진이라고 함)를 성공적으로 사용자 지정하기 위해 이 항목의 세부 내용을 알 필요는 없습니다.
@@ -193,7 +193,7 @@ ID 관리 프로세스는 서로 다른 연결된 데이터 원본 간에 ID 정
 * 인바운드 동기화 - 메타버스의 콘텐츠가 커넥터 공간의 데이터를 사용하여 업데이트됩니다.
 * 아웃바운드 동기화 - 커넥터 공간의 콘텐츠가 메타버스의 데이터를 사용하여 업데이트됩니다.
 
-인바운드 동기화 프로세스는 커넥터 공간에서 준비된 정보를 사용하여 연결된 데이터 원본에 저장된 데이터에 대한 통합된 보기를 메타버스에 만듭니다. 규칙이 구성된 방식에 따라 모든 스테이징 개체가 집계되거나 보류 중인 가져오기 정보가 있는 개체만 집계됩니다.
+인바운드 동기화 프로세스는 커넥터 공간에서 준비된 정보를 사용하여 연결된 데이터 원본에 저장된 메타버스의 데이터 통합 보기를 만듭니다. 규칙이 구성된 방식에 따라 모든 스테이징 개체가 집계되거나 보류 중인 가져오기 정보가 있는 개체만 집계됩니다.
 
 아웃바운드 동기화 프로세스는 메타버스 개체가 변경될 때 내보내기 개체를 업데이트합니다.
 

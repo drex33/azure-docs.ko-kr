@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory 애플리케이션 관리 인증서 질문과 대답
+title: 애플리케이션 관리 인증서 질문과 대답
+titleSuffix: Azure AD
 description: IdP(ID 공급자)로 Azure Active Directory를 사용하여 앱의 인증서 관리에 대해 FAQ(질문과 대답)에 대한 답변을 알아봅니다.
 services: active-directory
 author: davidmu1
@@ -11,14 +12,14 @@ ms.topic: reference
 ms.date: 03/19/2021
 ms.author: davidmu
 ms.reviewer: sureshja, saumadan
-ms.openlocfilehash: 497cc5b00db313c8bccbb31130ea7656634d051d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3f94c7eae439303f2954b8ab62f499b789902e79
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535508"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619940"
 ---
-# <a name="azure-active-directory-azure-ad-application-management-certificates-frequently-asked-questions"></a>Azure AD(Azure Active Director) 애플리케이션 관리 인증서 질문과 대답
+# <a name="azure-active-directory-application-management-certificates-frequently-asked-questions"></a>Azure Active Directory 애플리케이션 관리 인증서 질문과 대답
 
 이 페이지에서는 IdP(ID 공급자)로 Azure AD(Azure Active Directory)를 사용하여 앱의 인증서 관리에 대한 FAQ(질문과 대답)에 답변합니다.
 

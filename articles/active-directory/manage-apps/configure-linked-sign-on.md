@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory의 연결된 로그온 이해
-description: Azure Active Directory의 연결된 로그온을 이해합니다.
+title: 애플리케이션에 연결된 Single Sign-On 추가
+description: Azure Active Directory의 애플리케이션에 연결된 Single Sign-On을 추가합니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -8,49 +9,43 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: dd5421eaf8dbb251c5df5bc4e1fd92fb8ed25243
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c8404b7ec361c90a6153cadc7ec6a71efb17fd1c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566892"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639625"
 ---
-# <a name="understand-linked-sign-on"></a>연결된 로그온 이해
+# <a name="add-linked-single-sign-on-to-an-application-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 연결된 Single Sign-On 추가
 
-애플리케이션 관리에 대한 [빠른 시작 시리즈](view-applications-portal.md)에서는 애플리케이션용 IdP(ID 공급자)로 Azure AD를 사용하는 방법을 알아보았습니다. 빠른 시작 가이드에서는 SAML 기반 또는 OIDC 기반 SSO를 구성합니다. 또 다른 옵션은 **연결됨** 입니다. 이 문서에서는 연결됨 옵션에 대해 자세히 설명합니다.
+이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션에 대한 연결 기반 SSO(Single Sign-On)를 구성하는 방법을 보여 줍니다. 연결 기반 SSO를 통해 Azure AD는 이미 다른 서비스에서 SSO에 대해 구성된 애플리케이션에 단일 SSO를 제공할 수 있습니다. 연결됨 옵션을 사용하면 사용자가 조직의 내 앱 또는 Microsoft 365 포털에서 애플리케이션을 선택할 때 대상 위치를 구성할 수 있습니다.
 
-**연결됨** 옵션을 사용하면 사용자가 조직의 [내 앱](https://myapps.microsoft.com/) 또는 Office 365 포털에서 앱을 선택할 때 대상 위치를 구성할 수 있습니다.
+연결 기반 SSO는 Azure AD를 통해 로그온 기능을 제공하지 않습니다. 이 옵션은 사용자가 내 앱 또는 Microsoft 365 포털에서 애플리케이션을 선택할 때 전송되는 위치를 설정합니다.
 
-연결 옵션이 중요한 몇 가지 일반적인 경우는 다음과 같습니다.
-
+연결 기반 SSO가 중요한 몇 가지 일반적인 시나리오는 다음과 같습니다.
 - AD FS(Active Directory Federation Services)와 같이 현재 페더레이션을 사용하는 사용자 지정 웹 애플리케이션에 대한 링크를 추가합니다.
-- 사용자의 액세스 패널에 표시하려는 특정 SharePoint 페이지 또는 다른 웹 페이지에 대한 딥 링크를 추가합니다.
-- 인증을 요구하지 않는 앱에 대한 링크를 추가합니다.
- **연결됨** 옵션은 Azure AD 자격 증명을 통해 로그온 기능을 제공하지 않습니다. 그러나 **엔터프라이즈 애플리케이션** 의 다른 기능 중 일부를 계속 사용할 수 있습니다. 예를 들어 감사 로그를 사용하고 사용자 지정 로고 및 앱 이름을 추가할 수 있습니다.
+- 사용자의 액세스 페이지에 표시하려는 특정 웹 페이지에 딥 링크를 추가합니다.
+- 인증을 요구하지 않는 애플리케이션에 대한 링크를 추가합니다. 연결됨 옵션은 Azure AD 자격 증명을 통해 로그온 기능을 제공하지 않지만 엔터프라이즈 애플리케이션의 다른 기능 중 일부를 계속 사용할 수 있습니다. 예를 들어 감사 로그를 사용하고 사용자 지정 로고 및 애플리케이션 이름을 추가할 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 정보를 간단히 확인하려면 애플리케이션 관리에 대한 [빠른 시작 시리즈](view-applications-portal.md)를 살펴보세요. Single Sign-On을 구성하는 빠른 시작에서 **연결됨** 옵션을 찾을 수도 있습니다.
+Azure AD 테넌트에서 연결 기반 SSO를 구성하려면 다음이 필요합니다.
+-   활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+-   다음 역할 중 하나: 전역 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 관리자 또는 서비스 주체의 소유자.
+-   연결 기반 SSO를 지원하는 애플리케이션
 
-**연결됨** 옵션은 Azure AD를 통해 로그온 기능을 제공하지 않습니다. 이 옵션은 사용자가 [내 앱](https://myapps.microsoft.com/) 또는 Microsoft 365 앱 시작 관리자에서 앱을 선택할 때 전송되는 위치만 설정합니다.  로그인은 Azure AD를 통해 로그온 기능을 제공하지 않으므로 연결된 Single Sign-On으로 구성된 애플리케이션에는 조건부 액세스를 사용할 수 없습니다.
+## <a name="configure-linked-based-single-sign-on"></a>연결 기반 Single Sign-On 구성
 
-> [!IMPORTANT]
-> **엔터프라이즈 애플리케이션** 에서 애플리케이션을 탐색할 때 **Single Sign-On** 옵션이 표시되지 않는 일부 경우가 있습니다.
->
-> **앱 등록** 을 사용하여 애플리케이션을 등록하면 Single Sign-On 기능은 기본적으로 OIDC OAuth를 사용하도록 설정됩니다. 이 경우 **엔터프라이즈 애플리케이션** 에서 **Single Sign-On** 옵션이 탐색에 표시되지 않습니다. **앱 등록** 을 사용하여 사용자 지정 앱을 추가하면 매니페스트 파일의 옵션을 구성하게 됩니다. 매니페스트 파일에 대한 자세한 내용은 [Azure Active Directory 앱 매니페스트](../develop/reference-app-manifest.md)를 참조하세요. SSO 표준에 대한 자세한 내용은 [Microsoft ID 플랫폼을 사용한 인증 및 권한 부여](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform)를 참조하세요.
->
-> 애플리케이션이 다른 테넌트에 호스트되거나 사용자 계정에 필요한 권한(전역 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 관리자 또는 서비스 주체의 소유자)이 없는 경우에는 탐색에서 **Single Sign-On** 이 표시되지 않을 수 있습니다. 사용 권한으로 **Single Sign-On** 을 열 수는 있지만 저장할 수 없는 경우가 발생할 수도 있습니다. Azure AD 관리 역할에 대한 자세한 내용은 [Azure AD 기본 제공 역할](../roles/permissions-reference.md)을 참조하세요.
-
-### <a name="configure-link"></a>링크 구성
-
-앱에 대한 링크를 설정하려면 **Single Sign-On** 페이지에서 **연결됨** 을 선택합니다. 그런 다음, 링크를 입력하고 **저장** 을 선택합니다. 이러한 옵션을 찾을 수 있는 위치에 대한 미리 알림이 필요한가요? [빠른 시작 시리즈](view-applications-portal.md)를 확인하세요.
-
-앱을 구성한 후에는 사용자 및 그룹을 할당합니다. 사용자를 할당하면 애플리케이션이 [내 앱](https://myapps.microsoft.com/) 또는 Microsoft 365 앱 시작 관리자에 표시되는 시간을 제어할 수 있습니다.
+1.  적절한 역할로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2.  Azure Services에서 **Azure Active Directory** 를 선택한 다음, **엔터프라이즈 애플리케이션** 을 선택합니다.
+3.  연결된 SSO를 추가하려는 애플리케이션을 검색하여 선택합니다.
+4.  **Single Sign-On** 을 선택하고 **연결됨** 을 선택합니다.
+5.  애플리케이션의 로그인 페이지 URL을 입력합니다.
+6.  **저장** 을 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [애플리케이션에 사용자 또는 그룹 할당](./assign-user-or-group-access-portal.md)
-- [자동 사용자 계정 프로비저닝 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+- [앱에 대한 액세스 관리](what-is-access-management.md)

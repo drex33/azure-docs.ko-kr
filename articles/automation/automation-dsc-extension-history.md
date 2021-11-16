@@ -6,16 +6,19 @@ keywords: dsc, powershell, azure, 확장
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: b272993cdb1b89e63190d2c8c9ef80db2327ccc1
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
-ms.translationtype: HT
+ms.openlocfilehash: 3aaadbb6f972838984f4ec01347537f21e244f14
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167518"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491472"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Azure 필요한 상태 구성 확장 버전 기록 작업
 
 Azure DSC(필요한 상태 구성) VM [확장](../virtual-machines/extensions/dsc-overview.md)은 필요에 따라 Azure, Windows Server 및 Windows PowerShell을 포함하는 WMF(Windows Management Framework)로 제공되는 향상된 기능 및 새로운 기능을 지원하도록 업데이트됩니다.
+
+> [!NOTE]
+> DSC 확장을 사용 하도록 설정 하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있다는 것을 알고 Azure Policy [게스트 구성](../governance/policy/concepts/guest-configuration.md)이라는 기능을 통해 관리 합니다. 게스트 구성 서비스는 DSC 확장, Azure Automation 상태 구성 및 가장 일반적으로 요청 되는 기능의 기능을 고객 의견에서 결합 합니다. 게스트 구성에는 [Arc 사용 서버](../azure-arc/servers/overview.md)를 통한 하이브리드 컴퓨터 지원 기능도 포함 되어 있습니다.
 
 이 문서에서는 Azure DSC VM 확장의 각 버전에 대한 정보, 지원하는 환경 및 새 기능 또는 변경 내용에 대한 설명 및 주의 사항을 제공합니다.
 

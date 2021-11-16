@@ -6,12 +6,12 @@ title: Azure Spring Cloud 참조 아키텍처
 ms.author: akaleshian
 ms.service: spring-cloud
 description: 이 참조 아키텍처는 Azure Spring Cloud를 사용하기 위한 일반적인 엔터프라이즈 허브 및 스포크 설계를 사용하는 기반입니다.
-ms.openlocfilehash: 5d8886453a3047d9ce48b875ce4841d640d0f2b1
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a3e8cbb94500c92ba4d32e1fef4f02f1acf9c1c9
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132323068"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486846"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Azure Spring Cloud 참조 아키텍처
 
@@ -28,7 +28,7 @@ Azure Spring Cloud에는 다음과 같은 두 가지 전용 서브넷이 필요�
 * 서비스 런타임
 * Spring Boot 애플리케이션
 
-이러한 각 서브넷에는 전용 Azure 스프링 클라우드 클러스터가 필요 합니다. 여러 클러스터가 동일한 서브넷을 공유할 수 없습니다. 각 서브넷의 최소 크기는/28입니다. Azure Spring Cloud가 지원할 수 있는 애플리케이션 인스턴스의 수는 서브넷 크기에 따라 달라집니다. [가상 네트워크에서 Azure Spring Cloud 배포][17]의 [가상 네트워크 요구 사항][11] 섹션에서 자세한 VNET(Virtual Network) 요구 사항을 찾을 수 있습니다.
+이러한 각 서브넷에는 전용 Azure Spring Cloud 클러스터가 필요합니다. 여러 클러스터가 동일한 서브넷을 공유할 수 없습니다. 각 서브넷의 최소 크기는/28입니다. Azure Spring Cloud가 지원할 수 있는 애플리케이션 인스턴스의 수는 서브넷 크기에 따라 달라집니다. [가상 네트워크에서 Azure Spring Cloud 배포][17]의 [가상 네트워크 요구 사항][11] 섹션에서 자세한 VNET(Virtual Network) 요구 사항을 찾을 수 있습니다.
 
 > [!WARNING]
 > 선택한 서브넷 크기는 기존 VNET 주소 공간과 겹칠 수 없으며 피어링 또는 온-프레미스 서브넷 주소 범위와 겹칠 수 없습니다.
@@ -37,8 +37,8 @@ Azure Spring Cloud에는 다음과 같은 두 가지 전용 서브넷이 필요�
 
 이 아키텍처의 일반적인 용도는 다음과 같습니다.
 
-* 개인 응용 프로그램: 하이브리드 클라우드 환경에 배포 된 내부 응용 프로그램
-* 공용 응용 프로그램: 외부적으로 연결 되는 응용 프로그램
+* 프라이빗 애플리케이션: 하이브리드 클라우드 환경에 배포된 내부 애플리케이션
+* 공용 애플리케이션: 외부에 있는 애플리케이션
 
 이러한 사용 사례는 보안과 네트워크 트래픽 규칙을 제외하고 유사합니다. 이 아키텍처는 각각의 미묘한 차이를 지원하도록 설계되었습니다.
 
@@ -82,7 +82,7 @@ Azure Spring Cloud에는 다음과 같은 두 가지 전용 서브넷이 필요�
 
 * [Azure Pipelines][5]: 업데이트된 Spring Boot 앱을 Azure Spring Cloud에 자동으로 배포할 수 있는 완전한 기능을 갖춘 CI/CD(연속 통합/지속적인 개발) 서비스입니다.
 
-* [클라우드 용 Microsoft Defender][4]: 온-프레미스, 여러 클라우드 및 Azure에서 워크 로드에 대 한 통합 보안 관리 및 위협 방지 시스템입니다.
+* [Microsoft Defender for Cloud:][4]온-프레미스, 여러 클라우드 및 Azure의 워크로드를 위한 통합 보안 관리 및 위협 방지 시스템입니다.
 
 * [Azure Spring Cloud][1]: Java 기반 Spring Boot 애플리케이션 및 .NET 기반 [Steeltoe][9] 애플리케이션용으로 특별히 설계되고 최적화된 관리되는 서비스입니다.
 
@@ -92,12 +92,12 @@ Azure Spring Cloud에는 다음과 같은 두 가지 전용 서브넷이 필요�
 
 ## <a name="public-applications"></a>공용 애플리케이션
 
-다음 목록에서는 공용 애플리케이션의 인프라 요구 사항에 대해 설명합니다. 이러한 요구 사항은 매우 규제된 환경에서 일반적입니다. 이러한 요구 사항은 이전 섹션의 상위 집합입니다. 추가 항목은 기울임꼴로 표시 됩니다.
+다음 목록에서는 공용 애플리케이션의 인프라 요구 사항에 대해 설명합니다. 이러한 요구 사항은 매우 규제된 환경에서 일반적입니다. 이러한 요구 사항은 이전 섹션의 요구 사항 중 가장 큰 집합입니다. 추가 항목은 italics로 표시됩니다.
 
 * 서브넷은 Azure Spring Cloud의 인스턴스를 하나만 포함해야 합니다.
 * 하나 이상의 보안 벤치마크에 대한 준수를 적용해야 합니다.
 * 애플리케이션 호스트 DNS(Domain Name Service) 레코드는 Azure 프라이빗 DNS에 저장되어야 합니다.
-* _Azure DDoS Protection standard를 사용 하도록 설정 해야 합니다._
+* _Azure DDoS Protection 표준을 사용하도록 설정해야 합니다._
 * Azure 서비스 종속성은 서비스 엔드포인트나 프라이빗 링크를 통해 통신해야 합니다.
 * 미사용 데이터를 암호화해야 합니다.
 * 전송 중인 데이터를 암호화해야 합니다.
@@ -126,9 +126,9 @@ Azure Spring Cloud에는 다음과 같은 두 가지 전용 서브넷이 필요�
 
 다음 목록에서는 이 참조 아키텍처의 Azure 서비스에 대해 설명합니다.
 
-* _[Azure 애플리케이션 방화벽][7]: 일반적인 악용 및 취약성 으로부터 응용 프로그램의 중앙 집중식 보호를 제공 하는 Azure 애플리케이션 게이트웨이의 기능입니다._
+* _[Azure 애플리케이션 방화벽:][7]일반적인 악용 및 취약성으로부터 애플리케이션을 중앙 집중식으로 보호하는 Azure Application Gateway 기능입니다._
 
-* _[Azure 애플리케이션 Gateway][6]: 계층 7에서 작동 하는 TLS (전송 계층 보안) 오프 로드를 사용 하는 응용 프로그램 트래픽을 담당 하는 부하 분산 장치입니다._
+* _[Azure Application Gateway:][6]계층 7에서 작동하는 TLS(전송 계층 보안) 오프로드를 사용하여 애플리케이션 트래픽을 담당하는 부하 분산기입니다._
 
 * [Azure Key Vault][2]: Microsoft ID 서비스 및 컴퓨팅 리소스와 긴밀하게 통합된 하드웨어 지원 자격 증명 관리 서비스입니다.
 
@@ -136,7 +136,7 @@ Azure Spring Cloud에는 다음과 같은 두 가지 전용 서브넷이 필요�
 
 * [Azure Pipelines][5]: 업데이트된 Spring Boot 앱을 Azure Spring Cloud에 자동으로 배포할 수 있는 완전한 기능을 갖춘 CI/CD(연속 통합/지속적인 개발) 서비스입니다.
 
-* [Microsoft Defender for Cloud:][4]온-프레미스, 여러 클라우드 및 Azure의 워크로드에 대한 통합 보안 관리 및 위협 방지 시스템입니다.
+* [Microsoft Defender for Cloud:][4]온-프레미스, 여러 클라우드 및 Azure의 워크로드를 위한 통합 보안 관리 및 위협 방지 시스템입니다.
 
 * [Azure Spring Cloud][1]: Java 기반 Spring Boot 애플리케이션 및 .NET 기반 [Steeltoe][9] 애플리케이션용으로 특별히 설계되고 최적화된 관리되는 서비스입니다.
 
@@ -146,7 +146,7 @@ Azure Spring Cloud에는 다음과 같은 두 가지 전용 서브넷이 필요�
 
 ## <a name="azure-spring-cloud-on-premises-connectivity"></a>Azure Spring Cloud 온-프레미스 연결
 
-Azure Spring Cloud에서 실행되는 애플리케이션은 다양한 Azure, 온-프레미스 및 외부 리소스와 통신할 수 있습니다. 허브 및 스포크 설계를 사용하여 애플리케이션은 Express Route 또는 사이트 간 VPN(가상 프라이빗 네트워크)을 사용하여 외부 또는 온-프레미스 네트워크로 트래픽을 라우팅할 수 있습니다.
+Azure Spring Cloud 애플리케이션은 다양한 Azure, 온-프레미스 및 외부 리소스와 통신할 수 있습니다. 허브 및 스포크 설계를 사용하여 애플리케이션은 Express Route 또는 사이트 간 VPN(가상 프라이빗 네트워크)을 사용하여 외부 또는 온-프레미스 네트워크로 트래픽을 라우팅할 수 있습니다.
 
 ## <a name="azure-well-architected-framework-considerations"></a>Azure Well-Architected Framework 고려 사항
 
@@ -167,7 +167,7 @@ Azure Spring Cloud는 운영 우수성에 대한 다양한 측면을 다룹니�
 * Azure Pipelines를 사용하여 배포의 안정성과 일관성을 유지하는 동시에 사용자의 오류를 방지할 수 있습니다.
 * Azure Monitor 및 Application Insights를 사용하여 로그 및 원격 분석 데이터를 저장할 수 있습니다.
   수집된 로그 및 메트릭 데이터를 평가하여 애플리케이션의 상태 및 성능을 확인할 수 있습니다. APM(애플리케이션 성능 모니터링)은 Java 에이전트를 통해 서비스에 완벽하게 통합됩니다. 이 에이전트는 추가 코드를 요구하지 않고 배포된 모든 애플리케이션 및 종속성에 대한 가시성을 제공합니다. 자세한 내용은 블로그 게시물 [Azure Spring Cloud의 애플리케이션 및 종속성을 간편하게 모니터링][15]을 참조하세요.
-* Microsoft Defender for Cloud를 사용하여 제공된 데이터를 분석하고 평가하는 플랫폼을 제공하여 애플리케이션이 보안을 유지하도록 할 수 있습니다.
+* Microsoft Defender for Cloud를 사용하면 제공된 데이터를 분석하고 평가하는 플랫폼을 제공하여 애플리케이션이 보안을 유지하도록 할 수 있습니다.
 * 서비스는 다양한 배포 패턴을 지원합니다. 자세한 내용은 [Azure Spring Cloud에서 스테이징 환경 설정][14]을 참조하세요.
 
 ### <a name="reliability"></a>안정성

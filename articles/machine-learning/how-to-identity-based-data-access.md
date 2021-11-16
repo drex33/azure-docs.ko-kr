@@ -11,14 +11,14 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: bf9e144cb078d3bb9f85e42521e63829f24e378c
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b251c85752af69ce58e48f93be29cb07f1bc9966
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553288"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492742"
 ---
-# <a name="connect-to-storage-by-using-identity-based-data-access"></a>Id 기반 데이터 액세스를 사용 하 여 저장소에 커넥트
+# <a name="connect-to-storage-by-using-identity-based-data-access"></a>ID 기반 데이터 액세스를 사용하여 스토리지에 커넥트
 
 이 문서에서는 [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)를 통해 ID 기반 데이터 액세스 및 Azure Machine Learning 데이터 저장소를 사용하여 Azure의 스토리지 서비스에 연결하는 방법을 알아봅니다.  
 
@@ -140,6 +140,20 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                        datastore_name='credentialless_adls2', 
                                                        filesystem='tabular', 
                                                        account_name='myadls2')
+```
+### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+Azure SQL 데이터베이스의 경우 [register_azure_sql_database()를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) 사용하여 Azure SQL 데이터베이스 스토리지에 연결하는 데이터 저장소를 등록합니다.
+
+다음 코드는 데이터 저장소를 만들어 `credentialless_sqldb` 작업 영역에 `ws` 등록하고 변수 에 `sqldb_dstore` 할당합니다. 이 데이터 저장소는 `mydb` SQL DB 서버의 데이터베이스에 `myserver` 액세스합니다.  
+
+```python
+# createn sqldatabase datastore without credentials
+                                                       
+sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
+                                                       datastore_name='credentialless_sqldb',
+                                                       server_name='myserver',
+                                                       database_name='mydb')                                                       
+                                                   
 ```
 
 ## <a name="use-data-in-storage"></a>스토리지의 데이터 사용

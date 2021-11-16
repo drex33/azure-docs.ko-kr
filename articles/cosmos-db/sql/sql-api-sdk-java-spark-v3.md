@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/11/2021
+ms.date: 11/12/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 3bf3be5df08ee114c080d5ec846c59e884fc22fe
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: abb10485baebc0b7379ec650fd9eeb95ebadf326
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132400474"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491282"
 ---
 # <a name="azure-cosmos-db-apache-spark-3-oltp-connector-for-core-sql-api-release-notes-and-resources"></a>Core(SQL) API용 Azure Cosmos DB Apache Spark 3 OLTP 커넥터: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

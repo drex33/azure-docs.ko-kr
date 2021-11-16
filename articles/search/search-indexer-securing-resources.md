@@ -7,13 +7,13 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 8aac6f90880775c5a1d7002048c79257b4e5ab85
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.date: 11/12/2021
+ms.openlocfilehash: a541eb900648fe33beb76207da956c1489f89cb5
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855900"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485109"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features"></a>Azure 네트워크 보안 기능으로 보호되는 콘텐츠에 대한 인덱서 액세스
 
@@ -63,20 +63,25 @@ Azure Cognitive Search 인덱서는 실행하는 동안 다양한 Azure 리소�
 
 ## <a name="indexer-execution-environment"></a>인덱서 실행 환경
 
-Azure Cognitive Search 인덱서는 데이터 원본에서 콘텐츠를 효율적으로 추출하고, 추출된 콘텐츠에 강화를 추가하고, 검색 인덱스에 결과를 쓰기 전에 프로젝션을 선택적으로 생성할 수 있습니다. 인덱서에 할당된 책임의 수에 따라 다음 두 환경 중 하나에서 실행할 수 있습니다.
+Azure Cognitive Search 인덱서는 데이터 원본에서 콘텐츠를 효율적으로 추출하고, 추출된 콘텐츠에 강화를 추가하고, 검색 인덱스에 결과를 쓰기 전에 프로젝션을 선택적으로 생성할 수 있습니다.
+
+최적의 처리를 위해 검색 서비스는 작업을 설정할 내부 실행 환경을 결정합니다. 환경을 제어하거나 구성할 수는 없지만 IP 방화벽 규칙을 설정할 때 고려할 수 있도록 환경을 알고 있는 것이 중요합니다.
+
+할당된 태스크의 수와 유형에 따라 인덱서가 다음 두 환경 중 하나에서 실행됩니다.
 
 - 특정 검색 서비스에 대한 프라이빗 환경. 이러한 환경에서 실행되는 인덱서는 다른 워크로드(예: 다른 고객이 시작한 인덱싱 또는 쿼리 워크로드)와 리소스를 공유합니다. 일반적으로 텍스트 기반 인덱싱(예: 기술 세트를 사용하지 않음)을 수행하는 인덱서만 이 환경에서 실행됩니다.
 
 - 기술 세트를 사용하는 인덱서와 같이 리소스를 많이 사용하는 인덱서를 호스트하는 다중 테넌트 환경. 이 환경은 계산 집약적 처리를 없애는 데 사용되며 서비스별 리소스는 일상적인 작업에 사용할 수 있게 남아 있습니다. 이 다중 테넌트 환경은 고객의 비용 추가 없이 Microsoft에서 관리하고 보호합니다.
 
-지정된 인덱서 실행에 대해 Azure Cognitive Search는 인덱서를 실행할 최상의 환경을 결정합니다. IP 방화벽을 사용하여 Azure 리소스에 대한 액세스를 제어하는 경우 실행 환경에 대한 정보는 둘 모두를 포함하는 IP 범위를 설정하는 데 도움이 됩니다.
+지정된 인덱서 실행에 대해 Azure Cognitive Search는 인덱서를 실행할 최상의 환경을 결정합니다. IP 방화벽을 사용하여 Azure 리소스에 대한 액세스를 제어하는 경우 실행 환경에 대해 알고 있으면 다음 섹션에서 설명한 대로 둘 모두를 포함하는 IP 범위를 설정하는 데 도움이 됩니다.
 
 ## <a name="granting-access-to-indexer-ip-ranges"></a>인덱서 IP 범위에 대한 액세스 권한 부여
 
-인덱서가 액세스하려는 리소스가 특정한 IP 범위 세트로만 제한되는 경우 인덱서 요청이 시작될 수 있는 가능한 IP 범위를 포함하도록 이 세트를 확장해야 합니다. 위에서 설명한 것처럼 인덱서를 실행하고 액세스 요청을 시작할 수 있는 가능한 두 가지 환경이 있습니다. 인덱서 액세스가 작동하려면 **두** 환경의 IP 주소를 추가해야 합니다.
+인덱서에서 데이터를 끌어온 리소스가 방화벽 뒤에 있는 경우 인바운드 규칙의 IP 범위에 인덱서 요청이 시작되는 모든 IP가 포함되어 있는지 확인합니다. 위에서 설명한 것처럼 인덱서를 실행하고 액세스 요청을 시작할 수 있는 가능한 두 가지 환경이 있습니다. 인덱서 액세스가 작동하려면 **두** 환경의 IP 주소를 추가해야 합니다.
 
-- 검색 서비스별 프라이빗 환경의 IP 주소를 얻으려면 검색 서비스의 FQDN(정규화 된 도메인 이름)을 `nslookup`(또는 `ping`)합니다. 예를 들어 퍼블릭 클라우드에서 검색 서비스의 FQDN은 `<service-name>.search.windows.net`일 수 있습니다. 이 정보는 Azure Portal에서 사용할 수 있습니다.
-- 다중 테넌트 환경의 IP 주소는 `AzureCognitiveSearch` 서비스 태그를 통해 확인할 수 있습니다. [Azure 서비스 태그](../virtual-network/service-tags-overview.md) 에는 각 서비스에 대 한 IP 주소의 게시 된 범위가 있습니다 .이는 [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 통해 사용할 수 있습니다. 두 경우 모두, IP 범위는 지역별로 분할됩니다. 검색 서비스가 프로비저닝되는 지역에 할당된 IP 범위만 선택할 수 있습니다.
+- 검색 서비스 특정 프라이빗 환경의 IP 주소를 가져오려면 검색 `nslookup` `ping` 서비스의 FQDN(정규화된 도메인 이름)을 사용하거나 사용합니다. 예를 들어 퍼블릭 클라우드에서 검색 서비스의 FQDN은 `<service-name>.search.windows.net`일 수 있습니다. 이 정보는 Azure Portal에서 사용할 수 있습니다.
+
+- 인덱서가 실행될 수 있는 다중 테넌트 환경의 IP 주소를 가져오려면 `AzureCognitiveSearch` 서비스 태그를 사용합니다. [Azure 서비스 태그에는](../virtual-network/service-tags-overview.md) 각 서비스에 대해 게시된 IP 주소 범위가 있습니다. 검색 [API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)를 사용하여 이러한 IP를 찾을 수 있습니다. 두 경우 모두 IP 범위는 지역별로 세분화됩니다. 검색 서비스가 프로비전되는 지역에 할당된 IP 범위만 지정해야 합니다.
 
 특정 데이터 원본의 경우에는 IP 범위 목록을 열거하는 대신 서비스 태그 자체를 직접 사용할 수 있습니다. 검색 서비스의 IP 주소는 계속해서 명시적으로 사용해야 합니다. 해당 데이터 원본은 Azure Storage, Cosmos DB, Azure SQL 등에서 제공하는 것과 같은 IP 규칙과 달리 기본적으로 서비스 태그 추가를 지원하는 [네트워크 보안 그룹 규칙](../virtual-network/network-security-groups-overview.md)을 설정하여 액세스를 제한합니다. 검색 서비스 IP 주소 외에도 `AzureCognitiveSearch` 서비스 태그를 직접 활용하는 기능을 지원하는 데이터 원본은 다음과 같습니다.
 
@@ -88,9 +93,9 @@ Azure Cognitive Search 인덱서는 데이터 원본에서 콘텐츠를 효율�
 
 ## <a name="granting-access-via-private-endpoints"></a>프라이빗 엔드포인트를 통한 액세스 권한 부여
 
-인덱서는 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 리소스에 액세스할 수 있는데, 이는 가상 네트워크를 선택하거나 사용하도록 지정된 퍼블릭 액세스가 없도록 잠긴 액세스입니다.
+인덱서가 잠긴 리소스에 대한 연결에서 [프라이빗 엔드포인트를](../private-link/private-endpoint-overview.md) 사용할 수 있습니다(보호된 가상 네트워크에서 실행 중이거나 공용 연결을 통해 사용할 수 없는 경우).
 
-이 기능은 청구 가능한 검색 서비스에서만 사용할 수 있으며 생성되는 프라이빗 엔드포인트 수가 제한됩니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md#shared-private-link-resource-limits)을 참조하세요.
+이 기능은 텍스트 기반 및 기술 기반 인덱싱을 위해 만들 수 있는 프라이빗 엔드포인트 수에 대한 계층 제한에 따라 청구 가능한 검색 서비스(기본 이상)에서만 사용할 수 있습니다. 자세한 내용은 서비스 제한 설명서의["공유 프라이빗 링크 리소스 제한" 섹션을](search-limits-quotas-capacity.md#shared-private-link-resource-limits)참조하세요.
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>1단계: 보안 리소스에 대한 프라이빗 엔드포인트 만들기
 
@@ -129,16 +134,6 @@ Azure Cognitive Search는 이 API의 호출자에게 보안 리소스에 대한 
 
 이러한 단계는 [프라이빗 엔드포인트를 통한 인덱서 연결](search-indexer-howto-access-private.md)에서 자세히 설명합니다.
 리소스에 대한 프라이빗 엔드포인트를 승인하면 *프라이빗* 으로 설정된 인덱서가 프라이빗 엔드포인트 연결을 통해 액세스하려고 시도합니다.
-
-### <a name="limits"></a>제한
-
-검색 서비스의 성능 및 안정성을 최적화하기 위해 (검색 서비스 계층에서) 다음 차원에 대한 제한을 적용합니다.
-
-- *프라이빗* 으로 설정할 수 있는 인덱서의 종류
-- 만들 수 있는 공유 프라이빗 링크 리소스의 수
-- 공유 프라이빗 링크 리소스를 만들 수 있는 고유한 리소스 종류의 수
-
-이러한 제한 사항은 [서비스 제한 사항](search-limits-quotas-capacity.md)에서 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

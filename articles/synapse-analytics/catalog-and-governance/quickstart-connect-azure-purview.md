@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/29/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 894df32142cf29e59e40b1e9218f4090bbda93f0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 86e2eee3be8a25cc236a5774ab485c863c8d655b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351616"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842528"
 ---
 # <a name="quickstartconnect-a-synapse-workspace-to-an-azure-purview-account"></a>빠른 시작: Azure Purview 계정에 Synapse 작업 영역 연결
 
@@ -67,13 +67,9 @@ Purview 연결 정보는 다음과 같은 Synapse 작업 영역 리소스에 저
 
 Synapse 작업 영역의 관리 ID는 Synapse 작업 영역에서 Purview로 계보 푸시 작업을 인증하기 위해 사용됩니다.
 
-- **2021년 8월 18일 또는 이후** 에 생성된 Purview 계정의 경우 Synapse 작업 영역의 관리 ID에 Purview **루트 컬렉션** 에 대한 **데이터 큐레이터** 역할을 부여합니다. [Azure Purview의 액세스 제어](../../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
+Synapse 작업 영역의 관리 ID에 Purview **루트 컬렉션** 에 대한 **데이터 큐레이터** 역할을 부여합니다. [Azure Purview의 액세스 제어](../../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
 
-    Synapse 작업 영역을 Synapse Studio의 Purview에 연결하면 Synapse가 해당 역할 할당을 자동으로 추가하려고 시도합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있고 네트워크에서 Purview 계정에 액세스할 수 있는 경우 이 작업은 성공적으로 수행됩니다.
-
-- **2021년 8월 18일 이전** 생성된 Purview 계정의 경우 Synapse 작업 영역의 관리 ID에 Purview 계정에 대한 Azure 기본 제공 [**Purview 데이터 큐레이터(레거시)** ](../../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) 역할을 부여합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
-
-    Synapse 작업 영역을 Synapse Studio의 Purview에 연결하면 Synapse가 해당 역할 할당을 자동으로 추가하려고 시도합니다. Purview 계정에 대해 Azure 기본 제공 **소유자** 또는 **사용자 액세스 관리자** 역할이 있으면 이 작업이 성공적으로 수행됩니다.
+Synapse 작업 영역을 Synapse Studio의 Purview에 연결하면 Synapse가 해당 역할 할당을 자동으로 추가하려고 시도합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있고 네트워크에서 Purview 계정에 액세스할 수 있는 경우 이 작업은 성공적으로 수행됩니다.
 
 ## <a name="monitor-purview-connection"></a>Purview 연결 모니터링
 

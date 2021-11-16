@@ -1,5 +1,5 @@
 ---
-title: Azure 하이브리드 혜택의 범위 수준 관리란?
+title: 중앙에서 관리되는 Azure 하이브리드 혜택이란 무엇인가요?
 description: Azure 하이브리드 혜택은 활성 Software Assurance(또는 구독)가 있는 온-프레미스 코어 기반 Windows Server 및 SQL Server 라이선스를 Azure로 가져올 수 있는 라이선스 혜택입니다.
 keywords: ''
 author: bandersmsft
@@ -9,18 +9,18 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: 795c8c3509a25abc8244150f129eb9dfbf997557
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 8fb630db1d14fe7af1008979eb5b72ee62287d6a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547443"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235699"
 ---
-# <a name="what-is-scope-level-management-of-azure-hybrid-benefit"></a>Azure 하이브리드 혜택의 범위 수준 관리란?
+# <a name="what-is-centrally-managed-azure-hybrid-benefit"></a>중앙에서 관리되는 Azure 하이브리드 혜택이란 무엇인가요?
 
 Azure 하이브리드 혜택은 클라우드에서 워크로드를 실행하는 비용을 대폭 줄일 수 있는 라이선스 혜택입니다. 해당 혜택은 Azure에서 온-프레미스 Software Assurance 사용 가능 Windows Server 및 SQL Server 라이선스를 사용하도록 하여 작동합니다. 자세한 내용은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 참조하세요.
 
-전체 Azure 구독 또는 전체 청구 계정의 범위에서 SQL Server의 Azure 하이브리드 혜택을 관리할 수 있습니다. 개략적으로 작동 방식은 다음과 같습니다.
+중앙에서 전체 Azure 구독 또는 전체 청구 계정의 범위에서 SQL Server의 Azure 하이브리드 혜택을 관리할 수 있습니다. 개략적으로 작동 방식은 다음과 같습니다.
 
 1. 먼저 IaaS 확장을 사용하여 자동 설치된 SQL 서버 이미지의 자동 등록을 사용하도록 설정하여 모든 SQL Server VM이 사용자와 Azure에 표시되는지 확인합니다. 자세한 내용은 [SQL IaaS 에이전트 확장을 통해 Azure에 여러 SQL VM 등록](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md)을 참조하세요.
 1. Azure Portal의 **Cost Management + Billing** 에서 사용자(청구 관리자)는 범위 및 범위의 리소스를 처리하기 위해 할당하려는 적격 라이선스 수를 선택합니다.  
@@ -32,7 +32,7 @@ Azure 하이브리드 혜택은 클라우드에서 워크로드를 실행하는 
 
 원래 리소스 수준에서 Azure 하이브리드 혜택을 사용하는 방법은 SQL Server의 경우 계속 사용할 수 있으며 Windows Server의 경우 현재 유일한 옵션입니다. 이 방법에서는 DevOps 역할이 개별 리소스를 만들거나 관리할 때 각 리소스(예: SQL Database 또는 Windows Server VM)에 대한 혜택을 선택합니다. 이렇게 하면 해당 리소스의 시간당 비용이 할인됩니다. 자세한 내용은 Windows Server에 대한 [Azure 하이브리드 혜택](../../azure-sql/azure-hybrid-benefit.md)을 참조하세요.
 
-구독 또는 계정 범위 수준에서 SQL Server의 Azure 하이브리드 혜택을 사용하는 기능은 현재 미리 보기 상태입니다. 이 기능은 엔터프라이즈 고객에게만 제공됩니다. 기능을 Windows Server와 더 많은 고객으로 확장하는 작업을 진행 중입니다.
+구독 또는 계정 범위 수준에서 SQL Server의 Azure 하이브리드 혜택을 중앙에서 관리하는 기능은 현재 미리 보기 상태입니다. 이 기능은 엔터프라이즈 고객에게만 제공됩니다. 기능을 Windows Server와 더 많은 고객으로 확장하는 작업을 진행 중입니다.
 
 ## <a name="qualifying-sql-server-licenses"></a>적격 SQL Server 라이선스
 
@@ -40,7 +40,7 @@ Azure 하이브리드 혜택은 클라우드에서 워크로드를 실행하는 
 
 ## <a name="qualifying-azure-resources"></a>적격 Azure 리소스
 
-범위 수준 Azure 하이브리드 혜택 관리에서는 다음 일반적인 Azure SQL 리소스를 다룹니다.
+범위 수준에서 Azure 하이브리드 혜택을 중앙에서 관리할 때는 다음과 같은 일반적인 Azure SQL 리소스가 포함됩니다.
 
 - SQL Database
 - SQL Managed Instances
@@ -52,7 +52,7 @@ Azure 하이브리드 혜택은 클라우드에서 워크로드를 실행하는 
 - Azure 전용 호스트
 - Azure Data Factory SSIS(SQL Server Integration Services)
 
-## <a name="scope-level-management-advantages"></a>범위 수준 관리의 이점
+## <a name="centralized-scope-level-management-advantages"></a>범위 수준의 중앙 관리의 이점
 
 다음과 같은 이점이 있습니다.
 
@@ -104,5 +104,5 @@ Software Assurance가 포함된 SQL Server Enterprise(코어) 및 SQL Server Sta
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Server의 Azure 하이브리드 혜택 관리 및 최적화](tutorial-azure-hybrid-benefits-sql.md) 자습서를 따릅니다.
-- [Azure 하이브리드 혜택의 범위 수준 관리로 전환](transition-existing.md)하는 방법에 관해 알아봅니다.
-- [범위 수준 Azure 하이브리드 혜택 관리 FAQ](faq-azure-hybrid-benefit-scope.yml)를 검토합니다.
+- [중앙에서 관리되는 Azure 하이브리드 혜택으로 전환](transition-existing.md)하는 방법을 알아봅니다.
+- [중앙에서 관리되는 Azure 하이브리드 혜택 FAQ](faq-azure-hybrid-benefit-scope.yml)를 검토하세요.

@@ -7,24 +7,24 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: dfb522e5231072e427c14dfe1c8c16889dd3ff9e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: e39641317cc02c12666adf622ccb931ef57d9339
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214182"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493688"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>용어집 용어를 만들고, 가져오며, 내보내는 방법
 
-이 문서에서는 .csv 파일을 사용하여 Azure Purview 데이터 카탈로그에 비즈니스 용어집 용어를 만들고, 이를 가져오고 내보내는 방법을 설명합니다.
+이 문서에서는 Azure 부서의 범위에서 비즈니스 용어집을 사용 하는 방법을 설명 합니다. Azure 부서의 범위 data catalog에 비즈니스 용어집 용어를 만들고 .csv 파일을 사용 하 여 용어집 용어를 가져오고 내보내는 단계가 제공 됩니다.
 
 ## <a name="create-a-new-term"></a>새 용어 만들기
 
 다음 단계를 완료하여 새 용어집 용어를 만듭니다.
 
-1. 홈페이지의 왼쪽 탐색 창에서 **데이터 카탈로그를** 선택한 다음, 페이지 가운데에 있는 **용어집 관리** 단추를 선택합니다.
+1. 홈 페이지의 왼쪽 탐색 영역에서 **데이터 카탈로그** 를 선택 하 고 페이지 가운데에서 **용어 관리** 단추를 선택 합니다.
 
-    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="용어집이 강조 표시된 데이터 카탈로그의 스크린샷." border="true":::
+    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="용어가 강조 표시 된 데이터 카탈로그의 스크린샷" border="true":::
 
 2. **용어집 용어** 페이지에서 **+ 새 용어** 를 선택합니다. **시스템 기본값** 템플릿이 선택된 상태로 페이지가 열립니다. 용어집 용어를 만들 템플릿을 선택하고 **계속** 을 선택합니다.
 
@@ -71,7 +71,7 @@ Azure Purview 데이터 카탈로그는 용어를 용어집으로 가져올 수 
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="용어집 용어 페이지, 용어 가져오기 단추 스크린샷.":::
 
-3. csv 템플릿을 다운로드하고 이를 사용하여 추가하고자 하는 용어를 입력합니다.
+3. csv 템플릿을 다운로드하고 이를 사용하여 추가하고자 하는 용어를 입력합니다. 템플릿 csv 파일의 이름을 지정할 때 이름은 문자로 시작 해야 하며 문자, 숫자, 공백, ' _ ' 또는 기타 ascii가 아닌 유니코드 문자만 포함할 수 있습니다. 파일 이름에 특수 문자가 있으면 오류가 생성 됩니다.
 
    > [!Important]
    > 시스템에서는 템플릿에서 사용할 수 있는 열을 가져오는 작업만 지원합니다. "시스템 기본" 템플릿에는 모든 기본 특성이 포함됩니다.
@@ -101,4 +101,4 @@ Azure Purview 데이터 카탈로그는 용어를 용어집으로 가져올 수 
 
 ## <a name="next-steps"></a>다음 단계
 
-[자습서: 용어집 용어 만들기 및 가져오기](tutorial-import-create-glossary-terms.md)를 따라 자세히 알아보세요.
+* 용어집 용어에 대 한 자세한 내용은 [용어집 참조](reference-purview-glossary.md) 를 참조 하세요.

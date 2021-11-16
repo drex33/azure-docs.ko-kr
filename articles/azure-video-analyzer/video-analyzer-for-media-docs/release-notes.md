@@ -5,12 +5,12 @@ ms.topic: article
 ms.custom: references_regions
 ms.date: 08/01/2021
 ms.author: juliako
-ms.openlocfilehash: 115402133ad33b9fa20eb3298db3e342ea2afbbd
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7341112e545e4fc0c74de8d32e9c2d54d3461057
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131461687"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491924"
 ---
 # <a name="video-analyzer-for-media-release-notes"></a>Video Analyzer for Media 릴리스 정보
 
@@ -30,6 +30,10 @@ ms.locfileid: "131461687"
 미디어 용 Azure 비디오 분석기는 ARM (Azure Resource Manager) 기반 계정 관리의 공개 미리 보기를 소개 합니다. ARM 기반 Api를 활용 하 여 Azure Portal에서 계정을 만들고 편집 하 고 삭제할 수 있습니다.
 
 자세한 내용은 [미디어 계정에 대 한 비디오 분석기 만들기](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422)를 참조 하세요.
+
+### <a name="peoples-clothing-detection"></a>사람의 옷 검색
+
+고급 비디오 설정을 통해 비디오를 인덱싱할 때 새로운 **사용자의 옷 검색** 기능을 볼 수 있습니다. 미디어 파일에서 검색 된 사용자가 있는 경우 이제 미디어 플레이어를 통해 입고 있는 옷 유형을 볼 수 있습니다. 
 
 ## <a name="october-2021"></a>2021년 10월
 

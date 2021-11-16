@@ -7,20 +7,24 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffdd27b67a122f82cc5fdb5568f11c85387955e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1a8602b18c4ec68eacc37faca941211ee83fd63
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660799"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742630"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대한 새 구성 만들기
 
-Azure AD Connect 프로비전 에이전트를 설치한 후 Azure Portal에 로그인하여 구성해야 합니다. 에이전트를 사용하도록 설정하려면 다음 단계를 수행합니다.
+다음 문서에서는 Azure AD Connect 클라우드 동기화를 구성하는 과정을 안내합니다. 클라우드 동기화를 구성하는 방법에 대한 추가 정보 및 예제는 아래 비디오를 참조하세요.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWKact]
+
 
 ## <a name="configure-provisioning"></a>프로비전 구성
 프로비전을 구성하려면 다음 단계를 따릅니다.

@@ -3,15 +3,15 @@ title: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브
 description: 이 자습서에서는 Intel에서 제공하는 사전 학습된 모델이 있는 AI 서버를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석합니다.
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 titleSuffix: Azure
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 29c6771921ca7e37d5825a24e812234fff9e294b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f2e6e14849bfa00862b2fd87a0e42d88b315ab14
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053235"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490708"
 ---
 # <a name="tutorial-analyze-live-video-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
@@ -72,7 +72,7 @@ HTTP 확장 프로세서 노드는 프록시 역할을 수행합니다. 들어�
 
 ### <a name="review-the-sample-video"></a>샘플 비디오 검토
 
-Azure 리소스가 설치되면 [주차장의 짧은 비디오](https://lvamedia.blob.core.windows.net/public/lots_015.mkv)가 IoT Edge 디바이스로 사용하는 Azure의 Linux VM에 복사됩니다. 이 빠른 시작에서는 비디오 파일을 사용하여 라이브 스트림을 시뮬레이션합니다.
+Azure 리소스가 설치되면 [주차장의 짧은 비디오](https://avamedia.blob.core.windows.net/public/lots_015.mkv)가 IoT Edge 디바이스로 사용하는 Azure의 Linux VM에 복사됩니다. 이 빠른 시작에서는 비디오 파일을 사용하여 라이브 스트림을 시뮬레이션합니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 

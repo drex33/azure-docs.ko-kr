@@ -2,21 +2,21 @@
 title: 리디렉션 URI(회신 URL) 제한 사항 | Azure AD
 titleSuffix: Microsoft identity platform
 description: Microsoft ID 플랫폼에서 적용하는 리디렉션 URI(회신 URL) 형식의 제한 사항에 대한 설명입니다.
-author: SureshJa
-ms.author: sureshja
+author: madansr7
+ms.author: saumadan
 manager: CelesteDG
-ms.date: 08/06/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 96fe21b4f1df662e72ec88abc68d74db25257de1
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: d20d14619111515332b6aa5aec9239d0a6d50283
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662040"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353041"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>리디렉션 URI(회신 URL) 제한 사항
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory) 애플리케이션 모델은 이러한 제한�
 
     예:
 
-    * `https://contoso.com/abc`가 `https://contoso.com/abc`로 반환됨
+    * `https://contoso.com/abc`이 `https://contoso.com/abc`으로 반환됨
     * `https://contoso.com/abc/response-oidc`가 `https://contoso.com/abc/response-oidc`로 반환됨
 
 ## <a name="maximum-number-of-redirect-uris"></a>최대 리디렉션 URI 수
@@ -54,6 +54,11 @@ Azure AD(Azure Active Directory) 애플리케이션 모델은 이러한 제한�
 ## <a name="maximum-uri-length"></a>최대 URI 길이
 
 앱 등록에 추가하는 각 리디렉션 URI에 대해 최대 256문자를 사용할 수 있습니다.
+
+## <a name="redirect-uris-in-application-vs-service-principal-objects"></a>애플리케이션 및 서비스 주체 개체의 리디렉션 URI
+
+* 항상 애플리케이션 개체에만 리디렉션 URI를 추가합니다.
+* 서비스 주체 개체가 애플리케이션 개체와 동기화될 때 이러한 값을 제거할 수 있으므로 서비스 주체에 리디렉션 URI 값을 추가하지 마세요. 이는 두 개체 간의 동기화를 트리거하는 업데이트 작업으로 인해 발생할 수 있습니다.
 
 ## <a name="supported-schemes"></a>지원되는 스키마
 

@@ -1,21 +1,20 @@
 ---
 title: Azure RTOS용 Defender-IoT-micro-agent 개요
-description: Microsoft Defender for IoT의 일부로 Azure RTOS 지원 및 구현을 위한 Defender-IoT-micro-agent에 대해 자세히 알아봅니다.
+description: IoT 용 Microsoft Defender의 일부로 Azure RTOS 지원 및 구현을 위한 Defender-IoT-마이크로 에이전트에 대해 자세히 알아보세요.
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.openlocfilehash: 5bb2ed36d40b5ae92aa41303eb53d995c410e67d
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.date: 11/14/2021
+ms.openlocfilehash: 138c08e510bbfe66cb52460c96ba70764cd3ce20
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132278914"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487121"
 ---
 # <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos"></a>개요: Azure RTOS 용 Defender-IoT-마이크로 에이전트
 
-Microsoft Defender for IoT 마이크로 모듈은 Azure RTOS 사용하는 디바이스에 대한 포괄적인 보안 솔루션을 제공합니다. Azure Defender for IoT 마이크로 에이전트는 실시간 운영 체제(RTOS) 디바이스에서 일반적인 위협에 대한 범위와 잠재적 악성에 대한 보장을 제공합니다. Azure RTOS는 이제 기본 제공되는 Azure IoT Defender-마이크로 에이전트와 함께 제공됩니다.
+Microsoft Defender for IoT 마이크로 모듈은 Azure RTOS를 사용 하는 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다. Azure Defender for IoT 마이크로 에이전트는 실시간 운영 체제(RTOS) 디바이스에서 일반적인 위협에 대한 범위와 잠재적 악성에 대한 보장을 제공합니다. Azure RTOS는 이제 기본 제공되는 Azure IoT Defender-마이크로 에이전트와 함께 제공됩니다.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="IoT Azure RTOS 용 Defender의 시각화.":::
-
 
 Azure RTOS의 마이크로 모듈은 다음과 같은 기능을 제공합니다.
 
@@ -33,11 +32,11 @@ Azure RTOS의 마이크로 모듈은 다음과 같은 기능을 제공합니다.
 
 ## <a name="improve-your-device-security-hygiene"></a>강화된 디바이스 보안 예방
 
-권장되는 인프라 Defender for IoT를 사용하면 디바이스의 보안 상태에 영향을 줄 수 있는 환경에서 발생하는 문제에 대한 정보와 이해를 얻을 수 있습니다. 취약한 IoT 디바이스 보안 상태에서 변경되지 않은 상태로 유지되는 경우 잠재적인 공격이 성공하도록 허용할 수 있습니다. 보안은 항상 모든 조직 내의 가장 약한 링크로 측정됩니다.
+IoT에 권장 되는 인프라 Defender를 사용 하 여 장치의 보안 상태에 영향을 주고 피해를 주는 환경에서 발생 하는 문제에 대 한 지식과 정보를 얻을 수 있습니다. 취약한 IoT 디바이스 보안 상태에서 변경되지 않은 상태로 유지되는 경우 잠재적인 공격이 성공하도록 허용할 수 있습니다. 보안은 항상 모든 조직 내의 가장 약한 링크로 측정됩니다.
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Azure RTOS 디바이스 보호 시작하기
 
-Azure RTOS용 Defender-IoT-마이크로 에이전트는 디바이스에 무료 다운로드로 제공됩니다. Defender for IoT 클라우드 서비스는 Azure 구독당 30일 평가판으로 사용 가능합니다. 시작하려면 [Azure RTOS 용 Defender-IoT-마이크로 에이전트](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/device-builders/iot-security-azure-rtos.md)를 다운로드합니다. 
+Azure RTOS용 Defender-IoT-마이크로 에이전트는 디바이스에 무료 다운로드로 제공됩니다. Defender for IoT 클라우드 서비스는 Azure 구독당 30일 평가판으로 사용 가능합니다. 시작하려면 [Azure RTOS 용 Defender-IoT-마이크로 에이전트](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/device-builders/iot-security-azure-rtos.md)를 다운로드합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

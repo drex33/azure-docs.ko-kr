@@ -2,20 +2,20 @@
 title: 질문과 대답 - Azure가 확인 가능한 자격 증명(미리 보기)
 description: 확인 가능한 자격 증명에 대한 일반적인 질문에 대한 답변을 확인합니다
 author: barclayn
-manager: davba
+manager: karenh444
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c9253ce81b64b45d0ab8a72605eeba4c0d49f3f6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 760f90a766eca28e3d6cc009e3370192a9bd5285
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457894"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994806"
 ---
-# <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
+# <a name="frequently-asked-questions-faq-preview"></a>FAQ(질문과 대답)(미리 보기)
 
 이 페이지에는 확인 가능한 자격 증명 및 탈중앙화 ID에 대한 일반적인 질문과 대답이 포함되어 있습니다. 질문은 다음 섹션으로 구성됩니다.
 

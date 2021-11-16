@@ -13,12 +13,12 @@ ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: cb62c7558f7811ce7123ba405cbf01a75d7a3392
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 5a3dd6265c9fbefb85cf72b80473538983c682b7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530915"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214706"
 ---
 # <a name="migrating-applications-to-msalnet-or-microsoftidentityweb"></a>MSAL.NET 또는 Microsoft.Identity.Web으로 애플리케이션 마이그레이션
 
@@ -52,7 +52,9 @@ MSAL.NET 및 ADAL.NET의 세부 정보를 자세히 알아보기 전에 MSAL.NET
  
 ## <a name="next-steps"></a>다음 단계
 
+- [퍼블릭 클라이언트 및 기밀 클라이언트 애플리케이션](msal-client-applications.md)에 대해 알아봅니다.
 - [ASP.NET MVC 또는 .NET 클래식을 기반으로 빌드된 기밀 클라이언트 애플리케이션을 ADAL.NET에서 MSAL.NET으로 마이그레이션](msal-net-migration-confidential-client.md)하는 방법을 알아봅니다.
+- [.NET 또는 .NET 클래식을 기반으로 빌드된 퍼블릭 클라이언트 애플리케이션을 ADAL.NET에서 MSAL.NET으로 마이그레이션](msal-net-migration-public-client.md)하는 방법을 알아봅니다.
 - [ADAL.NET과 MSAL.NET 앱의 차이점](msal-net-differences-adal-net.md)에 대해 자세히 알아봅니다.
 - ASP.NET Core를 기반으로 빌드된 기밀 클라이언트 애플리케이션을 ADAL.NET에서 Microsoft.Identity.Web으로 마이그레이션하는 방법을 알아봅니다.
   -  [웹앱](https://github.com/AzureAD/microsoft-identity-web/wiki/web-apps#migrating-from-previous-versions--adding-authentication)

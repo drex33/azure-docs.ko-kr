@@ -1,6 +1,6 @@
 ---
-title: Event Grid Azure Synapse 데이터 탐색기 데이터 수집(미리 보기)
-description: Event Grid Azure Synapse 데이터 탐색기 데이터를 수집(로드)하는 방법을 알아봅니다.
+title: Event Grid 데이터를 Azure Synapse 데이터 탐색기 수집(미리 보기)
+description: Event Grid 데이터를 Azure Synapse 데이터 탐색기 수집(로드)하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 11/02/2021
 author: shsagir
@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: f6fc9858589e1a5ee940a8fc44e3eb462a30ce7c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2c472ae5950bc035612987c35e76291dc5c23f49
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482937"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485660"
 ---
 # <a name="ingest-blobs-into-azure-synapse-data-explorer-by-subscribing-to-event-grid-notifications-preview"></a>Event Grid 알림을 구독하여 blob을 Azure Synapse 데이터 탐색기(미리 보기)
 
@@ -36,10 +36,10 @@ Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-expl
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
 - Event Hubs 데이터를 보낼 대상 테이블 만들기
-    1. Synapse Studio 왼쪽 창에서 **개발을** 선택합니다.
-    1. **KQL 스크립트** 아래에서 **&plus;** **KQL** 스크립트 를 >(새 리소스 추가)를 선택합니다. 오른쪽 창에서 스크립트 이름을 지정할 수 있습니다.
-    1. **커넥트** 메뉴에서 *contosodataexplorer* 를 선택합니다.
-    1. 데이터베이스 **사용** 메뉴에서 *TestDatabase를* 선택합니다.
+    1. Synapse Studio의 왼쪽 창에서 **개발** 을 선택합니다.
+    1. **KQL 스크립트** 에서 **&plus;** (새 리소스 추가) > **KQL 스크립트** 를 선택합니다. 오른쪽 창에서 스크립트 이름을 지정할 수 있습니다.
+    1. **연결 대상** 메뉴에서 *contosodataexplorer* 를 선택합니다.
+    1. **데이터베이스 사용** 메뉴에서 *TestDatabase* 를 선택합니다.
     1. 다음 명령을 붙여넣고 **실행** 을 선택하여 테이블을 만듭니다.
 
         ```Kusto
@@ -47,7 +47,7 @@ Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-expl
         ```
 
         > [!TIP]
-        > 테이블이 성공적으로 만들어졌는지 확인합니다. 왼쪽 창에서 **데이터를** 선택하고 *contosodataexplorer* 추가 메뉴를 선택한 다음, **새로 고침을** 선택합니다. *contosodataexplorer* 아래에서 **테이블을** 확장하고 *TestTable* 테이블이 목록에 표시되는지 확인합니다.
+        > 테이블이 성공적으로 만들어졌는지 확인합니다. 왼쪽 창에서 **데이터** 를 선택하고 *contosodataexplorer* 추가 메뉴를 선택한 다음, **새로 고침** 을 선택합니다. *contosodataexplorer* 아래에서 **테이블을** 확장하고 *TestTable* 테이블이 목록에 표시되는지 확인합니다.
 
     1. 다음 명령을 창에 복사하고, **실행** 을 선택하여 들어오는 JSON 데이터를 테이블(TestTable)의 열 이름과 데이터 형식에 매핑합니다.
 
@@ -88,7 +88,7 @@ Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-expl
     | 스토리지 계정 구독 | 구독 ID | 스토리지 계정이 있는 구독 ID입니다.|
     | 스토리지 계정 | *gridteststorage1* | 이전에 만든 스토리지 계정의 이름입니다.|
     | 이벤트 유형 | *Blob이 만들어짐* 또는 *Blob 이름이 바뀜* | 수집을 트리거하는 이벤트 유형입니다. *Blob 이름이 바뀜* 은 ADLSv2 스토리지에만 지원됩니다. 지원되는 유형은 Microsoft.Storage.BlobCreated 또는 Microsoft.Storage.BlobRenamed입니다. |
-    | 리소스 만들기 | *자동* | 데이터 탐색기 Event Grid 구독, 이벤트 허브 네임스페이스 및 Event Hub를 만들 것인지 여부를 정의합니다. <!-- To create resources manually, see [Manually create resources for Event Grid ingestion](ingest-data-event-grid-manual.md) -->|
+    | 리소스 만들기 | *자동* | 데이터 탐색기 Event Grid 구독, 이벤트 허브 네임스페이스 및 이벤트 허브를 만들 것인지 여부를 정의합니다. <!-- To create resources manually, see [Manually create resources for Event Grid ingestion](ingest-data-event-grid-manual.md) -->|
 
 1. 특정 주제를 추적하려면 **필터 설정** 을 선택합니다. 알림에 대한 필터를 다음과 같이 설정합니다.
     * **접두사** 필드는 제목의 *리터럴* 접두사입니다. 적용된 패턴이 *startswith* 이므로 여러 컨테이너, 폴더 또는 blob을 포함할 수 있습니다. 와일드카드는 허용되지 않습니다.
@@ -103,7 +103,7 @@ Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-expl
 1. **다음: 수집 속성** 을 선택합니다.
 
 > [!NOTE]
-> 옵션을 사용할 수 있게 되는 즉시 관리 ID를 사용하도록 스토리지 계정을 업데이트하는 것이 좋습니다.
+> 클러스터에 옵션을 사용할 수 있게 되는 즉시 관리 ID를 사용하여 스토리지 계정에 액세스하도록 데이터 연결을 업데이트하는 것이 좋습니다.
 
 #### <a name="data-connection---ingest-properties-tab"></a>데이터 연결 - 수집 속성 탭
 
@@ -134,11 +134,11 @@ Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-expl
 
 배포가 완료될 때까지 기다립니다. 배포에 실패한 경우 실패한 단계 옆에 있는 **작업 세부 정보** 를 선택하여 실패 이유에 대한 자세한 정보를 확인합니다. 리소스를 다시 배포하려면 **다시 배포** 를 선택합니다. 배포하기 전에 매개 변수를 변경할 수 있습니다.
 
-:::image type="content" source="../media/ingest-data-event-grid/deploy-event-grid-resources.png" alt-text="Event Grid 리소스를 배포 합니다.":::
+:::image type="content" source="../media/ingest-data-event-grid/deploy-event-grid-resources.png" alt-text="Event Grid 리소스를 배포합니다.":::
 
 ## <a name="generate-sample-data"></a>샘플 데이터 생성
 
-이제 데이터 탐색기와 저장소 계정이 연결 되었으므로 샘플 데이터를 만들 수 있습니다.
+이제 데이터 탐색기 스토리지 계정이 연결되면 샘플 데이터를 만들 수 있습니다.
 
 ### <a name="upload-blob-to-the-storage-container"></a>스토리지 컨테이너에 Blob 업로드
 
@@ -194,20 +194,20 @@ ADLSv2 스토리지에서 데이터를 수집하고 데이터 연결에 대한 �
 Blob 메타데이터를 통해 Blob 수집의 [수집 속성](data-explorer-ingest-event-grid-overview.md#ingestion-properties)을 지정할 수 있습니다.
 
 > [!NOTE]
-> 데이터 탐색기는 blob 사후 수집을 삭제 하지 않습니다.
+> 데이터 탐색기 Blob 사후에는 삭제되지 않습니다.
 > 3~5일 동안 Blob을 유지합니다.
 > [Azure Blob Storage 수명 주기](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)를 사용하여 Blob 삭제를 관리합니다.
 
 ## <a name="review-the-data-flow"></a>데이터 흐름 검토
 
 > [!NOTE]
-> 데이터 탐색기에는 수집 프로세스를 최적화 하기 위해 설계 된 데이터 수집에 대 한 집계 (일괄 처리) 정책이 있습니다.
+> 데이터 탐색기 수집 프로세스를 최적화하도록 설계된 데이터 수집에 대한 집계(일괄 처리) 정책이 있습니다.
 > 기본적으로 정책은 5 분으로 구성됩니다.
 > 정책은 나중에 필요에 따라 변경할 수 있습니다. 이 문서에서는 몇 분의 대기 시간이 발생할 수 있습니다.
 
-1. Azure Portal의 Event Grid에는 앱이 실행 되는 동안 활동이 급증 하는 것을 볼 수 있습니다.
+1. Azure Portal Event Grid 앱이 실행되는 동안 활동이 급증합니다.
 
-    :::image type="content" source="../media/ingest-data-event-grid/event-grid-graph.png" alt-text="Event Grid에 대 한 작업 그래프입니다.":::
+    :::image type="content" source="../media/ingest-data-event-grid/event-grid-graph.png" alt-text="Event Grid 대한 활동 그래프입니다.":::
 
 1. 현재까지 데이터베이스로 전송된 메시지의 수를 확인하려면 테스트 데이터베이스에서 다음 쿼리를 실행합니다.
 
@@ -228,11 +228,11 @@ Blob 메타데이터를 통해 Blob 수집의 [수집 속성](data-explorer-inge
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Event Grid를 다시 사용 하지 않으려는 경우에는 자동으로 만들어진 Event Grid 구독, 이벤트 허브 네임 스페이스 및 이벤트 허브를 정리 하 여 비용이 발생 하지 않도록 합니다.
+Event Grid 다시 사용하지 않으려면 비용이 발생하지 않도록 자동으로 구성된 Event Grid 구독, 이벤트 허브 네임스페이스 및 이벤트 허브를 정리합니다.
 
 1. Azure Portal에서 왼쪽 메뉴로 이동하여 **모든 리소스** 를 선택합니다.
 
-    :::image type="content" source="../media/ingest-data-event-grid/clean-up-resources-select-all-resource.png" alt-text="Event Grid 정리에 대 한 모든 리소스를 선택 합니다.":::
+    :::image type="content" source="../media/ingest-data-event-grid/clean-up-resources-select-all-resource.png" alt-text="Event Grid 정리를 위한 리소스를 Select all.":::
 
 1. Event Hub 네임스페이스를 검색하고 **삭제** 를 선택하여 삭제합니다.
 
@@ -246,9 +246,9 @@ Event Grid를 다시 사용 하지 않으려는 경우에는 자동으로 만들
 
 1. 그래프 아래에서 Event Grid 구독을 선택한 다음 **삭제** 를 선택하여 삭제합니다.
 
-    :::image type="content" source="../media/ingest-data-event-grid/delete-event-grid-subscription.png" alt-text="Event Grid 구독을 삭제 합니다.":::
+    :::image type="content" source="../media/ingest-data-event-grid/delete-event-grid-subscription.png" alt-text="Event Grid 구독을 삭제합니다.":::
 
-1. Event Grid 데이터 연결을 삭제 하려면 데이터 탐색기 클러스터로 이동 합니다. 왼쪽 메뉴에서 **데이터베이스** 를 선택합니다.
+1. Event Grid 데이터 연결을 삭제하려면 데이터 탐색기 클러스터로 이동합니다. 왼쪽 메뉴에서 **데이터베이스** 를 선택합니다.
 
 1. 데이터베이스 **TestDatabase** 를 선택합니다.
 
@@ -262,5 +262,5 @@ Event Grid를 다시 사용 하지 않으려는 경우에는 자동으로 만들
 
 ## <a name="next-steps"></a>다음 단계
 
-- [데이터 탐색기 분석](../../get-started-analyze-data-explorer.md)
-- [데이터 탐색기 풀 모니터링](../data-explorer-monitor-pools.md)
+- [Data Explorer로 분석](../../get-started-analyze-data-explorer.md)
+- [Data Explorer 풀 모니터링](../data-explorer-monitor-pools.md)

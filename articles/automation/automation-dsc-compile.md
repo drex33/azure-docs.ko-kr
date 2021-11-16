@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e0a8bc3057bc098855eb7ff65a8feeb83b7c746
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: 636bb2c91330cb147c367ca7143f988986076d73
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834825"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493536"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation State Configuration에서 DSC 구성 컴파일
 
@@ -277,7 +277,7 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작하려면 [Azure Automation State Configuration 시작](automation-dsc-getting-started.md)을 참조하세요.
+- 시작하려면 [Azure Automation State Configuration 시작하기](automation-dsc-getting-started.md)를 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.

@@ -1,6 +1,6 @@
 ---
 title: 토큰 보강 - Azure Active Directory B2C
-description: API를 사용하여 외부 소스의 클레임으로 토큰을 보강합니다.
+description: API 또는 아웃바운드 웹후크를 사용하여 외부 ID 데이터 원본의 클레임으로 토큰을 보강합니다.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -11,18 +11,18 @@ ms.date: 08/29/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8f5bf34424754106c6d86195c37d23c3c9060c1c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2b27fcb43d815a6a2567ebb11c0ea768914582eb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131008354"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440966"
 ---
 # <a name="enrich-tokens-with-claims-from-external-sources-using-api-connectors"></a>API 커넥터를 사용하여 외부 소스의 클레임으로 토큰 보강
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure AD B2C(Azure Active Directory B2C)를 사용하면 ID 개발자가 [API 커넥터](api-connectors-overview.md)를 사용하여 RESTful API와의 상호 작용을 사용자 흐름에 통합할 수 있습니다. 이 연습이 끝나면 API와 상호 작용하는 Azure AD B2C 사용자 흐름을 만들어 외부 원본의 정보로 토큰을 보강할 수 있습니다.
+Azure AD B2C(Azure Active Directory B2C)를 사용하면 ID 개발자가 [API 커넥터](api-connectors-overview.md)를 사용하여 RESTful API와의 상호 작용을 사용자 흐름에 통합할 수 있습니다. 이를 통해 개발자는 외부 ID 원본에서 데이터를 동적으로 검색할 수 있습니다. 이 연습이 끝나면 API와 상호 작용하는 Azure AD B2C 사용자 흐름을 만들어 외부 원본의 정보로 토큰을 보강할 수 있습니다.
 
 ::: zone pivot="b2c-user-flow"
 

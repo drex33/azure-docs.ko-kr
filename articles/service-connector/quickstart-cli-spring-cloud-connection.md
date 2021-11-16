@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4ee0fffb402ba3553055c732df9e0ebad94ea511
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3b269e9a8967c3a0134fbac78ac734c98e7c479b
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053262"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842571"
 ---
 # <a name="quickstart-create-a-service-connection-in-spring-cloud-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Spring Cloud에서 서비스 연결 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "131053262"
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- 이 빠른 시작에는 Azure CLI 버전 2.22.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 빠른 시작에는 Azure CLI 버전 2.30.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 - 이 빠른 시작에서는 이미 Azure에서 실행 중인 Spring Cloud 애플리케이션이 하나 이상 있다고 가정하겠습니다. Spring Cloud 애플리케이션이 없는 경우 [생성](../spring-cloud/quickstart.md)합니다.
 
@@ -32,12 +32,15 @@ ms.locfileid: "131053262"
 Azure CLI [az spring-cloud connection]() 명령을 사용하여 Spring Cloud 애플리케이션에 대한 서비스 연결을 만들고 관리할 수 있습니다. 
 
 ```azurecli-interactive
-az spring-cloud connection list-support-types
+az provider register -n Microsoft.ServiceLinker
+az spring-cloud connection list-support-types --output table
 ```
 
 ## <a name="create-a-service-connection"></a>서비스 연결 만들기
 
-Azure CLI [az spring-cloud connection]() 명령을 사용해 BLOB 스토리지에 대한 서비스 연결을 만들고 다음 정보를 제공할 수 있습니다.
+#### <a name="using-access-key"></a>[액세스 키 사용](#tab/Using-access-key)
+
+Azure CLI [az spring-cloud connection]() 명령을 사용해 BLOB 스토리지에 대한 서비스 연결과 엑세스 키를 만들고 다음 정보를 제공할 수 있습니다.
 
 - **Spring Cloud 리소스 그룹 이름:** Spring Cloud의 리소스 그룹 이름입니다.
 - **Spring Cloud 이름:** Spring Cloud의 이름입니다.
@@ -46,11 +49,33 @@ Azure CLI [az spring-cloud connection]() 명령을 사용해 BLOB 스토리지�
 - **스토리지 계정 이름:** BLOB 스토리지의 계정 이름입니다.
 
 ```azurecli-interactive
-az spring-cloud connection create storage-blob -g <spring_cloud_resource_group> --service <spring_cloud_name> --app <app_name> --deployment default --tg <storage_resource_group> --account <storage_account_name> --system-identity
+az spring-cloud connection create storage-blob --secret
 ```
 
 > [!NOTE]
-> BLOB 스토리지가 없는 경우, `az spring-cloud connection create storage-blob -g <app_service_resource_group> -n <app_service_name> --tg <storage_resource_group> --account <storage_account_name> --system-identity --new`를 실행해 새로운 스토리지를 만들어 애플리케이션 서비스에 바로 연결할 수 있습니다.
+> BLOB 스토리지가 없는 경우, `az spring-cloud connection create storage-blob --new --secret`를 실행해 새로운 스토리지를 만들어 애플리케이션 서비스에 바로 연결할 수 있습니다.
+
+#### <a name="using-managed-identity"></a>[관리 ID를 사용하는 경우](#tab/Using-Managed-Identity)
+
+> [!IMPORTANT]
+> 관리 ID를 사용하려면 [AZURE AD 역할 할당](/active-directory/managed-identities-azure-resources/howto-assign-access-portal)에 대한 권한이 있어야 합니다. 권한이 없으면 연결을 만들 수 없습니다. 구독 소유자에게 사용 권한을 요청하거나 액세스 키를 사용하여 연결을 만들 수 있습니다.
+
+Azure CLI [az spring-cloud connection]() 명령을 사용해 BLOB 스토리지에 대한 서비스 연결과 시스템이 할당한 관리 ID를 만들고 다음 정보를 제공할 수 있습니다.
+
+- **Spring Cloud 리소스 그룹 이름:** Spring Cloud의 리소스 그룹 이름입니다.
+- **Spring Cloud 이름:** Spring Cloud의 이름입니다.
+- **Spring Cloud 애플리케이션 이름:** 대상 서비스와 연결되는 Spring Cloud 애플리케이션의 이름입니다.
+- **대상 서비스 리소스 그룹 이름:** BLOB 스토리지의 리소스 그룹 이름입니다.
+- **스토리지 계정 이름:** BLOB 스토리지의 계정 이름입니다.
+
+```azurecli-interactive
+az spring-cloud connection create storage-blob --system-identity
+```
+
+> [!NOTE]
+> BLOB 스토리지가 없는 경우, `az spring-cloud connection create --system-identity --new --secret`를 실행해 새로운 스토리지를 만들어 애플리케이션 서비스에 바로 연결할 수 있습니다.
+
+---
 
 ## <a name="view-connections"></a>연결 보기
 

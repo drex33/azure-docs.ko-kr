@@ -36,6 +36,8 @@
           href: total-costs.md
         - name: 사용자별 앱 스트리밍 비용 예측
           href: streaming-costs.md
+        - name: Azure Virtual Desktop 리소스에 태그 지정
+          href: ../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Microsoft Intune을 사용하여 앱 배포
           href: /mem/intune/apps/apps-windows-10-app-deploy?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Intune 관리형 엔드포인트 클라이언트 제공

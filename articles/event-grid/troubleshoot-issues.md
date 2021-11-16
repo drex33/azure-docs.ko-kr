@@ -3,12 +3,12 @@ title: Event Grid 문제 해결
 description: 이 문서에서는 Azure Event Grid 문제를 해결하는 다양한 방법을 제공합니다.
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.openlocfilehash: ab7f106a741c2f4371e5df0f5092213af987d340
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 505f9e5b52fbf06265e37667d428edb825511564
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132370369"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488129"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Azure Event Grid 문제 해결
 이 문서에서는 Azure Event Grid 문제를 해결하는 데 도움이 되는 정보를 제공합니다. 
@@ -33,7 +33,7 @@ Azure Event Grid 메트릭 및 활동 로그 작업에 대한 경고를 만듭�
 
 ## <a name="distributed-tracing"></a>분산된 추적 
 
-Azure Event Hubs 또는 [Azure](handler-service-bus.md) [Service Bus Event Grid](handler-event-hubs.md) 구독에 엔드 투 엔드 추적을 사용하도록 설정하려면 [](delivery-properties.md) `traceparent` CloudEvent 확장 특성을 AMQP 애플리케이션 속성에 전달하도록 사용자 지정 배달 `Diagnostic-Id` 속성을 구성합니다. Event Hubs 대한 추적 배달 속성 구성이 있는 구독의 예:
+Azure Event Hubs 또는 [Azure](handler-service-bus.md) [Service Bus Event Grid](handler-event-hubs.md) 구독에 엔드 투 엔드 추적을 사용하도록 설정하려면 CloudEvent 확장 특성을 AMQP 애플리케이션 속성에 전달하도록 사용자 [지정 배달 속성을](delivery-properties.md) 구성합니다. `traceparent` `Diagnostic-Id` Event Hubs 대한 추적 배달 속성 구성이 있는 구독의 예:
 
 ```azurecli
 az eventgrid event-subscription create --name <event-grid-subscription-name> \
@@ -44,10 +44,10 @@ az eventgrid event-subscription create --name <event-grid-subscription-name> \
 ```
 
 ### <a name="net"></a>.NET
-Event Grid .NET 라이브러리는 분산 추적을 지원합니다. 분산 추적에 대한 [CloudEvents 사양 지침](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md)을 준수하기 위해 라이브러리는 분산 추적을 사용하도록 설정한 경우 `CloudEvent`의 [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126)에서 `traceparent` 및 `tracestate`를 설정합니다. 애플리케이션에서 분산 추적을 사용하도록 설정하는 방법에 대한 자세한 내용은 Azure SDK [분산 추적 설명서](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)를 참조하세요.
+Event Grid .NET 라이브러리는 분산 추적을 지원합니다. 분산 추적에 대한 [CloudEvents 사양 지침](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions/distributed-tracing.md)을 준수하기 위해 라이브러리는 분산 추적을 사용하도록 설정한 경우 `CloudEvent`의 [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126)에서 `traceparent` 및 `tracestate`를 설정합니다. 애플리케이션에서 분산 추적을 사용하도록 설정하는 방법에 대한 자세한 내용은 Azure SDK [분산 추적 설명서](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)를 참조하세요.
 
 ### <a name="java"></a>Java
-Event Grid Java 라이브러리는 기본적으로 분산 추적을 지원합니다. 분산 추적에 대한 CloudEvents 사양 [지침](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md)을 준수하기 위해 라이브러리는 분산 추적이 사용되는 경우 `CloudEvent`의 `extensionAttributes`에서 `traceparent` 및 `tracestate`를 설정합니다. 애플리케이션에서 분산 추적을 사용하도록 설정하는 방법에 대한 자세한 내용은 Azure SDK Java [분산 추적 설명서](/azure/developer/java/sdk/tracing)를 참조하세요.
+Event Grid Java 라이브러리는 기본적으로 분산 추적을 지원합니다. 분산 추적에 대한 CloudEvents 사양 [지침](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions/distributed-tracing.md)을 준수하기 위해 라이브러리는 분산 추적이 사용되는 경우 `CloudEvent`의 `extensionAttributes`에서 `traceparent` 및 `tracestate`를 설정합니다. 애플리케이션에서 분산 추적을 사용하도록 설정하는 방법에 대한 자세한 내용은 Azure SDK Java [분산 추적 설명서](/azure/developer/java/sdk/tracing)를 참조하세요.
 
 ### <a name="sample"></a>샘플
 [줄 카운터 샘플](/samples/azure/azure-sdk-for-net/line-counter/)을 참조하세요. 이 샘플 앱에서는 스토리지, Event Hubs 및 Event Grid 클라이언트를 ASP.NET Core 통합, 분산 추적 및 호스트된 서비스와 함께 사용하는 방법을 보여 줍니다. 이를 통해 사용자는 Blob에 파일을 업로드할 수 있으며 이 경우 파일 이름을 포함하는 Event Hubs 이벤트가 트리거됩니다. Event Hubs 프로세서가 이벤트를 받으면 앱은 Blob을 다운로드하고 파일의 줄 수를 계산합니다. 앱은 줄 수를 포함하는 페이지에 대한 링크를 표시합니다. 이 링크를 클릭하면 Event Grid를 사용하여 파일 이름을 포함하는 CloudEvent가 게시됩니다.

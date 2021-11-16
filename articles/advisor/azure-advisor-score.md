@@ -3,12 +3,12 @@ title: Advisor 점수를 사용하여 Azure 워크로드 최적화
 description: Azure Advisor 점수를 사용하여 Azure를 최대한 활용합니다.
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: e439e5283f2d311d9efb3b30fe157750d589664e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: fc9bcee7d19d9e8ed7b550e7298d615d397c6f8b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787926"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484710"
 ---
 # <a name="optimize-azure-workloads-by-using-advisor-score"></a>Advisor 점수를 사용하여 Azure 워크로드 최적화
 
@@ -72,7 +72,7 @@ Advisor 점수 계산은 다음 4가지 단계로 요약할 수 있습니다.
    * 오래된 권장 사항이 있는 리소스에는 더 낮은 점수가 계산됩니다.
    * Advisor에서 연기하거나 해제하는 리소스는 점수 계산에서 완전히 제거됩니다.
 
-Advisor는 이 모델을 Advisor 범주 수준에서 적용하여 각 범주에 대한 Advisor 점수를 제공합니다. **보안** 은 [보안 점수](../security-center/secure-score-security-controls.md#introduction-to-secure-score) 모델을 사용합니다. 단순 평균에서 최종 Advisor 점수를 산출합니다.
+Advisor는 이 모델을 Advisor 범주 수준에서 적용하여 각 범주에 대한 Advisor 점수를 제공합니다. **보안** 은 [보안 점수](../defender-for-cloud/secure-score-security-controls.md#introduction-to-secure-score) 모델을 사용합니다. 단순 평균에서 최종 Advisor 점수를 산출합니다.
 
 ## <a name="advisor-score-faqs"></a>Advisor 점수 FAQ
 

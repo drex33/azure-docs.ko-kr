@@ -13,15 +13,15 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/14/2021
+ms.date: 11/15/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bbdf89e9dfd7b256082d935864515b9b0228761c
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 4b8f4b2d9b86620e16064f6d005d5e538e78e863
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130046529"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492552"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -43,6 +43,10 @@ ms.locfileid: "130046529"
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
+
+> [!NOTE]
+> NC 시리즈 VM에 지원되는 최신 CUDA 드라이버는 현재 470.82.01입니다. 이후 드라이버 버전은 NC의 K80 카드에서 지원되지 않습니다. NC에 대한 이 지원 종료로 인해 사용이 업데이트되는 동안 NC 시리즈에 K80 카드용 CUDA 드라이버를 수동으로 설치하세요.
+
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

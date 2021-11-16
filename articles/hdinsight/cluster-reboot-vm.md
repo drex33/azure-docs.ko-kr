@@ -5,12 +5,12 @@ ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: f2bb1ebd6e8db80a071dc3f82e1eedded26f6116
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 8e49d85ed4646f337a492ac92be4e31edfa3b9c4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634488"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487078"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>HDInsight 클러스터의 VM 다시 부팅
 
@@ -51,13 +51,13 @@ Azure HDInsight 클러스터는 VM(가상 머신) 그룹을 클러스터 노드�
 
 API 문서의 **체험해 보기** 기능을 사용하여 HDInsight에 요청을 보낼 수 있습니다. 노드 다시 부팅 작업을 사용하려면 노드 나열 및 노드 다시 시작의 두 단계가 필요합니다.
 
-1. 노드를 나열합니다. REST API 또는 Ambari에서 클러스터 노드 목록을 가져올 수 있습니다. 자세한 내용은 [HDInsight 호스트 나열 REST API 작업](/rest/api/hdinsight/virtualmachines/listhosts)을 참조하세요.
+1. 노드를 나열합니다. REST API 또는 Ambari에서 클러스터 노드 목록을 가져올 수 있습니다. 자세한 내용은 [HDInsight 호스트 나열 REST API 작업](/rest/api/hdinsight/2021-06-01/virtual-machines/list-hosts)을 참조하세요.
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. 호스트를 다시 시작합니다. 다시 부팅하려는 노드의 이름을 확인한 후 REST API를 사용하여 노드를 다시 부팅함으로써 노드를 다시 시작합니다. 노드 이름은 *NodeType(wn/hn/zk)*  + *x* + *클러스터 이름의 처음 여섯 글자* 패턴을 따릅니다. 자세한 내용은 [HDInsight 호스트 다시 시작 REST API 작업](/rest/api/hdinsight/virtualmachines/restarthosts)을 참조하세요.
+1. 호스트를 다시 시작합니다. 다시 부팅하려는 노드의 이름을 확인한 후 REST API를 사용하여 노드를 다시 부팅함으로써 노드를 다시 시작합니다. 노드 이름은 *NodeType(wn/hn/zk)*  + *x* + *클러스터 이름의 처음 여섯 글자* 패턴을 따릅니다. 자세한 내용은 [HDInsight 호스트 다시 시작 REST API 작업](/rest/api/hdinsight/2021-06-01/virtual-machines/restart-hosts)을 참조하세요.
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -75,5 +75,5 @@ API 문서의 **체험해 보기** 기능을 사용하여 HDInsight에 요청을
 ## <a name="next-steps"></a>다음 단계
 
 * [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
-* [HDInsight 가상 머신 REST API](/rest/api/hdinsight/virtualmachines)
+* [HDInsight 가상 머신 REST API](/rest/api/hdinsight/2021-06-01/virtual-machines)
 * [HDInsight REST API](/rest/api/hdinsight/)

@@ -1,24 +1,25 @@
 ---
-title: 엔터프라이즈 애플리케이션 소유자 할당 - Azure AD | Microsoft Docs
+title: 엔터프라이즈 애플리케이션 소유자 할당
+titleSuffix: Azure AD
 description: Azure Active Directory 애플리케이션에 소유자 할당
 services: active-directory
 documentationcenter: ''
-author: davidmu1
+author: saipradeepb23
 manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.date: 08/03/2021
-ms.author: davidmu
-ms.openlocfilehash: 18649f5c597be73e9f14abf00a2df584c56df5d4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.author: saibandaru
+ms.openlocfilehash: f08b2c40e5a81804274472a31150c1f0f3187d9e
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539315"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659244"
 ---
-# <a name="assign-enterprise-application-owners"></a>엔터프라이즈 애플리케이션 소유자 할당
+# <a name="assign-enterprise-application-owners-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 애플리케이션 소유자 할당
 
 소유자 할당은 특정 애플리케이션 등록 또는 엔터프라이즈 애플리케이션에 대한 Azure AD 구성의 모든 측면을 관리하는 기능을 부여하는 간단한 방법입니다. 소유자인 사용자는 Single Sign-On 구성, 프로비저닝, 사용자 할당과 같은 엔터프라이즈 애플리케이션의 조직 특정 구성을 관리할 수 있습니다. 소유자는 다른 소유자를 추가하거나 제거할 수도 있습니다. 전역 관리자와 달리, 소유자는 자신이 소유한 엔터프라이즈 애플리케이션만 관리할 수 있습니다.
 

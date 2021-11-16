@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: dc878b0f1a843d8212cd6541338510f8eff4b56c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 5c204a07a0457852d2faefacdd77740f147b9d88
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714931"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225994"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기
 
@@ -78,7 +78,7 @@ IoT Edge 디바이스의 계층 구조를 만들려면 다음이 필요합니다
 
    가상 머신은 사용자를 인증하는 데 SSH 키를 사용합니다. SSH 키를 만들고 사용하는 방법을 잘 모르는 경우 [Azure의 Linux VM용 SSH 공개-프라이빗 키 쌍에 대한 지침](../virtual-machines/linux/mac-create-ssh-keys.md)을 따를 수 있습니다.
 
-   이 ARM 템플릿에는 IoT Edge 버전 1.2가 미리 설치되어 있으므로 가상 머신에 수동으로 자산을 설치할 필요가 없습니다. 사용자 고유의 디바이스에 IoT Edge를 설치하는 경우 [Linux용 Azure IoT Edge 설치(버전 1.2)](how-to-install-iot-edge.md) 또는 [IoT Edge를 버전 1.2로 업데이트](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)를 참조하세요.
+   이 ARM 템플릿에는 IoT Edge 버전 1.2가 미리 설치되어 있으므로 가상 머신에 수동으로 자산을 설치할 필요가 없습니다. 사용자 고유의 디바이스에 IoT Edge를 설치하는 경우 [Linux용 Azure IoT Edge 설치(버전 1.2)](how-to-provision-single-device-linux-symmetric.md) 또는 [IoT Edge를 버전 1.2로 업데이트](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)를 참조하세요.
 
    이 ARM 템플릿을 사용하여 가상 머신을 성공적으로 만들면 가상 머신의 `SSH` 핸들과 정규화된 도메인 이름(`FQDN`)이 출력됩니다. 이후 단계에서 구성 시 각 가상 머신의 SSH 핸들과 FQDN 또는 IP 주소를 사용하므로 이 정보를 기록해 두세요. 샘플 출력은 아래 그림과 같습니다.
 
@@ -151,7 +151,7 @@ IoT Edge 디바이스의 계층 구조를 만들고 구성하려면 `iotedge-con
 
    프로덕션 시나리오의 경우 **edgedevices** 섹션에서 원하는 구조를 반영하도록 계층 트리를 편집할 수 있습니다. 이 자습서에서는 기본 트리를 유지합니다. 각 디바이스에는 디바이스 이름을 지정할 수 있는 `device_id` 필드가 있습니다. 또한 해당 디바이스의 배포 JSON 경로를 지정하는 `deployment` 필드도 있습니다.
 
-   Azure Portal 또는 Azure Cloud Shell을 통해 IoT Hub에 IoT Edge 디바이스를 수동으로 등록할 수도 있습니다. 방법을 알아보려면 [IoT Edge 디바이스 등록 방법에 대한 가이드](how-to-register-device.md)를 참조하세요.
+   Azure Portal, Azure Cloud Shell 또는 Visual Studio Code를 통해 IoT Hub에 IoT Edge 디바이스를 수동으로 등록할 수도 있습니다. 방법을 알아보려면 [Linux IoT Edge 디바이스를 수동으로 프로비저닝하는 방법에 대한 엔드투엔드 가이드의 시작](how-to-provision-single-device-linux-symmetric.md#register-your-device)을 참조하세요.
 
    부모-자식 관계도 수동으로 정의할 수 있습니다. 자세히 알아보려면 방법 가이드의 [게이트웨이 계층 구조 만들기](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) 섹션을 참조하세요.
 

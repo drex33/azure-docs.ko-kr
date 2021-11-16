@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
 ms.date: 07/27/2021
-ms.openlocfilehash: 732d7ee085fdb7ff91ffe4e90ce8d996b9299b6c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b6c80fca815523cdf4ec61d7e66417999fed5d91
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073038"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484129"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
@@ -438,7 +438,7 @@ Zeppelin이 문자열 형식의 테이블 출력에서 선행 0을 잘못 자르
 이제 HDInsight는 Azure 가상 머신을 사용하여 클러스터를 프로비저닝합니다. 이 릴리스부터, 새로 만든 HDInsight 클러스터는 Azure Virtual Machine Scale Sets를 사용합니다. 변경 내용은 점진적으로 롤아웃됩니다. 호환성이 손상되는 변경 내용은 없을 것으로 예상됩니다. [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)에 대한 자세한 정보를 알아봅니다.
  
 #### <a name="reboot-vms-in-hdinsight-cluster"></a>HDInsight 클러스터에서 VM 재부팅
-이 릴리스에서는 응답이 없는 노드를 재부팅하기 위해 HDInsight 클러스터의 VM을 재부팅하는 기능을 지원합니다. 현재는 API를 통해서만 이 작업을 수행할 수 있으며, PowerShell 및 CLI 지원은 추가하는 중입니다. API에 대한 자세한 내용은 [이 문서](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json)를 참조하세요.
+이 릴리스에서는 응답이 없는 노드를 재부팅하기 위해 HDInsight 클러스터의 VM을 재부팅하는 기능을 지원합니다. 현재는 API를 통해서만 이 작업을 수행할 수 있으며, PowerShell 및 CLI 지원은 추가하는 중입니다. API에 대한 자세한 내용은 [이 문서](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2021-06-01/virtualMachines.json)를 참조하세요.
  
 ### <a name="deprecation"></a>사용 중단
 #### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터의 Spark 2.1 및 2.2 사용 중단

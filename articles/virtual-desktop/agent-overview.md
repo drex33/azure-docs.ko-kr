@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 61716993bc4c9f3da4ad606789f050a280a94817
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: ae07694e72f910945fbb213a448bfd910fef9786
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754651"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132483864"
 ---
 # <a name="get-started-with-the-azure-virtual-desktop-agent"></a>Azure Virtual Desktop 에이전트 시작
 
@@ -42,7 +42,7 @@ Azure Virtual Desktop 서비스는 업데이트를 사용할 수 있을 때마�
 - 에이전트 업데이트가 Azure Virtual Desktop 인프라 빌드 업데이트에 연결되지 않았습니다. Azure Virtual Desktop 인프라가 업데이트되는 경우 에이전트가 함께 업데이트되었다는 의미는 아닙니다.
 - 호스트 풀의 VM은 서로 다른 시간에 에이전트 업데이트를 수신할 수 있으므로, 플라이팅 문제와 실패한 에이전트 업데이트 간의 차이점을 알 수 있어야 합니다. **이벤트 뷰어**  >  **Windows 로그** > **애플리케이션** 에서 VM에 대한 이벤트 로그로 이동하여 "ID 3277" 레이블이 지정된 이벤트가 있으면 에이전트 업데이트가 작동하지 않았음을 의미합니다. 해당 이벤트가 표시되지 않으면 VM이 다른 플라이트에 있으며 나중에 업데이트 됩니다.
 - Geneva 모니터링 에이전트가 최신 버전으로 업데이트되면 새 모니터링 에이전트에 대한 새 작업을 만들기 전에 이전 GenevaTask 작업을 찾아 사용하지 않도록 설정합니다. 최신 버전의 모니터링 에이전트에 문제가 있어 해결하려면 이전 버전으로 되돌려야 하는 경우 이전 버전의 모니터링 에이전트가 삭제되지 않습니다. 최신 버전에 문제가 있는 경우 모니터링 데이터를 계속 전달하기 위해 이전 모니터링 에이전트가 다시 사용하도록 설정됩니다. 업데이트 전에 마지막으로 설치한 모니터보다 이전 버전의 모든 모니터는 VM에서 삭제됩니다.
-- VM은 한 번에 세 가지 버전의 병렬 스택을 유지합니다. 이렇게 하면 업데이트에 문제가 발생할 경우 빠른 복구를 수행할 수 있습니다. 스택의 가장 빠른 버전은 스택이 업데이트 될 때마다 VM에서 제거됩니다.
+- VM은 한 번에 세 가지 버전의 에이전트와 side-by-side 스택을 유지합니다. 이렇게 하면 업데이트에 문제가 발생할 경우 빠른 복구를 수행할 수 있습니다. 에이전트 또는 스택이 업데이트될 때마다 가장 오래된 버전의 에이전트 또는 스택이 VM에서 제거됩니다. 이러한 구성 요소를 조기에 삭제하고 에이전트 또는 스택에 오류가 발생하면 에이전트 또는 스택이 이전 버전으로 롤백할 수 없어 VM을 사용할 수 없는 상태가 됩니다.
 
 에이전트 업데이트는 일반적으로 새 VM에서 2-3분 동안 지속되며 VM의 연결이 끊어지거나 종료되어서는 안 됩니다. 이 업데이트 프로세스는 Azure Virtual Desktop(클래식) 및 Azure Resource Manager를 사용하는 최신 버전의 Azure Virtual Desktop에 적용됩니다.
 

@@ -3,22 +3,22 @@ title: Facebook 계정으로 가입 및 로그인 설정
 titleSuffix: Azure AD B2C
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Facebook 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 329a8340bdb7353553866e2f4182f6df2c60ccce
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: d9fb37bd05c6cddf1509d40433783692864e588d
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001307"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137833"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
@@ -42,7 +42,7 @@ Facebook 계정이 없는 경우 [https://www.facebook.com](https://www.facebook
 
 1. Facebook 개발자 계정 자격 증명으로 [개발자용 Facebook](https://developers.facebook.com/apps)에 로그인합니다.
 1. **앱 만들기** 를 선택합니다.
-1. **앱 유형 선택** 에서 **소비자** 를 선택한 다음, **계속** 을 선택합니다.
+1. **앱 유형 선택** 에서 **소비자** 를 선택한 후, **다음** 을 선택합니다.
 1. **앱 표시 이름** 및 유효한 **앱 연락처 이메일** 을 입력합니다.
 1. **앱 만들기** 를 선택합니다. 이 단계에서는 Facebook 플랫폼 정책을 수용하고 온라인 보안 검사를 완료해야 합니다.
 1. **설정** > **기본** 을 선택합니다.
@@ -55,7 +55,7 @@ Facebook 계정이 없는 경우 [https://www.facebook.com](https://www.facebook
 1. 페이지의 맨 아래에서 **플랫폼 추가** 를 선택한 후 **웹 사이트** 를 선택합니다.
 1. **사이트 URL** 에 웹 사이트 주소를 입력합니다(예: `https://contoso.com`). 
 1. **변경 내용 저장** 을 선택합니다.
-1. 메뉴에서 **제품** 옆에 있는 **더하기** 기호를 선택합니다. **앱에 제품 추가** 에서 **Facebook 로그인** 아래의 **설정** 을 선택합니다.
+1. 메뉴에서 **제품** 옆에 있는 **더하기** 기호 또는 **제품 추가** 링크를 선택합니다. **앱에 제품 추가** 에서 **Facebook 로그인** 아래의 **설정** 을 선택합니다.
 1. 메뉴에서 **Facebook 로그인** 을 선택하고 **설정** 을 선택합니다.
 1. **유효한 OAuth 리디렉션 URI** 에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용하는 경우 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로, `your-domain-name`을 사용자 지정 도메인으로 바꿉니다. 
 1. 페이지 아래쪽에 있는 **변경 내용 저장** 을 선택합니다.
@@ -66,7 +66,8 @@ Facebook 계정이 없는 경우 [https://www.facebook.com](https://www.facebook
 ## <a name="configure-facebook-as-an-identity-provider"></a>Facebook을 ID 공급자로 구성
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **ID 공급자** 를 선택한 다음, **Facebook** 을 선택합니다.
 1. **이름** 을 입력합니다. 예를 들어 *Facebook* 입니다.
@@ -83,7 +84,7 @@ Facebook 계정이 없는 경우 [https://www.facebook.com](https://www.facebook
 1. **소셜 ID 공급자** 에서 **Facebook** 을 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 가입 또는 로그인 페이지에서 **Facebook** 을 선택하여 Facebook 계정으로 로그인합니다.
 
@@ -99,15 +100,16 @@ Facebook 계정이 없는 경우 [https://www.facebook.com](https://www.facebook
 이전에 Azure AD B2C 테넌트에서 기록했던 앱 비밀을 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-4. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
-5. **정책 키**, **추가** 를 차례로 선택합니다.
-6. **옵션** 으로는 `Manual`을 선택합니다.
-7. 정책 키의 **이름** 을 입력합니다. 예들 들어 `FacebookSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-8. 이전에 기록해 두었던 앱 비밀을 **비밀** 에 입력합니다.
-9. **키 사용** 에서 `Signature`를 선택합니다.
-10. **만들기** 를 클릭합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 으로는 `Manual`을 선택합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `FacebookSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 이전에 기록해 두었던 앱 비밀을 **비밀** 에 입력합니다.
+1. **키 사용** 에서 `Signature`를 선택합니다.
+1. **만들기** 를 클릭합니다.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Facebook 계정을 ID 공급자로 구성
 

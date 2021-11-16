@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.custom: contperf-fy22q2
-ms.openlocfilehash: 69c44e8fe4ff1eeb77ce2efc1cf9ac11158d82ee
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 80a9701fb4d7ac3f93d7ba9c35cba2cc34dc7416
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811355"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258547"
 ---
 # <a name="get-started-with-azure-service-bus-queues-net"></a>Azure Service Bus 큐 시작(.NET)
 이 빠른 시작에서는 다음 단계를 수행합니다.
@@ -450,7 +450,7 @@ ms.locfileid: "129811355"
 1. 포털을 다시 확인합니다. **활성** 메시지로 `0`이 표시되지 않으면 몇 분 정도 기다렸다가 페이지를 새로 고칩니다. 
 
     - **활성** 메시지 수 및 **현재 크기** 값은 이제 **0** 입니다.
-    - 아래쪽 **메트릭** 섹션의 **메시지** 차트에서 해당 큐에 대해 8개의 들어오는 메시지와 8개의 나가는 메시지가 있음을 확인할 수 있습니다. 
+    - 아래쪽 **메트릭** 섹션의 **메시지** 차트에서 해당 큐에 대해 3개의 들어오는 메시지와 3개의 나가는 메시지가 있음을 확인할 수 있습니다. 
     
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="받은 후의 활성 메시지 수 및 크기" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
 

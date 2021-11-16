@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Azure DevTest Labs 설명서
-summary: Azure DevTest Labs 서비스를 사용하여 클라우드에서 팀 또는 학생을 위한 개발, 테스트, 해커톤 또는 클래스룸 랩을 빠르게 설정합니다.
+summary: Azure DevTest Labs를 사용하여 클라우드에서 팀 또는 학생을 위한 개발, 테스트, 해커톤 또는 클래스룸 랩을 빠르게 설정합니다.
 metadata:
   title: Azure DevTest Labs 설명서
-  description: Azure DevTest Labs를 사용하여 클라우드에서 팀 또는 학생을 위한 개발, 테스트, 해커톤 또는 클래스룸 랩을 빠르게 설정합니다.
+  description: Azure DevTest Labs를 사용하여 클라우드에서 랩을 빠르게 설정합니다. 팀이나 학생을 위한 개발, 테스트, 해커톤 또는 강의실 랩을 만듭니다.
   services: devtest-lab
   ms.service: devtest-lab
   ms.subservice: 
@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 08/26/2021
-  ms.openlocfilehash: d0cccbafdaf0fbe568add69ba17e53d985230652
-  ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+  ms.openlocfilehash: 8639ccea3b6668e452dada75b8f52edcbce09c86
+  ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/21/2021
-  ms.locfileid: "122633988"
+  ms.lasthandoff: 11/12/2021
+  ms.locfileid: "132398690"
 landingContent:
 - title: 시작하기
   linkLists:

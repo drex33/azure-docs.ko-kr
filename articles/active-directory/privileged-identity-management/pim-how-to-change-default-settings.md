@@ -4,26 +4,27 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 역할 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f843aebfea4e7c5b956d5e150c4e54dffa764a5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 75624f84aa55c00bcdeab26505fa4f803d8a4f1f
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536858"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668507"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
-권한 있는 역할 관리자는 적격 역할 할당을 활성화한 사용자의 환경을 변경하는 등, 해당 Azure Active Directory(Azure AD) 조직에서 PIM(Privileged Identity Management)을 사용자 지정할 수 있습니다.
+권한 있는 역할 관리자는 적격 역할 할당을 활성화한 사용자의 환경을 변경하는 등, 해당 Azure Active Directory(Azure AD) 조직에서 PIM(Privileged Identity Management)을 사용자 지정할 수 있습니다. 알림을 트리거하는 PIM 이벤트와 이를 수신하는 관리자에 대한 자세한 내용은 [Privileged Identity Management의 메일 알림](pim-email-notifications.md#notifications-for-azure-ad-roles)을 참조하세요.
 
 ## <a name="open-role-settings"></a>역할 설정 열기
 
@@ -78,9 +79,9 @@ Privileged Identity Management은 활성화 및 활성 할당 시 Azure AD Multi
 
 ### <a name="on-active-assignment"></a>활성 할당 시
 
-사용자를 단기간(예: 하루) 동안 역할에 할당하려는 경우가 있습니다. 이 경우 할당된 사용자가 활성화를 요청할 필요가 없습니다. 이 시나리오에서는 사용자가 할당된 순간부터 역할에서 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 사용할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
+이 옵션을 사용하려면 관리자가 적격 역할 할당이 아닌 활성 역할을 만들기 전에 다단계 인증을 완료해야 합니다. 사용자가 할당된 순간부터 역할에서 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 사용할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
 
-할당이 활성화될 때 다단계 인증을 요구하려면 **역할 편집 설정** 의 할당 탭에서 **활성 할당에 Multi-Factor Authentication 필요** 옵션을 선택합니다.
+활성 역할 할당을 만들 때 다단계 인증을 요구하려면 **역할 편집 설정** 의 할당 탭에서 **활성 할당에 Multi-Factor Authentication 필요** 옵션을 선택합니다.
 
 자세한 내용은 [Multi-Factor Authentication 및 Privileged Identity Management](pim-how-to-require-mfa.md)를 참조하세요.
 
@@ -94,7 +95,7 @@ Privileged Identity Management은 활성화 및 활성 할당 시 Azure AD Multi
 
 ## <a name="require-approval-to-activate"></a>활성화할 승인 필요
 
-여러 승인자를 설정하는 경우 승인자 중 한 명이 승인되거나 거부되는 즉시 승인이 완료됩니다. 두 명 이상의 사용자 승인이 필요하지 않습니다. 역할을 활성화하기 위해 승인을 요구하려는 경우 다음 단계를 따릅니다.
+여러 승인자를 설정하는 경우 승인자 중 한 명이 승인되거나 거부되는 즉시 승인이 완료됩니다. 두 번째 또는 후속 승인자가 강제로 승인하도록 할 수 없습니다. 역할을 활성화하기 위해 승인을 요구하려는 경우 다음 단계를 따릅니다.
 
 1. **활성화하려면 승인 필요** 확인란을 선택합니다.
 
@@ -102,11 +103,9 @@ Privileged Identity Management은 활성화 및 활성 할당 시 Azure AD Multi
 
     ![승인자를 선택할 사용자 또는 그룹 창 선택](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. 사용자를 하나 이상 선택한 다음 **선택** 을 클릭합니다. 하나 이상의 승인자를 선택합니다. 특정 승인자를 선택하지 않으면 권한 있는 역할 관리자/전역 관리자가 기본 승인자가 됩니다.
+1. 사용자를 하나 이상 선택한 다음 **선택** 을 클릭합니다. 하나 이상의 승인자를 선택합니다. 특정 승인자를 선택하지 않으면 권한 있는 역할 관리자 및 전역 관리자가 기본 승인자가 됩니다.
 
-    선택한 항목이 선택한 승인자 목록에 표시됩니다.
-
-1. 모든 역할 설정을 지정한 후 **업데이트** 를 선택하여 변경 내용을 저장합니다.
+1. **업데이트** 를 선택하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,24 +4,25 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
-editor: markwahl-msft
+manager: KarenH444
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 10/19/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f0d22fc540aae448a3da731b709a3b4ea13a69d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87b8fb2eb7f6301762fcba9931dfd9da6c54b679
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84742236"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253679"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당 확장 또는 갱신
 
@@ -43,11 +44,14 @@ Privileged Identity Management에서 관리자와 영향을 받는 역할의 사
 
 ### <a name="self-extend-expiring-assignments"></a>만료되는 할당 자체 연장
 
-역할에 할당된 사용자 또는 그룹은 리소스의 **내 역할** 페이지의 **적격** 또는 **활성** 탭과 Privileged Identity Management 포털의 상위 수준 **내 역할** 페이지에서 만료되는 역할 할당을 직접 연장할 수 있습니다. 사용자 또는 그룹은 14일 후 만료되는 적격 및 활성 할당 역할을 연장하도록 요청할 수 있습니다.
+역할에 할당된 사용자는 리소스의 **내 역할** 페이지에 있는 **적격** 또는 **활성** 탭 또는 Privileged Identity Management 포털의 최상위 수준 **내 역할** 페이지에서 만료되는 역할 할당을 직접 연장할 수 있습니다. 포털에서 사용자는 앞으로 14일 이내에 만료될 적격 및 활성(할당됨) 역할을 연장하도록 요청할 수 있습니다.
 
 ![Azure 리소스 - 작업 열이 있는 적격 역할을 나열하는 내 역할 페이지](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 
-할당 종료 날짜-시간이 14일 이내이면 **연장** 단추가 사용자 인터페이스에서 활성 링크가 됩니다. 다음 예제에서는 현재 날짜가 3월 27일이라고 가정합니다.
+할당 종료 날짜-시간이 14일 이내이면 **연장** 에 대한 링크가 Azure Portal에서 활성화됩니다. 다음 예제에서는 현재 날짜가 3월 27일이라고 가정합니다.
+
+>[!Note]
+>역할에 할당된 그룹의 경우 상속된 할당이 있는 사용자가 그룹 할당을 확장할 수 없도록 **확장** 링크를 사용할 수 없게 됩니다.
 
 ![활성화 또는 연장 링크를 포함하는 작업 열](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
 

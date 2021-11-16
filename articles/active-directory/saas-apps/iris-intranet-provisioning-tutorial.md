@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: thwimmer
-ms.openlocfilehash: b03e173dca962b1758670f37bb9a463d16fcc875
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 60017b92ad9afc007775e205f56d269f8050d918
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122207709"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424259"
 ---
 # <a name="tutorial-configure-iris-intranet-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위해 Iris Intranet 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "122207709"
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-* Iris Intranet 테넌트.
+* Iris Intranet 테넌트
 * 관리자 권한이 있는 Iris Intranet의 사용자 계정.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획

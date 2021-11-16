@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: baselden
 ms.custom: references_regions
-ms.openlocfilehash: 0bc7f6a01dc2e537e91f162ba76eb6e505518747
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 984b680c207c8c7e6bf404a7ced08f2fdcfd7b71
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529150"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984443"
 ---
 # <a name="plan-your-azure-active-directory-verifiable-credentials--verification-solution-preview"></a>Azure Active Directory 확인 가능한 자격 증명 확인 솔루션 계획(미리 보기)
 

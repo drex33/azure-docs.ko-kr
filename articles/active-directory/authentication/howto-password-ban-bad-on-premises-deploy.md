@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81e40a295d9572fb38a1289d4bdf661095b9ca7a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2bb017cd4532d4739b563d4a22a50a731268407f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449126"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759722"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -95,6 +95,9 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어의 설계는 고가용성
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
+
+> [!NOTE]
+> CRL 엔드포인트와 같은 일부 엔드포인트는 이 문서에서 다루지 않습니다. 지원되는 모든 엔드포인트 목록은 [Microsoft 365 URL 및 IP 주소 범위](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)를 참조하세요.
 
 ### <a name="azure-ad-password-protection-dc-agent"></a>Azure AD 암호 보호 DC 에이전트
 

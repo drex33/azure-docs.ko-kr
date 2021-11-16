@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
-ms.openlocfilehash: a782d94b40be7fb07009f46cc69883cc529d91c6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 9bd77230e742f4874fde81fa0ab1e4c1a83ba6d5
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081517"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488794"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -21,7 +21,10 @@ ms.locfileid: "110081517"
 
 Microsoft는 Windows용 Powershell DSC 확장을 게시하고 지원합니다. 확장은 PowerShell DSC 구성을 Azure VM에 업로드하고 적용합니다. DSC 확장은 PowerShell DSC를 호출하여 VM에서 받은 DSC 구성을 적용합니다. 이 문서에서는 Windows용 DSC 가상 머신 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> DSC 확장을 사용 하도록 설정 하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있다는 것을 알고 Azure Policy [게스트 구성](../../governance/policy/concepts/guest-configuration.md)이라는 기능을 통해 관리 합니다. 게스트 구성 기능은 Desired State Configuration (DSC) 확장 처리기의 기능, Azure Automation 상태 구성 및 가장 일반적으로 요청 되는 기능을 고객 피드백에서 결합 합니다. 게스트 구성에는 [Arc 사용 서버](../../azure-arc/servers/overview.md)를 통한 하이브리드 컴퓨터 지원 기능도 포함 되어 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: eur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 50a046682b8c7c04a8dd11534583c6bb4666432a
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 8b831d1e6c945528b917d7a0b21955e33be52f6d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509241"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484328"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>C#용 Speech SDK를 사용하여 음성에서 의도를 인식하는 방법
 
@@ -158,14 +158,14 @@ recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 
 ## <a name="start-recognition"></a>인식 시작
 
-인식기를 만들고 의도를 추가했으니, 이제 인식을 시작할 수 있습니다. Speech SDK는 1단계 인식과 연속 인식을 모두 지원합니다.
+인식기를 만들고 의도를 추가했으니, 이제 인식을 시작할 수 있습니다. Speech SDK는 시작 및 연속 인식을 모두 지원 합니다.
 
 | 인식 모드 | 호출 방법 | 결과 |
 | ---------------- | --------------- | ------ |
-| 1단계 | `RecognizeOnceAsync()` | 한 번의 발언 후에 의도를 인식하고, 인식된 의도가 있으면 반환합니다. |
+| 시작 | `RecognizeOnceAsync()` | 한 번의 발언 후에 의도를 인식하고, 인식된 의도가 있으면 반환합니다. |
 | 계속 | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | 여러 발언를 인식합니다. 결과를 사용할 수 있는 경우 이벤트(예: `IntermediateResultReceived`)를 내보냅니다. |
 
-애플리케이션은 1단계 모드를 사용하므로 `RecognizeOnceAsync()`를 호출하여 인식을 시작합니다. 결과는 인식된 의도에 대한 정보를 포함하는 `IntentRecognitionResult` 개체입니다. LUIS JSON 응답은 다음 식을 사용하여 추출됩니다.
+응용 프로그램은 시작 모드를 사용 하 여 `RecognizeOnceAsync()` 인식을 시작 합니다. 결과는 인식된 의도에 대한 정보를 포함하는 `IntentRecognitionResult` 개체입니다. LUIS JSON 응답은 다음 식을 사용하여 추출됩니다.
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)

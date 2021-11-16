@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/28/2021
 ms.custom: template-concept
-ms.openlocfilehash: 866ca9439b5fc06f1e869cef6eef4c4adf979558
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 9f6493b2011a06a56f64e47711756b1172300885
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064453"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490272"
 ---
 # <a name="historical-query-storage-and-analysis-in-azure-synapse-analytics"></a>Azure Synapse Analytics 기록 쿼리 스토리지 및 분석
 
@@ -23,7 +23,7 @@ ms.locfileid: "132064453"
 
 | **고객 필요** |  **쿼리 저장소** |  **DMV**    | **Azure Log Analytics** | **Azure Data Explorer** |
 |------------- | --- | ----- | ------------- |-------------------|
-|**첫 번째 솔루션** | 사용하도록 설정해야 합니다. | :heavy_check_mark: | 추가 서비스 필요 |    추가 서비스 필요|
+|**첫 번째 솔루션** | 사용하도록 설정해야 합니다. | :heavy_check_mark: | 더하기 서비스 필요 |    더하기 서비스 필요|
 |**더 긴 분석 기간** | 30일 |    최대 10000개의 기록 행     | 사용자 지정 가능 | 사용자 지정 가능|
 |**중요한 메트릭 가용성** |    제한됨    | :heavy_check_mark: |    제한됨    | 사용자 지정 가능|
 |**분석에 SQL 사용** | :heavy_check_mark: | :heavy_check_mark:| KQL 필요 | SQL 지원이 제한됩니다.|
@@ -40,14 +40,14 @@ ALTER DATABASE <database_name>
 SET QUERY_STORE = ON;
 ```
 
-예를 들어:
+예:
 
 ```sql
 ALTER DATABASE [SQLPOOL1]
 SET QUERY_STORE = ON;
 ```
 
-마지막으로 실행된 쿼리, 실행 횟수, 가장 오래 실행되는 쿼리, 최대 물리적 I/O 리드가 있는 쿼리를 찾아 성능 감사 및 문제 해결 관련 작업을 실행할 수 있습니다. 샘플 쿼리는 [쿼리 저장소 사용하여 성능 모니터링을](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#performance) 참조하세요.
+마지막으로 실행된 쿼리, 실행 횟수, 가장 오래 실행되는 쿼리, 최대 물리적 I/O 잠재 고객을 가진 쿼리를 찾아 성능 감사 및 문제 해결 관련 작업을 실행할 수 있습니다. 샘플 쿼리는 [쿼리 저장소 사용하여 성능 모니터링을](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#performance) 참조하세요.
 
 장점
 * 스토리지 쿼리 데이터에 대한 30일 임계값입니다.
@@ -58,7 +58,7 @@ SET QUERY_STORE = ON;
 
 ## <a name="dmvs"></a>DMV
 
-DMV(동적 관리 뷰)는 쿼리 대기 시간, 실행 계획, 메모리 등에 대한 정보를 수집하는 데 매우 유용합니다. 나중에 추적하려면 관심 있는 쿼리에 레이블을 지정하는 것이 좋습니다. 예를 들어:
+DMV(동적 관리 뷰)는 쿼리 대기 시간, 실행 계획, 메모리 등에 대한 정보를 수집하는 데 매우 유용합니다. 나중에 추적하려면 관심 있는 쿼리에 레이블을 지정하는 것이 좋습니다. 예:
 
 ```sql
 -- Query with Label
@@ -82,7 +82,7 @@ DMV를 사용하여 Azure Synapse Analytics 워크로드를 모니터링하는 �
 ## <a name="log-analytics"></a>Log Analytics
 Log Analytics 작업 영역은 Azure Portal 쉽게 만들 수 있습니다. Log Analytics와 Synapse를 연결하는 방법에 대한 자세한 내용은 [워크로드 모니터링 - Azure Portal.](../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md)
 
-Azure Data Explorer 마찬가지로 Log Analytics는 KQL(Kusto 쿼리 언어)을 사용합니다. Kusto 구문에 대한 자세한 내용은 [Kusto 쿼리 개요 를](/data-explorer/kusto/query/index.md)참조하세요. 
+Azure Data Explorer 마찬가지로 Log Analytics는 KQL(Kusto 쿼리 언어)을 사용합니다. Kusto 구문에 대한 자세한 내용은 [Kusto 쿼리 개요를 참조하세요.](/azure/data-explorer/kusto/query/) 
 
 구성 가능한 보존 기간과 함께 Log Analytics에서 쿼리하도록 특별히 대상으로 하는 작업 영역을 선택합니다. Log Analytics는 데이터를 저장하고 쿼리를 실행하고 저장할 수 있는 유연성을 제공합니다.
 
@@ -95,7 +95,7 @@ Azure Data Explorer 마찬가지로 Log Analytics는 KQL(Kusto 쿼리 언어)을
 
 ## <a name="azure-data-explorer-adx"></a>Azure Data Explorer(ADX)
 
-ADX(Azure Data Explorer)는 최고의 데이터 탐색 서비스입니다. 이 서비스는 Azure Synapse Analytics 기록 쿼리를 분석하는 데 사용할 수 있습니다. ADX에 로그를 복사하고 저장하는 ADF(Azure Data Factory) 파이프라인을 설정하려면 [Azure Data Explorer 데이터 복사를](/data-factory/connector-azure-data-explorer.md)참조하세요. ADX에서 Kusto 쿼리를 실행하여 로그를 분석할 수 있습니다. 여기에서 다른 전략을 결합하여 ADF를 통해 DMV 출력을 쿼리하고 ADX에 로드할 수 있습니다.
+ADX(Azure Data Explorer)는 최고의 데이터 탐색 서비스입니다. 이 서비스는 Azure Synapse Analytics 기록 쿼리를 분석하는 데 사용할 수 있습니다. ADX에 로그를 복사하고 저장하는 ADF(Azure Data Factory) 파이프라인을 설정하려면 [Azure Data Explorer 데이터 복사를](/azure/data-factory/connector-azure-data-explorer)참조하세요. ADX에서는 로그를 분석하기 위해 Kusto 쿼리를 실행할 수 있습니다. 여기에서 다른 전략을 결합하여 ADF를 통해 DMV 출력을 쿼리하고 ADX에 로드할 수 있습니다.
   
 장점
 * ADX는 사용자 지정 가능한 로그 보존 정책을 제공합니다.

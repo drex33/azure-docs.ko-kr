@@ -8,14 +8,14 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: conceptual
-  ms.date: 10/13/2021
+  ms.date: 10/22/2021
   ms.author: banders
-  ms.openlocfilehash: cc2ee1984af35b357f1c67c03fecacbf17444d22
-  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.openlocfilehash: c38966a630d61279ab34328bf7a76204fb0079ee
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/14/2021
-  ms.locfileid: "129993058"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130229449"
 title: Cost Management + Billing 질문과 대답(FAQ)
 summary: ''
 sections:
@@ -161,7 +161,7 @@ sections:
       [스폿 VM 요금 보기](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges)를 참조하세요.
   - question: 예약 정보 보고서는 어떻게 가져오나요?
     answer: >
-      API 설명서를 읽고 [예약 정보 보고서를 생성](/rest/api/cost-management/generatereservationdetailsreport)합니다.
+      API 설명서를 읽고 [예약 정보 보고서를 생성](/azure/cost-management-billing/reservations/reservation-utilization)합니다.
 - name: Azure EA(기업계약) 및 EA Portal 관련 질문
   questions:
   - question: 내 등록에 SPN 사용 권한을 할당하려면 어떻게 해야 하나요?
@@ -176,6 +176,9 @@ sections:
   - question: 새 EA 관리자를 내 등록에 추가하려면 어떻게 해야 하나요?
     answer: >
       기존 엔터프라이즈 관리자는 새 엔터프라이즈 관리자를 추가할 수 있습니다. EA 관리자인 경우 EA Portal에 로그인하고, **관리** 를 클릭하고, 오른쪽 위 모서리에서 **+ 관리자 추가** 를 클릭하여 새 EA 관리자를 추가하세요. 사용자의 이메일 주소와 선호하는 로그인 방법(예: 회사/학교 인증 또는 Microsoft Live ID 사용)을 사용하여 사용자를 추가할 수 있는지 확인합니다.
+
+
+      직접 등록의 EA 관리자인 경우 Azure Portal에 로그인하고 **청구 범위** 를 선택한 후 **액세스 제어(IAM)** 로 이동하고 왼쪽 위 모서리에서 **+ 추가** 를 선택하여 새 EA 관리자를 추가합니다. 사용자의 메일 주소와 선호하는 로그인 방법(예: 회사/학교 인증 또는 Microsoft Live ID 사용)을 사용할 수 있는지 확인합니다.
 
 
       EA 관리자가 아닌 경우 회사의 EA 관리자에게 연락하여 등록에 추가되도록 요청하세요. 사용자가 등록에 추가되면 해당 사용자는 활성화 이메일을 받게 됩니다.
@@ -220,6 +223,9 @@ sections:
   - question: 내 등록이 보류 중 상태로 표시됩니다. 이 등록을 활성화하려면 어떻게 해야 하나요?
     answer: >
       초기 EA 관리자가 이전에 등록에 로그온하지 않은 경우 등록은 보류 중 상태가 됩니다. EA 관리자인 경우 Azure EA Portal에 로그인하세요. 모든 등록 번호가 포함된 방문 페이지에서 보류 중인 등록이 표시되지 않을 수 있습니다. EA Portal의 오른쪽 위 모서리에 있는 "활성" 상자를 선택 취소하세요. 그러면 보류 중인 등록이 표시됩니다. 정보에 액세스하려면 등록을 클릭하세요. 등록의 [관리] 페이지에 도달하면 상태가 [보류 중]에서 [활성]으로 업데이트됩니다.
+
+
+      직접 엔터프라이즈 고객인 경우 Azure Portal에 로그인합니다. 청구 범위 페이지에서 청구 계정을 선택합니다. 등록 개요 페이지에 있는 경우 상태가 **보류 중** 에서 **활성** 으로 업데이트됩니다. 그런 다음, **속성** 메뉴로 이동하여 업데이트 상태를 확인합니다.
   - question: 내 계정이 보류 중 상태로 유지되는 이유는 무엇인가요?
     answer: >
       새 AO(계정 소유자)가 처음으로 등록에 추가되면 상태가 항상 "보류 중"으로 표시됩니다. 활성화 환영 이메일을 받으면 AO가 로그인하여 계정을 활성화할 수 있습니다. 로그인하면 계정 상태가 "보류 중"에서 "활성"으로 업데이트됩니다.
@@ -256,7 +262,7 @@ sections:
       - VLSC의 관리 사이트에서 Visual Studio 구독자를 삭제하고, 이번에는 다른 자격 증명을 사용하는 계정에 구독을 다시 할당합니다. 그런 다음, 개별 Visual Studio Azure 혜택에 새로 가입합니다.
   - question: 어떤 유형의 구독을 만들어야 하나요?
     answer: >
-      Azure Enterprise Portal은 기업 고객을 위한 다음 두 가지 유형의 구독을 제공합니다.
+      Azure Enterprise 고객은 다음 두 가지 유형의 구독 제안을 제공합니다.
 
 
       - Microsoft Azure 엔터프라이즈 - 적합한 용도:
@@ -324,6 +330,9 @@ sections:
 
 
       Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](manage/ea-portal-rest-apis.md)를 참조하세요.
+
+
+      Direct 기업 고객은 Azure Portal의 여러 부서 수준에서 사용량 및 지출을 볼 수 있습니다. **부서** 메뉴로 이동하여 요금을 확인합니다.
   - question: 지출 할당량을 설정하고 한도에 도달하면 경고를 받을 수 있나요?
     answer: >
       부서 수준에서 지출 할당량을 설정하면 지출 한도가 정의된 할당량의 50%, 75%, 90%, 100%에 도달할 때마다 시스템에서 자동으로 알려줍니다.
@@ -361,6 +370,9 @@ sections:
       1. Azure Enterprise Portal에서 **관리** > **계정** 을 선택합니다.
 
       1. 맨 오른쪽에 있는 **계정** 을 마우스로 가리키면 **소유권 양도**(사람 아이콘) 및 **구독 양도**(목록 아이콘) 옵션이 표시됩니다. 두 옵션은 활성 계정에만 표시됩니다.
+
+
+      Direct 기업 고객은 구독 소유권을 Azure Portal의 다른 계정으로 이전할 수 있습니다. **계정** 또는 **구독** 메뉴로 이동하여 소유권을 이전합니다.
   - question: 한 Azure 계정 소유자가 둘 이상의 부서에 나열될 수 있나요?
     answer: >
       아니요, 계정 소유자는 단일 부서에만 연결할 수 있습니다. 이 정책은 Azure EA Portal의 EA 등록계약에 따라 조정되는 부서와 관련된 비용/지출을 정확하게 모니터링하고 할당하는 데 도움이 됩니다.
@@ -393,6 +405,9 @@ sections:
       1. AO(계정 소유자) 요금 보기 옆에 있는 파란색 연필을 선택합니다.
 
       1. **사용** 를 선택하고 저장합니다.
+
+
+      **직접 등록** 고객의 경우 엔터프라이즈 관리자는 Azure Portal에서 계정 소유자 및 부서 관리자에게 비용/가격 책정 정보에 대한 액세스 권한을 부여할 수 있습니다. **정책** 메뉴로 이동하여 설정을 변경합니다.
 
 
       > [!NOTE]

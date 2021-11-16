@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 3c1c6841f7ae25bad16640e11c67080833ac850b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: face052462909e755771f12ff19fed8139675183
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052764"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484602"
 ---
 # <a name="connectivity-configuration-in-azure-virtual-network-manager-preview"></a>Azure Virtual Network Manager의 연결 구성 (미리 보기)
 
@@ -39,7 +39,7 @@ ms.locfileid: "131052764"
 
 > [!NOTE]
 > * 둘 이상의 가상 네트워크에 충돌 하는 서브넷이 있는 경우 해당 서브넷의 리소스는 동일한 메시 네트워크의 일부인 경우에도 서로 통신할 수 *없습니다* .
-> * 가상 네트워크는 최대 **5 개의** 메시 구성에 포함 될 수 있습니다.
+> * 가상 네트워크는 최대 **두 개의** 메시 구성에 포함 될 수 있습니다.
 
 ## <a name="hub-and-spoke-topology"></a>허브 및 스포크 토폴로지
 
@@ -60,13 +60,13 @@ ms.locfileid: "131052764"
 VM에서 유효 경로를 살펴보면 허브와 스포크 가상 네트워크 간의 경로에 다음 홉 유형인  *Vnetpeering* 링 또는 *globalvnetpeering 링* 이 있습니다. 스포크 가상 네트워크 간의 경로는 *ConnectedGroup* 의 다음 홉 유형으로 표시 됩니다. 위의 예제를 사용 하는 경우 *직접 연결* 을 사용 하기 때문에 *프로덕션* 네트워크 그룹에만 *ConnectedGroup* 있습니다.
 
 > [!NOTE]
-> *전이성* 을 **사용 하도록 설정** 하면 허브 네트워크 주소 공간이 *ConnectedGroup* 에 추가 됩니다. 따라서 허브와 스포크 가상 네트워크 간의 가상 네트워크 피어 링이 실패 하면 여전히 *ConnectedGroup* 에서 통신할 수 있습니다.
+> *직접 연결* 을 **사용 하도록 설정** 하면 허브 네트워크 주소 공간이 *ConnectedGroup* 에 추가 됩니다. 따라서 허브와 스포크 가상 네트워크 간의 가상 네트워크 피어 링이 실패 하면 여전히 *ConnectedGroup* 에서 통신할 수 있습니다.
 
 #### <a name="use-cases"></a>사용 사례
 
 스포크 가상 네트워크 간의 직접 연결을 사용 하도록 설정 하면 허브 가상 네트워크에서 NVA 또는 공통 서비스를 사용 하려는 경우 허브에 항상 액세스할 필요가 없는 경우에 유용할 수 있습니다. 하지만 네트워크 그룹의 스포크 가상 네트워크는 서로 통신 해야 합니다. 기존 허브 및 스포크 네트워크와 비교할 때이 토폴로지는 허브 가상 네트워크를 통해 추가 홉을 제거 하 여 성능을 향상 시킵니다.
 
-### <a name="global-mesh"></a>전역 메시
+### <a name="global-mesh"></a>글로벌 메시
 
 전역 메시는 스포크 가상 네트워크가 지역에서 서로 통신 하도록 하려는 경우에 필요 합니다. 이러한 연결은 동일한 네트워크 그룹의 가상 네트워크로 제한 됩니다. 여러 지역에서 가상 네트워크에 대 한 연결을 사용 하도록 설정 하려면 네트워크 그룹의 **지역 간에 메시 연결을 사용 하도록 설정** 해야 합니다. 스포크 가상 네트워크 간에 만들어진 연결은 [*연결 된 그룹*](#connectedgroup)에 있습니다. 
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 228e0ac6243ae25463a81967c6d5cbcd903ad2ce
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eec377641eca7dd31ab04e9f6cdee949352d4a61
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824166"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491149"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps에서 논리 앱의 호스트 및 앱 설정 편집
 
@@ -48,7 +48,7 @@ Visual Studio Code의 논리 앱 프로젝트의 루트 수준에서 **local.set
 
 Azure Logic Apps의 앱 설정은 Azure Functions 또는 Azure Web Apps의 앱 설정과 유사하게 작동합니다. 이러한 다른 서비스를 이전에 사용한 적이 있다면 앱 설정에 이미 익숙할 수 있습니다. 자세한 내용은 [Azure Functions의 앱 설정 참조](../azure-functions/functions-app-settings.md) 및 [Azure Functions Core Tools 작업 - 로컬 설정 파일](../azure-functions/functions-develop-local.md#local-settings-file)을 참조하세요.
 
-| 설정 | 기본값 | 설명 |
+| 설정 | 기본값 | Description |
 |---------|---------------|-------------|
 | `AzureWebJobsStorage` | 없음 | Azure Storage 계정에 대한 연결 문자열을 설정합니다. |
 | `Workflows.<workflowName>.FlowState` | 없음 | <*workflowName*>의 상태를 설정합니다. |
@@ -164,6 +164,15 @@ Visual Studio Code에서는 논리 앱 프로젝트의 루트 수준에서 **hos
 | `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90일) | 실행이 시작된 후 워크플로 실행 기록을 유지하는 시간을 설정합니다. |
 | `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90일) | 시간 제한을 적용하기 전에 워크플로를 계속 실행할 수 있는 시간을 설정합니다. <p><p>**중요**: 이 값이 `Runtime.FlowRetentionThreshold` 값보다 작거나 같은지 확인하세요. 그렇지 않으면 연관된 작업이 완료되기 전에 실행 기록이 삭제될 수 있습니다. |
 ||||
+   
+<a name="run-actions"></a>
+
+### <a name="run-actions"></a>작업 실행
+
+| 설정 | 기본값 | Description |
+|---------|---------------|-------------|
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10분) | 시간 및 재시도하기 전에 워크플로 작업 작업이 실행되는 시간을 설정합니다. |
+||||
 
 <a name="inputs-outputs"></a>
 
@@ -235,8 +244,8 @@ Visual Studio Code에서는 논리 앱 프로젝트의 루트 수준에서 **hos
 | 설정 | 기본값 | 설명 |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100,000개 배열 항목) | 배열 형식 변수의 최대 항목 수를 설정합니다. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | 상태 저장 워크플로: `104857600`자 | 상태 저장 워크플로에서 사용할 때 변수가 저장할 수 있는 콘텐츠의 최대 크기 (문자 수)를 설정 합니다. |
-| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | 상태 비저장 워크플로: `1024`자 | 상태 비저장 워크플로에서 사용할 때 변수가 저장할 수 있는 콘텐츠의 최대 크기 (문자 수)를 설정 합니다. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | 상태 저장 워크플로: `104857600`자 | 상태 저장 워크플로에서 사용될 때 변수가 저장할 수 있는 콘텐츠의 최대 문자 크기를 설정합니다. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | 상태 비저장 워크플로: `1024`자 | 상태 비저장 워크플로에서 사용될 때 변수가 저장할 수 있는 콘텐츠의 최대 문자 크기를 설정합니다. |
 ||||
 
 <a name="http-webhook"></a>

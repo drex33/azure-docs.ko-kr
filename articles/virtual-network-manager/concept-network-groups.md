@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 82de5cc623193163aef3243c9c47a205bbbcffd7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5da75fba68e285ea4b01feee514bd38f6ceae036
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053254"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493603"
 ---
 # <a name="what-is-a-network-group-in-azure-virtual-network-manager-preview"></a>Azure Virtual Network Manager(미리 보기)의 네트워크 그룹이란?
 
@@ -37,7 +37,7 @@ ms.locfileid: "131053254"
 
 ## <a name="network-group-and-azure-policy"></a>네트워크 그룹 및 Azure 정책
 
-네트워크 그룹을 만들면 Azure Virtual Network Manager에서 가상 네트워크 멤버 자격 변경에 대한 알림을 받을 수 있도록 Azure 정책이 만들어집니다. 정의된 이러한 정책을 볼 수 있습니다. 정의된 정책은 볼 수 있지만 현재 사용자가 편집할 수 없습니다. 네트워크 그룹에 대한 Azure 정책 정의 및 할당 만들기, 변경 및 삭제는 현재 Azure Network Manager를 통해서만 가능합니다. 
+네트워크 그룹을 만들면 Azure Virtual Network Manager에서 가상 네트워크 멤버 자격 변경에 대한 알림을 받을 수 있도록 Azure 정책이 만들어집니다. 정의된 정책은 볼 수 있지만 현재 사용자가 편집할 수 없습니다. 네트워크 그룹에 대한 Azure 정책 정의 및 할당 만들기, 변경 및 삭제는 현재 Azure Network Manager를 통해서만 가능합니다. 
 
 Azure Network Manager 리소스에 대한 Azure Policy 이니셔티브 정의 및 할당을 만들려면 필요한 구성을 사용하여 네트워크 그룹을 만들고 배포합니다. 기존 Azure Policy 이니셔티브 정의 또는 해당 할당을 업데이트하려면 변경 내용을 변경하고 Azure Virtual Network Manager 리소스 내의 네트워크 그룹에 배포해야 합니다. Azure Policy 이니셔티브 정의 및 할당을 삭제하려면 정책과 연결된 Azure Virtual Network Manager 리소스를 배포 및 삭제해야 합니다. 여기에는 구성 배포 해제, 구성 삭제 및 네트워크 그룹 삭제가 포함될 수 있습니다. 삭제에 대한 자세한 내용은 구성 요소 제거에 대한 Azure Virtual Network Manager [검사 목록을 검토하세요.](concept-remove-components-checklist.md)  
 

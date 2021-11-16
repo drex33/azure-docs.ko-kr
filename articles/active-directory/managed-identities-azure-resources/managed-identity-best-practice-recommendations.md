@@ -4,7 +4,7 @@ description: 사용자 할당 및 시스템 할당 관리 ID를 사용하는 경
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -12,14 +12,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/21/2021
+ms.date: 10/15/2021
 ms.author: barclayn
-ms.openlocfilehash: dec6cb642c5a5899354912f133decde45d631406
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b1dbdf7f7798458ec3ea3a7487f69a9dee244dda
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953340"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474291"
 ---
 # <a name="managed-identity-best-practice-recommendations"></a>관리 ID 모범 사례 권장 사항
 
@@ -82,6 +82,21 @@ ms.locfileid: "111953340"
 ## <a name="limits"></a>제한 
 
 [관리 ID](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits) 및 [사용자 지정 역할 및 역할 할당](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits)에 대한 제한을 확인합니다.
+
+## <a name="follow-the-principle-of-least-privilege-when-granting-access"></a>액세스 권한을 부여할 때 최소 권한의 원칙을 따릅니다.
+
+관리 ID를 포함하여 ID를 부여하는 경우 서비스에 액세스할 수 있는 권한은 항상 원하는 작업을 수행하는 데 필요한 최소 권한을 부여합니다. 예를 들어 관리 ID를 사용하여 스토리지 계정에서 데이터를 읽는 경우 해당 ID 권한이 스토리지 계정에 데이터를 기록하도록 허용할 필요가 없습니다. 추가 권한을 부여합니다. 예를 들어 관리 ID를 Azure 구독에 대한 기여자로 설정하는 것은 필요하지 않을 때 해당 ID와 연결된 보안 폭발 반지름이 늘어납니다. 해당 ID를 손상시키는 것으로 인해 최소 손상이 발생하도록 하기 위해 보안 폭발 반지름을 항상 최소화해야 합니다.
+
+### <a name="consider-the-effect-of-assigning-managed-identities-to-azure-resources"></a>Azure 리소스에 관리 ID를 할당하는 효과 고려
+
+Azure 논리 앱, Azure 함수 또는 Virtual Machine 등과 같은 Azure 리소스에 관리 ID가 할당되면 이제 관리 ID에 부여된 모든 사용 권한을 Azure 리소스에서 사용할 수 있습니다. 이는 사용자가 이 리소스에 대한 코드를 설치하거나 실행할 수 있는 권한이 있는 경우 사용자가 Azure 리소스에 할당/연결된 모든 ID에 액세스할 수 있기 때문에 특히 중요합니다. 관리 ID의 목적은 해당 액세스를 얻기 위해 개발자가 코드에 직접 자격 증명을 처리하거나 배치하지 않고도 다른 리소스에 대한 Azure 리소스 액세스를 실행하는 코드를 제공하는 것입니다.
+
+예를 들어 관리 ID(ClientId = 1234)에 ***StorageAccount7755** _에 대한 읽기/쓰기 액세스 권한을 부여하고 _*_LogicApp3388_*_ 에 할당한 경우 관리 ID 또는 스토리지 계정에 대한 직접 권한이 없지만 _*_LogicApp3388_*_ 내에서 코드를 실행할 권한이 있는 Alice는 관리 ID를 사용하는 코드를 실행하여 _ *_StorageAccount7755_** 간에 데이터를 읽고 쓸 수도 있습니다.
+
+:::image type="content" source="media/managed-identity-best-practice-recommendations/security-considerations.png" alt-text="보안 시나리오":::
+
+일반적으로 사용자에게 코드를 실행할 수 있는 리소스에 대한 관리 액세스 권한을 부여하고(예: 논리 앱) 관리 ID를 사용하는 경우 사용자에게 할당되는 역할에서 리소스에 대한 코드를 설치하거나 실행할 수 있으며 사용자가 필요한 경우에만 해당 역할을 할당하는 경우를 고려해야 합니다.
+
 
 ## <a name="maintenance"></a>유지 관리
 

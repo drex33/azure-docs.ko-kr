@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 74dea2337bb40469e4d4e94117df080960faca53
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: e35f61d53ead7772743f31acfad686ec62a707af
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858775"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492911"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -232,7 +232,9 @@ DPS 페이로드에 대해 자세히 알아보려면 [자습서: 클라이언트
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="연결 이벤트 및 연결 끊김 이벤트에 대한 이벤트 창을 보여 주는 다이어그램." border="false":::
 
-디바이스에 대한 **원시 데이터** 보기에서 연결된 이벤트 및 연결이 끊긴 이벤트를 볼 수 있습니다. :::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="디바이스 연결 이벤트를 표시하도록 필터링된 원시 데이터 보기를 보여 주는 스크린샷":::.
+디바이스 연결 상태를 모니터링하는 방법에 대해 자세히 알아보려면 다음 비디오를 시청하세요.
+
+> [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
 [IoT Central에서 내보내기](howto-export-data.md#set-up-data-export)에 연결 및 연결 끊김 이벤트를 포함할 수 있습니다. 자세한 내용은 [IoT Hub 이벤트에 반응 > 디바이스 연결 및 디바이스 연결 끊김 이벤트에 대한 제한 사항](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

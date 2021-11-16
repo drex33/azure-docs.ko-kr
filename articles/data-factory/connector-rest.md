@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/11/2021
 ms.author: makromer
-ms.openlocfilehash: f24bb345442b2320344cf1c9e89d383571447ded
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 5ea0e509f7969c011cb18f99433c85fc97ed5528
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044770"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487193"
 ---
 # <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사 및 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -511,6 +511,9 @@ REST API에서 데이터를 복사할 때 일반적으로 REST API는 단일 요
 | AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 URL 또는 상대 URL** 일 수 있습니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. |
 | Headers.*request_header* OR Headers['request_header'] | "request_header"는 다음 HTTP 요청에 있는 하나의 헤더 이름을 참조하는 사용자 정의 항목입니다. |
+| EndCondition:*end_condition* | "end_condition"는 사용자 정의 이며 다음 HTTP 요청에서 페이지 매김 루프를 종료 하는 조건을 나타냅니다. |
+| MaxRequestNumber | 최대 페이지 매김 요청 번호를 나타냅니다. 비워 두면 제한이 없음을 의미 합니다. |
+| SupportRFC5988 | RFC 5988은 페이지 매김 규칙에서 지원 됩니다. 기본적으로 True로 설정됩니다. 다른 페이지 매김 규칙이 정의 되어 있지 않은 경우에만 적용 됩니다.
 
 페이지 매김 규칙의 **지원되는 값** 은 다음과 같습니다.
 

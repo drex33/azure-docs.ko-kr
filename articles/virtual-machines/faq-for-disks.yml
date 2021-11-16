@@ -8,12 +8,12 @@ metadata:
   ms.date: 06/15/2017
   ms.author: rogarana
   ms.subservice: disks
-  ms.openlocfilehash: 53af4de413739318a78f3ced65f64ffa89ba0545
-  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.openlocfilehash: 75eccc45269218fa4af9dd8ccac9ed9509c84934
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131424687"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132492532"
 title: Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 summary: 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 sections:
@@ -162,29 +162,29 @@ sections:
 - name: 스냅샷
   questions:
   - question: >
-      암호화된 증분 스냅샷을 지역 간에 복사할 수 있나요?
+      암호화 된 증분 스냅숏이 지역 간에 복사 될 수 있나요?
     answer: >
       예.
   - question: >
-      동일한 디스크의 여러 증분 스냅샷을 한 지역에서 다른 지역으로 병렬로 복사할 수 있나요?
+      동일한 디스크의 여러 증분 스냅숏이 한 지역에서 다른 지역으로 병렬로 복사 될 수 있나요?
     answer: >
-      아니요, 이전 복사본이 완료되기를 기다려야 합니다.
+      아니요, 이전 복사가 완료 될 때까지 기다려야 합니다.
   - question: >
-      여러 디스크의 증분 스냅샷을 동시에 복사할 수 있나요?
+      여러 디스크의 증분 스냅숏을 동시에 복사할 수 있나요?
     answer: >
-      현재 예.
+      현재는 예입니다.
   - question: >
-      증분 스냅샷이 다른 지역으로 복사를 완료한 경우를 확인하려면 어떻게 해야 합니까?
+      증분 스냅숏이 다른 지역으로 복사를 완료 한 경우 어떻게 확인할 수 있나요?
     answer: >
-      **completionPercent** 속성을 확인하여 복사본의 상태를 확인할 수 있습니다. 이 속성이 100이면 스냅샷이 준비됩니다.
+      총 **백분율** 속성을 선택 하 여 복사본의 상태를 확인할 수 있습니다. 이 속성이 100 인 경우 스냅숏이 준비 됩니다.
   - question: >
-      만든 순서가 아닌 순서로 스냅샷을 다른 지역에 복사할 수 있나요?
+      스냅숏을 다른 지역에 만들 수 없는 순서로 복사할 수 있나요?
     answer: >
-      아니요, 스냅샷은 생성 순서대로 다른 지역에 복사해야 합니다.
+      아니요, 스냅숏을 만든 순서 대로 다른 지역에 복사 해야 합니다.
   - question: >
-      지역 간 복사본이 완료되기 전에 원본 증분 스냅샷이 삭제되면 어떻게 되나요?
+      영역 간 복사가 완료 되기 전에 원본 증분 스냅숏이 삭제 되 면 어떻게 되나요?
     answer: >
-      복사가 실패합니다.
+      복사가 실패 합니다.
   - question: >
       관리되는 스냅샷 및 이미지가 암호화되나요?
     answer: "예. 모든 관리형 스냅샷과 이미지는 자동으로 암호화됩니다. \n"
@@ -197,7 +197,7 @@ sections:
   - question: >
       공유 디스크 기능은 비관리 디스크 또는 페이지 Blob을 지원하나요?
     answer: >
-      아니요, Ultra Disk 및 프리미엄 SSD 관리 디스크에서만 지원됩니다.
+      아니요. 관리 되는 디스크 형식의 하위 집합에 대해서만 지원 됩니다. 자세한 내용은 [개념 문서](disks-shared.md)를 참조 하세요.
   - question: >
       공유 디스크를 지원하는 지역은 어디인가요?
     answer: >

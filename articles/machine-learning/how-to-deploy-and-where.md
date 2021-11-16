@@ -6,23 +6,24 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 04/21/2021
+ms.author: ssambare
+author: shivanissambare
+ms.date: 11/12/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021
 adobe-target: true
-ms.openlocfilehash: 78abc8d3dba3090198f8856d71f91a9087237641
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: c24aa6fd09539c1bd9536ba0cecb3815edb79e2f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853323"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488186"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 기계 학습 모델 배포 
 
 Azure 클라우드의 웹 서비스로 기계 학습 또는 딥 러닝 모델을 배포하는 방법을 알아봅니다.
 
-> [!TIP]
-> 관리형 온라인 엔드포인트(미리 보기)는 기본 인프라를 만들고 관리할 필요 없이 학습된 모델을 배포하는 방법을 제공합니다. 자세한 내용은 [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점](how-to-deploy-managed-online-endpoints.md)을 참조하세요.
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="workflow-for-deploying-a-model"></a>모델 배포를 위한 워크플로
 
@@ -33,26 +34,25 @@ Azure 클라우드의 웹 서비스로 기계 학습 또는 딥 러닝 모델을
 1. 유추 구성을 준비합니다.
 1. 모델을 로컬로 배포하여 모든 것이 작동하는지 확인합니다.
 1. 컴퓨팅 대상을 선택합니다.
-1. 모델을 클라우드에 다시 배포합니다.
+1. 클라우드에 모델을 배포합니다.
 1. 결과 웹 서비스를 테스트합니다.
 
 기계 학습 배포 워크플로와 관련한 개념에 대한 자세한 내용은 [Azure Machine Learning을 사용한 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
-
-[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
+[!INCLUDE [cli10-only](../../includes/machine-learning-cli-version-1-only.md)]
+
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
-- 모델. 학습된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에서 제공하는 모델 및 종속성 파일을 사용할 수 있습니다.
-- [Machine Learning Service에 대한 Azure CLI(명령줄 인터페이스) 확장](reference-azure-machine-learning-cli.md)
+- 모델. 이 문서의 예제에서는 미리 학습된 모델을 사용합니다.
 - [컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)와 같이 Docker를 실행할 수 있는 머신입니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
-- 모델. 학습된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에서 제공하는 모델 및 종속성 파일을 사용할 수 있습니다.
+- 모델. 이 문서의 예제에서는 미리 학습된 모델을 사용합니다.
 - [Python용 Azure Machine Learning SDK(소프트웨어 개발 키트)](/python/api/overview/azure/ml/intro)
 - [컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)와 같이 Docker를 실행할 수 있는 머신입니다.
 ---
@@ -61,15 +61,13 @@ Azure 클라우드의 웹 서비스로 기계 학습 또는 딥 러닝 모델을
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-수행
+액세스 권한이 있는 작업 영역을 보려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive
 az login
-az account set -s <my subscription>
-az ml workspace list --resource-group=<my resource group>
+az account set -s <subscription>
+az ml workspace list --resource-group=<resource-group>
 ```
-
-액세스 권한이 있는 작업 영역을 봅니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -89,8 +87,8 @@ SDK를 사용하여 작업 영역에 연결하는 방법에 대한 자세한 내
 
 배포된 기계 학습 서비스의 일반적인 상황은 다음 구성 요소가 필요하다는 것입니다.
     
- + 배포하려는 특정 모델을 나타내는 리소스(예: pytorch 모델 파일)
- + 서비스에서 실행될 코드로, 지정된 입력에 대해 모델을 실행합니다.
++ 배포하려는 특정 모델을 나타내는 리소스(예: pytorch 모델 파일)입니다.
++ 서비스에서 실행될 코드로, 지정된 입력에 대해 모델을 실행합니다.
 
 Azure Machine Learning을 사용하면 배포를 두 개의 개별 구성 요소로 구분하여 동일한 코드를 유지하면서도 모델을 업데이트할 수 있습니다. 코드와 _별도로_ 모델을 업로드하는 메커니즘을 "모델 등록"으로 정의합니다.
 
@@ -102,25 +100,31 @@ Azure Machine Learning을 사용하면 배포를 두 개의 개별 구성 요소
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-### <a name="register-a-model-from-a-local-file"></a>로컬 파일에서 모델 등록
+다음 명령은 모델을 다운로드한 다음 Azure Machine Learning 작업 영역에 등록합니다.
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=register-model-from-local-file-code)]
+```azurecli-interactive
+wget https://aka.ms/bidaf-9-model -O model.onnx --show-progress
+az ml model register -n bidaf_onnx \
+    -p ./model.onnx \
+    -g <resource-group> \
+    -w <workspace-name>
+```
 
 `-p`를 등록하려는 폴더 또는 파일의 경로로 설정합니다.
 
-`az ml model register`에 대한 자세한 내용은 [참조 설명서](/cli/azure/ext/azure-cli-ml/ml/model)에서 확인하세요.
+에 대한 자세한 내용은 `az ml model register` [참조 설명서를 참조하세요.](/cli/azure/ml(v1)/model)
 
 ### <a name="register-a-model-from-an-azure-ml-training-run"></a>Azure ML 학습 실행에서 모델 등록
+
+이전에 Azure Machine Learning 학습 작업을 통해 만든 모델을 등록해야 하는 경우 모델의 실험, 실행 및 경로를 지정할 수 있습니다.
 
 ```azurecli-interactive
 az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-name myexperiment --run-id myrunid --tag area=qna
 ```
 
-[!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
-
 `--asset-path` 매개 변수는 모델의 클라우드 위치를 의미합니다. 이 예제에서는 단일 파일의 경로를 사용합니다. 모델 등록에 여러 파일을 포함하려면 `--asset-path`를 파일이 담긴 폴더의 경로로 설정합니다.
 
-`az ml model register`에 대한 자세한 내용은 [참조 설명서](/cli/azure/ml/model)에서 확인하세요.
+에 대한 자세한 내용은 `az ml model register` [참조 설명서를 참조하세요.](/cli/azure/ml(v1)/model)
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -128,7 +132,7 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 모델의 로컬 경로를 제공하여 모델을 등록할 수 있습니다. 로컬 머신에서 폴더 또는 단일 파일의 경로를 제공할 수 있습니다.
 <!-- pyhton nb call -->
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=register-model-from-local-file-code)]
+[! Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=register-model-from-local-file-code)]
 
 
 모델 등록에 여러 파일을 포함하려면 `model_path`를 파일이 담긴 폴더의 경로로 설정합니다.
@@ -154,11 +158,11 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
   + `azureml.train.automl.run.AutoMLRun` 개체에서 모델을 등록합니다.
 
     ```python
-        description = 'My AutoML Model'
-        model = run.register_model(description = description,
-                                   tags={'area': 'qna'})
+    description = 'My AutoML Model'
+    model = run.register_model(description = description,
+                                tags={'area': 'qna'})
 
-        print(run.model_id)
+    print(run.model_id)
     ```
 
     이 예제에서는 `metric` 및 `iteration` 매개 변수를 지정하지 않으므로 최적의 기본 메트릭을 통한 반복이 등록됩니다. 실행에서 반환된 `model_id` 값을 모델 이름 대신 사용합니다.
@@ -171,8 +175,18 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 ## <a name="define-a-dummy-entry-script"></a>더미 항목 스크립트 정의
 
-[!INCLUDE [write entry script](../../includes/machine-learning-dummy-entry-script.md)]
+항목 스크립트는 배포된 웹 서비스에 전송된 데이터를 받아서 모델에 전달합니다. 그런 다음, 모델 응답을 클라이언트로 반환합니다. *스크립트는 모델에 따라 다릅니다*. 항목 스크립트는 모델이 기대하고 반환하는 데이터를 해석해야 합니다.
 
+항목 스크립트에서 수행해야 하는 두 가지 작업은 다음과 같습니다.
+
+1. 모델 로드(`init()`라는 함수 사용)
+1. 입력 데이터에서 모델 실행(`run()`이라는 함수 사용)
+
+초기 배포의 경우 수신한 데이터를 인쇄하는 더미 항목 스크립트를 사용합니다.
+
+:::code language="python" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/source_dir/echo_score.py":::
+
+이 파일을 `source_dir` 디렉터리 내부에 `echo_score.py`로 저장합니다. 이 더미 스크립트는 전송한 데이터를 반환하므로 모델을 사용하지 않습니다. 하지만 점수 매기기 스크립트가 실행 중인지 테스트하는 데 유용합니다.
 
 ## <a name="define-an-inference-configuration"></a>유추 구성 정의
 
@@ -200,7 +214,7 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 다음 예제에서는 위에서 정의한 더미 채점 스크립트를 사용하여 pip 종속성이 없는 최소 환경을 만드는 방법을 보여 줍니다.
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=inference-configuration-code)]
+[! Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=inference-configuration-code)]
 
 환경에 대한 자세한 내용은 [학습 및 배포 환경 만들기 및 관리](how-to-use-environments.md)를 참조하세요.
 
@@ -211,7 +225,7 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 ## <a name="define-a-deployment-configuration"></a>배포 구성 정의
 
-배포 구성은 기본 웹 서비스의 구성 세부 정보뿐만 아니라 실행하는 데 필요한 웹 서비스에 대해 예약할 메모리 및 코어의 양을 지정합니다. 예를 들어 배포 구성을 사용하여 서비스에 2기가바이트의 메모리, 2개의 CPU 코어, 1개의 GPU 코어가 필요하며 자동 크기 조정을 사용하도록 지정할 수 있습니다.
+배포 구성은 실행을 위해 webservice에 필요한 메모리 및 코어의 양을 지정 합니다. 또한 기본 웹 서비스의 구성 세부 정보를 제공 합니다. 예를 들어 배포 구성을 사용하여 서비스에 2기가바이트의 메모리, 2개의 CPU 코어, 1개의 GPU 코어가 필요하며 자동 크기 조정을 사용하도록 지정할 수 있습니다.
 
 배포 구성에 사용할 수 있는 옵션은 선택한 컴퓨팅 대상에 따라 다릅니다. 로컬 배포에서는 웹 서비스가 제공되는 포트를 지정할 수 있습니다.
 
@@ -219,13 +233,13 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
-자세한 내용은 [이 참조](./reference-azure-machine-learning-cli.md#deployment-configuration-schema)에서 확인하세요.
+자세한 내용은 [배포 스키마](./reference-azure-machine-learning-cli.md#deployment-configuration-schema)를 참조 하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
-로컬 배포 구성을 만들려면 다음을 수행합니다.
+다음 Python에서는 로컬 배포 구성을 만드는 방법을 보여 줍니다. 
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deployment-configuration-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 배포-코드)]
 
 ---
 
@@ -233,21 +247,47 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 이제 모델을 배포할 준비가 되었습니다. 
 
-[!INCLUDE [aml-deploy-service](../../includes/machine-learning-deploy-service.md)]
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
+`bidaf_onnx:1`을 모델 이름 및 해당 버전 번호로 바꿉니다.
+
+```azurecli-interactive
+az ml model deploy -n myservice \
+    -m bidaf_onnx:1 \
+    --overwrite \
+    --ic dummyinferenceconfig.json \
+    --dc deploymentconfig.json \
+    -g <resource-group> \
+    -w <workspace-name>
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 배포-모델-코드)]
+
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 배포-모델-인쇄-로그)]
+
+자세한 내용은 [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 및 [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice)에 대한 설명서를 참조하세요.
+
+---
 
 ## <a name="call-into-your-model"></a>모델에 대한 호출
 
 에코 모델이 성공적으로 배포되었는지 확인해 보겠습니다. 간단한 활동성 요청뿐만 아니라 채점 요청을 수행할 수 있어야 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-<!-- cli nb call -->
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=call-into-model-code)]
+```azurecli-interactive
+curl -v http://localhost:32267
+curl -v -X POST -H "content-type:application/json" \
+    -d '{"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}' \
+    http://localhost:32267/score
+```
 
 # <a name="python"></a>[Python](#tab/python)
 <!-- python nb call -->
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-into-model-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 호출-모델-코드)]
 
 ---
 
@@ -276,26 +316,36 @@ python_packages = ['nltk', 'numpy', 'onnxruntime']
 for package in python_packages:
     env.python.conda_dependencies.add_pip_package(package)
 
-inf_config = InferenceConfig(environment=env, source_directory='./source_dir', entry_script='./score.py')
+inference_config = InferenceConfig(environment=env, source_directory='./source_dir', entry_script='./score.py')
 ```
 
 자세한 내용은 [LocalWebservice](/python/api/azureml-core/azureml.core.webservice.local.localwebservice), [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 및 [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice)에 대한 설명서를 참조하세요.
 
 ---
-Deploy your service again: null
----
+
+## <a name="deploy-again-and-call-your-service"></a>다시 배포 하 고 서비스를 호출 합니다.
+
+서비스를 다시 배포합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
 `bidaf_onnx:1`을 모델 이름 및 해당 버전 번호로 바꿉니다.
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=re-deploy-model-code)]
+```azurecli-interactive
+az ml model deploy -n myservice \
+    -m bidaf_onnx:1 \
+    --overwrite \
+    --ic inferenceconfig.json \
+    --dc deploymentconfig.json \
+    -g <resource-group> \
+    -w <workspace-name>
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-model-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 재 배포-모델-코드)]
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-model-print-logs)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 재 배포-모델-인쇄-로그)]
 
 자세한 내용은 [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 및 [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice)에 대한 설명서를 참조하세요.
 
@@ -304,23 +354,23 @@ Deploy your service again: null
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=send-post-request-code)]
+```azurecli-interactive
+curl -v -X POST -H "content-type:application/json" \
+    -d '{"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}' \
+    http://localhost:32267/score
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=send-post-request-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 전송 후 요청-코드)]
 
 ---
 
 ## <a name="choose-a-compute-target"></a>컴퓨팅 대상 선택
 
-컴퓨팅 대상을 선택할 때 아래 다이어그램을 참조하세요.
-
-[![컴퓨팅 대상을 선택하는 방법](./media/how-to-deploy-and-where/how-to-choose-target.png)](././media/how-to-deploy-and-where/how-to-choose-target.png#lightbox)
-
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-## <a name="re-deploy-to-cloud"></a>클라우드에 다시 배포
+## <a name="deploy-to-cloud"></a>클라우드에 배포
 
 서비스가 로컬로 작동하는지 확인하고 원격 컴퓨팅 대상을 선택하면 클라우드에 배포할 준비가 된 것입니다. 
 
@@ -338,7 +388,7 @@ Deploy your service again: null
 
 # <a name="python"></a>[Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deploy-model-on-cloud-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name =)]
 
 ---
 
@@ -349,16 +399,30 @@ Deploy your service again: null
 
 `bidaf_onnx:1`을 모델 이름 및 해당 버전 번호로 바꿉니다.
 
+```azurecli-interactive
+az ml model deploy -n myservice \
+    -m bidaf_onnx:1 \
+    --overwrite \
+    --ic inferenceconfig.json \
+    --dc re-deploymentconfig.json \
+    -g <resource-group> \
+    -w <workspace-name>
+```
 
+서비스 로그를 보려면 다음 명령을 사용 합니다.
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=deploy-model-on-cloud-code)]
+```azurecli-interactive
+az ml service get-logs -n myservice \
+    -g <resource-group> \
+    -w <workspace-name>
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-service-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 재 배포-서비스-코드)]
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-service-print-logs)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 재 배포-서비스-인쇄-로그)]
 
 자세한 내용은 [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 및 [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice)에 대한 설명서를 참조하세요.
 
@@ -369,9 +433,9 @@ Deploy your service again: null
 
 원격으로 배포하는 경우 키 인증을 사용하도록 설정했을 수 있습니다. 아래 예제에서는 유추 요청을 만들기 위해 Python을 사용하여 서비스 키를 얻는 방법을 보여 줍니다.
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-remote-web-service-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = call-)]
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-remote-webservice-print-logs)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = call-원격 웹 서비스)]
 
 
 
@@ -407,9 +471,13 @@ Deploy your service again: null
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=delete-resource-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb? name = 삭제-코드)]
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=delete-your-resource-code)]
+```azurecli-interactive
+az ml service delete -n myservice
+az ml service delete -n myaciservice
+az ml model delete --model-id=<MODEL_ID>
+```
 
 배포된 웹 서비스를 삭제하려면 `az ml service delete <name of webservice>`를 사용합니다.
 
@@ -419,7 +487,7 @@ Deploy your service again: null
 
 # <a name="python"></a>[Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=delete-resource-code)]
+[! 노트북-python [] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb? name = 삭제-코드)]
 
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.

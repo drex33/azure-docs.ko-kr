@@ -1,30 +1,30 @@
 ---
 title: Bicep 모듈
-description: Bicep 파일에서 모듈을 정의하는 방법과 모듈 범위를 사용하는 방법을 설명합니다.
+description: Bicep 파일에서 모듈을 정의 하는 방법 및 모듈 범위를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/15/2021
-ms.openlocfilehash: a8a0b9c1eeeb56c12926774a78d45bb58e7d8437
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/12/2021
+ms.openlocfilehash: b01b37d9adb605e1e3c2b257114a33f120e89ef9
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087384"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491358"
 ---
 # <a name="bicep-modules"></a>Bicep 모듈
 
-Bicep을 사용하면 배포를 모듈로 구성할 수 있습니다. 모듈은 다른 Bicep 파일에서 배포된 Bicep 파일일 뿐입니다. 모듈을 사용하면 배포의 복잡한 세부 정보를 캡슐화하여 Bicep 파일의 가독성을 향상시킵니다. 다른 배포에 모듈을 쉽게 다시 사용할 수도 있습니다.
+Bicep를 사용 하면 배포를 모듈로 구성할 수 있습니다. 모듈은 다른 Bicep 파일에서 배포 되는 Bicep 파일입니다. 모듈을 사용 하면 배포에 대 한 복잡 한 세부 정보를 캡슐화 하 여 Bicep 파일의 가독성을 향상 시킬 수 있습니다. 또한 다양 한 배포에 대 한 모듈을 쉽게 재사용할 수 있습니다.
 
-조직의 다른 사용자와 모듈을 공유하려면 [프라이빗 레지스트리 를 만듭니다.](private-module-registry.md) 레지스트리의 모듈은 올바른 권한이 있는 사용자만 사용할 수 있습니다.
+조직의 다른 사용자와 모듈을 공유 하려면 [개인 레지스트리를 만듭니다](private-module-registry.md). 레지스트리의 모듈은 올바른 권한이 있는 사용자만 사용할 수 있습니다.
 
-Bicep 모듈은 중첩된 템플릿이 있는 단일 Azure Resource Manager [템플릿으로 변환됩니다.](../templates/linked-templates.md#nested-template)
+Bicep 모듈은 [중첩 된 템플릿을](../templates/linked-templates.md#nested-template)사용 하 여 단일 Azure Resource Manager 템플릿으로 변환 됩니다.
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 
-모듈 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [모듈을 사용하여 구성 가능한 Bicep 파일 만들기를](/learn/modules/create-composable-bicep-files-using-modules/) 참조하세요.
+모듈에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [모듈을 사용 하 여 작성 가능한 Bicep 파일 만들기](/learn/modules/create-composable-bicep-files-using-modules/) 를 참조 하세요.
 
 ## <a name="definition-syntax"></a>정의 구문
 
-모듈을 정의하기 위한 기본 구문은 다음과 같습니다.
+모듈을 정의 하는 기본 구문은 다음과 같습니다.
 
 ```bicep
 module <symbolic-name> '<path-to-file>' = {
@@ -35,91 +35,91 @@ module <symbolic-name> '<path-to-file>' = {
 }
 ```
 
-따라서 간단한 실제 예제는 다음과 같습니다.
+따라서 간단한 실제 예는 다음과 같습니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
-기호 이름을 사용하여 Bicep 파일의 다른 부분에서 모듈을 참조합니다. 예를 들어 기호 이름을 사용하여 모듈에서 출력을 얻을 수 있습니다. 기호 이름에는 a-z, A-Z, 0-9 및 '_'가 포함될 수 있습니다. 이름은 숫자로 시작할 수 없습니다. 모듈은 매개 변수, 변수 또는 리소스와 동일한 이름을 가질 수 없습니다.
+Bicep 파일의 다른 부분에서 모듈을 참조 하려면 기호화 된 이름을 사용 합니다. 예를 들어 심볼 이름을 사용 하 여 모듈에서 출력을 가져올 수 있습니다. 기호화 된 이름에는 a-z, a-z, 0-9 및 밑줄 ()이 포함 될 수 있습니다 `_` . 이름은 숫자로 시작할 수 없습니다. 모듈은 매개 변수, 변수 또는 리소스와 동일한 이름을 가질 수 없습니다.
 
-경로는 로컬 파일 또는 레지스트리의 파일일 수 있습니다. 자세한 내용은 [모듈 경로 를 참조하세요.](#path-to-module)
+경로는 로컬 파일 이거나 레지스트리의 파일 일 수 있습니다. 자세한 내용은 [모듈 경로를](#path-to-module)참조 하세요.
 
-**name** 속성이 필요합니다. 생성된 템플릿에서 중첩된 배포 리소스의 이름이 됩니다.
+**Name** 속성이 필요 합니다. 생성 된 템플릿의 중첩 된 배포 리소스 이름이 됩니다.
 
-주 **파일의 범위와** 다른 범위를 지정해야 하는 경우 범위 속성을 추가합니다. 자세한 내용은 [모듈 범위 설정을 참조하세요.](#set-module-scope)
+주 파일의 범위와 다른 **범위를 지정** 해야 하는 경우 범위 속성을 추가 합니다. 자세한 내용은 [모듈 범위 설정](#set-module-scope)을 참조 하세요.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/scope-definition.bicep" highlight="4" :::
 
-**모듈을 조건부로 배포하려면** `if` 식을 추가합니다. 사용은 [리소스를 조건부로 배포하는](conditional-resource-deployment.md)것과 비슷합니다.
+조건에 따라 **모듈을 배포** 하려면 `if` 식을 추가 합니다. 이 사용은 [리소스를 조건부로 배포](conditional-resource-deployment.md)하는 것과 유사 합니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-**모듈의 인스턴스를 두 개 이상** 배포하려면 식을 추가합니다. `for` 자세한 내용은 [Bicep의 반복 루프를 참조하세요.](loops.md)
+모듈의 **인스턴스** 를 둘 이상 배포 하려면 `for` 식을 추가 합니다. 데코레이터를 사용 하 여 `batchSize` 인스턴스를 직렬로 배포할지 아니면 병렬로 배포할지 지정할 수 있습니다. 자세한 내용은 [Bicep의 반복 루프](loops.md)를 참조 하세요.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
-리소스와 마찬가지로 모듈은 다른 모듈 또는 리소스에 의존하지 않는 한 병렬로 배포됩니다. 일반적으로 암시적으로 결정되기 때문에 의존성 설정을 할 필요가 없습니다. 명시적 종속성을 설정해야 하는 경우 모듈 정의에 를 추가할 수 `dependsOn` 있습니다. dependencies에 대한 자세한 내용은 [리소스 의존성 을 참조하세요.](resource-declaration.md#dependencies)
+리소스와 마찬가지로 모듈은 다른 모듈 또는 리소스에 종속 되지 않는 한 병렬로 배포 됩니다. 일반적으로 종속성은 암시적으로 결정 되므로 설정할 필요가 없습니다. 명시적 종속성을 설정 해야 하는 경우 모듈 정의에를 추가할 수 있습니다 `dependsOn` . 종속성에 대해 자세히 알아보려면 [리소스 종속성](resource-declaration.md#dependencies)을 참조 하세요.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/dependsOn-definition.bicep" highlight="6-8" :::
 
 ## <a name="path-to-module"></a>모듈 경로
 
-모듈의 파일은 로컬 파일 또는 Bicep 모듈 레지스트리의 외부 파일일 수 있습니다. 아래에는 두 옵션이 모두 나와 있습니다.
+모듈의 파일은 Bicep 모듈 레지스트리의 로컬 파일 또는 외부 파일 일 수 있습니다. 아래에는 두 옵션이 모두 나와 있습니다.
 
 ### <a name="local-file"></a>로컬 파일
 
-모듈이 **로컬 파일인** 경우 해당 파일에 대한 상대 경로를 제공합니다. 플랫폼 간에 일관된 컴파일을 보장하려면 슬래시(/) 디렉터리 구분 기호를 사용하여 Bicep의 모든 경로를 지정해야 합니다. Windows 백슬래시(\\) 문자는 지원되지 않습니다. 경로에는 공백을 포함할 수 있습니다.
+모듈이 **로컬 파일이** 면 해당 파일에 대 한 상대 경로를 제공 합니다. Bicep의 모든 경로는 슬래시 (/) 디렉터리 구분 기호를 사용 하 여 지정 해야 플랫폼 간에 일관 되 게 컴파일할 수 있습니다. Windows 백슬래시(\\) 문자는 지원되지 않습니다. 경로에는 공백을 포함할 수 있습니다.
 
-예를 들어 주 파일에서 디렉터리에서 한 수준 높은 파일을 배포하려면 다음을 사용합니다.
+예를 들어 기본 파일에서 디렉터리에 한 수준 위의 파일을 배포 하려면 다음을 사용 합니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" highlight="1" :::
 
 ### <a name="file-in-registry"></a>레지스트리의 파일
 
-[레지스트리에 모듈을 게시한](bicep-cli.md#publish)경우 해당 모듈에 연결할 수 있습니다. Azure 컨테이너 레지스트리의 이름과 모듈 경로를 제공합니다. 다음 구문으로 모듈 경로를 지정합니다.
+[레지스트리에 모듈을 게시](bicep-cli.md#publish)한 경우 해당 모듈에 연결할 수 있습니다. Azure container registry의 이름과 모듈 경로를 제공 합니다. 다음 구문을 사용 하 여 모듈 경로를 지정 합니다.
 
 ```bicep
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
-- **br은** Bicep 레지스트리의 스키마 이름입니다.
-- **파일 경로는** `repository` Azure Container Registry 호출됩니다. **파일 경로는** 문자로 구분된 세그먼트를 포함할 수 `/` 있습니다.
-- **태그는** 모듈의 버전을 지정하는 데 사용됩니다.
+- **br** 은 Bicep 레지스트리의 스키마 이름입니다.
+- **파일 경로** 는 `repository` Azure Container Registry에서 호출 됩니다. **파일 경로** 에는 문자로 구분 된 세그먼트가 포함 될 수 있습니다 `/` .
+- **태그** 는 모듈의 버전을 지정 하는 데 사용 됩니다.
 
 예:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
 
-레지스트리에서 모듈을 참조하는 경우 Visual Studio Code Bicep 확장은 자동으로 [bicep 복원을](bicep-cli.md#restore) 호출하여 외부 모듈을 로컬 캐시에 복사합니다. 외부 모듈을 복원하는 데 몇 분 정도 걸립니다. 모듈에 대한 intellisense가 즉시 작동하지 않으면 복원이 완료되기를 기다립니다.
+레지스트리에서 모듈을 참조 하는 경우 Visual Studio Code의 Bicep 확장에서 자동으로 [Bicep restore](bicep-cli.md#restore) 를 호출 하 여 외부 모듈을 로컬 캐시로 복사 합니다. 외부 모듈을 복원 하는 데 몇 분 정도 걸립니다. 모듈에 대 한 intellisense가 즉시 작동 하지 않는 경우 복원이 완료 될 때까지 기다립니다.
 
-레지스트리의 모듈에 대한 전체 경로는 길 수 있습니다. 모듈을 사용할 때마다 전체 경로를 제공하는 대신 [bicepconfig.json 파일 에서 별칭을 구성할](bicep-config.md#aliases-for-modules)수 있습니다. 별칭을 사용하면 모듈을 더 쉽게 참조할 수 있습니다. 예를 들어 별칭을 사용하면 경로를 다음과 같이 줄일 수 있습니다.
+레지스트리의 모듈에 대 한 전체 경로는 길어질 수 있습니다. 모듈을 사용 하려는 때마다 전체 경로를 제공 하는 대신 [bicepconfig 파일에서 별칭을 구성할](bicep-config.md#aliases-for-modules)수 있습니다. 별칭을 사용 하면 모듈을 보다 쉽게 참조할 수 있습니다. 예를 들어 별칭을 사용 하면 다음에 대 한 경로의 길이를 단축할 수 있습니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
 
 ## <a name="parameters"></a>매개 변수
 
-모듈 정의에 제공하는 매개 변수는 Bicep 파일의 매개 변수와 일치합니다.
+모듈 정의에 제공 하는 매개 변수는 Bicep 파일의 매개 변수와 일치 합니다.
 
-다음 Bicep 예제에는 storagePrefix, storageSKU 및 location의 세 가지 매개 변수가 있습니다. storageSKU 매개 변수에는 기본값이 있으므로 배포하는 동안 해당 매개 변수에 대한 값을 제공할 필요가 없습니다.
+다음 Bicep 예제에는 storagePrefix, storageSKU 및 location의 세 가지 매개 변수가 있습니다. StorageSKU 매개 변수에는 기본값이 있으므로 배포 하는 동안 해당 매개 변수의 값을 제공할 필요가 없습니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/main.bicep" highlight="3,15,17" :::
 
-앞의 예제를 모듈로 사용하려면 해당 매개 변수에 대한 값을 제공합니다.
+위의 예제를 모듈로 사용 하려면 해당 매개 변수에 대 한 값을 제공 합니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/parent-output.bicep" highlight="14-17" :::
 
 ## <a name="set-module-scope"></a>모듈 범위 설정
 
-모듈을 선언할 때 포함하는 Bicep 파일의 범위와 다른 모듈의 범위를 설정할 수 있습니다. 속성을 사용하여 `scope` 모듈의 범위를 설정합니다. Scope 속성을 제공하지 않으면 모듈이 부모의 대상 범위에 배포됩니다.
+모듈을 선언할 때 포함 하는 Bicep 파일에 대 한 범위와 다른 모듈에 대 한 범위를 설정할 수 있습니다. 속성을 사용 `scope` 하 여 모듈에 대 한 범위를 설정 합니다. Scope 속성을 제공하지 않으면 모듈이 부모의 대상 범위에 배포됩니다.
 
-다음 Bicep 파일은 해당 리소스 그룹에 리소스 그룹 및 스토리지 계정을 만듭니다. 파일은 구독에 배포되지만 모듈의 범위는 새 리소스 그룹으로 한정됩니다.
+다음 Bicep 파일은 리소스 그룹 및 해당 리소스 그룹에 저장소 계정을 만듭니다. 파일은 구독에 배포 되지만 모듈의 범위는 새 리소스 그룹으로 지정 됩니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/rg-and-storage.bicep" highlight="2,12,19" :::
 
-다음 예제는 스토리지 계정을 서로 다른 두 리소스 그룹에 배포합니다. 이러한 리소스 그룹은 모두 이미 존재해야 합니다.
+다음 예제에서는 두 개의 서로 다른 리소스 그룹에 저장소 계정을 배포 합니다. 이러한 리소스 그룹은 모두 이미 존재 해야 합니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/scope-two-resource-groups.bicep" highlight="1,13,22" :::
 
-범위 속성을 유효한 범위 개체로 설정합니다. Bicep 파일이 리소스 그룹, 구독 또는 관리 그룹을 배포하는 경우 모듈의 범위를 해당 리소스의 기호 이름으로 설정할 수 있습니다. 또는 범위 함수를 사용하여 유효한 범위를 얻을 수 있습니다.
+범위 속성을 올바른 범위 개체로 설정 합니다. Bicep 파일이 리소스 그룹, 구독 또는 관리 그룹을 배포하는 경우 모듈의 범위를 해당 리소스의 기호 이름으로 설정할 수 있습니다. 또는 범위 함수를 사용하여 유효한 범위를 얻을 수 있습니다.
 
 해당 함수는 다음과 같습니다.
 
@@ -128,23 +128,23 @@ module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 - [managementGroup](bicep-functions-scope.md#managementgroup)
 - [테넌트](bicep-functions-scope.md#tenant)
 
-다음 예제에서는 `managementGroup` 함수를 사용하여 범위를 설정합니다.
+다음 예에서는 함수를 사용 하 여 `managementGroup` 범위를 설정 합니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/function-scope.bicep" highlight="5" :::
 
 ## <a name="output"></a>출력
 
-모듈에서 값을 얻고 기본 Bicep 파일에서 사용할 수 있습니다. 모듈에서 출력 값을 얻으려면 모듈 `outputs` 개체의 속성을 사용합니다.
+모듈에서 값을 가져와 기본 Bicep 파일에서 사용할 수 있습니다. 모듈에서 출력 값을 가져오려면 `outputs` module 개체의 속성을 사용 합니다.
 
-첫 번째 예제에서는 스토리지 계정을 만들고 기본 엔드포인트를 반환합니다.
+첫 번째 예에서는 저장소 계정을 만들고 기본 끝점을 반환 합니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/main.bicep" highlight="33" :::
 
-모듈로 사용하면 해당 출력 값을 얻을 수 있습니다.
+모듈로 사용 되는 경우 해당 출력 값을 가져올 수 있습니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/parent-output.bicep" highlight="20" :::
 
 ## <a name="next-steps"></a>다음 단계
 
 - 자습서는 [Bicep 템플릿을 사용하여 Azure 리소스 배포](/learn/modules/deploy-azure-resources-by-using-bicep-templates/)를 참조하세요.
-- 중요한 값을 모듈에 전달하려면 [getSecret](bicep-functions-resource.md#getsecret) 함수를 사용합니다.
+- 중요 한 값을 모듈에 전달 하려면 [Getsecret](bicep-functions-resource.md#getsecret) 함수를 사용 합니다.

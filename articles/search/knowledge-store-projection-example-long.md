@@ -1,45 +1,45 @@
 ---
 title: 프로젝션 예제
 titleSuffix: Azure Cognitive Search
-description: 풍부한 기술의 출력을 기술 자료 저장소에서 콘텐츠의 구조와 컴퍼지션을 알리는 복잡 한 셰이프에 프로젝션 하는 자세한 예제를 살펴봅니다.
+description: 지식 저장소의 콘텐츠 구조와 구성을 알려주는 복잡한 모양으로 풍부한 기술 자료의 출력을 투영하는 자세한 예제를 살펴봅니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 41960e60479bf553eeb92cebb9888e2ae01aae55
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: a820101897ae20dbdeac029187d4ace356ae08af
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503075"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491111"
 ---
-# <a name="detailed-example-of-shapes-and-projections-in-a-knowledge-store"></a>기술 자료 저장소에 있는 도형 및 프로젝션의 자세한 예
+# <a name="detailed-example-of-shapes-and-projections-in-a-knowledge-store"></a>지식 저장소의 도형 및 프로젝션에 대한 자세한 예제
 
-이 문서에서는 [기술 자료 저장소](knowledge-store-concept-intro.md)에서 풍부한 기술의 출력을 완벽 하 게 표현 하는 데 필요한 셰이핑 및 프로젝션 단계를 안내 하 여 [개략적인 개념](knowledge-store-projection-overview.md) 및 [구문 기반 문서](knowledge-store-projections-examples.md) 를 보완 하는 자세한 예제를 제공 합니다.
+이 문서에서는 [지식 저장소](knowledge-store-concept-intro.md)에서 풍부한 기술 항목의 출력을 완벽하게 표현하는 데 필요한 셰이핑 및 프로젝션 단계를 안내하여 [개략적인 개념](knowledge-store-projection-overview.md) 및 [구문 기반 문서를](knowledge-store-projections-examples.md) 보완하는 자세한 예제를 제공합니다.
 
-응용 프로그램 요구 사항이 여러 기술 및 프로젝션에 대해를 호출 하는 경우이 예제는 모양과 프로젝션이 교차 하는 방식을 더 잘 파악할 수 있습니다.
+애플리케이션 요구 사항에서 여러 기술과 프로젝션을 요구하는 경우 이 예제를 통해 도형과 프로젝션이 교차하는 방식을 더 잘 파악할 수 있습니다.
 
 ## <a name="download-sample-definitions"></a>샘플 정의 다운로드
 
-이 예제에서는 [Postman Desktop 응용 프로그램](https://www.postman.com/downloads/) 및 [검색 REST api](/rest/api/searchservice/)를 사용 합니다.
+이 예제에서는 [Postman Desktop 애플리케이션](https://www.postman.com/downloads/) 및 [Search REST API](/rest/api/searchservice/)를 사용합니다.
 
-GitHub에 대 한 [샘플](https://github.com/Azure-Samples/azure-search-postman-samples) 을 복제 하거나 다운로드 하 고 [**프로젝션 컬렉션**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) 을 가져와서이 예제를 직접 단계별로 실행 합니다.
+GitHub [azure-search-postman-samples를](https://github.com/Azure-Samples/azure-search-postman-samples) 복제하거나 다운로드하고 Projections 컬렉션을 가져와서 이 예제를 직접 단계별로 [**진행합니다.**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections)
 
 ## <a name="set-up-sample-data"></a>샘플 데이터 설정
 
-샘플 문서는 프로젝션 컬렉션에 특별히 포함 되지 않지만, [azure search-샘플 데이터 리포지토리의](https://github.com/Azure-Samples/azure-search-sample-data) [AI 보강 demo 데이터 파일](https://github.com/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) 에는 텍스트 및 이미지가 포함 되어 있으며,이 예제에서 설명 하는 프로젝션을 사용 합니다.
+샘플 문서는 프로젝션 컬렉션에 특별히 포함되지 않지만 [azure-search-sample-data 리포지토리의](https://github.com/Azure-Samples/azure-search-sample-data) [AI 보강 데모 데이터 파일에는](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) 텍스트와 이미지가 포함되어 있으며 이 예제에 설명된 프로젝션과 함께 작동합니다.
 
-Azure Storage에서 blob 컨테이너를 만들고 14 개 항목을 모두 업로드 합니다.
+Azure Storage Blob 컨테이너를 만들고 14개 항목을 모두 업로드합니다.
 
-Azure Storage 중에는 postman 컬렉션에서 지정할 수 있도록 연결 문자열을 복사 합니다.
+Azure Storage 동안 Postman 컬렉션에서 지정할 수 있도록 연결 문자열을 복사합니다.
 
-## <a name="example-skillset"></a>예 기술
+## <a name="example-skillset"></a>기술 예제
 
-모양과 프로젝션 간의 종속성을 이해 하려면 보강 콘텐츠를 만드는 다음 기술을 검토 합니다. 이 기술 세트는 원시 이미지와 텍스트를 모두 처리하여 모양과 투영에서 참조할 출력을 생성합니다.
+도형과 프로젝션 간의 종속성을 이해하려면 보강된 콘텐츠를 만드는 다음 기술et을 검토합니다. 이 기술 세트는 원시 이미지와 텍스트를 모두 처리하여 모양과 투영에서 참조할 출력을 생성합니다.
 
-기술 출력 (targetNames)에 주의 하세요. 보강 문서 트리에 작성 된 출력은 프로젝션 및 도형 (Shaper 기술을 통해)에서 참조 됩니다.
+기술 출력(targetNames)에 주의해야 합니다. 보강된 문서 트리에 기록된 출력은 도형 및 도형에서 참조됩니다(쉐이퍼 기술을 통해).
 
 ```json
 {
@@ -195,7 +195,7 @@ Azure Storage 중에는 postman 컬렉션에서 지정할 수 있도록 연결 �
 
 ## <a name="example-shaper-skill"></a>쉐이퍼 기술 예제
 
-[Shaper 기술은](cognitive-search-skill-shaper.md) 새 보강 콘텐츠를 만드는 대신 기존 보강 콘텐츠를 사용 하기 위한 유틸리티입니다. 기술에 Shaper를 추가 하면 테이블 또는 blob 저장소로 프로젝션 할 수 있는 사용자 지정 셰이프를 만들 수 있습니다. 사용자 지정 셰이프가 없으면 프로젝션은 테이블에 적합하지 않은 단일 노드(출력당 하나의 프로젝션)를 참조하는 것으로 제한됩니다. 사용자 지정 셰이프를 만들면 다양한 요소가 단일 테이블로 프로젝션되거나 테이블 컬렉션에 분할 및 분산될 수 있는 새 논리적 전체로 집계됩니다. 
+[쉐이퍼 기술은](cognitive-search-skill-shaper.md) 새 보강 콘텐츠를 만드는 대신 기존 보강 콘텐츠를 작업하기 위한 유틸리티입니다. 기술 테이블에 쉐이퍼를 추가하면 테이블 또는 Blob Storage에 프로젝션할 수 있는 사용자 지정 셰이프를 만들 수 있습니다. 사용자 지정 셰이프가 없으면 프로젝션은 테이블에 적합하지 않은 단일 노드(출력당 하나의 프로젝션)를 참조하는 것으로 제한됩니다. 사용자 지정 셰이프를 만들면 다양한 요소가 단일 테이블로 프로젝션되거나 테이블 컬렉션에 분할 및 분산될 수 있는 새 논리적 전체로 집계됩니다. 
 
 이 예에서 사용자 지정 셰이프는 Blob 메타데이터와 식별된 엔터티 및 핵심 구를 결합합니다. 사용자 지정 셰이프는 `projectionShape`라고 하며 `/document` 아래에서 부모로 지정됩니다. 
 
@@ -268,11 +268,11 @@ Azure Storage 중에는 postman 컬렉션에서 지정할 수 있도록 연결 �
 }
 ```
 
-### <a name="add-shapers-to-a-skillset"></a>기술에 Shapers 추가
+### <a name="add-shapers-to-a-skillset"></a>기술 기술에 쉐이퍼 추가
 
-이 문서의 시작 부분에 소개 된 예제 기술에는 Shaper 기술이 포함 되어 있지 않지만 Shaper 기술은 기술에 속하며 종종 끝에 배치 됩니다.
+이 문서의 시작 부분에 도입된 기술 예제에는 쉐이퍼 기술이 포함되지 않았지만 쉐이퍼 기술은 기술 기술에 속하며 끝에 배치되는 경우가 많습니다.
 
-기술 내에서 Shaper 기술은 다음과 같이 표시 될 수 있습니다.
+기술 기술 내에서 쉐이퍼 기술은 다음과 같이 보일 수 있습니다.
 
 ```json
     "name": "projections-demo-ss",
@@ -323,7 +323,7 @@ Azure Storage 중에는 postman 컬렉션에서 지정할 수 있도록 연결 �
 
 ### <a name="test-your-work"></a>작업 테스트
 
-다음 단계를 수행 하 여 프로젝션 정의를 확인할 수 있습니다.
+다음 단계에 따라 프로젝션 정의를 확인할 수 있습니다.
 
 1. 지식 저장소의 `storageConnectionString` 속성을 유효한 V2 범용 저장소 계정 연결 문자열로 설정합니다.  
 
@@ -349,17 +349,17 @@ Azure Storage 중에는 postman 컬렉션에서 지정할 수 있도록 연결 �
 
 Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 검색합니다. 자식 테이블의 열이 다른 이름으로 지정 되어야 하는 경우 부모 테이블에서 `referenceKeyName` 속성을 설정합니다. 한 가지 예를 들면 `generatedKeyName`을 pbiDocument 테이블의 ID로 설정하고 `referenceKeyName`을 DocumentID로 설정하는 것입니다. 그러면 문서 ID가 포함된 pbiEntities 및 pbiKeyPhrases 테이블의 열이 DocumentID로 명명됩니다.
 
-## <a name="projecting-blob-documents"></a>Blob 문서 프로젝션
+## <a name="projecting-blob-documents"></a>Blob 문서 프로젝팅
 
-개체 프로젝션은 모든 노드에서 원본으로 사용할 수 있는 보강 트리의 JSON 표현입니다. 테이블 프로젝션과 비교 하 여 개체 프로젝션을 정의 하는 것이 더 간단 하며 전체 문서를 프로젝션 할 때 사용 됩니다. 개체 프로젝션은 컨테이너의 단일 프로젝션으로 제한되며 조각화할 수 없습니다.
+개체 프로젝션은 모든 노드에서 원본으로 사용할 수 있는 보강 트리의 JSON 표현입니다. 테이블 프로젝션과 비교할 때 개체 프로젝션은 정의하기 더 간단하며 전체 문서를 프로젝션할 때 사용됩니다. 개체 프로젝션은 컨테이너의 단일 프로젝션으로 제한되며 조각화할 수 없습니다.
 
-개체 프로젝션을 정의 하려면 `objects` 프로젝션 속성에서 배열을 사용 합니다.
+개체 프로젝션을 정의하려면 `objects` 프로젝션 속성에 배열을 사용합니다.
 
-원본은 프로젝션의 루트인 보강 트리의 노드에 대 한 경로입니다. 반드시 필요한 것은 아니지만 노드 경로는 일반적으로 Shaper 기술에 대 한 출력입니다. 이는 대부분의 기술이 유효한 JSON 개체를 자체적으로 출력 하지 않기 때문입니다. 즉, 일종의 셰이핑이 필요 합니다. 대부분의 경우 테이블 프로젝션을 만드는 동일한 쉐이퍼 기술을 사용하여 개체 프로젝션을 생성할 수 있습니다. 또는 구조를 제공 하기 위해 [인라인 셰이핑](knowledge-store-projection-shape.md#inline-shape) 을 사용 하 여 소스를 노드로 설정할 수도 있습니다.
+원본은 프로젝션의 루트인 보강 트리의 노드에 대한 경로입니다. 필수는 아니지만 노드 경로는 일반적으로 쉐이퍼 기술의 출력입니다. 대부분의 기술은 유효한 JSON 개체를 자체 출력하지 않기 때문입니다. 즉, 일부 형태의 셰이핑이 필요합니다. 대부분의 경우 테이블 프로젝션을 만드는 동일한 쉐이퍼 기술을 사용하여 개체 프로젝션을 생성할 수 있습니다. 또는 원본을 [인라인 셰이핑을](knowledge-store-projection-shape.md#inline-shape) 사용하여 노드로 설정하여 구조를 제공할 수도 있습니다.
 
-대상은 항상 blob 컨테이너입니다.
+대상은 항상 Blob 컨테이너입니다.
 
-다음 예제에서는 개별 호텔 문서, blob 당 호텔 문서 하나를 이라는 컨테이너에 투영 합니다 `hotels` .
+다음 예제에서는 개별 호텔 문서(Blob당 하나의 호텔 문서)를 라는 컨테이너에 `hotels` 투영합니다.
 
 ```json
 "knowledgeStore": {
@@ -383,7 +383,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 }
 ```
 
-원본은 "objectprojection" 이라는 Shaper 기술 출력입니다. 각 blob에는 각 필드 입력의 JSON 표현이 있습니다.
+원본은 "objectprojection"이라는 쉐이퍼 기술의 출력입니다. 각 Blob에는 각 필드 입력의 JSON 표현이 있습니다.
 
 ```json
     {
@@ -418,17 +418,17 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
     }
 ```
 
-## <a name="projecting-an-image-file"></a>이미지 파일 프로젝션
+## <a name="projecting-an-image-file"></a>이미지 파일 프로젝팅
 
-파일 프로젝션은 항상 이진, 정규화 된 이미지 이며, 정규화를 사용 하면 기술 실행에서 사용 하기 위한 잠재적 크기 조정 및 회전이 가능 합니다. 개체 프로젝션과 비슷한 파일 프로젝션은 Azure Storage에서 blob으로 만들어지고 이미지를 포함 합니다.
+파일 프로젝션은 항상 정규화된 이진 이미지로, 정규화는 기술 영역 실행에 사용할 수 있는 잠재적인 크기 조정 및 회전을 의미합니다. 개체 프로젝션과 유사한 파일 프로젝션은 Azure Storage Blob으로 만들어지고 이미지를 포함합니다.
 
-파일 프로젝션을 정의 하려면 `files` 프로젝션 속성에서 배열을 사용 합니다.
+파일 프로젝션을 정의하려면 `files` 프로젝션 속성에 배열을 사용합니다.
 
-소스는 항상 `/document/normalized_images/*` 입니다. 파일 프로젝션은 컬렉션 에서만 작동 `normalized_images` 합니다. 인덱서와 기술 모두 원래의 정규화 되지 않은 이미지를 통과 하지 않습니다.
+원본은 항상 `/document/normalized_images/*` 입니다. 파일 프로젝션은 `normalized_images` 컬렉션에서만 작동합니다. 인덱서와 기술셋은 모두 정규화되지 않은 원래 이미지를 통과하지 않습니다.
 
-대상은 항상 blob 컨테이너 이며, base64 인코딩 값이 문서 ID의 폴더 접두사와 함께 사용 됩니다. 파일 프로젝션은 개체 프로젝션과 동일한 컨테이너를 공유할 수 없으며, 다른 컨테이너에 프로젝션되어야 합니다. 
+대상은 항상 문서 ID의 base64로 인코딩된 값의 폴더 접두사로 Blob 컨테이너입니다. 파일 프로젝션은 개체 프로젝션과 동일한 컨테이너를 공유할 수 없으며, 다른 컨테이너에 프로젝션되어야 합니다. 
 
-다음 예제에서는 보강 문서의 문서 노드에서 추출한 정규화 된 이미지를 모두 이라는 컨테이너로 프로젝션 `myImages` 합니다.
+다음 예제에서는 보강된 문서의 문서 노드에서 추출된 모든 정규화된 이미지를 라는 컨테이너에 `myImages` 투영합니다.
 
 ```json
 "knowledgeStore" : {
@@ -658,7 +658,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서의 예제에서는 프로젝션을 만드는 방법에 대 한 일반적인 패턴을 보여 줍니다. 개념을 이해했으므로 이제 특정 시나리오에 대한 프로젝션을 빌드할 준비가 되었습니다.
+이 문서의 예제에서는 프로젝션을 만드는 방법에 대한 일반적인 패턴을 보여줍니다. 개념을 이해했으므로 이제 특정 시나리오에 대한 프로젝션을 빌드할 준비가 되었습니다.
 
 > [!div class="nextstepaction"]
 > [증분 보강을 위한 캐싱 구성](search-howto-incremental-index.md)

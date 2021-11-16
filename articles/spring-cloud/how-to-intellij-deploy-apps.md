@@ -7,14 +7,15 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/03/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: af1932ddaba8416a25b6095d8b6a7cccb16f6796
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 0db8cb4393f07b4a7ab8f9f24d1c635aaffcd133
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576032"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493726"
 ---
 # <a name="deploy-spring-boot-applications-using-intellij"></a>IntelliJ를 사용하여 Spring Boot 애플리케이션 배포
+
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java
 

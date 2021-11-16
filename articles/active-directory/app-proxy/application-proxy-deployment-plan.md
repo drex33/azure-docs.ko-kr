@@ -3,19 +3,19 @@ title: Azure Active Directory 애플리케이션 프록시 배포 계획
 description: 조직 내 애플리케이션 프록시 배포를 계획하기 위한 엔드투엔드 가이드
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.openlocfilehash: 3642a48b1b8a5df9a3bc98079873415842b5c1a4
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 0779297a60d3dc6561e5df461e63b432afd219bf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727961"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989554"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 애플리케이션 프록시 배포 계획
 
@@ -108,7 +108,7 @@ Azure AD 애플리케이션 프록시를 구성하고 구현하려면 다음 핵
 
  **Access**
 
-* 도메인에 조인되었거나 Azure AD에 조인된 디바이스 사용자가 있는 원격 사용자는 원활한 SSO(Single Sign-On)를 통해 게시된 애플리케이션에 안전하게 액세스할 수 있습니다.
+* 도메인에 조인되었거나 Azure AD에 조인된 디바이스를 사용하는 원격 사용자는 원활한 SSO(Single Sign-On)를 통해 게시된 애플리케이션에 안전하게 액세스할 수 있습니다.
 
 * 승인된 개인 디바이스가 있는 원격 사용자는 MFA에 등록되어 있고 인증 방법으로 휴대폰에 Microsoft Authenticator 앱을 등록한 경우 게시된 애플리케이션에 안전하게 액세스할 수 있습니다.
 

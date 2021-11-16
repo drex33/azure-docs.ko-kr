@@ -3,20 +3,20 @@ title: 애플리케이션 프록시를 사용한 온-프레미스 앱 Single Sig
 description: 애플리케이션 프록시를 사용한 온-프레미스 앱 Single Sign-On을 이해합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere, asteen
-ms.openlocfilehash: 8bf923e6793b55b4655c4c2133de1cda10216e18
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj, asteen
+ms.openlocfilehash: 420851665b1f32a99779b10dcef7ed3a6079e3d1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187306"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990162"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 구성하는 방법
 
@@ -34,13 +34,13 @@ SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 �
 
 -   **암호 기반 로그온**: 암호 기반 로그온은 사용자 이름과 암호 필드를 사용하여 로그온하는 모든 애플리케이션에 사용할 수 있습니다. 구성 단계는 [Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On 구성](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)에 나와 있습니다.
 
--   **Windows 통합 인증**: IWA(Windows 통합 인증)를 사용하는 애플리케이션의 경우 KCD(Kerberos 제한 위임)를 통해 Single Sign-On을 사용할 수 있습니다. 이 방법은 Active Directory에서 애플리케이션 프록시 커넥터에 권한을 부여하여 사용자를 가장하고 토큰을 대신 보내고 받습니다. KCD 구성에 대한 자세한 내용은 [Single Sign-on과 KCD 설명서](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
+-   **Windows 통합 인증:** IWA(Windows 통합 인증)를 사용하는 애플리케이션의 경우 KCD(Kerberos 제한 위임)를 통해 Single Sign-On을 사용할 수 있습니다. 이 방법은 Active Directory에서 애플리케이션 프록시 커넥터에 권한을 부여하여 사용자를 가장하고 토큰을 대신 보내고 받습니다. KCD 구성에 대한 자세한 내용은 [Single Sign-on과 KCD 설명서](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 
--   **헤더 기반 로그온**: 헤더 기반 로그온은 HTTP 헤더를 사용하여 Single Sign-On 기능을 제공하는 데 사용됩니다. 자세한 내용은 [헤더 기반 Single Sign-On](application-proxy-configure-single-sign-on-with-headers.md)을 참조하세요.
+-   **헤더 기반 로그온:** 헤더 기반 로그온은 HTTP 헤더를 사용하여 Single Sign-On 기능을 제공하는 데 사용됩니다. 자세한 내용은 [헤더 기반 Single Sign-On](application-proxy-configure-single-sign-on-with-headers.md)을 참조하세요.
 
--   **SAML single sign-on**: SAML Single Sign-On을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 사용자를 특정 애플리케이션 역할에 매핑할 수 있습니다. SAML Single Sign-On 설정에 대한 자세한 내용은 [애플리케이션 프록시를 사용하는 Single Sign-On용 SAML](application-proxy-configure-single-sign-on-on-premises-apps.md)을 참조하세요.
+-   **SAML Single Sign-On**: SAML Single Sign-On을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 사용자를 특정 애플리케이션 역할에 매핑할 수 있습니다. SAML Single Sign-On 설정에 대한 자세한 내용은 [애플리케이션 프록시를 사용하는 Single Sign-On용 SAML](application-proxy-configure-single-sign-on-on-premises-apps.md)을 참조하세요.
 
-이러한 각 옵션은 "엔터프라이즈 애플리케이션"에서 애플리케이션으로 이동하여 왼쪽 메뉴에서 **Single Sign-On** 페이지를 열면 찾을 수 있습니다. 애플리케이션이 이전 포털에서 작성된 경우 이러한 옵션이 모두 표시되지 않을 수 있습니다.
+이러한 각 옵션은 **엔터프라이즈 애플리케이션** 에서 애플리케이션으로 이동하여 왼쪽 메뉴에서 **Single Sign-On** 페이지를 열면 찾을 수 있습니다. 애플리케이션이 이전 포털에서 작성된 경우 이러한 옵션이 모두 표시되지 않을 수 있습니다.
 
 이 페이지에는 추가 로그온 옵션인 연결된 로그온이 있습니다. 이 옵션은 애플리케이션 프록시에서도 지원됩니다. 그러나 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 즉, 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수 있습니다. 
 

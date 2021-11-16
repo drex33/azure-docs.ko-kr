@@ -4,7 +4,7 @@ description: Azure Active Directory의 로그인 로그 개요
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 10/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad322032237d8e65fd82fea74bf359fcd65c3840
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 1d783fcd44fac0c22b83023e1e50b24c209fed8c
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997232"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577191"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Azure Active Directory 로그인 로그
 

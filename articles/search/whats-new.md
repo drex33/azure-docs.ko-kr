@@ -8,16 +8,22 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: d693aed76ab2469af7d8c41ca216ba7d54880391
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a3554cee4d5538fc8291ef2a2db5c852c33b137a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048010"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503587"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요. 아직 일반 공급되지 않은 포괄적인 기능 목록은 [미리 보기 기능 목록](search-api-preview.md)을 확인하여 볼 수 있습니다.
+
+## <a name="november-2021"></a>2021년 11월
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
+|------------------------------------|--------------|---------------|
+| [Azure Files Indexer(미리 보기)](./search-file-storage-integration.md) | [Azure Files](https://azure.microsoft.com/services/storage/files/)용 인덱서 만들기에 대한 REST API 지원 추가 | 퍼블릭 미리 보기 |
 
 ## <a name="july-2021"></a>2021년 7월
 

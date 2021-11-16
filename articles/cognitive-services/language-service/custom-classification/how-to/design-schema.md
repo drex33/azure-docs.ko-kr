@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 220995b286824b2daf2eb79c6b0ec917c5549263
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 243139219259c3b4be95010df988cf30256ca204
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132061966"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484097"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema"></a>데이터 준비 및 스키마 정의 방법
 
@@ -47,7 +47,7 @@ ms.locfileid: "132061966"
 * [Azure에서 파일 만들기 및 업로드](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 * [Azure Storage Explorer를 사용하여 파일 만들기 및 업로드](/azure/vs-azure-tools-storage-explorer-blobs)
 
-`.txt`만 사용할 수 있습니다. 사용자 지정 텍스트용 파일입니다. 데이터가 다른 형식인 경우 [CLUtils 구문 분석 명령](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md)을 사용하여 파일 형식을 변경할 수 있습니다.
+`.txt`만 사용할 수 있습니다. 사용자 지정 텍스트용 파일입니다. 데이터가 다른 형식인 경우 [CLUtils 구문 분석 명령](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md)을 사용하여 파일 형식을 변경할 수 있습니다.
 
  주석이 달린 데이터 세트를 업로드하거나 주석이 없는 데이터 세트를 업로드하고 Language Studio에서 [데이터에 태그를 지정](../how-to/tag-data.md)할 수 있습니다. 
  

@@ -9,12 +9,12 @@ metadata:
   author: johnkemnetz
   ms.author: johnkem
   ms.date: 08/24/2021
-  ms.openlocfilehash: 5d4f68ac59b001886636f9a2ddb4214e17ffebe9
-  ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+  ms.openlocfilehash: 776dd66dddd2e781b3c78ae8bfd0823215332d59
+  ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 11/12/2021
-  ms.locfileid: "132372533"
+  ms.locfileid: "132401880"
 landingContent:
 - title: Azure Chaos Studio 정보
   linkLists:
@@ -24,9 +24,21 @@ landingContent:
       url: chaos-studio-overview.md
     - text: 카오스 엔지니어링이란?
       url: chaos-studio-chaos-engineering-overview.md
-- title: 시작
+  - linkListType: concept
+    links:
+    - text: Chaos 실험
+      url: chaos-studio-chaos-experiments.md
+    - text: 대상 및 기능
+      url: chaos-studio-targets-capabilities.md
+    - text: 권한 및 보안
+      url: chaos-studio-permissions-security.md
+- title: 시작하기
   linkLists:
-  - linkListType: tutorial
+  - linkListType: video
+    links:
+    - text: Chaos Studio 소개
+      url: https://channel9.msdn.com/Shows/Azure-Videos/Azure-Chaos-Studio-Curious-to-control-chaos
+  - linkListType: how-to-guide
     links:
     - text: 서비스 직접 오류를 사용하여 Azure Cosmos DB 인스턴스를 장애 조치(failover)하는 카오스 실험 만들기
       url: chaos-studio-tutorial-service-direct-portal.md
@@ -46,3 +58,13 @@ landingContent:
       url: https://docs.microsoft.com/rest/api/chaosstudio
     - text: Python SDK
       url: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview
+- title: 샘플
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: ARM 템플릿을 사용하여 실험 만들기
+      url: sample-template-experiment.md
+    - text: ARM 템플릿을 사용하여 리소스 온보딩
+      url: sample-template-targets.md
+    - text: REST API 샘플
+      url: chaos-studio-samples-rest-api.md

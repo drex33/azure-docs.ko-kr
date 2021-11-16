@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: a63eaf3047dec956755616e06e1c250d88825772
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f44bf2610096db94b1c846dcab1eeacbf121a07
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609786"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494827"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Logic Apps 및 Power Automate용 Azure Monitor 로그 커넥터
 [Azure Logic Apps](../../logic-apps/index.yml) 및 [Power Automate](https://flow.microsoft.com)를 사용하면 다양한 서비스에 대해 수백 가지 작업을 사용하여 자동화된 워크플로를 만들 수 있습니다. Azure Monitor 로그 커넥터를 사용하면 Azure Monitor의 Log Analytics 작업 영역 또는 Application Insights 애플리케이션에서 데이터를 검색하는 워크플로를 빌드할 수 있습니다. 이 문서에서는 커넥터에 포함된 작업에 대해 설명하고 이 데이터를 사용하여 워크플로를 빌드하기 위한 연습을 제공합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "128609786"
 
 ## <a name="connector-limits"></a>커넥터 제한
 Azure Monitor 로그 커넥터에는 다음과 같은 제한이 있습니다.
-* 최대 쿼리 응답 크기 ~16.7MB(16MiB). 커넥터 인프라는 제한이 쿼리 API 제한보다 낮게 설정되어 있음을 나타냅니다.
+* 최대 쿼리 응답 크기는 16.7MB(16 MiB)입니다. 커넥터 인프라는 제한이 쿼리 API 제한보다 낮게 설정되어 있음을 나타냅니다.
 * 최대 레코드 수: 500,000
 * 최대 쿼리 제한 시간 110초
 * 커넥터와 로그 페이지가 현재 동일한 차트 라이브러리를 사용하지 않기 때문에 차트 시각화는 로그 페이지에서 사용할 수 있고 커넥터에서 누락될 수 있습니다.

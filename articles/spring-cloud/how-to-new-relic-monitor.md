@@ -8,23 +8,23 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 740193a9526bf19efb0e98f937c6f77c30b50b61
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7c0a659effc973737647f3868154be1e5154afba
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258300"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493707"
 ---
 # <a name="how-to-monitor-spring-boot-apps-using-new-relic-java-agent-preview"></a>새 유물 Java 에이전트를 사용 하 여 스프링 부팅 앱을 모니터링 하는 방법 (미리 보기)
 
-이 기능을 사용 하면 새 유물 Java 에이전트로 Azure 스프링 클라우드에서 실행 되는 스프링 부팅 응용 프로그램을 모니터링할 수 있습니다.
+이 기능을 사용 하면 새 유물 Java 에이전트를 사용 하 여 Azure 스프링 클라우드의 스프링 부팅 응용 프로그램을 모니터링할 수 있습니다.
 
 New Relic Java 에이전트를 사용하면 다음을 수행할 수 있습니다.
 * New Relic Java 에이전트를 사용합니다.
 * 환경 변수를 사용하여 New Relic Java 에이전트를 구성합니다.
 * New Relic 대시보드에서 모든 모니터링 데이터를 확인합니다.
 
-다음 비디오에서는 New Relic One을 사용하여 Azure Spring Cloud에서 실행되는 Spring Boot 애플리케이션을 활성화하고 모니터링하는 방법을 설명합니다.
+다음 비디오는 새 유물 1을 사용 하 여 Azure 스프링 클라우드에서 스프링 부팅 응용 프로그램을 활성화 하 고 모니터링 하는 방법을 설명 합니다.
 
 <br>
 

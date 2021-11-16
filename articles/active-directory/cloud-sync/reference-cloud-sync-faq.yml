@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: reference
-  ms.date: 09/10/2021
+  ms.date: 10/18/2021
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 45a4273ccdfa76eb158ca8fd2ce51161fc3993b1
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 6fec249a2bbd45c478fec4b35abcdc780ee9bdab
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124771349"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130240797"
 title: Azure Active Directory Connect 클라우드 동기화 FAQ
 summary: >
   Azure AD(Azure Active Directory) Connect 클라우드 동기화에 대해 자주 묻는 질문을 참조하세요.
@@ -93,4 +93,7 @@ sections:
   - question: >
       Azure AD Connect 클라우드 동기화에서 대규모 그룹을 지원하나요?
     answer: "예. 현재는 OU 범위 필터링을 사용하여 동기화된 최대 50,000명의 그룹 구성원을 지원합니다. \n"
+  - question: >
+      여러 에이전트가 설치되어 있는 경우 클라우드 프로비저닝 에이전트가 부하를 분산하나요?
+    answer: "아니요. 에이전트는 하나만 활성화됩니다. \n"
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계 \n\n- [프로비저닝이란?](what-is-provisioning.md)\n- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)"

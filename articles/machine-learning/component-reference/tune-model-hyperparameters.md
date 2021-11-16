@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: e1efc37e8bb824a6111987a789b48e805aeb1785
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: f11800c1501c0efad6dec18542ecaa912527689a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131570150"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491662"
 ---
 # <a name="tune-model-hyperparameters"></a>모델 하이퍼 매개 변수 튜닝
 
@@ -69,7 +69,7 @@ ms.locfileid: "131570150"
 
     그러나 선택한 메트릭에 따라 모델의 순위가 결정됩니다. 선택한 메트릭에 따라 순위를 지정하여 최상위 모델만 채점에 사용할 학습된 모델로 출력됩니다.
 
-8.  **임의 시드** 에 매개 변수 스윕을 시작하는 데 사용할 숫자를 입력합니다. 
+8.  **임의 초기값** 에 대해 미리 정의 된 범위에 대 한 매개 변수 값을 임의로 선택 하는 데 사용 되는 의사 난수 생성기 상태로 정수 숫자를 입력 합니다. 이 매개 변수는 **매개 변수 스윕 모드가** **임의 스윕** 인 경우에만 유효 합니다.
 
 9. 파이프라인을 제출합니다.
 

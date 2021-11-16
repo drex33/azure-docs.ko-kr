@@ -1,5 +1,5 @@
 ---
-title: '자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
+title: '자습서: Cisco Webex Meetings와 Azure AD SSO 통합'
 description: Azure Active Directory 및 Cisco Webex Meetings 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 11/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 0682673b6c18d2ac1694814b2b030297db7bf8db
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a4f111ea3d9c32014ea91757255fe9b3567028d2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826637"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436600"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-ad-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Cisco Webex Meetings를 연결하는 방법에 대해 알아봅니다. Azure AD와 Cisco Webex Meetings를 연결하는 경우 다음을 수행할 수 있습니다.
 
@@ -33,6 +33,7 @@ ms.locfileid: "124826637"
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Cisco Webex Meetings SSO(Single Sign-On)가 설정된 구독
+*  Cisco Webex Meetings의 서비스 공급자 메타데이터 파일
 
 > [!NOTE]
 > 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.

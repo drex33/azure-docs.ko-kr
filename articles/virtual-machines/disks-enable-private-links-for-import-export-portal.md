@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6ca686a9fcf2b2ba290e14687f090f833714502c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 57eef48a188f07847efcda31b4cd6a6043f2ae2a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225180"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491016"
 ---
 # <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Azure Private Link를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 
@@ -88,32 +88,6 @@ Private Link를 사용하여 관리 디스크를 내보내거나 가져오려면
 1. **저장** 을 선택합니다.
 
 이제 관리 디스크를 가져오고 내보내는 데 사용할 수 있는 프라이빗 링크를 구성했습니다.
-
-## <a name="frequently-asked-questions"></a>질문과 대답
-
-**Q: Managed Disks를 내보내고 가져오는 데 개인 링크를 사용 하는 경우의 혜택은 무엇 인가요?**
-
-**A:** 개인 링크를 사용 하 여 내보내기 및 가져오기 프로세스를 Azure 가상 네트워크 에서만 Managed Disks로 제한할 수 있습니다.
-
-**Q: 개인 링크를 통해서만 디스크를 내보내거나 가져올 수 있는지 확인 하려면 어떻게 해야 하나요?**
-
-**A:** **DiskAccessId** 속성을 디스크 액세스 개체의 인스턴스로 설정 해야 합니다. 또한 **Networkaccesspolicy** 속성을 **allowprivate** 으로 설정할 수 있습니다.
-
-**Q: 여러 가상 네트워크를 동일한 디스크 액세스 개체에 연결할 수 있나요?**
-
-**A:** 아니요. 현재는 디스크 액세스 개체를 하나의 가상 네트워크에만 연결할 수 있습니다.
-
-**Q: 다른 구독의 디스크 액세스 개체에 가상 네트워크를 연결할 수 있나요?**
-
-**A:** 아니요. 현재 동일한 구독의 가상 네트워크에만 디스크 액세스 개체를 연결할 수 있습니다.
-
-**Q: 같은 디스크 액세스 개체를 사용 하는 여러 내보내기 또는 가져오기를 동시에 수행할 수 있나요?**
-
-**A:** 5 개의 동시 내보내기 또는 가져오기를 수행할 수 있습니다.
-
-**Q: 디스크 또는 스냅숏의 SAS URI를 사용 하 여 디스크와 연결 된 개인 끝점의 서브넷과 동일한 서브넷에 있지 않은 VM의 기본 VHD를 다운로드할 수 있나요?**
-
-**A:** 아니요. 디스크와 연결 된 개인 끝점의 서브넷과 동일한 서브넷에 있는 VM에 대해서만이 작업을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

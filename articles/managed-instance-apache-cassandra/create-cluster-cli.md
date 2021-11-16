@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e5576a557f8e2bacb5861e6a7f31c08357c2b679
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 795ad31b83f3a6f1acdd8bcc7561e6d75556b311
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032509"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892422"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli"></a>빠른 시작: Azure CLI 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance 만들기
 
@@ -27,7 +27,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!IMPORTANT]
-> 이 문서를 진행하려면 Azure CLI 버전 2.17.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+> 이 문서를 진행하려면 Azure CLI 버전 2.30.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>관리형 인스턴스 클러스터 만들기
 
@@ -87,20 +87,43 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
      --debug
    ```
 
-1. 마지막으로 [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) 명령을 사용하여 세 개의 노드가 있는 클러스터용 데이터 센터를 만듭니다.
+1. 마지막으로 [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) 명령을 사용하여 각 노드에 대해 4개의 P30 디스크가 연결된 표준 D8s v4 VM SKU라는 세 개의 노드를 사용하여 클러스터에 대한 데이터 센터를 만듭니다.
 
    ```azurecli-interactive
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-    
+   virtualMachineSKU='Standard_D8s_v4'
+   noOfDisksPerNode=4
+     
    az managed-cassandra datacenter create \
      --resource-group $resourceGroupName \
      --cluster-name $clusterName \
      --data-center-name $dataCenterName \
      --data-center-location $dataCenterLocation \
      --delegated-subnet-id $delegatedManagementSubnetId \
-     --node-count 3 
+     --node-count 3 \
+     --sku $virtualMachineSKU \
+     --disk-capacity $noOfDisksPerNode \
+     --availability-zone false
    ```
+
+   > [!NOTE]
+   > `--sku`의 값은 다음과 같은 사용 가능한 SKU에서 선택할 수 있습니다.
+   >
+   > - Standard_E8s_v4
+   > - Standard_E16s_v4 
+   > - Standard_E20s_v4
+   > - Standard_E32s_v4 
+   > - Standard_DS13_v2
+   > - Standard_DS14_v2
+   > - Standard_D8s_v4
+   > - Standard_D16s_v4
+   > - Standard_D32s_v4 
+   > 
+   > 또한 `--availability-zone`은 `false`로 설정됩니다. 가용성 영역을 사용하도록 설정하려면 이를 `true`로 설정합니다. 
+
+   > [!WARNING]
+   > 모든 하위 지역에서 가용성 영역이 지원되지 않습니다. 가용성 영역이 지원되지 않는 하위 지역을 선택하면 배포에 실패합니다. [여기](/azure/availability-zones/az-overview#azure-regions-with-availability-zones)에서 지원되는 지역을 참조하세요. 또한 가용성 영역을 성공적으로 배포하는 경우 지정된 하위 지역의 모든 영역에서 컴퓨팅 리소스를 사용할 수 있습니다. 선택한 SKU 또는 용량을 모든 영역에서 사용할 수 없는 경우 배포가 실패할 수 있습니다. 
 
 1. 데이터 센터가 생성된 후 데이터 센터의 노드를 스케일 업 또는 스케일 다운하려는 경우 [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) 명령을 실행합니다. `node-count` 매개 변수 값을 원하는 값으로 변경합니다.
 
@@ -143,9 +166,7 @@ cqlsh $host 9042 -u cassandra -p cassandra --ssl
 
 ## <a name="troubleshooting"></a>문제 해결
 
-Virtual Network에 권한을 적용할 때 *'e5007d2c-4b13-4a74-9b6a-605d99f03501'에 대한 그래프 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수 없음* 과 같은 오류가 발생하는 경우 Azure Portal에서 동일한 권한을 수동으로 적용할 수 있습니다. 포털에서 권한을 적용하려면 기존 가상 네트워크의 **액세스 제어(IAM)** 창으로 이동하여 "Azure Cosmos DB"에 대한 역할 할당을 "네트워크 관리자" 역할에 추가합니다. "Azure Cosmos DB"를 검색할 때 두 개의 항목이 나타나면 다음 이미지에 표시된 대로 항목을 추가합니다. 
-
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="권한 적용" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+Azure CLI를 사용하여 Virtual Network에 권한을 적용할 때 *'e5007d2c-4b13-4a74-9b6a-605d99f03501'에 대한 그래프 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수 없음* 과 같은 오류가 발생하는 경우 Azure Portal에서 동일한 권한을 수동으로 적용할 수 있습니다. [여기](add-service-principal.md)에서 이 작업을 수행하는 방법을 알아봅니다.
 
 > [!NOTE] 
 > Azure Cosmos DB 역할 할당은 배포 목적으로만 사용됩니다. Azure Managed Instanced for Apache Cassandra에는 Azure Cosmos DB에 대한 백 엔드 종속성이 없습니다.  

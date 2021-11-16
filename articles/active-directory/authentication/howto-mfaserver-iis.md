@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c522fb950e2489afce44553d233ac3eddf138730
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48d9e0325f57aded602356ff02c4fe0adbbf8126
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742173"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233866"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성
 
@@ -25,7 +25,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 > [!IMPORTANT]
 > 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 로그인 이벤트 중에 MFA(다단계 인증)를 요구하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication을 사용해야 합니다.
 >
-> 클라우드 기반 MFA를 시작하려면 [자습서: Azure AD Multi-Factor Authentication으로 사용자 로그인 이벤트 보안](tutorial-enable-azure-mfa.md)을 참조하세요.
+> 클라우드 기반 MFA를 시작하려면 [자습서: Azure AD Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보안](tutorial-enable-azure-mfa.md)을 참조하세요.
 >
 > 2019년 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 >

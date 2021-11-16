@@ -3,19 +3,19 @@ title: Azure Active Directory B2C를 사용한 TypingDNA
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 인증을 TypingDNA와 통합하여 사용자 입력 패턴을 기반으로 ID 확인 및 교정을 지원하고 다단계 인증을 강제하는 ID 확인 솔루션을 제공하며 PSD2(Payment Services Directive 2)에 대한 SCA 요구 사항을 준수하는 방법에 대해 알아봅니다.
 author: gargi-sinha
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 68617d86fda940c5d3752f2389088a8c729aebec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c580974206a5eb4186180c997a33a5be2d02090
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97108351"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035793"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 TypingDNA를 구성하기 위한 자습서
 
@@ -61,7 +61,7 @@ REST API 호출은 `LocalAccountSignUpWithLogonEmail-TDNA` 내에서 `validation
 
 ### <a name="sign-in"></a>로그인
 
-후속 로그인 시 사용자의 입력 패턴은 [사용자 지정 HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml)을 사용하여 가입 시와 동일한 방식으로 계산됩니다. 입력 프로필이 Azure AD B2C 클레임 모음 내에 있으면 Azure AD B2C는 API를 호출하여 TypingDNA의 REST API 엔드포인트를 호출합니다. [사용자 확인](https://api.typingdna.com/index.html#api-API_Services-GetUser) 엔드포인트가 호출되어 사용자가 있는지 확인합니다. 다음으로 [패턴 확인](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) 엔드포인트가 호출되어 `net_score`을 반환합니다. 이 `net_score`은 가입시 입력 패턴이 원본과 얼마나 근접했는지를 나타냅니다.
+후속 로그인 시 사용자의 입력 패턴은 [사용자 지정 HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml)을 사용하여 가입 시와 동일한 방식으로 계산됩니다. 입력 프로필이 Azure AD B2C 클레임 모음 내에 있으면 Azure AD B2C는 API를 호출하여 TypingDNA REST API 엔드포인트를 호출합니다. [사용자 확인](https://api.typingdna.com/index.html#api-API_Services-GetUser) 엔드포인트가 호출되어 사용자가 있는지 확인합니다. 다음으로 [패턴 확인](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) 엔드포인트가 호출되어 `net_score`을 반환합니다. 이 `net_score`은 가입시 입력 패턴이 원본과 얼마나 근접했는지를 나타냅니다.
 
 이 입력 패턴은 `SelfAsserted-LocalAccountSignin-Email-TDNA` 내에서 `validationTechnicalProfiles`로 모델링됩니다:
 
@@ -196,4 +196,4 @@ REST API 호출은 `LocalAccountSignUpWithLogonEmail-TDNA` 내에서 `validation
 
 - [AAD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [AAD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)
+- [AAD B2C에서 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

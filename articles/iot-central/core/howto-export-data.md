@@ -8,12 +8,12 @@ ms.date: 10/20/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 0a084e6bad7530c4d506728b17227de13f1f86a1
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: a4a941d114d233e723d853d12386cb42834d3e19
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579300"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493796"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기
 
@@ -24,8 +24,8 @@ ms.locfileid: "131579300"
 - 원격 분석, 속성 변경, 디바이스 연결, 디바이스 수명 주기 및 디바이스 템플릿 수명 주기 데이터를 JSON 형식으로 거의 실시간으로 지속적으로 내보냅니다.
 - 데이터 스트림을 필터링하여 사용자 지정 조건과 일치하는 데이터를 내보냅니다.
 - 데이터 스트림을 디바이스의 사용자 지정 값 및 속성 값으로 보강합니다.
-- 데이터 스트림을 변환하여 모양과 내용을 수정합니다.
-- Azure Event Hubs, Azure Data Explorer, Azure Service Bus, Azure Blob Storage 및 webhook 엔드포인트와 같은 대상으로 데이터를 보냅니다.
+- 데이터 스트림을 변환 하 여 모양과 내용을 수정 합니다.
+- azure Event Hubs, azure 데이터 탐색기, azure Service Bus, Azure Blob Storage 및 webhook 끝점과 같은 대상으로 데이터를 보냅니다.
 
 > [!Tip]
 > 데이터 내보내기를 켜면 그 시점 이후의 데이터만 가져옵니다. 현재 데이터 내보내기가 꺼져 있는 동안에는 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 데이터 내보내기를 초기에 켜세요.
@@ -49,14 +49,20 @@ V2 애플리케이션이 있는 경우 [V2를 V3 IoT Central 애플리케이션�
 
 ### <a name="connection-options"></a>연결 옵션
 
-Azure 서비스 대상의 경우 *연결 문자열* 또는 관리 ID 를 사용하여 연결을 구성하도록 선택할 수 [있습니다.](../../active-directory/managed-identities-azure-resources/overview.md) IoT Central 애플리케이션에서 대상에 대한 자격 증명을 저장할 필요가 없으므로 관리 ID를 사용하는 것이 더 안전합니다. IoT Central 현재 [시스템 할당 관리 ID 를](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)사용합니다.
+Azure 서비스 대상의 경우 *연결 문자열* 또는 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 연결을 구성 하도록 선택할 수 있습니다. 관리 되는 id는 다음과 같은 이유로 더 안전 합니다.
 
-관리 ID를 구성할 때 구성에는 *범위와* *역할이* 포함됩니다.
+- IoT Central 응용 프로그램의 연결 문자열에 리소스에 대 한 자격 증명을 저장 하지 않습니다.
+- 자격 증명은 자동으로 IoT Central 응용 프로그램의 수명에 연결 됩니다.
+- 관리 id는 자동으로 보안 키를 정기적으로 회전 합니다.
 
-- 범위는 관리 ID를 사용할 수 있는 위치를 정의합니다. 예를 들어 Azure 리소스 그룹을 범위로 사용할 수 있습니다. 이 경우 IoT Central 애플리케이션과 대상은 모두 동일한 리소스 그룹에 있어야 합니다.
-- 역할은 대상 서비스에서 IoT Central 애플리케이션에 부여되는 권한을 정의합니다. 예를 들어 IoT Central 애플리케이션이 이벤트 허브로 데이터를 보내려면 관리 ID에 **Azure Event Hubs 데이터 보낸 사람** 역할 할당이 필요합니다.
+IoT Central 현재 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 사용 합니다.
 
-이 문서에서는 Azure Portal 관리 ID를 만드는 방법을 보여줍니다. Azure CLI 사용하여 manged ID를 만들 수도 있습니다. 자세한 내용은 [Azure CLI 사용하여 리소스에 관리 ID 액세스 할당을](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)참조하세요.
+관리 id를 구성 하는 경우 구성에는 *범위* 와 *역할이* 포함 됩니다.
+
+- 범위는 관리 되는 id를 사용할 수 있는 위치를 정의 합니다. 예를 들어 Azure 리소스 그룹을 범위로 사용할 수 있습니다. 이 경우 IoT Central 응용 프로그램과 대상이 동일한 리소스 그룹에 있어야 합니다.
+- 역할은 대상 서비스에서 IoT Central 응용 프로그램에 부여 되는 사용 권한을 정의 합니다. 예를 들어 이벤트 허브로 데이터를 전송 하 IoT Central 응용 프로그램의 경우 관리 되는 id에는 **Azure Event Hubs 데이터 발신자** 역할 할당이 필요 합니다.
+
+이 문서에서는 Azure Portal에서 관리 되는 id를 만드는 방법을 보여 줍니다. Azure CLI를 사용 하 여 관리 되 id를 만들 수도 있습니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
 
 ### <a name="create-an-event-hubs-destination"></a>Event Hubs 대상 만들기
 
@@ -90,20 +96,20 @@ Azure 서비스 대상의 경우 *연결 문자열* 또는 관리 ID 를 사용�
 
 [!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
 
-사용 권한을 구성하려면 다음을 수행합니다.
+사용 권한을 구성 하려면:
 
-1. 역할 **할당 추가** 페이지에서 사용하려는 범위 및 구독을 선택합니다.
+1. **역할 할당 추가** 페이지에서 사용 하려는 범위 및 구독을 선택 합니다.
 
     > [!TIP]
-    > IoT Central 애플리케이션 및 이벤트 허브가 동일한 리소스 그룹에 있는 경우 **리소스 그룹을** 범위로 선택한 다음 리소스 그룹을 선택할 수 있습니다.
+    > IoT Central 응용 프로그램과 이벤트 허브가 동일한 리소스 그룹에 있는 경우 **리소스 그룹** 을 범위로 선택한 후 리소스 그룹을 선택할 수 있습니다.
 
-1. **Azure Event Hubs Data Sender를** **역할로** 선택합니다.
+1. **Azure Event Hubs 데이터 발신자** 를 **역할로** 선택 합니다.
 
-1. **저장** 을 선택합니다. 이제 IoT Central 애플리케이션에 대한 관리 ID가 구성되었습니다.
+1. **저장** 을 선택합니다. 이제 IoT Central 응용 프로그램에 대 한 관리 id가 구성 되었습니다.
 
-이벤트 허브의 보안을 강화하고 관리 ID를 사용하여 신뢰할 수 있는 서비스의 액세스만 허용하려면 다음을 참조하세요.
+이벤트 허브를 더욱 안전 하 게 보호 하 고 관리 되는 id로 신뢰할 수 있는 서비스 에서만 액세스할 수 있도록 하려면 다음을 참조 하세요.
 
-- [프라이빗 엔드포인트를 사용하여 Azure Event Hubs 네임스페이스에 대한 액세스 허용](../../event-hubs/private-link-service.md)
+- [개인 끝점을 사용 하 여 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용](../../event-hubs/private-link-service.md)
 - [신뢰할 수 있는 Microsoft 서비스](../../event-hubs/private-link-service.md#trusted-microsoft-services)
 - [특정 가상 네트워크에서 Azure Event Hubs 네임스페이스에 대한 액세스 허용](../../event-hubs/event-hubs-service-endpoints.md)
 
@@ -141,20 +147,20 @@ Azure 서비스 대상의 경우 *연결 문자열* 또는 관리 ID 를 사용�
 
 [!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
 
-사용 권한을 구성하려면 다음을 수행합니다.
+사용 권한을 구성 하려면:
 
 1. 역할 **할당 추가** 페이지에서 사용하려는 범위 및 구독을 선택합니다.
 
     > [!TIP]
-    > IoT Central 애플리케이션과 큐 또는 토픽이 동일한 리소스 그룹에 있는 경우 리소스 **그룹을** 범위로 선택한 다음 리소스 그룹을 선택할 수 있습니다.
+    > IoT Central 애플리케이션과 큐 또는 토픽이 동일한 리소스 그룹에 있는 경우 **리소스 그룹을** 범위로 선택한 다음 리소스 그룹을 선택할 수 있습니다.
 
-1. **Azure Service Bus Data Sender를** **역할로** 선택합니다.
+1. **역할로 Azure Service Bus Data Sender를** **선택합니다.**
 
-1. **저장** 을 선택합니다. 이제 IoT Central 응용 프로그램에 대 한 관리 id가 구성 되었습니다.
+1. **저장** 을 선택합니다. 이제 IoT Central 애플리케이션에 대한 관리 ID가 구성되었습니다.
 
-큐 또는 토픽을 보다 안전 하 게 보호 하 고 관리 되는 id로 신뢰할 수 있는 서비스의 액세스만 허용 하려면 다음을 참조 하세요.
+큐 또는 토픽의 보안을 강화하고 관리 ID를 사용하여 신뢰할 수 있는 서비스의 액세스만 허용하려면 다음을 참조하세요.
 
-- [개인 끝점을 사용 하 여 Azure Service Bus 네임 스페이스에 대 한 액세스 허용](../../service-bus-messaging/private-link-service.md)
+- [프라이빗 엔드포인트를 사용하여 Azure Service Bus 네임스페이스에 대한 액세스 허용](../../service-bus-messaging/private-link-service.md)
 - [신뢰할 수 있는 Microsoft 서비스](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
 - [특정 가상 네트워크에서 Azure Service Bus 네임스페이스에 대한 액세스 허용](../../service-bus-messaging/service-bus-service-endpoints.md)
 
@@ -196,46 +202,46 @@ Azure 서비스 대상의 경우 *연결 문자열* 또는 관리 ID 를 사용�
 
 [!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
 
-사용 권한을 구성 하려면:
+사용 권한을 구성하려면 다음을 수행합니다.
 
-1. **역할 할당 추가** 페이지에서 사용 하려는 구독을 선택 하 고 범위로 **Storage** 합니다. 그런 다음, 저장소 계정을 리소스로 선택 합니다.
+1. 역할 **할당 추가** 페이지에서 사용할 구독을 선택하고 범위로 **Storage.** 그런 다음, 스토리지 계정을 리소스로 선택합니다.
 
-1. **역할** 에 **Storage Blob 데이터 참가자** 를 선택 합니다.
+1. **Storage Blob 데이터 기여자** 를 **역할로** 선택합니다.
 
-1. **저장** 을 선택합니다. 이제 IoT Central 응용 프로그램에 대 한 관리 id가 구성 되었습니다.
+1. **저장** 을 선택합니다. 이제 IoT Central 애플리케이션에 대한 관리 ID가 구성되었습니다.
 
     > [!TIP]
-    > 이 역할 할당은 **Azure 역할 할당** 페이지의 목록에 표시 되지 않습니다.
+    > 이 역할 할당은 **Azure 역할 할당** 페이지의 목록에 표시되지 않습니다.
 
-Blob 컨테이너를 보다 안전 하 게 보호 하 고 관리 되는 id로 신뢰할 수 있는 서비스의 액세스만 허용 하려면 다음을 참조 하세요.
+Blob 컨테이너의 보안을 강화하고 관리 ID를 사용하여 신뢰할 수 있는 서비스의 액세스만 허용하려면 다음을 참조하세요.
 
 - [Azure Storage에 프라이빗 엔드포인트 사용](../../storage/common/storage-private-endpoints.md)
-- [Azure 리소스에 대 한 관리 id를 사용 하 여 blob 데이터에 대 한 액세스 권한 부여](../../storage/blobs/authorize-managed-identity.md)
+- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 데이터에 대한 액세스 권한 부여](../../storage/blobs/authorize-managed-identity.md)
 - [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
 
 ---
 
-### <a name="create-an-azure-data-explorer-destination"></a>Azure 데이터 탐색기 대상 만들기
+### <a name="create-an-azure-data-explorer-destination"></a>Azure Data Explorer 대상 만들기
 
-기존 [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview) 클러스터와로 내보낼 데이터베이스가 없는 경우 다음 단계를 수행 합니다.
+내보낼 기존 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) 클러스터 및 데이터베이스가 없는 경우 다음 단계를 수행합니다.
 
-1. 새 Azure 데이터 탐색기 클러스터 및 데이터베이스를 만듭니다. 자세히 알아보려면 [Azure 데이터 탐색기 빠른](/azure/data-explorer/create-cluster-database-portal)시작을 참조 하세요. 만든 데이터베이스의 이름을 기록해 둡니다. 다음 단계에서이 값이 필요 합니다.
+1. 새 Azure Data Explorer 클러스터 및 데이터베이스를 만듭니다. 자세한 내용은 Azure Data Explorer [빠른 시작 을 참조하세요.](/azure/data-explorer/create-cluster-database-portal) 만든 데이터베이스의 이름을 기록해 두세요. 다음 단계에서 이 값이 필요합니다.
 
-1. IoT Central 응용 프로그램을 Azure 데이터 탐색기에 연결 하는 데 사용할 수 있는 서비스 주체를 만듭니다. Azure Cloud Shell를 사용 하 여 다음 명령을 실행 합니다.
+1. IoT Central 애플리케이션을 Azure Data Explorer 연결하는 데 사용할 수 있는 서비스 주체를 만듭니다. Azure Cloud Shell 사용하여 다음 명령을 실행합니다.
 
     ```azurecli
     az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central"
     ```
 
-    `appId` `password` 명령 출력에서, 및 값을 기록해 둡니다 `tenant` .이 값은 다음 단계에서 필요 합니다.
+    명령 출력에서 , 및 값을 기록해 `appId` `password` `tenant` 두세요. 다음 단계에서 필요합니다.
 
-1. 데이터베이스에 서비스 사용자를 추가 하려면 Azure 데이터 탐색기 포털로 이동 하 여 데이터베이스에서 다음 쿼리를 실행 합니다. 자리 표시자를 이전에 적어 둔 값으로 바꿉니다.
+1. 데이터베이스에 서비스 주체를 추가하려면 Azure Data Explorer 포털로 이동하여 데이터베이스에서 다음 쿼리를 실행합니다. 자리 표시자를 이전에 기록해 두는 값으로 대체합니다.
 
     ```kusto
     .add database <YourDatabaseName> admins ('aadapp=<YourAppId>;<YourTenant>');
     ```
 
-1. 내보내는 데이터에 적합 한 스키마를 사용 하 여 데이터베이스에 테이블을 만듭니다. 다음 예제 쿼리는 라는 테이블을 만듭니다 `smartvitalspatch` . 자세한 내용은 [내보내기를 위해 IoT Central 응용 프로그램 내에서 데이터 변환](howto-transform-data-internally.md)을 참조 하세요.
+1. 내보내는 데이터에 적합한 스키마를 사용하여 데이터베이스에 테이블을 만듭니다. 다음 예제 쿼리는 라는 테이블을 `smartvitalspatch` 만듭니다. 자세한 내용은 [내보내기를 위해 IoT Central 애플리케이션 내에서 데이터 변환을 참조하세요.](howto-transform-data-internally.md)
 
     ```kusto
     .create table smartvitalspatch (
@@ -252,24 +258,24 @@ Blob 컨테이너를 보다 안전 하 게 보호 하 고 관리 되는 id로 �
     )
     ```
 
-1. 필드 Azure 데이터 탐색기 데이터베이스에 대 한 수집 데이터의 속도를 높이려면 다음을 수행 합니다.
+1. (선택 사항) Azure Data Explorer 데이터베이스로 데이터 수집 속도를 높이기 위해 다음을 수행합니다.
 
-    1. Azure 데이터 탐색기 클러스터에 대 한 **구성** 페이지로 이동 합니다. 그런 다음 **스트리밍** 수집 옵션을 사용 하도록 설정 합니다.
-    1. 다음 쿼리를 실행 하 여 스트리밍 수집을 사용 하도록 테이블 정책을 변경 합니다.
+    1. Azure Data Explorer **클러스터의 구성** 페이지로 이동합니다. 그런 다음 **스트리밍 스트리밍을** 사용하도록 설정합니다.
+    1. 다음 쿼리를 실행하여 스트리밍을 사용하도록 설정하는 테이블 정책을 변경합니다.
 
         ```kusto
         .alter table smartvitalspatch policy streamingingestion enable
         ```
 
-1. Azure 데이터 탐색기 클러스터 URL, 데이터베이스 이름 및 테이블 이름을 사용 하 여 IoT Central에서 Azure 데이터 탐색기 대상을 추가 합니다. 다음 표에서는 권한 부여에 사용할 서비스 주체 값을 보여 줍니다.
+1. Azure Data Explorer 클러스터 URL, 데이터베이스 이름 및 테이블 이름을 사용하여 IoT Central Azure Data Explorer 대상을 추가합니다. 다음 표에서는 권한 부여에 사용할 서비스 주체 값을 보여줍니다.
 
-    | 서비스 사용자 값 | 대상 구성 |
+    | 서비스 주체 값 | 대상 구성 |
     | ----------------------- | ------------------------- |
     | appId                   | ClientID                  |
     | tenant                  | 테넌트 ID                 |
     | password                | 클라이언트 암호             |
 
-    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Azure 데이터 탐색기 내보내기 대상의 스크린샷":::
+    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Azure Data Explorer 내보내기 대상의 스크린샷.":::
 
 ### <a name="create-a-webhook-endpoint"></a>웹후크 엔드포인트 만들기
 
@@ -284,18 +290,18 @@ Blob 컨테이너를 보다 안전 하 게 보호 하 고 관리 되는 id로 �
 
 [!INCLUDE [iot-central-create-export](../../../includes/iot-central-create-export.md)]
 
-대상 구성:
+대상을 구성합니다.
 
 1. 새 대상을 추가하거나 이미 만든 대상을 추가합니다. **새 항목 만들기** 링크를 선택하고, 다음 정보를 추가합니다.
 
     - **대상 이름**: IoT Central에서 표시되는 대상 이름입니다.
     - **대상 유형**: 대상 유형을 선택합니다. 대상을 아직 설정하지 않은 경우 [내보내기 대상 설정](#set-up-export-destination)을 참조하세요.
-    - **권한 부여:** **연결 문자열** 을 선택합니다.
+    - **권한 부여:** **연결 문자열 을** 선택합니다.
     - Azure Event Hubs, Azure Service Bus 큐 또는 토픽의 경우 리소스에 대한 연결 문자열을 붙여넣고, 필요한 경우 대/소문자를 구분하는 이벤트 허브, 큐 또는 토픽 이름을 입력합니다.
     - Azure Blob Storage의 경우 리소스에 대한 연결 문자열을 붙여넣고, 필요한 경우 대/소문자를 구분하는 컨테이너 이름을 입력합니다.
     - 웹후크의 경우 웹후크 엔드포인트의 콜백 URL을 붙여넣습니다. 필요에 따라 웹후크 권한 부여(OAuth 2.0 및 권한 부여 토큰)를 구성하고 사용자 지정 헤더를 추가할 수 있습니다. 
         - OAuth 2.0의 경우 클라이언트 자격 증명 흐름만 지원됩니다. 대상이 저장되면 IoT Central에서 OAuth 공급자와 통신하여 권한 부여 토큰을 검색합니다. 이 토큰은 `Authorization` 이 대상으로 전송되는 모든 메시지의 헤더에 연결됩니다.
-        - 권한 부여 토큰의 경우 이 대상으로 전송되는 모든 메시지에 대해 헤더에 직접 연결할 토큰 값을 지정할 수 `Authorization` 있습니다.
+        - 권한 부여 토큰의 경우 `Authorization` 이 대상으로 전송되는 모든 메시지의 헤더에 직접 연결할 토큰 값을 지정할 수 있습니다.
     - **만들기** 를 선택합니다.
 
 1. **+ 대상** 을 선택하고, 드롭다운에서 대상을 선택합니다. 단일 내보내기에 최대 5개의 대상을 추가할 수 있습니다.
@@ -317,7 +323,7 @@ Blob 컨테이너를 보다 안전 하 게 보호 하 고 관리 되는 id로 �
     - Azure Blob Storage 스토리지 계정의 엔드포인트 URI와 대/소문자 구분 컨테이너 이름을 입력합니다. 엔드포인트 URI는 와 `https://contosowaste.blob.core.windows.net` 같습니다.
     - 웹후크의 경우 웹후크 엔드포인트의 콜백 URL을 붙여넣습니다. 필요에 따라 웹후크 권한 부여(OAuth 2.0 및 권한 부여 토큰)를 구성하고 사용자 지정 헤더를 추가할 수 있습니다.
         - OAuth 2.0의 경우 클라이언트 자격 증명 흐름만 지원됩니다. 대상이 저장되면 IoT Central에서 OAuth 공급자와 통신하여 권한 부여 토큰을 검색합니다. 이 토큰은 `Authorization` 이 대상으로 전송되는 모든 메시지의 헤더에 연결됩니다.
-        - 권한 부여 토큰의 경우 이 대상으로 전송되는 모든 메시지에 대해 헤더에 직접 연결할 토큰 값을 지정할 수 `Authorization` 있습니다.
+        - 권한 부여 토큰의 경우 `Authorization` 이 대상으로 전송되는 모든 메시지의 헤더에 직접 연결할 토큰 값을 지정할 수 있습니다.
     - **만들기** 를 선택합니다.
 
 1. **+ 대상** 을 선택하고, 드롭다운에서 대상을 선택합니다. 단일 내보내기에 최대 5개의 대상을 추가할 수 있습니다.
@@ -672,4 +678,4 @@ Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 데이터 내보내기를 구성하는 방법을 배웠으므로 다음 단계는 내보내기를 [위해 IoT Central 애플리케이션 내에서 데이터 변환을](howto-transform-data-internally.md)알아보는 것입니다.
+이제 데이터 내보내기를 구성하는 방법을 배웠으므로 다음 단계는 내보내기를 [위해 IoT Central 애플리케이션 내에서 데이터 변환을](howto-transform-data-internally.md)학습하는 것입니다.

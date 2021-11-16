@@ -3,12 +3,12 @@ title: 이미지 잠그기
 description: 컨테이너 이미지 또는 리포지토리의 특성을 설정하여 Azure Container Registry에서 삭제하거나 덮어쓸 수 없습니다.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 340beb1bb6666ddf0de7de38adee6be71f5f52bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 0b2cdd770233833e45c84bea1916ddf7f6e1e317
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772346"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494556"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure Container Registry의 컨테이너 이미지 잠금
 
@@ -53,37 +53,37 @@ az acr repository show \
 
 ```azurecli
 az acr repository show \
-    --name myregistry --image image:tag \
+    --name myregistry --image myimage:tag \
     --output jsonc
 ```
 
 ### <a name="lock-an-image-by-tag"></a>태그로 이미지 잠금
 
-*myregistry* 의 *myrepo/myimage:tag* 이미지를 잠그려면 다음 [az acr repository update][az-acr-repository-update] 명령을 실행합니다.
+Myimage에서 *myimage: tag* 이미지를 잠그려면 다음 [az acr repository update][az-acr-repository-update] 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --write-enabled false
 ```
 
 ### <a name="lock-an-image-by-manifest-digest"></a>매니페스트 다이제스트로 이미지 잠금
 
-매니페스트 다이제스트(`sha256:...`으로 표시되는 SHA-256 해시)로 식별되는 *myrepo/myimage* 이미지를 잠그려면 다음 명령을 실행합니다. (하나 이상의 이미지 태그와 연결된 매니페스트 다이제스트를 찾으려면 [az acr repository show-manifests][az-acr-repository-show-manifests] 명령을 실행합니다.)
+매니페스트 다이제스트 (로 표시 되는 SHA-256 해시)로 식별 되는 *myimage* 이미지를 잠그려면 `sha256:...` 다음 명령을 실행 합니다. (하나 이상의 이미지 태그와 연결된 매니페스트 다이제스트를 찾으려면 [az acr repository show-manifests][az-acr-repository-show-manifests] 명령을 실행합니다.)
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage@sha256:123456abcdefg \
+    --name myregistry --image myimage@sha256:123456abcdefg \
     --write-enabled false
 ```
 
 ### <a name="lock-a-repository"></a>리포지토리 잠금
 
-*myrepo/myimage* 리포지토리 및 모든 이미지를 잠그려면 다음 명령을 실행합니다.
+*Myrepo* 리포지토리 및 모든 이미지를 잠그려면 다음 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --write-enabled false
 ```
 
@@ -91,57 +91,57 @@ az acr repository update \
 
 ### <a name="protect-an-image-from-deletion"></a>이미지가 삭제되지 않도록 보호
 
-*myrepo/myimage:tag* 이미지 업데이트는 허용하지만 삭제되지 않도록 하려면 다음 명령을 실행합니다.
+*Myimage: tag* 이미지를 업데이트 하지만 삭제 하지 않도록 허용 하려면 다음 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled false --write-enabled true
 ```
 
 ### <a name="protect-a-repository-from-deletion"></a>리포지토리가 삭제되지 않도록 보호
 
-다음 명령은 *myrepo/myimage* 리포지토리가 삭제되지 않도록 설정합니다. 개별 이미지는 계속 업데이트하거나 삭제할 수 있습니다.
+다음 명령은 *myrepo* 리포지토리를 삭제할 수 없도록 설정 합니다. 개별 이미지는 계속 업데이트하거나 삭제할 수 있습니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled false --write-enabled true
 ```
 
 ## <a name="prevent-read-operations-on-an-image-or-repository"></a>이미지 또는 리포지토리에서 읽기 작업 방지
 
-*myrepo/myimage:tag* 이미지에서 읽기(끌어오기) 작업을 방지하려면 다음 명령을 실행합니다.
+*Myimage: tag* 이미지에서 읽기 (끌어오기) 작업을 방지 하려면 다음 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --read-enabled false
 ```
 
-*myrepo/myimage* 리포지토리의 모든 이미지에서 읽기(끌어오기) 작업을 방지하려면 다음 명령을 실행합니다.
+*Myrepo* 리포지토리의 모든 이미지에 대 한 읽기 작업을 방지 하려면 다음 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --read-enabled false
 ```
 
 ## <a name="unlock-an-image-or-repository"></a>이미지 또는 리포지토리 잠금 해제
 
-*myrepo/myimage:tag* 이미지를 삭제하고 업데이트할 수 있도록 기본 동작을 복원하려면 다음 명령을 실행합니다.
+삭제 하 고 업데이트할 수 있도록 *myimage: tag* 이미지의 기본 동작을 복원 하려면 다음 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled true --write-enabled true
 ```
 
-*myrepo/myimage* 리포지토리 및 모든 이미지를 삭제하고 업데이트할 수 있도록 기본 동작을 복원하려면 다음 명령을 실행합니다.
+*Myrepo* 리포지토리 및 모든 이미지를 삭제 하 고 업데이트할 수 있도록 기본 동작을 복원 하려면 다음 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled true --write-enabled true
 ```
 

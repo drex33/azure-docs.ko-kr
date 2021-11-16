@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 09322cb8d5497b2f6ea639955ebd7338e39f2418
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: a6b7a9c072951a7010403c9e54dff844eb910d95
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110116653"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490673"
 ---
 # <a name="recommendations-and-guidelines-for-keyword-recognition"></a>키워드 인식에 대한 권장 사항 및 지침
 
@@ -42,13 +42,13 @@ ms.locfileid: "110116653"
 
 [키워드 확인](keyword-recognition-overview.md#keyword-verification)을 사용하는 다단계 키워드 인식 시나리오에서 애플리케이션은 최종 사용자에게 키워드 검색 알림을 보낼 시기를 선택할 수 있습니다. 시각적 개체 또는 가청 표시기를 렌더링하기 위한 권장 사항은 키워드 확인 서비스의 응답을 사용하는 것입니다.
 
-![정확성 최적화 시 사용자 환경 지침.](media/custom-keyword/keyword-verification-ux-accuracy.png)
+![정확성 최적화 시 사용자 환경 지침.](media/custom-keyword/kw-verification-ux-accuracy.png)
 
 이를 통해 정확성 측면에서 최적의 환경을 보장하여 사용자에게 인식되는 잘못된 수락의 영향을 최소화하지만 추가 대기 시간이 발생합니다.
 
 대기 시간 최적화가 필요한 애플리케이션의 경우, 애플리케이션은 디바이스 내 키워드 인식에 따라 최종 사용자에게 간편하고 눈에 잘 띄지 않는 표시기를 제공할 수 있습니다. 예를 들어 LED 패턴을 조명하거나 아이콘을 펄스합니다. 키워드 확인이 키워드 수락으로 응답하는 경우 표시기가 계속 존재하거나 응답이 키워드 거부인 경우 해제될 수 있습니다.
 
-![대기 시간 최적화 시 사용자 환경 지침.](media/custom-keyword/keyword-verification-ux-latency.png)
+![대기 시간 최적화 시 사용자 환경 지침.](media/custom-keyword/kw-verification-ux-latency.png)
 
 ## <a name="next-steps"></a>다음 단계
 

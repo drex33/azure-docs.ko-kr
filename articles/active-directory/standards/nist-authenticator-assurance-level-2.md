@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168ea35d32a02d512ef088ace098d2938a57c022
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 30287957ca9d44c27f0d46efb6ae358db7d6ab44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889763"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662270"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-2-with-azure-active-directory"></a>Azure Active Directory를 사용하여 NIST 인증자 보증 수준 2 달성
 
@@ -45,6 +45,8 @@ AAL2(인증자 보증 수준 2)를 시도하기 전에 다음 리소스를 확�
 | 암호 + 소프트웨어 TPM과 조인된 Azure AD <br>암호 + 규격 모바일 디바이스<br>암호 + 소프트웨어 TPM과 조인된 하이브리드 Azure AD <br>암호 + Microsoft Authenticator 앱(알림) | 저장된 비밀 + 단일 단계 암호화 SW |
 | 암호 + 하드웨어 TPM과 조인된 Azure AD <br>암호 + 하드웨어 TPM과 조인된 하이브리드 Azure AD | 저장된 비밀 + 단일 단계 암호화 하드웨어 |
 
+> [!NOTE]
+> 조건부 액세스 정책에서 디바이스를 규격 또는 하이브리드 Azure AD 조인으로 표시해야 하는 경우 Authenticator는 검증 도구 가장 저항 역할을 합니다.
 
 ### <a name="our-recommendations"></a>권장 사항
 

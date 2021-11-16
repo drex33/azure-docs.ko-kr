@@ -4,12 +4,12 @@ description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 62581028b58001c51721b79149ad2c75dacc86a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 324aed15446e83e0853f4b590c7d679a7f598abe
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642399"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491396"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -97,9 +97,9 @@ Azure Databricks와 같은 일부 Azure 서비스는 [관리형 애플리케이�
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
-### <a name="arm-template"></a>ARM 템플릿
+### <a name="template"></a>템플릿
 
-ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 잠금을 배포하는 경우 잠금 범위와 배포 범위를 알고 있어야 합니다. 리소스 그룹 또는 구독 잠금과 같은 배포 범위에서 잠금을 적용하려면 범위 속성을 설정하지 마세요. 배포 범위 내에서 리소스를 잠그면 범위 속성을 설정합니다.
+Azure Resource Manager 템플릿 (ARM 템플릿) 또는 Bicep 파일을 사용 하 여 잠금을 배포할 때 잠금의 범위와 배포 범위를 알고 있어야 합니다. 리소스 그룹 또는 구독 잠금과 같은 배포 범위에서 잠금을 적용하려면 범위 속성을 설정하지 마세요. 배포 범위 내에서 리소스를 잠그면 범위 속성을 설정합니다.
 
 다음 템플릿은 배포되는 리소스 그룹에 잠금을 적용합니다. 잠금 범위가 배포 범위와 일치하기 때문에 잠금 리소스에 범위 속성이 없습니다. 이 템플릿은 리소스 그룹 수준에서 배포됩니다.
 

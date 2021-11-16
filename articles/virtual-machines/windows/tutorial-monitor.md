@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 0834fa6fd7eff41f37eb8f16dc3429189be284cb
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: f16060e58783a96c95c71361908d6bfbc74e36ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688679"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281441"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링
 **적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
@@ -143,7 +143,7 @@ VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확
 > * VM 메트릭 보기
 > * 경고 만들기
 
-Azure Security Center에 대해 알아보려면 다음 자습서로 진행합니다.
+Microsoft Defender for Cloud에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [VM 보안 관리](../../security/fundamentals/overview.md)

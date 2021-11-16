@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/15/2021
+ms.date: 11/09/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 13ee73160eb2efe4cce9a76d7f7ee611a8fbcd0e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 1eb877215137338e2522ae9e8b215cceb469f49b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131036184"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055477"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -70,6 +70,7 @@ ms.locfileid: "131036184"
 | [BuildingBlocks](buildingblocks.md) | 0:1 | 정책의 구성 요소입니다. |
 | [ClaimsProviders](claimsproviders.md) | 0:1 | 클레임 공급자의 컬렉션입니다. |
 | [UserJourneys](userjourneys.md) | 0:1 | 사용자 경험의 컬렉션입니다. |
+| [SubJourneys](subjourneys.md) | 0:1 | 하위 경험의 컬렉션입니다. |
 | [RelyingParty](relyingparty.md) | 0:1 | 신뢰 당사자 정책의 정의입니다. |
 
 다른 정책에서 정책을 상속하려면 **BasePolicy** 요소를 정책 파일의 **TrustFrameworkPolicy** 요소 아래에서 선언해야 합니다. **BasePolicy** 요소는 이 정책이 파생된 기본 정책에 대한 참조입니다.

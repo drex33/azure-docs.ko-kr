@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.openlocfilehash: b4df4b7f06c999bfc29154fbbed4133c2664dad8
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 7ad7e2ad9fe86693c31565116a4a0b992796c692
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132372457"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158352"
 ---
 # <a name="azure-chaos-studio-preview-limitations-and-known-issues"></a>Azure Chaos Studio 미리 보기 제한 사항 및 알려진 문제
 
@@ -40,5 +40,5 @@ Azure Chaos Studio의 공개 미리 보기 중에는 팀에서 인식하고 해�
 
 ## <a name="next-steps"></a>다음 단계
 아래 링크를 사용하여 Chaos Studio를 통해 애플리케이션 복원력을 개선하기 위한 카오스 상황을 만들고 실행합니다.
-- [첫 번째 실험 만들기 및 실행](chaos-studio-tutorial-service-direct-portal.md)
+- [첫 번째 실험 만들기 및 실행](chaos-studio-tutorial-service-direct.md)
 - [카오스 엔지니어링 자세히 알아보기](chaos-studio-chaos-engineering-overview.md)

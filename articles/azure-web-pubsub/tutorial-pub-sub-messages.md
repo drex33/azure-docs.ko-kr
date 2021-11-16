@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 00ff941ccf008b84ac72191035cc9322d4d08c8c
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 13e3ee8db088db794c538e6da7af1a117c5ebd11
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579087"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345910"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-using-websocket-api-and-azure-web-pubsub-service-sdk"></a>자습서: WebSocket API 및 Azure Web PubSub 서비스 SDK를 사용하여 메시지 게시 및 구독
 
@@ -108,8 +108,8 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 var hub = args[1];
 
                 // Either generate the URL or fetch it from server or fetch a temp one from the portal
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
-                var url = serviceClient.GenerateClientAccessUri();
+                var service = new WebPubSubServiceClient(connectionString, hub);
+                var url = service.GenerateClientAccessUri();
 
                 using (var client = new WebsocketClient(url))
                 {
@@ -157,8 +157,8 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 
     async function main() {
       const hub = "pubsub";
-      let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
-      let token = await serviceClient.getClientAccessToken();
+      let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+      let token = await service.getClientAccessToken();
       let ws = new WebSocket(token.url);
       ws.on('open', () => console.log('connected'));
       ws.on('message', data => console.log('Message received: %s', data));
@@ -189,13 +189,10 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     cd subscriber
     # Create venv
     python -m venv env
+    # Activate venv
+    source ./env/bin/activate
 
-    # Active venv
-    ./env/Scripts/activate
-
-    # Or call .\env\Scripts\activate when you are using CMD under Windows
-
-    pip install azure-messaging-webpubsubservice==1.0.0b1
+    pip install azure-messaging-webpubsubservice
     pip install websockets
 
     ```
@@ -206,35 +203,38 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     import asyncio
     import sys
     import websockets
-    from azure.messaging.webpubsubservice import (
-        build_authentication_token
-    )
-
+    
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    
     async def connect(url):
         async with websockets.connect(url) as ws:
             print('connected')
             while True:
-                print('Message received: ' + await ws.recv())
-
-    if len(sys.argv) != 3:
-        print('Usage: python subscribe.py <connection-string> <hub-name>')
-        exit(1)
-
-    connection_string = sys.argv[1]
-    hub_name = sys.argv[2]
-
-    token = build_authentication_token(connection_string, hub_name)
-
-    try:
-        asyncio.get_event_loop().run_until_complete(connect(token['url']))
-    except KeyboardInterrupt:
-        pass
-
+                print('Received message: ' + await ws.recv())
+    
+    if __name__ == '__main__':
+    
+        if len(sys.argv) != 3:
+            print('Usage: python subscribe.py <connection-string> <hub-name>')
+            exit(1)
+    
+        connection_string = sys.argv[1]
+        hub_name = sys.argv[2]
+    
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        token = service.get_client_access_token()
+    
+        try:
+            asyncio.get_event_loop().run_until_complete(connect(token['url']))
+        except KeyboardInterrupt:
+            pass
+    
     ```
 
     위의 코드는 Azure Web PubSub의 허브에 연결하기 위한 WebSocket 연결을 만듭니다. 허브는 클라이언트 그룹에 메시지를 게시할 수 있는 Azure Web PubSub의 논리적 단위입니다. [주요 개념](./key-concepts.md)에는 Azure Web PubSub에서 사용되는 용어에 대한 자세한 설명이 포함되어 있습니다.
     
-    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 Web PubSub SDK에서 `build_authentication_token()`를 사용하여 유효한 액세스 토큰이 있는 전체 URL을 포함하는 서비스에 대한 URL을 생성합니다.
+    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 SDK에서 제공하는 `service.get_client_access_token()`을 사용하여 유효한 액세스 토큰이 있는 전체 URL이 포함된 서비스에 대한 URL을 생성합니다.
     
     연결이 설정되면 WebSocket 연결을 통해 메시지를 받게 됩니다. 따라서 `await ws.recv()`를 사용하여 들어오는 메시지를 수신 대기합니다.
 
@@ -307,12 +307,12 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
 
-            WebPubSubAuthenticationToken token = client.getAuthenticationToken(new GetAuthenticationTokenOptions());
+            WebPubSubAuthenticationToken token = service.getAuthenticationToken(new GetAuthenticationTokenOptions());
 
             WebSocketClient webSocketClient = new WebSocketClient(new URI(token.getUrl())) {
                 @Override
@@ -394,11 +394,11 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 var hub = args[1];
                 var message = args[2];
 
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
+                var service = new WebPubSubServiceClient(connectionString, hub);
                 
                 // Send messages to all the connected clients
                 // You can also try SendToConnectionAsync to send messages to the specific connection
-                await serviceClient.SendToAllAsync(message);
+                await service.SendToAllAsync(message);
             }
         }
     }
@@ -435,13 +435,13 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
     const hub = "pubsub";
-    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
 
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
+    service.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
-    `sendToAll()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
+    `service.sendToAll()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
 
 3. 아래 명령을 실행하고, `<connection_string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꿉니다.
 
@@ -459,46 +459,39 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 # <a name="python"></a>[Python](#tab/python)
 
 1. 먼저 이 프로젝트에 대한 새 폴더 `publisher`를 만들고 필요한 종속성을 설치하겠습니다.
-    * bash를 사용하는 경우
-        ```bash
-        mkdir publisher
-        cd publisher
-        # Create venv
-        python -m venv env
+    ```bash
+    mkdir publisher
+    cd publisher
+    # Create venv
+    python -m venv env
+    # Active venv
+    source ./env/bin/activate
 
-        # Active venv
-        ./env/Scripts/activate
+    pip install azure-messaging-webpubsubservice
 
-        # Or call .\env\Scripts\activate when you are using CMD under windows
-
-        pip install azure-messaging-webpubsubservice==1.0.0b1
-
-        ```
+    ```
 2. 이번에는 Azure Web PubSub SDK를 사용하여 서비스에 메시지를 게시해 보겠습니다. 아래 코드를 사용하여 `publish.py` 파일을 만듭니다.
 
     ```python
     import sys
-    from azure.messaging.webpubsubservice import (
-        WebPubSubServiceClient
-    )
-    from azure.messaging.webpubsubservice.rest import *
-
-    if len(sys.argv) != 4:
-        print('Usage: python publish.py <connection-string> <hub-name> <message>')
-        exit(1)
-
-    connection_string = sys.argv[1]
-    hub_name = sys.argv[2]
-    message = sys.argv[3]
-
-    service_client = WebPubSubServiceClient.from_connection_string(connection_string)
-    res = service_client.send_request(build_send_to_all_request(hub_name, content=message, content_type='text/plain'))
-    # res should be <HttpResponse: 202 Accepted>
-    print(res)
-
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    if __name__ == '__main__':
+    
+        if len(sys.argv) != 4:
+            print('Usage: python publish.py <connection-string> <hub-name> <message>')
+            exit(1)
+    
+        connection_string = sys.argv[1]
+        hub_name = sys.argv[2]
+        message = sys.argv[3]
+    
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        res = service.send_to_all(message, content_type='text/plain')
+        print(res)
     ```
 
-    `build_send_to_all_request()`는 메시지를 빌드하고 `send_request()`는 허브에 있는 모든 연결된 클라이언트에 메시지를 전송합니다.
+    `send_to_all()`은 메시지를 허브에서 연결된 모든 클라이언트에 보냅니다.
 
 3. 아래 명령을 실행하고, `<connection_string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꿉니다.
 
@@ -551,11 +544,11 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
-            client.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
         }
     }
 

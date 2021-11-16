@@ -1,22 +1,22 @@
 ---
-title: NFS 공유 만들기(미리 보기) - Azure Files
+title: NFS 공유 만들기-Azure Files
 description: 네트워크 파일 시스템 프로토콜을 사용하여 탑재할 수 있는 Azure 파일 공유를 만드는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/16/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f146d51cdd43b8c4a52285476e47d0c6237efe0f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 77a8a7d3a210441cea406241ee1f4f776878c826
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046606"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519436"
 ---
-# <a name="how-to-create-an-nfs-share-preview"></a>NFS 공유를 만드는 방법(미리 보기)
-Azure 파일 공유는 클라우드에 있는 완전 관리형 파일 공유입니다. 이 문서에서는 NFS 프로토콜(미리 보기)을 사용하는 파일 공유를 만드는 방법을 설명합니다.
+# <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
+Azure 파일 공유는 클라우드에 있는 완전 관리형 파일 공유입니다. 이 문서에서는 NFS 프로토콜을 사용하는 파일 공유를 만드는 방법을 설명합니다.
 
 ## <a name="applies-to"></a>적용 대상
 | 파일 공유 유형 | SMB | NFS |
@@ -41,69 +41,6 @@ Azure 파일 공유는 클라우드에 있는 완전 관리형 파일 공유입�
     - [ExpressRoute](../../expressroute/expressroute-introduction.md) 구성.
 
 - Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.
-
-## <a name="register-the-nfs-41-protocol"></a>NFS 4.1 프로토콜 등록
-
-NFS Azure 파일 공유를 만들려면 먼저 기능에 등록해야 합니다. 등록하기 전에 만든 스토리지 계정에는 NFS 공유를 만들 수 없습니다.
-
-Azure PowerShell 모듈 또는 Azure CLI를 사용 중인 경우, 다음 명령을 사용하여 기능을 등록합니다.
-
-# <a name="portal"></a>[포털](#tab/azure-portal)
-Azure PowerShell 또는 Azure CLI를 사용하여 Azure Files에 대해 NFS 4.1 기능을 등록합니다.
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-```azurepowershell
-# Connect your PowerShell session to your Azure account, if you have not already done so.
-Connect-AzAccount
-# Set the actively selected subscription, if you have not already done so.
-$subscriptionId = "<yourSubscriptionIDHere>"
-$context = Get-AzSubscription -SubscriptionId $subscriptionId
-Set-AzContext $context
-# Register the NFS 4.1 feature with Azure Files to enable the preview.
-Register-AzProviderFeature `
-    -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowNfsFileShares 
-    
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-```azurecli
-# Connect your Azure CLI to your Azure account, if you have not already done so.
-az login
-# Provide the subscription ID for the subscription where you would like to 
-# register the feature
-subscriptionId="<yourSubscriptionIDHere>"
-az feature register \
-    --name AllowNfsFileShares \
-    --namespace Microsoft.Storage \
-    --subscription $subscriptionId
-az provider register \
-    --namespace Microsoft.Storage
-```
-
----
-
-등록이 승인되기까지 최대 1시간 정도 걸릴 수 있습니다. 등록이 완료되었는지 확인하려면 다음 명령을 사용합니다.
-
-# <a name="portal"></a>[포털](#tab/azure-portal)
-Azure PowerShell 또는 Azure CLI를 사용하여 Azure Files에 대해 NFS 4.1 기능이 등록되었는지 확인합니다. 
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-```azurepowershell
-Get-AzProviderFeature `
-    -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowNfsFileShares
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-```azurecli
-az feature show \
-    --name AllowNfsFileShares \
-    --namespace Microsoft.Storage \
-    --subscription $subscriptionId
-```
----
 
 ## <a name="create-a-filestorage-storage-account"></a>FileStorage 스토리지 계정 만들기
 현재 NFS 4.1 공유는 프리미엄 파일 공유로만 사용할 수 있습니다. NFS 4.1 프로토콜 지원을 사용하여 프리미엄 파일 공유를 배포하려면 먼저 FileStorage 스토리지 계정을 만들어야 합니다. 스토리지 계정은 Azure의 최상위 수준 개체로, 여러 Azure 파일 공유를 배포하는 데 사용할 수 있는 공유 스토리지 풀을 나타냅니다.

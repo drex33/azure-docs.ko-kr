@@ -4,12 +4,12 @@ description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure �
 ms.topic: overview
 ms.date: 08/27/2021
 ms.custom: contperf-fy21q1,contperf-fy21q3-portal
-ms.openlocfilehash: ecb9c163728536b56d119ffa5d67aa6650dbc7e7
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: f83021f35b76dc96c7ae841c2dd636de5b73c107
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106502"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134518"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -81,9 +81,15 @@ ID 및 액세스 관리에 대한 자세한 내용은 [Azure Active Directory](.
 
 * 리소스 그룹의 리소스는 리소스 그룹과 다른 지역에 있을 수 있습니다.
 
-* 리소스 그룹을 만들 때 해당 리소스 그룹의 위치를 제공해야 합니다. 리소스 그룹에 위치가 필요한 이유는 무엇인지 궁금할 수 있습니다. 리소스의 위치가 리소스 그룹과 다른 경우 리소스 그룹 위치가 중요한 이유는 무엇인가요? 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
+* 리소스 그룹을 만들 때 해당 리소스 그룹의 위치를 제공해야 합니다. 
 
-   리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.
+  리소스 그룹에 위치가 필요한 이유는 무엇인지 궁금할 수 있습니다. 리소스의 위치가 리소스 그룹과 다른 경우 리소스 그룹 위치가 중요한 이유는 무엇인가요? 
+
+  리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다. 
+  
+  Azure Content Delivery Network, Azure Traffic Manager 및 Azure Front Door와 같은 전역 리소스를 제외하고, 리소스 그룹의 지역을 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없으므로 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 
+   
+  신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.
 
 * 관리 작업에 대한 Access Control 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다. 리소스 그룹을 관리하려면 [Azure 정책](../../governance/policy/overview.md), [Azure 역할](../../role-based-access-control/role-assignments-portal.md) 또는 [리소스 잠금](lock-resources.md)을 할당하면 됩니다.
 

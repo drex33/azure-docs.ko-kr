@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e33f2c7393a9c7b91dcd6fd9188bd9a89f190215
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a4d902a3c5471455f6f2d6cc614544aeb4e0dc39
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131050725"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892081"
 ---
 # <a name="conditional-access-session"></a>조건부 액세스: 세션
 
@@ -76,10 +76,13 @@ ms.locfileid: "131050725"
 
 [연속 액세스 평가](concept-continuous-access-evaluation.md)는 조직의 조건부 액세스 정책의 일부로 자동으로 사용하도록 설정됩니다. 연속 액세스 평가를 사용하지 않도록 설정하거나 엄격하게 적용하려는 조직의 경우, 이 구성은 이제 조건부 액세스의 세션 제어 내에 있는 옵션입니다. 연속 액세스 평가 정책의 범위를 모든 사용자 또는 특정 사용자 및 그룹으로 지정할 수 있습니다. 관리자는 새 정책을 만들거나 기존 조건부 액세스 정책을 편집하는 동안 다음과 같은 항목을 선택할 수 있습니다.
 
-- **사용 안 함** 은 **모든 클라우드 앱** 을 선택하고, 조건을 선택하지 않고 **세션** > 에서 **사용 안 함** 을 선택한 경우 수행됩니다. 조건부 액세스 정책에서 **지속적 액세스 평가를 사용자 정의합니다**.
-- **엄격한 적용** 은 중요한 이벤트 및 정책이 실시간으로 적용됨을 의미합니다. 모든 CAE 지원 서비스는 항상 클라이언트나 사용자가 요청할 수 있는 CAE 토큰을 가져옵니다. 엄격한 적용 모드가 설정되었을 때 CAE가 작동하지 않는 두 가지 시나리오가 있습니다.
-   - 비 CAE 지원 클라이언트는 CAE 지원 서비스에 대한 일반 토큰을 가져오지 않아야 합니다.
-   - 리소스 공급자가 볼 수 있는 IP가 허용 범위에 없는 경우 거부합니다.
+- **사용 안 함** 은 조건부 액세스 정책의 **세션** > **연속 액세스 평가 사용자 지정** 아래에서 **모든 클라우드 앱** 이 선택되고, 조건이 선택되지 않고, **사용 안 함** 이 선택된 경우에만 작동합니다. 모든 사용자 또는 특정 사용자 및 그룹을 사용하지 않도록 선택할 수 있습니다.
+- **엄격한 적용** 은 사용하여 CAE의 보안 혜택을 더 강화하는 데 사용할 수 있습니다. 중요한 이벤트와 정책이 실시간으로 적용되도록 합니다.  엄격한 적용 모드가 설정된 경우 CAE가 적용되는 두 가지 추가 시나리오가 있습니다.
+   - 비 CAE 지원 클라이언트에서 CAE 지원 서비스에 액세스할 수 없습니다.
+   - 리소스 공급자가 확인한 클라이언트의 IP 주소가 조건부 액세스의 허용 범위에 없는 경우 액세스가 거부됩니다.
+
+> [!NOTE] 
+> 모든 클라이언트 애플리케이션에서 CAE를 지원하고 Azure AD와 리소스 공급자(예: Exchange online 및 Azure Resource Manager)에서 표시하는 모든 IP 주소를 조건부 액세스 아래의 위치 정책에 포함했는지 확인한 후에만 엄격한 적용을 사용하도록 설정해야 합니다. 그렇지 않으면 테넌트의 사용자가 차단될 수 있습니다.
 
 :::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="Azure Portal의 새 조건부 액세스 정책에 있는 CAE 설정" lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 

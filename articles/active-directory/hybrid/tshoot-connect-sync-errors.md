@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe6c04cf29a4c45436948eaea6fc8d0276ec16f
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ff1b95ac26be1697e5211c024bc148222823e36d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895787"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622097"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -180,6 +180,15 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 #### <a name="related-articles"></a>관련 문서
 * [Microsoft 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+
+## <a name="deletion-access-violation-and-password-access-violation-errors"></a>삭제 액세스 위반 및 암호 액세스 위반 오류
+
+Azure Active Directory는 Azure AD Connect를 통해 업데이트되는 클라우드 전용 개체를 보호합니다. Azure AD Connect를 통해 이러한 개체를 업데이트할 수는 없지만 AADConnect 클라우드 쪽 백 엔드에 직접 호출하여 클라우드 전용 개체를 변경하려고 시도할 수 있습니다. 이렇게 하면 다음 오류가 반환될 수 있습니다.
+
+* 이 동기화 작업인 삭제는 유효하지 않습니다. 기술 지원 부서에 문의하십시오.
+* 하나 이상의 클라우드 전용 사용자 자격 증명 업데이트가 현재 요청에 포함되어 있으므로 이 업데이트를 처리할 수 없습니다.
+* 클라우드 전용 개체 삭제는 지원되지 않습니다. Microsoft 고객 지원에 문의하세요.
+* 암호 변경 요청은 지원되지 않는 하나 이상의 클라우드 전용 사용자 개체에 대한 변경 내용을 포함하기 때문에 실행할 수 없습니다. Microsoft 고객 지원에 문의하세요.
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>설명

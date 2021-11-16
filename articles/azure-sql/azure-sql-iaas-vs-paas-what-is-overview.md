@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: b8f55a720583713fad59fc07495dcab070d19fa7
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 2360b32a63ad5473f8dfa1f08a6d2df3e0e85fd4
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378097"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136571"
 ---
 # <a name="what-is-azure-sql"></a>Azure SQL란? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -34,9 +34,6 @@ Azure SQL은 친숙한 SQL Server 엔진에 기반하기 때문에 애플리케�
 
 Azure SQL을 처음 접하는 경우에는 심층 [Azure SQL 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)에서 *Azure SQL이란?* 비디오를 확인하세요.
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
-
-> [!TIP]
-> Azure SQL을 더 잘 활용하려면 어떻게 해야 하나요? [설문 조사를 수행하세요](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="overview"></a>개요
 
@@ -116,7 +113,7 @@ Azure SQL Database는 다음과 같은 배포 옵션을 제공합니다.
 | :--- | :--- | :--- |
 |대부분의 온-프레미스 데이터베이스 수준 기능을 지원합니다. 가장 자주 사용되는 SQL Server 기능을 사용할 수 있습니다.<br/>99.995%의 가용성을 보장합니다.<br/>기본 제공 백업, 패치, 복구<br/>안정적인 최신 데이터베이스 엔진 버전<br/>필요한 리소스(CPU/스토리지)를 개별 데이터베이스에 할당할 수 있습니다.<br/>기본 제공 고급 인텔리전스 및 보안<br/>온라인에서 리소스(CPU/스토리지)를 변경할 수 있습니다.| 거의 모든 온-프레미스 인스턴스 수준 및 데이터베이스 수준 기능을 지원합니다. SQL Server와의 높은 호환성.<br/>99.99% 가용성 보장<br/>기본 제공 백업, 패치, 복구<br/>안정적인 최신 데이터베이스 엔진 버전<br/>SQL Server에서 쉽게 마이그레이션할 수 있습니다.<br/>Azure Virtual Network 내의 개인 IP 주소.<br/>기본 제공 고급 인텔리전스 및 보안<br/>온라인에서 리소스(CPU/스토리지)를 변경할 수 있습니다.| SQL Server 엔진을 완전히 제어할 수 있습니다. 모든 온-프레미스 기능을 지원합니다.<br/>최대 99.99%의 가용성이 보장됩니다.<br/>일치하는 온-프레미스 SQL Server의 버전과 완전히 동등합니다.<br/>고정된 잘 알려진 데이터베이스 엔진 버전입니다.<br/>SQL Server에서 쉽게 마이그레이션할 수 있습니다.<br/>Azure Virtual Network 내의 개인 IP 주소.<br/>SQL Server가 있는 호스트에 애플리케이션 또는 서비스를 배포할 수 있습니다.|
 |SQL Server에서 마이그레이션하기 어려울 수 있습니다.<br/>일부 SQL Server 기능을 사용할 수 없습니다.<br/>정확한 유지 관리 시간이 보장되지 않습니다(하지만 거의 투명함).<br/>SQL Server 버전과의 호환성은 데이터베이스 호환성 수준을 사용해야만 달성될 수 있습니다.<br/>[Azure Private Link](database/private-endpoint-overview.md)를 통한 개인 IP 주소 지원.|사용할 수 없는 최소한의 SQL Server 기능이 아직 있습니다.<br/>정확한 유지 관리 시간이 보장되지 않습니다(하지만 거의 투명함).<br/>SQL Server 버전과의 호환성은 데이터베이스 호환성 수준을 사용해야만 달성될 수 있습니다.|사용자가 백업 및 패치를 관리해야 합니다.<br>사용자 고유의 고가용성 솔루션을 구현해야 합니다.<br/>리소스(CPU/스토리지)를 변경하는 동안 가동 중지 시간이 발생합니다.|
-| 최대 100TB의 데이터베이스. | 최대 8TB. | 최대 256TB의 스토리지가 있는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. |
+| 최대 100TB의 데이터베이스. | 최대 16TB | 최대 256TB의 스토리지가 있는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. |
 | 온-프레미스 애플리케이션은 Azure SQL Database의 데이터에 액세스할 수 있습니다. | Azure ExpressRoute 또는 VPN Gateway를 사용하여 [기본 가상 네트워크 구현](managed-instance/vnet-existing-add-subnet.md) 및 온-프레미스 환경에 연결 | SQL 가상 머신을 사용하면 애플리케이션을 일부는 클라우드에서, 일부는 온-프레미스에서 실행할 수 있습니다. 예를 들어 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)를 통해 클라우드로 온-프레미스 네트워크 및 Active Directory 도메인을 확장할 수 있습니다. 하이브리드 클라우드 솔루션에 대한 자세한 내용은 [클라우드로 온-프레미스 데이터 솔루션 확장](/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)을 참조하세요. |
 
 
@@ -177,5 +174,6 @@ IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충�
 - SQL Database를 시작하려면 [첫 Azure SQL Database](database/single-database-create-quickstart.md)를 참조하세요.
 - SQL Managed Instance를 시작하려면 [첫 번째 Azure SQL Managed Instance](managed-instance/instance-create-quickstart.md)를 참조하세요. 
 - [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
+- [SQL Managed Instance 가격 책정](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/)을 참조하세요.
 - Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 머신 프로비전](virtual-machines/windows/create-sql-vm-portal.md)을 참조하세요.
 - [온-프레미스 데이터베이스에 적합한 SQL Database 또는 SQL Managed Instance SKU를 식별하세요](/sql/dma/dma-sku-recommend-sql-db/).

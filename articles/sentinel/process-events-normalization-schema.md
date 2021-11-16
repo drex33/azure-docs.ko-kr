@@ -1,28 +1,28 @@
 ---
-title: Azure Sentinel 프로세스 이벤트 정규화 스키마 참조 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel 프로세스 이벤트 정규화 스키마에 대해 설명합니다.
+title: Microsoft Sentinel Process 이벤트 정규화 스키마 참조 | Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel Process 이벤트 정규화 스키마에 대해 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6525b6821c7107aa100c6ce79d606c2832f04b97
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cff85330635a5c6f9501f6064d36fa623159df22
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036925"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522824"
 ---
-# <a name="azure-sentinel-process-event-normalization-schema-reference-public-preview"></a>Azure Sentinel 프로세스 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)
+# <a name="microsoft-sentinel-process-event-normalization-schema-reference-public-preview"></a>Microsoft Sentinel Process 이벤트 정규화 스키마 참조(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "131036925"
 
 OSSEM에서 정의한 프로세스는 프로그램의 실행 인스턴스를 나타내는 포함 및 관리 개체입니다. 프로세스 자체는 실행되지 않지만 코드를 실행하는 스레드를 관리합니다.
 
-Azure Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)을 참조하세요.
+Microsoft Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(고급 SIEM 정보 모델)을](normalization.md)참조하세요.
 
 > [!IMPORTANT]
 > 프로세스 이벤트 정규화 스키마는 현재 미리 보기 상태입니다. 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다.
@@ -40,13 +40,13 @@ Azure Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(Az
 
 ## <a name="parsers"></a>파서
 
-Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트 파서는 다음과 같습니다.
+Microsoft Sentinel은 다음과 같은 기본 제공 제품별 프로세스 이벤트 파서를 제공합니다.
 
 - **보안 이벤트 프로세스 생성(이벤트 4688)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
 - **보안 이벤트 프로세스 종료(이벤트 4689)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
 - **Sysmon 프로세스 생성(이벤트 1)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
 - **Sysmon 프로세스 종료(이벤트 5)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
-- **Microsoft 365 Defender for Endpoints 프로세스 생성**
+- **엔드포인트 프로세스 생성을 위한 Microsoft 365 Defender**
 
 나열된 모든 파서를 통합하고 구성된 모든 원본에서 분석할 수 있도록 원본 독립적 파서를 사용하려면 쿼리에 다음 테이블 이름을 사용합니다.
 
@@ -54,7 +54,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 - 프로세스 종료 정보가 필요한 쿼리의 경우 **imProcessTerminate**.
 - 프로세스 생성 및 종료 정보가 모두 필요한 쿼리의 경우 **imProcessEvents**. 이러한 경우 `EventType` 필드를 사용하여 이벤트를 구분할 수 있으며 각각 `ProcessCreate` 또는 `ProcessTerminate`로 설정됩니다. 프로세스 종료 이벤트는 일반적으로 프로세스 생성 이벤트보다 훨씬 적은 정보를 포함합니다.
 
-[Azure Sentinel GitHub 리포지토리](https://aka.ms/AzSentinelProcessEvents)에서 [원본 독립적 파서와 원본 특정 파서](normalization-about-parsers.md)를 배포합니다.
+[Microsoft Sentinel GitHub 리포지토리에서](https://aka.ms/AzSentinelProcessEvents) [소스와 관련이 없는 소스별 파서를](normalization-about-parsers.md) 배포합니다.
 
 ## <a name="add-your-own-normalized-parsers"></a>정규화된 고유 파서 추가
 
@@ -64,7 +64,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 
 ## <a name="normalized-content-for-process-activity-data"></a>프로세스 활동 데이터에 대한 정규화된 콘텐츠
 
-다음 Azure Sentinel 콘텐츠는 Azure Sentinel 정보 모델을 사용하여 정규화된 모든 프로세스 활동에서 작동합니다.
+다음 Microsoft Sentinel 콘텐츠는 고급 SIEM 정보 모델을 사용하여 정규화된 모든 프로세스 작업에서 작동합니다.
 
 - **분석 규칙**:
 
@@ -96,7 +96,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
     - [명령줄에서 유니코드 난독 처리](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
 
 
-    자세한 내용은 [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)을 참조하세요.
+    자세한 내용은 [Microsoft Sentinel을 사용하여 위협 헌션을 참조하세요.](hunting.md)
 
 ## <a name="schema-details"></a>스키마 세부 정보
 
@@ -121,7 +121,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 
 이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
@@ -242,9 +242,9 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Sentinel의 정규화](normalization.md)
-- [Azure Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
-- [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
-- [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
-- [Azure Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
-- [Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](registry-event-normalization-schema.md)
+- [Microsoft 센티널의 정규화](normalization.md)
+- [Microsoft 센티널 인증 정규화 스키마 참조 (공개 미리 보기)](authentication-normalization-schema.md)
+- [Microsoft 센티널 DNS 정규화 스키마 참조](dns-normalization-schema.md)
+- [Microsoft 센티널 파일 이벤트 정규화 스키마 참조 (공개 미리 보기)](file-event-normalization-schema.md)
+- [Microsoft 센티널 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
+- [Microsoft 센티널 레지스트리 이벤트 정규화 스키마 참조 (공개 미리 보기)](registry-event-normalization-schema.md)

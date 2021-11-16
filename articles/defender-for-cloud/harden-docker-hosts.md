@@ -5,14 +5,14 @@ author: memildin
 ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: how-to
-ms.service: security-center
+ms.service: defender-for-cloud
 manager: rkarlin
-ms.openlocfilehash: 9081da3e2db3a902c541b079e32eea1b60ad8d43
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: d977fadcb4d7975924afddc5c26770e568daafcb
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373860"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524946"
 ---
 # <a name="harden-your-docker-hosts"></a>Docker 호스트 강화
 
@@ -34,7 +34,7 @@ Defender for Cloud는 CIS Docker 벤치마크의 전체 규칙 세트를 포함�
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Microsoft Defender](defender-for-servers-introduction.md)가 필요합니다.|
 |필요한 역할 및 권한:|호스트에서 연결하는 작업 영역에 대한 **판독기**|
-|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가 (Azure Government, Azure 중국 21Vianet)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Docker 구성에서 보안 취약성 식별 및 수정

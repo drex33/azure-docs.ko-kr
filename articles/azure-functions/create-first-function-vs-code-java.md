@@ -7,23 +7,16 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
-ms.openlocfilehash: 0f429c6feda62c6572c25e4f8e2513123ff6ef03
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 273b4a0c8396ae2cc9034ea9b634005ba397f08a
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287783"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371907"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 Java 함수 만들기
 
-> [!div class="op_single_selector" title1="함수 언어를 선택합니다. "]
-> - [Java](create-first-function-vs-code-java.md)
-> - [Python](create-first-function-vs-code-python.md)
-> - [C#](create-first-function-vs-code-csharp.md)
-> - [JavaScript](create-first-function-vs-code-node.md)
-> - [PowerShell](create-first-function-vs-code-powershell.md)
-> - [TypeScript](create-first-function-vs-code-typescript.md)
-> - [기타(Go/Rust)](create-first-function-vs-code-other.md)
+[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
 이 문서에서는 Visual Studio Code를 사용하여 HTTP 요청에 응답하는 Java 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다.
 
@@ -40,7 +33,7 @@ Visual Studio Code가 선호하는 개발 도구가 아닌 경우 Java 개발자
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) 버전 8 또는 11.
++ [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure) 버전 11 또는 8
 
 + [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 
@@ -67,7 +60,7 @@ Visual Studio Code가 선호하는 개발 도구가 아닌 경우 Java 개발자
 
     + **함수 프로젝트에 대한 언어 선택**: `Java`을 선택합니다.
 
-    + **Java 버전 선택**: Azure에서 함수가 실행되는 Java 버전 `Java 8` 또는 `Java 11`을 선택합니다. 로컬로 확인한 Java 버전을 선택합니다.
+    + **Java 버전 선택**: Azure에서 함수가 실행되는 Java 버전 `Java 11` 또는 `Java 8`을 선택합니다. 로컬로 확인한 Java 버전을 선택합니다.
 
     + **그룹 ID 제공**: `com.function`을 선택합니다.
 

@@ -2,14 +2,14 @@
 title: 리소스 공급자 및 종류
 description: Azure Resource Manager를 지원하는 리소스 공급자에 대해 설명합니다. 리소스를 호스트할 수 있는 스키마, 사용 가능한 API 버전 및 지역에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 11/15/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7e8ebf6217296b4792887dc0af2c40fc66a9dd85
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: c048da5d7027885bf30b512d9e16e5851697c8b4
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038958"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522653"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -39,7 +39,9 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 해당 단계를 수�
 
 일부 리소스 공급자는 기본적으로 등록됩니다. 기본적으로 등록된 리소스 공급자 목록은 [Azure 서비스의 리소스 공급자](azure-services-resource-providers.md)를 참조하세요.
 
-다른 리소스 공급자는 특정 작업을 수행하면 자동으로 등록됩니다. Azure Resource Manager 템플릿을 배포할 때 필요한 모든 리소스 공급자가 자동으로 등록됩니다. 포털을 통해 리소스를 만드는 경우 일반적으로 리소스 공급자가 사용자에게 등록됩니다. 다른 시나리오의 경우 리소스 공급자를 수동으로 등록해야 할 수 있습니다. 
+다른 리소스 공급자는 특정 작업을 수행하면 자동으로 등록됩니다. 포털을 통해 리소스를 만드는 경우 일반적으로 리소스 공급자가 사용자에게 등록됩니다. Azure Resource Manager 템플릿 또는 Bicep 파일을 배포하면 템플릿에 정의된 리소스 공급자가 자동으로 등록됩니다. 그러나 템플릿의 리소스가 템플릿에 없는 지원 리소스(예: 모니터링 또는 보안 리소스)를 만드는 경우 해당 리소스 공급자를 수동으로 등록해야 합니다.
+
+다른 시나리오의 경우 리소스 공급자를 수동으로 등록해야 할 수 있습니다.
 
 > [!IMPORTANT]
 > 애플리케이션 코드는 **등록** 상태에 있는 리소스 공급자에 대한 **리소스 생성을 차단하지 않아야 합니다**. 리소스 공급자를 등록하면 지원되는 각 지역에 대해 작업이 개별적으로 수행됩니다. 지역에 리소스를 생성하려면 해당 지역에서만 등록을 완료하면 됩니다. 등록 상태에서 리소스 공급자를 차단하지 않으면 모든 지역이 완료될 때까지 기다리는 것보다 훨씬 빨리 애플리케이션을 계속할 수 있습니다.

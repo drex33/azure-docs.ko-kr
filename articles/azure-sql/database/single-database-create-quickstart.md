@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: b8f609e8e6a12647b929938c97ea974885dc72d2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 87c7e7f6579401a141db613ceaa8226cc8261bb1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131423701"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340070"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 
@@ -70,7 +70,7 @@ Azure Portal에서 단일 데이터베이스를 만들기 위해 이 빠른 시�
   
 
 1. **추가 설정** 탭의 **데이터 원본** 섹션에서 **기존 데이터 사용** 에 대해 **샘플** 을 선택합니다. 이렇게 하면 AdventureWorksLT 샘플 데이터베이스가 만들어지므로 비어 있는 빈 데이터베이스와는 달리 쿼리 및 실험을 위한 몇 가지 테이블과 데이터가 있습니다.
-1. 선택적으로 [Azure Defender for SQL](../database/azure-defender-for-sql.md)을 사용하도록 설정합니다.
+1. 필요에 따라 [Microsoft Defender for SQL](../database/azure-defender-for-sql.md)을 사용하도록 설정합니다.
 1. 필요에 따라 데이터베이스에 대해 계획된 유지 관리가 가장 적절한 시간에 수행되도록 [유지 관리 기간](../database/maintenance-window.md)을 설정합니다.
 1. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.
 

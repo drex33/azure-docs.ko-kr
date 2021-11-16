@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 10/21/2021
-ms.openlocfilehash: 7cd13ebef2e548d9596823f829041e48c99e532e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 76cc49932cf469a994c64956f0589beff81c332f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441840"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063330"
 ---
 # <a name="microsoft-defender-for-clouds-enhanced-security-features"></a>클라우드용 Microsoft Defender의 향상된 보안 기능
 
@@ -144,4 +144,4 @@ Defender for Cloud의 청구는 Log Analytics 청구와 밀접하게 연관되�
 
 - [Azure 워크로드 비용을 최적화하는 방법](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [선택한 통화 및 해당 지역에 맞는 가격 세부 정보](https://azure.microsoft.com/pricing/details/security-center/)
-- 특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다. [솔루션 대상](../azure-monitor/insights/solution-targeting.md)을 사용하면 솔루션에 범위를 적용하고 작업 영역의 컴퓨터 하위 집합을 대상으로 지정할 수 있습니다. 솔루션 대상 지정을 사용하는 경우 Defender for Cloud에서 솔루션이 없는 작업 영역을 나열합니다.
+- 특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다. [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 사용하여 범위를 솔루션에 적용하고 작업 영역에 있는 컴퓨터의 하위 집합을 대상으로 지정합니다. 솔루션 대상 지정을 사용하는 경우 Defender for Cloud에서 솔루션이 없는 작업 영역을 나열합니다.

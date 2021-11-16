@@ -12,16 +12,16 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.custom: seo-lt-2019
 ms.reviewer: mathoma
-ms.openlocfilehash: 4196ab27f5b3f4c6ab4897d2df8ad0b2007f8c2b
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 21aef2227768d49da9a5eab5f4e772441c9f15b0
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162802"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158673"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,7 +53,9 @@ Azure VM을 만들 때는 가용성 집합과 가용성 영역 중 하나를 선
 
 ## <a name="connectivity"></a>연결
 
-가용성 그룹에 대한 가상 네트워크 이름 또는 분산 네트워크 이름을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md)한 다음, 가용성 그룹에 대해 [DNN(분산 네트워크 이름)](availability-group-distributed-network-name-dnn-listener-configure.md) 또는 [VNN(가상 네트워크 이름)](availability-group-vnn-azure-load-balancer-configure.md)을 배포합니다. 
+가용성 그룹 수신기에 연결하는 온-프레미스 환경과 일치시키려면 SQL Server VM을 동일한 가상 네트워크 내의 [여러 서브넷](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)에 배포합니다. 여러 서브넷이 있으면 트래픽을 수신기로 라우팅하기 위해 Azure Load Balancer 또는 DNN(분산 네트워크 이름)에 대한 추가 종속성이 필요하지 않습니다. 
+
+SQL Server VM을 단일 서브넷에 배포하는 경우 트래픽을 가용성 그룹 수신기로 라우팅하도록 VNN(가상 네트워크 이름) 및 Azure Load Balancer 또는 DNN(분산 네트워크 이름)을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md)한 다음, 가용성 그룹에 대해 [DNN(분산 네트워크 이름)](availability-group-distributed-network-name-dnn-listener-configure.md) 또는 [VNN(가상 네트워크 이름)](availability-group-vnn-azure-load-balancer-configure.md)을 배포합니다. 
 
 DNN를 사용하는 경우 대부분의 SQL Server 기능이 가용성 그룹에서 투명하게 작동하지만 특별한 고려 사항이 필요할 수 있는 특정 기능이 있습니다. 자세히 알아보려면 [AG 및 DNN 상호 운용성](availability-group-dnn-interoperability.md)을 참조하세요. 
 
@@ -70,7 +72,7 @@ Azure에서 VNN 수신기를 설정하려면 부하 분산 장치가 필요합�
 * 하나의 주 복제본과 하나의 보조 복제본이 있습니다.
 * 보조 복제본은 읽을 수 없도록 구성(**읽기 가능한 보조** 옵션을 **아니요** 로 설정)됩니다.
 
-ADO.NET 또는 SQL Server Native Client를 사용하여 데이터베이스 미러링과 유사한 이 구성에 연결하는 클라이언트 연결 문자열의 예는 다음과 같습니다.
+ADO.NET 또는 SQL Server Native Client를 사용하는 이 데이터베이스 미러링과 비슷한 구성에 해당하는 클라이언트 연결 문자열의 예제는 다음과 같습니다.
 
 ```console
 Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
@@ -97,7 +99,9 @@ Azure VM에서 AG를 구성할 때 이러한 임계값을 온-프레미스 환�
 
 ## <a name="network-configuration"></a>네트워크 구성  
 
-Azure VM 장애 조치 클러스터의 경우 서버(클러스터 노드)당 하나의 NIC 및 단일 서브넷을 사용하는 것이 좋습니다. Azure 네트워킹에는 Azure VM 장애 조치 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure VM 장애 조치 클러스터에서는 이 경고를 무시해도 됩니다. 
+트래픽을 가용성 그룹 수신기로 라우팅하는 Azure Load Balancer 또는 DNN(분산 네트워크 이름)에 대한 종속성을 방지하기 위해 가능한 경우 SQL Server VM을 여러 서브넷에 배포합니다. 
+
+Azure VM 장애 조치(failover) 클러스터에서는 서버(클러스터 노드)당 단일 NIC를 사용하는 것이 좋습니다. Azure 네트워킹에는 물리적 중복성이 있으므로 Azure VM 장애 조치(failover) 클러스터에서 추가 NIC가 필요하지 않습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure VM 장애 조치 클러스터에서는 이 경고를 무시해도 됩니다.
 
 ## <a name="basic-availability-group"></a>기본 가용성 그룹
 
@@ -114,26 +118,27 @@ Azure VM 장애 조치 클러스터의 경우 서버(클러스터 노드)당 하
 
 사용 가능한 옵션을 비교한 표는 다음과 같습니다.
 
-| | [Azure Portal](availability-group-azure-portal-configure.md), | [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md) | [빠른 시작 템플릿](availability-group-quickstart-template-configure.md) | [수동](availability-group-manually-configure-prerequisites-tutorial.md) |
+| | [Azure Portal](availability-group-azure-portal-configure.md), | [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md) | [빠른 시작 템플릿](availability-group-quickstart-template-configure.md) | [수동(단일 서브넷)](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md) | [수동(다중 서브넷)](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)
 |---------|---------|---------|---------|---------|
-|**SQL Server 버전** |2016 이상 |2016 이상|2016 이상|2012 이상|
-|**SQL Server 에디션** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두|
-|**사용자에 대한 클러스터 만들기**|예|예 | 예 |아니요|
-|**사용자에 대한 가용성 그룹 만들기** |예 |아니요|아니요|예|
-|**독립적으로 수신기 및 부하 분산 장치 만들기** |아니요|아니요|아니요|예|
-|**이 메서드를 사용하여 DNN 수신기를 만들 수 있는지 여부**|아니요|아니요|아니요|예|
-|**WSFC 쿼럼 구성**|클라우드 감시|클라우드 감시|클라우드 감시|모두|
-|**여러 지역이 포함된 DR** |아니요|아니요|아니요|예|
-|**다중 서브넷 지원** |예|예|예|예|
-|**기존 AD 지원**|예|예|예|예|
-|**동일한 지역의 다중 영역이 포함된 DR**|예|예|예|예|
-|**AD가 없는 분산 AG**|아니요|아니요|아니요|예|
-|**클러스터가 없는 분산 AG** |아니요|아니요|아니요|예|
+|**SQL Server 버전** |2016 이상 |2016 이상|2016 이상|2012 이상|2012 이상| 
+|**SQL Server 에디션** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|Enterprise, Standard|
+|**Windows Server 버전**| 2016 이상 | 2016 이상 | 2016 이상 | 모두| 모두|
+|**사용자에 대한 클러스터 만들기**|예|예 | 예 |아니요| 아니요| 
+|**사용자에 대한 가용성 그룹 만들기** |예 |아니요|아니요|아니요| 예| 
+|**독립적으로 수신기 및 부하 분산 장치 만들기** |아니요|아니요|아니요|예|해당 없음|
+|**이 메서드를 사용하여 DNN 수신기를 만들 수 있는지 여부**|아니요|아니요|아니요|예|해당 없음|
+|**WSFC 쿼럼 구성**|클라우드 감시|클라우드 감시|클라우드 감시|모두|모두|
+|**여러 지역이 포함된 DR** |아니요|아니요|아니요|예|예|
+|**다중 서브넷 지원** |아니요|아니요|아니요|해당 없음|예|
+|**기존 AD 지원**|예|예|예|예|예|
+|**동일한 지역의 다중 영역이 포함된 DR**|예|예|예|예|예|
+|**AD가 없는 분산 AG**|아니요|아니요|아니요|예| 예| 
+|**클러스터가 없는 분산 AG** |아니요|아니요|아니요|예|예|
+|**부하 분산 장치 또는 DNN 필요**| 예 | 예 | 예 | 예 | 아니요|
 
 ## <a name="next-steps"></a>다음 단계
 
-[HADR 모범 사례](hadr-cluster-best-practices.md)를 검토한 다음, [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하여 가용성 그룹 배포를 시작하거나 [수동](availability-group-manually-configure-prerequisites-tutorial.md)으로 이 작업을 시작합니다.
+[HADR 모범 사례](hadr-cluster-best-practices.md)를 검토한 다음, [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하여 가용성 그룹 배포를 시작하거나 [수동](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md)으로 이 작업을 시작합니다.
 
 또는 [클러스터가 없는 가용성 그룹](availability-group-clusterless-workgroup-configure.md) 또는 가용성 그룹을 [여러 지역](availability-group-manually-configure-multiple-regions.md)에 배포할 수 있습니다.
 

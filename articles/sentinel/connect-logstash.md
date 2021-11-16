@@ -1,35 +1,35 @@
 ---
-title: Logstash를 통해 Azure Sentinel에 데이터 원본 연결 | Microsoft Docs
-description: Logstash를 사용하여 외부 데이터 원본의 로그를 Azure Sentinel에 전달하는 방법을 알아봅니다.
+title: Logstash를 통해 Microsoft Sentinel | 데이터 원본 커넥트 Microsoft Docs
+description: Logstash를 사용하여 외부 데이터 원본에서 Microsoft Sentinel로 로그를 전달하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2020
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 11002a4d66728373e674c1b1522fbc9122bb3bfd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1bb2d8c60fd8962363277a7f530db7d84394498e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014109"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521817"
 ---
-# <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Logstash를 사용하여 Azure Sentinel에 데이터 원본 연결
+# <a name="use-logstash-to-connect-data-sources-to-microsoft-sentinel"></a>Logstash를 사용하여 Microsoft Sentinel에 데이터 원본 연결
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > Logstash 출력 플러그 인을 사용한 데이터 수집은 현재 퍼블릭 미리 보기 상태입니다. 이 기능은 Service Level Agreement(서비스 수준 약정) 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-**Logstash 데이터 수집 엔진** 에 Azure Sentinel의 출력 플러그 인을 사용하면 Logstash를 통해 원하는 모든 형식의 로그를 Azure Sentinel의 Log Analytics 작업 영역으로 직접 보낼 수 있습니다. 로그는 출력 플러그 인을 사용하여 정의하는 사용자 지정 테이블로 전송됩니다.
+Logstash 데이터 수집 엔진 에 Microsoft Sentinel의 출력 플러그 인을 사용하면 **Logstash를** 통해 원하는 모든 유형의 로그를 Microsoft Sentinel의 Log Analytics 작업 영역으로 직접 보낼 수 있습니다. 로그는 출력 플러그 인을 사용하여 정의하는 사용자 지정 테이블로 전송됩니다.
 
 Logstash 데이터 수집 엔진 사용에 대해 자세히 알아보려면 [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)(Logstash 시작)를 참조하세요.
 
@@ -46,22 +46,22 @@ Logstash 엔진은 다음과 같은 세 가지 구성 요소로 구성됩니다.
 - 출력 플러그 인: 수집되고 처리된 데이터를 다양한 대상으로 보내기를 사용자 지정합니다.
 
 > [!NOTE]
-> - Microsoft는 여기에서 설명하는 Azure Sentinel 제공 Logstash 출력 플러그 인만 지원합니다. 플러그 인의 현재 버전은 v1.0.0이며 2020년 8월 25일에 릴리스되었습니다. 출력 플러그 인과 관련된 모든 문제에 대해 [지원 티켓을 열 수 있습니다](https://ms.portal.azure.com/#create/Microsoft.Support).
+> - Microsoft는 여기에서 설명한 Microsoft Sentinel 제공 Logstash 출력 플러그 인만 지원합니다. 플러그 인의 현재 버전은 v1.0.0이며 2020년 8월 25일에 릴리스되었습니다. 출력 플러그 인과 관련된 모든 문제에 대해 [지원 티켓을 열 수 있습니다](https://ms.portal.azure.com/#create/Microsoft.Support).
 >
-> - Microsoft는 Azure Sentinel용 타사 Logstash 출력 플러그 인 또는 기타 모든 Logstash 플러그 인 또는 모든 유형의 구성 요소를 지원하지 않습니다.
+> - Microsoft는 Microsoft Sentinel에 대한 타사 Logstash 출력 플러그 인 또는 모든 유형의 다른 Logstash 플러그 인 또는 구성 요소를 지원하지 않습니다.
 >
-> - Azure 센티널의 Logstash 출력 플러그 인은 **7.0에서 7.15 까지의 Logstash 버전만** 지원 합니다.
+> - Microsoft Sentinel의 Logstash 출력 플러그 인은 **7.0~7.15의 Logstash 버전만** 지원합니다.
 
-Logstash용 Azure Sentinel 출력 플러그 인은 Log Analytics HTTP 데이터 수집기 REST API를 사용하여 JSON 형식 데이터를 Log Analytics 작업 영역으로 보냅니다. 데이터는 사용자 지정 로그에 수집됩니다.
+Logstash용 Microsoft Sentinel 출력 플러그 인은 Log Analytics HTTP 데이터 수집기 REST API 사용하여 JSON 형식의 데이터를 Log Analytics 작업 영역으로 보냅니다. 데이터는 사용자 지정 로그에 수집됩니다.
 
 - [Log Analytics REST API](/rest/api/loganalytics/create-request)에 대해 자세히 알아봅니다.
 - [사용자 지정 로그](../azure-monitor/agents/data-sources-custom-logs.md)에 대해 자세히 알아봅니다.
 
-## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Logstash에 Azure Sentinel 출력 플러그 인 배포
+## <a name="deploy-the-microsoft-sentinel-output-plugin-in-logstash"></a>Logstash에서 Microsoft Sentinel 출력 플러그 인 배포
 
 ### <a name="step-1-installation"></a>1단계: 설치
 
-Azure Sentinel 출력 플러그 인은 Logstash 컬렉션에서 사용할 수 있습니다.
+Microsoft Sentinel 출력 플러그 인은 Logstash 컬렉션에서 사용할 수 있습니다.
 
 - Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html)(플러그 인 사용) 문서의 지침에 따라 ***[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)*** 플러그 인을 설치합니다.
    
@@ -69,13 +69,13 @@ Azure Sentinel 출력 플러그 인은 Logstash 컬렉션에서 사용할 수 �
 
 ### <a name="step-2-configuration"></a>2단계: 구성
 
-Logstash [Structure of a config file](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html)(구성 파일의 구조) 문서의 정보를 사용하고 다음 키와 값을 사용하여 Azure Sentinel 출력 플러그 인을 구성에 추가합니다. 테이블 다음에 적절한 구성 파일 구문이 표시됩니다.
+[구성 파일의](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html) Logstash 구조 문서의 정보를 사용하고 다음 키와 값을 사용하여 Microsoft Sentinel 출력 플러그 인을 구성에 추가합니다. 테이블 다음에 적절한 구성 파일 구문이 표시됩니다.
 
 | 필드 이름 | 데이터 형식 | Description |
 |----------------|---------------|-----------------|
 | `workspace_id` | 문자열 | 작업 영역 ID GUID를 입력합니다(팁 참조). |
 | `workspace_key` | 문자열 | 작업 영역 기본 키 GUID를 입력합니다(팁 참조). |
-| `custom_log_table_name` | 문자열 | 로그를 수집할 테이블의 이름을 설정합니다. 테이블 이름은 출력 플러그 인당 하나만 구성할 수 있습니다. 로그 테이블은 Azure Sentinel에서 **로그**, **사용자 지정 로그** 범주의 **테이블** 에 `_CL` 접미사를 사용하여 표시됩니다. |
+| `custom_log_table_name` | 문자열 | 로그를 수집할 테이블의 이름을 설정합니다. 테이블 이름은 출력 플러그 인당 하나만 구성할 수 있습니다. 로그 테이블은 Microsoft Sentinel의 **로그** 아래에 표시되며 **사용자 지정 로그** 범주의 **테이블에는** `_CL` 접미사가 있습니다. |
 | `endpoint` | 문자열 | 선택적 필드입니다. 기본적으로 Log Analytics 엔드포인트입니다. 이 필드를 사용하여 대체 엔드포인트를 설정합니다. |
 | `time_generated_field` | 문자열 | 선택적 필드입니다. 이 속성은 Log Analytics의 기본 **TimeGenerated** 필드를 재정의합니다. 데이터 원본에 타임스탬프 필드의 이름을 입력합니다. 필드의 데이터는 ISO 8601 형식(`YYYY-MM-DDThh:mm:ssZ`)을 준수해야 합니다. |
 | `key_names` | array | Log Analytics 출력 스키마 필드 목록을 입력합니다. 각 목록 항목은 작은따옴표로 묶고 쉼표로 구분하며 전체 목록은 대괄호로 묶어야 합니다. 아래 예제를 참조하세요. |
@@ -162,11 +162,11 @@ Logstash [Structure of a config file](https://www.elastic.co/guide/en/logstash/c
 
 ### <a name="step-3-restart-logstash"></a>3단계: Logstash 다시 시작
 
-### <a name="step-4-view-incoming-logs-in-azure-sentinel"></a>4단계: Azure Sentinel에서 들어오는 로그 확인
+### <a name="step-4-view-incoming-logs-in-microsoft-sentinel"></a>4단계: Microsoft Sentinel에서 들어오는 로그 보기
 
 1. 메시지가 출력 플러그 인으로 전송되고 있는지 확인합니다.
 
-1. Azure Sentinel 탐색 메뉴에서 **로그** 를 클릭합니다. **Tables** 제목 아래에서 **사용자 지정 로그** 범주를 확장합니다. 구성에서 `_CL` 접미사를 사용하여 지정한 테이블의 이름을 찾아 클릭합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **로그를** 클릭합니다. **Tables** 제목 아래에서 **사용자 지정 로그** 범주를 확장합니다. 구성에서 `_CL` 접미사를 사용하여 지정한 테이블의 이름을 찾아 클릭합니다.
 
    :::image type="content" source="./media/connect-logstash/logstash-custom-logs-menu.png" alt-text="Logstash 사용자 지정 로그 스크린샷":::
 
@@ -176,12 +176,12 @@ Logstash [Structure of a config file](https://www.elastic.co/guide/en/logstash/c
 
 ## <a name="monitor-output-plugin-audit-logs"></a>출력 플러그 인 감사 로그 모니터링
 
-Azure Sentinel 출력 플러그 인의 연결 및 작업을 모니터링하려면 적절한 Logstash 로그 파일을 사용하도록 설정합니다. 로그 파일 위치는 [Logstash Directory Layout](https://www.elastic.co/guide/en/logstash/current/dir-layout.html#dir-layout)(Logstash 디렉터리 레이아웃) 문서를 참조하세요.
+Microsoft Sentinel 출력 플러그 인의 연결 및 작업을 모니터링하려면 적절한 Logstash 로그 파일을 사용하도록 설정합니다. 로그 파일 위치는 [Logstash Directory Layout](https://www.elastic.co/guide/en/logstash/current/dir-layout.html#dir-layout)(Logstash 디렉터리 레이아웃) 문서를 참조하세요.
 
-이 로그 파일에 데이터가 표시되지 않는 경우 입력 및 필터 플러그 인을 통해 일부 이벤트를 생성하고 로컬로 전송하여 출력 플러그 인에서 데이터를 수신하는지 확인합니다. Azure Sentinel은 출력 플러그 인과 관련된 문제만 지원합니다.
+이 로그 파일에 데이터가 표시되지 않는 경우 입력 및 필터 플러그 인을 통해 일부 이벤트를 생성하고 로컬로 전송하여 출력 플러그 인에서 데이터를 수신하는지 확인합니다. Microsoft Sentinel은 출력 플러그 인과 관련된 문제만 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Logstash를 사용하여 외부 데이터 원본을 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Logstash를 사용하여 외부 데이터 원본을 Microsoft Sentinel에 연결하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [기본 제공](detect-threats-built-in.md) 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색을 시작합니다.
+- 기본 제공 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Microsoft Sentinel로 위협 [검색을](detect-threats-built-in.md) 시작합니다.

@@ -8,17 +8,17 @@ ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 2cd4423d1d006555eedcbf7a6f08f04e415ea9bf
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 407d3c8d14cec2a55a9a33d58dfa1af77b8266b7
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132292930"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522843"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md)는 서버리스 Azure 파일 공유를 직접 탑재하거나 Azure 파일 동기화를 사용하여 온-프레미스로 Azure 파일 공유를 캐싱하는 두 가지 방법으로 배포할 수 있습니다. 선택한 배포 옵션에 따라 배포 계획에서 고려해야 할 측면이 달라집니다. 
 
-- **Azure 파일 공유의 직접 탑재**: Azure Files는 SMB(서버 메시지 블록) 또는 NFS(네트워크 파일 시스템) 액세스를 제공하므로, OS에서 사용할 수 있는 표준 SMB 또는 NFS(미리 보기) 클라이언트를 사용하여 온-프레미스 또는 클라우드에서 Azure 파일 공유를 탑재할 수 있습니다. Azure 파일 공유는 서버리스이므로 프로덕션 시나리오를 위해 배포하는 경우 파일 서버 또는 NAS 디바이스를 관리할 필요가 없습니다. 즉 소프트웨어 패치를 적용하거나 실제 디스크를 교환할 필요가 없습니다. 
+- **Azure 파일 공유 직접 탑재**: Azure Files는 SMB(서버 메시지 블록) 또는 NFS(네트워크 파일 시스템) 액세스를 제공하므로, OS에서 사용할 수 있는 표준 SMB 또는 NSF 클라이언트를 사용하여 온-프레미스 또는 클라우드에서 Azure 파일 공유를 탑재할 수 있습니다. Azure 파일 공유는 서버리스이므로 프로덕션 시나리오를 위해 배포하는 경우 파일 서버 또는 NAS 디바이스를 관리할 필요가 없습니다. 즉 소프트웨어 패치를 적용하거나 실제 디스크를 교환할 필요가 없습니다. 
 
 - **Azure 파일 동기화를 사용하여 온-프레미스에서 Azure 파일 공유 캐시**: Azure 파일 동기화를 사용하면 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 온-프레미스(또는 클라우드) Windows Server를 Azure SMB 파일 공유의 빠른 캐시로 변환합니다. 
 
@@ -29,7 +29,7 @@ Azure Files는 Azure 파일 공유를 탑재하기 위한 두 가지 업계 표�
 
 SMB 및 NFS 파일 공유를 둘 다 사용하면 Azure Files는 스토리지 요구 사항에 맞게 스케일 업할 수 있고 수천 개의 클라이언트에서 동시에 액세스할 수 있는 엔터프라이즈급 파일 공유를 제공합니다.
 
-| 기능 | SMB | NFS(미리 보기) |
+| 기능 | SMB | NFS |
 |---------|-----|---------------|
 | 지원되는 프로토콜 버전 | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
 | 권장 OS | <ul><li>Windows 10, 버전 21H1 이상</li><li>Windows Server 2019 이상</li><li>Linux 커널 버전 5.3 이상</li></ul> | Linux 커널 버전 4.3 이상 |
@@ -126,10 +126,10 @@ Azure Backup을 사용해 Azure Portal에서 항목 수준과 공유 수준 복�
 
 백업에 대한 자세한 내용은 [Azure 파일 공유 백업 정보](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
-### <a name="protect-azure-files-with-microsoft-defender-for-storage"></a>Microsoft Defender for Storage 사용하여 Azure Files 보호
-microsoft Defender for Storage 스토리지 계정에서 비정상적인 활동(예: 비정상적인 액세스 시도)을 감지할 때 경고를 생성하는 추가 보안 인텔리전스 계층을 제공합니다. 또한 맬웨어 해시 평판 분석을 실행하고 알려진 맬웨어에 대한 경고를 보냅니다. Microsoft Defender for Cloud를 통해 구독 또는 스토리지 계정 수준에서 Storage Microsoft Defender를 구성할 수 있습니다.
+### <a name="protect-azure-files-with-microsoft-defender-for-storage"></a>Storage Microsoft Defender를 사용 하 여 Azure Files 보호
+Microsoft Defender for Storage는 저장소 계정에서 비정상적인 활동을 감지 하면 경고를 생성 하는 추가 보안 인텔리전스 계층을 제공 합니다 (예: 비정상적인 액세스 시도). 또한 맬웨어 해시 평판 분석을 실행하고 알려진 맬웨어에 대한 경고를 보냅니다. Microsoft defender for Cloud를 통해 구독 또는 저장소 계정 수준에서 Storage에 대해 Microsoft Defender를 구성할 수 있습니다.
 
-자세한 내용은 [Storage Microsoft Defender 소개를](../../security-center/defender-for-storage-introduction.md)참조하세요.
+자세한 내용은 [Storage Microsoft Defender 소개](../../security-center/defender-for-storage-introduction.md)를 참조 하세요.
 
 ## <a name="storage-tiers"></a>스토리지 계층
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

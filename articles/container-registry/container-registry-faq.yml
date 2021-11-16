@@ -6,12 +6,12 @@ metadata:
   ms.topic: article
   ms.date: 09/17/2021
   ms.author: sajaya
-  ms.openlocfilehash: 9a1b4cdb33dc3499bdc027911dee5ac05c2f79b7
-  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.openlocfilehash: 4a7c640897fc40916d42b387aa1d3f73cba9e85b
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129545419"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132345454"
 title: 자주 묻는 질문 - Azure Container Registry
 summary: >
   이 문서에서는 Azure Container Registry에 대한 질문과 대답 및 알려진 문제에 대해 설명합니다.
@@ -34,7 +34,7 @@ sections:
   - question: >
       ACR에서 이미지를 검사하는 보안 취약성이 있나요?
     answer: >
-      예. [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) 설명서를 참조하세요.
+      예. [Microsoft Defender for Cloud](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)의 설명서를 참조하세요.
   - question: >
       Azure Container Registry를 사용하여 Kubernetes를 구성하려면 어떻게 하나요?
     answer: >

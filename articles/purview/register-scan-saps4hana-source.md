@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: df8794f0b22fa5ae1cc457bd8dfebc12032a7961
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: abc98ed4df5da533dc7f6a8483a917150babf0ad
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848878"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488024"
 ---
 # <a name="connect-to-and-manage-sap-s4hana-in-azure-purview"></a>Azure Purview에서 SAP S/4HANA에 연결 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "131848878"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예**](how-to-lineage-sapecc.md)|
+| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 예| [예**](how-to-lineage-sapecc.md)|
 
 \**데이터 세트가 [데이터 팩터리 복사 작업](how-to-link-azure-data-factory.md)에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다. 
 
@@ -36,6 +36,9 @@ ms.locfileid: "131848878"
 * 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
 
 * 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드](../data-factory/create-self-hosted-integration-runtime.md)를 참조하세요.
+
+    >[!NOTE]
+    >SAP S/4HANA를 검색하는 작업은 메모리를 많이 사용하는 작업이므로 대용량 메모리가 있는 머신에 자체 호스팅 통합 런타임을 설치하는 것이 좋습니다(예: 128GB).
 
 * [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)이 자체 호스팅 통합 런타임이 설치된 가상 머신에 설치되어 있는지 확인합니다.
 
@@ -115,10 +118,7 @@ SAP S/4HANA 원본에 대해 유일하게 지원되는 인증은 **기본 인증
 
     1. **JCo 라이브러리 경로**: JCo 라이브러리가 위치하는 폴더 경로를 지정합니다.
 
-    1. **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 SAP S/4HANA 원본의 크기에 따라 달라집니다.
-
-        > [!Note]
-        > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
+    1. **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 SAP S/4HANA 원본의 크기에 따라 달라집니다. 사용 가능한 큰 메모리(예: 100)를 제공하는 것이 좋습니다.
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="SAP S/4HANA 검사" border="true":::
 

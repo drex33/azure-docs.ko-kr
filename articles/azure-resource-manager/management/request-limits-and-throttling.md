@@ -2,14 +2,14 @@
 title: 요청 제한
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 11/15/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: cb562d6f6489ff30c6b940963a20974eb987b031
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: 781c958e1a75e87c3f042e80282909e132730978
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322188"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523391"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -25,7 +25,7 @@ ms.locfileid: "108322188"
 
 시간당 기본 제한 한도는 다음 표에 나와 있습니다.
 
-| Scope | 작업 | 제한 |
+| 범위 | 작업 | 제한 |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -36,6 +36,8 @@ ms.locfileid: "108322188"
 이러한 제한의 범위는 요청을 하는 보안 주체(사용자 또는 애플리케이션) 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.
 
 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 실제로 제한은 이러한 제한보다 높습니다. 사용자의 요청은 일반적으로 Azure Resource Manager의 서로 다른 인스턴스에 의해 처리됩니다.
+
+나머지 요청은 [응답 헤더 값](#remaining-requests)에 반환 됩니다.
 
 ## <a name="resource-provider-limits"></a>리소스 공급자 제한
 
@@ -93,6 +95,7 @@ Azure SDK를 사용하는 경우 SDK에 자동 다시 시도 구성이 있을 �
 
 | 응답 헤더 | Description |
 | --- | --- |
+| ratelimit-남은 구독-삭제 |구독 범위 삭제가 남아 있습니다. 이 값은 삭제 작업 시 반환 됩니다. |
 | x-ms-ratelimit-remaining-subscription-reads |구독에 범위가 지정된 나머지 읽기. 이 값은 읽기 작업에서 반환됩니다. |
 | x-ms-ratelimit-remaining-subscription-writes |구독에 범위가 지정된 나머지 쓰기. 이 값은 쓰기 작업에서 반환됩니다. |
 | x-ms-ratelimit-remaining-tenant-reads |테넌트에 범위가 지정된 나머지 읽기 |

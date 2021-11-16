@@ -9,18 +9,18 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
-ms.openlocfilehash: 52d9c903cbd4aafe8799151663a37b09ed5676c2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: de21862295e0a27937b8dc7e9552ce9530ec217d
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241044"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997878"
 ---
 # <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-storage-account"></a>Azure Storage 계정을 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집
 
 Synapse Apache Spark 진단 내보내기 확장은 Apache Spark 애플리케이션에서 로그, 이벤트 로그 및 메트릭을 Azure Log Analytics, Azure Storage 및 Azure Event Hubs를 포함한 하나 이상의 대상으로 내보낼 수 있도록 하는 라이브러리입니다. 
 
-이 자습서에서는 Synapse Apache Spark 진단 내보내기 확장을 사용하여 Apache Spark 애플리케이션의 로그, 이벤트 로그 및 메트릭을 Azure 스토리지 계정으로 내보내는 방법에 대해 알아봅니다.
+이 자습서에서는 Synapse Apache Spark 진단 내보내기 확장을 사용하여 Apache Spark 애플리케이션의 로그, 이벤트 로그 및 메트릭을 Azure Storage 계정으로 내보내는 방법에 대해 알아봅니다.
 
 ## <a name="collect-logs-and-metrics-to-storage-account"></a>스토리지 계정에 로그 및 메트릭 수집
 
@@ -59,7 +59,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <storage-access-key>
 
 ## <a name="available-configurations"></a>사용 가능한 구성
 
-| 구성 | 설명 |
+| 구성 | Description |
 | --- | --- |
 | `spark.synapse.diagnostic.emitters`                                         | 필수 사항입니다. 쉼표로 구분된 진단 내보내기의 대상 이름입니다. 예를 들어 `MyDest1,MyDest2` |
 | `spark.synapse.diagnostic.emitter.<destination>.type`                       | 필수 사항입니다. 기본 제공 대상 유형입니다. Azure 스토리지 대상을 사용하도록 설정하려면 이 필드에서 `AzureStorage`를 포함해야 합니다. |
@@ -69,6 +69,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <storage-access-key>
 | `spark.synapse.diagnostic.emitter.<destination>.secret`                     | 선택 사항입니다. 비밀(AccessKey 또는 SAS) 콘텐츠입니다. |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | `.secret`이 지정되지 않은 경우 필수 사항입니다. 비밀(AccessKey 또는 SAS)이 저장되는 [Azure Key Vault](../../key-vault/general/overview.md) 이름입니다. |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | `.secret.keyVault`를 지정하는 경우 필요합니다. 비밀(AccessKey 또는 SAS)이 저장되는 Azure Key Vault 비밀입니다. |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | 선택 사항입니다. Azure Key Vault 연결된 서비스 이름입니다. Synapse 파이프라인에서 사용하도록 설정된 경우 AKV에서 비밀을 가져오는 데 필요합니다. (MSI에 AKV에 대한 읽기 권한이 있는지 확인하세요.) |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | 선택 사항입니다. 쉼표로 구분된 Spark 이벤트 이름이며, 수집할 이벤트를 지정할 수 있습니다. 예: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | 선택 사항입니다. 쉼표로 구분된 log4j 로거 이름이며, 수집할 이벤트를 지정할 수 있습니다. 예: `org.apache.spark.SparkContext,org.example.Logger` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | 선택 사항입니다. 쉼표로 구분된 Spark 메트릭 이름 접미사이며, 수집할 메트릭을 지정할 수 있습니다. 예: `jvm.heap.used` |

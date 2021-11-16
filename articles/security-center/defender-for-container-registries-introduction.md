@@ -3,16 +3,16 @@ title: 컨테이너 레지스트리용 Microsoft Defender - 이점 및 특징
 description: 컨테이너 레지스트리용 Microsoft Defender의 이점 및 특징에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 10/04/2021
+ms.date: 11/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 627ac6bacbd9d6f1c3649229bd29bbcd27d3e93b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 666b7f68e353586b9cfa866e2c63b65579bd5be5
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131463832"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989768"
 ---
 # <a name="introduction-to-microsoft-defender-for-container-registries"></a>컨테이너 레지스트리용 Microsoft Defender 소개
 
@@ -63,7 +63,7 @@ Defender for Cloud는 문제가 있는 경우에만 알리는 방식으로 원�
 
 - **가져올 때** - Azure Container Registry에는 Docker Hub, Microsoft Container Registry 또는 다른 Azure Container Registry의 이미지를 사용자 레지스트리로 가져오는 가져오기 도구가 있습니다. **컨테이너 레지스트리용 Microsoft Defender** 는 사용자가 가져온 모든 지원 이미지를 검사합니다. [컨테이너 이미지를 컨테이너 레지스트리로 가져오기](../container-registry/container-registry-import-images.md)에서 자세히 알아보세요.
  
-검사는 일반적으로 2분 이내에 완료되지만 최대 15분이 걸릴 수 있습니다. 검사 결과는 다음과 같은 보안 권장 사항으로 제공됩니다.
+검사는 일반적으로 2분 이내에 완료되지만 최대 40분이 걸릴 수 있습니다. 검사 결과는 다음과 같은 보안 권장 사항으로 제공됩니다.
 
 [![ACR(Azure Container Registry) 호스트 이미지에서 발견된 취약성에 대한 샘플 클라우드용 Microsoft Defender 권장 사항.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

@@ -1,25 +1,25 @@
 ---
-title: Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항 | Microsoft Docs
-description: Azure Sentinel SAP 솔루션에 대한 자세한 SAP 시스템 요구 사항에 대해 알아봅니다.
+title: Microsoft Sentinel SAP 솔루션 자세한 SAP 요구 사항 | Microsoft Docs
+description: Microsoft Sentinel SAP 솔루션에 대한 자세한 SAP 시스템 요구 사항에 대해 알아봅니다.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 06/09/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: bf14e52e38a1fae06ef607a4c8c066249055acb8
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.date: 11/09/2021
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: f826ac6f3d5ec00ca2cf11948a1a18d0cb95de32
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132155952"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521114"
 ---
-# <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항(퍼블릭 미리 보기)
+# <a name="microsoft-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Microsoft Sentinel SAP 솔루션 세부 SAP 요구 사항(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-[Azure Sentinel SAP 솔루션을 배포하는 기본 절차](sap-deploy-solution.md)에는 필요한 SAP 변경 요청과 SAP 노트가 포함되며 모든 필수 권한이 있는 기본 제공 역할이 제공됩니다.
+[Microsoft Sentinel SAP 솔루션을 배포하기 위한 기본 절차는](sap-deploy-solution.md) 필요한 SAP 변경 요청 및 SAP 메모를 포함하며 모든 필수 권한이 있는 기본 제공 역할을 제공합니다.
 
 이 문서에서는 필요한 SAP 변경 요청, 노트, 권한을 자세히 나열합니다.
 
@@ -27,11 +27,11 @@ ms.locfileid: "132155952"
 
 
 > [!IMPORTANT]
-> Azure Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> Microsoft Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
 > [!NOTE]
-> 보안 SNC 연결을 사용하여 SAP 데이터 커넥터를 배포하는 경우의 추가 요구 사항이 나열되어 있습니다. 자세한 내용은 [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)를 참조하세요.
+> 보안 SNC 연결을 사용하여 SAP 데이터 커넥터를 배포하는 경우의 추가 요구 사항이 나열되어 있습니다. 자세한 내용은 [SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포를](sap-solution-deploy-snc.md)참조하세요.
 >
 ## <a name="recommended-virtual-machine-sizing"></a>권장되는 가상 머신 크기
 
@@ -50,7 +50,7 @@ SAP Basis 버전에 따라 SAP 솔루션에는 다음 SAP 로그 변경 요청�
 
 - **SAP Basis 버전 7.50 이상**, NPLK900144 설치
 - **하위 버전**, NPLK900146 설치
-- 지원되는 SAP Basis 버전에 **필요한 권한이 있는 SAP 역할을 만들려면** NPLK900140을 설치합니다. 자세한 내용은 [SAP 시스템 구성](sap-deploy-solution.md#configure-your-sap-system) 및 [필요한 ABAP 권한](#required-abap-authorizations)을 참조하세요.
+- **지원되는 SAP 기준 버전에 대해 필요한 권한 부여를** 사용하여 SAP 역할을 만들려면 NPLK900163을 설치합니다. 자세한 내용은 [SAP 시스템 구성](sap-deploy-solution.md#configure-your-sap-system) 및 [필요한 ABAP 권한](#required-abap-authorizations)을 참조하세요.
 
 > [!NOTE]
 > 필요한 SAP 로그 변경 요청은 커넥터에 필요한 사용자 지정 RFC FM을 노출하며 표준 또는 사용자 지정 개체를 변경하지 않습니다.
@@ -73,12 +73,12 @@ SAP 환경 호스트는 TCP 포트 32xx, 5xx13 및 33xx를 통해 호스트합�
 
 ## <a name="required-abap-authorizations"></a>필요한 ABAP 권한
 
-다음 표에서는 백 엔드 SAP 사용자가 SAP 로그에 Azure Sentinel을 연결하는 데 필요한 ABAP 권한을 나열합니다. 자세한 내용은 [SAP 시스템 구성](sap-deploy-solution.md#configure-your-sap-system)을 참조하세요.
+다음 표에서는 백 엔드 SAP 사용자가 Microsoft Sentinel을 SAP 로그에 연결하는 데 필요한 ABAP 권한 부여를 나열합니다. 자세한 내용은 [SAP 시스템 구성](sap-deploy-solution.md#configure-your-sap-system)을 참조하세요.
 
-필요한 권한이 로그 유형별로 나열됩니다. Azure Sentinel로 수집하려는 로그 유형에 대해 나열된 권한만이 필요합니다.
+필요한 권한이 로그 유형별로 나열됩니다. Microsoft Sentinel로 수거하려는 로그 유형에 대해 나열된 권한 부여만 있으면 됩니다.
 
 > [!TIP]
-> 필요한 모든 권한을 사용하여 역할을 만들려면 SAP 시스템에 SAP 변경 요청 [NPLK900114](#required-sap-log-change-requests)를 배포합니다. 이 변경 요청은 **/MSFTSEN/SENTINEL_CONNECTOR** 역할을 만들고 Azure Sentinel에 연결하는 ABAP 사용자에게 역할을 할당합니다.
+> 모든 필수 권한 부여를 사용하여 역할을 만들려면 SAP 시스템에 SAP 변경 요청 NPLK900163을 배포합니다. 이 변경 요청은 **/MS히엔/SENTINEL_CONNECTOR** 역할을 만들며, 일반적으로 SAP 기준 또는 역할 소유자는 Azure Sentinel 연결하는 ABAP 사용자에게 역할을 할당해야 합니다.
 >
 
 | 권한 개체 | 필드 | 값 |
@@ -130,7 +130,7 @@ SAP 환경 호스트는 TCP 포트 32xx, 5xx13 및 33xx를 통해 호스트합�
 | **ABAP 보안 감사 로그 - XAL, ABAP 작업 로그, ABAP 애플리케이션 로그** | | |
 | S_RFC | FUGR | SXMI |
 | S_XMI_PRD | EXTCOMPANY | Microsoft |
-| S_XMI_PRD | EXTPRODUCT | Azure Sentinel |
+| S_XMI_PRD | EXTPRODUCT | Microsoft Sentinel |
 | **ABAP 보안 감사 로그 - SAL** | | |
 | S_RFC | FUGR | RSAU_LOG |
 | S_RFC | FUGR | /MSFTSEN/_AUDITLOG |
@@ -139,15 +139,17 @@ SAP 환경 호스트는 TCP 포트 32xx, 5xx13 및 33xx를 통해 호스트합�
 | **ABAP 워크플로 로그** | | |
 | S_RFC | FUGR | SWRR |
 | S_RFC | FUGR | /MSFTSEN/_WF |
+| **사용자 데이터** | | |
+| S_RFC | FUNC | RFC_READ_TABLE |
 | | |
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음을 참조하세요.
 
-- [SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
-- [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [SAP용 Microsoft Sentinel 솔루션 배포](sap-deploy-solution.md)
+- [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
-- [Azure Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
-- [Azure Sentinel SAP 솔루션: 제공되는 보안 콘텐츠](sap-solution-security-content.md)
-- [Azure Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
+- [Microsoft 센티널 SAP 솔루션 로그 참조](sap-solution-log-reference.md)
+- [Microsoft 센티널 SAP 솔루션: 사용 가능한 보안 콘텐츠](sap-solution-security-content.md)
+- [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

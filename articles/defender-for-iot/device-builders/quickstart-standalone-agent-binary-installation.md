@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)'
-description: 이 빠른 시작에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
-ms.date: 08/26/2021
+description: 이 빠른 시작에서는 Defender for Cloud 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
+ms.date: 11/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 857c0a6a9682d4b15362d75523d2aa08a1c8461e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 5e1ef76bbaf3b4eedae31f08d6cf39efdfaec3df
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965643"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343746"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
-이 문서에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법에 대해 설명합니다.
+이 문서에서는 Defender for Cloud 마이크로 에이전트를 설치하고 인증하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [Defender IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)를 참조하세요.
+Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)를 참조하세요.
 
 ## <a name="install-the-package"></a>패키지 설치
 
@@ -55,7 +55,7 @@ Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-Debian 및 Ubuntu 기반 Linux 배포판에 Defender 마이크로 에이전트 패키지를 설치하려면 다음 명령을 사용합니다.
+Defender for Cloud 마이크로 에이전트 패키지를 Debian 및 Ubuntu 기반 Linux 배포판에 설치하려면 다음 명령을 사용합니다.
 
 ```bash
 sudo apt-get install defender-iot-micro-agent 
@@ -99,7 +99,7 @@ IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합�
 
 모듈 ID 연결 문자열을 사용하여 인증하도록 에이전트를 구성하려면 다음과 같이 수행합니다.
 
-1. 다음 명령을 입력하여 utf-8로 인코딩된 연결 문자열이 포함된 `connection_string.txt`라는 파일을 Defender 에이전트 디렉터리 `/var/defender_iot_micro_agent` 경로에 저장합니다.
+1. 다음 명령을 입력하여 utf-8로 인코딩된 연결 문자열이 포함된 `connection_string.txt`라는 파일을 Defender for Cloud 에이전트 디렉터리 `/var/defender_iot_micro_agent` 경로에 저장합니다.
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
@@ -119,13 +119,13 @@ IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합�
 
 1. [이 지침](../../iot-hub/tutorial-x509-scripts.md)에 따라 인증서를 확보합니다.
 
-1. 인증서 및 프라이빗 키의 PEM으로 인코딩된 공개 부분을 Defender 에이전트 디렉터리의 `certificate_public.pem` 및 `certificate_private.pem` 파일에 저장합니다.
+1. 인증서 및 프라이빗 키의 PEM으로 인코딩된 공개 부분을 Defender for Cloud 에이전트 디렉터리의 `certificate_public.pem` 및 `certificate_private.pem` 파일에 저장합니다.
 
 1. 적절한 연결 문자열을 `connection_string.txt` 파일에 저장합니다. 연결 문자열은 다음과 같아야 합니다.
 
     `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
-    이 문자열은 인증을 위해 인증서가 제공되어야 함을 Defender 에이전트에 알립니다.
+    이 문자열은 인증을 위해 인증서가 제공되어야 함을 Defender for Cloud 에이전트에 알립니다.
 
 1. 다음 명령을 사용하여 서비스를 다시 시작합니다.  
 
@@ -165,7 +165,7 @@ sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt
 
 ## <a name="micro-agent-versioning"></a>마이크로 에이전트 버전 관리
 
-특정 버전의 Defender IoT 마이크로 에이전트를 설치하려면 다음 명령을 실행합니다.
+특정 버전의 Defender for Cloud IoT 마이크로 에이전트를 설치하려면 다음 명령을 실행합니다.
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>
@@ -174,4 +174,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)](quickstart-create-micro-agent-module-twin.md)
+> [빠른 시작: Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)

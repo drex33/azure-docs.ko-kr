@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fe1843f40759ee329576d0c47d3a8251becaf217
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 78ae9a54d9e09076c010afc75a693a5a87f66ab7
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460169"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518093"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics 데이터 통합 파트너
 
@@ -28,7 +28,7 @@ Azure Synapse Analytics의 전용 SQL 풀을 사용하여 데이터 웨어하우
 | ------- | ----------- | -------------------- |
 | ![Ab Initio](./media/data-integration/abinitio-logo.png) |**Ab Initio**<br> Ab Initio의 민첩한 디지털 엔지니어링 플랫폼은 기업 컴퓨팅에서 가장 까다로운 데이터 처리 및 데이터 관리 문제를 해결하는 데 도움이 됩니다. Ab Initio의 클라우드 네이티브 플랫폼을 사용하면 레거시 시스템에 저장된 데이터를 포함하여 Azure인지 아니면 온-프레미스인지에 관계없이 기업 에코시스템의 모든 위치에서 데이터에 액세스하고 사용할 수 있습니다. 직관적인 인터페이스와 강력한 자동화, 데이터 품질, 데이터 거버넌스 및 활성 메타데이터 기능을 조합하면 신속한 개발과 진정한 데이터 셀프 서비스가 가능하므로, 분석가가 빠르고 효과적으로 작업을 수행할 수 있습니다. Ab Initio를 사용하여 빅 데이터를 의미 있는 데이터로 전환하는 세계 최대 비즈니스에 참가하세요. |[제품 페이지](https://www.abinitio.com/) |
 | ![Aecorsoft](./media/data-integration/aecorsoft-logo.png) |**Aecorsoft**<br> AecorSoft에서는 빠르고 스케일링 가능한 실시간 ELT/ETL 소프트웨어 솔루션을 제공하여 SAP 고객이 복잡한 SAP 데이터를 Azure Synapse Analytics와 Azure 데이터 플랫폼으로 가져올 수 있도록 지원합니다. SAP 애플리케이션 레이어 보안을 완벽하게 준수하는 AecorSoft 솔루션은 공식적으로 SAP 애플리케이션과 통합할 수 있는 SAP 프리미엄 인증을 받았습니다. AecorSoft의 고유한 수퍼 델타 및 변경 데이터 캡처 기능을 통해 SAP 사용자는 SAP 투명, 풀, 클러스터 테이블의 델타 데이터를 CSV, Parquet, Avro, ORC 또는 GZIP 형식으로 Azure로 스트리밍할 수 있습니다. SAP 테이블 형식 데이터 외에도 BW 쿼리와 S/4HANA CDS 보기와 같은 기타 비즈니스 규칙이 많은 SAP 개체가 완벽하게 지원됩니다. |[제품 페이지](https://www.aecorsoft.com/products/dataintegrator)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aecorsoftinc1588038796343.aecorsoftintegrationservice_adf)<br>|
-| ![Alooma](./media/data-integration/alooma_logo.png) |**Alooma**<br> Alooma는 실시간으로 데이터 팀이 다양한 데이터 사일로에서 Azure Synapse 데이터 웨어하우스로 데이터를 통합하고 보강하고 스트리밍할 수 있도록 하는 ETL(추출, 변환 및 로드) 솔루션입니다. |[제품 페이지](https://www.alooma.com/) |
+| ![Alooma](./media/data-integration/alooma_logo.png) |**Alooma**<br> Alooma는 실시간으로 데이터 팀이 다양한 데이터 사일로에서 Azure Synapse 데이터 웨어하우스로 데이터를 통합하고 보강하고 스트리밍할 수 있도록 하는 ETL(추출, 변환 및 로드) 솔루션입니다. | |
 | ![Alteryx](./media/data-integration/alteryx_logo.png) |**Alteryx**<br> Alteryx Designer는 주간 단위로 이해하는 전형적인 접근 방식이 아니라 시간 단위로 심층 분석하는 셀프 서비스 데이터 분석을 위한 반복 가능한 워크플로를 제공합니다. Alteryx Designer는 동일한 직관적 사용자 인터페이스를 사용하여 데이터 준비, 데이터 혼합 및 분석(예측, 통계 및 공간)을 결합함으로써 데이터 분석을 도와줍니다. |[제품 페이지](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/alteryx.alteryx-designer)<br>|
 | ![BI Builders(Xpert BI)](./media/data-integration/bibuilders-logo.png) |**BI Builders(Xpert BI)**<br> Xpert BI를 사용하면 조직이 메타데이터 기반 자동화를 통해 Azure에서 강력하고 스케일링 가능한 데이터 플랫폼을 빌드하고 유지 관리할 수 있습니다. 기본 제공 데이터 거버넌스 기능을 통한 민첩한 데이터 개발을 위해 모범 사례와 DataOps로 Azure Synapse를 확장합니다. 비즈니스와 분석 요구사항이 변화하고 증가함에 따라 Xpert BI를 사용하여 Azure Synapse, Azure Data Lake Storage, Azure SQL Database와 같은 다양한 Azure 솔루션을 신속하게 테스트하고 서로 전환할 수 있습니다.|[제품 페이지](https://www.bi-builders.com/adding-automation-and-governance-to-azure-analytics/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/bi-builders-as.xpert-bi-vm)<br>|
 | ![BryteFlow](./media/data-integration/bryteflow-logo.png) |**BryteFlow**<br> BryteFlow를 사용하면 Oracle, SQL Server, SAP, MySQL 등과 같은 트랜잭션 원본의 데이터를 모범 사례에 따라 실시간으로 Azure Synapse Analytics에 지속해서 복제하고, 바로 사용할 수 있는 조정된 데이터에 액세스할 수 있습니다. BryteFlow는 로그 기반 변경 데이터 캡처를 사용하여 몇 분 내에 데이터를 추출하고 복제하며 델타를 자동으로 병합하여 데이터를 업데이트합니다. 시계열로도 구성할 수 있습니다. 프로세스에 대한 코딩이 없으며(가리키고 선택하기만 하면 됨) 대상에 테이블이 자동으로 생성됩니다. BryteFlow는 매우 높은 처리량, 테라바이트 단위의 데이터 수집, 스마트 파티셔닝 및 다중 스레드 병렬 로딩으로 엔터프라이즈급 자동 데이터 통합을 지원합니다.|[제품 페이지](https://bryteflow.com/data-integration-on-azure-synapse/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/bryte.bryteflowingest-azure-standard?tab=Overview)<br>|

@@ -1,34 +1,34 @@
 ---
-title: Azure Sentinel에서 Azure Monitor 통합 문서를 사용하여 데이터 시각화 | Microsoft Docs
-description: Azure Sentinel에서 통합 문서를 사용하여 데이터를 시각화하는 방법을 알아봅니다.
+title: Microsoft Sentinel | Azure Monitor 통합 문서를 사용하여 데이터 시각화 Microsoft Docs
+description: Microsoft Sentinel에서 통합 문서를 사용하여 데이터를 시각화하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ef77535810671c0f442aa90eade688778c381750
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 525f67a7c9284a9ac78c388e52041d7895032104
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064490"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522615"
 ---
 # <a name="use-azure-monitor-workbooks-to-visualize-and-monitor-your-data"></a>Azure Monitor 통합 문서를 사용하여 데이터 시각화 및 모니터링
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md)한 후에는 사용자 지정 대시보드를 만들 때 다양한 기능을 제공하는 Azure Monitor 통합 문서의 Azure Sentinel 채택을 사용하여 데이터를 시각화하고 모니터링할 수 있습니다. 통합 문서가 Azure Sentinel에 다르게 표시되는 반면, [Azure Monitor 통합 문서를 사용하여 대화형 보고서를 만드는](../azure-monitor/visualize/workbooks-overview.md) 방법을 확인하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
+[데이터 원본을](quickstart-onboard.md) Microsoft Sentinel에 연결하면 사용자 지정 대시보드를 만드는 데 다양한 기능을 제공하는 Azure Monitor 통합 문서의 Microsoft Sentinel 채택을 사용하여 데이터를 시각화하고 모니터링할 수 있습니다. 통합 문서가 Microsoft Sentinel에서 다르게 표시되지만 Azure Monitor 통합 문서를 사용하여 [대화형 보고서를 만드는](../azure-monitor/visualize/workbooks-overview.md)방법을 확인하는 것이 유용할 수 있습니다. Microsoft Sentinel을 사용하면 데이터에서 사용자 지정 통합 문서를 만들 수 있으며, 데이터 원본을 연결하는 즉시 데이터 전체에서 인사이트를 빠르게 얻을 수 있는 기본 제공 통합 문서 템플릿도 함께 제공됩니다.
 
-이 문서에서는 Azure Sentinel에서 데이터를 시각화하는 방법을 설명합니다.
+이 문서에서는 Microsoft Sentinel에서 데이터를 시각화하는 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 기본 제공 통합 문서 사용
@@ -36,16 +36,16 @@ Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md)한 후에�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Sentinel 작업 영역의 리소스 그룹에 대한 **통합 문서 읽기 권한자** 또는 **통합 문서 기여자** 권한 이상이 있어야 합니다.
+Microsoft Sentinel 작업 영역의 리소스 그룹에 대한 **통합 문서 읽기** 권한자 또는 통합 문서 **기여자** 이상의 권한이 있어야 합니다.
 
 > [!NOTE]
-> Azure Sentinel에서 볼 수 있는 통합 문서는 Azure Sentinel 작업 영역의 리소스 그룹 내에 저장되고 생성된 작업 영역에 의해 태그가 지정됩니다.
+> Microsoft Sentinel에서 볼 수 있는 통합 문서가 Microsoft Sentinel 작업 영역의 리소스 그룹 내에 저장되고 생성된 작업 영역에 의해 태그가 지정됩니다.
 
 ## <a name="use-built-in-workbooks"></a>기본 제공 통합 문서 사용
 
-1. **통합 문서** 로 이동한 다음, **템플릿** 을 선택하여 Azure Sentinel 기본 제공 통합 문서의 전체 목록을 확인합니다. 
+1. 통합 **문서로** 이동한 다음 **템플릿을** 선택하여 Microsoft Sentinel 기본 제공 통합 문서의 전체 목록을 확인합니다. 
 
-    연결한 데이터 형식과 관련된 항목을 확인하기 위해 관련 데이터를 Azure Sentinel로 이미 스트리밍한 경우 각 통합 문서의 **필수 데이터 형식** 필드에 녹색 확인 표시 옆에 있는 데이터 형식이 나열됩니다.
+    연결한 데이터 형식과 관련된 데이터를 확인하기 위해 관련 데이터를 Microsoft Sentinel로 이미 스트리밍한 경우 각 통합 문서의 필수 데이터 **형식** 필드에 녹색 확인 표시 옆에 데이터 형식이 나열됩니다.
 
     [ ![통합 문서로 이동](media/tutorial-monitor-data/access-workbooks.png) ](media/tutorial-monitor-data/access-workbooks.png#lightbox)
 
@@ -79,7 +79,7 @@ Azure Sentinel 작업 영역의 리소스 그룹에 대한 **통합 문서 읽�
 
 1. 쿼리를 빌드하는 경우 **데이터 원본** 이 **로그** 로 설정되고 **리소스 종류** 가 **Log Analytics** 로 설정되었는지 확인한 다음, 관련 작업 영역을 선택합니다. 
 
-1. 통합 문서를 만든 후 통합 문서를 저장하여 Azure Sentinel 작업 영역의 구독과 리소스 그룹 아래에 저장해야 합니다.
+1. 통합 문서를 만든 후 통합 문서를 저장하고 Microsoft Sentinel 작업 영역의 구독 및 리소스 그룹에 저장해야 합니다.
 
 1. 조직의 다른 사용자가 통합 문서를 사용하도록 하려면 **저장 위치** 에서 **공유 보고서** 를 선택합니다. 이 통합 문서를 사용자만 사용할 수 있도록 하려면 **내 보고서** 를 선택합니다.
 
@@ -127,8 +127,8 @@ Azure Sentinel 작업 영역의 리소스 그룹에 대한 **통합 문서 읽�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure 통합 문서를 사용하여 Azure Sentinel에서 데이터를 시각화하는 방법을 알아보았습니다.
+이 문서에서는 Azure 통합 문서를 사용하여 Microsoft Sentinel에서 데이터를 시각화하는 방법을 배웠습니다.
 
-위협에 대한 응답을 자동화하는 방법에 대해 알아보려면 [Azure Sentinel에서 자동화된 위협 응답 설정](tutorial-respond-threats-playbook.md)을 참조하세요.
+위협에 대한 응답을 자동화하는 방법을 알아보려면 [Microsoft Sentinel에서 자동화된 위협 대응 설정을](tutorial-respond-threats-playbook.md)참조하세요.
 
-인기 있는 기본 제공 통합 문서에 대한 자세한 내용은 [일반적으로 사용되는 Azure Sentinel 통합 문서](top-workbooks.md)를 참조하세요. 
+인기 있는 기본 제공 통합 문서에 대한 자세한 내용은 [일반적으로 사용되는 Microsoft Sentinel 통합 문서 를 참조하세요.](top-workbooks.md) 

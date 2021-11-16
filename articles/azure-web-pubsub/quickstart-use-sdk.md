@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.openlocfilehash: 39a451b241952d40467e75f5a463baa3b76ab2b9
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 72805453fb9929c4f598cca8d930eac3b447f6c2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576475"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287907"
 ---
 # <a name="quickstart-publish-messages-using-the-service-sdk-for-the-azure-web-pubsub-instance"></a>빠른 시작: Azure Web PubSub 인스턴스용 서비스 SDK를 사용하여 메시지 게시
 
@@ -98,17 +98,17 @@ ms.locfileid: "131576475"
                 var hub = args[1];
                 var message = args[2];
 
-                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
+                var service = new WebPubSubServiceClient(connectionString, hub);
                 
                 // Send messages to all the connected clients
                 // You can also try SendToConnectionAsync to send messages to the specific connection
-                await serviceClient.SendToAllAsync(message);
+                await service.SendToAllAsync(message);
             }
         }
     }
     ```
 
-    `SendToAllAsync()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
+    `service.SendToAllAsync()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
 
 3. 아래 명령을 실행하고, `<connection_string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꿉니다.
 
@@ -143,9 +143,9 @@ ms.locfileid: "131576475"
       return 1;
     }
     const hub = "pubsub";
-    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
+    service.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
     `sendToAll()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
@@ -166,46 +166,39 @@ ms.locfileid: "131576475"
 # <a name="python"></a>[Python](#tab/python)
 
 1. 먼저 이 프로젝트에 대한 새 폴더 `publisher`를 만들고 필요한 종속성을 설치하겠습니다.
-    * bash를 사용하는 경우
-        ```bash
-        mkdir publisher
-        cd publisher
-        # Create venv
-        python -m venv env
+    ```bash
+    mkdir publisher
+    cd publisher
+    # Create venv
+    python -m venv env
+    # Active venv
+    source ./env/bin/activate
 
-        # Active venv
-        ./env/Scripts/activate
+    pip install azure-messaging-webpubsubservice
 
-        # Or call .\env\Scripts\activate when you are using CMD
-
-        pip install azure-messaging-webpubsubservice==1.0.0b1
-
-        ```
+    ```
 2. 이번에는 Azure Web PubSub SDK를 사용하여 서비스에 메시지를 게시해 보겠습니다. 아래 코드를 사용하여 `publish.py` 파일을 만듭니다.
 
     ```python
     import sys
-    from azure.messaging.webpubsubservice import (
-        WebPubSubServiceClient
-    )
-    from azure.messaging.webpubsubservice.rest import *
-
-    if len(sys.argv) != 4:
-        print('Usage: python publish.py <connection-string> <hub-name> <message>')
-        exit(1)
-
-    connection_string = sys.argv[1]
-    hub_name = sys.argv[2]
-    message = sys.argv[3]
-
-    service_client = WebPubSubServiceClient.from_connection_string(connection_string)
-    res = service_client.send_request(build_send_to_all_request(hub_name, content=message, content_type='text/plain'))
-    # res should be <HttpResponse: 202 Accepted>
-    print(res)
-
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    if __name__ == '__main__':
+    
+        if len(sys.argv) != 4:
+            print('Usage: python publish.py <connection-string> <hub-name> <message>')
+            exit(1)
+    
+        connection_string = sys.argv[1]
+        hub_name = sys.argv[2]
+        message = sys.argv[3]
+    
+        service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+        res = service.send_to_all(message, content_type='text/plain')
+        print(res)
     ```
 
-    `build_send_to_all_request()`는 메시지를 빌드하고 `send_request()` 호출을 사용하여 허브에 있는 모든 연결된 클라이언트에 메시지를 전송합니다.
+    `service.send_to_all()` 메서드는 메시지를 허브에서 연결된 모든 클라이언트에 보냅니다.
 
 3. 아래 명령을 실행하고, `<connection_string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꿉니다.
 
@@ -258,17 +251,17 @@ ms.locfileid: "131576475"
                 return;
             }
 
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
-            client.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(args[2], WebPubSubContentType.TEXT_PLAIN);
         }
     }
 
     ```
 
-    `sendToAll()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
+    `service.sendToAll()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
 
 4. *pom.xml* 파일이 포함된 디렉터리로 이동한 후 다음 `mvn` 명령을 사용하여 프로젝트를 컴파일합니다.
 

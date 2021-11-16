@@ -1,18 +1,18 @@
 ---
-title: Azure Defender for IoT와 Palo Alto 통합
+title: Microsoft Defender for IoT와 Palo Alto 통합
 description: Defender for IoT는 연속 ICS 위협 모니터링 플랫폼을 Palo Alto의 차세대 방화벽과 통합하여 중요한 위협 요소를 더 빠르고 효율적으로 차단하고 있습니다.
-ms.date: 09/26/2021
+ms.date: 11/09/2021
 ms.topic: tutorial
-ms.openlocfilehash: 6579c69d5ab789c97972a81f00dc56d19ce1f9f8
-ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
+ms.openlocfilehash: 5beec75d23fb940f35ded84f2a938dae7e3dd9bc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129062054"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301460"
 ---
-# <a name="tutorial-integrate-palo-alto-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 Palo Alto 통합
+# <a name="tutorial-integrate-palo-alto-with-microsoft-defender-for-iot"></a>자습서: Microsoft Defender for IoT와 Palo Alto 통합
 
-이 자습서를 사용하면 Palo Alto를 Azure Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
+이 자습서를 사용하면 Palo Alto를 Microsoft Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
 
 Defender for IoT는 연속 ICS 위협 모니터링 플랫폼을 Palo Alto의 차세대 방화벽과 통합하여 중요한 위협 요소를 더 빠르고 효율적으로 차단하고 있습니다.
 
@@ -22,7 +22,7 @@ Defender for IoT는 연속 ICS 위협 모니터링 플랫폼을 Palo Alto의 차
 
 - 중앙 관리 시스템 차단에 대한 권장 사항 보내기: Defender for IoT와 Panorama 통합
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > - 지정된 Palo Alto 방화벽을 통해 즉각적인 차단 구성

@@ -1,28 +1,28 @@
 ---
-title: Microsoft 365 Defender 데이터를 Azure Sentinel에 연결 | Microsoft Docs
-description: Microsoft 365 Defender에서 Azure 센티널로 인시던트, 경고 및 원시 이벤트 데이터를 수집하는 방법에 대해 알아봅니다.
+title: Microsoft Sentinel에 데이터를 커넥트 Microsoft 365 Defender| Microsoft Docs
+description: Microsoft 365 Defender 인시던트, 경고 및 원시 이벤트 데이터를 Microsoft Sentinel로 수집하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1f55f38e126ae9aa64752b45ff449bcde321aaaf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: edef094a6d4db97208124a97732f1ec354f2106c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083938"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522064"
 ---
-# <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Microsoft 365 Defender의 데이터를 Azure Sentinel에 연결
+# <a name="connect-data-from-microsoft-365-defender-to-microsoft-sentinel"></a>Microsoft 365 Defender Microsoft Sentinel로 데이터 커넥트
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "131083938"
 >
 > **엔드포인트용 Microsoft Defender** 의 이전 이름은 **MDATP**(**Microsoft Defender Advanced Threat Protection**)였습니다.
 >
-> **microsoft Defender for Office 365** 이전에는 **Office 365 Advanced Threat Protection이라고** 했습니다.
+> **microsoft Defender for Office 365** 이전에는 Office 365 **Advanced Threat Protection으로** 알려져 있었습니다.
 >
 > 이전 이름이 일정 시간 동안 계속 사용되는 것을 볼 수 있습니다.
 
@@ -40,17 +40,17 @@ ms.locfileid: "131083938"
 
 ## <a name="background"></a>배경
 
-인시던트 통합을 포함한 Azure Sentinel의 [M365D(Microsoft 365 Defender)](/microsoft-365/security/mtp/microsoft-threat-protection) 커넥터를 사용하면 모든 M365D 인시던트 및 경고를 Azure Sentinel로 스트리밍하고 두 포털 간에 인시던트를 동기화된 상태로 유지할 수 있습니다. M365D 인시던트는 모든 경고, 엔터티 및 기타 관련 정보를 포함하며, M365D 구성 요소 서비스 **Microsoft defender For Endpoint**, **Microsoft Defender for Identity**, **Office 365용 Microsoft Defender** 및 **Microsoft Cloud App Security** 에서 경고로 보강되고 그룹화됩니다.
+인시던트 통합이 있는 Microsoft Sentinel의 [M365D(Microsoft 365 Defender)](/microsoft-365/security/mtp/microsoft-threat-protection) 커넥터를 사용하면 모든 M365D 인시던트 및 경고를 Microsoft Sentinel로 스트리밍하고 두 포털 간에 인시던트 동기화를 유지합니다. M365D 인시던트 에는 모든 경고, 엔터티 및 기타 관련 정보가 포함되며, M365D의 구성 요소 서비스인 **엔드포인트용 Microsoft Defender,** Microsoft Defender for Identity , **Office 365** **Microsoft Defender** 및 Cloud **Apps용 Microsoft Defender의** 경고를 통해 보강되고 그룹화됩니다.
 
-또한 커넥터를 사용하면 엔드포인트용 Microsoft Defender 및 microsoft Defender for Office 365 **고급 헌팅** 이벤트를 Azure Sentinel 스트리밍할 수 있습니다. 이를 통해 이러한 Defender 구성 요소의 고급 헌팅 쿼리를 Azure Sentinel 복사하고, Defender 구성 요소의 원시 이벤트 데이터로 Sentinel 경고를 보강하여 추가 인사이트를 제공하고, Log Analytics에서 보존이 증가된 로그를 저장할 수 있습니다.
+커넥터를 사용하면 엔드포인트용 Microsoft Defender 및 microsoft Defender for Office 365 **고급 헌팅** 이벤트를 Microsoft Sentinel로 스트리밍할 수 있습니다. 이를 통해 이러한 Defender 구성 요소의 고급 헌팅 쿼리를 Microsoft Sentinel에 복사하고, Defender 구성 요소의 원시 이벤트 데이터로 Sentinel 경고를 보강하여 추가 인사이트를 제공하고, Log Analytics에서 보존이 증가된 로그를 저장할 수 있습니다.
 
-인시던트 통합 및 고급 헌팅 이벤트 컬렉션에 대한 자세한 내용은 [Microsoft 365 Defender와 Azure Sentinel 통합](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection)을 참조하세요.
+인시던트 통합 및 고급 헌팅 이벤트 수집에 대한 자세한 내용은 [Microsoft Sentinel과 Microsoft 365 Defender 통합을](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection)참조하세요.
 
 > [!IMPORTANT]
 >
 > Microsoft 365 Defender connector는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Microsoft 365 defender 사전 요구 사항](/microsoft-365/security/mtp/prerequisites)에 설명된 대로 Microsoft 365 defender에 대한 유효한 라이선스가 있어야 합니다. 
 
@@ -58,7 +58,7 @@ ms.locfileid: "131083938"
 
 ## <a name="connect-to-microsoft-365-defender"></a>Microsoft 365 Defender에 연결
 
-1. Azure Sentinel에서 **데이터 커넥터** 를 선택하고 갤러리에서 **Microsoft 365 Defender(미리 보기)** 를 선택한 다음 **커넥터 열기 페이지** 를 선택합니다.
+1. Microsoft Sentinel에서 **데이터 커넥터를** 선택하고 갤러리에서 **Microsoft 365 Defender(미리 보기)를** 선택한 다음 **커넥터 페이지 열기를** 선택합니다.
 
 1. **인시던트 및 경고에 연결** 섹션의 **구성** 에서 **인시던트 및 경고** 단추를 선택합니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "131083938"
        | 테이블 이름 | 이벤트 유형 |
        |-|-|
        | **[EmailAttachmentInfo](/microsoft-365/security/defender/advanced-hunting-emailattachmentinfo-table)** | 메일에 첨부된 파일에 대한 정보 |
-       | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table)** | 메일 배달 및 차단 이벤트를 포함한 메일 이벤트 Microsoft 365 |
+       | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table)** | 전자 메일 배달 및 차단 이벤트를 포함한 전자 메일 이벤트 Microsoft 365 |
        | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Microsoft 365 받는 사람 사서함에 메일을 배달한 후 배달 후 발생하는 보안 이벤트 |
        | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table)** | 전자 메일의 URL에 대한 정보 |
        |
@@ -150,7 +150,7 @@ let Now = now();
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft 365 Defender 커넥터를 사용하여 엔드포인트용 Microsoft Defender 및 defender for Office 365 Azure Sentinel Microsoft 365 Defender 인시던트 및 고급 헌팅 이벤트 데이터를 통합하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Microsoft 365 Defender 커넥터를 사용하여 엔드포인트용 Microsoft Defender 및 defender for Office 365 Microsoft Sentinel에 Microsoft 365 Defender 인시던트 및 고급 헌팅 이벤트 데이터를 통합하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.
+- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.

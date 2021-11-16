@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9cd193eb6ff2858440f1cd9a62bdd53d58d6047d
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: fb4ff79e1115086ef84694485cd9e7978295a9c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256296"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598844"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Zscaler 프라이빗 액세스 구성
 
@@ -44,7 +44,7 @@ ZPA 통합에는 다음 구성 요소가 포함됩니다.
 
 아래 표에 이 시퀀스에 대한 설명이 나와 있습니다.
 
-|단계 | Description |
+|단계 | 설명 |
 | :-----:| :-----------|
 | 1 | 사용자가 ZPA 사용자 포털 또는 ZPA 브라우저 액세스 애플리케이션을 엽니다.
 | 2 | 사용자가 웹 애플리케이션에 액세스할 수 있도록 허용할지 여부를 결정하려면 ZPA에 사용자 컨텍스트 정보가 필요합니다. 사용자를 인증하기 위해 ZPA는 Azure AD B2C 로그인 페이지로 SAML 리디렉션을 수행합니다.  
@@ -117,11 +117,13 @@ Azure AD B2C에서 SAML 애플리케이션을 구성하려면 [Azure AD B2C에 S
 
 이제 다음과 같은 형식으로 SAML 메타데이터 URL을 가져와야 합니다.
 
-```https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata```
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata`
 
 `<tenant-name>`은 Azure AD B2C 테넌트의 이름이고 `<policy-name>`은 이전 단계에서 만든 사용자 지정 SAML 정책의 이름입니다.
 
-예를 들어 URL은 `https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata`이 될 수 있습니다.
+예를 들어 URL은 다음과 같을 수 있습니다.
+
+`https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml/Samlp/metadata`.
 
 웹 브라우저를 열고 SAML 메타데이터 URL로 이동합니다. 페이지의 아무 곳이나 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 저장** 을 선택한 후 다음 단계에서 사용할 수 있도록 파일을 컴퓨터에 저장합니다.
 

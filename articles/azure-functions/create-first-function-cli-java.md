@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: f9b4d079b359524faac8b594c653b7aebcac2676
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c28d2d2fbdbe48b2f07ed85f8cc08b93d70e1edb
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730529"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026966"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -37,7 +37,7 @@ Maven이 선호하는 개발 도구가 아닌 경우 Java 개발자를 위한 �
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 4.x
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
@@ -47,7 +47,7 @@ Maven이 선호하는 개발 도구가 아닌 경우 Java 개발자를 위한 �
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `az --version`을 실행하여 Azure CLI 버전이 2.4 이상인지 확인합니다.
 

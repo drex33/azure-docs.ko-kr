@@ -1,26 +1,26 @@
 ---
-title: Azure Defender for IoT와 Forescout 통합
-description: 이 자습서에서는 Forescout를 Azure Defender for IoT와 통합하는 방법을 알아봅니다.
+title: Microsoft Defender for IoT와 Forescout 통합
+description: 이 자습서에서는 Azure Defender for IoT와 Forescout를 통합하는 방법을 알아봅니다.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6a930671e501940ce7f6d0d22036225e7539eb7f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c395c799b8f6dca602b20cb330f89630f9fb591e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128701990"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325239"
 ---
-# <a name="tutorial-integrate-forescout-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 Forescout 통합
+# <a name="tutorial-integrate-forescout-with-microsoft-defender-for-iot"></a>자습서: Microsoft Defender for IoT와 Forescout 통합
 
 > [!Note]
-> CyberX에 대한 참조는 Azure Defender for IoT를 확인하세요.
+> CyberX에 대한 참조는 Microsoft Defender for IoT를 확인하세요.
 
-이 자습서를 사용하면 Forescout를 Azure Defender for IoT와 통합하는 방법을 알아볼 수 있습니다.
+이 자습서는 Microsoft Defender for IoT와 Forescout를 통합하는 방법을 알아보는 데 도움이 됩니다.
 
-Azure Defender for IoT는 ICS 및 IoT 사이버 보안 플랫폼을 제공합니다. Defender for IoT는 ICS 인식 위협 분석 및 기계 학습을 사용하는 유일한 플랫폼입니다. Defender for IoT는 다음을 제공합니다.
+Microsoft Defender for IoT는 ICS 및 IoT 사이버 보안 플랫폼을 제공합니다. Defender for IoT는 ICS 인식 위협 분석 및 기계 학습을 사용하는 유일한 플랫폼입니다. Defender for IoT는 다음을 제공합니다.
 
 - 특성에 대한 광범위한 세부 정보와 함께 디바이스 환경인 ICS에 대한 즉각적인 인사이트.
 
@@ -32,11 +32,11 @@ Azure Defender for IoT는 ICS 및 IoT 사이버 보안 플랫폼을 제공합니
 
 Forescout 통합을 사용하면 산업 및 중요 인프라 조직이 사이버 위협에 대한 검색, 조사, 조치를 수행하는 데 필요한 시간을 줄일 수 있습니다.
 
-- Azure Defender for IoT의 OT 디바이스 인텔리전스를 사용하여 Forescout 정책 작업을 트리거함으로써 보안 주기를 닫습니다. 예를 들어 특정 프로토콜이 검색되거나 펌웨어 세부 정보가 변경될 때 자동으로 SOC 관리자에게 경고 메일을 보낼 수 있습니다.
+- Microsoft Defender for IoT의 OT 디바이스 인텔리전스를 사용하여 Forescout 정책 작업을 트리거함으로써 보안 주기를 닫습니다. 예를 들어 특정 프로토콜이 검색되거나 펌웨어 세부 정보가 변경될 때 자동으로 SOC 관리자에게 경고 메일을 보낼 수 있습니다.
 
 - Defender for IoT 정보를 모니터링, 인시던트 관리, 디바이스 제어를 감독하는 다른 *Forescout eyeExtended* 모듈과 상호 연결합니다.
 
-Defender for IoT와 Forescout 플랫폼의 통합은 IoT 및 OT 환경에 대한 중앙 집중화된 가시성, 모니터링, 제어를 제공합니다. 이러한 브리지 플랫폼을 통해 ICS 디바이스와 사일로화된 워크플로에 대한 자동 디바이스 가시성 및 관리를 수행할 수 있습니다. 이 통합은 SOC 분석가에게 산업 환경에 배포된 OT 프로토콜에 대한 다단계 가시성을 제공합니다. Azure Defender for IoT 독점 기술을 기반으로 하는 펌웨어, 디바이스 유형, 운영 체제, 위험 분석 점수와 같은 정보를 얻을 수 있습니다.
+Defender for IoT와 Forescout 플랫폼의 통합은 IoT 및 OT 환경에 대한 중앙 집중화된 가시성, 모니터링, 제어를 제공합니다. 이러한 브리지 플랫폼을 통해 ICS 디바이스와 사일로화된 워크플로에 대한 자동 디바이스 가시성 및 관리를 수행할 수 있습니다. 이 통합은 SOC 분석가에게 산업 환경에 배포된 OT 프로토콜에 대한 다단계 가시성을 제공합니다. Microsoft Defender for IoT 독점 기술을 기반으로 하는 펌웨어, 디바이스 유형, 운영 체제, 위험 분석 점수와 같은 정보를 얻을 수 있습니다.
 
 이 자습서에서는 다음 방법에 관해 알아봅니다.
 
@@ -45,21 +45,21 @@ Defender for IoT와 Forescout 플랫폼의 통합은 IoT 및 OT 환경에 대한
 > - Forescout 플랫폼 구성
 > - 통신 확인
 > - Forescout에서 디바이스 특성 보기
-> - Forescout에서 Azure Defender for IoT 정책 만들기
+> - Forescout에서 Microsoft Defender for IoT 정책 만들기
 
 아직 Azure 계정이 없는 경우 [지금 Azure 체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Defender for IoT 버전 2.4 이상
+- Microsoft Defender for IoT 버전 2.4 이상
 
 - Forescout 버전 8.0 이상
 
-- Azure Defender for IoT 플랫폼에 대한 Forescout eyeExtend 모듈의 라이선스.
+- Microsoft Defender for IoT 플랫폼용 Forescout eyeExtend 모듈에 대한 라이선스
 
 ## <a name="generate-an-access-token"></a>액세스 토큰 생성
 
-액세스 토큰을 사용하면 Defender for IoT에서 발견한 데이터에 외부 시스템이 액세스할 수 있습니다. 액세스 토큰을 사용하면 외부 REST API 및 SSL 연결을 통해 데이터를 사용할 수 있습니다. Azure Defender for IoT REST API에 액세스하기 위해 액세스 토큰을 생성할 수 있습니다.
+액세스 토큰을 사용하면 Defender for IoT에서 발견한 데이터에 외부 시스템이 액세스할 수 있습니다. 액세스 토큰을 사용하면 외부 REST API 및 SSL 연결을 통해 데이터를 사용할 수 있습니다. Microsoft Defender for IoT REST API에 액세스하기 위해 액세스 토큰을 생성할 수 있습니다.
 
 Defender for IoT에서 Forescout로 통신하려면 Defender for IoT에서 액세스 토큰을 생성해야 합니다.
 
@@ -100,7 +100,7 @@ Defender for IoT에서 Forescout로 통신하려면 Defender for IoT에서 액�
 
 1. **모듈** > **CyberX 플랫폼** 으로 이동합니다.
 
-   :::image type="content" source="media/tutorial-forescout/settings-for-module.png" alt-text="Azure Defender for IoT 모듈 설정":::
+   :::image type="content" source="media/tutorial-forescout/settings-for-module.png" alt-text="Microsoft Defender for IoT 모듈 설정":::
 
 1. [서버 주소] 필드에 Forescout 어플라이언스에서 쿼리할 Defender for IoT 센서의 IP 주소를 입력합니다.
 
@@ -150,7 +150,7 @@ Defender for IoT를 Forescout과 통합하면 Defender for IoT가 발견한 다�
 
 | 항목 | 설명 |
 |--|--|
-| **Azure Defender for IoT에서 권한 부여** | 네트워크 학습 기간 동안 네트워크에서 Defender for IoT에 의해 검색된 디바이스입니다. |
+| **Microsoft Defender for IoT에서 승인** | 네트워크 학습 기간 동안 네트워크에서 Defender for IoT에 의해 검색된 디바이스입니다. |
 | **펌웨어** | 디바이스의 펌웨어 세부 정보입니다. 예를 들어, 모델 및 버전 세부 정보입니다. |
 | **이름** | 서버의 이름입니다. |
 | **운영 체제** | 디바이스의 운영 체제입니다. |
@@ -181,7 +181,7 @@ Defender for IoT를 Forescout과 통합하면 Defender for IoT가 발견한 다�
 
 1. [디바이스 인벤토리 호스트] 섹션에서 디바이스를 마우스 오른쪽 단추로 클릭합니다. 추가 정보를 포함하는 호스트 세부 정보 대화 상자가 열립니다.
 
-## <a name="create-azure-defender-for-iot-policies-in-forescout"></a>Forescout에서 Azure Defender for IoT 정책 만들기
+## <a name="create-microsoft-defender-for-iot-policies-in-forescout"></a>Forescout에서 Microsoft Defender for IoT 정책 만들기
 
 Forescout 정책을 사용하여 Defender for IoT에서 검색된 디바이스의 제어 및 관리를 자동화할 수 있습니다. 예제:
 

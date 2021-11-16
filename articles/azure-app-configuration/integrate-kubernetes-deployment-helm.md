@@ -8,16 +8,16 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 6276fc2027e92d5b7baaf9237a928e7828a3b021
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 47782cb59bf751bd9eb38dd3125c3cdf805305d9
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775770"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370710"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Helm을 사용하여 Kubernetes 배포와 통합
 
-Helm은 Kubernetes에서 실행되는 애플리케이션을 정의, 설치 및 업그레이드할 수 있는 방법을 제공합니다. Helm 차트에는 Kubernetes 애플리케이션의 인스턴스를 만드는 데 필요한 정보가 포함되어 있습니다. 구성은 차트 자체 외부의 *values.yaml* 이라는 파일에 저장됩니다. 
+Helm은 Kubernetes에서 실행되는 애플리케이션을 정의, 설치 및 업그레이드할 수 있는 방법을 제공합니다. Helm 차트에는 Kubernetes 애플리케이션의 인스턴스를 만드는 데 필요한 정보가 포함되어 있습니다. 구성은 차트 자체 외부의 *values.yaml* 이라는 파일에 저장됩니다.
 
 릴리스 프로세스 중에 Helm은 애플리케이션을 실행하기 위해 차트를 적절한 구성과 병합합니다. 예를 들어 *values.yaml* 에 정의된 변수는 실행 중인 컨테이너 내에서 환경 변수로 참조할 수 있습니다. 또한 Helm은 데이터 볼륨으로 탑재되거나 환경 변수로 공개될 수 있는 Kubernetes 비밀 만들기를 지원합니다.
 
@@ -25,8 +25,8 @@ Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
-> * Helm을 사용하여 애플리케이션을 Kubernetes에 배포할 때 App Configuration의 값을 사용합니다.
-> * App Configuration에서 Key Vault 참조를 기반으로 하는 Kubernetes 비밀을 만듭니다.
+> - Helm을 사용하여 애플리케이션을 Kubernetes에 배포할 때 App Configuration의 값을 사용합니다.
+> - App Configuration에서 Key Vault 참조를 기반으로 하는 Kubernetes 비밀을 만듭니다.
 
 이 자습서에서는 Helm을 사용하여 Kubernetes를 관리하는 방법에 대한 기본적인 이해를 가정합니다. [Azure Kubernetes Service](../aks/kubernetes-helm.md)에서 Helm을 사용하여 애플리케이션을 설치하는 방법에 대해 자세히 알아보세요.
 
@@ -41,34 +41,37 @@ Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **구성 탐색기** > **만들기** 를 선택하여 다음 키-값 쌍을 추가합니다.
+1. **구성 탐색기** > **만들기** 를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | settings.color | 흰색 |
     | settings.message | Azure App Configuration의 정보 |
 
-    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
+2. 지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>App Configuration에 Key Vault 참조 추가
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이름이 **Password** 이고 값이 **myPassword** 인 비밀을 [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)에 추가합니다. 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이름이 **Password** 이고 값이 **myPassword** 인 비밀을 [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)에 추가합니다.
+
 2. 이전 섹션에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
 3. **구성 탐색기** 를 선택합니다.
 
 4. **+ 만들기** > **Key Vault 참조** 를 선택하고 다음 값을 지정합니다.
+
     - **키**: **secrets.password** 를 선택합니다.
     - **레이블**: 이 값은 빈 상태로 둡니다.
     - **구독**, **리소스 그룹** 및 **Key Vault**: 이전 단계에서 만든 키 자격 증명 모음의 값에 해당하는 값을 입력합니다.
     - **비밀**: 이전 섹션에서 만든 **Password** 라는 비밀을 선택합니다.
 
-## <a name="create-helm-chart"></a>Helm 차트 만들기 ##
-먼저, 다음 명령을 사용하여 Helm 차트 샘플을 만듭니다.
-```console
-helm create mychart
-```
+## <a name="create-helm-chart"></a>Helm 차트 만들기
 
-Helm은 아래와 같은 구조를 사용하여 mychart라는 새 디렉터리를 만듭니다. 
+먼저, 다음 명령을 사용하여 Helm 차트 샘플을 만듭니다.
+
+`helm create mychart`
+
+Helm은 아래와 같은 구조를 사용하여 mychart라는 새 디렉터리를 만듭니다.
 
 > [!TIP]
 > 자세히 알아보려면 이 [차트 가이드](https://helm.sh/docs/chart_template_guide/getting_started/)를 따르세요.
@@ -94,7 +97,7 @@ env:
     value: {{ .Values.settings.color }}
 - name: Message
     value: {{ .Values.settings.message }}
-``` 
+```
 
 업데이트 후의 전체 *deployment.yaml* 파일은 다음과 같습니다.
 
@@ -177,15 +180,16 @@ data:
 ```yaml
 # settings will be overwritten by App Configuration
 settings:
-    color: red
-    message: myMessage
+  color: red
+  message: myMessage
 ```
 
-## <a name="pass-configuration-from-app-configuration-in-helm-install"></a>Helm 설치의 App Configuration에서 구성 전달 ##
-먼저, 구성을 App Configuration에서 *myConfig.yaml* 파일로 다운로드합니다. 키 필터를 사용하여 **settings.** 로 시작하는 키만 다운로드합니다. 키 필터가 키 자격 증명 모음 참조의 키를 제외하는 데 충분하지 않은 경우 **--skip-keyvault** 인수를 사용하여 제외할 수 있습니다. 
+## <a name="pass-configuration-from-app-configuration-in-helm-install"></a>Helm 설치의 App Configuration에서 구성 전달
+
+먼저, 구성을 App Configuration에서 *myConfig.yaml* 파일로 다운로드합니다. 키 필터를 사용하여 **settings.** 로 시작하는 키만 다운로드합니다. 키 필터가 키 자격 증명 모음 참조의 키를 제외하는 데 충분하지 않은 경우 **--skip-keyvault** 인수를 사용하여 제외할 수 있습니다.
 
 > [!TIP]
-> [export 명령](/cli/azure/appconfig/kv#az_appconfig_kv_export)에 대해 자세히 알아보세요. 
+> [export 명령](/cli/azure/appconfig/kv#az_appconfig_kv_export)에 대해 자세히 알아보세요.
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -203,10 +207,10 @@ az appconfig kv export -n myAppConfiguration -d file --path mySecrets.yaml --key
 Helm 업그레이드의 **-f** 인수를 사용하여 사용자가 만든 두 개의 구성 파일을 전달합니다. *values.yaml* 에 정의된 구성 값을 App Configuration에서 내보낸 값으로 재정의합니다.
 
 ```console
-helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart 
+helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart
 ```
 
-또한  **--set** 인수를 Helm 업그레이드에 사용하여 리터럴 키 값을 전달할 수 있습니다. 중요한 데이터를 디스크에 유지하지 않도록 하려면 **--set** 인수를 사용하는 것이 좋습니다. 
+또한  **--set** 인수를 Helm 업그레이드에 사용하여 리터럴 키 값을 전달할 수 있습니다. 중요한 데이터를 디스크에 유지하지 않도록 하려면 **--set** 인수를 사용하는 것이 좋습니다.
 
 ```powershell
 $secrets = az appconfig kv list -n myAppConfiguration --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
@@ -217,10 +221,10 @@ foreach ($secret in $secrets) {
 
 if ($keyvalues){
   $keyvalues = $keyvalues.TrimEnd(',')
-  helm upgrade --install --set $keyvalues "example" ./mychart 
+  helm upgrade --install --set $keyvalues "example" ./mychart
 }
 else{
-  helm upgrade --install "example" ./mychart 
+  helm upgrade --install "example" ./mychart
 }
 
 ```
@@ -229,7 +233,7 @@ else{
 
 ![로컬로 빠른 시작 앱 시작](./media/kubernetes-dashboard-env-variables.png)
 
-App Configuration에서 Key Vault 참조로 저장되는 하나의 비밀인 **password** 도 Kubernetes 비밀에 추가되었습니다. 
+App Configuration에서 Key Vault 참조로 저장되는 하나의 비밀인 **password** 도 Kubernetes 비밀에 추가되었습니다.
 
 ![데이터 섹션에서 암호를 강조 표시하는 스크린샷.](./media/kubernetes-dashboard-secrets.png)
 

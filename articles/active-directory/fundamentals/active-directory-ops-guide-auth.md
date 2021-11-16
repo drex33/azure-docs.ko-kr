@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: c1fa9d27bbdfe91eebb74186e69cf707166384fd
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: e3fd54dba324ddd8e7340e47d6b7f63ee6b2ea5b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530291"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233369"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory Authentication 관리 작업 참조 가이드
 
@@ -89,7 +89,7 @@ Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아�
 
 ### <a name="strong-credential-management"></a>강력한 자격 증명 관리
 
-암호만으로는 잘못된 작업자가 사용자 환경에 액세스하는 것을 방지할 만큼 충분히 안전하지 않습니다. 적어도 권한이 부여된 계정을 사용하는 모든 사용자는 MFA(다단계 인증)가 가능하도록 설정되어야 합니다. [결합 등록](../authentication/concept-registration-mfa-sspr-combined.md)을 사용으로 설정하고 모든 사용자가 [결합 등록 환경](../user-help/security-info-setup-signin.md)을 사용하여 MFA 및 SSPR에 등록하는 것이 가장 적합합니다. 결국 예상치 못한 상황으로 인한 잠금 위험을 줄이기 위해 [복원력 제공](../authentication/concept-resilient-controls.md) 전략을 채택하는 것이 좋습니다.
+암호만으로는 잘못된 작업자가 사용자 환경에 액세스하는 것을 방지할 만큼 충분히 안전하지 않습니다. 적어도 권한이 부여된 계정을 사용하는 모든 사용자는 MFA(다단계 인증)가 가능하도록 설정되어야 합니다. [결합 등록](../authentication/concept-registration-mfa-sspr-combined.md)을 사용으로 설정하고 모든 사용자가 [결합 등록 환경](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8)을 사용하여 MFA 및 SSPR에 등록하는 것이 가장 적합합니다. 결국 예상치 못한 상황으로 인한 잠금 위험을 줄이기 위해 [복원력 제공](../authentication/concept-resilient-controls.md) 전략을 채택하는 것이 좋습니다.
 
 ![결합된 사용자 환경 흐름](./media/active-directory-ops-guide/active-directory-ops-img4.png)
 

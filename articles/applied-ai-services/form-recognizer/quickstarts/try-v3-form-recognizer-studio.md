@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a14cd140d2bb0d2768c85fa2addca2140ccb1ffa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dc4f54a6ab42089068c3db8b7fe64bfada59adf5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131026736"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290688"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>시작: Form Recognizer Studio | 미리 보기
 
@@ -24,12 +24,18 @@ ms.locfileid: "131026736"
 
 [Form Recognizer Studio 미리 보기](https://formrecognizer.appliedai.azure.com/)는 애플리케이션에서 Form Recognizer 서비스의 기능을 시각적으로 검색, 이해 및 통합하기 위한 온라인 도구입니다. 샘플 문서 또는 사용자 고유의 문서를 사용하여 미리 학습된 모델 살펴보기를 시작합니다. [Python SDK 미리 보기](try-v3-python-sdk.md) 및 기타 빠른 시작을 사용하여 사용자 지정 양식 모델을 빌드하고 애플리케이션에서 모델을 참조하는 프로젝트를 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="migrating-from-the-sample-labeling-tool"></a>샘플 레이블 지정 도구에서 마이그레이션
+
+[샘플 레이블 지정 도구](try-sample-label-tool.md)의 이전 사용자인 경우 Studio에서 기존 Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스를 사용하려면 [**Studio 미리 보기에 로그인**](try-v3-form-recognizer-studio.md#sign-into-the-form-recognizer-studio-preview)하기 위한 한 필수 구성 요소를 건너뜁니다. 
+
+기존 사용자 지정 프로젝트를 Studio로 마이그레이션하려면 [**사용자 지정 모델 시작**](try-v3-form-recognizer-studio.md#custom-model-basics) 섹션으로 이동하여 새 프로젝트를 만들고 Azure에서 액세스할 수 있다고 가정하여 동일한 Azure Blob 스토리지 위치를 가리킵니다. 새 프로젝트가 구성되면 Studio에서 레이블 지정 및 학습을 위해 모든 문서와 중간 파일을 로드합니다.
+
+## <a name="minimum-prerequisites-for-new-users"></a>새 사용자를 위한 최소 필수 구성 요소
 
 * 활성 [**Azure 계정**](https://azure.microsoft.com/free/cognitive-services/).  계정이 없는 경우 [**무료 계정을 만들 수**](https://azure.microsoft.com/free/) 있습니다.
 * [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 또는 [**Cognitive Services 다중 서비스**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 리소스
 
-## <a name="additional-steps-for-custom-projects"></a>사용자 지정 프로젝트에 대한 추가 단계
+## <a name="additional-prerequisites-for-custom-projects"></a>사용자 지정 프로젝트에 대한 추가 필수 구성 요소
 
 Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 다음이 필요합니다.
 

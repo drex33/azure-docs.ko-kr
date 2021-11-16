@@ -7,12 +7,12 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b2f5d680fda34d181264a72a0d745a36093c472a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5d51a9495f2b05af6697147df20db01f0f14d083
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472172"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059983"
 ---
 #  <a name="connect-your-gcp-accounts-to-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender에 GCP 계정 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "131472172"
 
 클라우드용 Microsoft Defender는 Azure, AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)의 워크로드를 보호합니다.
 
-Azure 구독에 GCP 계정을 추가하면 Defender for Cloud를 GCP 보안 명령과 연결할 수 있습니다. 그러면 Defender for Cloud로 이러한 두 가지 클라우드 환경의 리소스를 보호하고 다음과 같은 기능을 제공할 수 있습니다.
+GCP 계정을 Azure 구독에 추가하면 Defender for Cloud를 GCP 보안 명령과 연결합니다. 그러면 Defender for Cloud로 이러한 두 가지 클라우드 환경의 리소스를 보호하고 다음과 같은 기능을 제공할 수 있습니다.
 
 - 잘못된 보안 구성 검색
 - Defender for Cloud 권장 사항 및 GCP Security Command Center의 검사 결과를 보여 주는 단일 보기

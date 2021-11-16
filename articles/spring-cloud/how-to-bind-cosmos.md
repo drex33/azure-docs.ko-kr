@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB를 Azure Spring Cloud 애플리케이션에 바인딩
-description: Azure Cosmos DB를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법 알아보기
+title: Azure 스프링 클라우드의 응용 프로그램에 Azure Cosmos DB 바인딩
+description: Azure 스프링 클라우드의 응용 프로그램에 Azure Cosmos DB를 바인딩하는 방법에 대해 알아봅니다.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 387d526002411395e8bebc0fa59925bfa383e598
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 6d9a5007ba4b5bf2c5138ab584e774d81f23bd03
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529501"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493631"
 ---
-# <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩
+# <a name="bind-an-azure-cosmos-db-database-to-your-application-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 응용 프로그램에 Azure Cosmos DB 데이터베이스 바인딩
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java
 
@@ -27,7 +27,7 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
 
 ## <a name="prepare-your-java-project"></a>Java 프로젝트 준비
 
-1. Azure Spring Cloud 애플리케이션의 pom.xml 파일에 다음 종속성 중 하나를 추가합니다. API 유형에 적합한 종속성을 선택합니다.
+1. 응용 프로그램의 pom.xml pom.xml 파일에 다음 종속성 중 하나를 추가 합니다. API 유형에 적합한 종속성을 선택합니다.
 
     * API 형식: Core(SQL)
 
@@ -180,4 +180,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Spring Cloud 애플리케이션을 Azure Cosmos DB 데이터베이스에 바인딩하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cache for Redis 캐시에 바인딩](./how-to-bind-redis.md)을 참조하세요.
+이 문서에서는 Azure 스프링 클라우드의 응용 프로그램을 Azure Cosmos DB 데이터베이스에 바인딩하는 방법에 대해 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cache for Redis 캐시에 바인딩](./how-to-bind-redis.md)을 참조하세요.

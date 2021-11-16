@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: 60ae736d060030bfb535d3de917b4872517e1b5c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 08293d7961f7077ec6138c6f65e78de1322216fa
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690139"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132353869"
 ---
 이 단계에서는 AdventureWorksLT 샘플 데이터를 사용하는 [논리 SQL 서버](../database/logical-servers.md) 및 [단일 데이터베이스](../database/single-database-overview.md)를 만듭니다. Azure Portal 메뉴와 화면을 사용하거나 Azure Cloud Shell에서 Azure CLI 또는 PowerShell 스크립트를 사용하여 데이터베이스를 만들 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 리소스 그룹, 서버 및 단일 데이터베이스를 만
    방화벽 설정에 대한 자세한 내용은 [Azure 서비스 및 리소스에서 이 서버에 액세스할 수 있도록 허용](../database/network-access-controls-overview.md) 및 [프라이빗 엔드포인트 추가](../database/private-endpoint-overview.md)를 참조하세요.
 
 1. **추가 설정** 탭의 **데이터 원본** 섹션에서 **기존 데이터 사용** 에 대해 **샘플** 을 선택합니다.
-1. 선택적으로 [Azure Defender for SQL](../database/azure-defender-for-sql.md)을 사용하도록 설정합니다.
+1. 필요에 따라 [Microsoft Defender for SQL](../database/azure-defender-for-sql.md)을 사용하도록 설정합니다.
 1. 필요에 따라 데이터베이스에 대해 계획된 유지 관리가 가장 적절한 시간에 수행되도록 [유지 관리 기간](../database/maintenance-window.md)을 설정합니다.
 1. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.
 

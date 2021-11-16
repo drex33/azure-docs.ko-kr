@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f66c1528058fd2d03098c00a54928fb0fbbd4057
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 244261c8b0ba1c5b99ea5add4124c92d1b5c3ae4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225157"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486230"
 ---
 # <a name="share-an-azure-managed-disk"></a>Azure 관리 디스크 공유
 
@@ -50,8 +50,8 @@ WSFC에서 실행되는 인기 있는 일부 애플리케이션은 다음과 같
 
 - [Azure 공유 디스크(Azure VM의 SQL Server)를 사용하여 FCI 만들기](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
     - [장애 조치(failover) 클러스터 인스턴스를 공유 디스크가 있는 Azure VM의 SQL Server로 마이그레이션](../azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
-- SoFS(스케일 아웃 파일 서버) [템플릿] (https://aka.ms/azure-shared-disk-sofs-template)
-- SAP ASCS/SCS [템플릿] (https://aka.ms/azure-shared-disk-sapacs-template)
+- SoFS(스케일 아웃 파일 서버) [템플릿](https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [템플릿](https://aka.ms/azure-shared-disk-sapacs-template)
 - 일반적으로 사용되는 파일 서버(IW 워크로드)
 - RDS UPD(원격 데스크톱 서버 사용자 프로필 디스크)
 
@@ -152,44 +152,6 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
 #### <a name="ultra-pricing"></a>울트라 가격
 
 울트라 공유 디스크는 프로비전된 용량, 프로비전된 총 IOPS(diskIOPSReadWrite + diskIOPSReadOnly) 및 프로비전된 총 처리량 MBps(diskMBpsReadWrite + diskMBpsReadOnly)를 기준으로 가격이 책정됩니다. 추가 VM 탑재마다 추가 요금이 부과되지 않습니다. 예를 들어 다음 구성(diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1)이 포함된 울트라 공유 디스크는 2개 VM 또는 5개의 VM에 탑재되었는지 여부에 관계없이 1024GiB, 10100 IOPS 및 601MBps로 청구됩니다.
-
-## <a name="frequently-asked-questions"></a>질문과 대답
-
-**Q: 관리되지 않는 디스크 또는 페이지 Blob에 공유 디스크 기능이 지원되는가요?**
-
-**A:** 아니요. 이 기능은 울트라 디스크 및 Premium SSD 관리 디스크에 대해서만 지원됩니다.
-
-**Q: 공유 디스크를 지원하는 지역은 무엇인가요?**
-
-**A:** 지역 정보는 개념 [문서]()를 참조하세요.
-
-**Q: 공유 디스크를 OS 디스크로 사용할 수 있나요?**
-
-**A:** 아니요. 공유 디스크는 데이터 디스크에 대해서만 지원됩니다.
-
-**Q: 공유 디스크를 지원하는 디스크 크기는 무엇인가요?**
-
-**A:** 지원되는 크기는 [개념 문서]()를 참조하세요.
-
-**Q: 기존 디스크가 있는 경우 공유 디스크를 사용하도록 설정할 수 있나요?**
-
-**A:** API 버전 2019-07-01 이상 버전을 사용하여 만든 모든 관리 디스크는 공유 디스크를 사용하도록 설정할 수 있습니다. 이렇게 하려면 연결된 모든 VM에서 디스크를 분리해야 합니다. 그런 다음, 디스크에서 maxShares 속성을 편집합니다.
-
-**Q: 공유 모드에서 디스크를 더 이상 사용하지 않으려면 사용하지 않도록 설정하려면 어떻게 해야 합니까?**
-
-**A:** 연결된 모든 VM에서 디스크를 분리합니다. 그런 다음 디스크의 maxShare 속성을 **1로** 변경합니다.
-
-**Q: 공유 디스크의 크기를 변경할 수 있나요?**
-
-**A:** 예.
-
-**Q: 공유 디스크도 사용하도록 설정된 디스크에서 쓰기 가속기를 사용하도록 설정할 수 있나요?**
-
-**A:** 아니요. 공유 디스크도 사용하도록 설정된 디스크에서는 쓰기 가속기를 사용하도록 설정할 수 없습니다.
-
-**Q: 공유 디스크를 사용하도록 설정된 디스크에 호스트 캐싱을 사용하도록 설정할 수 있나요?**
-
-**A:** 유일하게 지원되는 호스트 캐싱 옵션은 **없음** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

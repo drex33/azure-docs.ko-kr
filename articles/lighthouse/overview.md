@@ -3,12 +3,12 @@ title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
 ms.date: 11/02/2021
 ms.topic: overview
-ms.openlocfilehash: 8130a88042678d277fd5fe727f0593e8805bb5b4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6279ef69c60c7a6d76fe0dfbea68934394c23c06
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445788"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343119"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
@@ -16,7 +16,7 @@ Azure Lighthouse는 리소스 간에 스케일링 기능, 고도의 자동화 �
 
 Azure Lighthouse를 통해 서비스 공급자는 [Azure 플랫폼에 기본 제공되는 포괄적이고 강력한 도구](concepts/architecture.md)를 사용하여 관리형 서비스를 제공할 수 있습니다. 고객은 테넌트에 액세스할 수 있는 사용자, 액세스할 수 있는 리소스 및 수행할 수 있는 작업을 제어합니다. 여러 테넌트 간에 리소스를 관리하는 [Enterprise 조직](concepts/enterprise.md)은 Azure Lighthouse를 사용하여 관리 작업을 간소화할 수도 있습니다.
 
-[교차 테넌트 관리 환경](concepts/cross-tenant-management-experience.md)에서는 [Azure Policy](how-to/policy-at-scale.md), [Azure Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md) 등의 Azure 서비스를 사용하여 보다 효율적으로 작업할 수 있습니다. 사용자는 고객의 테넌트에 저장되고 관리 테넌트의 사용자가 볼 수 있는 [활동 로그에서](how-to/view-service-provider-activity.md) 수행된 변경 내용 및 수행한 사용자를 볼 수 있습니다.
+[테넌트 간 관리 환경](concepts/cross-tenant-management-experience.md)에서는 [Azure Policy](how-to/policy-at-scale.md), [Microsoft Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md) 등의 Azure 서비스를 사용하여 더 효율적으로 작업할 수 있습니다. 사용자는 고객의 테넌트에 저장되고 관리 테넌트의 사용자가 볼 수 있는 [활동 로그에서](how-to/view-service-provider-activity.md) 수행된 변경 내용 및 수행한 사용자를 볼 수 있습니다.
 
 ![Azure Lighthouse의 개요 다이어그램](media/azure-lighthouse-overview.jpg)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2021
 ms.author: jeedes
-ms.openlocfilehash: ef52547bb8ec27bd759a238d742173f6b8fc3994
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 33bcb007c1cfd4d09c25fb4abbf9c5fcfb15b58f
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591989"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-remote-secure-access-vpn"></a>자습서: Check Point Remote Secure Access VPN과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -76,11 +76,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/ID/<IDENTIFIER_UID>` 패턴을 사용하는 URL을 입력합니다.
+    1. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/ID/<IDENTIFIER_UID>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/Login/<IDENTIFIER_UID>` 패턴을 사용하여 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에서 `https://<GATEWAY_IP>/saml-vpn/spPortal/ACS/Login/<IDENTIFIER_UID>` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **로그온 URL** 텍스트 상자에서 `https://<GATEWAY_IP>/saml-vpn/` 패턴을 사용하는 URL을 입력합니다.
+    1. **로그온 URL** 텍스트 상자에서 `https://<GATEWAY_IP>/saml-vpn/` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Check Point Remote Secure Access VPN 클라이언트 지원 팀](mailto:support@checkpoint.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -180,7 +180,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **확인** 을 클릭합니다.
 
-
 ### <a name="configure-an-identity-provider-object"></a>ID 공급자 개체 구성
 
 1. Remote Access VPN에 참가하는 각 보안 게이트웨이에 대해 다음 단계를 수행합니다.
@@ -220,7 +219,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![새 개체 추가의 스크린샷](./media/check-point-remote-access-vpn-tutorial/add-new-object.png)
 
-1. 이름 및 표시 이름을 입력하고 인증 방법을 추가/편집합니다. MEP에 참가하는 GW에서 로그인 옵션을 사용하는 경우 원활한 사용자 환경을 위해 이름은 “SAMLVPN_” 접두사로 시작해야 합니다. 
+1. 이름 및 표시 이름을 입력하고 인증 방법을 추가/편집합니다. MEP에 참가하는 GW에서 로그인 옵션을 사용하는 경우 원활한 사용자 환경을 위해 이름은 “SAMLVPN_” 접두사로 시작해야 합니다.
 
     ![로그인 옵션에 관한 스크린샷](./media/check-point-remote-access-vpn-tutorial/login-option.png)
 
@@ -237,21 +236,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 관리 데이터베이스에서 필요한 설정을 구성합니다.
 
-    1.  SmartConsole을 닫습니다.
+    1. SmartConsole을 닫습니다.
 
-    2.  GuiDBEdit 도구를 사용하여 관리 서버에 연결합니다([sk13009](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails&solutionid=sk13009) 참조).
+    2. GuiDBEdit 도구를 사용하여 관리 서버에 연결합니다([sk13009](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails&solutionid=sk13009) 참조).
 
-    3.  왼쪽 위 창에서 **편집 > 네트워크 개체** 로 이동합니다.
+    3. 왼쪽 위 창에서 **편집 > 네트워크 개체** 로 이동합니다.
 
-    4.  오른쪽 위 창에서 **보안 게이트웨이 개체** 를 선택합니다.
+    4. 오른쪽 위 창에서 **보안 게이트웨이 개체** 를 선택합니다.
 
-    5.  아래쪽 창에서 **realms_for_blades > vpn** 으로 이동합니다.
+    5. 아래쪽 창에서 **realms_for_blades > vpn** 으로 이동합니다.
 
-    6.  온-프레미스 Active Directory(LDAP)를 사용하지 않으려면 **do_ldap_fetch** 를 **false** 로 설정하고 **do_generic_fetch** 를 **true** 로 설정합니다. 그런 후 **OK** 를 클릭합니다. 온-프레미스 Active Directory(LDAP)를 사용하려면 **do_ldap_fetch** 를 **true** 로 설정하고 **do_generic_fetch** 를 **false** 로 설정합니다. 그런 후 **OK** 를 클릭합니다.
+    6. 온-프레미스 Active Directory(LDAP)를 사용하지 않으려면 **do_ldap_fetch** 를 **false** 로 설정하고 **do_generic_fetch** 를 **true** 로 설정합니다. 그런 후 **OK** 를 클릭합니다. 온-프레미스 Active Directory(LDAP)를 사용하려면 **do_ldap_fetch** 를 **true** 로 설정하고 **do_generic_fetch** 를 **false** 로 설정합니다. 그런 후 **OK** 를 클릭합니다.
 
-    7.  해당하는 모든 보안 게이트웨이에 대해 iv~vi 단계를 반복합니다.
+    7. 적용 가능한 모든 보안 게이트웨이에 대해 4~6단계를 반복합니다.
 
-    8.  모든 변경 내용을 저장합니다(**파일** 메뉴 > **모두 저장** 클릭).
+    8. **파일** > **모두 저장** 을 차례로 선택하여 모든 변경 내용을 저장합니다.
 
 1. GuiDBEdit 도구를 닫습니다.
 
@@ -267,20 +266,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. VPN 클라이언트를 설치합니다.
 
-1. ID 공급자 브라우저 모드 설정(선택 사항) 기본적으로 Windows 클라이언트는 포함된 브라우저를 사용하고 macOS 클라이언트는 Safari를 사용하여 ID 공급자의 포털에서 인증합니다.
-Windows 클라이언트가 Internet Explorer를 대신 사용하도록 이 동작을 변경하려면:
+1. ID 공급자 브라우저 모드를 설정합니다(선택 사항).
 
-   1. 클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
+    기본적으로 Windows 클라이언트는 포함된 브라우저를 사용하고, macOS 클라이언트는 Safari를 사용하여 ID 공급자의 포털에서 인증합니다. Windows 클라이언트의 경우 Internet Explorer를 대신 사용하도록 이 동작을 변경합니다.
 
-   2. 텍스트 편집기에서 `trac.defaults` 파일을 엽니다.
+    1. 클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
 
-      - 32비트 Windows: 
+    2. 텍스트 편집기에서 `trac.defaults` 파일을 엽니다.
 
-        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+       * 32비트 Windows: 
 
-      - 64비트 Windows: 
+         `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
 
-        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+       * 64비트 Windows: 
+
+         `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
 
     3. `idp_browser_mode` 특성 값을 `embedded`에서 `IE`로 변경합니다.
 
@@ -296,34 +296,35 @@ Windows 클라이언트가 Internet Explorer를 대신 사용하도록 이 동�
 
 1. 백그라운드에서 실행되는 브라우저를 사용하여 인증을 시작합니다.
 
-   1. 클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
+    1. 클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
 
-   2. 텍스트 편집기에서 `trac.defaults` 파일을 엽니다.
+    2. 텍스트 편집기에서 `trac.defaults` 파일을 엽니다.
 
-      - 32비트 Windows: 
+        * 32비트 Windows: 
 
-        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+          `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
 
-      - 64비트 Windows: 
+        * 64비트 Windows: 
 
-        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+          `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
 
-      - macOS에서:
-      
-        `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
+        * macOS에서:
+
+          `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
 
     3. `idp_show_browser_primary_auth_flow`의 값을 `false`로 변경합니다.
 
     4. 파일을 저장합니다.
 
     5. Check Point Endpoint Security VPN 클라이언트 서비스를 다시 시작합니다.
-       - Windows 클라이언트에서 관리자 권한으로 Windows 명령 프롬프트를 열고 다음 명령을 실행합니다.
+
+       * Windows 클라이언트에서 관리자 권한으로 Windows 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
          `# net stop TracSrvWrapper`
-        
+
          `# net start TracSrvWrapper`
 
-       - macOS 클라이언트에서 다음을 실행합니다.
+       * macOS 클라이언트에서 다음을 실행합니다.
 
          `sudo launchctl stop com.checkpoint.epc.service`
 
@@ -333,7 +334,7 @@ Windows 클라이언트가 Internet Explorer를 대신 사용하도록 이 동�
 
 이 섹션에서는 Check Point Remote Secure Access VPN에서 Britta Simon이라는 사용자를 만듭니다. Check Point Remote Secure Access VPN 플랫폼에서 사용자를 추가하려면 [Check Point Remote Secure Access VPN 지원 팀](mailto:support@checkpoint.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트
 
 1. VPN 클라이언트를 열고 **연결...** 을 클릭합니다.
 

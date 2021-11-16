@@ -3,14 +3,14 @@ title: Azure Video Analyzer for Media(이전의 Video Indexer)를 사용하여 �
 description: 이 항목에서는 API를 사용하여 Azure Video Analyzer for Media(이전의 Video Indexer)를 통해 비디오를 업로드하고 인덱싱하는 방법을 보여줍니다.
 ms.service: azure-video-analyzer
 ms.topic: article
-ms.date: 05/12/2021
+ms.date: 11/15/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 507e92a83f2c8f9f0a21368808b57b1fadc1b64d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f2a9aa291937afcb55739cfdb4532d0a59f2bc9f
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071689"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519594"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -125,7 +125,7 @@ SingleBitrate의 경우 표준 인코더 비용은 출력당 적용됩니다. �
 
 ### <a name="code-sample"></a>코드 샘플
 
-다음 C# 코드 조각은 모든 Media API용 Video Analyzer를 함께 사용하는 것을 보여 줍니다.
+다음 C# 코드 조각에서는 모든 Media API용 Video Analyzer를 함께 사용하는 것을 보여 줍니다.
 
 ### <a name="classic-account"></a>[클래식 계정](#tab/With-classic-account/)
 
@@ -317,17 +317,17 @@ public class AccountContractSlim
 
 ### <a name="arm-account"></a>[ARM 계정](#tab/with-arm-account-account/)
 
-이 c# 프로젝트를 개발 플랫폼에 복사한 후 다음을 실행해야 합니다. 
-1. Program.cs로 이동하여 ```SubscriptionId``` 구독 ID로 채웁니다.
-2. Program.cs로 이동하여 ```ResourceGroup``` 리소스 그룹으로 채웁니다.
-3. Program.cs로 이동하여 ```AccountName``` 계정 이름으로 채웁니다.
-4. Program.cs로 이동하여 ```VideoUrl``` 비디오 URL로 채웁니다.
-5. dotnet 6.0이 설치되어 있는지 확인합니다. 그렇지 않으면 [여기를](https://dotnet.microsoft.com/download/dotnet/6.0) 클릭하여 설치합니다.
-6. Azure CLI 설치되어 있는지 확인합니다. 그렇지 않은 경우 [여기를](/cli/azure/install-azure-cli) 클릭하여 설치합니다.
-7. 터미널을 열고 VideoIndexerArm 폴더로 이동합니다.
-8. Azure에 로그인: ```az login --use-device```
+이 c # 프로젝트를 개발 플랫폼에 복사한 후에는 다음을 실행 해야 합니다. 
+1. Program .cs로 이동 하 여 ```SubscriptionId``` 구독 ID로 채웁니다.
+2. 프로그램 .cs로 이동 하 여 ```ResourceGroup``` 리소스 그룹으로 채웁니다.
+3. Program .cs로 이동 하 여 ```AccountName``` 계정 이름으로 채웁니다.
+4. 프로그램 .cs로 이동 하 여 ```VideoUrl``` 비디오 URL로 채웁니다.
+5. Dotnet 6.0이 설치 되어 있는지 확인 합니다. 그렇지 않은 경우 [설치](https://dotnet.microsoft.com/download/dotnet/6.0)합니다.
+6. Azure CLI 설치 되어 있는지 확인 합니다. 그렇지 않은 경우 [설치](/cli/azure/install-azure-cli)합니다.
+7. 터미널을 열고 VideoIndexerArm 폴더로 이동 합니다.
+8. Azure에 로그인 합니다. ```az login --use-device```
 9. 프로젝트를 빌드합니다. ```dotnet build```
-10. 프로젝트를 실행합니다. ```dotnet run```
+10. 프로젝트를 실행 합니다. ```dotnet run```
 
 ```csharp
 <Project Sdk="Microsoft.NET.Sdk">
@@ -637,7 +637,7 @@ namespace VideoIndexerArm
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|설명|
+|상태 코드|ErrorType(응답 본문 내)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

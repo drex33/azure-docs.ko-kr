@@ -4,8 +4,8 @@ description: Microsoft 센티널의 Fusion 기술에 따라 공격 감지 규칙
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 799bcc2d153b5bd49431cca7e93a68297383b08b
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 4c4ea2e5c8376a6dd1c7281251805dfa06c0169c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132336807"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519708"
 ---
 # <a name="configure-multistage-attack-detection-fusion-rules-in-microsoft-sentinel"></a>Microsoft 센티널에서 퓨전 (다단계 attack detection) 규칙 구성
 

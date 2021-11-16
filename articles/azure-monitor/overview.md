@@ -4,13 +4,13 @@ description: Azure 서비스 및 애플리케이션에 대한 전체 모니터�
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2021
-ms.openlocfilehash: a47c26f2b600d7ed2ffd67877ab7202a763a4054
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/01/2021
+ms.openlocfilehash: 18019dbf4f6c3a6494b105362790dd41d4132595
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036317"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055853"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -55,7 +55,7 @@ Azure Monitor는 [다양한 원본](monitor-reference.md)에서 데이터를 수
 
 - **애플리케이션 모니터링 데이터:** 플랫폼에 관계없이, 작성한 코드의 성능 및 기능에 대한 데이터입니다.
 - **게스트 OS 모니터링 데이터:** 애플리케이션이 실행되고 있는 운영 체제에 대한 데이터입니다. Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다. 
-- **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 메트릭 또는 로그가 있는 리소스의 전체 목록은 [Azure Monitor를 사용하여 모니터링할 수 있는 것](monitor-reference.md#list-of-azure monitor-supported-services)을 참조하세요.
+- **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 메트릭 또는 로그가 있는 리소스의 전체 목록은 [Azure Monitor를 사용하여 모니터링할 수 있는 것](monitor-reference.md#azure-supported-services)을 참조하세요.
 - **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
 - **Azure 테넌트 모니터링 데이터:** Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 
@@ -69,7 +69,7 @@ Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 
 Azure Monitor는 [데이터 수집기 API](logs/data-collector-api.md)를 사용하여 REST 클라이언트에서 로그 데이터를 수집할 수 있습니다. 그러면 사용자 정의 모니터링 시나리오를 작성하고 다른 소스를 통해 원격 분석을 표시하지 않는 리소스까지 모니터링을 확장할 수 있습니다.
 
 ## <a name="insights-and-curated-visualizations"></a>인사이트 및 큐레이팅된 시각화
-데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. 일부 Azure 리소스 공급자에는 특정 서비스 또는 서비스 집합에 대한 사용자 지정된 모니터링 환경을 제공하는 "큐레이팅된 시각화"가 있습니다. 일반적으로 최소한의 구성이 필요합니다. 확장 가능한 대규모 큐레이팅된 시각화는 "인사이트"에서 알려져 있으며 설명서 및 Azure Portal에 해당 이름으로 표시됩니다.  
+데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. 일부 Azure 리소스 공급자에는 특정 서비스 또는 서비스 집합에 대한 사용자 지정된 모니터링 환경을 제공하는 "큐레이팅된 시각화"가 있습니다. 일반적으로 최소한의 구성이 필요합니다. 확장 가능한 대규모 큐레이팅된 시각화는 "인사이트"로 알려져 있으며 설명서 및 Azure Portal에 해당 이름으로 표시됩니다.  
 
 자세한 내용은 [Azure Monitor 사용한 인사이트 및 큐레이팅된 시각화 목록](monitor-reference.md#insights-and-curated-visualizations)을 참조하세요. 더 큰 인사이트 중 일부는 아래에도 설명되어 있습니다.
 

@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ebdbc116e106ab03a9b4ca7b2a56eb4ce19444f9
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 0a3436dced8129aa984d30a0f2b4d6bcfecb5913
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554301"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484225"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension을 사용하여 라이브 비디오 분석 
 
@@ -36,7 +36,7 @@ ms.locfileid: "131554301"
 
 Azure 리소스가 설치되면 주차장의 짧은 비디오가 IoT Edge 디바이스로 사용하는 Azure의 Linux VM에 복사됩니다. 이 자습서에서는 비디오 파일을 사용하여 라이브 스트림을 시뮬레이션합니다.
 
-[VLC 미디어 플레이어](https://www.videolan.org/vlc/)와 같은 애플리케이션을 엽니다. Ctrl+N을 선택한 다음, [비디오](https://lvamedia.blob.core.windows.net/public/lots_015.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 주차장에 있는 차량 영상이 보입니다. 대부분은 주차되어 있고 한 대는 움직이고 있습니다.
+[VLC 미디어 플레이어](https://www.videolan.org/vlc/)와 같은 애플리케이션을 엽니다. Ctrl+N을 선택한 다음, [비디오](https://avamedia.blob.core.windows.net/public/lots_015.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 주차장에 있는 차량 영상이 보입니다. 대부분은 주차되어 있고 한 대는 움직이고 있습니다.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 

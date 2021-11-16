@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 4c5f2be821e43eda1ae611f3300538c7c41d04f4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: a9253cbb39bc58d74f6c8dd25b2251b9d2a606ef
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707680"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290517"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -168,7 +168,7 @@ SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](../../
 
 ### <a name="advance-threat-protection"></a>고급 위협 방지
 
-Azure Defender for SQL은 고급 SQL 보안 기능의 통합 패키지입니다. 여기에는 데이터베이스 취약성 관리 및 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동 검색 기능이 포함됩니다. 이 패키지를 통해 이러한 기능을 한 곳에서 사용하도록 설정하고 관리할 수 있습니다.
+Microsoft Defender for SQL은 고급 SQL 보안 기능의 통합 패키지입니다. 여기에는 데이터베이스 취약성 관리 및 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동 검색 기능이 포함됩니다. 이 패키지를 통해 이러한 기능을 한 곳에서 사용하도록 설정하고 관리할 수 있습니다.
 
 - [취약성 평가](sql-vulnerability-assessment.md):
 
@@ -197,7 +197,7 @@ SQL Database를 사용하면 [Azure Active Directory 통합](authentication-aad-
 
 SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의성과 생산성을 높이세요. SQL Database를 사용하면 멋진 앱을 만드는 데만 집중할 수 있습니다. 이미 설치된 도구와 기술을 사용하여 SQL Database에서 관리하고 개발할 수 있습니다.
 
-|도구|Description|
+|도구|설명|
 |:---|:---|
 |[Azure Portal](https://portal.azure.com/)|모든 Azure 서비스를 관리하는 웹 기반 애플리케이션.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Windows, macOS 및 Linux에서 실행되는 플랫폼 간 데이터베이스 도구.|

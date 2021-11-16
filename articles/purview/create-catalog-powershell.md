@@ -3,16 +3,16 @@ title: '빠른 시작: PowerShell/Azure CLI를 사용하여 Purview 계정 만�
 description: 이 빠른 시작에서는 Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정을 만드는 방법을 설명합니다.
 author: hophanms
 ms.author: hophan
-ms.date: 09/27/2021
+ms.date: 10/28/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom: mode-api
-ms.openlocfilehash: 0924c0eab925c0ba15f8e0bde841d3005535e23f
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: mode-api, devx-track-azurepowershell
+ms.openlocfilehash: ac06f6641f60ec1775e161ec1e949522321fd5af
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843217"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990200"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기
 
@@ -33,103 +33,105 @@ Purview에 대한 자세한 내용은 [개요 페이지를 참조](overview.md)�
 1. Azure 자격 증명으로 로그인
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     Connect-AzAccount
     ```
-    
+
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
+
     ```azurecli
     az login
     ```
-    
+
     ---
 
 1. Azure 구독이 여러 개 있으면 사용할 구독을 선택합니다.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     Set-AzContext [SubscriptionID/SubscriptionName]
     ```
-    
+
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
+
     ```azurecli
     az account set --subscription [SubscriptionID/SubscriptionName]
     ```
-    
+
     ---
 
 1. Purview 계정에 대한 리소스 그룹을 만듭니다. 이미 있는 경우 이 단계를 건너뛸 수 있습니다.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
-    New-AzResourceGroup `
-      -Name myResourceGroup `
-      -Location "East US"
+    New-AzResourceGroup -Name myResourceGroup -Location 'East US'
     ```
-    
+
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
+
     ```azurecli
     az group create \
       --name myResourceGroup \
       --location "East US"
     ```
-    
+
     ---
 
-1. `purviewtemplate.json`과 같은 Purview 템플릿 파일을 만듭니다. `name`, `location` 및 `capacity`(`4`또는 `16`)를 업데이트할 수 있습니다.
-
-    ```json
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "resources": [
-        {
-          "name": "<yourPurviewAccountName>",
-          "type": "Microsoft.Purview/accounts",
-          "apiVersion": "2020-12-01-preview",
-          "location": "EastUs",
-          "identity": {
-            "type": "SystemAssigned"
-          },
-          "properties": {
-            "networkAcls": {
-              "defaultAction": "Allow"
-            }
-          },
-          "dependsOn": [],
-          "sku": {
-            "name": "Standard",
-            "capacity": "4"
-          },
-          "tags": {}
-        }
-      ],
-      "outputs": {}
-    }
-    ```
-
-1. Purview 템플릿 배포
+1. Purview 계정 만들기 또는 배포
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-    
+
+    [New-AzPurviewAccount](/powershell/module/az.purview/new-azpurviewaccount) cmdlet을 사용하여 Purview 계정을 만듭니다.
+
     ```azurepowershell
-    New-AzResourceGroupDeployment -ResourceGroupName "<myResourceGroup>" -TemplateFile "<PATH TO purviewtemplate.json>"
+    New-AzPurviewAccount -Name yourPurviewAccountName -ResourceGroupName myResourceGroup -Location eastus -IdentityType SystemAssigned -SkuCapacity 4 -SkuName Standard -PublicNetworkAccess
     ```
-    
+
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
-    이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
-    
-    ```azurecli
-    az deployment group create --resource-group "<myResourceGroup>" --template-file "<PATH TO purviewtemplate.json>"
-    ```
-    
+
+    1. `purviewtemplate.json`과 같은 Purview 템플릿 파일을 만듭니다. `name`, `location` 및 `capacity`(`4`또는 `16`)를 업데이트할 수 있습니다.
+
+        ```json
+        {
+          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "name": "<yourPurviewAccountName>",
+              "type": "Microsoft.Purview/accounts",
+              "apiVersion": "2020-12-01-preview",
+              "location": "EastUs",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "properties": {
+                "networkAcls": {
+                  "defaultAction": "Allow"
+                }
+              },
+              "dependsOn": [],
+              "sku": {
+                "name": "Standard",
+                "capacity": "4"
+              },
+              "tags": {}
+            }
+          ],
+          "outputs": {}
+        }
+        ```
+
+    1. Purview 템플릿 배포
+
+        이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
+
+        ```azurecli
+        az deployment group create --resource-group "<myResourceGroup>" --template-file "<PATH TO purviewtemplate.json>"
+        ```
+
     ---
 
 1. 배포 명령에서 결과를 반환합니다. `ProvisioningState`를 찾아서 배포에 성공했는지 확인합니다.
@@ -139,7 +141,7 @@ Purview에 대한 자세한 내용은 [개요 페이지를 참조](overview.md)�
     ```azurecli
     az purview account add-root-collection-admin --account-name --resource-group [--object-id]
     ```
-  
+
     이 명령은 Azure Purview 계정의 루트 컬렉션에 대한 사용자 계정 [컬렉션 관리자](catalog-permissions.md#roles) 권한을 부여합니다. 이렇게 하면 사용자가 Purview 스튜디오에 액세스하고 다른 사용자에 대한 권한을 추가할 수 있습니다. Azure Purview의 권한에 대한 자세한 내용은 [사용 권한 가이드](catalog-permissions.md)를 참조하세요. 컬렉션에 대한 자세한 내용은 [컬렉션 문서 관리](how-to-create-and-manage-collections.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

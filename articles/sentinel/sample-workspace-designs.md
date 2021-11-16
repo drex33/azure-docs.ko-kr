@@ -1,22 +1,22 @@
 ---
-title: Azure Sentinel 샘플 작업 영역 디자인 | Microsoft Docs
-description: 여러 테넌트, 클라우드 또는 지역이 포함된 Azure Sentinel 아키텍처 디자인 샘플에서 알아봅니다.
+title: 샘플 Microsoft 센티널 작업 영역 디자인 | Microsoft Docs
+description: 여러 테 넌 트, 클라우드 또는 지역이 포함 된 Microsoft 센티널 아키텍처 설계 샘플에서 알아봅니다.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 07/18/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9cd48e8537f46ce9580b1b2e573e12bb5e12e455
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cb2332a4c9854aafe1ef8193da9ca76e9aaaed95
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013995"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520069"
 ---
-# <a name="azure-sentinel-sample-workspace-designs"></a>Azure Sentinel 샘플 작업 영역 디자인
+# <a name="microsoft-sentinel-sample-workspace-designs"></a>Microsoft 센티널 샘플 작업 영역 디자인
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "131013995"
 - 여러 클라우드가 있는 단일 테넌트
 - 여러 지역 및 중앙 집중식 보안을 갖춘 다중 테넌트
 
-이 문서의 샘플은 [Azure Sentinel 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md)를 사용하여 각 조직에 가장 적합한 작업 영역 디자인을 결정합니다. 자세한 내용은 [Azure Sentinel 작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md)를 참조하세요.
+이 문서의 샘플에서는 [Microsoft 센티널 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md) 를 사용 하 여 각 조직에 가장 적합 한 작업 영역 디자인을 결정 합니다. 자세한 내용은 [Microsoft 센티널 작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md)를 참조 하세요.
 
 ## <a name="sample-1-multiple-tenants-and-regions"></a>샘플 1: 다중 테넌트 및 지역
 
@@ -57,7 +57,7 @@ Contoso는 다음 데이터 원본에서 이벤트를 수집해야 합니다.
 -   Azure Firewall, AKS, Key Vault, Azure Storage 및 Azure SQL과 같은 여러 Azure PaaS 리소스
 -   Cisco Umbrella
 
-Azure VM은 대부분 북유럽 지역에 있으며, 일부 VM만 미국 동부 및 일본 서부에 있습니다. Contoso는 모든 Azure VM에서 서버용 Azure Defender를 사용합니다.
+Azure VM은 대부분 북유럽 지역에 있으며, 일부 VM만 미국 동부 및 일본 서부에 있습니다. Contoso는 모든 Azure Vm의 서버에 대해 Microsoft Defender를 사용 합니다.
 
 Contoso는 모든 데이터 원본에서 하루에 약 300GB를 수집해야 합니다.
 
@@ -65,17 +65,17 @@ Contoso는 모든 데이터 원본에서 하루에 약 300GB를 수집해야 합
 
 Contoso의 Azure 환경에는 이미 운영 팀에서 인프라를 모니터링하는 데 사용하는 기존 단일 Log Analytics 작업 영역이 있습니다. 이 작업 영역은 북유럽 지역 내의 Contoso AAD 테넌트에 있으며, 모든 지역의 Azure VM에서 로그를 수집하는 데 사용됩니다. 현재 하루에 약 50GB를 수집합니다.
 
-Contoso 운영 팀은 현재 작업 영역에 있는 모든 로그에 액세스할 수 있어야 합니다. 여기에는 **Perf**, **InsightsMetrics**, **ContainerLog** 등과 같이 SOC에 필요하지 않은 여러 데이터 형식이 포함됩니다. 운영 팀은 Azure Sentinel에서 수집하는 새 로그에 액세스할 수 *없어야* 합니다.
+Contoso 운영 팀은 현재 작업 영역에 있는 모든 로그에 액세스할 수 있어야 합니다. 여기에는 **Perf**, **InsightsMetrics**, **ContainerLog** 등과 같이 SOC에 필요하지 않은 여러 데이터 형식이 포함됩니다. 운영 팀은 Microsoft 센티널에서 수집 될 새 로그에 *대 한 액세스 권한이 없어야* 합니다.
 
 ### <a name="contosos-solution"></a>Contoso의 솔루션
 
-다음 단계에서는 [Azure Sentinel 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md)를 적용하여 Contoso에 가장 적합한 작업 영역 디자인을 결정합니다.
+다음 단계는 [Microsoft 센티널 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md) 를 적용 하 여 Contoso에 대 한 최상의 작업 영역 디자인을 결정 합니다.
 
-1. Contoso에는 이미 기존 작업 영역이 있으므로 동일한 작업 영역에서 Azure Sentinel을 사용하도록 설정하는 것을 살펴볼 수 있습니다.
+1. Contoso에는 이미 기존 작업 영역이 있으므로 동일한 작업 영역에서 Microsoft 센티널을 사용 하도록 설정 하는 방법을 살펴볼 수 있습니다.
 
     비 SOC 데이터 수집은 100GB/일 미만이므로 [2단계](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies)로 계속 진행할 수 있으며 [5단계](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data)에서 관련 옵션을 선택해야 합니다.
 
-1.  Contoso에는 규정 요구 사항이 있으므로 유럽에 하나 이상의 Azure Sentinel 작업 영역이 필요합니다.
+1.  Contoso에는 규제 요구 사항이 있으므로 유럽에서 하나 이상의 Microsoft 센티널 작업 영역이 필요 합니다.
 
 1.  Contoso에는 두 개의 서로 다른 Azure AD 테넌트가 있으며, Office 365, Azure AD 로그인 및 감사 로그와 같은 테넌트 수준 데이터 원본에서 수집하므로 테넌트당 하나 이상의 작업 영역이 필요합니다.
 
@@ -85,11 +85,11 @@ Contoso 운영 팀은 현재 작업 영역에 있는 모든 로그에 액세스�
 
 1.  Contoso의 VM 대부분은 이미 작업 영역이 있는 북유럽 지역입니다. 따라서 이 경우 대역폭 비용은 문제가 되지 않습니다.
 
-1.  Contoso에는 Azure Sentinel을 사용할 단일 SOC 팀이 있으므로 추가 분리가 필요하지 않습니다.
+1.  Contoso에는 Microsoft 센티널를 사용 하는 단일 SOC 팀이 있으므로 추가 분리가 필요 하지 않습니다.
 
 1.  Contoso SOC 팀의 모든 멤버는 모든 데이터에 액세스할 수 있으므로 추가 분리가 필요하지 않습니다.
 
-Contoso에 대한 결과 Azure Sentinel 작업 영역 디자인은 다음 이미지에 나와 있습니다.
+Contoso에 대 한 결과 Microsoft 센티널 작업 영역 디자인은 다음 이미지에 나와 있습니다.
 
 :::image type="content" source="media/best-practices/contoso-solution.png" alt-text="운영 팀을 위한 별도의 작업 영역이 있는 Contoso 솔루션의 다이어그램" border="false":::
 
@@ -97,14 +97,14 @@ Contoso에 대한 결과 Azure Sentinel 작업 영역 디자인은 다음 이미
 
 - Contoso 운영 팀을 위한 별도의 Log Analytics 작업 영역. 이 작업 영역에는 **Perf**, **InsightsMetrics** 또는 **ContainerLog** 테이블과 같이 Contoso의 SOC 팀에 필요하지 않은 데이터만 포함됩니다.
 
-- Office 365, Azure 활동, Azure AD 및 모든 Azure PaaS 서비스에서 데이터를 수집하기 위한 두 개의 Azure Sentinel 작업 영역(각 Azure AD 테넌트에 하나씩)
+- 각 azure ad 테 넌 트에 하나씩 두 개의 Microsoft 센티널 작업 영역을 Office 365, azure 활동, azure AD 및 모든 azure PaaS 서비스에서 데이터를 수집 합니다.
 
-- 온-프레미스 데이터 원본에서 제공되는 다른 모든 데이터는 두 Azure Sentinel 작업 영역 중 하나로 라우팅될 수 있습니다.
+- 온-프레미스 데이터 원본에서 들어오는 다른 모든 데이터는 두 Microsoft 센티널 작업 영역 중 하나로 라우팅할 수 있습니다.
 
 
 ## <a name="sample-2-single-tenant-with-multiple-clouds"></a>샘플 2: 여러 클라우드가 있는 단일 테넌트
 
-Fabrikam은 뉴욕에 본사를 두고 있으며 미국 전역에 지사가 있는 조직입니다. Fabrikam은 클라우드 여정을 시작하고 있지만 여전히 첫 번째 Azure 랜딩 존을 배포하고 첫 번째 워크로드를 마이그레이션해야 합니다. Fabrikam의 AWS에는 이미 Azure Sentinel을 사용하여 모니터링하려는 일부 워크로드가 있습니다.
+Fabrikam은 뉴욕에 본사를 두고 있으며 미국 전역에 지사가 있는 조직입니다. Fabrikam은 클라우드 여정을 시작하고 있지만 여전히 첫 번째 Azure 랜딩 존을 배포하고 첫 번째 워크로드를 마이그레이션해야 합니다. Fabrikam에는 Microsoft 센티널을 사용 하 여 모니터링 하려는 AWS에 대 한 일부 작업이 이미 있습니다.
 
 ### <a name="fabrikam-tenancy-requirements"></a>Fabrikam 테넌트 요구 사항
 
@@ -141,11 +141,11 @@ Fabrikam SOC 팀은 다음에 액세스해야 합니다.
 -   온-프레미스 및 Azure VM 원본 모두의 보안 이벤트
 -   AWS CloudTrail 로그
 -   AKS 감사 로그
--   전체 Azure Sentinel 포털
+-   전체 Microsoft 센티널 포털
 
 ### <a name="fabrikams-solution"></a>Fabrikam의 솔루션
 
-다음 단계에서는 [Azure Sentinel 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md)를 적용하여 Fabrikam에 가장 적합한 작업 영역 디자인을 결정합니다.
+다음 단계는 [Microsoft 센티널 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md) 를 적용 하 여 Fabrikam에 대 한 최상의 작업 영역 디자인을 결정 합니다.
 
 1.  Fabrikam에는 기존 작업 영역이 없으므로 [2단계](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies)로 계속 진행합니다.
 
@@ -157,11 +157,11 @@ Fabrikam SOC 팀은 다음에 액세스해야 합니다.
 
 1.  Fabrikam에는 SOC 팀과 운영 팀을 위한 별도의 작업 영역이 필요합니다.
 
-    Fabrikam 운영 팀은 VM 및 AKS 모두에서 성능 데이터를 수집해야 합니다. AKS는 진단 설정을 기반으로 하므로 특정 작업 영역에 보낼 특정 로그를 선택할 수 있습니다. Fabrikam은 AKS 감사 로그를 Azure Sentinel 작업 영역에 보내고, 모든 AKS 로그를 Azure Sentinel이 사용하도록 설정되지 않은 별도의 작업 영역에 보내도록 선택할 수 있습니다. Azure Sentinel이 사용하도록 설정되지 않은 작업 영역에서 Fabrikam은 컨테이너 인사이트 솔루션을 사용하도록 설정합니다.
+    Fabrikam 운영 팀은 VM 및 AKS 모두에서 성능 데이터를 수집해야 합니다. AKS는 진단 설정을 기반으로 하므로 특정 작업 영역에 보낼 특정 로그를 선택할 수 있습니다. Fabrikam은 Microsoft 센티널 작업 영역에 AKS 감사 로그를 보내도록 선택할 수 있으며, 모든 AKS은 Microsoft 센티널이 사용 되지 않는 별도의 작업 영역으로 기록 됩니다. Microsoft 센티널이 사용 하도록 설정 되지 않은 작업 영역에서 Fabrikam은 컨테이너 Insights 솔루션을 사용 하도록 설정 합니다.
 
-    Windows VM의 경우 Fabrikam은 [AMA(Azure 모니터링 에이전트)](connect-windows-security-events.md#connector-options)를 사용하여 로그를 분할하고, 보안 이벤트를 Azure Sentinel 작업 영역에 보내고, Azure Sentinel을 사용하지 않고 성능 및 Windows 이벤트를 작업 영역에 보낼 수 있습니다.
+    Windows vm의 경우 Fabrikam은 [AMA (Azure Monitoring Agent)](connect-windows-security-events.md#connector-options) 를 사용 하 여 로그를 분할 하 고, microsoft 센티널 작업 영역에 보안 이벤트를 전송 하 고, microsoft 센티널 없이 작업 영역에 대 한 성능 및 Windows 이벤트를 보낼 수 있습니다.
 
-    Fabrikam은 보안 이벤트 및 Azure 활동 이벤트와 같은 겹치는 데이터를 SOC 데이터로만 간주하도록 선택하고, Azure Sentinel을 사용하여 이 데이터를 작업 영역에 보냅니다.
+    Fabrikam은 보안 이벤트 및 Azure 작업 이벤트와 같은 겹치는 데이터를 SOC 데이터로만 고려 하 고 Microsoft 센티널을 사용 하 여 작업 영역에이 데이터를 보냅니다.
 
 1.  대역폭 비용은 Fabrikam의 주요 문제가 아니므로 [7단계](design-your-workspace-architecture.md#step-7-segregating-data-or-defining-boundaries-by-ownership)로 계속 진행합니다.
 
@@ -171,19 +171,19 @@ Fabrikam SOC 팀은 다음에 액세스해야 합니다.
 
     보안 이벤트와 Azure 활동 이벤트는 모두 사용자 지정 로그가 아니므로 Fabrikam은 운영 팀을 위해 테이블 수준 RBAC를 사용하여 이러한 두 테이블에 대한 액세스 권한을 부여할 수 있습니다.
 
-Fabrikam에 대한 결과 Azure Sentinel 작업 영역 디자인은 다음 이미지에 나와 있으며, 디자인을 간단히 하기 위해 주요 로그 원본만 포함되었습니다.
+Fabrikam에 대 한 결과 Microsoft 센티널 작업 영역 디자인은 다음 이미지에 설명 되어 있습니다.
 
 :::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="운영 팀을 위한 별도의 작업 영역이 있는 Fabrikam 솔루션의 다이어그램" border="false" :::
 
 제안된 솔루션에는 다음이 포함됩니다.
 
-- 미국 지역에 있는 두 개의 개별 작업 영역: 하나는 Azure Sentinel이 사용하도록 설정된 SOC 팀을 위한 것이고, 다른 하나는 Azure Sentinel이 없는 운영 팀을 위한 것입니다.
+- 미국 지역에는 두 개의 개별 작업 영역 (Microsoft 센티널이 사용 하도록 설정 된 SOC 팀 용)과 Microsoft 센티널 없이 운영 팀을 위한 다른 작업 영역이 있습니다.
 
 - [AMA(Azure 모니터링 에이전트)](connect-windows-security-events.md#connector-options): Azure 및 온-프레미스 VM에서 각 작업 영역에 보내는 로그를 결정하는 데 사용됩니다.
 
 - 진단 설정: AKS와 같은 Azure 리소스에서 각 작업 영역에 보내는 로그를 결정하는 데 사용됩니다.
 
-- Azure Sentinel 작업 영역에 보내는 겹치는 데이터: 필요한 경우 테이블 수준 RBAC를 사용하여 액세스 권한을 운영 팀에 부여합니다.
+- 필요한 경우 작업 팀에 대 한 액세스 권한을 부여 하기 위해 테이블 수준 RBAC를 사용 하 여 Microsoft 센티널 작업 영역으로 전송 되는 겹치는 데이터입니다.
 
 ## <a name="sample-3-multiple-tenants-and-regions-and-centralized-security"></a>샘플 3: 여러 테넌트/지역 및 중앙 집중식 보안
 
@@ -207,7 +207,7 @@ Adventure Works는 각 하위 엔터티에 대해 다음과 같은 데이터 원
 -   Office 365 로그
 -   엔드포인트용 Microsoft 365 Defender 원시 로그
 -   Azure 활동
--   Azure Defender
+-   Microsoft Defender for Cloud
 -   Azure Firewall, Azure Storage, Azure SQL 및 Azure WAF와 같은 Azure PaaS 리소스
 -   Azure VM의 보안 및 Windows 이벤트
 -   온-프레미스 네트워크 디바이스의 CEF 로그
@@ -220,19 +220,19 @@ Adventure Works에는 모든 하위 엔터티에 대한 보안 작업을 감독�
 
 또한 Adventure Works에는 각 대륙에 대해 하나씩 세 개의 독립적인 SOC 팀이 있습니다. 각 대륙의 SOC 팀은 다른 대륙의 데이터를 보지 않고 해당 지역 내에서 생성된 데이터에만 액세스할 수 있어야 합니다. 예를 들어 아시아 SOC 팀은 아시아에 배포된 Azure 리소스의 데이터, 아시아 테넌트의 AAD 로그인 및 아시아 테넌트의 엔드포인트용 Defender 로그에만 액세스해야 합니다.
 
-각 대륙의 SOC 팀은 전체 Azure Sentinel 포털 환경에 액세스해야 합니다.
+각 대륙의 SOC 팀은 전체 Microsoft 센티널 포털 환경에 액세스 해야 합니다.
 
-Adventure Works의 운영 팀은 독립적으로 운영되며, Azure Sentinel이 없는 자체 작업 영역이 있습니다.
+놀이 Works의 운영 팀은 독립적으로 실행 되며 Microsoft 센티널 없이 자체 작업 영역을 포함 합니다.
 
 ### <a name="adventure-works-solution"></a>Adventure Works 솔루션
 
-다음 단계에서는 [Azure Sentinel 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md)를 적용하여 Adventure Works에 가장 적합한 작업 영역 디자인을 결정합니다.
+다음 단계는 [Microsoft 센티널 작업 영역 디자인 의사 결정 트리](design-your-workspace-architecture.md) 를 적용 하 여 놀이 Works의 최상의 작업 영역 디자인을 결정 합니다.
 
 1.  Adventure Works의 운영 팀에는 자체 작업 영역이 있으므로 [2단계](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies)로 계속 진행합니다.
 
 1.  Adventure Works에는 규정 요구 사항이 없으므로 [3단계](design-your-workspace-architecture.md#step-3-do-you-have-multiple-azure-tenants)로 계속 진행합니다.
 
-1.  Adventure Works에는 세 개의 Azure AD 테넌트가 있으며 Office 365 로그와 같은 테넌트 수준 데이터 원본을 수집해야 합니다. 따라서 Adventure Works는 각 테넌트에 대해 하나 이상의 Azure Sentinel 작업 영역을 만들어야 합니다.
+1.  Adventure Works에는 세 개의 Azure AD 테넌트가 있으며 Office 365 로그와 같은 테넌트 수준 데이터 원본을 수집해야 합니다. 따라서 놀이 Works는 각 테 넌 트 마다 하나씩, Microsoft 센티널 작업 영역을 하나 이상 만들어야 합니다.
 
 1.  Adventure Works에서 요금을 분할할 필요가 없으므로 [5단계](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data)로 계속 진행합니다.
 
@@ -240,21 +240,21 @@ Adventure Works의 운영 팀은 독립적으로 운영되며, Azure Sentinel이
 
 1.  대역폭 비용은 Adventure Works의 주요 문제가 아니므로 [7단계](design-your-workspace-architecture.md#step-7-segregating-data-or-defining-boundaries-by-ownership)로 계속 진행합니다.
 
-1.  각 콘텐츠의 SOC 팀은 해당 콘텐츠와 관련된 데이터에만 액세스해야 하므로 Adventure Works는 데이터를 소유권별로 분리해야 합니다. 그러나 각 대륙의 SOC 팀에는 Azure Sentinel 포털에 대한 액세스 권한도 필요합니다.
+1.  각 콘텐츠의 SOC 팀은 해당 콘텐츠와 관련된 데이터에만 액세스해야 하므로 Adventure Works는 데이터를 소유권별로 분리해야 합니다. 그러나 각 대륙의 SOC 팀은 전체 Microsoft 센티널 포털에도 액세스할 수 있어야 합니다.
 
 1.  Adventure Works는 데이터 액세스를 테이블별로 제어할 필요가 없습니다.
 
-Adventure Works에 대한 결과 Azure Sentinel 작업 영역 디자인은 다음 이미지에 나와 있으며, 디자인을 간단히 하기 위해 주요 로그 원본만 포함되었습니다.
+놀이 Works에 대 한 결과 Microsoft 센티널 작업 영역 디자인은 다음 이미지에 설명 되어 있습니다.
 
 :::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="각 Azure AD 테넌트에 대한 별도의 작업 영역이 있는 Adventure Works 솔루션의 다이어그램" border="false":::
 
 제안된 솔루션에는 다음이 포함됩니다.
 
-- 각 Azure AD 테넌트에 대한 별도의 Azure Sentinel 작업 영역. 각 작업 영역은 모든 데이터 원본에 대해 해당 테넌트와 관련된 데이터를 수집합니다.
+- 각 Azure AD 테 넌 트에 대해 별도의 Microsoft 센티널 작업 영역. 각 작업 영역은 모든 데이터 원본에 대해 해당 테넌트와 관련된 데이터를 수집합니다.
 
 - 각 대륙의 SOC 팀은 자체 테넌트의 작업 영역에만 액세스할 수 있으므로 각 SOC 팀은 테넌트 경계 내에 생성된 로그에만 액세스할 수 있습니다.
 
-- 중앙 SOC 팀은 각각의 서로 다른 Azure Sentinel 환경에 액세스할 수 있는 Azure Lighthouse를 사용하여 별도의 Azure AD 테넌트에서 계속 운영할 수 있습니다. 추가 테넌트가 없는 경우에도 중앙 SOC 팀은 여전히 Azure Lighthouse를 사용하여 원격 작업 영역에 액세스할 수 있습니다.
+- 중앙 SOC 팀은 Azure Lighthouse를 사용 하 여 서로 다른 Microsoft 센티널 환경에 액세스할 수 있는 별도의 Azure AD 테 넌 트에서 계속 작동할 수 있습니다. 추가 테넌트가 없는 경우에도 중앙 SOC 팀은 여전히 Azure Lighthouse를 사용하여 원격 작업 영역에 액세스할 수 있습니다.
 
 - 중앙 SOC 팀은 대륙 SOC 팀에 숨겨져 있는 아티팩트를 저장해야 하거나 대륙 SOC 팀과 관련이 없는 다른 데이터를 수집하려는 경우 추가 작업 영역을 만들 수도 있습니다.
 
@@ -263,7 +263,7 @@ Adventure Works에 대한 결과 Azure Sentinel 작업 영역 디자인은 다�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[Azure Sentinel 온보딩](quickstart-onboard.md)
+>[온-보드 Microsoft 센티널](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
 >[경고 표시](get-visibility.md)

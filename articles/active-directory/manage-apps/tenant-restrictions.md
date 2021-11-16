@@ -12,12 +12,12 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5cdbbe4955063d6a241949be14cd7dcd0af0a5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 2838c6be64718669fb03b3a04dbbea41e5de8c19
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997519"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841831"
 ---
 # <a name="restrict-access-to-a-tenant-in-azure-active-directory"></a>Azure Active Directory에서 테넌트에 대한 액세스 제한
 
@@ -78,7 +78,7 @@ Login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 나�
 
 - *Restrict-Access-To-Tenants* 의 경우 사용자 액세스를 허용하려는 쉼표로 구분된 테넌트 목록인 \<permitted tenant list\> 값을 사용합니다. 테넌트에 등록된 모든 도메인은 해당 목록의 테넌트 및 디렉터리 ID 자체를 식별하는 데 사용할 수 있습니다. 테넌트를 설명하는 세 가지 방법의 예제에서 Contoso, Fabrikam 및 Microsoft를 허용하는 이름/값 쌍은 `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47` 같이 표시됩니다.
 
-- *Restrict-Access-Context* 의 경우 테넌트 제한을 설정하는 테넌트를 선언하는 단일 디렉터리 ID 값을 사용합니다. 예를 들어, Contoso를 테넌트 제한 정책을 설정하는 테넌트로 선언하기 위해 이름/값 쌍은 `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` 같이 표시됩니다.  이러한 인증을 위해 로그를 가져오려면 이 스폿에서 사용자의 디렉터리 ID를 **사용해야** 합니다.
+- *Restrict-Access-Context* 의 경우 테넌트 제한을 설정하는 테넌트를 선언하는 단일 디렉터리 ID 값을 사용합니다. 예를 들어, Contoso를 테넌트 제한 정책을 설정하는 테넌트로 선언하기 위해 이름/값 쌍은 `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` 같이 표시됩니다. 이러한 인증을 위해 로그를 가져오려면 여기에서 사용자의 디렉터리 ID를 *사용해야* 합니다. 사용자 자신의 것이 아닌 디렉터리 ID를 사용하는 경우 해당 로그인 로그는 모든 개인 정보가 제거된 상태로 다른 사람의 테넌트에 *나타납니다*. 자세한 내용은 [관리자 환경](#admin-experience)을 참조하세요.
 
 > [!TIP]
 > [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인한 후 **Azure Active Directory** 를 선택하고 **속성** 을 선택합니다.

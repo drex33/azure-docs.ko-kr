@@ -2,13 +2,13 @@
 title: '빠른 시작: 보안 경고 조사'
 description: IoT 디바이스에서 Defender for IoT 보안 경고를 이해, 드릴다운 및 조사합니다.
 ms.topic: quickstart
-ms.date: 06/21/2021
-ms.openlocfilehash: 02005680ca1c5d140ffdb101ede359594b28a840
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: c55392650edf85c753bcde32a03e8ad313ebd148
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011320"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331512"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>빠른 시작: 보안 경고 조사
 
@@ -48,7 +48,7 @@ IoT Hub 보안 경고 목록에는 IoT Hub에 대한 모든 집계된 보안 경
 
 ## <a name="next-steps"></a>다음 단계
 
-Defender 경고 유형 및 가능한 사용자 지정에 대해 자세히 알아보려면 다음 문서로 이동하세요.
+보안 경고 유형 및 가능한 사용자 지정에 대해 자세히 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [IoT 보안 경고 이해](concept-security-alerts.md)

@@ -3,12 +3,12 @@ title: Azure Arc 개요
 description: Azure Arc란 무엇이며 고객이 다른 Azure 서비스 및 기능을 사용하여 하이브리드 리소스의 관리 및 거버넌스를 활성화하는 데 어떤 도움이 되는지 알아봅니다.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 7a900a7a0454f4dff5cdfe98f611982c33617c1d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 62395b53fea3f86e42726f1bb2d35b12d8a0bdca
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832356"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345741"
 ---
 # <a name="azure-arc-overview"></a>Azure Arc 개요
 
@@ -70,11 +70,11 @@ Azure Arc의 핵심 기능은 다음과 같습니다.
 
 * 업데이트 관리.
 
-Azure Security Center 또는 Azure Monitor와 같이 Azure Arc 지원 서버에서 사용되는 모든 Azure 서비스는 해당 서비스에 대한 가격 책정에 따라 요금이 청구됩니다. 자세한 내용은 [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/)를 참조하세요.
+Microsoft Defender for Cloud 또는 Azure Monitor와 같이 Azure Arc 지원 서버에서 사용되는 모든 Azure 서비스는 해당 서비스에 대한 가격 책정에 따라 요금이 청구됩니다. 자세한 내용은 [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/)를 참조하세요.
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes
 
-Azure Security Center 또는 Azure Monitor와 같이 Azure Arc 지원 Kubernetes에서 사용되는 모든 Azure 서비스는 해당 서비스에 대한 가격 책정에 따라 요금이 청구됩니다. Azure Arc 지원 Kubernetes의 상단에 있는 구성 가격 책정에 대한 자세한 내용은 [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/)를 참조하세요.
+Microsoft Defender for Cloud 또는 Azure Monitor와 같이 Azure Arc 지원 Kubernetes에서 사용되는 모든 Azure 서비스는 해당 서비스에 대한 가격 책정에 따라 요금이 청구됩니다. Azure Arc 지원 Kubernetes의 상단에 있는 구성 가격 책정에 대한 자세한 내용은 [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/)를 참조하세요.
 
 ### <a name="azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스
 

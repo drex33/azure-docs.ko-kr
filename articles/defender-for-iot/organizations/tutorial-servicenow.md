@@ -1,21 +1,21 @@
 ---
-title: Azure Defender for IoT와 ServiceNow 통합
-description: 이 자습서에서는 ServiceNow를 Azure Defender for IoT와 통합하는 방법을 알아봅니다.
+title: Microsoft Defender for IoT와 ServiceNow 통합
+description: 이 자습서에서는 Microsoft Defender for IoT와 ServiceNow를 통합하는 방법을 알아봅니다.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 5f4fe7e30fef715bdd09380b7b7bb9ad342571ae
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9b01aa92848bc69bff37dc75be8e59350bc9f3f3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130229354"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343556"
 ---
-# <a name="tutorial-integrate-servicenow-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 ServiceNow 통합
+# <a name="tutorial-integrate-servicenow-with-microsoft-defender-for-iot"></a>자습서: Microsoft Defender for IoT와 ServiceNow 통합
 
-이 자습서를 사용하면 ServiceNow를 Azure Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
+이 자습서는 Microsoft Defender for IoT와 ServiceNow를 통합하는 방법을 알아보는 데 도움이 됩니다.
 
 Defender for IoT와 ServiceNow 통합은 IoT 및 OT 환경에 대한 새로운 수준의 중앙 집중화된 가시성, 모니터링 및 제어 기능을 제공합니다. 이러한 브리징된 플랫폼을 통해 이전에는 연결할 수 없었던 ICS 및 IoT 디바이스에 대한 자동 디바이스 가시성과 위협 관리 기능을 사용할 수 있습니다.
 
@@ -162,7 +162,7 @@ Defender for IoT 전달 규칙을 만들 때 입력한 `Client ID` 및 `Client S
 
 :::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="마지막 동기화를 보고 발생하는 통신의 스크린샷":::
 
-## <a name="set-up-the-integrations-using-a-https-proxy"></a>HTTPS 프록시를 사용하여 통합 설정
+## <a name="set-up-the-integrations-using-an-https-proxy"></a>HTTPS 프록시를 사용하여 통합 설정
 
 Defender for IoT와 ServiceNow 통합을 위해 Defender를 설정하는 경우 온-프레미스 관리 콘솔과 ServiceNow 서버는 포트 443을 사용하여 통신합니다. ServiceNow 서버가 프록시 뒤에 있는 경우 기본 포트를 사용할 수 없습니다.
 

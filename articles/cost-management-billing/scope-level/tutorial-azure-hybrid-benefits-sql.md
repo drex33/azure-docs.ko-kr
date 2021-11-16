@@ -1,5 +1,5 @@
 ---
-title: 자습서 - SQL Server에 대한 범위 수준 Azure 하이브리드 혜택 최적화
+title: 자습서 - SQL Server에 대해 중앙에서 관리되는 Azure 하이브리드 혜택 최적화
 description: 이 자습서에서는 Azure 하이브리드 혜택을 관리하고 최적화하기 위해 Azure에서 SQL Server 라이선스를 사전에 할당하는 과정을 안내합니다.
 author: bandersmsft
 ms.author: banders
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: fa928181b20a5975f4c6e42079695aede223ddac
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 6031bd83a5a32ffc5e76a4a967e305324f8d7ee8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547483"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218866"
 ---
-# <a name="tutorial-optimize-scope-level-azure-hybrid-benefit-for-sql-server"></a>자습서: SQL Server에 대한 범위 수준 Azure 하이브리드 혜택 최적화
+# <a name="tutorial-optimize-centrally-managed-azure-hybrid-benefit-for-sql-server"></a>자습서: SQL Server에 대해 중앙에서 관리되는 Azure 하이브리드 혜택 최적화
 
-이 자습서에서는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 관리하고 최적화하기 위해 Azure에서 SQL Server 라이선스를 사전에 할당하는 과정을 안내합니다. 혜택을 최적화하면 Azure SQL을 실행하는 비용이 절감됩니다.
+이 자습서에서는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 중앙에서 관리하고 최적화하기 위해 Azure에서 SQL Server 라이선스를 사전에 할당하는 과정을 안내합니다. 혜택을 최적화하면 Azure SQL을 실행하는 비용이 절감됩니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -32,10 +32,10 @@ ms.locfileid: "129547483"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-[Azure 하이브리드 혜택의 범위 수준 관리란?](overview-azure-hybrid-benefit-scope.md) 문서를 읽고 이해합니다. 이 문서에서는 Azure 하이브리드 혜택에 해당하는 SQL Server 라이선스 유형을 설명하고, 구독 또는 전체 청구 계정 수준에서 선택한 범위에 Azure 하이브리드 혜택을 설정하고 사용하는 방법을 알려줍니다.
+[중앙에서 관리되는 Azure 하이브리드 혜택이란?](overview-azure-hybrid-benefit-scope.md) 문서를 읽고 이해합니다. 이 문서에서는 Azure 하이브리드 혜택에 해당하는 SQL Server 라이선스 유형을 설명하고, 구독 또는 전체 청구 계정 수준에서 선택한 범위에 Azure 하이브리드 혜택을 설정하고 사용하는 방법을 알려줍니다.
 
 > [!NOTE]
-> 범위에 Azure 하이브리드 혜택을 사용하는 것은 현재 공개 미리 보기로 제공되며 기업 고객으로 제한됩니다.
+> 중앙에서 범위 수준으로 Azure 하이브리드 혜택을 관리하는 것은 현재 퍼블릭 미리 보기로 제공되며 기업 고객으로 제한됩니다.
 
 새 환경을 사용하기 전에, Azure에서 SQL Server를 실행하는 자체 설치된 가상 머신이 등록 되어 있는지 확인합니다. 이렇게 하면 SQL Server를 실행하는 Azure 리소스가 사용자와 Azure에 표시됩니다. Azure에서 SQL VM을 등록하는 방법을 더 알아보려면 [SQL IaaS 에이전트 확장을 사용하여 SQL Server VM 등록](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 및 [Azure에서 SQL IaaS 에이전트 확장을 사용하여 여러 SQL VM 등록](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md)을 참조하세요.
 
@@ -94,7 +94,7 @@ SQL Server 라이선스를 구매하고 Azure 하이브리드 혜택을 적용�
 
 다음 예제에서는 여러분이 Contoso 보험 회사의 대금 청구 관리자라고 가정해보겠습니다. Contoso의 SQL Server에 대한 Azure 하이브리드 혜택을 관리합니다.
 
-조달 부서에서 여러분이 전체 계정 수준에서 SQL 서버에 대한 Azure 하이브리드 혜택을 관리할 수 있다는 것을 알려주었습니다. 조달 부서는 Microsoft 계정 팀으로부터 이 점을 들었습니다. 최근 Azure 하이브리드 혜택을 관리하기가 어려웠기 때문에 여기에 관심이 갑니다. 또한 개발자는 서로에게 스크립트를 공유할 때 리소스에 대한 혜택을 사용하도록(또는 사용하지 않도록) 임의로 설정하기 때문이기도 합니다.
+조달 부서에서 여러분이 전체 계정 수준에서 SQL 서버에 대한 Azure 하이브리드 혜택을 중앙에서 관리할 수 있다는 것을 알려주었습니다. 조달 부서는 Microsoft 계정 팀으로부터 이 점을 들었습니다. 최근 Azure 하이브리드 혜택을 관리하기가 어려웠기 때문에 여기에 관심이 갑니다. 또한 개발자는 서로에게 스크립트를 공유할 때 리소스에 대한 혜택을 사용하도록(또는 사용하지 않도록) 임의로 설정하기 때문이기도 합니다.
 
 Azure Portal의 Cost Management + Billing 영역에서 새로운 Azure 하이브리드 혜택 환경을 찾을 수 있습니다.
 
@@ -124,5 +124,5 @@ Azure Portal의 Cost Management + Billing 영역에서 새로운 Azure 하이브
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 하이브리드 혜택의 범위 수준 관리로 전환](transition-existing.md)하는 방법에 대해 알아봅니다.
-- [범위 수준 Azure 하이브리드 혜택 관리 FAQ](faq-azure-hybrid-benefit-scope.yml)를 검토합니다.
+- [중앙에서 관리되는 Azure 하이브리드 혜택으로 전환](transition-existing.md)하는 방법을 알아봅니다.
+- [중앙에서 관리되는 Azure 하이브리드 혜택 FAQ](faq-azure-hybrid-benefit-scope.yml)를 검토하세요.

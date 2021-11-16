@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 007c19a10db5e000770c8c80189453d4a80edec2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 526a1bf1c39ad503a2f0585999247a8e91b4c727
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82204556"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132530264"
 ---
 다음 표는 다양한 서비스 계층 S1, S2, S3, F1과 관련한 한도를 나타냅니다. 각 계층에서 각각의 *단위* 에 대한 비용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
@@ -48,7 +48,7 @@ ms.locfileid: "82204556"
 | 직접 메서드 페이로드의 최대 크기 | 128KB |
 | 작업 내역의 최대 보존 | 30일 |
 | 최대 동시 작업 | 10(S3의 경우), 5(S2의 경우), 1(S1의 경우) |
-| 최대 추가 엔드포인트 | 10(S1, S2 및 S3의 경우) |
+| 최대 추가 엔드포인트(기본 [제공 엔드포인트](../articles/iot-hub/iot-hub-devguide-endpoints.md)외) | 10(S1, S2 및 S3의 경우) |
 | 최대 메시지 라우팅 규칙 | 100(S1, S2 및 S3의 경우) |
 | 동시에 연결되는 최대 디바이스 스트림 수 | 50(S1, S2, S3 및 F1만 해당) |
 | 최대 디바이스 스트림 데이터 전송 | 하루 300MB(S1, S2, S3 및 F1만 해당) |

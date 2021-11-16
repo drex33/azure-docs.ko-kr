@@ -10,18 +10,20 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/21/2021
 ms.custom: automl
-ms.openlocfilehash: a6aebd1f3ca403a787d2d6e6f2d1f4aa76882143
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 16d96eb508725e22bc1956a8b78d003f1512487b
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312441"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518663"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
 자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. Azure Machine Learning에서 자동화된 ML은 [Microsoft Research 부문](https://www.microsoft.com/research/project/automl/)의 혁신을 기반으로 합니다.
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용하므로 수십 개의 모델을 생성하고 비교하는 데 상당한 도메인 지식과 시간이 필요합니다. 자동화된 Machine Learning을 사용하면 프로덕션 준비 ML 모델을 매우 쉽고 효율적으로 얻는 데 걸리는 시간을 단축할 수 있습니다.
+
+<a name="parity"></a>
 
 ## <a name="ways-to-use-automl-in-azure-machine-learning"></a>Azure Machine Learning에서 AutoML을 사용하는 방법
 
@@ -32,10 +34,6 @@ Azure Machine Learning은 자동화된 ML 작업을 위해 다음 두 가지 환
 * 코드가 제한적이거나 코드가 없는 경험 고객의 경우 [https://ml.azure.com](https://ml.azure.com/)에 있는 Azure Machine Learning 스튜디오.  자습서 시작:
     * [자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md).
     *  [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md)
-
-<a name="parity"></a>
-
-## <a name="automl-settings-and-configuration"></a>AutoML 설정 및 구성
 
 ### <a name="experiment-settings"></a>실험 설정 
 
@@ -70,7 +68,7 @@ Azure Machine Learning은 자동화된 ML 작업을 위해 다음 두 가지 환
 |**투표 앙상블 및 스택 앙상블 모델 사용**| ✓|✓|
 |**기본이 아닌 메트릭에 따라 최상의 모델 표시**|✓||
 |**ONNX 모델 호환성 사용/사용 안 함**|✓||
-|**모델 테스트** | ✓| |
+|**모델 테스트** | ✓| ✓ (미리 보기)|
 
 ### <a name="run-control-settings"></a>실행 제어 설정
 
@@ -149,10 +147,10 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 이미지에 대한 자동화된 ML 다음과 같은 컴퓨터 비전 작업을 지원합니다. 
 
-작업 | 설명
+작업 | Description
 ----|----
-다중 클래스 이미지 분류 | 이미지가 클래스 집합의 단일 레이블로만 분류되는 작업-예: 각 이미지는 'cat' 또는 'dog' 또는 'dog'의 이미지로 분류됩니다.
-다중 레이블 이미지 분류 | 이미지에 레이블 집합의 레이블이 하나 이상 있을 수 있는 작업(예: 이미지에 'cat'과 'dog'를 둘 다 레이블로 지정할 수 있습니다.)
+다중 클래스 이미지 분류 | 이미지가 클래스 집합의 단일 레이블로만 분류되는 작업( 예: 각 이미지는 '고양이' 또는 '개' 또는 '옴'의 이미지로 분류됩니다.)
+다중 레이블 이미지 분류 | 이미지에 레이블 집합의 레이블이 하나 이상 있을 수 있는 작업(예: 이미지에 'cat'과 'dog'로 레이블이 지정될 수 있습니다.)
 개체 감지| 이미지에서 개체를 식별하고 경계 상자가 있는 각 개체를 찾는 작업(예: 이미지에서 모든 개와 고양이를 찾아 각각 경계 상자를 그립니다.)
 인스턴스 구분 | 이미지의 각 개체 주위에 다각형을 그려 픽셀 수준에서 이미지의 개체를 식별하는 작업입니다.
 
@@ -186,9 +184,65 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 모델 빌드가 자동화되는 동안 [중요하거나 관련된 기능이 생성된 모델에 있는 상태](how-to-configure-auto-train.md#explain)를 알아볼 수도 있습니다.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
+<a name="local-remote"></a>
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a>로컬 및 원격 관리형 ML 컴퓨팅 대상에 대한 지침
+
+자동화된 ML의 웹 인터페이스는 항상 원격 [컴퓨팅 대상](concept-compute-target.md)을 사용합니다.  그러나 Python SDK를 사용하는 경우 자동화된 ML 학습을 위해 로컬 컴퓨팅 또는 원격 컴퓨팅 대상을 선택합니다.
+
+* **로컬 컴퓨팅**: 학습이 로컬 랩톱 또는 VM 컴퓨팅에서 수행됩니다. 
+* **원격 컴퓨팅**: 학습이 Machine Learning 컴퓨팅 클러스터에서 수행됩니다.  
+
+### <a name="choose-compute-target"></a>컴퓨팅 대상 선택
+컴퓨팅 대상을 선택하는 경우 고려해야 하는 요소는 다음과 같습니다.
+
+ * **로컬 컴퓨팅 선택**: 작은 데이터와 짧은 학습을 사용하는 초기 검색 또는 데모(예: 자식 실행당 몇 초 또는 몇 분)에 대한 시나리오인 경우 로컬 컴퓨터에 대한 학습이 더 적합할 수 있습니다.  설치 시간이 없으며, 인프라 리소스(PC 또는 VM)를 직접 사용할 수 있습니다.
+ * **원격 ML 컴퓨팅 클러스터 선택**: 더 긴 학습이 필요한 모델을 생성하는 프로덕션 교육처럼 대규모 데이터세트를 사용하여 교육하는 경우, `AutoML`이 클러스터 노드 간에 학습을 병렬화하므로 원격 컴퓨팅은 엔드투엔드 시간 성능을 훨씬 더 향상할 수 있습니다. 원격 컴퓨팅에서 내부 인프라의 시작 시간은 자식 실행당 약 1.5분, VM이 아직 가동되지 않은 경우 클러스터 인프라의 시간이 추가됩니다.
+
+### <a name="pros-and-cons"></a>장단점
+로컬 및 원격을 사용하도록 선택하는 경우 다음과 같은 장단점을 고려합니다.
+
+|  | 장점  |단점  |
+|---------|---------|---------|---------|
+|**로컬 컴퓨팅 대상** |  <li> 환경 시작 시간 없음   | <li>  기능의 하위 세트<li>  실행을 병렬화할 수 없음 <li> 큰 데이터의 경우 더 심각함 <li>학습 중 데이터 스트리밍 없음 <li>  DNN 기반 기능화 없음 <li> Python SDK만 해당 |
+|**원격 ML 컴퓨팅 클러스터**|  <li> 전체 기능 세트 <li> 자식 실행 병렬화 <li>   큰 데이터 지원<li>  DNN 기반 기능화 <li>  주문형 컴퓨팅 클러스터의 동적 확장성 <li> 코드리스 환경(웹 UI)도 사용할 수 있음  |  <li> 클러스터 노드의 시작 시간 <li> 각 자식 실행의 시작 시간    |
+
+### <a name="feature-availability"></a>기능 가용성 
+
+아래 표와 같이 원격 컴퓨팅을 사용하는 경우 더 많은 기능을 사용할 수 있습니다. 
+
+| 기능                                                    | 원격 | 로컬 | 
+|------------------------------------------------------------|--------|-------|
+| 데이터 스트리밍(큰 데이터 지원, 최대 100GB)          | ✓      |       | 
+| DNN-BERT 기반 텍스트 기능화 및 학습             | ✓      |       |
+| 기본 제공 GPU 지원(학습 및 추론)        | ✓      |       |
+| 이미지 분류 및 레이블 지정 지원                  | ✓      |       |
+| 예측을 위한 Auto-ARIMA, Prophet 및 ForecastTCN 모델 | ✓      |       | 
+| 동시에 여러 실행/반복                       | ✓      |       |
+| AutoML 스튜디오 웹 환경 UI에서 해석력 있는 모델 만들기      | ✓      |       |
+| 스튜디오 웹 환경 UI에서 기능 엔지니어링 사용자 지정| ✓      |       |
+| Azure ML 하이퍼 매개 변수 튜닝                             | ✓      |       |
+| Azure ML 파이프라인 워크플로 지원                         | ✓      |       |
+| 실행 계속                                             | ✓      |       |
+| 예측                                                | ✓      | ✓     |
+| Notebook에서 실험 만들기 및 실행                    | ✓      | ✓     |
+| UI에서 실험 정보와 메트릭 등록 및 시각화 | ✓      | ✓     |
+| 데이터 가드 레일                                            | ✓      | ✓     |
+
+## <a name="training-validation-and-test-data"></a>학습, 유효성 검사 및 테스트 데이터 
+
+자동화된 ML 사용하여 ML 모델을 학습하기 위한 **학습 데이터를** 제공하고 수행할 모델 유효성 검사 유형을 지정할 수 있습니다. 자동화된 ML 학습의 일부로 모델 유효성 검사를 수행합니다. 즉, 자동화된 ML 유효성 **검사 데이터를** 사용하여 적용된 알고리즘에 따라 모델 하이퍼 변수를 튜닝하여 학습 데이터에 가장 적합한 조합을 찾습니다. 그러나 튜닝을 반복할 때마다 동일한 유효성 검사 데이터가 사용되므로 모델이 계속 개선되고 유효성 검사 데이터에 적합하기 때문에 모델 평가 바이어스가 도입됩니다. 
+
+이러한 바이어스가 최종 권장 모델에 적용되지 않는지 확인하기 위해 자동화된 ML 테스트 **데이터를** 사용하여 실험이 끝날 때 자동화된 ML 권장하는 최종 모델을 평가할 수 있도록 지원합니다. AutoML 실험 구성의 일부로 테스트 데이터를 제공하는 경우 이 권장 모델은 실험이 끝날 때 기본적으로 테스트됩니다(미리 보기). 
+
+>[!IMPORTANT]
+> 테스트 데이터 세트를 사용하여 모델을 테스트하여 생성된 모델을 평가하는 것은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
+
+SDK 또는 [Azure Machine Learning Studio에서](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment) [테스트 데이터(미리 보기)를 사용하도록 AutoML 실험을 구성하는](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) 방법을 알아봅니다.
+
+자체 테스트 데이터를 제공하거나 학습 데이터의 일부를 따로 설정하여 자식 실행의 모델을 포함하여 [기존의 자동화된 ML 모델(미리 보기)을](how-to-configure-auto-train.md#test-existing-automated-ml-model)테스트할 수도 있습니다. 
 
 ## <a name="feature-engineering"></a>특징 엔지니어링
 
@@ -233,51 +287,6 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 정렬된 앙상블 초기화를 사용하는 [Caruana 앙상블 선택 알고리즘](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)은 앙상블 내에서 사용할 모델을 결정하는 데 사용됩니다. 높은 수준에서 이 알고리즘은 개별 점수가 가장 높은 최대 5개의 모델을 사용하여 앙상블을 초기화하고, 초기 앙상블 저하를 방지하기 위해 이러한 모델이 가장 높은 점수의 5% 임계값 내에 있는지 확인합니다. 그런 다음, 각 앙상블 반복마다 새 모델이 기존 앙상블에 추가되고 결과 점수가 계산됩니다. 새 모델에서 기존 앙상블 점수가 향상되면 새 모델을 포함하도록 앙상블이 업데이트됩니다.
 
 자동화된 Machine Learning에서 기본 앙상블 설정을 변경하는 방법은 [방법](how-to-configure-auto-train.md#ensemble) 문서를 참조하세요.
-
-## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>로컬 및 원격 관리형 ML 컴퓨팅 대상에 대한 지침
-
-자동화된 ML의 웹 인터페이스는 항상 원격 [컴퓨팅 대상](concept-compute-target.md)을 사용합니다.  그러나 Python SDK를 사용하는 경우 자동화된 ML 학습을 위해 로컬 컴퓨팅 또는 원격 컴퓨팅 대상을 선택합니다.
-
-* **로컬 컴퓨팅**: 학습이 로컬 랩톱 또는 VM 컴퓨팅에서 수행됩니다. 
-* **원격 컴퓨팅**: 학습이 Machine Learning 컴퓨팅 클러스터에서 수행됩니다.  
-
-### <a name="choose-compute-target"></a>컴퓨팅 대상 선택
-컴퓨팅 대상을 선택하는 경우 고려해야 하는 요소는 다음과 같습니다.
-
- * **로컬 컴퓨팅 선택**: 작은 데이터와 짧은 학습을 사용하는 초기 검색 또는 데모(예: 자식 실행당 몇 초 또는 몇 분)에 대한 시나리오인 경우 로컬 컴퓨터에 대한 학습이 더 적합할 수 있습니다.  설치 시간이 없으며, 인프라 리소스(PC 또는 VM)를 직접 사용할 수 있습니다.
- * **원격 ML 컴퓨팅 클러스터 선택**: 더 긴 학습이 필요한 모델을 생성하는 프로덕션 교육처럼 대규모 데이터세트를 사용하여 교육하는 경우, `AutoML`이 클러스터 노드 간에 학습을 병렬화하므로 원격 컴퓨팅은 엔드투엔드 시간 성능을 훨씬 더 향상할 수 있습니다. 원격 컴퓨팅에서 내부 인프라의 시작 시간은 자식 실행당 약 1.5분, VM이 아직 가동되지 않은 경우 클러스터 인프라의 시간이 추가됩니다.
-
-### <a name="pros-and-cons"></a>장단점
-로컬 및 원격을 사용하도록 선택하는 경우 다음과 같은 장단점을 고려합니다.
-
-|  | 장점  |단점  |
-|---------|---------|---------|
-|**로컬 컴퓨팅 대상** |  <li> 환경 시작 시간 없음   | <li>  기능의 하위 세트<li>  실행을 병렬화할 수 없음 <li> 큰 데이터의 경우 더 심각함 <li>학습 중 데이터 스트리밍 없음 <li>  DNN 기반 기능화 없음 <li> Python SDK만 해당 |
-|**원격 ML 컴퓨팅 클러스터**|  <li> 전체 기능 세트 <li> 자식 실행 병렬화 <li>   큰 데이터 지원<li>  DNN 기반 기능화 <li>  주문형 컴퓨팅 클러스터의 동적 확장성 <li> 코드리스 환경(웹 UI)도 사용할 수 있음  |  <li> 클러스터 노드의 시작 시간 <li> 각 자식 실행의 시작 시간    |
-
-### <a name="feature-availability"></a>기능 가용성 
-
-아래 표와 같이 원격 컴퓨팅을 사용하는 경우 더 많은 기능을 사용할 수 있습니다. 
-
-| 기능                                                    | 원격 | 로컬 | 
-|------------------------------------------------------------|--------|-------|
-| 데이터 스트리밍(큰 데이터 지원, 최대 100GB)          | ✓      |       | 
-| DNN-BERT 기반 텍스트 기능화 및 학습             | ✓      |       |
-| 기본 제공 GPU 지원(학습 및 추론)        | ✓      |       |
-| 이미지 분류(미리 보기) 및 레이블 지정 지원        | ✓      |       |
-| 예측을 위한 Auto-ARIMA, Prophet 및 ForecastTCN 모델 | ✓      |       | 
-| 동시에 여러 실행/반복                       | ✓      |       |
-| AutoML 스튜디오 웹 환경 UI에서 해석력 있는 모델 만들기      | ✓      |       |
-| 스튜디오 웹 환경 UI에서 기능 엔지니어링 사용자 지정| ✓      |       |
-| Azure ML 하이퍼 매개 변수 튜닝                             | ✓      |       |
-| Azure ML 파이프라인 워크플로 지원                         | ✓      |       |
-| 실행 계속                                             | ✓      |       |
-| 예측                                                | ✓      | ✓     |
-| Computer Vision(미리 보기)                                  | ✓      |       |
-| Notebook에서 실험 만들기 및 실행                    | ✓      | ✓     |
-| UI에서 실험 정보와 메트릭 등록 및 시각화 | ✓      | ✓     |
-| 데이터 가드 레일                                            | ✓      | ✓     |
-
 
 <a name="use-with-onnx"></a>
 

@@ -10,12 +10,12 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
 ms.date: 11/03/2021
-ms.openlocfilehash: 94a1d171fb2bdf16f8229aa9a9bc9fd4a7ab3458
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: f979651909a2484f6bcdf7b0953c91874bea7cc5
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062912"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520658"
 ---
 # <a name="autoscale-a-managed-online-endpoint-preview"></a>관리되는 온라인 엔드포인트 자동 크기 조정(미리 보기)
 
@@ -29,7 +29,7 @@ Azure Monitor 자동 조정은 다양한 규칙 집합을 지원합니다. 메�
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 * 배포된 엔드포인트입니다. [관리형 온라인 엔드포인트(미리 보기)를 사용하여 기계 학습 모델을 배포하고 점수](how-to-deploy-managed-online-endpoints.md)매기기 
 
@@ -169,25 +169,25 @@ __메트릭에 따라 크기 조정을__ 선택한 __다음, 규칙 추가를__ 
 페이지 아래쪽에서 __+ 크기 조정 조건 추가를__ 선택합니다. 새 크기 조정 조건에서 다음 정보를 사용하여 필드를 채웁다.
  
 * __특정 인스턴스 수로 크기 조정을__ 선택합니다.
-* 인스턴스 __수를__ __2로__ 설정합니다.
-* __일정을__ 특정 __일 반복으로__ 설정합니다.
-* 일정을 __매주 토요일과__ __일요일로__ __반복하도록__ 설정합니다.
+* __인스턴스 수__ 를 __2__ 로 설정 합니다.
+* __특정 날짜를 반복__ 하도록 __일정__ 을 설정 합니다.
+* __토요일과__ __일요일__ __마다 반복__ 되도록 일정을 설정 합니다.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/schedule-rules.png" lightbox="media/how-to-autoscale-endpoints/schedule-rules.png" alt-text="일정 기반 규칙을 보여주는 스크린샷.":::
+:::image type="content" source="media/how-to-autoscale-endpoints/schedule-rules.png" lightbox="media/how-to-autoscale-endpoints/schedule-rules.png" alt-text="일정 기반 규칙을 보여 주는 스크린샷":::
 
 ---
 
 ## <a name="delete-resources"></a>리소스 삭제
 
-배포를 사용하지 않려면 삭제합니다.
+배포를 사용 하지 않으려는 경우 삭제 합니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Monitor 자동 크기 조정에 대한 자세한 내용은 다음 문서를 참조하세요.
+Azure Monitor의 자동 크기 조정에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [자동 크기 조정 설정 이해](/autoscale/autoscale-understand-settings)
-- [일반적인 자동 크기 조정 패턴에 대한 개요](/autoscale/autoscale-common-scale-patterns)
-- [자동 크기 조정 모범 사례](/autoscale/autoscale-best-practices)
-- [Azure 자동 크기 조정 문제 해결](/autoscale/autoscale-troubleshoot)
+- [자동 크기 조정 설정 이해](/azure-monitor/autoscale/autoscale-understand-settings)
+- [일반적인 자동 크기 조정 패턴에 대한 개요](/azure-monitor/autoscale/autoscale-common-scale-patterns)
+- [자동 크기 조정 모범 사례](/azure-monitor/autoscale/autoscale-best-practices)
+- [Azure 자동 크기 조정 문제 해결](/azure-monitor/autoscale/autoscale-troubleshoot)

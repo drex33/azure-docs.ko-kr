@@ -1,42 +1,42 @@
 ---
-title: Azure Sentinel로 플레이북 인증 | Microsoft Docs
-description: Azure Sentinel 및 권한 부여에 대한 액세스 권한을 플레이북에 부여하여 수정 작업을 수행하는 방법을 알아봅니다.
+title: Microsoft 센티널에 플레이 북 인증 | Microsoft Docs
+description: 플레이 북에 게 Microsoft 센티널 및 권한 부여에 대 한 액세스 권한을 부여 하 여 수정 작업을 수행 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8ac52d1c861ec41600ae882a4e12becb56619595
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6cb45659ab0e31ed4d1259fc19c10b6f6bdfa015
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075489"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522178"
 ---
-# <a name="authenticate-playbooks-to-azure-sentinel"></a>Azure Sentinel로 플레이북 인증
+# <a name="authenticate-playbooks-to-microsoft-sentinel"></a>Microsoft Sentinel에 플레이북 인증
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Logic Apps 작동 방식에 따라 Azure Sentinel 자체를 포함하여 상호 작용하는 모든 형식의 모든 리소스에 별도로 연결하고 개별적으로 인증해야 합니다. Logic Apps는 이 용도로 [특수 커넥터](/connectors/connector-reference/)를 사용하며, 각 리소스 종류에는 고유한 커넥터가 있습니다. 이 문서에서는 플레이북이 작업 영역의 테이블에 있는 정보에 액세스하기 위해 Azure Sentinel과 상호 작용하는 데 사용될 수 있는 [Logic Apps Azure Sentinel 커넥터](/connectors/azuresentinel/)의 연결 및 인증 유형에 대해 설명합니다.
+Logic Apps 작동 방식은 Microsoft 센티널 자체를 포함 하 여 상호 작용 하는 모든 형식의 모든 리소스에 대해 개별적으로 연결 하 고 인증 해야 합니다. Logic Apps는 이 용도로 [특수 커넥터](/connectors/connector-reference/)를 사용하며, 각 리소스 종류에는 고유한 커넥터가 있습니다. 이 문서에서는 작업 영역 테이블의 정보에 액세스 하기 위해 플레이 북이 Microsoft 센티널과 상호 작용 하는 데 사용할 수 있는 [Logic Apps Microsoft 센티널 커넥터](/connectors/azuresentinel/)의 연결 및 인증 유형에 대해 설명 합니다.
 
-이 문서는 [플레이북에서 트리거와 작업을 사용](playbook-triggers-actions.md)하는 지침과 함께 다른 플레이북 설명서([자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용](tutorial-respond-threats-playbook.md))와 함께 제공됩니다.
+이 문서는 플레이 [북에서 트리거와 작업을 사용](playbook-triggers-actions.md)하는 지침과 함께 다른 플레이 북 설명서와 함께 제공 됩니다. [자습서: Microsoft 센티널의 자동화 규칙과 함께 플레이 북을 사용](tutorial-respond-threats-playbook.md)합니다.
 
-플레이북에 대한 소개는 [Azure Sentinel에서 플레이북으로 위협 대응 자동화](automate-responses-with-playbooks.md)를 참조하세요.
+플레이 북에 대 한 소개는 [Microsoft 센티널에서 플레이 북을 통해 위협 대응 자동화](automate-responses-with-playbooks.md)를 참조 하세요.
 
-Azure Sentinel 커넥터의 전체 사양은 [Logic Apps 커넥터 설명서](/connectors/azuresentinel/)를 참조하세요.
+Microsoft 센티널 커넥터의 전체 사양은 [Logic Apps 커넥터 설명서](/connectors/azuresentinel/)를 참조 하세요.
 
 ## <a name="authentication"></a>인증
 
-Logic Apps의 Azure Sentinel 커넥터와 해당 구성 요소의 트리거 및 작업은 관련 작업 영역에서 필요한 권한(읽기 및/또는 쓰기)이 있는 ID를 대신하여 작동할 수 있습니다. 커넥터는 다양한 ID 유형을 지원합니다.
+Logic Apps의 Microsoft 센티널 커넥터와 해당 구성 요소의 트리거 및 작업은 관련 작업 영역에서 필요한 권한 (읽기 및/또는 쓰기)이 있는 id를 대신 하 여 작동할 수 있습니다. 커넥터는 다양한 ID 유형을 지원합니다.
 
 - [관리 ID(미리 보기)](#authenticate-with-managed-identity)
 - [Azure AD 사용자](#authenticate-as-an-azure-ad-user)
@@ -46,23 +46,22 @@ Logic Apps의 Azure Sentinel 커넥터와 해당 구성 요소의 트리거 및 
 
 ### <a name="permissions-required"></a>필요한 사용 권한
 
-| 역할 \ 커넥터 구성 요소 | 트리거 | “Get” 작업 | 인시던트 업데이트,<br>주석 추가 |
+| 역할/커넥터 구성 요소 | 트리거 | “Get” 작업 | 인시던트 업데이트,<br>주석 추가 |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Azure Sentinel 읽기 권한자](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Azure Sentinel [응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Microsoft 센티널 판독기](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Microsoft 센티널 [응답기](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) / [참가자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
-[Azure Sentinel의 권한에 대해 자세히 알아보세요](./roles.md).
+[Microsoft 센티널의 권한에](./roles.md)대해 자세히 알아보세요.
 
 ### <a name="authenticate-with-managed-identity"></a>관리 ID를 사용하여 인증
 
-이 인증 방법을 사용하면 플레이북(Logic App 워크플로 리소스)에 직접 권한을 부여할 수 있으므로, 플레이북에서 수행하는 Azure Sentinel 커넥터 작업은 Azure Sentinel에 대해 고유한 권한이 있는 독립 개체인 것처럼 플레이북 대신 작동합니다. 이 방법을 사용하면 관리해야 하는 ID 수가 줄어듭니다. 
+이 인증 방법을 사용 하면 플레이 북 (논리 앱 워크플로 리소스)에 직접 권한을 부여할 수 있으므로 플레이 북에서 수행 하는 Microsoft 센티널 커넥터 작업은 Microsoft 센티널에 대 한 고유한 사용 권한이 있는 독립 개체인 것 처럼 플레이 북의 대신 작동 합니다. 이 방법을 사용하면 관리해야 하는 ID 수가 줄어듭니다. 
 
 > [!NOTE]
-> Azure Sentinel 작업 영역과 같은 다른 리소스에 대한 관리 ID 액세스 권한을 부여하려면 로그인한 사용자에게 Azure Sentinel 작업 영역의 소유자 또는 사용자 액세스 관리자와 같이 역할 할당을 작성할 수 있는 권한이 있는 역할이 있어야 합니다.
+> Microsoft 센티널 작업 영역 같은 다른 리소스에 대 한 관리 id 액세스 권한을 부여 하려면 로그인 한 사용자에 게 Microsoft 센티널 작업 영역의 소유자 또는 사용자 액세스 관리자와 같은 역할 할당을 쓸 수 있는 권한이 있는 역할이 있어야 합니다.
 
 관리 ID를 사용하여 인증하려면 다음을 수행합니다.
-
 
 1. Logic Apps 워크플로 리소스에서 [관리 ID를 사용](../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)합니다. 요약:
 
@@ -70,27 +69,26 @@ Logic Apps의 Azure Sentinel 커넥터와 해당 구성 요소의 트리거 및 
 
     - 이제 논리 앱에서 시스템이 할당한 ID를 사용할 수 있으며, Azure Active Directory에 등록되고 개체 ID로 표시됩니다.
 
-1. Azure Sentinel 작업 영역에 대한 [해당 ID 액세스 권한을 부여](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources)합니다. 
-    1. Azure Sentinel 메뉴에서 **설정** 을 선택합니다.
+1. Microsoft 센티널 작업 영역에 대 한 [id 액세스를 제공](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) 합니다.
+    1. Microsoft 센티널 메뉴에서 **설정** 를 선택 합니다.
     1. **작업 영역 설정** 탭을 선택합니다. 작업 영역 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
-   1. 상단의 단추 모음에서 **추가** 를 선택하고 **역할 할당 추가** 를 선택합니다. **역할 할당 추가** 옵션이 사용되지 않도록 설정되면 역할을 할당할 수 있는 권한이 없는 것입니다.
+    1. 상단의 단추 모음에서 **추가** 를 선택하고 **역할 할당 추가** 를 선택합니다. **역할 할당 추가** 옵션이 사용되지 않도록 설정되면 역할을 할당할 수 있는 권한이 없는 것입니다.
     1. 표시되는 새 패널에서 적절한 역할을 할당합니다.
-    
+
         | 역할 | 상황 |
         | --- | --- |
-        | [**Azure Sentinel 응답자**](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) | 플레이북에는 인시던트 또는 관심 목록을 업데이트하는 단계가 있습니다. |
-        | [**Azure Sentinel 읽기 권한자**](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) | 플레이북은 인시던트만 받습니다. |
+        | [**Microsoft 센티널 응답자**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | 플레이북에는 인시던트 또는 관심 목록을 업데이트하는 단계가 있습니다. |
+        | [**Microsoft 센티널 판독기**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | 플레이북은 인시던트만 받습니다. |
         |
-        
-        [Azure Sentinel에서 사용 가능한 역할](./roles.md)에 대해 자세히 알아보세요.
+
+        [Microsoft 센티널에서](./roles.md)사용 가능한 역할에 대해 자세히 알아보세요.
     1. **액세스 권한 할당** 에서 **논리 앱** 을 선택합니다.
     1. 플레이북이 속한 구독을 선택하고 플레이북 이름을 선택합니다.
     1. **저장** 을 선택합니다.
-    
-    
-1. Azure Sentinel Logic Apps 커넥터에서 관리 ID 인증 방법을 사용합니다.
 
-    1. Logic Apps 디자이너에서 Azure Sentinel Logic Apps 커넥터 단계를 추가합니다. 기존 연결에 대한 커넥터를 이미 사용하도록 설정한 경우 **연결 변경** 링크를 클릭합니다.
+1. Microsoft 센티널 Logic Apps 커넥터에서 관리 되는 id 인증 방법을 사용 하도록 설정 합니다.
+
+    1. Logic Apps 디자이너에서 Microsoft 센티널 Logic Apps 커넥터 단계를 추가 합니다. 기존 연결에 대한 커넥터를 이미 사용하도록 설정한 경우 **연결 변경** 링크를 클릭합니다.
 
         ![연결 변경](media/authenticate-playbooks-to-sentinel/change-connection.png)
 
@@ -112,7 +110,7 @@ Logic Apps의 Azure Sentinel 커넥터와 해당 구성 요소의 트리거 및 
 
 Azure AD 애플리케이션을 등록하여 서비스 주체를 만들 수 있습니다. 사용자 계정을 이용하는 대신, 커넥터의 ID로 등록된 애플리케이션을 사용하는 것이 **좋습니다**. 이는 사용 권한을 제어하고, 자격 증명을 관리하며, 커넥터 사용에 대한 특정 제한을 사용하도록 설정할 수 있기 때문입니다.
 
-Azure Sentinel 커넥터에서 사용자 고유의 애플리케이션을 사용하려면 다음 단계를 수행합니다.
+Microsoft 센티널 커넥터에서 사용자 고유의 응용 프로그램을 사용 하려면 다음 단계를 수행 합니다.
 
 1. Azure AD를 사용하여 애플리케이션을 등록하고 서비스 주체를 만듭니다. [방법을 알아보세요](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 
@@ -123,15 +121,15 @@ Azure Sentinel 커넥터에서 사용자 고유의 애플리케이션을 사용�
     - **클라이언트 ID**: **개요** 아래
     - **클라이언트 암호**: **인증서 및 비밀** 아래
 
-1. Azure Sentinel 작업 영역에 사용 권한을 부여합니다.
+1. Microsoft 센티널 작업 영역에 권한을 부여 합니다.
 
-    이 단계에서 앱은 Azure Sentinel 작업 영역을 사용할 수 있는 사용 권한을 얻게 됩니다.
+    이 단계에서 앱은 Microsoft 센티널 작업 영역에 대 한 작업 권한을 얻게 됩니다.
 
-    1. Azure Sentinel 작업 영역에서 **설정** -> **작업 영역 설정** -> **액세스 제어(IAM)** 로 이동합니다.
+    1. Microsoft 센티널 작업 영역에서 **설정**  ->  **작업 영역 설정**  ->  **Access control (IAM)** 로 이동 합니다.
 
     1. **역할 할당 추가** 를 선택합니다.
 
-    1. 애플리케이션에 할당할 역할을 선택합니다. 예를 들어, 인시던트를 업데이트하는 것처럼 애플리케이션이 Sentinel 작업 영역에서 변경 작업을 수행할 수 있도록 하려면 **Azure Sentinel 참가자** 역할을 선택합니다. 데이터를 읽기만 하는 작업의 경우 **Azure Sentinel 읽기 권한자** 역할로 충분합니다. [Azure Sentinel에서 사용 가능한 역할에 대해 자세히 알아보세요](./roles.md).
+    1. 애플리케이션에 할당할 역할을 선택합니다. 예를 들어 응용 프로그램이 인시던트를 업데이트 하는 것과 같이 센티널 작업 영역에서 변경 작업을 수행할 수 있도록 하려면 **Microsoft 센티널 참가자** 역할을 선택 합니다. 데이터를 읽기만 하는 작업의 경우 **Microsoft 센티널 Reader** 역할만으로 충분 합니다. [Microsoft 센티널에서 사용 가능한 역할에 대해 자세히 알아보세요](./roles.md).
 
     1. 필요한 애플리케이션을 찾아서 저장합니다. 기본적으로 Azure AD 애플리케이션이 사용 가능한 옵션에 표시되지 않습니다. 애플리케이션을 찾으려면 이름을 검색하여 선택합니다.
 
@@ -152,7 +150,7 @@ Azure Sentinel 커넥터에서 사용자 고유의 애플리케이션을 사용�
 
 ### <a name="manage-your-api-connections"></a>API 연결 관리
 
-처음으로 인증을 만들 때마다 API 연결 형식의 새로운 Azure 리소스가 만들어집니다. 동일한 리소스 그룹의 모든 Azure Sentinel 작업과 트리거에서 동일한 API 연결을 사용할 수 있습니다.
+처음으로 인증을 만들 때마다 API 연결 형식의 새로운 Azure 리소스가 만들어집니다. 동일한 리소스 그룹의 모든 Microsoft 센티널 작업 및 트리거에서 동일한 API 연결을 사용할 수 있습니다.
 
 모든 API 연결은 **API 연결** 블레이드(Azure Portal에서 *API 연결* 검색)를 찾을 수 있습니다.
 
@@ -162,5 +160,6 @@ Azure Sentinel 커넥터에서 사용자 고유의 애플리케이션을 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel에 Logic Apps 기반 플레이북을 인증하는 다양한 방법에 대해 알아보았습니다.
+이 문서에서는 Microsoft 센티널에 Logic Apps 기반 플레이 북을 인증 하는 다양 한 방법에 대해 알아보았습니다.
+
 - [플레이북에서 트리거와 작업을 사용](playbook-triggers-actions.md)하는 방법에 대해 자세히 알아보세요.

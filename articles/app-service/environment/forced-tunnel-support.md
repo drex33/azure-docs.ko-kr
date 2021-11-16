@@ -1,18 +1,18 @@
 ---
 title: 강제 터널링 구성
 description: 가상 네트워크에서 아웃바운드 트래픽이 강제 터널링될 때 App Service Environment가 작동하도록 설정하는 방법을 알아봅니다.
-author: ccompy
+author: madsd
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 05/29/2018
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8d05b4f8e69023e1ecec7002f394141fff008f0d
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: e0d43424e038328f82d3639891aa85397f68d3ad
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432971"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519613"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 > [!NOTE]

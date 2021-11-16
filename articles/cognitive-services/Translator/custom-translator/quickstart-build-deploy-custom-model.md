@@ -9,24 +9,26 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: quickstart
-ms.openlocfilehash: e77196572a0ea3b18f0b28a6ad26349e6e7c668e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fec2ae2f5f06303d48df77a34bcf41e4ab9e83f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744787"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252234"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역을 위한 사용자 지정 모델 빌드, 배포 및 사용
 
 이 문서에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 지침을 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하려면 [Microsoft 계정](https://signup.live.com) 또는 [Azure AD 계정](../../../active-directory/fundamentals/active-directory-whatis.md)(Azure에 호스트되는 조직 계정)으로 로그인해야 합니다.
 
 2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](../translator-how-to-signup.md)을 참조하세요.
 
 3. 위의 두 가지가 모두 있는 경우 [사용자 지정 변환기](https://portal.customtranslator.azure.ai) 포털에 로그인하여 작업 영역, 프로젝트, 파일 업로드 및 모델 만들기/배포를 만듭니다.
+
+번역 및 사용자 지정 번역에 대한 개요를 읽고, 몇 가지 팁을 알아보고, [Azure AI 기술 블로그](https://techcommunity.microsoft.com/t5/azure-ai/customize-a-translation-to-make-sense-in-a-specific-context/ba-p/2811956)에서 시작 비디오를 시청할 수 있습니다. 
 
 [YouTube](https://www.youtube.com/watch?v=TykB6WDTkRc&t=3s)에서 Custom Translator 연습 비디오 전체를 처음부터 끝까지 볼 수도 있습니다.
 

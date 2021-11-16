@@ -1,5 +1,5 @@
 ---
-title: CLI를 사용 하 여 모델 학습 (v2)
+title: CLI를 통해 모델 학습(v2)
 titleSuffix: Azure Machine Learning
 description: Machine Learning에 대한 Azure CLI 확장을 사용한 모델 학습(작업 만들기) 방법을 알아봅니다.
 services: machine-learning
@@ -11,28 +11,28 @@ ms.author: amipatel
 ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 1300a830fb3688c9ebc2b9f43b77e3b9214c731d
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: b849293d94b435fa74378d80d8989e6075f78d86
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132054318"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493669"
 ---
-# <a name="train-models-with-the-cli-v2-preview"></a>CLI를 사용 하 여 모델 학습 (v2) (미리 보기)
+# <a name="train-models-with-the-cli-v2-preview"></a>CLI를 통해 모델 학습(v2)(미리 보기)
 
 Azure CLI 확장인 Azure Machine Learning CLI(v2)를 사용하면 추적 및 감사 가능한 모델 수명 주기를 통해 Azure 컴퓨팅을 스케일 업 및 아웃하는 동시에 모델 학습 프로세스를 가속화할 수 있습니다.
 
-기계 학습 모델을 학습시키는 과정은 반복 프로세스입니다. 최신 도구를 사용하면 더 많은 모델에 더 많은 데이터를 전보다 훨씬 더 빠르게 학습시킬 수 있습니다. 하이퍼 매개 변수 튜닝과 알고리즘 선택 같은 이전의 지루한 수동 프로세스가 자동화되는 경우가 많습니다. Azure Machine Learning CLI (v2)를 사용 하 여 하이퍼 매개 변수 스윕를 사용 하 여 [작업 영역](concept-workspace.md) 에서 작업 (및 모델)을 추적 하 고, 고성능 Azure 계산을 확장 하 고, 분산 학습을 활용 하 여 스케일 아웃할 수 있습니다.
+기계 학습 모델을 학습시키는 과정은 반복 프로세스입니다. 최신 도구를 사용하면 더 많은 모델에 더 많은 데이터를 전보다 훨씬 더 빠르게 학습시킬 수 있습니다. 하이퍼 매개 변수 튜닝과 알고리즘 선택 같은 이전의 지루한 수동 프로세스가 자동화되는 경우가 많습니다. Azure Machine Learning CLI(v2)를 사용하면 하이퍼스페이스 스윕을 통해 [작업 영역에서](concept-workspace.md) 작업(및 모델)을 추적하고, 고성능 Azure 컴퓨팅에서 확장하고, 분산 학습을 활용하여 스케일 아웃할 수 있습니다.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- CLI (v2)를 사용 하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
-- [CLI를 설치 하 고 설정 합니다 (v2)](how-to-configure-cli.md).
+- CLI(v2)를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
+- [CLI(v2) 를 설치하고 설정합니다.](how-to-configure-cli.md)
 
 > [!TIP]
-> 스키마 유효성 검사 및 작업 YAMLs 자동 완성 기능을 제공 하는 완전 한 기능을 갖춘 개발 환경에는 Visual Studio Code 및 [Azure Machine Learning 확장](how-to-setup-vs-code.md)을 사용 합니다.
+> 작업 YAML에 대한 스키마 유효성 검사 및 자동 완성 기능을 갖춘 개발 환경의 경우 Visual Studio Code 및 [Azure Machine Learning 확장을](how-to-setup-vs-code.md)사용합니다.
 
 ### <a name="clone-examples-repository"></a>예제 리포지토리 복제
 
@@ -40,7 +40,7 @@ Azure CLI 확장인 Azure Machine Learning CLI(v2)를 사용하면 추적 및 �
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
-를 사용 하면 `--depth 1` 리포지토리에 대 한 최신 커밋을 사용 하 여 작업을 완료 하는 시간을 줄일 수 있습니다.
+를 사용하면 `--depth 1` 리포지토리에 대한 최신 커밋만 복제되어 작업을 완료하는 시간이 줄어듭니다.
 
 ### <a name="create-compute"></a>컴퓨팅 만들기
 
@@ -48,9 +48,9 @@ Azure CLI 확장인 Azure Machine Learning CLI(v2)를 사용하면 추적 및 �
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
 
-이 시점에서 계산에 대 한 요금은 청구 되지 `cpu-cluster` 않으며 `gpu-cluster` 작업이 제출 될 때까지 0 개의 노드에 남아 있게 됩니다. [AmlCompute의 비용을 관리하고 최적화](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute)하는 방법에 대해 자세히 알아보세요.
+이 시점에서는 컴퓨팅에 대한 요금이 청구되지 않으며 `cpu-cluster` `gpu-cluster` 작업이 제출될 때까지 0개 노드로 유지됩니다. [AmlCompute의 비용을 관리하고 최적화](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute)하는 방법에 대해 자세히 알아보세요.
 
-이 문서의 다음 예제 작업은 `cpu-cluster` 또는 `gpu-cluster` 중 하나를 사용합니다. 필요에 따라이 문서 전체에서 예제 작업의 이러한 이름을 클러스터의 이름으로 조정 합니다. 컴퓨팅 만들기 옵션에 대한 자세한 내용을 보려면 `az ml compute create -h`를 사용하세요.
+이 문서의 다음 예제 작업은 `cpu-cluster` 또는 `gpu-cluster` 중 하나를 사용합니다. 필요에 따라 이 문서 전체의 예제 작업에서 이러한 이름을 클러스터의 이름으로 조정합니다. 컴퓨팅 만들기 옵션에 대한 자세한 내용을 보려면 `az ml compute create -h`를 사용하세요.
 
 ## <a name="hello-world"></a>Hello World
 
@@ -65,47 +65,47 @@ Azure Machine Learning CLI(v2)에서 작업은 YAML 형식으로 작성됩니다
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
 
 > [!WARNING]
-> Python은 작업에 사용 되는 환경에 설치 해야 합니다. `apt-get update -y && apt-get install python3 -y`Dockerfile에서를 실행 하 여 필요한 경우 설치 하거나 Python이 이미 설치 된 기본 이미지에서 파생 합니다.
+> Python은 작업에 사용되는 환경에 설치해야 합니다. `apt-get update -y && apt-get install python3 -y`필요한 경우 Dockerfile에서 를 실행하여 설치하거나 Python이 이미 설치된 기본 이미지에서 파생합니다.
 
 > [!TIP]
-> `$schema:`전체 예제에서는 [Azure Machine Learning 확장을 사용 하 여 vscode](how-to-setup-vs-code.md)에서 yaml 파일을 제작 하는 경우 스키마 유효성 검사 및 자동 완성을 허용 합니다.
+> 전체 예제에서는 Azure Machine Learning 확장명 를 사용하여 `$schema:` [VSCode에서](how-to-setup-vs-code.md)YAML 파일을 제작하는 경우 스키마 유효성 검사 및 자동 완성을 허용합니다.
 
 다음을 실행할 수 있습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
 
 > [!TIP]
-> `--web`매개 변수는 기본 웹 브라우저를 사용 하 여 Azure Machine Learning studio에서 작업을 열려고 시도 합니다. `--stream`매개 변수를 사용 하 여 콘솔에 로그를 스트리밍하 고 추가 명령을 차단할 수 있습니다.
+> `--web`매개 변수는 기본 웹 브라우저를 사용하여 Azure Machine Learning Studio에서 작업을 열려고 시도합니다. `--stream`매개 변수를 사용하여 로그를 콘솔로 스트리밍하고 추가 명령을 차단할 수 있습니다.
 
 ## <a name="overriding-values-on-create-or-update"></a>만들기 또는 업데이트 시 값 재정의
 
-YAML 작업 사양 값은 `--set` 작업을 만들거나 업데이트할 때를 사용 하 여 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
+YAML 작업 사양 값은 작업을 만들거나 업데이트할 때 를 사용하여 `--set` 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_set":::
 
 ## <a name="job-names"></a>작업 이름
 
-및 외의 대부분의 명령에는 `az ml job` `create` `list` `--name/-n` 작업의 이름 또는 스튜디오의 "실행 ID"가 필요 합니다. 작업을 만드는 동안 작업의 속성은 `name` 작업 영역 마다 고유 해야 하므로 직접 설정 하면 안 됩니다. CLI에서 작업 생성의 출력에서 얻거나 studio 및 mlflow api에서 "실행 ID" 속성을 복사 하 여 가져올 수 있는 작업 이름에 대 한 임의 GUID를 생성 Azure Machine Learning 합니다.
+및 이외의 대부분의 `az ml job` `create` `list` `--name/-n` 명령에는 스튜디오에서 작업의 이름 또는 "실행 ID"인 가 필요합니다. 작업 영역별로 고유해야 하며 만드는 동안 작업의 속성을 직접 설정해서는 안 `name` 됩니다. Azure Machine Learning 설정되지 않은 경우 작업 이름에 대해 임의 GUID를 생성합니다. 이 GUID는 CLI에서 작업 만들기의 출력에서 가져오거나 스튜디오 및 MLflow API에서 "실행 ID" 속성을 복사하여 가져올 수 있습니다.
 
-스크립트 및 CI/CD 흐름에서 작업을 자동화 하려면를 추가 하 여 출력을 쿼리하고 제거 하 여 만들 때 작업의 이름을 캡처할 수 있습니다 `--query name -o tsv` . 구체적인 사항은 셸에 따라 다르지만 Bash의 경우에는 다음을 수행 합니다.
+스크립트 및 CI/CD 흐름에서 작업을 자동화하려면 를 추가하여 출력을 쿼리하고 제거하여 작업을 만들 때 작업의 이름을 캡처할 수 `--query name -o tsv` 있습니다. 세부 사항은 셸에 따라 다르지만 Bash의 경우 다음과 같습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_name":::
 
-그런 다음 `$run_id` , 또는와 같은 후속 명령에서를 사용 `update` 합니다 `show` `stream` .
+그런 다음 `$run_id` , 또는 와 같은 후속 명령에서 `update` `show` 를 `stream` 사용합니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_show":::
 
 ## <a name="organize-jobs"></a>작업 구성
 
-작업을 구성 하기 위해 표시 이름, 실험 이름, 설명 및 태그를 설정할 수 있습니다. 설명은 스튜디오에서 markdown 구문을 지원 합니다. 이러한 속성은 작업을 만든 후에 변경할 수 있습니다. 전체 예:
+작업을 구성하려면 표시 이름, 실험 이름, 설명 및 태그를 설정할 수 있습니다. 설명은 스튜디오에서 Markdown 구문을 지원합니다. 이러한 속성은 작업을 만든 후 변경이 가능합니다. 전체 예제:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
 
-이 작업을 실행할 수 있습니다. 이러한 속성은 studio에서 즉시 표시 됩니다.
+이 작업을 실행할 수 있습니다. 여기서 이러한 속성은 스튜디오에 즉시 표시됩니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org":::
 
-을 사용 하 여 `--set` 작업을 만든 후 변경 가능한 값을 업데이트할 수 있습니다.
+를 사용하면 `--set` 작업을 만든 후 변경 가능한 값을 업데이트할 수 있습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org_set":::
 
@@ -115,65 +115,65 @@ YAML 작업 사양 값은 `--set` 작업을 만들거나 업데이트할 때를 
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
 
-이 작업을 실행할 수 있습니다.
+다음 작업을 실행할 수 있습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_env_var":::
 
 > [!WARNING]
-> 에서 인수를 매개 변수화 하는 데를 사용 해야 합니다 `inputs` `command` . [입력 및 출력을](#inputs-and-outputs)참조 하세요.
+> 에서 `inputs` 인수를 매개 변수화하는 데 를 사용해야 `command` 합니다. [입력 및 출력을 참조하세요.](#inputs-and-outputs)
 
 ## <a name="track-models-and-source-code"></a>모델 및 소스 코드 추적
 
-프로덕션 기계 학습 모델을 감사할 수 있어야 합니다 (재현 되지 않는 경우). 지정 된 모델에 대 한 소스 코드를 추적 하는 것이 중요 합니다. Azure Machine Learning는 소스 코드의 스냅숏을 만들어 작업과 함께 유지 합니다. 또한 Git 리포지토리에서 작업을 실행 하는 경우 원본 리포지토리 및 커밋을 유지 합니다.
+프로덕션 기계 학습 모델은 감사 가능해야 합니다(재현할 수 없는 경우). 지정된 모델의 소스 코드를 추적하는 것이 중요합니다. Azure Machine Learning 소스 코드의 스냅샷을 만들어 작업과 함께 유지합니다. 또한 Git 리포지토리에서 작업을 실행하는 경우 원본 리포지토리 및 커밋이 유지됩니다.
 
 > [!TIP]
-> 예제 리포지토리에서 함께 수행 하 고 실행 하는 경우 지금까지 실행 되는 작업 중에서 소스 리포지토리를 확인 하 고 studio에서 커밋할 수 있습니다.
+> 예제 리포지토리를 따라 실행 중인 경우 원본 리포지토리를 확인하고 지금까지 실행된 작업 중 하나에서 스튜디오에서 커밋할 수 있습니다.
 
-`code.local_path`값이 인 작업의 키를 소스 코드 디렉터리의 경로로 지정할 수 있습니다. 디렉터리의 스냅숏이 작업을 통해 수행 되 고 업로드 됩니다. 디렉터리의 콘텐츠는 작업의 작업 디렉터리에서 직접 사용할 수 있습니다.
+소스 코드 디렉터리에 대한 경로로 값을 사용하여 작업에서 키를 지정할 수 `code.local_path` 있습니다. 디렉터리 스냅샷이 생성되고 작업과 함께 업로드됩니다. 디렉터리 내용은 작업의 작업 디렉터리에서 직접 사용할 수 있습니다.
 
 > [!WARNING]
-> 소스 코드에 모델 학습을 위한 대량 데이터 입력을 포함 하면 안 됩니다. 대신 [데이터 입력을 사용](#data-inputs)합니다. `.gitignore`소스 코드 디렉터리에 있는 파일을 사용 하 여 스냅숏에서 파일을 제외할 수 있습니다. 스냅숏 크기에 대 한 제한은 300 MB 또는 2000 파일입니다.
+> 소스 코드에는 모델 학습을 위한 대용량 데이터 입력이 포함되지 않아야 합니다. 대신 [데이터 입력을 사용합니다.](#data-inputs) 소스 코드 `.gitignore` 디렉터리에서 파일을 사용하여 스냅샷에서 파일을 제외할 수 있습니다. 스냅샷 크기에 대한 제한은 300MB 또는 2000개 파일입니다.
 
-코드를 지정 하는 작업을 살펴보겠습니다.
+코드를 지정하는 작업을 살펴보겠습니다.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-mlflow.yml":::
 
-Python 스크립트는 로컬 소스 코드 디렉터리에 있습니다. 그런 다음 명령을 호출 `python` 하 여 스크립트를 실행 합니다. 다른 프로그래밍 언어에도 동일한 패턴을 적용할 수 있습니다.
+Python 스크립트는 로컬 소스 코드 디렉터리에 있습니다. 그런 다음 명령을 `python` 호출하여 스크립트를 실행합니다. 다른 프로그래밍 언어에도 동일한 패턴을 적용할 수 있습니다.
 
 > [!WARNING]
-> 이 문서에 표시 된 "hello" 작업 패밀리는 데모용 이며 권장 되는 모범 사례를 따르는 것은 아닙니다. `&&`시퀀스에서 많은 명령을 실행 하는 것과 비슷한 방법을 사용 하지 않는 것이 좋습니다. 대신 소스 코드 디렉터리의 스크립트 파일에 명령을 쓰고에서 스크립트를 호출 하는 것이 좋습니다 `command` . 위에서 설명한 대로에서 종속성을 설치 하는 것 `command` `pip install` 은 권장 되지 않습니다. 대신 모든 작업 종속성을 사용자 환경의 일부로 지정 해야 합니다. 자세한 내용은 [CLI를 사용 하 여 환경을 관리 하는 방법 (v2)을](how-to-manage-environments-v2.md) 참조 하세요.
+> 이 문서에 표시된 작업의 "hello" 제품군은 데모용이며 권장 모범 사례를 반드시 따르는 것은 아닙니다. 또는 를 사용하여 `&&` 시퀀스에서 많은 명령을 실행하는 것은 권장되지 않습니다. 대신 소스 코드 디렉터리에 있는 스크립트 파일에 명령을 작성하고 에서 스크립트를 호출하는 것이 `command` 좋습니다. 를 통해 위에 표시된 대로 에 대한 의존성 `command` `pip install` 설치는 권장되지 않습니다. 대신 모든 작업 의존성 을 환경의 일부로 지정해야 합니다. 자세한 내용은 [CLI(v2)를 사용하여 환경을 관리하는 방법을](how-to-manage-environments-v2.md) 참조하세요.
 
-### <a name="model-tracking-with-mlflow"></a>MLflow를 사용 하 여 모델 추적
+### <a name="model-tracking-with-mlflow"></a>MLflow를 통해 모델 추적
 
-모델에서 반복 하는 동안 데이터 과학자은 모델 매개 변수 및 학습 메트릭을 추적할 수 있어야 합니다. Azure Machine Learning은 mlflow 추적과 통합 되어 작업에 대 한 모델, 아티팩트, 메트릭 및 매개 변수 로깅을 사용할 수 있습니다. Python 스크립트에서 MLflow를 사용 하려면 `import mlflow` `mlflow.log_*` 교육 코드에서 또는 api를 추가 하 고 호출 `mlflow.autolog()` 합니다.
+모델을 계속 진행하는 동안 데이터 과학자는 모델 매개 변수 및 학습 메트릭을 추적할 수 있어야 합니다. Azure Machine Learning MLflow 추적과 통합되어 모델, 아티팩트, 메트릭 및 매개 변수를 작업에 로깅할 수 있습니다. Python 스크립트에서 MLflow를 사용하려면 `import mlflow` `mlflow.log_*` 학습 코드에서 또는 `mlflow.autolog()` API를 추가하고 호출합니다.
 
 > [!WARNING]
-> `mlflow` `azureml-mlflow` Mlflow 추적 기능을 사용할 수 있도록 Python 환경에 및 패키지를 설치 해야 합니다.
+> `mlflow`및 `azureml-mlflow` 패키지는 MLflow 추적 기능을 위해 Python 환경에 설치해야 합니다.
 
 > [!TIP]
-> 이러한 `mlflow.autolog()` 호출은 널리 사용 되는 많은 프레임 워크에서 지원 되며 대부분의 로깅 작업을 담당 합니다.
+> `mlflow.autolog()`호출은 많은 인기 있는 프레임워크에서 지원되며 대부분의 로깅을 처리합니다.
 
-를 사용 하 여 `mlflow` 매개 변수, 메트릭 및 아티팩트를 기록 하는 위의 작업에서 호출 된 Python 스크립트를 살펴보겠습니다.
+매개 변수, 메트릭 및 아티팩트 로그에 사용하는 위의 작업에서 호출된 Python 스크립트를 살펴보겠습니다. `mlflow`
 
 :::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-mlflow.py":::
 
-Azure Machine Learning를 통해 클라우드에서이 작업을 실행할 수 있습니다 .이 작업을 추적 하 고 감사할 수 있습니다.
+Azure Machine Learning 통해 클라우드에서 이 작업을 실행할 수 있습니다. 여기서 추적 및 감사할 수 있습니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_mlflow":::
 
-### <a name="query-metrics-with-mlflow"></a>MLflow를 사용 하 여 메트릭 쿼리
+### <a name="query-metrics-with-mlflow"></a>MLflow를 사용하여 메트릭 쿼리
 
-작업을 실행 한 후에는 작업의 실행 결과와 기록 된 메트릭을 쿼리 하는 것이 좋습니다. Python은 CLI 보다이 작업에 더 적합 합니다. 를 통해 실행 및 해당 메트릭을 쿼리하고 `mlflow` Pandas 데이터 프레임과 같은 친숙 한 개체를 분석에 로드할 수 있습니다.
+작업을 실행한 후에는 작업의 실행 결과와 기록된 메트릭을 쿼리할 수 있습니다. Python은 CLI보다 이 작업에 더 적합합니다. 을 통해 실행 및 해당 메트릭을 `mlflow` 쿼리하고, 분석을 위해 Pandas 데이터 프레임과 같은 친숙한 개체에 로드할 수 있습니다.
 
-먼저 Azure Machine Learning 작업 영역에 대 한 mlflow 추적 URI를 검색 합니다.
+먼저 Azure Machine Learning 작업 영역에 대한 MLflow 추적 URI를 검색합니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="mlflow_uri":::
 
-`mlflow.set_tracking_uri(<YOUR_TRACKING_URI>)`MLflow를 가져온 Python 환경에서이 명령의 출력을 사용 합니다. mlflow 호출은 이제 Azure Machine Learning 작업 영역에 있는 작업에 해당 합니다.
+MLflow를 가져온 Python 환경에서 이 명령의 `mlflow.set_tracking_uri(<YOUR_TRACKING_URI>)` 출력을 사용합니다. MLflow 호출은 이제 Azure Machine Learning 작업 영역의 작업에 해당합니다.
 
 ## <a name="inputs-and-outputs"></a>입력 및 출력
 
-작업에는 일반적으로 입력 및 출력이 있습니다. 입력은 모델 매개 변수 일 수 있습니다 .이 매개 변수는 하이퍼 매개 변수 최적화를 위해 스윕 될 수도 있고 계산 대상으로 탑재 되거나 다운로드 되는 클라우드 데이터 입력 일 수도 있습니다. 출력 (메트릭 무시)은 기본 출력 또는 명명 된 데이터 출력에 쓰거나 복사할 수 있는 아티팩트입니다.
+작업에는 일반적으로 입력 및 출력이 있습니다. 입력은 하이퍼 매개 변수 최적화를 위한 모델 매개 변수 또는 컴퓨팅 대상에 탑재되거나 다운로드되는 클라우드 데이터 입력일 수 있습니다. 출력(메트릭 무시)은 기본 출력 또는 명명된 데이터 출력에 쓰거나 복사할 수 있는 아티팩트입니다.
 
 ### <a name="literal-inputs"></a>리터럴 입력
 
@@ -350,7 +350,7 @@ Scikit 프레임 워크는 autologging에 대해 MLflow에서 지원 되므로 `
 
 Azure Machine Learning은 PyTorch, TensorFlow 및 MPI 기반 분산 교육을 지원 합니다. 자세한 내용은 [작업 YAML 구문 참조 명령의 distributed 섹션](reference-yaml-job-command.md#distribution-configurations) 을 참조 하세요.
 
-예를 들어 distributed PyTorch를 사용 하 여 CIFAR 데이터 집합에서 CNN (신경망)을 학습할 수 있습니다. 전체 스크립트는 [예제 리포지토리에서 사용할 수 있습니다](https://github.com/Azure/azureml-examples/tree/cli-preview/jobs/single-step/pytorch/cifar-distributed/).
+예를 들어 distributed PyTorch를 사용 하 여 CIFAR 데이터 집합에서 CNN (신경망)을 학습할 수 있습니다. 전체 스크립트는 [예제 리포지토리에서 사용할 수 있습니다](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/cifar-distributed).
 
 의 CIFAR-10 데이터 집합은 `torchvision` 디렉터리를 포함 하는 디렉터리를 입력으로 예상 합니다 `cifar-10-batches-py` . 압축 된 소스를 다운로드 하 고 로컬 디렉터리에 추출할 수 있습니다.
 

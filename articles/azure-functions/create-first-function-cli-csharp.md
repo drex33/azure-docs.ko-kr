@@ -11,35 +11,26 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-zone_pivot_groups: runtime-version-programming-functions
-ms.openlocfilehash: e025362dfb992c1c9471ccae602412bcd21cb98e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 75d8177b8feaeb5bf4dfa0d7a3791b65fab930d4
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031476"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026687"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 C# 함수 만들기
-
-[!INCLUDE [functions-runtime-version-dotnet](../../includes/functions-runtime-version-dotnet.md)]
 
 이 문서에서는 명령줄 도구를 사용하여 HTTP 요청에 응답하는 C# 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다.
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
-이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
+이 문서에서는 .NET 6.0에서 실행되는 HTTP 트리거 함수를 만듭니다. 또한 이 문서의 [Visual Studio Code 기반 버전](create-first-function-vs-code-csharp.md)도 있습니다.
 
-또한 이 문서의 [Visual Studio Code 기반 버전](create-first-function-vs-code-csharp.md)도 있습니다.
+이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
 
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
 시작하기 전에 다음이 있어야 합니다.
-
-::: zone pivot="programming-runtime-functions-v3"
-[!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
-::: zone-end
-::: zone pivot="programming-runtime-functions-v4"
-# <a name="in-process"></a>[In-Process](#tab/in-process)
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
@@ -51,22 +42,6 @@ ms.locfileid: "131031476"
 
     + [Az PowerShell 모듈](/powershell/azure/install-az-ps), 버전 5.9.0 이상.
 
-# <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
-
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
-
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). 빌드 프로세스에 필요합니다.
-
-+ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 4.x
-
-+ 다음 도구 중 하나를 통해 Azure 리소스를 만듭니다.
-
-    + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
-
-    + [Az PowerShell 모듈](/powershell/azure/install-az-ps), 버전 5.9.0 이상.
----
-::: zone-end
-
 활성 구독이 있는 Azure 계정도 필요합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
@@ -75,7 +50,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `dotnet --list-sdks`를 실행하여 필요한 버전이 설치되어 있는지 확인합니다.
 
@@ -85,7 +60,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `dotnet --list-sdks`를 실행하여 필요한 버전이 설치되어 있는지 확인합니다.
 
@@ -235,10 +210,8 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
     ---
 
-    ::: zone pivot="programming-runtime-functions-v4"
     > [!NOTE]
     > 이 명령은 Azure Functions 런타임의 3.x 버전을 사용하여 함수 앱을 만듭니다. 나중에 실행할 `func azure functionapp publish` 명령은 앱을 버전 4.x로 업데이트합니다.
-    ::: zone-end
 
     이전 예제에서는 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다.
 

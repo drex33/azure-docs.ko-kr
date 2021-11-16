@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 보안 모듈 쌍 만들기'
-description: 이 빠른 시작에서는 Azure Defender for IoT에서 사용할 Defender for IoT 모듈 쌍을 만드는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Microsoft Defender for IoT에서 사용할 Defender for IoT 모듈 쌍을 만드는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 05/26/2021
-ms.openlocfilehash: 5f2d6b4e4ab747988fe41322aab61c90b7c15b18
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 34927684fb87b48390479bccd63d7667a6350d14
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011328"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281895"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>빠른 시작: azureiotsecurity 모듈 쌍 만들기
 
@@ -22,8 +22,7 @@ ms.locfileid: "113011328"
 
 Azure에 구축된 IoT 솔루션의 경우 디바이스 쌍은 디바이스 관리와 프로세스 자동화 모두에서 중요한 역할을 수행합니다.
 
-Defender for IoT는 기존 IoT 디바이스 관리 플랫폼과 완벽하게 통합되어 디바이스 보안 상태를 관리하고 기존 디바이스 제어 기능을 사용할 수 있도록 지원합니다.
-Defender for IoT 통합은 IoT Hub 쌍 메커니즘을 사용하여 구현됩니다.
+Defender for IoT는 기존 IoT 디바이스 관리 플랫폼과 완벽하게 통합되어 디바이스 보안 상태를 관리하고 기존 디바이스 제어 기능을 사용할 수 있도록 지원합니다. Defender for IoT 통합은 IoT Hub 쌍 메커니즘을 사용하여 구현됩니다.
 
 Azure IoT Hub에 있는 모듈 쌍의 일반적인 개념에 대한 자세한 내용은 [IoT Hub 모듈 쌍](../../iot-hub/iot-hub-devguide-module-twins.md)[IoT Hub 모듈 쌍]을 참조하세요.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9151a84aa03e9b87b02278672622d458fbc5281e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 406893018da40f10f764f44a13d13bd420492519
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822143"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132353970"
 ---
 Azure Portal을 사용하여 IoT Hub를 만들려면
 
@@ -54,7 +54,7 @@ Azure Portal을 사용하여 IoT Hub를 만들려면
    - **IoT Hub 단위**: 하루 단위당 허용되는 메시지의 수는 허브의 가격 책정 계층에 따라 다릅니다. 예를 들어 허브가 700,000개의 메시지 수신을 지원하려면 S1 계층 단위 2개를 선택합니다.
    각 Azure 구독은 체험 계층에 하나의 IoT Hub를 만들 수 있습니다. 다른 계층 옵션에 대한 자세한 내용은 [적절한 IoT Hub 계층 선택](../articles/iot-hub/iot-hub-scaling.md)을 참조하세요.
 
-   - **Defender for IoT**: IoT 및 디바이스에 추가 위협 방지 계층을 추가하려면 이 옵션을 설정합니다. 무료 계층의 허브에는 이 옵션을 사용할 수 없습니다. 이 기능에 대한 자세한 내용은 [IoT용 Azure Security Center](/azure/asc-for-iot/)를 참조하세요.
+   - **Defender for IoT**: IoT 및 디바이스에 추가 위협 방지 계층을 추가하려면 이 옵션을 설정합니다. 무료 계층의 허브에는 이 옵션을 사용할 수 없습니다. 이 기능에 대한 자세한 내용은 [Microsoft Defender for IoT](/azure/asc-for-iot/)를 참조하세요.
 
    - **고급 설정** > **디바이스-클라우드 파티션**: 이 속성은 디바이스-클라우드 메시지를 메시지의 동시 판독기 수와 연결합니다. 대부분의 허브에는 4개의 파티션만 필요합니다. 체험 계층 허브는 두 개의 파티션으로 제한됩니다.
 

@@ -5,12 +5,12 @@ ms.author: palatter
 ms.date: 10/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 3d2859d4103ed98638468da11b2063d639892035
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: bc61f84c8ad131fec503ac81b84d70af881dfb02
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181829"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287323"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -27,29 +27,30 @@ Xcode에서 새 iOS 프로젝트를 만들고, **앱** 템플릿을 선택합니
 
 ![Xcode 내에서 새 프로젝트 템플릿 선택을 보여주는 스크린샷](../../media/xcode-new-project-template-select.png)
 
-프로젝트 이름을 `UILibraryQuickStart`로 지정합니다.
+프로젝트 이름을 `UILibraryQuickStart`로 지정하고 `Interface` 드롭다운 아래에서 `Storyboard`를 선택합니다.
 
 ![Xcode 내에서 새 프로젝트 세부 정보를 보여주는 스크린샷](../../media/xcode-new-project-details.png)
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용하여 패키지 및 종속성 설치
 
-1. 애플리케이션에 대한 Podfile을 만듭니다.
+1. `pod init`를 실행하여 프로젝트 루트 디렉터리에 Podfile을 만듭니다.
+1. 
+1. Podfile에 다음을 추가합니다.
 
 ```
-source 'https://github.com/Azure/AzurePrivatePodspecs'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/Azure/AzurePrivatePodspecs.git'
 
 platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'azure-communication-ui', '1.0.0-alpha.1'
-    pod 'AzureCommunicationCalling', '2.0.1-beta.1'
-    pod 'MicrosoftFluentUI', '0.3.3'
+    pod 'AzureCommunicationUI', '1.0.0-alpha.1'
 end
 ```
 
-2. `pod install`을 실행합니다.
-3. Xcode를 사용하여 생성된 `.xcworkspace`를 엽니다.
+3. `pod install --repo-update`을 실행합니다. 이 프로세스는 10-15분 정도 걸릴 수 있습니다.
+4. Xcode를 사용하여 생성된 `.xcworkspace`를 엽니다.
 
 ### <a name="request-access-to-the-microphone-camera-etc"></a>마이크, 카메라 등에 대한 액세스 요청
 
@@ -71,7 +72,7 @@ end
 
 ## <a name="initialize-composite"></a>복합 초기화
 
-'ViewController'로 이동합니다. 여기서는 다음 코드를 삭제하여 통화용 복합 구성 요소를 초기화합니다. `<GROUP_CALL_ID>`를 호출에 대한 그룹 ID로, `<DISPLAY_NAME>`을 사용자 이름으로, `<USER_ACCESS_TOKEN>`을 토큰으로 바꿉니다.
+'ViewController'로 이동합니다. 여기서는 다음 코드를 삭제하여 통화용 복합 구성 요소를 초기화합니다. `<GROUP_CALL_ID>`를 호출 그룹 ID 또는 `UUID()`로 바꾸어 새로 생성합니다. 또한 `<DISPLAY_NAME>`을 사용자 이름으로 바꾸로 `<USER_ACCESS_TOKEN>`을 사용자의 토큰으로 바꿉니다.
 
 ```swift
 import UIKit
@@ -106,8 +107,8 @@ class ViewController: UIViewController {
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
         let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                                       displayName: displayName,
-                                       groupId: uuid)
+                                       displayName: "<DISPLAY_NAME>",
+                                       groupId: "<GROUP_CALL_ID>")
         callComposite?.launch(with: options)
     }
 }
@@ -123,22 +124,24 @@ class ViewController: UIViewController {
 
 ![빠른 시작 앱의 최종 모양과 느낌](../../media/quick-start-calling-composite-running-ios.gif)
 
+## <a name="sample-application-code-can-be-found-here"></a>샘플 애플리케이션 코드는 [여기에서](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/ui-library-quickstart) 찾을 수 있습니다.
+
 ## <a name="object-model"></a>개체 모델
 
 Azure Communication Services UI 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 속성                                                                        | Description                                                                                  |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| CallComposite | 복합은 참가자 갤러리 및 컨트롤을 사용하여 호출 환경을 렌더링합니다. |
-| CallCompositeOptions | 테마 구성 및 이벤트 처리기와 같은 옵션을 포함합니다. |
-| CallCompositeEventsHandler | 복합에서 이벤트를 받을 수 있습니다. |
-| GroupCallOptions | groupId와 같은 그룹 통화에 호출하기 위한 옵션입니다. |
-| TeamsMeetingOptions | 모임 링크와 같은 팀 회의에 조인하는 옵션입니다. |
-| ThemeConfiguration | 테마를 사용자 지정할 수 있습니다. |
+| [CallComposite](#create-call-composite) | 복합은 참가자 갤러리 및 컨트롤을 사용하여 호출 환경을 렌더링합니다. |
+| [CallCompositeOptions](#create-call-composite) | 테마 구성 및 이벤트 처리기와 같은 옵션을 포함합니다. |
+| [CallCompositeEventsHandler](#subscribe-to-events-from-callcomposite) | 복합에서 이벤트를 받을 수 있습니다. |
+| [GroupCallOptions](#group-call) | groupId와 같은 그룹 통화에 호출하기 위한 옵션입니다. |
+| [TeamsMeetingOptions](#teams-meeting) | 모임 링크와 같은 팀 회의에 조인하는 옵션입니다. |
+| [ThemeConfiguration](#apply-theme-configuration) | 테마를 사용자 지정할 수 있습니다. |
 
 ## <a name="ui-library-functionality"></a>UI 라이브러리 기능
 
-### <a name="create-call-composite-options-and-call-composite"></a>호출 복합 옵션 만들기 및 복합 호출
+### <a name="create-call-composite"></a>호출 복합 만들기
 
 `startCallComposite` 함수 내에서 `CallCompositeOptions` 인스턴스 및 `CallComposite` 인스턴스를 초기화합니다.
 
@@ -197,7 +200,7 @@ Communication Services Calling SDK는 전체 Microsoft Teams 미팅 링크를 �
 callComposite?.launch(with: options)
 ```
 
-### <a name="implement-the-closure-for-events-handler"></a>이벤트 처리기에 대한 클로저 구현
+### <a name="subscribe-to-events-from-callcomposite"></a>`CallComposite`에서 이벤트 구독
 
 `CallCompositeEventsHandler`에서 클로저를 구현하여 이벤트에 대해 작업을 수행하고 구현을 `CallCompositeOptions`에 전달할 수 있습니다. 복합이 오류로 인해 종료된 경우에 대한 이벤트가 예입니다.
 
@@ -211,7 +214,7 @@ let handler = CallCompositeEventsHandler(didFail: { error in
 let callCompositeOptions = CallCompositeOptions(callCompositeEventsHandler: handler)
 ```
 
-### <a name="customizing-the-theme"></a>테마 사용자 지정
+### <a name="apply-theme-configuration"></a>테마 구성 적용
 
 ThemeConfiguration 프로토콜을 구현하는 사용자 지정 테마 구성을 만들어 테마를 사용자 지정할 수 있습니다. 그런 다음, CallCompositeOptions에 새 클래스의 인스턴스를 포함합니다.
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42a7b541b3f5b5c5d1ec462898615793d50b5493
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bdca219a352527114123cdf0179a5eb7fc486852
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535705"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435898"
 ---
 # <a name="azure-active-directory-security-operations-for-privileged-identity-management-pim"></a>PIM(Privileged Identity Management)에 대한 Azure Active Directory 보안 작업
 
@@ -26,7 +26,7 @@ ms.locfileid: "122535705"
 
 클라우드 서비스의 경우 예방 및 대응은 클라우드 서비스 공급자와 고객의 공동 책임입니다. 
 
-기존에는 조직 보안이 보안 경계인 네트워크 진입 및 출구 지점에 중점을 두었습니다. 그러나 이 방법은 SaaS 앱과 개인 디바이스에 효과적이지 않았습니다. Azure AD(Azure Active Directory)에서는 네트워크 보안 경계를 조직 ID 계층의 인증으로 바꿉니다. 사용자에게 권한 있는 관리 역할이 할당되기 때문에 온-프레미스, 클라우드, 하이브리드 환경에서 해당 액세스를 보호해야 합니다. 
+기존에는 조직 보안이 보안 경계인 네트워크 진입 및 출구 지점에 중점을 두었습니다. 그러나 이 방법은 SaaS 앱과 개인 디바이스에 효과적이지 않았습니다. Azure AD(Azure Active Directory)에서는 네트워크 보안 경계를 조직 ID 계층의 인증으로 바꿉니다. 사용자에게 권한 있는 관리 역할이 할당되기 때문에 온-프레미스, 클라우드, 하이브리드 환경에서 해당 액세스를 보호해야 합니다.
 
 사용자는 온-프레미스 IT 환경에 대한 모든 보안 계층을 전적으로 책임져야 합니다. Azure 클라우드 서비스를 사용하는 경우 예방 및 대응은 클라우드 서비스 공급자(Microsoft)와 고객(사용자)의 공동 책임입니다. 
 
@@ -56,15 +56,15 @@ PIM(Privileged Identity Management)은 조직의 중요한 리소스에 대한 �
 
 * [로그인 로그](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault 로그](../../key-vault/general/logging.md?tabs=Vault)
 
 Azure Portal에서 Azure AD 감사 로그를 보고, CSV(쉼표로 구분된 값) 또는 JSON(JavaScript Object Notation) 파일로 다운로드할 수 있습니다. Azure Portal에는 모니터링과 경고를 더 효율적으로 자동화하는 다른 도구와 Azure AD 로그를 통합하는 몇 가지 방법이 있습니다.
 
-* [**Azure Sentinel**](../../sentinel/overview.md) - SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 인텔리전트 보안 분석을 지원합니다. 
+* [**Azure Sentinel**](../../sentinel/overview.md) - SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 인텔리전트 보안 분석을 가능하게 합니다. 
 
-* [**Azure Monitor**](../../azure-monitor/overview.md) - 다양한 조건을 자동으로 모니터링하고 경고할 수 있습니다. 통합 문서를 만들거나 사용하여 다양한 원본의 데이터를 결합할 수 있습니다.
+* [**Azure Monitor**](../../azure-monitor/overview.md) - 다양한 조건에 대한 자동화된 모니터링 및 경고를 가능하게 합니다. 통합 문서를 만들거나 사용하여 다양한 원본의 데이터를 결합할 수 있습니다.
 
 * **SIEM과 통합된** [**Azure Event Hubs**](../../event-hubs/event-hubs-about.md)- Azure Event Hub 통합을 통해 Splunk, ArcSight, QRadar, Sumo Logic과 같은 [다른 SIEM에 Azure AD 로그를 통합할 수 있습니다](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 

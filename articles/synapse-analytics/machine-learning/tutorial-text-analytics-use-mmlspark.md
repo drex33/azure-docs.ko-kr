@@ -10,18 +10,18 @@ ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bbbcad29737b46226c48ac9924e60e400327a518
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f15dfc216b664daf41a090189c29bd8772adc707
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030902"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292949"
 ---
 # <a name="tutorial-text-analytics-with-cognitive-service"></a>자습서: Cognitive Service를 이용한 Text Analytics
 
 [Text Analytics](../../cognitive-services/text-analytics/index.yml)는 NLP(자연어 처리) 기능을 사용하여 텍스트 마이닝 및 텍스트 분석을 수행하는 [Azure Cognitive Service](../../cognitive-services/index.yml)입니다. 이 자습서를 통해 [Text Analytics](../../cognitive-services/text-analytics/index.yml)를 사용하여 Azure Synapse Analytics에서 구조화되지 않은 텍스트를 분석하는 방법에 대해 알아봅니다.
 
-이 자습서에서는 다음 기능을 수행하기 위해 [MMLSpark](https://github.com/Azure/mmlspark)와 함께 텍스트 분석을 사용하는 방법을 보여줍니다.
+이 자습서에서는 [SynapseML](https://github.com/microsoft/SynapseML)에서 Text Analytics를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
 > - 문장 또는 문서 수준의 감정 레이블 검색
@@ -33,7 +33,7 @@ ms.locfileid: "131030902"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
@@ -41,10 +41,11 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 
 ## <a name="get-started"></a>시작
-Synapse Studio를 열고 새 Notebook을 만듭니다. 시작하려면 [MMLSpark](https://github.com/Azure/mmlspark)를 가져옵니다. 
+Synapse Studio를 열고 새 Notebook을 만듭니다. 시작하려면 [SynapseML](https://github.com/microsoft/SynapseML)을 가져옵니다. 
 
 ```python
-from mmlspark.cognitive import *
+import synapse.ml
+from synapse.ml.cognitive import *
 from pyspark.sql.functions import col
 ```
 
@@ -356,4 +357,4 @@ Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [MMLSpark GitHub 리포지토리](https://github.com/Azure/mmlspark)
+* [SynapseML GitHub 리포지토리](https://github.com/microsoft/SynapseML)

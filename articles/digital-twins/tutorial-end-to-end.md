@@ -1,22 +1,22 @@
 ---
 title: '자습서: 엔드투엔드 솔루션 연결'
 titleSuffix: Azure Digital Twins
-description: 디바이스 데이터를 기반으로 하는 엔드투엔드 Azure Digital Twins 솔루션을 구축하는 자습서입니다.
+description: 이 자습서에 따라 디바이스 데이터를 기반으로 하는 엔드투엔드 Azure Digital Twins 솔루션을 구축하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 8/23/2021
+ms.date: 10/19/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9d19a74dc7bacc996fe328679d9c3e12766bfadf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9233f33818e9961cc5daf8cf35b14457172ecae3
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626193"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504838"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
-환경의 라이브 데이터를 기반으로 전체 엔드투엔드 솔루션을 설정하기 위해 디바이스 및 데이터 관리를 위해 다른 Azure 서비스에 Azure Digital Twins 인스턴스를 연결할 수 있습니다.
+이 Azure Digital Twins 자습서에서는 서비스의 기능을 설명하는 엔드투엔드 솔루션의 구축 방법을 설명합니다. 환경의 라이브 데이터를 기반으로 전체 엔드투엔드 솔루션을 설정하기 위해 디바이스 및 데이터 관리를 위해 다른 Azure 서비스에 Azure Digital Twins 인스턴스를 연결할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
 > [!div class="checklist"]
@@ -51,7 +51,7 @@ ms.locfileid: "128626193"
 * [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 사용 예(*CommandLoop.cs* 에 있음)
 * Azure Digital Twins API를 호출하는 콘솔 인터페이스
 * *SampleClientApp* - 샘플 Azure Digital Twins 솔루션
-* *SampleFunctionsApp* - IoT Hub 및 Azure Digital Twins 이벤트에서 원격 분석의 결과로 Azure Digital Twins 그래프를 업데이트하는 Azure Functions 앱
+* *SampleFunctionsApp* - IoT Hub 및 Azure Digital Twins 이벤트에서 원격 분석을 기준으로 Azure Digital Twins 그래프를 업데이트하는 Azure Functions 앱
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>미리 만든 트윈 그래프 인스턴스화
 

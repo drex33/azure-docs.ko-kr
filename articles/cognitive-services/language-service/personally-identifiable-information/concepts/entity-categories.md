@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 11/15/2021
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
-ms.openlocfilehash: 49db4778dcdb2f4cbe3bff2ac07fc16ece2883f8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 099926359944c1f9e9a673f3c754019c761e6220
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053064"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519537"
 ---
 # <a name="supported-personally-identifiable-information-pii-entity-categories"></a>지원 되는 PII (개인 식별이 가능한 정보) 엔터티 범주
 
@@ -47,7 +47,7 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        사용자의 이름. `domain=phi` 또한 반환됩니다.
+        사용자의 이름. PII와 no로 반환 됩니다.
 
         이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Person`을 추가합니다. 검색되는 경우 `Person`가 API 응답에 반환됩니다.
       
@@ -104,9 +104,9 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        전화 번호(미국과 유럽 전화 번호만 해당). `domain=phi` 또한 반환됩니다.
+        전화 번호(미국과 유럽 전화 번호만 해당). PII와 no로 반환 됩니다.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `PhoneNumber`을 추가합니다. 검색되는 경우 `PhoneNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `PhoneNumber`을 추가합니다. 검색되는 경우 `PhoneNumber`이 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -134,9 +134,9 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        회사, 정치 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. 국적 및 종교는 이 엔터티 형식에 포함되지 않습니다. `domain=phi` 또한 반환됩니다.
+        회사, 정치 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. 국적 및 종교는 이 엔터티 형식에 포함되지 않습니다. PII와 no로 반환 됩니다.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Organization`을 추가합니다. 검색되는 경우 `Organization`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Organization`를 추가합니다. 검색되는 경우 `Organization`이 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -235,7 +235,7 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        전체 우편 주소. `domain=phi` 또한 반환됩니다.
+        전체 우편 주소. PII와 no로 반환 됩니다.
 
         이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Address`을 추가합니다. 검색되는 경우 `Address`이 API 응답에 반환됩니다.
       
@@ -264,9 +264,9 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        이메일 주소. `domain=phi` 또한 반환됩니다.
+        이메일 주소. PII와 no로 반환 됩니다.
       
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Email`을 추가합니다. 검색되는 경우 `Email`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Email`을 추가합니다. 검색되는 경우 `Email`이 API 응답에 반환됩니다.
 
     :::column-end:::
     :::column span="":::
@@ -292,7 +292,7 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        웹 사이트에 대한 URL입니다. `domain=phi` 또한 반환됩니다.
+        웹 사이트에 대한 URL입니다. PII와 no로 반환 됩니다.
 
         이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `URL`을 추가합니다. 검색되는 경우 `URL`가 API 응답에 반환됩니다.
       
@@ -321,7 +321,7 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        네트워크 IP 주소. `domain=phi` 또한 반환됩니다.
+        네트워크 IP 주소. PII와 no로 반환 됩니다.
 
         이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `IP`을 추가합니다. 검색되는 경우 `IP`가 API 응답에 반환됩니다.
       
@@ -351,7 +351,7 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
 
         날짜 및 하루 중 시간. 
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `DateTime`을 추가합니다. 검색되는 경우 `DateTime`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `DateTime`을 추가합니다. 검색되는 경우 `DateTime`이 API 응답에 반환됩니다.
       
     :::column-end:::
 :::column span="":::
@@ -376,9 +376,9 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
     :::column span="2":::
         **세부 정보**
 
-        달력 날짜. `domain=phi` 또한 반환됩니다.
+        달력 날짜. PII와 no로 반환 됩니다.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Date`을 추가합니다. 검색되는 경우 `Date`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Date`를 추가합니다. 검색되는 경우 `Date`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="2":::
@@ -445,7 +445,7 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
 
 ### <a name="azure-information"></a>Azure 정보
 
-이러한 엔터티 범주에는 인증 정보 및 연결 문자열을 비롯한 식별 가능한 Azure 정보가 포함됩니다. `domain=phi` 매개 변수와 함께 반환되지 않습니다.
+이러한 엔터티 범주에는 인증 정보 및 연결 문자열을 비롯한 식별 가능한 Azure 정보가 포함됩니다. 화 안 함으로 반환 되지 않습니다.
 
 :::row:::
     :::column span="":::
@@ -459,7 +459,7 @@ API 요청 PII 기능을 전송 하는 경우 다음 엔터티 범주가 반환 
 
         Azure Cosmos DB 서버에 대한 권한 부여 키입니다.   
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureDocumentDBAuthKey`를 추가합니다. 검색되는 경우 `AzureDocumentDBAuthKey`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureDocumentDBAuthKey`를 추가합니다. 검색되는 경우 `AzureDocumentDBAuthKey`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::

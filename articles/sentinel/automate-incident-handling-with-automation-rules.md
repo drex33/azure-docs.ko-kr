@@ -1,32 +1,32 @@
 ---
-title: Azure Sentinel에서 인시던트 처리 자동화 | Microsoft Docs
+title: Microsoft 센티널에서 인시던트 처리 자동화 | Microsoft Docs
 description: 이 문서에서는 보안 위협에 대응하여 SOC의 효율성과 효과를 극대화하기 위해 자동화 규칙을 사용하여 인시던트 처리를 자동화하는 방법을 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2d618dacc14c188c188f92be41de3fba20eabe38
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 52f716bf8a5a4457f1f61545e079c17f16c708c3
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014223"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522159"
 ---
-# <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>자동화 규칙을 사용하여 Azure Sentinel에서 인시던트 처리 자동화
+# <a name="automate-incident-handling-in-microsoft-sentinel-with-automation-rules"></a>Automation 규칙을 사용 하 여 Microsoft 센티널에서 인시던트 처리 자동화
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Azure Sentinel 자동화 규칙에 대해 설명하고, 자동화 규칙을 사용하여 SOAR(보안 오케스트레이션, 자동화된 응답) 작업을 구현함으로써 시간과 리소스를 절약하는 동시에 SOC의 효율성을 높이는 방법을 설명합니다.
+이 문서에서는 Microsoft 센티널 automation 규칙의 정의 및이 규칙을 사용 하 여 보안 오케스트레이션, Automation and Response (대화 충성도) 작업을 구현 하 고 SOC의 효율성을 높이고 시간과 리소스를 절약 하는 방법에 대해 설명 합니다.
 
 > [!IMPORTANT]
 >
@@ -34,7 +34,7 @@ ms.locfileid: "131014223"
 
 ## <a name="what-are-automation-rules"></a>자동화 규칙이란?
 
-자동화 규칙은 Azure Sentinel의 새로운 개념입니다. 이 기능을 통해 사용자는 인시던트 처리의 자동화를 중앙에서 관리할 수 있습니다. 자동화 규칙을 사용하면 이전처럼 경고가 아닌 인시던트에 플레이북을 할당하는 것 외에도, 한 번에 여러 분석 규칙에 대한 응답을 자동화하고, 플레이북 없이도 인시던트에 자동으로 태그를 지정하거나, 할당하거나, 종료하고, 실행되는 작업의 순서를 제어할 수 있습니다. 자동화 규칙은 Azure Sentinel에서 자동화 사용을 간소화하고 인시던트 오케스트레이션 프로세스의 복잡한 워크플로를 단순화할 수 있습니다.
+Automation 규칙은 Microsoft 센티널의 새로운 개념입니다. 이 기능을 통해 사용자는 인시던트 처리의 자동화를 중앙에서 관리할 수 있습니다. 자동화 규칙을 사용하면 이전처럼 경고가 아닌 인시던트에 플레이북을 할당하는 것 외에도, 한 번에 여러 분석 규칙에 대한 응답을 자동화하고, 플레이북 없이도 인시던트에 자동으로 태그를 지정하거나, 할당하거나, 종료하고, 실행되는 작업의 순서를 제어할 수 있습니다. Automation 규칙은 Microsoft 센티널에서 자동화 사용을 간소화 하 고 인시던트 오케스트레이션 프로세스에 대 한 복잡 한 워크플로를 단순화할 수 있습니다.
 
 ## <a name="components"></a>구성 요소
 
@@ -44,7 +44,7 @@ ms.locfileid: "131014223"
 
 인시던트를 만들면 자동화 규칙이 트리거됩니다. 
 
-검토를 위해 여러 유형의 분석 규칙에 따라 경고에서 인시던트가 생성됩니다. 이러한 규칙은 [Azure Sentinel에서 기본 제공 분석 규칙을 사용하여 위협 감지](detect-threats-built-in.md) 자습서에 설명되어 있습니다.
+검토-인시던트는 분석 규칙에 따라 생성 되며,이는 [Microsoft 센티널의 기본 제공 분석 규칙을 사용 하 여 위협 검색](detect-threats-built-in.md)자습서에 설명 된 대로 여러 가지 유형이 있습니다.
 
 ### <a name="conditions"></a>조건
 
@@ -84,14 +84,14 @@ ms.locfileid: "131014223"
 
 ### <a name="trigger-playbooks-for-microsoft-providers"></a>Microsoft 공급자에 대해 플레이북 트리거
 
-자동화 규칙은 경고를 통해 생성된 인시던트에 규칙을 적용하여 Microsoft 보안 경고 처리를 자동화하는 방법을 제공합니다. 자동화 규칙은 플레이북([특수 권한이 필요함](#permissions-for-automation-rules-to-run-playbooks))을 호출하고 경고 및 엔터티를 비롯한 모든 세부 정보와 함께 인시던트를 전달합니다. 일반적으로 Azure Sentinel 모범 사례는 보안 작업의 핵심 요소로 인시던트 큐를 사용합니다.
+자동화 규칙은 경고를 통해 생성된 인시던트에 규칙을 적용하여 Microsoft 보안 경고 처리를 자동화하는 방법을 제공합니다. 자동화 규칙은 플레이북([특수 권한이 필요함](#permissions-for-automation-rules-to-run-playbooks))을 호출하고 경고 및 엔터티를 비롯한 모든 세부 정보와 함께 인시던트를 전달합니다. 일반적으로 Microsoft 센티널 모범 사례는 보안 작업의 초점으로 인시던트 큐를 사용 하는 것입니다.
 
 Microsoft 보안 경고에 다음이 포함됩니다.
 
-- MCAS(Microsoft Cloud App Security)
+- 클라우드 앱 용 Microsoft Defender
 - Azure AD ID 보호
-- Azure Defender(ASC)
-- Defender for IoT(이전의 ASC for IoT)
+- Microsoft Defender for Cloud
+- IoT 용 Defender (이전의 IoT 용 Azure Security Center)
 - Microsoft Defender for Office 365(이전의 Office 365 ATP)
 - Microsoft Defender for Endpoint(이전 명칭 MDATP)
 - ID용 Microsoft Defender(이전 Azure ATP)
@@ -135,27 +135,27 @@ Microsoft 보안 경고에 다음이 포함됩니다.
 
 ### <a name="permissions-for-automation-rules-to-run-playbooks"></a>플레이북을 실행할 자동화 규칙에 대한 권한
 
-Azure Sentinel 자동화 규칙이 플레이북을 실행하는 경우 이 작업에 대해 특별히 권한이 부여된 특수한 Azure Sentinel 서비스 계정을 사용합니다. 사용자 계정이 아닌 이 계정을 사용하면 서비스의 보안 수준이 향상됩니다.
+Microsoft 센티널 automation 규칙은 플레이 북를 실행 하는 경우이 작업에 대해 특별히 권한이 부여 된 특수 Microsoft 센티널 서비스 계정을 사용 합니다. 사용자 계정이 아닌 이 계정을 사용하면 서비스의 보안 수준이 향상됩니다.
 
 자동화 규칙에서 플레이북을 실행하려면 플레이북이 있는 리소스 그룹에 대한 명시적 권한을 이 계정에 부여해야 합니다. 이때 모든 자동화 규칙은 해당 리소스 그룹에서 모든 플레이북을 실행할 수 있습니다.
 
-자동화 규칙을 구성하고 **플레이북 실행** 작업을 추가하는 경우 플레이북 드롭다운 목록이 표시됩니다. Azure Sentinel에 권한이 없는 플레이북은 사용할 수 없는 것으로 표시됩니다("회색으로 표시됨"). **플레이북 권한 관리** 링크를 선택하면 플레이북의 리소스 그룹에 Azure Sentinel 권한을 즉시 부여할 수 있습니다.
+자동화 규칙을 구성하고 **플레이북 실행** 작업을 추가하는 경우 플레이북 드롭다운 목록이 표시됩니다. Microsoft 센티널에 권한이 없는 플레이 북은 사용할 수 없는 것으로 표시 됩니다 ("회색으로 표시 됨"). **플레이 북 권한 관리** 링크를 선택 하 여 해당 위치에서 playbooks의 리소스 그룹에 Microsoft 센티널 권한을 부여할 수 있습니다.
 
 #### <a name="permissions-in-a-multi-tenant-architecture"></a>다중 테넌트 아키텍처의 사용 권한
 
 자동화 규칙은 작업 영역 간 배포 및 [다중 테넌트 배포](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)를 완벽하게 지원합니다(다중 테넌트의 경우 [Azure Lighthouse](../lighthouse/index.yml) 사용).
 
-따라서 Azure Sentinel 배포에서 다중 테넌트 아키텍처를 사용하는 경우 한 테넌트의 자동화 규칙이 다른 테넌트에 있는 플레이북을 실행할 수 있지만, Sentinel에서 플레이북을 실행하는 권한은 자동화 규칙이 정의된 테넌트가 아닌 플레이북이 있는 테넌트에서 정의해야 합니다.
+따라서 Microsoft Sentinel 배포에서 다중 테넌트 아키텍처를 사용하는 경우 한 테넌트에서 다른 테넌트에서 플레이북을 실행하는 자동화 규칙을 사용할 수 있지만, 플레이북을 실행하는 Sentinel에 대한 권한은 자동화 규칙이 정의된 테넌트에서가 아니라 플레이북이 상주하는 테넌트에서 정의되어야 합니다.
 
-서비스 공급자 테넌트가 고객 테넌트의 Azure Sentinel 작업 영역을 관리하는 MSSP(관리형 보안 서비스 공급자)의 특정 경우에는 주의를 기울여야 하는 두 가지 특정 시나리오가 있습니다.
+서비스 공급자 테넌트에서 고객 테넌트에서 Microsoft Sentinel 작업 영역을 관리하는 MSSP(관리 보안 서비스 공급자)의 특정 경우 주의가 필요한 두 가지 특정 시나리오가 있습니다.
 
 - **고객 테넌트에서 만들어진 자동화 규칙은 서비스 공급자 테넌트에 있는 플레이북을 실행하도록 구성됩니다.** 
 
-    이 접근 방식은 일반적으로 플레이북의 지적 재산권을 보호하는 데 사용됩니다. 이 시나리오가 작동하는 데 특별한 사항은 없습니다. 자동화 규칙에서 플레이북 작업을 정의하고 플레이북이 있는 관련 리소스 그룹에 대해 Azure Sentinel 권한을 부여하는 단계에 도달하면(**플레이북 권한 관리** 패널 사용) 선택할 수 있는 그룹 중에서 서비스 공급자 테넌트에 속하는 리소스 그룹을 확인합니다. [여기에 설명된 전체 프로세스를 참조하세요](tutorial-respond-threats-playbook.md#respond-to-incidents).
+    이 접근 방식은 일반적으로 플레이북의 지적 재산권을 보호하는 데 사용됩니다. 이 시나리오가 작동하는 데 특별한 사항은 없습니다. 자동화 규칙에서 플레이북 작업을 정의하고 플레이북이 있는 관련 리소스 그룹에 대한 Microsoft Sentinel 권한을 부여하는 단계로 가는 **경우(플레이북 관리 권한** 패널 사용) 선택할 수 있는 리소스 그룹 중에서 서비스 공급자 테넌트 에 속하는 리소스 그룹이 표시됩니다. [여기에 설명된 전체 프로세스를 참조하세요](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
 - **고객 작업 영역에서 만들어진 자동화 규칙(서비스 공급자 테넌트에 로그인한 동안)은 고객 테넌트에 있는 플레이북을 실행하도록 구성됩니다**.
 
-    이 구성은 지적 재산권을 보호할 필요가 없을 때 사용됩니다. 이 시나리오가 작동하려면 ***두 테넌트** _의 Azure Sentinel에 플레이북을 실행할 수 있는 권한을 부여해야 합니다. 고객 테넌트의 경우 위 시나리오와 같이 _ *플레이북 권한 관리** 패널에서 권한을 부여합니다. 서비스 공급자 테넌트에서 관련 권한을 부여하려면 플레이북이 있는 리소스 그룹에서 **Azure Sentinel Automation 기여자** 역할을 사용하여 **Azure Security Insights** 앱에 대한 액세스 권한을 부여하는 추가 Azure Lighthouse 위임을 추가해야 합니다.
+    이 구성은 지적 재산권을 보호할 필요가 없을 때 사용됩니다. 이 시나리오가 작동하려면 ***두 테넌트** _의 Microsoft Sentinel에 플레이북을 실행할 수 있는 권한을 부여해야 합니다. 고객 테넌트의 경우 위 시나리오와 같이 _ *플레이북 권한 관리** 패널에서 권한을 부여합니다. 서비스 공급자 테넌트에서 관련 권한을 부여하려면 플레이북이 있는 리소스 그룹에 **Microsoft Sentinel Automation 기여자** 역할을 사용하여 **Azure 보안 Insights** 앱에 대한 액세스 권한을 부여하는 추가 Azure Lighthouse 위임을 추가해야 합니다.
 
     시나리오는 다음과 같습니다.
 
@@ -165,7 +165,7 @@ Azure Sentinel 자동화 규칙이 플레이북을 실행하는 경우 이 작�
 
 ## <a name="creating-and-managing-automation-rules"></a>자동화 규칙 만들기 및 관리
 
-특정 요구 사항 및 사용 사례에 따라 Azure Sentinel 환경의 다른 시점에서 자동화 규칙을 만들고 관리할 수 있습니다.
+특정 필요 및 사용 사례에 따라 Microsoft Sentinel 환경의 여러 지점에서 자동화 규칙을 만들고 관리할 수 있습니다.
 
 - **자동화 블레이드**
 
@@ -200,7 +200,7 @@ SecurityIncident
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 자동화 규칙을 사용하여 Azure Sentinel 인시던트 큐를 관리하고 몇 가지 기본적인 인시던트 처리 자동화를 구현하는 방법을 알아보았습니다.
+이 문서에서는 자동화 규칙을 사용하여 Microsoft Sentinel 인시던트 큐를 관리하고 몇 가지 기본적인 인시던트 처리 자동화를 구현하는 방법을 배웠습니다.
 
-- 고급 자동화 옵션에 대한 자세한 내용은 [Azure Sentinel에서 플레이북을 사용하여 위협 대응 자동화](automate-responses-with-playbooks.md)를 참조하세요.
-- 자동화 규칙 및 플레이북 구현에 대한 도움말은 [자습서: 플레이북을 사용하여 Azure Sentinel에서 위협 대응 자동화](tutorial-respond-threats-playbook.md)를 참조하세요.
+- 고급 자동화 옵션에 대한 자세한 내용은 [Microsoft Sentinel에서 플레이북을 사용하여 위협 대응 자동화를](automate-responses-with-playbooks.md)참조하세요.
+- 자동화 규칙 및 플레이북 구현에 대한 도움말은 [자습서: 플레이북을 사용하여 Microsoft Sentinel에서 위협 대응 자동화를](tutorial-respond-threats-playbook.md)참조하세요.

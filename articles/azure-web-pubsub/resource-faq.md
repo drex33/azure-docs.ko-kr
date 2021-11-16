@@ -5,31 +5,20 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
-ms.date: 04/26/2021
-ms.openlocfilehash: bcecb9b50c493ba85172fd56ccf3f2d286aa1839
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 11/11/2021
+ms.openlocfilehash: dc8dd5e25a6b6aeb94d674156af2edd9dbcd008d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431317"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345606"
 ---
 # <a name="azure-web-pubsub-service-faq"></a>Azure Web PubSub 서비스 FAQ
 
 Azure Web PubSub 서비스의 FAQ입니다. 
 
 ## <a name="is-azure-web-pubsub-service-ready-for-production-use"></a>Azure Web PubSub 서비스가 프로덕션에 사용할 준비가 되었나요?
-
-Azure Web PubSub 서비스는 퍼블릭 미리 보기 상태이며 커밋된 SLA가 없습니다. 
-
-## <a name="when-will-azure-web-pubsub-service-be-ready-for-production-use"></a>언제 Azure Web PubSub 서비스가 프로덕션에 사용할 준비가 되나요?
-
-제품 팀은 Azure Web PubSub 서비스 GA에서 적극적으로 작업하고 있습니다. GA 시 서비스는 다음을 지원합니다.
-- Azure Active Directory 지원
-- API Management 통합
-- 이진 Pub/하위 WebSocket 하위 프로토콜
-- Azure 리소스 로그 통합
-
-GA 기능에 대한 자세한 내용을 원하는 경우 제품 팀에 문의하세요.
+예, Azure Web PubSub 서비스는 일반 공급됩니다.
 
 ## <a name="how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service"></a>Azure SignalR Service와 Azure Web PubSub 서비스 중에서 선택하려면 어떻게 하나요?
 

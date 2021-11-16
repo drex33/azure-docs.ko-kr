@@ -13,12 +13,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: urmilano, danil, nnikolic
   ms.date: 09/21/2020
-  ms.openlocfilehash: 9a082102f7f71bf987b6a959145f77617014baca
-  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.openlocfilehash: 81b28084d63a01f6ceeba57d128f389a5e767259
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131423682"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132315846"
 title: Azure SQL Managed Instance FAQ(질문과 대답)
 summary: >
   [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -253,7 +253,7 @@ sections:
 
       - [SQL 감사](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)를 켜고, 경고 메커니즘과 통합합니다.
 
-      - [Azure Defender for SQL](../database/azure-defender-for-sql.md) 도구 모음에서 [위협 탐지](../database/threat-detection-configure.md)를 켭니다.
+      - [Microsoft Defender for SQL](../database/azure-defender-for-sql.md) 도구 모음에서 [위협 탐지](../database/threat-detection-configure.md)를 켭니다.
   - question: >
       DNS
     answer: >

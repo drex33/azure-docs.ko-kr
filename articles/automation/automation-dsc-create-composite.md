@@ -3,19 +3,15 @@ title: Azure Automation State Configuration을 위해 구성을 복합 리소스
 description: 이 문서에서는 Azure Automation State Configuration을 위해 구성을 복합 리소스로 변환하는 방법에 대해 설명합니다.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 3baf87cc1b14ca4d8d7d3630e777b03801398968
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 5c3fc5ece7eac812bdf60a310e7777ea411ab6b6
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737552"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493460"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>구성을 복합 리소스로 변환
 

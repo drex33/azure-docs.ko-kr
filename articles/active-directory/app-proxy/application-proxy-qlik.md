@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시 및 Qlik Sense
 description: Azure Active Directory 애플리케이션 프록시를 Qlik Sense와 통합합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 76436717f83491df01706cfe6ac4ca8f47894ce9
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 825ec4927a1db3011560a221868816a1e6089a35
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186834"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988889"
 ---
 # <a name="azure-active-directory-application-proxy-and-qlik-sense"></a>Azure Active Directory 애플리케이션 프록시 및 Qlik Sense 
 Azure Active Directory 애플리케이션 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다.  
@@ -58,7 +58,7 @@ QlikSense를 게시하려면 Azure에서 두 개의 애플리케이션을 게시
 
 ## <a name="additional-references"></a>추가 참조
 애플리케이션 프록시를 사용하여 Qlik Sense를 게시하는 방법에 대한 자세한 내용은 다음의 Qlik 커뮤니티 문서를 참조하세요. 
-- [Qlik Sense가 포함된 Kerberos 제한 위임을 통해 Windows 통합 인증을 사용한 Azure AD](https://community.qlik.com/docs/DOC-20183).
+- [Qlik Sense가 포함된 Kerberos 제한 위임을 통해 Windows 통합 인증을 사용한 Azure AD](https://community.qlik.com/docs/DOC-20183)
 - [Azure AD 애플리케이션 프록시와 Qlik Sense 통합](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>다음 단계

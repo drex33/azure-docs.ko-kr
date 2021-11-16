@@ -5,22 +5,22 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: 51e54741de4a8319a6487c99ecff1104017a13a5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a159292ed534e8933b18bd206c19b77247f4ea3e
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449339"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057592"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-보안 경고는 조직의 적절한 사람에게 전달되어야 합니다. 기본값으로 Defender for Cloud는 구독에 대해 심각도가 높은 경고가 트리거될 때마다 구독 소유자에게 이메일을 보냅니다. 이 페이지에서는 이러한 알림을 사용자 지정하는 방법을 설명합니다.
+보안 경고는 조직의 적절한 사람에게 전달되어야 합니다. 기본적으로 클라우드용 Microsoft Defender는 구독에 대해 심각도가 높은 경고가 트리거될 때마다 구독 소유자에게 이메일을 보냅니다. 이 페이지에서는 이러한 알림을 사용자 지정하는 방법을 설명합니다.
 
-알림 이메일에 대한 고유한 기본 설정을 정의하기 위해 Microsoft Defender for Cloud의 **이메일 알림** 설정 페이지에서 다음을 선택할 수 있습니다.
+Defender for Cloud의 **이메일 알림** 설정 페이지를 사용하여 다음을 포함함 알림 이메일에 대한 기본 설정을 정의합니다.
 
 - **알려야 하는 *사람*** - 특정 개인 또는 구독에 대해 지정된 Azure 역할이 있는 사람에게 이메일을 보낼 수 있습니다. 
 - **알려야 하는 *내용*** - Defender for Cloud에서 보내야 하는 알림의 심각도 수준을 수정합니다.

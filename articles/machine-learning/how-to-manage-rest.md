@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: e17f5e53a2ab58ec7fe8edbe1d2b7e64953cf689
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9465a8c45dd44eca4fcd67a8603e60a2061f2609
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566493"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518188"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용하여 Azure ML 리소스 만들기, 실행 및 삭제
 
@@ -30,8 +30,8 @@ ms.locfileid: "122566493"
 > * 서비스 주체 인증을 사용하여 올바른 형식의 REST 요청 만들기
 > * GET 요청을 사용하여 Azure ML의 계층 구조 리소스에 대한 정보 검색
 > * PUT 및 POST 요청을 사용하여 리소스 만들기 및 수정
+> * PUT 요청을 사용 하 여 Azure ML 작업 영역 만들기
 > * DELETE 요청을 사용하여 리소스 정리 
-> * 키 기반 권한 부여를 사용하여 배포된 모델 채점
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -270,28 +270,9 @@ curl -X PUT \
 
 요청에 성공하면 `201 Created` 응답을 받지만 이 응답은 단순히 프로비저닝 프로세스가 시작되었음을 의미합니다. 성공적으로 완료되었는지 확인하려면 폴링을 수행하거나 포털을 사용해야 합니다.
 
-### <a name="train-a-model"></a>모델 학습
-
-REST를 사용하여 모델을 학습시키려면 [REST를 사용하여 모델 학습(미리 보기)](how-to-train-with-rest.md)을 참조하세요. 
-
-### <a name="delete-resources-you-no-longer-need"></a>더 이상 필요하지 않은 리소스 삭제
-
-전체는 아니지만 일부 리소스는 DELETE 동사를 지원합니다. 삭제 사용 사례에 대해 REST API를 커밋하기 전에 [API 참조](/rest/api/azureml/)를 확인하세요. 예를 들어 모델을 삭제하려면 다음을 사용할 수 있습니다.
-
-```bash
-curl
-  -X DELETE \
-'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
-  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
-```
-
-## <a name="use-rest-to-score-a-deployed-model"></a>REST를 사용하여 배포된 모델 채점
-
-REST를 사용하여 배포된 모델을 채점하려면 [웹 서비스로 배포된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)을 참조하세요.
-
 ## <a name="create-a-workspace-using-rest"></a>REST를 사용하여 작업 영역 만들기 
 
-모든 Azure ML 작업 영역은 관리를 사용하도록 설정된 컨테이너 레지스트리, 키 자격 증명 모음, Application Insights, 스토리지 계정 등 다른 4개의 Azure 리소스와 종속 관계가 있습니다. 작업 영역을 만들려면 이러한 리소스가 있어야 합니다. 각각의 리소스를 만드는 방법에 대한 자세한 내용은 REST API 참조에서 확인하세요.
+모든 azure ML 작업 영역에는 Azure Container Registry 리소스, Azure Key Vault, Azure 애플리케이션 Insights, Azure Storage 계정 이라는 4 개의 다른 azure 리소스에 대 한 종속성이 있습니다. 작업 영역을 만들려면 이러한 리소스가 있어야 합니다. 각각의 리소스를 만드는 방법에 대한 자세한 내용은 REST API 참조에서 확인하세요.
 
 작업 영역을 만들려면 `management.azure.com`에 대해 다음과 유사한 호출을 PUT 합니다. 이 호출에서는 대규모 변수를 설정해야 하지만 이 문서에서 논의하는 다른 호출과 구조적으로는 동일합니다. 
 
@@ -303,6 +284,9 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -d '{
     "location": "AZURE-LOCATION>",
+    "identity" : {
+        "type" : "systemAssigned"
+    },
     "properties": {
         "friendlyName" : "<YOUR-WORKSPACE-FRIENDLY-NAME>",
         "description" : "<YOUR-WORKSPACE-DESCRIPTION>",
@@ -314,14 +298,109 @@ providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
 providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
         "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
 providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
-    },
-    "identity" : {
-        "type" : "systemAssigned"
     }
 }'
 ```
 
 `202 Accepted` 응답을 수신하고, 반환되는 헤더에 `Location` URI가 있어야 합니다. 종속 리소스 중 하나에 문제가 있는 경우(예: 컨테이너 레지스트리에서 관리자 액세스를 사용하도록 설정하지 않은 경우) 유용한 디버깅 정보를 포함하여 배포 관련 정보에 대해 이 URI를 GET할 수 있습니다. 
+
+## <a name="create-a-workspace-using-a-user-assigned-managed-identity"></a>사용자 할당 관리 id를 사용 하 여 작업 영역 만들기 
+
+작업 영역을 만들 때 ACR, KeyVault, Storage 및 App Insights와 같은 연결된 리소스에 액세스하는 데 사용되는 사용자가 할당한 관리 ID를 지정할 수 있습니다. 사용자 할당 관리 id를 사용 하 여 작업 영역을 만들려면 아래 요청 본문을 사용 합니다. 
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "AZURE-LOCATION>",
+    "identity": {
+      "type": "SystemAssigned,UserAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ManagedIdentity/userAssignedIdentities/<YOUR-MANAGED-IDENTITY>": {}
+      }
+    },
+    "properties": {
+        "friendlyName" : "<YOUR-WORKSPACE-FRIENDLY-NAME>",
+        "description" : "<YOUR-WORKSPACE-DESCRIPTION>",
+        "containerRegistry" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
+        keyVault" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.Keyvault/vaults/<YOUR-KEYVAULT-NAME>",
+        "applicationInsights" : "subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
+        "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
+    }
+}'
+```
+
+## <a name="create-a-workspace-using-customer-managed-encryption-keys"></a>고객이 관리 하는 암호화 키를 사용 하 여 작업 영역 만들기
+
+기본적으로 작업 영역에 대한 메타데이터는 Microsoft에서 유지 관리하는 Azure Cosmos DB 인스턴스에 저장됩니다. 이 데이터는 Microsoft 관리형 키를 사용하여 암호화됩니다. Microsoft 관리형 키를 사용하는 대신 사용자 고유 키를 사용할 수도 있습니다. 이렇게 하면 데이터를 저장 하기 위해 Azure 구독에 [추가 리소스 집합이](/azure/machine-learning/concept-data-encryption#azure-cosmos-db) 생성 됩니다.
+
+암호화를 위해 키를 사용 하는 작업 영역을 만들려면 다음 필수 구성 요소를 충족 해야 합니다.
+
+* Azure Machine Learning 서비스 주체에 게 Azure 구독에 대 한 참가자 액세스 권한이 있어야 합니다.
+* 암호화 키를 포함하는 기존 Azure Key Vault가 있어야 합니다.
+* Azure Key Vault은 Azure Machine Learning 작업 영역을 만들 동일한 Azure 지역에 있어야 합니다.
+* 실수로 삭제 한 경우 데이터 손실을 방지 하려면 일시 삭제 및 제거 보호를 사용 하도록 설정 해야 합니다. Azure Key Vault
+* Azure Key Vault에는 Azure Cosmos DB 응용 프로그램에 대 한 가져오기, 래핑 및 래핑 해제 액세스 권한을 부여 하는 액세스 정책이 있어야 합니다.
+
+사용자 할당 관리 id 및 암호화에 대 한 고객 관리 키를 사용 하는 작업 영역을 만들려면 아래 요청 본문을 사용 합니다. 작업 영역에 사용자 할당 관리 id를 사용 하는 경우 `userAssignedIdentity` 속성을 관리 id의 리소스 ID로 설정 합니다.
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "eastus2euap",
+    "identity": {
+      "type": "SystemAssigned"
+    },
+    "properties": {
+      "friendlyName": "<YOUR-WORKSPACE-FRIENDLY-NAME>",
+      "description": "<YOUR-WORKSPACE-DESCRIPTION>",
+      "containerRegistry" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
+      "keyVault" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.Keyvault/vaults/<YOUR-KEYVAULT-NAME>",
+      "applicationInsights" : "subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
+      "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>",
+      "encryption": {
+        "status": "Enabled",
+        "identity": {
+          "userAssignedIdentity": null
+        },      
+        "keyVaultProperties": {
+           "keyVaultArmId": "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
+           "keyIdentifier": "https://<YOUR-VAULT>.vault.azure.net/keys/<YOUR-KEY>/<YOUR-KEY-VERSION>",
+           "identityClientId": ""
+        }
+      },
+      "hbiWorkspace": false
+    }
+}'
+```
+
+### <a name="delete-resources-you-no-longer-need"></a>더 이상 필요하지 않은 리소스 삭제
+
+전체는 아니지만 일부 리소스는 DELETE 동사를 지원합니다. 삭제 사용 사례에 대해 REST API를 커밋하기 전에 [API 참조](/rest/api/azureml/)를 확인하세요. 예를 들어 모델을 삭제하려면 다음을 사용할 수 있습니다.
+
+```bash
+curl
+  -X DELETE \
+'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
+  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
+```
 
 ## <a name="troubleshooting"></a>문제 해결
 

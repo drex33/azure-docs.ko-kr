@@ -3,17 +3,17 @@ title: 클라우드용 Microsoft Defender에 AWS 계정 연결
 description: Microsoft Defender for Cloud로 AWS 리소스 방어
 author: memildin
 ms.author: memildin
-ms.date: 11/02/2021
+ms.date: 11/07/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: connect-aws-accounts
-ms.openlocfilehash: 9877ec3b69829d8210eed18577a3d0738dcef889
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 98636887b213a26baf638e6ebc2813a02f395b73
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428547"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990266"
 ---
 #  <a name="connect-your-aws-accounts-to-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender에 AWS 계정 연결
 
@@ -55,20 +55,12 @@ AWS 기반 리소스를 보호하려면 다음 두 가지 메커니즘 중 하�
 - AWS 계정을 Azure 구독에 연결하려면 AWS 계정에 대한 액세스 권한이 필요합니다.
 
 - **Kubernetes용 Defender 플랜을 사용하려면** 다음이 필요합니다.
-    - EKS K8s API 서버에 액세스할 수 있는 권한이 있는 하나 이상의 Amazon EKS 클러스터.
+    - EKS K8s API 서버에 액세스할 수 있는 권한이 있는 하나 이상의 Amazon EKS 클러스터. 새 EKS 클러스터를 만들어야 하는 경우 [Amazon EKS 시작하기 – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)의 지침을 따릅니다.
     - 클러스터의 지역에 새 SQS 큐, Kinesis Fire Hose 배달 스트림 및 S3 버킷을 만들 수 있는 리소스 용량.
-    
-    > [!TIP]
-    > 새 EKS 클러스터를 만들려면 [Amazon EKS 시작 – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)의 지침을 따릅니다.
 
 - **서버용 Defender 플랜을 사용하려면** 다음이 필요합니다.
-    - 서버용 Microsoft Defender를 사용하도록 설정([빠른 시작: 향상된 보안 기능 사용](enable-enhanced-security.md) 참조)
-    - EC2 인스턴스를 AWS SSM(Systems Manager)에서 관리하고 SSM 에이전트를 사용하는 활성 AWS 계정.
-
-    > [!TIP]
-    > 일부 AMI(Amazon Machine Images)에는 SSM 에이전트가 미리 설치되어 있으며, 해당 AMI는 [SSM 에이전트가 미리 설치된 AMI](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent)에 나열됩니다. 
-
-    - EC2 인스턴스에 SSM 에이전트가 없는 경우 다음과 같은 Amazon의 관련 지침을 따르세요.
+    - 사용하도록 설정된 서버용 Microsoft Defender([빠른 시작: 향상된 보안 기능 사용](enable-enhanced-security.md) 참조)
+    - AWS Systems Manager(SSM)에서 관리하고 SSM 에이전트를 사용하는 EC2 인스턴스가 있는 활성 AWS 계정. 일부 AMI(Amazon Machine Images)에는 SSM 에이전트가 미리 설치되어 있으며, 해당 AMI는 [SSM 에이전트가 미리 설치된 AMI](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent)에 나열됩니다. EC2 인스턴스에 SSM 에이전트가 없는 경우 다음과 같은 Amazon의 관련 지침을 따르세요.
         - [하이브리드 환경용 SSM 에이전트(Windows) 설치](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
         - [하이브리드 환경용 SSM 에이전트(Linux) 설치](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
 
@@ -88,10 +80,13 @@ AWS 기반 리소스를 보호하려면 다음 두 가지 메커니즘 중 하�
 
 1. [플랜 선택] 탭에서는 이 AWS 계정에 사용할 Defender for Cloud 기능을 선택합니다. 
 
-    > [!IMPORTANT]
+    > [!NOTE]
     > 기능마다 권한에 대한 고유의 요구 사항이 있으며 요금이 발생할 수 있습니다.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="[플랜 선택] 탭에서는 이 AWS 계정에 사용할 Defender for Cloud 기능을 선택합니다.":::
+
+    > [!IMPORTANT]
+    > 권장 사항의 현재 상태를 표시하기 위해 CSPM 계획은 AWS 리소스 API를 하루에 여러 번 쿼리합니다. 이러한 읽기 전용 API 호출에는 요금이 발생하지 않지만 읽기 이벤트에 대한 흔적을 사용하도록 설정한 경우 CloudTrail에 *등록* 됩니다. [AWS 설명서](https://aws.amazon.com/cloudtrail/pricing/)에서 설명한 대로 하나의 흔적을 유지하는 데 드는 추가 비용이 없습니다. AWS에서 데이터를 내보내는 경우(예: 외부 SIEM으로) 증가된 이 호출 양으로 인해 수집 비용도 증가할 수 있습니다. 이러한 경우 Defender for Cloud 사용자 또는 역할 ARN(arn:aws:iam::[accountId]:role/CspmMonitorAws)의 읽기 전용 호출을 필터링하는 것이 좋습니다(이는 기본 역할 이름이며 계정에 구성된 역할 이름을 확인함).
 
     - 서버용 Defender 범위를 AWS EC2로 확장하려면 **서버** 플랜을 **켜기** 로 설정하고 구성을 필요한 대로 편집합니다. 
 

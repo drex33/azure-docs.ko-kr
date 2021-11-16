@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: eric-urban
 ms.custom: devx-track-js
-ms.openlocfilehash: 42e0db662c9eaae08351c12a03e1954372b628d6
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 7e129d8d7a38b2ba143f89ab4407453f62c75b93
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506902"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529971"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 다른 언어로 번역하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성 번역을 수행하는 방법을 알아봅니다. 이 빠른 시작에서는 다음 토픽을 다룹니다.
 
@@ -114,7 +114,7 @@ const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfi
 
 JavaScript용 Speech SDK의 [TranslationRecognizer 클래스](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer)는 음성 번역에 사용할 수 있는 몇 가지 메서드를 공개합니다.
 
-* 단일 샷 번역(비동기) - 비차단(비동기) 모드에서 번역을 수행합니다. 단일 발화를 번역합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
+* 시작 시 변환(비동기) - 비차단(비동기) 모드에서 변환을 수행합니다. 단일 발화를 번역합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
 * 연속 번역(비동기) - 연속 번역 작업을 비동기적으로 시작합니다. 사용자는 이벤트에 등록하고 다양한 애플리케이션 상태를 처리합니다. 비동기 연속 번역을 중지하려면 [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync)를 호출합니다.
 
 > [!NOTE]
@@ -129,9 +129,9 @@ speechTranslationConfig.speechRecognitionLanguage = "en-US";
 speechTranslationConfig.addTargetLanguage("de");
 ```
 
-### <a name="single-shot-recognition"></a>단일 샷 인식
+### <a name="at-start-recognition"></a>시작 시 인식
 
-다음은 [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync)를 사용하는 비동기 단일 샷 번역의 예입니다.
+다음은 를 사용하는 비동기 시작 시 변환의 예입니다. [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync)
 
 ```javascript
 recognizer.recognizeOnceAsync(result => {
@@ -178,7 +178,7 @@ recognizer.recognized = function (s, e) {
 
 ### <a name="continuous-translation"></a>연속 번역
 
-연속 번역은 단일 샷 인식보다 약간 더 복잡합니다. `recognizing`, `recognized` 및 `canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 번역을 중지하려면 [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 번역이 수행되는 방식을 보여주는 예입니다.
+연속 변환은 시작 시 인식보다 좀 더 많이 관련됩니다. `recognizing`, `recognized` 및 `canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 번역을 중지하려면 [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 번역이 수행되는 방식을 보여주는 예입니다.
 
 먼저 입력을 정의하고 [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer)를 초기화하겠습니다.
 

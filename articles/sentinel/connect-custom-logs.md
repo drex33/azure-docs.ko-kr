@@ -1,28 +1,28 @@
 ---
-title: 사용자 지정 로그 형식의 데이터를 Azure Sentinel로 수집 | Microsoft Docs
-description: 사용자 지정 데이터 원본에서 데이터를 수집하고 Log Analytics 에이전트를 사용하여 Azure Sentinel로 수집합니다.
+title: Microsoft 센티널에 사용자 지정 로그 형식의 데이터 수집 | Microsoft Docs
+description: 사용자 지정 데이터 원본에서 데이터를 수집 하 고 Log Analytics 에이전트를 사용 하 여 Microsoft 센티널에 수집 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2020
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 94dbcf84f705aef7e8d723c6516c8a2d36e010ee
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1a64f6e11abf8531c90968c2f24824f700ac73d9
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023416"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524591"
 ---
-# <a name="collect-data-in-custom-log-formats-to-azure-sentinel-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용하여 Azure Sentinel에 사용자 지정 로그 형식의 데이터 수집
+# <a name="collect-data-in-custom-log-formats-to-microsoft-sentinel-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 사용자 지정 로그 형식으로 Microsoft 센티널에 데이터 수집
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "131023416"
 
 많은 애플리케이션이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다. Log Analytics 에이전트를 사용하여 Windows 및 Linux 컴퓨터에서 비표준 형식의 텍스트 파일로 데이터를 수집할 수 있습니다. 수집된 데이터를 쿼리의 개별 필드로 구문 분석하거나 수집 중에 데이터를 개별 필드로 추출할 수 있습니다.
 
-이 문서에서는 사용자 지정 로그 형식을 사용하여 Azure Sentinel에 데이터 원본을 연결하는 방법을 설명합니다. 이 방법을 사용하는 지원되는 데이터 커넥터에 대한 자세한 정보는 [데이터 커넥터 참조](data-connectors-reference.md)를 확인하세요.
+이 문서에서는 사용자 지정 로그 형식을 사용 하 여 데이터 원본을 Microsoft 센티널에 연결 하는 방법을 설명 합니다. 이 방법을 사용하는 지원되는 데이터 커넥터에 대한 자세한 정보는 [데이터 커넥터 참조](data-connectors-reference.md)를 확인하세요.
 
 [Azure Monitor의 모든 사용자 지정 로그 설명서](../azure-monitor/agents/data-sources-custom-logs.md)에 대해 알아봅니다.
 
@@ -40,7 +40,7 @@ Syslog와 마찬가지로 사용자 지정 로그 수집을 구성하는 단계�
 
 - 애플리케이션의 로깅 설정을 구성합니다.
 
-- Azure Sentinel내에서 Log Analytics 에이전트를 구성합니다.
+- Microsoft 센티널 내에서 Log Analytics 에이전트를 구성 합니다.
 
 ## <a name="install-the-log-analytics-agent"></a>Log Analytics 에이전트 설치
 
@@ -49,11 +49,11 @@ Syslog와 마찬가지로 사용자 지정 로그 수집을 구성하는 단계�
 > [!NOTE]
 > 일부 공급 업체는 장치에 직접 설치하는 대신 별도의 로그 서버에 Log Analytics 에이전트를 설치하는 것이 좋습니다. [데이터 커넥터 참조](data-connectors-reference.md) 페이지 또는 제품의 자체 설명서에서 제품 섹션을 참조하세요.
 
-커넥터에 Azure Sentinel의 데이터 커넥터 페이지가 있는지 여부에 따라 아래에서 적절한 탭을 선택합니다.
+커넥터에 Microsoft 센티널의 데이터 커넥터 페이지가 있는지 여부에 따라 아래에서 적절 한 탭을 선택 합니다.
 
 # <a name="from-a-specific-data-connector-page"></a>[특정 데이터 커넥터 페이지에서](#tab/DCG)
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
 
 1. 디바이스 유형을 선택한 다음 **커넥터 페이지 열기** 를 선택합니다.
 
@@ -68,7 +68,7 @@ Syslog와 마찬가지로 사용자 지정 로그 수집을 구성하는 단계�
 
 # <a name="other-data-sources"></a>[기타 데이터 원본](#tab/CUS)
 
-1. Azure Sentinel 탐색 메뉴에서 **설정** 을 선택한 다음, **작업 영역 설정** 탭을 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **설정** , **작업 영역 설정** 탭을 차례로 선택 합니다.
 
 1. 로그를 생성하는 장치에 에이전트를 설치하고 온보딩합니다. Linux 또는 Windows을 적절하게 선택합니다.
 
@@ -81,15 +81,16 @@ Syslog와 마찬가지로 사용자 지정 로그 수집을 구성하는 단계�
 
 ## <a name="configure-the-logs-to-be-collected"></a>수집할 로그 구성
 
-많은 디바이스 유형에서 Azure Sentinel의 **데이터 커넥터** 페이지에 고유한 데이터 커넥터가 표시됩니다. 이러한 커넥터 중 일부에는 Azure Sentinel에서 로그 수집을 제대로 설정하기 위해 특별한 추가 지침이 필요합니다. 이 지침에는 Kusto 함수를 기반으로 하는 파서 구현이 포함될 수 있습니다. 
+대부분의 장치 유형에는 Microsoft 센티널의 **데이터 커넥터** 페이지에 고유한 데이터 커넥터가 표시 됩니다. 이러한 커넥터 중 일부에는 Microsoft 센티널에서 로그 수집을 제대로 설정 하기 위해 특별 한 추가 지침이 필요 합니다. 이 지침에는 Kusto 함수를 기반으로 하는 파서 구현이 포함될 수 있습니다. 
 
-Azure Sentinel에 나열된 모든 커넥터는 포털의 해당 커넥터 페이지와 [Azure Sentinel 데이터 커넥터 참조](data-connectors-reference.md) 페이지의 해당 섹션에 특정 지침을 표시합니다.
+Microsoft 센티널에 나열 된 모든 커넥터에는 포털의 해당 커넥터 페이지와 [Microsoft 센티널 데이터 커넥터 참조](data-connectors-reference.md) 페이지의 해당 섹션에 있는 특정 지침이 표시 됩니다.
 
 제품이 **데이터 커넥터** 페이지에 나열되지 않는 경우 장치에 대한 로깅을 구성하는 방법에 대한 지침은 공급업체의 설명서를 참조하세요.
 
 ## <a name="configure-the-log-analytics-agent"></a>Log Analytics 에이전트 구성
 
 1. 커넥터 페이지에서 **작업 영역 사용자 지정 로그 구성 열기** 링크를 선택합니다.
+
     또는 Log Analytics 작업 영역 탐색 메뉴에서 **사용자 지정 로그** 를 선택합니다.
 
 1. **사용자 지정** 탭에서 **사용자 지정 로그 추가** 를 선택합니다.
@@ -110,7 +111,7 @@ Azure Sentinel에 나열된 모든 커넥터는 포털의 해당 커넥터 페�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 사용자 지정 로그 형식에서 데이터를 수집하여 Azure Sentinel로 수집하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 사용자 지정 로그 형식에서 데이터를 수집 하 여 Microsoft 센티널에 수집 하는 방법을 배웠습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [Microsoft 센티널을 사용 하 여 위협 검색을](detect-threats-built-in.md)시작 하세요.
 - [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: c2ed5a0a65bd4d10620b0c72dbb5efb2aac4152f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cba37228902600852963068ba4d46e75adf21c57
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131061686"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853893"
 ---
 # <a name="connect-to-azure-sql-database-in-azure-purview"></a>Azure Purview에서 Azure SQL Database에 연결
 
@@ -22,13 +22,15 @@ ms.locfileid: "131061686"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 아니요 |[Data Factory 계보](how-to-link-azure-data-factory.md)|
+| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 예 | 아니요** |
+
+\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
 * Azure Purview는 스키마 탭에서 300개를 초과하는 열을 지원하지 않으며 "Additional-Columns-Truncated"를 표시합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

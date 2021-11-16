@@ -10,18 +10,18 @@ ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 01967a4e0b6daa3f79d9300047c83bc2ad493f09
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d3fb6edb446c2a034eb6e7c294b1639aa9eb8d5a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029933"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312126"
 ---
 # <a name="tutorial-computer-vision-with-cognitive-service"></a>자습서: Cognitive Service를 활용한 Computer Vision
 
 [Computer Vision](../../cognitive-services/computer-vision/index.yml)은 이미지를 처리하고 시각적 기능을 바탕으로 한 정보를 반환하는 [Azure Cognitive Service](../../cognitive-services/index.yml)입니다. 이 자습서를 통해 [Computer Vision](../../cognitive-services/computer-vision/index.yml)을 사용하여 Azure Synapse Analytics에서 이미지를 분석하는 방법에 대해 알아봅니다.
 
-이 자습서에서는 다음 기능을 수행하기 위해 [MMLSpark](https://github.com/Azure/mmlspark)와 함께 텍스트 분석을 사용하는 방법을 보여줍니다.
+이 자습서에서는 [SynapseML](https://github.com/microsoft/SynapseML)에서 Text Analytics를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
 > - 이미지 콘텐츠에서 시각적 기능 추출
@@ -187,4 +187,4 @@ Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [MMLSpark GitHub 리포지토리](https://github.com/Azure/mmlspark)
+* [SynapseML GitHub 리포지토리](https://github.com/Azure/mmlspark)

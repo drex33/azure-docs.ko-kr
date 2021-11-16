@@ -9,12 +9,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.openlocfilehash: 07891ea9f4f25827c80ac56a2731d4a5393f3b38
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2f0acb894d6bdacef69dcf8adb2088214e094415
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438724"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517960"
 ---
 # <a name="execute-a-fail-activity-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics에서 실패 작업 실행
 
@@ -76,4 +76,5 @@ ms.locfileid: "131438724"
 - [메타데이터 가져오기 작업](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [웹 작업](control-flow-web-activity.md)
-- [Until 활동](control-flow-until-activity.md)
+- [Until 작업](control-flow-until-activity.md)
+- [파이프라인 오류 이해](tutorial-pipeline-failure-error-handling.md)

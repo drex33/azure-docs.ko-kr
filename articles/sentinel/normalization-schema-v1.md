@@ -1,34 +1,34 @@
 ---
-title: Azure Sentinel 네트워크 정규화 스키마(레거시 버전 - 공개 미리 보기)| Microsoft Docs
-description: 이 문서에서는 Azure Sentinel 데이터 정규화 스키마를 보여 줍니다.
+title: Microsoft Sentinel 네트워크 정규화 스키마(레거시 버전 - 공개 미리 보기)| Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel 데이터 정규화 스키마를 표시합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/15/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7442db85d7b6105278024c9fc23bca9eba20ab19
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c5f88a7b5234e2a791d26ecc339e6750497ef6a9
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064396"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522862"
 ---
-# <a name="azure-sentinel-network-normalization-schema-legacy-version---public-preview"></a>Azure Sentinel 네트워크 정규화 스키마(레거시 버전 - 공개 미리 보기)
+# <a name="microsoft-sentinel-network-normalization-schema-legacy-version---public-preview"></a>Microsoft Sentinel 네트워크 정규화 스키마(레거시 버전 - 공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-네트워크 정규화 스키마는 보고된 네트워크 이벤트를 설명하는 데 사용되며 Azure Sentinel에서 원본 독립적 분석을 사용하도록 설정하는 데 사용됩니다.
+네트워크 정규화 스키마는 보고된 네트워크 이벤트를 설명하는 데 사용되며 Microsoft Sentinel에서 소스 독립적 분석을 사용하도록 설정하는 데 사용됩니다.
 
-자세한 내용은 [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)을 참조하세요.
+자세한 내용은 [정규화 및 ASIM(고급 SIEM 정보 모델)을](normalization.md)참조하세요.
 
 > [!IMPORTANT]
 > 이 문서는 ASIM을 사용할 수 있기 전에 미리 보기로 릴리스된 네트워크 정규화 스키마의 버전 0.1과 관련이 있습니다. 네트워크 정규화 [스키마의 버전 0.2는](network-normalization-schema.md) ASIM과 일치하고 다른 향상된 기능을 제공합니다.
@@ -38,11 +38,11 @@ ms.locfileid: "131064396"
 
 ## <a name="terminology"></a>용어
 
-Azure Sentinel 스키마에서 사용되는 용어는 다음과 같습니다.
+다음 용어는 Microsoft Sentinel 스키마에서 사용됩니다.
 
 | 용어 | 정의 |
 | ---- | ---------- |
-| **보고 디바이스** | Azure Sentinel로 레코드를 보내는 시스템입니다. 이는 레코드의 주체 시스템이 아닐 수도 있습니다. |
+| **보고 디바이스** | Microsoft Sentinel에 레코드를 보내는 시스템입니다. 이는 레코드의 주체 시스템이 아닐 수도 있습니다. |
 | **레코드** | 보고 디바이스에서 전송되는 데이터의 단위입니다. 이 데이터 단위를 `log`, `event` 또는 `alert`라고도 하지만 다른 형식일 수도 있습니다.|
 |
 
@@ -88,13 +88,13 @@ Azure Sentinel 스키마에서 사용되는 용어는 다음과 같습니다.
 | **EventVendor** | String | Microsoft | 이벤트를 생성하는 제품의 공급 업체 | 이벤트 |
 | **EventResult** | 다중값: 성공, 부분, 실패, [비어 있음](문자열) | Success | 작업에 대해 보고된 결과로 해당 사항이 없는 경우 빈 값입니다. | 이벤트 |
 | **EventResultDetails** | String | 잘못된 암호 | EventResult에 보고된 결과에 대한 이유 또는 세부 정보 | 이벤트 |
-| **EventSchemaVersion** | Real | 0.1 | Azure Sentinel 스키마 버전으로 현재 0.1입니다. | 이벤트 |
+| **EventSchemaVersion** | Real | 0.1 | Microsoft 센티널 스키마 버전입니다. 현재 0.1입니다. | 이벤트 |
 | **EventSeverity** | String | 낮음 | 보고된 작업이 보안에 영향을 주는 경우 영향의 심각도를 나타냅니다. | 이벤트 |
 | **EventOriginalUid** | String | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | 보고 디바이스의 레코드 ID | 이벤트 |
 | **EventStartTime** | 날짜/시간 | “데이터 형식”을 참조하세요. | 이벤트가 언급된 시간 | 이벤트 |
 | **TimeGenerated** | 날짜/시간 | “데이터 형식”을 참조하세요. | 보고 원본에서 보고한 이벤트가 발생한 시간입니다. | 사용자 지정 필드 |
-| **EventTimeIngested** | 날짜/시간 | “데이터 형식”을 참조하세요. | 이벤트가 Azure Sentinel로 수집된 시간으로 Azure Sentinel에서 추가됩니다. | 이벤트 |
-| **EventUid** | Guid(문자열) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Azure Sentinel에서 행을 표시하는 데 사용하는 고유 식별자입니다. | 이벤트 |
+| **EventTimeIngested** | 날짜/시간 | “데이터 형식”을 참조하세요. | 이벤트가 Microsoft 센티널에 수집 된 시간입니다. Microsoft 센티널에서 추가 됩니다. | 이벤트 |
+| **EventUid** | Guid(문자열) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Microsoft 센티널에서 행을 표시 하는 데 사용 하는 고유 식별자입니다. | 이벤트 |
 | **NetworkApplicationProtocol** | String | HTTPS | 연결 또는 세션에서 사용하는 애플리케이션 계층 프로토콜입니다. | 네트워크 |
 | **DstBytes** | int | 32455 | 연결 또는 세션의 대상에서 원본으로 보낸 바이트 수 | 대상 |
 | **SrcBytes** | int | 46536 | 연결 또는 세션의 원본에서 대상으로 보낸 바이트 수 | 원본 |
@@ -200,7 +200,7 @@ Azure Sentinel 스키마에서 사용되는 용어는 다음과 같습니다.
 
 ## <a name="differences-between-the-version-01-and-version-02"></a><a name="changes"></a>버전 0.1 및 버전 0.2의 차이점
 
-Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버전이 ASIM을 사용할 수 있게 되기 전에 미리 보기로 출시 되었습니다.
+Microsoft 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버전이 ASIM을 사용할 수 있게 되기 전에 미리 보기로 출시 되었습니다.
 
 이 문서에서 설명 하는 버전 0.1과 [버전 0.2](network-normalization-schema.md) 의 차이점은 다음과 같습니다.
 
@@ -254,9 +254,9 @@ Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버
 :::row-end:::
 
 
-### <a name="newly-aliased-fields-in-version-02"></a>버전 0.2에서 새로 별칭이 지정 되는 필드
+### <a name="newly-aliased-fields-in-version-02"></a>버전 0.2의 새로 별칭이 있는 필드
 
-다음 필드는 이제 ASIM을 도입 하 여 [버전 0.2](network-normalization-schema.md) 에서 별칭이 지정 됩니다.
+이제 ASIM이 도입된 [버전 0.2에서](network-normalization-schema.md) 다음 필드가 별칭으로 처리됩니다.
 
 |버전 0.1의 필드  |버전 0.2의 별칭  |
 |---------|---------|
@@ -268,9 +268,9 @@ Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버
 |UserAgent     |     HttpUserAgent    |
 |     |         |
 
-### <a name="modified-fields-in-version-02"></a>버전 0.2의 수정 된 필드
+### <a name="modified-fields-in-version-02"></a>버전 0.2에서 수정된 필드
 
-다음 필드는 [버전 0.2](network-normalization-schema.md)에서 열거 되며 제공 된 목록의 특정 값이 필요 합니다.
+다음 필드는 [버전 0.2에서](network-normalization-schema.md)열거되며 제공된 목록의 특정 값이 필요합니다.
 
 - EventType
 - EventResultDetails
@@ -278,55 +278,55 @@ Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버
 
 ### <a name="renamed-fields-in-version-02"></a>버전 0.2에서 이름이 바뀐 필드
 
-[버전 0.2](network-normalization-schema.md)에서 다음 필드의 이름이 변경 되었습니다.
+[버전 0.2에서](network-normalization-schema.md)다음 필드의 이름이 바뀌었습니다.
 
-- **버전 0.2에서 기본 제공 Log Analytics 필드를 사용 합니다.**
+- **버전 0.2에서는 기본 제공 Log Analytics 필드를 사용합니다.**
 
-    는 `ingestion_time()` 필드 이름이 아니라 KQL 함수입니다.
+    는 `ingestion_time()` 필드 이름이 아닌 KQL 함수입니다.
 
-    |버전 0.1의 필드  |버전 0.2에서 이름이 바뀜  |
+    |버전 0.1의 필드  |버전 0.2에서 이름이 변경되었습니다.  |
     |---------|---------|
     |  EventResourceId  |   _ResourceId      |
     | EventUid   |     _ItemId    |
     | EventTimeIngested   |  ingestion_time()       |
     |    |         |
 
-- **ASIM 및 OSSEM의 향상 된 기능에 맞게 이름이 변경** 되었습니다.
+- **ASIM 및 OSSEM의 향상된 내용에 맞게 이름이 변경되었습니다.**
 
-    |버전 0.1의 필드  |버전 0.2에서 이름이 바뀜  |
+    |버전 0.1의 필드  |버전 0.2에서 이름이 변경되었습니다.  |
     |---------|---------|
     |  HttpReferrerOriginal  |   HttpReferrer      |
     | HttpUserAgentOriginal   |     HttpUserAgent    |
     |    |         |
 
-- **네트워크 세션 대상이 클라우드 서비스 일 필요가 없다는 것을 반영 하기 위해 이름이 변경 되었습니다**.
+- **네트워크 세션 대상이 클라우드 서비스일 필요가 없도록 이름이 변경되었습니다.**
 
-    |버전 0.1의 필드  |버전 0.2에서 이름이 바뀜  |
+    |버전 0.1의 필드  |버전 0.2에서 이름이 변경되었습니다.  |
     |---------|---------|
     |  CloudAppId  |   DstAppId      |
     | CloudAppName   |     DstAppName    |
     | CloudAppRiskLevel   |  ThreatRiskLevel       |
     |    |         |
 
-- **대/소문자를 변경 하 고 사용자 엔터티의 ASIM 처리를 사용 하 여 정렬 하려면 이름을** 바꿉니다.
+- **대/소문자 변경 및 사용자 엔터티의 ASIM 처리에 맞게 이름이 변경되었습니다.**
 
-    |버전 0.1의 필드  |버전 0.2에서 이름이 바뀜  |
+    |버전 0.1의 필드  |버전 0.2에서 이름이 변경되었습니다.  |
     |---------|---------|
     |  DstUserName  |   DstUsername      |
     | SrcUserName   |     SrcUsername    |
     |    |         |
 
-- **ASIM 장치 엔터티를 사용 하는 것이 더 효율적으로 이름이 바뀌고 Azure의 리소스 id를 허용** 합니다.
+- **ASIM 디바이스 엔터티에 더 잘 맞고 Azure의 이외의 리소스 ID를 허용하도록 이름이 변경되었습니다.**
 
-    |버전 0.1의 필드  |버전 0.2에서 이름이 바뀜  |
+    |버전 0.1의 필드  |버전 0.2에서 이름이 변경되었습니다.  |
     |---------|---------|
     |  DstResourceId  |   SrcDvcAzureRerouceId      |
     | SrcResourceId   |     SrcDvcAzureRerouceId    |
     |    |         |
 
-- **`Dvc` 버전 0.1의 처리가 일치 하지 않기 때문에 필드 이름에서 문자열을 제거 하기 위해 이름이 변경 되었습니다**.
+- **`Dvc` 버전 0.1의 처리가 일치하지 않는 경우 필드 이름에서 문자열을 제거하도록 이름이 변경되었습니다.**
 
-    |버전 0.1의 필드  |버전 0.2에서 이름이 바뀜  |
+    |버전 0.1의 필드  |버전 0.2에서 이름이 변경되었습니다.  |
     |---------|---------|
     |  DstDvcDomain  |   DstDomain      |
     | DstDvcFqdn   |     DstFqdn    |
@@ -336,9 +336,9 @@ Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버
     | SrcDvcHostname   |     SrcHostname    |
     |    |         |
 
-- **ASIM 파일 표시 지침에 맞게 이름을 바꿨습니다**.
+- **ASIM 파일 표현 지침에 맞게 이름이 변경되었습니다.**
 
-    |버전 0.1의 필드  |버전 0.2에서 이름이 바뀜  |
+    |버전 0.1의 필드  |버전 0.2에서 이름이 변경되었습니다.  |
     |---------|---------|
     |  FileHashMd5  |   FileMD5      |
     | FileHashSha1   |     FileSHA1    |
@@ -347,18 +347,18 @@ Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버
     |  FileMimeType  |   FileContentType      |
     |    |         |
 
-### <a name="removed-fields-in-version-02"></a>버전 0.2에서 제거 되는 필드
+### <a name="removed-fields-in-version-02"></a>버전 0.2에서 필드가 제거되었습니다.
 
-다음 필드는 버전 0.1에만 존재 하며 [버전 0.2](network-normalization-schema.md)에서 제거 되었습니다.
+다음 필드는 버전 0.1에만 있으며 [버전 0.2에서 제거되었습니다.](network-normalization-schema.md)
 
 |이유  |제거된 필드  |
 |---------|---------|
-|**필드 이름에 문자열이 없는 중복 항목이 있으므로 제거 됩니다. `Dvc`**     |  -DstDvcIpAddr<br> -DstDvcMacAddr<br>-SrcDvcIpAddr<br>-SrcDvcMacAddr       |
-|**Url의 ASIM 처리를 사용 하 여 맞추려면 제거 됨**     |  -UrlHostname       |
-|**이러한 필드는 일반적으로 네트워크 세션 이벤트의 일부로 제공 되지 않으므로 제거 됩니다.**<br><br>이벤트에 이러한 필드가 포함 된 경우 [프로세스 이벤트 스키마](process-events-normalization-schema.md) 를 사용 하 여 장치 속성을 설명 하는 방법을 이해 합니다. |     -SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>-DvcMacAddr<br>-DvcOs         |
-|**ASIM 파일 표시 지침에 맞게 제거 됨**     |   -FilePath<br>-FileExtension      |
-|**이 필드가 제거 되 면 [인증 스키마](authentication-normalization-schema.md)와 같은 다른 스키마를 사용 해야 함을 나타냅니다.**     |  - CloudAppOperation       |
-|**중복 될 때 제거 됨 `DstHostname`**     |  -DstDomainHostname         |
+|**필드 이름에 문자열이 없으므로 제거되었습니다. `Dvc`**     |  - DstDvcIpAddr<br> - DstDvcMacAddr<br>- SrcDvcIpAddr<br>- SrcDvcMacAddr       |
+|**URL의 ASIM 처리에 맞게 제거**     |  - UrlHostname       |
+|**이러한 필드는 일반적으로 네트워크 세션 이벤트의 일부로 제공되지 않으므로 제거됩니다.**<br><br>이벤트에 이러한 필드가 포함된 경우 [프로세스 이벤트 스키마를](process-events-normalization-schema.md) 사용하여 디바이스 속성을 설명하는 방법을 이해합니다. |     - SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs         |
+|**ASIM 파일 표현 지침에 맞게 제거**     |   - FilePath<br>- FileExtension      |
+|**이 필드는 [인증](authentication-normalization-schema.md)스키마 와 같은 다른 스키마를 사용해야 함을 나타내기 때문에 제거됩니다.**     |  - CloudAppOperation       |
+|**중복될 때 제거됩니다. `DstHostname`**     |  - DstDomainHostname         |
 |     |         |
 
 
@@ -366,9 +366,9 @@ Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Sentinel의 정규화](normalization.md)
-- [Azure Sentinel 인증 정규화 스키마 참조(퍼블릭 미리 보기)](authentication-normalization-schema.md)
-- [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
-- [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
-- [Azure Sentinel 프로세스 이벤트 정규화 스키마 참조](process-events-normalization-schema.md)
-- [Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](registry-event-normalization-schema.md)
+- [Microsoft Sentinel의 정규화](normalization.md)
+- [Microsoft Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
+- [Microsoft Sentinel 파일 이벤트 정규화 스키마 참조(공개 미리 보기)](file-event-normalization-schema.md)
+- [Microsoft Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
+- [Microsoft Sentinel 프로세스 이벤트 정규화 스키마 참조](process-events-normalization-schema.md)
+- [Microsoft Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)](registry-event-normalization-schema.md)

@@ -1,15 +1,15 @@
 ---
 title: ARM 템플릿 배포 문제 해결을 참조하세요.
 description: ARM 템플릿(Azure Resource Manager 템플릿) 배포 오류 문제를 해결하는 방법에 대해 알아봅니다.
-ms.date: 11/04/2021
+ms.date: 11/08/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 561fab9d7a94bb4eb97d59fcae835dd8cc72a778
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: ce9bf9ee097a41b3e3ecbc0cd515dd58cf30ea82
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131849526"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062061"
 ---
 # <a name="quickstart-troubleshoot-arm-template-deployments"></a>빠른 시작: ARM 템플릿 배포 문제 해결
 
@@ -89,11 +89,11 @@ ms.locfileid: "131849526"
 
 ## <a name="fix-validation-error"></a>유효성 검사 오류 해결
 
-Visual Studio Code에서 파일을 엽니다. 아래의 물결선은 `parameterss:` 오류를 나타냅니다. 오류 위로 마우스를 가져가면 유효성 검사 오류가 표시됩니다.
+Visual Studio Code에서 파일을 엽니다. `parameterss:` 아래의 물결선은 오류를 나타냅니다. 유효성 검사 오류를 보려면 오류 위로 마우스를 가져갑니다.
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-error.png" alt-text="Visual Studio Code 템플릿 유효성 검사 오류의 스크린샷.":::
 
-`variables` 및 `resources`에 _정의되지 않은 매개 변수 참조_ 에 대한 오류가 있음을 알 수 있습니다.
+`variables` 및 `resources`에 _정의되지 않은 매개 변수 참조_ 에 대한 오류가 있음을 알 수 있습니다. 템플릿의 유효성 검사 오류를 표시하려면 **보기** > **문제** 를 선택합니다.
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-undefined-parameter.png" alt-text="정의되지 않은 매개 변수 참조 오류를 보여 주는 Visual Studio Code 스크린샷.":::
 

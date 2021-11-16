@@ -4,19 +4,19 @@ description: Azure 리소스 및 Azure AD 인증에 대해 관리 ID를 지원�
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/13/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: a7022c9de1449d0c4001b1d814eeb9464b98c24a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 43b4fcdbd867a2aee95c6bf23d57e77e8fbbe08f
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769984"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026903"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -28,7 +28,6 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 ## <a name="azure-services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 Azure 서비스
 
 다음 Azure 서비스는 Azure 리소스에 대한 관리 ID를 지원합니다.
-
 
 ### <a name="azure-api-management"></a>Azure API Management
 
@@ -66,14 +65,14 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Azure Resource Manager 템플릿](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc를 지원하는 Kubernetes
+### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Kubernetes가 가능한 Azure Arc는 현재 [시스템 할당 ID를 지원합니다](../../azure-arc/kubernetes/quickstart-connect-cluster.md). 관리 서비스 ID 인증서는 Azure와의 통신을 위한 Kubernetes 에이전트가 가능한 모든 Azure Arc에 사용됩니다.
+Azure Arc 지원 Kubernetes는 현재 [시스템 할당 ID를 지원](../../azure-arc/kubernetes/quickstart-connect-cluster.md)합니다. 관리되는 서비스 ID 인증서는 Azure와의 통신을 위한 모든 Azure Arc 지원 Kubernetes 에이전트에 사용됩니다.
 
 ### <a name="azure-arc-enabled-servers"></a>Azure Arc 지원 서버
 
@@ -84,8 +83,8 @@ Kubernetes가 가능한 Azure Arc는 현재 [시스템 할당 ID를 지원합니
 
 모든 Azure Arc 지원 서버에는 시스템 할당 ID가 있습니다. Azure Arc 지원 서버에서 시스템 할당 ID를 사용하지 않도록 설정하거나 변경할 수 없습니다. Azure Arc 지원 서버에서 관리되는 ID를 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-- [Arc 지원 서버를 사용하는 Azure 리소스에 대해 인증](../../azure-arc/servers/managed-identity-authentication.md)
-- [Arc 지원 서버에서 관리 ID 사용](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
+- [Azure Arc 지원 서버를 사용하는 Azure 리소스에 대해 인증](../../azure-arc/servers/managed-identity-authentication.md)
+- [Azure Arc 지원 서버에서 관리 ID 사용](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-azure-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 
@@ -102,12 +101,12 @@ Kubernetes가 가능한 Azure Arc는 현재 [시스템 할당 ID를 지원합니
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
-| 사용자 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
+| 시스템 할당 | ![사용 가능][Check]| ![사용 가능][Check] | 사용할 수 없음 | ![사용 가능][Check] |
+| 사용자 할당 | ![사용 가능][Check] | ![사용 가능][Check] | 사용할 수 없음 | ![사용 가능][Check] |
 
 [Azure Automation](../../automation/automation-intro.md)에서 관리 ID를 사용하려면 다음 문서를 참조하세요.
 
-* [Automation 계정 인증 개요 - 관리 ID](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Automation 계정 인증 개요 - 관리 ID](../../automation/automation-security-overview.md#managed-identities)
 * [Automation에서 관리 ID를 사용하도록 설정 및 사용](../../automation/enable-managed-identity-for-automation.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
@@ -326,7 +325,7 @@ Kubernetes가 가능한 Azure Arc는 현재 [시스템 할당 ID를 지원합니
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
-자세한 정보는 [Azure Spring Cloud 애플리케이션용 시스템 할당 관리 ID를 사용하도록 설정하는 방법](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md)을 참조하십시오.
+자세한 정보는 [Azure Spring Cloud의 애플리케이션용 시스템 할당 관리 ID를 사용하도록 설정하는 방법](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md)을 참조하세요.
 
 ### <a name="azure-stack-edge"></a>Azure Stack Edge
 
@@ -507,7 +506,6 @@ Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 �
 | --- | :-: | :-: | :-: | :-: |
 | 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-
 
 > [!NOTE]
 > 관리 ID를 사용하여 [Power BI에 Azure Stream Analytics](../../stream-analytics/powerbi-output-managed-identity.md) 작업을 인증할 수 있습니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 4b4b84de819e8b2e64238ef1d3d8d7149473c2b0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 329121332449316f3582ee38c11ad843b25ab812
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124753907"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudtamerio"></a>자습서: cloudtamer.io와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -65,6 +65,7 @@ cloudtamer.io에서 Azure AD SSO를 구성하고 테스트하려면 다음 단�
 1. **[cloudtamer.io SSO 구성](#configure-cloudtamerio-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
     1. **[cloudtamer.io 테스트 사용자 만들기](#create-cloudtamerio-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 cloudtamer.io에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[그룹 어설션](#group-assertions)** - Azure AD 및 cloudtamer.io에 대한 그룹 어설션을 설정합니다.
 
 ### <a name="begin-cloudtamerio-sso-configuration"></a>cloudtamer.io SSO 구성 시작
 
@@ -179,6 +180,40 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 cloudtamer.io 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 cloudtamer.io에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
+## <a name="group-assertions"></a>그룹 어설션
+
+기존 Azure Active Directory 그룹을 사용하여 cloudtamer.io 사용자 권한을 쉽게 관리하려면 다음 단계를 완료합니다.
+
+### <a name="azure-ad-configuration"></a>Azure AD 구성
+
+1. Azure Portal에서 **Azure Active Directory** > **엔터프라이즈 애플리케이션** 으로 차례로 이동합니다.
+1. 목록에서 cloudtamer.io용 엔터프라이즈 애플리케이션을 선택합니다.
+1. **개요** 의 왼쪽 메뉴에서 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On** 의 **사용자 특성 및 클레임** 아래에서 **편집** 을 선택합니다.
+1. **그룹 클레임 추가** 를 선택합니다. 
+   > [!NOTE]
+   > 하나의 그룹 클레임만 있을 수 있습니다. 이 옵션이 사용하지 않도록 설정되어 있으면 그룹 클레임이 이미 정의되어 있을 수 있습니다.
+1. **그룹 클레임** 에서 클레임에 반환되어야 하는 그룹을 선택합니다.
+   - cloudtamer.io에서 사용하려는 모든 그룹이 항상 이 엔터프라이즈 애플리케이션에 할당되도록 하려면 **애플리케이션에 할당된 그룹** 을 선택합니다.
+   - 모든 그룹을 표시하려면(이 선택으로 인해 많은 수의 그룹 어설션이 발생할 수 있고 제한이 적용될 수 있음) **애플리케이션에 할당된 그룹** 을 선택합니다.
+1. **원본 특성** 에 대해 기본 **그룹 ID** 를 그대로 둡니다.
+1. **그룹 클레임 이름 사용자 지정** 확인란을 선택합니다.
+1. **이름** 에 대해 **memberOf** 를 입력합니다.
+1. **저장** 을 선택하여 Azure AD에서 구성을 완료합니다.
+
+### <a name="cloudtamerio-configuration"></a>cloudtamer.io 구성
+
+1. cloudtamer.io에서 **Users(사용자)**  > **Identity Management Systems(ID 관리 시스템)** 로 차례로 이동합니다.
+1. Azure AD에 대해 IDMS를 선택합니다.
+1. 개요 페이지에서 **User Group Associations(사용자 그룹 연결)** 탭을 선택합니다.
+1. 원하는 각 사용자 그룹 매핑에 대해 다음 단계를 완료합니다.
+   1. **Add(추가)**  > **Add New(새로 추가)** 를 선택합니다.
+   1. 표시되는 대화 상자에서,
+      1. **이름** 에 대해 **memberOf** 를 입력합니다.
+      1. **Regex(정규식)** 에 대해 일치시키려는 그룹의 개체 ID(Azure AD에서 제공)를 입력합니다.
+      1. **User Group(사용자 그룹)** 에 대해 **Regex** 의 그룹에 매핑할 cloudtamer.io 내부 그룹을 선택합니다.
+      1. **Update on Login(로그인 시 업데이트)** 확인란을 선택합니다.
+   1. **Add(추가)** 를 선택하여 그룹 연결을 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

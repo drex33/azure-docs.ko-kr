@@ -1,36 +1,36 @@
 ---
-title: 이 Azure Sentinel 통합 문서를 사용하여 데이터 커넥터의 상태 모니터링 | Microsoft Docs
+title: 이 Microsoft 센티널 통합 문서를 사용 하 여 데이터 커넥터의 상태 모니터링 | Microsoft Docs
 description: 상태 모니터링 통합 문서를 사용하여 데이터 커넥터의 연결 및 성능을 추적합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2020
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 89f18c1a7ab517dde3552e1449d0971f29774f91
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 087ee5a8fd0b3f6337306532525c19db46a2c203
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037020"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524439"
 ---
-# <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>이 Azure Sentinel 통합 문서를 사용하여 데이터 커넥터의 상태 모니터링
+# <a name="monitor-the-health-of-your-data-connectors-with-this-microsoft-sentinel-workbook"></a>이 Microsoft 센티널 통합 문서를 사용 하 여 데이터 커넥터의 상태 모니터링
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-**데이터 커넥터 상태 모니터링 통합 문서** 를 사용하면 Azure Sentinel 내에서 데이터 커넥터의 상태, 연결 및 성능을 추적할 수 있습니다. 이 통합 문서는 추가 모니터를 제공하고, 변칙을 검색하고, 작업 영역의 데이터 수집 상태에 대한 인사이트를 제공합니다. 통합 문서의 논리를 사용하여 수집된 데이터의 일반적인 상태를 모니터링하고 사용자 지정 보기 및 규칙 기반 경고를 빌드할 수 있습니다.
+**데이터 커넥터 상태 모니터링 통합 문서** 를 사용 하면 Microsoft 센티널 내에서 데이터 커넥터의 상태, 연결 및 성능을 추적할 수 있습니다. 이 통합 문서는 추가 모니터를 제공하고, 변칙을 검색하고, 작업 영역의 데이터 수집 상태에 대한 인사이트를 제공합니다. 통합 문서의 논리를 사용하여 수집된 데이터의 일반적인 상태를 모니터링하고 사용자 지정 보기 및 규칙 기반 경고를 빌드할 수 있습니다.
 
 ## <a name="use-the-health-monitoring-workbook"></a>상태 모니터링 통합 문서 사용
 
-1. Azure Sentinel 포털의 **위협 관리** 메뉴에서 **통합 문서** 를 선택합니다.
+1. Microsoft 센티널 포털의 **위협 관리** 메뉴에서 **통합 문서** 를 선택 합니다.
 
 1. **통합 문서** 갤러리의 검색 표시줄에 *상태* 를 입력하고 결과 중에서 **데이터 컬렉션 상태 모니터링** 을 선택합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "131037020"
 
 이 통합 문서에는 다음과 같은 세 개의 탭 섹션이 있습니다.
 
-1. **개요** 탭에는 선택한 작업 영역의 일반적인 데이터 수집 상태(볼륨 측정값, EPS 속도 및 마지막 로그 수신 시간)가 표시됩니다.
+1. **개요** 탭에는 선택한 작업 영역에 있는 데이터 수집의 일반적인 상태 (볼륨 측정, EPS 비율 및 마지막으로 받은 시간)가 표시 됩니다.
 
 1. **데이터 수집 변칙** 탭에서는 테이블 및 데이터 원본별로 데이터 수집 프로세스의 변칙을 검색할 수 있습니다. 각 탭은 특정 테이블에 대한 변칙을 나타냅니다(**일반** 탭에는 테이블 컬렉션이 포함됨). 변칙은 **변칙 점수** 를 반환하는 **series_decompose_anomalies()** 함수를 사용하여 계산됩니다. [이 함수에 대해 자세히 알아보세요](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). 평가할 함수에 대해 다음 매개 변수를 설정합니다.
 
@@ -68,4 +68,4 @@ ms.locfileid: "131037020"
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="데이터 커넥터 상태 모니터링 통합 문서 에이전트 정보 페이지" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Sentinel에 데이터를 온보딩하는 방법](quickstart-onboard.md), [데이터 원본을 연결하는 방법](connect-data-sources.md) 및 [데이터 및 잠재적 위협을 표시하는 방법](get-visibility.md)에 대해 알아봅니다.
+데이터를 [Microsoft 센티널에](quickstart-onboard.md)등록 하 고, [데이터 원본을 연결](connect-data-sources.md)하 고, [데이터에 대 한 가시성과 잠재적 위협을](get-visibility.md)파악 하는 방법에 대해 알아봅니다.

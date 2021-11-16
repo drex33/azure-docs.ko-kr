@@ -1,38 +1,38 @@
 ---
-title: Azure Sentinel 인증 정규화 스키마 참조 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel 인증 정규화 스키마에 대해 설명합니다.
+title: Microsoft Sentinel 인증 정규화 스키마 참조 | Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel 인증 정규화 스키마에 대해 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9b692046f0e812b903570ecd6e788ba83db6b96b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 62bf35c4638433cc4e9820f8d0bb7e2592bcebf5
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075418"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517580"
 ---
-# <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Azure Sentinel 인증 정규화 스키마 참조(공개 미리 보기)
+# <a name="microsoft-sentinel-authentication-normalization-schema-reference-public-preview"></a>Microsoft Sentinel 인증 정규화 스키마 참조(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 인증 정보 모델은 사용자 인증, 로그인 및 로그아웃과 관련된 이벤트를 설명하는 데 사용됩니다. 인증 이벤트는 일반적으로 이벤트 스트림의 일부로 다른 이벤트와 함께 많은 보고 디바이스에서 보냅니다.
 
-예를 들어 Windows는 여러 인증 이벤트를 다른 OS 활동 이벤트와 함께 보냅니다. 따라서 대부분의 경우 인증 이벤트는 여러 Azure Sentinel 테이블에 저장되며, 관련 인증 이벤트만 필터링하는 KQL 함수를 사용하여 정규화됩니다.
+예를 들어 Windows는 여러 인증 이벤트를 다른 OS 활동 이벤트와 함께 보냅니다. 따라서 대부분의 경우 인증 이벤트는 서로 다른 Microsoft Sentinel 테이블에 저장되며 KQL 함수를 사용하여 정규화됩니다. 이 함수는 관련 인증 이벤트만 필터링합니다.
 
 인증 이벤트에는 VPN 게이트웨이 또는 도메인 컨트롤러와 같은 인증에 중점을 둔 시스템의 이벤트와 최종 시스템(예: 컴퓨터 또는 방화벽)에 대한 직접 인증이 모두 포함됩니다.
 
-Azure Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)을 참조하세요.
+Microsoft Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(고급 SIEM 정보 모델)을](normalization.md)참조하세요.
 
 > [!IMPORTANT]
 > 인증 정규화 스키마는 현재 미리 보기에 있습니다. 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다.
@@ -42,7 +42,7 @@ Azure Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(Az
 
 ## <a name="parsers"></a>파서
 
-Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파서는 다음과 같습니다. 
+Microsoft Sentinel은 다음과 같은 기본 제공 제품별 인증 이벤트 파서를 제공합니다. 
 
 - Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집되고 보안 이벤트(4624, 4625, 4634 및 4647)로 보고된 **Windows 로그인**
 - Microsoft 365 Defender 커넥터를 사용하여 수집되고, Microsoft 365 Defender for Endpoint에서 보고한 **Windows 로그인**
@@ -52,13 +52,13 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파�
 
 나열된 모든 파서를 통합하여 구성된 모든 원본에서 데이터를 분석하도록 하는 원본 중립적 파서를 사용하려면 쿼리에서 **imAuthentication** 을 테이블 이름으로 사용합니다.
 
-[Azure Sentinel GitHub 리포지토리](https://aka.ms/AzSentinelAuth)에서 [원본 중립 및 원본 특정 파서](normalization-about-parsers.md)를 배포합니다.
+[Microsoft Sentinel GitHub 리포지토리에서](https://aka.ms/AzSentinelAuth) [소스와 관련이 없는 소스별 파서를](normalization-about-parsers.md) 배포합니다.
 
 
 
 ## <a name="normalized-content"></a>정규화된 콘텐츠
 
-인증 ASIM 스키마 지원에는 정규화된 인증 파서가 있는 다음과 같은 기본 제공 분석 규칙에 대한 지원도 포함됩니다. Azure Sentinel GitHub 리포지토리에 대한 링크가 참조로 아래에 제공되지만, 이러한 규칙은 [Azure Sentinel 분석 규칙 갤러리](detect-threats-built-in.md)에서 찾을 수도 있습니다. 연결된 GitHub 페이지를 사용하여 나열된 규칙에 대한 관련 헌팅 쿼리를 복사합니다.
+인증 ASIM 스키마 지원에는 정규화된 인증 파서가 있는 다음과 같은 기본 제공 분석 규칙에 대한 지원도 포함됩니다. Microsoft Sentinel GitHub 리포지토리에 대한 링크는 아래 참조로 제공되지만 [Microsoft Sentinel Analytics 규칙 갤러리에서](detect-threats-built-in.md)이러한 규칙을 찾을 수도 있습니다. 연결된 GitHub 페이지를 사용하여 나열된 규칙에 대한 관련 헌팅 쿼리를 복사합니다.
 
 - [잠재적인 암호 스프레이 공격(인증 정규화 사용)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
  - [사용자 자격 증명에 대한 무차별 암호 대입 공격(인증 정규화 사용)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
@@ -66,7 +66,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파�
  - [사용자지 않도록 설정된 계정에 대한 로그인을 시도하는 IP에서 로그인(인증 정규화 사용)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
 
 
-정규화된 인증 분석 규칙은 원본 전체에서 공격을 탐지하므로 고유합니다. 예를 들어 사용자가 다른 국가에서 관련 없는 다른 시스템에 로그인한 경우 이제 Azure Sentinel에서 이 위협을 탐지합니다.
+정규화된 인증 분석 규칙은 원본 전체에서 공격을 탐지하므로 고유합니다. 따라서 예를 들어 사용자가 서로 다른 국가에서 관련 없는 다른 시스템에 로그인한 경우 Microsoft Sentinel은 이제 이 위협을 감지합니다.
 
 ## <a name="schema-details"></a>스키마 세부 정보
 
@@ -82,7 +82,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파�
 |---------|---------|---------|
 |<a name ="timegenerated"></a>**TimeGenerated**     |  Datetime       |보고 디바이스에서 이벤트가 생성된 시간입니다.         |
 |**_ResourceId**     | guid        |  보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다.       |
-| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 여러 채널을 통해 동일한 이벤트를 받을 수 있고 EventVendor 및 Eventvendor 값이 동일한 경우에 유용 합니다.<br><br>예를 들어 이벤트 테이블이 나 WindowsEvent 테이블에 Sysmon 이벤트를 수집할 수 있습니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블로 동일한 이벤트를 수신할 수 있고 EventVendor 및 EventProduct 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 Event 테이블 또는 WindowsEvent 테이블에 수집할 수 있습니다. |
 |     |         |         |
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파�
 
 이벤트 필드는 모든 스키마에 공통되며, 활동 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다. <br><br>**참고**: 이 필드는 일관성을 위해 포함되지만, 일반적으로 인증 이벤트에는 사용되지 않습니다.  |
@@ -192,8 +192,8 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파�
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Sentinel의 정규화](normalization.md)
-- [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
-- [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
-- [Azure Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
-- [Azure Sentinel 프로세스 이벤트 정규화 스키마 참조(공개 미리 보기)](process-events-normalization-schema.md)
+- [Microsoft 센티널의 정규화](normalization.md)
+- [Microsoft 센티널 DNS 정규화 스키마 참조](dns-normalization-schema.md)
+- [Microsoft 센티널 파일 이벤트 정규화 스키마 참조 (공개 미리 보기)](file-event-normalization-schema.md)
+- [Microsoft 센티널 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
+- [Microsoft 센티널 프로세스 이벤트 정규화 스키마 참조 (공개 미리 보기)](process-events-normalization-schema.md)

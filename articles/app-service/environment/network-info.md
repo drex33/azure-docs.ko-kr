@@ -1,33 +1,31 @@
 ---
 title: 네트워킹 고려 사항
 description: ASE 네트워크 트래픽 및 ASE를 사용하여 네트워크 보안 그룹 및 사용자 정의 경로를 설정하는 방법에 대해 알아봅니다.
-author: ccompy
-ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
+author: madsd
 ms.topic: article
-ms.date: 07/27/2020
-ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: bb404aa41b02ef44bba1931b8251948ce97a8e5a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/15/2021
+ms.author: madsd
+ms.openlocfilehash: b742ba4218307b4ba87c4d524f692f329ab9440b
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236545"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524135"
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
+# <a name="networking-considerations-for-an-app-service-environment-v2"></a>App Service Environment v2에 대한 네트워킹 고려 사항
 
 > [!NOTE]
 > 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
 > 
 
-## <a name="overview"></a>개요 ##
+## <a name="overview"></a>개요
 
- Azure [App Service Environment][Intro]는 Azure App Service를 Azure VNet(Virtual Network) 내 서브넷에 배포한 것입니다. ASE(App Service Environment)에는 두 가지 배포 유형이 있습니다.
+ Azure [App Service Environment][Intro] Azure 가상 네트워크의 서브넷에 Azure App Service 배포합니다. ASE(App Service Environment)에는 두 가지 배포 유형이 있습니다.
 
 - **외부 ASE** - ASE에서 호스트되는 앱을 인터넷 액세스가 가능한 IP 주소에 표시합니다. 자세한 내용은 [외부 ASE 만들기][MakeExternalASE]를 참조하세요.
-- **ILB ASE** - ASE에서 호스트되는 앱을 VNet 내부의 IP 주소에 표시합니다. 내부 엔드포인트는 ILB(내부 부하 분산 장치)이므로 ILB ASE라고 합니다. 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
+- **ILB ASE:** 가상 네트워크 내의 IP 주소에 ASE 호스팅 앱을 노출합니다. 내부 엔드포인트는 ILB(내부 부하 분산 장치)이므로 ILB ASE라고 합니다. 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
-모든 ASE, 외부 및 ILB에는 ASE에서 인터넷으로의 호출을 수행할 때 인바운드 관리 트래픽에 사용되고 보낸 사람 주소로 사용되는 공용 VIP가 있습니다. 인터넷으로 이동하는 ASE의 호출은 VNet을 출발하여 ASE에 할당된 VIP로 갑니다. 이 VIP의 공용 IP는 인터넷으로 이동하는 ASE의 모든 호출에 대한 원본 IP입니다. 사용자의 ASE에 있는 앱이 VNet 또는 VPN의 리소스를 호출하는 경우 원본 IP는 ASE에서 사용되는 서브넷의 IP 중 하나가 됩니다. ASE가 VNet 내에 있으므로 추가 구성 없이 VNet 내 리소스에 액세스할 수 있습니다. VNet이 온-프레미스 네트워크에 연결되어 있으면 ASE의 앱도 추가 구성 없이 해당 네트워크의 리소스에 액세스할 수 있습니다.
+모든 ASE, 외부 및 ILB에는 ASE에서 인터넷으로의 호출을 수행할 때 인바운드 관리 트래픽에 사용되고 보낸 사람 주소로 사용되는 공용 VIP가 있습니다. 인터넷으로 이동하는 ASE의 호출은 ASE에 할당된 VIP를 통해 가상 네트워크를 유지합니다. 이 VIP의 공용 IP는 인터넷으로 이동하는 ASE의 모든 호출에 대한 원본 IP입니다. ASE의 앱이 가상 네트워크 또는 VPN을 통해 리소스를 호출하는 경우 원본 IP는 ASE에서 사용하는 서브넷의 IP 중 하나입니다. ASE는 가상 네트워크 내에 있으므로 추가 구성 없이 가상 네트워크 내의 리소스에 액세스할 수도 있습니다. 가상 네트워크가 온-프레미스 네트워크에 연결된 경우 ASE의 앱도 추가 구성 없이 리소스에 액세스할 수 있습니다.
 
 ![외부 ASE][1] 
 
@@ -42,7 +40,7 @@ ms.locfileid: "130236545"
 
 ILB ASE가 있는 경우에는 ILB 주소가 HTTP/S, FTP/S, 웹 배포 및 원격 디버깅용 엔드포인트입니다.
 
-## <a name="ase-subnet-size"></a>ASE 서브넷 크기 ##
+## <a name="ase-subnet-size"></a>ASE 서브넷 크기
 
 ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 크기를 변경할 수 없습니다.  ASE는 격리된 각 App Service 계획 인스턴스뿐만 아니라 각 인프라 역할에 대한 주소를 사용합니다.  또한 생성된 모든 서브넷에 대해 Azure 네트워킹에서 사용하는 5개의 주소가 있습니다.  App Service 계획이 아예 없는 ASE는 앱을 만들기 전에 12개의 주소를 사용합니다.  ILB ASE인 경우 해당 ASE에서 앱을 만들기 전에 13개의 주소를 사용합니다. ASE를 규모 확장할 때 인프라 역할은 App Service 계획 인스턴스의 15 및20개의 배수마다 추가됩니다.
 
@@ -51,9 +49,9 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 규모를 확장 또는 축소할 때 적절한 크기의 새 역할이 추가된 다음, 워크로드가 현재 크기에서 대상 크기로 마이그레이션됩니다. 원래 VM은 워크로드가 마이그레이션된 후에만 제거됩니다. 100개의 ASP 인스턴스가 있는 ASE가 있는 경우 VM 수를 두 배로 늘려야 하는 기간이 있습니다.  이러한 이유로 필요할 수 있는 모든 변경 사항을 수용하기 위해 '/24'를 사용하는 것이 좋습니다.  
 
-## <a name="ase-dependencies"></a>ASE 종속성 ##
+## <a name="ase-dependencies"></a>ASE 종속성
 
-### <a name="ase-inbound-dependencies"></a>ASE 인바운드 종속성 ###
+### <a name="ase-inbound-dependencies"></a>ASE 인바운드 종속성
 
 ASE가 작동하려면 ASE가 다음 포트를 열어야 합니다.
 
@@ -82,7 +80,7 @@ Azure Load Balancer 및 ASE 서브넷 간의 통신을 위해서는 최소 포�
 
 애플리케이션 포트를 차단하는 경우 ASE는 계속 작동하지만 앱이 작동하지 않을 수 있습니다.  외부 ASE를 사용하여 앱에 할당된 IP 주소를 사용하는 경우 ASE 포털 > IP 주소 페이지에 표시된 포트의 ASE 서브넷에 앱에 할당된 IP의 트래픽을 허용해야 합니다.
 
-### <a name="ase-outbound-dependencies"></a>ASE 아웃바운드 종속성 ###
+### <a name="ase-outbound-dependencies"></a>ASE 아웃바운드 종속성
 
 아웃 바운드 액세스의 경우 ASE는 여러 외부 시스템에 종속됩니다. 그러한 시스템 종속성은 대부분 DNS 이름으로 정의되며 고정된 IP 주소 집합에 매핑되지 않습니다. 따라서 ASE는 여러 포트를 통해 ASE 서브넷에서 모든 외부 IP에 아웃바운드로 액세스할 수 있어야 합니다. 
 
@@ -100,15 +98,18 @@ ASE는 다음 포트에서 인터넷에 액세스할 수 있는 주소를 전달
 
 ### <a name="customer-dns"></a>고객 DNS ###
 
-VNet이 고객 정의 DNS 서버로 구성된 경우 테넌트 워크로드가 해당 서버를 사용합니다. ASE는 관리 목적으로 Azure DNS를 사용합니다. VNet이 고객이 선택한 DNS로 구성된 경우 ASE가 포함된 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
+가상 네트워크가 고객이 정의한 DNS 서버로 구성 된 경우 테 넌 트 워크 로드에서 사용 됩니다. ASE는 관리 목적으로 Azure DNS를 사용합니다. 가상 네트워크가 고객이 선택한 DNS 서버로 구성 된 경우 ASE를 포함 하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
+
+   > [!NOTE]
+   > asev2) 탑재 또는 컨테이너 이미지를 가져오는 경우 가상 네트워크 또는 앱 설정에서 정의 된 고객 DNS를 사용할 수 없습니다. Storage `WEBSITE_DNS_SERVER`
 
 웹앱에서 DNS 확인을 테스트하기 위해 콘솔 명령 *nameresolver* 를 사용할 수 있습니다. 앱에 대한 scm 사이트에서 디버그 창으로 이동하거나 포털의 앱으로 이동하고 콘솔을 선택합니다. 셸 프롬프트에서 조회하려는 DNS 이름과 함께 *nameresolver* 명령을 실행할 수 있습니다. 얻게 되는 결과는 동일한 조회를 수행하는 동안 앱이 얻는 결과와 동일합니다. nslookup을 사용하는 경우 대신 Azure DNS를 사용하여 조회를 수행합니다.
 
-ASE가 있는 VNet의 DNS 설정을 변경하면 ASE를 재부팅해야 합니다. ASE를 재부팅하지 않으려면 ASE를 만들기 전에 VNet에 대한 DNS 설정을 구성하는 것이 좋습니다.  
+ASE가 있는 가상 네트워크의 DNS 설정을 변경 하는 경우 ASE를 다시 부팅 해야 합니다. ASE를 다시 부팅 하지 않으려면 ASE를 만들기 전에 가상 네트워크에 대 한 DNS 설정을 구성 하는 것이 좋습니다.
 
 <a name="portaldep"></a>
 
-## <a name="portal-dependencies"></a>포털 종속성 ##
+## <a name="portal-dependencies"></a>포털 종속성
 
 ASE의 기능적 종속성 외에 포털 환경과 관련된 몇 가지 추가 항목이 있습니다. Azure Portal의 기능 중 일부는 _SCM 사이트_ 에 대한 직접 액세스에 의존합니다. Azure App Service의 모든 앱에는 URL이 두 개 있습니다. 첫 번째 URL은 앱에 액세스하는 것입니다. 두 번째 URL은 _Kudu 콘솔_ 이라고도 하는 SCM 사이트에 액세스하는 것입니다. SCM 사이트를 사용하는 기능은 다음과 같습니다.
 
@@ -120,7 +121,7 @@ ASE의 기능적 종속성 외에 포털 환경과 관련된 몇 가지 추가 �
 -   Process Explorer
 -   콘솔
 
-ILB ASE를 사용할 때는 VNet 외부에서 SCM 사이트에 액세스할 수 없습니다. 일부 기능은 앱의 SCM 사이트에 액세스해야 하기 때문에 앱 포털에서 작동하지 않습니다. 포털을 사용하는 대신 SCM 사이트에 직접 연결할 수 있습니다. 
+ILB ASE를 사용 하는 경우 가상 네트워크 외부에서 SCM 사이트에 액세스할 수 없습니다. 일부 기능은 앱의 SCM 사이트에 액세스해야 하기 때문에 앱 포털에서 작동하지 않습니다. 포털을 사용하는 대신 SCM 사이트에 직접 연결할 수 있습니다. 
 
 ILB ASE 도메인 이름이 *contoso.appserviceenvironment.net* 이고 앱 이름이 *testapp* 이면 *testapp.contoso.appserviceenvironment.net* 에서 앱에 연결할 수 있습니다. 그리고 앱과 함께 제공되는 SCM 사이트는 *testapp.scm.contoso.appserviceenvironment.net* 에서 연결할 수 있습니다.
 
@@ -129,7 +130,7 @@ ILB ASE 도메인 이름이 *contoso.appserviceenvironment.net* 이고 앱 이�
 ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - **공용 인바운드 IP 주소**: 외부 ASE의 앱 트래픽 및 외부 ASE와 ILB ASE 둘 다의 관리 트래픽에 사용됩니다.
-- **아웃바운드 공용 IP**: VNet에서 시작되는 ASE로부터의 아웃바운드 연결(VPN으로 라우팅되지 않음)의 "시작" IP로 사용됩니다.
+- **아웃 바운드 공용 ip**: VPN에서 라우팅되지 않는 가상 네트워크를 유지 하는 ASE 로부터의 아웃 바운드 연결에 "보낸" ip로 사용 됩니다.
 - **ILB IP 주소**: ILB IP 주소는 ILB ASE에만 존재합니다.
 - **앱 할당 IP 기반 TLS/SSL 주소**: 외부 ASE와 IP 기반 TLS/SSL 바인딩이 구성된 경우에만 사용 가능합니다.
 
@@ -148,7 +149,7 @@ ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 �
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹 ##
 
-[네트워크 보안 그룹][NSGs]은 VNet 내에서 네트워크 액세스를 제어하는 기능을 제공합니다. 포털을 사용할 때는 모든 항목을 거부하는 최저 우선 순위의 암시적 거부 규칙이 있습니다. 허용 규칙은 사용자가 직접 작성합니다.
+[네트워크 보안 그룹][NSGs] 은 가상 네트워크 내에서 네트워크 액세스를 제어 하는 기능을 제공 합니다. 포털을 사용할 때는 모든 항목을 거부하는 최저 우선 순위의 암시적 거부 규칙이 있습니다. 허용 규칙은 사용자가 직접 작성합니다.
 
 ASE에서 사용자는 ASE 자체를 호스팅하는 데 사용된 VM에 대한 액세스 권한이 없습니다. Microsoft에서 관리하는 구독을 통해 이러한 VM에 액세스할 수 있습니다. ASE에서 앱에 대한 액세스를 제한하려는 경우 ASE 서브넷에 대해 NSG를 설정합니다. 이 과정에서 ASE 종속성에 유의하세요. 종속성을 차단하면 ASE 작동이 중지됩니다.
 
@@ -184,26 +185,26 @@ ASE가 작동하기 위해 NSG에서 필요한 항목은 트래픽을 허용하�
 
 ![인바운드 보안 규칙][4]
 
-기본 규칙을 사용하면 VNet의 IP가 ASE 서브넷과 통신할 수 있습니다. 공용 VIP라고도 하는 부하 분산 장치가 ASE와 통신할 수 있도록 하는 또 다른 기본 규칙도 있습니다. 기본 규칙을 확인하려면 **추가** 아이콘 옆에 있는 **기본 규칙** 을 선택합니다. 기본 규칙 앞에 기타 모든 항목을 거부하는 규칙을 배치하면 VIP와 ASE 간의 트래픽이 차단됩니다. VNet 내에서 들어오는 트래픽을 차단하려면 인바운드를 허용하는 규칙을 직접 추가합니다. 이때 대상이 **Any** 이고 포트 범위가 **\*** 인 AzureLoadBalancer와 같은 원본을 사용합니다. NSG 규칙은 ASE 서브넷에 적용되므로 대상을 구체적으로 지정할 필요는 없습니다.
+기본 규칙을 사용 하면 가상 네트워크의 Ip가 ASE 서브넷과 통신할 수 있습니다. 공용 VIP라고도 하는 부하 분산 장치가 ASE와 통신할 수 있도록 하는 또 다른 기본 규칙도 있습니다. 기본 규칙을 확인하려면 **추가** 아이콘 옆에 있는 **기본 규칙** 을 선택합니다. 기본 규칙 앞에 기타 모든 항목을 거부하는 규칙을 배치하면 VIP와 ASE 간의 트래픽이 차단됩니다. 가상 네트워크 내에서 들어오는 트래픽을 방지 하려면 인바운드를 허용 하는 사용자 고유의 규칙을 추가 합니다. 이때 대상이 **Any** 이고 포트 범위가 **\*** 인 AzureLoadBalancer와 같은 원본을 사용합니다. NSG 규칙은 ASE 서브넷에 적용되므로 대상을 구체적으로 지정할 필요는 없습니다.
 
 앱에 IP 주소를 할당한 경우 포트를 열어 두어야 합니다. 포트를 확인하려면 **App Service Environment** > **IP 주소** 를 선택합니다.  
 
-다음 아웃바운드 규칙에 표시된 모든 항목이 필요합니다(마지막 항목은 제외). 이러한 항목을 통해 네트워크에서 이 문서 앞부분에서 언급했던 ASE 종속성에 액세스할 수 있습니다. 이러한 항목 중 하나라도 차단하면 ASE의 작동이 중지됩니다. 목록의 마지막 항목은 사용자의 ASE가 VNet의 다른 리소스와 통신할 수 있도록 설정합니다.
+다음 아웃바운드 규칙에 표시된 모든 항목이 필요합니다(마지막 항목은 제외). 이러한 항목을 통해 네트워크에서 이 문서 앞부분에서 언급했던 ASE 종속성에 액세스할 수 있습니다. 이러한 항목 중 하나라도 차단하면 ASE의 작동이 중지됩니다. 목록의 마지막 항목을 사용 하면 ASE가 가상 네트워크의 다른 리소스와 통신할 수 있습니다.
 
 ![아웃바운드 보안 규칙][5]
 
-NSG를 정의한 후 ASE가 있는 서브넷에 할당합니다. ASE VNet 또는 서브넷을 기억하지 못하는 경우 ASE 포털 페이지에서 확인할 수 있습니다. 서브넷에 NSG를 할당하려면 서브넷 UI로 이동한 다음 NSG를 선택합니다.
+NSG를 정의한 후 ASE가 있는 서브넷에 할당합니다. ASE 가상 네트워크 또는 서브넷을 기억할 수 없는 경우 ASE 포털 페이지에서 볼 수 있습니다. 서브넷에 NSG를 할당하려면 서브넷 UI로 이동한 다음 NSG를 선택합니다.
 
 ## <a name="routes"></a>경로 ##
 
-강제 터널링은 아웃바운드 트래픽이 인터넷으로 직접 가지는 않지만 ExpressRoute 게이트웨이 또는 가상 어플라이언스와 같은 다른 곳으로 이동하도록 VNet에서 경로를 설정하는 경우입니다.  이러한 방식으로 ASE를 구성해야 하는 경우 [강제 터널링을 사용하여 App Service Environment 구성][forcedtunnel]의 문서를 참조하세요.  이 문서에서는 ExpressRoute 및 강제 터널링 작업에 사용할 수 있는 옵션을 알려줍니다.
+강제 터널링은 가상 네트워크에서 경로를 설정 하 여 아웃 바운드 트래픽이 인터넷으로 직접 이동 하지 않고 Express 경로 게이트웨이 또는 가상 어플라이언스와 같은 다른 곳에 있는 경우입니다.  이러한 방식으로 ASE를 구성해야 하는 경우 [강제 터널링을 사용하여 App Service Environment 구성][forcedtunnel]의 문서를 참조하세요.  이 문서에서는 ExpressRoute 및 강제 터널링 작업에 사용할 수 있는 옵션을 알려줍니다.
 
 포털에서 ASE를 만들 때 ASE를 사용하여 만든 서브넷에 경로 테이블의 집합도 만듭니다.  이러한 경로는 단순히 아웃바운드 트래픽을 인터넷에 직접 보내도록 합니다.  
 동일한 경로를 수동으로 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal로 이동합니다. **네트워킹** > **경로 테이블** 을 선택합니다.
 
-2. VNet과 동일한 지역에 새 경로 테이블을 만듭니다.
+2. 가상 네트워크와 동일한 지역에 새 경로 테이블을 만듭니다.
 
 3. 경로 테이블 UI 내에서 **경로** > **추가** 를 선택합니다.
 

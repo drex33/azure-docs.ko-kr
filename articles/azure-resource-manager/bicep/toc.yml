@@ -26,6 +26,9 @@
     - name: 작성자
       expanded: true
       items:
+        - name: 파일 구조 및 구문
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: file.md
         - name: 리소스
           items:
             - name: 리소스 선언
@@ -136,9 +139,6 @@
           displayName: 'conversion issues,export,convert,playground'
 - name: 참조
   items:
-    - name: Bicep 파일 구조
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: file.md
     - name: 리소스 참조
       href: /azure/templates/
     - name: 데이터 형식

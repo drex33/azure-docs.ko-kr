@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
-ms.openlocfilehash: a486f8e2f2505470b54c0b0f646794a7789afc09
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b796989cace5631c876809ee94b47c065bb4be71
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256877"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335844"
 ---
 # <a name="create-an-ios-app-public-preview"></a>iOS 앱 만들기(공개 미리 보기)
 
@@ -80,7 +80,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 3. 앱 이름, 번들 ID를 입력한 다음, **다음** 을 선택합니다.
 
-새 프로젝트 만들기에 대한 자세한 도움말은 [앱에 대한 Xcode Project 만들기](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app)를 참조하세요.
+새 프로젝트를 만드는 방법에 대한 자세한 도움말은 [앱용 Xcode 프로젝트 만들기](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app)를 참조하세요.
 
 ![첫 번째 iOS 애플리케이션을 만듭니다.](./media/ios-sdk/quick-ios-app/create-app.png)
 

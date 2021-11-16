@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 author: garyericson
 ms.author: garye
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 108220b63e6562bf56119bb43c1ca27d4460c735
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e69730f486303fa508fed4cd53f8df3ee76433ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036716"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318468"
 ---
 # <a name="cognitive-services-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Cognitive Services
 
@@ -25,9 +25,9 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 
 - Synapse Analytics의 Cognitive Services 마법사는 Spark 테이블의 데이터를 사용하여 인식 서비스에 연결하는 Synapse Notebook에서 PySpark 코드를 생성합니다. 그런 다음, 이 서비스에서 미리 학습된 기계 학습 모델을 사용하여 데이터에 AI를 추가하는 작업을 수행합니다. 자세한 내용은 [감정 분석 마법사](tutorial-cognitive-services-sentiment.md) 및 [변칙 검색 마법사](tutorial-cognitive-services-anomaly.md)를 확인하세요.
 
-- [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning for Apache Spark)를 사용하면 다양한 Spark 데이터 원본에서 강력하고 확장성이 뛰어난 예측 및 분석 모델을 빌드할 수 있습니다. Synapse Spark는 [Cognitive Services on Spark](https://github.com/microsoft/SynapseML/blob/master/docs/cogsvc.md)를 비롯한 기본 제공 MMLSpark 라이브러리를 제공합니다. 자세한 내용은 이 [자습서](#tutorials)를 확인하세요.
+- [SynapseML](https://github.com/microsoft/SynapseML)(Synapse Machine Learning)을 사용하면 다양한 Spark 데이터 원본에서 강력하고 확장성이 뛰어난 예측 및 분석 모델을 빌드할 수 있습니다. Synapse Spark는 [Cognitive Services on Spark](https://github.com/microsoft/SynapseML/blob/master/docs/cogsvc.md)를 포함한 기본 제공 SynapseML 라이브러리를 제공합니다. 자세한 내용은 이 [자습서](#tutorials)를 확인하세요.
 
-- 마법사에서 생성된 PySpark 코드 또는 자습서에 제공된 예제 MMLSpark 코드부터는 데이터에 다른 인지 서비스를 사용하는 사용자 고유의 코드를 작성할 수 있습니다. 사용 가능한 서비스에 대한 자세한 내용은 [Azure Cognitive Services 무엇인가요?](../../cognitive-services/what-are-cognitive-services.md)를 참조하세요.
+- 마법사에서 생성된 PySpark 코드 또는 자습서에 제공된 예제 SynapseML 코드부터는 데이터에 다른 인지 서비스를 사용하는 사용자 고유의 코드를 작성할 수 있습니다. 사용 가능한 서비스에 대한 자세한 내용은 [Azure Cognitive Services 무엇인가요?](../../cognitive-services/what-are-cognitive-services.md)를 참조하세요.
 
 
 
@@ -44,7 +44,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 
 - [Cognitive Services를 통한 변칙 검색](tutorial-cognitive-services-anomaly.md) - 시계열 데이터의 예제 데이터 세트를 사용하여 각 행의 데이터가 변칙인지 여부를 나타내는 열이 있는 Spark 테이블을 빌드합니다.
 
-- [Microsoft Machine Learning for Apache Spark를 사용하여 기계 학습 애플리케이션 빌드](tutorial-build-applications-use-mmlspark.md) - 이 자습서에서는 MMLSpark를 사용하여 Cognitive Services의 여러 모델에 액세스하는 방법을 보여줍니다.
+- [Microsoft Machine Learning for Apache Spark를 사용하여 기계 학습 애플리케이션 빌드](tutorial-build-applications-use-mmlspark.md) - 이 자습서에서는 SynapseML을 사용하여 Cognitive Services의 여러 모델에 액세스하는 방법을 보여 줍니다.
 
 - [Applied AI Service를 사용한 Form Recognizer](tutorial-form-recognizer-use-mmlspark.md)에서는 [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml)를 사용하여 양식과 문서를 분석하고 Azure Synapse Analytics에서 텍스트와 데이터를 추출하는 방법을 보여줍니다. 
 
@@ -57,13 +57,13 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 ## <a name="available-cognitive-services-apis"></a>사용 가능한 Cognitive Services API
 ### <a name="bing-image-search"></a>Bing 이미지 검색
 
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 |Bing 이미지 검색|BingImageSearch|이미지 - Visual Search V7.0| 지원되지 않음|
 
 ### <a name="anomaly-detector"></a>Anomaly Detector
 
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | 마지막 변칙 검색                        | DetectLastAnomaly              | 마지막 포인트 검색 V1.0                                                                                                          | 지원됨        |
 | 변칙 검색                           | DetectAnomalies                | 전체 시리즈 검색 V1.0                                                                                                       | 지원됨        |
@@ -71,7 +71,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 
 ### <a name="computer-vision"></a>Computer Vision
 
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | OCR                                        | OCR                            | 인쇄된 텍스트 인식 V2.0                                                                                                     | 지원됨        |
 | 텍스트 인식                             | RecognizeText                  | 텍스트 인식 V2.0                                                                                                             | 지원됨        |
@@ -85,7 +85,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 
 ### <a name="translator"></a>변환기
 
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | 텍스트 번역                             | Translate                      | 번역 V3.0                                                                                                                  | 지원되지 않음    |
 | 텍스트 음역                         | Transliterate                  | 음역 V3.0                                                                                                              | 지원되지 않음    |
@@ -97,7 +97,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 
 ### <a name="face"></a>Face
 
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | 얼굴 감지                                | DetectFace                     | Url V1.0을 통해 검색                                                                                                            | 지원됨        |
 | 유사 얼굴 찾기                          | FindSimilarFace                | 유사 얼굴 찾기 V1.0                                                                                                               | 지원됨        |
@@ -106,7 +106,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 | 얼굴 확인                               | VerifyFaces                    | 대면 V1.0 확인                                                                                                        | 지원됨        |
 
 ### <a name="form-recognizer"></a>Form Recognizer
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | 레이아웃 분석                             | AnalyzeLayout                  | 레이아웃 비동기 분석 V2.1                                                                                                       | 지원됨        |
 | 영수증 분석                           | AnalyzeReceipts                | 영수증 비동기 분석 V2.1                                                                                                      | 지원됨        |
@@ -118,7 +118,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 | 사용자 지정 모델 분석                       | AnalyzeCustomModel             | 사용자 지정 모델을 사용한 분석 V2.1                                                                                                  | 지원됨        |
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | 음성 텍스트 변환                             | SpeechToText                   | SpeechToText V1.0 |  지원되지 않음    |
 | 음성 텍스트 변환 SDK                         | SpeechToTextSDK                | 음성 SDK 버전 1.14.0 사용                                                                                                 | 지원되지 않음    |
@@ -126,7 +126,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 
 ### <a name="text-analytics"></a>텍스트 분석
 
-| API 형식                                   | MMLSpark API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
+| API 형식                                   | SynapseML API                  | Cognitive Service API(버전)                                                                                               | DEP VNet 지원 |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | 텍스트 감정 V2                          | TextSentimentV2                | 감정 V2.0                                                                                                                  | 지원됨        |
 | 언어 감지기 V2                       | LanguageDetectorV2             | 언어 V2.0                                                                                                                  | 지원됨        |

@@ -1,28 +1,28 @@
 ---
-title: Azure Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 감지 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel에서 헌팅 라이브 스트림을 사용하여 데이터를 추적하는 방법을 설명합니다.
+title: Microsoft Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 탐지 | Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel에서 Livestream 헌팅을 사용하여 데이터를 추적하는 방법을 설명합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 70a8898b99ffaca2ed6aaa4dd978068bcd9d6c9a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 22e3eafbbae9259ddea56e9927055da08236eedb
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023218"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520088"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 감지
+# <a name="use-hunting-livestream-in-microsoft-sentinel-to-detect-threats"></a>Microsoft Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 감지
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -58,7 +58,7 @@ ms.locfileid: "131023218"
     1. 쿼리를 마우스 오른쪽 단추로 클릭하고 **라이브 스트림에 추가** 를 선택합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
-    > ![Azure Sentinel 헌팅 쿼리에서 라이브 스트림 세션 만들기](./media/livestream/livestream-from-query.png)
+    > ![Microsoft Sentinel 헌팅 쿼리에서 Livestream 세션 만들기](./media/livestream/livestream-from-query.png)
 
 1. 라이브 스트림 세션을 처음부터 만들려면 다음을 수행합니다. 
     
@@ -78,7 +78,7 @@ ms.locfileid: "131023218"
     명령 모음 아래의 상태 표시줄에는 라이브 스트림 세션이 실행 중인지 아니면 일시 중지되었는지 여부가 표시됩니다. 다음 예제에서는 세션이 실행됩니다.
     
     > [!div class="mx-imgBorder"]
-    > ![Azure Sentinel 헌팅 쿼리에서 라이브 스트림 세션 만들기](./media/livestream/livestream-session.png)
+    > ![Microsoft Sentinel 헌팅에서 라이브 스트림 세션 만들기](./media/livestream/livestream-session.png)
 
 1. 명령 모음에서 **저장** 을 선택합니다.
     
@@ -91,7 +91,7 @@ ms.locfileid: "131023218"
 1. 보거나 편집하길 원하는 라이브 스트림 세션을 선택합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
-    > ![Azure Sentinel 헌팅 쿼리에서 라이브 스트림 세션 만들기](./media/livestream/livestream-tab.png)
+    > ![Microsoft Sentinel 헌팅 쿼리에서 라이브 스트림 세션 만들기](./media/livestream/livestream-tab.png)
     
     선택한 라이브 스트림 세션이 재생, 일시 중지, 편집 등으로 열립니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "131023218"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel에서 헌팅 라이브 스트림을 실행하는 방법에 대해 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Microsoft Sentinel에서 헌팅 라이브 스트림을 사용하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [위협 요소를 사전에 헌팅하기](hunting.md)
 - [Notebook을 사용하여 자동 헌팅 캠페인 실행](notebooks.md)

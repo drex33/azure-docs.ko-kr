@@ -1,28 +1,28 @@
 ---
-title: Azure Sentinel을 사용하여 인시던트 조사| Microsoft Docs
-description: 이 문서에서는 Azure Sentinel을 사용하여 할당 및 조사할 수 있는 인시던트를 생성하는 고급 경고 규칙을 만드는 방법에 대해 알아봅니다.
+title: Microsoft Sentinel을 사용하여 인시던트 조사| Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel을 사용하여 할당하고 조사할 수 있는 인시던트 생성 고급 경고 규칙을 만드는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: dec517fae51463f5589b8dfbf39c4ac3e662395c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 77cf1b6dd4038613af9d079fc6226ab8c784577a
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037077"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520145"
 ---
-# <a name="investigate-incidents-with-azure-sentinel"></a>Azure Sentinel을 사용하여 인시던트 조사
+# <a name="investigate-incidents-with-microsoft-sentinel"></a>Microsoft Sentinel을 사용하여 인시던트 조사
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "131037077"
 > 언급된 기능은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
-이 문서는 Azure Sentinel을 사용하여 인시던트를 조사하는 데 도움이 됩니다. 데이터 원본을 Azure Sentinel에 연결한 후 의심스러운 상황이 발생하면 알림이 표시됩니다. 이를 사용하기 위해 Azure Sentinel은 할당 및 조사할 수 있는 인시던트를 생성하는 고급 경고 규칙을 만들게 해 줍니다.
+이 문서는 Microsoft Sentinel을 사용하여 인시던트 조사를 도와줍니다. 데이터 원본을 Microsoft Sentinel에 연결한 후에는 의심스러운 일이 발생할 때 알림을 받기를 원합니다. 이 작업을 수행할 수 있도록 Microsoft Sentinel을 사용하면 할당하고 조사할 수 있는 인시던트 생성 고급 경고 규칙을 만들 수 있습니다.
 
 이 문서에서는 다음 내용을 설명합니다.
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ ms.locfileid: "131037077"
 > * 조사 그래프 사용
 > * 위협에 대응
 
-인시던트는 여러 경고를 포함할 수 있습니다. 이는 특정 조사에 대한 모든 관련 증거의 집계입니다. **분석** 페이지에서 만든 분석 규칙에 따라 인시던트가 생성됩니다. 심각도 및 상태와 같은 경고와 관련된 속성은 인시던트 수준에서 설정됩니다. Azure Sentinel에서 찾고 있는 위협의 종류와 이를 찾는 방법을 알 수 있게 되면 인시던트를 조사하여 감지된 위협을 모니터링할 수 있습니다.
+인시던트는 여러 경고를 포함할 수 있습니다. 이는 특정 조사에 대한 모든 관련 증거의 집계입니다. **분석** 페이지에서 만든 분석 규칙에 따라 인시던트가 생성됩니다. 심각도 및 상태와 같은 경고와 관련된 속성은 인시던트 수준에서 설정됩니다. Microsoft Sentinel에 찾고 있는 위협의 종류와 이를 찾는 방법을 알려면 인시던트 조사로 감지된 위협을 모니터링할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -98,7 +98,7 @@ ms.locfileid: "131037077"
    > [!IMPORTANT] 
    > - 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함해야 합니다.
    >
-   > - Azure Sentinel은 현재 **최대 30일 이전의 인시던트** 조사를 지원합니다.
+   > - Microsoft Sentinel은 현재 **최대 30일이 지난 인시던트 조사를 지원합니다.**
 
 
 1. 엔터티를 선택하면 해당 엔터티에 대한 정보를 검토할 수 있는 **엔터티** 창이 열립니다.
@@ -136,7 +136,7 @@ ms.locfileid: "131037077"
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="분류 선택 목록에서 사용할 수 있는 분류를 강조 표시하는 스크린샷.":::
 
-가양성 및 양성 양성에 대한 자세한 내용은 [Azure Sentinel에서 가양성 처리](false-positives.md)를 참조하세요.
+가양성 및 무해한 긍정에 대한 자세한 내용은 [Microsoft Sentinel에서 가양성 처리](false-positives.md)를 참조하세요.
 
 적절한 분류를 선택한 후 **설명** 필드에 설명 텍스트를 추가합니다. 이 문제는 이 인시던트를 다시 참조해야 하는 경우에 유용합니다. 완료되면 **적용** 을 클릭합니다. 그러면 인시던트가 종결됩니다.
 
@@ -181,7 +181,7 @@ ms.locfileid: "131037077"
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel을 사용하여 인시던트 조사를 시작하는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Microsoft Sentinel을 사용하여 인시던트 조사를 시작하는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
 
-- [자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용](tutorial-respond-threats-playbook.md)
+- [자습서: Microsoft Sentinel에서 자동화 규칙으로 플레이북 사용](tutorial-respond-threats-playbook.md)
 - [UEBA 데이터를 사용하여 인시던트 조사](investigate-with-ueba.md)

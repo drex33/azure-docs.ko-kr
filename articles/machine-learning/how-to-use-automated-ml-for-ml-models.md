@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d7bf32faabd6b0a9d2037ad5599a5b2cceb70053
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 4977f81bb681c0316a273a3d9f8b0b901373ad83
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556258"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492211"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>스튜디오 UI를 사용하여 코드 없는 AutoML 학습 설정 
 
@@ -94,9 +94,9 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. 대상 열을 선택합니다. 이 열은 예측을 수행하려는 열입니다.
 
-1. 데이터 프로 파일링 및 학습 작업에 대 한 계산 형식을 선택 합니다. [계산 클러스터](concept-compute-target.md#azure-machine-learning-compute-managed) 또는 [계산 인스턴스](concept-compute-instance.md)를 선택할 수 있습니다. 
+1. 데이터 프로파일링 및 학습 작업에 대한 컴퓨팅 유형을 선택합니다. [컴퓨팅 클러스터](concept-compute-target.md#azure-machine-learning-compute-managed) 또는 컴퓨팅 [인스턴스](concept-compute-instance.md)를 선택할 수 있습니다. 
     
-1. 기존 계산의 드롭다운 목록에서 계산을 선택 합니다.  새 계산을 만들려면 8 단계의 지침을 따르세요.
+1. 기존 컴퓨팅의 드롭다운 목록에서 컴퓨팅을 선택합니다.  새 컴퓨팅을 만들려면 8단계의 지침을 따릅니다.
 
 1. **새 컴퓨팅 만들기** 를 선택하여 이 실험에 대한 컴퓨팅 컨텍스트를 구성합니다.
 
@@ -122,14 +122,13 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     
         딥 러닝을 사용하면 유효성 검사가 _train_validation split_ 으로 제한됩니다. [유효성 검사 옵션](how-to-configure-cross-validation-data-splits.md)에 대해 자세히 알아보세요.
 
-
     1. **예측** 의 경우 다음을 수행할 수 있습니다. 
     
         1. 딥 러닝 사용.
     
         1. ‘시간 열’ 선택: 이 열에는 사용될 시간 데이터가 포함됩니다.
 
-        1. ‘예측 구간’ 선택: 모델이 얼마나 많은 미래의 시간 단위(분/시간/일/주/월/년)를 예측할 수 있는지 표시합니다. 나중에 예측하는 데 더 많은 모델이 필요할수록 정확도가 떨어집니다. [예측 및 예측 구간에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
+        1. ‘예측 구간’ 선택: 모델이 얼마나 많은 미래의 시간 단위(분/시간/일/주/월/년)를 예측할 수 있는지 표시합니다. 미래로 예측하는 데 모델이 추가로 필요할수록 정확도가 떨어집니다. [예측 및 예측 구간에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
 
 1. (선택 사항) 추가 구성 설정 보기: 학습 작업을 더 효율적으로 제어하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다. 
 
@@ -235,10 +234,10 @@ Included | 학습에 포함할 열을 지정합니다.
     ----|----
     속성| 배포에 대한 고유한 이름을 입력합니다.
     Description| 이 배포의 용도를 더 잘 식별할 수 있는 설명을 입력합니다.
-    컴퓨팅 형식| 배포하려는 엔드포인트 유형으로 *AKS(Azure Kubernetes Service)* 또는 *ACI(Azure Container Instance)* 를 선택합니다.
+    컴퓨팅 형식| 배포할 끝점의 유형 ( [*Azure Kubernetes Service)*](../aks/intro-kubernetes.md) 또는 [*ACI (azure Container Instance)*](../container-instances/container-instances-overview.md)를 선택 합니다.
     컴퓨팅 이름| *AKS에만 적용:* 배포하려는 AKS 클러스터의 이름을 선택합니다.
     인증 사용 | 토큰 기반 또는 키 기반 인증을 허용할지를 선택합니다.
-    사용자 지정 배포 자산 사용| 사용자 고유의 채점 스크립트 및 환경 파일을 업로드하려면 이 기능을 사용하도록 설정합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md).
+    사용자 지정 배포 자산 사용| 사용자 고유의 채점 스크립트 및 환경 파일을 업로드하려면 이 기능을 사용하도록 설정합니다. 그렇지 않으면 자동화 된 ML 기본적으로 이러한 자산을 제공 합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md).
 
     >[!Important]
     > 파일 이름은 32자 미만이어야 하며 영숫자로 시작하고 끝나야 합니다. 대시, 밑줄, 점 및 영숫자를 포함할 수 있습니다. 공백은 허용되지 않습니다.

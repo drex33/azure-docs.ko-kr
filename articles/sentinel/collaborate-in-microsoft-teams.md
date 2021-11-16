@@ -1,32 +1,32 @@
 ---
-title: Azure Sentinel 인시던트 팀을 사용하여 Microsoft Teams에서 공동 작업 | Microsoft Docs
-description: Azure Sentinel에서 Microsoft Teams에 연결하여 Azure Sentinel 데이터로 팀의 다른 사용자와 공동 작업하는 방법을 알아봅니다.
+title: Microsoft 센티널 인시던트 팀과 Microsoft Teams 공동 작업 | Microsoft Docs
+description: microsoft 센티널에서 Microsoft Teams에 연결 하 여 microsoft 센티널 데이터를 사용 하는 팀의 다른 사용자와 공동 작업 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 20bc5a35aa9afc3aced8818809a701f2080c245c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2a6cdf796ee8fdb7302a7f7e00e517ce99004774
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075451"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518112"
 ---
 # <a name="collaborate-in-microsoft-teams-public-preview"></a>Microsoft Teams에서 공동 작업(퍼블릭 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Azure Sentinel은 [Microsoft Teams](/microsoftteams/)와 직접 통합되므로 특정 인시던트에 대한 팀워크를 바로 진행할 수 있습니다.
+Microsoft 센티널은 [Microsoft Teams](/microsoftteams/)와의 직접 통합을 지원 하므로 특정 인시던트에 대 한 teamwork 바로 이동할 수 있습니다.
 
 
 > [!IMPORTANT]
@@ -34,23 +34,23 @@ Azure Sentinel은 [Microsoft Teams](/microsoftteams/)와 직접 통합되므로 
 
 ## <a name="overview"></a>개요
 
-Azure Sentinel에서 직접 Microsoft Teams와 통합하면 팀이 조직 전체 및 외부 관련자와 원활하게 공동 작업을 수행할 수 있습니다.
+Microsoft 센티널에서 직접 Microsoft Teams와 통합 하면 팀이 조직 전체와 외부 관련자와 긴밀 하 게 공동 작업을 수행할 수 있습니다.
 
-Azure Sentinel *인시던트 팀* 에서 Microsoft Teams를 사용하여 관련 직원과의 커뮤니케이션 및 조정 업무를 중앙에서 처리할 수 있습니다. 인시던트 팀은 심각도가 높으면서 계속 진행 중인 인시던트의 전용 회의 브리지로 사용할 때 특히 유용합니다.
+Microsoft 센티널 *인시던트 팀* 과 함께 Microsoft Teams를 사용 하 여 통신을 중앙 집중화 하 고 관련 직원에 게 조정 합니다. 인시던트 팀은 심각도가 높으면서 계속 진행 중인 인시던트의 전용 회의 브리지로 사용할 때 특히 유용합니다.
 
-커뮤니케이션 및 공동 작업을 위해 이미 Microsoft Teams를 사용하는 조직은 Azure Sentinel 통합을 사용하여 보안 데이터를 대화 및 일상적인 작업으로 직접 가져올 수 있습니다. 
+통신 및 공동 작업을 위해 Microsoft Teams를 이미 사용 하 고 있는 조직은 Microsoft 센티널 통합을 사용 하 여 보안 데이터를 직접 대화와 일상 작업에 가져올 수 있습니다. 
 
-Azure Sentinel 인시던트 팀은 Azure Sentinel에서 항상 업데이트된 최신 데이터를 가져와 팀에서 가장 관련성이 높은 데이터를 사용할 수 있도록 합니다.
+Microsoft 센티널 인시던트 팀은 Microsoft 센티널에서 항상 업데이트 된 최신 데이터를 보유 하 고 있으며 팀에서 가장 관련성이 높은 데이터를 사용할 수 있도록 합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-Azure Sentinel에서 팀을 만들려면 다음을 수행 합니다.
+Microsoft 센티널에서 팀을 만들려면 다음을 수행 합니다.
 
-- Azure Sentinel에서 팀을 만드는 사용자에게는 인시던트 쓰기 권한이 있어야 합니다. 예를 들어, [Azure Sentinel 응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) 역할은 이 권한에 대해 이상적인 최소 역할입니다.
+- 팀을 만드는 사용자에 게는 Microsoft 센티널의 인시던트 쓰기 권한이 있어야 합니다. 예를 들어 [Microsoft 센티널 응답자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) 역할은이 권한에 대해 이상적인 최소 역할입니다.
 
 - 팀을 만드는 사용자에게는 Microsoft Teams에서 팀을 만들 수 있는 권한도 있어야 합니다.
 
-- [읽기 권한자](../role-based-access-control/built-in-roles.md#azure-sentinel-reader), [응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) 또는 [기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) 역할이 있는 사용자를 비롯한 모든 Azure Sentinel 사용자는 액세스 권한을 요청하여 만든 팀에 액세스할 수 있습니다.
+- [독자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader), [응답자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)또는 [참가자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) 역할이 있는 사용자를 비롯 한 모든 Microsoft 센티널 사용자는 액세스를 요청 하 여 만든 팀에 액세스할 수 있습니다.
 
 ## <a name="use-an-incident-team-to-investigate"></a>인시던트 팀을 사용하여 조사
 
@@ -58,7 +58,7 @@ Azure Sentinel에서 팀을 만들려면 다음을 수행 합니다.
 
 **인시던트 팀을 만들려면**:
 
-1. Azure Sentinel의 **위협 관리** > **인시던트** 표에서 현재 조사 중인 인시던트를 선택합니다.
+1. Microsoft 센티널의 **위협 관리**  >  **인시던트** 표에서 현재 조사 중인 인시던트를 선택 합니다.
 
 1. 오른쪽에 표시되는 인시던트 창 맨 아래에서 **작업** > **팀 만들기** 를 선택합니다.
 
@@ -99,5 +99,5 @@ Azure Sentinel에서 팀을 만들려면 다음을 수행 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [자습서: Azure Sentinel을 사용하여 인시던트 조사](investigate-cases.md)
+- [자습서: Microsoft 센티널을 사용 하 여 인시던트 조사](investigate-cases.md)
 - [Microsoft Teams의 팀 및 채널 개요](/microsoftteams/teams-channels-overview/)

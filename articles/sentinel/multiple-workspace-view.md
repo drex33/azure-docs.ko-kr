@@ -1,38 +1,38 @@
 ---
-title: 여러 작업 영역에서 한 번에 Azure Sentinel 인시던트 사용 | Microsoft Docs
-description: Azure Sentinel에서 동시에 여러 작업 영역에 있는 인시던트를 확인하는 방법입니다.
+title: 여러 작업 영역에서 한 번에 Microsoft 센티널 인시던트를 사용 합니다. | Microsoft Docs
+description: Microsoft 센티널에서 동시에 여러 작업 영역에 있는 인시던트를 확인 하는 방법입니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2020
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c2063356b62a3b91bf3bf04453ea05f28788cab5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 05f0fcf96b9553648830b084d6fa5ec7f00a634d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009380"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520468"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>한 번에 여러 작업 영역에서 인시던트 작업 
 
  [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Azure Sentinel의 기능을 최대한 활용하려면 단일 작업 영역 환경을 사용하는 것이 좋습니다. 그러나 일부 경우에는 여러 테넌트에 걸친 [MSSP(관리형 보안 서비스 공급자)](./multiple-tenants-service-providers.md) 및 고객의 경우와 같이 여러 작업 영역을 포함해야 하는 몇 가지 사용 사례가 있습니다. **여러 작업 영역 보기** 를 사용하면 테넌트 간에도 여러 작업 영역에서 동시에 보안 인시던트를 보고 사용하여 조직의 보안 응답성을 완벽하게 보고 제어할 수 있습니다.
+Microsoft 센티널의 기능을 최대한 활용 하려면 단일 작업 영역 환경을 사용 하는 것이 좋습니다. 그러나 일부 경우에는 여러 테넌트에 걸친 [MSSP(관리형 보안 서비스 공급자)](./multiple-tenants-service-providers.md) 및 고객의 경우와 같이 여러 작업 영역을 포함해야 하는 몇 가지 사용 사례가 있습니다. **여러 작업 영역 보기** 를 사용하면 테넌트 간에도 여러 작업 영역에서 동시에 보안 인시던트를 보고 사용하여 조직의 보안 응답성을 완벽하게 보고 제어할 수 있습니다.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="entering-multiple-workspace-view"></a>여러 작업 영역 보기 입력
 
-Azure Sentinel을 열면 선택한 모든 테넌트 및 구독에서 액세스 권한이 있는 모든 작업 영역 목록이 표시됩니다. 각 작업 영역 이름의 왼쪽에는 확인란이 있습니다. 단일 작업 영역의 이름을 클릭하면 해당 작업 영역으로 이동합니다. 여러 작업 영역을 선택하려면 해당 확인란을 모두 클릭한 다음 페이지 맨 위에 있는 **여러 작업 영역 보기** 단추를 클릭합니다.
+Microsoft 센티널을 열면 선택한 모든 테 넌 트 및 구독에서 액세스 권한이 있는 모든 작업 영역 목록이 표시 됩니다. 각 작업 영역 이름의 왼쪽에는 확인란이 있습니다. 단일 작업 영역의 이름을 클릭하면 해당 작업 영역으로 이동합니다. 여러 작업 영역을 선택하려면 해당 확인란을 모두 클릭한 다음 페이지 맨 위에 있는 **여러 작업 영역 보기** 단추를 클릭합니다.
 
 > [!IMPORTANT]
 > 현재 여러 작업 영역 보기에서는 동시에 표시되는 최대 10개의 작업 영역을 지원합니다. 
@@ -58,6 +58,6 @@ Azure Sentinel을 열면 선택한 모든 테넌트 및 구독에서 액세스 �
 - 단일 인시던트를 선택하고 **전체 세부 정보 보기** 또는 **작업** > **조사** 를 클릭하는 경우에는 해당 인시던트의 작업 영역의 데이터 컨텍스트에서 있으며 다른 사용자가 없는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 여러 Azure Sentinel 작업 영역에서 동시에 인시던트를 보고 사용하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 여러 Microsoft 센티널 작업 영역에서 동시에 인시던트를 보고 사용 하는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [Microsoft 센티널을 사용 하 여 위협 검색을](detect-threats-built-in.md)시작 하세요.

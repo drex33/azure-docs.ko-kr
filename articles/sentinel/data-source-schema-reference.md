@@ -1,21 +1,21 @@
 ---
-title: Azure Sentinel 데이터 원본 스키마 참조
-description: 이 문서에는 Azure Sentinel에서 지원하는 Azure 및 타사 데이터 원본 스키마가 해당 참조 설명서에 대한 링크와 함께 나열되어 있습니다.
+title: Microsoft Sentinel 데이터 원본 스키마 참조
+description: 이 문서에는 Microsoft Sentinel에서 지원하는 Azure 및 타사 데이터 원본 스키마와 해당 참조 설명서에 대한 링크가 나열되어 있습니다.
 author: batamig
 ms.author: bagol
 manager: rkarlin
 ms.assetid: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: reference
 ms.custom: ignite-fall-2021
-ms.date: 01/14/2021
-ms.openlocfilehash: b70c04724fa947ed8659b71845543abf5012cca2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.openlocfilehash: 5b2c03c90fc17d2226de9f364e5ff4d3e5447307
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023294"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521692"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
 
@@ -69,8 +69,8 @@ ms.locfileid: "131023294"
 > 
 ## <a name="next-steps"></a>다음 단계
 
-CEF, Syslog, 직접, 에이전트, 사용자 지정 커넥터 등 지원되는 Azure Sentinel 커넥터에 대해 자세히 알아보세요.
+CEF, Syslog, direct, agent, 사용자 지정 커넥터 등의 지원 되는 Microsoft 센티널 커넥터에 대해 자세히 알아보세요.
 
 - [데이터 원본 연결](connect-data-sources.md)
 
-- [Azure Sentinel Syslog, CEF, 기타 타사 커넥터](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)
+- [Microsoft 센티널 Syslog, CEF 및 기타 타사 커넥터](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)

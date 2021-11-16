@@ -6,12 +6,12 @@ ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
 ms.date: 06/16/2021
 ms.author: kumud
-ms.openlocfilehash: 1875a2cfaa89a6eeeb45ae2efe84959ff6771268
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6d85a42b3ff23f4bead8abd3187b9a899ebb12c3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707327"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277945"
 ---
 # <a name="what-is-azure-private-multi-access-edge-compute"></a>Azure 프라이빗 다중 액세스 에지 컴퓨팅이란?
 
@@ -59,7 +59,7 @@ Fusion Core를 사용하여 ISV는 라이브 비디오 분석과 같은 동일�
 ### <a name="azure-stack-hardware-and-services"></a>Azure Stack 하드웨어 및 서비스
 **Azure Stack Edge**: Azure Stack Edge는 컴퓨팅, 스토리지 및 인텔리전스를 데이터가 만들어지는 에지로 가져오는 디바이스 포트폴리오를 제공합니다. 디바이스는 1-2 NVIDIA T4 GPU가 함께 제공되는 1U 랙 탑재 가능 어플라이언스입니다. Azure IoT Edge를 사용하면 IoT Hub의 컨테이너를 배포 및 관리하고 Azure Stack Edge의 Azure IoT 솔루션과 통합할 수 있습니다. Azure Stack Edge Pro SKU는 에지에서 네트워크 함수를 실행하도록 인증되었습니다. 자세한 내용은 [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)를 참조하세요.
 
-**Azure Stack HCI**: Azure Stack HCI는 최신 보안, 성능 및 기능 업데이트를 제공하는 Azure 서비스로 제공되는 새로운 HCI(하이퍼 컨버지드 인프라) 운영 체제입니다. 데이터 센터 또는 에지에서 기존 도구 및 프로세스를 사용하여 Windows 및 Linux VM(가상 머신)을 배포하고 실행합니다. Azure Backup, Azure Monitor 및 Azure Security Center를 사용하여 데이터 센터를 클라우드로 확장합니다. 자세한 내용은 [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)를 참조하세요.
+**Azure Stack HCI**: Azure Stack HCI는 최신 보안, 성능 및 기능 업데이트를 제공하는 Azure 서비스로 제공되는 새로운 HCI(하이퍼 컨버지드 인프라) 운영 체제입니다. 데이터 센터 또는 에지에서 기존 도구 및 프로세스를 사용하여 Windows 및 Linux VM(가상 머신)을 배포하고 실행합니다. Azure Backup, Azure Monitor 및 Microsoft Defender for Cloud를 사용하여 데이터 센터를 클라우드로 확장합니다. 자세한 내용은 [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)를 참조하세요.
 
 ### <a name="application-services"></a>애플리케이션 서비스
 

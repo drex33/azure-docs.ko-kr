@@ -9,12 +9,12 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 22c64b5489cbcf0206624e613fb9d3449fa4a4d1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 6584120a0a66fd1d913fdee86a24ce3d91b2555f
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129220414"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519670"
 ---
 # <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
@@ -124,6 +124,13 @@ Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
         "properties": {
             "typeProperties": {
                 "*": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/credentials" : {
+        "properties": {
+            "typeProperties": {
+                "resourceId": "="
             }
         }
     }
@@ -426,8 +433,8 @@ Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [연속 통합 및 지속적인 업데이트 개요](continuous-integration-delivery.md)
-- [Azure Pipelines 릴리스를 사용하여 연속 통합 자동화](continuous-integration-delivery-automate-azure-pipelines.md)
-- [Resource Manager 템플릿을 각 환경으로 수동으로 승격](continuous-integration-delivery-manual-promotion.md)
+- [Azure Pipelines 릴리스를 사용 하 여 연속 통합 자동화](continuous-integration-delivery-automate-azure-pipelines.md)
+- [리소스 관리자 템플릿을 각 환경으로 수동으로 승격](continuous-integration-delivery-manual-promotion.md)
 - [연결된 Resource Manager 템플릿](continuous-integration-delivery-linked-templates.md)
 - [핫픽스 프로덕션 환경 사용](continuous-integration-delivery-hotfix-environment.md)
-- [샘플 배포 전 및 배포 후 스크립트](continuous-integration-delivery-sample-script.md)
+- [ 샘플 배포 전 및 배포 후 스크립트](continuous-integration-delivery-sample-script.md)

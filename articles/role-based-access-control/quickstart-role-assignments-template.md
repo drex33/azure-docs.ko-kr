@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 04/28/2021
 ms.author: rolyon
-ms.openlocfilehash: 48be24436e032f044e8f23238059e16b55d9cf5c
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 0fb96bedc12939c130b7fa4c7feee4c7967e0e77
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111886901"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055684"
 ---
 # <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 역할 할당
 
@@ -37,7 +37,7 @@ Azure 역할을 할당하고 역할 할당을 제거하려면 다음이 필요�
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/rbac-builtinrole-resourcegroup/)에서 나온 것입니다. 템플릿에는 3개의 매개 변수와 1개의 리소스 섹션이 있습니다. 리소스 섹션에서 역할 할당의 세 요소인 보안 주체, 역할 정의 및 범위가 포함된 것을 확인하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/rbac-builtinrole-resourcegroup/)에서 나온 것입니다. 템플릿에는 두 개의 매개 변수와 하나의 리소스 섹션이 있습니다. 리소스 섹션에서 역할 할당의 세 요소인 보안 주체, 역할 정의 및 범위가 포함된 것을 확인하세요.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
@@ -66,7 +66,7 @@ Azure 역할을 할당하고 역할 할당을 제거하려면 다음이 필요�
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleDefinitionID $roleDefinitionId -principalId $principalId
     ```
 
 1. 리소스 그룹 이름(예:ExampleGrouprg)을 입력합니다.
@@ -96,7 +96,6 @@ Azure 역할을 할당하고 역할 할당을 제거하려면 다음이 필요�
     Parameters              :
                               Name                  Type                       Value
                               ====================  =========================  ==========
-                              roleAssignmentName    String                     {roleAssignmentName}
                               roleDefinitionID      String                     9980e02c-c2be-4d73-94e8-173b1dc7cf3c
                               principalId           String                     {principalId}
 

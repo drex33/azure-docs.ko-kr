@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3a06bf01ec9afa62a656eb5590a7ae283063ec88
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: b29896a9ca047b05c3313b716b2a4df1b0e72f6c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074231"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517181"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Azure Purview에서 지원되는 데이터 원본 및 파일 형식
 
@@ -29,9 +29,10 @@ Purview는 [여기](purview-connector-overview.md)에 나열된 모든 데이터
 
 - 확장 프로그램에서 지원하는 구조적 파일 형식: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
  > [!Note]
- > * AVRO, ORC 및 PARQUET 파일 형식에서 Purview 스캐너는 스키마 추출을 위해 복잡한 데이터 형식(예: MAP, LIST, STRUCT)을 지원하지 않습니다. 
+ > * 부서의 범위 스캐너는 위에 나열 된 구조적 파일 형식에 대 한 스키마 추출을 지원 합니다.
+ > * AVRO, ORC 및 PARQUET 파일 형식의 경우 부서의 범위 스캐너는 복합 데이터 형식 (예: MAP, LIST, STRUCT)을 포함 하는 파일에 대 한 스키마 추출을 지원 하지 않습니다. 
  > * Purview 스캐너는 스키마 추출 및 분류를 위해 snappy 압축 PARQUET 형식 검사를 지원합니다. 
- > * GZIP 파일 형식의 경우 GZIP는 내의 단일 csv 파일에 매핑되어야 합니다. 
+ > * GZIP 파일 형식의 경우 GZIP은 내의 단일 csv 파일에 매핑되어야 합니다. 
  > Gzip 파일에는 시스템 및 사용자 지정 분류 규칙이 적용됩니다. 현재는 내부 여러 파일 또는 csv 이외의 파일 형식에 매핑된 gzip 파일 검사를 지원하지 않습니다. 
 - 확장 프로그램에서 지원하는 문서 파일 형식: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Purview는 사용자 지정 파일 확장명 및 사용자 지정 파서도 지원합니다.
@@ -68,5 +69,5 @@ Purview에서 파티션 파일의 폴더 또는 그룹이 시스템 리소스 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Purview에서 검색 및 검색](concept-scans-and-ingestion.md)
+- [부서의 범위에서 검색 및 수집](concept-scans-and-ingestion.md)
 - [Azure Purview에서 데이터 원본 관리](manage-data-sources.md)

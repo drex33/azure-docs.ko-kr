@@ -3,18 +3,18 @@ title: 자습서 - Azure Cost Management에서 내보낸 데이터 만들기 및
 description: 이 문서에서는 내보낸 Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 11/03/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a08c6a6b00273e21c517162260f54ed3e6fc65ff
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: fdefbf1de5e61d05379dd0cfce07a30038dea4f0
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711352"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502809"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -32,7 +32,7 @@ Azure Storage로의 Azure 비용 데이터 예약된 내보내기를 만드는 �
 > * 일일 내보내기 만들기
 > * 데이터가 수집되는지 확인
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Microsoft 고객 계약](get-started-partners.md) 고객을 비롯한 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
@@ -45,6 +45,7 @@ Azure Storage로의 Azure 비용 데이터 예약된 내보내기를 만드는 �
 Azure Storage 계정의 경우:
 - 내보내기에 대한 사용 권한과 독립적으로 구성된 스토리지 계정을 변경하려면 쓰기 사용 권한이 필요합니다.
 - BLOB 또는 파일 스토리지에 대해 Azure 스토리지 계정이 구성되어 있어야 합니다.
+- 스토리지 계정에는 방화벽이 구성되어 있지 않아야 합니다.
 
 새 구독이 있는 경우 Cost Management 기능을 즉시 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다.
 

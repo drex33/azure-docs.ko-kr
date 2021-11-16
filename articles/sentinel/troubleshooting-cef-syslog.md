@@ -1,34 +1,34 @@
 ---
-title: Azure Sentinel 및 CEF 또는 Syslog 데이터 커넥터 간의 연결 문제 해결| Microsoft Docs
-description: Azure Sentinel CEF 또는 Syslog 데이터 커넥터와 관련된 문제를 해결하는 방법을 알아봅니다.
+title: Microsoft 센티널과 CEF 또는 Syslog 데이터 커넥터 간 연결 문제 해결 | Microsoft Docs
+description: Microsoft 센티널 CEF 또는 Syslog 데이터 커넥터를 사용 하 여 문제를 해결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9d25b3e448fdf450001120d0c9fabf48f0e23b97
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 627660330493b2d26c003145fc41dbadaa780052
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022914"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517258"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>CEF 또는 Syslog 데이터 커넥터 문제 해결
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Azure Sentinel을 위한 CEF 또는 Syslog 데이터 커넥터를 확인하고 문제를 해결하는 일반적인 방법을 설명합니다.
+이 문서에서는 Microsoft 센티널의 CEF 또는 Syslog 데이터 커넥터를 확인 하 고 문제를 해결 하는 일반적인 방법을 설명 합니다.
 
-예를 들어 로그가 Syslog 또는 공용 보안 로그 테이블의 Azure Sentinel 표시되지 않으면 데이터 원본이 연결되지 않고 있거나 데이터가 수집되지 않는 다른 이유가 있을 수 있습니다.
+예를 들어 로그가 Microsoft 센티널에 표시 되지 않는 경우 Syslog 또는 일반 보안 로그 테이블에서 데이터 원본이 연결에 실패 하거나 데이터가 수집 되지 않는 또 다른 이유가 있을 수 있습니다.
 
 커넥터가 배포되지 않았을 때의 다른 증상으로, **security_events.conf** 또는 **security-omsagent.config.conf** 파일이 누락되었거나 rsyslog 서버가 포트 514에서 수신 대기 중이지 않은 경우가 있습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "131022914"
 
 ## <a name="validate-cef-connectivity"></a>CEF 연결 유효성 검사
 
-[로그 전달자를 배포하고](connect-common-event-format.md) [CEF 메시지를 보내도록 보안 솔루션을 구성했으면](./connect-common-event-format.md), 이 섹션의 단계에 따라 보안 솔루션과 Azure Sentinel 간의 연결을 확인합니다.
+[로그 전달자를 배포](connect-common-event-format.md) 하 고 [보안 솔루션을 구성 하 여 cef 메시지를 보내도록](./connect-common-event-format.md)한 후에는이 섹션의 단계를 사용 하 여 보안 솔루션과 Microsoft 센티널 간의 연결을 확인 합니다.
 
 1. 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -56,13 +56,13 @@ ms.locfileid: "131022914"
 
     - 이 프로세스 중에 작업 영역 ID와 작업 영역 기본 키가 필요할 수 있습니다. 이는 작업 영역 리소스의 **에이전트 관리** 에서 찾을 수 있습니다.
 
-1. Azure Sentinel 탐색 메뉴에서 **로그** 를 엽니다. **CommonSecurityLog** 스키마로 쿼리를 실행하여 보안 솔루션에서 로그를 받는지 확인합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **로그** 를 엽니다. **CommonSecurityLog** 스키마로 쿼리를 실행하여 보안 솔루션에서 로그를 받는지 확인합니다.
 
     로그가 **Log Analytics** 에 표시될 때까지 20분가량 소요될 수 있습니다.
 
 1. 쿼리에서 결과가 나타나지 않으면 보안 솔루션에서 이벤트가 생성되고 있는지 확인하거나, 이벤트를 생성해 보고 이벤트가 지정한 Syslog 전달자 머신으로 전달되는지 확인합니다.
 
-1. 로그 전달자(자리 표시자 대신에 작업 영역 ID를 적용)에서 다음 스크립트를 실행하여 보안 솔루션, 로그 전달자, Azure Sentinel 간의 연결을 확인합니다. 이 스크립트는 디먼이 올바른 포트에서 수신 대기하고 있는지, 전달이 제대로 구성되었는지, 디먼과 Log Analytics 에이전트 간의 통신을 차단하는 것이 없는지 확인합니다. 또한 ‘TestCommonEventFormat’ 모의 메시지를 전송하여 엔드투엔드 연결을 확인합니다. <br>
+1. 로그 전달자 (자리 표시자 대신 작업 영역 ID 적용)에서 다음 스크립트를 실행 하 여 보안 솔루션, 로그 전달자 및 Microsoft 센티널 간의 연결을 확인 합니다. 이 스크립트는 디먼이 올바른 포트에서 수신 대기하고 있는지, 전달이 제대로 구성되었는지, 디먼과 Log Analytics 에이전트 간의 통신을 차단하는 것이 없는지 확인합니다. 또한 ‘TestCommonEventFormat’ 모의 메시지를 전송하여 엔드투엔드 연결을 확인합니다. <br>
 
     ```bash
     sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
@@ -162,7 +162,7 @@ ms.locfileid: "131022914"
     sudo tcpdump -A -ni any port 25226 -vv
     ```
 
-1. MOCK 데이터를 localhost의 포트 514로 보냅니다. 해당 데이터는 Azure Sentinel 작업 영역에서 다음 쿼리를 실행하여 관찰할 수 있어야 합니다.
+1. MOCK 데이터를 localhost의 포트 514로 보냅니다. 이 데이터는 다음 쿼리를 실행 하 여 Microsoft 센티널 작업 영역에서 관찰 가능 해야 합니다.
 
     ```kusto
     CommonSecurityLog
@@ -256,7 +256,7 @@ ms.locfileid: "131022914"
     sudo tcpdump -A -ni any port 25226 -vv
     ```
 
-1. MOCK 데이터를 localhost의 포트 514로 보냅니다. 해당 데이터는 Azure Sentinel 작업 영역에서 다음 쿼리를 실행하여 관찰할 수 있어야 합니다.
+1. MOCK 데이터를 localhost의 포트 514로 보냅니다. 이 데이터는 다음 쿼리를 실행 하 여 Microsoft 센티널 작업 영역에서 관찰 가능 해야 합니다.
 
     ```kusto
     CommonSecurityLog
@@ -272,13 +272,13 @@ ms.locfileid: "131022914"
 
 Azure Virtual Machine을 Syslog 수집기로 사용하는 경우 다음을 확인합니다.
 
-- Syslog 데이터 커넥터를 설정하는 동안 [MMA/OMS 에이전트 ](connect-windows-security-events.md#connector-options)에 대한 [Azure Security Center 자동 프로비저닝 설정](../security-center/security-center-enable-data-collection.md)을 해제해야 합니다.
+- Syslog 데이터 커넥터를 설정 하는 동안 [MMA/OMS 에이전트](connect-windows-security-events.md#connector-options)에 대 한 [클라우드 자동 프로 비전 설정에 대해 Microsoft Defender](../security-center/security-center-enable-data-collection.md) 를 해제 해야 합니다.
 
     이는 데이터 커넥터가 완전히 설정된 후 다시 설정할 수 있습니다.
 
 - [Common Event Format 데이터 커넥터 Python 스크립트](./connect-log-forwarder.md)를 배포하기 전에 가상 머신이 기존 Syslog 작업 영역에 벌써 연결되어 있지 않은지 확인합니다. 이 정보는 Log Analytics 작업 영역 가상 머신 목록에서 찾을 수 있습니다. 여기서 Syslog 작업 영역에 연결된 VM은 **연결됨** 으로 나열됩니다.
 
-- Azure Sentinel이 올바른 Syslog 작업 영역에 연결되고 **SecurityInsights** 솔루션이 설치되었는지 확인합니다.
+- Microsoft 센티널이 **Securityinsights** 솔루션을 설치 하 여 올바른 Syslog 작업 영역에 연결 되어 있는지 확인 합니다.
 
     자세한 내용은 [1단계: 로그 전달자 배포](./connect-log-forwarder.md)를 참조하세요.
 
@@ -289,7 +289,7 @@ Azure Virtual Machine을 Syslog 수집기로 사용하는 경우 다음을 확�
 데이터 커넥터에 온-프레미스 머신 또는 비 Azure 가상 머신을 사용하는 경우 지원되는 Linux 운영 체제를 새로 설치할 때 설치 스크립트를 실행했는지 확인하세요.
 
 > [!TIP]
-> 이 스크립트는 Azure Sentinel의 **Common Event Format** 데이터 커넥터 페이지에서도 찾을 수 있습니다.
+> Microsoft 센티널의 **일반 이벤트 형식** 데이터 커넥터 페이지에서이 스크립트를 찾을 수도 있습니다.
 >
 
 ```cli
@@ -300,7 +300,7 @@ sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sent
 
 Syslog 서버(rsyslog 또는 syslog-ng)는 관련 구성 파일에 정의된 모든 데이터를 전달합니다. 이 데이터는 Log Analytics 작업 영역에 정의된 설정에 따라 자동으로 채워집니다.
 
-Azure Sentinel에 수집하려는 시설 및 심각도 로그 수준에 대한 세부 정보를 추가해야 합니다. 구성 프로세스가 완료될 때까지 약 20분 정도 걸립니다.
+Microsoft 센티널로 수집 하려는 시설 및 심각도 로그 수준에 대 한 세부 정보를 추가 해야 합니다. 구성 프로세스가 완료될 때까지 약 20분 정도 걸립니다.
 
 자세한 내용은 [배포 스크립트 설명](./connect-log-forwarder.md#deployment-script-explained) 및 [Azure Portal에서 Syslog 구성](../azure-monitor/agents/data-sources-syslog.md)을 참조하세요.
 
@@ -396,7 +396,7 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 이 프로시저에서는 SELinux가 현재 `permissive` 상태인지 또는 OMS 에이전트에 대한 연결을 차단하는지 확인하는 방법을 설명합니다. 이 프로시저는 운영 체제가 RedHat 또는 CentOS 배포인 경우에 해당합니다.
 
 > [!NOTE]
-> Azure Sentinel의 CEF 및 Syslog 지원에는 FIPS 강화만 포함됩니다. SELinux 또는 CIS와 같은 다른 강화법은 현재 지원되지 않습니다.
+> CEF 및 Syslog에 대한 Microsoft Sentinel 지원에는 FIPS 강화만 포함됩니다. SELinux 또는 CIS와 같은 다른 강화법은 현재 지원되지 않습니다.
 >
 
 1. 다음을 실행합니다.
@@ -407,8 +407,8 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
     상태는 다음 중 하나로 표시됩니다.
 
-    - `disabled`. 이 구성은 Azure Sentinel 연결에 지원됩니다.
-    - `permissive`. 이 구성은 Azure Sentinel 연결에 지원됩니다.
+    - `disabled`. 이 구성은 Microsoft Sentinel에 대한 연결에 대해 지원됩니다.
+    - `permissive`. 이 구성은 Microsoft Sentinel에 대한 연결에 대해 지원됩니다.
     - `enforced`. 이 구성은 지원되지 않으며 상태를 사용하지 않도록 설정하거나 `permissive`로 설정해야 합니다.
 
 1. 현재 상태가 `enforced`로 설정되어 있으면 일시 해제하여 차단기인지 확인합니다. 다음을 실행합니다.
@@ -499,7 +499,7 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
 ## <a name="linux-and-oms-agent-related-issues"></a>Linux 및 OMS 에이전트 관련 문제
 
-이 문서의 앞부분에서 설명한 단계로 문제를 해결하지 못할 경우 OMS 에이전트와 Azure Sentinel 작업 영역 간에 연결 문제가 있을 수 있습니다.
+이 문서의 앞부분에서 설명한 단계가 문제를 해결하지 못하면 OMS 에이전트와 Microsoft Sentinel 작업 영역 간에 연결 문제가 있을 수 있습니다.
 
 이러한 경우 다음을 확인하여 계속해서 문제를 해결합니다.
 
@@ -527,11 +527,11 @@ Heartbeat
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서의 문제 해결 단계가 문제에 도움이 되지 않는 경우 지원 티켓을 열거나 Azure Sentinel 커뮤니티 리소스를 사용합니다. 자세한 내용은 [Azure Sentinel 작업에 유용한 리소스](resources.md)를 참조하세요.
+이 문서의 문제 해결 단계가 문제에 도움이 되지 않는 경우 지원 티켓을 열거나 Microsoft Sentinel 커뮤니티 리소스를 사용합니다. 자세한 내용은 [Microsoft Sentinel 작업에 유용한 리소스를 참조하세요.](resources.md)
 
-Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [CEF 및 CommonSecurityLog 필드 매핑](cef-name-mapping.md)에 대해 알아봅니다.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.
+- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.
 - [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

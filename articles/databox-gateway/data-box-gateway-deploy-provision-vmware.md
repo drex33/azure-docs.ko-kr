@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 11/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 948005942be193c8b15c363282aa06c006eb244e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cf0f2f2f970e9082f56a90efb5a6508b0b00e32
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727620"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331968"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>자습서: VMware에서 Azure Data Box Gateway 프로비저닝
 
@@ -97,7 +97,8 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
 4. 오른쪽 창의 **데이터 저장소** 아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 
 
-    - 데이터 저장소는 VMFS5 형식이어야 합니다. 
+    - 데이터 저장소는 VMFS5 형식이어야 합니다. Databox 게이트웨이는 VMFS5 데이터 저장소와 함께 VMWare에서 테스트되었습니다. VMFS6을 포함한 최신 데이터 저장소 버전은 지원되지 않습니다.
+
     - 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간도 있어야 합니다.
    
 5. **데이터 저장소 찾아보기** 를 마우스 오른쪽 단추를 클릭하고 선택합니다.

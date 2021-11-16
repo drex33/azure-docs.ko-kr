@@ -1,6 +1,6 @@
 ---
 title: 기술 및 기능 개요 - Azure Active Directory B2C
-description: Azure Active Directory B2C의 기능과 기술에 대해 자세히 소개합니다.
+description: Azure Active Directory B2C의 기능과 기술에 대해 자세히 소개합니다. Azure Active Directory B2C는 전역적으로 고가용성을 제공합니다.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: ca637cec58531de65847d5f1e7d19e81ed45318d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ed269f580a20d614869b95dc8535424407ccd9e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036431"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427896"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -161,9 +161,9 @@ Azure AD B2C는 등록 및 암호 재설정 흐름 중에 고객에게 메일 �
 * [Mailjet을 사용한 사용자 지정 메일 확인](custom-email-mailjet.md)
 * [SendGrid를 사용한 사용자 지정 메일 확인](custom-email-sendgrid.md)
 
-## <a name="add-your-own-business-logic"></a>고유한 비즈니스 논리 추가
+## <a name="add-your-own-business-logic-and-call-restful-api"></a>고유한 비즈니스 논리를 추가하고 RESTful API 호출
 
-사용자 지정 정책을 사용하도록 선택한 경우 사용자 경험에서 RESTful API와 통합하여 사용자 고유의 비즈니스 논리를 경험에 추가할 수 있습니다. 예를 들어 Azure AD B2C는 RESTful 서비스와 데이터를 교환하여 다음을 수행할 수 있습니다.
+사용자 흐름 및 사용자 지정 정책 모두에서 RESTful API와 통합할 수 있습니다. 차이점은 사용자 흐름의 경우 지정된 위치에서 호출하지만, 사용자 지정 정책의 경우 고유한 비즈니스 논리를 사용자 경험에 추가한다는 것입니다. 이 기능을 사용하면 외부 ID 원본에서 데이터를 검색하고 사용할 수 있습니다. Azure AD B2C는 RESTful 서비스와 데이터를 교환하여 다음을 수행할 수 있습니다.
 
 * 사용자에게 친숙한 사용자 지정 오류 메시지를 표시합니다.
 * 사용자 입력의 유효성을 검사하여 잘못된 형식의 데이터가 사용자 디렉터리에 유지되지 않도록 합니다. 예를 들어 사용자가 입력한 데이터를 수정할 수 있습니다(예: 모든 소문자로 입력한 경우 이름을 대문자화).
@@ -301,9 +301,9 @@ Azure Application Insights를 Azure AD B2C 사용자 지정 정책에 통합하�
 자세한 내용은 [Azure Active Directory B2C에서 Application Insights를 사용하여 사용자 동작 추적](analytics-with-application-insights.md)을 참조하세요.
 
 ## <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
-Azure AD B2C 서비스는 일반적으로 [지역별로 사용 가능한 제품](https://azure.microsoft.com/regions/services/)에 지정된 대로 지역의 데이터 상주 옵션과 함께 가용성을 위해 전 세계에서 사용할 수 있습니다 데이터 상주는 [테넌트 만들기](tutorial-create-tenant.md)를 할 때 선택하는 국가/지역에 따라 결정됩니다. 
+Azure AD B2C 서비스는 일반적으로 [지역별로 사용 가능한 제품](https://azure.microsoft.com/regions/services/)에 지정된 대로 지역의 데이터 상주 옵션과 함께 전 세계에서 사용할 수 있습니다 데이터 상주는 [테넌트 만들기](tutorial-create-tenant.md)를 할 때 선택하는 국가/지역에 따라 결정됩니다. 
 
-[Azure Active Directory B2C 서비스 지역 가용성 및 데이터 상주](data-residency.md)에 대해 자세히 알아보세요.
+[Azure Active Directory B2C 서비스 지역 가용성 및 데이터 상주](data-residency.md) 및 [Azure Active Directory B2C의 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1)에 대해 자세히 알아보세요.
 
 ## <a name="automation-using-microsoft-graph-api"></a>Microsoft Graph API를 사용한 Automation
 

@@ -8,16 +8,16 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 730b7344a213922bd87d5efa3a659d352ff8624f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fe9450310e3f8774b31557fd7c045f05ed9b56b1
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019149"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518359"
 ---
 # <a name="troubleshoot-azure-nfs-file-share-problems"></a>Azure NFS 파일 공유 문제 해결
 
-이 문서에서는 Azure NFS 파일 공유(미리 보기)와 관련된 몇 가지 일반적인 문제를 나열합니다. 이러한 문제가 발생하는 경우 잠재적 원인과 해결 방법을 제공합니다. 이 문서에서는 공개 미리 보기의 알려진 문제에 대해서도 다룹니다.
+이 문서에서는 Azure NFS 파일 공유와 관련된 몇 가지 일반적인 문제 및 알려진 문제를 나열합니다. 이러한 문제가 발생하는 경우 잠재적 원인과 해결 방법을 제공합니다.
 
 ## <a name="applies-to"></a>적용 대상
 | 파일 공유 유형 | SMB | NFS |
@@ -40,35 +40,11 @@ Idmapping이 사용하지 않도록 설정되어 있으며 다시 사용하도�
 - 공유를 분리합니다.
 - # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping을 통해 ID 매핑을 사용하지 않도록 설정합니다.
 - 공유를 다시 탑재합니다.
-- Rsync를 실행 하는 경우 잘못 된 dir/file 이름이 없는 디렉터리에서 "— 숫자 id" 인수를 사용 하 여 rsync를 실행 합니다.
+- rsync를 실행하는 경우 잘못된 dir/file 이름이 없는 디렉터리에서 "—numeric-ids" 인수를 사용하여 rsync를 실행합니다.
 
 ## <a name="unable-to-create-an-nfs-share"></a>NFS 공유를 만들 수 없음
 
-### <a name="cause-1-subscription-is-not-enabled"></a>원인 1: 구독이 사용하도록 설정되어 있지 않습니다.
-
-구독이 Azure Files NFS 미리 보기용으로 등록되지 않았을 수 있습니다. 이 기능을 사용하려면 Cloud Shell 또는 로컬 터미널에서 몇 가지 추가 commandlet을 실행해야 합니다.
-
-> [!NOTE]
-> 등록이 완료될 때까지 최대 30분 정도 기다려야 할 수 있습니다.
-
-
-#### <a name="solution"></a>해결 방법
-
-다음 스크립트를 사용하여 기능 및 리소스 공급자를 등록하고 스크립트를 실행하기 전에 `<yourSubscriptionIDHere>`를 바꿉니다.
-
-```azurepowershell
-Connect-AzAccount
-
-#If your identity is associated with more than one subscription, set an active subscription
-$context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
-Set-AzContext $context
-
-Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
-
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-### <a name="cause-2-unsupported-storage-account-settings"></a>원인 2: 스토리지 계정 설정이 지원되지 않습니다.
+### <a name="cause-1-unsupported-storage-account-settings"></a>원인 1: 지원되지 않는 스토리지 계정 설정
 
 NFS는 다음 구성을 사용하는 스토리지 계정에서만 사용할 수 있습니다.
 
@@ -79,14 +55,6 @@ NFS는 다음 구성을 사용하는 스토리지 계정에서만 사용할 수 
 #### <a name="solution"></a>해결 방법
 
 [NFS 공유를 만드는 방법](storage-files-how-to-create-nfs-shares.md) 문서의 지침을 따르세요.
-
-### <a name="cause-3-the-storage-account-was-created-prior-to-registration-completing"></a>원인 3: 등록을 완료하기 전에 스토리지 계정을 만들었습니다.
-
-스토리지 계정이 기능을 사용할 수 있으려면 구독에서 NFS 등록을 완료한 후에 스토리지 계정을 만들어야 합니다. 등록을 완료하는 데 최대 30분이 소요될 수 있습니다.
-
-#### <a name="solution"></a>해결 방법
-
-등록이 완료되면 [NFS 공유를 만드는 방법](storage-files-how-to-create-nfs-shares.md) 문서의 지침을 따르세요.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-nfs-file-share"></a>Azure NFS 파일 공유에 연결하거나 탑재할 수 없음
 
@@ -160,11 +128,11 @@ NFS 프로토콜은 포트 2049을 통해 서버와 통신하고, 이 포트가 
 ## <a name="ls-hangs-for-large-directory-enumeration-on-some-kernels"></a>일부 커널에서 큰 디렉터리 열거형에 대해 ls 중단
 
 ### <a name="cause-a-bug-was-introduced-in-linux-kernel-v511-and-was-fixed-in-v5125"></a>원인: 버그가 Linux 커널 v5.11에서 도입되었으며 v5.12.5에서 수정되었습니다.  
-일부 커널 버전에는 디렉터리 목록이 무한 READDIR 시퀀스를 발생 시키는 버그가 있습니다. 한 번의 호출로 모든 항목을 배송할 수 있는 매우 작은 디렉터리는 문제가 되지 않습니다.
+일부 커널 버전에는 디렉터리 목록이 무한 READDIR 시퀀스로 이어지도록 하는 버그가 있습니다. 한 번의 호출로 모든 항목을 배송할 수 있는 매우 작은 디렉터리는 문제가 되지 않습니다.
 버그가 Linux 커널 v5.11에서 도입되었으며 v5.12.5에서 수정되었습니다. 따라서 두 버전 사이의 모든 버전에는 버그가 있습니다. RHEL 8.4는 이 커널 버전이 있는 것으로 알려져 있습니다.
 
 #### <a name="workaround-downgrading-or-upgrading-the-kernel"></a>해결 방법: 커널 다운그레이드 또는 업그레이드
-커널을 영향을 받는 커널 외부의 모든 항목으로 다운 그레이드 하거나 업그레이드 하면 문제가 해결 됩니다.
+영향을 받는 커널 외부로 커널을 다운그레이드하거나 업그레이드하면 문제가 해결됩니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -1,15 +1,15 @@
 ---
 title: Bicep 파일 만들기 - Visual Studio Code
 description: Azure 리소스 배포를 위해 Visual Studio Code 및 Bicep 파일에 대한 Bicep 확장 사용
-ms.date: 10/01/2021
+ms.date: 11/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 95e7a601da5c8a9976d2341c2964df0f4d9718d0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: f5950a143510b85ea6de8f7af4e08c7d4b5ed293
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354955"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136232"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기
 
@@ -74,17 +74,15 @@ name: 'examplevnet'
 
 ## <a name="add-parameter"></a>매개 변수 추가
 
-이제 스토리지 계정 이름에 사용할 매개 변수를 추가합니다. 가상 네트워크 위에 몇 줄을 추가하고 다음을 입력합니다.
+이제 스토리지 계정 이름에 대한 매개 변수를 추가합니다. 다음을 파일 위쪽에 추가합니다.
 
 ```bicep
 param storageName
 ```
 
-**storageName** 뒤에 공백을 추가하면 Intellisense는 매개 변수에 사용할 수 있는 데이터 형식을 제안합니다.
+**storageName** 뒤에 공백을 추가하면 Intellisense는 매개 변수에 사용할 수 있는 데이터 형식을 제안합니다. **문자열** 을 선택합니다.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-param.png" alt-text="매개 변수에 문자열 형식 추가":::
-
-**문자열** 을 선택합니다.
 
 다음 매개 변수를 사용합니다.
 
@@ -133,11 +131,11 @@ resource exampleStorage
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-resource-type.png" alt-text="리소스 종류의 스토리지 계정 선택":::
 
-**Microsoft.Storage/storageAccounts** 를 선택한 후 사용 가능한 API 버전이 제공됩니다. 최신 버전을 선택합니다.
+**Microsoft.Storage/storageAccounts** 를 선택한 후 사용 가능한 API 버전이 제공됩니다. **2021-02-01** 을 선택합니다.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-api-version.png" alt-text="리소스 종류의 API 버전 선택":::
 
-리소스 종류의 작은따옴표 뒤에 **=** 및 공백을 추가합니다. 리소스에 속성을 추가할 수 있는 옵션이 제공됩니다. **required-properties** 를 선택합니다.
+리소스 종류의 작은따옴표 뒤에 `=` 및 공백을 추가합니다. 리소스에 속성을 추가할 수 있는 옵션이 제공됩니다. **required-properties** 를 선택합니다.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-required-properties.png" alt-text="필수 속성 추가":::
 
@@ -157,7 +155,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 거의 완료되었습니다. 해당 속성의 값을 제공하면 됩니다.
 
-다시, Intellisense가 도움이 됩니다. 스토리지 계정의 이름을 포함하는 매개 변수인 `name`을 `storageName`으로 설정합니다. `location`의 경우 `eastus`로 설정합니다. SKU 이름 및 종류를 추가할 때 Intellisense는 유효한 옵션을 제공합니다.
+다시, Intellisense가 도움이 됩니다. 스토리지 계정의 이름을 포함하는 매개 변수인 `name`을 `storageName`으로 설정합니다. `location`의 경우 `'eastus'`로 설정합니다. SKU 이름 및 종류를 추가할 때 Intellisense는 유효한 옵션을 제공합니다.
 
 완료되면 다음을 사용할 수 있습니다.
 
@@ -223,7 +221,7 @@ Bicep 구문에 관한 자세한 내용은 [Bicep 구조](./file.md)를 참조�
 ```azurecli
 az group create --name exampleRG --location eastus
 
-az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageName={your-unique-name}
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageName=uniquename
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -231,15 +229,15 @@ az deployment group create --resource-group exampleRG --template-file main.bicep
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
 
-New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageName "{your-unique-name}"
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageName "uniquename"
 ```
 
 ---
 
 > [!NOTE]
-> 중괄호를 포함하여 **{your-unique-name}** 을 고유한 스토리지 계정 이름으로 바꿉니다.
+> **uniquename** 을 고유한 스토리지 계정 이름으로 바꿉니다. 스토리지 계정이 이미 사용되었음을 나타내는 오류 메시지가 표시되면 입력한 스토리지 이름이 사용 중입니다. 고유할 가능성이 높은 이름을 제공합니다.
 
-배포가 완료되면 배포에 성공했음을 나타내는 메시지가 표시됩니다. 스토리지 계정이 이미 사용되었음을 나타내는 오류 메시지가 표시되면 입력한 스토리지 이름이 사용 중입니다. 고유할 가능성이 높은 이름을 제공합니다.
+배포가 완료되면 배포에 성공했음을 나타내는 메시지가 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

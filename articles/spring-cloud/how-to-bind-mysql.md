@@ -1,20 +1,20 @@
 ---
-title: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법
-description: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 알아봅니다.
+title: Azure 스프링 클라우드의 응용 프로그램에 Azure Database for MySQL 인스턴스를 바인딩하는 방법
+description: Azure 스프링 클라우드의 응용 프로그램에 Azure Database for MySQL 인스턴스를 바인딩하는 방법에 대해 알아봅니다.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 45ded9214f310f3505cc5d032754333c5cf702d8
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 7c48b9eee1ff727cbd3d2ab7204045d962a21f44
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529538"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490348"
 ---
-# <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩
+# <a name="bind-an-azure-database-for-mysql-instance-to-your-application-in-azure-spring-cloud"></a>Azure Database for MySQL 인스턴스를 Azure Spring Cloud의 애플리케이션에 바인딩
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java
 
@@ -26,7 +26,7 @@ Azure Spring Cloud를 사용하면 Spring Boot 애플리케이션을 수동으�
 * Azure Database for MySQL 계정
 * Azure CLI
 
-Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)의 지침에 따라 첫 번째 Spring Cloud 앱을 배포합니다.
+Azure 스프링 클라우드 인스턴스가 배포 되지 않은 경우 빠른 시작: 첫 번째 스프링 클라우드 앱을 배포 하 [는 Azure Portal을 사용 하 여 Azure 스프링 클라우드에서 응용 프로그램 시작](./quickstart.md) 의 지침을 따르세요.
 
 ## <a name="prepare-your-java-project"></a>Java 프로젝트 준비
 
@@ -177,4 +177,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Spring Cloud 애플리케이션을 Azure Database for MySQL 인스턴스에 바인딩하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩](./how-to-bind-cosmos.md)을 참조하세요.
+이 문서에서는 Azure 스프링 클라우드의 응용 프로그램을 Azure Database for MySQL 인스턴스에 바인딩하는 방법에 대해 알아보았습니다. 응용 프로그램에 서비스를 바인딩하는 방법에 대해 자세히 알아보려면 [Azure 스프링 클라우드의 응용 프로그램에 Azure Cosmos DB 데이터베이스 바인딩](./how-to-bind-cosmos.md)을 참조 하세요.

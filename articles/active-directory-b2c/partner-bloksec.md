@@ -12,20 +12,18 @@ ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a983da4159f41ae6dfe261b7f42ce20c2d2fa3a4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 15d98a7b24c2312f781f5d1e60721d99cbb2e63a
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594748"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988543"
 ---
 # <a name="tutorial-configure-azure-active-directory-b2c-with-bloksec-for-passwordless-authentication"></a>자습서: 암호 없는 인증을 위해 BlokSec를 사용하여 Azure Active Directory B2C 구성
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-custom-policy"
-
-
 
 ::: zone-end
 
@@ -59,6 +57,7 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 [양식](https://bloksec.com/request-a-demo/)을 작성하여 BlokSec에 데모 테넌트를 요청하세요. 메시지 필드에서 Azure AD B2C를 사용하여 온보딩할 것임을 나타냅니다. 앱 스토어에서 무료 BlokSec yuID 모바일 앱을 다운로드하여 설치합니다. 데모 테넌트가 준비되면 이메일을 받게 됩니다. BlokSec 애플리케이션이 설치된 모바일 디바이스에서 yuID 앱에 관리자 계정을 등록하는 링크를 선택합니다.
 
 ::: zone pivot="b2c-user-flow"
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음이 필요합니다.
@@ -73,6 +72,7 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음이 필요합니다.
@@ -116,8 +116,8 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/#home)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
 1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다. 
-1. **대시보드 >Azure Active Directory B2C >ID 공급자** 로 이동합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스** 를 선택한 다음, **Azure AD B2C** 를 검색하여 선택합니다.
+1. **대시보드** > **Azure Active Directory B2C** > **ID 공급자** 로 이동합니다.
 1. 새 **OpenID Connect 공급자** 를 선택합니다.
 1. **추가** 를 선택합니다.
 
@@ -130,7 +130,7 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 |속성  |값  |
 |:---------|:---------|
 |Name     |BlokSec yuID -암호 없음 또는 원하는 이름을 입력합니다.|
-|메타데이터 URL|https://api.bloksec.io/oidc/.well-known/openid-configuration|         
+|메타데이터 URL| `https://api.bloksec.io/oidc/.well-known/openid-configuration` |
 |클라이언트 ID|**1부** 에서 캡처한 BlokSec 관리 UI의 애플리케이션 ID|
 |클라이언트 암호|**1부** 에서 캡처한 BlokSec 관리 UI의 애플리케이션 비밀|
 |범위|OpenID 이메일 프로필|
@@ -181,13 +181,13 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 
 1. **사용자 흐름 실행** 을 선택합니다.
 
-1. 양식에서 회신 URL을 입력합니다(예: https://jwt.ms ).
+1. 양식에서 회신 URL(예: `https://jwt.ms`)을 입력합니다.
 
 1. 브라우저가 BlokSec 로그인 페이지로 리디렉션됩니다. 사용자 등록 시 등록한 계정 이름을 입력합니다. 사용자는 BlokSec yuID 애플리케이션이 설치된 모바일 디바이스로 푸시 알림을 받게 됩니다. 알림을 열면 사용자에게 인증 질문이 표시됩니다.
 
-1. 인증 질문이 수락되면 브라우저가 사용자를 회신 URL로 리디렉션합니다.  
+1. 인증 질문이 수락되면 브라우저가 사용자를 회신 URL로 리디렉션합니다.
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -324,7 +324,8 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 
 신뢰 당사자 정책(예: [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml))은 Azure AD B2C에서 실행할 사용자 경험을 지정합니다. 신뢰 당사자 내에서 **DefaultUserJourney** 요소를 찾습니다. ID 공급자를 추가한 사용자 경험 ID와 일치하도록 **ReferenceId** 를 업데이트합니다.
 
-다음 예제에서는 `CustomSignUpOrSignIn` 사용자 경험에 대해 ReferenceId가 `CustomSignUpOrSignIn`으로 설정됩니다.  
+다음 예제에서는 `CustomSignUpOrSignIn` 사용자 경험에 대해 ReferenceId가 `CustomSignUpOrSignIn`으로 설정됩니다.
+
 ```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="CustomSignUpSignIn" />
@@ -350,7 +351,7 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 
 로그인 프로세스가 성공하면 브라우저가 Azure AD B2C에서 반환된 토큰의 내용을 표시하는 `https://jwt.ms`로 리디렉션됩니다.
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 참조하세요.
 

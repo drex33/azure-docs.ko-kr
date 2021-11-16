@@ -1,16 +1,16 @@
 ---
 title: '빠른 시작: IoT 솔루션에 Azure 리소스 추가'
-description: 이 빠른 시작에서는 Azure Defender for IoT를 사용하여 엔드투엔드 IoT 솔루션을 구성하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Microsoft Defender for IoT를 사용하여 엔드투엔드 IoT 솔루션을 구성하는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 09/13/2021
-ms.openlocfilehash: e66accdc1ba671941c13433eeca9b3e9c541781b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: 2ac4a91870f9a8ed0a0df2d9b4f8e904806eb482
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634827"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283907"
 ---
-# <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>빠른 시작: Azure Defender for IoT 솔루션 구성
+# <a name="quickstart-configure-your-microsoft-defender-for-iot-solution"></a>빠른 시작: Microsoft Defender for IoT 솔루션 구성
 
 이 문서에서는 처음으로 Defender for IoT를 사용하여 IoT 보안 솔루션을 구성하는 방법을 설명합니다.
 
@@ -30,7 +30,7 @@ IoT Hub에서 Defender for IoT를 사용하면 Defender for IoT는 자동으로 
 
 선택하는 경우 전체 구독, 리소스 그룹 또는 단일 리소스를 추가할 수 있습니다.
 
-모든 리소스 관계가 정의되면 Defender for IoT는 Defender를 사용하여 이러한 리소스의 보안 권장 사항과 경고를 제공합니다.
+모든 리소스 관계가 정의되면 Defender for IoT는 Defender for Cloud를 사용하여 이러한 리소스의 보안 권장 사항과 경고를 제공합니다.
 
 ## <a name="add-azure-resources-to-your-iot-solution"></a>IoT 솔루션에 Azure 리소스 추가
 

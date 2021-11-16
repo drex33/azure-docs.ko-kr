@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: fe8fd05dfc43fc4ff98182f90e3459af28529127
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 43e844380374a8e507325494b67faef1daf85340
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254097"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523945"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스에 대한 Azure Files ID 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -85,7 +85,7 @@ Azure Files에서 Windows ACL에 대한 ID 기반 인증 및 지원은 다음과
 - Azure AD DS 및 온-프레미스 AD DS 인증은 컴퓨터 계정에 대한 인증을 지원하지 않습니다. 대신 서비스 로그온 계정을 사용하는 것이 좋습니다.
 - Azure AD DS 인증 또는 온-프레미스 AD DS 인증은 Azure AD 조인 디바이스 또는 Azure AD 등록 디바이스에 대해 지원되지 않습니다.
 - Azure 파일 공유는 [Azure AD DS(Azure Active Directory Domain Services)](#azure-ad-ds) 또는 [온-프레미스 AD DS(Active Directory Domain Services)](#ad-ds) 도메인 서비스 중 하나에 대한 ID 기반 인증만 지원합니다.
-- 미리 보기의 NFS(네트워크 파일 시스템)에서는 ID 기반 인증 방법이 모두 지원되지 않습니다.
+- NFS (네트워크 파일 시스템) 공유에서는 id 기반 인증 방법이 지원 되지 않습니다.
 
 ## <a name="advantages-of-identity-based-authentication"></a>ID 기반 인증의 이점
 Azure Files에 대한 ID 기반 인증은 공유 키 인증을 사용하는 경우에 비해 다음과 같은 여러 이점을 제공합니다.

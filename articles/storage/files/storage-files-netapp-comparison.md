@@ -6,14 +6,14 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 8/31/2021
+ms.date: 11/15/2021
 ms.author: jeffpatt
-ms.openlocfilehash: bf0d14d7eb592db12521bd9f682bc69642de9999
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 06c1c1e32c8e31f1762f3fbdc932612036c5a327
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137717"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519290"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Azure Files 및 Azure NetApp Files 비교
 
@@ -26,7 +26,7 @@ ms.locfileid: "132137717"
 | 범주 | Azure 파일 | Azure NetApp Files |
 |---------|-------------------------|---------|
 | 설명 | [Azure Files](https://azure.microsoft.com/services/storage/files/)는 완전 관리형의 고가용성 엔터프라이즈급 서비스이며 현재 위치 데이터 업데이트를 사용하는 임의 액세스 워크로드에 최적화되어 있습니다.<br><br> Azure Files는 Azure Blob과 같은 다른 서비스와 동일한 Azure Storage 플랫폼을 기반으로 구축됩니다. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)는 완전 관리형의 고가용성, 엔터프라이즈급 NAS 서비스입니다. 고급 데이터 관리 기능을 필요로 하는 가장 까다로운 고성능의 대기 시간이 짧은 워크로드를 처리할 수 있습니다. 이 기능을 사용하면 ‘마이그레이션 불가능’으로 간주되는 워크로드의 마이그레이션이 가능합니다.<br><br>  ANF는 일관된 Azure 환경과 온-프레미스와 같은 성능을 위해 Azure 데이터 센터 내에서 실행되는 ONTAP 스토리지 OS와 함께 NetApp의 운영 체제 미설치 컴퓨터를 기반으로 구축됩니다. |
-| 프로토콜 | Premium<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>NFS 4.1(미리 보기)</li><li>REST</li></ul><br>Standard<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>REST</li></ul><br> 자세한 내용은 [사용 가능한 파일 공유 프로토콜](./storage-files-planning.md#available-protocols)을 참조하세요. | 모든 계층<br><ul><li>SMB 2.x, 3.x</li><li>NFS 3.0, 4.1</li><li>이중 프로토콜 액세스(NFSv3/SMB)</li></ul><br> 자세한 내용은 [NFS](../../azure-netapp-files/azure-netapp-files-create-volumes.md), [SMB](../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) 또는 [이중 프로토콜](../../azure-netapp-files/create-volumes-dual-protocol.md) 볼륨을 만드는 방법을 참조하세요. |
+| 프로토콜 | Premium<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>NFS 4.1</li><li>REST</li></ul><br>Standard<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>REST</li></ul><br> 자세한 내용은 [사용 가능한 파일 공유 프로토콜](./storage-files-planning.md#available-protocols)을 참조하세요. | 모든 계층<br><ul><li>SMB 2.x, 3.x</li><li>NFS 3.0, 4.1</li><li>이중 프로토콜 액세스(NFSv3/SMB)</li></ul><br> 자세한 내용은 [NFS](../../azure-netapp-files/azure-netapp-files-create-volumes.md), [SMB](../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) 또는 [이중 프로토콜](../../azure-netapp-files/create-volumes-dual-protocol.md) 볼륨을 만드는 방법을 참조하세요. |
 | 지역 가용성 | Premium<br><ul><li>30개 이상 지역</li></ul><br>Standard<br><ul><li>모든 지역</li></ul><br> 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조하세요. | 모든 계층<br><ul><li>28개 이상의 지역</li></ul><br> 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조하세요. |
 | 중복 | Premium<br><ul><li>LRS</li><li>ZRS</li></ul><br>Standard<br><ul><li>LRS</li><li>ZRS</li><li>GRS</li><li>GZRS</li></ul><br> 자세한 내용은 [중복](./storage-files-planning.md#redundancy)을 참조하세요. | 모든 계층<br><ul><li>기본 제공 로컬 HA</li><li>[지역 간 복제](../../azure-netapp-files/cross-region-replication-introduction.md)</li></ul> |
 | SLA(서비스 수준 계약)<br><br> Azure Files 및 Azure NetApp Files에 대한 SLA는 다르게 계산됩니다. | [Azure Files용 SLA](https://azure.microsoft.com/support/legal/sla/storage/) | [Azure NetApp Files용 SLA](https://azure.microsoft.com/support/legal/sla/netapp) |  

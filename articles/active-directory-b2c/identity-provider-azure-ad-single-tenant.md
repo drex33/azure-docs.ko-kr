@@ -13,12 +13,12 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 81067c8c1b24897d88f3d8da4d21329b030cbd03
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a63c89174103613c722d463e32085600019e9ea0
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036450"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026010"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -80,7 +80,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **선택적 클레임 추가** 를 선택합니다.
 1. **토큰 형식** 으로 **ID** 를 선택합니다.
 1. 추가할 선택적 클레임으로 `family_name` 및 `given_name`을 선택합니다.
-1. **추가** 를 클릭합니다.
+1. **추가** 를 선택합니다. **Microsoft Graph 이메일 사용 권한 켜기(토큰에 클레임을 표시하는 데 필요)** 가 표시되면 이를 사용하도록 설정한 다음, **추가** 를 다시 선택합니다.
 
 ## <a name="optional-verify-your-app-authenticity"></a>[선택 사항] 앱 신뢰성 확인
 
@@ -101,8 +101,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    예들 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`입니다.
-    예들 들어 `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`입니다.
+ 예들 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`입니다. 사용자 지정 도메인을 사용하는 경우 `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`에서 `contoso.com`을 사용자 지정 도메인으로 바꿉니다.
 
 1. **Client ID** 에 대해 이전에 기록한 애플리케이션 ID를 입력합니다.
 1. 이전에 기록해 두었던 클라이언트 암호를 **클라이언트 암호** 에 입력합니다.
@@ -125,7 +124,8 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. Azure AD ID 공급자를 추가하려는 사용자 흐름을 클릭합니다.
-1. **소셜 ID 공급자** 에서 **Contoso Azure AD** 를 선택합니다.
+1. **설정** 아래에서 **ID 공급자** 를 선택합니다.
+1. **사용자 지정 ID 공급자** 아래에서 **Contoso Azure AD** 를 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
 1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다. 

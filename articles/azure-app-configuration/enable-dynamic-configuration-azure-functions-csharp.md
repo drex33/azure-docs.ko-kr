@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: devx-track-csharp, azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: add4b54adb02db09536f4e56a7f039c46245c182
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffa2b1a4537093f9a612f0e57b7f416ee7ed0012
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963566"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301915"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>자습서: Azure Functions 앱에서 동적 구성 사용
 
@@ -55,7 +55,7 @@ App Configuration .NET 구성 공급자는 애플리케이션 작업 기반의 �
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                    // Load all keys that start with `TestApp:`
                    .Select("TestApp:*")
-                   // Configure to reload configuration if the registered 'Sentinel' key is modified
+                   // Configure to reload configuration if the registered sentinel key is modified
                    .ConfigureRefresh(refreshOptions =>
                       refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
         });
@@ -63,7 +63,7 @@ App Configuration .NET 구성 공급자는 애플리케이션 작업 기반의 �
     ```
 
    > [!TIP]
-   > App Configuration에서 여러 키 값을 업데이트하는 경우에는 일반적으로 애플리케이션이 모든 변경 작업을 수행하기 전에 구성을 다시 로드하지 않도록 합니다. **센티널** 키를 등록하고 다른 모든 구성 변경을 완료한 경우에만 업데이트할 수 있습니다. 이렇게 하면 애플리케이션에서 구성의 일관성을 유지할 수 있습니다.
+   > App Configuration에서 여러 키 값을 업데이트하는 경우에는 일반적으로 애플리케이션이 모든 변경 작업을 수행하기 전에 구성을 다시 로드하지 않도록 합니다. *센티널* 키를 등록하고, 다른 모든 구성 변경이 완료된 경우에만 업데이트할 수 있습니다. 이렇게 하면 애플리케이션에서 구성의 일관성을 유지할 수 있습니다.
 
 2. 종속성 주입을 통해 Azure App Configuration 서비스를 사용할 수 있도록 하려면 `Configure` 메서드를 업데이트합니다.
 

@@ -7,12 +7,12 @@ ms.service: confidential-ledger
 ms.topic: overview
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 05b84abafb308b51236f5d92aa486e6ed8741204
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2f0636d5ef4b4e1fa3a9576912630470af7fa388
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438819"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337797"
 ---
 # <a name="microsoft-azure-confidential-ledger-preview"></a>Microsoft Azure 기밀 원장(미리 보기)
 
@@ -25,7 +25,7 @@ Azure 기밀 원장은 중요한 메타데이터 레코드를 수정해서는 �
 - 비즈니스 트랜잭션과 관련된 레코드(예: 송금 또는 기밀 문서 편집)
 - 신뢰할 수 있는 자산에 대한 업데이트(예: 핵심 애플리케이션 또는 계약)
 - 관리 및 제어 변경(예: 액세스 권한 부여)
-- 운영 IT 및 보안 이벤트(예: Azure Security Center 경고)
+- 운영 IT 및 보안 이벤트(예: Microsoft Defender for Cloud 경고)
 
 자세한 내용을 보려면 [Microsoft Ignite 2020 Azure 기밀 원장 데모](https://mediusprodstatic.studios.ms/asset-b88de19d-4187-40c4-98f2-a65efc419e2a/OD221_1920x1080_AACAudio_1461.mp4?sv=2018-03-28&sr=b&sig=k5roi6WXnlqK1zP0fs5KYlJd4FD3Nuaf97z%2B2gV0aTs%3D&st=2020-09-22T08%3A05%3A01Z&se=2025-09-22T08%3A10%3A01Z&sp=r&rscd=filename%3DIG20-OD221-Inside%2BAzure%2BDatacenter%2BArchitecture%2Bwith%2BMark%2BRu.mp4)를 시청하세요.
 

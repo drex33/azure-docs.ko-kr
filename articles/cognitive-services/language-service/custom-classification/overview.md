@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: c31a348376f41bf61a4632d991fc02f08b360be7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ec68964d1d0e43bf15e66750677326eca305784f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131450251"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132053068"
 ---
 # <a name="what-is-custom-text-classification-preview"></a>사용자 지정 텍스트 분류(미리 보기)란?
 
@@ -45,9 +45,9 @@ ms.locfileid: "131450251"
 
 검색은 카탈로그 또는 문서 검색, 소매 제품 또는 데이터 과학을 위한 기술 자료 등을 비롯한 일반적인 시나리오를 통해 사용자에게 텍스트 콘텐츠를 표시하는 모든 앱에 기반이 됩니다.다양한 업계의 많은 기업은 구조화된 문서와 비구조적 문서를 모두 포함하는 다른 유형의 프라이빗 콘텐츠에 대한 풍부한 검색 환경을 구축하고 있습니다. 개발자는 파이프라인의 일부로 사용자 지정 분류를 사용하여 텍스트를 해당 업계와 관련된 클래스로 분류할 수 있습니다. 예측된 클래스를 사용하여 보다 사용자 지정된 검색 환경을 위해 파일의 인덱싱을 보강할 수 있습니다. 
 
-## <a name="application-development-lifecycle"></a>애플리케이션 개발 수명 주기
+## <a name="project-development-lifecycle"></a>프로젝트 개발 수명 주기
 
-사용자 지정 분류 애플리케이션을 만드는 데는 일반적으로 여러 단계가 포함됩니다. 
+사용자 지정 분류 프로젝트를 만드는 데는 일반적으로 여러 단계가 포함됩니다. 
 
 :::image type="content" source="media/development-lifecycle.png" alt-text="개발 수명 주기" lightbox="media/development-lifecycle.png":::
 
@@ -71,6 +71,6 @@ ms.locfileid: "131450251"
 
 * [빠른 시작 문서](quickstart.md)를 사용하여 사용자 지정 텍스트 분류 사용을 시작합니다.  
 
-* 애플리케이션 개발 수명 주기를 진행하면서 [용어집](glossary.md)을 검토하여 이 기능에 대한 설명서 전체에서 사용되는 용어에 대해 자세히 알아보세요. 
+* 프로젝트 개발 수명 주기를 진행하면서 [용어집](glossary.md)을 검토하여 이 기능에 대한 설명서 전체에서 사용되는 용어에 대해 자세히 알아보세요. 
 
 * [지역별 가용성](service-limits.md#regional-availability)과 같은 정보에 대한 [서비스 제한](service-limits.md)을 확인해야 합니다.

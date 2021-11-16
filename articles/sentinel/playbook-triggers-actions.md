@@ -1,65 +1,64 @@
 ---
-title: Azure Sentinel 플레이북에서 트리거 및 작업 사용 | Microsoft Docs
-description: Azure Sentinel 경고 및 인시던트의 정보에 대한 플레이북 액세스를 제공하고 해당 정보를 사용하여 수정 작업을 수행하는 방법을 자세히 알아봅니다.
+title: Microsoft Sentinel 플레이북에서 트리거 및 작업 사용 | Microsoft Docs
+description: 플레이북에 Microsoft Sentinel 경고 및 인시던트 정보에 대한 액세스 권한을 부여하고 해당 정보를 사용하여 수정 작업을 수행할 수 있는 방법을 자세히 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 093db947b30444b4d7c3614126c83977fd45e3de
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 89b296d47f24391eb0c31b2292aa4add273d71f6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083957"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524401"
 ---
-# <a name="use-triggers-and-actions-in-azure-sentinel-playbooks"></a>Azure Sentinel 플레이북에서 트리거 및 작업 사용
+# <a name="use-triggers-and-actions-in-microsoft-sentinel-playbooks"></a>Microsoft Sentinel 플레이북에서 트리거 및 작업 사용
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 플레이북이 Azure Sentinel 및 작업 영역의 테이블에 있는 정보와 상호 작용하는 데 사용할 수 있는 [Logic Apps Azure Sentinel 커넥터](/connectors/azuresentinel/)의 트리거 및 작업 유형에 대해 설명합니다. 필요할 수 있는 특정 유형의 Azure Sentinel 정보를 가져오는 방법을 추가로 보여 줍니다.
+이 문서에서는 플레이북이 Microsoft Sentinel과 상호 작용하는 데 사용할 수 있는 [Logic Apps Microsoft Sentinel 커넥터의](/connectors/azuresentinel/)트리거 및 작업 유형과 작업 영역의 테이블에 있는 정보를 설명합니다. 또한 필요할 가능성이 높은 특정 유형의 Microsoft Sentinel 정보를 얻는 방법을 보여줍니다.
 
-이 문서는 [Azure Sentinel로 플레이북 인증](authenticate-playbooks-to-sentinel.md) 지침과 함께 다른 플레이북 설명서([자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용](tutorial-respond-threats-playbook.md))와 함께 제공됩니다. 이 세 문서는 서로를 참조합니다.
+이 문서는 [Microsoft Sentinel에 플레이북 인증](authenticate-playbooks-to-sentinel.md)가이드와 함께 다른 플레이북 설명서인 [자습서: Microsoft Sentinel에서 자동화 규칙으로 플레이북 사용과 함께](tutorial-respond-threats-playbook.md)제공됩니다. 이 세 문서는 서로를 참조합니다.
 
-플레이북에 대한 소개는 [Azure Sentinel에서 플레이북으로 위협 대응 자동화](automate-responses-with-playbooks.md)를 참조하세요.
+플레이북에 대한 소개는 [Microsoft Sentinel에서 플레이북을 사용하여 위협 대응 자동화를](automate-responses-with-playbooks.md)참조하세요.
 
-Azure Sentinel 커넥터의 전체 사양은 [Logic Apps 커넥터 설명서](/connectors/azuresentinel/)를 참조하세요.
+Microsoft Sentinel 커넥터의 전체 사양은 [Logic Apps 커넥터 설명서를 참조하세요.](/connectors/azuresentinel/)
 
 ## <a name="permissions-required"></a>필요한 사용 권한
 
 | 역할 \ 커넥터 구성 요소 | 트리거 | “Get” 작업 | 인시던트 업데이트,<br>주석 추가 |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Azure Sentinel 읽기 권한자](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Azure Sentinel [응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Microsoft Sentinel 판독기](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Microsoft Sentinel [응답기](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) / [기여자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
-[Azure Sentinel의 사용 권한에 대해 알아봅니다](./roles.md).
+[Microsoft Sentinel의 사용 권한에 대해 자세히 알아봅니다.](./roles.md)
 
-## <a name="azure-sentinel-triggers-summary"></a>Azure Sentinel 트리거 요약
+## <a name="microsoft-sentinel-triggers-summary"></a>Microsoft Sentinel 트리거 요약
 
-Azure Sentinel 커넥터를 다양한 방식으로 사용할 수 있지만 커넥터의 구성 요소는 서로 다른 Azure Sentinel 발생에 의해 트리거되는 두 개의 흐름으로 나눌 수 있습니다.
+Microsoft Sentinel 커넥터는 다양한 방법으로 사용할 수 있지만 커넥터의 구성 요소는 각각 다른 Microsoft Sentinel 발생에 의해 트리거되는 두 개의 흐름으로 나눌 수 있습니다.
 
 | 트리거 | 전체 트리거 이름<br>Logic Apps 디자이너 | 사용하는 경우 | 알려진 제한 사항 
 | --------- | ------------ | -------------- | -------------- | 
-| **인시던트 트리거** | “Azure Sentinel 인시던트 만들기 규칙이 트리거된 경우(미리 보기)” | 대부분의 인시던트 자동화 시나리오에 권장됩니다.<br><br>플레이북은 엔터티 및 경고를 비롯한 인시던트 개체를 수신합니다. 이 트리거를 사용하면 플레이북을 **자동화 규칙** 에 연결할 수 있으므로 Azure Sentinel에서 인시던트가 생성될 때 플레이북을 트리거할 수 있으며 [자동화 규칙의 이점](./automate-incident-handling-with-automation-rules.md)을 모두 인시던트에 적용할 수 있습니다. | 이 트리거를 사용하는 플레이북은 Azure Sentinel에서 수동으로 실행할 수 없습니다.<br><br>이 트리거가 포함된 플레이북은 경고 그룹화를 지원하지 않습니다. 즉, 각 인시던트에 의해 전송된 첫 번째 경고만 받게 됩니다.
-| **경고 트리거** | “Azure Sentinel 경고에 대한 응답이 트리거되는 경우” | Azure Sentinel 포털에서 수동으로 경고를 실행해야 하는 플레이북 또는 해당 경고에 대한 인시던트를 생성하지 않는 **예약된** 분석 규칙에 대해 권장됩니다. | 이 트리거는 **Microsoft 보안** 분석 규칙에서 생성된 경고에 대한 응답을 자동화하는 데 사용할 수 없습니다.<br><br>이 트리거를 사용하는 플레이북은 **자동화 규칙** 으로 호출할 수 없습니다. |
+| **인시던트 트리거** | "Microsoft Sentinel 인시던트 생성 규칙이 트리거된 경우(미리 보기)" | 대부분의 인시던트 자동화 시나리오에 권장됩니다.<br><br>플레이북은 엔터티 및 경고를 비롯한 인시던트 개체를 수신합니다. 이 트리거를 사용하면 플레이북을 Automation **규칙에** 연결할 수 있으므로 Microsoft Sentinel에서 인시던트를 만들 때 트리거될 수 있으며 [자동화 규칙의](./automate-incident-handling-with-automation-rules.md) 모든 이점을 인시던트에도 적용할 수 있습니다. | 이 트리거가 있는 플레이북은 Microsoft Sentinel에서 수동으로 실행할 수 없습니다.<br><br>이 트리거가 포함된 플레이북은 경고 그룹화를 지원하지 않습니다. 즉, 각 인시던트에 의해 전송된 첫 번째 경고만 받게 됩니다.
+| **경고 트리거** | "Microsoft Sentinel 경고에 대한 응답이 트리거되는 경우" | Microsoft Sentinel 포털에서 수동으로 경고에 대해 실행해야 하는 플레이북 또는 해당 경고에 대한 인시던트 생성하지 않는 **예약된** 분석 규칙에 권장됩니다. | 이 트리거는 **Microsoft 보안** 분석 규칙에서 생성된 경고에 대한 응답을 자동화하는 데 사용할 수 없습니다.<br><br>이 트리거를 사용하는 플레이북은 **자동화 규칙** 으로 호출할 수 없습니다. |
 |
 
-이러한 두 흐름에서 사용하는 스키마는 동일하지 않습니다.
-대부분의 시나리오에 적용 가능한 **Azure Sentinel 인시던트 트리거** 흐름을 사용하는 것이 좋습니다.
+이러한 두 흐름에서 사용하는 스키마는 동일하지 않습니다. 대부분의 시나리오에 적용되는 **Microsoft Sentinel 인시던트 트리거** 흐름을 사용하는 것이 좋습니다.
 
 ### <a name="incident-dynamic-fields"></a>인시던트 동적 필드
 
-**Azure Sentinel 인시던트 생성 규칙이 트리거된 경우** 에서 받은 **인시던트** 개체에는 다음과 같은 동적 필드가 포함되어 있습니다.
+**Microsoft Sentinel** **인시던트** 생성 규칙이 트리거되었을 때 받은 인시던트 개체에는 다음과 같은 동적 필드가 포함됩니다.
 
 - 인시던트 속성(“인시던트: 필드 이름”으로 표시됨)
 
@@ -77,7 +76,7 @@ Azure Sentinel 커넥터를 다양한 방식으로 사용할 수 있지만 커�
   - 작업 영역 ID
   - 리소스 그룹 이름
 
-## <a name="azure-sentinel-actions-summary"></a>Azure Sentinel 작업 요약
+## <a name="microsoft-sentinel-actions-summary"></a>Microsoft Sentinel 작업 요약
 
 | 구성 요소 | 사용하는 경우 |
 | --------- | -------------- |
@@ -91,8 +90,9 @@ Azure Sentinel 커넥터를 다양한 방식으로 사용할 수 있지만 커�
 ## <a name="work-with-incidents---usage-examples"></a>인시던트 작업 - 사용 예제
 
 > [!TIP] 
-> **인시던트 업데이트** 및 **인시던트에 주석 추가** 작업에는 **인시던트 ARM ID** 가 필요합니다. <br>
-미리 **경고 - 인시던트 가져오기** 작업을 사용하여 **인시던트 ARM ID** 를 가져옵니다.
+> **인시던트 업데이트** 및 **인시던트에 주석 추가** 작업에는 **인시던트 ARM ID** 가 필요합니다.
+>
+> 미리 **경고 - 인시던트 가져오기** 작업을 사용하여 **인시던트 ARM ID** 를 가져옵니다.
 
 ### <a name="update-an-incident"></a>인시던트 업데이트
 -  **인시던트가 생성되면** 플레이북이 트리거됩니다.
@@ -193,5 +193,5 @@ Azure Sentinel 커넥터를 다양한 방식으로 사용할 수 있지만 커�
     
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel 플레이북에서 트리거와 작업을 사용하여 위협에 대응하는 방법에 대해 자세히 알아보았습니다. 
-- Azure Sentinel을 사용하여 [사전에 위협을 탐지하는 방법](hunting.md)을 알아보세요.
+이 문서에서는 Microsoft 센티널 플레이 북의 트리거와 작업을 사용 하 여 위협에 대응 하는 방법에 대해 자세히 알아보았습니다. 
+- Microsoft 센티널을 사용 하 여 [위협을 사전](hunting.md) 에 파악 하는 방법을 알아봅니다.

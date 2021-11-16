@@ -11,14 +11,14 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
-ms.openlocfilehash: d86b7b59e05aa923efd3e4d9228d8ac422fc863d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2bcf10cf3d5e2036a14372d5dd0bacef7e396857
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219535"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157110"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 |---------|---------|---------|---------|
 |**최소 OS 버전**| 모두 |Windows Server 2012|Windows Server 2016|
 |**최소 SQL Server 버전**|모두|SQL Server 2012|SQL Server 2016|
-|**지원되는 VM 가용성** |근접 배치 그룹을 사용하는 가용성 집합(프리미엄 SSD용) </br> 동일한 가용성 영역(울트라 SSD) |가용성 집합 및 가용성 영역|가용성 집합 |
+|**지원되는 VM 가용성** |[프리미엄 SSD LRS](../../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks): [근접 배치 그룹](../../../virtual-machines/windows/proximity-placement-groups-portal.md)이 있거나 없는 가용성 집합 </br> [프리미엄 SSD ZRS](../../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks): 가용성 영역</br> [Ultra 디스크](../../../virtual-machines/disks-enable-ultra-ssd.md): 동일한 가용성 영역|가용성 집합 및 가용성 영역|가용성 집합 |
 |**FileStream 지원**|예|아니요|예 |
 |**Azure Blob 캐시**|예|아니요|예|
 
@@ -74,16 +74,17 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 - 단일 공유 디스크를 사용하거나 여러 공유 디스크를 스트라이프하여 공유 스토리지 풀을 생성할 수 있습니다. 
 - Filestream을 지원합니다.
 - 프리미엄 SSD는 가용성 집합을 지원합니다. 
+- 프리미엄 SSD ZRS(영역 중복 스토리지)는 가용성 영역을 지원합니다. FCI의 VM 부분은 다른 가용성 영역에 배치할 수 있습니다. 
 
 > [!NOTE]
 > Azure 공유 디스크는 [표준 SSD 크기](../../../virtual-machines/disks-shared.md#disk-sizes)도 지원하지만 성능 제한으로 인해 SQL Server 워크로드에 표준 SSD를 사용하지 않는 것이 좋습니다.
 
 **단점**: 
-- 가상 머신은 동일한 가용성 집합 및 근접 배치 그룹에 배치하는 것이 좋습니다.
-- Ultra 디스크는 가용성 집합을 지원하지 않습니다. 
-- Ultra Disks에 가용성 영역이 지원되지만 VM이 동일한 가용성 영역에 있어야 하므로 가상 머신의 가용성이 줄어듭니다. 
-- Azure 공유 디스크를 사용하는 경우 선택한 하드웨어 가용성 솔루션에 관계없이 장애 조치(failover) 클러스터의 가용성이 항상 99.9%입니다. 
+
 - 프리미엄 SSD 디스크 캐싱이 지원되지 않습니다.
+- Ultra 디스크는 가용성 집합을 지원하지 않습니다. 
+- Ultra 디스크에 가용성 영역이 지원되지만 VM이 동일한 가용성 영역에 있어야 하므로 가상 머신의 가용성이 99.9%로 줄어듭니다.
+- Ultra 디스크는 ZRS(영역 중복 스토리지)를 지원하지 않습니다.
 
  
 시작하려면 [Azure 공유 디스크를 사용하는 SQL Server 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-azure-shared-disks-manually-configure.md)를 참조하세요. 
@@ -97,11 +98,13 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 
 **이점:** 
+
 - 네트워크 대역폭이 충분하여 강력하고 성능이 뛰어난 공유 스토리지 솔루션을 제공할 수 있습니다. 
 - Azure Blob 캐시를 지원하므로 읽기를 캐시에서 로컬로 처리할 수 있습니다. 업데이트는 두 노드에 동시에 복제됩니다. 
 - FileStream을 지원합니다. 
 
 **제한 사항:**
+
 - Windows Server 2016 이상에서만 사용할 수 있습니다. 
 - 가용성 영역이 지원되지 않습니다.
 - 두 가상 머신에 연결된 디스크 용량이 동일해야 합니다. 
@@ -118,7 +121,7 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 **지원되는 SQL 버전**: SQL Server 2012 이상   
 
 **이점:** 
-- 가상 머신을 위한 공유 스토리지 솔루션만 여러 가용성 영역에 분산됩니다. 
+- 가상 머신을 위한 공유 스토리지 솔루션은 여러 가용성 영역에 분산됩니다. 
 - 한 자릿수 지연 시간과 버스트 가능 I/O 성능을 갖춘 완전 관리형 파일 시스템입니다. 
 
 **제한 사항:**
@@ -150,7 +153,9 @@ Microsoft 파트너의 공유 스토리지 및 데이터 복제 솔루션의 경
 
 ## <a name="connectivity"></a>연결
 
-장애 조치(failover) 클러스터 인스턴스의 가상 네트워크 이름 또는 분산 네트워크 이름을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)한 다음, 장애 조치(failover) 클러스터 인스턴스에 대해 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가상 네트워크 이름](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 배포합니다.
+장애 조치(failover) 클러스터 인스턴스에 연결하기 위한 온-프레미스 환경과 일치시키려면 SQL Server VM을 동일한 가상 네트워크 내의 [여러 서브넷](failover-cluster-instance-prepare-vm.md#subnets)에 배포합니다. 여러 서브넷이 있으면 트래픽을 FCI로 라우팅하기 위해 Azure Load Balancer 또는 DNN(분산 네트워크 이름)에 대한 추가 종속성이 필요하지 않습니다. 
+
+SQL Server VM을 단일 서브넷에 배포하는 경우 장애 조치(failover) 클러스터 인스턴스로 트래픽을 라우팅하도록 VNN(가상 네트워크 이름) 및 Azure Load Balancer 또는 DNN(분산 네트워크 이름)을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)한 다음, 장애 조치(failover) 클러스터 인스턴스에 대해 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가상 네트워크 이름](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 배포합니다.
 
 장애 조치(failover)가 더 빠르며 부하 분산 장치를 관리하는 오버헤드와 비용이 제거되므로 분산 네트워크 이름이 권장됩니다(가능한 경우). 
 
@@ -160,7 +165,7 @@ DNN를 사용하는 경우 대부분의 SQL Server 기능이 FCI에서 투명하
 
 Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스에 대한 다음 제한 사항을 고려하세요. 
 
-### <a name="lightweight-extension-support"></a>경량 확장 지원   
+### <a name="lightweight-extension-support"></a>경량 확장 지원
 
 현재 Azure 가상 머신의 SQL Server 장애 조치(failover) 클러스터 인스턴스는 SQL Server IaaS 에이전트 확장의 [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서만 지원됩니다. 전체 확장 모드에서 경량 모드로 변경하려면 해당 VM에 대한 **SQL 가상 머신** 리소스를 삭제한 다음, 경량 모드에서 SQL IaaS 에이전트 확장에 등록합니다. Azure Portal을 사용하여 **SQL 가상 머신** 리소스를 삭제할 때 가상 머신이 삭제되지 않도록 올바른 가상 머신 옆에 있는 확인란을 선택 취소합니다. 
 

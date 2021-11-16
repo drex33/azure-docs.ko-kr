@@ -1,26 +1,26 @@
 ---
-title: Azure Sentinel 엔터티 타임라인에서 활동 사용자 지정 | Microsoft Docs
-description: 엔터티 페이지의 타임라인에서 추적하고 표시하는 Azure Sentinel에 사용자 지정 활동 추가
+title: Microsoft Sentinel 엔터티 타임라인의 활동 사용자 지정 | Microsoft Docs
+description: 엔터티 페이지의 타임라인에 표시되는 Microsoft Sentinel 트랙 및 표시에 사용자 지정된 활동 추가
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6fd6db5b75124552bff3f48a516cd352d817cf27
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0483d839af7a8707aa3be632f9d168447488e768
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055220"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523622"
 ---
 # <a name="customize-activities-on-entity-page-timelines"></a>엔터티 페이지 타임라인에서 활동 사용자 지정
 
@@ -32,7 +32,7 @@ ms.locfileid: "131055220"
 
 ## <a name="introduction"></a>소개
 
-기본적으로 Azure Sentinel이 타임라인에서 추적하고 표시하는 활동 외에도 추적하려는 다른 활동을 만들고 타임라인에도 표시할 수 있습니다. 연결된 데이터 원본에서 엔터티 데이터의 쿼리를 기반으로 사용자 지정된 활동을 만들 수 있습니다. 다음 예에서는 이 기능을 사용하는 방법을 보여 줍니다.
+Microsoft Sentinel에서 타임라인에 추적하고 제시하는 활동 외에도 추적하려는 다른 활동을 만들고 타임라인에도 표시할 수 있습니다. 연결된 데이터 원본에서 엔터티 데이터의 쿼리를 기반으로 사용자 지정된 활동을 만들 수 있습니다. 다음 예에서는 이 기능을 사용하는 방법을 보여 줍니다.
 
 - 기존의 기본 제공 활동 템플릿을 수정하여 엔터티 타임라인에 새 활동을 추가합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "131055220"
 
 ## <a name="getting-started"></a>시작
 
-1. Azure Sentinel 탐색 메뉴에서 **엔터티 동작** 을 선택합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **엔터티 동작 을** 선택합니다.
 
 1. **엔터티 동작** 블레이드에서 화면 상단의 **엔터티 페이지 사용자 지정** 을 선택합니다.
 
@@ -146,7 +146,7 @@ SecurityEvent
 
 편의를 위해 활동 출력에 동적 매개 변수를 추가하여 활동이 타임라인에 표시되는 방식을 결정할 수 있습니다.
 
-Azure Sentinel은 사용할 기본 제공 매개 변수를 제공하며 쿼리에서 예상한 필드를 기반으로 다른 매개 변수를 사용할 수도 있습니다.
+Microsoft Sentinel은 사용할 수 있는 기본 제공 매개 변수를 제공하며, 쿼리에서 프로젝션한 필드를 기반으로 다른 매개 변수를 사용할 수도 있습니다.
 
 `{{ParameterName}}` 매개 변수에 다음 형식을 사용합니다.
 
@@ -209,6 +209,6 @@ Azure Sentinel은 사용할 기본 제공 매개 변수를 제공하며 쿼리�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 엔터티 페이지 타임라인에 대한 사용자 지정 활동을 만드는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 엔터티 페이지 타임라인에 대한 사용자 지정 활동을 만드는 방법을 알아보았습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [엔터티 페이지](identify-threats-with-entity-behavior-analytics.md)에서 전체 그림을 가져옵니다.
 - [엔터티 및 식별자](entities-reference.md)의 전체 목록을 참조하세요.

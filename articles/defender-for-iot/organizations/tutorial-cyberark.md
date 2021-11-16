@@ -1,21 +1,21 @@
 ---
-title: Azure Defender for IoT와 CyberArk 통합
-description: 이 자습서에서는 CyberArk를 Azure Defender for IoT와 통합하는 방법을 알아봅니다.
+title: Microsoft Defender for IoT와 CyberArk 통합
+description: 이 자습서에서는 Microsoft Defender for IoT와 CyberArk를 통합하는 방법을 알아봅니다.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/30/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 3dc47696a820708f3118ff752cfabfce365a5153
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: cbfa178c2e5358503208773109fc53ab3c274be7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369614"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278382"
 ---
-# <a name="tutorial-integrate-cyberark-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 CyberArk 통합
+# <a name="tutorial-integrate-cyberark-with-microsoft-defender-for-iot"></a>자습서: Microsoft Defender for IoT와 CyberArk 통합
 
-이 자습서를 사용하면 CyberArk를 Azure Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
+이 자습서를 사용하면 CyberArk를 Microsoft Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
 
 Defender for IoT는 ICS 인식 위협 분석과 기계 학습을 사용하는 ICS 및 IoT 사이버 보안 플랫폼입니다.
 
@@ -96,7 +96,7 @@ CyberArk는 Defender for IoT와 통신을 허용하도록 구성해야 합니다
 
 ## <a name="view-and-manage-detections"></a>검색 보기 및 관리
 
-Azure Defender for IoT와 CyberArk PSM 간 통합은 syslog 메시지를 통해 수행됩니다. 이러한 메시지는 PSM 솔루션을 통해 Defender for IoT로 전송되어 Defender for IoT에 원격 세션 또는 확인 실패에 관해 알립니다.
+Microsoft Defender for IoT와 CyberArk PSM 간 통합은 syslog 메시지를 통해 수행됩니다. 이러한 메시지는 PSM 솔루션을 통해 Defender for IoT로 전송되어 Defender for IoT에 원격 세션 또는 확인 실패에 관해 알립니다.
 
 Defender for IoT 플랫폼이 PSM에서 이러한 메시지를 수신하면 네트워크에 표시되는 데이터와 상관 관계를 지정하여 권한이 없는 사용자가 아닌 PSM 솔루션에 의해 네트워크에 대한 원격 액세스 연결이 생성되었는지 유효성을 검사합니다.
 

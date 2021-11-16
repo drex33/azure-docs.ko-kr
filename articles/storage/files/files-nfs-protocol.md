@@ -1,27 +1,27 @@
 ---
-title: Azure Files의 NFS 파일 공유(미리 보기)
+title: Azure Files NFS 파일 공유
 description: NFS(네트워크 파일 시스템) 프로토콜을 사용하여 Azure Files에서 호스트되는 파일 공유에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 11/16/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 0d0fefe0994b0d3d162b8a7d9f802c70ae7b0b3f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 31aec4e32178b2f0ca7905c6d584df298dd2059a
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225439"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524344"
 ---
-# <a name="nfs-file-shares-in-azure-files-preview"></a>Azure Files의 NFS 파일 공유(미리 보기)
-Azure Files는 Azure 파일 공유를 탑재하기 위한 두 가지 업계 표준 프로토콜인 [SMB(서버 메시지 블록)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 프로토콜과 [NFS(네트워크 파일 시스템)](https://en.wikipedia.org/wiki/Network_File_System) 프로토콜(미리 보기)을 제공합니다. Azure Files를 사용하여 워크로드에 가장 적합한 파일 시스템 프로토콜을 선택할 수 있습니다. 동일한 스토리지 계정 내에서 SMB 및 NFS 파일 공유를 만들 수 있지만 Azure 파일 공유는 SMB 및 NFS 프로토콜 둘 다에서 개별 Azure 파일 공유에 액세스하는 것을 지원하지는 않습니다. 모든 파일 공유에 대해 Azure Files는 스토리지 요구 사항에 맞게 스케일 업할 수 있고 수천 개의 클라이언트에서 동시에 액세스할 수 있는 엔터프라이즈급 파일 공유를 제공합니다.
+# <a name="nfs-file-shares-in-azure-files"></a>Azure Files NFS 파일 공유
+Azure Files는 Azure 파일 공유를 탑재하기 위한 두 가지 업계 표준 프로토콜인 [SMB(서버 메시지 블록)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 프로토콜과 [NFS(네트워크 파일 시스템)](https://en.wikipedia.org/wiki/Network_File_System) 프로토콜을 제공합니다. Azure Files를 사용하여 워크로드에 가장 적합한 파일 시스템 프로토콜을 선택할 수 있습니다. 동일한 스토리지 계정 내에서 SMB 및 NFS 파일 공유를 만들 수 있지만 Azure 파일 공유는 SMB 및 NFS 프로토콜 둘 다에서 개별 Azure 파일 공유에 액세스하는 것을 지원하지는 않습니다. 모든 파일 공유에 대해 Azure Files는 스토리지 요구 사항에 맞게 스케일 업할 수 있고 수천 개의 클라이언트에서 동시에 액세스할 수 있는 엔터프라이즈급 파일 공유를 제공합니다.
 
 이 문서에서는 NFS Azure 파일 공유에 대해 설명합니다. SMB Azure 파일 공유에 대한 내용은 [Azure Files의 SMB 파일 공유](files-smb-protocol.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 미리 보기 중에는 프로덕션에 NFS를 사용하지 않는 것이 좋습니다. 알려진 문제 목록은 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md) 문서를 참조하세요.
+>  프로덕션에 NFS 파일 공유를 사용하기 전에 알려진 문제 목록은 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md) 문서를 참조하세요.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 NFS 파일 공유는 다음과 같은 시나리오에서 자주 사용됩니다.
@@ -83,8 +83,6 @@ Azure Files에 저장된 모든 데이터는 Azure SSE(스토리지 서비스 �
 | 기존 스토리지 계정에 NFS 공유 만들기*| ⛔ |
 | 16개를 초과하는 그룹 지원| ⛔ |
 
-\* NFS에 등록하기 전에 스토리지 계정을 만든 경우에는 NFS에 사용할 수 없습니다. NFS에 등록한 후에 만든 스토리지 계정만 사용할 수 있습니다.
-
 ## <a name="regional-availability"></a>국가별 가용성
 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
@@ -94,9 +92,9 @@ NFS Azure 파일 공유는 SSD(반도체 드라이브)에 데이터를 저장하
 
 ## <a name="workloads"></a>워크로드
 > [!IMPORTANT]
-> 미리 보기 중에는 프로덕션에 NFS를 사용하지 않는 것이 좋습니다. 알려진 문제 목록은 [Azure NFS 파일 공유](storage-troubleshooting-files-nfs.md) 문서를 참조하세요.
+> 프로덕션에 NFS 파일 공유를 사용하기 전에 알려진 문제 목록은 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md) 문서를 참조하세요.
 
-NFS 미리 보기는 범용 파일 서버용 홈 디렉터리 및 애플리케이션 워크로드용 콘텐츠 리포지토리와 같은 워크로드와 잘 작동하도록 유효성이 검사되었습니다.
+NFS는 SAP 애플리케이션 계층, 데이터베이스 백업, 데이터베이스 복제, 메시징 큐, 범용 파일 서버용 홈 디렉터리 및 애플리케이션 워크로드용 콘텐츠 리포지토리와 같은 워크로드에서 잘 작동하는지 확인되었습니다.
 
 다음 워크로드에는 알려진 문제가 있습니다. 알려진 문제 목록은 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md) 문서를 참조하세요.
 - Oracle Database는 dNFS 기능과 호환되지 않습니다.

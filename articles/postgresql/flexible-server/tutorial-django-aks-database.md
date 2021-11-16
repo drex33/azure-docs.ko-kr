@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9c408a0a8b0f278ea75462a9c006b64b9d5601c8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a1c19100cad65c965c567c93c67db1033a4bba10
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425333"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136849"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>자습서: Azure Database for PostgreSQL - 유연한 서버를 사용하여 AKS에 Django 앱 배포
 
@@ -59,7 +59,7 @@ az group create --name django-project --location eastus
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-[az aks create](/cli/azure/aks#az_aks_create) 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
+[az aks create](/cli/azure/aks#az_aks_create) 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *djangoappcluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -207,7 +207,7 @@ docker build --tag myblog:latest .
 >ACR(Azure Container Registry)을 사용하는 경우 ```az aks update``` 명령을 실행하여 ACR 계정을 AKS 클러스터에 연결합니다.
 >
 >```azurecli-interactive
->az aks update -n myAKSCluster -g django-project --attach-acr <your-acr-name>
+>az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
 > ```
 >
 

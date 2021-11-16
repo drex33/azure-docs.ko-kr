@@ -1,28 +1,28 @@
 ---
-title: Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel 레지스트리 이벤트 정규화 스키마에 대해 설명합니다.
+title: Microsoft Sentinel Registry 이벤트 정규화 스키마 참조 | Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel 레지스트리 이벤트 정규화 스키마에 대해 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 07/01/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: dd1a6b99c65d92b1a6a96a25790a8b780d73565f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4a22c8b2f207d8d6d2019f417bfcb025dcca9fa1
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055199"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523926"
 ---
-# <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)
+# <a name="microsoft-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Microsoft Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "131055199"
 
 레지스트리 이벤트는 Windows 시스템에만 해당되지만, 엔드포인트 검색 및 응답(EDR) 시스템, Sysmon, Windows와 같이 Windows를 모니터링하는 여러 시스템에서 보고됩니다.
 
-Azure Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)을 참조하세요.
+Microsoft Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(고급 SIEM 정보 모델)을](normalization.md)참조하세요.
 
 > [!IMPORTANT]
 > 레지스트리 이벤트 정규화 스키마는 현재 미리 보기로 제공됩니다. 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다.
@@ -40,15 +40,15 @@ Azure Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(Az
 
 ## <a name="parsers"></a>파서
 
-Azure Sentinel에서 제공하는 제품별 기본 제공 레지스트리 이벤트 파서는 다음과 같습니다.
+Microsoft Sentinel은 다음과 같은 기본 제공 제품별 레지스트리 이벤트 파서를 제공합니다.
 
 - Log Analytics Agent 또는 Azure Monitor Agent를 사용하여 수집된 **보안 이벤트 레지스트리 업데이트(이벤트 4657**)
 - Log Analytics Agent 또는 Azure Monitor Agent를 사용하여 수집된 **Sysmon 레지스트리 모니터링 이벤트(이벤트 12, 13, 14)**
-- **엔드포인트 레지스트리 이벤트용 Microsoft 365 Defender**
+- **엔드포인트 레지스트리 이벤트에 대한 Microsoft 365 Defender**
 
 기본 제공 파서 모두를 통합하는 소스에 구애 받지 않는 파서를 사용하고 구성된 모든 원본에서 분석이 실행되도록 하려면 쿼리에서 테이블 이름으로 **imRegistry** 를 사용합니다.
 
-[Azure Sentinel GitHub 리포지토리](https://aka.ms/AzSentinelRegistry)에서 [원본 중립 및 원본 특정 파서](normalization-about-parsers.md)를 배포합니다.
+[Microsoft Sentinel GitHub 리포지토리에서](https://aka.ms/AzSentinelRegistry) [소스와 관련이 없는 소스별 파서를](normalization-about-parsers.md) 배포합니다.
 
 ### <a name="add-your-own-normalized-parsers"></a>정규화된 고유한 파서 추가
 
@@ -58,9 +58,9 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 레지스트리 이벤
 
 ## <a name="normalized-content"></a>정규화된 콘텐츠
 
-Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) 헌팅 쿼리를 제공합니다. 이 쿼리는 Azure Sentinel 정보 모델을 사용하여 정규화된 모든 레지스트리 작업 데이터에서 작동합니다.
+Microsoft Sentinel은 [IFEO 레지스트리 키 헌팅을 통해 유지](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) 쿼리를 제공합니다. 이 쿼리는 고급 SIEM 정보 모델을 사용하여 정규화된 모든 레지스트리 작업 데이터에서 작동합니다.
 
-자세한 내용은 [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)을 참조하세요.
+자세한 내용은 [Microsoft Sentinel을 사용하여 위협 헌션을 참조하세요.](hunting.md)
 
 ## <a name="schema-details"></a>스키마 세부 정보
 
@@ -75,7 +75,7 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
-| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블에 동일한 이벤트를 수신할 수 있고 EventVendor 및 EventProduct 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 Event 테이블 또는 WindowsEvent 테이블에 수집할 수 있습니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블로 동일한 이벤트를 수신할 수 있고 EventVendor 및 EventProduct 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 Event 테이블 또는 WindowsEvent 테이블에 수집할 수 있습니다. |
 
 
 > [!NOTE]
@@ -87,7 +87,7 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 
 이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
@@ -174,8 +174,8 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Sentinel의 정규화](normalization.md)
-- [Azure Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
-- [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
-- [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
-- [Azure Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
+- [Microsoft Sentinel의 정규화](normalization.md)
+- [Microsoft Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
+- [Microsoft Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
+- [Microsoft Sentinel 파일 이벤트 정규화 스키마 참조(공개 미리 보기)](file-event-normalization-schema.md)
+- [Microsoft Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Video Analyzer 계정 에코시스템 외부
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1da3d7b0a201f50ae2b3ed7e429cfb7673010cb6
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 7a947ecad80a1ec6a22458acc1b4b1cec636ad32
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131552927"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332215"
 ---
 # <a name="tutorial-export-portion-of-recorded-video-as-an-mp4-file"></a>자습서: 녹화된 비디오의 일부를 MP4 파일로 내보내기
 

@@ -18,16 +18,19 @@ ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 76b0353022782aecabd2a7df3e5a920d22119402
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 463b806994364083c22dcfc40fd8b78dae87d8da
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643596"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488775"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
 Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비스의 일부입니다. VM 확장 기능은 VM 기능을 확장하고 다양한 VM 관리 작업을 단순화하는 소프트웨어 구성 요소입니다.
+
+> [!NOTE]
+> DSC 확장을 사용 하도록 설정 하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있다는 것을 알고 Azure Policy [게스트 구성](../../governance/policy/concepts/guest-configuration.md)이라는 기능을 통해 관리 합니다. 게스트 구성 기능은 Desired State Configuration (DSC) 확장 처리기의 기능, Azure Automation 상태 구성 및 가장 일반적으로 요청 되는 기능을 고객 피드백에서 결합 합니다. 게스트 구성에는 [Arc 사용 서버](../../azure-arc/servers/overview.md)를 통한 하이브리드 컴퓨터 지원 기능도 포함 되어 있습니다.
 
 Azure DSC(Desired State Configuration) 확장의 주요 사용 사례는 VM을 [Azure Automation DSC(State Configuration) 서비스](../../automation/automation-dsc-overview.md)로 부트스트랩하는 것입니다.
 이 서비스는 VM 구성의 지속적인 관리와 Azure Monitoring과 같은 다른 운영 도구와의 통합을 비롯한 [이점](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service)을 제공합니다.
@@ -52,7 +55,7 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 - **노드**: DSC 구성에 대한 대상입니다. 이 문서에서 *노드* 는 항상 Azure VM을 나타냅니다.
 - **구성 데이터**: 구성에 대한 환경 데이터를 포함하는 .psd1 파일입니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)에서 메타데이터를 설정하는 데만 사용됩니다.
 

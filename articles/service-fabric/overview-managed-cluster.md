@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터
 description: Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경을 간소화하는 Azure Service Fabric 클러스터 리소스 모델의 진화입니다.
 ms.topic: overview
 ms.date: 10/22/2021
-ms.openlocfilehash: 2b0b0b79899acaf0b4be3b05f52fceadf8acf54d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5c94254e470e625a844b345c452e252fcd69b626
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055049"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308127"
 ---
 # <a name="service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터
 
@@ -70,17 +70,8 @@ Service Fabric 관리형 클러스터는 기본 및 표준 SKU에서 모두 사�
 
 ## <a name="feature-support"></a>기능 지원
 
-관리형 클러스터의 기능은 계속 확장됩니다. 현재 지원되는 기능은 다음과 같습니다.
+관리형 클러스터의 기능은 계속 확장됩니다. 자세한 내용은 [관리형 클러스터 구성 옵션 설명서](how-to-managed-cluster-configuration.md) 또는 managedClusters [Bicep 및 ARM 템플릿](/azure/templates/microsoft.servicefabric/allversions)을 참조하세요.
 
-* [ARM 템플릿을 사용한 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)
-* [애플리케이션 비밀](how-to-managed-cluster-application-secrets.md)
-* [자동 OS 이미지 업그레이드](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades)
-* [가용성 영역 확장](how-to-managed-cluster-availability-zones.md)
-* [디스크 암호화](how-to-enable-managed-cluster-disk-encryption.md) 및 [관리 디스크 유형](how-to-managed-cluster-managed-disk.md) 선택
-* 관리형 클러스터 [노드 유형](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) 및 [애플리케이션 인증](how-to-managed-cluster-application-managed-identity.md)에 대한 관리 ID 지원
-* [NSG 규칙 및 기타 네트워킹 옵션](how-to-managed-cluster-networking.md)
-* [상태 비저장 전용 노드 형식](how-to-managed-cluster-stateless-node-type.md)
-* 노드 형식에 대한 [가상 머신 확장 집합 확장](how-to-managed-cluster-vmss-extension.md)
 
 ## <a name="next-steps"></a>다음 단계
 

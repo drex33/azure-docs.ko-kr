@@ -7,12 +7,12 @@ ms.author: karler
 author: karlerickson
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 22bae9cd5a626f6a90427bd7522f2b99fa08ca0c
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: ca0a783b5bba849e27b04050327f7c9e7bc82189
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529575"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492571"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Azure Spring Cloud의 애플리케이션 크기 조정
 
@@ -68,7 +68,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 예제에서는 Azure Spring Cloud 애플리케이션의 크기를 수동으로 조정하는 방법을 설명했습니다. 경고를 설정하여 애플리케이션을 모니터링하는 방법을 알아보려면 [자동 크기 조정 설정](./how-to-setup-autoscale.md)을 참조하세요.
+이 예제에서는 Azure 스프링 클라우드에서 응용 프로그램의 크기를 수동으로 조정 하는 방법을 설명 했습니다. 경고를 설정하여 애플리케이션을 모니터링하는 방법을 알아보려면 [자동 크기 조정 설정](./how-to-setup-autoscale.md)을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [경고를 설정하는 방법 알아보기](./tutorial-alerts-action-groups.md)

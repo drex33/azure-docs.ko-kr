@@ -1,18 +1,16 @@
 ---
 title: App Service 환경 사용
 description: App Service Environment를 사용하여 격리된 애플리케이션을 호스트하는 방법을 알아봅니다.
-author: ccompy
-ms.assetid: 377fce0b-7dea-474a-b64b-7fbe78380554
+author: madsd
 ms.topic: article
 ms.date: 07/06/2021
-ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 01d554c5b34796b54fc67877149a116500c41823
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: madsd
+ms.openlocfilehash: 6a01e1c746579ea7d51a0b30fd554d2e2e6bb66b
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216754"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519645"
 ---
 # <a name="using-an-app-service-environment"></a>App Service Environment 사용
 
@@ -35,13 +33,13 @@ ASE에서 앱을 만들려면
 1. **리소스 만들기** > **웹 + 모바일** > **웹앱** 을 선택합니다.
 1. 구독을 선택합니다.
 1. 새 리소스 그룹의 이름을 입력하거나 **기존 항목 사용** 을 선택하고 드롭다운 목록에서 이름을 선택합니다.
-1. 앱의 이름을 입력합니다. ASE에서 이미 App Service 요금제를 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다. ![ASE에서 앱 만들기][1]
+1. 앱의 이름을 입력합니다. ASE에서 App Service 계획을 이미 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
 1. 게시 유형, 스택 및 운영 체제를 선택합니다.
-1. 지역을 선택합니다. 여기에서 기존 App Service Environment v3을 선택해야 합니다.  앱을 만드는 동안에는 ASEv3를 만들 수 없음 
-1. ASE에서 기존 App Service 플랜을 선택하거나 새로 만듭니다. 새 앱을 만드는 경우 App Service 플랜에 대해 원하는 크기를 선택합니다. Isolated v2 가격 책정 SKU는 앱에 대해 선택할 수 있는 유일한 SKU입니다. App Service 요금제를 새로 만드는 작업은 일반적으로 20분 미만이 소요됩니다. 
+1. 지역을 선택합니다. 여기에서 기존 App Service Environment v3을 선택해야 합니다. 앱을 만드는 동안 ASEv3을 만들 수 없습니다. ![ ASE에서 앱 만들기][1]
+1. ASE에서 기존 App Service 플랜을 선택하거나 새로 만듭니다. 새 앱을 만드는 경우 App Service 플랜에 대해 원하는 크기를 선택합니다. Isolated v2 가격 책정 SKU는 앱에 대해 선택할 수 있는 유일한 SKU입니다. App Service 요금제를 새로 만드는 작업은 일반적으로 20분 미만이 소요됩니다.
 ![Isolated v2 가격 책정 계층][2]
-1. **다음: 모니터링** 을 선택합니다. 앱에서 App Insights를 사용하도록 설정하려는 경우 여기에서 만들기 흐름 중에 해당 설정을 수행할 수 있습니다. 
-1.  **다음: 태그** 를 선택합니다. 원하는 태그를 앱에 추가합니다.  
+1. **다음: 모니터링** 을 선택합니다. 앱에서 App Insights를 사용하도록 설정하려는 경우 여기에서 만들기 흐름 중에 해당 설정을 수행할 수 있습니다.
+1.  **다음: 태그** 를 선택합니다. 원하는 태그를 앱에 추가합니다.
 1. **검토 + 만들기** 를 선택하고 정보가 올바른지 확인한 다음 **만들기** 를 선택합니다.
 
 Windows 및 Linux 앱은 동일한 ASE에 있을 수 있지만 동일한 App Service 요금제에 있을 수는 없습니다.
@@ -50,9 +48,9 @@ Windows 및 Linux 앱은 동일한 ASE에 있을 수 있지만 동일한 App Ser
 
 모든 App Service 앱은 App Service 계획에서 실행됩니다. App Service 환경은 App Service 계획을 포함하고 App Service 계획은 앱을 포함합니다. 앱을 스케일링할 경우 App Service 플랜과 같은 플랜 내에 있는 모든 앱 또한 스케일링합니다.
 
-App Service 플랜을 스케일링하면 필요한 인프라가 자동으로 추가됩니다. 인프라가 추가되는 동안 스케일링 작업의 시간이 지연됩니다. App Service 플랜을 확장할 때 동일한 OS 및 크기를 요청하는 다른 스케일링 작업은 첫 번째 스케일링 작업이 완료될 때까지 대기합니다. 스케일링 차단 작업이 완료된 후에는 큐에서 대기 중인 모든 요청을 동시에 처리합니다. 하나의 크기 및 OS의 스케일링 작업은 다른 크기 및 OS 조합의 스케일링을 차단하지 않습니다. 예를 들어 Windows I2v2 App Service 플랜을 스케일링한 경우 해당 ASE에서 Windows I2v2를 스케일링하는 다른 모든 요청은 해당 작업이 완료될 때까지 대기합니다. 스케일링은 일반적으로 20분 미만이 소요됩니다. 
+App Service 플랜을 스케일링하면 필요한 인프라가 자동으로 추가됩니다. 인프라가 추가되는 동안 스케일링 작업의 시간이 지연됩니다. App Service 계획의 크기를 조정하고 동일한 OS 및 크기의 또 다른 크기 조정 작업을 실행하는 경우 요청된 크기 조정이 시작될 때까지 몇 분 정도 지연될 수 있습니다. 한 크기 및 OS에 대한 크기 조정 작업은 크기와 OS의 다른 조합의 크기 조정에 영향을 미치지 않습니다. 예를 들어 Windows I2v2 App Service 계획의 크기를 조정하는 경우 Windows I2v2의 크기를 조정하는 다른 요청은 약간 지연될 수 있지만 Windows I3v2 App Service 계획에 대한 크기 조정 작업은 즉시 시작됩니다. 스케일링은 일반적으로 20분 미만이 소요됩니다.
 
-다중 테넌트 App Service에서는 작업을 지원할 리소스 풀이 바로 사용 가능하도록 준비되어 있으므로 스케일링 작업을 즉시 실행할 수 있습니다. ASE에는 관련 버퍼가 없으며 리소스가 필요에 따라 할당됩니다.
+다중테넌트 App Service *공유* 리소스 풀을 쉽게 지원할 수 있으므로 크기 조정이 즉시 가능합니다. ASE는 단일 테넌트 서비스이므로 공유 버퍼가 없으며 필요에 따라 리소스가 할당됩니다.
 
 ## <a name="app-access"></a>앱 액세스
 
@@ -184,16 +182,6 @@ ASE를 삭제하려면 다음을 수행합니다.
 ![ASE 삭제][3]
 1. **확인** 을 선택합니다.
 
-## <a name="pricing"></a>가격 책정 
-
-ASEv3에서는 보유한 ASE 배포 유형에 따라 다른 가격 책정 모델이 있습니다. 세 가지 가격 책정 모델은 다음과 같습니다. 
-
-- **ASEv3**: ASE가 비어 있는 경우 Windows I1v2 인스턴스 하나가 포함된 하나의 ASP가 있는 것처럼 요금이 부과됩니다. 하나의 인스턴스 요금은 추가 요금이 아니라 ASE가 비어 있는 경우에만 적용됩니다.
-- **가용성 영역 ASEv3**: 최소 9개의 Windows I1v2 인스턴스 요금이 있습니다. 9개 이상의 App Service 요금제 인스턴스가 있는 경우 가용성 영역 지원에 대한 추가 요금이 부과되지 않습니다. AZ ASEv3의 모든 App Service 요금제에는 각 가용성 영역에 인스턴스가 있는지 확인하기 위해 최소 3개의 인스턴스가 있습니다. 요금제가 스케일 아웃되면 가용성 영역 전반에 분산됩니다. 
-- **전용 호스트 ASEv3**: 전용 호스트 배포를 사용하면 ASEv3 생성 시 가격 책정에 따라 2개의 전용 호스트에 대해 요금이 부과된 다음, 스케일링 시 코어 요금에 따라 격리된 V2 요금의 적은 비율에 대해 요금이 부과됩니다.
-
-격리된 v2에 대한 예약 인스턴스 가격 책정을 사용할 수 있으며 [예약 할인이 Azure App Service에 적용되는 방식][reservedinstances]에 설명되어 있습니다. 예약 인스턴스 가격 책정과 함께 가격 책정은 **격리된 v2 요금제** 에 따라 [App Service 가격 책정][pricing]으로 제공됩니다. 
-
 <!--Image references-->
 
 [1]: ./media/using/using-appcreate.png
@@ -220,5 +208,3 @@ ASEv3에서는 보유한 ASE 배포 유형에 따라 다른 가격 책정 모델
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
-[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances
-[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

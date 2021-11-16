@@ -1,5 +1,5 @@
 ---
-title: 보관 계층 지원 개요
+title: Azure Backup - 보관 계층 개요
 description: Azure Backup용 보관 계층 지원에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 10/23/2021
@@ -7,14 +7,14 @@ ms.custom: references_regions
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 3c28d99c066bf71ea3970ce8a01eb68989e11123
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9712b198e8be9a7a90699cc6ce544a627bfdea63
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080900"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510355"
 ---
-# <a name="about-archive-tier-support"></a>보관 계층 지원에 대하여
+# <a name="overview-of-archive-tier-in-azure-backup"></a>Azure Backup의 보관 계층 개요
 
 고객은 조직의 준수 규칙에 따라 정의되는 보존 요구 사항이 있는 LTR(장기 보존) 백업 데이터 등의 백업 데이터를 저장하기 위해 Azure Backup을 사용합니다. 대부분의 경우 이전 백업 데이터는 거의 액세스되지 않고 준수 요구 사항에 한해 저장됩니다.
 

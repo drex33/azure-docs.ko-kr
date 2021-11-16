@@ -1,23 +1,23 @@
 ---
-title: Azure NFS 파일 공유 탑재(미리 보기) - Azure Files
+title: Azure NFS 파일 공유 탑재 - Azure Files
 description: 네트워크 파일 시스템 공유를 탑재하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/16/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 04d3174900ce5aa788f3793b39fa4d6c06222001
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: de0a4ef2530971ae2261f6a3e5ab2f1ef8acdc31
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036792"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523774"
 ---
-# <a name="how-to-mount-an-nfs-file-share-preview"></a>NFS 파일 공유를 마운트하는 방법(미리 보기)
+# <a name="how-to-mount-an-nfs-file-share"></a>NFS 파일 공유를 탑재하는 방법
 
-[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 SMB(서버 메시지 블록 프로토콜) 또는 NFS(네트워크 파일 시스템) 프로토콜(미리 보기)을 사용하여 Linux 배포에 탑재할 수 있습니다. 이 문서에서는 NFS를 사용하여 탑재하는 방법을 설명합니다. SMB를 사용하여 탑재하는 방법은 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조하세요. 각 프로토콜에 대한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-planning.md#available-protocols)을 참조하세요.
+[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 SMB(서버 메시지 블록) 프로토콜 또는 NFS(네트워크 파일 시스템) 프로토콜을 사용하여 Linux 배포에 탑재할 수 있습니다. 이 문서에서는 NFS를 사용하여 탑재하는 방법을 설명합니다. SMB를 사용하여 탑재하는 방법은 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조하세요. 각 프로토콜에 대한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-planning.md#available-protocols)을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -30,10 +30,10 @@ ms.locfileid: "131036792"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - [NFS 공유를 만듭니다](storage-files-how-to-create-nfs-shares.md).
+- NFS 공유를 탑재 하려는 모든 클라이언트에서 포트 2049를 엽니다.
 
     > [!IMPORTANT]
     > NFS 공유는 신뢰할 수 있는 네트워크에서만 액세스할 수 있습니다. NFS 공유에 대한 연결은 다음 원본 중 하나에서 시작해야 합니다.
-
 - 다음 네트워킹 솔루션 중 하나를 사용합니다.
     - [프라이빗 엔드포인트 만들기](storage-files-networking-endpoints.md#create-a-private-endpoint)(권장) 또는 [퍼블릭 엔드포인트에 대한 액세스 제한](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Azure Files에서 사용할 P2S(지점 및 사이트 간) VPN을 Linux에 구성](storage-files-configure-p2s-vpn-linux.md).

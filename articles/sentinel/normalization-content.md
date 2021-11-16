@@ -1,13 +1,13 @@
 ---
-title: 고급 SIEM 정보 모델 (ASIM) 콘텐츠 | Microsoft Docs
-description: 이 문서에서는 ASIM (고급 SIEM 정보 모델)을 사용한 Microsoft 센티널 콘텐츠에 대해 간략하게 설명 합니다.
+title: 고급 SIEM 정보 모델(ASIM) 콘텐츠 | Microsoft Docs
+description: 이 문서에서는 ASIM(고급 SIEM 정보 모델)을 활용한 Microsoft Sentinel 콘텐츠에 대해 간략하게 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,25 +15,25 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2eee977288562b77956564849519d61b9d8db4af
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 78b8615a959a5913b171b8f52b5f6ee0caa85578
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373045"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517485"
 ---
-# <a name="advanced-siem-information-model-asim-security-content--public-preview"></a>ASIM (고급 SIEM 정보 모델) 보안 콘텐츠 (공개 미리 보기)
+# <a name="advanced-siem-information-model-asim-security-content--public-preview"></a>ASIM(고급 SIEM 정보 모델) 보안 콘텐츠(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널의 정규화 된 보안 콘텐츠에는 소스에 관계 없는 정규화 파서를 사용 하는 분석 규칙, 구하기 쿼리 및 통합 문서가 포함 됩니다.
+Microsoft Sentinel의 정규화된 보안 콘텐츠에는 원본에 관계 없는 정규화 파서와 함께 작동하는 분석 규칙, 헌팅 쿼리 및 통합 문서가 포함됩니다.
 
-<a name="builtin"></a>Microsoft 센티널 갤러리 및 [솔루션](sentinel-solutions-catalog.md)에서 정규화 된 기본 제공 콘텐츠를 찾거나, 고유한 정규화 된 콘텐츠를 만들거나, 정규화 된 데이터를 사용 하도록 기존 콘텐츠를 수정할 수 있습니다.
+<a name="builtin"></a>Microsoft Sentinel 갤러리 및 [솔루션에서](sentinel-solutions-catalog.md)정규화된 기본 제공 콘텐츠를 찾거나, 정규화된 고유한 콘텐츠를 만들거나, 정규화된 데이터를 사용하도록 기존 콘텐츠를 수정할 수 있습니다.
 
-이 문서에는 ASIM을 지원 하도록 구성 된 기본 제공 Microsoft 센티널 콘텐츠가 나열 되어 있습니다.  microsoft 센티널 GitHub 리포지토리에 대 한 링크는 아래에 참조로 제공 되지만 [microsoft 센티널 Analytics 규칙 갤러리](detect-threats-built-in.md)에서 이러한 규칙을 찾을 수도 있습니다. 연결된 GitHub 페이지를 사용하여 관련 헌팅 쿼리를 복사합니다.
+이 문서에서는 ASIM을 지원하도록 구성된 기본 제공 Microsoft Sentinel 콘텐츠를 나열합니다.  Microsoft Sentinel GitHub 리포지토리에 대한 링크는 아래 참조로 제공되지만 [Microsoft Sentinel Analytics 규칙 갤러리에서](detect-threats-built-in.md)이러한 규칙을 찾을 수도 있습니다. 연결된 GitHub 페이지를 사용하여 관련 헌팅 쿼리를 복사합니다.
 
 > [!TIP]
-> 또한 [Microsoft 센티널 정규화 파서와 웹 세미나의 심층](https://www.youtube.com/watch?v=zaqblyjQW6k) 조사를 시청 하 고 [슬라이드](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)를 검토 합니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
+> 또한 [Microsoft Sentinel 파서 정규화 및 정규화된 콘텐츠의 심층 분석 웨비나를](https://www.youtube.com/watch?v=zaqblyjQW6k) 시청하거나 [슬라이드를 검토합니다.](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM) 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
 >
 
 > [!IMPORTANT]
@@ -58,9 +58,9 @@ ASIM 정규화에는 다음과 같은 기본 제공 인증 콘텐츠가 지원�
 
 ### <a name="analytics-rules"></a>Analytics 규칙
 
- - 모드 TI 도메인 엔터티를 DNS 이벤트에 매핑 (정규화 된 DNS)
- - 모드 TI DNS 이벤트에 IP 엔터티 매핑 (정규화 된 DNS)
- - [잠재적 DGA 검색 (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
+ - (미리 보기) TI는 도메인 엔터티를 DNS 이벤트에 매핑합니다(정규화된 DNS).
+ - (미리 보기) TI는 IP 엔터티를 DNS 이벤트에 매핑합니다(정규화된 DNS).
+ - [잠재적 DGA 검색됨(ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
   - [과도한 NXDOMAIN DNS 쿼리(정규화된 DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [마이닝 풀과 관련된 DNS 이벤트(정규화된 DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
  - [ToR 프록시와 관련된 DNS 이벤트(정규화된 DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
@@ -171,14 +171,14 @@ imDns(responsecodename='NXDOMAIN')
 
 - `imDns`는 DNS 쿼리 이벤트만 가져오므로 Infoblox 버전에서 수행한 대로 이벤트 유형을 확인할 필요가 `where ProcessName =~ "named" and Log_Type =~ "client"`없습니다.
 
-- `SrcIpAddr`대신 필드가 사용 됩니다 `Client_IP` .
+- `SrcIpAddr`대신 필드가 `Client_IP` 사용됩니다.
  
-- 파서 매개 변수 필터링은 ResponseCodeName에 사용 되므로 명시적 where 절이 필요 없습니다.
+- Parser 매개 변수 필터링은 ResponseCodeName에 사용되어 명시적 where 절이 필요하지 않습니다.
 
 
-정규화 된 DNS 원본 지원과는 별도로 정규화 된 버전은 더 짧고 이해 하기가 더 쉽습니다. 
+정규화된 DNS 원본을 지원하는 것 외에도 정규화된 버전은 더 짧고 이해하기 쉽습니다. 
 
-스키마 또는 파서가 필터링 매개 변수를 지원 하지 않는 경우 마지막 항목을 제외 하 고 변경 내용이 비슷합니다. 대신 필터링 조건은 다음과 같이 원래 쿼리에서 유지 됩니다.
+스키마 또는 파서가 필터링 매개 변수를 지원하지 않는 경우 마지막 매개 변수를 제외하고 변경 내용이 유사합니다. 대신 필터링 조건은 아래와 같이 원래 쿼리에서 유지됩니다.
 
 ```kusto
 let threshold = 200;
@@ -196,11 +196,11 @@ imDns
 
 ## <a name="next-steps"></a><a name="next-steps"></a>다음 단계
 
-이 문서에서는 ASIM (고급 SIEM 정보 모델) 콘텐츠에 대해 설명 합니다.
+이 문서에서는 ASIM(고급 SIEM 정보 모델) 콘텐츠에 대해 설명합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft 센티널의 심층 조사 웹 세미나 및 표준화 된 콘텐츠](https://www.youtube.com/watch?v=zaqblyjQW6k) 를 시청 하거나 [슬라이드](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM) 를 검토 합니다.
+- Microsoft [Sentinel 파서 정규화 및 정규화된 콘텐츠에서 심층 분석 웨비나를](https://www.youtube.com/watch?v=zaqblyjQW6k) 시청하거나 [슬라이드를 검토합니다.](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [고급 SIEM 정보 모델 개요](normalization.md)
 - [고급 SIEM 정보 모델 스키마](normalization-about-schemas.md)
 - [고급 SIEM 정보 모델 파서](normalization-about-parsers.md)

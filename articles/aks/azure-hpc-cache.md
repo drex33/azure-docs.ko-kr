@@ -1,19 +1,19 @@
 ---
-title: Azure Kubernetes Service Azure HPC Cache 통합
+title: Azure HPC Cache Azure Kubernetes Service 통합
 description: HPC Cache Azure Kubernetes Service 통합하는 방법에 대해 알아봅니다.
 services: container-service
 author: jbut
 ms.author: jebutl
 ms.topic: article
 ms.date: 09/08/2021
-ms.openlocfilehash: 9cf8e3a6450787a65e21fcca79f8886efe016d8b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 208147894b5fb483bc9ebcc49c01fd93013c3a3d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705637"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491529"
 ---
-# <a name="integrate-azure-hpc-cache-with-azure-kubernetes-service"></a>Azure Kubernetes Service Azure HPC Cache 통합
+# <a name="integrate-azure-hpc-cache-with-azure-kubernetes-service"></a>Azure HPC Cache Azure Kubernetes Service 통합
 
 [Azure HPC Cache][hpc-cache] HPC(고성능 컴퓨팅) 작업을 위해 데이터에 대한 액세스 속도를 높입니다. Azure에서 파일을 캐싱하여 Azure HPC Cache는 기존 워크플로에 대한 클라우드 컴퓨팅의 확장성을 제공합니다. 이 문서에서는 AKS(Azure Kubernetes Service)와 Azure HPC Cache 통합하는 방법을 보여 줍니다.
 
@@ -131,7 +131,7 @@ STORAGE_ACCOUNT_ID=$(az storage account show --name $STORAGE_ACCOUNT_NAME --quer
 AD_USER=$(az ad signed-in-user show --query objectId -o tsv)
 CONTAINER_NAME=mystoragecontainer
 az role assignment create --role "Storage Blob Data Contributor" --assignee $AD_USER --scope $STORAGE_ACCOUNT_ID
-az storage container create --name $CONTAINER_NAME --account-name jebutlaksstorage --auth-mode login
+az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --auth-mode login
 ```
 
 Azure HPC Cache 서비스 계정에 스토리지 계정 및 Blob 컨테이너에 액세스할 수 있는 권한을 제공합니다.
@@ -261,7 +261,7 @@ spec:
 kubectl apply -f pvc-nfs.yaml
 ```
 
-[kubectl describe][kubectl-describe] 명령을 사용하여 영구 볼륨 클레임의 상태가 **바인딩인지** 확인합니다.
+영구적 볼륨 클레임의 상태가 [kubectl describe][kubectl-describe] 명령을 사용하여 **바인딩되었는지** 확인합니다.
 
 ```console
 kubectl describe pvc pvc-nfs

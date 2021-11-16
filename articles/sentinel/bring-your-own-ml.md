@@ -1,36 +1,36 @@
 ---
-title: 자체 ML을 Azure Sentinel로 가져오기 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel에서 데이터 분석을 위한 자체 기계 학습 알고리즘을 만들고 사용하는 방법을 설명합니다.
+title: Microsoft Sentinel | 사용자 고유의 ML 가져오기 Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel에서 데이터 분석을 위해 사용자 고유의 기계 학습 알고리즘을 만들고 사용하는 방법을 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6af40b8744a404d68eb52af6cbc2c4d3f699b3a0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 815b1b640fad26587d354a306d4bfb4188cef053
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064585"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524648"
 ---
-# <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>자체 ML(기계 학습)을 Azure Sentinel로 가져오기
+# <a name="bring-your-own-machine-learning-ml-into-microsoft-sentinel"></a>Microsoft Sentinel에 ML(사용자 고유의 Machine Learning) 가져오기
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-ML(기계 학습)은 Azure Sentinel의 주요 토대 중 하나이며 이를 차별화하는 주요 특성 중 하나입니다. Azure Sentinel은 여러 환경에서 ML을 제공합니다. [Fusion](fusion.md) 상관 관계 엔진 및 Jupyter Notebook에서 기본으로 제공되며 BYO-ML(Build-Your-Own ML) 플랫폼에서도 사용할 수 있습니다. 
+Machine Learning ML(ML)는 Microsoft Sentinel의 주요 핵심 중 하나이며 이를 구분하는 주요 특성 중 하나입니다. Microsoft Sentinel은 [Fusion](fusion.md) 상관 관계 엔진 및 Jupyter Notebook에 기본 제공 및 새로 사용 가능한 BYO ML(Build-Your-Own ML) 플랫폼 등 여러 가지 환경의 ML 제공합니다. 
 
-ML 검색 모델은 개별 환경과 사용자 동작 변경에 맞게 조정하여 [가양성](false-positives.md)을 줄이고 기존 접근 방식으로는 발견할 수 없는 위협을 식별할 수 있습니다. 많은 보안 조직에서 보안을 위한 ML의 가치를 이해하고 있지만 보안과 ML 모두에 대한 전문 지식을 갖춘 전문가는 많지 않습니다. 여기에 제시된 프레임워크는 보안 조직 및 전문가가 ML 여정에서 우리와 함께 성장할 수 있도록 설계되었습니다. ML을 처음 접하거나 필요한 전문 지식이 없는 조직은 Azure Sentinel의 기본 제공 ML 기능이 상당히 유용할 수 있습니다.
+ML 검색 모델은 개별 환경과 사용자 동작 변경에 맞게 조정하여 [가양성](false-positives.md)을 줄이고 기존 접근 방식으로는 발견할 수 없는 위협을 식별할 수 있습니다. 많은 보안 조직에서 보안을 위한 ML의 가치를 이해하고 있지만 보안과 ML 모두에 대한 전문 지식을 갖춘 전문가는 많지 않습니다. 여기에 제시된 프레임워크는 보안 조직 및 전문가가 ML 여정에서 우리와 함께 성장할 수 있도록 설계되었습니다. ML 없거나 필요한 전문 지식이 없는 조직은 Microsoft Sentinel의 기본 제공 ML 기능에서 상당한 보호 가치를 얻을 수 있습니다.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="기계 학습 프레임워크":::
 
@@ -45,7 +45,7 @@ ML 검색 모델은 개별 환경과 사용자 동작 변경에 맞게 조정하
 
 - 샘플 Notebook. 모델을 학습시키고 모델 채점을 예약할 수 있습니다. 
 
-이 외에도 자체 ML 모델 및/또는 자체 Spark 환경을 가져와 Azure Sentinel과 통합할 수 있습니다.
+이 모든 것 외에도 고유한 ML 모델 및/또는 사용자 고유의 Spark 환경을 가져와 Microsoft Sentinel과 통합할 수 있습니다.
 
 BYO-ML 플랫폼을 사용하면 자체 ML 모델 구축을 시작할 수 있습니다. 
 
@@ -57,27 +57,28 @@ BYO-ML 플랫폼을 사용하면 자체 ML 모델 구축을 시작할 수 있습
 
 ### <a name="use-cases"></a>사용 사례
  
-BYO-ML 플랫폼 및 패키지는 자체 ML 검색을 구축하는 데 필요한 시간과 노력을 크게 줄이고 Azure Sentinel의 특정 보안 문제를 해결하는 기능을 활용합니다. 이 플랫폼은 다음 사용 사례를 지원합니다.
+BYO ML 플랫폼 및 패키지는 사용자 고유의 ML 검색을 빌드하는 데 필요한 시간과 노력을 크게 줄이고 Microsoft Sentinel에서 특정 보안 문제를 해결하는 기능을 제공합니다. 이 플랫폼은 다음 사용 사례를 지원합니다.
 
 **사용자 지정 모델을 얻기 위한 ML 알고리즘 학습:** 기존 ML 알고리즘(Microsoft 또는 사용자 커뮤니티에서 공유)을 사용하고 자신의 데이터에 대해 이를 쉽게 학습시켜 데이터와 환경에 더 적합한 사용자 지정 ML 모델을 얻을 수 있습니다.
 
 **사용자 지정 모델을 얻기 위해 ML 알고리즘 템플릿 수정:** ML 알고리즘 템플릿(Microsoft 또는 사용자 커뮤니티에서 공유)을 수정하고 수정된 알고리즘을 자신의 데이터에 대해 이를 학습시켜 특정 문제에 맞는 사용자 지정 모델을 도출할 수 있습니다.
 
-**자체 모델 만들기:** Azure Sentinel의 BYO-ML 플랫폼 및 유틸리티를 사용하여 처음부터 자신의 환경에 맞는 모델을 만듭니다.
+**사용자 고유의 모델을 만듭니다.** Microsoft Sentinel의 BYO ML 플랫폼 및 유틸리티를 사용하여 처음부터 사용자 고유의 모델을 만듭니다.
 
-**Databricks/Spark 환경 통합:** 기존 Databricks/Spark 환경을 Azure Sentinel에 통합하고 BYO-ML 라이브러리 및 템플릿을 사용하여 자체 상황에 맞는 ML 모델을 빌드합니다.
+**Databricks/Spark 환경 통합:** 기존 Databricks/Spark 환경을 Microsoft Sentinel에 통합하고 BYO ML 라이브러리 및 템플릿을 사용하여 고유한 상황에 대한 ML 모델을 빌드합니다.
 
-**자체 ML 모델 가져오기:** 자체 ML 모델을 가져오고 BYO-ML 플랫폼 및 유틸리티를 사용하여 Azure Sentinel과 통합할 수 있습니다.
+**고유한 ML 모델 가져오기:** 사용자 고유의 ML 모델을 가져오고 BYO ML 플랫폼 및 유틸리티를 사용하여 Microsoft Sentinel과 통합할 수 있습니다.
 
 **ML 알고리즘 공유:** 커뮤니티가 채택하고 적응할 수 있도록 ML 알고리즘을 공유합니다.
 
 **ML을 사용하여 SecOps 역량 강화:** 헌팅, 검색, 조사 및 응답을 위해 자체 사용자 지정 ML 모델 및 결과를 사용합니다.
 
-이 문서에서는 BYO-ML 플랫폼의 구성 요소와 플랫폼 및 비정상적인 리소스 액세스 알고리즘을 활용하여 Azure Sentinel을 통해 사용자 지정 ML 검색을 제공하는 방법을 보여 줍니다.
+이 문서에서는 BYO-ML 플랫폼의 구성 요소와 플랫폼 및 비정상적인 리소스 액세스 알고리즘을 활용하여 Microsoft Sentinel을 사용하여 사용자 지정된 ML 검색을 제공하는 방법을 보여줍니다.
 
 ## <a name="azure-databricksspark-environment"></a>Azure Databricks/Spark 환경
 
-[Apache Spark™](http://spark.apache.org/)는 데이터 파이프라인 구축을 위한 통합 프레임워크를 제공하여 빅 데이터를 단순화합니다. Azure Databricks는 Spark를 기반으로 구축된 제로 관리 클라우드 플랫폼을 제공하여 이를 더욱 향상시킵니다. BYO-ML 플랫폼에 Databricks를 사용하여 데이터 파이프라인 및 플랫폼 문제를 해결하는 대신 비즈니스에 즉각적인 영향을 주는 답변을 찾는 데 집중할 수 있도록 하는 것이 좋습니다.
+[Apache Spark](http://spark.apache.org/) 데이터 파이프라인을 빌드하기 위한 통합 프레임워크를 제공하여 빅 데이터 간소화를 한층 발전시켰습니다. Azure Databricks는 Spark를 기반으로 구축된 제로 관리 클라우드 플랫폼을 제공하여 이를 더욱 향상시킵니다. BYO-ML 플랫폼에 Databricks를 사용하여 데이터 파이프라인 및 플랫폼 문제를 해결하는 대신 비즈니스에 즉각적인 영향을 주는 답변을 찾는 데 집중할 수 있도록 하는 것이 좋습니다.
+
 이미 Databricks 또는 다른 Spark 환경이 있고 기존 설정을 사용하는 것을 선호하는 경우 BYO-ML 패키지를 사용할 수도 있습니다. 
 
 ## <a name="byo-ml-package"></a>BYO-ML 패키지
@@ -87,9 +88,9 @@ BYO ML 패키지에는 보안을 위해 ML의 프런트 엔드에 Microsoft의 �
 | 파일 이름 | Description |
 | --------- | ----------- |
 | azure_sentinel_utilities.whl | Azure에서 Blob을 읽고 Log Analytics에 쓰는 데 필요한 유틸리티가 포함되어 있습니다. |
-| AnomalousRASampleData | 이 Notebook에서는 생성된 학습 및 테스트 샘플 데이터와 함께 Azure Sentinel에서 비정상적인 리소스 액세스 모델을 사용하는 방법을 보여 줍니다. |
+| AnomalousRASampleData | Notebook은 생성된 학습 및 테스트 샘플 데이터와 함께 Microsoft Sentinel에서 비정상적인 리소스 액세스 모델을 사용하는 방법을 보여줍니다. |
 | AnomalousRATraining.ipynb | 알고리즘을 학습시키고 모델을 구축 및 저장하는 Notebook입니다. |
-| AnomalousRAScoring.ipynb | 실행할 모델을 예약하고, 결과를 시각화하고, 점수를 Azure Sentinel에 다시 쓰는 Notebook입니다. |
+| AnomalousRAScoring.ipynb | 모델을 실행하도록 예약하고, 결과를 시각화하고, 점수를 Microsoft Sentinel에 다시 쓰는 Notebook입니다. |
 |
 
 제공된 첫 번째 ML 알고리즘 템플릿은 [비정상적인 리소스 액세스 검색](https://github.com/Azure/Azure-Sentinel/tree/master/BYOML)을 위한 것입니다. 이는 공동 작업 필터링 알고리즘을 기반으로 하며 Windows 파일 공유 액세스 로그(이벤트 ID가 5140인 보안 이벤트)를 사용하여 학습합니다. 로그에서 이 모델에 필요한 주요 정보는 액세스된 사용자와 리소스의 쌍입니다. 
@@ -104,7 +105,7 @@ BYO ML 패키지에는 보안을 위해 ML의 프런트 엔드에 Microsoft의 �
 
 ### <a name="auto-export-instruction"></a>자동 내보내기 명령
 
-Azure Sentinel의 자체 데이터를 기반으로 사용자 지정 ML 모델을 구축하려면 ML 모델이 Databricks에서 액세스할 수 있도록 Log Analytics의 데이터를 Blob Storage 또는 이벤트 허브 리소스로 내보내야 합니다. [Azure Sentinel로 데이터를 수집](connect-data-sources.md)하는 방법을 알아봅니다.
+Microsoft Sentinel에서 사용자 고유의 데이터를 기반으로 사용자 지정 ML 모델을 빌드하려면 ML 모델이 Databricks에서 액세스할 수 있도록 Log Analytics에서 Blob Storage 또는 이벤트 허브 리소스로 데이터를 내보내야 합니다. [Microsoft Sentinel 에 데이터를 수집 하는](connect-data-sources.md)방법에 대해 알아봅니다.
 
 이 예를 사용하려면 Azure Blob Storage에 파일 공유 액세스 로그에 대한 학습 데이터가 있어야 합니다. 데이터 형식은 Notebook 및 라이브러리에 문서화되어 있습니다.
 
@@ -144,13 +145,13 @@ az monitor log-analytics workspace data-export delete --resource-group "RG_NAME"
 
 Log Analytics 자동 내보내기에서 지원하지 않는 사용자 지정 데이터의 경우 논리 앱 또는 기타 솔루션을 사용하여 데이터를 이동할 수 있습니다. [Blob 저장소로 Log Analytics 데이터 내보내기](https://techcommunity.microsoft.com/t5/azure-monitor/log-analytics-data-export-preview/ba-p/1783530) 블로그 및 스크립트를 참조할 수 있습니다.
 
-### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Azure Sentinel 외부의 데이터와 상호 연결
+### <a name="correlate-with-data-outside-of-microsoft-sentinel"></a>Microsoft Sentinel 외부의 데이터와 상관 관계
 
-또한 Azure Sentinel 외부의 데이터를 Blob Storage 또는 이벤트 허브로 가져온 다음 Azure Sentinel 데이터와 상호 연결하여 ML 모델을 빌드할 수도 있습니다. 
- 
+Microsoft Sentinel 외부에서 Blob Storage 또는 Event Hub로 데이터를 가져와 Microsoft Sentinel 데이터와 상호 연결하여 ML 모델을 빌드할 수도 있습니다.
+
 ### <a name="copy-and-install-the-related-packages"></a>관련 패키지 복사 및 설치
 
-위에서 언급한 Azure Sentinel GitHub 리포지토리의 BYO-ML 패키지를 Databricks 환경에 복사합니다. 그런 다음 Notebook을 열고 Notebook의 지침에 따라 클러스터에 필요한 라이브러리를 설치합니다.
+앞서 언급한 Microsoft Sentinel GitHub 리포지토리에서 Databricks 환경으로 BYO-ML 패키지를 복사합니다. 그런 다음 Notebook을 열고 Notebook의 지침에 따라 클러스터에 필요한 라이브러리를 설치합니다.
 
 ### <a name="model-training-and-scoring"></a>모델 학습 및 채점
 
@@ -158,25 +159,25 @@ Log Analytics 자동 내보내기에서 지원하지 않는 사용자 지정 데
 
 ### <a name="write-results-to-log-analytics"></a>Log Analytics에 결과 쓰기
 
-채점이 예약되면 채점 Notebook의 모듈을 사용하여 채점 결과를 Azure Sentinel 인스턴스와 연결된 Log Analytics 작업 영역에 쓸 수 있습니다.
+점수 매기기 예약이 완료되면 점수 매기기 Notebook의 모듈을 사용하여 Microsoft Sentinel 인스턴스와 연결된 Log Analytics 작업 영역에 점수 결과를 쓸 수 있습니다.
 
-### <a name="check-results-in-azure-sentinel"></a>Azure Sentinel에서 결과 확인
+### <a name="check-results-in-microsoft-sentinel"></a>Microsoft Sentinel에서 결과 확인
 
-관련 로그 세부 정보와 함께 채점 결과를 보려면 Azure Sentinel 포털로 돌아갑니다. **로그** > 사용자 지정 로그에서 **AnomalousResourceAccessResult_CL** 테이블(또는 사용자 지정 테이블 이름)에 결과가 표시됩니다. 이러한 결과를 사용하여 조사 및 헌팅 환경을 향상시킬 수 있습니다.
+점수가 매긴 결과를 관련 로그 세부 정보와 함께 보려면 Microsoft Sentinel 포털로 돌아갑니다. **로그** > 사용자 지정 로그에서 **AnomalousResourceAccessResult_CL** 테이블(또는 사용자 지정 테이블 이름)에 결과가 표시됩니다. 이러한 결과를 사용하여 조사 및 헌팅 환경을 향상시킬 수 있습니다.
 
 :::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="비정상적인 리소스 액세스 로그":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>ML 결과를 사용하여 사용자 지정 분석 규칙 빌드
 
-ML 결과가 사용자 지정 로그 테이블에 있는지 확인하고 점수의 충실도에 만족하는 경우 결과를 기반으로 검색을 만들 수 있습니다. Azure Sentinel 포털에서 **Analytics** 로 이동하여 [새 검색 규칙을 만듭니다](detect-threats-custom.md). 다음은 검색을 만드는 데 사용되는 쿼리를 보여 주는 예입니다.
+ML 결과가 사용자 지정 로그 테이블에 있는지 확인하고 점수의 충실도에 만족하는 경우 결과를 기반으로 검색을 만들 수 있습니다. Microsoft Sentinel 포털에서 **분석으로** 이동하여 [새 검색 규칙 를 만듭니다.](detect-threats-custom.md) 다음은 검색을 만드는 데 사용되는 쿼리를 보여 주는 예입니다.
 
 :::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="BYO-ML 검색을 위한 사용자 지정 분석 규칙 만들기":::
 
 ### <a name="view-and-respond-to-incidents"></a>인시던트 보기 및 응답
-ML 결과를 기반으로 분석 규칙을 설정한 후 쿼리에서 설정한 임계값을 초과하는 결과가 있으면 인시던트가 생성되고 Azure Sentinel의 **인시던트** 페이지에 표시됩니다. 
+ML 결과에 따라 분석 규칙을 설정하면 쿼리에서 설정한 임계값을 초과하는 결과가 있으면 Microsoft Sentinel의 **인시던트 페이지에 인시던트** 페이지가 생성되고 표시됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel의 BYO-ML 플랫폼을 사용하여 자체 기계 학습 알고리즘을 만들거나 가져와 데이터를 분석하고 위협을 감지하는 방법을 배웠습니다.
+이 문서에서는 Microsoft Sentinel의 BYO ML 플랫폼을 사용하여 사용자 고유의 기계 학습 알고리즘을 만들거나 가져와서 데이터를 분석하고 위협을 검색하는 방법을 배웠습니다.
 
-- [Azure Sentinel 블로그](https://aka.ms/azuresentinelblog)에서 기계 학습 및 기타 관련 주제에 대한 게시물을 참조하세요.
+- [Microsoft Sentinel 블로그](https://aka.ms/azuresentinelblog)에서 기계 학습에 대한 게시물 및 기타 많은 관련 항목을 참조하세요.

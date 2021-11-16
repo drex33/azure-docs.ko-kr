@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: cf3aa4510c29ecc45fe5217e727fa0efc15a1809
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1f1c6e9a50879159a73528ca21592ce01b29beeb
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425086"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063423"
 ---
 # <a name="introduction-to-microsoft-defender-for-key-vault"></a>Key Vault용 Azure Defender 소개
 
@@ -34,7 +34,7 @@ Azure Key Vault에 대한 Azure 네이티브 고급 위협 보호를 위해 **Ke
 
 ## <a name="what-are-the-benefits-of-microsoft-defender-for-key-vault"></a>Key Vault용 Microsoft Defender의 이점은 무엇인가요?
 
-Microsoft Defender는 Key Vault 계정에 액세스하거나 이를 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지합니다. 이 보호 계층을 사용하면 보안 전문가가 아니거나 타사 보안 모니터링 시스템을 관리할 필요 없이 위협을 처리할 수 있습니다.  
+Microsoft Defender는 Key Vault 계정에 액세스하거나 이를 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지합니다. 이 보호 계층을 사용하면 보안 전문가가 아니더라도 타사 보안 모니터링 시스템을 관리할 필요 없이 위협을 처리할 수 있습니다.  
 
 비정상 활동이 발생하면 Microsoft Defender에서 경고를 표시하고 필요에 따라 이메일을 통해 조직의 관련 구성원에게 보냅니다. 이러한 경고에는 의심스러운 활동에 대한 세부 정보 및 위협을 조사하고 완화하는 방법에 대한 추천 사항이 포함됩니다. 
 

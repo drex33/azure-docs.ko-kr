@@ -4,12 +4,12 @@ description: Site Recovery를 사용하여 System Center VMM 클라우드의 온
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: bc4e9066cb67617b52e9fa00a42ce95e31e0fe39
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 97cd0a103dab9b46205355da223bd65259f93fee
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456973"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055891"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
@@ -108,7 +108,7 @@ Microsoft Azure Recovery Services 에이전트 설치 마법사에서 다음 설
    Invoke-WebRequest -Uri <put the URI here> -OutFile .\ASR\MARSsoftware.exe
    ```
    
-3. 설치 프로그램을 실행합니다.
+3. 아래 명령을 실행하여 설치 프로그램을 실행합니다.
 
    ```powershell
    .\MARSsoftware.exe

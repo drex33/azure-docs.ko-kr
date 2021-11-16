@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.openlocfilehash: d843b91864723fa0195430ac0f293fc7159d2adc
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b4df4b7f06c999bfc29154fbbed4133c2664dad8
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131479739"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372457"
 ---
 # <a name="azure-chaos-studio-preview-limitations-and-known-issues"></a>Azure Chaos Studio 미리 보기 제한 사항 및 알려진 문제
 
@@ -32,6 +32,7 @@ Azure Chaos Studio의 공개 미리 보기 중에는 팀에서 인식하고 해�
     * **MacOS:** Safari, Google Chrome, Firefox
 
 ## <a name="known-issues"></a>알려진 문제
+* Azure Portal의 **에이전트 기반 대상 사용** 환경에서는 사용자가 할당한 관리 ID를 가상 머신 또는 가상 머신 확장 집합에 할당하지도 않습니다. 이 작업은 수동으로 수행해야 합니다. 그렇지 않으면 실험의 에이전트 기반 오류가 "대상이 올바르게 온보딩되고 실험 msi에 적절한 읽기 권한이 제공되는지 확인하세요."라는 오류와 함께 실패합니다. 이는 에이전트 기반 대상을 사용하도록 설정한 후에 수행할 수 있지만 다시 부팅해야 할 수도 있습니다.
 * 온보딩을 완료하기 전에 대상 보기에서 다른 곳으로 이동하면 Azure Portal에 대상 온보딩이 실패할 수 있습니다.
 * 실험을 만들 때 **검토 + 만들기** 를 클릭한 후에는 생성된 실험이 실험 목록에 표시되기 전에 지연이 발생하고 사용자가 목록에서 실험을 보기 위해 새로 고쳐야 합니다.
 * 실험 디자이너에서 에이전트 기반 오류에 대한 대상 리소스를 선택할 때 선택한 오류에서 지원하지 않는 운영 체제를 사용하여 가상 머신 또는 가상 머신 확장 집합을 선택할 수 있습니다.
@@ -39,5 +40,5 @@ Azure Chaos Studio의 공개 미리 보기 중에는 팀에서 인식하고 해�
 
 ## <a name="next-steps"></a>다음 단계
 아래 링크를 사용하여 Chaos Studio를 통해 애플리케이션 복원력을 개선하기 위한 카오스 상황을 만들고 실행합니다.
-- [첫 번째 실험 만들기 및 실행](chaos-studio-tutorial-service-direct.md)
+- [첫 번째 실험 만들기 및 실행](chaos-studio-tutorial-service-direct-portal.md)
 - [카오스 엔지니어링 자세히 알아보기](chaos-studio-chaos-engineering-overview.md)

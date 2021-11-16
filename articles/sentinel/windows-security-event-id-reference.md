@@ -1,30 +1,30 @@
 ---
-title: Microsoft 센티널로 전송할 수 있는 보안 이벤트 집합 Windows
-description: Windows 시스템에서 Microsoft 센티널 작업 영역으로 수집 하 고 스트리밍할 수 있는 미리 작성 된 Windows 보안 이벤트 집합에 대해 알아봅니다.
+title: Microsoft Sentinel로 보낼 수 있는 Windows 보안 이벤트 집합
+description: Windows 시스템에서 Microsoft Sentinel 작업 영역으로 수집 및 스트리밍할 수 있는 미리 빌드된 Windows 보안 이벤트 집합에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 26bee8145176c5cba98286d5df7c2807c808a2c7
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 82be0e0e42690c23157511a16e404b4cd0048a36
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132346803"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520278"
 ---
-# <a name="windows-security-event-sets-that-can-be-sent-to-microsoft-sentinel"></a>Microsoft 센티널로 전송할 수 있는 보안 이벤트 집합 Windows
+# <a name="windows-security-event-sets-that-can-be-sent-to-microsoft-sentinel"></a>Microsoft Sentinel로 보낼 수 있는 Windows 보안 이벤트 집합
 
-[Windows 보안 events data connector](data-connectors-reference.md#windows-security-events-via-ama) ( [레거시 버전](data-connectors-reference.md#security-events-via-legacy-agent-windows)포함)를 사용 하 여 Windows 장치에서 보안 이벤트를 수집 경우 다음 집합 중에서 수집할 이벤트를 선택할 수 있습니다.
+Windows 보안 [이벤트 데이터 커넥터(레거시](data-connectors-reference.md#windows-security-events-via-ama) [버전](data-connectors-reference.md#security-events-via-legacy-agent-windows)포함)를 사용하여 Windows 디바이스에서 보안 이벤트를 수집할 때 다음 집합 중에서 수집할 이벤트를 선택할 수 있습니다.
 
 - **모든 이벤트** - 모든 Windows 보안 및 AppLocker 이벤트입니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "132346803"
 
 - **최소** - 잠재적인 위협을 나타낼 수 있는 작은 이벤트 집합입니다. 이 집합은 전체 감사 내역을 포함하지 않습니다. 보안 위반 이벤트 및 발생 빈도는 낮지만 중요한 이벤트를 다룹니다. 예를 들어 로그온 성공/실패(이벤트 ID 4624, 4625)는 이 집합에 포함되지만 로그아웃 정보(4634)는 포함되지 않습니다. 로그아웃의 경우 감사에서는 중요하지만 위반 검색에서는 중요하지 않으며 양이 비교적 많기 때문입니다. 이 집합에 포함되는 데이터 볼륨 중 대부분은 로그인 이벤트 및 프로세스 만들기 이벤트(이벤트 ID 4688)입니다.
 
-- **사용자 지정** -사용자가 결정 하 고 XPath 쿼리를 사용 하 여 데이터 수집 규칙에 정의 된 일련의 이벤트입니다. [데이터 수집 규칙에 대해 자세히 알아보세요](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries).
+- **사용자 지정** - 사용자, 사용자가 결정하며 XPath 쿼리를 사용하여 데이터 수집 규칙에 정의된 이벤트 집합입니다. [데이터 수집 규칙 에 대해 자세히 알아봅니다.](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)
 
 ## <a name="event-id-reference"></a>이벤트 ID 참조
 
@@ -48,7 +48,7 @@ ms.locfileid: "132346803"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Windows 이벤트의 컬렉션을 Microsoft 센티널로 필터링 하는 방법을 배웠습니다.
+이 문서에서는 Windows 이벤트 컬렉션을 Microsoft Sentinel로 필터링하는 방법을 배웠습니다.
 
-- [Windows 보안 이벤트 수집](connect-windows-security-events.md)에 대해 자세히 알아보세요.
-- [기본 제공](detect-threats-built-in.md) 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용 하 여 Microsoft 센티널에서 위협을 검색 하기 시작 합니다.
+- [Windows 보안 이벤트 수집에](connect-windows-security-events.md)대해 자세히 알아봅니다.
+- 기본 제공 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Microsoft Sentinel로 위협 [검색을](detect-threats-built-in.md) 시작합니다.

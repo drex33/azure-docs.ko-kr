@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: 2d8ab101b39412d9345fa470d3b6584036990581
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dc9611eebdce1e988e760fda3b000cb52d0ff95a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084970"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488277"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리 및 모니터링
 
@@ -74,7 +74,13 @@ Azure IoT Central 애플리케이션이 이미 있으면 삭제하거나 Azure P
 
 ## <a name="configure-a-managed-identity"></a>관리 ID 구성
 
-IoT Central 응용 프로그램에서 데이터 내보내기를 구성할 때 *연결 문자열* 또는 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 대상에 대 한 연결을 구성 하도록 선택할 수 있습니다. IoT Central 응용 프로그램에 대상에 대 한 자격 증명을 저장할 필요가 없기 때문에 관리 되는 id를 사용 하는 것이 더 안전 합니다. IoT Central 현재 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 사용 합니다. 응용 프로그램에 대 한 관리 되는 id를 만들려면 Azure Portal 또는 REST API를 사용 합니다.
+IoT Central 응용 프로그램에서 데이터 내보내기를 구성할 때 *연결 문자열* 또는 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 대상에 대 한 연결을 구성 하도록 선택할 수 있습니다. 관리 되는 id는 다음과 같은 이유로 더 안전 합니다.
+
+* IoT Central 응용 프로그램의 연결 문자열에 리소스에 대 한 자격 증명을 저장 하지 않습니다.
+* 자격 증명은 자동으로 IoT Central 응용 프로그램의 수명에 연결 됩니다.
+* 관리 id는 자동으로 보안 키를 정기적으로 회전 합니다.
+
+IoT Central 현재 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 사용 합니다. 응용 프로그램에 대 한 관리 되는 id를 만들려면 Azure Portal 또는 REST API를 사용 합니다.
 
 > [!NOTE]
 > 지역에서 만든 IoT Central 응용 프로그램에만 관리 되는 id를 추가할 수 있습니다. 모든 새 응용 프로그램은 한 지역에 생성 됩니다. 자세히 알아보려면 [업데이트](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/)를 참조 하세요.

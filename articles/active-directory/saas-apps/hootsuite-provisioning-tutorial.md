@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: thwimmer
-ms.openlocfilehash: 34d1d765dbb5f2267c4c56d4dd91daa31f8799a7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: eabdbf7b427176d13046ebf7bf82f5a2979ed703
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629885"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989218"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Hootsuite 구성
 
-이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Hootsuite 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Hootsuite](https://hootsuite.com/)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Hootsuite 및 Azure AD(Azure Active Directory) 모두에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Hootsuite](https://hootsuite.com/)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
@@ -37,6 +37,9 @@ ms.locfileid: "128629885"
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * 조직에서 **구성원 관리** 권한이 있는 [Hootsuite](http://www.hootsuite.com/)의 사용자 계정
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
@@ -55,14 +58,14 @@ Azure AD 애플리케이션 갤러리에서 Hootsuite를 추가하여 Hootsuite�
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* Hootsuite에 사용자 및 그룹을 할당할 때 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다. 
+* Hootsuite에 사용자 및 그룹을 할당할 때 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 더 많은 역할을 추가할 수 있습니다. 
 
 * 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다. 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-hootsuite"></a>5단계. Hootsuite에 대한 자동 사용자 프로비저닝 구성 
 
-이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
+이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비전 서비스를 구성하는 단계를 안내합니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-hootsuite-in-azure-ad"></a>Azure AD에서 Hootsuite에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
@@ -98,7 +101,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 8. **매핑** 섹션에서 **Azure Active Directory 사용자 프로비전** 을 선택합니다.
 
-9. **특성 매핑** 섹션에서 Azure AD에서 Hootsuite로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Hootsuite의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 Hootsuite API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성 매핑** 섹션에서 Azure AD에서 Hootsuite로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Hootsuite의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하도록 선택하는 경우 Hootsuite API에서 해당 특성에 따라 사용자를 필터링하도록 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
    |attribute|Type|
    |---|---|
@@ -127,11 +130,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 의 **범위** 섹션에서 원하는 값을 선택하여 Hootsuite에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
+14. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 Hootsuite에 프로비전하려는 사용자 및 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
+15. 프로비저닝할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
@@ -149,7 +152,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * 2020/10/22 - 사용자 특성 "name.givenName" 및 "name.familyName"에 대한 지원이 추가되었습니다. 사용자에 대한 사용자 지정 확장 특성 "organizationIds" 및 "teamIds"가 제거되었습니다.
 그룹 특성 "displayName", "members" 및 "externalId"에 대한 지원이 추가되었습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="more-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

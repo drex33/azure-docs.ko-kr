@@ -1,6 +1,6 @@
 ---
-title: '자습서: Microsoft Machine Learning for Apache Spark를 사용하여 기계 학습 애플리케이션 빌드(미리 보기)'
-description: Microsoft Machine Learning for Apache Spark를 사용하여 Azure Synapse Analytics에서 기계 학습 애플리케이션을 만드는 방법에 대해 알아봅니다.
+title: '자습서: Synapse Machine Learning을 사용하여 기계 학습 애플리케이션 빌드'
+description: Synapse Machine Learning을 사용하여 Azure Synapse Analytics에서 기계 학습 애플리케이션을 만드는 방법을 알아봅니다.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,25 +9,25 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 8a4c5892e5b7b542177376fcd0adae76527957a8
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 03d7aec55e7a6146346ebbcc746ecbbd75b81d3f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578093"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318487"
 ---
-# <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>자습서: Microsoft Machine Learning for Apache Spark를 사용하여 기계 학습 애플리케이션 빌드(미리 보기)
+# <a name="tutorial-build-machine-learning-applications-using-synapse-machine-learning"></a>자습서: Synapse Machine Learning을 사용하여 기계 학습 애플리케이션 빌드
 
-이 문서에서는 Microsoft Machine Learning for Apache Spark([MMLSpark](https://github.com/Azure/mmlspark))를 사용하여 기계 학습 애플리케이션을 만드는 방법에 대해 설명합니다. MMLSpark는 [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) 등과 같은 다양한 딥 러닝 및 데이터 과학 도구를 추가하여 Apache Spark의 분산 기계 학습 솔루션을 확장합니다.  MMLSpark를 사용하면 다양한 Spark 데이터 원본에서 강력하고 확장성이 뛰어난 예측 및 분석 모델을 빌드할 수 있습니다.
-Synapse Spark는 다음을 비롯한 기본 제공 MMLSpark 라이브러리를 제공합니다.
+이 문서에서는 [SynapseML](https://github.com/microsoft/SynapseML)(Microsoft Machine Learning)을 사용하여 기계 학습 애플리케이션을 만드는 방법에 대해 설명합니다. SynapseML은 [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) 등과 같은 다양한 딥 러닝 및 데이터 과학 도구를 추가하여 Apache Spark의 분산 기계 학습 솔루션을 확장합니다.  SynapseML을 사용하면 다양한 Spark 데이터 원본에서 강력하고 확장성이 뛰어난 예측 및 분석 모델을 빌드할 수 있습니다.
+Synapse Spark는 다음을 포함한 기본 제공 SynapseML 라이브러리를 제공합니다.
 
-- [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) – 트윗의 감정 분석과 같은 텍스트 분석을 가능하게 하는 기계 학습을 위한 라이브러리 서비스입니다.
-- [Spark의 Cognitive Services](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) - 변칙 검색과 같은 인식 데이터 모델링 서비스를 위한 솔루션 디자인을 도출하기 위해 SparkML 파이프라인에서 Azure Cognitive Services의 기능을 결합합니다.
-- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM은 트리 기반 학습 알고리즘을 사용하는 경사 부스팅 프레임워크입니다. 배포하고 효율성을 높일 수 있도록 설계되었습니다.
+- [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – 트윗의 감정 분석과 같은 텍스트 분석을 가능하게 하는 기계 학습을 위한 라이브러리 서비스입니다.
+- [Spark의 Cognitive Services](https://arxiv.org/abs/1810.08744) - 변칙 검색과 같은 인식 데이터 모델링 서비스를 위한 솔루션 디자인을 도출하기 위해 SparkML 파이프라인에서 Azure Cognitive Services의 기능을 결합합니다.
+- [LightGBM](https://github.com/Microsoft/LightGBM) – LightGBM은 트리 기반 학습 알고리즘을 사용하는 경사 부스팅 프레임워크입니다. 배포하고 효율성을 높일 수 있도록 설계되었습니다.
 - 조건부 KNN - 조건부 쿼리를 사용하는 확장 가능한 KNN 모델.
-- [Spark의 HTTP](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Spark 및 HTTP 프로토콜 기반 접근성 통합에서 분산 마이크로 서비스 오케스트레이션을 지원합니다.
+- Spark의 HTTP – Spark 및 HTTP 프로토콜 기반 접근성 통합에서 분산 마이크로 서비스 오케스트레이션을 지원합니다.
 
-이 자습서에서는 다음에 대한 MMLSpark의 Azure Cognitive Services를 사용하는 샘플을 다룹니다. 
+이 자습서에서는 다음에 대한 SynapseML에서 Azure Cognitive Services를 사용하는 샘플을 다룹니다. 
 
 - Text Analytics - 문장 세트의 감정(또는 분위기)을 가져옵니다.
 - Computer Vision - 이미지 세트와 연결된 태그(한 단어 설명)를 가져옵니다.
@@ -36,7 +36,7 @@ Synapse Spark는 다음을 비롯한 기본 제공 MMLSpark 라이브러리를 �
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../get-started-analyze-spark.md)를 참조하세요.
@@ -44,13 +44,12 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 
 ## <a name="get-started"></a>시작
-시작하려면 mmlspark를 가져오고 서비스 키를 구성합니다. 
+시작하려면 SynapseML을 가져오고 서비스 키를 구성합니다. 
 
 ```python
-import mmlspark
-mmlspark.__spark_package_version__ # current version: 1.0.0-rc3-6-a862d6b1-SNAPSHOT
+import synapse.ml
 
-from mmlspark.cognitive import *
+from synapse.ml.cognitive import *
 from notebookutils import mssparkutils
 
 # A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
@@ -277,4 +276,4 @@ Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [MMLSpark GitHub 리포지토리](https://github.com/Azure/mmlspark)
+* [SynapseML GitHub 리포지토리](https://github.com/microsoft/SynapseML)

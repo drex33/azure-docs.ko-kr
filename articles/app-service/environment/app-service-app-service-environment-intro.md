@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: b0ea6176f43a5373eb24437a42972eeced26094b
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f64c65dc2f2d6ad46961a3ae00ebc7f1e9471122
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129999780"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518017"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 
 > [!NOTE]
-> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](intro.md)를 참조하세요.
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다. 사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](overview.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -72,7 +72,7 @@ App Service 환경이 가상 네트워크 및 온-프레미스 네트워크와 �
 
 ## <a name="getting-started"></a>시작
 
-App Service 환경을 시작하려면 [템플릿에서 ASEv1을 만드는 방법을 참조하세요.](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
+App Service 환경을 시작 하려면 [템플릿에서 ASEv1를 만드는 방법](app-service-app-service-environment-create-ilb-ase-resourcemanager.md) 을 참조 하세요.
 
 App Service 환경 네트워크 아키텍처의 개요는 [네트워크 아키텍처 개요][NetworkArchitectureOverview] 문서를 참조하세요.
 

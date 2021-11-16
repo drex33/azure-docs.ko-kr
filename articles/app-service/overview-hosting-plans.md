@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e1348040bb496448d85c8d1bec3b9621025bf22
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
-ms.translationtype: HT
+ms.openlocfilehash: b6b07624265f4ec33079780f477ebd1b36d9ffab
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653596"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132525060"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -23,13 +23,13 @@ App Service(Web Apps, API Apps 또는 Mobile Apps)에서 앱은 항상 _App Serv
 - 지역(미국 서부, 미국 동부 등)
 - VM 인스턴스 수
 - VM 인스턴스 크기(소량, 중간, 대규모)
-- 가격 책정 계층(무료, 공유, 기본, 표준, 프리미엄, PremiumV2, PremiumV3, 격리)
+- 가격 책정 계층(무료, 공유, 기본, 표준, Premium, PremiumV2, PremiumV3, 격리, IsolatedV2)
 
 App Service 계획의 _가격 책정 계층_ 은 가져올 App Service 기능 및 계획에 대한 지불액을 결정합니다. App Service 계획에 사용할 수 있는 가격 책정 계층은 생성 시 선택한 운영 체제에 따라 다릅니다. 가격 책정 계층의 몇 가지 범주가 있습니다.
 
 - **공유 컴퓨팅**: **체험** 및 **공유** 라는 두 개의 기본 계층은 다른 고객의 앱을 비롯한 다른 App Service 앱과 동일한 Azure VM에서 앱을 실행합니다. 이러한 계층은 CPU 할당량을 공유 리소스에서 실행되는 각 앱에 할당하고 리소스는 확장할 수 없습니다.
 - **전용 컴퓨팅**: **기본**, **표준**, **프리미엄**, **PremiumV2** 및 **PremiumV3** 계층은 전용 Azure VM에서 앱을 실행합니다. 동일한 App Service 계획의 앱만이 동일한 컴퓨팅 리소스를 공유합니다. 계층이 높을수록 스케일 아웃을 위해 더 많은 VM 인스턴스가 제공됩니다.
-- **격리**: 이 계층은 전용 Azure Virtual Network에서 전용 Azure VM을 실행합니다. 앱에 대한 컴퓨팅 격리를 기반으로 네트워크 격리를 제공합니다. 최대 스케일 아웃 기능을 제공합니다.
+- **격리:** 이 **격리** 및 **격리V2** 계층은 전용 Azure Virtual Networks에서 전용 Azure VM을 실행합니다. 앱에 대한 컴퓨팅 격리를 기반으로 네트워크 격리를 제공합니다. 최대 스케일 아웃 기능을 제공합니다.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -70,7 +70,7 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 - **공유** 계층에서 각 앱은 CPU 시간(분)의 할당량을 수신하므로 _각 앱_ 은 CPU 할당량에 대한 요금이 부과됩니다.
 - 전용 컴퓨팅 계층(**기본**, **표준**, **프리미엄**, **PremiumV2**, **PremiumV3**)에서 App Service 계획은 앱의 크기를 조정하는 VM 인스턴스의 수를 정의합니다. 따라서 App Service 계획의 _각 VM 인스턴스_ 는 요금이 부과됩니다. 이러한 VM 인스턴스는 여기에서 실행되는 앱의 개수에 관계 없이 동일한 요금이 청구됩니다. 예기치 않은 요금을 방지하려면 [App Service 계획 정리](app-service-plan-manage.md#delete)를 참조하세요.
-- **격리** 계층에서 App Service 환경은 앱을 실행하는 격리된 작업자의 수를 정의하고 _각 작업자_ 는 요금이 부과됩니다. 또한 App Service Environment 자체를 실행하기 위한 플랫 인지세가 있습니다.
+- **Isolated** 및 **IsolatedV2** 계층에서 App Service Environment 앱을 실행하는 격리된 작업자 수를 정의하고 _각 작업자에게_ 요금이 청구됩니다. 또한 **격리** 계층에는 App Service Environment 자체를 실행하는 에 대한 플랫 스탬프 요금이 있습니다.
 
 사용 가능한 App Service 기능(사용자 지정 도메인, TLS/SSL 인증서, 배포 슬롯, 백업 등 구성)을 사용할 경우에는 요금이 부과되지 않습니다. 예외는 다음과 같습니다.
 

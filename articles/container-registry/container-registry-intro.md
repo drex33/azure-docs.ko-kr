@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b5c81d8b2e6d7eac2dcd9070bf1f448340ea1a18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a05e0664bc7576f662d39e3ccd44d3258a84a9d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96341268"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337778"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 프라이빗 Docker 컨테이너 레지스트리 소개
 
@@ -45,7 +45,7 @@ Azure에는 Azure 컨테이너 레지스트리를 관리하는 Azure 명령줄 �
 
   컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure ID, Azure Active Directory에서 지원하는 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자 또는 시스템에 레지스트리에 대한 세분화된 사용 권한을 할당합니다.
 
-  프리미엄 서비스 계층의 보안 기능에는 이미지 태그 서명에 대한 [콘텐츠 신뢰](container-registry-content-trust.md) 및 레지스트리에 대한 액세스를 제한하는 [방화벽 및 가상 네트워크(미리 보기)](container-registry-vnet.md)가 포함됩니다. Azure Security Center는 필요에 따라 Azure Container Registry와 통합하여 이미지가 레지스트리에 푸시될 때마다 [이미지를 검색](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json)합니다.
+  프리미엄 서비스 계층의 보안 기능에는 이미지 태그 서명에 대한 [콘텐츠 신뢰](container-registry-content-trust.md) 및 레지스트리에 대한 액세스를 제한하는 [방화벽 및 가상 네트워크(미리 보기)](container-registry-vnet.md)가 포함됩니다. Microsoft Defender for Cloud는 필요에 따라 Azure Container Registry와 통합하여 이미지가 레지스트리에 푸시될 때마다 [이미지를 검사](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json)합니다.
 
 * **지원되는 이미지 및 아티팩트** - 리포지토리에 그룹화되며 각 이미지는 Docker 호환 컨테이너의 읽기 전용 스냅샷입니다. Azure 컨테이너 레지스트리는 Windows 및 Linux 이미지 모두를 포함할 수 있습니다. 모든 컨테이너 배포에 대한 이미지 이름을 제어합니다. 표준 [Docker 명령](https://docs.docker.com/engine/reference/commandline/)을 사용하여 이미지를 리포지토리로 밀어넣거나 이미지를 리포지토리에서 끌어옵니다. Azure Container Registry는 Docker 컨테이너 이미지 외에도 [Helm 차트](container-registry-helm-repos.md)와 같은 [관련 콘텐츠 형식](container-registry-image-formats.md) 및 [OCI(Open Container Initiative) 이미지 형식 사양](https://github.com/opencontainers/image-spec/blob/master/spec.md)에 빌드된 이미지를 저장합니다.
 

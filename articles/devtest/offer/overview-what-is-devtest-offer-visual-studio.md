@@ -1,7 +1,6 @@
 ---
-title: 이 제공은 무엇인가요?
-titleSuffix: Azure Dev/Test offer
-description: 클라우드 서비스 Azure Dev/Test 제공으로 기계 학습 프로젝트 수명 주기를 가속화하고 관리합니다.
+title: Azure 개발/테스트 제안이란?
+description: Azure 개발/테스트 제안을 사용하여 Visual Studio 구독자에 대한 Azure 크레딧을 얻습니다.
 ms.topic: overview
 ms.prod: visual-studio-windows
 ms.author: jametra
@@ -9,12 +8,12 @@ author: jamestramel
 ms.date: 10/12/2021
 ms.custom: devtestoffer
 adobe-target: true
-ms.openlocfilehash: cf7285f65ad9ce41d9674de3d1eaa43359666650
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9ae8f0a6babc7fccb258956af4fa15d880d4f370
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029512"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062313"
 ---
 # <a name="what-is-the-azure-devtest-offer"></a>Azure Dev/Test 제공은 무엇인가요?
 

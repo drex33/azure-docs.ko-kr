@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: db7a9c7151c93142db9834fc0607f1786bc89aae
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a62feb0ea2aeb96a80002a40aa7bf905690e197c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131074784"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318321"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services"></a>자습서: Cognitive Services를 사용하여 감정 분석
 
@@ -31,7 +31,7 @@ Azure Synapse의 사용자는 감정을 사용하여 보강할 텍스트 열이 
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
@@ -91,7 +91,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 ## <a name="run-the-notebook"></a>노트북 실행
 
-방금 연 Notebook은 [mmlspark 라이브러리](https://github.com/microsoft/SynapseML)를 사용하여 Cognitive Services에 연결합니다. 제공한 Azure Cognitive Services 연결 서비스를 사용하면 비밀을 노출하지 않고도 이 환경의 인지 서비스를 안전하게 참조할 수 있습니다.
+방금 연 Notebook은 [SynapseML 라이브러리](https://github.com/microsoft/SynapseML)를 사용하여 Cognitive Services에 연결합니다. 제공한 Azure Cognitive Services 연결 서비스를 사용하면 비밀을 노출하지 않고도 이 환경의 인지 서비스를 안전하게 참조할 수 있습니다.
 
  이제 모든 셀을 실행하여 데이터를 감정으로 보강할 수 있습니다. **모두 실행** 을 선택합니다. 
 

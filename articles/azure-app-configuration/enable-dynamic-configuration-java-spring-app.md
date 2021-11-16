@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
 ms.author: mametcal
-ms.openlocfilehash: 22214c6113d182363ccd86d9e79dac971eb0e432
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 34225576d435f9ff275f74372afa2cc9f7d50b9f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465819"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287251"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 동적 구성 사용
 
@@ -75,7 +75,7 @@ public void myConfigurationRefreshCheck() {
 
     | 키 | 값 |
     |---|---|
-    | sentinel | 1 |
+    | Sentinel | 1 |
 
     지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
@@ -102,11 +102,11 @@ public void myConfigurationRefreshCheck() {
     |---|---|
     | /application/config.message | Hello - 업데이트됨 |
 
-1. 이전에 만든 sentinel 키를 새 값으로 업데이트합니다. 이렇게 변경하면 새로 고침 간격이 지나면 모든 구성 키를 새로 고치도록 애플리케이션이 트리거됩니다.
+1. 이전에 만든 sentinel 키를 새 값으로 업데이트합니다. 이 변경으로 인해 새로 고침 간격이 지나면 애플리케이션에서 모든 구성 키를 새로 고치도록 트리거합니다.
 
     | 키 | 값 |
     |---|---|
-    | sentinel | 2 |
+    | Sentinel | 2 |
 
 1. 표시되는 새 메시지를 확인하려면 브라우저 페이지를 새로 고칩니다.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: 5318ee205c66757409b9e0ffd8de864bcb69689a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b26334c655332810ad1f67ae6799c3919fda4bb4
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064984"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517821"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Azure Cognitive Search에서 역할 기반 권한 부여 사용
 
@@ -64,16 +64,16 @@ Azure Cognitive Search에서 RBAC 사용에 대한 지역, 계층 또는 가격 
 
 미리 보기에 구독을 추가 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **구독** 페이지로 이동 합니다.
-1. 사용할 구독을 선택합니다.
-1. 구독 페이지의 왼쪽에서 **미리 보기 기능** 을 선택 합니다.
-1. 검색 표시줄이 나 필터를 사용 하 여 **Search Service (미리 보기)에 대 한 역할 기반 Access Control** 를 찾고 선택 합니다.
-1. **등록** 을 선택 하 여 구독에 기능을 추가 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 검색 서비스로 이동 합니다.
+1. 페이지의 왼쪽에서 **키** 를 선택 합니다.
+1. 미리 보기를 언급 하는 파란색 배너에서 **등록** 을 선택 하 여 구독에 기능을 추가 합니다.
 
-![afec에서 rbac 등록](media/search-howto-aad/rbac-signup-afec.png)
+![포털에서 rbac 미리 보기에 등록 하는 방법의 스크린샷](media/search-howto-aad/rbac-signup-portal.png)
 
-미리 보기 기능을 추가 하는 방법에 대 한 자세한 내용은 [Azure 구독에서 미리 보기 기능 설정](../azure-resource-manager/management/preview-features.md?tabs=azure-portal)을 참조 하세요.
+Azure 기능 노출 제어 (AFEC)를 사용 하 여 미리 보기에 등록 하 고 *Search Service (미리 보기)에 대 한 Access Control 역할을 기준으로* 검색할 수도 있습니다. 미리 보기 기능을 추가 하는 방법에 대 한 자세한 내용은 [Azure 구독에서 미리 보기 기능 설정](../azure-resource-manager/management/preview-features.md?tabs=azure-portal)을 참조 하세요.
 
+> [!NOTE]
+> 구독에 미리 보기를 추가 하면 구독에 있는 모든 서비스가 미리 보기에 영구적으로 등록 됩니다. 지정 된 서비스에서 RBAC를 원하지 않는 경우 다음 단계에 표시 된 것 처럼 데이터 평면 작업에 대해 RBAC를 사용 하지 않도록 설정할 수 있습니다.
 
 ## <a name="step-2-preview-configuration"></a>2 단계: 구성 미리 보기
 
@@ -85,7 +85,7 @@ Azure Cognitive Search에서 RBAC 사용에 대한 지역, 계층 또는 가격 
 
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/config-svc-portal)
 
-1. [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true) 구문을 사용하여 포털을 엽니다.
+1. [Azure Portal](https://ms.portal.azure.com)을 엽니다.
 
 1. 검색 서비스로 이동합니다.
 
@@ -107,7 +107,7 @@ Azure Cognitive Search에서 RBAC 사용에 대한 지역, 계층 또는 가격 
 
 관리 REST API 버전 2021-04-01-미리 보기, [만들기 또는 업데이트 서비스](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용 하 여 서비스를 구성 합니다.
 
-Postman 또는 다른 웹 테스트 도구를 사용 하는 경우 요청을 설정 하는 방법에 대 한 도움말은 아래 팁을 참조 하세요.
+Postman 또는 다른 웹 테스트 도구를 사용하는 경우 요청 설정에 대한 도움말은 아래 팁을 참조하세요.
 
 1. ["AuthOptions"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) "aadOrApiKey"로 설정합니다.
 
@@ -148,10 +148,7 @@ Postman 또는 다른 웹 테스트 도구를 사용 하는 경우 요청을 설
 
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/roles-portal)
 
-1. 미리 보기 역할의 경우 구문으로 포털을 [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true) 엽니다. URL에 `feature.enableRbac=true`가 표시됩니다.
-
-   > [!NOTE]
-   > 미리 보기 역할에 할당된 사용자 및 그룹의 경우 기능 플래그를 사용하여 포털을 여는 경우에만 인덱스 및 인덱서와 같은 포털 콘텐츠가 표시됩니다. 
+1. [Azure Portal](https://ms.portal.azure.com)을 엽니다.
 
 1. 검색 서비스로 이동합니다.
 
@@ -204,10 +201,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/test-portal)
 
-1. 미리 보기 역할의 경우 구문으로 포털을 [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true) 엽니다. 
-
-   > [!NOTE]
-   > 미리 보기 역할에 할당된 사용자 및 그룹의 경우 기능 플래그를 사용하여 포털을 여는 경우에만 인덱스 및 인덱서와 같은 포털 콘텐츠가 표시됩니다. 
+1. [Azure Portal](https://ms.portal.azure.com)을 엽니다.
 
 1. 검색 서비스로 이동합니다.
 
@@ -314,4 +308,4 @@ Azure Cognitive Search 조건부 액세스 정책을 사용하도록 설정하�
 1. 해당 정책을 저장합니다.
 
 > [!IMPORTANT]
-> 검색 서비스에 관리 ID가 할당된 경우 특정 검색 서비스는 조건부 액세스 정책의 일부로 포함하거나 제외할 수 있는 클라우드 앱으로 표시됩니다. 조건부 액세스 정책은 특정 검색 서비스에 적용할 수 없습니다. 대신 일반 **Azure Cognitive Search** 클라우드 앱을 선택해야 합니다.
+> 검색 서비스에 관리 ID가 할당된 경우 특정 검색 서비스가 조건부 액세스 정책의 일부로 포함되거나 제외될 수 있는 클라우드 앱으로 표시됩니다. 조건부 액세스 정책은 특정 검색 서비스에 적용할 수 없습니다. 대신 일반 **Azure Cognitive Search** 클라우드 앱을 선택해야 합니다.

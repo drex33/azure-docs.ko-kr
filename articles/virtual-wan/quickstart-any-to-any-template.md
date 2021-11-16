@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: ee1814d70395be3c084513d7bf59537ba426471a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 79b78af6e0ff1d23ea47b150dfd6c185e3d9df18
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559100"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323123"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 임의 구성 만들기
 
@@ -67,7 +67,7 @@ ms.locfileid: "128559100"
 
 ## <a name="deploy-the-template"></a><a name="deploy"></a>템플릿 배포
 
-이 템플릿을 올바르게 배포하려면 다음과 같은 이유로 다른 방법 대신 Azure에 배포 단추 및 Azure Portal을 사용해야 합니다.
+이 템플릿을 올바르게 배포하려면 다음과 같은 이유로 Azure Portal에서 다른 방법 대신 **Azure에 배포** 단추를 사용해야 합니다.
 
 * P2S 구성을 만들려면 루트 인증서 데이터를 업로드해야 합니다. PowerShell 또는 CLI를 사용하는 경우 데이터 필드에서 인증서 데이터를 허용하지 않습니다.
 * 이 템플릿은 인증서 데이터 업로드로 인해 Cloud Shell을 사용하여 제대로 작동하지 않습니다.

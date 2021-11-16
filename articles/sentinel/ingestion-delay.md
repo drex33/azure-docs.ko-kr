@@ -6,20 +6,20 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 9f95fb2482f90df58dd7bc1f65b13256265290e4
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 41143675d54e4353f7ea5402a4503c78a74a12e2
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132495072"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522938"
 ---
 # <a name="handle-ingestion-delay-in-scheduled-analytics-rules"></a>예약된 분석 규칙에서의 스트리밍 지연 처리
 

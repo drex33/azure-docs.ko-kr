@@ -3,12 +3,12 @@ title: 프라이빗 링크를 사용하여 프라이빗 엔드포인트 설정
 description: 컨테이너 레지스트리에서 프라이빗 엔드포인트를 설정하고 로컬 가상 네트워크에서 프라이빗 링크를 통해 액세스를 사용합니다. 프라이빗 링크 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 10/26/2021
-ms.openlocfilehash: 36f06efc223ff84efb7cf7d638900a5d018ce149
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ef3f6cd30852f6c2bac5f5e9dce383d8f4501023
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446597"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523413"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Azure Private Link를 사용하여 Azure 컨테이너 레지스트리에 비공개로 연결합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "131446597"
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 > [!NOTE]
-> 2021년 10월부터 새 컨테이너 레지스트리는 최대 200개의 프라이빗 엔드포인트를 허용합니다. 이전에 만든 레지스트리는 최대 10개의 프라이빗 엔드포인트를 허용합니다. [az acr show-usage](/cli/az/acr#az_acr_show_usage) 명령을 사용하여 레지스트리에 대한 제한을 확인합니다.
+> 2021 년 10 월부터 새 컨테이너 레지스트리는 최대 200 개인 끝점을 허용 합니다. 이전에 만든 레지스트리는 최대 10 개의 개인 끝점을 허용 합니다. [Az acr show-usage](/cli/azure/acr#az_acr_show_usage) 명령을 사용 하 여 레지스트리의 제한을 확인 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

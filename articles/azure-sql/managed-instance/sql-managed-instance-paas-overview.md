@@ -11,12 +11,12 @@ author: niko-neugebauer
 ms.author: nneugebauer
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 4073a78b9dcab9d6e9ce4b11c839c0c9785d3285
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 3e79b90356974e8ce5d77d639d2ca866624288d3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667348"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290499"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,10 +62,10 @@ SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 | 관리되는 자동 백업 | Yes |
 | 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | Yes |
 | 자동 소프트웨어 패치 | Yes |
-| 최신 데이터베이스 엔진 기능 | Yes |
+| 최신 데이터베이스 엔진 기능 | 예 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
-| VNet - Azure Resource Manager 배포 | Yes |
+| VNet - Azure Resource Manager 배포 | 예 |
 | VNet - 클래식 배포 모델 | No |
 | 포털 지원 | Yes|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md)의 일부입니다. |
@@ -150,7 +150,7 @@ Azure SQL Managed Instance는 데이터를 보호하는 데 사용할 수 있는
 
 - [SQL Managed Instance 감사](auditing-configure.md)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정에 있는 감사 로그 파일에 이를 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 - 이동 중인 데이터 암호화 - SQL Managed Instance는 전송 계층 보안을 사용하여 이동 중인 데이터를 암호화함으로써 데이터를 보호합니다. 전송 계층 보안 외에도, SQL Managed Instance는 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 전송 중인 데이터, 저장 데이터, 쿼리를 처리 중인 데이터를 보호하는 기능을 제공합니다. Always Encrypted는 중요한 데이터의 도용과 관련한 위반에 대해 데이터 보안을 제공합니다. 예를 들어 Always Encrypted를 사용하여 쿼리를 처리하는 동안에도 신용 카드 번호가 데이터베이스에 암호화되어 저장됩니다. 또한 해당 데이터를 처리해야 하는 권한이 부여된 직원 또는 애플리케이션에 의해 사용 시점에 암호를 해독할 수 있습니다.
-- [Advanced Threat Protection](threat-detection-configure.md)은 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 감지하는 서비스에 내장된 추가적인 보안 인텔리전스 계층을 제공하여 [감사](auditing-configure.md) 기능을 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. Advanced Threat Protection 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 확인할 수 있습니다. 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.  
+- [Advanced Threat Protection](threat-detection-configure.md)은 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 감지하는 서비스에 내장된 추가적인 보안 인텔리전스 계층을 제공하여 [감사](auditing-configure.md) 기능을 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. Advanced Threat Protection 경고는 [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/)에서 확인할 수 있습니다. 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.  
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)은 권한이 없는 사용자에게 중요한 데이터를 마스킹하여 데이터 노출을 제한합니다. 동적 데이터 마스킹을 수행하면 애플리케이션 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 데이터베이스의 데이터는 변경되지 않으면서 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다.
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)(RLS)을 통해 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. RLS는 애플리케이션에서 보안의 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 소속 부서와 관련된 데이터 행에만 액세스하게 하거나 데이터 액세스를 관련 데이터로 제한할 수 있습니다.
 - [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 SQL Managed Instance 데이터 파일을 암호화하며, 이를 저장 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 스토리지 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL Server에서 입증되었습니다.

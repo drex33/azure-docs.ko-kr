@@ -1,28 +1,28 @@
 ---
-title: Azure Sentinel을 Azure, Windows 및 Microsoft 서비스에 연결
-description: Azure Sentinel을 Azure 및 Microsoft 365 클라우드 서비스와 Windows Server 이벤트 로그에 연결하는 방법을 알아봅니다.
+title: Microsoft 센티널을 Azure, Windows 및 Microsoft 서비스에 커넥트 합니다.
+description: Microsoft 센티널을 Azure에 연결 하 고 클라우드 서비스를 Microsoft 365 하 고 Windows 서버 이벤트 로그에 연결 하는 방법을 알아봅니다.
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: fab632ae17f71829ddfb36ced149253e124c9851
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 79007f7716a8a24350bbfa6083b9891c425c120e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456901"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523033"
 ---
-# <a name="connect-azure-sentinel-to-azure-windows-microsoft-and-amazon-services"></a>Azure Sentinel을 Azure, Windows, Microsoft 및 Amazon 서비스에 연결
+# <a name="connect-microsoft-sentinel-to-azure-windows-microsoft-and-amazon-services"></a>microsoft 센티널을 Azure, Windows, microsoft 및 Amazon services로 커넥트
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Azure Sentinel은 Azure 기반을 사용하여 많은 Azure 및 Microsoft 365 서비스, Amazon Web Services 및 다양한 Windows Server 서비스의 데이터 수집에 대한 기본 제공 서비스 간 지원을 제공합니다. 이러한 연결에는 몇 가지 다른 방법이 있으며 이 문서에서는 이러한 연결을 만드는 방법에 대해 설명합니다.
+Microsoft 센티널은 azure foundation을 사용 하 여 여러 azure 및 Microsoft 365 서비스, Amazon Web Services 및 다양 한 Windows 서버 서비스에서 데이터를 수집 하는 서비스 간 지원을 제공 합니다. 이러한 연결에는 몇 가지 다른 방법이 있으며 이 문서에서는 이러한 연결을 만드는 방법에 대해 설명합니다.
 
 이 문서에서는 다음 유형의 커넥터에 대해 설명합니다.
 
@@ -35,26 +35,25 @@ Azure Sentinel은 Azure 기반을 사용하여 많은 Azure 및 Microsoft 365 �
 다음 통합은 더 독특하고 더 대중적이며 자체 문서와 함께 개별적으로 처리됩니다.
 
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
-- [Azure Defender](connect-azure-security-center.md)
+- [Microsoft Defender for Cloud](connect-azure-security-center.md)
 - [Azure Active Directory](connect-azure-active-directory.md)
 - [Windows 보안 이벤트](connect-windows-security-events.md)
 - [AWS(Amazon Web Services) CloudTrail](connect-aws.md)
-
 
 ## <a name="api-based-connections"></a>API 기반 연결
 
 ### <a name="prerequisites"></a>필수 조건
 
 - Log Analytics 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
-- Azure Sentinel 작업 영역의 테넌트에 대한 전역 관리자 또는 보안 관리자 역할이 있어야 합니다.
+- Microsoft 센티널 작업 영역 테 넌 트의 전역 관리자 또는 보안 관리자 역할이 있어야 합니다.
 
 ### <a name="instructions"></a>Instructions
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
 
 1. 데이터 커넥터 갤러리에서 서비스를 선택한 다음, 미리 보기 창에서 **커넥터 페이지 열기** 를 선택합니다.
 
-1. **연결** 을 선택하여 서비스에서 Azure Sentinel로 이벤트 및/또는 알림 스트리밍을 시작합니다.
+1. **커넥트** 를 선택 하 여 서비스에서 Microsoft 센티널로의 스트리밍 이벤트 및/또는 경고를 시작 합니다.
 
 1. 커넥터 페이지에 **인시던트 만들기 - 권장됨!** 이라는 섹션이 있는 경우 경고에서 인시던트를 자동으로 만들려면 **사용** 을 선택합니다.
 
@@ -68,13 +67,13 @@ Azure Sentinel은 Azure 기반을 사용하여 많은 Azure 및 Microsoft 365 �
 
 ### <a name="prerequisites"></a>필수 조건
 
-Azure Sentinel로 데이터를 수집하려면:
+Microsoft 센티널에 데이터를 수집 하려면:
 
-- Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 사용 권한이 있어야 합니다.
+- Microsoft 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
 ### <a name="instructions"></a>Instructions
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
 
 1. 데이터 커넥터 갤러리에서 리소스 종류를 선택한 다음 미리 보기 창에서 **커넥터 페이지 열기** 를 선택합니다.
 
@@ -88,7 +87,7 @@ Azure Sentinel로 데이터를 수집하려면:
 
 1. **진단 설정** 화면에서 **진단 설정 이름** 필드에 이름을 입력합니다.
 
-    **Log Analytics에 보내기** 확인란을 선택합니다. 두 개의 새 필드가 아래에 표시됩니다. 관련 **구독** 및 **Log Analytics 작업 영역**(Azure Sentinel이 있는 위치)을 선택합니다.
+    **Log Analytics에 보내기** 확인란을 선택합니다. 두 개의 새 필드가 아래에 표시됩니다. Microsoft 센티널이 있는 관련 **구독** 및 **Log Analytics 작업 영역** 을 선택 합니다.
 
 1. 수집하려는 로그 및 메트릭 유형의 확인란을 선택합니다. [데이터 커넥터 참조](data-connectors-reference.md) 페이지의 리소스 커넥터 섹션에서 각 리소스 유형에 대한 권장 선택 사항을 참조하세요.
 
@@ -98,9 +97,9 @@ Azure Sentinel로 데이터를 수집하려면:
 
 ### <a name="prerequisites"></a>필수 조건
 
-Azure Sentinel로 데이터를 수집하려면:
+Microsoft 센티널에 데이터를 수집 하려면:
 
-- Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 사용 권한이 있어야 합니다.
+- Microsoft 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
 - Azure Policy를 사용하여 리소스에 로그 스트리밍 정책을 적용하려면 정책 할당 범위에 대한 Owner 역할이 있어야 합니다.
 
@@ -108,7 +107,7 @@ Azure Sentinel로 데이터를 수집하려면:
 
 이 유형의 커넥터는 Azure Policy를 사용하여 범위로 정의된 단일 유형의 리소스 컬렉션에 단일 진단 설정 구성을 적용합니다. 해당 리소스에 대한 커넥터 페이지 왼쪽의 **데이터 유형** 에서 지정된 리소스 유형에서 수집된 로그 유형을 볼 수 있습니다.
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
 
 1. 데이터 커넥터 갤러리에서 리소스 종류를 선택한 다음 미리 보기 창에서 **커넥터 페이지 열기** 를 선택합니다.
 
@@ -121,7 +120,7 @@ Azure Sentinel로 데이터를 수집하려면:
     1. **매개 변수** 탭에서 다음을 수행합니다.
        - **입력이 필요한 매개 변수만 표시** 확인란의 선택을 취소합니다.
        - **효과** 및 **설정 이름** 필드가 표시되면 그대로 유지합니다.
-       - **Log Analytics 작업 영역** 드롭다운 목록에서 Azure Sentinel 작업 영역을 선택합니다.
+       - **Log Analytics 작업 영역** 드롭다운 목록에서 Microsoft 센티널 작업 영역을 선택 합니다.
        - 나머지 드롭다운 필드는 사용 가능한 진단 로그 형식을 나타냅니다. 수집하려는 모든 로그 형식을 “True”로 표시된 채로 둡니다.
 
     1. 정책은 나중에 추가되는 리소스에 적용됩니다. 기존 리소스에도 정책을 적용하려면 **수정** 탭을 선택하고 **수정 작업 생성** 확인란에 표시합니다.
@@ -152,21 +151,21 @@ Azure Sentinel로 데이터를 수집하려면:
 
 아래에서 데이터 수집 규칙을 만드는 방법을 참조 하세요.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
+- Microsoft 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
 - Azure 가상 컴퓨터가 아닌 시스템에서 이벤트를 수집 하려면 에이전트 기반 커넥터 Azure Monitor 사용 하도록 설정 *하기 전에* 시스템에 [**azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) 가 설치 되어 있고 사용 하도록 설정 되어 있어야 합니다.
 
-   다음 내용이 포함됩니다.
-   
-    - 물리적 머신에 설치된 Windows 서버
-    - 온-프레미스 가상 머신에 설치된 Windows 서버
-    - 비 Azure 클라우드의 가상 머신에 설치된 Windows 서버
+  다음 내용이 포함됩니다.
+
+  - 물리적 머신에 설치된 Windows 서버
+  - 온-프레미스 가상 머신에 설치된 Windows 서버
+  - 비 Azure 클라우드의 가상 머신에 설치된 Windows 서버
 
 ### <a name="instructions"></a>Instructions
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다. 목록에서 커넥터를 선택 하 고 세부 정보 창에서 **커넥터 페이지 열기** 를 선택 합니다. 그런 다음이 섹션의 나머지 부분에 설명된 대로 **지침** 탭의 화면 지시를 따릅니다.
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다. 목록에서 커넥터를 선택 하 고 세부 정보 창에서 **커넥터 페이지 열기** 를 선택 합니다. 그런 다음이 섹션의 나머지 부분에 설명된 대로 **지침** 탭의 화면 지시를 따릅니다.
 
 1. 커넥터 페이지의 **사전 요구 사항** 섹션에 설명된 대로 적절한 사용 권한이 있는지 확인합니다.
 
@@ -181,6 +180,7 @@ Azure Sentinel로 데이터를 수집하려면:
     Azure Monitor 설명서에서 [데이터 수집 규칙](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr)에 대해 자세히 알아보세요.
 
     > [!NOTE]
+    >
     > - Windows 보안 Events 커넥터는 수집 하도록 선택할 수 있는 두 가지 [**미리 작성 된 이벤트 집합**](windows-security-event-id-reference.md) ( **공통** 및 **최소**)을 제공 합니다.
     >
     > - Azure Monitor 에이전트는 **[XPath 버전 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations)에 대한 XPath 쿼리만** 지원합니다.
@@ -193,10 +193,12 @@ Azure Sentinel로 데이터를 수집하려면:
 
 > [!TIP]
 > *-FilterXPath* 매개 변수와 함께 PowerShell Cmdlet **Get-WinEvent** 를 사용하여 XPath 쿼리의 유효성을 테스트합니다. 다음 스크립트는 예제를 보여 줍니다.
+>
 > ```powershell
 > $XPath = '*[System[EventID=1035]]'
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
+>
 > - 이벤트가 반환되면 쿼리가 유효합니다.
 > - "지정 된 선택 조건과 일치 하는 이벤트를 찾을 수 없습니다." 라는 메시지가 표시 되는 경우 쿼리는 올바르지만 로컬 컴퓨터에 일치 하는 이벤트가 없습니다.
 > - "지정 된 쿼리가 잘못 되었습니다." 라는 메시지가 표시 되 면 쿼리 구문이 잘못 된 것입니다.
@@ -251,21 +253,19 @@ PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41f
     }
 }
 ```
-Azure Monitor 설명서에서 [데이터 수집 규칙에 대 한 전체 설명을](../azure-monitor/agents/data-collection-rule-overview.md) 참조 하세요.
 
+Azure Monitor 설명서에서 [데이터 수집 규칙에 대 한 전체 설명을](../azure-monitor/agents/data-collection-rule-overview.md) 참조 하세요.
 
 # <a name="log-analytics-agent-legacy"></a>[Log Analytics 에이전트(레거시)](#tab/LAA)
 
 ### <a name="prerequisites"></a>필수 조건
 
 - Log Analytics 작업 영역과 로그를 수집할 컴퓨터가 포함된 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
-- Azure Sentinel 역할 외에 해당 작업 영역의 SecurityInsights(Azure Sentinel) 솔루션에 대한 **Log Analytics 기여자** 역할이 있어야 합니다.
+- Microsoft 센티널 역할 외에도 해당 작업 영역에서 SecurityInsights (Microsoft 센티널) 솔루션에 대 한 **Log Analytics 참가자** 역할이 있어야 합니다.
 
 ### <a name="instructions"></a>Instructions
 
-#### <a name="install-the-agent"></a>에이전트 설치
-
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
 
 1. 서비스(**DNS** 또는 **Windows 방화벽**)를 선택한 다음 **커넥터 페이지 열기** 를 선택합니다.
 
@@ -279,7 +279,7 @@ Azure Monitor 설명서에서 [데이터 수집 규칙에 대 한 전체 설명�
 
 > [!NOTE]
 >
-> 필요한 인터넷 연결 없이도 Windows 시스템에서 Azure 센티널로 이벤트를 스트리밍할 수 있도록 하려면 **에이전트 관리** 페이지에서 **Log Analytics 게이트웨이 다운로드** 링크를 사용 하 여 프록시 역할을 하는 별도의 컴퓨터에 **Log Analytics 게이트웨이** 를 다운로드 하 여 설치 합니다.  이벤트를 수집하려는 각 Windows 시스템에는 Log Analytics 에이전트를 설치해야 합니다.
+> 필요한 인터넷 연결 없이도 Windows 시스템에서 Microsoft 센티널로 이벤트를 스트리밍할 수 있도록 하려면 **에이전트 관리** 페이지에서 **Log Analytics 게이트웨이 다운로드** 링크를 사용 하 여 프록시 역할을 하는 별도의 컴퓨터에 **Log Analytics 게이트웨이** 를 다운로드 하 여 설치 합니다.  이벤트를 수집 하려는 각 Windows 시스템에 Log Analytics 에이전트를 설치 해야 합니다.
 >
 > 해당 시나리오에 대한 자세한 내용은 [**Log Analytics 게이트웨이** 설명서](../azure-monitor/agents/gateway.md)를 참조하세요.
 
@@ -296,8 +296,8 @@ Windows DNS 서버 및 Windows 방화벽 커넥터에 대해 **솔루션 설치*
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure, Microsoft 및 Windows 서비스와 Amazon Web Services를 Azure Sentinel에 연결하는 방법을 배웠습니다. 
-- 일반적으로 [Azure Sentinel 데이터 커넥터](connect-data-sources.md)에 대해 알아봅니다.
-- [Azure Sentinel 데이터 커넥터 찾기](data-connectors-reference.md).
+이 문서에서는 Amazon Web Services 뿐만 아니라 Azure, microsoft 및 Windows 서비스를 Microsoft 센티널에 연결 하는 방법을 알아보았습니다. 
+- 일반적으로 [Microsoft 센티널 데이터 커넥터](connect-data-sources.md) 에 대해 알아봅니다.
+- [Microsoft 센티널 데이터 커넥터를 찾습니다](data-connectors-reference.md).
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [Microsoft 센티널을 사용 하 여 위협 검색을](detect-threats-built-in.md)시작 하세요.

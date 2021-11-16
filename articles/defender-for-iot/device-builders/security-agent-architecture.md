@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: 보안 에이전트 개요'
-description: 이 빠른 시작에서는 Azure Defender for IoT 서비스에서 사용되는 에이전트의 보안 에이전트 아키텍처를 이해하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Microsoft Defender for IoT 서비스에서 사용되는 에이전트의 보안 에이전트 아키텍처를 이해하는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 4/4/2021
-ms.openlocfilehash: 0937cccb0335f4eee16ca3590babe9574320b89f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 0fba4f592bdfa0ca055fcccb4808bb8d5dbd37b5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011256"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281763"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>빠른 시작: 보안 에이전트 참조 아키텍처
 
-Azure Defender for IoT는 IoT Hub를 통해 보안 데이터를 기록, 처리, 집계 및 전송하는 보안 에이전트를 위한 참조 아키텍처를 제공합니다.
+Microsoft Defender for IoT는 IoT Hub를 통해 보안 데이터를 기록, 처리, 집계 및 전송하는 보안 에이전트를 위한 참조 아키텍처를 제공합니다.
 
 보안 에이전트는 제한된 IoT 환경에서 작동하도록 설계되었으며, 사용하는 리소스와 제공하는 가치를 비교했을 때 다양하게 사용자 지정할 수 있습니다.
 
@@ -44,11 +44,9 @@ Defender for IoT는 32비트 및 64비트 Windows에 대해 서로 다른 설치
 | 32비트 | C | C# |  |
 | 64비트 | C# 또는 C | C# | 디바이스 리소스가 더 제한되거나 최소한의 디바이스 리소스가 있는 디바이스에는 C 에이전트를 사용하는 것이 좋습니다. |
 
-
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Defender for IoT Defender-IoT-micro-agent 아키텍처와 사용 가능한 설치 프로그램에 대한 높은 수준의 개요를 살펴봤습니다.
-Defender for IoT 개발을 계속 시작하려면 
+이 문서에서는 Defender for IoT Defender-IoT-micro-agent 아키텍처 및 사용 가능한 설치 프로그램에 대한 개략적인 개요를 제공합니다. Defender for IoT 배포를 계속 시작하려면 사용 가능한 보안 에이전트 인증 방법을 검토하세요.
 
 > [!div class="nextstepaction"]
 > [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md)

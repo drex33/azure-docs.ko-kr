@@ -5,12 +5,12 @@ ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 63ab20b16ae41aa48822f1b5c8e733c93d97f581
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: 50d924dcb0a6d30b57ab80ab5ea718167a6acf38
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833187"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524211"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 
@@ -124,6 +124,7 @@ $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-weba
 * 다른 배율 단위로 복제하는 경우 아웃바운드 IP 주소가 변경됩니다.
 * Linux 앱에 사용할 수 없습니다.
 * 관리 ID는 복제되지 않습니다.
+* 함수 앱에 사용할 수 없음
 
 ### <a name="references"></a>참조
 * [App Service 복제](app-service-web-app-cloning.md)

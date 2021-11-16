@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/23/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2a77b03f4ea72e0cb22c790bbebab5127e4b0375
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 37bc8bdad9a066bb3988cfd03e3c1f857246e5c6
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220436"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136882"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -51,7 +51,7 @@ ms.locfileid: "130220436"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -299,13 +299,15 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 이제 프런트 엔드 앱에는 로그인한 사용자로 백 엔드 앱에 액세스하는 데 필요한 권한이 있습니다. 이 단계에서는 백 엔드 액세스에 사용 가능한 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 [백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)에서 복사한 백 엔드의 클라이언트 ID가 필요합니다.
 
-Cloud Shell의 프런트 엔드 앱에서 다음 명령을 실행하여 `scope`인증 설정에 매개 변수 추가`identityProviders.azureActiveDirectory.login.loginParameters`를 합니다. *\<front-end-app-name>* 및 *\<back-end-client-id>* 을(를) 바꿉니다.
+Cloud Shell의 프런트 엔드 앱에서 다음 명령을 실행하여 `scope` 매개 변수를 `identityProviders.azureActiveDirectory.login.loginParameters` 인증 설정에 추가합니다. *\<front-end-app-name>* 및 *\<back-end-client-id>* 을(를) 바꿉니다.
 
 ```azurecli-interactive
-az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body '{"identityProviders":{"azureActiveDirectory":{"login":{"loginParameters":["scope=openid profile email offline_access api://<back-end-client-id>/user_impersonation"]}}}}'
+authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
+authSettings=$(echo "$authSettings” | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid profile email offline_access api://<back-end-client-id>/user_impersonation"]}')
+az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
 ```
 
-요청 범위에 대한 설명은 다음과 같습니다.
+이 명령은 추가 사용자 지정 범위가 있는 `loginParameters` 속성을 효과적으로 추가합니다. 요청 범위에 대한 설명은 다음과 같습니다.
 
 - `openid`, `profile` 및 `email`은(는) 기본값으로 App Service에 의해 요청됩니다. 자세한 내용은 [OpenID Connect 범위](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes)를 참조하세요.
 - `api://<back-end-client-id>/user_impersonation`은(는) 백 엔드 앱 등록에 제공되는 API입니다. [토큰 대상 그룹](https://wikipedia.org/wiki/JSON_Web_Token)으로 백 엔드 앱을 포함 하는 JWT 토큰을 제공하는 범위입니다. 

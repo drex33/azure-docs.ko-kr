@@ -1,34 +1,34 @@
 ---
 title: 엔터티 동작 분석을 사용하여 지능형 위협 감지 | Microsoft Docs
-description: Azure Sentinel에서 사용자 및 엔터티 동작 분석을 사용하도록 설정하고 데이터 원본 구성
+description: Microsoft 센티널에서 사용자 및 엔터티 동작 분석을 사용 하도록 설정 하 고 데이터 원본 구성
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 60b048340e4df87d18b0cb3dba2bf7008719ab45
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e8541c6205f8cfd7503b16fa918ca531d30d4339
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046853"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521361"
 ---
-# <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure Sentinel의 UEBA(사용자 및 엔터티 동작 분석) 사용 설정 
+# <a name="enable-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Microsoft 센티널에서 사용자 및 엔터티 동작 분석 (UEBA) 사용 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> UEBA 및 엔터티 페이지 기능은 이제 **모든** Azure Sentinel 지역에서 **일반 공급** 됩니다. 
+> UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Microsoft 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다. 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -41,17 +41,17 @@ ms.locfileid: "131046853"
 - 사용자에게 Azure AD에서 **전역 관리자** 또는 **보안 관리자** 역할이 할당되어야 합니다.
 
 - 사용자에게 다음 **Azure 역할** 중 하나 이상이 할당되어야 합니다([Azure RBAC 자세히 알아보기](roles.md)).
-    - 작업 영역 또는 리소스 그룹 수준에서 **Azure Sentinel 기여자**.
+    - 작업 영역 또는 리소스 그룹 수준에서 **Microsoft 센티널 참가자**
     - 리소스 그룹 또는 구독 수준에서 **Log Analytics 기여자**.
 
 - 작업 영역에 Azure 리소스 잠금이 적용되지 않아야 합니다. [Azure 리소스 잠금에 대해 자세히 알아보세요](../azure-resource-manager/management/lock-resources.md).
 
 > [!NOTE]
-> UEBA 기능을 Azure Sentinel에 추가하는 데 특별한 라이선스가 필요하지 않지만 **추가 요금** 이 청구될 수 있습니다.
+> Microsoft 센티널에 UEBA 기능을 추가 하는 데 특별 한 라이선스는 필요 하지 않지만 **추가 요금은** 적용 될 수 있습니다.
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>사용자 및 엔터티 동작 분석을 사용 설정하는 방법
 
-1. Azure Sentinel 탐색 메뉴에서 **엔터티 동작** 을 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **엔터티 동작** 을 선택 합니다.
 
 1. **켜기** 에서 토글을 **켜짐** 으로 전환합니다.
 
@@ -65,9 +65,9 @@ ms.locfileid: "131046853"
     >
     > UEBA를 사용하도록 설정하면 새 데이터 원본을 연결할 때 UEBA 지원 대상인 경우 데이터 커넥터 창에서 직접 UEBA를 사용 설정할 수 있는 옵션이 있습니다.
 
-1. **엔터티 검색으로 이동** 을 선택합니다. 엔터티 검색 창으로 이동하게 되며, 이제부터 Azure Sentinel 기본 메뉴에서 **엔터티 동작** 을 선택하면 이 창이 표시됩니다.
+1. **엔터티 검색으로 이동** 을 선택합니다. 그러면 기본 Microsoft 센티널 메뉴에서 **엔터티 동작** 을 선택 하는 경우 현재부터 표시 되는 엔터티 검색 창으로 이동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하도록 설정하고 구성하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Microsoft 센티널에서 사용자 및 엔터티 동작 분석 (UEBA)을 사용 하도록 설정 하 고 구성 하는 방법을 배웠습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [Microsoft 센티널을 사용 하 여 위협 검색을](detect-threats-built-in.md)시작 하세요.

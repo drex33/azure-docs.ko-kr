@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 664a63e50b4b0ff1d239317fce653378461a5d4c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 62ba9a8fa578ab12408160d9a6d19243474921fc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799308"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277223"
 ---
 # <a name="deploy-azure-virtual-desktop-with-the-getting-started-feature"></a>시작 기능을 사용하여 Azure Virtual Desktop 배포
 
@@ -19,24 +19,24 @@ Azure Portal의 새로운 시작 기능은 배포에 Azure Virtual Desktop을 �
 
 ## <a name="requirements"></a>요구 사항
 
-시작하려면 다음 항목이 필요합니다.
+시작을 사용하려면 다음 요구 사항을 충족해야 합니다.
 
-- Azure AD(Active Directory) 테넌트
-- Azure AD에 대한 전역 관리자 권한이 있는 계정
+- Azure AD(Active Directory) 테넌트.
+- Azure AD에 대한 전역 관리자 권한이 있는 계정.
 
    >[!NOTE]
    >시작 기능은 현재 MSA, B2B 또는 게스트 계정을 지원하지 않습니다.
 
-- 활성 Azure 구독
+- 활성화된 Azure 구독.
 
    >[!NOTE]
    >시작 기능은 현재 다단계 인증을 사용하는 계정을 지원하지 않습니다.
 
-- 구독에 대한 **소유자 권한** 이 있는 계정
+- 구독에 대한 **소유자 권한** 이 있는 계정.
 
 AD DS(Active Directory Domain Services)가 있는 환경에서 시작 기능을 사용하는 경우 다음 요구 사항도 충족해야 합니다.
 
-- AD DS 도메인 관리자 자격 증명
+- AD DS 도메인 관리자 자격 증명.
 - 구독에서 Azure AD Connect를 구성하고 "USERS" 컨테이너가 Azure AD와 동기화되는지 확인해야 합니다.
 - VM(가상 머신)의 도메인 컨트롤러에는 **Microsoft.Powershell.DSC** 유형의 DSC 확장이 없어야 합니다.
 

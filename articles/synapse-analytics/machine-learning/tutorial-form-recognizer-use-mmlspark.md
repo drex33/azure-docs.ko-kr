@@ -10,18 +10,18 @@ ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cb7e8cabf49b528b1174db004f3d22636a13fdfe
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9450ef956fc4d849e47fbf742f032359cffeea61
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029872"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312107"
 ---
 # <a name="tutorial-form-recognizer-with-applied-ai-service"></a>자습서: Applied AI Service가 포함된 Form Recognizer
 
 [Azure Form Recognizer](../../applied-ai-services/index.yml)는 기계 학습 기술을 사용하여 자동화된 데이터 처리 애플리케이션을 빌드할 수 있게 해주는 [Azure Applied AI Services](../../applied-ai-services/form-recognizer/index.yml)입니다. 이 자습서에서는 Azure Synapse Analytics에서 데이터를 쉽게 보강하는 방법에 대해 알아봅니다. [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml)는 양식과 문서를 분석하고, 텍스트와 데이터를 추출하고, 구조화된 JSON 출력을 반환합니다. 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 정확한 결과를 빠르게 얻을 수 있습니다. 
 
-이 자습서에서는 [MMLSpark](https://github.com/Azure/mmlspark)와 함께 Form Recognizer를 사용하여 다음을 수행합니다.
+이 자습서에서는 [SynapseML](https://github.com/microsoft/SynapseML)에서 Form Recognizer를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
 > - 지정된 문서에서 텍스트 및 레이아웃 정보 추출
@@ -34,7 +34,7 @@ ms.locfileid: "131029872"
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
@@ -42,11 +42,11 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 
 ## <a name="get-started"></a>시작
-Synapse Studio를 열고 새 Notebook을 만듭니다. 시작하려면 [MMLSpark](https://github.com/Azure/mmlspark)를 가져옵니다. 
+Synapse Studio를 열고 새 Notebook을 만듭니다. 시작하려면 [SynapseML](https://github.com/microsoft/SynapseML)을 가져옵니다. 
 
 ```python
-import mmlspark
-from mmlspark.cognitive import *
+import synapse.ml
+from synapse.ml.cognitive import *
 ```
 
 ## <a name="configure-form-recognizer"></a>Form Recognizer 구성 
@@ -203,4 +203,4 @@ Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 �
 
 * [사용자 지정 Form Recognizer 모델 학습](../../applied-ai-services/form-recognizer/label-tool.md)
 * [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [MMLSpark GitHub 리포지토리](https://github.com/Azure/mmlspark)
+* [SynapseML GitHub 리포지토리](https://github.com/microsoft/SynapseML)

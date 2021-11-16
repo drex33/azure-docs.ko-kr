@@ -1,5 +1,5 @@
 ---
-title: CLI 스크립트 - Azure Database for MySQL - 유연한 서버(미리 보기)에서 느린 쿼리 로그 구성
+title: CLI 스크립트 - Azure Database for MySQL - 유연한 서버에서 느린 쿼리 로그 구성
 description: 이 Azure CLI 샘플 스크립트에서는 Azure Database for MySQL - 유연한 서버에서 느린 쿼리 로그를 구성하는 방법을 보여줍니다.
 author: shreyaaithal
 ms.author: shaithal
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: 82fcf0fb06ee1b2823e525b47fb581470dddd1cc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0e3b6abf1720104b553e300a1a2860ed60e5e5be
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128701748"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844162"
 ---
-# <a name="configure-slow-query-logs-on-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기)에서 느린 쿼리 로그 구성
+# <a name="configure-slow-query-logs-on-an-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버에서 느린 쿼리 로그 구성
 
 이 샘플 CLI 스크립트는 Azure Database for MySQL - 유연한 서버에서 [느린 쿼리 로그](../concepts-slow-query-logs.md)를 구성합니다. 
 
@@ -41,7 +41,7 @@ ms.locfileid: "128701748"
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| **명령** | **참고** |
+| **명령** | **참고 사항** |
 |---|---|
 |[az group create](/cli/azure/group#az_group_create)|모든 리소스가 저장되는 리소스 그룹을 만듭니다.|
 |[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|데이터베이스를 호스트하는 유연한 서버를 만듭니다.|
@@ -51,5 +51,5 @@ ms.locfileid: "128701748"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 추가 스크립트 시도: [Azure Database for MySQL - 유연한 서버(미리 보기)용 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- 추가 스크립트 시도: [Azure Database for MySQL - 유연한 서버용 Azure CLI 샘플](../sample-scripts-azure-cli.md)
 - Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.

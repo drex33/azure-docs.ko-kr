@@ -1,32 +1,32 @@
 ---
-title: Azure Sentinel UEBA 강화 참조 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel의 엔터티 동작 분석에 의해 생성된 엔터티 보강을 표시합니다.
+title: Microsoft 센티널 UEBA 강화 참조 | Microsoft Docs
+description: 이 문서에서는 Microsoft 센티널의 엔터티 동작 분석에 의해 생성 된 엔터티 강화를 표시 합니다.
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: reference
-ms.date: 05/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 944c2b155a0cfa48d98876aa463c27cf5c47d40c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 345f34d2e0db508b831dca6d7f19b27436448de0
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083710"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519822"
 ---
-# <a name="azure-sentinel-ueba-enrichments-reference"></a>Azure Sentinel UEBA 보강 참조
+# <a name="microsoft-sentinel-ueba-enrichments-reference"></a>Microsoft 센티널 UEBA 강화 참조
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 **로그** 에 있는 Azure Sentinel **BehaviorAnalytics** 테이블([엔터티 세부 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages)에 언급됨)에 대해 설명하며 해당 테이블의 엔터티 보강 필드에 대한 세부 정보를 제공합니다. 이 내용은 보안 인시던트 조사에 집중하고 강화하는 데 사용할 수 있습니다.
+이 문서에서는 **로그** 에 있고 [엔터티 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages)에 설명 된 Microsoft 센티널 **BehaviorAnalytics** 테이블에 대해 설명 하 고, 해당 테이블의 엔터티 강화 필드에 대 한 세부 정보를 제공 하며,이를 사용 하 여 보안 인시던트 조사를 집중적으로 처리 하 고 선명 하 게 할 수 있습니다.
 
 BehaviorAnalytics 테이블의 다음 세 가지 동적 필드는 [아래 표](#entity-enrichments-dynamic-fields)에 설명되어 있습니다.
 
 [UsersInsights](#usersinsights-field) 및 [DevicesInsights](#devicesinsights-field) 필드에는 Active Directory/Azure AD 및 Microsoft 위협 인텔리전스 원본의 엔터티 정보가 포함되어 있습니다.
 
-[ActivityInsights](#activityinsights-field) 필드에는 Azure Sentinel의 엔터티 동작 분석에 의해 구축된 동작 프로필을 기반으로 하는 엔터티 정보가 포함됩니다. 
+[Activityinsights](#activityinsights-field) 필드는 Microsoft 센티널의 엔터티 동작 분석에서 빌드된 동작 프로필을 기반으로 하는 엔터티 정보를 포함 합니다. 
 
 <a name="baseline-explained"></a>사용자 활동은 사용될 때마다 동적으로 컴파일되는 기준에 따라 분석됩니다. 각 활동에는 동적 기준이 파생되는 정의된 되돌아보기 기간이 있습니다. 되돌아보기 기간은 이 표의 [**기준**](#activityinsights-field) 열에 지정되어 있습니다.
 
@@ -41,7 +41,7 @@ BehaviorAnalytics 테이블의 다음 세 가지 동적 필드는 [아래 표](#
 >
 ## <a name="behavioranalytics-table"></a>BehaviorAnalytics 테이블
 
-다음 표에서는 Azure Sentinel의 각 [엔터티 세부 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages)에 표시되는 동작 분석 데이터를 설명합니다.
+다음 표에서는 Microsoft 센티널의 각 [엔터티 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) 에 표시 되는 동작 분석 데이터에 대해 설명 합니다.
 
 | 필드                     | 형식 | Description                                                  |
 |---------------------------|------|--------------------------------------------------------------|
@@ -208,7 +208,7 @@ BehaviorAnalytics 테이블의 다음 세 가지 동적 필드는 [아래 표](#
 
 ## <a name="identityinfo-table-public-preview"></a>IdentityInfo 테이블(공개 미리 보기)
 
-Azure Sentinel 작업 영역에 대해 [UEBA를 사용하도록 설정](enable-entity-behavior-analytics.md)한 후에는 Azure Active Directory의 데이터가, Azure Sentinel에서의 사용을 위해 Log Analytics의 **IdentityInfo** 테이블에 대해 동기화됩니다. 분석 규칙에서 Azure AD로부터 동기화된 사용자 데이터를 포함하여 사용 사례에 맞게 분석을 향상시키고 가양성을 줄일 수 있습니다.
+Microsoft Sentinel 작업 영역에 [대해 UEBA를 사용하도록 설정하면](enable-entity-behavior-analytics.md) Azure Active Directory 데이터가 Microsoft Sentinel에서 사용하기 위해 Log Analytics의 **IdentityInfo** 테이블에 동기화됩니다. 분석 규칙에서 Azure AD로부터 동기화된 사용자 데이터를 포함하여 사용 사례에 맞게 분석을 향상시키고 가양성을 줄일 수 있습니다.
 
 최초 동기화는 며칠이 걸릴 수도 있으나 데이터가 완전히 동기화된 후에는
 
@@ -216,7 +216,7 @@ Azure Sentinel 작업 영역에 대해 [UEBA를 사용하도록 설정](enable-e
 
 - **IdentityInfo** 테이블과 Azure AD 간의 그룹 및 역할 정보는 매일 동기화됩니다.
 
-- Azure Sentinel은 21일마다 전체 Azure AD와의 동기화를 통해 오래된 레코드가 완전히 업데이트될 수 있게 합니다.
+- Microsoft Sentinel은 21일마다 전체 Azure AD와 다시 동기화하여 부실 레코드가 완전히 업데이트되도록 합니다.
 
 - **IdentityInfo** 테이블의 기본 보존 시간은 30일입니다.
 
@@ -268,7 +268,7 @@ Azure Sentinel 작업 영역에 대해 [UEBA를 사용하도록 설정](enable-e
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel 엔터티 동작 분석 테이블 스키마에 대해 설명했습니다.
+이 문서에서는 Microsoft 센티널 entity behavior analytics 테이블 스키마에 대해 설명 했습니다.
 
 - [엔터티 동작 분석](identify-threats-with-entity-behavior-analytics.md)에 대해 자세히 알아봅니다.
 - 조사에 [사용할 UEBA를 준비](investigate-with-ueba.md)합니다.

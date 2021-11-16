@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d146be642050c169dabf009352a34ad595fab84
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e2ea3a8213fa57aa7c8066b81ea7c790ec0b1db9
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746426"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988827"
 ---
-# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Azure AD에서 하이브리드 FIDO2 보안 키에 대한 배포 FAQ(질문과 대답) 
+# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Azure AD에서 하이브리드 FIDO2 보안 키에 대한 배포 FAQ(질문과 대답)
 
 이 문서는 하이브리드 Azure AD 조인 디바이스에 대한 배포 FAQ(질문과 대답) 및 온-프레미스 리소스에 대한 암호 없는 로그인에 대해 다룹니다. 이 암호 없는 기능을 사용하면 FIDO2 보안 키를 사용하여 하이브리드 Azure AD 조인 디바이스에 대해 Windows 10 디바이스에서 Azure AD 인증을 사용하도록 설정할 수 있습니다. 사용자는 FIDO2 키와 같은 최신 자격 증명을 사용하여 디바이스에서 Windows에 로그인하고, 온-프레미스 리소스에 대해 원활한 SSO(Single Sign-On) 환경을 사용하여 기존 Active Directory Domain Services(AD DS) 기반 리소스에 액세스할 수 있습니다.
 
@@ -185,7 +185,7 @@ Windows Server 2016 또는 2019 도메인 컨트롤러에서 다음 패치가 �
 Azure AD Kerberos 서버는 온-프레미스 AD DS 환경에서 DC(도메인 컨트롤러) 개체로 표시됩니다. 이 DC 개체는 여러 개체로 구성됩니다.
 
 * *CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>*
-    
+
     AD DS의 RODC(읽기 전용 도메인 컨트롤러)를 나타내는 *Computer* 개체입니다. 이 개체와 연결된 컴퓨터가 없습니다. 대신 DC의 논리적 표현입니다.
 
 * *CN=krbtgt_AzureAD,CN=Users,\<domain-DN>*
@@ -208,7 +208,7 @@ AD DS 포리스트가 여러 개인 경우 각 포리스트의 각 도메인에 
 
 모든 개체를 보려면 최신 버전의 Azure AD Connect에 포함된 Azure AD Kerberos 서버 PowerShell cmdlet을 사용합니다.
 
-개체를 보는 방법에 대한 지침을 비롯한 자세한 내용은 [Kerberos 서버 개체 만들기](howto-authentication-passwordless-security-key-on-premises.md#create-kerberos-server-object)를 참조하세요.
+개체를 보는 방법에 대한 지침을 비롯한 자세한 내용은 [Kerberos 서버 개체 만들기](howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object)를 참조하세요.
 
 ### <a name="why-cant-we-have-the-public-key-registered-to-on-premises-ad-ds-so-there-is-no-dependency-on-the-internet"></a>인터넷에 종속되지 않도록 온-프레미스 AD DS에 공개 키를 등록할 수 없는 이유는 무엇인가요?
 
@@ -219,7 +219,7 @@ AD DS 포리스트가 여러 개인 경우 각 포리스트의 각 도메인에 
 다른 DC와 마찬가지로, Azure AD Kerberos 서버 암호화 *krbtgt* 키는 정기적으로 회전해야 합니다. 다른 모든 AD DS *krbtgt* 키를 회전하는 데 사용하는 것과 동일한 일정을 따르는 것이 좋습니다.
 
 > [!NOTE]
-> *krbtgt* 키를 회전하는 다른 도구가 있지만 [PowerShell cmdlet을 사용하여 Azure AD Kerberos 서버의 *krbtgt* 키를 회전](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key)해야 합니다. 이 방법을 사용하면 온-프레미스 AD DS 환경과 Azure AD 모두에서 키가 업데이트됩니다.
+> *krbtgt* 키를 회전하는 다른 도구가 있지만 [PowerShell cmdlet을 사용하여 Azure AD Kerberos 서버의 *krbtgt* 키를 회전](howto-authentication-passwordless-security-key-on-premises.md#rotate-the-azure-ad-kerberos-server-key)해야 합니다. 이 방법을 사용하면 온-프레미스 AD DS 환경과 Azure AD 모두에서 키가 업데이트됩니다.
 
 ### <a name="why-do-we-need-azure-ad-connect-does-it-write-any-info-back-to-ad-ds-from-azure-ad"></a>Azure AD Connect가 필요한 이유는 무엇인가요? Azure AD에서 AD DS 정보를 다시 작성하나요?
 
@@ -229,13 +229,13 @@ Azure AD Connect는 Azure AD에서 AD DS로 정보를 다시 쓰지 않습니다
 
 HTTP 요청은 표준 PRT(기본 새로 고침 토큰) 요청입니다. 이 PRT 요청은 Kerberos TGT(Ticket Granting Ticket)가 필요함을 나타내는 클레임을 포함합니다.
 
-| 클레임 | 값 | Description                             |
+| 클레임 | 값 | 설명                             |
 |-------|-------|-----------------------------------------|
 | tgt   | true  | 클레임은 클라이언트에 TGT가 필요함을 나타냅니다. |
 
 Azure AD는 암호화된 클라이언트 키와 메시지 버퍼를 PRT 응답에 추가 속성으로 결합합니다. 페이로드는 Azure AD 디바이스 세션 키를 사용하여 암호화됩니다.
 
-| 필드              | Type   | Description  |
+| 필드              | 형식   | 설명  |
 |--------------------|--------|--------------|
 | tgt_client_key     | 문자열 | Base64 인코딩된 클라이언트 키(비밀)입니다. 이 키는 TGT를 보호하는 데 사용되는 클라이언트 암호입니다. 이 암호 없는 시나리오에서 클라이언트 암호는 각 TGT 요청의 일부로 서버에서 생성된 다음, 응답에서 클라이언트로 반환됩니다. |
 | tgt_key_type       | int    | 클라이언트 키와 KERB_MESSAGE_BUFFER에 포함된 Kerberos 세션 키 모두에 사용되는 온-프레미스 AD DS 키 유형입니다. |

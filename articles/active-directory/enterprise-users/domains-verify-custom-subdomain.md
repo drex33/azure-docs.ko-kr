@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/05/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb41fbaf1b1430cddb1ce5c44748edf35801405e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c8a0ab89e8437edec176e7033665b627df6cd493
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131427649"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866491"
 ---
 # <a name="change-subdomain-authentication-type-in-azure-active-directory"></a>Azure Active Directory에서 하위 도메인 인증 유형 변경
 
@@ -39,7 +39,7 @@ Azure AD 포털에서 부모 도메인이 페더레이션되고 관리자가 **�
    New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
    ```
 
-1. [Azure AD Graph 탐색기](https://graphexplorer.azurewebsites.net)를 사용하여 도메인을 가져옵니다(GET). 해당 도메인은 루트 도메인이 아니므로 루트 도메인 인증 유형을 상속합니다. 고유한 테넌트 ID를 사용하면 명령 및 결과가 다음과 같이 표시될 수 있습니다.
+1. 다음 예를 사용하여 도메인을 가져옵니다(GET). 해당 도메인은 루트 도메인이 아니므로 루트 도메인 인증 유형을 상속합니다. 고유한 테넌트 ID를 사용하면 명령 및 결과가 다음과 같이 표시될 수 있습니다.
 
    ```http
    GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
@@ -63,7 +63,7 @@ Azure AD 포털에서 부모 도메인이 페더레이션되고 관리자가 **�
      },
    ```
 
-### <a name="use-azure-ad-graph-explorer-api-to-make-this-a-root-domain"></a>Azure AD Graph 탐색기 API를 사용하여 루트 도메인으로 설정
+### <a name="use-microsoft-graph-api-to-make-this-a-root-domain"></a>Microsoft Graph API를 사용하여 이를 루트 도메인으로 만들기
 
 다음 명령을 사용하여 하위 도메인의 수준을 올립니다.
 
@@ -79,7 +79,7 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
    Set-MsolDomainAuthentication -DomainName child.mydomain.com -Authentication Managed
    ```
 
-1. Azure AD Graph 탐색기에서 GET을 통해 이제 하위 도메인 인증 유형이 관리되는지 확인합니다.
+1. Microsoft Graph API에서 GET을 통해 이제 하위 도메인 인증 유형이 관리되는지 확인합니다.
 
    ```http
    GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6

@@ -1,23 +1,23 @@
 ---
 title: 아웃바운드 트래픽 잠금
-description: Azure 방화벽과 통합하여 App Service 환경 내에서 아웃바운드 트래픽을 보호하는 방법에 대해 알아봅니다.
-author: ccompy
+description: Azure Firewall 통합하여 App Service Environment 내에서 아웃바운드 트래픽을 보호하는 방법을 알아봅니다.
+author: madsd
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 ms.date: 09/16/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: d1deab13de8272cde24396241af5e8fe99066e90
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: d8896f9bbe7ee4429236eac7763d66b1efd4313c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132372552"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523717"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
 > [!NOTE]
-> 이 문서에서는 격리 된 App Service 계획에 사용 되는 App Service Environment v2에 대해 설명 합니다.
+> 이 문서에서는 격리된 App Service 계획과 함께 사용되는 App Service Environment v2에 대해 자세히 다루고 있습니다.
 
 ASE(App Service Environment)에는 제대로 작동하기 위해 액세스해야 하는 여러 가지 외부 종속성이 있습니다. ASE는 고객의 Azure VNet(Virtual Network)에 상주합니다. 고객은 ASE 종속성 트래픽을 허용해야 합니다. 이는 VNet의 모든 송신을 잠그려고 하는 고객에게는 문제가 됩니다.
 
@@ -245,7 +245,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 | \*.ctldl.windowsupdate.com:80 |
 | \*.ctldl.windowsupdate.com:443 |
 | \*.prod.microsoftmetrics.com:443 |
-| \*. dsms.core.windows.net:443 |
+| \*.dsms.core.windows.net:443 |
 
 ### <a name="linux-dependencies"></a>Linux 종속성
 
@@ -284,7 +284,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 
 US Gov 지역의 ASE인 경우 이 문서의 [ASE로 Azure 방화벽 구성](#configuring-azure-firewall-with-your-ase) 섹션에 있는 지침에 따라 ASE를 사용하여 Azure 방화벽을 구성합니다.
 
-US Gov에서 Azure 방화벽 이외의 장치를 사용 하려면 다음을 수행 합니다.
+US Gov Azure Firewall 이외의 디바이스를 사용하려는 경우:
 
 - 서비스 엔드포인트 지원 서비스는 서비스 엔드포인트로 구성되어야 합니다.
 - FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.

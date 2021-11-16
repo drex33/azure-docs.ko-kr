@@ -4,16 +4,16 @@ description: AzCopy는 스토리지 계정으로, 스토리지 계정에서 또�
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 11/15/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ccf2f423137e4732b2785f23256577c92eee07ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e2b00c5a0eda3f4679bcbc12a979064cde680e3c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595658"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132516839"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 

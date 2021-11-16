@@ -1,28 +1,28 @@
 ---
-title: Azure 센티널에서 예약 된 분석 규칙에 대 한 템플릿 버전 관리
+title: Microsoft 센티널에서 예약 된 분석 규칙에 대 한 템플릿 버전 관리
 description: 예약 된 분석 규칙 템플릿과 해당 템플릿에서 만든 규칙 간의 관계를 관리 하는 방법에 대해 알아봅니다. 템플릿에 대 한 업데이트를 규칙에 병합 하 고 규칙의 변경 내용을 원래 템플릿으로 다시 되돌립니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 27e6a78ec66b3427aa911abba5d7f4cdda20d876
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5845dfd88e3377eacff5b1d27ab927df422e4556
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023085"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522957"
 ---
-# <a name="manage-template-versions-for-your-scheduled-analytics-rules-in-azure-sentinel"></a>Azure 센티널에서 예약 된 분석 규칙에 대 한 템플릿 버전 관리
+# <a name="manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel"></a>Microsoft 센티널에서 예약 된 분석 규칙에 대 한 템플릿 버전 관리
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "131023085"
 
 ## <a name="introduction"></a>소개
 
-Azure 센티널은 사용자의 복사본을 효과적으로 만들어 활성 규칙으로 전환 하는 [분석 규칙 템플릿과](detect-threats-built-in.md) 함께 제공 됩니다 .이는 템플릿에서 규칙을 만들 때 발생 합니다. 그러나이 시점에서 활성 규칙은 더 이상 템플릿에 연결 되지 않습니다. Microsoft 엔지니어 또는 다른 모든 사용자가 규칙 템플릿을 변경 하는 경우 해당 템플릿에서 만든 모든 규칙이 새 템플릿과 일치 하도록 동적으로 업데이트 ***되지 않습니다*** .
+Microsoft 센티널은 사용자의 복사본을 효과적으로 만들어 활성 규칙으로 전환 하는 [분석 규칙 템플릿과](detect-threats-built-in.md) 함께 제공 됩니다 .이는 템플릿에서 규칙을 만들 때 발생 합니다. 그러나이 시점에서 활성 규칙은 더 이상 템플릿에 연결 되지 않습니다. Microsoft 엔지니어 또는 다른 모든 사용자가 규칙 템플릿을 변경 하는 경우 해당 템플릿에서 만든 모든 규칙이 새 템플릿과 일치 하도록 동적으로 업데이트 ***되지 않습니다*** .
 
 그러나 템플릿에서 생성 된 규칙은 제공 된 ***템플릿을 명심 하*** 여 다음과 같은 두 가지 이점을 누릴 수 있습니다.
 
@@ -71,7 +71,7 @@ Azure 센티널은 사용자의 복사본을 효과적으로 만들어 활성 �
 
     > [!NOTE]
     > 위의 이미지 2와 3은 템플릿에서 생성 된 규칙의 두 가지 예를 보여 줍니다. 템플릿은 업데이트 되지 않습니다.
-    > - 이미지 2에는 현재 템플릿에 대 한 버전 번호가 있는 규칙이 표시 됩니다. 이는 10 월 2021에 Azure 센티널에서 템플릿 버전 제어의 초기 구현 후에 규칙이 생성 되었음을 나타냅니다.
+    > - 이미지 2에는 현재 템플릿에 대 한 버전 번호가 있는 규칙이 표시 됩니다. 이는 Microsoft 센티널에서 템플릿 버전 제어의 초기 구현 이후 2021 년 10 월에 규칙이 생성 되었음을 나타냅니다.
     > - 이미지 3에는 현재 템플릿 버전이 없는 규칙이 표시 됩니다. 이는 규칙이 2021 년 10 월에 생성 된 것을 보여 줍니다. 사용할 수 있는 최신 템플릿 버전이 있는 경우 규칙을 만드는 데 사용한 템플릿의 최신 버전이 될 수 있습니다.
 
 ## <a name="compare-your-active-rule-with-its-template"></a>활성 규칙과 해당 템플릿을 비교 합니다.
@@ -88,6 +88,7 @@ Azure 센티널은 사용자의 복사본을 효과적으로 만들어 활성 �
 
 > [!NOTE]
 > 이 규칙을 업데이트 하면 기존 규칙이 템플릿의 최신 버전으로 덮어쓰여집니다.
+
 참조 된 이름이 변경 된 경우 기존 규칙에 대 한 참조를 수행 하는 모든 자동화 단계 또는 논리를 확인 해야 합니다. 또한 원래 규칙을 만들기 위해 쿼리, 일정, 그룹화 또는 기타 설정에 대 한 변경 내용을 덮어쓸 수 있습니다.
 
 ### <a name="update-your-rule-with-the-new-template-version"></a>새 템플릿 버전으로 규칙 업데이트
@@ -121,7 +122,7 @@ Azure 센티널은 사용자의 복사본을 효과적으로 만들어 활성 �
 ---
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널 analytics 규칙 템플릿의 버전을 추적 하 고 활성 규칙을 기존 템플릿 버전으로 되돌리거나 새 규칙으로 업데이트 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Microsoft 센티널 analytics 규칙 템플릿의 버전을 추적 하 고 활성 규칙을 기존 템플릿 버전으로 되돌리거나 새 규칙으로 업데이트 하는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - [분석 규칙](detect-threats-built-in.md)에 대해 자세히 알아보세요.
 - [분석 규칙 마법사](detect-threats-custom.md)에 대 한 자세한 내용을 참조 하세요.

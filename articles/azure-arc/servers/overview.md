@@ -3,12 +3,12 @@ title: Azure Arc 지원 서버 개요
 description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure 외부에서 호스트된 머신을 관리하는 방법을 알아봅니다.
 ms.date: 09/30/2021
 ms.topic: overview
-ms.openlocfilehash: c064abb4258f36207e8bd4f02f7cb68d8ce1fce1
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c390cbbb6f08f4f9082b0764125ab9a14407de95
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355384"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287270"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
@@ -18,7 +18,7 @@ Azure Arc 지원 서버를 사용하면 Azure ‘외부’의 회사 네트워�
 
 * 컴퓨터에서 실행되는 OS 및 워크로드를 사전에 모니터링하려는 경우
 * Automation Runbook 또는 솔루션(예: 업데이트 관리)을 사용하여 관리하려는 경우
-* [Azure Security Center](../../security-center/security-center-introduction.md)와 같은 다른 Azure 서비스를 사용하려는 경우
+* [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)와 같은 다른 Azure 서비스를 사용하는 경우
 
 ## <a name="supported-cloud-operations"></a>지원되는 클라우드 작업 
 
@@ -29,8 +29,8 @@ Azure Arc 지원 서버를 사용하면 Azure ‘외부’의 회사 네트워�
 |**거버넌스** ||
 | Azure Policy |[Azure Policy 게스트 구성](../../governance/policy/concepts/guest-configuration.md)을 할당하여 컴퓨터 내의 설정을 감사합니다. Arc 지원 서버에서 Azure Policy 게스트 구성 정책을 사용하는 비용을 파악하려면 Azure Policy [가격 책정 가이드](https://azure.microsoft.com/pricing/details/azure-policy/)를 참조하세요.|
 |**보호** ||
-| Azure Security Center | 위협 탐지, 취약성 관리 및 잠재적 보안 위협을 사전에 모니터링하는 [Azure Defender](../../security-center/defender-for-servers-introduction.md)를 통해 포함된 [엔드포인트용 Microsoft Defender](/microsoft-365/security/defender-endpoint)를 사용하여 비 Azure 서버를 보호합니다. Azure Security Center는 검색된 위협의 경고 및 수정 제안을 표시합니다. |
-| Azure Sentinel | Arc 지원 서버에 연결된 컴퓨터는 [Azure Sentinel](scenario-onboard-azure-sentinel.md) 사용하여 보안 관련 이벤트를 수집하고 다른 데이터 원본과 상호 연결하도록 구성할 수 있습니다. |
+| Microsoft Defender for Cloud | 위협 탐지, 취약성 관리 및 잠재적 보안 위협을 사전에 모니터링하는 [Microsoft Defender for Cloud](../../security-center/defender-for-servers-introduction.md)를 통해 포함된 [엔드포인트용 Microsoft Defender](/microsoft-365/security/defender-endpoint)를 사용하여 비 Azure 서버를 보호합니다. Microsoft Defender for Cloud는 검색된 위협의 경고 및 수정 제안을 표시합니다. |
+| Microsoft Sentinel | Arc 지원 서버에 연결된 컴퓨터는 [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) 사용하여 보안 관련 이벤트를 수집하고 다른 데이터 원본과 상호 연결하도록 구성할 수 있습니다. |
 |**구성** ||
 | Azure Automation |PowerShell 및 Python [runbook](../../automation/automation-runbook-execution.md)을 사용하여 자주 및 시간이 오래 걸리는 관리 작업을 자동화합니다.<br> [변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md)를 사용하여, 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 평가합니다.<br> [업데이트 관리](../../automation/update-management/overview.md)를 사용하여 Windows 및 Linux 서버의 운영 체제 업데이트를 관리합니다. |
 | Azure Automanage(미리 보기) | [ARC 지원 서버에 Automanage Machine](../../automanage/automanage-arc.md)을 사용할 때는 Azure 서비스 집합을 온보딩합니다. |
@@ -64,16 +64,20 @@ Azure Arc 지원 서버가 지원되는 지역의 정확한 목록은 [지역별
 
 예를 들어 머신이 미국 동부 지역에 있는 Azure Arc에 등록된 경우 이 데이터는 미국 지역에 저장됩니다.
 
-### <a name="supported-environments"></a>지원되는 환경
+## <a name="supported-environments"></a>지원되는 환경
 
 Azure Arc 지원 서버에서 Azure *외부* 에서 호스트된 물리적 서버와 가상 머신을 관리할 수 있습니다. VM을 호스트하는 하이브리드 클라우드 환경에 대한 구체적인 세부 정보는 [Connected Machine 에이전트 사전 요구 사항](agent-overview.md#supported-environments)을 참조하세요.
 
 > [!NOTE]
 > Azure Arc 지원 서버는 Azure에서 실행되는 가상 머신을 관리하도록 설계되지 않았거나 이를 지원하지 않습니다.
 
-### <a name="agent-status"></a>에이전트 상태
+## <a name="agent-status"></a>에이전트 상태
 
 Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지를 서비스에 보냅니다. 서비스가 머신에서 이러한 하트비트 메시지 수신을 중지하면 해당 머신은 오프라인으로 간주되며 15~30분 내에 포털에서 상태가 자동으로 **연결 끊김** 으로 변경됩니다. Connected Machine 에이전트로부터 후속 하트비트 메시지를 받으면 상태가 자동으로 **연결됨** 으로 변경됩니다.
+
+## <a name="service-limits"></a>서비스 제한
+
+Azure Arc 지원 서버에는 각 리소스 그룹에서 만들 수 있는 인스턴스 수에 대한 제한이 있습니다. 구독 또는 서비스 수준에는 제한이 없습니다. 존재하는 리소스 종류 제한에 대한 자세한 내용은 [리소스 인스턴스 제한](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

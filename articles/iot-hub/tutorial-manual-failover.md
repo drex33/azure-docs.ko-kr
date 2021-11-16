@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 898cc8dcb634ed9beab26c0a0d5de9a9fdda068c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7d38566db882bdc2094961cb83c9bd117a328589
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732874"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258902"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행
 
@@ -48,11 +48,11 @@ IoT Hub를 사용한 수동 장애 조치(failover) 및 Microsoft 시작 장애 
 > [!NOTE]
 > IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 복구가 발생합니다.
 
-1. **리소스 그룹** 을 클릭한 다음 사용자의 리소스 그룹을 선택합니다. 이 자습서에서는 **ManlFailRG** 를 사용합니다. 리소스 목록에서 허브를 클릭합니다. 
+1. **리소스 그룹** 을 클릭한 다음 사용자의 리소스 그룹을 선택합니다. 리소스 목록에서 허브를 클릭합니다.
 
-1. IoT Hub 창의 **설정** 에서 **장애 조치(Failover)** 를 클릭합니다.
+1. IoT Hub 창의 **허브 설정** 에서 **장애 조치** 를 클릭합니다.
 
-   ![IoT Hub 속성 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-01.png)
+:::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="IoT Hub 속성 창을 보여주는 스크린샷":::
 
 1. 수동 장애 조치(failover) 창에 **현재 위치** 및 **장애 조치(failover) 위치** 가 표시됩니다. 현재 위치는 항상 허브가 현재 활성 상태인 위치를 나타냅니다. 장애 조치(failover) 위치는 현재 위치에 페어링된 표준 [Azure 지역 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)입니다. 위치 값을 변경할 수 없습니다. 이 자습서의 경우 현재 위치가 `West US 2`이며 장애 조치(failover) 위치는 `West Central US`입니다.
 

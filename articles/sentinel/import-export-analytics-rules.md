@@ -1,26 +1,26 @@
 ---
-title: Azure Sentinel 분석 규칙 가져오기 및 내보내기 | Microsoft Docs
+title: Microsoft Sentinel 분석 규칙 가져오기 및 내보내기 | Microsoft Docs
 description: 배포를 돕기 위해 ARM 템플릿에서 분석 규칙 내보내기 및 가져오기
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 905455a371bd479d83418eaf68fbc5bf327ce4e4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 97eb1145e8eebaed91019fbd68330c1399522002
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009399"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518549"
 ---
 # <a name="export-and-import-analytics-rules-to-and-from-arm-templates"></a>ARM 템플릿에서 분석 규칙 내보내기 및 가져오기
 
@@ -32,7 +32,7 @@ ms.locfileid: "131009399"
 
 ## <a name="introduction"></a>소개
 
-이제 Azure Sentinel 배포를 코드로 관리 및 제어하는 과정의 일환으로, 분석 규칙을 ARM(Azure Resource Manager) 템플릿 파일로 내보내고 이러한 파일에서 규칙을 가져올 수 있습니다. 내보내기 작업은 브라우저의 다운로드 위치에 JSON 파일(*Azure_Sentinel_analytic_rule.json*)을 만듭니다. 그러면 다른 파일처럼 이름을 바꾸고 이동하고 처리할 수 있습니다.
+이제 분석 규칙을 ARM(Azure Resource Manager) 템플릿 파일로 내보내고, Microsoft Sentinel 배포를 코드로 관리하고 제어하는 과정의 일부로 이러한 파일에서 규칙을 가져올 수 있습니다. 내보내기 작업은 브라우저의 다운로드 위치에 JSON 파일(*Azure_Sentinel_analytic_rule.json*)을 만듭니다. 그러면 다른 파일처럼 이름을 바꾸고 이동하고 처리할 수 있습니다.
 
 내보낸 JSON 파일은 작업 영역과 독립적이므로 다른 작업 영역 및 다른 테넌트로도 가져올 수 있습니다. 코드로서, 관리형 CI/CD 프레임워크에서 버전을 제어하고 업데이트하고 배포할 수도 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "131009399"
 
 ## <a name="export-rules"></a>규칙 내보내기
 
-1. Azure Sentinel 탐색 메뉴에서 **Analytics** 를 선택합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
 
 1. 내보낼 규칙을 선택하고 화면 맨 위에 있는 막대에서 **내보내기** 를 클릭합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "131009399"
 
 1. 분석 규칙 ARM 템플릿 JSON 파일을 준비합니다.
 
-1. Azure Sentinel 탐색 메뉴에서 **Analytics** 를 선택합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
 
 1. 화면 맨 위에 있는 막대에서 **가져오기** 를 클릭합니다. 결과 대화 상자에서 가져오려는 규칙을 나타내는 JSON 파일로 이동하여 선택하고 **열기** 를 선택합니다.
 

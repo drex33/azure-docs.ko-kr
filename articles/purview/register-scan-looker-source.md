@@ -1,21 +1,21 @@
 ---
 title: Looker에 연결 및 관리
 description: 이 가이드에서는 Azure Purview에서 Looker에 연결하고 Purview의 기능을 사용하여 Looker 원본을 검사하고 관리하는 방법을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: a420923ed3d1ef57b8d0d3abdcb688e5412bafd6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3bb15a424496c04f63537a9dac4622e52a052c46
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048162"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848043"
 ---
-# <a name="connect-to-and-manage-looker-in-azure-purview"></a>Azure Purview에서 Looker에 연결 및 관리
+# <a name="connect-to-and-manage-looker-in-azure-purview-preview"></a>Azure Purview에서 Looker에 연결 및 관리(미리 보기)
 
 이 문서에서는 Looker를 등록하는 방법과 Azure Purview에서 Looker를 인증하고 상호 작용하는 방법을 간략하게 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
 
@@ -26,12 +26,12 @@ ms.locfileid: "131048162"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| [예](how-to-lineage-looker.md)|
+| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예](how-to-lineage-looker.md)|
 
 > [!Important]
 > 지원되는 Looker 서버 버전은 7.2입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

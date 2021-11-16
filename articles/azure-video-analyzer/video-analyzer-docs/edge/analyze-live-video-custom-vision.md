@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f6999b30816f0750657d8c5990291892d3148cbd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e87b1f70df4864a82f13b9e30cf93c2c5ca9eb14
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101107"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484262"
 ---
 # <a name="tutorial-analyze-live-video-with-azure-video-analyzer-on-iot-edge-and-azure-custom-vision"></a>자습서: IoT Edge의 Azure Video Analyzer 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -65,7 +65,7 @@ ms.locfileid: "131101107"
 
 ## <a name="review-the-sample-video"></a>샘플 비디오 검토
 
-이 자습서에서는 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. **Ctrl+N** 을 선택한 다음, [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다.
+이 자습서에서는 [장난감 자동차 유추 비디오](https://avamedia.blob.core.windows.net/public/t2.mkv) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. **Ctrl+N** 을 선택한 다음, [장난감 자동차 유추 비디오](https://avamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LPwK]
 
@@ -90,7 +90,7 @@ Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐
 
 추가 참고 사항:
 
-- 이 자습서에서는 빠른 시작 문서의 [필수 조건 섹션](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites)에 제공된 샘플 이미지를 사용하지 마세요. 그 대신 특정 이미지 세트를 사용하여 장난감 탐지기 Custom Vision 모델을 빌드했습니다. [빠른 시작](../../../cognitive-services/custom-vision-service/get-started-build-detector.md)에서 [학습 이미지를 선택](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images)하라는 메시지가 표시되면 [이 이미지](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip)를 사용하세요.
+- 이 자습서에서는 빠른 시작 문서의 [필수 조건 섹션](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites)에 제공된 샘플 이미지를 사용하지 마세요. 그 대신 특정 이미지 세트를 사용하여 장난감 탐지기 Custom Vision 모델을 빌드했습니다. [빠른 시작](../../../cognitive-services/custom-vision-service/get-started-build-detector.md)에서 [학습 이미지를 선택](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images)하라는 메시지가 표시되면 [이 이미지](https://avamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip)를 사용하세요.
 - 빠른 시작의 이미지 태그 지정 섹션에서, 그림에 표시된 장난감 트럭에 "배달 트럭"이라는 태그를 지정했는지 확인하세요.
 - Custom Vision 프로젝트를 만들 때 도메인에 대한 옵션으로 일반(압축)을 선택해야 합니다.
 

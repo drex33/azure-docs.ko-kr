@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
 ms.date: 10/17/2021
-ms.openlocfilehash: 8088b85ceefef2d3ffb11e7713fefd115c84b781
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9814c90a60aaa67ff6c1914c28568fb478bd0f87
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435171"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488547"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용하면 데이터를 수집하는 동안 Log Analytics 작업 영역에서 선택한 테이블의 데이터를 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다. 이 문서에서는 이 기능 및 작업 영역에서 데이터 내보내기를 구성하는 단계에 대한 세부 정보를 제공합니다.
@@ -73,7 +73,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
     - 미국 서부 2
 
 ## <a name="data-completeness"></a>데이터 완성도
-데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30 분 동안 데이터 보내기를 계속 시도 합니다. 30 분 후에도 계속 사용할 수 없는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
+데이터 내보내기는 대용량 데이터 볼륨을 대상으로 이동 하는 데 최적화 되어 있으며 특정 재시도 조건에서 중복 된 레코드의 일부를 포함할 수 있습니다. 수신 제한에 도달 하면 대상에 대 한 내보내기 작업이 실패할 수 있습니다. [데이터 내보내기 규칙 만들기 또는 업데이트](#create-or-update-data-export-rule)에서 세부 정보를 참조 하세요. 내보내기는 최대 30 분 동안 계속 다시 시도 하 고, 대상에서 데이터를 허용 하지 않는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
 
 ## <a name="cost"></a>비용
 현재 데이터 내보내기 기능에 대한 추가 요금은 없습니다. 데이터 내보내기에 대한 가격 책정은 나중에 발표될 예정이며 청구 시작 전에 미리 공지될 예정입니다. 알림 기간 후에도 계속 데이터 내보내기를 사용하도록 선택하면 해당되는 요금이 청구됩니다.
@@ -111,9 +111,9 @@ Azure Monitor에 도달 하면 이벤트 허브로 데이터가 전송 됩니다
 
 > [!NOTE]
 > - '기본' 이벤트 허브 계층은 더 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) 지원하며 작업 영역의 일부 로그가 이를 초과하여 삭제될 수 있습니다. 내보내기 대상에 '표준', 'Premium' 또는 '전용' 계층을 사용합니다.
-> - 내보낸 데이터의 볼륨은 시간이 지남에 따라 증가하며, 더 높은 수신 속도를 위해서는 결과 크기 조정이 필요합니다. 자동 **확장** 기능을 사용하여 사용량 요구 사항에 맞게 처리량 단위 수를 자동으로 확장하고 늘림 Azure Event Hubs [처리량 단위 자동 강화를 참조하세요.](../../event-hubs/event-hubs-auto-inflate.md)
+> - 내보낸 데이터의 볼륨은 시간이 지남에 따라 증가하며, 더 높은 수신 속도를 위해서는 결과 크기 조정이 필요합니다. 자동 **확장** 기능을 사용하면 사용량 요구 사항에 맞게 처리량 단위 수를 자동으로 확장하고 늘릴 수 있습니다. Azure Event Hubs [처리량 단위 자동 강화를 참조하세요.](../../event-hubs/event-hubs-auto-inflate.md)
 > - 적절한 수신 속도 할당 및 제한, 실패 및 대기 시간 이벤트를 줄이기 위해 별도의 이벤트 허브 네임스페이스를 사용합니다.
-> - 가상 네트워크를 사용하도록 설정하면 데이터 내보내기에서 이벤트 허브 리소스에 연결할 수 없습니다. Event Hubs 리소스에 대한 액세스 권한을 부여하려면 신뢰할 수 있는 **Microsoft 서비스** 허용 이벤트 허브에서 이 방화벽 설정을 무시하도록 설정해야 합니다.
+> - 가상 네트워크를 사용하도록 설정하면 데이터 내보내기에서 이벤트 허브 리소스에 연결할 수 없습니다. Event Hubs 리소스에 대한 액세스 권한을 부여하려면 신뢰할 수 있는 **Microsoft 서비스** 이벤트 허브에서 이 방화벽을 무시하도록 허용 설정을 사용하도록 설정해야 합니다.
 
 > [!IMPORTANT]
 > ['기본' 및 '표준' 네임스페이스 계층당 지원되는 이벤트 허브 수는 10개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10개가 넘는 테이블을 내보내는 경우, 여러 이벤트 허브 네임스페이스에 대한 여러 내보내기 규칙으로 테이블을 분할하거나, 내보내기 규칙에 이벤트 허브 이름을 지정하고 모든 테이블을 해당 이벤트 허브로 내보냅니다.
@@ -169,7 +169,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
     | 범위 | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
     |:---|:---|:---|:---|:---|
     | namespaces-name | 이벤트 허브 표준 메트릭 | 들어오는 바이트 | 합계 | 경고 평가 기간당 최대 수신의 80%입니다. 예를 들어 제한은 단위당 1MB/s(TU 또는 PU) 및 사용된 5개 단위입니다. 임계값은 5분 평가 기간당 1200MB입니다. |
-    | namespaces-name | 이벤트 허브 표준 메트릭 | 들어오는 요청 | 개수 | 경고 평가 기간당 최대 이벤트의 80%입니다. 예를 들어 제한은 단위당 1000/s(TU 또는 PU) 및 사용된 5개 단위입니다. 임계값은 5분 평가 기간당 12000000입니다. |
+    | namespaces-name | 이벤트 허브 표준 메트릭 | 들어오는 요청 | 개수 | 경고 평가 기간당 최대 이벤트의 80%입니다. 예를 들어 제한은 단위당 1000/s(TU 또는 PU)이고 사용된 단위는 5개입니다. 임계값은 5분 평가 기간당 12000000입니다. |
     | namespaces-name | 이벤트 허브 표준 메트릭 | 할당량 초과 오류 | 개수 | 요청의 1% 사이입니다. 예를 들어 5분당 요청은 600000입니다. 임계값은 5분 평가 기간당 6000입니다. |
 
 1. 경고 수정 작업
@@ -186,13 +186,13 @@ find where TimeGenerated > ago(24h) | distinct Type
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 데이터 **내보내기를** 선택하고 가운데 창 위쪽에서 **새 내보내기 규칙을** 클릭합니다.
+Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 **데이터 내보내기를** 선택하고 가운데 창 위쪽에서 **새 내보내기 규칙을** 클릭합니다.
 
 ![create 내보내기](media/logs-data-export/export-create-1.png)
 
 단계를 따라 **만들기를** 클릭합니다. 
 
-<img src="media/logs-data-export/export-create-2.png" alt="export rule configuration" title="내보내기 규칙 구성" width="80%"/>
+<img src="media/logs-data-export/export-create-2.png" alt="export rule configuration" title="규칙 내보내기 구성" width="80%"/>
 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -469,11 +469,11 @@ PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 **데이터 내보내기** 를 선택 합니다.
+Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 데이터 **내보내기** 를 선택합니다.
 
-![규칙 내보내기 보기](media/logs-data-export/export-view-1.png)
+![내보내기 규칙 뷰](media/logs-data-export/export-view-1.png)
 
-구성 보기에 대 한 규칙을 클릭 합니다.
+구성 보기에 대한 규칙을 클릭합니다.
 
 <img src="media/logs-data-export/export-view-2.png" alt="export rule settings" title= "규칙 설정 내보내기" width="65%"/>
 
@@ -508,9 +508,9 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-테스트가 수행되는 경우와 같이 특정 기간 동안 데이터를 유지할 필요가 없는 경우 내보내기를 중지할 수 있도록 내보내기 규칙을 비활성화할 수 있습니다. Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 **데이터 내보내기** 를 선택 하 고 상태 토글을 클릭 하 여 규칙 내보내기를 사용 하지 않거나 사용 하도록 설정 합니다.
+테스트가 수행되는 경우와 같이 특정 기간 동안 데이터를 유지할 필요가 없는 경우 내보내기를 중지할 수 있도록 내보내기 규칙을 비활성화할 수 있습니다. Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 데이터 **내보내기를** 선택하고 상태 토글을 클릭하여 내보내기 규칙을 사용하지 않도록 설정하거나 사용하도록 설정합니다.
 
-![규칙 사용 안 함 내보내기](media/logs-data-export/export-disable.png)
+![내보내기 규칙 사용 안 함](media/logs-data-export/export-disable.png)
 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -558,7 +558,7 @@ Content-type: application/json
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal의 **Log Analytics 작업 영역** 메뉴에서 **설정** 섹션에서 *데이터 내보내기* 를 선택한 다음 규칙의 오른쪽에 있는 줄임표를 클릭 하 고 **삭제** 를 클릭 합니다. 
+Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 데이터 *내보내기를* 선택한 다음 규칙 오른쪽에 있는 말임표를 클릭하고 **삭제를** 클릭합니다. 
 
 ![규칙 삭제 내보내기](media/logs-data-export/export-delete.png)
 
@@ -594,9 +594,9 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 **데이터 내보내기** 를 선택 하 여 작업 영역에 있는 모든 내보내기 규칙을 봅니다.
+Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 **데이터 내보내기를** 선택하여 작업 영역의 모든 내보내기 규칙을 봅니다.
 
-![규칙 내보내기](media/logs-data-export/export-view.png)
+![내보내기 규칙](media/logs-data-export/export-view.png)
 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -633,7 +633,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 
 ## <a name="supported-tables"></a>지원되는 테이블
-지원되는 테이블은 현재 아래에 지정된 테이블로 제한됩니다. 제한이 지정되지 않은 경우 테이블의 모든 데이터를 내보냅니다. 이 목록은 추가 테이블이 추가 될 때 업데이트 됩니다.
+지원되는 테이블은 현재 아래에 지정된 테이블로 제한됩니다. 제한이 지정되지 않은 경우 테이블의 모든 데이터를 내보냅니다. 이 목록은 더 많은 테이블이 추가되면 업데이트됩니다.
 
 | 테이블 | 제한 사항 |
 |:---|:---|
@@ -725,7 +725,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
-| ConfigurationData | 부분 지원 – 일부 데이터는 내보내기에서 지원 되지 않는 내부 서비스를 통해 수집 됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
+| ConfigurationData | 부분 지원 – 일부 데이터는 내보내기에서 지원되지 않는 내부 서비스를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | ContainerImageInventory |  |
 | ContainerInventory |  |
 | ContainerLog |  |

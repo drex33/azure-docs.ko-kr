@@ -1,18 +1,18 @@
 ---
 title: 관리 주소
 description: App Service Environment를 제어하는 데 사용되는 관리 주소를 찾습니다. 경로 테이블에 구성된 관리 주소는 비대칭 라우팅 문제를 방지하는 데 필요합니다.
-author: ccompy
+author: madsd
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 11/10/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurecli
-ms.openlocfilehash: 9b292eb1115b2f0c4ecce5f8c778b2e85188be72
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c39045f222d43a3b40b5d21c7bd0827172c3c90f
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132327617"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524116"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service Environment 관리 주소
 > [!NOTE]

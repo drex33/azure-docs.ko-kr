@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: f30a7fcbc99f6a47574d101e3792d992dc2c1af8
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2c9128f6e03f039ddc6e56ec9672a7a0a18f9889
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260038"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520430"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-files"></a>Azure Files를 사용하여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -175,7 +175,7 @@ Azure Files에 백업하려면 다음 단계를 완료합니다.
 
 ### <a name="set-up-azure-files"></a>Azure Files 설정
 
-이 단계에서는 Oracle Recovery Manager(RMAN)를 사용하여 Azure Files에 Oracle 데이터베이스를 백업합니다. Azure 파일 공유는 클라우드에 있는 완전 관리형 파일 공유입니다. SMB(서버 메시지 블록) 프로토콜 또는 NFS(네트워크 파일 시스템) 프로토콜을 사용하여 액세스할 수 있습니다. 이 단계에서는 SMB 프로토콜을 사용하여 VM에 탑재하는 파일 공유를 만드는 방법을 설명합니다. NFS를 사용하여 탑재하는 방법에 대한 자세한 내용은 [NFS 3.0 프로토콜을 사용하여 Blob 스토리지 탑재](../../../storage/blobs/network-file-system-protocol-support-how-to.md)를 참조하세요.
+이 단계에서는 Oracle Recovery Manager(RMAN)를 사용하여 Azure Files에 Oracle 데이터베이스를 백업합니다. Azure 파일 공유는 클라우드에 있는 완전 관리형 파일 공유입니다. SMB(서버 메시지 블록) 프로토콜 또는 NFS(네트워크 파일 시스템) 프로토콜을 사용하여 액세스할 수 있습니다. 이 단계에서는 SMB 프로토콜을 사용하여 VM에 탑재하는 파일 공유를 만드는 방법을 설명합니다. NFS를 사용하여 탑재하는 방법에 대한 자세한 내용은 [NFS 공유를 만드는 방법을 참조하세요.](../../../storage/files/storage-files-how-to-create-nfs-shares.md)
 
 Azure Files를 탑재하는 경우 `cache=none`을 사용하여 파일 공유 데이터의 캐싱을 사용하지 않도록 설정합니다. 또한 공유에 생성된 파일을 oracle 사용자가 소유하고 있는지 확인하기 위해 `uid=oracle` 및 `gid=oinstall` 옵션도 설정합니다. 
 

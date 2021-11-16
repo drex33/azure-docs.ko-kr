@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 10/15/2021
-ms.openlocfilehash: c73ee217fd802a839b565cd1174c94f8da288a0e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/12/2021
+ms.openlocfilehash: cea06c5731fd17b05987e2c070264588f5428345
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131026054"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491377"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,7 +38,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>유지 관리 기간을 사용하여 예측 가능성 향상
 
-기본적으로 Azure SQL 유지 관리 정책은 사용량이 많은 일반적인 업무 시간 동안 중단을 방지하기 위해 **매일 현지 시간으로 오전 8시부터 오후 5시까지의** 기간 동안 중대한 영향을 미치는 업데이트를 차단합니다. 현지 시간은 리소스를 호스트하는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)의 위치에 따라 결정되며 현지 표준 시간대 정의에 따라 일광 절약 시간을 준수할 수도 있습니다. 
+기본적으로 Azure SQL 유지 관리 정책은 일상적인 업무 시간 동안 중단을 방지 하기 위해 오전 8 시 기간 동안 거의 **모든 업데이트를 오후 5 시 현지 시간으로** 차단 합니다. 현지 시간은 리소스를 호스트하는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)의 위치에 따라 결정되며 현지 표준 시간대 정의에 따라 일광 절약 시간을 준수할 수도 있습니다. 
 
 두 개의 유지 관리 기간을 추가로 선택하여 Azure SQL 리소스에 적합한 시간으로 유지 관리 업데이트를 추가로 조정할 수 있습니다.
  
@@ -79,8 +79,8 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 | Azure 지역 | SQL Managed Instance | SQL Database | [Azure 가용성 영역](high-availability-sla.md) 에서 SQL Database | 
 |:---|:---|:---|:---|
-| 오스트레일리아 중부 1 | Yes | | |
-| 오스트레일리아 중부 2 | Yes | | |
+| 오스트레일리아 중부 1 | 예 | | |
+| 오스트레일리아 중부 2 | 예 | | |
 | 오스트레일리아 동부 | 예 | 예 | 예 |
 | 오스트레일리아 남동부 | 예 | 예 | |
 | 브라질 남부 | 예 | 예 |  |
@@ -100,7 +100,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 일본 동부 | 예 | 예 | 예 |
 | 일본 서부 | 예 | 예 | |
 | 한국 중부 | 예 | | |
-| 한국 남부 | Yes | | |
+| 한국 남부 | 예 | | |
 | 미국 중북부 | 예 | 예 | |
 | 북유럽 | 예 | 예 | 예 |
 | 남아프리카 북부 | 예 | | | 
@@ -109,14 +109,14 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 인도 남부 | 예 | 예 | |
 | 동남아시아 | 예 | 예 | 예 |
 | 스위스 북부 | 예 | 예 | |
-| 스위스 서부 | Yes | | |
-| 아랍에미리트 중부 | Yes | | |
+| 스위스 서부 | 예 | | |
+| 아랍에미리트 중부 | 예 | | |
 | 아랍에미리트 북부 | 예 | | |
 | 영국 남부 | 예 | 예 | 예 |
 | 영국 서부 | 예 | 예 | |
 | 미국 중서부 | 예 | 예 | |
 | 서유럽 | 예 | 예 | 예 |
-| 인도 서부 | Yes | | |
+| 인도 서부 | 예 | | |
 | 미국 서부 | 예 | 예 |  |
 | 미국 서부 2 | 예 | 예 | 예 |
 | | | | | 

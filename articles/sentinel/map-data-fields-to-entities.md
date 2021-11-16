@@ -1,28 +1,28 @@
 ---
-title: 데이터 필드를 Azure Sentinel 엔터티에 매핑 | Microsoft Docs
-description: 더 나은 인시던트 정보를 위해 분석 규칙에서 테이블의 데이터 필드를 Azure Sentinel 엔터티에 매핑
+title: Microsoft 센티널 엔터티에 데이터 필드 매핑 | Microsoft Docs
+description: 더 나은 인시던트 정보를 위해 테이블의 데이터 필드를 분석 규칙의 Microsoft 센티널 엔터티에 매핑
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0e380676a99a74b9a9849322e8a1e611c14db2c1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 48c08771fef5b18445d0a1b5268ea5ea2c535abf
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023066"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523432"
 ---
-# <a name="map-data-fields-to-entities-in-azure-sentinel"></a>데이터 필드를 Azure Sentinel 엔터티에 매핑 
+# <a name="map-data-fields-to-entities-in-microsoft-sentinel"></a>Microsoft 센티널의 엔터티에 데이터 필드 매핑 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "131023066"
 
 ## <a name="how-to-map-entities"></a>엔터티 매핑 방법
 
-1. Azure Sentinel 탐색 메뉴에서 **Analytics** 를 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **Analytics** 를 선택 합니다.
 
 1. 예약된 쿼리 규칙을 선택하고 **편집** 을 클릭합니다. 또는 화면 맨 위에서 **만들기 > 예약된 쿼리 규칙** 을 클릭하여 새 규칙을 만듭니다.
 
@@ -83,6 +83,6 @@ ms.locfileid: "131023066"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel 분석 규칙에서 데이터 필드를 엔터티에 매핑하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Microsoft 센티널 분석 규칙의 엔터티에 데이터 필드를 매핑하는 방법에 대해 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
-- [Azure Sentinel의 엔터티](entities-in-azure-sentinel.md)에 대해 자세히 알아봅니다.
+- [Microsoft 센티널의 엔터티에](entities-in-azure-sentinel.md)대해 자세히 알아보세요.

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: 97ecb049d4307bacf6c9a7b73d08e3d25e05f112
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 7ca51e5dfba89307be28d277e50715b04f829004
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821670"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028062"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -95,7 +95,9 @@ Virtual WAN은 VNet 간의 전송 연결을 허용합니다. VNet은 가상 네�
 * **없음** 상태는 가상 허브가 라우터를 프로비저닝하지 않았음을 나타냅니다. Virtual WAN이 *기본* 유형인 경우 또는 서비스를 사용할 수 있게 되기 전에 가상 허브가 배포된 경우에 이 상태가 될 수 있습니다.
 * **실패** 상태는 인스턴스화하는 중에 오류가 발생했음을 나타냅니다. 라우터를 인스턴스화하거나 다시 설정하려면 Azure Portal의 가상 허브 개요 페이지로 이동하여 **라우터 다시 설정** 옵션을 찾으면 됩니다.
 
-모든 가상 허브 라우터는 최대 50Gbps의 집계 처리량을 지원합니다. 가상 네트워크 연결 간의 연결은 단일 가상 Hub에 연결된 VNet에서 VM 워크로드가 총 2000개인 것으로 가정합니다.
+모든 가상 허브 라우터는 최대 50Gbps의 집계 처리량을 지원합니다. 
+
+가상 네트워크 연결 간의 연결은 기본적으로 단일 가상 Hub에 모든 연결된 VNet에서 최대 총 2,000개의 VM 워크로드를 가정합니다. 이 [제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)은 온라인 고객 지원 요청을 열어 늘릴 수 있습니다. 비용과 관련된 내용은 [Azure Virtual WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지에서 *라우팅 인프라 단위* 비용을 참조하세요. 
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>VPN과 ExpressRoute 간의 전송 연결
 

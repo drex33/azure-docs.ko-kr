@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 애플리케이션 관리의 새로운 기능
 description: Azure Active Directory 애플리케이션 관리에 대한 새로운 설명서 및 업데이트된 설명서입니다.
-ms.date: 10/05/2021
+ms.date: 11/04/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,33 @@ ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
 reviewer: napuri
-ms.openlocfilehash: 260473c428e7bdc2bfd968aa2ba5469e578c1005
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 1c000a30c22cf7a934ab6deec5dc6d6a11bfc5a8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533137"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842362"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 애플리케이션 관리: 새로운 기능
 
 Azure Active Directory 애플리케이션 관리 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. 애플리케이션 관리 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="october-2021"></a>2021년 10월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory에서 애플리케이션에 대한 동의를 관리하고 동의 요청을 평가합니다.](manage-consent-requests.md)
+- [Azure Active Directory의 애플리케이션 관리란?](what-is-application-management.md)
+- [Azure Active Directory를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
+- [Azure Active Directory의 Single Sign-On이란?](what-is-single-sign-on.md)
+- [엔터프라이즈 애플리케이션 소유자 할당](assign-app-owners.md)
+- [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
+- [보안 하이브리드 액세스: Azure Active Directory를 사용한 보안 레거시 앱](secure-hybrid-access.md)
+- [Azure Active Directory 애플리케이션 관리: 새로운 기능](whats-new-docs.md)
+- [자습서: OKTA 로그온 정책을 Azure Active Directory 조건부 액세스로 마이그레이션](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [자습서: OKTA 동기화 프로비저닝을 Azure AD Connect 기반 동기화로 마이그레이션](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md)
+
 
 ## <a name="september-2021"></a>2021년 9월
 

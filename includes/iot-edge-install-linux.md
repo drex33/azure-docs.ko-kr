@@ -5,54 +5,47 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 32adad7acee7c1dbb75516d4ccaa597f2c69b9fb
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: e4c78fe2037beb23f69700ae7a340a4d5c6cc160
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845087"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490570"
 ---
 ## <a name="install-iot-edge"></a>IoT Edge 설치
 
-이 섹션에서는 IoT Edge에 대 한 Linux VM 또는 물리적 장치를 준비 합니다. 그런 다음 IoT Edge를 설치 합니다.
+이 섹션에서는 IoT Edge 위해 Linux VM 또는 물리적 디바이스를 준비합니다. 그런 다음, IoT Edge 설치합니다.
 
-IoT Edge 런타임을 설치할 준비가 되기 전에 장치에서 두 단계를 완료 해야 합니다. 장치에서 Microsoft 설치 패키지에 액세스할 수 있어야 하 고 컨테이너 엔진이 설치 되어 있어야 합니다.
+IoT Edge 런타임을 설치할 준비가 되기 전에 디바이스에서 두 단계를 완료해야 합니다. 디바이스는 Microsoft 설치 패키지에 액세스해야 하며 컨테이너 엔진을 설치해야 합니다.
 
 ### <a name="access-the-microsoft-installation-packages"></a>Microsoft 설치 패키지 액세스
 
-1. 장치의 운영 체제와 일치 하는 리포지토리 구성을 설치 합니다.
+1. 디바이스의 운영 체제와 일치하는 리포지토리 구성 패키지를 다운로드합니다.
 
    * **Ubuntu Server 18.04**:
 
       ```bash
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
       ```
 
    * **Raspberry Pi OS Stretch**:
 
       ```bash
-      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+      curl https://packages.microsoft.com/config/debian/stretch/multiarch/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
       ```
 
-1. 생성된 목록을 sources.list.d 디렉터리에 복사합니다.
+1. 구성 패키지를 설치하여 Microsoft의 패키지 리포지토리 및 GPG 공개 키를 추가합니다.
 
    ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-1. Microsoft GPG 공개 키를 설치합니다.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   sudo apt install ./packages-microsoft-prod.deb
    ```
 
 > [!NOTE]
-> Azure IoT Edge 소프트웨어 패키지에는 각 패키지(`usr/share/doc/{package-name}` 또는 `LICENSE` 디렉터리)에 있는 사용 조건이 적용됩니다. 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치하고 사용하면 이러한 사용 조건에 동의하는 것입니다. 사용 조건에 동의 하지 않는 경우 해당 패키지를 사용 하지 마세요.
+> Azure IoT Edge 소프트웨어 패키지에는 각 패키지(`usr/share/doc/{package-name}` 또는 `LICENSE` 디렉터리)에 있는 사용 조건이 적용됩니다. 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치하고 사용하면 이러한 사용 조건에 동의하는 것입니다. 사용 조건에 동의하지 않는 경우 해당 패키지를 사용하지 마세요.
 
 ### <a name="install-a-container-engine"></a>컨테이너 엔진 설치
 
-Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 Moby 엔진을 사용 하는 것이 좋습니다. Moby 엔진은 IoT Edge에서 공식적으로 지원 되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
+Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 Moby 엔진을 사용하는 것이 좋습니다. Moby 엔진은 IoT Edge 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
 
 1. 디바이스에서 패키지 목록을 업데이트합니다.
 
@@ -67,7 +60,7 @@ Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로�
    ```
 
    > [!TIP]
-   > Moby 컨테이너 엔진을 설치할 때 오류가 발생 하는 경우에는 Linux 커널을 Moby 호환성을 확인 하세요. 일부 포함된 디바이스의 제조업체는 컨테이너 엔진 호환성에 필요한 기능이 없는 사용자 지정 Linux 커널을 포함하는 디바이스 이미지를 제공합니다. Moby에서 제공한 [check-config 스크립트](https://github.com/moby/moby/blob/master/contrib/check-config.sh)를 사용하는 다음 명령을 실행하여 커널 구성을 확인합니다.
+   > Moby 컨테이너 엔진을 설치할 때 오류가 발생하면 Moby 호환성을 위해 Linux 커널을 확인합니다. 일부 포함된 디바이스의 제조업체는 컨테이너 엔진 호환성에 필요한 기능이 없는 사용자 지정 Linux 커널을 포함하는 디바이스 이미지를 제공합니다. Moby에서 제공한 [check-config 스크립트](https://github.com/moby/moby/blob/master/contrib/check-config.sh)를 사용하는 다음 명령을 실행하여 커널 구성을 확인합니다.
    >
    >   ```bash
    >   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
@@ -75,7 +68,7 @@ Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로�
    >   ./check-config.sh
    >   ```
    >
-   > 스크립트의 출력에서 `Generally Necessary` 및 `Network Drivers` 아래의 모든 항목을 사용할 수 있는지 확인합니다. 누락 된 기능을 사용 하는 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 사용 하도록 설정 합니다. 마찬가지로 또는와 같은 커널 구성 생성기를 사용 하는 `defconfig` 경우 `menuconfig` 해당 기능을 찾아서 사용 하도록 설정 하 고 그에 따라 커널을 다시 빌드합니다. 새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 필요한 모든 기능이 성공적으로 설정 되었는지 확인 합니다.
+   > 스크립트의 출력에서 `Generally Necessary` 및 `Network Drivers` 아래의 모든 항목을 사용할 수 있는지 확인합니다. 기능이 누락된 경우 원본에서 커널을 다시 빌드하고 적절한 커널 .config 포함할 관련 모듈을 선택하여 사용하도록 설정합니다. 마찬가지로 또는 와 같은 커널 구성 생성기를 사용하는 경우 `defconfig` `menuconfig` 해당 기능을 찾아서 사용하도록 설정하고 그에 따라 커널을 다시 빌드합니다. 새로 수정된 커널을 배포한 후 check-config 스크립트를 다시 실행하여 필요한 모든 기능이 성공적으로 활성화되었는지 확인합니다.
 
 ### <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 

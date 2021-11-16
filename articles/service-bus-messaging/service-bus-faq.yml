@@ -3,14 +3,14 @@ metadata:
   title: Azure Service Bus FAQ | Microsoft Docs
   description: 이 문서에서는 Azure Service Bus에 대한 FAQ(질문과 대답)를 제공합니다.
   ms.topic: article
-  ms.service: service-bus
+  ms.service: service-bus-messaging
   ms.date: 01/20/2021
-  ms.openlocfilehash: e364e9719962263e52aa404d8656729b27c72406
-  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+  ms.openlocfilehash: 53c370c85ae0de819ac10a167d57a8bdbe5fef06
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/01/2021
-  ms.locfileid: "129359428"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132061854"
 title: Azure Service Bus - FAQ(질문과 대답)
 summary: >
   이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문에 대해 설명합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)에서 확인할 수 있습니다.
@@ -76,7 +76,7 @@ sections:
   - question: >
       1MB를 초과하는 메시지 크기를 처리하는 방법
     answer: >
-      Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리케이션이 최대 256KB(표준 계층) 또는 1MB(프리미엄 계층) 크기의 메시지를 보낼 수 있습니다. 1MB보다 큰 크기의 메시지를 처리하는 경우 [이 블로그 게시물](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)에 설명된 클레임 검사 패턴을 사용합니다.
+      Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리케이션에서 최대 256KB(표준 계층) 또는 100MB(프리미엄 계층) 크기의 메시지를 보낼 수 있습니다. 허용된 크기보다 큰 메시지를 처리하는 경우 [이 블로그 게시물](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)에서 설명하는 클레임 검사 패턴을 사용합니다.
 - name: 문제 해결
   questions:
   - question: "네임스페이스를 다른 구독에서 삭제한 후 만들 수 없는 이유는 무엇인가요? \n"

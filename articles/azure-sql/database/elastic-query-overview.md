@@ -10,13 +10,13 @@ ms.topic: overview
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
-ms.date: 12/05/2019
-ms.openlocfilehash: 21e6fec69b1ac02d1ffb37b0aa0f20f54d3c1a05
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/09/2021
+ms.openlocfilehash: fa127df408ce8da080e6e0543f92fbdb001b4547
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727106"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136902"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,9 +29,9 @@ ms.locfileid: "121727106"
 
 완전히 T-SQL로 Azure SQL Database의 데이터베이스에서 쿼리합니다. 이 기능은 원격 데이터베이스에 대한 읽기 전용 쿼리를 허용하고 현재 SQL Server 고객에게 3부분 및 4부분 이름이나 SQL DB 연결 서버를 사용하여 애플리케이션을 마이그레이션하는 옵션을 제공합니다.
 
-### <a name="available-on-standard-tier"></a>표준 계층에서 사용가능
+### <a name="available-on-all-service-tiers"></a>모든 서비스 계층에서 사용 가능
 
-탄력적 쿼리는 Standard 및 Premium 서비스 계층 모두에서 지원됩니다. 낮은 서비스 계층에 대한 성능 제한 사항은 아래의 '미리 보기 제한 사항' 섹션을 참조하세요.
+탄력적 쿼리는 Azure SQL Database의 모든 서비스 계층에서 지원됩니다. 낮은 서비스 계층에 대한 성능 제한 사항은 아래의 '미리 보기 제한 사항' 섹션을 참조하세요.
 
 ### <a name="push-parameters-to-remote-databases"></a>원격 데이터베이스에 매개 변수 푸시하기
 
@@ -139,7 +139,7 @@ DDL 문을 실행한 후에는 원격 테이블인 "mytable"에 로컬 테이블
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 표준 서비스 계층에서 처음으로 탄력적 쿼리를 실행하면 몇 분 정도 걸릴 수 있습니다. 이 시간은 탄력적 쿼리 기능을 로드하는 데 필요하며, 더 높은 서비스 계층 및 컴퓨팅 크기로 인해 로드 성능이 향상됩니다.
+* 더 작은 리소스와 표준 및 범용 서비스 계층에서 첫 번째 탄력적 쿼리를 실행하는 데 최대 몇 분이 걸릴 수 있습니다. 이 시간은 탄력적 쿼리 기능을 로드하는 데 필요하며, 더 높은 서비스 계층 및 컴퓨팅 크기로 인해 로드 성능이 향상됩니다.
 * 외부 데이터 원본이나, SSMS 또는 SSDT에서의 외부 테이블 스크립팅은 아직 지원되지 않습니다.
 * SQL Database에 대한 Import/Export는 외부 데이터 원본 및 외부 테이블을 아직 지원하지 않습니다. Import/Export를 사용해야 하는 경우 내보내기 전에 이러한 개체를 삭제하고 가져온 후 다시 만듭니다.
 * 탄력적 쿼리는 현재 외부 테이블에 대한 읽기 전용 액세스만 지원합니다. 그러나 외부 테이블이 정의된 데이터베이스에서 전체 T-SQL 기능을 사용할 수 있습니다. 예를 들어, SELECT <column_list> INTO <local_table>을 사용하여 나온 일시적 결과를 유지하거나 외부 테이블을 참조하는 탄력적 쿼리 데이터베이스의 저장 프로시저를 정의하는 데 이 기능이 유용합니다.

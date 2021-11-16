@@ -3,19 +3,19 @@ title: 콜 센터 전사 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 음성 텍스트 변환의 일반적인 시나리오는 IVR(대화형 음성 응답)과 같은 다양한 시스템에서 발생한 대량의 전화 통신 데이터를 전사하는 것입니다. Speech Service 및 통합 음성 모델을 사용하여 기업은 오디오 캡처 시스템에서 높은 품질의 전사를 얻을 수 있습니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: pafarley
-ms.openlocfilehash: f889e2a28f41f3936a2a59ac69a6237f8838b90f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.author: eur
+ms.openlocfilehash: 0944e5da8bde152a2c8e9fd67e5641d419b0b1fd
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434544"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493967"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터용 Speech Service
 
@@ -130,7 +130,7 @@ Speech Service는 [Speech SDK](speech-sdk.md) 또는 [REST API](./overview.md#re
 
 ## <a name="sample-code"></a>샘플 코드
 
-샘플 코드는 각 Speech Service 기능에 대한 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다. 다음 링크를 사용하여 SDK 및 REST 샘플을 확인하세요.
+샘플 코드는 각 Speech Service 기능에 대한 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일이 나 스트림에서 오디오를 읽고, 연속 및 시작 시 인식 하 고, 사용자 지정 모델을 사용 하는 것과 같은 일반적인 시나리오를 다룹니다. 다음 링크를 사용하여 SDK 및 REST 샘플을 확인하세요.
 
 - [음성 텍스트 변환 및 음성 번역 샘플(SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)

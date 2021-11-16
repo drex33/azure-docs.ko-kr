@@ -1,26 +1,24 @@
 ---
-title: Azure App Service Environment에 대한 가용성 영역 지원
+title: App Service Environment v2에 대한 가용성 영역 지원
 description: 앱이 영역 중복되도록 App Service Environment를 배포하는 방법을 알아봅니다.
-author: ccompy
-ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
+author: madsd
 ms.topic: article
-ms.date: 07/05/2021
-ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 551146d18fa17aac365d62dbd1f8cbaa2d23a389
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.date: 11/15/2021
+ms.author: madsd
+ms.openlocfilehash: 5c60b2496acb03f52da066e56feab1423ac6ae91
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132284763"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520943"
 ---
-# <a name="availability-zone-support-for-app-service-environments"></a>Azure App Service Environment에 대한 가용성 영역 지원
+# <a name="availability-zone-support-for-app-service-environment-v2"></a>App Service Environment v2에 대한 가용성 영역 지원
 
 > [!NOTE]
 > 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
 > 
 
-ASE(App Service Environment)는 AZ(가용성 영역)에 배포할 수 있습니다.  고객은 ILB(내부 부하 분산 장치) ASE를 Azure 지역 내 특정 AZ에 배포할 수 있습니다. ILB ASE를 특정 AZ에 고정하는 경우 ILB ASE에서 사용하는 리소스는 지정된 AZ에 고정되거나 영역 중복 방식으로 배포됩니다.  
+ASE(App Service Environment v2)는 AZ(가용성 영역)에 배포할 수 있습니다.  고객은 ILB(내부 부하 분산 장치) ASE를 Azure 지역 내 특정 AZ에 배포할 수 있습니다. ILB ASE를 특정 AZ에 고정하는 경우 ILB ASE에서 사용하는 리소스는 지정된 AZ에 고정되거나 영역 중복 방식으로 배포됩니다.  
 
 ILB ASE는 특정 영역에 고정되므로 AZ에 명시적으로 배포된 ILB ASE는 영역 리소스로 간주합니다. 다음 ILB ASE 종속성은 지정된 영역에 고정됩니다.
 

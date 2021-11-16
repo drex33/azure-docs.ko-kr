@@ -4,7 +4,7 @@ description: Azure Monitor의 Azure Active Directory 활동 로그 소개
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -17,19 +17,19 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d66bd74263bd23c02cf465b1483ffe610179ee
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b1db2a820ab551130fbd9bba832c329b925a0f6a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657921"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997118"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
 장기 보존 및 데이터 인사이트를 위해 Azure AD(Azure Active Directory) 활동 로그를 여러 엔드포인트에 라우팅할 수 있습니다. 이 기능을 사용하여 다음을 할 수 있습니다.
 
-* 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
-* Splunk, QRadar, Azure Sentinel 같은 인기 있는 보안 정보 및 이벤트 관리(SIEM) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
+* 데이터를 장기간 보존하기 위해 Azure Storage 계정에 Azure AD 활동 로그를 보관합니다.
+* Splunk, QRadar, Azure Sentinel 같은 인기 있는 보안 정보 및 이벤트 관리(SIEM) 도구를 사용하여 Azure AD 활동 로그를 Azure Event Hub로 스트리밍하여 분석합니다.
 * Azure AD 활동 로그를 이벤트 허브로 스트리밍하여 고유한 사용자 지정 로그 솔루션과 통합합니다.
 * Azure AD 활동 로그를 Azure Monitor 로그에 보내 연결된 데이터에 대한 다양한 시각화, 모니터링 및 경고를 사용합니다.
 

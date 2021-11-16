@@ -1,23 +1,32 @@
 ---
 title: Azure Monitor Application Insights를 사용하여 모바일 앱 모니터링
 description: Azure Monitor Application Insights 및 App Center를 사용하여 모니터링하도록 모바일 앱을 빠르게 설정하는 지침을 제공합니다.
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ddc8a10d3f68642a9fa17c02b937a536c150e3b7
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 2a5b33de0095cfe4def9bf766a4838b2869820e2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131717"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327446"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
-이 빠른 시작은 Application Insights에 앱의 App Center 인스턴스를 연결하는 과정을 안내합니다. Application Insights를 사용하여, App Center의 [Analytics](/mobile-center/analytics/) 서비스를 통해 제공되는 것보다 더 강력한 도구로 원격 분석을 쿼리하고 분할하며 필터링하고 분석할 수 있습니다.
+이 자습서에서는 앱의 App Center 인스턴스를 Application Insights에 연결하는 과정을 안내합니다. Application Insights를 사용하여, App Center의 [Analytics](/mobile-center/analytics/) 서비스를 통해 제공되는 것보다 더 강력한 도구로 원격 분석을 쿼리하고 분할하며 필터링하고 분석할 수 있습니다.
+
+
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+
+> [!div class="checklist"]
+> * 앱의 App Center 인스턴스를 Application Insights에 연결
+> * 사용자 지정 원격 분석을 Application Insights에 보내도록 앱 수정
+> * Log Analytics에서 사용자 지정 원격 분석 쿼리
+> * 앱에서 변환, 보존 및 탐색 패턴 분석
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
 - Azure 구독
 - iOS, Android, Xamarin, Universal Windows 또는 React Native 앱.
@@ -71,7 +80,7 @@ Analytics.trackEvent("Video clicked")
 
     구성 상자가 표시됩니다. 아래 표를 사용하여 입력 필드를 채웁니다.
 
-    | 설정        |  값           | Description  |
+    | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **이름**      | "myApp-iOS" 등의 일부 전역적으로 고유 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
      | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |

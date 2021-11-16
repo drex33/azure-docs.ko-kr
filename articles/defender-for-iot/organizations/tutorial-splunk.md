@@ -1,21 +1,21 @@
 ---
-title: Azure Defender for IoT와 Splunk 통합
-description: 이 자습서에서는 Splunk를 Azure Defender for IoT와 통합하는 방법을 알아봅니다.
+title: Microsoft Defender for IoT와 Splunk 통합
+description: 이 자습서에서는 Splunk를 Microsoft Defender for IoT와 통합하는 방법을 알아봅니다.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 2484de315508310729882e46b5e22669d01ec9f8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e4b0f321741d6f07f2ac636d57de31bf02503877
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124814709"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283584"
 ---
-# <a name="tutorial-integrate-splunk-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 Splunk 통합
+# <a name="tutorial-integrate-splunk-with-microsoft-defender-for-iot"></a>자습서: Microsoft Defender for IoT와 Splunk 통합
 
-이 자습서를 사용하면 Splunk를 Azure Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
+이 자습서를 사용하면 Splunk를 Microsoft Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
 
 Defender for IoT는 에이전트, 규칙 또는 서명, 전문 기술 또는 환경에 대한 사전 지식 없이 1시간 이내에 ICS 디바이스, 취약성 및 위협에 대한 즉각적인 통찰력을 제공하는 특허 받은 ICS 인식 자체 학습 엔진을 통해 IIoT, ICS 및 SCADA 위험을 완화합니다.
 
@@ -26,7 +26,7 @@ OT 네트워크의 보안 및 복원력에 대한 가시성 부족을 해결하�
 Splunk 애플리케이션을 로컬로 설치하거나 클라우드에서 실행할 수 있습니다. Defender for IoT와 Splunk 통합은 두 배포를 모두 지원합니다.
 
 > [!Note]
-> CyberX에 대한 참조는 Azure Defender for IoT를 확인하세요.
+> CyberX에 대한 참조는 Microsoft Defender for IoT를 확인하세요.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -131,7 +131,7 @@ Defender for IoT에서 Splunk 서버로 경고 정보를 보내려면 전달 규
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Splunk 통합을 시작하는 방법을 알아보았습니다. [Azure Defender for IoT와 ServiceNow를 통합](tutorial-servicenow.md)하는 방법을 계속 알아봅니다.
+이 자습서에서는 Splunk 통합을 시작하는 방법을 알아보았습니다. [Microsoft Defender for IoT와 ServiceNow를 통합](tutorial-servicenow.md)하는 방법을 계속 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Defender for IoT와 ServiceNow 통합](tutorial-servicenow.md)
+> [Microsoft Defender for IoT와 ServiceNow 통합](tutorial-servicenow.md)

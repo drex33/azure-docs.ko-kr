@@ -2,13 +2,13 @@
 title: 보안 권장 사항 조사
 description: Defender for IoT 보안 서비스를 통해 보안 권장 사항을 조사합니다.
 ms.topic: quickstart
-ms.date: 05/26/2021
-ms.openlocfilehash: 29da5747afb36eea9e30d7179d06d69e60556e32
-ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
+ms.date: 11/09/2021
+ms.openlocfilehash: 7f4dab5ed0590d0e2658145f17d657beb5af1177
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129062067"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306133"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>빠른 시작: 보안 권장 사항 조사
 
@@ -38,11 +38,11 @@ IoT Hub 권장 사항 목록에는 IoT Hub에 대해 집계된 모든 보안 권
 
 1. 권장 사항 세부 정보를 검토한 후 **수동 수정 단계** 지침을 사용하여 권장 사항을 발생시킨 문제를 수정 및 해결합니다.
 
-    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="IoT용 ASC로 보안 권장 사항 수정" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
+    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Defender for IoT를 통해 보안 권장 사항 수정" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
 
 1. 드릴다운 페이지에서 원하는 디바이스를 선택하여 특정 디바이스에 대한 권장 사항 세부 정보를 살펴봅니다.
 
-    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="IoT용 ASC를 사용하여 디바이스에 대한 특정 보안 권장 사항 조사" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Defender for IoT를 통해 디바이스에 대한 특정 보안 권장 사항 조사" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
 1. 추가 조사가 필요한 경우 링크를 사용하여 **Log Analytics의 권장 사항을 조사** 합니다. 
 

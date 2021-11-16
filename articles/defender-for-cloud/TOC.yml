@@ -6,6 +6,7 @@
     - name: 클라우드용 Microsoft Defender란?
       href: defender-for-cloud-introduction.md
     - name: 향상된 보안 기능이란?
+      displayName: azure defender
       href: enhanced-security-features-overview.md
     - name: 새로운 기능
       displayName: 'changelog, news, release notes'
@@ -96,7 +97,7 @@
     - name: 보안 점수 액세스 및 추적
       href: secure-score-access-and-track.md
     - name: 데이터 민감도에 따라 보안 작업 우선 순위 지정
-      displayName: 'sensitivity, data, purview, inventory'
+      displayName: 'sensitivity, data, purview, inventory, information protection'
       href: information-protection.md
     - name: 자산 인벤토리로 리소스 관리
       href: asset-inventory.md
@@ -220,9 +221,6 @@
         - name: CI/CD 워크플로에서 이미지 스캔
           displayName: 'ACR, registry, images, trevi, vulnerabilities, scanner'
           href: defender-for-container-registries-cicd.md
-        - name: 특정 이미지 취약점 발견 사용 안 함
-          displayName: 'ACR, registry, images, qualys'
-          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
         - name: Azure Arc 지원 Kubernetes 클러스터 보호
           displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
           href: defender-for-kubernetes-azure-arc.md
@@ -263,6 +261,7 @@
     - name: 보안 솔루션 통합 및 데이터 원본
       href: partner-integration.md
     - name: 네트워크 리소스 사용
+      displayName: 'map, network map'
       href: protect-network-resources.md
     - name: MFA 적용 및 관리
       displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
@@ -320,7 +319,7 @@
     - name: REST API 설명서
       href: /rest/api/securitycenter/
     - name: 보안 기준
-      href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
+      href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
     - name: 클라우드용 Microsoft Defender에 대한 FAQ
       items:
         - name: 일반적인 질문

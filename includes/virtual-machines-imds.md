@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: f61c01c05412ea79aa955c599bd4dacd1eea7297
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c2d566e1ded80ed0d0d7ef33fb7218f77b39fe21
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131571456"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132529485"
 ---
 IMDS(Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대한 정보를 제공합니다. 이를 사용하여 가상 머신을 관리하고 구성할 수 있습니다.
 이 정보에는 SKU, 스토리지, 네트워크 구성 및 예정된 유지 관리 이벤트가 포함됩니다. 사용 가능한 데이터의 전체 목록은 [엔드포인트 범주 요약](#endpoint-categories)을 참조하세요.
@@ -651,7 +651,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -769,7 +769,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -1028,7 +1028,7 @@ Azure Resource Manager를 사용하여 만든 VM의 경우 문서에는 문서 �
 | `timestamp.expiresOn` | 서명된 문서가 만료되는 시점의 UTC 타임스탬프입니다. | 2018-10-01
 | `vmId` | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2018-10-01
 | `subscriptionId` | Virtual Machine에 대한 Azure 구독 | 2019-04-30
-| `sku` | VM 이미지에 대 한 특정 SKU ( `compute/sku` 인스턴스 메타 데이터 끝점의 속성과 상관 관계 \[ `/metadata/instance` \] ) | 2019-11-01
+| `sku` | VM 이미지에 대한 특정 SKU(인스턴스 `compute/sku` 메타데이터 엔드포인트의 속성과 상관 \[ `/metadata/instance` \] 관계) | 2019-11-01
 
 > [!NOTE]
 > 클래식(비 Azure Resource Manager) VM의 경우 vmId만 채워집니다.

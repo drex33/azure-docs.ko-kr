@@ -1,18 +1,18 @@
 ---
 title: Azure Portal을 사용하여 파일 업로드 구성 | Microsoft Docs
 description: Azure Portal을 사용하여 연결된 디바이스에서 파일 로드를 사용하도록 IoT Hub를 구성하는 방법입니다. 대상 Azure Storage 계정 구성에 대한 정보가 포함됩니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.author: robinsh
-ms.openlocfilehash: 64d0c6120b5e74b1693f4d7965bb780c62583b53
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.author: lizross
+ms.openlocfilehash: 5871ffdc16fe7c3e66c6915c72198250823d817e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131015272"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555284"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 파일 업로드 구성
 

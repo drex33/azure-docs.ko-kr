@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/27/2020
+ms.date: 11/15/2021
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: c19646a554a9c12315a23cfa272625629c844e37
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 3474b44f7661fd60a3885ee237f926f13dbfa361
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127158"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549812"
 ---
 # <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>DMV를 사용하여 Azure Synapse Analytics 전용 SQL 풀 워크로드 모니터링
 
@@ -220,7 +220,7 @@ ORDER BY sr.request_id;
 
 많은 양의 메모리를 사용하는 쿼리가 있거나 tempdb 할당과 관련된 오류 메시지를 받은 경우 최종 데이터 이동 작업에서 실패한 실행 중인 매우 큰 [CREATE TABLE AS SELECT(CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문 때문일 수 있습니다. 이는 일반적으로 분산 쿼리 계획에서 최종 INSERT SELECT 바로 전에 ShuffleMove 작업으로 식별될 수 있습니다.  [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 ShuffleMove 작업을 모니터링합니다.
 
-가장 일반적인 완화 방법은 데이터 볼륨이 노드당 1TB tempdb 제한을 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 로드 문으로 나누는 것입니다. 또한 클러스터의 크기를 더 크게 조정하여 더 많은 노드 간에 tempdb 크기를 분산함으로써 각 개별 노드에서 tempdb를 줄일 수 있습니다.
+가장 일반적인 완화 방법은 데이터 볼륨이 노드별 tempdb 제한(DW500c 이상일 때)을 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 로드 문으로 분리하는 것입니다. 또한 클러스터의 크기를 더 크게 조정하여 더 많은 노드 간에 tempdb 크기를 분산함으로써 각 개별 노드에서 tempdb를 줄일 수 있습니다.
 
 CTAS 및 INSERT SELECT 문 외에도 메모리 부족 상태에서 실행되는 복잡한 쿼리는 tempdb로 분할되어 쿼리가 실패할 수 있습니다.  tempdb로 넘치지 않도록 더 큰 [리소스 클래스](resource-classes-for-workload-management.md)를 사용하여 실행하는 것이 좋습니다.
 

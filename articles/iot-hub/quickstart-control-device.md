@@ -1,8 +1,8 @@
 ---
 title: 빠른 시작 - Azure IoT Hub에서 디바이스 제어 | Microsoft Docs
 description: 이 빠른 시작에서 두 개의 샘플 애플리케이션을 실행합니다. 그 중 한 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 서비스 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 디바이스를 시뮬레이션 합니다.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 07/26/2021
 zone_pivot_groups: iot-hub-set1
-ms.openlocfilehash: b89e13a6cf1a9dd6b30a9acc489969bb388ab3d1
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: cae4b2c1b23acc56468d3c7ebe30cf8316842003
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860949"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550252"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub"></a>빠른 시작: IoT 허브에 연결된 디바이스 제어
 

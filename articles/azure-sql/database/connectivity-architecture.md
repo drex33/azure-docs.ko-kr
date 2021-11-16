@@ -12,20 +12,22 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: mathoma, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 3b009686bf113c233e04dc238429d16980427c26
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ed77571e076dad04fc2110f688c80d4418fb840d
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607390"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554145"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database 및 Azure Synapse Analytics 연결 아키텍처
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 이 문서에서는 Azure SQL Database나 Azure Synapse Analytics의 서버로 네트워크 트래픽을 전달하는 다양한 구성 요소의 아키텍처를 설명합니다. 또한 다양한 연결 정책과 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트에 미치는 영향에 관해서도 설명합니다.
 
-> [!IMPORTANT]
-> 이 문서는 **Azure SQL Managed Instance** 에 적용되지 *않습니다*. [관리되는 인스턴스의 연결 아키텍처](../managed-instance/connectivity-architecture-overview.md)를 참조하세요.
+이 문서는 **Azure SQL Managed Instance** 에 적용되지 *않습니다*. [관리되는 인스턴스의 연결 아키텍처](../managed-instance/connectivity-architecture-overview.md)를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 

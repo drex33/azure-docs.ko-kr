@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 07481838f5fca77d7e634003e04169a95d944117
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 702a4b624041a20c925bfc65d92542788f381800
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452075"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551315"
 ---
 # <a name="azure-image-builder-overview"></a>Azure 이미지 작성기 개요
 
@@ -114,12 +114,12 @@ Azure Image Builder를 사용하여 이미지를 만들고, 빌드하고, 저장
 
 이미지 생성 프로세스 동안 파일이 다운로드되어 `IT_<DestinationResourceGroup>_<TemplateName>` 리소스 그룹에 저장되므로 스토리지 비용이 약간 발생합니다. 이러한 상황을 유지하지 않으려면 이미지를 빌드한 후 **이미지 템플릿** 을 삭제합니다.
  
-Image Builder는 VM에 필요한 D1v2 VM 크기, 스토리지 및 네트워킹을 사용하여 VM을 만듭니다. 이러한 리소스는 빌드 프로세스가 지속되는 동안 유지되며, Image Builder에서 이미지 만들기를 완료하면 삭제됩니다. 
+이미지 작성기는 vm에 필요한 네트워킹 및 저장소와 함께 Gen1 이미지에 대 한 기본 D1v2 VM 크기와 Gen2 이미지용 D2ds V4를 사용 하 여 VM을 만듭니다. 이러한 리소스는 빌드 프로세스 기간 동안 지속 되며, 이미지 작성기에서 이미지 만들기를 완료 하면 삭제 됩니다. 
  
 Azure Image Builder에서는 선택한 지역에 이미지를 배포하므로 네트워크 송신 요금이 발생할 수 있습니다.
 
 ## <a name="hyper-v-generation"></a>Hyper-V 세대
-현재 이미지 작성기는 기본적으로 Azure Compute 갤러리에서 Hyper-v 생성 (Gen1) 1 이미지만 만들도록 지원 합니다. 
+이미지 작성기는 현재 Azure Compute 갤러리에서 Hyper-v Gen1 및 Gen2 이미지 만들기를 지원 합니다. 
  
 ## <a name="next-steps"></a>다음 단계 
  

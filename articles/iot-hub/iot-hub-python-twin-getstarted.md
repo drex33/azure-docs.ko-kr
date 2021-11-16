@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub 디바이스 쌍 시작(Python) | Microsoft Docs
 description: Azure IoT Hub 디바이스 쌍을 사용하여 태그를 추가한 다음, IoT Hub 쿼리를 사용하는 방법입니다. Python용 Azure IoT SDK를 사용하여 시뮬레이션된 디바이스 앱 및 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 85a8b539d40aac11d0ce39ba4329b7466f48c009
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 3d014e49e7d3c00ac0d2cda0b27c3102b592d58a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835467"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551690"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 

@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 고가용성 및 재해 복구 | Microsoft Docs
 description: 재해 복구 기능을 사용하여 고가용성 Azure IoT 솔루션을 빌드할 수 있도록 지원하는 Azure and IoT Hub 기능을 설명합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.author: robinsh
-ms.openlocfilehash: 6b7fea611eeb3701bc624be8354b4639966dfaa6
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.author: lizross
+ms.openlocfilehash: 84342a3cc325efbaee5a11167392586cea9c3734
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567441"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552606"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 

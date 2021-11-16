@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub MQTT 지원 이해 | Microsoft Docs
 description: MQTT 프로토콜을 사용하여 IoT Hub 디바이스 지향 엔드포인트에 연결하는 디바이스를 지원합니다. Azure IoT 디바이스 SDK의 기본 제공 MQTT 지원에 대한 정보를 포함합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - amqp
 - mqtt
@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: f2ffc64f5c2f1bde9d770fe896fd1577fc0328aa
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: f7f529f678b8828087fc59fcc1cecd210ce64a9f
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707963"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551561"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -357,7 +357,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{dev
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -388,7 +388,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |

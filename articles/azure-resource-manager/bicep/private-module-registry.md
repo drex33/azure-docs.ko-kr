@@ -3,16 +3,16 @@ title: Bicep 모듈에 대한 프라이빗 레지스트리 만들기
 description: 프라이빗 Bicep 모듈에 대한 Azure 컨테이너 레지스트리를 설정하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: f09b4d65c43cbd0f73543322488e56985a16aa9e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b667a80a155355ea206c4804d6eb98200491e3f8
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470322"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551371"
 ---
 # <a name="create-private-registry-for-bicep-modules-preview"></a>Bicep 모듈용 프라이빗 레지스트리 만들기(미리 보기)
 
-조직 내에서 [모듈을](modules.md) 공유하려면 프라이빗 모듈 레지스트리를 만들 수 있습니다. 해당 레지스트리에 모듈을 게시하고 모듈을 배포해야 하는 사용자에게 읽기 권한을 부여합니다. 레지스트리에서 모듈을 공유한 후에는 Bicep 파일에서 모듈을 참조할 수 있습니다.
+조직 내에서 [모듈을](modules.md) 공유하려면 프라이빗 모듈 레지스트리를 만들 수 있습니다. 해당 레지스트리에 모듈을 게시하고 모듈을 배포해야 하는 사용자에게 읽기 권한을 부여합니다. 레지스트리에서 모듈을 공유한 후 Bicep 파일에서 참조할 수 있습니다.
 
 모듈 레지스트리를 사용하려면 Bicep CLI 버전 **0.4.1008 이상이어야** 합니다.
 
@@ -40,9 +40,9 @@ Bicep 레지스트리는 [ACR(Azure Container Registry)에서](../../container-r
 
    로그인 서버 이름의 형식은 `<registry-name>.azurecr.io` 입니다.
 
-- 레지스트리에 모듈을 게시하려면 이미지를 **푸시할** 수 있는 권한이 있어야 합니다. 레지스트리에서 모듈을 배포하려면 이미지를 **끌어올** 수 있는 권한이 있어야 합니다. 적절한 액세스 권한을 부여하는 역할에 대한 자세한 내용은 [Azure Container Registry 역할 및 사용 권한을 참조하세요.](../../container-registry/container-registry-roles.md)
+- 레지스트리에 모듈을 게시하려면 이미지를 **푸시할** 수 있는 권한이 있어야 합니다. 레지스트리에서 모듈을 배포하려면 이미지를 **끌어올** 수 있는 권한이 있어야 합니다. 적절한 액세스 권한을 부여하는 역할에 대한 자세한 내용은 [역할 및 권한 Azure Container Registry 참조하세요.](../../container-registry/container-registry-roles.md)
 
-- 모듈을 배포하는 데 사용하는 계정 유형에 따라 사용되는 자격 증명을 사용자 지정해야 할 수 있습니다. 이러한 자격 증명은 레지스트리에서 모듈을 얻는 데 필요합니다. 기본적으로 자격 증명은 Azure CLI 또는 Azure PowerShell 얻습니다. **bicepconfig.json** 파일에서 자격 증명을 얻기 위한 우선 순위를 사용자 지정할 수 있습니다. 자세한 내용은 [모듈 복원을 위한 자격 증명을 참조하세요.](bicep-config.md#credentials-for-restoring-modules)
+- 모듈을 배포하는 데 사용하는 계정 유형에 따라 사용되는 자격 증명을 사용자 지정해야 할 수 있습니다. 이러한 자격 증명은 레지스트리에서 모듈을 얻는 데 필요합니다. 기본적으로 자격 증명은 Azure CLI 또는 Azure PowerShell 얻습니다. **bicepconfig.json** 파일에서 자격 증명을 얻기 위한 우선 순위를 사용자 지정할 수 있습니다. 자세한 내용은 [모듈 복원을 위한 자격 증명을 참조하세요.](bicep-config-modules.md#credentials-for-restoring-modules)
 
 - 보안을 강화하려면 프라이빗 엔드포인트를 통해 액세스해야 할 수 있습니다. 자세한 내용은 [Azure Private Link 사용하여 Azure 컨테이너 레지스트리에 비공개로 커넥트](../../container-registry/container-registry-private-link.md)참조하세요.
 
@@ -73,5 +73,5 @@ az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modu
 ## <a name="next-steps"></a>다음 단계
 
 * 모듈에 대한 자세한 내용은 [Bicep 모듈을 참조하세요.](modules.md)
-* 모듈 레지스트리에 대한 별칭을 구성하려면 [Bicep 구성 파일 에서 사용자 지정 설정 추가를](bicep-config.md)참조하세요.
+* 모듈 레지스트리에 대한 별칭을 구성하려면 [Bicep 구성 파일 에서 모듈 설정 추가를](bicep-config-modules.md)참조하세요.
 * 모듈 게시 및 복원에 대한 자세한 내용은 [Bicep CLI 명령 를 참조하세요.](bicep-cli.md)

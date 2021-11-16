@@ -3,12 +3,12 @@ title: Bicep Linter 사용
 description: Bicep Linter의 사용 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: 45d077245e2efb677348d3355ff10d8ff3668b2f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5edf5fbb9553233455e7b24dd482a18d3c7e1c42
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161631"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548105"
 ---
 # <a name="use-bicep-linter"></a>Bicep Linter 사용
 
@@ -30,7 +30,7 @@ Linter 규칙의 기본 집합은 최소 이며 [arm-ttk 테스트 사례](../te
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 
-Linter 규칙이 적용 되는 방식을 사용자 지정할 수 있습니다. 기본 설정을 덮어쓰려면 **bicepconfig** 파일을 추가 하 고 사용자 지정 설정을 적용 합니다. 이러한 설정을 적용 하는 방법에 대 한 자세한 내용은 [Bicep 구성 파일에서 사용자 지정 설정 추가](bicep-config.md)를 참조 하세요.
+Linter 규칙이 적용 되는 방식을 사용자 지정할 수 있습니다. 기본 설정을 덮어쓰려면 **bicepconfig** 파일을 추가 하 고 사용자 지정 설정을 적용 합니다. 이러한 설정을 적용 하는 방법에 대 한 자세한 내용은 [Bicep 구성 파일에서 사용자 지정 설정 추가](bicep-config-linter.md)를 참조 하세요.
 
 ## <a name="use-in-visual-studio-code"></a>Visual Studio Code 사용
 
@@ -60,5 +60,5 @@ Linter 규칙이 적용 되는 방식을 사용자 지정할 수 있습니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-* Linter 규칙을 사용자 지정 하는 방법에 대 한 자세한 내용은 [Bicep 구성 파일에서 사용자 지정 설정 추가](bicep-config.md)를 참조 하세요.
+* Linter 규칙을 사용자 지정 하는 방법에 대 한 자세한 내용은 [Bicep 구성 파일에서 사용자 지정 설정 추가](bicep-config-linter.md)를 참조 하세요.
 * Visual Studio Code 및 Bicep 확장 사용에 대한 자세한 내용은 [빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기](./quickstart-create-bicep-use-visual-studio-code.md)를 참조하세요.

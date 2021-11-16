@@ -1,22 +1,22 @@
 ---
 title: 자습서 - Microsoft 스크립트를 사용하여 Azure IoT Hub에 대한 x.509 테스트 인증서 만들기 | Microsoft Docs
 description: 자습서 - 사용자 지정 스크립트를 사용하여 Azure IoT Hub에 대한 CA 및 디바이스 인증서 만들기
-author: v-gpettibone
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 06/26/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 1d3a024fd46fae80c45e2478e60d6e3eddd92725
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 65d511cabda3595828db9926603b6eb20efd2e83
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747234"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549948"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>자습서: Microsoft에서 제공하는 스크립트를 사용하여 테스트 인증서 만들기
 

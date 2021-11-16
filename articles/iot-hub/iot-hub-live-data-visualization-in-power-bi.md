@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub에서 데이터의 실시간 데이터 시각화 – Power BI
 description: Power BI를 사용하여 센서에서 수집하여 Azure IoT Hub로 보낸 온도 및 습도 데이터를 시각화합니다.
-author: robinsh
+author: eross-msft
 keywords: 실시간 데이터 시각화, 라이브 데이터 시각화, 센서 데이터 시각화
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 7/23/2021
-ms.author: robinsh
-ms.openlocfilehash: 4bfd0f761538516d771fd1bb00eb9dc625f46ce8
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.author: lizross
+ms.openlocfilehash: 15e297f65aad93cd3999ae44953a3410c7281788
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537491"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555053"
 ---
 # <a name="tutorial-visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>자습서: Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 

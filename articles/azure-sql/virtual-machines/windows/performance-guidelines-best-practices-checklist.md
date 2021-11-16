@@ -16,12 +16,12 @@ ms.date: 06/01/2021
 ms.author: pamela
 ms.custom: contperf-fy21q3
 ms.reviewer: mathoma
-ms.openlocfilehash: f698b4c9393d536152d7058115ab7d82ad29b151
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 54830fd4052e6121551d6246d6b325e6036b4800
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132298113"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551390"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>검사 목록: Azure VM의 SQL Server에 대한 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,6 +29,8 @@ ms.locfileid: "132298113"
 이 문서에서는 Azure VMs(Virtual Machines)에서 SQL Server의 성능을 최적화하기 위한 일련의 지침 및 모범 사례로 빠른 검사 목록을 제공합니다. 
 
 자세한 내용은 이 시리즈의 다른 문서([검사 목록](performance-guidelines-best-practices-checklist.md), [VM 크기](performance-guidelines-best-practices-vm-size.md), [스토리지](performance-guidelines-best-practices-storage.md), [보안](security-considerations-best-practices.md), [HADR 구성](hadr-cluster-best-practices.md), [기준 수집](performance-guidelines-best-practices-collect-baseline.md))를 참조하세요. 
+
+[Azure VM에서 SQL Server SQL 평가를](sql-assessment-for-sql-vm.md) 사용하도록 설정하면 Azure Portal SQL [VM 관리 페이지에](manage-sql-vm-portal.md) 표시된 알려진 모범 사례 및 결과에 대해 SQL Server 평가됩니다.
 
 
 ## <a name="overview"></a>개요
@@ -126,7 +128,7 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
 
 Windows 클러스터의 경우 모범 사례를 고려합니다. 
 
-* AZURE LOAD BALANCER 또는 DNN(분산 네트워크 이름)에 대한 종속성을 방지하여 HADR 솔루션으로 트래픽을 라우팅하기 위해 가능하면 여러 서브넷에 SQL Server VM을 배포합니다. 
+* 가능하면 여러 서브넷에 SQL Server VM을 배포하여 HADR 솔루션으로 트래픽을 라우팅하는 Azure Load Balancer 또는 DNN(분산 네트워크 이름)에 대한 종속성을 방지합니다. 
 * 일시적인 네트워크 실패 또는 Azure 플랫폼 유지 관리로 인한 예기치 않은 중단을 방지하기 위해 덜 적극적인 매개 변수로 클러스터를 변경합니다. 자세히 알아보려면 [하트비트 및 임계값 설정](hadr-cluster-best-practices.md#heartbeat-and-threshold)을 참조하세요. Windows Server 2012 이상에서는 다음 권장 값을 사용합니다. 
    - **SameSubnetDelay**: 1초
    - **SameSubnetThreshold**: 하트비트 40개
@@ -173,5 +175,7 @@ SQL Server 가용성 그룹 또는 장애 조치(failover) 클러스터 인스�
 - [기준 수집](performance-guidelines-best-practices-collect-baseline.md)
 
 보안 모범 사례는 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](security-considerations-best-practices.md)을 참조하세요.
+
+[Azure vm에서 SQL Server에 대해 SQL 평가를](sql-assessment-for-sql-vm.md)사용 하도록 설정 하는 것이 좋습니다.
 
 [Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)에서 다른 SQL Server 가상 머신 문서를 검토하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.

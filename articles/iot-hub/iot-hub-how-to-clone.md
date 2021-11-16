@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 허브를 복제하는 방법
 description: Azure IoT 허브를 복제하는 방법
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: robinsh
-ms.openlocfilehash: 4e66c71dd274f6096113992d9584645d5622f1c1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.author: lizross
+ms.openlocfilehash: 2905e1ad5a5efe4b56b6cd7990fb5d0eaaae34aa
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211075"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553390"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>IoT 허브를 다른 Azure 지역에 복제하는 방법
 
@@ -121,9 +121,9 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
 
 ### <a name="view-the-template"></a>템플릿 보기 
 
-1. Downloads 폴더(또는 템플릿을 내보낼 때 사용한 폴더)로 이동하여 Zip 파일을 찾습니다. zip 파일을 추출하고 라는 파일을 `template.json` 찾습니다. 이를 선택하고 복사합니다. 다른 폴더로 이동하여 템플릿 파일(Ctrl+V)을 붙여넣습니다. 이제 템플릿을 편집할 수 있습니다.
+1. Downloads 폴더(또는 템플릿을 내보낼 때 사용한 폴더)로 이동하여 Zip 파일을 찾습니다. Zip 파일을 추출 하 고 라는 파일을 찾습니다 `template.json` . 선택 하 여 복사 합니다. 다른 폴더로 이동 하 여 템플릿 파일을 붙여 넣습니다 (Ctrl + V). 이제 템플릿을 편집할 수 있습니다.
  
-    다음은 라우팅 구성이 없는 일반 허브의 예입니다. 미국 서부 지역의 **ContosoHub라는** S1 계층 허브(1단위)입니다.  내보낸 템플릿은 다음과 같습니다.
+    다음은 라우팅 구성이 없는 일반 허브의 예입니다. 영역 **westus** 에서 **ContosoHub** 이라는 S1 계층 허브 (1 단위 포함)입니다. 내보낸 템플릿은 다음과 같습니다.
 
     ``` json
     {
@@ -221,7 +221,7 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
 
 #### <a name="edit-the-hub-name-and-location"></a>허브 이름 및 위치 편집
 
-1. 맨 위에 있는 컨테이너 이름 매개 변수 섹션을 제거 합니다. **ContosoHub** 에 연결 된 컨테이너가 없습니다.
+1. 맨 위에 있는 컨테이너 이름 매개 변수 섹션을 제거합니다. **ContosoHub에는** 연결된 컨테이너가 없습니다.
 
     ``` json
     "parameters": {
@@ -233,7 +233,7 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
     },
     ```
 
-1. **Storageendpoints** 속성을 제거 합니다.
+1. **storageEndpoints 속성을 제거합니다.**
 
     ```json
     "properties": {
@@ -249,7 +249,7 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
     
     ```
 
-1. **리소스** 에서 위치를 westus에서 eastus로 변경 합니다.
+1. **리소스 아래에서** 위치를 westus에서 eastus로 변경합니다.
 
     이전 버전: 
 
@@ -319,7 +319,7 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
 
 1. **리소스 만들기** 를 선택합니다. 
 
-1. 검색 상자에 "템플릿 배포"를 입력 하 고 Enter 키를 선택 합니다.
+1. 검색 상자에 "템플릿 배포"를 입력하고 Enter 키를 선택합니다.
 
 1. **템플릿 배포(사용자 지정 템플릿을 사용하여 배포)** 를 선택합니다. 그러면 [템플릿 배포] 화면으로 이동됩니다. **만들기** 를 선택합니다. 다음 화면이 표시됩니다.
 
@@ -335,25 +335,25 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
 
    :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-uploaded-file.png" alt-text="템플릿 로드를 보여주는 스크린샷":::
 
-1. 사용자 지정 배포 페이지에서 다음 필드를 입력 합니다.
+1. 사용자 지정 배포 페이지에서 다음 필드를 입력합니다.
 
-   **구독**: 사용할 구독을 선택 합니다.
+   **구독:** 사용할 구독을 선택합니다.
 
-   **리소스 그룹**: 새 위치에 새 리소스 그룹을 만듭니다. 이미 설정 되어 있는 경우 새 항목을 만드는 대신 선택할 수 있습니다.
+   **리소스 그룹:** 새 위치에 새 리소스 그룹을 만듭니다. 이미 설정된 경우 새 설정을 만드는 대신 선택할 수 있습니다.
 
-   **지역**: 기존 리소스 그룹을 선택한 경우 리소스 그룹의 위치와 일치 하도록 지역이 채워집니다. 새 리소스 그룹을 만든 경우 해당 리소스 그룹의 위치가 됩니다.
+   **지역:** 기존 리소스 그룹을 선택한 경우 리소스 그룹의 위치와 일치하도록 지역이 채워져 있습니다. 새 리소스 그룹을 만든 경우 해당 리소스 그룹의 위치가 됩니다.
 
-   **연결 문자열**: 허브에 대 한 연결 문자열을 입력 합니다.
+   **연결 문자열:** 허브에 대한 연결 문자열을 입력합니다.
 
-   **허브 이름**: 새 지역의 새 허브에 이름을 지정 합니다.
+   **허브 이름:** 새 지역의 새 허브에 이름을 지정합니다.
 
-   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="사용자 지정 배포 페이지를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="사용자 지정 배포 페이지를 보여주는 스크린샷":::
 
 1. **검토 + 만들기** 단추를 선택합니다.
 
-1. **생성** 단추를 선택합니다. 포털은 템플릿의 유효성을 검사 하 고 복제 된 허브를 배포 합니다. 라우팅 구성 데이터가 있는 경우 해당 데이터는 새 허브에 포함되지만 이전 위치의 리소스를 가리킵니다.
+1. **만들기** 단추를 선택합니다. 포털은 템플릿의 유효성을 검사하고 복제된 허브를 배포합니다. 라우팅 구성 데이터가 있는 경우 해당 데이터는 새 허브에 포함되지만 이전 위치의 리소스를 가리킵니다.
 
-   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png" alt-text="최종 사용자 지정 배포 페이지를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png" alt-text="최종 사용자 지정 배포 페이지를 보여주는 스크린샷":::
 
 ## <a name="managing-the-devices-registered-to-the-iot-hub"></a>IoT 허브에 등록된 디바이스 관리
 

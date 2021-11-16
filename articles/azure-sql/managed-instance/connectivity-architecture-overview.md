@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: 142e35a0335f01e8b9b2315d3c309f5841c244c9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 04a275c0e4bc9c3eb52fee8b02ea2606e52d4958
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216233"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554069"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,6 +30,9 @@ SQL Managed Instance는 Azure Virtual Network 및 관리되는 인스턴스 전�
 - 온-프레미스 네트워크를 SQL Managed Instance에 연결하는 기능.
 - 연결된 서버 또는 다른 온-프레미스 데이터 저장소에 SQL Managed Instance를 연결하는 기능.
 - Azure 리소스에 SQL Managed Instance를 연결하는 기능.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="communication-overview"></a>통신 개요
 
@@ -100,13 +103,13 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 
 가상 네트워크 내의 전용 서브넷에 SQL Managed Instance를 배포합니다. 서브넷에는 다음과 같은 특징이 있어야 합니다.
 
-- **전용 서브넷:** SQL Managed Instance 서브넷은 연결된 다른 클라우드 서비스를 포함할 수 없지만 다른 관리형 인스턴스는 허용되며 게이트웨이 서브넷일 수 없습니다. 서브넷에는 관리되는 인스턴스 이외의 리소스가 포함될 수 없으며 나중에 서브넷에 다른 유형의 리소스를 추가할 수 없습니다.
+- **전용 서브넷:** SQL Managed Instance의 서브넷은 연결 된 다른 클라우드 서비스를 포함할 수 없지만 다른 관리 되는 인스턴스는 허용 되며 게이트웨이 서브넷이 될 수 없습니다. 서브넷에는 관리되는 인스턴스 이외의 리소스가 포함될 수 없으며 나중에 서브넷에 다른 유형의 리소스를 추가할 수 없습니다.
 - **서브넷 위임:** SQL Managed Instance 서브넷을 `Microsoft.Sql/managedInstances` 리소스 공급자에게 위임해야 합니다.
 - **NSG(네트워크 보안 그룹):** NSG를 SQL Managed Instance의 서브넷과 연결해야 합니다. SQL Managed Instance가 리디렉션 연결에 대해 구성된 경우 NSG를 통해 포트 1433 및 포트 11000~11999에서 트래픽을 필터링하여 SQL Managed Instance의 데이터 엔드포인트에 대한 액세스를 제어할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [규칙](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)을 자동으로 프로비저닝하고 유지합니다.
 - **UDR(사용자 정의 경로) 테이블:** UDR 테이블은 SQL Managed Instance의 서브넷과 연결해야 합니다. 경로 테이블에 항목을 추가하여 가상 네트워크 게이트웨이 또는 NVA(가상 네트워크 어플라이언스)를 통해 온-프레미스 프라이빗 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [항목](#mandatory-user-defined-routes-with-service-aided-subnet-configuration)을 자동으로 프로비닝하고 유지합니다.
 - **충분한 IP 주소:** SQL Managed Instance 서브넷에는 최소 32개의 IP 주소가 있어야 합니다. 자세한 내용은 [SQL Managed Instance의 서브넷 크기 결정](vnet-subnet-determine-size.md)을 참조하세요. [SQL Managed Instance의 네트워킹 요구 사항](#network-requirements)을 충족하도록 구성한 후 [기존 네트워크](vnet-existing-add-subnet.md)에 관리되는 인스턴스를 배포할 수 있습니다. 그러지 않으면 [새 네트워크 및 서브넷](virtual-network-subnet-create-arm-template.md)을 만듭니다.
-- **Azure 정책에서 허용:** [Azure Policy](../../governance/policy/overview.md)사용하여 SQL Managed Instance 서브넷/가상 네트워크를 포함하는 범위에서 리소스를 만들거나 수정하는 것을 거부하는 경우 이러한 정책은 Managed Instance 내부 리소스를 관리하는 것을 방지해서는 안 됩니다. 정상적인 작업을 사용하려면 다음 리소스를 거부 효과에서 제외해야 합니다.
-  - 리소스 이름이 e41f87a2로 시작하는 경우 Microsoft.Network/serviceEndpointPolicies 유형의 리소스 \_\_
+- **Azure 정책에서 허용:** [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 SQL Managed Instance 서브넷/가상 네트워크를 포함 하는 범위에서 리소스를 만들거나 수정 하는 것을 거부 하는 경우 해당 정책은 Managed Instance 내부 리소스를 관리 하는 것을 방지 해서는 안 됩니다. 정상 작업을 사용 하려면 다음 리소스를 거부 효과에서 제외 해야 합니다.
+  - 리소스 이름이 e41f87a2로 시작 하는 경우 Microsoft 네트워크/serviceEndpointPolicies 형식의 리소스 \_\_
   - Microsoft.Network/networkIntentPolicies 유형의 모든 리소스
   - Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies 유형의 모든 리소스
 - **가상 네트워크에 대한 잠금:** 전용 서브넷의 가상 네트워크, 해당 부모 리소스 그룹 또는 구독에 대한 [잠금이](../../azure-resource-manager/management/lock-resources.md) SQL Managed Instance 관리 및 유지 관리 작업을 방해할 수 있습니다. 이러한 잠금을 사용할 때는 특별히 주의해야 합니다.

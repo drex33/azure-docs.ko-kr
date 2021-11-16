@@ -3,12 +3,12 @@ title: Bicep 모듈
 description: Bicep 파일에서 모듈을 정의 하는 방법 및 모듈 범위를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/12/2021
-ms.openlocfilehash: b01b37d9adb605e1e3c2b257114a33f120e89ef9
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: a8aedd784875fccbad81957550380cc4fa236616
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491358"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551277"
 ---
 # <a name="bicep-modules"></a>Bicep 모듈
 
@@ -85,13 +85,13 @@ module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 - **파일 경로** 는 `repository` Azure Container Registry에서 호출 됩니다. **파일 경로** 에는 문자로 구분 된 세그먼트가 포함 될 수 있습니다 `/` .
 - **태그** 는 모듈의 버전을 지정 하는 데 사용 됩니다.
 
-예:
+다음은 그 예입니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
 
 레지스트리에서 모듈을 참조 하는 경우 Visual Studio Code의 Bicep 확장에서 자동으로 [Bicep restore](bicep-cli.md#restore) 를 호출 하 여 외부 모듈을 로컬 캐시로 복사 합니다. 외부 모듈을 복원 하는 데 몇 분 정도 걸립니다. 모듈에 대 한 intellisense가 즉시 작동 하지 않는 경우 복원이 완료 될 때까지 기다립니다.
 
-레지스트리의 모듈에 대 한 전체 경로는 길어질 수 있습니다. 모듈을 사용 하려는 때마다 전체 경로를 제공 하는 대신 [bicepconfig 파일에서 별칭을 구성할](bicep-config.md#aliases-for-modules)수 있습니다. 별칭을 사용 하면 모듈을 보다 쉽게 참조할 수 있습니다. 예를 들어 별칭을 사용 하면 다음에 대 한 경로의 길이를 단축할 수 있습니다.
+레지스트리의 모듈에 대 한 전체 경로는 길어질 수 있습니다. 모듈을 사용 하려는 때마다 전체 경로를 제공 하는 대신 [bicepconfig 파일에서 별칭을 구성할](bicep-config-modules.md#aliases-for-modules)수 있습니다. 별칭을 사용 하면 모듈을 보다 쉽게 참조할 수 있습니다. 예를 들어 별칭을 사용 하면 다음에 대 한 경로의 길이를 단축할 수 있습니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
 

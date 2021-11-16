@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: sngun
-ms.openlocfilehash: 55b37ce3f96bc187e4420fc16924b02639c9a7df
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ddc09c428a7779f5e059ead02dbd869a592813e5
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567327"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554777"
 ---
 # <a name="azure-cosmos-db-free-tier"></a>Azure Cosmos DB 체험 계층 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -29,7 +29,7 @@ Azure 구독당 최대 1개의 무료 계층 Azure Cosmos DB 계정을 사용할
 
 공유 처리량 모델에서 데이터베이스의 처리량을 프로비전하는 경우 데이터베이스의 모든 컨테이너 간에 처리량이 공유됩니다. 무료 계층을 사용하는 경우 최대 1000RU/s의 공유 데이터베이스를 무료로 프로비전할 수 있습니다. 데이터베이스의 모든 컨테이너는 처리량을 공유합니다. 
 
-무료 계층 계정에서도 일반 계정과 마찬가지로 공유 처리량 데이터베이스에 최대 25개의 컨테이너가 있을 수 있습니다. 공유 처리량을 포함하는 모든 추가 데이터베이스 또는 1000RU/s를 초과하는 전용 처리량을 포함하는 컨테이너에는 일반 가격으로 요금이 청구됩니다. 무료 계층 계정에서 최대 5개의 공유 처리량 데이터베이스를 만들 수 있습니다.
+무료 계층 계정에서도 일반 계정과 마찬가지로 공유 처리량 데이터베이스에 최대 25개의 컨테이너가 있을 수 있습니다. 공유 처리량을 포함하는 모든 추가 데이터베이스 또는 1000RU/s를 초과하는 전용 처리량을 포함하는 컨테이너에는 일반 가격으로 요금이 청구됩니다.
 
 ## <a name="free-tier-with-azure-discount"></a>Azure 할인이 적용되는 무료 계층
 

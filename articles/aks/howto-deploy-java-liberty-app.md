@@ -1,5 +1,6 @@
 ---
 title: Open Liberty 또는 WebSphere Liberty를 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Java 애플리케이션 배포
+recommendations: false
 description: Open Liberty 또는 WebSphere Liberty를 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Java 애플리케이션을 배포합니다.
 author: majguo
 ms.author: jiangma
@@ -8,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
-ms.openlocfilehash: 1093ea35d77cac4396d983544cf2def0a5138dd2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f43f0a6038c9bd362f948722534c27e0906261c7
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131045846"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551432"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Open Liberty 또는 WebSphere Liberty를 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Java 애플리케이션 배포
 
@@ -157,13 +158,13 @@ AKS 클러스터에서 Liberty 애플리케이션을 배포하고 실행하려�
 1. 디렉터리를 로컬 복제본의 `javaee-app-simple-cluster`로 변경합니다.
 1. `mvn clean package`를 실행하여 애플리케이션을 패키징합니다.
 1. `mvn liberty:dev`를 실행하여 애플리케이션을 테스트합니다. 성공하면 명령 출력에 `The defaultServer server is ready to run a smarter planet.`이 표시됩니다. `CTRL-C`를 사용하여 애플리케이션을 중지합니다.
-1. 속성에 대 한 값 `artifactId` 을 검색 하 고 `version` 에서 정의 `pom.xml` 합니다.
+1. 속성에 대한 값을 `artifactId` 검색하고 `version` 에 `pom.xml` 정의됩니다.
 
    ```azurecli-interactive
    artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
    version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
    ```
-1. `cd target`을 실행 하 여 샘플의 빌드로 디렉터리를 변경 합니다.
+1. `cd target`를 실행하여 디렉터리를 샘플 빌드로 변경합니다.
 1. 다음 명령 중 하나를 실행하여 애플리케이션 이미지를 빌드하고 ACR 인스턴스에 밀어넣습니다.
    * Open Liberty를 경량 오픈 소스 Java™ 런타임으로 사용하려면 Open Liberty 기본 이미지를 사용하여 빌드합니다.
 

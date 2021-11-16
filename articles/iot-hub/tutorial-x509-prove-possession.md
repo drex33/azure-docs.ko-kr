@@ -1,22 +1,22 @@
 ---
 title: 자습서 - Azure IoT Hub에서 CA 인증서의 소유권 증명 | Microsoft Docs
 description: 자습서 - Azure IoT Hub에 대한 CA 인증서를 소유하고 있음을 증명
-author: v-gpettibone
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 06/25/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: fb91c2e32b8b9ee3f3781f3930fe6fdfc5501e01
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 79b55e938d832602dca87af8ee366cd44aa44a91
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732773"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547168"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>자습서: CA 인증서 소유 증명
 

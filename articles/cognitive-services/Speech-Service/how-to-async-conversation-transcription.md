@@ -3,21 +3,19 @@ title: 비동기 대화 전사 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service를 사용하여 비동기 대화 전사를 사용하는 방법을 알아봅니다. Java 및 C#에서만 사용할 수 있습니다.
 services: cognitive-services
-author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-one
-ms.openlocfilehash: 4b2dfa8d474f10d6b4ca1c46ac2b575e8d8407ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9dbee96d6b277ac76b07e3fd8b2b72b1c84b32f9
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88934647"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546408"
 ---
 # <a name="asynchronous-conversation-transcription"></a>비동기 대화 전사
 

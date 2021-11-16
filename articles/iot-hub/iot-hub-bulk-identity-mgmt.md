@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 디바이스 ID 가져오기/내보내기 | Microsoft Docs
 description: Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대한 대량 작업을 실행하고 디바이스 ID를 가져오기 및 내보내기를 수행하는 방법입니다. 가져오기 작업을 사용하여 대량으로 디바이스 ID를 생성, 업데이트 및 삭제할 수 있습니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c7c85b88e2648f41c815d9cd864362f60845116b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 27a84f85f32eaf5fe77ff637d80eb4b3c9587930
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528660"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556157"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
 
@@ -261,7 +261,7 @@ JobProperties importJob =
 
 각 디바이스에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 디바이스별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
-| importMode | 설명 |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |지정된 **ID** 를 가진 디바이스가 존재하지 않는 경우, 새로 등록됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 Etag는 지정된 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **create** |지정된 **ID** 를 가진 디바이스가 존재하지 않는 경우, 새로 등록됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 Etag는 지정된 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |

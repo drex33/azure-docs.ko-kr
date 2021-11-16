@@ -1,20 +1,20 @@
 ---
 title: Azure CLI용 IoT 확장을 사용하여 Azure IoT 디바이스 관리 | Microsoft Docs
 description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Azure CLI용 IoT 확장 도구를 사용하여 Azure IoT Hub 디바이스를 관리합니다.
-author: robinsh
+author: eross-msft
 manager: ''
 keywords: Azure IoT 디바이스 관리, Azure IoT Hub 디바이스 관리, 디바이스 관리 IoT, IoT Hub 디바이스 관리
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: robinsh
-ms.openlocfilehash: c67e9fc7cb6a2530c752efee760b2fb7fcb7f277
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.author: lizross
+ms.openlocfilehash: 765dd7f8dd179187c904c5b779609823cd3503af
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727103"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555019"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: how-to
 ms.custom: deploy
-ms.openlocfilehash: 14fb372a00621806ed4423813ee5e23b3c313688
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 97b8d6f32b2e59dd2e19b1d41b4fa01f97158325
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132402431"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547689"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>로컬 컴퓨터에서 Azure Machine Learning을 사용하여 학습된 모델 배포 
 
@@ -250,5 +250,6 @@ model = Model.register(model_path="sklearn_regression_model.pkl",
 
 ## <a name="next-steps"></a>다음 단계
 
+- Azure Machine Learning VS Code 사용에 대한 자세한 내용은 Visual Studio Code 컴퓨팅 [인스턴스에 커넥트(미리 보기)를 참조하세요.](how-to-set-up-vs-code-remote.md)
 - 환경을 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](how-to-use-environments.md)을 참조하세요.
 - 데이터 저장소에서 데이터에 액세스하는 방법에 대해 알아보려면 [Azure에서 스토리지 서비스에 연결](how-to-access-data.md)을 참조하세요.

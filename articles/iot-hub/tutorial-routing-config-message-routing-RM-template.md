@@ -1,19 +1,19 @@
 ---
 title: 자습서 - Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 description: 자습서 - Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 08/24/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: e23eb5b3c3aa85aaa941839234a17e9bd7afb318
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 988f1e48bfc5fdbd4f6830fe52446859cf2bfa64
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129459006"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552473"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>자습서: Azure Resource Manager 템플릿을 사용하여 IoT Hub 메시지 라우팅 구성
 

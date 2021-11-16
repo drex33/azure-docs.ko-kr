@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c8d53392a48c821cb126e729f8e29bf7c686b3d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 73e1f58073c92ba8a0631d4ee7136de3bac5e114
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441080"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549549"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,13 +80,13 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 이 섹션에서는 Microsoft Power BI를 SAP 데이터 원본에 통합하는 방법과 Azure Data Factory를 SAP BW에 통합하는 방법을 설명하는 문서를 찾을 수 있습니다.
 
 ## <a name="change-log"></a>로그 변경
-- 
+- 2021 년 11 월 16 일: sap ASCS/ERS에 대 한 고가용성 가이드의 릴리스는 nfs를 사용 하는 [Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) [Azure Files SLES](./high-availability-guide-suse-nfs-azure-files.md) 의 sap nw에 대 한 고가용성 가이드를 제공 합니다. 
 - 2021 년 11 월 02: sap 워크 로드 및 sap [ase Azure Virtual Machines DBMS 배포](./dbms_guide_sapase.md) [에 대 한 Azure Storage 유형을](./planning-guide-storage.md) 변경 하 여 sap ase에서 NFS에 대 한 sap ase 지원을 Azure NetApp Files에 선언 합니다.
 - 2021 년 11 월 02 일: 능동/능동 구성에 대해 싱가포르 남동쪽을 지역으로 이동 하 [Azure 가용성 영역 SAP 워크 로드 구성을](./sap-ha-availability-zones.md) 변경 했습니다.
 - 2021 년 11 월 02: [Red Hat Enterprise Linux의 Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability-rhel.md) 을 변경 하 여 HANA 확장 활성/활성 (읽기 사용) 구성에 대 한 지침을 업데이트 합니다.
 - 2021 년 10 월 26 일: [RHEL의 Azure vm에서 Pacemaker를 사용 하 여 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md) 을 변경 하 여 HANA 스케일 아웃 활성/활성 (읽기 사용) 구성에서 리소스 이름을 업데이트 합니다.
 - 2021 년 10 월 19 일: [RHEL의 Azure vm에서 Pacemaker로 확장 HSR SAP HANA 확장](./sap-hana-high-availability-scale-out-hsr-rhel.md) 을 변경 하 여 HANA 스케일 아웃 활성/활성 (읽기 사용) 구성에 대 한 지침을 추가 합니다.
-- 2021 년 10 월 11 일: [클러스터에서 클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 sap ascs/scs 인스턴스](./sap-high-availability-guide-wsfc-shared-disk.md)를 변경 하 고, sap [ascs/scs에 대 한 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 sap HA 용 Azure 인프라를 준비](./sap-high-availability-infrastructure-wsfc-shared-disk.md) 하 고, [Windows 서버 장애 조치 (failover) 클러스터링 및 Azure 공유 디스크](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) 를  Azure 공유 디스크 지원에 대 한 ZRS (영역 중복 저장소) 정보
+- 2021 년 10 월 11 일: [클러스터에서 azure의 클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 sap ascs/scs 인스턴스](./sap-high-availability-guide-wsfc-shared-disk.md)를 변경 하 고 sap [ascs/scs 용 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 sap HA 용 Azure 인프라를 준비](./sap-high-availability-infrastructure-wsfc-shared-disk.md) 하 고 [Windows 서버 장애 조치 (failover) 클러스터링 및 Azure 공유 디스크](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) 를 사용 하  Azure 공유 디스크 지원에 대 한 ZRS (영역 중복 저장소)에 대 한 지침을 추가 하려면
 - 2021 년 10 월 8 일, [SLES의 Azure vm에서 Pacemaker를 사용 하 여 스케일 아웃 hsr SAP HANA](./sap-hana-high-availability-scale-out-hsr-suse.md)의 변경, [RHEL의 anf](./sap-hana-high-availability-netapp-files-red-hat.md) 를 사용 하 여 확장 SAP HANA 하 고 SAP HANA, [RHEL의 Azure vm에서 Pacemaker를 사용 하 여 확장 hsr](./sap-hana-high-availability-scale-out-hsr-rhel.md) , sudoers의 기본값을 추가 하는 파일 및 업데이트 (hana srhook)
 - 2021 년 10 월 01 일: SAP HANA 백업 문서에 대 한 새 Azure Backup 아키텍처에 대 한 링크가 콘텐츠 테이블에 추가 되었습니다. Azure Virtual Machines Oracle dbms에 대 한 Azure Backup 서비스에 대 한 링크를 [SAP 워크 로드 용](./dbms_guide_oracle.md) 으로 추가 했습니다.
 - 2021 년 9 월 24 일 [SAP HANA 스케일 아웃 HSR에서 SLES의 Azure vm에](./sap-hana-high-availability-scale-out-hsr-suse.md)대 [SAP HANA 한 Pacemaker, RHEL의 anf를 사용](./sap-hana-high-availability-netapp-files-red-hat.md) 하 여 확장 SAP HANA 하 고, [RHEL의 azure vm에서 Pacemaker를 사용 하 여 스케일 아웃 hsr](./sap-hana-high-availability-scale-out-hsr-rhel.md) 를 사용 하 여 sudoers file (HANA srhook 대 한)을 만들기 위한 지침을 조정 합니다.

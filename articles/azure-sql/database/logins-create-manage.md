@@ -13,12 +13,12 @@ author: AndreasWolter
 ms.author: anwolter
 ms.reviewer: vanto, mathoma
 ms.date: 03/23/2020
-ms.openlocfilehash: c8cbb041c366bd530ac63d622a40e31a931e1fd7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: e8b058e18625d20427eb2c26cdc8c20817f640bf
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706217"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546990"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대한 데이터베이스 액세스 권한 부여
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -33,6 +33,9 @@ ms.locfileid: "110706217"
 
 > [!IMPORTANT]
 > Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse의 데이터베이스는 이 문서의 나머지 부분에서 전체적으로 데이터베이스로 참조되며, 서버는 Azure SQL Database와 Azure Synapse용 데이터베이스를 관리하는 [서버](logical-servers.md)를 참조합니다.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="authentication-and-authorization"></a>인증 및 권한 부여
 

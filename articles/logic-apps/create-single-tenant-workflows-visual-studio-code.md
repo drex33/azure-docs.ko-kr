@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b4859103c90e7f54b70be23d49bad0a59a79a3c8
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: b71edfc5f57779bc96b165f8bdef2436ec9d16b3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132347430"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552568"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Visual Studio Code에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
@@ -81,7 +81,7 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
   * [Visual Studio Code 확장용 C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)-F5 기능을 사용하여 논리 앱을 실행할 수 있습니다.
 
-  * [Azure Functions Core Tools-](https://github.com/Azure/azure-functions-core-tools/releases) Microsoft INSTALLER (MSI) 버전을 사용 하는 최신 버전입니다 `func-cli-X.X.XXXX-x*.msi` .
+  * Microsoft Installer (MSI) 버전을 사용 하 여 [버전을 Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3904) `func-cli-X.X.XXXX-x*.msi` 합니다. 지원 되지 않으며 작동 하지 않는 4.x 버전을 설치 하지 마세요.
 
     이러한 도구에는 Azure Logic Apps(표준) 확장이 Visual Studio Code에서 사용하는 Azure Functions 런타임을 구동하는 동일한 런타임 버전이 포함되어 있습니다.
 
@@ -562,7 +562,7 @@ Visual Studio Code에서 웹후크 기반 트리거 및 작업을 로컬로 실�
 
    ![실행 상태 및 기록이 포함된 워크플로의 개요 페이지를 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |

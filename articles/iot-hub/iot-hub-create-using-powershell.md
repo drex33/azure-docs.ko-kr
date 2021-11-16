@@ -1,19 +1,19 @@
 ---
 title: PowerShell cmdlet을 사용하여 Azure IoT Hub 만들기 | Microsoft Docs
 description: PowerShell cmdlet을 사용하여 리소스 그룹을 생성한 다음 리소스 그룹에서 IoT hub를 생성하는 방법에 대해 알아봅니다. 허브를 제거하는 방법에 대해서도 알아봅니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: accfb6d4a5191d3c9729ffe075924d44891c0cb3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 1730887d38edf2d64a3456a188a50c3becaabbad
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702331"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551842"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>New-AzIotHub cmdlet을 사용하여 IoT Hub 생성하기
 

@@ -3,21 +3,19 @@ title: Speech SDK를 사용하여 코덱 압축 오디오 스트리밍 - Speech 
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 압축된 오디오를 Speech Service로 스트리밍하는 방법에 대해 알아봅니다. C++, C# 및 Linux용 Java, Android의 Java 및 iOS의 Objective-C에서 사용할 수 있습니다.
 services: cognitive-services
-author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-eight
-ms.openlocfilehash: c84b4c31d4e2e87781d13675f4d45fb1c22edb7a
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 1f04c8c525e094d5e0980c1683632d34f3372580
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132156681"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551922"
 ---
 # <a name="use-codec-compressed-audio-input"></a>코덱 압축 오디오 입력 사용
 
@@ -66,7 +64,7 @@ libgstreamer_android 빌드에 대한 자세한 내용은 위의 Java 탭을 참
 
 ## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>압축 오디오 입력에 필요한 Speech SDK 버전
 * RHEL 8 및 CentOS 8에는 Speech SDK 버전 1.10.0 이상이 필요합니다.
-* speech SDK 버전 1.11.0 이상은 Windows 필요합니다.
+* 음성 SDK 버전 1.11.0 이상은 Windows 필요합니다.
 * Windows 및 Android의 최신 GStreamer용 Speech SDK 버전 1.16.0 이상
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]

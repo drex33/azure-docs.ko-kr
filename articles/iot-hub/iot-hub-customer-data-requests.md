@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 디바이스에 대한 고객 데이터 요청
 description: Azure IoT Hub 디바이스에 대한 고객 데이터 요청 이 문서에서는 디바이스에서 개인 데이터를 내보내거나 삭제할 수 있는 관리자에 관해 설명합니다.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 20a8d6c39b33a60277478605e3b4855aad04b55c
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92535793"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555151"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Azure IoT Hub 디바이스의 고객 데이터 요청 기능
 

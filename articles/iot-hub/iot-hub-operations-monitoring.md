@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 작업 모니터링(사용되지 않음) | Microsoft Docs
 description: IoT Hub 작업 모니터링을 사용하여 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링하는 방법입니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 5e53fe91311eb5ad784c6e843bbe81727abcc547
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c18ac32531a6087689c85508ac177b81c209b67c
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537027"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553366"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub 작업 모니터링(사용되지 않음)
 

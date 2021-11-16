@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 000daf7c60d0bc823aacdab85de42af3b6cbbf55
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: 55445659ef58d073eb8992060b82c76bd08f8e18
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129419053"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548314"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure Application Gateway와 Web Application Firewall을 v1에서 v2로 마이그레이션
 
@@ -43,6 +43,7 @@ ms.locfileid: "129419053"
 * v2는 IPv6을 지원하지 않으므로 IPv6 사용 v1 게이트웨이는 마이그레이션되지 않습니다. 스크립트를 실행하면 완료되지 않을 수 있습니다.
 * v1 게이트웨이에 개인 IP 주소만 있는 경우 스크립트는 새 v2 게이트웨이에 대한 공용 IP 주소와 개인 IP 주소를 만듭니다. v2 게이트웨이는 현재 개인 IP 주소만 지원하지 않습니다.
 * 문자, 숫자, 하이픈, 밑줄 이외의 것을 포함하는 이름의 헤더는 애플리케이션에 전달되지 않습니다. 이는 헤더 값이 아닌 헤더 이름에만 적용됩니다. 이는 v1의 호환성이 손상되는 변경입니다.
+* NTLM 및 Kerberos 인증은 Application Gateway v 2에서 지원 되지 않습니다. 이 스크립트는 게이트웨이가이 유형의 트래픽을 처리 하 고 있는지 여부를 감지할 수 없으며 실행 시 v1에서 v2 게이트웨이로의 주요 변경으로 발생할 수 있습니다.
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 

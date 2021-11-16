@@ -12,17 +12,17 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: d313f521a13ae49f8701614d1b1331d34960ae77
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: a8a7e16579434ca741916c82fa03287c6955c9d2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619484"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551998"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화된 데이터베이스 백업을 사용하여 복구 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음을 할 수 있습니다.
+다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음과 같습니다.
 
 - 동일한 서버에 보존 기간 내의 지정된 시점으로 복구된 새 데이터베이스를 만듭니다.
 - 동일한 서버에 삭제된 데이터베이스의 삭제 시간으로 복구된 데이터베이스를 만듭니다.
@@ -213,11 +213,14 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 SQL Database와 SQL Managed Instance에서 지원되지만 모든 향후 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈과 Azure Resource Manager 모듈의 명령에 대한 인수는 대부분 동일합니다.
 
+> [!NOTE]
+> 복원 지점은 가장 빠른 복원 지점과 최신 로그 백업 지점 사이의 기간을 나타냅니다. 최신 복원 지점에 대한 정보는 현재 Azure PowerShell 사용할 수 없습니다.
+
 #### <a name="sql-database"></a>SQL Database
 
 독립 실행형 또는 풀링된 데이터베이스를 복원하려면 [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)를 참조하세요.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -231,7 +234,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 관리형 인스턴스 데이터베이스를 복원하려면 [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)를 참조하세요.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리형 인스턴스를 가져옵니다. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |

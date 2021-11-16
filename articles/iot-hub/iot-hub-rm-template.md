@@ -1,20 +1,20 @@
 ---
 title: 템플릿을 사용하여 Azure IoT Hub 만들기(.NET) | Microsoft Docs
 description: Azure Resource Manager 템플릿을 사용하여 C# 프로그램으로 IoT Hub를 만드는 방법입니다.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b54ba1314cbb95b2bc56c47ae39a92ff7252a79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d7766dc41a47a4cb21fb76c1552c6689d84ee3ea
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537026"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549391"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(.NET)
 

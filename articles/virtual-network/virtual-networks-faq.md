@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 2a916c83cc3249b304648d090f739e66bb6b7dd3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3e59e95de15a34e11bba2071f5b22c722c6845a4
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245591"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552131"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -230,6 +230,18 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 
 ### <a name="do-virtual-networks-store-customer-data"></a>가상 네트워크에서 고객 데이터를 저장하나요?
 아니요. 가상 네트워크는 고객 데이터를 저장하지 않습니다. 
+
+### <a name="can-i-set-flowtimeoutinminutes-property-for-an-entire-subscription"></a>전체 구독에 대해 [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork?view=azps-6.5.0) 속성을 설정할 수 있나요? 
+아니요. 이는 가상 네트워크에서 설정 해야 합니다. 다음은 더 큰 구독의 경우이 속성을 자동으로 설정 하는 데 도움이 될 수 있습니다.  
+```Powershell
+$Allvnet = Get-AzVirtualNetwork
+$time = 4 #The value should be between 4 and 30 minutes (inclusive) to enable tracking, or null to disable tracking. $null to disable. 
+ForEach ($vnet in $Allvnet)
+{
+    $vnet.FlowTimeoutInMinutes = $time
+    $vnet | Set-AzVirtualNetwork
+}
+```
 
 ## <a name="apis-schemas-and-tools"></a>API, 스키마 및 도구
 

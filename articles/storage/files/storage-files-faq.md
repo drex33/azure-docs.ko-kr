@@ -7,21 +7,21 @@ ms.date: 11/5/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 79cb958616bc709ddd2dd866283eed0bd90d5610
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: ae679f5f5f70b684a7b587babc3d1492170267c9
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131866731"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554525"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
-[Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)(미리 보기)을 통해 액세스할 수 있는 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
+[Azure Files](storage-files-introduction.md) 업계 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템)](https://en.wikipedia.org/wiki/Network_File_System)프로토콜을 통해 액세스할 수 있는 완전히 관리되는 파일 공유를 클라우드에서 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
 
 이 문서는 Azure Files와 Azure 파일 동기화 사용을 비롯하여 Azure Files 기능에 대한 일반적인 질문에 대답합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
 
 1. 이 문서의 의견 섹션입니다.
 2. [Azure Storage에 대한 Microsoft Q&A 질문 페이지입니다](/answers/topics/azure-file-storage.html).
-3. [Azure Community 피드백](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84). 
+3. [Azure Community 피드백.](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84) 
 4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택합니다.
 
 ## <a name="general"></a>일반
@@ -107,9 +107,9 @@ ms.locfileid: "131866731"
     성능은 환경 설정, 구성, 이것이 초기 동기화인지 진행 중인 동기화인지에 따라 달라집니다. 자세한 내용은 [Azure 파일 동기화 성능 메트릭](storage-files-scale-targets.md#azure-file-sync-performance-metrics)을 참조하세요.
 
 * <a id="afs-initial-upload"></a>
-  **Azure 파일 동기화 데이터의 초기 업로드는 무엇 인가요?**
+  **Azure 파일 동기화 대한 데이터의 초기 업로드란?**
   
-    **Windows 서버에서 Azure 파일 공유로의 초기 데이터 동기화:** 모든 데이터가 Windows 서버에 있기 때문에 많은 Azure 파일 동기화 배포가 빈 Azure 파일 공유로 시작 합니다. 이러한 경우 초기 클라우드 변경 열거가 빠르며 Windows Server에서 Azure 파일 공유로 변경 내용을 동기화하는 데 대부분의 시간이 소요됩니다.
+    **Windows Server에서 Azure 파일 공유로 데이터 초기 동기화:** 모든 데이터가 Windows Server에 있기 때문에 많은 Azure 파일 동기화 배포가 빈 Azure 파일 공유로 시작합니다. 이러한 경우 초기 클라우드 변경 열거가 빠르며 Windows Server에서 Azure 파일 공유로 변경 내용을 동기화하는 데 대부분의 시간이 소요됩니다.
 
 동기화가 데이터를 Azure 파일 공유로 업로드하는 동안 로컬 파일 서버에는 가동 중지 시간이 발생하지 않으며 관리자는 네트워크 제한을 설정하여 백그라운드 데이터 업로드에 사용되는 대역폭의 양을 제한할 수 있습니다.
 
@@ -118,10 +118,10 @@ ms.locfileid: "131866731"
 **동기화 그룹에 파일을 업로드하는 시간(일) = (서버 엔드포인트의 개체 수)/(20 * 60 * 60 * 24)**
 
 * <a id="afs-initial-upload-server-restart"></a>
-  **초기 업로드 중 서버를 중지 했다가 다시 시작 하는 경우의 영향** 영향을 주지 않습니다. 서버가 중단 된 지점부터 다시 시작 되 면 동기화에서 다시 시작 됩니다. Azure 파일 동기화
+  **초기 업로드 중에 서버가 중지되고 다시 시작되면 미치는 영향** 영향을 미치지 않습니다. 서버가 중단된 지점에서 서버가 다시 시작되면 Azure 파일 동기화 동기화에서 다시 시작됩니다.
 
 * <a id="afs-initial-upload-server-changes"></a>
-  **초기 업로드 중 서버 끝점에서 데이터를 변경 하는 경우의 영향** 영향을 주지 않습니다. Azure 파일 동기화는 서버 끝점에서 수행 된 변경 내용을 조정 하 여 클라우드 끝점과 서버 끝점이 동기화 되도록 합니다.
+  **초기 업로드 중에 서버 엔드포인트의 데이터를 변경하는 경우의 영향은 무엇인가요?** 영향을 미치지 않습니다. Azure 파일 동기화 클라우드 엔드포인트와 서버 엔드포인트가 동기화되도록 서버 엔드포인트에 대한 변경 내용을 조정합니다.
 
 * <a id="afs-conflict-resolution"></a>**같은 파일이 두 서버에서 거의 동시에 변경하는 경우 어떻게 되나요?**  
     Azure 파일 동기화는 간단한 충돌 해결 전략을 사용합니다. 두 개의 엔드포인트에서 동시에 변경된 파일에 대한 변경 내용을 유지합니다. 가장 최근에 기록된 변경 내용에 원래 파일 이름이 사용됩니다. 이전 파일(LastWriteTime으로 결정됨)에는 엔드포인트 이름과 충돌 번호가 파일 이름에 추가됩니다. 서버 엔드포인트의 경우 엔드포인트 이름은 서버의 이름입니다. 클라우드 엔드포인트의 경우 엔드포인트 이름은 **클라우드** 입니다. 이름은 다음 분류를 따릅니다. 
@@ -165,7 +165,7 @@ ms.locfileid: "131866731"
   **Windows 탐색기에서 계층화된 파일에 썸네일 또는 미리 보기가 표시되지 않는 이유는 무엇인가요?**  
     계층화된 파일의 경우 서버 엔드포인트에 썸네일 및 미리 보기가 표시되지 않습니다. 이러한 동작은 Windows의 썸네일 캐시 기능이 오프라인 특성을 사용하여 파일 읽기를 의도적으로 건너뛰기 때문에 발생할 수 있습니다. 클라우드 계층화를 사용하는 경우 계층화된 파일을 통해 읽으면 해당 파일을 다운로드(회수)할 수 있습니다.
 
-    이 동작은 Azure 파일 동기화와 관련이 없습니다. Windows 탐색기는 오프라인 특성이 설정된 모든 파일에 대해 “회색 X”를 표시합니다. SMB를 통해 파일에 액세스할 때 X 아이콘이 표시됩니다. 이 동작에 대 한 자세한 설명은 [오프 라인으로 표시 된 파일에 대 한 미리 보기를 가져오지 않는 이유](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105) 를 참조 하세요.
+    이 동작은 Azure 파일 동기화와 관련이 없습니다. Windows 탐색기는 오프라인 특성이 설정된 모든 파일에 대해 “회색 X”를 표시합니다. SMB를 통해 파일에 액세스할 때 X 아이콘이 표시됩니다. 이 동작에 대한 자세한 설명은 오프라인으로 표시된 파일에 대한 미리 [보기가 표시되지 않는 이유는 무엇인가요?를 참조하세요.](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
     계층화된 파일 관리 방법에 관한 질문은 [계층화된 파일을 관리하는 방법](../file-sync/file-sync-how-to-manage-tiered-files.md)을 참조하세요.
 
@@ -245,7 +245,7 @@ ms.locfileid: "131866731"
    Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure Storage 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](../common/storage-compliance-offerings.md)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 * <a id="afs-power-outage"></a>
-  **서버 엔드포인트를 종료하는 정전이 있는 경우 Azure 파일 동기화 미치는 영향** 영향을 미치지 않습니다. Azure 파일 동기화 서버 엔드포인트가 다시 온라인 상태이면 클라우드 엔드포인트와 서버 엔드포인트가 동기화되도록 서버 엔드포인트에 대한 변경 내용을 조정합니다.
+  **전원 중단이 발생 하 여 서버 끝점을 종료 하는 경우 Azure 파일 동기화 영향은 무엇 인가요?** 영향을 주지 않습니다. 서버 끝점이 다시 온라인 상태가 되 면 서버 끝점에서 적용 된 변경 내용을 조정 하 여 클라우드 끝점과 서버 끝점이 동기화 되도록 Azure 파일 동기화 합니다.
 
 * <a id="file-auditing"></a>
 **Azure Files의 파일 액세스 및 변경 내용을 감사하려면 어떻게 해야 하나요?**
@@ -345,22 +345,33 @@ ms.locfileid: "131866731"
     
        net use <drive-letter/share-path> /delete
 
-## <a name="network-file-system-nfs-v41"></a>네트워크 파일 시스템(NFS v4.1)
+## <a name="network-file-system-nfs-v41"></a>NFS v 4.1 (네트워크 파일 시스템)
 
 * <a id="when-to-use-nfs"></a>
 **Azure Files NFS는 언제 사용해야 하나요?**
 
-    [NFS 공유(미리 보기)](files-nfs-protocol.md)를 참조하세요.
+    [NFS 공유](files-nfs-protocol.md)를 참조 하세요.
 
 * <a id="backup-nfs-data"></a>
 **NFS 공유에 저장된 데이터는 어떻게 백업하나요?**
 
-    NFS 공유에서 데이터 백업은 rsync와 같은 익숙한 도구나 타사 백업 파트너 제품 중 하나를 사용하여 오케스트레이션할 수 있습니다. [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438), [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) 등 여러 백업 파트너가 초기 미리 보기의 일부였으며 Azure Files용 SMB 3.x 및 NFS 4.1과 함께 작동하도록 솔루션을 확장했습니다.
+    NFS 공유에서 데이터 백업은 rsync와 같은 익숙한 도구나 타사 백업 파트너 제품 중 하나를 사용하여 오케스트레이션할 수 있습니다. [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438)및 [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) 를 비롯 한 여러 백업 파트너와 Azure Files에 대 한 SMB 3.x 및 NFS 4.1를 모두 사용 하도록 솔루션을 확장 했습니다.
 
 * <a id="migrate-nfs-data"></a>
 **기존 데이터를 NFS 공유로 마이그레이션할 수 있나요?**
 
     지역 내에서 scp, rsync 또는 SSHFS와 같은 표준 도구를 사용하여 데이터를 이동할 수 있습니다. Azure Files NFS는 여러 컴퓨팅 인스턴스에서 동시에 액세스할 수 있으므로 병렬 업로드로 복사 속도를 향상시킬 수 있습니다. 지역 외부에서 데이터를 가져오려면 VPN 또는 ExpressRoute를 사용하여 온-프레미스 데이터 센터에서 파일 시스템에 탑재합니다.
+    
+* <a id=nfs-ibm-mq-support></a>
+**Azure Files NFS에서 IBM MQ (다중 인스턴스 포함)를 실행할 수 있나요?**
+    * Azure Files NFS v 4.1 파일 공유는 IBM MQ에 의해 설정 된 세 가지 요구 사항을 충족 합니다.
+       - https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-requirements-shared-file-systems
+          + 데이터 쓰기 무결성
+          + 파일에 대 한 단독 액세스 보장
+          + 실패 시 잠금 해제
+    * 다음 테스트 사례가 성공적으로 실행 되었습니다.
+        1. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-verifying-shared-file-system-behavior
+        2. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-running-amqsfhac-test-message-integrity
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 

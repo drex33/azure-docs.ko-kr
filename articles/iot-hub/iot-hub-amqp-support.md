@@ -1,21 +1,21 @@
 ---
 title: Azure IoT Hub AMQP 지원 이해 | Microsoft Docs
 description: 개발자 가이드 - AMQP 프로토콜을 사용하여 IoT Hub 디바이스 지향 및 서비스 지향 엔드포인트에 대한 디바이스 연결을 지원합니다. Azure IoT 디바이스 SDK의 기본 제공 AMQP 지원에 대한 정보가 포함되어 있습니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f0aaa996d6520a69f5546976d89c7cc4aa802d38
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.openlocfilehash: ccdf206c9ccd9d91b125af658bf03d3ec40c4b02
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481358"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549986"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>AMQP 프로토콜을 사용하여 IoT 허브와 통신
 

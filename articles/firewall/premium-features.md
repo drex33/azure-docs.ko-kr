@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/16/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d00bfe9e9ed43ed1eafc65d61718de6cb4ecf04e
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: 833bec745be68131709a78df1e52ed2ff782b167
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132179850"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548086"
 ---
 # <a name="azure-firewall-premium-features"></a>Azure Firewall 프리미엄 기능
 
@@ -21,7 +21,7 @@ ms.locfileid: "132179850"
 
 Azure Firewall Premium 결제 및 의료 산업과 같이 매우 민감하고 규제된 환경의 요구를 충족하는 고급 위협 방지 기능을 제공합니다. 
 
-조직은 IDPS 및 TLS 검사와 같은 Premium SKU(재고 유지 단위) 기능을 활용하여 맬웨어 및 바이러스가 횡적 및 수평 방향으로 네트워크 간에 확산되지 않도록 방지할 수 있습니다. IDPS 및 TLS 검사의 향상된 성능 요구를 충족하기 위해 Azure Firewall Premium 보다 강력한 가상 머신 SKU를 사용합니다. 표준 SKU와 마찬가지로 Premium SKU는 최대 30Gbps까지 원활하게 확장하고 가용성 영역과 통합하여 99.99%의 SLA(서비스 수준 계약)를 지원할 수 있습니다. Premium SKU는 PCI DSS(Payment Card Industry Data Security Standard) 환경 요구 사항을 준수합니다.
+조직은 IDPS 및 TLS 검사와 같은 Premium SKU(재고 유지 단위) 기능을 활용하여 맬웨어와 바이러스가 횡적 및 수평 방향으로 네트워크 간에 확산되지 않도록 방지할 수 있습니다. IDPS 및 TLS 검사의 향상된 성능 요구를 충족하기 위해 Azure Firewall Premium 보다 강력한 가상 머신 SKU를 사용합니다. 표준 SKU와 마찬가지로 Premium SKU는 최대 30Gbps까지 원활하게 확장하고 가용성 영역과 통합하여 99.99%의 SLA(서비스 수준 계약)를 지원할 수 있습니다. Premium SKU는 PCI DSS(Payment Card Industry Data Security Standard) 환경 요구 사항을 준수합니다.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall 프리미엄 개요 다이어그램":::
 
@@ -58,7 +58,16 @@ IDPS를 사용하면 암호화되지 않은 트래픽에 대한 모든 포트와
 
 IDPS 바이패스 목록을 사용하면 바이패스 목록에 지정된 IP 주소, 범위 및 서브넷에 대한 트래픽을 필터링하지 않을 수 있습니다.
 
-IDPS 모드가 **경고** 로 설정되어 있지만 연결된 트래픽을 포함하여 차단하려는 특정 서명이 하나 이상 있는 경우에도 서명 규칙을 사용할 수 있습니다. 이 경우 TLS 검사 모드를 **거부** 로 설정하여 새 서명 규칙을 추가할 수 있습니다.
+IDPS 서명 규칙(미리 보기)을 사용하면 다음을 수행할 수 있습니다.
+
+- 하나 이상의 서명을 사용자 지정하고 해당 모드를 *사용 안 함,* *경고* 또는 *경고 및 거부로* 변경합니다. 
+
+   예를 들어 잘못된 서명으로 인해 Azure Firewall 의해 합법적인 요청이 차단되는 가양성을 수신하는 경우 애플리케이션 규칙 로그의 서명 ID를 사용하고 해당 IDPS 모드를 off로 설정할 수 있습니다. 이로 인해 "잘못된" 서명이 무시되고 가양성 문제가 해결됩니다.
+- 너무 낮은 우선 순위의 경고를 만들어 우선 순위가 높은 경고에 대한 가시성을 방해하는 서명에 대해 동일한 미세 조정 절차를 적용할 수 있습니다.
+- 전체 55,000개의 서명에 대한 전체적인 보기 얻기
+- 스마트 검색
+
+   모든 유형의 특성으로 전체 서명 데이터베이스를 검색할 수 있습니다. 예를 들어 검색 표시줄에 ID를 입력하기만 하면 특정 CVE ID를 검색하여 이 CVE를 처리할 서명을 검색할 수 있습니다.
 
 
 ## <a name="url-filtering"></a>URL 필터링
@@ -121,8 +130,8 @@ Azure Firewall 프리미엄은 다음 지역에서 지원됩니다.
 - 인도 중부(퍼블릭/인도)
 - 미국 중부(퍼블릭/미국)
 - 미국 중부 EUAP(퍼블릭/카나리아(미국))
-- 중국 북부 2(Mooncake /China)
-- 중국 동부 2(문케이크/중국)
+- 중국 북부 2 (Mooncake/중국)
+- 중국 동부 2 (Mooncake/중국)
 - 동아시아(퍼블릭/아시아 태평양)
 - 미국 동부(퍼블릭/미국)
 - 미국 동부 2(퍼블릭/미국)
@@ -145,9 +154,9 @@ Azure Firewall 프리미엄은 다음 지역에서 지원됩니다.
 - 아랍에미리트 북부(퍼블릭/아랍에미리트)
 - 영국 남부(퍼블릭/영국)
 - 영국 서부(퍼블릭/영국)
-- USGov구호도어(페드/USGov)
-- USGov 텍사스(텍사스/USGov)
-- USGov 버지니아(페더리/USGov)
+- 미국 정부 애리조나 (Fairfax/미국 정부)
+- 미국 정부 텍사스 (Fairfax/미국 정부)
+- 미국 정부 버지니아 (Fairfax/미국 정부)
 - 미국 중서부(퍼블릭/미국)
 - 서유럽(퍼블릭/유럽)
 - 인도 서부(퍼블릭/인도)
@@ -167,10 +176,11 @@ Azure Firewall 프리미엄에는 다음과 같이 알려진 문제가 있습니
 |클라이언트 인증서(TLS)|클라이언트 인증서는 클라이언트와 서버 간에 상호 ID 신뢰를 구축하는 데 사용합니다. 클라이언트 인증서는 TLS 협상 중에 사용합니다. Azure Firewall은 서버와의 연결을 재협상하고 클라이언트 인증서의 프라이빗 키에 액세스할 수 없습니다.|없음|
 |QUIC/HTTP3|QUIC는 HTTP의 새 주 버전입니다. 80(PLAN)과 443(SSL)을 통한 UDP 기반 프로토콜입니다. FQDN/URL/TLS 검사는 지원되지 않습니다.|UDP 80/443을 네트워크 규칙으로 전달하도록 구성합니다.|
 신뢰할 수 없는 고객 서명 인증서|고객이 서명한 인증서는 인트라넷 기반 웹 서버에서 수신되면 방화벽에서 신뢰되지 않습니다.|수정 사항을 조사하고 있습니다.
-|HTTP에 IDPS를 사용하는 경고에 잘못된 원본 IP 주소가 있습니다(TLS 검사 없음).|일반 텍스트 HTTP 트래픽이 사용 중이고 IDPS에서 새 경고를 발생시키고 대상이 공용 IP 주소인 경우 표시된 원본 IP 주소가 잘못되었습니다(내부 IP 주소가 원래 IP 주소 대신 표시).|수정 사항을 조사하고 있습니다.|
+|HTTP에 IDPS를 사용하는 경고에 잘못된 원본 IP 주소가 있습니다(TLS 검사 없음).|일반 텍스트 HTTP 트래픽이 사용 중이 고 IDPS가 새 경고를 발급 하 고 대상이 공용 IP 주소인 경우 표시 된 원본 IP 주소가 잘못 되었습니다 (원본 IP 주소 대신 내부 IP 주소가 표시 됨).|수정 사항을 조사하고 있습니다.|
 |인증서 전파|CA 인증서가 방화벽에 적용된 후 인증서가 적용되는 데 5-10분 정도 걸릴 수 있습니다.|수정 사항을 조사하고 있습니다.|
 |TLS 1.3 지원|TLS 1.3은 부분적으로 지원됩니다. 클라이언트에서 방화벽으로의 TLS 터널은 TLS 1.2를 기반으로 하고, 방화벽에서 외부 웹 서버로의 TLS 터널은 TLS 1.3을 기반으로 합니다.|업데이트는 조사 중입니다.|
 |KeyVault 프라이빗 엔드포인트|KeyVault는 네트워크 공개를 제한하기 위해 프라이빗 엔드포인트 액세스를 지원합니다. 신뢰할 수 있는 Azure 서비스는 [KeyVault 문서](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)에 설명된 대로 예외가 구성된 경우 이 제한을 바이패스할 수 있습니다. Azure Firewall은 현재 신뢰할 수 있는 서비스로 나열되지 않으며 Key Vault에 액세스할 수 없습니다.|수정 사항을 조사하고 있습니다.|
+|IDPS 바이패스 목록|IDPS 바이패스 목록에서 IP 그룹을 지원 하지 않습니다.|수정 사항을 조사하고 있습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

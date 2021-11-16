@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: fd055903c0a5969c6facd881fc1b0f676c9596c8
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 38890a5bf968bf88678e0665847fb067708291c3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579220"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547263"
 ---
 # <a name="tutorial-create-a-chat-app-with-azure-web-pubsub-service"></a>자습서: Azure Web PubSub 서비스를 사용하여 채팅 앱 만들기
 
@@ -81,7 +81,7 @@ Azure Web PubSub에는 서버 역할과 클라이언트 역할이 있습니다. 
 
     ```bash
     dotnet new web
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
 
 2.  그런 다음, `Startup.cs`에서 `app.UseRouting();` 앞에 `app.UseStaticFiles();`를 추가하여 정적 파일을 지원합니다. `app.UseEndpoints` 안에서 기본 `endpoints.MapGet`을 제거합니다.
@@ -153,7 +153,7 @@ Azure Web PubSub에는 서버 역할과 클라이언트 역할이 있습니다. 
                 return;
             }
             var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
-            await context.Response.WriteAsync(serviceClient.GenerateClientAccessUri(userId: id).AbsoluteUri);
+            await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
         });
     });
     ```
@@ -228,7 +228,7 @@ Azure Web PubSub에는 서버 역할과 클라이언트 역할이 있습니다. 
 1.  Azure Web PubSub SDK를 설치합니다.
 
     ```bash
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
     ```
 
 2.  서버에 `/negotiate` API를 추가하여 토큰을 생성합니다.
@@ -382,7 +382,7 @@ mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutori
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.6</version>
     </dependency>
     ```
 
@@ -391,11 +391,11 @@ mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutori
     ```java
     package com.webpubsub.tutorial;
     
-    import com.azure.messaging.webpubsub.WebPubSubClientBuilder;
     import com.azure.messaging.webpubsub.WebPubSubServiceClient;
-    import com.azure.messaging.webpubsub.models.GetAuthenticationTokenOptions;
-    import com.azure.messaging.webpubsub.models.WebPubSubAuthenticationToken;
-    
+    import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
+    import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
+    import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
+    import com.azure.messaging.webpubsub.models.WebPubSubContentType;
     import io.javalin.Javalin;
     
     public class App {
@@ -407,7 +407,7 @@ mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutori
             }
     
             // create the service client
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                     .connectionString(args[0])
                     .hub("chat")
                     .buildClient();
@@ -426,9 +426,10 @@ mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutori
                     ctx.result("missing user id");
                     return;
                 }
-                GetAuthenticationTokenOptions option = new GetAuthenticationTokenOptions();
+                GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
                 option.setUserId(id);
-                WebPubSubAuthenticationToken token = client.getAuthenticationToken(option);
+                WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+    
                 ctx.result(token.getUrl());
                 return;
             });
@@ -899,13 +900,13 @@ az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });
     ```
 
-    이 이벤트 처리기는 `client.sendToAll()`를 사용하여 수신 메시지를 모든 클라이언트에 브로드캐스트합니다.
+    이 이벤트 처리기는 `client.sendToAll()`을 사용하여 수신 메시지를 모든 클라이언트에 브로드캐스트합니다.
 
 2.  사용자로부터 서버로 메시지를 보내고 받은 메시지를 페이지에 표시하는 논리를 추가하도록 `index.html`을 업데이트합니다.
 
@@ -955,11 +956,11 @@ az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --
         String event = ctx.header("ce-type");
         if ("azure.webpubsub.sys.connected".equals(event)) {
             String id = ctx.header("ce-userId");
-            client.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });

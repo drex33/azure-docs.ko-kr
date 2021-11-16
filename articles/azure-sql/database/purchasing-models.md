@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a0c499ad15618d874a99be65f6d3af8d11fd88ec
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: 30039e687750cbe7f21cea62b117608e41ee4f93
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408950"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553214"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>vCore와 DTU 구매 모델 중 선택 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,11 @@ Azure SQL Database와 Azure SQL Managed Instance를 사용하면 성능 및 비�
 
 - [vCore(가상 코어) 기반 구매 모델](service-tiers-vcore.md)(권장) 이 구매 모델은 프로비저닝된 컴퓨팅 계층과 서버리스 컴퓨팅 계층 중에서 선택할 수 있습니다. 프로비저닝된 컴퓨팅 계층을 선택하면 워크로드에 대해 항상 프로비저닝되는 정확한 양의 컴퓨팅 리소스를 선택합니다. 서버리스 컴퓨팅 계층을 선택하면 구성 가능한 컴퓨팅 범위에 대해 컴퓨팅 리소스의 자동 스케일링을 지정합니다. 이 컴퓨팅 계층을 선택한 경우 워크로드 활동을 기반으로 데이터베이스를 자동으로 일시 중지하고 다시 시작할 수도 있습니다. 시간 단위당 vCore 단가는 서버리스 컴퓨팅 계층보다 프로비저닝된 컴퓨팅 계층에서 더 낮습니다.
 - [DTU(데이터베이스 트랜잭션 단위) 기반 구매 모델](service-tiers-dtu.md). 이 구매 모델은 일반적인 워크로드에 맞춰 부하가 분산되는 컴퓨팅 및 스토리지 패키지 번들을 제공합니다.
+
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021) 
+
 
 다음과 같은 두 가지 구매 모델이 있습니다.
 

@@ -1,20 +1,20 @@
 ---
 title: .NET을 사용하여 디바이스에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
 description: .NET용 Azure IoT 디바이스 SDK를 사용하여 디바이스에서 클라우드로 파일을 업로드 하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 91637d6f508eb198345add5ad40fed52a67ec952
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c797c2668a1af750f0cb1ae4a743f1bc4b9f3aac
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457718"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556100"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(.NET)
 
@@ -225,7 +225,7 @@ ms.locfileid: "129457718"
 
 
 
-1. 디바이스 앱을 실행하여 Azure Storage에 파일을 업로드합니다. 새 명령 프롬프트를 열고 폴더를 Azure IoT C# 샘플을 확장한 폴더 아래의 **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample로** 변경합니다. 다음 명령을 실행합니다. 두 번째 명령의 `{Your device connection string}` 자리 표시자 값을 이전에 [IoT 허브에서 새 디바이스 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 디바이스 연결 문자열로 바꿉니다.
+1. 디바이스 앱을 실행하여 Azure Storage에 파일을 업로드합니다. 새 명령 프롬프트를 열고 Azure IoT C# 샘플을 확장한 폴더 아래의 **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample로** 폴더를 변경합니다. 다음 명령을 실행합니다. 두 번째 명령의 `{Your device connection string}` 자리 표시자 값을 이전에 [IoT 허브에서 새 디바이스 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 디바이스 연결 문자열로 바꿉니다.
 
     ```cmd/sh
     dotnet restore

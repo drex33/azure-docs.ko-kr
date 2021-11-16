@@ -1,23 +1,23 @@
 ---
 title: Azure IoT Hub 직접 메서드 이해 | Microsoft Docs
 description: 개발자 가이드 - 직접 메서드를 사용하여 서비스 앱의 디바이스에서 코드 호출
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: d497a94173d056633803362239ef3dff07797144
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: f11d5b3f2986dcdd2a4e063ff9d1e3b24a6ab441
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278239"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546370"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 

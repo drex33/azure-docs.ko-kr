@@ -1,21 +1,21 @@
 ---
 title: Azure IoT Hub를 사용하여 대규모로 자동 디바이스 관리 | Microsoft Docs
 description: Azure IoT Hub 자동 구성을 사용하여 여러 IoT 디바이스 및 모듈 관리
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/26/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 02be8a37814eb37e50425b7593b7717b1f0a292e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ed6fb0e9e889705a20021061852c3e72737b3652
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068357"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553955"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Azure Portal을 사용하여 자동 IoT 디바이스 및 모듈 관리
 
@@ -58,11 +58,11 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub로 이동합니다.
 
-2. 왼쪽 탐색 창에서 **구성** 을 선택 합니다.
+2. 왼쪽 탐색 창에서 **구성을** 선택합니다.
 
 3. **디바이스 구성 추가** 또는 **모듈 구성 추가** 를 선택합니다.
 
-   :::image type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="구성을 추가 하는 방법을 보여 주는 스크린샷" border="true":::
+   :::image type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="구성을 추가하는 방법을 보여주는 스크린샷" border="true":::
 
 구성을 만드는 데에는 5단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다. 
 

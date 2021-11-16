@@ -1,19 +1,19 @@
 ---
 title: Azure Logic Apps를 사용하여 IoT 원격 모니터링 및 알림 | Microsoft Docs
 description: Azure Logic Apps을 사용하여 IoT Hub에서 IoT 온도를 모니터링하고 감지된 이상에 대한 전자 메일 알림을 자동으로 사서함에 보낼 수 있습니다.
-author: robinsh
+author: eross-msft
 keywords: iot 모니터링, iot 알림, iot 온도 모니터링
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: robinsh
-ms.openlocfilehash: a3a4aa719f4a9c2c7ebc527e0da3eb81307cbe1c
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.author: lizross
+ms.openlocfilehash: 28b0c6720145ce6591f4f62cc89de17907194cf3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "122642223"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552549"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
 

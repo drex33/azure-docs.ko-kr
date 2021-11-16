@@ -11,18 +11,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/16/2020
   ms.author: eur
-  ms.openlocfilehash: 2642a15a950ff2f293d951548efd1d14dd15b446
-  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+  ms.openlocfilehash: eb3dc09228b375ae6774ae400bdb5ea1f5fd6ee0
+  ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131510127"
+  ms.lasthandoff: 11/16/2021
+  ms.locfileid: "132550649"
 landingContent:
 - title: 대화 전사 정보(회의 시나리오)
   linkLists:
   - linkListType: overview
     links:
-    - text: 모임에서의 대화 전사란?
+    - text: 대화 전사란?
       url: conversation-transcription.md
   - linkListType: quickstart
     links:

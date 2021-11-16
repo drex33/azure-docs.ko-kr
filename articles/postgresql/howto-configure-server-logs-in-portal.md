@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 3e44377ecb734f0036d05a347596f1ff003ae28a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: e880c545382da4ad679e40c2625b934981ac2109
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604331"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550422"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Azure Portal에서 Azure Database for PostgreSQL - 단일 서버 로그 구성 및 액세스
 
@@ -53,7 +53,7 @@ Azure Portal에서 [Azure Database for PostgreSQL 로그](concepts-server-logs.m
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="로그 목록이 강조 표시된 서버 로그 페이지 스크린샷":::
 
    > [!TIP]
-   > 로그의 명명 규칙은 **postgresql-yyyy-mm-dd_hh0000.log** 입니다. 파일 이름에 사용된 날짜와 시간은 로그가 발행된 시간입니다. 로그 파일은 시간마다 또는 100MB가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다.
+   > 로그의 명명 규칙은 postgresql- **mm-dd_hhmmss .log** 입니다. 파일 이름에 사용된 날짜와 시간은 로그가 발행된 시간입니다. 로그 파일은 시간마다 또는 100MB가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다.
 
 4. 필요한 경우 검색 상자를 사용하여 날짜 및 시간에 따라 특정 로그로 빠르게 범위를 좁힙니다. 로그의 이름이 검색됩니다.
 

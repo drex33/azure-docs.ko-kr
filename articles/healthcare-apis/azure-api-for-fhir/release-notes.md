@@ -1,85 +1,95 @@
 ---
-title: Azure API for FHIR 월별 릴리스
-description: 이 문서에서는 Azure API for FHIR 월별 기능 및 향상된 기능에 대해 자세히 설명합니다.
+title: Azure API 월간 릴리스
+description: 이 문서에서는 Azure API for 월간 기능 및 향상 된 기능에 대 한 세부 정보를 제공 합니다.
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/01/2021
+ms.date: 11/15/2021
+ms.custom: references_regions
 ms.author: cavoeg
-ms.openlocfilehash: 201de8f7bbae01c708757ee2290f6005979410c4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0acbf2efdb65ff5376da9be918eaead2169cd5d6
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131477540"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547915"
 ---
 # <a name="release-notes-azure-api-for-fhir"></a>릴리스 정보: Azure API for FHIR
 
-Azure API for FHIR Azure용 Microsoft FHIR 서버의 완전 관리형 배포를 제공합니다. 서버는 [FHIR](https://hl7.org/fhir) 표준의 구현입니다. 이 문서에서는 Azure API for FHIR 기능 및 향상된 기능에 대해 자세히 설명합니다.
+FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는 배포를 제공 합니다. 서버는 [Fhir](https://hl7.org/fhir) 표준의 구현입니다. 이 문서에서는 FHIR 용 Azure API의 기능 및 향상 된 기능에 대 한 세부 정보를 제공 합니다.
+
+
+## <a name="october-2021"></a>2021년 10월
+
+### <a name="bug-fixes"></a>**버그 수정**
+
+| 무한 루프 버그 | 관련 정보          |
+| ----------------- | ----------------------------: |
+|[조건부 삭제가](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) 무한 루프를 발생 시킬 수 있는 문제를 해결 했습니다. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
 
 ## <a name="september-2021"></a>2021년 9월 
 
-### <a name="features-and-enhancements"></a>**기능 및 향상된 기능**
+### <a name="features-and-enhancements"></a>**기능 및 향상 된 기능**
 
-|개선 사항 | Description |
-|:------------------- | -----------:|
+|된 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |관련 정보 |
+|------------------- | --------------- |
 
-|조건부 패치에 대한 지원 추가 | [조건부 패치](././../azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
-| :----------------------------------- | ------: |
+|조건부 패치에 대 한 지원 추가 | [조건부 패치](././../azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
+| ----------------------------------- | ------: |
 |조건부 패치 |[#2163](https://github.com/microsoft/fhir-server/pull/2163) |
-|조건부 패치 감사 이벤트 추가 |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
+|조건부 패치 감사 이벤트를 추가 했습니다. |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
 |번들에서 JSON 패치 허용 | [번들의 JSON 패치](././../azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-in-bundles)|
-| :----------------------------------- | ------: |
-|패치 요청이 있는 검색 기록 번들 허용 |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
-|이진 리소스를 사용하여 번들에서 JSON 패치 사용 |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
+| ----------------------------------- | ------: |
+|패치 요청이 포함 된 검색 기록 번들을 허용 합니다. |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
+|이진 리소스를 사용 하 여 번들에서 JSON 패치를 사용 하도록 설정 했습니다. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
 
-|새 감사 이벤트 하위 유형| Description|
-| :----------------------------------- | ------: |
-|새 감사 [OperationName 하위 유형이 추가되었습니다.](././../azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+|새 감사 이벤트 하위 유형 |관련 정보 |
+| ----------------------------------- | ---------------: |
+|새 감사 [OperationName 하위 유형이](././../azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)추가 되었습니다.| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-|[다시 인덱스 개선 사항:](how-to-run-a-reindex.md) | Description|
-| :----------------------------------- | ------: |
-|[다시 인덱스](how-to-run-a-reindex.md) 매개 변수에 대한 경계 추가|[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
-|다시 인덱스 매개 변수 경계에 대한 오류 메시지 업데이트|[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
-|최종 다시 인덱스 수 검사를 추가합니다. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
+|[향상 된 인덱스 재 인덱싱](how-to-run-a-reindex.md) |관련 정보 |
+| ----------------------------------- | ---------------: |
+|[인덱스를 재 인덱싱 하기 위한 경계를](how-to-run-a-reindex.md) 추가 했습니다. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
+|매개 변수 경계를 재 인덱싱 하기 위한 오류 메시지를 업데이트 합니다. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
+|최종 인덱스 인덱스 검사를 추가 했습니다. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
 
 
 ### <a name="bug-fixes"></a>**버그 수정**
 
-|해결된 패치 버그| Description|
-| :----------------------------------- | ------: |
-|패치를 적용하는 동안 예외에 대한 더 넓은 catch |[#2192](https://github.com/microsoft/fhir-server/pull/2192)|
-|STU3에서 PATCH를 통해 기록 수정| [#2177](https://github.com/microsoft/fhir-server/pull/2177)|
+|해결 된 패치 버그 |관련 정보 |
+| :----------------------------------- | ---------------: |
+|패치 적용 시 예외에 대 한 더 광범위 한 catch. |[#2192](https://github.com/microsoft/fhir-server/pull/2192)|
+|STU3의 패치를 사용 하 여 기록을 수정 합니다.| [#2177](https://github.com/microsoft/fhir-server/pull/2177)|
 
-|사용자 지정 검색 버그| Description|
-| :----------------------------------- | ------: |
-|Custom Search 매개 변수를 통해 삭제 실패를 해결합니다.| [#2133](https://github.com/microsoft/fhir-server/pull/2133)|
-|검색 매개 변수를 삭제하는 동안 재시도 논리 추가| [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
-|SearchParameterDefinitionManager에서 검색 옵션의 최대 항목 수 설정| [#2141](https://github.com/microsoft/fhir-server/pull/2141)|
-|검색 매개 변수에 잘못된 식이 있는 경우 더 나은 예외|[#2157](https://github.com/microsoft/fhir-server/pull/2157)|
+|사용자 지정 검색 버그 |관련 정보 |
+| ----------------------------------- | ---------------: |
+|사용자 지정 검색 매개 변수를 사용 하 여 삭제 실패를 해결 합니다. | [#2133](https://github.com/microsoft/fhir-server/pull/2133)|
+|검색 매개 변수를 삭제 하는 동안 다시 시도 논리를 추가 했습니다. | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
+|SearchParameterDefinitionManager의 검색 옵션에서 최대 항목 수를 설정 합니다. | [#2141](https://github.com/microsoft/fhir-server/pull/2141)|
+|검색 매개 변수에 잘못 된 식이 있는 경우 더 나은 예외를 제공 합니다. |[#2157](https://github.com/microsoft/fhir-server/pull/2157)|
 
-|해결된 다시 시도 503 오류| Description|
-| :----------------------------------- | ------: |
-|Cosmos DB에서 503 다시 시도 오류 |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
-|StoreProcedures에서 429s 처리를 수정합니다.|[#2165](https://github.com/microsoft/fhir-server/pull/2165)|
+|해결 된 다시 시도 503 오류 |관련 정보 |
+| ----------------------------------- | ---------------: |
+|Cosmos DB에서 503 오류를 다시 시도 합니다. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
+|작업 프로시저에서 429s 처리를 수정 합니다. |[#2165](https://github.com/microsoft/fhir-server/pull/2165)|
 
-|GitHub 문제 해결| Description|
-| :----------------------------------- | ------: |
-|CarePlan 의료 디바이스에 대한 사용자 지정 검색 매개 변수를 만들 수 없음 |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
-|ID가 없는 조건부 만들기에 대한 명확하지 않은 오류 메시지| [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
+|GitHub 닫힌 문제 |관련 정보 |
+| ----------------------------------- | ---------------: |
+|CarePlan 의료 장치에 대 한 사용자 지정 검색 매개 변수를 만들 수 없습니다. |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
+|ID가 없는 조건부 만들기에 대 한 오류 메시지가 명확 하지 않습니다. | [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
 
-### <a name="iot-connector-for-fhir-preview"></a>IoT Connector for FHIR(미리 보기)
+### <a name="iot-connector-for-fhir-preview"></a>FHIR 용 IoT 커넥터 (미리 보기)
 
-|버그 수정| Description|
-| :-----------------------------------| ------: |
-|IoT 커넥터 Azure 설명서에 대한 링크가 수정됨|Azure API for FHIR 포털의 끊어진 링크 |
+|버그 수정 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|관련 정보 |
+| ----------------------------------- | ---------------: |
+|끊어진 링크를 수정 했습니다.| Azure API for FHIR 포털에서 IoT connector Azure 설명서에 대 한 링크를 업데이트 했습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Healthcare API(FHIR 서비스, DICOM 서비스 및 IoT 커넥터)의 기능 및 버그 수정에 대한 자세한 내용은 다음을 참조하세요.
+Azure 의료 Api (FHIR 서비스, DICOM service 및 IoT 커넥터)의 기능 및 버그 수정에 대 한 자세한 내용은을 참조 하세요.
 
 >[!div class="nextstepaction"]
->[릴리스 정보: Azure Healthcare API](../release-notes.md)
+>[릴리스 정보: Azure 의료 Api](../release-notes.md)

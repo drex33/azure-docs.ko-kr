@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma, emlisa
 ms.date: 09/24/2021
-ms.openlocfilehash: 0dc5dbec29cf8c1ac6a91777f0c67f0645e7a87d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 251a00fb5b64645cad5ec8bbdbed17fa229e61e4
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057306"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554924"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,6 +34,9 @@ Azure는 패치, 백업, Windows 및 Azure SQL 업그레이드와 같은 중요�
 - **프리미엄 가용성 모델** - 데이터베이스 엔진 프로세스 클러스터를 기반으로 합니다. 항상 사용 가능한 데이터베이스 엔진 노드의 쿼럼이 있다는 사실을 기반으로 합니다. 이 아키텍처는 높은 IO 성능, 높은 트랜잭션 속도를 갖춘 중요 업무용 애플리케이션을 대상으로 하며, 유지 관리 작업 중에 워크로드에 미치는 성능 영향을 최소화합니다.
 
 SQL Database와 SQL Managed Instance는 모두 안정적인 최신 버전의 SQL Server 데이터베이스 엔진과 Windows 운영 체제에서 실행되며, 대부분의 사용자는 업그레이드가 지속적으로 수행된다는 사실을 인식하지 못합니다.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="basic-standard-and-general-purpose-service-tier-locally-redundant-availability"></a>기본, 표준 및 범용 서비스 계층의 로컬 중복 가용성
 

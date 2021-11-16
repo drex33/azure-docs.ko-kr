@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.custom: contperf-fy22q2
-ms.openlocfilehash: 80a9701fb4d7ac3f93d7ba9c35cba2cc34dc7416
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c7e0ddee8e42f76c034ce79c7200e48fcb8bae04
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258547"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555910"
 ---
 # <a name="get-started-with-azure-service-bus-queues-net"></a>Azure Service Bus 큐 시작(.NET)
 이 빠른 시작에서는 다음 단계를 수행합니다.
@@ -24,6 +24,7 @@ ms.locfileid: "130258547"
 > 이 빠른 시작에서는 Service Bus 큐에 메시지 일괄 처리를 보내고 받는 간단한 시나리오에 대한 단계별 지침을 제공합니다. [GitHub의 .NET용 Azure SDK 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)에서 Azure Service Bus용으로 미리 빌드된 .NET 샘플을 찾을 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
+이 서비스를 처음 사용하는 경우 이 빠른 시작 전에 [Service Bus 개요](service-bus-messaging-overview.md)를 참조하세요. 
 
 - **Azure 구독**. Azure Service Bus를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다. 기존 Azure 계정이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 - **Microsoft Visual Studio 2019** Azure Service Bus 클라이언트 라이브러리는 C# 8.0에 도입된 새 기능을 사용합니다.  이전 C# 언어 버전으로 라이브러리를 계속 사용할 수 있지만 새 구문은 사용할 수 없습니다. 전체 구문을 사용하려면 .NET Core SDK 3.0 이상 및 `latest`로 설정된 언어 버전으로 컴파일하는 것이 좋습니다. Visual Studio를 사용하는 경우 Visual Studio 2019 이전 버전은 C# 8.0 프로젝트를 빌드하는 데 필요한 도구와 호환되지 않습니다.

@@ -1,22 +1,22 @@
 ---
 title: 자습서 - Azure IoT Hub에 디바이스를 인증하는 X.509 인증서의 기능 테스트 | Microsoft Docs
 description: 자습서 - X.509 인증서를 테스트하여 Azure IoT Hub에 인증
-author: v-gpettibone
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 8e5e7efcf5b09c8b8785e32f6fb4b459531d5567
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: f3f59cb5346f6a2526ee4e8b0d433b577c9cfa57
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444943"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553803"
 ---
 # <a name="tutorial-testing-certificate-authentication"></a>자습서: 인증서 인증 테스트
 

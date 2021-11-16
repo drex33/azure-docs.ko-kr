@@ -12,12 +12,12 @@ ms.reviewer: mathoma
 ms.date: 05/18/2021
 ROBOTS: NOINDEX
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6c16e508aa2002aff07df5fc30e0af4c74bdd025
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: 67e79d8b307de6327f3bacf2bfd57f95080b50d1
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413709"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553195"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요 - Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,6 +30,9 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용하는 가상 코�
 - Azure SQL Database 경우 vCore 구매 모델은 DTU 모델보다 더 높은 컴퓨팅, 메모리, I/O 및 저장소 제한을 제공합니다.
 
 vCore 및 DTU 구매 모델 중 선택하는 방법에 대한 자세한 내용은 [vCore 및 DTU 구매 모델 중에서 선택](purchasing-models.md)을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="service-tiers"></a>서비스 계층
 

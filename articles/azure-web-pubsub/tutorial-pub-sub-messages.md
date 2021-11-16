@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 13e3ee8db088db794c538e6da7af1a117c5ebd11
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 56314c696b58f89144d171314709b5153d250a29
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132345910"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551447"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-using-websocket-api-and-azure-web-pubsub-service-sdk"></a>자습서: WebSocket API 및 Azure Web PubSub 서비스 SDK를 사용하여 메시지 게시 및 구독
 
@@ -82,7 +82,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     cd subscriber
     dotnet new console
     dotnet add package Websocket.Client --version 4.3.30
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0
     ```
 
 2. 서비스에 연결하도록 `Program.cs` 파일을 다음과 같이 업데이트합니다.
@@ -90,9 +90,11 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     ```csharp
     using System;
     using System.Threading.Tasks;
+    
     using Azure.Messaging.WebPubSub;
+    
     using Websocket.Client;
-
+    
     namespace subscriber
     {
         class Program
@@ -106,11 +108,11 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 }
                 var connectionString = args[0];
                 var hub = args[1];
-
+    
                 // Either generate the URL or fetch it from server or fetch a temp one from the portal
-                var service = new WebPubSubServiceClient(connectionString, hub);
-                var url = service.GenerateClientAccessUri();
-
+                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
+                var url = serviceClient.GetClientAccessUri();
+    
                 using (var client = new WebsocketClient(url))
                 {
                     // Disable the auto disconnect and reconnect because the sample would like the client to stay online even no data comes in
@@ -123,11 +125,12 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
             }
         }
     }
+    
     ```
 
     위의 코드는 Azure Web PubSub의 허브에 연결하기 위한 WebSocket 연결을 만듭니다. 허브는 클라이언트 그룹에 메시지를 게시할 수 있는 Azure Web PubSub의 논리적 단위입니다. [주요 개념](./key-concepts.md)에는 Azure Web PubSub에서 사용되는 용어에 대한 자세한 설명이 포함되어 있습니다.
     
-    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 Web PubSub SDK에서 `WebPubSubServiceClient.GenerateClientAccessUri()`를 사용하여 유효한 액세스 토큰이 있는 전체 URL을 포함하는 서비스에 대한 URL을 생성합니다.
+    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 Web PubSub SDK에서 `WebPubSubServiceClient.GetClientAccessUri()`를 사용하여 유효한 액세스 토큰이 있는 전체 URL을 포함하는 서비스에 대한 URL을 생성합니다.
     
     연결이 설정되면 WebSocket 연결을 통해 메시지를 받게 됩니다. 따라서 `client.MessageReceived.Subscribe(msg => ...));`를 사용하여 들어오는 메시지를 수신 대기합니다.
 
@@ -146,7 +149,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     cd subscriber
     npm init -y
     npm install --save ws
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
 
     ```
 2. 그런 다음, WebSocket API를 사용하여 서비스에 연결합니다. 아래 코드를 사용하여 `subscribe.js` 파일을 만듭니다.
@@ -267,7 +270,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.6</version>
     </dependency>
 
     <dependency>
@@ -281,19 +284,18 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 3. Azure Web PubSub에서 WebSocket 연결을 통해 서비스에 연결하고 메시지를 구독할 수 있습니다. WebSocket은 완전한 전이중 통신 채널이므로 서비스에서 클라이언트에 메시지를 실시간으로 푸시할 수 있습니다. WebSocket을 지원하는 API/라이브러리를 사용하여 이 작업을 수행할 수 있습니다. 이 샘플에서는 [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) 패키지를 사용합니다. */src/main/java/com/webpubsub/quickstart* 디렉터리로 이동하고, 편집기에서 *App.java* 파일을 열고, 코드를 아래 코드로 바꿉니다.
 
     ```java
-    
     package com.webpubsub.quickstart;
-
+    
     import com.azure.messaging.webpubsub.*;
     import com.azure.messaging.webpubsub.models.*;
     
     import org.java_websocket.client.WebSocketClient;
     import org.java_websocket.handshake.ServerHandshake;
-
+    
     import java.io.IOException;
     import java.net.URI;
     import java.net.URISyntaxException;
-
+    
     /**
     * Connect to Azure Web PubSub service using WebSocket protocol
     *
@@ -306,37 +308,37 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 System.out.println("Expecting 2 arguments: <connection-string> <hub-name>");
                 return;
             }
-
-            WebPubSubServiceClient service = new WebPubSubClientBuilder()
+    
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();
-
-            WebPubSubAuthenticationToken token = service.getAuthenticationToken(new GetAuthenticationTokenOptions());
-
+    
+            WebPubSubClientAccessToken token = service.getClientAccessToken(new GetClientAccessTokenOptions());
+    
             WebSocketClient webSocketClient = new WebSocketClient(new URI(token.getUrl())) {
                 @Override
                 public void onMessage(String message) {
                     System.out.println(String.format("Message received: %s", message));
                 }
-
+    
                 @Override
                 public void onClose(int arg0, String arg1, boolean arg2) {
                     // TODO Auto-generated method stub
                 }
-
+    
                 @Override
                 public void onError(Exception arg0) {
                     // TODO Auto-generated method stub
                 }
-
+    
                 @Override
                 public void onOpen(ServerHandshake arg0) {
                     // TODO Auto-generated method stub
                 }
-                
+    
             };
-
+    
             webSocketClient.connect();
             System.in.read();
         }
@@ -346,7 +348,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 
     위의 코드는 Azure Web PubSub의 허브에 연결하기 위한 WebSocket 연결을 만듭니다. 허브는 클라이언트 그룹에 메시지를 게시할 수 있는 Azure Web PubSub의 논리적 단위입니다. [주요 개념](./key-concepts.md)에는 Azure Web PubSub에서 사용되는 용어에 대한 자세한 설명이 포함되어 있습니다.
     
-    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 Web PubSub SDK에서 `WebPubSubServiceClient.getAuthenticationToken(new GetAuthenticationTokenOptions())`를 사용하여 유효한 액세스 토큰이 있는 전체 URL을 포함하는 서비스에 대한 URL을 생성합니다.
+    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 Web PubSub SDK에서 `WebPubSubServiceClient.getClientAccessToken(new GetClientAccessTokenOptions())`를 사용하여 유효한 액세스 토큰이 있는 전체 URL을 포함하는 서비스에 대한 URL을 생성합니다.
     
     연결이 설정되면 WebSocket 연결을 통해 메시지를 받게 됩니다. 따라서 `onMessage(String message)`를 사용하여 들어오는 메시지를 수신 대기합니다.
 
@@ -370,7 +372,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
 
 2. `WebPubSubServiceClient` 클래스를 사용하여 클라이언트에 메시지를 보내도록 `Program.cs` 파일을 업데이트하겠습니다.
@@ -379,7 +381,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     using System;
     using System.Threading.Tasks;
     using Azure.Messaging.WebPubSub;
-
+    
     namespace publisher
     {
         class Program
@@ -393,15 +395,14 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 var connectionString = args[0];
                 var hub = args[1];
                 var message = args[2];
-
-                var service = new WebPubSubServiceClient(connectionString, hub);
                 
-                // Send messages to all the connected clients
-                // You can also try SendToConnectionAsync to send messages to the specific connection
-                await service.SendToAllAsync(message);
+                // Either generate the token or fetch it from server or fetch a temp one from the portal
+                var serviceClient = new WebPubSubServiceClient(connectionString, hub);
+                await serviceClient.SendToAllAsync(message);
             }
         }
     }
+    
     ```
 
     `SendToAllAsync()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
@@ -426,7 +427,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     mkdir publisher
     cd publisher
     npm init -y
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
 
     ```
 2. 이번에는 Azure Web PubSub SDK를 사용하여 서비스에 메시지를 게시해 보겠습니다. 아래 코드를 사용하여 `publish.js` 파일을 만듭니다.
@@ -519,18 +520,19 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.6</version>
     </dependency>
     ```
 
 3. 이번에는 Azure Web PubSub SDK를 사용하여 서비스에 메시지를 게시해 보겠습니다. */src/main/java/com/webpubsub/quickstart* 디렉터리로 이동하고, 편집기에서 *App.java* 파일을 열고, 코드를 아래 코드로 바꿉니다.
 
     ```java
-    package com.webpubsub.quickstart;
 
+    package com.webpubsub.quickstart;
+    
     import com.azure.messaging.webpubsub.*;
     import com.azure.messaging.webpubsub.models.*;
-
+    
     /**
     * Publish messages using Azure Web PubSub service SDK
     *
@@ -543,8 +545,8 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 System.out.println("Expecting 3 arguments: <connection-string> <hub-name> <message>");
                 return;
             }
-
-            WebPubSubServiceClient service = new WebPubSubClientBuilder()
+    
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();

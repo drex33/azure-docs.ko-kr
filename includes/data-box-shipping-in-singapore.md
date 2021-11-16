@@ -3,14 +3,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 11/16/2021
 ms.author: alkohli
-ms.openlocfilehash: 2f4911df5c8d57f7554ff80f1c0c4b382c0f82c3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8e9cd4a9d9c29422c9652a815020e12f841e2ea2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247262"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556591"
 ---
 싱가포르에서 디바이스를 반품하는 경우 다음 단계를 따르세요.
 
@@ -21,7 +21,7 @@ ms.locfileid: "130247262"
 5. 추적 번호가 포함된 다음 이메일 템플릿을 사용하여 SingPost Customer Service에 이메일을 보냅니다.
 
     ```
-    To: kadcustcare@singpost.com
+    To: g-corpsgcs@singpost.com
     Subject: Microsoft Azure Pickup - OrderName 
     Body: 
         1. Requestor name  

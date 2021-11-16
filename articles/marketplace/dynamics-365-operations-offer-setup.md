@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 09/27/2021
-ms.openlocfilehash: eadbeee57960577f12f880b4582e820eddb63e3c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7b155c07edebf80ee45467829c57024d0ad2845f
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234379"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552283"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
 
@@ -32,9 +32,9 @@ ms.locfileid: "129234379"
 
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
 
-1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. Marketplace 제안 페이지에서 **+ 새 제안**  >  **Dynamics 365를 작업으로** 선택합니다.
 
@@ -77,15 +77,9 @@ ms.locfileid: "129234379"
 
 ## <a name="setup-details"></a>설정 정보
 
-**잠재 고객이 이 목록 제품과 어떻게 상호 작용하기를 원하나요?** 에 대해서는 이 제품에 사용하고자 하는 옵션을 선택합니다.
+**잠재 고객이 이 목록 제안과 상호 작용하도록 하려면 어떻게 해야 할까요?** 에서 **연락처를** 선택합니다.
 
-- **지금 받기(무료)** – 고객에게 무료 제품을 나열합니다.
-- **무료 평가판(목록)** – 고객에게 무료 평가판에 대한 링크와 함께 제품을 나열합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
-
-    > [!NOTE]
-    > 평가판 링크를 통해 애플리케이션에서 수신하는 토큰은 앱에서 자동으로 계정을 만드는 Azure AD(Active Directory)를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에 Microsoft 계정이 지원되지 않습니다.
-
-- **연락처** – CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품 이름, ID 및 Marketplace(고객이 제품을 찾은 소스)와 함께 구성된 CRM 시스템으로 전송됩니다. CRM을 구성하는 방법에 대한 자세한 내용은 [잠재 고객](#customer-leads)을 참조하세요.
+CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객이 제안을 찾은 제안 이름, ID 및 마켓플레이스 원본과 함께 이러한 고객 세부 정보는 구성한 CRM 시스템으로 전송됩니다. CRM을 구성하는 방법에 대한 자세한 내용은 [잠재 고객](#customer-leads)을 참조하세요.
 
 ## <a name="test-drive"></a>시험 사용
 

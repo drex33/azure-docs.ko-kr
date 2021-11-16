@@ -11,20 +11,23 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 334ca6aadf43756985c7d187b460b625c5588525
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: fb607461e446ee44a92cee8e6dff60e8c2e6dd45
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693042"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546497"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 단일 데이터베이스 리소스 유형은 자체 리소스 집합을 사용하여 Azure SQL Database에 데이터베이스를 만들고 [서버](logical-servers.md)를 통해 관리됩니다. 단일 데이터베이스를 사용하면 각 데이터베이스가 격리되고 이식 가능합니다. 각 데이터베이스는 [DTU 기반 구매 모델](service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](service-tiers-vcore.md) 내에서 자체 서비스 계층과 보장된 컴퓨팅 크기를 갖습니다.
 
-> [!IMPORTANT]
-> 단일 데이터베이스는 Azure SQL Database에 대한 하나의 리소스 유형입니다. 다른 하나는 [탄력적 풀](elastic-pool-overview.md)입니다.
+단일 데이터베이스는 Azure SQL Database에 대 한 배포 모델입니다. 다른 하나는 [탄력적 풀](elastic-pool-overview.md)입니다.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
+
 
 ## <a name="dynamic-scalability"></a>동적 확장성
 

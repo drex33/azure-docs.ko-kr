@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.openlocfilehash: 72805453fb9929c4f598cca8d930eac3b447f6c2
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c3e422699d03e50bfd860ded2e281c8199ac7a5e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132287907"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546560"
 ---
 # <a name="quickstart-publish-messages-using-the-service-sdk-for-the-azure-web-pubsub-instance"></a>빠른 시작: Azure Web PubSub 인스턴스용 서비스 SDK를 사용하여 메시지 게시
 
@@ -74,7 +74,7 @@ ms.locfileid: "132287907"
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
 
 2. `WebPubSubServiceClient` 클래스를 사용하여 클라이언트에 메시지를 보내도록 `Program.cs` 파일을 업데이트합니다.
@@ -130,7 +130,7 @@ ms.locfileid: "132287907"
     mkdir publisher
     cd publisher
     npm init -y
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
     ```
 
 2. 이번에는 Azure Web PubSub SDK를 사용하여 서비스에 메시지를 게시해 보겠습니다. 아래 코드를 사용하여 `publish.js` 파일을 만듭니다.
@@ -226,7 +226,7 @@ ms.locfileid: "132287907"
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.6</version>
     </dependency>
     ```
 
@@ -234,12 +234,12 @@ ms.locfileid: "132287907"
 
     ```java
     package com.webpubsub.quickstart;
-
+    
     import com.azure.messaging.webpubsub.*;
     import com.azure.messaging.webpubsub.models.*;
-
+    
     /**
-    * Quickstart - Publish messages using Azure Web PubSub service SDK
+    * Publish messages using Azure Web PubSub service SDK
     *
     */
     public class App 
@@ -250,8 +250,8 @@ ms.locfileid: "132287907"
                 System.out.println("Expecting 3 arguments: <connection-string> <hub-name> <message>");
                 return;
             }
-
-            WebPubSubServiceClient service = new WebPubSubClientBuilder()
+    
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                 .connectionString(args[0])
                 .hub(args[1])
                 .buildClient();

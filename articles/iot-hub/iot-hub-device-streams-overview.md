@@ -1,22 +1,22 @@
 ---
 title: Azure IoT Hub 디바이스 스트림 | Microsoft Docs
 description: 다양한 클라우드-디바이스 통신 시나리오를 위한 보안 양방향 TCP 터널을 쉽게 구현할 수 있도록 하는 Azure IoT Hub 디바이스 스트림의 개요입니다.
-author: robinsh
+author: eross-msft
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 37dfd5adcfa00377980933e67c8881aaef6d8dd8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 2bedbb4e14886e1e16d765f91ad86f7b20989a34
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746108"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556005"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
 

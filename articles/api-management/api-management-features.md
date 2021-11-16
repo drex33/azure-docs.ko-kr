@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 04/13/2021
+ms.date: 11/15/2021
 ms.author: danlep
-ms.openlocfilehash: 55e5d8de3761bb50295f849232363b5643329c2b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6159b5c5d677dd66dda12573feeb3aad9faa9764
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596356"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556537"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
 
@@ -24,15 +24,15 @@ ms.locfileid: "128596356"
 
 | 기능                                                                                      | Consumption | 개발자 | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
-| Azure AD 통합<sup>1</sup>                                                             | 예          | 예       | 아니요    | 예      | 예     |
-| 가상 네트워크(VNet) 지원                                                               | 예          | 예       | 아니요    | 아니요       | 예     |
-| 다중 지역 배포                                                                      | 예          | 아니요        | 아니요    | 아니요       | 예     |
-| 가용성 영역                                                                           | 예          | 아니요        | 아니요    | 아니요       | 예     |
-| 여러 사용자 지정 도메인 이름                                                                 | 예          | 예        | 아니요    | 아니요       | 예     |
+| Azure AD 통합<sup>1</sup>                                                             | 예          | 예       | 예    | 예      | 예     |
+| 가상 네트워크(VNet) 지원                                                               | 예          | 예       | 예    | 예       | 예     |
+| 다중 지역 배포                                                                      | 예          | 예        | 예    | 예       | 예     |
+| 가용성 영역                                                                           | 예          | 예        | 예    | 예       | 예     |
+| 여러 사용자 지정 도메인 이름                                                                 | 예          | 예        | 예    | 예       | 예     |
 | 개발자 포털<sup>2</sup>                                                                 | 예          | 예       | 예   | 예      | 예     |
 | 기본 제공 캐시                                                                               | 예          | 예       | 예   | 예      | 예     |
 | 기본 제공 분석                                                                           | 예          | 예       | 예   | 예      | 예     |
-| [자체 호스팅 게이트웨이](self-hosted-gateway-overview.md)<sup>3</sup>                           | 예          | 예       | 아니요    | 아니요       | 예     |
+| [자체 호스팅 게이트웨이](self-hosted-gateway-overview.md)<sup>3</sup>                           | 예          | 예       | 예    | 예       | 예     |
 | [TLS 설정](api-management-howto-manage-protocols-ciphers.md)                             | 예         | 예       | 예   | 예      | 예     |
 | [외부 캐시](./api-management-howto-cache-external.md)                                                    | 예         | 예       | 예   | 예      | 예     |
 | [클라이언트 인증서 인증](api-management-howto-mutual-certificates-for-clients.md) | 예         | 예       | 예   | 예      | 예     |
@@ -41,7 +41,8 @@ ms.locfileid: "128596356"
 | 직접 관리 API                                                                        | 예          | 예       | 예   | 예      | 예     |
 | Azure Monitor 로그 및 메트릭                                                               | 예          | 예       | 예   | 예      | 예     |
 | 고정 IP                                                                                    | 예          | 예       | 예   | 예      | 예     |
-| [WebSocket API(미리 보기)](websocket-api.md)                                                                                    | 아니요          | 예       | 예   | 예      | 예     |
+| [WebSocket Api](websocket-api.md)                                                                                    | 예          | 예       | 예   | 예      | 예     |
+| [GraphQL Api (미리 보기)](graphql-api.md)                                                                               | 예          | 예       | 예   | 예      | 예     |
 
 <sup>1</sup> 개발자 포털에서 사용자 로그인의 ID 공급자로 Azure AD(및 Azure AD B2C)를 사용할 수 있습니다.<br/>
 <sup>2</sup> 관련 기능(예: 사용자, 그룹, 문제, 애플리케이션, 이메일 템플릿 및 알림)을 포함합니다.<br/>

@@ -3,20 +3,18 @@ title: Speech SDK 로깅 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK(C++, C#, Python, Objective-C, Java)에서 로깅을 사용하도록 설정하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 584e200beac484ea742d51341a9cb93f0cfc4a41
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ba3f5234c3f11cdd5c2e302679bbb6a79ec0c4f6
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529133"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550214"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅 사용
 

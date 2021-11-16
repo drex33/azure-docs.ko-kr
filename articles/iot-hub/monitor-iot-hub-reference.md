@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 데이터 참조 모니터링
 description: Azure IoT Hub를 모니터링할 때 필요한 중요 참조 자료
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.topic: reference
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: 6c7fd0a310663b664d33027951ade885b83d458a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 569d8aecd4b90fe7ad4cbe1513829c536682f8b4
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570963"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554487"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Azure IoT Hub 데이터 참조 모니터링
 
@@ -81,7 +81,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="cloud-to-device-command-metrics"></a>클라우드-디바이스 명령 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |만료된 C2D 메시지(미리 보기)|C2DMessagesExpired|개수|합계|만료된 클라우드-디바이스 메시지 수|없음|
 |C2D 메시지 배달 완료|c2d.commands.egress.complete.success|개수|합계|디바이스에서 성공적으로 배달 완료한 클라우드-디바이스 메시지 수|없음|
@@ -92,7 +92,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="cloud-to-device-direct-methods-metrics"></a>클라우드-디바이스 직접 메서드 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |실패한 직접 메서드 호출|c2d.methods.failure|개수|합계|실패한 모든 직접 메서드 호출의 수입니다.|없음|
 |직접 메서드 호출의 요청 크기|c2d.methods.requestSize|바이트|평균|성공한 모든 직접 메서드 요청의 수입니다.|없음|
@@ -103,7 +103,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="cloud-to-device-twin-operations-metrics"></a>클라우드-디바이스 쌍 작업 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |백 엔드에서의 실패한 쌍 읽기|c2d.twin.read.failure|개수|합계|실패한 모든 백 엔드 시작 쌍 읽기 수입니다.|없음|
 |백 엔드에서의 실패한 쌍 업데이트|c2d.twin.update.failure|개수|합계|실패한 모든 백 엔드 시작 쌍 업데이트 수입니다.|없음|
@@ -116,7 +116,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="configurations-metrics"></a>구성 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |구성 메트릭|구성|개수|합계|대상 디바이스 집합에서 디바이스 구성 및 IoT Edge 배포에 대해 수행된 총 CRUD 작업 수입니다. 해당 구성으로 인해 CRUD 작업 수에는 디바이스 쌍 또는 모듈 쌍을 수정하는 작업의 수도 포함됩니다.|없음|
 
@@ -124,7 +124,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="daily-quota-metrics"></a>일일 할당량 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |총 디바이스 데이터 사용량|deviceDataUsage|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|없음|
 |총 디바이스 데이터 사용량(미리 보기)|deviceDataUsageV2|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|없음|
@@ -134,7 +134,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="device-metrics"></a>디바이스 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |총 디바이스(사용되지 않음)|devices.totalDevices|개수|합계|IoT 허브에 등록된 디바이스 수|없음|
 |연결된 디바이스(사용되지 않음) |devices.connectedDevices.allProtocol|개수|합계|IoT 허브에 연결된 디바이스 수|없음|
@@ -149,7 +149,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="device-telemetry-metrics"></a>디바이스 원격 분석 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |제한 오류 수|d2c.telemetry.ingress.sendThrottle|개수|합계|디바이스 처리량 제한으로 인한 제한 오류 수|없음|
 |원격 분석 메시지 보내기 시도|d2c.telemetry.ingress.allProtocol|개수|합계|IoT Hub로 보내려 한 디바이스-클라우드 원격 분석 메시지 수|없음|
@@ -159,7 +159,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="device-to-cloud-twin-operations-metrics"></a>디바이스-클라우드 쌍 작업 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |디바이스에서의 실패한 쌍 읽기|d2c.twin.read.failure|개수|합계|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|없음|
 |디바이스에서의 실패한 쌍 업데이트|d2c.twin.update.failure|개수|합계|실패한 모든 디바이스 시작 쌍 업데이트 수입니다.|없음|
@@ -172,16 +172,16 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="event-grid-metrics"></a>Event Grid 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
-|Event Grid 배달(미리 보기)|EventGridDeliveries|개수|합계|Event Grid에 게시된 IoT Hub 이벤트 수입니다. 성공 및 실패한 요청의 수에 대해 결과 차원을 사용합니다. EventType 차원은 이벤트 형식(https://aka.ms/ioteventgrid) )을 보여 줍니다.|결과,<br/>EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조하세요*.|
-|Event Grid 대기 시간(미리 보기)|EventGridLatency|밀리초|평균|Iot Hub 이벤트가 생성된 때부터 Event Grid에 이벤트가 게시될 때까지 평균 대기 시간(밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대한 대기 시간을 확인하려면 EventType 차원을 사용합니다.|EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조하세요*.|
+|Event Grid 배달(미리 보기)|EventGridDeliveries|개수|합계|Event Grid에 게시된 IoT Hub 이벤트 수. 성공 및 실패한 요청 수에 대한 결과 차원을 사용합니다. EventType 차원은 이벤트 형식(https://aka.ms/ioteventgrid) )을 보여 줍니다.|결과,<br/>EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조하세요*.|
+|Event Grid 대기 시간(미리 보기)|EventGridLatency|밀리초|평균|Iot Hub 이벤트가 생성된 시간부터 Event Grid에 게시된 시간까지의 평균 대기 시간(밀리초). 이 숫자는 모든 이벤트 유형의 평균입니다. 특정 이벤트 유형의 대기 시간을 확인하려면 EventType 차원을 사용합니다.|EventType<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조하세요*.|
 
 **단위** 값이 **개수** 인 메트릭의 경우 합계(sum) 집계만 유효합니다. 최솟값, 최댓값, 평균 집계는 항상 1을 반환합니다. 자세한 내용은 [지원되는 집계](#supported-aggregations)를 참조하세요.
 
 ### <a name="jobs-metrics"></a>작업 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |완료된 작업|jobs.completed|개수|합계|완료된 모든 작업의 수입니다.|없음|
 |목록 작업에 대한 실패한 호출|jobs.listJobs.failure|개수|합계|목록 작업에 대한 실패한 모든 호출 수입니다.|없음|
@@ -200,7 +200,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="routing-metrics"></a>라우팅 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 | 라우팅 배달 시도(미리 보기) |RoutingDeliveries | 개수 | 합계 |라우팅 배달 메트릭입니다. 차원을 사용하여 특정 엔드포인트 또는 특정 라우팅 원본의 배달 상태를 식별할 수 있습니다.| 결과,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조하세요*. |
 | 라우팅 배달 데이터의 바이트 단위 크기(미리 보기)|RoutingDataSizeInBytesDelivered| 바이트 | 합계 |IoT Hub 의해 사용자 지정 엔드포인트와 기본 제공 엔드포인트에 라우팅되는 총 바이트 수입니다. 차원을 사용하여 특정 엔드포인트 또는 특정 라우팅 원본에 대해 라우팅되는 데이터 크기를 식별할 수 있습니다.| RoutingSource,<br>EndpointType<br>EndpointName<br>*자세한 내용은 [메트릭 차원](#metric-dimensions)을 참조하세요*.|
@@ -227,7 +227,7 @@ Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essenti
 
 ### <a name="twin-query-metrics"></a>쌍 쿼리 메트릭
 
-|메트릭 표시 이름|메트릭|단위|집계 형식|설명|차원|
+|메트릭 표시 이름|메트릭|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
 |실패한 쌍 쿼리|twinQueries.failure|개수|합계|실패한 모든 쌍 쿼리의 수입니다.|없음|
 |성공한 쌍 쿼리|twinQueries.success|개수|합계|성공한 모든 쌍 쿼리의 수입니다.|없음|
@@ -602,7 +602,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 
 여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
 | **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
@@ -636,7 +636,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 `properties` 섹션의 이 로그에는 메시지 수신에 대한 추가 정보가 포함됩니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
 | **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
@@ -668,7 +668,7 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 `properties` 섹션의 이 로그에는 메시지 수신에 대한 추가 정보가 포함됩니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
 | **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |

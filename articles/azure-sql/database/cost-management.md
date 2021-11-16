@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.subservice: service-overview
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.openlocfilehash: 29d0bdba30bb75a085e147c72438f22121744870
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
-ms.translationtype: HT
+ms.openlocfilehash: 5f1464c6fb74bc04dacb230cd2a5993f7566e82a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113134585"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546883"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Azure SQL Database 비용 계획 및 관리
 
@@ -21,6 +21,8 @@ ms.locfileid: "113134585"
 
 먼저 Azure 가격 계산기를 사용하여 Azure 리소스를 추가하고 예상 비용을 검토합니다. Azure SQL Database 리소스 사용을 시작한 후에는 Cost Management 기능을 사용하여 예산을 설정하고 비용을 모니터링합니다. 예상 비용을 검토하고 지출 추세를 기반으로 작업할 만한 영역을 파악할 수도 있습니다. Azure SQL Database 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 Azure SQL Database 비용을 계획하고 관리하는 방법을 설명하지만, 모든 타사 서비스를 포함하여 Azure 구독에 사용되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구됩니다.
 
+> [!div class="nextstepaction"]
+> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -133,7 +135,7 @@ Azure SQL Database 사용을 시작하면 포털에서 예상 비용을 확인�
 
 ## <a name="create-budgets"></a>예산 만들기
 
-[예산](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. 예산 및 경고는 Azure 구독 및 리소스 그룹에 대해 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
+[예산](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대한 예산 및 경고가 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
 
 모니터링에 더 많은 세분성을 제공하려는 경우 Azure의 특정 리소스 또는 서비스에 대한 필터를 사용하여 예산을 만들 수 있습니다. 필터는 실수로 새 리소스를 만들지 않도록 합니다. 예산을 만들 때 사용하는 필터 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](../../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 

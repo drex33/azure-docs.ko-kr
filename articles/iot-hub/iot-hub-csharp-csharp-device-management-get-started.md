@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub 디바이스 관리 시작(.NET/.NET) | Microsoft Docs
 description: Azure IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이트된 디바이스 앱을 구현하며 .NET용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 1eac28079136d1b81e92536c803b2a7da3925cc5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 750dd2c88e826ac42d7806b1ad0d210ede232196
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528769"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551839"
 ---
 # <a name="get-started-with-device-management-net"></a>디바이스 관리 시작(.NET)
 

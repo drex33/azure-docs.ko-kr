@@ -10,12 +10,12 @@ ms.date: 11/02/2021
 author: AjAgr
 ms.author: ajagarw
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1ab5933dfecd5143865423601d119d84d93700ee
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 45338fa4aed963d2172af25fec680e2017c98e88
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030926"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549891"
 ---
 # <a name="tutorial-score-machine-learning-models-with-predict-in-serverless-apache-spark-pools"></a>자습서: 서버리스 Apache Spark 풀에서 PREDICT를 통해 기계 학습 모델 채점하기
 
@@ -31,7 +31,7 @@ Synapse PySpark Notebook의 PREDICT는 SQL 언어, UDF(사용자 정의 함수) 
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 서버리스 Apache Spark 풀 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../get-started-analyze-spark.md)를 참조하세요.
@@ -56,7 +56,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. **라이브러리 가져오기:** Spark 세션에서 PREDICT를 사용하려면 다음 라이브러리를 가져옵니다.
 
-   ```PYSPARK
+   ```python
       #Import libraries
       from pyspark.sql.functions import col, pandas_udf,udf,lit
       from azureml.core import Workspace
@@ -70,7 +70,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
    > [!NOTE]
    > 이 스크립트를 실행하기 전에 모델 출력 반환 데이터 형식 및 모델 파일에 대한 ADLS/AML URI와 함께 ADLS Gen2 데이터 파일에 대한 URI로 업데이트합니다.
 
-   ```PYSPARK
+   ```python
       #Set input data path
       DATA_FILE = "abfss://<filesystemname>@<account name>.dfs.core.windows.net/<file path>"
    
@@ -95,7 +95,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
    - **서비스 주체를 통해:** 서비스 주체 클라이언트 ID 및 비밀을 직접 사용하여 AML 작업 영역에 인증할 수 있습니다. 서비스 주체는 AML 작업 영역에 대한 "기여자" 액세스 권한이 있어야 합니다.
 
-      ```PYSPARK
+      ```python
          #AML workspace authentication using service principal
          AZURE_TENANT_ID = "<tenant_id>"
          AZURE_CLIENT_ID = "<client_id>"
@@ -121,7 +121,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
    - **연결된 서비스를 통해:** 연결된 서비스를 사용하여 AML 작업 영역에 인증할 수 있습니다. 연결된 서비스는 인증에 "서비스 주체" 또는 Synapse 작업 영역의 "MSI(관리 서비스 ID)"를 사용할 수 있습니다. "서비스 주체" 또는 "MSI(관리 서비스 ID)"에는 AML 작업 영역에 대한 "기여자" 액세스 권한이 있어야 합니다.
 
-      ```PYSPARK
+      ```python
          #AML workspace authentication using linked service
          from notebookutils.mssparkutils import azureML
          ws = azureML.getWorkspace("<linked_service_name>") #   "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked   service supports MSI and service principal both
@@ -129,7 +129,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 4. **Spark 세션에서 PREDICT를 사용하도록 설정:** Spark 구성 `spark.synapse.ml.predict.enabled`를 `true`로 설정하여 라이브러리를 사용하도록 설정합니다.
 
-   ```PYSPARK
+   ```python
       #Enable SynapseML predict
       spark.conf.set("spark.synapse.ml.predict.enabled","true")
    ```
@@ -139,7 +139,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
    > [!NOTE]
    > 실행하기 전에 이 스크립트에서 모델 별칭 및 모델 URI를 업데이트합니다.
 
-   ```PYSPARK
+   ```python
       #Bind model within Spark session
        model = pcontext.bind_model(
         return_types=RETURN_TYPES, 
@@ -155,7 +155,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
    > [!NOTE]
    > 실행하기 전에 이 스크립트의 뷰 이름을 업데이트합니다.
 
-   ```PYSPARK
+   ```python
       #Read data from ADLS
       df = spark.read \
        .format("csv") \
@@ -170,7 +170,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
    > [!NOTE]
    > 실행하기 전에 이 스크립트에서 모델 별칭 이름, 뷰 이름 및 쉼표로 구분된 모델 입력 열 이름을 업데이트합니다. 쉼표로 구분된 모델 입력 열은 모델을 학습하는 동안 사용된 열과 동일합니다.
 
-   ```PYSPARK
+   ```python
       #Call PREDICT using Spark SQL API
    
       predictions = spark.sql(
@@ -182,7 +182,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
                  ).show()
    ```
 
-   ```PYSPARK
+   ```python
       #Call PREDICT using user defined function (UDF)
    
       df = df[<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
@@ -190,7 +190,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
       df.withColumn("PREDICT",model.udf(lit("<random_alias_name>"),*df.columns)).show()
    ```
 
-   ```PYSPARK
+   ```python
       #Call PREDICT using Transformer API
       
       columns = [<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
@@ -204,7 +204,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. 라이브러리를 가져오고 ADLS에서 학습 데이터 세트를 읽습니다.
 
-   ```PYSPARK
+   ```python
       # Import libraries and read training dataset from ADLS
       
       import fsspec
@@ -222,7 +222,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. 모델을 학습시키고 mlflow 아티팩트를 생성합니다.
 
-   ```PYSPARK
+   ```python
       # Train model and generate mlflow artifacts
    
       import os
@@ -314,7 +314,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. 모델 MLFLOW 아티팩트를 ADLS에 저장하거나 AML에 등록합니다.
 
-   ```PYSPARK
+   ```python
       # Store model MLFLOW artifacts in ADLS
       
       STORAGE_PATH = 'abfs[s]://<container>/<path-to-store-folder>'
@@ -333,7 +333,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
           recursive=True, overwrite=True)
    ```
 
-   ```PYSPARK
+   ```python
       # Register model MLFLOW artifacts in AML
       
       from azureml.core import Workspace, Model
@@ -369,7 +369,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. 변수를 사용하여 필수 매개 변수를 설정합니다.
 
-   ```PYSPARK
+   ```python
       # If using ADLS uploaded model
    
       import pandas as pd
@@ -384,7 +384,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
       RUNTIME = "mlflow"
    ```
 
-   ```PYSPARK
+   ```python
       # If using AML registered model
    
       from pyspark.sql.functions import col, pandas_udf,udf,lit
@@ -401,13 +401,13 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. Spark 세션에서 SynapseML PREDICT 기능을 사용하도록 설정합니다.
 
-   ```PYSPARK
+   ```python
       spark.conf.set("spark.synapse.ml.predict.enabled","true")
    ```
 
 1. Spark 세션에서 모델을 바인딩합니다.
 
-   ```PYSPARK
+   ```python
       # If using ADLS uploaded model
    
       model = pcontext.bind_model(
@@ -418,7 +418,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
        ).register()
    ```
 
-   ```PYSPARK
+   ```python
       # If using AML registered model
    
       model = pcontext.bind_model(
@@ -432,7 +432,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. ADLS에서 테스트 데이터를 로드합니다.
 
-   ```PYSPARK
+   ```python
       # Load data from ADLS
    
       df = spark.read \
@@ -447,7 +447,7 @@ PREDICT를 사용하기 위해 다음 단계를 수행하기 전에 모든 필�
 
 1. PREDICT를 호출하여 점수를 생성합니다.
 
-   ```PYSPARK
+   ```python
       # Call PREDICT
       
       predictions = spark.sql(

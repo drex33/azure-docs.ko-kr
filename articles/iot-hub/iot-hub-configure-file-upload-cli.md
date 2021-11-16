@@ -1,18 +1,18 @@
 ---
 title: Azure CLI를 사용하여 IoT Hub에 파일 업로드 구성 | Microsoft Docs
 description: 플랫폼 간 Azure CLI를 사용하여 Azure IoT Hub에 파일 업로드를 구성하는 방법입니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.author: robinsh
-ms.openlocfilehash: ecaae482a0a577efd480610f25d0186502dbeb15
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: lizross
+ms.openlocfilehash: c3aa2d496151d8c9d9f6ef5acfea6dee55548b2b
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566709"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555606"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 파일 업로드 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "122566709"
 
 이 문서에서는 Azure CLI를 사용하여 IoT 허브에서 파일 업로드를 구성하는 방법을 보여 줍니다. 
 
-[IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하려면 먼저 Azure Storage 계정 및 Blob 컨테이너를 IoT 허브에 연결해야 합니다. IoT Hub는 파일을 업로드하는 경우에 사용할 디바이스에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다. 스토리지 계정 및 Blob 컨테이너 외에도 SAS URI의 TTL(Time to Live) 및 IoT Hub가 Azure Storage에서 사용하는 인증 유형을 설정할 수 있습니다. IoT Hub가 백 엔드 서비스에 제공할 수 있는 선택적 파일 업로드 알림에 대한 설정도 구성할 수 있습니다.
+[IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하려면 먼저 Azure Storage 계정 및 Blob 컨테이너를 IoT 허브에 연결해야 합니다. IoT Hub는 파일을 업로드하는 경우에 사용할 디바이스에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다. 스토리지 계정 및 Blob 컨테이너 외에도 SAS URI의 TTL(Time to Live) 및 IoT Hub가 Azure 스토리지에서 사용하는 인증 유형을 설정할 수 있습니다. IoT Hub가 백 엔드 서비스에 제공할 수 있는 선택적 파일 업로드 알림에 대한 설정도 구성할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -224,7 +224,7 @@ az iot hub update --name {your iot hub name} \
 
 ## <a name="next-steps"></a>다음 단계
 
-* [디바이스에서 파일 업로드 개요](iot-hub-devguide-file-upload.md)
+* [디바이스 개요에서 파일 업로드](iot-hub-devguide-file-upload.md)
 * [관리 ID에 대한 IoT Hub 지원](./iot-hub-managed-identity.md)
 * [파일 업로드 방법 가이드](./iot-hub-csharp-csharp-file-upload.md)
 * Azure CLI [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update), [az iot hub identity show](/cli/azure/iot/hub/identity#az_iot_hub_identity_show) 및 [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령

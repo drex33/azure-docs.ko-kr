@@ -6,21 +6,21 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3dbeae805c28b9cfbfe7871b49f021a1d3ad19c2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5cf711abf0373c2c7681d71426c0590b9561708e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023161"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522881"
 ---
 # <a name="tutorial-investigate-incidents-with-ueba-data"></a>자습서: UEBA 데이터를 사용하여 인시던트 조사
 
@@ -34,11 +34,11 @@ ms.locfileid: "131023161"
 >
 
 > [!NOTE]
-> 이 자습서에서는 상위 고객 작업인 UEBA 데이터로 조사를 위한 시나리오 기반 절차를 제공합니다. 자세한 내용은 [Azure Sentinel을 사용하여 인시던트 조사](investigate-cases.md)를 참조하세요.
+> 이 자습서에서는 상위 고객 작업인 UEBA 데이터로 조사를 위한 시나리오 기반 절차를 제공합니다. 자세한 내용은 [Microsoft 센티널로 인시던트 조사](investigate-cases.md)를 참조 하세요.
 >
 ## <a name="prerequisites"></a>필수 구성 요소
 
-조사에서 UEBA 데이터를 사용하려면 먼저 [Azure Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하도록 설정](enable-entity-behavior-analytics.md)해야 합니다.
+조사에서 UEBA 데이터를 사용 하려면 먼저 [Microsoft 센티널에서 사용자 및 엔터티 동작 분석 (ueba)을 사용 하도록 설정](enable-entity-behavior-analytics.md)해야 합니다.
 
 UEBA가 사용하도록 설정되면 약 1주일 후에 컴퓨터 기반 인사이트 검색을 시작합니다.
 
@@ -46,7 +46,7 @@ UEBA가 사용하도록 설정되면 약 1주일 후에 컴퓨터 기반 인사�
 
 사용자 작업을 통해 정기적인 사전 검색을 실행하여 추가 조사를 위한 단서를 만드는 것이 좋습니다.
 
-Azure Sentinel [사용자 및 엔터티 동작 분석 통합 문서](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries)를 사용하여 다음과 같은 데이터를 쿼리할 수 있습니다.
+Microsoft 센티널 [사용자 및 엔터티 동작 분석 통합 문서](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries) 를 사용 하 여 다음과 같은 데이터를 쿼리할 수 있습니다.
 
 - **가장 위험한 사용자** - 변칙 또는 연결된 인시던트가 있는 사용자
 - **특정 사용자에 대한 데이터** - 주체가 실제로 손상되었는지 여부 또는 사용자 프로필에서 벗어난 작업으로 인한 내부자 위협이 있는지 여부를 확인합니다.
@@ -76,7 +76,7 @@ Azure Sentinel [사용자 및 엔터티 동작 분석 통합 문서](identify-th
 
 조사에서 캡처된 인시던트가 가양성인 경우가 있습니다.
 
-가양성의 일반적인 예는 동일한 시간 내에 뉴욕과 런던에서 애플리케이션 또는 포털에 로그인한 사용자와 같이 불가능한 이동 작업이 검색되는 경우입니다. Azure Sentinel은 불가능한 이동을 변칙으로 표시하지만, 사용자를 조사하면 VPN이 사용자가 실제로 있었던 대체 위치와 함께 사용되었음을 명확히 알 수 있습니다.
+가양성의 일반적인 예는 동일한 시간 내에 뉴욕과 런던에서 애플리케이션 또는 포털에 로그인한 사용자와 같이 불가능한 이동 작업이 검색되는 경우입니다. Microsoft 센티널에서 비정상으로 이동 하는 것을 확인 하는 동안 사용자를 조사 하면 VPN이 사용자의 실제 위치에 대 한 대체 위치와 함께 사용 되었다는 것을 명확히 설명할 수 있습니다.
 
 ### <a name="analyze-a-false-positive"></a>가양성 분석
 
@@ -89,9 +89,9 @@ Azure Sentinel [사용자 및 엔터티 동작 분석 통합 문서](identify-th
 사용자 엔터티 페이지는 [인시던트 페이지](investigate-cases.md#how-to-investigate-incidents) 자체와 [조사 그래프](investigate-cases.md#use-the-investigation-graph-to-deep-dive)에서도 연결됩니다.
 
 > [!TIP]
-> 인시던트와 관련된 특정 사용자에 대한 사용자 엔터티 페이지의 데이터를 확인한 후 Azure Sentinel **헌팅** 영역으로 이동하여 사용자의 피어가 일반적으로 동일한 위치에서 연결되는지 여부를 파악합니다. 그렇다면 이 지식은 가양성에 대한 훨씬 더 강력한 사례를 만듭니다.
+> 사용자 엔터티 페이지에서 인시던트에 연결 된 특정 사용자에 대 한 데이터를 확인 한 후 Microsoft 센티널 **구하기** 영역으로 이동 하 여 사용자의 피어가 일반적으로 동일한 위치에서 연결 되는지 여부를 파악 합니다. 그렇다면 이 지식은 가양성에 대한 훨씬 더 강력한 사례를 만듭니다.
 >
-> **헌팅** 영역에서 **비정상적인 지리적 위치 로그온** 쿼리를 실행합니다. 자세한 내용은 [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)을 참조하세요.
+> **헌팅** 영역에서 **비정상적인 지리적 위치 로그온** 쿼리를 실행합니다. 자세한 내용은 [Microsoft 센티널로 위협 구하기](hunting.md)를 참조 하세요.
 >
 
 ### <a name="embed-identityinfo-data-in-your-analytics-rules-public-preview"></a>분석 규칙에 IdentityInfo 데이터 포함(공개 미리 보기)
@@ -102,7 +102,7 @@ Azure Sentinel [사용자 및 엔터티 동작 분석 통합 문서](identify-th
 
 예를 들면 다음과 같습니다.
 
-- **IT** 부서 외부의 사용자가 서버에 액세스하는 경우 트리거되는 경고의 **IdentityInfo** 테이블과 보안 이벤트의 상관 관계를 지정하려면 다음을 수행합니다.
+- **IT** 부서 외부 사용자가 서버에 액세스할 경우 트리거되는 경고의 **IdentityInfo** 테이블과 보안 이벤트의 상관 관계를 만들려면 다음을 수행 합니다.
 
     ```kusto
     SecurityEvent
@@ -151,7 +151,7 @@ MFA(다단계 인증)가 사용하도록 설정되지 않으면 사용자 자격
 
 ## <a name="url-detonation-public-preview"></a>URL 데토네이션(공개 미리 보기)
 
-로그에 Azure Sentinel로 수집되는 URL이 있으면 심사 프로세스를 가속화하기 위해 해당 URL이 자동으로 데토네이트됩니다. 
+로그에 Microsoft 수집에 대 한 Url이 있는 경우 해당 Url은 심사 프로세스를 가속화 하는 데 도움이 되도록 자동으로 detonated 됩니다. 
 
 조사 그래프에는 다음 세부 정보뿐만 아니라 데토네이트된 URL에 대한 노드가 포함됩니다.
 
@@ -166,14 +166,14 @@ MFA(다단계 인증)가 사용하도록 설정되지 않으면 사용자 자격
 > [!TIP]
 > 로그에 URL이 표시되지 않으면 보안 웹 게이트웨이, 웹 프록시, 방화벽 또는 레거시 IDS/IPS에 대해 URL 로깅(위협 로깅이라고도 함)이 활성화되어 있는지 확인합니다.
 >
-> 추가 조사를 위해 Azure Sentinel에 관심 있는 특정 URL의 채널에 대한 사용자 지정 로그를 만들 수도 있습니다.
+> 추가 조사를 위해 관심 있는 특정 URL을 Microsoft Sentinel에 채널로 보내는 사용자 지정 로그를 만들 수도 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
 
 UEBA, 조사 및 헌팅에 대해 자세히 알아보세요.
 
-- [Azure Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하여 고급 위협 식별](identify-threats-with-entity-behavior-analytics.md)
-- [Azure Sentinel UEBA 보강 참조](ueba-enrichments.md)
-- [자습서: Azure Sentinel을 사용하여 인시던트 조사](investigate-cases.md)
-- [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)
+- [Microsoft Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하여 고급 위협 식별](identify-threats-with-entity-behavior-analytics.md)
+- [Microsoft Sentinel UEBA 보강 참조](ueba-enrichments.md)
+- [자습서: Microsoft Sentinel을 사용하여 인시던트 조사](investigate-cases.md)
+- [Microsoft Sentinel을 사용하여 위협 헌츠](hunting.md)

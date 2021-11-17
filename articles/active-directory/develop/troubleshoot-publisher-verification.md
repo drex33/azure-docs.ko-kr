@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 10/21/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 46f8df4b48dcd887bf5500ba5189374c2331047c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: cfbc4c469ca25247c6fb74246133a8dc972a68a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408014"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262777"
 ---
 # <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
 [게시자 확인](publisher-verification-overview.md)을 사용하여 프로세스를 완료할 수 없거나 예기치 않은 동작이 발생하는 경우 오류를 수신하거나 예기치 않은 동작이 표시되면 먼저 다음을 수행해야 합니다. 
@@ -233,11 +233,11 @@ MPN ID가 요청 본문에 제공되지 않았거나 요청 콘텐츠 형식이 
 
 ### <a name="unabletoaddpublisher"></a>UnableToAddPublisher
 
-표시되는 오류 메시지: "확인된 게시자를 이 애플리케이션에 추가할 수 없습니다. 도움이 필요하면 관리자에게 문의하세요.”
+다음 오류 메시지 중 하나가 표시됩니다. "확인된 게시자를 이 애플리케이션에 추가할 수 없습니다. 도움이 필요하면 관리자에게 문의하세요." 또는 "이 애플리케이션에 확인된 게시자를 추가할 수 없습니다. 도움이 필요하면 관리자에게 문의하세요."
 
 먼저 [게시자 확인 요구 사항](publisher-verification-overview.md#requirements)을 충족 했는지 확인합니다.
 
-확인된 게시자를 추가하라는 요청이 생성되면 보안 위험 평가를 위해 다양한 신호를 사용합니다. 요청이 위험한 것으로 확인되면 오류가 반환됩니다. 보안상의 이유로 Microsoft는 요청이 위험한지 여부를 판단하는 데 사용되는 특정 기준을 공개하지 않습니다.
+확인된 게시자를 추가하라는 요청이 생성되면 보안 위험 평가를 위해 많은 신호가 사용됩니다. 요청이 위험한 것으로 확인되면 오류가 반환됩니다. 보안상의 이유로 Microsoft는 요청이 위험한지 여부를 판단하는 데 사용되는 특정 기준을 공개하지 않습니다. 이 오류가 수신되고 "위험" 평가가 잘못되었다고 생각되면 기다렸다가 확인 요청을 다시 제출해 보세요. 일부 고객은 여러 번의 시도 후에 성공을 보고했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

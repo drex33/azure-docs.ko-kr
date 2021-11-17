@@ -1081,7 +1081,7 @@ productDirectory:
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: security-center/index.yml
+      url: defender-for-cloud/index.yml
     - title: Microsoft Defender for IoT
       summary: 비관리형 및 관리형 IoT/OT 디바이스 모두에 대한 지속적인 자산 관리 및 위협 탐지
       imageSrc: ./media/index/defender-iot.svg

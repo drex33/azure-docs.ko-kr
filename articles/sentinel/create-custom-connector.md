@@ -1,36 +1,36 @@
 ---
-title: Azure Sentinel 사용자 지정 커넥터를 만들기 위한 리소스 | Microsoft Docs
-description: Azure Sentinel용 사용자 지정 커넥터를 만드는 데 사용할 수 있는 리소스에 대해 알아봅니다. 방법에는 Log Analytics 에이전트와 API, Logstash, Logic Apps, PowerShell 및 Azure Functions가 포함됩니다.
+title: Microsoft Sentinel 사용자 지정 커넥터를 만들기 위한 리소스 | Microsoft Docs
+description: Microsoft Sentinel용 사용자 지정 커넥터를 만드는 데 사용할 수 있는 리소스에 대해 알아봅니다. 방법에는 Log Analytics 에이전트와 API, Logstash, Logic Apps, PowerShell 및 Azure Functions가 포함됩니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2021
+ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: df33492b544a9d8875d6996b89acf225f3ace4f4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4c1d4f5dcbb0a707f0ec6ff728ddb72a27ab1e0d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449282"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521741"
 ---
-# <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Azure Sentinel 사용자 지정 커넥터를 만들기 위한 리소스
+# <a name="resources-for-creating-microsoft-sentinel-custom-connectors"></a>Microsoft Sentinel 사용자 지정 커넥터를 만들기 위한 리소스
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Azure Sentinel은 [Azure 서비스 및 외부 솔루션에 대한 기본 제공 커넥터](connect-data-sources.md)를 다양하게 제공하며, 전용 커넥터가 없는 일부 원본에서의 데이터 수집을 지원합니다.
+Microsoft Sentinel은 Azure [서비스 및 외부 솔루션에 대한](connect-data-sources.md)광범위한 기본 제공 커넥터를 제공하고 전용 커넥터 없이 일부 원본에서 데이터 수집을 지원합니다.
 
-사용 가능한 기존 솔루션 중 하나를 사용하여 데이터 원본을 Azure Sentinel에 연결할 수 없는 경우 고유한 데이터 원본 커넥터를 만드는 것이 좋습니다.
+사용 가능한 기존 솔루션을 사용하여 Microsoft Sentinel에 데이터 원본을 연결할 수 없는 경우 사용자 고유의 데이터 원본 커넥터를 만드는 것이 좋습니다.
 
-지원되는 커넥터의 전체 목록은 [Azure Sentinel: 커넥터 그랜드(CEF, Syslog, 직접, 에이전트, 사용자 지정 등)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) 블로그 게시물을 참조하세요.
+지원되는 커넥터의 전체 목록은 [Microsoft Sentinel: The connectors grand (CEF, Syslog, Direct, Agent, Custom 등)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) 블로그 게시물을 참조하세요.
 
 ## <a name="compare-custom-connector-methods"></a>사용자 지정 커넥터 방법 비교
 
@@ -48,10 +48,10 @@ Azure Sentinel은 [Azure 서비스 및 외부 솔루션에 대한 기본 제공 
 
 > [!TIP]
 > 동일한 커넥터에 대해 Logic Apps 및 Azure Functions를 사용한 비교는 다음을 참조하세요.
-> 
-> - [Fastly Web Application Firewall 로그를 Azure Sentinel에 수집](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
-> - Office 365(Azure Sentinel GitHub 커뮤니티): [논리 앱 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
-> 
+>
+> - [Microsoft Sentinel에 빠르게 로그 Web Application Firewall](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
+> - Office 365(Microsoft Sentinel GitHub 커뮤니티): 논리 [앱 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data)  |  [Azure 함수 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
+>
 
 ## <a name="connect-with-the-log-analytics-agent"></a>Log Analytics 에이전트로 연결
 
@@ -63,14 +63,14 @@ Azure Sentinel은 [Azure 서비스 및 외부 솔루션에 대한 기본 제공 
 
 ## <a name="connect-with-logstash"></a>Logstash로 연결
 
-[Logstash](https://www.elastic.co/logstash)에 익숙한 경우 [Azure Sentinel의 Logstash 출력 플러그 인](connect-logstash.md)에서 Logstash를 사용하여 사용자 지정 커넥터를 만들 수 있습니다.
+[Logstash](https://www.elastic.co/logstash)에 익숙한 경우 [Microsoft Sentinel용 Logstash 출력 플러그 인과 함께 Logstash를](connect-logstash.md) 사용하여 사용자 지정 커넥터를 만들 수 있습니다.
 
-Azure Sentinel Logstash 출력 플러그 인을 사용하여 Logstash 입력 및 필터링 플러그 인을 사용하고 Logstash 파이프라인에 대한 출력으로 Azure Sentinel을 구성할 수 있습니다. Logstash에는 Event Hubs, Apache Kafka, 파일, 데이터베이스 및 클라우드 서비스와 같은 다양한 원본에서 입력을 사용할 수 있도록 하는 많은 플러그 인 라이브러리가 있습니다. 필터링 플러그 인을 사용하여 이벤트를 구문 분석하고, 불필요한 이벤트를 필터링하고, 값을 난독 처리합니다.
+Microsoft Sentinel Logstash 출력 플러그 인을 사용하면 Logstash 입력 및 필터링 플러그 인을 사용하고 Microsoft Sentinel을 Logstash 파이프라인의 출력으로 구성할 수 있습니다. Logstash에는 Event Hubs, Apache Kafka, 파일, 데이터베이스 및 클라우드 서비스와 같은 다양한 원본에서 입력을 사용할 수 있도록 하는 많은 플러그 인 라이브러리가 있습니다. 필터링 플러그 인을 사용하여 이벤트를 구문 분석하고, 불필요한 이벤트를 필터링하고, 값을 난독 처리합니다.
 
 Logstash를 사용자 지정 커넥터로 사용하는 예제는 다음을 참조하세요.
 
-- [Azure Sentinel을 사용하여 AWS 로그에서 Capital One Breach TTP 구하기](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767)(블로그)
-- [Radware Azure Sentinel 구현 가이드](https://support.radware.com/ci/okcsFattach/get/1025459_3)
+- [Microsoft Sentinel을 사용하여 AWS 로그에서 Capital One Breach TTP 헌팅(블로그)](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767)
+- [Radware Microsoft Sentinel 구현 가이드](https://support.radware.com/ci/okcsFattach/get/1025459_3)
 
 유용한 Logstash 플러그 인의 예제는 다음을 참조하세요.
 
@@ -85,7 +85,7 @@ Logstash를 사용자 지정 커넥터로 사용하는 예제는 다음을 참�
 
 ## <a name="connect-with-logic-apps"></a>Logic Apps로 연결
 
-[Azure Logic Apps](../logic-apps/index.yml)를 사용하여 Azure Sentinel용 서버리스 사용자 지정 커넥터를 만듭니다.
+[Azure Logic Apps](../logic-apps/index.yml) 사용하여 Microsoft Sentinel용 서버리스 사용자 지정 커넥터를 만듭니다.
 
 > [!NOTE]
 > Logic Apps를 사용하여 서버리스 커넥터를 만드는 것이 편리할 수 있지만, 커넥터에 대해 Logic Apps를 사용하면 대용량 데이터에 대해 비용이 많이 들 수 있습니다
@@ -122,18 +122,18 @@ Logstash를 사용자 지정 커넥터로 사용하는 예제는 다음을 참�
 
     자세한 내용은 [Azure Log Analytics 데이터 수집기](/connectors/azureloganalyticsdatacollector/) 설명서를 참조하세요.
 
-Logic Apps를 사용하여 Azure Sentinel에 대한 사용자 지정 커넥터를 만드는 방법의 예제는 다음을 참조하세요.
+Logic Apps 사용하여 Microsoft Sentinel용 사용자 지정 커넥터를 만드는 방법에 대한 예제는 다음을 참조하세요.
 
 - [데이터 수집기 API를 사용하여 데이터 파이프라인 만들기](/connectors/azureloganalyticsdatacollector/)
-- [웹후크를 사용하는 Palo Alto Prisma 논리 앱 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma)(Azure Sentinel GitHub 커뮤니티)
+- [Webhook를 사용하는 Palo Alto Prisma 논리 앱 커넥터(Microsoft](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) Sentinel GitHub 커뮤니티)
 - [예약된 활성화로 Microsoft Teams 호출 보호](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600)(블로그)
-- [AlienVault OTX 위협 표시기를 Azure Sentinel로 수집](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566)(블로그)
+- [Microsoft Sentinel에 IndicatorVault OTX 위협 지표를](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) 스트리밍(블로그)
 
 ## <a name="connect-with-powershell"></a>PowerShell로 연결
 
-[Upload-AzMonitorLog PowerShell 스크립트](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/)를 사용하면 PowerShell을 사용하여 명령줄에서 Azure Sentinel로 이벤트 또는 컨텍스트 정보를 스트리밍할 수 있습니다. 이 스트리밍은 데이터 원본과 Azure Sentinel 사이에 사용자 지정 커넥터를 효과적으로 만듭니다.
+[업로드-AzMonitorLog PowerShell 스크립트를](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) 사용하면 PowerShell을 사용하여 명령줄에서 이벤트 또는 컨텍스트 정보를 Microsoft Sentinel로 스트리밍할 수 있습니다. 이 스트리밍은 데이터 원본과 Microsoft Sentinel 간에 사용자 지정 커넥터를 효과적으로 만듭니다.
 
-예를 들어 다음 스크립트는 CSV 파일을 Azure Sentinel에 업로드합니다.
+예를 들어 다음 스크립트는 CSV 파일을 Microsoft Sentinel에 업로드합니다.
 
 ``` PowerShell
 Import-Csv .\testcsv.csv
@@ -150,8 +150,8 @@ Import-Csv .\testcsv.csv
 
 |매개 변수  |Description  |
 |---------|---------|
-|**WorkspaceId**     |   데이터를 저장할 Azure Sentinel 작업 영역 ID입니다.  [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
-|**WorkspaceKey**     |   데이터를 저장할 Azure Sentinel 작업 영역에 대한 기본 또는 보조 키입니다. [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
+|**WorkspaceId**     |   데이터를 저장할 Microsoft Sentinel 작업 영역 ID입니다.  [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
+|**WorkspaceKey**     |   데이터를 저장할 Microsoft Sentinel 작업 영역의 기본 또는 보조 키입니다. [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
 |**LogTypeName**     |    데이터를 저장할 사용자 지정 로그 테이블의 이름입니다. **_CL** 의 접미사가 테이블 이름의 끝에 자동으로 추가됩니다.  |
 |**AddComputerName**     |   이 매개 변수가 있는 경우 스크립트는 **Computer** 라는 필드의 모든 로그 레코드에 현재 컴퓨터 이름을 추가합니다.      |
 |**TaggedAzureResourceId**     | 이 매개 변수가 있는 경우 스크립트는 모든 업로드된 로그 레코드를 지정된 Azure 리소스와 연결합니다. <br><br>이 연결은 리소스 컨텍스트 쿼리에 대해 업로드된 로그 레코드를 사용하도록 설정하고, 리소스 중심의 역할 기반 액세스 제어를 준수합니다.       |
@@ -161,16 +161,17 @@ Import-Csv .\testcsv.csv
 
 ### <a name="find-your-workspace-id-and-key"></a>작업 영역 ID 및 키 찾기
 
-Azure Sentinel에서 **WorkspaceID** 및 **WorkspaceKey** 매개 변수에 대한 세부 정보를 찾습니다.
+Microsoft Sentinel에서 **WorkspaceID** 및 **WorkspaceKey** 매개 변수에 대한 세부 정보를 찾습니다.
 
-1. Azure Sentinel의 왼쪽에서 **설정** 을 선택한 다음, **작업 영역 설정** 탭을 선택합니다.
+1. Microsoft Sentinel의 왼쪽에서 **설정** 선택한 다음, 작업 **영역 설정** 탭을 선택합니다.
 
 1. **Log Analytics 시작하기** > **1 데이터 원본 연결** 에서 **Windows 및 Linux 에이전트 관리** 를 선택합니다.
 
 1. **Windows 서버** 탭에서 작업 영역 ID, 기본 키 및 보조 키를 찾습니다.
+
 ## <a name="connect-with-the-log-analytics-api"></a>Log Analytics API로 연결
 
-Log Analytics 데이터 수집기 API를 사용하여 RESTful 엔드포인트를 직접 호출하여 Azure Sentinel로 이벤트를 스트리밍할 수 있습니다.
+Log Analytics 데이터 수집기 API를 사용하여 RESTful 엔드포인트를 직접 호출하여 Microsoft Sentinel로 이벤트를 스트리밍할 수 있습니다.
 
 RESTful 엔드포인트를 직접 호출하는 경우 더 많은 프로그래밍이 필요하지만 유연성이 향상됩니다.
 
@@ -185,35 +186,35 @@ RESTful API 및 [PowerShell](../azure-functions/functions-reference-powershell.m
 
 이 방법의 예제는 다음을 참조하세요.
 
-- [Azure Function을 사용하여 Azure Sentinel에 VMware Carbon Black Cloud Endpoint Standard 연결하기](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
-- [Azure Function으로 Azure Sentinel에 Okta Single Sign-On 연결](./data-connectors-reference.md#okta-single-sign-on-preview)
-- [Azure Function을 사용하여 Azure Sentinel에 Proofpoint TAP 연결](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
-- [Azure 함수를 사용하여 Qualys VM을 Azure Sentinel에 연결](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
+- [Azure Function을 사용하여 VMware Carbon Black Cloud Endpoint Standard를 Microsoft Sentinel에 커넥트](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
+- [Azure Function을 사용하여 Microsoft Sentinel에 Okta Single Sign-On 커넥트](./data-connectors-reference.md#okta-single-sign-on-preview)
+- [Azure Function을 사용하여 Proofpoint TAP을 Microsoft Sentinel에 커넥트](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
+- [Azure Function을 사용하여 Qualys VM을 Microsoft Sentinel에 커넥트](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
 - [XML, CSV 또는 다른 형식의 데이터를 수집합니다.](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
-- [Azure Sentinel로 확대/축소 모니터링](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516)(블로그)
-- [Office 365 관리 API 데이터를 Azure Sentinel로 가져오기 위한 함수 앱 배포](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)(Azure Sentinel GitHub 커뮤니티)
+- [Microsoft Sentinel을 사용하여 Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) 모니터링(블로그)
+- [Microsoft Sentinel에 Office 365 관리 API 데이터를 얻기 위한 함수 앱 배포(Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) GitHub 커뮤니티)
 
 ## <a name="parse-your-custom-connector-data"></a>사용자 지정 커넥터 데이터 구문 분석
 
-사용자 지정 커넥터의 기본 제공 구문 분석 기술을 사용하여 관련 정보를 추출하고 Azure Sentinel의 관련 필드를 채울 수 있습니다.
+사용자 지정 커넥터의 기본 제공 구문 분석 기술을 사용하여 관련 정보를 추출하고 Microsoft Sentinel에서 관련 필드를 채울 수 있습니다.
 
 예를 들면 다음과 같습니다.
 
 - **Logstash를 사용한 경우** [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) 필터 플러그 인을 사용하여 데이터를 구문 분석합니다.
 - **Azure 함수를 사용한 경우에는** 코드를 사용하여 데이터를 구문 분석합니다.
 
-Azure Sentinel은 쿼리 시 구문 분석을 지원합니다. 쿼리 시 구문 분석을 사용하면 데이터를 원래 형식으로 푸시한 다음, 필요할 때 구문 분석할 수 있습니다. 
+Microsoft Sentinel은 쿼리 시 구문 분석이 지원됩니다. 쿼리 시 구문 분석을 사용하면 데이터를 원래 형식으로 푸시한 다음, 필요할 때 구문 분석할 수 있습니다.
 
 쿼리 시 구문 분석은 사용자 지정 커넥터를 만들 때 또는 추출해야 하는 정보까지도 데이터의 정확한 구조를 미리 알 필요가 없음을 의미하기도 합니다. 대신, 조사 중이라도 언제든지 데이터를 구문 분석합니다.
 
 쿼리 시 파싱에 대한 자세한 내용은 [파서](normalization-about-parsers.md)를 참조하세요.
 
 > [!NOTE]
-> 구문 분석 업데이트는 이미 Azure Sentinel에 수집한 데이터에도 적용됩니다.
+> 파서 업데이트는 이미 Microsoft Sentinel에 수집한 데이터에도 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 프로세스 중 하나를 사용하여 Azure Sentinel에 수집된 데이터를 사용하여 환경을 보호합니다.
+Microsoft Sentinel에 수집된 데이터를 사용하여 다음 프로세스 중 어떤 프로세스로도 환경을 보호합니다.
 
 - [경고 표시](get-visibility.md)
 - [데이터 시각화 및 모니터링](monitor-your-data.md)
@@ -222,4 +223,4 @@ Azure Sentinel은 쿼리 시 구문 분석을 지원합니다. 쿼리 시 구문
 - [위협 방지 자동화](tutorial-respond-threats-playbook.md)
 - [위협에 대한 헌팅](hunting.md)
 
-또한 Zoom을 모니터링하기 위한 사용자 지정 커넥터를 만드는 한 가지 예인 [Azure Sentinel로 Zoom 모니터링](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516)에 대해 알아보세요.
+또한 Zoom을 모니터링하는 사용자 지정 커넥터를 만드는 한 가지 예인 [Microsoft Sentinel을 사용하여 Zoom 모니터링에](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516)대해 알아봅니다.

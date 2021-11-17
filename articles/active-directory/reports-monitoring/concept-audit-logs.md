@@ -4,7 +4,7 @@ description: Azure Active Directory의 감사 로그 개요입니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: mtillman
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d551124491c33cd74f3fbdf1f4b401ada99399d4
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 73ccb2ddb9e229faea69ae3f67ed8285b0256808
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997175"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581269"
 ---
 # <a name="audit-logs-in-azure-active-directory"></a>Azure Active Directory의 감사 로그 
 

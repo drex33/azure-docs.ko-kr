@@ -3,22 +3,22 @@ title: 사용자 지정 정책을 사용하여 다중 테넌트 Azure AD 로그�
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure AD ID 공급자를 추가합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 10/21/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 474bb5582011c9e701a188f227a54238a9f19b57
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 553608a5574edaf904e9c9ac0986a3d0f8af9278
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112285574"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227970"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -38,13 +38,16 @@ ms.locfileid: "112285574"
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
+> [!NOTE]
+> 이 문서에서는 필수 구성 요소에서 언급된 이전 단계에서 **SocialAndLocalAccounts** 스타터 팩을 사용한다고 가정합니다.  
+
 ## <a name="register-an-azure-ad-app"></a>Azure AD 앱 등록
 
 Azure AD B2C(Azure Active Directory B2C)에서 사용자가 Azure AD 계정으로 로그인할 수 있도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 애플리케이션을 만들어야 합니다. 자세한 내용은 [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](../active-directory/develop/quickstart-register-app.md)을 참조하세요.
 
-
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 조직의 Azure AD 테넌트(예: contoso.com)가 포함된 디렉터리를 사용해야 합니다. 최상위 메뉴에서 **디렉터리 + 구독 필터** 를 선택한 후 테넌트가 포함된 디렉터리를 선택합니다.
+1. 조직 Azure AD 테넌트(예: Contoso)가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
 1. **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 예들 들어 `Azure AD B2C App`입니다.
@@ -74,7 +77,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **선택적 클레임 추가** 를 선택합니다.
 1. **토큰 형식** 으로 **ID** 를 선택합니다.
 1. 추가할 선택적 클레임으로 `family_name` 및 `given_name`을 선택합니다.
-1. **추가** 를 클릭합니다.
+1. **추가** 를 선택합니다. **Microsoft Graph 이메일 사용 권한 켜기(토큰에 클레임을 표시하는 데 필요)** 가 표시되면 이를 사용하도록 설정한 다음, **추가** 를 다시 선택합니다.
 
 ## <a name="optional-verify-your-app-authenticity"></a>[선택 사항] 앱 신뢰성 확인
 
@@ -84,7 +87,8 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 만든 애플리케이션 키를 Azure AD B2C 테넌트에 저장해야 합니다.
 
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
@@ -100,7 +104,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 정책의 확장 파일에 있는 **ClaimsProvider** 요소에 Azure AD를 추가하여 Azure AD를 클레임 공급자로 정의할 수 있습니다.
 
-1. *TrustFrameworkExtensions.xml* 파일을 엽니다.
+1. *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** 파일을 엽니다.
 1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
 1. 다음과 같이 새 **ClaimsProvider** 를 추가합니다.
 
@@ -167,7 +171,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 로그인에 사용해야 할 각 Azure AD 테넌트에 대해 다음 단계를 수행합니다.
 
-1. 브라우저를 열고 테넌트에 대한 OpenID Connect 메타데이터 URL로 이동합니다. **발급자** 개체를 찾아 해당 값을 기록합니다. 이는 `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`과 같이 표시됩니다.
+1. 브라우저를 열고 테넌트에 대한 OpenID Connect 메타데이터 URL로 이동합니다. **발급자** 개체를 찾아 해당 값을 기록합니다. 이는 `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/.well-known/openid-configuration`과 같이 표시됩니다.
 1. **ValidTokenIssuerPrefixes** 키에 값을 복사하여 붙여넣습니다. 여러 발급자를 쉼표로 구분합니다. 이전의 `ClaimsProvider` XML 샘플에서는 두 발급자의 예를 볼 수 있습니다.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]

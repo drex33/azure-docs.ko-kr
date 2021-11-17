@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그
 services: container-service
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: f6894ed6795b66cb851a459ac8bfd39a780d3b8e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 73c9ac0780c6a1217e58f40b4e64f290e8904457
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132306551"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492439"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -310,5 +310,5 @@ Windows Server 노드의 경우 노드 이미지 업그레이드 작업을 정�
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
-[security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md
+[security-center-aks]: ../defender-for-cloud/defender-for-kubernetes-introduction.md
 [node-image-upgrade]: node-image-upgrade.md

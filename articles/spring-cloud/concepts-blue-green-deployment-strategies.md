@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud의 파란색-녹색 배포 전략
 description: 이 항목에서는 Azure Spring Cloud의 파란색-녹색 배포에 대한 두 가지 접근 방식을 설명합니다.
-author: barbkess
-ms.author: barbkess
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 11/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 194529a03a493ec22d22260576a678ab07401f4c
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 8b019c5cc8e7e7a8ed132cc6adbf0d4c7d0495a4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132056571"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486262"
 ---
 # <a name="blue-green-deployment-strategies-in-azure-spring-cloud"></a>Azure Spring Cloud의 파란색-녹색 배포 전략
 

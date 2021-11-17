@@ -1,19 +1,19 @@
 ---
 title: Azure Container Apps 미리 보기 개요
 description: Azure Container Apps의 일반적인 시나리오 및 용도에 대해 알아보기
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a7ae5038dfcb419ff658f0ea8780e343189c3a61
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 720d243796781ea2be2f01796c1892e64132f58a
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503983"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028613"
 ---
 # <a name="azure-container-apps-preview-overview"></a>Azure Container Apps 미리 보기 개요
 

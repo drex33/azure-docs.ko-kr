@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1944e9f0e8d1ad7a447d12c99aa65a22ccb233d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 313532b6292cb3a6799b3c14df69c39d92ba3c03
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566989"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227514"
 ---
 # <a name="security-operations-for-privileged-accounts"></a>권한 있는 계정에 대한 보안 작업
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)는 ID 및 액세스 관리(IAM)를 컨트롤 �
 
 * [Azure AD 감사 로그](../reports-monitoring/concept-audit-logs.md)
 
-* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault 인사이트](../../azure-monitor/insights/key-vault-insights-overview.md)
 
@@ -52,7 +52,7 @@ Azure Portal에서 Azure AD 감사 로그를 보고 CSV(쉼표로 구분된 값)
 
 * SIEM과 통합된 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) - Azure AD 로그는 Splunk, ArcSight, QRadar 및 Sumo Logic과 같은 [다른 SIEM에 푸시](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)할 수 있습니다.
 
-* [MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security) - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱 규정 준수를 확인할 수 있습니다. 
+* [MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security) - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱의 규정 준수를 확인할 수 있습니다. 
 
 * Microsoft Graph - 데이터 및 사용자 MS Graph를 내보내 추가 분석을 수행할 수 있습니다. MS Graph에 대한 자세한 내용은 [Microsoft Graph PowerShell SDK와 Azure Active Directory ID 보호](../identity-protection/howto-identity-protection-graph-api.md)를 참조하세요. 
 
@@ -138,13 +138,14 @@ Azure AD 로그인 로그에서 권한 있는 계정 로그인 이벤트를 모�
 | 로그인 실패, 잘못된 암호 임계값 | 높음 | Azure AD 로그인 로그 | 상태 = 실패<br>및<br>오류 코드 = 50126 | 기준 임계값을 정의한 다음, 모니터링하여 조직 동작에 맞게 조정하고 false 경고가 생성되지 않도록 제한합니다. |
 | CA 요구 사항으로 인한 오류 |높음 | Azure AD 로그인 로그 | 상태 = 실패<br>및<br>오류 코드 = 53003<br>및<br>실패 이유 = CA에서 차단됨 | 공격자가 계정으로 이동하려고 했음을 나타내는 것일 수 있습니다. |
 | 명명 정책을 따르지 않는 권한 있는 계정입니다.| | Azure 구독 | [Azure Portal을 사용하여 Azure 역할 할당 나열 - Azure RBAC](../../role-based-access-control/role-assignments-list-portal.md)| 구독에 대한 역할 할당을 나열하고, 로그인 이름이 조직 형식과 일치하지 않는 경우 경고합니다. 예를 들어 접두사로 ADM_이 지정된 항목입니다. |
-| Interrupt |  높음/보통 | Azure AD 로그인 | 상태 = 중단됨<br>및<br>오류 코드 = 50074<br>및<br>실패 이유 = 강력한 인증 필요<br>상태 = 중단됨<br>및<br>오류 코드 = 500121<br>실패 이유 = 강력한 인증 요청 중에 인증 실패 | 공격자에게 계정에 대한 암호가 있지만 MFA 챌린지를 통과할 수 없음을 나타내는 것일 수 있습니다. |   |   |
+| Interrupt |  높음/보통 | Azure AD 로그인 | 상태 = 중단됨<br>및<br>오류 코드 = 50074<br>및<br>실패 이유 = 강력한 인증 필요<br>상태 = 중단됨<br>및<br>오류 코드 = 500121<br>실패 이유 = 강력한 인증 요청 중에 인증 실패 | 공격자에게 계정에 대한 암호가 있지만 MFA 챌린지를 통과할 수 없음을 나타내는 것일 수 있습니다. | 
 | 명명 정책을 따르지 않는 권한 있는 계정입니다.| 높음 | Azure AD 디렉터리 | [Azure AD 역할 할당 나열](../roles/view-assignments.md)| Azure AD 역할에 대한 역할 할당을 나열하고, UPN이 조직 형식과 일치하지 않는 경우 경고합니다. 예를 들어 접두사로 ADM_이 지정된 항목입니다. |
-| MFA에 등록되지 않은 권한 있는 계정을 검색합니다. | 높음 | Azure AD Graph API| 관리자 계정에 대한 IsMFARegistered eq false를 쿼리합니다. [credentialUserRegistrationDetails 나열 - Microsoft Graph 베타](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&tabs=http) | 감사하고 조사하여 의도적인지 또는 실수인지 확인합니다. |
+| MFA에 등록되지 않은 권한 있는 계정을 검색합니다. | 높음 | Azure AD Graph API| 관리자 계정에 대한 IsMFARegistered eq false를 쿼리합니다. [credentialUserRegistrationDetails 나열 - Microsoft Graph 베타](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | 감사하고 조사하여 의도적인지 또는 실수인지 확인합니다. |
 | 계정 잠금 | 높음 | Azure AD 로그인 로그 | 상태 = 실패<br>및<br>오류 코드 = 50053 | 기준 임계값을 정의한 다음, 모니터링하여 조직 동작에 맞게 조정하고 false 경고가 생성되지 않도록 제한합니다. |
 | 계정 사용 안 함/로그인 차단됨 | 낮음 | Azure AD 로그인 로그 | 상태 = 실패<br>및<br>대상 = 사용자 UPN<br>및<br>오류 코드 = 50057 | 이 오류는 누군가가 조직을 떠난 후 계정에 액세스하려고 시도함을 나타낼 수 있습니다. 계정이 차단된 경우에도 이 작업을 기록 하고 경고해야 합니다. |
-| MFA 사기 행위 경고/차단 | 높음 | Azure AD 로그인 로그/Azure Log Anaylitics | 성공 = false<br>및<br>결과 정보 = MFA 거부됨<br>및<br>대상 = 사용자 | 권한 있는 사용자가 MFA 프롬프트를 조사하지 않았다고 명시했으며 공격자에게 계정에 대한 암호가 있음을 나타낼 수 있습니다. |
-| 권한 있는 계정 로그인이 예상대로 제어되지 않습니다. |  | Azure AD 로그인 로그 | 상태 = 실패<br>UserPricipalName = <Admin account><br>위치 = <unapproved location><br>IP 주소 = <unapproved IP><br>디바이스 정보 = <승인되지 않은 브라우저, 운영 체제> | 승인되지 않은 것으로 정의한 모든 항목을 모니터링하고 경고합니다. |
+| MFA 사기 행위 경고/차단 | 높음 | Azure AD 로그인 로그/Azure Log Anaylitics | 로그인>인증 세부 정보 결과 세부 정보 = MFA 거부, 사기 코드 입력 | 권한 있는 사용자가 MFA 프롬프트를 조사하지 않았다고 명시했으며 공격자에게 계정에 대한 암호가 있음을 나타낼 수 있습니다. |
+| MFA 사기 행위 경고/차단 | 높음 | Azure AD 감사 로그/Azure Log Anaylitics | 활동 유형 = 사기 행위 보고됨 - 사용자가 MFA에 대해 차단됨 또는 사기 행위 보고됨 - 수행된 작업 없음(사기 행위 보고서에 대한 테넌트 수준 설정 기반) | 권한 있는 사용자가 MFA 프롬프트를 조사하지 않았다고 명시했으며 공격자에게 계정에 대한 암호가 있음을 나타낼 수 있습니다. |
+| 권한 있는 계정 로그인이 예상대로 제어되지 않습니다. |  | Azure AD 로그인 로그 | 상태 = 실패<br>UserPricipalName = \<Admin account\><br>위치 = \<unapproved location\><br>IP 주소 = \<unapproved IP\><br>디바이스 정보 = \<unapproved Browser, Operating System\> | 승인되지 않은 것으로 정의한 모든 항목을 모니터링하고 경고합니다. |
 | 일반 로그인 시간을 벗어남 | 높음 | Azure AD 로그인 로그 | 상태 = 성공<br>및<br>위치 =<br>및<br>시간 = 근무 외 시간 | 예상 시간 외에 로그인이 발생하는지 모니터링하고 경고합니다. 각 권한 있는 계정에 대한 일반적인 작업 패턴을 찾고, 정상적인 업무 시간 외에 갑작스러운 변경이 수행된 경우 경고하는 것이 중요합니다. 정상적인 업무 시간 외의 로그인은 침해 또는 가능한 내부자 위협을 나타낼 수 있습니다. | 
 | ID 보호 위험 | 높음 | ID 보호 로그 | 위험 상태 = 위험<br>및<br>위험 수준 = 낮음/보통/높음<br>및<br>작업 = 익숙하지 않은 로그인/TOR 등 | 계정에 대한 로그인과 관련해서 비정상적인 상황이 감지되었으며 경고를 표시해야 함을 나타냅니다. | 
 | 암호 변경 | 높음 | Azure AD 감사 로그 | 작업 행위자 = 관리자/셀프 서비스<br>및<br>대상 = 사용자<br>및<br>상태 = 성공/실패 | 특히 전역 관리자, 사용자 관리자, 구독 관리자 및 응급 액세스 계정에 대한 관리자 계정 암호 변경 시 경고합니다. 모든 권한 있는 계정을 대상으로 하는 쿼리를 작성합니다. | 
@@ -187,7 +188,7 @@ Azure Active Directory Domain Services에서 권한이 할당된 권한 있는 �
 
 조건부 액세스 정책의 예외를 모니터링하는 방법에 대한 자세한 내용은 [조건부 액세스 인사이트 및 보고](../conditional-access/howto-conditional-access-insights-reporting.md)를 참조하세요.
 
-사용하지 않은 권한 있는 계정을 검색하는 방법에 대한 자세한 내용은 [Privileged Identity Management에서 Azure AD 역할에 대한 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md)를 참조하세요.
+사용하지 않은 권한 있는 계정을 검색하는 방법에 대한 자세한 내용은 [Privileged Identity Management에서 Azure AD 역할에 대한 액세스 검토 만들기](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)를 참조하세요.
 
  
 ## <a name="assignment-and-elevation"></a>할당 및 권한 상승
@@ -242,7 +243,7 @@ Azure AD 감사 로그 및 Azure Monitor 로그를 사용하여 권한 있는 �
 | PIM 외부에서 할당된 역할| 높음| Azure AD 감사 로그| 서비스 = PIM<br>및<br>범주 = 역할 관리<br>및<br>활동 유형 = 역할에 구성원 추가(영구)<br>및<br>상태 = 성공/실패<br>및<br>수정된 속성 = Role.DisplayName| 면밀히 모니터링하고 경고해야 합니다. 가능한 경우 사용자에게 PIM 외부의 역할을 할당하면 안 됩니다. |
 | 권한 상승| 중간| Azure AD 감사 로그| 서비스 = PIM<br>및<br>범주 = 역할 관리<br>및<br>활동 유형 - 역할에 구성원 추가가 완료됨(PIM 활성화)<br>및<br>상태 = 성공/실패<br>및<br>수정된 속성 = Role.DisplayName| 상승된 권한 있는 계정은 이제 테넌트의 보안에 영향을 줄 수 있는 변경을 수행할 수 있습니다. 모든 권한 상승을 기록해야 하며, 해당 사용자의 표준 패턴을 벗어나는 경우 계획되지 않은 경우 사용자에게 경고하고 조사해야 합니다. |
 | 권한 상승 승인 및 거부| 낮음| Azure AD 감사 로그| 서비스 = 액세스 검토<br>및<br>범주 = UserManagement<br>및<br>활동 유형 = 요청 승인/거부<br>및<br>시작된 행위자 = UPN| 공격에 대한 타임라인을 명확하게 나타낼 수 있기 때문에 모든 권한 상승을 모니터링합니다. |
-| PIM 설정 변경| 높음| Azure AD 감사 로그| 서비스 = PIM<br>및<br>범주 = 역할 관리<br>및<br>활동 유형 = PIM에서 역할 설정 업데이트<br>및<br>상태 이유 = 활성화 시 MFA 사용 안 함(예)| 이러한 작업 중 하나는 PIM 권한 상승의 보안을 줄이고 공격자가 권한 있는 계정을 더 쉽게 획득할 수 있도록 합니다. |
+| PIM 설정 변경| 높음| Azure AD 감사 로그| 서비스 = PIM<br>및<br>범주 = 역할 관리<br>및<br>활동 유형 = PIM의 역할 설정 업데이트<br>및<br>상태 이유 = 활성화 시 MFA 사용 안 함(예)| 이러한 작업 중 하나는 PIM 권한 상승의 보안을 줄이고 공격자가 권한 있는 계정을 더 쉽게 획득할 수 있도록 합니다. |
 | SAW/PAW에서 상승이 발생하지 않음| 높음| Azure AD 로그인 로그| 디바이스 ID<br>및<br>브라우저<br>및<br>OS<br>및<br>규격/관리형<br>상관 관계:<br>서비스 = PIM<br>및<br>범주 = 역할 관리<br>및<br>활동 유형 - 역할에 구성원 추가가 완료됨(PIM 활성화)<br>및<br>상태 = 성공/실패<br>및<br>수정된 속성 = Role.DisplayName| 이 설정이 구성된 경우 공격자가 계정을 사용하려고 시도했음을 나타낼 수 있기 때문에 PAW/SAW가 아닌 디바이스에서 권한을 상승하려고 하는 모든 시도를 즉시 조사해야 합니다. |
 | 모든 Azure 구독을 관리하기 위한 권한 상승| 높음| Azure Monitor| 활동 로그 탭 <br>디렉터리 활동 탭 <br> 작업 이름=호출자를 사용자 액세스 관리자에 할당 <br> 및 <br> 이벤트 범주=관리 <br> 및<br>상태 = 성공, 시작, 실패<br>및<br>이벤트를 시작한 사람| 계획된 변경이 아닌 경우 즉시 조사해야 합니다. 이 설정을 사용하면 공격자가 사용자 환경에서 Azure 구독에 액세스할 수 있습니다. |
 

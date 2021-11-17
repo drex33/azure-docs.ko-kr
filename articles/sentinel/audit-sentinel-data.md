@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 쿼리 및 활동 감사 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel에서 수행되는 쿼리 및 활동을 감사하는 방법을 설명합니다.
+title: Microsoft 센티널 쿼리 및 활동 감사 | Microsoft Docs
+description: 이 문서에서는 Microsoft 센티널에서 수행 되는 쿼리 및 작업을 감사 하는 방법을 설명 합니다.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -13,40 +13,38 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 27e4d3cd795d612ee9ef75160dc7a466a1dfdaab
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 30dd329f518190d9b13e29e53d21aa49a2ca6d55
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075432"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485011"
 ---
-# <a name="audit-azure-sentinel-queries-and-activities"></a>Azure Sentinel 쿼리 및 활동 감사
+# <a name="audit-microsoft-sentinel-queries-and-activities"></a>Microsoft 센티널 쿼리 및 작업 감사
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 보안 작업(SOC) 작업 영역에서 내/외부 규정 준수 요구 사항 등 Azure Sentinel 작업 영역에서 수행되는 쿼리 실행 및 작업에 대한 감사 데이터를 보는 방법을 설명합니다.
+이 문서에서는 SOC (보안 작업) 작업 영역에서 내부 및 외부 규정 준수 요구 사항과 같은 Microsoft 센티널 작업 영역에서 수행 되는 쿼리 실행 및 작업에 대 한 감사 데이터를 보는 방법을 설명 합니다.
 
-Azure Sentinel은 다음에 대한 액세스 권한을 제공합니다.
+Microsoft 센티널은 다음에 대 한 액세스를 제공 합니다.
 
-- **AzureActivity** 테이블 - 경고 규칙 편집 등 Azure Sentinel에서 수행되는 모든 활동에 대한 세부 정보를 제공합니다. **AzureActivity** 테이블은 특정 쿼리 데이터를 로그하지 않습니다. 자세한 내용은 [Azure 활동 로그를 사용하여 감사](#auditing-with-azure-activity-logs)를 참조하세요.
+- **Azureactivity** 테이블-경고 규칙 편집과 같이 Microsoft 센티널에서 수행 되는 모든 작업에 대 한 세부 정보를 제공 합니다. **AzureActivity** 테이블은 특정 쿼리 데이터를 로그하지 않습니다. 자세한 내용은 [Azure 활동 로그를 사용하여 감사](#auditing-with-azure-activity-logs)를 참조하세요.
 
-- **LAQueryLogs** 테이블 - Azure Sentinel에서 실행되는 쿼리를 포함하여 Log Analytics에서 실행되는 쿼리에 대한 세부 정보를 제공합니다. 자세한 내용은 [LAQueryLogs를 사용하여 감사](#auditing-with-laquerylogs)를 참조하세요.
+- **Laquerylogs** 테이블은 Microsoft 센티널에서 실행 되는 쿼리를 포함 하 여 Log Analytics에서 실행 되는 쿼리에 대 한 세부 정보를 제공 합니다. 자세한 내용은 [LAQueryLogs를 사용하여 감사](#auditing-with-laquerylogs)를 참조하세요.
 
 > [!TIP]
-> 이 문서에서 설명하는 수동 쿼리 외에도 Azure Sentinel은 SOC 환경의 활동을 감사하는 데 도움이 되는 기본 제공 통합 문서를 제공합니다.
+> 이 문서에서 설명 하는 수동 쿼리 외에도 Microsoft 센티널은 SOC 환경의 활동을 감사 하는 데 도움이 되는 기본 제공 통합 문서를 제공 합니다.
 >
-> Azure Sentinel **통합 문서** 영역에서 **작업 영역 감사** 통합 문서를 검색합니다.
-
-
+> Microsoft 센티널 **통합** 문서 영역에서 **작업 영역 감사** 통합 문서를 검색 합니다.
 
 ## <a name="auditing-with-azure-activity-logs"></a>Azure 활동 로그를 사용하여 감사
 
-Azure Sentinel의 감사 로그는 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리됩니다. 여기서 **AzureActivity** 테이블에는 Azure Sentinel 작업 영역에서 수행된 활동이 모두 포함됩니다.
+Microsoft 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리 됩니다. 여기서 **azureactivity** 테이블에는 microsoft 센티널 작업 영역에서 수행 되는 모든 작업이 포함 됩니다.
 
-Azure Sentinel로 SOC 환경에서 활동을 감사하는 경우 **AzureActivity** 테이블을 사용할 수 있습니다.
+Microsoft 센티널을 사용 하 여 SOC 환경에서 활동을 감사 하는 경우 **azureactivity** 테이블을 사용할 수 있습니다.
 
 **AzureActivity 테이블을 쿼리하려면** 다음을 수행합니다.
 
@@ -54,7 +52,7 @@ Azure Sentinel로 SOC 환경에서 활동을 감사하는 경우 **AzureActivity
 
 1. 그런 다음 다른 테이블과 같이 KQL을 사용하여 데이터를 쿼리합니다.
 
-    **AzureActivity** 테이블에는 Azure Sentinel을 포함한 많은 서비스의 데이터가 포함됩니다. Azure Sentinel의 데이터만 필터링하려면 다음 코드를 사용하여 쿼리를 시작합니다.
+    **Azureactivity** 테이블에는 Microsoft 센티널을 비롯 한 여러 서비스의 데이터가 포함 됩니다. Microsoft 센티널의 데이터만 필터링 하려면 다음 코드를 사용 하 여 쿼리를 시작 합니다.
 
     ```kql
      AzureActivity
@@ -70,9 +68,9 @@ Azure Sentinel로 SOC 환경에서 활동을 감사하는 경우 **AzureActivity
     | project Caller , TimeGenerated , Properties
     ```
 
-보고해야 하는 항목에 따라 더 많은 매개 변수를 쿼리에 추가하여 **AzureActivities** 테이블을 자세히 살펴보세요. 다음 섹션에서는 **AzureActivity** 테이블 데이터를 사용하여 감사할 때 사용할 다른 샘플 쿼리를 제공합니다. 
+보고해야 하는 항목에 따라 더 많은 매개 변수를 쿼리에 추가하여 **AzureActivities** 테이블을 자세히 살펴보세요. 다음 섹션에서는 **AzureActivity** 테이블 데이터를 사용하여 감사할 때 사용할 다른 샘플 쿼리를 제공합니다.
 
-자세한 내용은 [Azure 활동 로그에 포함된 Azure Sentinel 데이터](#azure-sentinel-data-included-in-azure-activity-logs)를 참조하세요.
+자세한 내용은 [Azure 활동 로그에 포함 된 Microsoft 센티널 데이터](#microsoft-sentinel-data-included-in-azure-activity-logs)를 참조 하세요.
 
 ### <a name="find-all-actions-taken-by-a-specific-user-in-the-last-24-hours"></a>지난 24시간 동안 특정 사용자가 수행한 모든 활동 찾기
 
@@ -87,7 +85,7 @@ AzureActivity
 
 ### <a name="find-all-delete-operations"></a>삭제 작업 모두 찾기
 
-다음 **AzureActivity** 테이블 쿼리는 Azure Sentinel 작업 영역에서 수행된 삭제 작업을 모두 나열합니다.
+다음 **Azureactivity** 테이블 쿼리는 Microsoft 센티널 작업 영역에서 수행 된 모든 삭제 작업을 나열 합니다.
 
 ```kql
 AzureActivity
@@ -95,12 +93,11 @@ AzureActivity
 | where OperationName contains "Delete"
 | where ActivityStatusValue contains "Succeeded"
 | project TimeGenerated, Caller, OperationName
-``` 
+```
 
+### <a name="microsoft-sentinel-data-included-in-azure-activity-logs"></a>Azure 활동 로그에 포함 된 Microsoft 센티널 데이터
 
-### <a name="azure-sentinel-data-included-in-azure-activity-logs"></a>Azure 활동 로그에 포함된 Azure Sentinel 데이터
- 
-Azure Sentinel의 감사 로그는 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리되며, 다음과 같은 유형의 정보를 포함합니다.
+Microsoft 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리 되며 다음과 같은 유형의 정보를 포함 합니다.
 
 |작업  |정보 유형  |
 |---------|---------|
@@ -109,59 +106,55 @@ Azure Sentinel의 감사 로그는 [Azure 활동 로그](../azure-monitor/essent
 |**업데이트됨**     |  경고 규칙<br>책갈피 <br> 사례 <br> 데이터 커넥터 <br>인시던트 <br>인시던트 설명 <br>위협 인텔리전스 보고서 <br> 통합 문서 <br>워크플로       |
 |     |         |
 
-Azure 활동 로그를 이용하여 사용자 권한 부여 및 라이선스를 확인할 수도 있습니다. 
+Azure 활동 로그를 이용하여 사용자 권한 부여 및 라이선스를 확인할 수도 있습니다.
 
 예를 들어 다음 표에는 로그 데이터를 가져온 특정 리소스와 Azure 활동 로그에서 찾은 선택한 작업이 나열되어 있습니다.
 
-|작업 이름|    리소스 종류|
+|작업 이름| 리소스 종류|
 |----|----|
-|통합 문서 만들기 또는 업데이트  |Microsoft.Insights/workbooks|
-|통합 문서 삭제    |Microsoft.Insights/workbooks|
-|워크플로 설정   |Microsoft.Logic/workflows|
-|워크플로 삭제    |Microsoft.Logic/workflows|
-|저장된 검색 만들기    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|저장된 검색 삭제    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|통합 문서 만들기 또는 업데이트 |Microsoft.Insights/workbooks|
+|통합 문서 삭제 |Microsoft.Insights/workbooks|
+|워크플로 설정 |Microsoft.Logic/workflows|
+|워크플로 삭제 |Microsoft.Logic/workflows|
+|저장된 검색 만들기 |Microsoft.OperationalInsights/workspaces/savedSearches|
+|저장된 검색 삭제 |Microsoft.OperationalInsights/workspaces/savedSearches|
 |경고 규칙 업데이트 |Microsoft.SecurityInsights/alertRules|
 |경고 규칙 삭제 |Microsoft.SecurityInsights/alertRules|
 |경고 규칙 응답 활동 업데이트 |Microsoft.SecurityInsights/alertRules/actions|
 |경고 규칙 응답 활동 삭제 |Microsoft.SecurityInsights/alertRules/actions|
-|책갈피 업데이트   |Microsoft.SecurityInsights/bookmarks|
-|책갈피 삭제   |Microsoft.SecurityInsights/bookmarks|
-|사례 업데이트   |Microsoft.SecurityInsights/Cases|
-|사례 조사 업데이트  |Microsoft.SecurityInsights/Cases/investigations|
-|사례 설명 만들기   |Microsoft.SecurityInsights/Cases/comments|
+|책갈피 업데이트 |Microsoft.SecurityInsights/bookmarks|
+|책갈피 삭제 |Microsoft.SecurityInsights/bookmarks|
+|사례 업데이트 |Microsoft.SecurityInsights/Cases|
+|사례 조사 업데이트 |Microsoft.SecurityInsights/Cases/investigations|
+|사례 설명 만들기 |Microsoft.SecurityInsights/Cases/comments|
 |데이터 커넥터 업데이트 |Microsoft.SecurityInsights/dataConnectors|
 |데이터 커넥터 삭제 |Microsoft.SecurityInsights/dataConnectors|
-|업데이트 설정    |Microsoft.SecurityInsights/settings|
+|업데이트 설정 |Microsoft.SecurityInsights/settings|
 | | |
 
 자세한 내용은 [Azure 활동 로그 이벤트 스키마](../azure-monitor/essentials/activity-log-schema.md)를 참조하세요.
 
-
 ## <a name="auditing-with-laquerylogs"></a>LAQueryLogs를 사용하여 감사
 
-**LAQueryLogs** 테이블은 Log Analytics에서 실행되는 로그 쿼리에 대한 세부 정보를 제공합니다. Log Analytics는 Azure Sentinel의 기본 데이터 저장소로 사용되므로, Azure Sentinel 작업 영역에서 LAQueryLogs 데이터를 수집하도록 시스템을 구성할 수 있습니다.
+**LAQueryLogs** 테이블은 Log Analytics에서 실행되는 로그 쿼리에 대한 세부 정보를 제공합니다. Log Analytics는 Microsoft 센티널의 기본 데이터 저장소로 사용 되므로 Microsoft 센티널 작업 영역에서 LAQueryLogs 데이터를 수집 하도록 시스템을 구성할 수 있습니다.
 
 LAQueryLogs 데이터에 포함되는 정보는 다음과 같습니다.
 
 - 쿼리가 실행된 시기
 - Log Analytics에서 쿼리를 실행한 사람
-- Log Analytics에서 쿼리를 실행하는 데 사용된 도구(예: Azure Sentinel)
+- Microsoft 센티널과 같은 Log Analytics에서 쿼리를 실행 하는 데 사용 된 도구
 - 쿼리 텍스트 자체
 - 각 쿼리 실행의 성능 데이터
 
 > [!NOTE]
-> - **LAQueryLogs** 테이블에는 Azure Sentinel의 로그 블레이드에서 실행된 쿼리만 포함됩니다. **조사 그래프** 나 Azure Sentinel **헌팅** 페이지를 사용하여 예약된 분석 규칙에 따라 실행되는 쿼리는 포함되지 않습니다.
+> - **Laquerylogs** 테이블은 Microsoft 센티널의 로그 블레이드에서 실행 된 쿼리만 포함 합니다. 여기에는 **조사 Graph** 또는 Microsoft 센티널 **구하기** 페이지를 사용 하 여 예약 된 분석 규칙에 의해 실행 되는 쿼리가 포함 되지 않습니다.
 > - 쿼리가 실행되는 시간 사이에 약간의 지연이 있을 수 있으며, 데이터가 **LAQueryLogs** 테이블에 채워집니다. 감사 데이터에 대한 **LAQueryLogs** 테이블을 쿼리하려면 5분 정도 대기하는 것이 좋습니다.
->
-
 
 **LAQueryLogs 테이블을 쿼리하려면** 다음을 수행합니다.
 
-1. Log Analytics 작업 영역에서 **LAQueryLogs** 테이블은 기본적으로 사용하도록 설정되어 있지 않습니다. Azure Sentinel에서 감사할 때 **LAQueryLogs** 데이터를 사용하려면, 먼저 Log Analytics 작업 영역의 **진단 설정** 영역에서 **LAQueryLogs** 를 사용하도록 설정합니다.
+1. Log Analytics 작업 영역에서 **LAQueryLogs** 테이블은 기본적으로 사용하도록 설정되어 있지 않습니다. Microsoft 센티널에서 감사할 때 **laquerylogs** 데이터를 사용 하려면 먼저 Log Analytics 작업 영역의 **진단 설정** 영역에서 **laquerylogs** 를 사용 하도록 설정 합니다.
 
     자세한 내용은 [Azure Monitor 로그의 쿼리 감사](../azure-monitor/logs/query-audit.md)를 참조하세요.
-
 
 1. 그런 다음 다른 테이블과 같이 KQL을 사용하여 데이터를 쿼리합니다.
 
@@ -173,7 +166,7 @@ LAQueryLogs 데이터에 포함되는 정보는 다음과 같습니다.
     | summarize events_count=count() by bin(TimeGenerated, 1d)
     ```
 
-다음 섹션에서는 Azure Sentinel을 사용하여 SOC 환경에서 활동을 감사할 때 **LAQueryLogs** 테이블에서 실행할 다양한 샘플 쿼리를 보여 줍니다.
+다음 섹션에서는 Microsoft 센티널를 사용 하 여 SOC 환경에서 작업을 감사할 때 **Laquerylogs** 테이블에서 실행 하는 더 많은 샘플 쿼리를 보여 줍니다.
 
 ### <a name="the-number-of-queries-run-where-the-response-wasnt-ok"></a>응답이 "OK"가 아닌 경우 실행되는 쿼리 수
 
@@ -214,11 +207,11 @@ LAQueryLogs
 | sort by Queries desc
 ```
 
-## <a name="configuring-alerts-for-azure-sentinel-activities"></a>Azure Sentinel 활동에 대한 경고 구성
+## <a name="configuring-alerts-for-microsoft-sentinel-activities"></a>Microsoft 센티널 활동에 대 한 경고 구성
 
-Azure Sentinel 감사 리소스를 사용하여 자동 관리 경고를 만들 수 있습니다.
+Microsoft 센티널 감사 리소스를 사용 하 여 사전 경고를 만들 수 있습니다.
 
-예를 들어 Azure Sentinel 작업 영역에 중요한 테이블이 있는 경우 다음 쿼리를 사용하여 해당 테이블이 쿼리될 때마다 알림을 받을 수 있습니다.
+예를 들어 Microsoft 센티널 작업 영역에 중요 한 테이블이 있는 경우 다음 쿼리를 사용 하 여 해당 테이블이 쿼리 될 때마다 사용자에 게 알립니다.
 
 ```kql
 LAQueryLogs
@@ -228,36 +221,35 @@ LAQueryLogs
 | project User, Query
 ```
 
+## <a name="monitor-microsoft-sentinel-with-workbooks-rules-and-playbooks"></a>통합 문서, 규칙 및 플레이 북으로 Microsoft 센티널 모니터링
 
-## <a name="monitor-azure-sentinel-with-workbooks-rules-and-playbooks"></a>통합 문서, 규칙 및 플레이북을 사용하여 Azure Sentinel 모니터링
-
-Azure Sentinel의 고유한 기능을 사용하여 Azure Sentinel 내에서 발생하는 이벤트 및 작업을 모니터링할 수 있습니다.
+Microsoft 센티널의 고유한 기능을 사용 하 여 Microsoft 센티널 내에서 발생 하는 이벤트 및 작업을 모니터링할 수 있습니다.
 
 - **통합 문서를 사용하여 모니터링** 작업 영역 활동을 모니터링하기 위해 다음 통합 문서가 빌드되었습니다.
 
-    - **작업 영역 감사** 환경에서 작업을 수행하는 사용자, 수행된 작업 등에 대한 정보를 포함합니다.
-    - **분석 효율성** 사용 중인 분석 규칙, 가장 많이 사용되는 MITRE 전술 및 규칙에서 생성된 인시던트에 대한 인사이트를 제공합니다.
-    - **보안 운영 효율성** SOC 팀 성능, 열린 인시던트, 종결되는 인시던트 등에 대한 메트릭을 제공합니다. 이 통합 문서를 사용하면 팀 성능을 표시하고 주의가 필요한 영역을 강조 표시할 수 있습니다.
-    - **데이터 수집 상태 모니터링** 중단되거나 중지된 수집을 감시하는 데 도움이 됩니다. 
+  - **작업 영역 감사** 환경에서 작업을 수행하는 사용자, 수행된 작업 등에 대한 정보를 포함합니다.
+  - **분석 효율성** 사용 중인 분석 규칙, 가장 많이 사용되는 MITRE 전술 및 규칙에서 생성된 인시던트에 대한 인사이트를 제공합니다.
+  - **보안 운영 효율성** SOC 팀 성능, 열린 인시던트, 종결되는 인시던트 등에 대한 메트릭을 제공합니다. 이 통합 문서를 사용하면 팀 성능을 표시하고 주의가 필요한 영역을 강조 표시할 수 있습니다.
+  - **데이터 수집 상태 모니터링** 중단되거나 중지된 수집을 감시하는 데 도움이 됩니다.
 
-    자세한 내용은 [일반적으로 사용되는 Azure Sentinel 통합 문서](top-workbooks.md)를 참조하세요.
+  자세한 내용은 [일반적으로 사용 되는 Microsoft 센티널 통합 문서](top-workbooks.md)를 참조 하세요.
 
-- **수집 지연 감시**  수집 지연에 대해 궁금한 사항이 있는 경우 [분석 규칙에서 변수를 설정](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)하여 지연을 나타냅니다. 
+- **수집 지연 감시**  수집 지연에 대해 궁금한 사항이 있는 경우 [분석 규칙에서 변수를 설정](ingestion-delay.md)하여 지연을 나타냅니다.
 
-    예를 들어 다음 분석 규칙은 결과에 중복이 포함되지 않도록 하고, 규칙을 실행할 때 로그가 누락되지 않도록 하는 데 도움이 될 수 있습니다.
+  예를 들어 다음 분석 규칙은 결과에 중복이 포함되지 않도록 하고, 규칙을 실행할 때 로그가 누락되지 않도록 하는 데 도움이 될 수 있습니다.
 
-    ```kusto
-    let ingestion_delay= 2min;let rule_look_back = 5min;CommonSecurityLog| where TimeGenerated >= ago(ingestion_delay + rule_look_back)| where ingestion_time() > (rule_look_back)
-    -   Calculating ingestion delay
+  ```kusto
+  let ingestion_delay= 2min;let rule_look_back = 5min;CommonSecurityLog| where TimeGenerated >= ago(ingestion_delay + rule_look_back)| where ingestion_time() > (rule_look_back)
+  - Calculating ingestion delay
     CommonSecurityLog| extend delay = ingestion_time() - TimeGenerated| summarize percentiles(delay,95,99) by DeviceVendor, DeviceProduct
-    ```
+  ```
 
-    자세한 내용은 [자동화 규칙을 사용하여 Azure Sentinel에서 인시던트 처리 자동화](automate-incident-handling-with-automation-rules.md)를 참조하세요.
+  자세한 내용은 [automation 규칙을 사용 하 여 Microsoft 센티널에서 인시던트 처리 자동화](automate-incident-handling-with-automation-rules.md)를 참조 하세요.
 
 - [커넥터 상태 푸시 알림 솔루션](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) 플레이북을 사용하여 **데이터 커넥터 상태를 모니터링** 하여 중단 또는 중지된 수집을 감시하고, 커넥터가 데이터 수집을 중지하거나 머신에서 보고를 중지한 경우 알림을 보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Sentinel에서 **작업 영역 감사** 통합 문서를 사용하여 SOC 환경에서 활동을 감사합니다.
+Microsoft 센티널에서 **작업 영역 감사** 통합 문서를 사용 하 여 SOC 환경에서 작업을 감사 합니다.
 
 자세한 내용은 [데이터 시각화 및 모니터링](monitor-your-data.md)을 참조하세요.

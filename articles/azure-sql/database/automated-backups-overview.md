@@ -11,18 +11,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
 ms.date: 08/28/2021
-ms.openlocfilehash: 8eb49e4d17de5c546278f78e50454db02ee2cfbd
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 884ae5d4677f33a4326ead8daae5d74b20d8596c
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131458877"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555170"
 ---
 # <a name="automated-backups---azure-sql-database--azure-sql-managed-instance"></a>자동화된 백업 - Azure SQL Database 및 Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="what-is-a-database-backup"></a>데이터베이스 백업이란?
 
@@ -61,7 +64,7 @@ SQL Database의 경우 데이터베이스를 만들 때 백업 스토리지 중�
 - **지역 복원** - [데이터베이스를 다른 지리적 지역으로 복원합니다](recovery-using-backups.md#geo-restore). 주 지역의 서버 및 데이터베이스에 액세스할 수 없는 경우 지역 복원을 통해 지리적 재해로부터 데이터베이스를 복구할 수 있습니다. 지역 복원은 Azure 지역의 기존 서버 또는 관리형 인스턴스에 새 데이터베이스를 만듭니다.
    > [!IMPORTANT]
    > 지역 복원은 지역 중복 백업 스토리지가 구성된 SQL 데이터베이스 또는 관리형 인스턴스에만 사용할 수 있습니다.
-- **장기 백업에서 복원** - 데이터베이스에 LTR(장기 보존 정책)을 구성한 경우 단일 데이터베이스 또는 풀링된 데이터베이스의 [특정 장기 백업에서 데이터베이스를 복원](long-term-retention-overview.md)합니다. LTR을 사용 하면 Azure Portal, Azure CLI 또는 Azure PowerShell를 사용 하 여 [이전 버전의 데이터베이스를 복원](long-term-backup-retention-configure.md) 하 여 규정 준수 요청을 충족 하거나 이전 버전의 응용 프로그램을 실행할 수 있습니다. 자세한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
+- **장기 백업에서 복원** - 데이터베이스에 LTR(장기 보존 정책)을 구성한 경우 단일 데이터베이스 또는 풀링된 데이터베이스의 [특정 장기 백업에서 데이터베이스를 복원](long-term-retention-overview.md)합니다. LTR을 사용하면 Azure Portal, Azure CLI 또는 Azure PowerShell 사용하여 [이전 버전의 데이터베이스를 복원하여](long-term-backup-retention-configure.md) 규정 준수 요청을 충족하거나 이전 버전의 애플리케이션을 실행할 수 있습니다. 자세한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
 
 > [!NOTE]
 > Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 Blob을 복사하는 것을 말합니다. SQL에서 *데이터베이스 복제* 는 여러 보조 데이터베이스를 주 데이터베이스와 동기화된 상태로 유지하는 데 사용되는 다양한 기술을 말합니다.
@@ -95,7 +98,7 @@ SQL Database의 경우 데이터베이스를 만들 때 백업 스토리지 중�
 
 복원을 수행하려면 [백업에서 데이터베이스 복원](recovery-using-backups.md)을 참조하세요. 다음 예제를 사용하여 백업 구성 및 복원 작업을 시도해 볼 수 있습니다.
 
-| 작업 | Azure Portal | Azure CLI | Azure PowerShell |
+| 작업 | Azure portal | Azure CLI | Azure PowerShell |
 |---|---|---|---|
 | **백업 보존 변경** | [SQL 데이터베이스](#change-the-short-term-retention-policy-using-the-azure-portal) <br/> [SQL Managed Instance](#change-the-short-term-retention-policy-using-the-azure-portal) | [SQL 데이터베이스](#change-the-short-term-retention-policy-using-azure-cli) <br/> [SQL Managed Instance](#change-the-short-term-retention-policy-using-azure-cli) | [SQL 데이터베이스](#change-the-short-term-retention-policy-using-powershell) <br/>[SQL Managed Instance](#change-the-short-term-retention-policy-using-powershell) |
 | **장기 백업 보존 변경** | [SQL 데이터베이스](long-term-backup-retention-configure.md#create-long-term-retention-policies)<br/> [SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) | [SQL 데이터베이스](long-term-backup-retention-configure.md) <br/> [SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) | [SQL 데이터베이스](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
@@ -151,7 +154,7 @@ Azure SQL Database 및 Azure SQL Managed Instance 단기 및 장기 백업 보�
 
 ### <a name="short-term-retention"></a>단기 보존
 
-모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 데이터베이스 또는 관리되는 인스턴스에 대해 정의된 보존 기간 내의 모든 지정 시간으로 데이터베이스를 복원할 수 있도록 정기적으로 전체, 차등 및 로그 백업이 수행됩니다. 또한 Azure SQL Databases의 경우 차등 백업을 12시간 또는 24시간 빈도로 구성할 수 있습니다. 
+모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 데이터베이스 또는 관리되는 인스턴스에 대해 정의된 보존 기간 내의 모든 지정 시간으로 데이터베이스를 복원할 수 있도록 정기적으로 전체, 차등 및 로그 백업이 수행됩니다. 또한 Azure SQL 데이터베이스의 경우 차등 백업을 12시간 또는 24시간 빈도로 구성할 수 있습니다. 
 
 > [!NOTE]
 > 24시간 차등 백업 빈도로 데이터베이스를 복원하는 데 필요한 시간이 늘어날 수 있습니다. 
@@ -262,7 +265,7 @@ DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터�
 
 ## <a name="change-the-short-term-retention-policy"></a>단기 보존 정책 변경
 
-Azure Portal, PowerShell 또는 REST API 사용하여 기본 PITR 백업 보존 기간 및 차등 백업 빈도를 변경할 수 있습니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하고 차등 백업을 24시간 간격으로 변경하는 방법을 보여 줍니다.
+Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 보존 기간 및 차등 백업 빈도를 변경할 수 있습니다. 다음 예에서는 PITR 보존을 28 일로 변경 하는 방법과 차등 백업을 24 시간 간격으로 변경 하는 방법을 보여 줍니다.
 
 > [!WARNING]
 > 현재 보존 기간을 줄이면 새 보존 기간보다 오래된 시점으로 복원할 수 없게 됩니다. 새 보존 기간 내에 PITR을 제공하는 데 더 이상 필요 없는 백업은 삭제됩니다. 현재 보존 기간을 늘려도 새 보존 기간의 더 오래된 시점으로 복원하는 기능이 즉시 제공되지는 않습니다. 시간이 지나 시스템이 백업을 장기간 보존하기 시작하면 이 기능을 사용할 수 있습니다.
@@ -270,9 +273,9 @@ Azure Portal, PowerShell 또는 REST API 사용하여 기본 PITR 백업 보존 
 > [!NOTE]
 > 이러한 API는 PITR 보존 기간에만 영향을 줍니다. 데이터베이스의 LTR을 구성한 경우에는 LTR이 영향을 받지 않습니다. LTR 보존 기간을 변경하는 방법에 대한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
 
-### <a name="change-the-short-term-retention-policy-using-the-azure-portal"></a>Azure Portal 사용하여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-the-azure-portal"></a>Azure Portal를 사용 하 여 단기 보존 정책 변경
 
-Azure Portal 사용하여 활성 데이터베이스에 대한 PITR 백업 보존 기간 또는 차등 백업 빈도를 변경하려면 보존 기간을 변경하려는 데이터베이스가 있는 서버 또는 관리되는 인스턴스로 이동합니다. 왼쪽 창에서 **백업** 을 선택하고 **보존 정책** 탭을 선택한 다음, PITR 백업 보존을 변경할 데이터베이스를 선택합니다. 그런 다음, 작업 모음에서 **보존 구성** 을 선택합니다.
+Azure Portal를 사용 하 여 활성 데이터베이스에 대해 PITR 백업 보존 기간 또는 차등 백업 빈도를 변경 하려면 보존 기간을 변경 하려는 데이터베이스가 있는 서버 또는 관리 되는 인스턴스로 이동 합니다. 왼쪽 창에서 **백업** 을 선택하고 **보존 정책** 탭을 선택한 다음, PITR 백업 보존을 변경할 데이터베이스를 선택합니다. 그런 다음, 작업 모음에서 **보존 구성** 을 선택합니다.
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
@@ -284,7 +287,7 @@ Azure Portal 사용하여 활성 데이터베이스에 대한 PITR 백업 보존
 
 ---
 
-### <a name="change-the-short-term-retention-policy-using-azure-cli"></a>Azure CLI 사용하여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-azure-cli"></a>Azure CLI를 사용 하 여 단기 보존 정책 변경
 
 Azure CLI에 대한 환경을 준비합니다.
 
@@ -292,7 +295,7 @@ Azure CLI에 대한 환경을 준비합니다.
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
-다음 예제를 사용하여 활성 Azure SQL 데이터베이스에 대한 PITR 백업 보존 및 차등 백업 빈도를 변경합니다.
+다음 예제를 사용 하 여 활성 Azure SQL 데이터베이스에 대 한 PITR 백업 보존 및 차등 백업 빈도를 변경 합니다.
 
 ```azurecli
 # Set new PITR differential backup frequency on an active individual database
@@ -308,7 +311,7 @@ az sql db str-policy set \
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/managed-instance)
 
-다음 예제를 사용하여 SQL Managed Instance **단일 활성** 데이터베이스의 PITR 백업 보존을 변경합니다.
+다음 예를 사용 하 여 SQL Managed Instance에서 **단일 활성** 데이터베이스의 백업 보존 PITR을 변경할 수 있습니다.
 
 ```azurecli
 # Set new PITR backup retention period on an active individual database
@@ -320,7 +323,7 @@ az sql midb short-term-retention-policy set \
     --retention-days 1 \
 ```
 
-다음 예제를 사용하여 SQL Managed Instance **모든 활성** 데이터베이스에 대한 PITR 백업 보존을 변경합니다.
+다음 예를 사용 하 여 SQL Managed Instance의 **모든 활성** 데이터베이스에 대해 PITR 백업 보존 기간을 변경할 수 있습니다.
 
 ```azurecli
 # Set new PITR backup retention period for ALL active databases
@@ -333,7 +336,7 @@ az sql midb short-term-retention-policy set \
 
 ---
 
-### <a name="change-the-short-term-retention-policy-using-powershell"></a>PowerShell을 사용하여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-powershell"></a>PowerShell을 사용 하 여 단기 보존 정책 변경
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -341,7 +344,7 @@ az sql midb short-term-retention-policy set \
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
-활성 Azure SQL 데이터베이스에 대한 PITR 백업 보존 및 차등 백업 빈도를 변경하려면 다음 PowerShell 예제를 사용합니다.
+활성 Azure SQL 데이터베이스에 대 한 PITR 백업 보존 및 차등 백업 빈도를 변경 하려면 다음 PowerShell 예제를 사용 합니다.
 
 ```powershell
 # SET new PITR backup retention period on an active individual database
@@ -394,9 +397,9 @@ Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -Instanc
 
 ---
 
-### <a name="change-the-short-term-retention-policy-using-the-rest-api"></a>REST API 사용하여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-the-rest-api"></a>REST API를 사용 하 여 단기 보존 정책 변경
 
-아래 요청은 보존 기간을 28일로 업데이트하고 차등 백업 빈도를 24시간으로 설정합니다.
+아래 요청은 보존 기간을 28 일로 업데이트 하 고 차등 백업 빈도를 24 시간으로 설정 합니다.
 
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
@@ -496,11 +499,11 @@ Azure Portal에서 백업 스토리지 중복성을 변경하는 옵션은 SQL M
 
 ---
 
-### <a name="configure-backup-storage-redundancy-by-using-the-azure-cli"></a>Azure CLI 사용하여 백업 스토리지 중복성 구성
+### <a name="configure-backup-storage-redundancy-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 백업 저장소 중복성 구성
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
-새 데이터베이스를 만들 때 백업 스토리지 중복성을 구성하려면 매개 변수를 지정하면 `backup-storage-redundancy` 됩니다. 가능한 값은 Geo, Zone 및 Local입니다. 기본적으로 모든 SQL 데이터베이스는 백업에 지역 중복 스토리지를 사용합니다. 로컬 또는 영역 중복 백업 스토리지를 통해 데이터베이스를 만들거나 업데이트하면 지역 복원을 사용할 수 없습니다.
+새 데이터베이스를 만들 때 백업 저장소 중복성을 구성 하려면 매개 변수를 지정 하면 `backup-storage-redundancy` 됩니다. 가능한 값은 Geo, Zone 및 Local입니다. 기본적으로 모든 SQL 데이터베이스는 백업에 지역 중복 스토리지를 사용합니다. 로컬 또는 영역 중복 백업 저장소를 사용 하 여 데이터베이스를 만들거나 업데이트 하는 경우 지역 복원을 사용할 수 없습니다.
 
 ```azurecli
 az sql db create \
@@ -511,7 +514,7 @@ az sql db create \
     --backup-storage-redundancy Local
 ```
 
-매개 변수를 통해 기존 데이터베이스를 업데이트할 수도 `backup-storage-redundancy` 있습니다.
+매개 변수를 사용 하 여 기존 데이터베이스를 업데이트할 수도 있습니다 `backup-storage-redundancy` .
 
 ```azurecli
 az sql db update \
@@ -520,11 +523,11 @@ az sql db update \
     --name mydb \
     --backup-storage-redundancy Local
 ```
-자세한 내용은 [az sql db create](/cli/azure/sql/db#az_sql_db_create) 및 [az sql db update를 참조하세요.](/cli/azure/sql/db#az_sql_db_update)
+자세한 내용은 [az sql db create](/cli/azure/sql/db#az_sql_db_create) 및 [az sql db update](/cli/azure/sql/db#az_sql_db_update)를 참조 하십시오.
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
-Azure CLI 사용하는 경우 SQL Managed Instance 백업 스토리지 중복 구성을 사용할 수 없습니다. 자세한 내용은 [Azure Portal](#configure-backup-storage-redundancy-by-using-the-azure-portal) 또는 [PowerShell](#configure-backup-storage-redundancy-by-using-powershell) 옵션을 참조하세요.
+Azure CLI를 사용 하는 경우 SQL Managed Instance에 대해 백업 저장소 중복성을 구성할 수 없습니다. 자세한 내용은 [Azure Portal](#configure-backup-storage-redundancy-by-using-the-azure-portal) 또는 [PowerShell](#configure-backup-storage-redundancy-by-using-powershell) 옵션을 참조 하세요.
 
 ---
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 6/19/2021
-ms.openlocfilehash: cf23b4111bc50b9276ffdc99704b750c8c7d5b3b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4238ac653d6b34294d956ea9ff72fe2184ddd1be
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429112"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281649"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL 단일 서버
 
@@ -20,16 +20,15 @@ ms.locfileid: "131429112"
 
 MySQL 커뮤니티 버전에서 제공하는 [Azure Database for MySQL](overview.md)은 두 가지 배포 모드로 사용할 수 있습니다.
 
+- 유연한 서버 
 - 단일 서버
-- 유연한 서버(미리 보기)
 
 이 문서에서는 단일 서버 배포 모델의 핵심 개념을 간략하게 설명하고 소개합니다. 유연한 서버 배포 모드에 대한 자세한 내용은 [유연한 서버 개요](flexible-server/index.yml)를 참조하세요. 작업에 적합한 배포 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure에서 올바른 MySQL 서버 옵션 선택](select-right-deployment-type.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
+Azure Database for MySQL 단일 서버는 최소한의 사용자 지정을 위해 설계된 완전 관리형 데이터베이스 서비스입니다. 단일 서버 플랫폼은 최소한의 사용자 구성과 제어를 통해 패치, 백업, 고가용성, 보안 등 대부분의 데이터베이스 관리 기능을 처리하도록 설계되었습니다. 이 아키텍처는 단일 가용성 영역에서 99.99%의 가용성을 기본 제공하도록 고가용성에 최적화되었습니다. MySQL 커뮤니티 버전 5.6(사용 중지), 5.7 및 8.0을 지원합니다. 이 서비스는 현재 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 일반 공급됩니다.
 
-단일 서버는 데이터베이스 사용자 지정을 최소화한 완전 관리형 데이터베이스 서비스입니다. 단일 서버 플랫폼은 최소한의 사용자 구성과 제어를 통해 패치, 백업, 고가용성, 보안 등 대부분의 데이터베이스 관리 기능을 처리하도록 설계되었습니다. 아키텍처는 단일 가용성 영역에서 99.99%의 가용성을 제공하도록 최적화되었습니다. MySQL 커뮤니티 버전 5.6, 5.7 및 8.0을 지원합니다. 이 서비스는 현재 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 일반 공급됩니다. 
-
-단일 서버는 패치 일정 및 사용자 지정 MySQL 구성 설정에 대한 세부적인 제어 없이 자동화된 패치를 처리하도록 설계된 클라우드 네이티브 애플리케이션에 가장 적합합니다. 
+단일 서버는 **단일 서버를 이미 활용하는 기존 애플리케이션에만** 가장 적합합니다. 모든 새로운 개발 또는 마이그레이션의 경우 유연한 서버가 권장되는 배포 옵션입니다. 유연한 서버 배포 옵션과 단일 서버 배포 옵션 간의 차이점에 대해 알아보려면 설명서에 [적합한 배포 옵션 선택](select-right-deployment-type.md)을 참조하세요.
 
 ## <a name="high-availability"></a>고가용성
 
@@ -64,7 +63,7 @@ MySQL 커뮤니티 버전에서 제공하는 [Azure Database for MySQL](overview
 
 단일 서버는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터 및 쿼리를 실행하는 동안 생성된 임시 파일이 암호화됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리(기본값)할 수도 있고 [고객이 관리](concepts-data-encryption-mysql.md)할 수도 있습니다. 서비스는 기본적으로 적용되는 전송 계층 보안(SSL/TLS)을 사용하여 동작 중인 데이터를 암호화합니다. 이 서비스는 [최소 TLS 버전](concepts-ssl-connection-security.md)을 적용하는 기능을 통해 TLS 버전 1.2, 1.1 및 1.0을 지원합니다. 
 
-서비스는 [프라이빗 링크](concepts-data-access-security-private-link.md)를 사용하여 서버에 대한 프라이빗 액세스를 허용하고, 필요에 따라 [오픈 소스 관계형 데이터베이스용 Azure Defender](../security-center/defender-for-databases-introduction.md) 계획을 통해 위협 방지를 제공합니다. Azure Defender는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 감지합니다.
+서비스는 [프라이빗 링크](concepts-data-access-security-private-link.md)를 사용하여 서버에 대한 프라이빗 액세스를 허용하고, 필요에 따라 [오픈 소스 관계형 데이터베이스용 Microsoft Defender](../security-center/defender-for-databases-introduction.md) 계획을 통해 위협 방지를 제공합니다. 오픈 소스 관계형 데이터베이스용 Microsoft Defender는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 감지합니다.
 
 기본 인증 외에도, 단일 서버는 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 인증을 지원합니다. Azure AD 인증은 Azure AD에서 정의되고 관리되는 ID를 사용하여 MySQL 서버에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 중앙 위치에서 데이터베이스 사용자 ID 및 기타 Azure 서비스를 관리할 수 있으므로, 액세스 제어가 간소화되고 중앙 집중화됩니다.
 

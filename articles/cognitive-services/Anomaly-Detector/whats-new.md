@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 06/23/2021
-ms.openlocfilehash: 07a47b432470b683680c315f2d1d741cc607774f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9bb87788a12a8ec58e3d9cc0035eeefa0b35656b
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214602"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134710"
 ---
 # <a name="whats-new-in-anomaly-detector"></a>Anomaly Detector의 새로운 기능
 
@@ -19,6 +19,9 @@ ms.locfileid: "129214602"
 일부 사용자 생성 콘텐츠의 링크도 추가했습니다. 해당 항목은 **[UGC]** 태그로 표시됩니다. 일부 링크는 Microsoft 외부의 웹 사이트에서 호스트되며 Microsoft는 해당 콘텐츠에 책임을 지지 않습니다. 이러한 리소스를 참조하는 경우에는 주의해야 합니다. 콘텐츠를 제거하려면 AnomalyDetector@microsoft.com으로 문의하거나 GitHub에서 문제를 제출하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="november-2021"></a>2021년 11월
+* Multivariate Anomaly Detector는 아랍에미리트 북부, 프랑스 중부, 미국 중북부, 스위스 북부, 남아프리카 공화국 북부, Jio 인도 서부의 6개 지역에서 사용할 수 있습니다. 이제 총 26개 지역에서 지원됩니다.
 
 ### <a name="september-2021"></a>2021년 9월
 * Jio 인도 서부에서 사용할 수 있는 Anomaly Detector(일변량)입니다.

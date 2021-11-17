@@ -115,68 +115,72 @@
       href: production-checklist.md
 - name: 방법 가이드
   items:
-    - name: IoT Edge 디바이스 만들기
+    - name: IoT Edge 설치 및 프로비전
       items:
-        - name: 단일 디바이스 수동 프로비전
+        - name: IoT Edge 디바이스 만들기
+          href: how-to-create-iot-edge-device.md
+        - name: Linux 호스트의 Linux 컨테이너
           items:
-            - name: X.509 인증서 증명
+            - name: 단일 디바이스 프로비저닝
               items:
-                - name: Linux
+                - name: X.509 인증서 증명
                   href: how-to-provision-single-device-linux-x509.md
-                - name: Windows의 Linux 컨테이너
-                  href: how-to-provision-single-device-linux-on-windows-x509.md
-                - name: Windows
-                  href: how-to-provision-single-device-windows-x509.md
-            - name: 대칭 키 증명
-              items:
-                - name: Linux
+                - name: 대칭 키 증명
                   href: how-to-provision-single-device-linux-symmetric.md
-                - name: Windows의 Linux 컨테이너
+            - name: 규모에 맞게 디바이스 프로비전
+              items:
+                - name: X.509 인증서 증명
+                  href: how-to-provision-devices-at-scale-linux-x509.md
+                - name: TPM 증명
+                  href: how-to-provision-devices-at-scale-linux-tpm.md
+                - name: 대칭 키 증명
+                  href: how-to-provision-devices-at-scale-linux-symmetric.md
+        - name: Windows 호스트의 Linux 컨테이너
+          items:
+            - name: 단일 디바이스 프로비저닝
+              items:
+                - name: X.509 인증서 증명
+                  href: how-to-provision-single-device-linux-on-windows-x509.md
+                - name: 대칭 키 증명
                   href: how-to-provision-single-device-linux-on-windows-symmetric.md
-                - name: Windows
+            - name: 규모에 맞게 디바이스 프로비전
+              items:
+                - name: X.509 인증서 증명
+                  href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+                - name: TPM 증명
+                  href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
+                - name: 대칭 키 증명
+                  href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+            - name: Windows VM에 대한 중첩된 가상화 구성
+              href: nested-virtualization.md
+            - name: 가상 스위치 만들기
+              href: how-to-create-virtual-switch.md
+            - name: GPU 가속 구성
+              href: gpu-acceleration.md
+        - name: Windows 호스트의 Windows 컨테이너
+          items:
+            - name: 단일 디바이스 프로비저닝
+              items:
+                - name: 대칭 키 증명
                   href: how-to-provision-single-device-windows-symmetric.md
+                - name: X.509 인증서 증명
+                  href: how-to-provision-single-device-windows-x509.md
+            - name: 규모에 맞게 디바이스 프로비전
+              items:
+                - name: 대칭 키 증명
+                  href: how-to-provision-devices-at-scale-windows-symmetric.md
+                - name: X.509 인증서 증명
+                  href: how-to-provision-devices-at-scale-windows-x509.md
+                - name: TPM 증명
+                  href: how-to-provision-devices-at-scale-windows-tpm.md
         - name: IoT Edge 업데이트
           href: how-to-update-iot-edge.md
         - name: 디바이스 인증서 관리
           href: how-to-manage-device-certificates.md
-        - name: Windows VM에 대한 중첩된 가상화 구성
-          href: nested-virtualization.md
-        - name: Windows에서 Linux용 가상 스위치 만들기
-          href: how-to-create-virtual-switch.md
-        - name: Windows에서 Linux에 대한 GPU 가속 구성
-          href: gpu-acceleration.md
-    - name: 대체 디바이스 시나리오
-      items:
         - name: Kubernetes의 IoT Edge 실행
           href: how-to-install-iot-edge-kubernetes.md
         - name: ARM 템플릿을 사용하여 IoT Edge VM 배포
           href: how-to-install-iot-edge-ubuntuvm.md
-    - name: DPS와 함께 큐 자동 프로비전
-      items:
-        - name: TPM 증명
-          items:
-            - name: Linux
-              href: how-to-provision-devices-at-scale-linux-tpm.md
-            - name: Windows의 Linux 컨테이너
-              href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
-            - name: Windows
-              href: how-to-provision-devices-at-scale-windows-tpm.md
-        - name: X.509 인증서 증명
-          items:
-            - name: Linux
-              href: how-to-provision-devices-at-scale-linux-x509.md
-            - name: Windows의 Linux 컨테이너
-              href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
-            - name: Windows
-              href: how-to-provision-devices-at-scale-windows-x509.md
-        - name: 대칭 키 증명
-          items:
-            - name: Linux
-              href: how-to-provision-devices-at-scale-linux-symmetric.md
-            - name: Windows의 Linux 컨테이너
-              href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-            - name: Windows
-              href: how-to-provision-devices-at-scale-windows-symmetric.md
     - name: 사용자 지정 모듈 개발
       items:
         - name: Visual Studio 2019를 사용하여 개발

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 8f653f8e41d45310cf6d90aebf0484b2a0ea7360
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 2c0c2017ab4750187d4619761154a2adc6002357
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272982"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324748"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -210,10 +210,10 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 - 성능 향상을 위해 다음을 수행합니다.
     - 기본적으로 데이터 디스크는 호스트 캐싱이 "없음"으로 설정된 상태로 생성됩니다. 워크로드 요구 사항에 맞게 데이터 디스크 캐싱을 검토하고 조정합니다. [자세히 알아보기](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - 보안 강화:
-    - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
+    - [Microsoft Defender for Cloud - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
     - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
     - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
-    - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
+    - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
 -  리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 배포하는 것이 좋습니다.
 

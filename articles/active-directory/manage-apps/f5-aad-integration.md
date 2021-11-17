@@ -1,7 +1,7 @@
 ---
-title: F5를 통한 Azure AD 보안 하이브리드 액세스 | Microsoft Docs
+title: F5를 통한 안전한 하이브리드 액세스
+titleSuffix: Azure AD
 description: 보안 하이브리드 액세스를 위한 F5 BIG-IP Access Policy Manager 및 Azure Active Directory 통합
-services: active-directory
 author: davidmu1
 manager: martinco
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: cc55eff7c5ed3a4773a016bcd73bbd33708d9595
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0faa0d97c1e1bb73e2a97aa3715efee58a589cd8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566888"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432627"
 ---
-# <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위한 F5 BIG-IP Access Policy Manager 및 Azure Active Directory 통합
+# <a name="integrate-f5-big-ip-with-azure-active-directory"></a>Azure Active Directory와 F5 BIG-IP 통합
 
 모바일의 확산과 진화하는 위협 환경에 따라, 리소스 액세스 및 거버넌스에 대한 면밀한 조사가 요구되기 때문에 모든 최신 프로그램에 대한 [제로 트러스트](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)가 무엇보다 중요합니다.
 Microsoft와 F5는 이러한 디지털 변환이 어느 기업에서나 장기간에 걸친 과정이기 때문에 현대화가 완료될 때까지 중요한 리소스가 노출될 가능성이 있음을 확인하게 되었습니다. F5 BIG-IP 및 Azure Active Directory SHA(Secure Hybrid Access)는 근본적으로 온-프레미스 애플리케이션에 대한 원격 액세스 향상뿐 아니라, 취약한 서비스의 전반적인 보안 상태를 강화하는 것을 목표로 합니다.
@@ -30,9 +30,9 @@ SHA는 이 간과하기 쉬운 부분을 파악하여, 조직이 지속적으로
 
 BIG-IP 게시 서비스에 대한 Azure AD 사전 인증 액세스에는 다음과 같은 여러 이점이 있습니다.
 
-- [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](../user-help/user-help-auth-app-download-install.md), [FIDO(Fast Identity Online) 키](../authentication/howto-authentication-passwordless-security-key.md) 및 [인증서 기반 인증](../authentication/active-directory-certificate-based-authentication-get-started.md)을 통한 암호 없는 인증
+- [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [FIDO(Fast Identity Online) 키](../authentication/howto-authentication-passwordless-security-key.md) 및 [인증서 기반 인증](../authentication/active-directory-certificate-based-authentication-get-started.md)을 통한 암호 없는 인증
 
-- 선점형 [조건부 액세스](../conditional-access/overview.md) 및 [MFA(다단계 인증)](../authentication/concept-mfa-howitworks.md)
+- 선점형 [조건부 액세스](../conditional-access/overview.md) 및 [Azure AD MFA(다단계 인증)](../authentication/concept-mfa-howitworks.md)
 
 - [ID 보호](../identity-protection/overview-identity-protection.md) - 사용자 및 세션 위험 프로파일링을 통한 적응형 제어
 
@@ -68,7 +68,7 @@ BIG-IP의 Azure AD 통합 기능은 [암호 없는 인증](https://www.microsoft
 
 ![상위 수준 아키텍처를 보여주는 이미지](./media/f5-aad-integration/integration-flow-diagram.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |:------|:-----------|
 | 1. | 사용자가 포털에서 애플리케이션 아이콘을 선택하여 SAML SP(BIG-IP)에 대해 URL을 확인합니다. |
 | 2. | BIG-IP가 사전 인증을 위해 사용자를 SAML IDP(Azure AD)로 리디렉션합니다.|
@@ -81,7 +81,7 @@ BIG-IP의 Azure AD 통합 기능은 [암호 없는 인증](https://www.microsoft
 
 소속 직원, 계열사 또는 소비자 등 대부분의 사용자는 이미 Office 365 로그인 환경을 잘 알고 있기 때문에 SHA를 통한 BIG-IP 서비스 액세스가 매우 익숙합니다.
 
-이제 사용자는 디바이스 유형이나 위치에 관계없이 [MyApps](../user-help/my-apps-portal-end-user-access.md) 또는 [O365 실행 패드](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf)에서 셀프 서비스 기능과 함께 더 광범위한 서비스 집합에 통합된 BIG-IP 게시 서비스를 확인할 수 있습니다. 사용자는 원하는 경우 BIG-IP 소유 Webtop 포털을 통해 직접 게시된 서비스에 계속 액세스할 수도 있습니다. 로그오프하면 SHA가 사용자의 세션이 BIG-IP와 Azure AD 양쪽에서 모두 확실히 종료되게 하여 서비스를 무단 액세스로부터 완전히 보호합니다.  
+이제 사용자는 디바이스 유형이나 위치에 관계없이 [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) 또는 [O365 실행 패드](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf)에서 셀프 서비스 기능과 함께 더 광범위한 서비스 집합에 통합된 BIG-IP 게시 서비스를 확인할 수 있습니다. 사용자는 원하는 경우 BIG-IP 소유 Webtop 포털을 통해 직접 게시된 서비스에 계속 액세스할 수도 있습니다. 로그오프하면 SHA가 사용자의 세션이 BIG-IP와 Azure AD 양쪽에서 모두 확실히 종료되게 하여 서비스를 무단 액세스로부터 완전히 보호합니다.  
 
 제공되는 스크린샷은 Azure AD 앱 포털에서 사용자가 BIG-IP 게시 서비스를 찾고 자신의 계정 속성을 관리하기 위해 안전하게 액세스하는 화면입니다.  
 
@@ -144,6 +144,10 @@ SHA 구현에 이전의 경험이나 F5 BIG-IP 지식이 필요한 것은 아니
 - [헤더 기반 애플리케이션에 대한 F5 BIG-IP APM 및 Azure AD SSO](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Azure AD SHA를 통한 F5 BIG-IP SSL-VPN 보호](f5-aad-password-less-vpn.md)
+
+- [F5 BIG-IP로 Azure AD B2C 구성](../../active-directory-b2c/partner-f5.md)
+
+- [양식 기반 인증 SSO를 위해 Azure Active Directory와 F5 BIG-IP 통합](f5-big-ip-forms-advanced.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -6,20 +6,20 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: 73d3c43e93dce030895291859acb723a94a0cadc
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d63dd9b3b8f7b81b5955ce431cd5477d9e63ea1a
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301327"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517029"
 ---
 # <a name="deploy-and-monitor-azure-key-vault-honeytokens-with-microsoft-sentinel-public-preview"></a>Microsoft Sentinel을 사용하여 Azure Key Vault Honeytoken 배포 및 모니터링(공개 미리 보기)
 
@@ -27,13 +27,13 @@ ms.locfileid: "132301327"
 > Microsoft Sentinel Deception(Honey Tokens) 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
-이 문서에서는 **Microsoft Sentinel Deception(허니 토큰)** 솔루션을 사용하여 *honeytoken이라고* 하는 디코이 [Azure Key Vault](/azure/key-vault/) 키와 비밀을 기존 워크로드에 심는 방법을 설명합니다.
+이 문서에서는 **Microsoft Sentinel Deception(Honey Toception)** 솔루션을 사용하여 *honeytoken이라고* 하는 디코이 [Azure Key Vault](/azure/key-vault/) 키와 비밀을 기존 워크로드에 심는 방법을 설명합니다.
 
 솔루션에서 제공하는 [분석 규칙,](detect-threats-built-in.md) [감시 목록](watchlists.md)및 [통합 문서를](monitor-your-data.md) 사용하여 배포된 Honeytoken에 대한 액세스를 모니터링합니다.
 
 시스템에서 Honeytoken을 사용하는 경우 검색 원칙은 동일하게 유지됩니다. Honeytoken에 액세스할 합법적인 이유가 없기 때문에 모든 활동은 환경에 익숙하지 않고 공격자가 될 수 있는 사용자의 존재를 나타냅니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 **Microsoft Sentinel Deception(Honey Toception)** 솔루션 사용을 시작하려면 다음이 있는지 확인합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "132301327"
 
   데이터 라우팅이 성공했는지, **KeyVault** 및 **AzureActivity** 데이터가 Microsoft Sentinel로 흐르는지 확인합니다. 자세한 내용은 다음을 참조하세요.
 
-  - [커넥트 Azure, Windows, Microsoft 및 Amazon 서비스에 대한 Microsoft Sentinel](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)
+  - [Azure, Windows, Microsoft 및 Amazon 서비스에 Microsoft Sentinel 커넥트](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)
   - [Microsoft Sentinel 데이터 커넥터 찾기](data-connectors-reference.md)
 
 ## <a name="install-the-solution"></a>솔루션 설치
@@ -62,13 +62,13 @@ ms.locfileid: "132301327"
 
     함수 앱 이름은 길이가 2-22자 사이이고 영숫자 문자만 고유해야 합니다.
 
-    아래에는 정의한 이름으로 명령이 표시됩니다. 예를 들면 다음과 같습니다.
+    아래에는 정의한 이름으로 명령이 표시됩니다. 예:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="업데이트된 curl 명령을 보여주는 필수 구성 조건 탭의 스크린샷.":::
 
 1. **Cloud Shell을 열려면 여기를 클릭을** 선택하여 Cloud Shell 탭을 엽니다. 메시지가 표시되면 로그인한 다음, 표시된 명령을 실행합니다.
 
-    실행하는 스크립트는 허니 토큰을 배포하는 Azure AD(AAD) 함수 앱을 만듭니다.    예를 들면 다음과 같습니다.
+    실행하는 스크립트는 허니 토큰을 배포하는 Azure AD(AAD) 함수 앱을 만듭니다.    예:
 
     ```bash
     Requesting a Cloud Shell.Succeeded
@@ -82,7 +82,7 @@ ms.locfileid: "132301327"
     maria@Azure:~$curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s HoneyTokenFunctionApp
     ```
 
-    스크립트 출력에는 AAD 앱 ID 및 비밀이 포함됩니다. 예를 들면 다음과 같습니다.
+    스크립트 출력에는 AAD 앱 ID 및 비밀이 포함됩니다. 예:
 
     ```bash
     WARNING: The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control. For more information, see https://aka.ms/azadsp-cli
@@ -92,13 +92,13 @@ ms.locfileid: "132301327"
     maria@Azure:~$
     ```
 
-1. Microsoft Sentinel로 **돌아가서 필수 구성 조건** 탭의 맨 아래에 있는 관련 필드에 AAD 앱 ID 및 비밀을 입력합니다. 예를 들면 다음과 같습니다.
+1. Microsoft Sentinel로 **돌아가서 필수 구성 조건** 탭의 맨 아래에 있는 관련 필드에 AAD 앱 ID 및 비밀을 입력합니다. 예:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/client-app-secret-values.png" alt-text="함수 앱의 클라이언트 앱 및 추가된 비밀 값의 스크린샷.":::
 
-1. 4단계에서 **함수 앱 설정을 계속하려면 여기를 클릭하세요를** 선택합니다. Azure AD 애플리케이션 설정에서 새 브라우저 탭이 열립니다.
+1. 4단계에서 **함수 앱 설정을 계속하려면 여기를 클릭을** 선택합니다. Azure AD 애플리케이션 설정에서 새 브라우저 탭이 열립니다.
 
-    메시지가 표시되면 로그인한 다음, **관리자 `<your directory name>` 동의 허용을** 선택하여 계속합니다. 예를 들면 다음과 같습니다.
+    메시지가 표시되면 로그인한 다음, **관리자 `<your directory name>` 동의 허용을** 선택하여 계속합니다. 예:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/grant-admin-access.png" alt-text="디렉터리에 대한 관리자 동의 부여 단추의 스크린샷.":::
 
@@ -113,10 +113,10 @@ ms.locfileid: "132301327"
 
     **키 자격 증명** 모음 구성: 다음 필드는 AAD 앱의 비밀을 저장할 키 자격 증명 모음에 대한 값을 정의합니다. 이러한 필드는 Honeytoken을 배포할 키 자격 증명 모음을 *정의하지* 않습니다.
 
-    |필드  |설명  |
+    |필드  |Description  |
     |---------|---------|
     | **서비스 계획**     |   함수 앱에 **Premium** 또는 **소비** 계획을 사용할지 여부를 선택합니다. 자세한 내용은 [Azure Functions 소비 계획 호스팅](/azure/azure-functions/consumption-plan) 및 Azure Functions Premium [계획을](/azure/azure-functions/functions-premium-plan)참조하세요.      |
-    | **새 KeyVault를 만들어야 합니다.**     |    **새로** 만들기를 선택하여 앱의 비밀에 대한 새 키 자격 증명 **모음을** 만들거나 기존 키 자격 증명 모음을 사용하기 위해 기존 키 자격 증명 모음을 만듭니다.   |
+    | **새 KeyVault를 만들어야 합니다.**     |    **새로** 만들기를 선택하여 앱의 비밀에 대한 새 키 자격 증명 모음을 **만들거나** 기존 키 자격 증명 모음을 사용하기 위해 기존 키 자격 증명 모음을 만듭니다.   |
     | **KeyVault 이름**     | 새 키 자격 증명 모음을 만들도록 선택한 경우에만 표시됩니다. <br><br>앱의 비밀을 저장하는 데 사용할 키 자격 증명 모음의 이름을 입력합니다. 이 이름은 전역적으로 고유해야 합니다.     |
     | **KeyVault 리소스 그룹**     |새 키 자격 증명 모음을 만들도록 선택한 경우에만 표시됩니다. <br><br> 애플리케이션 키에 대한 키 자격 증명 모음을 저장할 리소스 그룹의 이름을 선택합니다.      |
     | **기존 키 자격 증명 모음** | 기존 키 자격 증명 모음을 사용하도록 선택한 경우에만 표시됩니다. 사용하려는 키 자격 증명 모음을 선택합니다. |
@@ -124,7 +124,7 @@ ms.locfileid: "132301327"
 
     **Honeytoken 구성:** 다음 필드는 Honeytoken에 사용되는 키 및 비밀에 사용되는 설정을 정의합니다. 공격자가 차이를 알 수 없도록 조직의 명명 요구 사항과 혼합되는 명명 규칙을 사용합니다.
 
-    |필드  |설명  |
+    |필드  |Description  |
     |---------|---------|
     |**키 키워드**     |  디코이 허니 토큰 이름과 함께 사용하려는 값의 쉼표로 구분된 목록을 입력합니다.  예: `key,prod,dev`.  값은 영숫자여야 합니다.   |
     |**비밀**     |   디코이 허니 토큰 비밀에 사용할 값의 쉼표로 구분된 목록을 입력합니다.  예: `secret,secretProd,secretDev`. 값은 영숫자여야 합니다.    |
@@ -155,15 +155,15 @@ ms.locfileid: "132301327"
 
 1. Microsoft Sentinel에서 **통합 문서 > 내 통합 문서로** 이동하여 **SOCHTManagement** 통합 문서를 엽니다. 솔루션을 배포할 때 이 이름을 수정했을 수 있습니다.
 
-1. **저장된 통합 문서 보기**  >  **트러스트된 로 추가를** 선택합니다. 예를 들면 다음과 같습니다.
+1. **저장된 통합 문서 보기**  >  **트러스트된 로 추가를** 선택합니다. 예:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/add-as-trusted.png" alt-text="SOCHTManagement 통합 문서 '신뢰할 수 있는 것으로 추가' 단추의 스크린샷.":::
 
     Honeytoken 배포를 허용하도록 인프라가 키 자격 증명 모음에 배포됩니다.
 
-1. 통합 문서의 **Key Vault** 탭에서 구독을 확장하여 Honeytoken을 배포할 준비가 된 키 자격 증명 모음과 이미 배포된 Honeytoken이 있는 키 자격 증명 모음을 확인합니다.
+1. 통합 문서의 **Key Vault** 탭에서 구독을 확장하여 Honeytoken을 배포할 준비가 된 키 자격 증명 모음과 이미 배포된 honeytoken이 있는 키 자격 증명 모음을 확인합니다.
 
-    **SOC에서 모니터링되는** 항목 열에서 녹색 확인 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/checkmark.png" border="false"::: 모음에 이미 Honeytoken이 있음을 나타냅니다. 빨간색 x 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/xmark.png" border="false"::: 모음에 아직 Honeytoken이 없는 것을 나타냅니다. 예를 들면 다음과 같습니다.
+    **SOC에서 모니터링되는** 항목 열에서 녹색 확인 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/checkmark.png" border="false"::: 모음에 이미 Honeytoken이 있음을 나타냅니다. 빨간색 X 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/xmark.png" border="false"::: 모음에 아직 Honeytoken이 없는 것을 나타냅니다. 예:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-deployed.png" alt-text="배포된 Honeytoken을 보여 있는 SOCHTManagement 통합 문서의 스크린샷.":::
 
@@ -177,7 +177,7 @@ ms.locfileid: "132301327"
 
         메시지가 표시되면 로그인하고 ARM 템플릿 배포에 대한 **Project 세부 정보** 및 인스턴스 세부 **정보** 영역에 대한 값을 입력합니다. 사용자의 Azure Active Directory 홈페이지에서 **테넌트 ID** 및 **사용자 개체 ID를** 찾습니다.
 
-        완료되면 **검토 + 만들기를** 선택하여 ARM 템플릿을 배포합니다. 예를 들면 다음과 같습니다.
+        완료되면 **검토 + 만들기를** 선택하여 ARM 템플릿을 배포합니다. 예:
 
         :::image type="content" source="media/monitor-key-vault-honeytokens/deploy-arm-template.png" alt-text="사용자 지정 배포 페이지의 스크린샷":::
 
@@ -185,11 +185,11 @@ ms.locfileid: "132301327"
 
         페이지 아래쪽에서 **만들기를** 선택하여 ARM 템플릿을 배포하고 성공적인 배포 확인 페이지를 확인합니다.
 
-    1. Microsoft Sentinel로 **돌아가서 SOCHTManagement** 통합 문서 > 대규모로 작업 배포를 **수행하려면**  >   **클릭하여 배포** 링크를 선택하여 선택한 구독에서 액세스할 수 있는 모든 키 자격 증명 모음에 Honeytoken을 추가합니다.
+    1. Microsoft Sentinel로 **돌아가서 SOCHTManagement** 통합 문서 > 규모에 따라 작업 배포를 **수행하려면**  >   **클릭하여 배포** 링크를 선택하여 선택한 구독에서 액세스할 수 있는 모든 키 자격 증명 모음에 honeytoken을 추가합니다.
 
         완료되면 허니 토큰 배포 결과가 새 탭의 테이블에 표시됩니다.
 
-    1. 사용자 사용 안 함 링크를 선택하여 이전에 만든 액세스 정책을 제거해야 **합니다.** 메시지가 표시되면 다시 로그인하고 사용자 지정 ARM 배포에 대한 값을 입력한 다음 ARM 템플릿을 배포합니다. 이 단계에서는 키와 비밀을 만드는 사용자 권한을 제거하는 키 자격 증명 모음 액세스 정책을 배포합니다.
+    1. 사용자 사용 안 함 링크를 선택하여 이전에 만든 액세스 정책을 제거해야 **합니다.** 메시지가 표시되면 다시 로그인하고 사용자 지정 ARM 배포에 대한 값을 입력한 다음 ARM 템플릿을 배포합니다. 이 단계에서는 키 및 비밀을 만드는 사용자 권한을 제거하는 키 자격 증명 모음 액세스 정책을 배포합니다.
 
     # <a name="deploy-a-single-honeytoken"></a>[단일 Honeytoken 배포](#tab/deploy-a-single-honeytoken)
 
@@ -197,13 +197,13 @@ ms.locfileid: "132301327"
 
     1. 페이지 맨 위에 있는 테이블에서 Honeytoken을 배포할 키 자격 증명 모음을 선택합니다. 특정 키 자격 증명 **모음에 배포:** 섹션이 페이지 아래쪽에 나타납니다.
 
-    1. Scroll down **Honeytoken 형식** 드롭다운에서 키 또는 비밀을 만들 것인지 선택합니다. 새 **Honeytoken 이름 필드에 Honeytoken에** 대한 의미 있는 이름을 입력합니다. 예를 들면 다음과 같습니다.
+    1. Scroll down **Honeytoken 형식** 드롭다운에서 키 또는 비밀을 만들 것인지 선택합니다. 새 **허니 토큰 이름 필드에 Honeytoken에** 대한 의미 있는 이름을 입력합니다. 예:
 
         :::image type="content" source="media/monitor-key-vault-honeytokens/deploy-manually.png" alt-text="특정 키 자격 증명 모음 영역에 배포하는 스크린샷.":::
 
     1. **작업** 테이블에서 **Honeytoken 배포 섹션을** 확장하고 각 작업 이름을 선택하여 필요한 단계를 수행합니다. 메시지가 표시되면 로그인합니다.
 
-        - 키 자격 **증명 모음이 감사되고 있는지 확인하려면 클릭을** 선택합니다. Azure Key Vault Key Vault 진단 설정이 Log Analytics에 감사 이벤트를 보내도록 설정되어 있는지 확인합니다.
+        - **키 자격 증명 모음이 감사되고 있는지 확인하려면 클릭을** 선택합니다. Azure Key Vault Key Vault 진단 설정이 Log Analytics에 감사 이벤트를 보내도록 설정되어 있는지 확인합니다.
         - 누락된 경우 키 자격 증명 **모음의 정책에서 사용자 사용을** 선택합니다. Azure Key Vault 사용자가 필요한 위치에 honeytoken을 배포할 수 있는 액세스 권한이 있는지 확인합니다. **저장** 을 선택하여 변경 내용을 저장합니다.
         - 키 자격 증명 **모음에 honeytoken을 추가하려면 클릭을** 선택하여 Azure Key Vault 엽니다. 구성된 키 자격 증명 모음에 새 비밀과 같은 새 Honeytoken을 추가합니다.
         - **SOC에서 모니터링을 추가하려면 클릭을** 선택합니다. 성공하면 새 탭에 확인 메시지가 `Honey-token was successfully added to monitored list` 표시됩니다.
@@ -239,7 +239,7 @@ ms.locfileid: "132301327"
 
 1. Microsoft Sentinel **Watchlists** 페이지에서 **내 감시 목록 탭을** 선택한 다음 **HoneyTokens watchlist를** 선택합니다.
 
-    **Log Analytics에서 보기를** 선택하여 찾은 현재 Honeytoken 값의 목록을 봅니다. **로그** 페이지에서는 쿼리에 대해 주의 목록의 항목이 자동으로 추출됩니다. 예를 들면 다음과 같습니다.
+    **Log Analytics에서 보기를** 선택하여 찾은 현재 Honeytoken 값의 목록을 봅니다. **로그** 페이지에서는 쿼리에 대해 주의 목록의 항목이 자동으로 추출됩니다. 예:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png" alt-text="Log Analytics의 Honeytokens 감시 목록 값 스크린샷." lightbox="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png":::
 
@@ -249,7 +249,7 @@ ms.locfileid: "132301327"
 
     그런 다음, Azure Key Vault 이동하여 공개 키를 다운로드하거나 선택한 honeytoken에 대한 비밀을 확인합니다.
 
-    예를 들어 Honeytoken을 선택한 **다음, 공개 키 다운로드를** 선택합니다. 이 작업은 `KeyGet` `SecretGet` Microsoft Sentinel에서 경고를 트리거하는 또는 로그를 만듭니다.
+    예를 들어 honeytoken을 선택한 **다음, 공개 키 다운로드를** 선택합니다. 이 작업은 `KeyGet` `SecretGet` Microsoft Sentinel에서 경고를 트리거하는 또는 로그를 만듭니다.
 
     자세한 내용은 [Key Vault 설명서](/azure/key-vault/)를 참조하세요.
 
@@ -270,7 +270,7 @@ ms.locfileid: "132301327"
 
 조직에서 최적의 검색 기능을 보장하기 위해 가능한 한 많은 키 자격 증명 모음에 Honeytoken을 배포하는 것이 좋습니다.
 
-그러나 많은 SOC 팀은 키 자격 증명 모음에 액세스할 수 없습니다. 이러한 차이를 해결하려면 SOC 팀이 자체 Honeytoken을 배포할 수 있도록 테넌트의 모든 키 자격 증명 모음 소유자에게 **SOCHTManagement** 통합 문서를 배포합니다. [솔루션을 설치할](#install-the-solution)때 이 통합 문서의 이름을 수정했을 수 있습니다.
+그러나 많은 SOC 팀은 키 자격 증명 모음에 액세스할 수 없습니다. 이러한 차이를 해결하려면 SOC 팀이 자체 Honeytoken을 배포할 수 있도록 **SOCHTManagement** 통합 문서를 테넌트의 모든 키 자격 증명 모음 소유자에게 배포합니다. [솔루션을 설치할](#install-the-solution)때 이 통합 문서의 이름을 수정했을 수 있습니다.
 
 언제든지 통합 문서에 대한 직접 링크를 공유할 수 있습니다. 또는 이 절차에서는 ARM 템플릿을 사용하여 조직의 키 자격 증명 모음 소유자에게 **SOCHTManagement** 통합 문서를 배포하는 Microsoft Defender for Cloud 사용자 지정 권장 사항에 연결된 Azure Policy 이니셔티브를 배포하는 방법을 설명합니다.
 
@@ -303,7 +303,7 @@ ms.locfileid: "132301327"
 
 1. 통합 문서 링크를 입력 한 후 **다음: 검토 + >만들기** 를 선택 하 여 계속 합니다. 유효성 검사에 통과 한 확인 메시지가 있을 때까지 기다린 후 **만들기** 를 선택 합니다.
 
-1. 배포가 완료 되 면 배포에 새 **HoneyTokens** 이니셔티브와 **keyvault HoneyTokens** 및 **KVReviewTag** 라는 두 개의 새 정책이 포함 되어 있음을 알 수 있습니다. 예를 들면 다음과 같습니다.
+1. 배포가 완료 되 면 배포에 새 **HoneyTokens** 이니셔티브와 **keyvault HoneyTokens** 및 **KVReviewTag** 라는 두 개의 새 정책이 포함 되어 있음을 알 수 있습니다. 예:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/policy-deployment.png" alt-text="성공적으로 배포 된 ARM 템플릿 정책의 스크린샷" lightbox="media/monitor-key-vault-honeytokens/policy-deployment.png":::
 
@@ -337,7 +337,7 @@ ms.locfileid: "132301327"
 - [Microsoft 센티널 솔루션 검색 및 배포](sentinel-solutions-deploy.md)
 - [Microsoft 센티널 솔루션 카탈로그](sentinel-solutions-catalog.md)
 - [처음부터 위협 탐지](detect-threats-built-in.md)
-- [일반적으로 사용 되는 Microsoft 센티널 통합 문서](top-workbooks.md)
+- [일반적으로 사용되는 Microsoft Sentinel 통합 문서](top-workbooks.md)
 
 <!-- The following section is used to store references to external images and links to reduce maintenance overhead and enable tooltips -->
 

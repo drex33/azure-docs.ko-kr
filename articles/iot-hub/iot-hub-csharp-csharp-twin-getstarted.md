@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub 디바이스 쌍 시작(.NET/.NET) | Microsoft Docs
 description: Azure IoT Hub 디바이스 쌍을 사용하여 태그를 추가한 다음, IoT Hub 쿼리를 사용하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이트된 디바이스 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 53a2d4ef83f20633c227c5d1a0e23de5bb45c81d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ea2b7048d7118afb1f83e524d75a172a478f779e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536187"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554867"
 ---
 # <a name="get-started-with-device-twins-net"></a>디바이스 쌍 시작(.NET)
 

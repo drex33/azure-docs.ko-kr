@@ -4,22 +4,22 @@ description: 셀프 서비스 조직을 포함하여 Azure AD 조직(테넌트)�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 10/20/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147e4c6afa9f4fd9cc9ba48dd5628f4de841501e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 3b6763ba1b465a0689ab076da69b0efc40d6bd9f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438843"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262625"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Azure Active Directory에서 테넌트 삭제
 
@@ -27,8 +27,9 @@ Azure AD 조직(테넌트)을 삭제하면 해당 조직에 포함된 모든 리
 
 ## <a name="prepare-the-organization"></a>조직 준비
 
-Azure AD의 조직은 여러 가지 검사를 통과한 다음에 삭제할 수 있습니다. 이러한 검사는 Azure AD 조직을 삭제했을 때 Microsoft 365에 로그인하거나 Azure의 리소스에 액세스하는 기능과 같은 사용자 액세스에 부정적인 영향을 주는 위험을 줄일 수 있습니다. 예를 들어 구독과 연결된 조직이 의도치 않게 삭제된 경우 사용자는 해당 구독에 대한 Azure 리소스에 액세스할 수 없습니다. 다음과 같은 조건을 확인합니다.
+Azure AD의 조직은 여러 가지 검사를 통과한 다음에 삭제할 수 있습니다. 이러한 검사는 Azure AD 조직을 삭제했을 때 Microsoft 365에 로그인하거나 Azure의 리소스에 액세스하는 기능과 같은 사용자 액세스에 부정적인 영향을 주는 위험을 줄일 수 있습니다. 예를 들어 구독과 연결된 조직이 의도치 않게 삭제된 경우 사용자는 해당 구독에 대한 Azure 리소스에 액세스할 수 없습니다. 다음 조건을 확인해야 합니다.
 
+* 미결제 송장 및 만기 또는 미지불 금액을 모두 지불해야 합니다.
 * Azure AD 테넌트에는 조직을 삭제할 전역 관리자 한 명을 제외하고 사용자가 없을 수도 있습니다. 조직을 삭제하려면 먼저 다른 모든 사용자를 삭제해야 합니다. 사용자가 온-프레미스에서 동기화된 경우 먼저 동기화를 해제해야 하며 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 클라우드 조직에서 사용자를 삭제해야 합니다.
 * 조직에는 애플리케이션이 없을 수 있습니다. 조직을 삭제하려면 먼저 모든 애플리케이션을 제거해야 합니다.
 * 조직에 연결된 다단계 인증 공급자가 없을 수 있습니다.

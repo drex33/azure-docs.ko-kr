@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/28/2021
+ms.date: 10/27/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c40295803d9389bfa1534880aa6cbb4bb0426d2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 518c13780cf7de9e31f3a22e7ecb0440aa0128bc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233737"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456046"
 ---
 # <a name="what-are-flagged-sign-ins-in-azure-active-directory"></a>Azure Active Directory에서 플래그가 지정된 로그인이란?
 
@@ -77,11 +77,11 @@ Azure AD 로그인 이벤트는 테넌트의 사용자 로그인 및 인증 구�
 
 
  
-## <a name="who-can-create-flagged-sign-ins"></a>플래그가 지정된 로그인을 만들 수 있는 사용자
+## <a name="who-can-create-it"></a>누가 만들 수 있나요?
 
 웹 페이지를 통해 Azure AD에 로그인하는 모든 사용자는 검토를 위해 로그인 플래그 지정을 사용할 수 있습니다. 멤버 및 게스트 사용자는 모두 검토를 위해 플래그를 로그인 오류에 지정할 수 있습니다. 
 
-## <a name="who-can-review-flagged-sign-ins"></a>플래그가 지정된 로그인을 검토할 수 있는 사용자
+## <a name="who-can-review-it"></a>누가 검토할 수 있나요?
 
 플래그가 지정된 로그인 이벤트를 검토하려면 Azure AD 포털에서 로그인 보고서 이벤트를 읽을 수 있는 권한이 필요합니다. 자세한 내용은 [액세스할 수 있는 사용자는 누구인가요?](concept-sign-ins.md#who-can-access-it)를 참조하세요.
 

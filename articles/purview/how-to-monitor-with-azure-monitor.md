@@ -6,12 +6,12 @@ ms.author: csugunan
 ms.service: purview
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 7028bb42481c2559d7aa9d044bd25771efc41f31
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a5b625bfb72e12169162e16f2fbb349d36885600
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213739"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552238"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Purview 메트릭
 
@@ -63,6 +63,8 @@ Azure Portal에서 메트릭 섹션을 사용하는 방법에 대한 자세한 �
 
 | 메트릭 이름 | 메트릭 네임스페이스 | 집계 유형 | Description |
 | ------------------- | ------------------- | ------------------- | ----------------- |
+| 데이터 맵 용량 단위 | 탄력적 데이터 맵 | 합계 <br> 개수 | 기간별로 탄력적 데이터 맵 용량 단위 집계 |
+| 데이터 맵 Storage 크기 | 탄력적 데이터 맵 | 합계 <br> 평균 | 기간에 따라 탄력적 데이터 맵 저장소 크기를 집계 합니다. |
 | 취소된 검사 | 자동화된 검사 | 합계 <br> 개수 | 기간에 따라 취소된 데이터 원본 검색 집계 |
 | 완료된 검사 | 자동화된 검사 | 합계 <br> 개수 | 일정 기간에 완료된 데이터 원본 검사 집계 |
 | 실패한 검사 | 자동화된 검사 | 합계 <br> 개수 | 일정 기간에 실패한 데이터 원본 검사 집계 |

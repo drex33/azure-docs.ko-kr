@@ -1,26 +1,26 @@
 ---
-title: Azure Sentinel 데이터에서 Power BI 보고서 만들기
-description: Azure Sentinel Log Analytics에서 내보낸 쿼리를 사용하여 Power BI 보고서를 만드는 방법에 대해 알아봅니다. Power BI 서비스 및 Teams 채널의 다른 사용자와 보고서를 공유합니다.
+title: Microsoft Sentinel 데이터에서 Power BI 보고서 만들기
+description: Microsoft Sentinel Log Analytics에서 내보낸 쿼리를 사용하여 Power BI 보고서를 만드는 방법을 알아봅니다. Power BI 서비스 및 Teams 채널의 다른 사용자와 보고서를 공유합니다.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 558d6d979321148923f8a10bc2f92bb13eedd746
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cd6c6de1fc1a83cecdf0ea96e912f989bdf6b904
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023047"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521323"
 ---
-# <a name="tutorial-create-a-power-bi-report-from-azure-sentinel-data"></a>자습서: Azure Sentinel 데이터에서 Power BI 보고서 만들기
+# <a name="tutorial-create-a-power-bi-report-from-microsoft-sentinel-data"></a>자습서: Microsoft Sentinel 데이터에서 Power BI 보고서 만들기
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Power BI](https://powerbi.microsoft.com/)는 데이터를 몰입형의 일관된 대화형 시각화로 전환하는 보고 및 분석 플랫폼입니다. Power BI를 사용하면 데이터 원본에 쉽게 연결하고, 관계를 시각화 및 발견하고, 원하는 모든 사람과 통찰력을 공유할 수 있습니다.
 
-Azure Sentinel Log Analytics 작업 영역의 데이터를 바탕으로 Power BI 보고서를 작성하고, Azure Sentinel에 액세스할 수 없는 사용자와 해당 보고서를 공유할 수 있습니다. 예를 들어, Azure Sentinel 액세스 권한을 부여하지 않고 실패한 로그인 시도에 대한 정보를 앱 소유자와 공유할 수 있습니다. Power BI 시각화는 데이터를 한 눈에 파악할 수 있습니다.
+Microsoft Sentinel Log Analytics 작업 영역의 데이터에 대한 Power BI 보고서를 기반으로 하고 Microsoft Sentinel에 액세스할 수 없는 사람들과 해당 보고서를 공유할 수 있습니다. 예를 들어 앱 소유자에게 Microsoft Sentinel 액세스 권한을 부여하지 않고 실패한 로그인 시도에 대한 정보를 공유할 수 있습니다. Power BI 시각화는 데이터를 한 눈에 파악할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -30,24 +30,24 @@ Azure Sentinel Log Analytics 작업 영역의 데이터를 바탕으로 Power BI
 > * Power BI 서비스에 보고서를 게시하고 다른 사용자와 공유합니다.
 > * Teams 채널에 보고서를 추가합니다.
 
-Power BI 서비스에서 액세스 권한을 부여한 사람과 Teams 채널의 구성원들은 Azure Sentinel 사용 권한이 없어도 보고서를 볼 수 있습니다.
+Power BI 서비스에서 액세스 권한을 부여한 사용자와 Teams 채널의 멤버는 Microsoft Sentinel 권한 없이도 보고서를 볼 수 있습니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure Sentinel 데이터에 대한 PowerBI의 분석 보고서 보기와 같은 주요 고객 요청에 대한 시나리오 기반 절차를 제공합니다. 자세한 내용은 [데이터 원본 연결](connect-data-sources.md) 및 [수집된 데이터 시각화](get-visibility.md)를 참조하세요.
+> 이 자습서에서는 Microsoft Sentinel 데이터에 대한 PowerBI의 분석 보고서 보기와 같은 상위 고객 요청에 대한 시나리오 기반 절차를 제공합니다. 자세한 내용은 [데이터 원본 연결](connect-data-sources.md) 및 [수집된 데이터 시각화](get-visibility.md)를 참조하세요.
 >
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- 로그인 시도를 모니터링하는 Azure Sentinel Log Analytics 작업 영역에 대한 최소한의 읽기 액세스 권한.
+- 로그인 시도를 모니터링하는 Microsoft Sentinel Log Analytics 작업 영역에 대한 읽기 권한 이상
 - Log Analytics 작업 영역에 대한 읽기 권한이 있는 Power BI 계정.
 - [Microsoft Store에서 설치한 Power BI Desktop](https://aka.ms/pbidesktopstore).
 
 ## <a name="export-a-query-from-log-analytics"></a>Log Analytics에서 쿼리 내보내기
 
-Azure Sentinel Log Analytics 작업 영역에서 Kusto 쿼리를 만들고 실행하고 내보냅니다. 
+Microsoft Sentinel Log Analytics 작업 영역에서 Kusto 쿼리를 만들고 실행하고 내보냅니다. 
 
-1. 간단한 쿼리를 만들려면 Azure Sentinel Log Analytics 작업 영역에서 **로그** 를 선택합니다. 쿼리 편집기의 **새 쿼리 1** 에서 다음 Kusto 쿼리를 입력합니다.
+1. 간단한 쿼리를 만들려면 Microsoft Sentinel Log Analytics 작업 영역에서 **로그를** 선택합니다. 쿼리 편집기의 **새 쿼리 1** 에서 다음 Kusto 쿼리를 입력합니다.
    
    ```kusto
    SigninLogs
@@ -57,7 +57,7 @@ Azure Sentinel Log Analytics 작업 영역에서 Kusto 쿼리를 만들고 실�
    | sort by Failed
    ```
    
-   또는 선호하는 Azure Sentinel Log Analytics Kusto 쿼리를 사용합니다.
+   또는 즐겨찾는 Microsoft Sentinel Log Analytics Kusto 쿼리를 사용합니다.
    
 1. **실행** 을 선택하여 쿼리를 실행하고 결과를 생성합니다.
    
@@ -145,7 +145,7 @@ Power BI Desktop에서 내보낸 M 쿼리를 실행하여 데이터를 가져옵
    
 ### <a name="refresh-the-data-and-save-the-report"></a>데이터 새로 고침 및 보고서 저장
 
-1. Azure Sentinel에서 최신 데이터를 가져오려면 **새로 고침** 을 선택합니다.
+1. Microsoft Sentinel에서 최신 데이터를 얻으려면 **새로 고침을** 선택합니다.
    
    :::image type="content" source="media/powerbi/refresh.png" alt-text="리본에서 새로 고침 단추를 보여 주는 스크린샷.":::
    
@@ -155,7 +155,7 @@ Power BI Desktop에서 내보낸 M 쿼리를 실행하여 데이터를 가져옵
 
 보고서를 공유하기 위한 Power BI 작업 영역을 만들려면 다음을 수행합니다.
 
-1. Power BI Desktop 및 Azure Sentinel 읽기 액세스에 사용한 것과 동일한 계정으로 [powerbi.com](https://powerbi.com)에 로그인합니다.
+1. [Power BI Desktop](https://powerbi.com) 및 Microsoft Sentinel 읽기 액세스에 사용한 것과 동일한 계정으로 powerbi.com 로그인합니다.
    
 1. **작업 영역** 에서 **작업 영역 만들기** 를 선택합니다. 작업 영역의 이름을 *관리 보고서* 로 지정하고 **저장** 을 선택합니다.
    

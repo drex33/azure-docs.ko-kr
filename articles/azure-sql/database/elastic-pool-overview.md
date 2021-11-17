@@ -11,17 +11,20 @@ author: arvindshmicrosoft
 ms.author: arvindsh
 ms.reviewer: mathoma
 ms.date: 06/23/2021
-ms.openlocfilehash: a3847bb1ac435779e50ce8cc41a3940bb6adfab7
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
-ms.translationtype: HT
+ms.openlocfilehash: 669b8610cba44be369ba805834eca2f700d211e0
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112965133"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548884"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>탄력적 풀이 Azure SQL Database의 여러 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database 탄력적 풀은 사용량 요구가 다양하고 예측하기 어려운 여러 데이터베이스를 관리하고 스케일링하기 위한 간단하고 비용 효율적인 솔루션입니다. 탄력적 풀의 데이터베이스는 단일 서버에 있으며 설정된 가격에 일정한 수의 리소스를 공유합니다. Azure SQL Database의 탄력적 풀을 사용하면 SaaS 개발자가 각각의 데이터베이스에 성능 탄력성을 제공하는 동시에 규정된 예산 내의 데이터베이스 그룹에 가격 성능을 최적화할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="what-are-sql-elastic-pools"></a>SQL 탄력적 풀이란?
 

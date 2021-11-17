@@ -1,19 +1,19 @@
 ---
 title: 자습서 - Azure IoT Hub 메시지 라우팅 결과 보기(.NET) | Microsoft Docs
 description: 자습서 - 자습서의 1부를 사용하여 모든 리소스를 설정한 후 메시지를 Azure Stream Analytics로 라우팅하고 Power BI에서 결과를 볼 수 있는 기능을 추가합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 09/21/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: e055868c04056170f351c3534f065d842f833691
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: de024d8254c9eca47046c4b73de47b99420fd2e9
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457395"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554810"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>자습서: 2부 - 라우팅된 메시지 보기
 

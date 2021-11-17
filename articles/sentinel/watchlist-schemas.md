@@ -1,28 +1,28 @@
 ---
-title: Azure Sentinel 관심 목록 템플릿에 대한 스키마 | Microsoft Docs
-description: Azure Sentinel의 각 기본 제공 관심 목록 템플릿에 사용되는 스키마에 대해 알아봅니다.
+title: Microsoft 센티널 관심 목록 템플릿 용 스키마 | Microsoft Docs
+description: Microsoft 센티널의 각 기본 제공 관심 목록 템플릿에 사용 되는 스키마에 대해 알아봅니다.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 08/04/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: f531b18dfe94027948f1411372ff72e68b01c933
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: 0d322f7412e32de0c668c3dd82341da81eb12738
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131054973"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132516896"
 ---
-# <a name="azure-sentinel-built-in-watchlist-template-schemas-public-preview"></a>Azure Sentinel 기본 제공 관심 목록 템플릿 스키마(공개 미리 보기)
+# <a name="microsoft-sentinel-built-in-watchlist-template-schemas-public-preview"></a>Microsoft 센티널 기본 제공 관심 목록 템플릿 스키마 (공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Azure Sentinel에서 제공하는 각 기본 제공 관심 목록 템플릿에 사용되는 스키마에 대해 자세히 설명합니다. 자세한 내용은 [템플릿을 사용하여 새 관심 목록 만들기(공개 미리 보기)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview)를 참조하세요.
+이 문서에서는 Microsoft 센티널에서 제공 하는 각 기본 제공 관심 목록 템플릿에 사용 되는 스키마에 대해 자세히 설명 합니다. 자세한 내용은 [템플릿을 사용하여 새 관심 목록 만들기(공개 미리 보기)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview)를 참조하세요.
 
 > [!IMPORTANT]
-> Azure Sentinel 관심 목록 템플릿은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> Microsoft 센티널 관심 목록 템플릿은 현재 미리 보기 상태입니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
 
@@ -117,4 +117,4 @@ ID 상관 관계 관심 목록에는 동일한 사용자에게 속하는 관련 
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure Sentinel 관심 목록 사용](watchlists.md)을 참조하세요.
+자세한 내용은 [Microsoft 센티널 Watchlists 사용](watchlists.md)을 참조 하세요.

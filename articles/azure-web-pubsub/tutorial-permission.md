@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.openlocfilehash: e2f2b7ec00250287b71b3882b7078b249262db70
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/01/2021
+ms.openlocfilehash: 027cd7197167a3667748c2c470e17b83aa3bf03d
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124769867"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578728"
 ---
 # <a name="tutorial-add-authentication-and-permissions-to-your-application-when-using-azure-web-pubsub"></a>자습서: Azure Web PubSub를 사용하여 애플리케이션에 인증 및 권한 추가
 
@@ -101,7 +101,16 @@ ms.locfileid: "124769867"
     1. 애플리케이션 이름 및 홈페이지 URL(원하는 아무 URL)을 입력하고, **권한 부여 콜백 URL** 을 `http://localhost:8080/auth/github/callback`으로 설정합니다. 이 URL은 서버에서 노출한 콜백 API와 일치합니다.
     1. 애플리케이션이 등록되면 클라이언트 ID를 복사하고 **새 클라이언트 암호 생성** 을 선택합니다.
 
-    그런 다음, `node server <connection-string> <client-id> <client-secret>` 명령을 실행하고 `http://localhost:8080/auth/github`를 엽니다. 사용자가 로그인하도록 GitHub로 리디렉션됩니다. 로그인하면 채팅 애플리케이션으로 리디렉션됩니다.
+    아래 명령을 실행하여 설정을 테스트하고 `<connection-string>`, `<client-id>` 및 `<client-secret>`를 값으로 바꾸어야 합니다.
+
+    ```bash
+    export WebPubSubConnectionString="<connection-string>"
+    export GitHubClientId="<client-id>"
+    export GitHubClientSecret="<client-secret>"
+    node server
+    ```
+    
+    이제 `http://localhost:8080/auth/github`를 엽니다. 사용자가 로그인하도록 GitHub로 리디렉션됩니다. 로그인하면 채팅 애플리케이션으로 리디렉션됩니다.
 
 1.  사용자에게 사용자 이름을 묻는 대신 GitHub에서 가져온 ID를 사용하도록 대화방을 업데이트합니다.
 
@@ -131,7 +140,7 @@ ms.locfileid: "124769867"
       let options = {
         userId: req.user.username
       };
-      let token = await serviceClient.getAuthenticationToken(options);
+      let token = await serviceClient.getClientAccessToken(options);
       res.json({
         url: token.url
       });
@@ -164,7 +173,7 @@ Web PubSub에서 클라이언트는 하위 프로토콜을 사용하여 다음�
 다른 그룹에 다른 메시지를 전송하도록 다음과 같이 `server.js`를 변경합니다.
 
 ```javascript
-let handler = new WebPubSubEventHandler(hubName, ['*'], {
+let handler = new WebPubSubEventHandler(hubName, {
   path: '/eventhandler',
   handleConnect: (req, res) => {
     res.success({
@@ -255,12 +264,12 @@ message.addEventListener('keypress', e => {
 ```javascript
 app.get('/negotiate', async (req, res) => {
   ...
-  if (req.user.username === process.argv[5]) options.claims = { role: ['webpubsub.sendToGroup.system'] };
-  let token = await serviceClient.getAuthenticationToken(options);
+  if (req.user.username === process.argv[2]) options.claims = { role: ['webpubsub.sendToGroup.system'] };
+  let token = await serviceClient.getClientAccessToken(options);
 });
 ```
 
-이제 `node server <connection-string> <client-id> <client-secret> <admin-id>`를 실행합니다. 이제 `<admin-id>`로 로그인하면 모든 클라이언트에 시스템 메시지를 보낼 수 있습니다.
+이제 `node server <admin-id>`를 실행합니다. 이제 `<admin-id>`로 로그인하면 모든 클라이언트에 시스템 메시지를 보낼 수 있습니다.
 
 그러나 다른 사용자로 로그인하면 **시스템 메시지** 를 선택해도 아무 작업도 수행되지 않습니다. 작업이 허용되지 않는 것을 알리기 위해 서비스에서 오류를 표시할 수도 있습니다. 이 피드백을 제공하려면 메시지를 게시할 때 `ackId`를 설정하면 됩니다. `ackId`가 지정될 때마다 Web PubSub는 일치하는 `ackId`와 함께 작업의 성공 여부를 나타내는 메시지를 반환합니다.
 

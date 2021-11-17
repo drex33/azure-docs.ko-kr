@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d7fa588c0711285c968c13ab14e319fb803e9785
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 5d569598c51429cb12027f3955fa9315a05b16bb
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132323470"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521988"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Azure Portal에서 또는 Python SDK를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "132323470"
 
 # <a name="python"></a>[Python](#tab/python)
 
-* **기본 사양입니다.** 기본적으로 종속 리소스 및 리소스 그룹이 자동으로 생성 됩니다. 이 코드는 `eastus2`에서 이름이 `myworkspace`인 작업 영역과 이름이 `myresourcegroup`인 리소스 그룹을 만듭니다.
+* **기본 사양입니다.** 기본적으로 종속 리소스 및 리소스 그룹은 자동으로 만들어집니다. 이 코드는 `eastus2`에서 이름이 `myworkspace`인 작업 영역과 이름이 `myresourcegroup`인 리소스 그룹을 만듭니다.
     
     ```python
     from azureml.core import Workspace
@@ -84,7 +84,7 @@ ms.locfileid: "132323470"
                 )
     ```
 
-* **기존 Azure 리소스 사용**.  Azure 리소스 ID 형식으로 기존 Azure 리소스를 사용하는 작업 영역을 만들 수도 있습니다. Azure Portal 또는 SDK를 사용하여 특정 Azure 리소스 ID를 찾습니다. 이 예에서는 리소스 그룹, 저장소 계정, 주요 자격 증명 모음, 앱 Insights 및 컨테이너 레지스트리가 이미 존재 하는 것으로 가정 합니다.
+* **기존 Azure 리소스 사용**.  Azure 리소스 ID 형식으로 기존 Azure 리소스를 사용하는 작업 영역을 만들 수도 있습니다. Azure Portal 또는 SDK를 사용하여 특정 Azure 리소스 ID를 찾습니다. 이 예제에서는 리소스 그룹, 스토리지 계정, 키 자격 증명 모음, App Insights 및 컨테이너 레지스트리가 이미 있다고 가정합니다.
 
    ```python
    import os
@@ -131,7 +131,7 @@ ms.locfileid: "132323470"
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|설명 
+   필드|Description 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws** 를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
    Subscription |사용할 Azure 구독을 선택합니다.
@@ -146,7 +146,7 @@ ms.locfileid: "132323470"
 
 1. 작업 영역 구성을 마치면 **검토 + 만들기** 를 선택합니다. 필요에 따라 [네트워킹](#networking) 및 [고급](#advanced) 섹션을 사용하여 작업 영역에 대한 추가 설정을 구성합니다.
 
-1. 설정을 검토하고 추가적으로 변경하거나 수정합니다. 설정에 만족하면 **만들기** 를 선택합니다.
+1. 설정을 검토하고 다른 변경 또는 수정을 합니다. 설정에 만족하면 **만들기** 를 선택합니다.
 
    > [!Warning] 
    > 클라우드에서 작업 영역을 만드는 데 몇 분 정도 걸릴 수 있습니다.
@@ -171,7 +171,7 @@ Azure Machine Learning Python SDK는 프라이빗 엔드포인트를 사용하�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __퍼블릭 엔드포인트__ 를 사용하는 것입니다. 만든 Azure Virtual Network 작업 영역에 대 한 액세스를 제한 하려면 대신 __연결 방법__ 으로 __개인 끝점__ 을 선택 하 고 __+ 추가__ 를 사용 하 여 끝점을 구성 하면 됩니다. 
+1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __퍼블릭 엔드포인트__ 를 사용하는 것입니다. 작업 영역에 대한 액세스를 만든 Azure Virtual Network 제한하려면 대신 __프라이빗 엔드포인트를__ __연결 방법으로__ 선택한 __다음, + 추가를__ 사용하여 엔드포인트를 구성할 수 있습니다. 
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="프라이빗 엔드포인트 선택":::  
 
@@ -185,7 +185,7 @@ Azure Machine Learning Python SDK는 프라이빗 엔드포인트를 사용하�
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 
-Microsoft Defender for Cloud는 하이브리드 클라우드 워크로드 전반에 걸쳐 통합 보안 관리 및 고급 위협 보호를 제공합니다. Microsoft Defender for Cloud를 사용 하 여 리소스를 검색 하 고 권장 사항을 따르는 것이 좋습니다. 자세한 Azure Container Registry 내용은 Cloud for Cloud 및 [Azure Kubernetes Services와 defender For cloud의 통합](../security-center/defender-for-kubernetes-introduction.md) [이미지 검색](../security-center/defender-for-container-registries-introduction.md) 을 참조 하세요.
+Microsoft Defender for Cloud는 하이브리드 클라우드 워크로드 전반에 걸쳐 통합 보안 관리 및 고급 위협 보호를 제공합니다. Microsoft Defender for Cloud가 리소스를 검사하고 권장 사항을 따르도록 허용해야 합니다. 자세한 내용은 [Defender for Cloud의 Azure Container Registry 이미지 검색](../security-center/defender-for-container-registries-introduction.md) 및 Defender [for Cloud와 Azure Kubernetes Services 통합을 참조하세요.](../security-center/defender-for-kubernetes-introduction.md)
 
 ### <a name="advanced"></a>고급
 
@@ -306,13 +306,15 @@ ws = Workspace.from_config()
 
 # <a name="python"></a>[Python](#tab/python)
 
-[Azure Portal의 구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 페이지에서 구독을 찾습니다.  ID를 복사하고 아래 코드에 사용하여 해당 구독에 사용할 수 있는 모든 작업 영역을 확인합니다.
+[Azure Portal의 구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 페이지에서 구독을 찾습니다. ID를 복사하고 아래 코드에 사용하여 해당 구독에 사용할 수 있는 모든 작업 영역을 확인합니다.
 
 ```python
 from azureml.core import Workspace
 
 Workspace.list('<subscription-id>')
 ```
+
+Workspace (...) 메서드는 전체 작업 영역 개체를 반환 하지 않습니다. 여기에는 구독의 기존 작업 영역에 대 한 기본 정보만 포함 됩니다. 특정 작업 영역에 대 한 전체 개체를 가져오려면 작업 영역. get (...)을 사용 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -337,7 +339,7 @@ Workspace.list('<subscription-id>')
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-작업 영역을 실수로 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조하세요.
+작업 영역을 실수로 삭제 한 경우에도 전자 필기장을 검색할 수 있습니다. 자세한 내용은 [비즈니스 연속성 및 재해 복구를 위한 장애 조치 (Failover)](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조 하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -347,7 +349,7 @@ Workspace.list('<subscription-id>')
 ws.delete(delete_dependent_resources=False, no_wait=False)
 ```
 
-기본 동작은 작업 영역과 연결된 리소스(예: 컨테이너 레지스트리, 스토리지 계정, 키 자격 증명 모음 및 애플리케이션 인사이트)를 삭제하지 않는 것입니다.  이러한 리소스도 삭제하려면 `delete_dependent_resources`를 True로 설정합니다.
+기본 작업은 작업 영역, 즉 컨테이너 레지스트리, 저장소 계정, 키 자격 증명 모음 및 application insights와 연결 된 리소스를 삭제 하지 않습니다.  이러한 리소스도 삭제하려면 `delete_dependent_resources`를 True로 설정합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

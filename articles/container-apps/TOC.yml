@@ -10,7 +10,11 @@
   expanded: true
   items:
     - name: 첫 번째 컨테이너 앱 배포
-      href: get-started.md
+      items:
+        - name: Azure portal
+          href: quickstart-portal.md
+        - name: Azure CLI
+          href: get-started.md
 - name: 개념
   items:
     - name: 환경

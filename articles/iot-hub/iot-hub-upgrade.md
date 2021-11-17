@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 업그레이드 | Microsoft Docs
 description: 더 많은 메시징 및 디바이스 관리 기능을 확보하기 위해 IoT Hub에 대한 가격 책정 및 크기 계층을 변경합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: robinsh
-ms.openlocfilehash: afd7a50a9c18299fb295d6ed978ce1b22bf90e9c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.author: lizross
+ms.openlocfilehash: b6604dd246e4a98e58251a3de1c05365e405cfc2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072582"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551504"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IoT Hub를 업그레이드하는 방법
 

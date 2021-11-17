@@ -1,5 +1,5 @@
 ---
-title: '자습서: Software AG Cloud와 Azure Active Directory SSO(Single Sign-On) 통합'
+title: '자습서: Software AG Cloud와 Azure AD SSO 통합'
 description: Azure Active Directory와 Software AG Cloud 간에 Single Sign-On를 구성하는 방법에 대해 알아봅니다.
 author: jeevansd
 manager: CelesteDG
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 900cb7892331db3e78314a5de6bfb432f40990c6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 163e2aae9355d24873cd9864c84cefe71a57ab18
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128558484"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459250"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>자습서: Software AG Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-software-ag-cloud"></a>자습서: Software AG Cloud와 Azure AD SSO 통합
 
 이 자습서에서는 Software AG Cloud와 Azure AD(Azure Active Directory)를 통합하는 방법에 대해 알아봅니다. Azure AD와 Software AG Cloud를 통합하면 다음을 수행할 수 있습니다.
 
@@ -32,6 +32,9 @@ ms.locfileid: "128558484"
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Software AG Cloud SSO(Single Sign-On)가 설정된 구독
 
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
@@ -39,7 +42,7 @@ ms.locfileid: "128558484"
 * Software AG Cloud에서 **SP** 시작 SSO를 지원합니다.
 * Software AG Cloud에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-software-ag-cloud-from-the-gallery"></a>갤러리에서 Software AG Cloud 추가
+## <a name="add-software-ag-cloud-from-the-gallery"></a>갤러리에서 Software AG Cloud 추가
 
 Software AG Cloud가 Azure AD에 통합되도록 구성하려면 갤러리의 Software AG Cloud를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -49,7 +52,6 @@ Software AG Cloud가 Azure AD에 통합되도록 구성하려면 갤러리의 So
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Software AG Cloud** 를 입력합니다.
 1. 결과 패널에서 **Software AG Cloud** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-software-ag-cloud"></a>Software AG Cloud용 Azure AD SSO 구성 및 테스트
 
@@ -70,19 +72,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Software AG Cloud** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
-
-    1. **로그온 URL** 텍스트 상자에서  패턴을 사용하는 URL을 입력합니다.
-
-        `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     1. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-        `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+        `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    
+    1. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+
+        `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`    
 
         > [!NOTE]
         > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Software AG Cloud 클라이언트 지원 팀](mailto:support@softwareag.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -94,6 +96,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Software AG Cloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -132,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다음 페이지에서 다음 단계를 수행합니다.
 
-    ![Software AG Cloud 구성 다음 단계](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Software AG Cloud 구성 다음 단계](./media/software-ag-cloud-tutorial/configuration.png)
 
     a. **ID 공급자 표시 이름** 텍스트 상자에 이름(예: `azure ad`)을 입력합니다.
 

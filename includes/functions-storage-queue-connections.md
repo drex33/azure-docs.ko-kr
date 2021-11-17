@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/08/2021
 ms.author: mahender
-ms.openlocfilehash: 67cb10ee9fb41596880e800a1c42cf2d93fe0d82
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 965a2abb8a56894efc700cea75097526daf4e544
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992759"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132530223"
 ---
 ## <a name="connections"></a>Connections
 
@@ -36,7 +36,7 @@ ms.locfileid: "129992759"
 
 | 속성                  | 환경 변수 템플릿                       |설명                                | 예제 값 |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
-| 큐 서비스 URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri`<sup>1</sup>  | 연결 하려는 큐 서비스의 데이터 평면 URI입니다. | <storage_account_name>. queue.core.windows.net |
+| 큐 서비스 URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri`<sup>1</sup>  | HTTPS 체계를 사용 하 여 연결 하는 큐 서비스의 데이터 평면 URI입니다. | https://<storage_account_name>. queue.core.windows.net |
 
 <sup>1</sup> 은 `<CONNECTION_NAME_PREFIX>__serviceUri` 별칭으로 사용할 수 있습니다. 두 양식을 모두 제공 하면 `queueServiceUri` 양식이 사용 됩니다. `serviceUri`전체 연결 구성을 blob, 큐 및/또는 테이블에서 사용 하는 경우에는이 양식을 사용할 수 없습니다.
 

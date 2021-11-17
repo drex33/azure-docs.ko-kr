@@ -7,30 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 11/03/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12eebf9c43dff9b3a83458051f5a3980b5afcbe0
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d45c331c8af6dda32b7a47dbdb517adf1d8a4d93
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888989"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500301"
 ---
 # <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화를 위한 AADCloudSyncTools PowerShell 모듈
 
 AADCloudSyncTools 모듈은 Azure AD Connect 클라우드 동기화 배포를 관리하는 데 사용할 수 있는 유용한 도구 집합을 제공합니다.
 
-## <a name="pre-requisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 필요한 필수 구성 요소는 다음과 같습니다.
 
 - 이 모듈의 모든 필수 구성 요소는 `Install-AADCloudSyncToolsPrerequisites`를 사용하여 자동으로 설치할 수 있습니다.
 - 이 모듈은 MSAL 인증을 사용하므로 MSAL.PS 모듈이 설치되어 있어야 합니다. PowerShell 창에서 확인하려면 `Get-module MSAL.PS -ListAvailable`을 실행합니다. 모듈이 올바르게 설치된 경우 응답을 받게 됩니다. `Install-AADCloudSyncToolsPrerequisites`를 사용하여 최신 버전의 MSAL.PS를 설치할 수 있습니다.
-- AzureAD PowerShell 모듈은 이 모듈의 모든 기능에 대한 필수 구성 요소는 아니지만, `Install-AADCloudSyncToolsPrerequisites`를 사용하여 자동으로 설치되도록 하는 것이 좋습니다.
-- PowerShell에서 모듈을 수동으로 설치하려면 TLS 1.2를 적용해야 합니다. 모듈을 설치할 수 있는지 확인하려면 사용하기 전에 PowerShell 세션에서 다음을 설정합니다.
+- AzureAD PowerShell 모듈은 이 모듈의 기능에 대한 필수 구성 요소는 아니지만, 있는 것이 유용함으로 `Install-AADCloudSyncToolsPrerequisites`를 사용할 때도 자동으로 설치됩니다. 
+- PowerShell 갤러리에서 모듈을 설치하려면 TLS 1.2를 적용해야 합니다. Cmdlet `Install-AADCloudSyncToolsPrerequisites`는 모든 필수 구성 요소를 설치하기 전에 TLS 1.2 적용을 설정합니다. 모듈을 수동으로 설치할 수 있도록 하려면 `Install-Module`을 사용하기 전에 PowerShell 세션에서 다음을 설정합니다.
   ```
-   Install-Module:
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   ```
 
@@ -47,7 +46,11 @@ AADCloudSyncTools 모듈을 설치하고 사용하려면 다음 단계를 수행
 7. 첫 번째 실행에서는 PoweShellGet 모듈이 없는 경우 설치됩니다. 새 PowershellGet 모듈을 로드하려면 PowerShell 창을 닫고 관리자 권한으로 새 PowerShell 세션을 엽니다. 
 8. 2단계를 사용하여 모듈을 다시 가져옵니다.
 9. `Install-AADCloudSyncToolsPrerequisites`를 실행하여 MSAL 및 AzureAD 모듈을 설치합니다.
-11. 모든 필수 구성 요소가 설치됩니다. ![모듈 설치](media/reference-powershell/install-1.png)
+11. 모든 필수 구성 요소가 성공적으로 설치되어야 합니다. ![모듈 설치](media/reference-powershell/install-1.png)
+12. 새 PowerShell 세션에서 AADCloudSyncTools 모듈을 사용할 때마다 다음을 입력하거나 복사하여 붙여넣습니다.
+```
+Import-module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
+```
 
 
 ## <a name="aadcloudsynctools--cmdlets"></a>AADCloudSyncTools Cmdlets
@@ -57,13 +60,13 @@ MSAL.PS 모듈을 사용하여 Azure AD 관리자가 Microsoft Graph에 액세�
 
 ### <a name="export-aadcloudsynctoolslogs"></a>Export-AADCloudSyncToolsLogs
 다음과 같이 모든 문제 해결 데이터를 압축 파일에 내보내고 패키지합니다.
- 1. Start-AADCloudSyncToolsVerboseLogs를 사용하여 자세한 정보 추적을 시작합니다.  이러한 추적 로그는 C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace 폴더에서 확인할 수 있습니다.
- 2. 3분 동안 추적 로그를 수집합니다.
-   -TracingDurationMins를 사용하여 다른 시간을 지정하거나 -SkipVerboseTrace를 사용하여 자세한 정보 추적을 건너뛸 수 있습니다.
- 3. Stop-AADCloudSyncToolsVerboseLogs를 사용하여 자세한 정보 추적을 중지합니다.
- 4. 지난 24시간 동안 이벤트 뷰어 로그를 수집합니다.
- 5. 모든 에이전트 로그, 자세한 정보 로그 및 이벤트 뷰어 로그를 사용자의 문서 폴더에 있는 압축된 zip 파일로 압축합니다. 
- </br>-OutputPath \<folder path\>를 사용하여 다른 출력 폴더를 지정할 수 있습니다.
+ 1. 자세한 추적을 설정하고 프로비저닝 에이전트에서 데이터 수집을 시작합니다(`Start-AADCloudSyncToolsVerboseLogs`와 같음).
+ <br>이러한 추적 로그는 폴더 `C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace`에서 찾을 수 있습니다. </br>
+ 2. 3분 후에 데이터 수집을 중지하고 자세한 추적을 사용하지 않도록 설정합니다(`Stop-AADCloudSyncToolsVerboseLogs`와 같음).
+ <br>`-TracingDurationMins`를 사용하여 다른 기간을 지정하거나 `-SkipVerboseTrace`를 사용하여 자세한 정보 추적을 건너뛸 수 있습니다. </br>
+ 3. 지난 24시간 동안 이벤트 뷰어 로그를 수집합니다.
+ 4. 모든 에이전트 로그, 자세한 정보 로그 및 이벤트 뷰어 로그를 사용자의 문서 폴더에 있는 압축된 zip 파일로 압축합니다.
+ <br>`-OutputPath <folder path>`를 사용하여 다른 출력 폴더를 지정할 수 있습니다. </br>
 
 ### <a name="get-aadcloudsynctoolsinfo"></a>Get-AADCloudSyncToolsInfo
 Azure AD Tenant 세부정보 및 내부 변수 상태를 표시합니다.
@@ -122,4 +125,3 @@ Azure AD PowerShell을 사용하여 현재 계정(있는 경우)을 삭제하고
 
 - [프로비저닝이란?](what-is-provisioning.md)
 - [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)
-

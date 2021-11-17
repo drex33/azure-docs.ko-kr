@@ -118,8 +118,8 @@
       href: front-door-diagnostics.md
     - name: 문제 해결
       items:
-        - name: 라우팅 문제 해결
-          href: front-door-troubleshoot-routing.md
+        - name: Front Door 문제 해결
+          href: troubleshoot-issues.md
         - name: 허용된 인증 기관
           href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
 - name: 참조

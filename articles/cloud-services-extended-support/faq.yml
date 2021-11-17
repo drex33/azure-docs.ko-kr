@@ -9,12 +9,12 @@ metadata:
   ms.reviewer: mimckitt
   ms.date: 10/13/2020
   ms.custom: references_regions
-  ms.openlocfilehash: bb2ee07d3d5c603df11d5b17b6afea496f4b31c8
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: bf35360b41fe136ec0ea3af8c846e398465d1a81
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123424099"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130235775"
 title: Azure Cloud Services(추가 지원)에 대한 질문과 대답
 summary: 이 문서에서는 Azure Cloud Services(추가 지원)와 관련된 질문과 대답을 살펴봅니다.
 sections:
@@ -51,6 +51,10 @@ sections:
   - question: >
       웹 및 작업자 역할은 어떻게 변경되나요?
     answer: "웹 및 작업자 역할의 설계, 아키텍처 또는 구성 요소에는 변경 사항이 없습니다. \n"
+  - question: >
+      역할 인스턴스 스케일링이 계속 실패합니다. 이 문제를 완화하는 방법은 무엇인가요?
+    answer: >
+      경합 조건으로 인해 동일한 클라우드 서비스(서로 다른 역할의 경우)에서 여러 스케일링 호출이 거의 동시에 발생하는 경우 Microsoft 플랫폼 구성 요소의 동기화가 중단되고 오류가 발생합니다. Microsoft는 이 문제를 해결하기 위해 적극적으로 노력하고 있습니다. 임시로 제안되는 해결 방법은 모든 역할을 동시에 자동으로 스케일링하지 않는 것입니다.
   - question: >
       역할 인스턴스는 어떻게 변경되나요?
     answer: "역할 인스턴스의 설계, 아키텍처 또는 구성 요소에는 변경 사항이 없습니다. \n"
@@ -151,4 +155,10 @@ sections:
       Cloud Services에 설치할 비밀/인증서를 지정할 때 KeyVault 리소스가 Cloud Service 리소스와 동일한 지역에 있어야 하나요?
     answer: >
       예. 지역 경계를 적용하는 이유는 사용자가 지역 간 종속성이 있는 아키텍처를 만들지 못하도록 하기 위해서입니다. 지역 격리는 클라우드 기반 애플리케이션의 주요 디자인 원칙입니다. 그러나 Key Vault 확장을 사용하여 인증서에 대한 구독 간 및 지역 간 지원을 받을 수 있습니다. [여기에서](./enable-key-vault-virtual-machine.md) 설명서를 참조하세요.
+- name: 알려진 문제
+  questions:
+  - question: >
+      역할 인스턴스 스케일링이 계속 실패합니다. 이 문제를 완화하는 방법은 무엇인가요?
+    answer: >
+      경합 조건으로 인해 동일한 클라우드 서비스(서로 다른 역할의 경우)에서 여러 스케일링 호출이 거의 동시에 발생하는 경우 Microsoft 플랫폼 구성 요소의 동기화가 중단되고 오류가 발생합니다. Microsoft는 이 문제를 해결하기 위해 적극적으로 노력하고 있습니다. 임시로 제안되는 해결 방법은 모든 역할을 동시에 자동으로 스케일링하지 않는 것입니다.
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\nCloud Services(추가 지원)를 사용하려면 [PowerShell을 사용하여 Cloud Service(추가 지원)](deploy-powershell.md)를 참조하세요."

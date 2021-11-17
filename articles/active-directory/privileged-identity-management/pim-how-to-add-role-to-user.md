@@ -4,22 +4,23 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 역할�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: a741ce7fff528fbe1f4120f4138a88d7b6e2e915
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 3ea66bbd5708e5964bb2c258feaa1fc44fcecff1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112233010"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444196"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
@@ -59,6 +60,10 @@ Privileged Identity Management는 기본 제공 및 사용자 지정 Azure AD �
 
 1. 특정 할당 기간을 지정하려면 시작 및 종료 날짜와 시간 상자를 추가합니다. 완료되면 **할당** 을 선택하여 새 역할 할당을 만듭니다.
 
+    - **영구** 할당에는 만료 날짜가 없습니다. 역할 권한이 자주 필요한 영구 작업자에 대해 이 옵션을 사용합니다.
+
+    - **시간 범위** 할당은 지정된 기간이 끝날 때 만료됩니다. 프로젝트 종료 날짜와 시간을 알고 있는 경우와 같이 임시 또는 계약 작업자와 함께 이 옵션을 사용합니다.
+
     ![멤버 자격 설정 - 날짜 및 시간](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
 1. 역할이 할당된 후에는 할당 상태 알림이 표시됩니다.
@@ -89,6 +94,148 @@ Privileged Identity Management는 기본 제공 및 사용자 지정 Azure AD �
 
 관리 단위를 만드는 방법에 대한 자세한 내용은 [관리 단위 추가 및 제거](../roles/admin-units-manage.md)를 참조하세요.
 
+## <a name="assign-a-role-using-graph-api"></a>Graph API를 사용하여 역할 할당
+
+PIM API를 사용하는 데 필요한 권한은 [Privileged Identity Management API 이해](pim-apis.md)를 참조하세요. 
+
+### <a name="eligible-with-no-end-date"></a>종료 날짜 없음
+
+다음은 종료 날짜가 없는 적격 할당을 만들기 위한 샘플 HTTP 요청입니다. C# 및 JavaScript와 같은 샘플을 비롯한 API 명령에 대한 자세한 내용은 [unifiedRoleEligibilityScheduleRequest 만들기](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true)를 참조하세요.
+
+#### <a name="http-request"></a>HTTP 요청
+
+````HTTP
+POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests 
+
+    "action": "AdminAssign", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "NoExpiration"        } 
+    } 
+{ 
+} 
+````
+
+#### <a name="http-response"></a>HTTP 응답
+
+다음은 응답의 예제입니다. 여기에 표시된 응답 개체는 가독성을 높이기 위해 줄어들 수 있습니다.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "id": "<schedule-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T19:47:41.0939004Z", 
+    "completedDateTime": "2021-07-15T19:47:42.4376681Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminAssign", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:47:42.4376681Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "noExpiration", 
+            "endDateTime": null, 
+            "duration": null 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+}   
+````
+
+### <a name="active-and-time-bound"></a>활성 및 시간 바인딩
+
+다음은 시간 범위 내 활성 할당을 만들기 위한 샘플 HTTP 요청입니다. C# 및 JavaScript와 같은 샘플을 비롯한 API 명령에 대한 자세한 내용은 [unifiedRoleEligibilityScheduleRequest 만들기](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true)를 참조하세요.
+
+#### <a name="http-request"></a>HTTP 요청
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{ 
+    "action": "AdminAssign", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "AfterDuration", 
+            "duration": "PT3H" 
+        } 
+    } 
+} 
+````
+
+#### <a name="http-response"></a>HTTP 응답
+
+다음은 응답의 예제입니다. 여기에 표시된 응답 개체는 가독성을 높이기 위해 줄어들 수 있습니다.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "<schedule-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T19:15:09.7093491Z", 
+    "completedDateTime": "2021-07-15T19:15:11.4437343Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminAssign", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:11.4437343Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT3H" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>기존 역할 할당 업데이트 또는 제거
 
 기존 역할 할당을 업데이트하거나 제거하려면 다음 단계를 수행합니다. Azure AD P2 사용이 허가된 고객만 해당: Azure AD 및 PIM(Privileged Identity Management)을 통해 그룹을 활성으로 역할에 할당하지 않습니다. 자세한 설명은 [알려진 문제](../roles/groups-concept.md#known-issues)를 참조하세요.
@@ -106,6 +253,59 @@ Privileged Identity Management는 기본 제공 및 사용자 지정 Azure AD �
     ![역할 할당 업데이트 또는 제거](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
 1. **업데이트** 또는 **제거** 를 선택하여 역할 할당을 업데이트하거나 제거합니다.
+
+## <a name="remove-eligible-assignment-via-api"></a>API를 통해 적격 할당 제거
+
+### <a name="request"></a>요청
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests 
+
+ 
+
+{ 
+    "action": "AdminRemove", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b" 
+} 
+````
+
+### <a name="response"></a>응답
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
+    "status": "Revoked", 
+    "createdDateTime": "2021-07-15T20:23:23.85453Z", 
+    "completedDateTime": null, 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminRemove", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": null, 
+    "justification": "test", 
+    "scheduleInfo": null, 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
 
 ## <a name="next-steps"></a>다음 단계
 

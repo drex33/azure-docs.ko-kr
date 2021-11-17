@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 6b00111265ea8f7441fb7164deed2d295d50e82f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 35f57b29f20e4b9ca0105c2395a34376e25a8c8a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101683"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489117"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema-for-custom-ner"></a>데이터를 준비하고 사용자 지정 NER에 대한 스키마를 정의하는 방법
 
@@ -66,7 +66,7 @@ ms.locfileid: "131101683"
 * [Azure에서 파일 만들기 및 업로드](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 * [Azure Storage Explorer를 사용하여 파일 만들기 및 업로드](/azure/vs-azure-tools-storage-explorer-blobs)
 
-`.txt` 파일만 사용할 수 있습니다. 데이터가 다른 형식인 경우 [CLUtils 구문 분석 명령](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md)을 사용하여 파일 형식을 변경할 수 있습니다.
+`.txt` 파일만 사용할 수 있습니다. 데이터가 다른 형식인 경우 [CLUtils 구문 분석 명령](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md)을 사용하여 파일 형식을 변경할 수 있습니다.
 
  주석이 달린 데이터 세트를 업로드하거나 주석이 없는 데이터 세트를 업로드하고 Language Studio에서 [데이터에 태그를 지정](../how-to/tag-data.md)할 수 있습니다. 
  

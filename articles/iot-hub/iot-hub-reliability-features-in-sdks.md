@@ -2,8 +2,8 @@
 title: 디바이스 SDK를 사용하여 신뢰할 수 있는 메시징 및 IoT Hub 연결 관리
 description: Azure IoT Hub 디바이스 SDK를 사용할 때 디바이스 연결 및 메시지를 개선하는 방법을 알아봅니다.
 services: iot-hub
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-csharp
-ms.openlocfilehash: 9e73eb677b75fff27d5470b89608e5c490ee83e2
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: f180080580bdf6617ba943089856d2913c86e4bd
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129454889"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552416"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Azure IoT Hub 디바이스 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징 관리
 

@@ -5,12 +5,12 @@ ms.author: palatter
 ms.date: 10/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: bc61f84c8ad131fec503ac81b84d70af881dfb02
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d87849dc85264f9a4066acabc55d613e1b47e127
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130287323"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134001"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,8 +34,7 @@ Xcode에서 새 iOS 프로젝트를 만들고, **앱** 템플릿을 선택합니
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용하여 패키지 및 종속성 설치
 
 1. `pod init`를 실행하여 프로젝트 루트 디렉터리에 Podfile을 만듭니다.
-1. 
-1. Podfile에 다음을 추가합니다.
+2. Podfile에 다음을 추가합니다.
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
@@ -49,7 +48,7 @@ target 'UILibraryQuickStart' do
 end
 ```
 
-3. `pod install --repo-update`을 실행합니다. 이 프로세스는 10-15분 정도 걸릴 수 있습니다.
+3. `pod install --repo-update`를 실행합니다. 이 프로세스는 10-15분 정도 걸릴 수 있습니다.
 4. Xcode를 사용하여 생성된 `.xcworkspace`를 엽니다.
 
 ### <a name="request-access-to-the-microphone-camera-etc"></a>마이크, 카메라 등에 대한 액세스 요청
@@ -64,6 +63,10 @@ end
 <key>NSMicrophoneUsageDescription</key>
 <string></string>
 ```
+
+권한 요청이 올바르게 추가되었는지 확인하려면 **다른 이름으로 열기** > **속성 목록** 으로 `Info.plist`를 보고 다음과 같이 나타나는지 확인합니다.
+
+![Xcode에서 카메라 및 마이크 개인 정보를 보여주는 스크린샷.](../../media/xcode-info-plist.png)
 
 ### <a name="turn-off-bitcode"></a>`Bitcode` 끄기
 프로젝트 `Build Settings`에서 `Enable Bitcode` 옵션을 `No`로 설정합니다. 설정을 찾으려면 필터를 `Basic`에서 `All`로 변경해야 합니다. 그러면 오른쪽 검색 창을 사용할 수도 있습니다.
@@ -108,7 +111,7 @@ class ViewController: UIViewController {
 
         let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
                                        displayName: "<DISPLAY_NAME>",
-                                       groupId: "<GROUP_CALL_ID>")
+                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!)
         callComposite?.launch(with: options)
     }
 }
@@ -172,8 +175,10 @@ let communicationTokenCredential = try! CommunicationTokenCredential(token: "<US
 `startCallComposite` 함수 내에서 `GroupCallOptions` 인스턴스를 초기화합니다. `<GROUP_CALL_ID>`를 호출에 대한 그룹 ID로, `<DISPLAY_NAME>`을 사용자 이름으로 바꿉니다.
 
 ```swift
+// let uuid = UUID() to create a new call
+let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                               displayName: displayName,
+                               displayName: "<DISPLAY_NAME>",
                                groupId: uuid)
 ```
 
@@ -183,8 +188,8 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
-                                  displayName: displayName,
-                                  meetingLink: link)
+                                  displayName: "<DISPLAY_NAME>",
+                                  meetingLink: "<TEAMS_MEETING_LINK>")
 ```
 
 #### <a name="get-a-microsoft-teams-meeting-link"></a>Microsoft Teams 미팅 링크 가져오기

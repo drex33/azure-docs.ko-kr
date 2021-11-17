@@ -1,19 +1,19 @@
 ---
 title: Azure PowerShell을 사용하여 파일 업로드 구성 | Microsoft Docs
 description: Azure PowerShell cmdlet을 사용하여 연결된 디바이스에서 파일 업로드를 사용하도록 IoT Hub를 구성하는 방법입니다. 대상 Azure Storage 계정 구성에 대한 정보가 포함됩니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dd108bfd61a84e4c25b1ab59e9f24e23048ada2d
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: f20236edd7a905f05d59ddafd3132569a851816a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529595"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553936"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Azure PowerShell을 사용하여 IoT Hub 파일 업로드 구성
 

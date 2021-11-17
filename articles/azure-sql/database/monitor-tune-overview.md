@@ -11,12 +11,12 @@ author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 03/17/2021
-ms.openlocfilehash: 428bc56ed2bcd4cf3da434bff1e399e04706db7d
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 842093f7cf74416e4bfb7b8ee3ed1faf83818675
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121768"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546991"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,6 +28,9 @@ Azure SQL Database는 지능형 성능 튜닝 권장 사항 및 성능 향상을
 Azure SQL Database 및 Azure SQL Managed Instance는 인공 지능으로 지원되는 고급 모니터링 및 튜닝 기능을 제공하여 데이터베이스 및 솔루션의 성능을 극대화하고 문제를 해결하는 데 도움을 줍니다. 특히 [SQL Analytics](../../azure-monitor/insights/azure-sql.md)를 사용하여 소비 및 분석을 위해 이러한 [Intelligent Insights](intelligent-insights-overview.md) 및 기타 데이터베이스 리소스 로그 및 메트릭의 [스트리밍 내보내기](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)를 여러 대상 중 하나로 구성하도록 선택할 수 있습니다. Azure SQL Analytics는 모든 데이터베이스의 성능을 대규모로 단일 보기에서 여러 구독에 걸쳐 모니터링하기 위한 고급 클라우드 모니터링 솔루션입니다. 내보낼 수 있는 로그 및 메트릭 목록은 [내보내기를 위한 진단 원격 분석](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)을 참조하세요.
 
 SQL Server에는 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 및 [DMV(동적 관리 뷰)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)와 같이 SQL Database 및 SQL Managed Instance가 활용하는 자체 모니터링 및 진단 기능이 있습니다. 다양한 성능 문제를 모니터링하는 스크립트는 [DMV를 사용한 모니터링](monitoring-with-dmvs.md)을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Azure Portal의 모니터링 및 튜닝 기능
 

@@ -1,32 +1,32 @@
 ---
-title: REST API를 사용하여 Azure Sentinel에서 지리적 위치 데이터로 엔터티 보강 | Microsoft Docs
-description: 이 문서에서는 REST API를 통해 지리적 위치 데이터로 Azure Sentinel에서 엔터티를 보강하는 방법을 설명합니다.
+title: REST API를 사용 하 여 Microsoft 센티널의 지리적 위치 데이터로 엔터티 보강 Microsoft Docs
+description: 이 문서에서는 REST API를 통해 지리적 위치 데이터로 Microsoft 센티널의 엔터티를 보강 하는 방법을 설명 합니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2021
+ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: 223fa4bf0e62790e31ae8d872ef47c72a15b4634
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cce16ca2f0db3d4f44c4077e4760f599e565bae6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083877"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520601"
 ---
-# <a name="enrich-entities-in-azure-sentinel-with-geolocation-data-via-rest-api-public-preview"></a>REST API를 통해 지리적 위치 데이터로 Azure Sentinel에서 엔터티 보강(공개 미리 보기)
+# <a name="enrich-entities-in-microsoft-sentinel-with-geolocation-data-via-rest-api-public-preview"></a>REST API를 통해 지리적 위치 데이터로 Microsoft 센티널의 엔터티 보강 (공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 REST API를 사용하여 지리적 위치 데이터로 Azure Sentinel에서 엔터티를 보강하는 방법을 보여 줍니다.
+이 문서에서는 REST API를 사용 하 여 지리적 위치 데이터로 Microsoft 센티널의 엔터티를 보강 하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
@@ -123,12 +123,12 @@ ms.locfileid: "131083877"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - 엔터티에 대해 자세히 알아봅니다.
 
-    - [Azure Sentinel 엔터티 형식 참조](entities-reference.md)
-    - [Azure Sentinel에서 엔터티를 사용하여 데이터 분류 및 분석](entities-in-azure-sentinel.md)
-    - [데이터 필드를 Azure Sentinel 엔터티에 매핑](map-data-fields-to-entities.md)
+    - [Microsoft 센티널 엔터티 형식 참조](entities-reference.md)
+    - [Microsoft 센티널에서 엔터티를 사용 하 여 데이터 분류 및 분석](entities-in-azure-sentinel.md)
+    - [Microsoft 센티널의 엔터티에 데이터 필드 매핑](map-data-fields-to-entities.md)
 
-- [Azure Sentinel API](/rest/api/securityinsights/)의 다른 용도 살펴보기
+- [Microsoft 센티널 API](/rest/api/securityinsights/) 의 다른 용도 살펴보기

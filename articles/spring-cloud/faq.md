@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8e5f4e1a50b25fc9022444c25a2c1e091c5496e3
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 607cc8e3341e395fb7ef31c4af5c5c8b5fc75cec
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997479"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484790"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -55,7 +55,7 @@ Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니�
 
 * `spring.application.name`은 각 애플리케이션을 만드는 데 사용되는 애플리케이션 이름으로 재정의됩니다.
 * `server.port`의 기본값은 포트 1025입니다. 다른 값이 적용되면 재정의됩니다. 또한 이 설정을 준수하고 코드에서 서버 포트를 지정하지 마십시오.
-* Azure Portal, Azure Resource Manager 템플릿 및 Terraform은 응용 프로그램 패키지 업로드를 지원 하지 않습니다. azure Spirng cloud에 대 한 Azure CLI, Azure DevOps, Maven 플러그 인, Azure Toolkit for IntelliJ 및 azure 스프링 클라우드의 Visual Studio Code 확장을 사용 하 여 응용 프로그램 패키지를 업로드할 수 있습니다.
+* Azure Portal, Azure Resource Manager 템플릿 및 Terraform은 응용 프로그램 패키지 업로드를 지원 하지 않습니다. azure 스프링 클라우드의 Azure CLI, Azure DevOps, Maven 플러그 인, Azure Toolkit for IntelliJ 및 azure 스프링 클라우드의 Visual Studio Code 확장을 사용 하 여 응용 프로그램 패키지를 업로드할 수 있습니다.
 
 ### <a name="what-pricing-tiers-are-available"></a>어떤 가격 책정 계층을 사용할 수 있나요?
 
@@ -72,9 +72,9 @@ Azure Spring Cloud에 문제가 발생하면 [Azure 지원 요청](../azure-port
 
 ## <a name="development"></a>개발
 
-### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>저는 Azure를 처음 접하는 Spring Cloud 개발자입니다. Azure Spring Cloud 애플리케이션을 개발하는 방법을 배우는 가장 빠른 방법은 무엇인가요?
+### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-application-in-azure-spring-cloud"></a>저는 Azure를 처음 접하는 Spring Cloud 개발자입니다. Azure 스프링 클라우드에서 응용 프로그램을 개발 하는 방법을 배우는 가장 빠른 방법은 무엇 인가요?
 
-Azure Spring Cloud를 시작하는 가장 빠른 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)의 지침을 따르세요.
+Azure 스프링 클라우드를 시작 하는 가장 빠른 방법은 [빠른 시작: Azure Portal을 사용 하 여 Azure 스프링 클라우드에서 응용 프로그램 시작](./quickstart.md)의 지침을 따르세요.
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud에서 지원하는 Java 런타임은 어떻게 되나요?
@@ -103,7 +103,7 @@ Spring Boot 2.4의 문제를 확인했으며 현재 Spring 커뮤니티와 협�
 
 메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) 탭에서 찾습니다.
 
-Azure Spring Cloud는 Spring Cloud 애플리케이션 로그 및 메트릭을 Azure Storage, EventHub 및 [로그 분석](../azure-monitor/logs/data-platform-logs.md)으로 내보내는 기능을 지원합니다. 로그 분석의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용하도록 설정하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조하세요.
+Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, Event Hub 및 [Log Analytics](../azure-monitor/logs/data-platform-logs.md)로 내보내는 것을 지원 합니다. 로그 분석의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용하도록 설정하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조하세요.
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud는 분산 추적을 지원하나요?
 

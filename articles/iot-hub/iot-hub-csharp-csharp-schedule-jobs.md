@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub(.NET/.NET)를 사용하여 작업 예약 | Microsoft Docs
 description: 여러 디바이스에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스 앱 및 작업을 실행하는 서비스 앱을 구현합니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 3ff7e7fb2ae1249bc3b5c21f7d7b194344c428a5
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: d1dbbcf85c50bb0e21d1dea2b5f393236185dcd3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178382"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556062"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>작업 예약 및 브로드캐스트(.NET)
 
@@ -308,6 +308,6 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
-* [Raspberry Pi 3 B+ 참조 이미지를 사용하여 Azure IoT Hub용 디바이스 업데이트 자습서에서](../iot-hub-device-update/device-update-raspberry-pi.md)엔드투엔드 이미지 기반 업데이트와 같은 IoT Hub 및 디바이스 관리 패턴을 계속 시작하려면
+* [Raspberry Pi 3 B + 참조 이미지를 사용 하는 Azure IoT 허브 용 장치 업데이트 자습서](../iot-hub-device-update/device-update-raspberry-pi.md)에서 종단 간 이미지 기반 업데이트와 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면
 
 * Azure IoT Edge로 AI를 에지 디바이스에 배포하는 방법을 자세히 알아보려면 [IoT Edge 시작](../iot-edge/quickstart-linux.md)을 참조하세요.

@@ -12,12 +12,12 @@ ms.date: 09/15/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 304b7056fda06e017be445b57a4b75aef6a17ffc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5bb6c3aef0476e3da440eb8523d0ccc09491e074
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131007422"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501403"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>SendGrid를 사용한 사용자 지정 이메일 확인
 
@@ -64,11 +64,11 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용
 
 SendGrid 계정을 만들고 Azure AD B2C 정책 키에 SendGrid API 키를 저장했으면 SendGrid [동적 트랜잭션 템플릿](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)을 만듭니다.
 
-1. SendGrid 사이트에서 [트랜잭션 템플릿](https://sendgrid.com/dynamic_templates) 페이지를 열고 **템플릿 만들기** 를 선택합니다.
-1. `Verification email`과 같은 고유한 템플릿 이름을 입력한 다음, **저장** 을 선택합니다.
-1. 새 템플릿 편집을 시작하려면 **버전 추가** 를 선택합니다.
-1. **코드 편집기** 를 선택한 다음, **계속** 을 선택합니다.
-1. HTML 편집기에서 다음 HTML 템플릿을 붙여넣거나 사용자 고유의 템플릿을 사용합니다. `{{otp}}` 매개 변수와 `{{email}}` 매개 변수는 일회성 암호 값 및 사용자 이메일 주소로 동적으로 교체됩니다.
+1. SendGrid 사이트에서 [트랜잭션 템플릿](https://sendgrid.com/dynamic_templates) 페이지를 열고 **동적 템플릿 만들기** 를 선택합니다.
+1. `Verification email`과 같은 고유한 템플릿 이름을 입력한 다음, **만들기** 를 선택합니다.
+1. 새 템플릿 편집을 시작하려면 템플릿(예: `Verification email`)을 선택한 다음, **버전 추가** 를 선택합니다.
+1. **빈 템플릿** 을 선택한 다음, **코드 편집기** 를 선택합니다.
+1. HTML 편집기에서 다음 HTML 템플릿을 붙여넣거나 사용자 고유의 템플릿을 사용합니다. `{{otp}}` 매개 변수와 `{{email}}` 매개 변수는 일회성 암호 값 및 사용자 메일 주소로 동적으로 교체됩니다.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -162,8 +162,9 @@ SendGrid 계정을 만들고 Azure AD B2C 정책 키에 SendGrid API 키를 저�
     </html>
     ```
 
-1. 왼쪽에서 **설정** 을 확장하고 **이메일 제목** 에 `{{subject}}`를 입력합니다.
-1. **템플릿 저장** 을 선택합니다.
+1. 왼쪽에서 **설정** 을 확장하고 **버전 이름** 에 템플릿 버전을 입력합니다. 
+1. **제목** 에 대해 `{{subject}}`를 입력합니다.
+1. 페이지 맨 위에서 **저장** 을 선택합니다.
 1. 뒤로 화살표를 선택하여 **트랜잭션 템플릿** 페이지로 돌아갑니다.
 1. 이후 단계에서 사용할 수 있도록 만든 템플릿의 **ID** 를 기록합니다. 예들 들어 `d-989077fbba9746e89f3f6411f596fb96`입니다. [클레임 변환을 추가](#add-the-claims-transformation)할 때 해당 ID를 지정합니다.
 
@@ -396,13 +397,6 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
         <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
@@ -413,13 +407,6 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
       </DisplayClaims>
     </TechnicalProfile>
     <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
       </DisplayClaims>
@@ -554,10 +541,11 @@ Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로�
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Eamil</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
     <!-- Email validation error messages-->
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again.</LocalizedString>
@@ -565,7 +553,6 @@ Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로�
 </LocalizedResources>
 ```
 
-지역화된 문자열을 추가한 후 LocalAccountSignUpWithLogonEmail 및 LocalAccountDiscoveryUsingEmailAddress 기술 프로필에서 OTP 유효성 검사 오류 메시지 메타데이터를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

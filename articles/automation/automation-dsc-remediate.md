@@ -4,17 +4,14 @@ description: 이 문서에서는 구성 상태가 드리프트된 서버에 요�
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
-manager: nirb
-ms.openlocfilehash: e7988f8b72a6621897c656e12595a3fe68665535
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: cf4286634e72d687fe78c53a8f20abe5d5b2b6eb
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429841"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489873"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>비규격 Azure Automation 상태 구성 서버 재구성
 

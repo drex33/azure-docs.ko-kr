@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ea3a8213fa57aa7c8066b81ea7c790ec0b1db9
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.openlocfilehash: 853174bd96f0a88f8513df848aab7a3d34aceb28
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131988827"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451847"
 ---
-# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Azure AD에서 하이브리드 FIDO2 보안 키에 대한 배포 FAQ(질문과 대답)
+# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Azure AD에서 하이브리드 FIDO2 보안 키에 대한 배포 FAQ(질문과 대답) 
 
 이 문서는 하이브리드 Azure AD 조인 디바이스에 대한 배포 FAQ(질문과 대답) 및 온-프레미스 리소스에 대한 암호 없는 로그인에 대해 다룹니다. 이 암호 없는 기능을 사용하면 FIDO2 보안 키를 사용하여 하이브리드 Azure AD 조인 디바이스에 대해 Windows 10 디바이스에서 Azure AD 인증을 사용하도록 설정할 수 있습니다. 사용자는 FIDO2 키와 같은 최신 자격 증명을 사용하여 디바이스에서 Windows에 로그인하고, 온-프레미스 리소스에 대해 원활한 SSO(Single Sign-On) 환경을 사용하여 기존 Active Directory Domain Services(AD DS) 기반 리소스에 액세스할 수 있습니다.
 
@@ -185,7 +185,7 @@ Windows Server 2016 또는 2019 도메인 컨트롤러에서 다음 패치가 �
 Azure AD Kerberos 서버는 온-프레미스 AD DS 환경에서 DC(도메인 컨트롤러) 개체로 표시됩니다. 이 DC 개체는 여러 개체로 구성됩니다.
 
 * *CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>*
-
+    
     AD DS의 RODC(읽기 전용 도메인 컨트롤러)를 나타내는 *Computer* 개체입니다. 이 개체와 연결된 컴퓨터가 없습니다. 대신 DC의 논리적 표현입니다.
 
 * *CN=krbtgt_AzureAD,CN=Users,\<domain-DN>*
@@ -229,13 +229,13 @@ Azure AD Connect는 Azure AD에서 AD DS로 정보를 다시 쓰지 않습니다
 
 HTTP 요청은 표준 PRT(기본 새로 고침 토큰) 요청입니다. 이 PRT 요청은 Kerberos TGT(Ticket Granting Ticket)가 필요함을 나타내는 클레임을 포함합니다.
 
-| 클레임 | 값 | 설명                             |
+| 클레임 | 값 | Description                             |
 |-------|-------|-----------------------------------------|
 | tgt   | true  | 클레임은 클라이언트에 TGT가 필요함을 나타냅니다. |
 
 Azure AD는 암호화된 클라이언트 키와 메시지 버퍼를 PRT 응답에 추가 속성으로 결합합니다. 페이로드는 Azure AD 디바이스 세션 키를 사용하여 암호화됩니다.
 
-| 필드              | 형식   | 설명  |
+| 필드              | 형식   | Description  |
 |--------------------|--------|--------------|
 | tgt_client_key     | 문자열 | Base64 인코딩된 클라이언트 키(비밀)입니다. 이 키는 TGT를 보호하는 데 사용되는 클라이언트 암호입니다. 이 암호 없는 시나리오에서 클라이언트 암호는 각 TGT 요청의 일부로 서버에서 생성된 다음, 응답에서 클라이언트로 반환됩니다. |
 | tgt_key_type       | int    | 클라이언트 키와 KERB_MESSAGE_BUFFER에 포함된 Kerberos 세션 키 모두에 사용되는 온-프레미스 AD DS 키 유형입니다. |

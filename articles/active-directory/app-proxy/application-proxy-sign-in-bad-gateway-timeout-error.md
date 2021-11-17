@@ -3,7 +3,7 @@ title: Azure Active Directory 애플리케이션 프록시 앱을 사용하여 �
 description: Azure Active Directory 애플리케이션 프록시 애플리케이션의 일반적인 액세스 문제를 해결하는 방법입니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 937bffb649619392cdd293ebea16761578dbdd8c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: e7433b8574893b695c9b94168d8458348a58a5ee
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186729"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988642"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 사용하는 경우 발생하는 "이 회사 애플리케이션에 액세스할 수 없습니다." 오류
 

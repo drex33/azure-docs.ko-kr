@@ -8,16 +8,16 @@ ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6d8ee6769fdffa4cb16a6a8b075c1933a2428374
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 2b7e51bc2837cdb068f0f9d6704e80d3f41c396e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436503"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538867"
 ---
 # <a name="troubleshoot-hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 조인 디바이스 문제 해결
 
@@ -443,7 +443,7 @@ WamDefaultAuthority: organizations
 
 이벤트 뷰어를 사용하여 PRT 획득 중에 Azure AD CloudAP 플러그 인에 의해 로그되는 로그 항목을 찾습니다. 
 
-1. 이벤트 뷰어에서 Azure AD 이벤트 로그를 엽니다. 이 로그는 **애플리케이션 및 서비스 로그** > **Microsoft** > **Windows** > **사용자 디바이스 등록** 에 저장되어 있습니다. 
+1. 이벤트 뷰어에서 Azure AD 운영 이벤트 로그를 엽니다. 이 로그는 **애플리케이션 및 서비스 로그** > **Microsoft** > **Windows** > **AAD** 에 저장되어 있습니다. 
 
    > [!NOTE]
    > CloudAP 플러그 인은 작업 로그에 오류 이벤트를 로그하고 분석 로그에 정보 이벤트를 로그합니다. 분석 및 작업 로그 이벤트는 모두 문제를 해결하는 데 필요합니다. 

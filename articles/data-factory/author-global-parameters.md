@@ -8,12 +8,12 @@ author: joshuha-msft
 ms.author: joowen
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e19e3eba40d843ae27a3d0817525f7ed65394d10
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 3205d5c3be7fe13cbaa4b881a3de6bffc15e9fd8
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131844604"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550915"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
@@ -114,5 +114,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Data Factory의 [연속 통합 및 배포 프로세스](continuous-integration-delivery.md)에 대해 알아보기
+* Azure Data Factory의 [연속 통합 및 배포 프로세스](continuous-integration-delivery-improvements.md)에 대해 알아보기
 * [제어 흐름 식 언어](control-flow-expression-language-functions.md)를 사용하는 방법 알아보기

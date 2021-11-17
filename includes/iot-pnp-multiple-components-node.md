@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 3524469e8668fa14a27cd77199b47cf6efad8ce9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: dfd5568e14dff765148096d55e5d10b1e5fe12f6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725417"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131521008"
 ---
 이 자습서에서는 구성 요소를 사용하여 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 허브로 전송된 정보를 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 Node.js용으로 작성되었으며 Node.js용 Azure IoT Hub 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -58,11 +58,11 @@ npm install
 
 ## <a name="review-the-code"></a>코드 검토
 
-*azure-iot-sdk-node\device\samples\pnp* 폴더로 이동합니다.
+*azure-iot-sdk-node\device\samples\javascript* 폴더로 이동합니다.
 
-*azure-iot-sdk-node\device\samples\pnp* 폴더에는 IoT 플러그 앤 플레이 온도 컨트롤러 디바이스에 대한 샘플 코드가 포함되어 있습니다.
+*azure-iot-sdk-node\device\samples\javascript* 폴더에는 IoT 플러그 앤 플레이 온도 컨트롤러 디바이스에 대한 샘플 코드가 포함되어 있습니다.
 
-*pnpTemperatureController.js* 파일의 코드는 IoT 플러그 앤 플레이 온도 컨트롤러 디바이스를 구현합니다. 이 샘플에서 구현하는 모델은 [여러 구성 요소](../articles/iot-develop/concepts-modeling-guide.md)를 사용합니다. [온도 디바이스용 DTDL(Digital Twins 정의 언어) 모델 파일](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)은 디바이스에서 구현하는 원격 분석, 속성 및 명령을 정의합니다.
+*pnp_temperature_controller.js* 파일의 코드는 IoT 플러그 앤 플레이 온도 컨트롤러 디바이스를 구현합니다. 이 샘플에서 구현하는 모델은 [여러 구성 요소](../articles/iot-develop/concepts-modeling-guide.md)를 사용합니다. [온도 디바이스용 DTDL(Digital Twins 정의 언어) 모델 파일](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)은 디바이스에서 구현하는 원격 분석, 속성 및 명령을 정의합니다.
 
 선택한 코드 편집기에서 *pnpTemperatureController.js* 파일을 엽니다. 샘플 코드는 다음 작업을 수행하는 방법을 보여줍니다.
 
@@ -110,12 +110,12 @@ npm install
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/pnp/readme.md)를 참조하세요.
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/readme.md#iot-plug-and-play-device-samples)를 참조하세요.
 
 코드를 살펴보았으면 다음 명령을 사용하여 샘플을 실행합니다.
 
 ```cmd\sh
-node pnpTemperatureController.js
+node pnp_temperature_controller.js
 ```
 
 디바이스가 허브로 원격 분석 데이터를 보내기 시작했으며, 이제 명령 및 속성 업데이트를 받을 준비가 되었다는 것을 나타내는 다음 출력이 표시됩니다.

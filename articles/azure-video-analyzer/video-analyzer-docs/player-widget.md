@@ -3,14 +3,14 @@ title: Video Analyzer 플레이어 위젯 사용
 description: 이 문서에서는 응용 프로그램에 Video Analyzer 플레이어 위젯을 추가 하는 방법을 설명 합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 11/12/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 44d14f7dc2977f39276e4c57a4d35d5e28b31a3d
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 8dbf85609196a930d7f51a713753f725b3016396
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845456"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487476"
 ---
 # <a name="use-the-azure-video-analyzer-player-widget"></a>Azure Video Analyzer 플레이어 위젯 사용
 
@@ -142,6 +142,10 @@ function getVideos()
    ```javascript
    zoneDrawer.load();
    ```
+1. 영역 서랍 구성:
+   ```javascript
+   zoneDrawer.configure();
+   ```
 1. 영역을 만들고 저장 하려면 다음과 같이 이벤트 수신기를 추가 해야 합니다.
    ```javascript
    zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
@@ -195,6 +199,7 @@ function getVideos()
     
         const zoneDrawer = document.getElementById("zoneDrawer");
         zoneDrawer.load();
+        zoneDrawer.configure();
 
         zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
             console.log(event);
@@ -336,7 +341,7 @@ import { ZoneDrawer } from '@azure/video-analyzer-widgets';
 ```
 
 
-이 메서드를 사용하여 가져오는 경우 가져오기가 완료된 후 영역 서랍 및 플레이어 개체를 프로그래밍 방식으로 만들어야 합니다.  앞의 예제에서는 HTML 태그를 사용하여 모듈을 페이지에 `ava-player` 추가했습니다. 코드를 통해 영역 서랍 개체와 플레이어 개체를 만들려면 JavaScript에서 다음을 수행할 수 있습니다.
+이 방법을 사용 하 여 가져오는 경우 가져오기가 완료 된 후에 프로그래밍 방식으로 영역 서랍 및 플레이어 개체를 만들어야 합니다.  앞의 예제에서는 HTML 태그를 사용 하 여 페이지에 모듈을 추가 했습니다 `ava-player` . 코드를 통해 영역 서랍 개체 및 플레이어 개체를 만들려면 JavaScript에서 다음을 수행할 수 있습니다.
 
 
 ```javascript
@@ -362,5 +367,5 @@ zoneDrawer.appendChild(playerWidget);
 
 ## <a name="next-steps"></a>다음 단계
 
-* [위젯을 사용하여 샘플 재생을](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/video-player)사용해 보세요.
-* [위젯 리포지토리](https://github.com/Azure/video-analyzer-widgets)를 방문하여 다양한 위젯 기능을 구현하는 방법에 대해 알아봅니다.
+* [위젯을 사용 하 여 샘플 재생](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/video-player)을 사용해 보세요.
+* [위젯 리포지토리](https://github.com/Azure/video-analyzer-widgets)를 방문 하 여 다양 한 위젯 기능을 구현 하는 방법에 대해 알아봅니다.

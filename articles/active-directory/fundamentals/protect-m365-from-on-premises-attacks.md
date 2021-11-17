@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bd6ed2c94ca696eefd4e7a3dfcf5b78cc6dd99
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 523f0d1907e42f2db5d17ca4bd3cd81bfd7f6ca1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251189"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466070"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격으로부터 Microsoft 365 보호
 
@@ -31,6 +31,7 @@ ms.locfileid: "130251189"
 - 온-프레미스 클라우드 시스템이 손상되지 않도록 보호하는 방식으로 시스템을 운영하는 데 필요한 절충안.
 
 Microsoft 365 클라우드 환경을 보호하려면 이 지침을 구현하는 것이 좋습니다.
+
 > [!NOTE]
 > 이 문서는 블로그 게시물로 처음 게시되었으며, 수명 및 유지 관리를 위해 현재 위치로 이동되었습니다.
 >
@@ -38,11 +39,9 @@ Microsoft 365 클라우드 환경을 보호하려면 이 지침을 구현하는 
 
 ## <a name="primary-threat-vectors-from-compromised-on-premises-environments"></a>손상된 온-프레미스 환경의 주요 위협 벡터
 
-
 Microsoft 365 클라우드 환경은 광범위한 모니터링 및 보안 인프라를 활용합니다. Microsoft 365는 기계 학습 및 휴먼 인텔리전스를 사용하여 전 세계 트래픽을 확인합니다. 공격을 신속하게 감지하고 거의 실시간으로 다시 구성할 수 있도록 해 줍니다. 
 
-온-프레미스 인프라를 Microsoft 365에 연결하는 하이브리드 배포에서 많은 조직은 중요한 인증 및 디렉터리 개체 상태 관리 결정을 위해 온-프레미스 구성 요소에 신뢰를 위임합니다.
-아쉽게도 온-프레미스 환경이 손상되면 신뢰 관계는 공격자가 Microsoft 365 환경을 손상할 수 있는 기회가 됩니다.
+온-프레미스 인프라를 Microsoft 365에 연결하는 하이브리드 배포에서 많은 조직은 중요한 인증 및 디렉터리 개체 상태 관리 결정을 위해 온-프레미스 구성 요소에 신뢰를 위임합니다. 아쉽게도 온-프레미스 환경이 손상되면 신뢰 관계는 공격자가 Microsoft 365 환경을 손상할 수 있는 기회가 됩니다.
 
 두 가지 주요 위협 벡터는 ‘페더레이션 트러스트 관계’와 ‘계정 동기화’입니다.  두 벡터 모두 공격자에게 클라우드에 대한 관리 액세스 권한을 부여할 수 있습니다.
 
@@ -51,7 +50,6 @@ Microsoft 365 클라우드 환경은 광범위한 모니터링 및 보안 인프
 * **계정 동기화** 를 사용하여 권한이 있는 사용자(자격 증명 포함) 또는 Microsoft 365에서 관리 권한이 있는 그룹을 수정할 수 있습니다. ‘동기화된 개체는 직접 또는 신뢰할 수 있는 역할이나 그룹에 포함하여 Microsoft 365의 사용자 이상의 권한을 보유하지 않는 것이 좋습니다.’ 해당 개체에 신뢰할 수 있는 클라우드 역할 또는 그룹의 직접 또는 중첩된 할당이 없는지 확인하세요.
 
 ## <a name="protecting-microsoft-365-from-on-premises-compromise"></a>온-프레미스 손상으로부터 Microsoft 365 보호
-
 
 앞에서 설명한 위협 벡터를 해결하려면 다음 다이어그램에 설명된 원칙을 따르는 것이 좋습니다.
 
@@ -73,22 +71,19 @@ Microsoft 365 클라우드 환경은 광범위한 모니터링 및 보안 인프
 
 1. **Microsoft 365에서 디바이스를 관리합니다.** Azure AD 조인 및 클라우드 기반 MDM(모바일 장치 관리)을 사용하여 온-프레미스 디바이스 관리 인프라에 대한 종속성을 제거합니다. 종속성은 디바이스 및 보안 제어를 손상할 수 있습니다.
 
-1. **Microsoft 365에 대해 상승된 권한이 있는 온-프레미스 계정이 없는지 확인합니다.**
-    일부 계정은 NTLM, LDAP 또는 Kerberos 인증이 필요한 온-프레미스 애플리케이션에 액세스합니다. 해당 계정은 조직의 온-프레미스 ID 인프라에 있어야 합니다. 서비스 계정을 비롯한 해당 계정이 권한 있는 클라우드 역할 또는 그룹에 포함되어 있지 않은지 확인합니다. 해당 계정에 대한 변경 내용이 클라우드 환경의 무결성에 영향을 주지 않도록 해야 합니다. 권한이 있는 온-프레미스 소프트웨어는 Microsoft 365 권한이 있는 계정 또는 역할에 영향을 미치지 않습니다.
+1. **Microsoft 365에 대해 상승된 권한이 있는 온-프레미스 계정이 없는지 확인합니다.** 일부 계정은 NTLM, LDAP 또는 Kerberos 인증이 필요한 온-프레미스 애플리케이션에 액세스합니다. 해당 계정은 조직의 온-프레미스 ID 인프라에 있어야 합니다. 서비스 계정을 비롯한 해당 계정이 권한 있는 클라우드 역할 또는 그룹에 포함되어 있지 않은지 확인합니다. 해당 계정에 대한 변경 내용이 클라우드 환경의 무결성에 영향을 주지 않도록 해야 합니다. 권한이 있는 온-프레미스 소프트웨어는 Microsoft 365 권한이 있는 계정 또는 역할에 영향을 미치지 않습니다.
 
 1. **Azure AD 클라우드 인증을 사용하여** 온-프레미스 자격 증명에 대한 종속성을 제거합니다. Windows Hello, FIDO, Microsoft Authenticator 또는 Azure AD 다단계 인증과 같은 강력한 인증을 항상 사용합니다.
 
 ## <a name="specific-security-recommendations"></a>특정 보안 권장 사항
 
-
 다음 섹션에서는 앞에서 설명한 원칙을 구현하는 방법에 대한 구체적인 지침을 살펴봅니다.
 
 ### <a name="isolate-privileged-identities"></a>권한이 있는 ID 분리
 
-
 Azure AD에서는 관리자와 같은 권한이 있는 역할을 가진 사용자가 나머지 환경을 빌드하고 관리하는 데 신뢰의 핵심입니다. 손상의 영향을 최소화하기 위해 다음 사례를 구현합니다.
 
-* Azure AD 및 Microsoft 365 권한이 있는 역할에 대해 클라우드 전용 계정을 사용합니다.
+* Azure AD 및 Microsoft 365 권한 있는 역할에 대해 클라우드 전용 계정을 사용합니다.
 
 * [권한이 있는 액세스 디바이스](/security/compass/privileged-access-devices#device-roles-and-profiles)를 배포하여 Microsoft 365 및 Azure AD를 관리합니다.
 
@@ -134,14 +129,13 @@ Azure AD에서는 관리자와 같은 권한이 있는 역할을 가진 사용�
 
 * **클라우드 애플리케이션**: 가능한 경우 온-프레미스 프로비저닝 솔루션과 달리 [Azure AD 앱 프로비저닝](../app-provisioning/user-provisioning.md)을 배포합니다. 이 방법은 SaaS(software as a service) 앱 중 일부를 온-프레미스 위반 시 악성 해커 프로필의 영향을 받지 않도록 보호합니다. 
 
-* **외부 ID**: [Azure AD B2B Collaboration](../external-identities/what-is-b2b.md)을 사용합니다.
-    이 방법은 파트너, 고객, 공급자와의 외부 협업을 위해 온-프레미스 계정에 대한 종속성을 줄입니다. 다른 ID 공급자와의 직접 페더레이션을 신중하게 평가합니다. B2B 게스트 계정은 다음과 같은 방법으로 제한하는 것이 좋습니다.
+* **외부 ID**: [Azure AD B2B 협업](../external-identities/what-is-b2b.md)을 사용합니다. 이 방법은 파트너, 고객, 공급자와의 외부 협업을 위해 온-프레미스 계정에 대한 종속성을 줄입니다. 다른 ID 공급자와의 직접 페더레이션을 신중하게 평가합니다. B2B 게스트 계정은 다음과 같은 방법으로 제한하는 것이 좋습니다.
 
-   *  디렉터리의 검색 그룹 및 기타 속성에 대한 게스트 액세스를 제한합니다. 외부 협업 설정을 사용하여 게스트의 구성원이 아닌 그룹 읽기 기능을 제한할 수 있습니다. 
+   * 디렉터리의 검색 그룹 및 기타 속성에 대한 게스트 액세스를 제한합니다. 외부 협업 설정을 사용하여 게스트의 구성원이 아닌 그룹 읽기 기능을 제한할 수 있습니다. 
 
-    *   Azure Portal에 대한 액세스를 차단합니다. 드물게 필요한 예외를 만들 수 있습니다.  모든 게스트 및 외부 사용자를 포함하는 조건부 액세스 정책을 만듭니다. 그런 다음 [액세스를 차단하는 정책을 구현](../../role-based-access-control/conditional-access-azure-management.md)합니다. 
+    * Azure Portal에 대한 액세스를 차단합니다. 드물게 필요한 예외를 만들 수 있습니다.  모든 게스트 및 외부 사용자를 포함하는 조건부 액세스 정책을 만듭니다. 그런 다음 [액세스를 차단하는 정책을 구현](../../role-based-access-control/conditional-access-azure-management.md)합니다. 
 
-* **연결되지 않은 포리스트**: [Azure AD 클라우드 프로비저닝](../cloud-sync/what-is-cloud-sync.md)을 사용합니다. 이 방법을 사용하면 연결되지 않은 포리스트에 연결하여 온-프레미스 위반의 영향을 넓히는 포리스트 간 연결 또는 트러스트를 설정할 필요가 없습니다. 
+* **연결되지 않은 포리스트**: [Azure AD 클라우드 프로비저닝](../cloud-sync/what-is-cloud-sync.md)을 사용합니다. 이 방법을 사용하면 연결되지 않은 포리스트에 연결하여 온-프레미스 위반의 영향을 넓히는 포리스트 간 연결 또는 트러스트를 설정할 필요가 없습니다.
  
 ### <a name="limitations-and-tradeoffs"></a>제한 사항 및 절충안
 
@@ -154,17 +148,16 @@ Azure AD에서는 관리자와 같은 권한이 있는 역할을 가진 사용�
 * **협업**: 최신 협업을 위해 Microsoft 365 Groups와 Microsoft Teams를 사용합니다. 온-프레미스 배포 목록 서비스를 해제하고 [Outlook에서 배포 목록을 Microsoft 365 그룹으로 업그레이드](/office365/admin/manage/upgrade-distribution-lists)합니다.
 
 * **액세스**: Azure AD 보안 그룹 또는 Microsoft 365 그룹을 사용하여 Azure AD에서 애플리케이션에 대한 액세스 권한을 부여합니다.
+
 * **Office 365 라이선스**: 그룹 기반 라이선스로 클라우드 전용 그룹을 사용하여 Office 365에 프로비저닝합니다. 이 메서드는 온-프레미스 인프라에서 그룹 멤버 자격 제어를 분리합니다.
 
-액세스에 사용되는 그룹 소유자는 온-프레미스 손상의 멤버 자격 인수를 방지하기 위해 권한 있는 ID로 간주해야 합니다.
-인수에는 온-프레미스 그룹 멤버 자격 조작 또는 Microsoft 365의 동적 그룹 멤버 자격에 영향을 줄 수 있는 온-프레미스 특성 조작이 포함됩니다.
+액세스에 사용되는 그룹 소유자는 온-프레미스 손상의 멤버 자격 인수를 방지하기 위해 권한 있는 ID로 간주해야 합니다. 인수에는 온-프레미스 그룹 멤버 자격 조작 또는 Microsoft 365의 동적 그룹 멤버 자격에 영향을 줄 수 있는 온-프레미스 특성 조작이 포함됩니다.
 
 ## <a name="manage-devices-from-the-cloud"></a>클라우드에서 장치 관리
 
-
 Azure AD 기능을 사용하여 디바이스를 안전하게 관리합니다.
 
--   **Windows 10 워크스테이션 사용**: MDM 정책을 사용하여 [Azure AD 조인 디바이스를 배포](../devices/azureadjoin-plan.md)합니다. 완전히 자동화된 프로비저닝 환경을 위해 [Windows Autopilot](/mem/autopilot/windows-autopilot)을 사용합니다.
+- **Windows 10 워크스테이션 사용**: MDM 정책을 사용하여 [Azure AD 조인 디바이스를 배포](../devices/azureadjoin-plan.md)합니다. 완전히 자동화된 프로비저닝 환경을 위해 [Windows Autopilot](/mem/autopilot/windows-autopilot)을 사용합니다.
 
     -   Windows 8.1 및 이전 버전을 실행하는 머신 사용을 중단합니다.
 
@@ -226,6 +219,7 @@ Azure AD 조건부 액세스를 사용하여 신호를 해석하고 이를 통�
 *  **UEBA(사용자 및 엔터티 동작 분석) 경고** 
 
     UEBA를 사용하여 변칙 검색에 대한 인사이트를 얻습니다.
+
     * MCAS(Microsoft Cloud App Security)는 [클라우드에 UEBA](/cloud-app-security/tutorial-ueba)를 제공합니다.
 
     * [Azure ATP(Advanced Threat Protection)에서 온-프레미스 UEBA를 통합](/defender-for-identity/install-step2)할 수 있습니다. MCAS는 Azure AD ID 보호의 신호를 읽습니다. 
@@ -240,11 +234,11 @@ Azure AD 조건부 액세스를 사용하여 신호를 해석하고 이를 통�
 
    * 그룹 멤버 자격에 대한 모든 업데이트. 
 
-   * 애플리케이션 할당. 
+   * 애플리케이션 할당.
+
 * **권한 있는 역할 작업**
 
-    [Azure AD PIM(Privileged Identity Management)에서 생성된 보안 경고](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts)를 구성하고 검토합니다.
-    사용자가 직접 할당될 때마다 경고를 생성하여 PIM 외부의 권한 있는 역할에 대한 직접 할당을 모니터링합니다.
+    [Azure AD PIM(Privileged Identity Management)에서 생성된 보안 경고](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts)를 구성하고 검토합니다. 사용자가 직접 할당될 때마다 경고를 생성하여 PIM 외부의 권한 있는 역할에 대한 직접 할당을 모니터링합니다.
 
 * **Azure AD 테넌트 전체 구성**
 

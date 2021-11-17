@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/25/2021
 ms.author: tisande
-ms.openlocfilehash: ed60ce6586947f59d9a6c32b08f1c50082db5077
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f10208e83c9c7f23600285444d22ed5b5faf2488
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056711"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551979"
 ---
 # <a name="indexing-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭 인덱싱
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -77,9 +77,9 @@ Index Utilization Information
 
 ## <a name="potential-indexed-paths"></a>잠재적 인덱싱된 경로
 
-잠재적인 단일 인덱스와 활용된 복합 인덱스는 각각 쿼리가 활용할 수 있는 포함된 경로 및 복합 인덱스를 표시합니다. 잠재적인 인덱싱된 경로가 표시되면 인덱싱 정책에 해당 경로를 추가하고 쿼리 성능이 향상되는지 확인해야 합니다.
+잠재적인 단일 인덱스와 활용된 복합 인덱스는 각각 쿼리가 활용할 수 있는 포함된 경로 및 복합 인덱스를 표시합니다. 잠재적인 인덱싱된 경로가 표시되면 인덱싱 정책에 추가하여 쿼리 성능이 향상되는지 확인해야 합니다.
 
-잠재적인 인덱싱된 경로 목록을 쿼리가 특정 인덱싱된 경로를 사용한다는 결정적인 증거 대신 권장 사항으로 간주합니다. 잠재적 인덱싱된 경로는 쿼리에서 사용할 수 있는 인덱싱된 경로의 전체 목록이 아닙니다. 또한 일부 잠재적인 인덱싱된 경로는 쿼리 성능에 영향을 주지 않을 수 있습니다. [권장되는 인덱싱된 경로를 추가하고](how-to-manage-indexing-policy.md) 쿼리 성능을 향상시키는지 확인합니다.
+잠재적인 인덱싱된 경로 목록을 쿼리가 특정 인덱싱된 경로를 사용한다는 결정적인 증거 대신 권장 사항으로 간주합니다. 잠재적인 인덱싱된 경로는 쿼리에서 사용할 수 있는 인덱싱된 경로의 전체 목록이 아닙니다. 또한 일부 잠재적인 인덱싱된 경로가 쿼리 성능에 영향을 주지 않을 수 있습니다. [권장되는 인덱싱된 경로를 추가하고](how-to-manage-indexing-policy.md) 쿼리 성능을 향상시키는지 확인합니다.
 
 > [!NOTE]
 > 인덱싱 메트릭에 대한 피드백이 있나요? 많은 의견 부탁드립니다. 언제든지 자유롭게 Azure Cosmos DB 엔지니어링 팀(cosmosdbindexing@microsoft.com)과 피드백을 직접 공유해 주세요.
@@ -137,7 +137,7 @@ Index Utilization Information
     Index Impact Score: High
     ---
 ```
-이러한 인덱스 메트릭은 쿼리가 인덱싱된 경로 , , 및 을 사용한다는 것을 보여 주는 `/name/?` `/age/?` `/town/?` `/timestamp/?` 것입니다. 또한 인덱스 메트릭은 복합 인덱스( `/name` ASC)를 `(/town ASC, /age ASC)` 추가하면 성능이 더욱 향상될 가능성이 높음을 `(/name ASC, /town ASC, /timestamp ASC)` 나타냅니다.
+이러한 인덱스 메트릭은 쿼리가 인덱싱된 경로 , , 및 을 사용한다는 것을 보여 주는 `/name/?` `/age/?` `/town/?` `/timestamp/?` 것입니다. 또한 인덱스 메트릭은 복합 인덱스를 추가할 가능성이 `(/name ASC, /town ASC, /age ASC)` 높고 성능이 향상될 가능성이 높음을 `(/name ASC, /town ASC, /timestamp ASC)` 나타냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

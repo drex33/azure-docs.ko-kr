@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 987857c4534ddbef90ef3eca5f73f554db0c4341
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: c9a81c052f44afbb2049442f09e34a0e6bc588f9
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777719"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054774"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -797,6 +797,13 @@ Durable Functions 요금은 Azure Functions와 동일하게 청구됩니다. 자
 * [Visual Studio Code를 사용하는 PowerShell](quickstart-powershell-vscode.md)
 
 이러한 빠른 시작에서는 "hello world" 지속성 함수를 로컬에서 만들고 테스트합니다. 그런 후 함수 코드를 Azure에 게시합니다. 생성한 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다.
+
+## <a name="publications"></a>게시
+
+Durable Functions는 Microsoft Research와 공동으로 개발되었습니다. 결과적으로 Durable Functions 팀에서 연구 논문과 아티팩트를 적극적으로 생성합니다. 여기에는 다음이 포함되었습니다.
+
+* [Durable Functions: 상태 저장 서버리스의 의미 체계](https://www.microsoft.com/en-us/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) _(OOPSLA'21)_
+* [Durable Functions 및 Netherite가 포함된 서버리스 워크플로](https://arxiv.org/pdf/2103.00033.pdf) _(사전 인쇄)_
 
 ## <a name="learn-more"></a>자세한 정보
 

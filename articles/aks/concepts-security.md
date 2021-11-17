@@ -2,39 +2,55 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 보안
 description: 마스터 및 노드 통신, 네트워크 정책 및 Kubernetes 비밀을 비롯한 AKS(Azure Kubernetes Service)의 보안에 대해 알아봅니다.
 services: container-service
-author: georgewallace
+author: miwithro
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.author: gwallace
-ms.openlocfilehash: 8fb1e35055bae35fa850bec638f07877e6d75cb3
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.date: 11/11/2021
+ms.author: miwithro
+ms.openlocfilehash: b29d7f245ce809745665bbeb4ea5cb858014e23b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132058640"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490765"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
-클러스터 보안은 AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행할 때 고객 데이터를 보호합니다. 
+컨테이너 보안은 전체 엔드투엔드 파이프라인을 빌드에서 AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션 워크로드로 보호합니다.
 
-Kubernetes에는 ‘네트워크 정책’ 및 ‘비밀’과 같은 보안 구성 요소가 포함됩니다.  한편, Azure에는 네트워크 보안 그룹 및 오케스트레이션된 클러스터 업그레이드와 같은 구성 요소가 포함됩니다. AKS는 이러한 보안 구성 요소를 결합하여 다음을 수행합니다.
+보안 공급망에는 빌드 환경 및 레지스트리가 포함됩니다.
+
+Kubernetes에는 *Pod 보안 표준* 및 비밀과 같은 보안 구성 요소가 포함되어 *있습니다.* 한편 Azure에는 Active Directory, Microsoft Defender for Cloud, Azure Policy, Azure Key Vault, 네트워크 보안 그룹 및 오케스트레이션된 클러스터 업그레이드와 같은 구성 요소가 포함되어 있습니다. AKS는 이러한 보안 구성 요소를 결합하여 다음을 수행합니다.
+* 완전한 인증 및 권한 부여 스토리를 제공합니다.
+* AKS 기본 제공 Azure Policy 활용하여 애플리케이션을 보호합니다.
+* Microsoft Defender for Containers를 사용하여 애플리케이션을 통해 빌드한 엔드 투 엔드 인사이트입니다.
 * AKS 클러스터에서 최신 OS 보안 업데이트 및 Kubernetes 릴리스를 실행하도록 합니다.
 * 보안 Pod 트래픽 및 중요한 자격 증명에 대한 액세스 권한을 제공합니다.
 
 이 문서에서는 AKS에서 애플리케이션을 보호하는 핵심 개념을 소개합니다.
 
 - [AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
-  - [마스터 보안](#master-security)
+  - [보안 빌드](#build-security)
+  - [레지스트리 보안](#registry-security)
+  - [클러스터 보안](#cluster-security)
   - [노드 보안](#node-security)
     - [컴퓨팅 격리](#compute-isolation)
   - [클러스터 업그레이드](#cluster-upgrades)
     - [차단 및 드레이닝](#cordon-and-drain)
   - [네트워크 보안](#network-security)
     - [Azure 네트워크 보안 그룹](#azure-network-security-groups)
+  - [애플리케이션 보안](#application-security)
   - [Kubernetes 비밀](#kubernetes-secrets)
   - [다음 단계](#next-steps)
 
-## <a name="master-security"></a>마스터 보안
+## <a name="build-security"></a>보안 빌드
+
+공급망의 진입점으로, 파이프라인 아래로 승격되기 전에 이미지 빌드의 정적 분석을 수행하는 것이 중요합니다. 여기에는 취약성 및 규정 준수 평가가 포함됩니다.  높은 취약성이 있기 때문에 빌드를 실패하는 것은 아닙니다. 개발이 중단되므로 개발 팀에서 실행 가능한 취약성에 따라 "공급업체 상태"를 분할하는 것입니다.  또한 "유예 기간"을 활용하여 개발자가 식별된 문제를 수정할 시간을 허용합니다. 
+
+## <a name="registry-security"></a>레지스트리 보안
+
+레지스트리에서 이미지의 취약성 상태를 평가하면 드리프트가 감지되고 빌드 환경에서 들어오지 않은 이미지도 catch됩니다. [Notary V2를](https://github.com/notaryproject/notaryproject) 사용하여 이미지에 서명을 연결하여 배포가 신뢰할 수 있는 위치에서 제공되도록 합니다.
+
+## <a name="cluster-security"></a>클러스터 보안
 
 AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하고 관리하며 유지하는 관리형 서비스의 일부입니다. 각 AKS 클러스터에는 API 서버, 스케줄러 등을 제공하는 고유한 단일 테넌트의 전용 Kubernetes 마스터가 있습니다.
 
@@ -117,6 +133,11 @@ AKS 클러스터에 고유한 서브넷을 제공하는 경우(Azure CNI 또는 
 
 클러스터의 Pod 간 네트워크 트래픽을 제한하기 위해 AKS는 [Kubernetes 네트워크 정책][network-policy]을 지원합니다. 네트워크 정책을 사용하면 네임스페이스 및 레이블 선택기에 따라 클러스터 내의 특정 네트워크 경로를 허용하거나 거부할 수 있습니다.
 
+## <a name="application-security"></a>애플리케이션 보안
+
+AKS에서 실행되는 Pod를 보호하려면 [Microsoft Defender for Kubernetes를][azure-defender-for-kubernetes] 활용하여 Pod에서 실행되는 애플리케이션에 대한 사이버 공격을 탐지하고 제한합니다.  지속적인 검사를 실행하여 애플리케이션의 취약성 상태에서 드리프트를 감지하고 "파란색/녹색/카나리아" 프로세스를 구현하여 취약한 이미지를 패치하고 대체합니다. 
+
+
 ## <a name="kubernetes-secrets"></a>Kubernetes 비밀
 
 Kubernetes ‘비밀’을 사용하여 액세스 자격 증명이나 키와 같은 중요한 데이터를 Pod에 삽입합니다. 
@@ -155,6 +176,7 @@ AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드]
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
+[azure-defender-for-kubernetes]: ../defender-for-cloud/container-security.md
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md

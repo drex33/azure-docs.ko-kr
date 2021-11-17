@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1d90ba4fa9d64bfec1fca62320e09ea53842d569
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 11b74530daa08112ca945edfa45595a3aa1cf1f4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536902"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491756"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -395,7 +395,68 @@ IoT Edge 서비스에 대해 모듈을 설정한 후 모듈이 성공적으로 �
 
 자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
-<!-- <1.2> -->
+## <a name="iot-edge-module-reports-connectivity-errors"></a>IoT Edge 모듈에서 연결 오류를 보고합니다.
+
+**관찰된 동작:**
+
+런타임 모듈을 포함하여 클라우드 서비스에 직접 연결하는 모듈을 IoT Edge 예상대로 작동하지 않고 연결 또는 네트워킹 오류와 관련된 오류를 반환합니다.
+
+**근본 원인:**
+
+컨테이너는 클라우드 서비스와 통신할 수 있도록 IP 패킷 전달을 사용하여 인터넷에 연결합니다. IP 패킷 전달은 Docker에서 기본적으로 사용하도록 설정되지만 사용하지 않도록 설정되면 클라우드 서비스에 연결하는 모든 모듈이 예상대로 작동하지 않습니다. 자세한 내용은 Docker 설명서의 [컨테이너 통신 이해를](http://docs.docker.oeynet.com/engine/userguide/networking/default_network/container-communication/) 참조하세요.
+
+**해결 방법:**
+
+다음 단계를 사용하여 IP 패킷 전달을 사용하도록 설정합니다.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
+
+Windows에서:
+
+1. 실행 애플리케이션을 **엽니다.**
+
+1. `regedit`텍스트 상자에 를 입력하고 **확인을** 선택합니다.
+
+1. 레지스트리 **편집기** 창에서 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters** 찾습니다.
+
+1. **IPEnableRouter 매개 변수를 찾습니다.**
+
+   1. 매개 변수가 있는 경우 매개 변수 값을 **1로** 설정합니다.
+
+   1. 매개 변수가 없는 경우 다음 설정을 통해 새 매개 변수로 추가합니다.
+
+      | 설정 | 값 |
+      | ------- | ----- |
+      | Name    | IPEnableRouter |
+      | 형식    | REG_DWORD |
+      | 값   | 1 |
+
+1. 레지스트리 편집기 창을 닫습니다.
+
+1. 시스템을 다시 시작하여 변경 내용을 적용합니다.
+
+Linux에서:
+:::moniker-end
+<!-- end -->
+
+1. **sysctl.conf** 파일을 엽니다.
+
+   ```bash
+   sudo nano /etc/sysctl.conf
+   ```
+
+1. 파일에 다음 줄을 추가합니다.
+
+   ```input
+   net.ipv4.ip_forward=1
+   ```
+
+1. 파일을 저장하고 닫습니다.
+
+1. 네트워크 서비스 및 Docker 서비스를 다시 시작하여 변경 내용을 적용합니다.
+
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>게이트웨이 뒤의 IoT Edge가 HTTP 요청을 수행하고 edgeAgent 모듈을 시작할 수 없음

@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3c094a40cd0150fe4134bf1352dfbe418346d63b
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: d4a2d90c797585ad025a9540045fe65dee385000
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577710"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493607"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -170,11 +170,14 @@ Get-AzAksVersion -Location eastus
 
 |  K8s 버전 | 업스트림 릴리스  | AKS 미리 보기  | AKS GA  | 수명 종료 |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.19  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA |
+| 1.19 *  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA |
 | 1.20  | 2020년 12월 8일  | 2021년 1월   | 2021년 3월  | 1.23 GA |
 | 1.21  | 2021년 4월 8일 | 2021년 5월   | 2021년 7월  | 1.24 GA |
 | 1.22  | 2021년 8월 4일 | 2021년 9월   | 11 월 2021  | 1.25 GA |
 | 1.23  | 2021년 12월 | 2022년 1월   | 2022년 2월  | 1.26 GA |
+
+> [!NOTE]
+> 1.19는 2022 년 1 월 말에 AKS에서 더 이상 사용 되지 않고 제거 됩니다.
 
 ## <a name="faq"></a>FAQ
 

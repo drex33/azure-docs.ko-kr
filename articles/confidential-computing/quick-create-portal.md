@@ -1,20 +1,20 @@
 ---
 title: 빠른 시작 - Azure Portal에서 Intel SGX VM 만들기
 description: Azure Portal에서 Intel SGX VM을 신속하게 만드는 방법을 학습하여 배포 시작
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: mode-portal, ignite-fall-2021
-ms.openlocfilehash: 51a91b6bb5ff5991ad2d92a41f7f70ef39c2a0c2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 68eec52333636c54ab9598d4823e4e794e50a3c4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131033282"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331949"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Intel SGX VM 만들기
 
@@ -140,9 +140,9 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 ## <a name="install-azure-dcap-client"></a>Azure DCAP 클라이언트 설치
 
 > [!NOTE]
-> THIM(신뢰할 수 있는 하드웨어 ID 관리)은 다양한 TEE(신뢰 실행 환경)의 하드웨어 ID를 관리하는 데 도움이 되는 무료 Azure 서비스입니다. Intel PCS(프로비저닝 인증 서비스)에서 참고 자료를 가져와서 캐시합니다. 이 서비스는 증명 목적으로 최소 TCB(신뢰할 수 있는 컴퓨팅 기준) 수준을 Azure 보안 기준으로 적용합니다.
+> THIM(신뢰할 수 있는 하드웨어 ID 관리)은 다양한 TEE(신뢰 실행 환경)의 하드웨어 ID를 관리하는 데 도움이 되는 무료 Azure 서비스입니다. Intel PCS(프로비저닝 인증 서비스)에서 참고 자료를 가져와서 캐시합니다. 이 서비스는 증명 목적으로 최소 TCB(신뢰할 수 있는 컴퓨팅 기준) 수준을 Azure 보안 기준으로 적용합니다. DCsv3 및 DCdsv3 시리즈 Azure VM의 경우 Intel 인증서는 VM에서 Intel 서비스를 직접 호출할 수 없기 때문에 THIM에서 가져올 수만 있습니다. 
 
-DCsv2, DCsv3 및 DCdsv3 시리즈 Azure VM 사용자는 증명 프로세스 중에 THIM과 상호 작용하고 따옴표 생성을 위해 TEE 참고 자료를 가져오도록 Azure DCAP 클라이언트를 설치하는 것이 좋습니다. 증명에 대한 자세한 내용은 [Microsoft Azure Attestation](/azure/attestation/overview) 또는 [ECDSA Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html)을 참조하세요.
+Intel® Xeon 확장 가능한 프로세서 릴리스에서는 원격 증명 지원이 변경됩니다. DCsv3 및 DCdsv3는 [ECDSA 기반 증명](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html)만 지원하며 사용자는 증명 프로세스 중에 THIM과 상호 작용하고 인용문 생성을 위해 TEE 참고 자료를 가져오도록 [Azure DCAP](https://github.com/Microsoft/Azure-DCAP-Client) 클라이언트를 설치하는 것이 좋습니다. DCsv2는 [EPID 기반 증명](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html)을 계속 지원합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -158,3 +158,6 @@ GitHub의 Open Enclave SDK 샘플로 계속 진행하여 기밀 컴퓨팅 애플
 
 > [!div class="nextstepaction"]
 > [Open Enclave SDK 샘플 빌드](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
+
+Microsoft Azure 증명은 여러 TEE의 신뢰성과 내부에서 실행되는 이진의 무결성을 원격으로 확인하기 위한 ECDSA 기반의 무료 증명 프레임워크입니다. [자세히](/azure/attestation/overview) 알아보세요.
+

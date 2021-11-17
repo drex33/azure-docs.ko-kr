@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 온-프레미스 또는 Micros
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e832da335453151ee60a458cb259d4add15d6e1d
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
-ms.translationtype: HT
+ms.openlocfilehash: a2052b4b4d5822d583101d27e873bf19ceeca49c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228178"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486127"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure Application Insights에서 종속성 추적 
 
@@ -216,7 +216,7 @@ dependencies
 Log Analytics 쿼리 뷰 `timestamp`에서는 종속성 호출 응답이 수신된 직후에 발생하는 TrackDependency() 호출이 시작된 순간을 나타냅니다. 종속성 호출이 시작된 시간을 계산하려면 `timestamp`에서 종속성 호출의 기록된 `duration`을 뺍니다.
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
-모든 Application Insights SDK와 마찬가지로 종속성 컬렉션 모듈 또한 오픈 소스입니다. [공식 GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-dotnet-server)에서 코드를 읽고 참여하거나 문제를 보고합니다.
+모든 Application Insights SDK와 마찬가지로 종속성 컬렉션 모듈 또한 오픈 소스입니다. [공식 GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-dotnet)에서 코드를 읽고 참여하거나 문제를 보고합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 06/14/2021
+ms.date: 10/27/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4
-ms.openlocfilehash: c608856e6238844638e63c3a719b3d534b98d33b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 966f30306189e82f29e2be3baf742f21ffd688c4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615323"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451727"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -119,7 +119,7 @@ _리디렉션 URI_ 는 Microsoft ID 플랫폼에서 사용자의 클라이언트
 _퍼블릭 키_ 라고도 하는 인증서는 클라이언트 암호보다 더 안전한 것으로 간주되기 때문에 권장되는 자격 증명 유형입니다. 애플리케이션에서 인증 방법으로 인증서를 사용하는 방법에 대한 자세한 내용은 [Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.
 
 1. Azure Portal의 **앱 등록** 에서 애플리케이션을 선택합니다.
-1. **인증서 및 비밀** > **인증서 업로드** 를 차례로 선택합니다.
+1. **인증서 및 비밀** > **인증서** > **인증서 업로드** 를 선택합니다.
 1. 업로드하려는 파일을 선택합니다. _.cer_, _.pem_, _.crt_ 파일 형식 중 하나여야 합니다.
 1. **추가** 를 선택합니다.
 
@@ -130,7 +130,7 @@ _애플리케이션 암호_ 라고도 하는 클라이언트 암호는 앱에서
 클라이언트 암호는 인증서 자격 증명보다 덜 안전한 것으로 간주됩니다. 애플리케이션 개발자는 사용 편리성 때문에 로컬 앱 개발 중에 클라이언트 암호를 사용하기도 합니다. 그러나 프로덕션 환경에서는 실행 중인 모든 애플리케이션에 대해 인증서 자격 증명을 사용해야 합니다.
 
 1. Azure Portal의 **앱 등록** 에서 애플리케이션을 선택합니다.
-1. **인증서 및 비밀** > **새 클라이언트 암호** 를 차례로 선택합니다.
+1. **인증서 및 비밀** > **클라이언트 암호** > **새 클라이언트 암호** 를 선택합니다.
 1. 클라이언트 비밀에 대한 설명을 추가합니다.
 1. 암호에 대해 만료를 선택하거나 사용자 지정 수명을 지정합니다.
     - 클라이언트 암호 수명은 2년(24개월) 이하로 제한됩니다. 사용자 지정 수명은 24개월 이상으로 지정할 수 없습니다.

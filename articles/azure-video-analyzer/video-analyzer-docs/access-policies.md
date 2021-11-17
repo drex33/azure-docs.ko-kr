@@ -3,12 +3,12 @@ title: Azure Video Analyzer 액세스 정책
 description: 이 문서에서는 Azure Video Analyzer가 액세스 정책에서 JWT 토큰을 사용하여 비디오를 보호하는 방법을 설명합니다.
 ms.topic: reference
 ms.date: 11/04/2021
-ms.openlocfilehash: a6a1a455c1c105d9deaabbe6a3d57eef3398ed51
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 9d9a0f4db83d132fae5bafb2a25d25075296b4ad
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563685"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486133"
 ---
 # <a name="access-policies"></a>액세스 정책
 
@@ -132,36 +132,36 @@ RSA 및 ECC 형식이라는 두 가지 유형의 키가 지원됩니다.
 
 ## <a name="creating-a-token"></a>토큰 만들기
 
-이 섹션에서는이 문서의 뒷부분에서 사용할 JWT 토큰을 만듭니다.  JWT 토큰을 생성하는 샘플 애플리케이션을 사용하고 액세스 정책을 만드는 데 필요한 모든 필드를 제공합니다.
+이 섹션에서는 문서의 후반부에서 사용할 JWT 토큰을 만듭니다.  JWT 토큰을 생성하는 샘플 애플리케이션을 사용하고 액세스 정책을 만드는 데 필요한 모든 필드를 제공합니다.
 
 > [!NOTE] 
-> RSA 또는 ECC 인증서를 기반으로 JWT 토큰을 생성 하는 방법을 잘 알고 있는 경우이 섹션을 건너뛸 수 있습니다.
+> RSA 또는 ECC 인증서를 기반으로 JWT 토큰을 생성하는 방법을 잘 알고 있는 경우 이 섹션을 건너뛸 수 있습니다.
 
-1. [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)를 복제합니다. 그런 다음 JWTTokenIssuer 응용 프로그램 폴더 *src/jwt-* JWTTokenIssuer로 이동 하 여 응용 프로그램을 찾습니다.
+1. [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)를 복제합니다. 그런 다음, JWTTokenIssuer 애플리케이션 폴더 *src/jwt-token-issuer로* 이동하여 JWTTokenIssuer 애플리케이션을 찾습니다.
 2. Visual Studio Code를 연 다음 JWTTokenIssuer 애플리케이션을 다운로드한 폴더로 이동합니다. 이 폴더에는 *\*.csproj* 파일이 있어야 합니다.
 3. 탐색기 창에서 *program.cs* 파일로 이동합니다.
-4. 77 줄에서 대상 그룹을 Video Analyzer 끝점으로 변경 하 고/videos/를 입력 합니다 \* . 그러면 다음과 같이 표시 됩니다.
+4. 77줄에서 대상을 Video Analyzer 엔드포인트로 변경한 후 /videos/ \* 를 하여 다음과 같이 보입니다.
 
    ```
    https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
    ```
 
    > [!NOTE] 
-   > 비디오 분석기 끝점은 Azure Portal 비디오 분석기 리소스의 개요 섹션에서 찾을 수 있습니다.
+   > Video Analyzer 엔드포인트는 Azure Portal Video Analyzer 리소스의 개요 섹션에서 찾을 수 있습니다.
 
    :::image type="content" source="media/player-widget/client-api-url.png" alt-text="플레이어 위젯 엔드포인트를 보여 주는 스크린샷.":::
     
-5. 78 줄에서 발급자를 인증서의 발급자 값으로 변경 합니다. 예: `https://contoso.com`
+5. 78줄에서 발급자 값을 인증서의 발급자 값으로 변경합니다. 예: `https://contoso.com`
 6. 파일을 저장합니다.    
 
    > [!NOTE]
-   > Select 라는 메시지가 표시 될 수 있습니다 `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` `Yes` .
+   > 선택 메시지가 표시될 수 `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` `Yes` 있습니다.
    
    :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Visual Studio Code의 필수 자산 프롬프트를 보여 주는 스크린샷.":::
    
-7. 명령 프롬프트 창을 열고 JWTTokenIssuer 파일이 있는 폴더로 이동 합니다. 두 명령 `dotnet build` 다음에 `dotnet run`을 실행합니다. Visual Studio Code에 C# 확장이 있는 경우 F5를 선택하여 JWTTokenIssuer 애플리케이션을 실행할 수도 있습니다.
+7. 명령 프롬프트 창을 열고 JWTTokenIssuer 파일이 있는 폴더로 이동합니다. 두 명령 `dotnet build` 다음에 `dotnet run`을 실행합니다. Visual Studio Code에 C# 확장이 있는 경우 F5를 선택하여 JWTTokenIssuer 애플리케이션을 실행할 수도 있습니다.
 
-응용 프로그램이 빌드되고 실행 됩니다. 빌드 후 자체 서명된 인증서를 만들고 해당 인증서에서 JWT 토큰 정보를 만듭니다. JWTTokenIssuer이 빌드된 디렉터리의 debug 폴더에 있는 JWTTokenIssuer.exe 파일을 실행할 수도 있습니다. 애플리케이션을 실행하는 이점은 다음과 같이 입력 옵션을 지정할 수 있다는 것입니다.
+애플리케이션이 빌드된 다음 실행됩니다. 빌드 후 자체 서명된 인증서를 만들고 해당 인증서에서 JWT 토큰 정보를 만듭니다. 또한 JWTTokenIssuer가 빌드된 디렉터리의 debug 폴더에 있는 JWTTokenIssuer.exe 파일을 실행할 수도 있습니다. 애플리케이션을 실행하는 이점은 다음과 같이 입력 옵션을 지정할 수 있다는 것입니다.
 
 - `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
 

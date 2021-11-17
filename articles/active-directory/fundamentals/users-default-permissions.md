@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45d03495d0866674352de35c337303a92ff3263b
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 1aa931198c380fe020e4b71ff82cc908aa3adba8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835190"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248833"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 유형, [역할 할당](active-directory-users-assign-role-azure-portal.md) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 
 ## <a name="compare-member-and-guest-default-permissions"></a>멤버 및 게스트 기본 권한 비교
 
-**영역** | **멤버 사용자 권한** | **기본 게스트 사용자 권한** | **제한된 게스트 사용자 권한(미리 보기)**
+**영역** | **멤버 사용자 권한** | **기본 게스트 사용자 권한** | **제한된 게스트 사용자 권한**
 ------------ | --------- | ---------- | ----------
 사용자 및 연락처 | <ul><li>모든 사용자 및 연락처 목록 열거<li>사용자 및 연락처의 모든 공용 속성 읽기</li><li>게스트 초대<li>자신의 암호 변경<li>휴대전화 번호 관리<li>자신의 사진 관리<li>자신의 새로 고침 토큰 무효화</li></ul> | <ul><li>자신의 속성 읽기<li>표시 이름, 이메일, 로그인 이름, 사진, 사용자 계정 이름 및 다른 사용자 및 연락처의 사용자 형식 속성 읽기<li>자신의 암호 변경<li>ObjectId별로 다른 사용자 검색(허용된 경우)<li>다른 사용자의 관리자 및 직접 보고서 정보 읽기</li></ul> | <ul><li>자신의 속성 읽기<li>자신의 암호 변경</li><li>휴대전화 번호 관리</li></ul>
 그룹 | <ul><li>보안 그룹 만들기<li>Microsoft 365 그룹 만들기<li>모든 그룹 목록 열거<li>모든 그룹 속성 읽기<li>숨겨지지 않은 그룹 멤버 자격 읽기<li>조인된 그룹의 숨겨진 Microsoft 365의 그룹 멤버 자격 읽기<li>사용자가 소유한 그룹의 속성, 소유권 및 멤버 자격 관리<li>게스트를 소유 그룹에 추가<li>동적 멤버 자격 설정 관리<li>소유 그룹 삭제<li>소유한 Microsoft 365 그룹 복원</li></ul> | <ul><li>멤버 자격 및 소유권(조인되지 않은 그룹도 포함)을 포함하여 숨겨지지 않은 그룹의 속성을 읽기<li>조인된 그룹의 숨겨진 Microsoft 365 그룹 멤버 자격 읽기<li>표시 이름 또는 ObjectId를 기준으로 그룹 검색(허용되는 경우)</li></ul> | <ul><li>조인된 그룹의 개체 ID 읽기<li>일부 Microsoft 365 앱에서 조인된 그룹의 멤버 자격 및 소유권 읽기(허용된 경우)</li></ul>
@@ -64,11 +64,11 @@ Azure AD 관리 포털에 대한 액세스 제한 | <p>이 옵션을 아니요�
 게스트 사용자의 기본 권한은 다음 방식으로 제한할 수 있습니다.
 
 >[!NOTE]
->게스트 사용자 액세스 제한 설정이 **게스트 사용자 권한이 제한됨** 설정을 대체했습니다. 이 기능을 사용하는 방법에 대한 지침은 [Azure Active Directory의 게스트 사용자 액세스 제한(미리 보기)](../enterprise-users/users-restrict-guest-permissions.md)을 참조하세요.
+>게스트 사용자 액세스 제한 설정이 **게스트 사용자 권한이 제한됨** 설정을 대체했습니다. 이 기능을 사용하는 방법에 대한 지침은 [Azure Active Directory의 게스트 사용자 액세스 제한](../enterprise-users/users-restrict-guest-permissions.md)을 참조하세요.
 
 사용 권한 | 설정 설명
 ---------- | ------------
-게스트 사용자 액세스 제한(미리 보기) | 이 옵션을 **게스트 사용자가 멤버와 동일한 액세스를 보유합니다** 로 설정하면 기본적으로 모든 멤버 사용자 권한을 게스트 사용자에게 부여합니다.<p>이 옵션을 **게스트 사용자 액세스가 자신의 디렉터리 개체의 속성 및 구성원 자격으로 제한됩니다** 로 설정하면 기본적으로 게스트 액세스가 자신의 사용자 프로필로만 제한됩니다. 사용자 계정 이름, ObjectId 또는 표시 이름으로 검색하는 경우에도 다른 사용자에 대한 액세스는 더 이상 허용되지 않습니다. 그룹 멤버 자격을 비롯한 그룹 정보에 대한 액세스도 더 이상 허용되지 않습니다.<p>**참고**: 이 설정은 Microsoft Teams와 같은 일부 Microsoft 365 서비스에서 조인된 그룹에 대한 액세스를 차단하지 않습니다. 자세한 내용은 [Microsoft Teams 게스트 액세스](/MicrosoftTeams/guest-access)를 참조하세요.<p>이 권한 설정과 무관하게 게스트 사용자를 관리자 역할에 계속 추가할 수 있습니다.
+게스트 사용자 액세스 제한 | 이 옵션을 **게스트 사용자가 멤버와 동일한 액세스를 보유합니다** 로 설정하면 기본적으로 모든 멤버 사용자 권한을 게스트 사용자에게 부여합니다.<p>이 옵션을 **게스트 사용자 액세스가 자신의 디렉터리 개체의 속성 및 구성원 자격으로 제한됩니다** 로 설정하면 기본적으로 게스트 액세스가 자신의 사용자 프로필로만 제한됩니다. 사용자 계정 이름, ObjectId 또는 표시 이름으로 검색하는 경우에도 다른 사용자에 대한 액세스는 더 이상 허용되지 않습니다. 그룹 멤버 자격을 비롯한 그룹 정보에 대한 액세스도 더 이상 허용되지 않습니다.<p>**참고**: 이 설정은 Microsoft Teams와 같은 일부 Microsoft 365 서비스에서 조인된 그룹에 대한 액세스를 차단하지 않습니다. 자세한 내용은 [Microsoft Teams 게스트 액세스](/MicrosoftTeams/guest-access)를 참조하세요.<p>이 권한 설정과 무관하게 게스트 사용자를 관리자 역할에 계속 추가할 수 있습니다.
 게스트가 초대할 수 있음 | 이 옵션을 예로 설정하면 게스트가 다른 게스트를 초대할 수 있습니다. 자세한 내용은 [B2B 협업에 대한 초대 위임](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings)을 참조하세요.
 구성원이 초대할 수 있음 | 이 옵션을 예로 설정하면 디렉터리의 관리자가 아닌 멤버가 게스트를 초대할 수 있습니다. 자세한 내용은 [B2B 협업에 대한 초대 위임](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings)을 참조하세요.
 관리자 및 게스트 초대자 역할의 사용자가 초대할 수 있음 | 이 옵션을 예로 설정하면 관리자와 "게스트 초대자" 역할의 사용자가 게스트를 초대할 수 있습니다. 예로 설정된 경우, 게스트 초대자 역할의 사용자는 구성원이 초대할 수 있음 설정과 무관하게 게스트를 초대할 수 있습니다. 자세한 내용은 [B2B 협업에 대한 초대 위임](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user)을 참조하세요.
@@ -149,7 +149,7 @@ Azure AD 관리 포털에 대한 액세스 제한 | <p>이 옵션을 아니요�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 게스트 사용자 액세스 제한 설정에 대한 자세한 내용은 [Azure Active Directory에서 게스트 액세스 권한 제한(미리 보기)](../enterprise-users/users-restrict-guest-permissions.md)을 참조하세요.
+* 게스트 사용자 액세스 제한 설정에 대한 자세한 내용은 [Azure Active Directory에서 게스트 액세스 권한 제한](../enterprise-users/users-restrict-guest-permissions.md)을 참조하세요.
 * Azure AD 관리자 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md) 참조
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)

@@ -1,41 +1,41 @@
 ---
 title: 에이전트 없는 솔루션 아키텍처란
-description: Azure Defender for IoT 에이전트 없는 아키텍처 및 정보 흐름에 대해 알아봅니다.
+description: Microsoft Defender for IoT 에이전트 없는 아키텍처 및 정보 흐름에 대해 알아봅니다.
 ms.topic: overview
-ms.date: 07/19/2021
-ms.openlocfilehash: cec373f3848e264b7c9f4b9753315189da77bc0b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 11/09/2021
+ms.openlocfilehash: 9a3a125ea91ccb9649a4bfc70555885b87d59e65
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114455231"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318924"
 ---
-# <a name="azure-defender-for-iot-architecture"></a>Azure Defender for IoT 아키텍처
+# <a name="microsoft-defender-for-iot-architecture"></a>Microsoft Defender for IoT 아키텍처
 
-이 문서에서는 Defender for IoT 에이전트 없는 솔루션의 기능적 시스템 아키텍처를 설명합니다. Azure Defender for IoT는 사용자 환경의 요구 사항에 맞는 두 가지 기능 세트, 조직을 위한 에이전트 없는 솔루션 및 디바이스 빌더를 위한 에이전트 기반 솔루션을 제공합니다.
+이 문서에서는 Defender for IoT 에이전트 없는 솔루션의 기능적 시스템 아키텍처를 설명합니다. Microsoft Defender for IoT는 사용자 환경의 요구 사항에 맞는 두 가지 기능 세트, 조직을 위한 에이전트 없는 솔루션 및 디바이스 빌더를 위한 에이전트 기반 솔루션을 제공합니다.
 
 ## <a name="agentless-solution-architecture-for-organizations"></a>조직을 위한 에이전트 없는 솔루션 아키텍처
 ### <a name="defender-for-iot-components"></a>Defender for IoT 구성 요소
 
 Defender for IoT는 Azure 클라우드와 온-프레미스 구성 요소에 모두 연결됩니다. 이 솔루션은 여러 원격 위치가 포함된 방대하고 지리적으로 분산된 환경에서 우수한 확장성을 제공하도록 설계되었습니다. 이 솔루션을 사용하면 국가, 지역, 사업부 또는 영역별로 다중 계층 분산 아키텍처를 구현할 수 있습니다. 
 
-Azure Defender for IoT에는 다음과 같은 구성 요소가 포함되어 있습니다. 
+Microsoft Defender for IoT에는 다음과 같은 구성 요소가 포함되어 있습니다. 
 
 **클라우드 연결 배포**
 
-- Azure Defender for IoT 센서 VM 또는 어플라이언스
-- 클라우드를 관리하고 Azure Sentinel에 통합하는 데 사용되는 Azure Portal
+- Microsoft Defender for IoT 센서 VM 또는 어플라이언스
+- 클라우드를 관리하고 Microsoft Sentinel에 통합하는 데 사용되는 Azure Portal
 - 로컬 사이트 관리용 온-프레미스 관리 콘솔
 - 포함된 보안 에이전트(옵션)
 
 **에어-갭(오프라인) 배포**
 
-- Azure Defender for IoT 센서 VM 또는 어플라이언스
+- Microsoft Defender for IoT 센서 VM 또는 어플라이언스
 - 로컬 사이트 관리용 온-프레미스 관리 콘솔
 
 :::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="Defender for IoT 아키텍처":::
 
-### <a name="azure-defender-for-iot-sensors"></a>Azure Defender for IoT 센서
+### <a name="microsoft-defender-for-iot-sensors"></a>Microsoft Defender for IoT 센서
 
 Defender for IoT 센서는 네트워크 디바이스를 검색하고 지속적으로 모니터링합니다. 이 센서는 IoT 및 OT 디바이스에서 수동(에이전트 없는) 모니터링을 사용하여 ICS 네트워크 트래픽을 수집합니다. 
  
@@ -65,7 +65,7 @@ Defender for IoT 센서는 SPAN 포트 또는 네트워크 TAP에 연결하고 I
 운영 인시던트 검색 엔진은 장비 오류의 초기 신호를 나타낼 수 있는 간헐적 연결과 같은 운영 문제를 검색합니다. 디바이스 연결이 끊어지고(응답하지 않음) Siemens S7 stop PLC 명령이 경고를 보낸 상황을 예로 들 수 있습니다.
 
 ### <a name="management-consoles"></a>관리 콘솔
-하이브리드 환경에서 Azure Defender for IoT를 관리하는 작업은 다음 두 가지 관리 포털을 통해 수행됩니다. 
+하이브리드 환경에서 Microsoft Defender for IoT를 관리하는 작업은 다음 두 가지 관리 포털을 통해 수행됩니다. 
 - 센서 콘솔
 - 온-프레미스 관리 콘솔
 - Azure Portal
@@ -96,7 +96,7 @@ SOC 워크플로 및 Runbook과 긴밀하게 통합되어 있어서 위협 완�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure의 Defender for IoT 포털은 다음과 같은 용도에 사용됩니다.
+Azure의 Azure Portal에 있는 Defender for IoT는 다음을 지원하는 데 사용됩니다.
 
 - 솔루션 어플라이언스 구매
 

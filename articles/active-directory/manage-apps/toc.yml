@@ -142,7 +142,7 @@
           href: datawiza-with-azure-ad.md
         - name: F5
           items:
-            - name: F5 및 Azure AD 통합
+            - name: F5 BIG-IP 및 Azure AD 통합
               href: f5-aad-integration.md
             - name: Azure IaaS에 F5 BIG-IP VE 배포
               href: f5-bigip-deployment-guide.md
@@ -150,6 +150,8 @@
               href: f5-aad-password-less-vpn.md
             - name: 양식 기반 인증 SSO용 Azure AD를 사용하는 F5 BIG-IP
               href: f5-big-ip-forms-advanced.md
+            - name: 헤더 기반 인증을 위한 Azure AD SSO를 사용하는 F5 BIG-IP
+              href: f5-big-ip-header-advanced.md
         - name: Silverfort
           href: silverfort-azure-ad-integration.md
     - name: Single Sign-On

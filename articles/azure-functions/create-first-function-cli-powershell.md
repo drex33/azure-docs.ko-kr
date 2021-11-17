@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
 - devx-track-azurepowershell
-ms.openlocfilehash: 1c22003dde88e5b7b6142520c9f9d4551a65a6fb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2b39b1214454d630079cb8e87bfb366c9d2c8685
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048763"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026557"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 PowerShell 함수 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "131048763"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 4.x
 
 + 다음 도구 중 하나를 통해 Azure 리소스를 만듭니다.
 
@@ -46,7 +46,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `az --version`을 실행하여 Azure CLI 버전이 2.4 이상인지 확인합니다.
 
@@ -54,7 +54,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `(Get-Module -ListAvailable Az).Version`을 실행하고 버전 5.0 이상을 확인합니다.
 

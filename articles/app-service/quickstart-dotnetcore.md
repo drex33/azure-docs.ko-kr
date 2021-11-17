@@ -4,18 +4,18 @@ description: 첫 번째 ASP.NET 앱을 배포하여 Azure App Service에서 웹�
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-portal
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-ms.openlocfilehash: ad55a02639fc4bf4ce67c724200f46a4544c128a
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 2d30b39d641c69580e11589616212fbc35ff5f5d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132055260"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522729"
 ---
 <!-- NOTES:
 
@@ -54,7 +54,7 @@ target cross-platform with .NET 6.0.
 ### <a name="net-60"></a>[.NET 6.0](#tab/net60)
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet).
-- **ASP.NET 및 웹 개발** 워크로드가 있는 <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a>
+- **ASP.NET 및 웹 개발** 워크로드가 설치된 <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a>입니다.
 
 ### <a name="net-framework-48"></a>[.NET Framework 4.8](#tab/netframework48)
 

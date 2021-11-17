@@ -2,17 +2,15 @@
 title: Azure Automation 확장 기반 Hybrid Runbook Worker 문제 해결
 description: 이 문서에서는 Azure Automation 확장 기반 Hybrid Runbook Workers에서 발생하는 문제를 해결하고 해결하는 방법을 알려줍니다.
 services: automation
-author: mgoedtel
-ms.author: v-ssudhir
 ms.date: 09/28/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34cefa5929b2d77e3acffa1248647eef7a428e9e
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 3cdb8f63c16c9479d27bcb44147d78d1a8e4a7aa
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132400588"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489892"
 ---
 # <a name="troubleshoot-vm-extension-based-hybrid-runbook-worker-issues-in-automation"></a>Automation에서 VM 확장 기반 Hybrid Runbook Worker 문제 해결
 

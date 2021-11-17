@@ -205,6 +205,8 @@
           href: concept-data-ingestion.md
         - name: 데이터 처리
           href: concept-optimize-data-processing.md
+        - name: 스튜디오 네트워크 데이터 액세스
+          href: concept-network-data-access.md
     - name: 보안
       items:
         - name: 엔터프라이즈 보안 개요

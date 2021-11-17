@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/23/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 029571010d80aa6249d91f3d678e273cc5a44279
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 57ee46a9ba0283def1e1c2d3e2fb71bdf44ec08c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468009"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486371"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>디바이스에서 클라우드로 파일 업로드
 
@@ -52,7 +52,7 @@ IoT Central 애플리케이션에 대한 디바이스 파일 업로드를 사용
 
 ## <a name="upload-a-file-from-a-device"></a>디바이스에서 파일 업로드
 
-IoT Central은 IoT Hub의 파일 업로드 기능을 사용하여 디바이스에서 파일을 업로드할 수 있도록 합니다. 디바이스에서 파일을 업로드하는 방법을 보여 주는 샘플 코드는 [IoT Central 파일 업로드 디바이스 샘플](/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/)을 참조하세요.
+IoT Central은 IoT Hub의 파일 업로드 기능을 사용하여 디바이스에서 파일을 업로드할 수 있도록 합니다. 디바이스에서 파일을 업로드하는 방법을 보여 주는 샘플 코드는 [IoT Central 파일 업로드 디바이스 샘플](/samples/azure-samples/iot-central-file-upload-device/iotc-file-upload-device/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

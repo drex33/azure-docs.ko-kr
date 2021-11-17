@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 09/20/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da0d7c9812575ce6b957e70dbe4f8bc165f39315
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: 8f8a535f7c74e32e59918badbda7747f24a1756f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138732"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623991"
 ---
 # <a name="federation-with-samlws-fed-identity-providers-for-guest-users-preview"></a>게스트 사용자를 위한 SAML/WS-Fed ID 공급자와의 페더레이션(미리 보기)
 
@@ -59,29 +59,34 @@ SAML/WS-Fed IdP 페더레이션 게스트 사용자는 테넌트 정보가 포�
 
 테넌트 정보(예: `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`)를 포함하여 게스트 사용자에게 애플리케이션 또는 리소스에 대한 직접 링크를 제공할 수도 있습니다.
 
-## <a name="limitations"></a>제한 사항
+## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="dns-verified-domains-in-azure-ad"></a>Azure AD의 DNS 확인 도메인
-관리되지 않는(이메일 확인 또는 "바이럴") Azure AD 테넌트를 포함하여 Azure AD에서 DNS로 확인되지 않은 도메인과 SAML/WS-Fed IdP 페더레이션을 설정할 수 있습니다. 그러나 기본 Azure AD 관리형 도메인 기능을 위해 Azure AD 확인 도메인에 대한 SAML/WS-Fed IdP 페더레이션을 차단합니다. Azure AD에서 DNS로 확인된 도메인을 사용하여 SAML/WS-Fed IdP 페더레이션을 설정하려고 하면 Azure Portal 또는 PowerShell에 오류가 표시됩니다.
+### <a name="can-i-set-up-samlws-fed-idp-federation-with-azure-ad-verified-domains"></a>Azure AD 확인 도메인으로 SAML/WS-Fed IdP 페더레이션을 설정할 수 있나요?
+아니요, 기본 Azure AD 관리형 도메인 기능을 위해 Azure AD 확인 도메인에 대한 SAML/WS-Fed IdP 페더레이션을 차단합니다. Azure AD에서 DNS로 확인된 도메인을 사용하여 SAML/WS-Fed IdP 페더레이션을 설정하려고 하면 Azure Portal 또는 PowerShell에 오류가 표시됩니다.
 
-### <a name="signing-certificate-renewal"></a>서명 인증서 갱신
-IdP 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신합니다. 그러나 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
+### <a name="can-i-set-up-samlws-fed-idp-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>비관리형(메일 확인) 테넌트가 있는 도메인과의 SAML/WS-Fed IdP 페더레이션을 설정할 수 있나요? 
+예, 관리되지 않는(이메일 확인 또는 "바이럴") Azure AD 테넌트를 포함하여 Azure AD에서 DNS로 확인되지 않은 도메인으로 SAML/WS-Fed IdP 페더레이션을 설정할 수 있습니다. 이러한 테넌트는 사용자가 B2B 초대에 응하거나 현재 존재하지 않는 도메인을 사용하여 Azure AD에 대한 셀프 서비스 등록을 수행할 때 생성됩니다. 도메인이 확인되지 않고 테넌트에서 [관리자 인수](../enterprise-users/domains-admin-takeover.md)를 수행하지 않은 경우 해당 도메인과의 페더레이션을 설정할 수 있습니다.
 
-### <a name="limit-on-federation-relationships"></a>페더레이션 관계에 대한 제한
+### <a name="how-many-federation-relationships-can-i-create"></a>몇 개의 페더레이션 관계를 만들 수 있나요?
 현재 최대 1,000개의 페더레이션 관계가 지원됩니다. 이 제한에는 [내부 페더레이션](/powershell/module/msonline/set-msoldomainfederationsettings) 및 SAML/WS-Fed IdP 페더레이션이 모두 포함됩니다.
 
-### <a name="limit-on-multiple-domains"></a>여러 도메인에 대한 제한
+### <a name="can-i-set-up-federation-with-multiple-domains-from-the-same-tenant"></a>동일한 테넌트의 여러 도메인으로 페더레이션을 설정할 수 있나요?
 현재 동일한 테넌트의 여러 도메인과의 SAML/WS-Fed IdP 페더레이션을 지원하지 않습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
-### <a name="can-i-set-up-samlws-fed-idp-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>비관리형(메일 확인) 테넌트가 있는 도메인과의 SAML/WS-Fed IdP 페더레이션을 설정할 수 있나요? 
-예. 도메인이 확인되지 않고 테넌트에서 [관리자 인수](../enterprise-users/domains-admin-takeover.md)를 수행하지 않은 경우 해당 도메인과의 페더레이션을 설정할 수 있습니다. 사용자가 B2B 초대에 응하거나 현재 존재하지 않는 도메인을 사용하여 Azure AD에 대한 셀프 서비스 가입을 수행하는 경우 비관리형 또는 이메일 확인 테넌트가 만들어집니다. 이러한 도메인을 통해 SAML/WS-Fed IdP 페더레이션을 설정할 수 있습니다.
+### <a name="do-i-need-to-renew-the-signing-certificate-when-it-expires"></a>서명 인증서가 만료되면 갱신해야 하나요?
+IdP 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신합니다. 그러나 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
+
 ### <a name="if-samlws-fed-idp-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>SAML/WS-Fed IdP 페더레이션과 일회용 메일 암호 인증을 모두 사용하도록 설정하는 경우 우선으로 적용되는 방법은 무엇인가요?
 파트너 조직과의 SAML/WS-Fed IdP 페더레이션을 설정하는 경우 이 설정은 해당 조직의 새 게스트 사용자에 대한 일회용 메일 암호 인증보다 우선으로 적용됩니다. 게스트 사용자가 SAML/WS-Fed IdP 페더레이션을 설정하기 전에 일회용 암호 인증을 사용하여 초대에 응한 경우 일회용 암호 인증을 계속 사용합니다.
+
 ### <a name="does-samlws-fed-idp-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>SAML/WS-Fed IdP 페더레이션에서 부분적으로 동기화된 테넌트로 인한 로그인 문제를 해결하나요?
 아니요, 이 시나리오에서는 [일회용 이메일 암호](one-time-passcode.md) 기능을 사용해야 합니다. "부분적으로 동기화된 테넌트"는 온-프레미스 사용자 ID가 클라우드에 완전히 동기화되지 않은 파트너 Azure AD 테넌트를 나타냅니다. ID가 아직 클라우드에 없지만 B2B 초대에 응하려는 게스트는 로그인할 수 없습니다. 일회용 암호 기능을 사용하면 이 게스트가 로그인할 수 있습니다. SAML/WS-Fed IdP 페더레이션 기능은 게스트에 자신의 IdP 관리형 조직 계정이 있지만 조직에 Azure AD가 전혀 없는 시나리오를 해결합니다.
+
 ### <a name="once-samlws-fed-idp-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>조직에서 SAML/WS-Fed IdP 페더레이션을 구성하면 각 게스트를 보내고 개별 초대를 상환해야 하나요?
 SAML/WS-Fed IdP 페더레이션을 설정해도 이미 초대를 받은 게스트 사용자에 대한 인증 방법은 변경되지 않습니다. [해당 상환 상태를 재설정](reset-redemption-status.md)하여 게스트 사용자의 인증 방법을 업데이트할 수 있습니다.
+
+### <a name="is-there-a-way-to-send-a-signed-request-to-the-saml-identity-provider"></a>SAML ID 공급자에게 서명된 요청을 보내는 방법이 있나요?
+현재 Azure AD SAML/WS-Fed 페더레이션 기능은 서명된 인증 토큰을 SAML ID 공급자로 보내는 기능을 지원하지 않습니다.
 
 ## <a name="step-1-determine-if-the-partner-needs-to-update-their-dns-text-records"></a>1단계: 파트너가 DNS 텍스트 레코드를 업데이트해야 하는지 확인
 
@@ -104,7 +109,10 @@ SAML/WS-Fed IdP 페더레이션을 설정해도 이미 초대를 받은 게스�
 2. IdP가 이전 단계에 나열된 허용 공급자 중 하나가 아닌 경우 파트너의 IdP 인증 URL을 확인하여 도메인이 대상 도메인 또는 대상 도메인 내의 호스트와 일치하는지 확인합니다. 즉, `fabrikam.com`에 대한 페더레이션을 설정하는 경우:
 
      - 인증 URL이 `https://fabrikam.com` 또는 `https://sts.fabrikam.com/adfs`(동일한 도메인의 호스트)인 경우 DNS를 변경할 필요가 없습니다.
-     - 인증 URL이 `https://fabrikamconglomerate.com/adfs`  또는  `https://fabrikam.com.uk/adfs`인 경우 도메인이 fabrikam.com 도메인과 일치하지 않으므로 파트너가 DNS 구성에서 인증 URL에 대한 텍스트 레코드를 추가해야 합니다. 이에 해당하는 경우에는 다음 단계로 이동합니다.
+     - 인증 URL이 `https://fabrikamconglomerate.com/adfs`  또는  `https://fabrikam.com.uk/adfs`인 경우 도메인이 fabrikam.com 도메인과 일치하지 않으므로 파트너가 DNS 구성에서 인증 URL에 대한 텍스트 레코드를 추가해야 합니다.
+
+    > [!IMPORTANT]
+    > 다음 단계에서 알려진 문제가 있습니다. 현재 페더레이션 IdP의 도메인에 DNS 텍스트 레코드를 추가해도 인증 차단이 해제되지 않습니다. 이 문제를 해결하기 위해 적극적으로 노력하고 있습니다.
 
 3. 이전 단계에 따라 DNS 변경이 필요한 경우 다음 예제와 같이 파트너에게 해당 도메인의 DNS 레코드에 TXT 레코드를 추가할 것을 요청합니다.
 
@@ -122,7 +130,7 @@ SAML/WS-Fed IdP 페더레이션을 설정해도 이미 초대를 받은 게스�
 Azure AD B2B는 아래에 나열된 특정 요구 사항에 따라 SAML 프로토콜을 사용하는 IdP와 페더레이션하도록 구성할 수 있습니다. SAML IdP와 Azure AD 간의 트러스트를 설정하는 방법에 대한 자세한 내용은 [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](../hybrid/how-to-connect-fed-saml-idp.md)을 참조하세요.  
 
 > [!NOTE]
-> SAML/WS-Fed IdP 페더레이션의 대상 도메인은 Azure AD에서 DNS로 확인되지 않아야 합니다. 자세한 내용은[제한 사항](#limitations) 섹션을 참조하세요.
+> SAML/WS-Fed IdP 페더레이션의 대상 도메인은 Azure AD에서 DNS로 확인되지 않아야 합니다. 자세한 내용은 [질문과 대답](#frequently-asked-questions) 섹션을 참조하세요.
 
 #### <a name="required-saml-20-attributes-and-claims"></a>필요한 SAML 2.0 특성 및 클레임
 다음 표에는 타사 IdP에서 구성해야 하는 특정 특성 및 클레임에 대한 요구 사항이 나와 있습니다. 페더레이션을 설정하려면 IdP의 SAML 2.0 응답에서 다음 특성을 받아야 합니다. 이러한 특성은 온라인 보안 토큰 서비스 XML 파일에 연결하거나 수동으로 입력하여 구성할 수 있습니다.
@@ -148,7 +156,7 @@ IdP에서 발급한 SAML 2.0 토큰에 필요한 클레임은 다음과 같습�
 Azure AD B2B는 아래에 나열된 몇 가지 특정 요구 사항에 따라 WS-Fed 프로토콜을 사용하는 IdP와 페더레이션하도록 구성할 수 있습니다. Azure AD와의 호환성에 대해 현재 두 개의 WS-Fed 공급자(AD FS 및 Shibboleth)가 테스트되었습니다. Azure AD를 사용하여 WS-Fed 규격 공급자 간에 신뢰 당사자 트러스트를 설정하는 방법에 대한 자세한 내용은 [Azure AD 공급자 호환성 문서](https://www.microsoft.com/download/details.aspx?id=56843)에서 제공하는 "WS 프로토콜을 사용하는 STS 통합 백서"를 참조하세요.
 
 > [!NOTE]
-> 페더레이션의 대상 도메인에 대한 DNS는 Azure AD에서 확인되지 않아야 합니다. 자세한 내용은 [제한 사항](#limitations) 섹션을 참조하세요.
+> 페더레이션의 대상 도메인에 대한 DNS는 Azure AD에서 확인되지 않아야 합니다. 자세한 내용은 [질문과 대답](#frequently-asked-questions) 섹션을 참조하세요.
 
 #### <a name="required-ws-fed-attributes-and-claims"></a>필요한 WS-Fed 특성 및 클레임
 

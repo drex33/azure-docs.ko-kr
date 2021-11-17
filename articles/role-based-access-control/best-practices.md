@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/16/2020
+ms.date: 11/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 3d24676edd3c839406af86430b9333ec3459edb7
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 947645848fd60a6d2864a1715ddc32424a683ce8
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132402279"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524838"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Azure RBAC에 대한 모범 사례
 
@@ -34,7 +34,7 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 
 ## <a name="limit-the-number-of-subscription-owners"></a>구독 소유자 수 제한
 
-손상된 소유자에 의한 위반 가능성을 줄이려면 최대 3개의 구독 소유자가 있어야 합니다. 이 권장 사항은 클라우드의 Microsoft Defender에서 모니터링할 수 있습니다. 클라우드에 대 한 Defender의 기타 id 및 액세스 권장 사항은 [보안 권장 사항-참조 가이드](../security-center/recommendations-reference.md)를 참조 하세요.
+손상된 소유자에 의한 위반 가능성을 줄이려면 최대 3개의 구독 소유자가 있어야 합니다. 이 권장 사항은 Microsoft Defender for Cloud에서 모니터링할 수 있습니다. Defender for Cloud의 다른 ID 및 액세스 권장 사항은 [보안 권장 사항 - 참조 가이드를 참조하세요.](../security-center/recommendations-reference.md)
 
 ## <a name="use-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 사용
 
@@ -44,7 +44,18 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 
 ## <a name="assign-roles-to-groups-not-users"></a>사용자가 아닌 그룹에 역할 할당
 
-역할 할당을 보다 쉽게 관리하려면 사용자에게 직접 역할을 할당하지 마세요. 대신 그룹에 역할을 할당하세요. 사용자 대신 그룹에 역할을 할당 하면 [구독 당 역할 할당 한도가](troubleshooting.md#azure-role-assignments-limit)있는 역할 할당의 수를 최소화할 수 있습니다. 
+역할 할당을 보다 쉽게 관리하려면 사용자에게 직접 역할을 할당하지 마세요. 대신 그룹에 역할을 할당하세요. 사용자 대신 그룹에 역할을 할당하면 구독당 역할 할당 제한이 있는 역할 할당 수를 최소화할 수도 [있습니다.](troubleshooting.md#azure-role-assignments-limit)
+
+## <a name="assign-roles-using-the-unique-role-id-instead-of-the-role-name"></a>역할 이름 대신 고유한 역할 ID를 사용하여 역할 할당
+
+다음은 역할 이름이 변경될 수 있는 경우의 예입니다.
+
+- 고유한 사용자 지정 역할을 사용하고 있으며 역할 이름을 변경하기로 결정했습니다.
+- 이름에 **(미리 보기)** 가 있는 미리 보기 역할을 사용하고 있습니다. 역할이 릴리스되면 역할의 이름이 변경됩니다.
+
+역할의 이름이 변경된 경우에도 역할 ID는 변경되지 않습니다. 스크립트 또는 자동화를 사용하여 역할을 할당하는 경우, 역할 이름 대신 고유한 역할 ID를 사용하는 것이 좋습니다. 역할 이름을 변경할 경우 스크립트가 작동할 가능성이 높습니다.
+
+자세한 내용은 [고유한 역할 ID 및 Azure PowerShell 사용하여 역할 할당 및 고유한 역할 ID를](role-assignments-powershell.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope) [사용하여 역할 할당 및 Azure CLI.](role-assignments-cli.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope)
 
 ## <a name="next-steps"></a>다음 단계
 

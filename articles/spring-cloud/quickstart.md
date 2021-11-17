@@ -1,24 +1,24 @@
 ---
-title: 빠른 시작 - 첫 번째 Azure Spring Cloud 애플리케이션 배포
-description: 이 빠른 시작에서는 Azure Spring Cloud에 Spring Cloud 애플리케이션을 배포합니다.
+title: 빠른 시작 - Azure Spring Cloud에서 첫 번째 애플리케이션 배포
+description: 이 빠른 시작에서는 Azure Spring Cloud에 애플리케이션을 배포합니다.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 10/18/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 33718af136a6f9675e7cc9360f7f18dd79935e09
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bdd778f9bad5bbafb48aa52c8059cdeadd3a0fc5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984513"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241270"
 ---
-# <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포
+# <a name="quickstart-deploy-your-first-application-in-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에서 첫 번째 애플리케이션 배포
 
 ::: zone pivot="programming-language-csharp"
-이 빠른 시작에서는 Azure에서 실행되는 간단한 Azure Spring Cloud 마이크로서비스 애플리케이션을 배포하는 방법을 설명합니다.
+이 빠른 시작에서는 Azure Spring Cloud에서 실행되는 간단한 애플리케이션을 배포하는 방법을 설명합니다.
 
 >[!NOTE]
 > Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
@@ -245,7 +245,7 @@ Visual Studio에서 API 프로젝트 템플릿을 사용하여 "hello-world"라�
 
    `--main-entry` 옵션은 애플리케이션의 진입점이 포함된 *.dll* 파일을 식별합니다. 서비스에서 *.zip* 파일이 업로드되면 모든 파일과 폴더를 추출하고, `--main-entry`에서 지정한 *.dll* 파일의 진입점을 실행하려고 시도합니다.
 
-   애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다.
+   애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 섹션으로 이동합니다.
 
 ## <a name="test-the-app"></a>앱 테스트
 
@@ -314,7 +314,8 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-이 빠른 시작에서는 Azure에서 실행되는 간단한 Azure Spring Cloud 마이크로서비스 애플리케이션을 배포하는 방법을 설명합니다.
+
+이 빠른 시작에서는 Azure Spring Cloud에 간단한 애플리케이션을 배포하는 방법을 설명합니다.
 
 이 자습서에서 사용되는 애플리케이션 코드는 Spring Initializr로 빌드된 간단한 앱입니다. 이 예제를 완료하면 애플리케이션에 온라인으로 액세스할 수 있고 Azure Portal을 통해 관리할 수 있습니다.
 
@@ -389,8 +390,8 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
 5. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
 
     - **구독**: 이 리소스 대한 요금이 청구될 구독을 선택합니다.
-    - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이는 **\<resource group name\>** 으로 이후 단계에서 사용됩니다.
-    - **서비스 세부 정보/이름**: **\<service instance name\>** 을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
+    - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이후 단계에서는 이 리소스 그룹을 **\<resource group name\>** 으로 사용합니다.
+    - **서비스 세부 정보/이름**: **\<service instance name\>** 를 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
     - **위치**: 서비스 인스턴스에 대한 지역을 선택합니다.
 
     ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
@@ -426,7 +427,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
     mvn clean package -DskipTests
     ```
 
-1. 퍼블릭 엔드포인트가 할당된 앱을 만듭니다. Spring Cloud 프로젝트를 생성할 때 Java 버전 11을 선택한 경우 --runtime-version=Java_11 스위치를 포함합니다.
+1. 퍼블릭 엔드포인트가 할당된 앱을 만듭니다. Spring Cloud 프로젝트를 생성할 때 Java 버전 11을 선택한 경우 `--runtime-version=Java_11` 스위치를 포함합니다.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
@@ -438,7 +439,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
     az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>/hellospring-0.0.1-SNAPSHOT.jar
     ```
 
-1. 애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다. 애플리케이션의 상태가 표시되어야 합니다.
+1. 애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 섹션으로 이동합니다. 애플리케이션의 상태가 표시되어야 합니다.
 
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
@@ -457,19 +458,32 @@ Azure에 배포하려면 Azure 계정으로 로그인한 다음, 구독을 선�
 
 1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **Azure** -> **Azure Spring Cloud에 배포** 를 선택합니다.
 
-    [![Azure 1에 배포](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png)](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
+    [ ![Azure에서 프로젝트 배포할 위치](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png) ](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
 
 1. **이름** 필드에서 앱 이름을 적용합니다. **이름** 은 앱 이름이 아니라 구성을 나타냅니다. 사용자는 일반적으로 변경할 필요가 없습니다.
-1. **Artifact** 텍스트 상자에서 *Maven : com.example:hellospring-0.0.1-SNAPSHOT* 을 선택합니다.
-1. **구독** 텍스트 상자에서 구독을 확인합니다.
-1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
-1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.
-1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택합니다.
-1. *hellospring* 을 입력한 다음 **확인** 을 선택합니다.
+1. **아티팩트** 텍스트 상자에서 **Maven:com.example:hellospring-0.0.1-SNAPSHOT** 을 선택합니다.
+1. **구독** 텍스트 상자에서 구독이 올바른지 확인합니다.
+1. **서비스** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
+1. **앱** 텍스트 상자에서 **+** 를 선택하여 새 앱을 만듭니다.
 
-    [ ![Azure OK에 배포](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png) ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
+    ![새 IntelliJ 앱을 만들도록 선택할 위치](media/spring-cloud-quickstart-java/intellij-create-new-app.png)
 
-1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 선택하여 배포를 시작합니다. 플러그 인은 `hellospring` 앱에서 `mvn package` 명령을 실행하고 `package` 명령으로 생성된 jar을 배포합니다.
+1. **앱 이름:** 텍스트 상자에 *hellospring* 을 입력하고 **추가 설정** 확인란을 선택합니다.
+1. **퍼블릭 엔드포인트** 옆의 **사용** 단추를 선택합니다. 이 단추가 *사용 안 함\<to be enabled\>* 으로 변경됩니다.
+1. Java 11을 사용하는 경우 **런타임** 에서 **Java 11** 을 선택합니다.
+1. **확인** 을 선택합니다.
+
+    ![선택한 후의 퍼블릭 엔드포인트 모습](media/spring-cloud-quickstart-java/intellij-create-new-app-2.png)
+
+1. **시작 전** 아래에서 **Run Maven Goal 'hellospring:package'** 줄을 선택하고, 연필을 선택하여 명령줄을 편집합니다.
+
+    ![Maven Goal 편집](media/spring-cloud-quickstart-java/intellij-edit-maven-goal.png)
+
+1. **명령줄** 텍스트 상자에서 *package* 다음에 *-DskipTests* 를 입력하고 **확인** 을 선택합니다.
+
+    ![Azure OK에 배포](media/spring-cloud-quickstart-java/intellij-maven-goal-command-line.png)
+
+1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 선택하여 배포를 시작합니다. 플러그 인은 `hellospring` 앱에서 `mvn package -DskipTests` 명령을 실행하고 `package` 명령으로 생성된 jar을 배포합니다.
 
 ---
 
@@ -517,7 +531,7 @@ az spring-cloud app logs -n hellospring -s <service instance name> -g <resource 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이전 단계에서는 구독에 남아 있는 동안 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 경우 리소스 그룹을 포털에서 삭제하거나 Azure CLI에서 다음 명령을 실행하여 삭제합니다.
+위 단계에서는 구독에 남아 있는 동안 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 경우 리소스 그룹을 포털에서 삭제하거나 Azure CLI에서 다음 명령을 실행하여 삭제합니다.
 
 ```azurecli
 az group delete --name <your resource group name> --yes

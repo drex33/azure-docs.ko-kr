@@ -1,19 +1,19 @@
 ---
 title: Machine Learning Studio(클래식)에서 IoT Hub 데이터를 사용하여 날씨 예측
 description: ML Studio(클래식)를 사용하여 IoT Hub가 센서에서 수집한 온도 및 습도 데이터를 기반으로 하여 강우 확률을 예측합니다.
-author: robinsh
+author: eross-msft
 keywords: 일기 예보 기계 학습
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/26/2021
-ms.author: robinsh
-ms.openlocfilehash: 8e38125b0694ba59330cb27d5a4930f79ce33fd6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.author: lizross
+ms.openlocfilehash: 1656e055316ecde439793fe4afdd25933db476ce
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077601"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554620"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 

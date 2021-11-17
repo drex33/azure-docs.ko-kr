@@ -3,12 +3,12 @@ title: VMware Site Recovery Manager로 재해 복구 배포
 description: Azure VMware Solution 프라이빗 클라우드에서 VMware SRM(Site Recovery Manager)을 사용하여 재해 복구를 배포합니다.
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.openlocfilehash: 2cefe85f71c770ce29a14fb4aad7a91efd91651c
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 116c7b672874c1e012b4d9abadacb10bc4ca895f
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129430101"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547248"
 ---
 # <a name="deploy-disaster-recovery-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager로 재해 복구 배포
 
@@ -60,7 +60,7 @@ SRM을 사용하여 다음과 같은 다양한 유형의 복구를 구현할 수
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-원격 vCenter의 VRM 관리자 및 SRM 관리자 역할을 원격 사용자에 게 명시적으로 제공 했는지 확인 합니다.
+원격 vCenter에서 VRM 관리자 및 SRM 관리자 역할을 원격 사용자에게 명시적으로 제공했는지 확인합니다.
 
 ### <a name="scenario-on-premises-to-azure-vmware-solution"></a>시나리오: 온-프레미스에서 Azure VMware Solution으로 
 
@@ -213,6 +213,8 @@ VMware SRM 및 vSphere 복제를 설치한 후 vCenter에서 구성 및 사이�
 
 - [장애 복구(failback) 수행(vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-556E84C0-F8B7-4F9F-AAB0-0891C084EDE4.html)
 
+   >[!NOTE]
+   >AVS 환경 및 온-프레미스 환경 간의 네트워크 매핑에 대해 IP 사용자 지정 규칙이 정의 된 경우, 이러한 규칙은 SRM 8.3.0의 [알려진 문제로](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-releasenotes-8-3.html#knownissues) 인해 avs 환경에서 온-프레미스 환경으로 장애 복구 (failback) 시 적용 되지 않습니다. 장애 복구를 시작 하기 전에 보호 그룹의 모든 Vm에서 보호를 제거 하 고 보호를 다시 구성 하 여이 제한을 해결할 수 있습니다.
 
 
 ## <a name="ongoing-management-of-your-srm-solution"></a>SRM 솔루션의 지속적인 관리

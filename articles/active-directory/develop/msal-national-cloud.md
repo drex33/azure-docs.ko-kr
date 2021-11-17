@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 09/21/2021
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: c1ecf807d566fd6603f12ebc820c176edf96ec14
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8b8ae31aa2af84a6f8dfd4f93c90a09e58805f73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071848"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598803"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -26,15 +26,22 @@ ms.locfileid: "108071848"
 
 Microsoft의 전 세계 클라우드 외에도 MSAL(Microsoft 인증 라이브러리)을 사용하면 국가별 클라우드의 애플리케이션 개발자가 보안 웹 API를 인증하고 호출하기 위해 토큰을 획득할 수 있습니다. 그러한 웹 API에는 Microsoft Graph 또는 기타 Microsoft API가 있습니다.
 
-글로벌 클라우드를 포함하여 Azure AD(Azure Active Directory)는 다음 국가별 클라우드에 배포됩니다.  
+글로벌 Azure 클라우드를 포함하여 Azure AD(Azure Active Directory)는 다음 국가별 클라우드에 배포됩니다. 
 
 - Azure Government
 - Azure 중국 21Vianet
-- Azure 독일
+- Azure 독일([2021년 10월 29일에 종료](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 이 가이드에서는 [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="azure-germany-microsoft-cloud-deutschland"></a>Azure 독일(Microsoft Cloud Deutschland)
+
+> [!WARNING]
+> Azure 독일(Microsoft Cloud Deutschland)은 [2021년 10월 29일에 종료](https://www.microsoft.com/cloud-platform/germany-cloud-regions)됩니다. 해당 날짜 이전에 글로벌 Azure의 지역으로 마이그레이션하지 _않도록_ 선택한 서비스 및 애플리케이션에 액세스할 수 없습니다.
+
+Azure 독일에서 애플리케이션을 마이그레이션하지 않은 경우 [Azure 독일에서 마이그레이션에 대한 Azure Active Directory 정보](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad)에 따라 시작하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 해당 필수 구성 요소를 충족하는지 확인합니다.
 
@@ -214,4 +221,4 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure 독일](../../germany/index.yml)
+- [Azure 독일(2021년 10월 29일에 종료)](../../germany/index.yml)

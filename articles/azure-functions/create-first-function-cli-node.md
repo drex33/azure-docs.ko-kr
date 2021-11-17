@@ -4,15 +4,14 @@ description: 명령줄에서 JavaScript 함수를 만든 다음, 로컬 Node.js 
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3afe1cb5912f025b5ff33446c73e72f3e5bbcefd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 016c5fad3c6bc5e341bf917fc6c24ecba54abc86
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031502"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027227"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 JavaScript 함수 만들기
-
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
@@ -28,15 +27,15 @@ ms.locfileid: "131031502"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 3.x.
++ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 4.x
 
 + 다음 도구 중 하나를 통해 Azure 리소스를 만듭니다.
 
     + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
-    + Azure [Az PowerShell 모듈](/powershell/azure/install-az-ps) 버전 5.9.0 이상
+    + [Az PowerShell 모듈](/powershell/azure/install-az-ps), 버전 5.9.0 이상.
 
-+ [Node.js](https://nodejs.org/) 버전 12. Node.js 버전 10도 지원됩니다.
++ [Node.js](https://nodejs.org/) 버전 14 
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -44,7 +43,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `az --version`을 실행하여 Azure CLI 버전이 2.4 이상인지 확인합니다.
 
@@ -52,7 +51,7 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `(Get-Module -ListAvailable Az).Version`을 실행하고 버전 5.0 이상을 확인합니다.
 

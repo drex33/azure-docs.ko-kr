@@ -4,25 +4,24 @@ description: 조건부 액세스에서 디바이스에 대한 필터를 사용�
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/08/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dc7b4630d26c0f1b78df5a29a3210fd68f3d734
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 311acb544a50758ec39314666201294c3930fdbc
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012665"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026808"
 ---
 # <a name="conditional-access-filter-for-devices"></a>조건부 액세스: 디바이스에 대한 필터
 
 조건부 액세스 정책을 만들 때 관리자가 환경에서 특정 장치를 대상으로 지정하거나 제외하는 기능을 요청했습니다. 디바이스에 대한 필터 조건은 관리자에게 이 기능을 제공합니다. 이제 [디바이스 필터에 대해 지원되는 연산자 및 속성](#supported-operators-and-device-properties-for-filters)을 사용하여 특정 디바이스를 대상으로 지정할 수 있으며, 조건부 액세스 정책에서 사용 가능한 기타 할당 조건을 지정할 수 있습니다.
 
 :::image type="content" source="media/concept-condition-filters-for-devices/create-filter-for-devices-condition.png" alt-text="조건부 액세스 정책 조건에서 디바이스에 대한 필터 만들기":::
-
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
@@ -88,6 +87,10 @@ ms.locfileid: "131012665"
 1. 설정을 확인하고 **정책 사용** 을 **켜기** 로 설정합니다.
 1. **만들기** 를 선택하여 정책을 만들어 사용하도록 설정합니다.
 
+### <a name="setting-attribute-values"></a>특성 값 설정
+
+확장 특성은 Graph API를 통해 설정할 수 있습니다. 디바이스 특성을 설정하는 방법에 대한 자세한 내용은 [디바이스 업데이트](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device) 문서를 참조하세요.
+
 ### <a name="filter-for-devices-graph-api"></a>디바이스에 대한 필터 Graph API
 
 디바이스에 대한 필터 API는 Microsoft Graph v1.0 엔드포인트에서 사용할 수 있으며 https://graph.microsoft.com/v1.0/identity/conditionalaccess/policies/ 을 사용하여 액세스할 수 있습니다. 새 조건부 액세스 정책을 만들 때 디바이스에 대한 필터를 구성하거나 기존 정책을 업데이트하여 디바이스에 대한 필터 조건을 구성할 수 있습니다. 기존 정책을 업데이트하려면 기존 정책의 정책 ID를 추가하고 다음 요청 본문을 실행하여 위에서 언급한 Microsoft Graph v1.0 엔드포인트에 대한 패치 호출을 수행할 수 있습니다. 이 예에서는 SAW 디바이스로 표시되지 않은 디바이스를 제외하는 디바이스에 대한 필터 조건 구성을 보여 줍니다. 규칙 구문은 둘 이상의 단일 식으로 구성될 수 있습니다. 구문에 대한 자세한 내용은 [Azure Active Directory의 그룹에 대한 동적 멤버십 규칙](../enterprise-users/groups-dynamic-membership.md)을 참조하세요. 
@@ -143,6 +146,7 @@ ms.locfileid: "131012665"
 
 ## <a name="next-steps"></a>다음 단계
 
+- [디바이스 업데이트 Graph API](/graph/api/device-update?view=graph-rest-1.0&tabs=http)
 - [조건부 액세스: 조건](concept-conditional-access-conditions.md)
 - [일반 조건부 액세스 정책](concept-conditional-access-policy-common.md)
 - [권한 있는 액세스 스토리의 일부로 디바이스 보안 설정](/security/compass/privileged-access-devices)

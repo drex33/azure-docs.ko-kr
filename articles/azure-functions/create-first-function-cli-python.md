@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: ac4d0240f73f2165abed0fb11bd248f9af997124
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d72c220eb75372ee4faad94f4c7d08010eb725c4
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048744"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026553"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "131048744"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.x.
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 4.x
 
 + 다음 도구 중 하나를 통해 Azure 리소스를 만듭니다.
 
@@ -50,23 +50,23 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `az --version`을 실행하여 Azure CLI 버전이 2.4 이상인지 확인합니다.
 
 + `az login`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
 
-+ `python --version`(Linux/macOS) 또는 `py --version`(Windows)을 실행하여 Python 버전이 3.8.x, 3.7.x 또는 3.6.x로 보고되는지 확인합니다.
++ `python --version`(Linux/macOS) 또는 `py --version`(Windows)을 실행하여 Python 버전이 3.9.x, 3.8.x 또는 3.7.x로 보고되는지 확인합니다.
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
++ 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 4.x인지 확인합니다.
 
 + `(Get-Module -ListAvailable Az).Version`을 실행하고 버전 5.0 이상을 확인합니다.
 
 + `Connect-AzAccount`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
 
-+ `python --version`(Linux/macOS) 또는 `py --version`(Windows)을 실행하여 Python 버전이 3.8.x, 3.7.x 또는 3.6.x로 보고되는지 확인합니다.
++ `python --version`(Linux/macOS) 또는 `py --version`(Windows)을 실행하여 Python 버전이 3.9.x, 3.8.x 또는 3.7.x로 보고되는지 확인합니다.
 
 ---
 

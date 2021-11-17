@@ -1,5 +1,6 @@
 ---
-title: Azure AD에서 엔터프라이즈 앱에 대한 사용자 로그인 사용 안 함
+title: 사용자가 로그인하는 방법 사용 안 함
+titleSuffix: Azure AD
 description: Azure Active Directory에서 사용자가 로그인하지 않도록 엔터프라이즈 애플리케이션을 비활성화하는 방법
 services: active-directory
 author: davidmu1
@@ -8,33 +9,42 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/12/2019
+ms.date: 09/23/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca695fc0e84f3db3b98c3e25333d58279ad53f1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e1c07d650ee3b04099a4e4e41cdd7ee7db200bff
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528809"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061811"
 ---
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화
+# <a name="disable-how-a-user-signs-in-for-an-application-in-azure-active-directory"></a>사용자가 Azure Active Directory에서 애플리케이션에 로그인하는 방법 사용 안 함
 
-Azure AD(Azure Active Directory)에서 사용자가 로그인하지 않도록 엔터프라이즈 애플리케이션을 사용하지 않도록 설정하는 것은 쉽습니다. 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 합니다. 또한 디렉터리에 대한 전역 관리자여야 합니다.
+이 문서에서는 사용자가 Azure Active Directory의 애플리케이션에 로그인하는 방법을 사용하지 않도록 설정합니다.
 
-## <a name="how-do-i-disable-user-sign-ins"></a>사용자 로그인을 비활성화하려면 어떻게 합니까?
+## <a name="prerequisites"></a>사전 요구 사항
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **모든 서비스** 를 선택하고 텍스트 상자에 **Azure Active Directory** 를 입력한 다음, **입력** 을 선택합니다.
-1. **Azure Active Directory** -  **_directoryname_*창, 즉 관리 중인 디렉터리에 대한 Azure AD 창에서* 엔터프라이즈 애플리케이션** 을 선택합니다.
-1. **엔터프라이즈 애플리케이션 - 모든 애플리케이션** 창에 관리할 수 있는 앱 목록이 표시됩니다. 앱을 선택합니다.
-1. **appname** 창, 즉 제목에서 선택된 앱의 이름을 사용한 창에서 속성을 선택합니다.
-1. **appname** *속성* 창에서 **사용자가 로그인할 수 있습니까?** 에 대해 **아니요** 를 선택합니다.
-1. **저장** 명령을 선택합니다.
+사용자가 로그인하는 방법을 사용하지 않도록 설정하려면 다음이 필요합니다.
+
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- 다음 역할 중 하나: 전역 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 관리자 또는 서비스 주체의 소유자.
+
+## <a name="disable-how-a-user-signs-in"></a>사용자가 로그인하는 방법 사용 안 함
+
+1. [Azure Portal](https://portal.azure.com)에 디렉터리에 대한 글로벌 관리자 권한으로 로그인합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **Enterprise 애플리케이션** 을 선택합니다.
+1. 사용자가 로그인하지 못하도록 설정할 애플리케이션을 검색하고 해당 애플리케이션을 선택합니다.
+1. **속성** 을 선택합니다.
+1. **사용자가 로그인할 수 있도록 설정하시겠습니까?** 를 **아니요** 로 설정합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Azure AD PowerShell을 사용하여 목록에 없는 앱을 사용하지 않도록 설정
+
+AzureAD 모듈을 설치했는지 확인합니다(Install-Module -Name AzureAD 명령 사용). NuGet 모듈 또는 새 Azure Active Directory V2 PowerShell 모듈을 설치하라는 메시지가 표시되면 Y를 입력하고 ENTER를 누릅니다.
 
 엔터프라이즈 앱 목록에 표시되지 않는 앱의 AppId를 알고 있는 경우(예: 앱을 삭제했거나 Microsoft에서 사전 인증되는 앱으로 인해 서비스 주체를 아직 만들지 않은 경우) 앱에 대한 서비스 주체를 수동으로 만든 다음, [AzureAD PowerShell cmdlet](/powershell/module/azuread/New-AzureADServicePrincipal)을 사용하여 사용하지 않도록 설정할 수 있습니다.
 
@@ -55,7 +65,4 @@ if ($servicePrincipal) {
 
 ## <a name="next-steps"></a>다음 단계
 
-* [내 그룹 모두 보기](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [엔터프라이즈 앱에 사용자 또는 그룹 할당](assign-user-or-group-access-portal.md)
-* [엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](./assign-user-or-group-access-portal.md)
-* [엔터프라이즈 앱의 이름 또는 로고 변경](./add-application-portal-configure.md)
+- [엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](./assign-user-or-group-access-portal.md)

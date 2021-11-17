@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/25/2020
 ms.author: mbullwin
-ms.openlocfilehash: 216c45bf097718f6a696e64c8bd9c8718fc0185e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 84510afb4a6bac20f7b0496bf99a3e2a5d2571f9
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445494"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132040369"
 ---
 Python용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
@@ -117,6 +117,12 @@ for index, row in data_file.iterrows():
 ```python
 request = DetectRequest(series=series, granularity=TimeGranularity.daily)
 ```
+
+입력 인수 설명: 'series': 요청에 필요합니다. 배열/목록 형식이어야 하며, 12포인트를 초과하지만 8,640포인트 미만이어야 합니다. 타임스탬프를 기준으로 오름차순으로 정렬해야 하며 중복된 타임스탬프를 사용할 수 없습니다. 'granularity': 요청에 필요합니다. ['daily', 'minutely', 'hourly', 'weekly', 'monthly', 'yearly', 'secondly'] 중 하나일 수 있습니다.
+'customInterval': 0보다 큰 정수여야 합니다.
+'period': 0 이상의 정수여야 합니다.
+'maxAnomalyRatio': 시리즈 포인트의 50% 미만이어야 합니다(0 < maxAnomalyRatio < 0.5).
+'sensitivity': 0에서 99 사이의 정수여야 합니다.
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>전체 데이터 세트에서 변칙 검색
 

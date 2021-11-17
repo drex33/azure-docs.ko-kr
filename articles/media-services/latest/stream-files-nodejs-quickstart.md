@@ -1,24 +1,24 @@
 ---
-title: Node.JS를 사용하여 비디오 파일을 인코딩하고 스트림하는 방법
-description: Node.JS를 사용하여 비디오 파일을 스트림하는 방법입니다. 이 자습서의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
+title: Node.js를 사용하여 비디오 파일을 인코딩하고 스트림하는 방법
+description: Node.js를 사용하여 비디오 파일을 스트림하는 방법입니다. 이 자습서의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-keywords: Azure Media Services, 스트림, Node.JS
+keywords: Azure Media Services, 스트림, Node.js
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: f8eafe88168f908025321d1e3ce6304fa34c03ab
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109189"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179951"
 ---
-# <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Node.JS를 사용하여 비디오 파일을 인코딩하고 스트림하는 방법
+# <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Node.js를 사용하여 비디오 파일을 인코딩하고 스트림하는 방법
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -26,10 +26,10 @@ ms.locfileid: "106109189"
 
 이 빠른 시작이 완료되면 다음 방법을 알 수 있습니다.
 
-- Node.JS를 사용하여 인코딩하는 방법
-- Node.JS를 사용하여 스트림하는 방법
-- Node.JS를 사용하여 HTTPS URL에서 파일을 업로드하는 방법
-- Node.JS에서 HLS 또는 DASH 클라이언트 플레이어를 사용하는 방법
+- Node.js를 사용하여 인코딩하는 방법
+- Node.js를 사용하여 스트림하는 방법
+- Node.js를 사용하여 HTTPS URL에서 파일을 업로드하는 방법
+- Node.js에서 HLS 또는 DASH 클라이언트 플레이어를 사용하는 방법
 
 이 문서의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 

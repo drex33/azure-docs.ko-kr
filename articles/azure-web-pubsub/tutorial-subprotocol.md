@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: ababc116ea9d53fa790b20336cb54e71d6bc2f26
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: c1db7a4642d9a4fd14189a1e15e008c9b9ddd6c9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579049"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345644"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-between-websocket-clients-using-subprotocol"></a>자습서: 하위 프로토콜을 사용하여 WebSocket 클라이언트 간에 메시지 게시 및 구독
 
@@ -99,16 +99,12 @@ ms.locfileid: "131579049"
     ```bash
     mkdir logstream
     cd logstream
-
     # Create venv
     python -m venv env
-
     # Active venv
-    ./env/Scripts/activate
+    source ./env/bin/activate
 
-    # Or call .\env\Scripts\activate when you are using CMD under Windows
-
-    pip install azure-messaging-webpubsubservice==1.0.0b1
+    pip install azure-messaging-webpubsubservice
     ```
     
     ---
@@ -167,10 +163,10 @@ ms.locfileid: "131579049"
                 {
                     endpoints.MapGet("/negotiate", async context =>
                     {
-                        var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
+                        var service = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
                         var response = new
                         {
-                            url = serviceClient.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
+                            url = service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
                         };
                         await context.Response.WriteAsJsonAsync(response);
                     });
@@ -189,11 +185,11 @@ ms.locfileid: "131579049"
     const express = require('express');
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    let endpoint = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
+    let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
     const app = express();
 
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getClientAccessToken({
+      let token = await service.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       res.send({
@@ -212,34 +208,38 @@ ms.locfileid: "131579049"
     ```python
     import json
     import sys
+    
     from http.server import HTTPServer, SimpleHTTPRequestHandler
-    from azure.messaging.webpubsubservice import (
-        build_authentication_token
-    )
-
+    
+    from azure.messaging.webpubsubservice import WebPubSubServiceClient
+    
+    service = WebPubSubServiceClient.from_connection_string(sys.argv[1], hub='stream')
+    
     class Resquest(SimpleHTTPRequestHandler):
         def do_GET(self):
             if self.path == '/':
                 self.path = 'public/index.html'
                 return SimpleHTTPRequestHandler.do_GET(self)
             elif self.path == '/negotiate':
-                token = build_authentication_token(sys.argv[1], 'stream', roles=['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream'])
-                print(token)
+                roles = ['webpubsub.sendToGroup.stream',
+                         'webpubsub.joinLeaveGroup.stream']
+                token = service.get_client_access_token(roles=roles)
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
                 self.end_headers()
                 self.wfile.write(json.dumps({
                     'url': token['url']
                 }).encode())
-
+    
     if __name__ == '__main__':
         if len(sys.argv) != 2:
             print('Usage: python server.py <connection-string>')
             exit(1)
-
+    
         server = HTTPServer(('localhost', 8080), Resquest)
         print('server started')
         server.serve_forever()
+    
     ```
 
     ---
@@ -439,11 +439,9 @@ ms.locfileid: "131579049"
 
     # Create venv
     python -m venv env
-
     # Active venv
-    ./env/Scripts/activate
+    source ./env/bin/activate
 
-    # Or call .\env\Scripts\activate when you are using CMD under Windows
     pip install websockets
     ```
 
@@ -457,8 +455,7 @@ ms.locfileid: "131579049"
     import websockets
     import requests
     import json
-
-
+    
     async def connect(url):
         async with websockets.connect(url, subprotocols=['json.webpubsub.azure.v1']) as ws:
             print('connected')
@@ -475,14 +472,15 @@ ms.locfileid: "131579049"
                 id = id + 1
                 await ws.send(json.dumps(payload))
                 await ws.recv()
-
-    res = requests.get('http://localhost:8080/negotiate').json()
-
-    try:
-        asyncio.get_event_loop().run_until_complete(connect(res['url']))
-    except KeyboardInterrupt:
-        pass
-
+    
+    if __name__ == '__main__':
+        res = requests.get('http://localhost:8080/negotiate').json()
+    
+        try:
+            asyncio.get_event_loop().run_until_complete(connect(res['url']))
+        except KeyboardInterrupt:
+            pass
+    
     ```
 
     위의 코드는 서비스에 대한 WebSocket 연결을 만든 다음, 데이터를 수신할 때마다 `ws.send()`를 사용하여 데이터를 게시합니다. 다른 클라이언트에 게시하려면 `type`을 `sendToGroup`으로 설정하고 메시지의 그룹 이름을 지정하기만 하면 됩니다.
@@ -526,7 +524,7 @@ ms.locfileid: "131579049"
     # <a name="c"></a>[C#](#tab/csharp)
     `Startup.cs`의 `GenerateClientAccessUri`가 아래와 같으면 `roles`를 설정합니다.
     ```csharp
-    serviceClient.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" })
+    service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" })
     ```
 
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
@@ -535,7 +533,7 @@ ms.locfileid: "131579049"
 
     ```javascript
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getClientAccessToken({
+      let token = await service.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       ...
@@ -545,11 +543,12 @@ ms.locfileid: "131579049"
     
     # <a name="python"></a>[Python](#tab/python)
     
-    `server.py`의 `build_authentication_token`이 아래와 같으면 클라이언트에 `roles`를 제공하도록 토큰 생성 코드를 업데이트합니다.
+    액세스 토큰을 생성할 때 `server.py`에서 올바른 역할을 클라이언트에 설정합니다.
 
     ```python
-    token = build_authentication_token(sys.argv[1], 'stream', roles=['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream'])
-    
+    roles = ['webpubsub.sendToGroup.stream',
+              'webpubsub.joinLeaveGroup.stream']
+    token = service.get_client_access_token(roles=roles)
     ```
     ---
     

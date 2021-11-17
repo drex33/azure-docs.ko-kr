@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b6d203d198840a07dc86aa0d8e76734c3872e1dd
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: b1bce84df773e2c5f854a4b5b0ce72ee38ecb14d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117003"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523375"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -118,7 +118,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>SDK를 사용하여 컨테이너에 대한 TTL(Time to Live) 설정
 
-컨테이너에 대한 TTL(Time to Live)을 설정하려면 기간을 초 단위로 나타내는 0이 아닌 양수 값을 입력해야 합니다. 구성된 TTL 값에 따라, 컨테이너에 있는 모든 항목은 항목 `_ts`의 마지막으로 수정된 타임스탬프 후에 삭제됩니다. 필요에 따라 `TimeToLivePropertyPath`를 설정할 수 있습니다. 그러면 시스템에서 생성한 `_ts` 속성 대신 다른 속성을 사용하여 TTL을 기반으로 삭제할 항목을 결정할 수 있습니다.
+컨테이너에 대한 TTL(Time to Live)을 설정하려면 기간을 초 단위로 나타내는 0이 아닌 양수 값을 입력해야 합니다. 구성된 TTL 값에 따라, 컨테이너에 있는 모든 항목은 항목 `_ts`의 마지막으로 수정된 타임스탬프 후에 삭제됩니다.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> .NET SDK
 

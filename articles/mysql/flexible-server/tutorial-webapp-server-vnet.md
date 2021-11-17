@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2c53a76469edbb9fdaa507fb30af1157cca2608d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6f415429441801455d71aa459067a9c805dddd1c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429207"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131844015"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for MySQL - 유연한 서버 만들기
 
@@ -51,13 +51,13 @@ az account set --subscription <subscription ID>
 
 다음 명령을 사용하여 VNET(가상 네트워크) 내부에 프라이빗 유연한 서버를 만듭니다.
 ```azurecli
-az mysql flexible-server create --resource-group myresourcegroup --location westus2
+az mysql flexible-server create --resource-group myresourcegroup --location westus2 --vnet VNETName
 ```
 연결 문자열과 새로 만든 가상 네트워크의 이름을 복사합니다. 이 명령은 다음 작업을 수행하며 몇 분 정도 걸릴 수 있습니다.
 
 - 리소스 그룹이 없는 경우 생성합니다.
 - 서버 이름을 입력하지 않은 경우 서버 이름을 생성합니다.
-- 새 MySQL 서버에 사용할 새 가상 네트워크를 만듭니다. 동일한 가상 네트워크에 웹앱을 추가해야 하므로, 서버에 사용하기 위해 만든 가상 네트워크 이름과 서브넷 이름을 적어 둡니다.
+- 새 MySQL 서버를 위한 새 가상 네트워크 ```VNETName```을 만들고, 이 가상 네트워크 내에 데이터베이스 서버를 위한 서브넷을 만듭니다. 이름이 고유한지 확인합니다.
 - 서버의 관리자 사용자 이름 및 암호를 입력하지 않은 경우 지금 만듭니다.
 - **flexibleserverdb** 라는 빈 데이터베이스를 만듭니다.
 
@@ -115,6 +115,12 @@ az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.da
 - _&lt;username>_ 및 _&lt;password>_ 를 명령에서 자동으로 생성한 자격 증명으로 바꿉니다.
 - 리소스 그룹 및 앱 이름은 .azure/config 파일의 캐시된 값에서 가져옵니다.
 - 이 명령은 DBHOST, DBNAME, DBUSER 및 DBPASS라는 설정을 만듭니다. 애플리케이션 코드에서 데이터베이스 정보에 다른 이름을 사용하는 경우 코드에 설명된 대로 해당 이름을 앱 설정에 사용하세요.
+
+
+가상 네트워크 내에서의 모든 아웃바운드 연결을 허용하도록 웹앱을 구성합니다.
+```azurecli
+az webapp config set --name mywebapp --resource-group myresourcesourcegroup --generic-configurations '{"vnetRouteAllEnabled": true}'
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

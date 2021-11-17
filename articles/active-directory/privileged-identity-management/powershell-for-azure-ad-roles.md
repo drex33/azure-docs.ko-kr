@@ -4,7 +4,7 @@ description: Azure AD PIM(Privileged Identity Management)에서 PowerShell cmdle
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.subservice: pim
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 936351dd9f2b19fab4ea95012b118d00d0c87299
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5b25ae76e2af971c32b027245a852c29f088a145
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536855"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669229"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
 
@@ -49,7 +50,7 @@ ms.locfileid: "122536855"
     ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 다음 cmdlet에 대한 자세한 설명서는 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management)에서 찾을 수 있습니다. 하지만 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꿔야 합니다. 또한 Azure AD 조직의 테넌트 ID를 resourceId 매개 변수로 사용해야 합니다.
+> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. [/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management)에서 다음 cmdlet에 대한 자세한 설명서를 찾을 수 있습니다. 하지만 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꿔야 합니다. 또한 Azure AD 조직의 테넌트 ID를 resourceId 매개 변수로 사용해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 
@@ -112,10 +113,16 @@ $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
 
 ## <a name="activate-a-role-assignment"></a>역할 할당 활성화
 
-다음 cmdlet을 사용하여 적격 할당을 활성화합니다.
+다음 cmdlet을 사용하여 일반 사용자의 컨텍스트에서 적격 할당을 활성화합니다.
 
 ```powershell
-Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas"
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
+``` 
+
+관리자 권한으로 적격 할당을 활성화해야 하는 경우 `Type` 매개 변수에 대해 `adminAdd`를 지정합니다.
+
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
 ``` 
 
 이 cmdlet은 역할 할당을 만드는 cmdlet과 거의 동일합니다. cmdlet 간의 주요 차이점은 –Type 매개 변수에서 활성화는 "adminAdd"가 아닌 "userAdd"라는 점입니다. 다른 차이점으로 –AssignmentState 매개 변수는 "Eligible"이 아닌 "Active"입니다.

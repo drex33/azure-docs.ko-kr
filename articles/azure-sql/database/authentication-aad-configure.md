@@ -12,18 +12,21 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/11/2021
-ms.openlocfilehash: 4bcfc687e1a91fd2ecc652ced2481963974e155f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1011306cb83403b13f90fe3969470ed9722da2e1
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643349"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554196"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL에서 Azure AD 인증 구성 및 관리
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 이 문서에서는 Azure AD(Azure Active Directory) 인스턴스를 만들고 채운 다음, [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 Azure AD를 사용하는 방법을 보여 줍니다. 개요는 [Azure Active Directory 인증](authentication-aad-overview.md)을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="azure-ad-authentication-methods"></a>Azure AD 인증 방법
 
@@ -83,7 +86,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
 SQL Managed Instance에는 보안 그룹 멤버 자격을 통한 사용자 인증 또는 새 사용자 만들기와 같은 작업을 성공적으로 수행하기 위해 Azure AD를 읽을 수 있는 권한이 필요합니다. 이를 위해 Azure AD를 읽을 수 있는 SQL Managed Instance 권한을 부여해야 합니다. 이 작업은 Azure Portal 또는 PowerShell을 사용하여 수행할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 사용하여 SQL Managed Instance Azure AD 읽기 권한을 부여하려면 Azure AD에서 전역 관리자 권한으로 로그인하고 다음 단계를 수행합니다.
 
@@ -242,7 +245,7 @@ CLI 명령에 대한 자세한 내용은 [az sql mi](/cli/azure/sql/mi)를 참�
 
 다음 두 절차에서는 Azure Portal 및 PowerShell을 사용하여 서버에 대한 Azure Active Directory 관리자를 프로비전하는 방법을 보여 줍니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계에서는 구독에 연결된 Active Directory를 서버와 연결하여 동일한 구독이 두 Azure AD 및 서버 모두에 사용되도록 합니다.
 

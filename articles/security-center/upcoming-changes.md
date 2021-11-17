@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/13/2021
+ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: 275dfc8d33be95db1d6712157686ee5dc89bd0be
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fa80d1891799aa1266a309552f5715e755cec8ab
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449320"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057274"
 ---
 # <a name="important-upcoming-changes-to-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에 대한 향후 중요 변경 내용
 
@@ -34,7 +34,7 @@ ms.locfileid: "131449320"
 | [ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| 2021년 11월|
 | [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | 2021년 11월| 
 | [온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | 2021년 11월    |
-| [ID 권장 사항에 대한 여러 변경 사항](#multiple-changes-to-identity-recommendations)                                                                                          | 2021년 11월    |
+| [ID 권장 사항에 대한 여러 변경 사항](#multiple-changes-to-identity-recommendations)                                                                                          | 2021년 12월    |
 | [Microsoft Defender for Storage의 보안 경고 변경 내용](#changes-to-a-security-alert-from-microsoft-defender-for-storage)  | 2021년 11월    |
 | [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | 2022년 1분기    |
 |||
@@ -81,7 +81,6 @@ ISO 27001의 레거시 구현은 Defender for Cloud의 규정 준수 대시보�
 - [이 권장 사항이 배포된 솔루션의 상태를 평가하는 방법](endpoint-protection-recommendations-technical.md)
 
 
-
 ### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.
 
 **변경 예상 날짜:** 2021년 11월
@@ -94,9 +93,9 @@ ISO 27001의 레거시 구현은 Defender for Cloud의 규정 준수 대시보�
 
 ### <a name="multiple-changes-to-identity-recommendations"></a>ID 권장 사항에 대한 여러 변경 사항
 
-**변경 예상 날짜:** 2021년 11월
+**변경 예상 날짜:** 2021년 12월
 
-Defender for Cloud에는 사용자 및 계정 관리를 개선하기 위한 여러 가지 권장 사항이 포함되어 있습니다. 11월에는 아래에 설명된 변경 내용을 적용하게 됩니다.
+Defender for Cloud에는 사용자 및 계정 관리를 개선하기 위한 여러 가지 권장 사항이 포함되어 있습니다. 12월에는 아래와 같이 변경됩니다.
 
 - **향상된 새로 고침 간격** - 현재 ID 권장 사항의 새로 고침 간격은 24시간입니다. 이 업데이트는 해당 간격을 12시간으로 줄입니다.
 

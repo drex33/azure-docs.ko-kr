@@ -1,8 +1,8 @@
 ---
 title: Azure IoT SDK 없이 개발 | Microsoft Docs
 description: 개발자 가이드 - Azure IoT SDK를 사용하지 않고 디바이스 앱 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 항목에 대한 정보 및 링크입니다.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 34476ee99dcf455886a72d3fcef2356ab4e6229f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7da7d19debdf8068004473316985370900f0c7b2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528090"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555095"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Azure IoT Hub SDK를 사용하지 않고 개발
 

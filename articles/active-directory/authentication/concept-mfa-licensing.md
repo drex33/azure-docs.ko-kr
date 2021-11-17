@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 11/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8958446f1455e486f181626139f8974bc1570a2f
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: dff3c04ee74d17aeb0b96d8d0e2348a9667f9729
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867195"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456312"
 ---
 # <a name="features-and-licenses-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication의 기능 및 라이선스
 
@@ -39,7 +39,7 @@ Azure AD Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 �
 | [모든 Microsoft 365 플랜](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans) | [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용하여 모든 사용자에 대해 Azure AD Multi-Factor Authentication을 사용하도록 설정할 수 있습니다. Azure AD Multi-Factor Authentication 관리는 Microsoft 365 포털을 통해 수행됩니다. 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 [다단계 인증을 사용하여 Microsoft 365 리소스 보호](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication)를 참조하세요.  |
 | [Office 365 Free](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans)<br>[Azure AD Free](../verifiable-credentials/how-to-create-a-free-developer-account.md) | [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용하여 필요에 따라 사용자에게 다단계 인증을 요청할 수 있습니다. 사용하도록 설정된 사용자나 시나리오를 세부적으로 제어할 수는 없지만 추가 보안 단계를 제공합니다.<br /> 보안 기본값을 사용하여 모든 사용자에 대해 다단계 인증을 사용하도록 설정하지 않는 경우에도 Azure AD 전역 관리자 역할이 할당된 사용자는 다단계 인증을 사용하도록 구성할 수 있습니다. 무료 계층의 이 기능을 사용하면 중요한 관리자 계정이 다단계 인증에 의해 보호됩니다. |
 
-## <a name="feature-comparison-of-versions"></a>버전 기능 비교
+## <a name="feature-comparison-based-on-licenses"></a>라이선스 기반 기능 비교
 
 다음 표에서 다양한 버전의 Azure AD Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다. 사용자 인증을 보호하기 위한 요구 사항을 계획하고 해당 요구 사항을 충족하는 방법을 결정합니다. 예를 들어 Azure AD Free는 Azure AD Multi-Factor Authentication을 제공하는 보안 기본값을 제공하지만 인증 프롬프트에 전화 통화 또는 SMS가 아닌 모바일 인증자 앱만 사용할 수 있습니다. 이 방법은 사용자의 개인 디바이스에 모바일 인증 앱이 설치되어 있는지 확인할 수 없는 경우에 제한이 있을 수 있습니다. 자세한 내용은 이 항목의 뒷부분에 있는 [Azure AD Free 계층](#azure-ad-free-tier)을 참조하세요. 
 
@@ -57,6 +57,31 @@ Azure AD Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 �
 | 신뢰할 수 있는 IP | | | | ● |
 | 신뢰할 수 있는 디바이스에 대한 MFA 기억 | | ● | ● | ● |
 | 온-프레미스 애플리케이션에 대한 MFA | | | | ● |
+
+## <a name="compare-multi-factor-authentication-policies"></a>다단계 인증 정책 비교
+
+MFA를 적용하는 권장 방법은 [조건부 액세스](../conditional-access/overview.md)를 사용하는 것입니다. 다음 표를 검토하여 라이선스에 포함되는 기능을 확인합니다.
+
+| 정책 | 보안 기본값 | 조건부 액세스 | 사용자별 MFA |
+| --- |:---:|:---:|:---:|
+| **관리** | 
+| 회사를 안전하게 유지하기 위한 표준 보안 규칙 집합 | ● |  |  |
+| 원클릭 켜기/끄기 | ● |  |  |
+| Office 365 라이선스에 포함됨([라이선스 고려 사항](#available-versions-of-azure-ad-multi-factor-authentication) 참조) | ● |  | ● |
+| Microsoft 365 관리 센터 마법사에서 미리 구성된 템플릿 | ● | ● |  |
+| 구성 유연성 | | ● |  |
+| **기능** | 
+| 정책에서 사용자 제외 | | ● | ● |
+| 전화 통화 또는 SMS를 통해 인증 | | ● | ● |
+| Microsoft Authenticator 및 소프트웨어 토큰으로 인증 | ● | ● | ● |
+| FIDO2, 비즈니스용 Windows Hello 및 하드웨어 토큰으로 인증 | | ● | ● |
+| 레거시 인증 프로토콜 차단 | ● | ● | ● |
+| 새 직원이 자동으로 보호됨 | ● | ● | |
+| 위험 이벤트를 기반으로 하는 동적 MFA 트리거 | | ● |  |
+| 인증 및 권한 부여 정책 | | ● | |
+| 위치 및 디바이스 상태에 따라 구성 가능 | | ● | |
+| "보고서 전용" 모드 지원 | | ● | |
+| 사용자/서비스를 완전히 차단하는 기능 | | ● | |
 
 ## <a name="purchase-and-enable-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication 구매 및 사용
 

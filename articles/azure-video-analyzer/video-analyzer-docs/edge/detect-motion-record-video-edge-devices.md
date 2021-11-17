@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 305bd0f21e9143df5b28998689992a03351b5a8e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 84dbe38e69b9dea259c570ef229927b75aefbe23
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030759"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493423"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>빠른 시작: 에지 디바이스에서 동작을 감지하고 비디오 녹화
 
@@ -32,7 +32,7 @@ ms.locfileid: "131030759"
 
 이 빠른 시작에 사용할 Azure 리소스를 설정할 때, 짧은 주차장 비디오가 IoT Edge 디바이스로 사용되는 Azure의 Linux VM에 복사됩니다. 이 비디오 파일은 이 자습서의 라이브 스트림을 시뮬레이션하는 데 사용됩니다.
 
-[VLC 미디어 플레이어](https://www.videolan.org/vlc/) 같은 애플리케이션을 열고, Ctrl+N 키를 누르고, [이 링크](https://lvamedia.blob.core.windows.net/public/lots_015.mkv)를 주차장 비디오에 붙여넣어 재생을 시작합니다. 5초 마크 정도에 흰색 차가 주차장을 통과합니다.
+[VLC 미디어 플레이어](https://www.videolan.org/vlc/) 같은 애플리케이션을 열고, Ctrl+N 키를 누르고, [이 링크](https://avamedia.blob.core.windows.net/public/lots_015.mkv)를 주차장 비디오에 붙여넣어 재생을 시작합니다. 5초 마크 정도에 흰색 차가 주차장을 통과합니다.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 

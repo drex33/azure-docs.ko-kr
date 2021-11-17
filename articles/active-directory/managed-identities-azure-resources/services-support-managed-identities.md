@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 43b4fcdbd867a2aee95c6bf23d57e77e8fbbe08f
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: ca43e9d1e54566da374ccbae011e66ae54297af4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132026903"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432570"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -325,7 +325,7 @@ Azure Arc 지원 Kubernetes는 현재 [시스템 할당 ID를 지원](../../azur
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
-자세한 정보는 [Azure Spring Cloud의 애플리케이션용 시스템 할당 관리 ID를 사용하도록 설정하는 방법](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md)을 참조하세요.
+자세한 정보는 [Azure Spring Cloud 애플리케이션용 시스템 할당 관리 ID를 사용하도록 설정하는 방법](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md)을 참조하십시오.
 
 ### <a name="azure-stack-edge"></a>Azure Stack Edge
 

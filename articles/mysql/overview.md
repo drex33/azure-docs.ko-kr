@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: e93432347de7df3b2743143c68078b3dfc853848
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 1bb626928c4668b55814559fdea8c3495eab0e69
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894358"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847397"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>MySQL용 Azure Database란?
 
@@ -23,11 +23,11 @@ Azure Database for MySQL은 [MySQL 커뮤니티 버전](https://www.mysql.com/pr
 - 영역 중복 및 동일한 영역 고가용성
 - 예약된 유지 관리 기간을 선택할 수 있는 기능을 통한 최대 제어
 - 최대 35일 동안 자동 백업 및 특정 시점 복원을 사용하여 데이터 보호
-- 서비스를 안전하고 최신 상태로 유지하기 위해 기본 하드웨어, 운영 체제 및 데이터베이스 엔진에 대한 자동화된 패치 및 유지 관리
+- 서비스를 안전하고 최신 상태로 유지하기 위해 기본 하드웨어, 운영 체제 및 데이터베이스 엔진의 예약된 유지 관리
 - 예측 가능한 성능, 종량제 가격 책정 사용
 - 몇 초 내에 탄력적 스케일링
 - 저렴한 버스트 가능 SKU 및 서버 중지/시작 기능을 사용하는 비용 최적화 제어
-- 엔터프라이즈급 보안, 업계 최고 수준의 규정 준수 및 개인 정보 보호를 통해 중요한 미사용 및 사용 중인 데이터를 안전하게 보호
+- 엔터프라이즈급 보안 및 업계 최고 수준의 규정 준수를 통해 중요한 미사용 데이터 및 사용 중인 데이터를 안전하게 보호
 - 모니터링 및 자동화를 통해 대규모 배포의 관리 및 모니터링 간소화
 - 업계 최고 수준의 지원 환경
 

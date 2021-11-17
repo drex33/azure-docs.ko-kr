@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 63df94e51b53dde61fd7863ece33b2a9baac2908
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: d4d54fba6f3b59c0e32286333694fa460cdb07b3
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554567"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487542"
 ---
 # <a name="analyze-live-video-streams-with-multiple-ai-models-using-ai-composition"></a>AI 컴퍼지션을 사용하여 여러 AI 모델로 라이브 비디오 스트림 분석
 
@@ -44,9 +44,9 @@ Azure Video Analyzer는 [AI 컴퍼지션](../ai-composition-overview.md)이라�
 
 필수 조건 섹션에 지정된 빠른 시작을 완료했으므로 에지 디바이스가 이미 만들어져 있습니다. 이 에지 디바이스에는 특정 비디오 파일이 포함된 입력 폴더 /home/localedgeuser/samples/input이 있습니다. IoT Edge 디바이스에 로그인하고 /home/localedgeuser/samples/input/ 디렉터리로 변경한 후 다음 명령을 실행하여 이 방법 가이드에 사용할 입력 파일을 가져옵니다.
 
-wget https://lvamedia.blob.core.windows.net/public/co-final.mkv
+wget https://avamedia.blob.core.windows.net/public/co-final.mkv
 
-또한 원하는 경우 [VLC 미디어 플레이어](https://www.videolan.org/vlc/)가 있는 머신에서 Ctrl+N을 선택한 다음, [샘플 비디오(.mkv)](https://lvamedia.blob.core.windows.net/public/co-final.mkv) 링크를 붙여넣어 재생을 시작합니다. 고속도로를 달리는 자동차 장면이 표시됩니다.
+또한 원하는 경우 [VLC 미디어 플레이어](https://www.videolan.org/vlc/)가 있는 머신에서 Ctrl+N을 선택한 다음, [샘플 비디오(.mkv)](https://avamedia.blob.core.windows.net/public/co-final.mkv) 링크를 붙여넣어 재생을 시작합니다. 고속도로를 달리는 자동차 장면이 표시됩니다.
 
 ## <a name="create-and-deploy-the-pipeline"></a>파이프라인 만들기 및 배포
 

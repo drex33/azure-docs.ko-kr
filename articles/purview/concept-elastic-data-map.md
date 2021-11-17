@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 00b6429e14dcb04a76abbc1a8d49a29b220c7c06
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fd667abab0802d6d11fc855a620bf51f8419b978
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607079"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555767"
 ---
 # <a name="elastic-data-map-in-azure-purview"></a>Azure Purview의 탄력적 데이터 맵
 
@@ -108,15 +108,47 @@ Azure Monitor 메트릭 페이지에서 Claudia는 데이터 맵 스토리지 �
 >[!Important]
 >Purview 데이터 맵은 탄력성 기간 내에서 자동으로 스케일 업 및 다운될 수 있습니다([현재 한도 확인](how-to-manage-quotas.md)). 다음 수준의 탄력성 기간을 가져오려면 지원 티켓을 만들어야 합니다.
 
-## <a name="request-capacity"></a>요청 용량
+## <a name="request-capacity"></a>용량 요청
 
-매우 큰 데이터 세트 또는 대규모 환경으로 작업 중이고 탄력적 데이터 맵에 더 높은 용량이 필요한 경우 [지원 티켓을 만들어](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)더 큰 탄력성 기간을 요청할 수 있습니다.
+매우 큰 데이터 집합 또는 대규모 환경에서 작업 하 고 탄력적 데이터 맵에 더 많은 용량이 필요한 경우 [지원 티켓을 만들어](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)탄력성 창의 용량을 더 많이 요청할 수 있습니다.
 
-**서비스 및 구독 제한(할당량)을** 선택하고 더 큰 용량을 요청하려는 Purview 계정을 선택하여 화면의 지침을 완료합니다.
+**서비스 및 구독 제한 (할당량)** 을 선택 하 고 더 많은 용량을 요청 하려는 부서의 범위 계정을 선택 하 여 화면에 표시 되는 지침을 완료 합니다.
 
-:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="제한 증가 옵션이 선택된 지원 사례 만들기를 보여주는 화면.":::
+:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="제한 증가 옵션이 선택 된 지원 사례 생성을 보여 주는 화면":::
 
-설명에서 사용자 환경 및 요청하려는 추가 용량에 대해 가능한 한 많은 관련 정보를 제공합니다.
+설명에는 사용자 환경에 대 한 정보와 요청 하려는 추가 용량에 대 한 적절 한 정보를 제공 합니다.
+
+## <a name="monitoring-the-elastic-data-map"></a>탄력적 데이터 맵 모니터링
+
+데이터 공간 크기와 요금 청구를 이해 하기 위해 메트릭 _데이터 맵 용량 단위_ 및 _데이터 맵 저장소 크기_ 를 모니터링할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com), **Purview 계정** 페이지로 차례로 이동하여 _Purview 계정_ 을 선택합니다.
+
+2. **개요** 를 클릭 하 고 아래로 스크롤하여 _데이터 맵 용량 단위_ 및 _데이터 맵에_ 대 한 **모니터링** 섹션을 관찰 하 고 다른 기간에 대 한 크기 메트릭을 Storage 합니다.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-metrics.png" alt-text="탄력적 데이터 맵 메트릭 개요 페이지를 표시 하는 메뉴의 스크린샷":::
+
+3. 추가 설정을 보려면 **모니터링--> 메트릭으로** 이동 하 여 **데이터 맵 용량 단위** 및 **데이터 맵 Storage 크기** 를 확인 합니다.
+
+    :::image type="content" source="./media/concept-elastic-data-map/elastic-data-map-metrics.png" alt-text="메트릭을 보여 주는 메뉴의 스크린샷":::
+
+4. 최근 24 시간 동안의 데이터 맵 용량 단위 사용량을 보려면 **데이터 맵 용량 단위** 를 클릭 합니다. 선 그래프 위로 마우스를 가져가면 특정 날짜에 해당 시간에 사용 된 데이터 맵 용량 단위가 표시 됩니다.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-default.png" alt-text="24 시간 동안 소비 된 데이터 맵 용량 단위를 보여 주는 메뉴의 스크린샷":::
+
+5. 화면 오른쪽 위에 있는 **현지 시간: 최근 24 시간 (자동-1 시간)** 을 클릭 하 여 그래프에 표시 되는 시간 범위를 수정 합니다.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-custom.png" alt-text="사용자 지정 시간 범위 동안 소비 된 데이터 맵 용량 단위를 보여 주는 메뉴의 스크린샷":::
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-time-range.png" alt-text="3 일 시간 범위 동안 소비 된 데이터 맵 용량 단위를 보여 주는 메뉴의 스크린샷":::
+
+6. 아래에 표시 된 대로 옵션을 클릭 하 여 그래프 유형을 사용자 지정 합니다.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-graph-type.png" alt-text="그래프 유형을 수정 하는 옵션을 보여 주는 메뉴의 스크린샷":::
+
+7. **새 차트** 를 클릭 하 여 데이터 맵에 대 한 그래프 Storage 크기 차트를 추가 합니다.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-storage-size.png" alt-text="사용 된 데이터 맵 저장소 크기를 보여 주는 메뉴의 스크린샷":::
 
 ## <a name="summary"></a>요약
 

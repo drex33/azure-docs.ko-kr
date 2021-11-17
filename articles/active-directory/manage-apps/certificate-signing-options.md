@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c44d2a346dcd77352715b63937e5bad5274f2d1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b3d1ccac8fa8ac0deddb8a581c583779b1fb2386
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536244"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611803"
 ---
-# <a name="advanced-certificate-signing-options-in-a-saml-token"></a>SAML 토큰의 고급 인증서 서명 옵션
+# <a name="advanced-certificate-signing-options-in-a-saml-token-in-azure-active-directory"></a>Azure Active Directory의 SAML 토큰에 있는 고급 인증서 서명 옵션
 
 현재 Azure AD(Azure Active Directory)는 Azure Active Directory 앱 갤러리에서 수천 개의 사전 통합 애플리케이션을 지원합니다. [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) 애플리케이션과 같은 500개가 넘는 애플리케이션에서 [SAML(Security Assertion Markup Language)](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) 2.0 프로토콜을 사용하여 Single Sign-On을 지원합니다. 고객이 SAML을 사용하여 Azure AD를 통해 애플리케이션을 인증하면 Azure AD는 애플리케이션에 토큰을 보냅니다(HTTP POST를 통해). 그런 다음, 애플리케이션은 사용자 이름과 암호를 묻는 대신 토큰의 유효성을 검사하고 사용하여 사용자를 로그인합니다. 이러한 SAML 토큰은 Azure AD 및 특정 표준 알고리즘에서 생성된 고유한 인증서로 서명됩니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: thwimmer
-ms.openlocfilehash: 1d52a53798c80d59ffaab86319afdc68eff345a9
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 9c488a04962216df2748891c71bad32cb9dffac6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767097"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477481"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Infor CloudSuite 구성
 

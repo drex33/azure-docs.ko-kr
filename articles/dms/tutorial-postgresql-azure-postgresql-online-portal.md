@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 9d0f1fbe81c8d221b1dd83b1f15b3ea099769043
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4f73ced1dba5482c3c230c96163464c064523bd4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638491"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218244"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
 
@@ -43,9 +43,9 @@ Azure Database Migration Service를 사용하여 애플리케이션 가동 중�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [PostgreSQL 커뮤니티 버전](https://www.postgresql.org/download/) 9.4, 9.5, 9.6 또는 10을 다운로드하여 설치합니다. 원본 PostgreSQL 서버 버전은 9.4, 9.5, 9.6, 10, 11 또는 12이어야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
+* [PostgreSQL 커뮤니티 버전](https://www.postgresql.org/download/) 9.4, 9.5, 9.6 또는 10을 다운로드하여 설치합니다. 원본 PostgreSQL 서버 버전은 9.4, 9.5, 9.6, 10, 11, 12 또는 13이어야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md)을 참조하세요.
 
-    또한 대상 Azure Database for PostgreSQL 버전이 온-프레미스 PostgreSQL 버전과 같거나 이후 버전이어야 합니다. 예를 들어 PostgreSQL 9.6은 Azure Database for PostgreSQL 9.6, 10 또는 11로 마이그레이션할 수 있지만 Azure Database for PostgreSQL 9.5로는 마이그레이션할 수 없습니다. PostgreSQL 13 이상으로의 마이그레이션은 현재 지원되지 않습니다. 
+    또한 대상 Azure Database for PostgreSQL 버전이 온-프레미스 PostgreSQL 버전과 같거나 이후 버전이어야 합니다. 예를 들어 PostgreSQL 9.6은 Azure Database for PostgreSQL 9.6, 10 또는 11로 마이그레이션할 수 있지만 Azure Database for PostgreSQL 9.5로는 마이그레이션할 수 없습니다. 
 
 * [Azure Database for PostgreSQL 서버를 만들거나](../postgresql/quickstart-create-server-database-portal.md) [Azure Database for PostgreSQL - 하이퍼스케일(Citus) 서버를 만듭니다](../postgresql/quickstart-create-hyperscale-portal.md).
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.

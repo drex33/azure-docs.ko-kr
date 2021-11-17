@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 4453660cb58a1b976488d1cc9e240768637a85b6
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: d54aec5bae8fb86b9c0ed0356cd6af713500527f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857097"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492060"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 인덱서 문제 해결 지침
 
@@ -62,11 +62,11 @@ SQL Managed Instance에서 데이터에 액세스하거나 Azure VM이 [사용�
 
 SQL Managed Instance의 데이터에 액세스하는 방법에 대한 자세한 내용은 [여기](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)를 참조하세요.
 
-## <a name="azure-sql-database-serverless-indexing-error-code-40613"></a>Azure SQL Database 서버리스 인덱싱(오류 코드 40613)
+## <a name="azure-sql-database-serverless-indexing-error-code-40613"></a>서버를 사용 하지 않는 인덱싱 Azure SQL Database (오류 코드 40613)
 
-SQL 데이터베이스가 [서버리스 컴퓨팅 계층의](../azure-sql/database/serverless-tier-overview.md)인 경우 인덱서가 연결할 때 데이터베이스가 실행 중이고 일시 중지되지 않았는지 확인합니다.
+SQL 데이터베이스가 서버를 사용 하지 않는 [계산 계층](../azure-sql/database/serverless-tier-overview.md)에 있으면 인덱서가 연결 될 때 데이터베이스가 실행 중이 고 일시 중지 되지 않았는지 확인 합니다.
 
-데이터베이스가 일시 중지된 경우 검색 서비스의 첫 번째 로그인은 데이터베이스를 자동으로 다시 시작하지만 오류 코드 40613을 사용하여 데이터베이스를 사용할 수 없다는 오류도 반환합니다. 데이터베이스가 실행된 후 로그인을 다시 시도하여 연결을 설정합니다.
+데이터베이스가 일시 중지 된 경우 검색 서비스의 첫 번째 로그인에서 데이터베이스를 자동으로 다시 시작 하지만 오류 코드 40613로 데이터베이스를 사용할 수 없다는 오류도 반환 합니다. 데이터베이스를 실행 한 후에는 로그인을 다시 시도 하 여 연결을 설정 합니다.
 
 ## <a name="sharepoint-online-conditional-access-policies"></a>SharePoint Online 조건부 액세스 정책
 
@@ -105,7 +105,7 @@ SharePoint Online 인덱서를 만들 때 디바이스 코드를 제공한 후 A
 
     추가 IP 주소는 인덱서의 [다중 테넌트 실행 환경](search-indexer-securing-resources.md#indexer-execution-environment)에서 시작하는 요청에 사용됩니다. 이 IP 주소 범위는 서비스 태그에서 가져올 수 있습니다.
 
-    서비스 태그의 IP 주소 범위는 `AzureCognitiveSearch` [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 [다운로드 가능한 JSON 파일을](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)통해 가져올 수 있습니다.
+    서비스 태그의 IP 주소 범위는 `AzureCognitiveSearch` [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 통해 가져올 수 있습니다.
 
     이 연습에서는 검색 서비스가 Azure 퍼블릭 클라우드라고 가정하여 [Azure 퍼블릭 JSON 파일](https://www.microsoft.com/download/details.aspx?id=56519)을 다운로드해야 합니다.
 
@@ -199,6 +199,43 @@ api-key: [admin key]
 ## <a name="missing-content-from-cosmos-db"></a>Cosmos DB에서 누락된 콘텐츠
 
 Azure Cognitive Search는 Cosmos DB 인덱싱에 대해 암시적으로 의존합니다. Cosmos DB에서 자동 인덱싱을 해제하면 Azure Cognitive Search는 성공적인 상태를 반환하지만 컨테이너 콘텐츠를 인덱싱하지 못합니다. 설정을 확인하고 인덱싱을 설정하는 방법에 대한 지침은 [Azure Cosmos DB에서 인덱싱 관리](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal)를 참조하세요.
+
+## <a name="documents-processed-multiple-times"></a>여러 번 처리된 문서
+
+인덱서에서는 데이터를 인덱싱하는 동안 데이터 원본의 모든 새 문서와 변경된 문서가 선택되도록 하는 버퍼링 전략을 활용합니다. 특정 상황에서는 이러한 버퍼가 겹쳐 인덱서가 문서를 두 번 이상 인덱싱하여 처리된 문서 수가 데이터 원본의 실제 문서 수보다 많을 수 있습니다. 이 동작은 문서 복제와 같이 인덱스 에 저장된 데이터에는 영향을 **주지** 않으며 최종 일관성에 도달하는 데 시간이 더 오래 걸릴 수 있습니다. 이는 다음 조건 중 충족되는 경우 특히 우선적으로 수행될 수 있습니다.
+
+- 주문형 인덱서 요청이 연속해서 빠르게 발급됩니다.
+- 데이터 원본의 토폴로지는 여러 복제본 및 파티션을 포함합니다(이러한 예제 중 하나는 [여기에서](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)설명).
+
+인덱서가 연속적으로 여러 번 호출될 수 없습니다. 업데이트가 신속하게 필요한 경우 지원되는 방법은 데이터 원본을 동시에 업데이트하는 동시에 인덱스에 업데이트를 푸시하는 것입니다. 주문형 처리의 경우 요청 속도를 5분 이상 간격으로 실행하고 일정에 따라 인덱서를 실행하는 것이 좋습니다.
+
+### <a name="example-of-duplicate-document-processing-with-30-second-buffer"></a>30초 버퍼가 있는 중복 문서 처리의 예
+문서가 두 번 처리되는 조건은 각 작업 및 카운터 작업을 기록하는 타임라인에 설명되어 있습니다. 다음 타임라인에서는 문제를 보여 줍니다.
+
+| 타임라인(hh:mm:ss) | 이벤트 | 인덱서 높은 워터 마크 | 의견 |
+|---------------------|-------|-------------------------|---------|
+| 00:01:00 | `doc1`최종 일관성을 사용하여 데이터 원본에 쓰기 | `null` | 문서 타임스탬프는 00:01:00입니다. |
+| 00:01:05 | `doc2`최종 일관성을 사용하여 데이터 원본에 쓰기 | `null` | 문서 타임스탬프는 00:01:05입니다. |
+| 00:01:10 | 인덱서 시작 | `null` | |
+| 00:01:11 | 00:01:10 이전의 모든 변경 내용에 대한 인덱서 쿼리 인덱서 쿼리에서 인식만 하는 `doc2` `doc2` 복제본입니다. 만 검색됩니다. | `null` | 인덱서가 타임스탬프를 시작하기 전에 모든 변경 내용을 요청하지만 실제로 하위 집합을 받습니다. 이 동작을 위해서는 버퍼 기간을 다시 조회해야 합니다. |
+| 00:01:12 | 처음으로 인덱서 프로세스 `doc2` | `null` | |
+| 00:01:13 | 인덱서 종료 | 00:01:10 | 높은 워터 마크가 현재 인덱서 실행의 시작 타임스탬프로 업데이트됩니다. |
+| 00:01:20 | 인덱서 시작 | 00:01:10 | |
+| 00:01:21 | 인덱서가 00:00:40에서 00:01:20 사이의 모든 변경 내용을 쿼리합니다. 인덱서 쿼리에서 및 를 모두 인식하는 복제본입니다. 는 `doc1` `doc2` 및 를 검색합니다. `doc1``doc2` | 00:01:10 | 인덱서가 현재 높은 워터마크에서 30초 버퍼를 뺀 값과 현재 인덱서 실행의 시작 타임스탬프 사이의 모든 변경 내용을 요청합니다. |
+| 00:01:22 | 처음으로 인덱서 프로세스 `doc1` | 00:01:10 | |
+| 00:01:23 | 두 번째로 인덱서 프로세스 `doc2` | 00:01:10 | |
+| 00:01:24 | 인덱서 종료 | 00:01:20 | 높은 워터 마크가 현재 인덱서 실행의 시작 타임스탬프로 업데이트됩니다. |
+| 00:01:32 | 인덱서 시작 | 00:01:20 | |
+| 00:01:33 | 인덱서가 00:00:50에서 00:01:32 사이의 모든 변경 내용을 쿼리합니다. 는 및 를 검색합니다. `doc1``doc2` | 00:01:20 | 인덱서가 현재 높은 워터마크에서 30초 버퍼를 뺀 값과 현재 인덱서 실행의 시작 타임스탬프 사이의 모든 변경 내용을 요청합니다. |
+| 00:01:34 | 두 번째로 인덱서 프로세스 `doc1` | 00:01:20 | |
+| 00:01:35 | 세 번째로 인덱서 프로세스 `doc2` | 00:01:20 | |
+| 00:01:36 | 인덱서 종료 | 00:01:32 | 높은 워터 마크가 현재 인덱서 실행의 시작 타임스탬프로 업데이트됩니다. |
+| 00:01:40 | 인덱서 시작 | 00:01:32 | |
+| 00:01:41 | 00:01:02와 00:01:40 사이의 모든 변경 내용에 대한 인덱서 쿼리 검색 `doc2` | 00:01:32 | 인덱서가 현재 높은 워터마크에서 30초 버퍼를 뺀 값과 현재 인덱서 실행의 시작 타임스탬프 사이의 모든 변경 내용을 요청합니다. |
+| 00:01:42 | 네 번째로 인덱서 프로세스 `doc2` | 00:01:32 | |
+| 00:01:43 | 인덱서 종료 | 00:01:40 | 이 인덱서 실행은 데이터 원본에 마지막으로 쓴 후 30초 이상 시작되고 도 `doc2` 처리되었습니다. 00:01:35 이전의 모든 인덱서 실행이 제거되면 및 을 처리하는 첫 번째이자 유일한 실행이 되기 때문에 예상되는 `doc1` `doc2` 동작입니다. |
+
+실제로 이 시나리오는 특정 데이터 원본에 대해 주문형 인덱서가 몇 분 이내에 수동으로 호출되는 경우에만 발생합니다. 이로 인해 숫자가 일치하지 않거나(예: 인덱서가 인덱서 실행 통계에 따라 총 345개의 문서를 처리했지만 데이터 원본 및 인덱스에 340개의 문서가 있음) 동일한 문서에 대해 동일한 기술을 여러 번 실행하는 경우 청구가 증가할 수 있습니다. 일정을 사용 하 여 인덱서를 실행 하는 것이 선호 되는 권장 사항입니다.
 
 ## <a name="see-also"></a>참고 항목
 

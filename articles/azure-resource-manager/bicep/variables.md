@@ -4,13 +4,13 @@ description: Bicep에서 변수를 정의하는 방법을 설명합니다.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/19/2021
-ms.openlocfilehash: 13cb7847019e6b8a4e6e00c6be8d5949a03b3072
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/12/2021
+ms.openlocfilehash: 35175cff08b1470725da87015a3faef9f5bc3ed4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219567"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494789"
 ---
 # <a name="variables-in-bicep"></a>Bicep의 변수
 
@@ -25,6 +25,8 @@ Resource Manager는 배포 작업을 시작하기 전에 변수를 확인합니�
 ```bicep
 var <variable-name> = <variable-value>
 ```
+
+변수는 매개 변수, 모듈 또는 리소스와 동일한 이름을 가질 수 없습니다.
 
 변수의 [데이터 형식은](data-types.md) 지정하지 않습니다. 형식은 값에서 유추됩니다. 다음 예제에서는 변수를 문자열로 설정합니다.
 

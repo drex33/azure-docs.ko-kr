@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
-ms.openlocfilehash: da6a02c12c9e24d4091c632fbf73a0cc97255afa
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2370e3895cc70a4303c9d91d300b47b32913ac7a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223104"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131996322"
 ---
 # <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-event-hubs"></a>Azure Event Hubs를 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집 
 
@@ -51,7 +51,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <connection-string>
 
 ## <a name="available-configurations"></a>사용 가능한 구성
 
-| 구성                                                               | 설명                                                                                                                                                                                          |
+| 구성                                                               | Description                                                                                                                                                                                          |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `spark.synapse.diagnostic.emitters`                                         | 필수 사항입니다. 쉼표로 구분된 진단 내보내기의 대상 이름입니다.                                                                                                                              |
 | `spark.synapse.diagnostic.emitter.<destination>.type`                       | 필수 사항입니다. 기본 제공 대상 유형입니다. Azure Event Hubs 대상을 사용하려면 값은 `AzureEventHub`이어야 합니다.                                                                                    |
@@ -59,6 +59,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <connection-string>
 | `spark.synapse.diagnostic.emitter.<destination>.secret`                     | 선택 사항입니다. Azure Eventhub 인스턴스 연결 문자열입니다. 이 필드는 이 패턴 `Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<PathName>`과 일치해야 합니다. |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | `.secret`이 지정되지 않은 경우 필수 사항입니다. 비밀(연결 문자열)이 저장되는 [Azure Key Vault](../../key-vault/general/overview.md) 이름입니다.                                                                  |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | `.secret.keyVault`를 지정하는 경우 필요합니다. 비밀(연결 문자열)이 저장되는 Azure Key Vault 비밀 이름입니다.                                                                         |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | 선택 사항입니다. Azure Key Vault 연결된 서비스 이름입니다. Synapse 파이프라인에서 사용하도록 설정된 경우 AKV에서 비밀을 가져오는 데 필요합니다. (MSI에 AKV에 대한 읽기 권한이 있는지 확인하세요.) |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | 선택 사항입니다. 쉼표로 구분된 Spark 이벤트 이름이며, 수집할 이벤트를 지정할 수 있습니다. 예: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | 선택 사항입니다. 쉼표로 구분된 log4j 로거 이름이며, 수집할 이벤트를 지정할 수 있습니다. 예: `org.apache.spark.SparkContext,org.example.Logger` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | 선택 사항입니다. 쉼표로 구분된 Spark 메트릭 이름 접미사이며, 수집할 메트릭을 지정할 수 있습니다. 예: `jvm.heap.used` |

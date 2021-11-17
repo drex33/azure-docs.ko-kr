@@ -5,12 +5,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 09/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: eb2f85064413f3d4700fea01aa4ead81508dd8c9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e4a70b32da22d5900e169b22cabde2654cb2dcfe
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631498"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548333"
 ---
 # <a name="secure-your-cluster-with-azure-policy"></a>Azure Policy를 사용하여 클러스터 보호
 
@@ -36,23 +36,23 @@ AKS(Azure Kubernetes Service) 클러스터의 보안을 강화하기 위해 Azur
 1. **매개 변수** 페이지를 선택하고 **효과** 를 `audit`에서 `deny`로 업데이트하여 기준 이니셔티브를 위반하는 새 배포를 차단합니다. 평가에서 제외할 네임스페이스를 더 추가할 수도 있습니다. 이 예제의 경우 기본값을 유지합니다.
 1. **검토 + 만들기**, **만들기** 를 차례로 선택하여 정책 할당을 제출합니다.
 
-## <a name="create-and-assign-a-custom-policy-definition-preview"></a>사용자 지정 정책 정의 만들기 및 할당(미리 보기)
+## <a name="create-and-assign-a-custom-policy-definition-preview"></a>사용자 지정 정책 정의 만들기 및 할당 (미리 보기)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-사용자 지정 정책을 사용하면 Azure 사용에 대한 규칙을 정의할 수 있습니다. 예를 들어 다음을 적용할 수 있습니다.
+사용자 지정 정책을 사용 하 여 Azure를 사용 하기 위한 규칙을 정의할 수 있습니다. 예를 들어 다음을 적용할 수 있습니다.
 - 보안 관행
 - 비용 관리
 - 조직별 규칙(예: 이름 지정 또는 위치)
 
-사용자 지정 정책을 만들기 전에 [일반적인 패턴 및 샘플 목록을][azure-policy-samples] 확인하여 사례가 이미 검사되었는지 확인합니다.
+사용자 지정 정책을 만들기 전에 [일반적인 패턴 및 샘플 목록을][azure-policy-samples] 확인 하 여 해당 사례가 이미 포함 되어 있는지 확인 합니다.
 
-사용자 지정 정책 정의는 JSON으로 작성됩니다. 사용자 지정 정책을 만드는 방법에 대한 자세한 내용은 [Azure Policy 정의 구조][azure-policy-definition-structure] 및 사용자 지정 정책 정의 [만들기를 참조하세요.][custom-policy-tutorial-create]
+사용자 지정 정책 정의는 JSON으로 작성 됩니다. 사용자 지정 정책을 만드는 방법에 대해 자세히 알아보려면 [Azure Policy 정의 구조][azure-policy-definition-structure] 및 [사용자 지정 정책 정의 만들기][custom-policy-tutorial-create]를 참조 하세요.
 
 > [!NOTE]
-> 이제 Azure Policy 사용자가 제약 조건 템플릿의 소스 형식을 정의할 수 있도록 *templateInfo라는* 새 속성을 활용합니다. 정책 정의에서 *templateInfo를* 정의하면 사용자가 *constraintTemplate* 또는 *제약 조건* 속성을 정의할 필요가 없습니다. 사용자는 여전히 *apiGroups* 및 종류를 정의해야 *합니다.* 이에 대한 자세한 내용은 [Azure Policy 효과 이해를 참조하세요.][azure-policy-effects-audit]
+> 이제 Azure Policy는 템플릿 *정보* 라는 새 속성을 활용 하 여 사용자가 제약 조건 템플릿의 원본 유형을 정의할 수 있게 합니다. 정책 정의에서 템플릿 *정보* 를 정의 하 여 사용자가 *constraintTemplate* 또는 *제약 조건* 속성을 정의할 필요가 없습니다. 사용자는 *Apigroups* 및 *종류* 도 정의 해야 합니다. 이에 대 한 자세한 내용은 [Azure Policy 효과 이해][azure-policy-effects-audit]를 참조 하세요.
 
-사용자 지정 정책 정의가 만들어지면 Kubernetes 클러스터에 정책을 할당하는 단계별 연습에 대한 정책 [정의][custom-policy-tutorial-assign] 할당을 참조하세요.
+사용자 지정 정책 정의를 만든 후에는 정책을 Kubernetes 클러스터에 할당 하는 단계별 연습을 위해 [정책 정의 할당][custom-policy-tutorial-assign] 을 참조 하세요.
 
 ## <a name="validate-a-azure-policy-is-running"></a>Azure Policy 실행 중인지 유효성 검사
 
@@ -113,7 +113,7 @@ kubectl apply -f nginx-privileged.yaml
 예상대로 다음 예제 출력과 같이 Pod가 예약되지 않습니다.
 
 ```console
-$ kubectl apply -f privileged.yaml
+$ kubectl apply -f nginx-privileged.yaml
 
 Error from server ([denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}): error when creating "privileged.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}
 ```

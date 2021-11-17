@@ -1,33 +1,33 @@
 ---
-title: Azure Sentinel에서 MSSP(관리형 보안 서비스 공급자) 지적 재산 보호 | Microsoft Docs
-description: MSSP(관리형 보안 서비스 공급자)가 Azure Sentinel에서 만든 지적 재산을 보호할 수 있는 방법에 대해 알아봅니다.
+title: Microsoft 센티널에서 MSSPs (관리 보안 서비스 공급자) 지적 재산 보호 | Microsoft Docs
+description: MSSPs (관리 보안 서비스 공급자)가 Microsoft 센티널에서 만든 지적 재산을 보호할 수 있는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2021
+ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: b21bb010755e8f618cba2ae40db14d12aa3b28df
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 11ee855d2606376ab893d581a091afeca3dd6713
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023028"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518872"
 ---
-# <a name="protecting-mssp-intellectual-property-in-azure-sentinel"></a>Azure Sentinel에서 MSSP 지적 재산 보호
+# <a name="protecting-mssp-intellectual-property-in-microsoft-sentinel"></a>Microsoft 센티널에서 MSSP 지적 재산 보호
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Azure Sentinel 분석 규칙, 헌팅 쿼리, 플레이북, 통합 문서 등 MSSP(관리형 보안 서비스 공급자)가 Azure Sentinel에서 개발한 지적 재산을 보호하는 데 사용할 수 있는 방법을 설명합니다.
+이 문서에서는 MSSPs (관리 되는 보안 서비스 공급자)가 microsoft 센티널 분석 규칙, 구하기 쿼리, 플레이 북 및 통합 문서와 같이 Microsoft 센티널에서 개발한 지적 재산권을 보호 하는 데 사용할 수 있는 방법을 설명 합니다.
 
 선택하는 방법은 [CSP(클라우드 솔루션 공급자)](#cloud-solutions-providers-csp) 역할을 하는지, 고객에게 [EA(기업계약)/PAYG(종량제)](#enterprise-agreements-ea--pay-as-you-go-payg) 계정이 있는지 등 각 고객이 Azure를 구입한 방법에 따라 달라집니다. 다음 섹션에서는 이러한 각 방법에 대해 개별적으로 설명합니다.
 
@@ -41,21 +41,21 @@ Admin Agents 그룹에 속하지 않는 MSSP 테넌트의 다른 사용자가 �
 
 예를 들어:
 
-- 애플리케이션이 있는 여러 리소스 그룹에 대한 액세스 권한을 고객에게 부여할 수 있지만 Azure Sentinel 작업 영역은 고객에게 액세스 권한이 없는 별도의 리소스 그룹에 계속 유지합니다.
+- 응용 프로그램이 있는 여러 리소스 그룹에 대 한 액세스 권한을 고객에 게 부여할 수 있지만, 고객에 게 액세스 권한이 없는 별도의 리소스 그룹에 Microsoft 센티널 작업 영역을 계속 유지 합니다.
 
 - 이 방법을 사용하여 고객은 자체 리소스 그룹에 상주할 수 있는 별도의 리소스인 선택한 통합 문서 및 플레이북을 볼 수 있습니다.
 
-리소스 그룹 수준에서 액세스 권한을 부여하는 경우에도, 고객은 Azure Sentinel에 액세스하지 않고 VM의 로그와 같이 액세스할 수 있는 리소스에 대한 로그 데이터에 계속 액세스할 수 있습니다. 자세한 내용은 [리소스별로 Azure Sentinel 데이터에 대한 액세스 관리](resource-context-rbac.md)를 참조하세요.
+리소스 그룹 수준에서 액세스 권한을 부여 하는 경우에도 고객은 Microsoft 센티널에 액세스 하지 않아도 VM의 로그와 같이 액세스할 수 있는 리소스에 대 한 로그 데이터에 계속 액세스할 수 있습니다. 자세한 내용은 리소스를 사용 [하 여 Microsoft 센티널 데이터에 대 한 액세스 관리](resource-context-rbac.md)를 참조 하세요.
 
 > [!TIP]
 > 고객에게 전체 구독에 대한 액세스 권한을 제공해야 하는 경우 [EA(기업계약)/PAYG(종량제)](#enterprise-agreements-ea--pay-as-you-go-payg)의 지침을 참조할 수 있습니다.
 >
 
-### <a name="sample-azure-sentinel-csp-architecture"></a>샘플 Azure Sentinel CSP 아키텍처
+### <a name="sample-microsoft-sentinel-csp-architecture"></a>샘플 Microsoft 센티널 CSP 아키텍처
 
 다음 이미지에서는 CSP 고객에게 액세스 권한을 제공할 때 [이전 섹션](#cloud-solutions-providers-csp)에서 설명한 권한이 작동하는 방식을 설명합니다.
 
-:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="CSP 고객의 Azure Sentinel 지적 재산 보호":::
+:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="CSP 고객으로 Microsoft 센티널 지적 재산을 보호 합니다.":::
 
 이 이미지의 경우
 
@@ -63,7 +63,7 @@ Admin Agents 그룹에 속하지 않는 MSSP 테넌트의 다른 사용자가 �
 - MSSP의 다른 그룹은 Azure Lighthouse를 통해 고객 환경에 액세스할 수 있습니다.
 - Azure 리소스에 대한 고객 액세스는 리소스 그룹 수준에서 Azure RBAC를 통해 관리됩니다.
 
-    따라서 MSSP는 분석 규칙 및 헌팅 쿼리와 같은 Azure Sentinel 구성 요소를 필요에 따라 숨길 수 있습니다.
+    이를 통해 MSSPs는 분석 규칙 및 구하기 쿼리와 같이 필요에 따라 Microsoft 센티널 구성 요소를 숨길 수 있습니다.
 
 자세한 내용은 [Azure Lighthouse 설명서](../lighthouse/concepts/cloud-solution-provider.md)를 참조하세요.
 
@@ -71,15 +71,15 @@ Admin Agents 그룹에 속하지 않는 MSSP 테넌트의 다른 사용자가 �
 
 고객이 Microsoft에서 직접 구매하는 경우 고객은 이미 Azure 환경에 대한 모든 권한을 보유하며 고객의 Azure 구독에 있는 모든 항목을 숨길 수 없습니다.
 
-대신, 보호해야 하는 리소스의 종류에 따라 다음과 같이 Azure Sentinel에서 개발한 지적 재산을 보호합니다.
+대신, 보호 해야 하는 리소스의 유형에 따라 다음과 같이 Microsoft 센티널에서 개발한 지적 재산을 보호 합니다.
 
 ### <a name="analytics-rules-and-hunting-queries"></a>분석 규칙 및 헌팅 쿼리
 
-분석 규칙과 헌팅 쿼리는 둘 다 Azure Sentinel 내에 포함되므로 Azure Sentinel 작업 영역에서 분리할 수 없습니다.
+분석 규칙 및 구하기 쿼리는 모두 Microsoft 센티널 내에 포함 되므로 Microsoft 센티널 작업 영역에서 분리할 수 없습니다.
 
-사용자에게 Azure Sentinel 읽기 권한자 권한만 있는 경우에도 쿼리를 볼 수 있습니다. 이 경우 고객 테넌트 대신 고유한 MSSP 테넌트에서 분석 규칙 및 헌팅 쿼리를 호스트하는 것이 좋습니다.
+사용자에 게 Microsoft 센티널 판독기 권한만 있어도 쿼리를 볼 수 있습니다. 이 경우 고객 테넌트 대신 고유한 MSSP 테넌트에서 분석 규칙 및 헌팅 쿼리를 호스트하는 것이 좋습니다.
 
-이렇게 하려면 Azure Sentinel을 사용하는 고유한 테넌트에 작업 영역이 필요하며 [Azure Lighthouse](multiple-tenants-service-providers.md)를 통해 고객 작업 영역도 확인해야 합니다.
+이렇게 하려면 Microsoft 센티널를 사용 하는 테 넌 트의 작업 영역이 필요 하며, [Azure Lighthouse](multiple-tenants-service-providers.md)를 통해 고객 작업 영역도 확인 해야 합니다.
 
 고객 테넌트의 데이터를 참조하는 MSSP 테넌트에서 분석 규칙 또는 헌팅 쿼리를 만들려면 다음과 같이 `workspace` 문을 사용해야 합니다.
 
@@ -94,7 +94,7 @@ workspace('<customer-workspace>').SecurityEvent
 
 - **각 고객에 대해 별도의 경고를 만듭니다**. 이 방법을 사용하는 경우 작업 영역 문이 경우에 따라 달라지기 때문에 각 고객 및 검색에 대해 별도의 경고 규칙을 사용하는 것이 좋습니다.
 
-    경고 규칙 이름에 고객 이름을 추가하여 경고가 트리거되는 고객을 쉽게 식별할 수 있습니다. 별도의 경고로 인해 많은 규칙이 생성될 수 있으므로 스크립팅을 사용하거나 [Azure Sentinel을 코드로](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) 사용하여 관리할 수 있습니다.
+    경고 규칙 이름에 고객 이름을 추가하여 경고가 트리거되는 고객을 쉽게 식별할 수 있습니다. 별도의 경고로 인해 스크립트를 사용 하 여 관리 하거나 [코드를 코드로](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928)사용 하 여 관리할 수 있는 다 수의 규칙이 발생할 수 있습니다.
 
     예를 들어:
 
@@ -114,7 +114,7 @@ workspace('<customer-workspace>').SecurityEvent
 
 ### <a name="workbooks"></a>통합 문서
 
-고객이 복사할 수 없는 Azure Sentinel 통합 문서를 개발한 경우 MSSP 테넌트에서 통합 문서를 호스트합니다. Azure Lighthouse를 통해 고객 작업 영역에 액세스할 수 있는지 확인한 다음, 해당 고객 작업 영역을 사용하도록 통합 문서를 수정해야 합니다.
+고객이 복사 하지 않으려는 Microsoft 센티널 통합 문서를 개발한 경우 MSSP 테 넌 트에서 통합 문서를 호스팅합니다. Azure Lighthouse를 통해 고객 작업 영역에 액세스할 수 있는지 확인한 다음, 해당 고객 작업 영역을 사용하도록 통합 문서를 수정해야 합니다.
 
 예를 들어:
 
@@ -160,8 +160,8 @@ workspace('<customer-workspace>').SecurityEvent
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Sentinel Technical Playbook for MSSPs](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)(MSSP용 Azure Sentinel 기술 플레이북)
-- [Azure Sentinel에서 MSSP로 다중 테넌트 관리](multiple-tenants-service-providers.md)
-- [작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장](extend-sentinel-across-workspaces-tenants.md)
+- [MSSPs 용 Microsoft 센티널 기술 플레이 북](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
+- [Microsoft 센티널에서 여러 테 넌 트를 MSSP로 관리](multiple-tenants-service-providers.md)
+- [작업 영역 및 테넌트에 걸쳐 Microsoft Sentinel 확장](extend-sentinel-across-workspaces-tenants.md)
 - [데이터 시각화 및 모니터링](monitor-your-data.md)
-- [자습서: Azure Sentinel에서 자동화된 위협 응답 설정](tutorial-respond-threats-playbook.md)
+- [자습서: Microsoft 센티널에서 자동화 된 위협 응답 설정](tutorial-respond-threats-playbook.md)

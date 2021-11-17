@@ -4,23 +4,23 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/15/2021
+ms.date: 09/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c50d62d5c8f24ed25258305411f9ed045098c7f
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 0837fc83bec560f12c31da1d9f0001b5bdd7768f
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112232834"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669932"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당
 
@@ -39,7 +39,7 @@ Privileged Identity Management는 기본 제공 및 사용자 지정 Azure 역�
 
 ## <a name="role-assignment-conditions"></a>역할 할당 조건
 
-Azure ABAC(Azure 특성 기반 액세스 제어) 미리 보기를 사용하여 PIM(Privileged Identity Management)을 통해 적격 역할 할당에 대한 리소스 조건을 지정할 수 있습니다. PIM을 사용하는 경우 최종 사용자가 특정 작업을 수행할 수 있는 권한을 얻기 위해 적격 역할 할당을 활성화해야 합니다. PIM에서 Azure ABAC 조건을 사용하면 세분화된 조건을 사용하여 리소스에 대한 사용자 역할 권한을 제한할 뿐만 아니라 PIM을 사용하여 시간 제한 설정, 승인 워크플로, 감사 추적 등으로 역할 할당을 보호할 수 있습니다. 자세한 내용은 [Azure 속성 기반 액세스 제어 공개 미리 보기](../../role-based-access-control/conditions-overview.md)를 참조하세요.
+Azure ABAC(Azure 특성 기반 액세스 제어) 미리 보기를 사용하여 PIM(Privileged Identity Management)을 통해 적격 역할 할당에 대한 리소스 조건을 지정할 수 있습니다. PIM을 사용하는 경우 최종 사용자가 특정 작업을 수행할 수 있는 권한을 얻기 위해 적격 역할 할당을 활성화해야 합니다. PIM에서 Azure 특성 기반 액세스 제어 조건을 사용하면 세분화된 조건을 사용하여 리소스에 대한 사용자 역할 권한을 제한할 뿐만 아니라 PIM을 사용하여 시간 제한 설정, 승인 워크플로, 감사 추적 등으로 역할 할당을 보호할 수 있습니다. 자세한 내용은 [Azure 속성 기반 액세스 제어 공개 미리 보기](../../role-based-access-control/conditions-overview.md)를 참조하세요.
 
 ## <a name="assign-a-role"></a>역할 할당
 
@@ -92,6 +92,98 @@ Azure ABAC(Azure 특성 기반 액세스 제어) 미리 보기를 사용하여 P
 1. 새 역할 할당이 만들어지면 상태 알림이 표시됩니다.
 
     ![새 할당 - 알림](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## <a name="assign-a-role-using-arm-api"></a>ARM API를 사용하여 역할 할당
+
+Privileged Identity Management는 [PIM ARM API 참조](/rest/api/authorization/roleeligibilityschedulerequests)에 설명된 대로 ARM(Azure Resource Manager) 명령을 지원하여 Azure 리소스 역할을 관리합니다. PIM API를 사용하는 데 필요한 권한은 [Privileged Identity Management API 이해](pim-apis.md)를 참조하세요.
+
+다음은 Azure 역할에 대한 적격 할당을 만들기 위한 샘플 HTTP 요청입니다.
+
+### <a name="request"></a>요청
+
+````HTTP
+PUT https://management.azure.com/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/64caffb6-55c0-4deb-a585-68e948ea1ad6?api-version=2020-10-01-preview
+````
+
+### <a name="request-body"></a>요청 본문
+
+````JSON
+{
+  "properties": {
+    "principalId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "roleDefinitionId": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+    "requestType": "AdminAssign",
+    "scheduleInfo": {
+      "startDateTime": "2020-09-09T21:31:27.91Z",
+      "expiration": {
+        "type": "AfterDuration",
+        "endDateTime": null,
+        "duration": "P365D"
+      }
+    },
+    "condition": "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+    "conditionVersion": "1.0"
+  }
+}
+````
+
+### <a name="response"></a>응답
+
+상태 코드: 201
+
+````HTTP
+{
+  "properties": {
+    "targetRoleEligibilityScheduleId": "b1477448-2cc6-4ceb-93b4-54a202a89413",
+    "targetRoleEligibilityScheduleInstanceId": null,
+    "scope": "/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f",
+    "roleDefinitionId": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+    "principalId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "principalType": "User",
+    "requestType": "AdminAssign",
+    "status": "Provisioned",
+    "approvalId": null,
+    "scheduleInfo": {
+      "startDateTime": "2020-09-09T21:31:27.91Z",
+      "expiration": {
+        "type": "AfterDuration",
+        "endDateTime": null,
+        "duration": "P365D"
+      }
+    },
+    "ticketInfo": {
+      "ticketNumber": null,
+      "ticketSystem": null
+    },
+    "justification": null,
+    "requestorId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "createdOn": "2020-09-09T21:32:27.91Z",
+    "condition": "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+    "conditionVersion": "1.0",
+    "expandedProperties": {
+      "scope": {
+        "id": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f",
+        "displayName": "Pay-As-You-Go",
+        "type": "subscription"
+      },
+      "roleDefinition": {
+        "id": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+        "displayName": "Contributor",
+        "type": "BuiltInRole"
+      },
+      "principal": {
+        "id": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+        "displayName": "User Account",
+        "email": "user@my-tenant.com",
+        "type": "User"
+      }
+    }
+  },
+  "name": "64caffb6-55c0-4deb-a585-68e948ea1ad6",
+  "id": "/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/RoleEligibilityScheduleRequests/64caffb6-55c0-4deb-a585-68e948ea1ad6",
+  "type": "Microsoft.Authorization/RoleEligibilityScheduleRequests"
+}
+````
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>기존 역할 할당 업데이트 또는 제거
 

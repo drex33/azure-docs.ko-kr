@@ -5,18 +5,18 @@ metadata:
   title: Microsoft Defender for Cloud 설명서
   description: 빠른 시작 및 자습서를 사용하여 Defender for Cloud를 시작하고, 워크로드를 보호하고, 위험을 제한하고, 공격을 탐지하고 대응하는 방법을 알아봅니다.
   services: security-center
-  ms.service: security-center
+  ms.service: defender-for-cloud
   ms.topic: landing-page
   ms.collection: collection
   author: memildin
   ms.author: memildin
   ms.date: 10/21/2021
-  ms.openlocfilehash: 5ab94b1a0cf16df2475d073e62ee7877b97c28e2
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: 66839c045da6af6c4b6279ac0501a85ab7ea939b
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132349648"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132487090"
 landingContent:
 - title: Defender for Cloud 정보
   linkLists:

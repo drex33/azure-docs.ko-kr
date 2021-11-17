@@ -3,27 +3,27 @@ title: 애플리케이션 프록시를 사용하는 Azure Active Directory의 Ke
 description: Azure Active Directory 애플리케이션 프록시를 사용하여 Single Sign-On을 제공하는 방법을 다룹니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ba29c7577bd725cf0c165e0cae8374d3c4bb647c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 8aaf08b3d94db9ada52fb80d1dcb1a0e94d39894
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187122"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989763"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하는 앱에 대한 SSO(Single Sign-On)의 Kerberos 제한 위임
 
 Windows 통합 인증으로 보안되는 애플리케이션 프록시를 통해 게시된 온-프레미스 애플리케이션에 대한 Single Sign-On을 제공할 수 있습니다. 이러한 애플리케이션은 액세스를 위해 Kerberos 티켓이 필요합니다. 애플리케이션 프록시는 KCD(Kerberos 제한된 위임)을 사용하여 이러한 애플리케이션을 지원합니다. 
 
-Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부여하여 사용자를 가장함으로써 IWA(Windows 통합 인증)를 사용하여 애플리케이션에 SSO(Single Sign On)를 사용하게 할 수 있습니다. 커넥터는 이 사용 권한을 사용하여 사용자 대신 토큰을 주고받습니다.
+Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부여하여 사용자를 가장함으로써 IWA(Windows 통합 인증)를 사용하여 애플리케이션에 Single Sign On을 사용하게 할 수 있습니다. 커넥터는 이 사용 권한을 사용하여 사용자 대신 토큰을 주고받습니다.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>KCD를 사용하는 Single Sign-On 작동 방식
 이 다이어그램은 사용자가 IWA를 사용하는 온-프레미스 애플리케이션에 액세스하려고 할 때의 흐름을 설명합니다.
@@ -88,8 +88,8 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 1. [애플리케이션 프록시로 애플리케이션 게시](../app-proxy/application-proxy-add-on-premises-application.md)에 설명된 지침에 따라 애플리케이션을 게시합니다. **Azure Active Directory** 를 **사전 인증 방법** 으로 선택해야 합니다.
 2. 애플리케이션이 엔터프라이즈 애플리케이션 목록에 나타나면 선택하고 **Single Sign-On** 을 클릭합니다.
 3. Single Sign-On 모드를 **Windows 통합 인증** 으로 설정합니다.  
-4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN** 을 입력합니다. 이 예제에서는 게시된 애플리케이션에 대한 SPN이 http/www.contoso.com입니다. 이 SPN은 커넥터가 위임된 자격 증명을 제공할 수 있는 서비스 목록에 있어야 합니다. 
-5. 커넥터에 대한 **위임된 로그인 ID** 를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 ID로 작업](#working-with-different-on-premises-and-cloud-identities) 참조
+4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN** 을 입력합니다. 이 예제에서는 게시된 애플리케이션에 대한 SPN이 `http/www.contoso.com`입니다. 이 SPN은 커넥터가 위임된 자격 증명을 제공할 수 있는 서비스 목록에 있어야 합니다.
+5. 커넥터에 대한 **위임된 로그인 ID** 를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 ID로 작업](#working-with-different-on-premises-and-cloud-identities)을 참조하세요.
 
    ![고급 애플리케이션 구성](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

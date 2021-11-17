@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 547d96a9591b99318a74977106e99511c9c80507
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a32935bbba2c9d8d3a3c8183b81b14f4ac40f1fd
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687110"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989131"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>자습서: SAP Fiori와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -83,7 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
         login/create_sso2_ticket = 2
         login/accept_sso2_ticket = 1
         login/ticketcache_entries_max = 1000
-        login/ticketcache_off = 0  login/ticket_only_by_https = 0 
+        login/ticketcache_off = 0  login/ticket_only_by_https = 0
         icf/set_HTTPonly_flag_on_cookies = 3
         icf/user_recheck = 0  http/security_session_timeout = 1800
         http/security_context_cache_size = 2500
@@ -138,24 +138,24 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **서비스 공급자 메타데이터 파일** 이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **메타데이터 파일 업로드** 를 클릭합니다.
+    1. **메타데이터 파일 업로드** 를 클릭합니다.
 
-    ![메타데이터 파일 업로드](common/upload-metadata.png)
+        ![메타데이터 파일 업로드](common/upload-metadata.png)
 
-    b. **폴더 로고** 를 클릭하여 메타데이터 파일을 선택하고 **업로드** 를 클릭합니다.
+    1. **폴더 로고** 를 클릭하여 메타데이터 파일을 선택하고 **업로드** 를 클릭합니다.
 
-    ![메타데이터 파일 선택](common/browse-upload-metadata.png)
+        ![메타데이터 파일 선택](common/browse-upload-metadata.png)
 
-    다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 **기본 SAML 구성** 창에 자동으로 채워집니다. **로그온 URL** 상자에 `https://<your company instance of SAP Fiori>` 패턴의 URL을 입력합니다.
+    1. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 **기본 SAML 구성** 창에 자동으로 채워집니다. **로그온 URL** 상자에 `https://<your company instance of SAP Fiori>` 패턴의 URL을 입력합니다.
 
-    > [!NOTE]
-    > 소수의 고객이 잘못 구성된 **회신 URL** 값과 관련된 오류를 보고합니다. 이러한 오류가 표시되면 다음 PowerShell 스크립트를 사용하여 인스턴스에 대해 올바른 회신 URL을 설정할 수 있습니다.
-    >
-    > ```
-    > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
-    > ``` 
-    > 
-    > 스크립트를 실행하기 전에 `ServicePrincipal` 개체 ID를 직접 설정하거나 여기서 제공할 수 있습니다.
+        > [!NOTE]
+        > 소수의 고객이 잘못 구성된 **회신 URL** 값과 관련된 오류를 보고합니다. 이러한 오류가 표시되면 다음 PowerShell 스크립트를 사용하여 인스턴스에 대해 올바른 회신 URL을 설정할 수 있습니다.
+        >
+        > ```powershell
+        > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+        > ```
+        >
+        > 스크립트를 실행하기 전에 `ServicePrincipal` 개체 ID를 직접 설정하거나 여기서 제공할 수 있습니다.
 
 1. SAP Fiori 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 이러한 특성 값을 관리하려면 **SAML로 Single Sign-On 설정** 창에서 **편집** 을 선택합니다.
 
@@ -171,10 +171,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     1. **저장** 을 선택합니다.
 
-       ![사용자 클레임 관리 창](./media/sapfiori-tutorial/nameidattribute.png)
+        ![사용자 클레임 관리 창](./media/sapfiori-tutorial/nameidattribute.png)
 
-       ![사용자 클레임 관리 창의 변환 섹션](./media/sapfiori-tutorial/nameidattribute1.png)
-    
+        ![사용자 클레임 관리 창의 변환 섹션](./media/sapfiori-tutorial/nameidattribute1.png)
+
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
@@ -273,13 +273,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **시나리오 2**: SU01에 구성된 이메일 주소를 기반으로 SAP 사용자 ID를 선택합니다. 이 경우 이메일 ID는 SSO를 필요로 하는 각 사용자에 대해 SU01에서 구성되어야 합니다.
 
-    1.  SAP의 **NameID 형식 "지정되지 않음"의 세부 정보** 아래에 표시되는 세부 정보를 기록해 둡니다.
+    1. SAP의 **NameID 형식 "지정되지 않음"의 세부 정보** 아래에 표시되는 세부 정보를 기록해 둡니다.
 
         ![SAP의 NameID 형식 "지정되지 않음" 세부 정보 대화 상자](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
     1. Azure Portal의 **사용자 특성 및 클레임** 아래에서 Azure AD의 필수 클레임을 기록해 둡니다.
 
-       ![Azure Portal의 사용자 특성 및 클레임 대화 상자](./media/sapfiori-tutorial/claimsaad2.png)
+        ![Azure Portal의 사용자 특성 및 클레임 대화 상자](./media/sapfiori-tutorial/claimsaad2.png)
 
 1. **저장** 을 선택한 다음, **사용** 을 선택하여 ID 공급자를 사용하도록 설정합니다.
 
@@ -297,18 +297,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. SAP Fiori에서 ID 공급자 Azure AD를 활성화한 후 다음 URL 중 하나에 액세스하여 Single Sign-On을 테스트해 봅니다(사용자 이름 및 암호를 묻는 메시지가 표시되지 않아야 함).
 
-    * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
-    * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
+    * `https://<sap-url>/sap/bc/bsp/sap/it00/default.htm`
+    * `https://<sap-url>/sap/bc/bsp/sap/it00/default.htm`
 
     > [!NOTE]
-    > *sapurl* 를 실제 SAP 호스트 이름으로 바꿉니다.
+    > `<sap-url>`을 실제 SAP 호스트 이름으로 바꿉니다.
 
 1. 테스트 URL을 클릭하면 SAP의 다음 테스트 애플리케이션 페이지로 이동됩니다. 이 페이지가 열리면 Azure AD Single Sign-On이 성공적으로 설정된 것입니다.
 
     ![SAP의 표준 테스트 애플리케이션 페이지](./media/sapfiori-tutorial/testingsso.png)
 
-1. 사용자 이름 및 암호를 묻는 메시지가 표시되면 추적을 사용하도록 설정하면 문제를 진단합니다. 추적을 위해 URL https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#을 사용합니다.
+1. 사용자 이름 및 암호를 묻는 메시지가 표시되면 추적을 사용하도록 설정하면 문제를 진단합니다. 다음 URL을 추적에 사용합니다.
+
+    `https://<sap-url>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`.
 
 ## <a name="next-steps"></a>다음 단계
 
-SAP Fiori가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+SAP Fiori가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

@@ -1,7 +1,6 @@
 ---
 title: 페더레이션을 사용하여 Azure AD MFA로 마이그레이션 - Azure Active Directory
 description: 온-프레미스의 Azure MFA 서버에서 페더레이션을 사용하여 Azure AD MFA로 전환하는 단계별 지침
-services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
@@ -11,12 +10,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b34538fb4d0c9dc7beb0defd22f0aa78207f0a3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0c5d92d16f5ac9fcd8aa69ce9fd71f4844a77d28
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566517"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352705"
 ---
 # <a name="migrate-to-azure-ad-mfa-with-federation"></a>페더레이션을 사용하여 Azure AD MFA로 마이그레이션
 
@@ -65,7 +64,7 @@ Get-AdfsAdditionalAuthenticationRule
 기존 신뢰 당사자 트러스트를 보려면 다음 명령을 실행하고 RPTrustName을 신뢰 당사자 트러스트 클레임 규칙의 이름으로 바꿉니다. 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules 
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules 
 ```
 
 #### <a name="access-control-policies"></a>액세스 제어 정책
@@ -92,13 +91,13 @@ Azure AD MFA를 호출하려는 사용자를 배치할 특정 그룹이 있어�
 
 그룹 SID를 찾으려면 그룹 이름에서 다음 명령을 사용합니다.
 
-`Get-ADGroup “GroupName”`
+`Get-ADGroup "GroupName"`
 
 ![Get-ADGroup 스크립트의 결과를 보여 주는 스크린샷 이미지](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
 #### <a name="setting-the-claims-rules-to-call-azure-mfa"></a>Azure MFA를 호출하도록 클레임 규칙 설정
 
-다음 PowerShell cmdlet은 회사 네트워크에 있지 않은 경우 그룹의 사용자에 대해 Azure AD MFA를 호출합니다. “YourGroupSid”를 위의 cmdlet을 실행하여 찾은 SID로 바꿉니다.
+다음 PowerShell cmdlet은 회사 네트워크에 있지 않은 경우 그룹의 사용자에 대해 Azure AD MFA를 호출합니다. "YourGroupSid"를 위의 cmdlet을 실행하여 찾은 SID로 바꿉니다.
 
 [2019에서 추가 인증 공급자를 선택하는 방법](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server)을 검토해야 합니다. 
 
@@ -112,7 +111,7 @@ Azure AD MFA를 호출하려는 사용자를 배치할 특정 그룹이 있어�
 다음 PowerShell cmdlet를 실행합니다. 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules
 ```
 
  
@@ -126,7 +125,7 @@ Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 다음 예제에서는 사용자가 네트워크 외부에서 연결하는 경우 MFA를 요구하도록 현재 클레임 규칙을 구성했다고 가정합니다. 이 예제에는 추가해야 하는 추가 규칙이 포함되어 있습니다.
@@ -137,12 +136,12 @@ Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type ==
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
  c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -156,12 +155,12 @@ Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[ty
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -183,7 +182,7 @@ AD FS에 대해 Azure AD MFA를 구성하려면 각 AD FS 서버를 구성해야
 
 SupportsMFA 플래그가 False로 설정된 경우 Azure MFA를 사용하지 않고 AD FS 신뢰 당사자에 대한 클레임 규칙을 사용하여 MFA를 호출할 수 있습니다.
 
-다음 [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0)을 사용하여 SupportsMFA 플래그의 상태를 확인할 수 있습니다.
+다음 [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings)을 사용하여 SupportsMFA 플래그의 상태를 확인할 수 있습니다.
 
 ```powershell
 Get-MsolDomainFederationSettings –DomainName yourdomain.com
@@ -279,7 +278,7 @@ Microsoft는 결합된 등록 프로세스를 안내하기 위해 사용자에�
 
 사용자가 이미 Azure AD에 전화 번호를 등록했을 수 있습니다. 인증 방법 API를 사용하여 전화 번호를 가져올 때 기존 전화 번호를 덮어쓸지 또는 가져온 번호를 대체 전화 번호로 추가할지를 결정해야 합니다.
 
-다음 PowerShell cmdlet은 사용자가 제공하는 CSV 파일을 사용하고 내보낸 전화 번호를 인증 방법 API에서 각 UPN의 전화 번호로 추가합니다. “myPhones”를 CSV 파일의 이름으로 바꿉니다.
+다음 PowerShell cmdlet은 사용자가 제공하는 CSV 파일을 사용하고 내보낸 전화 번호를 인증 방법 API에서 각 UPN의 전화 번호로 추가합니다. "myPhones"를 CSV 파일의 이름으로 바꿉니다.
 
 ```powershell
 
@@ -309,7 +308,7 @@ Azure MFA 등록은 [Authentication methods usage & insights report](https://por
 
    
 
-## <a name="clean-up-steps&quot;></a>정리 단계
+## <a name="clean-up-steps"></a>정리 단계
 
 Azure MFA로 마이그레이션을 완료하고 MFA 서버를 서비스 해제할 준비가 되면 다음 세 가지 작업을 수행합니다. 
 
@@ -319,7 +318,7 @@ Azure MFA로 마이그레이션을 완료하고 MFA 서버를 서비스 해제�
 
 1. MFA 서버를 서비스 해제합니다.
 
-### <a name=&quot;revert-claims-rules-on-ad-fs-and-remove-mfa-server-authentication-provider&quot;></a>AD FS에 대한 클레임 규칙을 되돌리고 MFA 서버 인증 공급자 제거
+### <a name="revert-claims-rules-on-ad-fs-and-remove-mfa-server-authentication-provider"></a>AD FS에 대한 클레임 규칙을 되돌리고 MFA 서버 인증 공급자 제거
 
 클레임 규칙 구성의 단계에 따라 Azure AD MFA를 호출하여 백업된 클레임 규칙으로 되돌리고 AzureMFAServerAuthentication 클레임 규칙을 제거합니다. 
 
@@ -327,13 +326,13 @@ Azure MFA로 마이그레이션을 완료하고 MFA 서버를 서비스 해제�
 
  
 ```console
-c:[Type == &quot;https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid&quot;, Value ==
-“**YourGroupSID**&quot;] => issue(Type = &quot;https://schemas.microsoft.com/claims/authnmethodsproviders&quot;,
-Value = &quot;AzureMfaAuthentication");
+c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value ==
+"**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
+Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
 Value=="YourGroupSid"]) => issue(Type =
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value =
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 ### <a name="disable-mfa-server-as-an-authentication-provider-in-ad-fs"></a>AD FS에서 MFA 서버를 인증 공급자로 사용하지 않도록 설정

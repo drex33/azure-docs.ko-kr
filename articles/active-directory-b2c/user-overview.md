@@ -2,30 +2,30 @@
 title: Azure Active Directory B2C의 사용자 계정 개요
 description: Azure Active Directory B2C에서 사용할 수 있는 사용자 계정 유형에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: mimart
+ms.date: 10/22/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe6b7e334352630eb3797cb96b33422a84721813
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043600"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266109"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 계정 개요
 
-Azure AD B2C(Azure Active Directory B2C)에는 여러 가지 유형의 계정을 만들 수 있습니다. Azure Active Directory, Active Directory B2B 및 Active Directory B2C는 사용할 수 있는 사용자 계정 유형에서 공유됩니다.
+Azure AD B2C(Azure Active Directory B2C)에는 여러 가지 유형의 계정을 만들 수 있습니다. Azure AD(Azure Active Directory), Azure AD B2B(Azure Active Directory B2B) 및 Azure AD B2C(Azure Active Directory B2C)는 사용할 수 있는 사용자 계정의 유형을 공유합니다.
 
 다음 유형의 계정을 사용할 수 있습니다.
 
 - **회사 계정** - 회사 계정은 테넌트의 리소스에 액세스할 수 있으며, 관리자 역할이 있는 경우 테넌트를 관리할 수 있습니다.
-- **게스트 계정** - 게스트 계정은 Microsoft 계정 또는 Azure Active Directory 사용자만 될 수 있으며, 애플리케이션에 액세스하거나 테넌트를 관리하는 데 사용될 수 있습니다.
+- **게스트 계정** - 게스트 계정은 [테넌트 관리](tenant-management.md)와 같은 관리 책임을 공유하는 데 사용할 수 있는 Microsoft 계정 또는 Azure AD 사용자만 될 수 있습니다.
 - **소비자 계정** - Azure AD B2C에 등록한 애플리케이션의 사용자가 소비자 계정을 사용합니다. 소비자 계정은 다음과 같은 방법으로 만들 수 있습니다.
   - 사용자가 Azure AD B2C 애플리케이션에서 등록 사용자 흐름을 진행하고 있습니다.
   - Microsoft Graph API 사용
@@ -74,7 +74,7 @@ Azure AD B2C(Azure Active Directory B2C)에는 여러 가지 유형의 계정을
 
 테넌트에 게스트 사용자를 초대하는 경우 받는 사람의 이메일 주소와 초대를 설명하는 메시지를 제공합니다. 초대 링크는 사용자를 동의 페이지로 연결시킵니다. 전자 메일 주소에 받은 편지함이 연결되어 있지 않으면 초대된 자격 증명을 사용하여 Microsoft 페이지로 이동한 후 동의 페이지로 이동할 수 있습니다. 그러면 사용자는 전자 메일의 링크를 클릭할 때와 동일한 방식으로 초대를 강제로 사용하게 됩니다. 예: `https://myapps.microsoft.com/B2CTENANTNAME`
 
-[Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta)를 사용하여 게스트 사용자를 초대할 수도 있습니다.
+[Microsoft Graph API](/graph/api/invitation-post)를 사용하여 게스트 사용자를 초대할 수도 있습니다.
 
 ## <a name="consumer-user"></a>소비자 사용자
 

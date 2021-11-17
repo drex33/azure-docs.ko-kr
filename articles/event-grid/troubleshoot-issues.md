@@ -3,12 +3,12 @@ title: Event Grid 문제 해결
 description: 이 문서에서는 Azure Event Grid 문제를 해결하는 다양한 방법을 제공합니다.
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.openlocfilehash: 94370af8a3325d1798c3e2bcb65c2ccb3e54a43b
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: c055c3ce926844a976c95aece7888b595125f414
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546351"
+ms.locfileid: "132517561"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Azure Event Grid 문제 해결
 이 문서에서는 Azure Event Grid 문제를 해결하는 데 도움이 되는 정보를 제공합니다. 
@@ -31,7 +31,8 @@ Azure Event Grid 메트릭 및 활동 로그 작업에 대한 경고를 만듭�
 ## <a name="error-codes"></a>오류 코드
 400, 409 및 403과 같은 오류 코드를 함 하는 오류 메시지가 표시되면 [Event Grid 오류 문제 해결](troubleshoot-errors.md)을 참조하세요. 
 
-## <a name="distributed-tracing"></a>분산된 추적
+## <a name="distributed-tracing"></a>분산된 추적 
+
 .NET, Java, Python 및 JavaScript의 Event Grid 라이브러리는 추적 배포를 지원 합니다. 추적 배포에 대 한 [CloudEvents 사양의 지침](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md) 을 준수 하기 위해 배포 된 추적을 사용 하는 경우 라이브러리는 `traceparent` `tracestate` 확장의 및 특성을 설정 `CloudEvent` 합니다.
 
 응용 프로그램에서 분산 추적을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 Azure SDK 분산 추적 설명서를 참조 하세요.

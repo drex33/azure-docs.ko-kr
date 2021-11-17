@@ -14,6 +14,8 @@
   items:
     - name: 실험 실행 및 관리
       href: chaos-studio-run-experiment.md
+    - name: 실험 예약
+      href: tutorial-schedule.md
 - name: 샘플
   items:
     - name: Azure REST API

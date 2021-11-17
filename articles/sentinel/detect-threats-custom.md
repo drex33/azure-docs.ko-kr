@@ -1,13 +1,13 @@
 ---
-title: Microsoft 센티널에서 위협을 검색 하는 사용자 지정 분석 규칙 만들기 | Microsoft Docs
-description: Microsoft 센티널에서 보안 위협을 검색 하는 사용자 지정 분석 규칙을 만드는 방법을 알아봅니다. 이벤트 그룹화, 경고 그룹화 및 경고 보강을 활용하고 자동 사용 안 함을 이해합니다.
+title: Microsoft Sentinel | 사용하여 위협을 검색하는 사용자 지정 분석 규칙 만들기 Microsoft Docs
+description: Microsoft Sentinel을 사용하여 보안 위협을 검색하는 사용자 지정 분석 규칙을 만드는 방법을 알아봅니다. 이벤트 그룹화, 경고 그룹화 및 경고 보강을 활용하고 자동 사용 안 함을 이해합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: fab4def79d0eeb2e848f8e300c72db78b62f3dfb
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 66ccebb9154285c7f387b7ef51424cbfb177fa04
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132485063"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521570"
 ---
 # <a name="create-custom-analytics-rules-to-detect-threats"></a>위협 탐지를 위한 사용자 지정 분석 규칙 만들기
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널에 [데이터 원본을 연결한](quickstart-onboard.md) 후 사용자 환경에서 위협 및 비정상 동작을 검색 하는 데 도움이 되는 사용자 지정 분석 규칙을 만듭니다.
+[데이터 원본을](quickstart-onboard.md) Microsoft Sentinel에 연결한 후 사용자 환경에서 위협 및 비정상적인 동작을 검색하는 데 도움이 되는 사용자 지정 분석 규칙을 만듭니다.
 
 분석 규칙은 사용자 환경에서 특정 이벤트 또는 이벤트 집합을 검색하고, 특정 이벤트 임계값 또는 조건에 도달하면 경고를 생성하고, SOC에서 심사 및 조사를 위해 인시던트를 생성하고, 자동화된 추적 및 수정 프로세스를 통해 위협에 대응합니다.
 
@@ -41,7 +41,7 @@ Microsoft 센티널에 [데이터 원본을 연결한](quickstart-onboard.md) �
 
 ## <a name="create-a-custom-analytics-rule-with-a-scheduled-query"></a>예약된 쿼리를 사용하여 사용자 지정 분석 규칙 만들기
 
-1. Microsoft 센티널 탐색 메뉴에서 **Analytics** 를 선택 합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
 
 1. 상단 작업 모음에서 **+만들기** 를 선택한 다음 **예약된 쿼리 규칙** 을 선택합니다. 그러면 **분석 규칙 마법사** 가 열립니다.
 
@@ -93,11 +93,11 @@ Microsoft 센티널에 [데이터 원본을 연결한](quickstart-onboard.md) �
 > [!IMPORTANT]
 > 경고 보강 기능은 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-- **엔터티 매핑** 구성 섹션을 사용 하 여 쿼리 결과의 매개 변수를 Microsoft 센티널 인식 엔터티로 매핑할 수 있습니다. 엔터티는 다음에 나오는 조사 프로세스 및 수정 작업의 빌딩 블록으로 제공되는 필수 정보를 사용하여 규칙의 출력(경고 및 인시던트)을 보강합니다. **인시던트 설정** 탭에서 경고를 인시던트에 그룹화할 수 있는 기준이기도 합니다.
+- **엔터티 매핑** 구성 섹션을 사용하여 쿼리 결과의 매개 변수를 Microsoft Sentinel 인식 엔터티에 매핑할 수 있습니다. 엔터티는 다음에 나오는 조사 프로세스 및 수정 작업의 빌딩 블록으로 제공되는 필수 정보를 사용하여 규칙의 출력(경고 및 인시던트)을 보강합니다. **인시던트 설정** 탭에서 경고를 인시던트에 그룹화할 수 있는 기준이기도 합니다.
 
-    [Microsoft 센티널의 엔터티에](entities-in-azure-sentinel.md)대해 자세히 알아보세요.
+    [Microsoft Sentinel의 엔터티에](entities-in-azure-sentinel.md)대해 자세히 알아봅니다.
 
-    [이전 버전과의 호환성](map-data-fields-to-entities.md#notes-on-the-new-version)에 대 한 중요 한 정보와 함께 완전 한 엔터티 매핑 지침은 [Microsoft 센티널의 엔터티에 데이터 필드 매핑](map-data-fields-to-entities.md) 을 참조 하세요.
+    [이전 버전과의 호환성에](map-data-fields-to-entities.md#notes-on-the-new-version)대한 중요한 정보와 함께 전체 엔터티 매핑 지침은 [Microsoft Sentinel의 엔터티에 데이터 필드 매핑을](map-data-fields-to-entities.md) 참조하세요.
 
 - **사용자 지정 세부 정보** 구성 섹션을 사용하여 쿼리에서 이벤트 데이터 항목을 추출하고 이 규칙에 의해 생성된 경고에 표시하여 경고 및 인시던트에 즉시 이벤트 콘텐츠를 표시합니다.
 
@@ -124,15 +124,15 @@ Microsoft 센티널에 [데이터 원본을 연결한](quickstart-onboard.md) �
         >
         > **수집 지연**
         >
-        > 원본에서 이벤트를 생성 하 고 Microsoft 센티널에 수집 하는 동안 발생할 수 있는 **대기 시간** 을 고려 하 여 데이터 중복 없이 전체 검사를 수행 하는 경우 microsoft 센티널은 예약 된 시간에서 **5 분 지연** 시간으로 예약 된 분석 규칙을 실행 합니다.
+        > 원본에서 이벤트가 생성되고 Microsoft Sentinel에 수집될 때까지 발생할 수 있는 **대기 시간을** 고려하고 데이터 중복 없이 완전한 적용 범위를 보장하기 위해 Microsoft Sentinel은 예약된 시간으로부터 **5분 지연된** 시간에 예약된 분석 규칙을 실행합니다.
         >
-        > 자세한 내용은 [예약 된 분석 규칙에서 수집 지연 처리](ingestion-delay.md)를 참조 하세요.
+        > 자세한 내용은 [예약된 분석 규칙에서의 검색 지연 처리 를 참조하세요.](ingestion-delay.md)
 
 - **경고 임계값** 섹션을 사용하여 규칙의 민감도 수준을 정의합니다. 예를 들어 쿼리가 실행될 때마다 1000개보다 많은 결과를 반환하는 경우에만 규칙이 경고를 생성하도록 하려면 **쿼리 결과 수가 다음일 때 경고 생성** 을 **보다 큼** 으로 설정하고 숫자 1000을 입력합니다. 이 필드는 필수 필드이므로 임계값을 설정하지 않으려면, 즉 경고에 모든 이벤트를 등록하려는 경우 숫자 필드에 0을 입력합니다.
 
 ### <a name="results-simulation"></a>결과 시뮬레이션
 
-**결과 시뮬레이션** 영역에서 마법사의 오른쪽에 있는 **현재 데이터를 사용 하 여 테스트** 를 선택 하면 Microsoft 센티널은 현재 정의 된 일정에 따라 실행 된 최근 50 시간 동안 쿼리가 생성 된 결과 (로그 이벤트)의 그래프를 표시 합니다. 쿼리를 수정하는 경우 **현재 데이터로 테스트** 를 다시 선택하여 그래프를 업데이트합니다. 그래프는 **쿼리 일정** 섹션의 설정에 따라 결정되는 정의된 기간 동안의 결과 수를 보여 줍니다.
+**마법사의** 오른쪽에 있는 결과 시뮬레이션 영역에서 **현재 데이터로 테스트를** 선택하면 Microsoft Sentinel은 현재 정의된 일정에 따라 쿼리가 실행된 마지막 50번 동안 생성한 결과(로그 이벤트)의 그래프를 표시합니다. 쿼리를 수정하는 경우 **현재 데이터로 테스트** 를 다시 선택하여 그래프를 업데이트합니다. 그래프는 **쿼리 일정** 섹션의 설정에 따라 결정되는 정의된 기간 동안의 결과 수를 보여 줍니다.
 
 다음은 위의 스크린샷에 나온 쿼리 결과 시뮬레이션입니다. 왼쪽은 기본 보기이며 오른쪽은 그래프의 특정 시점을 마우스로 가리킬 때 표시되는 내용입니다.
 
@@ -153,7 +153,7 @@ Microsoft 센티널에 [데이터 원본을 연결한](quickstart-onboard.md) �
 
     현재 규칙에서 생성할 수 있는 경고 수는 20개입니다. 특정 규칙에서 **이벤트 그룹화** 가 **각 이벤트에 대한 경고 트리거** 로 설정되고 규칙의 쿼리가 20개가 넘는 이벤트를 반환하는 경우 처음 19개의 이벤트는 고유한 경고를 생성하고 20번째 경고는 반환된 이벤트의 전체 집합을 요약합니다. 즉, 20번째 경고는 **모든 이벤트를 단일 경고로 그룹화** 옵션에서 생성된 것입니다.
 
-    이 옵션을 선택 하는 경우 Microsoft 센티널에서 쿼리 결과에 새 필드인 **Originalquery** 를 추가 합니다. 기존 **Query** 필드와 새 필드를 비교한 결과는 다음과 같습니다.
+    이 옵션을 선택하면 Microsoft Sentinel에서 쿼리 결과에 새 필드 **OriginalQuery** 를 추가합니다. 기존 **Query** 필드와 새 필드를 비교한 결과는 다음과 같습니다.
 
     | 필드 이름 | 포함 | 이 필드에서 쿼리 실행<br>결과 |
     | - | :-: | :-: |

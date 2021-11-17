@@ -3,21 +3,21 @@ title: 사용자 흐름 및 사용자 지정 정책에 대한 개발자 정보
 titleSuffix: Azure AD B2C
 description: 사용자 흐름 및 사용자 지정 정책으로 Azure AD B2C를 구성 및 유지 관리하는 개발자를 위한 정보입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 11/02/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 33389224bcc4abf05ffbb261e23409eb95896781
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 6221566c83f50891792bd037a82b90d29fd76c68
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220863"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424461"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대한 개발자 정보
 
@@ -55,7 +55,9 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| 해당 없음 | 해당 없음 | 애플리케이션이 서비스 또는 웹 API를 호출하고 차례로 다른 서비스 또는 웹 API를 호출해야 합니다. <br />  <br /> 중간 계층 서비스가 다운스트림 서비스에 인증된 요청을 수행하려면 권한 부여 헤더에 *클라이언트 자격 증명* 토큰을 전달합니다. 필요에 따라 Azure AD B2C 사용자의 토큰에 사용자 지정 헤더를 포함할 수 있습니다.  |
 [OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 ID 토큰의 개념을 소개합니다. |
 [OpenId Connect 하이브리드 흐름](openid-connect.md) | GA | GA | 웹 애플리케이션이 권한 부여 코드와 함께 권한 부여 요청에서 ID 토큰을 검색할 수 있도록 허용합니다.  |
-[ROPC(리소스 소유자 암호 자격 증명)](add-ropc-policy.md) | 미리 보기 | 미리 보기 | 모바일 애플리케이션이 해당 암호를 직접 처리하여 사용자가 로그인할 수 있도록 허용합니다. |
+[ROPC(리소스 소유자 암호 자격 증명)](add-ropc-policy.md) | GA | GA | 모바일 애플리케이션이 해당 암호를 직접 처리하여 사용자가 로그인할 수 있도록 허용합니다. |
+| [로그아웃](session-behavior.md#sign-out)| GA | GA | |
+| [Single Sign-Out](session-behavior.md#sign-out)  | 해당 없음 | 미리 보기 | |
 
 ### <a name="oauth-20-options"></a>OAuth 2.0 옵션
 
@@ -66,6 +68,7 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 | `client_assertion`을 통해 사용자 경험에 JSON 삽입| 해당 없음| 사용되지 않음 |  |
 | 사용자 경험에 [id_token_hint](id-token-hint.md)로 JSON 삽입 | 해당 없음 | GA | |
 | [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-user-flow.md)| 미리 보기| 미리 보기| 예: Facebook에서 앱으로 전달 |
+| [KMSI(로그인 유지)](session-behavior.md#enable-keep-me-signed-in-kmsi)| GA| GA| |
 
 ## <a name="saml2-application-authentication-flows"></a>SAML2 애플리케이션 인증 흐름
 
@@ -81,6 +84,7 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 |기능  |사용자 흐름  |사용자 지정 정책  |메모  |
 |---------|:---------:|:---------:|---------|
 | [다중 언어 지원](localization.md)| GA | GA | |
+| [사용자 지정 도메인](custom-domain.md)| GA | GA | |
 | [사용자 지정 이메일 확인](custom-email-mailjet.md) | 해당 없음 | GA| |
 | [기본 제공 템플릿을 사용하여 사용자 인터페이스 사용자 지정](customize-ui.md) | GA| GA| |
 | [사용자 지정 템플릿을 사용하여 사용자 인터페이스 사용자 지정](customize-ui-with-html.md) | GA| GA| HTML 템플릿을 사용합니다. |
@@ -92,19 +96,20 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 
 
 
+
 ## <a name="identity-providers"></a>ID 공급자
 
 |기능  |사용자 흐름  |사용자 지정 정책  |메모  |
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | 해당 없음 | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | 미리 보기 | 미리 보기 | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | |
 |[Azure AD(단일 테넌트)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
 |[Azure AD(다중 테넌트)](identity-provider-azure-ad-multi-tenant.md) | 해당 없음  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | 해당 없음 | 미리 보기 | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
-|[GitHub](identity-provider-github.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | 미리 보기 | GA | |
 |[Google](identity-provider-google.md) | GA | GA | |
 |[ID.me](identity-provider-id-me.md) | GA | GA | |
 |[LinkedIn](identity-provider-linkedin.md) | GA | GA | |
@@ -147,7 +152,7 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 | [외부 로그인 세션 공급자](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
 | [SAML SSO 세션 공급자](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
 | [OAuth SSO 세션 공급자](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
-| [Single Sign-Out](session-behavior.md#sign-out)  |  미리 보기 |  |
+
 
 ### <a name="components"></a>구성 요소
 
@@ -159,6 +164,7 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 | 로컬 디렉터리로서의 [Azure Active Directory](active-directory-technical-profile.md) | GA |  |
 | [조건자 유효성 검사](predicates.md) | GA | 예: 암호 복잡성 |
 | [표시 컨트롤](display-controls.md) | GA |  |
+| [하위 사용자 경험](subjourneys.md) | GA | |
 
 ### <a name="developer-interface"></a>개발자 인터페이스
 

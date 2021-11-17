@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory B2C 사용자 지정 정책 개요 | Microsoft Docs
+title: Azure Active Directory B2C 사용자 지정 정책 개요
 description: Azure Active Directory B2C 사용자 지정 정책 및 ID 환경 프레임워크에 대한 항목입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/08/2021
-ms.author: mimart
+ms.date: 10/14/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 5c27384e58a23501224e279e987115e4981ebf99
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 51ed0b6bd0f5bd5eabf76c6789ab36a922653fd1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633610"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222839"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Azure AD B2C 사용자 지정 정책 개요
 
@@ -35,7 +35,7 @@ Azure AD B2C 사용자 지정 정책 [스타터 팩](tutorial-create-user-flows.
 - **SocialAndLocalAccounts** - 로컬 계정과 소셜 계정을 모두 사용할 수 있습니다. 대부분의 샘플이 이 정책을 참조합니다.
 - **SocialAndLocalAccountsWithMFA** - 소셜, 로컬 및 다단계 인증 옵션을 사용할 수 있습니다.
 
-[Azure AD B2C 샘플 GitHub 리포지토리](https://github.com/azure-ad-b2c/samples)에서 로컬 계정 정책 향상, 소셜 계정 정책 향상, MFA 향상, 사용자 인터페이스 향상, 일반 향상, 앱 마이그레이션, 사용자 마이그레이션, 조건부 액세스, 웹 테스트 및 CI/CD와 같은 향상된 몇 가지 Azure AD B2C 사용자 지정 CIAM 사용자 경험에 대한 샘플을 찾을 수 있습니다.
+[Azure AD B2C 샘플 GitHub 리포지토리](https://github.com/azure-ad-b2c/samples)에서 향상된 몇 가지 Azure AD B2C 사용자 지정 CIAM 사용자 경험에 대한 샘플을 찾을 수 있습니다. 예를 들어 로컬 계정 정책 향상, 소셜 계정 정책 향상, MFA 향상, 사용자 인터페이스 향상, 일반 향상, 앱 마이그레이션, 사용자 마이그레이션, 조건부 액세스, 웹 테스트 및 CI/CD가 있습니다.
  
 ## <a name="understanding-the-basics"></a>기본 사항 이해 
 
@@ -56,7 +56,7 @@ Azure AD B2C 사용자 지정 정책 [스타터 팩](tutorial-create-user-flows.
 
 ### <a name="customize-and-localize-your-ui"></a>UI 사용자 지정 및 지역화
 
-웹 브라우저에 페이지를 표시하여 사용자로부터 정보를 수집하려는 경우 [자체 어설션 기술 프로필](self-asserted-technical-profile.md)을 사용합니다. 자체 어설션 기술 프로필을 편집하여 [클레임을 추가하고 사용자 입력을 사용자 지정](./configure-user-input.md)할 수 있습니다.
+웹 브라우저에 페이지를 표시하여 사용자로부터 정보를 수집하려면 [자체 어설션 기술 프로필](self-asserted-technical-profile.md)을 사용합니다. 자체 어설션 기술 프로필을 편집하여 [클레임을 추가하고 사용자 입력을 사용자 지정](./configure-user-input.md)할 수 있습니다.
 
 자체 어설션 기술 프로필에 대한 [사용자 인터페이스를 사용자 지정](customize-ui-with-html.md)하려면 [콘텐츠 정의](contentdefinitions.md) 요소에서 사용자 지정된 HTML 콘텐츠를 사용하여 URL을 지정합니다. 자체 어설션 기술 프로필에서는 이 콘텐츠 정의 ID를 가리킵니다.
 
@@ -112,8 +112,9 @@ SAML 프로토콜에서는 서비스 공급자라고 부르는 신뢰 당사자 
 각 스타터 팩에는 다음 파일이 포함되어 있습니다.
 
 - **기본 파일** - 대부분의 정의를 포함합니다. 정책의 문제 해결 및 장기적인 유지 관리에 도움이 되도록 이 파일을 최소한으로 변경하는 것이 좋습니다.
-- **확장 파일** - 테넌트에 대한 고유한 구성 변경 내용을 포함합니다. 이 정책 파일은 기본 파일에서 파생됩니다. 이 파일을 사용하여 새 기능을 추가하거나 기존 기능을 재정의할 수 있습니다. 예를 들어 이 파일을 사용하여 새 ID 공급자와 페더레이션합니다.
-- **RP(신뢰 당사자)** 파일 - 웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션이 직접 호출하는 단일 작업 중심 파일입니다. 가입, 로그인, 암호 재설정 또는 프로필 편집과 같은 고유한 작업마다 자체적인 신뢰 당사자 정책 파일이 필요합니다. 이 정책 파일은 확장 파일에서 파생됩니다.
+- **지역화** 문자열을 보유하는 지역화 파일입니다. 이 정책 파일은 기본 파일에서 파생됩니다. 이 파일을 사용하여 고객 요구에 맞게 다양한 언어를 수용할 수 있습니다.
+- **확장 파일** - 테넌트에 대한 고유한 구성 변경 내용을 포함합니다. 이 정책 파일은 지역화 파일에서 파생됩니다. 이 파일을 사용하여 새 기능을 추가하거나 기존 기능을 재정의할 수 있습니다. 예를 들어 이 파일을 사용하여 새 ID 공급자와 페더레이션합니다.
+- **RP(신뢰 당사자)** 파일 - 웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션이 직접 호출하는 단일 작업 중심 파일입니다. 등록, 로그인 또는 프로필 편집과 같은 고유한 작업마다 자체적인 신뢰 당사자 정책 파일이 필요합니다. 이 정책 파일은 확장 파일에서 파생됩니다.
 
 상속 모델은 다음과 같습니다.
 
@@ -132,7 +133,7 @@ SAML 프로토콜에서는 서비스 공급자라고 부르는 신뢰 당사자 
 
 Azure AD B2C 사용자 지정 정책 내에서 고유한 비즈니스 논리를 통합하여 필요한 사용자 환경을 빌드하고 서비스의 기능을 확장할 수 있습니다. 새로 시작하는 고객을 위한 모범 사례 및 권장 사항이 준비되어 있습니다.
 
-- **확장 정책** 또는 **신뢰 당사자 정책** 내에서 논리를 만들어 보세요. 동일한 ID를 참조하여 기본 정책을 재정의하는 새 요소를 추가할 수 있습니다. 이렇게 하면 프로젝트를 스케일 아웃할 수 있을 뿐 아니라 나중에 Microsoft에서 새로운 스타터 팩을 출시할 때 기본 정책을 더 쉽게 업그레이드할 수 있습니다.
+- **확장 정책** 또는 **신뢰 당사자 정책** 내에서 논리를 만들어 보세요. 동일한 ID를 참조하여 기본 정책을 재정의하는 새 요소를 추가할 수 있습니다. 이 방식을 사용하면 프로젝트를 스케일 아웃할 수 있을 뿐 아니라 나중에 Microsoft에서 새로운 스타터 팩을 출시할 때 기본 정책을 더 쉽게 업그레이드할 수 있습니다.
 - **기본 정책** 내에서는 되도록이면 변경 작업을 수행하지 않는 것이 좋습니다. 꼭 변경해야 하는 경우에는 변경 위치를 주석으로 표시합니다.
 - 기술 프로필 메타데이터와 같은 요소를 재정의하는 경우 기본 정책의 기술 프로필 전체를 복사하지 말고, 요소의 필요한 부분만 복사합니다. 변경 방법에 대한 예제는 [이메일 검증을 사용하지 않도록 설정](./disable-email-verification.md)을 참조하세요.
 - 핵심 기능이 공유되는 기술 프로필의 중복을 줄이려면 [기술 프로필 포함](technicalprofiles.md#include-technical-profile)을 사용합니다.
@@ -159,7 +160,7 @@ Azure Pipelines에서 설정하는 CI/CD(연속 통합 및 지속적인 업데�
 
 1. [Azure AD B2C 테넌트 만들기](tutorial-create-tenant.md)
 1. 정책을 테스트할 수 있도록 Azure Portal 사용하여 [웹 애플리케이션을 등록](tutorial-register-applications.md)합니다.
-1. 필요한 [정책 키](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys)를 추가하고 [Identity Experience Framework 애플리케이션을 등록](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications)합니다.
+1. 필요한 [정책 키](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications)를 추가하고 [Identity Experience Framework 애플리케이션을 등록](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications)합니다.
 1. [Azure AD B2C 정책 스타터 팩을 다운로드](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack)하여 테넌트에 업로드합니다. 
 1. 스타터 팩을 업로드한 후에는 [가입 또는 로그인 정책을 테스트](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy)합니다.
 1. [VS Code(Visual Studio Code)](https://code.visualstudio.com/)를 다운로드하여 설치하는 것이 좋습니다. Visual Studio Code는 데스크톱에서 실행되며 Windows, macOS 및 Linux에 사용할 수 있는 간단하지만 강력한 소스 코드 편집기입니다. VS Code를 사용하면 [VS Code용 Azure AD B2C 확장](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)을 설치하여 Azure AD B2C 사용자 지정 정책 XML 파일을 빠르게 탐색하고 편집할 수 있습니다.
@@ -173,4 +174,4 @@ Azure AD B2C 정책을 설정하고 테스트한 후에는 정책을 사용자 �
 - 사용자 지정 정책을 사용하여 애플리케이션의 [사용자 인터페이스 지역화](./language-customization.md). 지역화된 리소스 요소를 추가하여 지원되는 언어 목록을 설정하고 언어별 레이블을 제공하는 방법을 알아봅니다.
 - 정책 개발 및 테스트 중에 [이메일 확인을 사용하지 않도록 설정](./disable-email-verification.md)할 수 있습니다. 기술 프로필 메타데이터를 덮어쓰는 방법을 알아봅니다.
 - 사용자 지정 정책을 사용하여 [Google 계정으로 로그인하도록 설정](./identity-provider-google.md). OAuth2 기술 프로필을 사용하여 새 클레임 공급자를 만드는 방법을 알아봅니다. 그런 다음, Google 로그인 옵션을 포함하도록 사용자 경험을 사용자 지정합니다.
-- 사용자 지정 정책의 문제를 진단하려면 [Application Insights 사용하여 Azure Active Directory B2C 로그 수집](troubleshoot-with-application-insights.md). 새 기술 프로필을 추가하고 신뢰 당사자 정책을 구성하는 방법을 알아봅니다.
+- 사용자 지정 정책의 문제를 진단하기 위해 [Application Insights 사용하여 Azure Active Directory B2C 로그를 수집](troubleshoot-with-application-insights.md)할 수 있습니다. 새 기술 프로필을 추가하고 신뢰 당사자 정책을 구성하는 방법을 알아봅니다.

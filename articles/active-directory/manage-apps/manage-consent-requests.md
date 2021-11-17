@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: de4553fae64801ae029a01e218658e847d5acb03
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 039461797d9b451703959f43977234278e87827d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066941"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424062"
 ---
 # <a name="manage-consent-to-applications-and-evaluate-consent-requests-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 동의를 관리하고 동의 요청을 평가합니다.
 

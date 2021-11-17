@@ -1,21 +1,21 @@
 ---
-title: Azure Defender for IoT와 QRadar 통합
-description: 이 자습서에서는 QRadar를 Azure Defender for IoT와 통합하는 방법을 알아봅니다.
+title: Microsoft Defender for IoT와 QRadar 통합
+description: 이 자습서에서는 QRadar를 Microsoft Defender for IoT와 통합하는 방법을 알아봅니다.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: ec55a652b59f7d45e01ef22e62bd046473ef8559
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3c6a1cfab17b2355f5f5501cd7fc2e944c74556f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124839231"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278363"
 ---
-# <a name="tutorial-integrate-qradar-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 QRadar 통합
+# <a name="tutorial-integrate-qradar-with-microsoft-defender-for-iot"></a>자습서: Microsoft Defender for IoT와 QRadar 통합
 
-이 자습서를 사용하면 QRadar를 Azure Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
+이 자습서를 사용하면 QRadar를 Microsoft Defender for IoT와 통합하고 사용하는 방법을 알아볼 수 있습니다.
 
 Defender for IoT는 특허 받은 ICS 인식 위협 분석 및 기계 학습을 사용하는 유일한 ICS 및 IoT 사이버 보안 플랫폼입니다.
 
@@ -23,7 +23,7 @@ Defender for IoT는 연속 ICS 위협 모니터링 플랫폼을 IBM QRadar와 �
 
 이러한 통합에 따른 몇 가지 이점은 다음과 같습니다.
 
-- Azure Defender for IoT 알림을 IBM QRadar로 전달하여 IT 통합, OT 보안 모니터링 및 거버넌스 이점을 얻을 수 있습니다.
+- Microsoft Defender for IoT 알림을 IBM QRadar로 전달하여 IT 통합, OT 보안 모니터링 및 거버넌스 이점을 얻을 수 있습니다.
 
 - IT 및 OT 환경 모두에 대한 개요를 얻을 수 있습니다. 이를 통해 IT 및 OT 경계를 자주 넘나드는 다단계 공격을 탐지하고 대응할 수 있습니다.
 
@@ -192,7 +192,7 @@ QID는 QRadar의 이벤트 식별자입니다. 모든 Defenders for IoT 플랫�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 QRadar 통합을 시작하는 방법을 알아보았습니다. [Azure Defender for IoT와 ServiceNow를 통합](tutorial-servicenow.md)하는 방법을 계속 알아봅니다.
+이 자습서에서는 QRadar 통합을 시작하는 방법을 알아보았습니다. [Microsoft Defender for IoT와 ServiceNow를 통합](tutorial-servicenow.md)하는 방법을 계속 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Defender for IoT와 ServiceNow 통합](tutorial-servicenow.md)
+> [Microsoft Defender for IoT와 ServiceNow 통합](tutorial-servicenow.md)

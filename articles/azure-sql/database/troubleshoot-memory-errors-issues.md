@@ -11,24 +11,24 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 11/03/2021
-ms.openlocfilehash: 372247d1fbb189f9662bf4d40be0c3779bf1d23c
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 07ff08303cc68934d5d7191952536b9101e12cf6
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579527"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494713"
 ---
 # <a name="troubleshoot-out-of-memory-errors-with-azure-sql-database"></a>Azure SQL Database 메모리 부족 오류 문제 해결  
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-SQL 데이터베이스 엔진이 쿼리를 실행하는 데 충분한 메모리를 할당하지 못한 경우 오류 메시지가 표시될 수 있습니다. 이 문제는 선택한 서비스 목표의 제한, 워크로드 메모리 요구 집계 및 쿼리의 메모리 요구를 비롯한 다양한 이유로 인해 발생할 수 있습니다. Azure SQL Databases의 메모리 리소스 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 관리를](resource-limits-logical-server.md#memory)참조하세요.
+SQL 데이터베이스 엔진이 쿼리를 실행하는 데 충분한 메모리를 할당하지 못한 경우 오류 메시지가 표시될 수 있습니다. 이는 선택한 서비스 목표의 제한, 워크로드 메모리 요구 집계 및 쿼리의 메모리 요구를 비롯한 다양한 이유로 인해 발생할 수 있습니다. Azure SQL Databases의 메모리 리소스 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 관리를](resource-limits-logical-server.md#memory)참조하세요.
 
 > [!NOTE]
 > **이 문서는 Azure SQL Database 중 하나입니다.** SQL Server 메모리 부족 문제 해결에 대한 자세한 내용은 [MSSQLSERVER_701.](/sql/relational-databases/errors-events/mssqlserver-701-database-engine-error)
 
 다음에 대한 응답으로 다음 조사 방법을 시도합니다.
 
-- "리소스 풀 '%ls'에 시스템 메모리가 부족하여 이 쿼리를 실행할 수 없습니다." 오류 메시지와 함께 오류 코드 701
+- "리소스 풀 '%ls'에 시스템 메모리가 부족하여 이 쿼리를 실행할 수 없습니다."라는 오류 메시지와 함께 오류 코드 701이 표시됩니다.
 - "버퍼 풀에서 사용할 수 있는 메모리가 부족합니다."라는 오류 메시지와 함께 오류 코드 802
 
 ## <a name="investigate-memory-allocation"></a>메모리 할당 조사
@@ -56,11 +56,11 @@ ORDER BY virtual_memory_committed_kb DESC;
  - OBJECTSTORE_LOCK_MANAGER 메모리 부여와 관련이 없지만, 예를 들어 비활성화된 잠금 에스컬레이션 또는 매우 큰 트랜잭션으로 인해 쿼리가 많은 잠금을 클레임하는 경우 높은 것으로 예상됩니다. 
  - 일부 클럭은 사용률이 가장 높을 것으로 예상됩니다. MEMORYCLERK_SQLBUFFERPOOL 거의 항상 최상위 클럭이지만 columnstore 인덱스를 사용할 때는 CACHESTORE_COLUMNSTOREOBJECTPOOL 높습니다. 이러한 클럭의 최고 사용률이 예상됩니다. 
 
- 메모리 클럭 유형에 대한 자세한 내용은 [sys.dm_os_memory_clerks.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-memory-clerks-transact-sql) 
+ 메모리 클럭 유형에 대한 자세한 내용은 [sys.dm_os_memory_clerks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-memory-clerks-transact-sql)참조하세요. 
 
 ### <a name="use-dmvs-to-investigate-active-queries"></a>DMV를 사용하여 활성 쿼리 조사 
 
-대부분의 경우 실패한 쿼리가 이 오류의 원인이 아닙니다. 
+대부분의 경우 실패한 쿼리는 이 오류의 원인이 아닙니다. 
 
 Azure SQL Database 대한 다음 샘플 쿼리는 현재 메모리 부여를 보유하거나 대기 중인 트랜잭션에 대한 중요한 정보를 반환합니다. 검사 및 성능 튜닝을 위해 식별된 상위 쿼리를 대상으로 지정하고 의도한 대로 실행 중인지 여부를 평가합니다. 메모리 집약적인 보고 쿼리 또는 유지 관리 작업의 타이밍을 고려합니다.
 
@@ -89,14 +89,14 @@ WHERE mg.granted_memory_kb > 0
 ORDER BY mg.granted_memory_kb desc, mg.requested_memory_kb desc;
 ```
 
-KILL 문을 사용하여 많은 메모리 부여를 보유하거나 대기 중인 현재 실행 중인 쿼리를 중지하도록 결정할 수 있습니다. 특히 중요 비즈니스용 프로세스가 실행 중인 경우 이 문을 신중하게 사용합니다. 자세한 내용은 [KILL&#40;Transact-SQL&#41;](/sql/t-sql/language-elements/kill-transact-sql)을 참조하세요. 
+KILL 문을 사용하여 대용량 메모리 부여를 보유하거나 대기 중인 현재 실행 중인 쿼리를 중지할 수 있습니다. 특히 중요 비즈니스용 프로세스가 실행 중인 경우 이 문을 신중하게 사용합니다. 자세한 내용은 [KILL&#40;Transact-SQL&#41;](/sql/t-sql/language-elements/kill-transact-sql)을 참조하세요. 
 
 
 ### <a name="use-query-store-to-investigate-past-query-memory-usage"></a>쿼리 저장소 사용하여 과거 쿼리 메모리 사용량 조사
 
 이전 샘플 쿼리는 라이브 쿼리 결과만 보고하지만 다음 쿼리는 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 사용하여 과거 쿼리 실행에 대한 정보를 반환합니다. 이는 과거에 발생한 메모리 부족 오류를 조사하는 데 유용할 수 있습니다.
 
-Azure SQL Database 대한 다음 샘플 쿼리는 쿼리 저장소 기록된 쿼리 실행에 대한 중요한 정보를 반환합니다. 검사 및 성능 튜닝을 위해 식별된 상위 쿼리를 대상으로 지정하고 의도한 대로 실행 중인지 여부를 평가합니다. 시간 필터를 사용하여 `qsp.last_execution_time` 결과를 최근 기록으로 제한합니다. TOP 절을 조정하여 사용자 환경에 따라 더 많거나 적은 결과를 생성할 수 있습니다.
+Azure SQL Database 대한 다음 샘플 쿼리는 쿼리 저장소 기록된 쿼리 실행에 대한 중요한 정보를 반환합니다. 검사 및 성능 튜닝을 위해 식별된 상위 쿼리를 대상으로 지정하고 의도한 대로 실행 중인지 여부를 평가합니다. 시간 필터를 사용하여 `qsp.last_execution_time` 결과를 최근 기록으로 제한합니다. TOP 절을 조정하여 환경에 따라 더 많거나 적은 결과를 생성할 수 있습니다.
 
 ```sql
 SELECT TOP 10 PERCENT --limit results
@@ -170,8 +170,8 @@ In-Memory OLTP를 사용하는 경우 발생할 수 `Error code 41805: There is 
 
 - [SQL 데이터베이스의 지능형 쿼리 처리](/sql/relational-databases/performance/intelligent-query-processing)
 - [쿼리 처리 아키텍처 가이드](/sql/relational-databases/query-processing-architecture-guide)    
-- [SQL Server 데이터베이스 엔진 및 Azure SQL Database에 대한 성능 센터](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database.md)  
+- [SQL Server 데이터베이스 엔진 및 Azure SQL Database에 대한 성능 센터](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database)  
 - [Azure SQL Database 및 Azure SQL Managed Instance의 연결 문제 및 기타 오류 문제 해결](troubleshoot-common-errors-issues.md)
 - [SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 문제 해결](troubleshoot-common-connectivity-issues.md)
 - [지능형 쿼리 처리 시연](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/intelligent-query-processing)   
-- [Azure SQL Database 의 리소스 관리.](resource-limits-logical-server.md#memory)
+- [Azure SQL Database 의 리소스 관리](resource-limits-logical-server.md#memory)

@@ -7,29 +7,27 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 02d9f115a5fbeb364719a2fc6cafb22e6ea03cf7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 077e090a95de15256f531c216a3051fdbcc35bc1
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465861"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134204"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Azure에서 사용자 지정 컨테이너 실행
 
 ::: zone pivot="container-windows"
 [Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 그러나 미리 구성된 애플리케이션 스택은 [운영 체제를 잠그고 낮은 수준의 액세스를 차단](operating-system-functionality.md)합니다. 사용자 지정 Windows 컨테이너에는 이러한 제한이 없으므로, 개발자가 컨테이너를 완전히 사용자 지정하고 컨테이너화된 애플리케이션에 Windows 기능에 대한 모든 액세스 권한을 부여할 수 있습니다. 
 
-이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio의 [Docker Hub](https://hub.docker.com/)에 배포합니다. Azure App Service의 사용자 지정 컨테이너에서 앱을 실행합니다.
+이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio에서 [Azure Container Registry](../container-registry/container-registry-intro.md)로 배포하는 방법을 보여 줍니다. Azure App Service의 사용자 지정 컨테이너에서 앱을 실행합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- <a href="https://hub.docker.com/" target="_blank">Docker 허브 계정 등록</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Windows용 Docker 설치</a>
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Windows 컨테이너를 실행하도록 Docker 전환</a>
-- **ASP.NET과 웹 개발** 및 **Azure 개발** 워크로드와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 설치</a> Visual Studio 2019를 이미 설치한 경우:
-
+- **ASP.NET 및 웹 개발** 및 **Azure 개발** 워크로드가 있는 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022를 설치</a>합니다. *Visual Studio 2022 Community* 에서 **.NET Framework 프로젝트 및 항목 템플릿** 구성 요소가 **ASP.NET 및 웹 개발 워크로드** 와 함께 선택되어 있는지 확인합니다. Visual Studio 2022를 이미 설치한 경우 다음을 수행합니다.
     - **도움말** > **업데이트 확인** 을 차례로 선택하여 Visual Studio에서 최신 업데이트를 설치합니다.
     - **도구** > **도구 및 기능 가져오기** 를 차례로 선택하여 Visual Studio에서 워크로드를 추가합니다.
 
@@ -41,49 +39,61 @@ ms.locfileid: "131465861"
 
 1. **새 프로젝트 만들기** 에서 C#용 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 찾아서 선택하고, **다음** 을 선택합니다.
 
-1. **새 프로젝트 구성** 에서 애플리케이션 이름을 _myfirstazurewebapp_ 으로 지정한 다음, **만들기** 를 선택합니다.
+   :::image type="content" source="./media/quickstart-custom-container/create-new-project.png?text=VS create a new project" alt-text="새 프로젝트 만들기":::
 
-   ![웹앱 프로젝트 구성](./media/quickstart-custom-container/configure-web-app-project-container.png)
+1. **새 프로젝트 구성** 의 **프로젝트 이름** 아래에서 애플리케이션 이름을 _myfirstazurewebapp_ 으로 지정합니다. **프레임워크** 아래에서 **.NET Framework 4.8** 을 선택한 다음, **만들기** 를 선택합니다.
+
+    :::image type="content" source="./media/quickstart-custom-container/configure-web-app-project-container.png?text=Configure your web app project" alt-text="웹앱 프로젝트 구성":::
 
 1. 모든 종류의 ASP.NET 웹앱을 Azure에 배포할 수 있습니다. 이 빠른 시작에서는 **MVC** 템플릿을 선택합니다.
 
-1. **Docker 지원** 을 선택하고 인증이 **인증 없음** 으로 설정되어 있는지 확인합니다. **만들기** 를 선택합니다.
+1. **인증** 아래에서 **없음** 을 선택합니다. **고급** 아래에서 **Docker 지원** 을 선택하고, **HTTPS로 구성** 을 선택 취소합니다. **만들기** 를 선택합니다.
 
-   ![ASP.NET 웹 애플리케이션 만들기](./media/quickstart-custom-container/select-mvc-template-for-container.png)
+     :::image type="content" source="./media/quickstart-custom-container/select-mvc-template-for-container.png?text=Create ASP.NET Web Application" alt-text="ASP.NET 웹 애플리케이션 만들기":::
 
 1. _Dockerfile_ 파일이 자동으로 열리지 않으면 **솔루션 탐색기** 에서 엽니다.
 
 1. [지원되는 부모 이미지](configure-custom-container.md#supported-parent-images)가 필요합니다. `FROM` 줄을 다음 코드로 바꾸고 파일을 저장하여 부모 이미지를 변경합니다.
 
    ```dockerfile
-   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
+   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
    ```
 
 1. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 차례로 선택하여 웹앱을 로컬로 실행합니다.
 
-   ![로컬에서 앱 실행](./media/quickstart-custom-container/local-web-app.png)
+    :::image type="content" source="./media/quickstart-custom-container/local-web-app.png?text=Run app locally" alt-text="로컬에서 앱 실행":::
 
-## <a name="publish-to-docker-hub"></a>Docker 허브에 게시
+## <a name="publish-to-azure-container-registry"></a>Azure Container Registry에 게시
 
 1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **myfirstazurewebapp** 프로젝트를 클릭하고 **게시** 를 선택합니다.
 
-1. **App Service** 를 선택한 다음, **게시** 를 선택합니다.
+1. **대상** 에서 **Docker 컨테이너 레지스트리** 를 선택하고, **다음** 을 클릭합니다.
 
-1. **게시 대상 선택** 에서 **Container Registry** 및 **Docker Hub** 를 선택한 다음, **게시** 를 클릭합니다.
+    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-visual-studio-2022.png?text=Select Docker Container Registry" alt-text="Docker 컨테이너 레지스트리 선택":::
 
-   ![프로젝트 개요 페이지에서 게시](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
+1. **특정 대상** 에서 **Azure Container Registry** 를 선택하고, **다음** 을 클릭합니다.
 
-1. Docker Hub 계정 자격 증명을 제공하고 **저장** 을 선택합니다.
+    :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png?text=Publish to Azure Container Registry" alt-text="프로젝트 개요 페이지에서 게시":::
 
-   배포가 완료될 때가지 기다립니다. 이제 **게시** 페이지에서 나중에 사용할 리포지토리 이름이 표시됩니다.
+1. **게시** 에서 올바른 구독이 선택되어 있는지 확인합니다. **컨테이너 레지스트리** 에서 **+** 단추를 선택하여 새 Azure Container Registry를 만듭니다.
 
-   ![리포지토리 이름을 강조 표시하는 스크린샷.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+    :::image type="content" source="./media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="새 Azure Container Registry 만들기":::
 
-1. 나중에 사용할 수 있도록 이 리포지토리 이름을 복사해 둡니다.
+1. **새로 만들기** 에서 올바른 구독이 선택되어 있는지 확인합니다. **리소스 그룹** 아래에서 **새로 만들기** 를 선택하고, 이름에 대해 *myResourceGroup* 을 입력한 다음, **확인** 을 클릭합니다. **SKU** 아래에서 **기본** 을 선택합니다. **레지스트리 위치** 아래에서 레지스트리의 위치를 선택한 다음, **만들기** 를 선택합니다.
+
+    :::image type="content" source="./media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Azure Container Registry 세부 정보":::
+
+1. **게시** 의 **Container Registry** 아래에서 만든 레지스트리를 선택한 다음, **마침** 을 선택합니다.
+
+    :::image type="content" source="./media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="기존 Azure Container Registry 선택":::
+
+   배포가 완료될 때가지 기다립니다. 이제 **게시** 페이지에 리포지토리 이름이 표시됩니다. *복사 단추* 를 선택하여 나중에 사용할 **리포지토리** 이름을 복사합니다.
+
+    :::image type="content" source="./media/quickstart-custom-container/published-docker-repository-visual-studio-2022.png?text=Screenshot that highlights the repository name." alt-text="리포지토리 이름을 강조 표시하는 스크린샷.":::
 
 ## <a name="create-a-windows-container-app"></a>Windows 컨테이너 앱 만들기
 
-1. [Azure Portal]( https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
 
@@ -95,7 +105,7 @@ ms.locfileid: "131465861"
 
    ![Web App for Containers 만들기](media/quickstart-custom-container/create-web-app-container.png)
 
-1. **이미지 원본** 에 대해 **Docker Hub** 를 선택하고, **이미지 및 태그** 에 대해 [Docker Hub에 게시](#publish-to-docker-hub)에서 복사한 리포지토리 이름을 입력합니다.
+1. **이미지 원본** 에 대해 **Docker Hub** 를 선택하고, **이미지 및 태그** 에 대해 [Azure Container Registry에 게시](#publish-to-azure-container-registry)에서 복사한 리포지토리 이름을 입력합니다.
 
    ![Web App for Containers 구성](media/quickstart-custom-container/configure-web-app-container.png)
 

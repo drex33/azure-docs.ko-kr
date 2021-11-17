@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 0f985d9f43074f8dc9f8ad93aba71e2dce8ae7b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d931c4dc121d70bd7dfd9a32db509fa268c8d955
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932270"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491130"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 이 스크립트는 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만들고, 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 설치합니다. 스크립트가 실행되면 웹 브라우저를 통해 웹 응용 프로그램에 액세스할 수 있습니다.
@@ -24,7 +24,54 @@ ms.locfileid: "105932270"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/install-apps/install-apps.ps1 "Install apps into a scale set")]
+```powershell
+# Provide your own secure password for use with the VM instances
+$cred = Get-Credential
+
+# Create a virtual machine scale set and supporting resources
+# A resource group, virtual network, load balancer, and NAT rules are automatically
+# created if they do not already exist
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -VMScaleSetName "myScaleSet" `
+  -Location "EastUS" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic" `
+  -Credential $cred
+
+# Create a configuration object to store the Custom Script Extension definition
+$customConfig = @{
+"fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
+"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
+
+# Get information about the scale set
+$vmss = Get-AzVmss `
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
+
+# Add the Custom Script Extension to install IIS and configure basic website
+$vmss = Add-AzVmssExtension `
+  -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.10 `
+  -Setting $customConfig
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
+
+# Get the public IP address of your load balancer. To see your scale set in action, open this address in a web browser
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
+```
+
 
 ## <a name="clean-up-deployment"></a>배포 정리
 다음 명령을 실행하여 리소스 그룹, 확장 집합 및 모든 관련된 리소스를 제거할 수 있습니다.

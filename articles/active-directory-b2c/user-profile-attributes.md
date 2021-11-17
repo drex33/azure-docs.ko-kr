@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 사용자 프로필 특성
 description: Azure AD B2C 디렉터리 사용자 프로필에서 지원하는 사용자 리소스 유형 특성에 대해 알아봅니다. 기본 제공되는 특성 및 확장과 Microsoft Graph에 특성이 매핑되는 방식을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/16/2021
-ms.author: mimart
+ms.date: 09/24/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 76a7fa3cfeafa20dd81f043d67388bdfb281b6d4
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 2b3970504811b3dd97002b0da57d6af6ddf9413b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112232524"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043760"
 ---
 # <a name="user-profile-attributes"></a>사용자 프로필 특성
 
@@ -59,13 +59,14 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 |immutableId     |String|일반적으로 온-프레미스 Active Directory에서 마이그레이션된 사용자에게 사용되는 식별자입니다.|아니요|예|지속형, 출력|
 |legalAgeGroupClassification|String|법적 연령 그룹 분류입니다. ageGroup 및 consentProvidedForMinor 속성을 기준으로 계산되는 읽기 전용 값입니다. 허용되는 값: Null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult, adult.|예|예|지속형, 출력|
 |legalCountry<sup>1</sup>  |String|법적 목적을 위한 국가/지역입니다.|예|예|지속형, 출력|
+|mail    |String|사용자의 이메일 주소입니다. 예: "bob@contoso.com". 참고: 악센트 문자는 허용되지 않습니다.|예|예|지속형, 출력|
 |mailNickName    |String|사용자의 메일 별칭입니다. 최대 길이는 64입니다.|예|예|지속형, 출력|
 |모바일(mobilePhone) |String|사용자의 기본 휴대폰 번호입니다. 최대 길이는 64입니다.|예|예|지속형, 출력|
 |netId           |String|Net ID입니다.|예|예|지속형, 출력|
 |objectId        |String|사용자의 고유 식별자인 GUID(Globally Unique Identifier)입니다. 예제: 12345678-9abc-def0-1234-56789abcde. 읽기 전용, 변경 불가.|읽기 전용|예|입력, 지속형, 출력|
 |otherMails      |문자열 컬렉션|사용자의 추가 메일 주소 목록입니다. 예: [“bob@contoso.com”, “Robert@fabrikam.com”]. 참고: 악센트 문자는 허용되지 않습니다.|예(대체 메일)|예|지속형, 출력|
 |password        |String|사용자자 생성 중 만든 로컬 계정의 암호입니다.|예|예|지속됨|
-|passwordPolicies     |String|암호의 정책입니다. 쉼표로 구분된 여러 정책 이름으로 구성된 문자열입니다. 예를 들면 “DisablePasswordExpiration, DisableStrongPassword”입니다.|아니요|예|지속형, 출력|
+|passwordPolicies     |String|암호의 정책입니다. 쉼표로 구분된 여러 정책 이름으로 구성된 문자열입니다. 예를 들면 “DisablePasswordExpiration, DisableStrongPassword”입니다.|예|예|지속형, 출력|
 |physicalDeliveryOfficeName(officeLocation)|String|사용자 사업장의 사무실 위치입니다. 최대 길이는 128입니다.|예|예|지속형, 출력|
 |postalCode      |String|사용자의 우편 주소에 대한 우편 번호입니다. 우편 번호는 사용자의 해당 국가/지역에 따라 다릅니다. 미국의 경우 이 특성은 우편 번호를 포함합니다. 최대 길이는 40입니다.|예|예|지속형, 출력|
 |preferredLanguage    |String|사용자의 기본 설정 언어입니다. 기본 언어 형식은 RFC 4646을 기반으로 합니다. 이름은 언어와 관련된 ISO 639 두 문자의 소문자 문화권 코드와 국가 또는 지역에 연결된 ISO 3166 두 문자의 대문자 하위 문화권 코드의 조합입니다. 예: “en-US” 또는 “es-ES”.|아니요|예|지속형, 출력|
@@ -184,7 +185,7 @@ Azure AD B2C의 [사용자 지정 정책](custom-policy-overview.md)에서 전�
 > - b2c-extensions-app 애플리케이션을 삭제할 경우, 확장 특성은 포함된 데이터와 함께 모든 사용자에게서 제거됩니다.
 > - 확장 특성이 애플리케이션에 의해 삭제될 경우, 모든 사용자 계정에서 제거되고 값이 삭제됩니다.
 
-Graph API의 확장 특성은 `extension_ApplicationClientID_AttributeName` 규칙을 사용하여 이름을 지정하며, 여기서 `ApplicationClientID`는 `b2c-extensions-app` 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다(Azure Portal의 **앱 등록** > **모든 애플리케이션** 에서 찾을 수 있음). 확장 특성 이름에 표시되는 **애플리케이션(클라이언트) ID** 에는 하이픈이 포함되지 않습니다. 예를 들면 다음과 같습니다.
+Graph API의 확장 특성은 `extension_ApplicationClientID_AttributeName` 규칙을 사용하여 이름을 지정하며, 여기서 `ApplicationClientID`는 `b2c-extensions-app` 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다(Azure Portal의 **앱 등록** > **모든 애플리케이션** 에서 찾을 수 있음). 확장 특성 이름에 표시되는 **애플리케이션(클라이언트) ID** 에는 하이픈이 포함되지 않습니다. 예:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

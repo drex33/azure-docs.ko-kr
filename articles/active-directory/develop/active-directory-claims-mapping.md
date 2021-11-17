@@ -2,7 +2,6 @@
 title: Azure AD 테넌트 앱 클레임 사용자 지정(PowerShell)
 titleSuffix: Microsoft identity platform
 description: 특정 Azure Active Directory 테넌트의 애플리케이션에 대한 토큰에서 내보낸 클레임을 사용자 지정하는 방법을 알아봅니다.
-services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -13,12 +12,12 @@ ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 302ab2b6f3060213a79b88ce6358cd842f74a425
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 71677a085627f46a995530c522a3a480be188042
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425557"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351001"
 ---
 # <a name="customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant"></a>테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정
 
@@ -47,7 +46,7 @@ ms.locfileid: "123425557"
 시작하려면 다음 단계 중 하나를 수행합니다.
 
 1. 최신 [Azure AD PowerShell 모듈 공개 미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureADPreview)를 다운로드합니다.
-1. [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview) 명령을 실행하여 Azure AD 관리자 계정에 로그인합니다. 새 세션을 시작할 때마다 이 명령을 실행합니다.
+1. [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview&preserve-view=true) 명령을 실행하여 Azure AD 관리자 계정에 로그인합니다. 새 세션을 시작할 때마다 이 명령을 실행합니다.
 
    ``` powershell
    Connect-AzureAD -Confirm
@@ -225,7 +224,7 @@ PowerShell을 사용하여 [MSAL 퍼블릭 클라이언트 애플리케이션을
     - 프라이빗 키의 암호(pfx 파일)
 
 > [!IMPORTANT]
-> Azure AD는 다른 형식 종류를 지원하지 않으므로 프라이빗 키는 PKCS#12 형식이어야 합니다. Microsoft Graph를 사용하여 인증서 정보가 포함된 `keyCredentials`로 서비스 주체를 패치하는 경우 잘못된 형식을 사용하면 “잘못된 인증서: 키 값이 잘못된 인증서입니다.”라는 오류가 발생할 수 있습니다.
+> Azure AD는 다른 형식 종류를 지원하지 않으므로 프라이빗 키는 PKCS#12 형식이어야 합니다. Microsoft Graph를 사용하여 인증서 정보가 포함된 `keyCredentials`로 서비스 주체를 패치하는 경우 잘못된 형식을 사용하면 "잘못된 인증서: 키 값이 잘못된 인증서입니다."라는 오류가 발생할 수 있습니다.
 
 ```powershell
 

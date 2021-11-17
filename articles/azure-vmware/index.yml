@@ -9,12 +9,12 @@ metadata:
   author: suzizuber
   ms.author: v-szuber
   ms.date: 10/06/2021
-  ms.openlocfilehash: b6a2adc66a594ec46920bae2bcda9add69cf8a21
-  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+  ms.openlocfilehash: 3349d3cfe37f0720225fcca81a2b789868345753
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/06/2021
-  ms.locfileid: "129618459"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132347597"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -132,7 +132,7 @@ landingContent:
     links:
     - text: VM 보호, 모니터링 및 관리
       url: integrate-azure-native-services.md
-    - text: Azure Security Center 통합
+    - text: Microsoft Defender for Cloud 통합
       url: azure-security-integration.md
     - text: Azure NetApp Files 통합
       url: netapp-files-with-azure-vmware-solution.md

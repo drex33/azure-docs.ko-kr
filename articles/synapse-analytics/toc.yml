@@ -666,6 +666,8 @@ items:
             href: quickstart-create-apache-spark-pool-portal.md
           - name: Synapse Studio를 사용하여 Spark 풀 만들기
             href: quickstart-create-apache-spark-pool-studio.md
+          - name: GPU 가속 Apache Spark 풀 만들기
+            href: quickstart-create-apache-gpu-pool-portal.md
       - name: 자습서
         items:
           - name: Synapse Studio Notebook을 사용한 데이터 시각화
@@ -688,6 +690,8 @@ items:
             href: ./spark/apache-spark-concepts.md
           - name: Apache Spark 풀 구성
             href: ./spark/apache-spark-pool-configurations.md
+          - name: GPU 가속 Apache Spark 풀
+            href: ./spark/apache-spark-gpu-concept.md
           - name: Delta Lake
             href: ./spark/apache-spark-what-is-delta-lake.md
           - name: Apache Spark 자동 크기 조정 동작
@@ -746,6 +750,8 @@ items:
                 href: ./spark/apache-spark-performance.md
               - name: 하이퍼스페이스 인덱스를 사용하여 Apache Spark에 대한 성능 최적화
                 href: ./spark/apache-spark-performance-hyperspace.md
+              - name: NVIDIA RAPIDS를 통해 ETL 작업 가속화
+                href: ./spark/apache-spark-rapids-gpu.md
           - name: 관리 및 모니터링
             items:
               - name: Apache Spark 풀 기록 서버 탐색
@@ -1404,19 +1410,19 @@ items:
                   - name: 변칙 검색 모드
                     displayName: 'cognitive services, score model'
                     href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-                  - name: Apache Spark를 사용하는 Text Analytics(MMLSpark)
+                  - name: Apache Spark를 사용하는 Text Analytics(SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
-                  - name: Apache Spark를 사용하는 Computer Vision(MMLSpark)
+                  - name: Apache Spark를 사용하는 Computer Vision(SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md
-                  - name: Apache Spark를 사용하는 Form Recognizer(MMLSpark)
+                  - name: Apache Spark를 사용하는 Form Recognizer(SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
-                  - name: Apache Spark를 사용하는 Translator(MMLSpark)
+                  - name: Apache Spark를 사용하는 Translator(SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-translator-use-mmlspark.md
-                  - name: Apache Spark(MMLSpark) 사용
+                  - name: Apache Spark(SynapseML) 사용
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
   - name: Data Catalog 및 거버넌스

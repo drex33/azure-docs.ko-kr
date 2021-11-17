@@ -1,19 +1,19 @@
 ---
 title: Hive Metastore 데이터베이스에 연결 및 관리
 description: 이 가이드에서는 Azure Purview에서 Hive Metastore 데이터베이스에 연결하고 Purview의 기능을 사용하여 Hive Metastore 데이터베이스 원본을 검사하고 관리하는 방법을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 9fc76402393e32f018454569a087ec69074d444a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2e40125d65dd2b4b701d5b1049444a52e6cb7dc4
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131076190"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131850663"
 ---
 # <a name="connect-to-and-manage-hive-metastore-databases-in-azure-purview"></a>Azure Purview에서 Hive Metastore 데이터베이스에 연결 및 관리
 
@@ -23,13 +23,15 @@ ms.locfileid: "131076190"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| 예 |
+| [예](#register)| [예](#scan)| 예 | 예 | 예 | 아니요| 예** |
+
+\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 
 > [!Important]
 > 지원되는 플랫폼은 Apache Hadoop, Cloudera, Hortonworks 및 Databricks입니다.
 > 지원되는 Hive 버전은 2.x~3.x입니다. 지원되는 Databricks 버전은 8.0 이상입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

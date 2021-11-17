@@ -7,15 +7,15 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 07/21/2021
+  ms.date: 08/31/2021
   ms.author: alkohli
   ms.custom: references_regions
-  ms.openlocfilehash: 47d941b1c6e6ce7b0f383e977f227db65fa86871
-  ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+  ms.openlocfilehash: b2aed039a735ff9124fe19c61992ec184879c0b7
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/23/2021
-  ms.locfileid: "114653428"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132059295"
 title: 'Azure Data Box: 질문과 대답'
 summary: >
   Microsoft Azure Data Box 하이브리드 솔루션을 사용하면 이전 디바이스를 통해 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 이 FAQ에는 Azure Portal에서 Data Box를 사용할 때 제기될 수 있는 질문과 대답이 포함되어 있습니다.
@@ -43,7 +43,7 @@ sections:
   - question: >
       Data Box에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
     answer: >
-      Data Box는 미국, 서유럽, 북유럽, 프랑스, 영국, 일본, 오스트레일리아 및 캐나다 내의 모든 지역에서 지원됩니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
+      Data Box는 미국, 캐나다, EU, 영국, 스위스, 오스트레일리아, 싱가포르, 홍콩, 일본, 대한민국, 인도, 브라질, 남아프리카 및 아랍에미리트 내의 모든 지역에서 지원 됩니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
   - question: >
       특정 국가의 내 위치에 있는 원본 데이터를 다른 국가/지역의 Azure 지역으로 가져오거나 한 국가의 Azure 지역에서 다른 국가/지역으로 데이터를 내보내려면 어떻게 해야 하나요?
     answer: >
@@ -111,7 +111,8 @@ sections:
       이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다. 복제는 가져오기 주문에서만 허용됩니다.
 - name: 구성 및 연결
   questions:
-  - question: "Data Box의 잠금을 해제하려면 어떻게 할까요? \n"
+  - question: >
+      Data Box의 잠금을 해제하려면 어떻게 할까요?
     answer: >
       Azure Portal에서 해당 Data Box 주문, **디바이스 세부 정보** 로 차례로 이동합니다. 잠금 해제 암호를 복사합니다. 이 암호를 사용하여 Data Box에서 로컬 웹 UI에 로그인합니다. 자세한 내용은 [자습서: Azure Data Box 포장 해제, 케이블 연결, 연결](data-box-deploy-set-up.md)을 참조하세요.
   - question: >
@@ -162,6 +163,9 @@ sections:
       Data Box에서 포트 채널 구성이 지원되나요? MPIO는 어떤가요?
     answer: >
       포트 채널 구성, MPIO(다중 경로 IO) 구성 또는 vLAN 구성은 Data Box에 지원되지 않습니다.
+  - question: >
+      내 디바이스에서 자동으로 생성된 자체 서명된 인증서는 언제 만료되나요?
+    answer: "[!INCLUDE [return-data-box-before-certificates-expire](../../includes/data-box-certificate-expiration.md)] 자세한 내용은 [사용자 고유의 인증서 사용](data-box-bring-your-own-certificates.md)을 참조하세요.     \n"
 - name: 상태 추적
   questions:
   - question: "주문을 확정했을 때부터 Data Box를 반송할 때까지 디바이스를 추적하려면 어떻게 할까요? \n"

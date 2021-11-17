@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub 엔드포인트 이해 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub 디바이스 지향 및 서비스 지향 엔드포인트에 대한 참조 정보
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 47694418fab999646361dc8999ac250a6b58ab32
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e320fd286d9bde8cbc02a45815c662f6a2fd26fe
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535711"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548945"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 

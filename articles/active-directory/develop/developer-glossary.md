@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 930341b60f785c2c618be4ee235225519a08aaa6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f1797ce848793e8f0d129039f00bb491c09e8308
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530058"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153922"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft ID 플랫폼 개발자 용어집
 
@@ -34,7 +34,7 @@ ms.locfileid: "107530058"
 * ["인증 코드" 권한 부여](#authorization-grant) - 최종 사용자는 리소스 소유자로서 우선 권한 부여를 하여 클라이언트가 리소스에 액세스할 수 있도록 권한 부여를 위임합니다. 클라이언트는 액세스 토큰을 가져올 때 나중에 인증합니다. 토큰은 클라이언트 애플리케이션에 권한 부여하는 사용자와 애플리케이션을 나타냄으로 때로 더 구체적으로 "사용자 + 앱"이라고 합니다.
 * ["클라이언트 자격 증명" 권한 부여](#authorization-grant) - 클라이언트에서 리소스 소유자의 인증/권한 부여 없이 작동하는 유일한 인증을 제공하므로 때로는 토큰을 “앱 전용” 토큰이라고도 할 수 있습니다.
 
-자세한 내용은 [Microsoft ID 플랫폼 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
+자세한 내용은 [액세스 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
 
 ## <a name="application-id-client-id"></a>애플리케이션 ID(클라이언트 ID)
 
@@ -113,7 +113,7 @@ Microsoft ID 플랫폼 애플리케이션 통합의 경우 Microsoft ID 플랫�
 
 [권한 부여 서버의 ](#authorization-server) [권한 부여 엔드포인트](#authorization-endpoint)에 의해 제공된 [OpenID Connect][OpenIDConnect-ID-Token] [보안 토큰](#security-token)으로 최종 사용자 [리소스 소유자](#resource-owner)의 인증에 관련된 [클레임](#claim)을 포함합니다. 액세스 토큰과 마찬가지로 ID 토큰도 또한 디지털로 서명된 [JWT(JSON Web Token)][JWT]로 표시됩니다. 그렇지만 액세스 토큰과는 달리 ID 토큰의 클레임은 리소스 액세스 및 특히 액세스 제어와 관련된 용도로 사용되지 않습니다.
 
-자세한 내용은 [Microsoft ID 플랫폼 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
+자세한 내용은 [ID 토큰 참조](id-tokens.md)를 참조하세요.
 
 ## <a name="microsoft-identity-platform"></a>Microsoft ID 플랫폼
 
@@ -145,6 +145,8 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 액세스 토큰이 만료되기 전에 새 [액세스 토큰](#access-token)을 요청하기 위해 [권한 부여 서버](#authorization-server)에서 발급하고 [클라이언트 애플리케이션](#client-application)에서 사용하는 [보안 토큰](#security-token) 형식입니다. 일반적으로 [JWT(JSON Web Token)][JWT]의 형식입니다.
 
 액세스 토큰과 달리 새로 고침 토큰은 해지할 수 있습니다. 클라이언트 애플리케이션에서 해지된 새로 고침 토큰을 사용하여 새 액세스 토큰을 요청하려고 한다면 권한 부여 서버에서는 해당 요청을 거부하며 클라이언트 애플리케이션에는 [리소스 소유자](#resource-owner) 대신 [리소스 서버](#resource-server)에 대한 액세스 권한이 더 이상 없게 됩니다.
+
+자세한 내용은 [토큰 새로 고침](refresh-tokens.md)을 참조하세요.
 
 ## <a name="resource-owner"></a>리소스 소유자
 

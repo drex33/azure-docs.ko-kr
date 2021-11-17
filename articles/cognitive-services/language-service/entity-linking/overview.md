@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
-ms.openlocfilehash: d1c8d20c9581fa8c2f51b516c11e28e390a8fcd7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bbd4483702055a4bebb05251606fb705b1e0deb2
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053130"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487470"
 ---
 # <a name="what-is-entity-linking-in-azure-cognitive-service-for-language"></a>Azure Cognitive Service for Language의 엔터티 링크 설정이란 무엇인가요?
 
@@ -33,7 +33,7 @@ ms.locfileid: "131053130"
 
 ## <a name="responsible-ai"></a>Responsible AI 
 
-AI 시스템에는 기술뿐만 아니라 기술을 사용하는 사람, 영향을 받는 사람, 배포되는 환경이 포함됩니다. 시스템에서 책임감 있는 AI 사용 및 배포에 대해 알아보려면 [엔터티 링크 설정에 대한 투명성 참고사항](/legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context)을 읽어보세요. 자세한 내용은 다음 문서를 참조하세요.
+AI 시스템에는 기술뿐만 아니라 기술을 사용하는 사람, 영향을 받는 사람, 배포되는 환경이 포함됩니다. 시스템에서 책임감 있는 AI 사용 및 배포에 대해 알아보려면 [엔터티 링크 설정에 대한 투명성 참고사항](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context)을 읽어보세요. 자세한 내용은 다음 문서를 참조하세요.
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

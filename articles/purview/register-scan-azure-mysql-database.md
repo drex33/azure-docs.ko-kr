@@ -1,6 +1,6 @@
 ---
-title: Azure MySQL 데이터베이스에 연결 및 관리
-description: 이 가이드에서는 Azure Purview에서 Azure MySQL 데이터베이스에 연결하고 Purview의 기능을 사용하여 Azure MySQL 데이터베이스 원본을 검사하고 관리하는 방법을 설명합니다.
+title: Azure Database for MySQL에 연결 및 관리
+description: 이 가이드에서는 Azure Purview에서 Azure Database for MySQL에 연결하고 Purview의 기능을 사용하여 Azure Database for MySQL 원본을 검사하고 관리하는 방법을 설명합니다.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
@@ -8,26 +8,28 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: bdb96c3e1de3062426b87fe702d7694890fca44f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bcde9aee9719f8dbb127b908c312cc734c559f02
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131015051"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131841897"
 ---
-# <a name="connect-to-and-manage-azure-mysql-databases-in-azure-purview"></a>Azure Purview에서 Azure MySQL 데이터베이스에 연결 및 관리
+# <a name="connect-to-and-manage-azure-databases-for-mysql-in-azure-purview"></a>Azure Purview에서 Azure Database for MySQL에 연결 및 관리
 
-이 문서에서는 Azure MySQL 데이터베이스를 등록하는 방법과 Azure Purview에서 Azure MySQL 데이터베이스를 인증하고 상호 작용하는 방법을 간략하게 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
+이 문서에서는 Azure Database for MySQL를 등록하는 방법과 Azure Purview에서 Azure Database for MySQL를 인증하고 상호 작용하는 방법을 간략하게 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)| [예*](#scan) | [예](#scan) | [예](#scan) | 아니요 | [Data Factory 계보](how-to-link-azure-data-factory.md) |
+| [예](#register) | [예](#scan)| [예*](#scan) | [예](#scan) | [예](#scan) | 예 | 아니요** |
 
 \* Purview는 증분 검색을 위해 Azure Database for MySQL의 UPDATE_TIME 메타데이터를 사용합니다. 경우에 따라 이 필드는 데이터베이스에 유지되지 않고 전체 검사가 수행될 수 있습니다. 자세한 내용은 MySQL용 [INFORMATION_SCHEMA TABLES 테이블](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -37,13 +39,13 @@ ms.locfileid: "131015051"
 
 ## <a name="register"></a>등록
 
-이 섹션에서는 [Purview Studio](https://web.purview.azure.com/)를 사용하여 Azure Purview에서 Azure MySQL 데이터베이스를 등록하는 방법에 대해 설명합니다.
+이 섹션에서는 [Purview Studio](https://web.purview.azure.com/)를 사용하여 Azure Purview에서 Azure Database for MySQL을 등록하는 방법에 대해 설명합니다.
 
 ### <a name="authentication-for-registration"></a>등록 인증
 
 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
 
-[데이터베이스 및 사용자 만들기](../mysql/howto-create-users.md)의 지침에 따라 Azure MySQL Database에 대한 로그인을 만듭니다.
+[데이터베이스 및 사용자 만들기](../mysql/howto-create-users.md)의 지침에 따라 Azure Database for MySQL에 대한 로그인을 만듭니다.
 
 1. Azure Portal에서 키 자격 증명 모음으로 이동합니다.
 1. **설정 > 비밀** 을 선택합니다.
@@ -54,7 +56,7 @@ ms.locfileid: "131015051"
 
 ### <a name="steps-to-register"></a>등록 단계
 
-새 Azure MySQL 데이터베이스를 데이터 카탈로그에 등록하려면 다음을 수행합니다.
+새 Azure Database for MySQL을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
 1. Purview 계정으로 이동합니다.
 
@@ -62,11 +64,11 @@ ms.locfileid: "131015051"
 
 1. **등록** 을 선택합니다.
 
-1. **원본 등록** 에서 **Azure MySQL Database** 를 선택합니다. **계속** 을 선택합니다.
+1. **원본 등록** 에서 **Azure Database for MySQL** 을 선택합니다. **계속** 을 선택합니다.
 
 :::image type="content" source="media/register-scan-azure-mysql/01-register-azure-mysql-data-source.png" alt-text="새 데이터 원본 등록" border="true":::
 
-**원본 등록(Azure MySQL Database)** 화면에서 다음을 수행합니다.
+**원본 등록(Azure Database for MySQL)** 화면에서 다음을 수행합니다.
 
 1. 데이터 원본의 **이름** 을 입력합니다. 이 이름은 카탈로그에서 이 데이터 원본의 표시 이름이 됩니다.
 1. **Azure 구독에서** 를 선택하고, **Azure 구독** 드롭다운 상자에서 적절한 구독을 선택하고, **서버 이름** 드롭다운 상자에서 적절한 서버를 선택합니다.
@@ -76,7 +78,7 @@ ms.locfileid: "131015051"
 
 ## <a name="scan"></a>검사
 
-아래 단계에 따라 Azure MySQL 데이터베이스를 검사하여 자산을 자동으로 식별하고 데이터를 분류합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
+아래 단계에 따라 Azure Database for MySQL을 검사하여 자산을 자동으로 식별하고 데이터를 분류합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
 
 ### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: thwimmer
-ms.openlocfilehash: 4999669aee35b9e0d7303ae1156f10318c775562
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.openlocfilehash: b7e10c4606c26f9d340437305a49e1ae236eecb9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131989777"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456084"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 RingCentral 구성
 
@@ -38,10 +38,6 @@ ms.locfileid: "131989777"
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * [RingCentral 테넌트](https://www.ringcentral.com/office/plansandpricing.html)
 * 관리자 권한이 있는 RingCentral의 사용자 계정.
-
-> [!NOTE]
-> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
-
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.

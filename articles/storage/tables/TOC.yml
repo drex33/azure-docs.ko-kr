@@ -162,7 +162,7 @@
                   href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
                 - name: 클라이언트 애플리케이션에 대한 TLS 버전 구성
                   href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: 위협 보호를 위해 Azure Defender 구성
+        - name: Microsoft Defender for Storage를 통해 위협 방지 활성화
           href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: 데이터 중복성 관리
       items:

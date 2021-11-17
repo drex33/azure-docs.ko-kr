@@ -1,5 +1,6 @@
 ---
-title: Azure AD를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성
+title: 최종 사용자가 애플리케이션에 동의하는 방법 구성
+titleSuffix: Azure AD
 description: 사용자가 조직의 데이터에 액세스할 수 있는 애플리케이션에 동의하는 방법 및 시기를 관리하는 방법을 알아봅니다.
 services: active-directory
 author: davidmu1
@@ -11,15 +12,15 @@ ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: ecf463ed332299f20ef1d34f0c3158db31f52e8d
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.custom: contperf-fy21q2, contperf-fy22q2
+ms.openlocfilehash: cbdf0ed80397d5cd63cd7c38f12f6432e420ec7c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568049"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998032"
 ---
-# <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
+# <a name="configure-how-end-users-consent-to-applications-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성
 
 애플리케이션을 Microsoft ID 플랫폼과 통합하면 사용자가 회사 또는 학교 계정으로 로그인하고 조직의 데이터에 액세스하도록 하여 풍부한 데이터 기반 환경을 제공할 수 있습니다.
 
@@ -57,27 +58,25 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview)를 사용하여 애플리케이션에 대한 사용자 동의를 제어하는 앱 동의 정책을 선택할 수 있습니다.
+최신 [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 모듈을 사용하여 애플리케이션에 대한 사용자 동의를 제어하는 앱 동의 정책을 선택할 수 있습니다.
 
 #### <a name="disable-user-consent"></a>사용자 동의를 사용하지 않도록 설정
 
 사용자 동의를 사용하지 않도록 설정하려면 사용자 동의를 제어하는 동의 정책을 빈 상태로 설정합니다.
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @() }
+```
 
 #### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>앱 동의 정책에 따라 사용자 동의 허용
 
 사용자 동의를 허용하려면 앱에 동의를 부여하는 사용자의 권한 부여를 제어하는 앱 동의 정책을 선택합니다.
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.{consent-policy-id}") }
+```
 
 `{consent-policy-id}`를 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책](manage-app-consent-policies.md#create-a-custom-app-consent-policy)을 선택하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
 
@@ -89,9 +88,8 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 예를 들어 기본 제공 정책 `microsoft-user-default-low`에 따라 사용자 동의를 사용하도록 설정하려면 다음을 수행합니다.
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy `
-   -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
 ```
 
 ---
@@ -145,7 +143,7 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
 
 1. 다음 설정 값을 이해합니다.
 
-    | 설정       | 유형         | Description  |
+    | 설정       | Type         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | 부울 |  위험한 요청이 감지될 때 사용자 동의가 차단되는지 나타내는 플래그입니다. |
 

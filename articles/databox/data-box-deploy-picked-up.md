@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/29/2021
+ms.date: 11/16/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 95cce7e79ea8eaf3a542b52ac5c04b954ed56e0e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c3dd0d64542dd9d25643fb811accde5d882af870
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131469106"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556594"
 ---
 ::: zone target="docs"
 
@@ -36,7 +36,7 @@ ms.locfileid: "131469106"
 
 > [!div class="checklist"]
 >
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * 배송 준비
 > * Microsoft에 Data Box 배송
 > * Azure에 대한 데이터 업로드 확인
@@ -75,7 +75,7 @@ ms.locfileid: "131469106"
 
 디바이스에 대한 데이터 복사가 완료되고 **배송 준비** 실행이 성공했는지 확인합니다. 
 
-디바이스를 배송하는 지역에 따라 절차가 다릅니다. 많은 국가/지역에서 Microsoft 관리 배송 또는 자체 관리 배송을 사용할 수 있습니다.
+디바이스를 배송하는 지역에 따라 절차가 다릅니다. 많은 국가/지역에서 [Microsoft 관리 배송](#microsoft-managed-shipping) 또는 [자체 관리 배송](#self-managed-shipping)을 사용할 수 있습니다.
 
 ### <a name="microsoft-managed-shipping"></a>Microsoft 관리형 배송
 
@@ -123,11 +123,11 @@ Microsoft 관리형 배송을 사용하는 경우 배송할 지역에 대한 지
 
 [!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
 
+---
+
 ### <a name="self-managed-shipping"></a>자체 관리형 배송
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
-
----
 
 ::: zone target="chromeless"
 

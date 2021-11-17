@@ -3,12 +3,12 @@ title: Azure Event Grid의 시스템 토픽
 description: Azure Event Grid의 시스템 토픽을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 2c0bf2879ce2b137faf33f1ec00d456ab884ccf8
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 7e0354ec2b9aa5c8644998d618db9db693979b62
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130035109"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550005"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Azure Event Grid의 시스템 토픽
 Event Grid의 시스템 토픽은 Azure Storage 및 Azure Event Hubs와 같은 Azure 서비스에서 게시한 하나 이상의 이벤트를 나타냅니다. 예를 들어 시스템 토픽은 **모든 Blob 이벤트** 또는 **특정 스토리지 계정** 에 대해 게시된 **Blob 만들기** 및 **Blob 삭제** 이벤트만 나타낼 수 있습니다. 이 예에서 Blob이 스토리지 계정에 업로드되면 Azure Storage 서비스는 Event Grid의 시스템 토픽에 **blob 만들기** 이벤트를 게시한 다음, 이벤트를 받고 처리하는 토픽의 [구독자](event-handlers.md)에 전달합니다. 
@@ -44,7 +44,7 @@ Event Grid의 시스템 토픽은 Azure Storage 및 Azure Event Hubs와 같은 A
 
 - [Azure Portal에서 시스템 토픽 보기](create-view-manage-system-topics.md#view-all-system-topics)
 - Azure Portal에서 시스템 토픽과 이벤트 구독의 Resource Manager 템플릿 내보내기
-- [시스템 토픽의 진단 로그 설정](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-system-topic)
+- [시스템 토픽의 진단 로그 설정](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-system-topics)
 - 게시 및 제공 실패에 관한 경고 설정 
 
 ## <a name="lifecycle-of-system-topics"></a>시스템 토픽 수명 주기
@@ -57,12 +57,12 @@ Event Grid의 시스템 토픽은 Azure Storage 및 Azure Event Hubs와 같은 A
 
 [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate), [Azure Resource Manager 템플릿](create-view-manage-system-topics-arm.md)을 사용할 때 위의 방법 중 하나를 선택할 수 있습니다. 시스템 토픽을 만드는 최신 방법이므로 먼저 시스템 토픽을 생성한 다음, 토픽에 대한 구독을 만드는 것이 좋습니다.
 
-### <a name="failure-to-create-system-topics"></a>시스템 항목을 만들지 못했습니다.
+### <a name="failure-to-create-system-topics"></a>시스템 항목 만들기 실패
 Event Grid 서비스에서 만들 수 없는 방식으로 Azure 정책을 설정한 경우 시스템 토픽 만들기에 실패합니다. 예를 들어, 구독에서 특정 종류의 리소스(예: Azure Storage, Azure Event Hubs 등)만 만들 수 있는 정책이 있을 수 있습니다. 
 
-이러한 경우에는 이벤트 흐름 기능이 유지 됩니다. 그러나 시스템 항목의 메트릭 및 진단 기능을 사용할 수 없습니다.
+이러한 경우 이벤트 흐름 기능이 유지됩니다. 그러나 시스템 항목의 메트릭 및 진단 기능은 사용할 수 없습니다.
 
-이 기능이 필요한 경우 시스템 항목 유형의 리소스 만들기를 허용 하 고 [시스템 항목의 수명 주기](#lifecycle-of-system-topics) 섹션에 설명 된 대로 누락 된 시스템 항목을 만듭니다.
+이 기능이 필요한 경우 시스템 항목 유형의 리소스 생성을 허용하고 시스템 항목의 수명 주기 섹션에 설명된 대로 누락된 [시스템 항목을 만듭니다.](#lifecycle-of-system-topics)
 
 ## <a name="location-and-resource-group-for-a-system-topic"></a>시스템 토픽의 위치 및 리소스 그룹
 특정 지역/위치에 있는 Azure 이벤트 원본의 경우 시스템 토픽은 Azure 이벤트 원본과 같은 위치에 만듭니다. 예를 들어 미국 동부에서 Azure Blob Storage의 이벤트 구독을 만드는 경우 시스템 토픽은 미국 동부에서 만듭니다. Azure 구독, 리소스 그룹, Azure Maps 등의 글로벌 Azure 이벤트 원본의 경우, Event Grid는 **글로벌** 위치에 시스템 토픽을 만듭니다. 

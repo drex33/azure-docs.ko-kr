@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 3c44d6f6c5c3dabe1fb2e5d22083cc31c2294e72
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 2698d958746aaea86a7dbb290468ffaf1f8c2eec
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122530975"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993725"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>MSAL.NET에서 Xamarin iOS를 사용하기 위한 고려 사항
 
@@ -78,6 +78,29 @@ var builder = PublicClientApplicationBuilder
 `WithIosKeychainSecurityGroup()` API를 사용하는 경우 MSAL은 애플리케이션의 *팀 ID*(`AppIdentifierPrefix`) 끝에 보안 그룹을 자동으로 추가합니다. Xcode에서 애플리케이션을 빌드할 때 동일한 작업을 수행하기 때문에 MSAL은 보안 그룹을 추가합니다. 이러한 이유로 `Entitlements.plist` 파일의 자격에서 키 집합 액세스 그룹 앞에 `$(AppIdentifierPrefix)`를 포함해야 합니다.
 
 자세한 내용은 [iOS 자격 설명서](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)를 참조하세요.
+
+#### <a name="troubleshooting-keychain-access"></a>KeyChain 액세스 문제 해결
+
+"애플리케이션이 애플리케이션 게시자의 iOS 키체인에 액세스할 수 없습니다(TeamId가 null임)"와 유사한 오류 메시지가 표시되면 MSAL이 KeyChain에 액세스할 수 없음을 의미합니다. 이는 구성 문제입니다. 문제를 해결하려면 다음과 같이 직접 KeyChain에 액세스해 보세요. 
+
+```csharp
+var queryRecord = new SecRecord(SecKind.GenericPassword)
+{
+    Service = "",
+    Account = "SomeTeamId",
+    Accessible = SecAccessible.Always
+};
+
+SecRecord match = SecKeyChain.QueryAsRecord(queryRecord, out SecStatusCode resultCode);
+
+if (resultCode == SecStatusCode.ItemNotFound)
+{
+    SecKeyChain.Add(queryRecord);
+    match = SecKeyChain.QueryAsRecord(queryRecord, out resultCode);
+}
+
+// Make sure that  resultCode == SecStatusCode.Success
+```
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>iOS 애플리케이션에서 토큰 캐시 공유를 사용하도록 설정
 

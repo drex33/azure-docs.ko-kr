@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure Lighthouse는 여러 Azure 서비스에서 테넌트 간 환경을 사용하도록 설정하고 개선합니다.
-ms.date: 10/21/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: a9dbf51a965c1aa73489fdd2990736914b27177c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 07a0e2e9a42ace65cc159e0363a8ba86f4291cca
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312460"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492837"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -125,6 +125,23 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 
 - 이제 반환된 쿼리 결과에 테넌트 ID를 포함하여 구독이 관리 테넌트에 속하는지 여부를 식별할 수 있습니다.
 
+[Azure Service Health](../../service-health/index.yml):
+
+- Azure Resource Health를 사용하여 고객 리소스 상태를 모니터링합니다.
+- 고객이 사용하는 Azure 서비스의 상태를 추적합니다.
+
+[Azure Site Recovery](../../site-recovery/index.yml):
+
+- 고객 테넌트의 Azure 가상 머신에 대해 재해 복구 옵션을 관리합니다(`RunAs` 계정을 사용하여 VM 확장을 복사할 수 없음).
+
+[Azure Virtual Machines](../../virtual-machines/index.yml):
+
+- 가상 머신 확장을 사용하여 Azure VM에서 배포 후 구성 및 자동화 작업을 제공합니다.
+- 부팅 진단을 사용하여 Azure VM 문제를 해결합니다.
+- 직렬 콘솔을 통해 VM에 액세스합니다.
+- [정책을 통해 관리 ID를 사용하여](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret) 디스크 암호화에 대한 암호, 비밀 또는 암호화 키의 Azure KeyVault와 통합하여 비밀을 관리 테넌트의 Key Vault에 저장하도록 합니다.
+- VM에 대한 원격 로그인에는 Azure Active Directory를 사용할 수 없습니다.
+
 [클라우드 용 Microsoft Defender](../../security-center/index.yml):
 
 - 테넌트 간 표시 유형
@@ -148,23 +165,6 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 - [고객 테 넌 트의](../../sentinel/multiple-tenants-service-providers.md) Microsoft 센티널 리소스 관리
 - [여러 테넌트에서 공격을 추적하고 보안 경고를 확인합니다](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899).
 - 여러 Microsoft 센티널 작업 영역에서 여러 테 넌 트에 분산 되는 [인시던트 보기](../../sentinel/multiple-workspace-view.md)
-
-[Azure Service Health](../../service-health/index.yml):
-
-- Azure Resource Health를 사용하여 고객 리소스 상태를 모니터링합니다.
-- 고객이 사용하는 Azure 서비스의 상태를 추적합니다.
-
-[Azure Site Recovery](../../site-recovery/index.yml):
-
-- 고객 테넌트의 Azure 가상 머신에 대해 재해 복구 옵션을 관리합니다(`RunAs` 계정을 사용하여 VM 확장을 복사할 수 없음).
-
-[Azure Virtual Machines](../../virtual-machines/index.yml):
-
-- 가상 머신 확장을 사용하여 Azure VM에서 배포 후 구성 및 자동화 작업을 제공합니다.
-- 부팅 진단을 사용하여 Azure VM 문제를 해결합니다.
-- 직렬 콘솔을 통해 VM에 액세스합니다.
-- [정책을 통해 관리 ID를 사용하여](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret) 디스크 암호화에 대한 암호, 비밀 또는 암호화 키의 Azure KeyVault와 통합하여 비밀을 관리 테넌트의 Key Vault에 저장하도록 합니다.
-- VM에 대한 원격 로그인에는 Azure Active Directory를 사용할 수 없습니다.
 
 지원 요청:
 

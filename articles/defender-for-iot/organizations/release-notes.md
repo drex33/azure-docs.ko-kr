@@ -2,14 +2,13 @@
 title: Azure Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
-ms.date: 10/20/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a4a39ef6d48ecd2466c6642fcaa91611d2f44da6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/07/2021
+ms.openlocfilehash: ca588aed8a461e48cf85a01e97d5f8ddd4a42e24
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073076"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988278"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Azure Defender for IoT의 새로운 기능이란?  
 
@@ -61,33 +60,45 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 
 #### <a name="visibility-and-risk-assessment"></a>가시성 및 위험 평가
 
-- 디바이스 인벤토리를 사용하여 컨텍스트 디바이스 정보뿐만 아니라 조직 PLC의 PLC 상태를 볼 수 있습니다. 디바이스 인벤토리 설정 대화 상자를 사용하여 이 열을 인벤토리에 추가할 수 있습니다.
+- 디바이스 인벤토리를 사용하여 조직 PLC의 PLC 상태 및 상황별 디바이스 정보를 볼 수 있습니다. 디바이스 인벤토리 설정 대화 상자를 사용하여 이 열을 인벤토리에 추가할 수 있습니다.
 
-    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="plc 운영 모드를 보여주는 디바이스 인벤토리.":::
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="PLC 운영 모드를 보여 주는 디바이스 인벤토리":::
 
 - 디바이스 속성 화면의 특성 섹션에서 PLC 보안 상태 및 PLC별 마지막 변경 정보를 확인합니다. 키 상태가 프로그램으로 검색되거나 실행 상태가 원격 또는 프로그램으로 검색되면 PLC는 Defender for IoT에서 *비보안* 으로 정의됩니다. 디바이스 속성 PLC 보안 옵션이 false로 표시됩니다. 자세한 내용은 [디바이스 속성 보기 및 관리](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties)를 참조하세요.
 
-    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="plc 정보를 보여주는 특성 화면.":::
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="PLC 정보를 보여 주는 특성 화면":::
 
 - PLC 운영 모드 정보가 포함된 데이터 마이닝을 만들어 모든 네트워크 PLC 실행 및 키 상태를 봅니다.
 
-    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="plc 옵션을 보여주는 데이터 인벤토리 화면.":::
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="PLC 옵션을 보여 주는 데이터 인벤토리 화면":::
 
 - 위험 평가 보고서를 사용하여 비보안 모드의 네트워크 PLC 수와 안전하지 않은 PLC 위험을 완화하는 데 사용할 수 있는 추가 정보를 검토합니다.
 
 ### <a name="pcap-api"></a>PCAP API
 
-새 PCAP API를 사용하면 사용자가 센서 자체에 직접 액세스하거나 액세스하지 않고 온-프레미스 관리 콘솔을 통해 센서에서 PCAP 파일을 검색할 수 있습니다. 이 작업을 수행하려면 관리 콘솔을 프록시로 사용합니다.
+새 PCAP API를 사용하면 사용자가 센서 자체에 직접 액세스하거나 액세스하지 않고 온-프레미스 관리 콘솔을 통해 센서에서 PCAP 파일을 검색할 수 있습니다.
 
 ### <a name="on-premises-management-console-audit"></a>온-프레미스 관리 콘솔 감사
 
-이제 센서 배포에 대한 감사 로그를 온-프레미스 관리 콘솔에서 사용할 수 있습니다.
+이제 온-프레미스 관리 콘솔에 대한 감사 로그를 내보내 변경 내용과 변경한 사용자를 쉽게 조사할 수 있습니다.
 
 ### <a name="webhook-extended"></a>Webhook 확장
 
-Webhook 확장을 사용하여 Webhook 경고의 모든 정보와 추가 데이터를 엔드포인트로 보낼 수 있습니다.
+Webhook 확장은 추가 데이터를 엔드포인트에 보내는 데 사용할 수 있습니다. 확장 기능은 Webhook 경고의 모든 정보를 포함하고 다음 정보를 보고서에 추가합니다.
 
-### <a name="unicode-support-for-certificate-passphrases"></a>인증서 암호에 대한 유니코드 지원 
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+### <a name="unicode-support-for-certificate-passphrases"></a>인증서 암호에 대한 유니코드 지원
 
 이제 센서 인증서 암호로 작업할 때 유니코드 문자가 지원됩니다. 자세한 내용은 [인증서 정보](how-to-deploy-certificates.md#about-certificates)를 참조하세요.
 
@@ -126,7 +137,7 @@ Webhook 확장을 사용하여 Webhook 경고의 모든 정보와 추가 데이�
 - 원본 및 대상 주소
 - 수정 단계
 - 사용자가 정의한 센서 이름
-- 센서와 연결된 영역의 이름 
+- 센서와 연결된 영역의 이름
 - 센서와 연결된 사이트의 이름
 
 **Sensor**
@@ -171,6 +182,7 @@ Webhook 확장을 사용하여 Webhook 경고의 모든 정보와 추가 데이�
 - [온보딩](#onboarding)
 - [유용성](#usability)
 - [기타 업데이트](#other-updates)
+
 ### <a name="security"></a>보안
 
 이 릴리스에서는 인증서 및 암호 복구 기능이 향상되었습니다.

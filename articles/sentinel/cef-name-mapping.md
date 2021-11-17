@@ -1,31 +1,31 @@
 ---
 title: CEF(Common Event Format) 키 및 CommonSecurityLog 필드 매핑
-description: 이 문서에서는 CEF 키와 Azure Sentinel에 있는 CommonSecurityLog의 해당 필드 이름 간 매핑을 보여 줍니다.
+description: 이 문서에서는 CEF 키를 Microsoft Sentinel의 CommonSecurityLog에 있는 해당 필드 이름에 매핑합니다.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ee4aec218ba3969b54531f6f025b84b4909f6b85
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 710b20dcf4f1ac94816881c4851ddfafc0f84872
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064547"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522102"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>CEF 및 CommonSecurityLog 필드 매핑
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-다음 표에서는 CEF(Common Event Format) 필드 이름과 Azure Sentinel에 있는 CommonSecurityLog에서 사용하는 이름 간의 매핑을 보여 주므로, Azure Sentinel에서 CEF 데이터 원본을 사용하여 작업할 때 유용할 수 있습니다.
+다음 표에서는 CEF(Common Event Format) 필드 이름을 Microsoft Sentinel의 CommonSecurityLog에서 사용하는 이름에 매핑하며, Microsoft Sentinel에서 CEF 데이터 원본으로 작업할 때 유용할 수 있습니다.
 
 자세한 내용은 [Common Event Format을 사용하여 외부 솔루션 연결](connect-common-event-format.md)을 참조하세요.
 
 > [!NOTE]
-> Log Analytics로 [CEF 데이터를 수집](connect-common-event-format.md#prerequisites)하려면 Azure Sentinel 작업 영역이 필요합니다.
+> Log Analytics에 [CEF 데이터를 수집하려면](connect-common-event-format.md#prerequisites) Microsoft Sentinel 작업 영역이 필요합니다.
 >
 
 ## <a name="a---c"></a>A - C
@@ -239,7 +239,7 @@ ms.locfileid: "131064547"
 
 ## <a name="enrichment-fields"></a>보강 필드
 
-다음 **CommonSecurityLog** 필드는 Azure Sentinel에서 원본 디바이스에서 받은 원래 이벤트를 보강하기 위해 추가되며 CEF 키에 매핑이 없습니다.
+Microsoft 센티널에서 다음 **CommonSecurityLog** 필드를 추가 하 여 원본 장치에서 받은 원래 이벤트를 보강 하 고 cef 키에 매핑이 없습니다.
 
 ### <a name="threat-intelligence-fields"></a>위협 인텔리전스 필드
 

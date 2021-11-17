@@ -1,20 +1,20 @@
 ---
 title: 빠른 시작 - Azure Portal에서 Intel SGX VM 만들기
 description: Azure Portal에서 Intel SGX VM을 신속하게 만드는 방법을 학습하여 배포 시작
-author: stempesta
+author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: stempesta
+ms.author: JenCook
 ms.custom: mode-portal, ignite-fall-2021
-ms.openlocfilehash: 68eec52333636c54ab9598d4823e4e794e50a3c4
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: ebb48c3c3b0f7273b7ceeebd8a615b19444dab5b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132331949"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508403"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Intel SGX VM 만들기
 

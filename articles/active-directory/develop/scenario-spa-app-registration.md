@@ -3,21 +3,21 @@ title: SPA(단일 페이지 애플리케이션) 등록 | Azure
 titleSuffix: Microsoft identity platform
 description: 단일 페이지 애플리케이션을 빌드하는 방법 알아보기(앱 등록)
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2020
-ms.author: hahamil
+ms.date: 10/12/2021
+ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 9366bb5b2bb5820245ec1b699bbf2ddda0dd9f9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b7c54dcac287574559a135b664e19f1150b80bc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103178"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987084"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
@@ -69,15 +69,13 @@ MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 
 
 이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **ID 토큰** 및 **액세스 토큰** 중 하나 또는 둘 다를 선택하여 암시적 허용 흐름을 사용하도록 설정했습니다.
 
-추가 지침을 보려면 [자습서](tutorial-v2-javascript-spa.md)를 따르세요.
-
 ## <a name="note-about-authorization-flows"></a>권한 부여 흐름에 대한 참고 사항
 
 기본적으로 단일 페이지 애플리케이션 플랫폼 구성을 사용하여 만든 앱 등록은 인증 코드 흐름을 사용하도록 설정합니다. 이 흐름을 활용하려면 애플리케이션에서 MSAL.js 2.0 이상을 사용해야 합니다.
 
 앞에서 설명한 것처럼 MSAL.js 1.3을 사용하는 단일 페이지 애플리케이션은 암시적 허용 흐름으로 제한됩니다. 현재 [OAuth 2.0 모범 사례](v2-oauth2-auth-code-flow.md)에서는 SPA에 대한 암시적 흐름이 아닌 인증 코드 흐름을 사용하도록 권장합니다. 또한 수명이 제한된 새로 고침 토큰을 사용하면 애플리케이션이 Safari ITP와 같은 [최신 브라우저 쿠키 프라이버시 제한](reference-third-party-cookies-spas.md)에 맞게 조정됩니다.
 
-앱 등록으로 표시되는 모든 프로덕션 단일 페이지 애플리케이션이 MSAL.js 2.0 및 인증 코드 흐름을 사용하는 경우 Azure Portal에서 앱 등록 **인증** 창의 암시적 허용 설정을 선택 취소합니다. 그러나 암시적 흐름이 사용하도록 설정(선택)된 상태로 두면 MSAL.js 1.x 및 암시적 흐름을 사용하는 애플리케이션은 계속 작동할 수 있습니다.
+앱 등록으로 표시되는 모든 프로덕션 단일 페이지 애플리케이션이 MSAL.js 2.0 및 인증 코드 흐름을 사용하는 경우 Azure Portal의 앱 등록 **인증** 창에서 암시적 허용 설정을 선택 취소합니다. 그러나 암시적 흐름이 사용하도록 설정(선택)된 상태로 두면 MSAL.js 1.x 및 암시적 흐름을 사용하는 애플리케이션은 계속 작동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

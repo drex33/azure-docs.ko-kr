@@ -1,5 +1,5 @@
 ---
-title: '자습서: AWS Single Sign-On과 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: AWS Single Sign-on과 Azure AD SSO 통합'
 description: Azure Active Directory 및 AWS Single Sign-On 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2021
+ms.date: 10/26/2021
 ms.author: jeedes
-ms.openlocfilehash: bda8218fb9d08da410b08f8b6f3a3e3cda53ec22
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4e7d0f8edb34f7c6a91eeb8bac6f04b97440f764
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759695"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440843"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>자습서: AWS Single Sign-On과 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-aws-single-sign-on"></a>자습서: AWS Single Sign-on과 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 AWS Single Sign-On을 통합하는 방법에 대해 알아봅니다. AWS Single Sign-On을 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "124759695"
 * 사용자가 해당 Azure AD 계정으로 AWS Single Sign-On에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -80,7 +80,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **메타데이터 파일 업로드** 를 클릭합니다.
 
-    b. **폴더 로고** 를 클릭하여 **AWS Single Sign-On SSO 구성** 섹션(포인트 8)에서 다운로드한 메타데이터 파일을 선택하고 **추가** 를 클릭합니다.
+    b. **폴더 로고** 를 클릭하여 **[AWS Single Sign-On SSO 구성](#configure-aws-single-sign-on-sso)** 섹션에서 다운로드하도록 설명된 메타데이터 파일을 선택하고 **추가** 를 클릭합니다.
 
     ![image2](common/browse-upload-metadata.png)
 

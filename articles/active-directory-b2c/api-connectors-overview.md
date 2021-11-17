@@ -1,24 +1,24 @@
 ---
 title: Azure AD B2C의 API 커넥터 정보
-description: Azure AD(Azure Active Directory) API 커넥터를 사용하여 REST API를 통해 사용자 흐름을 사용자 지정하고 확장합니다.
+description: Azure AD(Azure Active Directory) API 커넥터를 통해 외부 ID 데이터 원본에 대한 REST API 또는 아웃바운드 웹후크를 사용하여 사용자 흐름을 사용자 지정하고 확장합니다.
 services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 07/05/2021
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.date: 11/02/2021
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cade077501e499893686fcc856129deb61e8778e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9b5d3c49019d1953dd0deb5d498291d92af4aba1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528159"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131436938"
 ---
-# <a name="use-api-connectors-to-customize-and-extend-sign-up-user-flows"></a>API 커넥터를 사용하여 등록 사용자 흐름 사용자 지정 및 확장
+# <a name="use-api-connectors-to-customize-and-extend-sign-up-user-flows-with-external-identity-data-sources"></a>API 커넥터를 사용하여 외부 ID 데이터 원본으로 등록 사용자 흐름을 사용자 지정 및 확장 
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "122528159"
 개발자 또는 IT 관리자는 API 커넥터를 사용하여 REST API와 가입 사용자 흐름을 통합함으로써 가입 환경을 사용자 지정하고 외부 시스템과 통합할 수 있습니다. 예를 들어 API 커넥터를 사용하여 다음을 수행할 수 있습니다.
 
 - **사용자 입력 데이터 유효성 검사**. 잘못된 형식이나 유효하지 않은 사용자 데이터의 유효성을 검사합니다. 예를 들어 외부 데이터 저장소의 기존 데이터 또는 허용되는 값 목록에 대해 사용자가 제공한 데이터의 유효성을 검사할 수 있습니다. 유효하지 않은 경우 사용자에게 유효한 데이터를 제공하도록 요청하거나 사용자가 등록 흐름을 계속할 수 없도록 차단할 수 있습니다.
-- **사용자 ID를 확인합니다**. ID 검증 서비스를 사용하여 계정 생성 결정에 보안 수준을 강화합니다.
+- **사용자 ID를 확인합니다**. ID 검증 서비스 또는 외부 ID 데이터 원본을 사용하여 계정 생성 결정에 보안 수준을 강화합니다.
 - **사용자 지정 승인 워크플로와 통합** 합니다. 계정 생성을 관리 및 제한하기 위해 사용자 지정 승인 시스템에 연결합니다.
 - **외부 원본의 특성을 사용하여 토큰 보강** 클라우드 시스템, 사용자 지정 사용자 저장소, 사용자 지정 권한 시스템, 레거시 ID 서비스 등의 Azure AD B2C 외부 원본에서 사용자에 대한 특성으로 토큰을 보강합니다.
 - **사용자 특성을 덮어씁니다**. 사용자로부터 수집된 특성에 값 서식을 다시 지정하거나 할당합니다. 예를 들어 사용자가 이름을 모두 소문자 또는 대문자로 입력한 경우 이름의 첫 번째 문자만을 대문자로 시작하도록 서식을 지정할 수 있습니다. 
@@ -78,9 +78,9 @@ Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 ID 환경 프레임
 
 Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험에 고유한 비즈니스 논리를 추가할 수 있습니다. ID 환경 프레임워크는 RESTful 서비스에서 데이터를 주고받아 클레임을 교환할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
-- **사용자 입력 데이터 유효성 검사**. 예를 들어 사용자가 제공한 메일 주소가 고객 데이터베이스에 있는지 확인하고, 없으면 오류를 표시할 수 있습니다.
-- **클레임 처리**. 사용자가 이름을 모두 소문자 또는 대문자로 입력한 경우 REST API는 이름의 첫 번째 문자만을 대문자로 시작하여 Azure AD B2C에 반환할 수 있습니다.
-- **회사 LOB(기간 업무) 애플리케이션과 추가로 통합하여 사용자 데이터 보강**. RESTful 서비스는 사용자의 메일 주소를 수신하고, 고객의 데이터베이스를 쿼리하고, Azure AD B2C에 사용자의 전용 번호를 반환할 수 있습니다. 반환 클레임을 사용자의 Azure AD 계정에서 저장하여 다음, 오케스트레이션 단계에서 계산하거나, 액세스 토큰에 포함할 수 있습니다.
+- **외부 ID 데이터 원본을 사용하여 사용자 입력 데이터의 유효성을 검사** 합니다. 예를 들어 사용자가 제공한 메일 주소가 고객 데이터베이스에 있는지 확인하고, 없으면 오류를 표시할 수 있습니다. 등록 등의 이벤트가 발생할 때 호출되기 때문에 아웃바운드 웹후크를 지원하는 방법으로 API 커넥터를 생각할 수도 있습니다.
+- **클레임 처리**. 사용자가 이름을 모두 소문자 또는 대문자로 입력한 경우 REST API는 이름의 첫 번째 문자만을 대문자로 시작하여 Azure AD B2C에 반환할 수 있습니다. 그러나 사용자 지정 정책을 사용하는 경우 RESTful API를 호출하는 것보다 [ClaimsTransformations](claimstransformations.md)가 선호됩니다. 
+- **회사 LOB(기간 업무) 애플리케이션과 추가로 통합하여 사용자 데이터를 동적으로 보강** 합니다. RESTful 서비스는 사용자의 메일 주소를 수신하고, 고객의 데이터베이스를 쿼리하고, Azure AD B2C에 사용자의 전용 번호를 반환할 수 있습니다. 반환 클레임을 사용자의 Azure AD 계정에서 저장하여 다음, 오케스트레이션 단계에서 계산하거나, 액세스 토큰에 포함할 수 있습니다.
 - **사용자 지정 비즈니스 논리 실행**. 푸시 알림을 보내고, 회사 데이터베이스를 업데이트하고, 사용자 마이그레이션 프로세스를 실행하고, 사용 권한을 관리하고, 데이터베이스를 감사하고, 다른 워크플로를 수행할 수 있습니다.
 
 ![RESTful 서비스 클레임 교환 다이어그램](media/api-connectors-overview/restful-service-claims-exchange.png)

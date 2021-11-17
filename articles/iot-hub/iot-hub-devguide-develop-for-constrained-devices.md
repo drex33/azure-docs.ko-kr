@@ -1,21 +1,21 @@
 ---
 title: IoT Hub C SDK를 사용하여 제한된 디바이스에 대한 Azure IoT Hub 개발
 description: 개발자 가이드 - 제한된 디바이스에 Azure IoT SDK를 사용하여 개발하는 방법에 대한 지침입니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5a43eb2537ebc09ffcb524a4426d7a8c9bec560b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 716330a46816109d99aeba7b70a05c938171f90f
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500005"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551618"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
 

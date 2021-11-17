@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jodah
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bde4362580ebfd04f67b5311c79cb8c64e85ddc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6aee712f22bd4110670a93dc5f7a9709689f2f96
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052658"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440807"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대한 만료 정책 구성
 
@@ -67,7 +67,7 @@ Azure AD 인텔리전스를 사용하여 이제 그룹은 최근에 사용되었
 역할 | 사용 권한
 -------- | --------
 전역 관리자, 그룹 관리자 또는 사용자 관리자 | Microsoft 365 그룹 만료 정책 설정을 만들거나, 읽거나, 업데이트하거나, 삭제할 수 있음<br>모든 Microsoft 365 그룹을 갱신할 수 있음
-사용자 | 소유하는 Microsoft 365 그룹을 갱신할 수 있음<br>소유하는 Microsoft 365 그룹을 복원할 수 있음<br>만료 정책 설정을 읽을 수 있음
+사용자 | 소유한 Microsoft 365 그룹을 갱신할 수 있음<br>소유한 Microsoft 365 그룹을 복원할 수 있음<br>만료 정책 설정을 읽을 수 있음
 
 삭제된 그룹을 복원하는 권한에 대한 자세한 내용은 [Azure Active Directory에서 삭제된 Microsoft 365 그룹 복원](groups-restore-deleted.md)을 참조하세요.
 

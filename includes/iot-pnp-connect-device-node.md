@@ -4,18 +4,18 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 087d5c3e43d1b01754f19978d8b76d012e9c55a7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2970634988a174d67ce4b92daa376a9d393fb449
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725677"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520501"
 ---
 이 빠른 시작에서는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 전송되는 원격 분석을 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 Node.js로 작성되었으며 Node.js용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 디바이스 SDK를 사용하여 포함된 샘플 코드를 빌드합니다. 빌드하는 애플리케이션은 IoT Hub에 연결하는 디바이스를 시뮬레이션합니다. 이 애플리케이션은 원격 분석 데이터 및 속성을 보내고 명령을 수신합니다.
 
-1. 로컬 터미널 창에서 복제된 리포지토리의 폴더로 이동하고 */azure-iot-sdk-node/device/samples/pnp* 폴더로 이동합니다. 그런 다음, 다음 명령을 실행하여 필요한 라이브러리를 설치합니다.
+1. 로컬 터미널 창에서, 복제된 리포지토리의 폴더로 이동하여 */azure-iot-sdk-node/device/samples/javascript* 폴더를 찾습니다. 그런 다음, 다음 명령을 실행하여 필요한 라이브러리를 설치합니다.
 
     ```cmd/sh
     npm install
@@ -57,7 +57,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 이 샘플은 간단한 IoT 플러그 앤 플레이 온도 조절 디바이스를 구현합니다. 이 샘플에서 구현하는 모델은 IoT 플러그 앤 플레이 [구성 요소](../articles/iot-develop/concepts-modeling-guide.md)를 사용하지 않습니다. [온도 조절 디바이스용 DTDL 모델 파일](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json)은 디바이스에서 구현하는 원격 분석, 속성 및 명령을 정의합니다.
 
-_simple_thermostat.js_ 파일을 엽니다. 이 파일에서 다음을 수행하는 방법을 확인할 수 있습니다.
+_pnp_simple_thermostat.js_ 파일을 엽니다. 이 파일에서 다음을 수행하는 방법을 확인할 수 있습니다.
 
 1. 필요한 인터페이스를 가져옵니다.
 1. 속성 업데이트 처리기 및 명령 처리기를 작성합니다.
@@ -75,12 +75,12 @@ _simple_thermostat.js_ 파일을 엽니다. 이 파일에서 다음을 수행하
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/pnp/readme.md)를 참조하세요.
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/readme.md#iot-plug-and-play-device-samples)를 참조하세요.
 
 샘플 애플리케이션을 실행하여 IoT 허브에 원격 분석을 전송하는 IoT 플러그 앤 플레이 디바이스를 시뮬레이트합니다. 샘플 애플리케이션을 실행하려면 다음 명령을 사용합니다.
 
 ```cmd\sh
-node simple_thermostat.js
+node pnp_simple_thermostat.js
 ```
 
 디바이스가 허브로 원격 분석 데이터를 보내기 시작했으며, 이제 명령 및 속성 업데이트를 받을 준비가 되었다는 것을 나타내는 다음 출력이 표시됩니다.

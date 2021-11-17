@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 3421c519c4ab059cda1d413db3906b3f1ed76ca0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a593aef3ff99edb498e899b0d8db46c7b4636683
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594691"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427706"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 노드 웹앱에서 액세스 토큰을 가져옵니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "128594691"
 > 1. **리디렉션 URI** 값을 `http://localhost:3000/redirect`으로 설정합니다.
 > 1. **등록** 을 선택합니다.
 > 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-> 1. **관리** 아래에서 **인증서 및 비밀** > **새 클라이언트 암호** 를 선택합니다.  설명을 비워 두고 기본 만료를 그대로 둔 다음, **추가** 를 선택합니다.
+> 1. **관리** 아래에서 **인증서 및 비밀** > **클라이언트 암호** > **새 클라이언트 암호** 를 선택합니다.  설명을 비워 두고 기본 만료를 그대로 둔 다음, **추가** 를 선택합니다.
 > 1. 나중에 사용할 수 있도록 **클라이언트 암호** 의 값을 기록해 둡니다.
 
 > [!div class="sxs-lookup" renderon="portal"]

@@ -4,18 +4,18 @@ description: 클라우드에 대 한 Microsoft Defender의 보안 경고를 연�
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0162fdd918c924f656a1d7296cef04ce70b591ec
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 33d43aa25a8e51c0330c2eaba213ef8d5644e62f
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132397990"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522121"
 ---
 # <a name="connect-security-alerts-from-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud의 보안 경고 커넥트
 

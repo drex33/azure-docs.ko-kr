@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dbaead6f8f3c730cac1393491bb2883f2889e87
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 6a1ee521cdde76284c09f6bf34ad7945e188ee1c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707481"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042431"
 ---
 # <a name="azure-active-directory-security-operations-for-user-accounts"></a>사용자 계정에 대한 Azure Active Directory 보안 작업
 
@@ -81,7 +81,7 @@ Azure AD 감사 로그, Azure AD 로그인 로그, 디렉터리 특성을 정상
 
 * [로그인 로그](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault 로그](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -91,17 +91,17 @@ Azure AD 감사 로그, Azure AD 로그인 로그, 디렉터리 특성을 정상
 
 Azure Portal에서 Azure AD 감사 로그를 보고, CSV(쉼표로 구분된 값) 또는 JSON(JavaScript Object Notation) 파일로 다운로드할 수 있습니다. Azure Portal에는 모니터링 및 경고를 더 효율적으로 자동화하도록 허용하는 다른 도구와 Azure AD 로그를 통합하는 몇 가지 방법이 있습니다.
 
-* **[Azure Sentinel](../../sentinel/overview.md)** - SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 인텔리전트 보안 분석을 지원합니다. 
+* **[Azure Sentinel](../../sentinel/overview.md)** - SIEM(보안 정보 및 이벤트 관리) 기능을 제공하여 엔터프라이즈 수준에서 인텔리전트 보안 분석을 가능하게 합니다. 
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** - 다양한 조건을 자동으로 모니터링하고 경고할 수 있습니다. 통합 문서를 만들거나 사용하여 다양한 원본의 데이터를 결합할 수 있습니다.
+* **[Azure Monitor](../../azure-monitor/overview.md)** - 다양한 조건에 대한 자동화된 모니터링 및 경고를 가능하게 합니다. 통합 문서를 만들거나 사용하여 다양한 원본의 데이터를 결합할 수 있습니다.
 
-* **SIEM과 통합된 [Azure Event Hubs](../../event-hubs/event-hubs-about.md)** - Azure AD 로그는 Azure Event Hub 통합을 통해 Splunk, ArcSight, QRadar 및 Sumo Logic과 같은 [다른 SIEM에 통합될 수 있습니다](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* **SIEM과 통합된 [Azure Event Hubs](../../event-hubs/event-hubs-about.md)** - Azure Event Hubs 통합을 통해 Splunk, ArcSight, QRadar, Sumo Logic 등의 [다른 SIEM에 Azure AD 로그를 통합할 수 있습니다](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-* **[MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security)** - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱 규정 준수를 확인할 수 있습니다. 
+* **[MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security)** - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱의 규정 준수를 확인할 수 있습니다. 
 
 모니터링하고 경고할 항목의 대부분은 조건부 액세스 정책의 영향입니다. [조건부 액세스 인사이트 및 보고 통합 문서](../conditional-access/howto-conditional-access-insights-reporting.md)를 사용하여 로그인에 대한 하나 이상의 조건부 액세스 정책과 디바이스 상태를 포함한 정책 결과를 조사할 수 있습니다. 이 통합 문서를 사용하면 영향 요약을 보고 특정 기간 동안의 영향을 식별할 수 있습니다. 통합 문서를 사용하여 특정 사용자의 로그인을 조사할 수도 있습니다. 
 
- 이 문서의 나머지 부분에서는 모니터링하고 경고하는 것이 권장되는 사항에 대해 설명하며 위협 유형별로 구성되어 있습니다. 사전 구축된 특정 솔루션이 있는 경우 해당 솔루션에 연결하거나 표에 따라 샘플을 제공합니다. 제공하지 않으면 이전 도구를 사용하여 경고를 작성할 수 있습니다. 
+ 이 문서의 나머지 부분은 모니터링하고 경고하는 데 권장되는 대상에 대해 설명하며, 위협 유형별로 구성되어 있습니다. 미리 빌드된 특정 솔루션이 있는 경우 해당 솔루션에 연결하거나 표 뒤에서 샘플을 제공합니다. 제공하지 않으면 이전 도구를 사용하여 경고를 작성할 수 있습니다. 
 
 ## <a name="account-creation"></a>계정 만들기
 
@@ -177,31 +177,31 @@ ID 수명 주기를 안전하게 제어할 수 있도록 사용자 및 권한 �
 
 ## <a name="unusual-sign-ins"></a>비정상적 로그인
 
-사용자 인증 오류 확인은 정상적인 동작입니다. 그러나 오류 패턴이나 오류 블록 확인은 사용자 ID에서 문제가 발생했음을 나타낼 수 있습니다. 예를 들어 암호 스프레이 또는 무차별 암호 대입 공격(brute force attack)이나 사용자 계정이 손상된 경우입니다. 패턴이 나타날 경우 모니터링하고 경고하는 것이 중요합니다. 이렇게 하면 사용자와 조직 데이터를 보호할 수 있습니다. 
+사용자 인증 오류 확인은 정상적인 동작입니다. 그러나 오류 패턴이나 오류 블록 확인은 사용자 ID에서 문제가 발생했음을 나타낼 수 있습니다. 예를 들어 암호 스프레이 또는 무차별 암호 대입 공격(brute force attack)이나 사용자 계정이 손상된 경우입니다. 패턴이 나타날 경우 모니터링하고 경고하는 것이 중요합니다. 이렇게 하면 사용자와 조직의 데이터를 보호할 수 있습니다. 
 
-성공은 모두 정상임을 나타냅니다. 그러나 잘못된 작업자가 서비스에 성공적으로 액세스한 경우를 의미할 수 있습니다. 성공적인 로그인을 모니터링하면 액세스 권한이 제공되지만 액세스 권한이 있어야 하는 사용자 계정이 아닌 사용자 계정을 검색할 수 있습니다. 사용자 인증 성공은 Azure AD 로그인 로그의 일반 항목입니다. 패턴의 발생 시기를 감지하도록 모니터링하고 경고하는 것이 좋습니다. 이렇게 하면 사용자 계정과 조직 데이터를 보호할 수 있습니다. 
+성공은 모두 정상임을 나타냅니다. 그러나 잘못된 작업자가 서비스에 성공적으로 액세스한 경우를 의미할 수 있습니다. 성공적인 로그인을 모니터링하면 액세스 권한이 제공되지만 액세스 권한이 있어야 하는 사용자 계정이 아닌 사용자 계정을 검색할 수 있습니다. 사용자 인증 성공은 Azure AD 로그인 로그의 일반 항목입니다. 패턴의 발생 시기를 감지하도록 모니터링하고 경고하는 것이 좋습니다. 이렇게 하면 사용자 계정과 조직의 데이터를 보호할 수 있습니다. 
 
 
 로그 모니터링 및 경고 전략을 설계하고 운영하는 경우 Azure Portal을 통해 제공되는 도구를 고려합니다. ID 보호를 사용하면 ID 기반 위험을 검색, 보호, 수정하는 기능을 자동화할 수 있습니다. ID 보호는 인텔리전스 공급 기계 학습과 추론 시스템을 사용하여 위험을 탐지하고 사용자와 로그인에 대한 위험 점수를 할당합니다. 고객은 액세스를 허용 또는 거부하거나 사용자가 위험을 안전하게 자체 수정할 수 있는 경우에 대한 위험 수준의 정책을 구성할 수 있습니다. 현재 위험 수준을 알리는 ID 보호 위험 검색은 다음과 같습니다.
 
 | 모니터링 대상 | 위험 수준 | Where | 필터/하위 필터 | 참고 |
 | - | - | - | - | - |
-| 유출된 자격 증명 사용자 위험 검색| 높음| Azure AD 위험 검색 로그| UX: 유출된 자격 증명 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| Azure AD 위협 인텔리전스 사용자 위험 검색| 높음| Azure AD 위험 검색 로그| UX: Azure AD 위협 인텔리전스 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 익명 IP 주소 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 익명 IP 주소 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 비정상적 이동 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 비정상적 이동 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 비정상적 토큰| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 비정상적 토큰 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 맬웨어 연결 IP 주소 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 맬웨어 연결 IP 주소 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 의심스러운 브라우저 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 의심스러운 브라우저 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 익숙하지 않은 로그인 속성 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 익숙하지 않은 로그인 속성 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 악성 IP 주소 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 악성 IP 주소<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 의심스러운 받은 편지함 조작 규칙 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 의심스러운 받은 편지함 조작 규칙<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 암호 스프레이 로그인 위험 검색| 높음| Azure AD 위험 검색 로그| UX: 암호 스프레이<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 불가능한 이동 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 불가능한 이동<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 새 국가 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 새 국가<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 익명 IP 주소에서의 활동 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 익명 IP 주소에서의 활동<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| 의심스러운 받은 편지함 전달 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 의심스러운 받은 편지함 전달<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
-| Azure AD 위협 인텔리전스 로그인 위험 검색| 높음| Azure AD 위험 검색 로그| UX: Azure AD 위협 인텔리전스<br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta.md) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 유출된 자격 증명 사용자 위험 검색| 높음| Azure AD 위험 검색 로그| UX: 유출된 자격 증명 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| Azure AD 위협 인텔리전스 사용자 위험 검색| 높음| Azure AD 위험 검색 로그| UX: Azure AD 위협 인텔리전스 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 익명 IP 주소 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 익명 IP 주소 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 비정상적 이동 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 비정상적 이동 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 비정상적 토큰| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 비정상적 토큰 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 맬웨어 연결 IP 주소 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 맬웨어 연결 IP 주소 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 의심스러운 브라우저 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 의심스러운 브라우저 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 익숙하지 않은 로그인 속성 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 익숙하지 않은 로그인 속성 <br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 악성 IP 주소 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 악성 IP 주소<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 의심스러운 받은 편지함 조작 규칙 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 의심스러운 받은 편지함 조작 규칙<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 암호 스프레이 로그인 위험 검색| 높음| Azure AD 위험 검색 로그| UX: 암호 스프레이<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 불가능한 이동 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 불가능한 이동<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 새 국가 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 새 국가<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 익명 IP 주소에서의 활동 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 익명 IP 주소에서의 활동<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| 의심스러운 받은 편지함 전달 로그인 위험 검색| 상황에 따라 다름| Azure AD 위험 검색 로그| UX: 의심스러운 받은 편지함 전달<br><br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
+| Azure AD 위협 인텔리전스 로그인 위험 검색| 높음| Azure AD 위험 검색 로그| UX: Azure AD 위협 인텔리전스<br>API: [riskDetection 리소스 종류 - Microsoft Graph 베타](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true) 참조| [위험이란? Azure AD ID 보호](../identity-protection/concept-identity-protection-risks.md) 참조 |
 
 자세한 내용은 [ID 보호란?](../identity-protection/overview-identity-protection.md)을 참조하세요. 
 
@@ -214,7 +214,7 @@ Azure AD 로그인 로그 내 데이터에 대한 모니터링을 구성하여 �
 
 * **중단된 인증**: Azure AD의 인터럽트는 CA 정책에서 제어를 적용하는 경우와 같이 인증을 충족하는 추가 프로세스 삽입을 나타냅니다. 정상적인 이벤트이며 애플리케이션이 올바르게 구성되지 않은 경우에 발생할 수 있습니다. 그러나 사용자 계정에 대해 많은 인터럽트가 표시되는 경우 해당 계정에서 문제가 발생하고 있음을 나타낼 수 있습니다. 
 
-  * 예를 들어 로그인 로그에서 사용자를 필터링하고 로그인 상태 = 중단됨 및 조건부 액세스 = 실패를 대량 확인하는 경우입니다. 자세히 살펴보면 인증 세부 정보에서 암호는 맞지만 강력한 인증이 필요함을 알 수 있습니다. 사용자가 MFA(다단계 인증)를 완료하지 않았음을 의미하며, 사용자 암호가 손상되었고 잘못된 작업자는 MFA를 처리할 수 없음을 나타낼 수 있습니다.
+  * 예를 들어 로그인 로그에서 사용자를 필터링하고 로그인 상태 = 중단됨 및 조건부 액세스 = 실패를 대량 확인하는 경우입니다. 자세히 살펴보면 인증 세부 정보에서 암호는 맞지만 강력한 인증이 필요함을 알 수 있습니다. 사용자가 MFA(다단계 인증)를 완료하지 않았음을 의미하며, 사용자의 암호가 손상되었고 잘못된 작업자는 MFA를 처리할 수 없음을 나타낼 수 있습니다.
 
 * **스마트 잠금**: Azure AD는 인증 프로세스에 익숙한 위치와 익숙하지 않은 위치의 개념을 도입하는 스마트 잠금 서비스를 제공합니다. 익숙한 위치를 방문하는 사용자 계정은 성공적으로 인증될 수 있지만 동일한 위치에 익숙하지 않은 잘못된 작업자는 여러 번 시도 후에 차단됩니다. 잠긴 계정을 찾아서 자세히 조사합니다. 
 
@@ -272,11 +272,11 @@ Azure ID 보호 및 Azure AD 로그인 로그를 사용하여 비정상적 로�
 | 모니터링 대상| 위험 수준| Where| 필터/하위 필터| 참고 |
 | - |- |- |- |- |
 | MFA(다단계 인증) 사기 경고| 높음| Azure AD 로그인 로그| 상태 = 실패<br>및<br>세부 정보 = MFA 거부됨<br>| 모든 항목을 모니터링하고 경고합니다. |
-| 운영하지 않는 국가에서 실패한 인증| 중간| Azure AD 로그인 로그| 위치 = <unapproved location>| 항목을 모니터링하고 경고합니다. |
+| 운영하지 않는 국가에서 실패한 인증| 중간| Azure AD 로그인 로그| 위치 = \<unapproved location\>| 항목을 모니터링하고 경고합니다. |
 | 레거시 프로토콜이나 사용되지 않는 프로토콜에 대한 인증 실패| 중간| Azure AD 로그인 로그| 상태 = 실패<br>및<br>클라이언트 앱 = 다른 클라이언트, POP, IMAP, MAPI, SMTP, ActiveSync| 항목을 모니터링하고 경고합니다. |
 | CA에서 차단된 실패| 중간| Azure AD 로그인 로그| 오류 코드 = 53003 <br>및<br>실패 이유 = CA에서 차단됨| 항목을 모니터링하고 경고합니다. |
 | 모든 형식의 증가한 인증 실패| 중간| Azure AD 로그인 로그| 보드 전체에서 실패 증가를 캡처합니다. 즉, 오늘의 총 실패 횟수는 지난주 동일한 날 대비 10%가 더 많습니다.| 설정된 임계값이 없는 경우 실패 횟수가 10% 이상 증가하는지 모니터링하고 경고합니다. |
-| 국가에서 표준 비즈니스 작업을 수행하지 않는 시간과 요일에 인증 발생| 낮음| Azure AD 로그인 로그| 정상적 운영 요일\시간 외에 발생하는 대화형 인증을 캡처합니다. <br>상태 = 성공<br>및<br>위치 = <location><br>및<br>Day\Time = <not normal working hours>| 항목을 모니터링하고 경고합니다. |
+| 국가에서 표준 비즈니스 작업을 수행하지 않는 시간과 요일에 인증 발생| 낮음| Azure AD 로그인 로그| 정상적 운영 요일\시간 외에 발생하는 대화형 인증을 캡처합니다. <br>상태 = 성공<br>및<br>위치 = \<location\><br>및<br>Day\Time = \<not normal working hours\>| 항목을 모니터링하고 경고합니다. |
 | 계정 사용 안 함/로그인 차단됨| 낮음| Azure AD 로그인 로그| 상태 = 실패<br>및<br>오류 코드 = 50057, 사용자 계정이 사용하지 않도록 설정되었습니다.| 이 오류는 누군가가 조직을 떠난 후 계정에 액세스하려고 시도함을 나타낼 수 있습니다. 계정이 차단된 경우에도 이 작업을 기록하고 경고하는 것이 중요합니다. |
 
 
@@ -284,10 +284,10 @@ Azure ID 보호 및 Azure AD 로그인 로그를 사용하여 비정상적 로�
 
  | 모니터링 대상| 위험 수준| Where| 필터/하위 필터| 참고 |
 | - |- |- |- |- |
-| 필요한 컨트롤 외부의 권한 있는 계정 인증| 높음| Azure AD 로그인 로그| 상태 = 성공<br>및<br>UserPricipalName = <Admin account><br>및<br>위치 = <unapproved location><br>및<br>IP 주소 = <unapproved IP><br>디바이스 정보 = <승인되지 않은 브라우저, 운영 체제><br>| 필요한 컨트롤 외부의 권한 있는 계정에 대한 인증 성공을 모니터링하고 경고합니다. 세 가지 공용 컨트롤이 나열됩니다. |
+| 필요한 컨트롤 외부의 권한 있는 계정 인증| 높음| Azure AD 로그인 로그| 상태 = 성공<br>및<br>UserPricipalName = \<Admin account\><br>및<br>위치 = \<unapproved location\><br>및<br>IP 주소 = \<unapproved IP\><br>디바이스 정보 = \<unapproved Browser, Operating System\><br>| 필요한 컨트롤 외부의 권한 있는 계정에 대한 인증 성공을 모니터링하고 경고합니다. 세 가지 공용 컨트롤이 나열됩니다. |
 | 단일 단계 인증만 필요한 경우| 낮음| Azure AD 로그인 로그| 상태 = 성공<br>인증 요구 사항 = 단일 단계 인증| 정기적으로 모니터링하여 예상 동작인지 확인합니다. |
-| MFA에 등록되지 않은 권한 있는 계정 검색| 높음| Azure Graph API| 관리자 계정에 대한 IsMFARegistered eq false를 쿼리합니다. <br>[credentialUserRegistrationDetails 나열 - Microsoft Graph 베타 | Microsoft Docs](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&tabs=http)| 감사하고 조사하여 의도적인지 또는 실수인지 확인합니다. |
-| 조직에서 운영하지 않는 국가에서의 인증 성공| 중간| Azure AD 로그인 로그| 상태 = 성공<br>위치 = <unapproved country>| 제공한 도시 이름과 같지 않은 항목을 모니터링하고 경고합니다. |
+| MFA에 등록되지 않은 권한 있는 계정 검색| 높음| Azure Graph API| 관리자 계정에 대한 IsMFARegistered eq false를 쿼리합니다. <br>[credentialUserRegistrationDetails 나열 - Microsoft Graph 베타 | Microsoft Docs](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http)| 감사하고 조사하여 의도적인지 또는 실수인지 확인합니다. |
+| 조직에서 운영하지 않는 국가에서의 인증 성공| 중간| Azure AD 로그인 로그| 상태 = 성공<br>위치 = \<unapproved country\>| 제공한 도시 이름과 같지 않은 항목을 모니터링하고 경고합니다. |
 | 성공적인 인증, CA에서 세션 차단됨| 중간| Azure AD 로그인 로그| 상태 = 성공<br>및<br>오류 코드 = 53003 – 실패 이유, CA에서 차단됨| 인증에 성공했지만 세션이 CA에서 차단된 경우를 모니터링하고 조사합니다. |
 | 레거시 인증을 사용하지 않도록 설정한 후 인증 성공| 중간| Azure AD 로그인 로그| 상태 = 성공 <br>및<br>클라이언트 앱 = 다른 클라이언트, POP, IMAP, MAPI, SMTP, ActiveSync| 조직에서 레거시 인증을 사용하지 않도록 설정한 경우 성공적인 레거시 인증이 수행된 경우를 모니터링하고 경고합니다. |
 
@@ -296,8 +296,8 @@ Azure ID 보호 및 Azure AD 로그인 로그를 사용하여 비정상적 로�
 
 | 모니터링 대상| 위험 수준| Where| 필터/하위 필터| 참고 |
 | - | - |- |- |- |
-| 단일 단계 인증을 사용하는 MBI 및 HBI 애플리케이션 인증입니다.| 낮음| Azure AD 로그인 로그| 상태 = 성공<br>및<br>애플리케이션 ID = <HBI app> <br>및<br>인증 요구 사항 = 단일 단계 인증| 이 구성이 의도적인지 검토하고 유효성을 검사합니다. |
-| 국가에서 표준 비즈니스 작업을 수행하지 않는 요일, 일, 시간에 인증 발생| 낮음| Azure AD 로그인 로그| 정상적 운영 요일\시간 외에 발생하는 대화형 인증을 캡처합니다. <br>상태 = 성공<br>위치 = <location><br>Date\Time = <not normal working hours>| 국가에서 표준 비즈니스 작업을 수행하지 않는 요일, 일, 시간에 인증을 모니터링하고 경고합니다. |
+| 단일 단계 인증을 사용하는 MBI 및 HBI 애플리케이션 인증입니다.| 낮음| Azure AD 로그인 로그| 상태 = 성공<br>및<br>애플리케이션 ID = \<HBI app\> <br>및<br>인증 요구 사항 = 단일 단계 인증| 이 구성이 의도적인지 검토하고 유효성을 검사합니다. |
+| 국가에서 표준 비즈니스 작업을 수행하지 않는 요일, 일, 시간에 인증 발생| 낮음| Azure AD 로그인 로그| 정상적 운영 요일\시간 외에 발생하는 대화형 인증을 캡처합니다. <br>상태 = 성공<br>위치 = \<location\><br>Date\Time = \<not normal working hours\>| 국가에서 표준 비즈니스 작업을 수행하지 않는 요일, 일, 시간에 인증을 모니터링하고 경고합니다. |
 | 성공적인 로그인의 측정 가능한 증가| 낮음| Azure AD 로그인 로그| 보드 전체의 성공적인 인증 증가를 캡처합니다. 즉, 오늘의 총 성공 횟수는 지난주 동일한 날 대비 10%가 더 많습니다.| 설정된 임계값이 없는 경우 성공적인 인증 횟수가 10% 이상 증가하는지 모니터링하고 경고합니다. |
 
 ## <a name="next-steps"></a>다음 단계

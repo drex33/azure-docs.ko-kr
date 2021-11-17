@@ -3,20 +3,20 @@ title: Azure Monitor를 사용한 Azure AD B2C 모니터링
 titleSuffix: Azure AD B2C
 description: 위임된 리소스 관리를 사용하여 Azure Monitor로 Azure AD B2C 이벤트를 로그하는 방법에 관해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 07/19/2021
-ms.openlocfilehash: 4a7fdf12ecf123c1fb741dcbd2706f7ca9a1d5c2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/15/2021
+ms.openlocfilehash: bea95ff80fb3bcd0e32e550196f50c3ffde1719a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528534"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039926"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용한 Azure AD B2C 모니터링
 
@@ -34,6 +34,10 @@ Azure Monitor를 사용하여 Azure AD B2C(Azure Active Directory B2C) 다양한
 
 > [!IMPORTANT]
 > Azure AD B2C 로그를 다른 모니터링 솔루션 또는 리포지토리로 전송할 계획이면 다음 사항을 고려하세요. Azure AD B2C 로그는 개인 데이터를 포함합니다. 해당 데이터는 적절한 기술 또는 조직적인 조치를 통해 무단 처리 또는 불법 처리로부터의 보호를 포함하여 개인 데이터의 적절한 보안을 보장하는 방식으로 처리되어야 합니다.
+
+Azure Monitor를 사용하여 Azure AD B2C에 대한 모니터링을 구성하는 방법을 알아보려면 이 비디오를 시청하세요.  
+
+>[!Video https://www.youtube.com/embed/tF2JS6TGc3g]
 
 ## <a name="deployment-overview"></a>배포 개요
 
@@ -60,7 +64,8 @@ Azure AD B2C 테넌트 내의 Azure Active Directory에서 _진단 설정_ 을 �
 먼저 Azure AD B2C에서 데이터를 받을 대상 Log Analytics 작업 영역을 포함하는 리소스 그룹을 만들거나 선택합니다. Azure Resource Manager 템플릿을 배포할 때 리소스 그룹 이름을 지정합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, **Azure AD 테넌트** 가 포함된 디렉터리를 선택합니다.
+1. Azure AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. [리소스 그룹을 만들거나](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) 기존 항목을 선택합니다. 이 예제에서는 _azure-ad-b2c-monitor_ 라는 리소스 그룹을 사용합니다.
 
 ## <a name="2-create-a-log-analytics-workspace"></a>2. Log Analytics 작업 영역 만들기
@@ -68,7 +73,8 @@ Azure AD B2C 테넌트 내의 Azure Active Directory에서 _진단 설정_ 을 �
 **Log Analytics 작업 영역** 은 Azure Monitor 로그 데이터를 위한 고유한 환경입니다. 이 Log Analytics 작업 영역을 사용하여 Azure AD B2C [감사 로그](view-audit-logs.md)에서 데이터를 수집한 다음 쿼리 및 통합 문서를 사용하여 시각화하거나 경고를 만들 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, **Azure AD 테넌트** 가 포함된 디렉터리를 선택합니다.
+1. Azure AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. [Log Analytics 작업 영역을 만듭니다](../azure-monitor/logs/quick-create-workspace.md). 이 예제에서는 _azure-ad-b2c-monitor_ 이라는 리소스 그룹에서 이름이 _AzureAdB2C_ 인 Log Analytics 작업 영역을 사용합니다.
 
 ## <a name="3-delegate-resource-management"></a>3. 리소스 관리 위임
@@ -80,7 +86,8 @@ Azure AD B2C 테넌트 내의 Azure Active Directory에서 _진단 설정_ 을 �
 먼저 Azure AD B2C 디렉터리(디렉터리 ID라고도 함)의 **테넌트 ID** 를 가져옵니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, **Azure AD B2C** 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure Active Directory** 를 선택하고 **개요** 를 선택합니다.
 1. **테넌트 ID** 를 기록합니다.
 
@@ -101,12 +108,13 @@ Azure AD B2C 테넌트 내의 Azure Active Directory에서 _진단 설정_ 을 �
 Azure Lighthouse에서 사용자 지정 권한 부여와 위임을 만들기 위해 이전에 만든 Azure AD 리소스 그룹(예: _azure-ad-b2c-monitor_)에 대한 액세스 권한을 Azure AD B2C에 부여하는 Azure Resource Manager 템플릿을 사용합니다. **Azure에 배포** 단추를 사용하여 GitHub 샘플에서 템플릿을 배포합니다. 그러면 Azure Portal 열리며 포털에서 직접 템플릿을 구성하고 배포할 수 있습니다. 이 단계를 수행하려면 Azure AD 테넌트(Azure AD B2C 테넌트가 아님)에 로그인해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, **Azure AD** 테넌트가 포함된 디렉터리를 선택합니다.
-3. **Azure에 배포** 단추를 사용하여 Azure Portal을 열고 포털에서 직접 템플릿을 배포합니다. 자세한 내용은 [Azure Resource Manager 템플릿 만들기](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template)를 참조하세요.
+1. Azure AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
+1. **Azure에 배포** 단추를 사용하여 Azure Portal을 열고 포털에서 직접 템플릿을 배포합니다. 자세한 내용은 [Azure Resource Manager 템플릿 만들기](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template)를 참조하세요.
 
    [![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
-4. **사용자 지정 배포** 페이지에서 다음 정보를 제공합니다.
+1. **사용자 지정 배포** 페이지에서 다음 정보를 제공합니다.
 
    | 필드                 | 정의                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
    | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -137,15 +145,10 @@ Azure Lighthouse에서 사용자 지정 권한 부여와 위임을 만들기 위
 템플릿을 배포하고 리소스 프로젝션이 완료될 때까지 몇 분 기다린 후, 다음 단계에 따라 구독을 Azure AD B2C 디렉터리와 연결합니다.
 
 1. Azure Portal에 현재 로그인되어 있으면 로그아웃합니다. 이렇게 하면 다음 단계에서 세션 자격 증명을 새로 고칠 수 있습니다.
-2. **Azure AD B2C** 관리 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 이 계정은 [리소스 관리 위임](#3-delegate-resource-management) 단계에서 지정한 보안 그룹의 멤버여야 합니다.
-3. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
-4. Azure 구독 및 사용자가 만든 _azure-ad-b2c-monitor_ 리소스 그룹을 포함하는 Azure AD 디렉터리를 선택합니다.
-
-   ![디렉터리 전환](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
-
-5. 올바른 디렉터리 및 구독을 선택했는지 확인합니다. 이 예에서는 모든 디렉터리와 모든 구독이 선택됩니다.
-
-   ![디렉터리 및 구독 필터에서 선택한 모든 디렉터리](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+1. **Azure AD B2C** 관리 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 이 계정은 [리소스 관리 위임](#3-delegate-resource-management) 단계에서 지정한 보안 그룹의 멤버여야 합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 사용자가 만든 Azure 구독 및 _azure-ad-b2c-monitor_ 리소스 그룹이 있는 Azure AD 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. 올바른 디렉터리 및 구독을 선택했는지 확인합니다.
 
 ## <a name="5-configure-diagnostic-settings"></a>5. 진단 설정 구성
 
@@ -164,7 +167,8 @@ Azure Portal에서 [진단 설정을 만들](../active-directory/reports-monitor
 Azure AD B2C 활동 로그를 위한 모니터링 설정을 구성하려면
 
 1. Azure AD B2C 관리 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 이 계정은 [보안 그룹 선택](#32-select-a-security-group) 단계에서 지정한 보안 그룹의 멤버여야 합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure Active Directory 선택**
 1. **모니터링** 아래에서 **진단 설정** 을 선택합니다.
 1. 리소스에 대한 기존 설정이 있는 경우 이미 구성된 설정 목록이 표시됩니다. **진단 설정 추가** 를 선택하여 새 설정을 추가하거나 **편집** 을 선택하여 기존 설정을 편집합니다. 각 설정에는 대상 유형이 하나만 있을 수 있습니다.

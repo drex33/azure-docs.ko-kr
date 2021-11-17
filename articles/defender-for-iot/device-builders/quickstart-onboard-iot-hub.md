@@ -2,13 +2,13 @@
 title: '빠른 시작: 에이전트 기반 솔루션에 대한 Defender for IoT 등록'
 description: 이 빠른 시작에서는 Azure IoT Hub에서 Defender for IoT 보안 서비스를 등록하고 활성화하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
-ms.date: 1/20/2021
-ms.openlocfilehash: ff3dd6ec3002802ea5f698560b1ead02aee25201
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: f22b319a409b481fdeb26a68cdd4b58809b8d015
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011301"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281857"
 ---
 # <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>빠른 시작: 에이전트 기반 솔루션에 대한 Defender for IoT 등록
 
@@ -72,4 +72,4 @@ Defender for IoT를 기존 IoT Hub에 등록하면 디바이스 ID 관리, 디�
 솔루션을 구성하려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)](quickstart-create-micro-agent-module-twin.md)
+> [Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: 조직용 Azure Defender for IoT 설명서
-summary: 'Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다. 참고: IoT용 Azure Defender의 이름이 Azure Defender for IoT로 변경됩니다. 문서는 곧 업데이트됩니다.'
+title: 조직용 Microsoft Defender for IoT 설명서
+summary: 'Microsoft Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다. 참고: Microsoft Defender for IoT의 이름이 Microsoft Defender for IoT로 변경됩니다. 문서는 곧 업데이트됩니다.'
 metadata:
-  title: 조직용 Azure Defender for IoT 설명서
-  description: Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
+  title: 조직용 Microsoft Defender for IoT 설명서
+  description: Microsoft Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
   services: service
   ms.service: defender-for-iot
   ms.topic: landing-page
@@ -11,19 +11,19 @@ metadata:
   author: elazark
   ms.author: v-ekrieg
   manager: raynew
-  ms.date: 06/17/2021
-  ms.openlocfilehash: d1cffb5041cf1ecc32c180df5a81425506574e75
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.date: 11/09/2021
+  ms.openlocfilehash: 1a797256f0ac7cbdb084aee6dd9380df7fdffe45
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131011317"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132331379"
 landingContent:
-- title: 조직용 Azure Defender for IoT 정보
+- title: 조직용 Microsoft Defender for IoT 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: 조직용 Azure Defender for IoT란 무엇인가요?
+    - text: 조직용 Microsoft Defender for IoT란 무엇인가요?
       url: overview.md
     - text: 조직을 위한 에이전트 없는 솔루션 아키텍처
       url: architecture.md
@@ -39,7 +39,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure Defender for IoT 네트워크 설정 정보
+    - text: Microsoft Defender for IoT 네트워크 설정 정보
       url: how-to-set-up-your-network.md
     - text: 온-프레미스 관리 콘솔 활성화 및 설정
       url: how-to-activate-and-set-up-your-on-premises-management-console.md

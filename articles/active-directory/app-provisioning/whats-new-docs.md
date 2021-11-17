@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 애플리케이션 프로비저닝의 새로운 기능
 description: Azure Active Directory 애플리케이션 프로비저닝을 위한 새로운 설명서 및 업데이트된 설명서입니다.
-ms.date: 10/05/2021
+ms.date: 11/04/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,23 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: karenh444
-ms.openlocfilehash: 7404e91f9a5f71276749b704355a080f5c3cc29f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1eaccdcc6d8922f75ac9d00b060ebdb311485c98
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990523"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851385"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Active Directory 애플리케이션 프로비저닝: 새로운 기능
 
 Azure Active Directory 애플리케이션 프로비저닝 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. 프로비저닝 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="october-2021"></a>2021년 10월
+
+### <a name="new-articles"></a>새 문서
+
+- [LDAP 디렉터리에 사용자를 프로비전하도록 Azure AD 구성](on-premises-ldap-connector-configure.md)
+
 
 ## <a name="september-2021"></a>2021년 9월
 

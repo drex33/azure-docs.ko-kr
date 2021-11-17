@@ -56,7 +56,7 @@
           href: extensions.md
         - name: 컨테이너용 Azure Monitor를 사용하여 모니터링
           href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
-        - name: Azure Defender를 사용하여 위협 보호 적용
+        - name: Microsoft Defender for Cloud를 사용하여 위협 방지 적용
           href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Policy를 사용한 클러스터 내 정책 시행
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json

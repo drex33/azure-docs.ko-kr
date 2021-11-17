@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce43a9b518224e7458551139dc1f708dabc5b3e3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 12e86dc602e52fb96b7f9cea3a52079fc80c201b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536659"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041693"
 ---
 # <a name="security-operations-for-infrastructure"></a>인프라에 대한 보안 작업
 
@@ -45,7 +45,7 @@ ms.locfileid: "122536659"
 
 * [로그인 로그](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 감사 로그](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault 로그](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -57,7 +57,7 @@ Azure Portal에서 Azure AD 감사 로그를 보고, CSV(쉼표로 구분된 값
 
 * SIEM과 통합된 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) - Azure AD 로그는 Splunk, ArcSight, QRadar 및 Sumo Logic과 같은 [다른 SIEM에 통합](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)할 수 있습니다.
 
-* [MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security) – 앱 검색 및 관리, 앱과 리소스 제어 및 클라우드 앱의 규정 준수 확인을 가능하게 합니다. 
+* [MCAS(Microsoft Cloud App Security)](/cloud-app-security/what-is-cloud-app-security) - 앱을 검색 및 관리하고, 앱과 리소스를 제어하고, 클라우드 앱의 규정 준수를 확인할 수 있습니다. 
 
 이 문서의 나머지 부분은 모니터링 및 경고해야 하는 대상에 대해 설명하며, 위협 유형별로 구성되어 있습니다. 미리 빌드된 특정 솔루션이 있는 경우 해당 솔루션에 대한 링크가 표 뒤에 있습니다. 그렇지 않으면 이전 도구를 사용하여 경고를 작성할 수 있습니다.
 
@@ -174,18 +174,18 @@ Azure AD는 Microsoft SQL Server 데이터 엔진 또는 SQL을 사용하여 Azu
 
 | 모니터링 대상| Where| 참고 |
 | - | - | - |
-| mms_management_agent| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) 참조 |
-| mms_partition| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) 참조 |
-| mms_run_profile| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) 참조 |
-| mms_server_configuration| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) 참조 |
-| mms_synchronization_rule| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) 참조 |
+| mms_management_agent| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records) 참조 |
+| mms_partition| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records) 참조 |
+| mms_run_profile| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records) 참조 |
+| mms_server_configuration| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records) 참조 |
+| mms_synchronization_rule| SQL 서비스 감사 레코드| [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records) 참조 |
 
 
 구성 정보를 모니터링하는 대상 및 방법에 대한 정보는 다음을 참조하세요.
 
-* SQL 서버의 경우 [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15)를 참조하세요.
+* SQL 서버의 경우 [SQL Server Audit 레코드](/sql/relational-databases/security/auditing/sql-server-audit-records)를 참조하세요.
 
-* Azure Sentinel의 경우 [Windows 서버에 연결하여 보안 이벤트 수집](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15)을 참조하세요. 
+* Azure Sentinel의 경우 [Windows 서버에 연결하여 보안 이벤트 수집](/sql/relational-databases/security/auditing/sql-server-audit-records)을 참조하세요. 
 
 * Azure AD Connect를 구성하고 사용하는 방법에 대한 자세한 내용은 [Azure AD Connect란?](../hybrid/whatis-azure-ad-connect.md)을 참조하세요.
 
@@ -215,7 +215,7 @@ Azure AD는 Microsoft SQL Server 데이터 엔진 또는 SQL을 사용하여 Azu
 
 
 
-* PowerShell 스크립트 작업을 기록하는 방법에 대한 자세한 내용은 PowerShell 참조 설명서의 일부인 [스크립트 블록 로깅 사용](/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7.1)을 참조하세요.
+* PowerShell 스크립트 작업을 기록하는 방법에 대한 자세한 내용은 PowerShell 참조 설명서의 일부인 [스크립트 블록 로깅 사용](/powershell/module/microsoft.powershell.core/about/about_logging_windows)을 참조하세요.
 
 * Splunk에서 분석할 PowerShell 로깅을 구성하는 방법에 대한 자세한 내용은 [Splunk 사용자 동작 분석으로 데이터 가져오기](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell)를 참조하세요.
 

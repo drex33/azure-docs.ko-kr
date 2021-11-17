@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 711f83a33a530aef99bba75a0010bcd131aa771b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 01a82e178725cc310e5e693c738de047f09c1b7a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130228968"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505596"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -82,16 +82,13 @@ ms.locfileid: "130228968"
     | 가상 네트워크 | *TestVNet* 을 선택합니다. |
     | 공용 IP 주소 | **새로 만들기** 를 선택합니다.|
     | 공용 IP 주소 이름 | 공용 IP 주소의 이름을 입력합니다. |
-    | 공용 IP 주소 SKU | 공용 IP 주소에 대한 SKU를 제공합니다. 이중 스택 게이트웨이의 경우 *표준* 을 선택합니다. |
 
     > [!IMPORTANT]
-    > ExpressRoute를 통해 IPv6 기반 개인 피어링을 사용할 계획인 경우 표준, 정적 형식의 공용 IP 주소를 사용하여 게이트웨이를 만드세요.
+    > ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 [PowerShell 지침](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway)를 사용하여 표준, 정적 형식의 공용 IP 주소로 게이트웨이를 만들어야 합니다.
     > 
     > 
 
 1. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택하여 게이트웨이를 만들기 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
-
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="가상 네트워크 게이트웨이 만들기 페이지 필드":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

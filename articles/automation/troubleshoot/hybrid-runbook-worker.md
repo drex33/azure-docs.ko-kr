@@ -2,18 +2,15 @@
 title: 에이전트 기반 Hybrid Runbook Worker 문제 해결 Azure Automation
 description: 이 문서에서는 Azure Automation 에이전트 기반 Hybrid Runbook Worker에서 발생 하는 문제를 해결 하는 방법을 설명 합니다.
 services: automation
-ms.subservice: ''
-author: mgoedtel
-ms.author: v-ssudhir
 ms.date: 10/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 05a791a2b30be5d722f72a05d270212a190a6dce
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: b97a811ecaeb5df843ea87efa0ab4230886a5e1a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132400569"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487839"
 ---
 # <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Automation의 에이전트 기반 Hybrid Runbook Worker 문제 해결
 

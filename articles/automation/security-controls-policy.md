@@ -3,16 +3,14 @@ title: Azure Automation에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Automation에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
 ms.date: 09/17/2021
 ms.topic: sample
-author: mgoedtel
-ms.author: v-ssudhir
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 40fe41d9f1fa122047206047cf1a875cddf37751
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: d6818329a3f20cce16ebfc20b2585f497c23db10
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132400835"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494232"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Azure Automation에 대한 Azure Policy 규정 준수 컨트롤
 

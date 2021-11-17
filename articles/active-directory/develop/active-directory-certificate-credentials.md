@@ -13,12 +13,12 @@ ms.date: 10/18/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: contperf-fy21q4, aaddev
-ms.openlocfilehash: b4d0dcee8791ad43c0b216ffb289bf4de1b819d6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 94abf8e362dabea48c0fa20c488d7b1ca3c70093
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067321"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451790"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
@@ -42,7 +42,7 @@ Microsoft ID 플랫폼을 사용하면 애플리케이션이 클라이언트 암
 
 ### <a name="claims-payload"></a>클레임(페이로드)
 
-클레임 유형 | 값 | 설명
+클레임 유형 | 값 | Description
 ---------- | ---------- | ----------
 `aud` | `https://login.microsoftonline.com/{tenantId}/v2.0` | "aud"(대상) 클레임은 JWT가 대상으로 하는 수신자(여기서는 Azure AD)를 식별합니다. [RFC 7519, 섹션 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3)을 참조하세요.  이 경우 해당 수신자는 로그인 서버(login.microsoftonline.com)입니다.
 `exp` | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 섹션 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4)를 참조하세요.  이렇게 하면 그 때까지 어설션을 사용할 수 있으므로 `nbf` 이후 최대한 짧게 5~10분간 유지합니다.  Azure AD는 현재 `exp` 시간에 제한을 두지 않습니다. 
@@ -96,7 +96,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>인증서 파일 업로드
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
-1. **인증서 및 비밀** 을 선택합니다.
+1. **인증서 및 비밀** > **인증서** 를 선택합니다.
 2. **인증서 업로드** 를 클릭하고 업로드할 인증서 파일을 선택합니다.
 3. **추가** 를 클릭합니다.
   인증서가 업로드되고 지문, 시작 날짜 및 만료 값이 표시됩니다.

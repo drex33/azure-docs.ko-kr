@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 7dc67d91f41915c4f570639bb04fb9fb9cc1c579
-  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.openlocfilehash: 79331b7a1016c90bfa26f109f975571e99e07056
+  ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131442182"
+  ms.lasthandoff: 11/16/2021
+  ms.locfileid: "132551067"
 landingContent:
 - title: Azure Database for MySQL 정보
   linkLists:
@@ -165,6 +165,8 @@ landingContent:
       url: tutorial-design-database-using-portal.md
     - text: VNET에서 유연한 서버를 사용하는 웹앱 만들기
       url: flexible-server/tutorial-webapp-server-vnet.md
+    - text: 유연한 서버를 사용하여 AKS에 Spring Boot 앱 배포
+      url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
     - text: 유연한 서버를 사용하는 PHP(Laravel) 웹앱 빌드
       url: flexible-server/tutorial-php-database-app.md
     - text: 단일 서버를 사용하는 PHP(Laravel) 웹앱 빌드

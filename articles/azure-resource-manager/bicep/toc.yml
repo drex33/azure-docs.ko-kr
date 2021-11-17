@@ -130,6 +130,14 @@
               href: add-template-to-azure-pipelines.md
             - name: GitHub Actions를 사용하는 Bicep
               href: deploy-github-actions.md
+    - name: 설정 구성
+      items:
+        - name: Bicep 구성 파일
+          href: bicep-config.md
+        - name: Linter 설정
+          href: bicep-config-linter.md
+        - name: 모듈 설정
+          href: bicep-config-modules.md
     - name: Bicep으로 마이그레이션
       items:
         - name: 권장 워크플로
@@ -144,8 +152,6 @@
     - name: 데이터 형식
       href: data-types.md
       displayName: 'supported types,arrays,booleans,integers,objects,strings,secure'
-    - name: 구성 파일
-      href: bicep-config.md
     - name: 함수
       items:
         - name: 모든 함수

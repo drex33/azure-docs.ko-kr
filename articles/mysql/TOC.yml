@@ -129,6 +129,8 @@
               href: flexible-server/tutorial-deploy-wordpress-on-aks.md
             - name: 데이터베이스를 사용하는 PHP(Laravel) 앱 빌드
               href: flexible-server/tutorial-php-database-app.md
+            - name: VNet에서 AKS에 Java Spring Boot 앱 배포
+              href: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
             - name: 프라이빗 웹앱을 사용하여 연결
               href: flexible-server/tutorial-webapp-server-vnet.md
             - name: 데이터베이스 배포
@@ -398,7 +400,7 @@
               displayName: 'replication, read replica'
         - name: 서비스 유지 관리
           items:
-            - name: 계획된 유지 보수
+            - name: 계획된 유지 관리
               href: concepts-planned-maintenance-notification.md
             - name: 게이트웨이 유지 관리
               href: concepts-connectivity-architecture.md

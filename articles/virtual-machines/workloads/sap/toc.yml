@@ -232,6 +232,8 @@
           href: high-availability-guide-rhel-ibm-db2-luw.md
     - name: SAP 애플리케이션 계층 - SLES
       items:
+        - name: Azure Files에서 NFS를 사용하여 HA SAP NetWeaver 설치
+          href: high-availability-guide-suse-nfs-azure-files.md
         - name: Azure NetApp Files를 사용하여 HA SAP NetWeaver 설치
           href: high-availability-guide-suse-netapp-files.md
         - name: HA SAP NetWeaver 설치
@@ -244,7 +246,9 @@
           href: high-availability-guide-suse-pacemaker.md
     - name: SAP 애플리케이션 계층 - RHEL
       items:
-        - name: Azure NetApp Files를 사용하여 HA SAP NetWeaver 시스템 설치
+        - name: Azure Files에서 NFS를 사용하여 HA SAP NetWeaver 설치
+          href: high-availability-guide-rhel-nfs-azure-files.md
+        - name: Azure NetApp Files를 사용하여 HA SAP NetWeaver 설치
           href: high-availability-guide-rhel-netapp-files.md
         - name: HA SAP NetWeaver 설치
           href: high-availability-guide-rhel.md

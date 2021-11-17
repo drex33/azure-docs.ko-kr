@@ -279,14 +279,22 @@ items:
                     href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                   - name: '모니터링, 진단 및 문제 해결'
                     href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: NFS 3.0 프로토콜 지원
+          - name: 프로토콜 지원
             items:
-              - name: 개요
-                href: network-file-system-protocol-support.md
-              - name: 성능 고려 사항
-                href: network-file-system-protocol-support-performance.md
-              - name: 알려진 문제
-                href: network-file-system-protocol-known-issues.md
+              - name: NFS 3.0
+                items:
+                  - name: 개요
+                    href: network-file-system-protocol-support.md
+                  - name: 성능 고려 사항
+                    href: network-file-system-protocol-support-performance.md
+                  - name: 알려진 문제
+                    href: network-file-system-protocol-known-issues.md
+              - name: SFTP
+                items:
+                  - name: 개요
+                    href: secure-file-transfer-protocol-support.md
+                  - name: 알려진 문제
+                    href: secure-file-transfer-protocol-known-issues.md
           - name: 이벤트 처리
             href: storage-blob-event-overview.md
           - name: 페이지 Blob 기능
@@ -538,6 +546,8 @@ items:
                     href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Azure 데이터 팩터리
                 href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              - name: SFTP를 사용하여 데이터 전송
+                href: secure-file-transfer-protocol-support-how-to.md
               - name: NFS를 사용하여 스토리지 탑재
                 href: network-file-system-protocol-support-how-to.md
               - name: blobfuse를 사용하여 Linux에서 스토리지 탑재
@@ -623,6 +633,8 @@ items:
             href: /azure/templates/microsoft.storage/allversions
           - name: 데이터 모니터링
             href: monitor-blob-storage-reference.md
+          - name: 호스트 키(SFTP) 지원
+            href: secure-file-transfer-protocol-host-keys.md
           - name: Azure Policy 기본 제공 기능
             displayName: 'samples, policies, definitions'
             href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

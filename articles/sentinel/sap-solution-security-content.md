@@ -1,30 +1,30 @@
 ---
-title: Azure Sentinel SAP 솔루션 - 보안 콘텐츠 참조 | Microsoft Docs
-description: Azure Sentinel SAP 솔루션에서 제공하는 기본 제공 보안 콘텐츠에 대해 알아봅니다.
+title: Microsoft 센티널 SAP 솔루션-보안 콘텐츠 참조 | Microsoft Docs
+description: Microsoft 센티널 SAP 솔루션에서 제공 하는 기본 제공 보안 콘텐츠에 대해 알아봅니다.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 07/28/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: dabfc84a21e7ded8ce3d3e338ffbb03395ef88db
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: a2512bd38ff865b27d0ea667f33f42979aa4e4bb
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009057"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524325"
 ---
-# <a name="azure-sentinel-sap-solution-security-content-reference-public-preview"></a>Azure Sentinel SAP 솔루션: 보안 콘텐츠 참조(공개 미리 보기)
+# <a name="microsoft-sentinel-sap-solution-security-content-reference-public-preview"></a>Microsoft 센티널 SAP solution: 보안 콘텐츠 참조 (공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 [Azure Sentinel SAP 솔루션](sap-deploy-solution.md#deploy-sap-security-content)에 사용할 수 있는 보안 콘텐츠에 대해 자세히 설명합니다.
+이 문서에서는 [Microsoft 센티널 SAP 솔루션](sap-deploy-solution.md#deploy-sap-security-content)에 사용할 수 있는 보안 콘텐츠에 대해 자세히 설명 합니다.
 
 사용 가능한 보안 콘텐츠에는 기본 제공 통합 문서 및 기본 제공 분석 규칙이 포함됩니다. 검색, 검색 규칙, 위협 헌팅 및 대응 플레이 북에 사용할 SAP 관련 [관심 목록](watchlists.md)을 추가할 수도 있습니다.
 
 > [!IMPORTANT]
-> Azure Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> Microsoft 센티널 SAP 솔루션은 현재 미리 보기로 제공 됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
 
@@ -45,7 +45,7 @@ ms.locfileid: "131009057"
 
 ## <a name="built-in-analytics-rules"></a>기본 제공 분석 규칙
 
-다음 표에는 Azure Sentinel 솔루션 마켓플레이스에서 배포된 Azure Sentinel SAP 솔루션에 포함된 기본 제공 [분석 규칙](sap-deploy-solution.md#deploy-sap-security-content)이 나열되어 있습니다.
+다음 표에서는 microsoft 센티널 Solutions marketplace에서 배포 된 Microsoft 센티널 SAP 솔루션에 포함 된 기본 제공 [분석 규칙](sap-deploy-solution.md#deploy-sap-security-content) 을 나열 합니다.
 
 ### <a name="built-in-sap-analytics-rules-for-initial-access"></a>초기 액세스에 대한 기본 제공 SAP 분석 규칙
 
@@ -127,13 +127,11 @@ ms.locfileid: "131009057"
 |**SAP - 중간 - 중요한 역할 변경**     |중요한 역할의 변경 내용을 식별합니다. <br><br> [SAP - 중요한 역할](#roles) 관심 목록에서 중요한 역할을 유지 관리합니다.       |  PFCG를 사용하여 역할을 변경합니다. <br><br>**데이터 원본**: SAPcon - 변경 문서 로그, SAPcon - 감사 로그   |  영향, 권한 상승, 지속성    |
 | | | | |
 
-
 ## <a name="available-watchlists"></a>사용 가능한 관심 목록
 
-다음 표에는 Azure Sentinel SAP 솔루션에 사용할 수 있는 [관심 목록](sap-deploy-solution.md#deploy-sap-security-content)과 각 관심 목록의 필드가 나열되어 있습니다.
+다음 표에서는 Microsoft 센티널 SAP 솔루션에 사용할 수 있는 [watchlists](sap-deploy-solution.md#deploy-sap-security-content) 와 각 관심 목록의 필드를 보여 줍니다.
 
-이러한 관심 목록은 Azure Sentinel SAP 연속적인 위협 모니터링 솔루션에 대한 구성을 제공하며 https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists 의 Azure Sentinel GitHub 리포지토리에서 액세스할 수 있습니다.
-
+이러한 watchlists는 Microsoft 센티널 SAP 연속 위협 모니터링 솔루션에 대 한 구성을 제공 합니다. [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) 은 Microsoft 센티널 GitHub 리포지토리에서 사용할 수 있습니다.
 
 |관심 목록 이름  |설명 및 필드  |
 |---------|---------|
@@ -162,9 +160,9 @@ ms.locfileid: "131009057"
 
 자세한 내용은 다음을 참조하세요.
 
-- [SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
-- [Azure Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
-- [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [SAP용 Microsoft Sentinel 솔루션 배포](sap-deploy-solution.md)
+- [Microsoft 센티널 SAP 솔루션 로그 참조](sap-solution-log-reference.md)
+- [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
-- [Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
-- [Azure Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
+- [Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
+- [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

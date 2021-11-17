@@ -8,14 +8,11 @@ ms.topic: include
 ms.date: 06/30/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 112daf900c3a7447dc5279ea9704ea94eb8ec9ea
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
-ms.translationtype: HT
+ms.openlocfilehash: 3bc611aae09bc94bd00f76c0d526f5b6b7d52a0e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113225259"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519435"
 ---
-미리 보기로 제공되는 동안 NFS Azure 파일 공유에는 다음과 같은 제한 사항이 있습니다.
-
-- 프리미엄 계층에서만 사용할 수 있습니다.
-- NFS 기능을 등록하기 전에 스토리지 계정을 만든 경우 해당 스토리지 계정에서는 NFS 파일 공유를 만들 수 없습니다. NFS 파일 공유는 NFS 기능에 등록한 후에 생성된 스토리지 계정에서만 만들 수 있습니다.
+NFS Azure 파일 공유는 프리미엄 계층에서만 사용할 수 있습니다.

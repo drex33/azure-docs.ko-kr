@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 6/19/2021
-ms.openlocfilehash: 4238ac653d6b34294d956ea9ff72fe2184ddd1be
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: dfeea2cfde2f8122891b6fada2eba1e546ed2342
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132281649"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131894225"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL 단일 서버
 
@@ -63,7 +63,7 @@ Azure Database for MySQL 단일 서버는 최소한의 사용자 지정을 위�
 
 단일 서버는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터 및 쿼리를 실행하는 동안 생성된 임시 파일이 암호화됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리(기본값)할 수도 있고 [고객이 관리](concepts-data-encryption-mysql.md)할 수도 있습니다. 서비스는 기본적으로 적용되는 전송 계층 보안(SSL/TLS)을 사용하여 동작 중인 데이터를 암호화합니다. 이 서비스는 [최소 TLS 버전](concepts-ssl-connection-security.md)을 적용하는 기능을 통해 TLS 버전 1.2, 1.1 및 1.0을 지원합니다. 
 
-서비스는 [프라이빗 링크](concepts-data-access-security-private-link.md)를 사용하여 서버에 대한 프라이빗 액세스를 허용하고, 필요에 따라 [오픈 소스 관계형 데이터베이스용 Microsoft Defender](../security-center/defender-for-databases-introduction.md) 계획을 통해 위협 방지를 제공합니다. 오픈 소스 관계형 데이터베이스용 Microsoft Defender는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 감지합니다.
+서비스는 [프라이빗 링크](concepts-data-access-security-private-link.md)를 사용하여 서버에 대한 프라이빗 액세스를 허용하고, 필요에 따라 [오픈 소스 관계형 데이터베이스용 Azure Defender](../security-center/defender-for-databases-introduction.md) 계획을 통해 위협 방지를 제공합니다. Azure Defender는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 감지합니다.
 
 기본 인증 외에도, 단일 서버는 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 인증을 지원합니다. Azure AD 인증은 Azure AD에서 정의되고 관리되는 ID를 사용하여 MySQL 서버에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 중앙 위치에서 데이터베이스 사용자 ID 및 기타 Azure 서비스를 관리할 수 있으므로, 액세스 제어가 간소화되고 중앙 집중화됩니다.
 

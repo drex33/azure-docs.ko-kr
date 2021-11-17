@@ -5,24 +5,21 @@ keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: v-ssudhir
 ms.date: 08/17/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bae13626cd39f7f2bfbe4f889d15651b7d943afa
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 7c24c3f2381788ef9ddc8da1ed0c4e70bbdddb82
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132400930"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489911"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
 Azure Automation 상태 구성은 Azure 구성 관리 서비스로, 모든 클라우드 또는 온-프레미스 데이터 센터의 노드에 대한 PowerShell DSC(Desired State Configuratioin) [구성](/powershell/scripting/dsc/configurations/configurations)을 작성, 관리 및 컴파일합니다. 또한 이 서비스는 [DSC 리소스](/powershell/scripting/dsc/resources/resources)를 가져오고 모든 클라우드에서 대상 노드에 구성을 할당합니다. **Configuration Management** 에서 **DSC(State Configuration)** 를 선택하여 Azure Portal에서 Azure Automation 상태 구성에 액세스할 수 있습니다.
 
 > [!NOTE]
-> Automation State Configuration 사용하도록 설정하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있으며 [게스트 구성이라는](../governance/policy/concepts/guest-configuration.md)Azure Policy 기능으로 관리됩니다. 게스트 구성 서비스는 DSC 확장, Azure Automation State Configuration 기능 및 고객 피드백에서 가장 일반적으로 요청된 기능을 결합합니다. 게스트 구성에는 Arc 지원 서버를 통한 하이브리드 머신 지원도 [포함됩니다.](../azure-arc/servers/overview.md)
+> Automation 상태 구성을 사용 하도록 설정 하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있다는 것을 알고 Azure Policy [게스트 구성](../governance/policy/concepts/guest-configuration.md)의 기능을 통해 관리 합니다. 게스트 구성 서비스는 DSC 확장, Azure Automation 상태 구성 및 가장 일반적으로 요청 되는 기능의 기능을 고객 의견에서 결합 합니다. 게스트 구성에는 [Arc 사용 서버](../azure-arc/servers/overview.md)를 통한 하이브리드 컴퓨터 지원 기능도 포함 되어 있습니다.
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 

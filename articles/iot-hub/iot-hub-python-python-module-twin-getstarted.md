@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub 모듈 ID 및 모듈 쌍(Python)
 description: Python용 IoT SDK를 사용하여 모듈 ID를 만들고 모듈 쌍을 업데이트하는 방법을 알아봅니다.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: robinsh
+ms.author: lizross
 ms.custom: devx-track-python
-ms.openlocfilehash: 554c3b239e3b6d4323595ece62424b8b63e6312e
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 47570d0e3557cda3c5781edd046e69d04ba4cb9d
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835622"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553423"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>IoT Hub 모듈 ID 및 모듈 쌍 시작(Python)
 

@@ -8,16 +8,16 @@ ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: f1b9b83209690031af40c62d478da3890766dfea
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: a8bd62d55dfe4cf85b4af01bb93d9a4ea44a0a40
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181837"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134029"
 ---
 # <a name="quickstart-get-started-with-calling-composite"></a>빠른 시작: 복합 호출 시작 
 
-UI 라이브러리를 사용하여 Azure Communication Services를 시작하면 통신 환경을 애플리케이션에 빠르게 통합할 수 있습니다. 이 빠른 시작에서는 복합 호출을 Android 애플리케이션에 통합하는 방법에 대해 알아봅니다.
+UI 라이브러리를 사용하여 Azure Communication Services를 시작하면 통신 환경을 애플리케이션에 빠르게 통합할 수 있습니다. 이 빠른 시작에서는 복합 호출을 Android 또는 iOS 애플리케이션에 통합하는 방법에 대해 알아봅니다.
 
 UI 라이브러리는 전체 통신 환경을 애플리케이션에 바로 렌더링합니다. 원하는 호출에 연결하고 백그라운드에서 설정하는 것을 처리합니다. 개발자는 사용자 환경에서 통신 환경을 시작할 위치에 대해 고민할 필요가 있습니다. 복합은 사용자가 디바이스를 설정하고, 통화에 참가하고, 다른 참가자를 렌더링하는 것을 안내합니다.
 

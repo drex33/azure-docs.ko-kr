@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: 042d7fd04ca3a41016e67481f81237a56e0dfc8d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 30c67a343be4b19d689df1e5faa2b72ed6ab83e3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737176"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562944"
 ---
 #  <a name="create-azure-arc-data-controller-in-direct-connectivity-mode-using-cli"></a>CLI를 사용하여 직접 연결 모드에서 Azure Arc 데이터 컨트롤러 만들기
 
@@ -50,6 +50,10 @@ export subscription=<Your subscription ID>
 export resourceGroup=<Your resource group>
 export resourceName=<name of your connected kubernetes cluster>
 export location=<Azure location>
+export AZDATA_LOGSUI_USERNAME=<username for Kibana dashboard>
+export AZDATA_LOGSUI_PASSWORD=<password for Kibana dashboard>
+export AZDATA_METRICSUI_USERNAME=<username for Grafana dashboard>
+export AZDATA_METRICSUI_PASSWORD=<password for Grafana dashboard>
 ```
 
 #### <a name="windows-powershell"></a>Windows PowerShell
@@ -59,6 +63,10 @@ $ENV:subscription="<Your subscription ID>"
 $ENV:resourceGroup="<Your resource group>"
 $ENV:resourceName="<name of your connected kubernetes cluster>"
 $ENV:location="<Azure location>"
+$ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
+$ENV:AZDATA_LOGSUI_PASSWORD="<password for Kibana dashboard>"
+$ENV:AZDATA_METRICSUI_USERNAME="<username for Grafana dashboard>"
+$ENV:AZDATA_METRICSUI_PASSWORD="<password for Grafana dashboard>"
 ```
 
 ### <a name="create-the-arc-data-services-extension"></a>Arc 데이터 서비스 확장 만들기
@@ -99,13 +107,13 @@ az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name 
 
 ### <a name="verify-the-arc-data-services-extension-is-created"></a>Arc 데이터 서비스 확장이 생성되었는지 확인
 
-포털에서 또는 Arc 지원 Kubernetes 클러스터에 직접 연결하여 Arc 지원 데이터 서비스 확장이 생성되었는지 확인할 수 있습니다. 
+포털에서 또는 Azure Arc 지원 Kubernetes 클러스터에 직접 연결하여 Azure Arc 지원 데이터 서비스 확장이 생성되었는지 확인할 수 있습니다. 
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 1. Azure Portal에 로그인하고 Kubernetes 연결 된 클러스터 리소스가 있는 리소스 그룹을 찾습니다.
-1. 확장이 배포된 Arc 지원 kubernetes 클러스터(유형 = "Kubernetes - Azure Arc")를 선택합니다.
-1. 왼쪽 탐색의 **설정** 에서 “확장”을 선택합니다.
-1. 앞서 만든 확장이 "설치됨" 상태로 표시됩니다.
+1. 확장이 배포된 Azure Arc 지원 kubernetes 클러스터(유형 = "Kubernetes - Azure Arc")를 선택합니다.
+1. 왼쪽 탐색의 **설정** 에서 **확장** 을 선택합니다.
+1. 앞서 만든 확장이 설치됨 상태로 표시됩니다.
 
 :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="확장 대시보드":::
 
@@ -118,11 +126,31 @@ az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name 
 kubectl get pods -n <name of namespace used in the json template file above>
 ```
 
-예를 들어 `arc` 네임스페이스에서 pod를 가져오는 명령은 다음과 같습니다.
+예를 들어 다음 예제에서는 `arc` 네임스페이스에서 pod를 가져옵니다.
 
 ```console
 #Example:
 kubectl get pods -n arc
+```
+
+## <a name="retrieve-the-managed-identity-and-grant-roles"></a>관리 ID 검색 및 역할 부여
+
+Arc 데이터 서비스 확장 생성 중에 생성되는 관리 ID는 사용량 및/또는 메트릭이 자동으로 업로드되려면 특정 역할을 할당해야 합니다.
+
+### <a name="1-retrieve-managed-identity-of-the-arc-data-controller-extension"></a>(1) Arc 데이터 컨트롤러 확장의 관리 ID 검색
+
+```powershell
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
+#Example
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
+```
+
+### <a name="2-assign-role-to-the-managed-identity"></a>(2) 관리 ID에 역할 할당
+
+아래 명령을 실행하여 **모니터링 메트릭 게시자** 역할을 할당합니다.
+```powershell
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
+
 ```
 
 ## <a name="create-a-custom-location-using-custom-location-cli-extension"></a>사용자 지정 위치 CLI 확장을 사용하여 사용자 지정 위치 만들기
@@ -164,18 +192,22 @@ az customlocation list -o table
 
 ## <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
-확장 및 사용자 지정 위치가 생성되었으면 Azure Portal로 이동하여 Azure Arc 데이터 컨트롤러를 배포합니다.
+확장 및 사용자 지정 위치가 생성되었으면 다음과 같이 Azure Arc 데이터 컨트롤러를 배포합니다.
 
-1. Azure Portal에 로그인합니다.
-1. Azure Marketplace에서 "Azure Arc 데이터 컨트롤러"를 검색하고 만들기 흐름을 시작합니다.
-1. **필수 조건** 섹션에서 Azure Arc 지원 Kubernetes 클러스터(직접 모드)가 선택되어 있는지 확인하고 다음 단계를 진행합니다.
-1. **데이터 컨트롤러 세부 정보** 섹션에서 구독 및 리소스 그룹을 선택합니다.
-1. 데이터 컨트롤러의 이름을 입력합니다.
-1. 배포할 Kubernetes 배포 공급자에 따라 구성 프로필을 선택합니다.
-1. 이전 단계에서 만든 사용자 지정 위치를 선택합니다.
-1. 데이터 컨트롤러 관리자 로그인 및 암호에 대한 세부 정보를 제공합니다.
-1. Azure 개체를 만드는 데 사용되는 서비스 주체의 ClientId, TenantId 및 클라이언트 암호에 대한 세부 정보를 제공합니다. 서비스 주체 계정 및 계정에 부여해야 하는 역할을 만드는 방법에 대한 자세한 지침은 [메트릭 업로드](upload-metrics-and-logs-to-azure-monitor.md)를 참조하세요.
-1. **다음** 을 클릭하고 모든 세부 정보에 대한 요약 페이지를 검토한 다음, **만들기** 를 클릭합니다.
+```
+az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --profile-name <profile name>  --auto-upload-logs true --custom-location <name of custom location>
+# Example
+az arcdata dc create -n arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-logs true --custom-location mycustomlocation
+```
+
+사용자 지정 구성 템플릿을 사용하여 Azure Arc 데이터 컨트롤러를 만들려면 [사용자 지정 구성 프로필 만들기](create-custom-configuration-template.md)에 설명된 단계를 따르고 다음과 같이 파일 경로를 제공합니다.
+
+```
+az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --custom-location <name of custom location>
+# Example
+az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --custom-location mycustomlocation
+```
+
 
 ## <a name="monitor-the-creation"></a>만들기 모니터링
 

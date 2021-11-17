@@ -146,7 +146,7 @@
             - name: 연결 아키텍처
               href: concepts-connectivity-architecture.md
               displayName: 'security, architecture'
-            - name: Azure Defender를 사용하여 위협 보호
+            - name: Microsoft Defender for Cloud를 통한 위협 방지
               href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
               displayName: 'security, advanced threat protection'
             - name: Azure AD 인증

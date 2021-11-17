@@ -4,13 +4,13 @@ description: Bicep으로 확장 리소스 종류를 배포할 때 범위 속성�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 2b1fb9960caf81a51c80dae312979d90f6eb5f4d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/16/2021
+ms.openlocfilehash: 8d91aa1109db4b1d884e90e3e0744611f9dbf4d8
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733420"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549853"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Bicep에서 확장 리소스의 범위 설정
 
@@ -143,11 +143,13 @@ resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-## <a name="next-steps"></a>다음 단계
-
-범위에 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+배포의 대상 범위와 다른 범위를 대상으로 하는 경우 다른 리소스와 동일한 요구 사항이 확장 리소스에 적용됩니다. 두 개 이상의 범위에 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [리소스 그룹 배포](deploy-to-resource-group.md)
 * [구독 배포](deploy-to-subscription.md)
 * [관리 그룹 배포](deploy-to-management-group.md)
 * [테넌트 배포](deploy-to-tenant.md)
+
+## <a name="next-steps"></a>다음 단계
+
+확장 리소스 종류의 전체 목록은 [다른 리소스의 기능을 확장하는 리소스 종류](../management/extension-resource-types.md)를 참조하세요.

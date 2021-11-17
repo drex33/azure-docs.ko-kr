@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
-ms.openlocfilehash: 23c4da30e149f10971c4cdec7b99b63e02c45808
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: fdec259dc93e52a8bc1271de8af90f4b864afd49
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164718"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131842058"
 ---
 # <a name="whats-new-in-azure-data-factory"></a>Azure Data Factory의 새로운 기능
 
@@ -61,7 +61,7 @@ Azure Data Factory 서비스는 지속적으로 개선되고 있습니다. 최�
 <tr><td><b>데이터 이동</b></td><td>ADF 데이터 복사 도구에서 메타데이터 기반 데이터 수집 파이프라인을 가져오는 시간이 10분 이내로 단축됨(공개 미리 보기)</td><td>데이터 복사 도구(공개 미리 보기)에 대한 메타데이터 기반 접근 방식으로 대용량 데이터 복사 파이프라인을 10분 이내에 빌드할 수 있습니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/get-metadata-driven-data-ingestion-pipelines-on-adf-within-10/ba-p/2528219">자세한 정보</a></td></tr>
 <tr><td><b>데이터 흐름</b></td><td>데이터 흐름 변환 함수에 추가된 새로운 맵 함수</td><td>데이터 엔지니어가 맵 데이터 유형 및 복잡한 맵 구조를 쉽게 생성, 판독 및 업데이트할 수 있도록 새로운 데이터 흐름 변환 함수 집합이 추가되었습니다.<br><a href="data-flow-expression-functions.md#map-functions">자세한 정보</a></td></tr>
 <tr><td><b>통합 런타임</b></td><td>Azure Data Factory 관리형 VNET(공개 미리 보기)에서 새롭게 제공되는 5개 지역</td><td>Azure Data Factory 관리형 가상 네트워크(공개 미리 보기)에서 5개 지역(중국 동부2, 중국 북부2, US Gov 애리조나, US Gov 텍사스, US Gov 버지니아)이 새롭게 제공됩니다.<br><a href="managed-virtual-network-private-endpoint.md#azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions">자세한 정보</a></td></tr>
-<tr><td rowspan=2><b>개발자 생산성</b></td><td>몇 가지 세션이 추가되어 새롭게 디자인된 ADF 홈페이지</td><td>Data Factory 홈페이지가 새롭게 디자인되어 대비 및 재배치 기능이 향상되었습니다. 또한 데이터 통합 과정의 생산성 향상을 돕기 위해 몇 가지 섹션이 홈페이지에 도입되었습니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">자세한 정보</a></td></tr>
+<tr><td rowspan=2><b>개발자 생산성</b></td><td>ADF 홈페이지 개선</td><td>Data Factory 홈페이지가 새롭게 디자인되어 대비 및 재배치 기능이 향상되었습니다. 또한 데이터 통합 과정의 생산성 향상을 돕기 위해 몇 가지 섹션이 홈페이지에 도입되었습니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">자세한 정보</a></td></tr>
 <tr><td>Azure Data Factory Studio의 새로운 방문 페이지</td><td>Azure Portal에서 Data Factory 블레이드의 방문 페이지입니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">자세한 정보</a></td></tr>
 </table>
 

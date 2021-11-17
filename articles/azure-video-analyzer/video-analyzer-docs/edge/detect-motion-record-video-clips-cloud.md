@@ -2,14 +2,14 @@
 title: Azure Video Analyzer를 사용하여 동작을 감지하고 비디오 녹화
 description: 이 빠른 시작에서는 Azure Video Analyzer 에지 모듈을 사용하여 라이브 비디오 스트림에서 동작을 감지하고 Video Analyzer 계정에 비디오를 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a62af8ee0ac3859a6d8f7e7d81d7115877afda35
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 48c41b812a4cdbd416d0dd146aba938cce419864
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030765"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484193"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>빠른 시작: 동작을 감지하고 Video Analyzer에 비디오 녹화
 
@@ -42,7 +42,7 @@ ms.locfileid: "131030765"
 
 위의 배포에서 만든 가상 머신에는 여러 MKV 파일이 있습니다.  이러한 파일 중 하나는 `lots_015.mkv`입니다. 다음 단계에서는 이 비디오 파일을 사용하여 이 자습서의 라이브 스트림을 시뮬레이션하겠습니다.
 
-[VLC Player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 사용하여 시작하고, `Ctrl+N`을 누르고, [주차장 비디오 샘플](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) 링크를 붙여넣어 재생을 시작할 수 있습니다. 5초 마크 정도에 흰색 차가 주차장을 통과합니다.
+[VLC Player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 사용하여 시작하고, `Ctrl+N`을 누르고, [주차장 비디오 샘플](https://avamedia.blob.core.windows.net/public/lots_015.mkv) 링크를 붙여넣어 재생을 시작할 수 있습니다. 5초 마크 정도에 흰색 차가 주차장을 통과합니다.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 

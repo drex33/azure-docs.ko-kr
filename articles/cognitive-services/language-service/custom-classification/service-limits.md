@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
-ms.openlocfilehash: 745c75722fc3a431c3f7cc4b5b47a8ebdd1895e7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 06db585531cb3a73b291f2c8d45de18a3d298fb2
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101499"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484082"
 ---
 # <a name="custom-text-classification-limits"></a>사용자 지정 텍스트 분류 제한
 
@@ -45,7 +45,7 @@ ms.locfileid: "131101499"
 * 요청당 최대 파일 크기는 125,000자입니다. 파일의 총 크기가 125,000자를 초과하지 않는 한 최대 25개의 파일을 보낼 수 있습니다.
 
 > [!NOTE]
-> 제한이 허용하는 것보다 더 큰 파일을 보내야 하는 경우 API로 보내기 전에 텍스트를 더 작은 텍스트 청크로 나눌 수 있습니다. 이 프로세스에 대해 [CLUtils의 청크 명령](https://github.com/microsoft/CogSLanguageUtilities/tree/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand)을 사용할 수 있습니다.
+> 제한이 허용하는 것보다 더 큰 파일을 보내야 하는 경우 API로 보내기 전에 텍스트를 더 작은 텍스트 청크로 나눌 수 있습니다. 이 프로세스에 대해 [CLUtils의 청크 명령](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand/README.md)을 사용할 수 있습니다.
 
 ## <a name="azure-resource-limits"></a>Azure 리소스 제한
 

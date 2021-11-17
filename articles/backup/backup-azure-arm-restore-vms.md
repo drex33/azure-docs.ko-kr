@@ -3,16 +3,16 @@ title: Azure Portal을 사용하여 VM 복원
 description: 지역 간 복원 기능을 포함한 Azure Portal을 사용하여 복구 지점에서 Azure 가상 머신을 복원합니다.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/16/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 65cf378ffc4e627d482999b5ea65e4d238b8d368
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: b207fa803831aaa1e53da2c9991517a26fb9c07b
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132308563"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550490"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원하는 방법
 
@@ -97,6 +97,9 @@ VM을 복원(새 VM 만들기)하려면 VM 복원 작업에 대한 올바른 Azu
     ![구성 복원 마법사 - 복원 옵션 선택](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. **복원** 을 선택하여 복원 작업을 트리거합니다.
+
+>[!Note]
+>NSG 설정을 수정하기 전에 VM 복원 작업이 완료되었는지 확인합니다. 복원 [작업 추적에](#track-the-restore-operation)대해 알아봅니다.
 
 ## <a name="restore-disks"></a>디스크 복원
 

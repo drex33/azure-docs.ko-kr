@@ -8,15 +8,15 @@ ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
+ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 4977f81bb681c0316a273a3d9f8b0b901373ad83
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: d4c4188a04db444a153577ead82d79f32c9b137d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492211"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518264"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>스튜디오 UI를 사용하여 코드 없는 AutoML 학습 설정 
 
@@ -138,13 +138,32 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     최상의 모델에 대한 설명 | 권장되는 최상의 모델에 대한 설명을 표시하려면 사용 또는 사용하지 않음을 선택합니다. <br> 이 기능은 현재 [특정 예측 알고리즘](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)에서 사용할 수 없습니다. 
     차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘 허용은 [SDK 실험](how-to-configure-auto-train.md#supported-models)을 위해서만 가능합니다. <br> [각 작업 형식에 지원되는 모델](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels)을 참조하세요.
     종료 조건| 다음 조건 중 하나가 충족되면 학습 작업이 중지됩니다. <br> *학습 작업 시간(시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대한 최소 메트릭 점수입니다. 이렇게 하면 도달하려는 목표 메트릭이 정의되어 있는 경우 학습 작업에 필요한 시간보다 더 많은 시간을 소비하지 않습니다.
-    유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. <br> [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>예측은 k겹 교차 유효성 검사만 지원합니다.
     동시성| *최대 동시 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다. 자동화된 ML이 [클러스터에서 여러 자식 요소 실행](how-to-configure-auto-train.md#multiple-child-runs-on-clusters)을 수행하는 방법을 자세히 알아보세요.
 
 1. (선택사항) 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용하도록 선택하면 기본 기능화 기술이 적용됩니다. **기능화 설정 보기** 에서 기본값을 변경하고 적절하게 사용자 지정할 수 있습니다. [기능화를 사용자 지정](#customize-featurization)하는 방법을 알아보세요. 
 
     ![기능화 설정이 호출되어 있는 작업 형식 대화 상자 선택을 보여 주는 스크린샷.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
+
+1. **[선택 사항] 유효성 검사 및 테스트** 폼을 사용 하 여 다음을 수행할 수 있습니다. 
+
+    1. 학습 작업에 사용할 유효성 검사의 유형을 지정 합니다. [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    
+        1. 예측 태스크는 k 접기 교차 유효성 검사만 지원 합니다.
+    
+    1. 테스트 데이터 집합 (미리 보기)을 제공 하 여 자동 ML가 실험 종료 시 자동으로 생성 하는 권장 모델을 평가 합니다. 테스트 데이터를 제공 하는 경우 실험의 끝에서 테스트 실행이 자동으로 트리거됩니다. 이 테스트 실행은 자동화 된 ML에서 권장 하는 최상의 모델 에서만 실행 됩니다. [원격 테스트 실행 결과](#view-remote-test-run-results-preview)를 가져오는 방법에 대해 알아봅니다.
+    
+        >[!IMPORTANT]
+        > 생성 된 모델을 평가할 테스트 데이터 집합을 제공 하는 것은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
+
+        1. 테스트 데이터는 학습 및 유효성 검사와는 별개의 것으로 간주 되므로 권장 된 모델의 테스트 실행 결과를 따르지 않습니다. [모델 유효성 검사 중에 바이어스에 대해 자세히 알아보세요](concept-automated-ml.md#training-validation-and-test-data).
+        1. 사용자 고유의 테스트 데이터 집합을 제공 하거나 학습 데이터 집합의 백분율을 사용 하도록 선택할 수 있습니다.          
+        1. 테스트 데이터 집합의 스키마는 학습 데이터 집합과 일치 해야 합니다. 대상 열은 선택 사항 이지만 대상 열이 표시 되지 않는 경우에는 테스트 메트릭이 계산 되지 않습니다.
+        1. 테스트 데이터 집합은 학습 데이터 집합 또는 유효성 검사 데이터 집합과 동일 하지 않아야 합니다.
+        1. 예측 실행은 학습/테스트 분할을 지원 하지 않습니다.
+        
+        ![유효성 검사 데이터 및 테스트 데이터를 선택할 수 있는 폼을 보여 주는 스크린샷](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
+        
 ## <a name="customize-featurization"></a>기능화 사용자 지정
 
 **기능화** 양식에서 자동 기능화를 사용/사용하지 않을 수 있으며, 실험에 대한 자동 기능화 설정을 사용자 지정할 수 있습니다. 이 양식을 열려면 [실험 만들기 및 실행](#create-and-run-experiment) 섹션에 나와 있는 10단계를 참조하세요. 
@@ -191,11 +210,48 @@ Included | 학습에 포함할 열을 지정합니다.
 
 ![데이터 변환](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
 
+## <a name="view-remote-test-run-results-preview"></a>원격 테스트 실행 결과 보기 (미리 보기)
+
+시험 설치 중에 테스트 데이터 집합을 지정 하거나 학습/테스트 분할을 옵트인 (opt in) 할 경우 ( **유효성 검사 및 테스트** 양식) 자동화 된 ML는 기본적으로 권장 되는 모델을 자동으로 테스트 합니다. 따라서 자동화 된 ML는 테스트 메트릭을 계산 하 여 권장 되는 모델 및 예측의 품질을 결정 합니다. 
+
+>[!IMPORTANT]
+> 테스트 데이터 집합을 사용 하 여 모델을 테스트 하 여 생성 된 모델을 평가 하려면 미리 보기 기능을 사용 합니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
+
+권장 모델의 테스트 실행 메트릭을 보려면
+ 
+1. **모델** 페이지로 이동 하 여 가장 적합 한 모델을 선택 합니다. 
+1. **테스트 결과 (미리 보기)** 탭을 선택 합니다. 
+1. 원하는 실행을 선택 하 고 **메트릭** 탭을 봅니다.  ![자동 테스트 됨, 권장 모델의 테스트 결과 탭](./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png)
+    
+테스트 메트릭을 계산 하는 데 사용 되는 테스트 예측을 보려면 
+
+1. 페이지 아래쪽으로 이동 하 고 **출력 데이터 집합** 아래의 링크를 선택 하 여 데이터 집합을 엽니다. 
+1. **데이터 집합** 페이지에서 **탐색** 탭을 선택 하 여 테스트 실행의 예측을 봅니다.
+    1. 또는 **출력 + 로그** 탭에서 예측 파일을 보고 다운로드할 수 있으며, **예측** 폴더를 확장 하 여 파일을 찾을 수도 있습니다 `predicted.csv` .
+
+또는 출력 + 로그 탭, 예측 폴더를 차례로 확장 하 여 predictions.csv 파일을 찾을 수도 있습니다.
+
+## <a name="test-an-existing-automated-ml-model-preview"></a>기존의 자동화 된 ML 모델 테스트 (미리 보기)
+
+실험을 완료 한 후 자동화 된 ML 생성 하는 모델을 테스트할 수 있습니다. 권장 되는 모델이 아닌 다른 자동화 된 ML 생성 된 모델을 테스트 하려는 경우 다음 단계를 수행 하 여 수행할 수 있습니다. 
+
+1. 기존 자동화된 ML 실험 실행을 선택합니다.  
+1. 실행의 **모델** 탭으로 이동하여 테스트할 완성된 모델을 선택합니다.
+1. 모델 **세부 정보** 페이지에서 **모델 테스트(미리 보기)** 단추를 선택하여 **모델 테스트** 창을 엽니다.
+1. 테스트 **모델** 창에서 테스트 실행에 사용할 컴퓨팅 클러스터 및 테스트 데이터 세트를 선택합니다. 
+1. **테스트** 단추를 선택합니다. 테스트 데이터 세트의 스키마는 학습 데이터 세트와 일치해야 하지만 **대상 열은** 선택 사항입니다.
+1. 모델 테스트 실행을 성공적으로 만들면 **세부 정보** 페이지에 성공 메시지가 표시됩니다. 테스트 **결과** 탭을 선택하여 실행 진행 상황을 확인합니다.
+
+1. 테스트 실행 결과를 보려면 **세부 정보** 페이지를 열고 원격 테스트 [실행 섹션의 결과 보기 섹션의](#view-remote-test-run-results-preview) 단계를 수행합니다. 
+
+    ![테스트 모델 양식](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
+    
+
 ## <a name="model-explanations-preview"></a>모델 설명(미리 보기)
 
 모델을 더 잘 이해하려면 모델 설명 대시보드를 사용하여 모델의 예측에 영향을 주는 데이터 기능(원시 또는 엔지니어링)을 확인할 수 있습니다. 
 
-모델 설명 대시보드는 예측 및 설명과 함께 학습된 모델의 전체적인 분석을 제공합니다. 또한 개별 데이터 포인트와 개별 기능 중요도를 자세히 살펴볼 수 있습니다. [설명 대시보드 시각화에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-aml.md#visualizations).
+모델 설명 대시보드는 예측 및 설명과 함께 학습된 모델의 전체적인 분석을 제공합니다. 또한 개별 데이터 포인트와 개별 기능 중요도를 드릴할 수 있습니다. [설명 대시보드 시각화에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 특정 모델에 대한 설명을 보려면 다음을 수행합니다. 
 
@@ -234,10 +290,10 @@ Included | 학습에 포함할 열을 지정합니다.
     ----|----
     속성| 배포에 대한 고유한 이름을 입력합니다.
     Description| 이 배포의 용도를 더 잘 식별할 수 있는 설명을 입력합니다.
-    컴퓨팅 형식| 배포할 끝점의 유형 ( [*Azure Kubernetes Service)*](../aks/intro-kubernetes.md) 또는 [*ACI (azure Container Instance)*](../container-instances/container-instances-overview.md)를 선택 합니다.
+    컴퓨팅 형식| 배포하려는 엔드포인트의 유형을 선택합니다. [*Azure Kubernetes Service(AKS)*](../aks/intro-kubernetes.md) 또는 [*ACI(Azure Container Instance)*](../container-instances/container-instances-overview.md).
     컴퓨팅 이름| *AKS에만 적용:* 배포하려는 AKS 클러스터의 이름을 선택합니다.
     인증 사용 | 토큰 기반 또는 키 기반 인증을 허용할지를 선택합니다.
-    사용자 지정 배포 자산 사용| 사용자 고유의 채점 스크립트 및 환경 파일을 업로드하려면 이 기능을 사용하도록 설정합니다. 그렇지 않으면 자동화 된 ML 기본적으로 이러한 자산을 제공 합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md).
+    사용자 지정 배포 자산 사용| 사용자 고유의 채점 스크립트 및 환경 파일을 업로드하려면 이 기능을 사용하도록 설정합니다. 그렇지 않으면 자동화된 ML 기본적으로 이러한 자산을 제공합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md).
 
     >[!Important]
     > 파일 이름은 32자 미만이어야 하며 영숫자로 시작하고 끝나야 합니다. 대시, 밑줄, 점 및 영숫자를 포함할 수 있습니다. 공백은 허용되지 않습니다.

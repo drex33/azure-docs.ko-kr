@@ -87,8 +87,6 @@
               href: container-registry-oci-artifacts.md
             - name: Helm 차트 밀어넣기 및 끌어오기
               href: container-registry-helm-repos.md
-            - name: 밀어넣기 및 끌어오기 공급망 아티팩트(미리 보기)
-              href: container-registry-oras-artifacts.md
             - name: 리포지토리 보기
               href: container-registry-repositories.md
             - name: 컨테이너 이미지 가져오기
@@ -291,7 +289,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/acr
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/az.containerregistry

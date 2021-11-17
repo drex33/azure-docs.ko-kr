@@ -1,20 +1,18 @@
 ---
 title: 인증서 바인딩
-description: App Service Environment의 인증서와 관련된 다양한 항목에 대해 설명합니다. 인증서 바인딩이 ASE의 단일 테넌트 앱에서 작동하는 방식에 대해 알아봅니다.
-author: ccompy
-ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
-ms.topic: article
-ms.date: 08/29/2018
-ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 604adeb3eeb716027ba821b4e230285602680e00
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+description: App Service Environment v2의 인증서와 관련된 다양한 항목을 설명합니다. 인증서 바인딩이 ASE의 단일 테넌트 앱에서 작동하는 방식에 대해 알아봅니다.
+author: madsd
+ms.topic: overview
+ms.date: 11/15/2021
+ms.author: madsd
+ms.openlocfilehash: 0ecc9f29ae469cea01c29a23c5491320c37e7cc5
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433169"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521000"
 ---
-# <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
+# <a name="certificates-and-the-app-service-environment-v2"></a>인증서 및 App Service Environment v2
 > [!NOTE]
 > 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
 > 

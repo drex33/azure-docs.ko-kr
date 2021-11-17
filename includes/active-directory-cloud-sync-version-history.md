@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 57d211a7a080cc07d30a5810c4e1660c575acff3
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 9dabeaa9dd8e22e63b356768e34ebf828ac43632
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123078348"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131861151"
 ---
 이 문서에서는 릴리스된 Azure Active Directory Connect Provisioning Agent의 버전과 기능을 나열합니다. Azure AD 팀은 새로운 기능과 기능으로 프로비전 에이전트를 정기적으로 업데이트합니다. 
 
@@ -12,6 +12,15 @@ Microsoft에서는 최신 에이전트 버전 및 이전 버전을 직접 지원
 
 ## <a name="download-link"></a>다운로드 링크
 [이 링크](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)를 사용하여 최신 버전의 에이전트를 다운로드할 수 있습니다.
+
+## <a name="115870"></a>1.1.587.0
+
+2021년 11월 2일: 다운로드용으로 릴리스됨
+
+새로운 기능 및 향상 기능
+
+- 비밀번호 쓰기 저장을 구성하는 cmdlet
+
 
 ## <a name="115840"></a>1.1.584.0 
 

@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 04f1c00340e8d46d495a28e3f0fd973e93991b77
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fcab4ce8d1f0d4d6f2dd7d29b1de8f9c7519c9f1
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029487"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851879"
 ---
 # <a name="quickstart-create-a-service-connection-in-app-service-from-azure-portal"></a>빠른 시작: Azure Portal의 App Service에서 서비스 연결 만들기
 
@@ -34,15 +34,17 @@ Azure 계정을 사용하여 [https://portal.azure.com/](https://portal.azure.co
 2. 왼쪽 목차에서 **서비스 커넥터(미리 보기)** 를 선택합니다. 그런 다음 **만들기** 를 선택합니다.
 3. 다음 설정을 선택하거나 입력합니다.
 
-    | 설정      | 제안 값  | 설명                                        |
+    | 설정      | 제안 값  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독 중 하나 | 대상 서비스(연결할 서비스)가 있는 구독입니다. 기본값은 이 App Service가 있는 구독입니다. |
-    | **서비스 유형** | Storage Blob 컨테이너 | 대상 서비스 유형입니다. Storage Blob 컨테이너가 없는 경우 [하나를 만들거나](../storage/blobs/storage-quickstart-blobs-portal.md) 다른 서비스 유형을 사용할 수 있습니다. |
+    | **서비스 유형** | Blob Storage | 대상 서비스 유형입니다. Storage Blob 컨테이너가 없는 경우 [하나를 만들거나](../storage/blobs/storage-quickstart-blobs-portal.md) 다른 서비스 유형을 사용할 수 있습니다. |
     | **연결 이름** | 생성된 고유 이름 | App Service와 대상 서비스 간의 연결을 식별하는 연결 이름  |
-    | **스토리지 계정** | 해당 스토리지 서버 | 연결하려는 대상 데이터베이스 서비스입니다. 다른 서비스 유형을 선택하는 경우 해당하는 대상 서비스 인스턴스를 선택합니다. |
+    | **스토리지 계정** | 스토리지 계정 | 연결하려는 대상 스토리지 계정입니다. 다른 서비스 유형을 선택하는 경우 해당하는 대상 서비스 인스턴스를 선택합니다. |
     | **클라이언트 유형** | 이 App Service의 동일한 앱 스택 | 선택한 대상 서비스에서 작동하는 애플리케이션 스택입니다. 기본값은 App Service 런타임 스택에서 가져옵니다. |
 
-4. **검토 + 만들기** 를 선택하여 연결 설정을 검토합니다. 그런 다음 **만들기** 를 선택하여 서비스 연결 만들기를 시작합니다.
+4. **다음: 인증** 을 선택하여 인증 형식을 선택합니다. 그런 다음 **연결 문자열** 을 선택하여 액세스 키를 사용하여 Blob 스토리지 계정을 연결합니다.
+
+5. 그런 다음을 **다음: 검토 + 만들기** 를 선택하여 제공된 정보를 검토합니다. 그런 다음 **만들기** 를 선택하여 서비스 연결을 만듭니다. 작업을 완료하는 데 1분 정도 걸릴 수 있습니다.
 
 ## <a name="view-service-connections-in-app-service"></a>App Service의 서비스 연결 보기
 

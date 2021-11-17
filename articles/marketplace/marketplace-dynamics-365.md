@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: f83fb2b1dbcadf9d40431c7670a1d8618557b047
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 0d31c44a5daa21c16cd7c598f407501104dc53c6
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866960"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546313"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Dynamics 365 제품 플랜
 
@@ -24,7 +24,16 @@ ms.locfileid: "122866960"
 
 새 제품 게시를 준비할 때 선택할 라이선싱 옵션을 결정해야 합니다. 파트너 센터에서 제품을 만들 때 나중에 제공해야 할 추가 정보를 결정합니다.
 
-Dynamics 365 제품에 사용할 수 있는 라이선싱 옵션은 다음과 같습니다.
+Dynamics 365 제품 유형에 사용할 수 있는 라이선스 옵션은 다음과 같습니다.
+
+| 제품 유형 | 목록 옵션 |
+| --- | --- |
+| Dynamics 365 for Operations | 연락처 |
+| Dynamics 365 Customer Engagement 및 Power Apps | 지금 받기<br>지금 받기(무료)<br>평가판(목록)<br>연락처 |
+| Dynamics 365 Business Central | 지금 받기(무료)<br>평가판(목록)<br>연락처 |
+|||
+
+다음 표에서는 각 목록 옵션의 트랜잭션 프로세스에 대해 설명 합니다.
 
 | 라이선싱 옵션 | 트랜잭션 프로세스 |
 | --- | --- |

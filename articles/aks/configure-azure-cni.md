@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: cde36aaa5946519533d4e68eb31da48af08be689
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 3ab6ce9f955829cb3faf774c5b85c205f5841474
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546295"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551352"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "129546295"
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * AKS 노드 풀에 할당된 서브넷은 [위임된 서브넷](../virtual-network/subnet-delegation-overview.md)일 수 없습니다.
-* AKS는 서브넷에 NSG(네트워크 보안 그룹)를 적용하지 않으며 해당 서브넷과 연결된 NSG를 수정하지 않습니다. 고유한 서브넷을 제공하고 해당 서브넷과 연결된 NSG를 추가하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 범위 간의 트래픽을 허용하는지 확인해야 합니다. 자세한 내용은 [네트워크 보안 그룹 을 참조하세요.][aks-network-nsg]
+* AKS는 서브넷에 NSGs (네트워크 보안 그룹)를 적용 하지 않으며 해당 서브넷과 연결 된 NSGs를 수정 하지 않습니다. 사용자 고유의 서브넷을 제공 하 고 해당 서브넷과 연결 된 NSGs를 추가 하는 경우 NSGs의 보안 규칙에 따라 노드 및 pod CIDR 범위 간의 트래픽이 허용 되는지 확인 해야 합니다. 자세한 내용은 [네트워크 보안 그룹][aks-network-nsg]을 참조 하세요.
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>클러스터에 대한 IP 주소 지정 계획
 
@@ -209,7 +209,7 @@ az provider register --namespace Microsoft.ContainerService
 
 이 기능을 사용하는 경우 계획은 훨씬 더 간단합니다. 노드와 Pod는 독립적으로 크기를 조정하기 때문에 주소 공간을 별도로 계획할 수도 있습니다. Pod 서브넷은 노드 풀의 세분성으로 구성될 수 있으므로 고객은 노드 풀을 추가할 때 항상 새 서브넷을 추가할 수 있습니다. 클러스터/노드 풀의 시스템 Pod는 Pod 서브넷에서 IP를 수신하기 때문에 이 동작을 고려해야 합니다.
 
-K8S 서비스 및 Docker 브리지에 대한 IP 계획은 변경되지 않은 상태로 유지됩니다.
+Kubernetes services 및 Docker 브리지에 대 한 Ip 계획은 변경 되지 않은 상태로 유지 됩니다.
 
 ### <a name="maximum-pods-per-node-in-a-cluster-with-dynamic-allocation-of-ips-and-enhanced-subnet-support"></a>동적 IP 할당 및 향상된 서브넷 지원을 통한 클러스터의 노드당 최대 Pod 수
 

@@ -44,6 +44,12 @@
           href: tutorial-alias-pip.md
         - name: 영역 레코드에 대한 별칭 레코드
           href: tutorial-alias-rr.md
+- name: 샘플
+  items:
+    - name: Azure PowerShell
+      items:
+        - name: 비정상 DNS 레코드 찾기
+          href: ./scripts/find-unhealthy-dns-records.md
 - name: 개념
   items:
     - name: 보안
@@ -112,7 +118,7 @@
           href: dns-import-export.md
         - name: 하위 도메인 위임
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: delegate-subdomain.md
             - name: Azure PowerShell
               href: delegate-subdomain-ps.md

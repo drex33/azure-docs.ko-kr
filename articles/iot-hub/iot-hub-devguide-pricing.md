@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub 가격 책정 이해 | Microsoft Docs
 description: 개발자 가이드 - 작동 예제를 비롯하여 IoT Hub에서 측정 및 가격 책정이 진행되는 방식에 대한 정보를 제공합니다.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.date: 03/11/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 809a38425adc376d72bed1330f077db2841ea8cd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 53dfcfbb04f729125db580a2f4f06ae5bb272bf3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567114"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548922"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub 가격 책정 정보
 

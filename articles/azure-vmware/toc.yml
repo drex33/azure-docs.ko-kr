@@ -136,14 +136,14 @@
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: 재해 복구를 위한 VMware SRM 배포
           href: disaster-recovery-using-vmware-site-recovery-manager.md
-        - name: Zerto 재해 복구 배포
-          href: deploy-zerto-disaster-recovery.md
     - name: 가상 데스크톱 배포
       items:
         - name: Horizon on Azure VMware Solution 배포
           href: azure-vmware-solution-horizon.md
         - name: Azure VMware Solution에 Citrix 배포
           href: azure-vmware-solution-citrix.md
+        - name: Zerto 재해 복구 배포
+          href: deploy-zerto-disaster-recovery.md
     - name: 리소스 이동
       items:
         - name: Azure VMware solution 구독 이동

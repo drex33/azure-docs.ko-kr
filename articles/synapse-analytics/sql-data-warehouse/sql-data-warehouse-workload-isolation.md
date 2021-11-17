@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/16/2021
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: dec042c66ebed15a51d5c6c1f3ef6a3e3e2fb456
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7b78fc9a0bb292cbc124e1629351ddd9cc2191e7
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428029"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547586"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Azure Synapse Analytics 작업 그룹 격리
 
@@ -28,16 +28,25 @@ ms.locfileid: "131428029"
 
 다음 섹션에서는 작업 그룹에서 격리, 포함, 리소스 정의 요청 및 실행 규칙 준수를 정의하는 기능을 제공하는 방법에 대해 설명합니다.
 
+## <a name="resource-governance"></a>리소스 거버넌스
+
+워크로드 그룹은 메모리 및 CPU 리소스를 제어합니다.  디스크 및 네트워크 IO와 tempdb는 제어되지 않습니다.  메모리 및 CPU에 대한 리소스 거버넌스는 다음과 같습니다.
+
+메모리는 요청 수준에서 관리되며 요청 기간 동안 유지됩니다.  요청당 메모리 양을 구성하는 방법에 대한 자세한 내용은 [요청당 리소스 정의를](#resources-per-request-definition) 참조하세요.  작업 그룹에 대한 MIN_PERCENTAGE_RESOURCE 매개 변수는 해당 작업 그룹에만 메모리를 전용으로 제공합니다.  작업 그룹에 대한 CAP_PERCENTAGE_RESOURCE 매개 변수는 작업 그룹에서 사용할 수 있는 메모리에 대한 하드 제한입니다.
+
+CPU 리소스는 워크로드 그룹 수준에서 관리되며 작업 그룹 내의 모든 요청에서 공유됩니다.  CPU 리소스는 실행 기간 동안 요청 전용인 메모리에 비해 유동적입니다.  CPU가 유동 리소스인 경우 사용되지 않는 CPU 리소스는 모든 작업 그룹에서 사용할 수 있습니다.  즉, CPU 사용률이 작업 그룹에 대한 CAP_PERCENTAGE_RESOURCE 매개 변수를 초과할 수 있습니다.  즉, 작업 그룹에 대한 MIN_PERCENTAGE_RESOURCE 매개 변수는 메모리처럼 하드 예약이 아닙니다.  CPU 리소스가 경합 중이면 사용률이 작업 그룹에 대한 CAP_PERCENTAGE_RESOURCE 정의에 맞춰 조정됩니다.
+
+
 ## <a name="workload-isolation"></a>워크로드 격리
 
 워크로드 격리는 작업 그룹 전용으로 리소스가 예약되어 있음을 의미합니다.  [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0보다 크게 구성하여 워크로드를 격리할 수 있습니다.  엄격한 SLA를 준수해야 하는 연속 실행 워크로드의 경우 격리를 통해 작업 그룹에서 리소스를 항상 사용할 수 있습니다.
 
-워크로드 격리를 구성하면 보장된 동시성 수준이 암시적으로 정의됩니다. 예를 들어 `MIN_PERCENTAGE_RESOURCE`가 30%로 설정되고 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 2%로 설정된 작업 그룹에는 15개의 동시성이 보장됩니다.  `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT`가 구성된 방법에 관계없이 15-2%의 리소스 슬롯이 항상 작업 그룹 내에 예약되므로 동시성 수준이 보장됩니다.  `REQUEST_MAX_RESOURCE_GRANT_PERCENT`가 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`보다 크고 `CAP_PERCENTAGE_RESOURCE`가 `MIN_PERCENTAGE_RESOURCE`보다 크면 요청마다 추가 리소스가 추가됩니다.  `REQUEST_MAX_RESOURCE_GRANT_PERCENT` 및 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 같고 `CAP_PERCENTAGE_RESOURCE`가 `MIN_PERCENTAGE_RESOURCE`보다 크면 추가 동시성이 가능합니다.  보장된 동시성을 결정하려면 아래 방법을 고려해 보세요.
+워크로드 격리를 구성하면 보장된 동시성 수준이 암시적으로 정의됩니다. 예를 들어 MIN_PERCENTAGE_RESOURCE 30%로 설정되고 REQUEST_MIN_RESOURCE_GRANT_PERCENT 2%로 설정된 워크로드 그룹은 15의 동시성을 보장합니다.  15~2%의 리소스 슬롯이 항상 워크로드 그룹 내에서 예약되기 *때문에(REQUEST_ MAX* _RESOURCE_GRANT_PERCENT 구성 방법에 관계 없이) 동시성 수준이 보장됩니다.  REQUEST_MAX_RESOURCE_GRANT_PERCENT REQUEST_MIN_RESOURCE_GRANT_PERCENT보다 크고 CAP_PERCENTAGE_RESOURCE MIN_PERCENTAGE_RESOURCE 보다 큰 경우 리소스 가용성에 따라 요청당 추가 리소스를 추가할 수 있습니다.  REQUEST_MAX_RESOURCE_GRANT_PERCENT 및 REQUEST_MIN_RESOURCE_GRANT_PERCENT 동일하고 CAP_PERCENTAGE_RESOURCE MIN_PERCENTAGE_RESOURCE 보다 크면 추가 동시성이 가능합니다.  보장된 동시성을 결정하려면 아래 방법을 고려해 보세요.
 
 [보장된 동시성] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> min_percentage_resource에 대한 특정 서비스 수준 실행 가능한 최솟값이 있습니다.  자세한 내용은 [유효 값](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values)을 참조하세요.
+> min_percentage_resource 대한 특정 서비스 수준 최소값이 있습니다.  자세한 내용은 [유효 값](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values)을 참조하세요.
 
 워크로드 격리가 없으면 요청이 리소스의 [공유 풀](#shared-pool-resources)에서 작동합니다.  공유 풀의 리소스에 대한 액세스가 보장되지 않으며 [중요도](sql-data-warehouse-workload-importance.md) 기준으로 할당됩니다.
 
@@ -61,7 +70,7 @@ ms.locfileid: "131428029"
 
 ## <a name="resources-per-request-definition"></a>요청 정의당 리소스 수
 
-작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용하여 요청당 할당되는 최소 및 최대 리소스 양을 정의하는 메커니즘을 제공합니다.  이 경우 리소스는 메모리입니다. CPU 리소스는 워크로드 그룹의 CAP_PERCENTAGE_RESOURCE 값으로 제한되며 개별 요청 수준에서 제어되지 않습니다. 이러한 값을 구성하면 시스템에서 달성할 수 있는 리소스의 양과 동시성 수준이 결정됩니다.
+작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용하여 요청당 할당되는 최소 및 최대 리소스 양을 정의하는 메커니즘을 제공합니다.  이 경우 리소스는 메모리입니다. CPU 리소스 거버넌스는 리소스 거버넌스 섹션에서 [다룹니다.](#resource-governance)
 
 > [!NOTE]
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT는 기본적으로 REQUEST_MIN_RESOURCE_GRANT_PERCENT에 지정된 것과 동일한 값으로 설정되는 선택적 매개 변수입니다.
@@ -75,7 +84,7 @@ REQUEST_MAX_RESOURCE_GRANT_PERCENT를 REQUEST_MIN_RESOURCE_GRANT_PERCENT보다 �
 
 ## <a name="execution-rules"></a>실행 규칙
 
-임시 보고 시스템에서 고객은 다른 사용자의 생산성에 심각한 영향을 주는 런어웨이 쿼리를 실수로 실행할 수 있습니다.  시스템 관리자는 시스템 리소스를 확보하기 위해 런어웨이 쿼리를 종료하는 데 시간을 할애해야 합니다.  작업 그룹은 지정된 값을 초과한 쿼리를 취소하도록 쿼리 실행 시간 제한 규칙을 구성할 수 있는 기능을 제공합니다.  규칙은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 `QUERY_EXECUTION_TIMEOUT_SEC` 매개 변수를 설정하여 구성됩니다.
+임시 보고 시스템에서 고객은 다른 사용자의 생산성에 심각한 영향을 주는 런어웨이 쿼리를 실수로 실행할 수 있습니다.  시스템 관리자는 시스템 리소스를 확보하기 위해 런어웨이 쿼리를 종료하는 데 시간을 할애해야 합니다.  작업 그룹은 지정된 값을 초과한 쿼리를 취소하도록 쿼리 실행 시간 제한 규칙을 구성할 수 있는 기능을 제공합니다.  규칙은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 QUERY_EXECUTION_TIMEOUT_SEC 매개 변수를 설정하여 구성됩니다.
 
 ## <a name="shared-pool-resources"></a>공유 풀 리소스
 

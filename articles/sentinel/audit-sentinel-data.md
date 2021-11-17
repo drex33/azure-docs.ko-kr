@@ -1,14 +1,14 @@
 ---
-title: Microsoft 센티널 쿼리 및 활동 감사 | Microsoft Docs
-description: 이 문서에서는 Microsoft 센티널에서 수행 되는 쿼리 및 작업을 감사 하는 방법을 설명 합니다.
+title: Microsoft Sentinel 쿼리 및 활동 감사 | Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel에서 수행된 쿼리 및 활동을 감사하는 방법을 설명합니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -16,35 +16,35 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 30dd329f518190d9b13e29e53d21aa49a2ca6d55
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: d1524139049b77cfeeff58563904489ae49728ef
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132485011"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518055"
 ---
-# <a name="audit-microsoft-sentinel-queries-and-activities"></a>Microsoft 센티널 쿼리 및 작업 감사
+# <a name="audit-microsoft-sentinel-queries-and-activities"></a>Microsoft Sentinel 쿼리 및 활동 감사
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 SOC (보안 작업) 작업 영역에서 내부 및 외부 규정 준수 요구 사항과 같은 Microsoft 센티널 작업 영역에서 수행 되는 쿼리 실행 및 작업에 대 한 감사 데이터를 보는 방법을 설명 합니다.
+이 문서에서는 SOC(보안 작업) 작업 영역의 내부 및 외부 규정 준수 요구 사항과 같이 Microsoft Sentinel 작업 영역에서 수행된 작업 및 쿼리 실행에 대한 감사 데이터를 보는 방법을 설명합니다.
 
-Microsoft 센티널은 다음에 대 한 액세스를 제공 합니다.
+Microsoft Sentinel은 다음 액세스 권한을 제공합니다.
 
-- **Azureactivity** 테이블-경고 규칙 편집과 같이 Microsoft 센티널에서 수행 되는 모든 작업에 대 한 세부 정보를 제공 합니다. **AzureActivity** 테이블은 특정 쿼리 데이터를 로그하지 않습니다. 자세한 내용은 [Azure 활동 로그를 사용하여 감사](#auditing-with-azure-activity-logs)를 참조하세요.
+- 경고 규칙 편집과 같이 Microsoft Sentinel에서 수행된 모든 작업에 대한 세부 정보를 제공하는 **AzureActivity** 테이블입니다. **AzureActivity** 테이블은 특정 쿼리 데이터를 로그하지 않습니다. 자세한 내용은 [Azure 활동 로그를 사용하여 감사](#auditing-with-azure-activity-logs)를 참조하세요.
 
-- **Laquerylogs** 테이블은 Microsoft 센티널에서 실행 되는 쿼리를 포함 하 여 Log Analytics에서 실행 되는 쿼리에 대 한 세부 정보를 제공 합니다. 자세한 내용은 [LAQueryLogs를 사용하여 감사](#auditing-with-laquerylogs)를 참조하세요.
+- **LAQueryLogs** 테이블은 Microsoft Sentinel에서 실행되는 쿼리를 포함하여 Log Analytics에서 실행되는 쿼리에 대한 세부 정보를 제공합니다. 자세한 내용은 [LAQueryLogs를 사용하여 감사](#auditing-with-laquerylogs)를 참조하세요.
 
 > [!TIP]
-> 이 문서에서 설명 하는 수동 쿼리 외에도 Microsoft 센티널은 SOC 환경의 활동을 감사 하는 데 도움이 되는 기본 제공 통합 문서를 제공 합니다.
+> Microsoft Sentinel은 이 문서에 설명된 수동 쿼리 외에도 SOC 환경의 활동을 감사하는 데 도움이 되는 기본 제공 통합 문서를 제공합니다.
 >
-> Microsoft 센티널 **통합** 문서 영역에서 **작업 영역 감사** 통합 문서를 검색 합니다.
+> Microsoft Sentinel **통합 문서** 영역에서 작업 **영역 감사** 통합 문서를 검색합니다.
 
 ## <a name="auditing-with-azure-activity-logs"></a>Azure 활동 로그를 사용하여 감사
 
-Microsoft 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리 됩니다. 여기서 **azureactivity** 테이블에는 microsoft 센티널 작업 영역에서 수행 되는 모든 작업이 포함 됩니다.
+Microsoft Sentinel의 감사 로그는 Azure [활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리됩니다. **여기서 AzureActivity** 테이블에는 Microsoft Sentinel 작업 영역에서 수행된 모든 작업이 포함됩니다.
 
-Microsoft 센티널을 사용 하 여 SOC 환경에서 활동을 감사 하는 경우 **azureactivity** 테이블을 사용할 수 있습니다.
+Microsoft Sentinel을 사용하여 SOC 환경에서 활동을 감사할 때 **AzureActivity** 테이블을 사용할 수 있습니다.
 
 **AzureActivity 테이블을 쿼리하려면** 다음을 수행합니다.
 
@@ -52,7 +52,7 @@ Microsoft 센티널을 사용 하 여 SOC 환경에서 활동을 감사 하는 �
 
 1. 그런 다음 다른 테이블과 같이 KQL을 사용하여 데이터를 쿼리합니다.
 
-    **Azureactivity** 테이블에는 Microsoft 센티널을 비롯 한 여러 서비스의 데이터가 포함 됩니다. Microsoft 센티널의 데이터만 필터링 하려면 다음 코드를 사용 하 여 쿼리를 시작 합니다.
+    **AzureActivity** 테이블에는 Microsoft Sentinel을 비롯한 많은 서비스의 데이터가 포함되어 있습니다. Microsoft Sentinel의 데이터만 필터링하려면 다음 코드로 쿼리를 시작합니다.
 
     ```kql
      AzureActivity
@@ -70,7 +70,7 @@ Microsoft 센티널을 사용 하 여 SOC 환경에서 활동을 감사 하는 �
 
 보고해야 하는 항목에 따라 더 많은 매개 변수를 쿼리에 추가하여 **AzureActivities** 테이블을 자세히 살펴보세요. 다음 섹션에서는 **AzureActivity** 테이블 데이터를 사용하여 감사할 때 사용할 다른 샘플 쿼리를 제공합니다.
 
-자세한 내용은 [Azure 활동 로그에 포함 된 Microsoft 센티널 데이터](#microsoft-sentinel-data-included-in-azure-activity-logs)를 참조 하세요.
+자세한 내용은 [Azure 활동 로그에 포함된 Microsoft Sentinel 데이터를 참조하세요.](#microsoft-sentinel-data-included-in-azure-activity-logs)
 
 ### <a name="find-all-actions-taken-by-a-specific-user-in-the-last-24-hours"></a>지난 24시간 동안 특정 사용자가 수행한 모든 활동 찾기
 
@@ -85,7 +85,7 @@ AzureActivity
 
 ### <a name="find-all-delete-operations"></a>삭제 작업 모두 찾기
 
-다음 **Azureactivity** 테이블 쿼리는 Microsoft 센티널 작업 영역에서 수행 된 모든 삭제 작업을 나열 합니다.
+다음 **AzureActivity** 테이블 쿼리는 Microsoft Sentinel 작업 영역에서 수행된 모든 삭제 작업을 나열합니다.
 
 ```kql
 AzureActivity
@@ -95,9 +95,9 @@ AzureActivity
 | project TimeGenerated, Caller, OperationName
 ```
 
-### <a name="microsoft-sentinel-data-included-in-azure-activity-logs"></a>Azure 활동 로그에 포함 된 Microsoft 센티널 데이터
+### <a name="microsoft-sentinel-data-included-in-azure-activity-logs"></a>Azure 활동 로그에 포함된 Microsoft Sentinel 데이터
 
-Microsoft 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리 되며 다음과 같은 유형의 정보를 포함 합니다.
+Microsoft Sentinel의 감사 로그는 Azure [활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리되며 다음과 같은 유형의 정보를 포함합니다.
 
 |작업  |정보 유형  |
 |---------|---------|

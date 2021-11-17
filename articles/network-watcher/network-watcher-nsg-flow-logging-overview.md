@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 6d51aa87232445e35533632d5071abd121a3fcfb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f90c0969960bcc5b1c77b9151598365075b690ba
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131442201"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554544"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -370,13 +370,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **흐름 로깅 비용**: NSG 흐름 로그는 생성된 로그 양에 따라 요금이 청구됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅에서 보존 정책 기능을 사용하면 해당 기간 동안 별도의 스토리지 비용이 발생됩니다. 데이터를 영구적으로 보존하기 원하지만 보존 정책을 적용하고 싶지는 않은 경우, 보존(일)을 0으로 설정합니다. 추가 세부 정보는 [Network Watcher 가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
-**사용자 정의 인바운드 TCP 규칙** 에 대한 문제: [NSG](../virtual-network/network-security-groups-overview.md)(네트워크 보안 그룹)는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현됩니다. 그러나 현재는 플랫폼 제한으로 인해 인바운드 TCP 흐름에 영향을 주는 사용자 정의 규칙은 상태 비저장 방식으로 구현됩니다. 이로 인해 사용자 정의 인바운드 규칙의 영향을 받는 흐름은 종료되지 않습니다. 해당 흐름에 대해서는 바이트 및 패킷 수가 추가로 기록되지 않습니다. 따라서 NSG 흐름 로그(및 트래픽 분석)에서 보고되는 바이트와 패킷 수는 실제와 다를 수 있습니다. 해당 문제를 해결하는 옵트인 플래그는 늦어도 2021년 6월부터 사용할 수 있습니다. 그러는 사이에 해당 동작으로 인해 심각한 문제를 겪고 있는 고객은 옵트인 지원을 요청할 수 있습니다. Network Watcher > NSG 흐름 로그에서 지원을 요청하세요.  
+**사용자 정의 인바운드 TCP 규칙** 에 대한 문제: [NSG](../virtual-network/network-security-groups-overview.md)(네트워크 보안 그룹)는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현됩니다. 그러나 현재는 플랫폼 제한으로 인해 인바운드 TCP 흐름에 영향을 주는 사용자 정의 규칙은 상태 비저장 방식으로 구현됩니다. 이로 인해 사용자 정의 인바운드 규칙의 영향을 받는 흐름은 종료되지 않습니다. 해당 흐름에 대해서는 바이트 및 패킷 수가 추가로 기록되지 않습니다. 따라서 NSG 흐름 로그(및 트래픽 분석)에서 보고되는 바이트와 패킷 수는 실제와 다를 수 있습니다. 이 문제는 연결된 가상 네트워크의 [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork?view=azps-6.5.0) 속성을 null이 아닌 값으로 설정하여 해결할 수 있습니다. 
 
 **인터넷 IP에서 공용 IP가 없는 VM으로 로그인하는 인바운드 흐름**: 인스턴스 수준 공용 IP로서 NIC와 연결된 공용 IP 주소를 통해 할당된 공용 IP 주소가 없거나, 기본 부하 분산 장치 백 엔드 풀의 일부인 VM에 대해서는 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md)를 사용하고 Azure에서 할당된 IP 주소를 통해 아웃바운드 연결을 지원하도록 합니다. 따라서 SNAT에 할당된 포트 범위의 포트로 흐름을 보내는 경우, 인터넷 IP 주소에서 흐름 로그 항목을 확인할 수 있습니다. Azure는 VM에 대한 흐름을 허용하지 않지만, 해당 시도를 기록하고 Network Watcher의 NSG 흐름 로그에 기본적으로 표시됩니다. NSG를 사용하여 원치 않는 인바운드 인터넷 트래픽을 명시적으로 차단하는 것이 좋습니다.
 
 **ExpressRoute 게이트웨이 서브넷의 NSG** – 트래픽이 ExpressRoute 게이트웨이(예: [FastPath](../expressroute/about-fastpath.md))를 무시할 수 있으므로 ExpressRoute 게이트웨이 서브넷에서 흐름을 기록하지 않는 것이 좋습니다. 따라서 NSG가 ExpressRoute 게이트웨이 서브넷에 연결되어 있고 NSG 흐름 로그가 사용하도록 설정된 경우 가상 머신에 대한 아웃바운드 흐름이 캡처되지 않을 수 있습니다. 이러한 흐름은 VM의 서브넷 또는 NIC에서 캡처해야 합니다. 
 
-개인 링크를 통해 전송 되는 **트래픽-개인** 링크를 통해 PaaS 리소스에 액세스 하는 동안 개인 링크를 포함 하는 서브넷 NSG에서 nsg 흐름 로그를 사용 하도록 설정 합니다. 플랫폼 제한으로 인해 모든 원본 Vm의 트래픽만 캡처할 수 있는 반면 대상 PaaS 리소스의 트래픽은 캡처할 수 없습니다.
+**프라이빗 링크를 통한 트래픽** - 프라이빗 링크를 통해 PaaS 리소스에 액세스하는 동안 트래픽을 기록하려면 프라이빗 링크가 포함된 서브넷 NSG에서 NSG 흐름 로그를 사용하도록 설정합니다. 플랫폼 제한으로 인해 모든 원본 VM의 트래픽만 캡처할 수 있지만 대상 PaaS 리소스의 트래픽은 캡처할 수 없습니다.
 
 **Application Gateway V2 서브넷 NSG에 대한 문제**: 현재는 Application Gateway V2 서브넷 NSG의 흐름 로깅이 [지원되지 않습니다.](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) 해당 문제는 V1 Application Gateway에 영향을 주지 않습니다.
 

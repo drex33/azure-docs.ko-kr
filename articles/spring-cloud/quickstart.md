@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Spring Cloud에서 첫 번째 애플리케이션 배포
+title: 빠른 시작 - Azure Spring Cloud에 첫 번째 애플리케이션 배포
 description: 이 빠른 시작에서는 Azure Spring Cloud에 애플리케이션을 배포합니다.
 author: karlerickson
 ms.service: spring-cloud
@@ -8,14 +8,14 @@ ms.date: 10/18/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: bdd778f9bad5bbafb48aa52c8059cdeadd3a0fc5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 88230912f04316b175feb4910f0b3e6b2e907238
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241270"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853741"
 ---
-# <a name="quickstart-deploy-your-first-application-in-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에서 첫 번째 애플리케이션 배포
+# <a name="quickstart-deploy-your-first-application-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 첫 번째 애플리케이션 배포
 
 ::: zone pivot="programming-language-csharp"
 이 빠른 시작에서는 Azure Spring Cloud에서 실행되는 간단한 애플리케이션을 배포하는 방법을 설명합니다.
@@ -542,7 +542,7 @@ az group delete --name <your resource group name> --yes
 이 빠른 시작에서는 다음과 같은 방법을 배웠습니다.
 
 > [!div class="checklist"]
-> * 기본 Azure Spring Cloud 프로젝트 생성
+> * 기본 Spring Cloud 프로젝트 생성
 > * 서비스 인스턴스 프로비저닝
 > * 퍼블릭 엔드포인트를 사용하여 앱 빌드 및 배포
 > * 실시간으로 로그 스트리밍
@@ -550,6 +550,6 @@ az group delete --name <your resource group name> --yes
 더 많은 Azure Spring 기능을 사용하는 방법을 알아보려면 샘플 애플리케이션을 Azure Spring Cloud에 배포하는 빠른 시작 시리즈로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [마이크로서비스 빌드 및 실행](./quickstart-sample-app-introduction.md)
+> [앱 빌드 및 실행](./quickstart-sample-app-introduction.md)
 
 GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

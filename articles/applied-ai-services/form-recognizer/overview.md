@@ -12,18 +12,18 @@ ms.author: lajanuar
 recommendations: false
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a3df07d7313243660270300127bb74b55fe95857
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f9c22bef6236008c772c39a9fea4f4673923b070
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131021603"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843103"
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD024 -->
 # <a name="what-is-azure-form-recognizer"></a>Azure Form Recognizer란?
 
-Azure Form Recognizer는 기계 학습 모델을 사용하여 문서에서 양식 필드, 텍스트 및 테이블을 추출하고 분석하는 [Azure Applied AI Service](../../applied-ai-services/index.yml) 클라우드 서비스입니다. Form Recognizer는 폼과 문서를 분석하고, 텍스트와 데이터를 추출하고, 필드 관계를 키-값 쌍으로 매핑하고, 구조화된 JSON 출력을 반환합니다. 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 정확한 결과를 빠르게 얻을 수 있습니다. Form Recognizer를 사용하여 애플리케이션 및 워크플로에서 데이터 처리를 자동화하고, 데이터 기반 전략을 개선하고, 문서 검색 기능을 보강합니다.
+Azure Form Recognizer는 기계 학습 모델을 사용하여 문서에서 양식 필드, 텍스트 및 테이블을 추출하고 분석하는 클라우드 기반 [Azure Applied AI Service](../../applied-ai-services/index.yml)입니다. Form Recognizer는 폼과 문서를 분석하고, 텍스트와 데이터를 추출하고, 필드 관계를 키-값 쌍으로 매핑하고, 구조화된 JSON 출력을 반환합니다. 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 정확한 결과를 빠르게 얻을 수 있습니다. Form Recognizer를 사용하여 애플리케이션 및 워크플로에서 데이터 처리를 자동화하고, 데이터 기반 전략을 개선하고, 문서 검색 기능을 보강합니다.
 
 Form Recognizer는 다음 문서 데이터를 쉽게 식별, 추출, 분석합니다.
 

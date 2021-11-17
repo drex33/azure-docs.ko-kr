@@ -5,12 +5,12 @@ description: 자동 TLS 인증서 생성을 위해 Let's Encrypt를 사용하는
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 9de0d9e0c85afe7608f59a17ce28f2ba1f50c1bd
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: bd436a02d64887abf74a6ffedfef6dac3c90d52c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/16/2021
-ms.locfileid: "132553118"
+ms.locfileid: "132519803"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "132553118"
 
 또한 이 문서에서는 AKS 클러스터와 동일한 리소스 그룹에 [DNS 영역][dns-zone]을 포함하는 [사용자 지정 도메인][custom-domain]이 있다고 가정합니다.
 
-이 문서에서는 [Helm 3][helm]을 사용하여 [지원되는 Kubernetes 버전][aks-supported versions]에 NGINX 수신 컨트롤러를 설치합니다. Helm의 최신 릴리스를 사용하고 있고 및 Helm `ingress-nginx` 리포지토리에 액세스할 수 있는지 `jetstack` 확인합니다. 이 문서에 설명된 단계는 이전 버전의 Helm 차트, NGINX 수신 컨트롤러 또는 Kubernetes와 호환되지 않을 수 있습니다.
+이 문서에서는 [Helm 3][helm]을 사용하여 [지원되는 Kubernetes 버전][aks-supported versions]에 NGINX 수신 컨트롤러를 설치합니다. 최신 버전의 투구를 사용 하 고 `ingress-nginx` 및 투구 리포지토리에 액세스할 수 있는지 확인 합니다 `jetstack` . 이 문서에 설명된 단계는 이전 버전의 Helm 차트, NGINX 수신 컨트롤러 또는 Kubernetes와 호환되지 않을 수 있습니다.
 
 Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요.
 
@@ -46,11 +46,13 @@ Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
-SOURCE_REGISTRY=k8s.gcr.io
+CONTROLLER_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
 CONTROLLER_TAG=v1.0.4
-PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
-PATCH_TAG=v1.1.1
+PATCH_REGISTRY=docker.io
+PATCH_IMAGE=jettech/kube-webhook-certgen
+PATCH_TAG=v1.5.2
+DEFAULTBACKEND_REGISTRY=k8s.gcr.io
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 CERT_MANAGER_REGISTRY=quay.io
@@ -59,9 +61,9 @@ CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
 CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
 CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
 
-az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
-az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
-az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
 az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
 az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
 az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
@@ -161,7 +163,7 @@ az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --outpu
  ```
 
 #### <a name="method-2-set-the-dns-label-using-helm-chart-settings"></a>방법 2: helm 차트 설정을 사용하여 DNS 레이블 설정
-매개 변수를 사용하여 주석 설정을 Helm 차트 구성에 전달할 수 `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` 있습니다.  수신 컨트롤러를 처음 배포할 때 설정하거나 나중에 구성할 수 있습니다.
+매개 변수를 사용 하 여 주석 설정을 투구 차트 구성에 전달할 수 있습니다 `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` .  수신 컨트롤러를 처음 배포할 때 설정하거나 나중에 구성할 수 있습니다.
 다음 예제에서는 컨트롤러가 배포된 후 이 설정을 업데이트하는 방법을 보여 줍니다.
 
 ```

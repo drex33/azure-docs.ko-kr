@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7d53287f5ed83f87d21880605e80206527264dd3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d2c7f6fee265503471a0efb573855374e8c088af
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030885"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132590658"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -58,7 +58,7 @@ ms.locfileid: "131030885"
 
 > [!IMPORTANT]
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](/azure/cognitive-services/cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
 
 ## <a name="try-it-layout-model"></a>**사용해 보기**: 레이아웃 모델
 

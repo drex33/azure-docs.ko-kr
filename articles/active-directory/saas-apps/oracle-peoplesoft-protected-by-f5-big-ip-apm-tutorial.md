@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 2583397a34635d54fa7982656019433442e2e96b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8b60af46f12af84dc5e08fbce7010de95b9771d1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058885"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132344373"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>자습서: Oracle PeopleSoft - Protected by F5 BIG-IP APM과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -341,4 +341,4 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-Oracle PeopleSoft-Protected by F5 BIG-IP APM이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Oracle PeopleSoft-Protected by F5 BIG-IP APM이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

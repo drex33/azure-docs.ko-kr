@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/21/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-ms.openlocfilehash: b13c7ac86ec8d21f143f4069cf1d0c777bde4bda
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 337561853bb34c8ecc67483dc8b94448b0b853a1
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058363"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548523"
 ---
-# <a name="quickstart-enable-single-sign-on-for-an-enterprise-application-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션에 Single Sign-On을 사용하도록 설정
+# <a name="quickstart-enable-single-sign-on-for-an-enterprise-application"></a>빠른 시작: 엔터프라이즈 애플리케이션에 Single Sign-On 사용
 
 이 빠른 시작에서는 Azure Active Directory 관리 센터를 사용하여 이전에 Azure AD(Azure Active Directory) 테넌트에 추가한 엔터프라이즈 애플리케이션에 SSO(Single Sign-On)를 사용하도록 구성합니다. SSO를 구성하면 사용자가 자신의 Azure AD 자격 증명을 사용하여 로그인할 수 있습니다. 
 

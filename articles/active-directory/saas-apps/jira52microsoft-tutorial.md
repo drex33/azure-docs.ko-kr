@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 5254b7bcf851685572adbdc3d18c1fc5560a34d7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1e8b0559095048845691f1cadcfa6bc5cbe723d2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633247"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132295305"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-jira-saml-sso-by-microsoft-v52"></a>자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure AD SSO 통합
 
@@ -233,4 +233,4 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 ## <a name="next-steps"></a>다음 단계
 
-JIRA SAML SSO by Microsoft(V5.2)가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+JIRA SAML SSO by Microsoft(V5.2)가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

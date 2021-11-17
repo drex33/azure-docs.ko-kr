@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/04/2021
 ms.author: jeedes
-ms.openlocfilehash: c25784583b74069f4b6462166da5c9cf1038c6d9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4b3283780e611e37ef6cdae1feb6eb4b22f8f255
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124760872"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>자습서: Sectigo Certificate Manager와 Azure Active Directory 통합
 
@@ -166,4 +166,4 @@ Sectigo Certificate Manager 쪽에서 Single Sign-On을 구성하려면 다운�
 
 ## <a name="next-steps"></a>다음 단계
 
-Sectigo Certificate Manager가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Sectigo Certificate Manager가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

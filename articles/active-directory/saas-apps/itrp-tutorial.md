@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 040c32810aaee9e96939e1937f3d9061ec7d89ba
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b972c3c6779d3ca288685d1a8921bceac7d001dd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474411"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346385"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-itrp"></a>자습서: ITRP와 Azure AD SSO 통합
 
@@ -193,4 +193,4 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 설정하려면 해당 
 
 ## <a name="next-steps"></a>다음 단계
 
-ITRP가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+ITRP가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

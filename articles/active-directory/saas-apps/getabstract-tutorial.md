@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: e736d27708bbf04c3d738b0ddc252baa9409d96c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6b147db400df4bd0f566d2d1ad33c0c9a94b49b5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128640062"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132291752"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>자습서: Getabstract와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "128640062"
 * 사용자가 해당 Azure AD 계정으로 Getabstract에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -170,4 +170,4 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-Getabstract가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Getabstract가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

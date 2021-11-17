@@ -11,12 +11,12 @@ author: justinha
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4, ignite-fall-2021
-ms.openlocfilehash: 1572e029e4ae6b9c89587a32e710162aa53177a6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 17bc0c700aee1a351371f35e7c84e95312214088
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029861"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550309"
 ---
 # <a name="tutorial-enable-cloud-sync-self-service-password-reset-writeback-to-an-on-premises-environment-preview"></a>자습서: 온-프레미스 환경에 클라우드 동기화 셀프 서비스 암호 재설정 쓰기 저장 사용(미리 보기)
 
@@ -35,7 +35,7 @@ Azure Active Directory Connect 클라우드 동기화 셀프 서비스 암호 �
 - Azure AD Connect 클라우드 동기화에서 비밀번호 쓰기 저장을 사용하도록 설정하려면 서명된 PowerShell 스크립트를 실행해야 합니다.
   - PowerShell 실행 정책이 스크립트 실행을 허용하는지 확인합니다. 
   - 설치하는 동안 권장되는 실행 정책은 "RemoteSigned"입니다. 
-  - PowerShell 실행 정책을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy.md?view=powershell-7.1)를 참조하세요. 
+  - PowerShell 실행 정책을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)를 참조하세요. 
 
 
 ## <a name="deployment-steps"></a>배포 단계

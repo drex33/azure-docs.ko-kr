@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 34d5d0f7daabce877b025c81e9268119e1d3e1e2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 01f70a4cb71f8f864e84dc27e200f2b8f020547a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131459200"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340859"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-topdesk---secure"></a>자습서: TOPdesk - Secure와 Azure AD SSO 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "131459200"
 * 사용자가 해당 Azure AD 계정으로 TOPdesk - Secure에 자동으로 로그인(Single Sign-On)되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
  
@@ -97,7 +97,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기 
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -109,7 +109,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 TOPdesk - Secure에 대한 액세스 권한을 부여합니다.
 
@@ -118,16 +118,16 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-topdesk---secure-sso&quot;></a>TOPdesk - Secure SSO 구성
+## <a name="configure-topdesk---secure-sso"></a>TOPdesk - Secure SSO 구성
 
 1. **TOPdesk - Secure** 회사 사이트에 관리자 권한으로 로그온합니다.
 
 2. **TOPdesk** 메뉴에서 **Settings** 를 클릭합니다.
 
-    ![설정](./media/topdesk-secure-tutorial/menu.png &quot;설정")
+    ![설정](./media/topdesk-secure-tutorial/menu.png "설정")
 
 3. **Login Settings** 를 클릭합니다.
 
@@ -225,4 +225,4 @@ TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-TOPdesk - Secure가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+TOPdesk - Secure가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

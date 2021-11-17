@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 4cf995376ad9b7b46acc85d0aa03c4079bf8ae3d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 49bccfa7a5a3cc90038c5068841c75c972616fe2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067019"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316661"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wedo"></a>자습서: WEDO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -194,4 +194,4 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-WEDO가 구성되면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+WEDO가 구성되면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: a72156407b657147f44333afcc576b5bc931f71d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 236647fa2cbc4c7f0b43ff8720639fe99119d91f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435969"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132291055"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-kontiki"></a>자습서: Kontiki와 Azure AD SSO 통합
 
@@ -138,4 +138,4 @@ Kontiki에서 사용자 프로비저닝을 구성할 수 있는 작업 항목이
 
 ## <a name="next-steps"></a>다음 단계
 
-Kontiki를 구성하면 세션 제어를 적용하여 조직의 중요한 데이터 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Kontiki를 구성하면 세션 제어를 적용하여 조직의 중요한 데이터 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/13/2021
 ms.author: jeedes
-ms.openlocfilehash: d6a68617667cc18bdd56ece8e476bafaa765405d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ea2cfac86a601305cd63414582721b6b6df864bb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001095"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132333887"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-projectplace"></a>자습서: Projectplace와 Azure AD SSO 통합
 
@@ -169,4 +169,4 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-Projectplace가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Projectplace가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

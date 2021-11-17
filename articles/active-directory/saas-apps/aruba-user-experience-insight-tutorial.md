@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 83bfd80e3a687466c459aa63a5394000a6ab1265
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6ed48a3544af5b577122433405728d6828cc8e6d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131039908"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132288695"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aruba-user-experience-insight"></a>자습서: Aruba User Experience Insight와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -157,4 +157,4 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-Aruba User Experience Insight가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Aruba User Experience Insight가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

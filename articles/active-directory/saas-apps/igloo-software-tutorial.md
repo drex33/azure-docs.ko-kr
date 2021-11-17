@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2021
 ms.author: jeedes
-ms.openlocfilehash: ef100a2271cac314db8fa798ad94e8395fd4bc08
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: cf601bbb7894640c512f00d736e93252cbf8dde7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855596"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305088"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-igloo-software"></a>자습서: Igloo Software와 Azure AD SSO 통합
 
@@ -93,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -105,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Igloo Software에 대한 액세스 권한을 부여합니다.
 
@@ -114,16 +114,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-igloo-software-sso&quot;></a>Igloo Software SSO 구성
+## <a name="configure-igloo-software-sso"></a>Igloo Software SSO 구성
 
 1. 다른 웹 브라우저 창에서 Igloo Software 회사 사이트에 관리자로 로그인합니다.
 
 2. **제어판** 으로 이동합니다.
 
-     ![제어판](./media/igloo-software-tutorial/settings.png &quot;제어판")
+     ![제어판](./media/igloo-software-tutorial/settings.png "제어판")
 
 3. **멤버 자격** 탭에서 **로그인 설정** 을 클릭합니다.
 
@@ -189,4 +189,4 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
 
 ## <a name="next-steps"></a>다음 단계
 
-Igloo Software가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Igloo Software가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

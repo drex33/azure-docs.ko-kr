@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 682fdc1069a9a54544ebc660edb16269a6930dfd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: be2284e88a8de6f1bf050167fdf15342ef4e1909
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124817652"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324381"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>자습서: Boomi와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -155,17 +155,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. **저장** 단추를 클릭합니다.
 
-### <a name="create-boomi-test-user&quot;></a>Boomi 테스트 사용자 만들기
+### <a name="create-boomi-test-user"></a>Boomi 테스트 사용자 만들기
 
 Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프로비저닝되어야 합니다. Boomi의 경우 프로비전은 수동 작업입니다.
 
-### <a name=&quot;to-provision-a-user-account-perform-the-following-steps&quot;></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1. Boomi 회사 사이트에 관리자 권한으로 로그인합니다.
 
 1. 로그인 후 **사용자 관리**, **사용자** 로 이동합니다.
 
-    ![스크린샷은 사용자가 선택한 사용자 관리 페이지를 보여줍니다.](./media/boomi-tutorial/user.png &quot;사용자")
+    ![스크린샷은 사용자가 선택한 사용자 관리 페이지를 보여줍니다.](./media/boomi-tutorial/user.png "사용자")
 
 1. **+** 아이콘을 클릭하면 **사용자 역할 추가/유지 관리** 대화 상자가 열립니다.
 
@@ -199,4 +199,4 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
 ## <a name="next-steps"></a>다음 단계
 
-Boomi가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Boomi가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

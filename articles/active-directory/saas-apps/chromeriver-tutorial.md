@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 1fbacc44655f4e4a1d25cbff64fc6040bdce6cfa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 922a5267cc147bd362c248d2ba11c9fa9ab4e2ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826604"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132311848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>자습서: Chromeriver과 Azure Active Directory 통합
 
@@ -135,4 +135,4 @@ Azure AD 사용자가 Chromeriver에 로그인할 수 있도록 하려면 Chrome
 
 ## <a name="next-steps"></a>다음 단계
 
-Chromeriver를 구성한 후에 세션 제어를 적용하면 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Chromeriver를 구성한 후에 세션 제어를 적용하면 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

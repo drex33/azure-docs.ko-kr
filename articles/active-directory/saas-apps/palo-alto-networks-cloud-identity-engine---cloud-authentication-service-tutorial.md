@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 0aab9d24888efea7937db62e1826d5d1e5c651b8
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 79ebe80a0171edb020e3dad9f62106ed25ef1618
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114373338"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307056"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks-cloud-identity-engine---cloud-authentication-service"></a>자습서: Palo Alto Networks 클라우드 ID 엔진 - 클라우드 인증 서비스와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -98,7 +98,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Palo Alto Networks 클라우드 ID 엔진 - 클라우드 인증 서비스 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | 속성 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------- |
     | 그룹 |  user.groups |
     | 사용자 이름 | user.userprincipalname |
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -168,4 +168,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-**Palo Alto Networks 클라우드 ID 엔진 - 클라우드 인증 서비스** 를 구성하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호하는 세션 제어를 적용할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+**Palo Alto Networks 클라우드 ID 엔진 - 클라우드 인증 서비스** 를 구성하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호하는 세션 제어를 적용할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

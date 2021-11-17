@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 22206e91842a71e4dd41102a4ba9a86e11649201
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 110f7bf02ba85a64a2978b23d5f43434d34b43b8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785651"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>자습서: SpaceIQ와 Azure Active Directory 통합
 
@@ -160,4 +160,4 @@ SpaceIQ는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자
 
 ## <a name="next-steps"></a>다음 단계
 
-SpaceIQ를 구성하면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+SpaceIQ를 구성하면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

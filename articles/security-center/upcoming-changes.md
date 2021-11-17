@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 11/10/2021
 ms.author: memildin
-ms.openlocfilehash: fa80d1891799aa1266a309552f5715e755cec8ab
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: fca622c8c49a16d9926a5fc1e8e0f0064ee758d7
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132057274"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157443"
 ---
 # <a name="important-upcoming-changes-to-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에 대한 향후 중요 변경 내용
 
@@ -32,11 +32,11 @@ ms.locfileid: "132057274"
 |----------------------|---------------------------|
 | [사용 중단 미리 보기 경고: ARM. MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | 2021년 11월|
 | [ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| 2021년 11월|
-| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | 2021년 11월| 
 | [온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | 2021년 11월    |
 | [ID 권장 사항에 대한 여러 변경 사항](#multiple-changes-to-identity-recommendations)                                                                                          | 2021년 12월    |
 | [Microsoft Defender for Storage의 보안 경고 변경 내용](#changes-to-a-security-alert-from-microsoft-defender-for-storage)  | 2021년 11월    |
-| [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | 2022년 1분기    |
+| [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | 2022년 1분기    |
+| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | 2022년 2월| 
 |||
 
 ### <a name="deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses"></a>사용 중단 미리 보기 경고: ARM. MCAS_ActivityFromAnonymousIPAddresses
@@ -59,26 +59,6 @@ ms.locfileid: "132057274"
 ISO 27001의 레거시 구현은 Defender for Cloud의 규정 준수 대시보드에서 제거됩니다. Defender for Cloud를 사용하여 ISO 27001 규정 준수를 추적하는 경우 모든 관련 관리 그룹 또는 구독에 대한 새 ISO 27001:2013 표준을 온보드하면 현재 레거시 ISO 27001이 대시보드에서 곧 제거됩니다.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="ISO 27001의 레거시 구현을 제거하는 방법에 대한 메시지를 보여주는 Defender for Cloud의 규정 준수 대시보드." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
-
-### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경
-
-**변경 예상 날짜:** 2021년 11월
-
-2021년 8월에 컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 자세한 내용은 [릴리스 정보](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)를 참조하세요.
-
-권장 사항이 일반 공급으로 출시되면 다음과 같은 기존 권장 사항을 대체합니다.
-
-- **컴퓨터에 Endpoint Protection을 설치해야 함** 으로 인해 다음이 바뀝니다.
-    - [가상 머신에 엔드포인트 보호 솔루션 설치(키: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
-    - [머신에 엔드포인트 보호 솔루션 설치(키: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
-
-- **컴퓨터에서 엔드포인트 보호 상태 문제를 해결해야 함** 은 이름이 같은 기존 권장 사항을 대체합니다. 두 가지 권장 사항에는 서로 다른 평가 키가 있습니다.
-    - **미리 보기** 권장 사항에 대한 평가 키: 37a3689a-818e-4a0e-82ac-b1392b9bb000
-    - **GA** 권장 사항에 대한 평가 키: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
-
-자세한 정보:
-- [Defender for Cloud에서 지원하는 엔드포인트 보호 솔루션](supported-machines-endpoint-solutions-clouds.md#endpoint-supported)
-- [이 권장 사항이 배포된 솔루션의 상태를 평가하는 방법](endpoint-protection-recommendations-technical.md)
 
 
 ### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.
@@ -138,9 +118,6 @@ Defender for Cloud에는 사용자 및 계정 관리를 개선하기 위한 여�
     |||
  
 
-
-
-
 ### <a name="changes-to-a-security-alert-from-microsoft-defender-for-storage"></a>Microsoft Defender for Storage의 보안 경고 변경 내용
 
 **변경 예상 날짜:** 2021년 11월
@@ -165,6 +142,28 @@ Microsoft Defender for Storage에서 제공하는 미리 보기 경고 중 하�
 **변경 예상 날짜:** 2022년 1분기
 
 **데이터 분류 적용** 보안 제어에서 **SQL 데이터베이스의 중요 데이터를 분류해야 함** 권장 사항은 Microsoft의 데이터 분류 전략에 맞춰 향상된 새 버전으로 대체됩니다. 그 결과 권장 사항의 ID도 변경됩니다(현재 b0df6f56-862d-4730-8597-38c0fd4ebd59임).
+
+
+### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경
+
+**변경 예상 날짜:** 2022년 2월
+
+2021년 8월에 컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 자세한 내용은 [릴리스 정보](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)를 참조하세요.
+
+권장 사항이 일반 공급으로 출시되면 다음과 같은 기존 권장 사항을 대체합니다.
+
+- **컴퓨터에 Endpoint Protection을 설치해야 함** 으로 인해 다음이 바뀝니다.
+    - [가상 머신에 엔드포인트 보호 솔루션 설치(키: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
+    - [머신에 엔드포인트 보호 솔루션 설치(키: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
+
+- **컴퓨터에서 엔드포인트 보호 상태 문제를 해결해야 함** 은 이름이 같은 기존 권장 사항을 대체합니다. 두 가지 권장 사항에는 서로 다른 평가 키가 있습니다.
+    - **미리 보기** 권장 사항에 대한 평가 키: 37a3689a-818e-4a0e-82ac-b1392b9bb000
+    - **GA** 권장 사항에 대한 평가 키: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
+
+자세한 정보:
+- [Defender for Cloud에서 지원하는 엔드포인트 보호 솔루션](supported-machines-endpoint-solutions-clouds.md#endpoint-supported)
+- [이 권장 사항이 배포된 솔루션의 상태를 평가하는 방법](endpoint-protection-recommendations-technical.md)
+
 
 
 ## <a name="next-steps"></a>다음 단계

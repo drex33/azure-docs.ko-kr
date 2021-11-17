@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2021
 ms.author: jeedes
-ms.openlocfilehash: fa207bb2d915ad307a04f633139cd49beddfbb24
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 32e4b30ae95803c898e3189ebdbe9283513dd9e0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580098"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324404"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-autodesk-sso"></a>자습서: Autodesk SSO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Autodesk SSO 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | 속성 |  원본 특성|
+    | Name |  원본 특성|
     | -------------- | --------- |
     | firstName | user.givenname |
     | lastName | user.surname |
@@ -147,6 +147,4 @@ Autodesk SSO를 테스트하려면 Autodesk 콘솔을 열어 **연결 테스트*
 
 ## <a name="next-steps"></a>다음 단계
 
-Autodesk SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
-
-
+Autodesk SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

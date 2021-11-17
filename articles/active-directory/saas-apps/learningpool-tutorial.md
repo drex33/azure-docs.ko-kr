@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: jeedes
-ms.openlocfilehash: eb7d97b5e796ae9433b695c15ef809f7674f53f3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ab0ada258b8df3ccca7086f2d8c84a2b4b1ee336
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032140"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132313482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-pool-lms"></a>자습서: Learning Pool LMS와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "131032140"
 * 사용자가 해당 Azure AD 계정으로 Learning Pool LMS에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -141,4 +141,4 @@ Learning Pool 배달 팀에서 테스트 프로세스를 안내합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Learning Pool LMS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Learning Pool LMS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

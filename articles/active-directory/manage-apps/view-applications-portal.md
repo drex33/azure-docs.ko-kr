@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: arvinh
-ms.openlocfilehash: 0f744176e3a1472cadd740f94e34839bb7a8a09d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 4da70b29fb7d5a8920db05e0d7c28f5c29a101fd
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613722"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553138"
 ---
-# <a name="quickstart-view-enterprise-applications-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션 보기
+# <a name="quickstart-view-enterprise-applications"></a>빠른 시작: 엔터프라이즈 애플리케이션 보기
 
 이 빠른 시작에서는 Azure Active Directory 관리 센터를 사용하여 Azure AD(Azure Active Directory) 테넌트에 이미 구성된 엔터프라이즈 애플리케이션을 검색하고 확인하는 방법에 대해 알아봅니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: a38d2ced173e74263cdf159a1f3243e00ce0911b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bd6f83dbf7c9d4e0115089daddca7bddd9887bb7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776567"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307444"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>자습서: NetSuite와 Azure AD SSO(Single Sign-On) 통합
 
@@ -241,7 +241,6 @@ NetSuite는 자동화된 사용자 프로비저닝도 지원합니다. 자동화
 
 - Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 NetSuite 타일을 클릭하면 SSO를 설정한 NetSuite에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-NetSuite를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
+NetSuite를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

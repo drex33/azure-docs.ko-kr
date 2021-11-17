@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 0db8c8d14dbd3e09ebb798c41ea2d7b526acabc9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f77a6d0088d9ee45c1f39a46abbb6f88806b3e57
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124753194"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132329502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-resource-central--saml-sso-for-meeting-room-booking-system"></a>자습서: Resource Central - 회의실 예약 시스템용 SAML SSO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124753194"
 * 사용자가 Azure AD 계정을 사용하여 Resource Central – 회의실 예약 시스템용 SAML SSO에 자동으로 로그인할 수 있도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -181,4 +181,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD로 Single Sign-On(SSO)을 위한 Resource Central – 회의실 예약 시스템용 SAML SSO를 설정한 후 세션 제어를 적용하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Azure AD로 Single Sign-On(SSO)을 위한 Resource Central – 회의실 예약 시스템용 SAML SSO를 설정한 후 세션 제어를 적용하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: cad00073f8bb61ce1ec59e3ee5d0139958065548
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ce4ba44c1c3096bad6b936f293b47ac5ff9a30c7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131424119"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132285199"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-korn-ferry-alp"></a>자습서: Korn Ferry ALP과 Azure AD SSO 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "131424119"
 * 사용자가 자신의 Azure AD 계정으로 Korn Ferry ALP에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -142,4 +142,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-Korn Ferry ALP를 구성한 후에는 세션 제어를 적용하여 조직의 중요 데이터에 대한 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Korn Ferry ALP를 구성한 후에는 세션 제어를 적용하여 조직의 중요 데이터에 대한 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

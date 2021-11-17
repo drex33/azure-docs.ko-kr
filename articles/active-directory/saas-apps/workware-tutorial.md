@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 9d213c63be608f2b28ec28f6597d33ff622b8cb5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 37da17ab39e9f30114741319cdef6bc7036fa734
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005773"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284952"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-workware"></a>자습서: Workware와 Azure AD SSO 통합
 
@@ -167,4 +167,4 @@ Workware에서 SSO 기능을 사용하려면 다음 설정을 완료해야 합�
 
 ## <a name="next-steps"></a>다음 단계
 
-Workware가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Workware가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

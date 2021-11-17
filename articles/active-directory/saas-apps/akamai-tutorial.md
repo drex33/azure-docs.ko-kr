@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 46763926a03fc4cb58803bfb2c716f09ece1b71b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4d5046f3d783a3e9c7d6035b221c9a55109db179
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456400"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331189"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-akamai"></a>자습서: Akamai와 Azure AD SSO 통합
 
@@ -587,4 +587,4 @@ ID 공급자를 할당합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Akamai가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Akamai가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 87b28323e418e77b0eeccb866de3a48a07c1c546
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f618f4bd973db80e68ef087539619f6771c99ade
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124765857"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292208"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>자습서: Central Desktop와 Azure Active Directory 통합
 
@@ -97,7 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -109,7 +109,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Central Desktop에 대한 액세스 권한을 부여합니다.
 
@@ -118,16 +118,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-central-desktop-sso&quot;></a>Central Desktop SSO 구성
+## <a name="configure-central-desktop-sso"></a>Central Desktop SSO 구성
 
 1. **Central Desktop** 테넌트에 로그인합니다.
 
 2. **설정** 으로 이동합니다. **고급** 을 선택한 다음, **Single Sign-On** 을 선택합니다.
 
-    ![설정 - 고급](./media/central-desktop-tutorial/settings.png &quot;설정 - 고급")
+    ![설정 - 고급](./media/central-desktop-tutorial/settings.png "설정 - 고급")
 
 3. **Single Sign-On 설정** 페이지에서 다음 단계를 수행합니다.
 
@@ -193,4 +193,4 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 애플리케이
 
 ## <a name="next-steps"></a>다음 단계
 
-Central Desktop이 구성되면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Central Desktop이 구성되면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

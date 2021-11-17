@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 90abed6597f123b291a5af281f109f07df990be5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 572a09fa957ae271d131358a612f00bc9ae2107e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131471215"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316837"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-symantec-web-security-service-wss"></a>자습서: Symantec WSS(Web Security Service)와 Azure AD 통합
 
@@ -141,4 +141,4 @@ Symantec WSS(Web Security Service) 쪽에 Single Sign-On을 구성하려면 WSS 
 
 ## <a name="next-steps"></a>다음 단계
 
-Symantec WSS(Web Security Service)가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Symantec WSS(Web Security Service)가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

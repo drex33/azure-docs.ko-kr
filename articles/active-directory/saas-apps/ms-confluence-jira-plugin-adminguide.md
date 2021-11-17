@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9716b9d7fc89ba789ef44f44bafbd64340256da1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94359160"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132300340"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
 
@@ -159,7 +159,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **Azure AD에 "앱을 찾을 수 없음" 오류가 있는 경우**: Azure AD에서 적절한 URL이 앱에 매핑되는지 확인합니다.
 
-* **지원이 필요한 경우**: [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 연락합니다. 팀에서 24~48시간(업무 시간) 이내로 응답해 드립니다.
+* **지원이 필요한 경우**: [Azure AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com)에 연락합니다. 팀에서 24~48시간(업무 시간) 이내로 응답해 드립니다.
 
   또한 Azure Portal 채널을 통해 Microsoft 지원 티켓을 발급할 수 있습니다.
 
@@ -211,7 +211,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ### <a name="how-do-i-get-support-for-the-plug-in"></a>플러그 인에 대한 지원을 받으려면 어떻게 하나요?
 
-이 플러그 인에 필요한 지원은 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의할 수 있습니다. 팀에서 24~48시간(업무 시간) 이내로 응답해 드립니다.
+이 플러그 인에 필요한 지원은 [Azure AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com)에 문의할 수 있습니다. 팀에서 24~48시간(업무 시간) 이내로 응답해 드립니다.
 
 또한 Azure Portal 채널을 통해 Microsoft 지원 티켓을 발급할 수 있습니다.
 

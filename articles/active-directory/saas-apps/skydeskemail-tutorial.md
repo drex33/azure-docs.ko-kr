@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 4d28d57a20f1878e32067faa9e68f6f3ac30640b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bf444b81f24a2ca45d72d9db23fefcc49673eb59
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245551"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132317120"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-skydesk-email"></a>자습서: SkyDesk Email과 Azure AD SSO 통합
 
@@ -183,4 +183,4 @@ SkyDesk Email의 왼쪽 패널에서 **사용자 액세스** 를 클릭하고 �
 
 ## <a name="next-steps"></a>다음 단계
 
-SkyDesk Email을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+SkyDesk Email을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-ms.openlocfilehash: 16bc055ed2b47ee5c212fa26387599a8d4ada7a8
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: c2ee107815186ac7877056ac8cec4954d30de747
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058206"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547529"
 ---
-# <a name="quickstart-delete-an-enterprise-application-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션 삭제
+# <a name="quickstart-delete-an-enterprise-application"></a>빠른 시작: 엔터프라이즈 애플리케이션 삭제
 
 이 빠른 시작에서는 Azure Active Directory 관리 센터를 사용하여 Azure AD(Azure Active Directory) 테넌트에 추가된 애플리케이션을 삭제합니다.
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 24d30dc81b2b2a3da2ac5f172dabe77cf5b01f9c
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 02bbc4d6b0cc6f346111a8cd0145ef099dd33feb
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058247"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552017"
 ---
-# <a name="add-an-openid-connect-based-single-sign-on-application-in-azure-active-directory"></a>Azure Active Directory에서 OpenID Connect 기반 Single Sign-On 애플리케이션 추가
+# <a name="add-an-openid-connect-based-single-sign-on-application"></a>OpenID Connect 기반 Single Sign-On 애플리케이션 추가
 
 [OIDC(OpenID Connect)](../develop/active-directory-v2-protocols.md) 기반 SSO(Single Sign-On)를 지원하는 애플리케이션을 Azure AD(Azure Active Directory) 테넌트에 추가합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/07/2021
 ms.author: jeedes
-ms.openlocfilehash: a9f5a22c8a76af8f57845d8f0e1ba2ebfb0c28f6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 358dcd9945751a20332063f14d408b12de151fed
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124839109"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318406"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-appaegis-isolation-access-cloud"></a>자습서: Appaegis Isolation Access Cloud와 Azure AD SSO 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124839109"
 * 사용자가 자신의 Azure AD 계정으로 Appaegis Isolation Access Cloud에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Appaegis Isolation Access Cloud에 대한 액세스 권한을 부여하여 B.Simon이 Azure Single Sign-On을 사용하도록 설정합니다.
 
@@ -124,16 +124,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-appaegis-isolation-access-cloud-sso&quot;></a>Appaegis Isolation Access Cloud SSO 구성
+## <a name="configure-appaegis-isolation-access-cloud-sso"></a>Appaegis Isolation Access Cloud SSO 구성
 
 1. Appaegis Isolation Access Cloud 회사 사이트에 관리자 권한으로 로그인합니다.
 
 1. **설정** > **사용자 지정** 으로 이동하고, 텍스트 상자에 **테넌트 도메인 URL** 을 입력하고, **+IdP** 단추를 클릭합니다.
 
-    ![계정 사용자 지정을 보여주는 스크린샷](./media/appaegis-isolation-access-cloud-tutorial/account.png &quot;계정 사용자 지정")
+    ![계정 사용자 지정을 보여주는 스크린샷](./media/appaegis-isolation-access-cloud-tutorial/account.png "계정 사용자 지정")
 
 1. **ID 공급자 세부 정보** 페이지에서 다음 단계를 수행합니다.
 
@@ -171,4 +171,4 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-Appaegis Isolation Access Cloud가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Appaegis Isolation Access Cloud가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

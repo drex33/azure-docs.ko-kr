@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: a12f5717d927e8358a503a50f314c6b80f577952
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 76c45ca0287a943235197a6316e7e371faf37af2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129585067"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132590637"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
@@ -20,10 +20,10 @@ ms.locfileid: "129585067"
 > [!NOTE]
 > 이 API는 개발자를 위한 미리 보기로 제공되며 수신한 피드백을 기반으로 변경될 수 있습니다. 프로덕션 환경에서 이 API를 사용하지 마세요. 이 API를 사용하려면 ACS 통화 Android SDK의 '베타' 릴리스를 사용하세요.
 
-통화 레코딩은 핵심 `Call` API의 확장 기능입니다. 먼저 레코딩 기능 API 개체를 가져와야 합니다.
+통화 기록은 핵심 개체의 확장 기능입니다 `Call` . 먼저 기록 기능 개체를 가져와야 합니다.
 
 ```java
-RecordingCallFeature callRecordingFeature = call.api(Features.RECORDING);
+RecordingCallFeature callRecordingFeature = call.feature(Features.RECORDING);
 ```
 
 그런 다음, 통화가 녹음되고 있는지 확인하려면 `callRecordingFeature`의 `isRecordingActive` 속성을 검사합니다. `boolean`를 반환합니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: ba91e6c8ab0b1d0881e8c843b0f91cd71f4e43fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 802376c7cd16df02d4b862a1a8aac82d1a1e5bbe
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758810"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>자습서: Recognize와 Azure Active Directory 통합
 
@@ -161,7 +161,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     ![스크린샷은 엔터티 ID를 가져올 수 있는 일반 텍스트 XML이 있는 텍스트 상자를 보여줍니다.](./media/recognize-tutorial/descriptor.png)
 
-### <a name="create-recognize-test-user&quot;></a>Recognize 테스트 사용자 만들기
+### <a name="create-recognize-test-user"></a>Recognize 테스트 사용자 만들기
 
 Azure AD 사용자가 Recognize에 로그인할 수 있도록 하려면 Recognize로 프로비전되어야 합니다. Recognize의 경우 프로비전은 수동 작업입니다.
 
@@ -177,7 +177,7 @@ Azure AD 사용자가 Recognize에 로그인할 수 있도록 하려면 Recogniz
 
 4. **사용자 동기화** 섹션에서 다음 단계를 수행합니다.
    
-    ![새 사용자](./media/recognize-tutorial/user.png &quot;새 사용자")
+    ![새 사용자](./media/recognize-tutorial/user.png "새 사용자")
    
     a. **동기화 사용** 에서 **켜기** 를 선택합니다.
    
@@ -197,4 +197,4 @@ Azure AD 사용자가 Recognize에 로그인할 수 있도록 하려면 Recogniz
 
 ## <a name="next-steps"></a>다음 단계
 
-Recognize가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Recognize가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

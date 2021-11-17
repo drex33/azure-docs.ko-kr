@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-ms.openlocfilehash: 66de4e18f8a6c88ae3c1504197eb6f39632c6425
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: f3d9cd36b821b1dca5311c266b84e259eab005c0
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058167"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546959"
 ---
-# <a name="quickstart-add-an-enterprise-application-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 엔터프라이즈 애플리케이션 추가
+# <a name="quickstart-add-an-enterprise-application"></a>빠른 시작: 엔터프라이즈 애플리케이션 추가
 
 이 빠른 시작에서는 Azure Active Directory 관리 센터를 사용하여 엔터프라이즈 애플리케이션을 Azure AD(Azure Active Directory) 테넌트에 추가합니다. Azure AD에는 수천 개의 사전 통합된 엔터프라이즈 애플리케이션이 포함된 갤러리가 있습니다. 조직에서 사용하는 대부분의 애플리케이션은 이미 갤러리에 있을 수 있습니다. 이 빠른 시작에서는 **Azure AD SAML Toolkit** 이라는 애플리케이션을 예로 사용하지만, 개념은 [갤러리에 있는 대부분의 엔터프라이즈 애플리케이션](../saas-apps/tutorial-list.md)에 적용됩니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 3bb43b64cc295261f0261011bf0d3caa5a809972
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 840733331deb52f18fbd7df45ac65c5eff8c9893
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642308"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132299743"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-runmyprocess"></a>자습서: RunMyProcess와 Azure AD SSO 통합
 
@@ -139,7 +139,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. **저장** 아이콘을 클릭합니다.
 
-### <a name="create-runmyprocess-test-user&quot;></a>RunMyProcess 테스트 사용자 만들기
+### <a name="create-runmyprocess-test-user"></a>RunMyProcess 테스트 사용자 만들기
 
 Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMyProcess로 프로비저닝되어야 합니다. RunMyProcess의 경우 프로비전은 수동 작업입니다.
 
@@ -149,7 +149,7 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
 
 1. 왼쪽 탐색 패널에서 **계정** 을 클릭하고 **사용자** 를 선택한 다음 **새 사용자** 를 클릭합니다.
 
-    ![새 사용자](./media/runmyprocess-tutorial/user.png &quot;새 사용자")
+    ![새 사용자](./media/runmyprocess-tutorial/user.png "새 사용자")
 
 1. **사용자 설정** 섹션에서 다음 단계를 수행합니다.
 
@@ -178,4 +178,4 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
 
 ## <a name="next-steps"></a>다음 단계
 
-RunMyProcess를 구성하면 세션 제어를 적용하여 조직의 중요한 데이터 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+RunMyProcess를 구성하면 세션 제어를 적용하여 조직의 중요한 데이터 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

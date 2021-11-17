@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/19/2021
 ms.author: jeedes
-ms.openlocfilehash: a73b5adffea65be630dc1f961d6a0462794ef454
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: dfc04500e419c5362ab39bbcbfb80ee5dea8ad14
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440779"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132318102"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-atomic-learning"></a>자습서: Atomic Learning과 Azure AD SSO 통합
 
@@ -136,4 +136,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-Atomic Learning을 구성한 후에는 세션 제어를 적용하여 조직의 중요 데이터에 대한 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Atomic Learning을 구성한 후에는 세션 제어를 적용하여 조직의 중요 데이터에 대한 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

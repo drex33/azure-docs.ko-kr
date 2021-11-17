@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 68d973511685c71d7e698bb84ed51ce27a812280
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3e5c7e0634696badff8121651faffb88b2a57db5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791235"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324140"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-saml-connector-for-azure-ad-kerberos-based-authentication"></a>자습서: Azure AD용 Citrix ADC SAML 커넥터와 Azure Active Directory Single Sign-On 통합(Kerberos 기반 인증)
 
@@ -445,4 +445,4 @@ GUI를 사용하여 가상 서버에 트래픽 정책을 바인딩하려면 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD용 Citrix ADC SAML 커넥터가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Azure AD용 Citrix ADC SAML 커넥터가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

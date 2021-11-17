@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: e6dd9403912d6fddf0b0c6a8d3953756c7432ea6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 477dcc9935185861f551f89e7376f705c29ccb29
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040003"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132285087"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -43,7 +43,7 @@ ms.locfileid: "131040003"
 
 * Workplace by Facebook에서 **SP** 시작 SSO를 지원합니다.
 * Workplace by Facebook에서 **Just-In-Time 프로비저닝** 을 지원합니다.
-* Workplace by Facebook에서 **[자동 사용자 프로비저닝](workplacebyfacebook-provisioning-tutorial.md)** 을 지원합니다.
+* Workplace by Facebook에서 **[자동 사용자 프로비저닝](workplace-by-facebook-provisioning-tutorial.md)** 을 지원합니다.
 * 이제 Workplace by Facebook 모바일 애플리케이션을 Azure AD에서 SSO를 사용하도록 설정할 수 있습니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 
@@ -83,11 +83,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL**(WorkPlace에서 수신자 URL로 있음) 텍스트 상자에서 `https://.workplace.com/work/saml.php` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL**(WorkPlace에서 수신자 URL로 있음) 텍스트 상자에서 `https://.facebook.com/work/saml.php` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** (WorkPlace에서 대상 URL로 있음) 텍스트 상자에서 `https://www.workplace.com/company/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** (WorkPlace에서 대상 URL로 있음) 텍스트 상자에서 `https://www.facebook.com/company/` 패턴을 사용하여 URL을 입력합니다.
 
-    c. **회신 URL**(WorkPlace에서 Assertion Consumer Service로 있음) 텍스트 상자에서 `https://.workplace.com/work/saml.php` 패턴을 사용하는 URL을 입력합니다.
+    c. **회신 URL**(WorkPlace에서 Assertion Consumer Service로 있음) 텍스트 상자에서 `https://.facebook.com/work/saml.php` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. Workplace 커뮤니티에 대한 올바른 값은 Workplace 회사 대시보드의 인증 페이지를 참조하세요. 이는 자습서의 뒷부분에 설명되어 있습니다.
@@ -233,4 +233,4 @@ Require SAML authentication for all users now(모든 사용자에게 SAML 인증
 
 ## <a name="next-steps"></a>다음 단계
 
-Workplace by Facebook을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
+Workplace by Facebook을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

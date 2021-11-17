@@ -53,6 +53,7 @@
           href: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
         - name: 인증 라이브러리
           href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+          displayName: 'MSAL, client library, Microsoft Authentication Library'
     - name: Azure AD B2C 모범 사례
       href: best-practices.md
     - name: 애플리케이션 형식
@@ -595,6 +596,7 @@
       href: app-registrations-training-guide.md
     - name: 청구 모델
       href: billing.md
+      displayName: pricing model
     - name: 코드 샘플
       href: /samples/browse/?terms=b2c
     - name: 쿠키 정의

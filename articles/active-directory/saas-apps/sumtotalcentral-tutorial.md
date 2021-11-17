@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 2ff2ea6b4c230a2156a7a63287e8d940d1cb6f98
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 65cca7c82d37a0fc3684ed2daace201e3c95859f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124752085"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132341049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>자습서: SumTotalCentral과 Azure Active Directory 통합
 
@@ -43,7 +43,7 @@ SumTotalCentral과의 Azure AD 통합을 구성하려면 다음 항목이 필요
 
 * SumTotalCentral은 **SP** 시작 SSO를 지원합니다.
 
-* SumTotalCentral이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
+* SumTotalCentral이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
     
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.

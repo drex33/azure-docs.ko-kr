@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 5872e47bc62b5b540fd6a8524a711454fa59b5c7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 150d2583920f695735e8543d990c7f135a4ef950
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124747907"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>자습서: Attendance Management Services와 Azure Active Directory 통합
 
@@ -176,4 +176,4 @@ Azure AD 사용자가 Attendance Management Services에 로그인할 수 있도�
 
 ## <a name="next-steps"></a>다음 단계
 
-Attendance Management Services가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Attendance Management Services가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

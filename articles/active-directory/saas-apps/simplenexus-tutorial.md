@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/18/2021
 ms.author: jeedes
-ms.openlocfilehash: df96d6c4a9c8756ea269f1f67ea6a3a8728fcbe9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c4cc60b3460bf6aff6682720b63b453a841ab824
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775743"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>자습서: SimpleNexus와 Azure Active Directory 통합
 
@@ -137,4 +137,4 @@ Azure AD 사용자가 SimpleNexus에 로그인할 수 있도록 하려면 Simple
 
 ## <a name="next-steps"></a>다음 단계
 
-SimpleNexus가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+SimpleNexus가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

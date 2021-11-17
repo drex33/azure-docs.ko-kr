@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/05/2021
 ms.author: jeedes
-ms.openlocfilehash: bf9fc9ed487efc5612e728e2975ad2642a2a292c
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: a3aa7f2590eee1df84c85a1df2e99469149accc3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857952"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132285073"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-lyndacom"></a>자습서: Lynda.com과 Azure AD SSO 통합
 
@@ -142,4 +142,4 @@ Lynda.com을 프로비전하는 사용자를 구성할 작업 항목이 없습�
 
 ## <a name="next-steps"></a>다음 단계
 
-Lynda.com이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
+Lynda.com이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

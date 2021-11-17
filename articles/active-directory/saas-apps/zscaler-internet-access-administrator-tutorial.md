@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 12a1505da59763f52da71b94dc3dc1ca8edcc075
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 03ca5536ed373183f48769158e7cdf3686dc2722
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124800182"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132302394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>자습서: Zscaler Internet Access Administrator와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124800182"
 - 사용자가 해당 Azure AD 계정으로 Zscaler Internet Access Administrator에 자동으로 로그온되도록 설정합니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -129,7 +129,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -141,7 +141,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Zscaler Internet Access Administrator에 대한 액세스 권한을 부여합니다.
 
@@ -153,13 +153,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 위에서 설명한 대로 역할을 설정한 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-zscaler-internet-access-administrator-sso&quot;></a>Zscaler Internet Access Administrator SSO 구성
+## <a name="configure-zscaler-internet-access-administrator-sso"></a>Zscaler Internet Access Administrator SSO 구성
 
 1. 다른 웹 브라우저 창에서 Zscaler Internet Access Administrator UI에 로그인합니다.
 
 2. **관리 > 관리자 관리** 로 이동하여 다음 단계를 수행하고 [저장]을 클릭합니다.
 
-   ![스크린샷은 SAML 인증 사용, SSL 인증서 업로드 및 발급자 지정 옵션이 있는 관리자 관리를 보여줍니다.](./media/zscaler-internet-access-administrator-tutorial/management.png &quot;관리")
+   ![스크린샷은 SAML 인증 사용, SSL 인증서 업로드 및 발급자 지정 옵션이 있는 관리자 관리를 보여줍니다.](./media/zscaler-internet-access-administrator-tutorial/management.png "관리")
 
    a. **SAML 인증 사용** 을 선택합니다.
 
@@ -192,4 +192,4 @@ https://help.zscaler.com/zia/adding-admins
 
 ## <a name="next-steps"></a>다음 단계
 
-Zscaler Internet Access Administrator가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Zscaler Internet Access Administrator가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

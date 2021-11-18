@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: d89cde13500757ae38ceaba66044b10225508cb9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d89cd4faa67f769f01c0d0a1c1288b6dc8776aed
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460909"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722623"
 ---
 # <a name="about-keys"></a>키 정보
 
@@ -87,8 +87,8 @@ Key Vault는 RSA 및 EC 키를 지원합니다. 관리형 HSM은 RSA, EC 및 대
 
 | 사용 시기 | 예제 |
 |--------------|-------------|
-| 고객 관리형 키를 사용하는 통합 리소스 공급자를 위한 Azure 서버 쪽 데이터 암호화 | - [Azure Key Vault에서 고객 관리형 키를 사용하여 서버 쪽 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-models#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
-| 클라이언트 쪽 데이터 암호화 | - [Azure Key Vault를 사용하는 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption?tabs=dotnet)|
+| 고객 관리형 키를 사용하는 통합 리소스 공급자를 위한 Azure 서버 쪽 데이터 암호화 | - [Azure Key Vault에서 고객 관리형 키를 사용하여 서버 쪽 암호화](../../security/fundamentals/encryption-models.md#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
+| 클라이언트 쪽 데이터 암호화 | - [Azure Key Vault를 사용하는 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md?tabs=dotnet)|
 | 키 없는 TLS | - 주요 [클라이언트 라이브러리](../general/client-libraries.md#client-libraries-per-language-and-object) 사용 |
 
 ## <a name="next-steps"></a>다음 단계

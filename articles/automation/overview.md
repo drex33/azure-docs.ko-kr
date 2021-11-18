@@ -5,12 +5,12 @@ services: automation
 keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 관리, 변경 내용 추적, DSC, 인벤토리, Runbook, Python, 그래픽
 ms.date: 10/25/2021
 ms.topic: overview
-ms.openlocfilehash: d6a703a04aeec9b764f74a7574cde4baea875604
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: c3b08c17845bec53d55c45bdd405aac9081a4a76
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491491"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714298"
 ---
 # <a name="what-is-azure-automation"></a>Azure Automation 정의
 
@@ -116,7 +116,7 @@ Azure Automation은 인프라와 애플리케이션의 수명 주기 전반에 �
 
 이러한 Azure 서비스는 HTTP 웹후크 또는 API 메서드를 사용하여 Automation 작업 및 Runbook 리소스와 함께 작동할 수 있습니다.
 
-* [Azure Logic Apps](/azure/connectors/built-in)
+* [Azure Logic Apps](../connectors/built-in.md)
 * [Azure Power Apps](/connectors/azureautomation)
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
 * [Azure Power Automate](/connectors/azureautomation)

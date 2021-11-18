@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/4/2021
-ms.openlocfilehash: 44b4c8e48c7e0edf4501915d3f801abc94b2f0ab
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 367591067f8d3d5fa0ed2b8cab45cad0c5fb6015
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893617"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724751"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
 
@@ -26,7 +26,7 @@ ms.locfileid: "131893617"
 Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 버전의 MySQL 데이터베이스를 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. 세 가지 최신 버전의 MySQL 드라이버를 지원하는 것이 목표이며, MySQL 드라이버의 기능 및 사용 편의를 개선하기 위해 지속적으로 오픈 소스 커뮤니티의 작성자와 협력하고 있습니다. 다음 표에는 테스트를 통해 Azure Database for MySQL 5.6 및 5.7과 호환되는 것으로 확인된 드라이버 목록이 정리되어 있습니다.
 
 > [!WARNING]
-> MySQL 8.0.27 클라이언트는 Azure Database for MySQL - 단일 서버와 호환되지 않습니다. mysql.exe 또는 워크벤치를 통해 만든 MySQL 8.0.27 클라이언트의 모든 연결이 실패합니다. 해결 방법으로 이전 버전의 클라이언트(MySQL 8.0.27 이전)를 사용하거나 [대신 Azure Database for MySQL - 유연한 서버의](https://docs.microsoft.com/azure/mysql/flexible-server/overview) 인스턴스를 만드는 것이 좋습니다.
+> MySQL 8.0.27 클라이언트는 Azure Database for MySQL - 단일 서버와 호환되지 않습니다. mysql.exe 또는 워크벤치를 통해 만든 MySQL 8.0.27 클라이언트의 모든 연결이 실패합니다. 해결 방법으로 이전 버전의 클라이언트(MySQL 8.0.27 이전)를 사용하거나 [대신 Azure Database for MySQL - 유연한 서버의](./flexible-server/overview.md) 인스턴스를 만드는 것이 좋습니다.
 
 | **프로그래밍 언어** | **Driver** | **연결** | **호환되는 버전** | **호환되지 않는 버전** | **참고** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |

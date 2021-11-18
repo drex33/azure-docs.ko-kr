@@ -10,12 +10,12 @@ ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 51aa58bf3f3c0d672d90b70301f84306e09e06e9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e72b2ab64e664523ad6e8cecc268dd77658df52b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128585707"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720533"
 ---
 # <a name="soft-delete-for-containers"></a>컨테이너에 대한 일시 삭제
 
@@ -67,12 +67,12 @@ Azure Storage REST API 버전 2019-12-12 이상에서는 컨테이너 일시 삭
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![아니요](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(Secure 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 

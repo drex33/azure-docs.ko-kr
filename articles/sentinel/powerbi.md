@@ -3,16 +3,15 @@ title: Microsoft Sentinel 데이터에서 Power BI 보고서 만들기
 description: Microsoft Sentinel Log Analytics에서 내보낸 쿼리를 사용하여 Power BI 보고서를 만드는 방법을 알아봅니다. Power BI 서비스 및 Teams 채널의 다른 사용자와 보고서를 공유합니다.
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cd6c6de1fc1a83cecdf0ea96e912f989bdf6b904
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 345e6fc447c2c20fcb2219a7280a740dade7a205
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521323"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712458"
 ---
 # <a name="tutorial-create-a-power-bi-report-from-microsoft-sentinel-data"></a>자습서: Microsoft Sentinel 데이터에서 Power BI 보고서 만들기
 

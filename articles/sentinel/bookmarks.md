@@ -5,17 +5,15 @@ author: yelevin
 ms.author: yelevin
 manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 7ddfa01141ac95b78371d8fbe0a239e09057481a
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b423543ee06f02be08b066bb5f435d5f89a54d28
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524743"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716274"
 ---
 # <a name="keep-track-of-data-during-hunting-with-microsoft-sentinel"></a>Microsoft Sentinel을 사용하여 헌팅하는 동안 데이터 추적
 
@@ -33,7 +31,7 @@ Microsoft Sentinel의 헌팅 책갈피는 **Microsoft Sentinel - Logs** 에서 �
 >
 > MITRE ATT&CK 기술을 책갈피에 매핑하는 방법은 현재 **미리 보기로** 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-사용자 지정 쿼리에서 Microsoft Sentinel Analytics에서 지원하는 엔터티 형식 및 식별자의 전체 집합을 매핑하여 책갈피를 사용하여 헌팅하는 동안 더 많은 유형의 엔터티를 조사할 수도 있습니다. 이렇게 하면 책갈피를 사용하여 엔터티 페이지, 인시던트 및 조사 그래프 를 사용하여 [헌팅](investigate-cases.md#use-the-investigation-graph-to-deep-dive)쿼리 결과에 반환된 [엔터티를](entities-in-azure-sentinel.md#entity-pages)탐색할 수 [있습니다.](investigate-cases.md) 책갈피는 헌팅 쿼리의 결과를 캡처하는 경우 쿼리의 MITRE ATT&CK 기술 및 엔터티 매핑을 자동으로 상속합니다.
+사용자 지정 쿼리에서 Microsoft Sentinel Analytics에서 지원하는 엔터티 형식 및 식별자의 전체 집합을 매핑하여 책갈피를 사용하여 헌팅하는 동안 더 많은 유형의 엔터티를 조사할 수도 있습니다. 이렇게 하면 책갈피를 사용하여 엔터티 페이지, 인시던트 및 조사 그래프 를 사용하여 [헌팅](investigate-cases.md#use-the-investigation-graph-to-deep-dive)쿼리 결과에 반환된 [엔터티를](entities.md#entity-pages)탐색할 수 [있습니다.](investigate-cases.md) 책갈피는 헌팅 쿼리의 결과를 캡처하는 경우 쿼리의 MITRE ATT&CK 기술 및 엔터티 매핑을 자동으로 상속합니다.
 
 > [!IMPORTANT]
 >
@@ -76,7 +74,7 @@ Microsoft Sentinel의 헌팅 책갈피는 **Microsoft Sentinel - Logs** 에서 �
 
     :::image type="content" source="media/bookmarks/mitre-attack-mapping.png" alt-text="Mitre Attack 전술 및 기법을 책갈피에 매핑하는 방법의 스크린샷.":::
 
-1. **(미리 보기)** 이제 추가 조사를 위해 책갈피가 지정된 쿼리 결과에서 확장된 엔터티 집합을 추출할 수 있습니다. **엔터티 매핑(미리 보기)** 섹션에서 드롭다운을 사용하여 [엔터티 형식 및 식별자를](entities-reference.md)선택합니다. 그런 다음 해당 식별자를 포함하는 쿼리 결과의 열을 매핑합니다. 예:
+1. **(미리 보기)** 이제 추가 조사를 위해 책갈피가 지정된 쿼리 결과에서 확장된 엔터티 집합을 추출할 수 있습니다. **엔터티 매핑(미리 보기)** 섹션에서 드롭다운을 사용하여 [엔터티 형식 및 식별자를](entities-reference.md)선택합니다. 그런 다음 해당 식별자를 포함하는 쿼리 결과의 열을 매핑합니다. 예를 들어 다음과 같습니다.
 
     :::image type="content" source="media/bookmarks/map-entity-types-bookmark.png" alt-text="헌팅 책갈피에 대한 엔터티 형식을 매핑하는 스크린샷":::
 

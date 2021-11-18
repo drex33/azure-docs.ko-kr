@@ -9,19 +9,19 @@ ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 656877f04c51b151168065c68cdc5016892f2a7f
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 4163f414cfa8553680ec6cfd9d329846c337c05f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132308168"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714526"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Blob Storage에서 생성하는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이러한 데이터에 대한 경고를 분석하는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. 자세한 내용은 [Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. 자세한 내용은 [Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
@@ -47,7 +47,7 @@ Azure Blob Storage는 다른 Azure 리소스와 동일한 종류의 모니터링
 
 Azure Blob Storage에서 만든 메트릭 및 로그 메트릭에 대한 자세한 내용은 [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)에서 확인하세요.
 
-Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. 자세한 내용은 [Azure Resource Manager 마이그레이션을](../../virtual-machines/migration-classic-resource-manager-overview.md)참조하세요.
+Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. 자세한 내용은 [Azure Resource Manager로 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)을 참조 하세요.
 
 원한다면 클래식 메트릭 및 로그를 계속 사용할 수 있습니다. 실제로 클래식 메트릭 및 로그는 Azure Monitor의 메트릭 및 로그와 동시에 사용할 수 있습니다. 이 지원은 Azure Storage가 레거시 메트릭 및 로그에 대한 서비스를 종료할 때까지 유지됩니다.
 
@@ -73,7 +73,7 @@ Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azu
 일반 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 > [!NOTE]
-> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. 자세한 내용은 [Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. 자세한 내용은 [Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -104,7 +104,7 @@ Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azu
 
 로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
 
-1. 스토리지 **계정에 보관 확인란을** 선택한 다음 **구성** 단추를 선택합니다.
+1. **저장소 계정에 보관** 확인란을 선택 하 고 **구성** 단추를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![진단 설정 페이지 보관 스토리지](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
@@ -120,7 +120,7 @@ Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azu
 
 로그를 이벤트 허브에 스트리밍하도록 선택하는 경우 이벤트 허브로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
 
-1. 이벤트 **허브로 스트리밍 확인란을** 선택한 다음 **구성** 단추를 선택합니다.
+1. **이벤트 허브로 스트림** 확인란을 선택 하 고 **구성** 단추를 선택 합니다.
 
 2. **이벤트 허브 선택** 창에서 로그를 스트림할 이벤트 허브의 네임스페이스, 이름 및 정책 이름을 선택합니다.
 
@@ -131,7 +131,7 @@ Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azu
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Azure Log Analytics에 로그 보내기
 
-1. Log **Analytics에 보내기** 확인란을 선택하고, 로그 분석 작업 영역을 선택한 다음, **저장** 단추를 선택합니다.
+1. **Log Analytics 보내기** 확인란을 선택 하 고 Log Analytics 작업 영역을 선택한 다음 **저장** 단추를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![진단 설정 페이지 Log Analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
@@ -519,7 +519,7 @@ az monitor metrics list --resource <resource-ID> --metric "Transactions" --inter
 이러한 로그에 표시되는 필드에 대한 자세한 참조는 [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)에서 확인하세요.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
 
 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정에 BLOB 엔드포인트의 활동은 있지만 테이블 또는 큐 엔드포인트의 활동이 없는 경우 BLOB 서비스와 관련된 로그만 만들어집니다. Azure Storage는 스토리지 서비스에 대해 성공한 요청과 실패한 요청의 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 
@@ -639,21 +639,21 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 
 ### <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)  <sup>2</sup>|![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)  <sup>2</sup>|![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 ### <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(Secure 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
-<sup>2</sup>    기능은 미리 보기 수준에서 지원 됩니다.
+<sup>2</sup>    기능은 미리 보기 수준에서 지원됩니다.
 
 ## <a name="faq"></a>FAQ
 

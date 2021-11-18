@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure DevTest Labs를 사용하기 위한 기�
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9daf32e5094616a98b6fcd6b1f337eadf2d7ee82
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f717043555321bb00aecd62ea4e41067e75217aa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130235018"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722205"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Azure DevTest Labs를 사용하기 위한 일반 시나리오
 엔터프라이즈의 요구에 따라 다양한 요구 사항을 충족하도록 DevTest Labs를 구성할 수 있습니다.  이 문서에서는 일반 시나리오에 대해 설명합니다. 각 시나리오에서는 DevTest Labs를 사용하여 얻은 이점과 이러한 시나리오를 구현하는 데 사용할 리소스를 다룹니다.  

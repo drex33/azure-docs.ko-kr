@@ -4,17 +4,15 @@ description: Microsoft 센티널 배포를 위한 배포 전 작업 및 사전 �
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bae2e792ab85ec87f1187c632f9582e9d38e87ed
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 90637b5637a6855318b78e73289225fd1536019b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521133"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712284"
 ---
 # <a name="pre-deployment-activities-and-prerequisites-for-deploying-microsoft-sentinel"></a>Microsoft 센티널 배포를 위한 배포 전 작업 및 필수 조건
 
@@ -38,13 +36,13 @@ Microsoft 센티널을 배포 하기 전에 다음 단계를 수행 하 여 최�
 
     자세한 내용은 [작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md) 및 [샘플 작업 영역 디자인](sample-workspace-designs.md)을 참조하세요.
 
-1. 비즈니스 사용 사례, 데이터 원본 및 데이터 크기 요구 사항을 식별한 후 계획된 시나리오별 비용 영향을 고려하여 [예산 계획을 시작](azure-sentinel-billing.md)합니다.
+1. 비즈니스 사용 사례, 데이터 원본 및 데이터 크기 요구 사항을 식별한 후 계획된 시나리오별 비용 영향을 고려하여 [예산 계획을 시작](billing.md)합니다.
 
     예산은 Microsoft 센티널 및 Azure Log Analytics, 배포할 플레이 북 등 모두에 대 한 데이터 수집 비용을 포함 하는지 확인 합니다.
 
     자세한 내용은 다음을 참조하세요.
 
-    - [Microsoft 센티널 비용 및 청구](azure-sentinel-billing.md)
+    - [Microsoft 센티널 비용 및 청구](billing.md)
     - [Microsoft 센티널 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/)
     - [Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)
     - [논리 앱(플레이북) 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)

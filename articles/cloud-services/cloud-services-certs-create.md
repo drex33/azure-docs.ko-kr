@@ -8,12 +8,12 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: e96d3219668475760556c209b3d7a4d59da1b275
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: aed27dd50e5880e3f4dd1f06233f47d75f02379f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131423359"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715400"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Azure Cloud Services(클래식) 인증서 개요
 
@@ -49,7 +49,7 @@ Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비�
 ### <a name="limitations"></a>제한 사항
 관리 인증서는 구독당 100개로 제한됩니다. 특정 서비스 관리자의 사용자 ID에서 모든 구독에 대한 관리 인증서가 100개로 제한되기도 합니다. 계정 관리자의 사용자 ID가 이미 관리 인증서 100개를 추가하는 데 사용되었으나 인증서가 더 필요한 경우 공동 관리자를 추가하여 인증서를 더 추가할 수 있습니다. 
 
-또한 CSP 구독은 Azure Resource Manager 배포 모델만 지원하고 관리 인증서는 클래식 배포 모델을 사용하며 관리 인증서는 CSP 구독과 함께 사용할 수 없습니다. CSP 구독에 대한 옵션에 대한 자세한 내용은 azure [SDK for .NET에서](/dotnet/azure/sdk/authentication) Azure Resource Manager [및 클래식 배포 모델](/azure/azure-resource-manager/management/deployment-models) 및 인증 이해를 참조하세요.
+또한 CSP 구독은 Azure Resource Manager 배포 모델만 지원 하 고 관리 인증서는 클래식 배포 모델을 사용 하므로 CSP 구독과 함께 관리 인증서를 사용할 수 없습니다. CSP 구독 옵션에 대 한 자세한 내용은 참조 [Azure Resource Manager vs 클래식 배포 모델](../azure-resource-manager/management/deployment-models.md) 및 [Azure SDK for .Net을 사용한 인증 이해](/dotnet/azure/sdk/authentication) 를 참조 하세요.
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 만들기

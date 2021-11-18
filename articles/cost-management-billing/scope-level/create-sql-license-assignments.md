@@ -3,17 +3,17 @@ title: Azure 하이브리드 혜택에 대 한 SQL Server 라이선스 할당 �
 description: 이 문서에서는 Azure 하이브리드 혜택에 대 한 SQL Server 라이선스 할당을 만드는 방법을 설명 합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisri
-ms.openlocfilehash: e97c4a51366dbfd2c9016de4684129a91df0cbe9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: e9ac5023807f435c20ddeceb097e5dce43316eae
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218942"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708492"
 ---
 # <a name="create-sql-server-license-assignments-for-azure-hybrid-benefit"></a>Azure 하이브리드 혜택에 대 한 SQL Server 라이선스 할당 만들기
 
@@ -21,7 +21,7 @@ Azure Portal의 새로운 중앙 집중식 Azure 하이브리드 혜택 환경�
 
 각 라이선스 할당에 대해 범위를 선택 하 고 라이선스를 범위에 할당 합니다. 각 범위에는 여러 개의 라이선스 항목이 있을 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 SQL Server 라이선스 할당을 만들려면 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -50,33 +50,34 @@ SQL Server 라이선스 할당을 만들려면 다음 필수 구성 요소를 �
 
 1. Azure Portal에 로그인 하 여 **Cost Management + 청구** 로 이동 합니다.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Cost Management + 청구로 Azure Portal 탐색을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
- 2. 기업계약 있는 경우 청구 범위를 선택 합니다.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="EA 청구 범위 선택을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
- 3. Microsoft 고객 계약이 있는 경우 청구 프로필을 선택 합니다.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="청구 프로필 선택을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
- 4. 왼쪽 메뉴에서 **예약 + 하이브리드 혜택** 을 선택 합니다.  
+1. 계약 유형에 따라 다음 두 단계 중 하나를 사용 합니다.
+    - 기업계약 있는 경우 청구 범위를 선택 합니다.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="EA 청구 범위 선택을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
+    - Microsoft 고객 계약이 있는 경우 청구 프로필을 선택 합니다.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="청구 프로필 선택을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
+1. 왼쪽 메뉴에서 **예약 + 하이브리드 혜택** 을 선택 합니다.  
     :::image type="content" source="./media/create-sql-license-assignments/select-reservations.png" alt-text="예약 + 하이브리드 혜택 선택 항목을 보여 주는 스크린샷"  :::
- 5. **추가** 를 선택한 다음 목록에서 **Azure 하이브리드 혜택 (미리 보기)** 를 선택 합니다.  
+1. **추가** 를 선택한 다음 목록에서 **Azure 하이브리드 혜택 (미리 보기)** 를 선택 합니다.  
     :::image type="content" source="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" alt-text="선택 Azure 하이브리드 혜택을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" :::
- 6. 다음 화면에서 **시작을 선택 하 여 라이선스를 할당** 합니다 .를 선택 합니다.  
+1. 다음 화면에서 **시작을 선택 하 여 라이선스를 할당** 합니다 .를 선택 합니다.  
     :::image type="content" source="./media/create-sql-license-assignments/get-started-centralized.png" alt-text="하이브리드 혜택 선택 추가 SQL를 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/get-started-centralized.png" :::
- 7. 범위를 선택한 다음 각 SQL Server 버전에 사용할 라이선스 수를 입력 합니다. 특정 버전에 할당할 라이선스가 없는 경우 0을 입력 합니다.  
+1. 범위를 선택한 다음 각 SQL Server 버전에 사용할 라이선스 수를 입력 합니다. 특정 버전에 할당할 라이선스가 없는 경우 0을 입력 합니다.  
     > [!NOTE]
     > 범위 수준 관리 라이선스 환경에서 수행 하는 항목이 정확 하 고 사용자의 라이선스 의무를 충족 하는지 확인 해야 합니다. 라이선스를 할당할 때 도움을 주는 라이선스 사용 정보가 표시 됩니다. 그러나 표시 되는 정보는 다양 한 요인으로 인해 불완전 하거나 정확 하지 않을 수 있습니다.
     >
     > 입력 하는 라이선스 수가 현재 사용 하 고 있는 것 보다 적으면 _이 범위에서 현재 Azure 하이브리드 혜택 사용 중인 것 보다 더 낮은 라이선스를 입력 했다는 경고 메시지가 표시 됩니다. 이 범위에 대 한 청구서가 증가 합니다._  
     
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition.png" alt-text="범위 선택 및 라이선스 수를 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition.png" :::
- 8. 필요에 따라 **사용 세부 정보** 탭을 선택 하 여 리소스 범위에서 사용 하도록 설정 된 현재 Azure 하이브리드 혜택 사용량을 확인 합니다.  
+1. 필요에 따라 **사용 세부 정보** 탭을 선택 하 여 리소스 범위에서 사용 하도록 설정 된 현재 Azure 하이브리드 혜택 사용량을 확인 합니다.  
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" alt-text="사용 탭 정보를 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" :::
- 9. **추가** 를 선택합니다.
-10. 필요에 따라 기본 라이선스 할당 이름을 변경 합니다. 검토 날짜는 1 년 전에 자동으로 설정 되며 변경할 수 없습니다. 이는 주기적으로 라이선스 할당을 검토 하 라는 알림을 표시 하기 위한 것입니다.  
+1. **추가** 를 선택합니다.
+1. 필요에 따라 기본 라이선스 할당 이름을 변경 합니다. 검토 날짜는 1 년 전에 자동으로 설정 되며 변경할 수 없습니다. 이는 주기적으로 라이선스 할당을 검토 하 라는 알림을 표시 하기 위한 것입니다.  
     :::image type="content" source="./media/create-sql-license-assignments/license-assignment-commit.png" alt-text="기본 라이선스 할당 이름을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/license-assignment-commit.png" :::
-11. 선택 항목을 검토 한 후 **다음: 검토 + 적용** 을 선택 합니다.
-12. 증명 **&quot; 적용 &quot;** 옵션을 선택 하 여 Azure 하이브리드 혜택, 충분 한 SQL Server 라이선스를 적용할 권한이 있는지 확인 하 고 할당 된 라이선스를 유지 관리 합니다.  
+1. 선택 항목을 검토 한 후 **다음: 검토 + 적용** 을 선택 합니다.
+1. 증명 **&quot; 적용 &quot;** 옵션을 선택 하 여 Azure 하이브리드 혜택, 충분 한 SQL Server 라이선스를 적용할 권한이 있는지 확인 하 고 할당 된 라이선스를 유지 관리 합니다.  
     :::image type="content" source="./media/create-sql-license-assignments/confirm-apply-attestation.png" alt-text="증명 옵션을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/confirm-apply-attestation.png" :::
-13. **적용** 을 선택한 다음, **예를 선택 합니다.**
-14. 할당 된 라이선스 목록이 표시 됩니다.  
+1. **적용** 을 선택한 다음, **예를 선택 합니다.**
+1. 할당 된 라이선스 목록이 표시 됩니다.  
     :::image type="content" source="./media/create-sql-license-assignments/assigned-licenses.png" alt-text="할당 된 라이선스 목록을 보여 주는 스크린샷" lightbox="./media/create-sql-license-assignments/assigned-licenses.png" ::: 
 
 ## <a name="track-assigned-license-use"></a>할당 된 라이선스 사용 추적
@@ -105,7 +106,7 @@ SQL 라이선스 할당을 만든 후에는 Azure Portal에서 Azure 하이브�
 
 ## <a name="cancel-a-license-assignment"></a>라이선스 할당 취소
 
-라이선스 할당을 취소 하기 전에 라이선스 상태를 검토 합니다. 라이선스 할당을 취소 하면 더 이상 해당 라이선스에 대 한 할인이 수신 되지 않습니다. 따라서 Azure 청구서가 증가할 수 있습니다. 마지막으로 남은 라이선스 할당을 취소하면 Azure 하이브리드 혜택 관리가 개별 리소스 수준으로 되돌아갑니다.
+라이선스 할당을 취소 하기 전에 라이선스 상태를 검토 합니다. 라이선스 할당을 취소하면 더 이상 할인이 수신되지 않습니다. 따라서 Azure 청구서가 증가할 수 있습니다. 마지막으로 남은 라이선스 할당을 취소하면 Azure 하이브리드 혜택 관리가 개별 리소스 수준으로 되돌아갑니다.
 
 ### <a name="to-cancel-a-license-assignment"></a>라이선스 할당을 취소하려면
 
@@ -117,5 +118,5 @@ SQL 라이선스 할당을 만든 후에는 Azure Portal에서 Azure 하이브�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [중앙에서 관리되는 Azure 하이브리드 혜택 FAQ를 검토합니다.](faq-azure-hybrid-benefit-scope.yml)
+- [중앙에서 관리되는 Azure 하이브리드 혜택 FAQ](faq-azure-hybrid-benefit-scope.yml)를 검토하세요.
 - [중앙에서 관리되는 Azure 하이브리드 혜택 무엇인가요?에서](overview-azure-hybrid-benefit-scope.md)할인이 적용되는 방법에 대해 알아봅니다.

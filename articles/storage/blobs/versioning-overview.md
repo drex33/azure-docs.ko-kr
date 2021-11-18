@@ -10,12 +10,12 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6807423e59c5877b67a8faaf3aebe4fd60e671fd
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d56276ab4af0be07a040235bd32e25df382f393d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131424934"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720495"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -109,7 +109,7 @@ Blob에 새 데이터를 쓰면 Blob의 현재 버전이 새로 만들어집니�
 
 ### <a name="access-tiers"></a>액세스 계층
 
-[Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출하여 현재 버전을 비롯한 모든 블록 Blob 버전을 다른 Blob 액세스 계층으로 이동할 수 있습니다. 이전 버전의 Blob을 쿨 또는 보관 계층으로 이동시켜 더 낮은 용량의 요금을 활용할 수 있습니다. 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
+[Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출하여 현재 버전을 비롯한 모든 블록 Blob 버전을 다른 Blob 액세스 계층으로 이동할 수 있습니다. 이전 버전의 Blob을 쿨 또는 보관 계층으로 이동시켜 더 낮은 용량의 요금을 활용할 수 있습니다. 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)을 참조 하세요.
 
 블록 Blob을 적절한 계층으로 이동하는 프로세스를 자동화하려면 Blob 수명 주기 관리를 사용합니다. 수명 주기 관리에 대한 자세한 내용은 [Azure Blob 스토리지 수명 주기 관리](./lifecycle-management-overview.md)를 참조하세요.
 
@@ -190,7 +190,7 @@ Blob 버전 관리는 실수로 인한 삭제 또는 악의적인 삭제에서 �
 
 다음 표에서는 Blob 또는 Blob 버전 삭제를 지원하는 Azure RBAC 작업을 보여 줍니다.
 
-| Description | Blob 서비스 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
+| 설명 | Blob 서비스 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | 현재 버전 삭제 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 이전 버전 삭제 | Blob 삭제 | **Microsoft.Storage/storageAccounts/BlobServices/containers/Blobs/deleteBlobVersion/action** | Storage Blob 데이터 소유자 |
@@ -209,7 +209,7 @@ Blob 버전에 대한 서명된 리소스는 `bv`입니다. 자세한 내용은 
 
 Blob 버전 관리를 사용하도록 설정하면 계정에 추가 데이터 스토리지 요금이 부과될 수 있습니다. 애플리케이션을 디자인할 때는 비용을 최소화할 수 있도록 이러한 요금 발생 방식을 파악하는 것이 중요합니다.
 
-Blob 버전은 Blob 스냅샷처럼 활성 데이터와 동일한 요금이 청구됩니다. 버전에 청구되는 금액은 기본 Blob의 계층을 명시적으로 설정했는지 아니면 해당 버전 혹은 스냅샷에 대해 명시적으로 설정했는지에 따라 달라집니다. Blob 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
+Blob 버전은 Blob 스냅샷처럼 활성 데이터와 동일한 요금이 청구됩니다. 버전에 청구되는 금액은 기본 Blob의 계층을 명시적으로 설정했는지 아니면 해당 버전 혹은 스냅샷에 대해 명시적으로 설정했는지에 따라 달라집니다. Blob 계층에 대 한 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)을 참조 하세요.
 
 Blob 또는 버전의 계층을 변경하지 않은 경우 해당 Blob과 그 버전, 그리고 만약 있다면 스냅샷까지 포함된 고유한 데이터 블록에 요금이 청구됩니다. 자세한 내용은 [Blob 계층이 명시적으로 설정되지 않은 경우의 요금 청구](#billing-when-the-blob-tier-has-not-been-explicitly-set)를 참조하세요.
 
@@ -300,12 +300,12 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (Secure file Transfer protocol) 지원에는 모두 계층적 네임 스페이스를 사용 하는 저장소 계정이 필요 합니다.
 
 ## <a name="see-also"></a>참조
 

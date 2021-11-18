@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: danlep
-ms.openlocfilehash: d04a5882a1c386cf84121cda794092275a4ba2ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c3ba9d70860e79ab10c929c06e5f8204b398dcb7
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601143"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715590"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -42,6 +42,9 @@ Azure Portal, PowerShell cmdlet 또는 REST API를 사용하여 서비스를 변
 5. 리포지토리의 변경 내용을 서비스 구성 데이터베이스에 배포
 
 이 문서에서는 Git를 사용하도록 설정하고 이를 사용하여 서비스 구성을 관리하는 방법을 설명하며 Git 리포지토리의 파일 및 폴더에 대한 참조를 제공합니다.
+
+> [!IMPORTANT]
+> 이 기능은 중소 규모의 구성이 있는 API Management 서비스에서 작동 하도록 설계 되었습니다. 수많은 구성 요소 (Api, 작업, 스키마 등)가 있는 서비스는 Git 명령을 처리할 때 예기치 않은 오류가 발생할 수 있습니다. 이러한 오류가 발생 하는 경우 서비스 구성의 크기를 줄이고 다시 시도 하세요. 도움이 필요 하면 고객 지원에 문의 하세요. 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/9/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 19e1d5f8eab559114f26d10a15c835cf0758b225
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 27a5e1e1341b93a8172a179db1dc8596c103a184
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132133231"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716033"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -62,13 +62,13 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     - 포털을 통해 서버 엔드포인트를 제거할 때 이제 데이터 손실을 방지하고 데이터가 필요한 위치(서버 또는 Azure 파일 공유)가 되도록 서버 엔드포인트를 삭제한 이유에 따라 단계별 지침을 제공합니다. 이 기능에는 로컬 서버에서 프로비전 해제 프로세스를 통해 도움을 줄 수 있는 새로운 PowerShell cmdlet(Get-StorageSyncStatus & New-StorageSyncUploadSession)도 포함되어 있습니다.
 
 - Invoke-AzStorageSyncChangeDetection cmdlet 개선
-    - v14 릴리스 전에 Azure 파일 공유에서 직접 변경한 경우 Invoke-AzStorageSyncChangeDetection cmdlet을 사용하여 변경 내용을 검색하고 동기화 그룹의 서버에 동기화할 수 있습니다. 그러나 지정된 경로에 10,000개 이상의 항목이 포함된 경우 cmdlet이 실행되지 않습니다. Invoke-AzStorageSyncChangeDetection cmdlet이 향상되었으며 전체 공유를 검사할 때 10,000개 항목 제한이 더 이상 적용되지 않습니다. 자세한 내용은 [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) 설명서를 참조하세요.
+    - v14 릴리스 전에 Azure 파일 공유에서 직접 변경한 경우 Invoke-AzStorageSyncChangeDetection cmdlet을 사용하여 변경 내용을 검색하고 동기화 그룹의 서버에 동기화할 수 있습니다. 그러나 지정된 경로에 10,000개 이상의 항목이 포함된 경우 cmdlet이 실행되지 않습니다. Invoke-AzStorageSyncChangeDetection cmdlet이 향상되었으며 전체 공유를 검사할 때 10,000개 항목 제한이 더 이상 적용되지 않습니다. 자세한 내용은 [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) 설명서를 참조하세요.
 
 - 기타 개선 사항
-    - Azure 파일 동기화 이제 미국 서부 3 지역에서 지원됩니다.
-    - FileSyncErrorsReport.ps1 스크립트가 모든 항목별 오류 목록을 제공하지 않는 버그가 수정되었습니다.
-    - 항목별 동기화 오류로 인해 파일을 일관되게 업로드하지 못하는 경우 트랜잭션이 감소합니다.
-    - 클라우드 계층화 및 동기화에 대한 안정성 및 원격 분석 개선 
+    - Azure 파일 동기화은 현재 미국 서 부 3 지역에서 지원 됩니다.
+    - FileSyncErrorsReport.ps1 스크립트가 모든 항목별 오류 목록을 제공 하지 않는 버그를 수정 했습니다.
+    - 항목 동기화 오류로 인해 파일이 일관 되 게 업로드 되지 않으면 트랜잭션이 줄어듭니다.
+    - 클라우드 계층화 및 동기화에 대 한 안정성 및 원격 분석 개선 
 
 ### <a name="evaluation-tool"></a>평가 도구
 Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](file-sync-planning.md#evaluation-cmdlet) 섹션을 참조하세요. 
@@ -79,7 +79,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 에이전트 버전이 버전 12.0 미만인 경우 기존 Azure 파일 동기화 에이전트가 설치된 서버를 다시 시작해야 합니다.
 - 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
 - 에이전트는 Nano Server 배포 옵션에서 지원되지 않습니다.
-- 에이전트는 Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows Server 2022에서만 지원됩니다.
+- 에이전트는 Windows server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows server 2022 에서만 지원 됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다. 자세한 내용은 [추천 시스템 리소스](file-sync-planning.md#recommended-system-resources)를 참조하세요.
 - 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 
@@ -139,8 +139,8 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 서버 이름 바꾸기 지원  
     - 등록된 서버의 이름이 바뀌면 이제 Azure 파일 동기화가 포털에 새 서버 이름을 표시합니다. v13 릴리스 이전에 서버 이름이 변경된 경우 이제 포털의 서버 이름이 올바른 서버 이름을 표시하도록 업데이트됩니다.
 
-- Windows Server 2022 지원  
-    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022에서 지원됩니다.
+- Windows Server 2022에 대 한 지원  
+    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022에서 지원 됩니다.
 
     > [!Note]  
     > Windows Server 2022는 현재 Azure 파일 동기화에서 지원되지 않는 TLS 1.3에 대한 지원을 추가합니다. [TLS 설정](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)이 그룹 정책을 통해 관리되는 경우 TLS 1.2를 지원하도록 서버를 구성해야 합니다. 
@@ -162,7 +162,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 에이전트 버전이 버전 12.0 미만인 경우 기존 Azure 파일 동기화 에이전트가 설치된 서버를 다시 시작해야 합니다.
 - 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
 - 에이전트는 Nano Server 배포 옵션에서 지원되지 않습니다.
-- 에이전트는 Windows server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows server 2022 에서만 지원 됩니다.
+- 에이전트는 Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows Server 2022에서만 지원됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다. 자세한 내용은 [추천 시스템 리소스](file-sync-planning.md#recommended-system-resources)를 참조하세요.
 - 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 

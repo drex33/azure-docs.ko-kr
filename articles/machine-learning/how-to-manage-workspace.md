@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 5d569598c51429cb12027f3955fa9315a05b16bb
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 5a5ef573b4df91e191dac2fa24a09c65aace5cea
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521988"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723611"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Azure Portal에서 또는 Python SDK를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -131,7 +131,7 @@ ms.locfileid: "132521988"
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|Description 
+   필드|설명 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws** 를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
    Subscription |사용할 Azure 구독을 선택합니다.
@@ -314,7 +314,7 @@ from azureml.core import Workspace
 Workspace.list('<subscription-id>')
 ```
 
-Workspace (...) 메서드는 전체 작업 영역 개체를 반환 하지 않습니다. 여기에는 구독의 기존 작업 영역에 대 한 기본 정보만 포함 됩니다. 특정 작업 영역에 대 한 전체 개체를 가져오려면 작업 영역. get (...)을 사용 합니다.
+Workspace.list(..) 메서드는 전체 작업 영역 개체를 반환하지 않습니다. 구독의 기존 작업 영역에 대한 기본 정보만 포함합니다. 특정 작업 영역에 대한 전체 개체를 얻으려면 Workspace.get(..)을 사용합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -339,7 +339,7 @@ Workspace (...) 메서드는 전체 작업 영역 개체를 반환 하지 않습
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-작업 영역을 실수로 삭제 한 경우에도 전자 필기장을 검색할 수 있습니다. 자세한 내용은 [비즈니스 연속성 및 재해 복구를 위한 장애 조치 (Failover)](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조 하세요.
+작업 영역을 실수로 삭제한 경우에도 Notebook을 검색할 수 있습니다. 자세한 내용은 [비즈니스 연속성 및 재해 복구를 위한 장애 조치(failover)를](./how-to-high-availability-machine-learning.md#workspace-deletion)참조하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -349,7 +349,7 @@ Workspace (...) 메서드는 전체 작업 영역 개체를 반환 하지 않습
 ws.delete(delete_dependent_resources=False, no_wait=False)
 ```
 
-기본 작업은 작업 영역, 즉 컨테이너 레지스트리, 저장소 계정, 키 자격 증명 모음 및 application insights와 연결 된 리소스를 삭제 하지 않습니다.  이러한 리소스도 삭제하려면 `delete_dependent_resources`를 True로 설정합니다.
+기본 작업은 작업 영역, 즉 컨테이너 레지스트리, 스토리지 계정, 키 자격 증명 모음 및 애플리케이션 인사이트와 연결된 리소스를 삭제하지 않는 것입니다.  이러한 리소스도 삭제하려면 `delete_dependent_resources`를 True로 설정합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -394,7 +394,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 작업 영역 만들기 예제:
 * Azure Portal을 사용하여 [작업 영역 및 컴퓨팅 인스턴스 만들기](quickstart-create-resources.md)

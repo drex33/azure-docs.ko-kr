@@ -9,12 +9,12 @@ metadata:
   author: johnkemnetz
   ms.author: johnkem
   ms.date: 08/24/2021
-  ms.openlocfilehash: 776dd66dddd2e781b3c78ae8bfd0823215332d59
-  ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+  ms.openlocfilehash: 58cd0ace885b8f7852fd13e0612d71e3b77b1b8b
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/12/2021
-  ms.locfileid: "132401880"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132715343"
 landingContent:
 - title: Azure Chaos Studio 정보
   linkLists:
@@ -55,9 +55,9 @@ landingContent:
     - text: 오류 공급자
       url: chaos-studio-fault-providers.md
     - text: REST API 설명서
-      url: https://docs.microsoft.com/rest/api/chaosstudio
+      url: /rest/api/chaosstudio
     - text: Python SDK
-      url: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview
+      url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
 - title: 샘플
   linkLists:
   - linkListType: sample

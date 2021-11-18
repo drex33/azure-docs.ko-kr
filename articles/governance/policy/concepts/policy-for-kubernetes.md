@@ -4,12 +4,12 @@ description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure
 ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 80f9f1e796580964df14cc15cafc0b844b227a5d
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: c1b96c07d556d7a0d478f7589b474fd75580f1be
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492875"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722224"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -165,18 +165,18 @@ kubectl get pods -n gatekeeper-system
 
 이 문서에서는 Kubernetes 확장에 대 한 Azure Policy를 [만들고](#create-azure-policy-extension), [확장 상태를 표시](#show-azure-policy-extension)하 고, [삭제](#delete-azure-policy-extension) 하는 방법을 설명 합니다.
 
-확장 플랫폼의 개요는 [Azure Arc 클러스터 확장](/azure/azure-arc/kubernetes/conceptual-extensions)을 참조 하세요.
+확장 플랫폼의 개요는 [Azure Arc 클러스터 확장](../../../azure-arc/kubernetes/conceptual-extensions.md)을 참조 하세요.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 > 참고: Kubernetes에 대 한 Azure Policy를 확장 하지 않고 직접 투구를 사용 하는 Azure Arc 클러스터에 이미 배포한 경우에는 나열 된 지침에 따라 [투구 차트를 삭제](#remove-the-add-on-from-azure-arc-enabled-kubernetes)합니다. 삭제를 완료 한 후에는 계속할 수 있습니다.
 1. Kubernetes 클러스터가 지원 되는 배포 인지 확인 합니다.
 
-    > 참고: Arc 확장에 대 한 Azure Policy [다음 Kubernetes 배포판](/azure/azure-arc/kubernetes/validation-program)에서 지원 됩니다.
-1. [클러스터를 Azure Arc에 연결](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli)하는 것을 포함 하 여 [여기](/azure/azure-arc/kubernetes/extensions) 에 나열 된 Kubernetes 확장에 대 한 일반적인 필수 조건을 모두 충족 했는지 확인 합니다.
+    > 참고: Arc 확장에 대 한 Azure Policy [다음 Kubernetes 배포판](../../../azure-arc/kubernetes/validation-program.md)에서 지원 됩니다.
+1. [클러스터를 Azure Arc에 연결](../../../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli)하는 것을 포함 하 여 [여기](../../../azure-arc/kubernetes/extensions.md) 에 나열 된 Kubernetes 확장에 대 한 일반적인 필수 조건을 모두 충족 했는지 확인 합니다.
 
-    > 참고: Azure Policy 확장은 [이러한 지역의](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)Arc 사용 Kubernetes 클러스터에 대해 지원 됩니다.
-1. Azure Policy 확장에 대 한 포트를 엽니다. Azure Policy 확장은 이러한 도메인 및 포트를 사용 하 여 정책 정의 및 할당을 페치 하 고 클러스터의 준수를 Azure Policy에 다시 보고 합니다.
+    > 참고: Azure Policy 확장은 이러한 지역의 Arc 지원 Kubernetes 클러스터에 대해 [지원됩니다.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)
+1. Azure Policy 확장에 대한 포트를 엽니다. Azure Policy 확장은 이러한 도메인 및 포트를 사용하여 정책 정의 및 할당을 가져오고 클러스터의 규정 준수를 다시 Azure Policy 보고합니다.
 
    |도메인 |포트 |
    |---|---|
@@ -185,8 +185,8 @@ kubectl get pods -n gatekeeper-system
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. Azure Policy 확장을 설치 하거나 서비스 기능을 사용 하도록 설정 하기 전에 구독에서 **Microsoft PolicyInsights** 리소스 공급자를 사용 하도록 설정 해야 합니다.
-    > 참고: 리소스 공급자를 사용 하도록 설정 하려면 [리소스 공급자 및 형식](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) 의 단계를 수행 하거나 Azure CLI 또는 Azure PowerShell 명령을 실행 합니다.
+1. Azure Policy 확장을 설치하거나 서비스 기능을 사용하도록 설정하기 전에 구독에서 **Microsoft.PolicyInsights** 리소스 공급자를 사용하도록 설정해야 합니다.
+    > 참고: 리소스 공급자를 사용하도록 설정하려면 [리소스 공급자 및 형식의](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 단계를 따르거나 Azure CLI 또는 Azure PowerShell 명령을 실행합니다.
    - Azure CLI
 
      ```azurecli-interactive
@@ -206,17 +206,17 @@ kubectl get pods -n gatekeeper-system
 
 ### <a name="create-azure-policy-extension"></a>Azure Policy 확장 만들기
 
-> Azure Policy 확장 만들기에 대 한 다음 사항에 유의 하세요.
-> - 자동 업그레이드는 기본적으로 사용 하도록 설정 됩니다. 새 변경 내용이 배포 되는 경우 Azure Policy 확장 부 버전을 업데이트 합니다.
-> - 에 대 한 매개 변수로 전달 된 프록시 변수 `connectedk8s` 는 아웃 바운드 프록시를 지원 하기 위해 Azure Policy 확장으로 전파 됩니다.
+> Azure Policy 확장 만들기에 대해 다음을 기록해 둡니다.
+> - 자동 업그레이드는 기본적으로 사용하도록 설정되며, 새 변경 내용이 배포된 경우 Azure Policy 확장 부 버전을 업데이트합니다.
+> - 에 매개 변수로 전달된 모든 프록시 `connectedk8s` 변수는 아웃바운드 프록시를 지원하기 위해 Azure Policy 확장으로 전파됩니다.
 > 
-Arc 사용 클러스터에 대 한 확장 인스턴스를 만들려면 값으로 대체 하는 다음 명령을 실행 합니다 `<>` .
+확장 인스턴스를 만들려면 Arc 지원 클러스터에 대해 값으로 대체하여 다음 명령을 실행합니다. `<>`
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --extension-type Microsoft.PolicyInsights --name <EXTENSION_INSTANCE_NAME>
 ```
 
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --extension-type Microsoft.PolicyInsights --name azurepolicy
@@ -267,19 +267,19 @@ az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-
 
 ### <a name="show-azure-policy-extension"></a>Azure Policy 확장 표시
 
-확장 인스턴스가 성공적으로 생성 되었는지 확인 하 고 확장 메타 데이터를 검사 하려면 다음 명령을 값으로 대체 하 여 실행 합니다 `<>` .
+확장 인스턴스를 성공적으로 만들고 확장 메타데이터를 검사하려면 값으로 대체하여 다음 명령을 실행합니다. `<>`
 
 ```console
 az k8s-extension show --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 
 ```console
 az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azurepolicy
 ```
 
-확장 설치가 성공 했 고 azure 정책 및 게이트 키퍼 pod가 실행 중인지 확인 하려면 다음 명령을 실행 합니다.
+확장 설치가 성공하고 azure-policy 및 gatekeeper Pod가 실행되고 있는지 확인하려면 다음 명령을 실행합니다.
 
 ```bash
 # azure-policy pod is installed in kube-system namespace
@@ -290,16 +290,16 @@ kubectl get pods -n gatekeeper-system
 ```
 
 ### <a name="delete-azure-policy-extension"></a>Azure Policy 확장 삭제
-확장 인스턴스를 삭제 하려면 값으로 대체 하는 다음 명령을 실행 합니다 `<>` .
+확장 인스턴스를 삭제하려면 값으로 대체하여 다음 명령을 실행합니다. `<>`
 
 ```azurecli-interactive
 az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 
-## <a name="install-azure-policy-add-on-using-helm-for-azure-arc-enabled-kubernetes-preview"></a><a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Azure Arc enabled Kubernetes (미리 보기)에 대 한 투구를 사용 하 여 추가 기능 Azure Policy 설치
+## <a name="install-azure-policy-add-on-using-helm-for-azure-arc-enabled-kubernetes-preview"></a><a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Azure Arc 사용하도록 설정된 Kubernetes에 Helm을 사용하여 Azure Policy 추가 기능 설치(미리 보기)
 
 > [!NOTE]
-> Azure Policy 추가 기능 투구 모델은 곧 사용 중단 되기 시작 합니다. 대신 [Azure Arc 사용 Kubernetes에 대 한 Azure Policy 확장](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) 을 옵트인 하세요.
+> Azure Policy 추가 기능 Helm 모델은 곧 사용 중단되기 시작합니다. 대신 Azure Arc [사용하도록 설정된 Kubernetes에 대한 Azure Policy 확장을](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) 선택하세요.
 
 Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도록 설정하기 전에 해당 구독은 **Microsoft.PolicyInsights** 리소스 공급자를 사용하도록 설정하고 클러스터 서비스 주체에 대한 역할 할당을 만들어야 합니다.
 
@@ -405,9 +405,9 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="install-azure-policy-add-on-for-aks-engine-preview"></a><a name="install-azure-policy-add-on-for-aks-engine"></a>AKS 엔진용 Azure Policy 추가 기능 설치(미리 보기)
 
-> 참고: AKS 엔진에 대 한 Azure Policy 추가 기능은 곧 사용 중단을 시작 합니다. 대신 [Arc 사용 Kubernetes를 사용 하 여 Azure Policy 확장](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) 을 설치 하는 것이 좋습니다.
+> 참고: AKS 엔진용 Azure Policy 추가 기능 사용이 곧 중단되기 시작합니다. 대신 Arc 지원 [Kubernetes를 사용하여 Azure Policy 확장을](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) 설치하는 것이 좋습니다.
 
-1. Kubernetes 클러스터가 지원 되는 배포 인지 확인 합니다.
+1. Kubernetes 클러스터가 지원되는 배포인지 확인합니다.
 
 Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도록 설정하기 전에 해당 구독은 **Microsoft.PolicyInsights** 리소스 공급자를 사용하도록 설정하고 클러스터 서비스 주체에 대한 역할 할당을 만들어야 합니다.
 
@@ -505,7 +505,7 @@ kubectl get pods -n gatekeeper-system
 
 Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 정의의 언어를 따릅니다. `Microsoft.Kubernetes.Data`의 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 [감사](./effects.md#audit) 및 [거부](./effects.md#deny) 효과를 사용하여 Kubernetes 클러스터를 관리할 수 있습니다. _감사_ 와 _거부_ 는 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) 및 Gatekeeper v3 작업과 관련된 **세부 정보** 속성을 제공해야 합니다.
 
-_ConstraintTemplate_ 속성의 일부로 정책 정의의 일부로 서 _, 이러한_ [CUSTOMRESOURCEDEFINITIONS](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) (CRD)의 URI 또는 Base64Encoded 값을 추가 기능에 전달 _Azure Policy._ Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
+정책 정의의 _details.templateInfo_, _details.constraint_ 또는 _details.constraintTemplate_ 속성의 일부로 Azure Policy 이러한 [CustomResourceDefinitions(CRD)의](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) URI 또는 Base64Encoded 값을 추가 기능으로 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
 
 ## <a name="assign-a-policy-definition"></a>정책 정의 할당
 
@@ -514,7 +514,7 @@ Kubernetes 클러스터에 정책 정의를 할당하려면 적절한 Azure RBAC
 > [!NOTE]
 > 사용자 지정 정책 정의는 _공개 미리 보기_ 기능입니다.
 
-다음 단계를 통해 Azure Portal를 사용 하 여 클러스터를 관리 하기 위한 기본 제공 정책 정의를 찾습니다. 사용자 지정 정책 정의를 사용 하는 경우 사용자가 만든 이름 또는 범주를 사용 하 여 해당 정의를 검색 합니다.
+다음 단계에 따라 Azure Portal 사용하여 클러스터를 관리하기 위한 기본 제공 정책 정의를 찾습니다. 사용자 지정 정책 정의를 사용하는 경우 이름 또는 해당 정의를 만든 범주로 검색합니다.
 
 1. Azure Portal에서 Azure Policy 서비스를 시작합니다. 왼쪽 창에서 **모든 서비스** 를 선택한 다음, **정책** 을 검색하여 선택합니다.
 
@@ -705,11 +705,11 @@ status:
 Kubernetes용 추가 기능의 문제를 해결하는 방법에 대한 자세한 내용은 Azure Policy 문제 해결 문서의 [Kubernetes 섹션](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)을 참조하세요.
 
 Arc 확장 관련 문제에 대 한 Azure Policy 확장은 다음을 참조 하세요.
-- [Azure Arc 사용 Kubernetes 문제 해결](/azure/azure-arc/kubernetes/troubleshooting#azure-arc-enabled-kubernetes-troubleshooting)
+- [Azure Arc 사용 Kubernetes 문제 해결](../../../azure-arc/kubernetes/troubleshooting.md#azure-arc-enabled-kubernetes-troubleshooting)
 
 Azure Policy 관련 문제는 다음을 참조 하세요.
-- [Azure Policy 로그 검사](/azure/governance/policy/concepts/policy-for-kubernetes#logging)
-- [Kubernetes의 Azure Policy에 대 한 일반적인 문제 해결](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors)
+- [Azure Policy 로그 검사](#logging)
+- [Kubernetes의 Azure Policy에 대 한 일반적인 문제 해결](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)
 
 ## <a name="remove-the-add-on"></a>추가 기능 제거
 

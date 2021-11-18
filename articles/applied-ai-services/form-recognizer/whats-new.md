@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 685a5f6a7eec89f966e165179db7417f7d848d9b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 920f9191f92f62fad9a7d72b249bf16c4ec2e558
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131026603"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708878"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -25,28 +25,28 @@ Form Recognizer 서비스는 지속적으로 업데이트됩니다. 릴리스 �
 
 ## <a name="october-2021"></a>2021년 10월
 
-### <a name="form-recognizer-new-preview-release"></a>새 미리 보기 릴리스 Form Recognizer
+### <a name="form-recognizer-new-preview-release"></a>폼 인식기 새 미리 보기 릴리스
 
- Form Recognizer 새 미리 보기 릴리스에는 다음과 같은 몇 가지 새로운 기능이 도입되었습니다.
+ 양식 인식기 새로운 미리 보기 릴리스에는 다음과 같은 몇 가지 새로운 기능 및 기능이 도입 되었습니다.
 
-* [**일반 문서**](concept-general-document.md) 모델은 미리 학습된 모델을 사용하여 양식 및 문서에서 텍스트, 테이블, 구조, 키-값 쌍 및 명명된 엔터티를 추출하는 새로운 API입니다.
-* 호텔 영수증 모델이 미리 배달된 [**영수증**](concept-receipt.md) 처리에 추가되었습니다.
-* [**ID 문서에 대한 확장된 필드**](concept-id-document.md) ID 모델은 미국 운전면허에서 보증, 제한 및 차량 분류 추출을 지원합니다.
-* [**서명 필드는**](concept-custom.md) 양식 필드에 서명이 있는지 검색하는 사용자 지정 양식의 새 필드 형식입니다.
+* [**일반 문서**](concept-general-document.md) 모델은 미리 학습 된 모델을 사용 하 여 폼과 문서에서 텍스트, 테이블, 구조, 키-값 쌍 및 명명 된 엔터티를 추출 하는 새로운 API입니다.
+* [**호텔 수령**](concept-receipt.md) 모델이 미리 작성 된 수신 처리에 추가 되었습니다.
+* [**Id 문서의 확장 된 필드**](concept-id-document.md) id 모델은 미국 드라이버 라이선스에서 인증, 제한 및 차량 분류 추출을 지원 합니다.
+* [**서명 필드**](concept-custom.md) 는 양식 필드에서 서명의 존재를 검색 하기 위한 사용자 지정 양식의 새 필드 형식입니다.
 
-* [**언어 확장**](language-support.md) 122개 언어(인쇄) 및 7개 언어(필기)를 지원합니다. Form Recognizer 레이아웃 및 사용자 지정 양식은 [지원되는 언어를](language-support.md) 최신 미리 보기로 122로 확장합니다. 여기에는 러시아어, 라틴어 및 기타 키릴 자식 언어를 비롯한 49개의 새로운 언어로 된 인쇄 텍스트에 대한 텍스트 추출이 포함됩니다. 또한 필기 텍스트 추출은 이제 영어를 포함하는 7개 언어와 중국어 간체, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어의 새로운 미리 보기를 지원합니다.
+* [**언어 확장**](language-support.md) 122 언어 (인쇄) 및 7 개 언어 (필기)를 지원 합니다. 양식 인식기 레이아웃 및 사용자 지정 양식은 최신 미리 보기를 사용 하 여 [지원 되는 언어](language-support.md) 를 122으로 확장 합니다. 여기에는 러시아어, 불가리아어, 기타 키릴 자모 및 기타 라틴어를 비롯 한 49 새로운 언어의 인쇄 텍스트에 대 한 텍스트 추출이 포함 됩니다. 또한 필기 텍스트를 추출 하면 영어를 포함 하는 7 가지 언어 및 중국어 간체, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어 미리 보기가 지원 됩니다.
 
-* **향상된 테이블 및 텍스트 추출 기능** 이제 레이아웃은 키-값 테이블이라고도 하는 단일 행 테이블 추출을 지원합니다. 텍스트 추출 향상에는 일반 성능과 함께 ID 문서에서 디지털 PDF 및 MRZ(Machine Readable Zone) 텍스트의 더 나은 처리가 포함됩니다.
+* **테이블 및 텍스트 추출 기능 향상** 이제 레이아웃에서 키-값 테이블이 라고도 하는 단일 행 테이블을 추출할 수 있습니다. 텍스트 추출의 향상 된 기능에는 일반 성능과 함께 id 문서에서 디지털 Pdf 및 MRZ (컴퓨터 판독 가능 영역) 텍스트가 더 효율적으로 처리 됩니다.
 
-* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) 서비스 사용을 간소화하기 위해 이제 Form Recognizer Studio에 액세스하여 다른 미리 붙는 모델을 테스트하거나 사용자 지정 모델에 레이블을 지정하고 학습할 수 있습니다.
+* [**폼 인식기 스튜디오**](https://formrecognizer.appliedai.azure.com) 서비스의 사용을 간소화 하기 위해 이제 폼 인식기 Studio에 액세스 하 여 미리 작성 된 다른 모델 또는 레이블을 테스트 하 고 사용자 지정 모델을 학습 시킬 수 있습니다.
 
-v3.0 미리 보기 API용 새 [REST API,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) [Python](quickstarts/try-v3-python-sdk.md) 또는 [.NET](quickstarts/try-v3-csharp-sdk.md) SDK를 사용하세요.
+새 [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md) 또는 [.net](quickstarts/try-v3-csharp-sdk.md) SDK for v 3.0 preview API를 사용 하 여 시작을 받으세요.
 
- #### <a name="form-recognizer-model-data-extraction"></a>모델 데이터 추출 Form Recognizer
+ #### <a name="form-recognizer-model-data-extraction"></a>폼 인식기 모델 데이터 추출
 
   | **모델**   | **텍스트 추출** |**키-값 쌍** |**선택 표시**   | **테이블**   |**엔터티** |
   | --- | :---: |:---:| :---: | :---: |:---: |
-  |🆕일원 문서  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  |🆕 일반 문서  | ✓  |  ✓ | ✓  | ✓  | ✓  |
   | Layout  | ✓  |   | ✓  | ✓  |   |
   | 청구서  | ✓ | ✓  | ✓  | ✓ ||
   |Receipt  | ✓  |   ✓ |   |  ||
@@ -56,22 +56,22 @@ v3.0 미리 보기 API용 새 [REST API,](https://westus2.dev.cognitive.microsof
 
 ## <a name="september-2021"></a>2021년 9월
 
-* [Azure 메트릭 탐색기 고급 기능은](../../azure-monitor/essentials/metrics-charts.md) Azure Portal Form Recognizer 리소스 개요 페이지에서 사용할 수 있습니다.
+* [Azure 메트릭 탐색기 고급 기능은](../../azure-monitor/essentials/metrics-charts.md) Azure Portal의 양식 인식기 리소스 개요 페이지에서 사용할 수 있습니다.
 
     ### <a name="monitoring-menu"></a>모니터링 메뉴
 
-    :::image type="content" source="media/portal-metrics.png" alt-text="Azure Portal 모니터링 메뉴를 보여주는 스크린샷":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Azure Portal의 모니터링 메뉴를 보여 주는 스크린샷":::
 
     ### <a name="charts"></a>차트
 
-    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Azure Portal 예제 메트릭 차트를 보여주는 스크린샷":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Azure Portal 메트릭 차트의 예를 보여 주는 스크린샷":::
 
-*  **ID 문서** 모델 업데이트: 마침표(전체 중지)를 포함하거나 포함하지 않는 접미사를 포함한 지정된 이름은 성공적으로 처리됩니다.
+*  **ID 문서** 모델 업데이트: 접미사를 포함 하거나 마침표 (전체 중지)를 포함 하거나 제외 하 고 이름을 지정 하면 성공적으로 처리 됩니다.
 
-    |입력 텍스트 | 업데이트가 있는 결과 |
+    |입력 텍스트 | 업데이트 포함 결과 |
     |------------|-------------------------------------------|
-    | 2018년 10월 20일, 2 |**FirstName:일본부**</br></br>**LastName**: 을(를) 입력합니다. |
-    | 2018년 3월 20일, 2016년 | **FirstName**:일본 Caleb </br></br> **LastName**: 사용자 이름 |
+    | William Isaac Kirby Jr. |**FirstName**: William Isaac</br></br>**LastName**: Kirby Jr. |
+    | Henry Caleb Ross Sr | **FirstName**: Henry caleb </br></br> **LastName**: Ross Sr |
 
 ## <a name="july-2021"></a>2021년 7월
 
@@ -456,11 +456,11 @@ pip 패키지 버전 3.1.0b4
 * **품질 개선 사항** - 한 자릿수 추출 개선 사항을 포함하여 추출 기능이 개선되었습니다.
 * **Form Recognizer 샘플 및 레이블 지정 도구의 새로운 실습 기능** - Form Recognizer 샘플 레이블 지정 도구를 사용하여 미리 빌드된 청구서, 영수증, 명함 모델 및 레이아웃 API를 사용해볼 수 있는 기능입니다. 코드를 작성하지 않고 데이터를 추출하는 방법을 참조하세요.
 
-  [**Form Recognizer 샘플 레이블 지정 도구 사용해 보세요.**](https://fott-2-1.azurewebsites.net)
+  [**양식 인식기 샘플 레이블 지정 도구를 사용해 보세요.**](https://fott-2-1.azurewebsites.net)
 
-  ![스크린샷: 샘플 레이블 지정 도구.](./media/ui-preview.jpg)
+  ![스크린샷: 샘플 레이블 지정 도구입니다.](./media/ui-preview.jpg)
 
-* **피드백 루프** - 샘플 레이블 지정 도구를 통해 파일을 분석할 때 이제 학습 집합에 추가하고 필요한 경우 레이블을 조정하고 모델을 개선하기 위해 학습할 수도 있습니다.
+* **피드백 루프** -샘플 레이블 지정 도구를 통해 파일을 분석 하는 경우, 이제 학습 집합에 추가 하 고 필요한 경우 레이블을 조정 하 고 모델을 향상 시킬 수 있습니다.
 * **문서 자동 레이블 지정** - 프로젝트에서 이전에 레이블이 지정된 문서를 기준으로 추가 문서에 자동으로 레이블을 지정합니다.
 
 ## <a name="august-2020"></a>2020년 8월
@@ -485,7 +485,7 @@ pip 패키지 버전 3.1.0b4
 **새 샘플** 은 GitHub에서 사용할 수 있습니다.
 
 * [지식 추출 레시피 - Forms 플레이북](https://github.com/microsoft/knowledge-extraction-recipes-forms)은 실제 Form Recognizer 고객 참여의 모범 사례를 수집하고, 이러한 프로젝트를 개발하는 데 사용되는 유용한 코드 샘플, 검사 목록, 샘플 파이프라인을 제공합니다.
-* [샘플 레이블 지정 도구가](https://github.com/microsoft/OCR-Form-Tools) 새 v2.1 기능을 지원하도록 업데이트되었습니다. 도구를 시작하려면 이 [빠른 시작](label-tool.md)을 참조하세요.
+* [샘플 레이블 지정 도구](https://github.com/microsoft/OCR-Form-Tools) 는 새로운 v 2.1 기능을 지원 하도록 업데이트 되었습니다. 도구를 시작하려면 이 [빠른 시작](label-tool.md)을 참조하세요.
 * [지능형 키오스크](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer 샘플은 `Analyze Receipt`와 `Train Custom Model` - _레이블 없이 학습_ 을 통합하는 방법을 보여 줍니다.
 
 ## <a name="july-2020"></a>2020년 7월
@@ -539,7 +539,7 @@ pip 패키지 버전 3.1.0b4
 
 ### <a name="new-features"></a>새로운 기능
 
-* **레이블 지정을 위한 값 형식** 이제 Form Recognizer 샘플 레이블 지정 도구를 사용하여 레이블을 지정하는 값의 형식을 지정할 수 있습니다. 현재 지원되는 값 형식 및 변형은 다음과 같습니다.
+* **레이블 지정을 위한 값 형식** 이제 폼 인식기 샘플 레이블 지정 도구를 사용 하 여 레이블을 지정 하는 값의 형식을 지정할 수 있습니다. 현재 지원되는 값 형식 및 변형은 다음과 같습니다.
   * `string`
     * 기본값, `no-whitespaces`, `alphanumeric`
   * `number`
@@ -549,14 +549,14 @@ pip 패키지 버전 3.1.0b4
   * `time`
   * `integer`
 
-  이 기능을 사용 하는 방법에 대 한 자세한 내용은 [샘플 레이블 도구](label-tool.md#specify-tag-value-types) 가이드를 참조 하세요.
+  이 기능을 사용하는 방법을 알아보려면 [샘플 레이블 지정 도구](label-tool.md#specify-tag-value-types) 가이드를 참조하세요.
 
-* **테이블 시각화** 이제 샘플 레이블 지정 도구는 문서에서 인식 된 테이블을 표시 합니다. 레이블 지정 및 분석 전에 이 기능을 사용하여 문서에서 인식 및 추출된 표를 볼 수 있습니다. 이 기능은 레이어 옵션을 사용하여 켜거나 끌 수 있습니다.
+* **테이블 시각화** 샘플 레이블 지정 도구는 이제 문서에서 인식된 테이블을 표시합니다. 레이블 지정 및 분석 전에 이 기능을 사용하여 문서에서 인식 및 추출된 표를 볼 수 있습니다. 이 기능은 레이어 옵션을 사용하여 켜거나 끌 수 있습니다.
 
   다음 이미지는 표를 인식하고 추출하는 방법의 예입니다.
 
   > [!div class="mx-imgBorder"]
-  > ![샘플 레이블 지정 도구를 사용 하는 테이블 시각화](./media/whats-new/table-viz.png)
+  > ![샘플 레이블 지정 도구를 사용한 테이블 시각화](./media/whats-new/table-viz.png)
 
     추출된 표는 `"pageResults"` 아래의 JSON 출력에서 사용할 수 있습니다.
 
@@ -567,11 +567,11 @@ pip 패키지 버전 3.1.0b4
 
 이 릴리스에는 추출 기능 향상 및 정확성 개선, 특히 동일한 텍스트 줄에서 여러 개의 키/값 쌍을 레이블 지정하고 추출하는 기능이 포함되어 있습니다.
 
-### <a name="sample-labeling-tool-is-now-open-source"></a>이제 샘플 레이블 지정 도구는 오픈 소스입니다.
+### <a name="sample-labeling-tool-is-now-open-source"></a>샘플 레이블 지정 도구는 이제 오픈 소스입니다.
 
-이제 폼 인식기 샘플 레이블 지정 도구를 오픈 소스 프로젝트로 사용할 수 있습니다. 솔루션 내에서 통합하고 필요에 맞게 고객 전용 변경을 수행할 수 있습니다.
+이제 Form Recognizer 샘플 레이블 지정 도구를 오픈 소스 프로젝트로 사용할 수 있습니다. 솔루션 내에서 통합하고 필요에 맞게 고객 전용 변경을 수행할 수 있습니다.
 
-폼 인식기 샘플 레이블 지정 도구에 대 한 자세한 내용은 [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md)에서 사용할 수 있는 설명서를 검토 하세요.
+Form Recognizer 샘플 레이블 지정 도구에 대한 자세한 내용은 [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md)설명서를 검토하세요.
 
 ### <a name="tls-12-enforcement"></a>TLS 1.2 적용
 

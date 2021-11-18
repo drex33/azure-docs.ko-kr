@@ -10,12 +10,12 @@ ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 505bef004acb688a1fdb1ccc87d261b1a12c6009
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 6afec907fb648e80034f22a4dfdb6fb94e0844a6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132318297"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715818"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services"></a>자습서: Cognitive Services를 사용하여 변칙 검색
 
@@ -85,7 +85,7 @@ Anomaly Detector를 구성하려면 다음 세부 정보를 제공합니다.
 
 ## <a name="run-the-notebook"></a>노트북 실행
 
-방금 연 Notebook은 [SynapseML] 라이브러리(https://github.com/microsoft/SynapseML) 를 사용하여 Cognitive Services에 연결합니다. 제공한 Azure Cognitive Services 연결 서비스를 사용하면 비밀을 노출하지 않고도 이 환경의 인지 서비스를 안전하게 참조할 수 있습니다.
+방금 연 Notebook은 [SynapseML 라이브러리](https://github.com/microsoft/SynapseML)를 사용하여 Cognitive Services에 연결합니다. 제공한 Azure Cognitive Services 연결 서비스를 사용하면 비밀을 노출하지 않고도 이 환경의 인지 서비스를 안전하게 참조할 수 있습니다.
 
 이제 모든 셀을 실행하여 변칙 검색을 수행할 수 있습니다. **모두 실행** 을 선택합니다. [Cognitive Services의 Anomaly Detector에 대해 자세히 알아보세요](../../cognitive-services/anomaly-detector/index.yml).
 

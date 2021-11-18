@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: d54aec5bae8fb86b9c0ed0356cd6af713500527f
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 47a06786c99e156eb541c08c4965c10ae845bdc8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492060"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722547"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 인덱서 문제 해결 지침
 
@@ -62,11 +62,11 @@ SQL Managed Instance에서 데이터에 액세스하거나 Azure VM이 [사용�
 
 SQL Managed Instance의 데이터에 액세스하는 방법에 대한 자세한 내용은 [여기](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)를 참조하세요.
 
-## <a name="azure-sql-database-serverless-indexing-error-code-40613"></a>서버를 사용 하지 않는 인덱싱 Azure SQL Database (오류 코드 40613)
+## <a name="azure-sql-database-serverless-indexing-error-code-40613"></a>Azure SQL Database 서버리스 인덱싱(오류 코드 40613)
 
-SQL 데이터베이스가 서버를 사용 하지 않는 [계산 계층](../azure-sql/database/serverless-tier-overview.md)에 있으면 인덱서가 연결 될 때 데이터베이스가 실행 중이 고 일시 중지 되지 않았는지 확인 합니다.
+SQL 데이터베이스가 [서버리스 컴퓨팅 계층의](../azure-sql/database/serverless-tier-overview.md)인 경우 인덱서가 연결할 때 데이터베이스가 실행 중이고 일시 중지되지 않았는지 확인합니다.
 
-데이터베이스가 일시 중지 된 경우 검색 서비스의 첫 번째 로그인에서 데이터베이스를 자동으로 다시 시작 하지만 오류 코드 40613로 데이터베이스를 사용할 수 없다는 오류도 반환 합니다. 데이터베이스를 실행 한 후에는 로그인을 다시 시도 하 여 연결을 설정 합니다.
+데이터베이스가 일시 중지된 경우 검색 서비스의 첫 번째 로그인은 데이터베이스를 자동으로 다시 시작하지만 오류 코드 40613을 사용하여 데이터베이스를 사용할 수 없다는 오류도 반환합니다. 데이터베이스가 실행된 후 로그인을 다시 시도하여 연결을 설정합니다.
 
 ## <a name="sharepoint-online-conditional-access-policies"></a>SharePoint Online 조건부 액세스 정책
 
@@ -105,7 +105,7 @@ SharePoint Online 인덱서를 만들 때 디바이스 코드를 제공한 후 A
 
     추가 IP 주소는 인덱서의 [다중 테넌트 실행 환경](search-indexer-securing-resources.md#indexer-execution-environment)에서 시작하는 요청에 사용됩니다. 이 IP 주소 범위는 서비스 태그에서 가져올 수 있습니다.
 
-    서비스 태그의 IP 주소 범위는 `AzureCognitiveSearch` [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 통해 가져올 수 있습니다.
+    서비스 태그의 IP 주소 범위는 `AzureCognitiveSearch` [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 [다운로드 가능한 JSON 파일을](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)통해 가져올 수 있습니다.
 
     이 연습에서는 검색 서비스가 Azure 퍼블릭 클라우드라고 가정하여 [Azure 퍼블릭 JSON 파일](https://www.microsoft.com/download/details.aspx?id=56519)을 다운로드해야 합니다.
 
@@ -205,7 +205,7 @@ Azure Cognitive Search는 Cosmos DB 인덱싱에 대해 암시적으로 의존�
 인덱서에서는 데이터를 인덱싱하는 동안 데이터 원본의 모든 새 문서와 변경된 문서가 선택되도록 하는 버퍼링 전략을 활용합니다. 특정 상황에서는 이러한 버퍼가 겹쳐 인덱서가 문서를 두 번 이상 인덱싱하여 처리된 문서 수가 데이터 원본의 실제 문서 수보다 많을 수 있습니다. 이 동작은 문서 복제와 같이 인덱스 에 저장된 데이터에는 영향을 **주지** 않으며 최종 일관성에 도달하는 데 시간이 더 오래 걸릴 수 있습니다. 이는 다음 조건 중 충족되는 경우 특히 우선적으로 수행될 수 있습니다.
 
 - 주문형 인덱서 요청이 연속해서 빠르게 발급됩니다.
-- 데이터 원본의 토폴로지는 여러 복제본 및 파티션을 포함합니다(이러한 예제 중 하나는 [여기에서](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)설명).
+- 데이터 원본의 토폴로지는 여러 복제본 및 파티션을 포함합니다(이러한 예제 중 하나는 [여기에서](../cosmos-db/consistency-levels.md)설명).
 
 인덱서가 연속적으로 여러 번 호출될 수 없습니다. 업데이트가 신속하게 필요한 경우 지원되는 방법은 데이터 원본을 동시에 업데이트하는 동시에 인덱스에 업데이트를 푸시하는 것입니다. 주문형 처리의 경우 요청 속도를 5분 이상 간격으로 실행하고 일정에 따라 인덱서를 실행하는 것이 좋습니다.
 

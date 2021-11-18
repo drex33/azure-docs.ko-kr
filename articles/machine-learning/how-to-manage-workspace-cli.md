@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8f98b1d5d020df0b8a2047fa5881c6d978a0ad94
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a258a84930201a48aa70577d1349104b9cd6a480
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132281744"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723497"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -288,7 +288,7 @@ az ml workspace create -w <workspace-name>
 
 # <a name="20-cli---preview"></a>[2.0 CLI - 미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-매개 변수 및 포함 및 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
+및 매개 변수를 포함하는 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `hbi_workspace` 속성을 추가로 지정할 수 있습니다. 
 
@@ -367,7 +367,7 @@ az group delete -g <resource-group-name>
 
 자세한 내용은 [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) 설명서를 참조하세요.
 
-작업 영역을 실수로 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조하세요.
+실수로 작업 영역을 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](./how-to-high-availability-machine-learning.md#workspace-deletion)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

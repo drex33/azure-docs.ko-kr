@@ -42,7 +42,7 @@
         - name: 역할 및 권한
           href: roles.md
         - name: 비용 및 청구
-          href: azure-sentinel-billing.md
+          href: billing.md
         - name: 작업 영역 및 테넌트에 걸쳐 Microsoft Sentinel 확장
           href: extend-sentinel-across-workspaces-tenants.md
         - name: 보안 기준
@@ -68,7 +68,7 @@
             - name: ASIM 콘텐츠
               href: normalization-content.md
         - name: 엔터티를 사용하여 데이터 분류
-          href: entities-in-azure-sentinel.md
+          href: entities.md
     - name: 위협 인텔리전스
       items:
         - name: Microsoft Sentinel의 위협 인텔리전스 이해
@@ -92,7 +92,7 @@
     - name: SOAR
       items:
         - name: '오케스트레이션, 자동화 및 응답'
-          href: automation-in-azure-sentinel.md
+          href: automation.md
         - name: 자동화 규칙
           href: automate-incident-handling-with-automation-rules.md
         - name: 플레이북
@@ -110,7 +110,7 @@
         - name: 샘플 작업 영역 디자인
           href: sample-workspace-designs.md
         - name: 비용 계획 및 관리
-          href: azure-sentinel-billing.md
+          href: billing.md
         - name: 작업 영역 액세스 관리
           href: resource-context-rbac.md
     - name: Microsoft Sentinel로 마이그레이션
@@ -133,7 +133,7 @@
             - name: Azure Active Directory
               href: connect-azure-active-directory.md
             - name: Microsoft Defender for Cloud
-              href: connect-azure-security-center.md
+              href: connect-defender-for-cloud.md
             - name: Microsoft 365 Defender
               href: connect-microsoft-365-defender.md
             - name: Windows 보안 이벤트

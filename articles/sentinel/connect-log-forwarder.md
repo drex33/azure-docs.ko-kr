@@ -1,13 +1,11 @@
 ---
-title: Microsoft Sentinel | Syslog 및 CEF 로그를 기록하는 로그 전달자 배포 Microsoft Docs
-description: Syslog 및 CEF 로그를 Microsoft Sentinel에 기록하는 프로세스의 일부로 Syslog 디먼과 Log Analytics 에이전트로 구성된 로그 전달자를 배포하는 방법을 알아봅니다.
+title: Microsoft 센티널에 Syslog 및 CEF 로그를 수집 하는 로그 전달자 배포 | Microsoft Docs
+description: 수집 Syslog 및 CEF 로그를 Microsoft 센티널로 가져오는 프로세스의 일부로 Syslog 디먼 및 Log Analytics 에이전트로 구성 된 로그 전달자를 배포 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,29 +13,29 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6279e4cee368a36d66db5f41a326194fb04fe397
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 95f60a08b8700da02c1eaf0496bd5bcba4b0d988
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518587"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714583"
 ---
-# <a name="deploy-a-log-forwarder-to-ingest-syslog-and-cef-logs-to-microsoft-sentinel"></a>Microsoft Sentinel에 Syslog 및 CEF 로그를 기록하는 로그 전달자 배포
+# <a name="deploy-a-log-forwarder-to-ingest-syslog-and-cef-logs-to-microsoft-sentinel"></a>Microsoft 센티널에 Syslog 및 CEF 로그를 수집 하는 로그 전달자 배포
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-특히 Log Analytics 에이전트를 직접 설치할 수 없는 디바이스 및 어플라이언스에서 Microsoft Sentinel에 Syslog 및 CEF 로그를 수집하려면 디바이스에서 로그를 수집하고 Microsoft Sentinel 작업 영역으로 전달할 Linux 머신을 지정하고 구성해야 합니다. 이 컴퓨터는 온-프레미스 환경, Azure VM 또는 다른 클라우드의 VM에서 물리적 컴퓨터 또는 가상 머신일 수 있습니다. 
+특히 Log Analytics 에이전트를 직접 설치할 수 없는 장치 및 어플라이언스에서 Syslog 및 CEF 로그를 Microsoft 센티널로 수집 하려면 장치에서 로그를 수집 하 여 Microsoft 센티널 작업 영역으로 전달 하는 Linux 컴퓨터를 지정 하 고 구성 해야 합니다. 이 컴퓨터는 온-프레미스 환경, Azure VM 또는 다른 클라우드의 VM에서 물리적 컴퓨터 또는 가상 머신일 수 있습니다. 
 
 이 컴퓨터에는 이 프로세스에 참여하는 두 가지 구성 요소가 있습니다.
 
 - 로그를 수집하는 syslog 디먼(**rsyslog** 또는 **syslog-ng**).
-- 로그를 Microsoft Sentinel에 전달하는 **Log Analytics** 에이전트(OMS 에이전트라고도 함)입니다.
+- Microsoft 센티널로 로그를 전달 하는 **Log Analytics 에이전트** (OMS 에이전트 라고도 함)입니다.
 
 아래 제공된 링크를 사용하여 다음 작업을 수행하는 지정된 컴퓨터에서 스크립트를 실행합니다.
 
 - Linux용 Log Analytics 에이전트(OMS 에이전트라고도 함)를 설치하고 다음과 같은 목적으로 구성합니다.
     - TCP 포트 25226의 기본 제공 Linux Syslog 디먼에서 CEF 메시지 수신 대기
-    - TLS를 통해 메시지를 Microsoft Sentinel 작업 영역으로 안전하게 보내면 구문 분석 및 보강됩니다.
+    - Microsoft 센티널 작업 영역에 TLS를 통해 메시지를 안전 하 게 전송 (구문 분석 및 보강)
 
 - 다음 목적을 위해 기본 제공 Linux Syslog 디먼(rsyslog.d/syslog-ng)을 구성합니다.
     - TCP 포트 514의 보안 솔루션에서 Syslog 메시지 수신 대기
@@ -81,7 +79,7 @@ ms.locfileid: "132518587"
     - Log Analytics 에이전트를 설치하기 전에 Linux 컴퓨터가 Azure 작업 영역에 연결되어 있지 않아야 합니다.
 
 - **Data**
-    - 이 프로세스의 어느 시점에서 Microsoft Sentinel 작업 **영역의 작업 영역 ID** 및 **작업 영역 기본 키가** 필요할 수 있습니다. 이는 작업 영역 설정의 **에이전트 관리** 에서 찾을 수 있습니다.
+    - 이 프로세스의 어느 시점에 Microsoft 센티널 작업 영역 ID 및 **작업 영역 기본 키** **가** 필요할 수 있습니다. 이는 작업 영역 설정의 **에이전트 관리** 에서 찾을 수 있습니다.
 
 ### <a name="security-considerations"></a>보안 고려 사항
 
@@ -93,7 +91,7 @@ ms.locfileid: "132518587"
 
 ## <a name="run-the-deployment-script"></a>배포 스크립트 실행
  
-1. Microsoft Sentinel 탐색 메뉴에서 **데이터 커넥터를 선택합니다.** 커넥터 갤러리(또는 제품이 나열되지 않은 경우 **CEF(Common Event Format)** )에서 제품에 대한 커넥터를 선택한 다음, 오른쪽 아래의 **Open Connector 페이지** 단추를 선택합니다. 
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다. 커넥터 갤러리(또는 제품이 나열되지 않은 경우 **CEF(Common Event Format)** )에서 제품에 대한 커넥터를 선택한 다음, 오른쪽 아래의 **Open Connector 페이지** 단추를 선택합니다. 
 
 1. 커넥터 페이지의 **1.2 Linux 컴퓨터에 CEF 수집기 설치** 의 지침에서 **다음 스크립트를 실행하여 CEF 수집기 설치 및 적용** 아래에 제공된 링크를 복사합니다.  
 해당 페이지에 액세스할 수 없는 경우 아래 텍스트에서 링크를 복사합니다(자리 표시자 대신 위의 **작업 영역 ID** 및 **기본 키** 복사 및 붙여넣기).
@@ -115,7 +113,7 @@ ms.locfileid: "132518587"
     >
     > 1. CEF 형식의 전달자에게 로그를 보내는 각 원본 컴퓨터에서 Syslog 구성 파일을 편집하여 CEF 메시지를 보내는 데 사용되는 기능을 제거해야 합니다. 또한 이렇게 하면 CEF에서 보내는 기능이 Syslog로 전송되지 않습니다. 이 작업을 수행하는 방법에 대한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent)을 참조하세요.
     >
-    > 1. 이러한 컴퓨터에서 다음 명령을 실행하여 Microsoft Sentinel에서 Syslog 구성과 에이전트의 동기화를 사용하지 않도록 설정해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성을 덮어쓰지 않습니다.<br>
+    > 1. Microsoft 센티널의 Syslog 구성과 에이전트의 동기화를 사용 하지 않도록 설정 하려면 해당 컴퓨터에서 다음 명령을 실행 해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성을 덮어쓰지 않습니다.<br>
     > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="deployment-script-explained"></a>배포 스크립트 설명
@@ -141,7 +139,7 @@ Syslog 디먼을 선택하여 적절한 설명을 확인합니다.
         sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com
         ```
 
-1. **포트 25226에서 수신 대기하고 Microsoft Sentinel에 CEF 메시지를 전달하도록 Log Analytics 에이전트 구성을 설정합니다.**
+1. **Log Analytics 에이전트 구성을로 설정 하 여 포트 25226에서 수신 대기 하 고 CEF 메시지를 Microsoft 센티널로 전달:**
 
     - Log Analytics 에이전트 GitHub 리포지토리에서 구성을 다운로드합니다.
 
@@ -207,7 +205,7 @@ Syslog 디먼을 선택하여 적절한 설명을 확인합니다.
         sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com
         ```
 
-1. **포트 25226에서 수신 대기하고 Microsoft Sentinel에 CEF 메시지를 전달하도록 Log Analytics 에이전트 구성을 설정합니다.**
+1. **Log Analytics 에이전트 구성을로 설정 하 여 포트 25226에서 수신 대기 하 고 CEF 메시지를 Microsoft 센티널로 전달:**
 
     - Log Analytics 에이전트 GitHub 리포지토리에서 구성을 다운로드합니다.
 
@@ -260,8 +258,8 @@ Syslog 디먼을 선택하여 적절한 설명을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 CEF 어플라이언스를 Microsoft 센티널에 연결 하는 Log Analytics 에이전트를 배포 하는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 Log Analytics 에이전트를 배포하여 CEF 어플라이언스를 Microsoft Sentinel에 연결하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [CEF 및 CommonSecurityLog 필드 매핑](cef-name-mapping.md)에 대해 알아봅니다.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
-- [Microsoft 센티널을 사용 하 여 위협 검색을](./detect-threats-built-in.md)시작 하세요.
+- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.

@@ -7,12 +7,12 @@ author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
-ms.openlocfilehash: 7e4aa84c8e45ad15a2faa1c02c6ad938e126c0d0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cc5decd55c9724b486e657dcac70f38eb8c875a5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052874"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719963"
 ---
 # <a name="back-up-azure-postgresql-databases-using-azure-data-protection-via-rest-api"></a>REST API 통해 Azure 데이터 보호를 사용하여 Azure PostgreSQL 데이터베이스 백업
 
@@ -34,7 +34,7 @@ Azure PostgreSQL 데이터베이스 백업 지원 시나리오, 제한 사항 �
 
 #### <a name="postgresql-database-to-be-protected"></a>보호할 PostgreSQL 데이터베이스
 
-보호할 PostgreSQL 데이터베이스의 AZURE RESOURCE MANAGER ID(ARM ID)를 가져옵니다. 데이터베이스의 식별자로 사용됩니다. 다른 구독의 리소스 그룹 **ossdemoRG에** 있는 PostgreSQL 서버 **testpostgresql** 아래에 **empdb11이라는** 데이터베이스의 예를 사용합니다. 다음 예제에서는 bash를 사용합니다.
+보호할 PostgreSQL 데이터베이스의 ARM ID(Azure Resource Manager ID)를 가져옵니다. 데이터베이스의 식별자로 사용됩니다. 다른 구독의 리소스 그룹 **ossdemoRG에** 있는 PostgreSQL 서버 **testpostgresql** 아래에 **empdb11이라는** 데이터베이스의 예를 사용합니다. 다음 예제에서는 bash를 사용합니다.
 
 ```http
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/servers/testpostgresql/databases/empdb11"
@@ -42,7 +42,7 @@ Azure PostgreSQL 데이터베이스 백업 지원 시나리오, 제한 사항 �
 
 #### <a name="azure-key-vault"></a>Azure Key Vault
 
-Azure Backup 서비스는 PostgreSQL 데이터베이스에 연결할 사용자 이름과 암호를 저장하지 않습니다. 대신 백업 관리자가 *키를 키 자격 증명* 모음에 시드해야 합니다. 그러면 Azure Backup 서비스에서 키 자격 증명 모음에 액세스하고, 키를 읽고, 데이터베이스에 액세스합니다. 관련 키의 비밀 식별자를 확인합니다. 다음 예제에서는 bash를 사용합니다.
+Azure Backup 서비스는 PostgreSQL 데이터베이스에 연결하기 위한 사용자 이름과 암호를 저장하지 않습니다. 대신 백업 관리자가 *키를 키 자격 증명* 모음에 시드해야 합니다. 그러면 Azure Backup 서비스에서 키 자격 증명 모음에 액세스하고, 키를 읽고, 데이터베이스에 액세스합니다. 관련 키의 비밀 식별자를 확인합니다. 다음 예제에서는 bash를 사용합니다.
 
 ```http
 "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
@@ -50,13 +50,13 @@ Azure Backup 서비스는 PostgreSQL 데이터베이스에 연결할 사용자 �
 
 #### <a name="backup-vault"></a>Backup 자격 증명 모음
 
-백업 자격 증명 모음은 PostgreSQL 서버에 연결한 다음 키 자격 증명 모음에 있는 키를 통해 데이터베이스에 액세스해야 합니다. 따라서 PostgreSQL 서버 및 키 자격 증명 모음에 대한 액세스 권한이 필요합니다. Backup 자격 증명 모음의 MSI에 대한 액세스 권한이 부여됩니다.
+백업 자격 증명 모음은 PostgreSQL 서버에 연결한 다음 키 자격 증명 모음에 있는 키를 통해 데이터베이스에 액세스해야 합니다. 따라서 PostgreSQL 서버 및 키 자격 증명 모음에 액세스해야 합니다. Backup 자격 증명 모음의 MSI에 대한 액세스 권한이 부여됩니다.
 
-PostgreSQL 서버 및 데이터베이스에 대한 키가 저장되는 Azure Key Vault에서 자격 증명 모음의 MSI를 백업하기 위해 부여해야 하는 [적절한 권한을 읽어보십시오.](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-backup)
+PostgreSQL 서버 및 데이터베이스에 대한 키가 저장되는 Azure Key Vault에서 자격 증명 모음의 MSI를 백업하기 위해 부여해야 하는 [적절한 권한을 읽어보십시오.](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup)
 
 ### <a name="prepare-the-request-to-configure-backup"></a>백업을 구성하기 위한 요청 준비
 
-관련 권한이 자격 증명 모음 및 PostgreSQL 데이터베이스로 설정되고 자격 증명 모음 및 정책이 구성되면 백업 구성 요청을 준비할 수 있습니다. 다음은 Azure PostgreSQL 데이터베이스에 대한 백업을 구성하는 요청 본문입니다. Azure PostgreSQL 데이터베이스의 ARM ID(Azure Resource Manager ID)와 세부 정보는 _datasourceinfo_ 섹션에 설명되어 있으며 정책 정보는 _policyinfo_ 섹션에 있습니다.
+관련 권한이 자격 증명 모음 및 PostgreSQL 데이터베이스로 설정되고 자격 증명 모음 및 정책이 구성되면 백업 구성 요청을 준비할 수 있습니다. 다음은 Azure PostgreSQL 데이터베이스에 대한 백업을 구성하는 요청 본문입니다. Azure PostgreSQL 데이터베이스의 ARM ID(Azure Resource Manager ID) 및 해당 세부 정보는 _datasourceinfo_ 섹션에 설명되어 있으며 정책 정보는 _policyinfo_ 섹션에 있습니다.
 
 ```json
 {
@@ -92,7 +92,7 @@ PostgreSQL 서버 및 데이터베이스에 대한 키가 저장되는 Azure Key
 
 백업 구성 요청이 성공하는지 확인하려면 백업 [API에 대한 유효성 검사를](/rest/api/dataprotection/backup-instances/validate-for-backup)사용합니다. 응답을 사용하여 필요한 필수 구성을 수행한 다음 백업 요청에 대한 구성을 제출할 수 있습니다.
 
-백업 요청에 대한 유효성 검사는 _POST_ 작업이며 URI에는 `{subscriptionId}` , , 매개 변수가 `{vaultName}` 포함됩니다. `{vaultresourceGroupName}`
+백업 요청의 유효성 검사는 _POST_ 작업이며 URI에는 `{subscriptionId}` , , 매개 변수가 `{vaultName}` 포함됩니다. `{vaultresourceGroupName}`
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.DataProtection/backupVaults/{backupVaultName}/validateForBackup?api-version=2021-01-01
@@ -144,7 +144,7 @@ POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 다른 작업이 생성될 때 202(수락됨), 해당 작업이 완료될 때 200(정상)인 두 개의 응답이 반환됩니다.
 
-|이름  |Type  |Description  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |  작업이 비동기적으로 완료됩니다.      |
 |200 정상     |   [OperationJobExtendedInfo](/rest/api/dataprotection/backup-instances/validate-for-backup#operationjobextendedinfo)      |     수락됨    |
@@ -281,7 +281,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-모든 권한을 부여한 다음 유효성 검사 요청을 다시 제출하고 결과 작업을 추적합니다. 모든 조건이 충족되면 성공 응답을 200(정상)으로 반환합니다.
+모든 권한을 부여한 다음 유효성 검사 요청을 다시 제출하면 결과 작업을 추적합니다. 모든 조건이 충족되면 성공 응답을 200(정상)으로 반환합니다.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==?api-version=2021-01-01
@@ -297,7 +297,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ### <a name="configure-backup-request"></a>백업 요청 구성
 
-요청의 유효성이 검사되면 [백업 인스턴스 만들기 API](/rest/api/dataprotection/backup-instances/create-or-update)에 동일한 항목을 제출할 수 있습니다. Backup 인스턴스는 Backup 자격 증명 모음 내의 Azure Backup 데이터 보호 서비스로 보호되는 항목을 나타냅니다. 여기서 Azure PostgreSQL 데이터베이스는 백업 인스턴스이며, 위에서 유효성을 검사한 동일한 요청 본문을 사소한 추가와 함께 사용할 수 있습니다.
+요청의 유효성이 검사되면 [백업 인스턴스 만들기 API](/rest/api/dataprotection/backup-instances/create-or-update)에 동일한 항목을 제출할 수 있습니다. Backup 인스턴스는 Backup 자격 증명 모음 내에서 Azure Backup 데이터 보호 서비스로 보호되는 항목을 나타냅니다. 여기서 Azure PostgreSQL 데이터베이스는 백업 인스턴스이며, 위에서 유효성을 검사한 동일한 요청 본문을 사소한 추가와 함께 사용할 수 있습니다.
 
 백업 인스턴스에 고유한 이름을 사용합니다. 따라서 리소스 이름과 고유 식별자의 조합을 사용하는 것이 좋습니다. 예를 들어 다음 작업에서는 _testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149를_ 사용하여 백업 인스턴스 이름으로 표시합니다.
 
@@ -317,7 +317,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 백업 인스턴스를 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |Type  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |properties     |  [BackupInstance](/rest/api/dataprotection/backup-instances/create-or-update#backupinstance)       |     BackupInstanceResource 속성    |
 
@@ -362,9 +362,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 _백업 인스턴스 만들기 요청은_ [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 따라서 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-백업 인스턴스가 만들어지고 보호가 구성되는 경우 201(생성됨)과 해당 구성이 완료되면 200(정상)의 두 응답을 반환합니다.
+백업 인스턴스가 만들어지고 보호가 구성될 때 201(생성됨)과 해당 구성이 완료되면 200(OK)의 두 응답을 반환합니다.
 
-|속성  |Type  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |201 생성됨   |   [백업 인스턴스](/rest/api/dataprotection/backup-instances/create-or-update#backupinstanceresource)      |  백업 인스턴스가 생성되고 보호가 구성되고 있음      |
 |200 정상     |    [백업 인스턴스](/rest/api/dataprotection/backup-instances/create-or-update#backupinstanceresource)     |     보호가 구성됨    |
@@ -471,7 +471,7 @@ DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/Test
 
 다른 작업이 생성될 때 202(수락됨), 해당 작업이 완료될 때 200(정상)인 두 개의 응답이 반환됩니다.
 
-|이름  |Type  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     |         |  삭제 요청의 상태       |
 |202 수락됨     |         |     수락됨    |

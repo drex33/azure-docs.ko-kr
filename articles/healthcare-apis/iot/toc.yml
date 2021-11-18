@@ -31,13 +31,26 @@ items:
       - name: Azure IoT Hub를 통해 디바이스 데이터 수신
         href: device-data-through-iot-hub.md
       - name: 장치 매핑 사용
-        href: how-to-use-device-mapping-iot.md
+        expanded: true
+        items:
+          - name: 장치 매핑
+            href: how-to-use-device-mappings.md
+          - name: JsonPathContentTemplate 매핑
+            href: how-to-use-jsonpath-content-mappings.md
+          - name: 계산 된 함수 매핑
+            href: how-to-use-calculated-functions-mappings.md
+          - name: CollectionContentTemplate 매핑
+            href: how-to-use-collection-content-mappings.md
+          - name: IotJsonPathContentTemplate 매핑
+            href: how-to-use-iot-jsonpath-content-mappings.md
+          - name: IotCentralJsonContentTemplate 매핑
+            href: how-to-use-iot-central-json-content-mappings.md
       - name: 사용자 지정 함수 사용
-        href: iot-connector-custom-functions.md
+        href: how-to-use-custom-functions.md
       - name: FHIR 대상 매핑 사용
-        href: how-to-use-fhir-mapping-iot.md
+        href: how-to-use-fhir-mappings.md
       - name: 메트릭 표시
-        href: iot-display-metrics.md
+        href: how-to-display-metrics.md
   - name: 리소스
     expanded: true
     items:

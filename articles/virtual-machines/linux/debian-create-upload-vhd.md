@@ -7,12 +7,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-ms.openlocfilehash: e3d68e704ce91cddfabeb8518a60bba469b7adf7
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d221dcbce9834191b3bc95db898349f6221dec8e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301201"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724865"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
 
@@ -161,5 +161,4 @@ az vm create \
 >6. 마지막으로 VM에서 `azcopy`(위의 명령)를 사용하여 VHD를 Azure Disk에 복사합니다.
 
 
-**다음 단계:** 이제 Debian Linux 가상 하드 디스크를 사용 하 여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)를 참조하세요.
-
+**다음 단계:** 이제 Debian Linux 가상 하드 디스크를 사용 하 여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](./upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.

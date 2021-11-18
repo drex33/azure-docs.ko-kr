@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a5a34f539c8f2820c46736783f6d23d5b265164c
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 96b03347adcabdd5bd25d4f57c5ea80946832610
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131859301"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723326"
 ---
 # <a name="security-in-azure-managed-instance-for-apache-cassandra---overview"></a>Apache Cassandra에 대 한 Azure Managed Instance의 보안-개요
 
@@ -34,7 +34,7 @@ ms.locfileid: "131859301"
 |공격 모니터|Apache Cassandra에 대 한 Azure Managed Instance는 [Azure Monitor](../azure-monitor/overview.md)와 통합 됩니다. 감사 로깅 및 활동 로그를 사용하여 계정에서 정상 및 비정상적인 활동을 모니터링할 수 있습니다. 리소스에서 수행 된 작업, 작업을 시작한 사람, 작업 상태, 작업 상태 및 기타 많은 작업을 볼 수 있습니다.|
 |공격에 대응|잠재적인 공격을 보고 하기 위해 Azure 지원에 연락한 경우 5 단계 인시던트 대응 프로세스가 시작 됩니다. 5 단계 프로세스의 목표는 문제가 감지 되 고 조사가 시작 된 후에 최대한 빠르게 정상적인 서비스 보안 및 작업을 복원 하는 것입니다.|
 |패치된 서버|Apache Cassandra에 대 한 Azure Managed Instance는 관리 되는 데이터베이스로 서버를 관리 하 고 패치를 자동으로 수행할 필요가 없습니다.|
-|인증| 최신 인증 목록은 전체 [Azure 규정 준수 사이트](https://www.microsoft.com/trustcenter/compliance/complianceoffering)를 참조 하세요.
+|인증| 최신 인증 목록은 전체 [Azure 규정 준수 사이트](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

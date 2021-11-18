@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 35fb71da46de695a91b06a72a101e81f59237175
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e55d74139bb37c44fb736a8c5e31c08b6e379b21
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449263"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720609"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅샷
 
@@ -71,7 +71,7 @@ VM 디스크에 대한 현재 정보 및 상태를 저장하는 데 VHD 파일�
 
 Blob의 읽기 전용 복사본인 스냅샷을 만들면 계정에 데이터 스토리지 요금이 추가로 부과될 수 있습니다. 애플리케이션을 디자인할 때는 비용을 최소화할 수 있도록 이러한 요금 발생 방식을 파악하는 것이 중요합니다.
 
-Blob 스냅샷은 Blob 버전처럼 활성 데이터와 동일한 요금이 청구됩니다. 스냅샷에 청구되는 요금은 기본 Blob이나 해당 스냅샷(또는 버전)에 대해 계층을 명시적으로 설정했는지 여부에 따라 달라집니다. Blob 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
+Blob 스냅샷은 Blob 버전처럼 활성 데이터와 동일한 요금이 청구됩니다. 스냅샷에 청구되는 요금은 기본 Blob이나 해당 스냅샷(또는 버전)에 대해 계층을 명시적으로 설정했는지 여부에 따라 달라집니다. Blob 계층에 대 한 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)을 참조 하세요.
 
 Blob 또는 스냅샷의 계층을 변경하지 않은 경우 해당 Blob과 그 스냅샷, 그리고 만약 있다면 버전까지 포함된 고유 데이터 블록에 요금이 청구됩니다. 자세한 내용은 [Blob 계층이 명시적으로 설정되지 않은 경우의 요금 청구](#billing-when-the-blob-tier-has-not-been-explicitly-set)를 참조하세요.
 
@@ -162,12 +162,12 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![아니요](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![아니요](../media/icons/no-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (Secure file Transfer protocol) 지원에는 모두 계층적 네임 스페이스를 사용 하는 저장소 계정이 필요 합니다.
 
 <sup>2</sup>    기능은 미리 보기 수준에서 지원 됩니다.
 

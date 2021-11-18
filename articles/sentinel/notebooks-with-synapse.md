@@ -5,17 +5,15 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 10914037b239bf2301881a18c6095ba9364af4ae
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 0d298bfc2414c21efa8db869fae7bd9ab5f66632
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517333"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712627"
 ---
 # <a name="large-scale-security-analytics-using-microsoft-sentinel-notebooks-and-azure-synapse-integration-public-preview"></a>Microsoft Sentinel Notebook 및 Azure Synapse 통합을 사용하는 대규모 보안 분석(공개 미리 보기)
 
@@ -29,7 +27,7 @@ KQL 및 Log Analytics는 Microsoft Sentinel에서 데이터를 쿼리하고 분�
 
 Azure Synapse 통합하면 다음을 제공합니다.
 
-- **비용** 최적화, 완전 관리형 Azure Synapse Apache Spark 컴퓨팅 풀을 사용하는 빅 데이터 분석 보안
+- 비용 최적화, 완전 관리형 Azure Synapse Apache Spark 컴퓨팅 풀을 사용하는 **보안 빅 데이터 분석.**
 
 - **비용 효율적인 Data Lake 액세스를** 통해 Azure Blob Storage 기반으로 구축된 빅 데이터 분석 전용 기능 집합인 Azure Data Lake Storage Gen2를 통해 기록 데이터에 대한 분석을 빌드할 수 있습니다.
 
@@ -39,7 +37,7 @@ Azure Synapse 통합하면 다음을 제공합니다.
 
 예를 들어 Azure Synapse Notebook을 사용하여 네트워크 방화벽 로그에서 비정상적인 동작을 헌팅하여 잠재적인 네트워크 탐지를 감지하거나 Log Analytics 작업 영역에서 수집된 데이터를 기반으로 기계 학습 모델을 학습시키고 빌드할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="understand-microsoft-sentinel-notebooks"></a>Microsoft Sentinel Notebook 이해
 
@@ -54,9 +52,9 @@ Microsoft Sentinel Notebook에서 Azure Synapse 사용하려면 다음 역할 �
 |형식  |세부 정보  |
 |---------|---------|
 |**Microsoft Sentinel**     |- **Microsoft Sentinel에서** Notebook을 저장하고 시작하기 위한 Microsoft Sentinel 기여자 역할         |
-|**Azure Machine Learning**     |- 필요한 경우 새 Azure Machine Learning 작업 영역을 만드는 리소스 그룹 수준 **소유자** 또는 **기여자** 역할입니다. <br>- Microsoft Sentinel Notebook을 실행하는 Azure Machine Learning 작업 영역에 대한 **기여자** 역할입니다.    <br><br>자세한 내용은 [Azure Machine Learning 작업 영역에 대한 액세스 관리를 참조하세요.](/azure/machine-learning/how-to-assign-roles)     |
-|**Azure Synapse Analytics**     | - 새 Azure Synapse 작업 영역을 만드는 리소스 그룹 수준 **소유자** 역할입니다.<br>- 쿼리를 실행할 Azure Synapse 작업 영역에 대한 **기여자** 역할입니다. <br>- Synapse Studio 대한 Azure Synapse Analytics **기여자** 역할   <br><br>자세한 내용은 [Synapse 에서 일반적인 작업을 수행하는 데 필요한 역할 이해를 참조하세요.](/azure/synapse-analytics/security/synapse-workspace-understand-what-role-you-need)     |
-|**Azure Data Lake Storage Gen2**     | - Log Analytics 작업 영역에서 데이터를 내보내는 Azure Log Analytics **기여자** 역할<br>- 데이터 레이크에서 데이터를 쿼리하는 Azure Blob Storage 기여자 역할  <br><br>자세한 내용은 [Azure 역할 할당을 참조하세요.](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal)|
+|**Azure Machine Learning**     |- 필요한 경우 새 Azure Machine Learning 작업 영역을 만드는 리소스 그룹 수준 **소유자** 또는 **기여자** 역할입니다. <br>- Microsoft Sentinel Notebook을 실행하는 Azure Machine Learning 작업 영역에 대한 **기여자** 역할입니다.    <br><br>자세한 내용은 [Azure Machine Learning 작업 영역에 대한 액세스 관리를 참조하세요.](../machine-learning/how-to-assign-roles.md)     |
+|**Azure Synapse Analytics**     | - 새 Azure Synapse 작업 영역을 만드는 리소스 그룹 수준 **소유자** 역할입니다.<br>- 쿼리를 실행할 Azure Synapse 작업 영역에 대한 **기여자** 역할입니다. <br>- Synapse Studio 대한 Azure Synapse Analytics **기여자** 역할   <br><br>자세한 내용은 [Synapse 에서 일반적인 작업을 수행하는 데 필요한 역할 이해를 참조하세요.](../synapse-analytics/security/synapse-workspace-understand-what-role-you-need.md)     |
+|**Azure Data Lake Storage Gen2**     | - Log Analytics 작업 영역에서 데이터를 내보내는 Azure Log Analytics **기여자** 역할<br>- 데이터 레이크에서 데이터를 쿼리하는 Azure Blob Storage 기여자 역할  <br><br>자세한 내용은 [Azure 역할 할당을 참조하세요.](../storage/blobs/assign-azure-role-data-access.md?tabs=portal)|
 |     |         |
 
 ### <a name="connect-to-azure-ml-and-synapse-workspaces"></a>Azure ML 및 Synapse 작업 영역에 커넥트
@@ -77,12 +75,12 @@ Microsoft Sentinel **Notebooks** 페이지의 맨 위에서 **Azure Synapse 구�
 > Azure Data Lake Storage Gen2는 모든 Azure Synapse 작업 영역과 함께 제공되는 기본 제공 Data Lake입니다. Microsoft Sentinel 작업 영역과 동일한 지역에 있는 새 Data Lake를 선택하거나 만들어야 합니다. 이 문서는 이 문서의 후반부에 설명된 대로 데이터를 내보낼 때 필요합니다.
 >
 
-자세한 내용은 Azure Synapse [설명서를 참조하세요.](/azure/synapse-analytics/quickstart-create-workspace)
+자세한 내용은 Azure Synapse [설명서를 참조하세요.](../synapse-analytics/quickstart-create-workspace.md)
 
 
 ## <a name="configure-your-azure-synapse-analytics-integration"></a>Azure Synapse Analytics 통합 구성
 
-Microsoft Sentinel은 기본 제공 Azure Synapse - **Azure ML 구성 및 Azure Synapse Analytics** Notebook을 제공하여 Azure Synapse 통합하는 데 필요한 구성을 안내합니다.
+Microsoft Sentinel은 기본 제공 **Azure Synapse - Azure ML 구성 및 Azure Synapse Analytics** Notebook을 제공하여 Azure Synapse 통합하는 데 필요한 구성을 안내합니다.
 
 > [!NOTE]
 > Azure Synapse 통합 구성은 일회성 절차이며 Microsoft Sentinel 작업 영역에 대해 이 Notebook을 한 번만 실행하면 됩니다.
@@ -102,13 +100,13 @@ Microsoft Sentinel은 기본 제공 Azure Synapse - **Azure ML 구성 및 Azure 
 
 1. Notebook의 초기 단계에서 셀을 실행하여 필요한 Python 라이브러리 및 함수를 로드하고 Azure 리소스에 인증합니다.
 
-1. 4단계 Spark 풀 **Azure Synapse 구성의** 셀을 실행하여 빅 데이터 쿼리를 실행할 때 사용할 새 [Azure Synapse Apache Spark 풀을](/azure/synapse-analytics/spark/apache-spark-pool-configurations) 만듭니다.
+1. 4단계 Spark 풀 **Azure Synapse 구성의** 셀을 실행하여 빅 데이터 쿼리를 실행할 때 사용할 새 [Azure Synapse Apache Spark 풀을](../synapse-analytics/spark/apache-spark-pool-configurations.md) 만듭니다.
 
-1. Azure ML 작업 영역 **및 연결된 서비스 구성의** 5단계에서 셀을 실행하여 Azure ML 작업 영역이 Azure Synapse 작업 영역과 통신할 수 있도록 합니다. 자세한 내용은 [Azure Synapse Analytics 및 Azure Machine Learning 작업 영역 연결 및 Apache Spark 풀 연결을 참조하세요.](/azure/machine-learning/how-to-link-synapse-ml-workspaces)
+1. Azure ML 작업 영역 **및 연결된 서비스 구성의** 5단계에서 셀을 실행하여 Azure ML 작업 영역이 Azure Synapse 작업 영역과 통신할 수 있도록 합니다. 자세한 내용은 [Azure Synapse Analytics 및 Azure Machine Learning 작업 영역 연결 및 Apache Spark 풀 연결을 참조하세요.](../machine-learning/how-to-link-synapse-ml-workspaces.md)
 
-1. Azure **Log Analytics에서 Azure Data Lake Storage Gen2로 데이터 내보내기** 6단계의 셀을 실행하여 Azure Log Analytics에서 Azure Data Lake Storage 쿼리에 사용할 데이터를 내보냅니다.
+1. Azure **Log Analytics에서 Azure Data Lake로 데이터 내보내기 Storage Gen2의** 6단계에서 셀을 실행하여 Azure Log Analytics에서 Azure Data Lake Storage 쿼리에 사용할 데이터를 내보냅니다.
 
-데이터가 Azure Data Lake Storage 있으면 Azure Synapse 사용하여 빅 데이터 쿼리 실행을 시작할 준비가 된 것입니다. 자세한 내용은 [Azure Monitor Log Analytics 데이터 내보내기 를](/azure/azure-monitor/logs/logs-data-export?tabs=portal)참조하세요.
+데이터가 Azure Data Lake Storage 있으면 Azure Synapse 사용하여 빅 데이터 쿼리 실행을 시작할 준비가 된 것입니다. 자세한 내용은 [Azure Monitor Log Analytics 데이터 내보내기 를](../azure-monitor/logs/logs-data-export.md?tabs=portal)참조하세요.
 
 ## <a name="hunt-on-historical-data-at-scale"></a>대규모로 기록 데이터 헌터 찾기
 
@@ -118,7 +116,7 @@ Microsoft Sentinel은 기본 제공 **Azure Synapse - Apache Spark Notebook을 �
 
 1. Microsoft Sentinel **Notebook 페이지에서** 템플릿 **탭을** 선택하고 검색 창에 **Synapse를** 입력하여 Notebook을 찾습니다.
 
-1. Azure Synapse 찾아서 선택합니다. **- Apache Spark Notebook을 사용하여 잠재적인 네트워크 탐지를** 검색한 다음, 오른쪽 아래에서 **Notebook 템플릿 복제를** 선택합니다.
+1. Azure Synapse - **Apache Spark Notebook을 사용하여 잠재적인 네트워크 탐지를** 찾아서 선택한 다음, 오른쪽 아래에서 **Notebook 템플릿 복제를** 선택합니다.
 
     Notebook **복제** 창에서 필요한 경우 Notebook 이름을 수정하고 [Azure Machine Learning 작업 영역을](#connect-to-azure-ml-and-synapse-workspaces)선택한 **다음, 저장을** 선택합니다.
 
@@ -168,7 +166,7 @@ Microsoft Sentinel은 기본 제공 **Azure Synapse - Apache Spark Notebook을 �
 
 ## <a name="manage-your-azure-synapse-session-from-microsoft-sentinel"></a>Microsoft Sentinel에서 Azure Synapse 세션 관리
 
-Azure Synapse 세션에 없는 경우 Microsoft Sentinel은 Notebook 페이지 맨 위에 있는 컴퓨팅 필드에서 선택한 Azure ML **컴퓨팅으로** 기본 **설정됩니다.**
+Azure Synapse 세션에 없는 경우 Microsoft Sentinel은 Notebook 페이지 위쪽의 컴퓨팅 필드에서 선택한 Azure ML **컴퓨팅으로** 기본 **설정됩니다.**
 
 여기에서 복사할 수 있는 다음 코드 또는 **Azure Synapse - Apache Spark Notebook을 사용하여 잠재적 네트워크 탐지를 검색하여 Azure Synapse** 세션을 시작하고 중지합니다.
 
@@ -182,7 +180,7 @@ Azure Synapse 세션에 없는 경우 Microsoft Sentinel은 Notebook 페이지 �
 
 를 사용하여 모든 후속 코드 `%%synapse` 셀을 시작하여 시작한 Synapse 세션을 사용합니다.
 
-예를 들어:
+예를 들어 다음과 같습니다.
 
 ```python
 %%synapse
@@ -204,7 +202,7 @@ lookback_days = 21 # fill in lookback days if you want to run it on historical d
 
 이 샘플 노트북의 빅 데이터 쿼리는 `end-date` 매개 변수를 사용 하거나 시간 범위를 사용 하 여 미리 정의 된 날짜에서 데이터를 실행할 수 있습니다.
 
-예를 들어:
+예를 들어 다음과 같습니다.
 
 - 특정 날짜의 데이터에 관심이 있는 경우 11 월 15 2021 일을 현재 날짜로 지정 하 고, 쿼리는 2021 15,의 데이터 에서만 실행 됩니다. 
 
@@ -212,7 +210,7 @@ lookback_days = 21 # fill in lookback days if you want to run it on historical d
 
 **Azure Synapse-Apache Spark 노트북을 사용 하 여 잠재적인 네트워크 표지 검색** 에서 **데이터 준비 단계** 에서이 코드를 찾을 수 있습니다.
 
-예를 들어:
+예를 들어 다음과 같습니다.
 
 ```python
 # Datetime and lookback parameters
@@ -259,4 +257,4 @@ lookback_days = "21" # fill in lookback days if you want to run it on historical
 
 - [Jupyter 노트북을 사용 하 여 보안 위협 구하기](notebooks.md)
 - [자습서: Microsoft 센티널에서 Jupyter 노트북 및 MSTICPy 시작 하기](notebook-get-started.md)
-- [Azure Synapse Analytics 및 Azure Machine Learning 작업 영역을 연결하고 Apache Spark 풀 연결(미리 보기)](/azure/machine-learning/how-to-link-synapse-ml-workspaces)
+- [Azure Synapse Analytics 및 Azure Machine Learning 작업 영역을 연결하고 Apache Spark 풀 연결(미리 보기)](../machine-learning/how-to-link-synapse-ml-workspaces.md)

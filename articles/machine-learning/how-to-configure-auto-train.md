@@ -11,16 +11,16 @@ ms.subservice: automl
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 57d529d74d5e320c8a41fdcf71ddd61d11e4379e
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 8a9f31dc34e412521a9a74dfb113da13af66afa3
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519385"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722642"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
-이 가이드에서는 자동화된 ML Azure Machine Learning 사용하여 Azure Machine Learning [Python SDK로](/python/api/overview/azure/ml/intro) 자동화된 Machine Learning, AutoML, 학습 실행을 설정하는 방법을 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화된 ML 실험을 구성하는 데 사용할 수 있는 다양한 옵션에 대해 자세히 설명합니다.
+이 가이드에서는 자동화된 ML 사용하여 자동화된 Machine Learning AutoML, [Azure Machine Learning Python SDK를](/python/api/overview/azure/ml/intro) 사용하여 학습 실행을 설정하는 Azure Machine Learning 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화된 ML 실험을 구성하는 데 사용할 수 있는 다양한 옵션에 대해 자세히 설명합니다.
 
 엔드투엔드 예제는 [자습서: AutoML - 회귀 모델 학습](tutorial-auto-train-models.md)을 참조하세요.
 
@@ -107,7 +107,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 > * [AutoMLConfig 개체 에 테스트 데이터를 전달합니다.](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) 
 > * [실험에 대해 생성된 자동화된 ML 모델을 테스트합니다.](#test-models-preview)
 >  
-> 코드 없는 환경을 선호하는 경우 [스튜디오 UI를 사용하여 AutoML 설정의 11단계를 참조하세요.](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
+> 코드 없는 환경을 선호하는 경우 [스튜디오 UI를 사용하여 AutoML 설정의 12단계를 참조하세요.](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
 
 
 ### <a name="large-data"></a>큰 데이터 
@@ -211,15 +211,15 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ### <a name="primary-metric"></a>기본 메트릭
 
-`primary_metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 됩니다.
+`primary_metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정됩니다.
 
-자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 비즈니스 요구를 가장 잘 표현 하는 메트릭을 선택 하는 것이 중요 한 고려 사항입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다. 다음 섹션에서는 작업 유형 및 비즈니스 시나리오에 따라 권장 되는 기본 메트릭을 요약 합니다. 
+자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 주요 고려 사항은 비즈니스 요구 사항을 가장 잘 나타내는 메트릭을 선택하는 것입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다. 다음 섹션에서는 작업 유형 및 비즈니스 시나리오에 따라 권장되는 기본 메트릭을 요약합니다. 
 
 [자동화된 Machine Learning 결과 이해](how-to-understand-automated-ml.md)에서 이러한 메트릭의 정의에 대해 알아보세요.
 
 #### <a name="metrics-for-classification-scenarios"></a>분류 시나리오에 대한 메트릭 
 
-,,, 등의 임계값 종속 메트릭은 `accuracy` `recall_score_weighted` `norm_macro_recall` `precision_score_weighted` 작은 데이터 집합, 매우 큰 클래스 기울이기 (클래스 불균형) 또는 예상 메트릭 값이 0.0 또는 1.0에 매우 근접 한 경우에도 최적화 되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
+임계값 종속 메트릭(예: `accuracy` , , 및 `recall_score_weighted` )은 `norm_macro_recall` `precision_score_weighted` 작거나 클래스 기울이기(클래스 불균형)가 매우 크거나 예상 메트릭 값이 0.0 또는 1.0에 매우 가까운 데이터 세트에 최적화되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
@@ -231,15 +231,15 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 #### <a name="metrics-for-regression-scenarios"></a>회귀 시나리오에 대한 메트릭
 
-`r2_score``normalized_mean_absolute_error`및 `normalized_root_mean_squared_error` 는 모두 예측 오류를 최소화 하려고 합니다. `r2_score` 및는 `normalized_root_mean_squared_error` `normalized_mean_absolute_error` 가 평균 절대 오류 값을 minizing 하는 동안 평균 제곱 오차를 최소화 합니다. 절대 값은 모든 크고 많을 유사 하 게 오류를 처리 하 고 제곱 오류는 큰 절대값의 오류에 훨씬 더 큰 영향을 미칠 수 있습니다. 더 큰 오류를 처벌 해야 하는지 여부에 따라 여러 오류 또는 절대 오류를 최적화 하도록 선택할 수 있습니다.
+`r2_score`, `normalized_mean_absolute_error` 및 는 모두 예측 오류를 `normalized_root_mean_squared_error` 최소화하려고 합니다. `r2_score` 및 `normalized_root_mean_squared_error` 는 둘 다 평균 제곱 오차를 최소화하는 반면 `normalized_mean_absolute_error` 은 평균 절대값 오차를 축소합니다. 절대값은 모든 크기의 오류를 처리하며 제곱 오차는 절대값이 큰 오류에 대해 훨씬 큰 패널티를 갖습니다. 더 큰 오류를 더 많이 발생시켜야 하는지 여부에 따라 제곱 오차 또는 절대 오차를 최적화하도록 선택할 수 있습니다.
 
-와의 주요 차이점 `r2_score` 은 `normalized_root_mean_squared_error` 정규화 된 방법과 의미입니다. `normalized_root_mean_squared_error` 는 범위로 정규화 되 고 예측의 평균 오차 크기로 해석 될 수 있는 평균 제곱 오차입니다. `r2_score` 는 데이터 분산이 예상치 하 여 표준화 된 오류 제곱을 의미 합니다. 모델에서 캡처할 수 있는 변형의 비율입니다. 
+와 의 주요 차이점은 `r2_score` `normalized_root_mean_squared_error` 정규화되는 방식과 그 의미입니다. `normalized_root_mean_squared_error` 는 범위별로 정규화된 제곱 평균 오차이며 예측의 평균 오차 크기로 해석될 수 있습니다. `r2_score` 는 예상 데이터 분산에 의해 정규화된 평균 제곱 오차입니다. 모델에서 캡처할 수 있는 변형의 비율입니다. 
 
-> [! 참고] `r2_score` 및 `normalized_root_mean_squared_error` 도 기본 메트릭과 비슷하게 동작 합니다. 고정 유효성 검사 집합을 적용 하는 경우이 두 메트릭은 동일한 대상을 최적화 하 고, 제곱 오차를 의미 하며, 동일한 모델에 의해 최적화 됩니다. 학습 집합만 사용 가능 하 고 교차 유효성 검사를 적용 하는 경우에 대 한 노 멀 라이저는 `normalized_root_mean_squared_error` 학습 집합의 범위로 고정 되어 있지만의 노 멀 라이저는 `r2_score` 각 접기에 대 한 분산 이기 때문에 모든 접기에 따라 달라질 수 있습니다.
+> [! 참고] `r2_score` 및 도 기본 `normalized_root_mean_squared_error` 메트릭과 유사하게 작동합니다. 고정 유효성 검사 집합이 적용되는 경우 이러한 두 메트릭은 동일한 대상, 평균 제곱 오차를 최적화하고 동일한 모델에 의해 최적화됩니다. 학습 집합만 사용할 수 있고 교차 유효성 검사가 적용되는 경우 에 대한 정규화기가 학습 집합의 범위로 고정되기 때문에 약간 `normalized_root_mean_squared_error` 다를 수 있지만 에 대한 정규화는 각 `r2_score` 접기의 분산이기 때문에 모든 접기마다 달라집니다.
 
-정확한 값 대신 순위가 가장 중요 한 경우에는 `spearman_correlation` 실제 값과 예측 간의 순위 상관 관계를 측정 하는 것이 더 적합할 수 있습니다.
+정확한 값 대신 순위가 관심 있는 경우 `spearman_correlation` 실제 값과 예측 간의 순위 상관 관계를 측정하기 때문에 더 나은 선택이 될 수 있습니다.
 
-그러나 현재 회귀에 대 한 기본 메트릭은 상대적인 차이를 해결 하지 않습니다. `r2_score` `normalized_mean_absolute_error` `normalized_root_mean_squared_error` 이러한 두 데이터 요소가 회귀 분석을 위해 동일한 데이터 집합에 속하거나 시계열 식별자로 지정 된 동일한 시계열 인 경우, 모든, 및가 $20m을 사용 하는 작업자에 대해 $20k 예측 오류를 동일 하 게 처리 합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). 상대 차이의 문제를 해결 하기 위해 사용 가능한 기본 메트릭을 사용 하 여 모델을 학습 한 다음 최적 또는를 사용 하 여 모델을 선택할 수 있습니다 `mean_absolute_percentage_error` `root_mean_squared_log_error` .
+그러나 현재 회귀 주소에 대한 기본 메트릭은 상대적인 차이가 없습니다. 이러한 `r2_score` `normalized_mean_absolute_error` 두 데이터 요소가 `normalized_root_mean_squared_error` 회귀를 위해 동일한 데이터 세트에 속하는 경우 , 및 는 $30k 급여가 $20,000인 작업자에 대해 $20k 예측 오류를 동일하게 처리합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). 상대적 차이 문제를 해결하기 위해 사용 가능한 기본 메트릭을 사용하여 모델을 학습한 다음, 또는 가 가장 적합한 모델을 선택할 수 `mean_absolute_percentage_error` `root_mean_squared_log_error` 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
@@ -393,7 +393,7 @@ run = experiment.submit(automl_config, show_output=True)
 자식 실행 및 수행 가능한 시기를 관리하는 데 도움이 되도록 실험당 전용 클러스터를 만들고 실험의 `max_concurrent_iterations` 수를 클러스터의 노드 수와 일치시키는 것이 좋습니다. 이러한 방식으로 클러스터의 모든 노드를 동시에 사용하여 원하는 동시 자식 실행/반복 횟수를 지정할 수 있습니다.
 
 `AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.
-계산 인스턴스의 경우 `max_concurrent_iterations` 계산 인스턴스 VM의 코어 수와 동일 하 게 설정할 수 있습니다.
+컴퓨팅 인스턴스의 경우 을 `max_concurrent_iterations` 컴퓨팅 인스턴스 VM의 코어 수와 동일하게 설정할 수 있습니다.
 
 ## <a name="explore-models-and-metrics"></a>모델 및 메트릭 탐색
 
@@ -431,7 +431,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-동일한 실험 노트북 내에서 제출 및 학습 된 로컬 또는 원격 실행의 경우, 메서드를 사용 하 여 최상의 모델을 전달할 수 있습니다 `get_output()` . 
+동일한 실험 Notebook 내에서 제출되고 학습된 로컬 또는 원격 실행의 경우 메서드를 사용하여 최상의 모델을 전달할 수 `get_output()` 있습니다. 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -516,16 +516,24 @@ RunDetails(run).show()
 
 ![자동화된 기계 학습을 위한 Jupyter Notebook 위젯](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
-## <a name="test-models-preview"></a>테스트 모델 (미리 보기)
+## <a name="test-models-preview"></a>테스트 모델(미리 보기)
 
 >[!IMPORTANT]
-> 자동화 된 ML 생성 된 모델을 평가 하기 위해 테스트 데이터 집합을 사용 하 여 모델을 테스트 하는 기능은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
+> 테스트 데이터 세트를 사용하여 모델을 테스트하여 자동화된 ML 생성된 모델을 평가하는 것은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
 
-또는 매개 변수를에 전달 하면 `test_data` `test_size` `AutoMLConfig` 에서 제공 된 테스트 데이터를 사용 하는 원격 테스트 실행을 자동으로 트리거하여 자동 ML 실험 완료 시 권장 되는 최상의 모델을 평가 합니다. 이 원격 테스트 실행은 최상의 모델이 결정 되 면 실험의 끝에서 수행 됩니다. [테스트 데이터 `AutoMLConfig` ](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview)를에 전달 하는 방법을 참조 하세요. 
+> [!WARNING]
+> 이 기능은 다음과 같은 자동화된 ML 시나리오에 사용할 수 없습니다.
+>  * [Computer Vision 작업(미리 보기)](how-to-auto-train-image-models.md)
+>  * [많은 모델 및 계층적 Time Series 예측 학습(미리 보기)](how-to-auto-train-forecast.md)
+>  * [DNN(딥 러닝 신경망)이 사용되는 예측 작업](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [로컬 컴퓨팅 또는 Azure Databricks 클러스터에서 자동화된 ML 실행](how-to-configure-auto-train.md#compute-to-run-experiment)
 
-### <a name="get-test-run-results"></a>테스트 실행 결과 가져오기 
+또는 매개 변수를 에 전달하면 `test_data` `test_size` `AutoMLConfig` 제공된 테스트 데이터를 사용하여 자동화된 ML 실험 완료 시 권장하는 최상의 모델을 평가하는 원격 테스트 실행이 자동으로 트리거됩니다. 이 원격 테스트 실행은 최상의 모델이 결정되면 실험이 끝날 때 수행됩니다. 테스트 데이터를 에 전달하는 방법을 [참조하세요. `AutoMLConfig` ](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) 
 
-[Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) 에서 또는 다음 코드를 사용 하 여 원격 테스트 실행에서 예측 및 메트릭을 가져올 수 있습니다. 
+### <a name="get-test-run-results"></a>테스트 실행 결과 얻기 
+
+[Azure Machine Learning Studio에서](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) 또는 다음 코드를 사용하여 원격 테스트 실행에서 예측 및 메트릭을 얻을 수 있습니다. 
+
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -549,14 +557,16 @@ predictions_df = pd.read_csv("predictions.csv")
 
 ```
 
-### <a name="test-existing-automated-ml-model"></a>기존 자동화 된 ML 모델 테스트
+모델 테스트 실행은 작업 영역으로 만든 기본 데이터 저장소에 저장된 predictions.csv 파일을 생성합니다. 이 데이터 저장소는 동일한 구독을 가진 모든 사용자에게 표시됩니다. 테스트 실행에 사용되거나 테스트 실행에 의해 생성된 정보가 비공개로 유지되어야 하는 시나리오에는 테스트 실행이 권장되지 않습니다.
 
-작성 된 기존의 자동화 된 ML 모델, 최상의 실행 또는 자식 실행을 테스트 하려면 [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) 기본 automl 실행이 완료 된 후 모델을 테스트 하는 데를 사용 합니다. `ModelProxy()` 는 이미 예측 및 메트릭을 반환 하며 출력을 검색 하는 데 추가 처리가 필요 하지 않습니다.
+### <a name="test-existing-automated-ml-model"></a>기존 자동화된 ML 모델 테스트
+
+생성된 다른 자동화된 ML 모델을 테스트하려면 를 사용하여 기본 [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) AutoML 실행이 완료된 후 모델을 테스트합니다. `ModelProxy()` 는 이미 예측 및 메트릭을 반환하며 출력을 검색하기 위해 추가 처리가 필요하지 않습니다.
 
 > [!NOTE]
-> ModelProxy는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 클래스 이며 언제 든 지 변경 될 수 있습니다.
+> ModelProxy는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 클래스이며 언제든지 변경 될 수 있습니다.
 
-다음 코드에서는 [Modelproxy. test ()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#test-test-data--azureml-data-abstract-dataset-abstractdataset--include-predictions-only--bool---false-----typing-tuple-azureml-data-abstract-dataset-abstractdataset--typing-dict-str--typing-any--) 메서드를 사용 하 여 모든 실행에서 모델을 테스트 하는 방법을 보여 줍니다. Test () 메서드에서는 매개 변수를 사용 하 여 테스트 실행의 예측만 볼 것인지 여부를 지정 하는 옵션을 사용할 수 있습니다 `include_predictions_only` . 
+다음 코드에서는 [ModelProxy.test()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#test-test-data--azureml-data-abstract-dataset-abstractdataset--include-predictions-only--bool---false-----typing-tuple-azureml-data-abstract-dataset-abstractdataset--typing-dict-str--typing-any--) 메서드를 사용하여 모든 실행에서 모델을 테스트하는 방법을 보여 있습니다. test() 메서드에는 매개 변수를 사용하여 테스트 실행의 예측만 표시할 것인지 지정하는 옵션이 `include_predictions_only` 있습니다. 
 
 ```python
 from azureml.train.automl.model_proxy import ModelProxy
@@ -568,7 +578,7 @@ predictions, metrics = model_proxy.test(test_data, include_predictions_only= Tru
 
 ## <a name="register-and-deploy-models"></a>모델 등록 및 배포
 
-모델을 테스트 하 고 프로덕션에서 사용할 수 있는지 확인 한 후 나중에 사용 하기 위해 등록할 수 있습니다. 
+모델을 테스트하고 프로덕션에서 사용할 것인지 확인한 후 나중에 사용할 수 있도록 등록할 수 있습니다. 
 
 자동화된 ML 실행에서 모델을 등록하려면 [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) 메서드를 사용합니다. 
 
@@ -597,9 +607,9 @@ model = run.register_model(model_name = model_name,
 
 모델 해석력을 통해 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 모델과 배포된 모델의 학습 및 유추 시간에 모델 해석력 기능을 사용할 수 있도록 다양한 패키지가 포함되어 있습니다.
 
-자동화 된 ML 실험 내에서 특히 [interpretability 기능을 사용 하도록 설정](how-to-machine-learning-interpretability-automl.md) 하는 방법을 참조 하세요.
+특히 자동화된 ML 실험 내에서 [해석 기능 기능을 사용하도록 설정하는](how-to-machine-learning-interpretability-automl.md) 방법을 참조하세요.
 
-자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 일반적인 내용은 [interpretability의 개념 문서](how-to-machine-learning-interpretability.md) 를 참조 하세요.
+자동화된 기계 학습 이외의 SDK의 다른 영역에서 모델 설명 및 기능 중요도를 사용하도록 설정하는 방법에 대한 일반적인 내용은 [해석력에 대한 개념 문서를 참조하세요.](how-to-machine-learning-interpretability.md)
 
 > [!NOTE]
 > ForecastTCN 모델은 현재 설명 클라이언트에서 지원되지 않습니다. 이 모델은 최상의 모델로 반환되고 주문형 설명 실행을 지원하지 않는 경우 설명 대시보드를 반환하지 않습니다.

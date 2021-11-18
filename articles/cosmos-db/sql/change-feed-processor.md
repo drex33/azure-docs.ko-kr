@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 11/16/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2c22b6de6c4c1bdf5cd8856c8d9405f19d56509
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 07bbad3791a287298812da37904cdfa7072dd4ce
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116472"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722351"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -68,14 +68,24 @@ ms.locfileid: "123116472"
 
 ## <a name="error-handling"></a>오류 처리
 
-변경 피드 프로세서는 사용자 코드 오류에 대한 복원력이 있습니다. 즉, 대리자 구현에 처리되지 않은 예외가 있는 경우(#4단계) 특정 변경 내용의 일괄 처리를 처리하는 스레드가 중지되고 새 스레드가 생성됩니다. 새 스레드는 해당 파티션 키 값 범위에 대한 임대 저장소의 최신 시점을 확인하고, 해당 위치에서 다시 시작하여 대리자에게 동일한 변경 내용의 일괄 처리를 효율적으로 보냅니다. 이 동작은 대리자가 변경사항을 올바르게 처리할 때까지 계속되며, 대리자 코드가 예외를 throw하는 경우 해당 일괄 처리를 다시 시도하므로 변경 피드 프로세서에서 "한 번 이상"의 보장을 가지는 이유입니다.
+변경 피드 프로세서는 사용자 코드 오류에 대한 복원력이 있습니다. 즉, 대리자 구현에 처리되지 않은 예외가 있는 경우(#4단계) 특정 변경 내용의 일괄 처리를 처리하는 스레드가 중지되고 새 스레드가 생성됩니다. 새 스레드는 해당 파티션 키 값 범위에 대한 임대 저장소의 최신 시점을 확인하고, 해당 위치에서 다시 시작하여 대리자에게 동일한 변경 내용의 일괄 처리를 효율적으로 보냅니다. 이 동작은 대리자가 변경 내용을 올바르게 처리 하 고 변경 피드 프로세서에 "최소한 한 번"의 보증이 적용 될 때까지 계속 됩니다.
 
 > [!NOTE]
 > 변경 내용의 일괄 처리가 다시 시도되지 않는 시나리오는 단 한 가지뿐입니다. 첫 번째 대리자 실행에서 오류가 발생하면 임대 저장소에서 이전에 저장된 상태를 다시 시도에 사용할 수 없습니다. 이러한 경우 다시 시도는 마지막 일괄 처리를 포함하거나 포함하지 않을 수 있는 [초기 시작 구성](#starting-time)을 사용합니다.
 
 변경 피드 프로세서가 동일한 변경 내용의 일괄 처리를 계속해서 다시 시도하는 것에 “고착”되지 않도록 하려면 예외 발생 시 배달 못 한 큐에 문서를 쓰도록 처리 함수에 논리를 추가해야 합니다. 이 디자인은 계속해서 나중에 변경 내용을 처리할 수 있는 동안 처리되지 않은 변경 내용을 추적할 수 있도록 합니다. 배달 못한 편지 큐는 다른 Cosmos 컨테이너가 될 수 있습니다. 정확한 데이터 저장소는 중요하지 않습니다. 단지 처리되지 않은 변경 내용이 지속됩니다.
 
-또한 [변경 피드 평가기](how-to-use-change-feed-estimator.md)를 사용하여 변경 피드를 읽을 때 변경 피드 프로세서 인스턴스의 진행률을 모니터링할 수 있습니다. 이 추정치를 사용하여 CPU, 메모리 및 네트워크 대역폭과 같은 사용 가능한 리소스로 인해 변경 피드 프로세서가 "중단"되거나 지연되는지 파악할 수 있습니다.
+또한 변경 피드 [평가기](how-to-use-change-feed-estimator.md) 를 사용 하 여 변경 피드를 읽거나 [수명 주기 알림을](#life-cycle-notifications) 사용 하 여 기본 오류를 검색할 때 변경 피드 프로세서 인스턴스의 진행률을 모니터링할 수 있습니다.
+
+## <a name="life-cycle-notifications"></a>수명 주기 알림
+
+변경 피드 프로세서를 사용 하면 해당 [수명 주기](#processing-life-cycle)에서 관련 이벤트에 연결할 수 있습니다. 이러한 이벤트 중 하나 또는 모두에 게 알리도록 선택할 수 있습니다. 최소한 오류 알림을 등록 하는 것이 좋습니다.
+
+* 에 대 한 처리기를 등록 하 여 `WithLeaseAcquireNotification` 현재 호스트가 처리를 시작 하는 임대를 획득 하는 경우 알림이 표시 되도록 합니다.
+* 에 대 한 처리기를 등록 `WithLeaseReleaseNotification` 하 여 현재 호스트가 임대를 해제 하 고 처리를 중지 하는 경우 알림이 표시 되도록 합니다.
+* 에 대 한 처리기를 등록 하 여 `WithErrorNotification` 현재 호스트에서 처리 하는 동안 예외가 발생 하는 경우 알림이 표시 되 고, 소스가 사용자 대리자 (처리 되지 않은 예외) 인지 아니면 프로세서가 모니터링 된 컨테이너에 액세스 하려고 할 때 발생 하는 오류 (예: 네트워킹 문제)를 구분할 수 있습니다.
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartWithNotifications)]
 
 ## <a name="deployment-unit"></a>배포 단위
 
@@ -99,7 +109,7 @@ ms.locfileid: "123116472"
 
 ## <a name="change-feed-and-provisioned-throughput"></a>변경 피드 및 프로비전된 처리량
 
-모니터링되는 컨테이너에서 변경 피드 읽기 작업은 RU를 사용합니다. 
+모니터링되는 컨테이너에서 변경 피드 읽기 작업은 RU를 사용합니다.
 
 임대 컨테이너에 대한 작업은 RU를 사용합니다. 동일한 임대 컨테이너를 사용하는 인스턴스 수가 많을수록 잠재적 RU 사용이 높아집니다. 인스턴스 수를 조정하고 늘리기로 결정한 경우 임대 컨테이너에서 RU 사용을 모니터링해야 합니다.
 

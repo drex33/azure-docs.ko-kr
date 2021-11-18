@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: b04cd87716bfcdeddd5c6d41b218788553a682f9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b17320265cd3bf2c518e22d8ebc15a61d4ddfb71
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636822"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720419"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
 Azure Storage 이벤트를 사용하면 애플리케이션이 Blob 생성 및 삭제와 같은 이벤트에 대응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다. 가장 좋은 부분은 사용한 것에 대해서만 지불하는 것입니다.
 
-Blob Storage 이벤트는 Azure Event Grid 사용하여 [Azure Functions,](https://azure.microsoft.com/services/event-grid/) Azure Logic Apps 등의 구독자 또는 사용자 고유의 http 수신기로 푸시됩니다. Event Grid은 풍부한 재시도 정책 및 배달 못 한 편지를 통해 애플리케이션에 안정적으로 이벤트를 배달합니다.
+Blob Storage 이벤트는 [Azure Functions, Azure Logic Apps](https://azure.microsoft.com/services/event-grid/) 또는 사용자 고유의 http 수신기에 Azure Event Grid 사용하여 구독자에게 푸시됩니다. Event Grid은 풍부한 재시도 정책 및 배달 못 한 편지를 통해 애플리케이션에 안정적으로 이벤트를 배달합니다.
 
 [Blob Storage에서](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 지원하는 이벤트의 전체 목록을 보려면 Blob Storage 이벤트 스키마 문서를 참조하세요.
 
@@ -102,20 +102,20 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 > - blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다.
 > - Blob에 액세스하려면 `CloudBlockBlob` 및 `CloudAppendBlob` 생성자에 URL 필드를 사용합니다.
 > - 이해할 수 없는 필드는 무시합니다. 이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.
-> - Microsoft.Storage 확인하려는 경우 **BlobCreated** 이벤트는 블록 Blob이 완전히 커밋된 경우에만 트리거되고, , 또는 REST API 호출에 대한 이벤트를 `CopyBlob` `PutBlob` `PutBlockList` `FlushWithClose` 필터링합니다. 해당 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft.Storage.BlobCreated** 이벤트를 트리거합니다. 필터를 만드는 방법은 [Event Grid에 대한 필터 이벤트](../../event-grid/how-to-filter-events.md)를 참조하세요.
+> - Microsoft.Storage 확인하려는 경우 **BlobCreated** 이벤트는 블록 Blob이 완전히 커밋된 경우에만 트리거되며 , 또는 REST API 호출에 대한 이벤트를 `CopyBlob` `PutBlob` `PutBlockList` `FlushWithClose` 필터링합니다. 해당 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft.Storage.BlobCreated** 이벤트를 트리거합니다. 필터를 만드는 방법은 [Event Grid에 대한 필터 이벤트](../../event-grid/how-to-filter-events.md)를 참조하세요.
 
 ## <a name="feature-support"></a>기능 지원
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png) <sup>2</sup>  | ![No](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png) <sup>2</sup> | ![No](../media/icons/no-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png) <sup>2</sup>  | ![예](../media/icons/no-icon.png) |  ![예](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png) <sup>2</sup> | ![예](../media/icons/no-icon.png) |  ![예](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
-<sup>2</sup> [Azure Data Lake Storage Gen2의 알려진 문제를 참조하세요.](data-lake-storage-known-issues.md) 이러한 문제는 계층 구조 네임스페이스 기능을 사용하도록 설정된 모든 계정에 적용됩니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(보안 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,154 +1,83 @@
 ---
-title: Azure VM 시리즈당 vCPU 할당량 한도 증가 요청
-description: Azure Portal VM 시리즈의 vCPU 할당량 한도 증가를 요청하는 방법으로, 이렇게 하면 총 지역 vCPU 한도가 동일한 양만큼 증가합니다.
-author: sowmyavenkat86
-ms.author: svenkat
-ms.date: 01/27/2020
+title: VM 제품군 vCPU 할당량 늘리기
+description: Azure Portal에서 VM 제품군에 대 한 vCPU 할당량 한도 증가를 요청 하는 방법에 대해 알아봅니다. 그러면 총 지역 vCPU 한도가 같은 양만큼 증가 합니다.
+ms.date: 11/15/2021
 ms.topic: how-to
-ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 5db3e538a64e275313e1e0ab01f6cc6350eabb77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7941c19de7143bc794ffd6d197d31c6db6f0a0d5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745437"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714375"
 ---
-# <a name="standard-quota-increase-limits-by-vm-series"></a>표준 할당량: VM 시리즈별 제한 늘리기 
+# <a name="increase-vm-family-vcpu-quotas"></a>VM 제품군 vCPU 할당량 늘리기
 
-Azure Resource Manager는 가상 머신에 대해 두 가지 vCPU 할당량을 지원합니다.
+Azure Resource Manager는 가상 컴퓨터에 대해 두 가지 유형의 vCPU 할당량을 적용 합니다.
 
-* ‘종량제 VM’ 및 ‘예약 VM 인스턴스’는 ‘표준 vCPU 할당량’이 적용됩니다.  
-* ‘스폿 VM’은 ‘스폿 vCPU 할당량’이 적용됩니다. 
+- 표준 vCPU 할당량
+- 지점 vCPU 할당량
 
-종량제 및 예약 가상 머신 인스턴스의 표준 vCPU 할당량은 각 지역의 구독마다 두 계층으로 적용됩니다.
+표준 vCPU 할당량은 종 량 제 Vm 및 예약 된 VM 인스턴스에 적용 됩니다. 각 지역에서 각 구독에 대해 두 계층에 적용 됩니다.
 
-* 첫 번째 계층은 모든 VM 시리즈의 ‘총 지역 vCPU 한도’입니다.
-* 두 번째 계층은 Dv3 시리즈 vCPU와 같은 ‘VM 시리즈당 vCPU 한도’입니다.
+- 첫 번째 계층은 총 지역 vCPU 할당량입니다.
+- 두 번째 계층은 D 시리즈 Vcpu와 같은 VM 패밀리 vCPU 할당량입니다.
 
-새 스폿 VM을 배포할 때마다 모든 스폿 VM 인스턴스에 대한 기존 및 새로운 vCPU 사용량의 합계는 승인된 스폿 vCPU 할당량 한도를 초과해서는 안 됩니다. 스폿 할당량을 초과하는 경우 스폿 VM 배포가 허용되지 않습니다.
+이 문서에서는 VM 패밀리 vCPU 할당량에 대 한 향상을 요청 하는 방법을 보여 줍니다. 지역 또는 지역 [vCPU 할당량](spot-quota.md)을 [기준으로 vcpu 할당량](regional-quota-requests.md) 에 대 한 향상을 요청할 수도 있습니다.
 
-Azure Portal을 사용하여 VM 시리즈의 vCPU 할당량 한도 증가를 요청할 수 있습니다. VM 시리즈 할당량이 증가하면 총 지역 vCPU 한도가 동일한 양만큼 자동으로 증가합니다.
+## <a name="increase-a-vm-family-vcpu-quota"></a>VM 패밀리 vCPU 할당량 증가
 
-표준 vCPU 할당량에 대한 자세한 내용은 [가상 머신 vCPU 할당량](../../virtual-machines/windows/quotas.md)과 [Azure 구독 및 서비스 한도](./classic-deployment-model-quota-increase-requests.md)를 참조하세요.
+**사용량 + 할당량** 에서 VM 제품군 당 표준 vcpu 할당량 증가를 요청 하려면 다음을 수행 합니다.
 
-vCPU 표준 할당량 한도를 지역별로 늘리는 방법에 대한 자세한 내용은 [표준 할당량: 지역별 한도 증가](regional-quota-requests.md)를 참조하세요.
+1. Azure Portal에서 **구독** 을 검색하고 선택합니다.
+1. 할당량을 늘릴 구독 등록을 선택하세요.
+1. 왼쪽 창에서 **사용량 + 할당량** 을 선택하세요.
+1. 기본 창에서 증가 시킬 VM 패밀리 vCPU 할당량을 찾은 다음 연필 아이콘을 선택 합니다. 아래 예제에서는 미국 동부 지역에 배포 된 표준 DSv3 제품군 vCPUs를 보여 줍니다. **사용** 열에는 현재 할당량 사용량과 현재 할당량 한도가 표시 됩니다.
+1. **할당량 정보** 에서 새 할당량 한도를 입력 하 고 **저장 및 계속** 을 선택 합니다.
 
-스폿 VM vCPU 한도를 늘리는 방법에 대한 자세한 내용은 [스폿 할당량: 모든 VM 시리즈에 대한 한도 늘리기](low-priority-quota.md)를 참조하세요.
+   :::image type="content" source="media/resource-manager-core-quotas-request/quota-increase-example.png" alt-text="사용량 + 할당량 창의 스크린샷" lightbox="media/resource-manager-core-quotas-request/quota-increase-example.png":::
 
-다음 섹션에 설명된 두 가지 방법 중 하나로 VM 시리즈당 표준 vCPU 할당량 한도 증가를 요청할 수 있습니다.
-
-## <a name="request-a-standard-quota-increase-from-help--support"></a>도움말 + 지원에서 표준 할당량 증가 요청
-
-**도움말 + 지원** 에서 VM 시리즈당 표준 vCPU 할당량 증가를 요청하려면 다음을 수행합니다.
+요청을 검토 하 고 요청이 승인 또는 거부 되었는지 여부에 대 한 알림이 표시 됩니다. 이는 일반적으로 몇 분 내에 발생 합니다. 요청이 거부 되 면 지원 엔지니어가 증가를 지원할 수 있도록 지원 요청을 열 수 있는 링크가 표시 됩니다.
 
 > [!NOTE]
-> 또한 단일 지원 사례를 통해 여러 지역의 할당량 한도 증가를 요청할 수 있습니다. 자세한 내용은 8단계를 참조하세요.
+> VM 제품군 할당량을 늘리는 요청이 승인 되 면 Azure는 VM이 배포 되는 지역에 대 한 지역 vCPU 할당량을 자동으로 증가 시킵니다.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원** 을 선택합니다.
+> [!TIP]
+> 가상 컴퓨터를 만들거나 크기를 조정 하 고 VM 크기를 선택 하는 경우 **할당량 없음-제품군 제한 부족** 아래 나열 된 몇 가지 옵션이 표시 될 수 있습니다. 그렇다면 할당량 **요청** 링크를 선택 하 여 VM 만들기 페이지에서 할당량 증가를 직접 요청할 수 있습니다.
 
-   ![도움말 + 지원 링크](./media/resource-manager-core-quotas-request/help-plus-support.png)
+## <a name="increase-a-vm-family-vcpu-quota-from-help--support"></a>도움말 + 지원에서 VM 패밀리 vCPU 할당량 늘리기
 
-1. **도움말 + 지원** 에서 **새 지원 요청** 을 선택합니다.
-
-    ![새 지원 요청 만들기](./media/resource-manager-core-quotas-request/new-support-request.png)
+**도움말 + 지원** 에서 VM 제품군 당 표준 vcpu 할당량 증가를 요청 하려면 Azure Portal에서 새 지원 요청을 만듭니다.
 
 1. **문제 유형** 의 경우 **서비스 및 구독 제한(할당량)** 를 선택합니다.
-
-   ![문제 유형 선택](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
-
-1. **구독** 의 경우 할당량을 늘릴 구독을 선택하세요.
-
-   ![늘어난 할당량 구독 선택](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
-
+1. **구독** 의 경우 할당량을 늘릴 구독을 선택합니다.
 1. **할당량 유형** 의 경우 **Compute VM(cores-vCPUs) 구독 제한이 증가** 를 선택합니다.
 
-   ![할당량 유형 선택](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Azure Portal에서 VM 패밀리 vCPU 할당량을 늘리는 지원 요청을 보여 주는 스크린샷":::
 
-1. **다음: 솔루션** 을 선택하여 **문제 세부 정보** 를 여세요. 추가 정보를 입력하려면 **상세 정보 제공** 을 선택하세요.
+여기에서 위에 설명 된 단계에 따라 할당량 증가 요청을 완료 합니다.
 
-   !["세부 정보 제공" 링크](./media/resource-manager-core-quotas-request/provide-details-link.png)
+## <a name="increase-multiple-vm-family-cpu-quotas-in-one-request"></a>한 요청에서 여러 VM 제품군 CPU 할당량 늘리기
 
-1. **할당량 세부 정보** 에서 다음 단계를 수행합니다.
+동시에 여러 번의 증가가 요청 (대량 요청) 할 수도 있습니다. 대량 요청 할당량 증가는 단일 할당량 증가를 요청 하는 것 보다 시간이 더 오래 걸릴 수 있습니다.
 
-   ![추가 할당량 세부 정보 제공](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
+여러 증가량을 함께 요청 하려면 먼저 위에 설명 된 대로 **사용량 + 할당량** 페이지로 이동 합니다. 그런 다음 아래 작업을 수행합니다.
 
-   1. **배포 모델** 의 경우 적절한 모델을 선택합니다.
-
-   1. **위치** 의 경우 위치를 선택합니다. 선택한 위치의 경우 **유형**, **유형 선택** 에서 **표준** 을 선택하세요.
-
-      ![할당량 정보 - 할당량 유형](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
-
-      **유형** 에서 다중 선택 지원을 통해 단일 지원 사례에서 표준 할당량 유형과 스폿 할당량 유형을 모두 요청할 수 있습니다.
-
-      스폿 할당량 한도에 대한 자세한 내용은 [가상 머신 확장 집합의 Azure 스폿 VM](../../virtual-machine-scale-sets/use-spot.md)을 참조하세요.
-
-   1. **표준** 에서 증가된 할당량을 사용할 SKU 시리즈를 선택합니다.
-
-      ![할당량 정보 - SKU 시리즈](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
-
-   1. 이 구독에 대해 원하는 새 할당량 한도를 입력합니다. 목록에서 SKU를 제거하려면 SKU 옆의 확인란 선택을 취소하거나 무시 “X” 아이콘을 선택합니다.
-
-      ![새 vCPU 한도 선택](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
-
-1. 둘 이상의 위치에 대한 할당량 증가를 요청하려면 **위치** 에서 추가 위치를 선택한 다음 적절한 VM 유형을 선택하세요. 그런 다음 추가 위치에 적용되는 한도를 입력할 수 있습니다.
-
-   ![할당량 세부 정보에 추가 위치 지정](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
-
-1. 지원 요청 생성을 계속하려면 **저장 후 계속** 을 선택하세요.
-
-## <a name="request-a-standard-quota-increase-from-subscriptions"></a>구독에서 표준 할당량 증가를 요청
-
-**구독** 에서 VM 시리즈당 표준 vCPU 할당량 증가를 요청하려면 다음을 수행합니다.
-
-> [!NOTE]
-> 또한 단일 지원 사례를 통해 여러 지역의 할당량 한도 증가를 요청할 수 있습니다. 자세한 내용은 7단계를 참조하세요.
-
-1. [ Azure Portal](https://portal.azure.com)에서 **구독** 을 검색하고 선택하세요.
-
-   ![Azure Portal 검색 구독](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
-
-1. 할당량을 늘릴 구독 등록을 선택하세요.
-
-   ![변경 사항을 위해 선택할 구독](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
-
-1. 왼쪽 창에서 **사용량 + 할당량** 을 선택하세요.
-
-   ![“사용량 + 할당량” 링크](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
-
-1. 오른쪽 상단에서  **증가 요청** 을 선택하세요.
-
-   ![할당량 증가 선택](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
-
+1. 화면 위쪽에서 **요청 증가** 를 선택 합니다.
 1. **할당량 유형** 의 경우 **Compute VM(cores-vCPUs) 구독 제한이 증가** 를 선택합니다.
+1. **다음** 을 선택 하 여 **추가 세부 정보** 화면으로 이동한 다음, **세부 정보 입력** 을 선택 합니다.
+1. **할당량 정보** 화면에서 다음을 수행 합니다.
 
-   ![할당량 유형 선택](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png" alt-text="할당량 정보 화면 및 선택 항목을 보여 주는 스크린샷":::
 
-1. **할당량 세부 정보** 에서 다음 단계를 수행합니다.
+   1. **배포 모델** 의 경우 **리소스 관리자** 가 선택 되어 있는지 확인 합니다.
+   1. **위치** 에서 할당량을 증가 시키려는 모든 지역을 선택 합니다.
+   1. 선택한 각 지역에 대해 **할당량** 드롭다운 목록에서 하나 이상의 VM 시리즈를 선택 합니다.
+   1. 선택한 각 **VM 시리즈** 에 대해이 구독에 대해 원하는 새 vcpu 제한을 입력 합니다.
+   1. 완료 되 면 **저장 후 계속** 을 선택 합니다.
+1. 연락처 세부 정보를 입력 하거나 확인 한 후 **다음** 을 선택 합니다.
+1. 마지막으로 **검토 + 만들기** 페이지에서 모든 항목이 올바른지 확인 한 다음 **만들기** 를 선택 하 여 요청을 제출 합니다.
 
-   1. **배포 모델** 의 경우 적절한 모델을 선택하고 **위치** 에 대해 위치를 선택합니다.
+## <a name="next-steps"></a>다음 단계
 
-      ![할당량 세부 정보 제공](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
-
-   1. 선택한 위치의 경우 **형식** 에서 **형식 선택** 을 선택한 다음, **표준** 을 선택합니다.
-
-      ![표준 형식 선택](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
-
-      **유형** 에서 다중 선택 지원을 통해 단일 지원 사례에서 표준 할당량 유형과 스폿 할당량 유형을 모두 요청할 수 있습니다.
-
-      스폿 할당량 한도에 대한 자세한 내용은 [가상 머신 확장 집합의 Azure 스폿 VM](../../virtual-machine-scale-sets/use-spot.md)을 참조하세요.
-
-   1. **표준** 의 경우 할당량을 늘리려는 SKU 시리즈를 선택합니다.
-
-      ![할당량 정보 - SKU 시리즈](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
-
-   1. 이 구독에 대해 원하는 새 할당량 한도를 입력합니다. 목록에서 SKU를 제거하려면 SKU 옆의 확인란을 선택 취소하거나 무시 “X” 아이콘을 선택합니다.
-
-      ![새 vCPU 한도 선택](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
-
-1. 둘 이상의 위치에 대한 할당량 증가를 요청하려면 **위치** 에서 추가 위치를 선택한 다음 적절한 VM 유형을 선택하세요.
-
-   이 단계에서는 이전 위치에 대해 선택한 SKU 시리즈를 미리 로드합니다. 추가 시리즈에 적용할 할당량 한도를 입력합니다.
-
-   ![할당량 세부 정보에서 추가 위치 선택](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
-
-1. 지원 요청 생성을 계속하려면 **저장 후 계속** 을 선택합니다.
+- [Vcpu 할당량](/azure/virtual-machines/windows/quotas)에 대해 자세히 알아보세요.
+- [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](/azure/azure-resource-manager/management/azure-subscription-service-limits)에 대해 알아봅니다.

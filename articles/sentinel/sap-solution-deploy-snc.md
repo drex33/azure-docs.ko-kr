@@ -3,23 +3,21 @@ title: SNC(Secure Network Communications) | Microsoft Sentinel SAP 데이터 커
 description: NetWeaver/ABAP 인터페이스 기반 로그에 대해 SNC를 통한 보안 연결을 사용하여 SAP 환경용 Microsoft Sentinel 데이터 커넥터를 배포하는 방법을 알아봅니다.
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
-ms.openlocfilehash: cc3c58743fc1cfca90ff8a2f20e5450895accc75
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 2437859c3ee236e1dc3c641f22de5e1d3ce07fff
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519879"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711890"
 ---
 # <a name="deploy-the-microsoft-sentinel-sap-data-connector-with-snc"></a>SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 NetWeaver/ABAP 인터페이스 기반 로그에 대한 SNC(Secure Network Communications)를 통해 SAP에 대한 보안 연결이 있는 경우 Microsoft Sentinel SAP 데이터 커넥터를 배포하는 방법을 설명합니다.
+이 문서에서는 NetWeaver/ABAP 인터페이스 기반 로그에 대해 SNC(Secure Network Communications)를 통해 SAP에 대한 보안 연결이 있는 경우 Microsoft Sentinel SAP 데이터 커넥터를 배포하는 방법을 설명합니다.
 
 > [!NOTE]
 > Microsoft Sentinel SAP 데이터 커넥터를 배포하는 데 가장 권장되는 기본 프로세스는 [Azure VM을 사용하는](sap-deploy-solution.md)것입니다. 이 문서는 고급 사용자를 위한 것입니다.

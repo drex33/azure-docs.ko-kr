@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: 9d47a19e4890ac6e81a86aeb04e6a139be555599
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 47b3789938035dab9c9094fbc5aba0aa1fc8d8e4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132061195"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723365"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 리소스 보호
@@ -33,7 +33,7 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 항목에 익숙하다고 가정합니다.
 + [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
@@ -89,7 +89,7 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
     | __Azure Storage 계정__ | [서비스 및 개인 끝점](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[프라이빗 엔드포인트](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [신뢰할 수 있는 Azure 서비스에 대한 액세스 권한 부여](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [프라이빗 엔드포인트](../container-registry/container-registry-private-link.md) | [신뢰할 수 있는 서비스 허용](../container-registry/allow-access-trusted-services.md) |
 
-1. 작업 영역에 대 한 Azure Storage 계정의 속성에서 클라이언트 IP 주소를 방화벽 설정의 허용 목록에 추가 합니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](/azure/storage/common/storage-network-security#configuring-access-from-on-premises-networks)을 참조 하세요.
+1. 작업 영역에 대 한 Azure Storage 계정의 속성에서 클라이언트 IP 주소를 방화벽 설정의 허용 목록에 추가 합니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md#configuring-access-from-on-premises-networks)을 참조 하세요.
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>작업 영역 및 연결된 리소스 보호
 

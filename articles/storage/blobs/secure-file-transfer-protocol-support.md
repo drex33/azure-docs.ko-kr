@@ -9,12 +9,12 @@ ms.date: 11/15/2021
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
-ms.openlocfilehash: 0cfd4a8dc9968ad9ef9e7538ac51414deb974fdb
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 83a0ffc2b12c884a4d5cba4147cd02365f6fde0a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132556937"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720514"
 ---
 # <a name="secure-file-transfer-protocol-sftp-support-for-azure-blob-storage-preview"></a>Azure Blob Storage (미리 보기)에 대 한 SFTP (Secure 파일 전송 프로토콜) 지원
 
@@ -67,7 +67,7 @@ Azure Storage는 SFTP 클라이언트를 연결 하는 데 사용 되는 SAS (�
 
 #### <a name="ssh-key-pairs"></a>SSH 키 쌍
 
-공개-개인 키 쌍은 SSH (Secure Shell)에 대 한 가장 일반적인 형태의 인증입니다. 개인 키는 비밀 이며 사용자 에게만 알려집니다. 공개 키는 Azure에 저장 됩니다. SSH 클라이언트는 저장소 계정에 연결할 때 개인 키와 서명이 포함 된 메시지를 보냅니다. Azure는 메시지의 유효성을 검사 하 고 저장소 계정에서 사용자 및 키가 인식 되는지 확인 합니다. 자세히 알아보려면 [SSH 및 키 개요](/azure/virtual-machines/linux/ssh-from-windows##overview-of-ssh-and-keys)를 참조 하세요.
+공개-개인 키 쌍은 SSH (Secure Shell)에 대 한 가장 일반적인 형태의 인증입니다. 개인 키는 비밀 이며 사용자 에게만 알려집니다. 공개 키는 Azure에 저장 됩니다. SSH 클라이언트는 저장소 계정에 연결할 때 개인 키와 서명이 포함 된 메시지를 보냅니다. Azure는 메시지의 유효성을 검사 하 고 저장소 계정에서 사용자 및 키가 인식 되는지 확인 합니다. 자세히 알아보려면 [SSH 및 키 개요](../../virtual-machines/linux/ssh-from-windows.md#)를 참조 하세요.
 
 개인-공개 키 쌍을 사용 하 여 인증 하도록 선택 하는 경우 하나를 생성 하거나, Azure에 이미 저장 된 항목을 사용 하거나, 기존 공개-개인 키 쌍의 공개 키를 Azure에 제공할 수 있습니다. 
 
@@ -75,9 +75,9 @@ Azure Storage는 SFTP 클라이언트를 연결 하는 데 사용 되는 SAS (�
 
 현재 릴리스에서는 컨테이너 수준 사용 권한만 지정할 수 있습니다. 디렉터리 수준 권한은 지원 되지 않습니다. 액세스 권한을 부여 하려는 컨테이너와 제공할 액세스 수준 (읽기, 쓰기, 나열, 삭제 및 만들기)을 선택할 수 있습니다. 이러한 권한은 컨테이너의 모든 디렉터리와 하위 디렉터리에 적용 됩니다. 각 로컬 사용자에 게 최대 100의 컨테이너에 대 한 액세스 권한을 부여할 수 있습니다. 로컬 사용자를 만든 후에도 컨테이너 권한을 업데이트할 수 있습니다. 다음 표에서는 각 사용 권한에 대해 자세히 설명 합니다.
 
-| 사용 권한 | 권한 코드 | Description |
+| 사용 권한 | 권한 코드 | 설명 |
 |---|---|---|
-| 읽기 | r | <li>파일 콘텐츠 읽기</li> |
+| Read | r | <li>파일 콘텐츠 읽기</li> |
 | 쓰기 | w | <li>파일 업로드</li><li>디렉터리 만들기</li><li>업로드 디렉터리</li> |
 | 목록 | l | <li>컨테이너 내 내용 나열</li><li>디렉터리 내 내용 나열</li> |
 | 삭제 | 일 | <li>파일/디렉터리 삭제</li> |
@@ -114,7 +114,6 @@ SFTP 지원은 다음 지역에서 제공 됩니다.
 - 미국 중부 EUAP
 - 캐나다 동부
 - 캐나다 중부
-- 서유럽
 - 북유럽
 - 오스트레일리아 동부
 - 스위스 북부

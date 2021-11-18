@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/27/2021
 ms.author: danlep
-ms.openlocfilehash: eaeacb016098df74d4a8ff7f20ebf677e4322479
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0833e80c17294bc50489f37b21a0b605a0b0ac9d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447458"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717509"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
@@ -22,7 +22,7 @@ Azure 애플리케이션 Insights를 Azure API Management와 쉽게 통합할 �
 * API Management에 대 한 Application Insights 통합의 모든 단계를 안내 합니다.
 * API Management 서비스 인스턴스에 대 한 성능 영향을 줄이기 위한 전략에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure API Management 인스턴스가 필요 합니다. [하나](get-started-create-service-instance.md) 를 먼저 만듭니다.
 
@@ -99,19 +99,19 @@ Application Insights를 사용 하려면 [Application Insights 서비스의 인�
 
 Application Insights에서 받는 항목은 다음과 같습니다.
 
-| 원격 분석 항목 | Description |
+| 원격 분석 항목 | 설명 |
 | -------------- | ----------- |
-| *요청* | 들어오는 모든 요청에 대해 다음을 수행 합니다. <ul><li>*프런트 엔드 요청*</li><li>*프런트 엔드 응답*</li></ul> |
-| *종속성* | 백 엔드 서비스에 전달 되는 모든 요청에 대해 다음을 수행 합니다. <ul><li>*백 엔드 요청*</li><li>*백 엔드 응답*</li></ul> |
-| *Exception* | 실패 한 모든 요청: <ul><li>클라이언트 연결이 닫 혔 기 때문에 실패 했습니다.</li><li>API 정책의 *오류에 대* 한 섹션을 트리거 했습니다.</li><li>응답 HTTP 상태 코드가 4xx 또는 5xx와 일치 합니다.</li></ul> |
-| *추적* | [추적](api-management-advanced-policies.md#Trace) 정책을 구성 하는 경우 <br /> `trace` 정책의 `severity` 설정은 Application Insights 로깅의 `verbosity` 설정보다 크거나 같아야 합니다. |
+| *요청* | 들어오는 모든 요청에 대해 다음을 수행합니다. <ul><li>*프런트 엔드 요청*</li><li>*프런트 엔드 응답*</li></ul> |
+| *종속성* | 백 엔드 서비스로 전달되는 모든 요청에 대해 다음을 수행합니다. <ul><li>*백 엔드 요청*</li><li>*백 엔드 응답*</li></ul> |
+| *Exception* | 실패한 모든 요청에 대해 다음을 수행합니다. <ul><li>닫힌 클라이언트 연결로 인해 실패</li><li>API 정책의 *오류* 발생 시 섹션 트리거</li><li>4xx 또는 5xx와 일치하는 응답 HTTP 상태 코드가 있습니다.</li></ul> |
+| *추적* | [추적](api-management-advanced-policies.md#Trace) 정책을 구성하는 경우 <br /> `trace` 정책의 `severity` 설정은 Application Insights 로깅의 `verbosity` 설정보다 크거나 같아야 합니다. |
 
-### <a name="emit-custom-metrics"></a>사용자 지정 메트릭 내보내기
-정책을 구성 하 여 사용자 지정 메트릭을 내보낼 수 있습니다 [`emit-metric`](api-management-advanced-policies.md#emit-metrics) . 
+### <a name="emit-custom-metrics"></a>사용자 지정 메트릭을 내다
+정책을 구성하여 사용자 지정 메트릭을 내화할 수 [`emit-metric`](api-management-advanced-policies.md#emit-metrics) 있습니다. 
 
-API Management에서 사용할 수 있는 Application Insights 미리 집계 된 메트릭을 만들려면 서비스에서 사용자 지정 메트릭을 수동으로 사용 하도록 설정 해야 합니다.
-1. [`emit-metric`](api-management-advanced-policies.md#emit-metrics) [만들기 또는 업데이트 API](https://docs.microsoft.com/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update)와 함께 정책을 사용 합니다.
-1. `"metrics":true`다른 속성과 함께 페이로드에 추가 합니다.
+API Management 애플리케이션 Insights 사전 집계 메트릭을 사용할 수 있도록 하려면 서비스에서 사용자 지정 메트릭을 수동으로 사용하도록 설정해야 합니다.
+1. [`emit-metric`](api-management-advanced-policies.md#emit-metrics) [API 만들기 또는 업데이트와](/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update)함께 정책을 사용합니다.
+1. `"metrics":true`다른 속성과 함께 를 페이로드에 추가합니다.
 
 > [!NOTE]
 > Application Insights 인스턴스당 메트릭 및 이벤트의 최대 크기와 수에 대한 자세한 내용은 [Application Insights 제한](../azure-monitor/service-limits.md#application-insights)을 참조하세요.
@@ -121,15 +121,15 @@ API Management에서 사용할 수 있는 Application Insights 미리 집계 된
 > [!WARNING]
 > 모든 이벤트를 기록하면 들어오는 요청 속도에 따라 성능에 심각한 영향을 미칠 수 있습니다.
 
-내부 부하 테스트에 따라 로깅 기능을 사용 하도록 설정 하면 초당 1000 요청을 초과 하는 요청 속도의 처리량이 40%-50% 감소 합니다. Application Insights은 통계 분석을 사용 하 여 응용 프로그램 성능을 평가 하도록 디자인 되었습니다. 그것은 아니야:
-* 감사 시스템으로 사용 하기 위한 것입니다.
-* 고용량 Api에 대 한 개별 요청을 기록 하는 데 적합 합니다.
+내부 부하 테스트에 따라 로깅 기능을 사용하도록 설정하면 요청 속도가 초당 1,000개 요청을 초과할 때 처리량이 40%-50% 감소했습니다. 애플리케이션 Insights 통계 분석을 사용하여 애플리케이션 성능을 평가하도록 설계되었습니다. 그것은 아니야:
+* 감사 시스템입니다.
+* 대용량 API에 대한 각 개별 요청을 로깅하는 데 적합합니다.
 
-[ **샘플링** 설정을 조정](#enable-application-insights-logging-for-your-api)하 여 기록 된 요청 수를 조작할 수 있습니다. 값이 100%이면 모든 요청이 기록됨을 의미하고, 0%는 기록되지 않음을 의미합니다. 
+[ **샘플링** 설정을 조정하여](#enable-application-insights-logging-for-your-api)기록된 요청 수를 조작할 수 있습니다. 값이 100%이면 모든 요청이 기록됨을 의미하고, 0%는 기록되지 않음을 의미합니다. 
 
-**샘플링** 을 사용 하면 원격 분석 볼륨을 줄일 수 있으므로 로깅의 이점을 계속 활용 하면서 상당한 성능 저하를 방지할 수 있습니다.
+**샘플링은** 원격 분석 볼륨을 줄여 로깅의 이점을 계속 유지하면서 상당한 성능 저하를 효과적으로 방지하는 데 도움이 됩니다.
 
-성능 문제를 향상 시키려면 다음을 건너뜁니다.
+성능 문제를 개선하려면 다음을 건너뜁니다.
 * 요청 및 응답 헤더.
 * 본문 로깅.
 

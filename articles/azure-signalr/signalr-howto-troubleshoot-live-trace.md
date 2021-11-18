@@ -6,12 +6,12 @@ ms.author: wanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/30/2021
-ms.openlocfilehash: 6fecb2f492a71781706e19a407a87cb1af7dc006
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1f361b8a785f108f985dbae23290150c46170daa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470265"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705304"
 ---
 # <a name="how-to-use-live-trace-tool-for-azure-signalr-service"></a>Azure SignalR Service에 대한 라이브 추적 도구를 사용하는 방법
 
@@ -57,7 +57,7 @@ ms.locfileid: "131470265"
 | 사용자 ID | 사용자의 ID |
 | IP | 클라이언트의 IP 주소 |
 | 서버 고정 | 클라이언트의 라우팅 모드. 허용되는 값은 `Disabled`, `Preferred` 및 `Required`입니다. 자세한 내용은 [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode)를 참조하세요. |
-| 전송 | 클라이언트가 HTTP 요청을 보내는 데 사용할 수 있는 전송입니다. 허용되는 값은 `WebSockets`, `ServerSentEvents` 및 `LongPolling`입니다. 자세한 내용은 [HttpTransportType](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype)을 참조하세요. |
+| 전송 | 클라이언트가 HTTP 요청을 보내는 데 사용할 수 있는 전송입니다. 허용되는 값은 `WebSockets`, `ServerSentEvents` 및 `LongPolling`입니다. 자세한 내용은 [HttpTransportType](/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype)을 참조하세요. |
 | 메시지 추적 ID | 메시지의 고유 식별자입니다. |
 | 경로 템플릿 | API의 경로 템플릿 |
 | Http 메서드 | Http 메서드 (POST/GET/PUT/DELETE) |

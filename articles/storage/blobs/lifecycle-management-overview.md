@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 69cb9048ef723744da93478b01ba7122152e1db9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 466ac390f115a9fea54c99a4d64d103e90fcee8d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460309"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724049"
 ---
 # <a name="optimize-costs-by-automatically-managing-the-data-lifecycle"></a>데이터 수명 주기를 자동으로 관리하여 비용 최적화
 
@@ -162,7 +162,7 @@ ms.locfileid: "131460309"
 |--|--|--|
 | daysAfterModificationGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 기본 Blob 작업에 대한 조건 |
 | daysAfterCreationGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 버전 및 Blob 스냅샷 작업에 대한 조건 |
-| daysAfterLastAccessTimeGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 액세스 추적을 사용하는 경우 기본 Blob 작업에 대한 조건 |
+| daysAfterLastAccessTimeGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 액세스 추적을 사용 하는 경우 기본 blob 동작에 대 한 조건 |
 
 ## <a name="examples-of-lifecycle-policies"></a>수명 주기 정책 예
 
@@ -366,14 +366,14 @@ ms.locfileid: "131460309"
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)|![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)|![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (Secure 파일 전송 프로토콜) 지원에는 계층적 네임 스페이스를 사용 하도록 설정 된 저장소 계정이 필요 합니다.
 
-## <a name="regional-availability-and-pricing"></a>지역별 가용성 및 가격 책정
+## <a name="regional-availability-and-pricing"></a>지역 가용성 및 가격
 
 수명 주기 관리 기능은 모든 Azure 지역에서 사용할 수 있습니다.
 

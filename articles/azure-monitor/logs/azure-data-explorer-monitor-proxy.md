@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9faa9ff9c0635c84ebc5c56a343db0426873f945
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7714b743c29d0fe48a8d2b62e2e5176fdf7b63ba
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528685"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714944"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer"></a>Azure Data Explorer를 사용하여 Azure Monitor에서 데이터 쿼리
 
@@ -29,15 +29,18 @@ Azure Data Explorer 서비스 간 쿼리 흐름: :::image type="content" source=
 
 2. **클러스터 추가** 창에서 LA 또는 AI 클러스터의 URL을 추가합니다.
 
-    * LA의 경우: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-    * AI의 경우: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+    * LA의 경우: `https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * AI의 경우: `https://adx.monitor.azure.com//subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
     * **추가** 를 선택합니다.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="클러스터 추가.":::
  
 >[!NOTE]
->둘 이상의 Log Analytics/Application insights 작업 영역에 대한 연결을 추가하는 경우 각각 다른 이름을 지정합니다. 그렇지 않은 경우 왼쪽 창에서 모두 동일한 이름을 갖게 됩니다.
+>* 다음에 대 한 끝점이 다릅니다.
+>* Azure Government- `adx.monitor.azure.us/`
+>*  Azure 중국- `adx.monitor.azure.cn/`
+>* 둘 이상의 Log Analytics/Application insights 작업 영역에 대한 연결을 추가하는 경우 각각 다른 이름을 지정합니다. 그렇지 않은 경우 왼쪽 창에서 모두 동일한 이름을 갖게 됩니다.
 
  연결이 설정되면 Log Analytics 또는 Application Insights 작업 영역이 네이티브 Azure Data Explorer 클러스터와 함께 왼쪽 창에 나타납니다.
 
@@ -74,12 +77,12 @@ Perf | take 10 // Demonstrate cross service query on the Log Analytics workspace
 클러스터 간 서비스 쿼리를 실행하는 경우 왼쪽 창에서 Azure Data Explorer 네이티브 클러스터가 선택되어 있는지 확인합니다. 다음 예제에서는 [union을 사용](/azure/data-explorer/kusto/query/unionoperator)하여 Log Analytics 작업 영역과 Azure Data Explorer 클러스터 테이블을 결합하는 방법을 보여 줍니다.
 
 ```kusto
-union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
+union StormEvents, cluster('https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
 | take 10
 ```
 
 ```kusto
-let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
+let CL1 = 'https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
@@ -99,7 +102,7 @@ Azure Data Explorer 리소스가 테넌트 'A'에 있고 Log Analytics 작업 �
 2. [Lighthouse](../../lighthouse/index.yml)를 사용하여 Azure Monitor 리소스를 테넌트 'A'에 프로젝션합니다.
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>다른 테넌트에서 Azure Data Explorer 클러스터에 연결
 
-Kusto 탐색기는 사용자 계정이 원래 속한 테넌트에 자동으로 로그인합니다. 동일한 사용자 계정을 사용하여 다른 테넌트의 리소스에 액세스하려면 다음과 같이 연결 문자열에서 `tenantId`를 명시적으로 지정해야 합니다. `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
+Kusto 탐색기는 사용자 계정이 원래 속한 테넌트에 자동으로 로그인합니다. 동일한 사용자 계정을 사용하여 다른 테넌트의 리소스에 액세스하려면 다음과 같이 연결 문자열에서 `tenantId`를 명시적으로 지정해야 합니다. `Data Source=https://adx.monitor.azure.com/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
 
 ## <a name="function-supportability"></a>함수 지원 가능성
 
@@ -122,12 +125,15 @@ Application Insights 또는 Log Analytics 클러스터를 호출할 때 사용�
 
 |구문 설명  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| 이 구독에 정의된 리소스만 포함된 클러스터 내의 데이터베이스(**클러스터 간 쿼리에 추천됨**) |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
-| 이 구독의 모든 앱/작업 영역이 포함된 클러스터    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
-|구독의 모든 앱/작업 영역이 포함되고 이 리소스 그룹의 멤버인 클러스터    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
-|이 구독에 정의된 리소스만 포함된 클러스터      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
+| 이 구독에 정의된 리소스만 포함된 클러스터 내의 데이터베이스(**클러스터 간 쿼리에 추천됨**) |   cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| 이 구독의 모든 앱/작업 영역이 포함된 클러스터    |     cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>`)    |    cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>`)     |
+|구독의 모든 앱/작업 영역이 포함되고 이 리소스 그룹의 멤버인 클러스터    |   cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
+|이 구독에 정의된 리소스만 포함된 클러스터      |    cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
+|미국 정부 끝점의 경우      |    cluster(`https://adx.monitor.azure.us/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)|
+ |중국 21Vianet의 끝점      |    cluster(`https://adx.monitor.azure.us/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`) |
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Log Analytics 작업 영역과 Application Insights의 데이터 구조](data-platform-logs.md)에 관해 자세히 알아봅니다.
 - [Azure Data Explorer에서 쿼리를 작성](/azure/data-explorer/write-queries)하는 방법을 알아봅니다.
+- 

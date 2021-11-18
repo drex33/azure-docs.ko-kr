@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: 7ca51e5dfba89307be28d277e50715b04f829004
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 28225273957fa6b3150fd5d117bcfe662893d09d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028062"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132703890"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -97,7 +97,7 @@ Virtual WAN은 VNet 간의 전송 연결을 허용합니다. VNet은 가상 네�
 
 모든 가상 허브 라우터는 최대 50Gbps의 집계 처리량을 지원합니다. 
 
-가상 네트워크 연결 간의 연결은 기본적으로 단일 가상 Hub에 모든 연결된 VNet에서 최대 총 2,000개의 VM 워크로드를 가정합니다. 이 [제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)은 온라인 고객 지원 요청을 열어 늘릴 수 있습니다. 비용과 관련된 내용은 [Azure Virtual WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지에서 *라우팅 인프라 단위* 비용을 참조하세요. 
+가상 네트워크 연결 간의 연결은 기본적으로 단일 가상 Hub에 모든 연결된 VNet에서 최대 총 2,000개의 VM 워크로드를 가정합니다. 이 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits)은 온라인 고객 지원 요청을 열어 늘릴 수 있습니다. 비용과 관련된 내용은 [Azure Virtual WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지에서 *라우팅 인프라 단위* 비용을 참조하세요. 
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>VPN과 ExpressRoute 간의 전송 연결
 
@@ -139,4 +139,3 @@ RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/upda
 
 - [자습서: Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md)
 - [학습 모듈: Azure Virtual WAN 소개](/learn/modules/introduction-azure-virtual-wan/)
-

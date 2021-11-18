@@ -1,44 +1,42 @@
 ---
-title: Microsoft Sentinel SAP 데이터 커넥터 전문가 구성 옵션, 온-프레미스 배포 및 SAPControl 로그 원본 | Microsoft Docs
-description: 전문가 구성 옵션 및 온-프레미스 머신을 사용하여 SAP 환경용 Microsoft Sentinel 데이터 커넥터를 배포하는 방법을 알아봅니다. SAPControl 로그 원본에 관해서도 자세히 알아봅니다.
+title: Microsoft 센티널 SAP data connector 전문가 구성 옵션, 온-프레미스 배포 및 SAPControl 로그 원본 | Microsoft Docs
+description: 전문 구성 옵션 및 온-프레미스 컴퓨터를 사용 하 여 SAP 환경용 Microsoft 센티널 data connector를 배포 하는 방법에 대해 알아봅니다. SAPControl 로그 원본에 관해서도 자세히 알아봅니다.
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
-ms.openlocfilehash: 56176315a6d4d56c419f15a4472aa4f6b739a227
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a8769eb0d1fdd5cd9e1cf6c7ec3687b3516a210e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520031"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711871"
 ---
 # <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 온-프레미스 머신 및 Azure Key Vault 사용하여 자격 증명을 저장하는 등 전문가 또는 사용자 지정 프로세스에서 Microsoft Sentinel SAP 데이터 커넥터를 배포하는 방법을 설명합니다.
+이 문서에서는 온-프레미스 컴퓨터와 Azure Key Vault를 사용 하 여 자격 증명을 저장 하는 등의 전문가 또는 사용자 지정 프로세스에서 Microsoft 센티널 SAP data connector를 배포 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> Microsoft Sentinel SAP 데이터 커넥터를 배포하는 데 가장 권장되는 기본 프로세스는 [Azure VM을 사용하는](sap-deploy-solution.md)것입니다. 이 문서는 고급 사용자를 위한 것입니다.
+> Microsoft 센티널 SAP 데이터 커넥터를 배포 하기 위한 기본 및 가장 권장 되는 프로세스는 [AZURE VM을 사용 하](sap-deploy-solution.md)는 것입니다. 이 문서는 고급 사용자를 위한 것입니다.
 
 > [!IMPORTANT]
-> Microsoft Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> Microsoft 센티널 SAP 솔루션은 현재 미리 보기로 제공 됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Microsoft Sentinel SAP 데이터 커넥터를 배포하기 위한 기본 필수 조건은 배포 방법에 관계없이 동일합니다.
+Microsoft 센티널 SAP 데이터 커넥터를 배포 하기 위한 기본 필수 조건은 배포 방법에 관계 없이 동일 합니다.
 
 시작하기 전에 시스템이 주 [SAP 데이터 커넥터 배포 프로시저](sap-deploy-solution.md#prerequisites)에 설명된 사전 요구 사항을 충족하는지 확인합니다.
 
-자세한 내용은 [Microsoft Sentinel SAP 솔루션 상세 SAP 요구 사항(공개 미리 보기)을 참조하세요.](sap-solution-detailed-requirements.md)
+자세한 내용은 [Microsoft 센티널 sap solution 자세한 sap 요구 사항 (공개 미리 보기)](sap-solution-detailed-requirements.md)을 참조 하세요.
 
 ## <a name="create-your-azure-key-vault"></a>Azure Key Vault 만들기
 
-Microsoft Sentinel SAP 데이터 커넥터에만 사용할 수 있는 Azure Key Vault를 만듭니다.
+Microsoft 센티널 SAP 데이터 커넥터용 전용으로 사용할 수 있는 Azure key vault를 만듭니다.
 
 다음 명령을 실행하여 Azure Key Vault를 만들고 Azure 서비스 주체에 대한 액세스 권한을 부여합니다.
 
@@ -139,7 +137,7 @@ SAP 자격 증명으로 준비된 Key Vault가 있는 경우 이 절차를 수�
 
 1. 온-프레미스 머신에서 의미 있는 이름을 사용하여 새 폴더를 만들고 SDK zip 파일을 새 폴더에 복사합니다.
 
-1. Microsoft Sentinel 솔루션 GitHub 리포지토리를 온-프레미스 머신에 복제하고 Microsoft Sentinel SAP 솔루션 **systemconfig.ini** 파일을 새 폴더에 복사합니다.
+1. microsoft 센티널 solution GitHub 리포지토리를 온-프레미스 컴퓨터에 복제 하 고 microsoft 센티널 SAP solution **systemconfig.ini** 파일을 새 폴더에 복사 합니다.
 
     예를 들면 다음과 같습니다.
 
@@ -154,7 +152,7 @@ SAP 자격 증명으로 준비된 Key Vault가 있는 경우 이 절차를 수�
 
     구성을 테스트하려면 사용자와 암호를 **systemconfig.ini** 구성 파일에 직접 추가하는 것이 좋습니다. [Azure Key vault](#add-azure-key-vault-secrets)를 사용하여 자격 증명을 저장하는 것이 좋지만, **env.List** 파일, [Docker 암호](#manually-configure-the-sap-data-connector)를 사용하거나, 자격 증명을 **systemconfig.ini** 파일에 직접 추가할 수도 있습니다.
 
-1. **systemconfig.ini** 파일의 지침을 사용하여 Microsoft Sentinel에 로깅하려는 로그를 정의합니다. 예를 들어 [Microsoft Sentinel로 전송되는 SAP 로그 정의를](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)참조하세요.
+1. **systemconfig.ini** 파일의 지침을 사용 하 여 Microsoft 센티널에 수집 하려는 로그를 정의 합니다. 예를 들어 [Microsoft 센티널로 전송 되는 SAP 로그 정의](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)를 참조 하세요.
 
 1. **systemconfig.ini** 파일의 지침을 사용하여 다음 구성을 정의합니다.
 
@@ -210,15 +208,15 @@ SAP 자격 증명으로 준비된 Key Vault가 있는 경우 이 절차를 수�
     docker logs –f sapcon-[SID]
     ```
 
-1. SAP 솔루션용 **Microsoft Sentinel - Continuous Threat Monitoring을** 계속 배포합니다.
+1. **SAP 솔루션에 대 한 Microsoft 센티널 연속 위협 모니터링** 배포를 계속 합니다.
 
-    솔루션을 배포하면 SAP 데이터 커넥터가 Microsoft Sentinel에 표시되고 SAP 통합 문서 및 분석 규칙이 배포됩니다. 완료되면 SAP 관심 목록을 수동으로 추가하고 사용자 지정합니다.
+    솔루션을 배포 하면 SAP 데이터 커넥터가 Microsoft 센티널에 표시 되 고 SAP 통합 문서 및 분석 규칙을 배포할 수 있습니다. 완료되면 SAP 관심 목록을 수동으로 추가하고 사용자 지정합니다.
 
     자세한 내용은 [SAP 보안 콘텐츠 배포](sap-deploy-solution.md#deploy-sap-security-content)를 참조하세요.
 
 ## <a name="manually-configure-the-sap-data-connector"></a>SAP 데이터 커넥터 수동 구성
 
-Microsoft Sentinel SAP 솔루션 데이터 커넥터는 [배포 절차의](#perform-an-expert--custom-installation)일부로 SAP 데이터 커넥터 컴퓨터에 복제한 **systemconfig.ini** 파일에 구성됩니다.
+Microsoft 센티널 SAP solution data connector는 [배포 절차](#perform-an-expert--custom-installation)의 일부로 sap 데이터 커넥터 컴퓨터에 복제 한 **systemconfig.ini** 파일에서 구성 됩니다.
 
 다음 코드는 샘플 **systemconfig.ini** 파일을 보여 줍니다.
 
@@ -277,11 +275,11 @@ javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
 javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
-### <a name="define-the-sap-logs-that-are-sent-to-microsoft-sentinel"></a>Microsoft Sentinel로 전송되는 SAP 로그 정의
+### <a name="define-the-sap-logs-that-are-sent-to-microsoft-sentinel"></a>Microsoft 센티널로 전송 되는 SAP 로그를 정의 합니다.
 
-Microsoft Sentinel SAP 솔루션 **systemconfig.ini** 파일에 다음 코드를 추가하여 Microsoft Sentinel로 전송되는 로그를 정의합니다.
+Microsoft 센티널 SAP solution **systemconfig.ini** 파일에 다음 코드를 추가 하 여 microsoft 센티널로 전송 되는 로그를 정의 합니다.
 
-자세한 내용은 [Microsoft Sentinel SAP 솔루션 로그 참조(공개 미리 보기)](sap-solution-log-reference.md)를 참조하세요.
+자세한 내용은 [Microsoft 센티널 SAP solution logs 참조 (공개 미리 보기)](sap-solution-log-reference.md)를 참조 하세요.
 
 ```python
 ##############################################################
@@ -309,7 +307,7 @@ JAVAFilesLogs = False
 
 ### <a name="sal-logs-connector-settings"></a>SAL 로그 커넥터 설정
 
-Microsoft Sentinel SAP 데이터 커넥터 **systemconfig.ini** 파일에 다음 코드를 추가하여 Microsoft Sentinel에 수집된 SAP 로그에 대한 다른 설정을 정의합니다.
+Microsoft 센티널 SAP data connector **systemconfig.ini** 파일에 다음 코드를 추가 하 여 microsoft 센티널에 sap 로그 수집에 대 한 다른 설정을 정의 합니다.
 
 자세한 내용은 [전문가/사용자 지정 SAP 데이터 커넥터 설치](#perform-an-expert--custom-installation)를 참조하세요.
 
@@ -337,14 +335,14 @@ timechunk = 60
 
 ### <a name="configuring-an-abap-sap-control-instance"></a>ABAP SAP Control 인스턴스 구성
 
-NW RFC 및 SAP Control 웹 서비스 기반 로그를 포함하여 모든 ABAP 로그를 Microsoft Sentinel에 기록하려면 다음 ABAP SAP Control 세부 정보를 구성합니다.
+모든 ABAP 로그를 Microsoft 센티널에 수집 하려면 NW RFC와 sap control 웹 서비스 기반 로그를 모두 포함 하 여 다음 ABAP sap 컨트롤 세부 정보를 구성 합니다.
 
 |설정  |Description  |
 |---------|---------|
 |**javaappserver**     |SAP Control ABAP 서버 호스트를 입력합니다. <br>예: `contoso-erp.appserver.com`         |
 |**javainstance**     |SAP Control ABAP 인스턴스 번호를 입력합니다. <br>예: `00`         |
 |**abaptz**     |SAP Control ABAP 서버에서 구성된 표준 시간대를 GMT 형식으로 입력합니다. <br>예: `GMT+3`         |
-|**abapseverity**     |ABAP 로그를 Microsoft Sentinel에 ABAP 가장 낮은 포괄 심각도 수준을 입력합니다.  값은 다음과 같습니다. <br><br>- **0** = 모든 로그 <br>- **1** = 경고 <br>- **2** = 오류     |
+|**abapseverity**     |Microsoft 센티널에 ABAP 로그를 수집 하려는 가장 낮은 심각도의 심각도 수준을 입력 합니다.  값은 다음과 같습니다. <br><br>- **0** = 모든 로그 <br>- **1** = 경고 <br>- **2** = 오류     |
 
 ### <a name="configuring-a-java-sap-control-instance"></a>Java SAP Control 인스턴스 구성
 

@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 795ad31b83f3a6f1acdd8bcc7561e6d75556b311
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: d439078615a091642e15b3895f0468b846a964fb
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892422"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704636"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli"></a>빠른 시작: Azure CLI 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance 만들기
 
@@ -123,7 +123,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    > 또한 `--availability-zone`은 `false`로 설정됩니다. 가용성 영역을 사용하도록 설정하려면 이를 `true`로 설정합니다. 
 
    > [!WARNING]
-   > 모든 하위 지역에서 가용성 영역이 지원되지 않습니다. 가용성 영역이 지원되지 않는 하위 지역을 선택하면 배포에 실패합니다. [여기](/azure/availability-zones/az-overview#azure-regions-with-availability-zones)에서 지원되는 지역을 참조하세요. 또한 가용성 영역을 성공적으로 배포하는 경우 지정된 하위 지역의 모든 영역에서 컴퓨팅 리소스를 사용할 수 있습니다. 선택한 SKU 또는 용량을 모든 영역에서 사용할 수 없는 경우 배포가 실패할 수 있습니다. 
+   > 모든 하위 지역에서 가용성 영역이 지원되지 않습니다. 가용성 영역이 지원되지 않는 하위 지역을 선택하면 배포에 실패합니다. [여기](../availability-zones/az-overview.md#azure-regions-with-availability-zones)에서 지원되는 지역을 참조하세요. 또한 가용성 영역을 성공적으로 배포하는 경우 지정된 하위 지역의 모든 영역에서 컴퓨팅 리소스를 사용할 수 있습니다. 선택한 SKU 또는 용량을 모든 영역에서 사용할 수 없는 경우 배포가 실패할 수 있습니다. 
 
 1. 데이터 센터가 생성된 후 데이터 센터의 노드를 스케일 업 또는 스케일 다운하려는 경우 [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) 명령을 실행합니다. `node-count` 매개 변수 값을 원하는 값으로 변경합니다.
 

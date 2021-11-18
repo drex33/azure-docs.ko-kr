@@ -6,17 +6,17 @@ author: rboucher
 ms.author: robb
 ms.date: 10/16/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 57f5c3f3dace57b42ed5ac32e48c5d070517e03a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7c8a2fe0c2dd34bf07031c8f4d8e8472d67dea3f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131059949"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707760"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
 > [!CAUTION]
-> 모니터링 솔루션은 더 이상 활성 개발 중이 아닙니다.  대체 기술을 [Azure Monitor Insights](/azure/azure-monitor/monitor-reference#insights)이라고 합니다. 인사이트를 사용하고 솔루션의 새 인스턴스를 배포하지 않는 것이 좋습니다.  
+> 모니터링 솔루션은 더 이상 활성 개발 중이 아닙니다.  대체 기술을 [Azure Monitor Insights](../monitor-reference.md)이라고 합니다. 인사이트를 사용하고 솔루션의 새 인스턴스를 배포하지 않는 것이 좋습니다.  
 
 Azure Monitor 모니터링 솔루션은 Azure 애플리케이션 또는 서비스의 작동에 대한 분석을 제공합니다. 이 문서에서는 Azure의 모니터링 솔루션에 대한 간략한 개요와 솔루션 사용 및 설치에 대한 세부 정보를 제공합니다. 
 
@@ -24,7 +24,7 @@ Azure Monitor 모니터링 솔루션은 Azure 애플리케이션 또는 서비�
 
 ## <a name="use-monitoring-solutions"></a>모니터링 솔루션 사용
 
-Azure Monitor **개요** 페이지에는 Log Analytics 작업 영역에 설치된 각 솔루션에 대한 타일이 표시됩니다. 이 페이지를 열려면 [Azure Portal](https://ms.portal.azure.com)에서 **Azure Monitor** 로 이동합니다. **Insights** 메뉴에서 **자세히를** 선택하여 **Insights 허브를** 연 **다음, Log Analytics 작업 영역** 를 선택합니다.
+Azure Monitor **개요** 페이지에는 Log Analytics 작업 영역에 설치된 각 솔루션에 대한 타일이 표시됩니다. 이 페이지를 열려면 [Azure Portal](https://ms.portal.azure.com)에서 **Azure Monitor** 로 이동합니다. **Insights** 메뉴에서 **자세히를** 선택하여 Insights **Hub를** 연 **다음, Log Analytics 작업 영역 을 선택합니다.**
 
 [![Insights Hub를 열기 위한 선택 항목을 보여 주는 스크린샷](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
@@ -88,7 +88,7 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 ### <a name="portal"></a>[포털](#tab/portal)
 
-Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)사용할 수 있습니다. 사용 가능한 솔루션을 검색하고 다음 절차를 사용하여 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../logs/manage-access.md)을 선택해야 합니다.
+Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace.](https://azuremarketplace.microsoft.com) 사용 가능한 솔루션을 검색하고 다음 절차를 사용하여 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../logs/manage-access.md)을 선택해야 합니다.
 
 1. [구독에 대한 솔루션 목록에서](#list-installed-monitoring-solutions) **추가를** 선택합니다.
 1. 솔루션을 찾아보거나 검색합니다. 이 검색 [링크](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)를 사용할 수도 있습니다.
@@ -201,7 +201,7 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 
 ### <a name="install-a-solution-with-azure-powershell"></a>Azure PowerShell을 사용하여 솔루션 설치하기
 
-솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../logs/manage-access.md)을 선택해야 합니다. Azure PowerShell을 사용하는 경우, [Az.MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell 모듈에서 cmdlet을 사용하여 작업 영역을 관리합니다. 작업 [영역 및 Automation 계정 Log Analytics](#log-analytics-workspace-and-automation-account) 설명 된 프로세스에 따라 작업 영역 및 계정을 연결 합니다.
+솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../logs/manage-access.md)을 선택해야 합니다. Azure PowerShell을 사용하는 경우, [Az.MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell 모듈에서 cmdlet을 사용하여 작업 영역을 관리합니다. [Log Analytics 작업 영역 및 Automation 계정에](#log-analytics-workspace-and-automation-account) 설명된 프로세스에 따라 작업 영역과 계정을 연결합니다.
 
 [New-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/new-azmonitorloganalyticssolution) cmdlet을 사용하여 모니터링 솔루션을 설치합니다. 대괄호 안에 있는 매개 변수는 선택적 요소입니다.
 
@@ -213,7 +213,7 @@ New-AzMonitorLogAnalyticsSolution -ResourceGroupName <string> -Type <string> -Lo
 [-ProxyUseDefaultCredentials] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-다음 예에서는 Log Analytics 작업 영역에 대 한 모니터링 솔루션을 만듭니다.
+다음 예제에서는 Log Analytics 작업 영역에 대한 모니터링 솔루션을 만듭니다.
 
 ```azurepowershell-interactive
 $workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName MyResourceGroup -Name WorkspaceName
@@ -224,28 +224,28 @@ New-AzMonitorLogAnalyticsSolution -Type Containers -ResourceGroupName MyResource
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정
 
-모든 모니터링 솔루션에는 수집 된 데이터를 저장 하 고 로그 검색 및 보기를 호스트 하는 [Log Analytics 작업 영역이](../logs/manage-access.md) 필요 합니다. 일부 솔루션은 Runbook 및 관련 리소스를 포함할 [Automation 계정](../../automation/automation-security-overview.md)도 필요합니다. 작업 영역 및 계정은 다음 요구 사항을 충족 해야 합니다.
+모든 모니터링 솔루션에는 수집된 데이터를 저장하고 로그 검색 및 보기를 호스트하는 [Log Analytics 작업 영역이](../logs/manage-access.md) 필요합니다. 일부 솔루션은 Runbook 및 관련 리소스를 포함할 [Automation 계정](../../automation/automation-security-overview.md)도 필요합니다. 작업 영역 및 계정은 다음 요구 사항을 충족해야 합니다.
 
-* 솔루션을 설치할 때마다 하나의 Log Analytics 작업 영역과 하나의 Automation 계정만 사용할 수 있습니다. 솔루션은 여러 작업 영역에 별도로 설치할 수 있습니다.
+* 솔루션을 설치할 때마다 하나의 Log Analytics 작업 영역과 하나의 Automation 계정만 사용할 수 있습니다. 솔루션을 여러 작업 영역에 별도로 설치할 수 있습니다.
 * 솔루션에서 Automation 계정을 요구하는 경우 Log Analytics 작업 영역과 Automation 계정이 서로 연결되어야 합니다. Log Analytics 작업 영역은 하나의 Automation 계정에만 연결할 수 있으며 Automation 계정은 하나의 Log Analytics 작업 영역에만 연결할 수 있습니다.
 
-Azure Marketplace를 통해 솔루션을 설치 하는 경우 작업 영역 및 Automation 계정을 묻는 메시지가 표시 됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
+Azure Marketplace 통해 솔루션을 설치하면 작업 영역 및 Automation 계정을 입력하라는 메시지가 표시됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
 
-Log Analytics 작업 영역 및 Automation 계정 간의 링크를 확인 하려면 다음을 수행 합니다.
+Log Analytics 작업 영역과 Automation 계정 간의 링크를 확인하려면 다음을 수행합니다.
 
 1. Azure Portal에서 Automation 계정을 선택합니다.
 1. 메뉴의 **관련 리소스** 섹션으로 스크롤하여 **연결된 작업 영역** 을 선택합니다.
-1. 작업 영역이 Automation 계정에 연결 된 경우이 페이지에는 연결 된 작업 영역이 나열 됩니다. 나열 된 작업 영역의 이름을 선택 하면 해당 작업 영역에 대 한 개요 페이지로 리디렉션됩니다.
+1. 작업 영역이 Automation 계정에 연결된 경우 이 페이지에는 연결된 작업 영역이 나열됩니다. 나열된 작업 영역의 이름을 선택하면 해당 작업 영역의 개요 페이지로 리디렉션됩니다.
 
 ## <a name="remove-a-monitoring-solution"></a>모니터링 솔루션 제거
 
 ### <a name="portal"></a>[포털](#tab/portal)
 
-포털을 사용 하 여 설치 된 솔루션을 제거 하려면 [설치 된 솔루션 목록](#list-installed-monitoring-solutions)에서 해당 솔루션을 찾습니다. 솔루션의 이름을 선택 하 여 요약 페이지를 연 다음 **삭제** 를 선택 합니다.
+포털을 사용하여 설치된 솔루션을 제거하려면 설치된 솔루션 목록에서 해당 [솔루션을 찾습니다.](#list-installed-monitoring-solutions) 솔루션의 이름을 선택하여 해당 요약 페이지를 연 다음, **삭제를** 선택합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용 하 여 설치 된 솔루션을 제거 하려면 [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_delete) 명령을 사용 합니다.
+Azure CLI 사용하여 설치된 솔루션을 제거하려면 [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_delete) 명령을 사용합니다.
 
 ```azurecli
 az monitor log-analytics solution delete --name
@@ -256,7 +256,7 @@ az monitor log-analytics solution delete --name
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-Azure PowerShell를 사용 하 여 설치 된 솔루션을 제거 하려면 [AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) cmdlet을 사용 합니다.
+Azure PowerShell 사용하여 설치된 솔루션을 제거하려면 [Remove-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
 Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name WorkspaceName
@@ -267,5 +267,5 @@ Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name W
 ## <a name="next-steps"></a>다음 단계
 
 * [Microsoft에서 모니터링 솔루션 목록](../monitor-reference.md)을 가져옵니다.
-* 모니터링 솔루션에서 수집 된 데이터를 분석 하는 [쿼리를 만드는](../logs/log-query-overview.md) 방법에 대해 알아봅니다.
+* 모니터링 솔루션이 수집한 데이터를 분석하는 [쿼리를 만드는](../logs/log-query-overview.md) 방법을 알아봅니다.
 * [Azure Monitor에 대한 모든 Azure CLI 명령](/cli/azure/azure-cli-reference-for-monitor)을 참조하세요.

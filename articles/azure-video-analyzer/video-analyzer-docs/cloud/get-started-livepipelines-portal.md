@@ -5,16 +5,19 @@ ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ed1c4e979d9b593cc701c294c95eda96b27db415
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 3f7c134174560d3222e0ba936378c37b931abee7
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554415"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489930"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-live-pipelines-in-the-azure-portal"></a>빠른 시작: Azure Portal Video Analyzer 라이브 파이프라인 시작
 
-[!INCLUDE [header](includes/cloud-env.md)]
+![클라우드 아이콘](media/env-icon/cloud.png)  
+또는 [포털을 사용하여 에지에 있는 Video Analyzer 시작하기](../edge/get-started-detect-motion-emit-events-portal.md)를 확인하세요.
+
+---
 
 이 빠른 시작에서는 Azure Video Analyzer 서비스의 라이브 파이프라인을 사용하여 실시간 스트리밍 프로토콜(RTSP) 카메라에서 비디오를 캡처하고 녹화하는 단계를 안내합니다.
 Azure Portal을 사용하여 Video Analyzer 계정 및 해당 리소스를 만듭니다. 실제 RTSP 카메라에 액세스할 수 없는 경우(인터넷을 통해 액세스할 수 있는) RTSP 카메라 시뮬레이터를 배포합니다. 그런 다음, 관련 Video Analyzer 리소스를 배포하여 Video Analyzer 계정에 비디오를 녹화합니다.
@@ -62,7 +65,7 @@ Azure Portal을 사용하여 Video Analyzer 계정 및 해당 리소스를 만�
 
     ```
     cd localmedia
-    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    wget https://avamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
 1. 다음과 같이 미리 빌드된 컨테이너 이미지를 사용하여 VM에서 RTSP 서버를 시작합니다.
 

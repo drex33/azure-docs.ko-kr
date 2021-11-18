@@ -6,16 +6,16 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/11/2021
-ms.openlocfilehash: a3ec19ab07ebe74c618ce3c6af8981d442f6fc21
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: ac940b7760ce94beaca5148bfc4e33a59e14b626
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132495031"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709788"
 ---
 # <a name="azure-web-pubsub-service-client-library-for-net"></a>.NET 용 Azure 웹 PubSub 서비스 클라이언트 라이브러리
 
-[Azure 웹 PubSub 서비스](https://aka.ms/awps/doc) 는 개발자가 실시간 기능 및 게시-구독 패턴을 사용 하 여 웹 응용 프로그램을 쉽게 빌드할 수 있도록 하는 azure 관리 서비스입니다. 서버와 클라이언트 간 또는 클라이언트 간에 실시간 게시 구독 메시징이 필요한 시나리오는 Azure 웹 PubSub 서비스를 사용할 수 있습니다. 종종 서버에서 폴링을 수행 하거나 HTTP 요청을 제출 해야 하는 기존의 실시간 기능은 Azure 웹 PubSub 서비스를 사용할 수도 있습니다.
+[Azure 웹 PubSub 서비스](./index.yml) 는 개발자가 실시간 기능 및 게시-구독 패턴을 사용 하 여 웹 응용 프로그램을 쉽게 빌드할 수 있도록 하는 azure 관리 서비스입니다. 서버와 클라이언트 간 또는 클라이언트 간에 실시간 게시 구독 메시징이 필요한 시나리오는 Azure 웹 PubSub 서비스를 사용할 수 있습니다. 종종 서버에서 폴링을 수행 하거나 HTTP 요청을 제출 해야 하는 기존의 실시간 기능은 Azure 웹 PubSub 서비스를 사용할 수도 있습니다.
 
 아래 다이어그램에 표시 된 것 처럼 앱 서버 쪽에서이 라이브러리를 사용 하 여 WebSocket 클라이언트 연결을 관리할 수 있습니다.
 
@@ -32,8 +32,8 @@ ms.locfileid: "132495031"
  
 [소스 코드](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub/src) |
 [패키지](https://www.nuget.org/packages/Azure.Messaging.WebPubSub) |
-[API 참조 설명서](https://aka.ms/awps/sdk/csharp) |
-[제품 설명서](https://aka.ms/awps/doc) |
+[API 참조 설명서]() |
+[제품 설명서](./index.yml) |
 [샘플][samples_ref]
 
 ## <a name="getting-started"></a>시작

@@ -10,6 +10,7 @@
   expanded: true
   items:
     - name: 첫 번째 컨테이너 앱 배포
+      expanded: true
       items:
         - name: Azure portal
           href: quickstart-portal.md

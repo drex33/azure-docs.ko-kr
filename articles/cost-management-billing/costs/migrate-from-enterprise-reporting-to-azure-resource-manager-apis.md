@@ -8,12 +8,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 3c3ee4673f196adc94684fe80ca0237f7b7a32bd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d1a8552c2e102586be5eb96f7dbb3821418440ef
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260306"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719469"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Enterprise Reporting에서 Azure Resource Manager API로 마이그레이션
 
@@ -65,7 +65,7 @@ Azure Resource Manager API를 프로그래밍 방식으로 호출하는 서비�
 | --- | --- | --- |
 | 잔액 요약 | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) |[Microsoft.Consumption/balances](/rest/api/consumption/balances/getbybillingaccount) |
 | 가격표 | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) – 협상된 가격에 사용 <p> [소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) – 소매 가격에 사용 |
-| 예약 인스턴스 세부 정보 | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](/azure/cost-management-billing/reservations/reservation-utilization) |
+| 예약 인스턴스 세부 정보 | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](../reservations/reservation-utilization.md) |
 | 예약 인스턴스 요약 | [/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries/list#reservationsummariesdailywithbillingaccountid) |
 | 예약 인스턴스 권장 사항 | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)<p>[/SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | 예약 인스턴스 요금 | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | [Microsoft.Consumption/reservationTransactions](/rest/api/consumption/reservationtransactions/list) |

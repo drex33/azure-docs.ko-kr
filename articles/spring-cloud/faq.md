@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 607cc8e3341e395fb7ef31c4af5c5c8b5fc75cec
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: ecc563cfc400fcf0e90320cb5c2436fe84cfa0d0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484790"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704005"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -64,7 +64,7 @@ Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니�
 * Azure Spring Cloud는 기본 및 표준의 두 가지 가격 책정 계층을 제공합니다. 기본 계층은 개발/테스트 및 Azure Spring Cloud 사용을 대상으로 합니다. 표준 계층은 범용 프로덕션 트래픽을 실행하도록 최적화되어 있습니다. 제한 및 기능 수준 비교에 대한 자세한 내용은 [Azure Spring Cloud 가격 책정 정보](https://azure.microsoft.com/pricing/details/spring-cloud/)를 참조하세요.
 
 ### <a name="whats-the-difference-between-service-binding-and-service-connector"></a>서비스 바인딩과 서비스 커넥터 간의 차이점은 무엇 인가요?
-서비스 [커넥터](/azure/service-connector/overview)라는 새로운 Azure 기반 솔루션을 위해 서비스 바인딩에 대 한 추가 기능을 적극적으로 개발 하 고 있지 않습니다. 한편, 새 솔루션은 Azure의 앱 호스팅 서비스에서 App Service와 같은 일관 된 통합 환경을 제공 합니다. 반면, MySQL, SQL DB, Cosmos DB, postgres DB, Redis, Storage 등을 포함 하 여 10 + 가장 많이 사용 되는 대상 Azure 서비스를 지원 하기 시작 하 여 요구 사항을 더 잘 다룹니다. 서비스 커넥터는 현재 공개 미리 보기로 제공 되며 새 환경을 사용해 볼 수 있습니다.
+서비스 [커넥터](../service-connector/overview.md)라는 새로운 Azure 기반 솔루션을 위해 서비스 바인딩에 대 한 추가 기능을 적극적으로 개발 하 고 있지 않습니다. 한편, 새 솔루션은 Azure의 앱 호스팅 서비스에서 App Service와 같은 일관 된 통합 환경을 제공 합니다. 반면, MySQL, SQL DB, Cosmos DB, postgres DB, Redis, Storage 등을 포함 하 여 10 + 가장 많이 사용 되는 대상 Azure 서비스를 지원 하기 시작 하 여 요구 사항을 더 잘 다룹니다. 서비스 커넥터는 현재 공개 미리 보기로 제공 되며 새 환경을 사용해 볼 수 있습니다.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
 

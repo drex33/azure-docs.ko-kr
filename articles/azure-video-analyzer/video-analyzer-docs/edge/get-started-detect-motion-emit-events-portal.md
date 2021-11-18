@@ -4,16 +4,19 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Video
 ms.topic: quickstart
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c449b86ca4718ad93c2b0c4be0a1623169916ecc
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 5c39d6ddae6ad34ad705da8ee2b6de79a8102452
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556524"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398823"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-in-the-portal"></a>빠른 시작: 포털에서 Video Analyzer 시작하기
 
-[!INCLUDE [header](includes/edge-env.md)]
+![에지 아이콘](media/env-icon/edge.png)  
+또는 [포털을 사용하여 Video Analyzer 라이브 파이프라인 시작하기](../cloud/get-started-livepipelines-portal.md)를 확인하세요.
+
+---
 
 이 빠른 시작에서는 Azure Video Analyzer를 시작하는 단계를 안내합니다. Azure Portal을 사용하여 Azure Video Analyzer 계정과 포함 리소스를 만듭니다. 그런 다음, Video Analyzer 에지 모듈과 RTSP(실시간 스트리밍 프로토콜) 카메라 시뮬레이터 모듈을 Azure IoT Edge 디바이스에 배포합니다.
 

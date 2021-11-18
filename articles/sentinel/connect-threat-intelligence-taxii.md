@@ -5,8 +5,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -14,12 +12,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 570d296b7f6f8a2831d4f758be5b85108da5d8a2
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 3d63fd26cf55350309352f54d3a6aadc6e7d2f30
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521779"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721711"
 ---
 # <a name="connect-microsoft-sentinel-to-stixtaxii-threat-intelligence-feeds"></a>Microsoft 센티널을 STIX/TAXII 위협 인텔리전스 피드에 커넥트
 

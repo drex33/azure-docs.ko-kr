@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 10/25/2021
-ms.openlocfilehash: 3812be11d53b8a9c70e871b88ee61c474312c872
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9d052b7107a8ee85a7794f370849db0e6193f3a8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031388"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716850"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀(미리 보기)이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Azure SQL Managed Instance의 인스턴스 풀을 통해 편리하고 비용 효
     - vCore 풀 8개는 최대 200개의 데이터베이스를 지원합니다.
     - vCores 풀 16개는 최대 400개의 데이터베이스를 지원합니다.
     - 24개 이상의 vCores 풀은 최대 500개의 데이터베이스를 지원합니다.
-- 플래그를 사용하여 관리되는 인스턴스를 만들거나 설정하면 Azure AD 인증을 사용할 수 `-AssignIdentity` 있습니다. 자세한 내용은 [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) 및 [Set-AzSqlInstance 를 참조하세요.](/powershell/module/az.sql/set-azsqlinstance) 그런 다음, 사용자는 Azure AD 관리자 [프로비전(SQL Managed Instance)에](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)따라 인스턴스에 대한 Azure AD 관리자를 설정할 수 있습니다.
+- Azure AD 인증은 플래그를 사용 하 여 관리 되는 인스턴스를 만들거나 설정한 후에 사용할 수 있습니다 `-AssignIdentity` . 자세한 내용은 [AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) 및 [AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)를 참조 하세요. 그런 다음 사용자는 [azure ad 관리자 (SQL Managed Instance)를 프로 비전](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)하 여 인스턴스에 대 한 azure ad 관리자를 설정할 수 있습니다.
 
 모든 인스턴스의 전체 스토리지 할당과 데이터베이스의 수는 인스턴스 풀에서 노출하는 제한과 같거나 작아야 합니다.
 
@@ -104,7 +104,7 @@ Azure SQL Managed Instance의 인스턴스 풀을 통해 편리하고 비용 효
 - 인스턴스 풀 만들기 및 구성에 대한 Azure Portal 지원은 아직 제공되지 않습니다. 인스턴스 풀의 모든 작업은 PowerShell을 통해서만 지원됩니다. 미리 만든 풀의 초기 인스턴스 배포도 PowerShell을 통해서만 지원됩니다. 풀에 배포된 후에는 Azure Portal을 사용하여 관리형 인스턴스를 업데이트할 수 있습니다.
 - 풀 외부에서 만들어진 관리형 인스턴스는 기존 풀로 이동할 수 없으며 풀 내부에서 만들어진 인스턴스는 단일 인스턴스나 다른 풀 외부로 이동할 수 없습니다.
 - [예약 용량](../database/reserved-capacity-overview.md) 인스턴스 가격 책정 기능은 제공되지 않습니다.
-- 장애 조치(failover) 그룹은 풀의 인스턴스에 대해 지원되지 않습니다.
+- 풀의 인스턴스에 대해서는 장애 조치 (Failover) 그룹이 지원 되지 않습니다.
 
 ## <a name="sql-features-supported"></a>지원되는 SQL 기능
 

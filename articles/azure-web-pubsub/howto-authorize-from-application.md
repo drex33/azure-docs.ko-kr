@@ -6,16 +6,16 @@ ms.author: tefa
 ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 9c6b0c520fbde3f028e933d7eec05d390cb209e8
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: ef06bd1bc74b8065cb1f7d12cd6a21584feecbba
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997650"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706915"
 ---
 # <a name="authorize-request-to-web-pubsub-resources-with-azure-ad-from-azure-applications"></a>Azure 애플리케이션에서 Azure AD를 사용하여 Web PubSub 리소스에 대한 요청 권한 부여
 
-Azure Web PubSub Service는 Azure 애플리케이션의 요청에 권한을 부여하는 Azure AD(Azure Active Directory)를 [지원합니다.](../active-directory/develop/app-objects-and-service-principals.md) 
+Azure Web PubSub Service는 Azure 애플리케이션의 요청에 권한을 부여하는 azure AD(Azure Active Directory)를 [지원합니다.](../active-directory/develop/app-objects-and-service-principals.md) 
 
 이 문서에서는 Azure 애플리케이션에서 Web PubSub 리소스에 대한 요청에 권한을 부여하도록 Web PubSub 리소스 및 코드를 구성하는 방법을 보여 줍니다.
 
@@ -50,7 +50,7 @@ Azure Web PubSub Service는 Azure 애플리케이션의 요청에 권한을 부�
 1. **관리** 섹션에서 **인증서 & 비밀을 선택합니다.**
 1. 클라이언트 **비밀** 탭에서 **새 클라이언트 암호** 를 클릭합니다.
 ![클라이언트 암호 만들기 스크린샷](./media/aad-authorization/new-client-secret.png)
-1. 클라이언트 비밀에 대한 **설명을** 입력하고 **만료 시간** 를 선택합니다.
+1. 클라이언트 암호에 대한 **설명을** 입력하고 **만료 시간** 를 선택합니다.
 1. **클라이언트 암호의** 값을 복사한 다음 안전한 위치에 붙여넣습니다. 
     > [!NOTE]
     > 비밀은 한 번만 표시됩니다.
@@ -111,55 +111,14 @@ Azure 역할 할당을 할당하고 관리하는 방법에 대한 자세한 내�
 - [Azure CLI를 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-cli.md)
 - [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-template.md)
 
-## <a name="configure-your-server"></a>서버 구성
+## <a name="sample-codes"></a>샘플 코드
 
-환경 변수에서 ID 및 자격 증명을 구성하는 것이 좋습니다.
+공식적으로 4개의 프로그래밍 언어를 지원합니다.
 
-| 변수  | Description |
-|------|------
-| `AZURE_TENANT_ID` | Azure Active Directory 테넌트(디렉터리) ID입니다. |
-| `AZURE_CLIENT_ID` | 테넌트에서 앱 등록의 클라이언트(애플리케이션) ID입니다. |
-| `AZURE_CLIENT_SECRET` | 앱 등록에 대해 생성된 클라이언트 암호입니다. |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | 앱 등록을 인증할 수 있는 PEM 또는 PFX 형식의 인증서 및 프라이빗 키 쌍에 대한 경로입니다. |
-| `AZURE_USERNAME`  | Azure Active Directory 사용자 계정의 사용자 이름(upn이라고도 함)입니다. |
-| `AZURE_PASSWORD`  | Azure Active Directory 사용자 계정의 암호입니다. MFA를 사용하도록 설정된 계정은 지원하지 않습니다. |
-
-이렇게 하면 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 또는 [EnvironmentCredential을](/dotnet/api/azure.identity.environmentcredential) 사용하여 Web PubSub 엔드포인트를 구성할 수 있습니다.
-
-### <a name="sample-codes"></a>샘플 코드
-
-다음은 C#에 대한 샘플 코드입니다. 지원되는 다른 언어는 JavaScript/Python/Java를 참조하세요.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new DefaultAzureCredential());
-```
-
-작동 방식을 알아보려면 `DefaultAzureCredential` [DefaultAzureCredential 클래스 를 참조하세요.](/dotnet/api/azure.identity.defaultazurecredential)
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new EnvironmentCredential());
-```
-
-원하는 경우 [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential) 또는 [ClientCertificateCredential을](/dotnet/api/azure.identity.clientcertificatecredential) 직접 사용할 수도 있습니다.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientSecretCredential("tenantId", "clientId", "clientSecret");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientCertificateCredential("tenantId", "clientId", "pathToCert");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
-
-Azure AD 권한 부여를 만드는 방법에 대한 자세한 내용은 `TokenCredential` 다음 문서를 참조하세요.
-
-- [DefaultAzureCredential 클래스](/dotnet/api/azure.identity.defaultazurecredential)
-- [ClientSecretCredential 생성자](/dotnet/api/azure.identity.clientsecretcredential.-ctor)
-- [ClientCertificateCredential 생성자](/dotnet/api/azure.identity.clientcertificatecredential.-ctor)
+- [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
+- [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
+- [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
+- [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4900e66afa994b97a479e377e300c13ff29ae8e4
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 7860384cdf905f481b9f003affa3eec4c3e38243
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555118"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706633"
 ---
 # <a name="mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning
 
@@ -55,12 +55,13 @@ MLflow 추적을 사용하면 Azure Machine Learning MLflow 실험의 백 엔드
 
 자세한 내용은 [MLflow 및 Azure Machine Learning을 사용하여 ML 모델 추적](how-to-use-mlflow.md)을 참조하세요. 
 
-## <a name="train-mlflow-projects"></a>MLflow 프로젝트 학습
+## <a name="train-mlflow-projects-preview"></a>MLflow 프로젝트 학습 (미리 보기)
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 [MLflow 프로젝트](https://www.mlflow.org/docs/latest/projects.html) 및 Azure Machine Learning 백 엔드 지원(미리 보기)을 사용하여 학습 작업을 제출하기 위해 MLflow의 추적 URI 및 로깅 API(총칭하여 MLflow 추적)를 사용하는 방법을 알아봅니다. Azure Machine Learning 추적을 사용하여 로컬로 작업을 제출하거나 [Azure Machine Learning 컴퓨팅](./how-to-create-attach-compute-cluster.md)을 통해 실행을 클라우드로 마이그레이션할 수 있습니다.
 
-자세한 내용은[MLflow 프로젝트 및 Azure Machine Learning을 사용하여 ML 모델 학습](how-to-train-mlflow-projects.md)을 참조하세요.
-
+[mlflow 프로젝트를 사용 하 여 ML 모델 학습 및 Azure Machine Learning (미리 보기)](how-to-train-mlflow-projects.md)에 대해 자세히 알아보세요.
 
 ## <a name="deploy-mlflow-experiments"></a>MLflow 실험 배포
 
@@ -68,7 +69,7 @@ MLflow 추적을 사용하면 Azure Machine Learning MLflow 실험의 백 엔드
 
 ## <a name="next-steps"></a>다음 단계
 * [MLflow 및 Azure Machine Learning을 사용하여 ML 모델 추적](how-to-use-mlflow.md). 
-* [MLflow 프로젝트 및 Azure Machine Learning을 사용하여 ML 모델 학습](how-to-train-mlflow-projects.md).
+* [mlflow 프로젝트 및 Azure Machine Learning (미리 보기)를 사용 하 여 ML 모델을 학습](how-to-train-mlflow-projects.md)합니다.
 * [MLflow를 사용하여 Azure Databricks 실행 추적](how-to-use-mlflow-azure-databricks.md)
 * [MLflow를 사용하여 모델을 배포](how-to-deploy-mlflow-models.md)합니다.
 

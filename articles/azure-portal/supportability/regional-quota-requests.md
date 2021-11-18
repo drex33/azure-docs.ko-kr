@@ -1,106 +1,74 @@
 ---
-title: Azure 지역 vCPU 할당량 한도 증가 요청
-description: Azure Portal에서 지역의 vCPU 할당량 한도 증가를 요청하는 방법입니다.
-author: sowmyavenkat86
-ms.author: svenkat
-ms.date: 01/27/2020
+title: 지역별 vCPU 할당량 증가
+description: Azure Portal 지역에 대한 vCPU 할당량 한도 증가를 요청하는 방법을 알아봅니다.
+ms.date: 11/15/2021
 ms.topic: how-to
-ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: eadf740c6b5caccbf678a1238f993d4ec0b34095
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: references-regions
+ms.openlocfilehash: 45337a6ce029fe3bf8442ac5343ce9145faf904f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745420"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717091"
 ---
-# <a name="standard-quota-increase-limits-by-region"></a>표준 할당량: 지역별 한도 증가
+# <a name="increase-regional-vcpu-quotas"></a>지역별 vCPU 할당량 증가
 
-Azure Resource Manager는 가상 머신에 대해 두 가지 vCPU 할당량을 지원합니다.
+Azure Resource Manager 가상 머신에 대해 두 가지 유형의 vCPU 할당량을 적용합니다.
 
-* ‘종량제 VM’ 및 ‘예약 VM 인스턴스’는 ‘표준 vCPU 할당량’이 적용됩니다.  
-* ‘스폿 VM’은 ‘스폿 vCPU 할당량’이 적용됩니다. 
+- 표준 vCPU 할당량
+- 스폿 vCPU 할당량
 
-종량제 및 예약 가상 머신 인스턴스의 표준 vCPU 할당량은 각 지역의 구독마다 두 계층으로 적용됩니다.
+표준 vCPU 할당량은 종량제 VM 및 예약된 VM 인스턴스에 적용됩니다. 각 지역의 각 구독에 대해 두 계층에 적용됩니다.
 
-* 첫 번째 계층은 모든 VM 시리즈의 ‘총 지역 vCPU 한도’입니다.
-* 두 번째 계층은 D 시리즈 vCPU와 같은 ‘VM 시리즈당 vCPU 한도’입니다.
+- 첫 번째 계층은 총 지역 vCPU 할당량입니다.
+- 두 번째 계층은 D 시리즈 vCPU와 같은 VM 제품군 vCPU 할당량입니다.
 
-새 스폿 VM을 배포할 때마다 해당 VM 시리즈에 대한 신규 및 기존 vCPU 사용량은 특정 VM 시리즈에 대해 승인된 vCPU 할당량을 초과하지 않아야 합니다. 또한 모든 VM 시리즈를 통해 배포되는 신규 및 기존 vCPU의 합계는 구독에 대해 승인된 총 지역 vCPU 할당량을 초과하지 않아야 합니다. 이러한 할당량 중 하나가 초과되면 VM 배포가 허용되지 않습니다.
+이 문서에서는 지정된 지역의 모든 VM에 대해 지역별 vCPU 할당량 증가를 요청하는 방법을 보여줍니다. [VM 제품군 vCPU 할당량](per-vm-quota-requests.md) 또는 스폿 [vCPU 할당량에](spot-quota.md)대한 증가를 요청할 수도 있습니다.
 
-Azure Portal을 사용하여 VM 시리즈의 vCPU 할당량 한도 증가를 요청할 수 있습니다. VM 시리즈 할당량이 증가하면 총 지역 vCPU 한도가 동일한 양만큼 자동으로 증가합니다.
+## <a name="special-considerations"></a>특별 고려 사항
 
-새 구독을 만들 때 기본 총 지역 vCPU는 모든 개별 VM 시리즈의 총 기본 vCPU 할당량과 같지 않을 수 있습니다. 이러한 차이로 인해 배포하려는 개별 VM 시리즈에 대한 할당량이 충분한 구독이 생성될 수 있습니다. 그러나 모든 배포에 대한 총 지역 vCPU를 수용하기에는 할당량이 부족할 수 있습니다. 이 경우 총 지역 vCPU 한도를 명시적으로 늘리려면 요청을 제출해야 합니다. 총 지역 vCPU 한도는 해당 지역의 모든 VM 시리즈에서 총 승인된 할당량을 초과할 수 없습니다.
+지역 간 vCPU 요구 사항을 고려할 때는 다음 사항에 유의하세요.
 
-표준 vCPU 할당량에 대한 자세한 내용은 [가상 머신 vCPU 할당량](../../virtual-machines/windows/quotas.md) 및 [Azure 구독과 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
+- 지역 vCPU 할당량은 지정된 지역의 모든 VM 시리즈에 적용됩니다. 따라서 구독의 각 지역에 필요한 vC CPU의 개수를 결정합니다. 각 지역에 충분한 vCPU 할당량이 없는 경우 해당 지역에서 vCPU 할당량을 늘리는 요청을 제출합니다. 예를 들어 서유럽에 30개 vC CPU가 필요하고 할당량이 충분하지 않은 경우 특히 서유럽에서 30개 vC CPU에 대한 할당량을 요청합니다. 이렇게 하면 다른 지역의 구독에서 vCPU 할당량이 증가하지 않습니다. 서유럽의 vCPU 할당량 한도만 30개 vCPU로 증가합니다.
 
-스폿 VM vCPU 한도를 늘리는 방법에 대한 자세한 내용은 [스폿 할당량: 모든 VM 시리즈에 대한 한도 늘리기](low-priority-quota.md)를 참조하세요.
+- VM 시리즈에 대한 vCPU 할당량 증가를 요청하면 Azure는 지역 vCPU 할당량 한도를 동일한 양만큼 늘림합니다.
 
-두 가지 방법 중 하나를 통해 지역별 vCPU 표준 할당량 한도 증가를 요청할 수 있습니다.
+- 새 구독을 만들 때 지역의 총 vCPU 수에 대한 기본값이 모든 개별 VM 시리즈에 대한 총 기본 vCPU 할당량과 같지 않을 수 있습니다. 이러한 차이로 인해 배포하려는 개별 VM 시리즈에 대한 할당량이 충분한 구독이 생성될 수 있습니다. 그러나 모든 배포에 대한 총 지역 vC CPU를 수용하기에 충분한 할당량이 없을 수 있습니다. 이 경우 요청을 제출하여 지역 vCPU 할당량의 할당량 한도를 명시적으로 늘려야 합니다.
 
-## <a name="request-a-quota-increase-by-region-from-help--support"></a>도움말 + 지원에서 지역별 할당량 증가 요청
+## <a name="increase-a-regional-vcpu-quota"></a>지역별 vCPU 할당량 늘리기
 
-**도움말 + 지원** 에서 지역별 vCPU 할당량 증가를 요청하려면:
+**사용량 +** 할당량에서 지역 vCPU 할당량을 요청하려면:
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원** 을 선택합니다.
+1. Azure Portal에서 **구독** 을 검색하고 선택합니다.
 
-   ![“도움말 + 지원” 링크](./media/resource-manager-core-quotas-request/help-plus-support.png)
+1. 할당량을 늘릴 구독 등록을 선택하세요.
 
-1. **도움말 + 지원** 에서 **새 지원 요청** 을 선택합니다.
+1. 왼쪽 창에서 **사용량 + 할당량** 을 선택하세요. 필터를 사용하여 사용량별로 할당량을 확인합니다.
 
-    ![새 지원 요청](./media/resource-manager-core-quotas-request/new-support-request.png)
+1. 주 창에서 Total **Regional vC CPU를** 선택한 다음, 연필 아이콘을 선택합니다. 아래 예제에서는 미국 북부 지역의 지역 vCPU 할당량을 보여줍니다.
+
+   :::image type="content" source="media/resource-manager-core-quotas-request/regional-quota-total.png" alt-text="Azure Portal 총 지역 vC CPU를 보여주는 사용량 + 할당량 화면의 스크린샷." lightbox="media/resource-manager-core-quotas-request/regional-quota-total.png":::
+
+1. **할당량 세부 정보에서** 새 할당량 한도를 입력한 다음, **저장 후 계속을** 선택합니다.
+
+   요청이 검토되고 요청이 승인 또는 거부되는지에 대한 알림이 표시됩니다. 일반적으로 몇 분 이내에 발생합니다. 요청이 거부되면 지원 엔지니어가 증가를 지원할 수 있도록 지원 요청을 열 수 있는 링크가 표시됩니다.
+
+> [!TIP]
+> 동시에 여러 증가를 요청할 수도 있습니다. 자세한 내용은 [한 요청에서 여러 VM 제품군 CPU 할당량 증가를 참조하세요.](per-vm-quota-requests.md#increase-multiple-vm-family-cpu-quotas-in-one-request)
+
+## <a name="increase-a-regional-quota-from-help--support"></a>도움말 + 지원에서 지역 할당량 늘리기
+
+**도움말 + 지원에서** VM 제품군당 표준 vCPU 할당량 증가를 요청하려면 Azure Portal 새 지원 요청을 만듭니다.
 
 1. **문제 유형** 의 경우 **서비스 및 구독 제한(할당량)** 를 선택합니다.
-
-   ![문제 유형 선택](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
-
 1. **구독** 의 경우 할당량을 늘릴 구독을 선택합니다.
+1. **할당량 유형** 의 경우 **Compute VM(cores-vCPUs) 구독 제한이 증가** 를 선택합니다.
 
-   ![구독 선택](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Azure Portal VM 제품군 vCPU 할당량을 늘리기 위한 지원 요청을 보여주는 스크린샷":::
 
-1. **할당량 유형** 의 경우 **기타 요청** 을 선택합니다.
+이 위치에서 위에 설명된 단계에 따라 지역 할당량 증가 요청을 완료합니다.
 
-   ![할당량 유형 선택](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+## <a name="next-steps"></a>다음 단계
 
-1. **다음: 솔루션** 을 선택하여 **문제 세부 정보** 를 엽니다. **설명** 에서 다음 정보를 입력합니다.
-
-    1. **배포 모델** 의 경우 **Resource Manager** 를 지정합니다.  
-    1. **지역** 의 경우 필요한 지역(예: **미국 동부 2**)을 지정합니다.  
-    1. **새 한도** 의 경우 지역의 새 vCPU 한도를 지정합니다. 이 값은 이 구독의 개별 SKU 시리즈에 대해 승인된 할당량의 합계를 초과해서는 안 됩니다.
-
-    ![할당량 요청에 대한 세부 정보 입력](./media/resource-manager-core-quotas-request/regional-details.png)
-
-1. **검토 + 만들기** 를 선택하여 지원 요청을 계속 만듭니다.
-
-## <a name="request-a-quota-increase-by-region-from-subscriptions"></a>구독에서 지역별 할당량 증가 요청
-
-**구독** 에서 지역별 vCPU 할당량 증가를 요청하려면:
-
-1. [Azure Portal](https://portal.azure.com)에서 **구독** 을 검색하고 선택합니다.
-
-   ![Azure Portal에서 구독으로 이동](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
-
-1. 할당량을 늘릴 구독을 선택합니다.
-
-   ![수정할 구독을 선택합니다.](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
-
-1. 왼쪽 창에서 **사용량 + 할당량** 을 선택합니다.
-
-   ![사용량 및 할당량 링크 따라가기](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
-
-1. 오른쪽 상단에서 **증가 요청** 을 선택합니다.
-
-   ![할당량 증가 선택](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
-
-1. **할당량 유형** 에서 **기타 요청** 을 선택합니다.
-
-   ![할당량 유형 선택](./media/resource-manager-core-quotas-request/regional-quotatype.png)
-
-1. **다음: 솔루션** 을 선택하여 **문제 세부 정보** 를 엽니다. **설명** 상자에 다음 추가 정보를 제공합니다.
-
-    1. **배포 모델** 의 경우 **Resource Manager** 를 지정합니다.  
-    1. **지역** 의 경우 필요한 지역(예: **미국 동부 2**)을 지정합니다.  
-    1. **새 한도** 의 경우 지역의 새 vCPU 한도를 지정합니다. 이 값은 이 구독의 개별 SKU 시리즈에 대해 승인된 할당량의 합계를 초과해서는 안 됩니다.
-
-    ![세부 정보 입력](./media/resource-manager-core-quotas-request/regional-details.png)
-
-1. **검토 + 만들기** 를 선택하여 지원 요청을 계속 만듭니다.
+- Azure [지역 및 해당 위치 목록을 검토합니다.](https://azure.microsoft.com/regions/)
+- [가상 머신에 대한 Azure 지역](../../virtual-machines/regions.md) 개요 및 지정된 지역에서 VM 성능, 가용성 및 중복성을 최대화하는 방법을 확인합니다.

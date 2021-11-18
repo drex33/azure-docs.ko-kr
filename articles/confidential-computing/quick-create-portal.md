@@ -1,20 +1,20 @@
 ---
 title: 빠른 시작 - Azure Portal에서 Intel SGX VM 만들기
 description: Azure Portal에서 Intel SGX VM을 신속하게 만드는 방법을 학습하여 배포 시작
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: mode-portal, ignite-fall-2021
-ms.openlocfilehash: ebb48c3c3b0f7273b7ceeebd8a615b19444dab5b
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 541be4642ca6ac0097a0bd1c15f19ec589dba7a1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508403"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707370"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Intel SGX VM 만들기
 
@@ -159,5 +159,4 @@ GitHub의 Open Enclave SDK 샘플로 계속 진행하여 기밀 컴퓨팅 애플
 > [!div class="nextstepaction"]
 > [Open Enclave SDK 샘플 빌드](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
 
-Microsoft Azure 증명은 여러 TEE의 신뢰성과 내부에서 실행되는 이진의 무결성을 원격으로 확인하기 위한 ECDSA 기반의 무료 증명 프레임워크입니다. [자세히](/azure/attestation/overview) 알아보세요.
-
+Microsoft Azure 증명은 여러 TEE의 신뢰성과 내부에서 실행되는 이진의 무결성을 원격으로 확인하기 위한 ECDSA 기반의 무료 증명 프레임워크입니다. [자세히](../attestation/overview.md) 알아보세요.

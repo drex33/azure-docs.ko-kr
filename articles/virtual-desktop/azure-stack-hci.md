@@ -7,12 +7,12 @@ ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d91722247e44016695154912277a0e1e2370fed6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ce89ec45e9c4f59107b205f04ce2c3d83afc8ce2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452132"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704024"
 ---
 # <a name="set-up-azure-virtual-desktop-for-azure-stack-hci-preview"></a>Azure Stack HCI (미리 보기)에 대 한 Azure 가상 데스크톱 설정
 
@@ -33,6 +33,8 @@ Azure Stack HCI 용 Azure 가상 데스크톱을 사용 하려면 다음 항목�
 - [Azure Active Directory와 동기화 된 온-프레미스 AD (Active Directory)](/azure/architecture/reference-architectures/identity/azure-ad)입니다.
 
 - 온-프레미스 네트워크에서 Azure에 안정적으로 연결 합니다.
+
+- 온-프레미스 네트워크에서 가상 컴퓨터에 대 한 Azure 가상 데스크톱의 [필수 url 목록](safe-url-list.md) 에 나열 된 모든 필수 url에 액세스 합니다.
 
 ## <a name="configure-azure-virtual-desktop-for-azure-stack-hci"></a>Azure Stack HCI에 대 한 Azure 가상 데스크톱 구성
 

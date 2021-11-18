@@ -1,13 +1,11 @@
 ---
-title: Microsoft Sentinel | 위협 지표 작업 Microsoft Docs
-description: 이 문서에서는 Microsoft Sentinel에서 위협 인텔리전스 지표를 사용하여 위협을 보고, 만들고, 관리하고, 시각화하고, 검색하는 방법을 설명합니다.
+title: Microsoft 센티널에서 위협 지표 사용 | Microsoft Docs
+description: 이 문서에서는 Microsoft 센티널에서 위협 인텔리전스 표시기를 사용 하 여 위협을 보고, 만들고, 관리 하 고, 시각화 하 고, 검색 하는 방법을 설명 합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,46 +13,46 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 29a464e27b6ee276d0fe2bc313a87ae718453067
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 583d86c64014bc107994880b587e4fe9f5309597
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519860"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710994"
 ---
-# <a name="work-with-threat-indicators-in-microsoft-sentinel"></a>Microsoft Sentinel에서 위협 지표 작업
+# <a name="work-with-threat-indicators-in-microsoft-sentinel"></a>Microsoft 센티널에서 위협 지표 사용
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-다음 활동을 통해 TI(위협 인텔리전스)를 Microsoft Sentinel에 통합할 수 있습니다.
+다음 작업을 통해 Microsoft 센티널에 위협 인텔리전스 (TI)를 통합할 수 있습니다.
 
-- 다양한 TI 플랫폼 및 피드에 **대한 데이터 커넥터를** 사용하도록 설정하여 **위협 인텔리전스를** Microsoft Sentinel로 [가져옵니다.](connect-threat-intelligence-taxii.md) [](connect-threat-intelligence-tip.md)
+- 다양 한 TI [플랫폼과](connect-threat-intelligence-tip.md) [피드에](connect-threat-intelligence-taxii.md) **데이터 커넥터** 를 사용 하도록 설정 하 여 **위협 인텔리전스** 를 Microsoft 센티널로 가져옵니다.
 
-- **로그** 및 Microsoft Sentinel 위협 인텔리전스 페이지에서 가져온 **위협 인텔리전스를** **보고 관리합니다.**
+- **로그** 및 Microsoft 센티널 **위협 인텔리전스** 페이지에서 가져온 위협 인텔리전스를 **보고 관리** 합니다.
 
 - 가져온 위협 인텔리전스를 기반으로 기본 제공 **분석** 규칙 템플릿을 사용하여 **위협을 탐지** 하고 보안 경고 및 인시던트를 생성합니다.
 
-- **위협 인텔리전스 통합 문서** 를 사용하여 Microsoft Sentinel에서 가져온 위협 인텔리전스에 대한 주요 정보를 **시각화합니다.**
+- Microsoft 센티널에서 **위협 인텔리전스 통합 문서로** 가져온 위협 인텔리전스에 대 한 **주요 정보를 시각화** 합니다.
 
-## <a name="view-your-threat-indicators-in-microsoft-sentinel"></a>Microsoft Sentinel에서 위협 지표 보기
+## <a name="view-your-threat-indicators-in-microsoft-sentinel"></a>Microsoft 센티널에서 위협 지표 보기
 
 ### <a name="find-and-view-your-indicators-in-logs"></a>로그에서 지표 찾기 및 보기
 
-이 절차에서는 사용된 원본 피드 또는 커넥터에 관계없이 Microsoft Sentinel **로그** 영역에서 가져온 위협 지표를 다른 Microsoft Sentinel 이벤트 데이터와 함께 보는 방법을 설명합니다.
+이 절차에서는 원본 피드 또는 사용 된 커넥터에 관계 없이 Microsoft 센티널 **로그** 영역에서 가져온 위협 지표를 다른 microsoft 센티널 이벤트 데이터와 함께 보는 방법에 대해 설명 합니다.
 
-가져온 위협 지표는 분석 또는 통합 문서와 같이 Microsoft Sentinel의 다른 곳에서 실행되는 위협 인텔리전스 쿼리의 기초인 **Microsoft Sentinel > ThreatIntelligenceIndicator** 테이블에 나열됩니다.
+가져온 위협 지표는 분석 또는 통합 문서와 같이 Microsoft 센티널의 다른 곳에서 실행 되는 위협 인텔리전스 쿼리 기반 인 **Microsoft 센티널 > ThreatIntelligenceIndicator** 테이블에 나열 되어 있습니다.
 
-**로그에서 위협 인텔리전스 지표를 보려면:**
+**로그에서 위협 인텔리전스 표시기를 보려면 다음을 수행 합니다**.
 
-1. [Azure Portal](https://portal.azure.com/) 열고 **Microsoft Sentinel** 서비스로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/) 열고 **Microsoft 센티널** 서비스로 이동 합니다.
 
-1. 위협 인텔리전스 데이터 커넥터를 사용하여 위협 지표를 가져온 작업 영역을 선택합니다.
+1. 위협 인텔리전스 데이터 커넥터를 사용 하 여 위협 지표를 가져온 작업 영역을 선택 합니다.
 
-1. Microsoft Sentinel 메뉴의 **일반** 섹션에서 **로그를** 선택합니다.
+1. Microsoft 센티널 메뉴의 **일반** 섹션에서 **로그** 를 선택 합니다.
 
-1. **ThreatIntelligenceIndicator** 테이블은 Microsoft **Sentinel** 그룹 아래에 있습니다.
+1. **ThreatIntelligenceIndicator** 테이블은 **Microsoft 센티널** 그룹 아래에 있습니다.
 
-1. 테이블 이름 옆에 있는 **미리 보기 데이터** 아이콘(눈 모양)을 선택하고 쿼리 **편집기에서 보기 단추를** 선택하여 이 테이블의 레코드를 표시하는 쿼리를 실행합니다.
+1. 테이블 이름 옆의 **데이터 미리 보기** 아이콘 (눈)을 선택 하 고 **쿼리 편집기에서 확인** 단추를 선택 하 여이 테이블의 레코드를 표시 하는 쿼리를 실행 합니다.
 
 결과는 아래에 표시된 샘플 위협 지표와 비슷합니다.
 
@@ -62,37 +60,37 @@ ms.locfileid: "132519860"
 
 ### <a name="find-and-view-your-indicators-in-the-threat-intelligence-page"></a>위협 인텔리전스 페이지에서 표시기 찾기 및 보기
 
-이 절차에서는 기본 Microsoft Sentinel 메뉴에서 액세스할 수 있는 **위협 인텔리전스** 페이지에서 표시기를 보고 관리하는 방법을 설명합니다. 위협 **인텔리전스** 페이지를 사용하여 Log Analytics 쿼리를 작성하지 않고 가져온 위협 지표를 정렬, 필터링 및 검색할 수 있습니다.
+이 절차에서는 주 Microsoft 센티널 메뉴에서 액세스할 수 있는 **위협 인텔리전스** 페이지에서 표시기를 보고 관리 하는 방법에 대해 설명 합니다. **위협 인텔리전스** 페이지를 사용 하 여 Log Analytics 쿼리를 작성 하지 않고 가져온 위협 지표를 정렬, 필터링 및 검색할 수 있습니다.
 
-**위협 인텔리전스 페이지에서 위협 인텔리전스 지표를 보려면:**
+**위협 인텔리전스 페이지에서 위협 인텔리전스 표시기를 보려면 다음을 수행 합니다**.
 
-1. [Azure Portal](https://portal.azure.com/) 열고 **Microsoft Sentinel** 서비스로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/) 열고 **Microsoft 센티널** 서비스로 이동 합니다.
 
-1. 커넥터/플레이북을 사용하여 위협 지표를 가져오거나 위협 인텔리전스 데이터를 만든 작업 영역을 선택합니다.
+1. 커넥터/플레이 북을 사용 하 여 위협 지표를 가져온 작업 영역을 선택 하거나 위협 인텔리전스 데이터를 만들었습니다.
 
-1. 왼쪽의 **위협 관리** 섹션에서 위협 **인텔리전스** 페이지를 선택합니다.
+1. 왼쪽의 **위협 관리** 섹션에서 **위협 인텔리전스** 페이지를 선택 합니다.
 
-1. 표에서 자세한 내용을 보려는 표시기를 선택합니다. 오른쪽에 표시기 세부 정보가 표시되어 신뢰도 수준, 태그, 위협 유형 등의 정보를 표시합니다.
+1. 표에서 자세히 보려는 표시기를 선택 합니다. 표시기의 세부 정보가 오른쪽에 표시 되 고 신뢰 수준, 태그, 위협 유형 등의 정보가 표시 됩니다.
 
-    Microsoft는 추가 GeoLocation 및 WhoIs 데이터로 각 지표를 보강하여 선택한 표시기가 있는 조사를 위한 더 많은 컨텍스트를 제공합니다.
+    Microsoft는 추가 지리적 위치 및 WhoIs 데이터를 사용 하 여 각 표시기를 강화 선택한 표시기가 있는 조사에 더 많은 컨텍스트를 제공 합니다.
 
-    예:
+    예를 들어 다음과 같습니다.
 
-    :::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="GeoLocation 및 WhoIs 데이터를 보여주는 표시기가 있는 위협 인텔리전스 페이지의 스크린샷." lightbox="media/whats-new/geolocation-whois-ti.png":::
+    :::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="지리적 위치 및 WhoIs 데이터를 보여 주는 표시기가 있는 위협 인텔리전스 페이지의 스크린샷" lightbox="media/whats-new/geolocation-whois-ti.png":::
 
-**위협 인텔리전스** 페이지에서는 Microsoft Sentinel 인터페이스 내에서 직접 위협 지표를 만들고 가장 일반적인 두 가지 위협 인텔리전스 관리 작업인 표시기 태그 지정 및 보안 조사와 관련된 새 지표 만들기를 수행할 수 있습니다.
+또한 **위협 인텔리전스** 페이지에서는 Microsoft 센티널 인터페이스 내에서 직접 위협 지표를 만들고, 가장 일반적인 두 가지 위협 인텔리전스 관리 작업 인 표시기 태깅 및 보안 조사와 관련 된 새 지표 만들기를 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> GeoLocation 및 WhoIs 보강은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> 지리적 위치 및 WhoIs 보강는 현재 미리 보기로 제공 됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
 #### <a name="create-a-new-indicator"></a>새 지표 생성하기
 
-1. [Azure Portal](https://portal.azure.com/) **Microsoft Sentinel** 서비스로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **Microsoft 센티널** 서비스로 이동 합니다.
 
 1. 위협 인텔리전스 데이터 커넥터를 사용하여 위협 지표를 가져온 **작업 영역** 을 선택합니다.
 
-1. Microsoft Sentinel 메뉴의 위협 관리 섹션에서 **위협 인텔리전스를** 선택합니다.
+1. Microsoft 센티널 메뉴의 위협 관리 섹션에서 **위협 인텔리전스** 를 선택 합니다.
 
 1. 페이지 위쪽에 있는 메뉴에서 **추가** 단추를 선택합니다.
 
@@ -110,19 +108,19 @@ ms.locfileid: "132519860"
 
 ## <a name="detect-threats-with-threat-indicator-based-analytics"></a>위협 지표 기반 분석을 사용하여 위협 탐지
 
-Microsoft Sentinel과 같은 SIEM 솔루션의 위협 지표에 대한 가장 중요한 사용 사례는 강력한 위협 탐지 분석 규칙입니다. 이러한 지표 기반 규칙은 데이터 원본의 원시 이벤트를 위협 지표와 비교하여 조직에서 보안 위협을 탐지합니다. Microsoft Sentinel **Analytics에서** 예약된 단위로 실행되는 분석 규칙을 만들고 보안 경고를 생성합니다. 이러한 규칙은 규칙 실행 빈도, 보안 경고 및 인시던트를 생성하는 쿼리 결과의 종류, 경고에 대한 대응으로 트리거할 자동화를 결정하는 구성과 함께 쿼리를 통해 작동합니다.
+Microsoft 센티널과 같은 SIEM 솔루션에서 위협 표시기의 가장 중요 한 사용 사례는 강력한 위협 검색 분석 규칙을 사용 하는 것입니다. 이러한 지표 기반 규칙은 데이터 원본의 원시 이벤트를 위협 지표와 비교하여 조직에서 보안 위협을 탐지합니다. Microsoft 센티널 **analytics** 에서는 일정에 따라 실행 되 고 보안 경고를 생성 하는 분석 규칙을 만듭니다. 이러한 규칙은 규칙 실행 빈도, 보안 경고 및 인시던트를 생성하는 쿼리 결과의 종류, 경고에 대한 대응으로 트리거할 자동화를 결정하는 구성과 함께 쿼리를 통해 작동합니다.
 
-언제든지 처음부터 새 분석 규칙을 만들 수 있지만 Microsoft Sentinel은 Microsoft 보안 엔지니어가 만든 기본 제공 규칙 템플릿 집합을 제공하며, 이 템플릿을 있는 그대로 사용하거나 필요에 맞게 수정할 수 있습니다. 위협 지표를 사용하는 규칙 템플릿은 모두 '*TI map*...'으로 시작하므로 쉽게 식별할 수 있습니다. 이러한 모든 규칙 템플릿은 사용하는 위협 지표 유형(도메인, 이메일, 파일 해시, IP 주소 또는 URL) 및 일치시킬 이벤트 유형을 제외하고 유사하게 작동합니다. 각 템플릿에는 규칙이 작동하는 데 필요한 필수 데이터 원본이 나열되므로 Microsoft Sentinel에서 이미 가져온 필수 이벤트가 있는지 한눈에 볼 수 있습니다. 기존 규칙 템플릿을 편집하고 저장하거나 새 규칙을 만들 때 기본적으로 사용하도록 설정됩니다.
+언제 든 지 새 분석 규칙을 처음부터 새로 만들 수 있지만 Microsoft 센티널은 Microsoft 보안 엔지니어가 만든 기본 제공 규칙 템플릿 집합을 제공 하며,이를 그대로 사용 하거나 필요에 맞게 수정할 수 있습니다. 위협 지표를 사용하는 규칙 템플릿은 모두 '*TI map*...'으로 시작하므로 쉽게 식별할 수 있습니다. 이러한 모든 규칙 템플릿은 사용하는 위협 지표 유형(도메인, 이메일, 파일 해시, IP 주소 또는 URL) 및 일치시킬 이벤트 유형을 제외하고 유사하게 작동합니다. 각 템플릿에는 규칙이 작동 하는 데 필요한 데이터 원본이 나열 되어 있으므로 Microsoft 센티널에서 필요한 이벤트를 이미 가져온 경우 한 눈에 볼 수 있습니다. 기존 규칙 템플릿을 편집하고 저장하거나 새 규칙을 만들 때 기본적으로 사용하도록 설정됩니다.
 
 ### <a name="configure-a-rule-to-generate-security-alerts"></a>보안 경고를 생성하는 규칙 구성
 
-다음은 Microsoft Sentinel로 가져온 위협 지표를 사용하여 보안 경고를 생성하는 규칙을 사용하도록 설정하고 구성하는 방법의 예입니다. 이 예제에서는 **TI map IP entity to AzureActivity** 라는 규칙 템플릿을 사용합니다. 이 규칙은 모든 IP 주소 유형 위협 지표를 모든 Azure 활동 이벤트와 일치시킵니다. 일치가 발견되면 **경고가** 생성되고 보안 운영 팀에서 조사할 해당 **인시던트도** 생성됩니다. 이 분석 규칙은 위협 지표를 가져오기 위해 **위협 인텔리전스** 데이터 커넥터 중 하나 또는 둘 다 사용하도록 설정하고 Azure 구독 수준 이벤트를 가져오기 위해 **Azure 활동** 데이터 커넥터를 사용하도록 설정한 경우에만 정상적으로 작동합니다.
+Microsoft 센티널로 가져온 위협 지표를 사용 하 여 보안 경고를 생성 하는 규칙을 사용 하도록 설정 하 고 구성 하는 방법의 예는 다음과 같습니다. 이 예제에서는 **TI map IP entity to AzureActivity** 라는 규칙 템플릿을 사용합니다. 이 규칙은 모든 IP 주소 유형 위협 지표를 모든 Azure 활동 이벤트와 일치시킵니다. 일치 항목이 발견 되 면 **경고가** 생성 되 고 보안 운영 팀에서 조사 하기 위한 해당 **인시던트가** 생성 됩니다. 이 분석 규칙은 위협 지표를 가져오기 위해 **위협 인텔리전스** 데이터 커넥터 중 하나 또는 둘 다 사용하도록 설정하고 Azure 구독 수준 이벤트를 가져오기 위해 **Azure 활동** 데이터 커넥터를 사용하도록 설정한 경우에만 정상적으로 작동합니다.
 
-1. [Azure Portal](https://portal.azure.com/) **Microsoft Sentinel** 서비스로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **Microsoft 센티널** 서비스로 이동 합니다.
 
 1. **위협 인텔리전스** 데이터 커넥터를 위협 지표를 가져오고 **Azure 활동** 데이터 커넥터를 사용하여 Azure 활동 데이터를 가져온 **작업 영역** 을 선택합니다.
 
-1. Microsoft Sentinel 메뉴의 **구성** 섹션에서 **분석을** 선택합니다.
+1. Microsoft 센티널 메뉴의 **구성** 섹션에서 **분석** 을 선택 합니다.
 
 1. **규칙 템플릿** 탭을 선택하여 사용 가능한 분석 규칙 템플릿의 목록을 확인합니다.
 
@@ -130,14 +128,14 @@ Microsoft Sentinel과 같은 SIEM 솔루션의 위협 지표에 대한 가장 �
 
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-required-data-sources.png" alt-text="필요한 데이터 원본":::
 
-1. TI **맵 IP 엔터티를 AzureActivity** 규칙에 선택한 **다음, 규칙 만들기를** 선택하여 규칙 구성 마법사를 엽니다. 마법사에서 설정을 구성한 후 **다음: 규칙 논리 >설정을** 선택합니다.
+1. **TI 작업 규칙에 대 한 TI 매핑 IP 엔터티** 를 선택 하 고 규칙 **만들기** 를 선택 하 여 규칙 구성 마법사를 엽니다. 마법사에서 설정을 구성 하 고 **다음: 규칙 논리 >설정** 을 선택 합니다.
 
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-create-analytics-rule.png" alt-text="분석 규칙 만들기":::
 
 1. 마법사의 규칙 논리 부분은 다음 항목으로 미리 채워져 있습니다.
-    - 규칙에 사용할 쿼리입니다.
+    - 규칙에 사용 될 쿼리입니다.
 
-    - 엔터티 매핑 - Microsoft Sentinel에 계정, IP 주소 및 URL과 같은 엔터티를 인식하는 방법을 알려주므로 **인시던트** 및 **조사 결과** 이 규칙에서 생성된 모든 보안 경고에서 데이터를 사용하는 방법을 이해할 수 있습니다.
+    - 엔터티 매핑: 계정, IP 주소 및 Url과 같은 엔터티를 인식 하는 방법을 Microsoft 센티널에 게 알려 줍니다. 그러면 **인시던트** 및 **조사** 에서이 규칙으로 생성 된 보안 경고의 데이터로 작업 하는 방법을 이해할 수 있습니다.
 
     - 이 규칙을 실행할 일정
 
@@ -150,17 +148,17 @@ Microsoft Sentinel과 같은 SIEM 솔루션의 위협 지표에 대한 가장 �
 
     - 쿼리 결과가 0보다 큰 경우(즉, 일치 항목이 있는 경우) 보안 경고를 생성합니다.
 
-    기본 설정을 그대로 두거나 요구 사항에 맞게 변경하고 인시던트 설정 탭에서 **인시던트** 생성 설정을 정의할 수 있습니다. 자세한 내용은 [위협을 감지하는 사용자 지정 분석 규칙 만들기를](detect-threats-custom.md)참조하세요. 완료되면 **자동화된 응답** 탭을 선택합니다.
+    기본 설정을 그대로 두거나 요구 사항에 맞게 변경할 수 있으며 인시던트 **설정** 탭에서 인시던트 생성 설정을 정의할 수 있습니다. 자세한 내용은 [사용자 지정 분석 규칙을 만들어 위협 검색](detect-threats-custom.md)을 참조 하세요. 완료되면 **자동화된 응답** 탭을 선택합니다.
 
-1. 이 분석 규칙에서 보안 경고가 생성될 때 트리거하는 모든 자동화를 구성합니다. Microsoft Sentinel의 자동화는 자동화 **규칙과** Azure Logic Apps 구동되는 플레이북의 조합을 사용하여 **수행됩니다.** 자세한 내용은 [자습서: Microsoft Sentinel에서 자동화 규칙으로 플레이북 사용을 참조하세요.](./tutorial-respond-threats-playbook.md) 완료되면 **다음: 검토 >** 단추를 선택하여 계속합니다.
+1. 이 분석 규칙에서 보안 경고가 생성될 때 트리거하는 모든 자동화를 구성합니다. Microsoft 센티널의 자동화는 Azure Logic Apps에서 제공 하는 **자동화 규칙** 및 **플레이 북** 의 조합을 사용 하 여 수행 됩니다. 자세히 알아보려면이 [자습서: Microsoft 센티널에서 자동화 규칙으로 플레이 북 사용](./tutorial-respond-threats-playbook.md)을 참조 하세요. 완료되면 **다음: 검토 >** 단추를 선택하여 계속합니다.
 
 1. 규칙 유효성 검사를 통과했다는 메시지가 표시되면 **생성하기** 단추를 선택하면 완료됩니다.
 
-사용 가능한 규칙은 Microsoft Sentinel의 **분석** 섹션에 있는 **활성 규칙** 탭에서 찾을 수 있습니다. 해당 위치에서 활성 규칙을 편집, 사용, 사용 안 함, 복제 또는 삭제할 수 있습니다. 새 규칙은 활성화되는 즉시 실행되며, 그 다음에는 정의된 일정에 따라 실행됩니다.
+Microsoft 센티널의 **Analytics** 섹션에 있는 **활성 규칙** 탭에서 사용 하도록 설정 된 규칙을 찾을 수 있습니다. 활성 규칙을 편집, 사용, 사용 안 함, 복제 또는 삭제할 수 있습니다. 새 규칙은 활성화되는 즉시 실행되며, 그 다음에는 정의된 일정에 따라 실행됩니다.
 
-규칙이 기본 설정의 일정에 따라 실행될 때마다 검색된 결과가 있으면 보안 경고가 생성됩니다. Microsoft Sentinel의 보안 경고는 Microsoft Sentinel 그룹의 **SecurityAlert** 테이블에 있는 Microsoft **Sentinel의** **로그** 섹션에서 볼 수 있습니다.
+규칙이 기본 설정의 일정에 따라 실행될 때마다 검색된 결과가 있으면 보안 경고가 생성됩니다. Microsoft 센티널의 보안 경고 **는 microsoft 센티널 그룹 아래의** **securityalert** 테이블에 있는 microsoft 센티널의 **로그** 섹션에서 볼 수 있습니다.
 
-Microsoft Sentinel에서 분석 규칙에서 생성된 경고는 Microsoft Sentinel 메뉴의 **위협 관리** 아래 **인시던트에서** 찾을 수 있는 보안 인시던트도 생성합니다. 인시던트는 보안 운영 팀이 적절한 대응 조치를 결정하기 위해 선별 및 조사하는 것입니다. [Microsoft 센티널로 인시던트 조사 자습서](./investigate-cases.md)에서 자세한 정보를 확인할 수 있습니다.
+Microsoft 센티널에서 분석 규칙에서 생성 된 경고는 보안 인시던트를 생성 하기도 하며,이 문제는 Microsoft 센티널 메뉴의 **위협 관리** 아래에 있는 **인시던트에** 있습니다. 인시던트는 보안 운영 팀이 적절한 대응 조치를 결정하기 위해 선별 및 조사하는 것입니다. [Microsoft 센티널로 인시던트 조사 자습서](./investigate-cases.md)에서 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="detect-threats-using-matching-analytics-public-preview"></a>일치 분석을 사용하여 위협 감지(공개 미리 보기)
 

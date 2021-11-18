@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/04/2021
 ms.author: amgowda
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2c082d901bd2b48b9d220d9b1b373335b295b377
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: f2a0a6452b978b6924574f1499916a0781413a24
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845357"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290232"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Azure Kubernetes Service의 기밀 컴퓨팅 노드
 

@@ -7,12 +7,12 @@ ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/03/2021
-ms.openlocfilehash: 4c23367862728d42148971b4941d6c94a750c227
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 8b71f6d0a3dade62ff701c3586c232a6cc7210d4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131504610"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724827"
 ---
 # <a name="troubleshoot-network-connectivity"></a>네트워크 연결 문제 해결
 이 문서는 프라이빗 엔드포인트에 Azure Migrate를 사용하는 경우에 발생하는 네트워크 연결 문제를 해결하는 데 도움이 됩니다.
@@ -190,10 +190,10 @@ DNS 확인이 잘못된 경우 다음 단계를 수행합니다.
 
 1. 사용자 지정 DNS 서버를 사용하는 경우 사용자 지정 DNS 설정을 검토하고 DNS 구성이 올바른지 유효성을 검사합니다. 지침은 [프라이빗 엔드포인트 개요: DNS 구성](../private-link/private-endpoint-overview.md#dns-configuration)을 참조하세요.
 
-1. **프록시 서버 고려 사항:** 어플라이언스가 아웃바운드 연결에 프록시 서버를 사용하는 경우 네트워크 설정 및 구성의 유효성을 검사하여 프라이빗 링크 URL에 연결할 수 있고 예상대로 라우팅할 수 있는지 확인해야 할 수 있습니다.
+1. **프록시 서버 고려 사항**: 어플라이언스에서 아웃 바운드 연결에 프록시 서버를 사용 하는 경우 개인 링크 url에 연결할 수 있고 예상 대로 라우팅될 수 있도록 네트워크 설정 및 구성의 유효성을 검사 해야 할 수 있습니다.
 
-    - 프록시 서버가 인터넷 연결용인 경우 프라이빗 링크 FQDN에 대한 프록시 서버를 우회하는 트래픽 전달자 또는 규칙을 추가해야 할 수 있습니다. 프록시 바이패스 규칙을 추가하는 방법에 대해 [자세히 알아보세요.](/azure/migrate/how-to-use-azure-migrate-with-private-endpoints#set-up-prerequisites)
-    - 또는 프록시 서버가 모든 아웃바운드 트래픽에 대한 것인 경우 프록시 서버가 프라이빗 링크 FQDN을 해당 개인 IP 주소로 확인할 수 있는지 확인합니다. 빠른 해결을 위해 위와 같이 DNS 매핑 및 연결된 개인 IP 주소를 사용하여 프록시 서버의 DNS 레코드를 수동으로 업데이트할 수 있습니다. 이 옵션은 테스트용으로 권장됩니다.
+    - 프록시 서버가 인터넷 연결용 이면 개인 링크 Fqdn에 대해 프록시 서버를 사용 하지 않도록 트래픽 전달자 또는 규칙을 추가 해야 할 수 있습니다. 프록시 무시 규칙을 추가 하는 방법에 [대해 자세히 알아보세요](./how-to-use-azure-migrate-with-private-endpoints.md#set-up-prerequisites) .
+    - 또는 모든 아웃 바운드 트래픽에 대해 프록시 서버를 사용 하는 경우 프록시 서버가 개인 링크 Fqdn을 해당 개인 IP 주소로 확인할 수 있는지 확인 합니다. 빠른 해결을 위해 위와 같이 DNS 매핑과 연결 된 개인 IP 주소를 사용 하 여 프록시 서버에서 DNS 레코드를 수동으로 업데이트할 수 있습니다. 이 옵션은 테스트용으로 권장됩니다.
 
 1. 문제가 계속되면 추가 문제 해결을 위해 [이 섹션을 참조하세요](#validate-the-private-dns-zone).
 
@@ -277,10 +277,10 @@ DNS 확인이 잘못된 경우 다음 단계를 수행합니다.
 
 1. 사용자 지정 DNS 서버를 사용하는 경우 사용자 지정 DNS 설정을 검토하고 DNS 구성이 올바른지 유효성을 검사합니다. 지침은 [프라이빗 엔드포인트 개요: DNS 구성](../private-link/private-endpoint-overview.md#dns-configuration)을 참조하세요.
 
-1. **프록시 서버 고려 사항:** 어플라이언스가 아웃바운드 연결에 프록시 서버를 사용하는 경우 네트워크 설정 및 구성의 유효성을 검사하여 프라이빗 링크 URL에 연결할 수 있고 예상대로 라우팅할 수 있는지 확인해야 할 수 있습니다.
+1. **프록시 서버 고려 사항**: 어플라이언스에서 아웃 바운드 연결에 프록시 서버를 사용 하는 경우 개인 링크 url에 연결할 수 있고 예상 대로 라우팅될 수 있도록 네트워크 설정 및 구성의 유효성을 검사 해야 할 수 있습니다.
 
-    - 프록시 서버가 인터넷 연결용인 경우 프라이빗 링크 FQDN에 대한 프록시 서버를 우회하는 트래픽 전달자 또는 규칙을 추가해야 할 수 있습니다. 프록시 바이패스 규칙을 추가하는 방법에 대해 [자세히 알아보세요.](/azure/migrate/how-to-use-azure-migrate-with-private-endpoints#set-up-prerequisites)
-    - 또는 프록시 서버가 모든 아웃바운드 트래픽에 대한 것인 경우 프록시 서버가 프라이빗 링크 FQDN을 해당 개인 IP 주소로 확인할 수 있는지 확인합니다. 빠른 해결을 위해 위와 같이 DNS 매핑 및 연결된 개인 IP 주소를 사용하여 프록시 서버의 DNS 레코드를 수동으로 업데이트할 수 있습니다. 이 옵션은 테스트용으로 권장됩니다.
+    - 프록시 서버가 인터넷 연결용 이면 개인 링크 Fqdn에 대해 프록시 서버를 사용 하지 않도록 트래픽 전달자 또는 규칙을 추가 해야 할 수 있습니다. 프록시 무시 규칙을 추가 하는 방법에 [대해 자세히 알아보세요](./how-to-use-azure-migrate-with-private-endpoints.md#set-up-prerequisites) .
+    - 또는 모든 아웃 바운드 트래픽에 대해 프록시 서버를 사용 하는 경우 프록시 서버가 개인 링크 Fqdn을 해당 개인 IP 주소로 확인할 수 있는지 확인 합니다. 빠른 해결을 위해 위와 같이 DNS 매핑과 연결 된 개인 IP 주소를 사용 하 여 프록시 서버에서 DNS 레코드를 수동으로 업데이트할 수 있습니다. 이 옵션은 테스트용으로 권장됩니다.
 
 1. 문제가 계속되면 추가 문제 해결을 위해 [이 섹션을 참조하세요](#validate-the-private-dns-zone).
 

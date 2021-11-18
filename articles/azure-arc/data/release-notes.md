@@ -10,12 +10,12 @@ ms.subservice: azure-arc-data
 ms.date: 11/03/2021
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: ac5b33de1a95b413c7eba92d2bdeaa8cc05b3a05
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 7d41d8b0d9150b811bd6111b7e0f95eeb7fce079
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132059567"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707779"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services"></a>릴리스 정보 - Azure Arc 지원 데이터 서비스
 
@@ -23,38 +23,38 @@ ms.locfileid: "132059567"
 
 ## <a name="november-2021"></a>2021년 11월
 
-이 릴리스는 2021 년 11 월 3 일에 게시 됩니다.
+이 릴리스는 2021년 11월 3일 게시됩니다.
 
 #### <a name="tools"></a>도구
 
 ##### <a name="azure-data-studio"></a>Azure Data Studio
 
-[Azure Data Studio에 대 한](/sql/azure-data-studio/extensions/azure-arc-extension)최신 버전의 Arc 확장을 설치 하거나 업데이트 합니다.
+Azure Data Studio 최신 버전의 Arc [확장을](/sql/azure-data-studio/extensions/azure-arc-extension)설치하거나 업데이트합니다.
 
-##### <a name="azure-az-cli"></a>Azure ( `az` ) CLI
+##### <a name="azure-az-cli"></a>Azure( `az` ) CLI
 
-`arcdata`CLI 용 확장을 설치 하거나 업데이트 `az` 하 여 직접 연결 된 배포를 지원 합니다.
+`arcdata`직접 연결된 배포를 지원하기 위해 CLI용 확장을 설치하거나 `az` 업데이트합니다.
 
-다음 `sql` 명령은 이제 직접 연결 모드를 지원 합니다.
+다음 `sql` 명령은 이제 직접 연결된 모드를 지원합니다.
 
    ```console
    az arcdata dc create
    az arcdata dc delete
-   az arcdata sql mi-arc create
-   az arcdata sql mi-arc delete
+   az sql mi-arc create
+   az sql mi-arc delete
    ```
  
 #### <a name="data-controller"></a>데이터 컨트롤러
 
-- 직접 연결 모드 일반적으로 사용 가능
-- Azure arc에서 직접 연결 된 azure arc 데이터 컨트롤러 확장 Azure Arc 사용 Kubernetes 클러스터는 이제 서비스 사용자 이름 대신 시스템 생성 관리 되는 id를 사용 합니다. 관리 id는 새 Azure Arc 데이터 컨트롤러 확장을 만들 때 자동으로 생성 됩니다. 사용 및 메트릭을 업로드할 수 있는 적절 한 권한을 부여 해야 합니다.
-- 메트릭 업로드는 직접 연결 된 Azure Arc 데이터 컨트롤러를 사용 하 여 시스템 생성 관리 id를 활용 합니다. 
-- Azure CLI ()에서 직접 연결 된 모드 Azure Arc 데이터 컨트롤러를 만듭니다 `az` .
-- Azure Monitor에 자동으로 메트릭 업로드
-- Azure Log Analytics에 자동으로 로그 업로드
-- Azure Arc 데이터 컨트롤러를 배포한 후 메트릭 및/또는 로그의 자동 업로드를 사용 하거나 사용 하지 않도록 설정 합니다.
-- Azure CLI를 사용 하 여 7 월 2021 릴리스 (일반적으로 사용 가능한 서비스 (예: Azure Arc data controller) 및 범용 SQL Managed Instance)로 업그레이드 합니다.
-- 새 환경 변수를 사용 하 여 메트릭 및 로그 대시보드 사용자 이름 및 암호를 DC 배포 시간에 별도로 설정 합니다.
+- 직접 연결된 모드 일반 제공
+- Azure Arc 사용하도록 설정된 Kubernetes 클러스터에서 직접 연결된 Azure Arc 데이터 컨트롤러 확장은 이제 서비스 주체 이름 대신 시스템 생성 관리 ID를 사용합니다. 관리 ID는 새 Azure Arc 데이터 컨트롤러 확장이 만들어지면 자동으로 만들어집니다. 사용량 및 메트릭을 업로드하려면 적절한 권한을 부여해야 합니다.
+- 메트릭 업로드는 직접 연결된 Azure Arc 데이터 컨트롤러를 사용하여 시스템 생성 관리 ID를 활용합니다. 
+- Azure CLI()에서 데이터 컨트롤러를 Azure Arc 직접 연결된 모드를 `az` 만듭니다.
+- 메트릭을 Azure Monitor 자동으로 업로드
+- Azure Log Analytics에 로그 자동 업로드
+- Azure Arc 데이터 컨트롤러를 배포한 후 Azure에 대한 메트릭 및/또는 로그의 자동 업로드를 사용하거나 사용하지 않도록 설정합니다.
+- Azure CLI 사용하여 2021년 7월 릴리스(Azure Arc 데이터 컨트롤러 및 범용 SQL Managed Instance 같은 일반 서비스만 해당)에서 업그레이드합니다.
+- 새 환경 변수를 사용하여 DC 배포 시 메트릭 및 로그 대시보드 사용자 이름 및 암호를 별도로 설정합니다.
 
    ```console
    AZDATA_LOGSUI_USERNAME
@@ -62,44 +62,44 @@ ms.locfileid: "132059567"
    AZDATA_METRICSUI_USERNAME
    AZDATA_METRICSUI_PASSWORD
    ```
-- 새 명령- `az arcdata dc list-upgrades` 현재 배포 된 데이터 컨트롤러에서 사용할 수 있는 업그레이드 목록을 표시 합니다.
+- 새 명령 - `az arcdata dc list-upgrades` 현재 배포된 데이터 컨트롤러에서 사용 가능한 업그레이드 목록을 표시합니다.
 
 
-`AZDATA_USERNAME`이전 처럼 및 환경 변수를 계속 사용할 수 있습니다 `AZDATA_PASSWORD` . 만 제공 하 `AZDATA_USERNAME` 는 경우 `AZDATA_PASSWORD` 배포는 로그 및 메트릭 대시보드 모두에 대해이를 사용 합니다.
+이전처럼 및 환경 변수를 계속 사용할 수 `AZDATA_USERNAME` `AZDATA_PASSWORD` 있습니다. 만 제공하면 `AZDATA_USERNAME` `AZDATA_PASSWORD` 배포에서 로그 및 메트릭 대시보드 모두에 사용합니다.
 
 ##### <a name="region-availability"></a>지역 가용성
 
-이 릴리스에는 다음과 같은 Azure 지역에서 직접 연결 된 모드 가용성이 도입 되었습니다.
+이 릴리스에서는 다음 Azure 지역에서 직접 연결된 모드 가용성을 소개합니다.
 
 - 미국 중북부
 - 미국 서부
 - 미국 서부 3
 
-전체 목록은 [지원 되는 지역](overview.md#supported-regions)을 참조 하세요.
+전체 목록은 [지원되는 지역을 참조하세요.](overview.md#supported-regions)
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
 
-- Azure Arc 사용 SQL Managed Instance 일반 용도의 업그레이드 인스턴스
-- SQL 이진 파일은 새 버전으로 업데이트 됩니다.
-- Azure CLI를 사용 하 여 Azure Arc의 직접 연결 모드 배포 SQL Managed Instance 사용
-- Azure Arc의 특정 시점 복원 사용 SQL Managed Instance는이 릴리스와 함께 일반 공급 됩니다. 현재 지정 시간 복원은 Managed Instance 범용 SQL만 지원 됩니다. 업무상 중요 SQL에 대 한 특정 시점 복원은 아직 미리 보기 상태 Managed Instance.
-- `--dry-run`지정 시간 복원에 대해 제공 되는 새 옵션
-- 복구 지점 목표는 기본적으로 5 분으로 설정 되며 구성할 수 없습니다.
-- 백업 보존 기간은 기본적으로 7 일로 설정 됩니다. 보존 기간을 0으로 설정 하는 새 옵션은 백업이 필요 하지 않은 개발 및 테스트 인스턴스에 대해 자동 백업을 사용 하지 않도록 설정 합니다.
-- 지정 시간 복원 작업이 구성 된 표준 시간대를 준수 하지 않는 문제를 해결 함 
-- Azure CLI 또는 Azure Data Studio의 특정 시점으로 복원
+- Azure Arc 사용 가능한 SQL Managed Instance 범용 인스턴스를 현재 위치로 업그레이드
+- SQL 이진이 새 버전으로 업데이트됩니다.
+- Azure CLI 사용하여 Azure Arc 사용하도록 설정된 SQL Managed Instance 직접 연결 모드 배포
+- Azure Arc 사용하도록 설정된 SQL Managed Instance 대한 시점 복원은 이 릴리스에서 일반적으로 제공됩니다. 현재 시점 복원은 범용 SQL Managed Instance 대해서만 지원됩니다. 중요 비즈니스용 SQL Managed Instance 대한 시점 복원은 아직 미리 보기 상태입니다.
+- 시점 복원을 위해 제공되는 새 `--dry-run` 옵션
+- 복구 지점 목표는 기본적으로 5분으로 설정되며 구성할 수 없습니다.
+- 백업 보존 기간은 기본적으로 7일로 설정됩니다. 보존 기간을 0으로 설정하는 새로운 옵션은 백업이 필요하지 않은 개발 및 테스트 인스턴스에 대한 자동 백업을 사용하지 않도록 설정합니다.
+- 지정 시간 복원 작업이 구성된 표준 시간대를 준수하지 않는 문제가 해결됨 
+- Azure CLI 또는 Azure Data Studio 시점으로 복원
  
 
 ### <a name="known-issues"></a>알려진 문제
 
 #### <a name="data-controller-upgrade"></a>데이터 컨트롤러 업그레이드
 
-- 현재 CLI 또는 포털을 통해 직접 연결 된 데이터 컨트롤러의 업그레이드는 지원 되지 않습니다.
-- 현재 Azure Arc data controller 및 범용 SQL Managed Instance와 같은 일반적으로 사용 가능한 서비스만 업그레이드할 수 있습니다. 비즈니스에 중요 한 SQL Managed Instance 및/또는 Azure Arc PostgreSQL hyperscale을 사용 하는 경우 업그레이드를 계속 하기 전에 먼저 제거 합니다.
+- 현재 CLI 또는 포털을 통해 직접 연결된 데이터 컨트롤러의 업그레이드는 지원되지 않습니다.
+- 현재는 Azure Arc 데이터 컨트롤러 및 범용 SQL Managed Instance 같은 일반 서비스만 업그레이드할 수 있습니다. 중요 비즈니스용 SQL Managed Instance 및/또는 Azure Arc 지원 PostgreSQL 하이퍼스케일 있는 경우 업그레이드를 계속하기 전에 먼저 제거합니다.
 
 #### <a name="commands"></a>명령
 
-다음 명령은이 시점에서 직접 연결 된 모드를 지원 하지 않습니다.
+다음 명령은 현재 직접 연결된 모드를 지원하지 않습니다.
 
 ```console
 az arcdata dc update
@@ -132,8 +132,8 @@ az arcdata sql mi-arc update
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
 
-- pod를 다시 프로 비전 하면 SQL Managed Instance는 모든 데이터베이스에 대해 새로운 전체 백업 집합을 시작 합니다.
-- 데이터 컨트롤러를 직접 연결 하는 경우에는 SQL Managed Instance를 프로 비전 하기 전에 먼저 데이터 컨트롤러를 최신 버전으로 업그레이드 해야 합니다. 데이터 컨트롤러의 imageversion SQL Managed Instance를 프로 비전 하는 `v1.0.0_2021-07-30` 작업이 실패 합니다.
+- Pod가 다시 프로비전되면 SQL Managed Instance 모든 데이터베이스에 대한 새 전체 백업 세트를 시작합니다.
+- 데이터 컨트롤러가 직접 연결된 경우 SQL Managed Instance 프로비전하려면 먼저 데이터 컨트롤러를 최신 버전으로 업그레이드해야 합니다. 의 데이터 컨트롤러 imageVersion을 사용하여 SQL Managed Instance 프로비전하려고 `v1.0.0_2021-07-30` 하면 성공하지 않습니다.
 
 
 ##### <a name="other-limitations"></a>기타 제한 사항
@@ -177,7 +177,7 @@ az arcdata sql mi-arc update
 
 - 직접 연결 모드(미리 보기)는 이 릴리스의 다음 Azure 지역에서만 사용할 수 있습니다.
 
-   - 미국 중 북부 *
+   - 미국 중북부 *
    - 미국 중부
    - 미국 동부
    - 미국 동부 2
@@ -206,7 +206,7 @@ az arcdata sql mi-arc update
 - Azure Arc 지원 SQL Managed Instance 있는 기존 데이터베이스에서 동일한 인스턴스 내의 새 데이터베이스로의 시점 복원을 지원합니다.
 - 현재 날짜/시간이 UTC 형식의 특정 시점으로 주어지면 가장 최근의 유효한 복원 시간으로 해석되어 마지막 유효한 트랜잭션까지 지정된 데이터베이스를 복원합니다.
 - 데이터베이스는 트랜잭션이 발생한 모든 시점으로 복원할 수 있습니다.
-- Azure Arc 사용 가능한 SQL Managed Instance 대한 특정 복구 지점 목표를 설정하려면 SQL Managed Instance CRD를 편집하여 `recoveryPointObjectiveInSeconds` 속성을 설정합니다. 지원되는 값은 300~600입니다.
+- Azure Arc 사용 가능한 SQL Managed Instance 대한 특정 복구 지점 목표를 설정하려면 SQL Managed Instance CRD를 편집하여 속성을 `recoveryPointObjectiveInSeconds` 설정합니다. 지원되는 값은 300~600입니다.
 - 자동 백업을 사용하지 않도록 설정하려면 SQL 인스턴스 CRD를 편집하고 `recoveryPointObjectiveInSeconds` 속성을 0으로 설정합니다.
 
 ### <a name="known-issues"></a>알려진 문제
@@ -229,7 +229,7 @@ az arcdata sql mi-arc update
 
 #### <a name="data-controller"></a>데이터 컨트롤러
 
-- Azure Arc 데이터 컨트롤러가 Azure Portal 삭제되면 이 Arc 데이터 컨트롤러에 배포된 Azure Arc 사용 가능한 SQL Managed Instance가 있는 경우 삭제를 차단하기 위해 유효성 검사가 수행됩니다. 현재 이 유효성 검사는 Azure Arc 데이터 컨트롤러의 개요 페이지에서 삭제를 수행한 경우에만 적용됩니다. 
+- Azure Arc 데이터 컨트롤러가 Azure Portal 삭제되면 이 Arc 데이터 컨트롤러에 배포된 Azure Arc 사용 SQL Managed Instance가 있는 경우 삭제를 차단하기 위해 유효성 검사가 수행됩니다. 현재 이 유효성 검사는 Azure Arc 데이터 컨트롤러의 개요 페이지에서 삭제를 수행한 경우에만 적용됩니다. 
 
 #### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일
 
@@ -306,7 +306,7 @@ az arcdata sql mi-arc update
 az extension add --name arcdata
 ```
 
-확장은 데이터 컨트롤러 및 SQL Managed Instance 및 PostgreSQL 하이퍼스케일 리소스와의 명령줄 상호 작용을 지원합니다.
+확장은 데이터 컨트롤러와 SQL Managed Instance 및 PostgreSQL hyperscale 리소스를 사용 하는 명령줄 상호 작용을 지원 합니다.
 
 데이터 컨트롤러에 대한 스크립트를 업데이트하려면 `azdata arc dc...`를 `az arcdata dc...`로 바꿉니다.
 
@@ -314,7 +314,7 @@ az extension add --name arcdata
 
 Azure Arc 지원 PostgreSQL 하이퍼스케일의 경우 `azdata arc sql postgres...`를 `az postgres arc-server...`로 바꿉니다.
 
-`azdata` 명령에 일반적으로 존재했던 매개 변수 외에도 `arcdata` Azure CLI 확장의 동일한 명령에는 이제 `--k8s-namespace` 및 `--use-k8s`와 같은 몇 가지 새로운 매개 변수가 필요합니다. `--use-k8s` 매개 변수는 명령을 Kubernetes API 또는 ARM API로 전송해야 하는 시기를 구별하는 데 사용됩니다. 지금은 Azure Arc 지원 데이터 서비스에 대한 모든 Azure CLI 명령은 Kubernetes API만 대상으로 합니다.
+`azdata` 명령에 일반적으로 존재했던 매개 변수 외에도 `arcdata` Azure CLI 확장의 동일한 명령에는 이제 `--k8s-namespace` 및 `--use-k8s`와 같은 몇 가지 새로운 매개 변수가 필요합니다. `--use-k8s` 매개 변수는 명령을 Kubernetes API 또는 ARM API로 전송해야 하는 시기를 구별하는 데 사용됩니다. 이제 Azure Arc 사용 데이터 서비스에 대 한 모든 Azure CLI 명령은 Kubernetes API만을 대상으로 합니다.
 
 매개 변수 이름의 일부 짧은 형식(예: `--core-limit`를 `-cl`로)이 제거되거나 변경되었습니다. 새 매개 변수 짧은 이름 또는 긴 이름을 사용합니다.
 
@@ -330,7 +330,7 @@ OpenDistro 보안 팩이 제거되었습니다. 이제 일반 브라우저 사�
 
 #### <a name="crd-version-bump-to-v1beta1"></a>CRD 버전이 `v1beta1`로 변경
 
-모든 CRD에는 이 릴리스의 버전이 `v1alpha1`에서 `v1beta1`로 변경되었습니다. 2021년 6월 릴리스 이전에 Azure Arc 지원 데이터 서비스의 버전을 배포한 경우 제거 프로세스의 일부로 모든 CRD를 삭제해야 합니다. 2021년 6월 릴리스와 함께 배포된 새 CRD의 버전은 v1beta1입니다.
+모든 CRD에는 이 릴리스의 버전이 `v1alpha1`에서 `v1beta1`로 변경되었습니다. 6 월 2021 릴리스 전에 Azure Arc 사용 데이터 서비스 버전을 배포한 경우 제거 프로세스의 일부로 모든 CRDs를 삭제 해야 합니다. 2021년 6월 릴리스와 함께 배포된 새 CRD의 버전은 v1beta1입니다.
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
 
@@ -344,13 +344,13 @@ OpenDistro 보안 팩이 제거되었습니다. 이제 일반 브라우저 사�
 
 #### <a name="data-controller"></a>데이터 컨트롤러
 
-- Azure Portal에서 직접 연결 모드로 데이터 컨트롤러를 배포하기 위한 간소화된 사용자 환경. Kubernetes 클러스터가 Azure Arc 사용하도록 설정되면 Arc 데이터 컨트롤러 만들기 마법사를 사용하여 포털에서 데이터 컨트롤러를 한 번에 완전히 배포할 수 있습니다. 또한 이 배포는 사용자 지정 위치 및 Azure Arc 지원 데이터 서비스 확장(부트스트래퍼)을 만듭니다. 사용자 지정 위치 및/또는 확장을 미리 만들고 이를 사용하도록 데이터 컨트롤러 배포를 구성할 수도 있습니다.
+- Azure Portal에서 직접 연결 모드로 데이터 컨트롤러를 배포하기 위한 간소화된 사용자 환경. Kubernetes 클러스터가 Azure Arc를 사용 하도록 설정 된 후에는 한 번의 동작으로 Arc 데이터 컨트롤러 만들기 마법사를 사용 하 여 포털에서 데이터 컨트롤러를 완전히 배포할 수 있습니다. 이 배포는 사용자 지정 위치 및 Azure Arc 사용 데이터 서비스 확장 (부트스트래퍼)도 만듭니다. 사용자 지정 위치 및/또는 확장을 미리 만들고 이를 사용하도록 데이터 컨트롤러 배포를 구성할 수도 있습니다.
 - 새 `Infrastructure` 속성은 Arc 데이터 컨트롤러를 배포할 때 필요한 속성입니다. 이 속성은 청구 목적으로 필요합니다. 자세한 내용은 일반 공급 시 제공될 예정입니다.
 - Kubernetes 클러스터에서 배포 프로세스에 있는 리소스의 배포 상태를 더 잘 볼 수 있는 기능을 포함하여 Azure Portal의 데이터 컨트롤러 사용자 환경에서 다양한 사용 편의성이 향상되었습니다.
 - 데이터 컨트롤러는 자동으로 로그(선택 사항)와 메트릭을 직접 연결 모드에서 Azure에 업로드합니다.
 - 모니터링 스택(메트릭 및 로그 데이터베이스/대시보드)은 이제 자체 CRD(사용자 지정 리소스 정의)인 `monitors.arcdata.microsoft.com`에 패키지되었습니다. 이 사용자 지정 리소스를 만들면 모니터링 스택 Pod가 만들어집니다. 이를 삭제하면 모니터링 스택 Pod가 삭제됩니다. 데이터 컨트롤러를 만들면 모니터 사용자 지정 리소스가 자동으로 만들어집니다.
 - 직접 연결 모드(미리 보기)에 대해 지원되는 새로운 지역: 미국 동부 2, 미국 서부 2, 미국 중남부, 영국 남부, 프랑스 중부, 동남아시아, 호주 동부.
-- 이제 개요 블레이드의 사용자 지정 위치 리소스 차트에 배포된 Azure Arc 지원 데이터 서비스 리소스가 표시됩니다.
+- 이제 개요 블레이드에서 사용자 지정 위치 리소스 차트에 배포 되는 Azure Arc 사용 데이터 서비스 리소스가 표시 됩니다.
 - 진단 및 솔루션이 데이터 컨트롤러용 Azure Portal에 추가되었습니다.
 - 모든 Arc 관련 사용자 지정 리소스에 새 `Observed Generation` 속성을 추가했습니다.
 - 이제 자격 증명 관리자 서비스가 포함되어 데이터 컨트롤러가 관리하는 모든 서비스에 대한 인증서 자동 배포를 처리합니다.
@@ -361,7 +361,7 @@ OpenDistro 보안 팩이 제거되었습니다. 이제 일반 브라우저 사�
 - Azure Arc PostgreSQL 하이퍼스케일 배포는 이제 nodeSelector, nodeAffinity 및 anti-affinity를 사용하여 노드 할당 전략에 대한 Kubernetes Pod를 지원합니다.
 - 이제 PostgreSQL 하이퍼스케일 서버 그룹을 배포할 때 또는 배포 후 Azure Data Studio 및 Azure Portal에서 역할(코디네이터 또는 작업자)별로 컴퓨팅 매개 변수(vCore 및 메모리)를 구성할 수 있습니다.
 - 이제 Azure Portal에서 PostgreSQL 하이퍼스케일 서버 그룹에 만들어진 PostgreSQL 확장 목록을 볼 수 있습니다.
-- Azure Portal Azure에 직접 연결된 데이터 컨트롤러에서 Azure Arc 사용하도록 설정된 PostgreSQL 하이퍼스케일 그룹을 삭제할 수 있습니다.
+- Azure Portal에서 Azure에 직접 연결 된 데이터 컨트롤러에서 Azure Arc 사용 PostgreSQL Hyperscale 그룹을 삭제할 수 있습니다.
 
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
@@ -397,9 +397,9 @@ OpenDistro 보안 팩이 제거되었습니다. 이제 일반 브라우저 사�
 
 #### <a name="platform"></a>플랫폼
 
-- Azure Portal 데이터 컨트롤러, SQL Managed Instance 및 PostgreSQL 하이퍼스케일 서버 그룹을 만들고 삭제합니다.
+- Azure Portal에서 데이터 컨트롤러, SQL Managed Instance 및 PostgreSQL hyperscale 서버 그룹을 만들고 삭제 합니다.
 - Azure Arc 데이터 서비스를 삭제할 때 포털 작업의 유효성을 검사합니다. 예를 들어 데이터 컨트롤러를 사용하여 배포된 SQL Managed Instance가 있는 경우 포털은 데이터 컨트롤러를 삭제하려고 할 때 경고를 표시합니다.
-- Azure Portal 사용하여 Azure Arc 지원 데이터 컨트롤러를 배포할 때 사용자 지정 설정을 지원하는 사용자 지정 구성 프로필을 만듭니다.
+- Azure Portal를 사용 하 여 Azure Arc 사용 데이터 컨트롤러를 배포할 때 사용자 지정 설정을 지원 하도록 사용자 지정 구성 프로필을 만듭니다.
 - 필요에 따라 직접 연결된 모드에서 Azure Log Analytics 작업 영역에 로그를 자동으로 업로드합니다.
 
 #### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일
@@ -413,7 +413,7 @@ OpenDistro 보안 팩이 제거되었습니다. 이제 일반 브라우저 사�
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
 
-- Azure Arc 지원 SQL Managed Instance 대한 새 Azure CLI [확장에는](/cli/azure/azure-cli-extensions-overview) 명령과 동일한 명령이 `az sql mi-arc <command>` 있습니다. 모든 Azure Arc 사용 SQL Managed Instance 명령은 에 `az sql mi-arc` 있습니다. 모든 Arc 관련 `azdata` 명령은 더 이상 사용되지 않으며 이후 릴리스에서 Azure CLI로 이동됩니다.
+- Azure Arc 사용 SQL Managed Instance 대한 새 Azure CLI [확장은](/cli/azure/azure-cli-extensions-overview) 명령과 `az sql mi-arc <command>` 동일합니다. 모든 Azure Arc 사용 SQL Managed Instance 명령은 에 `az sql mi-arc` 있습니다. 모든 Arc 관련 `azdata` 명령은 더 이상 사용되지 않으며 이후 릴리스에서 Azure CLI로 이동됩니다.
 
    확장을 추가하려면 다음을 수행합니다.
 
@@ -487,7 +487,7 @@ PostgreSQL에 대한 CRD(사용자 지정 리소스 정의)가 모두 단일 CRD
 
 ### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
 
-- 이제 직접 연결 모드의 Azure Portal SQL Managed Instance 만들 수 있습니다.
+- 이제 직접 연결된 모드의 Azure Portal SQL Managed Instance 만들 수 있습니다.
 
 - 이제 3개의 복제본을 사용하여 SQL Managed Instance로 데이터베이스를 복원할 수 있습니다. 그러면 데이터베이스가 가용성 그룹에 자동으로 추가됩니다.
 
@@ -610,7 +610,7 @@ Azure Data CLI(`azdata`) 버전 번호: 20.2.3. [Azure Data CLI(`azdata`) 설치
 
 ## <a name="september-2020"></a>2020년 9월
 
-Azure Arc 지원 데이터 서비스는 퍼블릭 미리 보기용으로 릴리스되었습니다. Azure Arc 사용 데이터 서비스를 사용 하면 어디서 나 데이터 서비스를 관리할 수 있습니다.
+Azure Arc 지원 데이터 서비스는 퍼블릭 미리 보기용으로 릴리스되었습니다. Azure Arc 지원 데이터 서비스를 사용하면 어디서나 데이터 서비스를 관리할 수 있습니다.
 
 - SQL Managed Instance
 - PostgreSQL 하이퍼스케일
@@ -624,6 +624,6 @@ Azure Arc 지원 데이터 서비스는 퍼블릭 미리 보기용으로 릴리�
 
 - [클라이언트 도구 설치](install-client-tools.md)
 - [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)(먼저 클라이언트 도구를 설치해야 함)
-- azure [arc에서 azure SQL Managed Instance 만들기](create-sql-managed-instance.md) (먼저 azure arc 데이터 컨트롤러를 만들어야 함)
+- [Azure Arc Azure SQL Managed Instance 만들기(먼저](create-sql-managed-instance.md) Azure Arc 데이터 컨트롤러 만들기 필요)
 - [Azure Arc에서 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md)(먼저 Azure Arc 데이터 컨트롤러를 만들어야 함)
 - [Azure 서비스의 리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)

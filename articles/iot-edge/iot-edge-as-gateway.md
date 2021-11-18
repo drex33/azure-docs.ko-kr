@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 85d93c46ca9ef397b9e2ae95cfc042e50ee10bd1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 478bf78549e15c3c0989ae4850d515bdcce5217d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528990"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706742"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>IoT Edge 디바이스를 게이트웨이로 사용하는 방법
 
@@ -78,7 +78,7 @@ IoT Edge 게이트웨이를 연결된 다운스트림 디바이스 ‘자식’�
 >
 >환경 변수 **AuthenticationMode** 를 **CloudAndScope** 값으로 설정하여 이전 동작으로 이동하도록 IoT Edge 허브를 구성할 수 있습니다.
 
-자식 디바이스는 하나의 부모 디바이스만을 가집니다. 각 부모 디바이스는 최대 100개의 자식 디바이스를 가질 수 있습니다.
+자식 디바이스는 하나의 부모 디바이스만을 가집니다. 기본적으로 부모에는 최대 100명의 자식이 있을 수 있습니다. 부모 디바이스의 edgeHub 모듈에서 **MaxConnectedClients** 환경 변수를 설정하여 이 제한을 변경할 수 있습니다.
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"

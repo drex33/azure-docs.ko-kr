@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 386ef4d27a8fc2fbe4d9c3f209d2016fa1911761
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 6682328d948d66085799ffe8f6df93adf732c04d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997460"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710428"
 ---
 # <a name="authorize-access-to-web-pubsub-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 웹 PubSub 리소스에 대 한 액세스 권한 부여
 azure 웹 pubsub 서비스는 azure AD (Azure Active Directory)를 사용 하 여 웹 pubsub 리소스에 대 한 요청에 권한을 부여할 수 있도록 지원 합니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체<sup>[<a href="#security-principal">1</a>]</sup>에 대 한 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하는 Azure AD에서 인증 됩니다. 그런 다음 토큰을 사용 하 여 웹 PubSub 리소스에 대 한 요청을 인증할 수 있습니다.
@@ -30,7 +30,7 @@ Azure AD를 사용 하 여 웹 PubSub에 대해 요청을 인증 하면 액세�
 
 ### <a name="client-side-authentication-while-using-azure-ad"></a>Azure AD를 사용 하는 동안 클라이언트 쪽 인증
 
-액세스 키를 사용 하는 경우 키가 협상 서버 (또는 함수 앱)와 웹 PubSub 리소스 사이에서 공유 됩니다. 즉, 웹 PubSub 서비스에서 공유 키를 사용 하 여 클라이언트 연결 요청을 인증할 수 있습니다. 그러나 Azure AD를 사용 하 여 권한을 부여 하는 경우에는 공유 키가 없습니다. 
+액세스 키를 사용 하는 경우 키가 협상 서버 (또는 함수 앱)와 웹 PubSub 리소스 사이에서 공유 됩니다. 즉, 웹 PubSub 서비스에서 공유 키를 사용 하 여 클라이언트 연결 요청을 인증할 수 있습니다. 그러나 Azure AD를 사용 하 여 권한을 부여 하는 경우에는 선택 키가 없습니다. 
 
 이 문제를 해결 하기 위해 Azure 웹 PubSub 서비스에 연결 하는 데 사용할 수 있는 클라이언트 토큰을 생성 하는 REST API을 제공 했습니다.
 

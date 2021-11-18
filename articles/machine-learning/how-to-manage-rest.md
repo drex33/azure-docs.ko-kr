@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 9465a8c45dd44eca4fcd67a8603e60a2061f2609
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 39dda46d1634996246f6c1d78b57e2747f27223c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518188"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723516"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용하여 Azure ML 리소스 만들기, 실행 및 삭제
 
@@ -30,7 +30,7 @@ ms.locfileid: "132518188"
 > * 서비스 주체 인증을 사용하여 올바른 형식의 REST 요청 만들기
 > * GET 요청을 사용하여 Azure ML의 계층 구조 리소스에 대한 정보 검색
 > * PUT 및 POST 요청을 사용하여 리소스 만들기 및 수정
-> * PUT 요청을 사용 하 여 Azure ML 작업 영역 만들기
+> * PUT 요청을 사용하여 Azure ML 작업 영역 만들기
 > * DELETE 요청을 사용하여 리소스 정리 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -340,7 +340,7 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
 
 ## <a name="create-a-workspace-using-customer-managed-encryption-keys"></a>고객이 관리 하는 암호화 키를 사용 하 여 작업 영역 만들기
 
-기본적으로 작업 영역에 대한 메타데이터는 Microsoft에서 유지 관리하는 Azure Cosmos DB 인스턴스에 저장됩니다. 이 데이터는 Microsoft 관리형 키를 사용하여 암호화됩니다. Microsoft 관리형 키를 사용하는 대신 사용자 고유 키를 사용할 수도 있습니다. 이렇게 하면 데이터를 저장 하기 위해 Azure 구독에 [추가 리소스 집합이](/azure/machine-learning/concept-data-encryption#azure-cosmos-db) 생성 됩니다.
+기본적으로 작업 영역에 대한 메타데이터는 Microsoft에서 유지 관리하는 Azure Cosmos DB 인스턴스에 저장됩니다. 이 데이터는 Microsoft 관리형 키를 사용하여 암호화됩니다. Microsoft 관리형 키를 사용하는 대신 사용자 고유 키를 사용할 수도 있습니다. 이렇게 하면 데이터를 저장 하기 위해 Azure 구독에 [추가 리소스 집합이](./concept-data-encryption.md#azure-cosmos-db) 생성 됩니다.
 
 암호화를 위해 키를 사용 하는 작업 영역을 만들려면 다음 필수 구성 요소를 충족 해야 합니다.
 

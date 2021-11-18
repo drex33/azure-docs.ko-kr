@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 50de997203357f86cae4a684eb55b5e30e97b712
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: dda9b5a55255ca98ea6890caa5581a4096246645
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566758"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714963"
 ---
 # <a name="application-gateway-integration"></a>Application Gateway 통합
 Azure Application Gateway와 통합하는 데 약간 다른 구성을 필요로 하는 세 가지 App Service 변형이 있습니다. 이러한 변형에는 다중 테넌트라고도 하는 일반 App Service, ILB(내부 Load Balancer) ASE(App Service Environment) 및 외부 ASE가 포함됩니다. 이 문서에서는 트래픽을 보호하기 위해 서비스 엔드포인트를 사용하여 App Service(다중 테넌트)로 구성하는 방법을 안내합니다. 또한 이 문서에서는 프라이빗 엔드포인트 사용과 ILB 및 외부 ASE와의 통합에 대한 고려 사항에 대해 설명합니다. 마지막으로 이 문서에는 scm/kudu 사이트에 대한 고려 사항이 있습니다.
@@ -90,6 +90,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## <a name="next-steps"></a>다음 단계
-App Service Environment에 대한 자세한 내용은 [App Service Environment 설명서](/azure/app-service/environment)를 참조하세요.
+App Service Environment에 대한 자세한 내용은 [App Service Environment 설명서](../environment/index.yml)를 참조하세요.
 
 [Azure Web Application Firewall 설명서](../../web-application-firewall/ag/ag-overview.md)에 나오는 Application Gateway의 Web Application Firewall에 관한 내용을 참조하여 웹 앱을 더 안전하게 보호할 수 있습니다.

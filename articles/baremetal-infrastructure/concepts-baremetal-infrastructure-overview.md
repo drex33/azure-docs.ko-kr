@@ -4,12 +4,12 @@ description: Azure의 BareMetal Infrastructure에 대한 개요를 제공합니�
 ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 744378fc00bc443fdae3babefdf626eacbf486e7
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: cbbca3fa9a89a2eedd1951724bad81b88305932c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154872"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707463"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>Azure의 BareMetal Infrastructure란?
 
@@ -21,13 +21,13 @@ BareMetal Infrastructure는 전용 BareMetal 인스턴스(컴퓨팅 인스턴스
  
 또한 이 환경에는 Azure 구독에 있는 하나 이상의 Azure VNet(Virtual Network)에서 VM(가상 머신)을 실행하는 경우에 액세스할 수 있는 특별한 VLAN이 있습니다. 전체 환경은 Azure 구독에서 리소스 그룹으로 표시됩니다.
 
-BareMetal Infrastructure는 2소켓~24소켓 서버와 1.5TB~24TB 메모리에 걸쳐 30개 이상의 SKU를 제공합니다. 대형 SKU 세트를 옥테인 메모리와 함께 사용할 수도 있습니다. Azure는 하이퍼스케일 클라우드에서 가장 광범위한 운영 체제 미설치 인스턴스를 제공합니다.
+BareMetal Infrastructure는 2소켓~24소켓 서버와 1.5TB~24TB 메모리에 걸쳐 30개 이상의 SKU를 제공합니다. Optane memory에서 많은 Sku 집합을 사용할 수도 있습니다. Azure는 하이퍼스케일 클라우드에서 가장 광범위한 운영 체제 미설치 인스턴스를 제공합니다.
 
 ## <a name="why-baremetal-infrastructure"></a>BareMetal Infrastructure를 선택하는 이유  
 
-기업의 워크로드 중 일부는 일반적인 가상화 클라우드 설정에서 실행되도록 설계되지 않은 기술로 이루어져 있습니다. 이러한 워크로드에는 특수 아키텍처, 인증된 하드웨어 또는 매우 큰 크기가 필요합니다. 이러한 기술은 가장 정교한 데이터 보호 및 비즈니스 연속성 기능을 제공하지만 해당 기능은 가상화 클라우드를 위해 빌드된 것이 아닙니다. 이러한 기능은 대기 시간 및 노이즈가 많은 주변 환경에 민감하며 변경 관리 및 유지 관리 활동에 대한 관리 부담이 더 많습니다.
+엔터프라이즈의 일부 작업은 일반적인 가상화 된 클라우드 설정에서 실행 되도록 설계 되지 않은 기술로 구성 됩니다. 이러한 워크로드에는 특수 아키텍처, 인증된 하드웨어 또는 매우 큰 크기가 필요합니다. 이러한 기술은 가장 정교한 데이터 보호 및 비즈니스 연속성 기능을 제공하지만 해당 기능은 가상화 클라우드를 위해 빌드된 것이 아닙니다. 이러한 기능은 대기 시간 및 노이즈가 많은 주변 환경에 민감하며 변경 관리 및 유지 관리 활동에 대한 관리 부담이 더 많습니다.
 
-BareMetal Infrastructure는 이러한 애플리케이션을 위해 빌드되고, 인증되고, 테스트를 거쳤습니다. Azure는 최초로 이러한 솔루션을 제공했으며, 가장 방대한 포트폴리오와 가장 정교한 시스템을 자랑합니다.
+BareMetal Infrastructure는 이러한 애플리케이션을 위해 빌드되고, 인증되고, 테스트를 거쳤습니다. Azure는 이러한 솔루션을 처음으로 제공 하기 위한 것 이며, 그 이유는 가장 큰 포트폴리오와 가장 정교한 시스템을 사용 하는 것입니다.
 
 ### <a name="baremetal-benefits"></a>BareMetal의 이점  
 
@@ -74,9 +74,9 @@ BareMetal Infrastructure는 특수 워크로드에 대해 인증된 여러 SKU�
 
 고객의 요구 사항에 따라 BareMetal Infrastructure의 애플리케이션 토폴로지가 복잡할 수 있습니다. 하나 이상의 위치에 여러 인스턴스를 배포할 수 있습니다. 인스턴스에는 공유 또는 전용 스토리지와 특수 LAN 및 WAN 연결이 있을 수 있습니다. 따라서 BareMetal 인프라의 경우 Azure는 현장의 CSA/GBB에서 상담을 제공하여 함께 작업합니다. 
 
-BareMetal Infrastructure가 프로비저닝되면 OS, 네트워크, 스토리지 볼륨, 영역 및 지역의 배치, 위치 간의 WAN 연결이 미리 구성되어 있습니다. OS 라이선스(BYOL)를 등록하고, OS를 구성하고, 애플리케이션 레이어를 설치하면 됩니다.
+BareMetal 인프라가 프로 비전 되 면 OS, 네트워크, 저장소 볼륨, 영역 및 지역의 위치 및 위치 간의 WAN 연결이 이미 구성 되어 있습니다. OS 라이선스(BYOL)를 등록하고, OS를 구성하고, 애플리케이션 레이어를 설치하면 됩니다.
 
-Azure Portal에서 모든 BareMetal 리소스와 리소스의 상태 및 특성이 표시됩니다. 또한 인스턴스를 작동하고, 인스턴스에서 서비스 요청 및 지원 티켓을 열 수 있습니다. 
+Azure Portal에서 모든 BareMetal 리소스와 해당 상태 및 특성을 볼 수 있습니다. 또한 인스턴스를 작동하고, 인스턴스에서 서비스 요청 및 지원 티켓을 열 수 있습니다. 
 
 ## <a name="operational-model"></a>운영 모델
 

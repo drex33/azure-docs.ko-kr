@@ -8,12 +8,12 @@ ms.date: 9/2/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: e77fc64277cd0210a4741bc6828b5f1f72cf0e73
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bcedacdc52e2f8ef205893db481720920c98c4ef
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831010"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707281"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>DTDL 파서 라이브러리를 사용하여 모델 구문 분석 및 유효성 검사
 
@@ -25,11 +25,15 @@ Azure Digital Twins의 [모델](concepts-models.md)은 JSON-LD 기반 DTDL(디�
 
 ## <a name="use-the-dtdl-validator-sample"></a>DTDL 유효성 검사기 샘플 사용
 
-[DTDL 유효성 검사기](/samples/azure-samples/dtdl-validator/dtdl-validator)는 DTDL이 유효한지 확인하도록 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. .NET 파서 라이브러리를 기반으로 하며 언어에 구애받지 않습니다. 샘플 링크의 *ZIP 다운로드* 단추를 사용하여 가져올 수 있습니다.
+[DTDL 유효성 검사기](/samples/azure-samples/dtdl-validator/dtdl-validator)는 DTDL이 유효한지 확인하도록 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. .NET 파서 라이브러리를 기반으로 하며 언어에 구애받지 않습니다. 
+
+샘플 링크에서 **코드 찾아보기** 단추를 선택하여 GitHub 코드를 볼 수 있으며, 코드 단추, ZIP 다운로드를  선택하여 GitHub 프로젝트를 **다운로드할** 수 있습니다.
+
+:::image type="content" source="media/how-to-parse-models/download-repo-zip.png" alt-text="zip으로 다운로드하는 단계를 강조 표시한 GitHub DTDL-Validator 리포지션의 스크린샷." lightbox="media/how-to-parse-models/download-repo-zip.png":::
 
 소스 코드는 파서 라이브러리를 사용하는 방법에 대한 예제를 보여줍니다. 유효성 검사기 샘플을 명령줄 유틸리티로 사용하여 DTDL 파일의 디렉터리 트리 유효성을 검사할 수 있습니다. 또한 대화형 모드를 제공합니다.
 
-DTDL 유효성 검사기 샘플 폴더에서 *readme.md* 파일을 참조하여 샘플을 자체적으로 포함된 실행 파일로 패키징하는 방법을 알아보세요.
+DTDL 유효성 검사기 샘플 폴더에서 **readme.md** 파일을 참조하여 샘플을 자체적으로 포함된 실행 파일로 패키징하는 방법을 알아보세요.
 
 자체적으로 포함된 패키지를 빌드하고 경로에 실행 파일을 추가한 후에는 컴퓨터의 콘솔에서 다음 명령을 사용하여 유효성 검사기를 실행할 수 있습니다.
 

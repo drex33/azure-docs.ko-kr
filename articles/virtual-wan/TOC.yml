@@ -41,7 +41,7 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: Architecture
+    - name: 아키텍처
       items:
         - name: Virtual WAN으로 마이그레이션
           href: migrate-from-hub-spoke-topology.md
@@ -200,7 +200,11 @@
         - name: Azure Monitor Insights
           href: azure-monitor-insights.md
         - name: S2S VPN 패킷 캡처 구성
-          href: packet-capture-site-to-site-powershell.md
+          items:
+            - name: Azure portal
+              href: packet-capture-site-to-site-portal.md
+            - name: PowerShell
+              href: packet-capture-site-to-site-powershell.md
 - name: 참조
   items:
     - name: Azure PowerShell

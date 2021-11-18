@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: edef094a6d4db97208124a97732f1ec354f2106c
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 0ad84db74a303277323c800edf88ff2bd9197738
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522064"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718112"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-microsoft-sentinel"></a>Microsoft 365 Defender Microsoft Sentinel로 데이터 커넥트
 
@@ -32,7 +30,7 @@ ms.locfileid: "132522064"
 >
 > **엔드포인트용 Microsoft Defender** 의 이전 이름은 **MDATP**(**Microsoft Defender Advanced Threat Protection**)였습니다.
 >
-> **microsoft Defender for Office 365** 이전에는 Office 365 **Advanced Threat Protection으로** 알려져 있었습니다.
+> **microsoft Defender for Office 365** 이전에는 **Office 365 Advanced Threat Protection으로** 알려져 있었습니다.
 >
 > 이전 이름이 일정 시간 동안 계속 사용되는 것을 볼 수 있습니다.
 
@@ -40,7 +38,7 @@ ms.locfileid: "132522064"
 
 ## <a name="background"></a>배경
 
-인시던트 통합이 있는 Microsoft Sentinel의 [M365D(Microsoft 365 Defender)](/microsoft-365/security/mtp/microsoft-threat-protection) 커넥터를 사용하면 모든 M365D 인시던트 및 경고를 Microsoft Sentinel로 스트리밍하고 두 포털 간에 인시던트 동기화를 유지합니다. M365D 인시던트 에는 모든 경고, 엔터티 및 기타 관련 정보가 포함되며, M365D의 구성 요소 서비스인 **엔드포인트용 Microsoft Defender,** Microsoft Defender for Identity , **Office 365** **Microsoft Defender** 및 Cloud **Apps용 Microsoft Defender의** 경고를 통해 보강되고 그룹화됩니다.
+인시던트 통합이 있는 Microsoft Sentinel의 [M365D(Microsoft 365 Defender)](/microsoft-365/security/mtp/microsoft-threat-protection) 커넥터를 사용하면 모든 M365D 인시던트 및 경고를 Microsoft Sentinel로 스트리밍하고 두 포털 간에 인시던트 동기화를 유지합니다. M365D 인시던트 에는 모든 경고, 엔터티 및 기타 관련 정보가 포함되며, M365D의 구성 요소 서비스인 **엔드포인트용 Microsoft Defender,** **Microsoft Defender for Identity, Office 365** **Microsoft Defender** 및 **Cloud Apps용 Microsoft Defender의** 경고를 통해 보강되고 그룹화됩니다.
 
 커넥터를 사용하면 엔드포인트용 Microsoft Defender 및 microsoft Defender for Office 365 **고급 헌팅** 이벤트를 Microsoft Sentinel로 스트리밍할 수 있습니다. 이를 통해 이러한 Defender 구성 요소의 고급 헌팅 쿼리를 Microsoft Sentinel에 복사하고, Defender 구성 요소의 원시 이벤트 데이터로 Sentinel 경고를 보강하여 추가 인사이트를 제공하고, Log Analytics에서 보존이 증가된 로그를 저장할 수 있습니다.
 

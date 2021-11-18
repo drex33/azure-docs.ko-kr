@@ -11,16 +11,16 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7a777208563e13945bd0bdd0aac43560143d0a49
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8afa833549f840f30e52cf58eda0ff05f37d840c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005065"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714678"
 ---
 # <a name="interoperability-in-azure--control-plane-analysis"></a>Azure의 상호 운용성: 컨트롤 플레인 분석
 
-이 문서에서는 [테스트 설정][Setup]의 제어 평면 분석에 대해 설명합니다. 테스트 설정의 [테스트 설정 구성][Configuration] 및 [데이터 평면 분석][Data-Analysis]을 검토할 수도 있습니다.
+이 문서에서는 [테스트 설정][Setup]의 제어 평면 분석에 대해 설명합니다. 테스트 설정 구성 및 [테스트 설정의][Configuration] [데이터 평면 분석][데이터 분석]을 검토할 수도 있습니다.
 
 제어 평면 분석에서는 기본적으로 토폴로지 내의 네트워크 간에 교환되는 경로를 검사합니다. 제어 평면 분석은 다양한 네트워크에서 토폴로지를 보는 방법을 이해하는 데 도움이 됩니다.
 
@@ -86,7 +86,7 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-테스트 설정의 [데이터 평면 분석][Data-Analysis] 및 Azure 네트워크 모니터링 기능 보기에 대해 알아봅니다.
+테스트 설정 및 Azure 네트워크 모니터링 기능 보기의 [데이터 평면 분석][데이터 분석]에 대해 알아봅니다.
 
 다음에 대해 [ExpressRoute FAQ][ExR-FAQ]를 참조하세요.
 -   ExpressRoute 게이트웨이에 연결할 수 있는 ExpressRoute 회로 개수를 알아봅니다.
@@ -108,7 +108,7 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
 [Configuration]: ./connectivty-interoperability-configuration.md
-[Control-Analysis]: /azure/networking/connectivty-interoperability-control-plane
+[Control-Analysis]: 
 [Data-Analysis]: ./connectivty-interoperability-data-plane.md
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
 [S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md

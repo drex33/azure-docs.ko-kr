@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: c061fcd27cbafae20732f7ab1436b3a55a5a8dc0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5e6faa2eb9556207aae7583044755bc9d01b0502
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130214817"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721844"
 ---
 # <a name="azure-purview-accounts-architectures-and-best-practices"></a>Azure Purview 계정 아키텍처 및 모범 사례  
 
@@ -54,7 +54,7 @@ Azure Purview는 통합 데이터 거버넌스 솔루션입니다. Azure Purview
 
 ### <a name="fulfilling-compliance-requirements"></a>규정 준수 요구 사항 충족  
 
-Azure Purview에서 데이터 원본을 스캔하면 메타데이터와 관련된 정보가 수집되어 Purview 계정이 배포된 Azure 지역의 Azure Purview 데이터 맵 내에 저장됩니다. 특정 지리적 위치에 메타데이터를 포함하는 특정 규정 및 규정 준수 요구 사항이 있는 경우 별도의 Azure Purview 인스턴스를 배포하는 것이 좋습니다.  
+Azure Purview에서 데이터 원본을 스캔하면 메타데이터와 관련된 정보가 Purview 계정이 배포된 Azure 지역의 Azure Purview 데이터 맵 내에 수집되고 저장됩니다. 특정 지리적 위치에 메타데이터를 포함하는 특정 규정 및 규정 준수 요구 사항이 있는 경우 별도의 Azure Purview 인스턴스를 배포하는 것이 좋습니다.  
 
 조직에 여러 지역에 데이터가 있고 메타데이터를 실제 데이터와 동일한 지역에 유지해야 하는 경우 각 지역에 하나씩 여러 Purview 인스턴스를 배포해야 합니다. 이 경우 각 지역의 데이터 원본을 등록하고 데이터 원본 지역 또는 지역에 해당하는 Purview 계정에서 검사해야 합니다.
 
@@ -64,7 +64,7 @@ Azure Purview에서 데이터 원본을 스캔하면 메타데이터와 관련�
 
 현재 Purview는 다중 테넌트 지원을 지원하지 않습니다. 서로 다른 Azure Active Directory 테넌트에서 여러 Azure 구독에 분산된 Azure 데이터 원본이 있는 경우 각 테넌트 아래에 별도의 Azure Purview 계정을 배포하는 것이 좋습니다. 
 
-VM 기반 데이터 원본 및 Power BI 테넌트에서 예외가 적용됩니다. 단일 Purview 계정에서 교차 테넌트 Power BI 검사하고 등록하는 방법에 대한 자세한 내용은 교차 [테넌트 Power BI 등록 및 검색을](/azure/purview/register-scan-power-bi-tenant#register-and-scan-a-cross-tenant-power-bi)참조하세요. 
+VM 기반 데이터 원본 및 Power BI 테넌트에서 예외가 적용됩니다. 단일 Purview 계정에서 교차 테넌트 Power BI 검색하고 등록하는 방법에 대한 자세한 내용은 교차 [테넌트 Power BI 등록 및 검색을](./register-scan-power-bi-tenant.md)참조하세요. 
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="다중 테넌트 요구 사항에 따라 여러 Azure Purview 계정을 보여 주는 스크린샷."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
 
@@ -72,7 +72,7 @@ VM 기반 데이터 원본 및 Power BI 테넌트에서 예외가 적용됩니�
 
 예산 모델을 정의하고 조직을 위한 [Azure Purview](https://azure.microsoft.com/pricing/details/azure-purview) 아키텍처를 디자인할 때 Azure Purview 가격 책정 모델을 검토합니다. Purview 계정이 배포된 구독의 단일 Purview 계정에 대해 하나의 청구가 생성됩니다. 이 모델은 Purview 데이터 맵 내에서 메타데이터 검색 및 분류와 같은 다른 Purview 비용에도 적용됩니다.
 
-일부 조직에는 개별적으로 작동하는 여러 사업부(BUS)가 있으며, 경우에 따라 청구를 서로 공유하지 않는 경우도 있습니다. 이러한 경우 조직은 각 BU에 대한 Purview 인스턴스를 생성하게 됩니다. 그러나 이 모델은 이상적이지 않습니다. 특히 사업부에서 Azure 청구를 공유하지 않으려는 경우가 많기 때문에 필요할 수 있습니다. 
+일부 조직에는 개별적으로 작동하는 여러 사업부(BU)가 있으며, 경우에 따라 청구를 서로 공유하지도 않습니다. 이러한 경우 조직은 각 BU에 대한 Purview 인스턴스를 생성하게 됩니다. 그러나 이 모델은 이상적이지 않습니다. 특히 사업부에서 Azure 청구를 공유하지 않으려는 경우가 많기 때문에 필요할 수 있습니다. 
 
 차지백 및 쇼백 모델의 클라우드 컴퓨팅 비용 모델에 대한 자세한 내용은 [클라우드 회계란?을 참조하세요.](/azure/cloud-adoption-framework/strategy/cloud-accounting)  
 

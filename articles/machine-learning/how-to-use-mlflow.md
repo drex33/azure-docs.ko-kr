@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: b407c248d20e60effbc7c64b56f857590671ef70
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 8935412a7858dc8b3c4ab9b87e8990bb228c5977
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556220"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716337"
 ---
 # <a name="track-ml-models-with-mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning을 사용하여 ML 모델 추적
 
@@ -26,7 +26,7 @@ ms.locfileid: "131556220"
 
 + [Azure Machine Learning 작업 영역](./concept-azure-machine-learning-architecture.md#workspace)에서 실험 메트릭과 아티팩트를 추적하고 로깅합니다. 실험을 위해 MLflow 추적을 이미 사용하고 있는 경우 작업 영역이 학습 메트릭 및 모델을 저장할 중앙 집중화된 안전하고 확장성 있는 위치를 제공합니다.
 
-+ [Azure Machine Learning 백 엔드 지원을 통해 MLflow 프로젝트로 학습 작업을 제출](how-to-train-mlflow-projects.md)합니다. Azure Machine Learning 추적을 사용하여 로컬로 작업을 제출하거나 [Azure Machine Learning 컴퓨팅](how-to-create-attach-compute-cluster.md)을 통해 실행을 클라우드로 마이그레이션할 수 있습니다.
++ [Azure Machine Learning 백 엔드 지원(미리 보기)을 통해 MLflow 프로젝트로 학습 작업을 제출](how-to-train-mlflow-projects.md)합니다. Azure Machine Learning 추적을 사용하여 로컬로 작업을 제출하거나 [Azure Machine Learning 컴퓨팅](how-to-create-attach-compute-cluster.md)을 통해 실행을 클라우드로 마이그레이션할 수 있습니다.
 
 + MLflow 및 Azure Machine Learning 모델 레지스트리에서 모델을 추적하고 관리합니다.
 

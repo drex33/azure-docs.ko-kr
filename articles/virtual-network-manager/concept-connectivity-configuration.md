@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: face052462909e755771f12ff19fed8139675183
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: bf7adbb0fd54243e71f6e313892f3f418071c217
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484602"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719171"
 ---
 # <a name="connectivity-configuration-in-azure-virtual-network-manager-preview"></a>Azure Virtual Network Manager의 연결 구성 (미리 보기)
 
@@ -72,7 +72,7 @@ VM에서 유효 경로를 살펴보면 허브와 스포크 가상 네트워크 �
 
 ### <a name="use-hub-as-a-gateway"></a>허브를 게이트웨이로 사용
 
-허브 및 스포크 구성에서 사용할 수 있는 또 다른 옵션은 허브를 게이트웨이로 사용 하는 것입니다. 이 설정을 사용 하면 네트워크 그룹의 모든 가상 네트워크가 허브 가상 네트워크에서 VPN 또는 Express 경로 게이트웨이를 사용 하 여 트래픽을 전달할 수 있습니다. [게이트웨이 및 온-프레미스 연결](/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity)을 참조 하세요.
+허브 및 스포크 구성에서 사용할 수 있는 또 다른 옵션은 허브를 게이트웨이로 사용 하는 것입니다. 이 설정을 사용 하면 네트워크 그룹의 모든 가상 네트워크가 허브 가상 네트워크에서 VPN 또는 Express 경로 게이트웨이를 사용 하 여 트래픽을 전달할 수 있습니다. [게이트웨이 및 온-프레미스 연결](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity)을 참조 하세요.
 
 Azure Portal에서 허브 및 스포크 토폴로지를 배포 하는 경우 네트워크 그룹의 스포크 가상 네트워크에 대해 기본적으로 **허브 사용이 게이트웨이로 사용** 됩니다. Azure Virtual Network Manager는 리소스 그룹의 스포크 가상 네트워크와 허브 간에 가상 네트워크 피어 링 연결을 만들려고 합니다. 게이트웨이가 허브 가상 네트워크에 존재 하지 않는 경우 스포크 가상 네트워크에서 허브로의 피어 링 만들기가 실패 합니다. 허브에서 스포크로의 피어 링 연결은 설정 된 연결 없이도 계속 생성 됩니다. 
 

@@ -1,31 +1,29 @@
 ---
 title: CEF(Common Event Format) 키 및 CommonSecurityLog 필드 매핑
-description: 이 문서에서는 CEF 키를 Microsoft Sentinel의 CommonSecurityLog에 있는 해당 필드 이름에 매핑합니다.
+description: 이 문서에서는 CEF 키를 Microsoft 센티널 CommonSecurityLog의 해당 필드 이름에 매핑합니다.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: reference
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 710b20dcf4f1ac94816881c4851ddfafc0f84872
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 2da00d947a76872ee940a7fb9e700647b456acf6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522102"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716091"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>CEF 및 CommonSecurityLog 필드 매핑
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-다음 표에서는 CEF(Common Event Format) 필드 이름을 Microsoft Sentinel의 CommonSecurityLog에서 사용하는 이름에 매핑하며, Microsoft Sentinel에서 CEF 데이터 원본으로 작업할 때 유용할 수 있습니다.
+다음 표에서는 CEF (Common Event Format) 필드 이름을 Microsoft 센티널의 CommonSecurityLog에서 사용 하는 이름에 매핑하고 Microsoft 센티널에서 CEF 데이터 원본으로 작업 하는 경우 유용할 수 있습니다.
 
 자세한 내용은 [Common Event Format을 사용하여 외부 솔루션 연결](connect-common-event-format.md)을 참조하세요.
 
 > [!NOTE]
-> Log Analytics에 [CEF 데이터를 수집하려면](connect-common-event-format.md#prerequisites) Microsoft Sentinel 작업 영역이 필요합니다.
+> Microsoft 센티널 작업 영역은 [CEF 데이터](connect-common-event-format.md#prerequisites) 를 Log Analytics으로 수집 하기 위해 필요 합니다.
 >
 
 ## <a name="a---c"></a>A - C
@@ -239,7 +237,7 @@ ms.locfileid: "132522102"
 
 ## <a name="enrichment-fields"></a>보강 필드
 
-Microsoft 센티널에서 다음 **CommonSecurityLog** 필드를 추가 하 여 원본 장치에서 받은 원래 이벤트를 보강 하 고 cef 키에 매핑이 없습니다.
+다음 **CommonSecurityLog** 필드는 원본 디바이스에서 받은 원래 이벤트를 보강하기 위해 Microsoft Sentinel에 의해 추가되며 CEF 키에 매핑이 없습니다.
 
 ### <a name="threat-intelligence-fields"></a>위협 인텔리전스 필드
 

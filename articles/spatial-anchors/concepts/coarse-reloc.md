@@ -9,12 +9,12 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f0b04183c4df469d4f723486103790c4f97671b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 51c7be1a2ce16b4725bc5aa8e294f8b91a71fa0a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656178"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722661"
 ---
 # <a name="coarse-relocalization"></a>광역 위치 재결정
 
@@ -62,11 +62,11 @@ ms.locfileid: "104656178"
 |                 | HoloLens | Android | iOS |
 |-----------------|----------|---------|-----|
 | **GPS**         | 아니요<sup>1</sup>  | 예<sup>2</sup> | 예<sup>3</sup> |
-| **Wi-Fi**        | 예<sup>4</sup> | 예<sup>5</sup> | 예  |
+| **Wi-Fi**        | 예<sup>4</sup> | 예<sup>5</sup> | No  |
 | **BLE 비콘** | 예<sup>6</sup> | 예<sup>6</sup> | 예<sup>6</sup>|
 
 
-<sup>1</sup> 외부 GPS 디바이스를 HoloLens와 연결할 수 있습니다. GPS 추적기에서 HoloLens를 사용하려는 경우 [지원](../spatial-anchor-support.md)에 문의하세요.<br/>
+<sup>1</sup> 외부 GPS 디바이스를 HoloLens와 연결할 수 있습니다. 외부 GPS 추적기에서 HoloLens 사용하는 경우 [UpdatedSensorFingerprintRequired](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updatedsensorfingerprintrequired) 이벤트를 처리하여 [GeoLocation](/dotnet/api/microsoft.azure.spatialanchors.geolocation) 판독값을 제출합니다.<br/>
 <sup>2</sup> [LocationManager][3] API를 통해 지원됩니다(GPS 및 NETWORK 모두).<br/>
 <sup>3</sup> [CLLocationManager][4] API를 통해 지원됩니다.<br/>
 <sup>4</sup> 약 3초마다 한 번 검색의 속도로 지원됩니다. <br/>
@@ -153,7 +153,7 @@ Azure Spatial Anchors는 알려진 비콘 근접 UUID 목록에 있는 Bluetooth
 | **BLE 비콘** |  70m | 비콘 범위에 따라 결정됩니다. 주파수, 전송 강도, 물리적 장애물, 간섭 등에 따라 달라집니다. |
 
 <!-- Reference links in article -->
-[1]: https://developers.google.com/beacons/eddystone
+[1]: https://developer.estimote.com/eddystone/
 [2]: https://developer.apple.com/ibeacon/
 [3]: https://developer.android.com/reference/android/location/LocationManager
 [4]: https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc

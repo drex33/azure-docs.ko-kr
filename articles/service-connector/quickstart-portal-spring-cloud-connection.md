@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 320cd5af7a6f64d6f74eb55ac9abfd7f07af18ce
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 001e014e616f3ee199fd59d11c385732b0bed568
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843148"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301289"
 ---
 # <a name="quickstart-create-a-service-connection-in-spring-cloud-from-azure-portal"></a>빠른 시작: Azure Portal의 Spring Cloud에서 서비스 연결 만들기
 
@@ -35,10 +35,10 @@ Service Connector를 사용하여 Spring Cloud에서 새 서비스 연결을 만
 1. 왼쪽 목차에서 **서비스 커넥터(미리 보기)** 를 선택합니다. 그런 다음 **만들기** 를 선택합니다.
 1. 다음 설정을 선택하거나 입력합니다.
 
-    | 설정      | 제안 값  | Description                                        |
+    | 설정      | 제안 값  | 설명                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독 중 하나 | 대상 서비스(연결할 서비스)가 있는 구독입니다. 기본값은 이 App Service가 있는 구독입니다. |
-    | **서비스 유형** | Blob Storage | 대상 서비스 유형입니다. Blob 스토리지가 없는 경우 [하나를 만들거나](../storage/blobs/storage-quickstart-blobs-portal.md) 다른 서비스 형식을 사용할 수 있습니다. |
+    | **서비스 유형** | Blob Storage | 대상 서비스 형식입니다. Blob 스토리지가 없는 경우 [하나를 만들거나](../storage/blobs/storage-quickstart-blobs-portal.md) 다른 서비스 형식을 사용할 수 있습니다. |
     | **연결 이름** | 생성된 고유 이름 | App Service와 대상 서비스 간의 연결을 식별하는 연결 이름  |
     | **스토리지 계정** | 스토리지 계정 | 연결하려는 대상 스토리지 계정입니다. 다른 서비스 유형을 선택하는 경우 해당하는 대상 서비스 인스턴스를 선택합니다. |
 

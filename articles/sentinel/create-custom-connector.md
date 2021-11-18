@@ -1,13 +1,11 @@
 ---
-title: Microsoft Sentinel 사용자 지정 커넥터를 만들기 위한 리소스 | Microsoft Docs
-description: Microsoft Sentinel용 사용자 지정 커넥터를 만드는 데 사용할 수 있는 리소스에 대해 알아봅니다. 방법에는 Log Analytics 에이전트와 API, Logstash, Logic Apps, PowerShell 및 Azure Functions가 포함됩니다.
+title: Microsoft 센티널 사용자 지정 커넥터를 만들기 위한 리소스 | Microsoft Docs
+description: Microsoft 센티널 용 사용자 지정 커넥터를 만드는 데 사용할 수 있는 리소스에 대해 알아봅니다. 방법에는 Log Analytics 에이전트와 API, Logstash, Logic Apps, PowerShell 및 Azure Functions가 포함됩니다.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
@@ -15,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: 4c1d4f5dcbb0a707f0ec6ff728ddb72a27ab1e0d
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 256743af821f1dc3cdb83d71246cf31ed2b9a7cc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521741"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721616"
 ---
-# <a name="resources-for-creating-microsoft-sentinel-custom-connectors"></a>Microsoft Sentinel 사용자 지정 커넥터를 만들기 위한 리소스
+# <a name="resources-for-creating-microsoft-sentinel-custom-connectors"></a>Microsoft 센티널 사용자 지정 커넥터를 만들기 위한 리소스
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Sentinel은 Azure [서비스 및 외부 솔루션에 대한](connect-data-sources.md)광범위한 기본 제공 커넥터를 제공하고 전용 커넥터 없이 일부 원본에서 데이터 수집을 지원합니다.
+Microsoft 센티널은 [Azure 서비스 및 외부 솔루션에 대 한 다양 한 기본 제공 커넥터](connect-data-sources.md)를 제공 하며, 전용 커넥터가 없는 일부 원본에서의 데이터 수집 지원 합니다.
 
-사용 가능한 기존 솔루션을 사용하여 Microsoft Sentinel에 데이터 원본을 연결할 수 없는 경우 사용자 고유의 데이터 원본 커넥터를 만드는 것이 좋습니다.
+사용 가능한 기존 솔루션 중 하나를 사용 하 여 데이터 원본을 Microsoft 센티널에 연결할 수 없는 경우 고유한 데이터 원본 커넥터를 만드는 것이 좋습니다.
 
-지원되는 커넥터의 전체 목록은 [Microsoft Sentinel: The connectors grand (CEF, Syslog, Direct, Agent, Custom 등)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) 블로그 게시물을 참조하세요.
+지원 되는 커넥터의 전체 목록은 [Microsoft 센티널: 커넥터 그랜드 (CEF, Syslog, Direct, 에이전트, 사용자 지정 등)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) 블로그 게시물을 참조 하세요.
 
 ## <a name="compare-custom-connector-methods"></a>사용자 지정 커넥터 방법 비교
 
@@ -49,8 +47,8 @@ Microsoft Sentinel은 Azure [서비스 및 외부 솔루션에 대한](connect-d
 > [!TIP]
 > 동일한 커넥터에 대해 Logic Apps 및 Azure Functions를 사용한 비교는 다음을 참조하세요.
 >
-> - [Microsoft Sentinel에 빠르게 로그 Web Application Firewall](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
-> - Office 365(Microsoft Sentinel GitHub 커뮤니티): 논리 [앱 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data)  |  [Azure 함수 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
+> - [Microsoft 센티널로 Fastly 웹 응용 프로그램 방화벽 로그 수집](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
+> - Office 365 (Microsoft 센티널 GitHub community): [논리 앱 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data)  |  [Azure 함수 커넥터](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
 >
 
 ## <a name="connect-with-the-log-analytics-agent"></a>Log Analytics 에이전트로 연결
@@ -63,14 +61,14 @@ Microsoft Sentinel은 Azure [서비스 및 외부 솔루션에 대한](connect-d
 
 ## <a name="connect-with-logstash"></a>Logstash로 연결
 
-[Logstash](https://www.elastic.co/logstash)에 익숙한 경우 [Microsoft Sentinel용 Logstash 출력 플러그 인과 함께 Logstash를](connect-logstash.md) 사용하여 사용자 지정 커넥터를 만들 수 있습니다.
+[Logstash 태](https://www.elastic.co/logstash)를 잘 알고 있는 경우 [Microsoft 센티널 용 logstash 태 시 출력 플러그 인에서](connect-logstash.md) logstash를 사용 하 여 사용자 지정 커넥터를 만들 수 있습니다.
 
-Microsoft Sentinel Logstash 출력 플러그 인을 사용하면 Logstash 입력 및 필터링 플러그 인을 사용하고 Microsoft Sentinel을 Logstash 파이프라인의 출력으로 구성할 수 있습니다. Logstash에는 Event Hubs, Apache Kafka, 파일, 데이터베이스 및 클라우드 서비스와 같은 다양한 원본에서 입력을 사용할 수 있도록 하는 많은 플러그 인 라이브러리가 있습니다. 필터링 플러그 인을 사용하여 이벤트를 구문 분석하고, 불필요한 이벤트를 필터링하고, 값을 난독 처리합니다.
+Microsoft 센티널 Logstash 출력 플러그 인을 사용 하면 Logstash 태 트 입력 및 필터링 플러그 인을 사용 하 고 Logstash 태 파이프라인에 대 한 출력으로 Microsoft 센티널을 구성할 수 있습니다. Logstash에는 Event Hubs, Apache Kafka, 파일, 데이터베이스 및 클라우드 서비스와 같은 다양한 원본에서 입력을 사용할 수 있도록 하는 많은 플러그 인 라이브러리가 있습니다. 필터링 플러그 인을 사용하여 이벤트를 구문 분석하고, 불필요한 이벤트를 필터링하고, 값을 난독 처리합니다.
 
 Logstash를 사용자 지정 커넥터로 사용하는 예제는 다음을 참조하세요.
 
-- [Microsoft Sentinel을 사용하여 AWS 로그에서 Capital One Breach TTP 헌팅(블로그)](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767)
-- [Radware Microsoft Sentinel 구현 가이드](https://support.radware.com/ci/okcsFattach/get/1025459_3)
+- Microsoft 센티널 (블로그)을 [사용 하 여 AWS 로그의 자본 1 위반 TTPs에 대 한 구하기](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767)
+- [Microsoft 센티널 구현 가이드 Radware](https://support.radware.com/ci/okcsFattach/get/1025459_3)
 
 유용한 Logstash 플러그 인의 예제는 다음을 참조하세요.
 
@@ -85,7 +83,7 @@ Logstash를 사용자 지정 커넥터로 사용하는 예제는 다음을 참�
 
 ## <a name="connect-with-logic-apps"></a>Logic Apps로 연결
 
-[Azure Logic Apps](../logic-apps/index.yml) 사용하여 Microsoft Sentinel용 서버리스 사용자 지정 커넥터를 만듭니다.
+[Azure Logic Apps](../logic-apps/index.yml) 를 사용 하 여 Microsoft 센티널 용 서버를 사용 하지 않는 사용자 지정 커넥터를 만듭니다.
 
 > [!NOTE]
 > Logic Apps를 사용하여 서버리스 커넥터를 만드는 것이 편리할 수 있지만, 커넥터에 대해 Logic Apps를 사용하면 대용량 데이터에 대해 비용이 많이 들 수 있습니다
@@ -122,10 +120,10 @@ Logstash를 사용자 지정 커넥터로 사용하는 예제는 다음을 참�
 
     자세한 내용은 [Azure Log Analytics 데이터 수집기](/connectors/azureloganalyticsdatacollector/) 설명서를 참조하세요.
 
-Logic Apps 사용하여 Microsoft Sentinel용 사용자 지정 커넥터를 만드는 방법에 대한 예제는 다음을 참조하세요.
+Logic Apps를 사용 하 여 Microsoft 센티널 용 사용자 지정 커넥터를 만드는 방법의 예는 다음을 참조 하세요.
 
 - [데이터 수집기 API를 사용하여 데이터 파이프라인 만들기](/connectors/azureloganalyticsdatacollector/)
-- [Webhook를 사용하는 Palo Alto Prisma 논리 앱 커넥터(Microsoft](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) Sentinel GitHub 커뮤니티)
+- 웹 후크 [를 사용 하 앱 커넥터 Palo Alto의 sma 논리](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) (Microsoft 센티널 GitHub 커뮤니티)
 - [예약된 활성화로 Microsoft Teams 호출 보호](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600)(블로그)
 - [Microsoft Sentinel에 IndicatorVault OTX 위협 지표를](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) 스트리밍(블로그)
 

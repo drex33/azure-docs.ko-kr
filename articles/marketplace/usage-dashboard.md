@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 10/11/2021
-ms.openlocfilehash: 0ef727d47949acb1d095bbfb3890021b273c50db
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 767b25e6578c051b4d4e7ea0a95d927be29db5c7
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811204"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724960"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
@@ -36,23 +36,23 @@ ms.locfileid: "129811204"
 > [!NOTE]
 > 파트너 센터에서 사용량 이벤트 생성과 보고 사이의 최대 대기 시간은 48시간입니다.
 
-## <a name="access-the-usage-dashboard"></a>사용량 대시보드에 액세스
+## <a name="access-the-usage-dashboard"></a>사용 대시보드 액세스
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
 #### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 홈 페이지에서 **Insights** 타일을 선택합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택 합니다.
 
-    [![파트너 센터 홈페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+    [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
-1. 왼쪽 메뉴에서 **사용량을** 선택합니다.
+1. 왼쪽 메뉴에서 **사용** 을 선택 합니다.
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 왼쪽 탐색에서 상업용 **Marketplace**  >    >  **사용량** 분석을 선택합니다.
+1. 왼쪽 탐색 창에서 **상업적 Marketplace**  >    >  **사용량** 분석을 선택 합니다.
 
 ---
 
@@ -66,7 +66,7 @@ ms.locfileid: "129811204"
 
 각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6개월 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **사용량** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
 
-[![사용량 대시보드의 월 필터를 보여 줍니다. ](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
+[![사용 대시보드의 월 필터를 보여 줍니다. ](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
@@ -191,6 +191,7 @@ _**표 1: 데이터 용어 사전**_
 | 작업 수행 시간 | 작업 수행 시간 | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>게시자가 제안의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 있는 그대로 또는 거짓으로 승인한 시간을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식 액세스를 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | ActionTakenAt |
 | 작업 수행자 | 작업 수행자 | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>제품의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 있는 그대로 또는 거짓으로 승인한 사람을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식 액세스를 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | ActionTakenBy |
 | 예상 재무 영향(USD) | 예상 재무 영향(USD) | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>파트너 센터에서 제품의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 비정상으로 표시할 경우, 이 필드에서는 비정상적인 초과 사용에 대한 예상 재무 영향(USD)을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식의 수단을 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | EstimatedFinancialImpactUSD |
+| 자산 ID | 자산 ID | 상업용 Marketplace 서비스의 고객 주문에 대한 고유 식별자입니다. 가상 컴퓨터 사용량 기반 제안은 주문에 연결 되지 않습니다. | 자산 ID |
 | 해당 없음 | 리소스 ID | 리소스 이름과 리소스 종류를 포함하여 리소스의 정규화된 ID입니다. 이 필드는 보고서 다운로드에서만 사용할 수 있는 데이터 필드입니다.<br>다음 형식을 사용합니다.<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name}<br>**참고**:이 필드는 10/20/2021에서 더 이상 사용 되지 않습니다. | 해당 없음 |
 |||||
 

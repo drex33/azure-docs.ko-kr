@@ -7,20 +7,18 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 ms.assetid: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2021
 ms.author: yelevin
-ms.openlocfilehash: 5f9c68a63c63c3b4cc27b44d697f7577e4dafc3c
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 28b5e0de931df0f84c2761babc9b0a85a7bbe9c2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517979"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711720"
 ---
 # <a name="azure-sentinel-soar-content-catalog"></a>SOAR 콘텐츠 카탈로그 Azure Sentinel
 
@@ -47,7 +45,7 @@ SOAR 통합 및 해당 구성 요소는 다음 위치에 있습니다.
 > - Azure Sentinel 커뮤니티에서 더 많은 통합을 제공하며 GitHub 리포지토리에서 찾을 수 있습니다.
 > - 나열되지 않았거나 현재 지원되지 않는 제품 또는 서비스가 있는 경우 기능 요청을 제출하세요.  
 > 다음 도구를 사용하여 직접 만들 수도 있습니다.
->    - Logic Apps 사용자 지정 커넥터
+>    - 사용자 지정 커넥터 Logic Apps
 >    - Azure 기능
 >    - HTTP 호출 Logic Apps
 
@@ -87,28 +85,28 @@ SOAR 통합 및 해당 구성 요소는 다음 위치에 있습니다.
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Big-IP** | 플레이북 | 커뮤니티 | IP 및 URL 차단 |
+| **큰 IP** | 플레이북 | 커뮤니티 | Ip 및 Url 차단 |
 |
 
 ## <a name="forcepoint"></a>Forcepoint
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Forcepoint NGFW** | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | IP 및 URL 차단 |
+| **Forcepoint NGFW** | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | Ip 및 Url 차단 |
 |
 
 ## <a name="fortinet"></a>Fortinet
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **FortiGate**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#fortinet-fortigate) | 사용자 지정 Logic Apps 커넥터<br><br>Azure Function<br><br>플레이북 | Microsoft | IP 및 URL 차단 |
+| **FortiGate**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#fortinet-fortigate)) | 사용자 지정 Logic Apps 커넥터<br><br>Azure Function<br><br>플레이북 | Microsoft | Ip 및 Url 차단 |
 |
 
 ## <a name="freshdesk"></a>Freshdesk
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Freshdesk** | [관리되는 Logic Apps 커넥터](/connectors/freshdesk/) |  | 동기화 인시던트 |
+| **Freshdesk** | [관리 되는 Logic Apps 커넥터](/connectors/freshdesk/) |  | 동기화 인시던트 |
 |
 
 
@@ -123,115 +121,115 @@ SOAR 통합 및 해당 구성 요소는 다음 위치에 있습니다.
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **HYAS 인사이트**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#hyas) | [관리되는 Logic Apps 커넥터](/connectors/hyasinsight/)<br><br>플레이북 | HYAS |  |
+| **HYAS 인사이트**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#hyas)) | [관리 되는 Logic Apps 커넥터](/connectors/hyasinsight/)<br><br>플레이북 | HYAS |  |
 |
 
 ## <a name="ibm"></a>IBM
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **탄력** | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | 동기화 인시던트 |
+| **복원** | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | 동기화 인시던트 |
 |
 
 ## <a name="microsoft"></a>Microsoft
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Azure DevOps** | 관리되는 Logic Apps 커넥터<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 동기화 인시던트 |
-| **Azure Firewall**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#azure) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | Microsoft | IP 차단 |
-| **Azure AD ID 보호** | [관리되는 Logic Apps 커넥터](/connectors/azureadip/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 사용자 보강, <br>사용자 수정 |
-| **Azure AD** | [관리되는 Logic Apps 커넥터](/connectors/azuread/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 사용자 보강, <br>사용자 수정 |
-| **Azure Data Explorer** | [관리되는 Logic Apps 커넥터](/connectors/kusto/) | Microsoft | 쿼리 및 조사 |
-| **Azure Log Analytics Data Collector** | [관리되는 Logic Apps 커넥터](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>커뮤니티 | 쿼리 및 조사 |
-| **엔드포인트에 대한 Microsoft Defender** | [관리되는 Logic Apps 커넥터](/connectors/wdatp/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 엔드포인트 보강, <br>엔드포인트 격리 |
-| **Microsoft 팀** | [관리되는 Logic Apps 커넥터](/connectors/teams/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 알림을 <br>공동 작업 <br>사람이 참여하는 응답 만들기 |
+| **Azure DevOps** | 관리 되는 Logic Apps 커넥터<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 동기화 인시던트 |
+| **Azure Firewall**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#azure)) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | Microsoft | Ip 차단 |
+| **Azure AD ID 보호** | [관리 되는 Logic Apps 커넥터](/connectors/azureadip/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 사용자 보강 <br>사용자 수정 |
+| **Azure AD** | [관리 되는 Logic Apps 커넥터](/connectors/azuread/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 사용자 보강 <br>사용자 수정 |
+| **Azure Data Explorer** | [관리 되는 Logic Apps 커넥터](/connectors/kusto/) | Microsoft | 쿼리 및 조사 |
+| **Azure Log Analytics Data Collector** | [관리 되는 Logic Apps 커넥터](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>커뮤니티 | 쿼리 및 조사 |
+| **엔드포인트에 대한 Microsoft Defender** | [관리 되는 Logic Apps 커넥터](/connectors/wdatp/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 끝점 보강, <br>끝점 격리 |
+| **Microsoft 팀** | [관리 되는 Logic Apps 커넥터](/connectors/teams/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 알림을 <br>작업할 <br>사람이 관련 된 응답 만들기 |
 |
 
 ## <a name="okta"></a>Okta
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Okta** | 관리되는 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | 사용자 보강, <br>사용자 수정 |
+| **Okta** | 관리 되는 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | 사용자 보강 <br>사용자 수정 |
 |
 
 ## <a name="palo-alto"></a>Palo Alto
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Palo Alto PAN-OS**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#palo-alto) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | IP 및 URL 차단 |
-| **은(는)** | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | Filehash 보강 및 응답 |
+| **Palo Alto PAN-OS**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#palo-alto)) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | Ip 및 Url 차단 |
+| **산** | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | Filehash 보강 및 응답 |
 |
 
 ## <a name="proofpoint"></a>Proofpoint
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Proofpoint TAP**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#proofpoint) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | Microsoft | 계정 보강 |
+| **Proofpoint TAP**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#proofpoint)) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | Microsoft | 계정 보강 |
 |
 
-## <a name="recorded-future"></a>기록된 미래
+## <a name="recorded-future"></a>기록 된 미래
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **기록된 미래 인텔리전스** | [관리되는 Logic Apps 커넥터](/connectors/recordedfuture/)<br><br>플레이북 | 기록된 미래 | 엔터티 보강 |
+| **기록 된 향후 인텔리전스** | [관리 되는 Logic Apps 커넥터](/connectors/recordedfuture/)<br><br>플레이북 | 기록 된 미래 | 엔터티 보강 |
 |
 
 ## <a name="reversinglabs"></a>ReversingLabs
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **TitaniumCloud 파일 보강**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#reversinglabs) | [관리되는 Logic Apps 커넥터](/connectors/reversinglabsintelligence/)<br><br>플레이북 | ReversingLabs | FileHash 보강 |
+| **TitaniumCloud 파일 보강**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#reversinglabs)) | [관리 되는 Logic Apps 커넥터](/connectors/reversinglabsintelligence/)<br><br>플레이북 | ReversingLabs | FileHash 보강 |
 |
 
 ## <a name="riskiq"></a>RiskIQ
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **RiskIQ 디지털 공간**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#riskiq) | [관리되는 Logic Apps 커넥터](/connectors/riskiqdigitalfootprint/)<br><br>플레이북 | RiskIQ | 엔터티 보강 |
-| **RiskIQ Passive Total** | [관리되는 Logic Apps 커넥터](/connectors/riskiqpassivetotal/)<br><br>플레이북 | RiskIQ | 엔터티 보강 |
-| **RiskIQ 보안 인텔리전스**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#riskiq) | [관리되는 Logic Apps 커넥터](/connectors/riskiqintelligence/)<br><br>플레이북 | RiskIQ | 엔터티 보강 |
+| **RiskIQ Digital 발자국**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#riskiq)) | [관리 되는 Logic Apps 커넥터](/connectors/riskiqdigitalfootprint/)<br><br>플레이북 | RiskIQ | 엔터티 보강 |
+| **RiskIQ Passive Total** | [관리 되는 Logic Apps 커넥터](/connectors/riskiqpassivetotal/)<br><br>플레이북 | RiskIQ | 엔터티 보강 |
+| **RiskIQ 보안 인텔리전스**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#riskiq)) | [관리 되는 Logic Apps 커넥터](/connectors/riskiqintelligence/)<br><br>플레이북 | RiskIQ | 엔터티 보강 |
 |
 
 ## <a name="servicenow"></a>ServiceNow
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **ServiceNow** | [관리되는 Logic Apps 커넥터](/connectors/service-now/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 동기화 인시던트 |
+| **ServiceNow** | [관리 되는 Logic Apps 커넥터](/connectors/service-now/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 동기화 인시던트 |
 |
 
 ## <a name="slack"></a>Slack
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Slack** | [관리되는 Logic Apps 커넥터](/connectors/slack/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 알림 <br>협업 |
+| **Slack** | [관리 되는 Logic Apps 커넥터](/connectors/slack/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 알림 <br>협업 |
 |
 
 ## <a name="virus-total"></a>Virus Total
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Virus Total** | [관리되는 Logic Apps 커넥터](/connectors/virustotal/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 엔터티 보강 |
+| **Virus Total** | [관리 되는 Logic Apps 커넥터](/connectors/virustotal/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 엔터티 보강 |
 |
 
 ## <a name="vmware"></a>VMware
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Carbon Black Cloud**<br>([솔루션으로 사용 가능)](sentinel-solutions-catalog.md#vmware) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | 엔드포인트 보강, <br>엔드포인트 격리 |
+| **참조 블랙 클라우드**<br>([솔루션으로 사용 가능](sentinel-solutions-catalog.md#vmware)) | 사용자 지정 Logic Apps 커넥터<br><br>플레이북 | 커뮤니티 | 끝점 보강, <br>끝점 격리 |
 |
 
 ## <a name="zendesk"></a>Zendesk
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Zendesk** | [관리되는 Logic Apps 커넥터](/connectors/zendesk/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 동기화 인시던트 |
+| **Zendesk** | [관리 되는 Logic Apps 커넥터](/connectors/zendesk/)<br><br>플레이북 | Microsoft<br><br>커뮤니티 | 동기화 인시던트 |
 |
 
 ## <a name="zscaler"></a>Zscaler
 
 | 제품 | 통합 구성 요소 | 지원 요소 | 시나리오 |
 | --- | --- | --- | --- |
-| **Zscaler** | 플레이북 | Microsoft | URL 수정, <br>인시던트 보강 |
+| **Zscaler** | 플레이북 | Microsoft | URL 수정 <br>인시던트 보강 |
 |
 
 ## <a name="next-steps"></a>다음 단계

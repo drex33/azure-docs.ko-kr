@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/10/2021
 ms.author: alexeyo
-ms.openlocfilehash: 06d54a7d42efd1cad9088785d24095abc039337b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2a660375e8ffa3fd77e58d963fbc5c7e3fa1849c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124737094"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706519"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Speech Service 할당량 및 제한
 
@@ -68,7 +68,7 @@ ms.locfileid: "124737094"
 |--|--|--|
 | **음성 리소스별 최대 TPS(초당 트랜잭션) 수** |  |  |
 | 실시간 데이터 API 표준, 신경망, 사용자 지정 및 사용자 지정 신경망 음성 | 200<sup>4</sup> | 200<sup>4</sup> |
-| 조정 가능 | 아니요<sup>4</sup> | 아니요<sup>4</sup> |
+| 조정 가능 | 아니요<sup>4</sup> | 예<sup>4</sup> |
 | **HTTP 관련 할당량** |  |  |
 | 요청당 생성되는 최대 오디오 길이 | 10분 | 10분 |
 | SSML의 최대 고유 `<voice>` 및 `<audio>` 태그 수 | 50 | 50 |

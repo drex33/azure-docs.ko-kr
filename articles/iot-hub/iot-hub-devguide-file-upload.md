@@ -11,80 +11,80 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 45913f6723cd9733e7c13fef769f1f445260ad00
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 36ecdb4fc1442447e1f0e80019db6039556e75e4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132555114"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718209"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
 
-장치 데이터를 IoT Hub 허용 하는 비교적 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없는 많은 시나리오가 있습니다. 예를 들어, 대량 미디어 파일을 보내거나, 간헐적으로 연결 된 장치에 의해 업로드 되거나, 대역폭을 절약 하기 위해 집계 되 고 압축 된 대량 원격 분석 일괄 처리를 전송 합니다.
+IoT Hub 수락하는 비교적 작은 디바이스-클라우드 메시지에 디바이스 데이터를 쉽게 매핑할 수 없는 많은 시나리오가 있습니다. 예를 들어 대용량 미디어 파일을 보내거나 간헐적으로 연결된 디바이스에서 업로드하거나 대역폭을 절약하기 위해 집계 및 압축된 대량 원격 분석 일괄 처리를 보냅니다.
 
-장치에서 용량이 많은 파일을 업로드 해야 하는 경우에도 IoT Hub의 보안과 안정성을 계속 사용할 수 있습니다. 그러나 IoT Hub 자체를 통해 메시지를 중개 하는 대신 연결 된 Azure storage 계정에 대 한 디스패처 역할을 수행 합니다. 또한 장치에서 파일 업로드를 완료할 때 백엔드 서비스에 대 한 알림을 제공할 수 IoT Hub.
+디바이스에서 대용량 파일을 업로드해야 하는 경우에도 IoT Hub 보안 및 안정성을 계속 사용할 수 있습니다. 그러나 자체 메시지를 조정하는 대신 IoT Hub 연결된 Azure Storage 계정에 대한 디스패처 역할을 합니다. IoT Hub 디바이스가 파일 업로드를 완료할 때 백 엔드 서비스에 알림을 제공할 수도 있습니다.
 
-보고 된 속성, 장치-클라우드 메시지 또는 파일 업로드를 사용할 시기를 결정 하는 데 도움이 필요한 경우 [장치-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md)을 참조 하세요.
+reported 속성, 디바이스-클라우드 메시지 또는 파일 업로드를 사용할 시기를 결정하는 데 도움이 필요한 경우 [디바이스-클라우드 통신 지침을 참조하세요.](iot-hub-devguide-d2c-guidance.md)
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="file-upload-overview"></a>파일 업로드 개요
 
-IoT hub는 blob 컨테이너 및 허브로 미리 구성 된 Azure storage 계정에 대 한 업로드 별로 SAS (공유 액세스 서명) Uri를 제공 하 여 연결 된 장치에서 파일 업로드를 용이 하 게 합니다. IoT Hub에서 파일 업로드를 사용 하는 데는 세 가지 부분이 있습니다. IoT Hub에서 Azure storage 계정 및 blob 컨테이너를 미리 구성 하 고, 장치에서 파일을 업로드 하 고, 필요에 따라 완료 된 파일 업로드의 백 엔드 서비스에 알립니다.
+IoT Hub는 허브로 미리 구성된 Blob 컨테이너 및 Azure Storage 계정에 업로드당 SAS(공유 액세스 서명) URI를 제공하여 연결된 디바이스에서 파일 업로드를 용이하게 합니다. IoT Hub 파일 업로드를 사용하는 데는 IoT Hub에서 Azure Storage 계정 및 Blob 컨테이너를 미리 구성하고, 디바이스에서 파일을 업로드하고, 필요에 따라 백 엔드 서비스에 완료된 파일 업로드를 알리는 세 가지 부분이 있습니다.
 
-파일 업로드 기능을 사용 하려면 [Azure storage 계정](/azure/storage/common/storage-account-overview) 및 [Blob 컨테이너](/azure/storage/blobs/storage-blobs-introduction) 를 IoT hub와 연결 해야 합니다. 또한 Azure storage를 사용 하 여 IoT Hub 인증 하는 방법, IoT Hub가 장치에 전달 하는 SAS Uri의 TTL (time-to-live) 및 백 엔드 서비스에 대 한 파일 업로드 알림을 제어 하는 설정을 구성할 수 있습니다. 자세한 내용은 [IoT Hub에 Azure storage 계정 연결](#associate-an-azure-storage-account-with-iot-hub)을 참조 하세요.
+파일 업로드 기능을 사용하려면 먼저 Azure [Storage 계정](../storage/common/storage-account-overview.md) 및 [Blob 컨테이너를](../storage/blobs/storage-blobs-introduction.md) IoT Hub와 연결해야 합니다. Azure Storage를 사용하여 IoT Hub 인증하는 방법, IoT Hub가 디바이스에 배포하는 SAS UR의 TTL(Time to Live) 및 백 엔드 서비스에 파일 업로드 알림을 제어하는 설정을 구성할 수도 있습니다. 자세한 내용은 [Azure Storage 계정을 IoT Hub 참조하세요.](#associate-an-azure-storage-account-with-iot-hub)
 
-장치는 다음 3 단계 프로세스를 따라 연결 된 blob 컨테이너에 파일을 업로드 합니다.
+디바이스는 3단계 프로세스를 따라 연결된 Blob 컨테이너에 파일을 업로드합니다.
 
-1. 장치는 IoT hub를 사용 하 여 파일 업로드를 시작 합니다. 요청에 있는 blob의 이름을 전달 하 고 반환에서 SAS URI 및 상관 관계 ID를 가져옵니다. SAS URI에는 blob 컨테이너에서 요청 된 blob에 대 한 장치 읽기/쓰기 권한을 부여 하는 Azure storage에 대 한 SAS 토큰이 포함 되어 있습니다. 자세한 내용은 [장치: 파일 업로드 초기화](#device-initialize-a-file-upload)를 참조 하세요.
+1. 디바이스는 IoT Hub를 통해 파일 업로드를 시작합니다. 요청에서 Blob의 이름을 전달하고 SAS URI 및 상관 관계 ID를 반환합니다. SAS URI에는 Blob 컨테이너의 요청된 Blob에 대한 디바이스 읽기-쓰기 권한을 부여하는 Azure Storage에 대한 SAS 토큰이 포함되어 있습니다. 자세한 내용은 [디바이스: 파일 업로드 초기화를 참조하세요.](#device-initialize-a-file-upload)
 
-1. 장치는 SAS URI를 사용 하 여 Azure blob storage Api를 안전 하 게 호출 하 여 blob 컨테이너에 파일을 업로드 합니다. 자세한 내용은 [Azure Storage api를 사용 하 여 장치: 업로드 파일](#device-upload-file-using-azure-storage-apis)을 참조 하세요.
+1. 디바이스는 SAS URI를 사용하여 Azure Blob Storage API를 안전하게 호출하여 Blob 컨테이너에 파일을 업로드합니다. 자세한 내용은 [디바이스: Azure Storage API를 사용하여 파일 업로드 참조하세요.](#device-upload-file-using-azure-storage-apis)
 
-1. 파일 업로드가 완료 되 면 장치는 업로드를 시작할 때 IoT Hub에서 받은 상관 관계 ID를 사용 하 여 IoT hub에 완료 상태를 알립니다. 자세한 내용은 [장치: 완료 된 파일 업로드 IoT Hub 알림](#device-notify-iot-hub-of-a-completed-file-upload)을 참조 하세요.
+1. 파일 업로드가 완료되면 디바이스는 업로드를 시작할 때 IoT Hub 받은 상관 관계 ID를 사용하여 IoT Hub에 완료 상태를 알리고, 자세한 내용은 [디바이스: 완료된 파일 업로드 IoT Hub 알림을 참조하세요.](#device-notify-iot-hub-of-a-completed-file-upload)
 
-백 엔드 서비스는 IoT hub의 서비스 지향 파일 업로드 알림 끝점에서 파일 업로드 알림을 구독할 수 있습니다. IoT hub에서 이러한 알림을 사용 하도록 설정한 경우 장치에서 허브에 파일 업로드 완료를 알릴 때마다이 알림을이 끝점에 전달 합니다. 서비스는 이러한 알림을 사용 하 여 blob 데이터의 추가 처리를 트리거할 수 있습니다. 자세한 내용은 [서비스: 파일 업로드 알림](#service-file-upload-notifications)을 참조 하세요.
+백 엔드 서비스는 IoT Hub의 서비스 관련 파일 업로드 알림 엔드포인트에서 파일 업로드 알림을 구독할 수 있습니다. IoT Hub에서 이러한 알림을 사용하도록 설정한 경우 디바이스가 파일 업로드를 완료했다고 허브에 알 수 있을 때마다 이 엔드포인트에서 알림을 전달합니다. 서비스는 이러한 알림을 사용하여 Blob 데이터의 추가 처리를 트리거할 수 있습니다. 자세한 내용은 [서비스: 파일 업로드 알림을 참조하세요.](#service-file-upload-notifications)
 
-파일 업로드는 Azure IoT 장치 및 서비스 sdk를 통해 완벽 하 게 지원 됩니다. 자세한 내용은 SDK를 [사용 하 여 파일 업로드](#file-upload-using-an-sdk)를 참조 하세요.
+파일 업로드는 Azure IoT 디바이스 및 서비스 SDK에서 완전히 지원됩니다. 자세한 내용은 [SDK를 사용하여 파일 업로드를](#file-upload-using-an-sdk)참조하세요.
 
-### <a name="file-upload-quotas-and-limits"></a>파일 업로드 할당량 및 한도
+### <a name="file-upload-quotas-and-limits"></a>파일 업로드 할당량 및 제한
 
-IoT Hub는 지정 된 기간에 시작할 수 있는 파일 업로드 수에 대 한 제한 제한을 적용 합니다. 임계값은 SKU 및 IoT hub 단위 수를 기준으로 합니다. 또한 각 장치는 한 번에 10 개의 동시 활성 파일 업로드로 제한 됩니다. 자세한 내용은 [제한 및 할당량](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
+IoT Hub 지정된 기간 동안 시작할 수 있는 파일 업로드 수에 제한 한도를 부과합니다. 임계값은 SKU 및 IoT Hub의 단위 수를 기반으로 합니다. 또한 각 디바이스는 한 번에 10개의 동시 활성 파일 업로드로 제한됩니다. 자세한 내용은 [제한 및 할당량을 참조하세요.](iot-hub-devguide-quotas-throttling.md)
 
-## <a name="associate-an-azure-storage-account-with-iot-hub"></a>IoT Hub와 Azure storage 계정 연결
+## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Azure Storage 계정을 IoT Hub 연결
 
-파일 업로드 기능을 사용 하려면 Azure storage 계정과 s blob 컨테이너를 IoT hub와 연결 해야 합니다. IoT hub에 등록 된 장치의 모든 파일 업로드는이 컨테이너로 이동 합니다. IoT hub에서 저장소 계정 및 blob 컨테이너를 구성 하려면 [Azure Portal를 사용 하 여 파일 업로드 구성](iot-hub-configure-file-upload.md), [Azure CLI를 사용 하 여 파일](iot-hub-configure-file-upload-cli.md)업로드 구성 또는 [PowerShell을 사용](iot-hub-configure-file-upload-powershell.md)하 여 파일 업로드 구성을 참조 하세요. IoT Hub 관리 Api를 사용 하 여 파일 업로드를 프로그래밍 방식으로 구성할 수도 있습니다.
+파일 업로드 기능을 사용하려면 Azure Storage 계정 및 Blob 컨테이너를 IoT Hub와 연결해야 합니다. IoT Hub에 등록된 디바이스의 모든 파일 업로드는 이 컨테이너로 이동합니다. IoT Hub에서 스토리지 계정 및 Blob 컨테이너를 구성하려면 [Azure Portal 사용하여 파일 업로드 구성, Azure CLI](iot-hub-configure-file-upload.md)사용하여 파일 업로드 [구성](iot-hub-configure-file-upload-cli.md)또는 [PowerShell을](iot-hub-configure-file-upload-powershell.md)사용하여 파일 업로드 구성을 참조하세요. IoT Hub 관리 API를 사용하여 프로그래밍 방식으로 파일 업로드를 구성할 수도 있습니다.
 
-포털을 사용 하는 경우 구성 중에 저장소 계정 및 컨테이너를 만들 수 있습니다. 그렇지 않고 저장소 계정을 만들려면 Azure storage 설명서에서 [저장소 계정 만들기](../storage/common/storage-account-create.md) 를 참조 하세요. 저장소 계정이 있으면 [Azure blob storage](/azure/storage/blobs/storage-quickstart-blobs-portal)빠른 시작에서 blob 컨테이너를 만드는 방법을 확인할 수 있습니다.
+포털을 사용하는 경우 구성 중에 스토리지 계정 및 컨테이너를 만들 수 있습니다. 그렇지 않으면 스토리지 계정을 만들려면 Azure Storage 설명서에서 [스토리지 계정 만들기를](../storage/common/storage-account-create.md) 참조하세요. 스토리지 계정이 있으면 Azure Blob Storage 빠른 시작 에서 [Blob](../storage/blobs/storage-quickstart-blobs-portal.md)컨테이너를 만드는 방법을 확인할 수 있습니다.
 
-파일 업로드 및 파일 업로드 알림의 동작을 제어 하는 몇 가지 다른 설정이 있습니다. 다음 섹션에서는 사용 가능한 모든 설정을 나열 합니다. Azure Portal, Azure CLI, PowerShell 또는 관리 Api를 사용 하 여 파일 업로드를 구성 하는지에 따라 이러한 설정 중 일부를 사용 하지 못할 수 있습니다. 파일 업로드가 완료 되 면 백 엔드 서비스에 알림을 보낼 수 있도록 하려면 **enableFileUploadNotifications** 설정을 지정 해야 합니다.
+파일 업로드 및 파일 업로드 알림의 동작을 제어하는 몇 가지 다른 설정이 있습니다. 다음 섹션에서는 사용 가능한 모든 설정을 나열합니다. Azure Portal, Azure CLI, PowerShell 또는 관리 API를 사용하여 파일 업로드를 구성하는지 여부에 따라 이러한 설정 중 일부를 사용할 수 없습니다. 파일 업로드가 완료될 때 백 엔드 서비스로 알림을 보내려면 **enableFileUploadNotifications** 설정을 확인해야 합니다.
 
-### <a name="iot-hub-storage-and-authentication-settings"></a>Iot Hub 저장소 및 인증 설정
+### <a name="iot-hub-storage-and-authentication-settings"></a>Ot Hub 스토리지 및 인증 설정
 
-다음 설정은 저장소 계정 및 컨테이너를 IoT hub와 연결 하 고 허브에서 Azure storage로 인증 하는 방법을 제어 합니다. 이러한 설정은 장치가 Azure storage를 사용 하 여 인증 하는 방법에는 영향을 주지 않습니다. 장치는 IoT Hub에서 검색 한 SAS URI에 제공 된 SAS 토큰을 사용 하 여 항상 인증 합니다.
+다음 설정은 스토리지 계정 및 컨테이너를 IoT Hub와 연결하고 허브가 Azure Storage로 인증하는 방법을 제어합니다. 이러한 설정은 디바이스가 Azure Storage를 통해 인증하는 방법에 영향을 미치지 않습니다. 디바이스는 항상 IoT Hub 검색된 SAS URI에 제공된 SAS 토큰을 사용하여 인증합니다.
 
-| 속성 | Description | 범위 및 기본값 |
+| 속성 | 설명 | 범위 및 기본값 |
 | --- | --- | --- |
-| **storageEndpoints. $default. authenticationType** | IoT Hub Azure storage를 사용 하 여 인증 하는 방법을 제어 합니다. | 가능한 값은 keyBased 및 identityBased입니다. 기본값: keyBased |
-| **storageEndpoints. $default. connectionString** | 파일 업로드에 사용할 Azure 저장소 계정에 대 한 연결 문자열입니다. | 기본값: 빈 문자열입니다. |
-| **storageEndpoints. $default containerName** | 파일을 업로드할 컨테이너의 이름입니다. | 기본값: 빈 문자열입니다. |
-| **storageEndpoints. $default. id** | Id 기반 인증에 사용할 관리 되는 id입니다. | 가능한 값은 `[system]` 시스템 할당 관리 id 또는 사용자 할당 관리 id에 대 한 리소스 ID에 대 한 값입니다. 키 기반 인증에는이 값이 사용 되지 않습니다. 기본값: null |
+| **storageEndpoints.$default.authenticationType** | IoT Hub Azure Storage를 인증하는 방법을 제어합니다. | 가능한 값은 keyBased 및 identityBased입니다. 기본값: keyBased. |
+| **storageEndpoints.$default.connectionString** | 파일 업로드에 사용할 Azure Storage 계정에 대한 연결 문자열입니다. | 기본값: 빈 문자열입니다. |
+| **storageEndpoints.$default.containerName** | 파일을 업로드할 컨테이너의 이름입니다. | 기본값: 빈 문자열입니다. |
+| **storageEndpoints.$default.identity** | ID 기반 인증에 사용할 관리 ID입니다. | 가능한 값은 `[system]` 시스템 할당 관리 ID 또는 사용자 할당 관리 ID의 리소스 ID에 대한 값입니다. 값은 키 기반 인증에 사용되지 않습니다. 기본값: null입니다. |
 
 ### <a name="file-upload-settings"></a>파일 업로드 설정
 
-다음 설정은 장치에서 파일 업로드를 제어 합니다.
+다음 설정은 디바이스에서 파일 업로드를 제어합니다.
 
-| 속성 | Description | 범위 및 기본값 |
+| 속성 | 설명 | 범위 및 기본값 |
 | --- | --- | --- |
-| **storageEndpoints. $default ttlAsIso8601** | IoT Hub에서 생성 한 SAS Uri의 기본 TTL입니다. | ISO_8601 간격은 최대 48 시간 (최소 1 분)입니다. 기본값은 1시간입니다. |
+| **storageEndpoints.$default.ttlAsIso8601** | IoT Hub 생성된 SAS URI에 대한 기본 TTL입니다. | ISO_8601 간격은 최대 48시간(최소 1분)입니다. 기본값은 1시간입니다. |
 
 ### <a name="file-upload-notification-settings"></a>파일 업로드 알림 설정
 
-다음 설정은 백엔드 서비스에 대 한 파일 업로드 알림을 제어 합니다.
+다음 설정은 백 엔드 서비스에 대한 파일 업로드 알림을 제어합니다.
 
-| 속성 | Description | 범위 및 기본값 |
+| 속성 | 설명 | 범위 및 기본값 |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |파일 업로드 알림이 파일 알림 엔드포인트에 작성되는지를 제어합니다. |Bool. 기본값: False. |
-| **fileNotifications.ttlAsIso8601** |파일 업로드 알림에 대한 기본 TTL입니다. |ISO_8601 간격은 최대 48 시간 (최소 1 분)입니다. 기본값은 1시간입니다. |
+| **fileNotifications.ttlAsIso8601** |파일 업로드 알림에 대한 기본 TTL입니다. |ISO_8601 간격은 최대 48시간(최소 1분)입니다. 기본값은 1시간입니다. |
 | **fileNotifications.lockDuration** |파일 업로드 알림 큐에 대한 잠금 기간입니다. |5~300초 기본값은 60초입니다. |
 | **fileNotifications.maxDeliveryCount** |파일 업로드 알림 큐에 대한 최대 배달 횟수입니다. |1에서 100까지입니다. 기본값은 100입니다. |
 
@@ -97,7 +97,7 @@ IoT Hub는 지정 된 기간에 시작할 수 있는 파일 업로드 수에 대
 | [.NET](iot-hub-csharp-csharp-file-upload.md) | 예 | 예 |
 | [Java](iot-hub-java-java-file-upload.md) | 예 | 예 |
 | [Node.js](iot-hub-node-node-file-upload.md) | 예 | 예 |
-| [Python](iot-hub-python-python-file-upload.md) | Yes | 아니요 (지원 되지 않음) |
+| [Python](iot-hub-python-python-file-upload.md) | 예 | 아니요 (지원 되지 않음) |
 
 > [!NOTE]
 > C 장치 SDK는 장치 클라이언트에서 단일 호출을 사용 하 여 파일 업로드를 수행 합니다. 자세한 내용은 [IoTHubDeviceClient_UploadToBlobAsync ()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadtoblobasync) 및 [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync ()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadmultipleblockstoblobasync)를 참조 하세요. 이러한 함수는 한 번의 호출로 파일 업로드의 모든 측면을 수행 합니다. 즉, 업로드를 시작 하 고, Azure storage에 파일을 업로드 하 고, 완료 되 면 IoT Hub에 알립니다. 즉, 장치가 IoT Hub와 통신 하는 데 사용 하는 프로토콜 외에도, azure storage Api에 대 한 호출을 수행 하기 때문에 HTTPS를 통해 Azure storage와 통신할 수 있어야 합니다.
@@ -117,7 +117,7 @@ IoT Hub는 지정 된 기간에 시작할 수 있는 파일 업로드 수에 대
 
 ```
 
-| 속성 | Description |
+| 속성 | 설명 |
 |----------|-------------|
 | blobName | SAS URI를 생성할 blob의 이름입니다. |
 
@@ -134,7 +134,7 @@ IoT Hub는 지정 된 기간에 시작할 수 있는 파일 업로드 수에 대
 
 ```
 
-| 속성 | Description |
+| 속성 | 설명 |
 |----------|-------------|
 | correlationId | IoT Hub에 파일 업로드 완료 알림을 보낼 때 사용할 장치에 대 한 식별자입니다. |
 | hostName | IoT hub에 구성 된 저장소 계정의 Azure storage 계정 호스트 이름 |
@@ -172,9 +172,9 @@ hello world
 
 Azure storage Api를 사용 하는 방법은이 문서의 범위를 벗어나는 것입니다. 이 섹션의 이전에 연결 된 Azure Blob storage REST Api 외에도 다음 설명서를 통해 시작 하는 데 도움이 될 수 있습니다.
 
-* Azure storage에서 blob을 사용 하는 방법에 대해 자세히 알아보려면 [azure blob storage](/azure/storage/blobs/) 설명서를 참조 하세요.
+* Azure storage에서 blob을 사용 하는 방법에 대해 자세히 알아보려면 [azure blob storage](../storage/blobs/index.yml) 설명서를 참조 하세요.
 
-* Azure storage 클라이언트 sdk를 사용 하 여 blob을 업로드 하는 방법에 대 한 자세한 내용은 [Azure Blob Storage API 참조](/azure/storage/blobs/reference)를 참조 하세요.  
+* Azure storage 클라이언트 sdk를 사용 하 여 blob을 업로드 하는 방법에 대 한 자세한 내용은 [Azure Blob Storage API 참조](../storage/blobs/reference.md)를 참조 하세요.  
 
 ## <a name="device-notify-iot-hub-of-a-completed-file-upload"></a>장치: 완료 된 파일 업로드 IoT Hub 알림
 
@@ -194,7 +194,7 @@ Azure storage Api를 사용 하는 방법은이 문서의 범위를 벗어나는
 
 ```
 
- 속성 | Description |
+ 속성 | 설명 |
 |----------|-------------|
 | correlationId | 초기 SAS URI 요청에서 받은 상관 관계 ID입니다. |
 | isSuccess | 파일 업로드에 성공 했는지 여부를 나타내는 부울입니다. |
@@ -228,25 +228,25 @@ IoT hub에서 파일 업로드 알림을 사용 하는 경우 파일 업로드�
 }
 ```
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | enqueuedTimeUtc | 알림을 만든 시간을 나타내는 타임스탬프입니다. |
 | deviceId | 파일을 업로드 한 장치의 장치 ID입니다. |
-| blobUri | 업로드 된 파일의 URI입니다. |
-| blobName | 업로드 된 파일의 이름입니다. 이름은 다음 형식으로 되어 있습니다. `{device ID of the device}/{name of the blob}`|
+| blobUri | 업로드된 파일의 URI입니다. |
+| blobName | 업로드된 파일의 이름입니다. 이름은 다음과 같은 형식입니다. `{device ID of the device}/{name of the blob}`|
 | lastUpdatedTime |파일이 마지막으로 업데이트된 시간을 나타내는 타임스탬프입니다. |
-| blobSizeInBytes | 업로드 된 파일의 크기 (바이트)를 나타내는 정수입니다. |
+| blobSizeInBytes | 업로드된 파일의 크기(바이트)를 나타내는 정수입니다. |
 
-서비스는 알림을 사용 하 여 업로드를 관리할 수 있습니다. 예를 들어 자체 blob 데이터 처리를 트리거하고, 다른 Azure 서비스를 사용 하 여 blob 데이터의 처리를 트리거하고, 나중에 검토할 수 있도록 파일 업로드 알림을 기록할 수 있습니다.
+서비스는 알림을 사용하여 업로드를 관리할 수 있습니다. 예를 들어 Blob 데이터의 자체 처리를 트리거하거나, 다른 Azure 서비스를 사용하여 Blob 데이터의 처리를 트리거하거나, 나중에 검토할 수 있도록 파일 업로드 알림을 기록할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [파일 업로드 방법 가이드](iot-hub-csharp-csharp-file-upload.md)
 
-* [IoT Hub에서 파일 업로드를 구성 하는 방법](iot-hub-configure-file-upload.md)
+* [IoT Hub 파일 업로드를 구성하는 방법](iot-hub-configure-file-upload.md)
 
-* [IoT Hub에서 관리 id를 구성 하는 방법](iot-hub-managed-identity.md)
+* [IoT Hub 관리 ID를 구성하는 방법](iot-hub-managed-identity.md)
 
-* [Azure Blob Storage 설명서](/azure/storage/blobs/)
+* [Azure Blob Storage 설명서](../storage/blobs/index.yml)
 
 * [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.

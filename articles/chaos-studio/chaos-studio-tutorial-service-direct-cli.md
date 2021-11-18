@@ -7,12 +7,12 @@ ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 7366cf2a8452b40830a9b73f314caeaf63368c64
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: e6f1f215a96b6f651e344087c98a3a7d9be278db
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373862"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718529"
 ---
 # <a name="create-a-chaos-experiment-that-uses-a-service-direct-fault-with-the-azure-cli"></a>Azure CLI에서 서비스 직접 오류를 사용 하는 비정상 실험 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "132373862"
 
 이러한 동일한 단계를 사용 하 여 서비스 직접 오류에 대 한 실험을 설정 하 고 실행할 수 있습니다. 비정상 상태 에이전트를 설치 해야 하는 에이전트 기반 오류와는 달리 **서비스 직접** 오류는 Azure 리소스에 대해 직접 실행 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - Azure Cosmos DB 계정. Azure Cosmos DB 계정이 없는 경우 [다음 단계를 수행 하](../cosmos-db/sql/create-cosmosdb-resources-portal.md)여 계정을 만들 수 있습니다.
@@ -33,6 +33,9 @@ Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용�
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 열 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, **Enter** 를 선택하여 실행합니다.
 
 이 자습서에서 CLI를 로컬로 설치하여 사용하려면 Azure CLI 버전 2.0.30 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+
+> [!NOTE]
+> 이러한 지침은 Azure Cloud Shell에서 Bash 터미널을 사용 합니다. CLI를 로컬로 실행 하거나 PowerShell 터미널에서 실행 하는 경우에 설명 된 대로 일부 명령은 작동 하지 않을 수 있습니다.
 
 ## <a name="enable-chaos-studio-on-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에서 비정상 스튜디오 사용
 

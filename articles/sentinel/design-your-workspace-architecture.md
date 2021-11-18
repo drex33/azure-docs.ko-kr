@@ -1,26 +1,24 @@
 ---
-title: Microsoft 센티널 작업 영역 아키텍처 디자인 | Microsoft Docs
-description: 의사 결정 트리를 사용 하 여 Microsoft 센티널 작업 영역 아키텍처를 디자인 하는 방법을 파악할 수 있습니다.
+title: Microsoft Sentinel 작업 영역 아키텍처 | 디자인 Microsoft Docs
+description: 의사 결정 트리를 사용하여 Microsoft Sentinel 작업 영역 아키텍처를 디자인하는 방법을 이해합니다.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0fccafee7a645be13ae17eca98d99305dd2b4a10
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 0e18dc78e45c1fb619a8727a550ffa81ce2a7d27
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521551"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724390"
 ---
-# <a name="design-your-microsoft-sentinel-workspace-architecture"></a>Microsoft 센티널 작업 영역 아키텍처 디자인
+# <a name="design-your-microsoft-sentinel-workspace-architecture"></a>Microsoft Sentinel 작업 영역 아키텍처 디자인
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Microsoft 센티널 작업 영역 아키텍처를 디자인 하는 방법에 대 한 주요 결정을 내리는 데 도움이 되는 의사 결정 트리를 제공 합니다. 자세한 내용은 [Microsoft 센티널 샘플 작업 영역 디자인](sample-workspace-designs.md) 및 [microsoft 센티널 작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md)를 참조 하세요.
+이 문서에서는 Microsoft Sentinel 작업 영역 아키텍처를 디자인하는 방법에 대한 주요 결정을 내리는 데 도움이 되는 의사 결정 트리를 제공합니다. 자세한 내용은 [Microsoft Sentinel 샘플 작업 영역 디자인 및](sample-workspace-designs.md) Microsoft [Sentinel 작업 영역 아키텍처 모범 사례를 참조하세요.](best-practices-workspace-architecture.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -28,17 +26,17 @@ ms.locfileid: "132521551"
 
 |필수 요소  | Description |
 |---------|---------|
-|**Azure 데이터 보존과 관련된 규정 요구 사항**     |  Microsoft 센티널은 대부분의 작업 영역에서 실행 될 수 있지만 [GA에서 Log Analytics에 대해 지원 되](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)는 모든 지역이 아닙니다. Microsoft 센티널 서비스를 등록 하려면 새로 지원 되는 Log Analytics 지역에 시간이 걸릴 수 있습니다. <br><br> 인시던트, 책갈피 및 분석 규칙과 같은 Microsoft 센티널에 의해 생성 된 데이터에는 고객의 Log Analytics 작업 영역에서 제공 되는 일부 고객 데이터가 포함 될 수 있습니다.<br><br> 자세한 내용은 [지리적 가용성 및 데이터 보존](quickstart-onboard.md#geographical-availability-and-data-residency)을 참조하세요.|
-|**데이터 원본**     |   Microsoft 솔루션 및 타사 솔루션 모두에 대한 기본 제공 커넥터를 포함하여 연결해야 하는 [데이터 원본](connect-data-sources.md)을 확인합니다. CEF (일반 이벤트 형식), Syslog 또는 REST API를 사용 하 여 데이터 원본을 Microsoft 센티널에 연결할 수도 있습니다. <br><br>Azure VM이 로그를 수집해야 하는 여러 Azure 위치에 있고 데이터 송신 비용을 절약하는 것이 중요한 경우 각 Azure 위치에 대한 [대역폭 가격 계산기](https://azure.microsoft.com/pricing/details/bandwidth/#overview)를 사용하여 데이터 송신 비용을 계산해야 합니다.      |
-|**사용자 역할 및 데이터 액세스 수준/권한**     |    Microsoft 센티널은 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 azure의 사용자, 그룹 및 서비스에 할당할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 제공 합니다. <br><br>모든 Microsoft 센티널 기본 제공 역할은 Microsoft 센티널 작업 영역에 있는 데이터에 대 한 읽기 액세스 권한을 부여 합니다. 따라서 작업 영역 디자인을 결정하는 데 영향을 주므로 데이터 액세스를 데이터 원본 또는 행 수준별로 제어해야 하는지 여부를 확인해야 합니다. 자세한 내용은 [사용자 지정 역할 및 고급 Azure RBAC](roles.md#custom-roles-and-advanced-azure-rbac)를 참조하세요.     |
-|**일일 수집 속도**     |  매일 수집 요금 (일반적으로 GB/일)은 비용 관리와 Microsoft 센티널의 계획 고려 사항 및 작업 영역 디자인의 주요 요소 중 하나입니다. <br><br>대부분의 클라우드 및 하이브리드 환경에서는 방화벽 또는 프록시와 같은 네트워킹 디바이스와 Windows 및 Linux 서버에서 가장 많은 수집된 데이터를 생성합니다. 가장 정확한 결과를 얻기 위해 Microsoft는 데이터 원본의 전체 인벤토리를 권장합니다. <br><br>또는 Microsoft 센티널 [cost 계산기](https://cloudpartners.transform.microsoft.com/download?assetname=assets%2FAzure_Sentinel_Calculator.xlsx&download=1) 에는 데이터 원본의 차지을 예측 하는 데 유용한 테이블이 포함 되어 있습니다. <br><br>**중요**: 이러한 예측은 시작점이며, 자세한 로그 표시 수준 설정과 워크로드에서 차이를 산출합니다. 시스템을 정기적으로 모니터링하여 변경 내용을 추적하는 것이 좋습니다. 시나리오에 따라 정기적인 모니터링을 사용하는 것이 좋습니다. <br><br>자세한 내용은 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.       |
+|**Azure 데이터 보존과 관련된 규정 요구 사항**     |  Microsoft Sentinel은 [Log Analytics에 대한 GA에서 지원되는](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)모든 지역을 제외한 대부분의 작업 영역에서 실행할 수 있습니다. 새로 지원되는 Log Analytics 지역은 Microsoft Sentinel 서비스를 온보딩하는 데 다소 시간이 걸릴 수 있습니다. <br><br> 인시던트, 책갈피 및 분석 규칙과 같은 Microsoft Sentinel에서 생성된 데이터에는 고객의 Log Analytics 작업 영역에서 제공된 일부 고객 데이터가 포함될 수 있습니다.<br><br> 자세한 내용은 [지리적 가용성 및 데이터 보존](quickstart-onboard.md#geographical-availability-and-data-residency)을 참조하세요.|
+|**데이터 원본**     |   Microsoft 솔루션 및 타사 솔루션 모두에 대한 기본 제공 커넥터를 포함하여 연결해야 하는 [데이터 원본](connect-data-sources.md)을 확인합니다. CEF(Common Event Format), Syslog 또는 REST-API를 사용하여 데이터 원본을 Microsoft Sentinel에 연결할 수도 있습니다. <br><br>Azure VM이 로그를 수집해야 하는 여러 Azure 위치에 있고 데이터 송신 비용을 절약하는 것이 중요한 경우 각 Azure 위치에 대한 [대역폭 가격 계산기](https://azure.microsoft.com/pricing/details/bandwidth/#overview)를 사용하여 데이터 송신 비용을 계산해야 합니다.      |
+|**사용자 역할 및 데이터 액세스 수준/권한**     |    Microsoft Sentinel은 [Azure RBAC(Azure 역할 기반 액세스 제어)를](../role-based-access-control/role-assignments-portal.md) 사용하여 [Azure의](../role-based-access-control/built-in-roles.md) 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공합니다. <br><br>모든 Microsoft Sentinel 기본 제공 역할은 Microsoft Sentinel 작업 영역의 데이터에 대한 읽기 권한을 부여합니다. 따라서 작업 영역 디자인을 결정하는 데 영향을 주므로 데이터 액세스를 데이터 원본 또는 행 수준별로 제어해야 하는지 여부를 확인해야 합니다. 자세한 내용은 [사용자 지정 역할 및 고급 Azure RBAC](roles.md#custom-roles-and-advanced-azure-rbac)를 참조하세요.     |
+|**일일 수집 속도**     |  일별 검색 속도(일반적으로 GB/일)는 Microsoft Sentinel에 대한 비용 관리 및 계획 고려 사항 및 작업 영역 디자인의 주요 요소 중 하나입니다. <br><br>대부분의 클라우드 및 하이브리드 환경에서는 방화벽 또는 프록시와 같은 네트워킹 디바이스와 Windows 및 Linux 서버에서 가장 많은 수집된 데이터를 생성합니다. 가장 정확한 결과를 얻기 위해 Microsoft는 데이터 원본의 전체 인벤토리를 권장합니다. <br><br>또는 Microsoft Sentinel [비용 계산기에는](https://cloudpartners.transform.microsoft.com/download?assetname=assets%2FAzure_Sentinel_Calculator.xlsx&download=1) 데이터 원본의 공간을 예측하는 데 유용한 테이블이 포함되어 있습니다. <br><br>**중요**: 이러한 예측은 시작점이며, 자세한 로그 표시 수준 설정과 워크로드에서 차이를 산출합니다. 시스템을 정기적으로 모니터링하여 변경 내용을 추적하는 것이 좋습니다. 시나리오에 따라 정기적인 모니터링을 사용하는 것이 좋습니다. <br><br>자세한 내용은 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.       |
 |     |         |
 
 ## <a name="decision-tree"></a>의사 결정 트리
 
 다음 이미지에서는 작업 영역을 가장 잘 디자인하는 방법을 이해하는 데 도움이 되는 전체 의사 결정 트리 순서도를 보여 줍니다.
 
-[![Microsoft 센티널 작업 영역 디자인 의사 결정 트리.](media/best-practices/workspace-decision-tree.png)](media/best-practices/workspace-decision-tree.png#lightbox)
+[![Microsoft Sentinel 작업 영역 디자인 의사 결정 트리.](media/best-practices/workspace-decision-tree.png)](media/best-practices/workspace-decision-tree.png#lightbox)
 
 다음 섹션에서는 이미지에서 참조된 다음 참고 사항을 포함하여 이 의사 결정 트리의 전체 텍스트 버전을 제공합니다.
 
@@ -46,7 +44,7 @@ ms.locfileid: "132521551"
 
 ### <a name="step-1-new-or-existing-workspace"></a>1단계: 새 작업 영역 또는 기존 작업 영역?
 
-Microsoft 센티널에 사용할 수 있는 기존 작업 영역이 있나요?
+Microsoft Sentinel에 사용할 수 있는 기존 작업 영역이 있나요?
 
 - **그렇지 않은 경우 어쨌든 간에 새 작업 영역을 만들려면**  [2단계](#step-2-keeping-data-in-different-azure-geographies)로 바로 진행합니다.
 
@@ -58,7 +56,7 @@ Microsoft 센티널에 사용할 수 있는 기존 작업 영역이 있나요?
 
 ### <a name="step-2-keeping-data-in-different-azure-geographies"></a>2단계: 데이터를 다른 Azure 지역에 유지하나요?
 
-- **데이터를 다른 azure 지역에 유지 하기 위한 규제 요구 사항이 있는 경우** 규정 준수 요구 사항이 있는 각 Azure 지역에 대해 별도의 Microsoft 센티널 작업 영역을 사용 합니다. 자세한 내용은 [지역 고려 사항](best-practices-workspace-architecture.md#region-considerations)을 참조하세요.
+- **다른 Azure 지역에 데이터를 보관하기 위한 규정 요구 사항이 있는 경우** 규정 준수 요구 사항이 있는 각 Azure 지역에 대해 별도의 Microsoft Sentinel 작업 영역을 사용합니다. 자세한 내용은 [지역 고려 사항](best-practices-workspace-architecture.md#region-considerations)을 참조하세요.
 
 - **데이터를 다른 Azure 지역에 유지할 필요가 없는 경우** [3단계](#step-3-do-you-have-multiple-azure-tenants)로 계속 진행합니다.
 
@@ -70,9 +68,9 @@ Microsoft 센티널에 사용할 수 있는 기존 작업 영역이 있나요?
 
   - **테넌트와 관련된 로그가 없는 경우** [4단계](#step-4-splitting-billing--charge-back)로 바로 진행합니다.
 
-  - **테 넌 트 별 로그를 수집 하 *는* 경우** 각 Azure AD 테 넌 트에 대해 별도의 Microsoft 센티널 작업 영역을 사용 합니다. 다른 고려 사항은 [4단계](#step-4-splitting-billing--charge-back)로 계속 진행합니다.
+  - **테넌트별 로그를 수집하는 경우** 각 Azure AD 테넌트마다 별도의 Microsoft Sentinel 작업 영역을 사용합니다. 다른 고려 사항은 [4단계](#step-4-splitting-billing--charge-back)로 계속 진행합니다.
 
-    <a name="note1"></a>[의사 결정 트리 참고 #1](#decision-tree): 테 넌 트 경계 (예: Office 365 및 클라우드 용 Microsoft Defender)와 관련 된 로그는 동일한 테 넌 트 내의 작업 영역에만 저장할 수 있습니다.
+    <a name="note1"></a>[의사 결정 트리 참고 사항 #1:](#decision-tree)Office 365 및 Microsoft Defender for Cloud와 같은 테넌트 경계에 특정한 로그는 동일한 테넌트 내의 작업 영역에만 저장할 수 있습니다.
 
     사용자 지정 수집기를 사용하여 다른 테넌트의 작업 영역에서 테넌트와 관련된 로그를 *수집할 수 있지만*, 다음과 같은 단점으로 인해 권장하지 않습니다.
 
@@ -80,7 +78,7 @@ Microsoft 센티널에 사용할 수 있는 기존 작업 영역이 있나요?
     - 사용자 지정 테이블이 UEBA 및 기계 학습 규칙과 같은 일부 기본 제공 기능에서 고려되지 않습니다.
     - 사용자 지정 커넥터에는 Azure Functions 및 Logic Apps를 사용하는 것과 같은 추가 비용 및 노력이 필요합니다.
 
-    이러한 단점이 조직에서 그다지 중요 하지 않은 경우 별도의 Microsoft 센티널 작업 영역을 사용 하는 대신 [4 단계](#step-4-splitting-billing--charge-back) 를 계속 합니다.
+    이러한 단점이 조직에 문제가 되지 않는 경우 별도의 Microsoft Sentinel 작업 영역을 사용하는 대신 [4단계를](#step-4-splitting-billing--charge-back) 계속 진행합니다.
 
 ### <a name="step-4-splitting-billing--charge-back"></a>4단계: 청구 분할/지불 거절?
 
@@ -88,13 +86,13 @@ Microsoft 센티널에 사용할 수 있는 기존 작업 영역이 있나요?
 
 - **청구를 분할하거나 지불을 거절할 필요가 *없는* 경우** [5단계](#step-5-collecting-any-non-soc-data)로 계속 진행합니다.
 
-- **청구를 분할하거나 지불을 거절할 필요가 *있는* 경우** [사용량 보고 또는 수동 교차 청구](azure-sentinel-billing.md)가 적합한지 고려합니다.
+- **청구를 분할하거나 지불을 거절할 필요가 *있는* 경우** [사용량 보고 또는 수동 교차 청구](billing.md)가 적합한지 고려합니다.
 
   - **사용량 보고 또는 수동 교차 청구가 적합한 경우** [5단계](#step-5-collecting-any-non-soc-data)로 계속 진행합니다.
 
-  - **사용 보고 또는 수동 교차 충전을 *모두* 수행할 수 없는 경우** 각 비용 소유자에 대해 별도의 Microsoft 센티널 작업 영역을 사용 합니다.
+  - **사용  보고 또는 수동 교차 청구가 모두 작동하지 않으면** 각 비용 소유자에 대해 별도의 Microsoft Sentinel 작업 영역을 사용합니다.
 
-  <a name="note2"></a>[의사 결정 트리 참고 #2](#decision-tree): 자세한 내용은 [Microsoft 센티널 비용 및 청구](azure-sentinel-billing.md)를 참조 하세요.
+  <a name="note2"></a>[의사 결정 트리 참고 사항 #2:](#decision-tree)자세한 내용은 [Microsoft Sentinel 비용 및 청구를 참조하세요.](billing.md)
 
 ### <a name="step-5-collecting-any-non-soc-data"></a>5단계: 비 SOC 데이터를 수집하나요?
 
@@ -116,20 +114,20 @@ Microsoft 센티널에 사용할 수 있는 기존 작업 영역이 있나요?
 
 #### <a name="combining-your-soc-and-non-soc-data"></a>SOC 및 비 SOC 데이터 결합
 
-<a name="note3"></a>[의사 결정 트리 참고 #3](#decision-tree): 일반적으로 고객은 비 soc 데이터를 위한 별도의 작업 영역을 유지 하는 것이 좋으며, 이러한 비 soc 데이터는 Microsoft 센티널 비용에 영향을 받지 않으므로 soc와 비 soc 데이터를 결합 하는 것이 비용을 구분 하는 것 보다 비용이 적게 드는 상황이 발생할 수 있습니다.
+<a name="note3"></a>[의사 결정 트리 참고 사항 #3:](#decision-tree)일반적으로 고객이 비 SOC 데이터에 대해 별도의 작업 영역을 유지하여 비 SOC 데이터에 Microsoft Sentinel 비용이 부과되지 않도록 하는 것이 좋지만, SOC 및 비 SOC 데이터를 결합하는 것이 분리보다 비용이 적게 드는 경우가 있을 수 있습니다.
 
 예를 들어 50GB/일의 보안 로그 및 50GB/일의 작업 로그를 수집하고 작업 영역이 미국 동부 지역에 있는 조직을 가정해 보겠습니다.
 
 다음 표에서는 별도의 작업 영역이 있는 경우와 없는 경우의 작업 영역 옵션을 비교합니다.
 
 > [!NOTE]
-> 아래 표에 나열된 비용 및 용어는 가짜이며 설명 목적으로만 사용됩니다. 최신 비용 정보는 Microsoft 센티널 가격 계산기를 참조 하세요.
+> 아래 표에 나열된 비용 및 용어는 가짜이며 설명 목적으로만 사용됩니다. 최신 비용 정보는 Microsoft Sentinel 가격 계산기를 참조하세요.
 >
 
 |작업 영역 아키텍처  |설명 |
 |---------|---------|
-|SOC 팀은 Microsoft 센티널를 사용 하는 자체 작업 영역을가지고 있습니다. <br><br>Ops 팀에는 Microsoft 센티널을 사용 하지 않는 고유한 작업 영역이 있습니다.     |  **SOC 팀**: <br>50GB/일에 대 한 Microsoft 센티널 비용은 월 $6500입니다.<br>처음 3개월 보존은 무료입니다. <br><br>**운영 팀**:<br>- 50GB/일의 Log Analytics 비용은 월 약 3,500달러입니다.<br>- 처음 31일 보존은 무료입니다.<br><br>둘 모두의 총 비용은 월 10,000달러입니다.       |
-|SOC와 Ops 팀은 모두 Microsoft 센티널을 사용 하는 동일한 작업 영역을 공유 합니다. |두 로그를 모두 결합하면 수집은 100GB/일이 되어 약정 계층(Sentinel의 경우 50%, LA의 경우 15%)에 대한 자격이 있습니다.       <br><br>100GB/일의 Microsoft Sentinel 비용은 매월 $9,000와 같습니다.      |
+|SOC 팀에는 Microsoft Sentinel을 사용하도록 설정된 자체 작업 영역이 있습니다. <br><br>Ops 팀에는 Microsoft Sentinel을 사용하도록 설정하지 않은 자체 작업 영역이 있습니다.     |  **SOC 팀**: <br>50GB/일용 Microsoft Sentinel 비용은 매월 $6,500입니다.<br>처음 3개월 보존은 무료입니다. <br><br>**운영 팀**:<br>- 50GB/일의 Log Analytics 비용은 월 약 3,500달러입니다.<br>- 처음 31일 보존은 무료입니다.<br><br>둘 모두의 총 비용은 월 10,000달러입니다.       |
+|SOC 및 Ops 팀은 모두 Microsoft Sentinel을 사용하도록 설정된 동일한 작업 영역을 공유합니다. |두 로그를 모두 결합하면 수집은 100GB/일이 되어 약정 계층(Sentinel의 경우 50%, LA의 경우 15%)에 대한 자격이 있습니다.       <br><br>100GB/일의 Microsoft Sentinel 비용은 매월 $9,000와 같습니다.      |
 |     |         |
 
 이 예에서는 두 작업 영역을 모두 결합하여 월 1,000달러의 비용을 절감할 수 있으며, 운영 팀도 31일이 아닌 3개월의 무료 보존 기간의 혜택을 누릴 수 있습니다.
@@ -152,7 +150,7 @@ Microsoft 센티널에 사용할 수 있는 기존 작업 영역이 있나요?
 
   - 데이터 송신 비용이 별도의 작업 영역을 유지하는 데 충분한 문제가 있는 경우 데이터 송신 비용을 줄여야 하는 각 지역에 대해 별도의 Microsoft Sentinel 작업 영역을 사용합니다.
 
-    <a name="note5"></a>[의사 결정 트리 참고 #5](#decision-tree): 최대한 적은 수의 작업 영역을 유지하는 것이 좋습니다. [Azure 가격 계산기](azure-sentinel-billing.md#estimate-microsoft-sentinel-costs)를 사용하여 비용을 예측하고, 실제로 필요한 지역을 결정하며, 송신 비용이 낮은 지역의 작업 영역을 결합합니다. 대역폭 비용은 별도의 Microsoft Sentinel 및 Log Analytics 집계 비용과 비교할 때 Azure 청구서의 일부일 수 있습니다.
+    <a name="note5"></a>[의사 결정 트리 참고 #5](#decision-tree): 최대한 적은 수의 작업 영역을 유지하는 것이 좋습니다. [Azure 가격 계산기](billing.md#estimate-microsoft-sentinel-costs)를 사용하여 비용을 예측하고, 실제로 필요한 지역을 결정하며, 송신 비용이 낮은 지역의 작업 영역을 결합합니다. 대역폭 비용은 별도의 Microsoft Sentinel 및 Log Analytics 집계 비용과 비교할 때 Azure 청구서의 일부일 수 있습니다.
 
     예를 들어 비용은 다음과 같이 예측할 수 있습니다.
 

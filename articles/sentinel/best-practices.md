@@ -4,17 +4,15 @@ description: Microsoft 센티널 작업 영역을 관리할 때 사용할 모범
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 15543989655bf094f221a4259ad0b3e765338329
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 9c70c97c120ae0b5d55ccba37878b344c49aacee
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524705"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722756"
 ---
 # <a name="best-practices-for-microsoft-sentinel"></a>Microsoft 센티널의 모범 사례
 
@@ -38,7 +36,7 @@ Microsoft 센티널 설명서는 문서 전체에 분산 된 모범 사례 지�
     - [Microsoft 센티널 작업 영역 아키텍처 디자인](design-your-workspace-architecture.md)
     - [Microsoft 센티널 샘플 작업 영역 디자인](sample-workspace-designs.md)
     - [데이터 수집 모범 사례](best-practices-data.md)
-    - [Microsoft 센티널 비용 및 청구](azure-sentinel-billing.md)
+    - [Microsoft 센티널 비용 및 청구](billing.md)
     - [Microsoft 센티널의 사용 권한](roles.md)
     - [Microsoft 센티널에서 MSSP 지적 재산 보호](mssp-protect-intellectual-property.md)
     - [Microsoft 센티널의 위협 인텔리전스 통합](threat-intelligence-integration.md)

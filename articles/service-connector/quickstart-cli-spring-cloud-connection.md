@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 13f2cf7abc24c2f84ea95f0d3779c015680ca01d
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 7a1b93208dc52466af00095a75366a8f5d078200
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132554601"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709616"
 ---
 # <a name="quickstart-create-a-service-connection-in-spring-cloud-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Spring Cloud에서 서비스 연결 만들기
 
@@ -58,7 +58,7 @@ az spring-cloud connection create storage-blob --secret
 #### <a name="using-managed-identity"></a>[관리 ID를 사용하는 경우](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> 관리 ID를 사용하려면 [AZURE AD 역할 할당](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal)에 대한 권한이 있어야 합니다. 권한이 없으면 연결을 만들 수 없습니다. 구독 소유자에게 사용 권한을 요청하거나 액세스 키를 사용하여 연결을 만들 수 있습니다.
+> 관리 ID를 사용하려면 [AZURE AD 역할 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md)에 대한 권한이 있어야 합니다. 권한이 없으면 연결을 만들 수 없습니다. 구독 소유자에게 사용 권한을 요청하거나 액세스 키를 사용하여 연결을 만들 수 있습니다.
 
 Azure CLI [az spring-cloud connection]() 명령을 사용해 BLOB 스토리지에 대한 서비스 연결과 시스템이 할당한 관리 ID를 만들고 다음 정보를 제공할 수 있습니다.
 

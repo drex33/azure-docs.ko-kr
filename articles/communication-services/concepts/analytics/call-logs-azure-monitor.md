@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - 호출 로그 미리 보기
+title: Azure Communication Services-통화 로그 미리 보기
 titleSuffix: An Azure Communication Services concept document
 description: Azure Monitor에서 통화 요약 및 통화 진단 로그에 대해 알아보기
 author: timmitchell
@@ -9,21 +9,21 @@ ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 15921a8666d6c55c90ed6d751f60a555c9c06d81
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 7cf307fc3490af7f3517606932c1277cd58abcfa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132139945"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716484"
 ---
 # <a name="call-summary-and-call-diagnostic-logs-preview"></a>호출 요약 및 호출 진단 로그 미리 보기
 
 > [!IMPORTANT]
-> 다음은 [Azure Monitor](/azure/azure-monitor/overview) 통해 사용하도록 설정된 로그를 참조합니다(FAQ 참조). [](/azure/azure-monitor/faq) Communications Services에 대해 이러한 로그를 사용하도록 설정하려면 [진단 설정 로깅 사용을](./enable-logging.md) 참조하세요.
+> 다음은 [Azure Monitor](../../../azure-monitor/overview.md) 를 통해 사용 하도록 설정 된 로그를 나타냅니다 ( [FAQ](../../../azure-monitor/faq.yml)참조). 통신 서비스에 대해 이러한 로그를 사용 하도록 설정 하려면 [진단 설정에서 로깅 사용](./enable-logging.md) 을 참조 하세요.
 
 
 ## <a name="data-concepts"></a>데이터 개념
-다음은 로그에 캡처된 데이터의 의미를 이해하기 위해 검토해야 하는 Communications Services 내의 음성 및 비디오 통화와 관련한 데이터 개념에 대한 높은 수준의 설명입니다.
+다음은 로그에 캡처되는 데이터의 의미를 이해 하기 위해 검토 해야 하는 통신 서비스에서 음성 및 비디오 통화와 관련 된 데이터 개념에 대 한 개략적인 설명입니다.
 
 ### <a name="entities-and-ids"></a>엔터티 및 ID
 
@@ -74,14 +74,14 @@ ms.locfileid: "132139945"
 ### <a name="call-summary-log"></a>통화 요약 로그
 통화 요약 로그에는 모든 통화의 키 속성을 식별하는 데 도움이 되는 데이터가 포함되어 있습니다. 통화의 각 `participantId`(P2P 호출의 경우 `endpointId`)에 대해 다른 통화 요약 로그가 생성됩니다.
 
-|     속성                  |     Description                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|     속성                  |     설명                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     time                      |     로그가 생성된 시간의 타임스탬프(UTC)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |     operationName             |     로그 레코드와 연결된 작업입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |     operationVersion          |     `operationName`이 API를 사용하여 수행된 경우 작업과 연결된 api-version입니다. 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다.                                                                                                                                                                           |
 |     category                  |     이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 `properties` Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다.                                                                                                                                                                                                    |
-|     correlationIdentifier     |    `correlationIdentifier`는 통화의 고유 ID입니다. 은 `correlationIdentifier` 단일 호출 중에 연결되는 모든 참가자 및 엔드포인트의 상호 연결된 이벤트를 식별하고 다른 로그의 데이터를 조인하는 데 사용할 수 있습니다.  Microsoft에서 지원 사례를 열어야 하는 경우 `correlationID`를 사용하여 문제를 해결하려는 통화를 쉽게 식별할 수 있습니다.                                                                                                                                                                      |
-|     identifier                |     이 ID는 사용자의 고유 ID이며 Communications 인증 서비스에서 할당한 ID와 일치합니다. 이 ID를 사용하여 여러 로그에서 사용자 이벤트를 상호 연관시킬 수 있습니다. 이 ID를 사용하여 이 문서의 Microsoft Teams "상호 운용성" 시나리오를 식별할 수도 있습니다.                                                                                                                                                                                                                                                                                                                                                               |
+|     correlationIdentifier     |    `correlationIdentifier`는 통화의 고유 ID입니다. 는 `correlationIdentifier` 단일 호출 중에 연결 되는 모든 참가자와 끝점에서 상호 관련 된 이벤트를 식별 하 고 다른 로그의 데이터를 조인 하는 데 사용할 수 있습니다.  Microsoft에서 지원 사례를 열어야 하는 경우 `correlationID`를 사용하여 문제를 해결하려는 통화를 쉽게 식별할 수 있습니다.                                                                                                                                                                      |
+|     identifier                |     통신 인증 서비스에서 할당 한 id와 일치 하는 사용자의 고유 ID입니다. 이 ID를 사용 하 여 여러 로그에서 사용자 이벤트의 상관 관계를 지정할 수 있습니다. 이 ID는이 문서의 뒷부분에 설명 된 Microsoft Teams "상호 운용성" 시나리오를 식별 하는 데에도 사용할 수 있습니다.                                                                                                                                                                                                                                                                                                                                                               |
 |     callStartTime             |     엔드포인트에서 첫 번째 시도된 연결을 기준으로 하는 통화 시작에 대한 타임스탬프입니다.                                                                                                                                                                                                                                                                                                                                                                   |
 |     callDuration              |     두 엔드포인트 간의 처음으로 시도된 연결과 마지막 연결의 끝을 기준으로 하는 통화 지속 기간(초)입니다.                                                                                                                                                                                                                                                                                                                         |
 |     callType                  |     `"P2P"` 또는 `"Group"`을 포함합니다. `"P2P"` 통화는 서버가 아닌 두 엔드포인트 간의 직접 1:1 연결입니다. `"Group"` 통화는 엔드포인트가 3개 이상 있거나 연결 전에 `"Group"` 통화로 만들어진 통화입니다.                                                                                                                                                                                                                                 |

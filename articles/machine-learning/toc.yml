@@ -457,25 +457,20 @@
               href: how-to-migrate-from-estimators-to-scriptrunconfig.md
             - name: 보충 학습
               href: how-to-use-reinforcement-learning.md
-            - name: MLflow 작업
+            - name: MLflow 프로젝트로 실험 학습
+              displayName: 'log, monitor, metrics, model registry, register'
+              href: how-to-train-mlflow-projects.md
+            - name: 교육 추적 및 모니터링
               items:
+                - name: '실행 추적, 모니터링 및 분석'
+                  displayName: 'cancel, fail, status, child run'
+                  href: how-to-track-monitor-analyze-runs.md
                 - name: MLflow로 실험 추적
                   displayName: 'log, monitor, metrics, model registry, register'
                   href: how-to-use-mlflow.md
                 - name: MLflow를 사용하여 Azure Databricks 실행 추적
                   displayName: 'log, monitor, deploy, metrics, databricks'
                   href: how-to-use-mlflow-azure-databricks.md
-                - name: MLflow 프로젝트로 실험 학습
-                  displayName: 'log, monitor, metrics, model registry, register'
-                  href: how-to-train-mlflow-projects.md
-                - name: MLflow 모델 배포
-                  displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
-                  href: how-to-deploy-mlflow-models.md
-            - name: 교육 추적 및 모니터링
-              items:
-                - name: '실행 추적, 모니터링 및 분석'
-                  displayName: 'cancel, fail, status, child run'
-                  href: how-to-track-monitor-analyze-runs.md
                 - name: 메트릭 및 로그 파일 로그 및 보기
                   displayName: 'troubleshoot, log, files, tracing, metrics'
                   href: how-to-log-view-metrics.md
@@ -545,6 +540,9 @@
         - name: 배포 위치 및 방법
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
+        - name: MLflow 모델 배포
+          displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
+          href: how-to-deploy-mlflow-models.md
         - name: 엔드포인트로 배포
           items:
             - name: 실시간

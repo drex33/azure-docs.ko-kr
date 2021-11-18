@@ -5,14 +5,14 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 11/12/2021
 ms.custom: mvc
-ms.openlocfilehash: e67bdd11fc07c20d9f9dd660fa6aab936853015f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1a12e8ddf419b4e7b26d82e76a59de43fb73ddb4
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037913"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402412"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 물리적 서버 검색
 
@@ -185,7 +185,7 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 퍼블릭 또는 프라이빗 엔드포인트 연결로 Azure 퍼블릭 또는 Azure Government 클라우드용 물리적 어플라이언스를 설정할 수 있습니다.

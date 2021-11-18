@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: ef710559cb8d51b21e859bb08c50c5a2ed07b74c
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 7d07518d29626448957525ee36e1170e4b912835
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894206"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707908"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL - 단일 서버의 새로운 기능은 무엇인가요?
 
@@ -26,7 +26,7 @@ Azure Database for MySQL은 Microsoft 클라우드의 관계형 데이터베이�
 
 - **알려진 문제**
 
-MySQL 8.0.27 클라이언트는 Azure Database for MySQL - 단일 서버와 호환되지 않습니다. mysql.exe 또는 워크벤치를 통해 만든 MySQL 8.0.27 클라이언트의 모든 연결이 실패합니다. 해결 방법으로 이전 버전의 클라이언트(MySQL 8.0.27 이전)를 사용하거나 [대신 Azure Database for MySQL - 유연한 서버의](https://docs.microsoft.com/azure/mysql/flexible-server/overview) 인스턴스를 만드는 것이 좋습니다.
+MySQL 8.0.27 클라이언트는 Azure Database for MySQL - 단일 서버와 호환되지 않습니다. mysql.exe 또는 워크벤치를 통해 만든 MySQL 8.0.27 클라이언트의 모든 연결이 실패합니다. 해결 방법으로 이전 버전의 클라이언트(MySQL 8.0.27 이전)를 사용하거나 [대신 Azure Database for MySQL - 유연한 서버의](./flexible-server/overview.md) 인스턴스를 만드는 것이 좋습니다.
 
 ## <a name="june-2021"></a>2021년 6월
   

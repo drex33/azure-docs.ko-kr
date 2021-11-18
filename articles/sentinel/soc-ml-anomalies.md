@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 233f83083a061bf12caae58172d2c80bab876fcf
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: de25a8a32a2b2b1182acd4ef2a68834cb4b4c190
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519841"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711442"
 ---
 # <a name="use-soc-ml-anomalies-to-detect-threats-in-microsoft-sentinel"></a>SOC ML 변칙을 사용 하 여 Microsoft 센티널에서 위협 검색
 

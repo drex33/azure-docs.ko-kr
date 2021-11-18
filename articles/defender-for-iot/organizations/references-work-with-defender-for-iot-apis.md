@@ -1,18 +1,18 @@
 ---
 title: Defender for IoT API 작업
 description: 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
-ms.date: 11/09/2021
+ms.date: 11/17/2021
 ms.topic: reference
-ms.openlocfilehash: 3d7fdf855e33c84ce966bbe89e564434b2a8a748
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: f9e5e380f6659cd9a884b4de57db430fc39fea2b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132325299"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704907"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender for IoT 센서 및 관리 콘솔 API
 
-Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사용 약관.](/legal/microsoft-apis/terms-of-use)
+IoT 용 Defender Api는 [MICROSOFT Api 라이선스 및 사용 약관](/legal/microsoft-apis/terms-of-use)의 적용을 받습니다.
 
 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
 
@@ -20,7 +20,7 @@ Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사�
 
 ## <a name="getting-started"></a>시작
 
-일반적으로 Microsoft Defender for IoT 센서 또는 온-프레미스 관리 콘솔에서 외부 API를 사용하는 경우 액세스 토큰을 생성해야 합니다. 센서 및 온-프레미스 관리 콘솔에서 사용하는 인증 API에는 토큰이 필요하지 않습니다.
+일반적으로 Microsoft Defender for IoT 센서 또는 온-프레미스 관리 콘솔에서 외부 API를 사용 하는 경우 액세스 토큰을 생성 해야 합니다. 센서 및 온-프레미스 관리 콘솔에서 사용하는 인증 API에는 토큰이 필요하지 않습니다.
 
 토큰을 생성하려면 다음을 수행합니다.
 
@@ -54,6 +54,16 @@ Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사�
 
 이 섹션에서는 다음과 같은 센서 API에 대해 설명합니다.
 
+### <a name="no-version"></a>버전 없음
+
+- [사용자 자격 증명 유효성을 검사-/api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)
+
+- [암호 변경-/external/authentication/set_password](#change-password---externalauthenticationset_password)
+
+- [시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+
+### <a name="version-1"></a>버전 1
+
 - [디바이스 정보 검색-/api/v1/devices](#retrieve-device-information---apiv1devices)
 
 - [디바이스 연결 정보 검색-/api/v1/devices/connections](#retrieve-device-connection-information---apiv1devicesconnections)
@@ -70,33 +80,45 @@ Defender for IoT [API는 Microsoft API 라이선스에 의해 관리되며 사�
 
 - [운영 취약점 검색-/api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-- [사용자 자격 증명 유효성을 검사-/api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)
+### <a name="version-2"></a>버전 2
 
-- [암호 변경-/external/authentication/set_password](#change-password---externalauthenticationset_password)
+- [경고 PCAP-/api/v2/alerts/pcap 검색](#retrieve-alert-pcap---apiv2alertspcap)
 
-- [시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>사용자 자격 증명 유효성 검사-/api/external/authentication/validation
 
-- [경고 PCAP 검색 - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
+이 API를 사용하여 Defender for IoT의 사용자 이름 및 암호에 대한 유효성을 검사합니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다.
 
-### <a name="retrieve-device-information---apiv1devices"></a>디바이스 정보 검색-/api/v1/devices
-
-이 API를 사용하여 Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니다.
+이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
-- **GET**
+- **POST**
 
-Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니다.
+#### <a name="request-type"></a>요청 유형
+
+- **JSON**
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- **권한 부여됨**: 허가되고 권한이 없는 디바이스만 필터링합니다.
+| **이름** | **형식** | **Null 허용** |
+|--|--|--|
+| **username** | String | 예 |
+| **password** | String | 예 |
 
-  **예**:
+#### <a name="request-example"></a>요청 예제
 
-  `/api/v1/devices?authorized=true`
+```rest
+request:
 
-  `/api/v1/devices?authorized=false`
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!"
+
+}
+
+```
 
 #### <a name="response-type"></a>응답 형식
 
@@ -104,184 +126,182 @@ Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니�
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-디바이스를 나타내는 JSON 개체의 배열입니다.
+작업 상태 세부 정보를 포함하는 메시지 문자열:
 
-#### <a name="device-fields"></a>디바이스 필드
+- **성공-메시지**: 인증 성공
 
-| 이름 | 유형 | Nullable | 값 목록 |
-|--|--|--|--|
-| **id** | 숫자 | 예 | - |
-| **ipAddresses** | JSON 배열 | 예 | IP 주소(인터넷 주소 또는 이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **name** | String | 예 | - |
-| **type** | String | 예 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
-| **macAddresses** | JSON 배열 | 예 | MAC 주소(이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **operatingSystem** | String | 예 | - |
-| **engineeringStation** | 부울 | 예 | True 또는 False |
-| **스캐너** | 부울 | 예 | True 또는 False |
-| **승인됨** | 부울 | 예 | True 또는 False |
-| **공급업체** | String | 예 | - |
-| **프로토콜** | JSON 배열 | 예 | 프로토콜 개체 |
-| **펌웨어** | JSON 배열 | 예 | 펌웨어 개체 |
-
-#### <a name="protocol-fields"></a>프로토콜 필드
-
-| 이름 | 유형 | Nullable | 값 목록 |
-|--|--|--|--|
-| **이름** | String | 예 |  |
-| **주소** | JSON 배열 | 예 | Master 또는 숫자 값 |
-
-#### <a name="firmware-fields"></a>펌웨어 필드
-
-| 이름 | 유형 | Nullable | 값 목록 |
-|--|--|--|--|
-| **serial** | String | 예 | 해당 없음 또는 실제 값 |
-| **model** | String | 예 | 해당 없음 또는 실제 값 |
-| **firmwareVersion** | Double | 예 | 해당 없음 또는 실제 값 |
-| **additionalData** | String | 예 | 해당 없음 또는 실제 값 |
-| **moduleAddress** | String | 예 | 해당 없음 또는 실제 값 |
-| **랙** | String | 예 | 해당 없음 또는 실제 값 |
-| **슬롯** | String | 예 | 해당 없음 또는 실제 값 |
-| **address** | String | 예 | 해당 없음 또는 실제 값 |
+- **실패-오류**: 자격 증명 유효성 검사에 실패했습니다
 
 #### <a name="response-example"></a>응답 예제
 
 ```rest
-[
+response:
 
-    {
-    
-    "vendor": null,
-    
-    "name": "10.4.14.102",
-    
-    "firmware": [
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        },
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        },
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        },
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        }
-    
-    ],
-    
-    "id": 79,
-    
-    "macAddresses": null,
-    
-    "authorized": true,
-    
-    "ipAddresses": [
-    
-        "10.4.14.102"
-    
-    ],
-    
-    "engineeringStation": false,
-    
-    "type": "PLC",
-    
-    "operatingSystem": null,
-    
-    "protocols": [
-    
-        {
-        
-            "addresses": [],
-            
-            "id": 62,
-            
-            "name": "Omron FINS"
-        
-        }
-    
-    ],
-    
-    "scanner": false
-    
+{
+
+    "msg": "Authentication succeeded."
+
 }
-
-]
 ```
 
 #### <a name="curl-command"></a>Curl 명령
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation` |
+
+### <a name="change-password---externalauthenticationset_password"></a>암호 변경-/external/authentication/set_password
+
+이 API를 사용하여 사용자가 자신의 암호를 변경할 수 있습니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
+
+#### <a name="method"></a>방법
+
+- **POST**
+
+#### <a name="request-type"></a>요청 유형
+
+- **JSON**
+
+#### <a name="request-example"></a>요청 예제
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!",
+    
+    "new_password": "Test54321\!"
+
+}
+```
+
+#### <a name="response-type"></a>응답 형식
+
+- **JSON**
+
+#### <a name="response-content"></a>응답 콘텐츠
+
+작업 상태 세부 정보를 포함하는 메시지 문자열:
+
+- **성공 – 메시지**: 암호가 바뀌었습니다
+
+- **실패 - 오류**: 사용자 인증 실패
+
+- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
+
+#### <a name="response-example"></a>응답 예제
+
+```rest
+response:
+
+{
+
+    "error": {
+    
+        "userDisplayErrorMessage": "User authentication failure"
+    
+    }
+
+}
+```
+
+#### <a name="device-fields"></a>디바이스 필드
+
+| **이름** | **형식** | **Null 허용** |
+|--|--|--|
+| **username** | String | 예 |
+| **password** | String | 예 |
+| **new_password** | String | 예 |
+
+#### <a name="curl-command"></a>Curl 명령
+
+| 유형 | API | 예제 |
+|--|--|--|
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password` |
+
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
+
+이 API를 사용하여 시스템 관리자가 지정된 사용자에 대한 암호를 변경할 수 있습니다. Defender for IoT 관리자 사용자 역할은 API로 작업할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
+
+#### <a name="method"></a>방법
+
+- **POST**
+
+#### <a name="request-type"></a>요청 유형
+
+- **JSON**
+
+#### <a name="request-example"></a>요청 예제
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!",
+    
+    "new_password": "Test54321\!"
+
+}
+```
+
+#### <a name="response-type"></a>응답 형식
+
+- **JSON**
+
+#### <a name="response-content"></a>응답 콘텐츠
+
+작업 상태 세부 정보를 포함하는 메시지 문자열:
+
+- **성공 – 메시지**: 암호가 바뀌었습니다
+
+- **실패 - 오류**: 사용자 인증 실패
+
+- **실패-오류**: 사용자가 없습니다
+
+- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
+
+- **실패 – 오류**: 사용자에게 암호 변경 권한이 없습니다
+
+#### <a name="response-example"></a>응답 예제
+
+```rest
+response:
+
+{
+
+    "error": {
+    
+        "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
+        
+        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
+    
+    }
+
+}
+
+```
+
+#### <a name="device-fields"></a>디바이스 필드
+
+| **이름** | **형식** | **Null 허용** |
+|--|--|--|
+| **관리자 사용자 이름** | String | 예 |
+| **관리자 암호** | String | 예 |
+| **username** | String | 예 |
+| **new_password** | String | 예 |
+
+#### <a name="curl-command"></a>Curl 명령
+
+> [!div class="mx-tdBreakAll"]
+> | 유형 | API | 예제 |
+> |--|--|--|
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
 
 ### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>디바이스 연결 정보 검색-/api/v1/devices/connections
 
@@ -633,7 +653,7 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 
 /api/v2/는 다음 정보에 필요합니다.
 
-- sourceDeviceAddress 
+- sourceDeviceAddress
 - destinationDeviceAddress
 - remediationSteps
 
@@ -883,7 +903,7 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 | **latestVersion** | String | 예 | - |
 
 #### <a name="vulnerabilities-fields"></a>취약성 필드
- 
+
 | 이름 | 유형 | Nullable | 값 목록 |
 |--|--|--|--|
 | **antiViruses** | JSON 배열 | 예 | 바이러스 백신 이름 |
@@ -1530,41 +1550,21 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 |--|--|--|
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
-### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>사용자 자격 증명 유효성 검사-/api/external/authentication/validation
+### <a name="retrieve-alert-pcap---apiv2alertspcap"></a>경고 PCAP-/api/v2/alerts/pcap 검색
 
-이 API를 사용하여 Defender for IoT의 사용자 이름 및 암호에 대한 유효성을 검사합니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다.
+이 API를 사용 하 여 경고와 관련 된 PCAP 파일을 검색 합니다.
 
-이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
+이 끝점은 권한 부여에 일반 액세스 토큰을 사용 하지 않습니다. 대신 CM의 API 끝점에서 만든 특수 토큰이 필요 `/external/v2/alerts/pcap` 합니다.
 
 #### <a name="method"></a>방법
 
-- **POST**
-
-#### <a name="request-type"></a>요청 유형
-
-- **JSON**
+- **GET**
 
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-| **이름** | **형식** | **Null 허용** |
-|--|--|--|
-| **username** | String | 예 |
-| **password** | String | 예 |
-
-#### <a name="request-example"></a>요청 예제
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!"
-
-}
-
-```
+- id: Xsense 경고 ID  
+예제:  
+`/api/v2/alerts/pcap/<id>`
 
 #### <a name="response-type"></a>응답 형식
 
@@ -1572,29 +1572,76 @@ request:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-작업 상태 세부 정보를 포함하는 메시지 문자열:
-
-- **성공-메시지**: 인증 성공
-
-- **실패-오류**: 자격 증명 유효성 검사에 실패했습니다
+- **성공**: pcap 데이터를 포함 하는 이진 파일
+- **실패**: 오류 메시지를 포함 하는 JSON 개체입니다.
 
 #### <a name="response-example"></a>응답 예제
 
-```rest
-response:
+#### <a name="error"></a>오류
 
+```json
 {
-
-    "msg": "Authentication succeeded."
-
+  "error": "PCAP file is not available"
 }
 ```
 
 #### <a name="curl-command"></a>Curl 명령
 
-| 유형 | API | 예제 |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation` |
+|유형|API|예제|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
+
+## <a name="on-premises-management-console-api-specifications"></a>온-프레미스 관리 콘솔 API 사양
+
+이 섹션에서는 다음에 대한 온-프레미스 관리 콘솔 API에 대해 설명합니다.
+
+### <a name="no-version"></a>버전 없음
+
+- [경고 제외](#alert-exclusions)
+
+- [암호 변경-/external/authentication/set_password](#change-password---externalauthenticationset_password-1)
+
+- [시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+
+- [QRadar 경고](#qradar-alerts)
+
+- [사용자 자격 증명 인증-/external/authentication/validation](#authenticate-user-credentials---externalauthenticationvalidation)
+
+### <a name="version-1"></a>버전 1
+
+- [디바이스 정보 검색-/api/v1/devices](#retrieve-device-information---apiv1devices)
+
+- [디바이스 정보 검색-/external/v1/devices](#retrieve-device-information---externalv1devices)
+
+- [경고 정보 검색-/external/v1/alerts](#retrieve-alert-information---externalv1alerts)
+
+- [경고 제외(유지 관리 기간)-/external/v1/maintenanceWindow](#alert-exclusions-maintenance-window---externalv1maintenancewindow)
+
+### <a name="version-2"></a>버전 2
+
+- [경고 PCAP 요청 - /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
+
+### <a name="version-3"></a>버전 3
+
+- [Service Now 통합 API - "/external/v3/integration/](#service-now-integration-api---externalv3integration)
+
+### <a name="alert-exclusions"></a>경고 제외
+
+경고를 보내지 않을 조건을 정의합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외되어야 하는 디바이스 또는 서브넷, 제외되어야 하는 Defender for IoT 엔진을 정의하고 업데이트합니다. 예를 들어 유지 관리 기간 동안 중요한 디바이스에 대한 맬웨어 경고를 제외하고 모든 경고의 경고 제공을 중지할 수 있습니다. 여기서 정의한 항목은 온-프레미스 관리 콘솔의 경고 제외 창에 읽기 전용 제외 규칙으로 표시됩니다.
+
+#### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
+
+- **/external/authentication/validation**
+
+- **응답 예제**
+
+- **응답:**
+
+```rest
+{
+    "msg": "Authentication succeeded."
+}
+```
 
 ### <a name="change-password---externalauthenticationset_password"></a>암호 변경-/external/authentication/set_password
 
@@ -1602,7 +1649,7 @@ response:
 
 #### <a name="method"></a>방법
 
-- **POST**
+**POST**
 
 #### <a name="request-type"></a>요청 유형
 
@@ -1622,6 +1669,7 @@ request:
     "new_password": "Test54321\!"
 
 }
+
 ```
 
 #### <a name="response-type"></a>응답 형식
@@ -1652,6 +1700,7 @@ response:
     }
 
 }
+
 ```
 
 #### <a name="device-fields"></a>디바이스 필드
@@ -1666,11 +1715,11 @@ response:
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password` |
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password` |
 
 ### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
 
-이 API를 사용하여 시스템 관리자가 지정된 사용자에 대한 암호를 변경할 수 있습니다. Defender for IoT 관리자 사용자 역할은 API로 작업할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
+이 API를 사용하여 시스템 관리자가 지정된 사용자에 대한 암호를 변경할 수 있습니다. 모든 Defender for IoT 관리 사용자 역할은 API로 작업할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
 
 #### <a name="method"></a>방법
 
@@ -1747,23 +1796,49 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password_by_admin` |
 
-### <a name="retrieve-alert-pcap---apiv2alertspcap"></a>경고 PCAP 검색 - /api/v2/alerts/pcap
+### <a name="qradar-alerts"></a>QRadar 경고
 
-이 API를 사용하여 경고와 관련된 PCAP 파일 검색
+QRadar와 Defender for IoT 통합은 Defender for IoT에서 생성된 경고를 식별하고 이러한 경고를 사용하여 작업을 수행하는 데 도움이 됩니다. QRadar는 Defender for IoT에서 데이터를 받은 다음 공용 API 온-프레미스 관리 콘솔 구성 요소에 연결합니다.
 
-이 엔드포인트는 권한 부여를 위해 일반 액세스 토큰을 사용하지 않습니다. 대신 `/external/v2/alerts/pcap` CM의 API 엔드포인트에서 만든 특수 토큰이 필요합니다.
+Defender for IoT에서 발견한 데이터를 QRadar에 보내려면 Defender for IoT 시스템에서 전달 규칙을 정의하고 **원격 지원 경고 처리** 옵션을 선택합니다.
+
+:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="필요에 맞게 전달 규칙을 편집합니다.":::
+
+전달 규칙을 구성하는 과정에서 이 옵션을 선택하면 다음과 같은 추가 필드가 QRadar에 표시됩니다.
+
+- **UUID**: 고유한 경고 식별자(예: 1-1555245116250)입니다.
+
+- **사이트**: 경고가 검색된 사이트입니다.
+
+- **사이트**: 경고가 검색된 영역입니다.
+
+QRadar으로 전송된 페이로드의 예제는 다음과 같습니다.
+
+```
+<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
+```
+
+### <a name="retrieve-device-information---apiv1devices"></a>디바이스 정보 검색-/api/v1/devices
+
+이 API를 사용하여 Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니다.
 
 #### <a name="method"></a>방법
 
 - **GET**
 
+Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니다.
+
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
-- id: Xsense 경고 ID  
-예:  
-`/api/v2/alerts/pcap/<id>`
+- **권한 부여됨**: 허가되고 권한이 없는 디바이스만 필터링합니다.
+
+  **예**:
+
+  `/api/v1/devices?authorized=true`
+
+  `/api/v1/devices?authorized=false`
 
 #### <a name="response-type"></a>응답 형식
 
@@ -1771,62 +1846,247 @@ response:
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-- **성공:** PCAP 데이터를 포함하는 이진 파일
-- **실패:** 오류 메시지를 포함하는 JSON 개체
+디바이스를 나타내는 JSON 개체의 배열입니다.
+
+#### <a name="device-fields"></a>디바이스 필드
+
+| 이름 | 유형 | Nullable | 값 목록 |
+|--|--|--|--|
+| **id** | 숫자 | 예 | - |
+| **ipAddresses** | JSON 배열 | 예 | IP 주소(인터넷 주소 또는 이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **name** | String | 예 | - |
+| **type** | String | 예 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
+| **macAddresses** | JSON 배열 | 예 | MAC 주소(이중 NIC를 사용하는 디바이스의 경우 두 개 이상의 주소를 사용할 수 있음) |
+| **operatingSystem** | String | 예 | - |
+| **engineeringStation** | 부울 | 예 | True 또는 False |
+| **스캐너** | 부울 | 예 | True 또는 False |
+| **승인됨** | 부울 | 예 | True 또는 False |
+| **공급업체** | String | 예 | - |
+| **프로토콜** | JSON 배열 | 예 | 프로토콜 개체 |
+| **펌웨어** | JSON 배열 | 예 | 펌웨어 개체 |
+
+#### <a name="protocol-fields"></a>프로토콜 필드
+
+| 이름 | 유형 | Nullable | 값 목록 |
+|--|--|--|--|
+| **이름** | String | 예 |  |
+| **주소** | JSON 배열 | 예 | Master 또는 숫자 값 |
+
+#### <a name="firmware-fields"></a>펌웨어 필드
+
+| 이름 | 유형 | Nullable | 값 목록 |
+|--|--|--|--|
+| **serial** | String | 예 | 해당 없음 또는 실제 값 |
+| **model** | String | 예 | 해당 없음 또는 실제 값 |
+| **firmwareVersion** | Double | 예 | 해당 없음 또는 실제 값 |
+| **additionalData** | String | 예 | 해당 없음 또는 실제 값 |
+| **moduleAddress** | String | 예 | 해당 없음 또는 실제 값 |
+| **랙** | String | 예 | 해당 없음 또는 실제 값 |
+| **슬롯** | String | 예 | 해당 없음 또는 실제 값 |
+| **address** | String | 예 | 해당 없음 또는 실제 값 |
 
 #### <a name="response-example"></a>응답 예제
 
-#### <a name="error"></a>오류
+```rest
+[
 
-```json
+    {
+    
+    "vendor": null,
+    
+    "name": "10.4.14.102",
+    
+    "firmware": [
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        }
+    
+    ],
+    
+    "id": 79,
+    
+    "macAddresses": null,
+    
+    "authorized": true,
+    
+    "ipAddresses": [
+    
+        "10.4.14.102"
+    
+    ],
+    
+    "engineeringStation": false,
+    
+    "type": "PLC",
+    
+    "operatingSystem": null,
+    
+    "protocols": [
+    
+        {
+        
+            "addresses": [],
+            
+            "id": 62,
+            
+            "name": "Omron FINS"
+        
+        }
+    
+    ],
+    
+    "scanner": false
+    
+}
+
+]
+```
+
+#### <a name="curl-command"></a>Curl 명령
+
+| 유형 | API | 예제 |
+|--|--|--|
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
+
+### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>사용자 자격 증명 인증-/external/authentication/validation
+
+이 API를 사용하여 사용자 자격 증명의 유효성을 검사합니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
+
+#### <a name="method"></a>방법
+
+**POST**
+
+#### <a name="request-type"></a>요청 유형
+
+- **JSON**
+
+#### <a name="request-example"></a>요청 예제
+
+```rest
+request:
+
 {
-  "error": "PCAP file is not available"
+
+    "username": "test",
+
+    "password": "Test12345\!"
+
+}
+```
+
+#### <a name="response-type"></a>응답 형식
+
+- **JSON**
+
+#### <a name="response-content"></a>응답 콘텐츠
+
+작업 상태 세부 정보를 포함하는 메시지 문자열:
+
+- **성공 - 메시지**: 인증 성공
+
+- **실패 - 오류**: 자격 증명 유효성 검사에 실패했습니다
+
+#### <a name="device-fields"></a>디바이스 필드
+
+| **이름** | **형식** | **Null 허용** |
+|--|--|--|
+| **username** | String | 예 |
+| **password** | String | 예 |
+
+#### <a name="response-example"></a>응답 예제
+
+```rest
+response:
+
+{
+
+    "msg": "Authentication succeeded."
+
 }
 ```
 
 #### <a name="curl-command"></a>Curl 명령
 
-|유형|API|예제|
-|-|-|-|
-|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
-
-## <a name="on-premises-management-console-api-specifications"></a>온-프레미스 관리 콘솔 API 사양
-
-이 섹션에서는 다음에 대한 온-프레미스 관리 콘솔 API에 대해 설명합니다.
-
-- [경고 제외](#alert-exclusions)
-
-- [디바이스 정보 검색-/external/v1/devices](#retrieve-device-information---externalv1devices)
-
-- [경고 정보 검색-/external/v1/alerts](#retrieve-alert-information---externalv1alerts)
-
-- [QRadar 경고](#qradar-alerts)
-
-- [경고 제외(유지 관리 기간)-/external/v1/maintenanceWindow](#alert-exclusions-maintenance-window---externalv1maintenancewindow)
-
-- [암호 변경 - /external/authentication/set_password (1)](#change-password---externalauthenticationset_password-1)
-
-- [시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
-
-- [경고 PCAP 요청 - /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
-
-### <a name="alert-exclusions"></a>경고 제외
-
-경고를 보내지 않을 조건을 정의합니다. 예를 들어 중지 및 시작 시간, 경고를 트리거할 때 제외되어야 하는 디바이스 또는 서브넷, 제외되어야 하는 Defender for IoT 엔진을 정의하고 업데이트합니다. 예를 들어 유지 관리 기간 동안 중요한 디바이스에 대한 맬웨어 경고를 제외하고 모든 경고의 경고 제공을 중지할 수 있습니다. 여기에서 정의한 항목은 온-프레미스 관리 콘솔의 경고 제외 창에 읽기 전용 제외 규칙으로 표시됩니다.
-
-#### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
-
-- **/external/authentication/validation**
-
-- **응답 예제**
-
-- **응답:**
-
-```rest
-{
-    "msg": "Authentication succeeded."
-}
-```
+| 유형 | API | 예제 |
+|--|--|--|
+| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation'` |
 
 ### <a name="retrieve-device-information---externalv1devices"></a>디바이스 정보 검색-/external/v1/devices
 
@@ -2182,28 +2442,6 @@ response:
 > |--|--|--|
 > | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
 
-### <a name="qradar-alerts"></a>QRadar 경고
-
-QRadar와 Defender for IoT 통합은 Defender for IoT에서 생성된 경고를 식별하고 이러한 경고를 사용하여 작업을 수행하는 데 도움이 됩니다. QRadar는 Defender for IoT에서 데이터를 받은 다음 공용 API 온-프레미스 관리 콘솔 구성 요소에 연결합니다.
-
-Defender for IoT에서 발견한 데이터를 QRadar에 보내려면 Defender for IoT 시스템에서 전달 규칙을 정의하고 **원격 지원 경고 처리** 옵션을 선택합니다.
-
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="필요에 맞게 전달 규칙을 편집합니다.":::
-
-전달 규칙을 구성하는 과정에서 이 옵션을 선택하면 다음과 같은 추가 필드가 QRadar에 표시됩니다.
-
-- **UUID**: 고유한 경고 식별자(예: 1-1555245116250)입니다.
-
-- **사이트**: 경고가 검색된 사이트입니다.
-
-- **사이트**: 경고가 검색된 영역입니다.
-
-QRadar으로 전송된 페이로드의 예제는 다음과 같습니다.
-
-```
-<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
-```
-
 #### <a name="externalv1alertsltuuidgt"></a>/external/v1/alerts/&lt;UUID&gt;
 
 #### <a name="method"></a>방법
@@ -2440,224 +2678,6 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 | Delete | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
 
-### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>사용자 자격 증명 인증-/external/authentication/validation
-
-이 API를 사용하여 사용자 자격 증명의 유효성을 검사합니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
-
-#### <a name="method"></a>방법
-
-**POST**
-
-#### <a name="request-type"></a>요청 유형
-
-- **JSON**
-
-#### <a name="request-example"></a>요청 예제
-
-```rest
-request:
-
-{
-
-    "username": "test",
-
-    "password": "Test12345\!"
-
-}
-```
-
-#### <a name="response-type"></a>응답 형식
-
-- **JSON**
-
-#### <a name="response-content"></a>응답 콘텐츠
-
-작업 상태 세부 정보를 포함하는 메시지 문자열:
-
-- **성공 - 메시지**: 인증 성공
-
-- **실패 - 오류**: 자격 증명 유효성 검사에 실패했습니다
-
-#### <a name="device-fields"></a>디바이스 필드
-
-| **이름** | **형식** | **Null 허용** |
-|--|--|--|
-| **username** | String | 예 |
-| **password** | String | 예 |
-
-#### <a name="response-example"></a>응답 예제
-
-```rest
-response:
-
-{
-
-    "msg": "Authentication succeeded."
-
-}
-```
-
-#### <a name="curl-command"></a>Curl 명령
-
-| 유형 | API | 예제 |
-|--|--|--|
-| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation'` |
-
-### <a name="change-password---externalauthenticationset_password"></a>암호 변경-/external/authentication/set_password
-
-이 API를 사용하여 사용자가 자신의 암호를 변경할 수 있습니다. 모든 Defender for IoT 사용자 역할은 API와 함께 작동할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
-
-#### <a name="method"></a>방법
-
-**POST**
-
-#### <a name="request-type"></a>요청 유형
-
-- **JSON**
-
-#### <a name="request-example"></a>요청 예제
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!",
-    
-    "new_password": "Test54321\!"
-
-}
-
-```
-
-#### <a name="response-type"></a>응답 형식
-
-- **JSON**
-
-#### <a name="response-content"></a>응답 콘텐츠
-
-작업 상태 세부 정보를 포함하는 메시지 문자열:
-
-- **성공 – 메시지**: 암호가 바뀌었습니다
-
-- **실패 - 오류**: 사용자 인증 실패
-
-- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
-
-#### <a name="response-example"></a>응답 예제
-
-```rest
-response:
-
-{
-
-    "error": {
-    
-        "userDisplayErrorMessage": "User authentication failure"
-    
-    }
-
-}
-
-```
-
-#### <a name="device-fields"></a>디바이스 필드
-
-| **이름** | **형식** | **Null 허용** |
-|--|--|--|
-| **username** | String | 예 |
-| **password** | String | 예 |
-| **new_password** | String | 예 |
-
-#### <a name="curl-command"></a>Curl 명령
-
-| 유형 | API | 예제 |
-|--|--|--|
-| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password` |
-
-### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
-
-이 API를 사용하여 시스템 관리자가 지정된 사용자에 대한 암호를 변경할 수 있습니다. 모든 Defender for IoT 관리 사용자 역할은 API로 작업할 수 있습니다. 이 API를 사용하는 데 Defender for IoT 액세스 토큰이 필요하지 않습니다.
-
-#### <a name="method"></a>방법
-
-- **POST**
-
-#### <a name="request-type"></a>요청 유형
-
-- **JSON**
-
-#### <a name="request-example"></a>요청 예제
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!",
-    
-    "new_password": "Test54321\!"
-
-}
-```
-
-#### <a name="response-type"></a>응답 형식
-
-- **JSON**
-
-#### <a name="response-content"></a>응답 콘텐츠
-
-작업 상태 세부 정보를 포함하는 메시지 문자열:
-
-- **성공 – 메시지**: 암호가 바뀌었습니다
-
-- **실패 - 오류**: 사용자 인증 실패
-
-- **실패-오류**: 사용자가 없습니다
-
-- **실패 – 오류**: 암호가 보안 정책과 일치하지 않습니다
-
-- **실패 – 오류**: 사용자에게 암호 변경 권한이 없습니다
-
-#### <a name="response-example"></a>응답 예제
-
-```rest
-response:
-
-{
-
-    "error": {
-    
-        "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
-        
-        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
-    
-    }
-
-}
-
-```
-
-#### <a name="device-fields"></a>디바이스 필드
-
-| **이름** | **형식** | **Null 허용** |
-|--|--|--|
-| **관리자 사용자 이름** | String | 예 |
-| **관리자 암호** | String | 예 |
-| **username** | String | 예 |
-| **new_password** | String | 예 |
-
-#### <a name="curl-command"></a>Curl 명령
-
-> [!div class="mx-tdBreakAll"]
-> | 유형 | API | 예제 |
-> |--|--|--|
-> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password_by_admin` |
-
 ### <a name="request-alert-pcap---externalv2alertspcap"></a>경고 PCAP 요청 - /external/v2/alerts/pcap
 
 이 API를 사용하여 경고와 관련된 PCAP 파일을 요청합니다.
@@ -2669,7 +2689,7 @@ response:
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
 - id: CM 경고 ID  
-예:  
+예제:  
 `/external/v2/alerts/pcap/<id>`
 
 #### <a name="response-type"></a>응답 형식
@@ -2718,6 +2738,208 @@ response:
 |유형|API|예제|
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
+
+### <a name="service-now-integration-api---externalv3integration"></a>Service Now Integration API-"/external/v3/integration/
+
+아래 API는 servicenow에 대 한 Defender의 Service Graph 커넥터 (IoT 용)를 통한 servicenow 통합과 함께 사용할 수 있습니다.
+
+### <a name="create-and-update-devices"></a>장치 만들기 및 업데이트
+
+#### <a name="request"></a>요청
+
+- 경로: "/devices/{timestamp}"
+- 메서드 형식: GET
+- 경로 매개 변수:
+    - "**timestamp**" – 업데이트가 필요한 시간으로, 이후 업데이트만 반환 됩니다.
+
+- 쿼리 매개 변수:
+    - "**sensorId**"-이 매개 변수를 사용 하 여 특정 센서에 표시 되는 장치만 가져올 수 있습니다. 이 Id는 센서 API의 결과에서 가져와야 합니다.
+    - "**notificationType**"-다음 매핑에서 숫자 여야 합니다.
+        - 0 – 업데이트 된 장치와 새 장치 모두 (기본값)
+        - 1 – 새 장치만
+        - 2 – 업데이트 된 장치만
+    - "**page**"-결과 집합의 페이지 번호입니다. 첫 번째 페이지는 0이 고 기본값은 0입니다.
+    - "**size**"-페이지 크기 (기본값은 50)
+
+#### <a name="response"></a>응답
+
+- 형식: JSON
+- 구조체나
+    - "**u_count**"-모든 페이지를 포함 하 여 전체 결과 집합의 개체 양입니다.
+    - "**u_devices**"-특정 장치 API에 정의 된 장치 개체의 배열입니다.
+
+### <a name="connections"></a>Connections
+
+#### <a name="request"></a>요청
+
+- 경로: "/connections/{timestamp}"
+- 메서드 형식: GET
+- 경로 매개 변수:
+    - "**timestamp**" – 업데이트가 필요한 시간으로, 이후 업데이트만 반환 됩니다.
+- 쿼리 매개 변수:
+    - "**page**"-결과 집합의 페이지 번호입니다. 기본값은 1입니다.
+    - "**size**"-페이지 크기 (기본값은 50)
+
+#### <a name="response"></a>응답
+
+- 형식: JSON
+- 구조체나 
+    - "**u_count**"-모든 페이지를 포함 하 여 전체 결과 집합의 개체 양입니다.
+    - "**u_connections**"-배열
+        - "**u_src_device_id**"-원본 장치의 id입니다.
+        - "**u_dest_device_id**"-대상 장치의 id입니다.
+        - "**u_connection_type**"-다음 중 하나입니다.
+            - "**단방향"**
+            - "**양방향**"
+            - "**멀티 캐스트**"
+
+### <a name="specific-device"></a>특정 장치
+
+#### <a name="request"></a>요청
+
+- 경로: "/device/{deviceId}"
+- 메서드 형식: GET
+- 경로 매개 변수:
+    - "**deviceId**" – 요청 된 장치의 Id입니다.
+
+#### <a name="response"></a>응답
+
+- 형식: JSON
+- 구조체나
+    - "**u_id**"-장치의 내부 id입니다.
+    - "**u_vendor**"-공급 업체의 이름입니다.
+    - "**u_mac_address_objects**"-배열
+        - "**u_mac_address**"-장치의 mac 주소입니다.
+    - "**u_ip_address_objects**"-배열
+        - "**u_ip_address**"-장치의 ip 주소입니다.
+        - "**u_guessed_mac_addresses**"-배열
+            - "**u_mac_address**"-추측 되는 mac 주소입니다.
+    - "**u_name**"-장치 이름입니다.
+    - "**u_last_activity**"-장치가 마지막으로 활성화 된 시간에 대 한 타임 스탬프입니다.
+    - "**u_first_discovered**"-장치의 검색 시간에 대 한 타임 스탬프입니다.
+    - "**u_last_update**"-장치의 마지막 업데이트 시간에 대 한 타임 스탬프입니다.
+    - "**u_vlans**"-배열
+        - "**u_vlan**"-장치가 있는 vlan입니다.
+    - "**u_device_type**"-
+        - "**u_name**"-장치 유형
+        - "**u_purdue_layer**"-이 장치 유형에 대 한 기본 purdue 계층입니다.
+        - "**u_category**"-다음 중 하나가 됩니다.
+            - "**IT**"
+            - "**ICS**"
+            - "**IoT**"
+            - "**네트워크**"
+    - "**u_operating_system**"-장치 운영 체제
+    - "**u_protocol_objects**"-배열
+        - "**u_protocol**"-장치가 사용 하는 프로토콜입니다.
+    - "**u_purdue_layer**"-사용자가 수동으로 설정한 purdue 계층입니다.
+    - "**u_sensor_ids**"-배열
+        - "**u_sensor_id**" - 디바이스를 본 센서의 ID입니다.
+    - "**u_device_urls**" - 배열
+        - "**u_device_url**" 센서에서 디바이스를 볼 URL입니다.
+    - "**u_firmwares**" - 배열
+        - "**u_address**"
+        - "**u_module_address**"
+        - "**u_serial**"
+        - "**u_model**"
+        - "**u_version**"
+        - "**u_additional_data**"
+
+### <a name="deleted-devices"></a>삭제된 디바이스
+
+#### <a name="request"></a>요청
+
+- 경로: "/deleteddevices/{timestamp}"
+- 메서드 형식: GET
+- 경로 매개 변수:
+    - "**timestamp**" – 업데이트가 필요한 시간이며 이후 업데이트만 반환됩니다.
+
+#### <a name="response"></a>응답
+
+- 형식: JSON
+- 구조:
+    - 배열
+        - "**u_id**" - 삭제된 디바이스의 ID입니다.
+
+### <a name="sensors"></a>센서
+
+#### <a name="request"></a>요청
+
+- 경로: "/sensors"
+- 메서드 형식: GET
+
+#### <a name="response"></a>응답
+
+- 형식: JSON
+- 구조:
+    - 배열
+        - "**u_id**" - 디바이스 API에서 사용할 내부 센서 ID입니다.
+        - "**u_name**" - 어플라이언스의 이름입니다.
+        - "**u_connection_state**" - CM 상태와의 연결입니다. 다음 중 하나
+            - "**SYNCED**" - 연결이 성공했습니다.
+            - "**OUT_OF_SYNC**" - 관리 콘솔이 센서에서 받은 데이터를 처리할 수 없습니다.
+            - "**TIME_DIFF_OFFSET**" - 시간 드리프트가 검색되었습니다. 센서에서 관리 콘솔의 연결이 끊어졌습니다.
+            - " DISCONNECTED " -**센서가** 관리 콘솔과 통신하지 않습니다. 네트워크 연결을 확인합니다.
+        - "**u_interface_address**" - 어플라이언스의 네트워크 주소입니다.
+        - "**u_version**" - 센서 버전의 문자열 표현입니다.
+        - "**u_alert_count**" - 센서에서 발견한 경고 수입니다.
+        - "**u_device_count**" - 센서에서 검색한 디바이스 수입니다.
+        - "**u_unhandled_alert_count**" - 센서의 처리되지 않은 경고 수입니다.
+        - "**u_is_activated**" - 활성화된 경고입니다.
+        - "**u_data_intelligence_version**" - 센서에 설치된 데이터 인텔리전스의 문자열 표현입니다.
+        - "**u_remote_upgrade_stage**" - 원격 업그레이드의 상태입니다. 다음 중 하나
+            - "**UPLOADING**"
+            - "**PREPARE_TO_INSTALL**"
+            - "**STOPPING_PROCESSES**"
+            - "**BACKING_UP_DATA**"
+            - "**TAKING_SNAPSHOT**"
+            - "**UPDATING_CONFIGURATION**"
+            - "**UPDATING_DEPENDENCIES**"
+            - "**UPDATING_LIBRARIES**"
+            - "**PATCHING_DATABASES**"
+            - "**STARTING_PROCESSES**"
+            - "**VALIDATING_SYSTEM_SANITY**"
+            - "**VALIDATION_SUCCEEDED_REBOOTING**"
+            - "**SUCCESS**"
+            - "**FAILURE**"
+            - "**UPGRADE_STARTED**"
+            - "**STARTING_INSTALLATION**"
+            - "**INSTALLING_OPERATING_SYSTEM**"
+        - "**u_uid**" - 센서의 전역적으로 고유한 식별자
+
+### <a name="device-cves"></a>디바이스 CVEs
+
+#### <a name="request"></a>요청
+
+- 경로: "/devicecves/{timestamp}"
+- 메서드 형식: GET
+- 경로 매개 변수:
+    - "**timestamp**" – 업데이트가 필요한 시간이며 이후 업데이트만 반환됩니다.
+- 쿼리 매개 변수:
+    - "**sensorId**" - 이 매개 변수를 사용하여 특정 센서에서 볼 수 있는 디바이스만을 얻습니다. Id는 센서 API의 결과에서 가져와야 합니다.
+    - "**page**" - 결과 집합의 페이지 번호입니다(첫 번째 페이지는 0, 기본값은 0).
+    - "**size**" - 페이지 크기(기본값: 50)
+
+#### <a name="response"></a>응답
+
+- 형식: JSON
+- 구조:
+    - "**u_count**" - 모든 페이지를 포함하여 전체 결과 집합의 개체 양입니다.
+    - "**u_devices**" - 배열
+    - "**u_id**" - 특정 디바이스 API와 동일합니다.
+    - "**u_name**" - 특정 디바이스 API와 동일합니다.
+    - "**u_ip_address_objects**" - 특정 디바이스 API와 동일합니다.
+    - "**u_mac_address_objects**" - 특정 디바이스 API와 동일합니다.
+    - "**u_last_activity**" - 특정 디바이스 API와 동일합니다.
+    - "**u_last_update**" - 특정 디바이스 API와 동일합니다.
+    - "**u_cves**" - CVE 배열:
+        - "**u_ip_address**" - CVE가 검색된 특정 펌웨어를 포함하는 특정 인터페이스의 IP 주소입니다.
+        - "**u_cve_id**"- CVE의 ID
+        - "**u_score**"- CVE의 위험 점수
+        - "**u_attack_vector**" - 다음 중 하나:
+            - "**ADJACENT_NETWORK**"
+            - "**LOCAL**"
+            - "**NETWORK**"
+        - "**u_description**" - CVE에 대한 설명입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

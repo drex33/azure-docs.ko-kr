@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 07a2f605c2cb0211d7aaa1dae37d3cf015e369db
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: c6abd0f799f3f8f2f457352de3a23bdd2ecbd9de
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518606"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721084"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Microsoft 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
@@ -75,7 +73,7 @@ Microsoft 센티널은 보안 분석가가 컨텍스트의 비정상적인 활�
 
 ## <a name="entity-pages"></a>엔터티 페이지
 
-[Microsoft 센티널의 엔터티에](entities-in-azure-sentinel.md) 대해 자세히 알아보고 [지원 되는 엔터티 및 식별자](entities-reference.md)의 전체 목록을 확인 하세요.
+[Microsoft 센티널의 엔터티에](entities.md) 대해 자세히 알아보고 [지원 되는 엔터티 및 식별자](entities-reference.md)의 전체 목록을 확인 하세요.
 
 엔터티 검색, 경고 또는 조사에서 사용자 또는 호스트 엔터티(IP 주소 엔터티가 미리 보기로 제공됨)를 확인하면 엔터티를 선택하여 **엔터티 페이지**(해당 엔터티에 대한 유용한 정보가 포함된 데이터시트)로 이동할 수 있습니다. 해당 페이지에서 찾을 수 있는 정보 유형에는 엔터티에 대한 기본 팩트, 해당 엔터티와 관련된 주목할 만한 이벤트의 타임라인 및 엔터티 동작에 대한 인사이트가 포함됩니다.
  

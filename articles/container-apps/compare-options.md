@@ -1,27 +1,27 @@
 ---
 title: 다른 Azure 컨테이너 옵션과 Container Apps 비교
 description: Azure Container Apps를 사용하는 시기와 Azure Container Instances, Azure App Service, Azure Functions 및 Azure Kubernetes Service를 포함한 d 컨테이너 옵션과 비교하는 방법을 이해합니다.
-services: app-service
+services: container-apps
 author: jeffhollan
-ms.service: app-service
+ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c4be1ff27bb17f503438dac6b3b097137700c4e0
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 0ac05794b42e91060e604a9d6921547150eb6706
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131846181"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309999"
 ---
 # <a name="comparing-container-apps-with-other-azure-container-options"></a>다른 Azure 컨테이너 옵션과 Container Apps 비교
 
 팀이 Azure에서 클라우드 원시 및 컨테이너화된 애플리케이션을 빌드하고 배포할 수 있는 다양한 옵션이 있습니다. 이 문서는 Azure Container Apps에 가장 적합한 시나리오 및 사용 사례와 다음을 비롯한 Azure의 다른 컨테이너 옵션과 비교하는 방법을 이해하는 데 도움이 됩니다.  
+- [Azure App Service](#azure-app-service)
 - [Azure Container Instances](#azure-container-instances)
-- [Azure App Services](#azure-app-services)
-- [Azure Functions](#azure-functions)
 - [Azure Kubernetes Service](#azure-kubernetes-service)
+- [Azure Functions](#azure-functions)
 - [Azure Spring Cloud](#azure-spring-cloud)
 
 모든 사용 사례 및 모든 팀에 대한 완벽한 솔루션은 없습니다. 다음 설명에서는 팀 및 요구 사항에 가장 적합한 것을 찾는 데 도움이 되는 일반적인 참고 자료와 권장 사항을 시작점으로 제공합니다.
@@ -40,11 +40,10 @@ Azure Container Apps를 사용하면 컨테이너를 기반으로 서버리스 �
 * [서비스 검색](connect-apps.md) 및 [트래픽 분할](revisions.md)과 같은 기능을 통해 Kubernetes 스타일 앱 및 마이크로 서비스를 지원합니다.
 * 트래픽에 따라 비율 크기 조정을 지원하고 [0으로 비율 크기 조정](scale-app.md)을 포함하여 [큐와 같은 이벤트 원본](scale-app.md)에서 끌어와서 이벤트 기반 애플리케이션 아키텍처를 사용하도록 설정합니다.
 * 장기 실행 프로세스를 지원하고 [백그라운드 작업](background-processing.md)을 실행할 수 있습니다.
-* 모든 Container Apps는 Kubernetes와 호환됩니다.
 
 Azure Container Apps는 기본 Kubernetes API에 대한 직접 액세스를 제공하지 않습니다. Kubernetes API 및 컨트롤 플레인에 액세스해야 하는 경우 [Azure Kubernetes Service](../aks/intro-kubernetes.md)를 사용해야 합니다. 그러나 Kubernetes 스타일 애플리케이션을 빌드하고 모든 원시 Kubernetes API 및 클러스터 관리에 직접 액세스할 필요가 없는 경우 Container Apps는 모범 사례를 기반으로 완전 관리형 환경을 제공합니다. 이러한 이유로 많은 팀에서 Azure Container Apps를 사용하여 컨테이너 마이크로 서비스 빌드를 시작하는 것을 선호할 수 있습니다.
 
-### <a name="azure-app-services"></a>Azure App Services
+### <a name="azure-app-service"></a>Azure App Service
 Azure App Service는 웹 사이트 및 웹 API를 비롯한 웹 애플리케이션에 대한 완전 관리형 호스팅을 제공합니다. 이러한 웹 애플리케이션은 코드 또는 컨테이너를 사용하여 배포할 수 있습니다. Azure App Service는 웹 애플리케이션에 최적화되어 있습니다. Azure App Service는 Azure Container Apps 또는 Azure Functions를 비롯한 다른 Azure 서비스와 통합됩니다. 웹앱을 빌드할 때 Azure App Service는 이상적인 옵션입니다.
 
 ### <a name="azure-container-instances"></a>Azure Container Instances

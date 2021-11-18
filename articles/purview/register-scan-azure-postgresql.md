@@ -1,23 +1,23 @@
 ---
 title: Azure Database for PostgreSQL에 연결 및 관리
-description: 이 가이드에서는 Azure Purview에서 Azure Database for PostgreSQL에 연결하고 Purview의 기능을 사용하여 Azure Database for PostgreSQL 원본을 검사하고 관리하는 방법을 설명합니다.
-author: evwhite
+description: 이 가이드에서는 Azure Purview에서 Azure Database for PostgreSQL 단일 서버에 연결하고 Purview의 기능을 사용하여 Azure Database for PostgreSQL 원본을 검사하고 관리하는 방법을 설명합니다.
+author: evangelinew
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 1f5fa328a7a7a2f61647274eba0ba0282a820ec8
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 46e2f60adc895b60370ed7109305bb8966057fa3
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131841906"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402393"
 ---
 # <a name="connect-to-and-manage-an-azure-database-for-postgresql-in-azure-purview"></a>Azure Purview에서 Azure Database for PostgreSQL에 연결 및 관리
 
-이 문서에서는 Azure Database for PostgreSQL을 등록하는 방법과 Azure Purview에서 Azure Database for PostgreSQL을 인증하고 상호 작용하는 방법을 간략하게 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
+이 문서에서는 단일 서버 배포 옵션으로 배포된 Azure Database for PostgreSQL을 등록하는 방법과 Azure Purview에서 Azure Database for PostgreSQL을 인증하고 상호 작용하는 방법을 간략하게 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -25,7 +25,10 @@ ms.locfileid: "131841906"
 |---|---|---|---|---|---|---|
 | [예](#register) | [예](#scan)| [예](#scan) | [예](#scan) | [예](#scan) | 예 | 아니요** |
 
-\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
+\**데이터 세트가 [데이터 팩터리 복사 작업](how-to-link-azure-data-factory.md)에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다. 
+
+> [!Important]
+>  Purview는 Azure Database for PostgreSQL에 대한 단일 서버 배포 옵션만 지원합니다. 버전 8.x ~ 12.x
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,7 +44,7 @@ ms.locfileid: "131841906"
 
 ### <a name="authentication-for-registration"></a>등록 인증
 
-현재 Azure Database for PostgreSQL을 관리하고 상호 작용할 수 있도록 SQL 인증만 지원됩니다.
+현재 Azure Database for PostgreSQL 단일 서버를 관리하고 상호 작용할 수 있도록 SQL 인증만 지원됩니다.
 
 #### <a name="sql-authentication"></a>SQL 인증
 

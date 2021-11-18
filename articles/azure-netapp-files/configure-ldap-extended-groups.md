@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 79bd8ca1855391365bfc33c7a259d1a984ce139c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1619ca5932e9be06261a273d640139b1a9c499be
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447059"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709807"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
 
@@ -97,11 +97,17 @@ ms.locfileid: "131447059"
 
 5. LDAP 통합 NFSv4.1 Linux 클라이언트를 구성하려면 [Azure NetApp Files용 NFS 클라이언트 구성](configure-nfs-clients.md)을 참조하세요.
 
-6.  [Azure NetApp Files용 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)의 단계에 따라 NFS 볼륨을 만듭니다. 볼륨 생성 프로세스 중에 **프로토콜** 탭에서 **LDAP** 옵션을 사용하도록 설정합니다.   
+6. LDAP 사용 볼륨이 NFSv 4.1을 사용 하는 경우 [nfsv 4.1 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain) 의 지침에 따라 파일을 구성 `/etc/idmapd.conf` 합니다.
+
+    `Domain`에서 `/etc/idmapd.conf` netapp 계정의 Active Directory 연결로 구성 된 도메인으로를 설정 해야 합니다. 예를 들어 `contoso.com` 가 NetApp 계정에서 구성 된 도메인 인 경우를 설정 `Domain = contoso.com` 합니다.
+
+    그런 다음 `rpcbind` 호스트에서 서비스를 다시 시작 하거나 호스트를 다시 부팅 해야 합니다. 
+
+7.  [Azure NetApp Files용 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)의 단계에 따라 NFS 볼륨을 만듭니다. 볼륨 생성 프로세스 중에 **프로토콜** 탭에서 **LDAP** 옵션을 사용하도록 설정합니다.   
 
     ![LDAP 옵션을 사용하여 볼륨 페이지 만들기를 보여 주는 스크린샷](../media/azure-netapp-files/create-nfs-ldap.png)  
 
-7. 선택 사항 - Windows LDAP 서버에 없는 로컬 NFS 클라이언트 사용자가 확장 그룹을 사용하는 LDAP가 있는 NFS 볼륨에 액세스할 수 있도록 설정할 수 있습니다. 이렇게 하려면 다음과 같이 **LDAP를 사용하여 로컬 NFS 사용자 허용** 옵션을 사용하도록 설정합니다.
+8. 선택 사항 - Windows LDAP 서버에 없는 로컬 NFS 클라이언트 사용자가 확장 그룹을 사용하는 LDAP가 있는 NFS 볼륨에 액세스할 수 있도록 설정할 수 있습니다. 이렇게 하려면 다음과 같이 **LDAP를 사용하여 로컬 NFS 사용자 허용** 옵션을 사용하도록 설정합니다.
     1. **Active Directory 연결** 을 클릭합니다.  기존 Active Directory 연결에서 컨텍스트 메뉴(점 3개 `…`)를 클릭하고 **편집** 을 선택합니다.  
     2. 표시되는 **Active Directory 설정 편집** 창에서 **LDAP를 사용하여 로컬 NFS 사용자 허용** 옵션을 선택합니다.  
 
@@ -111,4 +117,5 @@ ms.locfileid: "131447059"
 
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Active Directory 연결 만들기 및 관리](create-active-directory-connections.md)
+* [NFSv 4.1 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
 * [Azure NetApp Files에 대 한 볼륨 오류 문제 해결](troubleshoot-volumes.md)

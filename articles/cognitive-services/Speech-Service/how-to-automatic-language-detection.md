@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2021
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 94b3056f6766be37451a5d309243592eb31256dd
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: fc011db6e36ab3d9f6ae2c3e7dff0e08b6048172
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488433"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716598"
 ---
 # <a name="how-to-use-language-identification"></a>언어 식별을 사용하는 방법
 
@@ -342,7 +342,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ::: zone-end
 
 
-## <a name="use-a-custom-model-for-language-identification"></a>언어 식별에 사용자 지정 모델 사용
+## <a name="use-language-detection-with-a-custom-speech-to-text-model"></a>사용자 지정 Speech to Text 모델에서 언어 감지 사용
 
 Speech Service 기본 모델을 사용하는 언어 식별 외에도 향상된 인식을 위해 사용자 지정 모델을 지정할 수도 있습니다. 사용자 지정 모델이 제공되지 않으면 서비스에서 기본 언어 모델을 사용합니다.
 

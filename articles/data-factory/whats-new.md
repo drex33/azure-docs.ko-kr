@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
-ms.openlocfilehash: fdec259dc93e52a8bc1271de8af90f4b864afd49
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 52c59662e1dfa97e779cce0b812bcaf25a8494a1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842058"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301630"
 ---
 # <a name="whats-new-in-azure-data-factory"></a>Azure Data Factory의 새로운 기능
 
@@ -25,6 +25,34 @@ Azure Data Factory 서비스는 지속적으로 개선되고 있습니다. 최�
 - 변경 계획
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요. 
+
+## <a name="october-2021"></a>2021년 10월
+<br>
+<table>
+<tr><td><b>서비스 범주</b></td><td><b>서비스 개선 사항</b></td><td><b>세부 정보</b></td></tr>
+  
+<tr><td rowspan=3><b>데이터 흐름</b></td><td>Azure Data Explorer 및 Amazon Web Services S3 커넥터</td><td>Microsoft Data Integration 팀은 데이터 흐름 매핑을 위한 두 가지의 새로운 커넥터를 출시했습니다. Azure Synapse를 사용하는 경우 이제 데이터 변환을 위해 AWS S3 버킷에 직접 연결할 수 있습니다. Azure Data Factory 및 Azure Synapse 모두에서 이제 데이터 흐름 매핑에서 기본적으로 Azure Data Explorer 클러스터에 연결할 수 있습니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/mapping-data-flow-gets-new-native-connectors/ba-p/2866754">자세한 정보</a></td></tr>
+<tr><td>파워 쿼리 작업은 GA(일반 공급)에 대한 미리 보기를 나갑니다.</td><td>Microsoft는 Azure Data Factory 파워 쿼리 파이프라인 활동을 일반 공급으로 릴리스했습니다. 이 새로운 기능은 데이터 엔지니어를 위한 통합 경험을 위해 ADF 브라우저 UI 내에서 시민 통합자를 위해 확장된 데이터 준비 및 데이터 랭글링을 제공합니다. ADF의 파워 쿼리 데이터 랭글링 기능은 단일 서비스에서 가장 복잡한 데이터 통합 및 ETL 패턴을 해결할 수 있는 강력하고 사용하기 쉬운 파이프라인 기능을 제공합니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/data-wrangling-at-scale-with-adf-s-power-query-activity-now/ba-p/2824207">자세한 정보</a></td></tr>
+<tr><td>매핑 데이터 흐름의 새로운 Stringify 데이터 변환</td><td>매핑 데이터 흐름은 Stringify라는 새로운 데이터 변환을 추가하여 구조체 및 배열과 같은 복잡한 데이터 유형을 구조화된 출력 대상으로 보낼 수 있는 문자열 형식으로 쉽게 변환할 수 있습니다.<br><a href="data-flow-stringify.md">자세한 정보</a></td></tr>
+  
+<tr>
+  <td rowspan=2><b>통합 런타임</b></td>
+  <td>Azure Data Factory 관리형 vNet이 GA로 이동</td>
+  <td>이제 관리 Virtual Network의 일부로 Azure Integration Runtime를 프로비전하고 개인 엔드포인트를 활용하여 지원되는 데이터 저장소에 안전하게 연결할 수 있습니다. 데이터 트래픽은 데이터 원본에 대한 보안 연결을 제공하는 Azure 개인 링크를 통해 이동합니다. 또한 공용 인터넷으로 데이터가 반출되는 일을 방지합니다.<br><a href="managed-virtual-network-private-endpoint.md">자세한 정보</a></td>
+ </tr>
+ <tr>
+   <td>SSIS 통합 런타임을 위한 익스프레스 VNet 주입(공개 미리 보기)</td>
+   <td>SSIS 통합 런타임은 이제 익스프레스 VNet 주입을 지원합니다.<br>
+자세한 정보:<br>
+     <a href="join-azure-ssis-integration-runtime-virtual-network.md">SSIS 통합 런타임을 위한 VNet 주입 개요</a><br>
+     <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">SSIS 통합 런타임을 위한 표준 및 익스프레스 VNet 주입 비교</a><br>
+     <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">SSIS 통합 런타임을 위한 익스프레스 VNet 주입 비교</a>
+   </td>
+ </tr>
+
+<tr><td rowspan=2><b>보안</b></td><td>Azure Key Vault 통합 개선 사항</td><td>사용자가 선택할 수 있는 드롭다운을 추가하여 연결된 서비스에서 비밀 값을 선택함으로써 Azure Key Vault 통합을 개선하여 생산성을 높이고 사용자가 인적 오류를 유발할 수 있는 비밀을 입력하지 않아도 됩니다.</td></tr>
+<tr><td>Azure Data Factory에서 사용자 할당 관리 ID 지원</td><td>자격 증명 안전은 모든 엔터프라이즈에 매우 중요합니다. 이를 염두에 두고 ADF(Azure Data Factory) 팀은 데이터 엔지니어를 위해 데이터 엔지니어링 프로세스를 안전하면서도 간단하게 만들기 위해 최선을 다하고 있습니다. Azure AD(Azure Active Directory) 기반 인증을 지원하는 모든 커넥터/연결된 서비스에서 사용자 할당 관리 ID(미리 보기)에 대한 지원을 발표하게 기쁘게 생각합니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-for-user-assigned-managed-identity-in-azure-data-factory/ba-p/2841013">자세한 정보</a></td></tr>
+</table>
 
 ## <a name="september-2021"></a>2021년 9월
 <br>

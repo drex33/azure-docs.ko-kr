@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 35f57b29f20e4b9ca0105c2395a34376e25a8c8a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 04a01833498154a1446e7f00aafb505b37e9e335
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132489117"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705021"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema-for-custom-ner"></a>데이터를 준비하고 사용자 지정 NER에 대한 스키마를 정의하는 방법
 
@@ -63,8 +63,8 @@ ms.locfileid: "132489117"
 
 프로젝트를 만들기 위한 필수 조건으로 교육 데이터를 스토리지 계정의 Blob 컨테이너에 업로드해야 합니다. Azure에서 직접 또는 Azure Storage Explorer 도구를 사용하여 교육 파일을 만들고 업로드할 수 있습니다. Azure Storage Explorer 도구를 사용하면 더 많은 데이터를 빠르게 업로드할 수 있습니다.  
 
-* [Azure에서 파일 만들기 및 업로드](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
-* [Azure Storage Explorer를 사용하여 파일 만들기 및 업로드](/azure/vs-azure-tools-storage-explorer-blobs)
+* [Azure에서 파일 만들기 및 업로드](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+* [Azure Storage Explorer를 사용하여 파일 만들기 및 업로드](../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 `.txt` 파일만 사용할 수 있습니다. 데이터가 다른 형식인 경우 [CLUtils 구문 분석 명령](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md)을 사용하여 파일 형식을 변경할 수 있습니다.
 
@@ -72,4 +72,4 @@ ms.locfileid: "132489117"
  
 ## <a name="next-steps"></a>다음 단계
 
-아직 만들지 않았다면 사용자 지정 NER 프로젝트를 만듭니다. 사용자 지정 NER를 처음 사용하는 경우 [빠른 시작](../quickstart.md)에 따라 예제 프로젝트를 만드는 것이 좋습니다. 프로젝트를 만드는 데 필요한 항목에 대한 자세한 내용은 [방법 도움말](../how-to/create-project.md)을 참조하세요. 
+아직 만들지 않았다면 사용자 지정 NER 프로젝트를 만듭니다. 사용자 지정 NER를 처음 사용하는 경우 [빠른 시작](../quickstart.md)에 따라 예제 프로젝트를 만드는 것이 좋습니다. 프로젝트를 만드는 데 필요한 항목에 대한 자세한 내용은 [방법 도움말](../how-to/create-project.md)을 참조하세요.

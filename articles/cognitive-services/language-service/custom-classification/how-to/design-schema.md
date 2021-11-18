@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 243139219259c3b4be95010df988cf30256ca204
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 37e55e4f246ffdc172621bc19b81975ff8324e10
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484097"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719545"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema"></a>데이터 준비 및 스키마 정의 방법
 
@@ -44,8 +44,8 @@ ms.locfileid: "132484097"
 
 사용자 지정 텍스트 분류 프로젝트를 만들기 위한 필수 조건으로 교육 데이터를 스토리지 계정의 Blob 컨테이너에 업로드해야 합니다. Azure에서 직접 또는 Azure Storage Explorer 도구를 사용하여 교육 파일을 만들고 업로드할 수 있습니다. Azure Storage Explorer 도구를 사용하면 더 많은 데이터를 빠르게 업로드할 수 있습니다.  
 
-* [Azure에서 파일 만들기 및 업로드](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
-* [Azure Storage Explorer를 사용하여 파일 만들기 및 업로드](/azure/vs-azure-tools-storage-explorer-blobs)
+* [Azure에서 파일 만들기 및 업로드](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+* [Azure Storage Explorer를 사용하여 파일 만들기 및 업로드](../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 `.txt`만 사용할 수 있습니다. 사용자 지정 텍스트용 파일입니다. 데이터가 다른 형식인 경우 [CLUtils 구문 분석 명령](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md)을 사용하여 파일 형식을 변경할 수 있습니다.
 
@@ -67,4 +67,4 @@ ms.locfileid: "132484097"
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 만들지 않았다면 사용자 지정 분류 프로젝트를 만듭니다. 사용자 지정 분류를 처음 사용하는 경우 [빠른 시작](../quickstart.md)에 따라 예시 프로젝트를 만드는 것이 좋습니다. 프로젝트를 만드는 데 필요한 사항에 대한 자세한 내용은 [프로젝트 요구 사항](../how-to/create-project.md)을 참조할 수도 있습니다. 
+아직 만들지 않았다면 사용자 지정 분류 프로젝트를 만듭니다. 사용자 지정 분류를 처음 사용하는 경우 [빠른 시작](../quickstart.md)에 따라 예시 프로젝트를 만드는 것이 좋습니다. 프로젝트를 만드는 데 필요한 사항에 대한 자세한 내용은 [프로젝트 요구 사항](../how-to/create-project.md)을 참조할 수도 있습니다.

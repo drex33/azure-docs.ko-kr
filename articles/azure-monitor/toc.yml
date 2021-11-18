@@ -284,7 +284,7 @@
               href: logs/query-audit.md
             - name: 쿼리 최적화
               href: logs/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: logs/functions.md
             - name: 텍스트 데이터 구문 분석
               href: logs/parse-text.md
@@ -650,7 +650,7 @@
         - name: Application Insights 개요
           href: app/app-insights-overview.md
         - name: FAQ
-          href: /azure/azure-monitor/faq#application-insights
+          href: ./faq.yml
         - name: Application Insights SDK
           items:
             - name: .NET
@@ -1277,7 +1277,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

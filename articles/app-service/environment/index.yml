@@ -1,0 +1,62 @@
+### YamlMime:Landing
+title: App Service 환경 설명서
+summary: Azure App Service Environment를 사용하면 App Service 앱을 대규모로 안전하게 실행하기 위해 완전히 격리된 전용 환경에서 웹앱을 호스팅할 수 있습니다.
+metadata:
+  title: Azure App Service Environment 설명서
+  description: 안전하고 확장 가능한 환경에서 완전히 격리된 웹사이트를 호스트합니다. App Service Environment를 성공적으로 수행하는 데 도움이 되는 빠른 시작, 자습서 및 개념에 대해 알아보세요.
+  ms.topic: landing-page
+  ms.service: app-service
+  ms.date: 11/15/2021
+  ms.openlocfilehash: e6dc1662808fa4faf58a22696f376f43a19cfc5b
+  ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/16/2021
+  ms.locfileid: "132525087"
+landingContent:
+- title: App Service Environment 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: App Service Environment란?
+      url: overview.md
+    - text: App Service란?
+      url: ../overview.md
+  - linkListType: whats-new
+    links:
+    - text: 서비스 업데이트
+      url: https://azure.microsoft.com/updates/?product=app-service
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: App Service Environment 만들기
+      url: creation.md
+  - linkListType: concept
+    links:
+    - text: 네트워킹 개요
+      url: networking.md
+    - text: 영역 중복
+      url: overview-zone-redundancy.md
+    - text: 인증서
+      url: overview-certificates.md
+- title: 일반 작업
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Application Gateway와 통합
+      url: integrate-with-application-gateway.md
+  - linkListType: how-to-guide
+    links:
+    - text: App Service Environment 일반 작업
+      url: using.md
+    - text: ARM 템플릿에서 ASE 프로비전
+      url: create-from-template.md
+    - text: ASE 사용자 지정 설정 구성
+      url: app-service-app-service-environment-custom-settings.md
+  - linkListType: reference
+    links:
+    - text: Azure CLI 참조
+      url: /cli/azure/appservice/ase
+    - text: 리소스 관리자
+      url: /azure/templates/microsoft.web/2021-02-01/hostingenvironments?tabs=json

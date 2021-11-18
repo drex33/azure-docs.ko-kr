@@ -1,38 +1,37 @@
 ---
-title: 기존 SIEM에서 Microsoft Sentinel로 마이그레이션합니다.
-description: 조직 전체에서 확장 가능한 인텔리전트 보안 분석을 위해 기존 SIEM에서 Microsoft Sentinel로 가장 잘 마이그레이션하는 방법을 알아봅니다.
+title: 기존 SIEM에서 Microsoft 센티널로 마이그레이션합니다.
+description: 조직 전체에서 확장 가능한 지능형 보안 분석을 위해 기존 SIEM에서 Microsoft 센티널로 가장 잘 마이그레이션하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: batamig
-ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5df30dd53422da751271ac644adf7072efc6dc46
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 5e1946affdf33239c89bbc5556f5905ccad6ed4f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520791"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713178"
 ---
-# <a name="migrate-to-microsoft-sentinel-from-an-existing-siem"></a>기존 SIEM에서 Microsoft Sentinel로 마이그레이션
+# <a name="migrate-to-microsoft-sentinel-from-an-existing-siem"></a>기존 SIEM에서 Microsoft 센티널로 마이그레이션
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 SOC(보안 운영 센터) 팀은 중앙 집중식 SIEM(보안 정보 및 이벤트 관리) 및 SOAR(보안 오케스트레이션, 자동화 및 대응) 솔루션을 사용하여 점점 더 분산되는 디지털 자산을 보호합니다.
 
-레거시 SIEM은 온-프레미스에 있는 경우가 많으며 온-프레미스 자산에 대해 양호한 적용 범위를 유지할 수 있습니다. 하지만, 온-프레미스 아키텍처는 Azure, Microsoft 365, AWS 또는 GCP(Google Cloud Platform)와 같은 클라우드 자산에 대한 적용 범위가 충분하지 않을 수 있습니다. 반면, Microsoft Sentinel은 온-프레미스 및 클라우드 자산 모두에서 데이터를 수집하여 전체 자산에 대한 적용 범위를 보장할 수 있습니다.
+레거시 SIEM은 온-프레미스에 있는 경우가 많으며 온-프레미스 자산에 대해 양호한 적용 범위를 유지할 수 있습니다. 하지만, 온-프레미스 아키텍처는 Azure, Microsoft 365, AWS 또는 GCP(Google Cloud Platform)와 같은 클라우드 자산에 대한 적용 범위가 충분하지 않을 수 있습니다. 이와 대조적으로 Microsoft 센티널은 온-프레미스 및 클라우드 자산의 데이터를 수집할 수 있으므로 전체 공간에 대 한 적용을 보장 합니다.
 
-이 문서에서는 함께 구성하거나 전체 Microsoft Sentinel 배포로 전환하여 기존 레거시 SIEM에서 Microsoft Sentinel로 마이그레이션하는 방법을 설명합니다.
+이 문서에서는 side-by-side 구성에서 또는 전체 Microsoft 센티널 배포로 전환 하 여 기존 기존 SIEM에서 Microsoft 센티널로 마이그레이션하는 방법에 대해 설명 합니다.
 
 ## <a name="plan-your-migration"></a>마이그레이션 계획
 
-비즈니스 요구 사항 및 사용 가능한 리소스에 따라 Microsoft Sentinel로 직접 또는 점진적인 전환을 시작하기로 결정했을 수 있습니다.
+비즈니스 요구 사항과 사용 가능한 리소스에 따라 Microsoft 센티널로 직접 또는 점진적 전환을 시작 하도록 결정 했을 수 있습니다.
 
 전환으로 인해 적용 범위에 공백이 생겨 조직의 보안이 위태로워지는 일이 없도록 마이그레이션을 적절하게 계획할 필요가 있습니다.
 
-시작하려면 주요 핵심 기능과 최우선 요구 사항을 식별합니다. 현재 SIEM에서 다루는 주요 사용 사례를 평가하고 Microsoft Sentinel에서 적용 범위를 계속 제공해야 하는 검색 및 기능을 결정합니다.
+시작하려면 주요 핵심 기능과 최우선 요구 사항을 식별합니다. 현재 SIEM에 포함 된 주요 사용 사례를 평가 하 고 Microsoft 센티널에서 계속 해 서 검사를 제공 해야 하는 검색 및 기능을 결정 합니다.
 
 마이그레이션하려는 정확한 데이터 원본 및 탐지 규칙을 고려하면서 마이그레이션 프로세스의 각 단계에서 In Process 계획을 더 추가할 수 있습니다. 자세한 내용은 [데이터 마이그레이션](#migrate-your-data) 및 [분석 규칙 마이그레이션](#migrate-analytics-rules)을 참조하세요.
 
@@ -40,13 +39,13 @@ SOC(보안 운영 센터) 팀은 중앙 집중식 SIEM(보안 정보 및 이벤�
 > 현재 SIEM에 탐지 및 사용 사례가 너무 많을 수 있습니다. 그 중 어떤 것이 비즈니스에 가장 유용한지 판단하고 마이그레이션할 필요가 없는 것을 결정하세요. 예를 들어, 지난 1년 동안 어떤 탐지로 결과가 생성되었는지 확인하세요.
 >
 
-### <a name="compare-your-legacy-siem-to-microsoft-sentinel"></a>레거시 SIEM과 Microsoft Sentinel 비교
+### <a name="compare-your-legacy-siem-to-microsoft-sentinel"></a>Microsoft 센티널과 레거시 SIEM 비교
 
-마이그레이션 완료 조건을 구체화하고 Microsoft Sentinel을 사용하여 더 많은 가치를 추출할 수 있는 위치를 파악할 수 있도록 레거시 SIEM을 Microsoft Sentinel과 비교합니다.
+레거시 SIEM을 Microsoft 센티널과 비교 하 여 마이그레이션 완료 조건을 구체화 하 고 Microsoft 센티널에서 더 많은 가치를 추출할 수 있는 위치를 파악 하세요.
 
 예를 들어 다음 주요 영역을 평가합니다.
 
-|평가 영역 |Description  |
+|평가 영역 |설명  |
 |---------|---------|
 |**공격 탐지 범위**     | [MITRE ATT&CK](https://attack.mitre.org/) 또는 유사한 프레임워크를 사용하여 각 SIEM이 전체 공격 범위를 얼마나 잘 탐지할 수 있는지 비교합니다.        |
 |**대응성**     |   SIEM에 경고가 표시된 후 분석가가 관련 작업을 시작하기까지의 시간인 MTTA(평균 인지 시간)를 측정합니다. 이 시간은 대개 SIEM 간에 유사합니다.      |
@@ -55,24 +54,24 @@ SOC(보안 운영 센터) 팀은 중앙 집중식 SIEM(보안 정보 및 이벤�
 |**용량 증가 마찰.**     |  사용량이 증가함에 따라 용량을 추가하는 난이도를 비교합니다. 클라우드 서비스 및 애플리케이션은 기존 온-프레미스 워크로드보다 더 많은 로그 데이터를 생성하는 경향이 있습니다.       |
 |     |         |
 
-기존 온-프레미스 SIEM에 대한 투자가 제한되거나 없는 경우 Microsoft Sentinel로 이동하는 것은 간단하고 직접적인 배포일 수 있습니다. 하지만, 레거시 SIEM에 막대한 투자를 한 기업은 전환 작업을 수용하기 위해 일반적으로 다단계 프로세스가 필요합니다.
+기존 온-프레미스 SIEM에 대 한 투자를 제한 하거나 투자 하지 않은 경우 Microsoft 센티널로 이동 하는 것은 간단 하 고 직접적인 배포가 될 수 있습니다. 하지만, 레거시 SIEM에 막대한 투자를 한 기업은 전환 작업을 수용하기 위해 일반적으로 다단계 프로세스가 필요합니다.
 
-Microsoft Sentinel은 온-프레미스 클라우드 모두에 대해 확장된 데이터와 응답을 제공하지만 Microsoft Sentinel 및 레거시 SIEM을 [함께](#select-a-side-by-side-approach-and-method)실행하여 마이그레이션을 느리게 시작할 수 있습니다. 병렬 아키텍처에서 로컬 리소스는 온-프레미스 SIEM 및 클라우드 리소스를 사용할 수 있고 새 워크로드는 클라우드 기반 분석을 사용합니다.
+Microsoft 센티널은 온-프레미스 클라우드 모두에 대해 확장 된 데이터와 응답을 제공 하지만 Microsoft 센티널 및 레거시 [SIEM을 함께 실행](#select-a-side-by-side-approach-and-method)하 여 마이그레이션을 느리게 시작할 수 있습니다. 병렬 아키텍처에서 로컬 리소스는 온-프레미스 SIEM 및 클라우드 리소스를 사용할 수 있고 새 워크로드는 클라우드 기반 분석을 사용합니다.
 
-장기적 side-by-side 구성을 선택하지 않는 한 전체 Microsoft Sentinel 배포로 마이그레이션을 완료하여 낮은 인프라 비용, 실시간 위협 분석 및 클라우드 확장성에 액세스합니다.
+장기 side-by-side 구성을 선택 하지 않는 한 전체 Microsoft 센티널 배포로의 마이그레이션을 완료 하 여 낮은 인프라 비용, 실시간 위협 분석 및 클라우드 확장성에 액세스할 수 있습니다.
 
 ## <a name="select-a-side-by-side-approach-and-method"></a>병렬 접근 방식 및 방법 선택
 
 조직의 SIEM 요구 사항에 따라 병렬 아키텍처를 단기 과도기 단계(완전한 클라우드 호스팅 SIEM으로 이어짐)로 또는 중장기 운영 모델로 사용합니다.
 
-예를 들어 권장되는 아키텍처는 마이그레이션을 완료하기에 충분한 기간 동안만 병렬 아키텍처를 사용하는 것이지만 조직에서 병렬 구성을 더 오래 유지하려고 할 수 있습니다(예를 들어 레거시 SIEM에서 벗어날 준비가 되지 않은 경우). 일반적으로 장기, side-by-side 구성을 사용하는 조직은 Microsoft Sentinel을 사용하여 클라우드 데이터만 분석합니다.
+예를 들어 권장되는 아키텍처는 마이그레이션을 완료하기에 충분한 기간 동안만 병렬 아키텍처를 사용하는 것이지만 조직에서 병렬 구성을 더 오래 유지하려고 할 수 있습니다(예를 들어 레거시 SIEM에서 벗어날 준비가 되지 않은 경우). 일반적으로 장기적인 병렬 구성을 사용 하는 조직은 Microsoft 센티널을 사용 하 여 클라우드 데이터만 분석 합니다.
 
 마이그레이션에 어떤 방법을 사용할지 결정할 때는 각 접근 방식의 장단점을 고려합니다.
 
 > [!NOTE]
 > 비용과 복잡성 때문에 여러 온-프레미스 분석 솔루션을 실행하지 않는 조직이 많습니다.
 >
-> Microsoft Sentinel은 [종량제 가격 책정](azure-sentinel-billing.md) 및 유연한 인프라를 제공하여 SOC 팀이 변경에 적응할 시간을 제공합니다. 귀사에 가장 적합한 속도로 콘텐츠를 마이그레이션하고 테스트하세요.
+> Microsoft 센티널은 [종 량 제 가격 책정](billing.md) 및 유연한 인프라를 제공 하 여 SOC 팀이 변경 내용을 적용할 수 있는 시간을 제공 합니다. 귀사에 가장 적합한 속도로 콘텐츠를 마이그레이션하고 테스트하세요.
 >
 ### <a name="short-term-approach"></a>단기 접근 방식
 
@@ -101,9 +100,9 @@ Microsoft Sentinel은 온-프레미스 클라우드 모두에 대해 확장된 �
    :::column span="":::
       **장점**
 
-        - 레거시 SIEM에서 완전히 벗어나지 않고 AI, ML 및 조사 기능과 같은 주요 Microsoft Sentinel 혜택을 사용할 수 있습니다.
+        -기존 siem에서 완전히 이동 하지 않고도 AI, ML 및 조사 기능과 같은 주요 Microsoft 센티널 혜택을 사용할 수 있습니다.
 
-        - Microsoft Sentinel에서 클라우드 또는 Microsoft 데이터를 분석하여 레거시 SIEM에 비해 비용을 절감합니다.
+        -Microsoft 센티널의 클라우드 또는 Microsoft 데이터를 분석 하 여 레거시 SIEM에 비해 비용을 절약 합니다.
    :::column-end:::
    :::column span="":::
       **단점**
@@ -120,46 +119,46 @@ Microsoft Sentinel은 온-프레미스 클라우드 모두에 대해 확장된 �
 
 
 
-### <a name="send-alerts-from-a-legacy-siem-to-microsoft-sentinel-recommended"></a>레거시 SIEM에서 Microsoft Sentinel로 경고 보내기(권장)
+### <a name="send-alerts-from-a-legacy-siem-to-microsoft-sentinel-recommended"></a>레거시 SIEM에서 Microsoft 센티널로 경고 보내기 (권장)
 
-레거시 SIEM에서 Microsoft Sentinel로 경고 또는 비정상적인 활동 표시기를 보냅니다.
+레거시 SIEM에서 Microsoft 센티널로의 비정상적인 활동에 대 한 경고 또는 표시기를 보냅니다.
 
-- Microsoft Sentinel에서 클라우드 데이터 수집 및 분석
+- Microsoft 센티널에서 클라우드 데이터 수집 및 분석
 - 레거시 SIEM을 사용하여 온-프레미스 데이터를 분석하고 경고를 생성합니다.
-- 온-프레미스 SIEM에서 Microsoft Sentinel로 경고를 전달하여 단일 인터페이스를 설정합니다.
+- 온-프레미스 SIEM의 경고를 Microsoft 센티널로 전달 하 여 단일 인터페이스를 설정 합니다.
 
-예를 들어 [Logstash,](connect-logstash.md) [API](/rest/api/securityinsights/)또는 [Syslog](connect-syslog.md)를 사용하여 경고를 전달하고 Microsoft Sentinel Log Analytics 작업 영역에 [JSON](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) 형식으로 [저장합니다.](../azure-monitor/logs/quick-create-workspace.md)
+예를 들어 [Logstash 태](connect-logstash.md)트, [api](/rest/api/securityinsights/)또는 [Syslog](connect-syslog.md)를 사용 하 여 경고를 전달 하 고 Microsoft 센티널 [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md)에 [JSON](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) 형식으로 저장 합니다.
 
-레거시 SIEM에서 Microsoft Sentinel로 경고를 보내면 팀은 Microsoft Sentinel에서 이러한 경고를 교차 상호 연결하고 조사할 수 있습니다. 팀은 필요한 경우 심층 조사를 위해 레거시 SIEM에 계속 액세스할 수 있습니다. 한편, 연장된 전환 기간 동안 데이터 원본을 계속 마이그레이션할 수 있습니다.
+Microsoft 센티널에서 레거시 SIEM으로 경고를 전송 하 여 팀은 Microsoft 센티널에서 이러한 경고를 교차 상호 연결 하 고 조사할 수 있습니다. 팀은 필요한 경우 심층 조사를 위해 레거시 SIEM에 계속 액세스할 수 있습니다. 한편, 연장된 전환 기간 동안 데이터 원본을 계속 마이그레이션할 수 있습니다.
 
-이 권장되는 side-by-side 마이그레이션 방법은 Microsoft Sentinel의 전체 가치와 조직에 적합한 속도로 데이터 원본을 마이그레이션하는 기능을 제공합니다. 이 접근 방식은 데이터 원본을 이동하는 동안 데이터 스토리지 및 수집 비용이 중복되는 것을 방지합니다.
-
-자세한 내용은 다음을 참조하세요.
-
-- [QRadar 를 Microsoft Sentinel로 마이그레이션](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043)
-- [Splunk에서 Microsoft Sentinel로 데이터를](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237)내보냅니다.
-
-
-### <a name="send-alerts-and-enriched-incidents-from-microsoft-sentinel-to-a-legacy-siem"></a>Microsoft Sentinel에서 레거시 SIEM으로 경고 및 보강된 인시던트 보내기
-
-클라우드 데이터와 같은 Microsoft Sentinel의 일부 데이터를 분석한 다음 생성된 경고를 레거시 SIEM에 보냅니다. *레거시* SIEM을 단일 인터페이스로 사용하여 Microsoft Sentinel에서 생성한 경고와 상호 상관 관계를 수행합니다. Microsoft Sentinel에서 생성된 경고에 대한 심층 조사를 위해 Microsoft Sentinel을 계속 사용할 수 있습니다.
-
-이 구성은 비용을 중복하거나 데이터를 두 번 지불하지 않고 클라우드 데이터 분석을 Microsoft Sentinel로 이동할 수 있기 때문에 비용 효율적입니다. 원하는 속도로 자유롭게 마이그레이션할 수 있습니다. 데이터 원본 및 검색을 Microsoft Sentinel로 계속 이동하면 기본 인터페이스로 Microsoft Sentinel로 마이그레이션하기가 더 쉬워집니다. 그러나 보강된 인시던트만 레거시 SIEM에 전달하면 Microsoft Sentinel의 조사, 헌팅 및 자동화 기능에서 얻을 수 있는 값이 제한됩니다.
+이 권장 병렬 마이그레이션 방법은 Microsoft 센티널의 전체 가치 및 조직에 적합 한 속도로 데이터 원본을 마이그레이션하는 기능을 제공 합니다. 이 접근 방식은 데이터 원본을 이동하는 동안 데이터 스토리지 및 수집 비용이 중복되는 것을 방지합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [레거시 SIEM에 보강된 Microsoft Sentinel 경고 보내기](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-enriched-azure-sentinel-alerts-to-3rd-party-siem-and/ba-p/1456976)
-- [IBM QRadar에 보강된 Microsoft Sentinel 경고 보내기](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-side-by-side-with-qradar/ba-p/1488333)
-- [Splunk에 Microsoft Sentinel 경고 스트리밍](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-side-by-side-with-splunk/ba-p/1211266)
+- [Microsoft 센티널로 QRadar offenses 마이그레이션](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043)
+- [Splunk에서 Microsoft 센티널로 데이터를 내보냅니다](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237).
+
+
+### <a name="send-alerts-and-enriched-incidents-from-microsoft-sentinel-to-a-legacy-siem"></a>Microsoft 센티널에서 레거시 SIEM으로 경고 및 보강 인시던트 보내기
+
+Microsoft 센티널에서 클라우드 데이터와 같은 일부 데이터를 분석 한 다음 생성 된 경고를 레거시 SIEM으로 보냅니다. Microsoft 센티널에서 생성 한 경고와 교차 상관 관계를 수행 하려면 단일 인터페이스로 *레거시* siem을 사용 합니다. Microsoft 센티널에서 생성 된 경고를 심층적으로 조사 하기 위해 여전히 Microsoft 센티널을 사용할 수 있습니다.
+
+비용을 복제 하거나 데이터에 대 한 요금을 지불 하지 않고도 클라우드 데이터 분석을 Microsoft 센티널로 이동할 수 있으므로이 구성은 비용 효율적입니다. 원하는 속도로 자유롭게 마이그레이션할 수 있습니다. 계속 해 서 데이터 원본을 이동 하 고 Microsoft 센티널로 검색 하는 경우 기본 인터페이스로 Microsoft 센티널로 마이그레이션하는 것이 더 쉽습니다. 그러나 보강 인시던트를 레거시 SIEM으로 전달 하기만 하면 Microsoft 센티널의 조사, 구하기 및 자동화 기능에서 얻은 값이 제한 됩니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [보강 Microsoft 센티널 경고를 레거시 SIEM으로 보냅니다.](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-enriched-azure-sentinel-alerts-to-3rd-party-siem-and/ba-p/1456976)
+- [보강 Microsoft 센티널 경고를 IBM QRadar으로 보내기](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-side-by-side-with-qradar/ba-p/1488333)
+- [Splunk에 Microsoft 센티널 경고 수집](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-side-by-side-with-splunk/ba-p/1211266)
 
 ### <a name="other-methods"></a>다른 방법
 
 다음 표에는 권장되지 않는 병렬 구성과 그 이유에 대한 세부 정보가 설명되어 있습니다.
 
-|메서드  |Description  |
+|메서드  |설명  |
 |---------|---------|
-|**레거시 SIEM에 Microsoft Sentinel 로그 보내기**     |  이 방법을 사용하면 온-프레미스 SIEM의 비용 및 크기 조정 문제를 계속 경험하게 됩니다. <br><br>레거시 SIEM의 스토리지 비용과 함께 Microsoft Sentinel에서 데이터 수집에 대한 비용을 지불하게 되며 Microsoft Sentinel의 SIEM 및 SOAR 검색, 분석, UEBA(사용자 엔터티 동작 분석), AI 또는 조사 및 자동화 도구를 활용할 수 없습니다.       |
-|**레거시 SIEM에서 Microsoft Sentinel로 로그 보내기**     |   이 방법은 Microsoft Sentinel의 전체 기능을 제공하지만 조직에서는 여전히 두 가지 데이터 수집 원본에 대한 비용을 지불합니다. 이 모델은 아키텍처 복잡성을 추가하는 것 외에도 비용이 더 높아질 수 있습니다.     |
+|**Microsoft 센티널 로그를 레거시 SIEM으로 보냅니다.**     |  이 방법을 사용하면 온-프레미스 SIEM의 비용 및 크기 조정 문제를 계속 경험하게 됩니다. <br><br>레거시 SIEM의 저장소 비용과 함께 Microsoft 센티널의 데이터 수집에 대 한 비용을 지불 하 고, Microsoft 센티널의 SIEM 및 대화 충성도 검색, 분석, 사용자 엔터티 동작 분석 (UEBA), AI 또는 조사 및 자동화 도구를 사용할 수 없습니다.       |
+|**레거시 SIEM에서 Microsoft 센티널로 로그 보내기**     |   이 방법은 Microsoft 센티널의 전체 기능을 제공 하지만 조직에서는 두 개의 서로 다른 데이터 수집 원본에 대해 계속 지불 합니다. 이 모델은 아키텍처 복잡성을 추가하는 것 외에도 비용이 더 높아질 수 있습니다.     |
 |**Microsoft 센티널 및 레거시 SIEM을 완전히 분리 된 두 솔루션으로 사용**     |  Microsoft 센티널을 사용 하 여 클라우드 데이터와 같은 일부 데이터 원본을 분석 하 고 다른 원본에 대해 온-프레미스 SIEM을 계속 사용할 수 있습니다. 이렇게 설정하면 각 솔루션을 언제 사용해야 하는지에 대한 명확한 경계가 가능하며 비용 중복이 방지됩니다. <br><br>하지만, 상호 비교가 어려워지고 두 데이터 원본 세트를 교차하는 공격을 완전히 진단할 수 없습니다. 현대 환경에서는 위협이 조직 전체를 측면으로 이동하는 경우가 많으며, 이러한 가시성 격차는 심각한 보안 위험을 초래할 수 있습니다.       |
 |     |         |
 
@@ -181,7 +180,7 @@ Microsoft Sentinel은 온-프레미스 클라우드 모두에 대해 확장된 �
 
 1. 데이터를 수집하려면 다음 리소스를 사용합니다.
 
-    - **Microsoft 센티널의 [기본 제공 데이터 커넥터](connect-data-sources.md)** 를 사용 하 여 수집 데이터를 시작 합니다. 예를 들어 클라우드 데이터로 [평가판](azure-sentinel-billing.md#free-trial)을 시작하거나 [무료 데이터 커넥터](azure-sentinel-billing.md#free-data-sources)를 사용하여 다른 Microsoft 제품에서 데이터를 수집할 수 있습니다.
+    - **Microsoft 센티널의 [기본 제공 데이터 커넥터](connect-data-sources.md)** 를 사용 하 여 수집 데이터를 시작 합니다. 예를 들어 클라우드 데이터로 [평가판](billing.md#free-trial)을 시작하거나 [무료 데이터 커넥터](billing.md#free-data-sources)를 사용하여 다른 Microsoft 제품에서 데이터를 수집할 수 있습니다.
 
     - **[Syslog](connect-data-sources.md#syslog), [CEF(Common Event Format)](connect-data-sources.md#common-event-format-cef) 또는 [REST API](connect-data-sources.md#rest-api-integration)** 를 사용하여 다른 데이터 원본을 연결합니다.
 
@@ -261,7 +260,7 @@ Microsoft 센티널은 machine learning analytics를 사용 하 여 고화질 �
 
 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft 센티널의 보안 오케스트레이션, 자동화 및 응답 (대화 충성도)](automation-in-azure-sentinel.md).
+- [Microsoft 센티널의 보안 오케스트레이션, 자동화 및 응답 (대화 충성도)](automation.md).
 - [Microsoft 센티널에서 플레이 북을 사용 하 여 위협 대응 자동화](automate-responses-with-playbooks.md)
 - [Automation 규칙을 사용 하 여 Microsoft 센티널에서 인시던트 처리 자동화](automate-incident-handling-with-automation-rules.md)
 
@@ -286,9 +285,9 @@ Microsoft 센티널은 machine learning analytics를 사용 하 여 고화질 �
 
 - [규칙 마이그레이션 모범 사례](https://techcommunity.microsoft.com/t5/azure-sentinel/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417)
 - [웨비나: 탐지 규칙 변환 모범 사례](https://www.youtube.com/watch?v=njXK1h9lfR4)
-- [Microsoft 센티널의 보안 오케스트레이션, 자동화 및 응답 (대화 충성도)](automation-in-azure-sentinel.md)
+- [Microsoft 센티널의 보안 오케스트레이션, 자동화 및 응답 (대화 충성도)](automation.md)
 - [인시던트 메트릭을 사용하여 SOC를 효율적으로 관리](manage-soc-with-incident-metrics.md)
 - [Microsoft 센티널 학습 경로](/learn/paths/security-ops-sentinel/)
 - [SC-200 Microsoft 보안 작업 분석가 인증](/learn/certifications/exams/sc-200)
 - [Microsoft 센티널 Ninja 교육](https://techcommunity.microsoft.com/t5/azure-sentinel/become-an-azure-sentinel-ninja-the-complete-level-400-training/ba-p/1246310)
-- [Microsoft 센티널을 사용 하 여 하이브리드 환경에서 공격 조사](https://mslearn.cloudguides.com/guides/Investigate%20an%20attack%20on%20a%20hybrid%20environment%20with%20Azure%20Sentinel)
+- [Microsoft Sentinel을 사용하여 하이브리드 환경에 대한 공격 조사](https://mslearn.cloudguides.com/guides/Investigate%20an%20attack%20on%20a%20hybrid%20environment%20with%20Azure%20Sentinel)

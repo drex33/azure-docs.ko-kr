@@ -1,33 +1,33 @@
 ---
-title: Bicep을 사용하여 Open Service Mesh AKS 추가 기능 배포
-description: Bicep을 사용하여 AKS(Azure Kubernetes Service Open Service Mesh) 배포
+title: Bicep를 사용 하 여 Open Service 메시 AKS 추가 기능 배포
+description: Bicep를 사용 하 여 AKS (Azure Kubernetes Service)에 개방형 서비스 메시 배포
 services: container-service
 ms.topic: article
 ms.date: 9/20/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: b0452588b8eb9eebbf8ab592ad2d0a8a0e9a6b92
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b0d2e22f0d23f558221b88d7c02539dd29dd8cae
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066789"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708729"
 ---
-# <a name="deploy-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-using-bicep"></a>Bicep을 사용하여 AKS(Open Service Mesh) Azure Kubernetes Service(추가 기능) 배포
+# <a name="deploy-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-using-bicep"></a>Bicep를 사용 하 여 OSM (Open Service 메시) AKS (Azure Kubernetes Service) 추가 기능 배포
 
-이 문서에서는 [Bicep](../azure-resource-manager/bicep/index.yml) 템플릿을 사용하여 AKS에 OSM 추가 기능 배포 방법을 설명합니다.
+이 문서에서는 [Bicep](../azure-resource-manager/bicep/index.yml) 템플릿을 사용 하 여 AKS에 OSM 추가 기능을 배포 하는 방법을 설명 합니다.
 
-[Bicep](/azure/azure-resource-manager/bicep/overview)은 선언적 구문을 사용하여 Azure 리소스를 배포하는 DSL(도메인 특정 언어)입니다. Bicep은 코드로서의 인프라 Azure 리소스를 배포하기 위한 Azure [ARM](/azure/azure-resource-manager/templates/overview) 템플릿을 만드는 대신 사용할 수 있습니다.
+[Bicep](../azure-resource-manager/bicep/overview.md)은 선언적 구문을 사용하여 Azure 리소스를 배포하는 DSL(도메인 특정 언어)입니다. Bicep는 인프라 코드 Azure 리소스를 배포 하기 위한 Azure [ARM](../azure-resource-manager/templates/overview.md) 템플릿을 만드는 대신 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure CLI 버전 2.20.0 이상
-- OSM 버전 v0.11.1 이상
-- AKS 배포에 사용되는 SSH 공개 키
-- Bash 터미널 활용 [Visual Studio Code](https://code.visualstudio.com/)
+- OSM 버전 v 0.11.1 이상
+- AKS 배포에 사용 되는 SSH 공개 키
+- Bash 터미널을 활용 하는 [Visual Studio Code](https://code.visualstudio.com/)
 - Visual Studio Code [Bicep 확장](../azure-resource-manager/bicep/install.md)
 
-## <a name="install-the-aks-preview-extension"></a>aks-preview 확장 설치
+## <a name="install-the-aks-preview-extension"></a>Aks-preview 확장 설치
 
 _aks-preview_ Azure CLI 확장 버전 0.5.24 이상이 필요합니다. [Az extension add][az-extension-add] 명령을 사용하여 _aks-preview_ Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치 합니다.
 
@@ -61,34 +61,34 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/A
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="install-the-osm-aks-add-on-for-a-new-aks-cluster-using-bicep"></a>Bicep을 사용하여 새 AKS 클러스터에 대한 OSM AKS 추가 기능 설치
+## <a name="install-the-osm-aks-add-on-for-a-new-aks-cluster-using-bicep"></a>Bicep를 사용 하 여 새 AKS 클러스터에 대 한 OSM AKS 추가 기능 설치
 
-새 AKS 클러스터 배포 시나리오의 경우 클러스터 만들기 작업에서 OSM 추가 기능을 사용하도록 설정된 AKS 클러스터의 새로운 배포부터 시작합니다. 다음 지침 집합은 임시 디스크를 [`kubenet`](./configure-kubenet.md) 사용하고, CNI를 사용하고, AKS OSM 추가 기능을 사용하도록 설정하는 AKS 클러스터를 배포하는 일반 Bicep 템플릿을 사용합니다. 고급 배포 시나리오는 [Bicep](../azure-resource-manager/bicep/overview.md) 설명서를 참조하세요.
+새 AKS 클러스터 배포 시나리오의 경우 클러스터 만들기 작업에서 OSM 추가 기능을 사용 하도록 설정 하 여 AKS 클러스터의 새 배포를 시작 합니다. 다음 방향 집합에서는 사용 후 삭제 디스크를 사용 하 여 AKS 클러스터를 배포 하 [`kubenet`](./configure-kubenet.md) 고, cni를 사용 하 고, AKS OSM 추가 기능을 사용 하도록 설정 하는 일반 Bicep 템플릿을 사용 합니다. 고급 배포 시나리오의 경우 [Bicep](../azure-resource-manager/bicep/overview.md) 설명서를 참조 하세요.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure에서 리소스 그룹을 사용하여 관련 리소스를 연결할 수 있습니다. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제는 지정된 Azure 위치(지역)에 이라는 리소스 그룹을 만드는 데 사용됩니다.
+Azure에서 리소스 그룹을 사용 하 여 관련 리소스를 연결할 수 있습니다. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제는 지정 된 Azure 위치 (지역)에 이라는 리소스 그룹을 만드는 데 사용 됩니다.
 
 ```azurecli-interactive
 az group create --name <my-osm-bicep-aks-cluster-rg> --location <azure-region>
 ```
 
-### <a name="create-the-main-and-parameters-bicep-files"></a>기본 및 매개 변수 Bicep 파일 만들기
+### <a name="create-the-main-and-parameters-bicep-files"></a>Main 및 parameters Bicep 파일 만들기
 
-bash 터미널이 열려 있는 Visual Studio Code 사용하여 필요한 Bicep 배포 파일을 저장할 디렉터리를 만듭니다. 다음 예제에서는 라는 디렉터리를 만들고 `bicep-osm-aks-addon` 디렉터리를 변경합니다.
+bash 터미널이 열려 있는 Visual Studio Code를 사용 하 여 필요한 Bicep 배포 파일을 저장할 디렉터리를 만듭니다. 다음 예제에서는 디렉터리 `bicep-osm-aks-addon` 와 디렉터리의 변경 된 디렉터리를 만듭니다.
 
 ```azurecli-interactive
 mkdir bicep-osm-aks-addon
 cd bicep-osm-aks-addon
 ```
 
-다음 예제와 같이 main 및 parameters 파일을 모두 만듭니다.
+다음 예제와 같이 주 파일 및 매개 변수 파일을 모두 만듭니다.
 
 ```azurecli-interactive
 touch osm.aks.bicep && touch osm.aks.parameters.json
 ```
 
-파일을 `osm.aks.bicep` 열고 다음 예제 콘텐츠를 복사한 다음 파일을 저장합니다.
+파일을 열고 `osm.aks.bicep` 다음 예제 콘텐츠를 복사한 다음 파일을 저장 합니다.
 
 ```azurecli-interactive
 // https://docs.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
@@ -145,10 +145,10 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
 }
 ```
 
-파일을 `osm.aks.parameters.json` 열고 다음 예제 콘텐츠를 복사합니다. 배포 관련 매개 변수를 추가한 다음 파일을 저장합니다.
+파일을 열고 `osm.aks.parameters.json` 다음 예제 콘텐츠를 복사 합니다. 배포 관련 매개 변수를 추가한 다음 파일을 저장 합니다.
 
 > [!NOTE]
-> `osm.aks.parameters.json`는 Bicep 배포에 필요한 예제 템플릿 매개 변수 파일입니다. 배포 환경에 맞게 지정된 매개 변수를 업데이트해야 합니다. 이 예제에서 사용하는 특정 매개 변수 값을 업데이트하려면 다음 매개 변수가 필요합니다. _clusterName,_ _clusterDNSPrefix,_ _k8Version_ 및 _sshPubKey_ 입니다. 해당 지역에서 지원되는 Kubernetes 버전 목록을 찾으려면 `az aks get-versions --location <region>` 명령을 사용하세요.
+> 는 `osm.aks.parameters.json` Bicep 배포에 필요한 예제 템플릿 매개 변수 파일입니다. 배포 환경에 맞게 지정 된 매개 변수를 업데이트 해야 합니다. 이 예제에서 사용 하는 특정 매개 변수 값을 업데이트 하려면 다음 매개 변수를 업데이트 해야 합니다. 이는 _clusterName_, _clusterDNSPrefix_, _k8Version_ 및 _sshPubKey_ 입니다. 해당 지역에서 지원 되는 Kubernetes 버전 목록을 찾으려면 명령을 사용 하세요 `az aks get-versions --location <region>` .
 
 ```azurecli-interactive
 {
@@ -173,7 +173,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
 
 ### <a name="deploy-the-bicep-file"></a>Bicep 파일 배포
 
-이전에 만든 Bicep 파일을 배포하려면 터미널을 열고 명령을 사용하여 Azure CLI 대한 Azure 계정에 `az login` 인증합니다. Azure 구독에 인증되면 배포를 위해 다음 명령을 실행합니다.
+이전에 만든 Bicep 파일을 배포 하려면 터미널을 열고 명령을 사용 하 여 Azure CLI에 대 한 Azure 계정에 인증 합니다 `az login` . Azure 구독에 인증 되 면 다음 명령을 실행 하 여 배포 합니다.
 
 ```azurecli-interactive
 az group create --name osm-bicep-test --location eastus2
@@ -207,7 +207,7 @@ kubectl get services -n kube-system --selector app=osm-controller
 
 ## <a name="accessing-the-aks-osm-add-on-configuration"></a>AKS OSM 추가 기능 구성에 액세스
 
-현재 OSM MeshConfig 리소스를 통해 OSM 컨트롤러 구성에 액세스하고 구성할 수 있으며, 아래와 같이 CLI를 통해 OSM 컨트롤러 구성 설정을 볼 수 있습니다. **kubectl** get 명령을 사용합니다.
+현재 OSM MeshConfig 리소스를 통해 OSM 컨트롤러 구성에 액세스 하 고 구성할 수 있으며, 아래와 같이 **kubectl** get 명령을 사용 하 여 CLI를 통해 OSM 컨트롤러 구성 설정을 볼 수 있습니다.
 
 ```azurecli-interactive
 kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
@@ -259,7 +259,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-**enablePermissiveTrafficPolicyMode가** **true** 로 구성되어 있습니다. OSM의 허용 트래픽 정책 모드는 [SMI](https://smi-spec.io/) 트래픽 정책 적용을 우회하는 모드입니다. 이 모드에서 OSM은 서비스 메시의 일부인 서비스를 자동으로 검색합니다. 검색된 서비스에는 이러한 서비스 간의 통신을 허용하도록 각 Envoy 프록시 사이드카에서 프로그래밍된 트래픽 정책 규칙이 있습니다.
+**EnablePermissiveTrafficPolicyMode** 가 **true** 로 구성 되어 있는지 확인 합니다. OSM의 허용 트래픽 정책 모드는 [SMI](https://smi-spec.io/) 트래픽 정책 적용을 우회하는 모드입니다. 이 모드에서 OSM는 서비스 메시의 일부인 서비스를 자동으로 검색 합니다. 검색 된 서비스는 각 엔보이 프록시 사이드카에서 이러한 서비스 간의 통신을 허용 하는 트래픽 정책 규칙을 포함 합니다.
 
 > [!WARNING]
 > 계속하기 전에 허용 트래픽 정책 모드가 true로 설정되어 있는지 확인하세요. 그렇지 않으면 아래 명령을 사용하여 **true** 로 변경하세요.
@@ -270,7 +270,7 @@ kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure 리소스가 더 이상 필요하지 않은 경우 Azure CLI 사용하여 배포 테스트 리소스 그룹을 삭제합니다.
+Azure 리소스가 더 이상 필요 하지 않은 경우 Azure CLI를 사용 하 여 배포 테스트 리소스 그룹을 삭제 합니다.
 
 ```
 az group delete --name osm-bicep-test

@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: de328fb70f8abc32a89b8d5b54b0cb40a12f9356
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: accf7e5a30b07cbfe6a95bc33eb00a5e3aa23998
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370381"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716394"
 ---
 # <a name="event-schemas"></a>이벤트 스키마
 
@@ -53,7 +53,7 @@ EventGrid 스키마는 게시 엔터티가 준수해야 하는 필수 속성 세
 
 모든 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | 필수 | Description |
+| 속성 | 형식 | 필수 | Description |
 | -------- | ---- | ----------- |-----------
 | 토픽 | 문자열 | No | 게시된 토픽과 일치해야 합니다. 지정하지 않으면 Event Grid가 게시된 토픽의 이름으로 채웁니다. |
 | subject | 문자열 | 예 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -105,11 +105,11 @@ EventGrid 스키마는 게시 엔터티가 준수해야 하는 필수 속성 세
 
 ## <a name="cloudevent-schema"></a>CloudEvent 스키마
 
-Event Grid는 위의 스키마 외에도 기본적으로 [CloudEvents JSON 스키마](https://github.com/cloudevents/spec/blob/master/json-format.md)의 이벤트를 지원합니다. CloudEvents는 이벤트 데이터를 설명하는 공개 사양입니다. 이벤트를 게시하고 사용하는 데 필요한 일반 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. [CNCF](https://www.cncf.io/)의 일부이며 현재 사용할 수 있는 버전은 1.0-rc1입니다.
+Event Grid는 위의 스키마 외에도 기본적으로 [CloudEvents JSON 스키마](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md)의 이벤트를 지원합니다. CloudEvents는 이벤트 데이터를 설명하는 공개 사양입니다. 이벤트를 게시하고 사용하는 데 필요한 일반 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. [CNCF](https://www.cncf.io/)의 일부이며 현재 사용할 수 있는 버전은 1.0-rc1입니다.
 
 ### <a name="cloudevent-schema-properties"></a>CloudEvent 스키마 속성
 
-필수 봉투 속성에 대한 [CloudEvents 사양](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope)을 참조하세요.
+필수 봉투 속성에 대한 [CloudEvents 사양](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md#3-envelope)을 참조하세요.
 
 ### <a name="example--cloud-event"></a>예제 — 클라우드 이벤트
 ```json

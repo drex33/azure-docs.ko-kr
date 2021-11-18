@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/04/2021
 ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 77cd51a87ba1f7ba7f17ed69c102a4020d7bae2a
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 604a0bbb8af6a6f5663f75438faec321292494be
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132284401"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722262"
 ---
 # <a name="confidential-computing-on-azure"></a>Azure의 기밀 컴퓨팅
 
@@ -51,7 +51,7 @@ Azure는 기밀 컴퓨팅 IaaS 워크로드에 대해 서로 다른 가상 머�
 - [AKS(Azure Kubernetes Service)에서 실행되는 Enclave 인식 컨테이너](enclave-aware-containers.md) AKS의 기밀 컴퓨팅 노드는 Intel SGX를 사용하여 각 컨테이너 애플리케이션 간의 노드에 격리된 enclave 환경을 만듭니다.
 - [Azure SQL의 보안 secure를 사용한 Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves) SQL 문에 데이터베이스 엔진이 실행되는 보안 enclave를 사용해야 하는 암호화된 데이터 작업이 포함된 경우 TEE 내에서 직접 SQL 쿼리를 실행하여 맬웨어 및 높은 권한이 없는 사용자로부터 중요한 데이터의 기밀성을 보호합니다.
 - [Microsoft Azure Attestation](../attestation/overview.md) - 여러 TEE(신뢰 실행 환경)의 신뢰성을 확인하고 TEEs 내에서 실행되는 이진의 무결성을 확인하기 위한 원격 증명 서비스입니다.
-- [Azure Key Vault 관리형 HSM](/azure/key-vault/managed-hsm/)은 FIPS 140-2 수준 3의 유효성이 검사된 HSM(하드웨어 보안 모듈)을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다.
+- [Azure Key Vault 관리형 HSM](../key-vault/managed-hsm/index.yml)은 FIPS 140-2 수준 3의 유효성이 검사된 HSM(하드웨어 보안 모듈)을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다.
 - [Azure IoT Edge](../iot-edge/deploy-confidential-applications.md)는 사물 인터넷(IoT) 디바이스의 보안 enclave 내에서 실행되는 기밀 애플리케이션을 지원합니다. IoT 디바이스는 악의적인 행위자가 물리적으로 액세스할 수 있으므로 변조 및 위조에 노출되는 경우가 많습니다. 기밀 IoT Edge 디바이스는 클라우드로 스트리밍하기 전에 디바이스 자체에 의해 캡처되고 저장된 데이터에 대한 액세스를 보호하여 에지에서 신뢰와 무결성을 추가합니다.
 
 현재 다음을 포함한 다른 서비스는 미리 보기로 제공됩니다.

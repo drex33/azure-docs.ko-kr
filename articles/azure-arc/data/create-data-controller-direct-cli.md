@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: 30c67a343be4b19d689df1e5faa2b72ed6ab83e3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: fb1952c00b54fd4618d3c4d3a830d862eb50a439
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562944"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301763"
 ---
 #  <a name="create-azure-arc-data-controller-in-direct-connectivity-mode-using-cli"></a>CLI를 사용하여 직접 연결 모드에서 Azure Arc 데이터 컨트롤러 만들기
 
@@ -109,7 +109,7 @@ az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name 
 
 포털에서 또는 Azure Arc 지원 Kubernetes 클러스터에 직접 연결하여 Azure Arc 지원 데이터 서비스 확장이 생성되었는지 확인할 수 있습니다. 
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 1. Azure Portal에 로그인하고 Kubernetes 연결 된 클러스터 리소스가 있는 리소스 그룹을 찾습니다.
 1. 확장이 배포된 Azure Arc 지원 kubernetes 클러스터(유형 = "Kubernetes - Azure Arc")를 선택합니다.
 1. 왼쪽 탐색의 **설정** 에서 **확장** 을 선택합니다.
@@ -147,9 +147,11 @@ $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --
 
 ### <a name="2-assign-role-to-the-managed-identity"></a>(2) 관리 ID에 역할 할당
 
-아래 명령을 실행하여 **모니터링 메트릭 게시자** 역할을 할당합니다.
+아래 명령어를 실행하여 **기여자** 및 **모니터링 메트릭 게시자** 역할을 할당합니다.
 ```powershell
-az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Contributor" --scope "/subscriptions/$ENV:subscription/resourceGroups/$ENV:resourceGroup"
+
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Monitoring Metrics Publisher" --scope "/subscriptions/$ENV:subscription/resourceGroups/$ENV:resourceGroup"
 
 ```
 
@@ -176,10 +178,11 @@ az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamesp
 ```PowerShell
 $ENV:clName="mycustomlocation"
 $ENV:clNamespace="arc"
-$ENV:hostClusterId = az connectedk8s show -g "$ENV:resourceGroup" -n "$ENV:resourceName" --query id -o tsv
-$ENV:extensionId = az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --cluster-type connectedClusters --name "$ENV:ADSExtensionName" --query id -o tsv
 
-az customlocation create -g "$ENV:resourceGroup" -n "$ENV:clName" --namespace "$ENV:clNamespace" --host-resource-id "$ENV:hostClusterId" --cluster-extension-ids "$ENV:extensionId"
+$ENV:hostClusterId=(az connectedk8s show -g $ENV:resourceGroup -n $ENV:resourceName --query id -o tsv)
+$ENV:extensionId=(az k8s-extension show -g $ENV:resourceGroup -c $ENV:resourceName --cluster-type connectedClusters --name $ENV:ADSExtensionName --query id -o tsv)
+
+az customlocation create -g $ENV:resourceGroup -n $ENV:clName --namespace $ENV:clNamespace --host-resource-id $ENV:hostClusterId --cluster-extension-ids $ENV:extensionId
 ```
 
 ## <a name="validate--the-custom-location-is-created"></a>사용자 지정 위치가 생성되었는지 확인

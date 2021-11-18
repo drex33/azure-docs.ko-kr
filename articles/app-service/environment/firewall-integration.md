@@ -1,27 +1,27 @@
 ---
 title: 아웃바운드 트래픽 잠금
-description: Azure Firewall 통합하여 App Service Environment 내에서 아웃바운드 트래픽을 보호하는 방법을 알아봅니다.
+description: App Service Environment 내에서 아웃바운드 트래픽을 보호하기 위해 Azure Firewall 통합하는 방법에 대해 알아봅니다.
 author: madsd
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 ms.date: 09/16/2021
 ms.author: madsd
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: d8896f9bbe7ee4429236eac7763d66b1efd4313c
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 6fbb79a06de67c7c493afe79e18968005c6b0bf0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523717"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707005"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
 > [!NOTE]
 > 이 문서에서는 격리된 App Service 계획과 함께 사용되는 App Service Environment v2에 대해 자세히 다루고 있습니다.
 
-ASE(App Service Environment)에는 제대로 작동하기 위해 액세스해야 하는 여러 가지 외부 종속성이 있습니다. ASE는 고객의 Azure VNet(Virtual Network)에 상주합니다. 고객은 ASE 종속성 트래픽을 허용해야 합니다. 이는 VNet의 모든 송신을 잠그려고 하는 고객에게는 문제가 됩니다.
+ASE(App Service Environment)에는 제대로 작동하기 위해 에 액세스해야 하는 많은 외부 의존성이 있습니다. ASE는 고객 Azure Virtual Network 있습니다. 고객은 ASE 종속성 트래픽을 허용해야 합니다. 이는 가상 네트워크에서 모든 송신을 잠그려는 고객의 문제입니다.
 
-ASE를 관리하는 데 사용되는 여러 인바운드 엔드포인트가 있습니다. 인바운드 관리 트래픽은 방화벽 디바이스를 통해 보낼 수 없습니다. 이 트래픽에 대한 원본 주소는 알려져 있으며 [App Service Environment 관리 주소](./management-addresses.md) 문서에 게시됩니다. 또한 NSG(네트워크 보안 그룹)에서 인바운드 트래픽을 보호하는 데 사용할 수 있는 AppServiceManagement라는 서비스 태그가 있습니다.
+ASE를 관리하는 데 사용되는 많은 인바운드 엔드포인트가 있습니다. 인바운드 관리 트래픽은 방화벽 디바이스를 통해 보낼 수 없습니다. 이 트래픽에 대한 원본 주소는 알려져 있으며 [App Service Environment 관리 주소](./management-addresses.md) 문서에 게시됩니다. 인바운드 트래픽을 보호하기 위해 NSG(네트워크 보안 그룹)와 함께 사용할 수 있는 AppServiceManagement라는 서비스 태그도 있습니다.
 
 ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없는 FQDN을 사용하여 정의됩니다. 고정 주소가 없으면 네트워크 보안 그룹을 사용하여 ASE의 아웃바운드 트래픽을 잠글 수 없습니다. 주소는 현재 확인에 기반한 규칙을 설정하고 NSG를 만드는 데 사용할 수 없을 만큼 자주 변경됩니다.
 
@@ -58,7 +58,7 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
 
    ![서비스 엔드포인트 선택][2]
 
-1. ASE가 있는 VNet에서 AzureFirewallSubnet이라는 서브넷을 만듭니다. [Azure Firewall 설명서](../../firewall/index.yml)의 지침에 따라 Azure Firewall을 만듭니다.
+1. ASE가 있는 가상 네트워크에 AzureFirewallSubnet이라는 서브넷을 만듭니다. [Azure Firewall 설명서](../../firewall/index.yml)의 지침에 따라 Azure Firewall을 만듭니다.
 
 1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [애플리케이션 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. FQDN 태그 섹션에서 이름을 입력하고, 원본 주소를 *로 설정하며, App Service Environment FQDN 태그 및 Windows 업데이트를 선택합니다.
 
@@ -82,7 +82,7 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
 
 방화벽 뒤에 ASE를 배치하는 단계는 ASE 서브넷을 만든 다음, 이전 단계를 수행해야 한다는 점을 제외하고는 Azure Firewall로 기존 ASE를 구성하는 것과 동일합니다. 기존 서브넷에 ASE를 만들려면 [Resource Manager 템플릿으로 ASE 만들기](./create-from-template.md) 문서에 설명된 대로 Resource Manager 템플릿을 사용해야 합니다.
 
-## <a name="application-traffic"></a>애플리케이션 트래픽
+### <a name="application-traffic"></a>애플리케이션 트래픽
 
 위의 단계를 통해 ASE가 문제 없이 작동할 수 있습니다. 여전히 애플리케이션 요구 사항에 맞게 항목을 구성해야 합니다. Azure Firewall을 사용하여 구성된 ASE의 애플리케이션에는 두 가지 문제가 있습니다.  
 
@@ -91,11 +91,11 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
 
 애플리케이션에 종속성이 있으면 Azure Firewall에 추가해야 합니다. 다른 모든 항목에 대해 HTTP/HTTPS 트래픽 및 네트워크 규칙을 허용하는 애플리케이션 규칙을 만듭니다.
 
-애플리케이션 요청 트래픽이 제공되는 주소 범위를 알고 있는 경우 ASE 서브넷에 할당된 경로 테이블에 이를 추가할 수 있습니다. 주소 범위가 크거나 지정되지 않은 경우 Application Gateway와 같은 네트워크 어플라이언스를 사용하여 경로 테이블에 추가할 하나의 주소를 제공할 수 있습니다. ILB ASE를 사용하여 Application Gateway를 구성하는 방법에 대한 자세한 내용은 [ILB ASE와 Application Gateway 통합](./integrate-with-application-gateway.md)을 참조하세요.
+애플리케이션 요청 트래픽이 들어오는 주소 범위를 알고 있는 경우 ASE 서브넷에 할당된 경로 테이블에 추가할 수 있습니다. 주소 범위가 크거나 지정되지 않은 경우 Application Gateway와 같은 네트워크 어플라이언스를 사용하여 경로 테이블에 추가할 하나의 주소를 제공할 수 있습니다. ILB ASE를 사용하여 Application Gateway를 구성하는 방법에 대한 자세한 내용은 [ILB ASE와 Application Gateway 통합](./integrate-with-application-gateway.md)을 참조하세요.
 
 이러한 Application Gateway의 사용은 시스템을 구성하는 방법의 한 예일 뿐입니다. 이 경로를 따른 경우 ASE 서브넷 경로 테이블에 경로를 추가해야 Application Gateway로 전송된 회신 트래픽이 직접 이동하게 됩니다.
 
-## <a name="logging"></a>로깅
+### <a name="logging"></a>로깅
 
 Azure Firewall은 로그를 Azure Storage, Event Hub 또는 Azure Monitor 로그에 보낼 수 있습니다. 앱을 지원되는 모든 대상과 통합하려면 [Azure Firewall 포털] > [진단 로그]로 이동하여 원하는 대상에 대한 로그를 설정합니다. Azure Monitor 로그와 통합하면 Azure Firewall에 전송된 모든 트래픽에 대한 로깅을 볼 수 있습니다. 거부되는 트래픽을 보려면 Log Analytics 작업 영역 포털 > 로그를 열고 다음과 같은 쿼리를 입력합니다.
 
@@ -105,14 +105,17 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Azure Firewall과 Azure Monitor 로그를 통합하면 모든 애플리케이션 종속성을 알지 못하는 상태에서 애플리케이션을 처음 작동할 때 유용합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../../azure-monitor/logs/log-query-overview.md)을 참조하세요.
 
-## <a name="dependencies"></a>종속성
+<a name="dependencies"></a>
+## <a name="configuring-third-party-firewall-with-your-ase"></a>ASE를 통해 타사 방화벽 구성
 
-다음 정보는 Azure Firewall 이외의 방화벽 어플라이언스를 구성하는 경우에만 필요합니다.
+다음 정보는 Azure Firewall 이외의 방화벽 어플라이언스를 구성하는 경우에만 필요합니다. Azure Firewall [위의 섹션을 참조하세요.](#configuring-azure-firewall-with-your-ase)
+
+ASE를 통해 타사 방화벽을 배포할 때는 다음을 고려해야 합니다.
 
 - 서비스 엔드포인트 지원 서비스는 서비스 엔드포인트로 구성되어야 합니다.
 - IP 주소 종속성은 HTTP/S가 아닌 트래픽(TCP 및 UDP 모두)에 대한 것입니다.
 - FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
-- 와일드카드 HTTP/HTTPS 엔드포인트는 몇 가지 한정자를 기반으로 하여 ASE에 따라 달라질 수 있는 종속성입니다.
+- 와일드 카드 HTTP/HTTPS 끝점은 다양 한 한정자에 따라 ASE에 따라 달라질 수 있는 종속성입니다.
 - Linux 종속성은 Linux 응용 프로그램을 ASE에 배포하는 경우에만 문제가 됩니다. Linux 응용 프로그램을 ASE에 배포하지 않는 경우 이러한 주소는 방화벽에 추가할 필요가 없습니다.
 
 ### <a name="service-endpoint-capable-dependencies"></a>서비스 엔드포인트 지원 종속성
@@ -237,7 +240,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 
 | 엔드포인트 |
 |----------|
-|gr-Prod-\*.cloudapp.net:443 |
+|gr-prod \* cloudapp.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
@@ -245,7 +248,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 | \*.ctldl.windowsupdate.com:80 |
 | \*.ctldl.windowsupdate.com:443 |
 | \*.prod.microsoftmetrics.com:443 |
-| \*.dsms.core.windows.net:443 |
+| \*. dsms.core.windows.net:443 |
 
 ### <a name="linux-dependencies"></a>Linux 종속성
 
@@ -280,15 +283,15 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>US Gov 종속성
+## <a name="configuring-a-firewall-with-ase-in-us-gov-regions"></a>US Gov 지역에서 ASE를 사용 하 여 방화벽 구성
 
 US Gov 지역의 ASE인 경우 이 문서의 [ASE로 Azure 방화벽 구성](#configuring-azure-firewall-with-your-ase) 섹션에 있는 지침에 따라 ASE를 사용하여 Azure 방화벽을 구성합니다.
 
-US Gov Azure Firewall 이외의 디바이스를 사용하려는 경우:
+US Gov에서 타사 방화벽을 사용 하려면 다음 종속성을 고려해 야 합니다.
 
 - 서비스 엔드포인트 지원 서비스는 서비스 엔드포인트로 구성되어야 합니다.
 - FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
-- 와일드카드 HTTP/HTTPS 엔드포인트는 몇 가지 한정자를 기반으로 하여 ASE에 따라 달라질 수 있는 종속성입니다.
+- 와일드 카드 HTTP/HTTPS 끝점은 다양 한 한정자에 따라 ASE에 따라 달라질 수 있는 종속성입니다.
 
 Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 목록에 표시되지 않습니다.
 
@@ -315,13 +318,10 @@ Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 �
 | 13.82.184.151:80 | ASE 문제를 모니터링하고 경고해야 함 |
 | 13.82.184.151:443 | ASE 문제를 모니터링하고 경고해야 함 |
 
-### <a name="dependencies"></a>종속성
+### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 종속성
 
 | 엔드포인트 |
 |----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -376,10 +376,6 @@ Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 �
 |www.microsoft.com:80 |
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
-|\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
-|\*.update.microsoft.com:443 |
-|\*.prod.microsoftmetrics.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
@@ -441,6 +437,18 @@ Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 �
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
 |global-dsms.dsms.core.usgovcloudapi.net:443 |
+
+### <a name="wildcard-httphttps-dependencies"></a>Wildcard HTTP/HTTPS dependencies
+
+| 엔드포인트 |
+|----------|
+|\*.ctldl.windowsupdate.com:80 |
+|\*.management.usgovcloudapi.net:80 |
+|\*.update.microsoft.com:80 |
+|\*ctldl.windowsupdate.com:443 |
+|\*.management.usgovcloudapi.net:443 |
+|\*.update.microsoft.com:443 |
+|\*.prod.microsoftmetrics.com:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

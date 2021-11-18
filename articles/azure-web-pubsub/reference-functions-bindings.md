@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/08/2021
-ms.openlocfilehash: 40904b087d58ee6a07ca7acecdd2b2927348799e
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 863fd6ce34c2f2fb822490ae363cf2f979594c99
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493251"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705192"
 ---
 #  <a name="azure-web-pubsub-trigger-and-bindings-for-azure-functions"></a>Azure Functions에 대한 Azure Web PubSub 트리거 및 바인딩
 
@@ -22,8 +22,8 @@ Web PubSub는 개발자가 실시간 기능 및 게시-구독 패턴을 사용�
 | 작업 | 형식 |
 |---------|---------|
 | 서비스에서 메시지가 제공되는 경우 함수 실행 | [트리거 바인딩](#trigger-binding) |
-| 협상 및 업스트림 요청에 대한 Http 트리거에서 대상 개체에 요청 바인딩 | [입력 바인딩](#input-binding)
-| 서비스 수행 작업 호출 | [출력 바인딩](#output-binding) |
+| 협상 및 업스트림 요청에 대 한 Http 트리거의 대상 개체에 요청 바인딩 | [입력 바인딩](#input-binding)
+| Service do 동작 호출 | [출력 바인딩](#output-binding) |
 
 [소스 코드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |
 [패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub) |
@@ -38,7 +38,7 @@ Web PubSub는 개발자가 실시간 기능 및 게시-구독 패턴을 사용�
 | 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지], 시험판 버전 설치 | |
-| C# 스크립트, JavaScript, Python, PowerShell       | [명시적으로 확장 설치], [확장 번들 사용] | [Azure Tools 확장]은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
+| C# 스크립트, JavaScript, Python, PowerShell       | [확장을 명시적으로 설치], [확장 번들 사용] | [Azure Tools 확장]은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
 | C# 스크립트(Azure Portal에서 온라인으로만)         | 바인딩 추가                                   | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Web PubSub는 개발자가 실시간 기능 및 게시-구독 패턴을 사용�
 
 함수 트리거를 사용하여 Azure Web PubSub 서비스의 요청을 처리합니다. 
 
-`WebPubSubTrigger`는 서비스 쪽에서 요청을 처리해야 할 때 사용됩니다. 트리거 엔드포인트 패턴은 아래와 같으며 Web PubSub 서비스 쪽에서 설정해야 합니다(Portal: 설정 -> 이벤트 처리기 -> URL 템플릿). 엔드포인트 패턴에서 쿼리 부분 `code=<API_KEY>`는 [보안](../azure-functions/security-concepts.md#system-key)상의 이유로 Azure 함수 앱을 사용할 때 **필수** 입니다. 키는 **Azure Portal** 에서 찾을 수 있습니다. 함수 앱 리소스를 찾고 **함수**  ->  **앱을**  ->  Azure에 배포한 후 webpubsub_extension 함수 앱 키 시스템 **키로**  ->   이동합니다. 그러나 로컬 함수를 사용할 때는 이 키가 필요하지 않습니다.
+`WebPubSubTrigger`는 서비스 쪽에서 요청을 처리해야 할 때 사용됩니다. 트리거 엔드포인트 패턴은 아래와 같으며 Web PubSub 서비스 쪽에서 설정해야 합니다(Portal: 설정 -> 이벤트 처리기 -> URL 템플릿). 엔드포인트 패턴에서 쿼리 부분 `code=<API_KEY>`는 [보안](../azure-functions/security-concepts.md#system-key)상의 이유로 Azure 함수 앱을 사용할 때 **필수** 입니다. **Azure Portal** 에서 키를 찾을 수 있습니다. 함수 앱 리소스를 찾고 함수 앱   ->  **키**  ->  **시스템 키** 로 이동  ->  합니다. 함수 앱을 Azure에 배포한 후에 **webpubsub_extension** 합니다. 그러나 로컬 함수를 사용할 때는 이 키가 필요하지 않습니다.
 
 ```
 <Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
@@ -96,7 +96,7 @@ public static void Run(
 }
 ```
 
-`WebPubSubTrigger` 또한 바인딩은 `Connect` 서버가 클라이언트 요청을 확인 및 거부하거나 호출자에게 직접 메시지를 보낼 수 있는 경우 시스템 및 사용자 이벤트와 같은 동기화 시나리오에서 반환 값을 지원합니다. `Connect` 이벤트는 및 를 `ConnectEventResponse` `EventErrorResponse` 준수하고, 사용자 이벤트는 `UserEventResponse` 및 를 `EventErrorResponse` 준수하며, 현재 시나리오와 일치하지 않는 rest 형식은 무시됩니다. 또한 `EventErrorResponse`가 반환되면 서비스에서 클라이언트 연결을 삭제합니다.
+`WebPubSubTrigger` 또한 바인딩은 `Connect` 서버에서 클라이언트 요청을 확인 하 고 거부할 수 있는 경우 또는 호출자에 게 직접 메시지를 보낼 때 시스템 및 사용자 이벤트와 같은 동기화 시나리오에서 반환 값을 지원 합니다. `Connect` 이벤트 `ConnectEventResponse` 면 및 및 `EventErrorResponse` 사용자 이벤트 면에서 `UserEventResponse` `EventErrorResponse` 현재 시나리오와 일치 하지 않는 rest 형식이 무시 됩니다. 또한 `EventErrorResponse`가 반환되면 서비스에서 클라이언트 연결을 삭제합니다.
 
 ```cs
 [FunctionName("WebPubSubTriggerReturnValue")]
@@ -145,7 +145,7 @@ module.exports = function (context, data) {
 }
 ```
 
-`WebPubSubTrigger` 또한 바인딩은 `Connect` 서버가 클라이언트 요청을 확인 및 거부하거나 요청 클라이언트에 직접 메시지를 보낼 수 있는 경우 시스템 및 사용자 이벤트와 같은 동기화 시나리오에서 반환 값을 지원합니다. JavaScript 약한 형식의 언어에서는 개체 키와 관련하여 deserialized됩니다. 그리고 `EventErrorResponse`는 rest 개체에 비해 우선 순위가 가장 높으며 `code`가 반환 결과에 있는 경우 `EventErrorResponse`로 구문 분석되고 클라이언트 연결이 삭제됩니다.
+`WebPubSubTrigger` 또한 바인딩은 `Connect` 서버에서 클라이언트 요청을 확인 및 거부 하거나 요청 클라이언트에 직접 메시지를 보낼 때 시스템 및 사용자 이벤트와 같은 동기화 시나리오에서 반환 값을 지원 합니다. JavaScript 약하게 형식화 된 언어에서는 개체 키와 관련 하 여 deserialize 됩니다. 그리고 `EventErrorResponse`는 rest 개체에 비해 우선 순위가 가장 높으며 `code`가 반환 결과에 있는 경우 `EventErrorResponse`로 구문 분석되고 클라이언트 연결이 삭제됩니다.
 
 ```js
 module.exports = async function (context) {
@@ -188,34 +188,34 @@ WebPubSubConnectionContext context, ILogger log)
 | **hub** | 허브 | 필수 - 함수가 트리거되려면 이 값을 반드시 Web PubSub 허브 이름으로 설정해야 합니다. 특성의 값을 더 높은 우선 순위로 설정하거나 앱 설정에서 전역 값으로 설정할 수 있습니다. |
 | **eventType** | EventType | 필수 - 함수가 트리거되려면 이 값을 반드시 메시지의 이벤트 유형으로 설정해야 합니다. 값은 `user` 또는 `system`이어야 합니다. |
 | **eventName** | EventName | 필수 - 함수가 트리거되려면 이 값을 반드시 메시지의 이벤트로 설정해야 합니다. </br> `system` 이벤트 유형의 경우 이벤트 이름은 `connect`, `connected` 또는 `disconnected`에 있어야 합니다. </br> 사용자 정의 하위 프로토콜의 경우 이벤트 이름은 `message`입니다. </br> 시스템 지원 하위 프로토콜 `json.webpubsub.azure.v1.`의 경우 이벤트 이름은 사용자 정의 이벤트 이름입니다. |
-| **connection** | 연결 | 선택 사항 - 업스트림 Azure Web PubSub 서비스를 지정하는 앱 설정 또는 설정 컬렉션의 이름입니다. 값은 서명 유효성 검사에 사용됩니다. 그리고 기본적으로 앱 설정 "WebPubSubConnectionString"으로 값이 자동으로 확인됩니다. 또한 `null` 유효성 검사가 필요하지 않으며 항상 성공한다는 의미입니다. |
+| **connection** | 연결 | 선택 사항-앱 설정의 이름 또는 업스트림 Azure 웹 PubSub 서비스를 지정 하는 컬렉션을 설정 합니다. 값은 서명 유효성 검사에 사용 됩니다. 값은 기본적으로 앱 설정 "WebPubSubConnectionString"을 사용 하 여 자동으로 해결 됩니다. 및은 `null` 유효성 검사가 필요 하지 않으며 항상 성공 함을 의미 합니다. |
 
 ### <a name="usages"></a>사용
 
 C#에서 `WebPubSubEventRequest`는 형식 인식 바인딩 매개 변수이고, rest 매개 변수는 매개 변수 이름으로 바인딩됩니다. 아래 표에서 사용 가능한 매개 변수 및 형식을 확인합니다.
 
-JavaScript와 같은 약한 형식의 언어에서 `name` 의는 `function.json` 아래 매핑 테이블과 관련 된 트리거 개체를 바인딩하는 데 사용 됩니다. 또한 `name`이 트리거 입력에 대한 바인딩 개체로서 `data`로 설정되면 그에 따라 `function.json`에서 `dataType`을 준수하여 메시지를 변환합니다. 모든 매개 변수는 `context.bindingData.<BindingName>`에서 읽을 수 있으며 `JObject`가 변환됩니다. 
+JavaScript와 같이 약한 형식의 `name` 언어에서 의 `function.json` 는 아래 매핑 테이블과 관련된 트리거 개체를 바인딩하는 데 사용됩니다. 또한 `name`이 트리거 입력에 대한 바인딩 개체로서 `data`로 설정되면 그에 따라 `function.json`에서 `dataType`을 준수하여 메시지를 변환합니다. 모든 매개 변수는 `context.bindingData.<BindingName>`에서 읽을 수 있으며 `JObject`가 변환됩니다. 
 
 | 바인딩 이름 | 바인딩 유형 | 설명 | 속성 |
 |---------|---------|---------|---------|
-|request|`WebPubSubEventRequest`|업스트림 요청을 설명 합니다.|속성이 파생 클래스, 및를 비롯 한 다양 한 이벤트 형식에 따라 다릅니다. `ConnectEventRequest` `ConnectedEventRequest` `UserEventRequest``DisconnectedEventRequest` |
-|connectionContext|`WebPubSubConnectionContext`|일반 요청 정보| EventType, EventName, Hub, ConnectionId, UserId, 헤더, 원본, 서명, 상태 |
+|request|`WebPubSubEventRequest`|업스트림 요청에 대해 설명합니다.|속성은 파생 클래스 `ConnectEventRequest` , `ConnectedEventRequest` `UserEventRequest` 및 를 비롯한 다양한 이벤트 유형에 따라 다릅니다. `DisconnectedEventRequest` |
+|connectionContext|`WebPubSubConnectionContext`|일반 요청 정보| EventType, EventName, Hub, ConnectionId, UserId, Headers, Origin, Signature, States |
 |데이터|`BinaryData`,`string`,`Stream`,`byte[]`| 사용자 이벤트에서 클라이언트의 메시지 데이터 요청 `message` | -|
 |dataType|`WebPubSubDataType`| 요청 메시지 dataType은 `binary`, `text`, `json`을 지원합니다. | -|
-|claims|`IDictionary<string, string[]>`|시스템 요청의 사용자 클레임 `connect` | -|
+|claims|`IDictionary<string, string[]>`|시스템 요청의 사용자 `connect` 클레임 | -|
 |Query|`IDictionary<string, string[]>`|시스템 요청의 사용자 쿼리 `connect` | -|
 |subprotocols|`IList<string>`|시스템 요청에서 사용 가능한 하위 프로토콜 `connect` | -|
 |clientCertificates|`IList<ClientCertificate>`|시스템 요청에서 클라이언트의 인증서 지문 목록 `connect`|-|
-|reason|`string`|시스템 요청에 대 한 이유 `disconnected`|-|
+|reason|`string`|시스템 `disconnected` 요청의 이유|-|
 
 ### <a name="return-response"></a> 반환 응답
 
-`WebPubSubTrigger` 는의 동기 이벤트와 사용자 이벤트에 대해 고객에 게 반환 된 응답을 준수 합니다 `connect` . 일치하는 응답만 서비스로 다시 전송되고, 일치하지 않으면 무시됩니다. 뿐만 아니라 `WebPubSubTrigger` 반환 개체는 사용자가 `SetState()` `ClearStates()` 연결에 대 한 메타 데이터를 관리할 수 있도록 지원 합니다. 그리고 확장은 반환 값의 결과를 요청의 원래 값과 병합 합니다 `WebPubSubConnectionContext.States` . 기존 키의 값이 덮어쓰여집니다. 새 키의 값이 추가 됩니다.
+`WebPubSubTrigger` 는 및 사용자 이벤트의 동기 이벤트에 대해 고객이 반환한 응답을 `connect` 준수합니다. 일치하는 응답만 서비스로 다시 전송되고, 일치하지 않으면 무시됩니다. 또한 `WebPubSubTrigger` return 개체는 사용자가 `SetState()` `ClearStates()` 연결에 대한 메타데이터를 관리하도록 지원합니다. 그리고 확장은 반환 값의 결과를 요청 의 원래 결과와 `WebPubSubConnectionContext.States` 병합합니다. 기존 키의 값은 덮어쓰여지고 새 키의 값이 추가됩니다.
 
 | 반환 형식 | 설명 | 속성 |
 |---------|---------|---------|
 |`ConnectEventResponse`| `connect` 이벤트에 대한 응답 | Groups, Roles, UserId, Subprotocol |
-|`UserEventResponse`| 사용자 이벤트에 대한 응답 | 데이터 형식, 데이터 |
+|`UserEventResponse`| 사용자 이벤트에 대한 응답 | DataType, Data |
 |`EventErrorResponse`| 동기화 이벤트에 대한 오류 응답 | Code, ErrorMessage |
 |`*WebPubSubEventResponse`| 확실하지 않은 반환 사례에 사용되는 지원 응답의 기본 응답 형식 | - |
 
@@ -229,12 +229,12 @@ JavaScript와 같은 약한 형식의 언어에서 `name` 의는 `function.json`
 
 - `WebPubSubContext`
 
-  Static Web Apps를 사용하는 경우 `HttpTrigger`는 지원되는 유일한 트리거이며 Web PubSub 시나리오에서는 사용자가 Web PubSub 프로토콜 아래의 서비스 쪽에서 업스트림 http 요청을 역직렬화하도록 지원하는 `WebPubSubContext` 입력 바인딩을 제공합니다. 따라서 고객은와 비교 하 여 `WebPubSubTrigger` 함수에서 쉽게 처리할 수 있는 유사한 결과를 얻을 수 있습니다. 아래의 [예제](#example---webpubsubcontext)를 참조하세요.
-  와 함께 사용 하는 경우 `HttpTrigger` 고객은 이벤트 처리기에서 HttpTrigger 노출 url을 적절 하 게 구성 해야 합니다.
+  Static Web Apps를 사용하는 경우 `HttpTrigger`는 지원되는 유일한 트리거이며 Web PubSub 시나리오에서는 사용자가 Web PubSub 프로토콜 아래의 서비스 쪽에서 업스트림 http 요청을 역직렬화하도록 지원하는 `WebPubSubContext` 입력 바인딩을 제공합니다. 따라서 고객은 함수에서 쉽게 처리할 수 있도록 에 비해 비슷한 결과를 얻을 수 `WebPubSubTrigger` 있습니다. 아래의 [예제](#example---webpubsubcontext)를 참조하세요.
+  와 함께 사용하는 경우 `HttpTrigger` 고객은 그에 따라 이벤트 처리기에서 HttpTrigger 노출 URL을 구성해야 합니다.
 
 ### <a name="example---webpubsubconnection"></a>예제 - `WebPubSubConnection`
 
-다음 예제에서는 입력 바인딩을 사용하여 Web PubSub 연결 정보를 획득하고 HTTP를 통해 해당 정보를 반환하는 C# 함수를 보여 줍니다. 아래 예제에서는 `UserId` 와 같은 클라이언트 요청 쿼리 부분을 통해 전달 됩니다 `?userid={User-A}` .
+다음 예제에서는 입력 바인딩을 사용하여 Web PubSub 연결 정보를 획득하고 HTTP를 통해 해당 정보를 반환하는 C# 함수를 보여 줍니다. 아래 예제에서 `UserId` 는 와 같은 클라이언트 요청 쿼리 부분을 통해 전달됩니다. `?userid={User-A}`
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -311,7 +311,7 @@ public static WebPubSubConnection Run(
 
 ### <a name="example---webpubsubcontext"></a>예제 - `WebPubSubContext`
 
-다음 예제에서는 이벤트 형식에서 입력 바인딩을 사용 하 여 웹 PubSub 업스트림 요청 정보를 획득 하 고 HTTP를 통해 반환 하는 c # 함수를 보여 줍니다 `connect` .
+다음 예제에서는 이벤트 형식의 입력 바인딩을 사용하여 Web PubSub 업스트림 요청 정보를 획득하고 HTTP를 통해 반환하는 C# 함수를 보여 `connect` 있습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -390,9 +390,9 @@ module.exports = async function (context, req, wpsContext) {
 | **type** | 해당 없음 | `webPubSubConnection`로 설정해야 합니다. |
 | **direction** | 해당 없음 | `in`로 설정해야 합니다. |
 | **name** | 해당 없음 | 입력 연결 바인딩 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
-| **hub** | 허브 | 필수-트리거되는 함수에 대 한 웹 PubSub 허브의 이름으로 값을 설정 해야 합니다. 특성의 값을 더 높은 우선 순위로 설정하거나 앱 설정에서 전역 값으로 설정할 수 있습니다. |
+| **hub** | 허브 | 필수 - 함수를 트리거하려면 값을 Web PubSub 허브의 이름으로 설정해야 합니다. 특성의 값을 더 높은 우선 순위로 설정하거나 앱 설정에서 전역 값으로 설정할 수 있습니다. |
 | **userId** | UserId | 선택 사항 - 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
-| **connection** | 연결 | 필수-웹 PubSub 서비스 연결 문자열을 포함 하는 앱 설정의 이름입니다 (기본값은 "WebPubSubConnectionString"). |
+| **connection** | 연결 | 필수 - Web PubSub 서비스 연결 문자열을 포함하는 앱 설정의 이름입니다(기본값은 "WebPubSubConnectionString"). |
 
 #### <a name="webpubsubcontext"></a>WebPubSubContext
 
@@ -403,7 +403,7 @@ module.exports = async function (context, req, wpsContext) {
 | **type** | 해당 없음 | `webPubSubContext`로 설정해야 합니다. |
 | **direction** | 해당 없음 | `in`로 설정해야 합니다. |
 | **name** | 해당 없음 | 입력 Web PubSub 요청에 대한 함수 코드에 사용되는 변수 이름입니다. |
-| **connection** | 연결 | 선택 사항-앱 설정의 이름 또는 업스트림 Azure 웹 PubSub 서비스를 지정 하는 컬렉션을 설정 합니다. 값은 [남용 방지](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) 및 서명 유효성 검사에 사용 됩니다. 값은 기본적으로 "WebPubSubConnectionString"을 사용 하 여 자동으로 해결 됩니다. 및은 `null` 유효성 검사가 필요 하지 않으며 항상 성공 함을 의미 합니다. |
+| **connection** | 연결 | 선택 사항 - 업스트림 Azure Web PubSub 서비스를 지정하는 앱 설정 또는 설정 컬렉션의 이름입니다. 이 값은 [남용 방지](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) 및 서명 유효성 검사에 사용됩니다. 이 값은 기본적으로 "WebPubSubConnectionString"으로 자동 확인됩니다. 또한 `null` 유효성 검사가 필요하지 않으며 항상 성공한다는 의미입니다. |
 
 ### <a name="usage"></a>사용량
 
@@ -413,21 +413,21 @@ module.exports = async function (context, req, wpsContext) {
 
 `WebPubSubConnection`는 아래 속성을 제공합니다.
 
-| 바인딩 이름 | 바인딩 유형 | Description |
+| 바인딩 이름 | 바인딩 유형 | 설명 |
 |---------|---------|---------|
-| BaseUri | URI | 웹 PubSub 클라이언트 연결 uri입니다. |
-| URI | URI | 웹 PubSub 연결의 절대 Uri로, `AccessToken` 요청에 생성 된 기본을 포함 합니다. |
-| AccessToken | 문자열 | `AccessToken`요청 UserId 및 서비스 정보를 기반으로 생성 됩니다. |
+| BaseUri | URI | Web PubSub 클라이언트 연결 URI입니다. |
+| URI | URI | Web PubSub 연결의 절대 URI로, `AccessToken` 요청에 대해 생성된 기본을 포함합니다. |
+| AccessToken | 문자열 | 요청 `AccessToken` UserId 및 서비스 정보를 기반으로 생성됩니다. |
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `WebPubSubConnection`는 아래 속성을 제공합니다.
 
-| 바인딩 이름 | Description |
+| 바인딩 이름 | 설명 |
 |---------|---------|
-| baseUrl | 웹 PubSub 클라이언트 연결 uri입니다. |
-| url | 웹 PubSub 연결의 절대 Uri로, `AccessToken` 요청에 생성 된 기본을 포함 합니다. |
-| accessToken | `AccessToken`요청 UserId 및 서비스 정보를 기반으로 생성 됩니다. |
+| baseUrl | Web PubSub 클라이언트 연결 URI입니다. |
+| url | Web PubSub 연결의 절대 URI로, `AccessToken` 요청에 대해 생성된 기본을 포함합니다. |
+| accessToken | 요청 `AccessToken` UserId 및 서비스 정보를 기반으로 생성됩니다. |
 
 ---
 
@@ -437,35 +437,35 @@ module.exports = async function (context, req, wpsContext) {
 
 | 바인딩 이름 | 바인딩 유형 | 설명 | 속성 |
 |---------|---------|---------|---------|
-| request | `WebPubSubEventRequest` | 클라이언트의 요청에 대 한 자세한 내용은 아래 표를 참조 하세요. | `WebPubSubConnectionContext` 요청 헤더 및 요청 본문에서 deserialize 된 기타 속성에서 요청을 설명 합니다 (예:) `Reason` `DisconnectedEventRequest` . |
-| 응답 | `HttpResponseMessage` | 확장은 주로 및 오류 사례에 대 한 응답을 작성 `AbuseProtection` 합니다. | - |
-| errorMessage | 문자열 | 업스트림 요청을 처리할 때 오류 세부 정보를 설명 합니다. | - |
-| System.windows.controls.validation.haserror | bool | 유효한 웹 PubSub 업스트림 요청 인지 여부를 나타내는 플래그입니다. | - |
-| isPreflight | bool | 의 실행 전 요청 인지 여부를 나타내는 플래그입니다 `AbuseProtection` . | - |
+| request | `WebPubSubEventRequest` | 클라이언트의 요청을 참조하세요. 자세한 내용은 아래 표를 참조하세요. | `WebPubSubConnectionContext` 요청 헤더 및 요청 본문에서 deserialized된 기타 속성에서 요청을 설명합니다(예: `Reason` `DisconnectedEventRequest` ). |
+| 응답 | `HttpResponseMessage` | 확장은 주로 및 오류 사례에 대한 응답을 `AbuseProtection` 빌드합니다. | - |
+| errorMessage | string | 업스트림 요청을 처리할 때 오류 세부 정보를 설명합니다. | - |
+| hasError | bool | 유효한 Web PubSub 업스트림 요청인지 여부를 나타내는 플래그입니다. | - |
+| isPreflight | bool | 의 사전 요청인지 여부를 나타내는 `AbuseProtection` 플래그입니다. | - |
 
-의 경우 `WebPubSubEventRequest` 요청 시나리오에 대 한 다양 한 정보를 제공 하는 다른 클래스로 deserialize 됩니다. `PreflightRequest`유효 하지 않은 경우에는 사용자가 플래그를 확인 `IsPreflight` 하 고 확인할 수 있습니다 `HasError` . 시스템 빌드 응답을 직접 반환 하는 것이 좋습니다 `WebPubSubContext.Response` . 또는 고객은 요청 시 오류를 기록할 수 있습니다. 다른 시나리오에서 고객은 아래와 같이 요청 속성을 읽을 수 있습니다.
+의 경우 `WebPubSubEventRequest` 요청 시나리오에 대한 다양한 정보를 제공하는 다른 클래스로 deserialized됩니다. `PreflightRequest`유효한 경우 또는 유효하지 않은 경우 사용자는 플래그를 확인하고 알 수 `IsPreflight` `HasError` 있습니다. 시스템 빌드 응답을 `WebPubSubContext.Response` 직접 반환하거나 고객이 주문형 오류를 기록할 수 있습니다. 다른 시나리오에서 고객은 아래와 같이 요청 속성을 읽을 수 있습니다.
 
 | 파생 클래스 | 설명 | 속성 |
 | -- | -- | -- |
-| `PreflightRequest` | `AbuseProtection`가 true 일 때에 사용 `IsPreflight`  됩니다. | - |
-| `ConnectEventRequest` | 시스템 `Connect` 이벤트 유형에 사용 됨 | Claims, Query, Subprotocols, ClientCertificates |
-| `ConnectedEventRequest` | 시스템 `Connected` 이벤트 유형에 사용 됨 | - |
-| `UserEventRequest` | 사용자 이벤트 유형에 사용 됨 | 데이터, 데이터 형식 |
-| `DisconnectedEventRequest` | 시스템 `Disconnected` 이벤트 유형에 사용 됨 | 이유 |
+| `PreflightRequest` | 가 `AbuseProtection` true일 때 에 `IsPreflight` **사용됩니다.** | - |
+| `ConnectEventRequest` | 시스템 `Connect` 이벤트 유형에 사용 | Claims, Query, Subprotocols, ClientCertificates |
+| `ConnectedEventRequest` | 시스템 `Connected` 이벤트 유형에 사용 | - |
+| `UserEventRequest` | 사용자 이벤트 유형에 사용 | Data, DataType |
+| `DisconnectedEventRequest` | 시스템 `Disconnected` 이벤트 유형에 사용 | 이유 |
 
 > [!NOTE]
-> 는 `WebPubSubContext` 입력 바인딩에서와 비교 하 여 유사한 요청 deserialize 방식을 제공 하지만 `HttpTrigger` `WebPubSubTrigger` 연결 상태 사후 병합은 지원 되지 않습니다. 반환 응답은 서비스 쪽에서 계속 적용 되지만 사용자는 직접 응답을 작성 해야 합니다. 사용자가 이벤트 응답을 설정 해야 하는 경우 `HttpResponseMessage` `ConnectEventResponse` 사용자 이벤트에 대 한 포함 또는 메시지를 **응답 본문** 으로 반환 하 고 `ce-connectionstate` **응답 헤더** 에 키를 사용 하 여 연결 상태를 입력 해야 합니다.
+> `WebPubSubContext`은 입력 바인딩이 에 비해 유사한 요청 deserialize 방법을 제공하지만 연결 `HttpTrigger` 상태 사후 `WebPubSubTrigger` 병합이 지원되지 않는 제한 사항도 있습니다. 반환 응답은 여전히 서비스 쪽에서 준수하지만 사용자는 응답을 직접 빌드해야 합니다. 사용자가 이벤트 응답을 설정해야 하는 경우 `HttpResponseMessage` 사용자 이벤트에 대한 포함 또는 메시지를 응답 `ConnectEventResponse` **본문으로** 반환하고 응답 헤더 에 키를 사용하여 연결 상태를 배치해야 `ce-connectionstate` 합니다. 
 
 ## <a name="output-binding"></a>출력 바인딩
 
-웹 PubSub 출력 바인딩을 사용 하 여 Azure 웹 PubSub 서비스를 호출 하 고 작업을 수행 합니다. 다음으로 메시지를 브로드캐스트할 수 있습니다.
+Web PubSub 출력 바인딩을 사용하여 Azure Web PubSub 서비스를 호출하여 작업을 수행합니다. 다음으로 메시지를 브로드캐스트할 수 있습니다.
 
 * 연결된 모든 클라이언트
 * 특정 사용자에게 인증된 연결된 클라이언트
 * 특정 그룹에 조인된 연결된 클라이언트
 * 특정 클라이언트 연결
 
-또한 출력 바인딩을 사용 하면 클라이언트 및 그룹을 관리할 수 있을 뿐만 아니라 그룹을 사용 하 여 특정 connectionId을 대상으로 하는 권한을 부여/취소할 수 있습니다.
+출력 바인딩을 사용하면 클라이언트 및 그룹을 관리할 뿐만 아니라 그룹을 사용하여 특정 connectionId를 대상으로 하는 사용 권한을 부여/취소할 수도 있습니다.
 
 * 그룹에 연결 추가
 * 그룹에 사용자 추가
@@ -473,8 +473,8 @@ module.exports = async function (context, req, wpsContext) {
 * 그룹에서 사용자 제거
 * 모든 그룹에서 사용자 제거
 * 모든 클라이언트 연결 닫기
-* 특정 클라이언트 연결을 닫습니다.
-* 그룹의 연결 닫기
+* 특정 클라이언트 연결 닫기
+* 그룹에서 연결 닫기
 * 연결 권한 부여
 * 연결 권한 취소
 
@@ -529,54 +529,54 @@ module.exports = async function (context) {
 
 ### <a name="webpubsubaction"></a>WebPubSubAction 
 
-`WebPubSubAction`은 출력 바인딩의 기본 추상 형식입니다. 파생 형식은 서비스에서 호출하려는 작업 서버를 나타냅니다. 
+`WebPubSubAction`은 출력 바인딩의 기본 추상 형식입니다. 파생 형식은 서비스에서 호출할 동작 서버를 나타냅니다. 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-C# 언어에서는 에서 사용 가능한 작업을 검색하는 데 도움이 되는 몇 가지 정적 `WebPubSubAction` 메서드를 제공합니다. 예를 들어 사용자는 를 호출하여 를 만들 수 `SendToAllAction` `WebPubSubAction.CreateSendToAllAction()` 있습니다.
+C # 언어에서는에서 `WebPubSubAction` 사용 가능한 작업을 검색 하는 데 도움이 되는 몇 가지 정적 메서드를 제공 합니다. 예를 들어 사용자는를 호출 하 여를 만들 수 있습니다 `SendToAllAction` `WebPubSubAction.CreateSendToAllAction()` .
 
 | 파생 클래스 | 속성 |
 | -- | -- |
-| `SendToAllAction`|Data, DataType, Excluded |
-| `SendToGroupAction`|Group, Data, DataType, Excluded |
-| `SendToUserAction`|UserId, Data, DataType |
-| `SendToConnectionAction`|ConnectionId, Data, DataType |
+| `SendToAllAction`|데이터, 데이터 형식, 제외 됨 |
+| `SendToGroupAction`|그룹, 데이터, 데이터 형식, 제외 됨 |
+| `SendToUserAction`|UserId, 데이터, 데이터 형식 |
+| `SendToConnectionAction`|ConnectionId, 데이터, 데이터 형식 |
 | `AddUserToGroupAction`|UserId, Group |
 | `RemoveUserFromGroupAction`|UserId, Group |
 | `RemoveUserFromAllGroupsAction`|UserId |
 | `AddConnectionToGroupAction`|ConnectionId, Group |
 | `RemoveConnectionFromGroupAction`|ConnectionId, Group |
-| `CloseAllConnectionsAction`|Excluded, Reason |
+| `CloseAllConnectionsAction`|제외 됨, 이유 |
 | `CloseClientConnectionAction`|ConnectionId, Reason |
-| `CloseGroupConnectionsAction`|Group, Excluded, Reason |
+| `CloseGroupConnectionsAction`|그룹, 제외, 이유 |
 | `GrantPermissionAction`|ConnectionId, Permission, TargetName |
 | `RevokePermissionAction`|ConnectionId, Permission, TargetName |
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-와 같이 약한 형식의 언어에서 `javascript` **`actionName`** 는 형식을 해결하기 위한 키 매개 변수이며 사용 가능한 작업은 다음과 같습니다.
+와 같이 약한 형식의 언어 `javascript` 에서 **`actionName`** 는 형식을 확인 하기 위한 키 매개 변수 이며, 사용 가능한 작업은 아래와 같습니다.
 
 | ActionName | 속성 |
 | -- | -- |
-| `SendToAll`|Data, DataType, Excluded |
-| `SendToGroup`|Group, Data, DataType, Excluded |
-| `SendToUser`|UserId, Data, DataType |
-| `SendToConnection`|ConnectionId, Data, DataType |
+| `SendToAll`|데이터, 데이터 형식, 제외 됨 |
+| `SendToGroup`|그룹, 데이터, 데이터 형식, 제외 됨 |
+| `SendToUser`|UserId, 데이터, 데이터 형식 |
+| `SendToConnection`|ConnectionId, 데이터, 데이터 형식 |
 | `AddUserToGroup`|UserId, Group |
 | `RemoveUserFromGroup`|UserId, Group |
 | `RemoveUserFromAllGroups`|UserId |
 | `AddConnectionToGroup`|ConnectionId, Group |
 | `RemoveConnectionFromGroup`|ConnectionId, Group |
-| `CloseAllConnections`|Excluded, Reason |
+| `CloseAllConnections`|제외 됨, 이유 |
 | `CloseClientConnection`|ConnectionId, Reason |
-| `CloseGroupConnections`|Group, Excluded, Reason |
+| `CloseGroupConnections`|그룹, 제외, 이유 |
 | `GrantPermission`|ConnectionId, Permission, TargetName |
 | `RevokePermission`|ConnectionId, Permission, TargetName |
 
 > [!IMPORTANT]
-> 메시지 보내기 관련 작업의 메시지 데이터 속성은 `string` 데이터 형식이 로 설정된 경우 `json` 이거나 `text` 데이터 변환 모호성을 방지하기 위해 여야 합니다. 를 `JSON.stringify()` 사용하여 필요한 json 개체를 변환하세요. 이는 메시지 속성을 사용하는 모든 위치(예: `UserEventResponse.Data` 작업)에 적용됩니다. `WebPubSubTrigger` 
+> 데이터 `string` 형식이 또는로 설정 된 경우 데이터 `json` `text` 변환 모호성을 방지 하려면 메시지 관련 관련 작업의 메시지 데이터 속성은 이어야 합니다. 을 사용 `JSON.stringify()` 하 여 json 개체를 필요에 맞게 변환 하세요. 이는와 같이 메시지 속성을 사용 하는 모든 장소에 적용 됩니다 `UserEventResponse.Data` `WebPubSubTrigger` . 
 > 
-> 데이터 형식이 로 설정된 `binary` 경우 에서 구성된 대로 자연스럽게 지원되는 바인딩을 활용할 수 있습니다. 자세한 내용은 트리거 및 바인딩 정의를 `dataType` `binary` `function.json` [참조하세요.](/azure/azure-functions/functions-triggers-bindings?tabs=csharp#trigger-and-binding-definitions)
+> 데이터 형식이로 설정 된 경우 `binary` 에서 구성 된 대로 자연스럽 게 지원 되는 바인딩을 활용할 수 `dataType` `binary` `function.json` 있습니다. 자세한 내용은 [트리거 및 바인딩 정의](../azure-functions/functions-triggers-bindings.md?tabs=csharp#trigger-and-binding-definitions) 를 참조 하세요.
 
 ---
 
@@ -592,7 +592,7 @@ C# 언어에서는 에서 사용 가능한 작업을 검색하는 데 도움이 
 | **direction** | 해당 없음 | `out`로 설정해야 합니다. |
 | **name** | 해당 없음 | 출력 바인딩 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 | **hub** | 허브 | 함수가 트리거되려면 이 값을 반드시 Web PubSub 허브 이름으로 설정해야 합니다. 특성의 값을 더 높은 우선 순위로 설정하거나 앱 설정에서 전역 값으로 설정할 수 있습니다. |
-| **connection** | 연결 | Web PubSub 서비스 연결 문자열을 포함하는 앱 설정의 이름입니다(기본값은 "WebPubSubConnectionString"). |
+| **connection** | 연결 | 웹 PubSub 서비스 연결 문자열을 포함 하는 앱 설정의 이름입니다 (기본값은 "WebPubSubConnectionString"). |
 
 ## <a name="troubleshooting"></a>문제 해결
 

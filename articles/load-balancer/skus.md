@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: 0501f703ce32df37a755c05240b24b8262ccf314
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 472816907aeb16dfbab1fb7b793186e165246947
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491168"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722946"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -51,9 +51,9 @@ Azure Load Balancer에는 기본, 표준 및 게이트웨이의 3 개 sku가 있
 | **관리 작업** | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초 |
 | **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | 사용할 수 없음 | 
 | **글로벌 VNet 피어링 지원** | 표준 ILB는 글로벌 VNet 피어링을 통해 지원됩니다. | 지원되지 않음 | 
-| **[NAT 게이트웨이 지원](https://docs.microsoft.com/azure/virtual-network/nat-gateway/nat-overview)** | 표준 ILB와 표준 공용 LB는 Nat 게이트웨이를 통해 지원 됩니다. | 지원되지 않음 | 
-| **[개인 링크 지원](https://docs.microsoft.com/azure/private-link/private-link-overview)** | 표준 ILB는 개인 링크를 통해 지원 됩니다. | 지원되지 않음 | 
-| **[지역 간 부하 분산 (미리 보기)](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)** | 표준 공용 LB는 지역 간 LB를 통해 지원 됩니다. | 지원되지 않음 | 
+| **[NAT 게이트웨이 지원](../virtual-network/nat-gateway/nat-overview.md)** | 표준 ILB와 표준 공용 LB는 Nat 게이트웨이를 통해 지원 됩니다. | 지원되지 않음 | 
+| **[개인 링크 지원](../private-link/private-link-overview.md)** | 표준 ILB는 개인 링크를 통해 지원 됩니다. | 지원되지 않음 | 
+| **[지역 간 부하 분산 (미리 보기)](./cross-region-overview.md)** | 표준 공용 LB는 지역 간 LB를 통해 지원 됩니다. | 지원되지 않음 | 
 
 자세한 내용은 [Load Balancer 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)을 참조하세요. 표준 Load Balancer 세부 내용은 [개요](./load-balancer-overview.md), [가격](https://aka.ms/lbpricing) 및 [SLA](https://aka.ms/lbsla)를 참조하세요.
 

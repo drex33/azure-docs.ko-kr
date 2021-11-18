@@ -7,24 +7,24 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4cf92148accf1d07aaafc0a1640de36e2884a9c5
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 8dc09c009f4254aa7f4149f95fe73bb4d7a406f9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893446"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704106"
 ---
 # <a name="customer-managed-keys---overview"></a>고객 관리형 키 - 개요
 
 Apache Cassandra용 Azure Managed Instance 사용자 고유의 키를 사용하여 디스크의 데이터를 암호화하는 기능을 제공합니다. 이 문서에서는 Azure Key Vault 사용하여 고객 관리형 키를 구현하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Key Vault 사용하여 비밀을 설정합니다. [여기에서](/azure/key-vault/secrets/about-secrets)Azure Key Vault 대해 자세히 알아보세요.
+- Azure Key Vault 사용하여 비밀을 설정합니다. [여기에서](../key-vault/secrets/about-secrets.md)Azure Key Vault 대해 자세히 알아보세요.
 - 리소스 그룹에 가상 네트워크를 배포하고 Azure Cosmos DB 서비스 주체를 구성원으로 사용하여 네트워크 기여자 역할을 적용했습니다. 자세한 내용은 [Azure CLI 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance 만들기를](create-cluster-cli.md) 참조하세요. 
 
 > [!IMPORTANT]
-> 이 문서에는 Azure CLI 버전 2.30.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+> 이 문서를 진행하려면 Azure CLI 버전 2.30.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-cluster-with-system-assigned-identity"></a><a id="create-cluster"></a>시스템 할당 ID를 사용하여 클러스터 만들기
 
@@ -100,7 +100,7 @@ Apache Cassandra용 Azure Managed Instance 사용자 고유의 키를 사용하�
    :::image type="content" source="./media/cmk/key-identifier-2.png" alt-text="키 식별자 2단계" lightbox="./media/cmk/key-identifier-1.png" border="true":::
 
 
-1. `<key identifier>`아래와 같이 관리 디스크(managed-disk-customer-key-uri) 및 백업 스토리지(backup-storage-customer-key-uri) 암호화 모두에 대해 동일한 키(이전 단계에서 복사한 URI)로 대체하여 데이터 센터를 만듭니다(앞에서 사용한 것과 동일한 값 사용). `subnet` 
+1. `<key identifier>`아래와 같이 관리 디스크(managed-disk-customer-key-uri) 및 백업 스토리지(backup-storage-customer-key-uri) 암호화 모두에 대해 를 동일한 키(이전 단계에서 복사한 URI)로 대체하여 데이터 센터를 만듭니다(앞에서 사용한 것과 동일한 값 사용). `subnet` 
 
     ```azurecli-interactive
     managedDiskKeyUri = "<key identifier>"

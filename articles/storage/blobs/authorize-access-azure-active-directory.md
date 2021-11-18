@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 86cf5cfaf5d64c9aa1f1cda17df543b953a5ed17
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 9f52d0555e07a79956aed466e3f9a307946bbcf6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066987"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724143"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Blob에 대한 액세스 권한 부여
 
@@ -107,12 +107,12 @@ Azure Portal은 컨테이너로 이동할 때 사용 중인 권한 부여 체계
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)| ![아니요](../media/icons/no-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)| ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (Secure file Transfer protocol) 지원에는 모두 계층적 네임 스페이스를 사용 하는 저장소 계정이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

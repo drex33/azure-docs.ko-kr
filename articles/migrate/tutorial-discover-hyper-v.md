@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 11/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 8ee94cf4c02c5535a85b75eec5a60522143a16ce
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1c9e0c5a6a0672ec36bfef1d2f8d909b0ddea984
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748701"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397683"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 Hyper-V에서 실행되는 서버 검색
 
@@ -91,7 +91,7 @@ Hyper-V 통합 서비스 설정 | 호스트에서 관리하는 모든 서버에�
 ### <a name="run-the-script"></a>스크립트 실행
 
 1. [Microsoft 다운로드 센터](https://aka.ms/migrate/script/hyperv)에서 스크립트를 다운로드합니다. 이 스크립트는 Microsoft에서 암호화 방식으로 서명합니다.
-2. MD5 또는 SHA256 해시 파일을 사용하여 스크립트 무결성의 유효성을 검사합니다. 해시태그 값은 아래와 같습니다. 다음 명령을 실행하여 스크립트에 대한 해시를 생성합니다.
+2. SHA256 해시 파일을 사용하여 스크립트 무결성의 유효성을 검사합니다. 해시태그 값은 아래와 같습니다. 다음 명령을 실행하여 스크립트에 대한 해시를 생성합니다.
 
     ```powershell
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
@@ -110,7 +110,6 @@ Hyper-V 통합 서비스 설정 | 호스트에서 관리하는 모든 서버에�
 
 **해시** |  **값**
 --- | ---
-MD5 | 0ef418f31915d01f896ac42a80dc414e
 SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>프로젝트 설정
@@ -177,13 +176,13 @@ Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용합니다. 이
 
         **시나리오** | **다운로드** | **SHA256**
         --- | --- | ---
-        Hyper-V(8.91GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V(8.91GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140422) |  91A435962F0DC9C7032DE0288D578171A76CC07563AC543C5E1EB25CD31BB231
 
     - Azure Government의 경우:
 
         **시나리오** _ | _ *다운로드** | **SHA256**
         --- | --- | ---
-        Hyper-V(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
+        Hyper-V(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) |  3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 ### <a name="3-create-an-appliance"></a>3. 어플라이언스 만들기
 

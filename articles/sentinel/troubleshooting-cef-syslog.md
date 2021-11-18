@@ -6,8 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 627660330493b2d26c003145fc41dbadaa780052
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 4bdc3272fa114d4c270d906b03226a17d52bf893
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517258"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711518"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>CEF 또는 Syslog 데이터 커넥터 문제 해결
 
@@ -396,7 +394,7 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 이 프로시저에서는 SELinux가 현재 `permissive` 상태인지 또는 OMS 에이전트에 대한 연결을 차단하는지 확인하는 방법을 설명합니다. 이 프로시저는 운영 체제가 RedHat 또는 CentOS 배포인 경우에 해당합니다.
 
 > [!NOTE]
-> CEF 및 Syslog에 대한 Microsoft Sentinel 지원에는 FIPS 강화만 포함됩니다. SELinux 또는 CIS와 같은 다른 강화법은 현재 지원되지 않습니다.
+> CEF 및 Syslog에 대 한 Microsoft 센티널 지원에는 FIPS 강화만 포함 됩니다. SELinux 또는 CIS와 같은 다른 강화법은 현재 지원되지 않습니다.
 >
 
 1. 다음을 실행합니다.
@@ -407,8 +405,8 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
     상태는 다음 중 하나로 표시됩니다.
 
-    - `disabled`. 이 구성은 Microsoft Sentinel에 대한 연결에 대해 지원됩니다.
-    - `permissive`. 이 구성은 Microsoft Sentinel에 대한 연결에 대해 지원됩니다.
+    - `disabled`. 이 구성은 Microsoft 센티널에 연결할 때 지원 됩니다.
+    - `permissive`. 이 구성은 Microsoft 센티널에 연결할 때 지원 됩니다.
     - `enforced`. 이 구성은 지원되지 않으며 상태를 사용하지 않도록 설정하거나 `permissive`로 설정해야 합니다.
 
 1. 현재 상태가 `enforced`로 설정되어 있으면 일시 해제하여 차단기인지 확인합니다. 다음을 실행합니다.
@@ -499,7 +497,7 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
 ## <a name="linux-and-oms-agent-related-issues"></a>Linux 및 OMS 에이전트 관련 문제
 
-이 문서의 앞부분에서 설명한 단계가 문제를 해결하지 못하면 OMS 에이전트와 Microsoft Sentinel 작업 영역 간에 연결 문제가 있을 수 있습니다.
+이 문서의 앞부분에서 설명한 단계를 수행 해도 문제가 해결 되지 않으면 OMS 에이전트와 Microsoft 센티널 작업 영역 간에 연결 문제가 있을 수 있습니다.
 
 이러한 경우 다음을 확인하여 계속해서 문제를 해결합니다.
 
@@ -507,7 +505,7 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
 - 로컬 로그 파일에 기록되고 있는 로그( **/var/log/messages**  또는 **/var/log/syslog** )를 볼 수 있는지 확인합니다.
 
-- 포트 25224, 25226 또는 둘 다에서 흐르는 데이터 패킷을 볼 수 있는지 확인합니다.
+- 포트 25224, 25226 또는 둘 다에서 흐르는 데이터 패킷을 볼 수 있는지 확인 합니다.
 
 - 가상 머신이 TCP를 통해 포트 443에 대한 아웃바운드 연결이 있거나 [Log Analytics 엔드포인트에](../azure-monitor/agents/log-analytics-agent.md#network-requirements) 연결할 수 있는지 확인합니다.
 
@@ -527,11 +525,11 @@ Heartbeat
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서의 문제 해결 단계가 문제에 도움이 되지 않는 경우 지원 티켓을 열거나 Microsoft Sentinel 커뮤니티 리소스를 사용합니다. 자세한 내용은 [Microsoft Sentinel 작업에 유용한 리소스를 참조하세요.](resources.md)
+이 문서의 문제 해결 단계가 문제를 해결 하지 못한 경우 지원 티켓을 열거나 Microsoft 센티널 커뮤니티 리소스를 사용 합니다. 자세한 내용은 [Microsoft 센티널 사용을 위한 유용한 리소스](resources.md)를 참조 하세요.
 
-Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - [CEF 및 CommonSecurityLog 필드 매핑](cef-name-mapping.md)에 대해 알아봅니다.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
-- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.
+- [Microsoft 센티널을 사용 하 여 위협 검색을](./detect-threats-built-in.md)시작 하세요.
 - [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

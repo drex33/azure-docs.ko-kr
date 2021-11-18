@@ -6,24 +6,24 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/10/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
-ms.openlocfilehash: 3b0d9a946408091f32b950e0daa349ee0f887380
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 6a3af00eaca90c2ecdbbdcc4f6cce5231ffefcc0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132281800"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719450"
 ---
 # <a name="iot-connector-troubleshooting-guide"></a>IoT 커넥터 문제 해결 가이드
 
 > [!IMPORTANT]
-> Azure 의료 Api는 현재 미리 보기로 제공 됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
-
-이 문서에서는 일반적인 IoT 커넥터 오류 메시지 및 조건 문제를 해결 하는 단계를 제공 합니다. 또한 IoT 커넥터의 장치 및 신속한 정보 상호 운용성 리소스 (FHIR&#174;) 대상 매핑의 복사본을 만드는 방법도 알아봅니다. 또한 장치 및 FHIR 대상 매핑 복사본을 사용 하 여 Azure Portal 외부에서 편집 하 고 보관할 수 있습니다.  
+> Azure 의료 Api는 현재 미리 보기로 제공 됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다. 
 
 > [!TIP]
 > IoT 커넥터에 대 한 [Azure 기술 지원](https://azure.microsoft.com/support/create-ticket/) 티켓을 열 때 문제 해결 프로세스를 지원 하기 위해 장치의 복사본과 FHIR 대상 매핑을 포함 합니다.
+
+이 문서에서는 일반적인 IoT 커넥터 오류 메시지 및 조건 문제를 해결 하는 단계를 제공 합니다. 또한 IoT 커넥터의 장치 및 신속한 정보 상호 운용성 리소스 (FHIR&#174;) 대상 매핑의 복사본을 만드는 방법도 알아봅니다. 또한 장치 및 FHIR 대상 매핑 복사본을 사용 하 여 Azure Portal 외부에서 편집 하 고 보관할 수 있습니다. 
 
 ## <a name="device-and-fhir-destination-mappings-validations"></a>장치 및 FHIR 대상 매핑 유효성 검사
 
@@ -46,7 +46,7 @@ ms.locfileid: "132281800"
 > [!NOTE]
 > `Values[].ValueName and Values[].ValueExpression` 요소는 배열에 값 항목이 있는 경우에만 필요 합니다. 값이 매핑되지 않은 것은 유효 합니다. 이는 전송할 원격 분석이 이벤트 일 때 사용 됩니다. 
 >
->예를 들면 다음과 같습니다.
+>예를 들어 다음과 같습니다.
 > 
 >Wearable IoMT 장치를 on 또는 제거 하는 경우 IoT 커넥터가 일치 하 고 내보내는 이름을 제외 하 고 요소에는 값이 없습니다. FHIR 변환에서 IoT 커넥터는 의미 체계 형식을 기반으로 하는 코드를 가능한 개념에 매핑합니다. 즉, 실제 값은 채워지지 않습니다.
 
@@ -84,99 +84,99 @@ ms.locfileid: "132281800"
 
 |잠재적 이슈|수정 프로그램|
 |----------------|-----|
-|데이터를 계속 처리 하 고 있습니다.|데이터는 일괄 처리로 FHIR 서비스로 송신됩니다(~15분마다).  데이터가 계속 처리 중이고 데이터가 FHIR 서비스에 유지되는 데 추가 시간이 필요할 수 있습니다.|
-|디바이스 매핑이 구성되지 않았습니다.|준수 디바이스 매핑을 구성하고 저장합니다.|
-|FHIR 대상 매핑이 구성되지 않았습니다.|준수 FHIR 대상 매핑을 구성하고 저장합니다.|
-|디바이스 메시지에는 디바이스 매핑에 정의된 예상 식이 포함되어 있지 않습니다.|`JsonPath`디바이스 매핑에 정의된 식이 디바이스 메시지에 정의된 토큰과 일치하는지 확인합니다.|
-|디바이스 리소스가 FHIR 서비스에 만들어지지 않았습니다(확인 유형: 조회만 해당)*.|FHIR 서비스에서 유효한 디바이스 리소스를 만듭니다. 디바이스 리소스에 들어오는 메시지에 제공된 디바이스 식별자와 일치하는 식별자가 포함되어 있는지 확인합니다.|
-|환자 리소스가 FHIR 서비스에 만들어지지 않았습니다(해결 방법: 조회만 해당)*.|FHIR 서비스에서 유효한 환자 리소스를 만듭니다.|
-|`Device.patient`참조가 설정되지 않았거나 참조가 잘못되었습니다(확인 형식: 조회만 해당)*.|디바이스 리소스에 환자 리소스에 대한 유효한 [참조가](https://www.hl7.org/fhir/device-definitions.html#Device.patient) 포함되어 있는지 확인합니다.| 
+|데이터를 계속 처리 하 고 있습니다.|데이터는 egressed (15 분 마다)에 배치 됩니다.  데이터가 계속 처리 되 고 있으며 데이터를 FHIR 서비스에 유지 하기 위해 추가 시간이 필요할 수 있습니다.|
+|장치 매핑이 구성 되지 않았습니다.|준수 하는 장치 매핑을 구성 하 고 저장 합니다.|
+|대상 매핑이 구성 되지 않았습니다.|준수 하는 대상 매핑을 구성 하 고 저장 합니다.|
+|장치 메시지에 장치 매핑에 정의 된 예상 식이 없습니다.|장치 `JsonPath` 메시지에 정의 된 장치 매핑 일치 토큰에 정의 된 식을 확인 합니다.|
+|장치 리소스가 FHIR 서비스에 만들어지지 않았습니다 (해결 방법: 조회에만 해당) *.|FHIR 서비스에서 유효한 장치 리소스를 만듭니다. 장치 리소스에 들어오는 메시지에 제공 된 장치 식별자와 일치 하는 식별자가 포함 되어 있는지 확인 합니다.|
+|환자 리소스가 FHIR 서비스에 만들어지지 않았습니다 (해결 방법: 조회에만 해당) *.|FHIR 서비스에서 유효한 환자 리소스를 만듭니다.|
+|`Device.patient`참조가 설정 되지 않았거나 참조가 잘못 된 경우 (해결 유형: 조회 전용) *.|장치 리소스에 환자 리소스에 대 한 올바른 [참조가](https://www.hl7.org/fhir/device-definitions.html#Device.patient) 포함 되어 있는지 확인 합니다.| 
 
-*참조 [빠른 시작: IoT 커넥터](deploy-iot-connector-in-azure.md) 확인 유형에 대한 기능 설명(예: 조회 또는 만들기)에 대한 Azure Portal 사용하여 IoT 커넥터를 배포합니다.
+* 참조 빠른 시작: IoT 커넥터 확인 형식 (예: 조회 또는 만들기)의 기능 설명에 [Azure Portal를 사용 하 여 iot 커넥터를 배포](deploy-iot-connector-in-azure.md) 합니다.
 
-### <a name="the-operation-performed-by-iot-connector"></a>IoT 커넥터에서 수행하는 작업
+### <a name="the-operation-performed-by-iot-connector"></a>IoT 커넥터에서 수행 하는 작업
 
-이 속성은 오류가 발생했을 때 IoT 커넥터에서 수행하는 작업을 나타냅니다. 작업은 일반적으로 디바이스 메시지를 처리하는 동안 데이터 흐름 단계를 나타냅니다. 다음은이 속성에 대 한 가능한 값의 목록입니다.
+이 속성은 오류가 발생 했을 때 IoT 커넥터에서 수행 하는 작업을 나타냅니다. 작업은 일반적으로 장치 메시지를 처리 하는 동안 데이터 흐름 단계를 나타냅니다. 다음은이 속성에 사용할 수 있는 값의 목록입니다.
 
 > [!NOTE]
-> IoT 커넥터의 다양한 데이터 흐름 단계에 대한 자세한 내용은 [IoT 커넥터 데이터 흐름 을 참조하세요.](iot-data-flow.md)
+> IoT 커넥터에서 데이터 흐름의 여러 단계에 대 한 자세한 내용은 [iot 커넥터 데이터 흐름](iot-data-flow.md)을 참조 하세요.
 
 |데이터 흐름 단계|설명|
 |---------------|-----------|
-|설치 프로그램|데이터 흐름 설정 단계는 IoT 커넥터 인스턴스를 설정하는 작업입니다.|
-|표준화|정규화는 디바이스 데이터가 정규화되는 데이터 흐름 단계입니다.|
-|Grouping(그룹화)|정규화된 데이터가 그룹화되는 그룹화 데이터 흐름 단계입니다.|
-|FHIRConversion|FHIRConversion은 그룹화된 정규화된 데이터가 FHIR 리소스로 변환되는 데이터 흐름 단계입니다.|
-|Unknown|알 수 없음은 오류가 발생할 때 알 수 없는 작업 유형입니다.|
+|설정|데이터 흐름 설정 단계는 IoT 커넥터의 인스턴스를 설정 하는 것과 관련 된 작업입니다.|
+|표준화|정규화는 장치 데이터를 정규화 하는 데이터 흐름 단계입니다.|
+|Grouping(그룹화)|정규화 된 데이터가 그룹화 되는 그룹화 데이터 흐름 단계입니다.|
+|FHIRConversion|FHIRConversion은 그룹화 된 정규화 된 데이터를 FANR 리소스로 변환 하는 데이터 흐름 단계입니다.|
+|Unknown|Unknown은 오류가 발생 하는 경우 알 수 없는 작업 유형입니다.|
 
-### <a name="the-severity-of-the-error"></a>오류의 심각도
+### <a name="the-severity-of-the-error"></a>오류의 심각도입니다.
 
-이 속성은 발생한 오류의 심각도를 나타냅니다. 다음은이 속성에 대 한 가능한 값의 목록입니다.
+이 속성은 발생 한 오류의 심각도를 나타냅니다. 다음은이 속성에 사용할 수 있는 값의 목록입니다.
 
 |심각도|설명|
 |---------------|-----------|
-|경고|데이터 흐름 프로세스에 몇 가지 사소한 문제가 있지만 디바이스 메시지 처리가 중지되지는 않습니다.|
-|오류|이 메시지는 특정 디바이스 메시지의 처리에 오류가 발생하여 다른 메시지가 예상대로 계속 실행될 때 발생합니다.|
-|위험|이 오류는 IoT 커넥터에 일부 시스템 수준 문제가 있고 처리할 메시지가 없는 경우에 발생합니다.|
+|경고|일부 사소한 문제는 데이터 흐름 프로세스에 있지만 장치 메시지 처리는 중지 되지 않습니다.|
+|오류|이 메시지는 특정 장치 메시지의 처리에 오류가 발생 하 여 다른 메시지가 계속 해 서 예상 대로 실행 될 때 발생 합니다.|
+|위험|이 오류는 IoT 커넥터에 일부 시스템 수준 문제가 있고 처리할 메시지가 없는 경우에 발생 합니다.|
 
 ### <a name="the-type-of-error"></a>오류 유형
 
-이 속성은 지정된 오류에 대한 범주를 나타내며, 기본적으로 유사한 유형의 오류에 대한 논리적 그룹화를 나타냅니다. 다음은이 속성에 대 한 가능한 값의 목록입니다.
+이 속성은 지정 된 오류에 대 한 범주를 나타내며,이는 기본적으로 유사한 오류 유형에 대 한 논리적 그룹화를 나타냅니다. 다음은이 속성에 사용할 수 있는 값의 목록입니다.
 
 |오류 유형|설명|
 |----------|-----------|
-|`DeviceTemplateError`|이 오류 유형은 디바이스 매핑과 관련이 있습니다.|
-|`DeviceMessageError`|이 오류 유형은 특정 디바이스 메시지를 처리할 때 발생합니다.|
-|`FHIRTemplateError`|이 오류 유형은 FHIR 대상 매핑과 관련이 있습니다.|
-|`FHIRConversionError`|이 오류 유형은 메시지를 FHIR 리소스로 변환할 때 발생합니다.|
-|`FHIRResourceError`|이 오류 유형은 IoT 커넥터에서 참조하는 FHIR 서비스의 기존 리소스와 관련이 있습니다.|
-|`FHIRServerError`|이 오류 유형은 FHIR 서비스와 통신할 때 발생합니다.|
-|`GeneralError`|이 오류 유형은 다른 모든 유형의 오류에 대한 것입니다.|
+|`DeviceTemplateError`|이 오류 유형은 장치 매핑과 관련 됩니다.|
+|`DeviceMessageError`|이 오류 유형은 특정 장치 메시지를 처리할 때 발생 합니다.|
+|`FHIRTemplateError`|이 오류 유형은 FHIR 대상 매핑과 관련 되어 있습니다.|
+|`FHIRConversionError`|이 오류 유형은 메시지를 FHIR 리소스로 변환할 때 발생 합니다.|
+|`FHIRResourceError`|이 오류 유형은 IoT 커넥터에서 참조 하는 FHIR 서비스의 기존 리소스와 관련 되어 있습니다.|
+|`FHIRServerError`|이 오류 유형은 FHIR 서비스와 통신할 때 발생 합니다.|
+|`GeneralError`|이 오류 유형은 다른 모든 유형의 오류에 대 한 것입니다.|
 
 ### <a name="the-name-of-the-error"></a>오류의 이름입니다.
 
-이 속성은 특정 오류의 이름을 제공합니다. 다음은 해당 설명 및 관련 오류 유형, 심각도 및 데이터 흐름 단계가 포함된 모든 오류 이름의 목록입니다.
+이 속성은 특정 오류에 대 한 이름을 제공 합니다. 다음은 설명 및 관련 오류 유형, 심각도 및 데이터 흐름 단계를 포함 하는 모든 오류 이름 목록입니다.
 
 |오류 이름|설명|오류 유형|오류 심각도|데이터 흐름 단계|
 |----------|-----------|-------------|--------------|------------------|
-|`MultipleResourceFoundException`|이 오류는 디바이스 메시지에 있는 해당 식별자에 대한 FHIR 서비스에서 여러 환자 또는 디바이스 리소스가 발견되면 발생합니다.|`FHIRResourceError`|오류|`FHIRConversion`|
-|`TemplateNotFoundException`|IoT 커넥터 인스턴스로 구성되지 않은 디바이스 또는 FHIR 대상 매핑입니다.|`DeviceTemplateError`, `FHIRTemplateError`|`Critical|Normalization`, `FHIRConversion`|
-|`CorrelationIdNotDefinedException`|상관 관계 ID는 디바이스 매핑에 지정되지 않습니다. `CorrelationIdNotDefinedException` 는 FHIR 관찰이 올바르게 구성되지 않았기 때문에 상관 관계 ID를 사용하여 디바이스 측정값을 그룹화해야 하는 경우에만 발생하는 조건부 오류입니다.|`DeviceMessageError`|오류|표준화|
-|`PatientDeviceMismatchException`|이 오류는 FHIR 서비스의 디바이스 리소스에 환자 리소스에 대한 참조가 있을 때 발생합니다. 이 오류 유형은 메시지에 있는 환자 식별자와 일치하지 않는다는 의미입니다.|`FHIRResourceError`|오류|`FHIRConversionError`|
-|`PatientNotFoundException`|환자 FHIR 리소스는 디바이스 메시지에 있는 디바이스 식별자와 연결된 Device FHIR 리소스에서 참조되지 않습니다. 이 오류는 IoT 커넥터 인스턴스가 *조회* 확인 유형으로 구성된 경우에만 발생합니다.|`FHIRConversionError`|오류|`FHIRConversion`|
-|`DeviceNotFoundException`|디바이스 메시지에 있는 디바이스 식별자와 연결된 FHIR 서비스에 디바이스 리소스가 없습니다.|`DeviceMessageError`|오류|표준화|
-|`PatientIdentityNotDefinedException`|이 오류는 디바이스 메시지에서 환자 식별자를 구문 분석하는 식이 디바이스 매핑에 구성되지 않았거나 환자 식별자가 디바이스 메시지에 없는 경우에 발생합니다. 이 오류는 IoT 커넥터의 확인 유형이 *만들기로* 설정된 경우에만 발생합니다.|`DeviceTemplateError`|위험|표준화|
-|`DeviceIdentityNotDefinedException`|이 오류는 디바이스 메시지에서 디바이스 식별자를 구문 분석하는 식이 디바이스 매핑에 구성되지 않았거나 디바이스 식별자가 디바이스 메시지에 없는 경우에 발생합니다.|`DeviceTemplateError`|위험|표준화|
-|`NotSupportedException`|지원되지 않는 형식의 디바이스 메시지를 받을 때 오류가 발생했습니다.|`DeviceMessageError`|오류|표준화|
+|`MultipleResourceFoundException`|이 오류는 장치 메시지에 있는 각 식별자에 대해 FHIR 서비스에서 여러 환자 또는 장치 리소스를 찾을 때 발생 합니다.|`FHIRResourceError`|오류|`FHIRConversion`|
+|`TemplateNotFoundException`|IoT 커넥터 인스턴스로 구성 되지 않은 장치 또는 FHIR 대상 매핑입니다.|`DeviceTemplateError`, `FHIRTemplateError`|`Critical|Normalization`, `FHIRConversion`|
+|`CorrelationIdNotDefinedException`|상관 관계 ID가 장치 매핑에서 지정 되지 않았습니다. `CorrelationIdNotDefinedException` 는 올바르게 구성 되지 않았기 때문에 상관 관계 ID를 사용 하 여 장치 측정을 그룹화 해야 하는 경우에만 발생 하는 조건부 오류입니다.|`DeviceMessageError`|오류|표준화|
+|`PatientDeviceMismatchException`|이 오류는 FHIR 서비스의 장치 리소스가 환자 리소스에 대 한 참조를 가질 때 발생 합니다. 이 오류 유형은 메시지에 있는 환자 식별자와 일치 하지 않음을 의미 합니다.|`FHIRResourceError`|오류|`FHIRConversionError`|
+|`PatientNotFoundException`|장치 메시지에 있는 장치 식별자와 연결 된 장치 FHIR 리소스에서 참조 하는 환자 FHIR 리소스가 없습니다. 참고이 오류는 IoT 커넥터 인스턴스가 *조회* 확인 유형으로 구성 된 경우에만 발생 합니다.|`FHIRConversionError`|오류|`FHIRConversion`|
+|`DeviceNotFoundException`|장치 메시지에 있는 장치 식별자와 연결 된 FHIR 서비스에 장치 리소스가 없습니다.|`DeviceMessageError`|오류|표준화|
+|`PatientIdentityNotDefinedException`|이 오류는 장치 메시지에서 환자 식별자를 구문 분석 하는 식이 장치 매핑에서 구성 되지 않았거나 환자 식별자가 장치 메시지에 없는 경우에 발생 합니다. 참고이 오류는 IoT 커넥터의 해상도 유형이 *만들기* 로 설정 된 경우에만 발생 합니다.|`DeviceTemplateError`|위험|표준화|
+|`DeviceIdentityNotDefinedException`|이 오류는 장치 메시지에서 장치 식별자를 구문 분석 하는 식이 장치 매핑에서 구성 되지 않았거나 장치 식별자가 장치 메시지에 없는 경우에 발생 합니다.|`DeviceTemplateError`|위험|표준화|
+|`NotSupportedException`|지원 되지 않는 형식의 장치 메시지를 받는 동안 오류가 발생 했습니다.|`DeviceMessageError`|오류|표준화|
 
-## <a name="creating-copies-of-iot-connector-device-and-fhir-destination-mappings"></a>IoT 커넥터 디바이스 및 FHIR 대상 매핑의 복사본 만들기
+## <a name="creating-copies-of-iot-connector-device-and-fhir-destination-mappings"></a>IoT 커넥터 장치 및 FHIR 대상 매핑의 복사본 만들기
 
-IoT 커넥터 매핑 복사는 Azure Portal 웹 사이트 외부에서 편집하고 보관하는 데 유용할 수 있습니다.
+IoT 커넥터 매핑을 복사 하면 Azure Portal 웹 사이트 외부에서 편집 및 보관 하는 데 유용할 수 있습니다.
 
-문제 해결 프로세스에 도움이 되는 지원 티켓을 열 때 매핑 복사본을 Azure 기술 지원에 제공해야 합니다.
+문제 해결 프로세스에 도움이 되는 지원 티켓을 열 때 Azure 기술 지원 서비스에 매핑 복사본을 제공 해야 합니다.
 
 > [!NOTE]
-> JSON은 현재 디바이스 및 FHIR 대상 매핑에 지원되는 유일한 형식입니다.
+> 현재 JSON은 장치 및 FHIR 대상 매핑에 대해 지원 되는 유일한 형식입니다.
 
 > [!TIP]
-> IoT 커넥터 [디바이스 매핑 및](how-to-use-device-mapping-iot.md) [FHIR 대상 매핑에](how-to-use-fhir-mapping-iot.md) 대해 자세히 알아보기
+> IoT 커넥터 [장치 매핑](how-to-use-device-mappings.md) 및 [fhir 대상 매핑에](how-to-use-fhir-mappings.md) 대 한 자세한 정보
 
-1. 의료 API 작업 영역의 왼쪽에서 **"IoT 커넥터"를** 선택합니다.
+1. 의료 Api 작업 영역의 왼쪽에서 **"IoT 커넥터"** 를 선택 합니다.
 
-   :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="IoT 커넥터를 선택합니다." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
+   :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="IoT 커넥터를 선택 합니다." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
 
-2. 디바이스 및 FHIR 대상 매핑을 복사할 **IoT 커넥터의** 이름을 선택합니다.
+2. 장치를 복사해 넣을 **IoT 커넥터** 의 이름과에서 대상 매핑을 선택 합니다.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT 커넥터2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
    > [!NOTE]
-   > 이 프로세스는 **"대상"** FHIR 대상 매핑의 내용을 복사하고 저장하는 데도 사용할 수 있습니다.
+   > 이 프로세스를 사용 하 여 **"destination"** fhir 대상 매핑의 내용을 복사 하 고 저장할 수도 있습니다.
 
 3. JSON의 내용을 선택하고 복사 작업을 수행합니다(예: **Ctrl +C** 누르기). 
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT 커넥터4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
-4. 붙여넣기 작업(예: **Ctrl + V** 누르기)을 Microsoft Visual Studio Code 또는 메모장 같은 편집기 내의 새 파일에 붙여넣습니다. **.json** 확장자를 사용하여 파일을 저장해야 합니다.
+4. 붙여넣기 작업(예: **Ctrl +V** 누르기)을 Microsoft Visual Studio 코드 또는 메모장 같은 편집기 내의 새 파일에 붙여넣습니다. **.json** 확장자를 사용하여 파일을 저장해야 합니다.
 
 > [!TIP]
 > IoT 커넥터에 대한 [Azure 기술 지원](https://azure.microsoft.com/support/create-ticket/) 티켓을 여는 경우 문제 해결 프로세스에 도움이 되도록 디바이스 및 FHIR 대상 매핑의 복사본을 포함해야 합니다.

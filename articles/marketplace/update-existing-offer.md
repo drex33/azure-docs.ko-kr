@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d13b76e406398dcad37abb170b1f43439ab8bad4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: eb0c7430733da9956acb12eadd6dd348e2fa5c0d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662904"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724941"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>상업용 Marketplace에서 기존 제품 업데이트
 
@@ -87,7 +87,7 @@ ms.locfileid: "128662904"
 
 1. 파트너 센터에서 **플랜 개요** 로 돌아갑니다.
 2. **새 플랜 만들기** 를 선택합니다. **플랜 ID** 와 **플랜 이름** 을 입력한 다음, **만들기** 를 선택합니다.
-1. 숨긴 플랜에서 기술 구성을 다시 사용하려면 **기술 구성 다시 사용** 확인란을 선택합니다. 자세한 내용은 [VM 제품에 대한 플랜 만들기](azure-vm-create-plans.md)를 참조하세요.
+1. 숨긴 플랜에서 기술 구성을 다시 사용하려면 **기술 구성 다시 사용** 확인란을 선택합니다. 자세한 내용은 [VM 제품에 대한 플랜 만들기](azure-vm-plan-overview.md)를 참조하세요.
     > [!IMPORTANT]
     > **이 플랜은 다른 플랜의 기술 구성을 사용합니다** 를 선택하면 나중에 부모 플랜의 배포를 중지할 수 없습니다. 부모 플랜의 배포를 중지하려면 이 옵션을 사용하지 마세요.
 3. 새 가격을 포함한 새 플랜에 대한 모든 필수 섹션을 완료합니다.

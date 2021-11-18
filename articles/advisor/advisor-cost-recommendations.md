@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 10/29/2021
-ms.openlocfilehash: 32f5ca4f54eb5267abb9fe68655aa43226408610
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 099a68dc637380696990c19f404b8da1e5abc419
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131443892"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706862"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용하여 서비스 비용 절감
 
@@ -107,8 +107,11 @@ Advisor는 Azure Blob Storage 개체 수, 총 크기, 트랜잭션에 대한 인
 ## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>클러스터 비용 최적화를 위해 Azure Data Explorer 테이블 캐시 기간(정책) 줄이기(미리 보기)
 Advisor는 테이블 캐시 정책을 줄이면 CPU 사용률, 메모리, 높은 캐시 크기 구성이 있는 Azure Data Explorer 클러스터 노드를 확보할 수 있는 리소스를 식별합니다.
 
-## <a name="configure-manual-throughput-instead-of-autoscale-on-your-azure-cosmos-db-database-or-container"></a>Azure Cosmos DB 데이터베이스 또는 컨테이너에서 자동 크기 조정 대신 수동 처리량 구성
-지난 7일 동안의 사용량에 따라 자동 크기 조정 대신 수동 처리량을 사용하여 비용을 절감할 수 있습니다. 최대 처리량(RU/s)의 평균 사용률이 66%보다 크거나 10% 미만인 경우 수동 처리량이 비용 효율적입니다. 비용 절감액은 지난 7일 동안의 사용량을 기준으로 권장 수동 처리량을 사용하여 절감할 수 있는 잠재적 절감액을 나타냅니다. 실제 절감액은 설정한 수동 처리량 및 처리량의 평균 사용률이 분석된 기간과 계속 유사한지 여부에 따라 달라질 수 있습니다. 예상 절감액은 사용자 계정에 적용될 수 있는 할인을 고려하지 않습니다.
+## <a name="configure-manual-throughput-instead-of-autoscale-on-your-azure-cosmos-db-database-or-container"></a>Azure Cosmos DB 데이터베이스 또는 컨테이너에서 자동 크기 조정 대신 수동 처리량을 구성합니다.
+지난 7일 동안의 사용량을 기준으로 자동 크기 조정 대신 수동 처리량을 사용하여 절약할 수 있습니다. 최대 처리량(RU/s)의 평균 사용률이 66%보다 크거나 10% 이하인 경우 수동 처리량이 더 비용 효율적입니다. 비용 절감액은 지난 7일 동안의 사용량을 기준으로 권장되는 수동 처리량을 사용하여 절감할 수 있는 잠재적 절감액을 나타냅니다. 실제 절감액은 설정한 수동 처리량과 처리량의 평균 사용률이 분석된 기간과 계속 유사한지 여부에 따라 달라질 수 있습니다. 예상 절감액은 사용자 계정에 적용될 수 있는 할인을 고려하지 않습니다.
+
+## <a name="enable-autoscale-on-your-azure-cosmos-db-database-or-container"></a>Azure Cosmos DB 데이터베이스 또는 컨테이너에서 자동 크기 조정 사용
+지난 7일 동안의 사용량에 따라 자동 크기 조정을 사용하도록 설정하여 비용을 절감할 수 있습니다. 각 시간에 대해 프로비저닝된 RU/s를 RU/s의 실제 사용률(자동으로 크기 조정된 사용률)과 비교하고 해당 기간 동안 비용 절감액을 계산했습니다. 자동 크기 조정은 사용하지 않을 때 RU/s를 축소하여 비용을 최적화하는 데 도움이 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

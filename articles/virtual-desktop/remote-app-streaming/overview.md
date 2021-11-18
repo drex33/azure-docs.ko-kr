@@ -3,15 +3,15 @@ title: Azure Virtual Desktop 원격 앱 스트리밍이란 무엇인가요? - Az
 description: Azure Virtual Desktop 원격 앱 스트리밍의 개요
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e1ff4cba43c1e57c39b5e47e2485a262f66bbb5f
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: c13996fd5c8373ebe0897fa9caa57a2d94600c1b
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032983"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399526"
 ---
 # <a name="what-is-azure-virtual-desktop-remote-app-streaming"></a>Azure Virtual Desktop 원격 앱 스트리밍이란 무엇인가요?
 
@@ -68,6 +68,7 @@ Azure Virtual Desktop을 설정하고 나면 조직 또는 고객의 요구에 �
 - [Azure Automation을 사용하여 세션 호스트 크기 조정](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [유니버설 인쇄 설정](/universal-print/fundamentals/universal-print-getting-started)
 - [연결 시 VM 시작 기능 설정](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [비용을 관리하기 위해 Azure Virtual Desktop 리소스에 태그 지정](../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="get-to-know-your-azure-virtual-desktop-deployment"></a>Azure Virtual Desktop 배포 알아보기
 

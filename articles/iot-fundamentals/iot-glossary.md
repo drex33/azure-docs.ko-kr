@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: eb2e48629e07271fcc151a3de97659c97cbb6719
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 631b1d9e81b50b42da5ca01b17be2a8b89c830bc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491187"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704579"
 ---
 # <a name="glossary-of-iot-terms"></a>IoT 용어집
 
@@ -22,115 +22,161 @@ ms.locfileid: "132491187"
 
 ### <a name="advanced-message-queueing-protocol"></a>고급 메시지 큐 프로토콜
 
-[디바이스와의](#device)통신을 IoT Hub [및](#iot-hub) IoT Central 지원하는 메시징 프로토콜 중 하나입니다.
+[장치와](#device)의 통신을 지원 하기 위해 [IoT Hub](#iot-hub) 및 IoT Central 하는 메시징 프로토콜 중 하나입니다.
 
 [자세한 정보](../iot-hub/iot-hub-devguide-protocols.md)
 
-적용 대상: Ot Hub, IoT Central, 디바이스 개발자
+대/소문자 규칙: 항상 *고급 메시지 큐 프로토콜* 입니다.
+
+첫 번째 및 이후 멘 션은 전체에 대 한 컨텍스트 맞춤법에 따라 결정 됩니다. 그렇지 않으면 약어 AMQP를 사용 합니다.
+
+약어: AMQP
+
+적용 대상: Iot Hub, IoT Central, 장치 개발자
 
 ### <a name="allocation-policy"></a>할당 정책
 
-Device [Provisioning Service](#device-provisioning-service)에서 할당 정책은 서비스에서 [연결된 IoT Hub](#linked-iot-hub)에 [디바이스를](#device) 할당하는 방법을 결정합니다.
+[장치 프로 비전 서비스](#device-provisioning-service)에서 할당 정책은 서비스가 [연결 된 IoT hub](#linked-iot-hub)에 [장치](#device) 를 할당 하는 방법을 결정 합니다.
 
-적용된 내용: Device Provisioning Service
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: 장치 프로 비전 서비스
 
 ### <a name="attestation-mechanism"></a>증명 메커니즘
 
-Device [Provisioning Service에서](#device-provisioning-service)증명 메커니즘은 [디바이스의](#device)ID를 확인하는 데 사용되는 방법입니다. 증명 메커니즘은 [등록](#enrollment)에서 구성됩니다.
+[장치 프로 비전 서비스](#device-provisioning-service)에서 증명 메커니즘은 [장치의](#device)id를 확인 하는 데 사용 되는 방법입니다. 증명 메커니즘은 [등록](#enrollment)에서 구성됩니다.
 
-증명 메커니즘에는 X.509 인증서, 신뢰할 수 있는 플랫폼 [모듈](#module)및 대칭 키가 포함됩니다.
+증명 메커니즘에는 x.509 인증서, 신뢰할 수 있는 플랫폼 [모듈](#module)및 대칭 키가 포함 됩니다.
 
-적용된 내용: Device Provisioning Service
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: 장치 프로 비전 서비스
 
 ### <a name="automatic-deployment"></a>자동 배포
 
-[IoT Edge](#iot-edge) 모듈 집합을 실행하도록 [IoT Edge 디바이스의](#iot-edge-device) 대상 집합을 구성하는 IoT Edge [기능입니다.](#module) 각 배포는 [대상 조건과](#target-condition) 일치하는 모든 디바이스가 대상 조건과 일치하도록 새 [디바이스를](#device) 만들거나 수정한 경우에도 지정된 모듈 집합을 실행하도록 지속적으로 보장합니다. 각 IoT Edge 디바이스는 해당 대상 조건을 충족하는 가장 높은 우선 순위 배포만 수신합니다.
+IoT Edge [모듈](#module)집합을 실행 하도록 [IoT Edge 장치의](#iot-edge-device) 대상 집합을 구성 하는 [IoT Edge](#iot-edge) 의 기능입니다. 각 배포는 대상 조건과 일치 하도록 새 장치를 만들거나 수정 하는 경우에도 [대상 조건과](#target-condition) 일치 하는 모든 [장치가](#device) 지정 된 모듈 집합을 실행 하는지 확인 합니다. 각 IoT Edge 디바이스는 해당 대상 조건을 충족하는 가장 높은 우선 순위 배포만 수신합니다.
 
 [자세한 정보](../iot-edge/module-deployment-monitoring.md)
 
-적용 내용: IoT Edge
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: IoT Edge
 
 ### <a name="automatic-device-configuration"></a>자동 디바이스 구성
 
-[솔루션](#solution) 백 엔드에서 시스템 및 사용자 지정 메트릭을 사용하여 디바이스 [쌍](#device-twin) 집합에 [desired 속성을](#desired-properties) 할당하고 [디바이스](#device) 상태를 보고할 수 있도록 하는 [IoT Hub](#iot-hub) 기능입니다.
+[솔루션](#solution) 백 엔드가 [장치](#device-twin) 쌍 집합에 [desired 속성](#desired-properties) 을 할당 하 고 시스템 및 사용자 지정 메트릭을 사용 하 여 [장치](#device) 상태를 보고할 수 있도록 하는 [IoT Hub](#iot-hub) 기능입니다.
 
 [자세한 정보](../iot-hub/iot-hub-automatic-device-management.md)
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ### <a name="automatic-device-management"></a>자동 디바이스 관리
 
-전체 수명 주기 동안 대규모 [디바이스를](#device) 관리하는 반복적이고 복잡한 작업을 자동화하는 [IoT Hub](#iot-hub) 기능입니다. 이 기능을 사용하면 [해당 속성을](#properties)기반으로 디바이스 집합을 대상으로 지정하고, [원하는 구성을](#desired-configuration)정의하고, 범위가 IoT Hub 디바이스를 업데이트할 수 있습니다.
+전체 수명 주기 동안 많은 [장치](#device) 대규모을 관리 하는 반복적이 고 복잡 한 작업을 자동화 하는 [IoT Hub](#iot-hub) 기능입니다. 기능을 사용 하면 해당 [속성](#properties)을 기반으로 장치 집합을 대상으로 지정 하 고, [원하는 구성을](#desired-configuration)정의 하 고, 범위에 있을 때마다 장치를 IoT Hub 업데이트할 수 있습니다.
 
 [자동 디바이스 구성](../iot-hub/iot-hub-automatic-device-management.md) 및 [IoT Edge 자동 배포](../iot-edge/how-to-deploy-at-scale.md)로 구성됩니다.
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ### <a name="azure-certified-device-program"></a>Azure Certified Device 프로그램
 
-Azure Certified [Device는](#device) Azure에서 실행되도록 빌드된 IoT 디바이스를 차별화, 인증 및 승격할 수 있는 무료 프로그램입니다.
+Azure 인증 [장치](#device) 는 azure에서 실행 되도록 빌드된 IoT 장치를 구분 하 고, 인증 하 고, 승격할 수 있는 무료 프로그램입니다.
 
 [자세한 정보](../certification/overview.md)
 
-적용할 내용: Ot Hub, IoT Central
+대/소문자 규칙: 항상 *Azure 인증 장치로* 대문자를 합니다.
+
+적용 대상: Iot Hub, IoT Central
 
 ### <a name="azure-digital-twins"></a>Azure Digital Twins
 
-실제 사물, 장소, 비즈니스 프로세스 및 사람의 디지털 표현을 만들기 위한 PaaS(Platform as a Service) 제품입니다. 전체 환경을 나타내는 쌍 그래프를 작성하고, 이를 사용하여 더 나은 제품을 구동하고, 운영 및 비용을 최적화하며, 혁신적인 고객 경험을 만들기 위한 인사이트를 얻습니다.
+실제 사물, 장소, 비즈니스 프로세스 및 사람들의 디지털 표현을 만들기 위한 PaaS (platform as a service) 제품입니다. 전체 환경을 나타내는 쌍 그래프를 작성하고, 이를 사용하여 더 나은 제품을 구동하고, 운영 및 비용을 최적화하며, 혁신적인 고객 경험을 만들기 위한 인사이트를 얻습니다.
 
 [자세한 정보](../digital-twins/overview.md)
 
-적용 내용: Digital Twins
+대/소문자 규칙: 서비스를 참조 하는 경우 항상 대문자화 합니다.
+
+첫 번째 및 후속 멘 션: 서비스를 참조 하는 경우 항상 *Azure Digital Twins* 로 전체에서 철자를 확인 합니다.
+
+사용 예: 추가 분석 또는 저장소를 위해 *Azure Digital Twins* 모델의 데이터를 다운스트림 azure 서비스로 라우팅할 수 있습니다.
+
+적용 대상: 디지털 쌍
 
 ### <a name="azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스
 
-고객의 구독에 [있는 Azure Digital Twins](#azure-digital-twins) 서비스의 단일 인스턴스입니다. Azure [Digital Twins](#digital-twin) Azure 서비스 전체를 참조하지만 Azure Digital Twins *인스턴스는* 개별 Azure Digital Twins 리소스입니다.
+고객 구독에 있는 [Azure Digital Twins](#azure-digital-twins) 서비스의 단일 인스턴스입니다. Azure [Digital Twins](#digital-twin) 는 전체 azure 서비스를 참조 하는 반면, azure Digital twins *인스턴스* 는 개별 azure 디지털 쌍 리소스입니다.
 
-적용 내용: Digital Twins
+대/소문자 규칙: 항상 서비스 이름을 대문자로 바꿉니다.
+
+첫 번째 및 이후의 멘 션: 항상 *Azure Digital Twins 인스턴스로* 전체를 확인 합니다.
+
+적용 대상: 디지털 쌍
 
 ### <a name="azure-iot-explorer"></a>Azure IoT Explorer
 
-[디바이스가](#device) 보내는 [원격 분석을](#telemetry) 보고, 디바이스 [속성](#properties)를 사용하고, 명령을 호출하는 데 사용할 수 [있는](#command)도구입니다. 또한, 디바이스를 대상으로 상호 작용 및 테스트를 하고 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)를 관리할 수 있습니다.
+[장치](#device) 에서 보내는 [원격 분석](#telemetry) 을 보고, 장치 [속성](#properties)을 사용 하 고, [명령을](#command)호출 하는 데 사용할 수 있는 도구입니다. 또한, 디바이스를 대상으로 상호 작용 및 테스트를 하고 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)를 관리할 수 있습니다.
 
 [자세한 정보](https://github.com/Azure/azure-iot-explorer)
 
-적용 대상: Ot Hub, 디바이스 개발자
+대/소문자 규칙: 항상 *Azure IoT 탐색기* 로 대문자를 바꿉니다.
+
+적용 대상: Iot Hub, 장치 개발자
 
 ### <a name="azure-iot-tools"></a>Azure IoT Tools
 
-VS Code [Azure](#iot-hub) IoT Hub 및 [디바이스를](#device) 관리하는 데 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장입니다. Azure IoT Tools 통해 IoT 개발자는 VS Code IoT 프로젝트를 쉽게 개발할 수 있습니다.
+VS Code에서 Azure [IoT Hub](#iot-hub) 및 [장치](#device) 를 관리 하는 데 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장 프로그램입니다. Azure IoT Tools를 통해 iot 개발자는에서 iot 프로젝트를 쉽게 개발할 수 있습니다 VS Code
 
-적용 대상: Ot Hub, IoT Edge, IoT Central, 디바이스 개발자
+대/소문자 규칙: 항상 *Azure IoT Tools* 로 대문자를 바꿉니다.
+
+적용 대상: Iot Hub, IoT Edge, IoT Central, 장치 개발자
 
 ### <a name="azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK
 
-여러 언어에 사용할 수 있는 이러한 SDK를 사용하면 [IoT Hub](#iot-hub) 또는 IoT Central 애플리케이션과 상호 작용하는 [디바이스 앱을](#device-app) 만들 수 있습니다.
+여러 언어에서 사용할 수 있는 이러한 SDK를 사용 하 여 [IoT hub](#iot-hub) 또는 IoT Central 응용 프로그램과 상호 작용 하는 [장치 앱](#device-app) 을 만들 수 있습니다.
 
 [자세한 정보](../iot-develop/about-iot-sdks.md)
 
-적용 대상: Ot Hub, IoT Central, 디바이스 개발자
+대/소문자 규칙: 항상 *Azure IoT 장치 sdk* 를 참조 합니다.
+
+첫 번째 및 후속 멘 션: 첫 번째 언급에서 항상 *Azure IoT 장치 sdk* 를 사용 합니다. 이후 언급에서 *장치 sdk* 로 약어를 소개 합니다.
+
+사용 예: *Azure IoT 장치 sdk* 는 장치 클라이언트 라이브러리, 개발자 가이드, 샘플 및 설명서 집합입니다. *장치 sdk* 를 통해 프로그래밍 방식으로 장치를 Azure IoT 서비스에 연결할 수 있습니다.
+
+적용 대상: Iot Hub, IoT Central, 장치 개발자
 
 ### <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 
-여러 언어에 사용할 수 있는 이러한 SDK를 사용하면 [IoT Hub와](#iot-hub)상호 작용하는 [백 엔드 앱을](#back-end-app) 만들 수 있습니다.
+여러 언어에서 사용할 수 있는 이러한 Sdk를 사용 하 여 [IoT hub](#iot-hub)와 상호 작용 하는 [백 엔드 앱](#back-end-app) 을 만들 수 있습니다.
 
-[자세한 정보](/azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)
+[자세한 정보](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)
 
-적용된 내용: Ot Hub
+대/소문자 규칙: 항상 *Azure IoT 서비스 sdk* 로 참조 합니다.
+
+첫 번째 및 후속 멘 션: 첫 번째 언급에서 항상 *Azure IoT 서비스 sdk* 를 사용 합니다. 이후 언급에서 *서비스 sdk* 로 약어를 소개 합니다.
+
+적용 대상: Iot Hub
 
 ## <a name="b"></a>b
 
 ### <a name="back-end-app"></a>백 엔드 앱
 
-[IoT Hub](#iot-hub)컨텍스트에서 IoT Hub의 서비스 연결 [엔드포인트](#endpoint) 중 하나에 연결하는 앱입니다. 예를 들어 백 엔드 앱은 [디바이스-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행되지만 간단히 하기 위해 많은 자습서에서 백 엔드 앱을 로컬 개발 머신에서 실행되는 콘솔 앱으로 표시합니다.
+[IoT Hub](#iot-hub)컨텍스트에서 IoT Hub의 서비스 지향 [끝점](#endpoint) 중 하나에 연결 하는 앱입니다. 예를 들어 백 엔드 앱은 [디바이스-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행 되지만 간단한 자습서의 많은 자습서에서는 백 엔드 앱을 로컬 개발 컴퓨터에서 실행 되는 콘솔 앱으로 표시 합니다.
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ### <a name="built-in-endpoints"></a>기본 제공 엔드포인트
 
-[IoT Hub](#iot-hub)에 기본 제공되는 [엔드포인트입니다.](#endpoint) 예를 들어 모든 IoT Hub에는 Event Hubs 호환되는 기본 제공 엔드포인트가 포함되어 있습니다.
+[IoT Hub](#iot-hub)에 기본 제공 되는 [끝점](#endpoint) 입니다. 예를 들어 모든 IoT hub에는 Event Hubs 호환 되는 기본 제공 끝점이 포함 되어 있습니다.
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ## <a name="c"></a>C
 
@@ -138,17 +184,25 @@ VS Code [Azure](#iot-hub) IoT Hub 및 [디바이스를](#device) 관리하는 �
 
 IoT Hub 또는 [IoT Central](#iot-hub) 직접 연결할 수 없는 [디바이스에](#device) 대한 연결을 활성화하는 클라우드 호스팅 앱입니다. 클라우드 [게이트웨이는](#gateway) 디바이스에 로컬로 실행되는 [필드 게이트웨이와](#field-gateway) 달리 클라우드에서 호스트됩니다. 클라우드 게이트웨이의 일반적인 사용 사례는 디바이스에 대한 프로토콜 변환을 구현하는 것입니다.
 
+대/소문자 규칙: 항상 소문자입니다.
+
 적용할 내용: Ot Hub, IoT Central
 
 ### <a name="cloud-property"></a>클라우드 속성
 
 IoT Central 애플리케이션에서 [디바이스](#device) 메타데이터를 저장할 수 있는 IoT Central 기능입니다. 클라우드 [속성은](#properties) 디바이스 [템플릿](#device-template)에 정의되어 있지만 [디바이스 모델의](#device-model)일부가 아닙니다. 클라우드 속성은 디바이스와 동기화되지 않습니다.
 
+대/소문자 규칙: 항상 소문자입니다.
+
 적용 내용: IoT Central
 
 ### <a name="cloud-to-device"></a>클라우드-디바이스
 
 [IoT Hub에서](#iot-hub) 연결된 [디바이스로](#device)전송된 메시지입니다. 이러한 메시지는 종종 [디바이스에](#command) 작업을 수행하도록 지시하는 명령입니다.
+
+대/소문자 규칙: 항상 소문자입니다.
+
+약어: *C2D* 를 사용하지 마십시오.
 
 적용된 내용: Ot Hub
 
@@ -162,90 +216,122 @@ IoT Central 애플리케이션에서 [디바이스](#device) 메타데이터를 
 
 IoT 플러그 앤 플레이 및 [Azure Digital Twins](#azure-digital-twins)구성 요소를 사용하면 [모델](#model) 인터페이스를 다른 [인터페이스의](#interface) 어셈블리로 빌드할 수 있습니다. [디바이스 모델](#device-model)은 여러 인터페이스를 구성 요소로 결합할 수 있습니다. 예를 들어 모델에는 스위치 구성 요소와 온도 조절 디바이스 구성 요소가 포함될 수 있습니다. 모델의 여러 구성 요소가 동일한 인터페이스 형식을 사용할 수도 있습니다. 예를 들어 하나의 모델에 두 개의 온도 조절 디바이스 구성 요소가 포함될 수 있습니다.
 
+대/소문자 규칙: 항상 소문자입니다.
+
 적용 대상: Ot Hub, Digital Twins, 디바이스 개발자
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
-[IoT Hub](#iot-hub)의 [자동 장치 구성](#automatic-device-configuration) 컨텍스트에서는 [장치](#device) 집합에 대 한 [원하는 구성을](#desired-configuration) 정의 하 고 상태와 진행률을 보고 하는 메트릭 집합을 제공 합니다.
+[IoT Hub](#iot-hub)자동 [디바이스 구성의](#automatic-device-configuration) 컨텍스트에서 [디바이스](#device) 쌍 집합에 대해 [원하는 구성을](#desired-configuration) 정의하고 상태 및 진행 상황을 보고하는 메트릭 집합을 제공합니다.
 
-적용 대상: Iot Hub
+대/소문자 규칙: 항상 소문자입니다.
+
+적용된 내용: Ot Hub
 
 ### <a name="connection-string"></a>연결 문자열
 
-응용 프로그램 코드에서를 사용 하 여 [끝점](#endpoint)에 연결 하는 데 필요한 정보를 캡슐화 합니다. 일반적으로 연결 문자열에는 엔드포인트의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. [IoT Hub](#iot-hub) 서비스와 연결 된 연결 문자열에는 다음 두 가지 유형이 있습니다.
+앱 코드에서 를 사용하여 [엔드포인트](#endpoint)에 연결하는 데 필요한 정보를 캡슐화합니다. 일반적으로 연결 문자열에는 엔드포인트의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. [IoT Hub](#iot-hub) 서비스와 연결된 두 가지 유형의 연결 문자열이 있습니다.
 
-- *[장치](#device) 연결 문자열* 을 사용 하면 장치에서 IoT hub의 장치 지향 끝점에 연결할 수 있습니다.
-- *연결 문자열* 을 IoT Hub [백 엔드 앱](#back-end-app) 이 IoT Hub의 서비스 연결 끝점에 연결할 수 있습니다.
+- *[디바이스](#device) 연결 문자열을* 사용하면 디바이스가 IoT Hub의 디바이스 연결 엔드포인트에 연결할 수 있습니다.
+- *IoT Hub 연결 문자열을* 사용하면 [백 엔드 앱이](#back-end-app) IoT Hub의 서비스 연결 엔드포인트에 연결할 수 있습니다.
 
-적용 대상: Iot Hub, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, 디바이스 개발자
 
 ### <a name="custom-endpoints"></a>사용자 지정 엔드포인트
 
-[라우팅 규칙](#routing-rule)으로 발송 된 메시지를 전달 하는 [IoT hub](#iot-hub) 의 사용자 정의 [끝점](#endpoint) 입니다. 이러한 끝점은 이벤트 허브, Service Bus 큐 또는 Service Bus 토픽에 직접 연결 됩니다.
+[라우팅 규칙에](#routing-rule)의해 디스패치된 메시지를 배달하는 [IoT Hub의](#iot-hub) 사용자 정의 [엔드포인트입니다.](#endpoint) 이러한 엔드포인트는 이벤트 허브, Service Bus 큐 또는 Service Bus 토픽에 직접 연결됩니다.
 
-적용 대상: Iot Hub
+대/소문자 규칙: 항상 소문자입니다.
+
+적용된 내용: Ot Hub
 
 ### <a name="custom-gateway"></a>사용자 지정 게이트웨이
 
-[IoT Hub](#iot-hub) 또는 IoT Central에 직접 연결할 수 없는 [장치](#device) 에 대 한 연결을 설정 합니다. Azure [IoT Edge](#iot-edge) 를 사용 하 여 메시지, 사용자 지정 프로토콜 변환 및 기타 처리를 처리 하는 사용자 지정 논리를 구현 하는 사용자 지정 [게이트웨이](#gateway) 를 빌드할 수 있습니다.
+IoT Hub 또는 [IoT Central](#iot-hub) 직접 연결할 수 없는 [디바이스에](#device) 대한 연결을 사용하도록 설정합니다. Azure [IoT Edge](#iot-edge) 사용하여 메시지를 처리하는 사용자 지정 논리, 사용자 지정 프로토콜 변환 및 기타 처리를 구현하는 사용자 지정 [게이트웨이를](#gateway) 빌드할 수 있습니다.
 
-적용 대상: Iot Hub, IoT Central
+대/소문자 규칙: 항상 소문자입니다.
+
+적용할 내용: Ot Hub, IoT Central
 
 ## <a name="d"></a>D
 
 ### <a name="default-component"></a>기본 구성 요소
 
-모든 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) [모델](#model) 에는 기본 [구성 요소가](#component)있습니다. 단순 [장치 모델](#device-model) 에는 기본 구성 요소만 있습니다. 이러한 모델은 구성 요소 [장치가](#device)라고도 합니다. 더 복잡 한 모델에는 기본 구성 요소 아래에 중첩 된 여러 구성 요소가 있습니다.
+모든 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) [모델에는](#model) 기본 [구성 요소가](#component)있습니다. 단순 [디바이스 모델에는](#device-model) 기본 구성 요소만 있습니다. 이러한 모델을 구성 요소가 없는 [디바이스라고도](#device)합니다. 더 복잡한 모델에는 여러 구성 요소가 기본 구성 요소 아래에 중첩되어 있습니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Central, 디바이스 개발자
 
 ### <a name="deployment-manifest"></a>배포 매니페스트
 
-하나 이상의 [IoT Edge 장치](#iot-edge-device) [모듈](#module-twin)쌍에 대 한 [구성](#configuration) 데이터를 포함 하는 [IoT Edge](#iot-edge) JSON 문서입니다.
+하나 이상의 [IoT Edge](#iot-edge) 디바이스 [모듈 쌍에](#module-twin)대한 [구성](#configuration) 데이터를 포함하는 [IoT Edge](#iot-edge-device) JSON 문서입니다.
 
-적용 대상: IoT Edge, IoT Central
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 내용: IoT Edge, IoT Central
 
 ### <a name="desired-configuration"></a>desired 구성
 
-[장치](#device-twin)쌍의 컨텍스트에서 원하는 [구성은](#configuration) 장치와 동기화 되어야 하는 [장치](#device) 쌍의 전체 [속성](#properties) 및 메타 데이터 집합을 나타냅니다.
+[디바이스 쌍의](#device-twin)컨텍스트에서 원하는 [구성은](#configuration) [디바이스와](#device) 동기화해야 하는 디바이스 쌍의 [속성](#properties) 및 메타데이터의 전체 집합을 나타냅니다.
 
-적용 대상: Iot Hub
+대/소문자 규칙: 항상 소문자입니다.
+
+적용된 내용: Ot Hub
 
 ### <a name="desired-properties"></a>Desired 속성
 
-[장치](#device-twin)쌍의 컨텍스트에서 desired [속성](#properties) 은 장치 [구성](#configuration) 또는 조건을 동기화 하기 위해 [보고 된 속성](#reported-properties) 에 사용 되는 [장치](#device) 쌍의 하위 섹션입니다. desired 속성은 [백 엔드 앱](#back-end-app)에서만 설정할 수 있고 [디바이스 앱](#device-app)에서 관찰할 수 있습니다. IoT Central은 쓰기 가능한 속성 이라는 용어를 사용 합니다.
+[디바이스 쌍의](#device-twin)컨텍스트에서 desired 속성은 [reported](#reported-properties) [속성과](#properties) 함께 디바이스 [구성](#configuration) 또는 조건을 동기화하는 데 사용되는 디바이스 [쌍의](#device) 하위 섹션입니다. desired 속성은 [백 엔드 앱](#back-end-app)에서만 설정할 수 있고 [디바이스 앱](#device-app)에서 관찰할 수 있습니다. IoT Central 쓰기 가능한 속성이라는 용어를 사용합니다.
 
-적용 대상: Iot Hub
+대/소문자 규칙: 항상 소문자입니다.
+
+적용된 내용: Ot Hub
 
 ### <a name="device"></a>디바이스
 
-IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하거나 다른 디바이스를 제어할 수 있는 소규모의 독립 실행형 컴퓨팅 디바이스입니다. 예를 들어 디바이스는 환경 모니터링 디바이스이거나 온실에서 급수 및 통풍 시스템을 위한 컨트롤러일 수 있습니다. 장치 카탈로그는 인증 된 장치 목록을 제공 합니다.
+IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하거나 다른 디바이스를 제어할 수 있는 소규모의 독립 실행형 컴퓨팅 디바이스입니다. 예를 들어 디바이스는 환경 모니터링 디바이스이거나 온실에서 급수 및 통풍 시스템을 위한 컨트롤러일 수 있습니다. 디바이스 카탈로그는 인증된 디바이스 목록을 제공합니다.
 
-적용 대상: Iot Hub, IoT Central, IoT Edge, 장치 프로 비전 서비스, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Central, IoT Edge, Device Provisioning Service, 디바이스 개발자
 
 ### <a name="device-provisioning-service"></a>Device Provisioning Service
 
-제로 터치 [장치 프로 비전](#device-provisioning)을 구성 하는 데 사용 하는 [IoT Hub](#iot-hub) 및 IoT Central에 대 한 도우미 서비스입니다. DPS를 사용 하면 안전 하 고 확장 가능한 방식으로 수백만 대의 [장치](#device) 를 프로 비전 할 수 있습니다.
+터치 없는 [디바이스 프로비저닝을](#device-provisioning)구성하는 데 사용하는 [IoT Hub](#iot-hub) 및 IoT Central 위한 도우미 서비스입니다. DPS를 사용하면 안전하고 확장 가능한 방식으로 수백만 개의 [디바이스를](#device) 프로비전할 수 있습니다.
 
-적용 대상: Iot Hub, 장치 프로 비전 서비스, IoT Central
+대/소문자 구분 규칙: 항상 *Device Provisioning Service로* 대문자로 표시됩니다.
+
+첫 번째 및 후속 언급: IoT Hub Device Provisioning Service
+
+약어: DPS
+
+적용: Ot Hub, Device Provisioning Service, IoT Central
 
 ### <a name="device-rest-api"></a>디바이스 REST API
 
-장치에서 장치- [클라우드](#device-to-cloud) 메시지를 [iot Hub](#iot-hub)로 보내고 iot hub에서 [클라우드-장치](#cloud-to-device) 메시지를 수신 하는 데 사용할 수 있는 [REST API입니다.](#device) 일반적으로 상위 수준 [Azure IoT 장치 sdk](#azure-iot-device-sdks)중 하나를 사용 해야 합니다.
+[디바이스에서](#device) [디바이스-클라우드](#device-to-cloud) 메시지를 [IoT Hub로 보내고 IoT Hub에서](#iot-hub) [클라우드-디바이스](#cloud-to-device) 메시지를 수신하는 데 사용할 수 있는 REST API. 일반적으로 상위 수준 [Azure IoT 디바이스 SDK](#azure-iot-device-sdks)중 하나를 사용해야 합니다.
 
 [자세한 정보](/rest/api/iothub/device)
 
-적용 대상: Iot Hub
+대/소문자 구분 규칙: 항상 *디바이스 REST API.*
+
+적용된 내용: Ot Hub
 
 ### <a name="device-app"></a>디바이스 앱
 
-장치 [앱은](#device) 장치에서 실행 되며 [IoT hub](#iot-hub) 또는 IoT Central 응용 프로그램과의 통신을 처리 합니다. 일반적으로 디바이스 앱을 구현할 때 [Azure IoT 디바이스 SDK](#azure-iot-device-sdks) 중 하나를 사용합니다.
+[디바이스](#device) 앱은 디바이스에서 실행되며 [IoT Hub](#iot-hub) 또는 IoT Central 애플리케이션과의 통신을 처리합니다. 일반적으로 디바이스 앱을 구현할 때 [Azure IoT 디바이스 SDK](#azure-iot-device-sdks) 중 하나를 사용합니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Central, 디바이스 개발자
 
 ### <a name="device-builder"></a>디바이스 작성기
 
-[장치](#device)에서 실행할 코드를 만드는 담당자입니다. 일반적으로 디바이스 빌더는 [Azure IoT 디바이스 SDK들](#azure-iot-device-sdks) 중 하나를 사용하여 디바이스 클라이언트를 구현합니다. 디바이스 작성기는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)에서 실행되도록 코드를 구현할 때 [디바이스 모델](#device-model) 및 [인터페이스](#interface)를 사용합니다.
+[디바이스에서](#device)실행할 코드를 만드는 담당자입니다. 일반적으로 디바이스 빌더는 [Azure IoT 디바이스 SDK들](#azure-iot-device-sdks) 중 하나를 사용하여 디바이스 클라이언트를 구현합니다. 디바이스 작성기는 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device)에서 실행되도록 코드를 구현할 때 [디바이스 모델](#device-model) 및 [인터페이스](#interface)를 사용합니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central, IoT Edge, 장치 개발자
 
@@ -253,11 +339,17 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 
 [IoT Hub](#iot-hub) [id 레지스트리](#identity-registry) 또는 IoT Central 응용 프로그램에 등록 된 모든 [장치](#device) 에 할당 된 고유 식별자입니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다. 약어를 사용 하는 경우 *ID* 는 모두 대문자입니다.
+
+약어: 장치 ID
+
 적용 대상: Iot Hub, IoT Central
 
 ### <a name="device-management"></a>디바이스 관리
 
 [장치](#device) 관리에는 계획, 프로 비전, 구성, 모니터링 및 사용 중지를 포함 하 여 IoT [솔루션](#solution) 에서 장치 관리와 관련 된 전체 수명 주기가 포함 됩니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central
 
@@ -267,11 +359,15 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 
 [자세한 정보](../iot-develop/concepts-modeling-guide.md)
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Central, 장치 개발자, 디지털 쌍
 
 ### <a name="device-provisioning"></a>디바이스 프로비전
 
 [솔루션](#solution)의 저장소에 초기 [장치](#device) 데이터를 추가 하는 프로세스입니다. 새 장치를 허브에 연결할 수 있게 하려면 장치 ID 및 키를 [IoT Hub](#iot-hub) [id 레지스트리에](#identity-registry)추가 해야 합니다. [장치 프로 비전 서비스](#device-provisioning-service) 는 IoT hub 또는 IoT Central 응용 프로그램에서 장치를 자동으로 프로 비전 할 수 있습니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
 
@@ -281,17 +377,29 @@ IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 �
 
 예를 들어 장치 템플릿은 올바른 단위 및 데이터 형식을 사용 하는 시각화를 만들 수 IoT Central 있도록 장치에서 전송 하는 [원격 분석](#telemetry) 을 정의할 수 있습니다. [디바이스 모델](#device-model)은 디바이스 템플릿의 일부입니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+약어: 응용 프로그램 템플릿도 *있으므로 IoT Central* abbreviating 마세요.
+
 적용 대상: IoT Central
 
 ### <a name="device-twin"></a>디바이스 쌍
 
 [장치](#device) 쌍은 메타 데이터, [구성](#configuration)및 조건과 같은 장치 상태 정보를 저장 하는 JSON 문서입니다. [IoT Hub](#iot-hub) IoT Hub에서 프로 비전 하는 각 장치에 대해 장치 쌍을 유지 합니다. 장치 쌍을 사용 하면 장치와 [솔루션](#solution) 백 엔드 간의 장치 조건 및 구성을 동기화 할 수 있습니다. 디바이스 쌍을 쿼리하여 특정 디바이스를 찾고 장기 실행 중인 작업의 상태를 확인할 수 있습니다.
 
+[디지털](#digital-twin) 쌍도 참조 하세요.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub
 
 ### <a name="device-to-cloud"></a>디바이스-클라우드
 
 [IoT Hub](#iot-hub) 또는 IoT Central 연결 된 [장치](#device) 에서 전송 된 메시지를 나타냅니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+약어: *D2C* 를 사용 하지 마세요.
 
 적용 대상: Iot Hub
 
@@ -301,11 +409,19 @@ IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 �
 
 [자세한 정보](https://github.com/Azure/opendigitaltwins-dtdl)
 
+첫 번째 및 이후 멘 션: *디지털 Twins 정의 언어로* 전체를 확인 합니다.
+
+약어: DTDL
+
 적용 대상: Iot Hub, IoT Central, 디지털 쌍
 
 ### <a name="digital-twin"></a>디지털 쌍
 
 디지털 쌍은 물리적 개체를 나타내는 디지털 데이터의 컬렉션입니다. 물리적 개체의 변경 내용은 디지털 쌍에 반영됩니다. 일부 시나리오에서는 디지털 쌍을 사용하여 물리적 개체를 조작할 수 있습니다. [Azure digital 쌍 서비스](../digital-twins/index.yml) 는 [디지털 쌍 정의 언어로](#digital-twins-definition-language) 표현 된 [모델](#model) 을 사용 하 여 [물리적 장치의](#physical-device) 디지털 쌍 또는 상위 수준 추상화 비즈니스 개념을 나타냅니다 .이를 통해 다양 한 클라우드 기반 디지털 쌍 [솔루션](#solution)을 사용할 수 있습니다. [IoT 플러그 앤 플레이](../iot-develop/index.yml) [장치](#device) 에는 디지털 쌍 (디지털 쌍 정의 언어 [장치 모델](#device-model)에 설명 됨)이 있습니다.
+
+참고 항목 [장치](#device-twin) 쌍
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central, 디지털 쌍, 장치 개발자
 
@@ -313,11 +429,19 @@ IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 �
 
 [Iot 플러그 앤 플레이 장치가](#iot-plug-and-play-device) [iot hub](#iot-hub)에 연결 된 경우 허브는 해당 라우팅 기능을 사용 하 여 [디지털](#digital-twin) 쌍 변경 내용에 대 한 알림을 보낼 수 있습니다. IoT Central 데이터 내보내기 기능은 디지털 쌍 변경 이벤트를 다른 서비스로 전달할 수도 있습니다. 예를 들어, [장치](#device)에서 속성 값이 변경 될 때마다 이벤트 허브와 같은 [끝점](#endpoint) 에 알림을 보낼 수 IoT Hub.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+약어: 다른 유형의 변경 이벤트를 구분 하기 위해 항상 전체를 확인 합니다.
+
 적용 대상: Iot Hub, IoT Central
 
 ### <a name="digital-twin-graph"></a>디지털 쌍 그래프
 
 [Azure Digital Twins](#azure-digital-twins) 서비스에서 [디지털 쌍](#digital-twin)을 [관계](#relationship)와 연결시켜 전체 물리적 환경을 디지털로 나타내는 정보 그래프를 만들 수 있습니다. 단일 [Azure Digital Twins 인스턴스](#azure-digital-twins-instance)는 여러 개의 연결 해제된 그래프 또는 하나의 상호 연결된 그래프를 호스트할 수 있습니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+첫 번째 및 이후의 멘 션: 첫 번째 언급에서 *디지털 쌍 그래프* 를 사용한 다음 쌍 *그래프* 를 사용 합니다.
 
 적용 대상: Iot Hub
 
@@ -325,11 +449,15 @@ IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 �
 
 [IoT hub](#iot-hub)에서 API를 호출 하 여 [장치](#device) 에서 실행 되는 메서드를 트리거하는 방법입니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub
 
 ### <a name="downstream-service"></a>다운스트림 서비스
 
 현재 컨텍스트에서 데이터를 수신하는 서비스를 설명하는 상대 용어입니다. 예를 [들어 azure digital twins의 컨텍스트에서](#azure-digital-twins)는 azure [digital twins](#digital-twin) 에서 Time Series Insights로 이동 하도록 데이터를 설정 하는 경우 다운스트림 서비스 Time Series Insights입니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central, 디지털 쌍
 
@@ -341,11 +469,15 @@ IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 �
 
 [Iot hub](#iot-hub) 는 앱이 iot hub에 연결할 수 있도록 하는 여러 끝점을 노출 합니다. 장치에서 장치- [클라우드](#device-to-cloud) 메시지 전송과 같은 작업을 수행할 수 있도록 하는 [장치](#device)지향 끝점이 있습니다. [백 엔드 앱](#back-end-app) 이 [장치 id](#device-identity) 관리와 같은 작업을 수행할 수 있도록 하는 서비스 지향 관리 끝점이 있습니다. 디바이스-클라우드 메시지 를 읽기 위한 서비스 지향 [기본 제공 엔드포인트](#built-in-endpoints)가 있습니다. [사용자 지정 엔드포인트](#custom-endpoints)를 만들어 [라우팅 규칙](#routing-rule)으로 발송된 디바이스-클라우드 메시지를 받을 수 있습니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub
 
 ### <a name="enrollment"></a>등록
 
 [장치 프로 비전 서비스](#device-provisioning-service)에서 등록은 자동 프로 비전을 통해 [연결 된 IoT hub](#linked-iot-hub) 에 등록할 수 있는 개별 [장치](#device) 또는 장치 그룹의 레코드입니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
 
@@ -353,17 +485,23 @@ IoT Central에서 [장치](#device) 템플릿은 응용 프로그램에 연결 �
 
 [장치 프로 비전 서비스](#device-provisioning-service) 및 IoT Central에서 [등록](#enrollment) 그룹은 x.509 또는 대칭 키 [증명 메커니즘](#attestation-mechanism)을 공유 하는 [장치](#device) 그룹을 식별 합니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, 장치 프로 비전 서비스, IoT Central
 
 ### <a name="event-hubs-compatible-endpoint"></a>Event Hubs 호환 끝점
 
 Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#device) 메시지를 읽을 수 있는 [IoT Hub](#iot-hub) [끝점](#endpoint) 입니다. Event Hubs 호환 방법에는 [Event Hubs sdk](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)가 포함 됩니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub
 
 ### <a name="event-handler"></a>이벤트 처리기
 
 이벤트 도착에 의해 트리거되는 프로세스입니다. 예를 들어 Azure 함수에 이벤트 처리 코드를 추가 하 고 [끝점](#endpoint) 및 [이벤트 라우팅을](#event-routing)사용 하 여 데이터를 전송 하 여 이벤트 처리기를 만들 수 있습니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub
 
@@ -373,6 +511,8 @@ Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#dev
 
 [Iot Hub](#iot-hub)에서 메시지를 전송 하는 방법을 설명 하는 [라우팅 규칙](#routing-rule) 을 정의할 수 있습니다. [Azure Digital Twins](#azure-digital-twins)에서 이벤트 경로는이 용도로 만들어진 엔터티입니다. Azure [Digital Twins](#digital-twin) 이벤트 경로에는 각 끝점으로 전송 되는 이벤트 유형을 제한 하는 필터가 포함 될 수 있습니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, 디지털 쌍
 
 ## <a name="f"></a>F
@@ -380,6 +520,8 @@ Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#dev
 ### <a name="field-gateway"></a>필드 게이트웨이
 
 [IoT Hub](#iot-hub) 에 직접 연결할 수 없는 [장치](#device) 에 대 한 연결을 사용 하도록 설정 합니다. 일반적으로 장치와 함께 로컬로 배포 됩니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central
 
@@ -389,6 +531,8 @@ Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#dev
 
 게이트웨이는 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 [장치](#device) 에 대 한 연결을 가능 하 게 합니다. [필드 게이트웨이](#field-gateway), [클라우드 게이트웨이](#cloud-gateway)및 [사용자 지정 게이트웨이](#custom-gateway)도 참조 하세요.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Central
 
 ### <a name="gateway-device"></a>게이트웨이 디바이스
@@ -397,6 +541,8 @@ Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#dev
 
 게이트웨이 디바이스를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 다운스트림 디바이스의 연결이 가능합니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Central, IoT Edge
 
 ## <a name="h"></a>H
@@ -404,6 +550,12 @@ Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#dev
 ### <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
 [장치](#device) 비밀의 안전 하 고 하드웨어 기반 저장소에 사용 됩니다. 장치에 대 한 가장 안전한 형태의 암호 저장소입니다. 하드웨어 보안 [모듈](#module) 은 x.509 인증서와 대칭 키를 둘 다 저장할 수 있습니다. [장치 프로 비전 서비스](#device-provisioning-service)에서 [증명 메커니즘](#attestation-mechanism) 은 하드웨어 보안 모듈을 사용할 수 있습니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+첫 번째 및 후속 멘 션: 처음에는 *하드웨어 보안 모듈* 이라고 합니다.
+
+약어: HSM
 
 적용 대상: Iot Hub, 장치 개발자, 장치 프로 비전 서비스
 
@@ -415,17 +567,23 @@ Event Hubs 호환 메서드를 사용 하 여 허브에 전송 된 [장치](#dev
 
 응용 프로그램 IoT Central DPS 인스턴스를 사용 하 고 IoT Central UI를 통해 ID 범위를 사용할 수 있도록 설정 합니다.
 
+대/소문자 규칙: 항상 *ID 범위* 를 사용 합니다.
+
 적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
 
 ### <a name="identity-registry"></a>ID 레지스트리
 
 허브에 연결 하도록 허용 된 개별 [장치](#device) 에 대 한 정보를 저장 하는 [IoT hub](#iot-hub) 의 기본 제공 [구성 요소](#component) 입니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub
 
 ### <a name="individual-enrollment"></a>개별 등록
 
 [장치 프로 비전 서비스가](#device-provisioning-service) [IoT hub](#iot-hub)에 프로 비전 할 수 있는 단일 [장치](#device) 를 식별 합니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, 장치 프로 비전 서비스
 
@@ -435,6 +593,8 @@ IoT 플러그 앤 플레이에서 인터페이스는 [IoT 플러그 앤 플레�
 
 [Azure Digital Twins](#azure-digital-twins)에서 *인터페이스* 를 사용 하 여 [디지털 twins 정의 언어](#digital-twins-definition-language) 모델 정의에서 최상위 코드 항목을 참조할 수 있습니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: 장치 개발자, 디지털 쌍
 
 ### <a name="iot-edge"></a>IoT Edge
@@ -443,11 +603,17 @@ IoT 플러그 앤 플레이에서 인터페이스는 [IoT 플러그 앤 플레�
 
 [자세한 정보](../iot-edge/index.yml)
 
+대/소문자 규칙: 항상 *IoT Edge* 로 대문자를 바꿉니다.
+
+첫 번째 및 이후 멘 션: *Azure IoT 가장자리로* 철자를 확인 합니다.
+
 적용 대상: IoT Edge
 
 ### <a name="iot-edge-agent"></a>IoT Edge 에이전트
 
 [모듈](#module)배포 및 모니터링을 담당 하는 [IoT Edge 런타임의](#iot-edge-runtime) 일부입니다.
+
+대/소문자 규칙: 항상 *IoT Edge 에이전트* 로 대문자를 바꿉니다.
 
 적용 대상: IoT Edge
 
@@ -455,17 +621,23 @@ IoT 플러그 앤 플레이에서 인터페이스는 [IoT 플러그 앤 플레�
 
 컨테이너 화 된 [IoT Edge](#iot-edge) [모듈](#module) 을 사용 하 여 Azure 서비스, 타사 서비스 또는 자신의 코드를 실행 하는 [장치](#device) 입니다. 장치에서 [IoT Edge 런타임은](#iot-edge-runtime) 모듈을 관리 합니다. 클라우드에서 IoT Edge 디바이스를 원격으로 모니터링하고 관리할 수 있습니다.
 
+대/소문자 규칙: 항상 *IoT Edge 장치로* 대문자를 바꿉니다.
+
 적용 대상: IoT Edge
 
 ### <a name="iot-edge-hub"></a>IoT Edge 허브
 
 모듈, 업스트림 및 다운스트림 통신을 담당 [하는](#module) [IoT Edge 런타임의](#iot-edge-runtime) 일부입니다.
 
+대/소문자 규칙: 항상 *IoT Edge 허브* 로 대문자를 바꿉니다.
+
 적용 대상: IoT Edge
 
 ### <a name="iot-edge-runtime"></a>IoT Edge 런타임
 
 Microsoft에서 [IoT Edge 장치](#iot-edge-device)에 배포 하는 모든 항목을 포함 합니다. 여기에는 Edge agent, Edge hub 및 [IoT Edge](#iot-edge) 보안 데몬이 포함 됩니다.
+
+대/소문자 규칙: 항상 *IoT Edge 런타임으로* 대문자를 바꿉니다.
 
 적용 대상: IoT Edge
 
@@ -475,11 +647,19 @@ Microsoft에서 [IoT Edge 장치](#iot-edge-device)에 배포 하는 모든 항�
 
 [자세한 정보](../iot-hub/about-iot-hub.md)
 
+대/소문자 규칙: 서비스를 참조 하는 경우 *IoT Hub* 를 대문자로 바꿉니다. 인스턴스를 참조할 때 *IoT hub* 로 대문자를 바꿉니다.
+
+첫 번째 및 이후 멘 션: *Azure IoT 허브* 로 전체의 철자를 확인 합니다. 후속 멘 션은 *IoT Hub* 수 있습니다. 컨텍스트가 명확 하지 않은 경우에는 *허브* 를 사용 하 여 인스턴스를 참조 하세요.
+
+사용 예: Azure IoT 허브 서비스는 안전한 양방향 통신을 가능 하 게 합니다. 장치가 IoT hub에 데이터를 보냅니다.
+
 적용 대상: Iot Hub
 
 ### <a name="iot-hub-resource-rest-api"></a>IoT Hub 리소스 REST API
 
 허브 만들기, 업데이트 및 삭제와 같은 작업을 사용 하 여 Azure 구독에서 [IoT hub](#iot-hub) 를 관리 하는 데 사용할 수 있는 API입니다.
+
+대/소문자 규칙: 항상 *IoT Hub 리소스 REST API* 으로 대문자를 바꿉니다.
 
 적용 대상: Iot Hub
 
@@ -487,11 +667,17 @@ Microsoft에서 [IoT Edge 장치](#iot-edge-device)에 배포 하는 모든 항�
 
 [IoT hub](#iot-hub)의 상태를 모니터링할 수 있는 Azure Portal의 기능입니다. IoT Hub 메트릭을 사용 하면 IoT Hub의 전반적인 상태와 연결 된 [장치](#device) 를 평가할 수 있습니다.
 
+대/소문자 규칙: 항상 *IoT Hub 메트릭* 으로 대문자를 바꿉니다.
+
 적용 대상: Iot Hub
 
 ### <a name="iot-hub-query-language"></a>IoT Hub 쿼리 언어
 
 [작업](#job), [디지털](#digital-twin)쌍 및 [장치](#device-twin)쌍을 쿼리할 수 있는 [IoT Hub](#iot-hub) 에 대 한 SQL 유사 언어입니다.
+
+대/소문자 규칙: 항상 *쿼리 언어 IoT Hub* 로 대문자를 바꿉니다.
+
+첫 번째 및 후속 멘 션: *IoT Hub 쿼리 언어로* 전체 철자를 확인 합니다. 컨텍스트가 명확한 경우 후속 멘 션은 *쿼리 언어* 일 수 있습니다.
 
 적용 대상: Iot Hub
 
@@ -499,17 +685,25 @@ Microsoft에서 [IoT Edge 장치](#iot-edge-device)에 배포 하는 모든 항�
 
 Windows 또는 Linux [게이트웨이에](#gateway) 연결 된 기존 센서와 주변 장치를 [IoT 플러그 앤 플레이 장치로](#iot-plug-and-play-device)연결 하는 데 사용할 수 있는 오픈 소스 응용 프로그램입니다.
 
+대/소문자 규칙: 항상 *IoT 플러그 앤 플레이 브리지로* 대문자를 바꿉니다.
+
+첫 번째 및 후속 멘 션: *IoT 플러그 앤 플레이 브리지* 로 전체에서 철자를 확인 합니다. 컨텍스트를 명확 하 게 하는 경우 후속 멘 션이 *브리지로* 연결 될 수 있습니다.
+
 적용 대상: Iot Hub, 장치 개발자, IoT Central
 
 ### <a name="iot-plug-and-play-conventions"></a>IoT 플러그 앤 플레이 규칙
 
 IoT [장치가](#device) [솔루션과](#solution)데이터를 교환할 때 따라야 하는 규칙 집합입니다.
 
+대/소문자 규칙: 항상 *IoT 플러그 앤 플레이 규칙* 으로 대문자를 바꿉니다.
+
 적용 대상: Iot Hub, IoT Central, 장치 개발자
 
 ### <a name="iot-plug-and-play-device"></a>IoT 플러그 앤 플레이 디바이스
 
 일반적으로 데이터를 수집 하거나 다른 장치를 제어 하 고 [장치 모델](#device-model)을 구현 하는 소프트웨어 또는 펌웨어를 실행 하는 소규모의 독립 실행형 컴퓨팅 [장치](#device) 입니다. 예를 들어, IoT 플러그 앤 플레이 디바이스는 환경 모니터링 디바이스이거나 스마트 농업 관개 시스템용 컨트롤러일 수 있습니다. IoT 플러그 앤 플레이 장치는 직접 또는 [IoT Edge](#iot-edge) [모듈로](#module)구현할 수 있습니다.
+
+대/소문자 규칙: 항상 *IoT 플러그 앤 플레이 장치로* 대문자를 바꿉니다.
 
 적용 대상: Iot Hub, IoT Central, 장치 개발자
 
@@ -518,6 +712,8 @@ IoT [장치가](#device) [솔루션과](#solution)데이터를 교환할 때 따
 Azure CLI에 대 한 확장입니다. 확장을 통해 [id 레지스트리에서](#identity-registry) [장치](#device) 를 관리 하 고, 장치 메시지를 보내고 받고, [IoT hub](#iot-hub) 작업을 모니터링 하는 등의 작업을 완료할 수 있습니다.
 
 [자세한 정보](/cli/azure/azure-cli-reference-for-IoT)
+
+대/소문자 규칙: 항상 *Azure CLI에 대 한 IoT 확장* 으로 대문자를 바꿉니다.
 
 적용 대상: Iot Hub, IoT Central, IoT Edge, 장치 프로 비전 서비스, 장치 개발자
 
@@ -529,6 +725,8 @@ Azure CLI에 대 한 확장입니다. 확장을 통해 [id 레지스트리에서
 
 IoT Central 컨텍스트에서 작업을 통해 [속성](#properties) 을 설정 하 고 [명령을](#command)호출 하 여 연결 된 장치를 대량으로 관리할 수 있습니다. 또한 IoT Central 작업을 통해 클라우드 속성을 대량으로 업데이트할 수 있습니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Central
 
 ## <a name="l"></a>L
@@ -537,17 +735,23 @@ IoT Central 컨텍스트에서 작업을 통해 [속성](#properties) 을 설정
 
 연결 된 다운스트림 장치가 없는 [장치](#device) 입니다. 일반적으로 리프 장치는 [게이트웨이 장치](#gateway-device)에 연결 됩니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: IoT Edge, IoT Central, 장치 개발자
 
 ### <a name="lifecycle-event"></a>수명 주기 이벤트
 
 [Azure Digital Twins](#azure-digital-twins)에서이 유형의 이벤트는 [디지털](#digital-twin)쌍, [관계](#relationship)또는 [이벤트 처리기](#event-handler) 와 같은 데이터 항목이 [Azure 디지털 twins 인스턴스에서](#azure-digital-twins-instance)만들어지거나 삭제 될 때 발생 합니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: 디지털 쌍, Iot Hub, IoT Central
 
 ### <a name="linked-iot-hub"></a>연결된 IoT 허브
 
 [장치 프로 비전 서비스](#device-provisioning-service) 인스턴스에 연결 된 [IoT hub](#iot-hub) 입니다. DPS 인스턴스는 연결 된 IoT hub의 [장치](#device-twin) 쌍에서 [장치](#device) ID를 등록 하 고 초기 [구성을](#configuration) 설정할 수 있습니다.
+
+대/소문자 규칙: 항상 *연결 된 IoT hub* 로 대문자를 바꿉니다.
 
 적용 대상: Iot Hub, 장치 프로 비전 서비스
 
@@ -559,6 +763,10 @@ IoT Central 컨텍스트에서 작업을 통해 [속성](#properties) 을 설정
 
 [자세한 정보](../iot-hub/iot-hub-devguide-protocols.md)
 
+첫 번째 및 후속 멘 션: MQTT
+
+약어: MQTT
+
 적용 대상: Iot Hub, IoT Central, 장치 개발자
 
 ### <a name="model"></a>모델
@@ -567,11 +775,15 @@ IoT Central 컨텍스트에서 작업을 통해 [속성](#properties) 을 설정
 
 [Azure Digital Twins](#azure-digital-twins) 서비스에서 모델은 [장치](#device) 또는 더 높은 수준의 추상 비즈니스 개념을 정의 합니다. IoT 플러그 앤 플레이에서 [장치 모델](#device-model) 은 장치를 구체적으로 설명 합니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Central, 디지털 쌍, 장치 개발자
 
 ### <a name="model-id"></a>모델 ID
 
 [IoT 플러그 앤 플레이 장치가](#iot-plug-and-play-device) [IoT Hub](#iot-hub) 또는 IoT Central 응용 프로그램에 연결 하는 경우 구현 하는 [디지털 twins 정의 언어](#digital-twins-definition-language) 모델의 [모델](#model) ID를 보냅니다. 모든 모델을 고유 모델 ID로 만듭니다. 이 모델 ID를 사용 하면 [솔루션](#solution) 에서 [장치 모델](#device-model)을 찾을 수 있습니다.
+
+대/소문자 규칙: 항상 *모델 ID* 로 대문자를 바꿉니다.
 
 적용 대상: Iot Hub, IoT Central, 장치 개발자, 디지털 쌍
 
@@ -579,143 +791,183 @@ IoT Central 컨텍스트에서 작업을 통해 [속성](#properties) 을 설정
 
 [디지털 Twins 정의 언어](#digital-twins-definition-language) [모델](#model) 및 [인터페이스](#interface)를 저장 합니다. [솔루션](#solution) 은 [모델 ID](#model-id) 를 사용 하 여 리포지토리에서 모델을 검색 합니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Central, 디지털 쌍
 
 ### <a name="model-repository-rest-api"></a>Model repository REST API
 
 [모델 리포지토리](#model-repository)를 관리 하 고 상호 작용 하기 위한 API입니다. 예를 들어 이 API를 사용하여 [디바이스 모델](#device-model)을 추가하고 검색할 수 있습니다.
 
+대/소문자 규칙: 항상 *모델 리포지토리 REST API* 으로 대문자를 바꿉니다.
+
 적용 대상: Iot Hub, IoT Central, 디지털 쌍
 
 ### <a name="module"></a>모듈
 
-[IoT Hub](#iot-hub) [장치](#device) sdk를 사용 하면 각 모듈에서 IoT Hub에 대 한 독립적인 연결을 여는 모듈을 인스턴스화할 수 있습니다. 이렇게 하면 장치의 여러 [구성 요소](#component) 에 대해 별도의 네임 스페이스를 사용할 수 있습니다.
+[IoT Hub](#iot-hub) [디바이스](#device) SDK를 사용하면 각각 IoT Hub에 대한 독립적인 연결을 여는 모듈을 인스턴스화할 수 있습니다. 이렇게 하면 디바이스의 여러 [구성 요소에](#component) 대해 별도의 네임스페이스를 사용할 수 있습니다.
 
-[모듈 id](#module-identity) 및 [모듈](#module-twin) 쌍은 [장치 id](#device-identity) 및 [장치](#device-twin) 쌍과 동일한 기능을 제공 하지만 더 세부적인 세분성을 제공 합니다.
+[모듈 ID](#module-identity) 및 [모듈 쌍은](#module-twin) [디바이스 ID](#device-identity) 및 [디바이스 쌍과](#device-twin) 동일한 기능을 제공하지만 더 세부적인 세분성을 제공합니다.
 
-[IoT Edge](#iot-edge)에서 모듈은 [IoT Edge 장치](#iot-edge-device)에 배포할 수 있는 Docker 컨테이너입니다. 디바이스에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기와 같은 특정 작업을 수행합니다. 다른 모듈과 통신하고 [IoT Edge 런타임](#iot-edge-runtime)에 데이터를 전송합니다.
+[IoT Edge](#iot-edge)모듈은 [IoT Edge 디바이스에](#iot-edge-device)배포할 수 있는 Docker 컨테이너입니다. 디바이스에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기와 같은 특정 작업을 수행합니다. 다른 모듈과 통신하고 [IoT Edge 런타임](#iot-edge-runtime)에 데이터를 전송합니다.
 
-적용 대상: Iot Hub, IoT Edge, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Edge, 디바이스 개발자
 
 ### <a name="module-identity"></a>모듈 ID
 
-[장치](#device)에 속한 모든 [모듈](#module) 에 할당 된 고유 식별자입니다. 모듈 id는 [id 레지스트리](#identity-registry)에도 등록 됩니다.
+[디바이스](#device)에 속하는 모든 [모듈에](#module) 할당된 고유 식별자입니다. 모듈 ID는 [ID 레지스트리에도 등록됩니다.](#identity-registry)
 
-모듈 id는 모듈이 [IoT Hub](#iot-hub) 를 사용 하 여 인증 하는 데 사용 하는 보안 자격 증명 또는 [IoT Edge 허브](#iot-edge-hub)에 대 한 [IoT Edge](#iot-edge) 모듈의 경우를 자세히 설명 합니다.
+모듈 ID는 모듈이 IoT Hub 인증하는 데 사용하는 보안 자격 증명 또는 [IoT Edge](#iot-hub) [허브에](#iot-edge-hub) [대한 IoT Edge](#iot-edge) 모듈의 경우 자세히 설명합니다.
 
-적용 대상: Iot Hub, IoT Edge, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Edge, 디바이스 개발자
 
 ### <a name="module-image"></a>모듈 이미지
 
-[IoT Edge 런타임에서](#iot-edge-runtime) [모듈](#module) 인스턴스를 인스턴스화하는 데 사용 하는 docker 이미지입니다.
+[IoT Edge 런타임에서](#iot-edge-runtime) [모듈](#module) 인스턴스를 인스턴스화하기 위해 사용하는 docker 이미지입니다.
 
-적용 대상: IoT Edge
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 내용: IoT Edge
 
 ### <a name="module-twin"></a>모듈 쌍
 
-[장치](#device-twin)쌍과 마찬가지로 [모듈](#module) 쌍은 메타 데이터, [구성](#configuration)및 조건과 같은 모듈 상태 정보를 저장 하는 JSON 문서입니다. [IoT Hub](#iot-hub) 는 IoT Hub의 [장치 id](#device-identity) 에서 프로 비전 하는 각 [모듈 id](#module-identity) 에 대해 모듈 쌍을 유지 합니다. 모듈 쌍을 사용 하면 모듈과 [솔루션](#solution) 백 엔드 간의 모듈 조건 및 구성을 동기화 할 수 있습니다. 모듈 쌍을 쿼리하여 특정 모듈을 찾고 장기 실행 중인 작업의 상태를 쿼리할 수 있습니다.
+디바이스 [쌍과](#device-twin)마찬가지로 [모듈](#module) 쌍은 메타데이터, [구성](#configuration)및 조건과 같은 모듈 상태 정보를 저장하는 JSON 문서입니다. [IoT Hub](#iot-hub) IoT Hub의 디바이스 [ID로](#module-identity) 프로비전하는 각 모듈 [ID에](#device-identity) 대한 모듈 쌍을 유지합니다. 모듈 쌍을 사용하면 모듈과 [솔루션](#solution) 백 엔드 간에 모듈 조건 및 구성을 동기화할 수 있습니다. 모듈 쌍을 쿼리하여 특정 모듈을 찾고 장기 실행 중인 작업의 상태를 쿼리할 수 있습니다.
 
-적용 대상: Iot Hub
+대/소문자 규칙: 항상 소문자입니다.
+
+적용된 내용: Ot Hub
 
 ## <a name="o"></a>O
 
 ### <a name="ontology"></a>온톨로지
 
-[디지털](#digital-twin)쌍의 컨텍스트에서는 부동산, 스마트 도시, IoT 시스템, 에너지 그리드 등 특정 도메인에 대 한 [모델](#model) 집합입니다. 온톨로지는 산업 표준 및 모범 사례에 따라 시작점을 제공하기 때문에 [Azure Digital Twins](#azure-digital-twins)와 같은 정보 그래프의 스키마로 사용되는 경우가 많습니다.
+[Digital Twins](#digital-twin)컨텍스트에서 부동산, 스마트 도시, IoT 시스템, 에너지 그리드 등과 같은 특정 도메인에 대한 [모델](#model) 집합입니다. 온톨로지는 산업 표준 및 모범 사례에 따라 시작점을 제공하기 때문에 [Azure Digital Twins](#azure-digital-twins)와 같은 정보 그래프의 스키마로 사용되는 경우가 많습니다.
 
 [자세한 정보](../digital-twins/concepts-ontologies.md)
 
-적용 대상: 디지털 쌍
+적용 내용: Digital Twins
 
 ### <a name="operations-monitoring"></a>작업 모니터링
 
-IoT Hub의 작업 상태를 실시간으로 모니터링할 수 있도록 하는 [IoT Hub](#iot-hub) 기능입니다. IoT Hub는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 처리를 위해 하나 이상의 범주에서 IoT Hub [끝점](#endpoint) 으로 이벤트를 전송 하도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
+IoT Hub에서 작업의 상태를 실시간으로 모니터링할 수 있는 [IoT Hub](#iot-hub) 기능입니다. IoT Hub는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 처리를 위해 하나 이상의 범주에서 IoT Hub [엔드포인트로](#endpoint) 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
-적용 대상: Iot Hub
+대/소문자 규칙: 항상 소문자입니다.
+
+적용된 내용: Ot Hub
 
 ## <a name="p"></a>P
 
 ### <a name="physical-device"></a>물리적 디바이스
 
-[Iot hub](#iot-hub)에 연결 하는 실제 iot [장치](#device) 입니다. 편의를 위해 많은 자습서 및 빠른 시작은 물리적 장치가 아닌 데스크톱 컴퓨터에서 IoT 장치 코드를 실행 합니다.
+IoT Hub에 연결하는 실제 [IoT](#iot-hub) [디바이스입니다.](#device) 편의를 위해 많은 자습서와 빠른 시작에서 물리적 디바이스가 아닌 데스크톱 머신에서 IoT 디바이스 코드를 실행합니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 개발자, IoT Edge
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Central, 디바이스 개발자, IoT Edge
 
 ### <a name="primary-and-secondary-keys"></a>기본 및 보조 키
 
-[IoT hub](#iot-hub) 또는 IoT Central 응용 프로그램에서 [장치](#device)연결 또는 서비스 연결 [끝점](#endpoint) 에 연결 하는 경우 [연결 문자열](#connection-string) 에는 사용자에 게 액세스 권한을 부여 하는 키가 포함 됩니다. 디바이스를 [ID 레지스트리](#identity-registry)에 추가하거나 허브에 [공유 액세스 정책](#shared-access-policy)을 추가하는 경우 서비스에서 기본 및 보조 키를 생성합니다. 키가 두 개 있으면 IoT hub 또는 IoT Central 응용 프로그램에 대 한 액세스 권한을 잃지 않고 키를 업데이트할 때 한 키에서 다른 키로 롤포워드할 수 있습니다.
+[IoT Hub](#iot-hub) 또는 IoT Central 애플리케이션에서 [디바이스](#device)연결 또는 서비스 연결 [엔드포인트에](#endpoint) 연결하는 경우 [연결 문자열에](#connection-string) 액세스 권한을 부여하는 키가 포함됩니다. 디바이스를 [ID 레지스트리](#identity-registry)에 추가하거나 허브에 [공유 액세스 정책](#shared-access-policy)을 추가하는 경우 서비스에서 기본 및 보조 키를 생성합니다. 두 개의 키가 있으면 IoT Hub 또는 IoT Central 애플리케이션에 대한 액세스 권한을 손실하지 않고 키를 업데이트할 때 한 키에서 다른 키로 롤오버할 수 있습니다.
 
-적용 대상: Iot Hub, IoT Central
+대/소문자 규칙: 항상 소문자입니다.
+
+적용할 내용: Ot Hub, IoT Central
 
 ### <a name="properties"></a>속성
 
-[디지털](#digital-twin)쌍의 컨텍스트에서 디지털 쌍의 영구 상태를 나타내는 [인터페이스](#interface) 에 정의 된 데이터 필드입니다. 속성은 읽기 전용 또는 쓰기 가능으로 선언할 수 있습니다. 일련 번호와 같은 읽기 전용 속성은 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 자체에서 실행되는 코드에 의해 설정됩니다. 경보 임계값과 같은 쓰기 가능한 속성은 일반적으로 클라우드 기반 IoT [솔루션](#solution)에서 설정 됩니다.
+디지털 트윈의 컨텍스트에서 데이터 필드는 [디지털 트윈의](#digital-twin)일부 영구 상태를 나타내는 [인터페이스에](#interface) 정의됩니다. 속성은 읽기 전용 또는 쓰기 가능으로 선언할 수 있습니다. 일련 번호와 같은 읽기 전용 속성은 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 자체에서 실행되는 코드에 의해 설정됩니다. 경보 임계값과 같은 쓰기 가능한 속성은 일반적으로 클라우드 기반 IoT [솔루션](#solution)에서 설정됩니다.
 
-적용 대상: Iot Hub, IoT Central, 디지털 쌍, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Central, Digital Twins, 디바이스 개발자
 
 ### <a name="property-change-event"></a>속성 변경 이벤트
 
 [디지털 쌍](#digital-twin)의 속성 변경으로 인해 발생하는 이벤트입니다.
 
-적용 대상: Iot Hub, IoT Central, 디지털 쌍
+대/소문자 규칙: 항상 소문자입니다.
+
+적용: Ot Hub, IoT Central, Digital Twins
 
 ### <a name="protocol-gateway"></a>프로토콜 게이트웨이
 
-[IoT hub](#iot-hub) 또는 IoT Central 응용 프로그램에 연결 하는 [장치](#device) 에 대해 프로토콜 번역 서비스를 제공 하기 위해 일반적으로 클라우드에 배포 된 [게이트웨이입니다](#gateway) .
+일반적으로 [IoT Hub](#iot-hub) 또는 IoT Central 애플리케이션에 연결하는 [디바이스에](#device) 대한 프로토콜 변환 서비스를 제공하기 위해 클라우드에 배포되는 [게이트웨이입니다.](#gateway)
 
-적용 대상: Iot Hub, IoT Central
+대/소문자 규칙: 항상 소문자입니다.
+
+적용할 내용: Ot Hub, IoT Central
 
 ## <a name="r"></a>R
 
 ### <a name="registration"></a>등록
 
-[IoT Hub](#iot-hub) [id 레지스트리의](#identity-registry) [장치](#device) 에 대 한 레코드입니다. 디바이스를 직접 등록할 수도 있고 [Device Provisioning Service](#device-provisioning-service)를 사용하여 디바이스 등록을 자동화할 수도 있습니다.
+[IoT Hub](#iot-hub) ID 레지스트리에 있는 [디바이스의](#device) [레코드입니다.](#identity-registry) 디바이스를 직접 등록할 수도 있고 [Device Provisioning Service](#device-provisioning-service)를 사용하여 디바이스 등록을 자동화할 수도 있습니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
+대/소문자 규칙: 항상 소문자입니다.
+
+적용: Ot Hub, IoT Central, Device Provisioning Service
 
 ### <a name="registration-id"></a>등록 ID
 
-[장치 프로 비전 서비스](#device-provisioning-service)의 고유한 [장치 id](#device-identity) 입니다. [등록](#registration) ID는 [장치](#device) id와 동일한 값일 수 있습니다.
+Device Provisioning Service 의 고유한 [디바이스 ID입니다.](#device-provisioning-service) [](#device-identity) [등록](#registration) ID는 [디바이스](#device) ID와 동일한 값일 수 있습니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스
+대/소문자 규칙: 항상 소문자입니다.
+
+적용: Ot Hub, IoT Central, Device Provisioning Service
 
 ### <a name="relationship"></a>관계
 
-[Azure digital 쌍](#azure-digital-twins) 서비스에서 [디지털](#digital-twin) 쌍을 전체 실제 환경을 디지털로 나타내는 기술 자료 그래프에 연결 하는 데 사용 됩니다. 쌍에 포함할 수 있는 관계 유형은 [디지털 쌍 정의 언어](#digital-twins-definition-language) [모델](#model)에 정의 되어 있습니다.
+[Azure Digital Twins](#azure-digital-twins) 서비스에서 [디지털 트윈을](#digital-twin) 전체 물리적 환경을 디지털 방식으로 나타내는 지식 그래프에 연결하는 데 사용됩니다. 트윈이 가질 수 있는 관계 형식은 [Digital Twins 정의 언어](#digital-twins-definition-language) [모델](#model)에서 정의됩니다.
 
-적용 대상: 디지털 쌍
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 내용: Digital Twins
 
 ### <a name="reported-configuration"></a>Reported 구성
 
-[장치](#device-twin)쌍의 컨텍스트에서이는 [솔루션](#solution) 백 엔드에 보고 되는 [장치](#device) 쌍의 전체 [속성](#properties) 및 메타 데이터 집합을 나타냅니다.
+[디바이스 쌍의](#device-twin)컨텍스트에서 이는 [솔루션](#solution) 백 엔드에 보고되는 [디바이스](#device) 쌍의 [속성](#properties) 및 메타데이터의 전체 집합을 나타냅니다.
 
-적용 대상: Iot Hub, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, 디바이스 개발자
 
 ### <a name="reported-properties"></a>reported 속성
 
-[장치](#device-twin)쌍의 컨텍스트에서 보고 된 [속성](#properties) 은 [장치](#device) 쌍의 하위 섹션입니다. 보고 된 속성은 장치 에서만 설정할 수 있지만 [백 엔드 앱](#back-end-app)에서 읽고 쿼리할 수 있습니다.
+[디바이스 쌍의](#device-twin)컨텍스트에서 reported [속성은](#properties) [디바이스](#device) 쌍의 하위 섹션입니다. reported 속성은 디바이스에서만 설정할 수 있지만 [백 엔드 앱](#back-end-app)에서 읽고 쿼리할 수 있습니다.
 
-적용 대상: Iot Hub, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, 디바이스 개발자
 
 ### <a name="retry-policy"></a>다시 시도 정책
 
-클라우드 서비스에 연결할 때 일시적인 오류를 처리 하는 방법입니다.
+클라우드 서비스에 연결할 때 일시적인 오류를 처리하는 방법입니다.
 
-적용 대상: Iot Hub, IoT Central, 장치 개발자
+대/소문자 규칙: 항상 소문자입니다.
+
+적용 대상: Ot Hub, IoT Central, 디바이스 개발자
 
 ### <a name="routing-rule"></a>라우팅 규칙
 
-[솔루션](#solution) 백 엔드에서 처리 하기 위해 [장치-클라우드](#device-to-cloud) 메시지를 기본 제공 [끝점](#endpoint) 또는 [사용자 지정 끝점](#custom-endpoints) 으로 라우팅하는 데 사용 되는 [IoT Hub](#iot-hub) 의 기능입니다.
+[디바이스-클라우드](#device-to-cloud) 메시지를 기본 제공 엔드포인트 또는 [솔루션](#solution) 백 엔드에서 처리하기 위한 [사용자 지정 엔드포인트로](#custom-endpoints) 라우팅하는 데 사용되는 [IoT Hub](#iot-hub) 기능입니다. [](#endpoint)
 
-적용 대상: Iot Hub
+대/소문자 규칙: 항상 소문자입니다.
+
+적용된 내용: Ot Hub
 
 ## <a name="s"></a>S
 
-### <a name="saslplain"></a>SASL/일반
+### <a name="saslplain"></a>SASL/PLAIN
 
 [고급 메시지 큐 프로토콜](#advanced-message-queueing-protocol) 에서 보안 토큰을 전송 하는 데 사용 하는 프로토콜입니다.
 
 [자세한 정보](https://wikipedia.org/wiki/Simple_Authentication_and_Security_Layer)
+
+약어: SASL/일반
 
 적용 대상: Iot Hub
 
@@ -723,11 +975,15 @@ IoT Hub의 작업 상태를 실시간으로 모니터링할 수 있도록 하는
 
 [솔루션](#solution) 백 엔드에서 [장치](#device)를 관리 하는 데 사용할 수 있는 REST API입니다. 예를 들어 [Iot Hub](#iot-hub) 서비스 API를 사용 하 여 [장치](#device-twin) 쌍 [속성](#properties)을 검색 및 업데이트 하 고, [직접 메서드](#direct-method)를 호출 하 고, [작업](#job)을 예약할 수 있습니다. 일반적으로 상위 수준 서비스 Sdk 중 하나를 사용 해야 합니다.
 
+대/소문자 규칙: 항상 *서비스 REST API* 입니다.
+
 적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스, IoT Edge
 
 ### <a name="service-operations-endpoint"></a>서비스 작업 엔드포인트
 
 관리자가 서비스 설정을 관리 하는 데 사용 하는 [끝점](#endpoint) 입니다. 예를 들어 [장치 프로 비전 서비스](#device-provisioning-service) 에서 서비스 끝점을 사용 하 여 [등록](#enrollment)를 관리 합니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, 장치 프로 비전 서비스, IoT Edge, 디지털 쌍
 
@@ -735,11 +991,17 @@ IoT Hub의 작업 상태를 실시간으로 모니터링할 수 있도록 하는
 
 해당 정책과 연결 된 유효한 기본 키 또는 보조 키가 있는 사용자에 게 부여 된 사용 권한을 정의 하는 방법입니다. 포털에서 허브에 대한 공유 액세스 정책 및 키를 관리할 수 있습니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Edge, 장치 프로 비전 서비스
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 
 공유 액세스 서명은 [IoT hub](#iot-hub) [끝점과](#endpoint)같은 하나 이상의 리소스를 가리키는 서명 된 URI입니다. URI에는 클라이언트에서 리소스에 액세스할 수 있는 방법을 나타내는 토큰이 포함 되어 있습니다. 쿼리 매개 변수 중 하나인 서명은 SAS 매개 변수에서 구성되고 SAS를 만드는 데 사용된 키로 서명됩니다. 이 서명은 Azure Storage에서 스토리지 리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+약어: SAS
 
 적용 대상: Iot Hub, Digital Twins, IoT Central, IoT Edge
 
@@ -747,17 +1009,23 @@ IoT Hub의 작업 상태를 실시간으로 모니터링할 수 있도록 하는
 
 편의를 위해 대부분의 자습서 및 빠른 시작은 로컬 개발 컴퓨터에서 시뮬레이션 된 센서를 사용 하 여 [장치](#device) 코드를 실행 합니다. 이와 대조적으로 MXCHIP와 같은 [물리적 장치](#physical-device) 에는 실제 센서가 있으며 [IoT hub](#iot-hub)에 연결 됩니다.
 
+대/소문자 구분 규칙: 항상 소문자입니다.
+
 적용 대상: Iot Hub, IoT Central, 장치 개발자, IoT Edge, 디지털 쌍, 장치 프로 비전 서비스
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 IoT의 컨텍스트에서 *솔루션* 은 일반적으로 [장치](#device), [장치 앱](#device-app), [iot hub](#iot-hub), 기타 Azure 서비스 및 [백 엔드 앱](#back-end-app)과 같은 요소를 포함 하는 iot 솔루션을 나타냅니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub, IoT Central, 장치 프로 비전 서비스, IoT Edge, 디지털 쌍
 
 ### <a name="system-properties"></a>시스템 속성
 
 [장치](#device-twin)쌍의 컨텍스트에서 마지막 작업 시간 및 연결 상태와 같은 [장치](#device) 사용에 대 한 정보를 포함 하는 읽기 전용 [속성](#properties) 입니다.
+
+대/소문자 구분 규칙: 항상 소문자입니다.
 
 적용 대상: Iot Hub
 
@@ -767,47 +1035,64 @@ IoT의 컨텍스트에서 *솔루션* 은 일반적으로 [장치](#device), [�
 
 [장치](#device-twin)쌍 컨텍스트에서 태그는 JSON 문서 형식으로 [솔루션](#solution) 백 엔드에 의해 저장 및 검색 되는 [장치](#device) 메타 데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ### <a name="target-condition"></a>대상 조건
 
-[IoT Edge](#iot-edge) 배포에서 대상 조건은 배포의 대상 [디바이스를](#device) 선택합니다. 대상 조건은 요구 사항을 충족하는 새 디바이스를 포함하거나 더 이상 요구 사항을 충족하지 않는 디바이스를 제거하기 위해 지속적으로 평가됩니다.
+[IoT Edge](#iot-edge) 배포에서 대상 조건은 배포의 대상 [장치](#device) 를 선택 합니다. 대상 조건은 요구 사항을 충족하는 새 디바이스를 포함하거나 더 이상 요구 사항을 충족하지 않는 디바이스를 제거하기 위해 지속적으로 평가됩니다.
 
-적용 내용: IoT Edge
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: IoT Edge
 
 ### <a name="telemetry"></a>원격 분석
 
-풍속 또는 온도와 같은 데이터는 [센서에서 디바이스에](#device) 의해 수집된 [IoT Hub로](#iot-hub) 전송됩니다.
+바람 속도 또는 온도와 같은 데이터는 [장치](#device) 에서 센서 로부터 수집 된 [IoT hub](#iot-hub) 에 전송 됩니다.
 
 [속성](#properties)과 달리 원격 분석은 [디지털 쌍](#digital-twin)에 저장되지 않으며, 발생 시 처리해야 하는 시간 제한 데이터 이벤트의 스트림입니다.
 
-IoT 플러그 앤 플레이 및 [Azure Digital Twins](#azure-digital-twins) [인터페이스에](#interface) 정의된 원격 분석 필드는 측정값을 나타냅니다. 이러한 측정값은 일반적으로 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 등 디바이스에서 데이터 스트림으로 보내는 센서 판독값과 같은 값입니다.
+IoT 플러그 앤 플레이 및 [Azure Digital Twins](#azure-digital-twins)에서 [인터페이스](#interface) 에 정의 된 원격 분석 필드는 측정값을 나타냅니다. 이러한 측정값은 일반적으로 [IoT 플러그 앤 플레이 디바이스](#iot-plug-and-play-device) 등 디바이스에서 데이터 스트림으로 보내는 센서 판독값과 같은 값입니다.
 
-적용 대상: Ot Hub, IoT Central, Digital Twins, IoT Edge, 디바이스 개발자
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+사용법 예: *원격 분석* 단어를 사용 하지 마세요. 원격 분석은 장치에서 전송 하는 데이터 컬렉션을 참조 합니다. 예: 장치가 IoT hub에 연결 되 면 원격 분석 전송을 시작 합니다. 장치에서 전송 하는 원격 분석 값 중 하나는 환경 온도입니다.
+
+
+적용 대상: Iot Hub, IoT Central, 디지털 쌍, IoT Edge, 장치 개발자
 
 ### <a name="telemetry-event"></a>원격 분석 이벤트
 
-[원격 분석](#telemetry) 데이터의 도착을 나타내는 [IoT Hub의](#iot-hub) 이벤트입니다.
+[원격 분석](#telemetry) 데이터 도착을 나타내는 [IoT hub](#iot-hub) 의 이벤트입니다.
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ### <a name="twin-queries"></a>쌍 쿼리
 
-SQL 같은 쿼리 언어를 사용하여 [디바이스 쌍](#device-twin) 또는 [모듈](#module-twin)쌍 에서 정보를 검색할 수 있는 [IoT Hub](#iot-hub) 기능입니다.
+SQL 유사한 쿼리 언어를 사용 하 여 [장치](#device-twin) 쌍 또는 [모듈](#module-twin)쌍에서 정보를 검색할 수 있도록 하는 [IoT Hub](#iot-hub) 기능입니다.
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ### <a name="twin-synchronization"></a>쌍 동기화
 
-[IoT Hub](#iot-hub) 프로세스에서는 디바이스 쌍 또는 모듈 [쌍의](#device-twin) [desired 속성을](#desired-properties) 사용하여 [디바이스](#device) 또는 [모듈을](#module-twin) 구성하고 [쌍에](#reported-properties) 저장할 reported 속성을 검색합니다. [](#module)
+[장치](#device-twin) 쌍 또는 [모듈](#module-twin) 쌍에서 [원하는 속성](#desired-properties) 을 사용 하는 [IoT Hub](#iot-hub) 프로세스는 장치 또는 [모듈](#module) 을 구성 하 고 해당 [장치](#device) 에서 [보고 된 속성](#reported-properties) 을 검색 하 여 쌍에 저장 합니다.
 
-적용된 내용: Ot Hub
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub
 
 ## <a name="u"></a>U
 
 ### <a name="upstream-service"></a>업스트림 서비스
 
-현재 컨텍스트로 데이터를 내보내는 서비스를 설명하는 상대 용어입니다. 예를 들어 [Azure Digital Twins](#azure-digital-twins)컨텍스트에서는 데이터가 [IoT Hub](#iot-hub) [Azure](#digital-twin)Digital Twins 으로 흐르기 때문에 IoT Hub 업스트림 서비스로 간주됩니다.
+현재 컨텍스트로 데이터를 내보내는 서비스를 설명하는 상대 용어입니다. 예를 들어 [Azure Digital twins](#azure-digital-twins)의 컨텍스트에서는 데이터가 IoT Hub에서 Azure [digital twins](#digital-twin)로 전달 되기 때문에 [IoT Hub](#iot-hub) 업스트림 서비스로 간주 됩니다.
 
-적용: Ot Hub, IoT Central, Digital Twins
+대/소문자 구분 규칙: 항상 소문자입니다.
+
+적용 대상: Iot Hub, IoT Central, 디지털 쌍
 

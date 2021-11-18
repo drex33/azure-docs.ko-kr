@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 9712b198e8be9a7a90699cc6ce544a627bfdea63
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: cedc8dbcaaf05c54ae624b4c1ab548a900231cf1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510355"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718491"
 ---
 # <a name="overview-of-archive-tier-in-azure-backup"></a>Azure Backup의 보관 계층 개요
 
@@ -37,9 +37,9 @@ Azure Backup은 스냅샷과 표준 계층 외에도 보관 계층 내 장기 �
 
 보관 계층은 다음 클라이언트를 지원합니다.
 
-- [PowerShell](/azure/backup/use-archive-tier-support?pivots=client-powershelltier)
-- [CLI](/azure/backup/use-archive-tier-support?pivots=client-clitier)
-- [Azure Portal](/azure/backup/use-archive-tier-support?pivots=client-portaltier)
+- [PowerShell](./use-archive-tier-support.md?pivots=client-powershelltier)
+- [CLI](./use-archive-tier-support.md?pivots=client-clitier)
+- [Azure Portal](./use-archive-tier-support.md?pivots=client-portaltier)
 
 ## <a name="how-azure-backup-moves-recovery-points-to-the-vault-archive-tier"></a>Azure Backup에서 복구 지점을 자격 증명 모음-보관 계층으로 이동하는 방법
 

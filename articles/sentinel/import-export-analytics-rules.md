@@ -1,13 +1,11 @@
 ---
-title: Microsoft Sentinel 분석 규칙 가져오기 및 내보내기 | Microsoft Docs
+title: Microsoft 센티널 분석 규칙 가져오기 및 내보내기 | Microsoft Docs
 description: 배포를 돕기 위해 ARM 템플릿에서 분석 규칙 내보내기 및 가져오기
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 97eb1145e8eebaed91019fbd68330c1399522002
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: c2b94a19c900005d3a03f193f95cd249e2f4eaf9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518549"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720932"
 ---
 # <a name="export-and-import-analytics-rules-to-and-from-arm-templates"></a>ARM 템플릿에서 분석 규칙 내보내기 및 가져오기
 
@@ -32,7 +30,7 @@ ms.locfileid: "132518549"
 
 ## <a name="introduction"></a>소개
 
-이제 분석 규칙을 ARM(Azure Resource Manager) 템플릿 파일로 내보내고, Microsoft Sentinel 배포를 코드로 관리하고 제어하는 과정의 일부로 이러한 파일에서 규칙을 가져올 수 있습니다. 내보내기 작업은 브라우저의 다운로드 위치에 JSON 파일(*Azure_Sentinel_analytic_rule.json*)을 만듭니다. 그러면 다른 파일처럼 이름을 바꾸고 이동하고 처리할 수 있습니다.
+이제 Microsoft 센티널 배포를 코드로 관리 하 고 제어 하는 과정에서 분석 규칙을 Azure Resource Manager (ARM) 템플릿 파일로 내보내고 이러한 파일에서 규칙을 가져올 수 있습니다. 내보내기 작업은 브라우저의 다운로드 위치에 JSON 파일(*Azure_Sentinel_analytic_rule.json*)을 만듭니다. 그러면 다른 파일처럼 이름을 바꾸고 이동하고 처리할 수 있습니다.
 
 내보낸 JSON 파일은 작업 영역과 독립적이므로 다른 작업 영역 및 다른 테넌트로도 가져올 수 있습니다. 코드로서, 관리형 CI/CD 프레임워크에서 버전을 제어하고 업데이트하고 배포할 수도 있습니다.
 
@@ -40,7 +38,7 @@ ms.locfileid: "132518549"
 
 ## <a name="export-rules"></a>규칙 내보내기
 
-1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **Analytics** 를 선택 합니다.
 
 1. 내보낼 규칙을 선택하고 화면 맨 위에 있는 막대에서 **내보내기** 를 클릭합니다.
 
@@ -57,7 +55,7 @@ ms.locfileid: "132518549"
 
 1. 분석 규칙 ARM 템플릿 JSON 파일을 준비합니다.
 
-1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **Analytics** 를 선택 합니다.
 
 1. 화면 맨 위에 있는 막대에서 **가져오기** 를 클릭합니다. 결과 대화 상자에서 가져오려는 규칙을 나타내는 JSON 파일로 이동하여 선택하고 **열기** 를 선택합니다.
 

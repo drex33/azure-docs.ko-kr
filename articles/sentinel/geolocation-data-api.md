@@ -6,8 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
@@ -15,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: cce16ca2f0db3d4f44c4077e4760f599e565bae6
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b7a42d6a80e602170264e6cbe94e410e46246f79
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520601"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721008"
 ---
 # <a name="enrich-entities-in-microsoft-sentinel-with-geolocation-data-via-rest-api-public-preview"></a>REST API를 통해 지리적 위치 데이터로 Microsoft 센티널의 엔터티 보강 (공개 미리 보기)
 
@@ -128,7 +126,7 @@ Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 
 - 엔터티에 대해 자세히 알아봅니다.
 
     - [Microsoft 센티널 엔터티 형식 참조](entities-reference.md)
-    - [Microsoft 센티널에서 엔터티를 사용 하 여 데이터 분류 및 분석](entities-in-azure-sentinel.md)
+    - [Microsoft 센티널에서 엔터티를 사용 하 여 데이터 분류 및 분석](entities.md)
     - [Microsoft 센티널의 엔터티에 데이터 필드 매핑](map-data-fields-to-entities.md)
 
 - [Microsoft 센티널 API](/rest/api/securityinsights/) 의 다른 용도 살펴보기

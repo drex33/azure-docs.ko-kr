@@ -12,12 +12,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
 ms.date: 07/13/2021
-ms.openlocfilehash: e5e980878091145770f98cff952374e76f08180d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 703a6daa7edc5b8a8ef8cf7963b0ee720041ab4c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775648"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710485"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>장기 보존 - Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -56,13 +56,13 @@ LTR 정책의 예제:
 
    각각의 매주 전체 백업이 12주 동안 유지됩니다.
 
-- W=6, M=12, Y=10, WeekOfYear=16
+- W = 6, M = 12, Y = 10, WeekOfYear = 20
 
-   각각의 매주 전체 백업이 6주 동안 유지됩니다. 매월 첫 번째 전체 백업을 제외하고 12개월 동안 유지됩니다. 연간 16번째 주에서 수행된 전체 백업을 제외하고 10년 동안 유지됩니다. 
+   각각의 매주 전체 백업이 6주 동안 유지됩니다. 매월 첫 번째 전체 백업을 제외하고 12개월 동안 유지됩니다. 20 주에 수행 된 전체 백업을 제외 하 고 10 년 동안 보존 됩니다. 
 
 다음 표는 다음 정책에 대한 장기 백업의 주기 및 만료를 나타냅니다.
 
-W=12주(84일), M=12개월(365일), Y=10년(3650일), WeekOfYear=15(4월 15일 이후 주)
+W = 12 주 (84 일), M = 12 개월 (365 일), Y = 10 년 (3650 일), WeekOfYear = 20 (주 5 월 13 일)
 
    ![ltr 예제](./media/long-term-retention-overview/ltr-example.png)
 

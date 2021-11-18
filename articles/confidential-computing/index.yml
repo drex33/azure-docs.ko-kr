@@ -10,12 +10,12 @@ metadata:
   author: stempesta
   ms.author: stempesta
   ms.date: 09/22/2020
-  ms.openlocfilehash: b2f1083dc5f34717f0b7eb69b50f374f8217f582
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: e7b9bff597383f8cbca1a0f86d30547c133bec39
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132279142"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132709654"
 landingContent:
 - title: Azure 기밀 컴퓨팅 정보
   linkLists:
@@ -112,7 +112,7 @@ landingContent:
     - text: Azure IoT Edge
       url: ../iot-edge/deploy-confidential-applications.md
     - text: Azure Key Vault 관리형 HSM
-      url: https://docs.microsoft.com/azure/key-vault/managed-hsm/
+      url: ../key-vault/managed-hsm/index.yml
 - title: 기밀 컴퓨팅을 사용하여 빌드
   linkLists:
   - linkListType: tutorial

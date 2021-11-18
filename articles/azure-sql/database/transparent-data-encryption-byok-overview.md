@@ -12,12 +12,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 06/23/2021
-ms.openlocfilehash: 8f056fd416b6bbb36296a57fca26906852eb3af8
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 81d87e48b7c57eed172dbbc4b5bf7d427dae764c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132156578"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717002"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -90,7 +90,7 @@ DEK의 암호화를 위해 AKV에 저장된 TDE 보호기를 사용할 수 있�
 > 고객 관리 TDE를 사용 하 여 구성 되는 서버의 경우 키 자격 증명 모음 및 고객 관리 TDE를 사용 하는 기존 서버에 대해 일시 삭제 및 제거 보호를 모두 사용 하도록 설정 해야 합니다.
 
 - Azure Active Directory id를 사용 하 여 서버 또는 관리 되는 인스턴스에 키 자격 증명 모음에 대 한 액세스 권한을 부여 합니다 (*get*, *wrapKey*, *unwrapKey*). Azure Portal 사용 하는 경우 서버를 만들 때 Azure AD id가 자동으로 생성 됩니다. PowerShell 또는 Azure CLI를 사용 하는 경우 Azure AD id를 명시적으로 만들고 확인 해야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-configure.md) 및 [SQL Managed Instance에 대해 BYOK 기반 TDE 구성](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md)을 참조하세요.
-    - 키 자격 증명 모음 (액세스 정책 또는 Azure RBAC)의 권한 모델에 따라 키 자격 증명 모음에 대 한 액세스 정책을 만들거나 [Crypto Service 암호화 사용자 Key Vault](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations)역할을 사용 하 여 새 Azure RBAC 역할 할당을 만들어 key vault 액세스 권한을 부여할 수 있습니다.
+    - 키 자격 증명 모음 (액세스 정책 또는 Azure RBAC)의 권한 모델에 따라 키 자격 증명 모음에 대 한 액세스 정책을 만들거나 [Crypto Service 암호화 사용자 Key Vault](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)역할을 사용 하 여 새 Azure RBAC 역할 할당을 만들어 key vault 액세스 권한을 부여할 수 있습니다.
 
 - AKV와 함께 방화벽을 사용하는 경우 ‘신뢰할 수 있는 Microsoft 서비스가 방화벽을 우회하도록 허용’ 옵션을 사용하도록 설정해야 합니다.
 
@@ -146,9 +146,9 @@ DEK의 암호화를 위해 AKV에 저장된 TDE 보호기를 사용할 수 있�
 
 키에 대한 액세스 권한을 복원한 후 데이터베이스를 다시 온라인 상태로 전환하려면 추가 시간과 단계가 필요하며, 이는 키에 액세스하지 않고 경과된 시간과 데이터베이스에 있는 데이터의 크기에 따라 달라질 수 있습니다.
 
-- 키 액세스를 30 분 내에 복원 하는 경우 데이터베이스는 다음 시간 내에 autoheal 됩니다.
+- 키 액세스가 30분 이내에 복원되면 데이터베이스는 다음 시간 내에 자동 검색됩니다.
 
-- 키 액세스가 30 분 이상 후에 복원 되는 경우 autoheal를 사용할 수 없으며 데이터베이스를 다시 가져오면 포털에서 추가 단계가 필요 하며 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되면 [장애 조치(failover) 그룹](auto-failover-group-overview.md) 구성, 특정 시점 복원 기록 및 태그와 같은 이전에 구성된 서버 수준 설정이 **손실됩니다**. 따라서 30 분 내에 기본 키 액세스 문제를 식별 하 고 해결할 수 있는 알림 시스템을 구현 하는 것이 좋습니다.
+- 30분 이상 후에 키 액세스가 복원되는 경우 자동 절전 모드를 사용할 수 없으며 데이터베이스를 다시 가져오려면 포털에서 추가 단계가 필요하며 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되면 [장애 조치(failover) 그룹](auto-failover-group-overview.md) 구성, 특정 시점 복원 기록 및 태그와 같은 이전에 구성된 서버 수준 설정이 **손실됩니다**. 따라서 30분 이내에 기본 키 액세스 문제를 식별하고 해결할 수 있는 알림 시스템을 구현하는 것이 좋습니다.
 
 액세스할 수 없는 데이터베이스를 다시 온라인으로 전환하기 위해 포털에 필요한 추가 단계를 아래에서 확인합니다.
 
@@ -220,7 +220,7 @@ SQL Database의 백업 복구에 대한 자세한 내용은 [SQL Database에서 
 
 장애 조치(failover)를 테스트하려면 [활성 지역 복제 개요](active-geo-replication-overview.md)의 단계를 따릅니다. SQL Database가 두 주요 자격 증명 모음에 대한 액세스 권한을 유지했는지 확인하기 위해 장애 조치(failover) 테스트를 정기적으로 수행해야 합니다.
 
-**이제 한 지역의 Azure SQL Database 서버와 Managed Instance를 다른 지역의 주요 자격 증명 모음에 연결할 수 있습니다.** 서버와 주요 자격 증명 모음은 동일한 지역에 배치 하지 않아도 됩니다. 이를 통해 간단 하 게 주 서버와 보조 서버를 동일한 키 자격 증명 모음 (모든 지역)에 연결할 수 있습니다. 이렇게 하면 별도의 키 자격 증명 모음이 두 서버에 모두 사용 되는 경우 키 자료가 동기화 되지 않을 수 있는 시나리오를 방지할 수 있습니다. Azure Key Vault에는 서비스 또는 지역 장애 시 키와 키 자격 증명 모음을 계속 사용할 수 있도록 하는 여러 가지 중복성 계층이 있습니다. [Azure Key Vault 가용성 및 중복성](../../key-vault/general/disaster-recovery-guidance.md)
+**이제 한 지역의 Azure SQL Database 서버 및 Managed Instance 다른 지역의 키 자격 증명 모음에 연결할 수 있습니다.** 서버와 키 자격 증명 모음은 동일한 지역에 공동 배치할 필요가 없습니다. 이렇게 하면 간단히 하기 위해 기본 및 보조 서버를 모든 지역의 동일한 키 자격 증명 모음에 연결할 수 있습니다. 이렇게 하면 두 서버에 대해 별도의 키 자격 증명 모음을 사용하는 경우 키 자료가 동기화되지 않을 수 있는 시나리오를 방지할 수 있습니다. Azure Key Vault 서비스 또는 지역 오류 발생 시 키 및 키 자격 증명 모음을 계속 사용할 수 있도록 여러 계층의 중복성이 있습니다. [Azure Key Vault 가용성 및 중복성](../../key-vault/general/disaster-recovery-guidance.md)
 
 ## <a name="next-steps"></a>다음 단계
 

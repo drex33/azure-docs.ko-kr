@@ -6,8 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5cf711abf0373c2c7681d71426c0590b9561708e
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: c9c606390a6a0f1831728bc71d50e7074ba8cde4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522881"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720866"
 ---
 # <a name="tutorial-investigate-incidents-with-ueba-data"></a>자습서: UEBA 데이터를 사용하여 인시던트 조사
 

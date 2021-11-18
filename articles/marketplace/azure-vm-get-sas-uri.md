@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 06/23/2021
-ms.openlocfilehash: 4bebe0ea34f9f9cc62b0ed4e96fd6fb1c7615635
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
-ms.translationtype: HT
+ms.openlocfilehash: 36565dd38b74e8e03d44625f3dab765a26207c7c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913458"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723041"
 ---
 # <a name="generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대한 SAS URI 생성
 
 > [!NOTE]
-> VM을 게시하는 데 SAS URI가 필요하지 않습니다. 파트너 센터에서 이미지를 쉽게 공유할 수 있습니다. [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-create-using-own-image.md) 지침을 참조하세요.
+> VM을 게시하는 데 SAS URI가 필요하지 않습니다. 파트너 센터 이미지를 공유할 수 있습니다. [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-use-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-use-own-image.md) 지침을 참조하세요.
 
 VHD에 대한 SAS URI를 생성할 때의 요구 사항은 다음과 같습니다.
 
@@ -175,4 +175,4 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 
 - 문제가 발생하는 경우 [VM SAS 오류 메시지](azure-vm-sas-failure-messages.md)를 참조하세요.
 - [파트너 센터에 로그인](https://go.microsoft.com/fwlink/?linkid=2165935)
-- [Azure Marketplace에서 가상 머신 제품 만들기](azure-vm-create.md)
+- [Azure Marketplace에서 가상 머신 제품 만들기](azure-vm-offer-setup.md)

@@ -5,17 +5,17 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 11/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ffa380ec55dfcf96368782a3345ce3d13fe5f4f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f033ad2482977a32c197eb6e172bc0a043f71abc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474840"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720457"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -255,7 +255,7 @@ IP 주소 범위에는 다음과 같은 제한 사항이 적용됩니다.
 
 - IP 네트워크 규칙은 **퍼블릭 인터넷** IP 주소에만 허용됩니다.
 
-  사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의된 대로)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는 *10. * *, *172.16** 으로 시작 하는 주소가 포함 됩니다. -* 172.31. * * 및 * 192.168. * *.
+  사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의된 대로)는 IP 규칙에서 허용되지 않습니다. 프라이빗 네트워크에는 *10.**, *172.16으로** 시작하는 주소가 포함됩니다. - *172.31.**, *192.168.**.
 
 - *16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용해 허용되는 인터넷 주소 범위를 제공하거나 *16.17.18.19* 같은 개별 IP 주소를 제공해야 합니다.
 
@@ -595,12 +595,16 @@ az storage account network-rule list \
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세히 알아보기](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure Cache for Redis | Microsoft.Cache/Redis | Redis 용 Azure Cache를 통해 저장소 계정에 대 한 액세스를 허용 합니다. | 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Cognitive Services를 사용하는 것으로 설정하여 스토리지 계정에 액세스할 수 있습니다. [자세한 정보](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |
 | Azure 데이터 팩터리             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Data Share를 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | DevTest Labs를 통해 스토리지 계정에 액세스를 허용합니다. |
+| Azure Event Grid  | Microsoft.EventGrid/topics | Azure Event Grid를 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure Healthcare API | Microsoft.HealthcareApis/services | Azure 의료 Api를 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure IoT 중앙 응용 프로그램 | Microsoft.IoTCentral/IoTApps | Azure IoT 중앙 응용 프로그램을 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | IoT Hub의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱을 사용하여 스토리지 계정에 액세스할 수 있습니다. [자세히 알아보기](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 스토리지에 쓰고 데이터를 읽습니다. [자세히 알아보기](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |

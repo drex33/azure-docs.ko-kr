@@ -6,20 +6,18 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 41143675d54e4353f7ea5402a4503c78a74a12e2
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 2ce809d9121f97f885888f927a7f1dd2138f2816
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522938"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720894"
 ---
 # <a name="handle-ingestion-delay-in-scheduled-analytics-rules"></a>예약된 분석 규칙에서의 스트리밍 지연 처리
 
@@ -69,7 +67,7 @@ Microsoft Sentinel은 [다양한 원본에서](connect-data-sources.md)데이터
 
 - **이벤트를 특정 조회 기간 에 연결합니다.** 첫 번째 예제에서는 예약된 쿼리가 실행될 때 데이터가 수집되지 않았기 때문에 이벤트를 누락했습니다. 이벤트를 포함하도록 조회를 확장했지만 이로 인해 중복이 발생했습니다. 이벤트를 포함하도록 확장한 창에 연결해야 합니다.
 
-    원래 규칙 대신 를 설정하여 이 작업을 `ingestion_time() > ago(5m)` `look-back = 5m` 수행합니다. 이 설정은 이벤트를 첫 번째 조회 창에 연결합니다. 예:
+    원래 규칙 대신 를 설정하여 이 작업을 `ingestion_time() > ago(5m)` `look-back = 5m` 수행합니다. 이 설정은 이벤트를 첫 번째 조회 창에 연결합니다. 예를 들어 다음과 같습니다.
 
     :::image type="content" source="media/ingestion-delay/ago-restriction.png" alt-text="ago 제한을 설정하여 중복을 방지하는 방법을 보여 주는 다이어그램" border="false":::
 
@@ -94,7 +92,7 @@ CommonSecurityLog
 
 Microsoft Sentinel에서 제공하는 **작업 영역 사용 현황 보고서에는** 작업 영역으로 흐르는 다양한 데이터 형식에 대한 대기 시간 및 지연을 보여 주는 대시보드가 포함되어 있습니다.
 
-예:
+예를 들어 다음과 같습니다.
 
 :::image type="content" source="media/ingestion-delay/end-to-end-latency.png" alt-text="테이블별 종단 간 대기 시간을 보여주는 작업 영역 사용량 보고서의 스크린샷":::
 

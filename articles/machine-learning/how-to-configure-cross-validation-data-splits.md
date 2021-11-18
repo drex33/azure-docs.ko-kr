@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
-ms.openlocfilehash: 69f5913b03db51561cde17117ef97ec3c9e50868
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: d8f94f4e6c7b6d94a2865d0a6a6c4454b1356210
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520620"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722148"
 ---
 # <a name="configure-training-validation-cross-validation-and-test-data-in-automated-machine-learning"></a>자동화 된 기계 학습에서 학습, 유효성 검사, 교차 유효성 검사 및 테스트 데이터 구성
 
@@ -205,7 +205,14 @@ K겹 또는 몬테카를로 교차 유효성 검사를 사용하는 경우 각 �
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-테스트 데이터 집합은 [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset)형식 이어야 합니다. `test_data` `test_size` 개체에서 및 매개 변수를 사용 하 여 테스트 데이터 집합을 지정할 수 있습니다 `AutoMLConfig` .  이러한 매개 변수는 함께 사용할 수 없으며 동시에 지정할 수 없습니다. 
+> [!WARNING]
+> 다음 자동화 된 ML 시나리오에서는이 기능을 사용할 수 없습니다.
+>  * [컴퓨터 시각 작업 (미리 보기)](how-to-auto-train-image-models.md)
+>  * [많은 모델 및 hiearchical 시계열 예측 교육 (미리 보기)](how-to-auto-train-forecast.md)
+>  * [심층 학습 신경망 (DNN)을 사용할 수 있는 예측 작업](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [로컬 계산 또는 Azure Databricks 클러스터에서 자동화 된 ML 실행](how-to-configure-auto-train.md#compute-to-run-experiment)
+
+테스트 데이터 집합은 [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset)형식 이어야 합니다. `test_data` `test_size` 개체에서 및 매개 변수를 사용 하 여 테스트 데이터 집합을 지정할 수 있습니다 `AutoMLConfig` .  이러한 매개 변수는 함께 사용할 수 없으며 동시에 또는 또는를 사용 하 여 지정할 수 없습니다 `cv_split_column_names` `cv_splits_indices` .
 
 매개 변수를 사용 하 여 `test_data` 개체에 전달할 기존 데이터 집합을 지정 합니다 `AutoMLConfig` . 
 
@@ -231,7 +238,8 @@ automl_config = AutoMLConfig(task = 'regression',
 > [!Note]
 > 회귀 태스크의 경우 무작위 샘플링이 사용 됩니다.<br>
 > 분류 작업의 경우에는 층 화 샘플링이 사용 되지만, 층 화 샘플링이 불가능 한 경우에는 무작위 샘플링이 사용 되지 않습니다. <br>
-> 예측은 현재 학습/테스트 분할을 사용 하 여 테스트 데이터 집합을 지정 하는 것을 지원 하지 않습니다.
+> 예측은 현재 매개 변수와 함께 학습/테스트 분할을 사용 하 여 테스트 데이터 집합을 지정 하는 것을 지원 하지 않습니다 `test_size` .
+
 
 또는 매개 변수를에 전달 하면 `test_data` `test_size` `AutoMLConfig` 실험 완료 시 원격 테스트 실행이 자동으로 트리거됩니다. 이 테스트 실행은 제공 된 테스트 데이터를 사용 하 여 자동화 된 ML 권장 하는 최상의 모델을 평가 합니다. [테스트 실행에서 예측을 가져오는 방법](how-to-configure-auto-train.md#test-models-preview)에 대해 자세히 알아보세요.
 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2021
+ms.date: 11/16/2021
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3de8e679cb6c99db4057ec5e5b0ae48b2b4c3500
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 62033ff6c76c2c16a6a3b0d442fec843ae2e86af
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132490291"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724020"
 ---
 # <a name="use-the-azure-identity-library-to-get-an-access-token-for-authorization"></a>Azure ID 라이브러리를 사용하여 권한 부여를 위한 액세스 토큰을 얻습니다.
 
@@ -32,7 +32,7 @@ Azure ID 클라이언트 라이브러리에서 반환된 액세스 토큰은 토
 - [Java용 Azure ID 클라이언트 라이브러리](/java/api/overview/azure/identity-readme)
 - [Python용 Azure ID 클라이언트 라이브러리](/python/api/overview/azure/identity-readme)
 - [JavaScript용 Azure ID 클라이언트 라이브러리](/javascript/api/overview/azure/identity-readme)
-- [Go용 Azure ID 클라이언트 라이브러리](/javascript/api/overview/azure/identity-readme)
+- [Go용 Azure ID 클라이언트 라이브러리](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)
 
 ## <a name="assign-azure-roles-for-access-to-data"></a>데이터 액세스를 위한 Azure 역할 할당
 
@@ -133,7 +133,7 @@ static void CreateBlobContainer(string accountName, string containerName)
 
 DefaultAzureCredential 클래스를 사용하여 관리 ID에 Azure Storage 액세스 권한을 부여하는 자세한 내용은 [.NET용 Azure ID 클라이언트 라이브러리를](/dotnet/api/overview/azure/identity-readme)참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [Azure AD의 앱 & 서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)
 - [Microsoft ID 플랫폼 인증 라이브러리](../../active-directory/develop/reference-v2-libraries.md)

@@ -4,23 +4,22 @@ titleSuffix: Azure Digital Twins
 description: 트윈 그래프를 통해 이벤트를 전파하기 위해 Azure에서 함수를 만드는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 8/13/2021
+ms.date: 11/16/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 68229c648968711bf65c0870c2fb38903376b1d6
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.custom: contperf-fy22q2
+ms.openlocfilehash: cda3a254f72167e4d561974e10334ec7a8e9951a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538315"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718281"
 ---
-# <a name="set-up-twin-to-twin-event-handling-with-azure-functions"></a>Azure Functions를 사용하여 트윈 간 이벤트 처리 설정
+# <a name="set-up-twin-to-twin-event-handling"></a>트윈 간 이벤트 처리 설정
 
 완전히 연결된 Azure Digital Twins 그래프는 이벤트 전파를 통해 구동됩니다. 데이터는 IoT 허브 같은 외부 원본에서 Azure Digital Twins에 도착한 다음, Azure Digital Twins 그래프를 통해 전파되어 관련 트윈을 적절하게 업데이트합니다.
 
-예를 들어 각 층에 여러 공간이 있는 건물의 층과 공간을 나타내는 그래프를 고려해 보겠습니다. 공간 트윈의 온도 속성이 업데이트될 때마다 같은 층의 모든 공간에 대해 평균 온도가 새로 계산되고 층 트윈의 온도 속성을 업데이트하여 포함된 모든 공간(업데이트된 공간 포함)의 새로운 평균 온도를 반영하도록 트윈 간 데이터 흐름을 설정할 수 있습니다. 
-
-이 문서에서는 그래프에 있는 다른 트윈의 속성 변경이나 기타 데이터에 대한 응답으로 트윈을 업데이트할 수 있도록 트윈 간 이벤트를 보내는 방법을 살펴보겠습니다. 현재 트윈 간 업데이트는 그래프의 다른 영역에 영향을 주는 트윈 수명 주기 이벤트를 감시하고 그에 따라 다른 트윈을 변경하는 [Azure 함수](../azure-functions/functions-overview.md)를 설정하여 처리됩니다.
+이 문서에서는 쌍에서 쌍으로 **이벤트를 전송** 하는 방법을 보여 줍니다. 따라서 그래프의 관련 쌍에서 속성 변경 내용 또는 다른 데이터에 대 한 응답으로 쌍을 업데이트할 수 있습니다. 이 작업은 쌍 수명 주기 이벤트를 감시 하는 [Azure 함수](../azure-functions/functions-overview.md) 를 설정 하 여 수행 됩니다. 함수는 그래프의 다른 쌍에 영향을 미치는 이벤트를 인식 하 고 이벤트 데이터를 사용 하 여 영향을 받는 쌍을 적절 하 게 업데이트 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

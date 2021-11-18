@@ -9,16 +9,16 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 8eb32d529c8024733ba6d0bbdec72cc370ebb5d6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 14b5129a29e7d09e86ebfd8874654e55be6f1cb6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482883"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715837"
 ---
 # <a name="event-grid-data-connection-preview"></a>Event Grid 데이터 연결 (미리 보기)
 
-Event Grid 수집은 Azure 스토리지를 수신 대기하고 구독됨 이벤트가 발생하면 정보를 끌어오도록 Azure Data Explorer를 업데이트하는 파이프라인입니다. 데이터 탐색기는 blob 생성 또는 blob 이름 변경 알림을 위한 [Azure Event Grid](/azure/event-grid/overview) 구독과 함께 Azure Storage (blob Storage 및 ADLSv2)에서 지속적인 수집을 제공 하 고 이벤트 허브를 통해 이러한 알림을 데이터 탐색기로 스트리밍합니다.
+Event Grid 수집은 Azure 스토리지를 수신 대기하고 구독됨 이벤트가 발생하면 정보를 끌어오도록 Azure Data Explorer를 업데이트하는 파이프라인입니다. 데이터 탐색기는 blob 생성 또는 blob 이름 변경 알림을 위한 [Azure Event Grid](../../../event-grid/overview.md) 구독과 함께 Azure Storage (blob Storage 및 ADLSv2)에서 지속적인 수집을 제공 하 고 이벤트 허브를 통해 이러한 알림을 데이터 탐색기로 스트리밍합니다.
 
 Event Grid 수집 파이프라인은 여러 단계를 거칩니다. 데이터 탐색기에서 [특정 형식의 데이터](#data-format) 를 수집 대상 테이블을 만듭니다. 그런 다음 데이터 탐색기에서 Event Grid 데이터 연결을 만듭니다. Event Grid 데이터 연결에는 데이터를 보낼 테이블 및 테이블 매핑과 같은 [이벤트 라우팅](#events-routing) 정보가 필요합니다. 수집할 데이터, 대상 테이블 및 매핑을 설명하는 [수집 속성](#ingestion-properties)도 지정합니다. 샘플 데이터를 생성하고, [Blob을 업로드](#upload-blobs)하거나 [Blob 이름을 변경](#rename-blobs)하여 연결을 테스트할 수 있습니다. 수집 후에는 [Blob을 삭제](#delete-blobs-using-storage-lifecycle)합니다. 이 프로세스는 [Azure Portal](data-explorer-ingest-event-grid-portal.md)를 통해 관리할 수 있습니다. <!-- , using [one-click ingestion](one-click-ingestion-new-table.md), programmatically with [C#](data-connection-event-grid-csharp.md) or [Python](data-connection-event-grid-python.md), or with the [Azure Resource Manager template](data-connection-event-grid-resource-manager.md). -->
 
@@ -31,7 +31,7 @@ Event Grid 수집 파이프라인은 여러 단계를 거칩니다. 데이터 �
     - 원래 압축 되지 않은 데이터 크기는 blob 메타 데이터의 일부 여야 합니다. 그렇지 않으면 데이터 탐색기이 값을 예측 합니다. 파일당 압축되지 않은 수집 크기 제한은 4GB입니다.
 
 > [!NOTE]
-> Event Grid 알림 구독은 `BlobStorage`, `StorageV2` 또는 [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)용 Azure Storage 계정에서 설정할 수 있습니다.
+> Event Grid 알림 구독은 `BlobStorage`, `StorageV2` 또는 [Data Lake Storage Gen2](../../../storage/blobs/data-lake-storage-introduction.md)용 Azure Storage 계정에서 설정할 수 있습니다.
 
 ## <a name="ingestion-properties"></a>수집 속성
 
@@ -73,7 +73,7 @@ blob.UploadFromFile(jsonCompressedLocalFileName);
 > - `BlockBlob`을 사용하여 데이터를 생성합니다. `AppendBlob`은 지원되지 않습니다.
 > - Azure Data Lake Gen2 스토리지 SDK를 사용하려면 파일을 업로드하는 `CreateFile`을 사용하고 close 매개 변수가 "true"로 설정된 `Flush`를 끝에 사용해야 합니다.
 <!-- > For a detailed example of Data Lake Gen2 SDK correct usage, see [upload file using Azure Data Lake SDK](data-connection-event-grid-csharp.md#upload-file-using-azure-data-lake-sdk). -->
-> - Event Hub 엔드포인트에서 이벤트 수신을 승인하지 않으면 Azure Event Grid에서 다시 시도 메커니즘을 활성화합니다. 이 다시 시도 배달이 실패하면 Event Grid에서 *배달 못 한 편지* 프로세스를 사용하여 배달 안 됨 이벤트를 스토리지 계정에 배달할 수 있습니다. 자세한 내용은 [Event Grid 메시지 배달 및 재시도](/azure/event-grid/delivery-and-retry#retry-schedule-and-duration)를 참조하세요.
+> - Event Hub 엔드포인트에서 이벤트 수신을 승인하지 않으면 Azure Event Grid에서 다시 시도 메커니즘을 활성화합니다. 이 다시 시도 배달이 실패하면 Event Grid에서 *배달 못 한 편지* 프로세스를 사용하여 배달 안 됨 이벤트를 스토리지 계정에 배달할 수 있습니다. 자세한 내용은 [Event Grid 메시지 배달 및 재시도](../../../event-grid/delivery-and-retry.md)를 참조하세요.
 
 ## <a name="rename-blobs"></a>Blob 이름 바꾸기
 

@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 77cf1b6dd4038613af9d079fc6226ab8c784577a
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a3fe2ce11ad730b5fdf9473ebb491b2cb0dd2cd9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520145"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720951"
 ---
 # <a name="investigate-incidents-with-microsoft-sentinel"></a>Microsoft Sentinel을 사용하여 인시던트 조사
 

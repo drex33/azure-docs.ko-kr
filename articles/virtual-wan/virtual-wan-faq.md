@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: e28d5c9358077e072c31026bdc164a9b2037a40a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 70924c1d810ca0caf6beecef4aadf1be811bd5ed
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492477"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132703852"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 
@@ -209,7 +209,7 @@ NVA(네트워크 가상 어플라이언스)는 가상 허브 내에 배포할 �
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Azure Virtual WAN을 사용할 때 네트워크 처리량 또는 연결 제한이 있나요?
 
-네트워크 처리량은 가상 WAN 허브의 서비스 단위로 제한됩니다. 가상 WAN을 원하는 만큼 사용할 수 있지만, 각 Virtual WAN은 지역마다 1개의 허브를 허용합니다. 각 허브에서 VPN 집계 처리량은 최대 20Gbps, ExpressRoute 집계 처리량은 최대 20Gbps, 사용자 VPN/지점 및 사이트 간 VPN 집계 처리량은 최대 20Gbps입니다. 가상 허브의 라우터는 VNet 간 트래픽 흐름에 대해 최대 50Gbps를 지원하며, 단일 가상 허브에 연결된 모든 VNet에 있는 전체 VM 워크로드가 2000개라고 가정합니다. 이 [제한은](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits) 온라인 고객 지원 요청을 열 때까지 늘어날 수 있습니다. 비용 함축의 경우 [Azure 가상 WAN 가격 책정](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지에서 *라우팅 인프라 단위* 비용을 참조 하세요. 
+네트워크 처리량은 가상 WAN 허브의 서비스 단위로 제한됩니다. 가상 WAN을 원하는 만큼 사용할 수 있지만, 각 Virtual WAN은 지역마다 1개의 허브를 허용합니다. 각 허브에서 VPN 집계 처리량은 최대 20Gbps, ExpressRoute 집계 처리량은 최대 20Gbps, 사용자 VPN/지점 및 사이트 간 VPN 집계 처리량은 최대 20Gbps입니다. 가상 허브의 라우터는 VNet 간 트래픽 흐름에 대해 최대 50Gbps를 지원하며, 단일 가상 허브에 연결된 모든 VNet에 있는 전체 VM 워크로드가 2000개라고 가정합니다. 이 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits)은 온라인 고객 지원 요청을 열어 늘릴 수 있습니다. 비용과 관련된 내용은 [Azure Virtual WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지에서 *라우팅 인프라 단위* 비용을 참조하세요. 
 
 VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN은 가상 허브당 최대 1000개 연결 또는 2000개 IPsec 터널을 지원합니다. 원격 사용자는 가상 허브에 연결할 때 P2S VPN 게이트웨이에 연결하며, 이 게이트웨이는 가상 허브의 P2S VPN 게이트웨이에 대해 선택한 배율 단위(대역폭)에 따라 최대 10,000명의 사용자를 지원합니다.
 
@@ -247,8 +247,8 @@ VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN�
 
 기본 경로는 Virtual WAN 허브에서 시작되지 않습니다. 허브에 방화벽을 배포한 결과로 Virtual WAN 허브에서 학습했거나 다른 연결된 사이트에서 강제 터널링을 사용할 경우 기본 경로가 전파됩니다. 기본 경로는 허브 간(인터허브)에 전파되지 않습니다.
 
-### <a name="is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region"></a>동일한 지역에 여러 가상 WAN 허브를 만들 수 있나요?
-예. 이제 고객은 동일한 지역에 동일한 Azure Virtual WAN 대해 허브를 두 개 이상 만들 수 있습니다. 
+### <a name="is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region"></a>동일한 지역에서 여러 가상 WAN 허브를 만들 수 있나요?
+예. 이제 고객은 동일한 Azure 가상 WAN에 대해 동일한 지역에 둘 이상의 허브를 만들 수 있습니다. 
 
 
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>가상 WAN의 가상 허브는 여러 허브 중에서 경로에 가장 적합한 경로를 어떻게 선택할까요?
@@ -259,7 +259,7 @@ VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN�
 1. interhub를 통한 로컬 경로
 1. BGP를 통한 고정 경로 이는 가상 허브 라우터에서 결정하는 내용에 따라 좌우됩니다. 그러나 BGP를 통해 경로를 보급하거나 고정 주소 접두사를 제공하는 VPN 게이트웨이가 결정권자인 경우 BGP 경로를 통해 고정 경로를 사용하는 방법이 더 좋을 수 있습니다.
 1. VPN을 통한 ER(ExpressRoute): 컨텍스트가 로컬 허브인 경우 VPN을 통한 ER이 선호됩니다. ExpressRoute 회로 간의 전송 연결은 Global Reach를 통해서만 사용할 수 있습니다. 따라서 ExpressRoute 회로가 한 허브에 연결되고 또 다른 ExpressRoute 회로가 VPN 연결을 통해 다른 허브에 연결되는 시나리오에서는 허브 간 시나리오에 VPN을 사용하는 것이 더 좋을 수 있습니다.
-1. AS 경로 길이(가상 허브는 경로를 서로 보급할 때 AS 경로 65520-65520을 사용하여 경로를 추가합니다.)
+1. 경로 길이로 (가상 허브는 서로 경로를 광고 하는 경우 경로 65520-65520를 사용 하 여 경로 앞에 추가)
 
 ### <a name="does-the-virtual-wan-hub-allow-connectivity-between-expressroute-circuits"></a>Virtual WAN 허브는 ExpressRoute 회로 간 연결을 허용하나요?
 
@@ -325,7 +325,7 @@ Azure Firewall을 통해 인터넷이 중단되는 지점 및 사이트 간 사�
 
 Azure Route Server는 NVA(네트워크 가상 어플라이언스)가 DIY 허브 VNet의 경로 서버에서 경로를 학습하는 데 사용할 수 있는 BGP(Border Gateway Protocol) 피어링 서비스를 제공합니다. Virtual WAN 라우팅은 VNet 간 전송 라우팅, 사용자 지정 라우팅, 사용자 지정 경로 연결 및 전파를 포함한 여러 가지 기능을 제공하며, ExpressRoute, 사이트 VPN, 원격 사용자/대규모 P2S VPN 및 보안 허브(Azure Firewall) 기능을 제공하는 연결 서비스와 함께 완전 메시형 무인 허브 서비스를 제공합니다. NVA와 Azure Route Server 간에 BGP 피어링을 설정할 때 NVA의 IP 주소를 가상 네트워크에 보급할 수 있습니다. 전송 라우팅, 사용자 지정 라우팅 등의 모든 고급 라우팅 기능에서 Virtual WAN 라우팅을 사용할 수 있습니다.
 
-### <a name="if-i-am-using-a-third-party-security-provider-zscaler-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-the-azure-portal"></a>타사 보안 공급자(Zscaler, iBoss 또는 Checkpoint)를 사용하여 인터넷 트래픽을 보호하는 경우 Azure Portal 타사 보안 공급자와 연결된 VPN 사이트가 표시되지 않는 이유는 무엇인가요?
+### <a name="if-i-am-using-a-third-party-security-provider-zscaler-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-the-azure-portal"></a>타사 보안 공급자 (Zscaler, iBoss 또는 검사점)를 사용 하 여 내 인터넷 트래픽을 보호 하는 경우 Azure Portal에서 타사 보안 공급자와 연결 된 VPN 사이트가 표시 되지 않는 이유는 무엇 인가요?
 
 사용자에 대한 인터넷 액세스를 보호하기 위해 보안 파트너 공급자를 배포하도록 선택하는 경우 타사 보안 공급자는 사용자를 대신하여 VPN 사이트를 만듭니다. 타사 보안 공급자는 공급자에 의해 자동으로 생성되고 사용자가 만든 VPN 사이트는 아니므로 이 VPN 사이트는 Azure Portal에 표시되지 않습니다.
 
@@ -334,4 +334,3 @@ Azure Route Server는 NVA(네트워크 가상 어플라이언스)가 DIY 허브 
 ## <a name="next-steps"></a>다음 단계
 
 * Virtual WAN에 대한 자세한 내용은 [Virtual WAN 정보](virtual-wan-about.md)를 참조하세요.
-

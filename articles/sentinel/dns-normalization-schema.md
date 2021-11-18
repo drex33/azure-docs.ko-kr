@@ -7,8 +7,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 ms.assetid: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +14,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3289f52d0f6925374aee5656afc797ed0713f962
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a47f3503af5d59fdabe4a2f814076c0af87ec82a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521475"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721388"
 ---
 # <a name="microsoft-sentinel-dns-normalization-schema-reference-public-preview"></a>Microsoft Sentinel DNS 정규화 스키마 참조(공개 미리 보기)
 
@@ -78,7 +76,7 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 모든 첫 번째 파서가 통합되는 소스에 구애받지 않는 파서 를 사용하고 구성된 모든 원본에서 분석이 실행되도록 하려면 다음 KQL 함수를 쿼리의 테이블 이름으로 사용합니다.
 
-| Name | 설명 | 사용 지침 |
+| 이름 | 설명 | 사용 지침 |
 | --- | --- | --- |
 | **imDNS** | *공용 구조체* 를 사용하여 모든 DNS 원본의 정규화된 이벤트를 포함하는 집계 파서입니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다. <br><br>- 원본 독립적 쿼리에서 이 함수를 사용합니다.|
 | **ASimDNS** | `imDns`함수와 비슷하지만 매개 변수가 지원되지 않으므로 **로그** 페이지 시간 선택기가 값을 사용하도록 강제하지 `custom` 않습니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다.<br><br>- 매개 변수를 사용할 계획이 없는 경우 소스에 구애받지 않는 쿼리에서 이 함수를 사용합니다.|
@@ -119,16 +117,16 @@ Dns 정보 모델에 대한 사용자 지정 파서 구현 시 다음 구문을 
 
 사용할 수 있는 필터링 매개 변수는 다음과 같습니다.
 
-| Name     | Type      | Description |
+| 이름     | 유형      | 설명 |
 |----------|-----------|-------------|
 | **Starttime** | Datetime | 이 시간 이후에 실행된 DNS 쿼리만 필터링합니다. |
 | **Endtime** | Datetime | 이 시간 또는 이전에 실행이 완료된 DNS 쿼리만 필터링합니다. |
-| **srcipaddr** | 문자열 | 이 원본 IP 주소에서 DNS 쿼리만 필터링합니다. |
+| **srcipaddr** | string | 이 원본 IP 주소에서 DNS 쿼리만 필터링합니다. |
 | **domain_has_any**| 동적 | `domain`(또는 `query` )에 이벤트 도메인의 일부를 포함하여 나열된 도메인 이름이 있는 DNS 쿼리만 필터링합니다.
-| **responsecodename** | 문자열 | 응답 코드 이름이 제공된 값과 일치하는 DNS 쿼리만 필터링합니다. <br>예: `NXDOMAIN` |
-| **response_has_ipv4** | 문자열 | 응답 필드가 제공된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. 단일 IP 주소 또는 접두사를 필터링하려는 경우 이 매개 변수를 사용합니다. <br><br>응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다.|
+| **responsecodename** | string | 응답 코드 이름이 제공된 값과 일치하는 DNS 쿼리만 필터링합니다. <br>예: `NXDOMAIN` |
+| **response_has_ipv4** | string | 응답 필드가 제공된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. 단일 IP 주소 또는 접두사를 필터링하려는 경우 이 매개 변수를 사용합니다. <br><br>응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다.|
 | **response_has_any_prefix** | 동적| 응답 필드가 나열된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. <br><br>IP 주소 또는 접두사 목록을 필터링하려는 경우 이 매개 변수를 사용합니다. <br><br>응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다. |
-| **eventtype**| 문자열 | 지정된 형식의 DNS 쿼리만 필터링합니다. 값을 지정하지 않으면 조회 쿼리만 반환됩니다. |
+| **eventtype**| string | 지정된 형식의 DNS 쿼리만 필터링합니다. 값을 지정하지 않으면 조회 쿼리만 반환됩니다. |
 | | | |
 
 예를 들어 도메인 이름을 확인하지 못한 마지막 날의 DNS 쿼리만 필터링하려면 다음을 사용합니다.
@@ -173,7 +171,7 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 
 아래 필드는 DNS 이벤트와 관련이 있지만, 많은 필드가 다른 스키마의 필드와 유사하므로 동일한 명명 규칙을 따릅니다.
 
-| **필드** | **클래스** | **형식** | **참고 사항** |
+| **필드** | **클래스** | **형식** | **참고** |
 | --- | --- | --- | --- |
 | <a name="src"></a>**Src** | 권장       | String     |    원본 디바이스의 고유 식별자입니다. <br><br>이 필드는 [SrcDvcId,](#srcdvcid) [SrcHostname](#srchostname)또는 [SrcIpAddr](#srcipaddr) 필드의 별칭을 나타낼 수 있습니다. <br><br>예: `192.168.12.1`       |
 | <a name="srcipaddr"></a>**SrcIpAddr** | 권장 | IP 주소 | DNS 요청을 보내는 클라이언트의 IP 주소입니다. 재귀 DNS 요청의 경우 이 값은 일반적으로 보고 디바이스이며 대부분의 경우 로 `127.0.0.1` 설정됩니다. <br><br>예: `192.168.12.1` |
@@ -234,7 +232,7 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 | **DnsQueryClassName** | 선택 | 문자열 | [DNS 클래스 이름](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>실제로는 **IN** 클래스(ID 1)만 사용되므로 이 필드의 가치가 떨어집니다. <br><br>예: `IN`|
 | <a name=flags></a>**DnsFlags** | 선택 사항 | 문자열 목록 | 보고 디바이스에서 제공하는 플래그 필드입니다. 플래그 정보가 여러 필드에 제공되는 경우 구분 기호로 쉼표를 사용하여 연결합니다. <br><br>DNS 플래그는 구문 분석 하기 복잡 하 고 분석에서 자주 사용 되지 않으므로 구문 분석 및 정규화가 필요 하지 않으며 Microsoft 센티널은 보조 함수를 사용 하 여 플래그 정보를 제공 합니다. 자세한 내용은 [DNS 응답 처리](#handling-dns-response)를 참조하세요. <br><br>예: `["DR"]`|
 | <a name=UrlCategory></a>**UrlCategory** |  선택 | String | DNS 이벤트 원본은 요청된 도메인의 범주를 조회할 수도 있습니다. Microsoft 센티널 네트워크 스키마에 맞게 필드를 **_Urlcategory_** 라고 합니다. <br><br>**_DomainCategory_** 는 DNS에 맞는 별칭으로 추가됩니다. <br><br>예: `Educational \\ Phishing` |
-| **DomainCategory** | Optional | Alias | [UrlCategory](#UrlCategory)에 대한 별칭입니다. |
+| **DomainCategory** | 선택 사항 | Alias | [UrlCategory](#UrlCategory)에 대한 별칭입니다. |
 | **ThreatCategory** | 선택 | String | DNS 이벤트 원본이 DNS 보안도 제공하는 경우 DNS 이벤트도 평가할 수 있습니다. 예를 들어 위협 인텔리전스 데이터베이스에서 IP 주소 또는 도메인을 검색하고 위협 범주를 사용하여 도메인 또는 IP 주소를 할당할 수 있습니다. |
 | **EventSeverity** | 선택 | 문자열 | DNS 이벤트 원본이 DNS 보안도 제공하는 경우 DNS 이벤트를 평가할 수 있습니다. 예를 들어 위협 인텔리전스 데이터베이스에서 IP 주소 또는 도메인을 검색하고 평가에 따라 심각도를 할당할 수 있습니다. <br><br>예: `Informational`|
 | <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | 선택 | 정수 | DNS 요청을 완료 하는 데 걸린 시간 (밀리초)입니다.<br><br>예: `1500` |
@@ -252,7 +250,7 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 
 ### <a name="deprecated-aliases"></a>사용되지 않는 별칭
 
-다음 필드는 현재 사용 되지 않지만 이전 버전과의 호환성을 위해 유지 되는 별칭입니다. 2021 년 12 월 31 일에 스키마에서 제거 됩니다.
+다음 필드는 현재 사용 되지 않지만 이전 버전과의 호환성을 위해 유지 되는 별칭입니다. 2021년 12월 31일에 스키마에서 제거됩니다.
 
 - Query(DnsQuery에 대한 별칭)
 - QueryType(DnsQueryType에 대한 별칭)
@@ -266,16 +264,16 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 
 ### <a name="schema-updates"></a>스키마 업데이트
 
-다음은 스키마의 버전 0.1.2 변경 된 내용입니다.
-- 필드를 추가 했습니다 `EventSchema` . 현재는 선택적 이지만 2022 1 월 1 일에는 필수 항목입니다.
-- 전용 플래그 필드가 추가 되었습니다. 결합 된 **[플래그](#flags)** 필드는 `DnsFlagsAuthoritative` ,,,, `DnsFlagsCheckingDisabled` `DnsFlagsRecursionAvailable` `DnsFlagsRecursionDesired` `DnsFlagsTruncates` 및 `DnsFlagsZ` 입니다.
+다음은 스키마 버전 0.1.2의 변경 내용입니다.
+- 필드가 `EventSchema` 추가되었습니다. 현재는 선택 사항이지만 2022년 1월 1일에 필수 필드가 됩니다.
+- 결합된 플래그 필드를 보강하는 전용 **[플래그](#flags)** 필드 추가: `DnsFlagsAuthoritative` , , , , 및 `DnsFlagsCheckingDisabled` `DnsFlagsRecursionAvailable` `DnsFlagsRecursionDesired` `DnsFlagsTruncates` `DnsFlagsZ` .
 
-다음은 스키마의 버전 0.1.3 변경 된 내용입니다.
-- 이제 스키마는 `Src*` , 및 필드를 명시적으로 문서화 `Dst*` `Process*` `User*` 합니다.
-- `Dvc*`최신 공통 필드 정의와 일치 하도록 추가 필드를 추가 했습니다. 
-- `Src` `Dst` 원본 및 대상 시스템에 대 한 선행 식별자에 및을 별칭으로 추가 했습니다.
-- 선택적 `DnsNetworkDuration` 및 `Duration` 이에 대 한 별칭을 추가 했습니다.
-- 선택적 지역 위치 및 위험 수준 필드를 추가 했습니다.
+다음은 스키마 버전 0.1.3의 변경 내용입니다.
+- 이제 스키마는 , 및 필드를 명시적으로 `Src*` `Dst*` `Process*` `User*` 문서화합니다.
+- 최신 `Dvc*` 공통 필드 정의와 일치하는 추가 필드가 추가되었습니다. 
+- `Src`원본 `Dst` 및 대상 시스템의 선행 식별자로 및 를 별칭으로 추가했습니다.
+- 선택적 `DnsNetworkDuration` 및 `Duration` , 별칭이 추가되었습니다.
+- 선택적 지리적 위치 및 위험 수준 필드가 추가되었습니다.
 
 ## <a name="handling-dns-response"></a>DNS 응답 처리
 
@@ -313,9 +311,9 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 
 ## <a name="handling-dns-flags"></a>DNS 플래그 처리
 
-플래그 데이터에는 구문 분석 및 정규화가 필요하지 않습니다. 대신, 보고 디바이스에서 제공한 플래그 데이터를 [플래그](#flags) 필드에 저장합니다. 개별 플래그의 값을 결정 하는 것이 바로 앞에 있는 경우 전용 플래그 필드를 사용할 수도 있습니다. 
+플래그 데이터에는 구문 분석 및 정규화가 필요하지 않습니다. 대신, 보고 디바이스에서 제공한 플래그 데이터를 [플래그](#flags) 필드에 저장합니다. 개별 플래그의 값을 결정하는 것이 간단합니다. 전용 플래그 필드를 사용할 수도 있습니다. 
 
-또한 `_imDNS<vendor>Flags_` 구문 분석 되지 않은 응답 또는 전용 플래그 필드를 입력으로 사용 하 고 동적 목록을 반환 하 고 각 플래그를 다음 순서로 나타내는 부울 값을 사용 하 여 라는 추가 KQL 함수를 제공할 수 있습니다.
+구문 `_imDNS<vendor>Flags_` 분석되지 않은 응답 또는 전용 플래그 필드를 입력으로 받아서 다음 순서로 각 플래그를 나타내는 부울 값을 포함하는 동적 목록을 반환하는 라는 추가 KQL 함수를 제공할 수도 있습니다.
 
 - 인증됨(AD)
 - 신뢰할 수 있음(AA)
@@ -329,9 +327,9 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 
 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft 센티널의 정규화](normalization.md)
-- [Microsoft 센티널 인증 정규화 스키마 참조 (공개 미리 보기)](authentication-normalization-schema.md)
-- [Microsoft 센티널 데이터 정규화 스키마 참조](normalization-schema.md)
-- [Microsoft 센티널 파일 이벤트 정규화 스키마 참조 (공개 미리 보기)](file-event-normalization-schema.md)
-- [Microsoft 센티널 프로세스 이벤트 정규화 스키마 참조](process-events-normalization-schema.md)
-- [Microsoft 센티널 레지스트리 이벤트 정규화 스키마 참조 (공개 미리 보기)](registry-event-normalization-schema.md)
+- [Microsoft Sentinel의 정규화](normalization.md)
+- [Microsoft Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
+- [Microsoft Sentinel 데이터 정규화 스키마 참조](normalization-schema.md)
+- [Microsoft Sentinel 파일 이벤트 정규화 스키마 참조(공개 미리 보기)](file-event-normalization-schema.md)
+- [Microsoft Sentinel 프로세스 이벤트 정규화 스키마 참조](process-events-normalization-schema.md)
+- [Microsoft Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)](registry-event-normalization-schema.md)

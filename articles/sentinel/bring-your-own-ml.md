@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 815b1b640fad26587d354a306d4bfb4188cef053
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 8d071fe7f24015f64734a07d25844df265a88307
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524648"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724580"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-microsoft-sentinel"></a>Microsoft Sentinel에 ML(사용자 고유의 Machine Learning) 가져오기
 

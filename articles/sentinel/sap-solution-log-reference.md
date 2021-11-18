@@ -1,35 +1,35 @@
 ---
-title: Microsoft 센티널 SAP 솔루션-사용 가능한 로그 참조 | Microsoft Docs
-description: Microsoft 센티널 SAP 솔루션에서 사용할 수 있는 SAP 로그에 대해 알아봅니다.
+title: Microsoft Sentinel SAP 솔루션 - 사용 가능한 로그 참조 | Microsoft Docs
+description: Microsoft Sentinel SAP 솔루션에서 사용할 수 있는 SAP 로그에 대해 알아봅니다.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: ee74d7658be01c2859d860f4c53b7e8e2b0e1b1a
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 98376a61e2c67d6802957d72b2fb963c6fe4e810
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711833"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756422"
 ---
-# <a name="microsoft-sentinel-sap-solution-logs-reference-public-preview"></a>Microsoft 센티널 SAP 솔루션 로그 참조 (공개 미리 보기)
+# <a name="microsoft-sentinel-sap-solution-logs-reference-public-preview"></a>Microsoft Sentinel SAP 솔루션 로그 참조(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
-> Microsoft 센티널 SAP 솔루션은 현재 미리 보기로 제공 됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> Microsoft Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
-> 아래에 나와 있는 일부 로그는 기본적으로 Microsoft 센티널로 보내지지 않지만 필요에 따라 수동으로 추가할 수 있습니다. 자세한 내용은 [Microsoft 센티널로 전송 되는 SAP 로그 정의](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)를 참조 하세요.
+> 아래에 설명된 일부 로그는 기본적으로 Microsoft Sentinel로 전송되지 않지만 필요에 따라 수동으로 추가할 수 있습니다. 자세한 내용은 [Microsoft Sentinel로 전송되는 SAP 로그 정의를 참조하세요.](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)
 >
 
-이 문서에서는 microsoft 센티널의 테이블 이름, 로그 용도 및 자세한 로그 스키마를 포함 하 여 Microsoft 센티널 SAP 데이터 커넥터에서 사용할 수 있는 SAP 로그에 대해 설명 합니다. 스키마 필드 설명은 관련 [SAP 문서](https://help.sap.com/)의 필드 설명을 기반으로 합니다.
+이 문서에서는 Microsoft Sentinel의 테이블 이름, 로그 목적 및 자세한 로그 스키마를 포함하여 Microsoft Sentinel SAP 데이터 커넥터에서 사용할 수 있는 SAP 로그에 대해 설명합니다. 스키마 필드 설명은 관련 [SAP 문서](https://help.sap.com/)의 필드 설명을 기반으로 합니다.
 
 이 문서는 고급 SAP 사용자를 대상으로 합니다.
 
 ## <a name="abap-application-log"></a>ABAP 애플리케이션 로그
 
-- **Microsoft 센티널의 이름**: `ABAPAppLog_CL`
+- **Microsoft Sentinel의 이름:**`ABAPAppLog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcc9f36611d3a6510000e835363f.html)
 
@@ -76,7 +76,7 @@ ms.locfileid: "132711833"
 
 ## <a name="abap-change-documents-log"></a>ABAP 변경 문서 로그
 
-- **Microsoft 센티널의 이름**: `ABAPChangeDocsLog_CL`
+- **Microsoft Sentinel의 이름:**`ABAPChangeDocsLog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/6f51f5216c4b10149358d088a0b7029c/7.01.22/en-US/b8686150ed102f1ae10000000a44176f.html)
 
@@ -124,7 +124,7 @@ ms.locfileid: "132711833"
 
 ## <a name="abap-cr-log"></a>ABAP CR 로그
 
-- **Microsoft Sentinel의 이름:**`ABAPCRLog_CL`
+- **Microsoft 센티널의 이름**: `ABAPCRLog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd5f36611d3a6510000e835363f.html)
 
@@ -139,7 +139,7 @@ ms.locfileid: "132711833"
 
 ### <a name="abapcrlog_cl-log-schema"></a>ABAPCRLog_CL 로그 스키마
 
-| 필드        | 설명                       |
+| 필드        | Description                       |
 | ------------ | --------------------------------- |
 | 범주     | 범주(워크벤치, 사용자 지정) |
 | ClientID     | ABAP 클라이언트 ID(MANDT)            |
@@ -160,9 +160,9 @@ ms.locfileid: "132711833"
 
 ## <a name="abap-db-table-data-log"></a>ABAP DB 테이블 데이터 로그
 
-이 로그를 Microsoft Sentinel로 보내려면 [ **systemconfig.ini** 파일에 수동으로 추가해야](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)합니다.
+이 로그가 Microsoft 센티널에 전송 되도록 하려면 [ **systemconfig.ini** 파일에 수동으로 추가](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)해야 합니다.
 
-- **Microsoft Sentinel의 이름:**`ABAPTableDataLog_CL`
+- **Microsoft 센티널의 이름**: `ABAPTableDataLog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd2f36611d3a6510000e835363f.html)
 
@@ -205,7 +205,7 @@ ms.locfileid: "132711833"
 
 ### <a name="abapos_gw_cl-log-schema"></a>ABAPOS_GW_CL 로그 스키마
 
-| 필드        | 설명      |
+| 필드        | Description      |
 | ------------ | ---------------- |
 | 호스트         | 호스트             |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -230,7 +230,7 @@ ms.locfileid: "132711833"
 
 ### <a name="abapos_icm_cl-log-schema"></a>ABAPOS_ICM_CL 로그 스키마
 
-| 필드        | 설명      |
+| 필드        | Description      |
 | ------------ | ---------------- |
 | 호스트         | 호스트             |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -286,7 +286,7 @@ ms.locfileid: "132711833"
 
 ## <a name="abap-security-audit-log"></a>ABAP 보안 감사 로그
 
-- **Microsoft Sentinel의 이름:**`ABAPAuditLog_CL`
+- **Microsoft 센티널의 이름**: `ABAPAuditLog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/280f016edb8049e998237fcbd80558e7/7.5.7/en-US/4d41bec4aa601c86e10000000a42189b.html)
 
@@ -395,7 +395,7 @@ ms.locfileid: "132711833"
 
 ## <a name="apab-spool-output-log"></a>APAB 스풀 출력 로그
 
-- **Microsoft Sentinel의 이름:**`ABAPSpoolOutputLog_CL`
+- **Microsoft 센티널의 이름**: `ABAPSpoolOutputLog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/290ce8983cbc4848a9d7b6f5e77491b9/7.52.1/en-US/4eae779e40f72045e10000000a421937.html)
 
@@ -446,10 +446,10 @@ ms.locfileid: "132711833"
 
 ## <a name="abap-syslog"></a>ABAP SysLog
 
-이 로그를 Microsoft Sentinel로 보내려면 [ **systemconfig.ini** 파일에 수동으로 추가해야](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)합니다.
+이 로그가 Microsoft 센티널에 전송 되도록 하려면 [ **systemconfig.ini** 파일에 수동으로 추가](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)해야 합니다.
 
 
-- **Microsoft Sentinel의 이름:**`ABAPOS_Syslog_CL`
+- **Microsoft 센티널의 이름**: `ABAPOS_Syslog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
 
@@ -478,7 +478,7 @@ ms.locfileid: "132711833"
 
 ## <a name="abap-workflow-log"></a>ABAP 워크플로 로그
 
-- **Microsoft 센티널의 이름**: `ABAPWorkflowLog_CL`
+- **Microsoft Sentinel의 이름:**`ABAPWorkflowLog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcccf36611d3a6510000e835363f.html)
 
@@ -533,10 +533,10 @@ ms.locfileid: "132711833"
 
 ## <a name="abap-workprocess-log"></a>ABAP 작업 프로세스 로그
 
-이 로그가 Microsoft 센티널에 전송 되도록 하려면 [ **systemconfig.ini** 파일에 수동으로 추가](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)해야 합니다.
+이 로그를 Microsoft Sentinel로 보내려면 [ **systemconfig.ini** 파일에 수동으로 추가해야](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)합니다.
 
 
-- **Microsoft 센티널의 이름**: `ABAPOS_WP_CL`
+- **Microsoft Sentinel의 이름:**`ABAPOS_WP_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
 
@@ -547,7 +547,7 @@ ms.locfileid: "132711833"
 ### <a name="abapos_wp_cl-log-schema"></a>ABAPOS_WP_CL 로그 스키마
 
 
-| 필드        | 설명         |
+| 필드        | Description         |
 | ------------ | ------------------- |
 | 호스트         | 호스트                |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -638,5 +638,5 @@ ms.locfileid: "132711833"
 - [Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
 - [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel SAP 솔루션: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)
-- [Microsoft Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
+- [Microsoft 센티널 SAP solution: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)
+- [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

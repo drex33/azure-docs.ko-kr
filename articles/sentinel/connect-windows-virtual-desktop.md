@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에 가상 데스크톱 커넥트 Windows Microsoft Docs
 description: Windows 가상 데스크톱 데이터를 Microsoft 센티널에 연결 하는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 155ae6ee08db12b49dc337e4e3f3640d7dfcd4b3
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 1cf9e4f7109e7ff84b99364ba77b4bfcb07a1a64
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721635"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751671"
 ---
 # <a name="connect-windows-virtual-desktop-data-to-microsoft-sentinel"></a>Microsoft 센티널에 가상 데스크톱 데이터 Windows 커넥트
 

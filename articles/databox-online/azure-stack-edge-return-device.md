@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: alkohli
-ms.openlocfilehash: b17b613c07430ce7d4a86e251a86a96d250f0255
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 120b227bb2732194d8db09c26b7b2721453e94a3
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131469330"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762939"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Azure Stack Edge 디바이스에서 반환
 
@@ -84,7 +84,7 @@ Azure Edge 하드웨어 센터를 사용하여 디바이스를 주문한 경우 
 
     1. **반환 시작** 을 선택합니다.
 
-1. 반환 요청이 제출되면 주문 항목 리소스가 반품 배송 상태를 반영하기 시작합니다. 상태는 **Return initiated에서 Picked** **up** to Return completed 로 **진행됩니다.** 언제든지 포털을 사용하여 리소스의 반환 상태를 확인합니다.
+1. 반환 요청이 제출되면 주문 항목 리소스가 반품 배송 상태를 반영하기 시작합니다. 상태는 **Return initiated에서 Picked** **up으로** 진행되어 **완료된 반환까지 진행됩니다.** 언제든지 포털을 사용하여 리소스의 반환 상태를 확인합니다.
 
     ![디바이스 반환 5](media/azure-stack-edge-return-device/hardware-center-return-device-4.png) 
 
@@ -149,13 +149,13 @@ Azure Edge 하드웨어 센터를 사용하여 디바이스를 주문한 경우 
 
     1. Azure에서 요청한 배송 상자 또는 포장 포장이 있는 원래 배송 상자를 사용합니다. 
     1. 상자의 아래쪽 밑면을 놓습니다.
-    1. 머리글 위에 디바이스를 놓아서 깔개에 깔고 있는 것을 주의를 기울입니다.
-    1. 패키지에 맨 위 톱니 조각을 놓습니다.
-    1. 전원 코드를 접근자 트레이에 놓고 레일을 맨 위 돋매기 위에 놓습니다.
+    1. 깔개기 위에 디바이스를 놓아서 깔개에 깔고 있는 것을 주의를 기울입니다.
+    1. 패키지에 맨 위 씩씩한 조각을 놓습니다.
+    1. 접근자 트레이에 전원 코드를 놓고 레일을 맨 위 돋매기 위에 놓습니다.
     1. 상자를 봉인하고 패키지의 Azure에서 받은 배송 레이블을 부착합니다.
    
     > [!IMPORTANT]
-    > 반송 배송을 준비하기 위한 적절한 지침이 관찰되지 않으면 디바이스가 손상되고 손상된 디바이스 요금이 적용될 수 있습니다. 분실 또는 손상된 디바이스에 대한 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products) 및 [FAQ를](https://azure.microsoft.com/pricing/details/databox/edge/)검토합니다.
+    > 반송 배송을 준비하기 위한 적절한 지침이 관찰되지 않으면 디바이스가 손상되고 손상된 디바이스 요금이 적용될 수 있습니다. 제품 [서비스 약관](https://www.microsoft.com/licensing/product-licensing/products) 및 [분실 또는 손상된 디바이스에 대한 FAQ를](https://azure.microsoft.com/pricing/details/databox/edge/)검토합니다.
  
 
 
@@ -179,16 +179,16 @@ Azure Edge 하드웨어 센터를 사용하여 디바이스를 주문한 경우 
 
 ### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center(미리 보기)](#tab/azure-edge-hardware-center)
 
-Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 또는 변조의 징후가 있는지 검사합니다.
+반환을 시작하면 청구가 일시 중지됩니다. Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 또는 변조 징후가 있는지 검사합니다.
 
-- 디바이스가 온전하고 정상적인 상태로 도착하면 해당 리소스에 대한 청구 미터가 중지됩니다. Azure Stack Edge 운영 팀은 디바이스가 반환된 것을 확인하기 위해 연락합니다. 주문 항목 상태는 반환을 완료로 반영합니다.  이제 Azure Portal 주문 항목 리소스를 삭제하도록 선택할 수 있습니다.
+- 디바이스가 그대로 도착하여 모양이 양호하면 Azure Stack Edge 운영 팀에서 디바이스가 반환되었는지 확인하기 위해 연락합니다. Azure Portal 디바이스와 연결된 리소스를 삭제하도록 선택할 수 있습니다.
 - 디바이스가 크게 손상된 경우 요금이 적용될 수 있습니다. 자세한 내용은 [분실 또는 손상된 디바이스에 대한 FAQ](https://azure.microsoft.com/pricing/details/databox/edge/)와 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요. 
 
 ### <a name="portal-classic"></a>[포털(클래식)](#tab/azure-portal) 
 
-Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 또는 변조 징후가 있는지 검사합니다.
+반환을 시작하면 청구가 일시 중지됩니다. Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 또는 변조 징후가 있는지 검사합니다.
 
-- 디바이스가 온전하고 정상적인 상태로 도착하면 해당 리소스에 대한 청구 미터가 중지됩니다. Azure Stack Edge 운영 팀은 디바이스가 반환된 것을 확인하기 위해 연락합니다. Azure Portal 디바이스와 연결된 리소스를 삭제하도록 선택할 수 있습니다.
+- 디바이스가 그대로 도착하여 모양이 양호하면 Azure Stack Edge 운영 팀에서 디바이스가 반환되었는지 확인하기 위해 연락합니다. Azure Portal 디바이스와 연결된 리소스를 삭제하도록 선택할 수 있습니다.
 - 디바이스가 크게 손상된 경우 요금이 적용될 수 있습니다. 자세한 내용은 [분실 또는 손상된 디바이스에 대한 FAQ](https://azure.microsoft.com/pricing/details/databox/edge/)와 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요.  
 
 

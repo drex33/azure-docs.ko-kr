@@ -1,8 +1,8 @@
 ---
 title: 빠른 시작 - X.509 인증서 증명을 사용하여 Azure Device Provisioning Service에 그룹 등록
 description: 이 빠른 시작에서는 중간 또는 루트 CA X.509 인증서 증명을 사용하는 디바이스 그룹을 프로그래밍 방식으로 등록하는 방법을 보여줍니다.
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set2
-ms.openlocfilehash: 1b668c4e15db7ff35adfa6078eeaac441e8377ea
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 70715362249c2e7f3c1429ea37290933b3dfc019
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293789"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751843"
 ---
 # <a name="quickstart-enroll-a-group-of-devices-to-the-device-provisioning-service-using-x509-certificate-attestation"></a>빠른 시작: X.509 인증서 증명을 사용하여 Device Provisioning Service에 디바이스 그룹 등록 
 
@@ -74,7 +74,7 @@ ms.locfileid: "129293789"
 
 :::zone-end
 
-* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다. 명령 창에서 액세스할 수 있는 환경 변수에 Git이 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 *Git Bash* 가 포함됩니다.
+* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다. Git이 명령 창에 액세스할 수 있는 환경 변수에 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 *Git Bash* 가 포함됩니다.
 
 >[!NOTE]
 >이 문서의 단계는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용합니다.
@@ -614,7 +614,7 @@ Device Provisioning Service에 인증서를 추가하고 확인하려면 다음�
 
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택합니다.
 
-3. 해당하는 Device Provisioning Service를 선택합니다.
+3. Device Provisioning Service를 선택합니다.
 
 4. **설정** 메뉴에서 **등록 관리** 를 선택합니다.
 

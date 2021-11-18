@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 11/15/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7f4c509b1f59db05db9bf6fca34960f7f2ab6b87
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d4e86f2dc3df62b90c45d27d9034e1b97d9b4870
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131054479"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522045"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -258,6 +258,7 @@ PATCH 및 POST의 요청 형식은 다릅니다. POST와 PATCH가 동일한 형�
   - **고려할 사항**
     - 모든 역할은 primary = false로 프로비저닝됩니다.
     - POST에 역할 형식이 포함됩니다. PATCH 요청에는 형식이 포함되지 않습니다. POST 및 PATCH 요청 모두에서 형식을 보낼 수 있도록 노력하고 있습니다.
+    - AppRoleAssignmentsComplex는 범위를 "모든 사용자 및 그룹 동기화"로 설정하는 기능과 호환되지 않습니다. 
     
   - **예제 출력** 
   

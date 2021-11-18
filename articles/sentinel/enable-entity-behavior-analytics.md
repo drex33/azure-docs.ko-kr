@@ -1,24 +1,17 @@
 ---
 title: 엔터티 동작 분석을 사용하여 지능형 위협 감지 | Microsoft Docs
 description: Microsoft Sentinel에서 사용자 및 엔터티 동작 분석을 사용하도록 설정하고 데이터 원본 구성
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cff89d82c96cd20db59e0ed0de77f988dacead90
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: a9b32937fbc9542a1b4a05924404df7d6897aa6d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721350"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762351"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Microsoft Sentinel에서 UEBA(사용자 및 엔터티 동작 분석) 사용 
 

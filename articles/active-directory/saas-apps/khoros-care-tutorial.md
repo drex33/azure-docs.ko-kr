@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 1b0d4c88bc9408fa6b7c9a3f848e3ce7d402b4c9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5b65a22677612b2ef4a7cb495e80b467ac0531d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802426"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326408"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-khoros-care"></a>자습서: Khoros Care와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "124802426"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -41,7 +41,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Khoros Care에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Khoros Care에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
-* Khoros Care를 구성한 후에는 세션 제어를 적용하여 조직의 중요 데이터에 대한 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+* Khoros Care를 구성한 후에는 세션 제어를 적용하여 조직의 중요 데이터에 대한 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-khoros-care-from-the-gallery"></a>갤러리에서 Khoros Care 추가
 
@@ -163,4 +163,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure AD로 Khoros Care 사용해보기](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+- [Cloud Apps용 Microsoft Defender의 세션 제어란?](/cloud-app-security/proxy-intro-aad)

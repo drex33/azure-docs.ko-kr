@@ -1,42 +1,42 @@
 ---
-title: Automation framework의 작업 영역 배포 정보
-description: Azure의 SAP 배포 자동화 프레임 워크 내에서 SAP 워크 로드 영역 배포 프로세스의 개요입니다.
+title: 자동화 프레임워크의 워크로드 영역 배포 정보
+description: Azure의 SAP 배포 자동화 프레임워크 내에서 SAP 워크로드 영역 배포 프로세스에 대한 개요입니다.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 1942eb957d601696c6dcb8044386d7c2304748c8
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 6feea5875859b21f0822c5a48c9ea1a593b0b1dc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730420"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759748"
 ---
-# <a name="workload-zone-deployment-in-sap-automation-framework"></a>SAP automation framework의 작업 영역 배포
+# <a name="workload-zone-deployment-in-sap-automation-framework"></a>SAP 자동화 프레임워크의 워크로드 영역 배포
 
-[SAP 응용 프로그램](automation-deployment-framework.md#sap-concepts) 에는 일반적으로 여러 개발 계층이 있습니다. 예를 들어 개발, 품질 보증 및 프로덕션 계층이 있을 수 있습니다. [Azure의 SAP 배포 자동화 프레임 워크](automation-deployment-framework.md) 는 이러한 계층을 [작업 영역](automation-deployment-framework.md#deployment-components)으로 참조 합니다.
+[SAP 애플리케이션에는](automation-deployment-framework.md#sap-concepts) 일반적으로 여러 개발 계층이 있습니다. 예를 들어 개발, 품질 보증 및 프로덕션 계층이 있을 수 있습니다. [Azure의 SAP 배포 자동화 프레임워크는](automation-deployment-framework.md) 이러한 계층을 [워크로드 영역이라고 합니다.](automation-deployment-framework.md#deployment-components)
 
-여러 Azure 지역에서 작업 영역을 사용할 수 있습니다. 각 작업 영역에는 자체 Azure VNet (azure Virtual Network)이 있습니다.
+여러 Azure 지역에서 워크로드 영역을 사용할 수 있습니다. 그러면 각 워크로드 영역에 자체 Azure Virtual Network(Azure VNet)가 있습니다.
 
-SAP 작업 영역에서 제공 하는 서비스는 다음과 같습니다.
+SAP 워크로드 영역에서 제공하는 서비스는 다음과 같습니다.
 
-- Azure Virtual Network (서브넷 및 네트워크 보안 그룹 포함)
-- 시스템 자격 증명을 Azure Key Vault 합니다.
-- 부트 진단에 대 한 Storage 계정
-- cloud 미러링 모니터 서버에 대 한 Storage 계정
+- 서브넷 및 네트워크 보안 그룹을 포함한 Azure Virtual Network.
+- 시스템 자격 증명의 경우 Azure Key Vault.
+- 부팅 진단에 대한 Storage 계정
+- 클라우드 Storage 계정
 
-:::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="다이어그램 SAP 워크 로드 영역.":::
+:::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="다이어그램 SAP 워크로드 영역.":::
 
-작업 영역은 일반적으로 허브 및 스포크 아키텍처의 스포크에 배포 됩니다. 사용자의 구독에 있을 수 있습니다.
+워크로드 영역은 일반적으로 허브 및 스포크 아키텍처의 스포크에 배포됩니다. 자체 구독에 있을 수 있습니다.
 
-컨트롤 평면에서 사설 DNS을 지원 합니다.
+컨트롤 플레인에서 프라이빗 DNS 지원합니다.
 
 
 ## <a name="core-configuration"></a>핵심 구성
 
-다음 예제 매개 변수 파일에는 필수 매개 변수만 표시 됩니다.
+다음 예제 매개 변수 파일은 필수 매개 변수만 보여줍니다.
 
 ```bash
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
@@ -65,9 +65,9 @@ automation_username="azureadm"
 
 ```
 
-## <a name="preparing-the-workload-zone-deployment-credentials"></a>작업 영역 배포 자격 증명 준비
+## <a name="preparing-the-workload-zone-deployment-credentials"></a>워크로드 영역 배포 자격 증명 준비
 
-SAP 배포 프레임 워크는 배포를 수행할 때 서비스 사용자를 사용 합니다. 서비스 주체를 만들 수 있는 권한이 있는 계정을 사용 하 여 다음 단계를 사용 하 여 워크 로드 영역 배포에 대 한 서비스 주체를 만들 수 있습니다.
+SAP 배포 프레임워크는 배포를 수행하는 경우 서비스 주체를 사용합니다. 서비스 주체를 만들 수 있는 권한이 있는 계정을 사용하여 다음 단계를 사용하여 워크로드 영역 배포에 대한 서비스 주체를 만들 수 있습니다.
 
 
 ```azurecli-interactive
@@ -76,40 +76,40 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 ```
 
 > [!IMPORTANT]
-> 서비스 사용자의 이름은 고유 해야 합니다.
+> 서비스 주체의 이름은 고유해야 합니다.
 >
-> 명령에서 출력 값을 기록 합니다.
+> 명령의 출력 값을 기록합니다.
    > - appId
    > - password
    > - tenant
 
-서비스 사용자에 게 올바른 사용 권한을 할당 합니다. 
+서비스 주체에 올바른 권한을 할당합니다. 
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
-## <a name="deploying-the-sap-workload-zone"></a>SAP 워크 로드 영역 배포
+## <a name="deploying-the-sap-workload-zone"></a>SAP 워크로드 영역 배포
    
-샘플 작업 영역 구성 파일은 `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` 폴더에 있습니다 `~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` .
+샘플 워크로드 영역 구성 `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` 파일은 `~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` 폴더에 있습니다.
 
-아래 명령을 실행 하면 SAP 워크 로드 영역이 배포 됩니다.
+아래 명령을 실행하면 SAP 워크로드 영역이 배포됩니다.
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
 > [!TIP]
-> 배포자에서이 작업을 수행 합니다.
+> 배포자에서 이 작업을 수행합니다.
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
-keyvault=<keyvaultName>
-storageaccount=<storageaccountName>
-statefile_subscription=<statefile_subscription>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret=<password>
+export tenant_id=<tenant>
+export keyvault=<keyvaultName>
+export storageaccount=<storageaccountName>
+export statefile_subscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars   \
@@ -117,7 +117,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --state_subscription $statefile_subscription           \
         --subscription $subscriptionID                         \
         --spn_id $appID                                        \
-        --spn_secret "$spn_secret"                             \
+        --spn_secret $spn_secret                               \
         --tenant_id $tenant_id
 ```
 # <a name="windows"></a>[Windows](#tab/windows)
@@ -133,7 +133,7 @@ $statefile_subscription=<statefile_subscription>
 
 cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE
 
-New-SAPWorkloadZone -Parameterfile .DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
+New-SAPWorkloadZone -Parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
 -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```
@@ -141,10 +141,10 @@ New-SAPWorkloadZone -Parameterfile .DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars
 ---
 
 > [!NOTE]
-> 샘플 값을 `<subscriptionID>` 구독 ID로 바꾸어야 합니다.
-> `<appID>`, `<password>` , 값을 `<tenant>` SPN 만들기의 출력 값으로 바꾸고,을 배포자 key vault name으로 바꾸고,을 terraform 상태 파일이 포함 된 `<keyvaultName>` `<storageaccountName>` `<statefile_subscription>` 저장소 계정의 구독 ID로 바꿉니다 .를 입력 합니다.
+> 샘플 값을 구독 ID로 바꾸어야 `<subscriptionID>` 합니다.
+> , , 값을 SPN 생성의 출력 값으로 바꾸고 를 배포자 키 자격 증명 모음 `<appID>` `<password>` 이름으로 `<tenant>` `<keyvault>` 바꾸기를 Terraform 상태 파일이 포함된 스토리지 계정의 이름으로 바꾸기를 `<storageaccount>` Terraform 상태 `<statefile_subscription>` 파일이 포함된 스토리지 계정의 구독 ID로 대체합니다.
 
 ## <a name="next-step"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Automation framework의 SAP 시스템 배포 정보](automation-configure-system.md)
+> [자동화 프레임워크의 SAP 시스템 배포 정보](automation-configure-system.md)

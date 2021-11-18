@@ -1,19 +1,17 @@
 ---
 title: Microsoft Sentinel의 헌팅 기능| Microsoft Docs
 description: Microsoft Sentinel의 기본 제공 헌팅 쿼리를 사용하여 데이터에서 문제를 찾기 위한 올바른 질문을 하도록 안내합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 73927528d75d23c2276b3fca2a1e396fe076b90e
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9735e3f1802404506467ad76bd97fd7a50e94046
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721046"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760427"
 ---
 # <a name="hunt-for-threats-with-microsoft-sentinel"></a>Microsoft Sentinel을 사용하여 위협 헌츠
 
@@ -62,7 +60,7 @@ ms.locfileid: "132721046"
 
 헌팅 대시보드를 사용하면 모든 쿼리 또는 선택한 하위 집합을 한 번 선택하여 실행할 수 있습니다. Microsoft Sentinel 포털에서 **헌팅을** 선택합니다.
 
-표시되는 표에는 Microsoft의 보안 분석가 팀에서 작성한 모든 쿼리와 사용자가 만들었거나 수정한 추가 쿼리가 표시됩니다. 각 쿼리는 헌팅하는 것에 대한 설명 및 실행되는 데이터의 종류를 제공합니다. 이러한 쿼리는 MITRE ATT&CK **전술로 그룹화됩니다.** 오른쪽의 아이콘은 초기 액세스, 지속성 및 유출과 같은 위협 유형을 분류합니다. MITRE ATT&CK **기술은** **기술** 열에 표시되고 헌팅 쿼리로 식별되는 특정 동작을 설명합니다.
+표시되는 표에는 Microsoft의 보안 분석가 팀에서 작성한 모든 쿼리와 사용자가 만들었거나 수정한 추가 쿼리가 표시됩니다. 각 쿼리는 헌팅하는 것에 대한 설명 및 실행되는 데이터의 종류를 제공합니다. 이러한 쿼리는 MITRE ATT&CK **전술로 그룹화됩니다.** 오른쪽의 아이콘은 초기 액세스, 지속성 및 유출과 같은 위협 유형을 분류합니다. MITRE ATT&CK **기술은** **기술** 열에 표시되며 헌팅 쿼리로 식별되는 특정 동작을 설명합니다.
 
 :::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel에서 헌팅 시작" lightbox="media/hunting/hunting-start.png":::
 
@@ -98,7 +96,7 @@ ms.locfileid: "132721046"
 
         :::image type="content" source="media/hunting/map-entity-types-hunting.png" alt-text="헌팅 쿼리에서 엔터티 형식을 매핑하는 스크린샷":::
 
-    1. **(미리 보기)** 기법, 기술 및 하위 기술(해당하는 경우)을 선택하여 MITRE ATT&CK 기술을 헌팅 쿼리에 매핑합니다.
+    1. **(미리 보기)** 기법, 기술 및 하위 기술(해당하는 경우)을 선택하여 MITRE ATT&CK 기법을 헌팅 쿼리에 매핑합니다.
 
         :::image type="content" source="./media/hunting/mitre-attack-mapping-hunting.png" alt-text="새 쿼리" lightbox="./media/hunting/new-query.png":::
 
@@ -130,16 +128,16 @@ ms.locfileid: "132721046"
 
 ## <a name="create-bookmarks"></a>책갈피 만들기
 
-헌팅 및 조사 프로세스 중에 비정상적이거나 의심스러워 보일 수 있는 쿼리 결과가 나타날 수 있습니다. 이러한 항목에 책갈피를 추가 하 여 나중에 다시 참조할 수 있습니다. 예를 들어 조사를 위해 인시던트를 만들거나 보강 합니다.
+헌팅 및 조사 프로세스 중에 비정상적이거나 의심스러워 보일 수 있는 쿼리 결과가 나타날 수 있습니다. 조사를 위해 인시던트 만들기 또는 보강과 같이 나중에 다시 참조하도록 이러한 항목에 책갈피를 지정합니다.
 
-- 결과에서 유지할 행에 대해 확인란을 표시하고 **책갈피 추가** 를 선택합니다. 이렇게 하면 결과를 만든 쿼리 뿐만 아니라 행 결과가 포함 된 책갈피-표시 된 각 행에 대 한 레코드를 만듭니다. 각 책갈피에 고유한 태그 및 메모를 추가할 수 있습니다.
+- 결과에서 유지할 행에 대해 확인란을 표시하고 **책갈피 추가** 를 선택합니다. 이렇게 하면 표시된 각 행(책갈피)에 대한 레코드가 생성됩니다. 여기에는 결과를 만든 쿼리뿐만 아니라 행 결과가 포함됩니다. 각 책갈피에 고유한 태그 및 메모를 추가할 수 있습니다.
 
-  - **(미리 보기)** 사용자 지정 쿼리와 마찬가지로 엔터티 매핑을 사용 하 여 책갈피를 보강 하 여 여러 엔터티 형식 및 식별자를 추출 하 고 MITRE AT&T&접시 매핑을 사용 하 여 특정 전략 및 기술을 연결할 수 있습니다.
-  - **(미리 보기)** 책갈피는 기본적으로 책갈피가 설정 된 결과를 생성 하는 구하기 쿼리와 동일한 엔터티 및 MITRE AT&T&접시 헤드 기술 매핑을 사용 합니다. 
+  - **(미리 보기)** 사용자 지정 쿼리와 마찬가지로 엔터티 매핑을 사용하여 책갈피를 보강하여 여러 엔터티 형식 및 식별자를 추출하고 MITRE ATT&CK 매핑을 통해 특정 전술과 기술을 연결할 수 있습니다.
+  - **(미리 보기)** 책갈피는 기본적으로 책갈피가 지정된 결과를 생성한 헌팅 쿼리와 동일한 엔터티 및 MITRE ATT&CK 기술 매핑을 사용합니다. 
 
 - 기본 **헌팅** 페이지에서 **책갈피** 탭을 클릭하여 책갈피가 지정된 모든 결과를 확인합니다. 태그를 책갈피에 추가하여 필터링을 위해 분류합니다. 예를 들어 공격 캠페인을 조사하는 경우 캠페인에 대한 태그를 만들고 관련 책갈피에 태그를 지정한 다음 캠페인을 기반으로 모든 책갈피를 필터링할 수 있습니다.
 
-- 책갈피를 선택한 다음, 세부 정보 창에서 **조사** 를 클릭하여 조사 환경을 연 후 책갈피가 지정된 단일 결과를 조사합니다. 나열 된 엔터티를 직접 선택 하 여 해당 엔터티의 해당 엔터티 페이지를 볼 수도 있습니다.
+- 책갈피를 선택한 다음, 세부 정보 창에서 **조사** 를 클릭하여 조사 환경을 연 후 책갈피가 지정된 단일 결과를 조사합니다. 나열된 엔터티를 직접 선택하여 해당 엔터티의 해당 엔터티 페이지를 볼 수도 있습니다.
 
     하나 이상의 책갈피에서 인시던트를 만들거나 기존 인시던트에 하나 이상의 책갈피를 추가할 수도 있습니다. 사용하려는 책갈피의 왼쪽에 있는 확인란을 선택한 다음, **인시던트 작업** > **새 인시던트 만들기** 또는 **기존 인시던트에 추가** 를 선택합니다. 그런 다음, 다른 인시던트와 마찬가지로 인시던트를 심사하고 조사할 수 있습니다.
 
@@ -151,59 +149,59 @@ ms.locfileid: "132721046"
 
 ## <a name="use-notebooks-to-power-investigations"></a>Notebook을 사용하여 조사 강화
 
-구하기 및 조사가 더 복잡 해지면 Microsoft 센티널 노트북을 사용 하 여 기계 학습, 시각화 및 데이터 분석을 통해 작업을 향상 시킵니다.
+헌팅 및 조사가 더 복잡해지면 Microsoft Sentinel Notebook을 사용하여 기계 학습, 시각화 및 데이터 분석을 통해 활동을 향상시킵니다.
 
-노트북은 완벽 한 조사를 수행할 수 있는 고유한 커널로 완료 된 일종의 가상 샌드박스를 제공 합니다. 노트북에는 원시 데이터, 해당 데이터에서 실행 하는 코드, 결과 및 해당 시각화가 포함 될 수 있습니다. 다른 사람과 공유 하 여 조직에서 다시 사용할 수 있도록 노트북을 저장 합니다.
+Notebook은 완전한 조사를 수행할 수 있는 자체 커널로 완성된 일종의 가상 샌드박스를 제공합니다. Notebook에는 원시 데이터, 해당 데이터에서 실행하는 코드, 결과 및 시각화가 포함될 수 있습니다. 조직에서 다시 사용할 수 있도록 다른 사용자와 공유할 수 있도록 Notebook을 저장합니다.
 
-전자 필기장은 사용자가 쉽게 기억할 수 없거나, 세부 정보를 보거나, 쿼리와 결과를 저장 해야 하는 경우에 유용 합니다. 전자 필기장을 만들고 공유 하는 데 도움이 되도록 Microsoft 센티널은 Microsoft 센티널 **노트북** 페이지에 직접 통합 된 오픈 소스 대화형 개발 및 데이터 조작 환경인 [Jupyter 노트북](https://jupyter.org)을 제공 합니다.
+Notebook은 헌팅 또는 조사가 너무 커서 쉽게 기억하지 못하거나, 세부 정보를 보거나, 쿼리와 결과를 저장해야 하는 경우에 유용할 수 있습니다. Notebook을 만들고 공유할 수 있도록 Microsoft Sentinel은 Microsoft Sentinel Notebook 페이지에 직접 통합된 오픈 소스 대화형 개발 및 데이터 조작 환경인 [Jupyter](https://jupyter.org) **Notebook을** 제공합니다.
 
 자세한 내용은 다음을 참조하세요.
 
 - [Jupyter Notebook을 사용하여 보안 위협 헌팅](notebooks.md)
-- [jupyter Project 설명서](https://jupyter.org/documentation)
-- [Jupyter 소개 설명서](https://jupyter.readthedocs.io/en/latest/tryjupyter.html)입니다.
-- [Infosec Jupyter 책](https://infosecjupyterbook.com)
+- [Jupyter Project 설명서](https://jupyter.org/documentation)
+- [Jupyter 소개 설명서.](https://jupyter.readthedocs.io/en/latest/tryjupyter.html)
+- [The Infosec Jupyter Book](https://infosecjupyterbook.com)
 - [실제 Python 자습서](https://realpython.com)
 
-다음 표에서는 Juypter 노트북을 사용 하 여 Microsoft 센티널의 프로세스에 도움이 되는 몇 가지 방법을 설명 합니다.
+다음 표에서는 Juypter Notebook을 사용하여 Microsoft Sentinel에서 프로세스를 돕는 몇 가지 방법을 설명합니다.
 
-|메서드  |설명  |
+|메서드  |Description  |
 |---------|---------|
-|**데이터 지 속성, 반복성 및 역 추적**     |  많은 쿼리와 결과 집합을 사용 하 여 작업 하는 경우에는 일부 데드 끝이 있을 가능성이 높습니다. 유지할 쿼리와 결과를 결정 하 고 단일 보고서에 유용한 결과를 누적 하는 방법을 결정 해야 합니다. <br><br> Jupyter 노트북을 사용 하 여 쿼리 및 데이터를 저장 하 고, 변수를 사용 하 여 다른 값 이나 날짜로 쿼리를 다시 실행 하거나, 쿼리를 저장 하 여 이후 조사에서 다시 실행 합니다.       |
-|**스크립팅 및 프로그래밍**     |    Jupyter 노트북을 사용 하 여 다음을 포함 하 여 쿼리에 프로그래밍을 추가 합니다. <br><br>- [KQL (kusto Query Language)](/azure/kusto/query/) 또는 SQL 같은 *선언적* 언어를 통해 논리를 매우 복잡 한 단일 문으로 인코딩할 수 있습니다.<br>- 일련의 단계로 논리를 실행 하는 *절차* 프로그래밍 언어 <br><br>논리를 단계로 분할 하면 중간 결과를 확인 및 디버그 하 고, 쿼리 언어에서 사용할 수 없는 기능을 추가 하 고, 나중에 처리 하는 단계에서 부분 결과를 다시 사용할 수 있습니다.     |
-|**외부 데이터에 대 한 링크**     | Microsoft 센티널 테이블에는 대부분의 원격 분석 및 이벤트 데이터가 있지만 Jupyter 노트북은 네트워크를 통해 또는 파일에서 액세스할 수 있는 모든 데이터에 연결할 수 있습니다. Jupyter 노트북을 사용 하면 다음과 같은 데이터를 포함할 수 있습니다. <br><br>-사용자가 소유 하지 않은 외부 서비스의 데이터 (예: 지리적 위치 데이터 또는 위협 인텔리전스 원본)<br>사용자의 조직 내에만 저장 되는 중요 한 데이터 (예: 인적 자원 데이터베이스 또는 상위 가치의 자산 목록)<br>-클라우드로 아직 마이그레이션하지 않은 데이터입니다.        |
-|**전문화 된 데이터 처리, 기계 학습 및 시각화 도구**     | Jupyter 노트북은 추가 시각화, 기계 학습 라이브러리, 데이터 처리 및 변환 기능을 제공 합니다. <br><br>예를 들어 다음 [Python](https://python.org) 기능과 함께 Jupyter 노트북을 사용 합니다.<br>- 데이터 처리, 정리 및 엔지니어링을 위한 [pandas](https://pandas.pydata.org/)<br>- 시각화에 대 한 [Matplotlib](https://matplotlib.org), [HoloViews](https://holoviews.org)및 [Plotly](https://plot.ly)<br>- 고급 숫자 및 과학적 처리를 위한 [NumPy](https://www.numpy.org) 및 [SciPy](https://www.scipy.org)<br>- [scikit-](https://scikit-learn.org/stable/index.html) machine learning에 대해 알아보기<br>- 심층 학습을 위한 [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org)및 [keras](https://keras.io/)<br><br>**팁**: jupyter 노트북은 다중 언어 커널을 지원 합니다. *매직* 를 사용 하면 다른 언어를 사용 하 여 개별 셀을 실행할 수 있으므로 동일한 노트북 내에서 언어를 혼합할 수 있습니다. 예를 들어 PowerShell 스크립트 셀을 사용 하 여 데이터를 검색 하 고, Python에서 데이터를 처리 하 고, JavaScript를 사용 하 여 시각화를 렌더링할 수 있습니다.        |
+|**데이터 지속성, 반복성 및 역추적**     |  많은 쿼리 및 결과 집합으로 작업하는 경우 몇 가지 데드 엔드가 있을 수 있습니다. 유지할 쿼리 및 결과와 단일 보고서에 유용한 결과를 누적하는 방법을 결정해야 합니다. <br><br> Jupyter Notebook을 사용하여 쿼리 및 데이터를 저장하거나, 변수를 사용하여 다른 값 또는 날짜로 쿼리를 다시 실행하거나, 쿼리를 저장하여 향후 조사를 다시 실행합니다.       |
+|**스크립팅 및 프로그래밍**     |    Jupyter Notebook을 사용하여 다음을 포함하여 쿼리에 프로그래밍을 추가합니다. <br><br>- 논리를 복잡한 단일 문으로 인코딩하기 위한 [KQL(Kusto Query Language)](/azure/kusto/query/) 또는 SQL 같은 *선언적* 언어입니다.<br>- *일련의* 단계에서 논리를 실행하는 절차적 프로그래밍 언어입니다. <br><br>논리를 단계로 분할하면 중간 결과를 보고 디버그하고, 쿼리 언어에서 사용할 수 없는 기능을 추가하고, 이후 처리 단계에서 부분 결과를 다시 사용할 수 있습니다.     |
+|**외부 데이터에 대한 링크**     | Microsoft Sentinel 테이블에는 대부분의 원격 분석 및 이벤트 데이터가 있지만 Jupyter Notebook은 네트워크 또는 파일을 통해 액세스할 수 있는 모든 데이터에 연결할 수 있습니다. Jupyter Notebook을 사용하면 다음과 같은 데이터를 포함할 수 있습니다. <br><br>- 지리적 위치 데이터 또는 위협 인텔리전스 원본과 같이 소유하지 않은 외부 서비스의 데이터<br>- 인사 관리 데이터베이스 또는 중요 자산 목록과 같이 조직 내에만 저장되는 중요한 데이터<br>- 아직 클라우드로 마이그레이션하지 않은 데이터입니다.        |
+|**특수 데이터 처리, 기계 학습 및 시각화 도구**     | Jupyter Notebook은 추가 시각화, 기계 학습 라이브러리, 데이터 처리 및 변환 기능을 제공합니다. <br><br>예를 들어 다음과 같은 [Python](https://python.org) 기능이 있는 Jupyter Notebook을 사용합니다.<br>- 데이터 처리, 정리 및 엔지니어링을 위한 [pandas](https://pandas.pydata.org/)<br>- [시각화를 위한 Matplotlib,](https://matplotlib.org) [HoloViews](https://holoviews.org)및 [Plotly](https://plot.ly)<br>- 고급 숫자 및 과학적 처리를 위한 [NumPy](https://www.numpy.org) 및 [SciPy](https://www.scipy.org)<br>- 기계 학습용 [scikit-learn](https://scikit-learn.org/stable/index.html)<br>- 딥 러닝을 위한 [TensorFlow,](https://www.tensorflow.org/) [PyTorch](https://pytorch.org)및 [Keras](https://keras.io/)<br><br>**팁:** Jupyter Notebook은 여러 언어 커널을 지원합니다. *다른 언어를* 사용하여 개별 셀을 실행하도록 허용하여 매직을 사용하여 동일한 Notebook 내에서 언어를 혼합합니다. 예를 들어 PowerShell 스크립트 셀을 사용하여 데이터를 검색하고, Python에서 데이터를 처리하고, JavaScript를 사용하여 시각화를 렌더링할 수 있습니다.        |
 |     |         |
 
 ### <a name="mstic-jupyter-and-python-security-tools"></a>MSTIC, Jupyter 및 Python 보안 도구
 
-[Microsoft 위협 인텔리전스 센터 (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) 는 여러 microsoft 플랫폼에 대 한 보안 검색을 작성 하 고 위협 식별 및 조사를 수행 하는 microsoft 보안 분석가 및 엔지니어 팀입니다.
+[MSTIC(Microsoft Threat Intelligence Center)는](https://msrc-blog.microsoft.com/tag/mstic/) Microsoft 보안 분석가 및 엔지니어로 구성된 팀으로, 여러 Microsoft 플랫폼에 대한 보안 검색을 작성하고 위협 식별 및 조사에 대해 작업합니다.
 
-MSTIC는 Jupyter 노트북에서 정보 보안 조사 및 사냥을 위한 라이브러리인 [MSTICPy](https://github.com/Microsoft/msticpy)를 빌드 했습니다. MSTICPy는 노트북 생성 속도를 높이는 재사용 가능한 기능을 제공 하며 사용자가 Microsoft 센티널에서 노트북을 쉽게 읽을 수 있도록 합니다.
+MSTIC는 Jupyter Notebook에서 정보 보안 조사 및 헌팅을 위한 라이브러리인 [MSTICPy를](https://github.com/Microsoft/msticpy)빌드했습니다. MSTICPy는 Notebook 만들기 속도를 높이고 사용자가 Microsoft Sentinel에서 Notebook을 더 쉽게 읽을 수 있도록 하는 재사용 가능한 기능을 제공합니다.
 
-예를 들어, MSTICPy는 다음을 수행할 수 있습니다.
+예를 들어 MSTICPy는 다음을 수행할 수 있습니다.
 
-- 여러 원본에서 로그 데이터를 쿼리 합니다.
-- 위협 인텔리전스, geolocations 및 Azure 리소스 데이터를 사용 하 여 데이터를 보강 합니다.
-- 로그에서 활동 표시기 (IoA)를 추출 하 고 인코딩된 데이터의 압축을 풉니다.
-- 비정상적인 세션 검색 및 시계열 분해와 같은 정교한 분석을 수행 합니다.
-- 대화형 타임 라인, 프로세스 트리 및 다차원 모핑 차트를 사용 하 여 데이터를 시각화 합니다.
+- 여러 원본의 로그 데이터를 쿼리합니다.
+- 위협 인텔리전스, 지리적 위치 및 Azure 리소스 데이터를 통해 데이터를 보강합니다.
+- 로그에서 활동 표시기(IoA)를 추출하고 인코딩된 데이터의 압축을 풉니다.
+- 비정상적인 세션 검색 및 계열 분해와 같은 정교한 분석을 수행합니다.
+- 대화형 타임라인, 프로세스 트리 및 다차원 모프 차트를 사용하여 데이터를 시각화합니다.
 
-또한 MSTICPy에는 쿼리 시간 경계를 설정 하 고, 목록에서 항목을 선택 하 고 표시 하 고, 노트북 환경을 구성 하는 위젯 등의 몇 가지 시간 절약 노트 도구가 포함 되어 있습니다.
+MSTICPy에는 쿼리 시간 경계를 설정하고, 목록에서 항목을 선택 및 표시하고, Notebook 환경을 구성하는 위젯과 같은 몇 가지 시간 절약 Notebook 도구도 포함되어 있습니다.
 
 자세한 내용은 다음을 참조하세요.
 
 - [MSTICPy 설명서](https://msticpy.readthedocs.io/en/latest/)
-- [자습서: Microsoft 센티널에서 Jupyter 노트북 및 MSTICPy 시작 하기](notebook-get-started.md)
-- [Microsoft 센티널의 Jupyter 노트북 및 MSTICPy에 대 한 고급 구성](notebooks-msticpy-advanced.md)
+- [자습서: Microsoft Sentinel에서 Jupyter Notebook 및 MSTICPy 시작](notebook-get-started.md)
+- [Microsoft Sentinel의 Jupyter Notebook 및 MSTICPy에 대한 고급 구성](notebooks-msticpy-advanced.md)
 
 ## <a name="useful-operators-and-functions"></a>유용한 연산자 및 함수
 
 헌팅 쿼리는 기본 제공된 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)로, 헌팅을 다음 수준으로 가져오는 데 필요한 성능과 유연성을 제공하는 IntelliSense 언어를 포함하는 강력한 쿼리 언어입니다.
 
-분석 규칙의 쿼리와 Microsoft 센티널의 다른 곳에서 사용 하는 것과 동일한 언어입니다. 자세한 내용은 [쿼리 언어 참조](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
+분석 규칙의 쿼리 및 Microsoft Sentinel의 다른 곳에서 사용하는 것과 동일한 언어입니다. 자세한 내용은 [쿼리 언어 참조](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
 
-Microsoft 센티널 구하기 쿼리에서는 다음과 같은 연산자를 특히 유용 하 게 사용할 수 있습니다.
+다음 연산자는 Microsoft Sentinel 헌팅 쿼리에서 특히 유용합니다.
 
 - **where** - 조건자를 충족하는 행의 하위 집합으로 테이블을 필터링합니다.
 
@@ -225,11 +223,11 @@ Microsoft 센티널 구하기 쿼리에서는 다음과 같은 연산자를 특�
 
 - **find** - 테이블 집합 사이에서 조건자와 일치하는 행을 찾습니다.
 
-- **adx () (미리 보기)** -이 함수는 Microsoft 센티널 구하기 환경 및 Log Analytics에서 Azure 데이터 탐색기 데이터 원본에 대 한 리소스 간 쿼리를 수행 합니다. 자세한 내용은 [Azure Monitor를 사용하여 Azure Data Explorer 리소스 간 쿼리](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md)를 참조하세요.
+- **adx()(미리 보기)** - 이 함수는 Microsoft Sentinel 헌팅 환경 및 Log Analytics에서 Azure Data Explorer 데이터 원본의 리소스 간 쿼리를 수행합니다. 자세한 내용은 [Azure Monitor를 사용하여 Azure Data Explorer 리소스 간 쿼리](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft 센티널에서 구하기 조사를 실행 하는 방법을 알아보았습니다.
+이 문서에서는 Microsoft Sentinel을 사용하여 헌팅 조사를 실행하는 방법을 배웠습니다.
 
 자세한 내용은 다음을 참조하세요.
 

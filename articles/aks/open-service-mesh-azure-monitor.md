@@ -1,19 +1,18 @@
 ---
-title: Azure Monitor 및 Application Insights 사용
-description: 서비스 메시를 사용 하 여 Azure Monitor 및 Application Insights를 사용 하는 방법
+title: AKS (Azure Kubernetes Service)에서 개방형 서비스 메시를 사용 하 여 모니터링 및 관찰성 구성
+description: AKS (Azure Kubernetes Service)에서 개방형 서비스 메시를 사용 하 여 모니터링 및 관찰성 구성
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 139c2dbd201791fd7960e66564a293545c3ca524
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 59e526c6411db44c7982ed50948f915b0f6a4aa8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066732"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132753800"
 ---
-# <a name="open-service-mesh-osm-monitoring-and-observability-using-azure-monitor-and-applications-insights"></a>Azure Monitor 및 Application Insights를 사용한 OSM(Open Service Mesh) 모니터링 및 가시성
+# <a name="configure-monitoring-and-observability-with-open-service-mesh-on-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 개방형 서비스 메시를 사용 하 여 모니터링 및 관찰성 구성
 
 Azure Monitor 및 Azure 애플리케이션는 모두 응용 프로그램 및 서비스의 가용성과 성능을 극대화 하는 데 도움이 Insights. 이러한 서비스는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동 하기 위한 종합적인 솔루션을 제공 합니다.
 
@@ -40,7 +39,7 @@ kube-system     omsagent-rs-74b8f7dfd8-rp5vx          1/1     Running   1       
 osm metrics enable --namespace <namespace>
 ```
 
-예를 들어, 서 [점 데모](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/)를 실행 하는 경우 `osm metrics enable` 다음 네임 스페이스에 대해 명령을 실행 합니다.
+예를 들어, 서 [점 데모](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/)를 실행 하는 경우 `osm metrics enable` 다음 네임 스페이스에 대해 명령을 실행 합니다.
 
 ```sh
 osm metrics enable --namespace bookbuyer
@@ -84,3 +83,7 @@ InsightsMetrics
 ## <a name="additional-information"></a>추가 정보
 
 OSM AKS 추가 기능에 대 한 Azure Monitor 및 Insights Azure 애플리케이션를 사용 하도록 설정 하 고 구성 하는 방법에 대 한 자세한 내용은 [OSM에 대 한 Azure Monitor](https://aka.ms/azmon/osmpreview) 페이지를 참조 하세요.
+
+또한 OSM for 관찰성에 사용할 수 있는 오픈 소스 도구가 있습니다. 자세한 내용은 [OSM 관찰성][osm-observeability]를 참조 하세요.
+
+[osm-observeability]: https://docs.openservicemesh.io/docs/guides/observability/

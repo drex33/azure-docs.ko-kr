@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: 24ffce1528aa5c82fec9666fa0cb7b8717107f54
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "97652265"
@@ -51,7 +51,7 @@ VM에서 사용자 지정 DNS 설정을 사용하는지 확인하는 방법:
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>문제 2: Site Recovery 구성이 실패했습니다(151196).
 
 > [!NOTE]
-> VM이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 `login.microsoftonline.com`과 같은 Microsoft 365 IP에 액세스할 수 없습니다. **기본** 내부 부하 분산 장치 형식으로 변경하거나 [Azure CLI를 사용하여 표준 부하 분산 장치에서 부하 분산 및 아웃바운드 규칙 구성](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration) 문서에 설명된 대로 아웃바운드 액세스를 만듭니다.
+> VM이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 `login.microsoftonline.com`과 같은 Microsoft 365 IP에 액세스할 수 없습니다. **기본** 내부 부하 분산 장치 형식으로 변경하거나 [Azure CLI를 사용하여 표준 Load Balancer에서 부하 분산 및 아웃바운드 규칙 구성](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration) 문서에 설명된 대로 아웃바운드 액세스를 만듭니다.
 
 #### <a name="possible-cause"></a>가능한 원인
 

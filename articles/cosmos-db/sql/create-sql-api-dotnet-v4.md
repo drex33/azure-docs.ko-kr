@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.custom: devx-track-dotnet, devx-track-azurecli
-ms.openlocfilehash: 7468f2a615c52c6d18f93eebead58b9b28f6fb08
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6e12d3647212e4aac564483fe300c1888ba594db
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117964"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761289"
 ---
 # <a name="quickstart-build-a-console-app-by-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>빠른 시작: .NET V4 SDK(미리 보기)를 사용하여 Azure Cosmos DB SQL API 계정 리소스를 관리하는 방식으로 콘솔 앱 빌드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -27,7 +27,6 @@ ms.locfileid: "123117964"
 > * [Spark v3 커넥터](create-sql-api-spark.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 시작합니다. 이 문서의 단계에 따라 .NET V4(Azure.Cosmos) 패키지를 설치하고 앱을 빌드합니다. 그런 다음, Azure Cosmos DB에 저장된 데이터에 대한 기본 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업의 예제 코드를 사용해 봅니다.
 

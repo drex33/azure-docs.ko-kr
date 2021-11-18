@@ -1,24 +1,17 @@
 ---
-title: 데이터 원본을 Microsoft Sentinel 데이터 수집기 API에 커넥트 데이터 | 수집 Microsoft Docs
+title: 데이터 원본을 Microsoft Sentinel 데이터 수집기 API에 커넥트 데이터 | Microsoft Docs
 description: 외부 시스템을 Microsoft Sentinel 데이터 수집기 API에 연결하여 작업 영역의 사용자 지정 로그에 로그 데이터를 수집하는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 733ce3565970a6f858edfe32386a21d7655345a6
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 95caec4574a00877a114523f5888a7b71aa6611b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721825"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762960"
 ---
 # <a name="connect-your-data-source-to-the-microsoft-sentinel-data-collector-api-to-ingest-data"></a>데이터 원본을 Microsoft Sentinel 데이터 수집기 API에 커넥트 데이터를 수집합니다.
 
@@ -26,7 +19,7 @@ ms.locfileid: "132721825"
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-타사 공급업체에서 빌드한 API 통합은 제품의 데이터 원본에서 데이터를 끌어오고 Microsoft Sentinel의 [Azure Monitor 데이터 수집기 API에](../azure-monitor/logs/data-collector-api.md) 연결하여 Microsoft Sentinel 작업 영역의 사용자 지정 로그 테이블에 데이터를 푸시합니다.
+타사 공급업체가 빌드한 API 통합은 제품의 데이터 원본에서 데이터를 끌어오고 Microsoft Sentinel의 [Azure Monitor 데이터 수집기 API에](../azure-monitor/logs/data-collector-api.md) 연결하여 Microsoft Sentinel 작업 영역의 사용자 지정 로그 테이블에 데이터를 푸시합니다.
 
 대부분의 경우 각 공급업체의 설명서에서 Microsoft Sentinel에 연결하도록 이러한 데이터 원본을 구성하는 데 필요한 모든 정보를 찾을 수 있습니다.
 
@@ -35,7 +28,7 @@ ms.locfileid: "132721825"
 > [!NOTE]
 > 데이터는 Microsoft Sentinel을 실행하는 작업 영역의 지리적 위치에 저장됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Microsoft Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 

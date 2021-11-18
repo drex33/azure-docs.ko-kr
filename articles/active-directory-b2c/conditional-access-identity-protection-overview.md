@@ -10,12 +10,12 @@ ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b53e5397c9e4e04a7049d18f9e9efdcfc62a921
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6c5c7b8ed515fc3148f42b06c3c81f6060816e79
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130037798"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281384"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스
 
@@ -28,7 +28,7 @@ Azure AD의 [ID 보호](../active-directory/identity-protection/overview-identit
 > [!NOTE]
 > 위험한 로그인 정책을 만들려면 Azure AD B2C **Premium P2** 가 필요합니다. **Premium P1** 테넌트는 위치, 애플리케이션, 사용자 기반 또는 그룹 기반 정책을 기반으로 하는 정책을 만들 수 있습니다. 자세한 내용은 [Azure AD B2C 가격 책정 계층 변경](billing.md#change-your-azure-ad-pricing-tier)을 참조하세요.
 
-## <a name="benefits-of-identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스의 이점  
+## <a name="benefits-of-identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스의 이점
 
 조건부 액세스 정책을 ID 보호 위험 검색과 쌍으로 연결하면 적절한 정책 작업을 통해 위험한 인증에 응답할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure AD의 [ID 보호](../active-directory/identity-protection/overview-identit
 
 Azure AD B2C의 ID 보호 및 조건부 액세스는 일반적으로 Azure AD에서와 동일한 방식으로 작동하지만 다음과 같은 예외가 있습니다.
 
-- Security Center는 Azure AD B2C에서 사용할 수 없습니다.
+- Microsoft Defender for Cloud는 Azure AD B2C에서 사용할 수 없습니다.
 
 - ID 보호 및 조건부 액세스는 Azure AD B2C 테넌트의 ROPC 서버 간 흐름에 지원되지 않습니다.
 
@@ -50,7 +50,6 @@ Azure AD B2C의 ID 보호 및 조건부 액세스는 일반적으로 Azure AD에
 - ID 보호 위험 검색의 하위 집합은 Azure AD B2C 테넌트에서 사용할 수 있습니다. [ID 보호로 위험 조사](identity-protection-investigate-risk.md) 및 [사용자 흐름에 조건부 액세스 추가](conditional-access-user-flow.md)를 참조하세요.
 
 - 조건부 액세스 디바이스 규정 준수 기능은 Azure AD B2C 테넌트에서 사용할 수 없습니다.
-
 
 ## <a name="integrate-conditional-access-with-user-flows-and-custom-policies"></a>조건부 액세스를 사용자 흐름 및 사용자 지정 정책과 통합
 

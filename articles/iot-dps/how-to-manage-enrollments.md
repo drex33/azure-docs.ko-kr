@@ -1,19 +1,19 @@
 ---
 title: Azure Portal에서 Azure IoT Hub 디바이스 프로비전 서비스에 대한 디바이스 등록 관리
 description: Azure Portal에서 디바이스 프로비전 서비스(DPS)에 대한 디바이스 등록을 관리하는 방법
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 10/25/2021
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: 7f0fdcf8a3e51405861082b3c2ad8a6385f5a6e9
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: db40e263cf18767550e9d417311403eca9cc11a3
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843395"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754009"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal을 사용하여 디바이스 등록을 관리하는 방법
 
@@ -224,4 +224,4 @@ TPM 개별 등록을 만들려면 다음을 수행합니다.
 
 7. 확인하라는 프롬프트가 나타나면 **예** 를 선택합니다.
 
-8. 작업이 완료되면 디바이스 등록 목록에서 항목 hav가 제거된 것을 볼 수 있습니다.
+8. 작업이 완료되면 디바이스 등록 목록에서 항목이 제거된 것을 볼 수 있습니다.

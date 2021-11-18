@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 62068470ef245634788a1b696bb74ca255b61a8c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 67e4e9cb9c471d86c68be03f608c99c67812e0de
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124747465"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132334799"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudsign"></a>자습서: CloudSign과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -41,7 +41,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * CloudSign에서 **SP** 시작 SSO를 지원합니다.
 
-* CloudSign을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+* CloudSign을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-cloudsign-from-the-gallery"></a>갤러리에서 CloudSign 추가
 
@@ -151,6 +151,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure AD로 CloudSign 사용해 보기](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+- [Cloud Apps용 Microsoft Defender의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
 
 - [고급 표시 유형 및 컨트롤을 사용하여 CloudSign을 보호하는 방법](/cloud-app-security/proxy-intro-aad)

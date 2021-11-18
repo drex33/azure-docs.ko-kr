@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: df1b585fb0f84dafe26c954386f487e3ceff2bc7
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
-ms.translationtype: HT
+ms.openlocfilehash: ce7533467e039165a38ecf618043a312e40f4f21
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847331"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754465"
 ---
 # <a name="faq-for-azure-role-assignment-conditions-preview"></a>Azure 역할 할당 조건에 대한 FAQ(미리 보기)
 
@@ -33,10 +33,6 @@ ms.locfileid: "109847331"
 **식을 그룹화할 수 있나요?**
 
 대상 동작에 대해 식을 세 개 이상 추가하는 경우 코드 편집기, Azure PowerShell 또는 Azure CLI에 있는 식의 논리적 그룹화를 정의해야 합니다. `a AND b OR c`의 논리적 그룹화는 `(a AND b) OR c` 또는 `a AND (b OR c )`일 수 있습니다.
-
-**관리 그룹 범위에서 역할 할당 조건을 추가할 수 있나요?**
-  
-Azure Portal을 통해 관리 그룹 범위에서 조건을 편집하거나 볼 수 없습니다. 관리 그룹 범위에 대해서는 **조건** 열이 표시되지 않습니다. Azure PowerShell 및 Azure CLI를 사용하여 관리 그룹 범위에서 조건을 추가할 수 있습니다.
 
 **미리 보기에서 Azure 리소스에 대한 PIM(Privileged Identity Management)을 통해 조건이 지원되나요?**
 

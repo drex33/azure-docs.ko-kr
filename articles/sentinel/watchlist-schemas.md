@@ -2,16 +2,16 @@
 title: Microsoft Sentinel용 스키마 감시 목록 템플릿 | Microsoft Docs
 description: Microsoft Sentinel의 각 기본 제공 감시 목록 템플릿에 사용되는 스키마에 대해 알아봅니다.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 64c4ece5e98bbdb085a5512451422988f103a3f4
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 645f958ec8448a67bd9b983a3956688d2ed91a71
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711138"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756213"
 ---
 # <a name="microsoft-sentinel-built-in-watchlist-template-schemas-public-preview"></a>Microsoft Sentinel 기본 제공 감시 목록 템플릿 스키마(공개 미리 보기)
 
@@ -115,4 +115,4 @@ ID 상관 관계 관심 목록에는 동일한 사용자에게 속하는 관련 
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Microsoft Sentinel 감시 목록 사용을 참조하세요.](watchlists.md)
+자세한 내용은 [Microsoft 센티널 Watchlists 사용](watchlists.md)을 참조 하세요.

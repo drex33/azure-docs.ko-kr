@@ -1,8 +1,8 @@
 ---
 title: 빠른 시작 - TPM 증명을 사용하여 Azure Device Provisioning Service에 개별 디바이스 등록
 description: 빠른 시작 - TPM 증명을 사용하여 Azure IoT Hub DPS(Device Provisioning Service)에 개별 디바이스 등록
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 08/20/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set2
-ms.openlocfilehash: d13a4b8224fc5ebe3eccf5f569af0efaed9b4101
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: a4fee2d212b79d6bd4efe8d6bfc1eb6c0c6cb429
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293828"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755700"
 ---
 # <a name="quickstart-enroll-individual-device-to-iot-hub-device-provisioning-service-using-tpm-attestation"></a>빠른 시작: TPM 증명을 사용하여 IoT Hub Device Provisioning Service에 개별 디바이스 등록
 
@@ -572,13 +572,13 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
 
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택합니다.
 
-3. 해당하는 Device Provisioning Service를 선택합니다.
+3. Device Provisioning Service를 선택합니다.
 
 4. **설정** 메뉴에서 **등록 관리** 를 선택합니다.
 
 5. **개별 등록** 탭을 선택합니다.
 
-6. 이 빠른 시작에서 등록한 디바이스의 *등록 ID* 옆에 있는 확인란을 선택합니다.
+6. 이 빠른 시작에 등록한 디바이스의 *등록 ID* 옆에 있는 확인란을 선택합니다.
 
 7. 페이지 위쪽에서 **삭제** 를 선택합니다.
 

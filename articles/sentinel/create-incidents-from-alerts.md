@@ -1,32 +1,25 @@
 ---
-title: Microsoft 센티널의 경고에서 인시던트 만들기 | Microsoft Docs
-description: Microsoft 센티널의 경고에서 인시던트를 만드는 방법에 대해 알아봅니다.
-services: sentinel
-documentationcenter: na
+title: Microsoft Sentinel | 경고에서 인시던트 만들기 Microsoft Docs
+description: Microsoft Sentinel의 경고에서 인시던트 생성 방법을 알아봅니다.
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 2063947e197cab0f76cd62c28f2f2bb8a968cf28
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 129edd203184ff02e93dde9471f903c7b2932812
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721540"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760567"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Microsoft 보안 경고에서 인시던트 자동 생성
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널에 연결 된 microsoft 보안 솔루션에서 트리거된 경고 (예: 클라우드 앱 용 Microsoft Defender 및 Id 용 Microsoft Defender (이전 Azure ATP))는 Microsoft 센티널에서 인시던트를 자동으로 만들지 않습니다. 기본적으로 microsoft 사용자를 microsoft에 연결 하는 경우 해당 서비스에서 생성 되는 모든 경고는 microsoft 센티널의 microsoft 센티널 작업 영역에 있는 보안 경고 표에 원시 데이터로 저장 됩니다. 그런 다음 Microsoft 센티널에 연결 하는 다른 원시 데이터와 같은 데이터를 사용할 수 있습니다.
+Microsoft Defender for Cloud Apps 및 Microsoft Defender for Identity(이전의 Azure ATP)와 같이 Microsoft Sentinel에 연결된 Microsoft 보안 솔루션에서 트리거된 경고는 Microsoft Sentinel에서 인시던트 생성을 자동으로 수행하지 않습니다. 기본적으로 Microsoft 솔루션을 Microsoft Sentinel에 연결하면 해당 서비스에서 생성된 모든 경고는 Microsoft Sentinel 작업 영역의 보안 경고 테이블에 있는 Microsoft Sentinel에 원시 데이터로 저장됩니다. 그런 다음, Microsoft Sentinel에 연결하는 다른 원시 데이터와 마찬가지로 해당 데이터를 사용할 수 있습니다.
 
-이 문서의 지침에 따라 연결 된 Microsoft 보안 솔루션에서 경고가 트리거될 때마다 자동으로 인시던트를 만들도록 Microsoft 센티널을 쉽게 구성할 수 있습니다.
+이 문서의 지침에 따라 연결된 Microsoft 보안 솔루션에서 경고가 트리거될 때마다 자동으로 인시던트 생성을 수행하도록 Microsoft Sentinel을 쉽게 구성할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -34,9 +27,9 @@ Microsoft 센티널에 연결 된 microsoft 보안 솔루션에서 트리거된 
 
 ## <a name="using-microsoft-security-incident-creation-analytics-rules"></a>Microsoft 보안 인시던트 생성 분석 규칙 사용
 
-Microsoft 센티널에서 제공 되는 기본 제공 규칙을 사용 하 여 microsoft 센티널 인시던트를 실시간으로 자동으로 만들어야 하는 연결 된 Microsoft 보안 솔루션을 선택할 수 있습니다. 규칙을 편집 하 여 microsoft 보안 솔루션에 의해 생성 된 경고 중 Microsoft 센티널에서 인시던트를 만들어야 하는 경고를 필터링 하는 보다 구체적인 옵션을 정의할 수도 있습니다. 예를 들어 심각도가 높은 클라우드 용 Microsoft Defender (이전의 Azure Security Center) 경고만에서 자동으로 Microsoft 센티널 인시던트를 만들도록 선택할 수 있습니다.
+Microsoft Sentinel에서 사용할 수 있는 기본 제공 규칙을 사용하여 Microsoft Sentinel 인시던트 실시간으로 자동으로 만들어야 하는 연결된 Microsoft 보안 솔루션을 선택합니다. 규칙을 편집하여 Microsoft 보안 솔루션이 Microsoft Sentinel에서 인시던트 생성해야 하는 경고를 필터링하는 보다 구체적인 옵션을 정의할 수도 있습니다. 예를 들어 심각도가 높은 Microsoft Defender for Cloud(이전의 Azure Security Center) 경고에서만 Microsoft Sentinel 인시던트만 자동으로 만들도록 선택할 수 있습니다.
 
-1. Microsoft 센티널의 Azure Portal에서 **Analytics** 를 선택 합니다.
+1. Microsoft Sentinel 아래의 Azure Portal 분석 **을** 선택합니다.
 
 1. **규칙 템플릿** 탭을 선택하면 기본 제공되는 분석 규칙을 모두 볼 수 있습니다.
 
@@ -48,7 +41,7 @@ Microsoft 센티널에서 제공 되는 기본 제공 규칙을 사용 하 여 m
 
 1. 규칙 세부 정보를 수정하고 경고 이름에 포함된 텍스트 또는 경고 심각도별로 인시던트를 생성하는 경고를 필터링하도록 선택할 수 있습니다.  
       
-    예를 들어 microsoft **security service** 필드에서 **클라우드 용 microsoft** *defender를* 선택 하 고 **심각도 별 필터링** 필드에서 **높음** 을 선택 하는 경우 심각도가 높은 보안 경고만 microsoft 센티널에서 인시던트를 자동으로 만듭니다.  
+    예를 들어 Microsoft **보안 서비스** 필드에서 **클라우드용 Microsoft Defender(Microsoft Defender for** *Cloud라고도* 함)를 선택하고 **심각도로 필터링** 필드에서 **높음** 을 선택하면 높은 심각도 보안 경고만 Microsoft Sentinel에서 인시던트만 자동으로 생성됩니다.  
 
     ![규칙 만들기 마법사](media/incidents-from-alerts/create-rule-wizard.png)
 
@@ -56,11 +49,11 @@ Microsoft 센티널에서 제공 되는 기본 제공 규칙을 사용 하 여 m
 
     ![인시던트 생성 규칙](media/incidents-from-alerts/incident-creation-rule.png)
 
-    **Microsoft 보안 서비스** 유형별로 둘 이상의 **Microsoft Security** 분석 규칙을 만들 수 있습니다. 각 규칙이 필터로 사용되기 때문에 중복 인시던트는 생성되지 않습니다. 경고가 둘 이상의 **Microsoft 보안** 분석 규칙과 일치 하는 경우에도 하나의 microsoft 센티널 인시던트를 만듭니다.
+    **Microsoft 보안 서비스** 유형별로 둘 이상의 **Microsoft Security** 분석 규칙을 만들 수 있습니다. 각 규칙이 필터로 사용되기 때문에 중복 인시던트는 생성되지 않습니다. 경고가 두 개 이상의 **Microsoft 보안** 분석 규칙과 일치하더라도 Microsoft Sentinel 인시던트 하나만 생성됩니다.
 
 ## <a name="enable-incident-generation-automatically-during-connection"></a>연결 중에 인시던트 자동 생성이 가능하도록 설정
 
-Microsoft 보안 솔루션을 연결할 때 보안 솔루션의 경고가 자동으로 Microsoft 센티널에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다.
+Microsoft 보안 솔루션을 연결할 때 보안 솔루션의 경고가 Microsoft Sentinel에서 인시던트 자동 생성을 자동으로 할지 여부를 선택할 수 있습니다.
 
 1. Microsoft 보안 솔루션 데이터 원본을 연결합니다. 
 
@@ -70,5 +63,5 @@ Microsoft 보안 솔루션을 연결할 때 보안 솔루션의 경고가 자동
 
 ## <a name="next-steps"></a>다음 단계
 
-- Microsoft 센티널을 시작 하려면 Microsoft Azure 구독이 필요 합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
-- [Microsoft 센티널에 데이터](quickstart-onboard.md)를 등록 하 고 [데이터 및 잠재적 위협을 파악](get-visibility.md)하는 방법을 알아봅니다.
+- Microsoft Sentinel을 시작하려면 Microsoft Azure 구독이 필요합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
+- [Microsoft Sentinel 에 데이터를 온보딩하고 데이터](quickstart-onboard.md) [및 잠재적 위협에 대한 가시성을 얻는](get-visibility.md)방법을 알아봅니다.

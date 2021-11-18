@@ -1,8 +1,8 @@
 ---
 title: 빠른 시작 - 시뮬레이션된 대칭 키 디바이스를 Microsoft Azure IoT Hub에 프로비저닝
 description: Azure IoT Hub DPS(Device Provisioning Service)에서 대칭 키로 인증하는 디바이스를 프로비저닝하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/29/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: lizross
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set1
-ms.openlocfilehash: 43c6dc8e9d8a6438468c44fd2b8cc31d04a92c2f
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 5e559ef1f61e5ed56676ddc98e5e8b6eabba68cc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276854"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763946"
 ---
 # <a name="quickstart-provision-a-simulated-symmetric-key-device"></a>빠른 시작: 시뮬레이션된 대칭 키 디바이스 프로비저닝
 
@@ -25,7 +25,7 @@ ms.locfileid: "129276854"
 
 이 빠른 시작에서는 Windows 기반 워크스테이션을 위한 솔루션을 보여 줍니다. 그러나 Linux에서 절차를 수행할 수도 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "129276854"
 
 ::: zone-end
 
-* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다. 명령 창에서 액세스할 수 있는 환경 변수에 Git이 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 *Git Bash* 가 포함됩니다.
+* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다. Git이 명령 창에 액세스할 수 있는 환경 변수에 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 *Git Bash* 가 포함됩니다.
 
 
 <a id="setupdevbox"></a>
@@ -80,13 +80,13 @@ ms.locfileid: "129276854"
 1. 최신 [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
     >[!IMPORTANT]
-    >`CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 ‘C++를 사용한 데스크톱 개발’ 워크로드)가 머신에 설치되어 있는지 확인합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다. 또한 이전 버전의 CMake 빌드 시스템은 이 문서에 사용된 솔루션 파일을 생성하지 못합니다. 최신 버전의 CMake를 사용해야 합니다.
+    >`CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다. 이전 버전의 CMake 빌드 시스템은 이 문서에 사용된 솔루션 파일을 생성하지 못합니다. 최신 버전의 CMake를 사용해야 합니다.
 
-2. 웹 브라우저를 열고 [Azure IoT C SDK의 릴리스 페이지](https://github.com/Azure/azure-iot-sdk-c/releases/latest)로 이동합니다.
+2. 웹 브라우저를 열고 [Azure IoT C SDK 릴리스 페이지](https://github.com/Azure/azure-iot-sdk-c/releases/latest)로 이동합니다.
 
-3. 페이지 위쪽에서 **태그** 탭을 선택합니다.
+3. 페이지 맨 위에서 **태그** 탭을 선택합니다.
 
-4. Azure IoT C SDK 최신 릴리스의 태그 이름을 복사합니다.
+4. Azure IoT C SDK의 최신 릴리스에 대한 태그 이름을 복사합니다.
 
 5. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리의 최신 릴리스를 복제합니다(`<release-tag>`를 이전 단계에서 복사한 태그로 바꾸기).
 
@@ -677,11 +677,11 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 2. 왼쪽 메뉴 또는 포털 페이지에서 **모든 리소스** 를 선택합니다.
 
-3. 디바이스가 할당된 IoT 허브를 선택합니다.
+3. 디바이스가 할당된 IoT Hub를 선택합니다.
 
-4. **탐색기** 메뉴에서 **IoT 디바이스** 를 선택합니다.
+4. **Explorers** 메뉴에서 **IoT 디바이스** 를 선택합니다.
 
-5. 디바이스가 성공적으로 프로비저닝된 경우 디바이스 ID가 목록에 표시되고 **상태** 가 ‘사용’으로 설정됩니다. 디바이스가 표시되지 않으면 페이지 위쪽에서 **새로 고침** 을 선택합니다.
+5. 디바이스가 성공적으로 프로비전된 경우 **상태** 가 *사용* 으로 설정된 디바이스 ID가 목록에 표시됩니다. 디바이스가 표시되지 않으면 페이지 위쪽에서 **새로 고침** 을 선택합니다.
 
     :::zone pivot="programming-language-ansi-c"
 
@@ -718,7 +718,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-디바이스 클라이언트 샘플을 계속해서 작업하고 검색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
+디바이스 클라이언트 샘플에 계속 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 그만하려면 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 ### <a name="delete-your-device-enrollment"></a>디바이스 등록 삭제
 
@@ -732,7 +732,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 5. **개별 등록** 탭을 선택합니다.
 
-6. 이 빠른 시작에서 등록한 디바이스의 ‘등록 ID’ 옆에 있는 확인란을 선택합니다.
+6. 이 빠른 시작에 등록한 디바이스의 *등록 ID* 옆에 있는 확인란을 선택합니다.
 
 7. 페이지 위쪽에서 **삭제** 를 선택합니다.
 
@@ -742,9 +742,9 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 2. IoT Hub를 선택합니다.
 
-3. **탐색기** 메뉴에서 **IoT 디바이스** 를 선택합니다.
+3. **Explorers** 메뉴에서 **IoT 디바이스** 를 선택합니다.
 
-4. 이 빠른 시작에서 등록한 디바이스의 ‘디바이스 ID’ 옆에 있는 확인란을 선택합니다.
+4. 이 빠른 시작에서 등록한 디바이스의 *디바이스 ID* 옆에 있는 확인란을 선택합니다.
 
 5. 페이지 위쪽에서 **삭제** 를 선택합니다.
 

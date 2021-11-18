@@ -1,21 +1,21 @@
 ---
-title: RabbitMQ와 Azure Service Bus를 통합하는 방법
-description: Azure Service Bus와 RabbitMQ를 통합하는 방법에 관한 단계별 가이드
-services: Azure Service Bus
+title: RabbitMQ와 Service Bus 통합하는 방법
+description: RabbitMQ와 Service Bus 통합하는 방법에 대한 단계별 가이드
 author: videlalvaro
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 11/17/2021
 ms.author: alvidela
-ms.openlocfilehash: 71ea4dfcc164d5b8a8ba8bb411d529ce58a68f4f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62b73e5636378b8700dbf451013e5fd6f21c82c8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933741"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763566"
 ---
-# <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>RabbitMQ와 Azure Service Bus를 통합하는 방법
+# <a name="how-to-integrate-service-bus-with-rabbitmq"></a>RabbitMQ와 Service Bus 통합하는 방법
 
-이 가이드에서는 RabbitMQ에서 Azure Service Bus로 메시지를 보내는 방법에 관해 알아봅니다.
+이 가이드에서는 RabbitMQ에서 Service Bus 메시지를 보내는 방법을 알아봅니다.
 
 다음은 해당 기능을 사용할 수 있는 몇 가지 시나리오입니다.
 

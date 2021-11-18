@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel | 플레이북을 사용하여 위협 대응 자동화 Microsoft Docs
 description: 이 문서에서는 Microsoft Sentinel의 자동화에 대해 설명하고 플레이북을 사용하여 위협 방지 및 대응을 자동화하는 방법을 보여줍니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ce0edbdd0464772264e29315e463d989b79bbaa3
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: a0eb4845a17eddf881692f8f5e3bf22af8987907
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132718092"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758132"
 ---
 # <a name="automate-threat-response-with-playbooks-in-microsoft-sentinel"></a>Microsoft Sentinel에서 플레이북을 사용하여 위협 대응 자동화
 

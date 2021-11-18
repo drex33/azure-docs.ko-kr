@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에서 위협을 검색 하는 사용자 지정 분석 규칙 만들기 | Microsoft Docs
 description: Microsoft 센티널에서 보안 위협을 검색 하는 사용자 지정 분석 규칙을 만드는 방법을 알아봅니다. 이벤트 그룹화, 경고 그룹화 및 경고 보강을 활용하고 자동 사용 안 함을 이해합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a054570ed76d7245962cd387ac5f793692af2cde
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 47037223bc9ee70033cc8131ee74d7ff67504a03
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721464"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754579"
 ---
 # <a name="create-custom-analytics-rules-to-detect-threats"></a>위협 탐지를 위한 사용자 지정 분석 규칙 만들기
 

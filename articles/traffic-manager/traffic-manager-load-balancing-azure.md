@@ -14,7 +14,7 @@ ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: eaf50f3bdacaf5680bc5ecb1379faff20133b5ce
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "98184376"
@@ -158,7 +158,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 내부 부하 분산 장치 구성에 대한 자세한 내용은 [Azure Portal에서 내부 부하 분산 장치 만들기](../load-balancer/quickstart-load-balancer-standard-internal-portal.md)를 참조하세요.
 
-1. Azure Portal의 왼쪽 창에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치** 를 클릭합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스 만들기** > **네트워킹** > **Load Balancer** 를 클릭합니다.
 2. 부하 분산 장치의 이름을 선택합니다.
 3. **유형** 을 **내부** 로 설정하고 부하 분산 장치가 배치될 적절한 가상 네트워크 및 서브넷을 선택합니다.
 4. **IP 주소 할당** 에서 **동적** 또는 **정적** 중 하나를 선택합니다.
@@ -183,7 +183,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
    ![부하 분산 장치 “프로브 추가”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. 프로브의 이름을 입력합니다.
-3. 프로브에 대한 **프로토콜** 을 선택합니다. 데이터베이스의 경우 HTTP 프로브가 아닌 TCP 프로브를 사용하려고 할 수 있습니다. 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
+3. 프로브에 대한 **프로토콜** 을 선택합니다. 데이터베이스의 경우 HTTP 프로브가 아닌 TCP 프로브를 사용하려고 할 수 있습니다. Load Balancer 프로브에 대한 자세한 내용은 [Load Balancer프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 4. 프로브에 액세스하는 데 사용될 데이터베이스의 **포트** 를 입력합니다.
 5. **간격** 에서 얼마나 자주 애플리케이션을 프로브할지 지정합니다.
 6. **비정상 임계값** 에서 백 엔드 VM을 비정상 상태로 간주하는 경우 발생해야 하는 연속 프로브 오류 개수를 지정합니다.

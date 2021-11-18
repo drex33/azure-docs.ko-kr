@@ -3,19 +3,18 @@ title: Azure 역할 할당 조건 형식 및 구문(미리 보기) - Azure RBAC
 description: Azure ABAC(Azure 특성 기반 액세스 제어)에 대한 Azure 역할 할당 조건의 형식 및 구문에 대한 개요를 확인하세요.
 services: active-directory
 author: rolyon
-manager: mtillman
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: b271da3cf8e591df8557133abcff248a737645e5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.openlocfilehash: 487c2594c3ae6cc74405406855a6f2cfcce96262
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489815"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756187"
 ---
 # <a name="azure-role-assignment-condition-format-and-syntax-preview"></a>Azure 역할 할당 조건 형식 및 구문(미리 보기)
 
@@ -101,9 +100,9 @@ else
 ```
 (
     (
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
         ...
     )
@@ -119,9 +118,9 @@ else
 AND
 (
     (
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
-        !(ActionMatches{'<action>'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'<subOperation>'})
+        !(ActionMatches{'<action>'} AND SubOperationMatches{'<subOperation>'})
         AND
         ...
     )
@@ -157,8 +156,27 @@ AND
 > | --- | --- | --- |
 > | 리소스 | 특성이 컨테이너 이름과 같은 리소스에 있음을 나타냅니다. | `@Resource` |
 > | 요청 | 특성이 Blob 인덱스 태그 설정과 같은 작업 요청의 일부임을 나타냅니다. | `@Request` |
+> | 주 서버 | 특성이 사용자, 엔터프라이즈 애플리케이션(서비스 주체) 또는 관리 ID와 같은 보안 주체의 Azure AD 사용자 지정 보안 특성임을 나타냅니다. | `@Principal` |
 
-조건에서 사용할 수 있는 스토리지 Blob 특성 목록은 [Azure Storage에서 Azure 역할 할당 조건에 대한 작업 및 특성(미리 보기)](../storage/common/storage-auth-abac-attributes.md)을 참조하세요.
+#### <a name="resource-and-request-attributes"></a>리소스 및 요청 특성
+
+조건에서 사용할 수 있는 스토리지 Blob 특성 목록은 다음을 참조하세요.
+
+- [Azure Storage에서 Azure 역할 할당 조건에 대한 작업 및 특성(미리 보기)](../storage/common/storage-auth-abac-attributes.md)
+
+#### <a name="principal-attributes"></a>보안 주체 특성
+
+보안 주체 특성을 사용하려면 **다음이 모두** 있어야 합니다.
+
+- Azure AD Premium P1 또는 P2 라이선스
+- [로그인한](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) 사용자에 대한 Azure AD 권한(예: 특성 할당 관리자 역할)
+- Azure AD에 정의된 사용자 지정 보안 특성
+
+사용자 지정 보안 특성에 대한 자세한 내용은 다음을 참조하세요.
+
+- [태그 및 사용자 지정 보안 특성에 따라 Blob에 대한 읽기 액세스 허용](conditions-custom-security-attributes.md)
+- [조건을 추가할 때 보안 주체가 특성 원본에 표시되지 않음](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [Azure AD에서 사용자 지정 보안 특성 추가 또는 비활성화](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## <a name="operators"></a>연산자
 
@@ -211,7 +229,7 @@ AND
 
 ## <a name="grouping-and-precedence"></a>그룹화 및 우선 순위
 
-괄호`()`를 사용하여 식을 그룹화하고 조건의 우선 순위를 정의합니다. 대상 작업에 대한 식이 세 개 이상 있으면 괄호를 추가하여 식이 평가되는 순서를 정의해야 합니다. 괄호로 묶인 식이 우선 순위가 더 높습니다. 예를 들어 다음 식이 있는 경우:
+식 사이에 다른 연산자를 사용 하는 대상 동작에 대 한 식이 3 개 이상 있는 경우 평가 순서는 모호 합니다. 괄호를 사용 `()` 하 여 식을 그룹화 하 고 식이 계산 되는 순서를 지정 합니다. 괄호로 묶인 식이 우선 순위가 더 높습니다. 예를 들어 다음 식이 있는 경우:
 
 ```
 a AND b OR c
@@ -231,3 +249,4 @@ a AND (b OR c)
 
 - [Azure 역할 할당 조건 예(미리 보기)](../storage/common/storage-auth-abac-examples.md)
 - [Azure Storage에서 Azure 역할 할당 조건에 대한 작업 및 특성(미리 보기)](../storage/common/storage-auth-abac-attributes.md)
+- [Azure Portal을 사용하여 Azure 역할 할당 조건 추가 또는 편집(미리 보기)](conditions-role-assignments-portal.md)

@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 7796ab6b07b83be3311355d629b7822fa082f9f6
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 60db4d1f84f0c64539d9e98fd6500cdd6acce561
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724124"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754029"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
 
@@ -122,7 +122,7 @@ Cohasset 보고서는 [Microsoft 서비스 보안 센터](https://aka.ms/AzureWo
 
 ### <a name="access-tiers"></a>액세스 계층
 
-모든 Blob 액세스 계층은 변경이 불가능한 스토리지를 지원합니다. Blob 계층 설정 작업을 사용하여 Blob의 액세스 계층을 변경할 수 있습니다. 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)을 참조 하세요.
+모든 Blob 액세스 계층은 변경이 불가능한 스토리지를 지원합니다. Blob 계층 설정 작업을 사용하여 Blob의 액세스 계층을 변경할 수 있습니다. 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
 
 ### <a name="redundancy-configurations"></a>중복성 구성
 
@@ -130,7 +130,7 @@ Cohasset 보고서는 [Microsoft 서비스 보안 센터](https://aka.ms/AzureWo
 
 ### <a name="hierarchical-namespace-support"></a>계층 구조 네임스페이스 지원
 
-계층 구조 네임스페이스를 사용하는 계정에 대한 변경이 불가능한 스토리지는 현재 미리 보기로 제공됩니다. 미리 보기에 등록하려면 [Azure Data Lake Storage의 미리 보기 기능](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u)을 참조하세요.
+계층 구조 네임스페이스를 사용하는 계정에 대한 변경이 불가능한 스토리지는 현재 미리 보기로 제공됩니다. 미리 보기에 등록하려면 [이 양식](https://forms.office.com/Pages/DesignPage.aspx?fragment=FormId%3Dv4j5cvGGr0GRqy180BHbR9iuLyDgXDNIkMaAAVSMpJxUMVdIOUNDMlNESUlJRVNWOExJVUoxME1CMS4u%26Token%3D60e8e4cd986e48689b435d8c4255f79a)을 참조하세요.
 
 Blob이 변경할 수 없는 상태이고 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우에는 Blob 이름을 바꾸거나 Blob을 이동할 수 없습니다. Blob 이름과 디렉터리 구조는 변경이 불가능한 정책이 적용되면 수정할 수 없는 필수적인 컨테이너 수준 데이터를 제공합니다.
 
@@ -172,9 +172,9 @@ Blob 버전에 대한 시간 기반 보존 정책 또는 법적 보존을 만들
 | 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup>
 | Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup>
 
-<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (Secure file Transfer protocol) 지원에는 모두 계층적 네임 스페이스를 사용 하는 저장소 계정이 필요 합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(보안 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
-<sup>2</sup>    기능은 미리 보기 수준에서 지원 됩니다.
+<sup>2</sup>    기능은 미리 보기 수준에서 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

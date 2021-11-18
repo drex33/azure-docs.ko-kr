@@ -1,26 +1,19 @@
 ---
-title: Microsoft 센티널 엔터티에 데이터 필드 매핑 | Microsoft Docs
-description: 더 나은 인시던트 정보를 위해 테이블의 데이터 필드를 분석 규칙의 Microsoft 센티널 엔터티에 매핑
-services: sentinel
-documentationcenter: na
+title: Microsoft Sentinel 엔터티에 데이터 필드 매핑 | Microsoft Docs
+description: 더 나은 인시던트 정보를 위해 테이블의 데이터 필드를 분석 규칙의 Microsoft Sentinel 엔터티에 매핑
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7a4e0dba6dbbd460eac651eb16dd5de108deffe1
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: d8b022de05be6434ab6c852ce0263fbb93addb5b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132723079"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754258"
 ---
-# <a name="map-data-fields-to-entities-in-microsoft-sentinel"></a>Microsoft 센티널의 엔터티에 데이터 필드 매핑 
+# <a name="map-data-fields-to-entities-in-microsoft-sentinel"></a>Microsoft Sentinel의 엔터티에 데이터 필드 매핑 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -40,7 +33,7 @@ ms.locfileid: "132723079"
 
 ## <a name="how-to-map-entities"></a>엔터티 매핑 방법
 
-1. Microsoft 센티널 탐색 메뉴에서 **Analytics** 를 선택 합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
 
 1. 예약된 쿼리 규칙을 선택하고 **편집** 을 클릭합니다. 또는 화면 맨 위에서 **만들기 > 예약된 쿼리 규칙** 을 클릭하여 새 규칙을 만듭니다.
 
@@ -81,6 +74,6 @@ ms.locfileid: "132723079"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft 센티널 분석 규칙의 엔터티에 데이터 필드를 매핑하는 방법에 대해 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 Microsoft Sentinel 분석 규칙의 엔터티에 데이터 필드를 매핑하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
-- [Microsoft 센티널의 엔터티에](entities.md)대해 자세히 알아보세요.
+- [Microsoft Sentinel의 엔터티에](entities.md)대해 자세히 알아봅니다.

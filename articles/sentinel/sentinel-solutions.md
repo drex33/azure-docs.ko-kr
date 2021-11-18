@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel 콘텐츠 및 솔루션 정보 | Microsoft Docs
 description: 이 문서에서는 고객이 데이터 커넥터와 함께 패키지된 데이터 분석 도구를 찾는 데 사용할 수 있는 Microsoft Sentinel 콘텐츠 및 솔루션에 대해 설명합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d5e4f129c53ac26c66a6ca26dbe70781803809a3
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: f13736cfc25d7f8bd019729826124c9ab955841b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711650"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762000"
 ---
 # <a name="about-microsoft-sentinel-content-and-solutions"></a>Microsoft Sentinel 콘텐츠 및 솔루션 정보
 
@@ -39,7 +32,7 @@ Microsoft Sentinel의 콘텐츠에는 다음 형식이 포함됩니다.
 - **[헌팅 쿼리는](hunting.md)** SOC 팀에서 Microsoft Sentinel의 위협을 사전에 헌팅하는 데 사용됩니다.
 - **[Notebook을 통해](notebooks.md)** SOC 팀은 Jupyter 및 Azure Notebooks 고급 헌팅 기능을 사용할 수 있습니다.
 - **[감시 목록은](watchlists.md)** 향상된 위협 탐지 및 경고 감소에 대한 *특정* 데이터 수집을 지원합니다.
-- **[플레이북 및 Azure Logic Apps 사용자 지정 커넥터는](automate-responses-with-playbooks.md)** Microsoft Sentinel에서 자동화된 조사, 수정 및 응답 시나리오를 위한 기능을 제공합니다.
+- **[플레이북 및 Azure Logic Apps 사용자 지정 커넥터는](automate-responses-with-playbooks.md)** Microsoft Sentinel의 자동 조사, 수정 및 응답 시나리오에 대한 기능을 제공합니다.
 
 Microsoft Sentinel *솔루션은* Microsoft Sentinel 콘텐츠 또는 Microsoft Sentinel API 통합의 패키지로, Microsoft Sentinel에서 엔드투엔드 제품, 도메인 또는 산업 수직 시나리오를 충족합니다.
 
@@ -85,7 +78,7 @@ Microsoft Sentinel의 첫 번째 콘텐츠는 다음 범주 중 하나 이상을
 
 ### <a name="domain-categories"></a>도메인 범주
 
-| 범주의 이름입니다.  | 설명 |
+| 범주의 이름입니다.  | Description |
 | ---------- | ----------------------- |
 | **애플리케이션**  | 웹, 서버 기반, SaaS, 데이터베이스, 통신 또는 생산성 워크로드          |
 | **클라우드 공급자**  | 클라우드 서비스|
@@ -114,34 +107,34 @@ Microsoft Sentinel의 첫 번째 콘텐츠는 다음 범주 중 하나 이상을
 
 ### <a name="industry-vertical-categories"></a>업계 수직 범주
 
-| 범주의 이름입니다.  | 설명 |
+| 범주의 이름입니다.  | Description |
 | ---------- | ----------------------- |
 | **항공학**  | 인증 업계에 특정한 제품, 서비스 및 콘텐츠 |
 | **Education**    | 교육 산업 관련 제품, 서비스 및 콘텐츠   |
-| **재무**      | 제품, 서비스 및 재무 업계 전용 콘텐츠     |
-| **의료**   | 의료 업계와 관련 된 제품, 서비스 및 콘텐츠  |
-| **제조업** | 제조 업계에 맞는 제품, 서비스 및 콘텐츠 |
-| **정품**       | 제품, 서비스 및 소매 업계 전용 콘텐츠       |
+| **재무**      | 재무 산업과 특정한 제품, 서비스 및 콘텐츠     |
+| **의료**   | 의료 산업 관련 제품, 서비스 및 콘텐츠  |
+| **제조업** | 제조 산업과 관련된 제품, 서비스 및 콘텐츠 |
+| **정품**       | 소매업에 특정한 제품, 서비스 및 콘텐츠       |
 | | |
 
-## <a name="microsoft-sentinel-out-of-the-box-content-and-solution-support-models"></a>Microsoft 센티널 기본 콘텐츠 및 솔루션 지원 모델
+## <a name="microsoft-sentinel-out-of-the-box-content-and-solution-support-models"></a>Microsoft Sentinel 기본 콘텐츠 및 솔루션 지원 모델
 
-Microsoft와 다른 조직은 모두 Microsoft의 기본 콘텐츠와 솔루션을 제작 합니다. 기본 콘텐츠 또는 솔루션의 각 부분에는 다음 지원 유형 중 하나가 있습니다.
+Microsoft와 다른 조직 모두 Microsoft Sentinel의 콘텐츠와 솔루션을 작성합니다. 각 콘텐츠 또는 솔루션의 각 부분에는 다음 지원 유형 중 하나가 있습니다.
 
 | 지원 모델  | 설명 |
 | ---------- | ----------------------- |
-| **Microsoft 지원**| 적용 대상: <br>-Microsoft가 데이터 공급자 (해당 하는 경우), 작성자 인 콘텐츠/솔루션. <br> -Microsoft 이외의 데이터 원본에 대 한 Microsoft에서 작성 한 콘텐츠/솔루션입니다. <br><br>    Microsoft는 [Microsoft Azure 지원 계획](https://azure.microsoft.com/support/options/#overview)에 따라이 지원 모델에서 콘텐츠/솔루션을 지원 하 고 유지 관리 합니다. <br>파트너 또는 Community Microsoft가 아닌 모든 당사자가 작성 한 콘텐츠/솔루션을 지원 합니다.|
-|**파트너 지원** | Microsoft 이외의 파티에서 작성 한 콘텐츠/솔루션에 적용 됩니다.  <br><br>   파트너 회사는 이러한 콘텐츠/솔루션에 대 한 지원 또는 유지 관리를 제공 합니다. 파트너 회사는 독립 소프트웨어 공급 업체, 관리 서비스 공급자 (MSP/MSSP), SI (시스템 통합자) 또는 선택한 콘텐츠/솔루션에 대 한 Microsoft 센티널 페이지에서 연락처 정보를 제공 하는 조직 일 수 있습니다.<br><br>    파트너 지원 솔루션에 대 한 모든 문제는 지정 된 지원 담당자에 게 문의 하세요.|
-|**커뮤니티 지원** |Microsoft 센티널의 지원 및 유지 관리를 위해 나열 된 연락처가 없는 Microsoft 또는 파트너 개발자가 작성 한 콘텐츠/솔루션에 적용 됩니다.<br><br>    이러한 솔루션에 대 한 질문이 나 문제를 해결 하려면 [Microsoft 센티널 GitHub 커뮤니티](https://aka.ms/threathunters)에서 [문제](https://github.com/Azure/Azure-Sentinel/issues/new/choose) 를 해결 하세요. |
+| **Microsoft 지원**| 적용 대상: <br>- Microsoft가 데이터 공급자이며 관련되고 작성자인 콘텐츠/솔루션입니다. <br> - Microsoft가 작성하지 않은 데이터 원본에 대한 일부 Microsoft 작성 콘텐츠/솔루션입니다. <br><br>    Microsoft는 Microsoft Azure 지원 계획에 따라 이 지원 모델의 콘텐츠/솔루션을 지원하고 유지 [관리합니다.](https://azure.microsoft.com/support/options/#overview) <br>파트너 또는 Community Microsoft 이외의 다른 당사자가 작성한 콘텐츠/솔루션을 지원합니다.|
+|**파트너 지원** | Microsoft 이외의 당사자가 작성한 콘텐츠/솔루션에 적용됩니다.  <br><br>   파트너 회사는 이러한 콘텐츠/솔루션 부분에 대한 지원 또는 유지 관리를 제공합니다. 파트너 회사는 독립 소프트웨어 공급업체, MSP/MSSP(관리 서비스 공급자), SI(시스템 통합자) 또는 선택한 콘텐츠/솔루션에 대한 연락처 정보가 Microsoft Sentinel 페이지에 제공되는 모든 조직일 수 있습니다.<br><br>    파트너 지원 솔루션과 관련된 문제는 지정된 지원 담당자에게 문의하세요.|
+|**커뮤니티 지원** |Microsoft Sentinel에서 지원 및 유지 관리를 위해 나열된 연락처가 없는 Microsoft 또는 파트너 개발자가 작성한 콘텐츠/솔루션에 적용됩니다.<br><br>    이러한 솔루션에 대한 질문이나 문제는 Microsoft [Sentinel GitHub 커뮤니티에](https://aka.ms/threathunters) [문제를 제출하세요.](https://github.com/Azure/Azure-Sentinel/issues/new/choose) |
 | | |
 
 ## <a name="next-steps"></a>다음 단계
 
-Microsoft 센티널 콘텐츠에 대 한 정보를 살펴본 후에는 Microsoft 센티널 작업 영역에서 콘텐츠 및 솔루션 관리를 시작 합니다.
+Microsoft Sentinel 콘텐츠에 대해 알아보고 나면 Microsoft Sentinel 작업 영역에서 콘텐츠 및 솔루션 관리를 시작합니다.
 
-Microsoft 센티널 **콘텐츠 허브** 에서 솔루션을 검색 하 고 설치 합니다. 자세한 내용은 다음을 참조하세요.
+Microsoft Sentinel **콘텐츠 허브에서** 솔루션을 검색하고 설치합니다. 자세한 내용은 다음을 참조하세요.
 
-- [중앙에서 제공 하는 콘텐츠 및 솔루션 검색 및 배포 (공개 미리 보기)](sentinel-solutions-deploy.md)
-- [Microsoft 센티널 콘텐츠 허브 카탈로그](sentinel-solutions-catalog.md)
-- [Microsoft 센티널 데이터 커넥터](connect-data-sources.md)
-- [Microsoft 센티널 데이터 커넥터 찾기](data-connectors-reference.md)
+- [기본적으로 사용 가능한 콘텐츠 및 솔루션을 중앙에서 검색 및 배포(공개 미리 보기)](sentinel-solutions-deploy.md)
+- [Microsoft Sentinel 콘텐츠 허브 카탈로그](sentinel-solutions-catalog.md)
+- [Microsoft Sentinel 데이터 커넥터](connect-data-sources.md)
+- [Microsoft Sentinel 데이터 커넥터 찾기](data-connectors-reference.md)

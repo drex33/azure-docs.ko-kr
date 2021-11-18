@@ -22,7 +22,7 @@ ms.locfileid: "110665003"
 > * HTTPS를 사용하도록 Kestrel 구성
 > * 원격 클러스터 노드에 TLS/SSL 인증서 설치
 > * NETWORK SERVICE에 인증서의 프라이빗 키에 대한 액세스 권한 부여
-> * Azure 부하 분산 장치에서 포트 443 열기
+> * Azure Load Balancer에서 포트 443 열기
 > * 애플리케이션을 원격 클러스터에 배포
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
@@ -371,7 +371,7 @@ Azure에 애플리케이션을 배포하기 전에 모든 원격 클러스터 �
 > [!Warning]
 > 개발 및 테스트 애플리케이션은 자체 서명된 인증서로 충분합니다. 프로덕션 애플리케이션의 경우 자체 서명된 인증서 대신 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다.
 
-## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Azure 부하 분산 장치 및 가상 네트워크에서 포트 443 열기
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Azure Load Balancer 및 가상 네트워크에서 포트 443 열기
 
 아직 열지 않은 경우 부하 분산 장치에서 포트 443을 엽니다.
 

@@ -11,7 +11,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: VM 백업 - 포털
+    - name: VM 백업 - Azure Portal
       href: quick-backup-vm-portal.md
     - name: VM 백업 - PowerShell
       href: quick-backup-vm-powershell.md
@@ -20,6 +20,8 @@
     - name: VM 백업 - ARM 템플릿
       displayName: Resource Manager
       href: quick-backup-vm-template.md
+    - name: VM 백업 - Bicep 템플릿
+      href: quick-backup-vm-bicep-template.md
 - name: 자습서
   items:
     - name: 여러 Azure VM 백업

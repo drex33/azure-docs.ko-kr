@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a7fcc0cf2783aa530f99836279d75aff61f85188
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 6e58bbd22551b4db28c179d33736d2ffab658e71
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488984"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757448"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure Disk Storage의 서버 쪽 암호화
 
@@ -71,9 +71,7 @@ Azure Storage 암호화는 관리 디스크의 성능에 영향을 주지 않으
 
 #### <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
-
-VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. 프로그래밍 방식으로 검색하는 방법을 알아보려면 [Azure PowerShell 모듈](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) 또는 [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes) 문서의 지원되는 VM 크기 찾기 섹션을 참조하세요.
+지원되는 VM 크기의 전체 목록은 프로그래밍 방식으로 끌어올 수 있습니다. 프로그래밍 방식으로 검색하는 방법을 알아보려면 [Azure PowerShell 모듈](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) 또는 [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes) 문서의 지원되는 VM 크기 찾기 섹션을 참조하세요.
 
 호스트에서의 암호화를 사용하여 엔드투엔드 암호화를 사용 설정하려면 [Azure PowerShell 모듈](windows/disks-enable-host-based-encryption-powershell.md), [Azure CLI](linux/disks-enable-host-based-encryption-cli.md) 또는 [Azure Portal](disks-enable-host-based-encryption-portal.md) 중 하나를 통해 사용 설정하는 방법에 대한 문서를 참조하세요.
 

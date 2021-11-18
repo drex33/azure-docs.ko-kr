@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: 9390b655d278fd28b545ca8d031c46d25b15325a
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: bb2b3bbc66b2373b4458d30f8ef46d92acb88012
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116981"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758284"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>.NET 대량 실행기 라이브러리: 정보 다운로드 
+# <a name="net-bulk-executor-library-download-information-legacy"></a>.NET bulk executor 라이브러리: 다운로드 정보 (레거시)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]

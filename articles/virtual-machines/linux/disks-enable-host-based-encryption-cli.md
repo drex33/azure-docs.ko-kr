@@ -4,16 +4,16 @@ description: 호스트에서 암호화를 사용하여 Azure 관리 디스크에
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 11/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c5bdbcf37818cba66b9eaf7ba4f5f95deb785fe4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: ecde94d8ec5bd0a6a25171919cee8d283f02be65
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691917"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755389"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure CLI를 사용하여 호스트에서 암호화를 사용하는 엔드투엔드 암호화를 사용하도록 설정
 
@@ -27,9 +27,7 @@ ms.locfileid: "122691917"
 
 ### <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
-
-지원되는 VM 크기의 전체 목록은 프로그래밍 방식으로 끌어올 수 있습니다. VM 크기를 프로그래밍 방식으로 검색하는 방법에 대한 자세한 내용은 [지원되는 VM 크기 찾기](#finding-supported-vm-sizes) 섹션을 참조하세요.
+지원되는 VM 크기의 전체 목록은 프로그래밍 방식으로 끌어올 수 있습니다. 프로그래밍 방식으로 검색하는 방법을 알아보려면 [지원되는 VM 크기 찾기 섹션을 참조하세요.](#finding-supported-vm-sizes)
 VM 크기를 업그레이드하면 새 VM 크기가 EncryptionAtHost 기능을 지원하는지 확인하기 위해 유효성 검사가 수행됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소

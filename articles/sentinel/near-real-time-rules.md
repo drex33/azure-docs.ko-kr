@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에서 NRT (거의 실시간) 분석 규칙으로 신속 하 게 위협 감지 | Microsoft Docs
 description: 이 문서에서는 새로운 NRT (거의 실시간) 분석 규칙을 통해 Microsoft 센티널에서 위협을 신속 하 게 검색할 수 있는 방법을 설명 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4cafdcc07ec0cfcd5aa3a7731c7a9571441183fd
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: fbdfcea45e005d2f8e5cf8ff51fa97dde359dfc2
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712931"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760887"
 ---
 # <a name="detect-threats-quickly-with-near-real-time-nrt-analytics-rules-in-microsoft-sentinel"></a>Microsoft 센티널에서 NRT (거의 실시간) 분석 규칙으로 신속 하 게 위협 감지
 

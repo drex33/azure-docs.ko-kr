@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/05/2021
 ms.openlocfilehash: 2b3c2944cff20db2feb3236ca7381107f3db6061
 ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2021
 ms.locfileid: "122528956"
@@ -257,12 +257,12 @@ ms.locfileid: "122528956"
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |실행된 검사|
 |---|
-|<ul><li>호스트 서버가 작동 중인가?</li><li>인터넷 정보 서비스를 실행 중인가?</li><li>부하 분산 장치를 실행 중인가?</li><li>데이터 센터 내에서 App Service 계획에 도달할 수 있는가?</li><li>serverFarm에 대한 사이트 콘텐츠를 호스팅하는 스토리지 계정이 제공되는가?</li></ul>|
+|<ul><li>호스트 서버가 작동 중인가?</li><li>인터넷 정보 서비스를 실행 중인가?</li><li>Load Balancer를 실행 중인가?</li><li>데이터 센터 내에서 App Service 계획에 도달할 수 있는가?</li><li>serverFarm에 대한 사이트 콘텐츠를 호스팅하는 스토리지 계정이 제공되는가?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |실행된 검사|
 |---|
-|<ul><li>호스트 서버가 작동 중인가?</li><li>인터넷 정보 서버를 실행 중인가?</li><li>부하 분산 장치를 실행 중인가?</li><li>데이터 센터 내에서 Web App에 도달할 수 있는가?</li><li>사이트 콘텐츠를 호스팅하는 스토리지 계정이 제공되는가?</li></ul>|
+|<ul><li>호스트 서버가 작동 중인가?</li><li>인터넷 정보 서버를 실행 중인가?</li><li>Load Balancer를 실행 중인가?</li><li>데이터 센터 내에서 Web App에 도달할 수 있는가?</li><li>사이트 콘텐츠를 호스팅하는 스토리지 계정이 제공되는가?</li></ul>|
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/vaults
 

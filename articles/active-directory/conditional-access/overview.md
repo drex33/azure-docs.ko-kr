@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4, azuread-video-2020
-ms.openlocfilehash: 80ba129ae6e945072bea0184445f27e2a724c455
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1c3549ec7dbbba8e45e8b359177460841bec68fd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591992"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283281"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -58,7 +58,7 @@ ms.locfileid: "128591992"
    - 특정 애플리케이션에 액세스하려는 사용자는 다른 조건부 액세스 정책을 트리거할 수 있습니다. 
 - 계산된 실시간 위험 감지
    - Azure AD ID 보호와 신호를 통합하면 조건부 액세스 정책을 통해 위험한 로그인 동작을 식별할 수 있습니다. 그러면 사용자가 암호를 변경하거나 다단계 인증을 수행하도록 요구하는 정책을 적용하여 사용자의 위험도를 낮추거나 관리자가 수동 작업을 수행할 때까지 액세스를 차단할 수 있습니다.
-- MCAS(Microsoft Cloud App Security)
+- Microsoft Defender for Cloud 앱
    - 사용자 애플리케이션 액세스 및 세션을 실시간으로 모니터링 및 제어하여 클라우드 환경 내에서 수행되는 작업에 대한 액세스를 제어하고 가시성을 높일 수 있습니다.
 
 ## <a name="common-decisions"></a>일반적인 결정
@@ -98,5 +98,5 @@ ms.locfileid: "128591992"
 - [단계별로 조건부 액세스 정책 작성](concept-conditional-access-policies.md)
 - [조건부 액세스 배포 계획](plan-conditional-access.md)
 - [ID 보호에 대한 자세한 정보](../identity-protection/overview-identity-protection.md)
-- [Microsoft Cloud App Security에 대한 자세한 정보](/cloud-app-security/what-is-cloud-app-security)
+- [Microsoft Defender for Cloud Apps에 대해 알아보기](/cloud-app-security/what-is-cloud-app-security)
 - [Microsoft Intune에 대한 자세한 정보](/intune/index)

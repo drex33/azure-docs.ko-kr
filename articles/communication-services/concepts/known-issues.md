@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: a32b462b17a96eacb3858e7a22a27262046b8589
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 415e1fc1f552507538ea76506558b87999c6063c
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491265"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757068"
 ---
 # <a name="known-issues-in-the-sdks-and-apis"></a>Sdk 및 Api의 알려진 문제
 
@@ -30,7 +30,12 @@ ms.locfileid: "132491265"
 
 iOS 15.1에는 Safari와 함께 iOS에 배치 되는 비디오를 사용 하는 대부분의 통신 서비스 호출에 영향을 주는 버그가 도입 되었습니다. 특히, 비디오가 설정 된 브라우저에서 iOS 15.1의 통신 서비스를 사용 하 여 사용자가 통신 서비스 호출 또는 모임 Microsoft Teams에 연결 하면 문제가 발생 합니다. 이러한 상황 집합으로 인해 Safari 브라우저가 충돌 합니다.
 
-이는 [Safari를 사용 하는 iOS 15.1에 대 한 알려진 버그](https://bugs.webkit.org/show_bug.cgi?id=231505)입니다. 통신 서비스 비디오 호출용 Safari에서 iOS 15.1을 사용 하는 경우 사용자가 비디오를 사용 (켜기) 하는 것을 방지 해야 합니다. 또한 Microsoft Teams와 통신 서비스 간의 비디오 통화 모임에 대해이 작업을 방지 해야 합니다.
+이 버그를 우회 하기 위해 관리 하 고 이제 사용자가 iOS 15.1의 비디오를 사용 하 여 통화를 조인할 수 있지만 Webkit의 다른 문제를 확인할 수 있습니다.
+
+* 받는 사람의 끝 방향이 올바르지 않습니다. 완화: 장치 방향을 가로로 전환 합니다.
+* 배경으로 이동 하면 사용자의 호출이 새로 고쳐집니다. 완화: 배경으로 이동 하기 전에 비디오를 중지 합니다.
+
+이는 [Safari를 사용 하는 iOS 15.1에 대 한 알려진 버그](https://bugs.webkit.org/show_bug.cgi?id=231505)입니다.
 
 ### <a name="refreshing-a-page-doesnt-immediately-remove-the-user-from-their-call"></a>페이지를 새로 고치면 통화에서 사용자가 즉시 제거되지 않습니다.
 
@@ -124,31 +129,31 @@ Bluetooth 헤드셋은 iOS의 Safari에서 지원되지 않습니다. Bluetooth 
 
 ### <a name="using-third-party-libraries-during-the-call-might-result-in-audio-loss"></a>호출 하는 동안 타사 라이브러리를 사용 하면 오디오 손실이 발생할 수 있음
 
-`getUserMedia`응용 프로그램 내부에서를 별도로 사용 하는 경우 오디오 스트림이 손실 됩니다. 이는 타사 라이브러리가 Azure Communication Services 라이브러리에서 디바이스 액세스를 인수하기 때문입니다.
+`getUserMedia`응용 프로그램 내부에서를 별도로 사용 하는 경우 오디오 스트림이 손실 됩니다. 타사 라이브러리가 Azure Communication Services 라이브러리에서 장치 액세스를 사용 하기 때문입니다.
 
-- `getUserMedia`호출하는 동안 내부적으로 API를 사용하는 타사 라이브러리를 사용하지 마세요.
-- 타사 라이브러리를 계속 사용해야 하는 경우 오디오 스트림을 복구하는 유일한 방법은 선택한 디바이스를 변경하거나(사용자가 두 개 이상 있는 경우) 통화를 다시 시작하는 것입니다.
+- 호출 하는 `getUserMedia` 동안 API를 내부적으로 사용 하는 타사 라이브러리를 사용 하지 마세요.
+- 타사 라이브러리를 사용 해야 하는 경우에는 선택한 장치를 변경 하거나 (사용자가 둘 이상 있는 경우) 호출을 다시 시작 하는 유일한 방법입니다.
 
-이 문제가 발생하는 환경은 다음과 같습니다.
+이 문제가 발생 하는 환경은 다음과 같습니다.
 
 - 브라우저: Safari
 - 운영 체제: iOS
 
-이 문제의 원인은 동일한 디바이스에서 사용자 고유의 스트림을 획득하면 경합 상태가 발생할 경우 부작용이 발생할 수 있습니다. 다른 디바이스에서 스트림을 획득하면 사용자가 USB/IO 대역폭이 부족해질 수 있으며 `sourceUnavailableError` 속도가 더 높아질 수 있습니다.  
+이 문제의 원인은 동일한 장치에서 사용자 고유의 스트림을 가져오는 것이 경합 상태로 실행 되는 부작용이 발생할 수 있습니다. 다른 장치에서 스트림을 가져오면 사용자가 USB/IO 대역폭이 부족 해질 수 있으며, `sourceUnavailableError` skyrocket 됩니다.  
 
-### <a name="support-for-simulcast"></a>simulcast 지원
+### <a name="support-for-simulcast"></a>Simulcast 지원
 
-Simulcast는 클라이언트가 동일한 비디오 스트림을 서로 다른 해상도 및 비트 전송률로 두 번 인코딩하는 기술입니다. 그러면 클라이언트에서 Communication Services 수신할 스트림을 결정할 수 있습니다. Windows, Android 또는 iOS용 Communication Services 호출 라이브러리 SDK는 동시 스트림 전송을 지원합니다. Communication Services 웹 SDK는 현재 simulcast 스트림 전송을 지원하지 않습니다.
+Simulcast는 클라이언트가 동일한 비디오 스트림을 서로 다른 해상도 및 비트 전송률로 두 번 인코딩하는 기술입니다. 그러면 클라이언트가 통신 서비스에서 클라이언트가 수신 해야 하는 스트림을 결정할 수 있습니다. Windows, Android 또는 iOS 용 라이브러리 SDK를 호출 하는 통신 서비스는 simulcast 스트림 보내기를 지원 합니다. 통신 서비스 웹 SDK는 현재 simulcast 스트림 전송을 지원 하지 않습니다.
 
-## <a name="communication-services-call-automation-apis"></a>Automation API 호출 Communication Services
+## <a name="communication-services-call-automation-apis"></a>통신 서비스에서 자동화 Api 호출
 
-다음은 Communication Services Call Automation API의 알려진 문제입니다.
+다음은 통신 서비스 호출 자동화 Api의 알려진 문제입니다.
 
-- 서버 애플리케이션에 대해 현재 지원되는 유일한 인증은 연결 문자열을 사용하는 것입니다.
+- 현재 서버 응용 프로그램에 대해 지원 되는 유일한 인증은 연결 문자열을 사용 하는 것입니다.
 
-- 동일한 Communication Services 리소스의 엔터티 간에만 호출합니다. 리소스 간 통신이 차단됩니다.
+- 동일한 통신 서비스 리소스의 엔터티 간에만 호출을 수행 합니다. 리소스 간 통신이 차단 되었습니다.
 
-- Microsoft Teams 테넌트 사용자와 Communication Services 사용자 또는 서버 애플리케이션 엔터티 간의 호출은 허용되지 않습니다.
+- Microsoft Teams 및 통신 서비스 사용자 또는 서버 응용 프로그램 엔터티의 테 넌 트 사용자 간의 호출은 허용 되지 않습니다.
 
-- 애플리케이션이 둘 이상의 PSTN ID로 전화를 거는 경우 호출을 종료하면 다른 PSTN 엔터티 간의 호출이 삭제됩니다.
+- 응용 프로그램이 두 개 이상의 PSTN id로 전화를 건 후 호출을 종료 하는 경우 다른 PSTN 엔터티 간의 호출이 삭제 됩니다.
 

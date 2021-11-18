@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구 지원이 요약되어 있습니다.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 68b5800f30158e534e54b7b964d6dca1ccffa43a
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 2fe43258d93480a4a4982b4171ca722782918ecf
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132061723"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757866"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -193,7 +193,7 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 **동작** | **세부 정보**
 --- | ---
-복제 된 VM에서 디스크 크기 조정 (미리 보기 아키텍처에는 지원되지 않음)| 원본 VM에서 크기 조정이 지원됩니다. 원본 VM의 크기 조정은 지원되지 않습니다. 크기 조정은 장애 조치(failover) 전에 VM 속성에서 직접 수행해야 합니다. 복제를 해제/다시 설정할 필요가 없습니다.<br/><br/> 장애 조치(failover) 후 원본 VM을 변경하면 변경 내용이 캡처되지 않습니다.<br/><br/> 장애 조치(failover) 후 Azure VM에서 디스크 크기를 변경하는 경우 장애 복구(failback)를 수행하면 Site Recovery가 업데이트를 사용하여 새 VM을 만듭니다.
+복제 된 VM에서 디스크 크기 조정 (미리 보기 아키텍처에는 지원되지 않음)| 원본 VM의 크기를 조정 하는 작업이 지원 됩니다. 원본 VM에서 크기를 조정 하는 것은 지원 되지 않습니다. 크기 조정은 VM 속성에서 직접 장애 조치 (failover) 전에 수행 해야 합니다. 복제를 해제/다시 설정할 필요가 없습니다.<br/><br/> 장애 조치(failover) 후 원본 VM을 변경하면 변경 내용이 캡처되지 않습니다.<br/><br/> 장애 조치(failover) 후 Azure VM에서 디스크 크기를 변경하는 경우 장애 복구(failback)를 수행하면 Site Recovery가 업데이트를 사용하여 새 VM을 만듭니다.
 복제된 VM에 디스크 추가 | 지원되지 않습니다.<br/> VM에 대한 복제를 사용하지 않도록 설정하고, 디스크를 추가한 다음, 복제를 다시 사용하도록 설정합니다.
 
 > [!NOTE]
@@ -251,7 +251,7 @@ FIPS 암호화 | 예
 게스트/서버 iSCSI | 마이그레이션의 경우 - 예<br/>재해 복구의 경우 - 아니요, iSCSI는 VM에 연결된 디스크로 장애 복구(failback)합니다.
 게스트/서버 SMB 3.0 | 예
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 디스크 > 1 TB | 예, 디스크는 1,024MB보다 커야 합니다.<br/><br/>관리 디스크(9.41 버전 이상)에 복제하는 경우 최대 32,767GB<br></br> 스토리지 계정에 복제하는 경우 최대 4,095GB
+게스트/서버 디스크 > 1gb | 예, 디스크는 1,024MB보다 커야 합니다.<br/><br/>관리 디스크(9.41 버전 이상)에 복제하는 경우 최대 32,767GB<br></br> 스토리지 계정에 복제하는 경우 최대 4,095GB
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
 4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 | 예
@@ -292,7 +292,7 @@ Premium Storage | 예
 Import/Export 서비스 | 예
 VNet용 Azure Storage 방화벽 | 예.<br/> 대상 스토리지/캐시 스토리지 계정에 구성됨(복제 데이터 저장에 사용)
 범용 v2 스토리지 계정(핫 및 쿨 계층) | 예(V1에 비해 V2의 트랜잭션 비용이 상당히 높음)
-일시 삭제 | 지원되지 않습니다.
+일시 삭제 | 지원 안 됨
 
 ## <a name="azure-compute"></a>Azure Compute
 
@@ -317,9 +317,9 @@ Azure로 복제된 온-프레미스 VM은 이 표에 요약된 Azure VM 요구 �
 데이터 디스크 크기 | 관리 디스크(9.41 버전 이상)에 복제하는 경우 최대 32,767GB<br> 스토리지 계정으로 복제하는 경우 최대 4,095GB </br> 최소 디스크 크기 요구 사항 - 1,024MB 이상 </br> Preview 아키텍처는 최대 8TB의 디스크를 지원합니다.  | 지원되지 않는 경우 확인이 실패합니다.
 RAM | ASR 드라이버는 RAM의 6%를 사용합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
-공유 VHD | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
-FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
-BitLocker | 지원되지 않습니다. | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다. |
+공유 VHD | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
+FC 디스크 | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
+BitLocker | 지원 안 됨 | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다. |
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
 
 ## <a name="resource-group-limits"></a>리소스 그룹 제한

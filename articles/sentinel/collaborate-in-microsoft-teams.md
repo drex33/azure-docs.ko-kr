@@ -1,30 +1,23 @@
 ---
-title: Microsoft 센티널 인시던트 팀과 Microsoft Teams 공동 작업 | Microsoft Docs
-description: microsoft 센티널에서 Microsoft Teams에 연결 하 여 microsoft 센티널 데이터를 사용 하는 팀의 다른 사용자와 공동 작업 하는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
+title: Microsoft Sentinel 인시던트 팀과 Microsoft Teams 공동 작업 | Microsoft Docs
+description: Microsoft Sentinel에서 Microsoft Teams 연결하여 Microsoft Sentinel 데이터를 사용하여 팀의 다른 사용자와 협업하는 방법을 알아봅니다.
 author: batamig
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0a560103953aab15be807c4a51be034cdb8ff1b9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 5172aafb17a831f5997910ac2ca7037b8ccf0981
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132716147"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757372"
 ---
 # <a name="collaborate-in-microsoft-teams-public-preview"></a>Microsoft Teams에서 공동 작업(퍼블릭 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널은 [Microsoft Teams](/microsoftteams/)와의 직접 통합을 지원 하므로 특정 인시던트에 대 한 teamwork 바로 이동할 수 있습니다.
+Microsoft Sentinel은 [Microsoft Teams](/microsoftteams/)직접 통합을 지원하므로 특정 인시던트에서 팀워크로 바로 이동할 수 있습니다.
 
 
 > [!IMPORTANT]
@@ -32,23 +25,23 @@ Microsoft 센티널은 [Microsoft Teams](/microsoftteams/)와의 직접 통합�
 
 ## <a name="overview"></a>개요
 
-Microsoft 센티널에서 직접 Microsoft Teams와 통합 하면 팀이 조직 전체와 외부 관련자와 긴밀 하 게 공동 작업을 수행할 수 있습니다.
+Microsoft Sentinel에서 직접 Microsoft Teams 통합하면 팀이 조직 전체 및 외부 이해 관계자와 원활하게 협업할 수 있습니다.
 
-Microsoft 센티널 *인시던트 팀* 과 함께 Microsoft Teams를 사용 하 여 통신을 중앙 집중화 하 고 관련 직원에 게 조정 합니다. 인시던트 팀은 심각도가 높으면서 계속 진행 중인 인시던트의 전용 회의 브리지로 사용할 때 특히 유용합니다.
+Microsoft Sentinel *인시던트 팀과* Microsoft Teams 사용하여 관련 담당자 간 커뮤니케이션 및 조정을 중앙 집중화합니다. 인시던트 팀은 심각도가 높으면서 계속 진행 중인 인시던트의 전용 회의 브리지로 사용할 때 특히 유용합니다.
 
-통신 및 공동 작업을 위해 Microsoft Teams를 이미 사용 하 고 있는 조직은 Microsoft 센티널 통합을 사용 하 여 보안 데이터를 직접 대화와 일상 작업에 가져올 수 있습니다. 
+통신 및 협업에 이미 Microsoft Teams 사용하는 조직은 Microsoft Sentinel 통합을 사용하여 보안 데이터를 대화 및 일상적인 작업에 직접 가져올 수 있습니다. 
 
-Microsoft 센티널 인시던트 팀은 Microsoft 센티널에서 항상 업데이트 된 최신 데이터를 보유 하 고 있으며 팀에서 가장 관련성이 높은 데이터를 사용할 수 있도록 합니다.
+Microsoft Sentinel 인시던트 팀은 항상 Microsoft Sentinel의 가장 업데이트된 최신 데이터를 보유하고 있으며, 팀에서 가장 관련성이 큰 데이터를 직접 확보합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-Microsoft 센티널에서 팀을 만들려면 다음을 수행 합니다.
+Microsoft Sentinel에서 팀을 만들려면 다음을 수행합니다.
 
-- 팀을 만드는 사용자에 게는 Microsoft 센티널의 인시던트 쓰기 권한이 있어야 합니다. 예를 들어 [Microsoft 센티널 응답자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) 역할은이 권한에 대해 이상적인 최소 역할입니다.
+- 팀을 만드는 사용자는 Microsoft Sentinel에서 인시던트 쓰기 권한이 있어야 합니다. 예를 들어 [Microsoft Sentinel 응답기](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) 역할은 이 권한에 이상적인 최소 역할입니다.
 
 - 팀을 만드는 사용자에게는 Microsoft Teams에서 팀을 만들 수 있는 권한도 있어야 합니다.
 
-- [독자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader), [응답자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)또는 [참가자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) 역할이 있는 사용자를 비롯 한 모든 Microsoft 센티널 사용자는 액세스를 요청 하 여 만든 팀에 액세스할 수 있습니다.
+- [읽기](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)권한자, [응답기](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)또는 [기여자](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) 역할이 있는 사용자를 비롯한 모든 Microsoft Sentinel 사용자는 액세스를 요청하여 만든 팀에 대한 액세스 권한을 얻을 수 있습니다.
 
 ## <a name="use-an-incident-team-to-investigate"></a>인시던트 팀을 사용하여 조사
 
@@ -56,7 +49,7 @@ Microsoft 센티널에서 팀을 만들려면 다음을 수행 합니다.
 
 **인시던트 팀을 만들려면**:
 
-1. Microsoft 센티널의 **위협 관리**  >  **인시던트** 표에서 현재 조사 중인 인시던트를 선택 합니다.
+1. Microsoft Sentinel의 **위협 관리**  >  **인시던트** 표에서 현재 조사 중인 인시던트 를 선택합니다.
 
 1. 오른쪽에 표시되는 인시던트 창 맨 아래에서 **작업** > **팀 만들기** 를 선택합니다.
 
@@ -97,5 +90,5 @@ Microsoft 센티널에서 팀을 만들려면 다음을 수행 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [자습서: Microsoft 센티널을 사용 하 여 인시던트 조사](investigate-cases.md)
+- [자습서: Microsoft Sentinel을 사용하여 인시던트 조사](investigate-cases.md)
 - [Microsoft Teams의 팀 및 채널 개요](/microsoftteams/teams-channels-overview/)

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 10/21/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a98772cced7b5f7e72c66d134e9ff652f64b4086
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1cd1c9f2f0cae76b843b2a8d0fadd0733a81dc09
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053208"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754788"
 ---
 # <a name="understand-access-to-a-connected-registry"></a>연결된 레지스트리에 대한 액세스 이해
 
@@ -32,11 +32,11 @@ ms.locfileid: "131053208"
 
 클라이언트 토큰 작업을 구성하는 옵션은 연결된 레지스트리가 푸시 작업과 풀 작업을 모두 허용하는지 또는 풀 전용 미러로 작동하는지 여부에 따라 달라집니다. 
 * 기본 [ReadWrite 모드](intro-connected-registry.md#modes)의 연결된 레지스트리를 사용하면 풀 및 푸시 작업을 모두 수행할 수 있으므로 해당 레지스트리의 리포지토리 콘텐츠에 대한 *읽기* 및 *쓰기* 동작을 모두 허용하는 토큰을 만들 수 있습니다. 
-* [ReadOnly 모드](intro-connected-registry.md#modes)의 연결된 레지스트리의 경우 클라이언트 토큰은 리포지토리 콘텐츠에 대한 *읽기* 동작만 허용할 수 있습니다.
+* [ReadOnly 모드](intro-connected-registry.md#modes)의 연결된 레지스트리의 경우 클라이언트 토큰은 리포지토리 콘텐츠에 대한 읽기 동작만 허용할 수 있습니다.
 
 ### <a name="manage-client-tokens"></a>클라이언트 토큰 관리
 
-[az acr token](/cli/az/acr#az_acr_token) 및 [az acr scope-map](/cli/az/acr#az_acr_scope-map) 명령을 사용하여 필요에 따라 클라이언트 토큰, 암호 또는 범위 맵을 업데이트합니다. 클라이언트 토큰 업데이트는 토큰을 수락하는 연결된 레지스트리에 자동으로 전파됩니다.
+[az acr token](/cli/azure/acr#az_acr_token) 및 [az acr scope-map](/cli/azure/acr#az_acr_scope-map) 명령을 사용하여 필요에 따라 클라이언트 토큰, 암호 또는 범위 맵을 업데이트합니다. 클라이언트 토큰 업데이트는 토큰을 수락하는 연결된 레지스트리에 자동으로 전파됩니다.
 
 ## <a name="sync-token"></a>동기화 토큰
 
@@ -49,7 +49,7 @@ ms.locfileid: "131053208"
 
 ### <a name="manage-sync-token"></a>동기화 토큰 관리
 
-[az acr token](/cli/az/acr#az_acr_token) 및 [az acr scope-map](/cli/az/acr#az_acr_scope-map) 명령을 사용하여 필요에 따라 동기화 토큰, 암호 또는 범위 맵을 업데이트합니다. 동기화 토큰 업데이트는 연결된 레지스트리에 자동으로 전파됩니다. 동기화 토큰을 업데이트할 때 암호를 회전하는 표준 방법을 따릅니다.
+[az acr token](/cli/azure/acr#az_acr_token) 및 [az acr scope-map](/cli/azure/acr#az_acr_scope-map) 명령을 사용하여 필요에 따라 동기화 토큰, 암호 또는 범위 맵을 업데이트합니다. 동기화 토큰 업데이트는 연결된 레지스트리에 자동으로 전파됩니다. 동기화 토큰을 업데이트할 때 암호를 회전하는 표준 방법을 따릅니다.
 
 > [!NOTE]
 > 동기화 토큰은 토큰과 연결되어 있는 연결된 레지스트리를 삭제할 때까지 삭제할 수 없습니다. 동기화 토큰의 상태를 `disabled`로 설정하여 연결된 레지스트리를 비활성화할 수 있습니다. 

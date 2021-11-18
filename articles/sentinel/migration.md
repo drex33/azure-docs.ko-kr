@@ -1,19 +1,17 @@
 ---
 title: 기존 SIEM에서 Microsoft 센티널로 마이그레이션합니다.
 description: 조직 전체에서 확장 가능한 지능형 보안 분석을 위해 기존 SIEM에서 Microsoft 센티널로 가장 잘 마이그레이션하는 방법에 대해 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: batamig
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5e1946affdf33239c89bbc5556f5905ccad6ed4f
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 13ce232cf2f7ea113ddfb8e28455b53cd5790ac8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132713178"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755966"
 ---
 # <a name="migrate-to-microsoft-sentinel-from-an-existing-siem"></a>기존 SIEM에서 Microsoft 센티널로 마이그레이션
 
@@ -45,7 +43,7 @@ SOC(보안 운영 센터) 팀은 중앙 집중식 SIEM(보안 정보 및 이벤�
 
 예를 들어 다음 주요 영역을 평가합니다.
 
-|평가 영역 |설명  |
+|평가 영역 |Description  |
 |---------|---------|
 |**공격 탐지 범위**     | [MITRE ATT&CK](https://attack.mitre.org/) 또는 유사한 프레임워크를 사용하여 각 SIEM이 전체 공격 범위를 얼마나 잘 탐지할 수 있는지 비교합니다.        |
 |**대응성**     |   SIEM에 경고가 표시된 후 분석가가 관련 작업을 시작하기까지의 시간인 MTTA(평균 인지 시간)를 측정합니다. 이 시간은 대개 SIEM 간에 유사합니다.      |
@@ -155,7 +153,7 @@ Microsoft 센티널에서 클라우드 데이터와 같은 일부 데이터를 �
 
 다음 표에는 권장되지 않는 병렬 구성과 그 이유에 대한 세부 정보가 설명되어 있습니다.
 
-|메서드  |설명  |
+|메서드  |Description  |
 |---------|---------|
 |**Microsoft 센티널 로그를 레거시 SIEM으로 보냅니다.**     |  이 방법을 사용하면 온-프레미스 SIEM의 비용 및 크기 조정 문제를 계속 경험하게 됩니다. <br><br>레거시 SIEM의 저장소 비용과 함께 Microsoft 센티널의 데이터 수집에 대 한 비용을 지불 하 고, Microsoft 센티널의 SIEM 및 대화 충성도 검색, 분석, 사용자 엔터티 동작 분석 (UEBA), AI 또는 조사 및 자동화 도구를 사용할 수 없습니다.       |
 |**레거시 SIEM에서 Microsoft 센티널로 로그 보내기**     |   이 방법은 Microsoft 센티널의 전체 기능을 제공 하지만 조직에서는 두 개의 서로 다른 데이터 수집 원본에 대해 계속 지불 합니다. 이 모델은 아키텍처 복잡성을 추가하는 것 외에도 비용이 더 높아질 수 있습니다.     |
@@ -290,4 +288,4 @@ Microsoft 센티널은 machine learning analytics를 사용 하 여 고화질 �
 - [Microsoft 센티널 학습 경로](/learn/paths/security-ops-sentinel/)
 - [SC-200 Microsoft 보안 작업 분석가 인증](/learn/certifications/exams/sc-200)
 - [Microsoft 센티널 Ninja 교육](https://techcommunity.microsoft.com/t5/azure-sentinel/become-an-azure-sentinel-ninja-the-complete-level-400-training/ba-p/1246310)
-- [Microsoft Sentinel을 사용하여 하이브리드 환경에 대한 공격 조사](https://mslearn.cloudguides.com/guides/Investigate%20an%20attack%20on%20a%20hybrid%20environment%20with%20Azure%20Sentinel)
+- [Microsoft 센티널을 사용 하 여 하이브리드 환경에서 공격 조사](https://mslearn.cloudguides.com/guides/Investigate%20an%20attack%20on%20a%20hybrid%20environment%20with%20Azure%20Sentinel)

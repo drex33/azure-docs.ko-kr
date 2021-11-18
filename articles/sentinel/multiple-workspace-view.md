@@ -1,24 +1,17 @@
 ---
 title: 한 번에 여러 작업 영역에서 Microsoft Sentinel 인시던트 작업 | Microsoft Docs
 description: Microsoft Sentinel에서 여러 작업 영역에서 동시에 인시던트 보기 방법
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c556fa7da28aab7e28affddaf82cd3e100dfc191
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 94bc20b51f48931635275813dd90cf69eecbd79b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712987"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761039"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>한 번에 여러 작업 영역에서 인시던트 작업 
 

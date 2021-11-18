@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: a2c33808be505209ff5eca58480b9fd5f03d9d4f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5c628e67b258d3d51b5f7b05b08c0ac0b2accb9a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785537"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304096"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>자습서: Splan Visitor와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -127,4 +127,4 @@ Splan Visitor에서 **Britta Simon** 이라는 테스트 사용자를 만듭니�
 
 ## <a name="next-steps"></a>다음 단계
 
-Splan Visitor가 구성되면 [Microsoft Cloud App Security에서 세션 제어를 적용하는 방법을 알아볼 수 있습니다](/cloud-app-security/proxy-deployment-any-app). 세션 제어를 사용하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다.
+Splan Visitor가 구성되면 [Microsoft Defender for Cloud Apps에서 세션 제어를 적용하는 방법을 알아볼 수 있습니다](/cloud-app-security/proxy-deployment-any-app). 세션 제어를 사용하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다.

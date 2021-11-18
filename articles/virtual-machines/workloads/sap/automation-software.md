@@ -7,18 +7,18 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
-ms.openlocfilehash: d93f1d9daa433a6abcd6ad54426060795708c9ef
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0f1c58dfa56fe797257c2bd8257504200587e9bc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730394"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760792"
 ---
 # <a name="download-sap-software"></a>SAP 소프트웨어 다운로드
 
 Azure에서 SAP [배포 자동화 프레임워크를](automation-deployment-framework.md)사용하려면 SAP 소프트웨어의 복사본이 필요합니다. 스토리지 계정에 SAP 미디어를 배치할 수 있도록 [Azure 환경을 준비합니다.](#configure-key-vault) 그런 다음 [Ansible 플레이북을 사용하여 SAP 소프트웨어를 다운로드합니다.](#download-sap-software)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 소프트웨어 다운로드 권한이 있는 SAP 사용자 계정(SAP-User 또는 S-User 계정)
@@ -108,10 +108,10 @@ SAP 매개 변수 파일을 구성합니다.
 1. 유효성 검사기 테스트 메뉴 스크립트를 실행합니다.
 
     ```bash
-    ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
+    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
     ```
 
-1. 실행할 플레이북을 선택합니다. 예를 들어 다음과 같습니다.
+1. 실행할 플레이북을 선택합니다. 다음은 그 예입니다.
     
     ```output
     1) BoM Downloader
@@ -126,7 +126,7 @@ SAP 매개 변수 파일을 구성합니다.
 ansible-playbook                                                                                   \
   --user        azureadm                                                                           \
   --extra-vars="@sap-parameters.yaml"                                                              \
-  ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/playbook_bom_downloader.yaml
+  ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
 ```
 
 ## <a name="next-steps"></a>다음 단계

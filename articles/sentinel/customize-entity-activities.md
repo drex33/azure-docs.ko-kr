@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel 엔터티 타임라인의 활동 사용자 지정 | Microsoft Docs
 description: 엔터티 페이지의 타임라인에 표시되는 Microsoft Sentinel 트랙 및 표시에 사용자 지정된 활동 추가
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c787600e29f7e813ca8e27ac827803c572986ff1
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 62ecdf9caa3deb541aee1f2948d381efae00fcf4
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721426"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756859"
 ---
 # <a name="customize-activities-on-entity-page-timelines"></a>엔터티 페이지 타임라인에서 활동 사용자 지정
 
@@ -207,6 +200,6 @@ Microsoft Sentinel은 사용할 수 있는 기본 제공 매개 변수를 제공
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 엔터티 페이지 타임라인에 대한 사용자 지정 활동을 만드는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 엔터티 페이지 타임라인에 대한 사용자 지정 활동을 만드는 방법을 알아보았습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [엔터티 페이지](identify-threats-with-entity-behavior-analytics.md)에서 전체 그림을 가져옵니다.
 - [엔터티 및 식별자](entities-reference.md)의 전체 목록을 참조하세요.

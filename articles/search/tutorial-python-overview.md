@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/25/2021
+ms.date: 11/17/2021
 ms.custom: devx-track-python
 ms.devlang: python
-ms.openlocfilehash: 51f65907778665648a4173c572c1fdcbae4a993d
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 834c46573e7509e8ffd06c23f59943be6aeee97d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580636"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763528"
 ---
 # <a name="1---overview-of-adding-search-to-a-website-with-python"></a>1 - Python을 사용하여 검색을 웹 사이트에 추가하는 방법에 대한 개요
 

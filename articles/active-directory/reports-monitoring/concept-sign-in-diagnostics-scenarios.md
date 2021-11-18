@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/08/2021
+ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f530f406f049876ca393610dc7b7fa02433116a
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: ab25e7150f7930f85df846ece50a3013c0e45818
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997156"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399734"
 ---
 # <a name="sign-in-diagnostics-for-azure-ad-scenarios"></a>Azure AD의 로그인 진단 시나리오
 
@@ -73,8 +73,14 @@ Azure AD의 로그인 진단은 다음 시나리오를 지원합니다.
     - 오류 코드 인사이트  
 
     - 레거시 인증  
+    
+    - 조건부 액세스로 인한 B2B 차단된 로그인
 
     - 위험 정책에 따라 차단됨 
+    
+    - 통과 인증
+    
+    - 원활한 Single Sign-On
 
 
 
@@ -285,6 +291,20 @@ Azure AD의 로그인 진단은 다음 시나리오를 지원합니다.
 이 진단 시나리오는 사용 중인 인증 방법이 PTA(통과 인증)이고 PTA 관련 오류가 있는 경우 사용자별 로그인 문제를 식별합니다. PTA 인증을 사용하는 경우에도 다른 문제로 인한 오류는 여전히 올바르게 진단됩니다. 
 
 진단은 실패 및 사용자 로그인에 대한 상황별 정보, 로그인이 실패한 추가 이유 및 관리자가 문제를 해결하기 위해 수행할 수 있는 권장 조치를 보여줍니다. 자세한 내용은 [Azure AD Connect: 통과 인증 문제 해결](../hybrid/tshoot-connect-pass-through-authentication.md)을 참조하세요. 
+
+
+### <a name="seamless-single-sign-on"></a>원활한 Single Sign-On
+
+원활한 Single Sign-On은 Kerberos 인증을 클라우드 인증과 통합합니다. 이 시나리오에는 두 가지 인증 프로토콜이 포함되므로 로그인 문제가 발생하는 경우 오류 지점이 어디에 있는지 파악하기 어려울 수 있습니다. 이 진단은 이러한 시나리오를 보다 쉽게 진단하고 해결할 수 있도록 하기 위한 것입니다.
+ 
+이 진단 시나리오는 로그인 오류의 컨텍스트와 특정 실패 원인, 로그인 시도에 대한 컨텍스트 정보, 관리자가 문제를 해결하기 위해 온-프레미스 또는 클라우드에서 수행할 수 있는 제안된 작업을 검사합니다. 자세한 내용은 [Azure Active Directory Seamless Single Sign-On 문제 해결](../hybrid/tshoot-connect-sso.md)을 참조하세요. 
+ 
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

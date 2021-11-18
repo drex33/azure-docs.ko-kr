@@ -4,14 +4,13 @@ description: Open Service Mesh에서 NGINX 수신을 사용하는 방법
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: ee313000b5b2fd21e7f629c57f45bbe0d3557835
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ee8452552e7e766a42e3c9ed87f4bfab2c9126b1
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066827"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132753916"
 ---
 # <a name="deploy-an-application-managed-by-open-service-mesh-osm-with-nginx-ingress"></a>NGINX 수신을 통해 OSM(Open Service Mesh)에서 관리하는 애플리케이션 배포
 
@@ -139,19 +138,11 @@ Namespace [bookwarehouse] successfully added to mesh [osm]
 ## <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Bookstore 애플리케이션을 AKS 클러스터에 배포합니다.
 
 ```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookthief.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookstore.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookwarehouse.yaml
+SAMPLE_VERSION=v0.11
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookbuyer.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookthief.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookstore.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-$SAMPLE_VERSION/docs/example/manifests/apps/bookwarehouse.yaml
 ```
 
 모든 배포 출력은 아래에 요약되어 있습니다.

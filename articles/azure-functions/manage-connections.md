@@ -4,12 +4,12 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/23/2021
-ms.openlocfilehash: 3a7f0f707957b4b3cfd7dc66efe9d2d011d58982
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 2c5bd2c29de2aeaece71d99bb6a1269af9b45cf2
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105636"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755795"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -84,37 +84,32 @@ http.request(options, onResponseCallback);
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-[DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)는 Azure Cosmos DB 인스턴스에 연결합니다. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](../cosmos-db/performance-tips.md#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
+[CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient)는 Azure Cosmos DB 인스턴스에 연결합니다. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](../cosmos-db/performance-tips-dotnet-sdk-v3-sql.md#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
 
 ```cs
-#r "Microsoft.Azure.Documents.Client"
-using Microsoft.Azure.Documents.Client;
+#r "Microsoft.Azure.Cosmos"
+using Microsoft.Azure.Cosmos;
 
-private static Lazy<DocumentClient> lazyClient = new Lazy<DocumentClient>(InitializeDocumentClient);
-private static DocumentClient documentClient => lazyClient.Value;
+private static Lazy<CosmosClient> lazyClient = new Lazy<CosmosClient>(InitializeCosmosClient);
+private static CosmosClient cosmosClient => lazyClient.Value;
 
-private static DocumentClient InitializeDocumentClient()
+private static CosmosClient InitializeCosmosClient()
 {
     // Perform any initialization here
-    var uri = new Uri("example");
+    var uri = "https://youraccount.documents.azure.com:443";
     var authKey = "authKey";
-    
-    return new DocumentClient(uri, authKey);
+   
+    return new CosmosClient(uri, authKey);
 }
 
 public static async Task Run(string input)
 {
-    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("database", "collection");
-    object document = new { Data = "example" };
-    await documentClient.UpsertDocumentAsync(collectionUri, document);
-    
+    Container container = cosmosClient.GetContainer("database", "collection");
+    MyItem item = new MyItem{ id = "myId", partitionKey = "myPartitionKey", data = "example" };
+    await container.UpsertItemAsync(document);
+   
     // Rest of function
 }
-```
-함수 v3.x로 작업하는 경우 Microsoft.Azure.DocumentDB.Core에 대한 참조가 필요합니다. 코드에서 참조 추가:
-
-```cs
-#r "Microsoft.Azure.DocumentDB.Core"
 ```
 또한 트리거에 대해 "function.proj"라는 파일을 만들고 아래 콘텐츠를 추가합니다.
 
@@ -122,10 +117,10 @@ public static async Task Run(string input)
 
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+        <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.23.0" />
     </ItemGroup>
 </Project>
 

@@ -1,29 +1,36 @@
 ---
 title: Azure Active Directory에서 플래그가 지정된 로그인이란?
 description: Azure Active Directory에서 플래그가 지정된 로그인에 대해 간략히 설명합니다.
+services: active-directory
+documentationcenter: ''
 author: MarkusVi
 manager: karenhoran
+editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
+ms.devlang: na
 ms.topic: overview
+ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/27/2021
+ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 518c13780cf7de9e31f3a22e7ecb0440aa0128bc
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 056ed3df8e9658b00917680aa2ad291f3529d1c8
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456046"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484578"
 ---
 # <a name="what-are-flagged-sign-ins-in-azure-active-directory"></a>Azure Active Directory에서 플래그가 지정된 로그인이란?
 
 사용자가 로그인하지 못한 경우 IT 관리자는 최대한 빨리 문제를 해결하여 사용자의 차단을 해제하려고 합니다. 로그인 로그에서 사용 가능한 데이터의 양으로 인해 올바른 정보를 찾는 것이 어려울 수 있습니다.
 
 이 문서에서는 관련 문제를 쉽게 찾을 수 있도록 하여 사용자 로그인 문제를 해결하는 데 걸리는 시간을 크게 향상시키는 기능에 대해 간략히 설명합니다.
+
+
 
 
 ## <a name="what-it-is"></a>의미
@@ -37,7 +44,9 @@ Azure AD 로그인 이벤트는 테넌트의 사용자 로그인 및 인증 구�
 요약하면 플래그가 지정된 로그인을 사용하여 다음을 수행할 수 있습니다.
 
 - 사용자가 테넌트 관리자의 도움이 필요한 로그인 오류를 **표시** 할 수 있도록 합니다.
+
 - 사용자가 해결해야 하는 로그인 오류를 찾는 프로세스를 **간소화** 합니다.
+
 - 최종 사용자가 플래그를 이벤트에 지정하는 것 이외의 작업을 수행할 필요 없이 지원 센터 직원이 사용자가 사전에 도움을 원하는 문제를 **찾을** 수 있도록 합니다.
 
 ## <a name="how-it-works"></a>작동 방식
@@ -68,20 +77,24 @@ Azure AD 로그인 이벤트는 테넌트의 사용자 로그인 및 인증 구�
 
 ### <a name="admin-or-developer-find-flagged-events-using-ms-graph"></a>관리자 또는 개발자: MS Graph를 사용하여 플래그가 지정된 이벤트 찾기
 
-로그인 보고 API를 사용하여 필터링된 쿼리를 통해 플래그가 지정된 로그인을 찾을 수 있습니다. 샘플 쿼리는 다음과 같습니다.
+로그인 보고 API를 사용하여 필터링된 쿼리를 통해 플래그가 지정된 로그인을 찾을 수 있습니다.
+
+플래그가 지정된 모든 로그인 표시: `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true`
+
+UPN별 특정 사용자에 대한 플래그가 지정된 로그인 쿼리(예: user@contoso.com): `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and userPrincipalname eq 'user@contoso.com'`
+
+특정 사용자 및 날짜에 대한 플래그가 지정된 로그인 쿼리: `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and createdDateTime ge 2021-10-01 and userPrincipalname eq 'user@contoso.com'`
  
-`https://graph.microsoft.com/beta/auditlogs/signins?&$filter=(flaggedForReview eq true)`
-
-로그인 Graph API를 사용하는 방법에 대한 자세한 내용은 [signIn 리소스 종류](/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true)를 참조하세요.
+로그인 Graph API를 사용하는 방법에 대한 자세한 내용은 [signIn 리소스 종류](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true)를 참조하세요.
 
 
 
  
-## <a name="who-can-create-it"></a>누가 만들 수 있나요?
+## <a name="who-can-create-flagged-sign-ins"></a>플래그가 지정된 로그인을 만들 수 있는 사용자
 
 웹 페이지를 통해 Azure AD에 로그인하는 모든 사용자는 검토를 위해 로그인 플래그 지정을 사용할 수 있습니다. 멤버 및 게스트 사용자는 모두 검토를 위해 플래그를 로그인 오류에 지정할 수 있습니다. 
 
-## <a name="who-can-review-it"></a>누가 검토할 수 있나요?
+## <a name="who-can-review-flagged-sign-ins"></a>플래그가 지정된 로그인을 검토할 수 있는 사용자
 
 플래그가 지정된 로그인 이벤트를 검토하려면 Azure AD 포털에서 로그인 보고서 이벤트를 읽을 수 있는 권한이 필요합니다. 자세한 내용은 [액세스할 수 있는 사용자는 누구인가요?](concept-sign-ins.md#who-can-access-it)를 참조하세요.
 

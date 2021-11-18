@@ -1,34 +1,27 @@
 ---
-title: Microsoft 센티널에서 기본 제공 분석 규칙을 사용 하 여 위협 감지 | Microsoft Docs
+title: Microsoft Sentinel | 기본 제공 분석 규칙을 사용하여 위협 검색 Microsoft Docs
 description: 의심스러운 상황이 발생할 때 사용자에게 알리는 기본 제공 템플릿을 기준으로 하는 기본 제공 위협 검색 규칙을 사용하는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1c9f9fd17c40503e456bb76c19d413b7e4bd8468
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 5bf444477a204e827fde093e2e5068c161f13055
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724352"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760623"
 ---
 # <a name="detect-threats-out-of-the-box"></a>곧바로 위협 탐지
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널에 [데이터 원본을 연결한](quickstart-onboard.md) 후 의심 스러운 상황이 발생 하면 알림이 표시 됩니다. Microsoft 센티널에서 위협 검색 규칙을 만드는 데 도움이 되는 기본 제공 되는 기본 제공 템플릿을 제공 하는 이유입니다.
+[데이터 원본을](quickstart-onboard.md) Microsoft Sentinel에 연결한 후에는 의심스러운 상황이 발생할 때 알림을 받을 수 있습니다. 따라서 Microsoft Sentinel은 위협 탐지 규칙을 만드는 데 도움이 되는 기본 제공 템플릿을 제공합니다.
 
 Microsoft의 보안 전문가와 분석가 팀은 알려진 위협, 일반적인 공격 벡터, 의심스러운 활동 에스컬레이션 체인을 바탕으로 규칙 템플릿을 설계했습니다. 이러한 템플릿에서 생성된 규칙은 사용자 환경에서 의심스러운 활동을 자동으로 검색합니다. 많은 템플릿을 사용자 지정하여 활동을 검색하거나, 필요하다면 필터를 지정할 수 있습니다. 이러한 규칙을 통해 생성되는 경고는 사용자 환경에서 할당하고 조사할 수 있는 인시던트를 만듭니다.
 
-이 문서는 Microsoft 센티널에서 위협을 검색 하는 방법을 이해 하는 데 도움이 됩니다.
+이 문서는 Microsoft Sentinel을 사용하여 위협을 검색하는 방법을 이해하는 데 도움이 됩니다.
 
 > [!div class="checklist"]
 > * 기본 제공 위협 검색 사용
@@ -36,26 +29,26 @@ Microsoft의 보안 전문가와 분석가 팀은 알려진 위협, 일반적인
 
 ## <a name="view-built-in-detections"></a>기본 제공 검색 보기
 
-Microsoft 센티널에서 모든 분석 규칙과 검색을 보려면 **분석**  >  **규칙 템플릿** 으로 이동 합니다. 이 탭에는 모든 Microsoft 센티널 기본 제공 규칙이 포함 되어 있습니다.
+Microsoft Sentinel에서 모든 분석 규칙 및 검색을 보려면 **분석**  >  **규칙 템플릿으로 이동합니다.** 이 탭에는 모든 Microsoft Sentinel 기본 제공 규칙이 포함되어 있습니다.
 
-:::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="기본 제공 검색을 사용 하 여 Microsoft 센티널에서 위협 찾기":::
+:::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="기본 제공 검색을 사용하여 Microsoft Sentinel로 위협 찾기":::
 
 기본 제공 검색에는 다음이 포함됩니다.
 
 | 규칙 유형 | 설명 |
 | --------- | --------- |
-| **Microsoft 보안** | Microsoft 보안 템플릿은 다른 Microsoft 보안 솔루션에서 생성 된 경고에서 실시간으로 Microsoft 센티널 인시던트를 자동으로 만듭니다. Microsoft 보안 규칙을 템플릿으로 사용하여 유사한 논리로 새 규칙을 만들 수 있습니다. <br><br>보안 규칙에 대한 자세한 내용은 [Microsoft 보안 경고에서 인시던트 자동 생성](create-incidents-from-alerts.md)을 참조하세요. |
-| <a name="fusion"></a>**퓨전**<br>(일부 검색은 미리 보기로 제공 됩니다.) | Microsoft 센티널은 확장 가능한 기계 학습 알고리즘과 함께 Fusion 상관 관계 엔진을 사용 하 여 여러 제품의 수많은 낮은 충실도 경고 및 이벤트를 충실도 및 실행 가능한 인시던트에 상관 관계를 조정 하 여 고급 다단계 공격을 감지 합니다. Fusion은 기본적으로 사용하도록 설정되어 있습니다. 논리는 숨겨져 있어서 사용자 지정할 수 없으므로 이 템플릿을 사용하여 규칙을 하나만 만들 수 있습니다. <br><br>또한 Fusion 엔진은 [예약된 분석 규칙](#scheduled)에 의해 생성된 경고를 다른 시스템의 경고와 상호 연관시키며, 결과적으로는 충실도가 높은 인시던트를 생성할 수 있습니다. |
+| **Microsoft 보안** | Microsoft 보안 템플릿은 다른 Microsoft 보안 솔루션에서 생성된 경고에서 Microsoft Sentinel 인시던트 를 실시간으로 자동으로 만듭니다. Microsoft 보안 규칙을 템플릿으로 사용하여 유사한 논리로 새 규칙을 만들 수 있습니다. <br><br>보안 규칙에 대한 자세한 내용은 [Microsoft 보안 경고에서 인시던트 자동 생성](create-incidents-from-alerts.md)을 참조하세요. |
+| <a name="fusion"></a>**퓨전**<br>(미리 보기의 일부 검색) | Microsoft Sentinel은 확장 가능한 기계 학습 알고리즘과 함께 Fusion 상관 관계 엔진을 사용하여 여러 제품의 많은 낮은 충실도 경고 및 이벤트를 고품질의 실행 가능한 인시던트와 상호 작용하여 고급 다단계 공격을 검색합니다. Fusion은 기본적으로 사용하도록 설정되어 있습니다. 논리는 숨겨져 있어서 사용자 지정할 수 없으므로 이 템플릿을 사용하여 규칙을 하나만 만들 수 있습니다. <br><br>또한 Fusion 엔진은 [예약된 분석 규칙](#scheduled)에 의해 생성된 경고를 다른 시스템의 경고와 상호 연관시키며, 결과적으로는 충실도가 높은 인시던트를 생성할 수 있습니다. |
 | **ML(기계 학습)동작 분석** | ML 동작 분석 템플릿은 독점적인 Microsoft 기계 학습 알고리즘을 기준으로 하므로 작동 방법 및 실행 시기에 대한 내부 논리를 볼 수 없습니다. <br><br>논리는 숨겨져 있어서 사용자 지정할 수 없으므로 이 형식의 각 템플릿을 사용하여 규칙을 하나만 만들 수 있습니다. |
-| <a name="anomaly"></a>**변칙**<br>(미리 보기) | 변칙 규칙 템플릿은 SOC-ML(기계 학습)을 사용하여 특정 유형의 비정상적인 동작을 감지합니다. 각 규칙에는 분석 중인 동작에 적합한 고유 매개 변수와 임계값이 있습니다. <br><br>해당 규칙 구성은 변경하거나 미세 조정할 수 없지만 규칙을 복제하고, 복제본을 변경 및 미세 조정할 수 있습니다. 이 경우 **플라이트** 모드에서 복제본을 실행하고 **프로덕션** 모드에서 원본을 동시에 실행합니다. 그런 다음 결과를 비교하고 원하는 대로 미세 조정하면 복제본을 **프로덕션** 으로 전환합니다. <br><br>자세한 내용은 [SOC ML 이상 기능을 사용 하 여 microsoft 센티널에서 위협 감지](soc-ml-anomalies.md) 및 [microsoft 센티널에서 변칙 검색 분석 규칙 작업](work-with-anomaly-rules.md)을 참조 하세요. |
+| <a name="anomaly"></a>**변칙**<br>(미리 보기) | 변칙 규칙 템플릿은 SOC-ML(기계 학습)을 사용하여 특정 유형의 비정상적인 동작을 감지합니다. 각 규칙에는 분석 중인 동작에 적합한 고유 매개 변수와 임계값이 있습니다. <br><br>해당 규칙 구성은 변경하거나 미세 조정할 수 없지만 규칙을 복제하고, 복제본을 변경 및 미세 조정할 수 있습니다. 이 경우 **플라이트** 모드에서 복제본을 실행하고 **프로덕션** 모드에서 원본을 동시에 실행합니다. 그런 다음 결과를 비교하고 원하는 대로 미세 조정하면 복제본을 **프로덕션** 으로 전환합니다. <br><br>자세한 내용은 [SOC ML 사용하여 Microsoft Sentinel에서 위협 검색](soc-ml-anomalies.md) 및 [Microsoft Sentinel에서 변칙 검색 분석 규칙 작업을](work-with-anomaly-rules.md)참조하세요. |
 | <a name="scheduled"></a>**예약됨** | 예약된 분석 규칙은 Microsoft 보안 전문가가 작성한 기본 제공 쿼리를 기준으로 합니다. 쿼리 논리를 보고 변경할 수 있습니다. 예약된 규칙 템플릿을 사용하고 쿼리 논리 및 일정 설정을 사용자 지정하여 새 규칙을 만들 수 있습니다. <br><br>몇 가지 새로운 예약된 분석 규칙 템플릿은 Fusion 엔진에서 다른 시스템의 경고와 상관 관계가 있는 경고를 생성하여 충실도가 높은 인시던트를 생성합니다. 자세한 내용은 [고급 다단계 공격 탐지](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections)를 참조하세요.<br><br>**팁**: 규칙 예약 옵션에는 규칙을 사용하도록 설정할 때 시작되는 시계와 함께 지정된 분, 시간 또는 일 수마다 규칙을 실행하도록 구성하는 것이 포함됩니다. <br><br>규칙이 제때에 새로운 인시던트 스택을 가져올 수 있도록 새 분석 규칙이나 편집된 분석 규칙을 사용하는 경우를 염두에 두는 것이 좋습니다. 예를 들어 SOC 분석가가 근무일을 시작할 때와 동기화하여 규칙을 실행하고 그때 규칙을 사용하도록 설정할 수 있습니다.|
-| <a name="nrt"></a>**NRT (거의 실시간)**<br>(미리 보기) | NRT 규칙은 가능한 한 분당 정보를 제공 하기 위해 1 분 마다 실행 되도록 설계 된 예약 된 규칙의 제한 된 집합입니다. <br><br>이러한 함수는 주로 예약 된 규칙과 유사 하 게 작동 하며, 이와 유사 하 게 구성 되며 약간의 제한이 있습니다. 자세한 내용은 [Microsoft 센티널의 NRT (거의 실시간) 분석 규칙으로 신속 하 게 위협 검색](near-real-time-rules.md)을 참조 하세요. |
+| <a name="nrt"></a>**거의 실시간(NRT)**<br>(미리 보기) | NRT 규칙은 가능한 한 분 동안 정보를 제공하도록 1분마다 한 번씩 실행되도록 설계된 예약된 규칙의 제한된 집합입니다. <br><br>대부분 예약된 규칙처럼 작동하며 몇 가지 제한 사항과 비슷하게 구성됩니다. 자세한 내용은 [Microsoft Sentinel에서 NRT(근 실시간) 분석 규칙을](near-real-time-rules.md)사용하여 신속하게 위협 검색을 참조하세요. |
 | | |
 
 > [!IMPORTANT]
-> - 위에서 언급 한 규칙 템플릿은 현재 미리 보기 상태입니다. **Fusion** 검색 템플릿 중 일부는 현재 **미리 보기** 상태입니다 (이를 보려면 [Microsoft 센티널의 Advanced 다단계 공격 검색](fusion.md) 참조). 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> - 위에 표시된 규칙 템플릿은 Fusion **검색** 템플릿과 마찬가지로 현재 **미리 보기** 에 있습니다(Microsoft [Sentinel의 고급 다단계 공격 검색](fusion.md) 참조). 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 >
-> - **ML 동작 분석** 템플릿을 기반으로 하는 규칙을 만들고 사용 하도록 설정 하 여, 기계 학습 엔진과 모델에서 처리 하기 위해 필요에 따라 **microsoft 센티널 작업 영역 외부의 수집 데이터를 복사 하는 데 microsoft 권한을 부여** 합니다.
+> - **ML 동작 분석** 템플릿을 기반으로 규칙을 만들고 사용하도록 설정하면 기계 학습 엔진 및 모델에서 처리하는 데 필요한 대로 **Microsoft에서 수집된 데이터를 Microsoft Sentinel 작업 영역의 지리 외부에 복사할 수** 있는 권한을 부여합니다.
 >
 
 ## <a name="use-built-in-analytics-rules"></a>기본 제공 분석 규칙 사용
@@ -64,7 +57,7 @@ Microsoft 센티널에서 모든 분석 규칙과 검색을 보려면 **분석**
 
 **기본 제공 분석 규칙을 사용** 하려면 다음을 수행합니다.
 
-1. Microsoft 센티널 > **분석**  >  **규칙 템플릿** 페이지에서 템플릿 이름을 선택 하 고 세부 정보 창에서 **규칙 만들기** 단추를 선택 하 여 해당 템플릿을 기반으로 하는 새 활성 규칙을 만듭니다. 
+1. Microsoft Sentinel >   >  **Analytics 규칙 템플릿** 페이지에서 템플릿 이름을 선택한 다음, 세부 정보 창에서 **규칙 만들기** 단추를 선택하여 해당 템플릿을 기반으로 새 활성 규칙을 만듭니다. 
 
     각 템플릿에는 필요한 데이터 원본 목록이 있습니다. 템플릿을 열면 데이터 원본의 가용성이 자동으로 검사됩니다. 가용성 문제가 있는 경우 **규칙 만들기** 단추가 사용하지 않도록 설정되거나 해당 효과에 대한 경고가 표시될 수 있습니다.
 
@@ -77,9 +70,9 @@ Microsoft 센티널에서 모든 분석 규칙과 검색을 보려면 **분석**
 > [!TIP]
 > - 환경을 완전한 보안하려면 **연결된 데이터 원본과 연결된 모든 규칙 사용** 을 설정해야 합니다. 분석 규칙을 사용하도록 설정하는 가장 효율적인 방법은 모든 관련 규칙을 나열하는 데이터 커넥터 페이지에서 직접 사용하는 것입니다. 자세한 내용은 [데이터 원본 연결](connect-data-sources.md)을 참조하세요.
 > 
-> - **[API](/rest/api/securityinsights/) 및 [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)을 통해 규칙을 Microsoft 센티널로 푸시할** 수도 있지만 이렇게 하려면 추가 작업이 필요 합니다. 
+> - **[API](/rest/api/securityinsights/) 및 [PowerShell을](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)통해 Microsoft Sentinel에 규칙을 푸시할** 수도 있지만 추가 작업이 필요합니다. 
 > 
->     API 또는 PowerShell을 사용하는 경우 규칙을 사용하도록 설정하기 전에 먼저 규칙을 JSON으로 내보내야 합니다. API 또는 PowerShell은 각 인스턴스에서 동일한 설정으로 Microsoft 센티널의 여러 인스턴스에서 규칙을 사용 하는 경우 유용할 수 있습니다.
+>     API 또는 PowerShell을 사용하는 경우 규칙을 사용하도록 설정하기 전에 먼저 규칙을 JSON으로 내보내야 합니다. API 또는 PowerShell은 각 인스턴스에서 동일한 설정을 사용하여 Microsoft Sentinel의 여러 인스턴스에서 규칙을 사용하도록 설정할 때 유용할 수 있습니다.
 > 
 ## <a name="export-rules-to-an-arm-template"></a>ARM 템플릿으로 규칙 내보내기
 
@@ -89,4 +82,4 @@ Microsoft 센티널에서 모든 분석 규칙과 검색을 보려면 **분석**
 
 - 사용자 지정 규칙을 생성하려면 기존 규칙을 템플릿 또는 참조로 사용합니다. 기존 규칙을 기준으로 사용하면 필요한 내용을 변경하기 전에 대부분의 논리를 작성하는 데 도움이 됩니다. 자세한 내용은 [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](detect-threats-custom.md)를 참조하세요.
 
-- 위협에 대 한 응답을 자동화 하는 방법을 알아보려면 [Microsoft 센티널에서 자동화 된 위협 응답을 설정](tutorial-respond-threats-playbook.md)합니다.
+- 위협에 대한 응답을 자동화하는 방법을 알아보려면 [Microsoft Sentinel에서 자동화된 위협 응답을 설정합니다.](tutorial-respond-threats-playbook.md)

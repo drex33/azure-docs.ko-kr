@@ -5,12 +5,12 @@ ms.author: pprystinka
 ms.date: 10/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 284db42a0e7816908929b98b649280b000b814f2
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 72651c757e6c0e33bf799a3b5ae49ebbf507ecdb
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134032"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132590689"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -62,12 +62,10 @@ dependencies {
 }
 ```
 
-프로젝트 설정 수준(**앱 폴더**) `settings.gradle`에서 리포지토리에 다음 줄을 추가합니다.
+프로젝트 gradle 스크립트에서 다음 줄을 `repositories`에 추가합니다. Gradle 버전 `6.7.1`의 경우 `repositories`는 (**앱 폴더**) `settings.gradle`에 있습니다.
 
 ```groovy
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
+repositories {
         ...
         maven {
             url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
@@ -82,7 +80,6 @@ dependencyResolutionManagement {
         }
         ...
     }
-}
 ```
 gradle 파일을 사용하여 프로젝트를 동기화합니다. (Android Studio -> 파일 -> Gradle 파일과 프로젝트 동기화)
 
@@ -289,9 +286,7 @@ CommunicationTokenCredential communicationTokenCredential = new CommunicationTok
 ### <a name="group-call"></a>그룹 통화
 
 `startCallComposite` 함수 내에서 `GroupCallOptions` 인스턴스를 초기화합니다.
-
 `"GROUP_CALL_ID"`를 호출에 대한 그룹 ID로 바꿉니다.
-
 `"DISPLAY_NAME"`을 사용자의 이름으로 바꿉니다.
 
 #### <a name="kotlin"></a>[Kotlin](#tab/kotlin)
@@ -319,8 +314,7 @@ GroupCallOptions options = new GroupCallOptions(
 ### <a name="teams-meeting"></a>Teams 모임
 
 `startCallComposite` 함수 내에서 `TeamsMeetingOptions` 인스턴스를 초기화합니다.
-`"TEAMS_MEETING_LINK"`를 호출에 대한 그룹 ID로 바꿉니다.
-
+`"TEAMS_MEETING_LINK"`를 호출에 대한 팀 미팅 URL로 바꿉니다.
 `"DISPLAY_NAME"`을 사용자의 이름으로 바꿉니다.
 
 #### <a name="kotlin"></a>[Kotlin](#tab/kotlin)

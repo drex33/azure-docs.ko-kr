@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 08/25/2021
+ms.date: 11/11/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: a2b716d2b0187e90e71156f2259a380d6fde7db4
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 87537ad4223aad23d9649fb7806d9158b02cb42d
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073262"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370199"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
     * 필요한 경우 [이전 자습서를 완료하여 Azure AD SSPR을 사용하도록 설정](tutorial-enable-sspr.md)합니다.
 * 현재 버전의 Azure AD Connect를 사용하여 구성된 기존 온-프레미스 AD DS 환경
     * 필요한 경우 [기본](../hybrid/how-to-connect-install-express.md) 또는 [사용자 지정](../hybrid/how-to-connect-install-custom.md) 설정을 사용하여 Azure AD Connect를 구성합니다.
-    * 비밀번호 쓰기 저장을 사용하려면 도메인 컨트롤러가 Windows Server 2016 이상이어야 합니다.
+    * 비밀 번호 쓰기 저장을 사용하기 위해 도메인 컨트롤러는 지원되는 모든 버전의 Windows Server를 실행할 수 있습니다.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Azure AD Connect에 대한 계정 권한 구성
 

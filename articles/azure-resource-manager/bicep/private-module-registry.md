@@ -2,13 +2,13 @@
 title: Bicep 모듈에 대한 프라이빗 레지스트리 만들기
 description: 프라이빗 Bicep 모듈에 대한 Azure 컨테이너 레지스트리를 설정하는 방법 알아보기
 ms.topic: conceptual
-ms.date: 10/22/2021
-ms.openlocfilehash: b667a80a155355ea206c4804d6eb98200491e3f8
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.date: 11/17/2021
+ms.openlocfilehash: e71ff2abe08ffddc38259ad7115466dd211f9776
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132551371"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755168"
 ---
 # <a name="create-private-registry-for-bicep-modules-preview"></a>Bicep 모듈용 프라이빗 레지스트리 만들기(미리 보기)
 
@@ -44,7 +44,8 @@ Bicep 레지스트리는 [ACR(Azure Container Registry)에서](../../container-r
 
 - 모듈을 배포하는 데 사용하는 계정 유형에 따라 사용되는 자격 증명을 사용자 지정해야 할 수 있습니다. 이러한 자격 증명은 레지스트리에서 모듈을 얻는 데 필요합니다. 기본적으로 자격 증명은 Azure CLI 또는 Azure PowerShell 얻습니다. **bicepconfig.json** 파일에서 자격 증명을 얻기 위한 우선 순위를 사용자 지정할 수 있습니다. 자세한 내용은 [모듈 복원을 위한 자격 증명을 참조하세요.](bicep-config-modules.md#credentials-for-restoring-modules)
 
-- 보안을 강화하려면 프라이빗 엔드포인트를 통해 액세스해야 할 수 있습니다. 자세한 내용은 [Azure Private Link 사용하여 Azure 컨테이너 레지스트리에 비공개로 커넥트](../../container-registry/container-registry-private-link.md)참조하세요.
+> [!IMPORTANT]
+> 프라이빗 컨테이너 레지스트리는 필요한 액세스 권한이 있는 사용자만 사용할 수 있습니다. 그러나 공용 인터넷을 통해 액세스됩니다. 보안을 강화하려면 프라이빗 엔드포인트를 통해 액세스해야 할 수 있습니다. [Azure Private Link 사용하여 Azure Container Registry에 비공개로 커넥트](../../container-registry/container-registry-private-link.md)참조하세요.
 
 ## <a name="publish-files-to-registry"></a>레지스트리에 파일 게시
 

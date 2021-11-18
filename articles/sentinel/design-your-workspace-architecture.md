@@ -1,18 +1,17 @@
 ---
 title: Microsoft Sentinel 작업 영역 아키텍처 | 디자인 Microsoft Docs
 description: 의사 결정 트리를 사용하여 Microsoft Sentinel 작업 영역 아키텍처를 디자인하는 방법을 이해합니다.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0e18dc78e45c1fb619a8727a550ffa81ce2a7d27
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 1be60133379b050432313b4a059241e416ce18c1
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724390"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762578"
 ---
 # <a name="design-your-microsoft-sentinel-workspace-architecture"></a>Microsoft Sentinel 작업 영역 아키텍처 디자인
 

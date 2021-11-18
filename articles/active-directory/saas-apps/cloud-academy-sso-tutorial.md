@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2021
+ms.date: 11/03/2021
 ms.author: jeedes
-ms.openlocfilehash: f66c2019e85640f1eaaeded5040fb925d070044a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7cbc5a5bc6cdacc6828d8609b409cfa9674fc331
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655793"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370054"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>자습서: Cloud Academy - SSO와 Azure Active Directory SSO 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "128655793"
 * 사용자가 자신의 Azure AD 계정으로 Cloud Academy - SSO에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "128655793"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Cloud Academy - SSO에서 **SP** 시작 SSO를 지원합니다.
-* Cloud Academy - SSO는 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* Cloud Academy - SSO에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
 * Cloud Academy - SSO는 [자동 사용자 프로비저닝](cloud-academy-sso-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-cloud-academy---sso-from-the-gallery"></a>갤러리에서 Cloud Academy - SSO 추가
@@ -125,30 +125,40 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 브라우저 창에서 Cloud Academy - SSO 회사 사이트에 관리자로 로그인합니다.
 
-1. 회사 이름을 선택한 다음, 표시되는 메뉴에서 **설정 및 통합** 을 선택합니다.
+1. 홈페이지에서 **Azure 통합 팀** 아이콘을 클릭한 다음, 왼쪽 메뉴에서 **설정** 을 선택합니다.
 
-    ![통합 및 설정 옵션을 보여 주는 스크린샷](./media/cloud-academy-sso-tutorial/config-1.PNG)
+1. **INTEGRATIONS** 탭에서 **SSO** 카드를 선택합니다.
 
-1. **설정 및 통합** 페이지의 **통합** 탭에서 **SSO** 카드를 선택합니다.
+    ![통합 및 설정 옵션을 보여 주는 스크린샷](./media/cloud-academy-sso-tutorial/integrations.png)
 
-    ![통합 탭의 SSO 카드를 보여 주는 스크린샷](./media/cloud-academy-sso-tutorial/config-2.PNG)
+1. **구성 시작** 을 클릭하여 SSO를 설정합니다.
 
-1. 이 페이지에서 다음 단계를 완료합니다.
+    ![통합 > SSO 페이지를 보여주는 스크린샷.](./media/cloud-academy-sso-tutorial/start-configuring.png)
 
-    ![통합 > SSO 페이지를 보여 주는 스크린샷](./media/cloud-academy-sso-tutorial/config-3.PNG)
+1. 일반 설정 페이지에서 다음 단계를 완료합니다.
 
-    a. **엔터티 ID URL** 상자에 Azure Portal에서 복사한 엔터티 ID 값을 입력합니다.
+    ![일반 설정의 통합을 보여주는 스크린샷.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    b. **SSO URL** 상자에 Azure Portal에서 복사한 로그인 URL 값을 붙여넣습니다.
+    a. **SSO URL(위치)** 상자에 Azure Portal에서 복사한 로그인 URL 값을 붙여넣습니다.
 
     c. Azure Portal에서 다운로드한 Base64 인증서를 메모장에서 엽니다. **인증서** 상자에 콘텐츠를 붙여넣습니다.
 
-    d. **이름 ID 형식** 상자에서 기본값을 그대로 유지합니다. `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+    d. **이메일 도메인** 상자에 회사에서 사용자 이메일에 사용하는 모든 도메인 값을 입력합니다.
 
-1. **저장** 을 선택합니다.
+1. 아래 페이지의 다음 단계를 수행합니다.
 
-    > [!NOTE]
-    > Cloud Academy - SSO를 구성하는 방법에 대한 자세한 내용은 [Single Sign-On 설정](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On)을 참조하세요.
+    ![추가 설정의 통합을 보여주는 스크린샷.](./media/cloud-academy-sso-tutorial/additional-settings.png)
+
+    a. **SAML 특성 매핑** 섹션에서 필요한 필드를 원본 특성 값으로 채웁니다.
+
+    b. **보안 설정** 섹션에서 **인증 요청 서명 여부** 확인란을 선택하여 이 값을 **True** 로 설정합니다.
+
+    다. **추가 설정(선택 사항)** 섹션에 Azure Portal에서 복사한 로그아웃 URL 값을 사용하여 **로그아웃 URL** 상자를 채웁니다.
+
+1. **저장 및 테스트** 를 클릭합니다.
+
+> [!NOTE]
+> Cloud Academy - SSO를 구성하는 방법에 대한 자세한 내용은 [Single Sign-On 설정](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On)을 참조하세요.
 
 ### <a name="create-a-cloud-academy-test-user"></a>Cloud Academy 테스트 사용자 만들기
 

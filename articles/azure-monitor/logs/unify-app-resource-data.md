@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7f49bd23347b53f9a5287973c6b2aba82da50ca7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c50a653d4c30324c7deb86be49e1328da842ecd9
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100619459"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763509"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
 이 문서에서는 모든 Application Insights 로그 데이터가 각기 다른 Azure 구독에 있더라도 한 곳에서 쿼리하고 보는 방법을 설명합니다. 사용이 중단된 Application Insights 커넥터 대신 이 방법을 사용할 수 있습니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스의 수는 100개로 제한됩니다.
@@ -57,7 +57,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 ![쿼리 간 결과 예제](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->로그 경고의 [리소스 간 쿼리](../logs/cross-workspace-query.md)는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서만 지원됩니다. 레거시 Log Analytics 경고 API를 사용하는 경우 [현재 API로 전환](../alerts/alerts-log-api-switch.md)해야 합니다. [예제 템플릿을 참조하세요](../alerts/alerts-log-create-templates.md).
+>로그 경고의 [리소스 간 쿼리](../logs/cross-workspace-query.md)는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules)에서만 지원됩니다. 레거시 Log Analytics 경고 API를 사용하는 경우 [현재 API로 전환](../alerts/alerts-log-api-switch.md)해야 합니다. [예제 템플릿을 참조하세요](../alerts/alerts-log-create-templates.md).
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Application Insights 및 Log Analytics 작업 영역 스키마의 차이점
 다음 표에는 Log Analytics 및 Application Insights의 스키마 간 차이점이 나와 있습니다.  

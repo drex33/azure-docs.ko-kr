@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 6cdfcff203f9694ab9c9e0b7a693b51070f73aac
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f034cb5f3773920f78e484e9bb078a316ebbe05d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070967"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761175"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -31,7 +31,6 @@ ms.locfileid: "131070967"
 > * [Spark v3 커넥터](create-sql-api-spark.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 이 빠른 시작에서는 Azure Portal 및 GitHub에서 복제된 Python 앱을 사용하여 Visual Studio Code에서 Azure Cosmos DB SQL API 계정을 만들고 관리합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 

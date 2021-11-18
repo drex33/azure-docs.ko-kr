@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: ae4daa5721d19fa1fa9a556781808cbca4b58b24
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b771b8f2bf3991a6974c9c5433cb2904fcfb62bc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131006205"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758588"
 ---
 # <a name="update-azure-percept-dk-over-the-air"></a>무선으로 Azure Percept DK 업데이트
 
@@ -30,7 +30,7 @@ ms.locfileid: "131006205"
 > [!NOTE]
 > 업데이트를 이미 가져온 경우, **디바이스 업데이트 그룹 만들기** 로 곧바로 건너뛸 수 있습니다.
 
-1. 개발 키트에 적합한 [매니페스트 및 업데이트 패키지](./how-to-select-update-package.md)를 결정합니다.
+1. 개발 키트에 적합한 [매니페스트 및 업데이트 패키지](./software-releases-over-the-air-updates.md)를 결정합니다.
 
 1. Azure Percept 디바이스에 사용하는 Azure IoT Hub으로 이동합니다. 왼쪽 메뉴 패널의 **자동 디바이스 관리** 에서 **디바이스 업데이트** 를 선택합니다.
 

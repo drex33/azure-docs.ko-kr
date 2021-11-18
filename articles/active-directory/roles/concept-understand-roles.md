@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 11/11/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19d15ea184603587eb3477216bb5a93d6d07f905
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 5632c1bcd4acca150b7992b14535951f3d0eba50
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440523"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370646"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Azure Active Directory의 역할 이해
 
@@ -33,12 +33,14 @@ Azure AD 및 Intune과 같은 다양한 Microsoft 365 서비스가 있습니다.
 - Azure AD
 - Exchange
 - Intune
-- Security Center
+- Defender for Cloud
 - Compliance Center
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud 앱
 - 상거래
 
 Teams, SharePoint 및 관리형 데스크톱과 같은 다른 서비스에는 별도의 역할 기반 액세스 제어 시스템이 없습니다. 관리 액세스를 위해 Azure AD 역할을 사용합니다. Azure에는 가상 머신과 같은 Azure 리소스에 대한 자체 역할 기반 액세스 제어 시스템이 있으며, 이 시스템은 Azure AD 역할과 동일하지 않습니다.
+
+![Azure RBAC 역할과 Azure AD 역할 비교](./media/concept-understand-roles/azure-roles-azure-ad-roles.png)
 
 별도의 역할 기반 액세스 제어 시스템을 말하는 경우 역할 정의 및 역할 할당이 저장되는 다른 데이터 저장소가 있음을 의미합니다. 마찬가지로, 액세스 검사가 발생하는 다른 정책 결정 지점이 있습니다. 자세한 내용은 [Azure AD의 Microsoft 365 서비스에 대한 역할](m365-workload-docs.md) 및 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.
 
@@ -52,7 +54,7 @@ Azure AD 기본 제공 역할은 다음과 같은 세 가지 광범위한 범주
 
 - **Azure AD 특정 역할**: 이러한 역할은 Azure AD 내에서만 리소스를 관리할 수 있는 권한을 부여합니다. 예를 들어, 사용자 관리자, 애플리케이션 관리자, 그룹 관리자는 모두 Azure AD에 있는 리소스를 관리할 수 있는 권한을 부여합니다.
 - **서비스 관련 역할**: 주요 Microsoft 365 서비스(비 Azure AD)의 경우 서비스 내의 모든 기능을 관리할 수 있는 권한을 부여하는 서비스 관련 역할을 구축했습니다.  예를 들어, Exchange 관리자, Intune 관리자, SharePoint 관리자, Teams 관리자 역할은 각 서비스를 사용하여 기능을 관리할 수 있습니다. Exchange 관리자는 사서함을 관리할 수 있고, Intune 관리자는 디바이스 정책을 관리할 수 있으며, SharePoint 관리자는 사이트 모음을 관리하고, Teams 관리자는 호출 품질을 관리할 수 있습니다.
-- **서비스 간 역할**: 서비스를 확장하는 몇 가지 역할이 있습니다. 전역 관리자와 전역 판독기라는 두 가지 글로벌 역할이 있습니다. 모든 Microsoft 365 서비스는 이러한 두 역할을 적용합니다. 또한 Microsoft 365 내의 여러 보안 서비스에서 액세스 권한을 부여하는 보안 관리자 및 보안 읽기 권한자와 같은 몇 가지 보안 관련 역할이 있습니다. 예를 들어, Azure AD에서 보안 관리자 역할을 사용하여 Microsoft 365 보안 센터, Microsoft Defender Advanced Threat Protection, Microsoft Cloud App Security를 관리할 수 있습니다. 마찬가지로, 규정 준수 관리자 역할에서 Microsoft 365 규정 준수 센터, Exchange 등의 규정 준수 관련 설정을 관리할 수 있습니다.
+- **서비스 간 역할**: 서비스를 확장하는 몇 가지 역할이 있습니다. 전역 관리자와 전역 판독기라는 두 가지 글로벌 역할이 있습니다. 모든 Microsoft 365 서비스는 이러한 두 역할을 적용합니다. 또한 Microsoft 365 내의 여러 보안 서비스에서 액세스 권한을 부여하는 보안 관리자 및 보안 읽기 권한자와 같은 몇 가지 보안 관련 역할이 있습니다. 예를 들어, Azure AD에서 보안 관리자 역할을 사용하여 Microsoft 365 Defender 포털, Microsoft Defender Advanced Threat Protection, Microsoft Defender for Cloud Apps를 관리할 수 있습니다. 마찬가지로, 규정 준수 관리자 역할에서 Microsoft 365 규정 준수 센터, Exchange 등의 규정 준수 관련 설정을 관리할 수 있습니다.
 
 ![Azure AD 기본 제공 역할의 세 가지 범주](./media/concept-understand-roles/role-overlap-diagram.png)
 

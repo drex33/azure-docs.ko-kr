@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 38d64cc11889e3279d4e81ed2ab760ea50755f40
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 412380b71057580d13d7b41c6153ba1b6d08e290
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761039"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342094"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>자습서: NS1 SSO for Azure와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -40,7 +40,7 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * NS1 SSO for Azure에서 SP 및 IDP 시작 SSO를 지원합니다.
-* NS1 SSO for Azure가 구성되면 세션 제어를 적용할 수 있습니다. 이를 통해 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호합니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+* NS1 SSO for Azure가 구성되면 세션 제어를 적용할 수 있습니다. 이를 통해 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호합니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## <a name="add-ns1-sso-for-azure-from-the-gallery"></a>갤러리에서 NS1 SSO for Azure 추가
@@ -177,4 +177,4 @@ NS1 SSO for Azure 쪽에서 Single Sign-On을 구성하려면 앱 페더레이�
 
 - [Azure AD에서 NS1 SSO for Azure 사용해 보기](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+- [Cloud Apps용 Microsoft Defender의 세션 제어란?](/cloud-app-security/proxy-intro-aad)

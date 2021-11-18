@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
-ms.openlocfilehash: b6094d86b8f0e2a75d41312b31d1f829d18601b5
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9a5e70bbb653faea4bcea6d64d62b125ae8cd54e
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132720685"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751292"
 ---
 # <a name="connect-to-azure-blob-storage-by-using-the-secure-file-transfer-sftp-protocol-preview"></a>SFTP(보안 파일 전송) 프로토콜(미리 보기)을 사용하여 Azure Blob Storage 커넥트
 
@@ -28,9 +28,9 @@ Azure Blob Storage SFTP 프로토콜 지원에 대한 자세한 내용은 Azure 
 >
 > 미리 보기에 등록하려면 [이 양식](https://forms.office.com/r/gZguN0j65Y)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 표준 범용 v2 또는 프리미엄 블록 Blob Storage 계정. 이러한 스토리지 계정 유형에 대한 자세한 내용은 [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+- 표준 범용 v2 또는 프리미엄 블록 Blob Storage 계정. 계정을 만들 때 SFTP를 사용하도록 설정할 수도 있습니다. 이러한 스토리지 계정 유형에 대한 자세한 내용은 [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 - 스토리지 계정의 계정 중복 옵션은 LRS(로컬 중복 스토리지) 또는 ZRS(영역 중복 스토리지)로 설정됩니다.
 
@@ -155,5 +155,5 @@ SFTP 클라이언트를 사용하여 안전하게 연결한 다음 파일을 전
 
 ## <a name="see-also"></a>추가 정보
 
-- [Azure Blob Storage SFTP(보안 파일 전송) 프로토콜 지원](secure-file-transfer-protocol-support.md)
-- [Azure Blob Storage SFTP(보안 파일 전송) 프로토콜 지원과 관련된 알려진 문제](secure-file-transfer-protocol-known-issues.md)
+- [Azure Blob Storage SFTP(SSH 파일 전송 프로토콜) 지원](secure-file-transfer-protocol-support.md)
+- [Azure Blob Storage SFTP(SSH 파일 전송 프로토콜) 지원과 관련된 알려진 문제](secure-file-transfer-protocol-known-issues.md)

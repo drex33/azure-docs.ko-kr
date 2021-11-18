@@ -50,22 +50,20 @@
           href: supportability/how-to-create-azure-support-request.md
         - name: Azure 지원 요청 관리
           href: supportability/how-to-manage-azure-support-request.md
-        - name: 할당량 증가 요청
+    - name: 할당량 증가 요청
+      items:
+        - name: vCPU 할당량 늘리기
           items:
-            - name: 컴퓨팅 vCPU 제한 증가
-              items:
-                - name: 리소스 관리자 배포 모델
-                  items:
-                    - name: VM 시리즈 vCPU 제한 증가
-                      href: supportability/per-vm-quota-requests.md
-                    - name: 지역별 총 vCPU 제한 증가
-                      href: supportability/regional-quota-requests.md
-                    - name: 스폿 할당량 제한 증가
-                      href: supportability/low-priority-quota.md
-                - name: 클래식 배포 모델
-                  href: supportability/classic-deployment-model-quota-increase-requests.md
-            - name: 네트워킹 제한 증가
-              href: supportability/networking-quota-requests.md
+            - name: VM 제품군 vCPU 할당량 늘리기
+              href: supportability/per-vm-quota-requests.md
+            - name: 지역 vCPU 할당량 늘리기
+              href: supportability/regional-quota-requests.md
+            - name: 스폿 vCPU 할당량 늘리기
+              href: supportability/spot-quota.md
+        - name: 클래식 배포를 위한 vCPU 할당량 늘리기
+          href: supportability/classic-deployment-model-quota-increase-requests.md
+        - name: 네트워킹 할당량 늘리기
+          href: supportability/networking-quota-requests.md
     - name: Azure Portal 문제 해결
       items:
         - name: 삭제된 대시보드 복구

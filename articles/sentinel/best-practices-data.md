@@ -1,18 +1,17 @@
 ---
 title: Microsoft Sentinel의 데이터 수집 모범 사례
 description: 데이터 원본을 Microsoft Sentinel에 연결할 때 사용하는 모범 사례에 대해 알아봅니다.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b64e7d9cedeb0e979f6b733163617a67c69d79fe
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 47627bd3313b7a71576debe65c3ec30140d97a9c
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132714640"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758113"
 ---
 #  <a name="data-collection-best-practices"></a>데이터 수집 모범 사례
 
@@ -75,7 +74,7 @@ ms.locfileid: "132714640"
 
 |문제/요구 사항  |가능한 해결 방법  |고려 사항  |
 |---------|---------|---------|
-|**로그 필터링 필요**     | Syslog-NG 사용 <br><br>Rsyslog 사용 <br><br>에이전트에 대해 FluentD 구성 사용 <br><br> Azure Monitor 에이전트/Microsoft Monitoring 에이전트 사용 <br><br> Logstash 사용  |  일부 Linux 배포는 에이전트에서 지원되지 않을 수 있습니다. <br> <br>Syslog 또는 FluentD를 사용하려면 개발자 지식이 필요합니다. <br><br>자세한 내용은 [보안 이벤트를 수집하기 위해 Windows 서버에 커넥트](connect-windows-security-events.md) Microsoft [Sentinel 사용자 지정 커넥터를 만들기 위한 리소스를 참조하세요.](create-custom-connector.md)      |
+|**로그 필터링 필요**     | Syslog-NG 사용 <br><br>Rsyslog 사용 <br><br>에이전트에 대해 FluentD 구성 사용 <br><br> Azure Monitor 에이전트/Microsoft Monitoring 에이전트 사용 <br><br> Logstash 사용  |  일부 Linux 배포는 에이전트에서 지원되지 않을 수 있습니다. <br> <br>Syslog 또는 FluentD를 사용하려면 개발자 지식이 필요합니다. <br><br>자세한 내용은 [보안 이벤트를 수집하기 위해 Windows 서버에 커넥트](connect-windows-security-events.md) [Microsoft Sentinel 사용자 지정 커넥터를 만들기 위한 리소스를 참조하세요.](create-custom-connector.md)      |
 |**에이전트를 설치할 수 없음**     |  syslog-ng 또는 rsyslog와 같은 Syslog 전달자 사용       |         |
 |**서버가 인터넷에 연결할 수 없음**       | [Log Analytics 게이트웨이](../azure-monitor/agents/gateway.md) 사용        | 에이전트에 대한 프록시를 구성하려면 게이트웨이 작동을 허용하는 추가 방화벽 규칙이 필요합니다.          |
 |**수집 시 태그 지정 및 보강 필요**      | 보강을 위해 Logstash를 사용하거나 API 또는 EventHubs와 같은 사용자 지정 방법 사용         | 필터링에 필요한 추가 작업이 있을 수도 있습니다.    |

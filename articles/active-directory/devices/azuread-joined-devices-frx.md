@@ -9,20 +9,20 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: jairoc
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c12dea04fe603be370947ef0bae3c9db28335a01
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4b76ade4b47417cb6c3d4f65daa335553c7a4b83
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624010"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179187"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>자습서: 첫 번째 실행 동안 Azure AD에 새 Windows 10 디바이스 조인
 
 Azure AD(Active Directory)의 디바이스 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 디바이스 관리 소개](overview.md)를 참조하세요.
 
-Windows 10을 사용할 경우 FRX(첫 실행 경험) 동안 Azure AD에 새 디바이스를 조인할 수 있습니다.  
+Windows 10을 사용할 경우 OOBE(첫 실행 즉시 사용 환경) 동안 Azure AD에 새 디바이스를 조인할 수 있습니다.  
 이렇게 하면 축소 래핑된 디바이스를 직원이나 학생에게 배포할 수 있습니다.
 
 Windows 10 Professional 또는 Windows 10 Enterprise가 디바이스에 설치된 경우 환경은 기본적으로 회사 소유의 디바이스에 대한 설정 프로세스로 지정됩니다.
@@ -48,16 +48,16 @@ Windows 10 디바이스를 조인하려면 디바이스를 등록할 수 있도�
 1. 새 디바이스를 켜고 설정 프로세스를 시작하면 **준비 중** 메시지가 표시됩니다. 프롬프트에 따라 디바이스를 설정합니다.
 1. 국가 및 언어를 사용자 지정하는 작업부터 시작합니다. 그런 다음 Microsoft 소프트웨어 사용 조건에 동의합니다.
  
-    ![해당 지역에 대한 사용자 지정](./media/azuread-joined-devices-frx/01.png)
+    <!--![Customize for your region](./media/azuread-joined-devices-frx/01.png)-->
 
 1. 인터넷에 연결하는 데 사용할 네트워크를 선택합니다.
 1. **이 디바이스는 내 조직에서 소유한 디바이스입니다** 를 클릭합니다. 
 
-    ![이 PC를 누가 소유하고 있나요? 화면](./media/azuread-joined-devices-frx/02.png)
+    <!--![Who owns this PC screen](./media/azuread-joined-devices-frx/02.png)-->
 
 1. 조직에서 제공한 자격 증명을 입력하고 **로그인** 을 클릭합니다.
 
-    ![로그인 화면](./media/azuread-joined-devices-frx/03.png)
+    <!--![Sign-in screen](./media/azuread-joined-devices-frx/03.png)-->
 
 1. 디바이스는 Azure AD에서 일치하는 테넌트를 찾습니다. 페더레이션된 도메인의 사용자인 경우 온-프레미스 STS(보안 토큰 서비스)가 서버(예: AD FS(Active Directory Federation Services))로 리디렉션됩니다.
 1. 페더레이션되지 않은 도메인의 사용자의 경우 Azure AD 호스팅 페이지에 직접 자격 증명을 입력해야 합니다. 

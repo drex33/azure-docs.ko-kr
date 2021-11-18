@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 8831666015663eedd3ab779cd23b58bb8cf0df24
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9312c481e8d8196feb593bd5bb817f60e875a361
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124739136"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>자습서: Azure Active Directory와 LaunchDarkly 통합
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     b. **회신 URL** 텍스트 상자에서 `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > [회신 URL] 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 회신 URL로 값을 업데이트하게 됩니다. 애플리케이션을 **IDP** 모드에서 사용하려면 **로그온 URL** 필드를 비워 둬야 합니다. 그렇지 않으면 **IDP** 에서 로그인을 시작할 수 없게 됩니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > [회신 URL] 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 회신 URL로 값을 업데이트하게 됩니다. 현재 LaunchDarkly에서 **IDP** 시작 SSO를 지원합니다. 이 애플리케이션을 **IDP** 모드에서 사용하려면 **로그온 URL** 필드를 비워 둬야 합니다. 그렇지 않으면 **IDP** 에서 로그인을 시작할 수 없게 됩니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -163,4 +163,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-LaunchDarkly가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+LaunchDarkly가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

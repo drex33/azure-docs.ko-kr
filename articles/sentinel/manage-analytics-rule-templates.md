@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel에서 예약된 분석 규칙에 대한 템플릿 버전 관리
 description: 예약된 분석 규칙 템플릿과 해당 템플릿에서 만든 규칙 간의 관계를 관리하는 방법을 알아봅니다. 템플릿에 대한 업데이트를 규칙에 병합하고 규칙의 변경 내용을 다시 원래 템플릿으로 되돌려 줍니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c8402afbe6068e6eb7c81276bdbecc86c30acbbc
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0f240b1124fef6ada4f16323cc4d7f26f2dff205
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132723117"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760147"
 ---
 # <a name="manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel"></a>Microsoft Sentinel에서 예약된 분석 규칙에 대한 템플릿 버전 관리
 
@@ -56,7 +49,7 @@ Microsoft Sentinel은 실제로 복사본을 만들어 활성 규칙으로 전�
 
         :::image type="content" source="media/manage-analytics-rule-templates/see-rules-with-updated-template.png" alt-text="템플릿 업데이트를 사용할 수 있음을 나타내는 배지가 있는 활성 규칙 목록의 스크린샷" lightbox="media/manage-analytics-rule-templates/see-rules-with-updated-template.png":::
 
-1. 세부 정보 창의 맨 아래에 Scroll down 두 개의 버전 번호, 즉 규칙이 만들어진 템플릿 버전과 사용 가능한 최신 버전의 템플릿이 표시됩니다. 
+1. 세부 정보 창의 맨 아래에 Scroll down. 여기서 두 개의 버전 번호, 즉 규칙이 만들어진 템플릿 버전과 사용 가능한 최신 버전의 템플릿이 표시됩니다. 
 
     :::image type="content" source="media/manage-analytics-rule-templates/see-template-versions.png" alt-text="세부 정보 창의 스크린샷. 템플릿 버전 번호를 보려면 Scroll down." border="false":::
 

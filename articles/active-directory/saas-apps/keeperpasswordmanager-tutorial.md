@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 3488ecba825d82cd1f3790b977b8b039eb38486f
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 26f56e452b2065fd61180d9e6cc3f757d8392c16
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129402950"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294849"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-keeper-password-manager"></a>자습서: Keeper Password Manager와 Azure AD SSO 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "129402950"
 * 사용자가 해당 Azure AD 계정으로 Keeper Password Manager에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -164,4 +164,4 @@ Azure AD 사용자가 Keeper Password Manager에 로그인할 수 있도록 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-Keeper Password Manager가 구성되면 세션 제어를 적용할 수 있습니다. 이를 통해 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호합니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)를 참조하세요.
+Keeper Password Manager가 구성되면 세션 제어를 적용할 수 있습니다. 이를 통해 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호합니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)를 참조하세요.

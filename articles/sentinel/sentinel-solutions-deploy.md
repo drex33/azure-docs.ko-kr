@@ -1,24 +1,17 @@
 ---
 title: 중앙에서 Microsoft Sentinel 콘텐츠 및 솔루션 검색 및 배포
 description: 이 문서에서는 고객이 데이터 커넥터 및 기타 콘텐츠와 함께 패키지된 데이터 분석 도구를 쉽게 찾고 배포할 수 있는 방법을 보여줍니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c1e10e0ee346358b095d6eb5bec4fafab1f56799
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: b27bf67c831f5b5ae29b99838cce905199e8084f
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711701"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759329"
 ---
 # <a name="centrally-discover-and-deploy-microsoft-sentinel-out-of-the-box-content-and-solutions-public-preview"></a>Microsoft Sentinel의 기본적으로 사용 가능한 콘텐츠 및 솔루션을 중앙에서 검색 및 배포(공개 미리 보기)
 
@@ -61,9 +54,9 @@ Microsoft Sentinel 콘텐츠 허브는 엔드투엔드 제품, 도메인 또는 
 
 ## <a name="install-or-update-a-solution"></a>솔루션 설치 또는 업데이트
 
-1. 콘텐츠 허브에서 솔루션을 선택하여 오른쪽에 있는 자세한 정보를 봅니다. 그런 **다음, 업데이트가** 필요한 경우 설치 또는 **업데이트** 를 선택합니다. 예를 들어 다음과 같습니다.
+1. 콘텐츠 허브에서 솔루션을 선택하여 오른쪽에 있는 자세한 정보를 봅니다. 그런 **다음, 업데이트가** 필요한 경우 설치 또는 **업데이트** 를 선택합니다. 다음은 그 예입니다.
 
-1. 솔루션 세부 정보 페이지에서 **만들기** 또는 **업데이트를** 선택하여 솔루션 마법사를 시작합니다. 마법사의 기본 **사항** 탭에서 솔루션을 배포할 구독, 리소스 그룹 및 작업 영역을 입력합니다. 예를 들어 다음과 같습니다.
+1. 솔루션 세부 정보 페이지에서 **만들기** 또는 **업데이트를** 선택하여 솔루션 마법사를 시작합니다. 마법사의 기본 **사항** 탭에서 솔루션을 배포할 구독, 리소스 그룹 및 작업 영역을 입력합니다. 다음은 그 예입니다.
 
     :::image type="content" source="media/sentinel-solutions-deploy/wizard-basics.png" alt-text="기본 사항 탭을 보여주는 솔루션 설치 마법사의 스크린샷.":::
 
@@ -81,7 +74,7 @@ Microsoft Sentinel 콘텐츠 허브는 엔드투엔드 제품, 도메인 또는 
 
 ## <a name="find-the-support-model-for-your-solution"></a>솔루션에 대한 지원 모델 찾기
 
-각 솔루션은 **Microsoft** 또는 파트너의 이름이 나열된 지원 상자의 솔루션 세부 정보 창에 **해당 지원** 모델에 대한 세부 정보를 나열합니다. 예를 들어 다음과 같습니다.
+각 솔루션은 **Microsoft** 또는 파트너의 이름이 나열된 지원 상자의 솔루션 세부 정보 창에 **해당 지원** 모델에 대한 세부 정보를 나열합니다. 다음은 그 예입니다.
 
 :::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="솔루션에 대한 지원 모델을 찾을 수 있는 위치의 스크린샷" lightbox="media/sentinel-solutions-deploy/find-support-details.png":::
 

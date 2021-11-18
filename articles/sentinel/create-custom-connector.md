@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널 사용자 지정 커넥터를 만들기 위한 리소스 | Microsoft Docs
 description: Microsoft 센티널 용 사용자 지정 커넥터를 만드는 데 사용할 수 있는 리소스에 대해 알아봅니다. 방법에는 Log Analytics 에이전트와 API, Logstash, Logic Apps, PowerShell 및 Azure Functions가 포함됩니다.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: 256743af821f1dc3cdb83d71246cf31ed2b9a7cc
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: dec6eed00278fb5f3d82293bf6e74d020426c1a2
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721616"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763547"
 ---
 # <a name="resources-for-creating-microsoft-sentinel-custom-connectors"></a>Microsoft 센티널 사용자 지정 커넥터를 만들기 위한 리소스
 

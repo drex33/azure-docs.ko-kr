@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
-ms.date: 05/06/2021
-ms.openlocfilehash: 19aee45977dfde4b401dc4736e24970e311a4cc9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/16/2021
+ms.openlocfilehash: 51a37a5cf9010c3a76db99d2874a862dcf908130
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621132"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751254"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-powershell-preview"></a>자습서: Azure PowerShell을 사용하여 Blob에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "128621132"
 > - 역할 할당에 조건 추가
 > - BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당 조건을 추가하거나 편집하기 위한 사전 요구 사항은 [조건 및 사전 요구 사항](../../role-based-access-control/conditions-prerequisites.md)을 참조하세요.
 
@@ -53,7 +53,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -174,7 +174,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 1. 조건을 초기화합니다.
 
     ```azurepowershell
-    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
     ```
 
     PowerShell에서 조건에 달러 기호($)가 포함된 경우에는 앞에 백틱(\`)을 붙여야 합니다. 예를 들어 이 조건은 달러 기호를 사용하여 태그 키 이름을 표시합니다.
@@ -208,7 +208,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     Description        : Read access to blobs with the tag Project=Cascade
     ConditionVersion   : 2.0
     Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND
-                         @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR
+                         SubOperationMatches{'Blob.Read.WithTagConditions'})) OR
                          (@Resource[Microsoft.Storage/storageAccounts/blobServices/co
                          ntainers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'))
     ```
@@ -301,7 +301,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 1. 조건을 편집합니다.
 
     ```azurepowershell
-    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Baker'))"
+    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Baker'))"
     ```
 
 1. 조건과 설명을 초기화합니다.
@@ -333,7 +333,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     Description        : Read access to blobs with the tag Project=Cascade or Project=Baker
     ConditionVersion   : 2.0
     Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND
-                         @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR
+                         SubOperationMatches{'Blob.Read.WithTagConditions'})) OR
                          (@Resource[Microsoft.Storage/storageAccounts/blobServices/co
                          ntainers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade' OR @Resource[Microsoft.S
                          torage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]

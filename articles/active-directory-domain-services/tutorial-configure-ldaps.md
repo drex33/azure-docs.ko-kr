@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 3cbc6d9b0f51b939a03378c45845c50f91c4549f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a2cb97ce2ddc8e2d8b5921909346f943d955c87d
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991986"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370767"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -39,13 +39,13 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
-    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+  * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
+  * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
 * 컴퓨터에 설치된 *LDP.exe* 도구
-    * 필요한 경우 *Active Directory Domain Services 및 LDAP* 에 대한 [RSAT(원격 서버 관리 도구)를 설치합니다][rsat].
+  * 필요한 경우 *Active Directory Domain Services 및 LDAP* 에 대한 [RSAT(원격 서버 관리 도구)를 설치합니다][rsat].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -56,17 +56,17 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 보안 LDAP를 사용하려면 디지털 인증서를 사용하여 통신을 암호화합니다. 이 디지털 인증서는 관리되는 도메인에 적용되며, *LDP.exe* 와 같은 도구에서 데이터를 쿼리할 때 암호화된 보안 통신을 사용할 수 있습니다. 관리되는 도메인에 대한 보안 LDAP 액세스용 인증서를 만드는 두 가지 방법이 있습니다.
 
 * 퍼블릭 CA(인증 기관) 또는 엔터프라이즈 CA의 인증서
-    * 조직에서 퍼블릭 CA의 인증서를 가져오는 경우 해당 퍼블릭 CA에서 보안 LDAP 인증서를 가져옵니다. 조직에서 엔터프라이즈 CA를 사용하는 경우 엔터프라이즈 CA에서 보안 LDAP 인증서를 가져옵니다.
-    * 퍼블릭 CA는 관리되는 도메인에서 사용자 지정 DNS 이름을 사용하는 경우에만 작동합니다. 관리되는 도메인의 DNS 도메인 이름이 *.onmicrosoft.com* 으로 끝나면 이 기본 도메인과의 연결을 보호하기 위해 디지털 인증서를 만들 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 퍼블릭 CA는 인증서를 발급하지 않습니다. 이 시나리오에서는 자체 서명된 인증서를 만들고 이를 사용하여 보안 LDAP를 구성합니다.
+  * 조직에서 퍼블릭 CA의 인증서를 가져오는 경우 해당 퍼블릭 CA에서 보안 LDAP 인증서를 가져옵니다. 조직에서 엔터프라이즈 CA를 사용하는 경우 엔터프라이즈 CA에서 보안 LDAP 인증서를 가져옵니다.
+  * 퍼블릭 CA는 관리되는 도메인에서 사용자 지정 DNS 이름을 사용하는 경우에만 작동합니다. 관리되는 도메인의 DNS 도메인 이름이 *.onmicrosoft.com* 으로 끝나면 이 기본 도메인과의 연결을 보호하기 위해 디지털 인증서를 만들 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 퍼블릭 CA는 인증서를 발급하지 않습니다. 이 시나리오에서는 자체 서명된 인증서를 만들고 이를 사용하여 보안 LDAP를 구성합니다.
 * 사용자가 직접 만든 자체 서명된 인증서
-    * 이 방법은 테스트 용도에 적합하며 이 자습서에서 설명하는 내용입니다.
+  * 이 방법은 테스트 용도에 적합하며 이 자습서에서 설명하는 내용입니다.
 
 요청하거나 만드는 인증서에서 충족해야 하는 요구 사항은 다음과 같습니다. 잘못된 인증서를 사용하여 보안 LDAP를 사용하도록 설정하면 관리되는 도메인에 문제가 발생합니다.
 
 * **신뢰할 수 있는 발급자** - 인증서는 보안 LDAP를 사용하여 관리되는 도메인에 연결하는 컴퓨터에서 신뢰하는 기관에서 발급된 것이어야 합니다. 이 기관은 이러한 컴퓨터에서 신뢰할 수 있는 퍼블릭 CA 또는 엔터프라이즈 CA일 수 있습니다.
 * **수명** - 인증서는 다음 3-6개월 이상 동안 유효해야 합니다. 인증서가 만료될 때 관리되는 도메인에 대한 보안 LDAP 액세스가 중단됩니다.
 * **주체 이름** - 인증서의 주체 이름은 관리되는 도메인이어야 합니다. 예를 들어 도메인 이름이 *aaddscontoso.com* 인 경우 인증서의 주체 이름은 * *.aaddscontoso.com* 이어야 합니다.
-    * 보안 LDAP가 Azure AD Domain Services에서 제대로 작동하려면 인증서의 DNS 이름 또는 주체 대체 이름이 와일드카드 인증서여야 합니다. 도메인 컨트롤러는 임의의 이름을 사용하며, 서비스를 계속 사용할 수 있도록 제거하거나 추가할 수 있습니다.
+  * 보안 LDAP가 Azure AD Domain Services에서 제대로 작동하려면 인증서의 DNS 이름 또는 주체 대체 이름이 와일드카드 인증서여야 합니다. 도메인 컨트롤러는 임의의 이름을 사용하며, 서비스를 계속 사용할 수 있도록 제거하거나 추가할 수 있습니다.
 * **키 사용** - 인증서를 *디지털 서명* 및 *키 암호화* 에 맞게 구성해야 합니다.
 * **인증서 용도** - 인증서는 TLS 서버 인증에 대해 유효해야 합니다.
 
@@ -108,12 +108,12 @@ Thumbprint                                Subject
 보안 LDAP를 사용하기 위해 네트워크 트래픽이 PKI(퍼블릭 키 인프라)를 사용하여 암호화됩니다.
 
 * **프라이빗** 키는 관리되는 도메인에 적용됩니다.
-    * 이 프라이빗 키는 보안 LDAP 트래픽의 *암호를 해독* 하는 데 사용됩니다. 프라이빗 키는 관리되는 도메인에만 적용되고 클라이언트 컴퓨터에 광범위하게 배포되지 않아야 합니다.
-    * 프라이빗 키가 포함된 인증서는 *.PFX* 파일 형식을 사용합니다.
-    * 인증서를 내보낼 때 *TripleDES-SHA1* 암호화 알고리즘을 지정해야 합니다. 이는 .pfx 파일에만 적용되며 인증서 자체에서 사용되는 알고리즘에는 영향을 주지 않습니다. *TripleDES-SHA1* 옵션은 Windows Server 2016부터 사용할 수 있습니다.
+  * 이 프라이빗 키는 보안 LDAP 트래픽의 *암호를 해독* 하는 데 사용됩니다. 프라이빗 키는 관리되는 도메인에만 적용되고 클라이언트 컴퓨터에 광범위하게 배포되지 않아야 합니다.
+  * 프라이빗 키가 포함된 인증서는 *.PFX* 파일 형식을 사용합니다.
+  * 인증서를 내보낼 때 *TripleDES-SHA1* 암호화 알고리즘을 지정해야 합니다. 이는 .pfx 파일에만 적용되며 인증서 자체에서 사용되는 알고리즘에는 영향을 주지 않습니다. *TripleDES-SHA1* 옵션은 Windows Server 2016부터 사용할 수 있습니다.
 * **퍼블릭** 키는 클라이언트 컴퓨터에 적용됩니다.
-    * 이 퍼블릭 키는 보안 LDAP 트래픽을 *암호화* 하는 데 사용됩니다. 퍼블릭 키는 클라이언트 컴퓨터에 배포할 수 있습니다.
-    * 프라이빗 키가 없는 인증서는 *.CER* 파일 형식을 사용합니다.
+  * 이 퍼블릭 키는 보안 LDAP 트래픽을 *암호화* 하는 데 사용됩니다. 퍼블릭 키는 클라이언트 컴퓨터에 배포할 수 있습니다.
+  * 프라이빗 키가 없는 인증서는 *.CER* 파일 형식을 사용합니다.
 
 이러한 두 키(*프라이빗* 키 및 *퍼블릭* 키)는 적절한 컴퓨터만 성공적으로 상호 통신할 수 있도록 합니다. 퍼블릭 CA 또는 엔터프라이즈 CA를 사용하는 경우 프라이빗 키가 포함된 인증서가 발급되고 관리되는 도메인에 적용할 수 있습니다. 퍼블릭 키는 클라이언트 컴퓨터에서 이미 알고 있고 신뢰할 수 있어야 합니다.
 
@@ -222,7 +222,7 @@ Thumbprint                                Subject
 
 1. [보안 LDAP용 인증서를 생성](#create-a-certificate-for-secure-ldap)하는 단계에 따라 대체 보안 LDAP 인증서를 만듭니다.
 1. Azure AD DS에 대체 인증서를 적용하려면 Azure Portal의 Azure AD DS 왼쪽 메뉴에서 **보안 LDAP** 를 선택한 다음, **인증서 변경** 을 선택합니다.
-1. 보안 LDAP를 사용하여 연결하는 모든 클라이언트에 인증서를 배포합니다. 
+1. 보안 LDAP를 사용하여 연결하는 모든 클라이언트에 인증서를 배포합니다.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>인터넷을 통한 보안 LDAP 액세스 잠금
 
@@ -304,14 +304,14 @@ Thumbprint                                Subject
 
 ## <a name="troubleshooting"></a>문제 해결
 
-LDAP.exe를 연결할 수 없다는 오류가 표시되는 경우 연결을 가져오는 다양한 측면을 통해 시도해 보세요. 
+LDAP.exe를 연결할 수 없다는 오류가 표시되는 경우 연결을 가져오는 다양한 측면을 통해 시도해 보세요.
 
 1. 도메인 컨트롤러 구성
 1. 클라이언트 구성
 1. 네트워킹
 1. TLS 세션 설정
 
-인증서 주체 이름이 일치하는 경우 DC는 해당 인증서 저장소를 검색하기 위해 Azure ADDS 도메인 이름(Azure AD 도메인 이름이 아님)을 사용합니다. 예를 들어, 철자가 틀린 경우 DC가 올바른 인증서를 선택하지 못하게 됩니다. 
+인증서 주체 이름이 일치하는 경우 DC는 해당 인증서 저장소를 검색하기 위해 Azure AD DS 도메인 이름(Azure AD 도메인 이름이 아님)을 사용합니다. 예를 들어, 철자가 틀린 경우 DC가 올바른 인증서를 선택하지 못하게 됩니다.
 
 클라이언트는 사용자가 제공한 이름을 사용하여 TLS 연결을 설정하려고 합니다. 트래픽은 모든 방식으로 가져와야 합니다. DC가 서버 인증 인증서의 공개 키를 보냅니다. 인증서에는 인증서의 올바른 사용법이 있어야 합니다. 주체 이름에 서명된 이름은 클라이언트가 연결하는 DNS 이름(즉, 와일드카드가 철자 오류 없이 작동됨)을 신뢰할 수 있도록 호환되어야 하며, 클라이언트는 발급자를 신뢰해야 합니다. 이벤트 뷰어의 시스템 로그에서 해당 체인의 모든 문제를 확인하고 원본이 Schannel과 동일한 이벤트를 필터링할 수 있습니다. 이러한 조각이 배치되면 세션 키를 형성합니다.  
 

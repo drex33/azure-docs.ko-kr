@@ -153,7 +153,7 @@
           items:
             - name: NFS 볼륨 만들기
               href: azure-netapp-files-create-volumes.md
-            - name: NFSv4.1 기본 도메인 구성
+            - name: NFSv4.1 도메인 구성
               href: azure-netapp-files-configure-nfsv41-domain.md
             - name: NFSv4.1 Kerberos 암호화 구성
               href: configure-kerberos-encryption.md
@@ -308,4 +308,4 @@
     - name: Azure Files 및 Azure NetApp Files 비교
       href: ../storage/files/storage-files-netapp-comparison.md
     - name: Microsoft Q&A의 Azure NetApp Files
-      href: 'https://docs.microsoft.com/answers/topics/25532/azure-netapp-files.html'
+      href: /answers/topics/25532/azure-netapp-files.html

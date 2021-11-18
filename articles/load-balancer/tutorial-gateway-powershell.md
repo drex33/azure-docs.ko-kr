@@ -6,14 +6,14 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/17/2021
 ms.custom: template-tutorial, ignite-fall-2021
-ms.openlocfilehash: 97b8b428d71da312c7cfc0ed9da057003ac68ee7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d4210910dc1918eae5eb391c4f2e635d7176bc89
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101350"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758911"
 ---
 # <a name="tutorial-create-a-gateway-load-balancer-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 게이트웨이 부하 분산 장치 만들기
 
@@ -22,7 +22,6 @@ Azure Load Balancer는 표준, 기본 및 게이트웨이 SKU로 구성됩니다
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
-> * 미리 보기 기능을 등록합니다.
 > * 가상 네트워크를 만듭니다.
 > * 네트워크 보안 그룹을 만듭니다.
 > * 게이트웨이 부하 분산 장치를 만듭니다.
@@ -40,24 +39,6 @@ Azure Load Balancer는 표준, 기본 및 게이트웨이 SKU로 구성됩니다
 - 로컬로 설치된 Azure PowerShell 또는 Azure Cloud Shell
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
-
-## <a name="register-preview-feature"></a>미리 보기 기능 등록
-
-게이트웨이 부하 분산 장치의 공개 미리 보기 일부로 공급자를 Azure 구독에 등록해야 합니다.
-
-[Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)를 사용하여 **AllowGatewayLoadBalancer** 공급자 기능을 등록합니다.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
-
-```
-
-[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)를 사용하여 **Microsoft.Network** 리소스 공급자를 등록합니다.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-
-```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -324,6 +305,6 @@ NVA를 만들 때 이 자습서에서 만든 리소스를 선택합니다.
 
 * 게이트웨이 부하 분산 장치
 
-영역 간 Azure Load Balancer를 만드는 방법을 알아보려면 다음 문서로 계속 진행하세요.
+영역 간 Azure Load Balancer를 만드는 방법에 대해 알아보려면 다음 문서로 계속 진행하세요.
 > [!div class="nextstepaction"]
 > [영역 간 부하 분산 장치](tutorial-cross-region-powershell.md)

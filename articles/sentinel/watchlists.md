@@ -1,25 +1,23 @@
 ---
-title: Microsoft 센티널 watchlists 사용
-description: 이 문서에서는 Microsoft 센티널 watchlists를 사용 하 여 allowlists/blocklists를 만들고, 이벤트 데이터를 보강 하 고, 위협 조사를 지 원하는 방법을 설명 합니다.
-services: sentinel
+title: Microsoft Sentinel 감시 목록 사용
+description: 이 문서에서는 Microsoft Sentinel 감시 목록을 사용하여 허용 목록/차단 목록을 만들고, 이벤트 데이터를 보강하고, 위협을 조사하는 데 도움을 받는 방법을 설명합니다.
 author: yelevin
 ms.author: yelevin
-ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: fc1d361c3e46cfed012637e9717d2a12391bd2b3
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: fff78ebf18a6b46558cf83a80e3f71d4a665ebcd
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711346"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751642"
 ---
-# <a name="use-microsoft-sentinel-watchlists"></a>Microsoft 센티널 watchlists 사용
+# <a name="use-microsoft-sentinel-watchlists"></a>Microsoft Sentinel 감시 목록 사용
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널 watchlists는 Microsoft 센티널 환경의 이벤트와 상관 관계를 위해 외부 데이터 원본에서 데이터를 수집할 수 있도록 합니다. 생성한 다음에는 검색, 검색 규칙, 위협 헌팅, 대응 플레이북에 관심 목록을 활용할 수 있습니다. Watchlists은 Microsoft 센티널 작업 영역에 이름-값 쌍으로 저장 되며 최적의 쿼리 성능 및 짧은 대기 시간을 위해 캐시 됩니다.
+Microsoft Sentinel 감시 목록을 사용하면 외부 데이터 원본의 데이터를 수집하여 Microsoft Sentinel 환경의 이벤트와 상관 관계를 설정할 수 있습니다. 생성한 다음에는 검색, 검색 규칙, 위협 헌팅, 대응 플레이북에 관심 목록을 활용할 수 있습니다. 감시 목록은 Microsoft Sentinel 작업 영역에 이름-값 쌍으로 저장되며 최적의 쿼리 성능과 짧은 대기 시간을 위해 캐시됩니다.
 
 > [!IMPORTANT]
 > 언급된 기능은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
@@ -44,7 +42,7 @@ Microsoft 센티널 watchlists는 Microsoft 센티널 환경의 이벤트와 상
 
 ## <a name="create-a-new-watchlist"></a>새 관심 목록 만들기
 
-1. Azure Portal에서 **Microsoft 센티널**  >  **Configuration**  >  **관심 목록** 로 이동한 다음 **+ 새로 추가** 를 선택 합니다.
+1. Azure Portal **Microsoft Sentinel**  >  **구성**  >  **감시 목록으로** 이동한 **다음, + 새 추가를** 선택합니다.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-new.png" alt-text="새 관심 목록" lightbox="./media/watchlists/sentinel-watchlist-new.png":::
 
@@ -79,7 +77,7 @@ Microsoft 센티널 watchlists는 Microsoft 센티널 환경의 이벤트와 상
 
 ## <a name="create-a-new-watchlist-using-a-template-public-preview"></a>템플릿을 사용하여 새 관심 목록 만들기(공개 미리 보기)
 
-1. Azure Portal에서 **Microsoft 센티널**  >  **Configuration**  >  **관심 목록**  >  **Templates (미리 보기)** 로 이동 합니다.
+1. Azure Portal **Microsoft Sentinel**  >  **구성**  >  **감시 목록**  >  **템플릿(미리 보기) 으로** 이동합니다.
 
 1. 목록에서 템플릿을 선택하여 오른쪽에 세부 정보를 표시한 후 **템플릿에서 만들기** 를 선택하여 관심 목록을 만듭니다.
 
@@ -87,7 +85,7 @@ Microsoft 센티널 watchlists는 Microsoft 센티널 환경의 이벤트와 상
 
 1. **관심 목록 마법사** 를 계속합니다.
 
-    - 관심 목록 템플릿을 사용 하는 경우 관심 목록의 **이름**, **설명** 및 **관심 목록 별칭** 값은 모두 읽기 전용입니다.
+    - 감시 목록 템플릿을 사용하는 경우 감시 목록의 **이름,** **설명** 및 **감시 목록 별칭** 값은 모두 읽기 전용입니다.
 
     - **스키마 다운로드** 를 선택하여 선택한 관심 목록 템플릿에 필요한 관련 스키마가 포함된 CSV 파일을 다운로드합니다.
 
@@ -102,7 +100,7 @@ Microsoft 센티널 watchlists는 Microsoft 센티널 환경의 이벤트와 상
 > [!TIP]
 > 최적의 쿼리 성능을 위해서는 **SearchKey**(관심 목록을 만들 때 정의한 필드)를 쿼리에서 조인 키로 사용합니다. 아래 예제를 참조하세요.
 
-1. Azure Portal에서 **Microsoft 센티널**  >  **Configuration**  >  **관심 목록** 로 이동 하 고 사용 하려는 관심 목록을 선택한 다음 **Log Analytics에서 보기** 를 선택 합니다.
+1. Azure Portal **Microsoft Sentinel**  >  **구성**  >  **감시 목록으로** 이동하여 사용할 감시 목록을 선택한 다음 Log **Analytics에서 보기를** 선택합니다.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="쿼리에서 관심 목록 사용" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png" :::
 
@@ -127,7 +125,7 @@ Microsoft 센티널 watchlists는 Microsoft 센티널 환경의 이벤트와 상
 > [!TIP]
 > 최적의 쿼리 성능을 위해서는 **SearchKey**(관심 목록을 만들 때 정의한 필드)를 쿼리에서 조인 키로 사용합니다. 아래 예제를 참조하세요.
 
-분석 규칙에서 watchlists를 사용 하려면 Azure Portal에서 **Microsoft 센티널** Configuration analytics로 이동 하 여  >    >  쿼리에 함수를 사용 하 여 규칙을 만듭니다 `_GetWatchlist('<watchlist>')` .
+분석 규칙에서 감시 목록을 사용하려면 Azure Portal **Microsoft Sentinel**  >  **Configuration**  >  **Analytics로** 이동하고 쿼리에서 함수를 사용하여 규칙을 `_GetWatchlist('<watchlist>')` 만듭니다.
 
 1. 이 예에서는 다음 값을 사용하여 “ipwatchlist”라는 관심 목록을 만듭니다.
 
@@ -157,15 +155,15 @@ Microsoft 센티널 watchlists는 Microsoft 센티널 환경의 이벤트와 상
 
 ## <a name="view-list-of-watchlists-aliases"></a>관심 목록 별칭 목록 보기
 
-관심 목록 별칭 목록을 가져오려면 Azure Portal에서 **Microsoft 센티널**  >  **일반**  >  **로그** 로 이동 하 고 다음 쿼리를 실행 `_GetWatchlistAlias` 합니다. **결과** 탭에서 별칭 목록을 볼 수 있습니다.
+감시 목록 별칭 목록을 보려면 Azure Portal **Microsoft Sentinel** 일반 로그 로 이동하여  >    >  쿼리를 **실행합니다.** `_GetWatchlistAlias` **결과** 탭에서 별칭 목록을 볼 수 있습니다.
 
    :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="관심 목록" lightbox="./media/watchlists/sentinel-watchlist-alias.png":::
 
-## <a name="manage-your-watchlist-in-the-microsoft-sentinel-portal"></a>Microsoft 센티널 포털에서 관심 목록 관리
+## <a name="manage-your-watchlist-in-the-microsoft-sentinel-portal"></a>Microsoft Sentinel 포털에서 감시 목록 관리
 
-Microsoft 센티널 포털의 관심 목록 블레이드에서 새 관심 목록 항목을 직접 보고 편집 하 고 만들 수도 있습니다.
+Microsoft Sentinel 포털의 감시 목록 블레이드에서 직접 새 감시 목록 항목을 보고 편집하고 만들 수도 있습니다.
 
-1. 관심 목록를 편집 하려면 **Microsoft 센티널 > Configuration > 관심 목록** 로 이동 하 여 편집할 관심 목록를 선택 하 고 세부 정보 창에서 **관심 목록 항목 편집** 을 선택 합니다.
+1. 감시 목록을 편집하려면 **Microsoft Sentinel > 구성 > 감시 목록으로** 이동하여 편집할 감시 목록을 선택하고 세부 정보 창에서 **감시 목록 항목 편집을** 선택합니다.
 
    :::image type="content" source="./media/watchlists/sentinel-watchlist-edit.png" alt-text="관심 목록 편집 방법을 보여주는 스크린샷" lightbox="./media/watchlists/sentinel-watchlist-edit.png":::
 
@@ -180,7 +178,7 @@ Microsoft 센티널 포털의 관심 목록 블레이드에서 새 관심 목록
    :::image type="content" source="./media/watchlists/sentinel-watchlist-edit-add.png" alt-text="관심 목록에 새 항목을 추가하는 방법을 보여주는 스크린샷입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Microsoft 센티널에서 watchlists를 사용 하 여 데이터를 보강 하 고 조사를 개선 하는 방법을 배웠습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 Microsoft Sentinel의 감시 목록을 사용하여 데이터를 보강하고 조사를 개선하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [Microsoft 센티널을 사용 하 여 위협 검색을](./detect-threats-built-in.md)시작 하세요.
+- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.
 - [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

@@ -16,12 +16,12 @@ ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8300499b722b88b8c8007d8f7e44ed3d5ccc7833
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d8a36c1837273fc3fa173994e2ec3b3465ed4cb6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131459295"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520259"
 ---
 # <a name="management-capabilities-for-privileged-access-groups-preview"></a>권한 있는 액세스 그룹의 관리 기능(미리 보기)
 
@@ -29,6 +29,9 @@ ms.locfileid: "131459295"
 
 >[!Important]
 > Exchange, 보안 및 규정 준수 센터 또는 SharePoint에 대한 관리 액세스 역할에 권한 있는 액세스 그룹을 할당하려면 권한 있는 액세스 그룹 환경이 아닌 Azure AD 포털 **역할 및 관리자** 환경을 사용하여 그룹에 활성화하기에 적합한 사용자 또는 그룹을 만듭니다.
+
+> [!NOTE]
+> Azure AD 역할로 승격하는 데 사용되는 권한 있는 액세스 그룹의 경우 적격 멤버 할당에 대한 승인 프로세스를 요구할 것을 권장합니다. 승인 없이 활성화할 수 있는 할당은 낮은 수준의 권한을 가진 관리자로부터 보안 위험을 초래할 수 있습니다. 예를 들어 기술 지원팀 관리자는 적격 사용자의 암호를 재설정할 수 있는 권한이 있습니다.
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>각 역할 할당 가능 그룹에 서로 다른 정책 필요
 

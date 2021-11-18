@@ -4,16 +4,16 @@ description: 호스트에서 암호화를 사용하여 Azure VM에 엔드투엔�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell, ignite-fall-2021
-ms.openlocfilehash: 480f325fdec8b6290594adeec258715992506350
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0dd5870fd69082dcfa5ba7a55a1ff2012191dd92
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022053"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756308"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure PowerShell 모듈을 통해 호스트에서 암호화를 사용하여 엔드투엔드 암호화를 사용하도록 설정합니다.
 
@@ -28,9 +28,8 @@ ms.locfileid: "131022053"
 
 ### <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
-
-VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. VM 크기를 프로그래밍 방식으로 검색하는 방법에 대한 자세한 내용은 [지원되는 VM 크기 찾기](#finding-supported-vm-sizes) 섹션을 참조하세요.
+지원되는 VM 크기의 전체 목록은 프로그래밍 방식으로 끌어올 수 있습니다. VM 크기를 프로그래밍 방식으로 검색하는 방법에 대한 자세한 내용은 [지원되는 VM 크기 찾기](#finding-supported-vm-sizes) 섹션을 참조하세요.
+VM 크기를 업그레이드하면 새 VM 크기가 EncryptionAtHost 기능을 지원하는지 확인하기 위해 유효성 검사가 수행됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

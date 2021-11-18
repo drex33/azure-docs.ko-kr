@@ -1,26 +1,19 @@
 ---
-title: Microsoft Sentinel 경고 | 사용자 지정 세부 정보 Microsoft Docs
-description: 보다 완전하고 완전한 인시던트 정보를 위해 Microsoft Sentinel 분석 규칙의 경고에서 사용자 지정 이벤트 세부 정보를 추출하고 표면화합니다.
-services: sentinel
-documentationcenter: na
+title: Microsoft 센티널 경고의 Surface 사용자 지정 세부 정보 | Microsoft Docs
+description: Microsoft 센티널 분석 규칙의 경고에서 사용자 지정 이벤트 세부 정보를 추출 하 고 노출 하 여 더 나은 전체 인시던트 정보를 확인 합니다.
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0b8cf32cce618ec5298ac9494062a67b53d98d76
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: d4a6a580ca22ab95c0c3c8faebe7828cbd73fc1a
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711612"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762104"
 ---
-# <a name="surface-custom-event-details-in-alerts-in-microsoft-sentinel"></a>Microsoft Sentinel의 경고에 사용자 지정 이벤트 세부 정보 표면화 
+# <a name="surface-custom-event-details-in-alerts-in-microsoft-sentinel"></a>Microsoft 센티널의 경고에서 사용자 지정 이벤트 세부 정보 노출 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +23,7 @@ ms.locfileid: "132711612"
 
 ## <a name="introduction"></a>소개
 
-[예약된 쿼리 분석 규칙은](detect-threats-custom.md) Microsoft Sentinel에 연결된 데이터 원본의 **이벤트를** 분석하고 보안 관점에서 이러한 이벤트의 내용이 중요한 경우 **경고를** 생성합니다. 이러한 경고는 Microsoft Sentinel의 다양한 엔진에 의해 추가로 분석, 그룹화 및 필터링되며 SOC 분석가의 주의를 끄는 **인시던트로** 분류됩니다. 그러나 분석가가 인시던트를 볼 때는 구성 요소 경고 자체의 속성만 즉시 표시됩니다. 실제 콘텐츠, 즉 이벤트에 포함된 정보를 찾으려면 탐색이 필요합니다.
+[예약 된 쿼리 분석 규칙](detect-threats-custom.md) 은 Microsoft 센티널에 연결 된 데이터 원본의 **이벤트** 를 분석 하 고 이러한 이벤트의 내용이 보안 관점에서 중요 한 경우 **경고** 를 생성 합니다. 이러한 경고는 Microsoft 센티널의 다양 한 엔진에 의해 추가 분석, 그룹화 및 필터링 되며 SOC 분석가의 주의가 보장 되는 **인시던트에** distilled 됩니다. 그러나 분석가가 인시던트를 볼 때는 구성 요소 경고 자체의 속성만 즉시 표시됩니다. 실제 콘텐츠, 즉 이벤트에 포함된 정보를 찾으려면 탐색이 필요합니다.
 
 **분석 규칙 마법사** 의 **사용자 지정 세부 정보** 기능을 사용하면 이러한 이벤트로 구성된 경고에 이벤트 데이터를 표시하여 이벤트 데이터를 경고 속성의 일부로 만들 수 있습니다. 실제로 이 기능은 인시던트에 대한 즉각적인 이벤트 콘텐츠 가시성을 제공하여 사용자가 심사하고, 조사하고, 결론을 내리고, 훨씬 더 빠르고 효율적으로 응답할 수 있도록 합니다.
 
@@ -38,7 +31,7 @@ ms.locfileid: "132711612"
 
 ## <a name="how-to-surface-custom-event-details"></a>사용자 지정 이벤트 정보를 노출하는 방법
 
-1. Microsoft Sentinel 탐색 메뉴에서 **분석을** 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **Analytics** 를 선택 합니다.
 
 1. 예약된 쿼리 규칙을 선택하고 **편집** 을 클릭합니다. 또는 화면 맨 위에서 **만들기 > 예약된 쿼리 규칙** 을 클릭하여 새 규칙을 만듭니다.
 
@@ -70,6 +63,6 @@ ms.locfileid: "132711612"
     > - 모든 사용자 지정 세부 정보의 크기 제한은 전체적으로 **2KB** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Microsoft Sentinel 분석 규칙을 사용하여 경고에 사용자 지정 세부 정보를 표시하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Microsoft 센티널 분석 규칙을 사용 하 여 경고에서 사용자 지정 세부 정보를 노출 하는 방법을 배웠습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
-- [Microsoft Sentinel의 엔터티에](entities.md)대해 자세히 알아봅니다.
+- [Microsoft 센티널의 엔터티에](entities.md)대해 자세히 알아보세요.

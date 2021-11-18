@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 08/11/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 12da538cfbf258aa8e447d5b5832cbc1865600ab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 63f19272d5cc518ced0aaee5c01d61238eaf9cef
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567110"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756479"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용하여 모델 학습
 
@@ -29,7 +29,6 @@ Azure Machine Learning은 기본 Docker 기본 이미지를 제공합니다. Azu
 
 * Azure Machine Learning 컴퓨팅 인스턴스(다운로드 또는 설치 필요 없음):
   * [빠른 시작: Azure Machine Learning 시작하기](quickstart-create-resources.md) 자습서를 완료하여 SDK 및 샘플 리포지토리가 미리 로드된 전용 Notebook 서버를 만듭니다.
-  * Azure Machine Learning [예제 리포지토리](https://github.com/Azure/azureml-examples)에서 **notebooks** > **fastai** > **train-pets-resnet34.ipynb** 디렉터리로 이동하여 완료된 Notebook을 찾습니다. 
 * 사용자 고유의 Jupyter Notebook 서버:
   * [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.
   * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)를 설치합니다. 
@@ -103,8 +102,8 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 >[!IMPORTANT]
 > Azure Machine Learning은 다음 소프트웨어를 제공하는 Docker 이미지만 지원합니다.
-> * Ubuntu 18.04 이상.
-> * Conda 4.7.# 이상.
+> * Ubuntu 18.04 이상
+> * Conda 4.7.# 이상
 > * Python 3.6 이상.
 > * /bin/sh에서 사용할 수 있는 POSIX 규격 셸은 학습에 사용되는 모든 컨테이너 이미지에 필요합니다. 
 

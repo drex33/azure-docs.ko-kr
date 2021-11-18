@@ -1,50 +1,44 @@
 ---
-title: Microsoft 센티널을 STIX/TAXII 위협 인텔리전스 피드에 커넥트 | Microsoft Docs
-description: Microsoft 센티널을 업계 표준 위협 인텔리전스 피드에 연결 하 여 위협 지표를 가져오는 방법에 대해 알아봅니다.
-documentationcenter: na
+title: Microsoft Sentinel을 STIX/TAXII 위협 인텔리전스 피드로 커넥트 | Microsoft Docs
+description: Microsoft Sentinel을 업계 표준 위협 인텔리전스 피드에 연결하여 위협 지표를 가져오는 방법에 대해 알아봅니다.
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3d63fd26cf55350309352f54d3a6aadc6e7d2f30
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 87164534d2bc7eda7ca5c54fb3f40ad2a71bffb1
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721711"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756441"
 ---
-# <a name="connect-microsoft-sentinel-to-stixtaxii-threat-intelligence-feeds"></a>Microsoft 센티널을 STIX/TAXII 위협 인텔리전스 피드에 커넥트
+# <a name="connect-microsoft-sentinel-to-stixtaxii-threat-intelligence-feeds"></a>STIX/TAXII 위협 인텔리전스 피드에 Microsoft Sentinel 커넥트
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-**참고** 항목: [Microsoft 센티널에 커넥트 위협 인텔리전스 플랫폼 (팁)을](connect-threat-intelligence-tip.md) 참조 하세요.
+**참고 자료:** [MICROSOFT Sentinel에 TIP(위협 인텔리전스 플랫폼) 커넥트](connect-threat-intelligence-tip.md)
 
-위협 인텔리전스 전송을 위한 가장 널리 채택된 업계 표준은 [STIX 데이터 형식과 TAXII 프로토콜의 조합](https://oasis-open.github.io/cti-documentation/)입니다. 조직이 현재 STIX/TAXII 버전 (2.0 또는 2.1)을 지 원하는 솔루션에서 위협 지표를 수신 하는 경우 **위협 인텔리전스-TAXII data connector** 를 사용 하 여 위협 지표를 Microsoft 센티널로 가져올 수 있습니다. 이 커넥터는 Microsoft 센티널의 기본 제공 TAXII 클라이언트를 사용 하 여 TAXII 2.x 서버에서 위협 인텔리전스를 가져옵니다.
+위협 인텔리전스 전송을 위한 가장 널리 채택된 업계 표준은 [STIX 데이터 형식과 TAXII 프로토콜의 조합](https://oasis-open.github.io/cti-documentation/)입니다. 조직에서 현재 STIX/TAXII 버전(2.0 또는 2.1)을 지원하는 솔루션에서 위협 지표를 수신하는 경우 **위협 인텔리전스 - TAXII 데이터 커넥터를** 사용하여 위협 지표를 Microsoft Sentinel로 가져올 수 있습니다. 이 커넥터를 사용하면 Microsoft Sentinel의 기본 제공 TAXII 클라이언트가 TAXII 2.x 서버에서 위협 인텔리전스를 가져올 수 있습니다.
 
 :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-taxii-import-path.png" alt-text="TAXII 가져오기 경로":::
 
-Microsoft 센티널의 [위협 인텔리전스](understand-threat-intelligence.md) 및 microsoft 센티널과 통합할 수 있는 [TAXII 위협 인텔리전스 피드에](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) 대해 자세히 알아보세요.
+Microsoft Sentinel의 [위협 인텔리전스,](understand-threat-intelligence.md) 특히 Microsoft Sentinel과 통합할 수 있는 [TAXII 위협 인텔리전스 피드에](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>사전 요구 사항  
 
-- 위협 지표를 저장 하려면 Microsoft 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
+- 위협 지표를 저장하려면 Microsoft Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 - TAXII 2.0 또는 TAXII 2.1 **API 루트 URI** 및 **컬렉션 ID** 가 있어야 합니다.
 
 ## <a name="instructions"></a>Instructions
 
-TAXII 서버에서 다음 단계에 따라 STIX 형식의 위협 지표를 Microsoft 센티널로 가져옵니다.
+TAXII 서버에서 STIX 형식 위협 지표를 Microsoft Sentinel로 가져오려면 다음 단계를 수행합니다.
 
 1. TAXII 서버 API 루트 및 컬렉션 ID 가져오기
 
-1. Microsoft 센티널에서 위협 인텔리전스-TAXII data connector를 사용 하도록 설정
+1. Microsoft Sentinel에서 위협 인텔리전스 - TAXII 데이터 커넥터 사용
 
 ### <a name="get-the-taxii-server-api-root-and-collection-id"></a>TAXII 서버 API 루트 및 컬렉션 ID 가져오기
 
@@ -53,11 +47,11 @@ TAXII 2.x 서버는 위협 인텔리전스의 컬렉션을 호스트하는 URL�
 > [!NOTE]
 > 경우에 따라 공급자는 검색 엔드포인트라는 URL만 보급합니다. [아래에서 설명된](#find-the-api-root) 것처럼 cURL 유틸리티를 사용하여 검색 엔드포인트를 찾아보고 API 루트를 요청할 수 있습니다.
 
-### <a name="enable-the-threat-intelligence---taxii-data-connector-in-microsoft-sentinel"></a>Microsoft 센티널에서 위협 인텔리전스-TAXII data connector를 사용 하도록 설정
+### <a name="enable-the-threat-intelligence---taxii-data-connector-in-microsoft-sentinel"></a>Microsoft Sentinel에서 위협 인텔리전스 - TAXII 데이터 커넥터 사용
 
-TAXII 서버에서 Microsoft 센티널로 위협 지표를 가져오려면 다음 단계를 수행 합니다.
+TAXII 서버에서 Microsoft Sentinel로 위협 지표를 가져오려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 **Microsoft 센티널** 서비스로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com/) **Microsoft Sentinel** 서비스로 이동합니다.
 
 1. TAXII 서버에서 위협 지표를 가져올 **작업 영역** 을 선택합니다.
 
@@ -69,7 +63,7 @@ TAXII 서버에서 Microsoft 센티널로 위협 지표를 가져오려면 다�
  
 TAXII 서버에 대한 연결이 성공적으로 설정되었다는 확인 메시지가 표시되고, 하나 이상의 TAXII 서버에서 여러 컬렉션에 연결하기 위해 원하는 횟수만큼 위의 마지막 단계를 반복할 수 있습니다.
 
-몇 분 내에 위협 표시기가이 Microsoft 센티널 작업 영역으로 이동 하기 시작 합니다. Microsoft 센티널 탐색 메뉴에서 액세스할 수 있는 **위협 인텔리전스** 블레이드에서 새 지표를 찾을 수 있습니다.
+몇 분 내에 위협 지표가 이 Microsoft Sentinel 작업 영역으로 전달되기 시작합니다. Microsoft Sentinel 탐색 메뉴에서 액세스할 수 있는 **위협 인텔리전스** 블레이드에서 새 표시기를 찾을 수 있습니다.
 
 ### <a name="find-the-api-root"></a>API 루트 찾기
 
@@ -179,7 +173,7 @@ Windows 및 대부분의 Linux 배포판에서 제공되는 [cURL](https://en.wi
     }
     ```
 
-이제 Anomali Limo에서 제공 하는 하나 이상의 TAXII 서버 컬렉션에 Microsoft 센티널을 연결 하는 데 필요한 모든 정보가 있습니다.
+이제 Microsoft Sentinel을 Anomali Limo에서 제공하는 하나 이상의 TAXII 서버 컬렉션에 연결하는 데 필요한 모든 정보가 있습니다.
 
 | **API 루트**(https://limo.anomali.com/api/v1/taxii2/feeds/) | 컬렉션 ID |
 | ------------------------------------------------------------ | ------------: |
@@ -197,7 +191,7 @@ Windows 및 대부분의 Linux 배포판에서 제공되는 [cURL](https://en.wi
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 TAXII 프로토콜을 사용 하 여 Microsoft 센티널을 위협 인텔리전스 피드에 연결 하는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 TAXII 프로토콜을 사용하여 Microsoft Sentinel을 위협 인텔리전스 피드에 연결하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [Microsoft 센티널을 사용 하 여 위협 검색을](./detect-threats-built-in.md)시작 하세요.
+- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.

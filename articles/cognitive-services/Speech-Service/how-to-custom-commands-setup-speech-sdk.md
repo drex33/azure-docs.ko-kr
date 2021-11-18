@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfef9a2c78758c2df60ece70c50ddb974cc1b55
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 88c0e8b3e1c0f6afbb128b426d55af7f4dc51305
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131507705"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759101"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용하여 클라이언트 애플리케이션과 통합
 
@@ -311,7 +311,7 @@ XAML 코드를 추가하여 애플리케이션의 사용자 인터페이스를 �
    // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
    const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-   const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
+   const string region = "YourServiceRegion"; // The subscription service region. 
 
    var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");

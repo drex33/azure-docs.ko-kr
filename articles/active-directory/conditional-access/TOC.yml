@@ -39,16 +39,14 @@
       href: service-dependencies.md
     - name: 위치 조건
       href: location-condition.md
+    - name: 워크로드 ID
+      href: workload-identity.md
     - name: 디바이스에 대한 필터
       href: concept-condition-filters-for-devices.md
     - name: What if 도구
       href: what-if-tool.md
     - name: 지속적인 액세스 평가
       href: concept-continuous-access-evaluation.md
-    - name: 사용자 지정 컨트롤
-      href: controls.md
-    - name: 클래식 정책 마이그레이션
-      href: policy-migration.md
 - name: 방법 가이드
   expanded: true
   items:
@@ -58,40 +56,34 @@
       href: howto-conditional-access-apis.md
     - name: 일반 조건부 액세스 정책
       items:
-        - name: 레거시 인증 차단
-          href: howto-conditional-access-policy-block-legacy.md
         - name: 관리자용 MFA 필요
           href: howto-conditional-access-policy-admin-mfa.md
-        - name: Azure 관리용 MFA 필요
-          href: howto-conditional-access-policy-azure-management.md
-        - name: 모든 사용자용 MFA 필요
-          href: howto-conditional-access-policy-all-users-mfa.md
-        - name: 위험 기반 조건부 액세스 로그인
-          href: howto-conditional-access-policy-risk.md
-        - name: 사용자 위험 기반 조건부 액세스
-          href: howto-conditional-access-policy-risk-user.md
         - name: 보안 정보 등록 보호
           href: howto-conditional-access-policy-registration.md
+        - name: 레거시 인증 차단
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: 모든 사용자용 MFA 필요
+          href: howto-conditional-access-policy-all-users-mfa.md
+        - name: Azure 관리용 MFA 필요
+          href: howto-conditional-access-policy-azure-management.md
+        - name: 위험한 로그인에 MFA 필요
+          href: howto-conditional-access-policy-risk.md
+        - name: 위험한 사용자에 대한 암호 변경 필요
+          href: howto-conditional-access-policy-risk-user.md
+        - name: 규격 또는 하이브리드 조인 디바이스 필요
+          href: howto-conditional-access-policy-compliant-device.md
+        - name: 승인된 앱 또는 앱 보호 정책 필요
+          href: howto-policy-approved-app-or-app-protection.md
         - name: 위치별 액세스 차단
           href: howto-conditional-access-policy-location.md
-        - name: 준수 디바이스 필요
-          href: howto-conditional-access-policy-compliant-device.md
         - name: 액세스 차단
           href: howto-conditional-access-policy-block-access.md
     - name: 복원력 기본값 구성
       href: resilience-defaults.md
-    - name: 레거시 인증 차단
-      href: block-legacy-authentication.md
     - name: 보고서 전용 모드 구성
       href: howto-conditional-access-insights-reporting.md
-    - name: 승인된 클라이언트 앱 필요
-      href: app-based-conditional-access.md
-    - name: 앱 보호 정책 필요
-      href: app-protection-based-conditional-access.md
-    - name: 관리 디바이스 필요
-      href: require-managed-devices.md
-    - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
-      href: untrusted-networks.md
+    - name: 레거시 인증 차단
+      href: block-legacy-authentication.md
     - name: 사용 약관 필요
       href: terms-of-use.md
     - name: 로그인 빈도 및 브라우저 지속성 컨트롤
@@ -108,8 +100,14 @@
           href: howto-continuous-access-evaluation-troubleshoot.md
         - name: FAQ
           href: faqs.md
-    - name: 클래식 정책 마이그레이션
-      href: policy-migration-mfa.md
+    - name: 사용자 지정 컨트롤
+      href: controls.md
+    - name: 클래식 정책
+      items:
+        - name: 클래식 정책 마이그레이션
+          href: policy-migration.md
+        - name: 클래식 정책 마이그레이션
+          href: policy-migration-mfa.md
 - name: 참조
   items:
     - name: 베타 Graph API

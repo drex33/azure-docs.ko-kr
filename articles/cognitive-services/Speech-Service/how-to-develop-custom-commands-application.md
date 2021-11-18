@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: eur
-ms.openlocfilehash: 33d5d790dca4f52e601cf49cedc038e98edbfe1b
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: ee68e7d529b0c1cebefa8eb9fc809522ca932ab8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503850"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761343"
 ---
 # <a name="develop-custom-commands-applications"></a>사용자 지정 명령 애플리케이션 개발
 
@@ -356,16 +356,15 @@ alarm for {DateTime}
 
 `TurnOnOff` 명령의 `SubjectDevice` 매개 변수를 다시 사용합니다. 이 매개 변수의 현재 구성은 **내부 카탈로그의 미리 정의된 입력 허용** 입니다. 이 구성은 매개 변수 구성의 고정 디바이스 목록을 나타냅니다. 이 콘텐츠를 독립적으로 업데이트할 수 있는 외부 데이터 원본으로 이동합니다.
 
-이 콘텐츠를 이동하려면 먼저 새 웹 엔드포인트를 추가합니다. 왼쪽 창에서 **웹 엔드포인트** 섹션으로 이동합니다. 여기서 새 웹 엔드포인트를 추가합니다. 다음 구성을 사용합니다.
+이 콘텐츠를 이동하려면 먼저 새 웹 엔드포인트를 추가합니다. 왼쪽 창에서 **웹 엔드포인트** 섹션으로 이동합니다. 새 웹 끝점 URL을 추가 합니다. 다음 구성을 사용합니다.
 
 | 설정 | 제안 값 |
 |----|----|
 | **이름** | `getDevices` |
-| **URL** | `https://aka.ms/speech/cc-sampledevices` |
+| **URL** | `<Your endpoint of getDevices.json>` |
 | **방법** | **GET** |
 
-
-제안된 URL 값이 본인과 맞지 않으면 제어할 수 있는 디바이스 목록으로 구성된 JSON 파일을 반환하는 웹 엔드포인트를 구성하고 호스트합니다. 웹 엔드포인트는 다음과 같은 형식의 JSON 파일을 반환해야 합니다.
+그런 다음, 제어할 수 있는 장치를 나열 하는 JSON 파일을 반환 하는 웹 끝점을 구성 하 고 호스팅합니다. 웹 끝점은이 예제와 같이 서식이 지정 된 JSON 파일을 반환 해야 합니다.
 
 ```json
 {

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/18/2021
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: e9ee6ef04563466cb47f1bc6fe8f92929dd11950
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 8157225c9dbcd5d60bb6f022bf14637ca01b2501
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177558"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758303"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,6 @@ ms.locfileid: "130177558"
 > * [Java](sql-api-java-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
-> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 개발자는 NoSQL 문서 데이터를 사용하는 애플리케이션을 가지고 있을 수도 있습니다. Azure Cosmos DB의 SQL API 계정을 사용하여 이 문서 데이터를 저장하고 액세스할 수 있습니다. 이 Node.js 자습서에서는 Microsoft Azure App Service의 Web Apps에 호스팅되는 Node.js Express 애플리케이션을 사용하여 Azure Cosmos DB의 SQL API 계정에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 작업을 만들고 검색하고 수행할 수 있게 하는 웹 기반 애플리케이션(Todo 앱)을 빌드합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다. 

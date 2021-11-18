@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7a4e02461b7ba7eaba82b74cc2191b9528376b51
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 62f972dc0d30b4143baa65e505bc9fd2e6e1ff6c
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132486686"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132752318"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -37,15 +37,15 @@ ms.locfileid: "132486686"
 
  
 
-#### <a name="new-features"></a>새 기능 
+#### <a name="new-features"></a>새로운 기능 
 
 - **C++/C#/Java:** Microsoft Audio Stack을 사용하여 음성 입력에 대한 오디오 처리 지원을 사용할 수 있도록 새 API가 추가되었습니다. [여기](audio-processing-overview.md)서 설명함
 
 - **C++**: 고급 패턴 일치를 용이하게 하는 의도 인식을 위한 새로운 API입니다. 여기에는 목록 및 미리 작성된 정수 엔터티뿐만 아니라 의도 및 엔터티를 모델로 그룹화하기 위한 지원이 포함됩니다(설명서, 업데이트 및 샘플은 개발 중이며 조만간 게시될 예정임). 
 
-- **Mac:** GitHub 문제 1244와 관련된 Cocoapod, Python, Java 및 NuGet 패키지에 대한 [ARM64(M1)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244)기반 실리콘을 지원합니다.
+- **Mac:** GitHub 문제 1244와 관련된 Cocoapod, Python, Java 및 NuGet 패키지에 대한 [ARM64(M1)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244)기반 실리콘 지원
 
-- **iOS/Mac:** 이제 iOS 및 MacOS 이진이 GitHub 문제 [919와](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919)관련된 xcframework에 패키지됩니다.
+- **iOS/Mac:** 이제 iOS 및 MacOS 이진이 GitHub 문제 [919와](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919)관련된 xcframework로 패키지됩니다.
 
 - **iOS/Mac:** [GitHub 문제 1171과](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171)관련된 Mac용 지원 
 
@@ -88,7 +88,7 @@ ms.locfileid: "132486686"
 - **의 새 챗봇 `en-US` 음성 영어(미국)**: 챗봇 시나리오에 가장 적합하고 더 간소하게 말하는 여성 성인을 나타내는 챗봇입니다. 
 - **에 대해 추가된 `ja-JP` 새 스타일 일본어 음성 Nanami: 이제 Nanami에서** 채팅, 고객 서비스 및 싱어의 세 가지 새로운 스타일을 사용할 수 있습니다.
 - **과도 발음 개선** 사항: 의 유지, 의 `id-ID` Premwadee, `th-TH` 의 경우 , `da-DK` HoaiMy 및 NamMinh의 경우 `vi-VN`
-- **의 두 가지 `zh-CN` 새로운 음성 중국어(중국어, 중국) 미리 보기:** 2016년 3월 21일, 중국어(중국) : 힌토르어 음성 및 고객 서비스 시나리오에 최적화된 2018년 3월 31일의 중국어 &.
+- **의 두 가지 `zh-CN` 새로운 음성 중국어(중국어, 중국) 미리 보기:** 2016년 3월 21일, 중국어(중국) : 힌토르 음성 및 고객 서비스 시나리오에 최적화된 2018년 3월 21일의 중국어 &.
 
 ## <a name="text-to-speech-2021-july-release"></a>텍스트 음성 변환 2021년 7월 릴리스
 
@@ -167,8 +167,8 @@ ms.locfileid: "132486686"
 
 #### <a name="new-features"></a>새로운 기능
 
-- **C++/C#**: API를 통한 새로운 독립 실행형 At-Start 및 지속적인 언어 `SourceLanguageRecognizer` 식별입니다. 오디오 콘텐츠에서 사용 중인 언어만 감지하려는 경우 이를 수행하는 API입니다.
-- **C++/C#**: 음성 인식 및 번역 인식은 이제 시작 시 및 연속 언어 식별을 모두 지원하므로 번역되거나 번역되기 전에 어떤 언어가 음성인지 프로그래밍 방식으로 확인할 수 있습니다. [음성 인식](how-to-automatic-language-detection.md) 및 [음성 번역](get-started-speech-translation.md) 문서를 참조하세요.
+- **C++/C#** : `SourceLanguageRecognizer` API를 통한 새로운 독립 실행형 단일 샷/시작 시 언어 감지 및 지속적인 언어 감지. 오디오 콘텐츠에서 사용 중인 언어만 감지하려는 경우 이를 수행하는 API입니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/sourcelanguagerecognizer) 및 [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.sourcelanguagerecognizer)에 대 한 세부 정보를 참조 하세요.
+- **C + +/c #**: 음성 인식 및 번역 인식은 이제 시작 및 연속 언어 id를 모두 지원 하므로 transcribed 또는 번역 되기 전에 어떤 언어를 프로그래밍 방식으로 확인할 수 있습니다. [음성 인식](how-to-automatic-language-detection.md) 및 [음성 번역](get-started-speech-translation.md) 문서를 참조하세요.
 - **C#** : macOS(x64)에 Unity 지원이 추가되었습니다. 이를 통해 혼합 현실 및 게임에서 음성 인식 및 음성 합성을 사용할 수 있습니다.
 - **Go**: 더 많은 사용 사례에서 음성 합성을 사용할 수 있도록 Go 프로그래밍 언어에 음성 합성/텍스트 음성 변환 지원을 추가했습니다. [빠른 시작](get-started-text-to-speech.md?tabs=windowsinstall&pivots=programming-language-go) 또는 [참조 문서](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go)를 참조하세요.
 - **C++/C#/Java/Python/Objective-C/Go**: 이제 음성 합성기가 `connection` 개체를 지원합니다. 이를 통해 음성 서비스에 대한 연결을 관리하고 모니터링할 수 있으며 특히 사전 연결을 통해 대기 시간을 줄일 수 있습니다. [여기](how-to-lower-speech-synthesis-latency.md) 설명서를 참조하세요.
@@ -674,7 +674,7 @@ SPX는 코드를 작성하지 않고 Azure Speech Service를 사용하는 명령
     | `es-MX` | $1.58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
 
-    * &euro;, 로케일에서 음수 통화(예: "-325 " )에 대한 지원 `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA`
+    * ,,,,, 로캘에서 음수 통화 (예: "-325 &euro; ")를 지원 `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` 합니다.
 
 * `pt-PT`의 주소 읽기가 개선되었습니다.
 * Natasha(`en-AU`)와 Libby(`en-UK`)의 "for" 및 "four" 발음 문제를 수정했습니다.

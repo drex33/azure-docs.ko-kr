@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove_region.sh
 description: 셸 스크립트를 사용하여 SAP 컨트롤 플레인(배포자, 라이브러리)을 제거합니다.
-ms.openlocfilehash: 29f7461208120ee7d88c44943b7c393a0ca47ebf
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0ce9dd92d52c3e7dd02ff42820158693995a1a6e
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730640"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759711"
 ---
 # <a name="remove_regionsh"></a>Remove_region.sh
 
@@ -31,7 +31,7 @@ Remove_region.sh  [-d or --deployer_parameter_file ] <String> [-l or --library_p
 ## <a name="description"></a>Description
 배포자 VM 및 SAP 라이브러리를 포함하여 SAP 컨트롤 플레인을 제거합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="example-1"></a>예 1
 ```bash
@@ -81,4 +81,4 @@ MIT 라이선스에 따라 사용이 허가됩니다.
 
 ## <a name="related-links"></a>관련 링크
 
-[GitHub 리포지토리: SAP 배포 자동화 프레임워크](https://github.com/Azure/sap-hana)
+[GitHub 리포지토리: SAP 배포 자동화 프레임워크](https://github.com/Azure/sap-automation )

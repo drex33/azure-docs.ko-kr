@@ -1,107 +1,120 @@
-- name: Custom Vision Service 설명서
-  href: index.yml
-- name: 개요
-  expanded: true
-  items:
-    - name: Custom Vision이란?
-      href: overview.md
-    - name: 가격 책정 및 제한
-      href: limits-and-quotas.md
-    - name: 새로운 기능
-      href: whats-new.md
-- name: 빠른 시작
-  items:
-    - name: 분류자 빌드
-      items:
-        - name: 웹 포털 사용
-          href: getting-started-build-a-classifier.md
-        - name: Custom Vision SDK 또는 REST API 사용
-          href: quickstarts/image-classification.md
-    - name: 개체 감지기 빌드
-      items:
-        - name: 웹 포털 사용
-          href: get-started-build-detector.md
-        - name: Custom Vision SDK 사용
-          href: quickstarts/object-detection.md
-- name: 자습서
-  items:
-    - name: IoT 디바이스에서 시각적 상태 보고
-      href: iot-visual-alerts-tutorial.md
-    - name: 모바일에서 로고 인식
-      href: logo-detector-mobile.md
-- name: 방법 가이드
-  items:
-    - name: 모델 테스트
-      href: test-your-model.md
-    - name: 모델 개선
-      href: getting-started-improving-your-classifier.md
-    - name: 도메인 선택
-      href: select-domain.md
-    - name: 예측 API 사용
-      href: use-prediction-api.md
-    - name: 스마트 레이블 지정자 사용
-      href: suggested-tags.md
-    - name: Azure 역할 기반 액세스 제어
-      href: role-based-access-control.md
-    - name: 모델 내보내기
-      items:
-        - name: 모바일로 모델 내보내기
-          href: export-your-model.md
-        - name: 프로그래밍 방식으로 모델 내보내기
-          href: export-programmatically.md
-        - name: Windows ML를 사용한 ONNX 모델 사용
-          href: custom-vision-onnx-windows-ml.md
-        - name: Python에서 TensorFlow 모델 실행
-          href: export-model-python.md
-    - name: 스토리지 알림 통합
-      href: storage-integration.md
-    - name: 프로젝트 복사 및 이동
-      href: copy-move-projects.md
-    - name: 계정 데이터 보기 또는 삭제
-      href: ./export-delete-data.md
-    - name: 3.0 API로 앱 업데이트
-      href: ./update-application-to-3.0-sdk.md
-    - name: 엔터프라이즈 준비
-      items:
-        - name: 가상 네트워크 설정
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
-        - name: 고객 관리형 키 사용
-          href: encrypt-data-at-rest.md
-- name: 참조
-  items:
-    - name: Custom Vision 교육 API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
-    - name: Custom Vision 예측 API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: SDK
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/customvision
-        - name: Java
-          href: /java/api/overview/azure/cognitiveservices/client/customvision
-        - name: Node.js - 학습
-          href: /javascript/api/@azure/cognitiveservices-customvision-training/
-        - name: Node.js - 예측
-          href: /javascript/api/@azure/cognitiveservices-customvision-prediction/
-        - name: Python
-          href: /python/api/overview/azure/cognitiveservices/customvision
-        - name: Go - 학습
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
-        - name: Go - 예측
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
-- name: 리소스
-  items:
-    - name: 엔터프라이즈 준비
-      items:
-        - name: 지역 지원
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-        - name: 규정 준수 및 인증
-          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 지원 및 도움말 옵션
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
-    - name: 샘플
-      href: /samples/browse/?products=azure&term=vision
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: 릴리스 정보
-      href: release-notes.md
+items:
+  - name: Custom Vision Service 설명서
+    href: index.yml
+  - name: 개요
+    expanded: true
+    items:
+      - name: Custom Vision이란?
+        href: overview.md
+      - name: 가격 책정 및 제한
+        href: limits-and-quotas.md
+      - name: 새로운 기능
+        href: whats-new.md
+  - name: 빠른 시작
+    items:
+      - name: 분류자 빌드
+        items:
+          - name: 웹 포털 사용
+            href: getting-started-build-a-classifier.md
+          - name: Custom Vision SDK 또는 REST API 사용
+            href: quickstarts/image-classification.md
+      - name: 개체 감지기 빌드
+        items:
+          - name: 웹 포털 사용
+            href: get-started-build-detector.md
+          - name: Custom Vision SDK 사용
+            href: quickstarts/object-detection.md
+  - name: AI의 책임 있는 사용
+    items:
+      - name: 투명성 메모
+        items:
+          - name: Custom Vision 사용 사례
+            href: /legal/cognitive-services/custom-vision/custom-vision-cvs-transparency-note?context=/azure/cognitive-services/custom-vision-service/context/context
+          - name: 특성 및 제한 사항
+            href: /legal/cognitive-services/custom-vision/custom-vision-cvs-characteristics-and-limitations?context=/azure/cognitive-services/custom-vision-service/context/context
+      - name: 윤리 및 책임 있는 사용
+        href: /legal/cognitive-services/custom-vision/custom-vision-cvs-guidance-integration-responsible-use?context=/azure/cognitive-services/custom-vision-service/context/context
+      - name: '데이터, 개인 정보 및 보안'
+        href: /legal/cognitive-services/custom-vision/custom-vision-cvs-data-privacy-security?context=/azure/cognitive-services/custom-vision-service/context/context
+  - name: 자습서
+    items:
+      - name: IoT 디바이스에서 시각적 상태 보고
+        href: iot-visual-alerts-tutorial.md
+      - name: 모바일에서 로고 인식
+        href: logo-detector-mobile.md
+  - name: 방법 가이드
+    items:
+      - name: 모델 테스트
+        href: test-your-model.md
+      - name: 모델 개선
+        href: getting-started-improving-your-classifier.md
+      - name: 도메인 선택
+        href: select-domain.md
+      - name: 예측 API 사용
+        href: use-prediction-api.md
+      - name: 스마트 레이블 지정자 사용
+        href: suggested-tags.md
+      - name: Azure 역할 기반 액세스 제어
+        href: role-based-access-control.md
+      - name: 모델 내보내기
+        items:
+          - name: 모바일로 모델 내보내기
+            href: export-your-model.md
+          - name: 프로그래밍 방식으로 모델 내보내기
+            href: export-programmatically.md
+          - name: Windows ML를 사용한 ONNX 모델 사용
+            href: custom-vision-onnx-windows-ml.md
+          - name: Python에서 TensorFlow 모델 실행
+            href: export-model-python.md
+      - name: 스토리지 알림 통합
+        href: storage-integration.md
+      - name: 프로젝트 복사 및 이동
+        href: copy-move-projects.md
+      - name: 계정 데이터 보기 또는 삭제
+        href: ./export-delete-data.md
+      - name: 3.0 API로 앱 업데이트
+        href: ./update-application-to-3.0-sdk.md
+      - name: 엔터프라이즈 준비
+        items:
+          - name: 가상 네트워크 설정
+            href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
+          - name: 고객 관리형 키 사용
+            href: encrypt-data-at-rest.md
+  - name: 참조
+    items:
+      - name: Custom Vision 교육 API
+        href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+      - name: Custom Vision 예측 API
+        href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+      - name: SDK
+        items:
+          - name: .NET
+            href: /dotnet/api/overview/azure/cognitiveservices/client/customvision
+          - name: Java
+            href: /java/api/overview/azure/cognitiveservices/client/customvision
+          - name: Node.js - 학습
+            href: /javascript/api/@azure/cognitiveservices-customvision-training/
+          - name: Node.js - 예측
+            href: /javascript/api/@azure/cognitiveservices-customvision-prediction/
+          - name: Python
+            href: /python/api/overview/azure/cognitiveservices/customvision
+          - name: Go - 학습
+            href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
+          - name: Go - 예측
+            href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
+  - name: 리소스
+    items:
+      - name: 엔터프라이즈 준비
+        items:
+          - name: 지역 지원
+            href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+          - name: 규정 준수 및 인증
+            href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+      - name: 지원 및 도움말 옵션
+        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
+      - name: 샘플
+        href: /samples/browse/?products=azure&term=vision
+      - name: Azure 로드맵
+        href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+      - name: 릴리스 정보
+        href: release-notes.md

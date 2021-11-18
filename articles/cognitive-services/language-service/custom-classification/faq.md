@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 9320fee8eb7ad44b33246f28091dfb0b4bd72bb2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9c9372c7c52c4a6528e3f07bd141bde05032add9
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434392"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757258"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -46,6 +46,7 @@ ms.locfileid: "131434392"
 
 [REST api](https://aka.ms/ct-authoring-swagger) 를 사용 하 여 사용자 지정 모델을 빌드할 수 있습니다. 이 [빠른](quickstart.md?pivots=rest-api) 시작을 따라 제작 api를 호출 하는 방법에 대 한 예제를 위해 api를 통해 프로젝트 만들기 및 모델 만들기를 시작할 수 있습니다. 
 
+모델 사용을 시작 하 [여 예측을 만들](#how-do-i-use-my-trained-model-to-make-predictions)준비가 되 면 REST API 또는 클라이언트 라이브러리를 사용할 수 있습니다.
 
 ## <a name="what-is-the-recommended-cicd-process"></a>권장 CI/CD 프로세스는 무엇 인가요?
 
@@ -86,7 +87,7 @@ ms.locfileid: "131434392"
 
 ## <a name="how-do-i-use-my-trained-model-to-make-predictions"></a>학습 된 모델을 사용 하 여 예측을 만드는 어떻게 할까요?
 
-모델을 배포한 후에 [는 예측 API를 호출](how-to/call-api.md)합니다. 자세한 내용은 [예측 API 참조](https://aka.ms/ct-runtime-swagger) 를 참조 하세요.
+모델을 배포한 후에는 [REST API](how-to/call-api.md?tabs=rest-api) 또는 [클라이언트 라이브러리](how-to/call-api.md?tabs=client)를 사용 하 여 [예측 API를 호출](how-to/call-api.md)합니다.
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 

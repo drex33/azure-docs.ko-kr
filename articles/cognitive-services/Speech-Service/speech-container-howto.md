@@ -12,12 +12,12 @@ ms.date: 10/11/2021
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: 3297231244cd5323c0218dcce02ac20453456685
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: 25063bd9a23f0d156719404e183c44fdc7b45051
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131867174"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757554"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Speech Service API용 Docker 컨테이너 설치 및 실행 
 
@@ -26,14 +26,14 @@ ms.locfileid: "131867174"
 음성 컨테이너는 고객이 강력한 클라우드 기능 및 에지 지역성 모두에 최적화된 음성 애플리케이션 아키텍처를 구축할 수 있도록 합니다. 클라우드 기반 Azure Speech Service와 동일한 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 사용하는 여러 컨테이너를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 표준 음성 합성 음성 및 텍스트 음성 대 음성 컨테이너는 2021년 8월 31일에 사용 중지되었습니다. 대신 신경망 텍스트 음성 대 음성 컨테이너를 사용하도록 애플리케이션을 마이그레이션하는 것이 좋습니다. 애플리케이션 업데이트에 대한 자세한 내용은 [다음 단계를 따르세요.](./text-to-speech.md#migrate-to-neural-voice)
+> 2021년 8월 31일에 표준 음성 합성 음성 및 텍스트 음성 대 음성 컨테이너를 사용 중지했습니다. 대신 신경망 텍스트 음성 대 음성 컨테이너를 사용하도록 애플리케이션을 마이그레이션하는 것이 좋습니다. 애플리케이션 업데이트에 대한 자세한 내용은 [다음 단계를 따르세요.](./text-to-speech.md#migrate-to-neural-voice)
 
 | 컨테이너 | 기능 | 최신 | 릴리스 상태 |
 |--|--|--|--|
 | 음성 텍스트 변환 | 감정을 분석하고 연속적인 실시간 음성 또는 일괄 오디오 녹음을 기록하며 중간 결과를 제공합니다.  | 2.16.0 | 일반 공급 |
 | 사용자 지정 음성 텍스트 변환 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)의 사용자 지정 모델을 사용하여 연속적인 실시간 음성 또는 일괄 오디오 녹음을 텍스트로 기록하고 중간 결과를 제공합니다. | 2.16.0 | 일반 공급 |
 | 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 사용하여 텍스트를 자연스러운 음성으로 변환합니다. | 1.15.0 | 일반 공급 |
-| 음성 언어 식별 | 오디오 파일에서 음성 언어를 감지합니다. | 1.3.0 | 미리 보기 |
+| 음성 언어 식별 | 오디오 파일에서 음성 언어를 감지합니다. | 1.5.0 | 미리 보기 |
 | 인공신경망 텍스트 음성 변환 | 심층 신경망 기술을 사용하여 텍스트를 자연스러운 음성으로 변환함으로써 보다 자연스러운 합성 음성을 사용할 수 있도록 합니다. | 1.10.0 | 일반 공급 |
 
 ## <a name="prerequisites"></a>필수 조건
@@ -311,14 +311,14 @@ diarize_speech_config.set_service_property(
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 변환 출력의 감정 분석 
-음성 텍스트 번역 컨테이너의 v2.6.0부터는 미리 보기 엔드포인트 대신 언어 서비스 3.0 API 엔드포인트를 사용해야 합니다. 예를 들면 다음과 같습니다.
+음성 텍스트 번역 컨테이너의 v2.6.0부터 미리 보기 엔드포인트 대신 언어 서비스 3.0 API 엔드포인트를 사용해야 합니다. 예를 들면 다음과 같습니다.
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
 
 > [!NOTE]
-> 언어 서비스 `v3.0` API는 이전 버전과 호환되지  `v3.0-preview.1` 않습니다. 최신 감정 기능을 지원하려면 음성 텍스트 컨테이너 이미지 및 언어 서비스 를 `v2.6.0` `v3.0` 사용합니다.
+> 언어 서비스 `v3.0` API는 이전 버전과 호환되지  `v3.0-preview.1` 않습니다. 최신 감정 기능 지원을 받으려면 음성 텍스트 컨테이너 이미지 및 언어 서비스 를 `v2.6.0` `v3.0` 사용합니다.
 
-음성 텍스트 변환 컨테이너 v2.2.0부터 출력에서 [감정 분석 v3 API를](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 호출할 수 있습니다. 감정 분석을 호출하려면 언어 서비스 API 리소스 엔드포인트가 필요합니다. 예를 들면 다음과 같습니다. 
+음성 텍스트 변환 컨테이너 v2.2.0부터 출력에서 [감정 분석 v3 API를](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 호출할 수 있습니다. 감정 분석을 호출하려면 언어 서비스 API 리소스 엔드포인트가 필요합니다. 다음은 그 예입니다. 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -541,13 +541,13 @@ WSS 및 HTTPS 프로토콜을 사용하는 방법에 대한 자세한 내용은 
 
 #### <a name="analyze-sentiment"></a>감정 분석
 
-컨테이너에 언어 서비스 API 자격 [증명을](#analyze-sentiment-on-the-speech-to-text-output)제공한 경우 Speech SDK를 사용하여 감정 분석을 통해 음성 인식 요청을 보낼 수 있습니다. *단순* 또는 *상세* 형식을 사용하도록 API 응답을 구성할 수 있습니다.
+[컨테이너에](#analyze-sentiment-on-the-speech-to-text-output)언어 서비스 API 자격 증명을 제공한 경우 speech SDK를 사용 하 여 감정 분석을 통해 음성 인식 요청을 보낼 수 있습니다. *단순* 또는 *상세* 형식을 사용하도록 API 응답을 구성할 수 있습니다.
 > [!NOTE]
 > Speech Service Python SDK의 v1.13에는 감정 분석과 관련된 문제가 있습니다. Speech Service Python SDK에서 감정 분석을 사용하는 경우에는 v1.12.x 또는 이전 버전을 사용하세요.
 
 # <a name="simple-format"></a>[단순 형식](#tab/simple-format)
 
-단순 형식을 사용하도록 음성 클라이언트를 구성하려면 `"Sentiment"`에 `Simple.Extensions`를 값으로 추가합니다. 특정 언어 서비스 모델 버전을 선택하려면 `'latest'` 속성 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` 구성에서 를 대체합니다.
+단순 형식을 사용하도록 음성 클라이언트를 구성하려면 `"Sentiment"`에 `Simple.Extensions`를 값으로 추가합니다. 특정 언어 서비스 모델 버전을 선택 하려면 `'latest'` 속성 구성에서를 대체 합니다 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` .
 
 ```python
 speech_config.set_service_property(
@@ -581,7 +581,7 @@ speech_config.set_service_property(
 
 # <a name="detailed-format"></a>[상세 형식](#tab/detailed-format)
 
-상세 형식을 사용하도록 음성 클라이언트를 구성하려면 `Detailed.Extensions`, `Detailed.Options` 또는 둘 다에 `"Sentiment"`를 값으로 추가합니다. 특정 감정 분석 모델 버전을 선택하려면 `'latest'` 속성 구성에서 를 대체합니다. `speechcontext-phraseDetection.sentimentAnalysis.modelversion`
+상세 형식을 사용하도록 음성 클라이언트를 구성하려면 `Detailed.Extensions`, `Detailed.Options` 또는 둘 다에 `"Sentiment"`를 값으로 추가합니다. 특정 감정 분석 모델 버전을 선택 하려면 `'latest'` 속성 구성에서를 대체 합니다 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` .
 
 ```python
 speech_config.set_service_property(

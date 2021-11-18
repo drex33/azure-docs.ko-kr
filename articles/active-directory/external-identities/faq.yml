@@ -13,12 +13,12 @@ metadata:
   ms.reviewer: mal
   ms.custom: it-pro, seo-update-azuread-jan
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: dd15c9412cc9f7b0bed2ac4e0f622c827aaafe17
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 661d38755cdaeea830b025fa2747b45d43b4c5d2
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130227655"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132490158"
 title: Azure Active Directory B2B 협업 FAQ
 summary: >
   Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질문과 대답(FAQ)은 새 항목을 포함하도록 정기적으로 업데이트됩니다.
@@ -129,4 +129,8 @@ sections:
       Azure AD B2B를 사용해야 하는 라이선스는 무엇인가요?
     answer: >
       조직에서 Azure AD B2B를 사용해야 하는 라이선스에 대한 자세한 내용은 [External Identities 가격 책정](external-identities-pricing.md)을 참조 하세요.
+  - question: >
+      B2B 협업 사용자가 UPN이 아닌 이메일 주소로 로그인할 수 있나요?
+    answer: >
+      예. B2B 협업을 위한 대체 로그인 ID로서의 이메일에 대한 자세한 내용은 [이메일 주소로 B2B 게스트 사용자 로그인](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address)을 참조하세요.
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n[Azure AD B2B 협업이란?](what-is-b2b.md)"

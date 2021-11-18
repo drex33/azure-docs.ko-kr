@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에서 변칙 검색 분석 규칙 사용 | Microsoft Docs
 description: 이 문서에서는 Microsoft 센티널에서 변칙 검색 분석 규칙을 보고, 만들고, 관리 하 고, 평가 하 고, 미세 조정 하는 방법을 설명 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a0a5fa5f316e744e5cfd50abd7113fe8782f7ca9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: d5970f2283e217edabf001e56c9bcfdabbeea101
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710935"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763642"
 ---
 # <a name="work-with-anomaly-detection-analytics-rules-in-microsoft-sentinel"></a>Microsoft 센티널에서 변칙 검색 분석 규칙 사용
 

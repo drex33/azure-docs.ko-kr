@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/30/2021
-ms.openlocfilehash: ef7a917b504df521f087e5a2729d5c431e84fd62
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: d584e7c905902545fd3e143b97b88cd33e8236d6
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114295892"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756593"
 ---
 # <a name="perform-log-queries-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
 
@@ -30,7 +30,7 @@ Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또�
 
 * 단일 쿼리에 포함할 수 있는 Application Insights 리소스 및 Log Analytics 작업 영역의 수는 100개로 제한됩니다.
 * 뷰 디자이너에서는 리소스 간 쿼리가 지원되지 않습니다. Log Analytics에서 쿼리를 작성하고 Azure 대시보드에 고정하여 [로그 쿼리를 시각화](../visualize/tutorial-logs-dashboards.md)하거나 [통합 문서](../visualize/workbooks-overview.md)에 포함할 수 있습니다.
-* 로그 경고의 리소스 간 쿼리는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서만 지원됩니다. 레거시 Log Analytics 경고 API를 사용하는 경우 [현재 API로 전환](../alerts/alerts-log-api-switch.md)해야 합니다.
+* 로그 경고의 리소스 간 쿼리는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules)에서만 지원됩니다. 레거시 Log Analytics 경고 API를 사용하는 경우 [현재 API로 전환](../alerts/alerts-log-api-switch.md)해야 합니다.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리

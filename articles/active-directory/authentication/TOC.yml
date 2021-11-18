@@ -162,8 +162,12 @@
           href: howto-password-ban-bad-on-premises-faq.yml
         - name: 에이전트 버전 기록
           href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Microsoft Authenticator 설정으로 이동(미리 보기)
-      href: how-to-nudge-authenticator-app.md
+    - name: 등록 캠페인 실행
+      href: how-to-mfa-registration-campaign.md
+    - name: 숫자 일치 사용(미리 보기)
+      href: how-to-mfa-number-match.md
+    - name: 추가 컨텍스트 사용(미리 보기)
+      href: how-to-mfa-additional-context.md
     - name: Microsoft 관리 설정 사용
       href: how-to-mfa-microsoft-managed.md
     - name: 임시 액세스 패스(미리 보기) 사용

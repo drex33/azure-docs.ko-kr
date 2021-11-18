@@ -1,24 +1,17 @@
 ---
 title: REST API를 사용 하 여 Microsoft 센티널의 지리적 위치 데이터로 엔터티 보강 Microsoft Docs
 description: 이 문서에서는 REST API를 통해 지리적 위치 데이터로 Microsoft 센티널의 엔터티를 보강 하는 방법을 설명 합니다.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: b7a42d6a80e602170264e6cbe94e410e46246f79
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: a1950a900219881fb1da9252b4530727a5ecfc98
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721008"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754408"
 ---
 # <a name="enrich-entities-in-microsoft-sentinel-with-geolocation-data-via-rest-api-public-preview"></a>REST API를 통해 지리적 위치 데이터로 Microsoft 센티널의 엔터티 보강 (공개 미리 보기)
 

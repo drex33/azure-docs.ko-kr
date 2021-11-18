@@ -1,28 +1,28 @@
 ---
-title: Microsoft 센티널 SAP 솔루션-보안 콘텐츠 참조 | Microsoft Docs
-description: Microsoft 센티널 SAP 솔루션에서 제공 하는 기본 제공 보안 콘텐츠에 대해 알아봅니다.
+title: Microsoft Sentinel SAP 솔루션 - 보안 콘텐츠 참조 | Microsoft Docs
+description: Microsoft Sentinel SAP 솔루션에서 제공하는 기본 제공 보안 콘텐츠에 대해 알아봅니다.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: a1413fefdc12cf9712419adaa8586da0ef7b921d
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: ac44e8bd59f2c25686d0583473f48995848bd6ed
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711814"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762236"
 ---
-# <a name="microsoft-sentinel-sap-solution-security-content-reference-public-preview"></a>Microsoft 센티널 SAP solution: 보안 콘텐츠 참조 (공개 미리 보기)
+# <a name="microsoft-sentinel-sap-solution-security-content-reference-public-preview"></a>Microsoft Sentinel SAP 솔루션: 보안 콘텐츠 참조(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 [Microsoft 센티널 SAP 솔루션](sap-deploy-solution.md#deploy-sap-security-content)에 사용할 수 있는 보안 콘텐츠에 대해 자세히 설명 합니다.
+이 문서에서는 [Microsoft Sentinel SAP 솔루션](sap-deploy-solution.md#deploy-sap-security-content)에 사용할 수 있는 보안 콘텐츠에 대해 자세히 설명합니다.
 
 사용 가능한 보안 콘텐츠에는 기본 제공 통합 문서 및 기본 제공 분석 규칙이 포함됩니다. 검색, 검색 규칙, 위협 헌팅 및 대응 플레이 북에 사용할 SAP 관련 [관심 목록](watchlists.md)을 추가할 수도 있습니다.
 
 > [!IMPORTANT]
-> Microsoft 센티널 SAP 솔루션은 현재 미리 보기로 제공 됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> Microsoft Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
 
@@ -43,7 +43,7 @@ ms.locfileid: "132711814"
 
 ## <a name="built-in-analytics-rules"></a>기본 제공 분석 규칙
 
-다음 표에서는 microsoft 센티널 Solutions marketplace에서 배포 된 Microsoft 센티널 SAP 솔루션에 포함 된 기본 제공 [분석 규칙](sap-deploy-solution.md#deploy-sap-security-content) 을 나열 합니다.
+다음 표에는 Microsoft Sentinel 솔루션 마켓플레이스에서 배포된 Microsoft Sentinel SAP 솔루션에 포함된 기본 제공 [분석 규칙이](sap-deploy-solution.md#deploy-sap-security-content) 나와 있습니다.
 
 ### <a name="built-in-sap-analytics-rules-for-initial-access"></a>초기 액세스에 대한 기본 제공 SAP 분석 규칙
 
@@ -159,8 +159,8 @@ ms.locfileid: "132711814"
 자세한 내용은 다음을 참조하세요.
 
 - [SAP용 Microsoft Sentinel 솔루션 배포](sap-deploy-solution.md)
-- [Microsoft Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
-- [SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [Microsoft 센티널 SAP 솔루션 로그 참조](sap-solution-log-reference.md)
+- [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel SAP 솔루션 세부 SAP 요구 사항](sap-solution-detailed-requirements.md)
-- [Microsoft Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
+- [Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
+- [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

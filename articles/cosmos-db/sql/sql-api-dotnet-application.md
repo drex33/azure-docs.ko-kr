@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 95fca8d94036badb5983887f1220ac3130e29aeb
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6fc2b77f0a118cfe970c7f2d6aa74ddeae1ce9f1
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123118014"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758752"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,6 @@ ms.locfileid: "123118014"
 > * [Java](sql-api-java-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
-> * [Xamarin](mobile-apps-with-xamarin.md)
 
 이 자습서에서는 Azure Cosmos DB를 사용하여 Azure에서 호스트하는 ASP.NET MVC 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여줍니다. 이 자습서에서는 .NET SDK V3을 사용합니다. 다음 이미지에서는 이 문서의 샘플을 사용하여 빌드할 웹 페이지를 보여 줍니다.
 

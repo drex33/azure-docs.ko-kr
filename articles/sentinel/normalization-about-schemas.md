@@ -1,26 +1,19 @@
 ---
-title: 고급 SIEM 정보 모델 (ASIM) 스키마 | Microsoft Docs
-description: 이 문서에서는 ASIM (Advanced SIEM 정보 모델) 스키마에 대해 설명 하 고 ASIM에서 여러 다른 원본에서 균일 한 프레젠테이션으로 데이터를 정규화 하는 방법을 설명 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: 고급 SIEM 정보 모델(ASIM) 스키마 | Microsoft Docs
+description: 이 문서에서는 ASIM(고급 SIEM 정보 모델) 스키마와 ASIM이 다양한 원본의 데이터를 균일한 프레젠테이션으로 정규화하는 데 어떻게 도움이 되는지 설명합니다.
 author: oshezaf
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 006f5fbf005d2079fac66de2faf22e429f139d95
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 841399ca58a88923ded03bffd363335faeb2c7ae
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712816"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763889"
 ---
-# <a name="advanced-siem-information-model-asim-schemas-public-preview"></a>고급 SIEM 정보 모델 (ASIM) 스키마 (공개 미리 보기)
+# <a name="advanced-siem-information-model-asim-schemas-public-preview"></a>ASIM(고급 SIEM 정보 모델) 스키마(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +23,7 @@ ms.locfileid: "132712816"
 
  - [네트워크 세션](normalization-schema.md)
  - [DNS 작업](dns-normalization-schema.md)
- - [DHCP 활동](dhcp-normalization-schema.md)
+ - [DHCP 작업](dhcp-normalization-schema.md)
  - [프로세스 이벤트](process-events-normalization-schema.md)
  - [인증 이벤트](authentication-normalization-schema.md)
  - [레지스트리 이벤트](registry-event-normalization-schema.md)
@@ -48,23 +41,23 @@ ms.locfileid: "132712816"
 |개념  |설명  |
 |---------|---------|
 |**필드 이름**     |   각 스키마의 핵심은 필드 이름입니다. 필드 이름은 다음 그룹에 속합니다. <br><br>- 모든 스키마에 공통된 필드 <br>- 특정 스키마에 국한된 필드 <br>- 스키마에 참여하는 사용자와 같은 엔터티를 나타내는 필드 엔터티를 나타내는 필드는 [스키마 간에 유사합니다](#entities). <br><br>원본에 문서화된 스키마에 없는 필드가 있는 경우 일관성을 유지하기 위해 정규화됩니다. 추가 필드가 엔터티를 나타내는 경우 엔터티 필드 지침에 따라 정규화됩니다. 그렇지 않으면 스키마는 모든 스키마에서 일관성을 유지하려고 합니다.<br><br> 예를 들어, DNS 서버 활동 로그는 사용자 정보를 제공하지 않지만 엔드포인트의 DNS 활동 로그에는 사용자 엔터티 지침에 따라 정규화할 수 있는 사용자 정보가 포함될 수 있습니다.      |
-|**필드 형식**     |  각 데이터 필드에는 형식이 있습니다. Log Analytics 작업 영역에는 제한된 데이터 형식 세트가 집합이 있습니다. 따라서 Microsoft 센티널은 여러 스키마 필드에 논리적 유형을 사용 합니다 .이 필드는 Log Analytics 적용 되지 않지만 스키마 호환성을 위해 필요 합니다. 논리적 필드 형식은 값과 필드 이름이 원본 간에 일관되도록 합니다.  <br><br>자세한 내용은 [논리적 형식](#logical-types)을 참조하세요.     |
+|**필드 형식**     |  각 데이터 필드에는 형식이 있습니다. Log Analytics 작업 영역에는 제한된 데이터 형식 세트가 집합이 있습니다. 따라서 Microsoft Sentinel은 Log Analytics가 적용하지 않지만 스키마 호환성을 위해 필요한 많은 스키마 필드에 논리 형식을 사용합니다. 논리적 필드 형식은 값과 필드 이름이 원본 간에 일관되도록 합니다.  <br><br>자세한 내용은 [논리적 형식](#logical-types)을 참조하세요.     |
 |**필드 클래스**     |필드에는 파서에서 필드를 구현해야 하는 경우를 정의하는 여러 클래스가 있을 수 있습니다. <br><br>-    **필수** 필드는 모든 파서에 나타나야 합니다. 원본이 이 값에 대한 정보를 제공하지 않거나 데이터를 추가할 수 없는 경우 정규화된 스키마를 참조하는 대부분의 콘텐츠 항목이 지원되지 않습니다.<br>-  **권장** 필드는 사용 가능한 경우 정규화해야 합니다. 그러나 모든 원본에서 사용할 수 있는 것은 아니며, 정규화된 스키마를 참조하는 콘텐츠 항목은 가용성을 고려해야 합니다. <br>-  **선택적** 필드(사용 가능한 경우)는 정규화되거나 원래 형식을 유지할 수 있습니다. 일반적으로 최소 파서는 성능상의 이유로 이러한 필드를 정규화하지 않습니다.    |
-|**엔터티**     | 이벤트는 사용자, 호스트, 프로세스 또는 파일과 같은 엔터티를 중심으로 진행되며 각 엔터티는 설명하는 데 여러 필드가 필요할 수 있습니다. 예를 들어 호스트에는 이름 및 IP 주소가 있을 수 있습니다. <br><br>단일 레코드에는 원본 및 대상 호스트와 같이 유형이 같은 엔터티가 여러 개 포함될 수 있습니다. <br><br>고급 SIEM 정보 모델은 엔터티를 일관 되 게 설명 하는 방법을 정의 하며, 엔터티는 스키마 확장을 허용 합니다. <br><br>예를 들어 네트워크 세션 스키마에는 프로세스 정보가 포함되지 않지만 일부 이벤트 원본은 추가할 수 있는 프로세스 정보를 제공합니다. 자세한 내용은 [엔터티](#entities)를 참조하세요. |
-|**별칭**     |  경우에 따라 사용자마다 필드에 다른 이름을 지정하려고 할 수 있습니다. 예를 들어 DNS 용어에서는 `query`라는 필드가 예상되지만, 도메인 이름을 포함하는 경우가 좀 더 일반적입니다. 별칭은 지정된 값에 여러 이름을 허용하여 이러한 모호성 문제를 해결합니다. 별칭 클래스는 별칭이 있는 필드와 동일합니다.<br><br>Log Analytics는 별칭을 지원 하지 않습니다. 별칭 파서를 구현 하려면 연산자를 사용 하 여 원래 값의 복사본을 만듭니다 `extend` .        |
+|**엔터티**     | 이벤트는 사용자, 호스트, 프로세스 또는 파일과 같은 엔터티를 중심으로 진행되며 각 엔터티는 설명하는 데 여러 필드가 필요할 수 있습니다. 예를 들어 호스트에는 이름 및 IP 주소가 있을 수 있습니다. <br><br>단일 레코드에는 원본 및 대상 호스트와 같이 유형이 같은 엔터티가 여러 개 포함될 수 있습니다. <br><br>고급 SIEM 정보 모델은 엔터티를 일관되게 설명하는 방법을 정의하며, 엔터티는 스키마 확장을 허용합니다. <br><br>예를 들어 네트워크 세션 스키마에는 프로세스 정보가 포함되지 않지만 일부 이벤트 원본은 추가할 수 있는 프로세스 정보를 제공합니다. 자세한 내용은 [엔터티](#entities)를 참조하세요. |
+|**별칭**     |  경우에 따라 사용자마다 필드에 다른 이름을 지정하려고 할 수 있습니다. 예를 들어 DNS 용어에서는 `query`라는 필드가 예상되지만, 도메인 이름을 포함하는 경우가 좀 더 일반적입니다. 별칭은 지정된 값에 여러 이름을 허용하여 이러한 모호성 문제를 해결합니다. 별칭 클래스는 별칭이 있는 필드와 동일합니다.<br><br>Log Analytics는 별칭을 지원하지 않습니다. 별칭 파서를 구현하려면 연산자를 사용하여 원래 값의 복사본을 `extend` 만듭니다.        |
 | | |
 
 ## <a name="logical-types"></a>논리적 형식
 
-각 데이터 필드에는 형식이 있습니다. 일부는 기본 제공 Azure Log Analytics 형식(예: `string`, `int`, `datetime` 또는 `dynamic`)을 갖습니다. 다른 필드에는 필드 값을 정규화 하는 방법을 나타내는 논리적 형식이 있습니다.
+각 데이터 필드에는 형식이 있습니다. 일부는 기본 제공 Azure Log Analytics 형식(예: `string`, `int`, `datetime` 또는 `dynamic`)을 갖습니다. 다른 필드에는 필드 값을 정규화해야 하는 방법을 나타내는 논리 형식이 있습니다.
 
 |데이터 형식  |실제 형식  |서식과 값  |
 |---------|---------|---------|
-|**Boolean**     |   Bool      |    `bool`부울 값의 숫자 또는 문자열 표현이 아닌 기본 제공 KQL 데이터 형식을 사용 합니다.     |
+|**Boolean**     |   Bool      |    부울 값의 숫자 또는 문자열 표현 대신 기본 제공 KQL `bool` 데이터 형식을 사용합니다.     |
 |**Enumerated**     |  String       |   필드에 대해 명시적으로 정의된 값 목록입니다. 스키마 정의에는 허용되는 값이 나열됩니다.      |
 |**날짜/시간**     |  수집 방법 기능에 따라 다음 물리적 표현을 내림차순으로 사용합니다. <br><br>- Log Analytics 기본 제공 날짜/시간 형식 <br>- Log Analytics 날짜/시간 숫자 표현을 사용하는 정수 필드 <br>- Log Analytics 날짜/시간 숫자 표현을 사용하는 문자열 필드 <br>- 지원되는 [Log Analytics 날짜/시간 형식](/azure/data-explorer/kusto/query/scalar-data-types/datetime)을 저장하는 문자열 필드       |  [Log Analytics 날짜/시간 표현](/azure/kusto/query/scalar-data-types/datetime)은 Unix 시간 표현과 비슷하지만 다른 점도 있습니다. 자세한 내용은 [변환 지침](/azure/kusto/query/datetime-timespan-arithmetic)을 참조하세요. <br><br>**참고**: 해당하는 경우 시간을 표준 시간대로 조정해야 합니다. |
 |**MAC 주소**    |  String       | 콜론으로 구분된 16진수 표기법        |
-|**IP 주소**     |String         |    Microsoft 센티널 스키마에는 별도의 IPv4 및 IPv6 주소가 없습니다. 모든 IP 주소 필드에는 다음과 같이 IPv4 주소 또는 IPv6 주소가 포함될 수 있습니다. <br><br>- 점으로 구분 된 십진수 표기법의 **IPv4**<br>- 8헥스텟 표기법의 **IPv6** 로, 짧은 형식을 사용할 수 있습니다.<br><br>예를 들면 다음과 같습니다.<br>- **IPv4**: `192.168.10.10` <br>- **IPv6**: `FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 약식 형식**: `1080::8:800:200C:417A`     |
+|**IP 주소**     |String         |    Microsoft Sentinel 스키마에는 별도의 IPv4 및 IPv6 주소가 없습니다. 모든 IP 주소 필드에는 다음과 같이 IPv4 주소 또는 IPv6 주소가 포함될 수 있습니다. <br><br>- 10진수 표기식의 **IPv4**<br>- 8헥스텟 표기법의 **IPv6** 로, 짧은 형식을 사용할 수 있습니다.<br><br>예를 들면 다음과 같습니다.<br>- **IPv4:**`192.168.10.10` <br>- **IPv6:**`FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 약식:**`1080::8:800:200C:417A`     |
 |**FQDN**        |   문자열      |    점 표기법을 사용하는 정규화된 도메인 이름(예: `docs.microsoft.com`) |
 |**국가**     |   String      |    다음 우선 순위에 따라 [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html)을 사용하는 문자열입니다. <br><br> - 알파-2 코드(예: 미국의 경우 `US`) <br> - 알파-3 코드(예: 미국의 경우 `USA`) <br>- 약식 이름<br><br>코드 목록은 [ISO(국제 표준화 기구) 웹 사이트](https://www.iso.org/obp/ui/#search)에서 찾을 수 있습니다.|
 |**지역**     | String        |   ISO 3166-2를 사용하는 국가 지역 이름<br><br>코드 목록은 [ISO(국제 표준화 기구) 웹 사이트](https://www.iso.org/obp/ui/#search)에서 찾을 수 있습니다.|
@@ -79,15 +72,15 @@ ms.locfileid: "132712816"
 
 ## <a name="common-fields"></a><a name="common"></a>공용 필드
 
-일부 필드는 모든 ASIM 스키마에 공통적으로 발생합니다. 각 스키마는 특정 스키마의 컨텍스트에서 일부 공통 필드를 사용하기 위한 지침을 추가할 수 있습니다. 예를 들어 **EventType** 필드에 허용되는 값은 **EventSchemaVersion** 필드의 값과 마찬가지로 스키마마다 다를 수 있습니다.
+일부 필드는 모든 ASIM 스키마에 공통적입니다. 각 스키마는 특정 스키마의 컨텍스트에서 일부 공통 필드를 사용 하기 위한 지침을 추가할 수 있습니다. 예를 들어, **EventType** 필드에 대해 허용 되는 값은 **eventschemaversion** 필드 값이 스키마 마다 다를 수 있습니다.
 
-다음 필드는 각 레코드에 대해 Log Analytics에서 생성되며 사용자 지정 커넥터 를 만들 때 [재정의할](create-custom-connector.md)수 있습니다.
+다음 필드는 각 레코드에 대해 Log Analytics에 의해 생성 되며 [사용자 지정 커넥터를 만들](create-custom-connector.md)때 재정의할 수 있습니다.
 
 | 필드         | 형식     | 토론(Discussion)      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
-| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블로 동일한 이벤트를 수신할 수 있고 [EventVendor](#eventvendor) 및 [EventProduct](#eventproduct) 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 테이블 또는 테이블에 수집될 수 `Event` `WindowsEvent` 있습니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 여러 채널을 통해 동일한 이벤트를 받을 수 있고 [Eventvendor](#eventvendor) 및 [eventvendor](#eventproduct) 값이 동일한 경우에 유용 합니다.<br><br>예를 들어 테이블 또는 테이블에 Sysmon 이벤트를 수집할 수 있습니다 `Event` `WindowsEvent` . |
 | | | |
 
 > [!NOTE]
@@ -95,9 +88,9 @@ ms.locfileid: "132712816"
 >
 
 
-다음 필드는 모든 스키마에 대해 ASIM에 의해 정의됩니다.
+다음 필드는 모든 스키마에 대해 ASIM에 의해 정의 됩니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
@@ -194,7 +187,7 @@ ms.locfileid: "132712816"
 | | | |
 
 
-자세한 내용은 [Microsoft Sentinel Process 이벤트 정규화 스키마 참조(공개 미리 보기)](process-events-normalization-schema.md)를 참조하세요.
+자세한 내용은 [Microsoft 센티널 프로세스 이벤트 정규화 스키마 참조 (공개 미리 보기)](process-events-normalization-schema.md)를 참조 하세요.
 
 ### <a name="the-device-entity"></a>디바이스 엔터티
 
@@ -229,11 +222,11 @@ ms.locfileid: "132712816"
 > `Domain`은 디바이스의 일반적인 특성이지만 완전한 식별자가 아닙니다.
 >
 
-자세한 내용은 [Microsoft Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)를 참조하세요.
+자세한 내용은 [Microsoft 센티널 인증 정규화 스키마 참조 (공개 미리 보기)](authentication-normalization-schema.md)를 참조 하세요.
 
 ### <a name="sample-entity-mapping"></a>샘플 엔터티 매핑
 
-이 섹션에서는 [Windows 이벤트 4624를](/windows/security/threat-protection/auditing/event-4624) 예제로 사용하여 Microsoft Sentinel에 대해 이벤트 데이터가 정규화되는 방법을 설명합니다.
+이 섹션에서는 [Windows 이벤트 4624](/windows/security/threat-protection/auditing/event-4624) 을 사용 하 여 Microsoft 센티널에 대해 이벤트 데이터를 정규화 하는 방법을 설명 합니다.
 
 이 이벤트에는 다음과 같은 엔터티가 있습니다.
 
@@ -274,7 +267,7 @@ ms.locfileid: "132712816"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft Sentinel의 정규화 및 고급 SIEM 정보 모델에 대한 개요를 제공합니다.
+이 문서에서는 Microsoft 센티널 및 고급 SIEM 정보 모델의 정규화에 대 한 개요를 제공 합니다.
 
 자세한 내용은 다음을 참조하세요.
 - [고급 SIEM 정보 모델 개요](normalization.md)

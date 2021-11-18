@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: eur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8119e4a8fa1d1aaf5a838ea5f3ddd961c4fb4042
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: df5ac4b19ff4afe8eeb237c12498447ab3de17aa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501086"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132757552"
 ---
 컨테이너는 [Speech SDK](../index.yml)를 통해 액세스되는 Websocket 기반 쿼리 끝점 API를 제공합니다. 기본적으로 Speech SDK는 온라인 음성 서비스를 사용합니다. 컨테이너를 사용하려면 초기화 메서드를 변경해야 합니다.
 
@@ -49,7 +49,7 @@ speech_config = speechsdk.SpeechConfig(
 
 ```python
 speech_config = speechsdk.SpeechConfig(
-    endpoint="ws://localhost:5000/speech/recognition/conversation/cognitiveservices/v1"
+    host="ws://localhost:5000")
 ```
 
 ---

@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 8e055971ea587e81ded1cb6317579a6a9bdcc8cb
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: bbb285bfef7e6fb380801c75144af4eebb256253
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730444"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758835"
 ---
 # <a name="configure-custom-naming-module"></a>사용자 지정 명명 모듈 구성
 
@@ -59,13 +59,13 @@ Terraform 모듈은 `sap_namegenerator` 자동화 프레임워크가 배포하�
 
 사용자 지정 명명을 위해 Terraform 환경을 준비하려면 먼저 사용자 지정 명명 모듈을 만들어야 합니다. 가장 쉬운 방법은 기존 모듈을 복사하고 복사한 모듈에서 필요한 변경을 하는 것입니다.
 
-1. Terraform 환경에서 루트 수준 폴더를 만듭니다. 예들 들어 `Azure_SAP_Automated_Deployment`입니다.
+1. Terraform 환경에서 루트 수준 폴더를 만듭니다. 예: `Azure_SAP_Automated_Deployment`.
 1. 새 루트 수준 폴더로 이동합니다.
-1. [자동화 프레임워크 리포지토리를](https://github.com/Azure/sap-hana)복제합니다. 이 단계에서는 새 폴더 를 `sap-hana` 만듭니다.
+1. [자동화 프레임워크 리포지토리를](https://github.com/Azure/sap-automation)복제합니다. 이 단계에서는 새 폴더 를 `sap-automation` 만듭니다.
 1. 라는 루트 수준 폴더 내에 폴더를 `Contoso_naming` 만듭니다.
-1. `sap-hana` 폴더로 이동합니다.
+1. `sap-automation` 폴더로 이동합니다.
 1. git에서 적절한 분기를 확인합니다.
-1. 폴더 `\deploy\terraform\terraform-units\modules` 내에서 로 `sap-hana` 이동합니다.
+1. 폴더 `\deploy\terraform\terraform-units\modules` 내에서 로 `sap-automation` 이동합니다.
 1. 폴더를 `sap_namegenerator` `Contoso_naming` 폴더에 복사합니다.
 
 명명 모듈은 루트 terraform 폴더에서 호출됩니다.
@@ -86,7 +86,8 @@ module "sap_namegenerator" {
   db_server_count  = var.database_server_count
   app_server_count = try(local.application.application_server_count, 0)
   web_server_count = try(local.application.webdispatcher_count, 0)
-  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count  app_zones        = local.app_zones
+  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count  
+  app_zones        = local.app_zones
   scs_zones        = local.scs_zones
   web_zones        = local.web_zones
   db_zones         = local.db_zones
@@ -103,13 +104,15 @@ module "sap_namegenerator" {
 - `deploy\terraform\run\sap_library\module.tf`
 - `deploy\terraform\run\sap_deployer\module.tf`
 
-각 파일에 대해 새 명명 `sap_namegenerator` 모듈의 위치를 가리키도록 모듈의 원본을 변경합니다. 예를 들어 `module "sap_namegenerator" { source = "../../terraform-units/modules/sap_namegenerator"`는 `module "sap_namegenerator" { source = "../../../../Contoso_naming"`가 됩니다.
+각 파일에 대해 새 명명 `sap_namegenerator` 모듈의 위치를 가리키도록 모듈의 원본을 변경합니다. 다음은 그 예입니다.
+
+`module "sap_namegenerator" { source = "../../terraform-units/modules/sap_namegenerator"`은 `module "sap_namegenerator" { source = "../../../../Contoso_naming"`가 됩니다.
 
 ## <a name="change-resource-group-naming-logic"></a>리소스 그룹 명명 논리 변경
 
 리소스 그룹의 명명 논리를 변경하려면 사용자 지정 명명 모듈 폴더(예: `Workspaces\Contoso_naming` )로 이동합니다. 그런 다음 파일을 `resourcegroup.tf` 편집합니다. 사용자 고유의 명명 논리를 통해 다음 코드를 수정합니다.
 
-```json
+```terraform
 locals {
 
   // Resource group naming
@@ -140,7 +143,7 @@ locals {
 > 맵 값 만 **변경합니다.** Terraform 코드에서 사용하는 맵 **키를** 변경하지 마세요.
 > 예를 들어 관리자 네트워크 인터페이스 구성 요소의 이름을 바꾸려면 를 `"admin-nic"           = "-admin-nic"` 로 `"admin-nic"           = "yourNICname"` 변경합니다.
 
-```json
+```terraform
 variable resource_suffixes {
   type        = map(string)
   description = "Extension of resource name"

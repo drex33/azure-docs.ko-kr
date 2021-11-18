@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: ece5b9cd82d01afcd1c08da5680455275b8d2538
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: daa8e7c1683044bcdf1cc85ffd493dbc60aa44c6
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131866508"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754807"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보
 
@@ -139,7 +139,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 
 `2.16.0-amd64`에 대한 릴리스 정보:
 
-정기 매월 업그레이드
+정기적인 월별 업그레이드
 
 구문 목록 기능으로 인해 이 컨테이너 이미지의 크기가 증가했습니다.
 
@@ -154,8 +154,8 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 `2.15.0-amd64`에 대한 릴리스 정보:
 
 **수정 프로그램**
-* 고객이 일부 RHEL 환경에서 실행할 때 발생할 수 있는 컨테이너 시작 문제를 수정 합니다.
-* 고객이 사용자 지정 모델을 다운로드 하는 경우 모델 다운로드 nil 오류 문제를 수정 합니다.
+* 고객이 일부 RHEL 환경에서 실행할 때 발생할 수 있는 컨테이너 시작 문제를 해결합니다.
+* 고객이 사용자 지정된 모델을 다운로드할 때 모델 다운로드 nil 오류 문제가 수정되었습니다.
 
 `2.14.0-amd64`에 대한 릴리스 정보:
 
@@ -410,7 +410,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 `2.15.0-amd64-<locale>`에 대한 릴리스 정보:
 
 **수정 프로그램**
-* 고객이 일부 RHEL 환경에서 실행할 때 발생할 수 있는 컨테이너 시작 문제를 수정 합니다.
+* 고객이 일부 RHEL 환경에서 실행할 때 발생할 수 있는 컨테이너 시작 문제를 해결합니다.
 
 `2.14.0-amd64-<locale>`에 대한 릴리스 정보:
 
@@ -512,7 +512,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 
 이 컨테이너에는 다음과 같은 로캘을 사용할 수 있습니다.
 
-| V 2.15.0의 로캘          | 메모                                    | 다이제스트                                                                    |
+| v2.15.0에 대한 로케일          | 메모                                    | 다이제스트                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
 | `ar-ae`                     | `ar-AE` 로캘이 있는 컨테이너 이미지입니다. | `sha256:d2c650631f10bb3d13b90ac13cc8f9780a791b6b6eae4d3663703d61d4fcfa0b` |
 | `ar-bh`                     | `ar-BH` 로캘이 있는 컨테이너 이미지입니다. | `sha256:7dddd89b8b4bf37ab90d1940344ffea2058234328bca2b549cd37e4343f553f3` |
@@ -597,7 +597,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 | `zh-hk`                     | `zh-HK` 로캘이 있는 컨테이너 이미지입니다. | `sha256:73a5f5553c64af018ba7e3202668ca7964143b0fc25d60e33b0c76a60687add8` |
 | `zh-tw`                     | `zh-TW` 로캘이 있는 컨테이너 이미지입니다. | `sha256:8254191226a38235eedaacf603958b66b24e560d3fb56e1e40b5b0c8bae5b520` |
 
-| V 2.14.0의 로캘          | 메모                                    | 다이제스트                                                                    |
+| v2.14.0에 대한 로케일          | 메모                                    | 다이제스트                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
 | `ar-ae`                     | `ar-AE` 로캘이 있는 컨테이너 이미지입니다. | `sha256:1f9fc0564b2ba2bdbeb5a3160e7afe6d867f3ad48cc90825054359f0f129b730` |
 | `ar-bh`                     | `ar-BH` 로캘이 있는 컨테이너 이미지입니다. | `sha256:7af3ad10e6095078ee67d0426863117e2c7c861299b3f9323b6f71a87bd7fc1a` |
@@ -1293,7 +1293,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 **기능**
 * 최신 모델로 업그레이드합니다.
 
-| v1.15.0에 대한 로케일                         | 메모                                                                      | 다이제스트                         |
+| V 1.15.0에 대 한 로캘                         | 메모                                                                      | 다이제스트                         |
 |---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
 | `ar-eg-hoda`                                | `ar-EG` 로캘과 `ar-EG-Hoda` 음성이 있는 컨테이너 이미지입니다.            | `sha256:61a154451bfef9766235f85fc7ca3698151244b04bf32cfc5a47a04b9c08f8e4` |
 | `ar-sa-naayf`                               | `ar-SA` 로캘과 `ar-SA-Naayf` 음성이 있는 컨테이너 이미지입니다.           | `sha256:13cf045d959ce9362adfad114d8997e628f5e0d08e6e86a86e733967372e5e2d` |
@@ -2000,7 +2000,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 # <a name="previous-version"></a>[이전 버전](#tab/previous)
 
 `v1.9.0`에 대한 릴리스 정보:
-* 새로 1 개 `en-GB` 및 9 (4 개 미리 보기) 새 `zh-CN` 음성을 추가 합니다.
+* 새 음성 `en-GB` 1개와 새 음성 9개(미리 보기 `zh-CN` 4개)를 추가합니다.
 
 `v1.8.0`에 대한 릴리스 정보: 정기 월간 릴리스
 
@@ -2022,7 +2022,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 `v1.3.0`에 대한 릴리스 정보:
 * 이제 신경망 텍스트 음성 변환 컨테이너가 일반 공급됩니다. 
 
-| v 1.9.0 로캘 및 음성           | 메모                                                                      |
+| v1.9.0 로케일 및 음성           | 메모                                                                      |
 |-------------------------------------|:---------------------------------------------------------------------------|
 | `de-de-conradneural`                | `de-DE` 로캘과 `de-DE-ConradNeural` 음성이 있는 컨테이너 이미지입니다.    |
 | `de-de-katjaneural`                 | `de-DE` 로캘과 `de-DE-KatjaNeural` 음성이 있는 컨테이너 이미지입니다.     |
@@ -2320,18 +2320,21 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 
 # <a name="latest-version"></a>[최신 버전](#tab/current)
 
-* `1.3.0` 버전에 대한 릴리스 정보:
-    * 및 연속 모드를 사용 하는 독립 실행형 언어 Id 지원 `SingleLanguage` .
+* `1.5.0` 버전에 대한 릴리스 정보:
+    * 새 언어 추가: 헝가리어, 체코어, 체코어, 헝가리어, 터키어, 2016년 3월 31일 
+    * 짧은 오디오의 성능이 향상되었습니다.
+
 
 | 이미지 태그                                  | 메모                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
-| `1.3.0-amd64-preview`                       |      |
+| `1.5.0-amd64-preview`                       |      |
 
 # <a name="previous-versions"></a>[이전 버전](#tab/previous)
 
 | 이미지 태그                                  | 메모                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
+| `1.3.0-amd64-preview`                       |      |
 | `1.2.0-amd64-preview`                       |      |
 | `1.1.0-amd64-preview`                       |      |
 
@@ -2419,7 +2422,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 
 `3.0.017010001-onprem-amd64`에 대한 릴리스 정보:
 
-* 이제 [클라이언트 라이브러리를 사용 하 여 상태 컨테이너에 Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 를 사용할 수 있습니다. 
+* 이제 [클라이언트 라이브러리에서 상태 컨테이너에 대한 Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 사용할 수 있습니다. 
 
 | 이미지 태그                    | 메모 |
 |-------------------------------|:------|

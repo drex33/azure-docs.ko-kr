@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
-ms.openlocfilehash: e1f53678ef99fb5477700628e14127e5572da816
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 81ac6b760a02686d5d9d6261c0bd836c89865913
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053144"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758683"
 ---
 # <a name="deploy-and-test-model"></a>모델 배포 및 테스트
 
@@ -54,6 +54,36 @@ LUIS 프로젝트는 오케스트레이션 배포 중에 구성 된 슬롯에 **
 
 :::image type="content" source="../media/prediction-url.png" alt-text="예측 요청 및 URL을 보여 주는 스크린샷" lightbox="../media/prediction-url.png":::
 
+### <a name="use-the-client-libraries"></a>클라이언트 라이브러리 사용
+
+> [!NOTE]
+> 대화형 언어 이해를 위한 클라이언트 라이브러리는 다음에 대해서만 사용할 수 있습니다.
+> * .NET
+> * Python
+
+1. [Azure Portal](https://ms.portal.azure.com/#home)에서 리소스 개요 페이지로 이동합니다.
+
+2. 왼쪽 메뉴에서 **키 및 엔드포인트** 를 선택합니다. API 요청에 대한 엔드포인트를 사용합니다. 이 경우 `Ocp-Apim-Subscription-Key` 헤더에 대한 키가 필요합니다.
+
+    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Azure 끝점 가져오기" lightbox="../../custom-classification/media/get-endpoint-azure.png":::
+
+3. 원하는 언어의 클라이언트 라이브러리 패키지를 다운로드 하 여 설치 합니다.
+    
+    |언어  |패키지 버전  |
+    |---------|---------|
+    |.NET     | [5.2.0-beta. 2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
+    |Python     | [5.2.0 b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    
+4. 클라이언트 라이브러리를 설치한 후 GitHub에서 다음 샘플을 사용 하 여 API 호출을 시작 합니다.
+    
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples)
+    
+5. 자세한 내용은 다음 참조 설명서를 참조 하세요.
+    
+    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
+    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    
 ## <a name="api-response-for-a-conversations-project"></a>대화 프로젝트에 대 한 API 응답
 
 대화 프로젝트에서 프로젝트 내에 있는 용도와 엔터티 모두에 대 한 예측을 얻을 수 있습니다. 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-ms.openlocfilehash: 11a7931126d451b2fbeff301a337f15fd6aecbf3
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a7855a263050c42443c585dbc46221e857d409be
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301232"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755284"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 
@@ -161,7 +161,7 @@ ms.locfileid: "132301232"
     # logout
     ```
 
-1. Hyper-V 관리자에서 **작업** > **종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1. Hyper-V 관리자에서 **작업** > **종료** 를 클릭합니다. 이제 Linux VHD를 [**Azure에 업로드할**](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 
 ### <a name="rhel-7-using-hyper-v-manager"></a>Hyper-V 관리자를 사용하는 RHEL 7
@@ -360,7 +360,7 @@ ms.locfileid: "132301232"
     ```
     
 
-1. Hyper-V 관리자에서 **작업** > **종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1. Hyper-V 관리자에서 **작업** > **종료** 를 클릭합니다. 이제 Linux VHD를 [**Azure에 업로드할**](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 ### <a name="rhel-8-using-hyper-v-manager"></a>Hyper-V 관리자를 사용하는 RHEL 8
 
@@ -548,7 +548,7 @@ ms.locfileid: "132301232"
     > 특정 가상 머신을 마이그레이션하고 일반화된 이미지를 만들지 않으려면 프로비전 해제 단계를 건너뜁니다. `waagent -force -deprovision+user` 명령을 실행하면 원본 머신을 사용할 수 없게 됩니다. 해당 단계는 일반화된 이미지를 만들기 위한 목적으로만 사용됩니다.
 
 
-1. Hyper-V 관리자에서 **작업** > **종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1. Hyper-V 관리자에서 **작업** > **종료** 를 클릭합니다. 이제 Linux VHD를 [**Azure에 업로드할**](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 
 ## <a name="kvm"></a>KVM

@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에서 Azure Monitor 통합 문서를 사용 하 여 데이터 시각화 | Microsoft Docs
 description: Microsoft 센티널에서 통합 문서를 사용 하 여 데이터를 시각화 하는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 95bbc0f4accb885ce177aa78f37f3a72bd7ebe4a
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: a9e58d87b062ad2c85ef063e37ee26eb0d184d50
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132713101"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756023"
 ---
 # <a name="use-azure-monitor-workbooks-to-visualize-and-monitor-your-data"></a>Azure Monitor 통합 문서를 사용하여 데이터 시각화 및 모니터링
 

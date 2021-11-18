@@ -4,22 +4,21 @@ description: Open Service Mesh에 애플리케이션을 온보딩하는 방법
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 202702623353462bafd77002662a35e7c7b7d2f8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e7e56d0957da67acbbef1716193d64571206152a
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066770"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132753724"
 ---
-# <a name="onboarding-applications-to-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>OSM(Open Service Mesh) AZURE KUBERNETES SERVICE(AKS) 추가 기능으로 애플리케이션 온보딩
+# <a name="onboarding-applications-to-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>OSM(Open Service Mesh) Azure Kubernetes Service(AKS) 추가 기능으로 애플리케이션 온보딩
 
 다음 가이드에서는 KUbernetes 마이크로서비스를 OSM에 온보딩하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 워크스루에 자세히 설명된 단계에서는 이전에 AKS 클러스터에 대해 OSM AKS 추가 기능을 사용하도록 설정했다고 가정합니다. 그렇지 않은 경우 계속하기 전에 [OSM AKS 추가](./open-service-mesh-deploy-addon-az-cli.md) 기능 배포 문서를 검토하세요. 또한 AKS 클러스터는 Kubernetes 버전 `1.19+` 이상이어야 하고, Kubernetes RBAC를 사용하도록 설정하고, 클러스터와의 `kubectl` 연결을 설정해야 합니다. 이러한 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하고 AKS OSM 추가 기능을 설치해야 합니다.
+이 워크스루에 자세히 설명된 단계에서는 이전에 AKS 클러스터에 대해 OSM AKS 추가 기능을 사용하도록 설정했다고 가정합니다. 그렇지 않은 경우 계속하기 전에 [OSM AKS 추가](./open-service-mesh-deploy-addon-az-cli.md) 기능 배포 문서를 검토합니다. 또한 AKS 클러스터는 Kubernetes 버전 `1.19+` 이상이어야 하고, Kubernetes RBAC를 사용하도록 설정하고, 클러스터와의 `kubectl` 연결을 설정해야 합니다. 이러한 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하고 AKS OSM 추가 기능을 설치해야 합니다.
 
 다음 리소스가 설치되어 있어야 합니다.
 
@@ -38,11 +37,11 @@ kubectl get meshconfig osm-mesh-config -n kube-system -o jsonpath='{.spec.traffi
 true
 ```
 
-**enablePermissiveTrafficPolicyMode가** **true로** 구성된 경우 서비스 간 통신을 중단하지 않고 네임스페이스를 안전하게 온보딩할 수 있습니다. **enablePermissiveTrafficPolicyMode가** **false로** 구성된 경우 올바른 [SMI](https://smi-spec.io/) 트래픽 액세스 정책 매니페스트가 배포되었는지 확인해야 합니다. 또한 네임스페이스에 배포된 각 서비스를 나타내는 서비스 계정이 있는지 확인해야 합니다. 허용 트래픽 모드에 대한 자세한 내용은 을 방문하여 [허용 트래픽 정책 모드](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) 문서를 읽어보십시오.
+**enablePermissiveTrafficPolicyMode가** **true** 로 구성된 경우 서비스 간 통신을 중단하지 않고도 네임스페이스를 안전하게 온보딩할 수 있습니다. **enablePermissiveTrafficPolicyMode가** **false로** 구성된 경우 올바른 [SMI](https://smi-spec.io/) 트래픽 액세스 정책 매니페스트가 배포되었는지 확인해야 합니다. 또한 네임스페이스에 배포된 각 서비스를 나타내는 서비스 계정이 있는지 확인해야 합니다. 허용 트래픽 모드에 대한 자세한 내용은 을 방문하여 [허용 트래픽 정책 모드](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) 문서를 읽어보십시오.
 
 ## <a name="onboard-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-true"></a>OSM(Open Service Mesh) 허용 트래픽 정책이 True로 구성된 애플리케이션 온보딩
 
-1. [애플리케이션을](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/prereqs/) 온보딩하기 전에 애플리케이션 요구 사항 가이드를 참조하세요.
+1. [애플리케이션을](https://docs.openservicemesh.io/docs/guides/app_onboarding/prereqs/) 온보딩하기 전에 애플리케이션 요구 사항 가이드를 참조하세요.
 
 1. 메시의 애플리케이션이 Kubernetes API 서버와 통신해야 하는 경우 사용자는 IP 범위 제외를 사용하거나 송신 정책을 만들어 이를 명시적으로 허용해야 합니다.
 
@@ -57,14 +56,14 @@ true
     기본적으로 명령은 `osm namespace add` 네임스페이스의 Pod에 대해 자동 사이드카 주입을 사용하도록 설정합니다.
 
     메시에 네임스페이스를 등록하는 과정의 일부로 자동 사이드카 주입을 사용하지 않도록 설정하려면 를 `osm namespace add <namespace> --disable-sidecar-injection` 사용합니다.
-    네임스페이스가 온보딩되면 자동 사이드카 주입을 구성하여 메시에 Pod를 등록할 수 있습니다. 자세한 내용은 [사이드카 삽입](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) 문서를 참조하세요.
+    네임스페이스가 온보딩되면 자동 사이드카 주입을 구성하여 메시에 Pod를 등록할 수 있습니다. 자세한 내용은 [사이드카 삽입](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) 문서를 참조하세요.
 
 1.  새 애플리케이션 배포 또는 기존 애플리케이션 다시 배포
 
-    기본적으로 온보딩된 네임스페이스의 새 배포는 자동 사이드카 주입에 대해 사용하도록 설정됩니다. 즉, 관리되는 네임스페이스에 새 Pod가 만들어지면 OSM에서 사이드카 프록시를 Pod에 자동으로 삽입합니다.
+    기본적으로 온보딩된 네임스페이스의 새 배포는 자동 사이드카 주입에 대해 사용하도록 설정됩니다. 즉, 관리되는 네임스페이스에 새 Pod가 만들어지면 OSM은 사이드카 프록시를 Pod에 자동으로 삽입합니다.
     OSM이 Pod를 다시 만들 때 사이드카 프록시를 자동으로 삽입할 수 있도록 기존 배포를 다시 시작해야 합니다. 명령을 사용하여 배포에서 관리되는 Pod를 다시 시작할 수 `kubectl rollout restart deploy` 있습니다.
 
-    프로토콜별 트래픽을 서비스 포트로 올바르게 라우팅하려면 사용할 애플리케이션 프로토콜을 구성합니다. 자세한 내용은 [애플리케이션 프로토콜 선택 가이드를](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/app_protocol_selection/) 참조하세요.
+    프로토콜별 트래픽을 서비스 포트로 올바르게 라우팅하려면 사용할 애플리케이션 프로토콜을 구성합니다. 자세한 내용은 [애플리케이션 프로토콜 선택 가이드를](https://docs.openservicemesh.io/docs/guides/app_onboarding/app_protocol_selection/) 참조하세요.
 
 
 ## <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false"></a>OSM(Open Service Mesh) 허용 트래픽 정책을 False로 구성하여 배포된 기존 애플리케이션 온보딩

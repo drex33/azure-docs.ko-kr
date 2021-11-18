@@ -6,12 +6,12 @@ ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5409afea3ab1ab1ebedaed87adbafd2b15fe9418
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9d4cdf890f749d65eb1a94304e250ec42ca1faf5
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029451"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755496"
 ---
 # <a name="pull-images-from-a-connected-registry-on-iot-edge-device"></a>IoT Edge 디바이스의 연결된 레지스트리에서 이미지 끌어오기
 
@@ -97,6 +97,6 @@ docker pull <IP_address_or_FQDN_of_connected_registry>:<port>/hello-world
 [az-acr-scope-map-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential#az_acr_token_credential_generate
-[az-acr-connected-registry-update]: /cli/azure/acr/connect-registry#az_acr_connected_registry_update] 
+[az-acr-connected-registry-update]: /azure/container-registry/quickstart-connected-registry-cli#az_acr_connected_registry_update] 
 [container-registry-intro]: container-registry-intro.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md

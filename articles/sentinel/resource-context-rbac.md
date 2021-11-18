@@ -1,36 +1,29 @@
 ---
-title: 리소스 | 따라 Microsoft Sentinel 데이터에 대한 액세스 관리 Microsoft Docs
-description: 이 문서에서는 사용자가 액세스할 수 있는 리소스를 통해 Microsoft Sentinel 데이터에 대한 액세스를 관리할 수 있다고 설명합니다. 리소스별 액세스를 관리하면 전체 Microsoft Sentinel 환경 없이 특정 데이터에만 액세스할 수 있습니다. 이 메서드를 리소스 컨텍스트 RBAC라고도 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: 자원별 Microsoft 센티널 데이터에 대 한 액세스 관리 | Microsoft Docs
+description: 이 문서에서는 사용자가 액세스할 수 있는 리소스를 통해 Microsoft 센티널 데이터에 대 한 액세스를 관리할 수 있는 방법을 설명 합니다. 리소스를 통한 액세스 관리를 통해 전체 Microsoft 센티널 환경 없이 특정 데이터에만 액세스를 제공할 수 있습니다. 이 메서드를 리소스 컨텍스트 RBAC라고도 합니다.
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b890d0c0b4975a015d6a039dd1d0c313ed841d9c
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: c1793b160147fc552d5410d4f3a8ea139ced6e9b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712265"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763832"
 ---
-# <a name="manage-access-to-microsoft-sentinel-data-by-resource"></a>리소스별 Microsoft Sentinel 데이터에 대한 액세스 관리
+# <a name="manage-access-to-microsoft-sentinel-data-by-resource"></a>자원별 Microsoft 센티널 데이터에 대 한 액세스 관리
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-일반적으로 Microsoft Sentinel 작업 영역에 액세스할 수 있는 사용자는 보안 콘텐츠를 포함하여 모든 작업 영역 데이터에 액세스할 수 있습니다. 관리자는 Azure [역할을](roles.md) 사용하여 팀의 액세스 요구 사항에 따라 Microsoft Sentinel의 특정 기능에 대한 액세스를 구성할 수 있습니다.
+일반적으로 Microsoft 센티널 작업 영역에 대 한 액세스 권한이 있는 사용자는 보안 콘텐츠를 비롯 한 모든 작업 영역 데이터에도 액세스할 수 있습니다. 관리자는 [Azure 역할](roles.md) 을 사용 하 여 팀의 액세스 요구 사항에 따라 Microsoft 센티널의 특정 기능에 대 한 액세스를 구성할 수 있습니다.
 
-그러나 Microsoft Sentinel 작업 영역의 특정 데이터에만 액세스해야 하지만 전체 Microsoft Sentinel 환경에 대한 액세스 권한이 없어야 하는 일부 사용자가 있을 수 있습니다. 예를 들어 소유하고 있는 서버에 대한 Windows 이벤트 데이터에 액세스할 수 있는 비-보안 작업(비 SOC) 팀을 제공하려고 할 수 있습니다.
+그러나 Microsoft 센티널 작업 영역에서 특정 데이터에만 액세스 해야 하는 사용자가 있을 수 있지만 전체 Microsoft 센티널 환경에는 액세스할 수 없습니다. 예를 들어 소유하고 있는 서버에 대한 Windows 이벤트 데이터에 액세스할 수 있는 비-보안 작업(비 SOC) 팀을 제공하려고 할 수 있습니다.
 
-이러한 경우 Microsoft Sentinel 작업 영역 또는 특정 Microsoft Sentinel 기능에 대한 액세스 권한을 제공하는 대신 사용자에게 허용되는 리소스에 따라 RBAC(역할 기반 액세스 제어)를 구성하는 것이 좋습니다. 이 방법은 **리소스 컨텍스트 RBAC** 설정이라고도 합니다.
+이러한 경우 Microsoft 센티널 작업 영역 또는 특정 Microsoft 센티널 기능에 대 한 액세스를 제공 하는 대신 사용자에 게 허용 되는 리소스에 따라 RBAC (역할 기반 액세스 제어)를 구성 하는 것이 좋습니다. 이 방법은 **리소스 컨텍스트 RBAC** 설정이라고도 합니다.
 
-사용자가 Microsoft Sentinel 작업 영역 대신 액세스할 수 있는 리소스를 통해 Microsoft Sentinel 데이터에 액세스할 수 있는 경우 다음 방법을 사용하여 로그 및 통합 문서를 볼 수 있습니다.
+Microsoft 센티널 작업 영역 대신 사용자가 액세스할 수 있는 리소스를 통해 Microsoft 센티널 데이터에 액세스할 수 있는 경우 다음 방법을 사용 하 여 로그 및 통합 문서를 볼 수 있습니다.
 
 - Azure Virtual Machine과 같은 **리소스 자체를 통해**. 이 방법을 사용하면 특정 리소스에 대한 로그 및 통합 문서만 볼 수 있습니다.
 
@@ -41,7 +34,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용하도록 설정합니�
 > [!NOTE]
 > 데이터가 Syslog, CEF 또는 AAD 데이터와 같은 Azure 리소스가 아니거나 사용자 지정 수집기가 수집한 데이터가 아닌 경우 데이터를 식별하고 액세스를 사용하도록 설정하는 데 사용되는 리소스 ID를 수동으로 구성해야 합니다. 자세한 내용은 [리소스 컨텍스트 RBAC를 명시적 구성](#explicitly-configure-resource-context-rbac)을 참조하세요.
 >
-> 또한 리소스 중심 컨텍스트에서는 [함수](../azure-monitor/logs/functions.md) 및 저장된 검색이 지원되지 않습니다. 따라서 구문 분석 및 [정규화와](normalization.md) 같은 Microsoft Sentinel 기능은 Microsoft Sentinel의 리소스 컨텍스트 RBAC에 대해 지원되지 않습니다.
+> 또한 리소스 중심 컨텍스트에서는 [함수](../azure-monitor/logs/functions.md) 및 저장된 검색이 지원되지 않습니다. 따라서 구문 분석 및 [정규화](normalization.md) 와 같은 microsoft 센티널 기능은 microsoft 센티널의 리소스 컨텍스트 RBAC에 대해 지원 되지 않습니다.
 > 
 
 ## <a name="scenarios-for-resource-context-rbac"></a>리소스 컨텍스트 RBAC에 대한 시나리오
@@ -52,7 +45,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용하도록 설정합니�
 |---------|---------|---------|
 |**권한**     | 전체 작업 영역        |   특정 리소스 전용      |
 |**데이터 액세스**     |  작업 영역의 모든 데이터       | 팀이 액세스할 수 있는 리소스에 대한 데이터만        |
-|**환경**     |  사용자에게 할당된 [기능 권한으로](roles.md) 제한될 수 있는 전체 Microsoft Sentinel 환경       |  로그 쿼리 및 통합 문서만       |
+|**환경**     |  전체 Microsoft 센티널 환경 (사용자에 게 할당 된 [기능 권한](roles.md) 으로 제한 될 수 있음)       |  로그 쿼리 및 통합 문서만       |
 |     |         |         |
 
 팀이 위의 표에 설명된 비 SOC 팀에 대한 유사한 액세스 요구 사항이 있는 경우 리소스 컨텍스트 RBAC가 조직에 적합한 솔루션일 수 있습니다.
@@ -65,7 +58,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용하도록 설정합니�
 
 |시나리오  |솔루션  |
 |---------|---------|
-|**자회사에는 전체 Microsoft Sentinel 환경이 필요한 SOC 팀이** 있습니다.     |  이 경우 다중 작업 영역 아키텍처를 사용하여 데이터 권한을 구분합니다. <br><br>자세한 내용은 다음을 참조하세요. <br>- [작업 영역 및 테넌트 간에 Microsoft Sentinel 확장](extend-sentinel-across-workspaces-tenants.md)<br>    - [한 번에 여러 작업 영역에서 인시던트 작업](multiple-workspace-view.md)          |
+|**자회사에는 전체 Microsoft 센티널 환경이 필요한 SOC 팀이** 있습니다.     |  이 경우 다중 작업 영역 아키텍처를 사용하여 데이터 권한을 구분합니다. <br><br>자세한 내용은 다음을 참조하세요. <br>- [작업 영역 및 테 넌 트에서 Microsoft 센티널 확장](extend-sentinel-across-workspaces-tenants.md)<br>    - [한 번에 여러 작업 영역에서 인시던트 작업](multiple-workspace-view.md)          |
 |**특정 유형의 이벤트에 대한 액세스를 제공하려고 합니다**.     |  예를 들어 Windows 관리자에게 모든 시스템의 Windows 보안 이벤트에 대한 액세스 권한을 제공합니다. <br><br>이러한 경우 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)를 사용하여 각 테이블에 대한 권한을 정의합니다.       |
 | **리소스를 기반으로 하지 않거나 이벤트에 있는 필드의 하위 집합으로만 액세스를 보다 세부적인 수준으로 제한합니다**.   |   예를 들어 사용자의 자회사에 따라 Office 365 로그에 대한 액세스를 제한할 수 있습니다. <br><br>이 경우 [Power BI 대시보드 및 보고서](../azure-monitor/logs/log-powerbi.md)와의 기본 제공 통합을 사용하여 데이터에 대한 액세스를 제공합니다.      |
 | | |
@@ -74,19 +67,19 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용하도록 설정합니�
 
 리소스 컨텍스트 RBAC를 구성하려는 경우에는 다음 단계를 사용합니다. 그러나 데이터는 Azure 리소스가 아닙니다.
 
-예를 들어 Azure 리소스가 아닌 Microsoft Sentinel 작업 영역의 데이터에는 Syslog, CEF 또는 AAD 데이터 또는 사용자 지정 수집기에서 수집한 데이터가 포함됩니다.
+예를 들어 Azure 리소스가 아닌 Microsoft 센티널 작업 영역의 데이터에는 Syslog, cef 또는 AAD 데이터 또는 사용자 지정 수집기에서 수집한 데이터가 포함 됩니다.
 
 **리소스 컨텍스트 RBAC를 명시적으로 구성하려면**:
 
 1. Azure Monitor에서 [리소스 컨텍스트 RBAC를 사용하도록 설정](../azure-monitor/logs/manage-access.md)했는지 확인합니다. 
 
-1. 전체 Microsoft Sentinel 환경 없이 [리소스에](../azure-resource-manager/management/manage-resource-groups-portal.md) 액세스해야 하는 각 사용자 팀에 대한 리소스 그룹을 만듭니다.
+1. 전체 Microsoft 센티널 환경을 사용 하지 않고 리소스에 액세스 해야 하는 각 사용자 팀에 대 한 [리소스 그룹을 만듭니다](../azure-resource-manager/management/manage-resource-groups-portal.md) .
 
     각 팀 멤버에 대해 [로그 읽기 권한자 권한](../azure-monitor/logs/manage-access.md#resource-permissions)을 할당합니다.
 
 1. 만든 리소스 팀 그룹에 리소스를 할당하고 관련 리소스 ID로 이벤트에 태그를 지정합니다.
 
-    Azure 리소스가 Microsoft Sentinel에 데이터를 보내면 로그 레코드에 데이터 원본의 리소스 ID로 자동으로 태그가 지정됩니다.
+    Azure 리소스에서 Microsoft 센티널로 데이터를 보내는 경우 로그 레코드는 자동으로 데이터 원본의 리소스 ID로 태그가 지정 됩니다.
 
     > [!TIP]
     > 해당 목적으로 생성된 특정 리소스 그룹에서 액세스 권한을 부여하는 리소스를 그룹화하는 것이 좋습니다.
@@ -104,7 +97,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용하도록 설정합니�
 
 [CEF(Common Event Format)](connect-common-event-format.md) 또는 [Syslog](connect-syslog.md)를 사용하여 이벤트를 수집하는 경우 로그 전달은 여러 원본 시스템에서 이벤트를 수집하는 데 사용됩니다.
 
-예를 들어 CEF 또는 Syslog 전달 VM이 Syslog 이벤트를 보내는 원본을 수신 대기하고 Microsoft Sentinel에 전달하는 경우 로그 전달 VM 리소스 ID가 전달되는 모든 이벤트에 할당됩니다.
+예를 들어 CEF 또는 Syslog 전달 VM이 Syslog 이벤트를 보내는 소스를 수신 대기 하 고이를 Microsoft 센티널로 전달 하면 전달 되는 모든 이벤트에 로그 전달 VM 리소스 ID가 할당 됩니다.
 
 여러 팀이 있는 경우 별도의 각 팀에 대한 이벤트를 처리하는 별도의 로그 전달 VM이 있는지 확인합니다.
 
@@ -117,7 +110,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용하도록 설정합니�
 
 ### <a name="resource-ids-with-logstash-collection"></a>Logstash 컬렉션을 사용하는 리소스 ID
 
-Microsoft Sentinel [Logstash 출력 플러그 인을](connect-logstash.md)사용하여 데이터를 수집하는 경우 **azure_resource_id** 필드를 사용하여 출력에 리소스 ID를 포함하도록 사용자 지정 수집기를 구성합니다.
+Microsoft 센티널 [Logstash 출력 플러그 인](connect-logstash.md)을 사용 하 여 데이터를 수집 하는 경우 **azure_resource_id** 필드를 사용 하 여 출력에 리소스 id를 포함 하도록 사용자 지정 수집기를 구성 합니다.
 
 리소스 컨텍스트 RBAC를 사용하고 API를 통해 수집되는 이벤트를 특정 사용자가 사용할 수 있도록 하려면 [사용자에 대해 만든](#explicitly-configure-resource-context-rbac) 리소스 그룹의 리소스 ID를 사용합니다.
 
@@ -154,4 +147,4 @@ Microsoft Sentinel [Logstash 출력 플러그 인을](connect-logstash.md)사용
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Microsoft Sentinel의 사용 권한을 참조하세요.](roles.md)
+자세한 내용은 [Microsoft 센티널의 권한](roles.md)을 참조 하세요.

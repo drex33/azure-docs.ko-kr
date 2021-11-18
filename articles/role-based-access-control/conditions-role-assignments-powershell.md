@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: 0ecc87a59d6db01c5c5dc4093bb42e4ee9c190d9
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
-ms.translationtype: HT
+ms.openlocfilehash: eaa9d010e79fae54629f359b3b2270dca7856de0
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656581"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755054"
 ---
 # <a name="add-or-edit-azure-role-assignment-conditions-using-azure-powershell-preview"></a>Azure PowerShell(미리 보기)을 사용하여 Azure 역할 할당 조건 추가 또는 편집
 
@@ -34,7 +34,7 @@ ms.locfileid: "109656581"
 
 역할 할당 조건을 추가하려면 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용합니다. [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령에는 조건과 관련된 다음 매개 변수가 포함됩니다.
 
-| 매개 변수 | Type | Description |
+| 매개 변수 | 형식 | Description |
 | --- | --- | --- |
 | `Condition` | String | 사용자에게 사용 권한을 부여할 수 있는 조건입니다. |
 | `ConditionVersion` | String | 조건 구문의 버전입니다. 2\.0으로 설정해야 합니다. `Condition`이 지정된 경우 `ConditionVersion`도 지정해야 합니다. |
@@ -79,7 +79,7 @@ Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobSe
 PowerShell에서 조건에 달러 기호($)가 포함된 경우에는 앞에 백틱(\`)을 붙여야 합니다. 예를 들어 다음 조건은 달러 기호를 사용하여 태그 키 이름을 표시합니다. PowerShell의 따옴표 규칙에 대한 자세한 내용은 [따옴표 규칙 정보](/powershell/module/microsoft.powershell.core/about/about_quoting_rules)를 참조하세요.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 ```
 
 ## <a name="edit-a-condition"></a>조건 편집

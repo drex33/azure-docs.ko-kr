@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
-ms.openlocfilehash: c9c7a1395006aa7613aa40ff9ea7b402f69bbf5d
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 8ffa56f765c9455f3841eae970ee496183b4b0f2
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132556962"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763452"
 ---
 # <a name="known-issues-with-secure-file-transfer-protocol-sftp-support-in-azure-blob-storage-preview"></a>Azure Blob Storage SFTP(Secure 파일 전송 프로토콜) 지원과 관련된 알려진 문제(미리 보기)
 
@@ -93,7 +93,7 @@ ms.locfileid: "132556962"
 
   - Linux에서 OpenSSH의 경우 버퍼 크기를 262000으로 늘릴 수 있습니다. sftp -B 262000 -R 32 testaccount.user1@testaccount.blob.core.windows.net 
 
-- 유휴 또는 비활성 연결에는 4분의 시간 초과가 있습니다. OpenSSH가 중단된 다음 연결이 끊어지는 것처럼 보입니다. 일부 클라이언트는 자동으로 다시 연결됩니다. 
+- 유휴 또는 비활성 연결에는 4분의 시간 초과가 있습니다. OpenSSH는 응답을 중지한 다음 연결을 끊는 것처럼 보입니다. 일부 클라이언트는 자동으로 다시 연결됩니다. 
 
 - 최대 파일 크기 업로드는 클라이언트 메시지 크기에 따라 제한됩니다. 아래의 몇 가지 예는 다음과 같습니다. 
 

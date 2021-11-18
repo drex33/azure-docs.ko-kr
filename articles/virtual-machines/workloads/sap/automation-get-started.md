@@ -7,18 +7,18 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 29c7b229020306b085000ed0596814f1cb8e818e
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: c2ce939577d82dda2cbe8375bfaecbf6559ab145
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730449"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755187"
 ---
 # <a name="get-started-with-sap-automation-framework-on-azure"></a>Azure에서 SAP 자동화 프레임워크 시작
 
 [Azure에서 SAP 배포 자동화 프레임워크를](automation-deployment-framework.md)빠르게 시작합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 
 - Azure 구독 Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -40,13 +40,13 @@ ms.locfileid: "132730449"
 
 ```bash
 mkdir ~/Azure_SAP_Automated_Deployment; cd $_
-git clone https://github.com/Azure/sap-hana.git 
+git clone https://github.com/Azure/sap-automation.git 
 ```
 
 다음 단계를 사용하여 환경을 준비합니다.
 
 ```bash
-export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
+export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
 export ARM_SUBSCRIPTION_ID=<subscriptionID>
 ```
 > [!NOTE]
@@ -57,7 +57,7 @@ export ARM_SUBSCRIPTION_ID=<subscriptionID>
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -69,19 +69,19 @@ mkdir C:\Azure_SAP_Automated_Deployment
     
 cd Azure_SAP_Automated_Deployment
     
-git clone https://github.com/Azure/sap-hana.git 
+git clone https://github.com/Azure/sap-automation.git 
 ```
 
 PowerShell 모듈 가져오기
 
 ```powershell
-Import-Module             C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
+Import-Module             C:\Azure_SAP_Automated_Deployment\sap-automation\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
 ```
 
 ---
 
 > [!TIP]
-> 배포자는 [이미 SAP 배포 자동화 프레임워크 리포지토리 를 복제합니다.](https://github.com/Azure/sap-hana) 
+> 배포자는 [이미 SAP 배포 자동화 프레임워크 리포지토리 를 복제합니다.](https://github.com/Azure/sap-automation) 
 
 ## <a name="copy-the-samples"></a>샘플 복사
 
@@ -92,7 +92,7 @@ Import-Module             C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scri
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 ```
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -100,7 +100,7 @@ cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
 cd C:\Azure_SAP_Automated_Deployment
 mkdir WORKSPACES
 
-xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
 ```
 
 ---

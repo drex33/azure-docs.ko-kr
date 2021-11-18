@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 6a56116ef50260c451564e571679a28a741584d8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 90890843c5377f22647634fad158fb7e26df17f5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831083"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132288363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services"></a>자습서: Amazon Web Services와 Azure Active Directory 통합
 
@@ -366,7 +366,7 @@ SAML 응답에서도 클레임으로 전달된 역할을 확인할 수 있습니
 
 ## <a name="next-steps"></a>다음 단계
 
-AWS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)를 참조하세요.
+AWS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)를 참조하세요.
 
 <!--Image references-->
 

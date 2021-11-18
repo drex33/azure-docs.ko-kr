@@ -1,24 +1,17 @@
 ---
 title: SOC ML 변칙을 사용 하 여 Microsoft 센티널에서 위협 감지 | Microsoft Docs
 description: 이 문서에서는 Microsoft 센티널에서 새로운 SOC ML 변칙 검색 기능을 사용 하는 방법을 설명 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: de25a8a32a2b2b1182acd4ef2a68834cb4b4c190
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: b1af857d6cfcf532b32665c05243da4c4af37987
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711442"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762064"
 ---
 # <a name="use-soc-ml-anomalies-to-detect-threats-in-microsoft-sentinel"></a>SOC ML 변칙을 사용 하 여 Microsoft 센티널에서 위협 검색
 

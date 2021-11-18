@@ -3,12 +3,12 @@ author: phillipgibson
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: phillipgibson
-ms.openlocfilehash: e72c6536ab15246466e16e439997b6deb6547604
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d373de74e0a7402a9ec7a0c103818570ab43bb6f
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441302"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132753873"
 ---
 ## <a name="download-and-install-the-open-service-mesh-osm-client-binary"></a>OSM (Open Service 메시) 클라이언트 이진 파일을 다운로드 하 여 설치 합니다.
 
@@ -16,7 +16,7 @@ bash 기반 셸에서 `curl`을 사용하여 OSM 릴리스를 다운로드한 �
 
 ```bash
 # Specify the OSM version that will be leveraged throughout these instructions
-OSM_VERSION=v0.9.1
+OSM_VERSION=v0.11.1
 
 curl -sL "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-darwin-amd64.tar.gz" | tar -vxzf -
 ```

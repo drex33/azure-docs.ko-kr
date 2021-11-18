@@ -1,28 +1,27 @@
 ---
-title: Microsoft 센티널에 대 한 비용 계획 및 관리
-description: Azure Portal 및 기타 방법에서 비용 분석을 사용 하 여 Microsoft 센티널에 대 한 비용 및 청구를 계획, 이해 및 관리 하는 방법을 알아봅니다.
-services: sentinel
+title: Microsoft Sentinel에 대한 비용 계획 및 관리
+description: Azure Portal 및 기타 방법에서 비용 분석을 사용하여 Microsoft Sentinel에 대한 비용 및 청구를 계획, 이해 및 관리하는 방법을 알아봅니다.
 author: batamig
 ms.author: bagol
 ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.openlocfilehash: fd74a320633e1858b46b7ffbafee8df6449bf0c2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: f52df5d58ac8e27b8b0ae3ed29e94dbdf5b8bffc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730512"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758023"
 ---
-# <a name="plan-and-manage-costs-for-microsoft-sentinel"></a>Microsoft 센티널에 대 한 비용 계획 및 관리
+# <a name="plan-and-manage-costs-for-microsoft-sentinel"></a>Microsoft Sentinel에 대한 비용 계획 및 관리
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Microsoft 센티널의 비용을 계획 하 고 관리 하는 방법을 설명 합니다. 먼저, 서비스에 대 한 리소스를 추가 하기 전에 Azure 가격 계산기를 사용 하 여 Microsoft 센티널 비용을 계획할 수 있습니다. 그런 다음, Azure 리소스를 추가할 때 예상 비용을 검토합니다.
+이 문서에서는 Microsoft Sentinel에 대한 비용을 계획하고 관리하는 방법을 설명합니다. 먼저 서비스에 대한 리소스를 추가하기 전에 Azure 가격 계산기를 사용하여 Microsoft Sentinel 비용을 계획할 수 있습니다. 그런 다음, Azure 리소스를 추가할 때 예상 비용을 검토합니다.
 
-Microsoft 센티널 리소스 사용을 시작한 후 Cost Management 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링 합니다. 예상 비용을 검토 하 고 지출 추세를 파악 하 여 작업할 수 있는 영역을 식별할 수도 있습니다. 이 문서에서는 Microsoft 센티널 비용을 관리 하 고 최적화 하는 여러 가지 방법을 설명 합니다.
+Microsoft Sentinel 리소스 사용을 시작한 후 Cost Management 기능을 사용하여 예산을 설정하고 비용을 모니터링합니다. 예상 비용을 검토하고 지출 추세를 파악하여 조치를 원하는 영역을 식별할 수도 있습니다. 이 문서에서는 Microsoft Sentinel 비용을 관리하고 최적화하는 여러 가지 방법을 설명합니다.
 
-Microsoft 센티널 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 Microsoft 센티널의 비용을 계획 하 고 관리 하는 방법을 설명 하지만 파트너 서비스를 비롯 하 여 Azure 구독에서 사용 하는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다.
+Microsoft Sentinel에 대한 비용은 Azure 청구서에서 월별 비용의 일부에 불과합니다. 이 문서에서는 Microsoft Sentinel에 대한 비용을 계획하고 관리하는 방법을 설명하지만 파트너 서비스를 포함하여 Azure 구독에서 사용하는 모든 Azure 서비스 및 리소스에 대한 요금이 청구됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -32,16 +31,16 @@ Microsoft 센티널 비용은 Azure 청구서의 월별 비용 중 일부에 불
 
     Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 
-- 데이터 원본에 대한 세부 정보가 있어야 합니다. Microsoft 센티널을 사용 하면 하나 이상의 데이터 원본에서 데이터를 가져올 수 있습니다. 이러한 데이터 원본 중 일부는 무료이며 나머지는 요금이 부과됩니다. 자세한 내용은 [무료 데이터 원본](#free-data-sources)을 참조하세요.
+- 데이터 원본에 대한 세부 정보가 있어야 합니다. Microsoft Sentinel을 사용하면 하나 이상의 데이터 원본에서 데이터를 가져올 수 있습니다. 이러한 데이터 원본 중 일부는 무료이며 나머지는 요금이 부과됩니다. 자세한 내용은 [무료 데이터 원본](#free-data-sources)을 참조하세요.
 
-## <a name="estimate-costs-before-using-microsoft-sentinel"></a>Microsoft 센티널을 사용 하기 전에 비용 추정
+## <a name="estimate-costs-before-using-microsoft-sentinel"></a>Microsoft Sentinel을 사용하기 전에 비용 예측
 
-Microsoft 센티널을 아직 사용 하지 않는 경우 [Microsoft 센티널 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) 를 사용 하 여 잠재적인 비용을 예측할 수 있습니다. 검색 상자에 *Microsoft 센티널* 을 입력 하 고 결과 microsoft 센티널 타일을 선택 합니다. 가격 계산기를 사용하면 예상 데이터 수집 및 보존에 따라 예상 비용을 계산할 수 있습니다.
+Microsoft Sentinel을 아직 사용하지 않는 경우 [Microsoft Sentinel 가격 계산기를](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) 사용하여 잠재적인 비용을 예상할 수 있습니다. 검색 상자에 *Microsoft Sentinel을* 입력하고 결과 Microsoft Sentinel 타일을 선택합니다. 가격 계산기를 사용하면 예상 데이터 수집 및 보존에 따라 예상 비용을 계산할 수 있습니다.
 
-예를 들어 Microsoft 센티널에 수집할 것으로 예측 한 일일 데이터를 입력 하 고 작업 영역에 대 한 지역을 입력할 수 있습니다. 계산기는 다음 구성 요소에 대한 월별 집계 비용을 제공합니다.
+예를 들어 Microsoft Sentinel에서 수집할 것으로 예상되는 일일 데이터 GB와 작업 영역에 대한 지역을 입력할 수 있습니다. 계산기는 다음 구성 요소에 대한 월별 집계 비용을 제공합니다.
 
 - Log Analytics 데이터 수집
-- Microsoft 센티널 데이터 분석
+- Microsoft Sentinel 데이터 분석
 - Log Analytics;데이터 보존
 
 > [!NOTE]
@@ -49,53 +48,53 @@ Microsoft 센티널을 아직 사용 하지 않는 경우 [Microsoft 센티널 �
 
 :::image type="content" source="media/billing/pricing-calculator.png" alt-text="Azure 가격 계산기의 예측 비용을 보여 주는 샘플 스크린샷" lightbox="media/billing/pricing-calculator.png" :::
 
-## <a name="understand-the-full-billing-model-for-microsoft-sentinel"></a>Microsoft 센티널의 전체 청구 모델 이해
+## <a name="understand-the-full-billing-model-for-microsoft-sentinel"></a>Microsoft Sentinel에 대한 전체 청구 모델 이해
 
-Microsoft 센티널은 유연 하 고 예측 가능한 가격 책정 모델을 제공 합니다. 자세한 내용은 [Microsoft 센티널 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sentinel/)를 참조 하세요. 관련 Log Analytics 요금은 [Azure Monitor Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
+Microsoft Sentinel은 유연하고 예측 가능한 가격 책정 모델을 제공합니다. 자세한 내용은 Microsoft [Sentinel 가격 책정 페이지 를 참조하세요.](https://azure.microsoft.com/pricing/details/azure-sentinel/) 관련 Log Analytics 요금은 [Azure Monitor Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
-Microsoft 센티널은 새 리소스를 배포할 때 비용을 발생 시키는 Azure 인프라에서 실행 됩니다. 다른 추가 인프라 비용을 발생 시킬 수 있음을 이해 하는 것이 중요 합니다.
+Microsoft Sentinel은 새 리소스를 배포할 때 비용이 발생하는 Azure 인프라에서 실행됩니다. 발생할 수 있는 다른 추가 인프라 비용이 있을 수 있음을 이해하는 것이 중요합니다.
 
-### <a name="how-youre-charged-for-microsoft-sentinel"></a>Microsoft 센티널 요금 청구 방법
+### <a name="how-youre-charged-for-microsoft-sentinel"></a>Microsoft Sentinel에 대한 요금 청구 방법
 
-Microsoft 센티널 서비스에 대해 지불 하는 방법에는 **종 량** 제 및 **약정 계층** 두 가지가 있습니다.
+Microsoft Sentinel 서비스에 대한 요금을 지불하는 방법에는 **종량제** 및 **약정 계층의 두 가지가 있습니다.**
 
 - **종량제** 는 저장된 실제 데이터 볼륨을 기반으로 하며, 선택적으로 90일을 초과하는 데이터 보존에 적합한 기본 모델입니다. 데이터 볼륨은 GB(10^9바이트)로 측정됩니다.
 
-- Log Analytics 및 Microsoft 센티널에도 **약정 계층** 가격이 있으며, 이전에는 더 예측 가능 하 고 종 량 제 가격 책정에 비해 65%까지 절감 되는 용량 예약 이라고 합니다.
+- Log Analytics 및 Microsoft Sentinel에는 **약정 계층** 가격 책정(이전의 용량 예약이라고 함)도 있습니다. 이 가격 책정은 종량제 가격 책정에 비해 65%까지 더 예측 가능하고 절감됩니다.
 
-    약정 계층 가격 책정을 사용하면 100GB/일부터 시작하는 약정을 구입할 수 있습니다. 약정 수준을 초과하는 사용량은 선택한 약정 계층 요금으로 청구됩니다. 예를 들어 100 g b의 약정 계층은 커밋된 100 GB 데이터 볼륨에 대 한 요금을 청구 하 고 해당 계층에 대 한 할인 된 요금으로 추가 GB/일을 청구 합니다.
+    약정 계층 가격 책정을 사용하면 100GB/일부터 시작하는 약정을 구입할 수 있습니다. 약정 수준을 초과하는 사용량은 선택한 약정 계층 요금으로 청구됩니다. 예를 들어 약정 계층이 100GB이면 커밋된 100GB 데이터 볼륨과 해당 계층에 대한 할인된 요금으로 추가 GB/일 요금이 청구됩니다.
 
-    언제든지 약정 계층을 늘리고 31일마다 줄여 데이터 볼륨이 증가하거나 감소함에 따라 비용을 최적화할 수 있습니다. 현재 microsoft 센티널 가격 책정 계층을 보려면 microsoft 센티널 왼쪽 탐색 모음에서 **설정** 를 선택 하 고 **가격 책정** 탭을 선택 합니다. 현재 가격 책정 계층은 **현재 계층** 으로 표시 됩니다.
+    언제든지 약정 계층을 늘리고 31일마다 줄여 데이터 볼륨이 증가하거나 감소함에 따라 비용을 최적화할 수 있습니다. 현재 Microsoft Sentinel 가격 책정 계층을 보려면 Microsoft Sentinel 왼쪽 탐색 창에서 **설정** 선택한 다음 **가격 책정** 탭을 선택합니다. 현재 가격 책정 계층은 **현재 계층** 으로 표시됩니다.
 
     약정 계층을 설정하고 변경하려면 [가격 책정 계층 설정 또는 변경](#set-or-change-pricing-tier)을 참조하세요.
 
-### <a name="understand-your-microsoft-sentinel-bill"></a>Microsoft 센티널 청구서 이해
+### <a name="understand-your-microsoft-sentinel-bill"></a>Microsoft Sentinel 청구서 이해
 
-청구 가능 미터는 청구서에 표시되는 서비스의 개별 구성 요소이며, 서비스의 비용 분석에도 표시됩니다. 청구 주기가 끝날 때 각 측정 단위의 요금이 합산됩니다. 청구서 또는 청구서에는 모든 Microsoft 센티널 비용에 대 한 섹션이 표시 됩니다. 각 측정 단위에 대한 별도의 줄 항목이 있습니다.
+청구 가능 미터는 청구서에 표시되는 서비스의 개별 구성 요소이며, 서비스의 비용 분석에도 표시됩니다. 청구 주기가 끝날 때 각 측정 단위의 요금이 합산됩니다. 청구서 또는 청구서에는 모든 Microsoft Sentinel 비용에 대한 섹션이 표시됩니다. 각 측정 단위에 대한 별도의 줄 항목이 있습니다.
 
 Azure 청구서를 보려면 **Cost Management + Billing** 의 왼쪽 탐색 영역에서 **비용 분석** 을 선택합니다. **비용 분석** 화면의 **보기** 필드에서 드롭다운 캐럿을 선택하고, **청구서 세부 정보** 를 선택합니다.
 
 > [!NOTE]
 > 이 이미지에 표시된 비용은 예시용으로만 제공됩니다. 실제 비용을 반영하기 위한 것이 아닙니다.
 
-![샘플 Azure 청구서의 Microsoft 센티널 섹션을 보여 주는 스크린샷](media/billing/sample-bill.png)
+![샘플 Azure 청구서의 Microsoft Sentinel 섹션을 보여주는 스크린샷.](media/billing/sample-bill.png)
 
-Microsoft 센티널 및 Log Analytics 요금은 선택한 요금제에 따라 별도의 품목으로 Azure 청구서에 표시 됩니다. 특정 월에 작업 영역의 약정 계층 사용량을 초과하는 경우 Azure 청구서에는 관련 고정 비용이 있는 약정 계층에 대한 하나의 품목과 약정 계층을 초과하는 수집에 대한 별도의 품목이 표시되며, 동일한 약정 계층 요금으로 청구됩니다.
+Microsoft Sentinel 및 Log Analytics 요금은 선택한 가격 책정 플랜에 따라 별도의 품목으로 Azure 청구서에 표시됩니다. 특정 월에 작업 영역의 약정 계층 사용량을 초과하는 경우 Azure 청구서에는 관련 고정 비용이 있는 약정 계층에 대한 하나의 품목과 약정 계층을 초과하는 수집에 대한 별도의 품목이 표시되며, 동일한 약정 계층 요금으로 청구됩니다.
 
-다음 표에서는 Azure 청구서의 **서비스 이름** 및 **측정기** 열에 Microsoft 센티널 및 Log Analytics 비용이 표시 되는 방식을 보여 줍니다.
+다음 표에서는 Azure 청구서의 **서비스 이름** 및 **미터** 열에 Microsoft Sentinel 및 Log Analytics 비용이 표시되는 방식을 보여 줍니다.
 
 | 비용 | 서비스 이름 | 미터 |
 |--|--|--|
-| Microsoft 센티널 약정 계층 | `sentinel` | **`n`GB 약정 계층** |
+| Microsoft Sentinel 약정 계층 | `sentinel` | **`n`GB 약정 계층** |
 | Log Analytics 약정 계층 | `azure monitor` | **`n`GB 약정 계층** |
-| Microsoft 센티널 초과분 약정 계층 또는 종 량 제| `sentinel` |**analysis**|
+| 약정 계층 또는 종량제에 대한 Microsoft Sentinel 초과| `sentinel` |**analysis**|
 | 약정 계층 또는 종량제에 대한 Log Analytics 초과분| `log analytics` |**데이터 수집**|
 
 Azure 청구서 보기 및 다운로드에 대한 자세한 내용은 [Azure 비용 및 청구 정보](../cost-management-billing/understand/download-azure-daily-usage.md)를 참조하세요.
 
 ### <a name="costs-for-other-services"></a>다른 서비스에 대한 비용
 
-Microsoft 센티널은 다양 한 Azure 서비스와 통합 되어 향상 된 기능을 제공 합니다. 이러한 서비스로 Azure Logic Apps, Azure Notebooks 및 BYOML(Bring Your Own Machine Learning) 모델이 있습니다. 이러한 서비스 중 일부에는 추가 요금이 부과 될 수 있습니다. Microsoft 센티널의 데이터 커넥터 및 솔루션 중 일부는 데이터 수집에 대 한 Azure Functions를 사용 하 여 별도의 관련 비용도 포함 하 고 있습니다.
+Microsoft Sentinel은 다른 많은 Azure 서비스와 통합되어 향상된 기능을 제공합니다. 이러한 서비스로 Azure Logic Apps, Azure Notebooks 및 BYOML(Bring Your Own Machine Learning) 모델이 있습니다. 이러한 서비스 중 일부는 추가 요금이 부과됩니다. Microsoft Sentinel의 데이터 커넥터 및 솔루션 중 일부는 데이터 수집에 Azure Functions 사용하며, 별도의 관련 비용도 있습니다.
 
 이러한 서비스에 대한 자세한 가격 책정 세부 정보는 다음을 참조하세요.
 
@@ -108,23 +107,23 @@ Microsoft 센티널은 다양 한 Azure 서비스와 통합 되어 향상 된 �
 
 ### <a name="data-retention-costs"></a>데이터 보존 비용
 
-Log Analytics 작업 영역에서 Microsoft 센티널을 사용 하도록 설정 하 고 나면 처음 90 일 동안 무료로 모든 데이터 수집를 작업 영역에 유지할 수 있습니다. 90일을 초과하는 보존은 표준 [Log Analytics 보존 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 청구됩니다.
+Log Analytics 작업 영역에서 Microsoft Sentinel을 사용하도록 설정하면 처음 90일 동안 무료로 작업 영역에 수집된 모든 데이터를 유지할 수 있습니다. 90일을 초과하는 보존은 표준 [Log Analytics 보존 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 청구됩니다.
 
 개별 데이터 형식에 대해 다른 보존 설정을 지정할 수 있습니다. 자세한 내용은 [데이터 형식별 보존 기간](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type)을 참조하세요.
 
-### <a name="other-cef-ingestion-costs"></a>기타 CEF 수집 비용
+### <a name="other-cef-ingestion-costs"></a>기타 CEF 집적 비용
 
-CEF는 Microsoft 센티널에서 지원 되는 Syslog 이벤트 형식입니다. CEF를 사용 하 여 다양 한 소스에서 Microsoft 센티널 작업 영역으로 중요 한 보안 정보를 가져올 수 있습니다. CEF는 모든 표준 최신 CEF 필드를 포함 하는 Microsoft 센티널의 CommonSecurityLog 테이블에 기록 합니다.
+CEF는 Microsoft Sentinel에서 지원되는 Syslog 이벤트 형식입니다. CEF를 사용하여 다양한 원본에서 Microsoft Sentinel 작업 영역으로 중요한 보안 정보를 가져올 수 있습니다. CEF 로그는 모든 표준 최신 CEF 필드를 포함하는 Microsoft Sentinel의 CommonSecurityLog 테이블에 표시됩니다.
 
-많은 디바이스 및 데이터 원본에는 표준 CEF 스키마 이외의 로깅 필드가 허용됩니다. 이러한 추가 필드는 AdditionalExtensions 테이블에 배치 됩니다. 이러한 필드 내의 이벤트 콘텐츠는 가변적일 수 있으므로 이러한 필드에는 표준 CEF 필드보다 더 높은 수집 볼륨이 있을 수 있습니다.
+많은 디바이스 및 데이터 원본에는 표준 CEF 스키마 이외의 로깅 필드가 허용됩니다. 이러한 추가 필드는 AdditionalExtensions 테이블에 표시됩니다. 이러한 필드 내의 이벤트 콘텐츠는 가변적일 수 있으므로 이러한 필드에는 표준 CEF 필드보다 더 높은 수집 볼륨이 있을 수 있습니다.
 
 ### <a name="costs-that-might-accrue-after-resource-deletion"></a>리소스 삭제 후에도 누적될 수 있는 비용
 
-Microsoft 센티널을 제거 해도 Microsoft 센티널이 배포 된 Log Analytics 작업 영역 또는 작업 영역을 사용할 수 있는 별도의 요금이 제거 되지 않습니다.
+Microsoft Sentinel을 제거해도 Microsoft Sentinel이 배포된 Log Analytics 작업 영역 또는 작업 영역에서 발생할 수 있는 별도의 요금이 제거되지 않습니다.
 
 ### <a name="free-trial"></a>평가판
 
-처음 31 일 동안 Microsoft 센티널을 무료로 사용해 보세요. Microsoft 센티널은 아래에 명시 된 제한에 따라 Azure Monitor Log Analytics 작업 영역에서 추가 비용 없이 사용 하도록 설정할 수 있습니다.
+처음 31일 동안 Microsoft Sentinel 무료 사용해 보세요. Microsoft 센티널은 아래에 명시 된 제한에 따라 Azure Monitor Log Analytics 작업 영역에서 추가 비용 없이 사용 하도록 설정할 수 있습니다.
 
 - **새 Log Analytics 작업 영역** 에서는 처음 31 일 동안 최대 10gb/일의 로그 데이터를 무료로 수집할 수 있습니다. 새 작업 영역에는 3 일 미만의 작업 영역이 포함 됩니다.
 
@@ -347,7 +346,7 @@ Log Analytics 전용 클러스터에 여러 Microsoft Sentinel 작업 영역을 
 
 - 쿼리와 관련된 모든 작업 영역이 전용 클러스터에 있는 경우 작업 영역 간 쿼리가 더 빠르게 실행됩니다. 아직도 환경에서 작업 영역을 가능한 한 적게 유지하는 것이 가장 좋으며, 전용 클러스터는 작업 영역 간 단일 쿼리에 포함하기 위해 여전히 [100개의 작업 영역 제한](../azure-monitor/logs/cross-workspace-query.md)을 유지합니다.
 
-- 전용 클러스터의 모든 작업 영역은 클러스터에 설정된 Log Analytics 약정 계층을 공유할 수 있습니다. 각 작업 영역에 대해 별도의 Log Analytics 약정 계층을 약정할 필요가 없으므로 비용을 절감하고 효율성을 높일 수 있습니다. 전용 클러스터를 사용 하도록 설정 하 여 하루에 500 GB 수집의 최소 Log Analytics 약정 계층에 커밋합니다.
+- 전용 클러스터의 모든 작업 영역은 클러스터에 설정된 Log Analytics 약정 계층을 공유할 수 있습니다. 각 작업 영역에 대해 별도의 Log Analytics 약정 계층을 약정할 필요가 없으므로 비용을 절감하고 효율성을 높일 수 있습니다. 전용 클러스터를 사용하도록 설정하면 하루에 500GB의 최소 Log Analytics 약정 계층으로 커밋할 수 있습니다.
 
 비용 최적화를 위해 전용 클러스터로 이동할 때 고려해야 할 몇 가지 사항은 다음과 같습니다.
 
@@ -363,17 +362,17 @@ Log Analytics 전용 클러스터에 여러 Microsoft Sentinel 작업 영역을 
 
 ### <a name="reduce-long-term-data-retention-costs-with-adx"></a>ADX를 사용하여 장기 데이터 보존 비용 절감
 
-Microsoft 센티널 데이터 보존은 처음 90 일 동안 무료입니다. Log Analytics에서 데이터 보존 기간을 조정하려면 왼쪽 탐색 영역에서 **사용량 및 예상 비용** 을 선택하고, **데이터 보존** 을 선택한 다음, 슬라이더를 조정합니다.
+Microsoft Sentinel 데이터 보존은 처음 90일 동안 무료입니다. Log Analytics에서 데이터 보존 기간을 조정하려면 왼쪽 탐색 영역에서 **사용량 및 예상 비용** 을 선택하고, **데이터 보존** 을 선택한 다음, 슬라이더를 조정합니다.
 
-몇 개월 후에 Microsoft 센티널 보안 데이터의 값 중 일부가 손실 될 수 있습니다. SOC(보안 운영 센터) 사용자는 최신 데이터만큼 이전 데이터에 자주 액세스할 필요가 없지만, 산발적인 조사 또는 감사를 위해 데이터에 액세스해야 할 수도 있습니다. Microsoft 센티널 데이터 보존 비용을 줄이기 위해 Azure 데이터 탐색기를 사용 하 여 장기적인 데이터를 저렴 한 비용으로 보존할 수 있습니다. ADX는 Microsoft 센티널 보안 인텔리전스가 더 이상 필요 하지 않은 오래 된 데이터에 대 한 비용 및 유용성의 적절 한 균형을 제공 합니다.
+Microsoft Sentinel 보안 데이터는 몇 달 후 일부 값을 잃을 수 있습니다. SOC(보안 운영 센터) 사용자는 최신 데이터만큼 이전 데이터에 자주 액세스할 필요가 없지만, 산발적인 조사 또는 감사를 위해 데이터에 액세스해야 할 수도 있습니다. Microsoft Sentinel 데이터 보존 비용을 줄이려면 더 저렴한 비용으로 장기 데이터 보존에 Azure Data Explorer 사용할 수 있습니다. ADX는 더 이상 Microsoft Sentinel 보안 인텔리전스가 필요하지 않은 오래 된 데이터에 대한 비용 및 유용성의 적절한 균형을 제공합니다.
 
-ADX를 사용 하면 저렴 한 가격으로 데이터를 저장할 수 있지만 Microsoft 센티널과 동일한 KQL (Kusto Query Language) 쿼리를 사용 하 여 데이터를 탐색할 수 있습니다. ADX 프록시 기능을 사용하여 플랫폼 간 쿼리를 수행할 수도 있습니다. 이러한 쿼리는 adx, Application Insights, Microsoft 센티널 및 Log Analytics에 걸쳐 분산 되는 데이터를 집계 하 고 상호 연결 합니다.
+ADX를 사용하면 더 낮은 가격으로 데이터를 저장할 수 있지만 Microsoft Sentinel과 동일한 KQL(Kusto Query Language) 쿼리를 사용하여 데이터를 탐색할 수 있습니다. ADX 프록시 기능을 사용하여 플랫폼 간 쿼리를 수행할 수도 있습니다. 이러한 쿼리는 ADX, Application Insights, Microsoft Sentinel 및 Log Analytics에 분산된 데이터를 집계하고 상관 관계를 결정합니다.
 
 자세한 내용은 [장기 로그 보존을 위한 Azure Data Explorer 통합](store-logs-in-azure-data-explorer.md)을 참조하세요.
 
 ### <a name="use-data-collection-rules-for-your-windows-security-events"></a>Windows 보안 이벤트에 대한 데이터 수집 규칙 사용
 
-[Windows 보안 Events 커넥터](connect-windows-security-events.md?tabs=LAA) 를 사용 하 여 실제, 가상, 온-프레미스 서버 또는 모든 클라우드에서 Microsoft 센티널 작업 영역에 연결 된 Windows 서버를 실행 하는 컴퓨터에서 보안 이벤트를 스트리밍할 수 있습니다. 이 커넥터에는 데이터 수집 규칙을 사용하여 각 에이전트에서 수집할 데이터를 정의하는 Azure Monitor 에이전트에 대한 지원이 포함되어 있습니다.
+[Windows 보안 Events 커넥터를](connect-windows-security-events.md?tabs=LAA) 사용하면 물리적, 가상 또는 온-프레미스 서버를 포함하여 Microsoft Sentinel 작업 영역에 연결된 Windows Server를 실행하는 컴퓨터 또는 클라우드에서 보안 이벤트를 스트리밍할 수 있습니다. 이 커넥터에는 데이터 수집 규칙을 사용하여 각 에이전트에서 수집할 데이터를 정의하는 Azure Monitor 에이전트에 대한 지원이 포함되어 있습니다.
 
 데이터 수집 규칙을 사용하면 수집 설정을 대규모로 관리하면서도 계속해서 머신의 하위 집합에 대해 고유하고 범위가 지정된 구성을 사용할 수 있습니다. 자세한 정보는 [Azure Monitor 에이전트를 위한 데이터 수집 구성](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)을 참조하세요.
 
@@ -384,7 +383,7 @@ ADX를 사용 하면 저렴 한 가격으로 데이터를 저장할 수 있지�
 
 ![Cost Management + Billing 비용 분석 화면을 보여 주는 스크린샷](media/billing/cost-management.png)
 
-추가 컨트롤을 적용할 수도 있습니다. 예를 들어 Microsoft 센티널과 관련 된 비용도 보려면 **필터 추가** 를 선택 하 고 **서비스 이름** 을 선택한 다음, **센티널**, **log analytics** 및 **azure monitor** 서비스 이름을 선택 합니다.
+추가 컨트롤을 적용할 수도 있습니다. 예를 들어 Microsoft Sentinel과 관련된 비용만 보려면 **필터 추가를** **선택하고, 서비스 이름** 를 선택한 다음, 서비스 이름 **Sentinel,** **log analytics** 및 **azure monitor를** 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

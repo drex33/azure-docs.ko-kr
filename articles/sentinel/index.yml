@@ -4,20 +4,16 @@ summary: 이 문서에서는 Microsoft Sentinel을 사용하여 시작하기 위
 metadata:
   title: Microsoft Sentinel 설명서
   description: '이 문서에서는 Microsoft Sentinel을 사용하여 시작하기 위한 사용 사례와 시나리오를 제공합니다. 현대 세계에 맞게 재설계된 SIEM으로 위협이 해를 입히기 전에 확인하여 제거하세요. Microsoft Sentinel은 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다. # 필수; 검색 결과에 표시되는 문서 설명입니다. 160개 미만의 문자.'
-  services: sentinel
-  ms.service: sentinel
-  ms.subservice: microsoft-sentinel
   ms.topic: landing-page
-  ms.collection: collection
   author: yelevin
   ms.author: yelevin
   ms.date: 11/09/2021
-  ms.openlocfilehash: d6a4d50dfeceb4769e377b46b35b949d7a890653
-  ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+  ms.openlocfilehash: 6c3159812641d431ab047fd3084d4f07d18b3a84
+  ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/16/2021
-  ms.locfileid: "132518473"
+  ms.lasthandoff: 11/18/2021
+  ms.locfileid: "132760203"
 landingContent:
 - title: Microsoft Sentinel 정보
   linkLists:

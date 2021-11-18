@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 6f2268ae9a86978e9266ea0e35411727b238d4b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 1b6ddb8412fab6e5b16a2c3fa30a96af08bc6e25
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671652"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760716"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
 
@@ -44,7 +44,7 @@ SAP 시스템은 종종 중요한 비즈니스 데이터를 포함합니다. 공
 
 Azure 퍼블릭 엔드포인트에 대한 액세스가 필요한 시나리오의 예는 다음과 같습니다.  
 - Azure Fence 에이전트에는 **management.azure.com** 및 **login.microsoftonline.com** 에 대한 액세스가 필요합니다.  
-- [Azure Backup](../../../backup/tutorial-backup-sap-hana-db.md#set-up-network-connectivity)
+- [Azure Backup](../../../backup/backup-azure-sap-hana-database.md#establish-network-connectivity)
 - [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - 운영 체제 패치에 퍼블릭 리포지토리 사용
 - SAP 애플리케이션 데이터 흐름에는 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필요할 수 있습니다.

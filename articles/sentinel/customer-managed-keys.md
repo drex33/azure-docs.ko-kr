@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에서 고객 관리 키 설정 | Microsoft Docs
 description: Microsoft 센티널에서 고객 관리 키 (CMK)를 설정 하는 방법에 대해 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 535b0295bac0aa8b8ccdfddbc8735dd8e7b162e8
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 4151045e40e456f5457c137fae3b22422012a6aa
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721521"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757425"
 ---
 # <a name="set-up-microsoft-sentinel-customer-managed-key"></a>Microsoft 센티널 고객 관리 키 설정
 
@@ -26,7 +19,7 @@ ms.locfileid: "132721521"
 
 이 문서에서는 Microsoft 센티널에 대해 [CMK (고객이 관리 하는 키)](../azure-monitor/logs/customer-managed-keys.md) 를 구성 하는 단계 및 배경 정보를 제공 합니다. CMK를 사용 하면 microsoft에 저장 된 모든 데이터를 모든 관련 저장소 리소스에 제공할 수 있습니다. 즉, 사용자가 만들고 소유 하 고 [Azure Key Vault](../key-vault/general/overview.md)에 저장 된 암호화 키를 사용 하 여 추가 보호 계층을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - CMK 기능을 사용 하려면 최소 500 g b/일 약정 계층이 있는 Log Analytics 전용 클러스터가 필요 합니다. 여러 작업 영역은 동일한 전용 클러스터에 연결 될 수 있으며, 동일한 고객 관리 키를 공유 합니다.
 

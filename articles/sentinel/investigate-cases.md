@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel을 사용하여 인시던트 조사| Microsoft Docs
 description: 이 문서에서는 Microsoft Sentinel을 사용하여 할당하고 조사할 수 있는 인시던트 생성 고급 경고 규칙을 만드는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a3fe2ce11ad730b5fdf9473ebb491b2cb0dd2cd9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 51a5535f95d864e559e966b75a3df19a363ea069
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132720951"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760279"
 ---
 # <a name="investigate-incidents-with-microsoft-sentinel"></a>Microsoft Sentinel을 사용하여 인시던트 조사
 

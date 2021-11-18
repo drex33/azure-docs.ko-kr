@@ -1,29 +1,23 @@
 ---
-title: Microsoft 센티널의 위협 인텔리전스 통합 | Microsoft Docs
-description: Microsoft 센티널에서 위협 인텔리전스 피드를 통합 하 고 사용 하는 다양 한 방법에 대해 알아봅니다.
-documentationcenter: na
+title: Microsoft Sentinel | 위협 인텔리전스 통합 Microsoft Docs
+description: Microsoft Sentinel에서 위협 인텔리전스 피드를 통합하고 사용하는 다양한 방법에 대해 알아봅니다.
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: aeb8207c81272997d984fee60b43ff742e993395
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 8e6e5a7c72f90404981bcb7564c2f97902f26a66
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711422"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761914"
 ---
-# <a name="threat-intelligence-integration-in-microsoft-sentinel"></a>Microsoft 센티널의 위협 인텔리전스 통합
+# <a name="threat-intelligence-integration-in-microsoft-sentinel"></a>Microsoft Sentinel의 위협 인텔리전스 통합
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널에서는 [위협 인텔리전스 피드를 사용](work-with-threat-indicators.md) 하 여 알려진 위협을 검색 하 고 우선 순위를 지정 하는 보안 분석가의 기능을 향상 시킬 수 있는 몇 가지 다른 방법을 제공 합니다. 
+Microsoft Sentinel은 [위협 인텔리전스 피드를 사용하여](work-with-threat-indicators.md) 알려진 위협을 감지하고 우선 순위를 지정하는 보안 분석가의 기능을 향상시키는 몇 가지 방법을 제공합니다. 
 
 사용 가능한 여러 통합 [TIP(위협 인텔리전스 플랫폼) 제품](connect-threat-intelligence-tip.md) 중 하나를 사용할 수 있고, [TAXII 서버에 연결](connect-threat-intelligence-taxii.md)하여 STIX 호환 위협 인텔리전스 원본을 사용할 수 있으며, [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator)와 직접 통신할 수 있는 사용자 지정 솔루션을 사용할 수도 있습니다. 
 
@@ -37,7 +31,7 @@ Microsoft 센티널에서는 [위협 인텔리전스 피드를 사용](work-with
 
 ## <a name="taxii-threat-intelligence-feeds"></a>TAXII 위협 인텔리전스 피드
 
-TAXII 위협 인텔리전스 피드에 연결 하려면 아래에 링크 된 각 공급 업체에서 제공 하는 데이터와 함께 [Microsoft 센티널을 STIX/TAXII 위협 인텔리전스 피드에 연결](connect-threat-intelligence-taxii.md)하는 지침을 따르세요. 커넥터와 함께 사용하는 데 필요한 데이터를 얻으려면 공급업체에 직접 문의해야 할 수 있습니다.
+TAXII 위협 인텔리전스 피드에 연결하려면 지침에 따라 [Microsoft Sentinel을 STIX/TAXII 위협 인텔리전스 피드에](connect-threat-intelligence-taxii.md)아래 링크된 각 공급업체에서 제공하는 데이터와 함께 연결합니다. 커넥터와 함께 사용하는 데 필요한 데이터를 얻으려면 공급업체에 직접 문의해야 할 수 있습니다.
 
 ### <a name="anomali-limo"></a>Anomali Limo
 
@@ -45,8 +39,8 @@ TAXII 위협 인텔리전스 피드에 연결 하려면 아래에 링크 된 각
 
 ### <a name="cybersixgill-darkfeed"></a>Cybersixgill Darkfeed
 
-- [Microsoft 센티널과 Cybersixgill 통합에 대해 알아보기 @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
-- Microsoft 센티널을 Cybersixgill TAXII 서버에 연결 하 고 Darkfeed에 대 한 액세스 권한을 얻으려면 [Cybersixgill에 문의](mailto://azuresentinel@cybersixgill.com) 하 여 API 루트, 컬렉션 ID, 사용자 이름 및 암호를 가져옵니다.
+- [Microsoft Sentinel과 Cybersix의 통합에 대해 알아보기 @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
+- Microsoft Sentinel을 Cybersix 전체 TAXII 서버에 연결하고 Darkfeed에 액세스하려면 [Cybersix 사용자에 문의하여](mailto://azuresentinel@cybersixgill.com) API 루트, 컬렉션 ID, 사용자 이름 및 암호를 가져옵니다.
 
 ### <a name="financial-services-information-sharing-and-analysis-center-fs-isac"></a>FS-ISAC(금융 서비스 정보 공유 및 분석 센터)
 
@@ -62,8 +56,8 @@ TAXII 위협 인텔리전스 피드에 연결 하려면 아래에 링크 된 각
 
 ### <a name="intsights"></a>IntSights
 
-- [Microsoft 센티널과 IntSights 통합에 대 한 자세한 정보 @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
-- Microsoft 센티널을 IntSights TAXII 서버에 연결 하려면 Microsoft 센티널로 보내려는 데이터의 정책을 구성한 후 IntSights portal에서 API 루트, 컬렉션 ID, 사용자 이름 및 암호를 가져옵니다.
+- [Microsoft Sentinel과 IntSights 통합에 대해 자세히 알아보기 @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
+- Microsoft Sentinel을 IntSights TAXII 서버에 연결하려면 Microsoft Sentinel에 보낼 데이터 정책을 구성한 후 IntSights 포털에서 API 루트, 컬렉션 ID, 사용자 이름 및 암호를 가져옵니다.
 
 ### <a name="threatconnect"></a>ThreatConnect
 
@@ -72,11 +66,11 @@ TAXII 위협 인텔리전스 피드에 연결 하려면 아래에 링크 된 각
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>통합 위협 인텔리전스 플랫폼 제품
 
-위협 인텔리전스 플랫폼 (TIP) 피드에 연결 하려면 지침에 따라 [Microsoft 센티널에 위협 인텔리전스 플랫폼을 연결](connect-threat-intelligence-tip.md)합니다. 이 지침의 두 번째 파트에서는 TIP 솔루션에 정보를 입력하는 방법을 알려드립니다. 자세한 정보는 아래 링크를 참조하세요.
+TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라 [위협 인텔리전스 플랫폼을 Microsoft Sentinel에 연결합니다.](connect-threat-intelligence-tip.md) 이 지침의 두 번째 파트에서는 TIP 솔루션에 정보를 입력하는 방법을 알려드립니다. 자세한 정보는 아래 링크를 참조하세요.
 
 ### <a name="agari-phishing-defense-and-brand-protection"></a>Agari 피싱 방어 및 브랜드 보호
 
-- [Agari 피싱 방어 및 브랜드 보호](https://agari.com/products/phishing-defense/)를 연결 하려면 Microsoft 센티널에서 기본 제공 [agari 데이터 커넥터](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) 를 사용 합니다.
+- [Agari 피싱 방어 및 브랜드 보호를](https://agari.com/products/phishing-defense/)연결하려면 Microsoft Sentinel의 기본 제공 [Agari 데이터 커넥터를](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) 사용합니다.
 
 ### <a name="anomali-threatstream"></a>Anomali ThreatStream
 
@@ -84,15 +78,15 @@ TAXII 위협 인텔리전스 피드에 연결 하려면 아래에 링크 된 각
 
 ### <a name="alienvault-open-threat-exchange-otx-from-att-cybersecurity"></a>AT&T Cybersecurity에서의 AlienVault OTX(Open Threat Exchange)
 
-- [AlienVault \x](https://otx.alienvault.com/) 는 Azure Logic Apps (playbooks)를 사용 하 여 Microsoft 센티널에 연결 합니다. 전체 제안을 최대한 활용하는 데 필요한 [특수 지침](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566)을 참조하세요.
+- [OTX는](https://otx.alienvault.com/) Azure Logic Apps(플레이북)를 사용하여 Microsoft Sentinel에 연결합니다. 전체 제안을 최대한 활용하는 데 필요한 [특수 지침](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566)을 참조하세요.
 
 ### <a name="eclecticiq-platform"></a>EclecticIQ 플랫폼
 
-- EclecticIQ 플랫폼은 Microsoft 센티널과 통합 되어 위협 검색, 구하기 및 응답을 향상 시킵니다. 이 양방향 통합의 [이점 및 사용 사례](https://www.eclecticiq.com/resources/azure-sentinel-and-eclecticiq-intelligence-center)에 관해 자세히 알아보세요.
+- EclecticIQ Platform은 Microsoft Sentinel과 통합되어 위협 탐지, 헌팅 및 대응을 향상시킵니다. 이 양방향 통합의 [이점 및 사용 사례](https://www.eclecticiq.com/resources/azure-sentinel-and-eclecticiq-intelligence-center)에 관해 자세히 알아보세요.
 
 ### <a name="groupib-threat-intelligence-and-attribution"></a>GroupIB 위협 인텔리전스 및 특성
 
-- [Groupib 위협 인텔리전스 및 특성](https://www.group-ib.com/intelligence-attribution.html) 을 Microsoft 센티널에 연결 하기 위해 groupib에서는 Azure Logic Apps을 사용 합니다. 전체 제안을 최대한 활용하는 데 필요한 [특수 지침](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904)을 참조하세요.
+- [GroupIB 위협 인텔리전스 및 특성을](https://www.group-ib.com/intelligence-attribution.html) Microsoft Sentinel에 연결하기 위해 GroupIB는 Azure Logic Apps 사용합니다. 전체 제안을 최대한 활용하는 데 필요한 [특수 지침](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904)을 참조하세요.
 
 ### <a name="misp-open-source-threat-intelligence-platform"></a>MISP 오픈 소스 위협 인텔리전스 플랫폼
 
@@ -101,19 +95,19 @@ TAXII 위협 인텔리전스 피드에 연결 하려면 아래에 링크 된 각
 
 ### <a name="palo-alto-networks-minemeld"></a>Palo Alto Networks MineMeld
 
-- Microsoft 센티널에 대 한 연결 정보를 사용 하 여 [Palo Alto minemeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld) 를 구성 하려면 [minemeld를 사용 하 여 Microsoft Graph 보안 API에 iocs 보내기](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540) 및 **minemeld 구성** 제목으로 건너뛰기를 참조 하세요.
+- Microsoft Sentinel에 대한 연결 정보를 사용하여 [Palo Alto Mine(Palo Alto Mine](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld) 사용)을 구성하려면 [Mine 사용 하 여 Microsoft Graph 보안 API IOC 보내기를](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540) 참조하고 **Mine 사용 구성** 제목으로 건너뜁니다.
 
 ### <a name="recorded-future-security-intelligence-platform"></a>Recorded Future 보안 인텔리전스 플랫폼
 
-- [기록 된 미래](https://www.recordedfuture.com/integrations/microsoft-azure/) 는 Azure Logic Apps (playbooks)를 사용 하 여 Microsoft 센티널에 연결 합니다. 전체 제안을 최대한 활용하는 데 필요한 [특수 지침](https://go.recordedfuture.com/hubfs/partners/microsoft-azure-installation-guide.pdf)을 참조하세요.
+- [기록된 Future는](https://www.recordedfuture.com/integrations/microsoft-azure/) Azure Logic Apps(플레이북)를 사용하여 Microsoft Sentinel에 연결합니다. 전체 제안을 최대한 활용하는 데 필요한 [특수 지침](https://go.recordedfuture.com/hubfs/partners/microsoft-azure-installation-guide.pdf)을 참조하세요.
 
 ### <a name="threatconnect-platform"></a>ThreatConnect 플랫폼
 
-- Microsoft 센티널에 [ThreatConnect](https://threatconnect.com/solution/) 을 연결 하는 지침은 [보안 위협 지표 통합 구성 가이드 Microsoft Graph](https://training.threatconnect.com/learn/article/microsoft-graph-security-threat-indicators-integration-configuration-guide-kb-article) 를 참조 하세요.
+- [ThreatConnect를](https://threatconnect.com/solution/) Microsoft Sentinel에 연결하는 지침은 [Microsoft Graph 보안 위협 지표 통합 구성 가이드를](https://training.threatconnect.com/learn/article/microsoft-graph-security-threat-indicators-integration-configuration-guide-kb-article) 참조하세요.
 
 ### <a name="threatquotient-threat-intelligence-platform"></a>ThreatQuotient 위협 인텔리전스 플랫폼
 
-- Microsoft 센티널에 [THREATQUOTIENT TIP](https://www.threatq.com/) 를 연결 하는 방법에 대 한 지원 정보와 지침은 [microsoft 센티널 Connector for ThreatQ 통합](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) 을 참조 하세요.
+- [ThreatQuotient TIP을](https://www.threatq.com/) [Microsoft Sentinel에](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) 연결하기 위한 지원 정보 및 지침은 Microsoft Sentinel Connector for ThreatQ 통합을 참조하세요.
 
 ## <a name="incident-enrichment-sources"></a>인시던트 보강 소스
 
@@ -121,33 +115,33 @@ TAXII 위협 인텔리전스 피드에 연결 하려면 아래에 링크 된 각
 
 ### <a name="hyas-insight"></a>HYAS 인사이트
 
-- [Microsoft 센티널 GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) [HYAS](https://www.hyas.com/hyas-insight) 정보에 대 한 인시던트 보강 플레이 북을 찾아서 사용 하도록 설정 합니다. "Enrich-Sentinel-Incident-HYAS-Insight-"로 시작하는 하위 폴더를 검색합니다.
+- [Microsoft Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) [HYAS Insight에](https://www.hyas.com/hyas-insight) 대한 인시던트 보강 플레이북을 찾아서 사용하도록 설정합니다. "Enrich-Sentinel-Incident-HYAS-Insight-"로 시작하는 하위 폴더를 검색합니다.
 - HYAS 인사이트 논리 앱 [커넥터 설명서](/connectors/hyasinsight/)를 참조하세요.
 
 ### <a name="recorded-future-security-intelligence-platform"></a>Recorded Future 보안 인텔리전스 플랫폼
 
-- [Microsoft 센티널 GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) [나중에 기록](https://www.recordedfuture.com/integrations/microsoft-azure/) 하기 위해 인시던트 보강 플레이 북을 찾아서 사용 하도록 설정 합니다. "RecordedFuture_"로 시작하는 하위 폴더를 검색합니다.
+- [Microsoft Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) [기록된 미래에](https://www.recordedfuture.com/integrations/microsoft-azure/) 대한 인시던트 보강 플레이북을 찾아서 사용하도록 설정합니다. "RecordedFuture_"로 시작하는 하위 폴더를 검색합니다.
 - Recorded Future 논리 앱 [커넥터 설명서](/connectors/recordedfuture/)를 참조하세요.
 
 ### <a name="reversinglabs-titaniumcloud"></a>ReversingLabs TitaniumCloud
 
-- [Microsoft 센티널 GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information) [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) 에 대 한 인시던트 보강 플레이 북을 찾아서 사용 하도록 설정 합니다.
+- [Microsoft Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information) [ReversingLabs에](https://www.reversinglabs.com/products/file-reputation-service) 대한 인시던트 보강 플레이북을 찾아서 사용하도록 설정합니다.
 - ReversingLabs 인텔리전스 논리 앱 [커넥터 설명서](/connectors/reversinglabsintelligence/)를 참조하세요.
 
 ### <a name="riskiq-passive-total"></a>RiskIQ Passive Total
 
-- [Microsoft 센티널 GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) [RiskIQ 수동 합계](https://www.riskiq.com/products/passivetotal/) 에 대 한 인시던트 보강 플레이 북을 찾아서 사용 하도록 설정 합니다. "Enrich-SentinelIncident-RiskIQ-"로 시작하는 하위 폴더를 검색합니다.
+- [Microsoft Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) [RiskIQ Passive Total에](https://www.riskiq.com/products/passivetotal/) 대한 인시던트 보강 플레이북을 찾아서 사용하도록 설정합니다. "Enrich-SentinelIncident-RiskIQ-"로 시작하는 하위 폴더를 검색합니다.
 - RiskIQ 플레이북 사용에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-sentinel/enrich-azure-sentinel-security-incidents-with-the-riskiq/ba-p/1534412)를 참조하세요.
 - RiskIQ PassiveTotal 논리 앱 [커넥터 설명서](/connectors/riskiqpassivetotal/)를 참조하세요.
 
 ### <a name="virus-total"></a>Virus Total
 
-- [Microsoft 센티널 GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)인시던트 보강 플레이 북 [을 찾아서](https://developers.virustotal.com/v3.0/reference) 사용 하도록 설정 합니다. "Get-VirusTotal" 및 "Get-VTURL"로 시작하는 하위 폴더를 검색합니다.
+- [Microsoft Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) [바이러스 합계에](https://developers.virustotal.com/v3.0/reference) 대한 인시던트 보강 플레이북을 찾아서 사용하도록 설정합니다. "Get-VirusTotal" 및 "Get-VTURL"로 시작하는 하위 폴더를 검색합니다.
 - Virus Total 논리 앱 [커넥터 설명서](/connectors/virustotal/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft 센티널에 위협 인텔리전스 공급자를 연결 하는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 위협 인텔리전스 공급자를 Microsoft Sentinel에 연결하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [Microsoft 센티널을 사용 하 여 위협 검색을](./detect-threats-built-in.md)시작 하세요.
+- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.

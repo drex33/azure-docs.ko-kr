@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel | 인시던트 처리 자동화 Microsoft Docs
 description: 이 문서에서는 보안 위협에 대응하여 SOC의 효율성과 효과를 극대화하기 위해 자동화 규칙을 사용하여 인시던트 처리를 자동화하는 방법을 설명합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 83f9a7e8787cee4079cc3fb643c107922ef0a213
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 787e030bed5785adf2c3aa38ab092cabf97bad8d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132722870"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755605"
 ---
 # <a name="automate-incident-handling-in-microsoft-sentinel-with-automation-rules"></a>자동화 규칙을 사용하여 Microsoft Sentinel에서 인시던트 처리 자동화
 
@@ -143,17 +136,17 @@ Microsoft Sentinel 자동화 규칙은 플레이북을 실행하는 경우 이 �
 
 자동화 규칙은 작업 영역 간 배포 및 [다중 테넌트 배포](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)를 완벽하게 지원합니다(다중 테넌트의 경우 [Azure Lighthouse](../lighthouse/index.yml) 사용).
 
-따라서 Microsoft 센티널 배포에서 다중 테 넌 트 아키텍처를 사용 하는 경우 한 테 넌 트에서 automation 규칙을 사용 하 여 다른 테 넌 트에 상주 하는 플레이 북을 실행할 수 있습니다. 하지만 플레이 북를 실행 하는 센티널의 권한은 automation 규칙이 정의 된 테 넌 트가 아닌 플레이 북이 있는 테 넌 트에 정의 되어야 합니다.
+따라서 Microsoft Sentinel 배포에서 다중 테넌트 아키텍처를 사용하는 경우 한 테넌트에서 다른 테넌트에서 플레이북을 실행하는 자동화 규칙을 사용할 수 있지만, 플레이북을 실행하는 Sentinel에 대한 권한은 자동화 규칙이 정의된 테넌트에서가 아니라 플레이북이 상주하는 테넌트에서 정의되어야 합니다.
 
-서비스 공급자 테 넌 트가 고객 테 넌 트의 Microsoft 센티널 작업 영역을 관리 하는 MSSP (관리 보안 서비스 공급자)의 경우 주의가 필요 하다는 두 가지 시나리오가 있습니다.
+서비스 공급자 테넌트에서 고객 테넌트에서 Microsoft Sentinel 작업 영역을 관리하는 MSSP(관리 보안 서비스 공급자)의 특정 경우 주의가 필요한 두 가지 특정 시나리오가 있습니다.
 
 - **고객 테넌트에서 만들어진 자동화 규칙은 서비스 공급자 테넌트에 있는 플레이북을 실행하도록 구성됩니다.** 
 
-    이 접근 방식은 일반적으로 플레이북의 지적 재산권을 보호하는 데 사용됩니다. 이 시나리오가 작동하는 데 특별한 사항은 없습니다. Automation 규칙에서 플레이 북 작업을 정의 하는 경우 플레이 북가 있는 관련 리소스 그룹 ( **플레이 북 권한 관리** 패널 사용)에 대 한 Microsoft 센티널 권한을 부여 하는 단계에 대 한 작업을 수행할 수 있습니다. 여기서는 선택할 수 있는 서비스 공급자 테 넌 트에 속하는 리소스 그룹이 표시 됩니다. [여기에 설명된 전체 프로세스를 참조하세요](tutorial-respond-threats-playbook.md#respond-to-incidents).
+    이 접근 방식은 일반적으로 플레이북의 지적 재산권을 보호하는 데 사용됩니다. 이 시나리오가 작동하는 데 특별한 사항은 없습니다. 자동화 규칙에서 플레이북 작업을 정의하고 플레이북이 있는 관련 리소스 그룹에 대한 Microsoft Sentinel 권한을 부여하는 단계로 가는 **경우(플레이북 관리 권한** 패널 사용) 선택할 수 있는 리소스 그룹 중에서 서비스 공급자 테넌트 에 속하는 리소스 그룹이 표시됩니다. [여기에 설명된 전체 프로세스를 참조하세요](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
 - **고객 작업 영역에서 만들어진 자동화 규칙(서비스 공급자 테넌트에 로그인한 동안)은 고객 테넌트에 있는 플레이북을 실행하도록 구성됩니다**.
 
-    이 구성은 지적 재산권을 보호할 필요가 없을 때 사용됩니다. 이 시나리오가 작동 하려면 플레이 북을 실행 하는 권한을 ***두 테 넌 트** _의 Microsoft 센티널에 부여 해야 합니다. 고객 테넌트의 경우 위 시나리오와 같이 _ *플레이북 권한 관리** 패널에서 권한을 부여합니다. 서비스 공급자 테 넌 트에서 관련 사용 권한을 부여 하려면 플레이 북가 있는 리소스 그룹에서 **Microsoft 센티널 Automation 참가자** 역할을 사용 하 여 **azure 보안 Insights** 앱에 대 한 액세스 권한을 부여 하는 추가 azure Lighthouse 위임을 추가 해야 합니다.
+    이 구성은 지적 재산권을 보호할 필요가 없을 때 사용됩니다. 이 시나리오가 작동하려면 ***두 테넌트** _의 Microsoft Sentinel에 플레이북을 실행할 수 있는 권한을 부여해야 합니다. 고객 테넌트의 경우 위 시나리오와 같이 _ *플레이북 권한 관리** 패널에서 권한을 부여합니다. 서비스 공급자 테넌트에서 관련 권한을 부여하려면 플레이북이 있는 리소스 그룹에 **Microsoft Sentinel Automation 기여자** 역할을 사용하여 **Azure 보안 Insights** 앱에 대한 액세스 권한을 부여하는 추가 Azure Lighthouse 위임을 추가해야 합니다.
 
     시나리오는 다음과 같습니다.
 
@@ -163,7 +156,7 @@ Microsoft Sentinel 자동화 규칙은 플레이북을 실행하는 경우 이 �
 
 ## <a name="creating-and-managing-automation-rules"></a>자동화 규칙 만들기 및 관리
 
-Microsoft 센티널 환경에서 특정 요구 사항 및 사용 사례에 따라 다양 한 점에서 automation 규칙을 만들고 관리할 수 있습니다.
+특정 필요 및 사용 사례에 따라 Microsoft Sentinel 환경의 여러 지점에서 자동화 규칙을 만들고 관리할 수 있습니다.
 
 - **자동화 블레이드**
 
@@ -198,7 +191,7 @@ SecurityIncident
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 automation 규칙을 사용 하 여 Microsoft 센티널 인시던트 큐를 관리 하 고 몇 가지 기본적인 인시던트 처리 자동화를 구현 하는 방법을 배웠습니다.
+이 문서에서는 자동화 규칙을 사용하여 Microsoft Sentinel 인시던트 큐를 관리하고 몇 가지 기본적인 인시던트 처리 자동화를 구현하는 방법을 배웠습니다.
 
-- 고급 자동화 옵션에 대 한 자세한 내용은 [Microsoft 센티널에서 플레이 북으로 위협 대응 자동화](automate-responses-with-playbooks.md)를 참조 하세요.
-- Automation 규칙 및 플레이 북 구현에 대 한 도움말은 [자습서: 플레이 북를 사용 하 여 Microsoft 센티널에서 위협 응답 자동화](tutorial-respond-threats-playbook.md)를 참조 하세요.
+- 고급 자동화 옵션에 대한 자세한 내용은 [Microsoft Sentinel에서 플레이북을 사용하여 위협 대응 자동화를](automate-responses-with-playbooks.md)참조하세요.
+- 자동화 규칙 및 플레이북 구현에 대한 도움말은 [자습서: 플레이북을 사용하여 Microsoft Sentinel에서 위협 대응 자동화를](tutorial-respond-threats-playbook.md)참조하세요.

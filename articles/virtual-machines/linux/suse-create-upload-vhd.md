@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 30246166650cddc1c89fa3a2ca377c163fb5847b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 2d99dd4379251c66164637871e52a90c5d4413d4
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697753"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755244"
 ---
 # <a name="prepare-a-sles-or-opensuse-leap-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE Leap 가상 머신 준비
 
@@ -155,7 +155,7 @@ ms.locfileid: "122697753"
 
     # logout
     ```
-16. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+16. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [**Azure에 업로드할**](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 ---
 ## <a name="prepare-opensuse-152"></a>openSUSE 15.2+ 준비
@@ -253,7 +253,7 @@ ms.locfileid: "122697753"
     # sudo systemctl enable waagent.service
     ```
 
-13. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+13. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [**Azure에 업로드할**](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 SUSE Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 머신을 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.

@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel DHCP 정규화 스키마 참조 | Microsoft Docs
 description: 이 문서에서는 Microsoft Sentinel DHCP 정규화 스키마에 대해 설명합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 27e9e052265264a298e27fe64dfad4561c68dd12
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 32cc11db53573854ee104abe75392d01f84dc104
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724314"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762409"
 ---
 # <a name="microsoft-sentinel-dhcp-normalization-schema-reference-public-preview"></a>Microsoft Sentinel DHCP 정규화 스키마 참조(공개 미리 보기)
 
@@ -107,21 +100,21 @@ OSSEM에는 ASIM DHCP 스키마와 비슷한 DHCP 스키마가 없습니다.
 | **필드** | **클래스** | **형식** | **참고** |
 | --- | --- | --- | --- |
 | <a name="srcipaddr"></a>**SrcIpAddr** | 필수 | IP 주소 | DHCP 서버에서 클라이언트에 할당한 IP 주소입니다.<br><br>예: `192.168.12.1` |
-| <a name="ipaddr"></a>**IpAddr** | Alias | | [SrcIpAddr의](#srcipaddr) 별칭 |
-| <a name="requestedipaddr"></a>**RequestedIpAddr** | 선택 사항 | IP 주소 | 사용 가능한 경우 DHCP 클라이언트에서 요청한 IP 주소입니다.<br><br>예: `192.168.12.3` |
-| <a name="srchostname"></a>**SrcHostname** | 필수 | String | DHCP 임대를 요청하는 디바이스의 호스트 이름입니다. 사용할 수 있는 디바이스 이름이 없는 경우 이 필드에 관련 IP 주소를 저장합니다.<br><br>예: `DESKTOP-1282V4D` |
-| <a name="hostname"></a>**호스트** | Alias | | [SrcHostname의](#srchostname) 별칭 |
-| <a name="srcdomain"></a>**SrcDomain** | 권장 | String | 원본 디바이스의 도메인입니다.<br><br>예: `Contoso` |
-| <a name="srcdomaintype"></a>**SrcDomainType** | 권장 | Enumerated | 알려진 경우 [SrcDomain 의 형식입니다.](#srcdomain) 가능한 값은 다음과 같습니다.<br>- `Windows` (예: `contoso` )<br>- `FQDN` (예: `microsoft.com` )<br><br>[SrcDomain을](#srcdomain) 사용하는 경우 필요합니다. |
-| **SrcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함한 원본 디바이스 호스트 이름입니다. <br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [SrcDomainType](#srcdomaintype) 필드는 사용된 형식을 반영합니다. <br><br>예: `Contoso\DESKTOP-1282V4D` |
+| <a name="ipaddr"></a>**IpAddr** | Alias | | [Srcipaddr](#srcipaddr) 의 별칭 |
+| <a name="requestedipaddr"></a>**Request편집기** | 선택 사항 | IP 주소 | DHCP 클라이언트에서 요청 하는 IP 주소입니다 (사용 가능한 경우).<br><br>예: `192.168.12.3` |
+| <a name="srchostname"></a>**SrcHostname** | 필수 | String | DHCP 임대를 요청 하는 장치의 호스트 이름입니다. 사용할 수 있는 장치 이름이 없으면이 필드에 관련 IP 주소를 저장 합니다.<br><br>예: `DESKTOP-1282V4D` |
+| <a name="hostname"></a>**N** | Alias | | [SrcHostname](#srchostname) 에 대 한 별칭 |
+| <a name="srcdomain"></a>**Srcdomain** | 권장 | String | 원본 장치의 도메인입니다.<br><br>예: `Contoso` |
+| <a name="srcdomaintype"></a>**SrcDomainType** | 권장 | Enumerated | [Srcdomain](#srcdomain)의 유형 (알려진 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows` (예: `contoso` )<br>- `FQDN` (예: `microsoft.com` )<br><br>[Srcdomain](#srcdomain) 을 사용 하는 경우 필수 사항입니다. |
+| **SrcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함한 원본 디바이스 호스트 이름입니다. <br><br>**참고**:이 필드는 기존의 FQDN 형식 및 Windows domain\hostname 형식을 모두 지원 합니다. [SrcDomainType](#srcdomaintype) 필드에는 사용 된 형식이 반영 됩니다. <br><br>예: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | 선택 | 문자열 | 레코드에 보고된 원본 디바이스의 ID입니다.<br><br>예: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **SrcDvcIdType** | 선택 사항 | Enumerated | 알려진 경우 [SrcDvcId](#srcdvcid)의 형식입니다. 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 개의ID를 사용할 수 있는 경우 위 목록의 첫 번째 ID를 사용하고 다른 것을 각각 **SrcDvcAzureResourceId** 및 **SrcDvcMDEid** 에 저장합니다.<br><br>**참고:** [SrcDvcId를](#srcdvcid) 사용하는 경우 이 필드가 필요합니다. |
+| **SrcDvcIdType** | 선택 사항 | Enumerated | [Srcdvcid](#srcdvcid)의 유형입니다 (알려진 경우). 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 Id를 사용할 수 있는 경우 위의 목록에서 첫 번째 Id를 사용 하 고 다른 Id를 **SrcDvcAzureResourceId** 및 **Srcdvcmdeid** 에 각각 저장 합니다.<br><br>**참고**:이 필드는 [srcdvcid](#srcdvcid) 를 사용 하는 경우에 필요 합니다. |
 | **SrcDeviceType** | 선택 사항 | Enumerated | 원본 디바이스의 형식입니다. 가능한 값은 다음과 같습니다.<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
-| <a name="srcuserid"></a>**SrcUserId** | 선택 | 문자열 | 원본 사용자의 컴퓨터에서 읽을 수 있는 영숫자 고유 표현입니다. 형식 및 지원되는 형식은 다음과 같습니다.<br>- **SID**(Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID**(Linux): `4578`<br>- **AADID**(Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>- **OktaId**: `00urjk4znu3BcncfY0h7`<br>- **AWSId**: `72643944673`<br><br>ID 형식을 [SrcUserIdType](#srcuseridtype) 필드에 저장합니다. 다른 ID를 사용할 수 있는 경우 필드 이름을 각각 SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId 및 UserAwsId로 정규화하는 것이 좋습니다.<br><br>예: `S-1-12` |
-| <a name="srcuseridtype"></a>**SrcUserIdType** | 선택 사항 | Enumerated | [SrcUserId](#srcuserid) 필드에 저장된 ID의 형식입니다. 지원되는 값은 `SID` , , , 및 `UIS` `AADID` `OktaId` `AWSId` 입니다. |
-| <a name="srcusername"></a>**SrcUsername** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함하는 원본 사용자 이름입니다. 다음 형식 중 하나를 사용하고 다음 우선 순위 순서로 사용합니다.<br>- **Upn/메일**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **단순**: `johndow`. 도메인 정보를 사용할 수 없는 경우에만 단순 양식을 사용합니다.<br><br>사용자 이름 형식을 [SrcUsernameType](#srcusernametype) 필드에 저장합니다. 다른 ID를 사용할 수 있는 경우 필드 이름을 **SrcUserUpn**, **SrcUserWindows** 및 **SrcUserDn** 로 정규화하는 것이 좋습니다.<br><br>자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `AlbertE` |
-| **사용자 이름** | Alias | | [SrcUsername의](#srcusername) 별칭 |
-| <a name="srcusernametype"></a>**SrcUsernameType** | 선택 사항 | Enumerated | [SrcUsername](#srcusername) 필드에 저장된 사용자 이름 형식을 지정합니다. 지원되는 값은 `UPN` , `Windows` , 및 `DN` `Simple` 입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `Windows` |
+| <a name="srcuserid"></a>**SrcUserId** | 선택 | 문자열 | 원본 사용자의 컴퓨터에서 읽을 수 있는 영숫자 고유 표현입니다. 형식 및 지원되는 형식은 다음과 같습니다.<br>- **SID**(Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID**(Linux): `4578`<br>- **AADID**(Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>- **OktaId**: `00urjk4znu3BcncfY0h7`<br>- **AWSId**: `72643944673`<br><br>[Srcuseridtype](#srcuseridtype) 필드에 ID 유형을 저장 합니다. 다른 Id를 사용할 수 있는 경우 필드 이름을 SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId 및 UserAwsId로 각각 정규화 하는 것이 좋습니다.<br><br>예: `S-1-12` |
+| <a name="srcuseridtype"></a>**SrcUserIdType** | 선택 사항 | Enumerated | [Srcuserid](#srcuserid) 필드에 저장 된 ID의 유형입니다. 지원 되는 값은 `SID` ,, `UIS` `AADID` , `OktaId` 및 `AWSId` 입니다. |
+| <a name="srcusername"></a>**SrcUsername** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함 하는 원본 사용자 이름입니다. 다음 형식 중 하나를 사용 하 고 우선 순위를 지정 합니다.<br>- **Upn/메일**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **단순**: `johndow`. 도메인 정보를 사용할 수 없는 경우에만 간단한 양식을 사용 합니다.<br><br>[SrcUsernameType](#srcusernametype) 필드에 사용자 이름 유형을 저장 합니다. 다른 Id를 사용할 수 있는 경우 필드 이름을 **Srcuserupn**, **srcuserupn** 및 **SrcUserDn** 으로 정규화 하는 것이 좋습니다.<br><br>자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `AlbertE` |
+| **사용자 이름** | Alias | | [Srcusername](#srcusername) 의 별칭 |
+| <a name="srcusernametype"></a>**SrcUsernameType** | 선택 사항 | Enumerated | [Srcusername](#srcusername) 필드에 저장 된 사용자 이름 유형을 지정 합니다. 지원 되는 값은 `UPN` ,, `Windows` `DN` 및 `Simple` 입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `Windows` |
 | **SrcUserType** | 선택 사항 | Enumerated | Actor의 형식입니다. 허용된 값은<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. [EventOriginalUserType](#srcoriginalusertype) 필드에 원래 값을 저장 합니다. |
 | <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | 원본에서 제공 하는 경우 원래 원본 사용자 형식입니다. |
 | <a name="srcmacaddr"></a>**SrcMacAddr** | 필수 | MAC 주소 | DHCP 임대를 요청 하는 클라이언트의 MAC 주소입니다. <br><br>**참고**: Windows DHCP 서버는 파서가 삽입 해야 하는 콜론을 생략 하 고 비표준 방식으로 MAC 주소를 기록 합니다.<br><br>예: `06:10:9f:eb:8f:14` |

@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcfc70f7bfb9e2bb1b1a0edbffdc1282056e5fa7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 93f197429b76a901c9d19187d97ca54aed1f297b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102214051"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762991"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>답변의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
@@ -57,9 +57,9 @@ ms.locfileid: "102214051"
 
 ## <a name="set-threshold"></a>임계값 설정
 
-[GenerateAnswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 임계값 점수를 설정합니다. 즉, GenerateAnswer를 호출할 때마다 이를 설정합니다.
+[GenerateAnswer API JSON 본문](../How-To/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 임계값 점수를 설정합니다. 즉, GenerateAnswer를 호출할 때마다 이를 설정합니다.
 
-봇 프레임워크에서 [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 또는 [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)를 사용하여 옵션 개체로 일부로 점수를 설정합니다.
+봇 프레임워크에서 [C#](../How-To/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 또는 [Node.js](../How-To/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)를 사용하여 옵션 개체로 일부로 점수를 설정합니다.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
 사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. 대/소문자를 구분하지 않는 [단어 변경](/rest/api/cognitiveservices/qnamaker/alterations/replace)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.
@@ -76,7 +76,7 @@ ms.locfileid: "102214051"
 * 다음 중 하나를 사용하여 기술 자료를 구성합니다.
     * 1개의 리소스가 1KB로 제한됨: 단일 QnA 리소스(및 결과 Azure Cognitive Search 테스트 인덱스)를 단일 기술 자료로 제한합니다.
     * 2개의 리소스 - 테스트용 1개, 프로덕션용 1개: 테스트용(자체 테스트 및 프로덕션 인덱스 포함) 및 제품용(자체 테스트 및 프로덕션 인덱스도 포함)에 사용하는 2개의 QnA Maker 리소스가 있습니다.
-* 그리고 테스트와 프로덕션 기술 자료를 모두 쿼리할 때 항상 **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** 과 같은 동일한 매개 변수를 사용합니다.
+* 그리고 테스트와 프로덕션 기술 자료를 모두 쿼리할 때 항상 **[top](../How-To/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** 과 같은 동일한 매개 변수를 사용합니다.
 
 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 작업의 작동 방식을 알아보세요.
 

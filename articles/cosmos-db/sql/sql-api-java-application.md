@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 919a60d7975f556c8806f27c7bfb6f0897c5d26d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 745e2072c8e43e831f17fa7b6079b97688b4b871
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123118081"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758455"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,6 @@ ms.locfileid: "123118081"
 > * [Java](sql-api-java-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
-> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 이 Java 웹 애플리케이션 자습서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스를 사용하여 Azure App Service Web Apps에 호스트된 Java 애플리케이션에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 문서에서는 다음에 대해 알아봅니다.

@@ -1,18 +1,18 @@
 ---
 title: Linux VHD 만들기 및 업로드
 description: Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
-author: gbowerman
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 10/08/2018
-ms.author: guybo
-ms.openlocfilehash: c0ab2da9f6e301f1a39ee1dde65e9e0cb6a5d05b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.date: 11/17/2021
+ms.author: srijangupta
+ms.openlocfilehash: b107ee1cbcaa86b33a3b37a4ef3f08f672a9c67d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689838"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763604"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 
@@ -38,14 +38,25 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 이 문서에서는 Azure에서 Linux 배포판을 실행하기 위한 일반 지침에 대해 중점적으로 설명합니다.
 
 ## <a name="general-linux-installation-notes"></a>일반 Linux 설치 참고 사항
-* Azure에서는 *고정 VHD* 만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-V 관리자 또는 [Convert-VHD cmdlet](/powershell/module/hyper-v/convert-vhd)을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기** 를 선택합니다.
-* Azure는 1세대(BIOS 부팅) 및 2세대(UEFI 부팅) 가상 머신을 지원합니다.
-* VHD에 허용되는 최대 크기는 1,023GB입니다.
-* Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid)를 사용할 수 있습니다.
-* UDF 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅할 때 게스트에 연결된 UDF 형식의 미디어를 사용하여 Linux VM에 프로비전 구성이 전달됩니다. Azure Linux 에이전트는 해당 구성을 읽고 VM을 프로비전하기 위해 UDF 파일 시스템을 탑재해야 합니다.
-* 2\.6.37 이전 버전의 Linux 커널은 더 큰 VM 크기의 Hyper-V에서 NUMA를 지원하지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 이전 배포에 영향을 미치며, RHEL(Red Hat Enterprise Linux) 6.6(kernel-2.6.32-504)에서 해결되었습니다. 2.6.37 이전의 사용자 지정 커널 또는 2.6.32-504 이전의 RHEL 기반 커널을 실행하는 시스템의 경우 grub.conf의 커널 명령줄에 `numa=off` 부트 매개 변수를 설정해야 합니다. 자세한 내용은 [Red Hat KB 436883](https://access.redhat.com/solutions/436883)을 참조하세요.
-* OS 디스크에 스왑 파티션을 구성하지 않습니다. Linux 에이전트는 다음 단계에서 설명한 대로 임시 리소스 디스크에 스왑 파일을 만들도록 구성할 수 있습니다.
-* Azure의 모든 VHD에는 1MB로 정렬된 가상 크기가 있어야 합니다. 원시 디스크에서 VHD로 변환하는 경우 다음 단계에서 설명한 대로 변환하기 전에 먼저 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다.
+1. Azure에서는 *고정 VHD* 만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-V 관리자 또는 [Convert-VHD cmdlet](/powershell/module/hyper-v/convert-vhd)을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기** 를 선택합니다.
+
+2. Azure는 1세대(BIOS 부팅) 및 2세대(UEFI 부팅) 가상 머신을 지원합니다.
+
+3. VHD에 허용되는 최대 크기는 1,023GB입니다.
+
+4. Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid)를 사용할 수 있습니다.
+
+5. UDF 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅할 때 게스트에 연결된 UDF 형식의 미디어를 사용하여 Linux VM에 프로비전 구성이 전달됩니다. Azure Linux 에이전트는 해당 구성을 읽고 VM을 프로비전하기 위해 UDF 파일 시스템을 탑재해야 합니다.
+
+6. 2\.6.37 이전 버전의 Linux 커널은 더 큰 VM 크기의 Hyper-V에서 NUMA를 지원하지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 이전 배포에 영향을 미치며, RHEL(Red Hat Enterprise Linux) 6.6(kernel-2.6.32-504)에서 해결되었습니다. 2.6.37 이전의 사용자 지정 커널 또는 2.6.32-504 이전의 RHEL 기반 커널을 실행하는 시스템의 경우 grub.conf의 커널 명령줄에 `numa=off` 부트 매개 변수를 설정해야 합니다. 자세한 내용은 [Red Hat KB 436883](https://access.redhat.com/solutions/436883)을 참조하세요.
+7. OS 디스크에 스왑 파티션을 구성하지 않습니다. Linux 에이전트는 다음 단계에서 설명한 대로 임시 리소스 디스크에 스왑 파일을 만들도록 구성할 수 있습니다.
+
+8. Azure의 모든 VHD에는 1MB로 정렬된 가상 크기가 있어야 합니다. 원시 디스크에서 VHD로 변환하는 경우 다음 단계에서 설명한 대로 변환하기 전에 먼저 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다.
+
+> [!NOTE]
+> **' Udf '** (클라우드-init >= 21.2) 및 **' vfat '** 모듈이 사용 하도록 설정 되어 있는지 확인 하세요. Udf 모듈을 블랙 리스트로 표시 하면 프로 비전 오류가 발생 하 고 백 목록 vfat 모듈에서 프로 비전 및 부팅 오류가 발생 합니다. **_클라우드 초기화 < 21.2는 영향을 받지 않으며이 변경이 필요 하지 않습니다._**
+> 
+
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Hyper-V 없이 커널 모듈 설치
 Azure는 Hyper-V 하이퍼바이저에서 실행되므로 Linux에는 Azure에서 실행되는 특정 커널 모듈이 필요합니다. Hyper-V 외부에서 만든 VM이 있는 경우 VM이 Hyper-V 환경에서 실행되는 것으로 감지하지 않는 한 Linux 설치 관리자는 초기 ramdisk(initrd 또는 initramfs)에 Hyper-V용 드라이버를 포함하지 않을 수 있습니다. 다른 가상화 시스템(예: VirtualBox, KVM 등)을 사용하여 Linux 이미지를 준비하는 경우 초기 ramdisk에서 적어도 hv_vmbus 및 hv_storvsc 커널 모듈을 사용할 수 있도록 initrd를 다시 빌드해야 할 수 있습니다.  이와 같이 알려진 문제는 업스트림 Red Hat 배포판을 기반으로 하는 시스템 및 다른 시스템과 관련된 것입니다.

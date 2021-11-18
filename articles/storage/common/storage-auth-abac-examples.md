@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
-ms.date: 05/06/2021
-ms.openlocfilehash: a04c205370ee07900b649ed0a3f6f4bf3a892685
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/16/2021
+ms.openlocfilehash: fa290d972877c213f3d24e57b497e05d931d7b3d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577827"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751355"
 ---
 # <a name="example-azure-role-assignment-conditions-preview"></a>Azure 역할 할당 조건 예(미리 보기)
 
@@ -44,7 +44,7 @@ ms.locfileid: "128577827"
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -73,7 +73,7 @@ Azure Portal을 사용하여 이 조건을 추가하는 설정은 다음과 같�
 Azure PowerShell을 사용하여 이 조건을 추가하는 방법은 다음과 같습니다.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -104,9 +104,9 @@ Get-AzStorageBlob -Container <containerName> -Blob <blobName> -Context $bearerCt
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
   AND
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
  )
  OR 
  (
@@ -135,7 +135,7 @@ Azure Portal을 사용하여 이 조건을 추가하는 설정은 다음과 같�
 Azure PowerShell을 사용하여 이 조건을 추가하는 방법은 다음과 같습니다.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'})) OR (@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})) OR (@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -158,7 +158,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 
 ## <a name="example-3-existing-blobs-must-have-tag-keys"></a>예제 3: 기존 Blob에는 태그 키가 있어야 함
 
-이 조건에서는 기존 Blob에 허용되는 Blob 인덱스 태그 키(Project 또는 Program) 중 하나 이상으로 태그가 지정되어야 합니다. 이 조건은 기존 Blob에 거버넌스를 추가하는 데 유용합니다.
+이 조건을 사용하려면 기존 Blob에 허용되는 Blob 인덱스 태그 키(Project 또는 Program) 중 하나 이상으로 태그를 지정해야 합니다. 이 조건은 기존 Blob에 거버넌스를 추가하는 데 유용합니다.
 
 > [!TIP]
 > Blob은 임의의 사용자 정의 키- 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 Blob 인덱스 태그와 유사하지만 조건으로 Blob 인덱스 태그를 사용해야 합니다. 자세한 내용은 [Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기(미리 보기)](../blobs/storage-manage-find-blobs.md)를 참조하세요.
@@ -173,7 +173,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
   AND
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})
  )
@@ -203,7 +203,7 @@ Azure Portal을 사용하여 이 조건을 추가하는 설정은 다음과 같�
 Azure PowerShell을 사용하여 이 조건을 추가하는 방법은 다음과 같습니다.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})) OR (@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&`$keys`$&] ForAllOfAnyValues:StringEquals {'Project', 'Program'}))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})) OR (@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&`$keys`$&] ForAllOfAnyValues:StringEquals {'Project', 'Program'}))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -241,7 +241,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example3 -Blo
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
   AND
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})
  )
@@ -280,7 +280,7 @@ Azure Portal을 사용하여 이 조건을 추가하는 설정은 다음과 같�
 Azure PowerShell을 사용하여 이 조건을 추가하는 방법은 다음과 같습니다.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})) OR (@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&`$keys`$&] ForAnyOfAnyValues:StringEquals {'Project'} AND @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})) OR (@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&`$keys`$&] ForAnyOfAnyValues:StringEquals {'Project'} AND @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -539,7 +539,7 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -588,7 +588,7 @@ Azure Portal을 사용하여 이 조건을 추가하는 설정은 다음과 같�
 Azure PowerShell을 사용하여 이 조건을 추가하는 방법은 다음과 같습니다.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Program<`$key_case_sensitive`$>] StringEquals 'Alpine')) AND ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'logs*'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Program<`$key_case_sensitive`$>] StringEquals 'Alpine')) AND ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'logs*'))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -609,6 +609,103 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logsAlpi
 # Try to get granted blob
 $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/AlpineFile.txt" -Context $bearerCtx
 ```
+
+## <a name="example-9-allow-read-and-write-access-to-blobs-based-on-tags-and-custom-security-attributes"></a>예제 9: 태그 및 사용자 지정 보안 특성에 따라 Blob에 대한 읽기 및 쓰기 액세스 허용
+
+이 조건은 사용자에게 Blob 인덱스 태그와 일치하는 [사용자 지정 보안 특성이](../../active-directory/fundamentals/custom-security-attributes-overview.md) 있는 경우 Blob에 대한 읽기 및 쓰기 액세스를 허용합니다.
+ 
+예를 들어, 이 특성이 있는 경우 `Project=Baker` `Project=Baker` Blob 인덱스 태그를 가진 Blob만 읽고 쓸 수 있습니다. 마찬가지로 Chandra는 를 통해서만 Blob을 읽고 쓸 수 `Project=Cascade` 있습니다.
+
+자세한 내용은 [태그 및 사용자 지정 보안 특성에 따라 Blob에 대한 읽기 액세스 허용을 참조하세요.](../../role-based-access-control/conditions-custom-security-attributes.md)
+
+![태그 및 사용자 지정 보안 특성에 따라 Blob에 대한 읽기 및 쓰기 액세스를 보여 주는 예제 9 조건 다이어그램](./media/storage-auth-abac-examples/condition-principal-attribute-example.png)
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+ )
+)
+AND
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
+ )
+ OR 
+ (
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+ )
+)
+```
+
+#### <a name="azure-portal"></a>Azure portal
+
+Azure Portal을 사용하여 이 조건을 추가하는 설정은 다음과 같습니다.
+
+| 조건 #1 | 설정 |
+| --- | --- |
+| 동작 | 태그 조건이 있는 Blob에서 콘텐츠 읽기 |
+| 특성 원본 | 주 서버 |
+| attribute | &lt;attributeset &gt; _ &lt; key&gt; |
+| 연산자 | StringEquals |
+| 옵션 | attribute |
+| 특성 원본 | 리소스 |
+| attribute | Blob 인덱스 태그 [키의 값] |
+| 키 | &lt;key&gt; |
+
+| 조건 #2 | 설정 |
+| --- | --- |
+| 동작 | Blob 인덱스 태그를 사용하여 Blob에 쓰기<br/>Blob 인덱스 태그를 사용하여 Blob에 쓰기 |
+| 특성 원본 | 주 서버 |
+| attribute | &lt;attributeset &gt; _ &lt; key&gt; |
+| 연산자 | StringEquals |
+| 옵션 | attribute |
+| 특성 원본 | 요청 |
+| attribute | Blob 인덱스 태그 [키의 값] |
+| 키 | &lt;key&gt; |
+
+## <a name="example-10-allow-read-access-to-blobs-based-on-tags-and-multi-value-custom-security-attributes"></a>예제 10: 태그 및 다중 값 사용자 지정 보안 특성에 따라 Blob에 대한 읽기 액세스 허용
+
+이 조건에서는 사용자에게 Blob 인덱스 태그와 일치하는 값이 있는 [사용자 지정 보안 특성이](../../active-directory/fundamentals/custom-security-attributes-overview.md) 있는 경우 Blob에 대한 읽기 액세스를 허용합니다.
+ 
+예를 들어 Chandra에 값이인 Project 특성이 있는 경우 또는 `Project=Baker` `Project=Cascade` Blob 인덱스 태그가 있는 Blob만 읽을 수 있습니다.
+
+자세한 내용은 [태그 및 사용자 지정 보안 특성에 따라 Blob에 대한 읽기 액세스 허용을 참조하세요.](../../role-based-access-control/conditions-custom-security-attributes.md)
+
+![태그 및 다중 값 사용자 지정 보안 특성을 기반으로 Blob에 대한 읽기 액세스를 보여 주는 예제 10 조건 다이어그램](./media/storage-auth-abac-examples/condition-principal-attribute-multi-value-example.png)
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAnyOfAnyValues:StringEquals @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project]
+ )
+)
+```
+
+#### <a name="azure-portal"></a>Azure portal
+
+Azure Portal을 사용하여 이 조건을 추가하는 설정은 다음과 같습니다.
+
+| 조건 #1 | 설정 |
+| --- | --- |
+| 동작 | 태그 조건이 있는 Blob에서 콘텐츠 읽기 |
+| 특성 원본 | 리소스 |
+| attribute | Blob 인덱스 태그 [키의 값] |
+| 키 | &lt;key&gt; |
+| 연산자 | ForAnyOfAnyValues:StringEquals |
+| 옵션 | attribute |
+| 특성 원본 | 주 서버 |
+| attribute | &lt;attributeset &gt; _ &lt; key&gt; |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,22 +1,17 @@
 ---
 title: Microsoft Sentinel에서 다단계 공격 탐지(Fusion) 규칙 구성
 description: Microsoft Sentinel의 Fusion 기술을 기반으로 공격 검색 규칙을 만들고 구성합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2a684bf84438bc743d8ce30e62faa539310df024
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 80b49350d8d74f86dae5a6a837bbc9a777531ad3
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132716166"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758033"
 ---
 # <a name="configure-multistage-attack-detection-fusion-rules-in-microsoft-sentinel"></a>Microsoft Sentinel에서 다단계 공격 탐지(Fusion) 규칙 구성
 

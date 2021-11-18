@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: denisgun
 ms.service: virtual-desktop
-ms.openlocfilehash: f9571f89bdb3acab7f042c63f2c8bba05044a758
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 51932fd6cb7a9747957d410bca6230d47aadd04c
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992252"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132752009"
 ---
 # <a name="screen-capture-protection"></a>화면 캡처 보호
 
@@ -23,7 +23,7 @@ ms.locfileid: "129992252"
 화면 캡처 보호 기능은 세션 호스트 수준에서 구성되고 클라이언트에 적용됩니다. 이 기능을 지원하는 클라이언트만 원격 세션에 연결할 수 있습니다.
 다음 클라이언트는 현재 화면 캡처 보호를 지원 합니다.
 
-* Windows 데스크톱 클라이언트는 전체 데스크톱에 대해서만 화면 캡처 보호를 지원 합니다.
+* Windows Desktop client는 전체 데스크톱에 대해서만 화면 캡처 보호를 지원 합니다.
 * macOS client 버전 10.7.0 또는 이전 버전에서는 RemoteApp 및 전체 데스크톱에 대 한 화면 캡처 보호를 지원 합니다.
 
 사용자가 지원 되지 않는 클라이언트를 사용 하 여 보호 된 세션 호스트에 연결 하려고 한다고 가정 합니다. 이 경우 0x1151 오류와 함께 연결이 실패합니다.
@@ -32,8 +32,8 @@ ms.locfileid: "129992252"
 
 1. 화면 캡처 보호를 구성하려면 Azure Virtual Desktop에 대한 규칙 및 설정을 추가하는 관리 템플릿을 설치해야 합니다.
 2. [Azure Virtual Desktop 정책 템플릿 파일](https://aka.ms/avdgpo)(AVDGPTemplate.cab)을 다운로드하고 cab 파일 및 zip 보관 파일의 내용을 추출합니다.
-3. *terminalserver-avd.admx* 파일을 *%windir%\PolicyDefinitions* 폴더에 복사합니다.
-4. *en-us\terminalserver-avd.adml* 파일을 *%windir%\PolicyDefinitions\en-us* 폴더에 복사합니다.
+3. **Terminalserver-avd. admx** 파일을 **%windir%\PolicyDefinitions** 폴더에 복사 합니다.
+4. **En-us\terminalserver-avd.adml** 파일을 **%windir%\PolicyDefinitions\en-us** 폴더에 복사 합니다.
 5. 파일이 올바르게 복사되었는지 확인하려면 그룹 정책 편집기를 열고 **컴퓨터 구성** -> **관리 템플릿** -> **Windows 구성 요소** -> **원격 데스크톱 서비스** -> **원격 데스크톱 세션 호스트** -> **Azure Virtual Desktop** 으로 이동합니다.
 6. 아래와 같이 하나 이상의 Azure Virtual Desktop 정책이 표시되어야 합니다.
 

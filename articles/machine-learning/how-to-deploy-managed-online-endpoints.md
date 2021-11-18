@@ -1,7 +1,7 @@
 ---
 title: 온라인 엔드포인트를 사용하여 ML 모델 배포(미리 보기)
 titleSuffix: Azure Machine Learning
-description: 기계 학습 모델을 Azure에 있는 웹 서비스로 배포하는 방법을 알아봅니다.
+description: Azure에 있는 웹 서비스로 기계 학습 모델을 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021
-ms.openlocfilehash: 2bcd276b5c6d80de9266e41a95e1f59b3453a63c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d0b0cad930bbb36ff7bd6ba0756398d4d64da8ca
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132289853"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755146"
 ---
 # <a name="deploy-and-score-a-machine-learning-model-by-using-an-online-endpoint-preview"></a>온라인 엔드포인트를 사용하여 기계 학습 모델 배포 및 점수 매기기(미리 보기)
 
@@ -74,7 +74,7 @@ Unix의 경우 다음 명령을 실행합니다.
 
 ## <a name="review-the-endpoint-and-deployment-configurations"></a>엔드포인트 및 배포 구성 검토
 
-다음 조각은 *endpoints/online/managed/sample/endpoint.yml* 파일을 보여줍니다. 
+다음 조각은 *엔드포인트/online/managed/sample/endpoint.yml* 파일을 보여줍니다. 
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
@@ -101,7 +101,7 @@ Unix의 경우 다음 명령을 실행합니다.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
-다음 표에서는 의 특성을 `deployment` 설명합니다.
+표에서는 의 특성을 `deployment` 설명합니다.
 
 | 키 | 설명 |
 | --- | --- |
@@ -118,7 +118,7 @@ YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참
 > [!NOTE]
 > 관리형 엔드포인트 대신 Kubernetes를 컴퓨팅 대상으로 사용하려면 다음을 수행합니다.
 > 1. Azure Machine Learning Studio 를 사용하여 Kubernetes 클러스터를 컴퓨팅 대상으로 만들고 [Azure Machine Learning](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster)작업 영역에 연결합니다.
-> 1. [엔드포인트 YAML을](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) 사용하여 관리형 엔드포인트 YAML 대신 Kubernetes를 대상으로 지정합니다. `target`의 값을 등록된 컴퓨팅 대상의 이름으로 변경하려면 YAML을 편집해야 합니다.
+> 1. [엔드포인트 YAML을](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/endpoint.yml) 사용하여 관리형 엔드포인트 YAML 대신 Kubernetes를 대상으로 지정합니다. `target`의 값을 등록된 컴퓨팅 대상의 이름으로 변경하려면 YAML을 편집해야 합니다. Kubernetes 배포에 적용할 수 있는 추가 속성이 있는 이 [deployment.yaml을](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/blue-deployment.yml) 사용할 수 있습니다.
 >
 > 이 문서에서 사용되는 모든 명령(선택적 SLA 모니터링 및 Azure Log Analytics 통합 제외)은 관리형 엔드포인트 또는 Kubernetes 엔드포인트에서 사용할 수 있습니다.
 
@@ -300,10 +300,10 @@ az ml online-endpoint list --output table
 > [!TIP]
 > `update` 명령을 통해 [Azure CLI의 `--set` 매개 변수](/cli/azure/use-cli-effectively#generic-update-arguments)를 사용하여 YAML의 특성을 *재정의하거나* YAML 파일을 전달하지 않고 특정 특성을 설정할 수 있습니다. 단일 특성에 `--set`를 사용하는 것은 개발 및 테스트 시나리오에서 특히 중요합니다. 예를 들어 첫 번째 배포의 `instance_count` 값을 스케일 업하려면 `--set instance_count=2` 플래그를 사용하면 됩니다. 그러나 YAML이 업데이트되지 않으므로 이 기법을 사용하면 [GitOps](https://www.atlassian.com/git/tutorials/gitops)가 용이하지 않습니다.
 > [!Note]
-> 위의 예는 내부 롤링 업데이트의 예입니다. 즉, 동일한 배포가 새 구성으로 업데이트되고 한 번에 20%의 노드가 있습니다. 배포에 10개의 노드가 있는 경우 한 번에 2개의 노드가 업데이트됩니다. 프로덕션 사용의 경우 보다 안전한 대안을 제공하는 [파란색-녹색 배포를](how-to-safely-rollout-managed-endpoints.md)고려할 수 있습니다.
-### <a name="optional-configure-autoscaling"></a>필드 자동 크기 조정 구성
+> 위의 예는 내부 롤링 업데이트의 예입니다. 즉, 동일한 배포가 한 번에 20% 노드가 있는 새 구성으로 업데이트됩니다. 배포에 10개의 노드가 있는 경우 한 번에 2개의 노드가 업데이트됩니다. 프로덕션 사용의 경우 보다 안전한 대안을 제공하는 [파란색-녹색 배포를](how-to-safely-rollout-managed-endpoints.md)고려할 수 있습니다.
+### <a name="optional-configure-autoscaling"></a>(선택 사항) 자동 조정 구성
 
-자동 크기 조정은 응용 프로그램의 부하를 처리 하기 위해 적절 한 양의 리소스를 자동으로 실행 합니다. 관리 되는 온라인 끝점은 Azure monitor 자동 크기 조정 기능과 통합 하 여 자동 크기 조정을 지원 합니다. 자동 크기 조정을 구성 하려면 [온라인 끝점을 자동 크기 조정 하는 방법](how-to-autoscale-endpoints.md)을 참조 하세요.
+자동 크기 조정은 애플리케이션의 부하를 처리하기 위해 적절한 양의 리소스를 자동으로 실행합니다. 관리되는 온라인 엔드포인트는 Azure Monitor 자동 크기 조정 기능과의 통합을 통해 자동 크기 조정을 지원합니다. 자동 크기 조정을 구성하려면 [온라인 엔드포인트의 크기를 자동으로 조정하는 방법을 참조하세요.](how-to-autoscale-endpoints.md)
 
 ### <a name="optional-monitor-sla-by-using-azure-monitor"></a>(선택 사항) Azure Monitor를 사용하여 SLA 모니터링
 
@@ -345,8 +345,8 @@ SLA에 따라 메트릭을 보고 알림을 설정하려면 [관리형 온라인
 - [REST를 사용하여 모델 배포(미리 보기)](how-to-deploy-with-rest.md)
 - [스튜디오에서 관리형 온라인 엔드포인트(미리 보기) 만들기 및 사용](how-to-use-managed-online-endpoint-studio.md)
 - [온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)](how-to-safely-rollout-managed-endpoints.md)
-- [관리 되는 온라인 끝점을 자동 크기 조정 하는 방법](how-to-autoscale-endpoints.md)
+- [관리되는 온라인 엔드포인트의 크기를 자동으로 조정하는 방법](how-to-autoscale-endpoints.md)
 - [일괄 처리 채점에 일괄 처리 엔드포인트(미리 보기) 사용](how-to-use-batch-endpoint.md)
 - [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)에 대한 비용 보기](how-to-view-online-endpoints-costs.md)
-- [관리 되는 온라인 끝점 및 관리 id (미리 보기)를 사용 하 여 Azure 리소스에 액세스](how-to-access-resources-from-endpoints-managed-identities.md)
+- [관리형 온라인 엔드포인트 및 관리 ID(미리 보기)를 통해 Azure 리소스에 액세스](how-to-access-resources-from-endpoints-managed-identities.md)
 - [관리형 온라인 엔드포인트 배포 문제 해결](how-to-troubleshoot-online-endpoints.md)

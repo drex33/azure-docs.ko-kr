@@ -1,7 +1,7 @@
 ---
 external help file: SAPDeploymentUtilities-help.xml
 Module Name: SAPDeploymentUtilities
-online version: https://github.com/Azure/sap-hana
+online version: https://github.com/Azure/sap-automation
 schema: 2.0.0
 author: kimforss
 ms.author: kimforss
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPLibrary
 description: 제어 평면에서 새 SAP 라이브러리를 부트스트랩 합니다.
-ms.openlocfilehash: 0f060d042aeb86c13f4820baad5832d3ea6c1720
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 858b7ccf9a415d6077b9a299dc55eeea7ed87283
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730481"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756707"
 ---
 # New-SAPLibrary
 
@@ -33,7 +33,7 @@ New-SAPLibrary [-Parameterfile] <String> [[-DeployerFolderRelativePath] <String>
 ## Description
 SAP 라이브러리는 Terraform 상태 파일 및 SAP 설치 미디어에 대 한 저장소를 제공 합니다.
 
-## 예제
+## 예
 
 ### 예 1
 ```powershell
@@ -131,5 +131,5 @@ MIT 라이선스에 따라 사용이 허가됩니다.
 
 ## 관련 링크
 
-[GitHub 리포지토리: SAP 배포 자동화 프레임 워크](https://github.com/Azure/sap-hana)
+[GitHub 리포지토리: SAP 배포 자동화 프레임 워크](https://github.com/Azure/sap-automation)
 

@@ -1,5 +1,5 @@
 ---
-title: 복합 데이터 형식을 모델링하는 방법
+title: 복합 데이터 형식 모델링
 titleSuffix: Azure Cognitive Search
 description: ComplexType 및 컬렉션 데이터 형식을 사용하여 Azure Cognitive Search 인덱스에서 중첩 또는 계층적 데이터 구조를 모델링할 수 있습니다.
 manager: nitinme
@@ -7,16 +7,16 @@ author: brjohnstmsft
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 04/02/2021
-ms.openlocfilehash: bcd0819ce2720597c6e9f2435d37fe9276d595cd
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 11/17/2021
+ms.openlocfilehash: 525387705abffd09894ebadb9baece0201beeb49
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222276"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751925"
 ---
-# <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search에서 복합 데이터 형식을 모델링하는 방법
+# <a name="model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search의 복합 데이터 형식 모델링
 
 Azure Cognitive Search 인덱스를 채우는 데 사용되는 외부 데이터 세트는 많은 셰이프로 제공될 수 있습니다. 계층적 또는 중첩된 하위 구조체를 포함하는 경우도 있습니다. 예제에는 한 고객에 여러 주소, 단일 SKU에 여러 색과 크기, 한 권의 책에 여러 저자 등이 포함될 수 있습니다. 모델링 용어에서 *complex*, *compound*, *composite* 또는 *aggregate* 데이터 형식이라고 하는 구조를 볼 수 있습니다. 이 개념에 대해 Azure Cognitive Search에서 사용하는 용어는 **복합(complex) 형식** 입니다. Azure Cognitive Search에서 복합 형식은 **복합 필드** 를 사용하여 모델링됩니다. 복합 필드는 다른 복합 형식을 포함하여 모든 데이터 형식일 수 있는 자식(하위 필드)을 포함하는 필드입니다. 이는 프로그래밍 언어에서 구조화된 데이터 형식과 비슷한 방식으로 작동합니다.
 
@@ -69,9 +69,25 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 
 이 제한은 복합 형식(예: 주소) 또는 문자열 컬렉션(예: 태그)이 아닌 복합 컬렉션에만 적용됩니다.
 
-## <a name="creating-complex-fields"></a>복합 필드 만들기
+## <a name="create-complex-fields"></a>복합 필드 만들기
 
 모든 인덱스 정의와 마찬가지로, 포털, [REST API](/rest/api/searchservice/create-index) 또는 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex)를 사용하여 복합 형식을 포함하는 스키마를 만들 수 있습니다. 
+
+### <a name="azure-portal"></a>[**Azure portal**](#tab/complex-type-portal)
+
+1. 검색 서비스 **개요** 페이지에서 **인덱스** 탭을 선택 합니다.
+
+1. 기존 인덱스를 열거나 새 인덱스를 만듭니다.
+
+1. **필드** 탭을 선택한 다음 **필드 추가** 를 선택 합니다.  빈 필드가 추가 됩니다. 기존 필드 컬렉션을 사용 하 여 작업 하는 경우 아래로 스크롤하여 필드를 설정 합니다.
+
+1. 필드에 이름을 지정 하 고 형식을 또는로 설정 합니다 `Edm.ComplexType` `Collection(Edm.ComplexType)` .
+
+1. 맨 오른쪽에 있는 줄임표를 선택한 다음 **필드 추가** 또는 하위 필드 **추가** 를 선택 하 고 특성을 할당 합니다.
+
+### <a name="rest"></a>[**REST**](#tab/complex-type-rest)
+
+[Create Index (REST API)](/rest/api/searchservice/create-index) 를 사용 하 여 스키마를 정의 합니다.
 
 다음 예제에서는 간단한 필드, 컬렉션 및 복합 형식을 사용하는 JSON 인덱스 스키마를 보여 줍니다. 복합 형식 내에서 각 하위 필드는 형식을 가지며 최상위 필드와 마찬가지로 특성을 가질 수도 있습니다. 스키마는 위의 예제 데이터에 해당합니다. `Address`는 컬렉션이 아닌 복합 필드입니다(호텔에는 주소가 하나임). `Rooms`는 복합 컬렉션 필드입니다(호텔에는 많은 객실이 있음).
 
@@ -100,7 +116,73 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 }
 ```
 
-## <a name="updating-complex-fields"></a>복합 필드 업데이트
+### <a name="net-sdk"></a>[**.NET SDK**](#tab/complex-type-dotnet)
+
+[검색 인덱스 클래스](/dotnet/api/azure.search.documents.indexes.models.searchindex) 를 사용 하 여 인덱스 스키마를 정의 합니다.
+
+다음 코드 조각은 [검색-dotnet-시작/DotNetHowTo에서 가져옵니다](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/DotNetHowTo). 
+
+호텔 샘플 인덱스에서 `Address` 는 컬렉션이 아닌 복합 필드입니다. 호텔에는 주소가 하나 있습니다. `Rooms`는 복합 컬렉션 필드입니다(호텔에는 많은 객실이 있음). [주소](https://github.com/Azure-Samples/search-dotnet-getting-started/blob/master/DotNetHowTo/DotNetHowTo/Address.cs) 와 [대화방](https://github.com/Azure-Samples/search-dotnet-getting-started/blob/master/DotNetHowTo/DotNetHowTo/Room.cs) 은 모두 클래스로 정의 됩니다.
+
+```csharp
+using Azure.Search.Documents.Indexes;
+
+namespace AzureSearch.SDKHowTo
+{
+    public partial class Address
+    {
+        [SearchableField(IsFilterable = true)]
+        public string StreetAddress { get; set; }
+
+        [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+        public string City { get; set; }
+
+        [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+        public string StateProvince { get; set; }
+
+        [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+        public string PostalCode { get; set; }
+
+        [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+        public string Country { get; set; }
+    }
+}
+```
+
+[호텔. cs](https://github.com/Azure-Samples/search-dotnet-getting-started/blob/master/DotNetHowTo/DotNetHowTo/Hotel.cs)에서 주소와 대화방은 모두 호텔의 멤버입니다.
+
+```csharp
+using System;
+using Microsoft.Spatial;
+using System.Text.Json.Serialization;
+using Azure.Search.Documents.Indexes;
+using Azure.Search.Documents.Indexes.Models;
+
+namespace AzureSearch.SDKHowTo
+{
+    public partial class Hotel
+    {
+        [SimpleField(IsKey = true, IsFilterable = true)]
+        public string HotelId { get; set; }
+
+        [SearchableField(IsSortable = true)]
+        public string HotelName { get; set; }
+
+        // Removed multiple fields for brevity
+
+        // Address is declared as type Address
+        [SearchableField]
+        public Address Address { get; set; }
+
+        // Room array is declared as type Room
+        public Room[] Rooms { get; set; }
+    }
+}
+```
+
+---
+
+## <a name="update-complex-fields"></a>복합 필드 업데이트
 
 일반적으로 필드에 적용되는 모든 [다시 인덱스 규칙](search-howto-reindex.md)은 복합 필드에도 적용됩니다. 여기에서 몇 가지 주요 규칙을 재작성하고, 복합 형식에 필드를 추가하는 경우 인덱스를 다시 빌드할 필요가 없지만 대부분의 수정 작업이 수행됩니다.
 
@@ -114,7 +196,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 
 `upload` 작업을 사용하여 인덱스에서 기존 문서를 업데이트하는 작업은 복합 필드와 단순 필드에 대해 동일한 방식으로 작동합니다. 즉, 모든 필드가 바뀝니다. 그러나 `merge`(또는 기존 문서에 적용되는 경우 `mergeOrUpload`)는 모든 필드에서 동일하게 작동하지 않습니다. 특히 `merge`는 컬렉션 내에서 요소를 병합하는 것을 지원하지 않습니다. 이 제한 사항은 기본 형식의 컬렉션 및 복합 컬렉션에 대해 존재합니다. 컬렉션을 업데이트하려면 전체 컬렉션 값을 검색하고 변경한 다음, 인덱스 API 요청에 새 컬렉션을 포함해야 합니다.
 
-## <a name="searching-complex-fields"></a>복합 필드 검색
+## <a name="search-complex-fields"></a>복합 필드 검색
 
 자유 형식 검색 식은 복합 형식에서 예상대로 작동합니다. 문서에서 검색 가능한 필드 또는 하위 필드가 일치하는 경우 문서 자체는 일치 항목입니다.
 
@@ -124,7 +206,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 
 이와 같은 쿼리는 필터와 달리 전체 텍스트 검색과는 *상관 관계가 없습니다*. 필터에서 복합 컬렉션의 하위 필드에 대한 쿼리는 [`any` 또는 `all`](search-query-odata-collection-operators.md)의 범위 변수를 사용하여 상호 관련됩니다. 위의 Lucene 쿼리는 오리건의 다른 도시와 함께 “Portland, Maine(메인 주 포틀랜드)”와 “Portland, Oregon(오리건 주 포틀랜드)”를 모두 포함하는 문서를 반환합니다. 이는 각 절이 전체 문서에 있는 해당 필드의 모든 값에 적용되므로 발생합니다. 따라서 “현재 하위 문서”의 개념이 없다는 것입니다. 이에 대한 자세한 내용은 [Azure Cognitive Search의 OData 컬렉션 필터 이해](search-query-understand-collection-filters.md)를 참조하세요.
 
-## <a name="selecting-complex-fields"></a>복합 필드 선택
+## <a name="select-complex-fields"></a>복합 필드 선택
 
 `$select` 매개 변수는 검색 결과에서 반환되는 필드를 선택하는 데 사용됩니다. 이 매개 변수를 사용하여 복합 필드의 특정 하위 필드를 선택하려면 부모 필드와 하위 필드를 슬래시(`/`)로 구분하여 포함합니다.
 

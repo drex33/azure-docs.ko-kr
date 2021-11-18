@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/25/2021
+ms.date: 11/17/2021
 ms.custom: devx-track-python
 ms.devlang: python
-ms.openlocfilehash: a8f1078e714bd88d2b2e9911a9e1708c21aa91b2
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 19a71316e0ff095be6c48e0daecfa287909bf392
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580631"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754902"
 ---
 # <a name="4---python-search-integration-cheat-sheet"></a>4 - Python 검색 통합 치트 시트
 
@@ -64,7 +64,7 @@ Azure Function은 검색 구성 정보를 가져와서 쿼리를 충족합니다
 
 제안 API에 대한 라우팅은 [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website/api/Suggest/function.json) 바인딩에 포함되어 있습니다.
 
-:::code language="python" source="~/azure-search-python-samples/search-website/api/Suggest/__init__.py" highlight="8-23, 35" :::
+:::code language="python" source="~/azure-search-python-samples/search-website/api/Suggest/__init__.py" highlight="8-24, 36" :::
 
 ## <a name="client-suggestions-from-the-catalog"></a>클라이언트: 카탈로그의 제안
 

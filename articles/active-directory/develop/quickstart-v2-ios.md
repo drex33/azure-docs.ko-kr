@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b9576d767e0c5d08d7163de9ded3a7807fb0ba80
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0ced17e1d994f8a21829bf4913a37deff8e68995
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612000"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312080"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -90,7 +90,8 @@ ms.locfileid: "128612000"
 
 #### <a name="step-3-install-dependencies"></a>3단계: 종속성 설치
 
-터미널 창에서 다운로드한 코드 샘플이 있는 폴더로 이동하고 `pod install`을 실행하여 최신 MSAL 라이브러리를 설치합니다.
+1. zip 파일의 압축을 풉니다.
+2. 터미널 창에서 다운로드한 코드 샘플이 있는 폴더로 이동하고 `pod install`을 실행하여 최신 MSAL 라이브러리를 설치합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-4-your-app-is-configured-and-ready-to-run"></a>4단계: 앱이 구성되었고 실행할 준비가 되었습니다.
@@ -101,7 +102,7 @@ ms.locfileid: "128612000"
 > [!div renderon="docs"]
 > #### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
 > 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다.
-> 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
+> 1. XCode에서 프로젝트를 엽니다.
 > 1. **ViewController.swift** 를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 clientID로 업데이트해야 합니다.
 >
 >    ```swift
@@ -122,9 +123,9 @@ ms.locfileid: "128612000"
 >    let kAuthority = "https://login.microsoftonline.de/common"
 >    ```
 
-> 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자** 를 입력합니다.
-> 1. 마우스 오른쪽 단추로 **Info.plist** 를 클릭하고, **파일 열기 형식** > **소스 코드** 를 차례로 선택합니다.
-> 1. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID*** 로 바꿉니다.
+> 3. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자** 를 입력합니다.
+> 4. 마우스 오른쪽 단추로 **Info.plist** 를 클릭하고, **파일 열기 형식** > **소스 코드** 를 차례로 선택합니다.
+> 5. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID*** 로 바꿉니다. 문자열의 `msauth.` 접두사를 확인합니다.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -138,7 +139,7 @@ ms.locfileid: "128612000"
 >    </array>
 >    ```
 
-> 1. 앱을 빌드하고 실행하세요!
+> 6. 앱을 빌드하고 실행하세요!
 
 ## <a name="more-information"></a>추가 정보
 
@@ -164,7 +165,7 @@ end
 
 CocoaPods 설치 명령을 실행합니다.
 
-`podinstall`
+`pod install`
 
 ### <a name="initialize-msal"></a>MSAL 초기화
 

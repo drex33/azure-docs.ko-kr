@@ -6,12 +6,12 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: dfafd0ccdb37e2f716bf50195ce19ad06486eb50
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 00636fbcc807f157b268a60bee52989d87aab1bc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712065"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762445"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-preview"></a>SAP 지속적인 위협 모니터링 배포(미리 보기)
 
@@ -45,13 +45,13 @@ SAP 데이터 커넥터를 배포한 후 SAP 솔루션 보안 콘텐츠를 배�
 > [!NOTE]
 > SNC(Secure Network Communications) 연결을 통해 SAP 데이터 커넥터를 배포하려면 추가 단계가 필요합니다. 자세한 내용은 [SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포를](sap-solution-deploy-snc.md)참조하세요.
 >
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 대로 Microsoft Sentinel SAP 데이터 커넥터 및 보안 콘텐츠를 배포하려면 다음 필수 구성을 충족해야 합니다.
 
 | 영역 | Description |
 | --- | --- |
-|**Azure 필수 조건** | **Microsoft Sentinel 에 액세스합니다.** SAP 데이터 커넥터 를 배포할 때 이 자습서에서 사용할 Microsoft Sentinel 작업 영역 ID 및 키를 기록해 [둡다.](#deploy-your-sap-data-connector) <br><br>Microsoft Sentinel에서 이러한 세부 정보를 보려면  >  **설정 작업 영역 설정** 에이전트  >  **관리로** 이동합니다. <br><br>**Azure 리소스를 만드는 기능**. 자세한 내용은 [Azure Resource Manager 설명서](../azure-resource-manager/management/manage-resources-portal.md)를 참조하세요. <br><br>**Azure Key Vault 에 액세스합니다.** 이 자습서에서는 Azure Key Vault를 사용하여 자격 증명을 저장하는 데 권장되는 단계를 설명합니다. 자세한 내용은 [Azure Key Vault 설명서](../key-vault/index.yml)를 참조하세요. |
+|**Azure 필수 조건** | **Microsoft Sentinel 에 액세스합니다.** SAP 데이터 커넥터 를 배포할 때 이 자습서에서 사용할 Microsoft Sentinel 작업 영역 ID 및 키를 기록해 [둡다.](#deploy-your-sap-data-connector) <br><br>Microsoft Sentinel에서 이러한 세부 정보를 보려면  >  **설정 작업 영역 설정** 에이전트  >  **관리** 로 이동합니다. <br><br>**Azure 리소스를 만드는 기능**. 자세한 내용은 [Azure Resource Manager 설명서](../azure-resource-manager/management/manage-resources-portal.md)를 참조하세요. <br><br>**Azure Key Vault 에 액세스합니다.** 이 자습서에서는 Azure Key Vault를 사용하여 자격 증명을 저장하는 데 권장되는 단계를 설명합니다. 자세한 내용은 [Azure Key Vault 설명서](../key-vault/index.yml)를 참조하세요. |
 |**시스템 필수 구성 요소** | **소프트웨어**. SAP 데이터 커넥터 배포 스크립트는 소프트웨어 필수 조건을 자동으로 설치합니다. 자세한 내용은 [자동으로 설치된 소프트웨어](#automatically-installed-software)를 참조하세요. <br><br> **시스템 연결**. SAP 데이터 커넥터 호스트 역할을 하는 VM이 다음 항목에 액세스할 수 있는지 확인합니다. <br>- Microsoft Sentinel <br>- Azure Key Vault <br>- SAP 환경 호스트(*32xx*, *5xx13*, *33xx* 등의 TCP 포트 사용, 여기서 *xx* 는 SAP 인스턴스 번호입니다.) <br><br>SAP 소프트웨어 다운로드 페이지에 액세스하려면 SAP 사용자 계정도 있어야 합니다.<br><br>**시스템 아키텍처**. SAP 솔루션은 VM에 Docker 컨테이너로 배포되며 각 SAP 클라이언트에는 자체 컨테이너 인스턴스가 필요합니다. 크기 조정 권장 사항은 [권장 가상 머신 크기 조정](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing)을 참조하세요. <br>VM 및 Microsoft Sentinel 작업 영역은 서로 다른 Azure 구독 및 다른 Azure AD 테넌트에도 있을 수 있습니다.|
 |**SAP 필수 조건** | **지원되는 SAP 버전**. [SAP_BASIS 버전 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) 이상 버전을 사용하는 것이 좋습니다. <br><br>이 자습서의 특정 단계에서는 이전 SAP 버전 SAP_BASIS [740에서](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows)작업하는 경우 대체 지침을 제공합니다.<br><br> **SAP 시스템 세부 정보**. 이 자습서에서 사용할 수 있도록 다음과 같은 SAP 시스템 세부 정보를 기록해 둡니다.<br>- SAP 시스템 IP 주소<br>- SAP 시스템 번호(예: `00`)<br>- SAP NetWeaver 시스템의 SAP 시스템 ID(예: `NPL` ) <br>- SAP 클라이언트 ID(예: )`001`<br><br>**SAP NetWeaver 인스턴스 액세스**. SAP 인스턴스에 액세스하려면 다음 옵션 중 하나를 사용해야 합니다. <br>- [SAP ABAP 사용자/암호](#configure-your-sap-system). <br>- SAP CRYPTOLIB PSE를 사용하는 X509 인증서가 있는 사용자. 이 옵션을 사용하려면 전문가의 수동 단계가 필요할 수 있습니다.<br><br>**SAP 팀의 지원**.  SAP 시스템이 솔루션 배포를 위해 [올바르게 구성되었는지](#configure-your-sap-system) 확인하려면 SAP 팀의 지원이 필요합니다. |
 | | |
@@ -89,8 +89,8 @@ SAP 데이터 커넥터를 배포한 후 SAP 솔루션 보안 콘텐츠를 배�
 
 1. [Microsoft Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR)다음 SAP 변경 요청 중 하나를 다운로드하여 설치합니다.
 
-    - **SAP 버전 750 이상:** SAP 변경 요청 *144 설치(NPLK900144)*
-    - **SAP 버전 740:** SAP 변경 요청 *146 설치(NPLK900146)*
+    - **SAP 버전 750 이상:** SAP 변경 요청 *NPLK900170* 설치
+    - **SAP 버전 740:** SAP 변경 요청 *NPLK900169* 설치
 
     이 단계를 수행하는 경우 이진 모드를 사용하여 파일을 SAP 시스템으로 전송하고 **STMS_IMPORT** SAP 트랜잭션 코드를 사용해야 합니다.
 
@@ -98,7 +98,7 @@ SAP 데이터 커넥터를 배포한 후 SAP 솔루션 보안 콘텐츠를 배�
     > SAP **가져오기 옵션** 영역에 **잘못된 구성 요소 버전 무시** 옵션이 표시될 수 있습니다. 표시되는 경우 계속하기 전에 이 옵션을 선택합니다.
     >
 
-1. SAP 변경 요청 *14(NPLK900163)를* **가져와서 /MS MSPN/SENTINEL_CONNECTOR** 라는 새 SAP 역할을 만듭니다. **STMS_IMPORT** SAP 트랜잭션 코드를 사용합니다.
+1. SAP 변경 요청 *NPLK900163* 을 **가져와서 /MS MSPN/SENTINEL_CONNECTOR** 라는 새 SAP 역할을 만듭니다. **STMS_IMPORT** SAP 트랜잭션 코드를 사용합니다.
 
     다음과 같이 필요한 권한으로 역할이 만들어졌는지 확인합니다.
 
@@ -172,14 +172,14 @@ Azure Key Vault를 만들거나 전치려면 다음을 수행합니다.
 
 1. 다음 방법 중 하나를 사용하여 VM의 관리 ID에 GET, LIST 및 SET 권한을 포함한 액세스 정책을 할당합니다.
 
-    - **Azure Portal:**
+    - **Azure Portal 입니다.**
 
         1. Azure 키 자격 증명 모음에서 **액세스 정책** 액세스 정책 추가 - 비밀  >  권한: 보안 주체 선택 **을 선택하고, Get, List 및 Set를**  >  **선택합니다.**  
         1. [VM 이름](#deploy-a-linux-vm-for-your-sap-data-connector)를 입력한 다음, **저장 추가를**  >  선택합니다.
 
         자세한 내용은 [Key Vault 설명서](../key-vault/general/assign-access-policy-portal.md)를 참조하세요.
 
-    - **Azure CLI 입니다.**
+    - **Azure CLI:**
 
         1. 다음 명령을 실행하여 [VM의 보안 주체 ID](#deploy-a-linux-vm-for-your-sap-data-connector)를 확인합니다. Azure 리소스 그룹의 이름을 입력해야 합니다.  
 
@@ -199,7 +199,7 @@ Azure Key Vault를 만들거나 전치려면 다음을 수행합니다.
 
 Microsoft Sentinel SAP 데이터 커넥터의 배포 스크립트는 [필요한 소프트웨어를](#automatically-installed-software) 설치한 다음 새로 [만든 VM](#deploy-a-linux-vm-for-your-sap-data-connector)에 커넥터를 설치합니다. 또한 자격 증명을 전용 키 자격 증명 모음 에 [저장합니다.](#create-a-key-vault-for-your-sap-credentials)
 
-SAP 데이터 커넥터의 배포 스크립트는 [Microsoft Sentinel GitHub 리포지토리 > DataConnectors > SAP](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh)에 저장됩니다.
+SAP 데이터 커넥터의 배포 스크립트는 [Microsoft Sentinel GitHub 리포지토리 > DataConnectors > SAP 에 저장됩니다.](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh)
 
 SAP 데이터 커넥터 배포 스크립트를 실행하려면 다음 항목이 필요합니다.
 
@@ -293,7 +293,7 @@ SAP 솔루션 보안 콘텐츠를 배포하려면 다음을 수행합니다.
 
 Docker 컨테이너가 이전 버전의 SAP 데이터 커넥터에서 이미 실행되고 있으면 SAP 데이터 커넥터 업데이트 스크립트를 실행하여 사용 가능한 최신 기능을 가져옵니다.
 
-Microsoft 센티널 github 리포지토리에서 최신 버전의 관련 배포 스크립트를 사용 하 고 있는지 확인 합니다. 
+Microsoft Sentinel github 리포지토리에서 최신 버전의 관련 배포 스크립트가 있는지 확인합니다. 
 
 다음을 실행합니다.
 
@@ -303,17 +303,17 @@ wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-
 
 머신의 SAP 데이터 커넥터 Docker 컨테이너가 업데이트됩니다. 
 
-다음과 같이 사용 가능한 다른 업데이트가 있는지 확인 해야 합니다.
+다음과 같은 사용 가능한 다른 업데이트를 확인해야 합니다.
 
-- [Microsoft 센티널 GitHub 리포지토리의](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR)관련 SAP 변경 요청
-- Microsoft 센티널 sap security content (SAP 솔루션 **에 대 한 Microsoft 센티널 연속 위협 모니터링** ).
-- [Microsoft 센티널 GitHub 리포지토리의](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists)관련 watchlists.
+- [Microsoft Sentinel GitHub 리포지토리의](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR)관련 SAP 변경 요청.
+- Microsoft Sentinel SAP용 지속적인 위협 모니터링 솔루션의 **Microsoft Sentinel SAP** 보안 콘텐츠입니다.
+- [Microsoft Sentinel GitHub 리포지토리의](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists)관련 감시 목록입니다.
 
 ## <a name="collect-sap-hana-audit-logs"></a>SAP HANA 감사 로그 수집
 
-Syslog를 사용 하 여 구성 된 데이터베이스 감사 로그가 SAP HANA 경우 Syslog 파일을 수집 하도록 Log Analytics 에이전트를 구성 해야 합니다.
+Syslog를 사용하여 SAP HANA 데이터베이스 감사 로그를 구성한 경우 Syslog 파일을 수집하도록 Log Analytics 에이전트도 구성해야 합니다.
 
-1. Sap 실행 [패드 지원 사이트](https://launchpad.support.sap.com/#/notes/0002624117)에서 액세스할 수 있는 *sap Note 0002624117* 에 설명 된 대로 SAP HANA 감사 로그 내역이 Syslog를 사용 하도록 구성 되어 있는지 확인 합니다. 자세한 내용은 다음을 참조하세요.
+1. SAP 실행 [패드 지원 사이트에서](https://launchpad.support.sap.com/#/notes/0002624117)액세스할 수 있는 SAP Note 0002624117 에 설명된 대로 *SAP HANA* 감사 로그 내역이 Syslog를 사용하도록 구성되어 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
 
     - [SAP HANA 감사 내역-모범 사례](https://archive.sap.com/documents/docs/DOC-51098)
     - [감사에 대 한 권장 사항](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
@@ -323,32 +323,32 @@ Syslog를 사용 하 여 구성 된 데이터베이스 감사 로그가 SAP HANA
 1. 머신에 Log Analytics 에이전트를 설치하고 구성합니다.
 
     a. sudo 권한이 있는 .사용자로 HANA 데이터베이스 운영 체제에 로그인합니다.  
-    b. Azure Portal에서 Log Analytics 작업 영역으로 이동합니다. 왼쪽 창의 **설정** 에서 **에이전트 관리**  >  **Linux 서버** 를 선택 합니다.  
-    다. **Linux 용 에이전트 다운로드 및** 등록에서 상자에 표시 되는 코드를 터미널에 복사한 다음 스크립트를 실행 합니다.
+    b. Azure Portal에서 Log Analytics 작업 영역으로 이동합니다. 왼쪽 창의 **설정** 아래에서 에이전트 관리   >  **Linux 서버를** 선택합니다.  
+    c. **Linux용 에이전트 다운로드 및 온보딩에서** 상자에 표시된 코드를 터미널에 복사한 다음 스크립트를 실행합니다.
 
-    Log Analytics 에이전트가 머신에 설치되고 작업 영역에 연결됩니다. 자세한 내용은 [Linux 컴퓨터에 Log Analytics 에이전트 설치](../azure-monitor/agents/agent-linux.md) 및 Microsoft GitHub 리포지토리에 [Linux용 OMS 에이전트](https://github.com/microsoft/OMS-Agent-for-Linux) 를 참조 하세요.
+    Log Analytics 에이전트가 머신에 설치되고 작업 영역에 연결됩니다. 자세한 내용은 [Linux 컴퓨터에 Log Analytics 에이전트 설치](../azure-monitor/agents/agent-linux.md) 및 Microsoft [GitHub](https://github.com/microsoft/OMS-Agent-for-Linux) 리포지토리에 Linux용 OMS 에이전트.
 
-1. **에이전트 관리 > linux 서버** 탭을 새로 고쳐 **1 개의 linux 컴퓨터가 연결** 되어 있는지 확인 합니다.
+1. 에이전트 **관리 > Linux 서버** 탭을 새로 고쳐 **1개의 Linux 컴퓨터가 연결되어** 있음을 확인합니다.
 
-1. 왼쪽 창의 **설정** 에서 **에이전트 구성** 을 선택한 다음 **Syslog** 탭을 선택 합니다.
+1. 왼쪽 창의 **설정** 아래에서 **에이전트 구성 을** 선택한 **다음, Syslog 탭을** 선택합니다.
 
 1. **기능 추가** 를 선택하여 수집하려는 기능을 추가합니다. 
 
     > [!TIP]
-    > HANA 데이터베이스 이벤트를 저장 하는 기능이 서로 다른 배포 간에 변경 될 수 있기 때문에 모든 기능을 추가 하 고 Syslog 로그를 확인 한 다음 관련이 없는 모든 기능을 제거 하는 것이 좋습니다.
+    > HANA 데이터베이스 이벤트가 저장되는 기능이 서로 다른 배포 간에 변경 될 수 있으므로 모든 기능을 추가하고 Syslog 로그에 대해 확인한 다음 관련이 없는 모든 기능을 제거하는 것이 좋습니다.
     >
 
-1. Microsoft 센티널에서 HANA 데이터베이스 이벤트가 이제 수집 로그에 표시 되는지 확인 합니다.
+1. Microsoft Sentinel에서 HANA 데이터베이스 이벤트가 이제 검색된 로그에 표시되어 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Microsoft 센티널 SAP 솔루션에 대해 자세히 알아보세요.
+Microsoft Sentinel SAP 솔루션에 대해 자세히 알아보세요.
 
-- [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
-- [Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
-- [Microsoft 센티널 SAP 솔루션 로그 참조](sap-solution-log-reference.md)
-- [Microsoft 센티널 SAP solution: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)
-- [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel SAP 솔루션 세부 SAP 요구 사항](sap-solution-detailed-requirements.md)
+- [Microsoft Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
+- [Microsoft Sentinel SAP 솔루션: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)
+- [Microsoft Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
 
-자세한 내용은 [Microsoft 센티널 solutions](sentinel-solutions.md)을 참조 하세요.
+자세한 내용은 [Microsoft Sentinel 솔루션 을 참조하세요.](sentinel-solutions.md)

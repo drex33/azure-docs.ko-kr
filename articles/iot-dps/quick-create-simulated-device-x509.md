@@ -1,8 +1,8 @@
 ---
 title: 빠른 시작 - Microsoft Azure IoT Hub에 X.509 인증서 시뮬레이션된 디바이스 프로비저닝
 description: Azure IoT Hub Device Provisioning Service에서 X.509 인증서로 인증하는 시뮬레이션된 디바이스를 프로비저닝하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/07/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: lizross
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set1
-ms.openlocfilehash: c0c3d486e2a886a49c51e7ed78ed935c1a1c5c22
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 23ff38d248343cc02c1e9cbf3d5fb5ffce419bad
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276701"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763034"
 ---
 # <a name="quickstart-provision-an-x509-certificate-simulated-device"></a>빠른 시작: X.509 인증서 시뮬레이션된 디바이스 프로비저닝
 
@@ -25,11 +25,11 @@ ms.locfileid: "129276701"
 
 이 빠른 시작에서는 Windows 기반 워크스테이션을 위한 솔루션을 보여줍니다. 그러나 Linux에서 절차를 수행할 수도 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-* [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료합니다.
+* [Azure Portal로 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료합니다.
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
@@ -73,7 +73,7 @@ ms.locfileid: "129276701"
 
 ::: zone-end
 
-* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다. 명령 창에서 액세스할 수 있는 환경 변수에 Git이 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 *Git Bash* 가 포함됩니다.
+* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다. Git이 명령 창에 액세스할 수 있는 환경 변수에 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 *Git Bash* 가 포함됩니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비
 
@@ -84,15 +84,15 @@ ms.locfileid: "129276701"
 1. 최신 [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
     >[!IMPORTANT]
-    >`CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)가 머신에 설치되어 있는지 확인합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다. 또한 이전 버전의 CMake 빌드 시스템은 이 문서에 사용되는 솔루션 파일을 생성하지 못합니다. 따라서 최신 버전의 CMake를 사용해야 합니다.
+    >`CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다. 이전 버전의 CMake 빌드 시스템은 이 문서에 사용된 솔루션 파일을 생성하지 못합니다. 최신 버전의 CMake를 사용해야 합니다.
 
-2. 웹 브라우저를 열고 [Azure IoT C SDK의 릴리스 페이지](https://github.com/Azure/azure-iot-sdk-c/releases/latest)로 이동합니다.
+2. 웹 브라우저를 열고 [Azure IoT C SDK 릴리스 페이지](https://github.com/Azure/azure-iot-sdk-c/releases/latest)로 이동합니다.
 
 3. 페이지 맨 위에서 **태그** 탭을 선택합니다.
 
-4. Azure IoT C SDK 최신 릴리스의 태그 이름을 복사합니다.
+4. Azure IoT C SDK의 최신 릴리스에 대한 태그 이름을 복사합니다.
 
-5. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리의 최신 릴리스를 복제합니다. (`<release-tag>`를 이전 단계에서 복사한 태그로 바꿉니다.)
+5. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리의 최신 릴리스를 복제합니다. (`<release-tag>`을(를) 이전 단계에서 복사한 이름으로 바꿉니다).
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -372,7 +372,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 2. 왼쪽 메뉴 또는 포털 페이지에서 **모든 리소스** 를 선택합니다.
 
-3. 해당하는 Device Provisioning Service를 선택합니다.
+3. Device Provisioning Service를 선택합니다.
 
 4. **설정** 메뉴에서 **등록 관리** 를 선택합니다.
 
@@ -748,11 +748,11 @@ Python 프로비저닝 샘플 [provision_x509 py](https://github.com/Azure/azure
 
 2. 왼쪽 메뉴 또는 포털 페이지에서 **모든 리소스** 를 선택합니다.
 
-3. 디바이스가 할당된 IoT 허브를 선택합니다.
+3. 디바이스가 할당된 IoT Hub를 선택합니다.
 
-4. **탐색기** 메뉴에서 **IoT 디바이스** 를 선택합니다.
+4. **Explorers** 메뉴에서 **IoT 디바이스** 를 선택합니다.
 
-5. 디바이스가 성공적으로 프로비저닝된 경우 디바이스 ID가 목록에 표시되고 **상태** 가 *사용* 으로 설정됩니다. 디바이스가 표시되지 않으면 페이지 위쪽에서 **새로 고침** 을 선택합니다.
+5. 디바이스가 성공적으로 프로비전된 경우 **상태** 가 *사용* 으로 설정된 디바이스 ID가 목록에 표시됩니다. 디바이스가 표시되지 않으면 페이지 위쪽에서 **새로 고침** 을 선택합니다.
 
    :::zone pivot="programming-language-ansi-c"
 
@@ -793,7 +793,7 @@ Python 프로비저닝 샘플 [provision_x509 py](https://github.com/Azure/azure
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-디바이스 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
+디바이스 클라이언트 샘플에 계속 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 그만하려면 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 ### <a name="delete-your-device-enrollment"></a>디바이스 등록 삭제
 
@@ -801,13 +801,13 @@ Python 프로비저닝 샘플 [provision_x509 py](https://github.com/Azure/azure
 
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택합니다.
 
-3. 해당하는 Device Provisioning Service를 선택합니다.
+3. Device Provisioning Service를 선택합니다.
 
 4. **설정** 메뉴에서 **등록 관리** 를 선택합니다.
 
 5. **개별 등록** 탭을 선택합니다.
 
-6. 이 빠른 시작에서 등록한 디바이스의 *등록 ID* 옆에 있는 확인란을 선택합니다.
+6. 이 빠른 시작에 등록한 디바이스의 *등록 ID* 옆에 있는 확인란을 선택합니다.
 
 7. 페이지 위쪽에서 **삭제** 를 선택합니다.
 
@@ -817,7 +817,7 @@ Python 프로비저닝 샘플 [provision_x509 py](https://github.com/Azure/azure
 
 2. IoT Hub를 선택합니다.
 
-3. **탐색기** 메뉴에서 **IoT 디바이스** 를 선택합니다.
+3. **Explorers** 메뉴에서 **IoT 디바이스** 를 선택합니다.
 
 4. 이 빠른 시작에서 등록한 디바이스의 *디바이스 ID* 옆에 있는 확인란을 선택합니다.
 

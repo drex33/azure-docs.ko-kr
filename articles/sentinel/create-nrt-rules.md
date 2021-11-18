@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에서 NRT (거의 실시간) 검색 분석 규칙을 사용 하 여 작업 | Microsoft Docs
 description: 이 문서에서는 Microsoft 센티널에서 NRT (거의 실시간) 검색 분석 규칙을 보고 만드는 방법을 설명 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 33f6417193944a4596e6900af5c68ae52aa4aca4
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 98753bb98e09a28de36aa162ffb17503a6d3cbee
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721483"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756821"
 ---
 # <a name="work-with-near-real-time-nrt-detection-analytics-rules-in-microsoft-sentinel"></a>Microsoft 센티널에서 NRT (거의 실시간) 검색 분석 규칙을 사용 합니다.
 

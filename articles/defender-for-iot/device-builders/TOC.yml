@@ -19,7 +19,7 @@
     - name: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
       displayName: 'package, authentication, methods, certificate, authenticate, version'
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)
+    - name: Defender for IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)
       href: quickstart-create-micro-agent-module-twin.md
     - name: Azure RTOS용 Defender-IoT-micro-agent 구성
       href: quickstart-azure-rtos-security-module.md
@@ -155,7 +155,7 @@
           href: how-to-investigate-device.md
     - name: 문제 해결
       items:
-        - name: Defender for Cloud IoT 마이크로 에이전트 문제 해결(미리 보기)
+        - name: Defender for IoT 마이크로 에이전트 문제 해결(미리 보기)
           displayName: 'service status, review logs'
           href: troubleshoot-defender-micro-agent.md
 - name: 참조

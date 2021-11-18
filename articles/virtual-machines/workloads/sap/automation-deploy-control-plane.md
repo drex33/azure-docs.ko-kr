@@ -7,14 +7,14 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 17f7b02d6a1ed57341a32573cadec9f27a25b9c8
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: eb481c913103e5411c505c936e1c9c953260f8d9
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730421"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759975"
 ---
-# <a name="deploy-the-control-plane"></a>컨트롤 평면 배포
+# <a name="deploy-the-control-plane"></a>컨트롤 플레인 배포
 
 [Azure의 SAP 배포 자동화 프레임 워크](automation-deployment-framework.md) 에 대 한 제어 평면 배포는 다음 구성 요소로 구성 됩니다.
  - 배포자
@@ -46,7 +46,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
-## <a name="deploy-the-control-plane"></a>컨트롤 평면 배포
+## <a name="deploy-the-control-plane"></a>컨트롤 플레인 배포
    
 샘플 배포자 구성 파일 `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` 은 폴더에 있습니다 `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` .
 
@@ -62,10 +62,10 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 az logout
 az login
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret=<password>
+export tenant_id=<tenant>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
@@ -73,7 +73,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
         --spn_secret  $spn_secret                                                                                \ 
-        --tenant_id $tenant
+        --tenant_id $tenant_id
 ```
 
 # <a name="windows"></a>[Windows](#tab/windows)

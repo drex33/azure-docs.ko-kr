@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: quickstart
 ms.date: 07/12/2021
 ms.author: drewbat
-ms.openlocfilehash: 850771db454f854243ac9ba242d02ed1911f255c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 30655cab708eb5e850f522d171f623f55c12aff7
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787902"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756385"
 ---
 # <a name="quickstart-create-a-javascript-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 JavaScript 앱 만들기
 
@@ -139,4 +139,4 @@ run().catch((err) => console.log("ERROR:", err));
 추가 코드 샘플은 다음을 방문하세요.
 
 > [!div class="nextstepaction"]
-> [Azure App Configuration 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/samples)
+> [Azure App Configuration 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1/javascript)

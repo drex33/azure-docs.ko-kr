@@ -1,25 +1,17 @@
 ---
 title: Microsoft Sentinel | 데이터 커넥트 Azure Active Directory Microsoft Docs
 description: Azure Active Directory 데이터를 수집하고 Azure AD 로그인, 감사 및 프로비저닝 로그를 Microsoft Sentinel로 스트리밍하는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 029fcc5d9df8ee16aa7727353763f0e4d12e2796
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: bb61d3d6f974f755ea35c8b4c2d7813bcd38a0d3
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132716128"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760654"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-microsoft-sentinel"></a>Microsoft Sentinel에 데이터 커넥트 Azure Active Directory(Azure AD)
 

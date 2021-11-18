@@ -1,24 +1,17 @@
 ---
 title: UEBA 데이터를 사용하여 인시던트 조사 | Microsoft Docs
 description: 조사하는 동안 UEBA 데이터를 사용하여 조직에서 발생할 수 있는 악의적인 활동에 대한 더 많은 컨텍스트를 얻는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c9c606390a6a0f1831728bc71d50e7074ba8cde4
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 6d51d6c67db9afa664f16146315aeacb643fe44c
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132720866"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751615"
 ---
 # <a name="tutorial-investigate-incidents-with-ueba-data"></a>자습서: UEBA 데이터를 사용하여 인시던트 조사
 
@@ -34,7 +27,7 @@ ms.locfileid: "132720866"
 > [!NOTE]
 > 이 자습서에서는 상위 고객 작업인 UEBA 데이터로 조사를 위한 시나리오 기반 절차를 제공합니다. 자세한 내용은 [Microsoft 센티널로 인시던트 조사](investigate-cases.md)를 참조 하세요.
 >
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 조사에서 UEBA 데이터를 사용 하려면 먼저 [Microsoft 센티널에서 사용자 및 엔터티 동작 분석 (ueba)을 사용 하도록 설정](enable-entity-behavior-analytics.md)해야 합니다.
 

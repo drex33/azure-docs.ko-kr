@@ -1,24 +1,17 @@
 ---
-title: Microsoft 센티널에서 인시던트 메트릭을 사용 하 여 SOC를 더 잘 관리 | Microsoft Docs
-description: Microsoft 센티널 인시던트 메트릭 화면 및 통합 문서의 정보를 사용 하 여 SOC (Security Operations Center)를 관리 하는 데 도움을 줍니다.
-services: sentinel
-documentationcenter: na
+title: Microsoft Sentinel | 인시던트 메트릭을 사용하여 SOC를 더 잘 관리 Microsoft Docs
+description: Microsoft Sentinel 인시던트 메트릭 화면 및 통합 문서의 정보를 사용하여 SOC(보안 운영 센터)를 관리할 수 있습니다.
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 14188ad0738b0e817bb10fcff7b05441022efac5
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 08208eaf7127f70a2ad20408b814246b47f489b0
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132720799"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760238"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>인시던트 메트릭을 사용하여 SOC를 효율적으로 관리
 
@@ -26,11 +19,11 @@ ms.locfileid: "132720799"
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-SOC(보안 운영 센터) 관리자는 팀의 성과를 측정하기 위해 전체 효율성 메트릭과 측정값을 손쉽게 유지할 수 있어야 합니다. 심각도, MITRE 전술, 평균 심사 시간, 평균 해결 시간 등과 같은 다양한 기준으로 시간에 따른 인시던트 작업을 확인해야 할 것입니다. 이제 Microsoft 센티널은 Log Analytics 및 함께 제공 되는 **보안 작업 효율성** 통합 문서에서 새 **securityincident** 테이블과 스키마를 사용 하 여이 데이터를 사용할 수 있도록 합니다. 시간에 따른 팀의 성과를 시각화하고 이 인사이트를 사용하여 효율성을 향상시킬 수 있습니다. 인시던트 테이블에 대해 고유한 KQL 쿼리를 작성 및 사용하여 특정 감사 요구 사항 및 KPI에 맞는 사용자 지정 통합 문서를 만들 수도 있습니다.
+SOC(보안 운영 센터) 관리자는 팀의 성과를 측정하기 위해 전체 효율성 메트릭과 측정값을 손쉽게 유지할 수 있어야 합니다. 심각도, MITRE 전술, 평균 심사 시간, 평균 해결 시간 등과 같은 다양한 기준으로 시간에 따른 인시던트 작업을 확인해야 할 것입니다. 이제 Microsoft Sentinel은 Log Analytics의 새 **SecurityIncident** 테이블 및 스키마와 함께 제공되는 **보안 작업 효율성** 통합 문서를 통해 이 데이터를 사용할 수 있도록 합니다. 시간에 따른 팀의 성과를 시각화하고 이 인사이트를 사용하여 효율성을 향상시킬 수 있습니다. 인시던트 테이블에 대해 고유한 KQL 쿼리를 작성 및 사용하여 특정 감사 요구 사항 및 KPI에 맞는 사용자 지정 통합 문서를 만들 수도 있습니다.
 
 ## <a name="use-the-security-incidents-table"></a>보안 인시던트 테이블 사용
 
-**Securityincident** 테이블은 Microsoft 센티널에 기본 제공 됩니다. 이 테이블은 **로그** 아래에 있는 **SecurityInsights** 컬렉션의 다른 테이블과 함께 찾을 수 있습니다. Log Analytics의 다른 테이블처럼 쿼리할 수 있습니다.
+**SecurityIncident** 테이블은 Microsoft Sentinel에 기본 제공되어 있습니다. 이 테이블은 **로그** 아래에 있는 **SecurityInsights** 컬렉션의 다른 테이블과 함께 찾을 수 있습니다. Log Analytics의 다른 테이블처럼 쿼리할 수 있습니다.
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incident-table.png" alt-text="보안 인시던트 테이블":::
 
@@ -89,7 +82,7 @@ SecurityIncident
 - 최근 활동 
 - 최근 종료 분류  
 
-Microsoft 센티널 탐색 메뉴에서 **통합 문서** 를 선택 하 고 **템플릿** 탭을 선택 하 여이 새 통합 문서 템플릿을 찾을 수 있습니다. 갤러리에서 **보안 작업 효율성** 을 선택 하 고 **저장 된 통합 문서 보기** 및 **템플릿 보기** 단추 중 하나를 클릭 합니다.
+Microsoft Sentinel 탐색 메뉴에서 통합 문서를 선택하고 템플릿 탭을 선택하여 이 새 **통합 문서** 템플릿을 찾을 수 **있습니다.** 갤러리에서 **보안 작업 효율성을** 선택하고 저장된 통합 문서 보기 및 템플릿 **보기** 단추 중 하나를 클릭합니다. 
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="보안 인시던트 통합 문서 갤러리":::
 
@@ -103,5 +96,5 @@ Microsoft 센티널 탐색 메뉴에서 **통합 문서** 를 선택 하 고 **�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Microsoft 센티널을 시작 하려면 Microsoft Azure 구독이 필요 합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
-- [Microsoft 센티널에 데이터](quickstart-onboard.md)를 등록 하 고 [데이터 및 잠재적 위협을 파악](get-visibility.md)하는 방법을 알아봅니다.
+- Microsoft Sentinel을 시작하려면 Microsoft Azure 구독이 필요합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
+- [Microsoft Sentinel에 데이터를 온보딩하고](quickstart-onboard.md) [데이터 및 잠재적 위협을 파악하는](get-visibility.md)방법을 알아봅니다.

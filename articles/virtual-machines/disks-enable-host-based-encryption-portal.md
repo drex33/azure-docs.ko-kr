@@ -4,18 +4,20 @@ description: 호스트에서 암호화를 사용하여 Azure 관리 디스크 - 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 11/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bd1c2d9a9d428a765a9b621652aa23fdec94f212
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 518ce933938003584c106cc569d31b64e0d26b05
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456406"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760317"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure Portal을 사용하여 호스트에서 암호화를 사용하는 엔드투엔드 암호화를 사용하도록 설정
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VM
 
 호스트에서 암호화를 사용하도록 설정하면 VM 호스트에 저장된 데이터는 미사용 및 스토리지 서비스로 암호화된 흐름으로 암호화됩니다. 호스트에서 암호화 및 기타 관리 디스크 암호화 유형에 대한 개념 정보는 [호스트에서 암호화 - VM 데이터에 대한 엔드투엔드 암호화](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)를 참조하세요.
 
@@ -28,7 +30,7 @@ ms.locfileid: "114456406"
 
 ### <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+레거시 VM 크기는 지원되지 않습니다. [Azure PowerShell 모듈을](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) [사용하거나](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes)Azure CLI 지원되는 VM 크기 목록을 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -68,7 +70,7 @@ VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 이 �
 1. **디스크** 창에서 **호스트에서 암호화** 를 선택합니다.
 1. 원하는 대로 나머지 항목을 선택합니다.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/host-based-encryption-platform-keys.png" alt-text="가상 머신 생성하기 디스크 창, 호스트에서 암호화가 강조 표시된 스크린샷.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/host-based-encryption-platform-keys.png" alt-text="호스트의 암호화가 강조 표시된 가상 머신 만들기 디스크 창의 스크린샷.":::
 
 1. VM 배포 프로세스를 마치고 환경에 맞는 선택을 합니다.
 

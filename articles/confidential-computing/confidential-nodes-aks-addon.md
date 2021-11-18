@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2021
 ms.author: amgowda
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f4a00e1c70427c6b467a52694340e10109b5f4f5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2cdb04ba919b9a62cbf68e0243cb9c5d9b9c4b95
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103711"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761685"
 ---
 # <a name="confidential-computing-plugin-for-confidential-vms"></a>기밀 VM에 대한 기밀 컴퓨팅 플러그 인
 
@@ -26,7 +26,7 @@ SGX 디바이스 플러그 인은 EPC(Enclave 페이지 캐시) 메모리에 대
 
 ## <a name="psm-with-sgx-quote-helper"></a>SGX 따옴표 도우미가 있는 PSM
 
-원격 증명을 수행하는 Enclave 애플리케이션은 따옴표를 생성해야 합니다. 따옴표는 enclave의 호스트 환경과 함께 애플리케이션의 ID 및 상태에 대한 암호화 증명을 제공합니다. 견적 생성은 SGX 플랫폼 소프트웨어 구성 요소(PSW/DCAP)의 일부인 Intel의 신뢰할 수 있는 특정 소프트웨어 구성 요소를 기반으로 합니다. 이 PSW는 노드당 실행되는 디먼 집합으로 패키지되어 있습니다. enclave 앱에서 증명 견적을 요청할 때 PSW를 사용할 수 있습니다. AKS 제공 서비스를 사용하면 PSW와 호스트의 다른 SW 구성 요소 간의 호환성을 더 잘 유지할 수 있습니다. 아래 기능 세부 정보를 읽어보세요.
+원격 증명을 수행하는 Enclave 애플리케이션은 따옴표를 생성해야 합니다. 따옴표는 enclave의 호스트 환경과 함께 애플리케이션의 ID 및 상태에 대한 암호화 증명을 제공합니다. 견적 생성은 PSW/DCAP(SGX Platform Software Components)의 일부인 Intel의 신뢰할 수 있는 특정 소프트웨어 구성 요소를 기반으로 합니다. 이 PSW는 노드당 실행되는 디먼 집합으로 패키지되어 있습니다. enclave 앱에서 증명 견적을 요청할 때 PSW를 사용할 수 있습니다. AKS 제공 서비스를 사용하면 PSW와 호스트의 다른 SW 구성 요소 간의 호환성을 더 잘 유지할 수 있습니다. 아래 기능 세부 정보를 읽어보세요.
 
 원격 증명을 수행하는 [Enclave 애플리케이션에는](confidential-computing-enclaves.md) 생성된 따옴표가 필요합니다. 이 인용문은 애플리케이션의 ID, 상태 및 실행 환경에 대한 암호화 증명을 제공합니다. 이 생성에는 Intel PSW의 일부인 신뢰할 수 있는 소프트웨어 구성 요소가 필요합니다.
 
@@ -35,7 +35,7 @@ SGX 디바이스 플러그 인은 EPC(Enclave 페이지 캐시) 메모리에 대
 > [!NOTE]
 > 이 기능은 특수 Intel SGX 하드웨어를 사용하는 DCsv2/DCsv3 VM에만 필요합니다. 
  
-Intel은 따옴표 생성을 실행하는 두 가지 증명 모드를 지원합니다. 유형을 선택하는 방법은 [증명 형식의 차이점을 참조하세요.](#attestation-type-differences)
+Intel은 견적 생성을 실행하는 두 가지 증명 모드를 지원합니다. 유형을 선택하는 방법은 [증명 형식의 차이점을 참조하세요.](#attestation-type-differences)
 
 - **in-proc**: enclave 애플리케이션 프로세스 내부에서 신뢰할 수 있는 소프트웨어 구성 요소를 호스팅합니다.
 
@@ -61,7 +61,7 @@ PSW 및 DCAP와의 이전 버전과의 호환성을 확인할 필요가 없습�
 
 ### <a name="out-of-proc-attestation-for-confidential-workloads"></a>기밀 워크로드에 대한 Out-of-proc 증명
 
-out-of-proc 증명 모델은 기밀 워크로드에 대해 작동합니다. 견적 요청자와 견적 생성은 별도로 실행되지만 동일한 물리적 컴퓨터에서 실행됩니다. 견적 생성은 중앙 집중식 방식으로 발생하며 모든 엔터티의 QUOTES에 대한 요청을 처리합니다. 인터페이스를 올바르게 정의하고 엔터티가 따옴표를 요청할 수 있도록 인터페이스를 검색할 수 있도록 합니다.
+out-of-proc 증명 모델은 기밀 워크로드에 대해 작동합니다. 견적 요청자와 견적 생성은 별도로 실행되지만 동일한 물리적 컴퓨터에서 실행됩니다. 견적 생성은 중앙 집중식 방식으로 발생하며 모든 엔터티의 QUOTES에 대한 요청을 제공합니다. 인터페이스를 올바르게 정의하고 엔터티가 따옴표를 요청할 수 있도록 인터페이스를 검색할 수 있도록 합니다.
 
 ![따옴표 요청자 및 따옴표 생성 인터페이스의 다이어그램입니다.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
@@ -147,4 +147,4 @@ spec:
 - [DCsv2 SKU 목록](../virtual-machines/dcv2-series.md)
 - [DCSv3 SKU 목록](../virtual-machines/dcv3-series.md)
 - [Azure Attestation](../attestation/index.yml)
-- [Azure의 Intel SGX 기밀 Virtual Machines](/confidential-computing/virtual-machine-solutions-sgx.md)
+- [Azure의 Intel SGX 기밀 Virtual Machines](/virtual-machine-solutions-sgx.md)

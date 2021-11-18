@@ -1,43 +1,43 @@
 ---
-title: Ansible을 실행하여 SAP 시스템 구성
-description: Azure에서 SAP 배포 자동화 프레임워크와 함께 Ansible 플레이북을 사용하여 환경을 구성하고 SAP를 설치합니다.
+title: Ansible를 실행 하 여 SAP 시스템 구성
+description: Azure에서 sap deployment automation 프레임 워크를 사용 하 여 환경을 구성 하 고 Ansible 플레이 북를 사용 하 여 sap를 설치 합니다.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
-ms.openlocfilehash: a54870554cc1ab1a0c45d62115bbc54f11b41dac
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0837b7fb2adf833ce04799bd6b334c52cc20fd4f
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730441"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757828"
 ---
 # <a name="get-started-ansible-configuration"></a>Ansible 구성 시작
 
-[Azure에서 SAP 배포 자동화 프레임워크를](automation-deployment-framework.md)사용하는 경우 [자동화된 인프라 배포](automation-get-started.md)를 수행할 수 있지만 필요한 운영 체제 구성을 수행하며 리포지토리에 제공된 Ansible 플레이북을 사용하여 SAP를 설치할 수도 있습니다. 이러한 플레이북은 폴더의 자동화 프레임워크 리포지토리에 `/sap-hana/deploy/ansible` 있습니다.
+[Azure에서 SAP deployment automation 프레임 워크](automation-deployment-framework.md)를 사용 하는 경우 [자동화 된 인프라 배포](automation-get-started.md)를 수행할 수 있지만, 필요한 운영 체제 구성을 수행 하 고 리포지토리에 제공 된 Ansible 플레이 북을 사용 하 여 SAP를 설치할 수도 있습니다. 이러한 플레이 북은 폴더의 automation framework 리포지토리에 있습니다 `/sap-automation/deploy/ansible` .
 
-| 파일 이름                                   | 설명                                       |
+| 파일 이름                                   | Description                                       |
 | ------------------------------------------ | ------------------------------------------------- |
-| `playbook_01_os_base_config.yaml`          | 기본 OS(운영 체제) 구성          |
+| `playbook_01_os_base_config.yaml`          | 기본 OS (운영 체제) 구성          |
 | `playbook_02_os_sap_specific_config.yaml`  | SAP 관련 OS 구성                     |
-| `playbook_03_bom_processing.yaml`          | SAP BoM(SAP 제품장) 처리        |
+| `playbook_03_bom_processing.yaml`          | Sap BoM (sap 자재 청구) 처리        |
 | `playbook_04_00_00_hana_db_install`        | SAP HANA 데이터베이스 설치                    |
-| `playbook_05_00_00_sap_scs_install.yaml`   | SAP SCS(중앙 서비스) 설치           |
+| `playbook_05_00_00_sap_scs_install.yaml`   | SAP 중앙 서비스 (SCS) 설치           |
 | `playbook_05_01_sap_dbload.yaml`           | 데이터베이스 로더                                   |
-| `playbook_05_02_sap_pas_install.yaml`      | SAP PAS(기본 애플리케이션 서버) 설치 |
-| `playbook_05_03_sap_app_install.yaml`      | SAP 애플리케이션 서버 설치               |
+| `playbook_05_02_sap_pas_install.yaml`      | SAP PAS (기본 응용 프로그램 서버) 설치 |
+| `playbook_05_03_sap_app_install.yaml`      | SAP 응용 프로그램 서버 설치               |
 | `playbook_05_04_sap_web_install.yaml`      | SAP 웹 디스패처 설치                   |
-| `playbook_04_00_01_hana_hsr.yaml`          | ha 구성 SAP HANA                         |
+| `playbook_04_00_01_hana_hsr.yaml`          | SAP HANA HA 구성                         |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Ansible 플레이북에는 `sap-parameters.yaml` 다음 파일과 `SID_host.yaml` 현재 디렉터리에 있어야 합니다.
+Ansible 플레이 북에는 다음 파일 `sap-parameters.yaml` 및 `SID_host.yaml` 현재 디렉터리가 필요 합니다.
 
 ### <a name="configuration-files"></a>구성 파일
 
-**sap-parameters.yaml에는** Ansible이 SAP 인프라 구성에 사용하는 정보가 포함되어 있습니다.
+Ansible에서 SAP 인프라 구성에 사용 하는 정보를 포함 하는 **sap 매개 변수. yaml**
 
 ```yaml
 ---
@@ -98,7 +98,7 @@ disks:
 ...
 ```
 
-**`X01_hosts.yaml`** 는 SAP 인프라 구성에 Ansible이 사용하는 인벤토리 파일입니다. 'X01'은 배포에 따라 다를 수 있습니다.
+는 **`X01_hosts.yaml`** SAP 인프라의 구성에 Ansible에서 사용 하는 인벤토리 파일입니다. ' X01 '은 배포에 대해 다를 수 있습니다.
 
 ```yaml
 X01_DB:
@@ -157,9 +157,9 @@ X01_WEB:
 
 ## <a name="run-a-playbook"></a>플레이북 실행
 
-이 단계를 실행하기 전에 SAP 소프트웨어를 Azure 환경에 [다운로드했는지](automation-software.md) 확인합니다.
+이 단계를 실행 하기 전에 Azure 환경에 [SAP 소프트웨어를 다운로드](automation-software.md) 했는지 확인 합니다.
 
-플레이북 또는 여러 플레이북을 실행하려면 다음과 같이 명령을 `ansible-playbook` 사용합니다. 아래 예제는 운영 체제 구성 플레이북을 실행합니다.
+플레이 북 또는 여러 플레이 북을 실행 하려면 다음과 같이 명령을 사용 `ansible-playbook` 합니다. 아래 예제는 운영 체제 구성 플레이 북를 실행 합니다.
 
 
 ```bash
@@ -202,7 +202,7 @@ playbook_options=(
         "${@}"
 )
 
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/playbook_01_os_base_config.yaml
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
 
 ```
 

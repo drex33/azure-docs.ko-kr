@@ -1,18 +1,17 @@
 ---
 title: Microsoft Sentinel을 Azure, Windows 및 Microsoft 서비스 커넥트
-description: Microsoft Sentinel을 Azure에 연결하고 클라우드 서비스를 Microsoft 365 Windows Server 이벤트 로그에 연결하는 방법을 알아봅니다.
+description: Microsoft Sentinel을 Azure에 연결하고 클라우드 서비스를 Microsoft 365 서버 이벤트 로그를 Windows 방법을 알아봅니다.
 author: yelevin
-manager: rkarlin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4843f3bf4f5ccaf22446bb98a5e44fa6179d9946
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 5e75667677d5a0f6094d254478472f89a7cbfc49
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724447"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760651"
 ---
 # <a name="connect-microsoft-sentinel-to-azure-windows-microsoft-and-amazon-services"></a>Azure, Windows, Microsoft 및 Amazon 서비스에 Microsoft Sentinel 커넥트
 
@@ -149,7 +148,7 @@ Microsoft Sentinel에 데이터를 수집하려면 다음을 수행합니다.
 
 데이터 수집 규칙을 만드는 방법은 아래를 참조하세요.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Microsoft Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -173,13 +172,13 @@ Microsoft Sentinel에 데이터를 수집하려면 다음을 수행합니다.
 
 1. **리소스** 탭에서 **+리소스 추가** 를 선택하여 데이터 수집 규칙이 적용될 머신을 추가합니다. **범위 선택** 대화 상자가 열리고 사용 가능한 구독 목록이 표시됩니다. 구독을 확장하여 해당 리소스 그룹을 확인하고 리소스 그룹을 확장하여 사용 가능한 머신을 확인합니다. 목록에 Azure 가상 머신 및 Azure Arc 지원 서버가 표시됩니다. 구독 또는 리소스 그룹의 확인란을 표시하여 포함된 모든 머신을 선택하거나 개별 머신을 선택할 수 있습니다. 모든 머신을 선택한 경우 **적용** 을 선택합니다. 이 프로세스가 끝나면 Azure Monitor 에이전트가 아직 설치되지 않은 선택한 머신에 설치됩니다.
 
-1. **수집** 탭에서 수집 하려는 이벤트를 선택 합니다. **모든 이벤트** 또는 **사용자 지정** 을 선택 하 여 다른 로그를 지정 하거나 [XPath 쿼리](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) 를 사용 하 여 이벤트를 필터링 합니다 (아래 참고 참조). 수집할 이벤트에 대한 특정 XML 조건으로 계산되는 식을 상자에 입력한 다음, **추가** 를 선택합니다. 단일 상자에 최대 20개의 식을 입력하고 하나의 규칙에 최대 100개의 상자를 포함할 수 있습니다.
+1. **수집** 탭에서 수집할 이벤트를 선택합니다. 모든 **이벤트** 또는 **사용자 지정을** 선택하여 다른 로그를 지정하거나 [XPath 쿼리를](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) 사용하여 이벤트를 필터링합니다(아래 참고 참조). 수집할 이벤트에 대한 특정 XML 조건으로 계산되는 식을 상자에 입력한 다음, **추가** 를 선택합니다. 단일 상자에 최대 20개의 식을 입력하고 하나의 규칙에 최대 100개의 상자를 포함할 수 있습니다.
 
     Azure Monitor 설명서에서 [데이터 수집 규칙](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr)에 대해 자세히 알아보세요.
 
     > [!NOTE]
     >
-    > - Windows 보안 Events 커넥터는 수집 하도록 선택할 수 있는 두 가지 [**미리 작성 된 이벤트 집합**](windows-security-event-id-reference.md) ( **공통** 및 **최소**)을 제공 합니다.
+    > - Windows 보안 Events 커넥터는 수집할 수 있는 미리 빌드된 두 개의 [**이벤트 집합인**](windows-security-event-id-reference.md) **일반** 및 **최소** 를 제공합니다.
     >
     > - Azure Monitor 에이전트는 **[XPath 버전 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations)에 대한 XPath 쿼리만** 지원합니다.
 
@@ -198,12 +197,12 @@ Microsoft Sentinel에 데이터를 수집하려면 다음을 수행합니다.
 > ```
 >
 > - 이벤트가 반환되면 쿼리가 유효합니다.
-> - "지정 된 선택 조건과 일치 하는 이벤트를 찾을 수 없습니다." 라는 메시지가 표시 되는 경우 쿼리는 올바르지만 로컬 컴퓨터에 일치 하는 이벤트가 없습니다.
-> - "지정 된 쿼리가 잘못 되었습니다." 라는 메시지가 표시 되 면 쿼리 구문이 잘못 된 것입니다.
+> - "지정된 선택 조건과 일치하는 이벤트를 찾을 수 없습니다."라는 메시지가 수신되면 쿼리가 유효할 수 있지만 로컬 컴퓨터에 일치하는 이벤트가 없습니다.
+> - "지정된 쿼리가 잘못되었습니다."라는 메시지가 수신되면 쿼리 구문이 유효하지 않습니다.
 
 ### <a name="create-data-collection-rules-using-the-api"></a>API를 사용하여 데이터 수집 규칙 만들기
 
-API를 사용하여 데이터 수집 규칙을 만들 수도 있습니다([스키마 참조](/rest/api/monitor/data-collection-rules)). 많은 규칙을 만드는 경우(예를 들어 MSSP인 경우) 이 방식을 사용하면 더 쉽게 작업할 수 있습니다. 다음은 규칙을 만들기 위한 템플릿으로 사용할 수 있는 AMA 커넥터를 [통한 Windows 보안 이벤트](data-connectors-reference.md#windows-security-events-via-ama) 에 대 한 예제입니다.
+API를 사용하여 데이터 수집 규칙을 만들 수도 있습니다([스키마 참조](/rest/api/monitor/data-collection-rules)). 많은 규칙을 만드는 경우(예를 들어 MSSP인 경우) 이 방식을 사용하면 더 쉽게 작업할 수 있습니다. 다음은 규칙을 만들기 위한 템플릿으로 사용할 수 있는 [예제입니다(AMA](data-connectors-reference.md#windows-security-events-via-ama) 커넥터를 통한 Windows 보안 이벤트).
 
 **요청 URL 및 헤더**
 
@@ -252,18 +251,18 @@ PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41f
 }
 ```
 
-Azure Monitor 설명서에서 [데이터 수집 규칙에 대 한 전체 설명을](../azure-monitor/agents/data-collection-rule-overview.md) 참조 하세요.
+Azure Monitor [설명서에서 데이터 수집 규칙에](../azure-monitor/agents/data-collection-rule-overview.md) 대한 전체 설명을 참조하세요.
 
 # <a name="log-analytics-agent-legacy"></a>[Log Analytics 에이전트(레거시)](#tab/LAA)
 
 ### <a name="prerequisites"></a>필수 조건
 
 - Log Analytics 작업 영역과 로그를 수집할 컴퓨터가 포함된 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
-- Microsoft 센티널 역할 외에도 해당 작업 영역에서 SecurityInsights (Microsoft 센티널) 솔루션에 대 한 **Log Analytics 참가자** 역할이 있어야 합니다.
+- Microsoft Sentinel 역할 외에도 해당 작업 영역의 SecurityInsights(Microsoft Sentinel) 솔루션에 대한 **Log Analytics 기여자** 역할이 있어야 합니다.
 
 ### <a name="instructions"></a>Instructions
 
-1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 **데이터 커넥터를 선택합니다.**
 
 1. 서비스(**DNS** 또는 **Windows 방화벽**)를 선택한 다음 **커넥터 페이지 열기** 를 선택합니다.
 
@@ -272,30 +271,30 @@ Azure Monitor 설명서에서 [데이터 수집 규칙에 대 한 전체 설명�
     | 머신 형식  | Instructions  |
     | --------- | --------- |
     | **Azure Windows VM의 경우** | 1. **에이전트를 설치할 위치 선택** 에서 **Azure Windows 가상 머신에 에이전트 설치** 를 확장합니다. <br><br>2. **Azure Windows Virtual Machine용 에이전트 다운로드 및 설치 >** 링크를 선택합니다. <br><br>3. **가상 머신** 블레이드에서 에이전트를 설치할 가상 머신을 선택한 다음 **연결** 을 선택합니다. 연결하려는 각 VM에 이 단계를 반복합니다. |
-    | **기타 Windows 컴퓨터의 경우** | 1. **에이전트를 설치할 위치 선택** 에서 **Azure가 아닌 Windows 컴퓨터에 에이전트 설치** 를 확장합니다. <br><br>2. **비 Azure Windows 컴퓨터용 에이전트 다운로드 및 설치** 링크를 선택합니다.  <br><br>3. **에이전트 관리** 블레이드의 **Windows 서버** 탭에서 다음과 같이 32비트 또는 64비트 시스템용 **Windows 에이전트 다운로드** 링크를 적절하게 선택합니다.  <br><br>4. 다운로드 한 실행 파일을 사용 하 여 선택한 Windows 시스템에 에이전트를 설치 하 고 이전 단계의 다운로드 링크 아래에 표시 되는 **작업 영역 ID 및 키** 를 사용 하 여 구성 합니다. |
+    | **기타 Windows 컴퓨터의 경우** | 1. **에이전트를 설치할 위치 선택** 에서 **Azure가 아닌 Windows 컴퓨터에 에이전트 설치** 를 확장합니다. <br><br>2. **비 Azure Windows 컴퓨터용 에이전트 다운로드 및 설치** 링크를 선택합니다.  <br><br>3. **에이전트 관리** 블레이드의 **Windows 서버** 탭에서 다음과 같이 32비트 또는 64비트 시스템용 **Windows 에이전트 다운로드** 링크를 적절하게 선택합니다.  <br><br>4. 다운로드한 실행 파일을 사용하여 선택한 Windows 시스템에 에이전트를 설치하고 이전 단계의 다운로드 링크 아래에 표시되는 **작업 영역 ID 및 키를** 사용하여 구성합니다. |
     | | |
 
 > [!NOTE]
 >
-> 필요한 인터넷 연결 없이도 Windows 시스템에서 Microsoft 센티널로 이벤트를 스트리밍할 수 있도록 하려면 **에이전트 관리** 페이지에서 **Log Analytics 게이트웨이 다운로드** 링크를 사용 하 여 프록시 역할을 하는 별도의 컴퓨터에 **Log Analytics 게이트웨이** 를 다운로드 하 여 설치 합니다.  이벤트를 수집 하려는 각 Windows 시스템에 Log Analytics 에이전트를 설치 해야 합니다.
+> 필요한 인터넷 연결이 없는 Windows 시스템이 여전히 Microsoft Sentinel로 이벤트를 스트리밍할 수 있도록 하려면 **에이전트 관리** 페이지의 Log Analytics 게이트웨이 다운로드 링크를 사용하여 Log **Analytics 게이트웨이를** 별도의 컴퓨터에 **다운로드하고** 설치하여 프록시 역할을 합니다.  수집하려는 이벤트가 있는 각 Windows 시스템에 Log Analytics 에이전트를 설치해야 합니다.
 >
 > 해당 시나리오에 대한 자세한 내용은 [**Log Analytics 게이트웨이** 설명서](../azure-monitor/agents/gateway.md)를 참조하세요.
 
 추가 설치 옵션 및 세부 정보는 [**Log Analytics 에이전트** 설명서](../azure-monitor/agents/agent-windows.md)를 참조하세요.
 
 
-#### <a name="determine-the-logs-to-send"></a>보낼 로그 확인
+#### <a name="determine-the-logs-to-send"></a>보낼 로그 결정
 
-Windows DNS 서버 및 Windows 방화벽 커넥터에 대해 **솔루션 설치** 단추를 선택 합니다. 레거시 보안 이벤트 커넥터에서 전송 하려는 [**이벤트 집합**](windows-security-event-id-reference.md) 을 선택 하 고 **업데이트** 를 선택 합니다.
+Windows DNS 서버 및 Windows 방화벽 커넥터의 경우 솔루션 **설치** 단추를 선택합니다. 레거시 보안 이벤트 커넥터의 경우 보낼 [**이벤트 집합을**](windows-security-event-id-reference.md) 선택하고 **업데이트를** 선택합니다.
 
-[데이터 커넥터 참조](data-connectors-reference.md) 페이지의 해당 섹션에 있는 테이블 이름을 사용 하 여 이러한 서비스에 대 한 데이터를 찾고 쿼리할 수 있습니다.
+데이터 커넥터 참조 페이지의 해당 섹션에서 테이블 이름을 사용하여 이러한 서비스에 대한 데이터를 찾고 쿼리할 수 [있습니다.](data-connectors-reference.md)
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Amazon Web Services 뿐만 아니라 Azure, microsoft 및 Windows 서비스를 Microsoft 센티널에 연결 하는 방법을 알아보았습니다. 
-- 일반적으로 [Microsoft 센티널 데이터 커넥터](connect-data-sources.md) 에 대해 알아봅니다.
-- [Microsoft 센티널 데이터 커넥터를 찾습니다](data-connectors-reference.md).
+이 문서에서는 Azure, Microsoft 및 Windows 서비스뿐만 아니라 Amazon Web Services Microsoft Sentinel에 연결하는 방법을 배웠습니다. 
+- 일반적으로 [Microsoft Sentinel 데이터 커넥터에](connect-data-sources.md) 대해 알아봅니다.
+- [Microsoft Sentinel 데이터 커넥터를 찾습니다.](data-connectors-reference.md)
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [Microsoft 센티널을 사용 하 여 위협 검색을](detect-threats-built-in.md)시작 하세요.
+- [Microsoft Sentinel을 사용하여 위협 검색을](detect-threats-built-in.md)시작합니다.

@@ -1,24 +1,17 @@
 ---
 title: 기본 제공 템플릿 | Microsoft Sentinel 플레이북 만들기 및 사용자 지정 Microsoft Docs
 description: 이 문서에서는 플레이북을 만들고 플레이북 템플릿을 사용하여 요구에 맞게 사용자 지정하는 방법을 보여 줍니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 407c57a235a1c716edeb8e17b80cbd1881d562ea
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: f38cb4fa485a8ef5d976a4b61e786d832120ccbb
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711157"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751537"
 ---
 # <a name="create-and-customize-microsoft-sentinel-playbooks-from-built-in-templates"></a>기본 제공 템플릿에서 Microsoft Sentinel 플레이북 만들기 및 사용자 지정
 

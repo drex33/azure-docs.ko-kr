@@ -4,16 +4,16 @@ description: Azure Cosmos DB API for MongoDB 리소스에서 컨테이너, 데�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 11/17/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: b30ac109a8186f39e29ff96ba797d0b8c98ea41c
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 8ab58a68afb1c9b58ed6a925ac39060bb7ec4e83
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033368"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754658"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-api-for-mongodb-resources"></a>Azure Cosmos DB API for MongoDB 리소스에 데이터베이스, 컨테이너 및 자동 크기 조정 처리량을 프로비저닝
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -32,14 +32,14 @@ ms.locfileid: "123033368"
 
    * 새 데이터베이스를 만드는지 아니면 기존 데이터베이스를 사용하는지 표시합니다. 데이터베이스 수준에서 처리량을 프로비저닝하려면 **데이터베이스 처리량 프로비저닝** 옵션을 선택합니다.
    * 컬렉션 ID를 입력합니다.
-   * 파티션 키 값을 입력합니다(예: `/ItemID`).
+   * 파티션 키 값을 입력합니다(예: `ItemID`).
    * 프로비저닝하려는 처리량을 입력합니다(예: 1000RU).
    * **확인** 을 선택합니다.
 
     :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="데이터베이스 수준 처리량으로 새 컬렉션을 만들 때 Data Explorer의 스크린샷":::
 
 > [!Note]
-> Azure Cosmos DB API for MongoDB를 사용하여 구성한 Azure Cosmos 계정의 컨테이너에 처리량을 프로비저닝하는 경우 파티션 키 경로로 `/myShardKey`를 사용합니다.
+> Azure Cosmos DB API for MongoDB를 사용하여 구성한 Azure Cosmos 계정의 컨테이너에 처리량을 프로비저닝하는 경우 파티션 키 경로로 `myShardKey`를 사용합니다.
 
 ## <a name="net-sdk"></a><a id="dotnet-mongodb"></a> .NET SDK
 

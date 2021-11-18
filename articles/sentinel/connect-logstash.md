@@ -1,24 +1,17 @@
 ---
 title: Logstash를 통해 Microsoft Sentinel | 데이터 원본 커넥트 Microsoft Docs
 description: Logstash를 사용하여 외부 데이터 원본에서 Microsoft Sentinel로 로그를 전달하는 방법을 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 827fd0f5fcc42639b435184a051edbd040602e7d
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: eb7467d432db5a8c78a3deba9e79f81900cff3ec
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724922"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757923"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-microsoft-sentinel"></a>Logstash를 사용하여 Microsoft Sentinel에 데이터 원본 연결
 
@@ -182,4 +175,4 @@ Microsoft Sentinel 출력 플러그 인의 연결 및 작업을 모니터링하�
 
 이 문서에서는 Logstash를 사용하여 외부 데이터 원본을 Microsoft Sentinel에 연결하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
-- [기본 제공](detect-threats-built-in.md) 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용 하 여 Microsoft 센티널에서 위협을 검색 하기 시작 합니다.
+- 기본 제공 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Microsoft Sentinel로 위협 [검색을](detect-threats-built-in.md) 시작합니다.

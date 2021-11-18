@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta
-ms.openlocfilehash: 26eb625604d1947b5e246c27f766af63777b6239
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: dbd25601a69231fa5a5f32fbae615e1a1b3d40b4
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132309551"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132750570"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 머신 준비
 
@@ -129,7 +129,7 @@ ms.locfileid: "132309551"
     # logout
     ```
 
-14. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+14. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [**Azure에 업로드할**](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 ---
 ## <a name="oracle-linux-70-and-later"></a>Oracle Linux 7.0 이상
@@ -312,7 +312,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
     # logout
     ```
 
-16. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+16. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [**Azure에 업로드할**](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 Oracle Linux .vhd를 사용하여 Azure에서 새 가상 머신을 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.

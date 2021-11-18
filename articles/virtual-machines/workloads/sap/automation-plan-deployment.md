@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 5f31987c1ce3cdde11cf97fa994ed8c030a0020e
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 883ec46df7228b72c37299548a4883ba794f6b74
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730419"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760754"
 ---
 # <a name="plan-your-deployment-of-sap-automation-framework"></a>SAP automation 프레임 워크 배포 계획
 
@@ -21,7 +21,7 @@ ms.locfileid: "132730419"
 Azure 디자인 고려 사항에 대 한 일반 SAP의 경우 [sap 도입 시나리오 소개를](/azure/cloud-adoption-framework/scenarios/sap) 참조 하세요.
 
 > [!NOTE]
-> Terraform 배포는 [SAP deployment automation framework 리포지토리에서](https://github.com/Azure/sap-hana/)Microsoft에서 제공 하는 terraform 템플릿을 사용 합니다. 템플릿은 시스템 관련 정보와 함께 매개 변수 파일을 사용 하 여 배포를 수행 합니다.
+> Terraform 배포는 [SAP deployment automation framework 리포지토리에서](https://github.com/Azure/sap-automation/)Microsoft에서 제공 하는 terraform 템플릿을 사용 합니다. 템플릿은 시스템 관련 정보와 함께 매개 변수 파일을 사용 하 여 배포를 수행 합니다.
 
 ## <a name="credentials-management"></a>자격 증명 관리
 
@@ -29,7 +29,7 @@ Azure 디자인 고려 사항에 대 한 일반 SAP의 경우 [sap 도입 시나
 
 또한 automation 프레임 워크는 VM을 만들 때 제공 된 기본 VM (가상 머신) 계정에 대 한 자격 증명을 사용 합니다. 이러한 자격 증명은 다음과 같습니다.
 
-| 자격 증명 | 범위 | Storage | ID | Description |
+| 자격 증명 | 범위 | 스토리지 | ID | Description |
 | ---------- | ----- | ------- | ---------- | ----------- |
 | 로컬 사용자 | 배포자 | - | 현재 사용자 | 부트스트랩 배포자. |
 | [서비스 주체](#service-principal-creation) | 환경 | 배포자의 주요 자격 증명 모음 | 환경 식별자 | 배포 작업을 수행 합니다. |
@@ -40,11 +40,11 @@ Azure 디자인 고려 사항에 대 한 일반 SAP의 경우 [sap 도입 시나
 서비스 사용자 만들기:
 
 1. 서비스 주체를 만들 수 있는 적절 한 권한이 있는 계정으로 [Azure 명령줄 인터페이스 (Azure CLI)](/cli/azure/) 에 로그인 합니다.
-1. 명령을 실행 하 여 새 서비스 주체를 만듭니다 `az ad sp create-for-rbac` . 에 대 한 설명 이름을 사용 해야 `--name` 합니다. 예를 들어 다음과 같습니다.
+1. 명령을 실행 하 여 새 서비스 주체를 만듭니다 `az ad sp create-for-rbac` . 에 대 한 설명 이름을 사용 해야 `--name` 합니다. 다음은 그 예입니다.
     ```azurecli
     az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --name="DEV-Deployment-Account"
     ```
-1. 출력을 확인 합니다. 다음 단계에는 응용 프로그램 식별자 ( `appId` ), 암호 () `password` 및 테 넌 트 식별자 ()가 필요 `tenant` 합니다. 예를 들어 다음과 같습니다.
+1. 출력을 확인 합니다. 다음 단계에는 응용 프로그램 식별자 ( `appId` ), 암호 () `password` 및 테 넌 트 식별자 ()가 필요 `tenant` 합니다. 다음은 그 예입니다.
     ```json
     {
         "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -54,7 +54,7 @@ Azure 디자인 고려 사항에 대 한 일반 SAP의 경우 [sap 도입 시나
         "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
     ```
-1. 사용자 액세스 관리자 역할을 서비스 사용자에 게 할당 합니다. 예를 들어 다음과 같습니다. 
+1. 사용자 액세스 관리자 역할을 서비스 사용자에 게 할당 합니다. 다음은 그 예입니다. 
     ```azurecli
     az role assignment create --assignee <your-application-ID> --role "User Access Administrator"
     ```
@@ -63,16 +63,16 @@ Azure 디자인 고려 사항에 대 한 일반 SAP의 경우 [sap 도입 시나
 
 ## <a name="devops-structure"></a>DevOps 구조체
 
-Terraform 자동화 템플릿은 [SAP deployment automation framework 리포지토리에](https://github.com/Azure/sap-hana/)있습니다. 대부분의 사용 사례에서이 리포지토리를 읽기 전용으로 간주 하 고 Terraform 템플릿을 수정 하지 마세요.
+Terraform 자동화 템플릿은 [SAP deployment automation framework 리포지토리에](https://github.com/Azure/sap-automation/)있습니다. 대부분의 사용 사례에서이 리포지토리를 읽기 전용으로 간주 하 고 Terraform 템플릿을 수정 하지 마세요.
 
-사용자 고유의 매개 변수 파일의 경우 관리 하는 소스 제어 리포지토리에 이러한 파일을 보관 하는 것이 좋습니다. [SAP deployment automation framework 리포지토리](https://github.com/Azure/sap-hana/) 및 리포지토리를 동일한 루트 폴더에 복제 합니다. 그런 다음 [적절 한 폴더 구조를 만듭니다](#folder-structure).
+사용자 고유의 매개 변수 파일의 경우 관리 하는 소스 제어 리포지토리에 이러한 파일을 보관 하는 것이 좋습니다. [SAP deployment automation framework 리포지토리](https://github.com/Azure/sap-automation/) 및 리포지토리를 동일한 루트 폴더에 복제 합니다. 그런 다음 [적절 한 폴더 구조를 만듭니다](#folder-structure).
 
 > [!IMPORTANT]
 > 매개 변수 파일의 이름은 Terraform 상태 파일의 이름이 됩니다. 이러한 이유로 고유한 매개 변수 파일 이름을 사용 해야 합니다.
 
 ### <a name="folder-structure"></a>폴더 구조
 
-다음 샘플 폴더 계층 구조는 자동화 프레임 워크 파일과 함께 구성 파일을 구성 하는 방법을 보여 줍니다. **Sap hana** 라는 첫 번째 최상위 폴더에는 대부분의 사용 사례에서 변경 하지 않아도 되는 자동화 프레임 워크 파일이 있습니다. **작업 영역** 이라는 두 번째 최상위 폴더에는 배포 설정에 대 한 구성 파일을 포함 하는 하위 폴더가 포함 되어 있습니다.
+다음 샘플 폴더 계층 구조는 자동화 프레임 워크 파일과 함께 구성 파일을 구성 하는 방법을 보여 줍니다. **Sap automation** 이라는 첫 번째 최상위 폴더에는 대부분의 사용 사례에서 변경 하지 않아도 되는 자동화 프레임 워크 파일이 있습니다. **작업 영역** 이라는 두 번째 최상위 폴더에는 배포 설정에 대 한 구성 파일을 포함 하는 하위 폴더가 포함 되어 있습니다.
 
 | 폴더 이름 | 콘텐츠 | Description |
 | ----------- | -------- | ----------- |
@@ -112,7 +112,7 @@ Terraform 자동화 템플릿은 [SAP deployment automation framework 리포지�
 - Terraform 배포에서 사용할 서비스 주체 ID 정보를 포함하는 키 자격 증명 모음입니다.
 - 아웃바운드 인터넷 연결을 제공하는 Azure Firewall 구성 요소입니다.
 
-배포 구성 파일은 지역, 환경 이름 및 가상 네트워크 정보를 정의합니다. 예를 들어 다음과 같습니다.
+배포 구성 파일은 지역, 환경 이름 및 가상 네트워크 정보를 정의합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -175,7 +175,7 @@ SAP 시스템을 구성하기 전에 다음 질문을 고려하세요.
 * 필요한 웹 디스패처는 몇 개인가요? 
 * 필요한 중앙 서비스 인스턴스는 몇 개입니까?
 * 어떤 크기의 VM(가상 머신)이 필요한가요?
-* 어떤 VM 이미지를 사용하시겠습니까? 이미지가 Azure Marketplace 또는 사용자 지정에 있나요?
+* 어떤 VM 이미지를 사용하시겠습니까? 이미지가 Azure Marketplace 또는 사용자 지정인가요?
 * [새 배포 시나리오 또는 기존 배포 시나리오에 배포하고](#supported-deployment-scenarios)있나요?
 * IP 할당 전략은 무엇인가요? Azure에서 IP를 설정하거나 사용자 지정 설정을 사용하시겠습니까?
 

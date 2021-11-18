@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines-sap
 title: install_workloadzone sh
 description: 셸 스크립트를 사용 하 여 새 SAP 작업 영역을 배포 합니다.
-ms.openlocfilehash: b88f24ff1f70b3786e09f9285bd697ca3bf2aeaa
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: cb24454eba2a785c2b33244a2474535747102c8f
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730395"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132750608"
 ---
 # <a name="install_workloadzonesh"></a>install_workloadzone sh
 
@@ -34,7 +34,7 @@ install_workloadzone.sh [ -p or --parameterfile ] <String>
 ## <a name="description"></a>Description
 `install_workloadzone.sh`명령은 새 SAP 작업 영역을 배포 합니다. 작업 영역에는 모든 Vm에 대 한 공유 리소스가 포함 됩니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="example-1"></a>예 1
 
@@ -52,13 +52,13 @@ install_workloadzone.sh -parameterfile PROD-WEEU-SAP00-infrastructure.tfvars
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
-keyvault=<keyvaultName>
-storageaccount=<storageaccountName>
-statefile_subscription=<statefile_subscription>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret="<password>"
+export tenant_id=<tenant>
+export keyvault=<keyvaultName>
+export storageaccount=<storageaccountName>
+export statefile_subscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars  \
@@ -66,7 +66,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --state_subscription $statefile_subscription           \
         --subscription $subscriptionID                         \
         --spn_id $appID                                        \
-        --spn_secret "$spn_secret"                             \ 
+        --spn_secret $spn_secret                               \ 
         --tenant_id $tenant
 ```
 ## <a name="parameters"></a>매개 변수
@@ -210,4 +210,4 @@ MIT 라이선스에 따라 사용이 허가됩니다.
 
 ## <a name="related-links"></a>관련 링크
 
-[GitHub 리포지토리: SAP 배포 자동화 프레임 워크](https://github.com/Azure/sap-hana)
+[GitHub 리포지토리: SAP 배포 자동화 프레임 워크](https://github.com/Azure/sap-automation)

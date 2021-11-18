@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: 472816907aeb16dfbab1fb7b793186e165246947
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 11fbe98d1ea4901f3e6712726eb57ed4fcfce4d3
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132722946"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763585"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -36,12 +36,12 @@ Azure Load Balancer에는 기본, 표준 및 게이트웨이의 3 개 sku가 있
 | **시나리오** |  고성능 및 매우 짧은 대기 시간이 필요한 경우 부하 분산 네트워크 계층 트래픽을 준비 합니다. 는 전 세계 및 여러 지역에서 트래픽을 라우팅하고, 높은 복원 력을 위해 가용성 영역으로 라우팅합니다. | 고가용성 또는 중복성이 필요 하지 않은 소규모 응용 프로그램을 위한 것입니다. 가용성 영역과 호환 되지 않습니다. |
 | **백 엔드 형식** | IP 기반, NIC 기반 | NIC 기반 |
 | **프로토콜** | TCP, UDP | TCP, UDP |
-| **[프런트 엔드 IP 구성](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 에서는 최대 600의 구성을 지원 합니다. | 에서는 최대 200의 구성을 지원 합니다. |
-| **[백 엔드 풀 크기](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 최대 1000개 인스턴스를 지원합니다. | 최대 300개 인스턴스를 지원합니다. |
-| **백 엔드 풀 엔드포인트** | 단일 가상 네트워크에 있는 가상 머신 또는 가상 머신 확장 집합 | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신. |
+| **[프런트 엔드 IP 구성](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 최대 600 구성 지원 | 최대 200 구성 지원 |
+| **[백 엔드 풀 크기](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 최대 1000개 인스턴스 지원 | 최대 300 인스턴스 지원 |
+| **백 엔드 풀 엔드포인트** | 단일 가상 네트워크의 가상 머신 또는 가상 머신 확장 집합 | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신 |
 | **[상태 프로브](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[상태 프로브 다운 동작](./load-balancer-custom-probe-overview.md#probedown)** | TCP 연결은 인스턴스 프로브 __및__ 모든 프로브가 다운되어 있을 때 그대로 유지됩니다. | TCP 연결은 인스턴스 프로브가 다운되어 있을 때 그대로 유지됩니다. 모든 프로브가 중지되면 모든 TCP 연결은 종료됩니다. |
-| **가용성 영역** | 인바운드 및 아웃바운드 트래픽에 대한 영역 중복 및 영역 프런트 엔드가 있습니다. | 사용할 수 없음 |
+| **가용성 영역** | 인바운드 및 아웃 바운드 트래픽에 대 한 영역 중복 및 영역 프런트 엔드 | 사용할 수 없음 |
 | **진단** | [Azure Monitor 다차원 메트릭](./load-balancer-standard-diagnostics.md) | 지원되지 않음 |
 | **HA 포트** | [내부 Load Balancer에 사용 가능](./load-balancer-ha-ports-overview.md) | 사용할 수 없음 |
 | **기본적으로 보안 적용** | 네트워크 보안 그룹에서 허용하지 않는 한 인바운드 흐름으로 종결됩니다. 가상 네트워크에서 내부 부하 분산 장치에 대한 내부 트래픽은 허용됩니다. | 기본적으로 엽니다. 네트워크 보안 그룹 옵션입니다. |

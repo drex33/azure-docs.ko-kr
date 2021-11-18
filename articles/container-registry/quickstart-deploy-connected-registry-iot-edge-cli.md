@@ -6,12 +6,12 @@ ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e7d7ac92bda1aade5a446e6b0fe2a2b9966d5eb9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d114b194985f8ca69b83113658d6b34d386acc2b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053196"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755415"
 ---
 # <a name="quickstart-deploy-a-connected-registry-to-an-iot-edge-device"></a>빠른 시작: IoT Edge 디바이스에 연결된 레지스트리 배포
 
@@ -101,7 +101,7 @@ az acr connected-registry show \
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-get-settings]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_get_settings
-[az-acr-connected-registry-show]: /cli/azure/acr/connected-registr#az_acr_connected_registry_show
+[az-acr-connected-registry-show]: /cli/azure/acr/connected-registry#az_acr_connected_registry_show
 [az-acr-import]:/cli/azure/acr#az_acr_import
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential?#az_acr_token_credential_generate
 [container-registry-intro]: container-registry-intro.md

@@ -1,18 +1,17 @@
 ---
 title: Microsoft 센티널 배포를 위한 필수 구성 요소
 description: Microsoft 센티널 배포를 위한 배포 전 작업 및 사전 요구 사항에 대해 알아봅니다.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 90637b5637a6855318b78e73289225fd1536019b
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 327e369c267c30b2d8ce65932e117beb63bdd7f4
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712284"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758474"
 ---
 # <a name="pre-deployment-activities-and-prerequisites-for-deploying-microsoft-sentinel"></a>Microsoft 센티널 배포를 위한 배포 전 작업 및 필수 조건
 

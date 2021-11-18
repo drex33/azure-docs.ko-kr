@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에 Syslog 및 CEF 로그를 수집 하는 로그 전달자 배포 | Microsoft Docs
 description: 수집 Syslog 및 CEF 로그를 Microsoft 센티널로 가져오는 프로세스의 일부로 Syslog 디먼 및 Log Analytics 에이전트로 구성 된 로그 전달자를 배포 하는 방법에 대해 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 95f60a08b8700da02c1eaf0496bd5bcba4b0d988
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: fb39a839bb50089f86f2f2e6f4166fe6604e03a7
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132714583"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757885"
 ---
 # <a name="deploy-a-log-forwarder-to-ingest-syslog-and-cef-logs-to-microsoft-sentinel"></a>Microsoft 센티널에 Syslog 및 CEF 로그를 수집 하는 로그 전달자 배포
 

@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/25/2021
+ms.date: 11/17/2021
 ms.custom: devx-track-python
 ms.devlang: python
-ms.openlocfilehash: a9b1bb7a89a32d1cdb1f7a624e85396a28e94907
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: f972e01b8f25b52228199dcb7f6e929a1414bae1
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580637"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755662"
 ---
 # <a name="3---deploy-the-search-enabled-python-website"></a>3 - 검색 사용 Python 웹 사이트 배포
 

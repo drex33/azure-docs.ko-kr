@@ -1,19 +1,17 @@
 ---
 title: 보안 헌팅을 위해 Microsoft Sentinel과 함께 Notebook 사용
 description: 이 문서에서는 Microsoft Sentinel 헌팅 기능과 함께 Notebook을 사용하는 방법을 설명합니다.
-services: sentinel
 author: batamig
 ms.author: bagol
-ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: ceafacbeba9f52f34860ee10aa4ff802434e0e80
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: cb47523ae53ec6e2b27f07052c0fd3bf573a0056
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712702"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762391"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Jupyter Notebook을 사용하여 보안 위협 헌팅
 
@@ -74,7 +72,7 @@ Microsoft Sentinel에서 Jupyter Notebook을 사용하려면 먼저 사용자 �
 
 JupyterLab 또는 Jupyter 클래식에서 Microsoft Sentinel Notebook을 실행할 수 있지만 Microsoft Sentinel에서는 [Notebook이 Azure Machine Learning(Azure](../machine-learning/overview-what-is-azure-machine-learning.md) ML) 플랫폼에서 실행됩니다. Microsoft Sentinel에서 Notebook을 실행하려면 Microsoft Sentinel 작업 영역과 [Azure ML](../machine-learning/concept-workspace.md)작업 영역 모두에 대한 적절한 액세스 권한이 있어야 합니다.
 
-|사용 권한  |설명  |
+|사용 권한  |Description  |
 |---------|---------|
 |**Microsoft Sentinel 권한**     |   다른 Microsoft Sentinel 리소스와 마찬가지로 Microsoft Sentinel Notebooks 블레이드에서 Notebook에 액세스하려면 Microsoft Sentinel Reader, Microsoft Sentinel Responder 또는 Microsoft Sentinel 기여자 역할이 필요합니다. <br><br>자세한 내용은 [Microsoft Sentinel의 사용 권한을 참조하세요.](roles.md)|
 |**Azure Machine Learning 권한**     | Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure 리소스와 마찬가지로 새 Azure Machine Learning 작업 영역을 만들 때 기본 역할이 제공됩니다. 작업 영역에 사용자를 추가하고 이러한 기본 제공 역할 중 하나에 할당할 수 있습니다. 자세한 내용은 [Azure Machine Learning 기본 역할](../machine-learning/how-to-assign-roles.md)과 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요. <br><br>   **중요**: Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. 예를 들어 작업 영역에 대한 소유자 액세스 권한이 있는 사용자에게 작업 영역을 포함하는 리소스 그룹에 대한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [Azure RBAC 작동 방식](../role-based-access-control/overview.md)을 참조하세요. <br><br>Azure ML 작업 영역의 소유자는 작업 영역에 대한 역할을 추가 및 제거하고 사용자에게 역할을 할당할 수 있습니다. 자세한 내용은 다음을 참조하세요.<br>    - [Azure Portal](../role-based-access-control/role-assignments-portal.md)<br>    - [PowerShell](../role-based-access-control/role-assignments-powershell.md)<br>    - [Azure CLI](../role-based-access-control/role-assignments-cli.md)<br>   - [REST API](../role-based-access-control/role-assignments-rest.md)<br>    - [Azure Resource Manager 템플릿](../role-based-access-control/role-assignments-template.md)<br> - [Azure Machine Learning CLI ](../machine-learning/how-to-assign-roles.md#manage-workspace-access)<br><br>기본 제공 역할이 충분하지 않은 경우 사용자 지정 역할도 만들 수 있습니다. 사용자 지정 역할에는 해당 작업 영역에서 읽기, 쓰기, 삭제 및 컴퓨팅 리소스 권한이 있을 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용하도록 설정할 수 있습니다. 자세한 내용은 [사용자 지정 역할 만들기](../machine-learning/how-to-assign-roles.md#create-custom-role)를 참조하세요. |
@@ -90,7 +88,7 @@ JupyterLab 또는 Jupyter 클래식에서 Microsoft Sentinel Notebook을 실행�
 
 1. 다음 세부 정보를 입력하고 **다음** 을 선택합니다.
 
-    |필드|설명|
+    |필드|Description|
     |--|--|
     |**구독**|사용할 Azure 구독을 선택합니다.|
     |**리소스 그룹**|구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다.|

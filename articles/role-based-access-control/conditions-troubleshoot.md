@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: eddebb6742a50ce729d436fc19ce4ff32491f75f
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.openlocfilehash: 454b3262e4de5ec857368599f441159707f66cc0
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489755"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751723"
 ---
 # <a name="troubleshoot-azure-role-assignment-conditions-preview"></a>Azure 역할 할당 조건 문제 해결(미리 보기)
 
@@ -64,6 +64,47 @@ ms.locfileid: "109489755"
 
 [조건 형식 또는 구문](conditions-format.md) 이슈를 해결합니다. 또는 [Azure Portal의 시각적 개체 편집기](conditions-role-assignments-portal.md)를 사용하여 조건을 추가합니다.
 
+## <a name="symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition"></a>증상 - 조건을 추가할 때 보안 주체가 특성 원본에 나타나지 않음
+
+조건을 사용하여 역할 할당을 추가하려고 하면 **보안 주체가** **특성 원본** 목록에 나타나지 않습니다.
+
+![조건을 추가할 때 특성 원본 목록의 보안 주체를 보여주는 스크린샷.](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
+
+대신 다음과 같은 메시지가 표시됩니다.
+
+보안 주체(사용자) 특성을 사용하려면 Azure AD Premium P1 또는 P2 라이선스, Azure AD 권한(예: [특성 할당 관리자](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) 역할) 및 Azure AD에 정의된 사용자 지정 보안 특성이 모두 있어야 합니다.
+
+![조건을 추가할 때의 주 메시지 스크린샷](./media/conditions-troubleshoot/condition-principal-attribute-message.png)
+
+**원인**
+
+필수 구성 조건이 충족되지 않습니다. 보안 주체 특성을 사용하려면 **다음이 모두** 있어야 합니다.
+
+- Azure AD Premium P1 또는 P2 라이선스
+- [로그인한](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) 사용자에 대한 Azure AD 권한(예: 특성 할당 관리자 역할)
+- Azure AD에 정의된 사용자 지정 보안 특성
+
+> [!IMPORTANT]
+> 기본적으로 [전역 관리자](../active-directory/roles/permissions-reference.md#global-administrator) 및 기타 관리자 역할에는 사용자 지정 보안 특성을 읽거나 정의하거나 할당할 수 있는 권한이 없습니다.
+
+**해결 방법**
+
+1. **Azure Active Directory**  >  **개요를** 열고 테넌트 라이선스를 확인합니다.
+
+1. **Azure Active Directory**  >  **사용자**  >  *사용자 이름*  >  **할당된 역할을** 열고 특성 할당 관리자 역할이 할당되었는지 확인합니다. 그렇지 않은 경우 Azure AD 관리자에게 이 역할을 할당하도록 요청합니다. 자세한 내용은 [사용자에게 Azure AD 역할 할당을 참조하세요.](../active-directory/roles/manage-roles-portal.md)
+
+1. 사용자 지정 보안 특성 **Azure Active Directory** 열어 사용자 지정 보안  >  **특성이** 정의되었는지, 어떤 특성에 액세스할 수 있는지 확인합니다. 사용자 지정 보안 특성이 표시되지 않으면 Azure AD 관리자에게 관리할 수 있는 특성 집합을 추가하도록 요청합니다. 자세한 내용은 [Azure AD에서 사용자 지정 보안 특성에 대한 액세스 관리 및 Azure AD에서](../active-directory/fundamentals/custom-security-attributes-manage.md) 사용자 지정 보안 특성 추가 또는 [비활성화를](../active-directory/fundamentals/custom-security-attributes-add.md)참조하세요.
+
+## <a name="symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition-using-pim"></a>증상 - PIM을 사용하여 조건을 추가할 때 특성 원본에 보안 주체가 표시되지 않음 
+
+[PIM(Azure AD Privileged Identity Management)을](../active-directory/privileged-identity-management/pim-configure.md)사용하여 조건에 따라 역할 할당을 추가하려고 하면 **보안** **주체가** 특성 원본 목록에 표시되지 않습니다.
+
+![Privileged Identity Management 사용하여 조건을 추가할 때 특성 원본 목록의 보안 주체를 보여주는 스크린샷](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
+
+**원인**
+
+PIM은 현재 역할 할당 조건에서 보안 주체 특성을 사용할 수 없습니다.
+
 ## <a name="symptom---resource-attribute-is-not-valid-error-when-adding-a-condition-using-azure-powershell"></a>증상 - Azure PowerShell을 사용하여 조건을 추가할 때 리소스 특성이 잘못됨 오류
 
 Azure PowerShell을 사용하여 조건이 있는 역할 할당을 추가하려고 할 때 다음과 유사한 오류가 발생합니다.
@@ -82,7 +123,7 @@ Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$> 
 각 달러 기호 앞에 백틱(\`)을 추가합니다. 예제는 다음과 같습니다. PowerShell의 따옴표 규칙에 대한 자세한 내용은 [따옴표 규칙 정보](/powershell/module/microsoft.powershell.core/about/about_quoting_rules)를 참조하세요.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 ```
 
 ## <a name="symptom---resource-attribute-is-not-valid-error-when-adding-a-condition-using-azure-cli"></a>증상 - Azure CLI를 사용하여 조건을 추가할 때 리소스 특성이 잘못됨 오류
@@ -102,7 +143,7 @@ Resource attribute Microsoft.Storage/storageAccounts/blobServices/containers/blo
 각 달러 기호 앞에 백슬래시(\\)를 추가합니다. 예제는 다음과 같습니다. Bash의 따옴표 규칙에 대한 자세한 내용은 [큰따옴표](https://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html)를 참조하세요.
 
 ```azurecli
-condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
+condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<\$key_case_sensitive\$>] StringEquals 'Cascade'))"
 ```
 
 ## <a name="symptom---error-when-assigning-a-condition-string-to-a-variable-in-bash"></a>증상 - 조건 문자열을 Bash의 변수에 할당할 때 발생하는 오류
@@ -153,10 +194,10 @@ Azure CLI를 사용하여 조건이 있는 역할 할당을 추가하려고 할 
 
 **해결 방법**
 
-조건이 올바르다고 확신하는 경우 모든 공백을 삭제하고 반환한 다음, 관련 공백을 다시 추가합니다.
+서식 있는 텍스트 편집기에서 조건을 복사 했 고 조건이 정확한 경우 모든 공백을 삭제 하 고를 반환 하 고 나 서 관련 공간을 다시 추가 합니다. 또는 일반 텍스트 편집기나 Visual Studio Code와 같은 코드 편집기를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 역할 할당 조건 형식 및 구문(미리 보기)](conditions-format.md)
 - [Azure 역할 할당 조건에 대한 FAQ(미리 보기)](conditions-faq.md)
-- [Azure 역할 할당 조건 예(미리 보기)](../storage/common/storage-auth-abac-examples.md)
+- [Azure AD에서 사용자 지정 보안 특성 문제 해결 (미리 보기)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)

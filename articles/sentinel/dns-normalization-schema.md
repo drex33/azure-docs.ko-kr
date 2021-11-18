@@ -1,25 +1,17 @@
 ---
 title: Microsoft Sentinel DNS 정규화 스키마 참조 | Microsoft Docs
 description: 이 문서에서는 Microsoft Sentinel DNS 정규화 스키마에 대해 설명합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.assetid: ''
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a47f3503af5d59fdabe4a2f814076c0af87ec82a
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 64efd42b966b1dfc12ee4d95bccfe0c257a506c5
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721388"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762332"
 ---
 # <a name="microsoft-sentinel-dns-normalization-schema-reference-public-preview"></a>Microsoft Sentinel DNS 정규화 스키마 참조(공개 미리 보기)
 
@@ -76,7 +68,7 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 모든 첫 번째 파서가 통합되는 소스에 구애받지 않는 파서 를 사용하고 구성된 모든 원본에서 분석이 실행되도록 하려면 다음 KQL 함수를 쿼리의 테이블 이름으로 사용합니다.
 
-| 이름 | 설명 | 사용 지침 |
+| Name | 설명 | 사용 지침 |
 | --- | --- | --- |
 | **imDNS** | *공용 구조체* 를 사용하여 모든 DNS 원본의 정규화된 이벤트를 포함하는 집계 파서입니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다. <br><br>- 원본 독립적 쿼리에서 이 함수를 사용합니다.|
 | **ASimDNS** | `imDns`함수와 비슷하지만 매개 변수가 지원되지 않으므로 **로그** 페이지 시간 선택기가 값을 사용하도록 강제하지 `custom` 않습니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다.<br><br>- 매개 변수를 사용할 계획이 없는 경우 소스에 구애받지 않는 쿼리에서 이 함수를 사용합니다.|
@@ -117,16 +109,16 @@ Dns 정보 모델에 대한 사용자 지정 파서 구현 시 다음 구문을 
 
 사용할 수 있는 필터링 매개 변수는 다음과 같습니다.
 
-| 이름     | 유형      | 설명 |
+| Name     | 유형      | Description |
 |----------|-----------|-------------|
 | **Starttime** | Datetime | 이 시간 이후에 실행된 DNS 쿼리만 필터링합니다. |
 | **Endtime** | Datetime | 이 시간 또는 이전에 실행이 완료된 DNS 쿼리만 필터링합니다. |
-| **srcipaddr** | string | 이 원본 IP 주소에서 DNS 쿼리만 필터링합니다. |
+| **srcipaddr** | 문자열 | 이 원본 IP 주소에서 DNS 쿼리만 필터링합니다. |
 | **domain_has_any**| 동적 | `domain`(또는 `query` )에 이벤트 도메인의 일부를 포함하여 나열된 도메인 이름이 있는 DNS 쿼리만 필터링합니다.
-| **responsecodename** | string | 응답 코드 이름이 제공된 값과 일치하는 DNS 쿼리만 필터링합니다. <br>예: `NXDOMAIN` |
-| **response_has_ipv4** | string | 응답 필드가 제공된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. 단일 IP 주소 또는 접두사를 필터링하려는 경우 이 매개 변수를 사용합니다. <br><br>응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다.|
+| **responsecodename** | 문자열 | 응답 코드 이름이 제공된 값과 일치하는 DNS 쿼리만 필터링합니다. <br>예: `NXDOMAIN` |
+| **response_has_ipv4** | 문자열 | 응답 필드가 제공된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. 단일 IP 주소 또는 접두사를 필터링하려는 경우 이 매개 변수를 사용합니다. <br><br>응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다.|
 | **response_has_any_prefix** | 동적| 응답 필드가 나열된 IP 주소 또는 IP 주소 접두사로 시작하는 DNS 쿼리만 필터링합니다. <br><br>IP 주소 또는 접두사 목록을 필터링하려는 경우 이 매개 변수를 사용합니다. <br><br>응답을 제공하지 않는 원본에 대해서는 결과가 반환되지 않습니다. |
-| **eventtype**| string | 지정된 형식의 DNS 쿼리만 필터링합니다. 값을 지정하지 않으면 조회 쿼리만 반환됩니다. |
+| **eventtype**| 문자열 | 지정된 형식의 DNS 쿼리만 필터링합니다. 값을 지정하지 않으면 조회 쿼리만 반환됩니다. |
 | | | |
 
 예를 들어 도메인 이름을 확인하지 못한 마지막 날의 DNS 쿼리만 필터링하려면 다음을 사용합니다.
@@ -176,23 +168,23 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 | <a name="src"></a>**Src** | 권장       | String     |    원본 디바이스의 고유 식별자입니다. <br><br>이 필드는 [SrcDvcId,](#srcdvcid) [SrcHostname](#srchostname)또는 [SrcIpAddr](#srcipaddr) 필드의 별칭을 나타낼 수 있습니다. <br><br>예: `192.168.12.1`       |
 | <a name="srcipaddr"></a>**SrcIpAddr** | 권장 | IP 주소 | DNS 요청을 보내는 클라이언트의 IP 주소입니다. 재귀 DNS 요청의 경우 이 값은 일반적으로 보고 디바이스이며 대부분의 경우 로 `127.0.0.1` 설정됩니다. <br><br>예: `192.168.12.1` |
 | **SrcPortNumber** | 선택 | 정수 | DNS 쿼리의 원본 포트입니다.<br><br>예: `54312` |
-| <a name="ipaddr"></a>**IpAddr** | Alias | | [Srcipaddr](#srcipaddr) 에 대 한 별칭 |
-| **SrcGeoCountry** | 선택 사항 | 국가 | 원본 IP 주소와 연결 된 국가입니다.<br><br>예: `USA` |
-| **SrcGeoRegion** | 선택 사항 | 지역 | 원본 IP 주소와 연결 된 국가 내의 지역입니다.<br><br>예: `Vermont` |
-| **SrcGeoCity** | 선택 사항 | City | 원본 IP 주소와 연결 된 구/군/시입니다.<br><br>예: `Burlington` |
-| **SrcGeoLatitude** | 선택 사항 | 위도 | 원본 IP 주소와 연결 된 지리적 좌표의 위도입니다.<br><br>예: `44.475833` |
-| **SrcGeoLongitude** | 선택 사항 | 경도 | 원본 IP 주소와 연결 된 지리적 좌표의 경도입니다.<br><br>예: `73.211944` |
-| **SrcRiskLevel** | 선택 | 정수 | 원본과 관련 된 위험 수준입니다. 값은에 대 한 범위에 맞게 조정 되어야 합니다 `0` `100` `0` `100` .<br><br>예: `90` |
-| <a name="srchostname"></a>**SrcHostname** | 권장 | String | 원본 장치 호스트 이름 (도메인 정보 제외) 사용할 수 있는 장치 이름이 없으면이 필드에 관련 IP 주소를 저장 합니다. 이 값은 [Srcipaddr](#srcipaddr) 가 지정 된 경우 필수입니다.<br><br>예: `DESKTOP-1282V4D` |
-| **호스트 이름** | Alias | | [SrcHostname](#srchostname) 에 대 한 별칭 |
-|<a name="srcdomain"></a>**Srcdomain** | 권장 | String | 원본 장치의 도메인입니다.<br><br>예: `Contoso` |
-| <a name="srcdomaintype"></a>**SrcDomainType** | 권장 | Enumerated | [Srcdomain](#srcdomain)의 유형 (알려진 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows` (예: `contoso` )<br>- `FQDN` (예: `microsoft.com` )<br><br>[Srcdomain](#srcdomain) 을 사용 하는 경우 필수 사항입니다. |
-| **SrcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함한 원본 디바이스 호스트 이름입니다. <br><br>**참고**:이 필드는 기존의 FQDN 형식 및 Windows domain\hostname 형식을 모두 지원 합니다. [SrcDomainType](#srcdomaintype) 필드에는 사용 된 형식이 반영 됩니다. <br><br>예: `Contoso\DESKTOP-1282V4D` |
+| <a name="ipaddr"></a>**IpAddr** | Alias | | [SrcIpAddr에](#srcipaddr) 대한 별칭 |
+| **SrcGeoCountry** | 선택 사항 | 국가 | 원본 IP 주소와 연결된 국가입니다.<br><br>예: `USA` |
+| **SrcGeoRegion** | 선택 사항 | 지역 | 원본 IP 주소와 연결된 국가 내의 지역입니다.<br><br>예: `Vermont` |
+| **SrcGeoCity** | 선택 사항 | City | 원본 IP 주소와 연결된 도시입니다.<br><br>예: `Burlington` |
+| **SrcGeoLatitude** | 선택 사항 | 위도 | 원본 IP 주소와 연결된 지리적 좌표의 위도입니다.<br><br>예: `44.475833` |
+| **SrcGeoLongitude** | 선택 사항 | 경도 | 원본 IP 주소와 연결된 지리적 좌표의 경도입니다.<br><br>예: `73.211944` |
+| **SrcRiskLevel** | 선택 | 정수 | 원본과 연결된 위험 수준입니다. 값은 `0` 무해하고 위험이 높은 의 범위로 조정해야 `100` `0` `100` 합니다.<br><br>예: `90` |
+| <a name="srchostname"></a>**SrcHostname** | 권장 | String | 도메인 정보를 제외한 원본 디바이스 호스트 이름입니다. 사용할 수 있는 디바이스 이름이 없는 경우 이 필드에 관련 IP 주소를 저장합니다. [SrcIpAddr가](#srcipaddr) 지정된 경우 이 값은 필수입니다.<br><br>예: `DESKTOP-1282V4D` |
+| **호스트 이름** | Alias | | 별칭을 [SrcHostname으로](#srchostname) |
+|<a name="srcdomain"></a>**SrcDomain** | 권장 | String | 원본 디바이스의 도메인입니다.<br><br>예: `Contoso` |
+| <a name="srcdomaintype"></a>**SrcDomainType** | 권장 | Enumerated | 알려진 경우 [SrcDomain 의 형식입니다.](#srcdomain) 가능한 값은 다음과 같습니다.<br>- `Windows` (예: `contoso` )<br>- `FQDN` (예: `microsoft.com` )<br><br>[SrcDomain을](#srcdomain) 사용하는 경우 필요합니다. |
+| **SrcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함한 원본 디바이스 호스트 이름입니다. <br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [SrcDomainType](#srcdomaintype) 필드는 사용된 형식을 반영합니다. <br><br>예: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | 선택 | 문자열 | 레코드에 보고된 원본 디바이스의 ID입니다.<br><br>예: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **SrcDvcIdType** | 선택 사항 | Enumerated | [Srcdvcid](#srcdvcid)의 유형입니다 (알려진 경우). 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 Id를 사용할 수 있는 경우 위의 목록에서 첫 번째 Id를 사용 하 고 다른 Id를 **SrcDvcAzureResourceId** 및 **Srcdvcmdeid** 에 각각 저장 합니다.<br><br>**참고**:이 필드는 [srcdvcid](#srcdvcid) 를 사용 하는 경우에 필요 합니다. |
+| **SrcDvcIdType** | 선택 사항 | Enumerated | 알려진 경우 [SrcDvcId](#srcdvcid)의 형식입니다. 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 개의ID를 사용할 수 있는 경우 위 목록의 첫 번째 ID를 사용하고 다른 것을 각각 **SrcDvcAzureResourceId** 및 **SrcDvcMDEid** 에 저장합니다.<br><br>**참고:** [SrcDvcId를](#srcdvcid) 사용하는 경우 이 필드가 필요합니다. |
 | **SrcDeviceType** | 선택 사항 | Enumerated | 원본 디바이스의 형식입니다. 가능한 값은 다음과 같습니다.<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
-| <a name="srcuserid"></a>**SrcUserId** | 선택 | 문자열 | 원본 사용자의 컴퓨터에서 읽을 수 있는 영숫자 고유 표현입니다. 형식 및 지원되는 형식은 다음과 같습니다.<br>-  **SID** (Windows):`S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID** (Azure Active Directory):`9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>[Srcuseridtype](#srcuseridtype) 필드에 ID 유형을 저장 합니다. <br><br>다른 Id를 사용할 수 있는 경우 필드 이름을 **Srcusersid**, **srcuseruid**, **SrcUserAadId**, **Srcuseroktaid** 및 **userawsid** 로 각각 정규화 하는 것이 좋습니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: S-1-12 |
-| <a name="srcuseridtype"></a>**SrcUserIdType** | 선택 사항 | Enumerated | [Srcuserid](#srcuserid) 필드에 저장 된 ID의 유형입니다. 지원 되는 값은 `SID` ,, `UIS` `AADID` , `OktaId` 및 `AWSId` 입니다. |
+| <a name="srcuserid"></a>**SrcUserId** | 선택 | 문자열 | 원본 사용자의 컴퓨터에서 읽을 수 있는 영숫자 고유 표현입니다. 형식 및 지원되는 형식은 다음과 같습니다.<br>-  **SID(Windows):**`S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID(Linux):**`4578`<br>-  **A 한정자(Azure Active Directory):**`9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>ID 형식을 [SrcUserIdType](#srcuseridtype) 필드에 저장합니다. <br><br>다른 ID를 사용할 수 있는 경우 필드 이름을 **SrcUserSid**, **SrcUserUid , SrcUserAadId**, **SrcUserOktaId** 및 **UserAwsId** 로 각각 정규화하는 것이 좋습니다.  자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: S-1-12 |
+| <a name="srcuseridtype"></a>**SrcUserIdType** | 선택 사항 | Enumerated | [SrcUserId](#srcuserid) 필드에 저장된 ID의 형식입니다. 지원되는 값은 `SID` , , , 및 `UIS` `AADID` `OktaId` `AWSId` 입니다. |
 | <a name="srcusername"></a>**SrcUsername** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함하는 원본 사용자 이름입니다. 다음 형식 중 하나를 사용하고 다음 우선 순위 순서로 사용합니다.<br>- **Upn/메일**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **단순**: `johndow`. 도메인 정보를 사용할 수 없는 경우에만 단순 양식을 사용합니다.<br><br>사용자 이름 형식을 [SrcUsernameType](#srcusernametype) 필드에 저장합니다. 다른 ID를 사용할 수 있는 경우 필드 이름을 **SrcUserUpn**, **SrcUserWindows** 및 **SrcUserDn** 로 정규화하는 것이 좋습니다.<br><br>자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `AlbertE` |
 | <a name="user"></a>**사용자** | Alias | | 별칭을 [SrcUsername으로](#srcusername) |
 | <a name="srcusernametype"></a>**SrcUsernameType** | 선택 사항 | Enumerated | [SrcUsername](#srcusername) 필드에 저장된 사용자 이름 형식을 지정합니다. 지원되는 값은 `UPN` , `Windows` , 및 `DN` `Simple` 입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `Windows` |
@@ -209,48 +201,48 @@ DNS 정보 모델은 [OSSEM DNS 엔터티 스키마](https://github.com/OTRF/OSS
 | **DstGeoRegion** | 선택 사항 | 지역 | 대상 IP 주소와 연결된 국가 내의 지역 또는 주입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `Vermont` |
 | **DstGeoCity** | 선택 사항 | City | 대상 IP 주소와 연결된 도시입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `Burlington` |
 | **DstGeoLatitude** | 선택 사항 | 위도 | 대상 IP 주소와 연결된 지리적 좌표의 위도입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `44.475833` |
-| **DstGeoLongitude** | 선택 사항 | 경도 | 대상 IP 주소와 연결된 지리적 좌표의 경도입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `73.211944` |
-| **DstcRiskLevel** | 선택 | 정수 | 대상과 연결된 위험 수준입니다. 값은 0에서 100까지의 범위로 조정되어야 하며, 0은 무해하고 100은 위험성이 높습니다.<br><br>예: `90` |
+| **DstGeoLongitude** | 선택 사항 | 경도 | 대상 IP 주소와 연결 된 지리적 좌표의 경도입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `73.211944` |
+| **DstcRiskLevel** | 선택 | 정수 | 대상과 관련 된 위험 수준입니다. 값은 0에서 100 사이의 범위로 조정 해야 합니다. 0은 무해 하 고 100은 높은 위험입니다.<br><br>예: `90` |
 | **DstPortNumber** | 선택 | 정수  | 대상 포트 번호입니다.<br><br>예: `53` |
-| <a name="dsthostname"></a>**DstHostname** | 선택 | 문자열 | 도메인 정보를 제외한 대상 디바이스 호스트 이름입니다. 사용할 수 있는 디바이스 이름이 없는 경우 이 필드에 관련 IP 주소를 저장합니다.<br><br>예: `DESKTOP-1282V4D`<br><br>**참고:** [DstIpAddr이](#dstipaddr) 지정된 경우 이 값은 필수입니다. |
-| <a name="dstdomain"></a>**DstDomain** | 선택 | 문자열 | 대상 디바이스의 도메인입니다.<br><br>예: `Contoso` |
-| <a name="dstdomaintype"></a>**DstDomainType** | 선택 사항 | Enumerated | 알려진 경우 [DstDomain 의 형식입니다.](#dstdomain) 가능한 값은 다음과 같습니다.<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>[DstDomain을](#dstdomain) 사용하는 경우 필수입니다. |
-| **DstFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함하는 대상 디바이스 호스트 이름입니다. <br><br>예: `Contoso\DESKTOP-1282V4D` <br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [DstDomainType은](#dstdomaintype) 사용된 형식을 반영합니다.   |
-| <a name="dstdvcid"></a>**DstDvcId** | 선택 | 문자열 | 레코드에 보고된 대상 디바이스의 ID입니다.<br><br>예: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DstDvcIdType** | 선택 사항 | Enumerated | 알려진 경우 [DstDvcId](#dstdvcid)의 형식입니다. 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>여러 개의ID를 사용할 수 있는 경우 위 목록의 첫 번째 ID를 사용하고  **DstDvcAzureResourceId** 또는 **DstDvcMDEid** 필드에 각각 다른 것을 저장합니다.<br><br>**DstDeviceId를** 사용하는 경우 필요합니다.|
-| **DstDeviceType** | 선택 사항 | Enumerated | 대상 디바이스의 유형입니다. 가능한 값은 다음과 같습니다.<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
+| <a name="dsthostname"></a>**DstHostname** | 선택 | 문자열 | 대상 장치 호스트 이름 (도메인 정보 제외) 사용할 수 있는 장치 이름이 없으면이 필드에 관련 IP 주소를 저장 합니다.<br><br>예: `DESKTOP-1282V4D`<br><br>**참고**: [DstIpAddr](#dstipaddr) 가 지정 된 경우이 값은 필수입니다. |
+| <a name="dstdomain"></a>**DstDomain** | 선택 | 문자열 | 대상 장치의 도메인입니다.<br><br>예: `Contoso` |
+| <a name="dstdomaintype"></a>**DstDomainType** | 선택 사항 | Enumerated | [Dstdomain](#dstdomain)의 유형 (알려진 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>[Dstdomain](#dstdomain) 을 사용 하는 경우 필수 사항입니다. |
+| **DstFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함 하는 대상 장치 호스트 이름 <br><br>예: `Contoso\DESKTOP-1282V4D` <br><br>**참고**:이 필드는 기존의 FQDN 형식 및 Windows domain\hostname 형식을 모두 지원 합니다. [DstDomainType](#dstdomaintype) 는 사용 되는 형식을 반영 합니다.   |
+| <a name="dstdvcid"></a>**DstDvcId** | 선택 | 문자열 | 레코드에 보고 된 대상 장치의 ID입니다.<br><br>예: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
+| **DstDvcIdType** | 선택 사항 | Enumerated | [Dstdvcid](#dstdvcid)의 유형입니다 (알려진 경우). 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>여러 Id를 사용할 수 있는 경우 위의 목록에서 첫 번째 Id를 사용 하 고  **DstDvcAzureResourceId** 또는 **Dstdvcmdeid** 필드에 각각 다른 id를 저장 합니다.<br><br>**Dstdeviceid** 를 사용 하는 경우 필수 사항입니다.|
+| **DstDeviceType** | 선택 사항 | Enumerated | 대상 장치의 유형입니다. 가능한 값은 다음과 같습니다.<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name=query></a>**DnsQuery** | 필수 | FQDN | 확인해야 하는 도메인입니다. <br><br>**참고**: 일부 원본에서 여러 다른 형식으로 이 쿼리를 보냅니다. 예를 들어 DNS 프로토콜 자체에서 쿼리 끝에 점( **.** )이 있습니다. 이 점은 제거해야 합니다.<br><br>DNS 프로토콜에서는 단일 요청을 통해 여러 개를 쿼리할 수 있지만, 이 시나리오는 거의 발생하지 않습니다. 요청에 여러 쿼리가 있으면 첫 번째 쿼리를 이 필드에 저장하고 나머지는 선택적으로 [AdditionalFields](normalization-about-schemas.md#additionalfields) 필드에 보관합니다.<br><br>예: `www.malicious.com` |
 | **도메인** | Alias | | [Query](#query)에 대한 별칭입니다. |
-| **DnsQueryType** | 선택 | 정수 | 이 [필드에는 DNS 리소스 레코드 형식 코드 가](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)포함될 수 있습니다. <br><br>예: `28`|
+| **DnsQueryType** | 선택 | 정수 | 이 필드에는 [DNS 리소스 레코드 종류 코드가](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)포함 될 수 있습니다. <br><br>예: `28`|
 | **DnsQueryTypeName** | 권장 | Enumerated | 이 필드에는 [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) 이름이 포함될 수 있습니다. <br><br>**참고**: IANA는 값의 대소문자를 정의하지 않으므로 분석에서 필요에 따라 대소문자를 정규화해야 합니다. 원본이 쿼리 유형 이름이 아닌 숫자 쿼리 유형 코드만 제공하는 경우 파서는 이 값으로 보강할 조회 테이블을 포함해야 합니다.<br><br>예: `AAAA`|
-| <a name=responsename></a>**DnsResponseName** | 선택 | 문자열 | 레코드에 포함된 응답의 콘텐츠입니다.<br> <br> DNS 응답 데이터는 보고 디바이스 간에 일관되지 않고 구문 분석이 복잡하므로 원본 독립적 분석의 가치가 낮습니다. 따라서 정보 모델에는 구문 분석 및 정규화가 필요하지 않으며 Microsoft Sentinel은 보조 함수를 사용하여 응답 정보를 제공합니다. 자세한 내용은 [DNS 응답 처리](#handling-dns-response)를 참조하세요.|
+| <a name=responsename></a>**DnsResponseName** | 선택 | 문자열 | 레코드에 포함된 응답의 콘텐츠입니다.<br> <br> DNS 응답 데이터는 보고 디바이스 간에 일관되지 않고 구문 분석이 복잡하므로 원본 독립적 분석의 가치가 낮습니다. 따라서 정보 모델에는 구문 분석과 정규화가 필요 하지 않으며 Microsoft 센티널은 보조 함수를 사용 하 여 응답 정보를 제공 합니다. 자세한 내용은 [DNS 응답 처리](#handling-dns-response)를 참조하세요.|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  필수 | Enumerated | [DNS 응답 코드](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**참고**: IANA는 값의 대소문자를 정의하지 않으므로 분석에서 대소문자를 정규화해야 합니다. 원본이 응답 코드 이름이 아닌 숫자 응답 코드만 제공하는 경우 파서는 이 값으로 보강할 조회 테이블을 포함해야 합니다. <br><br> 이 레코드가 응답이 아닌 요청을 나타내는 경우 **NA** 로 설정합니다. <br><br>예: `NXDOMAIN` |
 | **DnsResponseCode** | 선택 | 정수 | [DNS 숫자 응답 코드](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>예: `3`|
 | **TransactionIdHex** | 권장 | String | DNS 고유 16진수 트랜잭션 ID입니다. |
 | **NetworkProtocol** | 선택 사항 | Enumerated | 네트워크 확인 이벤트에서 사용하는 전송 프로토콜입니다. 값은 **UDP** 또는 **TCP** 일 수 있으며 DNS의 경우 가장 일반적으로 **UDP** 로 설정됩니다. <br><br>예: `UDP`|
 | **DnsQueryClass** | 선택 | 정수 | [DNS 클래스 ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>실제로는 **IN** 클래스(ID 1)만 사용되므로 이 필드의 가치가 떨어집니다.|
 | **DnsQueryClassName** | 선택 | 문자열 | [DNS 클래스 이름](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>실제로는 **IN** 클래스(ID 1)만 사용되므로 이 필드의 가치가 떨어집니다. <br><br>예: `IN`|
-| <a name=flags></a>**DnsFlags** | 선택 사항 | 문자열 목록 | 보고 디바이스에서 제공하는 플래그 필드입니다. 플래그 정보가 여러 필드에 제공되는 경우 구분 기호로 쉼표를 사용하여 연결합니다. <br><br>DNS 플래그는 구문 분석 하기 복잡 하 고 분석에서 자주 사용 되지 않으므로 구문 분석 및 정규화가 필요 하지 않으며 Microsoft 센티널은 보조 함수를 사용 하 여 플래그 정보를 제공 합니다. 자세한 내용은 [DNS 응답 처리](#handling-dns-response)를 참조하세요. <br><br>예: `["DR"]`|
-| <a name=UrlCategory></a>**UrlCategory** |  선택 | String | DNS 이벤트 원본은 요청된 도메인의 범주를 조회할 수도 있습니다. Microsoft 센티널 네트워크 스키마에 맞게 필드를 **_Urlcategory_** 라고 합니다. <br><br>**_DomainCategory_** 는 DNS에 맞는 별칭으로 추가됩니다. <br><br>예: `Educational \\ Phishing` |
+| <a name=flags></a>**DnsFlags** | 선택 사항 | 문자열 목록 | 보고 디바이스에서 제공하는 플래그 필드입니다. 플래그 정보가 여러 필드에 제공되는 경우 구분 기호로 쉼표를 사용하여 연결합니다. <br><br>DNS 플래그는 구문 분석이 복잡하며 분석에서 자주 사용되지 않기 때문에 구문 분석 및 정규화가 필요하지 않으며 Microsoft Sentinel은 보조 함수를 사용하여 플래그 정보를 제공합니다. 자세한 내용은 [DNS 응답 처리](#handling-dns-response)를 참조하세요. <br><br>예: `["DR"]`|
+| <a name=UrlCategory></a>**UrlCategory** |  선택 | 문자열 | DNS 이벤트 원본은 요청된 도메인의 범주를 조회할 수도 있습니다. 필드는 Microsoft Sentinel 네트워크 스키마에 맞게 **_UrlCategory라고_** 합니다. <br><br>**_DomainCategory_** 는 DNS에 맞는 별칭으로 추가됩니다. <br><br>예: `Educational \\ Phishing` |
 | **DomainCategory** | 선택 사항 | Alias | [UrlCategory](#UrlCategory)에 대한 별칭입니다. |
-| **ThreatCategory** | 선택 | String | DNS 이벤트 원본이 DNS 보안도 제공하는 경우 DNS 이벤트도 평가할 수 있습니다. 예를 들어 위협 인텔리전스 데이터베이스에서 IP 주소 또는 도메인을 검색하고 위협 범주를 사용하여 도메인 또는 IP 주소를 할당할 수 있습니다. |
+| **ThreatCategory** | 선택 | 문자열 | DNS 이벤트 원본이 DNS 보안도 제공하는 경우 DNS 이벤트도 평가할 수 있습니다. 예를 들어 위협 인텔리전스 데이터베이스에서 IP 주소 또는 도메인을 검색하고 위협 범주를 사용하여 도메인 또는 IP 주소를 할당할 수 있습니다. |
 | **EventSeverity** | 선택 | 문자열 | DNS 이벤트 원본이 DNS 보안도 제공하는 경우 DNS 이벤트를 평가할 수 있습니다. 예를 들어 위협 인텔리전스 데이터베이스에서 IP 주소 또는 도메인을 검색하고 평가에 따라 심각도를 할당할 수 있습니다. <br><br>예: `Informational`|
-| <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | 선택 | 정수 | DNS 요청을 완료 하는 데 걸린 시간 (밀리초)입니다.<br><br>예: `1500` |
-| **기간** | Alias | | [Dnsnetworkduration](#dnsnetworkduration) 에 대 한 별칭 |
-| **Dns플래그 Sauthenticated** | 선택 사항 | 부울 | `AD`DNSSEC와 관련 된 DNS 플래그는 응답에서 응답의 응답 및 권한 섹션에 포함 된 모든 데이터가 해당 서버의 정책에 따라 서버에서 확인 되었음을 나타냅니다. 자세한 내용은 [RFC 3655 섹션 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) 을 참조 하십시오.    |
-| **Dns플래그** | 선택 사항 | 부울 | DNS `AA` 플래그는 서버의 응답이 신뢰할 수 있는지 여부를 나타냅니다.    |
-| **DnsFlagsCheckingDisabled** | 선택 사항 | 부울 | DNSSEC와 관련 된 DNS 플래그는 쿼리를 통해 `CD` 확인 되지 않은 데이터가 쿼리를 보내는 시스템에 허용 되는지 여부를 나타냅니다. 자세한 내용은 [RFC 3655 섹션 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) 을 참조 하십시오.   |
-| **DnsFlagsRecursionAvailable** | 선택 사항 | 부울 | DNS `RA` 플래그는 서버에서 재귀 쿼리를 지원함을 나타냅니다.   |
-| **DnsFlagsRecursionDesired** | 선택 사항 | 부울 | DNS `RD` 플래그는 클라이언트가 재귀 쿼리를 사용 하는 것을 요청 하는 요청을 나타냅니다.   |
-| **DnsFlagsTruncates** | 선택 사항 | 부울 | DNS `TC` 플래그는 최대 응답 크기를 초과 하 여 응답을 자르는 것을 나타냅니다.  |
-| **Dns플래그 Sz** | 선택 사항 | 부울 | DNS `Z` 플래그는 사용 되지 않는 dns 플래그로, 이전 dns 시스템에서 보고 될 수 있습니다.  |
-|<a name="dnssessionid"></a>**DnsSessionId** | 선택 | 문자열 | 보고 장치에서 보고 하는 DNS 세션 식별자입니다. <br><br>예: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
-| **SessionId** | Alias | String | [Dnssessionid](#dnssessionid) 에 대 한 별칭 |
+| <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | 선택 | 정수 | DNS 요청을 완료하는 데 소요되는 시간(밀리초)입니다.<br><br>예: `1500` |
+| **기간** | Alias | | [DnsNetworkDuration에](#dnsnetworkduration) 대한 별칭 |
+| **DnsFlagsAuthenticated** | 선택 사항 | 부울 | `AD`DNSSEC와 관련된 DNS 플래그는 응답의 응답 및 기관 섹션에 포함된 모든 데이터가 해당 서버의 정책에 따라 서버에서 확인되었음을 응답에 나타냅니다. 자세한 내용은 [RFC 3655 섹션 6.1을](https://tools.ietf.org/html/rfc3655#section-6.1) 참조하세요.    |
+| **DnsFlagsAuthoritative** | 선택 사항 | 부울 | DNS `AA` 플래그는 서버의 응답이 신뢰할 수 있는지 여부를 나타냅니다.    |
+| **DnsFlagsCheckingDisabled** | 선택 사항 | 부울 | `CD`DNSSEC와 관련된 DNS 플래그는 쿼리에서 확인되지 않은 데이터가 쿼리를 보내는 시스템에 허용됨을 나타냅니다. 자세한 내용은 [RFC 3655 섹션 6.1을](https://tools.ietf.org/html/rfc3655#section-6.1) 참조하세요.   |
+| **DnsFlagsRecursionAvailable** | 선택 사항 | 부울 | DNS `RA` 플래그는 응답에서 서버가 재귀 쿼리를 지원함을 나타냅니다.   |
+| **DnsFlagsRecursionDesired** | 선택 사항 | 부울 | DNS `RD` 플래그는 요청에서 클라이언트가 서버에서 재귀 쿼리를 사용하도록 함을 나타냅니다.   |
+| **DnsFlagsTruncates** | 선택 사항 | 부울 | DNS `TC` 플래그는 응답이 최대 응답 크기를 초과하여 잘렸음을 나타냅니다.  |
+| **DnsFlagsZ** | 선택 사항 | 부울 | DNS `Z` 플래그는 이전 DNS 시스템에서 보고될 수 있는 사용되지 않는 DNS 플래그입니다.  |
+|<a name="dnssessionid"></a>**DnsSessionId** | 선택 | 문자열 | 보고 디바이스에서 보고한 DNS 세션 식별자입니다. <br><br>예: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
+| **SessionId** | Alias | String | [DnsSessionId에](#dnssessionid) 대한 별칭 |
 | | | | |
 
 ### <a name="deprecated-aliases"></a>사용되지 않는 별칭
 
-다음 필드는 현재 사용 되지 않지만 이전 버전과의 호환성을 위해 유지 되는 별칭입니다. 2021년 12월 31일에 스키마에서 제거됩니다.
+다음 필드는 현재 사용되지 않지만 이전 버전과의 호환성을 위해 유지 관리되는 별칭입니다. 2021년 12월 31일에 스키마에서 제거됩니다.
 
 - Query(DnsQuery에 대한 별칭)
 - QueryType(DnsQueryType에 대한 별칭)

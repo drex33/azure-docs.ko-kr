@@ -4,14 +4,13 @@ description: Open Service 메시 문제를 해결 하는 방법
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 27a553bee765dd1369490cd9f6825cc44c48c59a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cea3f049559b958d769f882058397c6ff78680d5
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065668"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132753762"
 ---
 # <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>OSM(Open Service Mesh) AKS 추가 기능 문제 해결 가이드 열기
 
@@ -213,11 +212,11 @@ spec:
 | 관찰성. 사용 | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"enable":true}}}}'  --type=merge` |
 | 관찰성. | 문자열 | `"jaeger.kube-system.svc.cluster.local"`| `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"address": "jaeger.kube-system.svc.cluster.local"}}}}'  --type=merge` |
 | 관찰성. | 문자열 | `"/api/v2/spans"` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"endpoint":"/api/v2/spans"}}}}'  --type=merge' --type=merge` |
-| 관찰성. | int | `9411`| `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"port":9411}}}}'  --type=merge` |
+| 관찰성. | Int | `9411`| `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"port":9411}}}}'  --type=merge` |
 | 관찰성. osmLogLevel | 문자열 | `"info"`| `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"osmLogLevel": "info"}}}}'  --type=merge` |
 | 사이드카. enablePrivilegedInitContainer | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"sidecar":{"enablePrivilegedInitContainer":true}}}'  --type=merge` |
 | 사이드카. logLevel | 문자열 | `"error"` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"sidecar":{"logLevel":"error"}}}'  --type=merge` |
-| 사이드카. maxDataPlaneConnections | int | `0` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"sidecar":{"maxDataPlaneConnections":"error"}}}'  --type=merge` |
+| 사이드카. maxDataPlaneConnections | Int | `0` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"sidecar":{"maxDataPlaneConnections":"error"}}}'  --type=merge` |
 | 사이드카. envoyImage | 문자열 | `"mcr.microsoft.com/oss/envoyproxy/envoy:v1.19.1"` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"sidecar":{"envoyImage":"mcr.microsoft.com/oss/envoyproxy/envoy:v1.19.1"}}}'  --type=merge` |
 | 사이드카. initContainerImage | 문자열 | `"mcr.microsoft.com/oss/openservicemesh/init:v0.11.1"` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"sidecar":{"initContainerImage":"mcr.microsoft.com/oss/openservicemesh/init:v0.11.1"}}}' --type=merge` |
 | 사이드카. configResyncInterval | 문자열 | `"0s"` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"sidecar":{"configResyncInterval":"30s"}}}'  --type=merge` |
@@ -290,7 +289,7 @@ kubectl get crds
 - trafficsplits.split.smi-spec.io
 - traffictargets.access.smi-spec.io
 
-다음 명령을 통해 설치된 SMI CRD 버전을 다운로드합니다.
+다음 명령을 사용 하 여 설치한 SMI-S CRDs의 버전을 가져옵니다.
 
 ```azurecli-interactive
 osm mesh list
@@ -309,7 +308,7 @@ To list the OSM controller pods for a mesh, please run the following command pas
         kubectl get pods -n <osm-mesh-namespace> -l app=osm-controller
 ```
 
-OSM 컨트롤러 v0.11.1에는 다음 버전이 필요합니다.
+OSM Controller v 0.11.1에는 다음 버전이 필요 합니다.
 
 - traffictargets.access.smi-spec.io - [v1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
 - httproutegroups.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
@@ -321,8 +320,8 @@ OSM 컨트롤러 v0.11.1에는 다음 버전이 필요합니다.
 
 ### <a name="certificate-management"></a>인증서 관리
 
-OSM이 애플리케이션 Pod에서 실행되는 Envoy 프록시에 대한 인증서를 발급하고 관리하는 방법에 대한 정보는 [OpenServiceMesh 문서 사이트에서](https://docs.openservicemesh.io/docs/guides/certificates/)찾을 수 있습니다.
+Application pod에서 실행 되는 엔보이 프록시에 대 한 인증서를 발급 하 고 관리 하는 방법에 대 한 정보는 [OpenServiceMesh docs 사이트](https://docs.openservicemesh.io/docs/guides/certificates/)에서 찾을 수 있습니다 OSM.
 
-### <a name="upgrading-envoy"></a>Envoy 업그레이드
+### <a name="upgrading-envoy"></a>엔보이 업그레이드
 
-추가 기능으로 모니터링되는 네임스페이스에 새 Pod가 만들어지면 OSM은 해당 Pod에 [envoy 프록시 사이드카를](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) 삽입합니다. envoy 버전을 업데이트하는 방법에 대한 정보는 OpenServiceMesh 문서 사이트의 [업그레이드 가이드에서](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) 찾을 수 있습니다.
+추가 기능을 통해 모니터링 되는 네임 스페이스에 새 pod가 만들어지면 OSM는 해당 pod에 [엔보이 프록시 사이드카](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) 을 삽입 합니다. 엔보이 버전을 업데이트 하는 방법에 대 한 정보는 OpenServiceMesh docs 사이트의 [업그레이드 가이드](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) 에서 찾을 수 있습니다.

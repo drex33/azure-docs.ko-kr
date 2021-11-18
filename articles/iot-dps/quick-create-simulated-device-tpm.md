@@ -1,8 +1,8 @@
 ---
 title: 빠른 시작 - Microsoft Azure IoT Hub에 시뮬레이션된 TPM 디바이스 프로비저닝
 description: 빠른 시작 - Azure IoT Hub Device Provisioning Service에 TPM 시뮬레이션된 디바이스를 프로비전하는 방법 알아보기
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 9/22/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: 4a1430174e11f1223c4c84af19561609d288eb51
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 0458131f64c23da9cd73643a77260838da25ffa8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293740"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763927"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device"></a>빠른 시작: 시뮬레이션된 TPM 디바이스 프로비저닝
 

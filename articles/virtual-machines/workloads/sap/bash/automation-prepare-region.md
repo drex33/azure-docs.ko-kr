@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines-sap
 title: 지역 준비
 description: 셸 스크립트를 사용하여 컨트롤 플레인(배포자, SAP 라이브러리)을 배포합니다.
-ms.openlocfilehash: 2510e8a289047e21364e16c147290fa0ef9d4475
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 8721df6b4fbfcb2830ca7d85afdd59433ae36444
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730642"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761799"
 ---
 # <a name="prepare_regionsh"></a>prepare_region.sh
 
@@ -34,7 +34,7 @@ prepare_region.sh [ --deployer_parameter_file ] <String> [ --library_parameter_f
 ## <a name="description"></a>Description
 배포자 VM 및 SAP 라이브러리를 포함하는 컨트롤 플레인을 배포합니다. 자세한 내용은 [컨트롤 플레인 구성](../automation-configure-control-plane.md) 및 컨트롤 [플레인 배포를 참조하세요.](../automation-deploy-control-plane.md)
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="example-1"></a>예 1
 
@@ -56,17 +56,17 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 az logout
 az login
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret="<password>"
+export tenant_id=<tenant>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
-        --spn_secret "$spn_secret"                                                                               \ 
+        --spn_secret $spn_secret                                                                                 \ 
         --tenant_id $tenant
 ```
 
@@ -181,4 +181,4 @@ MIT 라이선스에 따라 사용이 허가됩니다.
 
 ## <a name="related-links"></a>관련 링크
 
-+[GitHub 리포지토리: SAP 배포 자동화 프레임워크](https://github.com/Azure/sap-hana)
++[GitHub 리포지토리: SAP 배포 자동화 프레임워크](https://github.com/Azure/sap-automation)

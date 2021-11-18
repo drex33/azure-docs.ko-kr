@@ -1,8 +1,8 @@
 ---
 title: Microsoft Azure IoT Hub Device Provisioning Service 개요
 description: DPS(Device Provisioning Service) 및 IoT Hub를 사용하여 Azure에서 디바이스 프로비저닝 설명
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 11/09/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -11,12 +11,12 @@ manager: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 8c469fbcf4ee8300586a0f3dd354ad66cf7cf685
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: bc83f94a68e114a1d5a6aea7e4bcf09e5c9f29bb
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132490632"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754079"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service란?
 

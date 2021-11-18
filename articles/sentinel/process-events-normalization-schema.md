@@ -1,26 +1,19 @@
 ---
-title: Microsoft 센티널 프로세스 이벤트 정규화 스키마 참조 | Microsoft Docs
-description: 이 문서에서는 Microsoft 센티널 프로세스 이벤트 정규화 스키마에 대해 설명 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Microsoft Sentinel Process 이벤트 정규화 스키마 참조 | Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel Process 이벤트 정규화 스키마에 대해 설명합니다.
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6f788517a6a29e568ec983b509594039fe99e6e9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0d7d5961b317a50e400596422a93a20e32ec8879
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712304"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763870"
 ---
-# <a name="microsoft-sentinel-process-event-normalization-schema-reference-public-preview"></a>Microsoft 센티널 프로세스 이벤트 정규화 스키마 참조 (공개 미리 보기)
+# <a name="microsoft-sentinel-process-event-normalization-schema-reference-public-preview"></a>Microsoft Sentinel Process 이벤트 정규화 스키마 참조(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -28,7 +21,7 @@ ms.locfileid: "132712304"
 
 OSSEM에서 정의한 프로세스는 프로그램의 실행 인스턴스를 나타내는 포함 및 관리 개체입니다. 프로세스 자체는 실행되지 않지만 코드를 실행하는 스레드를 관리합니다.
 
-Microsoft 센티널의 정규화에 대 한 자세한 내용은 [정규화 및 ASIM (고급 SIEM 정보 모델)](normalization.md)을 참조 하세요.
+Microsoft Sentinel의 정규화에 대한 자세한 내용은 [정규화 및 ASIM(고급 SIEM 정보 모델)을](normalization.md)참조하세요.
 
 > [!IMPORTANT]
 > 프로세스 이벤트 정규화 스키마는 현재 미리 보기 상태입니다. 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다.
@@ -38,13 +31,13 @@ Microsoft 센티널의 정규화에 대 한 자세한 내용은 [정규화 및 A
 
 ## <a name="parsers"></a>파서
 
-Microsoft 센티널은 다음과 같은 기본 제공 제품별 프로세스 이벤트 파서를 제공 합니다.
+Microsoft Sentinel은 다음과 같은 기본 제공 제품별 프로세스 이벤트 파서를 제공합니다.
 
 - **보안 이벤트 프로세스 생성(이벤트 4688)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
 - **보안 이벤트 프로세스 종료(이벤트 4689)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
 - **Sysmon 프로세스 생성(이벤트 1)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
 - **Sysmon 프로세스 종료(이벤트 5)** , Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용하여 수집
-- **끝점 프로세스 만들기에 대 한 Microsoft 365 Defender**
+- **엔드포인트 프로세스 생성을 위한 Microsoft 365 Defender**
 
 나열된 모든 파서를 통합하고 구성된 모든 원본에서 분석할 수 있도록 원본 독립적 파서를 사용하려면 쿼리에 다음 테이블 이름을 사용합니다.
 
@@ -52,7 +45,7 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품별 프로세스 이
 - 프로세스 종료 정보가 필요한 쿼리의 경우 **imProcessTerminate**.
 - 프로세스 생성 및 종료 정보가 모두 필요한 쿼리의 경우 **imProcessEvents**. 이러한 경우 `EventType` 필드를 사용하여 이벤트를 구분할 수 있으며 각각 `ProcessCreate` 또는 `ProcessTerminate`로 설정됩니다. 프로세스 종료 이벤트는 일반적으로 프로세스 생성 이벤트보다 훨씬 적은 정보를 포함합니다.
 
-[Microsoft 센티널 GitHub 리포지토리에서](https://aka.ms/AzSentinelProcessEvents) [소스와 무관 한 소스 관련 파서](normalization-about-parsers.md) 를 배포 합니다.
+[Microsoft Sentinel GitHub 리포지토리에서](https://aka.ms/AzSentinelProcessEvents) [소스와 관련이 없는 소스별 파서를](normalization-about-parsers.md) 배포합니다.
 
 ## <a name="add-your-own-normalized-parsers"></a>정규화된 고유 파서 추가
 
@@ -62,7 +55,7 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품별 프로세스 이
 
 ## <a name="normalized-content-for-process-activity-data"></a>프로세스 활동 데이터에 대한 정규화된 콘텐츠
 
-다음 Microsoft 센티널 콘텐츠는 고급 SIEM 정보 모델을 사용 하 여 정규화 된 모든 프로세스 작업에서 작동 합니다.
+다음 Microsoft Sentinel 콘텐츠는 고급 SIEM 정보 모델을 사용하여 정규화된 모든 프로세스 작업에서 작동합니다.
 
 - **분석 규칙**:
 
@@ -94,7 +87,7 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품별 프로세스 이
     - [명령줄에서 유니코드 난독 처리](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
 
 
-    자세한 내용은 [Microsoft 센티널로 위협 구하기](hunting.md)를 참조 하세요.
+    자세한 내용은 [Microsoft Sentinel을 사용하여 위협 헌션을 참조하세요.](hunting.md)
 
 ## <a name="schema-details"></a>스키마 세부 정보
 
@@ -108,7 +101,7 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품별 프로세스 이
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
-| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 여러 채널을 통해 동일한 이벤트를 받을 수 있고 EventVendor 및 Eventvendor 값이 동일한 경우에 유용 합니다.<br><br>예를 들어 이벤트 테이블이 나 WindowsEvent 테이블에 Sysmon 이벤트를 수집할 수 있습니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블로 동일한 이벤트를 수신할 수 있고 EventVendor 및 EventProduct 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 Event 테이블 또는 WindowsEvent 테이블에 수집할 수 있습니다. |
 | | | |
 
 > [!NOTE]
@@ -119,7 +112,7 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품별 프로세스 이
 
 이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
@@ -240,9 +233,9 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품별 프로세스 이
 
 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft Sentinel의 정규화](normalization.md)
-- [Microsoft Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
-- [Microsoft Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
-- [Microsoft Sentinel 파일 이벤트 정규화 스키마 참조(공개 미리 보기)](file-event-normalization-schema.md)
-- [Microsoft Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
-- [Microsoft Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)](registry-event-normalization-schema.md)
+- [Microsoft 센티널의 정규화](normalization.md)
+- [Microsoft 센티널 인증 정규화 스키마 참조 (공개 미리 보기)](authentication-normalization-schema.md)
+- [Microsoft 센티널 DNS 정규화 스키마 참조](dns-normalization-schema.md)
+- [Microsoft 센티널 파일 이벤트 정규화 스키마 참조 (공개 미리 보기)](file-event-normalization-schema.md)
+- [Microsoft 센티널 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
+- [Microsoft 센티널 레지스트리 이벤트 정규화 스키마 참조 (공개 미리 보기)](registry-event-normalization-schema.md)

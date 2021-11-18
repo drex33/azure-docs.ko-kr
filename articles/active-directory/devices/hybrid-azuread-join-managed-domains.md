@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f83c7a9ac8a910a96a49c2ee354b68a18f4a774
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 0707969fe74714864eb3f92740c911847e21bd92
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892156"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490197"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -128,6 +128,14 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 - 디바이스 등록에 대한 로컬 인트라넷 설정 구성
 - Seamless SSO 구성
 - Windows 하위 수준 컴퓨터용 Microsoft Workplace Join 설치
+
+Windows 하위 수준 디바이스는 이전 운영 체제가 설치된 디바이스입니다. Windows 하위 수준 디바이스는 다음과 같습니다.
+
+- Windows 7
+- Windows 8.1
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 > [!NOTE]
 > Windows 7 지원은 2020년 1월 14일에 종료되었습니다. 자세한 내용은 [Windows 7 지원 종료](https://support.microsoft.com/help/4057281/windows-7-support-ended-on-january-14-2020)를 참조하세요.

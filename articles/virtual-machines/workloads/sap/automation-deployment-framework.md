@@ -7,18 +7,18 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.service: virtual-machines-sap
 ms.topic: conceptual
-ms.openlocfilehash: 4b3db0835c1710317672aca717a0faa59626e19f
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: ab701964274a5c70967af798c69415e9ed9441c9
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730452"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761819"
 ---
 # <a name="sap-deployment-automation-framework-on-azure"></a>Azure의 SAP 배포 자동화 프레임워크
 
-[Azure의 SAP 배포 자동화 프레임워크는 SAP](https://github.com/Azure/sap-hana) 환경을 배포, 설치 및 유지 관리하기 위한 오픈 소스 오케스트레이션 도구입니다. SAP 지원 운영 체제 버전에서 AnyDB를 사용하여 SAP HANA 및 NetWeaver를 기반으로 SAP 환경을 위한 인프라를 만들고 모든 Azure 지역에 배포할 수 있습니다.
+[Azure의 SAP 배포 자동화 프레임워크는 SAP](https://github.com/Azure/sap-automation) 환경을 배포, 설치 및 유지 관리하기 위한 오픈 소스 오케스트레이션 도구입니다. SAP 지원 운영 체제 버전에서 AnyDB를 사용하여 SAP HANA 및 NetWeaver를 기반으로 SAP 환경을 위한 인프라를 만들고 모든 Azure 지역에 배포할 수 있습니다.
 
-[자동화 프레임워크에는](https://github.com/Azure/sap-hana) 두 가지 주요 구성 요소가 있습니다.
+[자동화 프레임워크에는](https://github.com/Azure/sap-automation) 두 가지 주요 구성 요소가 있습니다.
 -   배포 인프라(제어 평면) 
 -   SAP 인프라(SAP 워크로드)
 
@@ -81,7 +81,7 @@ SAP 워크로드에는 SAP 배포에 대한 모든 Azure 인프라 리소스가 
 
 워크로드 영역을 사용하면 배포를 다른 환경(개발, 테스트, 프로덕션)으로 분할할 수 있습니다. SAP 워크로드 영역은 SAP 시스템에 다음 서비스를 제공합니다.
 -   가상 네트워킹 인프라
--   시스템 자격 증명에 대한 보안 스토리지(Virtual Machines 및 SAP)
+-   시스템 자격 증명을 위한 보안 스토리지(Virtual Machines 및 SAP)
 -   공유 Storage(선택 사항)
 
 
@@ -110,7 +110,7 @@ SAP 시스템은 다음과 같은 서비스를 제공합니다.
 
 ### <a name="deployment-components"></a>배포 구성 요소
 
-| 용어 | 설명 | 범위 |
+| 용어 | Description | 범위 |
 | ---- | ----------- | ----- |
 | 배포자 | Terraform 및 Ansible 명령을 실행할 수 있는 가상 머신입니다. SAP 가상 네트워크에 피어링된 가상 네트워크(신규 또는 기존)에 배포됩니다. | 지역 |
 | 라이브러리 | Terraform 상태 파일 및 SAP 설치 미디어에 대한 스토리지를 제공합니다. | 지역 |

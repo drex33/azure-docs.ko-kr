@@ -1,15 +1,15 @@
 ---
-author: anastasia-ms
+author: wesmc7777
 ms.service: iot-dps
 ms.topic: include
 ms.date: 10/10/2021
-ms.author: v-stharr
-ms.openlocfilehash: ac1d2554df675dc055530ab4b721a0510f2fddfb
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.author: wesmc
+ms.openlocfilehash: 44be0cb5b9715dac2aa59908d045da99f370b3f4
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132399405"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754078"
 ---
 > [!NOTE]
 > 이 서비스의 일부 영역에는 조정 가능한 한도가 있습니다. 아래 표에 조정 가능? 열과 함께 표시되어 있습니다. 제한을 조정할 수 있는 경우 ‘조정 가능 여부’ 값은 ‘예’입니다. 

@@ -8,15 +8,15 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2021
+ms.date: 11/16/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 7401b7369d766df5513100b30b7b65c324517fbe
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 1eca75130fda573714d25bde29c42047279343ae
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091993"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756281"
 ---
 # <a name="add-or-edit-azure-role-assignment-conditions-using-the-azure-portal-preview"></a>Azure Portal을 사용하여 Azure 역할 할당 조건 추가 또는 편집(미리 보기)
 
@@ -50,7 +50,7 @@ ms.locfileid: "129091993"
 
 1. [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md) 단계를 따릅니다.
 
-1. **조건(선택 사항)** 탭에서 **조건 추가를** 클릭합니다.
+1. **조건(옵션)** 탭에서 **조건 추가** 를 클릭합니다.
 
     조건(선택 사항) 탭이 표시되지 않으면 조건을 지원하는 역할을 선택했는지 확인합니다.
 
@@ -112,20 +112,30 @@ ms.locfileid: "129091993"
 
     식 섹션이 확장됩니다.
 
-1. 특성 원본 목록에서 특성을 찾을 수 있는 위치를 선택합니다.
+1. 특성 **원본** 목록에서 특성을 찾을 수 있는 위치를 선택합니다.
 
     - **리소스** 는 특성이 컨테이너 이름과 같은 리소스에 있음을 나타냅니다.
     - **요청** 은 특성이 Blob 색인 태그 설정과 같은 작업 요청의 일부임을 나타냅니다.
+    - **보안 주체는** 특성이 사용자, 엔터프라이즈 애플리케이션(서비스 주체) 또는 관리 ID와 같은 Azure AD 사용자 지정 보안 특성 보안 주체임을 나타냅니다.
 
-1. 특성 목록에서 식의 왼쪽에 대한 특성을 선택합니다. 자세한 내용은 [Azure 역할 할당 조건 형식 및 구문](conditions-format.md#attributes)을 참조하세요.
+1. **특성** 목록에서 식의 왼쪽에 대한 특성을 선택합니다.
 
-    선택한 특성에 따라 추가 특성 세부 정보를 지정하기 위해 상자를 추가할 수 있습니다.
+    선택한 특성에 따라 추가 특성 세부 정보를 지정하기 위해 상자를 추가할 수 있습니다. 자세한 내용은 [특성](conditions-format.md#attributes)을 참조하세요.
 
-1. 연산자 목록에서 연산자를 선택합니다.
+1. **연산자 목록에서 연산자를** 선택합니다.
 
-1. 값 상자에 식의 오른쪽에 값을 입력합니다.
+    자세한 내용은 [연산자](conditions-format.md#operators)를 참조하세요.
+
+1. **값** 상자에 식의 오른쪽에 값을 입력합니다.
 
     ![Blob 인덱스 태그 값이 포함된 식 섹션을 빌드합니다.](./media/shared/condition-expressions.png)
+
+1. 필요에 따라 식을 더 추가합니다.
+
+    식을 세 개 이상 추가하는 경우 괄호로 그룹화해야 할 수 있습니다. 그룹화할 식 옆에 확인 표시를 추가한 다음 **그룹화** 를 클릭합니다. 그룹링을 제거하려면 **그룹 해제를** 클릭합니다. 
+
+    ![그룹화할 여러 식을 사용하여 식 섹션을 작성합니다.](./media/conditions-role-assignments-portal/condition-group.png)
+
 
 ## <a name="step-6-review-and-add-condition"></a>6단계: 조건 검토 및 추가
 

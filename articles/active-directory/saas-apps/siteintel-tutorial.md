@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c08b2b8e11aa4086c5861733a4a0d49529c416e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b8aa54369e6da2d70656a0fc11079f6f850c9a9d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032015"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132304537"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>자습서: SiteIntel과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -40,7 +40,7 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * SiteIntel은 SP 시작 SSO와 IdP 시작 SSO를 지원합니다.
-* SiteIntel이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+* SiteIntel이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-siteintel-from-the-gallery"></a>갤러리에서 SiteIntel 추가
 
@@ -154,5 +154,5 @@ SiteIntel 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메�
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 - [Azure AD를 사용하여 SiteIntel 사용해 보기](https://aad.portal.azure.com/)
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+- [Cloud Apps용 Microsoft Defender의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
 - [고급 표시 유형 및 컨트롤을 사용하여 SiteIntel을 보호하는 방법](/cloud-app-security/proxy-intro-aad)

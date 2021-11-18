@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/08/2021
-ms.openlocfilehash: 660ae01280f116097d1a16282c8fed4faa18b6c2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0b90e72a720fe39da14164d9c3d6eb7e669a6813
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132706973"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132752342"
 ---
 #  <a name="azure-web-pubsub-service-internals"></a>Azure Web PubSub 서비스 내부
 
@@ -246,9 +246,9 @@ Azure Portal 또는 CLI를 통해 이벤트 처리기 업스트림을 설정할 
 #### <a name="authentication-between-service-and-webhook"></a>서비스와 웹후크 간 인증
 - 익명 모드
 - 구성된 웹후크 URL을 통해 `code`가 제공되는 단순 인증입니다.
-- AAD 인증. 
-   - AAD의 [앱 등록]에 클라이언트 암호를 추가하고 portal/cli를 통해 Azure Web PubSub에 [클라이언트 암호]를 제공합니다.
-   - portal/cli를 통해 Azure Web PubSub에 [ID](../app-service/overview-managed-identity.md?tabs=dotnet)를 제공합니다.
+- AAD Auth를 사용 하 [여 자세한 내용을 확인 하세요](howto-use-managed-identity.md) .
+   - 1 단계: 웹 PubSub 서비스에 Id를 사용 하도록 설정 합니다.
+   - 2 단계: webhook 웹 앱을 의미 하는 기존 AAD 응용 프로그램에서 선택 합니다.
 
 <a name="connection_manager"></a>
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 293249c764155aefe16ef23738b1e4efea4255e5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 82e1e8011dd854cf479948577954c2c783215d30
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124751047"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755225"
 ---
 # <a name="update-azure-percept-dk-over-a-usb-c-connection"></a>USB-C 연결을 통해 Azure Percept DK 업데이트
 
@@ -44,7 +44,7 @@ ms.locfileid: "124751047"
 
 1. [NXP UUU 도구](https://github.com/NXPmicro/mfgtools/releases)입니다. **자산** 탭에서 **최신 릴리스** uuu.exe 파일(Windows용) 또는 uuu 파일(Linux용)을 다운로드합니다. UUU는 NXP 개발 보드를 업데이트하기 위해 사용되는 NXP에서 만든 도구입니다.
 
-1. [업데이트 파일을 다운로드합니다](./how-to-select-update-package.md). 다음 섹션에서 추출할 zip 파일에 모두 포함되어 있습니다.
+1. [업데이트 파일을 다운로드합니다](./software-releases-usb-cable-updates.md). 다음 섹션에서 추출할 zip 파일에 모두 포함되어 있습니다.
 
 1. 세 개의 빌드 아티팩트가 모두 있는지 확인합니다.
     - Azure-Percept-DK- *&lt;버전 번호&gt;* .raw

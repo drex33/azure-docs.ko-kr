@@ -1,32 +1,25 @@
 ---
-title: Microsoft 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별 | Microsoft Docs
+title: Microsoft Sentinel | UEBA(사용자 및 엔터티 동작 분석)를 사용하여 고급 위협 식별 Microsoft Docs
 description: 엔터티(사용자, 호스트 이름, IP 주소)에 대한 동작 기준을 만들고 이를 사용하여 비정상적인 동작을 감지하고 제로 데이 APT(고급 영구 위협)를 식별합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c6abd0f799f3f8f2f457352de3a23bdd2ecbd9de
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: f2e16152bd6c32a91f6c7aa770088452161ae5ea
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721084"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754389"
 ---
-# <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Microsoft 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
+# <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Microsoft Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하여 고급 위협 식별
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Microsoft 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다. 
+> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Microsoft Sentinel 지역 및 지역에서 **일반 공급됩니다.** 
 >
 > - **IP 주소 엔터티** 는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -36,9 +29,9 @@ ms.locfileid: "132721084"
 
 조직 내부의 위협 및 위협의 잠재적 영향(손상된 엔터티 또는 악의적인 내부자)을 식별하는 것은 항상 시간과 인력이 많이 소모되는 프로세스입니다. 경고를 검토하고 내용을 이해하며 적극적인 헌팅하는 과정에서 낮은 성과와 단순히 검색을 회피하는 정교한 위협으로 인해 막대한 시간과 노력이 소비됩니다. 특히 탐지가 어려운 제로 데이, 대상이 지정된 위협, 지능형 지속 위협은 조직에 매우 큰 위험을 초래할 수 있기 때문에 반드시 탐지해야 합니다.
 
-Microsoft 센티널의 UEBA 기능을 통해 분석가의 워크 로드에서 drudgery 하 고, 노력 으로부터 불확실성을 제거 하 고, 조사 및 수정에 집중할 수 있도록 고성능의 실행 가능한 인텔리전스를 제공 합니다.
+Microsoft Sentinel의 UEBA 기능은 분석가의 워크로드와 해당 작업에서 불확실성을 제거하고 정확도가 높고 실행 가능한 인텔리전스를 제공하므로 조사 및 수정에 집중할 수 있습니다.
 
-Microsoft 센티널은 모든 연결 된 데이터 원본에서 로그 및 경고를 수집 하 고,이를 분석 하 여 사용자, 호스트, IP 주소, 응용 프로그램 등 조직의 엔터티 (예: 사용자, 호스트, IP 주소 및 응용 프로그램)에 대 한 기본 동작 프로필을 시간 및 피어 그룹 가로선으로 빌드합니다. Microsoft 센티널은 다양 한 기술과 기계 학습 기능을 사용 하 여 비정상적인 활동을 식별 하 고 자산이 손상 되었는지 확인 하는 데 도움을 줍니다. 그뿐만 아니라 특정 자산의 상대적인 민감도를 파악하고 자산의 피어 그룹을 식별하며 손상된 특정 자산의 잠재적 영향(‘blast radius’)을 평가할 수도 있습니다. 해당 정보를 사용하여 조사 및 침해 인시던트 처리의 우선 순위를 효과적으로 지정할 수 있습니다. 
+Microsoft Sentinel은 연결된 모든 데이터 원본에서 로그 및 경고를 수집할 때 이를 분석하고 시간 및 피어 그룹 수평에 걸쳐 조직 엔터티(예: 사용자, 호스트, IP 주소 및 애플리케이션)의 기준 동작 프로필을 작성합니다. Microsoft Sentinel은 다양한 기술과 기계 학습 기능을 사용하여 비정상적인 활동을 식별하고 자산이 손상되었는지 확인하는 데 도움을 줄 수 있습니다. 그뿐만 아니라 특정 자산의 상대적인 민감도를 파악하고 자산의 피어 그룹을 식별하며 손상된 특정 자산의 잠재적 영향(‘blast radius’)을 평가할 수도 있습니다. 해당 정보를 사용하여 조사 및 침해 인시던트 처리의 우선 순위를 효과적으로 지정할 수 있습니다. 
 
 ### <a name="ueba-analytics-architecture"></a>UEBA 분석 아키텍처
 
@@ -46,17 +39,17 @@ Microsoft 센티널은 모든 연결 된 데이터 원본에서 로그 및 경�
 
 ### <a name="security-driven-analytics"></a>보안 기반 분석
 
-UEBA 솔루션에 대 한 Gartner의 패러다임으로 Microsoft 센티널은 세 가지 참조 프레임을 기반으로 하는 "외부" 접근 방식을 제공 합니다.
+UEBA 솔루션에 대한 Gartner의 패러다임에서 영감을 받은 Microsoft Sentinel은 다음 세 가지 참조 프레임을 기반으로 "외부" 접근 방식을 제공합니다.
 
-- **사용 사례:** 다양 한 엔터티를 kill 체인의 교착 상태가 발생, perpetrators 또는 pivot 점으로 사용 하는 MITRE AT&T&접시 헤드 프레임 워크를 기반으로 하는 관련 공격 벡터 및 시나리오에 대 한 우선 순위를 설정 합니다. Microsoft 센티널은 각 데이터 원본이 제공할 수 있는 가장 중요 한 로그를 집중적으로 다룹니다.
+- **사용 사례:** MITRE ATT&CK 프레임워크에 부합된 보안 연구를 기반으로 관련 공격 벡터 및 시나리오에 우선 순위를 지정하여 다양한 엔터티를 킬 체인에 범죄자, 아키터 또는 피벗 지점으로 두는 기법, 기술 및 하위 기술에 대한 우선 순위를 지정합니다. Microsoft Sentinel은 특히 각 데이터 원본이 제공할 수 있는 가장 중요한 로그에 중점을 둡니다.
 
-- **데이터 원본:** 처음에는 Azure 데이터 원본을 지원 하지만 Microsoft 센티널 신중는 타사 데이터 원본을 선택 하 여 위협 시나리오와 일치 하는 데이터를 제공 합니다.
+- **데이터 원본:** 먼저 Azure 데이터 원본을 지원하는 반면 Microsoft Sentinel은 타사 데이터 원본을 신중하게 선택하여 위협 시나리오와 일치하는 데이터를 제공합니다.
 
-- **분석:** 다양 한 ML (기계 학습) 알고리즘을 사용 하 여 Microsoft 센티널은 비정상적인 활동을 식별 하 고, 아래에 표시 되는 몇 가지 예제를 사용 하 여 상황별 강화의 형태로 증거를 명확 하 게 보여 줍니다.
+- **분석:** Microsoft Sentinel은 다양한 ML(기계 학습) 알고리즘을 사용하여 비정상적인 활동을 식별하고, 아래에 표시되는 몇 가지 예인 상황별 보강의 형태로 명확하고 간결하게 증거를 제시합니다.
 
     :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="동작 분석 외부 접근 방식":::
 
-Microsoft 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을 명확 하 게 이해 하 고 사용자의 기준 프로필을 비교 하는 데 도움이 되는 아티팩트를 제공 합니다. 사용자(또는 호스트나 주소)가 수행하는 작업은 상황별로 평가됩니다. “true”결과는 변칙이 탐지되었음을 의미합니다.
+Microsoft Sentinel은 보안 분석가가 컨텍스트 및 사용자의 기준 프로필과 비교하여 비정상적인 활동을 명확하게 이해하는 데 도움이 되는 아티팩트입니다. 사용자(또는 호스트나 주소)가 수행하는 작업은 상황별로 평가됩니다. “true”결과는 변칙이 탐지되었음을 의미합니다.
 - 지리적 위치, 디바이스, 환경에 걸쳐 탐지
 - 시간 및 빈도 범위에 걸쳐 탐지(사용자 본인의 기록과 비교)
 - 피어 동작과 비교를 통해 탐지
@@ -69,29 +62,29 @@ Microsoft 센티널은 보안 분석가가 컨텍스트의 비정상적인 활�
 
 각 활동은 “조사 우선 순위 점수”로 점수가 매겨지며 해당 점수는 특정 사용자가 사용자와 피어의 동작 학습에 따라 특정 활동을 수행할 확률을 결정합니다. 가장 비정상적인 활동으로 식별된 활동은 가장 높은 점수를 받습니다(0~10까지의 점수).
 
-이러한 작동 방식에 대 한 예제는 [클라우드 앱 용 Microsoft Defender](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) 에서 동작 분석을 사용 하는 방법을 참조 하세요.
+작동 방식에 대한 예제는 [Microsoft Defender for Cloud Apps에서](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) 동작 분석을 사용하는 방법을 참조하세요.
 
 ## <a name="entity-pages"></a>엔터티 페이지
 
-[Microsoft 센티널의 엔터티에](entities.md) 대해 자세히 알아보고 [지원 되는 엔터티 및 식별자](entities-reference.md)의 전체 목록을 확인 하세요.
+[Microsoft Sentinel의 엔터티에](entities.md) 대해 자세히 알아보고 [지원되는 엔터티 및 식별자의](entities-reference.md)전체 목록을 참조하세요.
 
 엔터티 검색, 경고 또는 조사에서 사용자 또는 호스트 엔터티(IP 주소 엔터티가 미리 보기로 제공됨)를 확인하면 엔터티를 선택하여 **엔터티 페이지**(해당 엔터티에 대한 유용한 정보가 포함된 데이터시트)로 이동할 수 있습니다. 해당 페이지에서 찾을 수 있는 정보 유형에는 엔터티에 대한 기본 팩트, 해당 엔터티와 관련된 주목할 만한 이벤트의 타임라인 및 엔터티 동작에 대한 인사이트가 포함됩니다.
  
 엔터티 페이지는 다음 세 부분으로 구성됩니다.
-- 왼쪽 패널에는 Azure Active Directory, Azure Monitor, 클라우드 용 Microsoft Defender, cef/Syslog 및 Microsoft 365 Defender와 같은 데이터 원본에서 수집 된 엔터티의 식별 정보가 포함 되어 있습니다.
+- 왼쪽 패널에는 Azure Active Directory, Azure Monitor, Microsoft Defender for Cloud, CEF/Syslog 및 Microsoft 365 Defender 같은 데이터 원본에서 수집된 엔터티의 식별 정보가 포함되어 있습니다.
 
 - 가운데 패널에는 경고 북마크 및 활동과 같이 엔터티와 관련된 주목할 만한 이벤트의 그래픽 및 텍스트 타임라인이 표시됩니다. 활동은 Log Analytics에서 주목할 만한 이벤트의 집계입니다. 이러한 활동을 검색하는 쿼리는 Microsoft 보안 연구팀에서 개발했으며 이제 [사용자 지정 쿼리를 추가하여 선택한 활동을 검색](customize-entity-activities.md)할 수 있습니다. 
 
 - 오른쪽 패널은 엔터티에 대한 동작 인사이트를 제공합니다. 해당 인사이트는 변칙 및 보안 위협을 빠르게 식별하는 데 도움이 됩니다. 해당 인사이트는 Microsoft 보안 연구 팀에서 개발되었으며 변칙 탐지 모델을 기반으로 합니다.
 
 > [!NOTE]
-> **IP 주소 엔터티 페이지**(현재 미리 보기로 제공됨)에는 **Microsoft 위협 인텔리전스 서비스** 에서 제공하는 **지리적 위치 데이터** 가 포함되어 있습니다. 이 서비스는 Microsoft 솔루션과 타사 공급업체 및 파트너의 지리적 위치 데이터를 결합합니다. 그런 다음 데이터를 보안 인시던트 컨텍스트에서 분석 및 조사할 수 있습니다. 자세한 내용은 [REST API를 통해 지리적 위치 데이터를 사용 하 여 Microsoft 센티널에서 엔터티 보강 (공개 미리 보기)](geolocation-data-api.md)을 참조 하세요.
+> **IP 주소 엔터티 페이지**(현재 미리 보기로 제공됨)에는 **Microsoft 위협 인텔리전스 서비스** 에서 제공하는 **지리적 위치 데이터** 가 포함되어 있습니다. 이 서비스는 Microsoft 솔루션과 타사 공급업체 및 파트너의 지리적 위치 데이터를 결합합니다. 그런 다음 데이터를 보안 인시던트 컨텍스트에서 분석 및 조사할 수 있습니다. 자세한 내용은 REST API [통해 지리적 위치 데이터로 Microsoft Sentinel의 엔터티 보강(공개 미리 보기)을](geolocation-data-api.md)참조하세요.
 
 ### <a name="the-timeline"></a>타임라인
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="엔터티 페이지 타임라인":::
 
-타임 라인은 Microsoft 센티널의 동작 분석에 대 한 엔터티 페이지의 주요 부분입니다. 엔터티 관련 이벤트에 대한 스토리를 제공하여 특정 시간 프레임 내에서 엔터티의 작업을 이해하도록 도와줍니다.
+타임라인은 Microsoft Sentinel의 동작 분석에 대한 엔터티 페이지 기여의 주요 부분입니다. 엔터티 관련 이벤트에 대한 스토리를 제공하여 특정 시간 프레임 내에서 엔터티의 작업을 이해하도록 도와줍니다.
 
 몇 가지 사전 설정된 옵션(예: *최근 24시간*) 중에서 **시간 범위** 를 선택하거나 사용자 지정된 시간 프레임으로 설정할 수 있습니다. 또한 타임라인의 정보를 특정 형식의 이벤트 또는 경고로 제한하는 필터를 설정할 수 있습니다.
 
@@ -113,18 +106,18 @@ Microsoft 센티널은 보안 분석가가 컨텍스트의 비정상적인 활�
 - AuditLogs(Azure AD)
 - SigninLogs(Azure AD)
 - OfficeActivity(Office 365)
-- BehaviorAnalytics (Microsoft 센티널 UEBA)
+- BehaviorAnalytics(Microsoft Sentinel UEBA)
 - 하트비트(Azure Monitor 에이전트)
-- CommonSecurityLog (Microsoft 센티널)
-- ThreatIntelligenceIndicators (Microsoft 센티널)
+- CommonSecurityLog(Microsoft Sentinel)
+- ThreatIntelligenceIndicators(Microsoft Sentinel)
 
 ### <a name="how-to-use-entity-pages"></a>엔터티 페이지를 사용하는 방법
 
-엔터티 페이지는 여러 사용 시나리오의 일부로 설계 되었으며 인시던트 관리, 조사 그래프, 책갈피에서 액세스할 수 있으며 Microsoft 센티널 주 메뉴의 **엔터티 동작 분석** 에 있는 엔터티 검색 페이지에서 직접 액세스할 수 있습니다.
+엔터티 페이지는 여러 사용 시나리오의 일부로 설계되었으며 인시던트 관리, 조사 그래프, 책갈피 또는 Microsoft Sentinel 주 메뉴의 **엔터티 동작 분석 아래 엔터티** 검색 페이지에서 직접 액세스할 수 있습니다.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="엔터티 페이지 사용 사례":::
 
-엔터티 페이지 정보는 **BehaviorAnalytics** 테이블에 저장 되며 [Microsoft 센티널 ueba 강화 참조](ueba-enrichments.md)에 자세히 설명 되어 있습니다.
+엔터티 페이지 정보는 [Microsoft Sentinel UEBA 보강 참조](ueba-enrichments.md)에 자세히 설명된 **BehaviorAnalytics** 테이블에 저장됩니다.
 
 ## <a name="querying-behavior-analytics-data"></a>동작 분석 데이터 쿼리
 
@@ -143,17 +136,17 @@ BehaviorAnalytics
 
 사용자 피어의 메타데이터는 위협 검색, 인시던트 조사 및 잠재적 위협에 대한 헌팅에서 중요한 컨텍스트를 제공합니다. 보안 분석가는 사용자의 피어에 대한 정상적인 활동을 관찰하여 사용자의 활동이 사용자의 피어와 비교하여 비정상적인지 확인할 수 있습니다.
 
-Microsoft **센티널은 사용자** 의 Azure AD 보안 그룹 구성원 자격, 메일 그룹, et 오일을 1-20을 기반으로 사용자의 동료를 계산 하 고 순위를 매깁니다. 아래 스크린샷은 UserPeerAnalytics 테이블의 스키마를 표시하고, 사용자 Kendall Collins의 상위 8개 순위 피어를 표시합니다. Microsoft 센티널에서는 *frequency (역 문서 빈도) 라는 용어* 를 사용 하 여 순위 계산을 위해 평가 계수를 표준화 합니다. 그룹이 작을수록 가중치가 높아집니다. 
+Microsoft Sentinel은 사용자의 Azure AD 보안 그룹 멤버 자격, 메일 그룹 등 cetera를 기준으로 사용자의 피어를 계산하고 순위를 지정하고 **UserPeerAnalytics** 테이블에 1-20위의 피어를 저장합니다. 아래 스크린샷은 UserPeerAnalytics 테이블의 스키마를 표시하고, 사용자 Kendall Collins의 상위 8개 순위 피어를 표시합니다. Microsoft Sentinel은 *TF-IDF(frequency-inverse Document frequency) 알고리즘을* 사용하여 순위를 계산하기 위한 가중치를 정규화합니다. 그룹이 작을수록 가중치가 높습니다. 
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="사용자 피어 메타데이터 테이블의 스크린샷":::
 
-Microsoft 센티널 GitHub 리포지토리에 제공 된 [jupyter 노트북](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) 을 사용 하 여 사용자 피어 메타 데이터를 시각화할 수 있습니다. Notebook을 사용하는 방법에 대한 자세한 내용은 [단계별 분석 - 사용자 보안 메타데이터](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) Notebook을 참조하세요.
+Microsoft Sentinel GitHub 리포지토리에 제공된 [Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) Notebook을 사용하여 사용자 피어 메타데이터를 시각화할 수 있습니다. Notebook을 사용하는 방법에 대한 자세한 내용은 [단계별 분석 - 사용자 보안 메타데이터](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) Notebook을 참조하세요.
 
 ### <a name="permission-analytics---table-and-notebook"></a>권한 분석 - 테이블 및 Notebook
 
 권한 분석은 공격자의 조직 자산의 손상으로 인한 잠재적 영향을 확인하는 데 도움이 됩니다. 이러한 영향을 자산의 "폭발 반지름"이라고도 합니다. 보안 분석가는 이 정보를 사용하여 조사 및 인시던트 처리의 우선 순위를 지정할 수 있습니다.
 
-Microsoft 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대한 전체 목록이 **UserAccessAnalytics** 테이블에 저장됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식** 의 값은 대상 엔터티의 액세스 제어 모델에 따라 달라집니다. Alex에 Azure 구독 *Contoso Hotels Tenant* 에 대한 기여자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 Azure RBAC입니다.
+Microsoft Sentinel은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가하여 지정된 사용자가 Azure 리소스에 보유한 직접 및 전이적 액세스 권한을 결정합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대한 전체 목록이 **UserAccessAnalytics** 테이블에 저장됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식** 의 값은 대상 엔터티의 액세스 제어 모델에 따라 달라집니다. Alex에 Azure 구독 *Contoso Hotels Tenant* 에 대한 기여자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 Azure RBAC입니다.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="사용자 액세스 분석 테이블의 스크린샷":::
 

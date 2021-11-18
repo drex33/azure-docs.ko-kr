@@ -2,18 +2,16 @@
 title: Microsoft Sentinel에 보안 경고 커넥트
 description: Microsoft Defender for Cloud의 보안 경고를 연결하고 Microsoft Sentinel로 스트리밍하는 방법을 알아봅니다.
 author: yelevin
-manager: rkarlin
-ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b30d3080b5c8e024f9266e6fbacc8a3c98e7457c
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 56b6ed01d88b792bb62c2e13d59a992e59f95047
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730618"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757904"
 ---
 # <a name="connect-security-alerts-from-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 보안 경고 커넥트
 
@@ -39,7 +37,7 @@ Defender for Cloud 자체는 구독별로 사용하도록 설정되기 때문에
 
 - 양방향 **동기화를** 사용하도록 설정하면 원래 보안 경고의 상태가 해당 경고가 포함된 Microsoft Sentinel 인시던트 상태와 자동으로 동기화됩니다. 따라서 예를 들어 보안 경고가 포함된 Microsoft Sentinel 인시던트 가 닫히면 해당 원래 경고가 Microsoft Defender for Cloud에서 자동으로 닫힙니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Microsoft Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 

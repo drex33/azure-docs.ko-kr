@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 7e6fc17510186ebae3ec736f2385baf39c22eda0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 79c3252155f1821d8927134a723ed62aa09df00f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802116"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307482"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>자습서: NetDocuments와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124802116"
 * 사용자가 해당 Azure AD 계정으로 NetDocuments에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -120,7 +120,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -132,7 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 NetDocuments에 대한 액세스 권한을 부여합니다.
 
@@ -141,32 +141,34 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-netdocuments-sso&quot;></a>NetDocuments SSO 구성
+<!-- docutune:ignore "Security Center" -->
+
+## <a name="configure-netdocuments-sso"></a>NetDocuments SSO 구성
 
 1. 다른 웹 브라우저 창에서 NetDocuments 회사 사이트에 관리자로 로그인합니다.
 
-2. 오른쪽 위 모서리에서 이름>**관리자** 를 선택합니다.
+2. 오른쪽 위 모서리에서 이름 > **관리자** 를 선택합니다.
 
-3. **보안 센터** 를 선택합니다.
-   
-    ![리포지토리](./media/netdocuments-tutorial/security-center.png &quot;Security Center")
+3. **Security Center** 를 선택합니다.
+
+    ![Security Center](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. **고급 인증** 을 선택합니다.
-    
+
     ![고급 인증 옵션 구성](./media/netdocuments-tutorial/advance-authentication.png "고급 인증 옵션 구성")
 
-5.  **페더레이션 ID** 탭에서 다음 단계를 수행합니다.   
-   
-    [ ![페더레이션 ID](./media/netdocuments-tutorial/federated-id.png "페더레이션 ID")](./media/netdocuments-tutorial/federated-id.png#lightbox)
-   
-    a. **페더레이션 ID 서버 유형** 의 경우 **Windows Azure Active Directory** 로 선택합니다.
-    
-    b.  **파일 선택** 을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
-    
-    다.  **SAVE**(저장)를 선택합니다.
+5. **페더레이션 ID** 탭에서 다음 단계를 수행합니다.  
+
+    [![페더레이션 ID](./media/netdocuments-tutorial/federated-id.png "페더레이션 ID")](./media/netdocuments-tutorial/federated-id.png#lightbox)
+
+    1. **페더레이션 ID 서버 유형** 의 경우 **Windows Azure Active Directory** 로 선택합니다.
+
+    1. **파일 선택** 을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+
+    1. **SAVE**(저장)를 선택합니다.
 
 ### <a name="create-netdocuments-test-user"></a>NetDocuments 테스트 사용자 만들기
 
@@ -176,18 +178,18 @@ Azure AD 사용자가 NetDocuments에 로그인할 수 있게 하려면 NetDocum
 
 1. **NetDocuments** 회사 사이트에 관리자 권한으로 로그온합니다.
 
-2. 오른쪽 위 모서리에서 이름>**관리자** 를 선택합니다.
-   
+2. 오른쪽 위 모서리에서 이름 > **관리자** 를 선택합니다.
+
     ![관리자](./media/netdocuments-tutorial/user-admin.png "Admin")
 
 3. **사용자 및 그룹** 을 선택합니다.
-   
-    ![사용자 및 그룹](./media/netdocuments-tutorial/users-groups.png "리포지토리")
+
+    ![사용자 및 그룹](./media/netdocuments-tutorial/users-groups.png "사용자 및 그룹")
 
 4. **메일 주소** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 계정의 이메일 주소를 입력한 다음 **사용자 추가** 를 클릭합니다.
-   
+
     ![이메일 주소](./media/netdocuments-tutorial/user-mail.png "메일 주소")
-   
+
     > [!NOTE]
     > Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다. 다른 NetDocuments 사용자 계정 생성 도구 또는 NetDocuments가 제공한 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전할 수 있습니다.
 
@@ -201,7 +203,6 @@ Azure AD 사용자가 NetDocuments에 로그인할 수 있게 하려면 NetDocum
 
 * Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 NetDocuments 타일을 클릭하면, SSO를 설정한 NetDocuments에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-NetDocuments가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+NetDocuments가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Defender for Cloud Apps를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

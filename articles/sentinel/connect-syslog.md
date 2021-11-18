@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel | Syslog 데이터 커넥트 Microsoft Docs
 description: 어플라이언스와 Microsoft Sentinel 간에 Linux 머신의 에이전트를 사용하여 Microsoft Sentinel에 Syslog를 지원하는 모든 컴퓨터 또는 어플라이언스를 커넥트.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a67454bb13dfed49d15d0d8385af4a354e2387ee
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 1b43bf012bc580f2cfbee9d142c448ac7eff87da
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721769"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756555"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Syslog를 사용하여 Linux 기반 소스에서 데이터 수집
 

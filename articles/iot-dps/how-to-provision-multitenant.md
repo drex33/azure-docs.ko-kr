@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub Device Provisioning Service에서 다중 테넌시를 위한 디바이스를 프로비저닝하는 방법
 description: Device Provisioning Service(DPS) 인스턴스를 사용하여 다중 테넌시를 위한 디바이스를 프로비저닝하는 방법
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.topic: how-to
 ms.date: 10/02/2021
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 595bd473bb70f4c23554998b7240e4ef0ed1183d
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: edba021064dc19fbe4977e078c471665936bab77
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670319"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760735"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
@@ -40,7 +40,7 @@ ms.locfileid: "129670319"
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-* Azure Portal IoT Hub Device Provisioning Service [설정의](./quick-setup-auto-provision.md)단계를 완료합니다.
+* [Azure Portal로 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -79,9 +79,9 @@ ms.locfileid: "129670319"
 
 간단한 설명을 위해 이 문서에서는 등록에 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용합니다. 더 안전한 솔루션을 위해 신뢰 체인과 함께 [X.509 인증서 증명](concepts-x509-attestation.md)을 사용하는 것이 좋습니다.
 
-1. Azure Portal Device Provisioning Service를 선택합니다.
+1. Azure Portal에서 Device Provisioning Service를 선택합니다.
 
-2. **설정** 메뉴에서 **등록 관리를 선택합니다.**
+2. **설정** 메뉴에서 **등록 관리** 를 선택합니다.
 
 3. **+ 등록 그룹 추가를** 선택합니다.
 
@@ -259,16 +259,16 @@ ms.locfileid: "129670319"
 
 ## <a name="derive-unique-device-keys"></a>고유한 디바이스 키 파생
 
-그룹 등록과 함께 대칭 키 증명을 사용할 때는 등록 그룹 키를 직접 사용하지 않습니다. 대신 각 디바이스에 대한 등록 그룹 키에서 고유 키를 파생합니다. 자세한 내용은 [대칭 키를 사용하여 그룹 등록을 참조하세요.](concepts-symmetric-key-attestation.md#group-enrollments)
+그룹 등록과 함께 대칭 키 증명을 사용할 때는 등록 그룹 키를 직접 사용하지 않습니다. 대신 각 장치에 대 한 등록 그룹 키에서 고유한 키를 파생 시킵니다. 자세한 내용은 [Group 등록 with 대칭 키](concepts-symmetric-key-attestation.md#group-enrollments)를 참조 하세요.
 
-자습서의 이 부분에서는 그룹 마스터 키에서 디바이스 키를 생성하여 디바이스에 대한 고유한 등록 ID의 [HMAC-SHA256을](https://wikipedia.org/wiki/HMAC) 컴퓨팅합니다. 그러면 결과가 Base64 형식으로 변환됩니다.
+자습서의이 부분에서는 사용자 그룹 마스터 키에서 장치 키를 생성 하 여 장치에 대 한 고유 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 을 계산 합니다. 그러면 결과는 Base64 형식으로 변환 됩니다.
 
 >[!IMPORTANT]
->디바이스 코드에 그룹 마스터 키를 포함하지 마세요.
+>장치 코드에 그룹 마스터 키를 포함 하지 마세요.
 
-*eastus* 및 *westus 2* **디바이스의** 경우:
+*에서는 eastus* 및 *westus 2* 장치 **모두** :
 
-1. openssl 을 사용하여 고유 키를 **생성합니다.** 다음 Bash 셸 스크립트를 `{primary-key}` 사용합니다(을 이전에 복사한 등록 그룹의 **기본 키로** 바꾸고 `{contoso-simdevice-east}` 을 각 디바이스에 대한 고유한 등록 ID로 바꿉 소문자 영숫자와 대시('-') 문자를 사용하여 두 개의 ID를 모두 정의합니다.
+1. **Openssl** 를 사용 하 여 고유한 키를 생성 합니다. 다음 Bash 셸 스크립트 ( `{primary-key}` 이전에 복사한 등록 그룹의 **기본 키** 로 대체)를 사용 하 고를 `{contoso-simdevice-east}` 각 장치에 대 한 고유한 등록 ID로 바꿉니다. 소문자 영숫자 및 대시 ('-') 문자를 사용 하 여 두 Id를 모두 정의 합니다.
 
     ```bash
     KEY={primary-key}
@@ -278,37 +278,37 @@ ms.locfileid: "129670319"
     echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
     ```
 
-2. 스크립트는 다음 키와 같이 출력됩니다.
+2. 스크립트는 다음 키와 같은 항목을 출력 합니다.
 
     ```bash
     p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
     ```
 
-3. 이제 각 테넌트 디바이스에는 프로비전 프로세스 중에 등록 그룹으로 대칭 키 증명을 수행하기 위한 고유한 파생 디바이스 키와 고유한 등록 ID가 있습니다.
+3. 이제 각 테 넌 트 장치에는 프로 비전 프로세스 중에 등록 그룹으로 대칭 키 증명을 수행 하는 고유한 파생 된 장치 키 및 고유한 등록 ID가 있습니다.
 
 ## <a name="simulate-the-devices-from-each-region"></a>각 지역에서 디바이스 시뮬레이트
 
-이 섹션에서는 두 지역 VM에 대한 Azure IoT C SDK의 프로비저닝 샘플을 업데이트합니다. 
+이 섹션에서는 두 지역 vm에 대 한 Azure IoT C SDK에서 프로 비전 샘플을 업데이트 합니다. 
 
-이 샘플 코드는 프로비전 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 대기 시간을 기준으로 가장 가까운 IoT Hub에 할당됩니다.
+이 샘플 코드는 프로비전 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 사용 하면 장치가 인식 되 고 대기 시간에 따라 가장 가까운 IoT hub에 할당 됩니다.
 
-1. Azure Portal Device Provisioning Service에 대한 **개요** 탭을 선택하고 ID **_범위_** 값을 적어 둡다.
+1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
-    :::image type="content" source="./media/how-to-provision-multitenant/copy-id-scope.png" alt-text="포털 블레이드에서 Device Provisioning Service 엔드포인트 정보를 추출합니다.":::
+    :::image type="content" source="./media/how-to-provision-multitenant/copy-id-scope.png" alt-text="포털 블레이드에서 장치 프로 비전 서비스 끝점 정보를 추출 합니다.":::
 
-2. 두 VM에서 편집을 위해 **~/azure-iot-sdk-c/provisioning \_ client/samples/prov \_ dev client \_ \_ sample/prov \_ dev client \_ \_ sample.c를** 엽니다.
+2. 두 VM에서 편집을 위해 **~/azure-iot-sdk-c/provisioning \_ client/samples/prov \_ dev \_ client \_ sample/prov \_ dev client sample \_ \_ . c** 를 엽니다.
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
     ```
 
-3. 두 VM에서 상수를 찾고 `id_scope` 값을 이전에 복사한 ID **범위** 값으로 바꿉니다. 
+3. 두 Vm에서 상수를 찾고 `id_scope` 값을 앞에서 복사한 **ID 범위** 값으로 바꿉니다. 
 
     ```c
     static const char* id_scope = "0ne00002193";
     ```
 
-4. 두 VM에서 동일한 파일에서 함수에 대한 정의를 `main()` 찾습니다. 등록 그룹 증명 방법과 일치하도록 아래에 표시된 것처럼 `hsm_type` 변수가 `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`로 설정되어 있는지 확인합니다. 
+4. 두 Vm 모두 `main()` 동일한 파일에서 함수에 대 한 정의를 찾습니다. 등록 그룹 증명 방법과 일치하도록 아래에 표시된 것처럼 `hsm_type` 변수가 `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`로 설정되어 있는지 확인합니다. 
 
     두 VM에서 파일 변경 내용을 저장합니다.
 
@@ -326,7 +326,7 @@ ms.locfileid: "129670319"
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    함수 호출의 압축을 풀고 자리 표시자 값(꺾쇠 괄호 포함)을 이전 섹션에서 파생된 각 디바이스에 대한 고유한 등록 ID 및 파생 디바이스 키로 바꿉니다. 아래 표시된 키는 예제 목적으로만 제공됩니다. 이전에 생성한 키를 사용합니다.
+    함수 호출의 주석 처리를 제거 하 고 자리 표시자 값 (꺾쇠 괄호 포함)을 이전 섹션에서 파생 된 각 장치에 대 한 고유한 등록 Id 및 파생 된 장치 키로 바꿉니다. 아래 표시된 키는 예제 목적으로만 제공됩니다. 이전에 생성한 키를 사용합니다.
 
     미국 동부:
     ```c
@@ -340,7 +340,7 @@ ms.locfileid: "129670319"
     prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
     ```
 
-6. 두 VM에서 파일을 저장합니다.
+6. 두 Vm에서 파일을 저장 합니다.
 
 7. 두 VM에서 아래에 표시된 샘플 폴더로 이동한 후 샘플을 빌드합니다.
 
@@ -390,9 +390,9 @@ ms.locfileid: "129670319"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서 생성된 리소스를 계속 사용하려는 경우 리소스를 그대로 유지할 수 있습니다. 그렇지 않으면 불필요한 요금이 발생하지 않도록 다음 단계를 사용하여 이 문서에서 만든 모든 리소스를 삭제합니다.
+이 문서에서 생성된 리소스를 계속 사용하려는 경우 리소스를 그대로 유지할 수 있습니다. 그렇지 않으면 다음 단계를 사용 하 여이 문서에서 만든 모든 리소스를 삭제 하 여 불필요 한 요금을 방지 합니다.
 
-이 단계에서는 **contoso-us-resource-group이라는** 동일한 리소스 그룹에 지시된 대로 이 문서의 모든 리소스를 만들었다고 가정합니다.
+여기에서 설명 하는 단계는이 문서에서 **모든 리소스를** 만든 것으로 가정 합니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관할 리소스가 포함된 기존 리소스 그룹 내에 IoT Hub를 만든 경우 리소스 그룹을 삭제하지 말고 IoT Hub 리소스만 삭제하면 됩니다.
@@ -412,7 +412,7 @@ ms.locfileid: "129670319"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다시 프로비전에 대한 자세한 내용은 다음을 참조하세요.
+* 다시 프로 비전에 대 한 자세한 내용은 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
 > [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)

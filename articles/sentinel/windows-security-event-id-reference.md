@@ -1,24 +1,16 @@
 ---
 title: Microsoft Sentinel로 보낼 수 있는 Windows 보안 이벤트 집합
 description: Windows 시스템에서 Microsoft Sentinel 작업 영역으로 수집 및 스트리밍할 수 있는 미리 빌드된 Windows 보안 이벤트 집합에 대해 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: c20d94c34e83a6720888358b470a718e6c406d2b
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9c0e8394f03013eb6a2d2b5f1cc5403cfa737a03
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710916"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751197"
 ---
 # <a name="windows-security-event-sets-that-can-be-sent-to-microsoft-sentinel"></a>Microsoft Sentinel로 보낼 수 있는 Windows 보안 이벤트 집합
 

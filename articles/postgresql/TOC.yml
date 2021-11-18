@@ -517,6 +517,8 @@
                   href: flexible-server/concepts-intelligent-tuning.md
         - name: 복제
           href: flexible-server/concepts-logical.md
+        - name: Azure Advisor 권장 사항
+          href: flexible-server/concepts-azure-advisor-recommendations.md
     - name: 문제 해결
       items:
         - name: CLI 오류 문제 해결

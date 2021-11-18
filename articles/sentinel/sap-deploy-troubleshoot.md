@@ -1,19 +1,19 @@
 ---
-title: Microsoft 센티널 SAP 솔루션 배포 문제 해결 | Microsoft Docs
-description: Microsoft 센티널 SAP 솔루션 배포에서 발생할 수 있는 특정 문제를 해결 하는 방법에 대해 알아봅니다.
+title: Microsoft Sentinel SAP 솔루션 배포 문제 해결 | Microsoft Docs
+description: Microsoft Sentinel SAP 솔루션 배포에서 발생할 수 있는 특정 문제를 해결하는 방법을 알아봅니다.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: troubleshooting
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 0a833292784f62c16a8b0394ac10e602fa054a2c
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 7e0351ac026c0897a98471e293e7e4fc988952fa
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711962"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762217"
 ---
-# <a name="troubleshooting-your-microsoft-sentinel-sap-solution-deployment"></a>Microsoft 센티널 SAP 솔루션 배포 문제 해결
+# <a name="troubleshooting-your-microsoft-sentinel-sap-solution-deployment"></a>Microsoft Sentinel SAP 솔루션 배포 문제 해결
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -67,7 +67,7 @@ docker restart sapcon-[SID]
 
 ## <a name="view-all-docker-execution-logs"></a>모든 Docker 실행 로그 보기
 
-Microsoft 센티널 SAP 데이터 커넥터 배포에 대 한 모든 Docker 실행 로그를 보려면 다음 명령 중 하나를 실행 합니다.
+Microsoft Sentinel SAP 데이터 커넥터 배포에 대한 모든 Docker 실행 로그를 보려면 다음 명령 중 하나를 실행합니다.
 
 ```bash
 docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
@@ -193,7 +193,7 @@ Docker cp SDK by running docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
 1. 메시지가 SAP **SM20** 또는 **RSAU_READ_LOG** 에 도착하여 잘 있으며 커넥터 로그에 특별한 오류가 표시되지 않는지 확인합니다.
 
 
-### <a name="incorrect-microsoft-sentinel-workspace-id-or-key"></a>Microsoft 센티널 작업 영역 ID 또는 키가 잘못 되었습니다.
+### <a name="incorrect-microsoft-sentinel-workspace-id-or-key"></a>잘못된 Microsoft Sentinel 작업 영역 ID 또는 키
 
 [배포 스크립트](sap-deploy-solution.md#create-a-key-vault-for-your-sap-credentials)에서 잘못된 작업 영역 ID 또는 키를 입력한 경우 Azure KeyVault에 저장된 자격 증명을 업데이트합니다.
 
@@ -232,7 +232,7 @@ docker restart sapcon-[SID]
 
 ### <a name="missing-data-in-your-workbooks-or-alerts"></a>통합 문서 또는 경고에 데이터 누락
 
-Microsoft 센티널 통합 문서 또는 경고에 데이터가 누락 된 경우 로그 파일에서 오류가 발생 하지 않고 SAP 쪽에서 **감사 로그** 정책을 제대로 사용 하도록 설정 해야 합니다. 
+Microsoft Sentinel 통합 문서 또는 경고에 데이터가 누락된 경우 로그 파일에 오류 없이 SAP 쪽에서 **Auditlog** 정책을 올바르게 사용하도록 설정했는지 확인합니다. 
 
 이 단계에는 **RSAU_CONFIG_LOG** 트랜잭션을 사용합니다.
 
@@ -245,20 +245,20 @@ Microsoft 센티널 통합 문서 또는 경고에 데이터가 누락 된 경�
 
 ### <a name="network-connectivity-issues"></a>네트워크 연결 문제
 
-SAP 환경 또는 Microsoft 센티널에 네트워크 연결 문제가 있는 경우 네트워크 연결을 확인 하 여 데이터가 예상 대로 흐르는 지 확인 합니다.
+SAP 환경 또는 Microsoft Sentinel에 대한 네트워크 연결 문제가 있는 경우 네트워크 연결을 확인하여 데이터가 예상대로 흐르는지 확인합니다.
 
 일반적인 문제는 다음과 같습니다.
 
-- Docker 컨테이너와 SAP 호스트 간의 방화벽은 트래픽을 차단할 수 있습니다. SAP 호스트는 다음과 같은 TCP 포트를 통해 통신을 수신 합니다. **32xx**, **5xx13** 및 **33XX**. 여기서 **xx** 는 SAP 인스턴스 번호입니다.
+- Docker 컨테이너와 SAP 호스트 간의 방화벽이 트래픽을 차단할 수 있습니다. SAP 호스트는 열려 있어야 하는 TCP 포트 **32xx, 5xx13** 및 **33xx를** 통해 통신을 수신합니다. 여기서 **xx는** SAP 인스턴스 번호입니다. 
 
-- SAP 호스트에서 Microsoft Container Registry 또는 Azure로의 아웃 바운드 통신에는 프록시 구성이 필요 합니다. 이는 일반적으로 설치에 영향을 주며 `HTTP_PROXY` 및 환경 변수를 구성 해야 합니다 `HTTPS_PROXY` . `-e`Docker 명령에 플래그를 추가 하 여 컨테이너를 만들 때 docker 컨테이너에 환경 변수를 수집할 수도 있습니다 `create`  /  `run` .
+- SAP 호스트에서 Microsoft Container Registry 또는 Azure로의 아웃바운드 통신에는 프록시 구성이 필요합니다. 이는 일반적으로 설치에 영향을 하며 및 환경 변수를 구성해야 `HTTP_PROXY` `HTTPS_PROXY` 합니다. 컨테이너를 만들 때 docker 명령에 플래그를 추가하여 환경 변수를 docker 컨테이너에 구성할 수도 `-e` `create`  /  `run` 있습니다.
 
 ### <a name="other-unexpected-issues"></a>기타 예기치 않은 문제
 
 이 문서에 나열되지 않은 예기치 않은 문제가 있는 경우 다음 단계를 시도합니다.
 
 - [커넥터를 초기화하고 로그를 다시 로드](#reset-the-sap-data-connector)
-- [커넥터를](sap-deploy-solution.md#update-your-sap-data-connector) 최신 버전으로 업그레이드 합니다.
+- [커넥터를](sap-deploy-solution.md#update-your-sap-data-connector) 최신 버전으로 업그레이드합니다.
 
 > [!TIP]
 > 또한 주요 구성 변경 후에는 커넥터를 초기화하고 최신 업그레이드가 설치되었는지 확인하는 것이 좋습니다.
@@ -304,7 +304,7 @@ SAPCONTROL 또는 JAVA 하위 시스템이 표준 시간대 관련 오류 메시
 
 ### <a name="audit-log-data-not-ingested-past-initial-load"></a>초기 로드 이후에 수집되지 않은 감사 로그 데이터
 
-**RSAU_READ_LOAD** 또는 **SM200** 트랜잭션에 표시되는 SAP 감사 로그 데이터가 초기 로드를 지나 Microsoft Sentinel에 수집되지 않은 경우 SAP 시스템 및 SAP 호스트 운영 체제가 잘못 구성되었을 수 있습니다.
+**RSAU_READ_LOAD** 또는 **SM200** 트랜잭션에 표시 되는 sap 감사 로그 데이터가 초기 로드를 지 나 Microsoft 센티널로 수집 되지 않는 경우 sap 시스템 및 sap 호스트 운영 체제의 구성이 잘못 된 것일 수 있습니다.
 
 - 초기 로드는 SAP 데이터 커넥터를 새로 설치한 후 또는 **metadata.db** 파일이 삭제된 후 수집됩니다.
 - SAP 시스템 표준 시간대가 **STZAC** 트랜잭션에서 **CET** 로 설정되어 있지만 SAP 호스트 운영 체제 표준 시간대가 **UTC** 로 설정되어 있으면 샘플 구성이 잘못되었을 수 있습니다.
@@ -336,8 +336,8 @@ SAPCONTROL 또는 JAVA 하위 시스템이 표준 시간대 관련 오류 메시
 자세한 내용은 다음을 참조하세요.
 
 - [SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)](sap-deploy-solution.md)
-- [Microsoft Sentinel SAP 솔루션 로그 참조(공개 미리 보기)](sap-solution-log-reference.md)
-- [SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [Microsoft 센티널 SAP 솔루션 로그 참조 (공개 미리 보기)](sap-solution-log-reference.md)
+- [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel SAP 솔루션: 보안 콘텐츠 참조(공개 미리 보기)](sap-solution-security-content.md)
-- [Microsoft Sentinel SAP 솔루션 세부 SAP 요구 사항(공개 미리 보기)](sap-solution-detailed-requirements.md)
+- [Microsoft 센티널 SAP solution: 보안 콘텐츠 참조 (공개 미리 보기)](sap-solution-security-content.md)
+- [Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항 (공개 미리 보기)](sap-solution-detailed-requirements.md)

@@ -53,6 +53,16 @@
           href: howto-websocket-connect.md
         - name: 이벤트 처리기 구성
           href: howto-develop-eventhandler.md
+        - name: Azure ID를 사용하여 `WebPubSubServiceClient` 만들기
+          items:
+            - name: Azure ID 및 .NET을 사용하여 `WebPubSubServiceClient` 만들기
+              href: howto-create-serviceclient-with-net-and-azure-identity.md
+            - name: Azure ID 및 Java를 사용하여 `WebPubSubServiceClient` 만들기
+              href: howto-create-serviceclient-with-java-and-azure-identity.md
+            - name: Azure ID 및 JavaScript를 사용하여 `WebPubSubServiceClient` 만들기
+              href: howto-create-serviceclient-with-javascript-and-azure-identity.md
+            - name: Azure ID 및 Python을 사용하여 `WebPubSubServiceClient` 만들기
+              href: howto-create-serviceclient-with-python-and-azure-identity.md
     - name: Monitor
       items:
         - name: Azure Policy를 사용하여 규정 준수 감사

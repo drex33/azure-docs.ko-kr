@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel | 위협 인텔리전스 이해 Microsoft Docs
 description: Microsoft Sentinel에서 위협 인텔리전스 피드를 연결, 관리 및 사용하여 데이터를 분석하고, 위협을 검색하고, 경고를 보강하는 방법을 이해합니다.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 76c0043fb2bc2d339f997f12b8f05e9aff97fcd2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 4b273159f207fb6709c643609a2ce49ab176c306
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712113"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756342"
 ---
 # <a name="understand-threat-intelligence-in-microsoft-sentinel"></a>Microsoft Sentinel의 위협 인텔리전스 이해
 
@@ -58,7 +51,7 @@ Microsoft Sentinel에서 사용할 수 있는 [위협 인텔리전스 통합 카
 
 많은 조직에서는 TIP(위협 인텔리전스 플랫폼) 솔루션을 사용하여 다양한 원본의 위협 지표 피드를 집계하고, 플랫폼 내에서 데이터를 큐레이팅한 다음, 네트워크 디바이스, EDR/XDR 솔루션 또는 Microsoft Sentinel과 같은IEM과 같은 다양한 보안 솔루션에 적용할 위협 지표를 선택합니다. 조직에서 통합 [TIP 솔루션](connect-threat-intelligence-tip.md)를 사용하는 경우 **위협 인텔리전스 플랫폼 데이터 커넥터를** 사용하면 TIP을 사용하여 위협 지표를 Microsoft Sentinel로 가져올 수 있습니다.
 
-TIP 데이터 커넥터는 [Microsoft Graph Security tiIndicators API와](/graph/api/resources/tiindicator) 함께 작동하므로 tiIndicators API와 통신하는 모든 사용자 지정 위협 인텔리전스 플랫폼에서 지표를 Microsoft Sentinel(및 Microsoft 365 Defender 같은 다른 Microsoft 보안 솔루션)에 보낼 수도 있습니다.
+TIP 데이터 커넥터는 [Microsoft Graph Security tiIndicators API와](/graph/api/resources/tiindicator) 함께 작동하므로 tiIndicators API와 통신하는 모든 사용자 지정 위협 인텔리전스 플랫폼에서 Microsoft Sentinel(및 Microsoft 365 Defender 같은 다른 Microsoft 보안 솔루션)에 표시기를 보낼 수도 있습니다.
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-import-path.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
@@ -86,7 +79,7 @@ Microsoft Sentinel과 통합된 TIP 솔루션에 대한 자세한 내용은 [통
 
 1. Microsoft Sentinel에서 위협 인텔리전스 - TAXII 데이터 커넥터 사용
 
-자세한 내용은 [stIX/TAXII 위협 인텔리전스 피드에 Microsoft Sentinel 커넥트 참조하세요.](connect-threat-intelligence-taxii.md)
+자세한 내용은 [STIX/TAXII 위협 인텔리전스 피드에 Microsoft Sentinel 커넥트 참조하세요.](connect-threat-intelligence-taxii.md)
 
 ## <a name="view-and-manage-your-threat-indicators"></a>위협 지표 확인 및 관리
 
@@ -139,8 +132,8 @@ Microsoft Sentinel에서 분석 규칙에서 생성된 경고는 Microsoft Senti
 이 문서에서는 위협 인텔리전스 블레이드를 포함하여 Microsoft Sentinel의 위협 인텔리전스 기능에 대해 배웠습니다. Microsoft Sentinel의 위협 인텔리전스 기능 사용에 대한 실제 지침은 다음 문서를 참조하세요.
 
 - Microsoft Sentinel을 [STIX/TAXII 위협 인텔리전스 피드로 커넥트.](./connect-threat-intelligence-taxii.md)
-- 위협 인텔리전스 플랫폼을 Microsoft Sentinel에 [커넥트.](./connect-threat-intelligence-tip.md)
+- [위협 인텔리전스 플랫폼을](./connect-threat-intelligence-tip.md) Microsoft Sentinel에 커넥트.
 - Microsoft Sentinel과 쉽게 통합할 수 있는 [TIP 플랫폼, TAXII 피드 및 보강을](threat-intelligence-integration.md) 확인합니다.
 - Microsoft Sentinel 환경 전체에서 [위협 지표를 사용하여 작업합니다.](work-with-threat-indicators.md)
 - Microsoft Sentinel에서 [기본 제공](./detect-threats-built-in.md) 또는 [사용자 지정](./detect-threats-custom.md) 분석 규칙을 사용하여 위협 검색
-- Microsoft 센티널의 [인시던트를 조사](./investigate-cases.md) 합니다.
+- Microsoft Sentinel에서 [인시던트 조사](./investigate-cases.md)

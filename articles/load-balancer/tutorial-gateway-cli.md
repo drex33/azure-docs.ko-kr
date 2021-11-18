@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.custom: template-tutorial, ignite-fall-2021
-ms.openlocfilehash: 13435307985f3471800a6bfc3697c7bc0fc58ee1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 03756a802336114008e4939da2674b482115f161
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101463"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759443"
 ---
 # <a name="tutorial-create-a-gateway-load-balancer-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 게이트웨이 부하 분산 장치 만들기
 
@@ -22,7 +22,6 @@ ms.locfileid: "131101463"
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
-> * 미리 보기 기능을 등록합니다.
 > * 가상 네트워크를 만듭니다.
 > * 네트워크 보안 그룹을 만듭니다.
 > * 게이트웨이 부하 분산 장치를 만듭니다.
@@ -40,25 +39,6 @@ ms.locfileid: "131101463"
 
 - 기존 공용 표준 SKU Azure Load Balancer. 부하 분산 장치 만들기에 대한 자세한 내용은 **[Azure CLI 사용하여 공용 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-cli.md)** 를 참조하세요.
     - 이 자습서에서는 예제의 기존 부하 분산 장치 이름을 **myLoadBalancer** 로 지정합니다.
-
-## <a name="register-preview-feature"></a>미리 보기 기능 등록
-
-게이트웨이 부하 분산 장치의 공개 미리 보기의 일부로 공급자를 Azure 구독에 등록해야 합니다.
-
-[az feature register](/cli/azure/feature#az_feature_register)를 사용하여 **AllowGatewayLoadBalancer** 공급자 기능을 등록합니다.
-
-```azurecli-interactive
-  az feature register \
-    --name AllowGatewayLoadBalancer \
-    --namespace Microsoft.Network
-```
-
-[az provider register](/cli/azure/provider#az_provider_register)를 사용하여 **Microsoft.Network** 리소스 공급자를 등록합니다.
-
-```azurecli-interactive
-  az provider register \
-    --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

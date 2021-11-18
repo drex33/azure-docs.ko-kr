@@ -1,20 +1,17 @@
 ---
 title: Microsoft Sentinel로 작업할 때 유용한 리소스
 description: 이 문서에서는 Microsoft Sentinel로 작업할 때 유용한 리소스 목록을 제공합니다.
-services: sentinel
 author: yelevin
-manager: rkarlin
-ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7fbd367ce4d78c6cf71e95e091eb0580c2274f2e
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: ee5ea47caee4a033a888830ae8dd1ed0afa30a62
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712227"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758508"
 ---
 # <a name="useful-resources-for-working-with-microsoft-sentinel"></a>Microsoft Sentinel 작업에 유용한 리소스
 

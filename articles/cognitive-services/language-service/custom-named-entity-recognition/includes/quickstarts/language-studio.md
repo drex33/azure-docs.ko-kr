@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2e8fa35bb99a11e51d634219e54296c5be831b3a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0f6258d1f851fc860c2e9e2b2d302545d9233f89
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101422"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132590586"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -62,6 +62,8 @@ Azure 스토리지 계정을 만들고 언어 리소스에 연결한 후에는 �
 1. [언어 스튜디오 포털](https://aka.ms/languageStudio)에 로그인합니다. 구독 및 언어 리소스를 선택할 수 있는 창이 표시됩니다. 위의 단계에서 만든 리소스를 선택합니다.
 
 2. **엔터티 추출** 섹션을 찾고, 사용 가능한 서비스에서 **사용자 지정 명명된 엔터티 인식** 을 선택합니다.
+    
+    :::image type="content" source="../../media/select-custom-ner.png" alt-text="Language Studio 방문 페이지에서 사용자 지정 NER의 위치를 보여주는 스크린샷." lightbox="../../media/select-custom-ner.png":::
 
 3. 프로젝트 페이지의 상단 메뉴에서 **새 프로젝트 만들기** 를 선택합니다. 프로젝트를 만들면 태그를 데이터에 지정하고, 모델을 학습시키고, 평가하고, 향상시키고, 배포할 수 있습니다. 
 

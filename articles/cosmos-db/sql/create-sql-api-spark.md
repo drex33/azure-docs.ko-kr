@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/27/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: c99d72b513513101a3fe188ad88e16b8ee341779
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: eb742bffa0840c7a5701610be512cd953eda43a8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117904"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760965"
 ---
 # <a name="quickstart-manage-data-with-azure-cosmos-db-spark-3-oltp-connector-for-sql-api"></a>빠른 시작: SQL API용 Azure Cosmos DB Spark 3 OLTP Connector를 사용하여 데이터 관리
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -27,7 +27,6 @@ ms.locfileid: "123117904"
 > * [Spark 3 OLTP 커넥터](create-sql-api-spark.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 [!INCLUDE[Quickstart](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)]
 

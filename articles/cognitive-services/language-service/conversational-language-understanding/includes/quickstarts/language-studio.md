@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a8af7d5c76552ade3ffd5d50b308cee6b0b1446c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8fb9e276c7f8d0e195c7d7618392e7c5e61c7c9e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100872"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132590512"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,16 +34,18 @@ ms.locfileid: "131100872"
 
 계정과 연결된 언어 리소스가 있으면 대화형 Language Understanding 프로젝트를 만듭니다. 이 빠른 시작에서는 특정 사람의 이메일 읽기, 이메일 삭제, 이메일에 문서 첨부와 같은 이메일 명령을 식별할 수 있는 프로젝트를 만듭니다.
 
-1. [Language Studio](https://aka.ms/languageStudio)에서 **대화형 Language Understanding** 섹션을 찾아 **대화형 Language Understanding** 을 클릭합니다. 그러면 **대화 프로젝트** 페이지로 이동합니다. 
- 
+1. [Language Studio](https://aka.ms/languageStudio)에서 **대화형 Language Understanding** 섹션을 찾아 **대화형 Language Understanding** 을 클릭합니다.  
+    :::image type="content" source="../../media/select-custom-clu.png" alt-text="Language Studio 방문 페이지에서 사용자 지정 Language Understanding의 위치를 보여주는 스크린샷." lightbox="../../media/select-custom-clu.png"::: 
     
+
+2. 그러면 **대화 프로젝트** 페이지로 이동합니다. **새 프로젝트 만들기** 를 클릭합니다. **대화 프로젝트** 를 선택한 후 **다음** 을 클릭합니다.
+
     :::image type="content" source="../../media/projects-page.png" alt-text="Language Studio의 대화 프로젝트 페이지를 보여 주는 스크린샷" lightbox="../../media/projects-page.png":::
 
-2. **새 프로젝트 만들기** 를 클릭합니다. **대화 프로젝트** 를 선택한 후 **다음** 을 클릭합니다.
 
 그런 후 다음 세부 정보를 제공해야 합니다.
 
-|값  | 설명  |
+|값  | Description  |
 |---------|---------|
 |Name     | 프로젝트의 이름입니다.        |
 |Description    | 선택적인 프로젝트 설명입니다.        |

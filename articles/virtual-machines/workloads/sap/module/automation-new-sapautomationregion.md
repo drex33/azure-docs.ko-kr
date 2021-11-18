@@ -1,7 +1,7 @@
 ---
 external help file: SAPDeploymentUtilities-help.xml
 Module Name: SAPDeploymentUtilities
-online version: https://github.com/Azure/sap-hana
+online version: https://github.com/Azure/sap-automation
 schema: 2.0.0
 author: kimforss
 ms.author: kimforss
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPAutomationRegion
 description: 제어 평면 (배포자, SAP 라이브러리)을 배포 합니다.
-ms.openlocfilehash: 9f39ae06acb0aa90e780faf6f14d2dea2ff6cd72
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: e24353fb30a2895e459e1c8191eb72fbcddb1cd8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730485"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759519"
 ---
 # New-SAPAutomationRegion
 
@@ -36,7 +36,7 @@ New-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile
 ## Description
 배포자 VM 및 SAP 라이브러리를 포함 하는 제어 평면을 배포 합니다. 자세한 내용은 [제어 평면 구성](../automation-configure-control-plane.md) 및 [제어 평면 배포](../automation-deploy-control-plane.md) 를 참조 하세요.
 
-## 예제
+## 예
 
 ### 예 1
 
@@ -231,4 +231,4 @@ MIT 라이선스에 따라 사용이 허가됩니다.
 
 ## 관련 링크
 
-+[GitHub 리포지토리: SAP 배포 자동화 프레임 워크](https://github.com/Azure/sap-hana)
++[GitHub 리포지토리: SAP 배포 자동화 프레임 워크](https://github.com/Azure/sap-automation)

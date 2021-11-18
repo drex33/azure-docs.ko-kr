@@ -1,24 +1,17 @@
 ---
 title: 정규화 및 ASIM(고급 SIEM 정보 모델) | Microsoft Docs
 description: 이 문서에서는 Microsoft Sentinel이 ASIM(고급 SIEM 정보 모델)을 사용하여 다양한 원본의 데이터를 정규화하는 방법을 설명합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 521bc428af19dcbe16d71bf3393ade6ca37a5b15
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 6476e906c0cea849c71d03883b61aa0fe061df73
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712892"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761020"
 ---
 # <a name="normalization-and-the-advanced-siem-information-model-asim-public-preview"></a>정규화 및 고급 SIEM 정보 모델(ASIM)(공개 미리 보기)
 

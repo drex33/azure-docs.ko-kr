@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel | 경고 세부 정보 사용자 지정 Microsoft Docs
 description: 경고의 콘텐츠에 따라 심각도 및 할당된 전술과 함께 경고의 이름을 지정하고 설명하는 방법을 사용자 지정합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8cbffe40ac7773401535eed3d249f0e13903b1e7
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9dc43d917cbcb50c50363787f1ed0846f9d72dfb
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721407"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754940"
 ---
 # <a name="customize-alert-details-in-microsoft-sentinel"></a>Microsoft Sentinel에서 경고 세부 정보 사용자 지정 
 

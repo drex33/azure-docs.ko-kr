@@ -1,24 +1,17 @@
 ---
 title: Microsoft 센티널에 사용자 지정 로그 형식의 데이터 수집 | Microsoft Docs
 description: 사용자 지정 데이터 원본에서 데이터를 수집 하 고 Log Analytics 에이전트를 사용 하 여 Microsoft 센티널에 수집 합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4625145126a88d11989bbccc8b31cb7c1368145f
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 4d4f4bee3c5f39e6a81f2e72dd825ea3c6c67f07
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724485"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756844"
 ---
 # <a name="collect-data-in-custom-log-formats-to-microsoft-sentinel-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 사용자 지정 로그 형식으로 Microsoft 센티널에 데이터 수집
 

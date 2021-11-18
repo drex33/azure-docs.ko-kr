@@ -1,40 +1,33 @@
 ---
-title: 고급 SIEM 정보 모델 (ASIM) 파서 | Microsoft Docs
-description: 이 문서에서는 쿼리 시간 KQL 함수를 사용 하 여 고급 SIEM 정보 모델 (ASIM)을 구현 하는 방법을 설명 합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: 고급 SIEM 정보 모델(ASIM) 파서 | Microsoft Docs
+description: 이 문서에서는 KQL 함수를 쿼리 시간 파서로 사용하여 ASIM(고급 SIEM 정보 모델)을 구현하는 방법을 설명합니다.
 author: oshezaf
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 38b276bda8242f1cfef39c58925552ba35625baa
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: af27fc5edd1eb4cd5ed7d9fd60fa14503378dea2
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712835"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763908"
 ---
-# <a name="advanced-siem-information-model-asim-parsers-public-preview"></a>고급 SIEM 정보 모델 (ASIM) 파서 (공개 미리 보기)
+# <a name="advanced-siem-information-model-asim-parsers-public-preview"></a>ASIM(고급 SIEM 정보 모델) 파서(공개 미리 보기)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft 센티널에서 구문 분석 및 [표준화](normalization.md) 는 쿼리 시에 발생 합니다. 파서는 **CommonSecurityLog**, 사용자 지정 로그 테이블 또는 Syslog와 같은 기존 테이블의 데이터를 정규화된 스키마로 변환하는 [KQL 사용자 정의 함수](/azure/data-explorer/kusto/query/functions/user-defined-functions)로 빌드됩니다. 파서를 작업 영역 함수로 저장 한 후에는 모든 Microsoft 센티널 테이블 처럼 사용할 수 있습니다.
+Microsoft Sentinel에서 구문 분석 및 [정규화는](normalization.md) 쿼리 시에 발생합니다. 파서는 **CommonSecurityLog**, 사용자 지정 로그 테이블 또는 Syslog와 같은 기존 테이블의 데이터를 정규화된 스키마로 변환하는 [KQL 사용자 정의 함수](/azure/data-explorer/kusto/query/functions/user-defined-functions)로 빌드됩니다. 파서가 작업 영역 함수로 저장되면 Microsoft Sentinel 테이블처럼 사용할 수 있습니다.
 
 > [!TIP]
-> 또한 [Microsoft 센티널 정규화 파서와 웹 세미나의 심층](https://www.youtube.com/watch?v=zaqblyjQW6k) 조사를 시청 하 고 [슬라이드](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)를 검토 합니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
+> 또한 [Microsoft Sentinel 파서 정규화 및 정규화된 콘텐츠의 심층 분석 웨비나를](https://www.youtube.com/watch?v=zaqblyjQW6k) 시청하거나 [슬라이드를 검토합니다.](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM) 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
 >
 
 > [!IMPORTANT]
 > ASIM은 현재 미리 보기 상태입니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
-## <a name="source-agnostic-and-source-specific-parsers"></a>소스 독립적 및 소스 관련 파서
+## <a name="source-agnostic-and-source-specific-parsers"></a>소스 독립적 파서 및 원본별 파서
 
 ASIM에는 두 가지 수준의 파서인 **원본 중립적** 및 **원본 관련** 파서가 포함됩니다.
 
@@ -62,9 +55,9 @@ vimDnsMicrosoftOMS
 ```
 
 > [!NOTE]
-> 로그 페이지에서로 시작 하는 ASIM 소스에 관계 없는 파서를 사용 하는 경우 `im` 시간 범위 선택기는로 설정 됩니다  `custom` . 시간 범위는 직접 설정할 수 있습니다. 또는 파서 매개 변수를 사용 하 여 시간 범위를 지정 합니다.
+> 로그 페이지에서 로 시작하는 ASIM 소스 독립적 파서 를 사용하는 경우 `im` 시간 범위 선택기가 로  설정됩니다. `custom` 시간 범위를 직접 설정할 수 있습니다. 또는 파서 매개 변수를 사용하여 시간 범위를 지정합니다.
 >
-> 또는 `ASim` 매개 변수를 지원 하지 않는 파서를 사용 하 고 기본적으로 시간 범위 선택도로 설정 하지 않습니다 `custom` .
+> 또는 `ASim` 매개 변수를 지원하지 않고 시간 범위 선택기를 기본적으로 로 설정하지 않는 파서도 `custom` 사용합니다.
 >
 
 ### <a name="source-specific-parsers"></a>원본 관련 파서
@@ -75,23 +68,23 @@ vimDnsMicrosoftOMS
 
 원본 관련 파서는 독립적으로 사용할 수도 있습니다. 예를 들어, Infoblox 관련 통합 문서에서 `vimDnsInfobloxNIOS` 파서를 사용합니다.
 
-## <a name="optimizing-parsing-using-parameters"></a><a name="optimized-parsers"></a>매개 변수를 사용 하 여 구문 분석 최적화
+## <a name="optimizing-parsing-using-parameters"></a><a name="optimized-parsers"></a>매개 변수를 사용하여 구문 분석 최적화
 
-파서를 사용 하면 쿼리 성능에 영향을 줄 수 있으며, 주로 구문을 분석 한 후에 결과를 필터링 하지 않아도 됩니다. 이러한 이유로 대부분의 파서는 선택적 필터링 매개 변수를 가지 며이를 통해 구문 분석 하 고 쿼리 성능을 향상 시킬 수 있습니다. ASIM 파서는 쿼리 최적화 및 미리 필터링 작업을 함께 사용 하는 경우 정규화를 사용 하지 않는 것과 비교할 때 더 나은 성능을 제공 하는 경우가 많습니다.
+파서 사용은 주로 구문 분석 후 결과를 필터링하지 않아도 됨으로써 쿼리 성능에 영향을 미칠 수 있습니다. 이러한 이유로 많은 파서에는 구문 분석하기 전에 필터링하고 쿼리 성능을 향상시킬 수 있는 선택적 필터링 매개 변수가 있습니다. ASIM 파서에서는 쿼리 최적화 및 사전 필터링 활동과 함께 정규화를 전혀 사용하지 않는 것에 비해 더 나은 성능을 제공하는 경우가 많습니다.
 
-파서를 호출할 때 하나 이상의 명명 된 매개 변수를 추가 하 여 필터링 매개 변수를 사용 합니다. 예를 들어 다음 쿼리를 시작 하면 존재 하지 않는 도메인에 대 한 DNS 쿼리만 반환 됩니다.
+파서 호출 시 하나 이상의 명명된 매개 변수를 추가하여 필터링 매개 변수를 사용합니다. 예를 들어 다음 쿼리 시작은 존재하지 않는 도메인에 대한 DNS 쿼리만 반환되도록 합니다.
 
 ```kusto
 imDns(responsecodename='NXDOMAIN')
 ```
 
-이전 예제는 다음 쿼리와 유사 하지만 훨씬 더 효율적입니다.
+이전 예제는 다음 쿼리와 비슷하지만 훨씬 더 효율적입니다.
 
 ```kusto
 imDns | where ResponseCodeName == 'NXDOMAIN'
 ```
 
-각 스키마에는 스키마 문서에서 설명 하는 표준 필터링 매개 변수 집합이 있습니다. 필터링 매개 변수는 완전히 선택적 이며 현재 DNS 스키마에 대해서만 완전 하 게 지원 됩니다. 다른 스키마는 미리 필터링 최적화 없이 표준 필터링 매개 변수를 지원 합니다.
+각 스키마에는 스키마 문서에 문서화된 표준 필터링 매개 변수 집합이 있습니다. 필터링 매개 변수는 전적으로 선택 사항이며 현재 DNS 스키마에 대해서만 완전히 지원됩니다. 다른 스키마는 사전 필터링 최적화 없이 표준 필터링 매개 변수를 지원합니다.
 
 ## <a name="writing-source-specific-parsers"></a>원본 관련 파서 작성
 
@@ -115,11 +108,11 @@ KQL의 필터링은 `where` 연산자를 사용하여 수행합니다. 예를 �
 Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 ```
 
-#### <a name="filtering-based-on-parser-parameters"></a>파서 매개 변수를 기준으로 필터링
+#### <a name="filtering-based-on-parser-parameters"></a>파서 매개 변수를 기반으로 필터링
 
-[매개 변수가 있는 파서](#optimized-parsers)를 사용 하는 경우 해당 스키마에 대 한 참조 문서에 설명 된 대로 파서가 관련 스키마에 대 한 필터링 매개 변수를 허용 하는지 확인 합니다.
+매개 [변수가](#optimized-parsers)있는 파서를 사용하는 경우 해당 스키마에 대한 참조 문서에 설명된 대로 파서가 관련 스키마에 대한 필터링 매개 변수를 허용하는지 확인합니다.
 
-함수 문서는 각 스키마에 대해 동일 합니다. 예를 들어, DNS 쿼리 매개 변수가 있는 파서 서명의 경우 다음과 같습니다.
+함수 아티클은 각 스키마에 대해 동일합니다. 예를 들어 DNS 쿼리 매개 변수가 있는 파서 서명의 경우:
 
 ```kusto
 let DNSQuery_MS=(
@@ -134,10 +127,10 @@ let DNSQuery_MS=(
     )
 ```
 
-매개 변수 값에 따라 필터를 추가 합니다. 필터링 할 때 다음을 확인 합니다.
+매개 변수 값에 따라 필터를 추가합니다. 필터링할 때 다음을 확인합니다.
 
-- **실제 필드를 사용 하 여 구문 분석 하기 전에 필터링** 합니다. 필터링 된 결과가 정확 하지 않을 경우 구문 분석 후 테스트를 반복 하 여 결과를 미세 조정 합니다. 자세한 내용은  ["필터링 최적화"](#optimization)를 참조 하십시오.
- - **매개 변수가 정의 되어 있지 않고 여전히 기본값을 포함 하는 경우 필터링 하지 마십시오**. 다음 예에서는 문자열 매개 변수에 대 한 필터링을 구현 하는 방법을 보여 줍니다. 기본값은 일반적으로 ' \* '이 고, 목록 매개 변수의 경우 기본값은 일반적으로 빈 목록입니다.
+- **실제 필드를 사용하여 구문 분석하기 전에 필터링합니다.** 필터링된 결과가 충분히 정확하지 않으면 구문 분석 후 테스트를 반복하여 결과를 미세 조정합니다. 자세한 내용은 ["필터링 최적화"를 참조하세요.](#optimization)
+ - **매개 변수가 정의되어 있지 않고 여전히 기본값이 인 경우 필터링하지 마십시오.** 다음 예제에서는 문자열 매개 변수에 대한 필터링을 구현하는 방법을 보여 하며, 여기서 기본값은 일반적으로 \* ' '이고, 목록 매개 변수의 경우 기본값은 일반적으로 빈 목록입니다.
 
 ``` kusto
 srcipaddr=='*' or ClientIP==srcipaddr
@@ -145,7 +138,7 @@ array_length(domain_has_any) == 0 or Name has_any (domain_has_any)
 ```
 
 > [!TIP]
-> 동일한 형식의 기존 파서는 매개 변수 필터링을 구현 하는 데 적합 합니다.
+> 동일한 형식의 기존 파서가 매개 변수 필터링을 구현하기 시작하는 데 적합합니다.
 >
 
 #### <a name="filtering-optimization"></a><a name="optimization"></a>필터링 최적화
@@ -158,7 +151,7 @@ array_length(domain_has_any) == 0 or Name has_any (domain_has_any)
 
 성능에 대한 필터링 권장 사항은 항상 따르기에 간단한 것은 아닐 수 있습니다. 예를 들어, `has` 사용은 `contains`보다 덜 정확합니다. 다른 경우에는 `SyslogMessage`와 같은 기본 제공 필드와 일치시키는 것은 `DvcAction`과 같은 추출된 필드와 비교하는 것보다 덜 정확합니다. 이러한 경우에는 기본 제공 필드에 대해 성능 최적화 연산자를 사용하여 미리 필터링하고 구문 분석 후에 더 정확한 조건을 사용하여 필터를 반복하는 것이 좋습니다.
 
-예를 들어 다음 [Infoblox DNS](https://aka.ms/AzSentinelInfobloxParser) 파서 코드 조각을 참조 하세요. 파서는 먼저 SyslogMessage 필드에 `client` 단어가 `has`(있는지) 확인합니다. 그러나 이 용어는 메시지의 다른 위치에서 사용될 수 있습니다. 따라서 `Log_Type` 필드를 구문 분석한 후 파서는 `client` 단어가 실제로 필드의 값이었는지 다시 확인합니다.
+예제를 보려면 다음 [Infoblox DNS](https://aka.ms/AzSentinelInfobloxParser) 파서 조각을 참조하세요. 파서는 먼저 SyslogMessage 필드에 `client` 단어가 `has`(있는지) 확인합니다. 그러나 이 용어는 메시지의 다른 위치에서 사용될 수 있습니다. 따라서 `Log_Type` 필드를 구문 분석한 후 파서는 `client` 단어가 실제로 필드의 값이었는지 다시 확인합니다.
 
 ```kusto
 Syslog | where ProcessName == "named" and SyslogMessage has "client"
@@ -168,7 +161,7 @@ Syslog | where ProcessName == "named" and SyslogMessage has "client"
 ```
 
 > [!NOTE]
-> 파서를 사용 하는 쿼리는 이미 시간을 필터링 하기 때문에 파서는 시간을 기준으로 필터링 해서는 안 됩니다.
+> 파서 를 사용하는 쿼리가 이미 시간을 필터링하기 때문에 파서는 시간별로 필터링하지 않아야 합니다.
 >
 
 ### <a name="parsing"></a>구문 분석

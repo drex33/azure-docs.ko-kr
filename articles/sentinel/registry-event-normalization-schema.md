@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel Registry 이벤트 정규화 스키마 참조 | Microsoft Docs
 description: 이 문서에서는 Microsoft Sentinel 레지스트리 이벤트 정규화 스키마에 대해 설명합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 99892cb92bd2a7ac4ba854b96928707801ccd1aa
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 94d473126f9afb8f276fab7374aad4a8ce3f7976
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712246"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763680"
 ---
 # <a name="microsoft-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Microsoft Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)
 
@@ -85,7 +78,7 @@ Microsoft Sentinel은 [IFEO 레지스트리 키 헌팅을 통해 유지](https:/
 
 이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
@@ -172,8 +165,8 @@ Microsoft Sentinel은 [IFEO 레지스트리 키 헌팅을 통해 유지](https:/
 
 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft 센티널의 정규화](normalization.md)
-- [Microsoft 센티널 인증 정규화 스키마 참조 (공개 미리 보기)](authentication-normalization-schema.md)
-- [Microsoft 센티널 DNS 정규화 스키마 참조](dns-normalization-schema.md)
-- [Microsoft 센티널 파일 이벤트 정규화 스키마 참조 (공개 미리 보기)](file-event-normalization-schema.md)
-- [Microsoft 센티널 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
+- [Microsoft Sentinel의 정규화](normalization.md)
+- [Microsoft Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
+- [Microsoft Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
+- [Microsoft Sentinel 파일 이벤트 정규화 스키마 참조(공개 미리 보기)](file-event-normalization-schema.md)
+- [Microsoft Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)

@@ -1,24 +1,17 @@
 ---
 title: 이 Microsoft 센티널 통합 문서를 사용 하 여 데이터 커넥터의 상태 모니터링 | Microsoft Docs
 description: 상태 모니터링 통합 문서를 사용하여 데이터 커넥터의 연결 및 성능을 추적합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 8d06268fd73008cafb67f3a53e56c3abf7333af9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 3b627fa56723a4f447338c9f36b7d339d9109e98
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132713139"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755985"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-microsoft-sentinel-workbook"></a>이 Microsoft 센티널 통합 문서를 사용 하 여 데이터 커넥터의 상태 모니터링
 

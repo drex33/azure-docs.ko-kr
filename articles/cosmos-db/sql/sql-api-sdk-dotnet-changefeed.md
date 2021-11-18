@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: 5eaf550ebb36444bc7553d7f6f063aca104234a3
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 0b3d1567973de1f8deee54978261803403ba3228
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116980"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758403"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
+# <a name="net-change-feed-processor-sdk-download-and-release-notes-legacy"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보(레거시)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]

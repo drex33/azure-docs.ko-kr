@@ -1,22 +1,17 @@
 ---
 title: Microsoft Sentinel | Azure Stack Hub 가상 머신 온보딩 Microsoft Docs
 description: 이 문서에서는 Azure Stack Hub 가상 머신에서 Azure Monitor, 업데이트 및 구성 관리 가상 머신 확장을 프로비전하고 Microsoft Sentinel을 사용하여 모니터링을 시작하는 방법을 보여 줍니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3f8367a723cb11ab1c6260bc323240d08181dddc
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 7c125ac9ae441059a0f0b9252cf8a9b083fc16cf
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132715210"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762692"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-microsoft-sentinel"></a>Microsoft Sentinel에 가상 머신 커넥트 Azure Stack Hub
 

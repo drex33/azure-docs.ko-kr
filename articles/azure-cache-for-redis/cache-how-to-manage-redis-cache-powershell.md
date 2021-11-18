@@ -7,24 +7,25 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: cauribeg
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ffef2de3825f86bd6bbd3d2e82ee9aeb45c1d5e6
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 0ca08cc4c8778bf2ba77bb6be267719fb0e9f4e8
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538425"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759595"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 
 > [!div class="op_single_selector"]
+
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
-> 
-> 
+>
+>
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 문서에서는 Azure Cache for Redis 인스턴스 만들기, 업데이트 및 크기 조정과 같은 일반적인 작업을 수행하는 방법을 보여줍니다. 이 문서에서는 액세스 키를 재생성하는 방법과 캐시에 대한 정보를 보는 방법도 보여줍니다. Azure Cache for Redis PowerShell cmdlet의 전체 목록은 [Azure Cache for Redis cmdlet](/powershell/module/az.rediscache)을 참조하세요.
+이 문서에서는 Azure Cache for Redis 인스턴스를 만들고 업데이트하고 크기를 조정하는 방법을 보여 줍니다. 이 문서에서는 액세스 키를 재생성하는 방법과 캐시에 대한 정보를 보는 방법도 보여줍니다. Azure Cache for Redis PowerShell cmdlet의 전체 목록은 [Azure Cache for Redis cmdlet](/powershell/module/az.rediscache)을 참조하세요.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -32,7 +33,7 @@ ms.locfileid: "129538425"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
+Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 이 명령을 통해 Azure PowerShell 버전을 확인할 수 있습니다.
 
 ```azurepowershell
     Get-Module Az | format-table version
@@ -186,10 +187,10 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 
 > [!IMPORTANT]
 > Azure Portal을 사용하여 구독에 처음으로 Azure Cache for Redis를 만들 때 포털은 해당 구독에 대해 `Microsoft.Cache` 네임스페이스를 등록합니다. PowerShell을 사용하여 구독에서 첫 번째 Azure Cache for Redis를 만드는 경우, 먼저 다음 명령을 사용하여 해당 네임스페이스를 등록해야 하며 그렇지 않은 경우 `New-AzRedisCache` 및 `Get-AzRedisCache`의 cmdlet이 실패합니다.
-> 
+>
 > `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"`
-> 
-> 
+>
+>
 
 `New-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -359,7 +360,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 ```
 
-`Size`, `Sku`, `EnableNonSslPort`의 속성과 `RedisConfiguration` 값을 업데이트하는 데 `Set-AzRedisCache` cmdlet을 사용할 수 있습니다. 
+`Size`, `Sku`, `EnableNonSslPort`의 속성과 `RedisConfiguration` 값을 업데이트하는 데 `Set-AzRedisCache` cmdlet을 사용할 수 있습니다.
 
 다음 명령은 myCache라는 Azure Cache for Redis에 대한 maxmemory-policy를 업데이트합니다.
 
@@ -371,21 +372,21 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하려면
 
-`Size`, `Sku` 또는 `ShardCount` 속성이 수정될 때 Azure Cache for Redis 인스턴스 크기를 조정하는 데 `Set-AzRedisCache`를 사용할 수 있습니다. 
+`Size`, `Sku` 또는 `ShardCount` 속성이 수정될 때 Azure Cache for Redis 인스턴스 크기를 조정하는 데 `Set-AzRedisCache`를 사용할 수 있습니다.
 
 > [!NOTE]
 > PowerShell을 사용하여 캐시 크기를 조정할 경우 Azure 포털에서 캐시 크기를 조정할 때와 동일한 한도 및 지침이 적용됩니다. 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
-> 
+>
 > * 높은 가격 책정 계층에서 낮은 가격 책정 계층으로 크기를 조정할 수 없습니다.
 > * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
 > * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
 > * **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
 > * **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준** 에서 **프리미엄** 으로 확장해야 합니다.
 > * 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
-> 
+>
 > 자세한 내용은 [Azure Cache for Redis 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
-> 
-> 
+>
+>
 
 다음 예제에서는 `myCache`라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 이 명령은 기본 또는 표준 캐시 둘 다에 적용할 수 있습니다.
 
@@ -667,15 +668,14 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-
 ## <a name="to-import-an-azure-cache-for-redis"></a>Azure Cache for Redis를 가져오려면
 
 `Import-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스에 데이터를 가져올 수 있습니다.
 
 > [!IMPORTANT]
 > 가져오기/내보내기는 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다. Import/Export에 대한 자세한 내용은 [Azure Cache for Redis에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)를 참조하세요.
-> 
-> 
+>
+>
 
 `Import-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -726,7 +726,6 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 ```
 
-
 다음 명령은 SAS URI가 지정한 Blob에서 Azure Cache for Redis에 데이터를 가져옵니다.
 
 ```azurepowershell
@@ -739,8 +738,8 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
 
 > [!IMPORTANT]
 > 가져오기/내보내기는 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다. Import/Export에 대한 자세한 내용은 [Azure Cache for Redis에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)를 참조하세요.
-> 
-> 
+>
+>
 
 `Export-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -790,7 +789,6 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 ```
 
-
 다음 명령은 Azure Cache for Redis 인스턴스에서 SAS uri가 지정한 컨테이너로 데이터를 내보냅니다.
 
 ```azurepowershell
@@ -804,9 +802,9 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
 `Reset-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스를 재부팅할 수 있습니다.
 
 > [!IMPORTANT]
-> 재부팅은 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다. 캐시를 재부팅하는 방법에 대한 자세한 내용은 [캐시 관리 - 재부팅](cache-administration.md#reboot)을 참조하세요.
-> 
-> 
+> 다시 부팅은 [기본, 표준 및 Premium 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다. 캐시를 재부팅하는 방법에 대한 자세한 내용은 [캐시 관리 - 재부팅](cache-administration.md#reboot)을 참조하세요.
+>
+>
 
 `Reset-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -856,14 +854,12 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 ```
 
-
 다음 명령은 지정된 캐시의 두 노드를 모두 재부팅합니다.
 
 ```azurepowershell
     PS C:\>Reset-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -RebootType "AllNodes"
     -Force
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

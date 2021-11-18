@@ -3,20 +3,20 @@ author: phillipgibson
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: pgibson
-ms.openlocfilehash: 10759b4d80b39b1fc9a04d513e75d98b7c691281
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: de665767d429b8a62b9e88881fc69a28b6537830
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441301"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132753887"
 ---
-## <a name="download-and-install-the-open-service-mesh-osm-client-binary"></a>OSM (Open Service 메시) 클라이언트 이진 파일을 다운로드 하 여 설치 합니다.
+## <a name="download-and-install-the-open-service-mesh-osm-client-binary"></a>OSM(Open Service Mesh) 클라이언트 이진 파일 다운로드 및 설치
 
-Windows의 PowerShell 기반 셸에서를 사용 `Invoke-WebRequest` 하 여 OSM 릴리스를 다운로드 한 후 다음과 같이를 사용 하 여 추출 합니다 `Expand-Archive` .
+Windows PowerShell 기반 셸에서 를 사용하여 `Invoke-WebRequest` OSM 릴리스를 다운로드한 후 다음과 같이 을 `Expand-Archive` 추출합니다.
 
 ```powershell
 # Specify the OSM version that will be leveraged throughout these instructions
-$OSM_VERSION="v0.9.1"
+$OSM_VERSION="v0.11.1"
 
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-windows-amd64.zip&quot; -OutFile &quot;osm-$OSM_VERSION.zip"

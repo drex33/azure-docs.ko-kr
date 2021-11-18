@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: a52d3e5690a043e3f886dd0a87db5ffba155528f
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 573457c047b092a80272e9f4b21e4b5dbe99a4cd
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493365"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132750836"
 ---
-# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes-deprecated"></a>Azure Cosmos DB .net SDK v2 for SQL API: 다운로드 및 릴리스 정보 (사용 되지 않음)
+# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes-legacy"></a>Azure Cosmos DB .net SDK v2 for SQL API: 다운로드 및 릴리스 정보 (레거시)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -48,8 +48,8 @@ ms.locfileid: "132493365"
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
-> [!IMPORTANT]
-> 2024 년 8 월 31 일에 Azure Cosmos DB .net sdk v2. x가 사용 중지 됩니다. sdk 및 sdk를 사용 하는 모든 응용 프로그램은 계속 작동 합니다. Azure Cosmos DB이 SDK에 대 한 추가 유지 관리 및 지원을 제공 하는 것은 간단 합니다. 최신 버전의 .NET SDK v3 SDK로 마이그레이션하려면 다음 지침을 따르는 것이 좋습니다.
+> [!WARNING]
+> 2024 년 8 월 31 일에 Azure Cosmos DB .net sdk v2. x가 사용 중지 됩니다. sdk 및 sdk를 사용 하는 모든 응용 프로그램은 계속 작동 합니다. Azure Cosmos DB이 SDK에 대 한 추가 유지 관리 및 지원을 제공 하는 것은 간단 합니다. 최신 버전의 .NET SDK v3 SDK [로 마이그레이션하는](migrate-dotnet-v3.md) 것이 좋습니다.
 >
 
 > [!NOTE]
@@ -59,7 +59,7 @@ ms.locfileid: "132493365"
 
 릴리스 기록은 Azure Cosmos DB .net SDK 원본 리포지토리에서 유지 관리 됩니다. 각 릴리스에서 수정 된 기능 릴리스 및 버그에 대 한 자세한 목록은 [SDK 변경 로그 설명서](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) 를 참조 하세요.
 
-Azure Cosmos DB .net sdk 버전 3에는 업데이트 된 기능과 향상 된 성능이 포함 되어 있으므로이 SDK의 2.x는 31 월 2024 일에 사용 중지 됩니다.해당 날짜를 기준으로 SDK를 버전 3으로 업데이트 해야 합니다. Azure Cosmos DB .net SDK 버전 3으로 마이그레이션하는 방법에 대 한 지침을 따르는 것이 좋습니다.
+Azure Cosmos DB .net sdk 버전 3에는 업데이트 된 기능과 향상 된 성능이 포함 되어 있으므로이 SDK의 2.x는 31 월 2024 일에 사용 중지 됩니다.해당 날짜를 기준으로 SDK를 버전 3으로 업데이트 해야 합니다. Azure Cosmos DB .net SDK 버전 3으로 마이그레이션하는 방법에 대 한 [지침](migrate-dotnet-v3.md) 을 따르는 것이 좋습니다.
 
 ## <a name="recommended-version"></a><a name="recommended-version"></a> 권장 버전
 

@@ -6,14 +6,14 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c70b42e7d0f647a3b2b60d29b5098a791e4975f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 11/12/2021
+ms.openlocfilehash: cd55d0dd76a35135bdef25b4a8c5bae62183e337
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88924523"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132752375"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 가져오기 및 인덱싱을 위해 관계형 SQL 데이터를 모델링하는 방법
 
@@ -22,7 +22,6 @@ Azure Cognitive Search는 플랫 행 집합을 [인덱싱 파이프라인](searc
 실례로, [데모 데이터](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels)를 기반으로 하는 가상 호텔 데이터베이스를 참조하겠습니다. 데이터베이스가 50개 호텔이 포함된 Hotels$ 테이블과 다양한 유형, 요금, 편의 시설의 총 750개 객실이 포함된 Rooms$ 테이블로 구성되어 있다고 가정합니다. 테이블 간에는 일 대 다 관계가 있습니다. 이 방법에서 뷰는 호텔당 한 행씩 50개 행을 반환하는 쿼리를 제공합니다. 각 행에는 관련 객실의 세부 정보가 포함되어 있습니다.
 
    ![Hotels 데이터베이스의 테이블 및 뷰](media/index-sql-relational-data/hotels-database-tables-view.png "Hotels 데이터베이스의 테이블 및 뷰")
-
 
 ## <a name="the-problem-of-denormalized-data"></a>비정규화된 데이터 문제
 
@@ -40,7 +39,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
 
 외견상으로는 쿼리에 성공하고 모든 데이터가 플랫 행 집합에 제공되지만 예상 검색 경험에 적합한 문서 구조를 제공하지는 못합니다. 인덱싱 중에 Azure Cognitive Search는 수집된 행당 하나의 검색 문서를 만듭니다. 검색 문서가 위의 결과와 같이 표시되면 Twin Dome 호텔의 개별 문서만 해도 7개가 중복된 것을 확인할 수 있습니다. “플로리다의 호텔” 쿼리는 Twin Dome 호텔 하나에 대해 7개 결과를 반환하므로 검색 결과에서 다른 관련 호텔을 확인하기 어렵습니다.
 
-호텔당 하나의 문서라는 예상 경험을 얻으려면 올바른 세분성으로 행 집합을 제공하되 전체 정보를 제공해야 합니다. 다행히 해당 작업은 이 문서의 기술을 사용하여 쉽게 수행할 수 있습니다.
+호텔당 하나의 문서라는 예상 경험을 얻으려면 올바른 세분성으로 행 집합을 제공하되 전체 정보를 제공해야 합니다. 이 문서에서는 등록 방법을 설명합니다.
 
 ## <a name="define-a-query-that-returns-embedded-json"></a>포함된 JSON을 반환하는 쿼리 정의
 
@@ -84,7 +83,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
     GO
     ```
 
-2. 부모 테이블의 모든 필드(`SELECT * from dbo.Hotels$`)로 구성되고 중첩된 쿼리의 출력을 포함하는 새 *Rooms* 필드가 추가된 뷰를 만듭니다. `SELECT * from dbo.Rooms$`의 **FOR JSON AUTO** 절은 출력을 JSON으로 구성합니다. 
+1. 부모 테이블의 모든 필드(`SELECT * from dbo.Hotels$`)로 구성되고 중첩된 쿼리의 출력을 포함하는 새 *Rooms* 필드가 추가된 뷰를 만듭니다. `SELECT * from dbo.Rooms$`의 **FOR JSON AUTO** 절은 출력을 JSON으로 구성합니다. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -113,7 +112,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
 
 Azure Cognitive Search 쪽에서 중첩된 JSON을 사용하여 일 대 다 관계를 모델링하는 인덱스 스키마를 만듭니다. 이전 섹션에서 만든 결과 집합은 일반적으로 아래에 제공된 인덱스 스키마에 해당합니다(간단히 하기 위해 일부 필드를 잘라냄).
 
-다음 예제는 [복합 데이터 형식을 모델링하는 방법](search-howto-complex-data-types.md#creating-complex-fields)의 예제와 유사합니다. 이 문서에서 중점적으로 설명한 *Rooms* 구조체는 *hotels* 라는 인덱스의 필드 컬렉션에 있습니다. 또한 이 예제에서는 컬렉션에서 임의 개수의 여러 항목이 허용되는 대신 고정된 항목 집합으로 구성된다는 점에서 *Rooms* 와는 다른 *Address* 의 복합 형식을 보여 줍니다.
+다음 예제는 [복합 데이터 형식을 모델링하는 방법](search-howto-complex-data-types.md#create-complex-fields)의 예제와 유사합니다. 이 문서에서 중점적으로 설명한 *Rooms* 구조체는 *hotels* 라는 인덱스의 필드 컬렉션에 있습니다. 또한 이 예제에서는 컬렉션에서 임의 개수의 여러 항목이 허용되는 대신 고정된 항목 집합으로 구성된다는 점에서 *Rooms* 와는 다른 *Address* 의 복합 형식을 보여 줍니다.
 
 ```json
 {

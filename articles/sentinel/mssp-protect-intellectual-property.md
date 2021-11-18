@@ -1,25 +1,17 @@
 ---
 title: Microsoft Sentinel | MSSP(관리형 보안 서비스 공급자) 지적 재산 보호 Microsoft Docs
 description: MSSP(관리형 보안 서비스 공급자)가 Microsoft Sentinel에서 만든 지적 재산권을 보호하는 방법에 대해 알아봅니다.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: a0e2874782432c707aabc571ed77370b512e2dbf
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 3c9f3e3c431e3e2ca99afb63a0019b7f9c239e65
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132713120"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755928"
 ---
 # <a name="protecting-mssp-intellectual-property-in-microsoft-sentinel"></a>Microsoft Sentinel에서 MSSP 지적 재산 보호
 

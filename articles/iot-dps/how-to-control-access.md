@@ -1,19 +1,19 @@
 ---
 title: Microsoft Azure IoT 장치 프로 비전 서비스의 보안 끝점
 description: 개념 - 백 엔드 앱용 IoT DPS (Device Provisioning Service)에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
-author: anastasia-ms
+author: wesmc7777
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.author: v-stharr
+ms.author: wesmc
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dc33bf659785419619afe4f393a8a1ed09142452
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: a3a076718640db23a75e114225c0d79d4616b6e4
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272532"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132763794"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 
@@ -31,7 +31,7 @@ ms.locfileid: "129272532"
 
 서비스 API는 백 엔드 앱에 대 한 키 기반 인증을 지원 합니다.  
 
-키 기반 인증을 사용 하는 경우 장치 프로 비전 서비스는 네트워크에서 키를 전송 하지 않도록 보안 토큰을 사용 하 여 서비스를 인증 합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. Azure IoT 장치 프로 비전 Sdk는 특별 한 구성이 필요 하지 않고 토큰을 자동으로 생성 합니다.  
+키 기반 인증을 사용 하는 경우 장치 프로 비전 서비스는 네트워크에서 키를 전송 하지 않도록 보안 토큰을 사용 하 여 서비스를 인증 합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. Azure IoT 장치 프로 비전 sdk는 특별 한 구성이 필요 하지 않고 토큰을 자동으로 생성 합니다.  
 
 경우에 따라 Sdk를 사용 하지 않고 HTTP 장치 프로 비전 서비스 REST Api를 직접 사용 해야 할 수도 있습니다. 다음 섹션에서는 REST Api에 대해 직접 인증 하는 방법을 설명 합니다.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b068b5023076be916808469dc9cfb6ba8fe0b34f
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: eba3360fc1613846b600d47c864961752b2e926d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113034296"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761514"
 ---
 # <a name="thin-client-support"></a>Thin 클라이언트 지원
 
@@ -26,7 +26,7 @@ ms.locfileid: "113034296"
 |10ZiG |[10ZiG 클라이언트 설명서](https://www.10zig.com/about/microsoft-windows-virtual-desktop)|[10ZiG 지원](https://www.10zig.com/resources/support_faq)|
 |Dell |[Dell 클라이언트 설명서](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell 지원](https://www.dell.com/support)|
 |HP |[HP 클라이언트 설명서](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[HP 지원](https://support.hp.com/us-en/products/workstations-thin-clients)|
-|IGEL |[IGEL 클라이언트 설명서](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL 지원](https://www.igel.com/support/)|
+|IGEL |[IGEL 클라이언트 설명서](https://www.igel.com/igel-solution-family/)|[IGEL 지원](https://www.igel.com/support/)|
 |NComputing |[NComputing 클라이언트 설명서](https://www.ncomputing.com/microsoft)|[NComputing 지원](https://www.ncomputing.com/support/support-options)|
 |Stratodesk |[Stratodesk 클라이언트 설명서](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk 지원](https://www.stratodesk.com/support/)|
 

@@ -1,24 +1,23 @@
 ---
 title: Azure Sentinel의 새로운 기능 보관
 description: 6개월 전 또는 그 이전의 Azure Sentinel의 새로운 기능 및 변경된 기능에 대한 설명입니다.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5c9d7e56ce82dfeff44d44e8dbea7952cbd5af68
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 5ad1397641b5196b4bc4eda2927194dccf480701
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711195"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756346"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능 보관
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-센티널 릴리스 정보 [의 새로운 기능](whats-new.md) 릴리스 정보 페이지에는 지난 6 개월 동안 업데이트가 포함 되어 있지만이 페이지에는 이전 항목이 포함 되어 있습니다.
+기본 [Sentinel](whats-new.md) 릴리스 정보 페이지에는 지난 6개월 동안의 업데이트가 포함되어 있지만 이 페이지에는 이전 항목이 포함되어 있습니다.
 
 이전에 제공된 기능에 대한 자세한 내용은 [기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New)를 참조하세요.
 

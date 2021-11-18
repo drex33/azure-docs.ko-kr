@@ -2,16 +2,16 @@
 title: Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항 | Microsoft Docs
 description: Microsoft 센티널 SAP 솔루션에 대 한 자세한 SAP 시스템 요구 사항을 알아봅니다.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 2c1383f2917b7f26aaf623b7ddd9666ff2909fc6
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 8a53bde021d9c401e9158092fc5f812b5a6a5ec5
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711852"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760053"
 ---
 # <a name="microsoft-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항 (공개 미리 보기)
 
@@ -46,8 +46,8 @@ ms.locfileid: "132711852"
 
 SAP Basis 버전에 따라 SAP 솔루션에는 다음 SAP 로그 변경 요청이 필요합니다.
 
-- **SAP Basis 버전 7.50 이상**, NPLK900144 설치
-- **하위 버전**, NPLK900146 설치
+- **SAP 기반 버전 7.50 이상**, NPLK900170 설치
+- **낮은 버전의** 경우 NPLK900169를 설치 합니다.
 - **필요한 권한 부여를 사용 하 여 sap 역할을 만들려면** 지원 되는 sap 기반 버전에 대해 NPLK900163를 설치 합니다. 자세한 내용은 [SAP 시스템 구성](sap-deploy-solution.md#configure-your-sap-system) 및 [필요한 ABAP 권한](#required-abap-authorizations)을 참조하세요.
 
 > [!NOTE]

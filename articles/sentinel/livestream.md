@@ -1,24 +1,17 @@
 ---
 title: Microsoft Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 탐지 | Microsoft Docs
 description: 이 문서에서는 Microsoft Sentinel에서 Livestream 헌팅을 사용하여 데이터를 추적하는 방법을 설명합니다.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 441a5407d760851a2df08c3e4df2b8bdaa84cde2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 1222d0bf263b9983ab21ff229c7043e26ed9e6f0
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132720837"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132759357"
 ---
 # <a name="use-hunting-livestream-in-microsoft-sentinel-to-detect-threats"></a>Microsoft Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 감지
 

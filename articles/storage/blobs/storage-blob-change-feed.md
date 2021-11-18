@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bed39bd544ac1b586dcefefb890927fe1ce472b2
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 3eeec8e1b1318018f5d07ee6ef045f4e10f40cc6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129402154"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720570"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -303,12 +303,12 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
-|--|--|--|--|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
-| Premium 블록 Blob | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) | 
+| Premium 블록 Blob | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2 및 NFS(네트워크 파일 시스템) 3.0 프로토콜은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(보안 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
 ## <a name="faq"></a>FAQ
 

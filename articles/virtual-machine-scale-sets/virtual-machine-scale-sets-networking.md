@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: ea17d86bb4e5e4a6b5c5106c7d831c6691018b12
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b68963217dce0dd3c67b6876319c0a56bffb2b82
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130214741"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715723"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -144,8 +144,13 @@ Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/
     }
 }
 ```
+참고 인스턴스 당 공용 Ip가 있는 가상 머신 확장 집합은 부하 분산 장치를 사용 하 여 생성 되는 경우 인스턴스 Ip의 SKU는 Load Balancer SKU (즉, 기본 또는 표준)에 따라 결정 됩니다.
 
-템플릿 예제: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
+기본 Load Balancer를 사용 하는 템플릿 예: [vmss-공용-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
+
+또는 [공용 IP 접두사](../virtual-network/ip-services/public-ip-address-prefix.md) (표준 SKU 공용 ip의 연속 블록)를 사용 하 여 가상 머신 확장 집합에서 인스턴스 수준 ip를 생성할 수 있습니다. 접두사의 영역 속성은 인스턴스 Ip로 전달 되지만 출력에는 표시 되지 않습니다.
+
+공용 IP 접두사를 사용 하는 예제 템플릿: [vmms-공용-IP 접두사](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>확장 집합에 있는 가상 머신의 공용 IP 주소 쿼리
 CLI를 사용하여 확장 집합 가상 머신에 할당된 공용 IP 주소를 나열하려면 **az vmss list-instance-public-ips** 명령을 사용합니다.

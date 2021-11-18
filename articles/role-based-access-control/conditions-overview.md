@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: identity
 ms.date: 05/13/2021
 ms.author: rolyon
-ms.openlocfilehash: 6919a5b94d9122f16084933574ffc88f8c9f1249
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 84bcac43d22d1c90ccfe4f674c495d8439fe9536
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847421"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398329"
 ---
 # <a name="what-is-azure-attribute-based-access-control-azure-abac-preview"></a>Azure ABAC(Azure 특성 기반 액세스 제어)는 무엇인가요? (미리 보기)
 
@@ -37,7 +37,7 @@ Azure ABAC는 특정 작업의 맥락에서 특성을 기반으로 역할 할당
 역할 할당 조건을 사용할 경우 세 가지 주요 이점이 있습니다.
 
 - **보다 세분화된 액세스 제어 제공** - 역할 할당은 작업 및 데이터 작업에 역할 정의를 사용하여 보안 주체 권한을 부여합니다. 보다 세분화된 액세스 제어를 위해 이러한 권한을 필터링하는 조건을 작성할 수 있습니다. 특정 작업에 조건을 추가할 수도 있습니다. 예를 들어 Blob이 Project = Blue로 태그가 지정된 경우에만 구독의 Blob에 대한 읽기 권한을 John에게 부여할 수 있습니다. 
-- **역할 할당 수를 줄이는 데 도움이 됨** - 각 Azure 구독에는 현재 2000개의 역할 할당 한도가 있습니다. 수천 개의 역할 할당이 필요한 시나리오가 있습니다. 이러한 모든 역할 할당을 관리해야 합니다. 이러한 시나리오에서는 역할 할당을 훨씬 적게 사용하는 조건을 추가할 수 있습니다. 
+- **역할 할당 수를 줄이는 데 도움이 됨** - 각 Azure 구독에는 현재 역할 할당 한도가 있습니다. 수천 개의 역할 할당이 필요한 시나리오가 있습니다. 이러한 모든 역할 할당을 관리해야 합니다. 이러한 시나리오에서는 역할 할당을 훨씬 적게 사용하는 조건을 추가할 수 있습니다. 
 - **특정 비즈니스 의미가 있는 특성 사용** - 조건을 사용하면 액세스 제어에서 특정 비즈니스 의미가 있는 특성을 사용할 수 있습니다. 특성의 몇 가지 예로는 프로젝트 이름, 소프트웨어 개발 단계 및 분류 수준이 있습니다. 이러한 리소스 특성의 값은 동적이며 사용자가 팀 및 프로젝트 간에 이동함에 따라 변경됩니다.
 
 ## <a name="example-scenarios-for-conditions"></a>조건에 대한 시나리오 예

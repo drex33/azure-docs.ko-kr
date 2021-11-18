@@ -7,12 +7,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-ms.openlocfilehash: 702b57ed728323cfc9ca11dfbac1be785a580c03
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c447f84e4e35997106341ceafb41e7c2244f7d05
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132289322"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724001"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 머신 준비
 
@@ -220,7 +220,7 @@ CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크
     logout
     ```
 
-17. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [Azure에 업로드할](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)준비가 되었습니다.
+17. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [Azure에 업로드할](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 
 ## <a name="centos-70"></a>CentOS 7.0 이상
@@ -454,7 +454,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
     # logout
     ```
 
-15. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [Azure에 업로드할](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)준비가 되었습니다.
+15. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 [Azure에 업로드할](./upload-vhd.md#option-1-upload-a-vhd)준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

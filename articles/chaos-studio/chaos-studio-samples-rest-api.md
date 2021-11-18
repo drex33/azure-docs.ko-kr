@@ -8,19 +8,19 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: edbaeece6a486c170603304dfe328974e6b70879
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f06c89e61f9ed1889502417ca5708493dd9d2e33
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102761"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718472"
 ---
 # <a name="use-the-chaos-studio-rest-apis-to-run-and-manage-chaos-experiments"></a>Chaos Studio REST API를 사용하여 Chaos 실험 실행 및 관리
 
 > [!WARNING]
 > 오류를 삽입하면 애플리케이션 또는 서비스에 영향을 줄 수 있습니다. 고객을 방해하지 않도록 주의하세요.  
 
-Chaos Studio API는 프로그래밍 방식으로 실험을 시작하기 위한 지원을 제공합니다. armclient 및 Azure CLI 사용하여 콘솔에서 이러한 명령을 실행할 수도 있습니다. 아래 예제는 Azure CLI 대한 것입니다.
+Chaos Studio API는 프로그래밍 방식으로 실험을 시작하기 위한 지원을 제공합니다. armclient 및 Azure CLI 사용하여 콘솔에서 이러한 명령을 실행할 수도 있습니다. 아래 예제는 Azure CLI.
 
 > [!Warning]
 > 이러한 API는 아직 개발 중이며 변경될 수 있습니다.
@@ -132,10 +132,10 @@ az rest --method get --url "https://management.azure.com/{experimentId}/executio
 
 | 매개 변수 이름 | 정의 | 조회 |
 | --- | --- | --- |
-| {apiVersion} | 제공된 명령을 실행할 때 사용할 API 버전 | [API 설명서에서](https://aka.ms/chaosrestapi) 찾을 수 있습니다. |
+| {apiVersion} | 제공된 명령을 실행할 때 사용할 API 버전 | [API 설명서에서](/rest/api/chaosstudio/) 찾을 수 있습니다. |
 | {experimentId} | 실험에 대한 Azure 리소스 ID | [Chaos Studio 실험 포털 블레이드에서](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.chaos%2Fchaosexperiments) 찾을 수 있습니다. |
 | {chaosProviderType} | Chaos Studio 공급자의 유형 또는 이름 | 사용 가능한 공급자는 현재 공급자 구성 형식 목록에서 찾을 수 [있습니다.](chaos-studio-fault-providers.md) |
-| {experimentName.json} | 비정상실제 실험의 구성을 포함하는 JSON | 사용자가 생성 |
+| {experimentName.json} | 비정상실제 실험의 구성을 포함하는 JSON | 사용자에 의해 생성됩니다. |
 | {subscriptionId} | 대상 리소스가 있는 구독 ID | [구독 포털 블레이드에서](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 찾을 수 있습니다. |
 | {resourceGroupName} | 대상 리소스가 있는 리소스 그룹의 이름 | [리소스 그룹 포털 블레이드에](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 있을 수 있습니다. |
 | {executionDetailsId} | 실험 실행의 실행 ID | [Chaos Studio 실험 포털 블레이드에서](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.chaos%2Fchaosexperiments) 찾을 수 있습니다. |

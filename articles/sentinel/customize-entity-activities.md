@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0483d839af7a8707aa3be632f9d168447488e768
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: c787600e29f7e813ca8e27ac827803c572986ff1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523622"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721426"
 ---
 # <a name="customize-activities-on-entity-page-timelines"></a>엔터티 페이지 타임라인에서 활동 사용자 지정
 
@@ -104,7 +102,7 @@ Microsoft Sentinel에서 타임라인에 추적하고 제시하는 활동 외에
 
 이벤트의 상관 관계를 지정하고 사용자 지정 활동을 검색하기 위해 KQL은 엔터티 유형에 따라 여러 매개 변수를 입력해야 합니다. 매개 변수는 해당 엔터티의 다양한 식별자입니다.
 
-쿼리 결과와 엔터티 간에 일대일 매핑을 만들려면 강력한 식별자를 선택하는 것이 더 좋습니다. 약한 식별자를 선택하면 부정확한 결과가 생성될 수 있습니다. [엔터티 및 강력한 식별자와 취약한 식별자에 대해 자세히 알아봅니다](entities-in-azure-sentinel.md).
+쿼리 결과와 엔터티 간에 일대일 매핑을 만들려면 강력한 식별자를 선택하는 것이 더 좋습니다. 약한 식별자를 선택하면 부정확한 결과가 생성될 수 있습니다. [엔터티 및 강력한 식별자와 취약한 식별자에 대해 자세히 알아봅니다](entities.md).
 
 다음 표에서는 엔터티의 식별자에 대한 정보를 제공합니다.
 
@@ -209,6 +207,6 @@ Microsoft Sentinel은 사용할 수 있는 기본 제공 매개 변수를 제공
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 엔터티 페이지 타임라인에 대한 사용자 지정 활동을 만드는 방법을 알아보았습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 엔터티 페이지 타임라인에 대한 사용자 지정 활동을 만드는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [엔터티 페이지](identify-threats-with-entity-behavior-analytics.md)에서 전체 그림을 가져옵니다.
 - [엔터티 및 식별자](entities-reference.md)의 전체 목록을 참조하세요.

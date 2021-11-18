@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: irenehua
-ms.openlocfilehash: 7a2e0531427343a2ec267de54cee05b5eb25889f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2ba2d00d1cbb025b665c2c9c6cb929f8b46a1f33
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592282"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723668"
 ---
 # <a name="add-rules-for-azure-load-balancer-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 Azure Load Balancer에 대한 규칙 추가
 
@@ -37,7 +37,11 @@ ms.locfileid: "99592282"
 ## <a name="load-balancing-rules"></a>부하 분산 규칙
 
 부하 분산 장치의 백 엔드 풀에 있는 가상 머신 확장 집합을 사용하면 기본 부하 분산 규칙이 자동으로 만들어집니다.
-  
+
+## <a name="virtual-machine-scale-set-instance-level-ips"></a>Virtual Machine Scale Set 인스턴스 수준 IP
+
+[인스턴스당 공용 IP가](../virtual-network/ip-services/public-ip-address-prefix.md) 있는 가상 머신 확장 집합이 부하 분산기를 앞에 두고 만들어지면 인스턴스 IP의 SKU는 Load Balancer SKU(예: 기본 또는 표준)에 의해 결정됩니다.  표준 Load Balancer 사용하는 경우 개별 인스턴스 IP는 모두 표준 "영역 없음" 형식입니다(Load Balancer 프런트 엔드는 영역 또는 영역 중복일 수 있지만).
+
 ## <a name="outbound-rules"></a>아웃바운드 규칙
 
 부하 분산 규칙에서 이미 참조한 백 엔드 풀에 대한 아웃바운드 규칙을 만들려면 인바운드 부하 분산 규칙을 만들 때 Azure Portal에서 **암시적 아웃바운드 규칙 만들기** 에서 **아니요** 를 선택합니다.

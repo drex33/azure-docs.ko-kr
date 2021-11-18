@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b0eb1b3a1248e4bccf8f726724b57cacb352b88e
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: b779fa5963dcc14fce697c6b8ef77cfef1d252e2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132485356"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704945"
 ---
 # <a name="what-is-azure-cognitive-service-for-language"></a>Azure Cognitive Service for Language란?
 
@@ -56,7 +56,7 @@ Azure Cognitive Service for Language는 다음과 같은 기능을 제공합니�
 
 * [Power BI에 저장된 텍스트에서 핵심 구 추출](key-phrase-extraction/tutorials/integrate-power-bi.md)
 * [Power Automate를 사용하여 Microsoft Excel 정보 정렬](named-entity-recognition/tutorials/extract-excel-information.md) 
-* [Flask를 사용하여 텍스트 번역, 감정 분석 및 음성 합성](/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context)
+* [Flask를 사용하여 텍스트 번역, 감정 분석 및 음성 합성](../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext)
 * [캔버스 앱에서 Cognitive Services 사용](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context)
 * [FAQ Bot 만들기](question-answering/tutorials/bot-service.md)
 

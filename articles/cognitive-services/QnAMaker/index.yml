@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: QnA Maker 설명서
   description: QnA Maker는 데이터 위에 대화형 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다. QnA Maker 서비스는 지식의 QnA에서 최상의 답변과 매칭하는 방식으로 사용자의 자연어 질문에 답합니다.
-  ms.openlocfilehash: 8549add9afb9af5d960db241145aad43f3d6b6c1
-  ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+  ms.openlocfilehash: 69986d6cb300c15b50548430dcd92c3fb444765e
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/16/2021
-  ms.locfileid: "132546864"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132709700"
 landingContent:
 - title: QnA Maker 정보
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
-      url: /azure/cognitive-services/language-service/question-answering/tutorials/guided-conversations
+      url: ../language-service/question-answering/tutorials/guided-conversations.md
     - text: 잡담 추가
       url: how-to/chit-chat-knowledge-base.md
     - text: 보안 SharePoint 데이터 원본 추가

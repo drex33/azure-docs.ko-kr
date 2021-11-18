@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/1/2021
 ms.author: jol
-ms.openlocfilehash: 2246b54b6831d0e88581c80aedc4e39388c6f377
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 49c8e47fd695c2a65807ace4c33f07937544f149
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132327389"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719735"
 ---
 # <a name="smb-over-quic-with-automanage-machine-best-practices"></a>Automanage를 통한 SMB 및 컴퓨터의 Automanage 모범 사례
 
-인터넷과 같은 신뢰할 수 없는 네트워크를 통해 edge 파일 서버에 안전 하 고 신뢰할 수 있는 연결을 제공 하는 기업, 모바일 장치 사용자 및 지점에 대 한 "SMB VPN"을 제공 합니다. 예를 들어, SMB를 통한 smb 및 향상을 통해 smb를 구성 하는 방법에 대 한 자세한 내용은 [ ic를](https://aka.ms/smboverquic)통한 smb를 참조 하세요.
+인터넷과 같은 신뢰할 수 없는 네트워크를 통해 edge 파일 서버에 안전 하 고 신뢰할 수 있는 연결을 제공 하는 기업, 모바일 장치 사용자 및 지점에 대 한 "SMB VPN"을 제공 합니다. 예를 들어, SMB를 통한 smb 및 향상을 통해 smb를 구성 하는 방법에 대 한 자세한 내용은 [ ic를](/windows-server/storage/file-server/smb-over-quic)통한 smb를 참조 하세요.
 
 또한 smb를 통한 SMB를 사용 하는 경우 컴퓨터 모범 사례 자동 관리와 통합 되어 SMB를 통한 SMB 관리를 용이 하 게 합니다. 향상 된 인증서를 사용 하 여 암호화 및 조직에서 복잡 한 공개 키 인프라를 유지 관리 하는 경우가 자주 발생 합니다. 자동 관리 컴퓨터 모범 사례는 인증서가 경고 없이 만료 되지 않도록 하 고, SMB를 통한 SMB가 최대 서비스 연속성을 위해 활성화 되어 있는지 확인 합니다.
 
@@ -61,4 +61,4 @@ VM에서 SMB에 대 한 컴퓨터 모범 사례 자동 관리를 사용 하도�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [SMB를 통한 SMB에 대 한 자세한 정보](https://aka.ms/smboverquic)
+> [SMB를 통한 SMB에 대 한 자세한 정보](/windows-server/storage/file-server/smb-over-quic)

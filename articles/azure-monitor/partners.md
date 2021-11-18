@@ -1,143 +1,143 @@
 ---
-title: Azure Monitor 통합하는 파트너
-description: Azure Monitor 파트너에 대해 알아보고 파트너와 통합하기 위한 설명서에 액세스하는 방법을 알아봅니다.
+title: Azure Monitor와 통합 된 파트너
+description: Azure Monitor 파트너와 통합을 위해 설명서에 액세스할 수 있는 방법에 대해 알아봅니다.
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 10/27/2021
-ms.openlocfilehash: ed96dc7fbb00cd836251a38c2383af7e65a25871
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 44b0659e5a8b2f70db0c260dc5becac8f928e56e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470474"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719811"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
-다음 파트너 제품은 Azure Monitor 통합됩니다. 사전순으로 나열됩니다. 
+다음 파트너 제품은 Azure Monitor와 통합 됩니다. 이러한 순서는 사전순으로 나열 됩니다. 
 
 ## <a name="aims"></a>AIMS
 
-![AIMS AIOps 로고.](./media/partners/aims.jpg)
+![AIOps 로고를 목표로 합니다.](./media/partners/aims.jpg)
 
-AIMS AIOps(IT 운영용 인공 지능)는 인프라 및 서비스에 대한 Azure 성능 메트릭 분석을 자동화하여 효율성을 높이고, 적절하게 크기를 조정하고, 비용을 제어하고, 비즈니스 인사이트를 제공하는 실행 가능한 인사이트를 제공합니다. AIMS는 기계 학습을 사용하여 IT Ops 팀의 지루한 수동 작업을 완화합니다. 또한 AIMS는 원활한 하이브리드 제어를 위한 온-프레미스 기술도 지원합니다. AIMS는 Azure Marketplace 완전한 기능(무료) Community Edition으로 사용할 수 있습니다.
+목표 AIOps (IT 작업을 위한 인공 지능)는 인프라 및 서비스에 대 한 Azure 성능 메트릭에 대 한 분석을 자동화 하 여 효율성을 높이고 적절히 확장 하 고 비용을 제어 하 고 비즈니스 정보를 제공 합니다. 목표는 기계 학습을 사용 하 여 IT Ops 팀에 게 지루한 수동 작업을 완화 하는 것입니다. 또한 목표는 원활한 하이브리드 제어를 위한 온-프레미스 기술을 지원 합니다. 목표는 Azure Marketplace에서 사용할 수 있으며 완전 한 기능을 갖춘 (무료) Community 버전으로 제공 됩니다.
 
-자세한 내용은 [Azure에 대한 AIMS AIOps 설명서를 참조하세요.](https://www.aims.ai/platform/azure)
+자세한 내용은 [Azure에 대 한 목표 AIOps 설명서](https://www.aims.ai/platform/azure)를 참조 하세요.
 
 ## <a name="alert-logic-log-manager"></a>Alert Logic Log Manager
 
 ![경고 논리 로고.](./media/partners/alertlogic.png)
 
-경고 논리 로그 관리자는 보안 분석 및 보존을 위해 VM(가상 머신), 애플리케이션 및 Azure 플랫폼 로그를 수집합니다. 또한 Azure Monitor API를 통해 Azure Activity Log를 수집합니다. 이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
+경고 논리 로그 관리자는 보안 분석 및 보존을 위해 VM (가상 머신), 응용 프로그램 및 Azure 플랫폼 로그를 수집 합니다. 또한 Azure Monitor API를 통해 Azure Activity Log를 수집합니다. 이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
 
-자세한 내용은 경고 [논리 설명서를 참조하세요.](https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm)
+자세한 내용은 [경고 논리 설명서](https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm)를 참조 하세요.
 
 ## <a name="appdynamics"></a>AppDynamics
 
 ![AppDynamics 로고.](./media/partners/appdynamics.png)
 
-AppDynamics APM(애플리케이션 성능 관리)을 사용하면 애플리케이션 소유자가 성능 병목 문제를 신속하게 해결하고 Azure 환경에서 실행되는 애플리케이션의 성능을 최적화할 수 있습니다. Microsoft Azure Cloud Services(PaaS), 웹 및 작업자 역할, IaaS(가상 머신), 원격 서비스 검색(Azure Service Bus), Azure Queue Storage, 원격 서비스, 데이터 스토리지 및 Azure Blob Storage 모니터링할 수 있습니다. AppDynamics APM은 Azure Marketplace 사용할 수 있습니다.
+AppDynamics APM (응용 프로그램 성능 관리)을 사용 하면 응용 프로그램 소유자가 성능 병목 현상을 신속 하 게 해결 하 고 Azure 환경에서 실행 되는 응용 프로그램의 성능을 최적화할 수 있습니다. PaaS (Microsoft Azure Cloud Services), 웹 및 작업자 역할, virtual machines (IaaS), 원격 서비스 검색 (azure Service Bus), azure Queue Storage, 원격 서비스, 데이터 저장소 및 Azure Blob Storage을 모니터링할 수 있습니다. AppDynamics APM은 Azure Marketplace에서 사용할 수 있습니다.
 
-자세한 내용은 [AppDynamics 설명서를 참조하세요.](https://www.appdynamics.com/net/azure/) 
+자세한 내용은 [Appdynamics 설명서](https://www.appdynamics.com/net/azure/)를 참조 하세요. 
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
 ![Atlassian 로고.](./media/partners/atlassian.png)
 
-Azure Monitor 경고에 JIRA 티켓을 만들 수 있습니다. 자세한 내용은 Azure Monitor [Atlassian 설명서를 참조하세요.](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+Azure Monitor 경고에 JIRA 티켓을 만들 수 있습니다. 자세한 내용은 [Azure Monitor에 대 한 Atlassian 설명서](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)를 참조 하세요.
 
 ## <a name="bmc-helix"></a>BMC Helix
 
 ![BMC Helix 로고.](./media/partners/BMCHelix.png)
 
-BMC Helix는 엔터프라이즈 서비스 및 운영을 위한 자치 SaaS 플랫폼입니다. 360도 인텔리전스와 통합된 이 서비스를 통해 기업은 IT 및 사업체에 대한 옴니 채널 환경을 사전 예방적으로 예측하여 검색, 모니터링, 서비스, 수정, 최적화 및 제공할 수 있습니다.
+BMC Helix은 엔터프라이즈 서비스 및 운영을 위한 자치 SaaS 플랫폼입니다. 360 수준 인텔리전스와 통합 된 기업은 IT 및 비즈니스에 대 한 전 세계 채널 환경을 사전에 변환은 검색, 모니터링, 서비스, 재구성, 최적화 및 제공할 수 있도록 합니다.
 
-ITSM(IT 서비스 관리) 및 ITOM(IT 운영 관리)을 원활하게 통합하면 IT 및 비즈니스 사용자가 IT 사일로를 제거하고, 데이터 기반 비즈니스 의사 결정을 내리고, 업계 최고의 고객 환경을 제공할 수 있습니다.
+Helix (ITSM) 및 IT 운영 관리 (ITSM)를 원활 하 게 IT 서비스 관리 통합 하 여 BMC를 통해 it 및 비즈니스 사용자는 IT 사일로를 없애고 데이터 중심의 비즈니스 의사 결정을 내리고 업계 최고의 고객 환경을 제공할 수 있습니다.
 
-고객은 선택한 클라우드 배포(퍼블릭, 프라이빗 또는 하이브리드)를 통해 BMC Helix 플랫폼을 배포할 수 있습니다. 또한 고객은 주요 공급자의 AI 또는 ML(기계 학습) 솔루션을 선택할 수 있습니다.
+고객은 선택 된 클라우드 배포 (공용, 개인 또는 하이브리드)를 사용 하 여 BMC Helix 플랫폼을 배포할 수 있습니다. 또한 고객은 주요 공급자의 AI 또는 machine learning (ML) 솔루션을 선택할 수 있습니다.
 
-[BMC Helix 에 대해 자세히 알아보세요.](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+[BMC Helix에 대해 자세히 알아보세요](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix).
 
 ## <a name="botmetric"></a>Botmetric
 
-[Azure에 대한 Botmetric 소개를](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/)참조하세요.
+[Azure에 대 한 Botmetric 소개](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/)를 참조 하세요.
 
 ## <a name="circonus"></a>Circonus
 
 ![Circonus 로고.](./media/partners/circonus.png)
 
-Circonus는 비즈니스 인사이트와 가치를 창출하기 위해 수십억 개의 메트릭 스트림을 실시간으로 처리할 수 있는 컴퓨터 데이터 인텔리전스를 위한 플랫폼을 제공합니다. Circonus를 사용하면 Microsoft Azure 설정과 관련된 주요 메트릭을 수집, 추적, 시각화할 수 있습니다. Azure 리소스 사용률, 애플리케이션 성능 및 운영 상태를 시스템 전체에서 파악합니다.
+Circonus는 비즈니스 통찰력 및 가치를 구동 하기 위해 수십 개의 메트릭 스트림을 실시간으로 처리할 수 있는 컴퓨터 데이터 인텔리전스를 위한 플랫폼을 제공 합니다. Circonus를 사용하면 Microsoft Azure 설정과 관련된 주요 메트릭을 수집, 추적, 시각화할 수 있습니다. Azure 리소스 사용률, 응용 프로그램 성능 및 운영 상태에 대 한 시스템 차원의 가시성을 얻습니다.
 
-자세한 내용은 [Circonus 설명서 를 참조하세요.](https://docs.circonus.com/circonus/agents/cloud-agent/azure/)
+자세한 내용은 [Circonus 설명서](https://docs.circonus.com/circonus/agents/cloud-agent/azure/)를 참조 하세요.
 
 ## <a name="cloudhealth"></a>CloudHealth
 
 ![CloudHealth 로고.](./media/partners/cloudhealth.png)
 
-시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. CloudHealth는 클라우드 관리를 위한 가시성, 직관적인 최적화 및 사운드 거버넌스 사례를 제공합니다. CloudHealth 플랫폼을 사용하면 엔터프라이즈 및 MSP(관리 서비스 공급자)가 클라우드 투자 수익률을 최대화할 수 있습니다. 비용, 사용량, 성능, 보안에 대해 자신 있게 결정할 수 있습니다.
+시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. CloudHealth는 클라우드 관리를 위한 가시성, 직관적인 최적화 및 소리 거 버 넌 스 방식을 제공 합니다. CloudHealth 플랫폼을 사용 하면 엔터프라이즈 및 MSPs (관리 서비스 공급자)가 클라우드 투자 수익을 최대화할 수 있습니다. 비용, 사용량, 성능, 보안에 대해 자신 있게 결정할 수 있습니다.
 
-자세한 내용은 [CloudHealth 설명서 를 참조하세요.](https://www.cloudhealthtech.com/products/azure-management)
+자세한 내용은 [Cloudhealth 설명서](https://www.cloudhealthtech.com/products/azure-management)를 참조 하세요.
 
 ## <a name="cloudmonix"></a>CloudMonix
 
 ![CloudMonix 로고.](./media/partners/cloudmonix.png)
 
-CloudMonix는 Microsoft Azure 플랫폼에 대한 모니터링, 자동화 및 자동 복구 서비스를 제공합니다. 자세한 내용은 [CloudMonix 소개를 참조하세요.](https://cloudmonix.com/features/azure-management/)
+CloudMonix는 Microsoft Azure 플랫폼을 위한 모니터링, 자동화 및 자동 복구 서비스를 제공 합니다. 자세한 내용은 [CloudMonix 소개](https://cloudmonix.com/features/azure-management/)를 참조 하세요.
 
 ## <a name="datadog"></a>Datadog
 
 ![Datadog 로고.](./media/partners/datadog.png)
 
-Azure를 통해 고객은 여러 파트너 솔루션과 함께 클라우드에서 실행하도록 애플리케이션을 마이그레이션하고 현대화할 수 있습니다. 이러한 파트너 중 하나는 사용자가 하이브리드 및 다중 클라우드 환경에서 애플리케이션의 상태 및 성능을 이해할 수 있는 관찰 가능성 및 보안 도구를 제공하는 Datadog입니다. 그러나 필요한 통합을 구성하려면 Azure Portal Datadog 간에 이동해야 하는 경우가 많습니다. 이 프로세스는 복잡성을 더하고, 시간이 걸리며, 작업이 작동하지 않는 경우 문제를 해결하기 어렵게 만듭니다.  
+Azure를 통해 고객은 여러 파트너 솔루션과 함께 클라우드에서 실행하도록 애플리케이션을 마이그레이션하고 현대화할 수 있습니다. 이러한 파트너 중 하나는 하이브리드 및 다중 클라우드 환경에서 응용 프로그램의 상태와 성능을 이해 하는 사용자를 위한 관찰성 및 보안 도구를 제공 하는 Datadog입니다. 그러나 필요한 통합을 구성 하려면 Azure Portal와 Datadog 사이를 이동 해야 하는 경우가 많습니다. 이 프로세스는 복잡성을 추가 하 고, 시간이 걸리고, 작업 하지 않는 경우 문제를 해결 하기 어렵게 만듭니다.  
 
-여러 포털에서 관리하는 부담을 덜기 위해 Microsoft는 Datadog와 협력하여 Azure 클라우드 플랫폼에서 통합 Datadog 솔루션을 만들었습니다. Azure Marketplace 통해 사용할 수 있는 이 솔루션은 Azure에서 Datadog 클라우드 모니터링 솔루션을 사용하기 위한 원활한 환경을 제공합니다.  
+여러 포털에서 관리하는 부담을 덜기 위해 Microsoft는 Datadog와 협력하여 Azure 클라우드 플랫폼에서 통합 Datadog 솔루션을 만들었습니다. Azure Marketplace를 통해 제공 되는이 솔루션은 Azure에서 Datadog 클라우드 모니터링 솔루션을 사용 하기 위한 원활한 환경을 제공 합니다.  
 
-Azure와 Datadog 간의 통합을 통해 조직은 이제 레거시 및 클라우드 기반 시스템을 완벽하게 매핑하고, 클라우드 전환의 모든 단계에서 실시간 데이터를 모니터링하고, 마이그레이션된 애플리케이션이 성능 목표를 충족하도록 할 수 있습니다. 이 통합은 Azure의 글로벌 존재, 유연성, 보안 및 규정 준수 기능을 Datadog의 로깅 및 모니터링 기능과 결합합니다. 
+이제 조직에서는 Azure와 Datadog를 통합 하 여 기존 및 클라우드 기반 시스템을 완벽 하 게 매핑하고, 클라우드 전환의 모든 단계에서 실시간 데이터를 모니터링 하 고, 마이그레이션된 응용 프로그램이 성능 목표를 충족 하도록 도울 수 있습니다. 이러한 통합은 Azure의 글로벌 상태, 유연성, 보안 및 규정 준수 기능을 Datadog의 로깅 및 모니터링 기능과 결합 합니다. 
 
 이 통합 환경을 통해 다음을 수행할 수 있습니다. 
 
-- 새 Datadog 조직을 프로비전하고 로그 및 메트릭을 Datadog에 보내도록 Azure 리소스를 구성합니다. 고객이 설정하고 운영할 수 있는 인프라가 없는 완전 관리형 설정입니다.  
-- 로그 및 메트릭을 Datadog에 원활하게 보낼 수 있습니다. 로그 전달 프로세스가 완전히 자동화되었습니다. 진단 설정, 이벤트 허브 및 함수를 통해 로그 전달 파이프라인을 빌드하는 대신 몇 번의 클릭만으로 모든 항목을 구성할 수 있습니다.
--   한 번의 클릭으로 VM 호스트에 Datadog 에이전트를 쉽게 설치합니다.
--   Datadog에 대한 SSO(Single Sign-On)를 간소화합니다. Datadog 포털에서 별도의 로그온이 더 이상 필요하지 않습니다. 
+- 새 Datadog 조직을 프로 비전 하 고 Datadog에 로그 및 메트릭을 보내도록 Azure 리소스를 구성 합니다. 이는 완전히 관리 되는 설정으로, 고객이 설정 하 고 작동할 수 있는 인프라가 없습니다.  
+- 로그 및 메트릭을 Datadog에 원활하게 보낼 수 있습니다. 로그 전달 프로세스가 완전히 자동화 되었습니다. 진단 설정, event hubs 및 함수를 사용 하 여 로그 전달 파이프라인을 빌드하는 대신 몇 번의 클릭 만으로 모든 항목을 구성할 수 있습니다.
+-   한 번의 클릭으로 VM 호스트에 Datadog 에이전트를 쉽게 설치 합니다.
+-   Datadog에 대 한 SSO (single sign-on)를 간소화 합니다. Datadog 포털에서 별도의 로그온은 더 이상 필요 하지 않습니다. 
 -   Azure 구독 청구를 통해 Datadog 서비스의 통합 청구를 받을 수 있습니다.
 
-[Azure와의 Datadog 통합은](/azure/partner-solutions/datadog/overview) [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)에서 사용할 수 있습니다. 
+[Azure와 Datadog 통합](../partner-solutions/datadog/overview.md) 은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)에서 사용할 수 있습니다. 
 
-통합에 대한 설명서는 [Azure와 Datadog 통합을](/azure/partner-solutions/datadog/)참조하세요. 수동으로 구성된 이전 통합을 계속 사용하는 경우 [Datadog 웹 사이트 의 설명서를](https://docs.datadoghq.com/integrations/azure/)참조하세요.
+통합에 대 한 설명서는 [Azure와 Datadog 통합](../partner-solutions/datadog/index.yml)을 참조 하세요. 이전에 수동으로 구성 된 통합을 계속 사용 하는 경우 [Datadog 웹 사이트의 설명서](https://docs.datadoghq.com/integrations/azure/)를 참조 하세요.
 
 ## <a name="dynatrace"></a>Dynatrace
 
 ![Dynatrace 로고.](./media/partners/dynatrace.png)
 
-Dynatrace는 클라우드 복잡성을 간소화하고 클라우드 플랫폼에 대한 단일 진리 소스입니다. 이를 통해 전체 Azure 애플리케이션 및 인프라의 상태를 모니터링할 수 있습니다.
+Dynatrace는 클라우드 복잡성을 간소화 하 고 클라우드 플랫폼에 대 한 단일 원인입니다. 이를 통해 전체 Azure 응용 프로그램 및 인프라의 상태를 모니터링할 수 있습니다.
 
-Dynatrace는 클라우드 인프라, 부하 분산기, API 관리 서비스 등에 대한 추가 메트릭을 통해 데이터를 보강하고 플랫폼으로 관찰성을 확장하여 Azure Monitor Application Insights 통합합니다. Dynatrace는 애플리케이션 워크로드, 마이크로 서비스 워크로드 및 인프라 관련 서비스에 걸쳐 있는 80개 이상의 Azure Monitor 서비스를 지원합니다. 
+Dynatrace는 데이터를 보강 하 고, 클라우드 인프라, 부하 분산 장치, API management 서비스 등에 대 한 추가 메트릭을 사용 하 여 관찰성를 플랫폼으로 확장 하 여 Azure Monitor Application Insights와 통합 됩니다. Dynatrace는 응용 프로그램 워크 로드, 마이크로 서비스 워크 로드 및 인프라 관련 서비스를 포괄 하는 80 Azure Monitor 서비스를 지원 합니다. 
 
 Azure 환경에서 자동화된 AI 지원 가시성을 얻으세요.
 
-- 메트릭, 로그 및 추적을 포함하여 컨텍스트의 모든 항목이 포함된 전체 스택 관찰성(분)
-- 자동 검색, 지속적인 종속성 매핑 및 즉시 응답은 Azure App Service, AKS(Azure Kubernetes Service), HDInsight 등과 같은 Azure 클라우드 서비스의 모니터링을 자동화합니다.
-- 정확한 근본 원인을 제공하기 위해 Dynatrace의 AI인 Toynatrace가 수십억 개의 의존도를 지속적으로 분석
-- 팀이 어디에 있든 협업하고 혁신할 수 있는 단일 진리 소스
-- Azure 클라우드 마이그레이션 가속화
+- 메트릭, 로그 및 추적을 포함 하 여 컨텍스트 내 모든 항목을 포함 하는 전체 stack 관찰성 (분)
+- 자동 검색, 연속 종속성 매핑 및 즉각적인 답변을 통해 Azure App Service, AKS (Azure Kubernetes Service), HDInsight 등의 Azure cloud services 모니터링을 자동화할 수 있습니다.
+- Davis, Dynatrace의 AI 별 수많은 종속성을 지속적으로 분석 하 여 정확한 근본 원인 제공
+- 팀에서 공동 작업 및 혁신을 할 수 있는 단일 원인입니다.
+- Azure 클라우드 마이그레이션의 가속화
 
-자세한 내용은 [Dynatrace 설명서 를 참조하세요.](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
+자세한 내용은 [Dynatrace 설명서](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)를 참조 하세요.
 
 
 ## <a name="elastic"></a>Elastic
 
 ![탄력적 로고.](./media/partners/elastic.png)
 
-Elastic은 검색 회사입니다. Elastic Stack(Elasticsearch, Kibana, Beats 및 Logstash)의 작성자인 Elastic은 검색, 로깅, 보안 및 분석 사용 사례에 대해 실시간으로 대규모로 데이터를 사용할 수 있도록 하는 자체 관리형 및 SaaS 제품을 빌드합니다.
+Elastic은 검색 회사입니다. 탄력적 스택 (Elasticsearch, Kibana, 및 Logstash 태 시 스 태 시)의 작성자는 탄력적으로 검색, 로깅, 보안 및 분석 사용 사례에 대해 실시간으로 데이터를 사용할 수 있도록 하는 자체 관리 및 SaaS 제품을 작성 합니다.
 
-자세한 내용은 [탄력적 설명서 를 참조하세요.](https://www.elastic.co/guide/en/logstash/master/azure-module.html)
+자세한 내용은 [탄력적 설명서](https://www.elastic.co/guide/en/logstash/master/azure-module.html)를 참조 하세요.
 
 ## <a name="grafana"></a>Grafana
 
 ![Grafana 로고.](./media/partners/grafana.png)
 
-Grafana는 계열에 대한 메트릭 데이터를 시각화할 수 있는 오픈 소스 애플리케이션입니다. [Grafana와의 Azure Monitor 통합에 대해 자세히 알아봅니다.](visualize/grafana-plugin.md)
+Grafana는 시계열에 대 한 메트릭 데이터를 시각화할 수 있도록 하는 오픈 소스 응용 프로그램입니다. [Grafana와 Azure Monitor 통합에 대해 자세히 알아보세요](visualize/grafana-plugin.md).
 
 ## <a name="influxdata"></a>InfluxData
 
@@ -262,130 +262,126 @@ ScienceLogic은 Azure 서비스 및 리소스에 대한 실시간 가시성을 �
 
 ![Serverless360 로고.](./media/partners/serverless360.png)
 
-Serverless360는 Azure 서버 리스 구성 요소를 운영, 관리 및 모니터링 하는 단일 플랫폼 도구입니다. 서버리스 구현에서는 관리 효율성이 주요 과제 중 하나입니다. 수백 개의 작은 개별 서버 리스 서비스는 다양 한 위치에 분산 되어 있습니다. 이러한 솔루션을 관리 하 고 운영 하는 것은 복잡 합니다. 
+Serverless360는 Azure 서버 리스 구성 요소를 운영, 관리 및 모니터링 하는 단일 플랫폼 도구입니다. 서버리스 구현에서는 관리 효율성이 주요 과제 중 하나입니다. 수백 개의 작은 개별 서버 리스 서비스는 다양 한 위치에 분산 되어 있습니다. 이러한 솔루션을 관리하고 운영하는 것은 복잡합니다. 
 
-Serverless360는 정교한 도구 집합을 사용 하 여 이러한 문제를 해결 합니다. Azure Functions, Logic Apps, Event Grid, Service Bus, Event Hubs, Azure Storage, Azure Files, Blob Storage, Table Storage 등의 서버를 사용 하지 않는 서비스를 모니터링할 수 있습니다. Serverless360는 Azure Marketplace에서 사용할 수 있습니다. 해당 기능은 SaaS와 프라이빗 호스팅(사용자 환경에 호스트됨) 모두에서 사용할 수 있습니다.  
+Serverless360은 정교한 도구 집합을 사용하여 이러한 문제를 해결합니다. Azure Functions, Logic Apps, Event Grid, Service Bus, Event Hubs, Azure Storage, Azure Files, Blob Storage 및 Table Storage 같은 서버리스 서비스를 모니터링할 수 있습니다. 서버리스360은 Azure Marketplace 사용할 수 있습니다. 해당 기능은 SaaS와 프라이빗 호스팅(사용자 환경에 호스트됨) 모두에서 사용할 수 있습니다.  
 
-자세한 내용은 [Serverless360 설명서](https://docs.serverless360.com/docs/)를 참조 하세요.
+자세한 내용은 [Serverless360 설명서를 참조하세요.](https://docs.serverless360.com/docs/)
 
 ## <a name="servicenow"></a>ServiceNow
 
 ![ServiceNow 로고.](./media/partners/servicenow.png)
 
-AIOps 용 현재 플랫폼을 사용 하 여 인시던트 및 MTTR (평균 복구 시간)을 줄입니다. 노이즈를 제거 하 고, 우선 순위를 지정 하 고, ML를 사용 하 여 근본 원인을 파악 하 고, IT 변환 (ITX) 워크플로를 수정 합니다. Azure에서 IaaS, PaaS 및 FaaS 서비스의 현재 상태를 이해 하 고 태그에서 서비스 맵을 빌드하여 비즈니스 영향 분석을 위한 응용 프로그램 서비스 컨텍스트를 작성 합니다.    
+Now Platform for AIOps를 사용하여 인시던트 및 MTTR(평균 복구 시간)을 줄입니다. 노이즈를 제거하고, 우선 순위를 지정하고, ML 사용하여 근본 원인 검색을 식별하고, ITX(IT 변환) 워크플로를 수정합니다. Azure에서 IaaS, PaaS 및 FaaS 서비스의 현재 상태를 이해하고 태그에서 서비스 맵을 빌드하여 비즈니스 영향 분석을 위한 애플리케이션 서비스 컨텍스트를 빌드합니다.    
 
-[ServiceNow에 대해 자세히 알아보세요](https://www.servicenow.com/solutions/aiops.html).
+[ServiceNow에 대해 자세히 알아보세요.](https://www.servicenow.com/solutions/aiops.html)
 
 ## <a name="signalfx"></a>SignalFx
 
 ![SignalFx 로고.](./media/partners/signalfx.png)
 
-SignalFx는 데이터 기반 DevOps에 대 한 실시간 운영 인텔리전스를 제공 합니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 또한 기존 포인트 도구를 대체하고 오늘날의 동적 환경을 실시간으로 볼 수 있게 합니다. 
+SignalFx는 데이터 기반 DevOps 대한 실시간 운영 인텔리전스를 제공합니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 또한 기존 포인트 도구를 대체하고 오늘날의 동적 환경을 실시간으로 볼 수 있게 합니다. 
 
-대규모 확장 가능한 SignalFx 플랫폼을 활용 하 여 SaaS 플랫폼은 컨테이너 기반 및 마이크로 서비스 기반 아키텍처에 최적화 되어 있습니다. SignalFx은 모든 규모의 조직에서 강력한 시각화, 사전 경고 및 공동 작업 심사 기능을 제공 합니다. 
+확장성이 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 컨테이너 기반 및 마이크로 서비스 기반 아키텍처에 최적화됩니다. SignalFx는 모든 규모의 조직에서 강력한 시각화, 자동 관리 경고 및 공동 심사 기능을 제공합니다. 
 
-SignalFx는 Azure에 대 한 대시보드, 분석 및 경고를 제공 하기 위해 Telegraf, StatsD 및 collectd와 같은 오픈 소스 커넥터를 통해 Azure Monitor와 직접 통합 됩니다.
+SignalFx는 Telegraf, StatsD 및 collectd와 같은 오픈 소스 커넥터를 통해 Azure Monitor 직접 통합되어 Azure에 대한 대시보드, 분석 및 경고를 제공합니다.
 
-자세한 내용은 [SignalFx 설명서](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)를 참조 하세요.
+자세한 내용은 [SignalFx 설명서 를 참조하세요.](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
 ## <a name="signl4"></a>SIGNL4
 
 ![SIGNL4 로고.](./media/partners/signl4.png)
 
-SIGNL4는 운영 팀을 위한 모바일 경고 앱입니다. 언제 어디서 든 푸시, 텍스트 및 음성 통화를 통해 적절 한 시간에 Azure Monitor에서 중요 한 경고를 적절 한 사람에 게 라우팅하는 빠른 방법입니다. SIGNL4은 팀의 통화 시 업무 및 변화를 관리 하 고, 경고의 배달 및 소유권을 추적 하 고, 필요한 경우 에스컬레이션 합니다. 팀 전체에서 완전 한 투명성을 제공 합니다. SIGNL4의 REST webhook를 통해 모든 Azure 서비스를 최소한의 노력으로 연결할 수 있습니다. SIGNL4를 사용 하면 전자 메일 알림과 수동 경고에 비해 최대 10 배 빠른 응답을 볼 수 있습니다.
+SIGNL4는 운영 팀을 위한 모바일 경고 앱입니다. 푸시, 텍스트 및 음성 호출을 통해 Azure Monitor 적절한 사람에게 언제 어디서나 중요한 경고를 라우팅하는 빠른 방법입니다. SIGNL4는 팀의 대기 업무 및 교대 근무를 관리하고, 경고의 전달 및 소유권을 추적하고, 필요한 경우 에스컬레이션합니다. 팀 전체에서 완전한 투명성을 제공합니다. SIGNL4의 REST webhook를 통해 최소한의 노력으로 모든 Azure 서비스를 연결할 수 있습니다. SIGNL4를 사용하면 이메일 알림 및 수동 경고보다 최대 10배 더 빠른 응답을 볼 수 있습니다.
 
-자세한 내용은 [SIGNL4 설명서](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)를 참조 하세요.
+자세한 내용은 [SIGNL4 설명서 를 참조하세요.](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
 ## <a name="site24x7"></a>Site24x7
 
 ![Site24x7 로고.](./media/partners/site24-7.png)
 
-Site24x7는 고급 및 전체 스택 Azure 모니터링 솔루션을 제공 합니다. 응용 프로그램에 대 한 가시성 및 통찰력을 제공 하 고 응용 프로그램 소유자가 성능 병목 현상을 신속 하 게 감지 하 고 오류 해결을 자동화 하 고 성능을 최적화할 수 있도록 합니다.
+Site24x7은 고급 및 전체 스택 Azure 모니터링 솔루션을 제공합니다. 애플리케이션에 대한 가시성과 인사이트를 제공하고, 애플리케이션 소유자가 성능 병목 현상을 신속하게 감지하고, 오류 해결을 자동화하고, 성능을 최적화할 수 있습니다.
 
-Site24x7 Azure 모니터링을 사용 하면 다음을 수행할 수 있습니다.
+Site24x7 Azure 모니터링을 사용하면 다음을 수행할 수 있습니다.
 
 * 100개 이상의 Azure IaaS 및 PaaS 서비스를 모니터링할 수 있습니다.
-* Azure Marketplace에서 바로 독점 Azure 확장을 사용 하 여 Windows 및 Linux vm에 대 한 심층 모니터링을 제공 합니다.
+* Azure Marketplace 바로 배타적 Azure 확장을 통해 Windows 및 Linux VM에 대한 심층 모니터링을 가져옵니다.
 * Azure에서 로그의 인사이트를 사용하여 애플리케이션 문제를 해결할 수 있습니다. Site24x7에 로그를 보내고, 검색 쿼리를 저장하고, 쿼리 기반 경고를 설정하고, 단일 대시보드에서 Azure 로그를 관리할 수 있습니다.
-* 서비스 상태 문제를 검색 하 고 Azure 배포 관리자 상태 검사를 통해 안정적인 배포를 확인 합니다.
-* IT 자동화 도구 집합을 사용 하 여 오류 해결을 자동화 합니다.
-* SQL Server, Exchange, Active Directory, Office 365, 인터넷 정보 서비스 (IIS) 및 hyper-v 응용 프로그램을 포함 한 전체 Microsoft ecosphere를 모니터링 합니다.
-* Microsoft Teams, PagerDuty, Zapier 등과 같은 타사 서비스와 원활 하 게 통합 하세요.
+* Azure 배포 관리자 상태 검사를 통해 서비스 상태 문제를 검색하고 안정적인 배포를 확인합니다.
+* 일련의 IT 자동화 도구를 사용하여 오류 해결을 자동화합니다.
+* SQL Server, Exchange, Active Directory, Office 365, IIS(인터넷 정보 서비스) 및 Hyper-V 애플리케이션을 비롯한 전체 Microsoft 에코스피를 모니터링합니다.
+* Microsoft Teams, PagerDuty, Zapier 등과 같은 타사 서비스와 원활하게 통합합니다.
 
-자세한 내용은 [Site24x7 설명서](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)를 참조 하세요.
+자세한 내용은 [Site24x7 설명서 를 참조하세요.](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## <a name="solarwinds"></a>SolarWinds
 
-[SolarWinds 설명서](https://www.solarwinds.com/topics/azure-monitoring)를 참조 하세요.
+[SolarWinds 설명서 를 참조하세요.](https://www.solarwinds.com/topics/azure-monitoring)
 
 ## <a name="speartip"></a>SpearTip
 
 ![SpearTip 로고.](./media/partners/speartip.png)
 
-SpearTip의 24/7 security operations center는 Azure 환경을 사이버 위협에 대해 지속적으로 모니터링 합니다. Azure Monitor와의 ShadowSpear 통합을 활용 하 여 보안 이벤트는 고급 위협에 대 한 수집 및 분석 하는 반면, SpearTip 엔지니어는 위협 행위자 중지를 조사 하 고 대응 합니다. 통합은 원활 하 게 진행 되며 통합을 배포한 후에 즉시 값을 제공 합니다.
+WindowTip의 24/7 보안 운영 센터는 Azure 환경에서 사이버 위협을 지속적으로 모니터링합니다. Azure Monitor ShadowSpear 통합을 활용하면 보안 이벤트가 수집되고 분석되어 고급 위협이 발생하며, 시어프 엔지니어는 위협 행위자를 조사하고 대응합니다. 통합은 원활하게 진행되며 통합이 배포된 후 즉각적인 가치를 제공합니다.
 
-자세한 내용은 [SpearTip 설명서](https://www.speartip.com/identify/)를 참조 하세요.
+자세한 내용은 [SpearTip 설명서를 참조하세요.](https://www.speartip.com/identify/)
 
 ## <a name="splunk"></a>Splunk
 
 ![Splunk 로고.](./media/partners/splunk.png)
 
-Splunk에 대 한 Azure Monitor Add-On은 [기능은 splunkbase에서 사용할 수](https://splunkbase.splunk.com/app/3534/)있습니다. 자세한 내용은 [Splunk 설명서](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)를 참조 하세요.
+Splunk에 대한 Azure Monitor Add-On [Splunkbase 에서 사용할 수 있습니다.](https://splunkbase.splunk.com/app/3534/) 자세한 내용은 [Splunk 설명서 를 참조하세요.](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)
 
 ## <a name="squaredup"></a>SquaredUp 
 
 ![SquaredUp 로고.](./media/partners/squaredup.png)
 
-Azure용 SquaredUp은 Azure 애플리케이션 시각화를 원활하게 간소화합니다. 실시간 대화형 대시보드를 제공 합니다. 
+Azure용 SquaredUp은 Azure 애플리케이션 시각화를 원활하게 간소화합니다. 실시간 대화형 대시보드를 제공합니다. 
 
-구독, 리소스 그룹, 태그 및 개별 리소스로 드릴 다운 하 여 CPU, 대부분의 인바운드 연결, Application Insights 응답 시간, 총 비용 및 요약 상태와 같은 메트릭을 볼 수 있습니다. 그리고 경고, Log Analytics 이벤트, 보다 자세한 메트릭과 같은 관련 된 데이터를 보거나 사용 하는 다른 도구 (예: ServiceNow, Dynatrace, PagerDuty 또는 상관 관계)에서 관련 데이터를 확인 하기 위해 드릴스루할 수 있습니다. 
+구독, 리소스 그룹, 태그 및 개별 리소스로 드릴다운하여 CPU, 대부분의 인바운드 연결, 애플리케이션 Insights 응답 시간, 총 비용 및 요약 상태와 같은 메트릭을 볼 수 있습니다. 또한 드릴스루하여 경고, Log Analytics 이벤트 및 자세한 메트릭과 같은 관련 데이터를 확인하거나 사용하는 다른 도구(예: ServiceNow, Dynatrace, PagerDuty 또는 Pingdom)에서 관련 데이터를 볼 수 있습니다. 
 
-대시보드를 사용자 지정 하 고, 게시 하 고, 개인 이나 인트라넷 페이지에서 공유할 수 있습니다. 
+사용자 고유의 대시보드를 사용자 지정하고, 게시하고, 개인 또는 인트라넷 페이지에서 공유할 수 있습니다. 
 
-자세한 내용은 [SquaredUp 웹 사이트](https://squaredup.com/)를 참조 하세요.
+자세한 내용은 [SquaredUp 웹 사이트 를 참조하세요.](https://squaredup.com/)
 
 ## <a name="sumo-logic"></a>Sumo Logic
 
-![Sumo 논리 로고입니다.](./media/partners/SumoLogic.png)
+![Sumo Logic 로고.](./media/partners/SumoLogic.png)
 
-Sumo 논리는 컴퓨터 데이터에 대 한 안전한 클라우드 네이티브 분석 서비스입니다. 전체 응용 프로그램 수명 주기와 스택을 통해 구조화 된 데이터, 반구조적 및 비구조적 데이터를 통해 실시간 연속 인텔리전스를 제공 합니다. 
+Sumo Logic은 머신 데이터에 대한 안전한 클라우드 네이티브 분석 서비스입니다. 전체 애플리케이션 수명 주기 및 스택에서 구조적, 반구조적 및 비정형 데이터로부터 실시간 연속 인텔리전스를 제공합니다. 
 
-전 세계 1,000명 이상의 고객이 애플리케이션 및 클라우드 인프라를 빌드, 실행 및 보안하기 위한 예측 분석에 Sumo Logic을 사용합니다. Sumo 논리를 사용 하 여 고객은 경쟁 우위, 비즈니스 가치 및 성장을 늘리는 데 도움이 되는 다중 테 넌 트, 서비스 모델 이점을 누릴 수 있습니다.
+전 세계 1,000명 이상의 고객이 애플리케이션 및 클라우드 인프라를 빌드, 실행 및 보안하기 위한 예측 분석에 Sumo Logic을 사용합니다. Sumo Logic을 사용하면 고객은 다중테넌트 서비스 모델 이점을 확보하여 경쟁 우위, 비즈니스 가치 및 성장을 높일 수 있습니다.
 
-자세한 내용은 [Sumo 논리 설명서](https://www.sumologic.com/azure)를 참조 하세요. 
+자세한 내용은 [Sumo Logic 설명서를 참조하세요.](https://www.sumologic.com/azure) 
 
 ## <a name="turbonomic"></a>Turbonomic
 
 ![Turbonomic 로고.](./media/partners/Turbonomic.png)
 
-Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic을 통해 조직은 부동산을 지속적으로 최적화 하 여 Azure estate에서 탄력적으로 보호할 수 있습니다. 응용 프로그램은 IaaS 및 PaaS 계층에 대 한 계산, 저장소 및 네트워크에서 SLA를 제공 하는 데 필요한 리소스를 지속적으로 확보 합니다. 
+Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic은 조직이 지속적으로 공간을 최적화하여 Azure 자산에서 탄력적일 수 있도록 도와줍니다. 애플리케이션은 IaaS 및 PaaS 계층에 대한 컴퓨팅, 스토리지 및 네트워크에서 SLA를 제공하는 데 필요한 리소스를 지속적으로 얻습니다. 
 
-조직은 마이그레이션을 시뮬레이션 하 고, 워크 로드를 적절히 확장 하 고, 데이터 센터 리소스를 사용 중지 하 여 시간 및 예산 내에서 Azure로 보다 쉽게 마이그레이션할 수 있으며, 성능과 규정 준수를 모두 보장 합니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
+조직은 마이그레이션을 시뮬레이션하고, 워크로드를 적절하게 조정하고, 데이터 센터 리소스를 사용이 없도록 하여 성능과 규정 준수를 모두 보장하면서 시간 및 예산 내에서 Azure로 책임 있게 마이그레이션할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
 
-자세한 내용은 [Turbonomic 소개](https://turbonomic.com/)를 참조 하세요.
+자세한 내용은 [Turbonomic 소개를](https://turbonomic.com/)참조하세요.
 
-## <a name="partner-tools-with-event-hubs-integration"></a>Event Hubs 통합이 포함 된 파트너 도구
+## <a name="partner-tools-with-event-hubs-integration"></a>Event Hubs 통합이 있는 파트너 도구
 
-Azure Monitor를 사용 하 여 모니터링 데이터를 이벤트 허브로 라우팅하는 경우 일부 외부 SIEM 및 모니터링 도구와 쉽게 통합할 수 있습니다. 다음 파트너는 Event Hubs 서비스와 통합 하는 것으로 알려져 있습니다. 
+Azure Monitor 사용하여 모니터링 데이터를 이벤트 허브로 라우팅하는 경우 일부 외부 SIEM 및 모니터링 도구와 쉽게 통합할 수 있습니다. 다음 파트너는 Event Hubs 서비스와 통합된 것으로 알려져 있습니다. 
 
 | 도구 | Azure에서 호스트 | Description |
 |:---|:---| :---|
 |  IBM QRadar | No | Microsoft Azure DSM 및 Microsoft Azure Event Hubs 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. Azure와의 통합에 대한 자세한 내용은 [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)(QRadar DSM 구성)을 참조하세요. |
-| Splunk | No | [Splunk에 대 한 Azure Monitor Add-On](https://splunkbase.splunk.com/app/3757/) 은 기능은 splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. <br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우 (예를 들어 프록시를 사용 하거나 Splunk 클라우드에서 실행 하는 경우) [Splunk 용 Azure 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용 하 여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다. Splunk 용 Azure 함수는 이벤트 허브의 새 메시지에 의해 트리거됩니다. |
-| Sumo Logic | 아니요 | Event hub의 데이터를 사용 하도록 Sumo 논리를 설정 하는 방법에 대 한 지침은 [Event hub의 Azure 감사 앱에 대 한 로그 수집](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)에서 사용할 수 있습니다. |
-| ArcSight | No | Azure Event Hubs 용 ArcSight 스마트 커넥터는 [arcsight 스마트 커넥터 컬렉션](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)의 일부로 사용할 수 있습니다. |
+| Splunk | No | [Splunk용 Azure Monitor Add-On Splunkbase에서](https://splunkbase.splunk.com/app/3757/) 사용할 수 있는 오픈 소스 프로젝트입니다. <br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용하거나 Splunk Cloud에서 실행 중이므로) Splunk용 Azure Function을 사용하여 이러한 이벤트를 [Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS)HTTP 이벤트 수집기에 전달할 수 있습니다. Azure Function For Splunk는 이벤트 허브의 새 메시지에 의해 트리거됩니다. |
+| Sumo Logic | No | 이벤트 허브에서 데이터를 소비하도록 Sumo Logic을 설정하는 방법에 대한 지침은 이벤트 [허브에서 Azure 감사 앱에 대한 로그 수집에서](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)확인할 수 있습니다. |
+| ArcSight | No | Azure Event Hubs 위한 ArcSight 스마트 [커넥터는 ArcSight 스마트 커넥터 컬렉션](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)의 일부로 사용할 수 있습니다. |
 | Syslog 서버 | No | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려면 [Azure 함수 기반의 솔루션](https://github.com/miguelangelopereira/azuremonitor2syslog/)을 사용할 수 있습니다.
-| LogRhythm | No| 이벤트 허브에서 로그를 수집 하도록 LogRhythm를 설정 하는 지침은 [LogRhythm 웹 사이트](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 확인할 수 있습니다. 
-|Logz.io | 예 | 자세한 내용은 [Azure에서 실행 되는 Java 앱에 대 한 Logz.io를 사용 하 여 모니터링 및 로깅 시작](/azure/developer/java/fundamentals/java-get-started-with-logzio)을 참조 하세요.
+| LogRhythm | No| 이벤트 허브에서 로그를 수집하도록 LogRhythm을 설정하는 지침은 [LogRhythm 웹 사이트에서](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)사용할 수 있습니다. 
+|Logz.io | 예 | 자세한 내용은 [Azure에서 실행되는 Java 앱용 Logz.io 사용하여 모니터링 및 로깅 시작을 참조하세요.](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor에 관한 자세한 정보](overview.md)
-- [REST API를 사용 하 여 메트릭 액세스](essentials/rest-api-walkthrough.md)
+- [REST API 사용하여 메트릭에 액세스](essentials/rest-api-walkthrough.md)
 - [타사 서비스에 활동 로그 스트림](essentials/activity-log.md#legacy-collection-methods)
 - [타사 서비스에 리소스 로그 스트리밍](essentials/resource-logs.md#send-to-azure-event-hubs)
-
-
-
-

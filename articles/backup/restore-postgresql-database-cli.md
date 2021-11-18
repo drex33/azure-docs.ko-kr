@@ -6,18 +6,18 @@ ms.date: 10/25/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: e3b7260e58b738a2a15dae174adfefbc007644a2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3b748c8279740b4ef3a4e3b97b6acbc4a5aae6c2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103012"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707391"
 ---
 # <a name="restore-azure-postgresql-databases-using-azure-cli"></a>Azure CLI 사용하여 Azure PostgreSQL 데이터베이스 복원
 
-이 문서에서는 Azure Backup 백업된 [Azure PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) 서버로 Azure PostgreSQL 데이터베이스를 복원하는 방법을 설명합니다.
+이 문서에서는 Azure Backup 백업된 [Azure PostgreSQL](../postgresql/overview.md#azure-database-for-postgresql---single-server) 서버로 Azure PostgreSQL 데이터베이스를 복원하는 방법을 설명합니다.
 
-PaaS 데이터베이스인 경우 백업이 수행된 기존 데이터베이스를 교체하여 복원하는 OLR(Original-Location Recovery) 옵션은 지원되지 않습니다. 복구 지점에서 복원하여 동일한 Azure PostgreSQL 서버 또는 다른 PostgreSQL 서버에 새 데이터베이스를 만들 수 있습니다. 이를 원본 데이터베이스와 복원된(새) 데이터베이스를 유지하는 데 도움이 되는 ALR(Alternate-Location Recovery)이라고 합니다.
+PaaS 데이터베이스인 경우 백업이 수행된 기존 데이터베이스를 교체하여 복원하는 OLR(Original-Location Recovery) 옵션은 지원되지 않습니다. 복구 지점에서 복원하여 동일한 Azure PostgreSQL 서버 또는 다른 PostgreSQL 서버에 새 데이터베이스를 만들 수 있습니다. 이를 원본 데이터베이스와 복원된(새) 데이터베이스를 모두 유지하는 데 도움이 되는 ALR(Alternate-Location Recovery)이라고 합니다.
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -33,9 +33,9 @@ PaaS 데이터베이스인 경우 백업이 수행된 기존 데이터베이스�
 
 Backup 자격 증명 모음은 관리 ID를 사용하여 다른 Azure 리소스에 액세스합니다. 백업에서 복원하려면 백업 자격 증명 모음의 관리 ID에 데이터베이스를 복원해야 하는 Azure PostgreSQL 서버에 대한 권한 집합이 필요합니다.
 
-대상 PostgreSQL 서버에서 자격 증명 모음의 시스템 할당 관리 ID에 대한 관련 권한을 할당하려면 [Azure PostgreSQL 데이터베이스를 백업하는 데 필요한 권한 집합을 참조하세요.](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore)
+대상 PostgreSQL 서버에서 자격 증명 모음의 시스템 할당 관리 ID에 대한 관련 권한을 할당하려면 [Azure PostgreSQL 데이터베이스를 백업하는 데 필요한 권한 집합을 참조하세요.](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore)
 
-복구 지점을 스토리지 계정에 파일로 복원하려면 Backup 자격 증명 [모음의 시스템 할당 관리 ID에 대상 스토리지 계정 에 대한 액세스 권한이 필요합니다.](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account)
+복구 지점을 스토리지 계정에 파일로 복원하려면 Backup 자격 증명 [모음의 시스템 할당 관리 ID에 대상 스토리지 계정 에 대한 액세스 권한이 필요합니다.](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account)
 
 ### <a name="fetch-the-relevant-recovery-point"></a>관련 복구 지점 가져오기
 
@@ -199,7 +199,7 @@ az dataprotection backup-instance restore initialize-for-data-recovery --datasou
 $contURI = "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
 ```
 
-[az dataprotection backup-instance restore initialize-for-data-recovery-as-files](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_restore_initialize_for_data_recovery_as_files) 명령을 사용하여 모든 관련 세부 정보가 있는 복원 요청을 준비합니다.
+[az dataprotection backup-instance restore initialize-for-data-recovery-as-files](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_restore_initialize_for_data_recovery_as_files) 명령을 사용하여 모든 관련 세부 정보로 복원 요청을 준비합니다.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a > OssRestoreAsFilesReq.JSON
@@ -233,4 +233,4 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure PostgreSQL Backup 개요](backup-azure-database-postgresql-overview.md)
+- [Azure PostgreSQL 백업 개요](backup-azure-database-postgresql-overview.md)

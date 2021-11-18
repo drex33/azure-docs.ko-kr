@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/23/2021
-ms.openlocfilehash: 7f779d3856187cb6ce5db55b3a974fdd3818d8dc
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
-ms.translationtype: HT
+ms.date: 11/18/2021
+ms.openlocfilehash: f2e72a0861e40f538ef6e6861c185411bd28e9e0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112894944"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713310"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 지원되는 PostgreSQL 주 버전
 
@@ -22,15 +22,15 @@ Azure Database for PostgreSQL - 유연한 서버는 현재 다음 주 버전을 
 
 ## <a name="postgresql-version-13"></a>PostgreSQL 버전 13
 
-현재 부 릴리스는 **13.3** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/13/static/release-13-3.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 
+현재 부 릴리스는 **13.4** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/13/static/release-13-4.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 
 
 ## <a name="postgresql-version-12"></a>PostgreSQL 버전 12
 
-현재 부 릴리스는 **12.7** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/static/release-12-7.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 추후 예약된 유지 관리 기간에는 기존 서버가 지원하는 최신 부 버전으로 자동 업그레이드됩니다.
+현재 부 릴리스는 **12.8** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/static/release-12-8.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 추후 예약된 유지 관리 기간에는 기존 서버가 지원하는 최신 부 버전으로 자동 업그레이드됩니다.
 
 ## <a name="postgresql-version-11"></a>PostgreSQL 버전 11
 
-현재 부 릴리스는 **11.12** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-12.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 추후 예약된 유지 관리 기간에는 기존 서버가 지원하는 최신 부 버전으로 자동 업그레이드됩니다.
+현재 부 릴리스는 **11.13** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-13.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 추후 예약된 유지 관리 기간에는 기존 서버가 지원하는 최신 부 버전으로 자동 업그레이드됩니다.
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL 버전 10 이상
 

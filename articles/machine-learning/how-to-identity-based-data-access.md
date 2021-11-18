@@ -11,12 +11,12 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: b251c85752af69ce58e48f93be29cb07f1bc9966
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: e82ba7fbab8d82d266fb3a4d86d97598bc9b6703
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492742"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722965"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access"></a>ID 기반 데이터 액세스를 사용하여 스토리지에 커넥트
 
@@ -142,7 +142,7 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                        account_name='myadls2')
 ```
 ### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
-Azure SQL 데이터베이스의 경우 [register_azure_sql_database()를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) 사용하여 Azure SQL 데이터베이스 스토리지에 연결하는 데이터 저장소를 등록합니다.
+Azure SQL 데이터베이스의 경우 [register_azure_sql_database()를](/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) 사용하여 Azure SQL 데이터베이스 스토리지에 연결하는 데이터 저장소를 등록합니다.
 
 다음 코드는 데이터 저장소를 만들어 `credentialless_sqldb` 작업 영역에 `ws` 등록하고 변수 에 `sqldb_dstore` 할당합니다. 이 데이터 저장소는 `mydb` SQL DB 서버의 데이터베이스에 `myserver` 액세스합니다.  
 

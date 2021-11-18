@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: eb49c65d3d61e17a8e527016d32d80bcc85894d8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1c26ed72a804335a675a2456b2908f582848f5a7
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541228"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399089"
 ---
 # <a name="monitor-apache-spark-applications-metrics-with-prometheus-and-grafana"></a>Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 메트릭 모니터링
 
@@ -86,6 +86,9 @@ appId, 암호 및 tenantID를 적어둡니다.
 6. 선택한 사용자에 대해 **<service_principal_name>** 을 입력하고 서비스 주체를 클릭합니다.
 
 7. **적용** 을 클릭합니다(권한이 적용될 때까지 3분 대기).
+
+> [!NOTE]
+> 서비스 주체가 Synapse 작업 공간에서 최소한 "리더" 역할인지 확인하세요. Azure Portal의 Access Control(IAM) 탭으로 이동하여 권한 설정을 확인합니다.
 
 ## <a name="install-connector-prometheus-server-grafana-dashboard"></a>커넥터, Prometheus 서버, Grafana 대시보드 설치
 

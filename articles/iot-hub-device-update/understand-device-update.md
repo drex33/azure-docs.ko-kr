@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 3a7ed9fbb30ab770cd7069ebbd97faa41b12cd34
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 0b763f9f6c83f6255a460fc4441f8cfdb74193f0
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606840"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399374"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>IoT Hub에 대한 디바이스 업데이트(미리 보기) 개요
 
@@ -80,7 +80,7 @@ IoT Hub에 대한 디바이스 업데이트는 Microsoft Azure용으로 개발�
 
 ### <a name="importing"></a>가져오기
 
-가져오기는 업데이트를 디바이스에 배포할 수 있도록 디바이스 업데이트에 수집되는 방법입니다. 디바이스 업데이트는 디바이스당 단일 업데이트의 출시를 지원합니다. 따라서 전체 OS 파티션을 한 번에 업데이트하는 전체 이미지 업데이트 또는 디바이스에서 업데이트하려는 모든 패키지를 설명하는 APT 매니페스트에 이상적입니다. 업데이트를 디바이스 업데이트로 가져오려면 먼저 업데이트를 설명하는 가져오기 매니페스트를 만든 다음 업데이트 파일 및 가져오기 매니페스트를 인터넷 액세스가 가능한 위치에 업로드합니다. 그런 다음, Azure Portal 또는 [디바이스 업데이트 REST API](/rest/api/deviceupdate/)를 사용하여 비동기 업데이트 가져오기 프로세스를 시작할 수 있습니다. 디바이스 업데이트는 파일을 업로드하고 처리하며 IoT 디바이스에 배포하는 데 사용할 수 있도록 합니다.
+가져오기는 업데이트를 디바이스에 배포할 수 있도록 디바이스 업데이트에 수집되는 방법입니다. 디바이스 업데이트는 디바이스당 단일 업데이트의 출시를 지원합니다. 따라서 전체 OS 파티션을 한 번에 업데이트하는 전체 이미지 업데이트 또는 지정된 리포지토리에서 디바이스에 업데이트하려는 모든 패키지를 설명하는 [APT 매니페스트](device-update-apt-manifest.md)]에 이상적입니다. 업데이트를 디바이스 업데이트로 가져오려면 먼저 업데이트를 설명하는 가져오기 매니페스트를 만든 다음 업데이트 파일 및 가져오기 매니페스트를 인터넷 액세스가 가능한 위치에 업로드합니다. 그런 다음, Azure Portal 또는 [디바이스 업데이트 REST API](/rest/api/deviceupdate/)를 사용하여 비동기 업데이트 가져오기 프로세스를 시작할 수 있습니다. 디바이스 업데이트는 파일을 업로드하고 처리하며 IoT 디바이스에 배포하는 데 사용할 수 있도록 합니다.
 
 중요한 콘텐츠의 경우 Azure Blob Storage에 대한 임시 SAS와 같은 SAS(공유 액세스 서명)를 사용하여 다운로드를 보호합니다. [SAS에 대해 자세히 알아보세요.](../storage/common/storage-sas-overview.md)
 

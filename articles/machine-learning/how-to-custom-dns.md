@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: f683d7192d73cc04b23b58243ba27ccc62afb010
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a5d7e7c0ca696e0e0a38519879dbad94301f5f0c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468635"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706652"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "131468635"
 > 이 문서에서는 DNS 솔루션에 DNS 레코드를 수동으로 등록하려는 경우 해당 항목의 FQDN(정규화된 도메인 이름) 및 IP 주소를 찾는 방법을 설명합니다. 또한 이 문서에서는 FQDN을 올바른 IP 주소로 자동으로 확인하도록 사용자 지정 DNS 솔루션을 구성하는 방법의 아키텍처 권장 사항을 제공합니다. 이 문서에서는 해당 항목의 DNS 레코드를 구성하는 방법에 관한 정보를 제공하지 않습니다. 레코드를 추가하는 방법에 대한 자세한 내용은 DNS 소프트웨어에 대한 문서를 참조하세요.
 
 > [!WARNING]
-> Azure Storage, Azure Key Vault 또는 Azure Container Registry와 같이 machine learning 작업 영역이 사용 하는 다른 Azure 서비스에 대 한 개인 끝점을 사용 하는 경우. 또한 DNS 항목을 만들거나 이러한 서비스에 대해 조건부 전달자를 사용 해야 합니다. 자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](/azure/private-link/private-endpoint-dns)을 참조하세요.
+> 기계 학습 작업 영역이 사용하는 다른 Azure 서비스에 프라이빗 엔드포인트를 사용하는 경우(예: Azure Storage, Azure Key Vault 또는 Azure Container Registry) 또한 DNS 항목을 만들거나 이러한 서비스에 대한 조건부 전달자를 사용해야 합니다. 자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)을 참조하세요.
 
 > [!TIP]
 > 이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
@@ -37,7 +37,7 @@ ms.locfileid: "131468635"
 > * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
 > * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용하는 Azure Virtual Network입니다.
 

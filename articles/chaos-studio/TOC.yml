@@ -71,9 +71,9 @@
     - name: 서비스 제한
       href: chaos-studio-service-limits.md
     - name: REST API 설명서
-      href: 'https://docs.microsoft.com/rest/api/chaosstudio'
+      href: /rest/api/chaosstudio
     - name: Python SDK
-      href: 'https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview'
+      href: /python/api/azure-mgmt-chaos/?view=azure-python-preview
 - name: 리소스
   items:
     - name: Azure 로드맵

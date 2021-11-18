@@ -9,21 +9,21 @@ ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: dd5122f123dae93ea07cab65983183b1ffd8b463
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 5c1afa620fb3b81666aada950c257f38ff5d9a4f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132495023"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707717"
 ---
 # <a name="upgrade-indirect-mode-azure-arc-data-controller-using-the-cli"></a>CLI를 사용하여 간접 모드 Azure Arc 데이터 컨트롤러 업그레이드
 
 이 문서에서는 Azure CLI( )를 사용하여 간접적으로 연결된 Azure Arc 지원 데이터 컨트롤러를 업그레이드하는 방법을 `az` 설명합니다.
 
 > [!IMPORTANT]
-> 이 문서는 직접 연결된 Azure Arc 지원 데이터 컨트롤러에는 적용되지 않습니다. 직접 연결된 데이터 컨트롤러를 업그레이드하는 방법에 대한 최신 정보는 릴리스 정보 를 [참조하세요.](/azure/azure-arc/data/release-notes#data-controller-upgrade)
+> 이 문서는 직접 연결된 Azure Arc 지원 데이터 컨트롤러에는 적용되지 않습니다. 직접 연결된 데이터 컨트롤러를 업그레이드하는 방법에 대한 최신 정보는 릴리스 정보 를 [참조하세요.](./release-notes.md#data-controller-upgrade)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 imageTag v1.0.0_2021-07-30 이상인 간접 모드 데이터 컨트롤러가 필요합니다.
 
@@ -38,7 +38,7 @@ kubectl get datacontrollers -n -o custom-columns=BUILD:.spec.docker.imageTag
 이 문서의 작업을 진행하려면 다음을 설치해야 합니다.
 
 - [Azure CLI(az)](/cli/azure/install-azure-cli)
-- [ `arcdata` Azure CLI 대한 확장](install-arcdata-extension.md)
+- [ `arcdata` Azure CLI 대한 확장입니다.](install-arcdata-extension.md)
 
 [!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
@@ -65,13 +65,13 @@ v1.0.0_2021-07-30
 > [!NOTE]
 > 일부 데이터 서비스 계층 및 모드는 일반적으로 사용할 수 있으며 일부는 미리 보기로 제공됩니다.
 > 동일한 데이터 컨트롤러에 GA 및 미리 보기 서비스를 설치하는 경우 현재 위치로 업그레이드할 수 없습니다.
-> 업그레이드하려면 GA가 아닌 모든 데이터베이스 인스턴스를 삭제합니다. [릴리스 정보](/azure/azure-arc/data/release-notes)에서 일반 제공 및 미리 보기 서비스 목록을 찾을 수 있습니다.
+> 업그레이드하려면 GA가 아닌 모든 데이터베이스 인스턴스를 삭제합니다. [릴리스 정보](./release-notes.md)에서 일반 제공 및 미리 보기 서비스 목록을 찾을 수 있습니다.
 
 ### <a name="indirect-mode"></a>간접 모드
 
 Azure Arc 데이터 컨트롤러의 업그레이드를 시작하기 전에 Kubernetes 클러스터에 연결하고 인증하고 기존 Kubernetes 컨텍스트를 선택해야 합니다.
 
-먼저 건성 실행을 수행할 수 있습니다. 건성 실행은 레지스트리, 버전 스키마 및 프라이빗 리포지토리 권한 부여 토큰(사용되는 경우)이 있는지 확인합니다. 건성 실행을 수행하려면 `--dry-run` 명령에서 매개 변수를 `az arcdata dc upgrade` 사용합니다. 예:
+먼저 건성 실행을 수행할 수 있습니다. 건성 실행은 레지스트리, 버전 스키마 및 프라이빗 리포지토리 권한 부여 토큰(사용되는 경우)이 있는지 확인합니다. 건성 실행을 수행하려면 `--dry-run` 명령에서 매개 변수를 `az arcdata dc upgrade` 사용합니다. 예를 들어 다음과 같습니다.
 
 ```azurecli
 az arcdata dc upgrade --desired-version <version> --k8s-namespace <namespace> --dry-run --use-k8s

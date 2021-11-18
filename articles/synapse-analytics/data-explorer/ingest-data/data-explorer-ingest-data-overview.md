@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 739867e66bf111d19226ea99198d4d5efec0eeb5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: aa240292a3263c6ad7ab922654cc4cab5df1d88c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131479723"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720318"
 ---
 # <a name="azure-synapse-data-explorer-data-ingestion-overview-preview"></a>Azure Synapse Data Explorer 데이터 수집 개요(미리 보기)
 
@@ -57,7 +57,7 @@ Azure Synapse Data Explorer는 여러 가지 수집 방법을 지원하며, 방�
 
 <!-- * **[IoT Hub](https://azure.microsoft.com/services/iot-hub/)**: A pipeline that is used for the transfer of data from supported IoT devices to Azure Synapse Data Explorer. For more information, see [Ingest from IoT Hub](ingest-data-iot-hub.md). -->
 
-* **Synapse 파이프라인**: [Synapse 파이프라인](/azure/data-factory/copy-activity-overview?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)의 분석 워크로드에 대한 완전 관리형 데이터 통합 서비스는 90개 이상의 지원되는 원본과 연결하여 효율적이고 복원력 있는 데이터 전송을 제공합니다. Synapse 파이프라인은 데이터를 준비, 변환 및 강화하여 다양한 방법으로 모니터링할 수 있는 인사이트를 제공합니다. 이 서비스는 일회성 솔루션으로, 주기적으로 또는 특정 이벤트 발생 시 트리거되도록 사용할 수 있습니다.
+* **Synapse 파이프라인**: [Synapse 파이프라인](../../../data-factory/copy-activity-overview.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext&tabs=synapse-analytics)의 분석 워크로드에 대한 완전 관리형 데이터 통합 서비스는 90개 이상의 지원되는 원본과 연결하여 효율적이고 복원력 있는 데이터 전송을 제공합니다. Synapse 파이프라인은 데이터를 준비, 변환 및 강화하여 다양한 방법으로 모니터링할 수 있는 인사이트를 제공합니다. 이 서비스는 일회성 솔루션으로, 주기적으로 또는 특정 이벤트 발생 시 트리거되도록 사용할 수 있습니다.
 
 <!-- ### Ingestion using connectors and plugins
 
@@ -105,7 +105,7 @@ KQL(Kusto 쿼리 언어) 명령을 통해 데이터를 엔진에 직접 수집�
 
   * **쿼리에서 수집**: 제어 명령 [.set, .append, .set-or-append 또는 .set-or-replace](/azure/data-explorer/kusto/management/data-ingestion/ingest-from-query?context=/azure/synapse-analytics/context/context)는 엔진으로 전송되고, 데이터는 쿼리 또는 명령의 결과로 간접적으로 지정됩니다.
 
-  * **스토리지에서 수집(끌어오기)** : 제어 명령 [.ingest into](/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context)는 엔진으로 전송되고, 데이터는 엔진에서 액세스할 수 있고 명령이 가리키는 외부 스토리지(예: Azure Blob Storage)에 저장됩니다.
+  * **스토리지에서 수집(끌어오기)** : 제어 명령 [.ingest into](/azure/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context)는 엔진으로 전송되고, 데이터는 엔진에서 액세스할 수 있고 명령이 가리키는 외부 스토리지(예: Azure Blob Storage)에 저장됩니다.
 
 수집 제어 명령을 사용하는 예제는 [Data Explorer를 사용하여 분석](../../get-started-analyze-data-explorer.md)을 참조하세요.
 
@@ -118,7 +118,7 @@ KQL(Kusto 쿼리 언어) 명령을 통해 데이터를 엔진에 직접 수집�
 | [**ADX Kafka**](ingest-data-kafka.md) | | | | |
 | [**ADX to Apache Spark**](spark-connector.md) | | | | |
 | [**LogStash**](ingest-data-logstash.md) | | | | |
-| [**Azure Data Factory (ADF)**](./data-factory-integration.md) | [Supported data formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | unlimited *(per ADF restrictions) | Batching or per ADF trigger | Supports formats that are usually unsupported, large files, can copy from over 90 sources, from on perm to cloud | This method takes relatively more time until data is ingested. ADF uploads all data to memory and then begins ingestion. |
+| [**Azure Data Factory (ADF)**](./data-factory-integration.md) | [Supported data formats](../../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats) | unlimited *(per ADF restrictions) | Batching or per ADF trigger | Supports formats that are usually unsupported, large files, can copy from over 90 sources, from on perm to cloud | This method takes relatively more time until data is ingested. ADF uploads all data to memory and then begins ingestion. |
 |[ **Power Automate**](./flow.md) | | | | Ingestion commands as part of flow| Must have high-performing response time |
 | [**IoT Hub**](ingest-data-iot-hub-overview.md) | [Supported data formats](ingest-data-iot-hub-overview.md#data-format)  | N/A | Batching, streaming | IoT messages, IoT events, IoT properties | |
 | [**Event Hub**](ingest-data-event-hub-overview.md) | [Supported data formats](ingest-data-event-hub-overview.md#data-format) | N/A | Batching, streaming | Messages, events | |

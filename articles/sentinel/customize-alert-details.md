@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6ce94549c4e58e0a19fff40e944ece22f948f953
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 8cbffe40ac7773401535eed3d249f0e13903b1e7
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521723"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721407"
 ---
 # <a name="customize-alert-details-in-microsoft-sentinel"></a>Microsoft Sentinel에서 경고 세부 정보 사용자 지정 
 
@@ -67,4 +65,4 @@ ms.locfileid: "132521723"
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft Sentinel 분석 규칙에서 경고 세부 정보를 사용자 지정하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
-- [Microsoft Sentinel의 엔터티에](entities-in-azure-sentinel.md)대해 자세히 알아봅니다.
+- [Microsoft Sentinel의 엔터티에](entities.md)대해 자세히 알아봅니다.

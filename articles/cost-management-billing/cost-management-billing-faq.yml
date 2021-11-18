@@ -10,12 +10,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 10/22/2021
   ms.author: banders
-  ms.openlocfilehash: c38966a630d61279ab34328bf7a76204fb0079ee
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 0dac08754b6beae7072e4e07a672bac2c3d8fb31
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130229449"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132719488"
 title: Cost Management + Billing 질문과 대답(FAQ)
 summary: ''
 sections:
@@ -161,7 +161,7 @@ sections:
       [스폿 VM 요금 보기](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges)를 참조하세요.
   - question: 예약 정보 보고서는 어떻게 가져오나요?
     answer: >
-      API 설명서를 읽고 [예약 정보 보고서를 생성](/azure/cost-management-billing/reservations/reservation-utilization)합니다.
+      API 설명서를 읽고 [예약 정보 보고서를 생성](./reservations/reservation-utilization.md)합니다.
 - name: Azure EA(기업계약) 및 EA Portal 관련 질문
   questions:
   - question: 내 등록에 SPN 사용 권한을 할당하려면 어떻게 해야 하나요?

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: eriklind
 ms.custom: ''
-ms.openlocfilehash: 37b03d96e67016bb9a250cd889da93fb30578d54
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 211721d66b1a69020860f5ba24aaf2bae525afdf
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240189"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717243"
 ---
 # <a name="add-a-heat-map-layer-to-the-azure-maps-visual-for-power-bi"></a>Power BI에 대 한 Azure Maps 시각적 개체에 열 지도 계층을 추가 합니다.
 
@@ -30,10 +30,10 @@ ms.locfileid: "130240189"
 - 고객이 다른 위치에서 쇼핑 malls을 방문 하는 빈도 측정.
 - 방대한 통계 및 지리적 데이터 집합 시각화
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- [Power BI에 대 한 Azure Maps 시각적 개체 시작](/azure/azure-maps/power-bi-visual-getting-started)
-- [Power BI에 대 한 Azure Maps 시각적 개체의 레이어 이해](/azure/azure-maps/power-bi-visual-understanding-layers)
+- [Power BI에 대 한 Azure Maps 시각적 개체 시작](./power-bi-visual-getting-started.md)
+- [Power BI에 대 한 Azure Maps 시각적 개체의 레이어 이해](./power-bi-visual-understanding-layers.md)
 
 ## <a name="add-the-heat-map-layer"></a>열 지도 계층 추가
 

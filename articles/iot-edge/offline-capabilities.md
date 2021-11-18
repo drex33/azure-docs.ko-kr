@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 41610bb956273fa69119d6b87a016072a5e4faa2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: f0447d886906bc1632f51ecaf1769de2d5679bd5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749882"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704926"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 디바이스, 모듈 및 자식 디바이스용 확장 오프라인 기능을 이해합니다.
 
@@ -60,7 +60,7 @@ IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동�
 
 ## <a name="set-up-parent-and-child-devices"></a>부모 및 자식 디바이스 설정
 
-부모 디바이스는 여러 자식 디바이스를 가질 수 있지만, 자식 디바이스는 한 부모만 가집니다.
+기본적으로 부모 장치는 최대 100 개의 자식을 포함할 수 있습니다. EdgeHub 모듈에서 **MaxConnectedClients** 환경 변수를 설정 하 여이 제한을 변경할 수 있습니다. 자식 장치에는 하나의 부모만 있습니다.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

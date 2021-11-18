@@ -11,12 +11,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
 ms.date: 08/28/2021
-ms.openlocfilehash: 884ae5d4677f33a4326ead8daae5d74b20d8596c
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: f93c03b6e3106ccd359493d8bae450dc0dadc100
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132555170"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718352"
 ---
 # <a name="automated-backups---azure-sql-database--azure-sql-managed-instance"></a>자동화된 백업 - Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -25,7 +25,7 @@ ms.locfileid: "132555170"
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 > [!div class="nextstepaction"]
-> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
+> [Azure SQL 개선을 위한 설문 조사!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="what-is-a-database-backup"></a>데이터베이스 백업이란?
 
@@ -53,7 +53,7 @@ SQL Database의 경우 데이터베이스를 만들 때 백업 스토리지 중�
 > 영역 중복 스토리지는 현재 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다. 
 
 > [!NOTE]
-> Azure SQL Database에 대해 구성 가능한 백업 스토리지 중복성은 현재 동남 아시아 Azure 지역에서만 일반 공급되고, 모든 Azure 지역에서는 공개 미리 보기로 이용할 수 있습니다. 
+> SQL Database 및 하이퍼스케일의 백업 스토리지 중복성은 현재 미리 보기로 제공됩니다. 
 
 ### <a name="backup-usage"></a>백업 사용
 
@@ -150,14 +150,14 @@ vCore 데이터베이스의 경우 각 백업 유형(전체, 차등 및 로그)�
 
 ## <a name="backup-retention"></a>백업 보존
 
-Azure SQL Database 및 Azure SQL Managed Instance 단기 및 장기 백업 보존을 모두 제공합니다. 단기 보존 백업은 데이터베이스에 대한 보존 기간과 PITR(Point-In-Time-Restore)을 허용하는 반면 장기 보존은 다양한 규정 준수 요구 사항에 대한 백업을 제공합니다.  
+Azure SQL Database 및 Azure SQL Managed Instance 단기 및 장기 보존 백업을 모두 제공 합니다. 단기 보존 백업은 데이터베이스에 대 한 보존 기간을 사용 하 여 PITR (지정 시간 복원)를 허용 하 고 장기 보존은 다양 한 규정 준수 요구 사항에 대 한 백업을 제공 합니다.  
 
 ### <a name="short-term-retention"></a>단기 보존
 
-모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 데이터베이스 또는 관리되는 인스턴스에 대해 정의된 보존 기간 내의 모든 지정 시간으로 데이터베이스를 복원할 수 있도록 정기적으로 전체, 차등 및 로그 백업이 수행됩니다. 또한 Azure SQL 데이터베이스의 경우 차등 백업을 12시간 또는 24시간 빈도로 구성할 수 있습니다. 
+모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 정기적으로 전체, 차등 및 로그 백업을 수행 하 여 데이터베이스 또는 관리 되는 인스턴스에 대해 정의 된 보존 기간 내의 특정 시점으로 데이터베이스를 복원 가능한 수 있도록 합니다. 또한 Azure SQL 데이터베이스의 경우 차등 백업은 12 시간 또는 24 시간 빈도로 구성할 수 있습니다. 
 
 > [!NOTE]
-> 24시간 차등 백업 빈도로 데이터베이스를 복원하는 데 필요한 시간이 늘어날 수 있습니다. 
+> 24 시간 차등 백업 빈도는 데이터베이스를 복원 하는 데 필요한 시간을 늘릴 수 있습니다. 
 
 하이퍼스케일 및 기본 계층 데이터베이스를 제외하고, 각 활성 데이터베이스의 [백업 보존 기간을 1-35일 사이에서 변경](#change-the-short-term-retention-policy)할 수 있습니다. [백업 스토리지 사용량](#backup-storage-consumption)에 설명된 것처럼 PITR을 사용하기 위해 저장된 백업이 보존 기간보다 오래되었을 수 있습니다. Azure SQL Managed Instance만 사용하는 경우 데이터베이스가 0-35일 범위에서 삭제되면 PITR 백업 보존율을 설정할 수 있습니다. 
 
@@ -228,7 +228,10 @@ SQL Database 및 SQL Managed Instance는 청구 가능한 총 백업 스토리�
 백업 스토리지 가격 책정에 대한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/) 및 [Azure SQL Managed Instance 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 참조하세요.
 
 > [!IMPORTANT]
-> SQL 관리형 인스턴스에 대해 구성 가능한 백업 스토리지 중복성은 모든 Azure 지역에서 사용할 수 있고, SQL Database에 대해 구성 가능한 백업 스토리지 중복성은 현재 동남 아시아 Azure 지역에서만 사용할 수 있습니다. Managed Instance의 경우 관리형 인스턴스를 만드는 프로세스 중에만 지정할 수 있습니다. 리소스가 프로비전된 후에는 백업 스토리지 중복성 옵션을 변경할 수 없습니다.
+> 하이퍼스케일 및 SQL Managed Instance에 대한 백업 스토리지 중복성은 데이터베이스를 만드는 중에만 설정할 수 있습니다. 리소스가 프로비저닝되면 이 설정을 수정할 수 없습니다. [데이터베이스 복사](database-copy.md) 프로세스를 사용하여 기존 하이퍼스케일 데이터베이스의 백업 스토리지 중복 설정을 업데이트할 수 있습니다. 
+
+> [!NOTE]
+> SQL Database 및 하이퍼스케일의 백업 스토리지 중복성은 현재 미리 보기로 제공됩니다. 
 
 ### <a name="monitor-costs"></a>비용 모니터링
 
@@ -265,7 +268,7 @@ DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터�
 
 ## <a name="change-the-short-term-retention-policy"></a>단기 보존 정책 변경
 
-Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 보존 기간 및 차등 백업 빈도를 변경할 수 있습니다. 다음 예에서는 PITR 보존을 28 일로 변경 하는 방법과 차등 백업을 24 시간 간격으로 변경 하는 방법을 보여 줍니다.
+Azure Portal, PowerShell 또는 REST API 사용하여 기본 PITR 백업 보존 기간 및 차등 백업 빈도를 변경할 수 있습니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하고 차등 백업을 24시간 간격으로 변경하는 방법을 보여 줍니다.
 
 > [!WARNING]
 > 현재 보존 기간을 줄이면 새 보존 기간보다 오래된 시점으로 복원할 수 없게 됩니다. 새 보존 기간 내에 PITR을 제공하는 데 더 이상 필요 없는 백업은 삭제됩니다. 현재 보존 기간을 늘려도 새 보존 기간의 더 오래된 시점으로 복원하는 기능이 즉시 제공되지는 않습니다. 시간이 지나 시스템이 백업을 장기간 보존하기 시작하면 이 기능을 사용할 수 있습니다.
@@ -273,9 +276,9 @@ Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 �
 > [!NOTE]
 > 이러한 API는 PITR 보존 기간에만 영향을 줍니다. 데이터베이스의 LTR을 구성한 경우에는 LTR이 영향을 받지 않습니다. LTR 보존 기간을 변경하는 방법에 대한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
 
-### <a name="change-the-short-term-retention-policy-using-the-azure-portal"></a>Azure Portal를 사용 하 여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-the-azure-portal"></a>Azure Portal 사용하여 단기 보존 정책 변경
 
-Azure Portal를 사용 하 여 활성 데이터베이스에 대해 PITR 백업 보존 기간 또는 차등 백업 빈도를 변경 하려면 보존 기간을 변경 하려는 데이터베이스가 있는 서버 또는 관리 되는 인스턴스로 이동 합니다. 왼쪽 창에서 **백업** 을 선택하고 **보존 정책** 탭을 선택한 다음, PITR 백업 보존을 변경할 데이터베이스를 선택합니다. 그런 다음, 작업 모음에서 **보존 구성** 을 선택합니다.
+Azure Portal 사용하여 활성 데이터베이스에 대한 PITR 백업 보존 기간 또는 차등 백업 빈도를 변경하려면 보존 기간을 변경하려는 데이터베이스가 있는 서버 또는 관리되는 인스턴스로 이동합니다. 왼쪽 창에서 **백업** 을 선택하고 **보존 정책** 탭을 선택한 다음, PITR 백업 보존을 변경할 데이터베이스를 선택합니다. 그런 다음, 작업 모음에서 **보존 구성** 을 선택합니다.
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
@@ -287,7 +290,7 @@ Azure Portal를 사용 하 여 활성 데이터베이스에 대해 PITR 백업 �
 
 ---
 
-### <a name="change-the-short-term-retention-policy-using-azure-cli"></a>Azure CLI를 사용 하 여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-azure-cli"></a>Azure CLI 사용하여 단기 보존 정책 변경
 
 Azure CLI에 대한 환경을 준비합니다.
 
@@ -295,7 +298,7 @@ Azure CLI에 대한 환경을 준비합니다.
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
-다음 예제를 사용 하 여 활성 Azure SQL 데이터베이스에 대 한 PITR 백업 보존 및 차등 백업 빈도를 변경 합니다.
+다음 예제를 사용하여 활성 Azure SQL 데이터베이스에 대한 PITR 백업 보존 및 차등 백업 빈도를 변경합니다.
 
 ```azurecli
 # Set new PITR differential backup frequency on an active individual database
@@ -311,7 +314,7 @@ az sql db str-policy set \
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/managed-instance)
 
-다음 예를 사용 하 여 SQL Managed Instance에서 **단일 활성** 데이터베이스의 백업 보존 PITR을 변경할 수 있습니다.
+다음 예제를 사용하여 SQL Managed Instance **단일 활성** 데이터베이스의 PITR 백업 보존을 변경합니다.
 
 ```azurecli
 # Set new PITR backup retention period on an active individual database
@@ -323,7 +326,7 @@ az sql midb short-term-retention-policy set \
     --retention-days 1 \
 ```
 
-다음 예를 사용 하 여 SQL Managed Instance의 **모든 활성** 데이터베이스에 대해 PITR 백업 보존 기간을 변경할 수 있습니다.
+다음 예제를 사용하여 SQL Managed Instance **모든 활성** 데이터베이스에 대한 PITR 백업 보존을 변경합니다.
 
 ```azurecli
 # Set new PITR backup retention period for ALL active databases
@@ -336,7 +339,7 @@ az sql midb short-term-retention-policy set \
 
 ---
 
-### <a name="change-the-short-term-retention-policy-using-powershell"></a>PowerShell을 사용 하 여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-powershell"></a>PowerShell을 사용하여 단기 보존 정책 변경
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -344,7 +347,7 @@ az sql midb short-term-retention-policy set \
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
-활성 Azure SQL 데이터베이스에 대 한 PITR 백업 보존 및 차등 백업 빈도를 변경 하려면 다음 PowerShell 예제를 사용 합니다.
+활성 Azure SQL 데이터베이스에 대한 PITR 백업 보존 및 차등 백업 빈도를 변경하려면 다음 PowerShell 예제를 사용합니다.
 
 ```powershell
 # SET new PITR backup retention period on an active individual database
@@ -397,9 +400,9 @@ Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -Instanc
 
 ---
 
-### <a name="change-the-short-term-retention-policy-using-the-rest-api"></a>REST API를 사용 하 여 단기 보존 정책 변경
+### <a name="change-the-short-term-retention-policy-using-the-rest-api"></a>REST API 사용하여 단기 보존 정책 변경
 
-아래 요청은 보존 기간을 28 일로 업데이트 하 고 차등 백업 빈도를 24 시간으로 설정 합니다.
+아래 요청은 보존 기간을 28일로 업데이트하고 차등 백업 빈도를 24시간으로 설정합니다.
 
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
@@ -477,10 +480,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ## <a name="configure-backup-storage-redundancy"></a>백업 스토리지 중복성 구성
 
-> [!NOTE]
-> SQL Managed Instance 백업에 대해 구성 가능한 스토리지 중복성은 관리형 인스턴스를 만드는 프로세스 중에만 지정할 수 있습니다. 리소스가 프로비전된 후에는 백업 스토리지 중복성 옵션을 변경할 수 없습니다. SQL Database의 경우 이 기능의 공개 미리 보기가 현재 모든 Azure 지역에 제공되고, 동남 아시아 Azure 지역에는 이 기능이 일반 공급됩니다. 
-
-관리형 인스턴스의 백업 스토리지 중복성은 인스턴스를 만드는 동안에만 설정할 수 있습니다. SQL Database의 경우 데이터베이스를 만들 때 중복성을 설정하거나 기존 데이터베이스의 중복성을 업데이트할 수 있습니다. 기본값은 지역 중복 스토리지입니다. 로컬 중복, 영역 중복 및 지역 중복 백업 스토리지 간의 가격 차이를 보려면 [관리형 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 방문하세요.
+SQL 데이터베이스에 대해 구성 가능한 스토리지 중복성은 데이터베이스를 만들 때 구성하거나 기존 데이터베이스에 대해 업데이트할 수 있습니다. 기존 데이터베이스에 대한 변경 내용은 향후 백업에만 적용됩니다. SQL Managed Instance 및 하이퍼스케일 백업 스토리지 중복성은 만들기 프로세스 중에만 지정할 수 있습니다. 리소스가 프로비전된 후에는 백업 스토리지 중복성 옵션을 변경할 수 없습니다. 기본값은 지역 중복 스토리지입니다. 로컬 중복, 영역 중복 및 지역 중복 백업 스토리지 간의 가격 차이를 보려면 [관리형 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 방문하세요.
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Azure Portal을 사용하여 백업 스토리지 중복성 구성
 
@@ -499,11 +499,11 @@ Azure Portal에서 백업 스토리지 중복성을 변경하는 옵션은 SQL M
 
 ---
 
-### <a name="configure-backup-storage-redundancy-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 백업 저장소 중복성 구성
+### <a name="configure-backup-storage-redundancy-by-using-the-azure-cli"></a>Azure CLI 사용하여 백업 스토리지 중복성 구성
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
-새 데이터베이스를 만들 때 백업 저장소 중복성을 구성 하려면 매개 변수를 지정 하면 `backup-storage-redundancy` 됩니다. 가능한 값은 Geo, Zone 및 Local입니다. 기본적으로 모든 SQL 데이터베이스는 백업에 지역 중복 스토리지를 사용합니다. 로컬 또는 영역 중복 백업 저장소를 사용 하 여 데이터베이스를 만들거나 업데이트 하는 경우 지역 복원을 사용할 수 없습니다.
+새 데이터베이스를 만들 때 백업 스토리지 중복성을 구성하려면 매개 변수를 지정하면 `backup-storage-redundancy` 됩니다. 가능한 값은 Geo, Zone 및 Local입니다. 기본적으로 모든 SQL 데이터베이스는 백업에 지역 중복 스토리지를 사용합니다. 로컬 또는 영역 중복 백업 스토리지를 통해 데이터베이스를 만들거나 업데이트하면 지역 복원을 사용할 수 없습니다.
 
 ```azurecli
 az sql db create \
@@ -514,7 +514,7 @@ az sql db create \
     --backup-storage-redundancy Local
 ```
 
-매개 변수를 사용 하 여 기존 데이터베이스를 업데이트할 수도 있습니다 `backup-storage-redundancy` .
+매개 변수를 통해 기존 데이터베이스를 업데이트할 수도 `backup-storage-redundancy` 있습니다.
 
 ```azurecli
 az sql db update \
@@ -523,11 +523,11 @@ az sql db update \
     --name mydb \
     --backup-storage-redundancy Local
 ```
-자세한 내용은 [az sql db create](/cli/azure/sql/db#az_sql_db_create) 및 [az sql db update](/cli/azure/sql/db#az_sql_db_update)를 참조 하십시오.
+자세한 내용은 [az sql db create](/cli/azure/sql/db#az_sql_db_create) 및 [az sql db update를 참조하세요.](/cli/azure/sql/db#az_sql_db_update)
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
-Azure CLI를 사용 하는 경우 SQL Managed Instance에 대해 백업 저장소 중복성을 구성할 수 없습니다. 자세한 내용은 [Azure Portal](#configure-backup-storage-redundancy-by-using-the-azure-portal) 또는 [PowerShell](#configure-backup-storage-redundancy-by-using-powershell) 옵션을 참조 하세요.
+Azure CLI 사용하는 경우 SQL Managed Instance 백업 스토리지 중복 구성을 사용할 수 없습니다. 자세한 내용은 [Azure Portal](#configure-backup-storage-redundancy-by-using-the-azure-portal) 또는 [PowerShell](#configure-backup-storage-redundancy-by-using-powershell) 옵션을 참조하세요.
 
 ---
 

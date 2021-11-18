@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5a770e6f5105dd3525e2aac0e502f35cb6a6f050
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 41041a34d8fbf83095f3f5f9f9f0fb0a76109a39
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645838"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724295"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 퍼블릭 읽기 권한 구성
 
@@ -301,12 +301,12 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)| ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)| ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(보안 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

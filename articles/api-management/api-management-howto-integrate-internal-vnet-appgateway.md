@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
-ms.openlocfilehash: 05767ffb0487964780ab25ec56fd586451066ac3
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 793216ac8c411fbde6db5d044d345f1de98af17a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615356"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710347"
 ---
 # <a name="integrate-api-management-in-an-internal-virtual-network-with-application-gateway"></a>내부 가상 네트워크의 API Management를 Application Gateway와 통합
 
@@ -438,6 +438,8 @@ $managementRule = New-AzApplicationGatewayRequestRoutingRule -Name "managementru
 
 애플리케이션 게이트웨이에 대한 크기 및 인스턴스 수를 구성합니다. 이 예제에서는 [WAF_v2 SKU](../web-application-firewall/ag/ag-overview.md)를 사용하여 API Management 리소스의 보안을 강화합니다.
 
+프로덕션 워크로드에는 최소 두 개의 _인스턴스(용량)를_ 사용하는 것이 좋습니다. 그러나 비프로덕션 시나리오 또는 일반 실험에는 인스턴스를 하나만 사용할 수 있습니다. 자세한 내용은 [Azure Application Gateway 가격 책정을 참조하세요.](../application-gateway/understanding-pricing.md#instance-count)
+
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_v2" -Tier "WAF_v2" -Capacity 2
 ```
@@ -448,6 +450,14 @@ WAF를 "방지" 모드로 구성합니다.
 
 ```powershell
 $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
+```
+
+### <a name="step-13"></a>13단계
+
+TLS 1.0은 현재 기본값이므로 최신 [TLS 1.2 정책을](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s)사용하도록 애플리케이션 게이트웨이를 설정하는 것이 좋습니다.
+
+```powershell
+$policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
 ```
 
 ## <a name="create-application-gateway"></a>Application Gateway 만들기
@@ -463,7 +473,8 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupN
   -HttpListeners $gatewayListener,$portalListener,$managementListener `
   -RequestRoutingRules $gatewayRule,$portalRule,$managementRule `
   -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $certGateway,$certPortal,$certManagement `
-  -TrustedRootCertificate $trustedRootCert -Probes $apimGatewayProbe,$apimPortalProbe,$apimManagementProbe
+  -TrustedRootCertificate $trustedRootCert -Probes $apimGatewayProbe,$apimPortalProbe,$apimManagementProbe `
+  -SslPolicy $policy
 ```
 
 Application Gateway 배포가 완료된 후 포털에서 API Management 백 엔드의 상태를 확인하거나 다음 명령을 실행하여 확인합니다.

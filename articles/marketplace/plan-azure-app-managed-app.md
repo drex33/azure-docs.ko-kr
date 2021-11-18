@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: 76036b42693b17480f4e5ede8d93d981bf40d739
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b20910e7692d5cea979997f32263c8e74385b564
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429663"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724979"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Azure 응용 프로그램 제품에 대한 Azure 관리되는 응용 프로그램 플랜
 
@@ -32,7 +32,7 @@ Azure _관리되는 응용 프로그램_ 플랜은 Azure Marketplace에 Azure �
 | ------------ | ------------- |
 | Azure 구독 | 관리되는 응용 프로그램은 고객의 구독에 배포되어야 하지만 타사에서 관리할 수 있습니다. |
 | 청구 및 계량 | 리소스는 고객의 Azure 구독에서 제공됩니다. 종량제 지불 모델을 사용하는 VM은 Microsoft를 통해 고객과 거래되며 고객의 Azure 구독을 통해 청구됩니다. <br><br> 사용자 라이선스 필요 VM의 경우 Microsoft는 고객 구독에서 발생하는 모든 인프라 비용을 청구하지만, 사용자는 고객과 직접 소프트웨어 라이선스 요금을 거래합니다. |
-| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. 자세한 내용은 다음을 참조하세요.<br> * [Azure VM 기술 자산 만들기](./azure-vm-create-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer)(Windows VHD용).<br> *  [Azure에서 보증된 Linux 배포](../virtual-machines/linux/endorsed-distros.md)(Linux VHD용). |
+| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. 자세한 내용은 다음을 참조하세요.<br> * [Azure VM 기술 자산 만들기](./azure-vm-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer)(Windows VHD용).<br> *  [Azure에서 보증된 Linux 배포](../virtual-machines/linux/endorsed-distros.md)(Linux VHD용). |
 | 고객 사용량 특성 | 모든 새 Azure 애플리케이션 제품은 [Azure 파트너 고객 사용량 기여](azure-partner-customer-usage-attribution.md) GUID도 포함해야 합니다. 고객 사용량 특성 및 사용 설정 방법에 대한 자세한 내용은 [Azure 파트너 고객 사용량 특성](azure-partner-customer-usage-attribution.md)을 참조하세요. |
 | 배포 패키지 | 고객이 플랜을 배포할 수 있도록 하는 배포 패키지가 필요합니다. 동일한 기술 구성이 필요한 여러 플랜을 만드는 경우 동일한 패키지를 사용할 수 있습니다. 자세한 내용은 다음 섹션: 배포 패키지를 참조하세요. |
 |||
@@ -122,9 +122,9 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 
 선택 사항으로, 이 플랜의 관리되는 응용 프로그램 인스턴스에서 모든 CRUD 작업에 관한 알림을 수신하려면 HTTPS 웹후크 엔드포인트를 지정할 수 있습니다.
 
-Azure는 `/resource` 호출하기 전에 webhook URI의 끝에 를 추가합니다. 따라서 웹후크 URL은 로 끝나야 `/resource` 하지만 파트너 센터 **알림 엔드포인트 URL** 상자에 입력한 URI에는 포함되지 않아야 합니다. 예를 들어 `https://contoso.com` 알림 엔드포인트 URI로 를 입력하면 에 대한 호출이 `https://contoso.com/resource` 발생합니다.
+Azure는 `/resource` 호출하기 전에 webhook URI의 끝에 을 추가합니다. 따라서 웹후크 URL은 로 끝나야 `/resource` 하지만 파트너 센터 **알림 엔드포인트 URL** 상자에 입력한 URI에는 포함되지 않아야 합니다. 예를 들어 `https://contoso.com` 알림 엔드포인트 URI로 를 입력하면 에 대한 호출이 `https://contoso.com/resource` 발생합니다.
 
-관리되는 앱 알림에서 이벤트를 수신 대기하는 경우 `https://<url>/resource` 설정된 URL만 수신하고 수신 대기하지 않는지 확인합니다. 샘플 알림은 [알림 스키마](/azure/azure-resource-manager/managed-applications/publish-notifications#notification-schema)를 참조하세요.
+관리되는 앱 알림에서 이벤트를 수신 대기하는 경우 `https://<url>/resource` 설정된 URL만 수신하고 수신 대기하지 않는지 확인합니다. 샘플 알림은 [알림 스키마](../azure-resource-manager/managed-applications/publish-notifications.md#notification-schema)를 참조하세요.
 
 ## <a name="customize-allowed-customer-actions-optional"></a>허용되는 고객 작업 사용자 지정(선택 사항)
 

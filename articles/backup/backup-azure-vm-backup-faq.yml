@@ -4,13 +4,15 @@ metadata:
   description: 이 문서에서는 Azure Backup 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
   ms.topic: article
   ms.service: backup
-  ms.date: 08/19/2021
-  ms.openlocfilehash: d9ca7573375e3e6bf584d1b79f8f6a8f9ba64f4d
-  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+  ms.date: 11/09/2021
+  author: v-amallick
+  ms.author: v-amallick
+  ms.openlocfilehash: 6affe7d7e9d0fdeb50da09c80203d01647c46a8e
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/09/2021
-  ms.locfileid: "132062893"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132293899"
 title: 질문과 대답 - Azure VM 백업
 summary: >
   이 문서에서는 [Azure Backup](./backup-overview.md) 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
@@ -249,4 +251,7 @@ sections:
     answer: >
       Azure 리소스가 이 트래픽을 처리하므로 외부 사용자가 이를 결정할 수 없습니다.
   - question: Azure Backup에서 VM 백업에 대한 최소 RPO 및 RTO는 어떻게 되나요?
-    answer: '**RPO**: 최소 RPO는 1일(24시간)입니다.  <br><br>  **RTO**: 스냅샷은 스토리지 계정에 저장됩니다. 따라서 즉시 복원 계층에서의 복원은 즉각적입니다. 이후 데이터가 Azure Backup 서비스에서 유지 관리하는 Recovery Services 자격 증명 모음으로 전송되며, 전송 및 복원에 몇 시간이 소요됩니다.'
+    answer: >
+      **RPO**: 최소 RPO는 1일(24시간)입니다.  <br><br>  **RTO**: 스냅샷은 스토리지 계정에 저장됩니다. 따라서 즉시 복원 계층에서의 복원은 즉각적입니다. 이후 데이터가 Azure Backup 서비스에서 유지 관리하는 Recovery Services 자격 증명 모음으로 전송되며, 전송 및 복원에 몇 시간이 소요됩니다.
+  - question: VMMarketplaceInvalidInputmessage 오류가 나타나는 이유는 무엇인가요?
+    answer: 이 오류는 비 Marketplace 이미지에서 Azure VM을 만든 후 VM을 시작하거나 VM의 OS 디스크를 비 Marketplace 이미지로 교환하려고 하면 VM 배포가 실패할 때 나타납니다. 이 문제를 해결하려면 VM에서 계획 정보를 제거합니다.

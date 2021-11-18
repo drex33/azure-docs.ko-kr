@@ -8,30 +8,30 @@ ms.date: 9/1/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: aa8ea41233cad42bcad9fc387b8f984503c6e75e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 21658ad276b16292a15fe7dc778c152104e6916e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797772"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718637"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용하여 Logic Apps와 통합
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 앱과 서비스에서 워크플로를 자동화하는 데 사용되는 클라우드 서비스입니다. Logic Apps를 Azure Digital Twins API에 연결하여 Azure Digital Twins와 해당 데이터에 대한 이러한 자동화된 흐름을 만들 수 있습니다.
 
-Azure Digital Twins는 현재 Logic Apps에 대해 인증 된 (미리 작성 된) 커넥터를 포함 하지 않습니다. 대신, Azure Digital Twins와 Logic Apps를 사용 하는 현재 프로세스는 Logic Apps 작업 하도록 수정 된 [사용자 지정 Azure Digital Twins Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 정의 파일을 사용 하 여 [사용자 지정 Logic Apps 커넥터](../logic-apps/custom-connector-overview.md)를 만드는 것입니다.
+Azure Digital Twins 현재 Logic Apps 인증된(미리 빌드된) 커넥터가 없습니다. 대신 Azure Digital Twins Logic Apps 사용하는 현재 프로세스는 Logic Apps 작동하도록 수정된 [사용자 지정 Azure Digital Twins Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 정의 파일을 사용하여 사용자 지정 Logic Apps [커넥터를](../logic-apps/custom-connector-overview.md)만드는 것입니다.
 
 > [!NOTE]
-> 위에 연결 된 사용자 지정 Swagger 샘플에 포함 된 여러 버전의 Swagger 정의 파일이 있습니다. 최신 버전은 가장 최근 날짜의 하위 폴더에 있지만 이 샘플에 포함된 이전 버전도 계속 지원됩니다.
+> 위에 연결된 사용자 지정 Swagger 샘플에 포함된 Swagger 정의 파일의 여러 버전이 있습니다. 최신 버전은 가장 최근 날짜의 하위 폴더에 있지만 이 샘플에 포함된 이전 버전도 계속 지원됩니다.
 
-이 문서에서는 [Azure Portal](https://portal.azure.com) 를 사용 하 여 Azure Digital twins 인스턴스에 Logic Apps를 연결 하는 데 사용할 수 있는 **사용자 지정 커넥터를 만듭니다** . 그런 다음이 연결을 사용 하는 **논리 앱을 만듭니다** . 예를 들어 타이머에서 트리거되는 이벤트는 Azure Digital twins 인스턴스의 쌍을 자동으로 업데이트 합니다. 
+이 문서에서는 Azure Portal 사용하여 [Logic Apps Azure Digital Twins](https://portal.azure.com) 인스턴스에 연결하는 데 사용할 수 있는 **사용자 지정 커넥터를 만듭니다.** 그런 다음 **타이머에** 의해 트리거된 이벤트가 Azure Digital Twins 인스턴스의 쌍을 자동으로 업데이트하는 예제 시나리오에 이 연결을 사용하는 논리 앱을 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 이 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-또한 필수 구성 요소를 설정하는 과정에서 다음 항목을 완료해야 합니다. 이 섹션의 나머지 부분에서는 다음 단계를 안내 합니다.
+또한 필수 구성 요소를 설정하는 과정에서 다음 항목을 완료해야 합니다. 이 섹션의 나머지 부분에서는 다음 단계를 안내합니다.
 - Azure Digital Twins 인스턴스 설정
 - 디지털 트윈 추가
 - Azure AD(Azure Active Directory) 앱 등록 설정
@@ -42,11 +42,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="add-a-digital-twin"></a>디지털 트윈 추가
 
-이 문서에서는 Logic Apps를 사용하여 Azure Digital Twins 인스턴스에서 트윈을 업데이트합니다. 계속 하려면 인스턴스에 하나 이상의 쌍을 추가 해야 합니다. 
+이 문서에서는 Logic Apps를 사용하여 Azure Digital Twins 인스턴스에서 트윈을 업데이트합니다. 계속하려면 인스턴스에 하나 이상의 트윈을 추가해야 합니다. 
 
 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins), [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 또는 [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)를 사용하여 트윈을 추가할 수 있습니다. 이러한 방법을 사용하여 트윈을 만드는 방법에 대한 자세한 단계는 [디지털 트윈 관리](how-to-manage-twin.md)를 참조하세요.
 
-사용자가 만든 인스턴스에 쌍의 쌍 **ID** 가 필요 합니다.
+만든 인스턴스에 트윈의 쌍 **ID가** 필요합니다.
 
 ### <a name="set-up-app-registration"></a>앱 등록 설정
 
@@ -54,32 +54,36 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-custom-logic-apps-connector"></a>사용자 지정 Logic Apps 커넥터 만들기
 
-이제 Azure Digital Twins API에 대한 [사용자 지정 Logic Apps 커넥터](../logic-apps/custom-connector-overview.md)를 만들 준비가 되었습니다. 이렇게 하면 다음 섹션에서 논리 앱을 만들 때 Azure Digital Twins에 연결할 수 있습니다.
+이제 Azure Digital Twins API에 대한 [사용자 지정 Logic Apps 커넥터](../logic-apps/custom-connector-overview.md)를 만들 준비가 되었습니다. 이렇게 하면 다음 섹션에서 논리 앱을 만들 때 Azure Digital Twins 연결할 수 있습니다.
 
 Azure Portal의 [Logic Apps 사용자 지정 커넥터](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) 페이지로 이동합니다(이 링크를 사용하거나 포털 검색 창에서 검색할 수 있음). *+ 만들기* 를 선택합니다.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Azure Portal의 'Logic Apps 사용자 지정 커넥터' 페이지의 스크린샷입니다. '추가' 단추가 강조 표시됩니다.":::
 
-다음에 나오는 **논리 앱 사용자 지정 커넥터 만들기** 페이지에서 구독 및 리소스 그룹을 선택 하 고 새 커넥터에 대 한 이름 및 배포 위치를 선택 합니다. **검토 + 만들기** 를 선택합니다. 
+다음에 있는 논리 앱 사용자 지정 커넥터 만들기 페이지에서 구독 및 리소스 그룹과 새 **커넥터의** 이름 및 배포 위치를 선택합니다. **검토 + 만들기** 를 선택합니다. 
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Azure Portal에서 ' 논리 앱 사용자 지정 커넥터 만들기 ' 페이지의 스크린샷":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Azure Portal '논리 앱 사용자 지정 커넥터 만들기' 페이지의 스크린샷.":::
 
-이렇게 하면 아래에서 **만들기** 를 선택 하 여 리소스를 만들 수 있는 **검토 + 만들기** 탭으로 이동 됩니다.
+이렇게 하면 **검토 + 만들기** 탭으로 연결됩니다. 여기서 맨 아래에서 **만들기를** 선택하여 리소스를 만들 수 있습니다.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Azure Portal의 'Logic Apps 사용자 지정 커넥터 검토' 페이지의 '검토 + 만들기' 탭의 스크린샷":::
 
-커넥터에 대한 배포 페이지로 이동합니다. 배포가 완료 되 면 **리소스로 이동** 단추를 선택 하 여 포털에서 커넥터의 세부 정보를 확인 합니다.
+커넥터에 대한 배포 페이지로 이동합니다. 배포가 완료되면 **리소스로 이동** 단추를 선택하여 포털에서 커넥터의 세부 정보를 확인합니다.
 
 ### <a name="configure-connector-for-azure-digital-twins"></a>Azure Digital Twins에 관해 커넥터 구성
 
 다음으로, Azure Digital Twins에 연결하기 위해 만든 커넥터를 구성합니다.
 
-먼저 Logic Apps로 작업하도록 수정된 사용자 지정 Azure Digital Twins Swagger를 다운로드합니다. **ZIP 다운로드** 단추를 선택하여 [Azure Digital Twins 사용자 지정 Swagger(Logic Apps 커넥터) 샘플](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/)을 다운로드합니다. 다운로드한 *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* 폴더로 이동하여 폴더 압축을 풉니다. 
+먼저 Logic Apps로 작업하도록 수정된 사용자 지정 Azure Digital Twins Swagger를 다운로드합니다. [Azure Digital Twins 사용자 지정 Swaggers(Logic Apps 커넥터) 샘플에서 샘플로](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 이동하고, 제목 아래의 코드 **찾아보기** 단추를 선택하여 샘플에 대한 GitHub 리포지션으로 이동합니다. **코드** 단추, **ZIP 다운로드를** 선택하여 컴퓨터에서 샘플을 다운로드합니다.
 
-이 자습서에 대 한 사용자 지정 Swagger는 *digital-twins-custom-swaggers-main\LogicApps* 폴더에 있습니다. 이 폴더에는 *stable* 및 *preview* 라는 하위 폴더가 포함되어 있으며, 둘 다 날짜별로 구성된 서로 다른 버전의 Swagger를 포함합니다. 가장 최근 날짜의 폴더에는 Swagger 정의 파일의 최신 복사본이 포함 됩니다. 어떤 버전을 선택하든 Swagger 파일의 이름은 _digitaltwins.json_ 입니다.
+:::image type="content" source="media/how-to-integrate-logic-apps/download-repo-zip.png" alt-text="GitHub digital-twins-custom-swaggers 리포지션을 zip으로 다운로드하는 단계를 강조 표시한 스크린샷." lightbox="media/how-to-integrate-logic-apps/download-repo-zip.png"::: 
+
+다운로드한 폴더로 이동하여 압축을 해제합니다. 
+
+이 자습서의 사용자 지정 Swagger는 *digital-twins-custom-swaggers-main\LogicApps 폴더에* 있습니다. 이 폴더에는 *stable* 및 *preview* 라는 하위 폴더가 포함되어 있으며, 둘 다 날짜별로 구성된 서로 다른 버전의 Swagger를 포함합니다. 가장 최근 날짜가 있는 폴더에는 Swagger 정의 파일의 최신 복사본이 포함됩니다. 어떤 버전을 선택하든 Swagger 파일의 이름은 _digitaltwins.json_ 입니다.
 
 > [!NOTE]
-> 미리 보기 기능을 사용 하 여 작업 하지 않는 한 일반적으로 가장 *안정적인* Swagger 파일 버전을 사용 하는 것이 좋습니다. 그러나 Swagger 파일의 이전 버전 및 미리 보기 버전도 계속 지원 됩니다. 
+> 미리 보기 기능을 사용하지 않는 한 일반적으로 안정적인 최신 *버전의* Swagger 파일을 사용하는 것이 좋습니다. 그러나 Swagger 파일의 이전 버전 및 미리 보기 버전도 계속 지원됩니다. 
 
 그런 다음, [Azure Portal](https://portal.azure.com)의 커넥터 개요 페이지로 이동하고 **편집** 을 선택합니다.
 
@@ -89,12 +93,12 @@ Azure Portal의 [Logic Apps 사용자 지정 커넥터](https://portal.azure.com
 * **사용자 지정 커넥터**
     - API 엔드포인트: REST(기본값 유지)
     - 가져오기 모드: OpenAPI 파일(기본값 유지)
-    - 파일:이 구성은 앞에서 다운로드 한 사용자 지정 Swagger 파일입니다. **가져오기** 를 선택하고 머신에서 파일(*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps\...\digitaltwins.json*)을 찾아 **열기** 를 선택합니다.
+    - 파일: 이 구성은 이전에 다운로드한 사용자 지정 Swagger 파일이 됩니다. **가져오기** 를 선택하고 머신에서 파일(*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps\...\digitaltwins.json*)을 찾아 **열기** 를 선택합니다.
 * **일반 정보**
-    - 아이콘: 원하는 아이콘을 업로드 합니다.
+    - 아이콘: 원하는 아이콘을 업로드.
     - 아이콘 배경색: 색상에 관해 ‘#xxxxxx’ 형식으로 16진수 코드를 입력합니다.
     - 설명: 원하는 모든 값을 입력합니다.
-    - 온-프레미스 데이터 게이트웨이를 통한 커넥트: 해제 (기본값 유지)
+    - 온-프레미스 데이터 게이트웨이를 통해 커넥트: 설정/해제(기본값 그대로 두기)
     - 스키마: HTTPS(기본값 유지)
     - 호스트: Azure Digital Twins 인스턴스의 **호스트 이름**
     - 기준 URL: /(기본값 유지)
@@ -115,7 +119,7 @@ Azure Portal의 [Logic Apps 사용자 지정 커넥터](https://portal.azure.com
     - 범위: Directory.AccessAsUser.All
     - 리디렉션 URL: (지금은 기본값 유지)
 
-리디렉션 URL 필드는 *사용자 지정 커넥터를 저장 하 여 리디렉션 url을 생성 하* 는 것을 말합니다. 이제 창의 위쪽에서 **커넥터 업데이트** 를 선택 하 여 커넥터 설정을 확인 하 여 생성 합니다.
+리디렉션 URL 필드에는 *사용자 지정 커넥터를 저장하여 리디렉션 URL 을 생성합니다.* 창 위쪽에서 **커넥터 업데이트를** 선택하여 커넥터 설정을 확인하여 지금 생성합니다.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="'Logic Apps 사용자 지정 커넥터 편집' 페이지 위쪽의 스크린샷입니다. '커넥터 업데이트' 단추가 강조 표시됩니다.":::
 
@@ -123,7 +127,7 @@ Azure Portal의 [Logic Apps 사용자 지정 커넥터](https://portal.azure.com
 
 :::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="'Logic Apps 사용자 지정 커넥터 편집' 페이지의 리디렉션 URL 필드의 스크린샷입니다. 값을 복사하는 단추가 강조 표시됩니다.":::
 
-이제 커넥터를 만드는 데 필요한 모든 정보를 입력 했습니다. (정의 단계에 대 한 이전 보안을 계속할 필요가 없습니다.) **Edit Logic Apps Custom Connector(Logic Apps 사용자 지정 커넥터 편집)** 창을 닫을 수 있습니다.
+이제 커넥터를 만드는 데 필요한 모든 정보를 입력했습니다(정의 단계까지 보안을 계속할 필요가 없음). **Edit Logic Apps Custom Connector(Logic Apps 사용자 지정 커넥터 편집)** 창을 닫을 수 있습니다.
 
 >[!NOTE]
 >처음 **편집** 을 선택한 커넥터의 개요 페이지로 돌아가서 편집을 다시 선택하면 구성 선택 사항을 입력하는 전체 프로세스가 다시 시작됩니다. 마지막으로 수행한 값은 채워지지 않으므로 변경된 값으로 업데이트된 구성을 저장하려면 기본값이 덮어쓰지 않도록 다른 모든 값도 다시 입력해야 합니다.
@@ -142,7 +146,7 @@ Azure Portal의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_Regis
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="새 리디렉션 URL 및 '저장' 단추가 강조 표시된 Azure Portal의 앱 등록을 위한 인증 페이지의 스크린샷":::
 
-이제 Azure Digital Twins Api에 액세스할 수 있는 사용자 지정 커넥터를 설정 하는 작업이 완료 되었습니다. 
+이제 Azure Digital Twins API에 액세스할 수 있는 사용자 지정 커넥터 설정이 완료되었습니다. 
 
 ## <a name="create-logic-app"></a>논리 앱 만들기
 
@@ -158,7 +162,7 @@ _검토 + 만들기_ 단추를 선택합니다.
 
 이렇게 하면 **검토 + 만들기** 탭으로 가서 세부 정보를 검토하고 맨 아래에서 **만들기를** 선택하여 리소스를 만들 수 있습니다.
 
-논리 앱에 대한 배포 페이지로 이동합니다. 배포가 완료되면 **리소스로 이동** 단추를 선택하여 워크플로의 논리를 채울 **Logic Apps 디자이너로** 계속 진행합니다.
+논리 앱에 대한 배포 페이지로 이동합니다. 배포가 완료되면 **리소스로 이동** 단추를 선택하여 **워크플로의** 논리를 채울 Logic Apps 디자이너 로 계속 진행합니다.
 
 ### <a name="design-workflow"></a>디자인 워크플로
 
@@ -174,7 +178,7 @@ Logic Apps 디자이너에서 **일반적인 트리거로 시작** 아래에 있
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Azure Portal의 Logic Apps 디자이너에서 흐름을 만드는 스크린샷입니다. 사용자 지정 커넥터가 강조 표시됩니다.":::
 
-해당 커넥터에 포함된 API의 목록을 표시하려면 상자를 선택합니다. 검색 창을 사용하거나 목록을 스크롤하여 **DigitalTwins_Add** 를 선택합니다. **(DigitalTwins_Add** 작업은 이 문서에서 사용되는 API 호출이지만 다른 API를 Logic Apps 연결에 대한 유효한 선택으로 선택할 수도 있습니다.)
+해당 커넥터에 포함된 API의 목록을 표시하려면 상자를 선택합니다. 검색 창을 사용하거나 목록을 스크롤하여 **DigitalTwins_Add** 를 선택합니다. **DigitalTwins_Add** 작업은 이 문서에서 사용되는 API 호출이지만 다른 API를 Logic Apps 연결에 대한 유효한 선택으로 선택할 수도 있습니다.
 
 커넥터에 연결하려면 Azure 자격 증명을 사용하여 로그인하라는 메시지가 나타날 수 있습니다. **요청된 권한** 대화 상자가 나타나면 메시지에 따라 앱에 대한 동의를 부여하고 수락합니다.
 

@@ -6,12 +6,12 @@ ms.date: 11/02/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 970c352bcb7f04d04cddaaa24769eb4a26896605
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9cb45718d9e54e54d1154de5d3b19daeb707c52f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431800"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714507"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 여러 SQL Server VM 백업
 
@@ -38,7 +38,7 @@ SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하�
 1. SQL Server 데이터베이스의 이름이 [Azure Backup 데이터베이스 명명 지침](#database-naming-guidelines-for-azure-backup)에 따라 지정되었는지 확인합니다.
 1. SQL Server VM 이름과 리소스 그룹 이름이 결합된 길이가 Azure Resource Manager VM의 경우 84자(또는 클래식 VM의 경우 77자)를 초과하지 않는지 확인합니다. 이 제한은 서비스에서 일부 문자를 예약했기 때문에 발생합니다.
 1. 데이터베이스에 사용할 수 있는 다른 백업 솔루션이 없는지 확인합니다. 데이터베이스를 백업하기 전에 다른 모든 SQL Server 백업을 사용하지 않도록 설정합니다.
-1. SQL Server 2008 R2 또는 SQL Server 2012를 사용하는 경우 [여기](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of)서 설명한 대로 백업에 대한 표준 시간대 문제가 발생할 수 있습니다. 위에서 설명한 표준 시간대 관련 문제를 방지하려면 최신 누적 업데이트를 진행해야 합니다. 업데이트를 Azure VM의 SQL Server 인스턴스에 적용할 수 없는 경우 DST(일광 절약 시간)를 가상 머신의 표준 시간대에 사용하지 않도록 설정합니다.
+1. SQL Server 2008 R2 또는 SQL Server 2012를 사용하는 경우 [여기](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of)서 설명한 대로 백업에 대한 표준 시간대 문제가 발생할 수 있습니다. 위에서 설명한 표준 시간대 관련 문제를 방지 하기 위해 최신 누적 업데이트를 사용 하 고 있는지 확인 합니다. 업데이트를 Azure VM의 SQL Server 인스턴스에 적용할 수 없는 경우 DST(일광 절약 시간)를 가상 머신의 표준 시간대에 사용하지 않도록 설정합니다.
 
 > [!NOTE]
 > Azure VM과 이 VM에서 실행되는 SQL Server 데이터베이스에 대한 Azure Backup을 충돌 없이 사용하도록 설정할 수 있습니다.
@@ -99,6 +99,9 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 
 Azure VM에서 SQL Server 데이터베이스를 백업하는 경우 VM의 백업 확장에서 HTTPS API를 사용하여 관리 명령을 Azure Backup에 보내고 데이터를 Azure Storage에 보냅니다. 백업 확장도 인증에 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 필요한 서비스에 대한 액세스를 허용하려면 위에서 언급한 IP 및 FQDN 목록을 사용하세요. 인증된 프록시 서버는 지원되지 않습니다.
 
+> [!NOTE]
+> VM 내에서 localhost 통신에 대 한 프록시를 사용 하지 않도록 설정 합니다. 프록시는 SQL VM의 아웃 바운드 통신에 대해 적용 됩니다.
+
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Azure Backup 데이터베이스 명명 지침
 
 - 데이터베이스 이름에 다음 요소를 사용하지 마세요.
@@ -126,9 +129,9 @@ VM에서 실행되는 데이터베이스를 검색하는 방법:
 
 1. [Azure Portal](https://portal.azure.com)백업 센터로 이동하여 **+백업을** 클릭합니다. 
 
-1. **Azure VM의 SQL** 데이터 원본 유형으로 선택하고 만든 Recovery Services 자격 증명 모음을 선택한 다음 **계속을** 클릭합니다.
+1. 데이터 원본 유형으로 **Azure VM에서 SQL** 선택하고 만든 Recovery Services 자격 증명 모음을 선택한 다음 **계속을** 클릭합니다.
 
-   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="백업을 선택하여 VM에서 실행 중인 데이터베이스를 표시하는 스크린샷":::
+   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="VM에서 실행 중인 데이터베이스를 보기 위해 백업을 선택하는 방법을 보여주는 스크린샷.":::
 
 1. **백업 목표** > **VM에서 DB 검색** 에서 **검색 시작** 을 선택하여 구독에서 보호되지 않은 가상 머신을 검색합니다. 구독에서 보호되지 않은 VM의 수에 따라 검색하는 데 약간의 시간이 걸릴 수 있습니다.
 
@@ -249,7 +252,7 @@ VM에서 실행되는 데이터베이스를 검색하는 방법:
     * 데이터베이스가 [단순 복구 모델](/sql/relational-databases/backup-restore/recovery-models-sql-server)인 경우 해당 데이터베이스에 대한 로그 백업 일정이 일시 중지되므로 로그 백업이 트리거되지 않습니다.
     * 데이터베이스의 복구 모델이 **전체** 에서 **단순** 으로 변경되면 로그 백업이 복구 모델 변경 후 24시간 이내에 일시 중지됩니다. 마찬가지로 복구 모델이 **단순** 에서 변경되면 이제 데이터베이스에 대한 로그 백업이 지원될 수 있음을 의미하며 로그 백업 일정이 복구 모델 변경 후 24시간 이내에 사용하도록 설정됩니다.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup-inline.png" alt-text="로그 백업 정책을 보여 주는 스크린샷" lightbox="./media/backup-azure-sql-database/sql-log-backup-expanded.png":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup-inline.png" alt-text="로그 백업 정책을 보여주는 스크린샷." lightbox="./media/backup-azure-sql-database/sql-log-backup-expanded.png":::
 
 1. **백업 정책** 메뉴에서 **SQL 백업 압축** 을 사용할지 여부를 선택합니다. 이 옵션은 기본적으로 사용하지 않도록 설정됩니다. 사용하도록 설정하면 SQL Server가 압축된 백업 스트림을 VDI로 보냅니다. Azure Backup은 이 제어의 값에 따라 COMPRESSION/NO_COMPRESSION 절을 사용하여 인스턴스 수준 기본값을 재정의합니다.
 

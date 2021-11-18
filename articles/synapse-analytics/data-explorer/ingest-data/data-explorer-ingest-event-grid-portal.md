@@ -1,6 +1,6 @@
 ---
-title: Event Grid 데이터를 Azure Synapse 데이터 탐색기 수집(미리 보기)
-description: Event Grid 데이터를 Azure Synapse 데이터 탐색기 수집(로드)하는 방법을 알아봅니다.
+title: Event Grid Azure Synapse 데이터 탐색기 데이터 수집(미리 보기)
+description: Event Grid Azure Synapse 데이터 탐색기 데이터를 수집(로드)하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 11/02/2021
 author: shsagir
@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 2c472ae5950bc035612987c35e76291dc5c23f49
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: cb275db1c34fa8e479a10a3ac5495160855c6add
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132485660"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720362"
 ---
 # <a name="ingest-blobs-into-azure-synapse-data-explorer-by-subscribing-to-event-grid-notifications-preview"></a>Event Grid 알림을 구독하여 blob을 Azure Synapse 데이터 탐색기(미리 보기)
 
@@ -27,11 +27,11 @@ ms.locfileid: "132485660"
 
 [!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)]
 
-이 문서에서는 Event Grid 데이터 연결을 사용하여 스토리지 계정에서 Azure Synapse 데이터 탐색기 Blob을 수집합니다. [Azure Event Grid](/azure/event-grid/overview) 구독을 설정하는 Event Grid 데이터 연결을 만듭니다. Event Grid 구독은 Azure Event Hub를 통해 스토리지 계정에서 데이터 탐색기 이벤트를 라우팅합니다. 그런 다음 시스템 전체에 걸친 데이터 흐름의 예를 볼 수 있습니다.
+이 문서에서는 Event Grid 데이터 연결을 사용하여 스토리지 계정에서 Azure Synapse 데이터 탐색기 Blob을 수집합니다. [Azure Event Grid](../../../event-grid/overview.md) 구독을 설정하는 Event Grid 데이터 연결을 만듭니다. Event Grid 구독은 Azure Event Hub를 통해 스토리지 계정에서 데이터 탐색기 이벤트를 라우팅합니다. 그런 다음 시스템 전체에 걸친 데이터 흐름의 예를 볼 수 있습니다.
 
-Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-explorer-ingest-event-grid-overview.md)<!-- To create resources manually in the Azure portal, see [Manually create resources for Event Grid ingestion](ingest-data-event-grid-manual.md). -->
+Event Grid 데이터 탐색기 커넥트 Event Grid. [](data-explorer-ingest-event-grid-overview.md)<!-- To create resources manually in the Azure portal, see [Manually create resources for Event Grid ingestion](ingest-data-event-grid-manual.md). -->
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
@@ -56,7 +56,7 @@ Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-expl
         ```
 
 * [스토리지 계정](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)을 만듭니다.
-* Event Grid 알림 구독은 `BlobStorage`, `StorageV2` 또는 [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)용 Azure Storage 계정에서 설정할 수 있습니다.
+* Event Grid 알림 구독은 `BlobStorage`, `StorageV2` 또는 [Data Lake Storage Gen2](../../../storage/blobs/data-lake-storage-introduction.md)용 Azure Storage 계정에서 설정할 수 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -96,7 +96,7 @@ Event Grid 데이터 탐색기 Event Grid 커넥트 [참조하세요.](data-expl
         * Blob 접두사(또는 Azure Data Lake Gen2의 폴더)에 대한 필터를 정의하려면 필드를 *반드시* 다음과 같이 설정해야 합니다. *`/blobServices/default/containers/[container name]/blobs/[folder/blob prefix]`* .
     * **접미사** 필드는 Blob의 *리터럴* 접미사입니다. 와일드카드는 허용되지 않습니다.
     * **대/소문자 구분** 필드는 접두사 및 접미사 필터가 대/소문자를 구분하는지 여부를 나타냅니다.
-    * 이벤트 필터링에 대한 자세한 내용은 [Blob Storage 이벤트](/azure/storage/blobs/storage-blob-event-overview#filtering-events)를 참조하세요.
+    * 이벤트 필터링에 대한 자세한 내용은 [Blob Storage 이벤트](../../../storage/blobs/storage-blob-event-overview.md#filtering-events)를 참조하세요.
 
     :::image type="content" source="../media/ingest-data-event-grid/filter-settings.png" alt-text="필터 설정 Event Grid.":::
 
@@ -148,7 +148,7 @@ Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명�
 1. 해당 컨테이너에 기존 파일을 Blob으로 업로드합니다.
 1. 컨테이너의 Blob을 나열합니다.
 
-[Azure Cloud Shell](/azure/cloud-shell/overview)을 사용하여 포털에서 직접 스크립트를 실행할 수 있습니다.
+[Azure Cloud Shell](../../../cloud-shell/overview.md)을 사용하여 포털에서 직접 스크립트를 실행할 수 있습니다.
 
 파일에 데이터를 저장하고 이 스크립트를 사용하여 업로드합니다.
 

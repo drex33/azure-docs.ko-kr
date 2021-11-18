@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 78b8615a959a5913b171b8f52b5f6ee0caa85578
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: fae60a1a6375190f995ee3b1cc7c6639b9f6dd3b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517485"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712873"
 ---
 # <a name="advanced-siem-information-model-asim-security-content--public-preview"></a>ASIM(고급 SIEM 정보 모델) 보안 콘텐츠(공개 미리 보기)
 

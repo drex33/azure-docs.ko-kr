@@ -7,12 +7,12 @@ ms.date: 11/16/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: b207fa803831aaa1e53da2c9991517a26fb9c07b
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 09cadbdc0ba340c863b7ad3ddc62ea29a5d92ef1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132550490"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717921"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원하는 방법
 
@@ -88,7 +88,7 @@ VM을 복원(새 VM 만들기)하려면 VM 복원 작업에 대한 올바른 Azu
 1. **가상 머신 복원** > **새로 만들기** > **복원 유형** 에서 **가상 머신 만들기** 를 선택합니다.
 1. **가상 머신 이름** 에서 구독에 없는 VM을 지정합니다.
 1. **리소스 그룹** 에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
-1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 활성 상태이 고 선호도 그룹과 연결 되지 않은 자격 증명 모음과 동일한 위치에 있는 구독과 연결 된 모든 Vnet 표시 됩니다. 서브넷을 선택합니다.
+1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 활성 상태이고 선호도 그룹에 연결되지 않은 자격 증명 모음과 동일한 위치에 있는 구독과 연결된 모든 VNet이 표시됩니다. 서브넷을 선택합니다.
 
    기본적으로 첫 번째 서브넷이 선택됩니다.
 
@@ -169,7 +169,7 @@ CRR을 사용하도록 설정된 경우 보조 지역에서 백업 항목을 볼
 1. **보조 지역** 을 선택하여 보조 지역의 항목을 봅니다.
 
 >[!NOTE]
->CRR 기능을 지원하는 백업 관리 유형만 목록에 표시됩니다. 현재 보조 지역에 대한 보조 지역 데이터 복원만 지원됩니다.<br></br>Azure VM용 CRR은 Azure Managed VM(암호화된 Azure VM 포함)에 지원됩니다. 지역 [간 복원을 지원하는 관리 유형을](/azure/backup/backup-support-matrix#cross-region-restore)참조하세요.
+>CRR 기능을 지원하는 백업 관리 유형만 목록에 표시됩니다. 현재 보조 지역에 대한 보조 지역 데이터 복원만 지원됩니다.<br></br>Azure VM용 CRR은 Azure Managed VM(암호화된 Azure VM 포함)에 지원됩니다. 지역 [간 복원을 지원하는 관리 유형을](./backup-support-matrix.md#cross-region-restore)참조하세요.
 
 ![보조 지역의 가상 머신](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 

@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d9e634597d82b6cac52237f0c800cdfc33bc883a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fd04c533b3791ba0628b09aba13dc4884599f7a8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635416"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716413"
 ---
 # <a name="rest-api"></a>REST API
 이 문서에서는 IoT Edge의 Azure Event Grid에 있는 REST API에 대해 설명합니다.
@@ -50,7 +50,7 @@ IoT Edge의 Event Grid에는 HTTP(포트 5888) 및 HTTPS(포트 4438)를 통해 
     
 `Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
-이진 모드의 **CloudEventSchemaV1_0** 의 경우 [설명서](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md)에서 세부 정보를 참조하십시오.
+이진 모드의 **CloudEventSchemaV1_0** 의 경우 [설명서](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md)에서 세부 정보를 참조하십시오.
 
 ### <a name="error-response"></a>오류 응답
 모든 API는 다음 페이로드가 있는 오류를 반환합니다.

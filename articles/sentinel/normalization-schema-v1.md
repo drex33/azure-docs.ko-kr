@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c5f88a7b5234e2a791d26ecc339e6750497ef6a9
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b263a0d7be7d0bd42494dc5c5a931f9c97b00bfb
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522862"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712854"
 ---
 # <a name="microsoft-sentinel-network-normalization-schema-legacy-version---public-preview"></a>Microsoft Sentinel 네트워크 정규화 스키마(레거시 버전 - 공개 미리 보기)
 
@@ -88,7 +86,7 @@ ms.locfileid: "132522862"
 | **EventVendor** | String | Microsoft | 이벤트를 생성하는 제품의 공급 업체 | 이벤트 |
 | **EventResult** | 다중값: 성공, 부분, 실패, [비어 있음](문자열) | Success | 작업에 대해 보고된 결과로 해당 사항이 없는 경우 빈 값입니다. | 이벤트 |
 | **EventResultDetails** | String | 잘못된 암호 | EventResult에 보고된 결과에 대한 이유 또는 세부 정보 | 이벤트 |
-| **EventSchemaVersion** | Real | 0.1 | Microsoft 센티널 스키마 버전입니다. 현재 0.1입니다. | 이벤트 |
+| **EventSchemaVersion** | Real | 0.1 | Microsoft Sentinel 스키마 버전. 현재 0.1입니다. | 이벤트 |
 | **EventSeverity** | String | 낮음 | 보고된 작업이 보안에 영향을 주는 경우 영향의 심각도를 나타냅니다. | 이벤트 |
 | **EventOriginalUid** | String | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | 보고 디바이스의 레코드 ID | 이벤트 |
 | **EventStartTime** | 날짜/시간 | “데이터 형식”을 참조하세요. | 이벤트가 언급된 시간 | 이벤트 |

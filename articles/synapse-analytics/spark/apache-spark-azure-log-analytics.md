@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: dcf09885dab6ba41d545e4105a86c99535786c62
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: edb86a4c264b291516b3cc52d3d5dbfa159ace32
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223142"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312175"
 ---
 # <a name="monitor-apache-spark-applications-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 Apache Spark 애플리케이션 모니터링
 
@@ -52,7 +52,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 #### <a name="option-2-configure-with-azure-key-vault"></a>옵션 2: Azure Key Vault로 구성
 
 > [!NOTE]
-> Apache Spark 애플리케이션을 제출하는 사용자에게 비밀 읽기 권한을 부여해야 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../../key-vault/general/rbac-guide.md)을 참조하세요.
+> Apache Spark 애플리케이션을 제출하는 사용자에게 비밀 읽기 권한을 부여해야 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../../key-vault/general/rbac-guide.md)을 참조하세요. Synapse 파이프라인에서 이 기능을 사용하는 경우 **옵션 3** 을 사용해야 합니다. 이는 작업 영역 관리 ID가 있는 Azure Key Vault에서 비밀을 얻는 데 필요합니다.
 
 작업 영역 키를 저장할 Azure Key Vault를 구성하려면 다음 단계를 수행합니다.
 
@@ -82,7 +82,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 #### <a name="option-3-configure-with-a-linked-service"></a>옵션 3. 연결된 서비스를 통해 구성
 
 > [!NOTE]
-> Apache Spark 애플리케이션을 제출하는 사용자에게 비밀 읽기 권한을 부여해야 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../../key-vault/general/rbac-guide.md)을 참조하세요.
+> 이 옵션에서는 작업 영역 관리 ID에 읽기 비밀 권한을 부여해야 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../../key-vault/general/rbac-guide.md)을 참조하세요.
 
 Synapse Studio에서 작업 영역 키를 저장할 Key Vault 연결된 서비스를 구성하려면 다음 단계를 수행합니다.
 

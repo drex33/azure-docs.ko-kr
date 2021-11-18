@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 10/18/2021
 zone_pivot_groups: iot-develop-toolset
-ms.openlocfilehash: 2d5d8aafb9eaae7617ee7ecc98cc8896339f23e6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f5bae84a80ed76b2a000ac2cdda134ce923a9aa9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218150"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708156"
 ---
 # <a name="quickstart-connect-a-microchip-atsame54-xpro-evaluation-kit-to-iot-central"></a>빠른 시작: Microchip ATSAME54-XPro 평가 키트를 IoT Central에 연결
 
@@ -37,7 +37,7 @@ ms.locfileid: "130218150"
 
 :::zone pivot="iot-toolset-cmake"
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Windows 10을 실행하는 PC
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
@@ -252,7 +252,7 @@ Weather Click 센서 및 mikroBUS Xplained Pro 어댑터가 있는 경우 이 �
 
 * IAR EW for ARM(Embedded Workbench for ARM). [IAR EW for ARM 14일 평가판](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/)을 다운로드하여 설치할 수 있습니다.
 
-* [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) 파일을 다운로드하여 작업 디렉터리에 압축을 풉니다. 빌드할 때 컴파일러 오류를 방지하려면 경로가 짧은 디렉터리를 선택합니다.
+* [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/rel_6.1_pnp_beta/Azure_RTOS_6.1_PnP_ATSAME54-XPRO_IAR_Sample_2021_03_18.zip) 파일을 다운로드하여 작업 디렉터리에 압축을 풉니다. 빌드할 때 컴파일러 오류를 방지하려면 경로가 짧은 디렉터리를 선택합니다.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -386,7 +386,7 @@ Telemetry message send: {"temperature":22}.
 
 * [MPLAB XC32/32++ 컴파일러 2.4.0 이상](https://www.microchip.com/mplab/compilers)
 
-* [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip) 파일을 다운로드하여 작업 디렉터리에 압축을 풉니다. 빌드할 때 컴파일러 오류를 방지하려면 경로가 짧은 디렉터리를 선택합니다.
+* [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/rel_6.1_pnp_beta/Azure_RTOS_6.1_PnP_ATSAME54-XPRO_MPLab_Sample_2021_03_18.zip) 파일을 다운로드하여 작업 디렉터리에 압축을 풉니다. 빌드할 때 컴파일러 오류를 방지하려면 경로가 짧은 디렉터리를 선택합니다.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 

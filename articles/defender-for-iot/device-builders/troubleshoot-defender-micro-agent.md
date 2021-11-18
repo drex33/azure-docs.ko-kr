@@ -1,18 +1,18 @@
 ---
-title: Defender for Cloud IoT 마이크로 에이전트 문제 해결(미리 보기)
+title: Defender for IoT 마이크로 에이전트 문제 해결(미리 보기)
 description: 예기치 않은 오류 또는 설명할 수 없는 오류를 처리하는 방법을 알아봅니다.
 ms.date: 11/09/2021
 ms.topic: reference
-ms.openlocfilehash: 94fd4c75a24b37bbc50ca582ca7bb64de87a042c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: e30e53e7db9830b9e8f544f761c59ea7b7b3ab94
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132283964"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709239"
 ---
-# <a name="defender-for-cloud-iot-micro-agent-troubleshooting-preview"></a>Defender for Cloud IoT 마이크로 에이전트 문제 해결(미리 보기)
+# <a name="defender-for-iot-micro-agent-troubleshooting-preview"></a>Defender for IoT 마이크로 에이전트 문제 해결(미리 보기)
 
-예기치 않은 오류가 발생하는 경우 이러한 문제 해결 방법을 사용하여 문제를 해결할 수 있습니다. 필요에 따라 cloud for IoT 제품 팀에 문의하여 Azure Defender 문의할 수도 있습니다.   
+예기치 않은 오류가 발생하는 경우 이러한 문제 해결 방법을 사용하여 문제를 해결할 수 있습니다. 필요에 따라 Azure Defender for Cloud for IoT 제품 팀에 문의할 수도 있습니다.   
 
 ## <a name="service-status"></a>서비스 상태 
 
@@ -38,7 +38,7 @@ systemctl start defender-iot-micro-agent.service
 
 ## <a name="validate-micro-agent-root-privileges"></a>마이크로 에이전트 루트 권한 유효성 검사
 
-다음 명령을 사용하여 Defender for Cloud IoT 마이크로 에이전트 서비스가 루트 권한으로 실행되고 있는지 확인합니다.
+다음 명령을 사용하여 Defender for IoT 마이크로 에이전트 서비스가 루트 권한으로 실행되고 있는지 확인합니다.
 
 ```bash
 ps -aux | grep " defender-iot-micro-agent"

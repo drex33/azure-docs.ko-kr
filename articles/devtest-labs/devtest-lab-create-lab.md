@@ -1,16 +1,16 @@
 ---
-title: 빠른 시작 - 포털을 사용하여 랩 만들기
+title: '빠른 시작: Azure Portal에서 랩 만들기'
 description: 이 빠른 시작에서는 Azure Portal 및 Azure DevTest Labs를 사용하여 랩을 만듭니다.
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.openlocfilehash: b3c80481bdfdd4a46e49a201db7a9251c34e0d9e
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 5f86c09c4f2d6fab4ad590d7e0bf62194c666e10
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132133631"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286396"
 ---
-# <a name="quickstart-create-a-lab-in-azure-devtest-labs-using-the-portal"></a>빠른 시작: 포털을 사용하여 Azure DevTest Labs에서 랩 만들기
+# <a name="quickstart-create-a-lab-in-azure-devtest-labs-in-azure-portal"></a>빠른 시작: Azure Portal의 Azure DevTest Labs에서 랩 만들기
 
 Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니다. Azure DevTest Labs는 Azure VM(가상 머신) 및 네트워크와 같은 리소스 그룹을 포함합니다. 이 인프라를 사용하면 제한 및 할당량을 지정하여 해당 리소스를 더 잘 관리할 수 있습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 랩을 만드는 프로세스를 안내합니다.
 
@@ -35,12 +35,12 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 다음 정보를 지정합니다.
 
-|속성 | Description |
+|속성 | 설명 |
 |---|---|
 |구독| 드롭다운 목록에서 랩에 사용할 Azure 구독을 선택합니다.|
-|리소스&nbsp;그룹| 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
+|Resource&nbsp;group| 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
 |랩 이름| 랩에 대해 구독 내에서 고유한 이름을 입력합니다.|
-|Location| 드롭다운 목록에서 랩에 사용되는 위치를 선택합니다.|
+|위치| 드롭다운 목록에서 랩에 사용되는 위치를 선택합니다.|
 |공용 환경| 공용 환경 리포지토리에는 랩 사용자가 랩 내에서 PaaS 리소스를 만들 수 있도록 하는 큐레이팅된 Azure Resource Manager 템플릿 목록이 포함되어 있습니다. 자세한 내용은 [퍼블릭 환경 구성 및 사용](devtest-lab-configure-use-public-environments.md)을 참조하세요.|
 
 :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="DevTest Labs 만들기에 대한 기본 설정 탭의 스크린샷":::
@@ -52,7 +52,7 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 다음 정보를 지정합니다.
 
-|속성 | Description |
+|속성 | 설명 |
 |---|---|
 |사용| 이 정책을 사용하도록 설정하려면 **켜기** 를 선택하고, 사용하지 않도록 설정하려면 **끄기** 를 선택합니다.|
 |예약된&nbsp;종료| 현재 랩의 모든 VM을 종료할 시간을 입력합니다.|
@@ -69,7 +69,7 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 다음 정보를 지정합니다.
 
-|속성 | Description |
+|속성 | 설명 |
 |---|---|
 |가상&nbsp;네트워크| 기본값을 유지하거나 드롭다운 목록에서 기존 값을 선택합니다. 가상 네트워크는 Azure에서 논리적으로 서로 격리됩니다. 기본적으로 동일한 가상 네트워크의 가상 머신은 서로 액세스할 수 있습니다.|
 |서브넷| 기본값을 유지하거나 드롭다운 목록에서 기존 값을 선택합니다. 서브넷은 가상 머신을 서로 격리하거나 인터넷에서 격리하는 데 사용할 수 있는 가상 네트워크의 IP 주소 범위입니다.|
@@ -82,9 +82,9 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 다음 정보를 지정합니다.
 
-|속성 | Description |
+|속성 | 설명 |
 |---|---|
-|Name| 태그 이름은 대/소문자를 구분하지 않으며, 512자로 제한됩니다.|
+|이름| 태그 이름은 대/소문자를 구분하지 않으며, 512자로 제한됩니다.|
 |값| 태그 값은 대/소문자를 구분하며, 256자로 제한됩니다.|
 
 :::image type="content" source="./media/devtest-lab-create-lab/portal-create-tags.png" alt-text="태그 세부 정보의 스크린샷":::
@@ -109,7 +109,7 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 Azure에서 랩을 실행하는 데 드는 요금이 발생하지 않도록 리소스를 삭제합니다. 다음 문서로 계속 진행하여 VM을 랩에 추가하려는 경우 해당 문서를 완료한 후 리소스를 정리할 수 있습니다. 액세스 권한이 없는 경우 다음 단계를 수행하세요.
 
-1. 만들든 랩의 홈 페이지로 돌아갑니다.
+1. 만든 랩의 홈 페이지로 돌아갑니다.
 
 1. 위쪽 메뉴에서 **삭제** 를 선택합니다.
 

@@ -1,13 +1,11 @@
 ---
-title: Microsoft 센티널에서 플레이 북을 사용 하 여 위협 대응 자동화 | Microsoft Docs
-description: 이 문서에서는 Microsoft 센티널의 자동화에 대해 설명 하 고, 플레이 북을 사용 하 여 위협 방지 및 응답을 자동화 하는 방법을 보여 줍니다.
+title: Microsoft Sentinel | 플레이북을 사용하여 위협 대응 자동화 Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel의 자동화에 대해 설명하고 플레이북을 사용하여 위협 방지 및 대응을 자동화하는 방법을 보여줍니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +13,18 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 34b1400b2d3e4b69b83c572517df230380bc2a91
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: ce0edbdd0464772264e29315e463d989b79bbaa3
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522140"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718092"
 ---
-# <a name="automate-threat-response-with-playbooks-in-microsoft-sentinel"></a>Microsoft 센티널에서 플레이 북을 사용 하 여 위협 대응 자동화
+# <a name="automate-threat-response-with-playbooks-in-microsoft-sentinel"></a>Microsoft Sentinel에서 플레이북을 사용하여 위협 대응 자동화
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Microsoft 센티널 플레이 북의 정의와이를 사용 하 여 보안 오케스트레이션, Automation and Response (대화 충성도) 작업을 구현 하는 데 시간과 리소스를 절약 하는 동시에 더 나은 결과를 얻는 방법에 대해 설명 합니다.
+이 문서에서는 Microsoft Sentinel 플레이북의 정의와 이를 사용하여 SOAR(보안 오케스트레이션, 자동화 및 응답) 작업을 구현하여 시간과 리소스를 절약하면서 더 나은 결과를 달성하는 방법을 설명합니다.
 
 ## <a name="what-is-a-playbook"></a>플레이북이란?
 
@@ -34,37 +32,37 @@ ms.locfileid: "132522140"
 
 대부분의 경우 경고 및 인시던트는 특정 및 정의된 수정 작업으로 해결할 수 있는 반복 패턴을 따릅니다.
 
-플레이 북은 Microsoft 센티널에서 루틴으로 실행할 수 있는 이러한 수정 작업의 컬렉션입니다. 플레이북은 [**위협 대응을 자동화하고 오케스트레이션**](tutorial-respond-threats-playbook.md)하는 데 도움이 될 수 있습니다. 각각 분석 규칙 또는 자동화 규칙에 따라 트리거되는 경우 특정 경고나 인시던트에 대응하여 플레이북을 자동으로 실행되도록 설정하거나 수동으로 실행할 수 있습니다.
+플레이북은 Microsoft Sentinel에서 루틴으로 실행할 수 있는 이러한 수정 작업의 컬렉션입니다. 플레이북은 [**위협 대응을 자동화하고 오케스트레이션**](tutorial-respond-threats-playbook.md)하는 데 도움이 될 수 있습니다. 각각 분석 규칙 또는 자동화 규칙에 따라 트리거되는 경우 특정 경고나 인시던트에 대응하여 플레이북을 자동으로 실행되도록 설정하거나 수동으로 실행할 수 있습니다.
 
 예를 들어 계정과 머신이 손상된 경우 플레이북은 SOC 팀이 인시던트 알림을 받을 때까지 네트워크에서 머신을 격리하고 계정을 차단할 수 있습니다.
 
-플레이 북은 속한 구독 내에서 사용할 수 있지만, 플레이 **북 탭 (** **Automation** 블레이드에서)은 선택한 구독에서 사용할 수 있는 모든 플레이 북을 표시 합니다.
+플레이북은 속한 구독 내에서 사용할 수 **있지만, 플레이북** 탭(Automation  블레이드)에는 선택한 구독에서 사용할 수 있는 모든 플레이북이 표시됩니다.
 
-### <a name="playbook-templates"></a>플레이 북 템플릿
+### <a name="playbook-templates"></a>플레이북 템플릿
 
 > [!IMPORTANT]
 >
-> **플레이 북 템플릿은** 현재 **미리 보기** 상태입니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> **플레이북 템플릿은** 현재 **미리 보기로** 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-플레이 북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 작성 되 고 테스트 되 고 사용이 가능한 워크플로입니다. 템플릿은 처음부터 플레이 북을 개발할 때 모범 사례에 대 한 참조 나 새로운 자동화 시나리오의 역할을 할 수도 있습니다.
+플레이북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 빌드되고 테스트되고 즉시 사용할 수 있는 워크플로입니다. 템플릿은 플레이북을 처음부터 개발할 때 모범 사례에 대한 참조로 사용하거나 새로운 자동화 시나리오에 대한 영감을 제공할 수도 있습니다.
 
-플레이 북 템플릿은 플레이 북 (템플릿의 편집 가능한 복사본)를 만들 때까지 활성 플레이 북이 아닙니다.
+플레이북 템플릿은 플레이북(템플릿의 편집 가능한 복사본)을 만들 때까지 활성 플레이북 자체가 아닙니다.
 
-다음 원본에서 플레이 북 템플릿을 가져올 수 있습니다.
+다음 원본에서 플레이북 템플릿을 얻을 수 있습니다.
 
-- **플레이 북 템플릿** 탭 ( **Automation** 아래)은 Microsoft 센티널 커뮤니티에서 제공 하는 주요 시나리오를 제공 합니다. 동일한 템플릿에서 여러 활성 플레이 북을 만들 수 있습니다.
+- **플레이북 템플릿** 탭(Automation 아래)은 Microsoft Sentinel 커뮤니티에서 제공하는 주요 시나리오를 제공합니다. 동일한 템플릿에서 여러 활성 플레이북을 만들 수 있습니다.
 
-    새 버전의 템플릿이 게시 되 면 해당 템플릿에서 만든 활성 플레이 북 (플레이 **북** 탭)에 업데이트를 사용할 수 있다는 알림이 표시 됩니다.
+    새 버전의 템플릿이 게시되면 해당 템플릿에서 만든 활성 **플레이북(플레이북** 탭)에 업데이트를 사용할 수 있다는 알림이 레이블로 지정됩니다.
 
-- 플레이 북 템플릿은 특정 제품의 컨텍스트에서 [Microsoft 센티널 솔루션](sentinel-solutions.md) 의 일부로 가져올 수도 있습니다. 솔루션을 배포 하면 활성 플레이 북이 생성 됩니다.
+- 플레이북 템플릿은 특정 제품의 컨텍스트에서 [Microsoft Sentinel 솔루션의](sentinel-solutions.md) 일부로 가져올 수도 있습니다. 솔루션을 배포하면 활성 플레이북이 생성됩니다.
 
-- [Microsoft 센티널 GitHub 리포지토리에](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) 는 많은 플레이 북 템플릿이 포함 되어 있습니다. Azure **에 배포** 단추를 선택 하 여 azure 구독에 배포할 수 있습니다.
+- [Microsoft Sentinel GitHub 리포지토리에는](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) 많은 플레이북 템플릿이 포함되어 있습니다. Azure에 배포 단추를 선택하여 Azure 구독에 **배포할** 수 있습니다.
 
-기술적으로 플레이 북 템플릿은 관련 된 각 연결에 대 한 Azure Logic Apps 워크플로 및 API 연결의 여러 리소스로 구성 된 [ARM 템플릿입니다](../azure-resource-manager/templates/index.yml) .
+기술적으로 플레이북 템플릿은 관련된 각 연결에 대한 Azure Logic Apps 워크플로 및 API 연결과 같은 여러 리소스로 구성된 [ARM 템플릿입니다.](../azure-resource-manager/templates/index.yml)
 
 ### <a name="azure-logic-apps-basic-concepts"></a>Azure Logic Apps 기본 개념
 
-Microsoft 센티널의 플레이 북은 기업 전체 시스템에서 작업 및 워크플로를 예약, 자동화 및 오케스트레이션 하는 데 도움이 되는 클라우드 서비스인 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 빌드된 워크플로를 기반으로 합니다. 즉, 플레이북은 Logic Apps 기본 제공 템플릿을 모두 활용하고 사용자 지정할 수 있습니다.
+Microsoft Sentinel의 플레이북은 엔터프라이즈 전체의 시스템에서 작업 및 워크플로를 예약, 자동화 및 오케스트레이션하는 데 도움이 되는 클라우드 서비스인 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)기본 제공 워크플로를 기반으로 합니다. 즉, 플레이북은 Logic Apps 기본 제공 템플릿을 모두 활용하고 사용자 지정할 수 있습니다.
 
 > [!NOTE]
 > Azure Logic Apps는 별도의 리소스이므로 추가 요금이 적용될 수 있습니다. 자세한 내용은 [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) 가격 책정 페이지를 방문하세요.
@@ -77,10 +75,10 @@ Azure Logic Apps는 커넥터를 사용하여 다른 시스템 및 서비스와 
 - **사용자 지정 커넥터:** 미리 빌드된 커넥터로 사용할 수 없는 서비스와 통신하는 것이 좋습니다. 사용자 지정 커넥터는 커넥터를 만들고 공유하고 자체 트리거와 작업을 정의할 수 있도록 하여 이러한 요구를 해결합니다.
   - [고유한 사용자 지정 Logic Apps 커넥터 만들기](/connectors/custom-connectors/create-logic-apps-connector)
 
-- **Microsoft 센티널 커넥터:** Microsoft 센티널과 상호 작용 하는 플레이 북을 만들려면 Microsoft 센티널 커넥터를 사용 합니다.
-  - [Microsoft 센티널 커넥터 설명서](/connectors/azuresentinel/)
+- **Microsoft Sentinel 커넥터:** Microsoft Sentinel과 상호 작용하는 플레이북을 만들려면 Microsoft Sentinel 커넥터를 사용합니다.
+  - [Microsoft Sentinel 커넥터 설명서](/connectors/azuresentinel/)
 
-- **트리거:** 플레이북을 시작하는 커넥터 구성 요소입니다. 플레이북이 트리거될 때 수신하는 데 필요한 스키마를 정의합니다. Microsoft 센티널 커넥터에는 현재 두 개의 트리거가 있습니다.
+- **트리거:** 플레이북을 시작하는 커넥터 구성 요소입니다. 플레이북이 트리거될 때 수신하는 데 필요한 스키마를 정의합니다. Microsoft Sentinel 커넥터에는 현재 두 개의 트리거가 있습니다.
   - [경고 트리거](/connectors/azuresentinel/#triggers): 플레이북이 경고를 입력으로 받습니다.
   - [인시던트 트리거](/connectors/azuresentinel/#triggers): 플레이북이 포함된 모든 경고 및 엔터티와 함께 인시던트를 입력으로 받습니다.
 
@@ -94,7 +92,7 @@ Azure Logic Apps는 커넥터를 사용하여 다른 시스템 및 서비스와 
 
 ### <a name="permissions-required"></a>필요한 사용 권한
 
- SecOps 팀에 대화 충성도 (보안 오케스트레이션, 자동화 및 응답) 작업에 대 한 Logic Apps를 사용 하는 기능을 제공 하는 것입니다. 즉, Microsoft 센티널에서 플레이 북을 만들고 실행 하려면 보안 운영 팀의 특정 멤버나 전체 팀에 Azure 역할을 할당할 수 있습니다. 다음은 사용 가능한 여러 역할과 해당 역할에 할당해야 하는 작업에 대한 설명입니다.
+ SecOps 팀에게 SOAR(보안 오케스트레이션, 자동화 및 응답) 작업에 Logic Apps 사용할 수 있는 기능( 즉, 플레이북을 만들고 실행하는 기능)을 Microsoft Sentinel에서 보안 운영 팀의 특정 멤버 또는 전체 팀에 할당할 수 있습니다. 다음은 사용 가능한 여러 역할과 해당 역할에 할당해야 하는 작업에 대한 설명입니다.
 
 #### <a name="azure-roles-for-logic-apps"></a>Logic Apps에 대한 Azure 역할
 
@@ -103,14 +101,14 @@ Azure Logic Apps는 커넥터를 사용하여 다른 시스템 및 서비스와 
 
 #### <a name="azure-roles-for-sentinel"></a>Sentinel에 대한 Azure 역할
 
-- **Microsoft 센티널 기여자** 역할을 사용 하면 플레이 북를 분석 규칙에 연결할 수 있습니다.
-- **Microsoft 센티널 응답기** 역할을 통해 플레이 북를 수동으로 실행할 수 있습니다.
-- **Microsoft 센티널 Automation 기여자** 를 사용 하면 자동화 규칙에서 플레이 북을 실행할 수 있습니다. 다른 용도로는 사용되지 않습니다.
+- **Microsoft Sentinel 기여자** 역할을 사용하면 분석 규칙에 플레이북을 연결할 수 있습니다.
+- **Microsoft Sentinel 응답기** 역할을 사용하면 플레이북을 수동으로 실행할 수 있습니다.
+- **Microsoft Sentinel Automation Contributor를** 사용하면 자동화 규칙이 플레이북을 실행할 수 있습니다. 다른 용도로는 사용되지 않습니다.
 
 #### <a name="learn-more"></a>자세한 정보
 
 - [Azure Logic Apps의 Azure 역할에 대해 자세히 알아보세요](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations).
-- [Microsoft 센티널의 Azure 역할에 대해 자세히 알아보세요](roles.md).
+- [Microsoft Sentinel의 Azure 역할에 대해 자세히 알아봅니다.](roles.md)
 
 ## <a name="steps-for-creating-a-playbook"></a>플레이북을 만드는 단계
 
@@ -124,7 +122,7 @@ Azure Logic Apps는 커넥터를 사용하여 다른 시스템 및 서비스와 
 
 ### <a name="use-cases-for-playbooks"></a>플레이북 사용 사례
 
-Azure Logic Apps 플랫폼은 수백 개의 작업과 트리거를 제공하므로 거의 모든 자동화 시나리오를 만들 수 있습니다. Microsoft 센티널은 다음 SOC 시나리오부터 시작 하는 것이 좋습니다.
+Azure Logic Apps 플랫폼은 수백 개의 작업과 트리거를 제공하므로 거의 모든 자동화 시나리오를 만들 수 있습니다. Microsoft Sentinel은 다음 SOC 시나리오부터 권장합니다.
 
 #### <a name="enrichment"></a>보강
 
@@ -132,11 +130,11 @@ Azure Logic Apps 플랫폼은 수백 개의 작업과 트리거를 제공하므�
 
 예를 들면 다음과 같습니다.
 
-Microsoft 센티널 인시던트는 IP 주소 엔터티를 생성 하는 분석 규칙에 의해 경고에서 만들어졌습니다.
+MICROSOFT Sentinel 인시던트 IP 주소 엔터티를 생성하는 분석 규칙에 의해 경고에서 생성되었습니다.
 
 인시던트는 다음 단계에 따라 플레이북을 실행하는 자동화 규칙을 트리거합니다.
 
-- [새 Microsoft 센티널 인시던트가 생성](/connectors/azuresentinel/#triggers)될 때 시작 합니다. 인시던트에 표시되는 엔터티는 인시던트 트리거의 동적 필드에 저장됩니다.
+- [새 Microsoft Sentinel 인시던트 를 만들 때 시작합니다.](/connectors/azuresentinel/#triggers) 인시던트에 표시되는 엔터티는 인시던트 트리거의 동적 필드에 저장됩니다.
 
 - 각 IP 주소에 대해 [바이러스 합계](https://www.virustotal.com/)와 같은 외부 위협 인텔리전스 공급자를 쿼리하여 더 많은 데이터를 검색합니다.
 
@@ -144,17 +142,17 @@ Microsoft 센티널 인시던트는 IP 주소 엔터티를 생성 하는 분석 
 
 #### <a name="bi-directional-sync"></a>양방향 동기화
 
-**플레이 북은 Microsoft 센티널 인시던트를 다른 티켓 시스템과 동기화 하는 데 사용할 수 있습니다.**
+**플레이북을 사용하여 Microsoft Sentinel 인시던트 및 다른 티켓 시스템을 동기화할 수 있습니다.**
 
 예를 들면 다음과 같습니다.
 
 모든 인시던트 생성에 대한 자동화 규칙을 만들고 ServiceNow에서 티켓을 여는 플레이북을 연결합니다.
 
-- [새 Microsoft 센티널 인시던트가 생성](/connectors/azuresentinel/#triggers)될 때 시작 합니다.
+- [새 Microsoft Sentinel 인시던트 를 만들 때 시작합니다.](/connectors/azuresentinel/#triggers)
 
 - [ServiceNow](/connectors/service-now/)에서 새 티켓을 만듭니다.
 
-- 간편한 피벗을 위해 인시던트 이름, 중요 필드 및 Microsoft 센티널 인시던트에 대 한 URL을 티켓에 포함 합니다.
+- 간편한 피벗을 위해 인시던트 이름, 중요 필드 및 Microsoft Sentinel 인시던트 URL을 티켓에 포함합니다.
 
 #### <a name="orchestration"></a>오케스트레이션
 
@@ -162,11 +160,11 @@ Microsoft 센티널 인시던트는 IP 주소 엔터티를 생성 하는 분석 
 
 예를 들면 다음과 같습니다.
 
-Microsoft 센티널 인시던트는 사용자 이름 및 IP 주소 엔터티를 생성 하는 분석 규칙에 의해 경고에서 만들어졌습니다.
+Microsoft Sentinel 인시던트 는 사용자 이름 및 IP 주소 엔터티를 생성하는 분석 규칙에 의해 경고에서 생성되었습니다.
 
 인시던트는 다음 단계에 따라 플레이북을 실행하는 자동화 규칙을 트리거합니다.
 
-- [새 Microsoft 센티널 인시던트가 생성](/connectors/azuresentinel/#triggers)될 때 시작 합니다.
+- [새 Microsoft Sentinel 인시던트 를 만들 때 시작합니다.](/connectors/azuresentinel/#triggers)
 
 - [Microsoft Teams](/connectors/teams/) 또는 [Slack](/connectors/slack/)의 보안 운영 채널로 메시지를 전송하여 보안 분석가가 이 인시던트를 알게 합니다.
 
@@ -184,7 +182,7 @@ Microsoft 센티널 인시던트는 사용자 이름 및 IP 주소 엔터티를 
 
 **예 1:** [Azure AD ID 보호](../active-directory/identity-protection/overview-identity-protection.md)에서 검색한 손상된 사용자를 나타내는 분석 규칙에 응답합니다.
 
-   - [새 Microsoft 센티널 인시던트가 생성](/connectors/azuresentinel/#triggers)될 때 시작 합니다.
+   - [새 Microsoft Sentinel 인시던트 를 만들 때 시작합니다.](/connectors/azuresentinel/#triggers)
 
    - 손상된 것으로 의심되는 인시던트의 각 사용자 엔터티에 대해 다음을 수행합니다.
 
@@ -197,9 +195,9 @@ Microsoft 센티널 인시던트는 사용자 이름 및 IP 주소 엔터티를 
 
 **예 2:** [엔드포인트용 Microsoft Defender](/windows/security/threat-protection/)에서 검색한 손상된 머신을 나타내는 분석 규칙에 응답합니다.
 
-   - [새 Microsoft 센티널 인시던트가 생성](/connectors/azuresentinel/#triggers)될 때 시작 합니다.
+   - [새 Microsoft Sentinel 인시던트 를 만들 때 시작합니다.](/connectors/azuresentinel/#triggers)
 
-   - Microsoft 센티널에서 **엔터티-호스트 가져오기** 작업을 사용 하 여 인시던트 엔터티에 포함 된 의심 스러운 컴퓨터를 구문 분석 합니다.
+   - Microsoft Sentinel의 **엔터티 - 호스트 받기** 작업을 사용하여 인시던트 엔터티에 포함된 의심스러운 머신을 구문 분석합니다.
 
    - 엔드포인트용 Microsoft Defender에 대해 명령을 실행하여 경고의 [머신을 격리](/connectors/wdatp/#actions---isolate-machine)합니다.
 
@@ -221,7 +219,7 @@ Microsoft 센티널 인시던트는 사용자 이름 및 IP 주소 엔터티를 
 
 #### <a name="alert-creation-automated-response"></a>경고 만들기 자동화된 응답
 
-경고 생성에 의해 트리거되고 경고를 입력으로 수신 하는 플레이 북의 경우 (첫 번째 단계는 "Microsoft 센티널 경고가 트리거될 때") 플레이 북를 분석 규칙에 연결 합니다.
+경고 생성에 의해 트리거되고 해당 입력으로 경고를 수신하는 플레이북의 경우(첫 번째 단계는 "Microsoft Sentinel 경고가 트리거되는 경우") 플레이북을 분석 규칙에 연결합니다.
 
 1. 자동화된 응답을 정의하려는 경고를 생성하는 [분석 규칙](detect-threats-custom.md)을 편집합니다.
 
@@ -229,36 +227,36 @@ Microsoft 센티널 인시던트는 사용자 이름 및 IP 주소 엔터티를 
 
 #### <a name="incident-creation-automated-response"></a>인시던트 만들기 자동화된 응답
 
-인시던트 생성 및 수신 인시던트를 입력으로 트리거한 플레이 북의 경우 (첫 번째 단계는 "Microsoft 센티널 인시던트가 트리거될 때") automation 규칙을 만들고 여기에서 **플레이 북 실행** 작업을 정의 합니다. 이 작업은 두 가지 방법으로 수행할 수 있습니다.
+인시던트 생성에 의해 트리거되고 인시던트 입력으로 수신되는 플레이북의 경우(첫 번째 단계는 "Microsoft Sentinel 인시던트 트리거되는 경우") 자동화 규칙을 만들고 **플레이북 실행** 작업을 정의합니다. 이 작업은 두 가지 방법으로 수행할 수 있습니다.
 
 - 자동화된 응답을 정의하려는 인시던트를 생성하는 분석 규칙을 편집합니다. **자동화된 응답** 탭의 **인시던트 자동화** 에서 자동화 규칙을 만듭니다. 그러면 이 분석 규칙에 대한 자동화된 응답만 생성됩니다.
 
 - **자동화** 블레이드의 **자동화 규칙** 탭에서 새 자동화 규칙을 만들고 적절한 조건 및 원하는 작업을 지정합니다. 이 자동화 규칙은 지정된 조건을 충족하는 모든 분석 규칙에 적용됩니다.
 
     > [!NOTE]
-    > **Microsoft 센티널 automation 규칙은 플레이 북을 실행할 수 있는 권한이 필요 합니다.**
+    > **Microsoft Sentinel 자동화 규칙에는 플레이북을 실행할 수 있는 권한이 필요합니다.**
     >
-    > Automation 규칙에서 플레이 북를 실행 하기 위해 Microsoft 센티널은 특별히 권한이 부여 된 서비스 계정을 사용 합니다. 사용자 계정과 달리 이 계정을 사용하면 서비스의 보안 수준을 높이고 자동화 규칙 API를 사용하여 CI/CD 사용 사례를 지원할 수 있습니다.
+    > 자동화 규칙에서 플레이북을 실행하기 위해 Microsoft Sentinel은 특별히 권한이 부여된 서비스 계정을 사용합니다. 사용자 계정과 달리 이 계정을 사용하면 서비스의 보안 수준을 높이고 자동화 규칙 API를 사용하여 CI/CD 사용 사례를 지원할 수 있습니다.
     >
-    > 이 계정에는 플레이 북 있는 리소스 그룹에 대 한 명시적 사용 권한 ( **Microsoft 센티널 Automation 참가자** 역할의 형식 사용)이 있어야 합니다. 이때 모든 자동화 규칙은 해당 리소스 그룹에서 모든 플레이북을 실행할 수 있습니다.
+    > 이 계정에는 플레이북이 있는 리소스 그룹에 대한 명시적 **권한(Microsoft Sentinel Automation 기여자** 역할 형식)이 부여되어야 합니다. 이때 모든 자동화 규칙은 해당 리소스 그룹에서 모든 플레이북을 실행할 수 있습니다.
     >
-    > **플레이북 실행** 작업을 자동화 규칙에 추가하면 선택한 플레이북의 드롭다운 목록이 표시됩니다. Microsoft 센티널에 권한이 없는 플레이 북은 사용할 수 없는 것으로 표시 됩니다 ("회색으로 표시 됨"). **플레이 북 권한 관리** 링크를 선택 하 여 해당 지점에서 Microsoft 센티널에 권한을 부여할 수 있습니다.
+    > **플레이북 실행** 작업을 자동화 규칙에 추가하면 선택한 플레이북의 드롭다운 목록이 표시됩니다. Microsoft Sentinel에 권한이 없는 플레이북은 사용할 수 없음("회색으로 표시")으로 표시됩니다. 플레이북 권한 관리 링크를 선택하여 해당 지점에서 Microsoft Sentinel에 권한을 부여할 수 **있습니다.**
     >
     > 다중 테넌트([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)) 시나리오에서 플레이북을 호출하는 자동화 규칙이 다른 테넌트에 있는 경우에도 플레이북이 있는 테넌트에 대한 권한을 정의해야 합니다. 권한을 정의하려면 플레이북의 리소스 그룹에 대한 **소유자** 권한이 있어야 합니다.
     >
-    > **MSSP(관리형 보안 서비스 공급자)** 가 있는 고유한 시나리오가 있습니다. 여기서 서비스 공급자는 자체 테넌트에 로그인한 상태에서 [Azure Lighthouse](../lighthouse/index.yml)를 사용하여 고객의 작업 영역에 자동화 규칙을 만듭니다. 그러면 이 자동화 규칙이 고객의 테넌트에 속한 플레이북을 호출합니다. 이 경우 Microsoft 센티널은 **_두 테 넌 트_ _에 대 한 권한을 부여 받아야 합니다 *. 고객 테 넌 트에서*** 일반 다중 테 넌 트 시나리오와 마찬가지로 _ 플레이 북 권한 관리 패널에서 부여 합니다. 서비스 공급자 테 넌 트에서 관련 사용 권한을 부여 하려면 플레이 북가 있는 리소스 그룹에서 **Microsoft 센티널 Automation 참가자** 역할을 사용 하 여 **azure 보안 Insights** 앱에 대 한 액세스 권한을 부여 하는 추가 azure Lighthouse 위임을 추가 해야 합니다. [이 위임을 추가하는 방법을 알아봅니다](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
+    > **MSSP(관리형 보안 서비스 공급자)** 가 있는 고유한 시나리오가 있습니다. 여기서 서비스 공급자는 자체 테넌트에 로그인한 상태에서 [Azure Lighthouse](../lighthouse/index.yml)를 사용하여 고객의 작업 영역에 자동화 규칙을 만듭니다. 그러면 이 자동화 규칙이 고객의 테넌트에 속한 플레이북을 호출합니다. 이 경우 Microsoft Sentinel에 **_두 테넌트_ _에 대한 사용 권한을 부여해야 *합니다. 고객 테넌트에서는*** 일반적인 다중 테넌트 시나리오와 마찬가지로 _ 플레이북 관리 권한 패널에서 권한을 부여합니다. 서비스 공급자 테넌트에서 관련 권한을 부여하려면 플레이북이 있는 리소스 그룹에 **Microsoft Sentinel Automation 기여자** 역할을 사용하여 **Azure 보안 Insights** 앱에 대한 액세스 권한을 부여하는 추가 Azure Lighthouse 위임을 추가해야 합니다. [이 위임을 추가하는 방법을 알아봅니다](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
 
 [자동화 규칙을 만드는 방법에 대한 전체 지침](tutorial-respond-threats-playbook.md#respond-to-incidents)을 참조하세요.
 
 ### <a name="run-a-playbook-manually-on-an-alert"></a>경고에서 수동으로 플레이북 실행
 
-다음 블레이드의 Microsoft 센티널 포털에서 수동 트리거를 사용할 수 있습니다.
+수동 트리거는 다음 블레이드의 Microsoft Sentinel 포털에서 사용할 수 있습니다.
 
 - **인시던트** 보기에서 특정 인시던트를 선택하고, **경고** 탭을 연 다음 경고를 선택합니다.
 
 - **조사** 에서 특정 경고를 선택합니다.
 
-1. 선택한 경고에 대해 **플레이북 보기** 를 클릭합니다. **Microsoft 센티널 경고가 트리거되고** 액세스할 수 있는 경우로 시작 하는 모든 플레이 북의 목록이 표시 됩니다.
+1. 선택한 경고에 대해 **플레이북 보기** 를 클릭합니다. **Microsoft Sentinel 경고가 트리거되고** 액세스할 수 있는 경우로 시작하는 모든 플레이북 목록이 표시됩니다.
 
 1. 특정 플레이북의 줄에서 **실행** 을 클릭하여 트리거합니다.
 
@@ -280,8 +278,8 @@ Microsoft 센티널 인시던트는 사용자 이름 및 IP 주소 엔터티를 
 
 | 트리거 종류 | 플레이북의 구성 요소 유형을 나타냅니다. |
 |-|-|
-| **Microsoft 센티널 인시던트/경고** | 플레이북이 Sentinel 트리거 중 하나(경고, 인시던트)로 시작됩니다. |
-| **Microsoft 센티널 작업 사용** | 플레이 북는 비 센티널 트리거로 시작 되지만 Microsoft 센티널 작업을 사용 합니다. |
+| **Microsoft Sentinel 인시던트/경고** | 플레이북이 Sentinel 트리거 중 하나(경고, 인시던트)로 시작됩니다. |
+| **Microsoft Sentinel 작업 사용** | 플레이북은 비 Sentinel 트리거로 시작되지만 Microsoft Sentinel 작업을 사용합니다. |
 | **기타** | 플레이북에는 Sentinel 구성 요소가 포함되어 있지 않습니다. |
 | **초기화 안 됨** | 플레이북이 만들어졌지만, 구성 요소(트리거 또는 작업)가 포함되어 있지 않습니다. |
 |
@@ -304,7 +302,7 @@ API 연결을 보는 또 다른 방법은 **모든 리소스** 블레이드로 �
 
 ## <a name="recommended-playbooks"></a>권장 플레이북
 
-[Microsoft 센티널 GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)다음과 같은 권장 플레이 북 및 기타 유사한 플레이 북을 사용할 수 있습니다.
+[Microsoft Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)다음과 같은 권장 플레이북 및 기타 유사한 플레이북을 사용할 수 있습니다.
 
 - **알림 플레이북** 은 경고나 인시던트가 생성될 때 트리거되고 구성된 대상으로 알림을 보냅니다.
 
@@ -319,7 +317,7 @@ API 연결을 보는 또 다른 방법은 **모든 리소스** 블레이드로 �
     - [AAD 사용자 암호 재설정](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
     - [머신을 격리하라는 메시지 표시](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
 
-- **플레이북을 만들거나 업데이트하거나 닫으면** Microsoft Sentinel, Microsoft 365 보안 서비스 또는 기타 티켓 시스템에서 인시던트 만들기, 업데이트 또는 종결이 가능합니다.
+- 플레이 **북 만들기, 업데이트 또는 닫기** 는 Microsoft 센티널, Microsoft 365 보안 서비스 또는 기타 티켓 시스템에서 인시던트를 생성, 업데이트 또는 닫을 수 있습니다.
 
     - [인시던트의 심각도 변경](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
     - [ServiceNow 인시던트 만들기](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Create-SNOW-record)
@@ -327,4 +325,4 @@ API 연결을 보는 또 다른 방법은 **모든 리소스** 블레이드로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: 플레이북을 사용하여 Microsoft Sentinel에서 위협 대응 자동화](tutorial-respond-threats-playbook.md)
+- [자습서: 플레이 북을 사용 하 여 Microsoft 센티널에서 위협 응답 자동화](tutorial-respond-threats-playbook.md)

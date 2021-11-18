@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 555269beeb5e8b36597998a8941e2b64120691b4
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 661716e57ee3a4f73082db593f3dfd96a6f7cedc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484171"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704983"
 ---
 # <a name="tutorial-enrich-a-cognitive-search-index-with-custom-entities-from-your-data"></a>자습서: 데이터에서 사용자 지정 엔터티를 사용하여 Cognitive Search 인덱스 보강
 
-기업에서 전자 문서가 많다는 것은 전자 문서를 검색하는 데 시간과 비용이 많이 든다는 것을 의미할 수 있습니다. [Azure Cognitive Search](/azure/search/search-create-service-portal)는 인덱스를 기반으로 하여 파일을 검색하는 데 도움이 될 수 있습니다. 사용자 지정 NER은 파일에서 관련 엔터티를 추출하고 이러한 파일을 인덱싱하는 프로세스를 보강하여 도움이 될 수 있습니다.
+기업에서 전자 문서가 많다는 것은 전자 문서를 검색하는 데 시간과 비용이 많이 든다는 것을 의미할 수 있습니다. [Azure Cognitive Search](../../../../search/search-create-service-portal.md)는 인덱스를 기반으로 하여 파일을 검색하는 데 도움이 될 수 있습니다. 사용자 지정 NER은 파일에서 관련 엔터티를 추출하고 이러한 파일을 인덱싱하는 프로세스를 보강하여 도움이 될 수 있습니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -32,9 +32,9 @@ ms.locfileid: "132484171"
 
 * [Azure Blob 스토리지 계정에 연결된 Azure 언어 리소스](../how-to/create-project.md).
     * 더 쉽게 설정하려면 Azure Portal을 사용하여 리소스를 만드는 지침을 따르는 것이 좋습니다. 
-* 현재 구독의 [Azure Cognitive Search Service](/azure/search/search-create-service-portal)
+* 현재 구독의 [Azure Cognitive Search Service](../../../../search/search-create-service-portal.md)
     * 모든 계층 및 모든 지역을 이 서비스에 사용할 수 있습니다.
-* [Azure 함수 앱](/azure/azure-functions/functions-create-function-app-portal)
+* [Azure 함수 앱](../../../../azure-functions/functions-create-function-app-portal.md)
 * 이 [샘플 데이터](https://go.microsoft.com/fwlink/?linkid=2175226)를 다운로드합니다.
 
 ## <a name="create-a-custom-ner-project-through-language-studio"></a>언어 스튜디오를 통해 사용자 지정 NER 프로젝트 만들기
@@ -49,7 +49,7 @@ ms.locfileid: "132484171"
 
 4. 다음과 같은 프로젝트 정보를 입력합니다.
 
-    | 키 | Description |
+    | 키 | 설명 |
     |--|--|
     | Name | 프로젝트의 이름입니다. 프로젝트가 만들어지면 해당 이름을 바꿀 수 없습니다. |
     | 설명 | 프로젝트에 대한 설명 |
@@ -107,7 +107,7 @@ ms.locfileid: "132484171"
 
 2. 샘플 함수가 다운로드되면 *program.cs* 파일을 열고 앱 비밀을 입력합니다.
 
-3. [함수를 Azure에 게시](/azure/azure-functions/functions-develop-vs?tabs=in-process#publish-to-azure)합니다.
+3. [함수를 Azure에 게시](../../../../azure-functions/functions-develop-vs.md?tabs=in-process#publish-to-azure)합니다.
 
 ## <a name="use-the-integration-tool"></a>통합 도구 사용
 
@@ -153,4 +153,4 @@ ms.locfileid: "132484171"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Cognitive Search SDK를 사용하여 앱 검색](/azure/search/search-howto-dotnet-sdk#run-queries)
+* [Cognitive Search SDK를 사용하여 앱 검색](../../../../search/search-howto-dotnet-sdk.md#run-queries)

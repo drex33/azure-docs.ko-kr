@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: allensu
-ms.openlocfilehash: eba531dd0fa0c2b417119e059f174e2807b3b341
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b2daa54bb17c5eb455be739062c251ed14a0ad13
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224990"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707869"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
@@ -53,7 +53,7 @@ ms.locfileid: "130224990"
 
 리소스|시나리오|단계|
 |---|---|---|
-|가상 머신 크기 집합 | 개별 공용 IP 리소스는 생성되지 않지만 공용 IP 주소 접두사를 사용하여 가상 머신 확장 집합에서 인스턴스 수준 IP를 생성할 수 있습니다. | 확장 집합 생성의 일부로 공용 IP 구성에 이 접두사를 사용하는 지침이 있는 [템플릿](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/)을 사용합니다. |
+|가상 머신 크기 집합 | 개별 공용 IP 리소스는 생성되지 않지만 공용 IP 주소 접두사를 사용하여 가상 머신 확장 집합에서 인스턴스 수준 IP를 생성할 수 있습니다. | 확장 집합 생성의 일부로 공용 IP 구성에 이 접두사를 사용하는 지침이 있는 [템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix)을 사용합니다. 접두사 영역 속성은 출력에 표시되지 않지만 인스턴스 IP에 전달됩니다. 자세한 내용은 Virtual Machine [Scale Sets에 대한 네트워킹을](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 참조하세요. |
 | 표준 부하 분산 장치 | 공용 IP 주소 접두사는 [아웃바운드 연결 범위에서 모든 IP를 사용](../../load-balancer/outbound-rules.md#scale)하여 부하 분산 장치의 크기를 조정하는 데 사용할 수 있습니다. | 접두사를 부하 분산 장치에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. 부하 분산 장치를 만들 때 부하 분산 장치의 프런트 엔드와 연결된 IP 접두사를 선택합니다. |
 | NAT Gateway | 공용 IP 접두사는 아웃바운드 연결에 대한 접두사에 공용 IP를 사용하여 NAT Gateway의 크기를 조정하는 데 사용할 수 있습니다. | 접두사를 NAT Gateway에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. NAT Gateway를 만들 때 IP 접두사를 아웃바운드 IP로 선택합니다. |
 | VPN Gateway (AZ SKU) 또는 Application Gateway v2 | 영역 중복 VPN 또는 애플리케이션 게이트웨이 v2에 대해 접두사에서 공용 IP를 사용할 수 있습니다. | IP를 접두사에서 게이트웨이에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) </br> 3. [VPN Gateway](../../vpn-gateway/tutorial-create-gateway-portal.md) 또는 [애플리케이션 게이트웨이](../../application-gateway/quick-create-portal.md#create-an-application-gateway)를 배포할 때 이전에 접두사에서 제공한 IP를 선택해야 합니다.|

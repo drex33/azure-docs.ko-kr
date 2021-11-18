@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/26/2021
-ms.openlocfilehash: 2f8aa4612d386995f39fccceebdaee67e4afe9dd
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 56b2ce9b8b392a25c50ff4ea2d47da0237363a53
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848347"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719247"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>가상 머신 제품 계획
 
@@ -22,7 +22,7 @@ ms.locfileid: "131848347"
 시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만들고](create-account.md) 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다.
 
 > [!TIP]
-> 상업용 Marketplace에서 구매에 대한 고객의 보기를 보려면 [구매 Azure Marketplace](/marketplace/azure-purchasing-invoicing)참조하세요.
+> 상업용 Marketplace에서의 구매에 대한 고객의 보기를 보려면 [구매 Azure Marketplace](/marketplace/azure-purchasing-invoicing)참조하세요.
 
 ### <a name="technical-fundamentals"></a>기술 기본 사항
 
@@ -58,7 +58,7 @@ VM에는 다음 두 가지 구성 요소가 포함됩니다.
     > [!NOTE]
     > 사용 중인 운영 체제에 상관없이 솔루션에 필요한 최소 개수의 데이터 디스크만 추가합니다. 고객은 배포 시 이미지의 일부인 디스크를 제거할 수 없지만, 배포 중 또는 배포 후에 언제든지 디스크를 추가할 수 있습니다.
 
-기술 자산 준비에 대한 자세한 지침을 보려면 [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-create-using-own-image.md)를 참조하세요.
+기술 자산 준비에 대한 자세한 지침을 보려면 [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-use-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-use-own-image.md)를 참조하세요.
 
 ## <a name="preview-audience"></a>미리 보기 대상 그룹
 
@@ -102,13 +102,13 @@ VM 제품에 사용할 수 있는 라이선스 옵션은 다음과 같습니다.
 
 ## <a name="test-drive"></a>시험 사용
 
-VM에 대한 시험 사용을 사용하도록 선택할 수 있습니다. 시험 사용을 통해 고객은 일정 시간 동안 사전 구성된 환경에 액세스할 수 있습니다. 모든 게시 옵션에 대해 시험 사용을 사용할 수 있지만 이 기능에는 추가 요구 사항이 있습니다. 시험 사용에 대한 자세한 내용은 [시험 사용이란?](what-is-test-drive.md)을 참조하세요. 다양한 종류의 시험 사용을 구성하는 방법에 대한 자세한 내용은 [시험 사용 기술 구성](test-drive-technical-configuration.md)을 참조하세요.
-
 [!INCLUDE [Test drives section](includes/test-drives.md)]
+
+이제 VM 제안용 시험사용 드라이브에 대해 자세히 알아보려면 [VM 시험 드라이브 구성을](azure-vm-test-drive.md)참조하세요.
 
 ## <a name="customer-leads"></a>잠재 고객
 
-[!INCLUDE [Customer leads section](includes/customer-leads.md)]
+파트너 센터를 통해 제품을 상업용 Marketplace에 게시하는 경우 CRM(고객 관계 관리) 시스템에 연결합니다. 이렇게 하면 누군가 제품에 관심을 보이거나 제품을 사용하는 즉시 고객 연락처 정보를 받을 수 있습니다. 테스트 드라이브를 사용하도록 설정하려면 CRM에 연결해야 합니다(이전 섹션 참조). 그렇지 않으면 CRM에 연결하는 것은 선택 사항입니다.
 
 ## <a name="legal-contracts"></a>법적 계약
 
@@ -124,6 +124,6 @@ VM에 대한 시험 사용을 사용하도록 선택할 수 있습니다. 시험
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Marketplace에서 Azure 가상 머신 제품 만들기](azure-vm-create.md)
-- [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-create-using-own-image.md)
+- [Azure Marketplace에서 Azure 가상 머신 제품 만들기](azure-vm-offer-setup.md)
+- [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-use-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-use-own-image.md)
 - [목록에 제품 추가 모범 사례](gtm-offer-listing-best-practices.md)

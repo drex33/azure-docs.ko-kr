@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/29/2021
-ms.openlocfilehash: 585a2cf1a3dcbc1c45ae40b728b28ece505efee3
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 11/08/2021
+ms.openlocfilehash: 7c4508b8fc0ca1a62d550058ca7ff3a1616ec2db
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788369"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713500"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 백업 및 복원
 
@@ -110,7 +110,8 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 복구 메커니즘에서 복원한 후에 다음 작업을 수행하여 사용자 및 애플리케이션이 다시 백업 및 실행되도록 해야 합니다.
 
-- 새 서버가 원래 서버를 교체하기 위한 것이라면 클라이언트와 클라이언트 애플리케이션을 새 서버로 리디렉션합니다. 또한 사용자 이름도 `username@new-restored-server-name`으로 변경합니다.
+- 복원 된 서버에 원본 서버와 다른 이름을 사용 하기 때문에 해당 서버에 액세스 하려면 연결 문자열에서 servername을 복원 된 서버 이름으로 변경 하 고 사용자 이름을로 변경 하십시오 `username@new-restored-server-name` .
+- 새 서버가 원래 서버를 교체하기 위한 것이라면 클라이언트와 클라이언트 애플리케이션을 새 서버로 리디렉션합니다. 
 - 사용자가 연결할 수 있도록 적절한 서버 수준 방화벽 및 VNet 규칙이 있는지 확인합니다. 이러한 규칙은 원래 서버에서 복사되지 않습니다.
 - 적절한 로그인 및 데이터베이스 수준 권한이 있는지 확인합니다.
 - 필요에 따라 경고를 구성합니다.

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 11/11/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 368622d7f0ea914541ce1385405a40e28ca2576b
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: e74b4bb2b1df116e33c11b7c7028cf74d1105987
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132282199"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710543"
 ---
 # <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 자동화 runbook 실행
 
@@ -34,7 +34,7 @@ Azure Automation은 Azure 샌드박스에서 실행되는 작업과 다른 방�
 Hybrid Runbook Worker에 대 한 작업은 로컬 **시스템** 계정으로 실행 됩니다.
 >[!NOTE]
 >  Windows Hybrid Runbook Worker에서 powershell 4.x를 실행 하려면 [Windows에 powershell 설치](/powershell/scripting/install/installing-powershell-on-windows)를 참조 하세요.
-> 현재 여기에 설명 된 대로 하이브리드 작업자 확장 기반 등록만 지원 [합니다.](/azure/automation/extension-based-hybrid-runbook-worker-install) 
+> 현재 여기에 설명 된 대로 하이브리드 작업자 확장 기반 등록만 지원 [합니다.](./extension-based-hybrid-runbook-worker-install.md) 
 
 *pwsh.exe* 실행 파일이 있는 경로를 확인 하 고 path 환경 변수에 추가 합니다. 설치가 완료 된 후 Hybrid Runbook Worker를 다시 시작 합니다.
 
@@ -42,7 +42,7 @@ Hybrid Runbook Worker에 대 한 작업은 로컬 **시스템** 계정으로 실
 
 >[!NOTE]
 > Linux Hybrid Runbook Worker에서 PowerShell 4.x를 실행 하려면 [linux에서 Powershell 설치](/powershell/scripting/install/installing-powershell-on-linux)를 참조 하세요.
-> 현재 여기에 설명 된 대로 하이브리드 작업자 확장 기반 등록만 지원 [합니다.](/azure/automation/extension-based-hybrid-runbook-worker-install)
+> 현재 여기에 설명 된 대로 하이브리드 작업자 확장 기반 등록만 지원 [합니다.](./extension-based-hybrid-runbook-worker-install.md)
 
 
 서비스 계정 **nxautomation** 및 **omsagent** 이 생성 됩니다. 만들기 및 사용 권한 할당 스크립트는에서 볼 수 있습니다 [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data) . 해당 sudo 권한이 있는 계정은 [Linux Hybrid Runbook worker를 설치](automation-linux-hrw-install.md)하는 동안 존재 해야 합니다. 작업자를 설치 하려고 시도 했지만 해당 계정이 없거나 적절 한 권한이 없는 경우 설치에 실패 합니다. `sudoers.d` 폴더 또는 해당 소유권의 사용 권한을 변경하면 안 됩니다. 계정에는 Sudo 권한이 필요 하며 사용 권한은 제거할 수 없습니다. 이를 특정 폴더 또는 명령으로 제한하면 호환성이 손상되는 변경이 발생할 수 있습니다. 업데이트 관리의 일부로 사용하도록 설정된 **nxautomation** 사용자는 서명된 Runbook만 실행합니다.

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14d604a5e15d7ca33cb9b73a41f867016599087d
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462029"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401532"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀 만들기
 
@@ -27,7 +27,7 @@ Azure Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 �
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse 작업 영역](./quickstart-create-workspace.md)
@@ -71,7 +71,8 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
     | **노드 크기** | 작음(4 vCPU/32GB) | 이 빠른 시작에서는 비용을 줄이기 위해 이 값을 가장 작은 크기로 설정합니다. |
     | **Autoscale** | 사용 안 함 | 이 빠른 시작에 자동 크기 조정이 필요하지 않습니다. |
     | **노드 수** | 8 | 이 빠른 시작에 대한 비용을 제한하려면 작은 크기를 사용합니다.|
-       
+    | **동적으로 실행기를 할당** |  사용 안 함 | 이 설정은 Spark 애플리케이션 실행기 할당을 위해 Spark 구성의 동적 할당 속성에 매핑됩니다. 이 빠른 시작에 자동 크기 조정이 필요하지 않습니다.|
+    
     ![Synapse Studio 새 Apache Spark 풀의 기본 사항](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
     
     > [!IMPORTANT]

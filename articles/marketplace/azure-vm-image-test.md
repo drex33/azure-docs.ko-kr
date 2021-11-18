@@ -7,12 +7,12 @@ ms.topic: how-to
 author: ebolton-cyber
 ms.author: edewebolton
 ms.date: 03/10/2021
-ms.openlocfilehash: 4e3e3b281e90236704ebd50cd8ee1420947c4d56
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 72873f93b80048f2da9cfe28a45f8d3032abfd46
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132331246"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710187"
 ---
 # <a name="test-a-virtual-machine-image"></a>가상 머신 이미지 테스트
 
@@ -34,7 +34,7 @@ Azure 계산 갤러리 (이전의 공유 이미지 갤러리) 이미지에서 VM
 
 VM 제품을 제출하기 전에 다음 단계를 완료합니다.
 
-- 일반화된 이미지를 사용하여 Azure VM을 배포합니다. [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-create-using-own-image.md)를 참조하세요.
+- 일반화된 이미지를 사용하여 Azure VM을 배포합니다. [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-use-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-use-own-image.md)를 참조하세요.
 - 유효성 검사를 실행합니다.
 
 ## <a name="run-validations"></a>유효성 검사 실행

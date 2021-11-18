@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/12/2021
-ms.openlocfilehash: c95c92c1f592cc5f042975e832df66e585d99740
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 1082b63bc6f12531d502e75c1c096639b0eab00b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132402488"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719277"
 ---
 # <a name="set-up-an-appliance-for-servers-in-a-vmware-environment"></a>VMware 환경에서 서버의 어플라이언스 설정
 
@@ -64,7 +64,7 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
    
     예: `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-1. 위 명령의 결과를 [여기에](/azure/migrate/tutorial-discover-vmware#verify-security)설명된 값과 비교하여 최신 해시 값을 확인합니다.
+1. 위의 명령의 결과와 [여기](./tutorial-discover-vmware.md#verify-security)에 설명 된 값을 비교 하 여 최신 해시 값을 확인 합니다.
 
 #### <a name="create-the-appliance-server"></a>어플라이언스 서버 만들기
 

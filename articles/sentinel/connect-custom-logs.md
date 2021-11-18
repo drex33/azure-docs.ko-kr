@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1a64f6e11abf8531c90968c2f24824f700ac73d9
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 4625145126a88d11989bbccc8b31cb7c1368145f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524591"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724485"
 ---
 # <a name="collect-data-in-custom-log-formats-to-microsoft-sentinel-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 사용자 지정 로그 형식으로 Microsoft 센티널에 데이터 수집
 

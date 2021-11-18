@@ -1,66 +1,45 @@
 - name: App Service 환경
+  href: index.yml
 - name: 개요
   items:
     - name: App Service Environment 정보
-      href: intro.md
-    - name: App Service Environment v3
       href: overview.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 외부 ASE 만들기
-      href: create-external-ase.md
-    - name: 외부 ASE 만들기
-      href: create-ilb-ase.md
-    - name: ASEv3 만들기
+    - name: 포털에서 App Service Environment 만들기
       href: creation.md
 - name: 자습서
   items:
-    - name: WAF와 통합
-      href: integrate-with-application-gateway.md
-    - name: ASE 사용자 지정 설정
-      href: app-service-app-service-environment-custom-settings.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Azure PowerShell
-      href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-- name: 개념
-  items:
-    - name: 네트워크 아키텍처
-      href: network-info.md
-    - name: 지리적으로 분산된 확장
-      href: app-service-app-service-environment-geo-distributed-scale.md
-    - name: 진단
-      href: ../overview-diagnostics.md
-    - name: 인증서
-      href: certificates.md
-    - name: ASEv3 네트워킹
-      href: networking.md
-- name: 방법 가이드
-  items:
-    - name: ASE 사용
-      href: using-an-ase.md
     - name: Application Gateway와 통합
       href: integrate-with-application-gateway.md
-    - name: 템플릿에서 ASE 만들기
-      href: create-from-template.md
-    - name: 강제 터널 구성
-      href: forced-tunnel-support.md
-    - name: 방화벽 통합
-      href: firewall-integration.md
+    - name: 지리적으로 분산된 확장
+      href: app-service-app-service-environment-geo-distributed-scale.md
+- name: 개념
+  items:
+    - name: 네트워킹 아키텍처
+      href: networking.md
     - name: 영역 중복
-      href: zone-redundancy.md
-    - name: ASEv3 사용
+      href: overview-zone-redundancy.md
+    - name: 인증서
+      href: overview-certificates.md
+    - name: 진단
+      href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+- name: 방법 가이드
+  items:
+    - name: App Service Environment 사용
       href: using.md
+    - name: ARM 템플릿에서 ASE 프로비전
+      href: create-from-template.md
+    - name: ASE 사용자 지정 설정
+      href: app-service-app-service-environment-custom-settings.md
 - name: 참조
   items:
     - name: 관리 주소
       href: management-addresses.md
     - name: ASEv1 설명서
       items:
-        - name: ASEv1
+        - name: App Service Environment v1 정보
           href: app-service-app-service-environment-intro.md
         - name: 템플릿에서 ASEv1 만들기
           href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
@@ -80,6 +59,26 @@
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: 계층화된 보안 사용
           href: app-service-app-service-environment-layered-security.md
+    - name: ASEv2 설명서
+      items:
+        - name: App Service Environment v2 정보
+          href: intro.md
+        - name: 외부 ASE v2 만들기
+          href: create-external-ase.md
+        - name: 내부 ASE v2 만들기
+          href: create-ilb-ase.md
+        - name: ASE v2 사용
+          href: using-an-ase.md
+        - name: 네트워크 아키텍처
+          href: network-info.md
+        - name: 영역 중복
+          href: zone-redundancy.md
+        - name: 인증서
+          href: certificates.md
+        - name: 강제 터널 구성
+          href: forced-tunnel-support.md
+        - name: 방화벽 통합
+          href: firewall-integration.md
 - name: 리소스
   items:
     - name: Azure 로드맵
@@ -98,12 +97,6 @@
       items:
         - name: Azure 비디오
           href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
-        - name: Azure App Service를 사용하는 Enterprise에 대한 최신 PaaS 마스터
-          href: 'https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player'
-        - name: 확장성이 매우 높으며 안전한 앱 배포
-          href: 'https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player'
-        - name: Azure App Service에서 Enterprise 웹 및 Mobile Apps 실행
-          href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player'
     - name: 쿡북
       items:
         - name: 배포 스크립트

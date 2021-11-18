@@ -6,36 +6,49 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 09/01/2021
+ms.date: 11/10/2021
 ms.author: victorh
-ms.openlocfilehash: bd773dd1a865f50d441ca09760a9ee3130ed3898
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 54f5de052c6fed4729a41e9f54c614480efc1e7e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226322"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309926"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
 <!--- ![ICSA certification](media/overview/icsa-cert-firewall-small.png) --->
 
-Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다.
+Azure Firewall은 Azure에서 실행되는 클라우드 워크로드에 대해 동급 최강의 위협 보호를 제공하는 클라우드 네이티브 및 지능형 네트워크 방화벽 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 기본 제공되는 서비스 형태의 완전한 상태 저장 방화벽입니다. 동서 및 남북 트래픽 검사를 모두 제공합니다.
 
-![방화벽 개요](media/overview/firewall-threat.png)
+Azure Firewall은 Standard 및 Premium의 두 가지 SKU로 제공됩니다.
 
-구독 및 가상 네트워크 전반에 걸쳐 애플리케이션 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다. Azure Firewall은 가상 네트워크 리소스에 정적 공용 IP 주소를 사용하기 때문에 외부 방화벽이 사용자의 가상 네트워크에서 시작된 트래픽을 식별할 수 있습니다.  이 서비스는 로깅 및 분석을 위해 Azure Monitor와 완전히 통합됩니다.
+## <a name="azure-firewall-standard"></a>Azure Firewall Standard
 
-Azure Firewall 기능에 대해 알아보려면 [Azure Firewall 기능](features.md)을 참조하세요.
+   Azure Firewall Standard는 Microsoft Cyber Security에서 직접 L3-L7 필터링 및 위협 인텔리전스 피드를 제공합니다. 위협 인텔리전스 기반 필터링은 새로운 공격으로부터 보호하기 위해 실시간으로 업데이트되는 알려진 악성 IP 주소 및 도메인에 대한 트래픽을 경고하고 거부할 수 있습니다.
 
-## <a name="azure-firewall-premium"></a>Azure Firewall 프리미엄
+   ![Firewall Standard 개요](media/overview/firewall-standard.png)
 
-Azure Firewall 프리미엄은 매우 민감하고 통제된 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이러한 기능에는 TLS 검사, IDPS, URL 필터링 및 웹 범주가 포함됩니다.
-
-Azure Firewall 프리미엄에 관해 알아보려면 [Azure Firewall 프리미엄 기능](premium-features.md)을 참조하세요.
+Firewall Standard 기능에 대한 자세한 내용은 [Azure Firewall Standard 기능](features.md)을 참조하세요.
 
 
-Azure Portal에서 Firewall 프리미엄을 구성하는 방법을 확인하려면 [Azure Portal에서 Azure Firewall 프리미엄](premium-portal.md)을 참조하세요.
+## <a name="azure-firewall-premium"></a>Azure Firewall Premium
 
+   Azure Firewall Premium은 특정 패턴을 찾아 공격을 신속하게 감지할 수 있도록 하는 서명 기반 IDPS를 포함하는 고급 기능을 제공합니다. 이러한 패턴에는 네트워크 트래픽의 바이트 시퀀스 또는 맬웨어에서 사용하는 알려진 악성 명령 시퀀스가 포함될 수 있습니다. 50개 이상의 범주에 58,000개 넘는 서명이 있으며, 이 시그니처는 새롭게 등장하는 악용으로부터 보호하기 위해 실시간으로 업데이트됩니다. 악용 범주에는 맬웨어, 피싱, 코인 마이닝 및 트로이 목마 공격이 포함됩니다.
+
+   ![Firewall Premium 개요](media/overview/firewall-premium.png)
+
+
+Firewall Premium에 관해 알아보려면 [Azure Firewall Premium 기능](premium-features.md)을 참조하세요.
+
+
+## <a name="azure-firewall-manager"></a>Azure Firewall Manager
+
+Azure Firewall Manager를 사용하여 여러 구독에 걸쳐 Azure Firewall을 중앙에서 관리할 수 있습니다. Firewall Manager는 방화벽 정책을 활용하여 공통 네트워크/애플리케이션 규칙 및 구성 집합을 테넌트의 방화벽에 적용합니다.
+ 
+Firewall Manager는 VNet 및 Virtual WAN(보안 가상 허브) 환경 모두에서 방화벽을 지원합니다. 보안 가상 허브는 Virtual WAN 경로 자동화 솔루션을 사용하여 몇 번의 클릭으로 방화벽으로의 트래픽 라우팅을 단순화합니다.
+
+Azure Firewall Manager에 대한 자세한 내용은 [Azure Firewall Manager](../firewall-manager/overview.md)를 참조하세요.
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 
@@ -83,6 +96,7 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |*임의*(*) 허용에 대한 DNAT 규칙은 SNAT트래픽을 발생시킵니다.|DNAT 규칙이 원본 IP 주소로 *임의*(*)를 허용하는 경우 암시적 네트워크 규칙은 VNet-VNet 트래픽과 일치하고 항상 SNAT 트래픽을 발생시킵니다.|이 문제가 현재 제한 사항입니다.|
 |보안 공급자가 있는 보안 가상 허브에 DNAT 규칙을 추가하는 것은 지원되지 않습니다.|이로 인해 보안 공급자로 이동하는 DNAT 트래픽을 반환하는 비동기 경로가 생성됩니다.|지원 안 됨|
 | 2,000개를 초과하는 규칙 컬렉션을 만드는 동안 오류가 발생했습니다. | NAT/애플리케이션 또는 네트워크 규칙 컬렉션의 최대 수는 2,000개(리소스 관리자 한도)입니다. | 이 문제가 현재 제한 사항입니다. |
+|Azure Firewall 로그에서 네트워크 규칙 이름을 볼 수 없습니다.|Azure Firewall 네트워크 규칙 로그 데이터는 네트워크 트래픽에 대한 규칙 이름을 표시하지 않습니다.|이를 지원하기 위해 기능을 조사하고 있습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

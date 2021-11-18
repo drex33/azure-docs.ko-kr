@@ -3,17 +3,15 @@ title: Microsoft 센티널 SAP 솔루션-보안 콘텐츠 참조 | Microsoft Doc
 description: Microsoft 센티널 SAP 솔루션에서 제공 하는 기본 제공 보안 콘텐츠에 대해 알아봅니다.
 author: batamig
 ms.author: bagold
-ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
-ms.openlocfilehash: a2512bd38ff865b27d0ea667f33f42979aa4e4bb
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a1413fefdc12cf9712419adaa8586da0ef7b921d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524325"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711814"
 ---
 # <a name="microsoft-sentinel-sap-solution-security-content-reference-public-preview"></a>Microsoft 센티널 SAP solution: 보안 콘텐츠 참조 (공개 미리 보기)
 
@@ -129,9 +127,9 @@ ms.locfileid: "132524325"
 
 ## <a name="available-watchlists"></a>사용 가능한 관심 목록
 
-다음 표에서는 Microsoft 센티널 SAP 솔루션에 사용할 수 있는 [watchlists](sap-deploy-solution.md#deploy-sap-security-content) 와 각 관심 목록의 필드를 보여 줍니다.
+다음 표에는 Microsoft Sentinel SAP 솔루션에 사용할 수 있는 [감시 목록과](sap-deploy-solution.md#deploy-sap-security-content) 각 감시 목록의 필드가 나열되어 있습니다.
 
-이러한 watchlists는 Microsoft 센티널 SAP 연속 위협 모니터링 솔루션에 대 한 구성을 제공 합니다. [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) 은 Microsoft 센티널 GitHub 리포지토리에서 사용할 수 있습니다.
+이러한 감시 목록은 Microsoft Sentinel SAP Continuous Threat Monitoring 솔루션에 대한 구성을 제공합니다. [SAP 감시 목록은](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) Microsoft Sentinel GitHub 리포지토리에서 사용할 수 있습니다.
 
 |관심 목록 이름  |설명 및 필드  |
 |---------|---------|
@@ -161,8 +159,8 @@ ms.locfileid: "132524325"
 자세한 내용은 다음을 참조하세요.
 
 - [SAP용 Microsoft Sentinel 솔루션 배포](sap-deploy-solution.md)
-- [Microsoft 센티널 SAP 솔루션 로그 참조](sap-solution-log-reference.md)
-- [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [Microsoft Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
+- [SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
-- [Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
-- [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel SAP 솔루션 세부 SAP 요구 사항](sap-solution-detailed-requirements.md)
+- [Microsoft Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

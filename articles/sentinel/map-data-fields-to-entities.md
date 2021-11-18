@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 48c08771fef5b18445d0a1b5268ea5ea2c535abf
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 7a4e0dba6dbbd460eac651eb16dd5de108deffe1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523432"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723079"
 ---
 # <a name="map-data-fields-to-entities-in-microsoft-sentinel"></a>Microsoft 센티널의 엔터티에 데이터 필드 매핑 
 
@@ -85,4 +83,4 @@ ms.locfileid: "132523432"
 
 이 문서에서는 Microsoft 센티널 분석 규칙의 엔터티에 데이터 필드를 매핑하는 방법에 대해 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
-- [Microsoft 센티널의 엔터티에](entities-in-azure-sentinel.md)대해 자세히 알아보세요.
+- [Microsoft 센티널의 엔터티에](entities.md)대해 자세히 알아보세요.

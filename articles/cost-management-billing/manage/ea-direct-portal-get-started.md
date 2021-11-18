@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/16/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 731e311cc36c71c4a9b26e3aeb913ec67e342b37
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bf238f43bca00a4f797f2acc65dc05a7e44030d4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273819"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718510"
 ---
 # <a name="get-started-with-the-azure-portal-for-direct-enterprise-agreement-customers"></a>직접 기업계약 고객에 대 한 Azure Portal 시작
 
@@ -24,6 +24,12 @@ ms.locfileid: "130273819"
 - Azure Portal에서 Enterprise 청구 계정을 관리 하는 데 사용 되는 역할입니다.
 - 구독 만들기
 - Azure Portal의 비용 분석
+
+직접 Enterprise 계약에 대 한 Azure Portal 시작 하는 과정을 안내 하는 여러 비디오가 있습니다. [Azure Portal에서 직접 Enterprise 고객 요금 청구 환경](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm)에서 시리즈를 확인 하세요.
+
+첫 번째 비디오는 다음과 같습니다.
+
+>[!VIDEO https://www.youtube.com/embed/sfJyTZZ6RxQ]
 
 ## <a name="understanding-ea-user-roles-and-introduction-to-user-hierarchy"></a>EA 사용자 역할 이해 및 사용자 계층 소개
 

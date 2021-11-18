@@ -4,23 +4,21 @@ description: 6개월 전 또는 그 이전의 Azure Sentinel의 새로운 기능
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9a4203f053fc295c2dfeac2a5ad40184dcd9c3b6
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 5c9d7e56ce82dfeff44d44e8dbea7952cbd5af68
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522444"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711195"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능 보관
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-기본 [Sentinel](whats-new.md) 릴리스 정보 페이지에는 지난 6개월 동안의 업데이트가 포함되어 있지만 이 페이지에는 이전 항목이 포함되어 있습니다.
+센티널 릴리스 정보 [의 새로운 기능](whats-new.md) 릴리스 정보 페이지에는 지난 6 개월 동안 업데이트가 포함 되어 있지만이 페이지에는 이전 항목이 포함 되어 있습니다.
 
 이전에 제공된 기능에 대한 자세한 내용은 [기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New)를 참조하세요.
 
@@ -96,7 +94,7 @@ Azure 방화벽에 대한 검색은 기본 제공 템플릿 갤러리에 지속�
 
 먼저 엔터티 매핑을 다음 단계로 끌어 올립니다. 이제 사용자, 호스트 및 IP 주소에서 파일 및 프로세스, 사서함, Azure 리소스 및 IoT 디바이스에 이르기까지 거의 20가지의 엔터티를 매핑할 수 있습니다. 각 엔터티에 대해 여러 식별자를 사용하여 엔터티 고유의 식별을 강화할 수도 있습니다. 이를 통해 인시던트의 훨씬 더 풍부한 데이터 세트를 제공하여 보다 광범위한 상관 관계와 강력한 조사가 가능해집니다. 경고에서 [엔터티를 매핑하는 새로운 방법을 알아보세요](map-data-fields-to-entities.md).
 
-[엔터티에 대해 자세히 알아보고](entities-in-azure-sentinel.md) [사용 가능한 엔터티 및 식별자의 전체 목록](entities-reference.md)을 확인하세요.
+[엔터티에 대해 자세히 알아보고](entities.md) [사용 가능한 엔터티 및 식별자의 전체 목록](entities-reference.md)을 확인하세요.
 
 원시 이벤트의 세부 정보를 노출하도록 경고를 사용자 지정하여 조사 및 대응 기능을 더욱 강화할 수 있습니다. 인시던트에 대한 이벤트 콘텐츠 가시성을 제공하면 보안 위협을 조사하고 대처하는 기능을 강화하고 유연성을 제공할 수 있습니다. 경고에서 [사용자 지정 세부 정보를 노출하는 방법을 알아보세요](surface-custom-details-in-alerts.md).
 

@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f2034ba667e3d96846aa27e58dce2555da39116b
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 407c57a235a1c716edeb8e17b80cbd1881d562ea
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518834"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711157"
 ---
 # <a name="create-and-customize-microsoft-sentinel-playbooks-from-built-in-templates"></a>기본 제공 템플릿에서 Microsoft Sentinel 플레이북 만들기 및 사용자 지정
 
@@ -162,7 +160,7 @@ Microsoft Sentinel 탐색 메뉴에서 **Automation을** 선택한 **다음, 플
 
 이 문서에서는 플레이북 템플릿을 사용하여 요구에 맞게 플레이북을 만들고 사용자 지정하는 방법을 배웠습니다. Microsoft Sentinel의 플레이북 및 자동화에 대해 자세히 알아보세요.
 
-- [Microsoft Sentinel의 SOAR(보안 오케스트레이션, 자동화 및 응답)](automation-in-azure-sentinel.md)
+- [Microsoft Sentinel의 SOAR(보안 오케스트레이션, 자동화 및 응답)](automation.md)
 - [Microsoft Sentinel에서 플레이북을 사용하여 위협 대응 자동화](automate-responses-with-playbooks.md)
 - [자습서: Microsoft Sentinel에서 자동화 규칙으로 플레이북 사용](tutorial-respond-threats-playbook.md)
 - [Microsoft Sentinel에 플레이북 인증](authenticate-playbooks-to-sentinel.md)

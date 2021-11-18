@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ccd2e196f1e1a44a79f0d4f9f1f07e4a69f2b974
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: f3ec562a6a33c2211f6acaf661a1ee3125a86149
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132053125"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718073"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
@@ -37,11 +37,11 @@ Azure Private Link Service를 사용하면 가상 네트워크의 프라이빗 �
 
 - Key Vault 프런트 엔드(데이터 평면)는 다중 테넌트 서버입니다. 즉, 서로 다른 고객의 키 자격 증명 모음이 동일한 공용 IP 주소를 공유할 수 있습니다. 격리를 위해 각 HTTP 요청은 다른 요청과 독립적으로 인증되고 권한이 부여됩니다.
 - 이전 버전의 TLS는 취약성을 보고할 수 있지만 공용 IP 주소는 공유되므로 키 자격 증명 모음 서비스 팀에서 전송 수준에서 개별 키 자격 증명 모음에 대해 이전 버전의 TLS를 사용하지 않도록 설정할 수 없습니다.
-- HTTPS 프로토콜을 사용하면 클라이언트가 TLS 협상에 참여할 수 있습니다. **클라이언트는 최신 버전의 TLS를 적용할 수 있으며** 클라이언트가 해당 작업을 수행할 때마다 전체 연결에서 해당하는 수준 보호를 사용합니다. Azure Active Directory에 대해 통신 하거나 인증 하는 응용 프로그램은 TLS 1.2 또는 최신 버전을 사용 하 여 통신할 수 없는 경우 예상 대로 작동 하지 않을 수 있습니다.
+- HTTPS 프로토콜을 사용하면 클라이언트가 TLS 협상에 참여할 수 있습니다. **클라이언트는 최신 버전의 TLS를 적용할 수 있으며** 클라이언트가 해당 작업을 수행할 때마다 전체 연결에서 해당하는 수준 보호를 사용합니다. 통신하거나 Azure Active Directory 대해 인증하는 애플리케이션은 TLS 1.2 또는 최신 버전을 사용하여 통신할 수 없는 경우 예상대로 작동하지 않을 수 있습니다.
 - TLS 프로토콜의 알려진 취약성에도 불구하고 공격자가 취약성이 있는 TLS 버전과의 연결을 시작할 때 악성 에이전트가 키 자격 증명 모음에서 어떤 정보든 추출할 수 있도록 하는 알려진 공격은 없습니다. 공격자는 자신을 인증하고 권한을 부여해야 하며 합법적인 클라이언트가 항상 최신 TLS 버전에 연결하는 한 이전 TLS 버전의 취약성으로 인해 자격 증명이 누출되지 않습니다.
 
 > [!NOTE]
-> Azure Key Vault의 경우 Keyvault 서비스에 액세스 하는 응용 프로그램이 TLS 1.2 또는 최신 버전을 지 원하는 계획 양식에서 실행 되 고 있는지 확인 합니다. 응용 프로그램이 .Net framework에 종속 된 경우에도 업데이트 해야 합니다. OS 수준 및 .Net framework에서 TLS 1.2을 사용 하도록 명시적으로 설정 하기 위해 [이 문서](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment) 에 언급 된 레지스트리 변경을 수행할 수도 있습니다.
+> Azure Key Vault 경우 Keyvault 서비스에 액세스하는 애플리케이션이 TLS 1.2 또는 최신 버전을 지원하는 계획형에서 실행되어야 합니다. 애플리케이션이 .Net framework에 종속된 경우 업데이트해야 합니다. 또한 [이 문서에](/troubleshoot/azure/active-directory/enable-support-tls-environment) 언급된 레지스트리를 변경하여 OS 수준 및 .Net Framework에서 TLS 1.2를 명시적으로 사용하도록 설정할 수 있습니다.
 
 ## <a name="key-vault-authentication-options"></a>Key Vault 인증 옵션
 
@@ -79,9 +79,9 @@ Key Vault 인증에 대한 자세한 내용은 [Azure Key Vault에 대한 인증
 
 ## <a name="conditional-access"></a>조건부 액세스 
 
-Key Vault는 Azure Azure Active Directory 조건부 액세스 정책에 대 한 지원을 제공 합니다. 조건부 액세스 정책을 사용 하 여 조직의 보안을 유지 하 고 필요 하지 않을 때 사용자의 방식에 대 한 보안을 유지 하기 위해 필요한 경우 Key Vault에 적절 한 액세스 제어를 적용할 수 있습니다.
+Key Vault Azure Azure Active Directory 조건부 액세스 정책에 대한 지원을 제공합니다. 조건부 액세스 정책을 사용하면 필요한 경우 올바른 액세스 제어를 Key Vault 적용하여 조직의 보안을 유지하고 필요하지 않은 경우 사용자의 방해를 받지 않도록 할 수 있습니다.
 
-자세한 내용은 [조건부 액세스 개요](../../active-directory/conditional-access/overview.md) 를 참조 하세요.
+자세한 내용은 [조건부 액세스 개요를 참조하세요.](../../active-directory/conditional-access/overview.md)
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 

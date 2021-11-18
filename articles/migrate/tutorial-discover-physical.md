@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 11/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 1a12e8ddf419b4e7b26d82e76a59de43fb73ddb4
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 9f4f8d4d113d3eac381f1b8504dc9987073319d9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132402412"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724770"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 물리적 서버 검색
 
@@ -301,7 +301,7 @@ Azure Portal에 표시되는 서버 100개와 해당 메타데이터의 검색�
 검색이 시작된 후 **검색 원본 추가** 테이블에서 서버 이름을 검색하고 **삭제** 를 클릭하면 어플라이언스 구성 관리자에서 추가된 서버를 삭제할 수 있습니다.
 
 >[!NOTE]
-> 검색이 시작된 서버를 삭제하면 진행 중인 검색과 평가가 중지되어 이 서버가 포함된 평가의 신뢰 등급이 영향을 받을 수 있습니다. [자세히 알아보기](/azure/migrate/common-questions-discovery-assessment#why-is-the-confidence-rating-of-my-assessment-low)
+> 검색이 시작된 서버를 삭제하면 진행 중인 검색과 평가가 중지되어 이 서버가 포함된 평가의 신뢰 등급이 영향을 받을 수 있습니다. [자세히 알아보기](./common-questions-discovery-assessment.md#why-is-the-confidence-rating-of-my-assessment-low)
 
 ## <a name="next-steps"></a>다음 단계
 

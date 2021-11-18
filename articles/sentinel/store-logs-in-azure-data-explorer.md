@@ -6,8 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 06fa0559d2ce0796cd8031b06b8ff4034d943675
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 7e5df37d8f118d7d4e822ba7f92fc2a388046b3b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523907"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711555"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>장기 로그 보존 시 Azure Data Explorer 통합
 
@@ -161,9 +159,9 @@ Microsoft 센티널에서 Azure 데이터 탐색기로 데이터를 내보내려
 
 ### <a name="azure-storage--azure-data-factory"></a>[Azure Storage/Azure Data Factory](#tab/azure-storage-azure-data-factory)
 
-이 섹션에서는 Log Analytics의 Microsoft Sentinel 데이터를 Azure Storage 내보내는 방법을 설명합니다. 여기서 Azure Data Factory 일반 작업을 실행하여 데이터를 Azure Data Explorer 내보낼 수 있습니다.
+이 섹션에서는 Log Analytics에서 Azure Storage으로 Microsoft 센티널 데이터를 내보내는 방법에 대해 설명 합니다. 여기서 Azure Data Factory는 일반 작업을 실행 하 여 데이터를 Azure 데이터 탐색기로 내보낼 수 있습니다.
 
-Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analytics의 보존 한도에 가까운 경우에만 Azure Storage 데이터를 복사할 수 있습니다. 데이터 중복은 없으며 Azure Data Explorer Microsoft Sentinel의 보존 한도보다 오래된 데이터에 액세스하는 *데만* 사용됩니다.
+Azure Storage 및 Azure Data Factory를 사용 하면 Microsoft 센티널/Log Analytics의 보존 제한에 근접 한 경우에만 Azure Storage에서 데이터를 복사할 수 있습니다. 데이터 중복은 없으며 Azure 데이터 탐색기는 Microsoft 센티널의 보존 한도 보다 오래 된 데이터에 액세스 하는 데 *만* 사용 됩니다.
 
 > [!TIP]
 > 레거시 데이터에서 Azure Storage 및 Azure Data Factory를 사용하기 위한 아키텍처는 더 복잡하지만, 이 방법은 전반적으로 더 큰 비용 절감 효과를 제공할 수 있습니다.
@@ -183,7 +181,7 @@ Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analyti
 
 1. **대상 테이블을 만듭니다**. 원시 데이터는 먼저 중간 테이블에 수집됩니다. 여기에서 원시 데이터가 저장, 조작되고 확장됩니다.
 
-    모든 새 데이터에 적용된 함수와 유사한 업데이트 정책은 확장된 데이터를 Microsoft Sentinel의 원래 테이블과 동일한 스키마가 있는 최종 테이블로 수집하는 데 사용됩니다.
+    모든 새 데이터에 적용 되는 함수와 비슷한 업데이트 정책은 확장 된 데이터를 Microsoft 센티널의 원본 테이블과 동일한 스키마를 가진 최종 테이블에 수집 하는 데 사용 됩니다.
 
     원시 테이블의 보존 기간을 **0** 일로 설정합니다. 데이터는 올바르게 형식이 지정된 테이블에만 저장되고, 변환되는 즉시 원시 테이블에서 삭제됩니다.
 
@@ -194,7 +192,7 @@ Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analyti
 1. **업데이트 정책을 만들어 원시 레코드 테이블에 연결합니다**. 이 단계에서 업데이트 정책이라는 함수를 만들고 대상 테이블에 연결하여 수집 시 데이터를 변환합니다.
 
     > [!NOTE]
-    > 이 단계는 Microsoft Sentinel과 동일한 스키마 및 형식의 Azure Data Explorer 데이터 테이블을 사용하려는 경우에만 필요합니다.
+    > Microsoft 센티널과 동일한 스키마와 형식을 사용 하 여 Azure 데이터 탐색기에 데이터 테이블을 포함 하려는 경우에만이 단계가 필요 합니다.
     >
 
     자세한 내용은 [Azure Data Explorer에 Event Hub 연결](/azure/data-explorer/ingest-data-no-code?tabs=activity-logs)을 참조하세요.
@@ -224,7 +222,7 @@ Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analyti
 
 ## <a name="design-considerations"></a>디자인 고려 사항
 
-Microsoft Sentinel 데이터를 Azure Data Explorer 저장할 때 다음 요소를 고려합니다.
+Azure 데이터 탐색기에 Microsoft 센티널 데이터를 저장 하는 경우 다음 요소를 고려 하세요.
 
 |고려 사항  |설명  |
 |---------|---------|
@@ -238,9 +236,9 @@ Microsoft Sentinel 데이터를 Azure Data Explorer 저장할 때 다음 요소�
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터를 저장하는 위치에 관계없이 Microsoft Sentinel을 사용하여 헌팅 및 조사를 계속합니다.
+데이터를 저장 하는 위치에 관계 없이 Microsoft 센티널을 사용 하 여 계속 탐색 하 고 조사 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [자습서: Microsoft Sentinel을 사용하여 인시던트 조사](investigate-cases.md)
-- [Microsoft Sentinel을 사용하여 위협 헌츠](hunting.md)
+- [자습서: Microsoft 센티널을 사용 하 여 인시던트 조사](investigate-cases.md)
+- [Microsoft 센티널에서 위협 구하기](hunting.md)

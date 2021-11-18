@@ -1,13 +1,11 @@
 ---
-title: Microsoft 센티널 엔터티 형식 참조 | Microsoft Docs
-description: 이 문서에서는 Microsoft 센티널 엔터티 형식 및 필수 식별자를 표시 합니다.
+title: Microsoft Sentinel 엔터티 형식 참조 | Microsoft Docs
+description: 이 문서에서는 Microsoft Sentinel 엔터티 형식 및 해당 필수 식별자를 표시합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,24 +13,24 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c5917011bd937e88811c9f0cffaed7f8c1c61f00
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: d147808610ce0377396ae602296f8e54a9bfdd0c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521209"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721274"
 ---
-# <a name="microsoft-sentinel-entity-types-reference"></a>Microsoft 센티널 엔터티 형식 참조
+# <a name="microsoft-sentinel-entity-types-reference"></a>Microsoft Sentinel 엔터티 형식 참조
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## <a name="entity-types-and-identifiers"></a>엔터티 형식 및 식별자
 
-다음 표에서는 현재 Microsoft 센티널에서 매핑에 사용할 수 있는 **엔터티 형식** 및 각 엔터티 형식에 대 한 **식별자** 로 사용할 수 있는 특성을 보여 줍니다 .이 **특성** 은 [분석 규칙 마법사](detect-threats-custom.md)의 [엔터티 매핑](map-data-fields-to-entities.md) 섹션에 있는 **식별자** 드롭다운 목록에 표시 됩니다.
+다음 표에서는 현재 Microsoft Sentinel에서 매핑할 수 있는 **엔터티 형식과** 각 엔터티 형식의 **식별자로** 사용할 수 있는 **특성을** 보여 주며, [분석 규칙 마법사](detect-threats-custom.md)의 [엔터티 매핑](map-data-fields-to-entities.md) 섹션에 있는 **식별자** 드롭다운 목록에 표시됩니다.
 
 **필수 식별자** 열의 각 식별자는 최소한 엔터티를 식별하는 데 필요합니다. 그러나 필수 식별자만으로는 *고유* ID를 제공하는 데 충분하지 않을 수 있습니다. 식별자가 많이 사용될수록 고유 ID의 가능성이 높아집니다. 최대 3개의 식별자를 단일 엔터티 매핑에 사용할 수 있습니다.
 
-최상의 결과, 즉 보장된 고유 ID를 위해 가능한 경우 **가장 강한 식별자** 열의 식별자를 사용해야 합니다. 여러 개의 강한 식별자를 사용하면 다양한 데이터 원본과 스키마의 강한 식별자 간에 상관 관계를 설정할 수 있습니다. 그러면 Microsoft 센티널에서 지정 된 엔터티에 대 한 보다 포괄적인 정보를 제공할 수 있습니다.
+최상의 결과, 즉 보장된 고유 ID를 위해 가능한 경우 **가장 강한 식별자** 열의 식별자를 사용해야 합니다. 여러 개의 강한 식별자를 사용하면 다양한 데이터 원본과 스키마의 강한 식별자 간에 상관 관계를 설정할 수 있습니다. 그러면 Microsoft Sentinel이 지정된 엔터티에 대해 보다 포괄적인 인사이트를 제공할 수 있습니다.
 
 | 엔터티 유형 | 식별자 | 필수 식별자 | 가장 강한 식별자 |
 | - | - | - | - |
@@ -68,7 +66,7 @@ ms.locfileid: "132521209"
 
 *엔터티 이름: Account*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'account' |
 | Name | String | 계정의 이름입니다. 이 필드는 도메인이 추가되지 않은 이름만 포함해야 합니다. |
@@ -104,7 +102,7 @@ ms.locfileid: "132521209"
 
 ## <a name="host"></a>호스트
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'host' |
 | DnsDomain | String | 이 호스트가 속한 DNS 도메인입니다. 알려진 경우 도메인에 대한 전체 DNS 접미사를 포함해야 합니다. |
@@ -137,7 +135,7 @@ ms.locfileid: "132521209"
 
 *엔터티 이름: IP*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'ip' |
 | 주소 | String | 문자열의 IP 주소입니다(예: 127.0.0.1)(IPv4 또는 IPv6에서). |
@@ -149,7 +147,7 @@ IP 엔터티의 강한 식별자:
 
 ## <a name="malware"></a>맬웨어
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'malware' |
 | Name | String | 공급업체별 악성 프로그램 이름입니다(예: `Win32/Toga!rfn`). |
@@ -164,7 +162,7 @@ IP 엔터티의 강한 식별자:
 
 ## <a name="file"></a>파일
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'file' |
 | 디렉터리 | String | 파일의 전체 경로입니다. |
@@ -180,7 +178,7 @@ IP 엔터티의 강한 식별자:
 
 ## <a name="process"></a>프로세스
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'process' |
 | ProcessId | String | 프로세스 ID입니다. |
@@ -210,7 +208,7 @@ IP 엔터티의 강한 식별자:
 
 *엔터티 이름: CloudApplication*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'cloud-application' |
 | AppId | Int | 애플리케이션의 기술 식별자입니다. 이는 [클라우드 애플리케이션 식별자](#cloud-application-identifiers) 목록에 정의된 값 중 하나여야 합니다. AppId 필드의 값은 선택 사항입니다. |
@@ -228,7 +226,7 @@ IP 엔터티의 강한 식별자:
 
 *엔터티 이름: DNS*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'dns' |
 | DomainName | String | 경고와 연결된 DNS 레코드의 이름입니다. |
@@ -245,7 +243,7 @@ DNS 엔터티의 약한 식별자:
 
 ## <a name="azure-resource"></a>Azure 리소스
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'azure-resource' |
 | ResourceId | String | 리소스의 Azure 리소스 ID입니다. |
@@ -262,7 +260,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 *엔터티 이름: FileHash*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'filehash' |
 | 알고리즘 | 열거형 | 해시 알고리즘 형식입니다. 가능한 값은 다음과 같습니다.<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
@@ -276,7 +274,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 *엔터티 이름: RegistryKey*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'registry-key' |
 | Hive | 열거형? | 다음 값 중 하나입니다.<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
@@ -290,7 +288,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 *엔터티 이름: RegistryValue*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'registry-value' |
 | 키 | Entity (RegistryKey) | 레지스트리 키 엔터티입니다. |
@@ -309,7 +307,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 *엔터티 이름: SecurityGroup*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'security-group' |
 | DistinguishedName | String | 그룹 고유 이름입니다. |
@@ -324,7 +322,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 ## <a name="url"></a>URL
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
 | Url | URI | 엔터티에서 가리키는 전체 URL입니다. |
@@ -340,7 +338,7 @@ URL 엔터티의 약한 식별자:
 
 *엔터티 이름: IoTDevice*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'iotdevice' |
 | IoTHub | Entity (AzureResource) | 디바이스가 속한 IoT Hub를 나타내는 AzureResource 엔터티입니다. |
@@ -367,7 +365,7 @@ IoT 디바이스 엔터티의 약한 식별자:
 
 ## <a name="mailbox"></a>사서함
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'mailbox' |
 | MailboxPrimaryAddress | String | 사서함의 기본 주소입니다. |
@@ -387,7 +385,7 @@ IoT 디바이스 엔터티의 약한 식별자:
 > [!NOTE]
 > **Microsoft Defender for Office 365** 는 이전에 O365 ATP(Office 365 Advanced Threat Protection)로 알려졌습니다.
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'mail-cluster' |
 | NetworkMessageIds | IList&lt;String&gt; | 메일 클러스터의 일부인 메일 메시지 ID입니다. |
@@ -414,7 +412,7 @@ IoT 디바이스 엔터티의 약한 식별자:
 
 *엔터티 이름: MailMessage*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'mail-message' |
 | 파일 | IList&lt;File&gt; | 이 메일 메시지의 첨부 파일에 대한 파일 엔터티입니다. |
@@ -448,7 +446,7 @@ IoT 디바이스 엔터티의 약한 식별자:
 
 *엔터티 이름: SubmissionMail*
 
-| 필드 | 형식 | Description |
+| 필드 | 형식 | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'SubmissionMail' |
 | SubmissionId | GUID? | 제출 ID입니다. |
@@ -503,7 +501,7 @@ SubmissionMail 엔터티의 강한 식별자:
 |17865|Ariba Inc|
 |18432|Zscaler|
 |19688|Xactly|
-|20595|클라우드 앱 용 Microsoft Defender|
+|20595|Microsoft Defender for Cloud 앱|
 |20892|Microsoft SharePoint Online|
 |20893|Microsoft Exchange Online|
 |20940|Active Directory|
@@ -542,6 +540,6 @@ SubmissionMail 엔터티의 강한 식별자:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft 센티널에서 엔터티 구조, 식별자 및 스키마에 대해 알아보았습니다.
+이 문서에서는 Microsoft Sentinel의 엔터티 구조, 식별자 및 스키마에 대해 배웠습니다.
 
-[엔터티](entities-in-azure-sentinel.md) 및 [엔터티 매핑](map-data-fields-to-entities.md)에 대해 자세히 알아보세요. 
+[엔터티](entities.md) 및 [엔터티 매핑](map-data-fields-to-entities.md)에 대해 자세히 알아보세요. 

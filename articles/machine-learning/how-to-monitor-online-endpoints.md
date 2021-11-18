@@ -8,12 +8,12 @@ ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: c704af7d5249ca1a24da554e7789d3c92a360861
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: f6bc7355df16d705705026b817ac1e0b69719b35
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519461"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723478"
 ---
 # <a name="monitor-managed-online-endpoints-preview"></a>관리형 온라인 엔드포인트 모니터링(미리 보기)
 
@@ -58,7 +58,8 @@ ms.locfileid: "132519461"
 - 활성 연결 수
 - 네트워크 바이트
 
-> ! [참고] 한도를 초과하면 대역폭이 제한됩니다(Azure Machine Learning 있는 리소스 관리 및 [증가의](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)관리되는 온라인 엔드포인트 섹션 참조). 요청이 제한되는지 확인하려면 다음을 수행합니다.
+> [!NOTE]
+> 한도를 초과하면 대역폭이 제한됩니다(Azure Machine Learning 있는 리소스 관리 및 [증가의](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)관리되는 온라인 엔드포인트 섹션 참조). 요청이 제한되는지 확인하려면 다음을 수행합니다.
 > - "네트워크 바이트" 메트릭 모니터링
 > - 응답 헤더에는 및 필드가 `ms-azureml-bandwidth-request-delay-ms` `ms-azureml-bandwidth-response-delay-ms` 있습니다. 필드의 값은 대역폭 제한의 지연 시간(밀리초)입니다.
 

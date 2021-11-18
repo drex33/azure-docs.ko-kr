@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: c0bbc7bb40c292675374a3198fe0514b720adfca
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7b76f98d13e959529aab2c16776ed34cb0f1a906
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226113"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706688"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>다운스트림 IoT Edge 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -52,6 +52,8 @@ ms.locfileid: "130226113"
 부모/자식 관계를 설정하는 단계는 자식 디바이스가 IoT Hub에 연결하는 것과 같이 부모 디바이스에 연결할 수 있도록 권한을 부여합니다.
 
 IoT Edge 디바이스만 부모 디바이스가 될 수 있지만 IoT Edge 디바이스 및 IoT 디바이스는 모두 자식 디바이스가 될 수 있습니다. 부모는 여러 자식을 가지지만 자식은 한 부모만을 가질 수 있는 것과 같습니다. 게이트웨이 계층 구조는 하나의 디바이스의 자식이 다른 디바이스의 부모가 되도록 부모/자식 집합을 함께 연결하여 생성됩니다.
+
+기본적으로 부모에는 최대 100명의 자식이 있을 수 있습니다. 부모 디바이스의 edgeHub 모듈에서 **MaxConnectedClients** 환경 변수를 설정하여 이 제한을 변경할 수 있습니다.
 
 <!-- TODO: graphic of gateway hierarchy -->
 

@@ -9,24 +9,24 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: zhenlwa
-ms.openlocfilehash: 94df4c9fb17f94c317e46b2bef9d2208fa592884
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9631d083353382177afbb284cd92de53e44e94a4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130271326"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301934"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-web-application-net-framework"></a>자습서: ASP.NET 웹 애플리케이션에서 동적 구성 사용(.NET Framework)
 
 App Configuration의 데이터는 .NET Framework 애플리케이션에서 앱 설정으로 로드할 수 있습니다. 자세한 내용은 [빠른 시작](./quickstart-dotnet-app.md)을 참조하세요. 그러나 .NET Framework에서 설계한 대로 앱 설정은 애플리케이션을 다시 시작할 때만 새로 고칠 수 있습니다. App Configuration .NET 공급자는 .NET Standard 라이브러리입니다. 애플리케이션을 다시 시작하지 않고 동적으로 구성을 캐싱 및 새로 고치도록 지원합니다. 이 자습서에서는 ASP.NET Web Forms 애플리케이션에서 동적 구성 업데이트를 구현하는 방법을 보여 줍니다. 동일한 기술이 .NET Framework MVC 애플리케이션에 적용됩니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * App Configuration 저장소의 변경에 따라 해당 구성을 업데이트하도록 ASP.NET 웹 애플리케이션을 설정합니다.
 > * 요청의 최신 구성을 애플리케이션에 삽입합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
@@ -100,7 +100,7 @@ App Configuration의 데이터는 .NET Framework 애플리케이션에서 앱 �
     ```
     `Application_Start` 메서드는 웹 애플리케이션에 대한 첫 번째 요청 시 호출됩니다. 애플리케이션의 수명 주기 동안 한 번만 호출됩니다. 따라서 `IConfiguration` 개체를 초기화하고 App Configuration에서 데이터를 로드하는 것이 좋습니다.
 
-    `ConfigureRefresh` 메서드에서 App Configuration 저장소 내의 키는 변경 모니터링을 위해 등록됩니다. `Register` 메서드에 대한 `refreshAll` 매개 변수는 등록된 키가 변경되면 모든 구성 값을 새로 고쳐야 함을 나타냅니다. 이 예제에서 *TestApp:Settings:Sentinel* 키는 다른 모든 키의 변경을 완료한 후 업데이트하는 *sentinel* 키입니다. 변경이 감지되면 애플리케이션이 모든 구성 값을 새로 고칩니다. 이 방법은 모든 키의 변경 내용을 모니터링하는 것에 비해 애플리케이션의 구성 일관성을 보장하는 데 유용합니다.
+    `ConfigureRefresh` 메서드에서 App Configuration 저장소 내의 키는 변경 모니터링을 위해 등록됩니다. `Register` 메서드에 대한 `refreshAll` 매개 변수는 등록된 키가 변경되면 모든 구성 값을 새로 고쳐야 함을 나타냅니다. 이 예제에서 *TestApp:Settings:Sentinel* 키는 다른 모든 키의 변경을 완료한 후 업데이트하는 *sentinel 키* 입니다. 변경이 감지되면 애플리케이션이 모든 구성 값을 새로 고칩니다. 이 방법은 모든 키의 변경 내용을 모니터링하는 것에 비해 애플리케이션의 구성 일관성을 보장하는 데 유용합니다.
     
     `SetCacheExpiration` 메서드는 구성 변경 여부를 확인하기 위해 App Configuration에 새 요청을 하기 전에 경과해야 하는 최소 시간을 지정합니다. 이 예제에서는 기본 만료 시간인 30초 대신 5분이라는 시간을 지정하여 재정의합니다. 이렇게 하면 App Configuration 스토리지에 보내는 잠재적인 요청 수가 줄어듭니다.
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 15edab4bc16067b866912e1fca899e844ff6e7e0
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: e3430ded70d8bba018e2bb28ad48decde82c46c4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554931"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339728"
 ---
 # <a name="tutorial-designer---train-a-no-code-regression-model"></a>자습서: 디자이너 - 코드 없는 회귀 모델 학습
 
@@ -221,7 +221,7 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
 1. **선형 회귀** 구성 요소의 출력을 **모델 학습** 구성 요소의 왼쪽 입력에 연결합니다.
 
 1. **데이터 분할** 구성 요소의 학습 데이터 출력(왼쪽 포트)을 **모델 학습** 구성 요소의 오른쪽 입력에 연결합니다.
-    
+
     > [!IMPORTANT]
     > **데이터 분할** 의 왼쪽 출력 포트가 **학습 모델** 에 연결되어 있는지 확인합니다. 왼쪽 포트는 학습 집합을 포함합니다. 오른쪽 포트는 테스트 집합을 포함합니다.
 

@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 78d6b8cee1ad2442278497c5ca3e282b19d1beb6
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: d63182c46f47353801ca30c086aa341ebd3b9e92
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997251"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716698"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -56,11 +56,11 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
 
 Azure Backup 사용 하 여 이제 백업 정책을 만들거나 기존 백업 정책을 수정 하 여 하루에 여러 스냅숏을 만들 수 있습니다. 이 기능을 사용 하 여 백업 작업이 트리거되는 기간을 정의할 수도 있습니다. 이 기능을 사용 하면 Azure Files 콘텐츠가 자주 업데이트 되는 경우 백업 일정을 작업 시간에 맞출 수 있습니다.
 
-자세한 내용은 [backup 정책을 통해 하루에 여러 백업을 구성 하는 방법](/azure/backup/manage-afs-backup#create-a-new-policy)을 참조 하세요.
+자세한 내용은 [backup 정책을 통해 하루에 여러 백업을 구성 하는 방법](./manage-afs-backup.md#create-a-new-policy)을 참조 하세요.
 
 ## <a name="azure-backup-metrics-and-metrics-alerts-in-preview"></a>Azure Backup 메트릭 및 메트릭 경고 (미리 보기)
 
-이제 Azure Backup는 백업 상태를 모니터링할 수 있는 [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) 을 통해 기본 제공 메트릭 집합을 제공 합니다. 메트릭이 정의 된 임계값을 초과 하는 경우 경고를 트리거하는 경고 규칙을 구성할 수도 있습니다.
+이제 Azure Backup는 백업 상태를 모니터링할 수 있는 [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) 을 통해 기본 제공 메트릭 집합을 제공 합니다. 메트릭이 정의 된 임계값을 초과 하는 경우 경고를 트리거하는 경고 규칙을 구성할 수도 있습니다.
 
 Azure Backup는 다음과 같은 주요 기능을 제공 합니다.
  
@@ -157,7 +157,7 @@ Azure Backup은 중앙 콘솔에서 전체 백업 공간을 관리하는 새로�
 
 자세한 내용은 [백업 센터 개요](backup-center-overview.md)를 참조하세요.
 
-## <a name="back-up-azure-database-for-postgresql-in-preview"></a>Azure Database for PostgreSQL 백업(미리 보기)
+## <a name="back-up-azure-database-for-postgresql-in-preview"></a>Azure Database for PostgreSQL 백업 (미리 보기)
 
 Azure Backup과 Azure Data Services가 결합되어 Azure PostgreSQL(현재 미리 보기)용 엔터프라이즈급 백업 솔루션을 빌드할 수 있습니다. 이제 최장 10년간 백업 보존을 사용하도록 설정하는 고객 제어형 백업 정책을 통해 데이터 보호 및 규정 준수 요구 사항을 충족할 수 있습니다. 이를 통해 개별 데이터베이스 수준에서 백업/복원 작업을 관리하는 세분화된 제어를 사용할 수 있습니다. 마찬가지로, PostgreSQL 버전 또는 Blob 스토리지 간에 쉽게 복원할 수 있습니다.
 
@@ -189,7 +189,7 @@ Azure Backup은 가상 머신 백업 솔루션을 함께 사용하여 VM의 모�
 
 자세한 내용은 [VM 창에서 SQL Server 백업](backup-sql-server-vm-from-vm-pane.md)을 참조하세요.
 
-## <a name="back-up-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>RHEL Azure 가상 머신에서 SAP HANA 백업(미리 보기)
+## <a name="back-up-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>RHEL Azure virtual machines의 SAP HANA 백업 (미리 보기)
 
 Azure Backup은 Azure의 기본 백업 솔루션으로, SAP에서 BackInt 인증을 받았습니다. 현재 Azure Backup에는 SAP HANA를 실행하여 가장 널리 사용되는 Linux 운영 체제 중 하나인 Red Hat Enterprise Linux(RHEL)에 대한 지원이 추가되었습니다.
 
@@ -197,7 +197,7 @@ Azure Backup은 Azure의 기본 백업 솔루션으로, SAP에서 BackInt 인증
 
 ## <a name="zone-redundant-storage-zrs-for-backup-data-in-preview"></a>백업 데이터에 대한 ZRS(영역 중복 스토리지)(미리 보기)
 
-Azure Storage는 다양한 중복도 옵션을 통해 고성능과 고가용성, 높은 데이터 복원력을 제공합니다. Azure Backup 사용하면 LRS(로컬 중복 스토리지) 및 GRS(지역 중복 스토리지)에 백업을 저장하는 옵션을 통해 백업 데이터까지 이러한 이점을 확장할 수 있습니다. 현재 ZRS(영역 중복 스토리지)에 대한 지원이 더해진 내구성 옵션도 추가로 제공됩니다.
+Azure Storage는 다양한 중복도 옵션을 통해 고성능과 고가용성, 높은 데이터 복원력을 제공합니다. Azure Backup를 사용 하면 백업을 LRS (로컬 중복 저장소) 및 GRS (지역 중복 저장소)에 저장 하는 옵션을 사용 하 여 이러한 혜택을 백업 데이터로 확장할 수 있습니다. 현재 ZRS(영역 중복 스토리지)에 대한 지원이 더해진 내구성 옵션도 추가로 제공됩니다.
 
 자세한 내용은 [Recovery Services 자격 증명 모음에 대한 스토리지 중복도 설정](backup-create-rs-vault.md#set-storage-redundancy)을 참조하세요.
 

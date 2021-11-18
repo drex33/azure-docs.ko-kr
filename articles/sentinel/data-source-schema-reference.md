@@ -1,21 +1,19 @@
 ---
-title: Microsoft Sentinel 데이터 원본 스키마 참조
-description: 이 문서에는 Microsoft Sentinel에서 지원하는 Azure 및 타사 데이터 원본 스키마와 해당 참조 설명서에 대한 링크가 나열되어 있습니다.
+title: Microsoft 센티널 데이터 원본 스키마 참조
+description: 이 문서에서는 참조 설명서에 대 한 링크와 함께 Microsoft 센티널에서 지 원하는 Azure 및 타사 데이터 원본 스키마를 나열 합니다.
 author: batamig
 ms.author: bagol
 manager: rkarlin
 ms.assetid: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: reference
 ms.custom: ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 5b2c03c90fc17d2226de9f364e5ff4d3e5447307
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 0ea3809ec96d956e50d698c85cabbcf99420335d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521692"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724428"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
 

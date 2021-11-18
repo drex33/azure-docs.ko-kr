@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b73f742054962e6d598b8313d565d1f15739fca4
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: e7d532392a2ede60370812535f9946f608f969e9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132554126"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710648"
 ---
 # <a name="quickstart-rest-api---preview"></a>빠른 시작: REST API | 미리 보기
 
@@ -111,7 +111,7 @@ GET /documentModels/{modelId}/analyzeResults/{resultId}
 #### <a name="request"></a>요청
 
 ```bash
- curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -368,8 +368,8 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 #### <a name="request"></a>요청
 
 ```bash
-bash
- curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -427,7 +427,7 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 #### <a name="request"></a>요청
 
 ```bash
- curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location

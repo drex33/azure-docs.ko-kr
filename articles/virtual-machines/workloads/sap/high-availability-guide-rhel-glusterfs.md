@@ -16,7 +16,7 @@ ms.date: 08/16/2018
 ms.author: radeltch
 ms.openlocfilehash: bb4552d068183907b24ff2a0c5b7a9dcce593a25
 ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/26/2021
 ms.locfileid: "122967816"
@@ -102,7 +102,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
-먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다. [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.  
+먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음, Load Balancer를 만들고 백 엔드 풀의 가상 머신을 사용합니다. [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.  
 
 1. 리소스 그룹 만들기
 1. Virtual Network 만들기

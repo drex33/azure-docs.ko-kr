@@ -16,7 +16,7 @@ ms.date: 08/11/2021
 ms.author: radeltch
 ms.openlocfilehash: 2bbc8ccf445a9fb45e2dc91041287d6ca47653a2
 ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/26/2021
 ms.locfileid: "122966883"
@@ -84,7 +84,7 @@ SAP NetWeaver의 가용성을 높이려면 공유 스토리지가 필요합니�
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 Load Balancer가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
 
 ### <a name="ascs"></a>(A)SCS
 

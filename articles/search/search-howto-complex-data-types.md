@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 11/17/2021
-ms.openlocfilehash: 525387705abffd09894ebadb9baece0201beeb49
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 9eeb48743e36df8666345ba218c81cb4a72180b7
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132751925"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810691"
 ---
 # <a name="model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search의 복합 데이터 형식 모델링
 
@@ -73,6 +73,8 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 
 모든 인덱스 정의와 마찬가지로, 포털, [REST API](/rest/api/searchservice/create-index) 또는 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex)를 사용하여 복합 형식을 포함하는 스키마를 만들 수 있습니다. 
 
+다른 Azure Sdk는 [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) 및 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/javascript/indexOperations.js)에 샘플을 제공 합니다.
+
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/complex-type-portal)
 
 1. 검색 서비스 **개요** 페이지에서 **인덱스** 탭을 선택 합니다.
@@ -116,7 +118,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 }
 ```
 
-### <a name="net-sdk"></a>[**.NET SDK**](#tab/complex-type-dotnet)
+### <a name="c"></a>[**C#**](#tab/complex-type-csharp)
 
 [검색 인덱스 클래스](/dotnet/api/azure.search.documents.indexes.models.searchindex) 를 사용 하 여 인덱스 스키마를 정의 합니다.
 

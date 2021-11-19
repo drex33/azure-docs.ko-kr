@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a258a84930201a48aa70577d1349104b9cd6a480
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: b17d0af467722db1f4ed793f816f0d3a617e252b
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132723497"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132806822"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -270,11 +270,11 @@ az network private-endpoint dns-zone-group add \
 
 암호화를 위해 사용자 고유의 키를 가져올 때 생성되는 리소스에 대한 자세한 내용은 [Azure Machine Learning 사용하여 데이터 암호화](./concept-data-encryption.md#azure-cosmos-db)를 참조하세요.
 
-아래 CLI 명령은 1.0 CLI 및 2.0 CLI 버전을 사용하는 암호화를 위해 고객 관리형 키를 사용하는 작업 영역을 만드는 예제를 제공합니다.
+CLI 명령 아래에서는 1.0 CLI 및 2.0 CLI 버전을 사용 하 여 암호화에 고객 관리 키를 사용 하는 작업 영역을 만드는 예제를 제공 합니다.
 
 # <a name="10-cli"></a>[1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-매개 변수를 사용하여 키가 포함된 Azure Key Vault 지정하고 자격 증명 모음 `--cmk-keyvault` `--resource-cmk-uri` 내에서 키의 리소스 ID와 URI를 지정합니다.
+`--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 리소스 ID와 uri를 지정 합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `--hbi-workspace` 매개 변수를 추가로 지정할 수 있습니다. 
 
@@ -286,9 +286,9 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# <a name="20-cli---preview"></a>[2.0 CLI - 미리 보기](#tab/vnetpleconfigurationsv2cli)
+# <a name="20-cli---preview"></a>[2.0 CLI-미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-및 매개 변수를 포함하는 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
+및 매개 변수를 포함 하는 및 매개 변수를 사용 `customer_managed_key` `key_vault` 하 여 `key_uri` 자격 증명 모음 내에서 키의 리소스 ID와 uri를 지정 합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `hbi_workspace` 속성을 추가로 지정할 수 있습니다. 
 
@@ -367,7 +367,7 @@ az group delete -g <resource-group-name>
 
 자세한 내용은 [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) 설명서를 참조하세요.
 
-실수로 작업 영역을 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](./how-to-high-availability-machine-learning.md#workspace-deletion)를 참조하세요.
+작업 영역을 실수로 삭제 한 경우에도 계속 해 서 전자 필기장을 검색할 수 있습니다. [이 설명서](./how-to-high-availability-machine-learning.md#workspace-deletion)를 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -389,3 +389,5 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 ## <a name="next-steps"></a>다음 단계
 
 기계 학습용 Azure CLI 확장에 대한 자세한 내용은 [az ml](/cli/azure/ml) 설명서를 참조하세요.
+
+작업 영역에 대 한 문제를 확인 하려면 [작업 영역 진단을 사용 하는 방법](how-to-workspace-diagnostic-api.md)을 참조 하세요.

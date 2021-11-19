@@ -2,19 +2,21 @@
 title: Lecrule-보안 매개 변수 기본값
 description: Lecrule-보안 매개 변수 기본값
 ms.topic: conceptual
-ms.date: 10/14/2021
-ms.openlocfilehash: 139b19124f22d5cb42be71d6a6042830ad7809f7
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 11/18/2021
+ms.openlocfilehash: ebf08471ccca2b3f30a1119634cf2c4b8d27ecf0
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166491"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814349"
 ---
 # <a name="linter-rule---secure-parameter-default"></a>Lecrule-보안 매개 변수 기본값
 
 이 규칙은 보안 매개 변수에 대 한 하드 코드 된 기본값을 찾습니다.
 
-## <a name="returned-code"></a>반환 된 코드
+## <a name="linter-rule-code"></a>Lecrule 코드
+
+[Bicep 구성 파일](bicep-config-linter.md) 에서 다음 값을 사용 하 여 규칙 설정을 사용자 지정 합니다.
 
 `secure-parameter-default`
 

@@ -1,20 +1,22 @@
 ---
-title: Linter 규칙 - 사용되지 않는 변수 없음
-description: Linter 규칙 - 사용되지 않는 변수 없음
+title: Lecrule-사용 되지 않는 변수 없음
+description: Lecrule-사용 되지 않는 변수 없음
 ms.topic: conceptual
-ms.date: 10/14/2021
-ms.openlocfilehash: 3b59b8d72d12c365952dd8eef2c65a0f851ea561
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 11/18/2021
+ms.openlocfilehash: 71163196bc5b047be6ce572d5d3a364e364988a1
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161871"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813642"
 ---
-# <a name="linter-rule---no-unused-variables"></a>Linter 규칙 - 사용되지 않는 변수 없음
+# <a name="linter-rule---no-unused-variables"></a>Lecrule-사용 되지 않는 변수 없음
 
-이 규칙은 Bicep 파일에서 참조되지 않는 변수를 찾습니다.
+이 규칙은 Bicep 파일의 어디에서 나 참조 되지 않는 변수를 찾습니다.
 
-## <a name="returned-code"></a>반환된 코드
+## <a name="linter-rule-code"></a>Lecrule 코드
+
+[Bicep 구성 파일](bicep-config-linter.md) 에서 다음 값을 사용 하 여 규칙 설정을 사용자 지정 합니다.
 
 `no-unused-vars`
 
@@ -24,4 +26,4 @@ ms.locfileid: "130161871"
 
 ## <a name="next-steps"></a>다음 단계
 
-linter에 대한 자세한 내용은 [Bicep linter 사용을 참조하세요.](./linter.md)
+Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.

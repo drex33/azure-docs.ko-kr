@@ -10,12 +10,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 02/18/2020
-  ms.openlocfilehash: c345f74f688641fee550c622e83328689a79bb31
-  ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+  ms.openlocfilehash: 35263f4ae7b49d5d97dbe9713208ab9267c1a8be
+  ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112006872"
+  ms.lasthandoff: 11/19/2021
+  ms.locfileid: "132814187"
 landingContent:
 - title: Azure Front Door 표준/프리미엄(미리 보기)에 대해 알아보기
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
     - text: 원본
       url: concept-origin.md
     - text: 상태 프로브
-      url: concept-health-probes.md
+      url: /azure/frontdoor/front-door-health-probes
   - linkListType: how-to-guide
     links:
     - text: 원본 그룹 구성
@@ -82,7 +82,7 @@ landingContent:
     - text: Azure Front Door 표준/프리미엄의 WAF
       url: ../../web-application-firewall/afds/afds-overview.md
     - text: DDoS 보호
-      url: concept-ddos.md
+      url: /azure/frontdoor/front-door-ddos
   - linkListType: how-to-guide
     links:
     - text: Private Link 사용

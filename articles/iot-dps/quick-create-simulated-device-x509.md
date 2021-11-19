@@ -10,12 +10,12 @@ services: iot-dps
 manager: lizross
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set1
-ms.openlocfilehash: 23ff38d248343cc02c1e9cbf3d5fb5ffce419bad
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: fb283c3c8739abda82b05d6afce051a85d50d981
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132763034"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132809023"
 ---
 # <a name="quickstart-provision-an-x509-certificate-simulated-device"></a>빠른 시작: X.509 인증서 시뮬레이션된 디바이스 프로비저닝
 
@@ -25,7 +25,7 @@ ms.locfileid: "132763034"
 
 이 빠른 시작에서는 Windows 기반 워크스테이션을 위한 솔루션을 보여줍니다. 그러나 Linux에서 절차를 수행할 수도 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
@@ -585,7 +585,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ::: zone pivot="programming-language-python"
 
-Python 프로비저닝 샘플 [provision_x509 py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/provision_x509.py)는 `azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios` 디렉터리에 있습니다. 이 샘플에서는 6개의 환경 변수를 사용하여 DPS를 사용하여 IoT 디바이스를 인증하고 프로비저닝합니다. 이러한 환경 변수는 다음과 같습니다.
+Python 프로비저닝 샘플 [provision_x509 py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py)는 `azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios` 디렉터리에 있습니다. 이 샘플에서는 6개의 환경 변수를 사용하여 DPS를 사용하여 IoT 디바이스를 인증하고 프로비저닝합니다. 이러한 환경 변수는 다음과 같습니다.
 
 | 변수 이름              | 설명                                     |
 | :------------------------- | :---------------------------------------------- |
@@ -650,7 +650,7 @@ Python 프로비저닝 샘플 [provision_x509 py](https://github.com/Azure/azure
     $export PASS_PHRASE=1234
     ```
 
-7. [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/provision_x509.py)에 대한 코드를 검토합니다. **Python 버전 3.7** 이상을 사용하지 않는 경우 [여기에 설명된 대로 코드를 변경](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk)하여 `asyncio.run(main())`을 대체합니다.
+7. [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py)에 대한 코드를 검토합니다. **Python 버전 3.7** 이상을 사용하지 않는 경우 [여기에 설명된 대로 코드를 변경](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk)하여 `asyncio.run(main())`을 대체합니다.
 
 8. 변경 내용을 저장합니다.
 

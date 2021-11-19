@@ -2,24 +2,24 @@
 title: Azure Healthcare API에 대한 Azure Active Directory 클라이언트 애플리케이션 등록
 description: Azure AD에서 클라이언트 애플리케이션을 등록하는 방법 및 Azure Healthcare API에 비밀 및 API 권한을 추가하는 방법
 services: healthcare-apis
-author: ginalee-dotcom
+author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/25/2021
-ms.author: ginle
-ms.openlocfilehash: b1ac54f71c9c49af5bb8656bdbe05d639b8bca25
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 11/17/2021
+ms.author: zxue
+ms.openlocfilehash: dcb88484144674122f0a108b92f8986084b80b9f
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278051"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812601"
 ---
 # <a name="register-a-client-application-in-azure-active-directory"></a>Azure Active Directory 클라이언트 애플리케이션 등록
 
 > [!IMPORTANT]
 > Azure Healthcare API는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
-이 문서에서는 의료 API에 액세스하기 위해 Azure AD(Azure Active Directory)에 클라이언트 애플리케이션을 등록하는 방법을 알아봅니다. [Microsoft ID 플랫폼 애플리케이션 등록에](../active-directory/develop/quickstart-register-app.md)대한 자세한 내용을 확인할 수 있습니다.
+이 문서에서는 의료 API에 액세스하기 위해 azure AD(Azure Active Directory)에 클라이언트 애플리케이션을 등록하는 방법을 알아봅니다. [Microsoft ID 플랫폼 애플리케이션 등록에](../active-directory/develop/quickstart-register-app.md)대한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="register-a-new-application"></a>새 애플리케이션 등록
 
@@ -47,7 +47,7 @@ ms.locfileid: "129278051"
 
 [![기밀 클라이언트 애플리케이션의 스크린샷. ](media/register-application-five.png) ](media/register-application-five.png#lightbox)
 
-기본값을 "예"로 변경하면 애플리케이션 등록이 **공용 클라이언트 애플리케이션이며** 인증서 또는 비밀이 필요하지 않습니다. "예" 값은 비밀을 저장하지 않으려는 모바일 앱 또는 JavaScript 앱에서 클라이언트 애플리케이션을 사용하려는 경우에 유용합니다.
+고급 설정에서 "공용 클라이언트 흐름 허용" 옵션에 대해 기본값을 "예"로 변경하면 애플리케이션 등록이 **공용 클라이언트 애플리케이션이며** 인증서 또는 비밀이 필요하지 않습니다. "예" 값은 비밀을 저장하지 않으려는 모바일 앱 또는 JavaScript 앱에서 클라이언트 애플리케이션을 사용하려는 경우에 유용합니다.
 
 리디렉션 URL이 필요한 도구의 경우 **플랫폼 추가를** 선택하여 플랫폼을 구성합니다.
 
@@ -75,10 +75,29 @@ Postman에서 **모바일 및 데스크톱 애플리케이션을** 선택합니�
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-의료 API에 대한 권한은 RBAC를 통해 관리됩니다. 자세한 내용은 [FHIR 서비스에 대한 Azure RBAC 구성을](./fhir/configure-azure-rbac-for-fhir.md)방문하세요.
+DICOM 서비스에는 다음 단계가 필요하지만 FHIR 서비스에는 선택 사항입니다. 또한 의료 API에 대한 사용자 액세스 권한 또는 역할 할당은 RBAC를 통해 관리됩니다. 자세한 내용은 [의료 API에 대한 Azure RBAC 구성을 방문하세요.](configure-azure-rbac.md)
+
+1. **API 사용 권한** 블레이드를 선택합니다.
+
+   [![API 권한 ](dicom/media/dicom-add-api-permissions.png) 추가 ](dicom/media/dicom-add-api-permissions.png#lightbox)
+
+2. **사용 권한 추가** 를 선택합니다.
+
+   Azure Healthcare API를 사용하는 경우 조직에서 사용하는 API에서 DICOM용 **Azure API를** 검색하여 DICOM 서비스에 대한 권한을 **추가합니다.** 
+
+   [![API 권한 ](dicom/media/dicom-search-apis-permissions.png) 검색 ](dicom/media/dicom-search-apis-permissions.png#lightbox)
+
+   DICOM용 Azure API에 대한 검색 결과는 작업 영역에 DICOM 서비스를 이미 배포한 경우에만 반환됩니다.
+
+   다른 리소스 애플리케이션을 참조하는 경우 이전에 **내 조직** API에서 만든 DICOM API 리소스 애플리케이션 등록을 선택합니다.
+
+3. 기밀 클라이언트 애플리케이션이 사용자를 대신하여 요청할 범위(권한)를 선택합니다. **user_impersonation** 을 선택한 다음, **사용 권한 추가** 를 선택합니다.
+
+   [![사용 권한 범위를 선택합니다. ](dicom/media/dicom-select-scopes.png) ](dicom/media/dicom-select-scopes.png#lightbox)
 
 >[!NOTE]
->Postman 또는 Rest Client와 같은 도구를 사용하여 FHIR 서비스에 대한 액세스 토큰을 획득하려고 할 때 client_credentials grant_type 사용합니다. 자세한 내용은 [postman을 사용하여 액세스](use-postman.md) 및 [Visual Studio Code REST 클라이언트 확장을 사용하여 의료 API 액세스를 방문하세요.](using-rest-client.md)
+>Postman 또는 Rest Client와 같은 도구를 사용하여 FHIR 서비스에 대한 액세스 토큰을 획득하려고 할 때 client_credentials grant_type 사용합니다. 자세한 내용은 [postman을 사용하여 액세스](use-postman.md) 및 [Visual Studio Code REST 클라이언트 확장을 사용하여 의료 API 액세스를](using-rest-client.md)방문하세요.
+>>DICOM 서비스에 대한 액세스 토큰을 획득하려고 할 때 client_credentials 또는 authentication_doe grant_type 사용합니다. 자세한 내용은 [cURL과 함께 DICOM 사용을](dicom/dicomweb-standard-apis-curl.md)방문하세요.
 
 이제 애플리케이션 등록이 완료되었습니다.
 

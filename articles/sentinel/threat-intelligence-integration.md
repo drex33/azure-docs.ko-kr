@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8e6e5a7c72f90404981bcb7564c2f97902f26a66
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 6b3853798de047455834de72947d44629c1247d2
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132761914"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810314"
 ---
 # <a name="threat-intelligence-integration-in-microsoft-sentinel"></a>Microsoft Sentinel의 위협 인텔리전스 통합
 
@@ -63,6 +63,11 @@ TAXII 위협 인텔리전스 피드에 연결하려면 지침에 따라 [Microso
 
 - [STIX 및 TAXII에 대해 더 알아보기@ThreatConnect](https://threatconnect.com/stix-taxii/)
 - [TAXII 서비스 설명서 @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/v2/taxii/taxii.html)
+
+### <a name="sectrio"></a>Sect
+
+- [Sectrio 통합에 대해 자세히 알아보기](https://sectrio.com/threat-intelligence/)
+- [Sect TI 피드를 Microsoft Sentinel에 통합하기 위한 단계별 프로세스](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648)
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>통합 위협 인텔리전스 플랫폼 제품
 

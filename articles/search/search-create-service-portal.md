@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/24/2021
-ms.openlocfilehash: 4a77ca4a3318e9ea583bd113d373815860e8d591
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: c9d25e8b70352a574eef99e7c64c2421452c3ca0
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122767836"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132811172"
 ---
 # <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>포털에서 Azure Cognitive Search서비스 만들기
 
@@ -106,6 +106,8 @@ Azure Cognitive Search는 [지역별 사용 가능한 제품](https://azure.micr
 Azure Cognitive Search는 현재 [여러 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/): 무료, 기본, 표준 또는 스토리지 최적화로 제공됩니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 또한 선택하는 계층은 특정 기능의 가용성에 영향을 줄 수 있습니다. 지침은 [계층별 기능 가용성](search-sku-tier.md#feature-availability-by-tier)을 참조하세요.
 
 기본 및 표준 계층은 프로덕션 워크로드에서 일반적으로 선택되지만, 처음에 대부분의 고객은 평가 목적으로 체험 서비스를 시작합니다. 청구 가능한 계층 간 주요 차이점은 파티션 크기와 속도 및 만들 수 있는 개체 수에 대한 제한에 있습니다.
+
+:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" alt-text="가격 책정 계층 선택 페이지의 스크린샷" border="true":::
 
 서비스가 만들어지면 가격 책정 계층을 변경할 수 없습니다. 상위 계층 또는 하위 계층이 필요한 경우 서비스를 다시 만들어야 합니다.
 

@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 8762a43608c52ceec3f8cb92e08f88a94c244e30
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4f3d9cf8a16de506571e5c79a9d8741dc81e5639
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103086"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808283"
 ---
 # <a name="create-a-hub-and-spoke-topology-with-azure-virtual-network-manager-preview---azure-powershell"></a>Azure Virtual Network Manager(미리 보기)를 사용하여 허브 및 스포크 토폴로지 만들기 - Azure PowerShell
 
@@ -35,7 +35,7 @@ ms.locfileid: "131103086"
 
 ### <a name="static-membership"></a>정적 멤버 자격
 
-1. [New-AzNetworkManagerGroupMembersItem](/powershell/module/az.network/new-aznetworkmanagergroupmembersitem)을 사용하여 정적 가상 네트워크 멤버를 만듭니다.
+1. New-AzNetworkManagerGroupMembersItem을 사용하여 정적 가상 네트워크 멤버를 만듭니다.
 
     ```azurepowershell-interactive
     $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
@@ -63,7 +63,7 @@ ms.locfileid: "131103086"
     }' 
     ```
 
-1. 이전에 [New-AzNetworkManagerGroup을](/powershell/module/az.network/new-aznetworkmanagergroup)사용하여 정의한 정적 멤버 자격 그룹(GroupMember) 또는 동적 멤버 자격 그룹(ConditionalMembership)을 사용하여 네트워크 그룹을 만듭니다.
+1. 이전에 New-AzNetworkManagerGroup을 사용하여 정의한 정적 멤버 자격 그룹(GroupMember) 또는 동적 멤버 자격 그룹(ConditionalMembership)을 사용하여 네트워크 그룹을 만듭니다.
 
     ```azurepowershell-interactive
     $ng = @{
@@ -81,7 +81,7 @@ ms.locfileid: "131103086"
 
 이 섹션에서는 이전 섹션에서 만든 네트워크 그룹을 사용하여 허브 및 스포크 구성을 만드는 방법을 안내합니다.
 
-1. [New-AzNetworkManagerConnectivityGroupItem을](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem)사용하여 네트워크 그룹을 추가하는 스포크 연결 그룹 항목을 만듭니다. 플래그, 플래그가 있는 전역 메시 또는 플래그를 사용하여 직접 연결을 사용하도록 `-GroupConnectivity` `-IsGlobal` `-UseHubGateway` 설정하여 허브 가상 네트워크에서 게이트웨이를 사용할 수 있습니다.
+1. New-AzNetworkManagerConnectivityGroupItem을 사용하여 네트워크 그룹을 추가하는 스포크 연결 그룹 항목을 만듭니다. 플래그, 플래그가 있는 전역 메시 또는 플래그를 사용하여 직접 연결을 사용하도록 `-GroupConnectivity` `-IsGlobal` `-UseHubGateway` 설정하여 허브 가상 네트워크에서 게이트웨이를 사용할 수 있습니다.
 
     ```azurepowershell-interactive
     $spokes = @{
@@ -97,7 +97,7 @@ ms.locfileid: "131103086"
     $configGroup.Add($spokesGroup) 
     ```
 
-1. 허브 연결 그룹 항목을 만들고 [New-AzNetworkManagerHub를](/powershell/module/az.network/new-aznetworkmanagerhub)사용하여 허브로 사용할 가상 네트워크를 정의합니다.
+1. 허브 연결 그룹 항목을 만들고 New-AzNetworkManagerHub를 사용하여 허브로 사용할 가상 네트워크를 정의합니다.
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
@@ -111,7 +111,7 @@ ms.locfileid: "131103086"
     $hubList.Add($hubvnet)
     ```
 
-1. [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration)을 사용하여 연결 구성을 만듭니다.
+1. New-AzNetworkManagerConnectivityConfiguration을 사용하여 연결 구성을 만듭니다.
 
     ```azurepowershell-interactive
     $config = @{
@@ -127,7 +127,7 @@ ms.locfileid: "131103086"
 
 ## <a name="deploy-the-hub-and-spoke-configuration"></a>허브 및 스포크 구성 배포
 
-[Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit)을 사용하여 대상 지역에 구성을 커밋합니다.
+Deploy-AzNetworkManagerCommit을 사용하여 대상 지역에 구성을 커밋합니다.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  

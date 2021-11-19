@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: danlep
-ms.openlocfilehash: 014891a9ed16e075b8f21c0a177a38d416f2f3a9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4b0ac3ef2e9b35f9003ca4d73e9d0fc58a112d2e
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629714"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810105"
 ---
 # <a name="api-management-caching-policies"></a>API Management 캐싱 정책
 
@@ -157,7 +157,7 @@ ms.locfileid: "128629714"
 ```
 
 #### <a name="example-using-policy-expressions"></a>정책 식을 사용하는 예제
-이 예제에서는 지원 서비스의 `Cache-Control` 지시문에 지정된 대로 백 엔드 서비스의 응답 캐싱과 일치하는 API Management 응답 캐싱 기간을 구성하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 25:25 지점으로 빨리 감기하면서 참조하세요.
+이 예제에서는 지원 서비스의 `Cache-Control` 지시문에 지정된 대로 백 엔드 서비스의 응답 캐싱과 일치하는 API Management 응답 캐싱 기간을 구성하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-177-More-API-Management-Features-with-Vlad-Vinogradsky)(영문)에서 25:25 지점으로 빨리 감기하면서 참조하세요.
 
 ```xml
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->

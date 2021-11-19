@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 56314c696b58f89144d171314709b5153d250a29
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: ae1af4f47188c853018e8d18a2b1564713fcb2d9
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132551447"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814283"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-using-websocket-api-and-azure-web-pubsub-service-sdk"></a>자습서: WebSocket API 및 Azure Web PubSub 서비스 SDK를 사용하여 메시지 게시 및 구독
 
@@ -73,7 +73,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-1. 먼저 이 프로젝트에 대한 새 폴더 `subscribe`를 만들고 필요한 종속성을 설치하겠습니다.
+1. 먼저 이 프로젝트에 대한 새 폴더 `subscriber`를 만들고 필요한 종속성을 설치하겠습니다.
     * [Websocket.Client](https://github.com/Marfusios/websocket-client) 패키지는 WebSocket 연결을 지원하는 타사 패키지입니다. WebSocket을 지원하는 API/라이브러리를 사용하여 이 작업을 수행할 수 있습니다.
     * SDK 패키지 `Azure.Messaging.WebPubSub`는 JWT 토큰을 생성하는 데 도움이 됩니다. 
 

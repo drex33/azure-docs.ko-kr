@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 6b5bec7006fa7bea7c887286d9cdc1a7b51a3d5c
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: f032f774299a14f54d3009b54fad11e47354505a
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389858"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808810"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>검증된 온-프레미스 라이브 스트리밍 인코더
 
@@ -28,7 +28,7 @@ Azure Media Services에서 [라이브 이벤트](/rest/api/media/liveevents)(채
 
   > [!TIP]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
-  > 서비스는 수집 요구 사항에 따라 기본 및 표준 통과 모드를 지원 합니다. 기본적인 통과는 가장 경제적 이지만 기능에서 제한 됩니다. 
+  > 서비스는 사용자의 요구 사항에 따라 기본 및 표준 통과 모드를 지원합니다. 기본 통과는 가장 경제적이지만 기능이 제한됩니다. 
  
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 Media Services를 통해 라이브 인코딩을 수행할 수 있는 라이브 이벤트로 전송합니다. 그러면 라이브 이벤트에서 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다.
 
@@ -61,6 +61,7 @@ RTMPS를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검
 - Haivision Makito X HEVC
 - [Restream.io](https://restream.io/)
 - OBS Studio
+- [인스턴스,](https://www.ospreyvideo.com/talon-encoders)4K-SC, 힌토온 려콘 하드웨어 인코더
 - [Streamlabs OBS](https://streamlabs.com/)
 - [Switcher Studio(iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast(TLS 1.2 요구 사항으로 인해 버전 13.0.2 이상)

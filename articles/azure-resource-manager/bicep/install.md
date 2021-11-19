@@ -2,14 +2,14 @@
 title: Bicep 개발 및 배포 환경 설정
 description: Bicep 개발 및 배포 환경을 구성하는 방법
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7f590c0d0954ca4e3ccc3f4d894f55892b01a6ae
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c53afb17b42b5359a545e78197a44eefdeed5e29
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131443512"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132807240"
 ---
 # <a name="install-bicep-tools"></a>Bicep 도구 설치
 
@@ -32,44 +32,7 @@ Bicep 파일을 만들려면 적절한 Bicep 편집기가 필요합니다. 다�
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep 언어 모드":::
 
-### <a name="troubleshoot"></a>문제 해결
-
-Visual Studio Code Bicep 확장을 설치할 때 다음과 같은 오류 메시지가 나타날 수 있습니다.
-
-```error
-Failed to install .NET runtime v5.0
-```
-
-```error
-Failed to download .NET 5.0.x ....... Error!
-```
-
-이 문제를 해결하려면 [.NET 웹 사이트에서](https://aka.ms/dotnet-core-download).NET을 수동으로 설치한 다음 기존 .NET 설치를 다시 사용하도록 Visual Studio Code 구성할 수 있습니다. 다음 설정을 사용합니다.
-
-**Windows**
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "C:\\Program Files\\dotnet\\dotnet.exe"
-  }
-]
-
-```
-
-**macOS**
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "/usr/local/share/dotnet/dotnet"
-  }
-]
-```
-
-Visual Studio Code 설정 구성은 [사용자 및 작업 영역](https://code.visualstudio.com/docs/getstarted/settings) 설정 참조하세요.
+설치하는 동안 오류가 발생하면 [Bicep 설치 문제 해결을](installation-troubleshoot.md)참조하세요.
 
 ## <a name="deployment-environment"></a>배포 환경
 
@@ -116,9 +79,11 @@ az bicep version
 > [!IMPORTANT]
 > Azure CLI는 Bicep CLI의 자체 포함 인스턴스를 설치합니다. 이 인스턴스는 수동으로 설치한 버전과 충돌하지 않습니다. Azure CLI는 Bicep CLI를 PATH에 추가하지 않습니다.
 
+Bicep 환경 설정을 완료했습니다. 이 문서의 나머지 부분에는 Azure CLI 사용할 때 필요하지 않은 설치 단계가 설명됩니다.
+
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell 버전 **5.6.0이** 설치되어 있어야 합니다. 업데이트하거나 설치하려면 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
+Azure PowerShell 버전 **5.6.0 이상** 버전이 설치되어 있어야 합니다. 업데이트하거나 설치하려면 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 Azure PowerShell은 Bicep CLI를 자동으로 설치하지 않습니다. 대신 [Bicep CLI를 수동으로 설치](#install-manually)해야 합니다.
 
@@ -254,3 +219,5 @@ Bicep CLI를 에어 갭 환경에 설치하려면 Bicep CLI 실행 파일을 수
 ## <a name="next-steps"></a>다음 단계
 
 Visual Studio Code 및 Bicep 확장 사용에 대한 자세한 내용은 [빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기](./quickstart-create-bicep-use-visual-studio-code.md)를 참조하세요.
+
+Bicep 설치에 문제가 있는 경우 [Bicep 설치 문제 해결을](installation-troubleshoot.md)참조하세요.

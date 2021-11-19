@@ -11,12 +11,12 @@ ms.service: azure-communication-services
 ms.subservice: pstn
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
-ms.openlocfilehash: a99f0d3aaf65ad7188f02c2c587653bd53f9948b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3f44c3913eb7c12dc521ad806f9994a1bd358e50
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677115"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132809175"
 ---
 # <a name="quickstart-get-and-manage-phone-numbers"></a>빠른 시작: 전화 번호 가져오기 및 관리
 
@@ -47,10 +47,6 @@ ms.locfileid: "128677115"
 ## <a name="troubleshooting"></a>문제 해결
 
 일반적인 질문 및 문제:
-
-- 전화 구매는 미국에서만 지원됩니다. 전화 번호를 구매하려면 다음 사항을 확인하세요.
-  - 연결된 Azure 구독 청구 주소가 미국에 있습니다. 지금은 리소스를 다른 구독으로 이동할 수 없습니다.
-  - Communication Services 리소스가 미국 데이터 위치로 프로비저닝됩니다. 지금은 리소스를 다른 데이터 위치로 이동할 수 없습니다.
 
 - 전화 번호가 릴리스되면 청구 주기가 끝날 때까지 해당 전화 번호를 릴리스하거나 재구매할 수 없습니다.
 

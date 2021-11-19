@@ -167,8 +167,6 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python 앱
               href: sql/create-sql-api-python.md
-            - name: Xamarin 앱
-              href: sql/create-sql-api-xamarin-dotnet.md
     - name: 자습서
       items:
         - name: 1 - 데이터 만들기 및 관리
@@ -191,10 +189,6 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-            - name: 모바일 앱 빌드
-              items:
-                - name: Xamarin
-                  href: sql/mobile-apps-with-xamarin.md
         - name: 2 - 데이터 마이그레이션
           items:
             - name: 데이터 마이그레이션 도구 사용
@@ -209,10 +203,8 @@
           href: sql/tutorial-global-distribution-sql-api.md
     - name: 샘플
       items:
-        - name: .NET V2 SDK 샘플
-          href: sql/sql-api-dotnet-samples.md
         - name: .NET V3 SDK 샘플
-          href: sql/sql-api-dotnet-v3sdk-samples.md
+          href: sql/sql-api-dotnet-samples.md
         - name: Java SDK v4 샘플
           href: sql/sql-api-java-sdk-samples.md
         - name: Spring Data v3 샘플
@@ -229,6 +221,8 @@
           href: sql/templates-samples-sql.md
         - name: Bicep
           href: sql/bicep-samples.md
+        - name: .NET V2 SDK 샘플(레거시)
+          href: sql/sql-api-dotnet-v2sdk-samples.md
     - name: 개념
       items:
         - name: 모델링 및 분할
@@ -931,13 +925,13 @@
           items:
             - name: .NET SDK v3
               href: sql/sql-api-sdk-dotnet-standard.md
-            - name: .NET SDK v2
+            - name: .NET SDK v2(레거시)
               href: sql/sql-api-sdk-dotnet.md
-            - name: .NET Core SDK v2
+            - name: .NET Core SDK v2(레거시)
               href: sql/sql-api-sdk-dotnet-core.md
-            - name: .NET 변경 피드 라이브러리 v2
+            - name: .NET 변경 피드 라이브러리 v2(레거시)
               href: sql/sql-api-sdk-dotnet-changefeed.md
-            - name: .NET 대량 실행기 라이브러리 v2
+            - name: .NET 대량 실행기 라이브러리 v2(레거시)
               href: sql/sql-api-sdk-bulk-executor-dot-net.md
         - name: Java SDK 및 커넥터
           items:
@@ -1506,7 +1500,11 @@
             - name: 지속적인 백업으로 마이그레이션
               href: migrate-continuous-backup.md
         - name: 정기적 백업 관리
-          href: configure-periodic-backup-restore.md
+          items:
+            - name: 정기적 백업 구성
+              href: configure-periodic-backup-restore.md
+            - name: 백업 스토리지 중복도 업데이트
+              href: update-backup-storage-redundancy.md
     - name: 보안
       items:
         - name: IP 방화벽 구성

@@ -10,13 +10,13 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 10/22/2021
-ms.openlocfilehash: e7f4a5f12ec9e1be5c7129d12ed519bc4c781d61
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/18/2021
+ms.openlocfilehash: f8de23b97106b991229af20c4a0cc26c3e4f2c1a
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255412"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808614"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금 보기 및 다운로드
 
@@ -49,10 +49,10 @@ EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 �
 1. **사용량 + 요금** 을 선택합니다.
 1. 다운로드하려는 월의 **다운로드** 를 선택합니다.  
     ![스크린샷은 EA 고객에 대한 Cost Management + Billing 송장 페이지를 보여줍니다.](./media/download-azure-daily-usage/download-usage-ea.png)
-1. 사용량 + 요금 다운로드 페이지의 사용량 세부 정보에서 목록에서 다운로드 하려는 요금 청구 유형을 선택 합니다. 사용자의 선택에 따라 CSV 파일은 RI (예약) 구매를 포함 하 여 모든 요금 (사용량 및 구매)을 제공 합니다. 또는 예약 구매를 포함 하는 분할 상환 요금 (사용량 및 구매). 
-    :::image type="content" source="./media/download-azure-daily-usage/select-usage-detail-charge-type.png" alt-text="다운로드할 사용량 세부 정보 청구 유형 선택 항목을 보여 주는 스크린샷" :::
-1. **문서 준비** 를 선택 합니다.
-1.  Azure에서 사용자의 월간 사용량에 따라 다운로드를 준비 하는 데 시간이 걸릴 수 있습니다. 다운로드할 준비가 되 면 **Csv 다운로드** 를 선택 합니다.
+1. 사용량 + 요금 다운로드 페이지의 사용량 세부 정보에서 목록에서 다운로드할 요금 유형을 선택합니다. 선택한 항목에 따라 CSV 파일은 RI(예약) 구매를 포함한 모든 요금(사용량 및 구매)을 제공합니다. 또는 예약 구매를 포함한 분할 상환 요금(사용량 및 구매)입니다. 
+    :::image type="content" source="./media/download-azure-daily-usage/select-usage-detail-charge-type.png" alt-text="다운로드할 사용량 세부 정보 요금 유형 선택을 보여주는 스크린샷." :::
+1. **문서 준비** 를 선택합니다.
+1.  Azure에서 월별 사용량에 따라 다운로드를 준비하는 데 시간이 걸릴 수 있습니다. 다운로드할 준비가 되면 **csv 다운로드를** 선택합니다.
 
 ## <a name="download-usage-for-your-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 사용량 다운로드
 
@@ -91,23 +91,7 @@ Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-로그인한 후 [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) 명령을 사용하여 구독에 대한 월간 누계 사용 정보를 쿼리합니다.
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage --dataset-aggregation '{\"totalCost\":{\"name\":\"PreTaxCost\",\"function\":\"Sum\"}}' --dataset-grouping name="ResourceGroup" type="Dimension"
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-**--dataset-filter** 매개 변수 또는 기타 매개 변수를 사용하여 쿼리 범위를 좁힐 수도 있습니다.
-
-```azurecli
-'{\"totalCost\":{\"name\":\"PreTaxCost\",\"function\":\"Sum\"}}' --dataset-grouping name="ResourceGroup" type="Dimension"
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
-```
-
-**--dataset-filter** 매개 변수는 JSON 문자열 또는 `@json-file`을 사용합니다.
-
-[az costmanagement export](/cli/azure/costmanagement/export) 명령을 사용하여 사용량 데이터를 Azure 스토리지 계정으로 내보낼 수도 있습니다. 여기에서 데이터를 다운로드할 수 있습니다.
+그런 [다음, az costmanagement export](/cli/azure/costmanagement/export) 명령을 사용하여 사용량 현황 데이터를 Azure Storage 계정으로 내보냅니다. 여기에서 데이터를 다운로드할 수 있습니다.
 
 1. 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹을 만들려면 [az group create](/cli/azure/group#az_group_create) 명령을 실행합니다.
 

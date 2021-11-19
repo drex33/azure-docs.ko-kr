@@ -6,14 +6,14 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/18/2021
 ms.author: banders
-ms.openlocfilehash: 3a750e41ec5d422107dc091fb0965ed07da6a88b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 139762ee59a6ca3891d951237ad867e2bafe4dde
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131469486"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812374"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -81,7 +81,8 @@ Azure Databricks 예약된 용량, Azure VMware solution by CloudSimple 예약, 
 ### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>종량제 청구서 지불 및 CSP 프로그램
 
 원래 예약 구매 청구서가 취소된 다음, 환불을 위한 새 청구서가 생성됩니다. 교환의 경우, 새 청구서에 환불 및 새로운 구매가 표시됩니다. 환불 금액은 구매에 맞춰 조정됩니다. 예약만 환불한 경우에는 비례 배분된 금액이 Microsoft에 유지되며 향후 예약 구매에 맞게 조정됩니다. 종량제 요금으로 예약을 구입하고 나중에 CSP로 이동하는 경우에는 영향을 주지 않고 예약을 반환하고 다시 구매할 수 있습니다.
-CSP를 통한 환불 요청 연락처 지원에 대해서는 CSP에서 셀프 서비스 환불을 수행할 수 없습니다.
+
+CSP 고객이 예약 자체를 교환, 취소, 갱신 또는 환불 할 수는 없지만 파트너에 게 해당 예약을 대신 수행 하도록 요청할 수 있습니다.
 
 ### <a name="pay-as-you-go-credit-card-customers"></a>종량제 신용 카드 고객
 

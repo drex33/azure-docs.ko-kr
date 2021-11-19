@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: ce369b60fa1b12823acdb1f5045e403bcaa3f5dd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fe9ee1bb6cf701a28985b04b3152a59241fba382
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037666"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808417"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술 세트에 Cognitive Services 리소스 연결
 
@@ -25,7 +25,7 @@ Azure Cognitive Search 선택적 [AI 보강 파이프라인을](cognitive-search
 + [텍스트 번역](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
 > [!NOTE]
-> AI 보강은 Cognitive Services 리소스를 연결하지 않고도 짧은 연습을 완료할 수 있도록 적은 양의 무료 처리를 제공합니다. 무료 보강은 인덱서당 하루에 20개의 문서입니다. 연습을 반복하려는 경우 [인덱서](search-howto-run-reset-indexers.md) 다시 설정하여 카운터를 다시 설정할 수 있습니다.
+> AI 보강은 Cognitive Services 리소스를 연결하지 않고도 짧은 연습을 완료할 수 있도록 소량의 무료 처리를 제공합니다. 무료 보강은 인덱서당 하루에 20개의 문서입니다. 연습을 반복하려는 경우 [인덱서](search-howto-run-reset-indexers.md) 다시 설정하여 카운터를 다시 설정할 수 있습니다.
 
 ## <a name="azure-portal"></a>[**Azure portal**](#tab/cogkey-portal)
 
@@ -43,7 +43,7 @@ Azure Cognitive Search 선택적 [AI 보강 파이프라인을](cognitive-search
 
 1. 검색 서비스와 [동일한 지역에](#same-region-requirement) 다중 서비스 [Cognitive Services 리소스를](../cognitive-services/cognitive-services-apis-create-account.md) 만듭니다.
 
-1. 기술et `cognitiveServices` 요청 본문에 섹션을 지정하여 [기술셋을](/rest/api/searchservice/create-skillset)만들거나 업데이트합니다.
+1. 기술et `cognitiveServices` 요청 본문에 섹션을 지정하여 [기술 도구를](/rest/api/searchservice/create-skillset)만들거나 업데이트합니다.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -77,7 +77,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="net-sdk"></a>[**.NET SDK**](#tab/cogkey-dotnet)
+## <a name="net-sdk"></a>[**.NET SDK**](#tab/cogkey-csharp)
 
 다음 코드 조각은 간결하게 트리밍된 [azure-search-dotnet-samples에서](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/tutorial-ai-enrichment/v11/Program.cs)나온 것입니다.
 

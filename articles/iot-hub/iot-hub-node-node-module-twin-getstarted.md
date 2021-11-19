@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: amqp, devx-track-js
-ms.openlocfilehash: 2028bed00624526c021668076c4d7feaba7aa07c
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: 20d6e5917196d773362008bc0a93e14309b9c518
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830111"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132811128"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT Hub 모듈 ID 및 모듈 쌍 시작(Node.js)
 
@@ -34,7 +34,7 @@ ms.locfileid: "122830111"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Node.js 버전 10.0.x 이상. Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)에서 설명합니다.
+* Node.js 버전 10.0.x 이상. Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md)에서 설명합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 

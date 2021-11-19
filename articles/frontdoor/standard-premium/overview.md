@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: acae0362d664567bb15b964f396f0c300135ed1c
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 9f565e3b02d3ff06457971dda8354759464fc41d
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114726757"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814419"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)이란?
 
@@ -53,7 +53,7 @@ Azure Front Door 표준/프리미엄(미리 보기)에 포함된 주요 기능�
 
 - **[분할 TCP](../front-door-routing-architecture.md#splittcp)** 기반 애니캐스트 프로토콜을 사용하여 애플리케이션 성능 가속화.
 
-- 인텔리전트 **[상태 프로브](concept-health-probes.md)** 모니터링 및 **[원본](concept-origin.md)** 간의 부하 분산.
+- 인텔리전트 **[상태 프로브](/azure/frontdoor/front-door-health-probes)** 모니터링 및 **[원본](concept-origin.md)** 간의 부하 분산.
 
 - 유연한 도메인 유효성 검사로 고유한 **[사용자 지정 도메인](how-to-add-custom-domain.md)** 정의.
 

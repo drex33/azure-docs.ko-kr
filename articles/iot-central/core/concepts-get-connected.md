@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: e35f61d53ead7772743f31acfad686ec62a707af
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 68791ff58ec33ceb720b2edb068a8b0549cc1191
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492911"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132809935"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -64,7 +64,7 @@ X.509 인증서가 있는 디바이스를 애플리케이션에 연결하려면 
 
 다음 유틸리티를 테스트용으로만 사용하여 루트, 중간 및 디바이스 인증서를 생성할 수 있습니다.
 
-- [Azure IoT 디바이스 프로비전 디바이스 SDK용 도구](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): X.509 인증서 및 키를 생성하고 확인하는 데 사용할 수 있는 Node.js 도구 모음입니다.
+- [Azure IoT 디바이스 프로비전 디바이스 SDK용 도구](https://github.com/Azure/azure-iot-sdk-node/blob/main/provisioning/tools/readme.md): X.509 인증서 및 키를 생성하고 확인하는 데 사용할 수 있는 Node.js 도구 모음입니다.
 - [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): 다음을 수행하는 PowerShell 및 Bash 스크립트의 모음입니다.
   - 인증서 체인을 만듭니다.
   - 인증서를 .cer 파일로 저장하여 IoT Central 애플리케이션에 업로드합니다.
@@ -107,7 +107,7 @@ IoT Central에서 개별 등록에 지원하는 증명 메커니즘은 다음과
 - **X.509 인증서:** X.509 인증서를 사용하여 개별 등록을 만들려면 **디바이스 연결** 페이지를 열고, 연결 방법으로 **개별 등록** 을 선택하고, 메커니즘으로 **인증서(X.509)** 를 선택합니다. 개별 등록 항목에 사용되는 디바이스 인증서에는 발급자 및 주체 CN이 디바이스 ID로 설정되어야 합니다.
 
     > [!TIP]
-    > 테스트를 위해 [Node.js에 대한 Azure IoT 디바이스 프로비전 디바이스 SDK용 도구](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)를 사용하여 자체 서명된 인증서를 생성할 수 있습니다(`node create_test_cert.js device "mytestdevice"`).
+    > 테스트를 위해 [Node.js에 대한 Azure IoT 디바이스 프로비전 디바이스 SDK용 도구](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/tools)를 사용하여 자체 서명된 인증서를 생성할 수 있습니다(`node create_test_cert.js device "mytestdevice"`).
 
 - **TPM(신뢰할 수 있는 플랫폼 모듈) 증명:** [TPM](../../iot-dps/concepts-tpm-attestation.md)은 하드웨어 보안 모듈의 한 유형입니다. TPM을 사용하는 것은 디바이스를 연결하는 가장 안전한 방법 중 하나입니다. 이 문서에서는 사용자가 개별, 펌웨어 또는 통합 TPM을 사용한다고 가정합니다. 소프트웨어 에뮬레이트된 TPM은 프로토타입 또는 테스트에 적합하지만 개별, 펌웨어 또는 통합 TPM과 동일한 수준의 보안을 제공하지 않습니다. 소프트웨어 TPM은 프로덕션에서 사용하지 않습니다. TPM을 사용하는 개별 등록을 만들려면 **디바이스 연결** 페이지를 열고, 연결 방법으로 **개별 등록** 을 선택하고, 메커니즘으로 **TPM** 을 선택합니다. TPM 인증 키를 입력하고, 디바이스 연결 정보를 저장합니다.
 
@@ -193,7 +193,7 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 "@id": "dtmi:com:example:Thermostat;1"
 ```
 
-다음 DPS 페이로드를 사용하여 디바이스를 디바이스 템플릿에 연결합니다.
+다음 DPS 페이로드를 사용 하 여 장치를 장치 템플릿에 연결 합니다.
 
 ```json
 {
@@ -201,7 +201,7 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 }
 ```
 
-DPS 페이로드에 대해 자세히 알아보려면 [자습서: 클라이언트 애플리케이션 만들기 및 Azure IoT Central 애플리케이션에 연결에](tutorial-connect-device.md)사용된 샘플 코드를 참조하세요.
+DPS 페이로드에 대 한 자세한 내용은 [자습서: 클라이언트 응용 프로그램을 만들어 Azure IoT 중앙 응용 프로그램에 연결](tutorial-connect-device.md)에 사용 된 샘플 코드를 참조 하세요.
 
 ## <a name="device-status-values"></a>디바이스 상태 값
 
@@ -232,7 +232,7 @@ DPS 페이로드에 대해 자세히 알아보려면 [자습서: 클라이언트
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="연결 이벤트 및 연결 끊김 이벤트에 대한 이벤트 창을 보여 주는 다이어그램." border="false":::
 
-디바이스 연결 상태를 모니터링하는 방법에 대해 자세히 알아보려면 다음 비디오를 시청하세요.
+장치 연결 상태를 모니터링 하는 방법에 대 한 자세한 내용을 보려면 다음 비디오를 시청 하세요.
 
 > [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 

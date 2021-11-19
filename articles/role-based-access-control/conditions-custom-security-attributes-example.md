@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: a45d8cc6f84cf086615dd8ab4cdd64eddaabce67
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 8973f8e1cf7e6cf269552d4f5158b2b26468bc20
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132765150"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814140"
 ---
 # <a name="scale-the-management-of-azure-role-assignments-by-using-conditions-and-custom-security-attributes-preview"></a>조건 및 사용자 지정 보안 특성을 사용 하 여 Azure 역할 할당의 관리 크기 조정 (미리 보기)
 
@@ -96,8 +96,6 @@ Azure RBAC (역할 기반 액세스 제어)는 현재 구독에서 2000 역할 �
 액세스 키는 데이터 평면 리소스에 대 한 액세스를 제공 하는 일반적인 방법입니다. 액세스 키는 액세스 키를 소유 하는 사람이 누구에 게 읽기, 쓰기 및 삭제 권한을 제공 합니다. 이는 사용자가 액세스 키를 얻을 수 있는 경우 공격자가 중요 한 데이터에 액세스할 수 있음을 의미 합니다. 액세스 키에는 id 바인딩이 없고 만료 되는 것이 없으며 저장할 보안 위험이 있습니다.
 
 액세스 키와 마찬가지로 SAS (공유 액세스 서명) 토큰에는 id 바인딩이 없지만 정기적으로 만료 됩니다. Id 바인딩 부족은 액세스 키와 동일한 보안 위험을 나타냅니다. 클라이언트에서 오류가 발생 하지 않도록 만료를 관리 해야 합니다. SAS 토큰은 매일 관리 및 작동 하는 추가 코드가 필요 하며 DevOps 팀에 상당한 오버 헤드가 발생할 수 있습니다.
-
-리소스 기반 Acl (액세스 제어 목록)은 일반적으로 특정 리소스에 대 한 사용자 및 허용 된 작업 목록으로 리소스에 저장 됩니다. Acl은 세분화 된 액세스 제어를 제공 하며 id 바인딩이 있습니다. 그러나 Acl을 사용 하 여 각 개체에 대 한 액세스를 관리 해야 하 고, Acl을 재귀적으로 관리 하는 것과 관련 된 성능 영향을 만들며, 사용자 지정 스크립트 및 사용 권한 드리프트 수정에 대 한 관리
 
 Azure RBAC는 중앙의 세분화 된 액세스 제어를 제공 합니다. Azure RBAC에는 보안 위험을 줄여주는 id 바인딩이 있습니다. 조건을 사용 하면 유연 하 고 동적인 특성을 기반으로 액세스 하므로 역할 할당의 관리를 확장 하 고 액세스 제어를 더 쉽게 유지할 수 있습니다.
 

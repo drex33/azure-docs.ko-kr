@@ -10,7 +10,7 @@ ms.date: 05/12/2020
 ms.author: kegorman
 ms.openlocfilehash: 9b847b1f4d3e4c47a5b353a2b0e9ad7a47b77330
 ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/23/2021
 ms.locfileid: "122692802"
@@ -163,7 +163,7 @@ Oracle 및 Microsoft는 WebLogic Server를 Azure 애플리케이션 제품 컬�
 - **동적 클러스터링 및 부하 분산 제한** Oracle WebLogic Server에서 동적 클러스터를 사용하고 Azure에서 단일, 퍼블릭 부하 분산 엔드포인트를 통해 노출한다고 가정해 보세요. 이 작업을 수행하려면 각 관리 서버에 특정 범위에서 동적으로 할당되지 않은 고정된 포트 번호를 사용하고, 관리자가 추적하는 서버보다 더 많은 관리형 서버를 시작하지 않아야 합니다. 즉, 가상 머신당 관리형 서버는 1개 이하입니다. 사용자 환경의 구성으로 인해 가상 머신 수보다 많은 Oracle WebLogic Server가 시작되면(즉, 여러 개의 Oracle WebLogic Server의 인스턴스가 동일한 가상 머신을 공유할 경우), 지정된 포트 번호에 이러한 Oracle WebLogic Server 인스턴스 여러 개가 바인딩될 수 없습니다. 해당 가상 머신의 다른 서버는 실패합니다.
 
    관리되는 서버에 고유한 포트 번호를 할당하도록 관리 서버를 구성하면 이 구성에 필요한 것처럼 Azure가 단일 공용 포트에서 다수의 프라이빗 포트로 매핑을 지원하지 않기 때문에 부하 분산이 불가능합니다.
-- **가상 머신에 있는 Oracle WebLogic Server의 여러 인스턴스.** 배포 요구사항에 따라 가상 머신이 충분히 큰 경우, 동일한 가상 머신 내에서 Oracle WebLogic Server의 여러 인스턴스를 실행하는 옵션을 고려해볼 수 있습니다. 예를 들면 두 개의 코어를 갖고 있는 중간 크기의 가상 머신에서 Oracle WebLogic Server 인스턴스 두 개를 실행하도록 선택할 수 있습니다. 그러나 아키텍처에 단일 실패 지점을 도입하지 않는 것이 좋습니다. 예를 들어 Oracle WebLogic Server의 여러 인스턴스를 실행하는 가상 머신을 하나만 사용하는 경우가 이에 해당합니다. 두 개의 가상 머신을 사용하는 것이 더 나은 접근법이며, 각 가상 머신은 Oracle WebLogic Server의 여러 인스턴스를 실행할 수 있습니다. Oracle WebLogic Sever의 각 인스턴스는 여전히 동일한 클러스터의 일부입니다. 그러나 Azure 부하 분산 장치는 부하가 분산된 서버가 고유한 가상 머신에 분산되도록 하므로, 현재 Azure를 사용하여 동일한 가상 머신 내에서 Oracle WebLogic Server가 노출하는 엔드포인트의 부하를 분산하는 것은 불가능합니다.
+- **가상 머신에 있는 Oracle WebLogic Server의 여러 인스턴스.** 배포 요구사항에 따라 가상 머신이 충분히 큰 경우, 동일한 가상 머신 내에서 Oracle WebLogic Server의 여러 인스턴스를 실행하는 옵션을 고려해볼 수 있습니다. 예를 들면 두 개의 코어를 갖고 있는 중간 크기의 가상 머신에서 Oracle WebLogic Server 인스턴스 두 개를 실행하도록 선택할 수 있습니다. 그러나 아키텍처에 단일 실패 지점을 도입하지 않는 것이 좋습니다. 예를 들어 Oracle WebLogic Server의 여러 인스턴스를 실행하는 가상 머신을 하나만 사용하는 경우가 이에 해당합니다. 두 개의 가상 머신을 사용하는 것이 더 나은 접근법이며, 각 가상 머신은 Oracle WebLogic Server의 여러 인스턴스를 실행할 수 있습니다. Oracle WebLogic Sever의 각 인스턴스는 여전히 동일한 클러스터의 일부입니다. 그러나 Azure Load Balancer는 부하가 분산된 서버가 고유한 가상 머신에 분산되도록 하므로, 현재 Azure를 사용하여 동일한 가상 머신 내에서 Oracle WebLogic Server가 노출하는 엔드포인트의 부하를 분산하는 것은 불가능합니다.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Oracle JDK 가상 머신 이미지
 

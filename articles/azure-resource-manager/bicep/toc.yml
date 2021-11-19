@@ -12,6 +12,8 @@
     - name: Bicep 도구 설치
       href: install.md
       displayName: nightly
+    - name: 설치 문제 해결
+      href: installation-troubleshoot.md
 - name: 빠른 시작
   items:
     - name: Bicep 템플릿 만들기 - VS Code

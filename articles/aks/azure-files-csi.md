@@ -3,14 +3,14 @@ title: AKS(Azure Kubernetes Service)에서 Azure Files용 CSI(Container Storage 
 description: AKS(Azure Kubernetes Service) 클러스터에서 Azure Files용 CSI(Container Storage Interface) 드라이버를 사용하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 11/09/2021
+ms.date: 11/18/2021
 author: palma21
-ms.openlocfilehash: f1a0abb0a89ba9e2c913b29ccc17b591c7fa0d39
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 8c6a910f8cce0e008c58285b26816d55dd518b9c
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137280"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813600"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files CSI(Container Storage Interface) 드라이버 사용
 
@@ -25,7 +25,7 @@ CSI 드라이버를 지원하는 AKS 클러스터를 만들려면 [AKS에서 Azu
 
 ## <a name="use-a-persistent-volume-with-azure-files"></a>Azure Files에서 영구적 볼륨 사용
 
-[PV(영구 볼륨)](concepts-storage.md#persistent-volumes)는 Kubernetes Pod와 함께 사용하기 위해 프로비저닝된 스토리지 부분을 나타냅니다. PV는 하나 이상의 Pod에서 사용할 수 있으며 동적 또는 정적으로 프로비저닝할 수 있습니다. 여러 Pod에서 동일한 스토리지 볼륨에 동시에 액세스해야 하는 경우 Azure Files에서 [SMB(서버 메시지 블록) 프로토콜][smb-overview]을 사용하여 연결할 수 있습니다. 이 문서에서는 AKS 클러스터에서 여러 Pod에 사용할 Azure Files공유를 동적으로 만드는 방법을 설명합니다. 고정 프로비저닝의 경우 [Azure Files 공유를 사용하여 수동으로 볼륨 만들기 및 사용](azure-files-volume.md)을 참조하세요.
+[PV(영구 볼륨)](concepts-storage.md#persistent-volumes)는 Kubernetes Pod와 함께 사용하기 위해 프로비저닝된 스토리지 부분을 나타냅니다. PV는 하나 이상의 Pod에서 사용할 수 있으며 동적 또는 정적으로 프로비저닝할 수 있습니다. 여러 pod가 동일한 저장소 볼륨에 동시에 액세스 해야 하는 경우 Azure Files를 사용 하 여 SMB ( [서버 메시지 블록][smb-overview] ) 또는 NFS 프로토콜을 사용 하 여 연결할 수 있습니다. 이 문서에서는 AKS 클러스터에서 여러 Pod에 사용할 Azure Files공유를 동적으로 만드는 방법을 설명합니다. 고정 프로비저닝의 경우 [Azure Files 공유를 사용하여 수동으로 볼륨 만들기 및 사용](azure-files-volume.md)을 참조하세요.
 
 Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
@@ -38,6 +38,7 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 * **Standard_ZRS**: 표준 영역 중복 스토리지
 * **Standard_RAGRS**: 표준 읽기 액세스 지역 중복 스토리지
 * **Premium_LRS**: 프리미엄 로컬 중복 스토리지
+* **Premium_ZRS**: Premium 영역 중복 저장소
 
 > [!NOTE]
 > Azure Files는 Azure Premium Storage를 지원합니다. 최소 프리미엄 파일 공유는 100GB입니다.
@@ -261,7 +262,7 @@ kubectl apply -f private-pvc.yaml
 이 옵션은 내부 데이터 업데이트를 사용하는 임의 액세스 워크로드에 최적화되며 전체 POSIX 파일 시스템 지원을 제공합니다. 이 섹션에서는 AKS 클러스터에서 Azure 파일 CSI 드라이버를 사용하여 NFS 공유를 사용하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 클러스터 `Control plane` ID(이름 `AKS Cluster Name` )에 vnet 리소스 그룹에 대한 권한이 있는지 확인합니다. `Contributor`
+> 클러스터 `Control plane` id (이름 사용)에 `AKS Cluster Name` `Contributor` vnet 리소스 그룹에 대 한 권한이 있는지 확인 합니다.
 
 ### <a name="create-nfs-file-share-storage-class"></a>NFS 파일 공유 스토리지 클래스 만들기
 

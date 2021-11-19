@@ -416,7 +416,7 @@ Azure 플랫폼 이미지를 사용하는 경우 *imageReference* 를 수정하�
 
 
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>확장 집합에 대한 부하 분산 장치 업데이트
-Azure Load Balancer가 있는 확장 집합이 있으며 Azure Load Balancer를 Azure Application Gateway로 바꾸려고 한다고 가정해보겠습니다. 확장 집합에 대한 부하 분산 장치 및 Application Gateway 속성은 목록에 포함되어 있으므로 속성을 직접 수정하는 대신 명령을 사용하여 목록 요소를 제거하거나 추가할 수 있습니다.
+Azure Load Balancer가 있는 확장 집합이 있으며 Azure Load Balancer를 Azure Application Gateway로 바꾸려고 한다고 가정해보겠습니다.  확장 집합에 대한 Load Balancer 및 Application Gateway 속성은 목록에 포함되어 있으므로 속성을 직접 수정하는 대신 명령을 사용하여 목록 요소를 제거하거나 추가할 수 있습니다.
 
 - Azure PowerShell:
 

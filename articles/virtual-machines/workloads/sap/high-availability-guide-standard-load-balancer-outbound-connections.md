@@ -34,7 +34,7 @@ ms.locfileid: "132760716"
 
 표준 Azure 부하 분산 장치는 기본 부하 분산 장치에 비해 몇 가지 장점이 있습니다. 예를 들어 Azure 가용성 영역에서 작동하며, 모니터링 및 로깅 기능이 더 강력하기 때문에 보다 쉽게 문제를 해결하고 대기 시간을 줄일 수 있습니다. "HA 포트" 기능은 모든 포트에 적용됩니다. 즉, 더 이상 개별 포트를 일일이 나열할 필요가 없습니다.  
 
-Azure 부하 분산 장치의 기본 SKU와 표준 SKU 간에는 몇 가지 중요한 차이점이 있습니다. 그 중 하나는 퍼블릭 엔드포인트에 대한 아웃바운드 트래픽 처리입니다. 기본과 표준 SKU 부하 분산 장치의 전체 비교는 [Load Balancer SKU 비교](../../../load-balancer/load-balancer-overview.md)를 참조하세요.  
+Azure Load Balancer의 기본 SKU와 표준 SKU 간에는 몇 가지 중요한 차이점이 있습니다. 그 중 하나는 퍼블릭 엔드포인트에 대한 아웃바운드 트래픽 처리입니다. 기본과 표준 SKU Load Balancer의 전체 비교는 [Load Balancer SKU 비교](../../../load-balancer/load-balancer-overview.md)를 참조하세요.  
  
 공용 IP 주소가 없는 VM을 내부(공용 IP 주소 없는) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치하면 추가로 구성하지 않는 한 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 없습니다.  
 
@@ -121,7 +121,7 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 ## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>옵션 2: 인터넷에 아웃바운드 연결을 위한 Azure Firewall
 
 VM에서 퍼블릭 엔드포인트로의 인바운드 연결을 허용하지 않고 퍼블릭 엔드포인트에 대한 아웃바운드 연결을 설정하는 또 다른 옵션은 Azure Firewall을 사용하는 것입니다. Azure Firewall은 기본 제공되는 고가용성 관리형 서비스이며 여러 가용성 영역으로 확장할 수 있습니다.  
-또한 VM과 Azure 부하 분산 장치가 배포된 서브넷과 연결되어 있고, Azure Firewall을 가리키고, Azure Firewall을 통해 트래픽을 라우팅하는 [사용자 정의 경로](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 배포해야 합니다.  
+또한 VM과 Azure Load Balancer가 배포된 서브넷과 연결되어 있고, Azure Firewall을 가리키고, Azure Firewall을 통해 트래픽을 라우팅하는 [사용자 정의 경로](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 배포해야 합니다.  
 Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firewall 배포 및 구성](../../../firewall/tutorial-firewall-deploy-portal.md)을 참조하세요.  
 
 아키텍처는 다음과 같습니다.

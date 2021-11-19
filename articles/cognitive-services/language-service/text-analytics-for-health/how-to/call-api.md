@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/18/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
-ms.openlocfilehash: d94e07b312bda98c6317e8a2b020510ffda800f4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c34f9a68c595fd42a87995d577f0aff602c7884d
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102926"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132809137"
 ---
 # <a name="how-to-use-text-analytics-for-health"></a>의료 분야 Text Analytics 사용 방법
 
@@ -34,7 +34,7 @@ ms.locfileid: "131102926"
 의료 분야 Text Analytics는 NER(명명된 엔터티 인식), 관계 추출, 엔터티 부정 및 영어 텍스트에 대한 엔터티 연결을 수행하여 비구조적 임상 및 생명 공학 텍스트에서 정보를 파악합니다. 지원되는 엔터티의 전체 목록은 의료 분야 Text Analytics에서 반환하는 [엔터티 범주](../concepts/health-entity-categories.md)를 참조하세요. 신뢰 점수에 대 한 자세한 내용은 [투명성 메모](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context)를 참조 하세요. 
 
 > [!TIP]
-> 이 기능을 사용하려면 [빠른 시작 문서](../quickstart.md)에 따라 시작합니다. 코드를 작성할 필요 없이 [Language Studio](../../language-studio.md)를 사용하여 예제 요청을 만들 수도 있습니다.
+> 이 기능을 사용하려면 [빠른 시작 도움말](../quickstart.md)에 따라 시작합니다. 코드를 작성할 필요 없이 [Language Studio](../../language-studio.md)를 사용하여 예제 요청을 만들 수도 있습니다.
 
 ## <a name="determine-how-to-process-the-data-optional"></a>데이터 처리 방법 결정(선택 사항)
 
@@ -93,11 +93,13 @@ API 요청 및 상태에 대 한 Text Analytics에 제출 하는 데이터에 �
 
 | 제한 | 값 |
 |------------------------|---------------|
-| 단일 문서의 최대 크기 | [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)에 의해 측정된 5,120자. |
+| 단일 문서의 최대 크기 | [쌍인지 LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)으로 측정 되는 30720 문자입니다. |
 | 전체 요청의 최대 크기 | 1MB |
 | 요청당 최대 문서 수 | 웹 기반 API의 경우 10, 컨테이너의 경우 1000입니다. |
 
 문서가 문자 제한을 초과 하는 경우 API는 최대 크기를 초과 하는 문서를 처리 하지 않으며 잘못 된 문서 오류가 반환 됩니다. API 요청에 여러 문서가 있는 경우 문자 제한 내에 있으면 API가 문서를 계속 처리합니다.
+
+5120 자를 초과 하는 문서를 보낼 때 상태를 5120 문자 청크로 Text Analytics으로 분할 됩니다. 두 엔터티가 서로 관련 된 분할의 한쪽에 있으면 모델에서 관계를 검색할 수 없습니다. 잠재적 관계가 검색 되지 않는 것을 방지 하려면 전체 문장 으로만 구성 된 5120 자 이하의 문서로 텍스트를 분할 하는 것이 좋습니다.
 
 ### <a name="rate-limits"></a>속도 제한
 

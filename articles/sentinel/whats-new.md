@@ -1,25 +1,25 @@
 ---
-title: Microsoft Sentinel의 새로운 내용
-description: 이 문서에서는 지난 몇 개월 동안 Microsoft Sentinel의 새로운 기능에 대해 설명합니다.
+title: Microsoft 센티널의 새로운 기능
+description: 이 문서에서는 지난 몇 달 동안 Microsoft 센티널의 새로운 기능을 설명 합니다.
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 84461a176d220b59d961e52e5b9f2dc48fb4f7a7
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: e576d64196cf5d79d5a65785fd7978ec02dd8cef
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132761970"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813716"
 ---
-# <a name="whats-new-in-microsoft-sentinel"></a>Microsoft Sentinel의 새로운 내용
+# <a name="whats-new-in-microsoft-sentinel"></a>Microsoft 센티널의 새로운 기능
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Microsoft Sentinel에 대해 추가된 최신 기능과 Microsoft Sentinel에서 향상된 사용자 환경을 제공하는 관련 서비스의 새로운 기능을 나열합니다.
+이 문서에서는 microsoft 센티널에 추가 된 최신 기능과 Microsoft 센티널에서 향상 된 사용자 환경을 제공 하는 관련 서비스의 새로운 기능을 나열 합니다.
 
-6개월보다 오래된 항목을 찾는 경우 [Sentinel](whats-new-archive.md)의 새로운 내용 보관에서 찾을 수 있습니다. 이전에 제공된 기능에 대한 자세한 내용은 [기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New)를 참조하세요.
+6 개월 이상 지난 항목을 찾고 있다면 [센티널의 새로운 기능에 대 한 보관 파일](whats-new-archive.md)에서 찾을 수 있습니다. 이전에 제공된 기능에 대한 자세한 내용은 [기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New)를 참조하세요.
 
 > [!IMPORTANT]
 > 언급된 기능은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
@@ -28,86 +28,108 @@ ms.locfileid: "132761970"
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!TIP]
-> Microsoft의 위협 헌팅 팀은 팀이 조정하고 사용할 수 있는 특정 [헌팅 쿼리를](https://github.com/Azure/Azure-Sentinel) 포함하여 [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel)쿼리, 플레이북, 통합 문서 및 Notebook을 제공합니다.
+> microsoft가 팀에서 조정 하 고 사용할 수 있는 특정 [구하기 쿼리](https://github.com/Azure/Azure-Sentinel) 를 비롯 하 여 microsoft에서 쿼리, 플레이 북, 통합 문서 및 노트북을 [microsoft 센티널 Community](https://github.com/Azure/Azure-Sentinel)에 제공 하는 위협 구하기 팀
 >
-> 여러분도 참여할 수 있습니다! [Microsoft Sentinel Threat GitHub 커뮤니티에 참여하세요.](https://github.com/Azure/Azure-Sentinel/wiki)
+> 여러분도 참여할 수 있습니다! [Microsoft 센티널 Threat 헌터 GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/wiki)에 참여 하세요.
 
 ## <a name="november-2021"></a>2021년 11월
 
-### <a name="windows-forwarded-events-connector-now-available-public-preview"></a>Windows 전달된 이벤트 커넥터 사용 가능(공개 미리 보기)
+- [Amazon Web Services S3 커넥터 사용 가능 (공개 미리 보기)](#amazon-web-services-s3-connector-now-available-public-preview)
+- [현재 전달 된 이벤트 커넥터를 사용할 수 Windows (공개 미리 보기)](#windows-forwarded-events-connector-now-available-public-preview)
+- [거의 실시간 (NRT) 위협 검색 규칙 사용 가능 (공개 미리 보기)](#near-real-time-nrt-threat-detection-rules-now-available-public-preview)
+- [이제 Fusion 엔진은 새롭게 알려지지 않은 위협 (공개 미리 보기)을 검색 합니다.](#fusion-engine-now-detects-emerging-and-unknown-threats-public-preview)
+- [분석 규칙에 대 한 미세 조정 권장 사항 가져오기 (공개 미리 보기)](#get-fine-tuning-recommendations-for-your-analytics-rules-public-preview)
+- [무료 평가판 업데이트](#free-trial-updates)
+- [콘텐츠 허브 및 새 솔루션 (공개 미리 보기)](#content-hub-and-new-solutions-public-preview)
+- [콘텐츠 리포지토리에서 연속 배포 사용 (공개 미리 보기)](#enable-continuous-deployment-from-your-content-repositories-public-preview)
+- [지리적 위치 및 WhoIs 데이터를 사용 하 여 위협 인텔리전스 보강 (공개 미리 보기)](#enriched-threat-intelligence-with-geolocation-and-whois-data-public-preview)
+- [Microsoft 센티널에서 Azure Synapse Analytics와 함께 노트북 사용 (공개 미리 보기)](#use-notebooks-with-azure-synapse-analytics-in-microsoft-sentinel-public-preview)
+- [Microsoft 센티널의 향상 된 노트북 영역](#enhanced-notebooks-area-in-microsoft-sentinel)
+- [Microsoft 센티널 이름 바꾸기](#microsoft-sentinel-renaming)
+- [Azure 센티널을 사용 하 여 Azure Key Vault honeytokens 배포 및 모니터링](#deploy-and-monitor-azure-key-vault-honeytokens-with-azure-sentinel)
 
-이제 이 새로운 데이터 커넥터 덕분에 WEC/WEF(이벤트 컬렉션/Windows 이벤트 전달)를 사용하여 Windows Azure Sentinel 작업 영역에 연결된 Windows 서버에서 이벤트 로그를 스트리밍할 수 있습니다. 커넥터는 레거시 Log Analytics 에이전트(MMA라고도 함)에 비해 많은 이점을 제공하는 새 AMA(Azure Monitor 에이전트)를 사용합니다.
+### <a name="amazon-web-services-s3-connector-now-available-public-preview"></a>Amazon Web Services S3 커넥터 사용 가능 (공개 미리 보기)
 
-- **확장성:** WINDOWS 이벤트 수집(WEC)을 사용하도록 설정한 경우 WEC 컴퓨터에 AMA(Azure Monitor 에이전트)를 설치하여 단일 연결 지점이 있는 여러 서버에서 로그를 수집할 수 있습니다.
+이제 다양 한 AWS 서비스에서 로그를 수집 하기 위해 Microsoft 센티널을 Amazon Web Services (AWS) S3 저장소 버킷에 연결할 수 있습니다.
 
-- **속도:** AMA는 5K EPS의 향상된 속도로 데이터를 보낼 수 있어 데이터 새로 고침 속도가 빨라집니다.
+지금은이 연결을 사용 하 여 VPC Flow 로그 및 GuardDuty 결과를 수집 하 고 AWS cloudtrail를 수집할 수 있습니다.
 
-- **효율성:** AMA를 사용하면 복잡한 DCR(데이터 수집 규칙)을 디자인하여 원본에서 로그를 필터링하고 작업 영역으로 스트리밍할 정확한 이벤트를 선택할 수 있습니다. DCR은 원치 않는 이벤트를 제외하여 네트워크 트래픽 및 저장 비용을 줄이는 데 도움이 됩니다.
+자세한 내용은 [Microsoft 센티널에서 S3 버킷으로 커넥트 하 여 Amazon Web Services (AWS) 데이터 가져오기](connect-aws.md)를 참조 하세요.
 
-- **범위:** WEC/WEF를 사용하면 레거시(온-프레미스 및 물리적) 서버와 에이전트 설치가 원치 않는 도메인 컨트롤러와 같은 높은 사용량 또는 중요한 컴퓨터에서 Windows 이벤트 로그를 수집할 수 있습니다.
+### <a name="windows-forwarded-events-connector-now-available-public-preview"></a>현재 전달 된 이벤트 커넥터를 사용할 수 Windows (공개 미리 보기)
 
-데이터 정규화를 완전히 지원하려면 [ASIM(Azure Sentinel 정보 모델)](normalization.md) 파서가 설치된 이 커넥터를 사용하는 것이 좋습니다.
+이제 새 데이터 커넥터 덕분에 Windows 이벤트 수집/Windows 이벤트 전달 (WEC/wef)을 사용 하 여 Azure 센티널 작업 영역에 연결 된 Windows 서버에서 이벤트 로그를 스트리밍할 수 있습니다. 커넥터는 새 Azure Monitor 에이전트 (AMA)를 사용 하 여 레거시 Log Analytics 에이전트 (MMA 라고도 함)에 비해 여러 가지 이점을 제공 합니다.
 
-[Windows 전달된 이벤트 커넥터에](data-connectors-reference.md#windows-forwarded-events-preview)대해 자세히 알아봅니다.
+- **확장성:** wec (Windows 이벤트 수집)를 사용 하도록 설정한 경우에는 wec 컴퓨터에 Azure Monitor 에이전트 (AMA)를 설치 하 여 단일 연결 지점을 사용 하는 여러 서버에서 로그를 수집할 수 있습니다.
 
-### <a name="near-real-time-nrt-threat-detection-rules-now-available-public-preview"></a>NRT(근 실시간) 위협 탐지 규칙 사용 가능(공개 미리 보기)
+- **속도:** AMA는 5K EPS의 향상 된 속도로 데이터를 전송할 수 있으므로 데이터를 빠르게 새로 고칠 수 있습니다.
 
-보안 위협에 직면하는 경우 시간과 속도가 가장 핵심입니다. 위협이 구체화될 때 위협을 파악하여 신속하게 분석하고 대응하여 포함할 수 있어야 합니다. Microsoft Sentinel의 NRT(근 실시간) 분석 규칙은 온-프레미스 SIEM에 더 가까운 빠른 위협 탐지와 특정 시나리오에서 응답 시간을 단축하는 기능을 제공합니다.
+- **효율성:** AMA를 사용 하면 복잡 한 DCR (데이터 수집 규칙)를 디자인 하 여 원본에서 로그를 필터링 하 고 작업 영역에 스트리밍할 정확한 이벤트를 선택할 수 있습니다. Ecr은 원치 않는 이벤트를 종료 하 여 네트워크 트래픽 및 수집 비용을 낮춥니다.
 
-Microsoft Sentinel의 [거의 실시간 분석 규칙은](detect-threats-built-in.md#nrt) 가장 가까운 시간 동안 위협 탐지 기능을 제공합니다. 이 유형의 규칙은 단 1분 간격으로 쿼리를 실행하여 응답성이 뛰어나도록 설계되었습니다.
+- **검사:** WEC/wef를 사용 하면 레거시 (온-프레미스 및 실제) 서버에서의 Windows 이벤트 로그를 수집 하 고, 에이전트를 설치 하지 않아도 되는 도메인 컨트롤러와 같은 높은 사용량 또는 중요 한 컴퓨터 에서도 이벤트 로그를 수집할 수 있습니다.
 
-[NRT 규칙](near-real-time-rules.md) 및 사용 방법에 대해 자세히 알아봅니다. [](create-nrt-rules.md)
+데이터 정규화를 완벽 하 게 지원 하기 위해 설치 된 [ASIM (Azure 센티널 Information Model)](normalization.md) 파서에서이 커넥터를 사용 하는 것이 좋습니다.
 
-### <a name="fusion-engine-now-detects-emerging-and-unknown-threats-public-preview"></a>Fusion 엔진은 이제 새로운 위협과 알 수 없는 위협을 감지합니다(공개 미리 보기).
+[전달 된 이벤트 Windows 커넥터](data-connectors-reference.md#windows-forwarded-events-preview)에 대해 자세히 알아보세요.
 
-[미리 정의된 시나리오에](fusion-scenario-reference.md)따라 공격을 검색하는 것 외에도 Microsoft Sentinel의 ML 기반 Fusion 엔진은 확장된 ML 분석을 적용하고 광범위한 비정상 신호 범위의 상관 관계를 지정하여 사용자 환경에서 새로운 위협과 알 수 없는 위협을 찾는 데 도움이 될 수 있습니다.
+### <a name="near-real-time-nrt-threat-detection-rules-now-available-public-preview"></a>거의 실시간 (NRT) 위협 검색 규칙 사용 가능 (공개 미리 보기)
 
-Fusion 엔진의 ML 알고리즘은 지속적으로 기존 공격으로부터 학습하고 보안 분석가의 생각 방식에 따라 분석을 적용합니다. 따라서 환경 전체의 킬 체인에서 수백만 개의 비정상적인 동작에서 이전에 검색되지 않은 위협을 검색할 수 있으므로 공격자보다 한 단계 앞서 있는 데 도움이 됩니다.
+보안 위협에 직면 하는 경우 시간과 속도는 기본적으로입니다. 이를 신속 하 게 분석 하 고 대응할 수 있도록 구체화 될 때 위협을 인식 해야 합니다. Microsoft 센티널의 거의 실시간 (NRT) 분석 규칙은 온-프레미스 SIEM 및 특정 시나리오에서 응답 시간을 단축 하는 기능에 더 빠르게 위협 감지 기능을 제공 합니다.
 
-[새로운 위협에 대한 Fusion에](fusion.md#fusion-for-emerging-threats)대해 자세히 알아보세요.
+Microsoft 센티널의 [거의 실시간 분석 규칙](detect-threats-built-in.md#nrt) 은 기본 제공 되는 최신 위협 검색 기능을 제공 합니다. 이 유형의 규칙은 1 분 간격으로 쿼리를 실행 하 여 응답성이 높은 응답성으로 설계 되었습니다.
 
-또한 Fusion 분석 규칙은 이제 향상된 기능을 반영하여 [더 구성이](configure-fusion-rules.md)가능해졌습니다.
+[Nrt 규칙](near-real-time-rules.md) 및 [사용 방법](create-nrt-rules.md)에 대해 자세히 알아보세요.
 
-### <a name="get-fine-tuning-recommendations-for-your-analytics-rules-public-preview"></a>분석 규칙에 대한 미세 조정 권장 사항 얻기(공개 미리 보기)
+### <a name="fusion-engine-now-detects-emerging-and-unknown-threats-public-preview"></a>이제 Fusion 엔진은 새롭게 알려지지 않은 위협 (공개 미리 보기)을 검색 합니다.
 
-SIEM에서 위협 탐지 규칙을 미세 조정하는 것은 위협 탐지 범위를 극대화하고 가양성 비율을 최소화하는 것 사이의 균형을 조정하는 어려운 연속 프로세스일 수 있습니다. Microsoft Sentinel은 기계 학습을 사용하여 시간별 인시던트 대응뿐만 아니라 데이터 원본에서 수십억 개의 신호를 분석하고, 패턴을 추론하고, 튜닝 오버헤드를 크게 낮출 수 있는 실행 가능한 권장 사항 및 인사이트를 제공하여 실제 위협을 감지하고 대응하는 데 집중할 수 있도록 함으로써 이 프로세스를 간소화하고 간소화합니다.
+[미리 정의 된 시나리오](fusion-scenario-reference.md)에 따라 공격을 검색 하는 것 외에도, Microsoft 센티널의 ML 기반 Fusion 엔진은 확장 된 ML 분석을 적용 하 고 더 광범위 한 비정상 신호의 범위를 상호 연결 하 여 경고를 피로 하는 방식으로 사용자 환경에서 새로 발생 하 고 알 수 없는 위협을 찾는 데 도움이 될 수 있습니다.
 
-이제 [튜닝 권장 사항 및 인사이트가](detection-tuning.md) 분석 규칙에 기본 제공되었습니다.
+Fusion 엔진의 ML 알고리즘은 기존 공격 으로부터 지속적으로 배우고 보안 분석가가 생각 하는 방법에 따라 분석을 적용 합니다. 따라서 사용자 환경 전체에서 kill 체인을 통해 수백만 개의 비정상 동작에서 이전에 검색 되지 않은 위협을 발견할 수 있으므로 공격자의 한 단계를 진행 하는 데 도움이 됩니다.
 
-### <a name="free-trial-updates"></a>평가판 업데이트
+[새로운 위협에 대 한 Fusion](fusion.md#fusion-for-emerging-threats)에 대해 자세히 알아보세요.
 
-Microsoft Sentinel의 평가판은 처음 31일 동안 추가 비용 없이 신규 또는 기존 Log Analytics 작업 영역을 계속 지원합니다.
-다음 업데이트를 포함하도록 현재 무료 평가판 환경을 발전시키고 있습니다.
+또한 이제 증가 된 기능을 반영 하 여 [Fusion 분석 규칙을 더 쉽게 구성할 수](configure-fusion-rules.md)있습니다.
 
-- **새 Log Analytics 작업 영역은** 처음 31일 동안 최대 10GB/일의 로그 데이터를 무료로 수집할 수 있습니다. 새 작업 영역에는 3일 미만의 작업 영역이 포함됩니다.
+### <a name="get-fine-tuning-recommendations-for-your-analytics-rules-public-preview"></a>분석 규칙에 대 한 미세 조정 권장 사항 가져오기 (공개 미리 보기)
 
-   Log Analytics 데이터 수집 및 Microsoft Sentinel 요금은 모두 31일 평가 기간 동안 청구됩니다. 이 무료 평가판에는 Azure 테넌트당 20개 작업 영역 제한이 적용됩니다.
+SIEM의 위협 검색 규칙을 미세 조정 하는 것은 위협 검색 범위를 극대화 하 고 가양성을 최소화 하는 것이 어려울 수 있습니다. Microsoft 센티널은 기계 학습을 사용 하 여 데이터 원본에서 수십억 개의 신호를 분석 하 고 시간에 따른 인시던트에 대 한 응답을 분석 하 고, 튜닝 오버 헤드를 크게 낮출 수 있는 조치 가능한 권장 사항 및 통찰력을 제공 하 고, 실제 위협에 대 한 검색 및 대응에 집중할 수 있도록 기계 학습을 통해이 프로세스를 간소화 하 고 간소화 합니다.
 
-- **기존 Log Analytics 작업 영역은** 추가 비용 없이 Microsoft Sentinel을 사용하도록 설정할 수 있습니다. 기존 작업 영역에는 3일 전에 만든 모든 작업 영역이 포함됩니다.
+이제 [튜닝 권장 사항 및 통찰력](detection-tuning.md) 이 분석 규칙에 기본 제공 됩니다.
 
-   31일 평가 기간 동안에는 Microsoft Sentinel 요금만 청구됩니다.
+### <a name="free-trial-updates"></a>무료 평가판 업데이트
 
-이러한 제한을 초과하는 사용량은 [Microsoft Sentinel 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel) 페이지에 나열된 가격 책정에 따라 요금이 청구됩니다. [자동화](automation.md) 및 [사용자 고유의 기계 학습을 위한](bring-your-own-ml.md) 추가 기능과 관련된 요금은 평가판 중에 계속 적용됩니다.
+Microsoft 센티널의 무료 평가판은 처음 31 일 동안 추가 비용 없이 신규 또는 기존 Log Analytics 작업 영역을 계속 지원 합니다.
+현재 무료 평가판 환경에서 다음 업데이트를 포함 하 고 있습니다.
+
+- **새 Log Analytics 작업 영역** 에서는 처음 31 일 동안 최대 10gb/일의 로그 데이터를 무료로 수집할 수 있습니다. 새 작업 영역에는 3 일 미만의 작업 영역이 포함 됩니다.
+
+   Log Analytics 데이터 수집 및 Microsoft 센티널 요금은 모두 31 일의 평가 기간 동안 면제 받으려면 됩니다. 이 무료 평가판에는 Azure 테 넌 트 당 20 개의 작업 영역 제한이 적용 됩니다.
+
+- **기존 Log Analytics 작업 영역** 에서 추가 비용 없이 Microsoft 센티널을 사용 하도록 설정할 수 있습니다. 기존 작업 영역에는 3 일 이상 전에 만든 작업 영역이 포함 됩니다.
+
+   Microsoft 센티널 요금은 31 일의 평가 기간 동안 면제 받으려면 됩니다.
+
+이러한 제한을 초과 하는 사용량에 대해서는 [Microsoft 센티널 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel) 페이지에 나열 된 가격 책정에 따라 요금이 청구 됩니다. [Automation](automation.md) 의 추가 기능과 관련 된 요금은 무료 평가판을 사용 하는 동안에도 계속 [적용 됩니다.](bring-your-own-ml.md)
 
 > [!TIP]
-> 평가판 중에 Microsoft Sentinel의 뉴스 & 가이드 **> 무료 평가판** 탭에서 비용 관리, 교육 등에 대한 리소스를 찾습니다. 이 탭에는 평가판 날짜 및 만료될 때까지 남은 날짜에 대한 세부 정보도 표시됩니다.
+> 무료 평가판을 사용 하는 경우 Microsoft 센티널의 **무료 평가판 탭 > 뉴스 & 가이드** 에서 cost management, 교육 등에 대 한 리소스를 찾아보세요. 이 탭에는 무료 평가판 날짜 및 만료 될 때까지 남은 일 수에 대 한 세부 정보도 표시 됩니다.
 >
 
-자세한 내용은 [Microsoft Sentinel에 대한 비용 계획 및 관리를 참조하세요.](billing.md)
+자세한 내용은 [Microsoft 센티널의 비용 계획 및 관리](billing.md)를 참조 하세요.
 
-### <a name="content-hub-and-new-solutions-public-preview"></a>콘텐츠 허브 및 새 솔루션(공개 미리 보기)
+### <a name="content-hub-and-new-solutions-public-preview"></a>콘텐츠 허브 및 새 솔루션 (공개 미리 보기)
 
-Microsoft Sentinel은 이제 Microsoft Sentinel 기본 제공 콘텐츠 및 솔루션을 찾아 Microsoft Sentinel 작업 영역에 배포하기 위한 중앙 집중식 위치인 콘텐츠 **허브를** 제공합니다. 콘텐츠 형식을 필터링하여 필요한 콘텐츠를 찾거나, 모델, 범주 등을 지원하거나, 강력한 텍스트 검색을 사용합니다.
+Microsoft 센티널은 이제 microsoft 센티널 작업 영역에 대 한 Microsoft 센티널 기본 제공 콘텐츠 및 솔루션을 찾아서 배포 하는 중앙 위치인 **콘텐츠 허브** 를 제공 합니다. 콘텐츠 형식, 지원 모델, 범주 등을 필터링 하 여 필요한 콘텐츠를 찾거나 강력한 텍스트 검색을 사용 합니다.
 
-**콘텐츠 관리에서** **콘텐츠 허브를** 선택합니다. 오른쪽에서 자세한 내용을 볼 솔루션을 선택하고 **설치를** 클릭하여 작업 영역에 설치합니다.
+**콘텐츠 관리** 에서 **콘텐츠 허브** 를 선택 합니다. 오른쪽에 대 한 자세한 내용을 보려면 솔루션을 선택 하 고 **설치** 를 클릭 하 여 작업 영역에 설치 합니다.
 
-:::image type="content" source="media/whats-new/solutions-list.png" alt-text="새 Microsoft Sentinel 콘텐츠 허브의 스크린샷." lightbox="media/whats-new/solutions-list.png":::
+:::image type="content" source="media/whats-new/solutions-list.png" alt-text="새 Microsoft 센티널 콘텐츠 허브의 스크린샷" lightbox="media/whats-new/solutions-list.png":::
 
-다음 목록에는 콘텐츠 허브에 추가된 새로운 주요 솔루션이 포함되어 있습니다.
+다음 목록에는 콘텐츠 허브에 추가 된 새로운 기본 제공 솔루션이 포함 되어 있습니다.
 
 :::row:::
    :::column span="":::
-      - Microsoft Sentinel 교육 랩
+      - Microsoft 센티널 학습 랩
       - Cisco ASA
       - Cisco Duo 보안
       - Cisco Meraki
@@ -118,46 +140,46 @@ Microsoft Sentinel은 이제 Microsoft Sentinel 기본 제공 콘텐츠 및 솔�
    :::column-end:::
    :::column span="":::
       - GCP CloudMonitor
-      - GCP ID 및 액세스 관리
-      - ForceForce
+      - GCP Id 및 액세스 관리
+      - False
       - FireEye NX
-      - 2016년 3월 2
+      - 플레어 시스템 불꽃놀이
       - Forescout
       - Fortinet Fortigate
-      - Imperva CloudSERS
+      - Imperva 클라우드 FAW
    :::column-end:::
    :::column span="":::
       - 참가자 위험 관리
-      - IronNet CyberSecurity Iron Defense
+      - IronNet 사이버 보안 다리미 방어
       - Lookout
       - McAfee 네트워크 보안 플랫폼
-      - Microsoft MITRE ATT&CK Solution for Cloud
+      - 클라우드 용 Microsoft MITRE AT&T&접시 헤드 솔루션
       - Palo Alto PAN-OS
    :::column-end:::
    :::column span="":::
-      - Rapid7 Nexpose/Insight VM
+      - Rapid7 Nexpose/정보 VM
       - ReversingLabs
       - RSA SecurID
       - Semperis
-      - Tenable Nessus Scanner
-      - Vectra Stream
+      - Tenable 스캐너 사용
+      - Vectra 스트림
       - 제로 트러스트
    :::column-end:::
 :::row-end:::
 
 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft Sentinel 솔루션 정보](sentinel-solutions.md)
-- [Microsoft Sentinel 솔루션 검색 및 배포](sentinel-solutions-deploy.md)
-- [Microsoft Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)
+- [Microsoft 센티널 솔루션 정보](sentinel-solutions.md)
+- [Microsoft 센티널 솔루션 검색 및 배포](sentinel-solutions-deploy.md)
+- [Microsoft 센티널 솔루션 카탈로그](sentinel-solutions-catalog.md)
 
-### <a name="enable-continuous-deployment-from-your-content-repositories-public-preview"></a>콘텐츠 리포지토리에서 지속적인 배포 사용(공개 미리 보기)
+### <a name="enable-continuous-deployment-from-your-content-repositories-public-preview"></a>콘텐츠 리포지토리에서 연속 배포 사용 (공개 미리 보기)
 
-새 Microsoft Sentinel **리포지토리** 페이지는 Azure Portal 관리하는 대신 GitHub 또는 Azure DevOps 리포지토리에서 사용자 지정 콘텐츠를 관리하고 배포하는 기능을 제공합니다. 이 기능은 Microsoft Sentinel 작업 영역에서 콘텐츠를 관리하고 배포하기 위한 보다 간소화되고 자동화된 접근 방식을 도입합니다.
+새 Microsoft 센티널 **리포지토리** 페이지는 GitHub 또는 Azure DevOps 리포지토리에서 사용자 지정 콘텐츠를 관리 하 고 배포 하는 기능을 Azure Portal에서 관리 하는 대신 제공 합니다. 이 기능은 Microsoft 센티널 작업 영역에서 콘텐츠를 관리 하 고 배포 하기 위한 보다 간소화 되 고 자동화 된 접근 방식을 도입 합니다.
 
-Microsoft Sentinel 외부에서 유지 관리하기 위해 사용자 지정 콘텐츠를 외부 리포지토리에 저장하는 경우 이제 해당 리포지토리를 Microsoft Sentinel 작업 영역에 연결할 수 있습니다. 리포지토리에서 추가, 만들기 또는 편집하는 콘텐츠는 Microsoft Sentinel 작업 영역에 자동으로 배포되며 분석, **헌팅** 또는 통합 문서 페이지와 같은 다양한 Microsoft Sentinel 갤러리에서 볼 수 **있습니다.**
+Microsoft 센티널 외부에서 유지 관리 하기 위해 외부 리포지토리에 사용자 지정 콘텐츠를 저장 하는 경우 이제 해당 리포지토리를 Microsoft 센티널 작업 영역에 연결할 수 있습니다. 리포지토리에서 추가, 만들기 또는 편집 하는 콘텐츠는 자동으로 Microsoft 센티널 작업 영역에 배포 되 고 **분석**, **구하기** 또는 **통합 문서** 페이지와 같은 다양 한 microsoft 센티널 갤러리에서 표시 됩니다.
 
-자세한 내용은 [리포지토리에서 사용자 지정 콘텐츠 배포를 참조하세요.](ci-cd.md)
+자세한 내용은 [리포지토리에서 사용자 지정 콘텐츠 배포](ci-cd.md)를 참조 하세요.
 
 ### <a name="enriched-threat-intelligence-with-geolocation-and-whois-data-public-preview"></a>지리적 위치 및 WhoIs 데이터를 사용 하 여 위협 인텔리전스 보강 (공개 미리 보기)
 
@@ -169,7 +191,7 @@ Microsoft Sentinel 외부에서 유지 관리하기 위해 사용자 지정 콘�
 
 Microsoft 센티널로 가져온 각 손상의 표시기에 대해 **위협 인텔리전스** 창에서 지리적 위치 및 WhoIs 데이터를 볼 수 있습니다. 표시기에 대 한 세부 정보는 사용 가능한 모든 지리적 위치 및 WhoIs 데이터를 포함 하 여 오른쪽에 표시 됩니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="지리적 위치 및 WhoIs 데이터를 포함 하는 표시기 정보의 스크린샷" lightbox="media/whats-new/geolocation-whois-ti.png":::
 
@@ -208,7 +230,7 @@ Microsoft 센티널은 이제 대규모 보안 분석 시나리오를 위해 Jup
 
 Microsoft 센티널의 **전자 필기장** 영역에는 이제 전자 필기장에 대 한 기본 정보를 찾을 수 있는 **개요** 탭과 **템플릿** 탭의 새 **노트북 유형** 열을 통해 표시 되는 각 노트북의 유형을 지정할 수 있습니다. 예를 들어, 노트북에는 **시작**, **구성**, **구하기** 및 **Synapse** 의 유형이 있을 수 있습니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="전자 필기장 페이지에서 새 Azure Synapse 기능의 스크린샷" lightbox="media/whats-new/notebooks-synapse.png":::
 
@@ -572,7 +594,7 @@ Azure Sentinel 정보 모델을 사용하면 원본에 관계없이 콘텐츠를
 
 이제 Azure Sentinel은 **패키지된 콘텐츠** [솔루션](sentinel-solutions-catalog.md)을 제공합니다. 여기에는 하나 이상의 데이터 커넥터, 통합 문서, 분석 규칙, 플레이북, 헌팅 쿼리, 파서, 감시 목록 및 Azure Sentinel용 기타 구성 요소의 조합이 포함됩니다.
 
-솔루션은 향상된 제품 내 검색 기능, 단일 단계 배포 및 엔드투엔드 제품 시나리오를 제공합니다. 자세한 내용은 [중앙에서 기본 제공 콘텐츠 및 솔루션 검색 및 배포](sentinel-solutions-deploy.md)를 참조 하세요.
+솔루션은 향상된 제품 내 검색 기능, 단일 단계 배포 및 엔드투엔드 제품 시나리오를 제공합니다. 자세한 내용은 [기본 제공 콘텐츠 및 솔루션 중앙에서 검색 및 배포를 참조하세요.](sentinel-solutions-deploy.md)
 
 ### <a name="continuous-threat-monitoring-for-sap-solution-public-preview"></a>SAP 솔루션에 대한 지속적인 위협 모니터링(공개 미리 보기)
 

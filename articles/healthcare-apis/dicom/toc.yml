@@ -36,16 +36,6 @@ items:
     items:
       - name: 변경 피드를 사용 하 여 DICOM 변경 내용 끌어오기
         href: pull-dicom-changes-from-change-feed.md
-      - name: 서비스 클라이언트 애플리케이션 등록
-        href: dicom-register-service-client-application.md
-      - name: 공용 클라이언트 애플리케이션 등록
-        href: dicom-register-public-application.md
-      - name: 기밀 클라이언트 애플리케이션 등록
-        href: dicom-register-confidential-client-application.md
-      - name: DICOM 서비스에 대 한 Azure RBAC 구성
-        href: dicom-configure-azure-rbac.md
-      - name: Azure CLI를 사용 하 여 DICOM 서비스에 대 한 액세스 토큰을 가져옵니다.
-        href: dicom-get-access-token-azure-cli.md
   - name: 리소스
     expanded: true
     items:

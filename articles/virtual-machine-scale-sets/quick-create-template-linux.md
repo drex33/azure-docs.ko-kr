@@ -111,7 +111,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-웹 브라우저에 부하 분산 장치의 공용 IP 주소를 *http:\//publicIpAddress:9000/do_work* 형식으로 입력합니다. 부하 분산 장치는 다음 예제와 같이 VM 인스턴스 중 하나에 트래픽을 분산합니다.
+웹 브라우저에 Load Balancer의 공용 IP 주소를  *http:\//publicIpAddress:9000/do_work* 형식으로 입력합니다. 부하 분산 장치는 다음 예제와 같이 VM 인스턴스 중 하나에 트래픽을 분산합니다.
 
 ![NGINX의 기본 웹 페이지](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

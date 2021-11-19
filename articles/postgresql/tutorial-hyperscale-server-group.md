@@ -8,13 +8,13 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/16/2020
-ms.openlocfilehash: 4d4c03e62077599e054dea6efd0bc3eea107aac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/16/2021
+ms.openlocfilehash: 3e031977a3f2a7c0d4e833c1c255747e9dd9cd4a
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97618417"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813614"
 ---
 # <a name="tutorial-create-server-group"></a>자습서: 서버 그룹 만들기
 

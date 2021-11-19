@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1b67744b66eaf5563505f72b6b151f40ed44f602
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1d8e61aa9bfbade22274c9ef9d642f606eb8bf00
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131069238"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814229"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -58,7 +58,7 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가되거나 �
 
 1. 필요에 따라 **[메타데이터](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)** 를 추가합니다. 메타데이터를 보려면 상황에 맞는 메뉴에서 **옵션 보기** 를 선택합니다. 메타데이터는 채팅 봇과 같은 클라이언트 애플리케이션에서 제공하는 응답에 대한 필터를 제공합니다.
 
-1. 필요에 따라 **[후속 프롬프트](multiturn-conversation.md)** 를 추가합니다. 후속 프롬프트는 클라이언트 애플리케이션에 사용자에게 제공할 추가 대화 경로를 제공합니다.
+1. 필요에 따라 **[후속 프롬프트](multi-turn.md)** 를 추가합니다. 후속 프롬프트는 클라이언트 애플리케이션에 사용자에게 제공할 추가 대화 경로를 제공합니다.
 
 1. **저장 및 학습** 을 선택하여 새 QnA 쌍을 포함하는 예측을 확인합니다.
 

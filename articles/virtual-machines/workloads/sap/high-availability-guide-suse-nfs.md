@@ -16,7 +16,7 @@ ms.date: 04/12/2021
 ms.author: radeltch
 ms.openlocfilehash: 31f66c22399290c209be612466556384a63e2bd2
 ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/17/2021
 ms.locfileid: "112297254"
@@ -140,7 +140,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    SAP 애플리케이션 12 SP3용 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신의 각 SAP 시스템에 하나의 데이터 디스크를 추가합니다.
-1. Load Balancer(내부)를 만듭니다. [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.  
+1. Load Balancer(내부)를 만듭니다. [표준 Load Balancer](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.  
    1. 다음 지침에 따라 표준 Load Balancer를 만듭니다.
       1. 프런트 엔드 IP 주소 만들기
          1. NW1의 경우 IP 주소 10.0.0.4

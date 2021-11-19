@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 09/28/2021
 ms.author: batrived
-ms.openlocfilehash: 38b3834b6c7c20e15f466b7af2fb7aa2b1780547
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: ddfc0d177f9415807ec07c63dfedf5742c20178f
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132548028"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132806385"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>연결 문제 해결 - Azure Event Grid
 
@@ -71,7 +71,7 @@ IP 방화벽 규칙은 Event Grid 토픽/도메인 수준에 적용됩니다. �
 
 #### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>IP 방화벽에 의해 차단된 IP 주소 찾기
 
-Event Grid 항목/도메인 [진단 로그 사용](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-event-grid-domains)에 대한 진단 로그를 사용합니다. 거부된 연결의 IP 주소가 표시됩니다.
+Event Grid 항목/도메인 [진단 로그 사용](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains)에 대한 진단 로그를 사용합니다. 거부된 연결의 IP 주소가 표시됩니다.
 
 ```json
 {

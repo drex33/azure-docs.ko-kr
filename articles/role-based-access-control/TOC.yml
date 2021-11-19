@@ -46,6 +46,8 @@
           href: conditions-prerequisites.md
         - name: 조건 FAQ
           href: conditions-faq.md
+        - name: 사용자 지정 보안 특성 예
+          href: conditions-custom-security-attributes-example.md
     - name: 보안
       items:
         - name: Azure Policy의 보안 컨트롤
@@ -104,6 +106,8 @@
           href: conditions-role-assignments-template.md
         - name: 문제 해결 조건
           href: conditions-troubleshoot.md
+        - name: 조건 및 사용자 지정 보안 특성
+          href: conditions-custom-security-attributes.md
     - name: 역할 할당 제거
       href: role-assignments-remove.md
     - name: 거부 할당 목록

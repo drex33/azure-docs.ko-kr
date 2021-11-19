@@ -6,12 +6,12 @@ ms.author: philmea
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: e4f5d99caadaedf6389215fccb753aedd6620917
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 55c00a556cef495437fbc2d82c15ce889ebdd4af
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129983972"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132811261"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK 개요
 
@@ -48,8 +48,8 @@ SDK는 **여러 언어** 로 제공되며 팀 및 시나리오에 가장 적합�
 | 언어 | 패키지 | 원본 | 빠른 시작 | 샘플 | 참조 |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | **.NET** | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-csharp) | [샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) | [참조](/dotnet/api/microsoft.azure.devices.client) |
-| **Python** | [pip](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-python) | [샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | [참조](/python/api/azure-iot-device) |
-| **Node.JS** | [npm](https://www.npmjs.com/package/azure-iot-device) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-nodejs) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) | [참조](/javascript/api/azure-iot-device/) |
+| **Python** | [pip](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-python) | [샘플](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples) | [참조](/python/api/azure-iot-device) |
+| **Node.JS** | [npm](https://www.npmjs.com/package/azure-iot-device) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-nodejs) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples) | [참조](/javascript/api/azure-iot-device/) |
 | **Java** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-java) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples) | [참조](/java/api/com.microsoft.azure.sdk.iot.device) |
 | **C** | [packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#getting-the-sdk) | [GitHub](https://github.com/Azure/azure-iot-sdk-c) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-ansi-c) | [샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) | [참조](/azure/iot-hub/iot-c-sdk-ref/) |
 

@@ -2,13 +2,13 @@
 title: Bicep config에 대 한 lec설정
 description: Bicep linter의 구성 값을 사용자 지정 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/16/2021
-ms.openlocfilehash: d48ea625d58b35ac18c39bfb3fb60eb4ec3d7edd
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.date: 11/18/2021
+ms.openlocfilehash: 56647b34cfffd97a73e80160a1699790ddd6c1d7
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132556954"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813549"
 ---
 # <a name="add-linter-settings-in-the-bicep-config-file"></a>Bicep config 파일에서 l\settings 추가
 
@@ -29,6 +29,9 @@ ms.locfileid: "132556954"
       "enabled": true,
       "verbose": true,
       "rules": {
+        "adminusername-should-not-be-literal": {
+          "level": "error"
+        },
         "no-hardcoded-env-urls": {
           "level": "warning"
         },

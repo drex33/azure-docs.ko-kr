@@ -84,6 +84,14 @@ additionalContent:
               url: ../route-server/quickstart-configure-route-server-portal.md
             - text: 자세히 보기
               url: ../route-server/index.yml
+        - title: 가상 네트워크에 대한 아웃바운드 연결 제공
+          links:
+            - text: Azure Virtual Network NAT란?
+              url: ../virtual-network/nat-gateway/nat-overview.md
+            - text: NAT 게이트웨이 리소스 만들기 및 구성
+              url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+            - text: 자세히 보기
+              url: ../virtual-network/nat-gateway/index.yml
     - title: 애플리케이션 전달 서비스
       items:
         - title: 네트워크 부하 분산 장치

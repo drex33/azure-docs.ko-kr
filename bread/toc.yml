@@ -286,6 +286,9 @@
         - name: 관리
           tocHref: /azure/azure-resource-manager/management/
           topicHref: /azure/azure-resource-manager/management/
+        - name: 문제 해결
+          tocHref: /azure/azure-resource-manager/troubleshooting/
+          topicHref: /azure/azure-resource-manager/troubleshooting/
         - name: Managed Applications
           tocHref: /azure/azure-resource-manager/managed-applications/
           topicHref: /azure/azure-resource-manager/managed-applications/

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 3855cc3dff2d29c659c6613e1321529745239c7c
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 310791b9b9861688b7771931d44058caf002d46a
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634116"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814201"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>VM 인사이트 게스트 상태 사용(미리 보기)
 VM 인사이트 게스트 상태를 사용하면 일정한 간격으로 샘플링되는 성능 측정 집합에 정의된 대로 가상 머신의 상태를 볼 수 있습니다. 이 문서에서는 구독에서 이 기능을 사용하도록 설정하는 방법과 각 가상 머신에 대해 게스트 모니터링을 사용하도록 설정하는 방법을 설명합니다.
@@ -93,6 +93,7 @@ Log Analytics 작업 영역은 다음 지역 중 하나에 있어야 합니다.
 - 스위스 서부
 - 아랍에미리트 북부
 - 영국 남부
+- 영국 서부
 - 서유럽 지역
 - 미국 서부
 - 미국 서부 2

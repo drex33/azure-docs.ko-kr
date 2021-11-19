@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: ca21e367752451f01c7ee8d1fc9596cfcb74029b
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: ded7b5358c863ceaae153be3582981f90152b045
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094446"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808112"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Route Server 만들기 및 구성 
 
@@ -84,7 +84,7 @@ Azure Route Server에는 *RouteServerSubnet* 이라는 전용 서브넷이 필�
         --name RouteServerSubnet \
         --resource-group myRouteServerRG \
         --vnet-name myVirtualNetwork \
-        --address-prefix 10.0.0.0/24)
+        --address-prefix 10.0.0.0/24
     ``` 
 
 1. RouteServerSubnet ID를 기록합니다. *RouteServerSubnet* 의 리소스 ID를 가져오고 `subnet_id` 변수에 저장하려면 [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show)를 사용합니다.

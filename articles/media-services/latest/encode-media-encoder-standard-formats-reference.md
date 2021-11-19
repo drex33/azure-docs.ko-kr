@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/18/2021
 ms.author: inhenkel
-ms.reviewer: anilmur
-ms.openlocfilehash: 2fe8f5d0acb2ab7e2f1c64dde1bedb19b96111e9
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
-ms.translationtype: HT
+ms.reviewer: johndeu
+ms.openlocfilehash: e36cf5eea05528a62bd219f11d73d6427c80896e
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492293"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808807"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>표준 인코더 형식 및 코덱
 
@@ -57,14 +57,15 @@ ms.locfileid: "106492293"
 | 입력 비디오 코덱 | 지원됨 |
 | --- | --- |
 | AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |
-| Avid DNxHD(MXF) |예 |
-| DVCPro/DVCProHD(MXF) |예 |
+| 일반 XAVC/XAVC S(MXF 컨테이너)| 예|
+| Avid DNxHD(MXF 컨테이너) |예 |
+| DVCPro/DVCProHD(MXF 컨테이너) |예 |
 | DV(디지털 비디오)(AVI 파일) |예 |
 | JPEG 2000 |예 |
-| MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
+| MPEG-2(최대 422개 프로필 및 상위 수준( 422개 프로필 및 상위 수준, 같은 변형(예: 사용자-XDCAM HD, 사용자 XDCAM IMX, CableLabs® 및 D10) |최대 422 프로필 |
 | MPEG-1 |예 |
 | VC-1/WMV9 |예 |
-| Canopus HQ/HQX |아니요 |
+| Canopus HQ/HQX |예 |
 | Mpeg-4 2부 |예 |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |예 |
 | 압축되지 않은 YUV420 또는 mezzanine |예 |
@@ -88,10 +89,10 @@ ms.locfileid: "106492293"
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |
 | AMR(Adaptive Multi-Rate) |예 |
-| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |
-| Dolby® E |아니요 |
-| Dolby® Digital(AC3) |아니요 |
-| Dolby® Digital Plus(E-AC3) |아니요 |
+| AES(SMPTE 331M 및 302M, AES3-2003) |예 |
+| Dolby® E |예 |
+| Dolby® Digital(AC3) |예 |
+| Dolby® Digital Plus(E-AC3) |예 |
 
 ## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.

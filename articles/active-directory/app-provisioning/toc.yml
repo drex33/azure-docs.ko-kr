@@ -17,7 +17,7 @@
     - name: 특성 매핑 사용자 지정
       href: customize-application-attributes.md
     - name: 앱별 프로비저닝 자습서
-      href: /azure/active-directory/saas-apps
+      href: /azure/active-directory/saas-apps/tutorial-list
     - name: SQL 기반 앱에 프로비저닝
       href: tutorial-ecma-sql-connector.md
 - name: 개념
@@ -129,7 +129,7 @@
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-active-directory.html
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow

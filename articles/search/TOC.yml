@@ -168,13 +168,13 @@
       items:
         - name: 계층 선택
           href: search-sku-tier.md
-        - name: 용량 계획
-          href: search-capacity-planning.md
         - name: 서비스 만들기
           href: search-create-service-portal.md
+        - name: 용량 계획
+          href: search-capacity-planning.md
         - name: 서비스 제한
           href: search-limits-quotas-capacity.md
-        - name: 비용 관리
+        - name: 비용 계획 및 관리
           href: search-sku-manage-costs.md
         - name: 가용성 및 복구
           href: search-performance-optimization.md

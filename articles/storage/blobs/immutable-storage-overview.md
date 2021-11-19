@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 60db4d1f84f0c64539d9e98fd6500cdd6acce561
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 06238117af8e7f371c1e5ccbd2c54d3113818010
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132754029"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810010"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
 
@@ -130,7 +130,7 @@ Cohasset 보고서는 [Microsoft 서비스 보안 센터](https://aka.ms/AzureWo
 
 ### <a name="hierarchical-namespace-support"></a>계층 구조 네임스페이스 지원
 
-계층 구조 네임스페이스를 사용하는 계정에 대한 변경이 불가능한 스토리지는 현재 미리 보기로 제공됩니다. 미리 보기에 등록하려면 [이 양식](https://forms.office.com/Pages/DesignPage.aspx?fragment=FormId%3Dv4j5cvGGr0GRqy180BHbR9iuLyDgXDNIkMaAAVSMpJxUMVdIOUNDMlNESUlJRVNWOExJVUoxME1CMS4u%26Token%3D60e8e4cd986e48689b435d8c4255f79a)을 참조하세요.
+계층 구조 네임스페이스를 사용하는 계정에 대한 변경이 불가능한 스토리지는 현재 미리 보기로 제공됩니다. 미리 보기에 등록하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9iuLyDgXDNIkMaAAVSMpJxUMVdIOUNDMlNESUlJRVNWOExJVUoxME1CMS4u)을 참조하세요.
 
 Blob이 변경할 수 없는 상태이고 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우에는 Blob 이름을 바꾸거나 Blob을 이동할 수 없습니다. Blob 이름과 디렉터리 구조는 변경이 불가능한 정책이 적용되면 수정할 수 없는 필수적인 컨테이너 수준 데이터를 제공합니다.
 

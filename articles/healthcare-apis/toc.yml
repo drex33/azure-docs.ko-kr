@@ -1,12 +1,12 @@
 items:
-  - name: FHIR 용 Azure API 설명서
+  - name: Azure API for FHIR 설명서
     href: ./azure-api-for-fhir/index.yml
-  - name: Azure 의료 Api (미리 보기) 설명서
+  - name: Azure Healthcare API(미리 보기) 설명서
     href: index.yml
   - name: 개요
     expanded: true
     items:
-      - name: 의료 Api 정보
+      - name: 의료 API 정보
         href: healthcare-apis-overview.md
       - name: 작업 영역 정보
         href: workspace-overview.md
@@ -21,21 +21,28 @@ items:
   - name: 빠른 시작
     expanded: true
     items:
-      - name: 의료 Api 배포
+      - name: 의료 API 배포
         href: healthcare-apis-quickstart.md
   - name: 방법 가이드
     expanded: true
     items:
-      - name: 인증 및 권한 부여
-        href: authentication-authorization.md
-      - name: Postman을 사용 하 여 FHIR 서비스 액세스
+      - name: 사용자 액세스 및 권한 관리
+        expanded: true
+        items:
+          - name: 인증 및 권한 부여
+            href: authentication-authorization.md
+          - name: 클라이언트 애플리케이션 등록
+            href: register-application.md
+          - name: Azure RBAC 구성
+            href: configure-azure-rbac.md
+          - name: 액세스 토큰 얻기
+            href: get-access-token.md
+      - name: Postman을 사용하여 액세스
         href: use-postman.md
-      - name: 말아를 사용 하 여 액세스
+      - name: cURL을 사용하여 액세스
         href: using-curl.md
-      - name: REST 클라이언트를 사용 하 여 액세스
+      - name: REST 클라이언트를 사용하여 액세스
         href: using-rest-client.md
-      - name: 애플리케이션 등록
-        href: register-application.md
       - name: 로깅
         href: logging.md
   - name: 개념
@@ -49,5 +56,5 @@ items:
         href: release-notes.md
       - name: FAQ
         href: healthcare-apis-faqs.md
-      - name: GitHub 프로젝트
+      - name: 프로젝트 GitHub
         href: github-projects.md

@@ -1,18 +1,18 @@
 ---
 title: Azure Purview의 레이블 지정
-description: 민감도 레이블 및 분류 활용을 시작하여 Purview 자산 개선
+description: 민감도 레이블 및 분류 활용을 시작하여 Purview 자산 향상
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: f6769cfc95ff06ef67d9020ff109993772b36bf0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 79f7291380e756ad40a7944fecdc99a89451379d
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000842"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810349"
 ---
 # <a name="labeling-in-azure-purview"></a>Azure Purview의 레이블 지정
 
@@ -31,8 +31,8 @@ ms.locfileid: "130000842"
 Azure Purview를 사용하면 자산에 민감도 레이블을 적용하여 데이터를 분류하고 보호할 수 있습니다.
 
 * **레이블은 데이터와 함께 이동합니다.** Purview에서 사용되는 민감도 레이블은 현재 Microsoft 365, SharePoint, Teams, Power BI 및 SQL 인식됩니다. 레이블이 Purview의 자산에 적용되고 데이터가 Power BI 또는 Office 같은 다른 플랫폼으로 이동하는 경우 레이블도 데이터와 함께 이동합니다. 마찬가지로, Word 문서에 레이블을 적용한 다음 Purview에서 검사하면 레이블이 Purview로 흐릅니다.
-* **데이터 자산 개요:** Purview는 미리 정리된 보고서를 통해 데이터에 대한 인사이트를 제공합니다. Purview에서 데이터를 스캔할 때 보유한 자산, 검사 기록, 데이터에 있는 분류, 적용된 레이블, 용어집 용어 등에 대한 정보로 보고서를 수화합니다.
-* **자동 레이블 지정:** 레이블은 데이터의 민감도에 따라 자동으로 적용할 수 있습니다. 자산에서 중요한 데이터를 검색할 때 자동 레이블 지정 규칙을 사용하여 적용할 민감도 레이블을 결정합니다. 각 민감도 레이블에 대한 자동 레이블 지정 규칙을 만들어 레이블을 구성하는 분류/중요한 정보 유형을 정의할 수 있습니다.
+* **데이터 자산 개요:** Purview는 미리 정리된 보고서를 통해 데이터에 대한 인사이트를 제공합니다. Purview에서 데이터를 스캔하는 경우 보유한 자산, 검사 기록, 데이터에 있는 분류, 적용된 레이블, 용어집 용어 등에 대한 정보로 보고서를 수화합니다.
+* **자동 레이블 지정:** 레이블은 데이터의 민감도에 따라 자동으로 적용할 수 있습니다. 자산에서 중요한 데이터를 검색할 때 자동 레이블 지정 규칙을 사용하여 적용할 민감도 레이블을 결정합니다. 레이블을 구성하는 분류/중요한 정보 유형을 정의하여 각 민감도 레이블에 대한 자동 레이블 지정 규칙을 만들 수 있습니다.
 * **파일 및 데이터베이스 열에 레이블 적용:** 레이블은 Azure Data Lake, Azure Files 등과 같은 스토리지의 파일 및 Azure SQL DB, Cosmos DB 등의 열과 같은 스키마화된 데이터에 적용할 수 있습니다.
 
 민감도 레이블은 데이터를 분류하고 보호하기 위해 자산에 적용할 수 있는 태그입니다. 민감도 레이블에 대한 자세한 내용은 [여기를 참조하십시오.](/microsoft-365/compliance/create-sensitivity-labels)
@@ -43,7 +43,7 @@ Azure Purview를 사용하면 자산에 민감도 레이블을 적용하여 데�
 
 Azure Purview에서 자산에 레이블을 적용하려면 다음 단계를 수행해야 합니다.
 
-1. Microsoft 365 규정 준수 센터 [기존 민감도 레이블을 만들거나 Azure Purview로 확장합니다.](how-to-automatically-label-your-content.md) 민감도 레이블 만들기에는 데이터에 있는 분류에 따라 적용해야 하는 레이블을 알려주는 자동 레이블 지정 규칙이 포함됩니다.
+1. Microsoft 365 규정 준수 센터 [기존 민감도 레이블을 만들거나 Azure Purview](how-to-automatically-label-your-content.md)로 확장합니다. 민감도 레이블 만들기에는 데이터에 있는 분류에 따라 적용해야 하는 레이블을 알려주는 자동 레이블 지정 규칙이 포함됩니다.
 1. Azure Purview에서 [자산을 등록하고 검사합니다.](how-to-automatically-label-your-content.md#scan-your-data-to-apply-sensitivity-labels-automatically)
 1. Azure Purview는 분류를 적용합니다. 자산에 대한 검사를 예약하면 Azure Purview는 자산의 데이터 형식을 검사하고 데이터 카탈로그에 분류를 적용합니다. 분류 적용은 Azure Purview에서 자동으로 수행되며 아무 작업도 수행되지 않습니다.
 1. Azure Purview는 레이블을 적용합니다. 자산에서 분류가 발견되면 Azure Purview는 자동 레이블 지정 규칙에 따라 자산에 레이블을 적용합니다. 레이블 적용은 Azure Purview에서 자동으로 수행되며, 1단계에서 자동 레이블 지정 규칙을 사용하여 레이블을 만든 경우 아무 작업도 수행되지 않습니다.
@@ -59,12 +59,12 @@ Azure Purview에서 자산에 레이블을 적용하려면 다음 단계를 수�
 |데이터 형식  |원본  |
 |---------|---------|
 |파일에 대한 자동 레이블 지정     |    - Azure Blob Storage</br>- Azure Files</br>Azure Data Lake Storage Gen 1 및 Gen 2</br>- Amazon S3|
-|데이터베이스 열에 대한 자동 레이블 지정     |  - SQL Server</br>- Azure SQL Database</br>- Azure SQL Database Managed Instance</br>- Azure Synapse Analytics 작업 영역</br>- Azure Cosmos Database(SQL API)</br> - Azure Database for MySQL</br> - PostgreSQL용 Azure 데이터베이스</br> - Azure Data Explorer</br>  |
+|스키마화된 데이터 자산에 대한 자동 레이블 지정    |  - SQL Server</br>- Azure SQL Database</br>- Azure SQL Database Managed Instance</br>- 작업 영역 Azure Synapse Analytics</br>- Azure Cosmos Database(SQL API)</br> - Azure Database for MySQL</br> - PostgreSQL용 Azure 데이터베이스</br> - Azure Data Explorer</br>  |
 | | |
 
 ## <a name="labeling-for-sql-databases"></a>SQL 데이터베이스에 대한 레이블 지정
 
-Microsoft는 데이터베이스 열에 대한 Purview 레이블 지정 외에도 [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)에서 SQL 데이터 분류를 사용하여 SQL Database 열에 대한 레이블 지정을 지원합니다. Purview는 전역 [민감도 레이블을](/microsoft-365/compliance/sensitivity-labels)사용하지만 SSMS 로컬로 정의된 레이블만 사용합니다.
+스키마화된 데이터 자산에 대한 Purview 레이블 지정 외에도 Microsoft는 [SQL Server Management Studio(SSMS)에서](/sql/ssms/sql-server-management-studio-ssms)SQL 데이터 분류를 사용하여 SQL 데이터베이스 열에 대한 레이블 지정도 지원합니다. Purview는 전역 [민감도 레이블을](/microsoft-365/compliance/sensitivity-labels)사용하지만 SSMS 로컬로 정의된 레이블만 사용합니다.
 
 Purview의 레이블 지정과 SSMS의 레이블 지정은 현재 서로 상호 작용하지 않는 별도의 프로세스입니다. 따라서 **SSMS 적용된 레이블은 Purview에 표시되지 않으며 그 반대의 경우도 마찬가지입니다.** 여러 플랫폼에 적용할 수 있는 글로벌 MIP 레이블을 사용하므로 SQL Database에 레이블을 지정하는 데 Azure Purview를 사용하는 것이 좋습니다.
 

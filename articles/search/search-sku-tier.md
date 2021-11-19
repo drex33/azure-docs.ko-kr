@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/26/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 084768eec7863e7983fa4c552586deba8fb1b23b
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 5d3b4c3204bf6ae347fcfbba0bfa56debd74f173
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578033"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132811375"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 가격 책정 계층 선택
 
@@ -86,7 +86,7 @@ ms.locfileid: "131578033"
 
 다음 예제에서 이에 대해 설명합니다. 가상의 청구 요금이 월 $100이라고 가정합니다. 하나의 파티션과 하나의 복제본에 대한 초기 용량으로 검색 서비스를 유지하는 경우 월말에 $100를 지불하게 됩니다. 그러나 고가용성을 위해 두 개 이상의 복제본을 추가하는 경우 월별 청구는 $300(첫 번째 복제본-파티션 쌍에 대한 $100, 두 복제본에 대한 $200)로 증가합니다.
 
-이 가격 책정 모델은 검색 서비스에서 사용한 *SU*(검색 단위) 수에 청구 요금을 적용하는 개념을 기반으로 합니다. 모든 서비스가 처음에는 하나의 SU에서 프로비전되지만 더 큰 워크로드를 처리하기 위해 파티션 또는 복제본을 추가하여 SU를 늘릴 수 있습니다. 자세한 내용은 [검색 서비스 비용을 예측하는 방법](search-sku-manage-costs.md)을 참조하세요.
+이 청구 모델은 검색 서비스에서 사용하는 SU(숫자 *검색 단위)에* 청구 요금을 적용하는 개념을 기반으로 합니다. 모든 서비스가 처음에는 하나의 SU에서 프로비전되지만 더 큰 워크로드를 처리하기 위해 파티션 또는 복제본을 추가하여 SU를 늘릴 수 있습니다. 자세한 내용은 [검색 서비스 비용을 예측하는 방법](search-sku-manage-costs.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -556,7 +556,7 @@ productDirectory:
       azureCategories:
         - databases
         - integration
-      url: healthcare-apis/fhir/index.yml
+      url: healthcare-apis/azure-api-for-fhir/index.yml
     - title: Azure Cache for Redis
       summary: 높은 처리량과 짧은 대기 시간으로 애플리케이션에 강력한 성능 부여
       imageSrc: 'https://static.docs.com/ui/media/product/azure/cache-redis.svg'

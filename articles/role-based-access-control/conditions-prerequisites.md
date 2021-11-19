@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: ac5ee2b57a7fc823c3834264eeda4060a54ce070
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 6ae7097fa0d3ba185d15fb286ce9ba47b6281090
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132751767"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814121"
 ---
 # <a name="prerequisites-for-azure-role-assignment-conditions-preview"></a>Azure 역할 할당 조건(미리 보기)에 대한 필수 구성 요소
 
@@ -28,7 +28,7 @@ Azure 역할 할당 조건을 추가하거나 편집하려면 다음 필수 구�
 
 ## <a name="storage-accounts"></a>Storage 계정
 
-Blob 인덱스 태그를 사용하는 조건의 경우 Blob 인덱스 기능과 호환되는 스토리지 계정을 사용해야 합니다. 예를 들어 HNS(계층 구조 네임스페이스)가 비활성화된 GPv2(범용 v2) 스토리지 계정만 현재 지원됩니다. 자세한 내용은 [Blob 인덱스 태그를 통해 Azure Blob 데이터 관리 및 찾기를 참조하세요.](../storage/blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support)
+Blob 인덱스 태그를 사용하는 조건의 경우 Blob 인덱스 기능과 호환되는 스토리지 계정을 사용해야 합니다. 예를 들어 HNS(계층 구조 네임스페이스)가 비활성화된 GPv2(범용 v2) 스토리지 계정만 현재 지원됩니다. 자세한 내용은 [blob 인덱스 태그를 사용 하 여 Azure blob 데이터 관리 및 찾기](../storage/blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support) 를 참조 하세요.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -51,15 +51,15 @@ Azure CLI를 사용하여 조건을 추가하거나 업데이트하는 경우 �
 
 ## <a name="principal-attributes"></a>보안 주체 특성
 
-보안 주체 특성을 사용하려면 **다음이 모두** 있어야 합니다.
+보안 주체 특성 ([AZURE AD의 사용자 지정 보안 특성](../active-directory/fundamentals/custom-security-attributes-overview.md))을 사용 하려면 다음이 **모두** 있어야 합니다.
 
 - Azure AD Premium P1 또는 P2 라이선스
-- [특성 할당 관리자](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
-- Azure AD에 정의된 사용자 지정 보안 특성
+- 특성 집합 또는 테 넌 트 범위의 [특성 할당 관리자](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
+- Azure AD에 정의 된 사용자 지정 보안 특성
 
-사용자 지정 보안 특성에 대한 자세한 내용은 다음을 참조하세요.
+사용자 지정 보안 특성에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [조건을 추가할 때 보안 주체가 특성 원본에 표시되지 않음](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [조건을 추가할 때 보안 주체가 특성 원본에 표시 되지 않습니다.](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
 - [Azure AD에서 사용자 지정 보안 특성 추가 또는 비활성화](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## <a name="next-steps"></a>다음 단계

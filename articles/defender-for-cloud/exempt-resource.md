@@ -3,16 +3,16 @@ title: 리소스, 구독, 관리 그룹 및 보안 점수에서 클라우드 권
 description: 구독 또는 관리 그룹에서 보안 권장 사항을 제외하 고 보안 점수에 영향을 주지 않도록 규칙을 만드는 방법을 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 11/09/2021
+ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: defender-for-cloud
 manager: rkarlin
-ms.openlocfilehash: fdcf7108f5e8aa047d36937f1407763d232a7835
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: aa5d34df4a5fe2bbf281ca8d74f0597bee989d01
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132529326"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810124"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>보안 점수에서 리소스 및 권장 사항 제외 
 
@@ -198,21 +198,34 @@ ARG(Azure Resource Graph)의 강력한 필터링, 그룹화 및 정렬 기능을
 
 ### <a name="are-there-any-recommendations-that-dont-support-exemption"></a>예외를 지원하지 않는 권장 사항이 있나요?
 
-이러한 권장 사항은 예외를 지원하지 않습니다.
+일반적으로 사용 가능한 권장 사항은 예외를 지원하지 않습니다.
 
+-  SQL 관리형 인스턴스의 Advanced Data Security 설정에서 모든 Advanced Threat Protection 유형을 사용하도록 설정해야 합니다.
+-  SQL Server의 Advanced Data Security 설정에서 모든 Advanced Threat Protection 유형을 사용하도록 설정해야 합니다.
+- SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.
+- Azure Defender for Key Vault를 사용해야 합니다.
 - 컨테이너 CPU 및 메모리 한도를 적용해야 함
-- 권한 있는 컨테이너를 피해야 함
 - 신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 함
-- 컨테이너는 허용되는 포트에서만 수신 대기해야 함
-- 서비스는 허용되는 포트에서만 수신 대기해야 함
-- 최소 권한 Linux 기능을 컨테이너에 적용해야 합니다.
-- 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함
 - 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함
-- 컨테이너를 루트 사용자로 실행하지 않아야 함
-- 호스트 네트워킹 및 포트 사용을 제한해야 함
 - 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함
-- 손상된 컨테이너에서 노드 액세스를 제한하려면 Pod HostPath 볼륨 탑재 사용을 알려진 목록으로 제한해야 함
+- 컨테이너는 허용되는 포트에서만 수신 대기해야 함
+- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.
+- 기본 IP 필터 정책은 거부여야 합니다.
+- 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함
+- 머신에 Endpoint Protection 솔루션 설치
+- IoT 디바이스 - 디바이스에서 포트 열기
+- IoT 디바이스 - 체인 중 하나에서 허용되는 방화벽 정책이 발견됨
+- IoT 디바이스 - 체인 중 하나에서 허용되는 방화벽 정책이 발견됨
+- IoT 디바이스 - 출력 체인에서 허용되는 방화벽 규칙이 발견됨
+- IP 필터 규칙 큰 IP 범위
+- 최소 권한 Linux 기능을 컨테이너에 적용해야 함
 - 컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 함
+- 권한 있는 컨테이너를 피해야 함
+- 컨테이너를 루트 사용자로 실행하지 않아야 함
+- 서비스는 허용되는 포트에서만 수신 대기해야 함
+- 시스템 업데이트를 머신에 설치해야 합니다.
+- 호스트 네트워킹 및 포트 사용을 제한해야 함
+- 손상된 컨테이너에서 노드 액세스를 제한하려면 Pod HostPath 볼륨 탑재 사용을 알려진 목록으로 제한해야 함
 
 
 ## <a name="next-steps"></a>다음 단계

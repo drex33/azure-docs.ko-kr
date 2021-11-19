@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 42c90d009aefb399e7635ec4a7cd09f884f3c51c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: d4ff4bacb13a3bfa7a903682112202fbefc6ba05
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113437651"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814055"
 ---
 # <a name="origin-and-origin-group-in-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)의 원본 및 원본 그룹
 
@@ -86,7 +86,7 @@ Azure Front Door 표준/프리미엄은 구성된 각 원본에 주기적으로 
     >[!NOTE]
     >더 빠른 장애 조치(failover)를 위해 간격을 더 낮은 값으로 설정합니다. 값이 낮을수록 백 엔드가 수신하는 상태 프로브 용량이 더 많아집니다. 예를 들어 전체적으로 100 Front Door POP에서 간격이 30초로 설정되었다면 각 백 엔드는 분당 200개 프로브 요청을 수신합니다.
 
-자세한 내용은 [상태 프로브](concept-health-probes.md)를 참조하세요.
+자세한 내용은 [상태 프로브](/azure/frontdoor/front-door-health-probes)를 참조하세요.
 
 ### <a name="load-balancing-settings"></a>부하 분산 설정
 
@@ -110,7 +110,7 @@ Azure Front Door 표준/프리미엄에서 사용할 수 있는 네 가지 트�
 * **[우선 순위](#priority):** 모든 트래픽을 서비스하도록 기본 백 엔드를 구성하려면 백 엔드에 우선 순위를 할당할 수 있습니다. 기본 백 엔드를 사용할 수 없게 되는 경우, 보조 백 엔드를 백업으로 사용할 수 있습니다.
 * **[가중치](#weighted):** : 백 엔드 집합에 트래픽을 분산하려는 경우 백 엔드에 가중치를 할당할 수 있습니다. 균등하게 배포할지 아니면 가중치 계수에 따를지 여부에 따라 다릅니다.
 
-모든 Azure Front Door 표준/프리미엄 구성에는 백 엔드 상태 및 자동화된 인스턴트 전체 장애 조치(failover)의 모니터링이 포함됩니다. 자세한 내용은 [백 엔드 모니터링](concept-health-probes.md)을 참조하세요. Front Door는 단일 라우팅 메서드를 기반으로 작업할 수 있습니다. 그러나 애플리케이션 요구 사항에 따라 여러 라우팅 방법을 결합하여 최적 라우팅 토폴로지를 빌드할 수도 있습니다.
+모든 Azure Front Door 표준/프리미엄 구성에는 백 엔드 상태 및 자동화된 인스턴트 전체 장애 조치(failover)의 모니터링이 포함됩니다. 자세한 내용은 [백 엔드 모니터링](/azure/frontdoor/front-door-health-probes)을 참조하세요. Front Door는 단일 라우팅 메서드를 기반으로 작업할 수 있습니다. 그러나 애플리케이션 요구 사항에 따라 여러 라우팅 방법을 결합하여 최적 라우팅 토폴로지를 빌드할 수도 있습니다.
 
 ### <a name="lowest-latencies-based-traffic-routing"></a><a name = "latency"></a>최저 대기 시간 기반 트래픽 라우팅
 

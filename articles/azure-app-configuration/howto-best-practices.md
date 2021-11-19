@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: e75fb11379ccbdff90d1acd1a3bce36b62bd8a1d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9a9582c56c0326703a023f7a0f261a4b7fd9f9af
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250866"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132809118"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure App Configuration 모범 사례
 
@@ -61,9 +61,9 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 App Configuration 일반적으로 구성 파일 또는 환경 변수에 저장하는 모든 구성 데이터를 저장하도록 설계되었습니다. 그러나 일부 데이터 형식은 다른 원본에 상주하는 것이 더 적합할 수 있습니다. 예를 들어 Key Vault, Azure Storage 파일, Azure AD 그룹의 멤버 자격 정보 또는 데이터베이스의 고객 목록에 비밀을 저장합니다.
 
-외부 데이터에 대한 참조를 키-값에 저장하여 App Configuration 활용할 수 있습니다. 콘텐츠 [형식을 사용하여](./concept-key-value.md#use-content-type) 각 데이터 원본을 구분할 수 있습니다. 애플리케이션이 참조를 읽을 때 참조된 원본에서 데이터를 로드합니다. 외부 데이터의 위치를 변경하는 경우 전체 애플리케이션을 업데이트하고 다시 배포하는 대신 App Configuration 참조만 업데이트하면 됩니다.
+외부 데이터에 대한 참조를 키-값에 저장하여 App Configuration 활용할 수 있습니다. 콘텐츠 [형식을 사용하여](./concept-key-value.md#use-content-type) 각 데이터 원본을 구분할 수 있습니다. 애플리케이션에서 참조를 읽을 때 참조된 원본에서 데이터를 로드합니다. 외부 데이터의 위치를 변경하는 경우 전체 애플리케이션을 업데이트하고 다시 배포하는 대신 App Configuration 참조만 업데이트하면 됩니다.
 
-이 경우 App Configuration [Key Vault 참조](use-key-vault-references-dotnet-core.md) 기능이 예제입니다. 기본 비밀 자체는 Key Vault 동안 필요에 따라 애플리케이션을 업데이트하는 데 필요한 비밀을 사용할 수 있습니다.
+이 경우 App Configuration [Key Vault 참조](use-key-vault-references-dotnet-core.md) 기능이 예제입니다. 기본 비밀 자체가 Key Vault 유지되는 동안 필요에 따라 애플리케이션을 업데이트하는 데 필요한 비밀을 사용할 수 있습니다.
 
 ## <a name="app-configuration-bootstrap"></a>App Configuration 부트스트랩
 
@@ -105,6 +105,16 @@ App Configuration은 지역 서비스입니다. 하위 지역별 구성이 서�
 클라이언트 애플리케이션에서 App Configuration을 사용하는 경우 두 가지 주요 요소를 고려해야 합니다. 먼저 클라이언트 애플리케이션에서 연결 문자열을 사용하는 경우 App Configuration 저장소의 액세스 키를 공개할 위험이 있습니다. 둘째, 클라이언트 애플리케이션의 일반적인 규모로 인해 App Configuration 저장소에 대한 과도한 요청이 발생하여 초과분 요금이 발생하거나 제한될 수 있습니다. 조정에 대한 자세한 내용은 [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration)를 참조하십시오.
 
 이러한 문제를 해결하려면 클라이언트 애플리케이션과 App Configuration 저장소 간에 프록시 서비스를 사용하는 것이 좋습니다. 프록시 서비스는 인증 정보를 유출하는 보안 문제 없이 App Configuration 저장소로 안전하게 인증할 수 있습니다. App Configuration 공급자 라이브러리 중 하나를 사용하여 프록시 서비스를 빌드할 수 있으므로 기본 제공 캐싱 및 새로 고침 기능을 활용하여 App Configuration으로 전송되는 요청 볼륨을 최적화할 수 있습니다. App Configuration 공급자 사용에 대한 자세한 내용은 빠른 시작 및 자습서의 문서를 참조하세요. 프록시 서비스는 캐시에서 클라이언트 애플리케이션으로 구성을 제공하며, 이 섹션에서 설명한 두 가지 잠재적인 문제를 방지합니다.
+
+## <a name="configuration-as-code"></a>코드로 구성
+
+코드를 코드로 구성 하면 git 리포지토리와 같은 소스 제어 시스템에서 구성 파일을 관리 하는 방법입니다. 구성 변경에 대 한 추적 가능성 및 승인 프로세스와 같은 이점을 제공 합니다. 구성을 코드로 채택 하면 앱 구성에 구성 데이터를 배포 하는 데 도움이 되는 도구가 있습니다. 이러한 방식으로 응용 프로그램은 앱 구성 저장소에서 최신 데이터에 액세스할 수 있습니다.
+
+- GitHub의 경우 리포지토리에 대해 [앱 구성 동기화 GitHub 작업](concept-github-action.md) 을 사용 하도록 설정할 수 있습니다. 구성 파일에 대 한 변경 내용은 끌어오기 요청이 병합 될 때마다 자동으로 앱 구성에 동기화 됩니다. 
+- Azure DevOps의 경우, 데이터 동기화를 위해 빌드 또는 릴리스 파이프라인에 [Azure 앱 구성 푸시](push-kv-devops-pipeline.md), Azure 파이프라인 작업을 포함할 수 있습니다. 
+- Azure CLI를 사용 하 여 CI/CD 시스템의 일부로 구성 파일을 앱 구성으로 가져올 수도 있습니다. 자세한 내용은 [az appconfig kv import](scripts/cli-import.md)를 참조 하세요.
+
+이 모델을 사용 하면 데이터를 앱 구성에 커밋하기 전에 유효성 검사 및 테스트 단계를 포함할 수 있습니다. 여러 앱 구성 저장소를 사용 하는 경우 구성 데이터를 증분 방식으로 또는 한 번에 푸시할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

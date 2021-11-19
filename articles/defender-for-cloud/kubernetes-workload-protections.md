@@ -1,6 +1,6 @@
 ---
 title: Kubernetes 워크로드에 대한 워크로드 보호
-description: 클라우드용 Microsoft Defender의 Kubernetes 워크로드 보호 보안 권장 사항 집합을 사용하는 방법을 알아봅니다.
+description: 클라우드의 Kubernetes 워크 로드 보호 보안 권장 사항 집합에 대해 Microsoft Defender를 사용 하는 방법에 대해 알아봅니다.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,25 +8,25 @@ ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: 5f8bf1f34ba33a4a6c3d258e8cb813d062f1f98f
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 431e1a99e48755da5e84f75573a70747474e52b8
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132529338"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810086"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 페이지에서는 Kubernetes 워크로드 보호 전용 클라우드용 Microsoft Defender의 보안 권장 사항 집합을 사용하는 방법을 설명합니다.
+이 페이지에서는 Kubernetes 워크 로드 보호 전용 클라우드의 보안 권장 사항 집합에 대해 Microsoft Defender를 사용 하는 방법을 설명 합니다.
 
 [Kubernetes 허용 제어를 사용한 워크로드 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)에서 해당 기능에 대해 자세히 알아보세요.
 
-Microsoft Defender for Kubernetes를 사용하도록 설정하는 경우 Defender for Cloud는 더 많은 컨테이너 보안 기능을 제공합니다. 구체적으로는 다음과 같습니다.
+Kubernetes 용 Microsoft Defender를 사용 하도록 설정 하는 경우 클라우드 용 Defender는 더 많은 컨테이너 보안 기능을 제공 합니다. 특히 다음 사항에 주의하세요.
 
-- 컨테이너 레지스트리에 대한 Microsoft [Defender를](defender-for-container-registries-introduction.md) 사용하여 컨테이너 레지스트리에서 취약성 검사
-- K8s 클러스터에 대한 실시간 위협 탐지 경고 받기 [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- 컨테이너 [레지스트리에 대 한 Microsoft Defender의](defender-for-container-registries-introduction.md) 취약성에 대 한 컨테이너 레지스트리를 검색 합니다.
+- K8s 클러스터에 대 한 실시간 위협 검색 경고 가져오기 [Kubernetes 용 Microsoft Defender](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
 > Kubernetes 클러스터 및 노드에 대해 표시될 수 있는 *모든* 보안 권장 사항의 목록은 권장 사항 참조 표의 [컴퓨팅 섹션](recommendations-reference.md#recs-compute)을 참조하세요.
@@ -41,13 +41,13 @@ Microsoft Defender for Kubernetes를 사용하도록 설정하는 경우 Defende
 | 가격 책정:                        | Free                                                                                                                                         |
 | 필요한 역할 및 권한: | 할당을 편집하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보기 위한 **읽기 권한자**                                              |
 | 환경 요구 사항:       | Kubernetes v1.14 이상이 필요합니다.<br>클러스터에 PodSecurityPolicy 리소스(이전 PSP 모델)가 없습니다.<br>Windows 노드는 지원되지 않습니다. |
-| 클라우드:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National(Azure Government, Azure 중국 21Vianet) |
+| 클라우드:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가 (Azure Government, Azure 중국 21Vianet) |
 |                                 |                                                                                                                                              |
 
 
 ## <a name="set-up-your-workload-protection"></a>워크로드 보호 설정
 
-Microsoft Defender for Cloud에는 **Kubernetes용 Azure Policy 추가** 기능 을 설치할 때 사용할 수 있는 권장 사항 번들이 포함되어 있습니다.
+Microsoft Defender for Cloud에는 **Kubernetes 용 Azure Policy 추가 기능** 을 설치한 경우 사용할 수 있는 권장 구성 번들이 포함 되어 있습니다.
 
 ### <a name="step-1-deploy-the-add-on"></a>1단계: 추가 기능 배포
 
@@ -55,7 +55,7 @@ Microsoft Defender for Cloud에는 **Kubernetes용 Azure Policy 추가** 기능 
 
 - [Log Analytics 에이전트 및 확장의 자동 프로비저닝 사용](enable-data-collection.md#auto-provision-mma)에 설명된 대로 이 추가 기능을 자동 배포할 수 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Defender for Cloud의 자동 프로비저닝 도구를 사용하여 Kubernetes용 정책 추가 기능 설치":::
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Defender for Cloud의 자동 프로 비전 도구를 사용 하 여 Kubernetes 용 정책 추가 기능 설치":::
 
 - 추가 기능을 수동으로 배포하려면:
 
@@ -73,10 +73,10 @@ Microsoft Defender for Cloud에는 **Kubernetes용 Azure Policy 추가** 기능 
 
 ### <a name="step-2-view-and-configure-the-bundle-of-recommendations"></a>02단계: 권장 사항 번들 보기 및 구성
 
-1. 추가 기능 설치가 완료된 후 약 30분 후에 Defender for Cloud는 다음과 같은 권장 사항에 대한 클러스터의 상태를 표시합니다. 각 권장 사항은 다음과 같이 관련 보안 제어에 있습니다.
+1. 추가 기능 설치가 완료 되 고 약 30 분 후에는 아래와 같이 관련 보안 제어에서 다음과 같은 권장 사항에 대 한 클러스터의 상태를 표시 합니다.
 
     > [!NOTE]
-    > 추가 기능 을 처음으로 설치하는 경우 이러한 권장 사항은 권장 사항 목록에 새로 추가된 항목으로 표시됩니다. 
+    > 추가 기능을 처음 설치 하는 경우 이러한 권장 사항이 권장 사항 목록에 새로 추가 된 것으로 나타납니다. 
 
     > [!TIP]
     > 일부 권장 사항에는 효과적으로 사용하기 위해 Azure Policy를 통해 사용자 지정해야 하는 매개 변수가 있습니다. 예를 들어 **신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 함** 이라는 권장 사항의 이점을 활용하려면 신뢰할 수 있는 레지스트리를 정의해야 합니다.
@@ -266,4 +266,3 @@ spec:
 
 - [계산을 위한 클라우드 권장 사항에 대 한 Defender](recommendations-reference.md#recs-compute)
 - [AKS 클러스터 수준에 대한 경고](alerts-reference.md#alerts-k8scluster)
-- [컨테이너 호스트 수준에 대한 경고](alerts-reference.md#alerts-containerhost)

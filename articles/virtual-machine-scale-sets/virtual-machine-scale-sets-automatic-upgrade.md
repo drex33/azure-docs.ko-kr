@@ -170,12 +170,12 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 
 OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번에 하나의 일괄 처리 단위로 업그레이드됩니다. 업그레이드된 VM 인스턴스에서 고객 애플리케이션의 상태가 정상인 경우에만 업그레이드를 계속 진행해야 합니다. 애플리케이션이 확장 집합 OS 업그레이드 엔진에 상태 신호를 제공하는 것이 좋습니다. 기본적으로 OS를 업그레이드하는 동안 플랫폼은 VM 전원 상태 및 확장 프로비전 상태를 고려하여 업그레이드 후 VM 인스턴스가 정상 상태인지 확인합니다. VM 인스턴스의 OS를 업그레이드하는 동안 VM 인스턴스의 OS 디스크는 최신 이미지 버전에 따라 새 디스크로 교체됩니다. OS 업그레이드가 완료되면 구성된 확장이 이러한 VM에서 실행됩니다. 인스턴스의 모든 확장이 성공적으로 프로비전된 경우에만 애플리케이션이 정상 상태로 간주됩니다.
 
-원한다면 플랫폼에 애플리케이션의 현재 상태에 대한 정확한 정보를 제공하도록 확장 집합을 구성할 수 있습니다. 애플리케이션 상태 프로브는 상태 신호로 사용되는 사용자 지정 부하 분산 장치 프로브입니다. 확장 집합 VM 인스턴스에서 실행되는 애플리케이션은 외부 HTTP 또는 TCP 요청에 응답하여 정상 상태인지 여부를 알릴 수 있습니다. 사용자 지정 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요. 애플리케이션 상태 프로브는 Service Fabric 확장 집합에 지원되지 않습니다. Service Fabric 이외의 확장 집합에는 Load Balancer 애플리케이션 상태 프로브 또는 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)이 필요합니다.
+원한다면 플랫폼에 애플리케이션의 현재 상태에 대한 정확한 정보를 제공하도록 확장 집합을 구성할 수 있습니다. 애플리케이션 상태 프로브는 상태 신호로 사용되는 사용자 지정 Load Balancer 프로브입니다. 확장 집합 VM 인스턴스에서 실행되는 애플리케이션은 외부 HTTP 또는 TCP 요청에 응답하여 정상 상태인지 여부를 알릴 수 있습니다. 사용자 지정 Load Balancer 프로브에 대한 자세한 내용은 [Load Balancer프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요. 애플리케이션 상태 프로브는 Service Fabric 확장 집합에 지원되지 않습니다. Service Fabric 이외의 확장 집합에는 Load Balancer 애플리케이션 상태 프로브 또는 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)이 필요합니다.
 
-여러 배치 그룹을 사용하도록 확장 집합을 구성한 경우 [표준 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하는 프로브를 사용해야 합니다.
+여러 배치 그룹을 사용하도록 확장 집합을 구성한 경우 [표준 Load Balancer](../load-balancer/load-balancer-overview.md)를 사용하는 프로브를 사용해야 합니다.
 
-### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>확장 집합의 애플리케이션 상태 프로브로 사용자 지정 부하 분산 장치 구성
-모범 사례에 따라 확장 집합 상태에 대한 부하 분산 장치 프로브를 명시적으로 만듭니다. 기존 HTTP 프로브 또는 TCP 프로브에 대한 동일한 엔드포인트를 사용할 수 있지만, 상태 프로브에는 기존의 부하 분산 장치 프로브와 다른 동작이 필요할 수 있습니다. 예를 들어 기존의 부하 분산 장치 프로브는 인스턴스의 부하가 너무 높을 경우 비정상 상태를 반환하기도 하는데, 이 동작은 OS 자동 업그레이드 중에 인스턴스 상태를 확인하는 데 적합하지 않습니다. 검색 속도가 2분을 넘지 않도록 프로브를 구성하세요.
+### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>확장 집합의 애플리케이션 상태 프로브로 사용자 지정 Load Balancer 구성
+모범 사례에 따라 확장 집합 상태에 대한 Load Balancer 프로브를 명시적으로 만듭니다. 기존 HTTP 프로브 또는 TCP 프로브에 대한 동일한 엔드포인트를 사용할 수 있지만, 상태 프로브에는 기존의 Load Balancer 프로브와 다른 동작이 필요할 수 있습니다. 예를 들어 기존의 Load Balancer프로브는 인스턴스의 부하가 너무 높을 경우 비정상 상태를 반환하기도 하는데, 이 동작은 OS 자동 업그레이드 중에 인스턴스 상태를 확인하는 데 적합하지 않습니다. 검색 속도가 2분을 넘지 않도록 프로브를 구성하세요.
 
 부하 분산 장치 프로브는 다음과 같이 확장 집합의 *networkProfile* 에서 참조할 수 있으며 내부 또는 공용 부하 분산 장치에 연결할 수 있습니다.
 

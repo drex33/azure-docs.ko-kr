@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8dfb38c64e46f848d9c47c88626605cbfcb1170a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: d57874dff6ede1daa7ecc19e756efbd023b1fb78
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712997"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808835"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -126,9 +126,9 @@ X.509 자체 서명 인증(지문 인증이라고도 함)의 경우 다운스트
 
    * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-test-certificate.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
-   * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/simple_sample_device_x509.js)
+   * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/send-event-x509)
-   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
+   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
 [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 디바이스 만들기 작업을 수행할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/iot/hub/device-identity) 명령을 사용하여 X.509 자체 서명 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
 
@@ -170,9 +170,9 @@ X.509 CA(인증 기관) 서명 인증의 경우 IoT Hub에 등록된 루트 CA �
 
    * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-test-certificate.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
-   * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/simple_sample_device_x509.js)
+   * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/send-event-x509)
-   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
+   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
 [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 동일한 디바이스 만들기 작업을 수행할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/iot/hub/device-identity) 명령을 사용하여 X.509 CA 서명 인증을 사용하는 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
 

@@ -2,19 +2,21 @@
 title: Lecrule-관리자 사용자 이름은 리터럴이 아니어야 합니다.
 description: Lecrule-관리자 사용자 이름은 리터럴이 아니어야 합니다.
 ms.topic: conceptual
-ms.date: 10/15/2021
-ms.openlocfilehash: fe13ed227b0f7c7d5a7b738ed675f6c5d54eded2
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 11/18/2021
+ms.openlocfilehash: 1ed8707c3b5d4a207fbe84384d3d3232f85e51ba
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167950"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813901"
 ---
 # <a name="linter-rule---admin-user-name-should-not-be-literal"></a>Lecrule-관리자 사용자 이름은 리터럴이 아니어야 합니다.
 
 이 규칙은 관리자 사용자 이름이 리터럴 값으로 설정 된 경우를 찾습니다.
 
-## <a name="returned-code"></a>반환 된 코드
+## <a name="linter-rule-code"></a>Lecrule 코드
+
+[Bicep 구성 파일](bicep-config-linter.md) 에서 다음 값을 사용 하 여 규칙 설정을 사용자 지정 합니다.
 
 `adminusername-should-not-be-literal`
 

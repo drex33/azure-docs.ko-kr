@@ -97,7 +97,7 @@ ms.locfileid: "128569298"
 > [!TIP]
 > SAP ASCS/ERS의 다중 SID 클러스터링은 더 복잡한 솔루션입니다. 구현하는 것이 더 복잡합니다. 또한 유지 관리 작업(예: OS 패치 적용)을 실행할 때 더 많은 관리 작업이 필요합니다. 실제 구현을 시작하기 전에 배포 및 모든 관련 구성 요소(예: VM, NFS 탑재, VIP, 부하 분산 장치 구성 등)를 신중하게 계획하세요.  
 
-NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다.  
+NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 Load Balancer가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다.  
 
 다음 목록에서는 세 개의 SAP 시스템을 사용하는 이 다중 SID 클러스터 예제에 대한 (A)SCS 및 ERS 부하 분산 장치의 구성을 보여 줍니다. 각 SID에 대한 각 ASCS 및 ERS 인스턴스에 대해 별도의 프런트 엔드 IP, 상태 프로브 및 부하 분산 규칙이 필요합니다. ASCS/ASCS 클러스터의 일부인 모든 VM을 하나의 백 엔드 풀에 할당합니다.  
 

@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: cacb1d9af577a90d8e9030cf00e51dda58763041
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bdf63ce72108e2f30dba7cecdcd98fefd37932af
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256632"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132811467"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭 (미리 보기)
 
@@ -217,7 +217,7 @@ Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량
 
 > 차원이 있는 서버 응답 시간: 지역, 부서, *CustomerID*
 
-이 메트릭을 사용 하는 경우 10 개의 지역, 20 개 부서 및 100 고객이 있는 경우 10 x 20 x 100 = 2000 시계열을 제공 합니다. 
+이 메트릭을 사용 하는 경우 10 개의 지역, 20 개 부서 및 100 고객이 있는 경우 10 x 20 x 100 = 2만 시계열을 제공 합니다. 
 
 100 지역, 200 부서 및 2000 고객이 있는 경우이 메트릭에 대해서만 제한을 초과 하 여 100 x 200 x 2000 = 4000만 시계열을 제공 합니다. 
 

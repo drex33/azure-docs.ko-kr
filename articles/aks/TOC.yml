@@ -69,12 +69,14 @@
       href: concepts-scale.md
     - name: 노드 자동 복구
       href: node-auto-repair.md
+    - name: 서비스 메시
+      href: servicemesh-about.md
     - name: 모범 사례
       items:
         - name: 개요
           href: best-practices.md
         - name: AKS 클러스터를 위한 기본 아키텍처
-          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
           maintainContext: true
         - name: 클러스터 운영자의 경우
           items:
@@ -361,9 +363,9 @@
     - name: 애플리케이션 개발 및 실행
       items:
         - name: Visual Studio Code와 함께 Kubernetes에 대한 브리지 사용
-          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs-code
         - name: Visual Studio와 함께 Kubernetes에 대한 브리지 사용
-          href: /visualstudio/containers/bridge-to-kubernetes
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs
         - name: Helm를 사용하여 기존 애플리케이션 설치
           href: kubernetes-helm.md
         - name: OpenFaaS 사용
@@ -384,42 +386,32 @@
         - name: Dapr 사용(미리 보기)
           href: dapr.md
           maintainContext: true
-    - name: 서비스 메시 배포
+    - name: Open Service Mesh AKS 추가 기능 배포
       items:
-        - name: 서비스 메시 정보
-          href: servicemesh-about.md
-        - name: Open Service Mesh AKS 추가 기능
-          items:
-            - name: OSM 개요
-              href: open-service-mesh-about.md
-            - name: OSM AKS 추가 항목 배포
-              items:
-                - name: Azure CLI 사용
-                  href: open-service-mesh-deploy-addon-az-cli.md
-                - name: Bicep 템플릿 사용
-                  href: open-service-mesh-deploy-addon-bicep.md
-            - name: OSM 클라이언트 이진 파일 다운로드 및 구성
-              href: open-service-mesh-binary.md
-            - name: OSM 자습서
-              items:
-                - name: 새 애플리케이션 배포 관리
-                  href: open-service-mesh-deploy-new-application.md
-                - name: 메시에 애플리케이션 온보딩
-                  href: open-service-mesh-deploy-existing-application.md
-                - name: Azure Application Gateway 수신 사용
-                  href: open-service-mesh-azure-application-gateway-ingress.md
-                - name: Kubernetes Nginx 수신 컨트롤러 사용
-                  href: open-service-mesh-nginx-ingress.md
-                - name: 'Prometheus, Grafana 및 Jaeger를 사용하여 관찰 가능성 구성'
-                  href: open-service-mesh-open-source-observability.md
-                - name: IP 및 포트 범위 제외
-                  href: open-service-mesh-ip-port-exclusion.md
-            - name: Azure Monitor 구성
-              href: open-service-mesh-azure-monitor.md
-            - name: OSM 문제 해결
-              href: open-service-mesh-troubleshoot.md
-            - name: OSM 사용 안 함
-              href: open-service-mesh-disable-add-on.md
+        - name: Open Service Mesh 정보
+          href: open-service-mesh-about.md
+        - name: Azure CLI 사용
+          href: open-service-mesh-deploy-addon-az-cli.md
+        - name: Bicep 템플릿 사용
+          href: open-service-mesh-deploy-addon-bicep.md
+        - name: OSM CLI 설치
+          href: open-service-mesh-binary.md
+        - name: 새 애플리케이션 관리
+          href: open-service-mesh-deploy-new-application.md
+        - name: 기존 애플리케이션 온보딩
+          href: open-service-mesh-deploy-existing-application.md
+        - name: IP 주소 및 포트 범위 제외 구성
+          href: open-service-mesh-ip-port-exclusion.md
+        - name: Azure Monitor 구성
+          href: open-service-mesh-azure-monitor.md
+        - name: Azure Application Gateway Ingress와 통합
+          href: open-service-mesh-azure-application-gateway-ingress.md
+        - name: NGINX 수신 컨트롤러와 통합
+          href: open-service-mesh-nginx-ingress.md
+        - name: Open Service Mesh 문제 해결
+          href: open-service-mesh-troubleshoot.md
+        - name: Open Service Mesh AKS 추가 기능 제거
+          href: open-service-mesh-uninstall-add-on.md
     - name: 클러스터 확장 사용(미리 보기)
       href: cluster-extensions.md
     - name: DevOps
@@ -450,10 +442,10 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST
-      href: /rest/api/aks
+    - name: REST (영문)
+      href: /rest/api/aks/
     - name: PowerShell
-      href: /powershell/module/az.aks#aks
+      href: /powershell/module/az.aks/#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
@@ -472,9 +464,9 @@
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: 지역 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+      href: 'https://azure.microsoft.com/pricing/details/kubernetes-service/'
     - name: 지원 정책
       href: support-policies.md
     - name: Azure 로드맵

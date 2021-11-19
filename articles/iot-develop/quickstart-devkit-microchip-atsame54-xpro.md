@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 10/18/2021
 zone_pivot_groups: iot-develop-toolset
-ms.openlocfilehash: f5bae84a80ed76b2a000ac2cdda134ce923a9aa9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 08db39d9d5834de8dc09539020890d8210bc9c27
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132708156"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812300"
 ---
 # <a name="quickstart-connect-a-microchip-atsame54-xpro-evaluation-kit-to-iot-central"></a>빠른 시작: Microchip ATSAME54-XPro 평가 키트를 IoT Central에 연결
 
@@ -37,7 +37,7 @@ ms.locfileid: "132708156"
 
 :::zone pivot="iot-toolset-cmake"
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 10을 실행하는 PC
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
@@ -237,7 +237,7 @@ Weather Click 센서 및 mikroBUS Xplained Pro 어댑터가 있는 경우 이 �
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 10을 실행하는 PC
 
@@ -346,20 +346,11 @@ SNTP Time Sync successfully.
 Start Provisioning Client...
 [INFO] IoTProvisioning client connect pending
 Registered Device Successfully.
-IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+IoTHub Host Name: iotc-********-****-****-****-************.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
 Telemetry message send: {"temperature":22}.
 Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
 Failed to parse value
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 ```
@@ -369,7 +360,7 @@ Telemetry message send: {"temperature":22}.
 :::zone-end
 :::zone pivot="iot-toolset-mplab"
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 10을 실행하는 PC
 
@@ -490,20 +481,11 @@ SNTP Time Sync successfully.
 Start Provisioning Client...
 [INFO] IoTProvisioning client connect pending
 Registered Device Successfully.
-IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+IoTHub Host Name: iotc-********-****-****-****-************.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
 Telemetry message send: {"temperature":22}.
 Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
 Failed to parse value
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
-Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 Telemetry message send: {"temperature":22}.
 ```

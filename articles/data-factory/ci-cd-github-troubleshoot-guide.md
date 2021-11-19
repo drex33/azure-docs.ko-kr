@@ -10,18 +10,18 @@ ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 11/09/2021
-ms.openlocfilehash: 283285045de43f147eefe68b380b1f6819c9b80a
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: e6fc7950e29c34ee516716182ea26c5f54bb6aea
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132720097"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808663"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 CI-CD(지속적인 Integration-Continuous 배포), Azure DevOps 및 Azure Data Factory 및 Synapse Analytics GitHub 문제에 대한 일반적인 문제 해결 방법을 살펴보겠습니다.
+이 문서에서는 CI-CD(지속적인 Integration-Continuous 배포), Azure DevOps 및 Azure Data Factory 및 Synapse Analytics 문제를 GitHub 일반적인 문제 해결 방법을 살펴보겠습니다.
 
 소스 제어 또는 DevOps 기술 사용에 관한 질문 또는 문제가 있으면 다음 문서에서 유용한 정보를 찾아볼 수 있습니다.
 
@@ -148,7 +148,7 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 역할에 다음 권한을 추가해야 합니다. *Microsoft.DataFactory/factories/queryFeaturesValue/action*. 이 권한은 기본적으로 Data Factory 대한 **Data Factory 기여자** 역할 및 Synapse Analytics **참여자 역할에 포함됩니다.**
+이 문제를 해결하려면 역할에 다음 권한을 추가해야 합니다. *Microsoft.DataFactory/factories/queryFeaturesValue/action*. 이 권한은 기본적으로 Data Factory 대한 **Data Factory 기여자** 역할 및 Synapse Analytics 참여자 역할에 **포함됩니다.**
 
 ###  <a name="cannot-automate-publishing-for-cicd"></a>CI/CD에 대해 게시를 자동화할 수 없음 
 
@@ -332,6 +332,17 @@ ARM 템플릿 배포에서 기존 통합 런타임의 유형을 변경 하려고
 ##### <a name="resolution"></a>해결 방법
 모든 단계에서 통합 런타임을 공유하려면 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리를 사용하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 형식으로 사용할 수 있습니다. 자세한 내용은 [지속적인 통합 및 배달-Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd) 를 참조 하세요.
 
+### <a name="git-publish-may-fail-because-of-partialtemptemplates-files"></a>PartialTempTemplates 파일로 인해 GIT 게시가 실패할 수 있습니다.
+
+#### <a name="issue"></a>문제
+PartialTemplates 폴더에 이전 임시 ARM json 파일의 수천 개의 경우 게시가 실패할 수 있습니다.
+
+#### <a name="cause"></a>원인
+게시 시 ADF는 공동 작업 분기의 각 폴더에 있는 모든 파일을 페치합니다. 이전에는 게시 분기에 생성 된 두 폴더 (PartialArmTemplates 및 LinkedTemplates)를 게시 했습니다. PartialArmTemplates 파일이 더 이상 생성 되지 않습니다. 그러나 PartialArmTemplates 폴더에 많은 오래 된 파일 (천 단위)이 있을 수 있기 때문에 게시 시 GitHub에 대 한 많은 요청이 발생 하 고 속도로 적중 될 수 있습니다. 
+
+#### <a name="resolution"></a>해결 방법
+PartialTemplates 폴더를 삭제 하 고 다시 게시 합니다. 해당 폴더 에서도 임시 파일을 삭제할 수 있습니다.
+ 
 ## <a name="next-steps"></a>다음 단계
 
 문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.

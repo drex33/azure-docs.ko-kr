@@ -3,12 +3,12 @@ title: Azure Active Directory를 사용하여 Event Grid 게시 클라이언트 
 description: 이 문서에서는 Azure Active Directory를 사용하여 Azure Event Grid 게시 클라이언트를 인증하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: 6572c85fd13803372caa2c614a32cdc5f30b055e
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 5eaed36f6334904ad33f2618ec2977bf0136ac9e
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038094"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132811667"
 ---
 # <a name="authentication-and-authorization-with-azure-active-directory-preview"></a>Azure Active Directory를 사용한 인증 및 권한 부여(미리 보기)
 이 문서에서는 Azure AD(Azure Active Directory)를 사용하여 Azure Event Grid 게시 클라이언트를 인증하는 방법을 설명합니다.
@@ -18,7 +18,7 @@ ms.locfileid: "123038094"
 
 Azure AD를 사용할 때 보안 상황을 개선하는 한 가지 이점은 인증 키와 같은 자격 증명을 코드 또는 리포지토리에 저장할 필요가 없다는 것입니다. 대신, 보호된 리소스에서 인증을 받을 때 애플리케이션이 제공하는 Microsoft ID 플랫폼에서 OAuth 2.0 액세스 토큰을 획득해야 합니다. Azure AD에 이벤트 게시 애플리케이션을 등록하고, 관리 및 사용하는 앱과 연결된 서비스 주체를 획득할 수 있습니다. 대신 ID 수명 주기의 일부 측면이 자동으로 관리되므로 보다 단순한 ID 관리 모델에 대해 시스템 할당 또는 사용자 할당 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용할 수 있습니다. 
 
-RBAC([역할 기반 액세스 제어](../active-directory/develop/custom-rbac-for-developers.md))를 사용하면 특정 보안 주체(사용자, 그룹 또는 앱의 ID)에 Azure 리소스에 대한 작업을 실행할 수 있는 특정 권한이 있도록 권한 부여를 구성할 수 있습니다. 이러한 방식으로 이벤트를 Event Grid로 보내는 클라이언트 애플리케이션에서 사용하는 보안 주체에는 RBAC 역할 **Eventgrid 데이터 발신자** 가 연결되어 있어야 합니다. 
+[RBAC (역할 기반 액세스 제어](../active-directory/develop/custom-rbac-for-developers.md) )를 사용 하면 특정 보안 주체 (사용자, 그룹 또는 앱의 id)에 Azure 리소스에 대 한 작업을 실행할 수 있는 특정 권한이 있는 방식으로 권한 부여를 구성할 수 있습니다. 이러한 방식으로 이벤트를 Event Grid로 보내는 클라이언트 애플리케이션에서 사용하는 보안 주체에는 RBAC 역할 **Eventgrid 데이터 발신자** 가 연결되어 있어야 합니다. 
 
 ### <a name="security-principals"></a>보안 주체
 Event Grid 게시 클라이언트의 인증을 설명할 때 적용할 수 있는 두 가지 광범위한 보안 주체 범주가 있습니다. 
@@ -70,7 +70,7 @@ Event Grid에 이벤트를 게시하는 데 사용되는 ID에는 Event Grid에 
 
 [Event Grid의 데이터 평면 SDK](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/)를 사용하여 Event Grid에 이벤트를 게시합니다. Event Grid의 SDK는 Azure AD 인증을 포함하는 모든 인증 방법을 지원합니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 Event Grid에서 인증을 받기 위한 필수 구성 요소는 다음과 같습니다.
 
@@ -88,7 +88,7 @@ Event Grid에서 인증을 받기 위한 필수 구성 요소는 다음과 같�
 
 ### <a name="publish-events-using-azure-ad-authentication"></a>Azure AD 인증을 사용하여 이벤트 게시
 
-토픽, 도메인 또는 파트너 네임스페이스로 이벤트를 보내려면 다음과 같은 방법으로 클라이언트를 빌드할 수 있습니다. 처음에 Azure AD 인증 지원을 제공했던 API 버전은 ``2021-06-01-preview``입니다. 애플리케이션에서 해당 API 버전 또는 최신 버전을 사용합니다.
+토픽, 도메인 또는 파트너 네임 스페이스로 이벤트를 보내려면 다음과 같은 방법으로 클라이언트를 빌드할 수 있습니다. 처음에 Azure AD 인증 지원을 제공했던 API 버전은 ``2021-06-01-preview``입니다. 애플리케이션에서 해당 API 버전 또는 최신 버전을 사용합니다.
 
 ```java 
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
@@ -100,7 +100,7 @@ Event Grid에서 인증을 받기 위한 필수 구성 요소는 다음과 같�
 클라이언트 게시 애플리케이션에 연결된 보안 주체를 사용하는 경우 [Java SDK 추가 정보 문서](/java/api/overview/azure/identity-readme#environment-variables)에 표시된 대로 환경 변수를 구성해야 합니다. `DefaultCredentialBuilder`는 이러한 환경 변수를 읽어 올바른 ID를 사용합니다. 자세한 내용은 [Java API 개요](/java/api/overview/azure/identity-readme#defaultazurecredential)를 참조하세요.
 
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Java용 Azure Event Grid 클라이언트 라이브러리](/java/api/overview/azure/messaging-eventgrid-readme)
 - [.NET용 Azure Event Grid 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid#authenticate-using-azure-active-directory)
@@ -109,13 +109,30 @@ Event Grid에서 인증을 받기 위한 필수 구성 요소는 다음과 같�
 
 ## <a name="disable-key-and-shared-access-signature-authentication"></a>키 및 공유 액세스 서명 인증 사용 안 함
 
-Azure AD 인증은 액세스 키 또는 SAS(공유 액세스 서명) 토큰 인증을 통해 제공되는 것보다 더 뛰어난 인증 지원을 제공합니다. Azure AD 인증을 사용하여 Azure AD ID 공급자를 기준으로 ID의 유효성이 검사됩니다. 개발자는 Azure AD 인증을 사용하는 경우 코드에서 키를 처리할 필요가 없습니다. [조건부 액세스](../active-directory/conditional-access/overview.md)와 같이 애플리케이션의 보안 상황을 개선하는 데 도움이 되는 모든 보안 기능(Microsoft ID 플랫폼에 기본 제공)을 활용할 수도 있습니다. 
+Azure AD 인증은 액세스 키 또는 SAS(공유 액세스 서명) 토큰 인증을 통해 제공되는 것보다 더 뛰어난 인증 지원을 제공합니다. Azure AD 인증을 사용하여 Azure AD ID 공급자를 기준으로 ID의 유효성이 검사됩니다. 개발자는 Azure AD 인증을 사용하는 경우 코드에서 키를 처리할 필요가 없습니다. 응용 프로그램의 보안 태세를 개선 하는 데 도움이 되는 Microsoft Id 플랫폼 (예: [조건부 액세스](../active-directory/conditional-access/overview.md))에 기본 제공 되는 모든 보안 기능을 활용할 수도 있습니다. 
 
 Azure AD 인증을 사용하기로 결정하면 액세스 키 또는 SAS 토큰에 따라 인증을 사용하지 않도록 설정할 수 있습니다. 
 
 > [!NOTE]
 > 액세스 키 또는 SAS 토큰 인증은 **로컬 인증** 의 한 형태입니다. Azure AD에 의존하지 않는 이 인증 메커니즘 범주를 논의할 때 "로컬 인증"이라고 지칭하는 경우가 있습니다. 따라서 로컬 인증을 사용하지 않도록 설정하는 데 사용되는 API 매개 변수도 적절하게 ``disableLocalAuth``로 지칭됩니다.
 
+### <a name="azure-portal"></a>Azure portal
+
+새 토픽을 만들 때 토픽 **만들기** 페이지의 **고급** 탭에서 로컬 인증을 사용하지 않도록 설정할 수 있습니다. 
+
+:::image type="content" source="./media/authenticate-with-active-directory/create-topic-disable-local-auth.png" alt-text="로컬 인증을 사용하지 않도록 설정할 수 있는 경우 토픽 만들기 페이지의 고급 탭을 보여주는 스크린샷":::
+
+기존 항목의 경우 다음 단계에 따라 로컬 인증을 사용하지 않도록 설정합니다.
+
+1. **토픽에** 대한 Event Grid 항목 페이지로 이동하고 **로컬 인증에서** **사용을** 선택합니다.
+
+    :::image type="content" source="./media/authenticate-with-active-directory/existing-topic-local-auth.png" alt-text="기존 항목의 개요 페이지를 보여주는 스크린샷.":::
+2. 로컬 **인증** 팝업 창에서 **사용 안 함** 을 선택하고 **확인을** 선택합니다.
+
+    :::image type="content" source="./media/authenticate-with-active-directory/local-auth-popup.png" alt-text="로컬 인증 창을 보여주는 스크린샷.":::
+
+
+### <a name="azure-cli"></a>Azure CLI
 다음 CLI 명령은 로컬 인증을 사용하지 않도록 설정하여 사용자 지정 항목을 만드는 방법을 보여 줍니다. 로컬 인증 사용 안 함 기능은 현재 미리 보기로 제공되며 API 버전 ``2021-06-01-preview``를 사용해야 합니다.
 
 ```cli
@@ -129,6 +146,8 @@ az resource create --subscription <subscriptionId> --resource-group <resourceGro
 | 도메인           | Microsoft.EventGrid/domains          |
 | 파트너 네임스페이스 | Microsoft.EventGrid/partnerNamespaces|
 | 사용자 지정 토픽      | Microsoft.EventGrid/topics           |
+
+### <a name="azure-powershell"></a>Azure PowerShell
 
 PowerShell을 사용하는 경우 다음 cmdlet을 사용하여 로컬 인증을 사용하지 않도록 설정한 상태로 사용자 지정 항목을 만듭니다. 
 

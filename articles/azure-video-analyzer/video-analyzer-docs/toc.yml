@@ -85,6 +85,8 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2163454'
     - name: 위젯 샘플 리포지토리
       href: 'https://go.microsoft.com/fwlink/?linkid=2173229'
+    - name: Postman 샘플 리포지토리
+      href: 'https://github.com/Azure-Samples/video-analyzer-postman'
 - name: 개념
   items:
     - name: 파이프라인

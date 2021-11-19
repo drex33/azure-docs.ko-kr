@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Application Gateway URL 기반 콘텐츠 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 09/10/2019
+ms.date: 11/18/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e84ee56b57c4e97e2fd77e38acf45fc0d426fb58
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 6e2f553fd09f7036eb3f393502fb7e674935d48f
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277084"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813997"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
 
@@ -27,7 +27,9 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 http\://contoso.com/video/*에 대한 요청은 VideoServerPool로 라우팅되고 http\://contoso.com/images/*에 대한 요청은 ImageServerPool로 라우팅됩니다. 경로 패턴과 일치하는 항목이 없는 경우 DefaultServerPool이 선택됩니다.
 
 > [!IMPORTANT]
-> v1 및 v2 SKU의 경우 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. 그러나 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
+> v1 및 v2 SKU의 경우 규칙은 포털에 나열된 순서대로 처리됩니다. 경로 규칙을 만들 때 가장 좋은 방법은 가장 구체적인 경로(와일드카드가 있는 경로)를 끝에 두는 것입니다. 와일드카드가 맨 위에 있는 경우 후속 경로 규칙에 더 구체적인 일치가 있더라도 우선 순위를 맡습니다.
+>
+> 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. 그러나 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap 구성 요소
 
@@ -64,7 +66,7 @@ urlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지
 
 ### <a name="pathpattern"></a>PathPattern
 
-PathPattern은 일치시킬 경로 패턴의 목록입니다. 각 경로는/로 시작 해야 하며 \* 와일드 카드 문자로 사용할 수 있습니다. 경로 검사기에 제공되는 문자열에는 첫 번째 ? 또는 # 뒤에 어떤 텍스트도 포함되지 않으며, 여기에서는 해당 문자를 사용할 수 없습니다. 그렇지 않은 경우 URL에 허용되는 모든 문자는 PathPattern에서 사용됩니다.
+PathPattern은 일치시킬 경로 패턴의 목록입니다. 각 경로는 /로 시작해야 하며 와일드카드 문자로 사용할 수 \* 있습니다. 경로 검사기에 제공되는 문자열에는 첫 번째 ? 또는 # 뒤에 어떤 텍스트도 포함되지 않으며, 여기에서는 해당 문자를 사용할 수 없습니다. 그렇지 않은 경우 URL에 허용되는 모든 문자는 PathPattern에서 사용됩니다.
 
 지원되는 패턴은 Application Gateway v1을 배포할지 또는 v2를 배포할지에 따라 다릅니다.
 

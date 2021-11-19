@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/27/2021
 ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: a95737cd9d15b0ee21249f0db8d1bbb96fb8a3b2
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: f6cef60a7f8c1af56941f451e9248545074ec4cb
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710088"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808321"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Node.js)
 
@@ -66,7 +66,7 @@ ms.locfileid: "129710088"
 
 ## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
-이 섹션에서는 IoT 허브에 파일을 업로드하는 디바이스 앱을 만듭니다. 코드는 [Azure IoT node.js SDK](https://github.com/Azure/azure-iot-sdk-node) 디바이스 샘플의 [upload_to_blob_advanced.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/upload_to_blob_advanced.js) 샘플에서 사용할 수 있는 코드를 기반으로 합니다.
+이 섹션에서는 IoT 허브에 파일을 업로드하는 디바이스 앱을 만듭니다. 코드는 [Azure IoT node.js SDK](https://github.com/Azure/azure-iot-sdk-node) 디바이스 샘플의 [upload_to_blob_advanced.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) 샘플에서 사용할 수 있는 코드를 기반으로 합니다.
 
 1. `fileupload`라는 빈 폴더를 만듭니다.  `fileupload` 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
 

@@ -67,7 +67,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>애플리케이션에 트래픽 허용
-확장 집합이 만들어지면 Azure 부하 분산 장치가 자동으로 배포됩니다. Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 트래픽이 샘플 웹 애플리케이션에 도달하도록 허용하려면 [az 네트워크 LB 규칙 생성](/cli/azure/network/lb/rule)을 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb* 이라는 규칙을 만듭니다.
+확장 집합이 만들어지면 Azure Load Balancer가 자동으로 배포됩니다. Azure Load Balancer에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 트래픽이 샘플 웹 애플리케이션에 도달하도록 허용하려면 [az 네트워크 LB 규칙 생성](/cli/azure/network/lb/rule)을 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb* 이라는 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network lb rule create \

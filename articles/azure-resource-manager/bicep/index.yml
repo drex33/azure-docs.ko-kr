@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 08/18/2021
-  ms.openlocfilehash: 6f4b12d1c4b4293ee32a30475d99810ac16af8a7
-  ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+  ms.date: 11/17/2021
+  ms.openlocfilehash: 7c825fcb85cc311b77e8ea851815a58974a5edf4
+  ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/19/2021
-  ms.locfileid: "122445034"
+  ms.lasthandoff: 11/18/2021
+  ms.locfileid: "132754826"
 landingContent:
 - title: Bicep
   linkLists:
@@ -47,28 +47,36 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 함수 사용
-      url: ./bicep-functions.md
-    - text: 연산자 사용
-      url: ./operators.md
-    - text: 데이터 형식 사용
-      url: ./data-types.md
+    - text: Bicep 파일 구조 및 구문
+      url: ./file.md
     - text: 매개 변수 정의
       url: ./parameters.md
     - text: 변수 정의
       url: ./variables.md
     - text: 리소스 정의
       url: ./resource-declaration.md
+    - text: 모듈 정의
+      url: ./modules.md
     - text: 출력 정의
       url: outputs.md
   - linkListType: reference
     links:
-    - text: Bicep 파일 구조
-      url: ./file.md
+    - text: Functions
+      url: ./bicep-functions.md
+    - text: 연산자
+      url: ./operators.md
+    - text: 데이터 형식
+      url: ./data-types.md
     - text: Azure 빠른 시작 템플릿
       url: https://azure.microsoft.com/resources/templates/
 - title: Bicep 파일 배포
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 파이프라인이 있는 Bicep
+      url: add-template-to-azure-pipelines.md
+    - text: GitHub Actions를 사용하는 Bicep
+      url: deploy-github-actions.md
   - linkListType: how-to-guide
     links:
     - text: PowerShell
@@ -93,6 +101,16 @@ landingContent:
       url: deploy-to-tenant.md
     - text: 확장 리소스 범위 지정
       url: scope-extension-resources.md
+- title: 지침 및 패턴
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 모범 사례
+      url: best-practices.md
+    - text: 구성 집합 패턴
+      url: patterns-configuration-set.md
+    - text: 공유 변수 파일 패턴
+      url: patterns-shared-variable-file.md
 - title: 참조 콘텐츠 탐색
   linkLists:
   - linkListType: reference

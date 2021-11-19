@@ -1,24 +1,24 @@
 ---
-title: 클라우드에 대 한 Defender의 새로운 기능 보관
-description: 6 개월 전 및 이전에 클라우드 용 Defender의 새로운 기능과 변경 된 기능에 대 한 설명입니다.
+title: Defender for Cloud의 새로운 내용 보관
+description: Defender for Cloud의 새로운 내용과 변경된 내용에 대한 설명은 6개월 전과 이전 버전입니다.
 author: memildin
 manager: rkarlin
 ms.service: defender-for-cloud
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: f88b40cacd6b741c239f271311b0ec132f6f052e
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a58496aa3d4d459ffc96d485c97131876c95afa3
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132529314"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132807733"
 ---
-# <a name="archive-for-whats-new-in-defender-for-cloud"></a>클라우드에 대 한 Defender의 새로운 기능에 대 한 보관
+# <a name="archive-for-whats-new-in-defender-for-cloud"></a>Defender for Cloud의 새로운 내용 보관
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-[클라우드 용 Defender의 새로운 기능](release-notes.md) 릴리스 정보 페이지에는 지난 6 개월 동안 업데이트 된 내용이 포함 되어 있습니다 .이 페이지에는 이전 항목이 포함 되어 있습니다.
+기본 [Defender for Cloud의 새로운](release-notes.md) 내용 릴리스 정보 페이지에는 지난 6개월 동안의 업데이트가 포함되어 있지만 이 페이지에는 이전 항목이 포함되어 있습니다.
 
 이 페이지에서는 다음에 대한 정보를 제공합니다.
 
@@ -124,13 +124,13 @@ Security Center에는 VM, SQL Server 및 해당 호스트, 컨테이너 레지�
 
 이 변경으로 **쿼리 열기** 단추를 사용하여 보안 결과를 보여 주는 쿼리도 열 수 있습니다.
 
-:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="이제 쿼리 열기 단추를 클릭 하면 취약성 스캐너 관련 권장 사항에 대 한 보안 결과를 보여 주는 심층 쿼리 옵션이 제공 됩니다.":::
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="이제 열기 쿼리 단추는 취약성 스캐너 관련 권장 사항에 대한 보안 결과를 보여주는 심층 쿼리에 대한 옵션을 제공합니다.":::
 
-**쿼리 열기** 단추는 관련 된 기타 권장 사항에 대 한 추가 옵션을 제공 합니다.
+**쿼리 열기** 단추는 관련된 다른 권장 사항에 대한 추가 옵션을 제공합니다.
 
 Security Center 취약성 검사기에 대한 자세한 정보:
 
-- [Azure 및 하이브리드 컴퓨터용 azure Defender의 통합 Qualys 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
+- [Azure 및 하이브리드 머신에 대한 Azure Defender 통합 Qualys 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
 - [SQL Server용 Azure Defender 통합 취약성 평가 검사기](defender-for-sql-on-machines-vulnerability-assessment.md)
 - [컨테이너 레지스트리용 Azure Defender 통합 취약성 평가 검사기](defender-for-container-registries-usage.md)
 
@@ -228,7 +228,7 @@ Security Center의 자산 인벤토리 페이지에는 표시되는 리소스 �
 
 Security Center의 리소스 상태가 단일 리소스의 전반적인 상태에 대한 스냅샷 보기를 제공하도록 확장되고 향상되고 개선되었습니다. 
 
-리소스에 대한 자세한 정보와 해당 리소스에 적용되는 모든 권장 사항을 검토할 수 있습니다. 또한 [Microsoft Defender의 고급 보호 계획](defender-for-cloud-introduction.md)을 사용 중인 경우 해당 특정 리소스에 대 한 미해결 보안 경고도 볼 수 있습니다.
+리소스에 대한 자세한 정보와 해당 리소스에 적용되는 모든 권장 사항을 검토할 수 있습니다. 또한 [Microsoft Defender의 고급 보호 계획을](defender-for-cloud-introduction.md)사용하는 경우 해당 특정 리소스에 대한 미해결 보안 경고도 볼 수 있습니다.
 
 리소스에 대한 리소스 상태 페이지를 열려면 [자산 인벤토리 페이지](asset-inventory.md)에서 리소스를 선택합니다.
 
@@ -257,11 +257,11 @@ Security Center 포털 페이지의 이 미리 보기 페이지에는 다음이 
 
 ### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview"></a>Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)
 
-Azure Defender for Kubernetes는 배포되는 위치에 관계없이 클러스터를 보호하도록 위협 방지 기능을 확장하고 있습니다. [Azure Arc 사용 Kubernetes](../azure-arc/kubernetes/overview.md) 및 새로운 [확장 기능과](../azure-arc/kubernetes/extensions.md)통합 하 여이 기능을 사용할 수 있습니다. 
+Azure Defender for Kubernetes는 배포되는 위치에 관계없이 클러스터를 보호하도록 위협 방지 기능을 확장하고 있습니다. 이 기능은 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md) 및 새로운 [확장 기능](../azure-arc/kubernetes/extensions.md)과 통합하여 사용하도록 설정되었습니다. 
 
 비 Azure Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정한 경우 Azure Security Center의 새로운 권장 사항은 몇 번의 클릭만으로 Azure Defender 확장을 배포하도록 제안합니다.
 
-권장 **사항(Azure Arc 지원 Kubernetes 클러스터에는 Azure Defender 확장이 설치되어 있어야 합니다.)** 및 다른 클라우드 공급자에 배포된 Kubernetes 클러스터를 보호하는 확장은 관리되는 Kubernetes 서비스에는 없습니다.
+권장 **사항(Azure Arc 지원 Kubernetes 클러스터에는 Azure Defender 확장이 설치되어 있어야 합니다.)** 및 확장을 사용하여 관리되는 Kubernetes 서비스에는 없지만 다른 클라우드 공급자에 배포된 Kubernetes 클러스터를 보호합니다.
 
 Azure Security Center, Azure Defender 및 Azure Arc 지원 Kubernetes 간의 통합은 다음을 제공합니다.
 
@@ -1022,7 +1022,7 @@ Azure Security Center의 연속 내보내기 도구를 사용하여 환경의 �
     
     - **보안 점수 데이터 내보내기를 지원합니다.**
 
-- **규정 준수 평가 데이터(미리 보기 형식)가 추가되었습니다.** 이제 사용자 지정 이니셔티브를 포함하여 규정 준수 평가에 대한 업데이트를 Log Analytics 작업 영역 또는 Event Hub로 지속적으로 내보낼 수 있습니다. 국가별 클라우드에서는이 기능을 사용할 수 없습니다.
+- **규정 준수 평가 데이터(미리 보기 형식)가 추가되었습니다.** 이제 사용자 지정 이니셔티브를 포함하여 규정 준수 평가에 대한 업데이트를 Log Analytics 작업 영역 또는 Event Hub로 지속적으로 내보낼 수 있습니다. 이 기능은 국가 클라우드에서 사용할 수 없습니다.
 
     :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="연속 내보내기 데이터와 함께 규정 준수 평가 정보를 포함하기 위한 옵션":::
 
@@ -1154,7 +1154,7 @@ Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었�
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)
 
-[서버의 Azure Defender](defender-for-servers-introduction.md)' Qualys에서 지원하는 통합 취약성 평가 스캐너)는 이제 Azure Arc 지원 서버를 검사합니다.
+[서버용 Azure Defender](defender-for-servers-introduction.md)' Qualys에서 지원하는 통합 취약성 평가 스캐너)는 이제 Azure Arc 지원 서버를 검사합니다.
 
 Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Security Center는 이러한 머신에 통합 취약성 스캐너를 수동 및 대규모로 배포할 수 있습니다.
 
@@ -1206,7 +1206,7 @@ Azure Resource Graph는 작업 환경을 효과적으로 관리할 수 있도록
 Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다. 예를 들어:
 
 - 자산 인벤토리 활용(ARG)
-- [MFA(다단계 인증)를 사용하지 않고 계정을 식별](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)하는 방법에 대한 샘플 ARG 쿼리가 문서로 준비되어 있습니다.
+- [MFA(다단계 인증)를 사용하지 않고 계정을 식별하는](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled) 방법에 대한 샘플 ARG 쿼리를 문서화했습니다.
 
 ARG 내에는 쿼리에 사용할 수 있는 데이터 테이블이 들어 있습니다.
 
@@ -1440,7 +1440,7 @@ Security Center의 통합 취약성 평가 도구는 "가상 머신의 취약성
 
 관련 페이지:
 
-- [Azure virtual machines에 대 한 Security Center의 통합 Qualys 취약점 평가 솔루션](deploy-vulnerability-assessment-vm.md)
+- [Azure 가상 머신에 대한 Security Center 통합 Qualys 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)
 - [Azure Container Registry 이미지에 대한 Security Center의 통합 취약성 평가 솔루션](defender-for-container-registries-usage.md)
 - [연속 내보내기](continuous-export.md)
 
@@ -1518,7 +1518,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 8월의 업데이트는 다음과 같습니다.
 
 - [자산 인벤토리 - 자산의 보안 상태에 대한 강력하고 새로운 보기](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Azure Active Directory 보안 기본값에 대한 지원(다단계 인증용)이 추가됨](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Azure Active Directory 보안 기본값에 대한 지원 추가(다단계 인증용)](#added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication)
 - [서비스 주체 추천 사항이 추가됨](#service-principals-recommendation-added)
 - [VM에 대한 취약성 평가 - 추천 사항과 정책이 통합됨](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [새 AKS 보안 정책이 ASC_default 이니셔티브에 추가됨 - 프라이빗 미리 보기 고객만 사용](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
@@ -1535,13 +1535,13 @@ Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하
 [자산 인벤토리](asset-inventory.md)에 대해 자세히 알아보세요.
 
 
-### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Azure Active Directory 보안 기본값에 대한 지원(다단계 인증용)이 추가됨
+### <a name="added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication"></a>Azure Active Directory 보안 기본값에 대한 지원 추가(다단계 인증용)
 
 Security Center에는 Microsoft의 무료 ID 보안 보호인 [보안 기본값](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)에 대한 완전한 지원이 추가되었습니다.
 
 보안 기본값은 일반적인 ID 관련 공격으로부터 조직을 보호하기 위해 미리 구성된 ID 보안 설정을 제공합니다. 보안 기본값은 이미 전체적으로 500만 개 이상의 테넌트를 보호하고 있으며, 5만 개의 테넌트도 Security Center를 통해 보호됩니다.
 
-Security Center는 이제 보안 기본값을 사용하도록 설정되지 않은 Azure 구독을 식별할 때마다 보안 추천 사항을 제공합니다. 지금까지 Security Center는 AD(Azure Active Directory) Premium 라이선스의 일부인 조건부 액세스를 사용하는 다단계 인증을 사용하도록 추천했습니다. Azure AD 체험 라이선스를 사용하는 고객의 경우 이제 보안 기본값을 사용하도록 설정하는 것이 좋습니다. 
+Security Center는 이제 보안 기본값을 사용하도록 설정되지 않은 Azure 구독을 식별할 때마다 보안 추천 사항을 제공합니다. 지금까지 Security Center AD(Azure Active Directory) 프리미엄 라이선스의 일부인 조건부 액세스를 사용하여 다단계 인증을 사용하도록 설정하는 것이 좋습니다. Azure AD 체험 라이선스를 사용하는 고객의 경우 이제 보안 기본값을 사용하도록 설정하는 것이 좋습니다. 
 
 Microsoft의 목표는 더 많은 고객이 MFA를 사용하여 클라우드 환경을 보호하도록 권장하고, [보안 점수](secure-score-security-controls.md)에 가장 큰 영향을 미치는 가장 높은 위험 중 하나를 완화하는 것입니다.
 
@@ -1702,7 +1702,6 @@ Security Center의 컨테이너 보안에 대해 다음 문서에서 자세히 �
 - [Azure Kubernetes Service와의 통합에 대한 세부 정보](defender-for-kubernetes-introduction.md)
 - [레지스트리를 검사하고 Docker 호스트를 강화하는 방법](container-security.md)
 - [Azure Kubernetes Service 클러스터에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-k8scluster)
-- [Azure Kubernetes Service 호스트에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-containerhost)
 - [컨테이너에 대한 보안 추천 사항](recommendations-reference.md#recs-compute)
 
 
@@ -2028,7 +2027,7 @@ ID 및 액세스 권장 사항의 예는 다음과 같습니다.
 
 [ID 및 액세스 권장 사항](recommendations-reference.md#recs-identityandaccess)에 대해 자세히 알아보세요.
 
-[구독에 대한 MFA(다단계 인증) 적용 관리](multi-factor-authentication-enforcement.md)에 대해 자세히 알아보세요.
+[구독에 대 한 MFA (다단계 인증) 적용을 관리 하](multi-factor-authentication-enforcement.md)는 방법에 대해 자세히 알아보세요.
 
 
 
@@ -2194,7 +2193,7 @@ Secure Score의 일부로 사용자에게 제공되는 많은 작업으로 인�
 
 이미지 검사는 컨테이너 이미지 파일을 구문 분석한 다음 알려진 취약성이 있는지 확인하는 방식으로 작동합니다(Qualys 제공).
 
-검사 자체는 Azure Container Registry에 새 컨테이너 이미지를 푸시할 때 자동으로 트리거됩니다. 발견 된 취약점은 Security Center 권장 사항으로 노출 되 고, 허용 되는 공격 노출 영역을 줄이기 위해 패치 하는 방법에 대 한 정보와 함께 보안 점수에 포함 됩니다.
+검사 자체는 Azure Container Registry에 새 컨테이너 이미지를 푸시할 때 자동으로 트리거됩니다. 발견된 취약성은 Security Center 권장 사항으로 표면화되고 허용된 공격 표면을 줄이기 위해 패치하는 방법에 대한 정보와 함께 보안 점수에 포함됩니다.
 
 
 ### <a name="additional-regulatory-compliance-standards-preview"></a>추가 규정 준수 표준(미리 보기)
@@ -2228,7 +2227,7 @@ Kubernetes는 클라우드에서 소프트웨어를 배포하고 관리하기 �
 
 IaaS VM에서 실행되는 SQL DB에 대한 위협 방지 및 취약성 평가에 대한 Azure Security Center 지원은 현재 미리 보기로 제공됩니다.
 
-[취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 점수에 대 한 가시성을 제공 하 고 보안 문제를 해결 하 고 데이터베이스 fortifications을 개선 하는 단계를 포함 합니다.
+[취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 점수의 일부로 보안 태세에 대한 가시성을 제공하고 보안 문제를 해결하고 데이터베이스 강화를 개선하는 단계를 포함합니다.
 
 [Advanced Threat Protection](../azure-sql/database/threat-detection-overview.md)은 비정상적이며 잠재적으로 유해할 수 있는 SQL Server 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. 데이터베이스에서 의심스러운 활동을 지속적으로 모니터링하고 비정상적인 데이터베이스 액세스 패턴에 대해 작업 지향 보안 경고를 제공합니다. 이러한 경고는 의심스러운 활동 세부 정보와 위협을 조사하고 완화하기 위한 권장 조치를 제공합니다.
 

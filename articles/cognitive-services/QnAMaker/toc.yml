@@ -80,6 +80,8 @@
     - name: 미리 빌드된 API를 사용하여 텍스트 쿼리
       href: How-to/using-prebuilt-api.md
       displayName: 'prebuilt, query, answer, text, prebuilt api, ingest, no storage, call, response'
+    - name: 멀티 턴 대화
+      href: how-to/multi-turn.md
     - name: 활성 학습을 통해 추천된 대체 질문 가져오기
       href: How-to/improve-knowledge-base.md
       displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'

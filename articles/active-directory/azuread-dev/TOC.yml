@@ -148,7 +148,7 @@
         - name: App Source에 게시
           href: howto-get-appsource-certified.md
         - name: Office 365 판매자 대시보드에 게시
-          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+          href: /office/dev/store/add-in-submission-guide
     - name: Azure Access Control Service
       displayName: ACS
       items:
@@ -184,9 +184,9 @@
     - name: Azure AD 블로그
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Microsoft ID 플랫폼 개발자 블로그
-      href: 'https://developer.microsoft.com/identity/blogs/'
+      href: 'https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/'
     - name: Microsoft에 로그인 시도
-      href: 'https://azure.microsoft.com/develop/identity/signin/'
+      href: 'https://developer.microsoft.com/identity/add-sign-in-with-microsoft'
     - name: 도움말 보기
       displayName: 'support, help options'
       href: ../develop/developer-support-help-options.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json

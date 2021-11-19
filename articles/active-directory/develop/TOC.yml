@@ -596,7 +596,7 @@
         - name: Azure AD App Gallery에 게시
           href: v2-howto-app-gallery-listing.md
         - name: Office 365 판매자 대시보드에 게시
-          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+          href: /office/dev/store/add-in-submission-guide
     - name: Visual Studio 작업
       items:
         - name: Active Directory 연결된 서비스 사용
@@ -687,7 +687,7 @@
     - name: Azure CLI
       href: /cli/azure/identity
     - name: Azure PowerShell
-      href: /powershell/module/az.managedserviceidentity
+      href: /powershell/module/az.managedserviceidentity/
     - name: 애플리케이션 유형 및 OAuth 2.0
       displayName: 'App types, OAuth'
       href: v2-app-types.md
@@ -745,7 +745,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Microsoft에 로그인 시도
-      href: 'https://azure.microsoft.com/develop/identity/signin/'
+      href: 'https://developer.microsoft.com/identity/add-sign-in-with-microsoft'
     - name: Azure 리소스에 대한 관리 ID
       href: ../managed-identities-azure-resources/overview.md
     - name: 도움말 보기

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f5667433ef987fa32bfdcc7dbdaf7d535d2c9800
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: c411654983054d5d6993d4cc7d6a8cf66cb045ff
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113034328"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132806366"
 ---
 # <a name="connect-to-azure-virtual-desktop-with-the-android-client"></a>Android 클라이언트를 사용하여 Azure Virtual Desktop에 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "113034328"
 
 피드를 구독하려면 다음을 수행합니다.
 
-1. 연결 센터에서 **+** , **원격 리소스 피드** 를 차례로 탭합니다.
+1. 연결 센터에서 를 **+** 탭한 다음 **작업 영역 을 탭합니다.**
 2. **피드 URL** 필드에 피드 URL을 입력합니다. 피드 URL은 URL 또는 이메일 주소일 수 있습니다.
    - URL을 사용하는 경우 관리자가 제공한 URL(일반적으로 <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>)을 사용합니다.
    - 이메일을 사용하려면 이메일 주소를 입력하세요. 관리자가 서버를 그런 방식으로 구성한 경우 클라이언트는 이메일 주소와 연결된 URL을 검색합니다.

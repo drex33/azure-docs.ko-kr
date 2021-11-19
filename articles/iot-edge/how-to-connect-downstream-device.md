@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 8385d046a57fe5bb4faab1f31daaa05c9f207e9f
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: f3e564c87d82832024a0905a55e5ea34b94283a2
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456540"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810520"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -146,7 +146,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 이 섹션에서는 Azure IoT NodeJS 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 제공합니다. NodeJS 애플리케이션의 경우 다음과 같이 애플리케이션 수준에서 루트 CA 인증서를 설치해야 합니다. NodeJS 애플리케이션은 시스템의 인증서 저장소를 사용하지 않습니다.
 
-1. [Node.js용 Azure IoT 디바이스 SDK 샘플 리포지토리](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)에서 **edge_downstream_device.js** 에 대한 샘플을 가져옵니다.
+1. [Node.js용 Azure IoT 디바이스 SDK 샘플 리포지토리](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)에서 **edge_downstream_device.js** 에 대한 샘플을 가져옵니다.
 2. **readme.md** 파일을 검토하여 샘플을 실행하기 위한 모든 필수 구성 요소가 있는지 확인합니다.
 3. edge_downstream_device.js 파일에서 **connectionString** 및 **edge_ca_cert_path** 변수를 업데이트합니다.
 4. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요.
@@ -205,7 +205,7 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 
 이 섹션에서는 Azure IoT Python 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다.
 
-1. [Python용 Azure IoT 디바이스 SDK 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios)에서 **send_message_downstream** 에 대한 샘플을 가져옵니다.
+1. [Python용 Azure IoT 디바이스 SDK 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-edge-scenarios)에서 **send_message_downstream** 에 대한 샘플을 가져옵니다.
 2. Python 스크립트 주석에 지정된 대로 `IOTHUB_DEVICE_CONNECTION_STRING` 및 `IOTEDGE_ROOT_CA_CERT_PATH` 환경 변수를 설정합니다.
 3. 디바이스에서 샘플을 실행하는 방법에 대한 추가 지침은 SDK 설명서를 참조하세요.
 

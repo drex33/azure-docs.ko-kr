@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 9c4b15fa2a8be32aa7397ae425f28f1deaac6b71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 28bc9f5ed218302df38b342628e9792b1facb191
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024611"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812494"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>VM 인사이트 게스트 상태 경고(미리 보기)
 VM 인사이트 게스트 상태를 사용하면 일정한 간격으로 샘플링되는 성능 측정 집합에 정의된 대로 가상 머신의 상태를 볼 수 있습니다. 가상 머신 또는 모니터가 비정상 상태로 변경되면 경고가 생성될 수 있습니다. [Azure Monitor의 경고 규칙에 의해 생성](../alerts/alerts-overview.md)된 경고를 확인하고 관리할 수 있으며 새 경고가 생성될 때 사전에 알림을 받도록 선택할 수 있습니다.
@@ -84,24 +84,26 @@ t2 시간에 수신되는 알림
 - 이 상태 전환에 대해 자세히 알아보려면 t2 시간에 발생한 상태 전환에 대한 탐색 링크를 확인하세요.
 
 ## <a name="configure-notifications"></a>알림 구성
-게스트 상태에 의해 트리거되는 경고를 사전에 알림을 받으려면 [작업 그룹](../alerts/action-groups.md)을 만들어 SMS 메시지 보내기 또는 논리 앱 시작과 같이 수행할 다른 작업을 정의합니다. 그런 다음 모니터와 가상 머신의 범위를 지정하고 해당 작업 그룹을 사용하는 [작업 규칙](../alerts/alerts-action-rules.md)을 만듭니다.
+게스트 상태에 의해 트리거되는 경고를 사전에 알림을 받으려면 [작업 그룹](../alerts/action-groups.md)을 만들어 SMS 메시지 보내기 또는 논리 앱 시작과 같이 수행할 다른 작업을 정의합니다. 그런 다음 모니터와 가상 컴퓨터의 범위를 지정 하 고 해당 작업 그룹을 사용 하는 [경고 처리 규칙](../alerts/alerts-action-rules.md) 을 만듭니다.
 
-Azure Portal의 **모니터** 메뉴에서 **경고** 를 선택합니다.  **작업 관리** 를 선택한 다음 **작업 규칙(미리 보기)** 을 선택합니다. 
+Azure Portal **모니터** 메뉴에서 **경고** 를 선택한 다음 **경고 처리 규칙 (미리 보기)** 을 선택 합니다. 
+:::image type="content" source="media/vminsights-health-alerts/alerts-view.png" alt-text="경고 보기" lightbox="media/vminsights-health-alerts/alerts-view.png":::
 
-![새 작업 규칙](media/vminsights-health-alerts/action-rule-new.png)
+**만들기** 를 클릭 하 여 새 경고 처리 규칙을 만듭니다. 
 
-**새 작업 규칙** 을 클릭하여 새 규칙을 만듭니다. 범위 옆의 **선택** 을 클릭하고 구독, 리소스 그룹 또는 하나 이상의 특정 가상 머신을 선택합니다. 이 알림은 범위 내에 있는 가상 머신에 대해서만 발생합니다.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-new.png" alt-text="새 경고 처리 규칙" lightbox="media/vminsights-health-alerts/alert-processing-rule-new.png":::
 
-![작업 규칙 범위](media/vminsights-health-alerts/action-rule-scope.png)
+**범위 탭** 에서 **범위 선택** 을 클릭 하 고 구독, 리소스 그룹 또는 하나 이상의 특정 가상 컴퓨터를 선택 합니다. 이 알림은 범위 내에 있는 가상 머신에 대해서만 발생합니다. **모니터 서비스가 VM Insights와 동일한** 필터를 추가 합니다. 다른 필터를 추가하여 알림을 트리거할 특정 경고를 지정합니다. 예를 들어 **심각도** 를 사용하여 특정 심각도와 일치하는 모든 모니터의 경고를 일치시킬 수 있습니다.
 
-**필터** 옆의 **추가** 를 클릭합니다. **모니터 서비스가 VM 인사이트와 일치 - 정상** 인 필터를 만듭니다. 다른 필터를 추가하여 알림을 트리거할 특정 경고를 지정합니다. 예를 들어 **심각도** 를 사용하여 특정 심각도와 일치하는 모든 모니터의 경고를 일치시킬 수 있습니다.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-scope.png" alt-text="경고 처리 규칙 범위" lightbox="media/vminsights-health-alerts/alert-processing-rule-scope.png":::
 
-![작업 규칙 필터](media/vminsights-health-alerts/action-rule-filter.png)
+**규칙 설정** 탭을 선택 하 고 **규칙 유형에** 대해 **작업 그룹 적용** 을 선택 합니다. **작업 그룹 추가** 를 클릭 하 고 모니터와 연결할 작업 그룹을 선택 합니다. 규칙 이름을 지정하고 저장해야 하는 리소스 그룹을 선택합니다. **만들기** 를 클릭하여 규칙을 만듭니다.
 
-**이 범위에 대해 정의** 에서 **작업 그룹** 을 선택하고 모니터와 연결할 작업 그룹을 선택합니다. 규칙 이름을 지정하고 저장해야 하는 리소스 그룹을 선택합니다. **만들기** 를 클릭하여 규칙을 만듭니다.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-settings.png" alt-text="경고 처리 규칙 설정" lightbox="media/vminsights-health-alerts/alert-processing-rule-settings.png":::
 
-![작업 규칙](media/vminsights-health-alerts/action-rule.png)
+**세부 정보** 탭을 선택 합니다. 경고 처리 규칙을 저장할 **구독** 및 **리소스 그룹** 을 선택 하 고 설명이 포함 된 **규칙 이름을** 제공 합니다. **제거 + 만들기** 를 클릭 하 여 경고 처리 규칙을 만들고 사용 하도록 설정 합니다.
 
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-details.png" alt-text="경고 처리 규칙 세부 정보" lightbox="media/vminsights-health-alerts/alert-processing-rule-details.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

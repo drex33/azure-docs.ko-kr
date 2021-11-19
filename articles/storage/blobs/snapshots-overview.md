@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1ed2bc9d5ee37b24f484fe66f0e423ce477d1eb1
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 7ae07b48d63059e22f63fb3b201a1a5aab7d960e
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132751577"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810238"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅샷
 
@@ -30,7 +30,7 @@ ms.locfileid: "132751577"
 > 베타, 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 >
 >
-> 미리 보기에 등록하려면 [이 양식](https://forms.office.com/Pages/DesignPage.aspx?fragment=FormId%3Dv4j5cvGGr0GRqy180BHbR9iuLyDgXDNIkMaAAVSMpJxUOTRZODFORzBQSkhIMEQ0UlhZUFZWNFdKRS4u%26Token%3D44413415602547818d815119d7cf5d02)을 참조하세요.
+> 미리 보기에 등록하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9iuLyDgXDNIkMaAAVSMpJxUOTRZODFORzBQSkhIMEQ0UlhZUFZWNFdKRS4u)을 참조하세요.
 
 Blob URI에 스냅샷이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅샷은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅샷 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다.
 
@@ -126,7 +126,7 @@ Blob이나 스냅샷(또는 버전)에 대한 Blob 계층을 명시적으로 설
 
 다음 표에서는 Blob 또는 스냅샷이 새 계층으로 이동할 때의 요금 청구 방식을 설명합니다.
 
-| Blob 계층이 명시적으로 설정된 경우... | 다음에 대한 요금이 청구됩니다. |
+| Blob 계층이 명시적으로 설정 된 경우 | 다음에 대한 요금이 청구됩니다. |
 |-|-|
 | 스냅샷이 있는 기본 Blob | 새 계층의 기본 Blob, 원본 계층의 가장 오래된 스냅샷, 다른 스냅샷의 모든 고유 블록. <sup>1</sup> |
 | 이전 버전과 스냅샷이 있는 기본 Blob | 새 계층의 기본 Blob, 원본 계층의 가장 오래된 버전, 원본 계층의 가장 오래된 스냅샷, 다른 버전 또는 스냅샷의 고유 블록<sup>1</sup>. |
@@ -153,7 +153,7 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 
 다음 표에서는 버전 관리의 사용 여부에 따라 일시 삭제된 Blob에 대한 청구를 설명합니다. 버전 관리를 사용한 경우 Blob이 일시 삭제되면 새로운 버전이 만들어집니다. 버전 관리를 사용하지 않는 경우 Blob을 일시 삭제하면 일시 삭제 스냅샷이 만들어집니다.
 
-| 계층이 명시적으로 설정된 기본 Blob을 덮어쓰는 경우... | 다음에 대한 요금이 청구됩니다. |
+| 계층을 사용 하 여 기본 blob를 덮어쓸 때를 명시적으로 설정 하는 경우 ... | 다음에 대한 요금이 청구됩니다. |
 |-|-|
 | Blob 일시 삭제 및 버전 관리를 모두 사용하는 경우 | 계층에 관계 없이 모든 기존 버전의 전체 콘텐츠 길이 |
 | Blob 일시 삭제를 사용하도록 설정했지만 버전 관리를 사용하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅샷이 전체 콘텐츠 길이에 포함됩니다. |
@@ -167,9 +167,9 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 | 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
 | Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(보안 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (Secure file Transfer protocol) 지원에는 모두 계층적 네임 스페이스를 사용 하는 저장소 계정이 필요 합니다.
 
-<sup>2</sup>    기능은 미리 보기 수준에서 지원됩니다.
+<sup>2</sup>    기능은 미리 보기 수준에서 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,17 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: d16ad0ea147343b0880ba0b50e2365ac47ace31d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e4aace9c656623b0ab6d1bc5343439d6b948d127
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131003526"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132809896"
 ---
-# <a name="machine-learning-studio-classic-integration-in-stream-analytics"></a>Machine Learning Stream Analytics Studio(클래식) 통합
+# <a name="machine-learning-studio-classic-integration-in-stream-analytics"></a>Stream Analytics Machine Learning Studio(클래식) 통합
+
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 Stream Analytics Machine Learning Studio(클래식) 엔드포인트를 호출하는 사용자 정의 함수를 지원합니다. 이 기능에 대한 REST API 지원은 [Stream Analytics REST API 라이브러리](/rest/api/streamanalytics/)에 자세히 설명되어 있습니다. 이 문서에서는 Stream Analytics에서 이 기능을 성공적으로 구현하기 위해 필요한 추가 정보를 제공합니다. 자습서도 게시되어 있으며 [여기](stream-analytics-machine-learning-integration-tutorial.md)서 확인할 수 있습니다.
 
 ## <a name="overview-machine-learning-studio-classic-terminology"></a>개요: Machine Learning Studio(클래식) 용어

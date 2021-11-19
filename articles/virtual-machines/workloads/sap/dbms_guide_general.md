@@ -321,7 +321,7 @@ Azure 가용성 집합 또는 Azure 가용성 영역 내에서 프로덕션 DBMS
 ### <a name="use-azure-load-balancer-to-redirect-traffic"></a>Azure Load Balancer를 사용하여 트래픽 리디렉션
 SQL Server Always On 또는 HANA System Replication과 같은 기능에 사용되는 개인 가상 IP 주소를 사용하려면 Azure Load Balancer를 구성해야 합니다. Load Balancer는 프로브 포트를 사용하여 활성 DBMS 노드를 결정하고 해당 활성 데이터베이스 노드로만 트래픽을 라우팅할 수 있습니다. 
 
-데이터베이스 노드를 장애 조치(failover)하는 경우 SAP 애플리케이션을 다시 구성할 필요가 없습니다. 대신 가장 일반적인 SAP 애플리케이션 아키텍처가 개인 가상 IP 주소에 다시 연결됩니다. 한편 부하 분산 장치는 개인 가상 IP 주소에 대한 트래픽을 두 번째 노드로 리디렉션하여 노드 장애 조치(failover)에 대응했습니다.
+데이터베이스 노드를 장애 조치(failover)하는 경우 SAP 애플리케이션을 다시 구성할 필요가 없습니다. 대신 가장 일반적인 SAP 애플리케이션 아키텍처가 개인 가상 IP 주소에 다시 연결됩니다. 한편 Load Balancer는 개인 가상 IP 주소에 대한 트래픽을 두 번째 노드로 리디렉션하여 노드 장애 조치(failover)에 대응했습니다.
 
 Azure는 기본 SKU와 표준 SKU의 두 가지 [부하 분산 장치 SKU](../../../load-balancer/load-balancer-overview.md)를 제공합니다. 설정 및 기능의 이점에 따라 Azure 부하 분산 장치의 표준 SKU를 사용해야 합니다. 부하 분산 장치의 표준 버전의 큰 이점 중 하나는 데이터 트래픽이 부하 분산 장치 자체를 통해 라우팅되지 않는다는 것입니다.
 

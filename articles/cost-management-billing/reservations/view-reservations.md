@@ -6,14 +6,14 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/18/2021
 ms.author: banders
-ms.openlocfilehash: 5ee6972ae409a2912f677c0411daf01aaa96f6f7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 89e9a912180112ae1d44010e3ec3fb4643fbeef4
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464702"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132807828"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Azure 예약을 보고 관리할 수 있는 권한
 
@@ -31,7 +31,7 @@ ms.locfileid: "131464702"
 - Azure Active Directory(Azure AD) 테넌트(디렉터리)의 예약을 위한 예약 관리자
 - 예약 읽기 권한자는 Azure Active Directory 테넌트(디렉터리)의 예약에 대한 읽기 전용 액세스 권한을 가집니다.
 
-현재 예약 관리자 및 예약 읽기 권한자 역할은 PowerShell을 사용하여 할당할 수 있습니다. Azure Portal 보거나 할당할 수 없습니다. 자세한 내용은 [PowerShell을 통해 액세스 권한 부여를 참조하세요.](#grant-access-with-powershell)
+현재, 예약 관리자 및 예약 판독기 역할은 PowerShell을 사용 하 여 할당 하는 데만 사용할 수 있습니다. Azure Portal에서 보거나 할당할 수 없습니다. 자세한 내용은 [PowerShell을 사용 하 여 액세스 권한 부여](#grant-access-with-powershell)를 참조 하세요.
 
 예약 수명 주기는 Azure 구독과 독립적이므로 예약은 Azure 구독에 있는 리소스가 아닙니다. 대신 구독과 분리된 자체 Azure RBAC 권한이 있는 테넌트 수준 리소스입니다. 예약은 구매 후 구독에서 권한을 상속하지 않습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "131464702"
     - Microsoft 고객 계약 청구 프로필 소유자인 경우 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다. 청구 프로필 목록에서 하나를 선택합니다.
 1. 왼쪽 메뉴에서 **제품 + 서비스** > **예약** 을 선택합니다.
 1. EA 등록 또는 청구 프로필에 대한 전체 예약 목록이 표시됩니다.
-1. 청구 관리자는 하나 또는 여러 개의 예약을 선택하고, 액세스 권한 **부여를** 클릭하고, 표시되는 창에서 **액세스 권한 부여를** 선택하여 예약 소유권을 사용할 수 있습니다.
+1. 청구 관리자는 하나 이상의 예약을 선택 하 고, **액세스 권한 부여** 를 클릭 하 고, 표시 되는 창에서 **액세스 권한 부여** 를 선택 하 여 예약의 소유권을 가져올 수 있습니다.
 
 ### <a name="add-billing-administrators"></a>청구 관리자 추가
 
@@ -92,7 +92,7 @@ Azure Portal에서 예약에 대한 소유자 액세스 권한이 있는 사용�
 
 예약 주문에 대한 소유자 액세스 권한이 있는 사용자, 높은 액세스 권한이 있는 사용자 및 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator)는 액세스 권한이 있는 모든 예약 주문에 대한 액세스 관리를 위임할 수 있습니다.
 
-PowerShell을 사용하여 부여된 액세스 권한은 Azure Portal 표시되지 않습니다. 대신 다음 섹션의 명령을 사용하여 `get-AzRoleAssignment` 할당된 역할을 봅니다.
+PowerShell을 사용 하 여 부여 된 액세스는 Azure Portal 표시 되지 않습니다. 대신, `get-AzRoleAssignment` 다음 섹션의 명령을 사용 하 여 할당 된 역할을 볼 수 있습니다.
 
 ## <a name="assign-the-owner-role-for-all-reservations"></a>모든 예약에 대해 소유자 역할 할당
 
@@ -119,11 +119,7 @@ foreach ($reservation in $reservationObjects)
 }
 ```
 
-PowerShell 스크립트를 사용하여 소유권 역할을 할당하고 성공적으로 실행되면 성공 메시지가 반환되지 않습니다. 그러나 다음을 통해 역할이 할당되었는지 확인할 수 있습니다.
-
-```azurepowershell
-get-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" |?{$_.RoleDefinitionName -Like "Reservations*"}
-```
+PowerShell 스크립트를 사용 하 여 소유권 역할을 할당 하 고 성공적으로 실행 되 면 성공 메시지가 반환 되지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 

@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새로운 기능 및 최신 업데이트에 대해 간략하게 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 291865469c552d2e952fbda8d7eb82ece5268ea3
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 4483f9418da15617d270f5183097ea33a29bcb2f
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071400"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812999"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,16 +22,27 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 **업데이트** |  **통합 설치** | **구성 서버 OVA** | **Mobility Service 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 59](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 9.46.6149.1 | 5.1.7029.0 | 9.46.6149.1 | 5.1.7029.0 | 2.0.9239.0
 [롤업 58](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 9.45.6096.1 | 5.1.6952.0 | 9.45.6096.1 | 5.1.6952.0 | 2.0.9237.0
 [롤업 57](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 9.44.6068.1 | 5.1.6899.0 | 9.44.6068.1 | 5.1.6899.0 | 2.0.9236.0
 [롤업 56](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 [롤업 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
-[롤업 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
-[롤업 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
-[롤업 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 
 
 업데이트 설치 및 지원에 대해 [자세히 알아보세요](service-updates-how-to.md).
+
+## <a name="updates-november-2021"></a>업데이트 (11 월 2021)
+
+### <a name="update-rollup-59"></a>업데이트 롤업 59
+
+[업데이트 롤업 59](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) 은 다음과 같은 업데이트를 제공 합니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업 KB 문서에서 자세히 설명된 대로 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
+**문제 수정/향상된 기능** | 롤업 KB 문서에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
+**Azure VM 재해 복구** | Windows Server 2022에 대 한 지원이 추가 되었습니다.<br/><br/> UEK 커널을 사용 하 여 Oracle Linux 8.4에 대 한 지원이 추가 되었습니다. 
+**Azure로 VMware VM/물리적 재해 복구** | Windows Server 2022에 대 한 지원이 추가 되었습니다.<br/><br/> UEK 커널을 사용 하 여 Oracle Linux 8.4에 대 한 지원이 추가 되었습니다.
 
 ## <a name="updates-september-2021"></a>업데이트 (9 월 2021)
 

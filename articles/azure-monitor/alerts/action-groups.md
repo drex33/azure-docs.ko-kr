@@ -3,14 +3,14 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/18/2021
 ms.author: dukek
-ms.openlocfilehash: af5742cc4b6c6fc218b1fd5597d5ff2c1e5ef3fd
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7d5458c6754081b5975d8c32920381c5c8fe82e7
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440073"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813678"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor, Service Health 및 Azure Advisor 경고는 작업 그룹을 사용하여 알림이 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -159,13 +159,11 @@ Azure 모바일 앱을 구성할 때 계정 ID로 사용하는 메일 주소를 
 > [!NOTE]
 > 고객이 구독에 새 ARM 역할을 추가한 후 알림을 받기 시작하는 데 최대 **24시간** 이 걸릴 수 있습니다.
 
-### <a name="event-hub-preview"></a>이벤트 허브 (미리 보기)
+### <a name="event-hub-preview"></a>이벤트 허브(미리 보기)
 > [!NOTE]
-> 이벤트 허브 작업 유형은 현재 *미리 보기* 상태입니다. 미리 보기 중에는 버그가 있을 수 있으며 기능 사용이 중단 될 수 있습니다.
+> 이벤트 허브 작업 유형은 현재 *미리 보기* 에 있습니다. 미리 보기 중에는 기능의 가용성에 버그 및 중단이 있을 수 있습니다.
 
-이벤트 허브 작업은 [Azure 이벤트 허브](~/articles/event-hubs/event-hubs-about.md)에 알림을 게시 합니다. 그런 다음 이벤트 수신기에서 경고 알림 스트림을 구독할 수 있습니다.
-
-현재 이벤트 허브 작업은 [Azure Resource Manager 템플릿만](./action-groups-create-resource-manager-template.md)사용 하 여 정의할 수 있습니다.
+이벤트 허브 작업은 Azure Event [Hub](~/articles/event-hubs/event-hubs-about.md)에 알림을 게시합니다. 그런 다음 이벤트 수신기에서 경고 알림 스트림을 구독할 수 있습니다.
 
 ### <a name="function"></a>함수
 [Azure Functions](../../azure-functions/functions-get-started.md)에서 기존 HTTP 트리거 엔드포인트를 호출합니다. 요청을 처리하려면 엔드포인트가 HTTP POST 동사를 처리해야 합니다.

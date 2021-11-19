@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: b26334c655332810ad1f67ae6799c3919fda4bb4
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: ce23ad790ad0692fd1da979fca3ddf7aebb6ddc0
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517821"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812167"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Azure Cognitive Search에서 역할 기반 권한 부여 사용
 
@@ -221,7 +221,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 특정 환경에 대한 토큰을 획득하는 방법에 대한 자세한 내용은 [인증 라이브러리 Microsoft ID 플랫폼 참조하세요.](../active-directory/develop/reference-v2-libraries.md)
 
-### <a name="net-sdk"></a>[**.NET SDK**](#tab/test-dotnet)
+### <a name="net-sdk"></a>[**.NET SDK**](#tab/test-csharp)
 
 .NET용 Azure SDK는 NuGet 갤러리 | 권한 부여 헤더를 지원합니다. [ Azure.Search.Documents 11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) 패키지.
 

@@ -1,28 +1,30 @@
 ---
-title: Lecrule-보간을 단순화 합니다.
-description: Lecrule-보간을 단순화 합니다.
+title: Linter 규칙 - 보간 간소화
+description: Linter 규칙 - 보간 간소화
 ms.topic: conceptual
-ms.date: 10/14/2021
-ms.openlocfilehash: e2e0f9eca607ececad22c025e89b7c976cd0d05a
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 11/18/2021
+ms.openlocfilehash: 5a5d94f403b686e4a3f4b3d85941f13cfc00042d
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165352"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813569"
 ---
-# <a name="linter-rule---simplify-interpolation"></a>Lecrule-보간을 단순화 합니다.
+# <a name="linter-rule---simplify-interpolation"></a>Linter 규칙 - 보간 간소화
 
-이 규칙은 필요 하지 않은 경우 문자열 보간을 사용 하는 구문을 찾습니다.
+이 규칙은 필요하지 않은 경우 문자열 보간을 사용하는 구문을 찾습니다.
 
-## <a name="returned-code"></a>반환 된 코드
+## <a name="linter-rule-code"></a>Linter 규칙 코드
+
+[Bicep 구성 파일에서](bicep-config-linter.md) 다음 값을 사용하여 규칙 설정을 사용자 지정합니다.
 
 `simplify-interpolation`
 
 ## <a name="solution"></a>해결 방법
 
-식의 일부가 아닌 문자열 보간을 사용 하 여 값을 결합 하는 것을 제거 합니다.
+값을 결합하는 식의 일부가 아닌 문자열 보간 사용을 제거합니다.
 
-다음 예제에서는 매개 변수를 참조 하기 때문에이 테스트에 실패 합니다.
+다음 예제에서는 매개 변수만 참조하므로 이 테스트에 실패합니다.
 
 ```bicep
 param AutomationAccountName string
@@ -33,7 +35,7 @@ resource AutomationAccount 'Microsoft.Automation/automationAccounts@2020-01-13-p
 }
 ```
 
-문자열 보간 구문을 제거 하 여 문제를 해결할 수 있습니다.
+문자열 보간 구문을 제거하여 수정할 수 있습니다.
 
 ```bicep
 param AutomationAccountName string
@@ -46,4 +48,4 @@ resource AutomationAccount 'Microsoft.Automation/automationAccounts@2020-01-13-p
 
 ## <a name="next-steps"></a>다음 단계
 
-Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.
+linter에 대한 자세한 내용은 [Bicep linter 사용을 참조하세요.](./linter.md)

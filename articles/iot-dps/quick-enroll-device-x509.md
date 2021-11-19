@@ -10,12 +10,12 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set2
-ms.openlocfilehash: 70715362249c2e7f3c1429ea37290933b3dfc019
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 3c2ad8898bcd08df2795d260de24eafe0607a2c5
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132751843"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808948"
 ---
 # <a name="quickstart-enroll-a-group-of-devices-to-the-device-provisioning-service-using-x509-certificate-attestation"></a>빠른 시작: X.509 인증서 증명을 사용하여 Device Provisioning Service에 디바이스 그룹 등록 
 
@@ -640,6 +640,6 @@ Device Provisioning Service에 인증서를 추가하고 확인하려면 다음�
 :::zone pivot="programming-language-nodejs"
 
 > [!div class="nextstepaction"]
->[Node.js 디바이스 프로비저닝 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples)
+>[Node.js 디바이스 프로비저닝 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples)
 
 :::zone-end

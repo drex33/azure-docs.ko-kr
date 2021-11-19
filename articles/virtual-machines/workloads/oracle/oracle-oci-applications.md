@@ -10,7 +10,7 @@ ms.date: 07/18/2019
 ms.author: kegorman
 ms.openlocfilehash: ac9c699addf996178b1d6aabdf010267bda75964
 ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/23/2021
 ms.locfileid: "122690071"
@@ -67,7 +67,7 @@ EBS(Oracle E-Business Suite)는 SCM(공급망 관리) 및 CRM(고객 관계 관�
 
 ### <a name="load-balancer"></a>부하 분산 장치
 
-Azure 부하 분산 장치를 사용하면 트래픽을 워크로드의 여러 인스턴스에 분산하여 고가용성을 보장할 수 있습니다. 이 경우 사용자가 웹을 통해 EBS 애플리케이션에 액세스할 수 있으므로 퍼블릭 부하 분산 장치가 설정됩니다. 부하 분산 장치는 부하를 중간 계층의 두 컴퓨터 모두에 분산시킵니다. 보안을 강화하기 위해 사이트 간 VPN 또는 ExpressRoute 및 네트워크 보안 그룹을 사용하여 회사 네트워크에서 시스템에 액세스하는 사용자의 트래픽만 허용합니다.
+Azure Load Balancer를 사용하면 트래픽을 워크로드의 여러 인스턴스에 분산하여 고가용성을 보장할 수 있습니다. 이 경우 사용자가 웹을 통해 EBS 애플리케이션에 액세스할 수 있으므로 퍼블릭 부하 분산 장치가 설정됩니다. Load Balancer는 부하를 중간 계층의 두 컴퓨터 모두에 분산시킵니다. 보안을 강화하기 위해 사이트 간 VPN 또는 ExpressRoute 및 네트워크 보안 그룹을 사용하여 회사 네트워크에서 시스템에 액세스하는 사용자의 트래픽만 허용합니다.
 
 ### <a name="database-tier"></a>데이터베이스 계층
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: contperf-fy21q1, contperf-fy21q2
-ms.openlocfilehash: e8b7478ba64da0f99a9b7a710222ff2953795adf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 57e0d850166d0fa2ca4f26b6d4b4729a18a11348
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943197"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808074"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -18,11 +18,15 @@ ms.locfileid: "98943197"
 
 ## <a name="background"></a>배경
 
-Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. HDInsight 클러스터에 설치된 Beeline 클라이언트에 연결하거나 로컬로 Beeline을 설치하려면 [Apache Beeline에 연결 또는 설치](connect-install-beeline.md)를 참조하세요. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
+Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. 이 문서에서는 Hive 쿼리 및 [HiveQL 파일](#run-a-hive-query)를 사용하는 예제를 통해 이 도구를 사용하는 방법을 설명합니다. [](#run-a-hive-query)
+
+HDInsight 클러스터에 설치된 Beeline 클라이언트에 연결하거나 Beeline을 로컬로 설치하려면 가이드에 따라 [Apache Beeline 에 연결하거나 설치합니다.](connect-install-beeline.md) 
+
+Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
 
 ## <a name="prerequisites-for-examples"></a>예에 대한 필수 조건
 
-* HDInsight의 Hadoop 클러스터입니다. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* Azure HDInsight Hadoop 클러스터. 클러스터가 필요한 경우 가이드에 따라 [HDInsight 클러스터를 만듭니다.](../hdinsight-hadoop-create-linux-clusters-portal.md)
 
 * 클러스터의 기본 스토리지에 대한 URI 체계를 확인합니다. 예를 들어, Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. 자세한 내용은 [전송 보안](../../storage/common/storage-require-secure-transfer.md)을 참조하세요.
 
@@ -30,7 +34,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 ## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
-이 예제는 SSH 연결에서 Beeline 클라이언트를 사용하는 방식을 기준으로 합니다.
+이 예제는 [SSH 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)에서 Beeline 클라이언트를 사용하는 것을 기반으로 합니다.
 
 1. 아래 코드를 사용하여 클러스터에 대한 SSH 연결을 엽니다. `sshuser`은 클러스터의 SSH 사용자로, `CLUSTERNAME`은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다.
 
@@ -211,5 +215,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 ## <a name="next-steps"></a>다음 단계
 
 * HDInsight의 Hive에 대한 일반적인 정보는 [HDInsight에서 Apache Hadoop과 Apache Hive 함께 사용](hdinsight-use-hive.md)을 참조하세요.
+
+* HiveQL 언어 참조는 언어 [설명서에서](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 찾을 수 있습니다.
 
 * HDInsight에서 Hadoop으로 작업하는 다른 방법에 대한 내용은 [hdinsight의 Apache Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.

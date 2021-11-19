@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: 0458131f64c23da9cd73643a77260838da25ffa8
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 5fd94f155b272b31d534d6aeb075a0b7269ad112
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132763927"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808992"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device"></a>빠른 시작: 시뮬레이션된 TPM 디바이스 프로비저닝
 
@@ -595,7 +595,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     ```
 
     > [!NOTE]
-    > **Node.js용 Azure IoT SDK** 는 _AMQ_, _AMQP WS_ 및 _MQTT WS_ 와 같은 추가 프로토콜을 지원합니다.  더 많은 예제는 [Node.js 샘플용 Device Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples)를 참조하세요.
+    > **Node.js용 Azure IoT SDK** 는 _AMQ_, _AMQP WS_ 및 _MQTT WS_ 와 같은 추가 프로토콜을 지원합니다.  더 많은 예제는 [Node.js 샘플용 Device Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples)를 참조하세요.
     > 
 
 6. **globalDeviceEndpoint** 및 **idScope** 변수를 추가하고, 이러한 변수를 사용하여 **ProvisioningDeviceClient** 인스턴스를 만듭니다. **{globalDeviceEndpoint}** 및 **{idScope}** 를 **1단계** 의 **_전역 디바이스 엔드포인트_** 및 **_ID 범위_** 값으로 바꿉니다.

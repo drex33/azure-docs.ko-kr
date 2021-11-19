@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 75473561ecb827f12aeb02cb69b12259862da10b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 741599ddc93ed7fe201bf95daa8f0731056e53f1
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229661"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132807582"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기(Node.js)
 
@@ -47,7 +47,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Node.js 버전 10.0.x 이상. Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)에서 설명합니다.
+* Node.js 버전 10.0.x 이상. Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md)에서 설명합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial)을 만들 수 있습니다.
 

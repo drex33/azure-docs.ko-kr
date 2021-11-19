@@ -4,16 +4,16 @@ description: 온-프레미스 데이터 게이트웨이를 설치 및 구성하�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/17/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7cf788c4b11591121254e1712253827462deac35
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: f8ece70e4dfba34a41e44296dae47453a542b824
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113009545"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814483"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
@@ -44,6 +44,8 @@ Azure Analysis Services가 게이트웨이와 작동하는 방법에 대해 자�
 * 게이트웨이를 설치할 때 컴퓨터에 로그인한 사용자 계정에는 서비스로 로그온 권한이 있어야 합니다. 설치가 완료되면 온-프레미스 데이터 게이트웨이 서비스가 NT SERVICE\PBIEgwService 계정을 사용하여 서비스로 로그온합니다. 다른 계정은 설정하는 동안 지정하거나 설정 완료 후 서비스에서 지정할 수 있습니다. 그룹 정책 설정에서 설치할 때 로그인한 계정 및 사용자가 선택한 서비스로 로그온 권한이 있는 서비스 계정을 둘 다 허용하는지 확인합니다.
 * 게이트웨이를 등록한 구독과 동일한 [테넌트](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
 * 데이터 원본이 Azure VNet(Virtual Network)에 있는 경우 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 서버 속성을 구성해야 합니다.
+* Azure VM(Virtual Machine)에 게이트웨이를 설치하는 경우 가속화된 네트워킹을 구성하여 최적의 네트워킹 성능을 보장합니다. 자세한 내용은 [가속 네트워킹을 사용하여 Windows VM 만들기를 참조하세요.](../virtual-network/create-vm-accelerated-networking-powershell.md)
+
 
 ## <a name="download"></a>다운로드
 
@@ -152,7 +154,19 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-정말 간단하죠. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+## <a name="optimize"></a>최적화
+
+기본적으로 게이트웨이는 데이터를 Analysis Services 서버 리소스로 보내기 전에 스풀링하여 데이터 로드 및 새로 고침 작업 중에 성능이 저하될 수 있습니다. 최적의 성능을 보장하려면 기본 설정을 재정의합니다. 
+    
+1. C:\Program Files\On-Premises 데이터 게이트웨이 \\ **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config** 파일에서 **StreamBeforeRequestCompletes** 설정을 **True** 로 설정한 다음 저장합니다. 
+
+    ```json
+    <setting name="StreamBeforeRequestCompletes" serializeAs="String">
+       <value>True</value>
+    </setting>
+    ```
+    
+1. **온-프레미스 데이터 게이트웨이**  >  **서비스 설정** 게이트웨이를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

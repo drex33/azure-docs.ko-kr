@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 3feae35a4b7c98ea317bb9cec5dd54ca3f5db63c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bfb4fa215da1aee450c8ea109ad0f98c0f84e95c
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128562517"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814434"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -120,7 +120,7 @@ Storage Explorer를 사용하는 데 필요한 권한을 제공할 수 있는 �
 2. OpenSSL을 실행합니다.
     - Windows: 설치 디렉터리를 열고 **/bin/** 을 선택한 다음 **openssl.exe** 를 두 번 클릭합니다.
     - Mac 및 Linux: 터미널에서 `openssl`을 실행합니다.
-3. 스토리지 리소스가 뒤에 있는 Microsoft 또는 Azure 호스트 이름에 대해 `s_client -showcerts -connect <hostname>:443` 명령을 실행합니다. 여기에서 Storage Explorer에서 자주 액세스하는 호스트 이름 목록을 찾을 수 있습니다.
+3. 스토리지 리소스가 뒤에 있는 Microsoft 또는 Azure 호스트 이름에 대해 `openssl s_client -showcerts -connect <hostname>:443` 명령을 실행합니다. 여기에서 Storage Explorer에서 자주 액세스하는 호스트 이름 목록을 찾을 수 있습니다.
 4. 자체 서명된 인증서를 찾습니다. 제목 `("s:")` 및 발급자 `("i:")`가 동일한 경우 인증서가 자체 서명되었을 가능성이 큽니다.
 5. 자체 서명된 인증서를 찾으면 각 인증서에 대해 `-----BEGIN CERTIFICATE-----`에서 `-----END CERTIFICATE-----`까지(및 포함) 모든 항목을 복사하여 새 .cer 파일에 붙여넣습니다.
 6. Storage Explorer를 열고 **편집** > **SSL 인증서** > **인증서 가져오기** 로 이동합니다. 그런 다음 파일 선택기를 사용하여 생성한 .cer 파일을 찾아 선택하고 엽니다.
@@ -400,10 +400,10 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer 하려면 .net Core 3.1이 시스템에 설치 되어 있어야 합니다.
+Storage Explorer 시스템에 .NET Core 3.1을 설치해야 합니다.
 
 > [!NOTE]
-> 1.8.0 1.20.1를 통해 Storage Explorer 버전은 .net Core 2.1이 필요 합니다. Storage Explorer 버전 1.7.0 이하에는 .NET Core 2.0이 필요합니다.
+> Storage Explorer 버전 1.8.0~ 1.20.1에는 .NET Core 2.1이 필요합니다. Storage Explorer 버전 1.7.0 이하에는 .NET Core 2.0이 필요합니다.
 
 ### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 

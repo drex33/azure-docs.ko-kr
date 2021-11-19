@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: template-quickstart, ignite-fall-2021
-ms.openlocfilehash: effbdd0482e40535793e2c60dcdce3b4cdb518e6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d27bef4eedec63a2fccd3ddc5c30ed07e430c0ff
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131466468"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132808055"
 ---
 # <a name="quickstart-create-a-mesh-network-with-azure-virtual-network-manager-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하는 Azure Virtual Network Manager를 통해 메시 네트워크 만들기
 
@@ -49,7 +49,7 @@ Install-Module -Name Az.Network -AllowPrerelease
 
 ## <a name="create-virtual-network-manager"></a>Virtual Network Manager 만들기
 
-1. 이 Azure Virtual Network Manager 인스턴스에 포함될 범위 및 액세스 유형을 정의합니다. 구독 그룹 또는 관리 그룹이나 둘의 조합을 사용하여 범위를 만들기 위해 선택할 수 있습니다. [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope)을 사용하여 범위를 만듭니다.
+1. 이 Azure Virtual Network Manager 인스턴스에 포함될 범위 및 액세스 유형을 정의합니다. 구독 그룹 또는 관리 그룹이나 둘의 조합을 사용하여 범위를 만들기 위해 선택할 수 있습니다. New-AzNetworkManagerScope을 사용하여 범위를 만듭니다.
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[string]]$subGroup = @()  
@@ -64,7 +64,7 @@ Install-Module -Name Az.Network -AllowPrerelease
     $scope = New-AzNetworkManagerScope -Subscription $subGroup  -ManagementGroup $mgGroup
     ```
 
-1. [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager)를 사용하여 Virtual Network Manager를 만듭니다. 이 예제에서는 미국 서부에 위치한 **myAVNM** 이라는 Azure Virtual Network Manager를 만듭니다.
+1. New-AzNetworkManager를 사용하여 Virtual Network Manager를 만듭니다. 이 예제에서는 미국 서부에 위치한 **myAVNM** 이라는 Azure Virtual Network Manager를 만듭니다.
 
     ```azurepowershell-interactive
     $avnm = @{
@@ -155,7 +155,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 
 ### <a name="static-membership"></a>정적 멤버 자격
 
-1. [New-AzNetworkManagerGroupMembersItem](/powershell/module/az.network/new-aznetworkmanagergroupmembersitem)을 사용하여 정적 가상 네트워크 멤버를 만듭니다.
+1. New-AzNetworkManagerGroupMembersItem을 사용하여 정적 가상 네트워크 멤버를 만듭니다.
 
     ```azurepowershell-interactive
     $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
@@ -183,7 +183,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
     }' 
     ```
 
-1. [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup)을 사용하여 마지막 단계에서 정의한 조건문을 통해 네트워크 그룹을 만듭니다.
+1. New-AzNetworkManagerGroup을 사용하여 마지막 단계에서 정의한 조건문을 통해 네트워크 그룹을 만듭니다.
 
     ```azurepowershell-interactive
     $ng = @{
@@ -199,7 +199,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 
 ## <a name="create-a-configuration"></a>구성 만들기
 
-1. [New-AzNetworkManagerConnectivityGroupItem](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem)을 사용하여 네트워크 그룹을 추가할 연결 그룹 항목을 만듭니다.
+1. New-AzNetworkManagerConnectivityGroupItem을 사용하여 네트워크 그룹을 추가할 연결 그룹 항목을 만듭니다.
 
     ```azurepowershell-interactive
     $gi = @{
@@ -215,7 +215,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
     $configGroup.Add($groupItem)
     ```
 
-1. [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration)을 사용하여 연결 구성을 만듭니다.
+1. New-AzNetworkManagerConnectivityConfiguration을 사용하여 연결 구성을 만듭니다.
 
     ```azurepowershell-interactive
     $config = @{
@@ -230,7 +230,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 
 ## <a name="commit-deployment"></a>배포 커밋
 
-[Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit)을 사용하여 대상 지역에 구성을 커밋합니다.
+Deploy-AzNetworkManagerCommit을 사용하여 대상 지역에 구성을 커밋합니다.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
@@ -252,11 +252,11 @@ Deploy-AzNetworkManagerCommit @deployment
 
 Azure Virtual Network Manager가 더 이상 필요하지 않은 경우 리소스를 삭제하기 전에 다음 사항을 모두 충족해야 합니다.
 
-* 모든 지역에 구성이 배포되지 않습니다.
+* 어떤 지역에도 배포된 구성이 없습니다.
 * 모든 구성이 삭제되었습니다.
 * 모든 네트워크 그룹이 삭제되었습니다.
 
-1. [Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit)로 빈 구성을 배포하여 연결 배포를 제거합니다.
+1. Deploy-AzNetworkManagerCommit로 빈 구성을 배포하여 연결 배포를 제거합니다.
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[string]]$configIds = @()
@@ -272,7 +272,7 @@ Azure Virtual Network Manager가 더 이상 필요하지 않은 경우 리소스
     Deploy-AzNetworkManagerCommit @removedeployment
     ```
 
-1. [Remove-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/remove-aznetworkmanagerconnectivityconfiguration)을 사용하여 연결 구성을 제거합니다
+1. Remove-AzNetworkManagerConnectivityConfiguration을 사용하여 연결 구성을 제거합니다
 
     ```azurepowershell-interactive
     $removeconfig = @{
@@ -283,7 +283,7 @@ Azure Virtual Network Manager가 더 이상 필요하지 않은 경우 리소스
     Remove-AzNetworkManagerConnectivityConfiguration @removeconfig   
     ```
 
-1. [Remove-AzNetworkManagerGroup](/powershell/module/az.network/remove-aznetworkmanagergroup)을 사용하여 네트워크 그룹을 제거합니다.
+1. Remove-AzNetworkManagerGroup을 사용하여 네트워크 그룹을 제거합니다.
 
     ```azurepowershell-interactive
     $removegroup = @{
@@ -294,7 +294,7 @@ Azure Virtual Network Manager가 더 이상 필요하지 않은 경우 리소스
     Remove-AzNetworkManagerGroup @removegroup
     ```
 
-1. [Remove-AzNetworkManager](/powershell/module/az.network/remove-aznetworkmanager)를 사용하여 네트워크 관리자 인스턴스를 삭제합니다.
+1. Remove-AzNetworkManager를 사용하여 네트워크 관리자 인스턴스를 삭제합니다.
 
     ```azurepowershell-interactive
     $removenetworkmanager = @{

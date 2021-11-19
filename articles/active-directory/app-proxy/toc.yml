@@ -11,7 +11,7 @@
   expanded: true
   items:
     - name: 앱 통합 자습서 목록
-      href: /azure/active-directory/saas-apps/
+      href: /azure/active-directory/saas-apps/tutorial-list
     - name: 애플리케이션 프록시를 통해 온-프레미스 앱 추가
       href: application-proxy-add-on-premises-application.md
 - name: 샘플
@@ -170,7 +170,7 @@
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-active-directory.html
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow

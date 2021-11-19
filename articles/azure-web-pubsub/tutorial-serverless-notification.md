@@ -6,18 +6,18 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 3fb4c5dbbc8ea073962cd7e0edb3e53c4c9920d5
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: c9e0a59e5e228d500ca011ce20c20153c3a9558b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132494029"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709048"
 ---
 # <a name="tutorial-create-a-serverless-notification-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 알림 앱 만들기
 
 Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 메시징 웹 애플리케이션을 쉽게 빌드할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 자습서에서는 Azure Web PubSub 서비스 및 Azure Functions를 사용하여 알림 시나리오의 실시간 메시징과 함께 서버리스 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 서버리스 알림 앱 빌드
@@ -70,7 +70,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
 2. *`Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
 
     > [!NOTE]
-    > [확장 번들](/azure/azure-functions/functions-bindings-register#extension-bundles)이 지원되는 경우 이 단계는 선택사항입니다.
+    > [확장 번들](../azure-functions/functions-bindings-register.md#extension-bundles)이 지원되는 경우 이 단계는 선택사항입니다.
 
    a. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
     ```json

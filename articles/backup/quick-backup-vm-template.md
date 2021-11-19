@@ -3,16 +3,19 @@ title: 빠른 시작 - Resource Manager 템플릿 VM Backup
 description: Azure Resource Manager 템플릿을 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 11/15/2021
 ms.custom: mvc,subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 8657ea43abe0808734a5223131a3105414deb385
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: de01bcb2a7617be2a5a2d3f0d16ad1a1b1dc8ce6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433907"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710565"
 ---
-# <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure에서 가상 머신 백업
+#  <a name="back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>ARM 템플릿을 사용하여 Azure에서 가상 머신 백업
 
 [Azure Backup](backup-overview.md)은 온-프레미스 머신과 앱, Azure VM을 백업합니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)과 Azure PowerShell을 사용하여 Azure VM을 백업하는 방법을 보여줍니다. 이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들기 위해 ARM 템플릿을 배포하는 과정에 중점을 둡니다. ARM 탬플릿 개발에 대한 자세한 내용은 [Azure Resource Manager 설명서](../azure-resource-manager/index.yml) 및 [템플릿 참조](/azure/templates/microsoft.recoveryservices/allversions)를 참조하세요.
 
@@ -26,7 +29,7 @@ ms.locfileid: "113433907"
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/)에서 나온 것입니다. 이 템플릿을 사용하면 보호를 위해 DefaultPolicy로 구성된 간단한 Windows VM 및 Recovery Services 자격 증명 모음을 배포할 수 있습니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/)에서 나온 것입니다. 이 템플릿을 사용하면 _보호_ 용 _DefaultPolicy_ 로 구성된 간단한 Windows VM 및 Recovery Services 자격 증명 모음을 배포할 수 있습니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 
@@ -65,7 +68,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### <a name="start-a-backup-job"></a>백업 작업 시작
 
-템플릿은 VM을 만들고 VM에서 다시 사용하도록 설정합니다. 템플릿을 배포한 후에는 백업 작업을 시작해야 합니다. 자세한 내용은 [백업 작업 시작](./quick-backup-vm-powershell.md#start-a-backup-job)을 참조하세요.
+템플릿은 VM을 만들고 VM에서 백업을 사용하도록 설정합니다. 템플릿을 배포한 후에는 백업 작업을 시작해야 합니다. 자세한 내용은 [백업 작업 시작](./quick-backup-vm-powershell.md#start-a-backup-job)을 참조하세요.
 
 ### <a name="monitor-the-backup-job"></a>백업 작업 모니터링
 

@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.openlocfilehash: a139996e881d38fb9170242196b2139993f501ae
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 94bd9d22876f264ffd438d579c48aa037ed87c3f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028823"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486628"
 ---
 # <a name="quickstart-purchase-commitment-tier-pricing"></a>빠른 시작: 구매 약정 계층 가격 책정
 
@@ -97,9 +97,9 @@ Cognitive Services는 종량제 가격 책정 모델과 비교하여 할인된 �
 
 ## <a name="end-a-commitment-plan"></a>약정 플랜 종료
 
-약정 플랜을 계속 구매하지 않으려는 경우 리소스의 자동 갱신을 **자동 갱신 안 함** 으로 설정할 수 있습니다. 약정 플랜은 표시된 약정 종료 날짜에 만료됩니다. 이 날짜 이후에는 약정 플랜에 대한 요금이 청구되지 않습니다. Azure 리소스를 계속 사용하여 API를 호출할 수 있으며, 요금은 종량제 가격으로 청구됩니다.
+약정 플랜을 계속 구매하지 않으려는 경우 리소스의 자동 갱신을 **자동 갱신 안 함** 으로 설정할 수 있습니다. 약정 플랜은 표시된 약정 종료 날짜에 만료됩니다. 이 날짜 이후에는 약정 플랜에 대한 요금이 청구되지 않습니다. Azure 리소스를 계속 사용하여 종량제 가격으로 청구되는 API를 호출할 수 있습니다. 매월 마지막 날 자정(UTC)까지 약정 요금제를 종료해야 하며 다음 달에는 요금이 청구되지 않습니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [약정 계층 가격 책정 구매 신청서 제출](https://aka.ms/csgatecommitment)

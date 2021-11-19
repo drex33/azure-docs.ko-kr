@@ -9,16 +9,16 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: 9c3c5cd60c7eec5832d8e609e960fd42d38855cc
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 85a7ca3dc50cb95fc545be6b486a300247837450
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557816"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714906"
 ---
 #  <a name="create-azure-arc-data-controller-from-azure-portal---direct-connectivity-mode"></a>Azure Portal에서 Azure Arc 데이터 컨트롤러 만들기 - 직접 연결 모드
 
-이 문서에서는 이 기능의 현재 미리 보기 기간 동안 직접 연결 모드에서 Azure Arc 데이터 컨트롤러를 배포하는 방법을 설명합니다. 
+이 문서에서는 Azure Portal에서 직접 연결 모드로 Azure Arc 데이터 컨트롤러를 배포하는 방법을 설명합니다. 
 
 ## <a name="complete-prerequisites"></a>필수 조건 완료
 

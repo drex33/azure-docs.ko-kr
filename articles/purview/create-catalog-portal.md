@@ -3,16 +3,16 @@ title: '빠른 시작: Azure Portal에 Purview 계정 만들기'
 description: 이 빠른 시작에서는 Azure Purview 계정을 만들고, 사용을 시작할 수 있는 권한을 구성하는 방법을 설명합니다.
 author: nayenama
 ms.author: nayenama
-ms.date: 09/27/2021
+ms.date: 11/15/2021
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-portal
-ms.openlocfilehash: a84af112016ea4775f19234e89551f5f69b059bf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1113d657b6f60ff58e6d3450403833ccf5dd1c95
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037856"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758246"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Purview 계정 만들기
 
@@ -72,8 +72,14 @@ Azure Purview 계정이 생성된 후 Purview Studio를 사용하여 계정을 �
 
 이 빠른 시작에서는 Azure Purview 계정을 만들고 Purview Studio를 통해 계정에 액세스하는 방법을 배웠습니다.
 
+다음으로, 새 Azure Purview 계정이 Azure AD(Azure Active Directory) 인증을 사용하여 리소스로 직접 인증할 수 있도록 하는 UAMI(사용자 할당 관리 ID)를 만들 수 있습니다.
+
+UAMI를 만들려면 [가이드에 따라 사용자 할당 관리 ID를 만듭니다](manage-credentials.md#create-a-user-assigned-managed-identity).
+
 Purview Studio를 탐색하고, 컬렉션을 만들고, Purview에 대해 액세스 권한을 부여하는 방법을 알아보려면 다음 문서를 참조하세요.
 
 * [Purview Studio 사용](use-purview-studio.md)
 * [컬렉션 만들기](quickstart-create-collection.md)
 * [Azure Purview 계정에 사용자 추가](catalog-permissions.md)
+
+

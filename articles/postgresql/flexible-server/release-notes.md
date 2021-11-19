@@ -6,13 +6,13 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2021
-ms.openlocfilehash: 24b5db0411241778ce9afd63a4a167b9d6d483eb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/18/2021
+ms.openlocfilehash: 672fa91d0fc6785332ace1d45f8e1c080895347e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433420"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721863"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>릴리스 정보 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -20,6 +20,22 @@ ms.locfileid: "131433420"
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
+## <a name="release-november-2021"></a>릴리스: 2021년 11월
+
+* 새 서버를 만들어 [최신 PostgreSQL 부](./concepts-supported-versions.md) 13.4, 12.8 및 11.13 지원<sup>$</sup>
+* 선택된 쌍을 이루는(미국 동부 2, 미국 중부, 북유럽, 서유럽, 일본 동부 및 일본 서부)의 미리 보기에서 [지역 중복 백업 및 복원](concepts-backup-restore.md) 기능을 지원합니다.
+*  높은 처리량 스트리밍 데이터를 기존 테이블에 수집하기 위해 [미리 보기에서 ASA(Azure Stream Analytics) 커넥터](https://techcommunity.microsoft.com/t5/analytics-on-azure/stream-analytics-updates-ignite-fall-2021-new-outputs-new/ba-p/2919170)를 지원합니다.
+*  여러 버그 수정, 안정성 및 성능 향상<sup>$</sup>
+
+<sup> **$**</sup> 새 서버는 이러한 기능을 자동으로 가져옵니다. 기존 서버에서 이러한 기능은 서버의 향후 유지 관리 기간 동안 사용하도록 설정됩니다.
+
+## <a name="release-october-2021"></a>릴리스: 2021년 10월
+
+*   [Ddsv4 및 Edsv4 SKU](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/flexible-server-now-supports-v4-compute-series-in-postgresql-on/ba-p/2815092)를 지원합니다. 
+*   `azure.enable_temp_tablespaces_on_local_ssd` 서버 매개 변수를 사용하여 임시 테이블스페이스에 대한 로컬 디스크를 선택할 수 있습니다.
+*   Azure Portal의 서버 매개 변수 페이지에는 측정 단위 및 대부분의 매개 변수에 대한 PostgreSQL 문서 링크가 표시됩니다.
+*   여러 버그 수정, 안정성 및 성능 향상
 
 ## <a name="release-september-2021"></a>릴리스: 2021년 9월
 
@@ -69,6 +85,13 @@ ms.locfileid: "131433420"
 * 공개 미리 보기의 [지능형 성능](concepts-query-store.md)
 * 여러 버그 수정, 안정성 및 성능 향상
 
+## <a name="release-october-2020---march-2021"></a>릴리스: 2020년 10월 - 2021년 3월
+
+*  `az postgres flexible- server connect` 명령으로 Azure CLI를 사용하여 유연한 서버에 [연결](connect-azure-cli.md)하는 환경이 개선되었습니다.
+*  [새 지역](overview.md#azure-regions)을 지원합니다.
+*  부 버전 표시, 개요 블레이드의 메트릭 요약 등 여러 가지 포털 기능이 향상되었습니다.
+*  여러 버그 수정, 안정성 및 성능 향상
+
 ## <a name="contacts"></a>연락처
 
 Azure Database for PostgreSQL 유연한 서버에 대한 질문이나 제안이 있으면 Azure Database for PostgreSQL 팀([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com))으로 이메일을 보내주세요. 이 이메일 주소는 기술 지원 별칭이 아닙니다.
@@ -77,7 +100,7 @@ Azure Database for PostgreSQL 유연한 서버에 대한 질문이나 제안이 
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)를 통해 항목을 만드세요.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)를 통해 항목을 만드세요.
   
 
 ## <a name="next-steps"></a>다음 단계

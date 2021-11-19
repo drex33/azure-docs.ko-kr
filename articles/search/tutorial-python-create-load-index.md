@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/25/2021
+ms.date: 11/17/2021
 ms.custom: devx-track-python
 ms.devlang: python
-ms.openlocfilehash: a9678e542e577c13141f18e59fe2e628ed465321
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 279e5f00b68d9b64e84b679942be5aadf395300f
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580669"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755643"
 ---
 # <a name="2---create-and-load-search-index-with-python"></a>2 - Python을 사용하여 검색 인덱스 만들기 및 로드
 
@@ -63,10 +63,10 @@ Visual Studio Code 확장을 사용하여 검색 리소스 관리자 키를 가�
 
 1. Visual Studio Code에서 `search-website/bulk-upload` 하위 디렉터리의 `bulk_upload.py` 파일을 열고, Azure Search SDK를 사용하여 인증하기 위해 다음 변수를 사용자 고유의 값으로 바꿉니다.
 
-    * YOUR-SEARCH-RESOURCE-NAME
-    * YOUR-SEARCH-ADMIN-KEY
+    * YOUR-SEARCH-SERVICE-NAME
+    * YOUR-SEARCH-SERVICE-ADMIN-API-KEY
 
-    :::code language="python" source="~/azure-search-python-samples/search-website/bulk-upload/bulk-upload.py" highlight="12,13, 117" :::
+    :::code language="python" source="~/azure-search-python-samples/search-website/bulk-upload/bulk-upload.py" highlight="20,21,69,83,135" :::
 
 1. Visual Studio에서 프로젝트 디렉터리의 `search-website/bulk-upload` 하위 디렉터리에 대한 통합 터미널을 열고, 다음 명령을 실행하여 종속성을 설치합니다. 
 

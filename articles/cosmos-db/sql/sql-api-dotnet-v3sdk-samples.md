@@ -8,23 +8,23 @@ ms.topic: sample
 ms.date: 08/26/2021
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 49fe2beefedc15068356a4706bcb49ae4054ada4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 999b4c422bdb9515565671629fd7cdcbce12f0bc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117840"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758753"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SQL API에 대한 Azure Cosmos DB .NET V3 SDK(Microsoft.Azure.Cosmos) 예제
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V2 SDK 예제](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK 예제](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK 예제](sql-api-java-sdk-samples.md)
 > * [Spring Data V3 SDK 예제](sql-api-spring-data-sdk-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)
 > * [Python 예제](sql-api-python-samples.md)
+> * [.NET V2 SDK 예제(레거시)](sql-api-dotnet-v2sdk-samples.md)
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 >
 >

@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: eur
-ms.openlocfilehash: 7c323c6900930cda901ffb0ec09ce96150eafce2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 6b830d9afd3177aaa9efd0effb7fa8d3fd2e46dc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505558"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719925"
 ---
 # <a name="speech-cli-configuration-options"></a>Speech CLI 구성 옵션
 
 Speech CLI의 동작은 `@` 기호를 사용하여 참조할 수 있는 구성 파일의 설정에 의존할 수 있습니다. Speech CLI는 Speech CLI의 현재 작업 디렉터리에서 만든 새 `./spx/data` 하위 디렉터리에 새 설정을 저장합니다. 구성 값을 찾을 때 Speech CLI는 현재 작업 디렉터리, `./spx/data`의 데이터 저장소, `spx` 이진의 마지막 읽기 전용 데이터 저장소를 포함한 다른 데이터 저장소에서 차례로 검색합니다. 
 
 Speech CLI 빠른 시작에서 데이터 저장소를 사용하여 `@key` 및 `@region` 값을 저장했으므로 각 `spx` 명령으로 지정할 필요가 없었습니다. 구성 파일을 사용하여 사용자 고유의 구성 설정을 저장하거나, 런타임에 생성된 URL 또는 기타 동적 콘텐츠를 전달하는 데 사용할 수도 있습니다.
+
+> [!NOTE]
+> PowerShell에서 [stop-parsing 토큰](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---)(`--%`)은 `spx` 다음에 와야 합니다. 예를 들어 `spx --% config @region`을 실행하여 현재 지역 구성 값을 확인합니다.
 
 ## <a name="create-and-manage-configuration-files-in-the-datastore"></a>데이터 저장소의 구성 파일 만들기 및 관리
 

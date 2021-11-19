@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: c1db7a4642d9a4fd14189a1e15e008c9b9ddd6c9
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 8a181f48bcdf7ec186aac1b05d3aaf135fa35c09
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132345644"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550498"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-between-websocket-clients-using-subprotocol"></a>자습서: 하위 프로토콜을 사용하여 WebSocket 클라이언트 간에 메시지 게시 및 구독
 
@@ -61,6 +61,10 @@ ms.locfileid: "132345644"
 # <a name="python"></a>[Python](#tab/python)
 * [Python](https://www.python.org/)
 
+# <a name="java"></a>[Java](#tab/java)
+- [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상
+- [Apache Maven](https://maven.apache.org/download.cgi)
+
 ---
 
 ## <a name="using-a-subprotocol"></a>하위 프로토콜 사용
@@ -79,7 +83,7 @@ ms.locfileid: "132345644"
     cd logstream
     dotnet new web
     dotnet add package Microsoft.Extensions.Azure
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
     
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
@@ -91,7 +95,7 @@ ms.locfileid: "132345644"
     npm install --save express
     npm install --save ws
     npm install --save node-fetch
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
     ```
 
     # <a name="python"></a>[Python](#tab/python)
@@ -107,6 +111,42 @@ ms.locfileid: "132345644"
     pip install azure-messaging-webpubsubservice
     ```
     
+    # <a name="java"></a>[Java](#tab/java)
+    
+    [Javalin](https://javalin.io/) 웹 프레임워크를 사용하여 웹 페이지를 호스트합니다.
+    
+    1. 먼저 Maven을 사용하여 새 `logstream-webserver` 앱을 만들고 *logstream-webserver* 폴더로 전환해 보겠습니다.
+    
+        ```console
+        mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.tutorial --define artifactId=logstream-webserver --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
+        cd logstream-webserver
+        ```
+    
+    2. Azure Web PubSub SDK 및 `javalin` 웹 프레임워크 종속성을 `pom.xml`의 `dependencies` 노드에 추가해 보겠습니다.
+    
+        * `javalin`: 간단한 Java용 간단한 웹 프레임워크
+        * `slf4j-simple`: Java용 로거
+        * `azure-messaging-webpubsub`: Azure Web PubSub를 사용하는 서비스 클라이언트 SDK
+
+        ```xml
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-webpubsub</artifactId>
+            <version>1.0.0-beta.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.javalin/javalin -->
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin</artifactId>
+            <version>3.13.6</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        ```
     ---
     
 2.  `/negotiate` API 및 웹 페이지를 호스트하는 서버 쪽을 만듭니다.
@@ -166,7 +206,7 @@ ms.locfileid: "132345644"
                         var service = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
                         var response = new
                         {
-                            url = service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
+                            url = service.GetClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
                         };
                         await context.Response.WriteAsJsonAsync(response);
                     });
@@ -241,7 +281,71 @@ ms.locfileid: "132345644"
         server.serve_forever()
     
     ```
+    
+    # <a name="java"></a>[Java](#tab/java)
 
+    다음과 같이 편집기에서 */src/main/java/com/webpubsub/tutorial* 디렉터리를 찾아서 *App.java* 파일을 열고, `Javalin.create`를 사용하여 고정 파일을 제공합니다.
+
+    ```java
+    package com.webpubsub.tutorial;
+    
+    import com.azure.messaging.webpubsub.WebPubSubServiceClient;
+    import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
+    import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
+    import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
+    
+    import io.javalin.Javalin;
+    
+    public class App {
+        public static void main(String[] args) {
+            
+            if (args.length != 1) {
+                System.out.println("Expecting 1 arguments: <connection-string>");
+                return;
+            }
+    
+            // create the service client
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
+                    .connectionString(args[0])
+                    .hub("chat")
+                    .buildClient();
+    
+            // start a server
+            Javalin app = Javalin.create(config -> {
+                config.addStaticFiles("public");
+            }).start(8080);
+    
+            
+            // Handle the negotiate request and return the token to the client
+            app.get("/negotiate", ctx -> {
+                GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
+                option.addRole("webpubsub.sendToGroup.stream");
+                option.addRole("webpubsub.joinLeaveGroup.stream");
+                WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+    
+                // return JSON string
+                ctx.result("{\"url\":\"" + token.getUrl() + "\"}");
+                return;
+            });
+        }
+    }
+    ```
+
+    설정에 따라 언어 수준을 Java 8로 명시적으로 설정해야 할 수도 있습니다. 이 작업은 pom.xml에서 수행할 수 있습니다. 다음 코드 조각을 추가합니다.
+    ```xml
+    <build>
+        <plugins>
+            <plugin>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.0</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    ```
     ---
     
 3.  웹 페이지 만들기
@@ -257,6 +361,9 @@ ms.locfileid: "132345644"
 
     아래 내용으로 HTML 페이지를 만들고 `public/index.html`로 저장합니다.
     
+    # <a name="java"></a>[Java](#tab/java)
+
+    <a name="create-an-html-page-with-below-content-and-save-it-to-srcmainresourcespublicindexhtml"></a>아래 콘텐츠를 사용하여 HTML 페이지를 만들고 */src/main/resources/public/index.html* 에 저장합니다.
     ---
     
     ```html
@@ -313,6 +420,14 @@ ms.locfileid: "132345644"
 
     ```bash
     python server.py "<connection-string>"
+    ```
+
+    # <a name="java"></a>[Java](#tab/java)
+
+    이제 아래 명령을 실행하고, `<connection-string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꾸고, 브라우저에서 http://localhost:8080 을 엽니다.
+
+    ```console
+    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>'"
     ```
     ---
 
@@ -485,6 +600,123 @@ ms.locfileid: "132345644"
 
     위의 코드는 서비스에 대한 WebSocket 연결을 만든 다음, 데이터를 수신할 때마다 `ws.send()`를 사용하여 데이터를 게시합니다. 다른 클라이언트에 게시하려면 `type`을 `sendToGroup`으로 설정하고 메시지의 그룹 이름을 지정하기만 하면 됩니다.
     
+    # <a name="java"></a>[Java](#tab/java)
+
+    1.  다른 터미널을 사용하여 루트 폴더로 돌아가서 스트리밍 콘솔 앱 `logstream-streaming`을 만들고 *logstream-streaming* 폴더로 전환해 보겠습니다.
+        ```console
+        mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=logstream-streaming --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
+        cd logstream-streaming
+        ```
+    
+    2. HttpClient 종속성을 `pom.xml`의 `dependencies` 노드에 추가해 보겠습니다.
+    
+        ```xml
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.8.9</version>
+        </dependency>
+        ```
+    
+    3. 이제 WebSocket을 사용하여 서비스에 연결해 보겠습니다. */src/main/java/com/webpubsub/quickstart* 디렉터리로 이동하고, 편집기에서 *App.java* 파일을 열고, 코드를 아래 코드로 바꿉니다.
+    ```java
+    package com.webpubsub.quickstart;
+    
+    import java.io.BufferedReader;
+    import java.io.IOException;
+    import java.io.InputStreamReader;
+    import java.net.URI;
+    import java.net.http.HttpClient;
+    import java.net.http.HttpRequest;
+    import java.net.http.HttpResponse;
+    import java.net.http.WebSocket;
+    import java.util.concurrent.CompletionStage;
+    
+    import com.google.gson.Gson;
+    
+    public class App 
+    {
+        public static void main( String[] args ) throws IOException, InterruptedException
+        {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/negotiate"))
+                .build();
+    
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            
+            Gson gson = new Gson();
+    
+            String url = gson.fromJson(response.body(), Entity.class).url;
+    
+            WebSocket ws = HttpClient.newHttpClient().newWebSocketBuilder().subprotocols("json.webpubsub.azure.v1")
+                    .buildAsync(URI.create(url), new WebSocketClient()).join();
+            int id = 0;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String streaming = reader.readLine();
+            App app = new App();
+            while (streaming != null && !streaming.isEmpty()){
+                String frame = gson.toJson(app.new GroupMessage(streaming + "\n", ++id));
+                System.out.println("Sending: " + frame);
+                ws.sendText(frame, true);
+                streaming = reader.readLine();
+            }
+        }
+    
+        private class GroupMessage{
+            public String data;
+            public int ackId;
+            public final String type = "sendToGroup";
+            public final String group = "stream";
+            
+            GroupMessage(String data, int ackId){
+                this.data = data;
+                this.ackId = ackId;
+            }
+        }
+    
+        private static final class WebSocketClient implements WebSocket.Listener {
+            private WebSocketClient() {
+            }
+    
+            @Override
+            public void onOpen(WebSocket webSocket) {
+                System.out.println("onOpen using subprotocol " + webSocket.getSubprotocol());
+                WebSocket.Listener.super.onOpen(webSocket);
+            }
+    
+            @Override
+            public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
+                System.out.println("onText received " + data);
+                return WebSocket.Listener.super.onText(webSocket, data, last);
+            }
+    
+            @Override
+            public void onError(WebSocket webSocket, Throwable error) {
+                System.out.println("Bad day! " + webSocket.toString());
+                WebSocket.Listener.super.onError(webSocket, error);
+            }
+        }
+    
+        private static final class Entity {
+            public String url;
+        }
+    }
+    
+    ```
+
+    4. *pom.xml* 파일이 포함된 디렉터리로 이동해 아래 명령을 사용하여 프로젝트를 실행합니다.
+    
+      ```console
+      mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false
+      ```
+    
     ---
     
     여기서는 "그룹"이라는 새로운 개념을 볼 수 있습니다. 그룹은 연결 그룹에 메시지를 게시할 수 있는 허브의 논리적 개념입니다. 허브에 여러 그룹을 포함할 수 있으며 한 클라이언트가 동시에 여러 그룹을 구독할 수 있습니다. 하위 프로토콜을 사용하는 경우 전체 허브에 브로드캐스트하는 대신 한 그룹에만 게시할 수 있습니다. 용어에 대한 자세한 내용은 [기본 개념](./key-concepts.md)을 참조하세요.
@@ -550,8 +782,19 @@ ms.locfileid: "132345644"
               'webpubsub.joinLeaveGroup.stream']
     token = service.get_client_access_token(roles=roles)
     ```
-    ---
     
+    # <a name="java"></a>[Java](#tab/java)
+    
+    액세스 토큰을 생성할 때 `App.java`에서 올바른 역할을 클라이언트에 설정합니다.
+
+    ```java
+    GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
+    option.addRole("webpubsub.sendToGroup.stream");
+    option.addRole("webpubsub.joinLeaveGroup.stream");
+    WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+
+    ```
+    ---
 
 5.  마지막으로, 보기 좋게 표시되도록 `index.html`에 스타일을 적용합니다.
 
@@ -628,6 +871,16 @@ for i in $(ls -R); do echo $i; sleep 0.1; done | python stream.py
 이 자습서의 전체 코드 샘플은 [여기][code-python]서 찾을 수 있습니다.
 
 
+# <a name="java"></a>[Java](#tab/java)
+
+이제 아래 코드를 실행하고 텍스트를 입력하면 실시간으로 브라우저에 표시됩니다.
+
+```console
+mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false
+```
+
+이 자습서의 전체 코드 샘플은 [여기][code-java]서 찾을 수 있습니다.
+
 ---
 
 
@@ -645,3 +898,5 @@ for i in $(ls -R); do echo $i; sleep 0.1; done | python stream.py
 [code-js]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/logstream/
 
 [code-python]: https://github.com/Azure/azure-webpubsub/tree/main/samples/python/logstream/
+
+[code-java]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java/logstream/

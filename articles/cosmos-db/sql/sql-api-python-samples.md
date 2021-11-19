@@ -9,23 +9,23 @@ ms.topic: sample
 ms.date: 08/26/2021
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 63995534a1c82df9d1d5777296e70ccd7016d134
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: dc828e9933c3c33edbc7c94291f09c525ce41363
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117744"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132750823"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 예제
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V2 SDK 예제](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK 예제](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK 예제](sql-api-java-sdk-samples.md)
 > * [Spring Data V3 SDK 예제](sql-api-spring-data-sdk-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)
 > * [Python 예제](sql-api-python-samples.md)
+> * [.NET V2 SDK 예제(레거시)](sql-api-dotnet-v2sdk-samples.md)
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 
 Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub 리포지토리에 포함되어 있습니다. 이 문서는 다음을 제공합니다.

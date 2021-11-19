@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)'
-description: 이 빠른 시작에서는 Defender for Cloud 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Defender for IoT 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5e1ef76bbaf3b4eedae31f08d6cf39efdfaec3df
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 30b8630cacdec1eebcb4b2984154a9869ce816ff
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343746"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707351"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
-이 문서에서는 Defender for Cloud 마이크로 에이전트를 설치하고 인증하는 방법에 대해 설명합니다.
+이 문서에서는 Defender for IoT 마이크로 에이전트를 설치하고 인증하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)를 참조하세요.
+Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [Defender for IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)를 참조하세요.
 
 ## <a name="install-the-package"></a>패키지 설치
 
@@ -55,7 +55,7 @@ Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-Defender for Cloud 마이크로 에이전트 패키지를 Debian 및 Ubuntu 기반 Linux 배포판에 설치하려면 다음 명령을 사용합니다.
+Defender for IoT 마이크로 에이전트 패키지를 Debian 및 Ubuntu 기반 Linux 배포판에 설치하려면 다음 명령을 사용합니다.
 
 ```bash
 sudo apt-get install defender-iot-micro-agent 
@@ -165,7 +165,7 @@ sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt
 
 ## <a name="micro-agent-versioning"></a>마이크로 에이전트 버전 관리
 
-특정 버전의 Defender for Cloud IoT 마이크로 에이전트를 설치하려면 다음 명령을 실행합니다.
+특정 버전의 Defender for IoT 마이크로 에이전트를 설치하려면 다음 명령을 실행합니다.
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>
@@ -174,4 +174,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)
+> [빠른 시작: Defender for IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)](quickstart-create-micro-agent-module-twin.md)

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: a9253cbb39bc58d74f6c8dd25b2251b9d2a606ef
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c6fe1e801578a63df373d67eaa2e81c7e98169ce
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132290517"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552825"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,11 +30,13 @@ Azure SQL Database는 안정적인 최신 버전의 [Microsoft SQL Server 데이
 
 SQL Database는 서로 다른 두 구매 모델 내에서 성능을 쉽게 정의하고 확장할 수 있습니다([vCore 기반 구매 모델](service-tiers-vcore.md) 및 [DTU 기반 구매 모델](service-tiers-dtu.md)). SQL Database는 기본 제공되는 고가용성, 백업 및 다른 일반적인 유지 관리 작업이 포함된 완전 관리형 서비스입니다. Microsoft는 SQL 및 운영 체제 코드의 모든 패치 및 업데이트를 처리합니다. 기본 인프라를 관리할 필요가 없습니다.
 
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
+
 Azure SQL Database를 처음 사용하는 경우에는 심층 [Azure SQL 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)에서 *Azure SQL Database 개요* 비디오를 참조하세요.
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
-> [!TIP]
-> Azure SQL을 더 잘 활용하려면 어떻게 해야 하나요? [설문 조사를 수행하세요](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
 
 ## <a name="deployment-models"></a>배포 모델
 
@@ -197,7 +199,7 @@ SQL Database를 사용하면 [Azure Active Directory 통합](authentication-aad-
 
 SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의성과 생산성을 높이세요. SQL Database를 사용하면 멋진 앱을 만드는 데만 집중할 수 있습니다. 이미 설치된 도구와 기술을 사용하여 SQL Database에서 관리하고 개발할 수 있습니다.
 
-|도구|설명|
+|도구|Description|
 |:---|:---|
 |[Azure Portal](https://portal.azure.com/)|모든 Azure 서비스를 관리하는 웹 기반 애플리케이션.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Windows, macOS 및 Linux에서 실행되는 플랫폼 간 데이터베이스 도구.|

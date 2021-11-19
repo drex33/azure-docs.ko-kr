@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 0f1b570ce00a371a4f30e890eed771fa15c22174
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 9e62a4dfde49b6b3fbc981dafde8a8e62505f00b
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131841869"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132752432"
 ---
 # <a name="connect-to-and-manage-an-azure-sql-database-managed-instance-in-azure-purview"></a>Azure Purview에서 Azure SQL Database Managed Instance 연결 및 관리
 
@@ -49,21 +49,28 @@ ms.locfileid: "131841869"
 
 새 인증을 만들어야 하는 경우 [SQL Database Managed Instance에 대한 데이터베이스 액세스 권한을 부여](../azure-sql/database/logins-create-manage.md)해야 합니다. 현재 Purview에서 지원하는 세 가지 인증 방법은 다음과 같습니다.
 
-- [관리 ID](#managed-identity-to-register)
+- [시스템 또는 사용자 할당 관리 ID](#system-or-user-assigned-managed-identity-to-register)
 - Service Principal
 - [SQL 인증](#sql-authentication-to-register)
 
-#### <a name="managed-identity-to-register"></a>등록할 관리 ID
+#### <a name="system-or-user-assigned-managed-identity-to-register"></a>등록할 시스템 또는 사용자 할당 관리 ID
 
-Purview 관리 ID는 다른 사용자, 그룹 또는 서비스 주체처럼 인증하는 데 사용할 수 있는 Purview 계정의 ID입니다.
+Purview SAMI(시스템 할당 관리 ID) 또는 [UAMI(사용자 할당 관리 ID)](manage-credentials.md#create-a-user-assigned-managed-identity)를 사용하여 인증할 수 있습니다. 두 옵션 모두 다른 사용자, 그룹 또는 서비스 주체와 마찬가지로 Purview에 직접 인증을 할당할 수 있습니다. Purview 시스템 할당 관리 ID는 계정이 만들어질 때 자동으로 만들어지고 Azure Purview 계정과 동일한 이름을 갖습니다. 사용자 할당 관리 ID는 독립적으로 만들 수 있는 리소스입니다. 만들려면 [사용자 할당 관리 ID 가이드](manage-credentials.md#create-a-user-assigned-managed-identity)를 따릅니다.
 
 다음 단계를 수행하여 Azure Portal 관리 ID 개체 ID를 찾을 수 있습니다.
 
+Purview 계정의 시스템 할당 관리 ID의 경우: 
 1. Azure Portal을 열고 Purview 계정으로 이동합니다.
 1. 왼쪽 메뉴에서 **속성** 탭을 선택합니다.
 1. **관리 ID 개체 ID** 값을 선택하고 복사합니다.
 
-관리 ID에는 데이터베이스, 스키마 및 테이블에 대한 메타데이터를 가져와서 분류를 위해 테이블을 쿼리할 수 있는 권한이 필요합니다.
+사용자가 할당한 관리 ID(미리 보기)의 경우: 
+1. Azure Portal을 열고 Purview 계정으로 이동합니다. 
+1. 왼쪽 메뉴에서 관리 ID 탭을 선택합니다. 
+1. 사용자 할당 관리 ID를 선택하고 원하는 ID를 선택하여 세부 정보를 확인합니다. 
+1. 개체(보안 주체) ID는 개요 필수 섹션에 표시됩니다.
+
+관리 ID 중 하나에는 데이터베이스, 스키마 및 테이블에 대한 메타데이터를 가져와서 분류를 위해 테이블을 쿼리할 수 있는 권한이 필요합니다.
 - [Azure AD ID에 매핑된 포함된 사용자 만들기](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)에 대한 필수 구성 요소 및 자습서에 따라 Azure SQL Database Managed Instance에서 Azure AD 사용자를 만듭니다.
 - `db_datareader` 권한을 ID에 할당합니다.
 
@@ -82,7 +89,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
  1. **+ 새 애플리케이션 등록** 을 선택합니다.
  1. **애플리케이션** 의 이름(서비스 사용자 이름)을 입력합니다.
  1. **이 조직 디렉터리의 계정만** 을 선택합니다.
- 1. 리디렉션 URI에 대해 **웹** 을 선택하고 원하는 URL을 입력합니다. 실제 또는 작업 URL일 필요가 없습니다.
+ 1. 리디렉션 URI에 대해 **웹** 을 선택하고 원하는 URL을 입력합니다. 실제 또는 작업 URL일 필요는 없습니다.
  1. 그런 다음, **등록** 을 선택합니다.
 
 #### <a name="configure-azure-ad-authentication-in-the-database-account"></a>데이터베이스 계정에서 Azure AD 인증 구성
@@ -99,7 +106,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 1. [Azure Portal](https://portal.azure.com)에서 서비스 주체로 이동합니다.
 1. **개요** 에서 **애플리케이션(클라이언트) ID** 값을 복사하고, **인증서 및 비밀** 에서 **클라이언트 암호** 값을 복사합니다.
 1. 키 자격 증명 모음으로 이동
-1. **설정 > 비밀** 을 차례로 선택합니다.
+1. **설정 > 비밀** 을 선택합니다.
 1. **+ 생성/가져오기** 를 선택하고, 선택한 **이름** 및 **값** 을 서비스 주체의 **클라이언트 암호** 로 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
@@ -110,7 +117,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 > [!Note]
 > 프로비전 프로세스를 통해 만들어진 서버 수준의 보안 주체 로그인이나 master 데이터베이스에서 `loginmanager` 데이터베이스 역할이 할당된 멤버만 새 로그인을 만들 수 있습니다. 이 작업에는 권한을 부여한 후 **15분** 정도 걸립니다. Purview 계정에는 리소스를 검사할 수 있는 적절한 권한이 있어야 합니다.
 
-Azure SQL Database Managed Instance에 대한 로그인을 사용할 수 없는 경우 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)의 지침에 따라 해당 로그인을 만들 수 있습니다. 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
+이 로그인을 사용할 수 없는 경우 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)의 지침에 따라 Azure SQL Database Managed Instance에 대한 로그인을 만들 수 있습니다. 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
 
 1. Azure Portal에서 키 자격 증명 모음으로 이동합니다.
 1. **설정 > 비밀** 을 차례로 선택합니다.
@@ -145,7 +152,7 @@ Azure SQL Database Managed Instance에 대한 로그인을 사용할 수 없는 
 
 ### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
-새 검색을 만들고 실행하려면 다음을 수행합니다.
+새 검사를 만들고 실행하려면 다음 단계를 완료합니다.
 
 1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 

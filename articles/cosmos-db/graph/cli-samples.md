@@ -5,22 +5,22 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 11/15/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 694f9bd30fa89effa1e8b575404e006e849afc36
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 012446923b8205fb3a06570cbb16ce748e7da98d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788172"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709568"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 Azure CLI 샘플
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 다음 표는 Azure Cosmos DB의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 오른쪽의 링크를 사용하여 API 관련 샘플로 이동합니다. 일반적인 샘플은 모든 API에서 동일합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI GitHub 리포지토리](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)에서도 찾을 수 있습니다.
 
-이러한 샘플에는 Azure CLI 버전 2.12.1 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+이러한 샘플에는 Azure CLI 버전 2.30 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="common-samples"></a>일반적인 샘플
 
@@ -40,6 +40,7 @@ ms.locfileid: "121788172"
 |Task | 설명 |
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 그래프 만들기](../scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Gremlin API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 그래프를 만듭니다. |
+| [Gremlin API, 데이터베이스 및 그래프용 서버리스 Azure Cosmos 계정 만들기](../scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Gremlin API에 대한 서버리스 Azure Cosmos DB 계정, 데이터베이스 및 그래프를 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정, 데이터베이스 및 그래프 만들기](../scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Gremlin API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 그래프를 만듭니다. |
 | [처리량 작업](../scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 그래프에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](../scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|

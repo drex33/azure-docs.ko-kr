@@ -1,0 +1,79 @@
+### YamlMime:FAQ
+metadata:
+  title: SAP 배포 자동화에 대한 질문과 대답
+  description: Azure에서 SAP 배포 자동화 프레임워크로 일반적인 오류를 처리하는 방법입니다.
+  author: jhajduk
+  ms.author: kimforss
+  ms.reviewer: kimforss
+  ms.date: 11/17/2021
+  ms.topic: faq
+  ms.service: virtual-machines-sap
+  ms.openlocfilehash: 11871f0751c0608cfae68e358f44caab8ca60668
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132730418"
+title: Azure의 SAP 배포 자동화 프레임워크 FAQ
+summary: "## <a name=\"frequently-asked-questions\"></a>질문과 대답\n\n이 문서에서는 [Azure의 SAP 배포 자동화 프레임워크](automation-deployment-framework.md)에 대한 FAQ(질문과 대답)를 제공합니다.\n  \n"
+sections:
+- name: Terraform 배포
+  questions:
+  - question: "\"잘못된 매개 변수 파일\" 오류는 무엇을 의미하나요?\n"
+    answer: >
+      이 오류는 배포를 실행할 때 표시될 수 있습니다. 적절한 단계를 위해 매개 변수 파일에 올바른 경로를 전달해야 합니다. (예: Control Plane, Landscape 또는 System)
+  - question: "입력 파일 하나로 여러 SAP 시스템을 생성할 수 있나요? \n"
+    answer: >
+      현재는 입력 파일(예: CSV 파일) 하나로 여러 SAP 시스템을 생성할 수 없습니다.
+  - question: "명명 규칙은 어떻게 사용자 지정하나요? \n"
+    answer: >
+      SAP 자동화 프레임워크의 명명 규칙은 Azure 이름 지정 표준과 꼼꼼하게 일치합니다. 자체적인 명명 규칙을 사용하려면 [사용자 지정 명명 모듈 지침](automation-naming-module.md)을 참조하세요.
+  - question: "\"키 자격 증명 모음에 대한 권한을 얻을 수 있는 비밀이 없습니다\" 오류는 무엇을 의미하나요?\n"
+    answer: "`Error: checking for existing Secret….User, group, or application…does not have secrets get permission on key vault` 오류가 발생할 수 있습니다.\n배포 키 자격 증명 모음에서 비밀을 읽어올 수 있는 충분한 권한이 배포 자격 증명에 있는지 확인하세요. 또한 사용자의 키 자격 증명 모음에 있는 `SPN AppID` 및 `SPN Secret`이 올바른지 확인하세요. \n"
+  - question: "\"클라이언트에 Microsoft.Authorization/roleAssignments/write 작업을 수행할 권한이 없습니다.\" 오류는 무엇을 의미하나요?\n"
+    answer: "`authorization.RoleAssignment.Client#Create: The client… with object ID… does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope…or scope is invalid` 오류가 발생할 수 있습니다.\n배포에 대한 올바른 애플리케이션 ID 및 애플리케이션 비밀을 전달해야 합니다. 배포 자격 증명 키 자격 증명 모음의 비밀을 확인하여 자격 증명 세부 정보의 유효성을 검사하세요. \n"
+  - question: "\"ID가 있는 리소스가 이미 있습니다... 이 리소스를 State로 가져와야 합니다\" 오류는 무엇을 의미하나요?\n"
+    answer: >
+      `A resource with ID…already exists - to be managed via Terraform this resource needs to be imported into the State` 오류가 표시될 수 있습니다. 이 오류는 Azure 리소스가 Terraform 배포 외부에 추가되었다는 것을 의미합니다. 상태 파일 [automation-advanced_state_management.md](bash/automation-advanced_state_management.md)를 업데이트하여 수정하세요.
+  - question: >
+      공백 오류로 인해 여러 줄 명령이 실패하는 이유는 무엇인가요?
+    answer: >
+      배포 명령이 제대로 구성되었는지 확인하세요. 배포 명령을 실행하기 전에 편집기를 사용하여 배포 명령의 형식을 올바르게 지정하세요.
+  - question: "\"/tmp/terraform_273760270.sh 실행 오류\" 오류는 무엇을 의미하나요?\n"
+    answer: >
+      `error executing "/tmp/terraform_273760270.sh": Process exited with status 127` 오류가 표시될 수 있습니다.
+
+      이 오류는 `sap-hana/deploy/terraform/terraform-units/modules/sap_deployer/templates/configure_deployer.sh.tmpl`의 줄 끝 부분에 문제가 있음을 의미합니다.
+
+      CRLF가 아닌 LF 줄 끝으로 이 파일을 저장해야 합니다. Windows 환경에서 파일을 열면 줄 끝이 원래 LF에서 CRLF로 변경될 수 있습니다.
+  - question: "\"계정 구축: 인증된 개체 ID 가져오기: Azure CLI에서 json 결과 구문 분석 오류\"는 무엇을 의미하나요?\n"
+    answer: "`Error: building account: getting authenticated object ID: Error parsing json result from the Azure CLI: Error waiting for the Azure CLI: exit status 1: ERROR: Error occurred in request., ConnectionError: HTTPSConnectionPool(host='graph.windows.net', port=443): Max retries exceeded with url: /d1ffef09-2e44-4182-ad9c-d55a72c588a8/me?api-version=1.6 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x040F73E8>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed'))` 오류가 표시될 수 있습니다.\n`az logout` 명령을 사용하여 로그아웃하세요. `az login`을 사용하여 다시 로그인하여 문제를 해결하세요. \n"
+  - question: "\"KeyVault 비밀이 없습니다.\" 오류는 무엇을 의미하나요? \n"
+    answer: "`Error: KeyVault Secret <SECRET-NAME> …does not exist` 오류가 표시될 수 있습니다. 여기서 `<SECRET-NAME>`은 비밀의 이름입니다.\n사용자의 키 자격 증명 모음에 다음 비밀이 포함되어 있는지 확인하세요. `<ENVIRONMENT>`를 환경 이름으로 대체하세요. \n  - `<ENVIRONMENT>-subscription-id`\n  - `<ENVIRONMENT>-tenant-id`\n  - `<ENVIRONMENT>-client-id`\n  - `<ENVIRONMENT>-client-secret`\n"
+  - question: "\"액세스 키/SAS 토큰을 지정해야 하거나 Azure AD 인증 사용하도록 설정해야 합니다.\" 오류는 무엇을 의미하나요?\n"
+    answer: >
+      `Either an Access Key / SAS Token or the Resource Group for the Storage Account must be specified - or Azure AD Authentication must be enabled when deploying the workload zone` 오류가 표시될 수 있습니다.
+
+      `storageaccountname` 매개 변수에 대해 올바른 값을 전달하고 있는지 확인하세요. 매개 변수가 Terraform 상태 파일을 컨테이너하는 계정을 지정하는지 확인하세요.
+  - question: "\"리포지토리 경로가 잘못되었습니다!\"라는 오류는 무엇을 의미하나요?\n"
+    answer: "`The repository path: \\<REPO-PATH\\> is incorrect!` 오류가 발생할 수 있으며, 여기서 `<REPO-PATH>`는 `New-SAPAutomationRegion`을 실행할 때 리포지토리 경로입니다.\n`sap_deployment_automation.ini` 파일의 경로를 찾습니다. 파일 위치는 실행 환경에 따라 달라집니다. 가능한 위치는 Windows의 경우 `My Documents`, Linux의 경우 `~/sap_deployment_automation`입니다. `sap_deployment_automation.ini`` file under the `Common` `Repo` 변수에 리포지토리의 정규화된 경로를 입력합니다. \n"
+  - question: >
+      landscape 단계에서 "Error loading state error" 오류가 발생하는 이유는 무엇인가요?
+    answer: >
+      landscape 단계를 실행할 때 `Error loading state error` 오류가 표시될 수 있습니다.
+
+      `sap_deployment_automation.ini` 파일의 경로를 찾습니다. 파일 위치는 실행 환경에 따라 달라집니다. 가능한 위치는 Windows의 경우 `My Documents`, Linux의 경우 `~/sap_deployment_automation`입니다. `SAP_Automated_Deployment.ini 파일을 확인하세요. 각 키의 값에서 상태 파일 이름 앞에 상대 경로가 없는지 확인하세요. 상태 파일의 모든 값은 관련 스토리지 계정의 상태 파일 이름만 포함해야 합니다. 이 계정은 SAP 라이브러리의 리소스 그룹에 있습니다.
+  - question: "\"blobName은 빈 문자열일 수 없습니다.\" 오류는 무엇을 의미하나요?\n"
+    answer: "워크로드 영역을 배포할 때 `Error loading state: blobs.Client#Get: Invalid input: blobName' cannot be an empty string` 오류가 발생할 수 있습니다.\n워크로드 영역이 성공적으로 배포되지 않은 경우 `WORKSPACES\\Landscape\\<ENVIRONMENT-FOLDER>` 내의 `.terraform` 폴더를 삭제하세요. 그런 다음 워크로드 영역을 다시 배포해 보세요. \n"
+  - question: "\"비밀을 설정할 수 없습니다.\" 오류는 무엇을 의미하나요?\n"
+    answer: "워크로드 영역을 배포할 때 `Could not set the secrets.` 오류가 표시될 수 있습니다.\n이 오류 메시지는 워크로드 영역에서 생성되는 키 자격 증명 모음을 나타냅니다. `vault` 매개 변수에 대한 배포 자격 증명의 키 자격 증명 모음 이름을 전달하고 있는지 확인하세요. \n"
+  - question: "\"이 지역에서 'netAppAccounts'가 제한되었습니다.\" 오류는 무엇을 의미하나요? \n"
+    answer: "`'netAppAccounts' has been restricted in this region` 오류가 표시될 수 있습니다.\n이 오류는 구독이 `netAppAccounts` 리소스 공급자에 대해 등록되지 않았음을 의미합니다. [공급자를 등록](/azure/azure-netapp-files/azure-netapp-files-register)하여 문제를 해결하세요. \n"
+- name: Ansible 구성
+  questions:
+  - question: "\"SSH 키 비밀 정보 검색\" 오류는 무엇을 의미하나요?\n"
+    answer: >
+      `test_menu.sh`에서 SAP HANA 소프트웨어를 배포할 때 치명적인 오류(`Retrieve SSH Key Secret Details`)가 발생할 수 있습니다.
+
+      사용자 자격 증명의 키 자격 증명 모음에 있는 비밀 이름이 환경 명명 접두사와 일치하는지 확인하세요. 예를 들어, `DEV-<ID>-SAP01`을 `DEV-<ID>-SAP`로 변경해야 할 수 있습니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n> [!div class=\"nextstepaction\"]\n> [Azure의 SAP 배포 자동화 프레임워크 시작](automation-get-started.md)"

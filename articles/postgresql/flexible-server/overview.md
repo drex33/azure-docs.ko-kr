@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 10/07/2021
+ms.date: 11/18/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b5f82dd6b822a1a8c138ce08dcc0f689594150f9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 90786b09586cdf91f69b6e6c90eb4e5b971ff5a9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425371"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724694"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -88,41 +88,41 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 
 ## <a name="built-in-pgbouncer"></a>기본 제공 PgBouncer
 
-유연한 서버에는 연결 풀러인 PgBouncer가 기본 제공됩니다. 필요에 따라 PgBouncer를 사용하고 동일한 호스트 이름과 포트 6432를 사용해 PgBouncer를 통해 애플리케이션을 데이터베이스 서버에 연결할 수 있습니다.
+유연한 서버에는 연결 풀러인 [PgBouncer가 기본 제공](concepts-pgbouncer.md)됩니다. 필요에 따라 PgBouncer를 사용하고 동일한 호스트 이름과 포트 6432를 사용해 PgBouncer를 통해 애플리케이션을 데이터베이스 서버에 연결할 수 있습니다.
 
 ## <a name="azure-regions"></a>Azure 지역
 
 Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. 유연한 서버는 현재 다음과 같은 Azure 지역에서 사용할 수 있습니다.
 
-| 지역 | V3/V4 컴퓨팅 가용성 | 영역 중복 HA | 
-| --- | --- | --- |
-| 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 오스트레일리아 남동부 | :heavy_check_mark: | :x: | 
-| 브라질 남부 | :heavy_check_mark: (v3 전용) | :x: |
-| 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 인도 중부 | :heavy_check_mark: | :x: |
-| 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 동아시아 | :heavy_check_mark: | :x: |
-| 미국 동부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
-| 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 독일 중서부 | :heavy_check_mark: | :heavy_check_mark: |
-| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 일본 서부 | :heavy_check_mark: | :x: |
-| 한국 중부 | :heavy_check_mark: | :x: | 
-| 한국 남부 | :heavy_check_mark: | :x: | 
-| 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
-| 노르웨이 동부 | :heavy_check_mark: | :x: |
-| 남아프리카 북부 | :heavy_check_mark: | :x: |
-| 미국 중남부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
-| 스위스 북부 | :heavy_check_mark: | :x: |
-| 아랍에미리트 북부 | :heavy_check_mark: | :x: |
-| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 영국 서부 | :heavy_check_mark: | :x: | 
-| 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
-| 미국 서부 | :heavy_check_mark: | :x: |
-| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |
+| 지역 | V3/V4 컴퓨팅 가용성 | 영역 중복 HA | 지역 중복 백업(미리 보기) |
+| --- | --- | --- | --- |
+| 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 오스트레일리아 남동부 | :heavy_check_mark: | :x: | :x: |
+| 브라질 남부 | :heavy_check_mark: (v3 전용) | :x: | :x: |
+| 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| 인도 중부 | :heavy_check_mark: | :x: | :x: |
+| 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 동아시아 | :heavy_check_mark: | :x: | :x: |
+| 미국 동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 독일 중서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 일본 서부 | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| 한국 중부 | :heavy_check_mark: | :x: | :x: |
+| 한국 남부 | :heavy_check_mark: | :x: | :x: |
+| 북유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 노르웨이 동부 | :heavy_check_mark: | :x: | :x: |
+| 남아프리카 북부 | :heavy_check_mark: | :x: | :x: |
+| 미국 중남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 스위스 북부 | :heavy_check_mark: | :x: | :x: |
+| 아랍에미리트 북부 | :heavy_check_mark: | :x: | :x: |
+| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 영국 서부 | :heavy_check_mark: | :x: | :x: |
+| 서유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 서부 | :heavy_check_mark: | :x: | :x: |
+| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 <!-- We continue to add more regions for flexible server. -->
 
@@ -140,7 +140,7 @@ Azure Database for PostgreSQL 유연한 서버에 대한 질문이나 제안이 
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)를 통해 항목을 만드세요.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)를 통해 항목을 만드세요.
   
 
 ## <a name="next-steps"></a>다음 단계

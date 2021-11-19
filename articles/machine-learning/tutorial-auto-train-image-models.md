@@ -11,12 +11,12 @@ ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 10/06/2021
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: e6906988b47ecdb1ba5e1ca7947666e6371ddd8e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 86ddf4b6780227ac8995ead5f1c6497617d06c1d
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468578"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751786"
 ---
 # <a name="tutorial-train-an-object-detection-model-preview-with-automl-and-python"></a>자습서: AutoML 및 Python을 사용하여 개체 검색 모델(미리 보기) 학습
 
@@ -46,11 +46,11 @@ ms.locfileid: "131468578"
 
 * Azure Machine Learning 작업 영역이 아직 없는 경우 [빠른 시작: Azure Machine Learning 시작](quickstart-create-resources.md#create-the-workspace)을 완료합니다.
 
-* [**odFridgeObjects.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 데이터 파일을 다운로드합니다.
+* [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) 데이터 파일을 다운로드하고 압축을 풉니다. 데이터 세트는 Pascal VOC 형식으로 주석 처리됩니다. 여기서 각 이미지는 xml 파일에 해당합니다. 각 xml 파일에는 해당 이미지 파일이 있는 위치에 대한 정보가 포함되며 경계 상자 및 개체 레이블에 대한 정보도 포함됩니다. 이 데이터를 사용하려면 먼저 Notebook의 [다운로드한 데이터를 JSONL로 변환](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) 섹션에 표시된 대로 필요한 JSONL 형식으로 변환해야 합니다. 
 
-이 자습서는 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에도 제공되기 때문에 자체 [로컬 환경](how-to-configure-environment.md#local)에서도 실행할 수 있습니다. 필요한 패키지를 가져오려면
+이 자습서는 자체 [로컬 환경](how-to-configure-environment.md#local)에서 실행하려는 경우 [Github의 azureml-examples 리포지토리](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection)에서도 사용할 수 있습니다. 필요한 패키지를 가져오려면
 * `pip install azureml`을 실행합니다.
-* [`automl` 클라이언트 전체를 설치](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)합니다.
+* [`automl` 클라이언트 전체를 설치](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment)합니다.
 
 ## <a name="compute-target-setup"></a>컴퓨팅 대상 설정
 
@@ -66,10 +66,10 @@ ms.locfileid: "131468578"
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
 
-cluster_name = "gpu-cluster-nc24s_v3"
+cluster_name = "gpu-nc24sv3"
 
 try:
-    compute_target = ws.compute_targets[cluster_name]
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
     print('Found existing compute target.')
 except KeyError:
     print('Creating a new compute target...')

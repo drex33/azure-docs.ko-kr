@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 11/15/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9deae17e0fa5b03e033c76abd3be136881aa2d7e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c01b0a61aa8af8332780b352f0a5543754db4497
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786586"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708583"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API용 Azure CLI 샘플
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -40,6 +40,7 @@ ms.locfileid: "121786586"
 |Task | 설명 |
 |---|---|
 | [Azure Cosmos 계정, 키스페이스 및 테이블 만들기](../scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cassandra API에 대한 Azure Cosmos DB 계정, 키스페이스 및 테이블을 만듭니다. |
+| [Cassandra API, 키스페이스 및 테이블용 서버리스 Azure Cosmos 계정 만들기](../scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cassandra API에 대한 서버리스 Azure Cosmos DB 계정, 키스페이스 및 테이블을 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정, 키스페이스 및 테이블 만들기](../scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Cassandra API에 대한 Azure Cosmos DB 계정, 키스페이스 및 테이블을 만듭니다. |
 | [처리량 작업](../scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 키스페이스 및 테이블에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](../scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|

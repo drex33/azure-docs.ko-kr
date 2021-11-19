@@ -3,16 +3,16 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 11/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d21a73b37f9a192ce080b0c5405b280b9100ba8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6e18baf15b63a37f9c7746ac1273b481f1ea77cc
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247333"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556578"
 ---
-미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 독일, 스위스, 서유럽, 오스트레일리아 또는 브라질에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요.
+미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 독일, 스위스, 서유럽, 오스트레일리아 또는 브라질에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요. 자세한 단계는 [자체 관리형 배송 사용](../articles/databox/data-box-portal-customer-managed-shipping.md)을 참조하세요.
 
 1. 이 단계가 성공적으로 완료된 후 Data Box에 대한 로컬 웹 UI의 **배송 준비** 페이지에 표시된 인증 코드를 적어둡니다.
 2. 디바이스의 전원을 끄고 케이블을 분리합니다. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.

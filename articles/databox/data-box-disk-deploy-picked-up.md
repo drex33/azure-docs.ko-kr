@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 16eb16d14890ae581bf71ff3998d22055965c336
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f9e296ec4c1b99f6f2a8d23103c8b04fcd16a814
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131082591"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552663"
 ---
 ::: zone target="docs"
 
@@ -140,7 +140,7 @@ Microsoft 관리형 배송을 사용하는 경우 배송할 지역에 대한 지
 2. 픽업을 요청하려면 추적 번호와 함께 다음 템플릿을 사용하여 SingPost 고객 서비스에 이메일을 보냅니다(추적 번호는 전달된 패키지에 제공된 반환 레이블에서 찾을 수 있음).
 
     ```
-    To: kadcustcare@singpost.com
+    To: g-corpsgcs@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
@@ -231,9 +231,11 @@ Microsoft 관리형 배송을 사용하는 경우 배송할 지역에 대한 지
 
 5. 문제가 발생하는 경우 발생한 문제에 대한 세부 정보가 포함된 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) 이메일을 보내고 화물 운송장 번호를 제목: 줄에 입력합니다. +27(0)119213902로 전화할 수도 있습니다.
 
+---
+
 ### <a name="self-managed-shipping"></a>자체 관리형 배송
 
-미국 정부, 일본, 싱가포르, 대한민국, 영국, 서유럽, 오스트레일리아, 남아프리카, 인도 또는 브라질에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요.
+미국 정부, 일본, 싱가포르, 대한민국, 영국, 서유럽, 오스트레일리아, 남아프리카, 인도 또는 브라질에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요. 자세한 단계는 [자체 관리형 배송 사용](data-box-disk-portal-customer-managed-shipping.md)을 참조하세요.
 
 1. Azure Portal에서 주문한 제품의 **개요 블레이드** 로 이동합니다. **일정 픽업** 을 선택하면 표시되는 지침을 따릅니다. 주문을 취소할 때 사용되는 인증 코드가 표시되어야 합니다.
 

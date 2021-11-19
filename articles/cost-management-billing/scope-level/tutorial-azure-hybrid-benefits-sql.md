@@ -3,21 +3,21 @@ title: 자습서 - SQL Server에 대해 중앙에서 관리되는 Azure 하이�
 description: 이 자습서에서는 Azure 하이브리드 혜택을 관리하고 최적화하기 위해 Azure에서 SQL Server 라이선스를 사전에 할당하는 과정을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 11/11/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: 6031bd83a5a32ffc5e76a4a967e305324f8d7ee8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a8db95d33ae6398898108dfbf62a57b5b5f48d9d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218866"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708313"
 ---
 # <a name="tutorial-optimize-centrally-managed-azure-hybrid-benefit-for-sql-server"></a>자습서: SQL Server에 대해 중앙에서 관리되는 Azure 하이브리드 혜택 최적화
 
-이 자습서에서는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 중앙에서 관리하고 최적화하기 위해 Azure에서 SQL Server 라이선스를 사전에 할당하는 과정을 안내합니다. 혜택을 최적화하면 Azure SQL을 실행하는 비용이 절감됩니다.
+이 자습서에서는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 중앙에서 관리할 때 최적화하기 위해 Azure에서 SQL Server 라이선스를 사전에 할당하는 과정을 안내합니다. 혜택을 최적화하면 Azure SQL을 실행하는 비용이 절감됩니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -32,10 +32,10 @@ ms.locfileid: "130218866"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-[중앙에서 관리되는 Azure 하이브리드 혜택이란?](overview-azure-hybrid-benefit-scope.md) 문서를 읽고 이해합니다. 이 문서에서는 Azure 하이브리드 혜택에 해당하는 SQL Server 라이선스 유형을 설명하고, 구독 또는 전체 청구 계정 수준에서 선택한 범위에 Azure 하이브리드 혜택을 설정하고 사용하는 방법을 알려줍니다.
+[중앙에서 관리되는 Azure 하이브리드 혜택이란?](overview-azure-hybrid-benefit-scope.md) 문서를 읽고 이해합니다. 이 문서에서는 Azure 하이브리드 혜택의 품질인 SQL Server 라이선스 유형에 대해 설명합니다. 또한 선택한 청구 계정 범위 또는 구독에 대한 혜택을 사용하도록 설정하는 방법도 설명합니다.
 
 > [!NOTE]
-> 중앙에서 범위 수준으로 Azure 하이브리드 혜택을 관리하는 것은 현재 퍼블릭 미리 보기로 제공되며 기업 고객으로 제한됩니다.
+> 범위 수준에서 중앙 집중식으로 Azure 하이브리드 혜택을 관리하는 기능은 현재 공개 미리 보기로 제공되며 엔터프라이즈 고객 및 Microsoft 고객 계약으로 Azure.com에서 직접 구매하는 고객으로 제한됩니다.
 
 새 환경을 사용하기 전에, Azure에서 SQL Server를 실행하는 자체 설치된 가상 머신이 등록 되어 있는지 확인합니다. 이렇게 하면 SQL Server를 실행하는 Azure 리소스가 사용자와 Azure에 표시됩니다. Azure에서 SQL VM을 등록하는 방법을 더 알아보려면 [SQL IaaS 에이전트 확장을 사용하여 SQL Server VM 등록](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 및 [Azure에서 SQL IaaS 에이전트 확장을 사용하여 여러 SQL VM 등록](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md)을 참조하세요.
 
@@ -43,28 +43,27 @@ ms.locfileid: "130218866"
 
 _첫 번째 단계는 준비입니다._ 조직의 다른 부서와 협력하여 다음 두 가지를 이해합니다.
 
-- 현재 및 계획된 Azure SQL은 무엇이고 돌아오는 연도의 SQL Server 사용량은 얼마나 되나요?
-- Azure에 할당할 수 있는 SQL Server 코어 라이선스 수는 몇 개인가요?
+- 예정된 계획 기간 동안 Azure에서 예상되는 SQL Server 사용량은 어떻게 되나요?
+- Software Assurance(또는 구독)를 통해 구매하여 Azure에 할당할 수 있는 SQL Server 코어 라이선스는 몇 개인가요?
 
-그리고, 돌아오는 연도 또는 다른 연장된 기간(적어도 한 달) 동안 현재 _및 예정된_ Azure SQL 사용량을 확인합니다.
+시스템에서 감지한 최근 Azure SQL 사용량 세부정보는 [Azure 하이브리드 혜택에 대한 SQL Server 라이선스 할당을 생성](create-sql-license-assignments.md)할 때 표시됩니다.
 
-[Azure 하이브리드 혜택에 대한 SQL Server 라이선스 할당을 만들 때](create-sql-license-assignments.md) Azure SQL 사용량 세부 정보가 표시됩니다.
-
-위의 정보에 대한 유효성을 검사하려면 조직의 적절한 사람에게 문의하는 것이 좋습니다. 여기에는 _계획된_ 사용량과 예상되는 SQL Server 사용량 증가가 포함됩니다. 이러한 계획을 소유하는 중앙 집중식 개인 또는 그룹이 있거나 여러 팀에 배포될 수 있습니다.
+조직 내의 적절한 사람에게 문의하여 해당 정보의 유효성을 검사하고 계획된 SQL Server 사용량 증가를 확인하는 것이 좋습니다.
 
 선택적이지만 Azure SQL 사용(리소스 수준에서 Azure 하이브리드 혜택 사용 포함)을 조사하는 데 유용한 한 가지 방법은 Azure 하이브리드 혜택 [sql-license-usage PowerShell 스크립트](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit)를 사용하는 것입니다. 특정 구독 또는 전체 계정에 있는 모든 SQL 리소스의 결합된 SQL Server 라이선스 사용을 분석하고 추적합니다.
 
-### <a name="determine-the-number-of-sql-server-core-licenses-available-to-assign-to-azure"></a>Azure에 할당할 수 있는 SQL Server 코어 라이선스 수 결정
+### <a name="determine-the-number-of-eligible-sql-server-core-licenses-available-to-assign-to-azure"></a>Azure에 할당할 수 있는 적격 SQL Server 코어 라이선스 수 결정
 
-수량은 구매한 라이선스 수 및 온-프레미스 서버와 Azure VM 간에 이미 사용 중인 라이선스 수에 따라 달라집니다.
-
-마이그레이션이 원활하게 실행되도록 하려면 180일 동안 SQL Server 라이선스에 대한 이중 사용 권한이 있어야 합니다. Azure의 SQL Server 라이선스는 180일의 기간이 지난 후에만 사용할 수 있습니다. 라이선스 가용성을 계획할 때 이 시점을 고려해야 합니다. 예를 들어 라이선스 마이그레이션은 할당할 수 있는 라이선스인 것으로 간주할 수 있습니다.
+이 수량은 구매한(Software Assurance 또는 구독을 통해) 라이선스 수와 Azure 외부(일반적으로 온-프레미스)에서 이미 사용 중인 라이선스 수에 따라 다릅니다.
 
 소프트웨어 조달 또는 소프트웨어 자산 관리 부서에서 이 정보를 사용할 수 있습니다.
 
+> [!TIP]
+> 온-프레미스에서 Azure로 워크로드를 마이그레이션하는 경우 연결된 라이선스를 Azure에 할당할 수 있습니다. Azure 하이브리드 혜택을 사용하는 동안은 마이그레이션 중에 SQL Server 라이선스에 대해 180일의 이중 사용 권한(온-프레미스 + Azure)이 부여되기 때문입니다. 원활한 실행을 지원하기 위해서 입니다.
+
 ## <a name="buy-more-licenses-if-needed"></a>필요한 경우 더 많은 라이선스 구입
 
-수집된 정보를 검토한 후에 사용 가능한 SQL Server 라이선스 수가 계획된 Azure SQL 사용량을 포괄하기에 부족한 것으로 확인되면 조달 부서에 문의하여 소프트웨어 보증(또는 구독 라이선스)이 있는 SQL Server 코어 라이선스를 더 구입합니다.
+수집된 정보를 검토한 후에 사용 가능한 SQL Server 라이선스 수가 계획된 Azure SQL 사용량을 포괄하기에 부족한 것으로 판단되면 조달 부서에 문의하여 Software Assurance(또는 구독 라이선스)이 있는 SQL Server 코어 라이선스를 더 구입합니다.
 
 SQL Server 라이선스를 구매하고 Azure 하이브리드 혜택을 적용하는 것이 Azure에서 시간당 SQL Server 비용을 지불하는 것보다 비용이 저렴합니다. 조직에서는 계획된 모든 Azure SQL 사용량을 포괄하는 데 충분한 라이선스를 구매하여 비용 절감 효과를 극대화합니다.
 
@@ -110,7 +109,7 @@ Azure Portal의 Cost Management + Billing 영역에서 새로운 Azure 하이브
 1. 다음으로, 필요한 라이선스를 이미 사용할 수 있거나 곧 구매할 수 있는지를 조달 팀과 함께 확인합니다. 확인을 통해 라이선스를 Azure에 할당할 수 있습니다.
    - 연결된 워크로드를 Azure로 마이그레이션하는 경우 온-프레미스에서 사용하는 라이선스를 Azure에 할당하는 데 사용할 수 있는 것으로 간주할 수 있습니다. 앞에서 설명한 것처럼 Azure 하이브리드 혜택은 최대 180일 동안 이중 사용을 허용합니다.
    - Azure에 할당할 수 있는 1800 SQL Server Enterprise Edition 라이선스 및 2000 SQL Server Standard Edition 라이선스가 있는지 확인합니다. 사용 가능한 라이선스는 9200 정규화된 코어 라이선스와 동일합니다. 필요한 8750보다 약간 더 높습니다(2000 x 4 + 750 = 8750).
-1. 그런 다음 1800 SQL Server Enterprise Edition 및 2000 SQL Server Standard Edition을 Azure에 할당합니다. 이 작업을 수행하면, 각 시간마다 실행되는 Azure SQL 리소스에 적용할 수 있는 9200 정규화된 코어 라이선스가 생성됩니다. 필요한 것보다 더 많은 라이선스를 할당하면 사용량이 예상보다 더 빠르게 증가하는 경우에 버퍼를 제공합니다.
+1. 그런 다음 1800 SQL Server Enterprise Edition 및 2000 SQL Server Standard Edition을 Azure에 할당합니다. 이 작업을 수행하면, 시스템이 매시간마다 실행되는 Azure SQL 리소스에 적용할 수 있는 9200개의 정규화된 코어 라이선스가 생성됩니다. 필요한 것보다 더 많은 라이선스를 할당하면 사용량이 예상보다 더 빠르게 증가하는 경우에 버퍼를 제공합니다.
 
 이후에는 할당된 라이선스 사용을 주기적으로 모니터링하는 것이 가장 좋습니다. 10개월 후에는 사용량이 거의 95%에 달합니다. Azure SQL 사용량이 예상보다 더 빠르게 증가한 것입니다. 조달 팀과 대화하면서 더 많은 라이선스를 얻고 할당할 수 있습니다.
 

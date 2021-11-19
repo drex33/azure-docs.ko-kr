@@ -1,5 +1,5 @@
 ---
-title: 파이프라인 실패 및 오류 처리
+title: 파이프라인 실패 및 오류 메시지
 description: 파이프라인 실패 상태와 오류 메시지를 결정하는 방법을 이해합니다.
 ms.service: data-factory
 ms.subservice: orchestration
@@ -8,12 +8,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: tutorial
 ms.date: 11/08/2021
-ms.openlocfilehash: 746b8d0b3b24901469f46090adf25b02f786dcef
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: bc9abf7319b3dc51572670f242b5d18a1a5d270d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064086"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522330"
 ---
 # <a name="understanding-pipeline-failure"></a>파이프라인 실패 이해
 
@@ -50,7 +50,7 @@ Azure Data Factory 및 Synapse 파이프라인 오케스트레이션은 조건�
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/pipeline-error-4-do-if-skip-else-definition.png" alt-text="do if else skip else 블록의 정의 및 결과를 보여 주는 스크린샷":::
 
-### <a name="summary-table"></a>요약 표
+### <a name="summary-table"></a>요약 테이블
 
 접근 방식 | 정의 | 작업이 성공하면 전체 파이프라인이 표시됩니다. | 작업이 실패하면 전체 파이프라인이 표시됩니다.
 ---------------------------- | ------------------- | ------------------- | -------------------

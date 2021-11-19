@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 08/10/2021
+ms.date: 11/16/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 번역기, 텍스트 번역, 컴퓨터 번역, 번역 서비스, 사용자 지정 번역기
-ms.openlocfilehash: 4d5e60beeb69447823369a5dfe610e73354f1ddc
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5c0d2553438f1765ff5f95d6264961728ee94675
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426961"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706570"
 ---
 # <a name="what-is-translator"></a>Translator란?
+
+:::image type="content" source="media/translator-icon.png" alt-text="Azure Portal의 Translator 아이콘":::
 
  Translator는 REST API의 [Azure Cognitive Services](../what-are-cognitive-services.md) 제품군에 속하는 클라우드 기반의 인공신경망 컴퓨터 번역 서비스입니다.  Translator는 모든 운영 체제에서 사용할 수 있고, 전세계의 무수한 기업에서 사용되는 많은 Microsoft 제품 및 서비스가 언어 번역 및 기타 언어 관련 작업을 수행할 수 있게 지원합니다. 이 개요에서는 모든 [지원되는 언어](./language-support.md)에서 Translator가 어떻게 인텔리전트 다국어 솔루션을 빌드할 수 있게 지원하는지 알아봅니다.
 

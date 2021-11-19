@@ -11,16 +11,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: 87c7e7f6579401a141db613ceaa8226cc8261bb1
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 54724f2788813830bf85ff1665291ea3b3b43cc8
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132340070"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553575"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 
 이 빠른 시작에서는 Azure Portal, PowerShell 스크립트 또는 Azure CLI 스크립트를 사용하여 Azure SQL Database에서 [단일 데이터베이스](single-database-overview.md)를 만듭니다. 그런 다음, Azure Portal에서 **쿼리 편집기** 를 사용하여 데이터베이스를 쿼리합니다.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 
 ## <a name="prerequisites"></a>필수 구성 요소

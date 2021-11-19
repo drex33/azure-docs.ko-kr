@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 11/15/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4050e01e25a6f8f74370418bd1203b49c7f12a79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e4fc8e8d0a15cc83374ef257a2249fdc7d5f58a4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788322"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718586"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Azure Cosmos DB Table API에 대한 Azure CLI 샘플
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -40,6 +40,7 @@ ms.locfileid: "121788322"
 |Task | 설명 |
 |---|---|
 | [Azure Cosmos 계정 및 테이블 만들기](../scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Table API에 대한 Azure Cosmos DB 계정 및 테이블을 만듭니다. |
+| [서버리스 Azure Cosmos 계정 및 테이블 만들기](../scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Table API에 대한 서버리스 Azure Cosmos DB 계정 및 테이블을 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정 및 테이블 만들기](../scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Table API에 대한 Azure Cosmos DB 계정 및 테이블을 만듭니다. |
 | [처리량 작업](../scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 테이블에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](../scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|

@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: abc98ed4df5da533dc7f6a8483a917150babf0ad
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: fdf5f8ed70d0af65bc80ace02d1e4db503a04abe
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488024"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549587"
 ---
 # <a name="connect-to-and-manage-sap-s4hana-in-azure-purview"></a>Azure Purview에서 SAP S/4HANA에 연결 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "132488024"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 예| [예**](how-to-lineage-sapecc.md)|
+| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예**](how-to-lineage-sapecc.md)|
 
 \**데이터 세트가 [데이터 팩터리 복사 작업](how-to-link-azure-data-factory.md)에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다. 
 
@@ -38,7 +38,7 @@ ms.locfileid: "132488024"
 * 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드](../data-factory/create-self-hosted-integration-runtime.md)를 참조하세요.
 
     >[!NOTE]
-    >SAP S/4HANA를 검색하는 작업은 메모리를 많이 사용하는 작업이므로 대용량 메모리가 있는 머신에 자체 호스팅 통합 런타임을 설치하는 것이 좋습니다(예: 128GB).
+    >SAP S/4HANA를 검색하는 작업은 메모리를 많이 사용하는 작업이므로 128GB RAM 이상이 있는 머신에 자체 호스팅 통합 런타임을 설치하는 것이 좋습니다.
 
 * [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)이 자체 호스팅 통합 런타임이 설치된 가상 머신에 설치되어 있는지 확인합니다.
 

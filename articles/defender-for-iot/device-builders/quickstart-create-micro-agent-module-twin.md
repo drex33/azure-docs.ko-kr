@@ -1,16 +1,16 @@
 ---
-title: '빠른 시작: Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)'
+title: '빠른 시작: Defender for IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)'
 description: 이 빠른 시작에서는 새 디바이스의 개별 DefenderIotMicroAgent 모듈 쌍을 만드는 방법에 대해 알아봅니다.
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 35480236f6a1fc7457e5af5e8a64e2967d8eaa3e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 3d2829b1d779ab4db711ab590c0da4760a44aefe
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132331531"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709270"
 ---
-# <a name="quickstart-create-a-defender-for-cloud-iot-micro-agent-module-twin-preview"></a>빠른 시작: Defender for Cloud IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)
+# <a name="quickstart-create-a-defender-for-iot-micro-agent-module-twin-preview"></a>빠른 시작: Defender for IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
 
 새 디바이스의 개별  **DefenderIotMicroAgent** 모듈 쌍을 만들 수 있습니다. IoT Hub의 모든 디바이스에 대한 모듈 쌍을 일괄적으로 만들 수도 있습니다. 
 

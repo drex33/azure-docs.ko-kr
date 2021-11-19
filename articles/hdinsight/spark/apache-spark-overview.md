@@ -4,25 +4,42 @@ description: 이 문서에서는 HDInsight의 Spark를 소개하고 HDInsight에
 ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
-ms.date: 09/21/2020
-ms.openlocfilehash: 3420013ffc316e37654fcf55434f5f419f7ff735
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 11/17/2020
+ms.openlocfilehash: ed6f7f30fde528d5829dd52d24043d33a0fc913a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112299216"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708419"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
-Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플리케이션의 성능을 향상하는 병렬 처리 프레임워크입니다. Azure HDInsight의 Apache Spark는 Microsoft가 Apache Spark를 클라우드에서 구현한 것입니다. HDInsight를 사용하면 Azure에서 Spark 클러스터를 더 쉽게 만들고 구성할 수 있습니다. HDInsight의 Spark 클러스터는 [Azure Blob 스토리지](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md) 또는 [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)와 호환됩니다. 따라서 HDInsight Spark 클러스터를 사용하여 Azure에 저장된 데이터를 처리할 수 있습니다. 구성 요소 및 버전 관리 정보를 보려면 [Azure HDInsight의 Apache Hadoop 구성 요소 및 버전](../hdinsight-component-versioning.md)을 참조하세요.
+Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플리케이션의 성능을 향상하는 병렬 처리 프레임워크입니다. Azure HDInsight의 Apache Spark는 Microsoft가 Apache Spark를 클라우드에 구현한 것이며 Azure의 여러 Spark 제품 중 하나입니다.
 
-:::image type="content" source="./media/apache-spark-overview/hdinsight-spark-overview.png" alt-text="Spark: 통합된 프레임워크" border="false":::
+* Azure HDInsight의 Apache Spark를 사용하면 Spark 클러스터를 쉽게 만들고 구성할 수 있으므로 전체 Spark 환경을 Azure 내에서 사용자 지정하고 사용할 수 있습니다.
+
+* [Azure Synapse Analytics의 Spark 풀](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)에는 관리형 Spark 풀이 사용되며 Azure 내에서 분석 인사이트를 위해 데이터를 로드, 모델링, 처리 및 배포할 수 있습니다.
+
+* [Azure Databricks의 Apache Spark](/databricks/getting-started/spark.md)는 Spark 클러스터를 사용하여 사용자 간의 협업을 통해 여러 데이터 원본에서 데이터를 읽고 혁신적인 인사이트로 전환할 수 있는 대화형 작업 영역을 제공합니다.
+
+* [Azure Data Factory의 Spark 활동](../../data-factory/transform-data-using-spark.md)을 사용하면 주문형 또는 기존 Spark 클러스터를 사용하여 데이터 파이프라인에서 Spark 분석을 사용할 수 있습니다.
+
+
+Azure HDInsight의 Apache Spark를 사용하면 Azure 내에서 데이터를 모두 저장하고 처리할 수 있습니다. HDInsight의 Spark 클러스터는 [Azure Blob Storage](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md) 또는 [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)와 호환되므로 기존 데이터 저장소에 Spark 처리를 적용할 수 있습니다.
+
+:::image type="content" source="./media/apache-spark-overview/hdinsight-spark-overview.svg" alt-text="Spark: 통합된 프레임워크" lightbox="./media/apache-spark-overview/hdinsight-spark-overview.svg":::
+
+Azure HDInsight에서 Apache Spark를 시작하려면 [HDInsight Spark 클러스터를 만드는 자습서](apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
+
+Apache Spark에 대한 자세한 내용 및 Azure와 상호 작용하는 방법을 알아보려면 아래 문서를 계속 읽어보세요.
+
+구성 요소 및 버전 관리 정보를 보려면 [Azure HDInsight의 Apache Hadoop 구성 요소 및 버전](../hdinsight-component-versioning.md)을 참조하세요.
 
 ## <a name="what-is-apache-spark"></a>Apache Spark란?
 
 Spark는 메모리 내 클러스터 컴퓨팅을 위한 기본 형식을 제공합니다. Spark 작업은 메모리로 데이터를 로드하고 캐시하여 반복적으로 쿼리할 수 있습니다. 메모리 내 컴퓨팅은 HDFS(Hadoop 분산 파일 시스템)를 통해 데이터를 공유하는 Hadoop 같은 디스크 기반 애플리케이션보다 훨씬 빠릅니다. 또한 Spark는 지역 컬렉션과 같이 분산 데이터 집합을 조작할 수 있도록 Scala 프로그래밍 언어로 통합합니다. 매핑 및 reduce 작업으로 모든 것을 구조화하지 않아도 됩니다.
 
-:::image type="content" source="./media/apache-spark-overview/map-reduce-vs-spark1.png" alt-text="기존 MapReduce와 Spark" border="false":::
+:::image type="content" source="./media/apache-spark-overview/map-reduce-vs-spark.svg" alt-text="기존 MapReduce와 Spark" lightbox="./media/apache-spark-overview/map-reduce-vs-spark.svg":::
 
 HDInsight에서 Spark 클러스터는 완벽하게 관리되는 Spark 서비스를 제공합니다. HDInsight에서 Spark 클러스터를 만드는 이점은 다음과 같습니다.
 
@@ -53,7 +70,7 @@ HDInsight Spark는 Microsoft Power BI와 같은 BI 도구에서 연결하는 데
 
 ## <a name="spark-cluster-architecture"></a>Spark 클러스터 아키텍처
 
-:::image type="content" source="./media/apache-spark-overview/hdi-spark-architecture.png" alt-text="HDInsight Spark의 아키텍처" border="false":::
+:::image type="content" source="./media/apache-spark-overview/hdi-spark-architecture.svg" alt-text="HDInsight Spark의 아키텍처" lightbox="./media/apache-spark-overview/hdi-spark-architecture.svg":::
 
 Spark가 HDInsight 클러스터에서 실행되는 방식을 이해하면 Spark의 구성 요소를 이해하는 것이 쉬워집니다.
 
@@ -63,7 +80,7 @@ SparkContext는 애플리케이션 간에 리소스를 제공하는 여러 유�
 
 SparkContext는 사용자의 주 함수를 실행하고 작업자 노드에서 다양한 병렬 작업을 실행합니다. 그런 다음, SparkContext는 작업 결과를 수집합니다. 작업자 노드는 Hadoop 분산 파일 시스템 간에 데이터를 읽고 씁니다. 또한 작업자 노드는 RDD(Resilient Distributed Datasets)로 메모리 내 변환된 데이터를 캐시합니다.
 
-SparkContext는 Spark 마스터에 연결되며 애플리케이션을 개별 작업의 방향성 그래프(DAG)로 변환하는 작업을 담당합니다. 작업자 노드의 실행기 프로세스 내에서 실행되는 작업입니다. 각 애플리케이션은 자체 실행기 프로세스를 가져옵니다. 전체 애플리케이션의 기간 동안 유지되고 여러 스레드에서 작업을 실행합니다.
+SparkContext는 Spark 마스터에 연결되며 애플리케이션을 개별 작업의 방향성 그래프(DAG)로 변환하는 작업을 담당합니다. 작업자 노드의 실행기 프로세스 내에서 실행되는 작업입니다. 각 애플리케이션은 자체 실행기 프로세스를 가져옵니다. 전체 애플리케이션 동안 유지되고 여러 스레드에서 작업을 실행합니다.
 
 ## <a name="spark-in-hdinsight-use-cases"></a>HDInsight의 Spark 사용 사례
 
@@ -71,7 +88,7 @@ HDInsight의 Spark 클러스터는 다음과 같은 주요 시나리오를 사�
 
 ### <a name="interactive-data-analysis-and-bi"></a>대화형 데이터 분석 및 BI
 
-HDInsight의 Apache Spark는 Azure Blob Storage, Azure Data Lake Gen1 또는 Azure Data Lake Storage Gen2에 데이터를 저장합니다. 비즈니스 전문가 및 주요 의사 결정권자는 해당 데이터에 대한 보고서를 분석하고 작성할 수 있습니다. Microsoft Power BI를 사용하여 분석된 데이터로 대화형 보고서를 작성할 수 있습니다. 분석자는 클러스터 스토리지의 비구조적/반구조적 데이터부터 시작하여 노트북으로 데이터에 대한 스키마를 정의한 다음 Microsoft Power BI를 사용하여 데이터 모델을 작성할 수 있습니다. 또한 HDInsight의 Spark 클러스터는 다양한 타사 BI 도구를 지원합니다. 예를 들어 데이터 분석가, 비즈니스 전문가 및 주요 의사 결정권자가 더 쉽게 사용할 수 있는 Tableau가 있습니다.
+HDInsight의 Apache Spark는 Azure Blob Storage, Azure Data Lake Gen1 또는 Azure Data Lake Storage Gen2에 데이터를 저장합니다. 비즈니스 전문가 및 주요 의사 결정권자는 해당 데이터에 대한 보고서를 분석하고 작성할 수 있습니다. Microsoft Power BI를 사용하여 분석된 데이터로 대화형 보고서를 작성할 수 있습니다. 분석자는 클러스터 스토리지의 비구조적/반구조적 데이터부터 시작하여 노트북으로 데이터에 대한 스키마를 정의한 다음 Microsoft Power BI를 사용하여 데이터 모델을 작성할 수 있습니다. 또한 HDInsight의 Spark 클러스터는 많은 타사 BI 도구를 지원합니다. 예를 들어 데이터 분석가, 비즈니스 전문가 및 주요 의사 결정권자가 더 쉽게 사용할 수 있는 Tableau가 있습니다.
 
 * [자습서: Power BI를 사용하여 Spark 데이터 시각화](apache-spark-use-bi-tools.md)
 

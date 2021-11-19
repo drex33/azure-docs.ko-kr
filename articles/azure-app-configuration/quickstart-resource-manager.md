@@ -8,12 +8,12 @@ ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 15e0bc45bc4fea645ff0ccf7b17110ce4361a9a0
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: beb16b541f764cde806d94bcbf2fe8649fcbae88
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983423"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719678"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure App Configuration 저장소 만들기
 
@@ -32,6 +32,13 @@ ms.locfileid: "111983423"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+## <a name="authorization"></a>권한 부여
+
+ARM 템플릿 내의 키-값 데이터에 액세스하려면 기여자 또는 소유자와 같은 Azure Resource Manager 역할이 필요합니다. Azure App Configuration [데이터 평면 역할](concept-enable-rbac.md) 중 하나를 통한 액세스는 현재 지원되지 않습니다.
+
+> [!NOTE]
+> 액세스 키 인증을 사용하지 않도록 설정하면 ARM 템플릿 내에서 키-값 데이터 액세스가 사용하지 않도록 설정됩니다. 자세한 내용은 [액세스 키 인증 사용 안 함](./howto-disable-access-key-authentication.md#limitations)을 참조하세요.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -66,9 +73,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > ```azurecli-interactive
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
-
-> [!NOTE]
-> 액세스 키 인증을 사용하지 않도록 설정하면 ARM 템플릿 내에서 키-값 데이터 액세스가 사용하지 않도록 설정되는 제한이 있습니다. 자세한 내용은 [액세스 키 인증 사용 안 함](./howto-disable-access-key-authentication.md#limitations)을 참조하세요.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

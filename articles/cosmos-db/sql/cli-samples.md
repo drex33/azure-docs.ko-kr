@@ -5,23 +5,23 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 09/17/2021
+ms.date: 11/15/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: cosmos db, azure cli 샘플, azure cli 코드 샘플, azure cli 스크립트 샘플
-ms.openlocfilehash: 4529b51ff5109bfa6b8814b23e7e82844e7fb95c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9960aee77d909f3e944f352b7d039a82997307c9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128567721"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710244"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 다음 표는 Azure Cosmos DB의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 오른쪽의 링크를 사용하여 API 관련 샘플로 이동합니다. 일반적인 샘플은 모든 API에서 동일합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI GitHub 리포지토리](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)에서도 찾을 수 있습니다.
 
-이러한 샘플에는 Azure CLI 버전 2.12.1 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+이러한 샘플에는 Azure CLI 버전 2.30 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 다른 API에 대한 Azure CLI 샘플은 [Cassandra용 CLI 샘플](../cassandra/cli-samples.md), [MongoDB API용 CLI 샘플](../mongodb/cli-samples.md), [Gremlin용 CLI 샘플](../graph/cli-samples.md), [Table용 CLI 샘플](../table/cli-samples.md)을 참조하세요.
 
@@ -43,6 +43,7 @@ ms.locfileid: "128567721"
 |Task | 설명 |
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](../scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Core(SQL) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
+| [서버리스 Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](../scripts/cli/sql/serverless.md?toc=%2fcli%2fazure%2ftoc.json)| Core(SQL) API에 대한 서버리스 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](../scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Core(SQL) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
 | [처리량 작업](../scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컨테이너에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](../scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|

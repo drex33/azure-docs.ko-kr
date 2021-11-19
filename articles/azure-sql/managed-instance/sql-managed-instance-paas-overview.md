@@ -11,17 +11,20 @@ author: niko-neugebauer
 ms.author: nneugebauer
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 3e79b90356974e8ce5d77d639d2ca866624288d3
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a35a001a7d543426f5bb2f842b5b00c9a1139cd3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132290499"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554031"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance는 확장 가능한 지능형 클라우드 데이터베이스 서비스로, 완전히 관리되는 서비스형 에버그린 플랫폼의 모든 이점에 가장 광범위한 SQL Server 데이터베이스 엔진 호환성을 결합했습니다. SQL Managed Instance는 최신 SQL Server(Enterprise Edition) 데이터베이스 엔진과 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 원시 [VNet(가상 네트워크)](../../virtual-network/virtual-networks-overview.md) 구현과 기존 SQL Server 고객에게 친숙한 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. SQL Managed Instance를 통해 기존 SQL Server 고객은 애플리케이션 및 데이터베이스 변경을 최소화하고 온-프레미스 애플리케이션을 클라우드로 이동할 수 있습니다. 이와 동시에 SQL Managed Instance는 모든 PaaS 기능(자동 패치 및 버전 업데이트, [자동화된 백업](../database/automated-backups-overview.md), [고가용성](../database/high-availability-sla.md))을 유지하므로 관리 오버헤드와 TCO를 크게 줄일 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 Azure SQL Managed Instance를 처음 사용하는 경우에는 심층 [Azure SQL 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)에서 *Azure SQL Managed Instance* 비디오를 참조하세요.
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61/player]
@@ -35,8 +38,8 @@ Azure SQL Managed Instance를 처음 사용하는 경우에는 심층 [Azure SQL
 
 Azure SQL Managed Instance는 최대한 적은 마이그레이션 작업을 통해 많은 수의 앱을 온-프레미스 또는 IaaS, 자체 구축 또는 ISV 제공 환경에서 완전 관리형 PaaS 클라우드 환경으로 마이그레이션하려는 고객을 위해 설계되었습니다. 완전히 자동화된 [Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)를 사용하면 기존 SQL Server 인스턴스를 SQL Managed Instance로 옮길 수 있습니다. 여기에서는 SQL Server와의 호환성이 제공되고 네이티브 VNet 지원을 통해 고객 인스턴스를 완벽하게 격리합니다. 마이그레이션 옵션 및 도구에 대한 자세한 내용은 [마이그레이션 개요: SQL Server에서 Azure SQL Managed Instance로 마이그레이션](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md)을 참조하세요.</br> Software Assurance를 사용하면 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Managed Instance에서 기존 라이선스를 할인된 가격으로 교환할 수 있습니다. SQL Managed Instance는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다.
 
-> [!TIP]
-> Azure SQL을 더 잘 활용하려면 어떻게 해야 하나요? [설문 조사를 수행하세요](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
+
 
 ## <a name="key-features-and-capabilities"></a>주요 특징 및 기능
 
@@ -56,16 +59,16 @@ SQL Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔�
 
 SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
-|기능 | 설명|
+|기능 | Description|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진(안정적인 최신 버전) |
 | 관리되는 자동 백업 | Yes |
 | 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | Yes |
 | 자동 소프트웨어 패치 | Yes |
-| 최신 데이터베이스 엔진 기능 | 예 |
+| 최신 데이터베이스 엔진 기능 | Yes |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
-| VNet - Azure Resource Manager 배포 | 예 |
+| VNet - Azure Resource Manager 배포 | Yes |
 | VNet - 클래식 배포 모델 | No |
 | 포털 지원 | Yes|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md)의 일부입니다. |

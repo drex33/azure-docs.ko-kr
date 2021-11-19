@@ -8,23 +8,23 @@ ms.topic: sample
 ms.date: 08/26/2021
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: 1644e218229bb6ff76317a86eafb0d57a6c6f3bf
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 37f279660882498a34ec6f37979c65382cc73a94
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117837"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132758322"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터를 관리하는 Node.js 예제
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V2 SDK 예제](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK 예제](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK 예제](sql-api-java-sdk-samples.md)
 > * [Spring Data V3 SDK 예제](sql-api-spring-data-sdk-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)
 > * [Python 예제](sql-api-python-samples.md)
+> * [.NET V2 SDK 예제(레거시)](sql-api-dotnet-v2sdk-samples.md)
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 

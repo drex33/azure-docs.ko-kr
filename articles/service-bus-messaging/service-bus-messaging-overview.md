@@ -1,17 +1,17 @@
 ---
 title: Azure Service Bus 메시지 개요 | Microsoft Docs
-description: 이 문서에서는 완전 관리형 엔터프라이즈 통합 메시지 브로커인 Azure Service Bus에 대한 간략한 개요를 제공합니다.
+description: 이 문서에서는 완전 관리형 엔터프라이즈 통합 메시지 브로커인 Azure Service Bus에 대한 간략한 개요를 제공합니다. 또한 Service Bus의 네임스페이스, 큐 및 항목과 같은 개념을 설명합니다.
 ms.topic: overview
 ms.date: 11/11/2021
-ms.openlocfilehash: 8aa59315dcb196cf7f5c5b107e8cf575a5eb4f86
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 663e723c8ac98279b95d8472fb25645f5c38a797
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373122"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756784"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
-Azure Service Bus는 메시지 큐와 게시-구독 토픽이 있는 완전 관리형 엔터프라이즈 메시지 브로커입니다. Service Bus는 애플리케이션과 서비스를 서로 분리하는 데 사용되며, 다음과 같은 이점을 제공합니다.
+Azure Service Bus는 메시지 큐와 게시-구독 토픽(네임스페이스에 있음)이 있는 완전 관리형 엔터프라이즈 메시지 broker입니다. Service Bus는 애플리케이션과 서비스를 서로 분리하는 데 사용되며, 다음과 같은 이점을 제공합니다.
 
 - 경쟁하는 작업자 간에 작업 부하 분산
 - 서비스 및 애플리케이션 경계에서 데이터 및 제어를 안전하게 라우팅하고 전송

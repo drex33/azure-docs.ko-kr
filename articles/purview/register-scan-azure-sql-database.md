@@ -5,14 +5,14 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/10/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: cba37228902600852963068ba4d46e75adf21c57
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: c2b1b77de64a1b04055a24ccc5004fc2c2c4fc35
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853893"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132757142"
 ---
 # <a name="connect-to-azure-sql-database-in-azure-purview"></a>Azure Purview에서 Azure SQL Database에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "131853893"
 
 * Azure Purview는 스키마 탭에서 300개를 초과하는 열을 지원하지 않으며 "Additional-Columns-Truncated"를 표시합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -83,8 +83,9 @@ ms.locfileid: "131853893"
 
 * **SQL 인증**
 
-* **관리 ID** - Azure Purview 계정이 만들어지는 즉시 시스템 **관리 ID** 가 자동으로 Azure AD 테넌트에 만들어집니다. 리소스 종류에 따라 Azure Purview MSI에서 검사를 수행하려면 특정 RBAC 역할 할당이 필요합니다.
-관리 ID를 사용하는 경우 Purview 계정에는 만들 때 기본적으로 Purview 이름인 자체 관리 ID가 있습니다.
+* **시스템 할당 관리 ID** - Azure Purview 계정이 생성되는 즉시, Azure AD 테넌트에서 SAMI(시스템 할당 관리 ID)가 자동으로 생성되며, Azure Purview 계정과 동일한 이름을 갖습니다. 리소스 종류에 따라 Azure Purview SAMI에서 검사를 수행하려면 특정 RBAC 역할 할당이 필요합니다.
+
+* **사용자 할당 관리 ID**(미리 보기) - SAMI와 마찬가지로 UAMI(사용자 할당 관리 ID)는 Azure Purview가 Azure Active Directory에 대해 인증하도록 허용하는 데 사용할 수 있는 자격 증명 리소스입니다. 리소스 유형에 따라 UAMI 자격 증명을 사용하여 검사를 수행하는 경우 특정 RBAC 역할 할당이 필요합니다.
 
 * **서비스 주체** - 이 방법에서는 Azure Active Directory 테넌트에서 새 서비스 주체를 만들거나 기존 서비스 주체를 사용할 수 있습니다.
 
@@ -93,7 +94,7 @@ ms.locfileid: "131853893"
 서비스 주체 또는 관리 ID에는 데이터베이스, 스키마 및 테이블에 대한 메타데이터를 가져올 수 있는 권한이 있어야 합니다. 또한 분류를 위해 샘플링할 테이블을 쿼리할 수 있어야 합니다.
 
 - [Azure SQL에서 Azure AD 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)
-- [Azure SQL Database에서 서비스 주체 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database)에 대한 자습서를 수행하여 정확한 Purview의 관리 ID 또는 자체 서비스 주체를 사용하여 Azure SQL Database에서 Azure AD 사용자를 만들어야 합니다. ID에 적절한 권한(예: `db_datareader`)을 할당해야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
+- [Azure SQL Database에서 서비스 주체 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database)에 대한 자습서를 수행하여 정확한 Purview의 관리 ID 또는 자체 서비스 주체를 사용하여 Azure SQL Database에서 Azure AD 사용자를 만듭니다. ID에 적절한 권한(예: `db_datareader`)을 할당합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -111,7 +112,7 @@ ms.locfileid: "131853893"
 > [!Note]
 > 프로비전 프로세스를 통해 만들어진 서버 수준의 보안 주체 로그인이나 master 데이터베이스에서 `loginmanager` 데이터베이스 역할이 할당된 멤버만 새 로그인을 만들 수 있습니다. 이 작업에는 권한을 부여한 후 **15분** 정도 걸립니다. Purview 계정에는 리소스를 검사할 수 있는 적절한 권한이 있어야 합니다.
 
-Azure SQL Database에 대한 로그인을 사용할 수 없는 경우 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)의 지침에 따라 해당 로그인을 만들 수 있습니다. 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
+이 로그인을 사용할 수 없는 경우 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)의 지침에 따라 Azure SQL Database에 대한 로그인을 만들 수 있습니다. 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
 
 1. Azure Portal에서 키 자격 증명 모음으로 이동합니다.
 
@@ -129,15 +130,15 @@ Azure SQL Database에 대한 로그인을 사용할 수 없는 경우 [CREATE LO
 
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
 
-1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명](manage-credentials.md#create-a-new-credential)을 만듭니다.
+1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명을 만듭니다](manage-credentials.md#create-a-new-credential).
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-credentials.png" alt-text="자격 증명을 설정하는 키 자격 증명 모음 옵션을 보여 주는 스크린샷":::
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault-options.png" alt-text="비밀을 만드는 키 자격 증명 모음 옵션을 보여 주는 스크린샷":::
 
-#### <a name="using-managed-identity-for-scanning"></a>검사에 관리 ID 사용
+#### <a name="using-a-system-or-user-assigned-managed-identity-for-scanning"></a>검색에 시스템 또는 사용자 할당 관리 ID 사용
 
-Azure SQL DB를 검사할 수 있는 권한을 Purview 계정에 부여해야 합니다. 검색 권한을 부여할 대상에 따라 구독, 리소스 그룹 또는 리소스 수준에서 카탈로그의 MSI를 추가할 수 있습니다.
+Purview 계정의 시스템 관리 ID 또는 [사용자 할당 관리 ID](manage-credentials.md#create-a-user-assigned-managed-identity)에 Azure SQL DB를 검사할 수 있는 권한을 부여하는 것이 중요합니다. 검사 권한을 부여할 대상에 따라 구독, 리소스 그룹 또는 리소스 수준에서 SAMI 또는 UAMI를 추가할 수 있습니다.
 
 > [!Note] 
 > Azure 리소스에 관리 ID를 추가하려면 구독의 소유자여야 합니다.
@@ -148,7 +149,7 @@ Azure SQL DB를 검사할 수 있는 권한을 Purview 계정에 부여해야 �
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-ds.png" alt-text="Azure SQL 데이터베이스를 보여 주는 스크린샷":::
 
-1. **역할** 을 **읽기 권한자** 로 설정하고, **선택** 입력 상자 아래에서 _Azure Purview 계정 이름_ 을 입력합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
+1. **역할** 을 **리더** 로 설정하고, **선택** 입력 상자 아래에서 _Azure Purview 계정 이름_ 또는 _[사용자 할당 관리 ID](manage-credentials.md#create-a-user-assigned-managed-identity)_ 를 입력합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-access-managed-identity.png" alt-text="Purview 계정에 대한 권한을 할당하기 위한 세부 정보를 보여 주는 스크린샷":::
 
@@ -182,7 +183,7 @@ Azure SQL DB를 검사할 수 있는 권한을 Purview 계정에 부여해야 �
 
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
 
-1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명](manage-credentials.md#create-a-new-credential)을 만듭니다.
+1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명을 만듭니다](manage-credentials.md#create-a-new-credential).
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-credentials.png" alt-text="서비스 주체에 대한 자격 증명을 추가하는 키 자격 증명 모음 옵션을 보여 주는 스크린샷":::
 
@@ -227,9 +228,9 @@ Azure 연결을 사용하도록 설정하면 방화벽 자체를 업데이트하
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-auth.png" alt-text="검사에 대한 SQL 인증 옵션을 보여 주는 스크린샷":::
 
-#### <a name="if-using-managed-identity"></a>관리 ID를 사용하는 경우
+#### <a name="if-using-a-system-or-user-assigned-managed-identity"></a>시스템 또는 사용자 할당 관리 ID를 사용하는 경우
 
-1. 검사에 대한 **이름** 을 제공하고, **자격 증명** 아래에서 **Purview MSI** 를 선택하고, 검사에 적절한 컬렉션을 선택합니다.
+1. 검사에 대한 **이름** 을 제공하고, **자격 증명** 아래에서 SAMI 또는 UAMI를 선택하고, 검사에 적절한 컬렉션을 선택합니다.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-managed-id.png" alt-text="검사를 실행하는 관리 ID 옵션을 보여 주는 스크린샷":::
 
@@ -247,7 +248,7 @@ Azure 연결을 사용하도록 설정하면 방화벽 자체를 업데이트하
 
 ### <a name="scoping-and-running-the-scan"></a>검사 범위 지정 및 실행
 
-1. 목록에서 적절한 항목을 선택하여 검사 범위를 특정 폴더 및 하위 폴더로 지정할 수 있습니다.
+1. 목록에서 적절한 항목을 선택하여 검색 범위를 특정 폴더와 하위 폴더로 지정할 수 있습니다.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scope-scan.png" alt-text="검사 범위 지정":::
 
@@ -283,7 +284,7 @@ Azure 연결을 사용하도록 설정하면 방화벽 자체를 업데이트하
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan-details.png" alt-text="검사 세부 정보 보기":::
 
-1. 전체 검사가 성공적으로 실행되면 **마지막 실행 상태** 가 **진행 중**, 이어서 **완료됨** 으로 업데이트됩니다.
+1. 전체 검사가 성공적으로 실행되면 **마지막 실행 상태** 가 **진행 중** 으로 업데이트된 다음, **완료됨** 으로 업데이트됩니다.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-complete.png" alt-text="완료된 검사 보기":::
 

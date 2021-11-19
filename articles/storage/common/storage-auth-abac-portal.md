@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
-ms.date: 09/24/2021
-ms.openlocfilehash: 0ab670b9ef6309b8db01f4a53f41c703dea69423
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.date: 11/16/2021
+ms.openlocfilehash: e275f8e77e09decad21602057273f458b0e11ebe
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092284"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132751464"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>자습서: Azure Portal을 사용하여 BLOB에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -32,17 +32,17 @@ ms.locfileid: "129092284"
 > - 역할 할당에 조건 추가
 > - BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당 조건을 추가하거나 편집하기 위한 사전 요구 사항은 [조건 및 사전 요구 사항](../../role-based-access-control/conditions-prerequisites.md)을 참조하세요.
 
 ## <a name="condition"></a>조건
 
-이 자습서에서는 특정 태그를 사용하여 BLOB에 대한 액세스를 제한합니다. 예를 들어 Chandra에서 Project=Cascade 태그가 있는 파일만 읽을 수 있도록 역할 할당에 조건을 추가합니다.
+이 자습서에서는 특정 태그를 사용하여 BLOB에 대한 액세스를 제한합니다. 예를 들어 Chandra에서 `Project=Cascade` 태그가 있는 파일만 읽을 수 있도록 역할 할당에 조건을 추가합니다.
 
 ![조건이 있는 역할 할당의 다이어그램.](./media/shared/condition-role-assignment-rg.png)
 
-Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스가 허용되지 않습니다.
+Chandra가 `Project=Cascade` 태그 없이 Blob을 읽으려고 하면 액세스가 허용되지 않습니다.
 
 ![Project=Cascade 태그를 사용한 BLOB의 읽기 권한을 보여주는 다이어그램](./media/shared/condition-access.png)
 
@@ -53,7 +53,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -72,7 +72,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
 ## <a name="step-2-set-up-storage"></a>2단계: 스토리지 설정
 
-1. 현재 공개 미리 보기인 BLOB 인덱스 태그 기능과 호환되는 스토리지 계정을 만듭니다. 자세한 내용은 [BLOB 인덱스 태그를 사용하여 Azure BLOB 데이터 관리 및 찾기(미리 보기)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support)를 참조하세요.
+1. Blob 인덱스 태그 기능과 호환되는 스토리지 계정을 만듭니다. 자세한 내용은 [Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support)를 참조하세요.
 
 1. 스토리지 계정에서 새 컨테이너를 만들고 공용 액세스 수준을 **프라이빗(익명 액세스 차단)** 으로 설정합니다.
 
@@ -84,10 +84,10 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
 1. **BLOB 인덱스 태그** 섹션에서 다음 BLOB 인덱스 태그를 텍스트 파일에 추가합니다.
 
-    BLOB 인덱스 태그 섹션이 표시되지 않고 구독을 방금 등록한 경우 변경 내용이 전파될 때까지 몇 분 정도 기다려야 합니다. 자세한 내용은 [BLOB 인덱스 태그(미리 보기)를 사용하여 Azure Blob Storage 데이터 관리 및 찾기](../blobs/storage-blob-index-how-to.md)를 참조하세요.
+    BLOB 인덱스 태그 섹션이 표시되지 않고 구독을 방금 등록한 경우 변경 내용이 전파될 때까지 몇 분 정도 기다려야 합니다. 자세한 내용은 [Blob 인덱스 태그를 사용하여 Azure Blob Storage 데이터 관리 및 찾기](../blobs/storage-blob-index-how-to.md)를 참조하세요.
 
     > [!NOTE]
-    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 Blob 인덱스 태그와 유사하지만 조건으로 Blob 인덱스 태그를 사용해야 합니다.
+    > 또한 Blob은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 Blob 인덱스 태그와 유사하지만 조건으로 Blob 인덱스 태그를 사용해야 합니다.
 
     | 키 | 값 |
     | --- | --- |
@@ -113,9 +113,9 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
 1. **역할 할당** 탭을 클릭하여 관련 범위의 역할 할당을 확인합니다.
 
-1. **추가** > **역할 할당 추가(미리 보기)** 를 클릭합니다.
+1. **추가** > **역할 할당 추가** 를 클릭합니다.
 
-   ![추가 > 역할 할당 추가 메뉴 미리 보기 스크린샷](./media/storage-auth-abac-portal/add-role-assignment-menu-preview.png)
+   ![추가 > 역할 할당 추가 메뉴의 스크린샷](./media/storage-auth-abac-portal/add-role-assignment-menu.png)
 
     역할 할당 추가 페이지가 열립니다.
 
@@ -139,7 +139,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
     역할 할당 조건 추가 페이지가 표시됩니다.
 
-1. 작업 추가 섹션에서 **작업 선택** 을 클릭합니다.
+1. 작업 추가 섹션에서 **작업 추가** 를 클릭합니다.
 
     작업 선택 창이 표시됩니다. 이 창은 조건 대상이 될 역할 할당을 기준으로 데이터 작업을 필터링한 목록입니다.
 
@@ -179,67 +179,34 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
     ![역할을 할당한 후 역할 할당 목록의 스크린샷](./media/storage-auth-abac-portal/rg-role-assignments-condition.png)
 
-## <a name="step-5-test-the-condition"></a>5단계: 조건 테스트
+## <a name="step-5-assign-reader-role"></a>5단계: 리더 역할 할당
 
-조건을 테스트하려면 Azure PowerShell을 사용해야 합니다.
+- 이전 단계를 반복하여 이전에 리소스 그룹 범위에서 만든 사용자에게 [리더](../../role-based-access-control/built-in-roles.md#reader) 역할을 할당합니다.
 
-1. PowerShell 창을 엽니다.
+    > [!NOTE]
+    > 일반적으로 리더 역할을 할당할 필요가 없습니다. 그러나 이 작업을 수행하면 Azure Portal을 사용하여 조건을 테스트할 수 있습니다.
 
-1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Chandra로 로그인합니다.
+## <a name="step-6-test-the-condition"></a>6단계: 조건 테스트
 
-    ```azurepowershell
-    Connect-AzAccount
-    ```
+1. 새 창에서 [Azure Portal](https://azure.portal.com)을 엽니다.
 
-1. 사용한 이름으로 다음 변수를 초기화합니다.
+1. 이전에 만든 사용자로 로그인합니다.
 
-    ```azurepowershell
-    $storageAccountName = "<storageAccountName>"
-    $containerName = "<containerName>"
-    $blobNameBaker = "<blobNameBaker>"
-    $blobNameCascade = "<blobNameCascade>"
-    ```
+1. 만든 스토리지 계정 및 컨테이너를 엽니다.
 
-1. [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext)를 사용하여 스토리지 계정에 보다 쉽게 액세스할 수 있는 특정 컨텍스트를 만듭니다.
+1. 인증 방법이 **액세스 키** 가 아닌 **Azure AD 사용자 계정** 으로 설정되어 있는지 확인합니다.
 
-    ```azurepowershell
-    $bearerCtx = New-AzStorageContext -StorageAccountName $storageAccountName
-    ```
+    ![테스트 파일이 포함된 스토리지 컨테이너의 스크린샷.](./media/storage-auth-abac-portal/test-storage-container.png)
 
-1. [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob)을 사용하여 Baker 프로젝트의 파일을 읽습니다.
+1. Baker 텍스트 파일을 클릭합니다.
 
-    ```azurepowershell
-    Get-AzStorageBlob -Container $containerName -Blob $blobNameBaker -Context $bearerCtx 
-    ```
+    Blob을 보거나 다운로드할 수 **없으며** 권한 부여 실패 메시지가 표시되어야 합니다.
+ 
+1. 계단식 텍스트 파일을 클릭합니다.
 
-    다음은 출력 예제입니다. 추가한 조건으로 인해 파일을 읽을 수 **없습니다.**
+    Blob을 보고 다운로드할 수 있어야 합니다.
 
-    ```azurepowershell
-    Get-AzStorageBlob: This request is not authorized to perform this operation using this permission. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
-    ErrorCode: AuthorizationPermissionMismatch
-    ErrorMessage: This request is not authorized to perform this operation using this permission.
-    RequestId: <requestId>
-    Time: Sun, 13 Sep 2020 12:33:42 GMT
-    ```
-
-1. Cascade 프로젝트의 파일을 읽습니다.
-
-    ```azurepowershell
-    Get-AzStorageBlob -Container $containerName -Blob $blobNameCascade -Context $bearerCtx 
-    ```
-
-    다음은 출력 예제입니다. Project=Cascade 태그가 있으므로 파일을 읽을 수 있습니다.
-
-    ```azurepowershell
-       AccountName: <storageAccountName>, ContainerName: <containerName>
-
-    Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
-                                                                                                                  ime
-    ----                 --------  ------          -----------                    ------------         ---------- ---------
-    CascadeFile.txt      BlockBlob 7               text/plain                     2021-04-24 05:35:24Z Hot
-    ```
-
-## <a name="step-6-clean-up-resources"></a>6단계: 리소스 정리
+## <a name="step-7-clean-up-resources"></a>7단계: 리소스 정리
 
 1. 추가한 역할 할당을 제거합니다.
 

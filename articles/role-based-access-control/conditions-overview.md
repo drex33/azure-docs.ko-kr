@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: 84bcac43d22d1c90ccfe4f674c495d8439fe9536
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: c30f1b2836dd3503a11ce46284963a3f1bddc0be
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132398329"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132761495"
 ---
 # <a name="what-is-azure-attribute-based-access-control-azure-abac-preview"></a>Azure ABAC(Azure 특성 기반 액세스 제어)는 무엇인가요? (미리 보기)
 
@@ -52,6 +52,7 @@ Azure ABAC는 특정 작업의 맥락에서 특성을 기반으로 역할 할당
 - 읽기 전용 경로가 있는 blobs-example-container라는 컨테이너의 Blob에 대한 읽기 권한
 - uploads/contoso 경로를 사용하여 Contosocorp라는 컨테이너의 Blob에 대한 쓰기 액세스 권한
 - Program=Alpine 태그와 로그 경로를 사용하여 Blob에 대한 읽기 권한
+- Project=Baker 태그가 있는 Blob에 대한 읽기 액세스 권한이 있고, 사용자에게 일치하는 특성 Project=Baker가 있습니다.
 
 이러한 예를 만드는 방법에 대한 자세한 내용은 [Azure 역할 할당 조건의 예](../storage/common/storage-auth-abac-examples.md)를 참조하세요.
 
@@ -96,7 +97,7 @@ Azure Portal에서 조건은 다음과 같습니다.
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -106,6 +107,17 @@ Azure Portal에서 조건은 다음과 같습니다.
 ```
 
 조건 형식에 대한 자세한 내용은 [Azure 역할 할당 조건 형식 및 구문](conditions-format.md)을 참조하세요.
+
+## <a name="features-of-conditions"></a>조건의 기능
+
+다음은 조건의 몇 가지 주요 기능 목록입니다.
+
+| 기능 | Status | Date |
+| --- | --- | --- |
+| Storage Blob 데이터 역할 할당에 조건 추가 | 미리 보기 | 2021년 5월 |
+| 조건의 리소스에 특성 사용 | 미리 보기 | 2021년 5월 |
+| 조건에서 작업 요청의 일부인 특성 사용 | 미리 보기 | 2021년 5월 |
+| 조건에서 보안 주체에 사용자 지정 보안 특성 사용 | 미리 보기 | 2021년 11월 |
 
 ## <a name="conditions-and-privileged-identity-management-pim"></a>조건 및 PIM(Privileged Identity Management)
 
@@ -122,6 +134,13 @@ PIM(Privileged Identity Management)을 사용하여 적격 역할 할당에 조�
 | 역할 할당 조건 | 필요에 따라 역할 할당에 추가하여 보다 세분화된 액세스 제어를 제공할 수 있는 추가 검사입니다. |
 | 특성 | 이 컨텍스트에서 Project = Blue와 같은 키 값 쌍입니다. 여기서 Project는 특성 키이고 Blue는 특성 값입니다. 특성 및 태그는 액세스 제어를 위한 동의어입니다. |
 | 식 | true 또는 false로 평가되는 조건의 구문입니다. 식의 형식은 &lt;특성&gt; &lt;연산자&gt; &lt;값&gt;입니다. |
+
+
+## <a name="known-issues"></a>알려진 문제
+
+조건과 관련된 알려진 문제는 다음과 같습니다.
+
+- Azure AD PIM(Privileged Identity Management) 및 [사용자 지정 보안 특성](../active-directory/fundamentals/custom-security-attributes-overview.md)을 사용하는 경우 조건을 추가할 때 **보안 주체** 가 **특성 원본** 에 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 65691a2bb48c3dece51effef4fbc7b65d19d8449
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 475c742cae311cc1d816c7b879af61aa09fe882e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247800"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709846"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -97,7 +97,8 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>HTTP 프록시 서버를 사용하여 트래픽 라우팅
 
-Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 VM의 백업 확장에서 HTTPS API를 사용하여 관리 명령을 Azure Backup에 보내고 데이터를 Azure Storage에 보냅니다. 백업 확장도 인증에 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 필요한 서비스에 대한 액세스를 허용하려면 위에서 언급한 IP 및 FQDN 목록을 사용하세요. 인증된 프록시 서버는 지원되지 않습니다.
+> [!NOTE]
+> 현재 SAP HANA에 대한 프록시 지원은 없습니다. HANA VM에서 Azure 백업을 통해 데이터베이스 백업에 대한 아웃바운드 연결 요구 사항을 제거하려면 프라이빗 엔드포인트와 같은 다른 옵션을 고려하세요.
 
 ## <a name="understanding-backup-and-restore-throughput-performance"></a>백업 및 복원 처리량 성능 이해
 

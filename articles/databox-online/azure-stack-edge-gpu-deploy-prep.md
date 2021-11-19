@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 11/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d87c0221bc5d6bfc8aa4eb308417234bca9f7b14
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8d06a49431b4b2cfea80a30c05d45374cc135285
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249954"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716769"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU 배포 준비 
 
@@ -137,6 +137,9 @@ Azure Stack Edge 서비스를 통해 Azure Stack Edge 리소스를 만들려면 
    ![Azure Stack Edge에서 시작하기 화면의 스크린샷입니다. “클래식 주문 환경을 사용하여 주문” 링크가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)
 
 5. Azure Stack Edge Pro GPU 디바이스에 사용하려는 구독을 선택합니다. 물리적 디바이스를 배송할 국가 또는 지역을 선택합니다. 그런 다음, **디바이스 표시** 를 선택합니다.
+
+    >[!NOTE] 
+    > 클래식 환경은 곧 제거될 예정입니다. 2021년 12월부터 Azure Edge Hardware Center를 통해서만 주문을 생성할 수 있습니다.
 
     ![Azure Stack Edge 리소스에 대해 구독 및 배송 지역을 선택하기 위한 “디바이스 유형 선택” 화면의 스크린샷입니다. 디바이스 표시 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 

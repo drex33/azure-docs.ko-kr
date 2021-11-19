@@ -8,12 +8,12 @@ ms.date: 03/09/2021
 ms.author: karler
 ms.custom: devx-track-java, contperf-fy21q2
 customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
-ms.openlocfilehash: ce56ac8e85e727cd4efa88b8f59ea7ec3871a8dc
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 8720a24e975ce7a73ed49f92460de301b5c8dfd8
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179340"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485682"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -69,7 +69,7 @@ Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리�
 
     * [개발](how-to-prepare-app-deployment.md): Azure Spring Cloud에 배포할 기존 Java Spring 애플리케이션을 준비합니다. 제대로 구성되면 Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
     * [배포](./how-to-staging-environment.md): Azure Spring Cloud에서 청록색 배포 패턴을 사용하여 스테이징 배포를 설정하는 방법을 보여줍니다. 파란색/녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps 지속적인 업데이트 패턴입니다.
-    * [앱 구성](./how-to-start-stop-delete.md):  Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제합니다. Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud에서 애플리케이션의 상태를 변경합니다.
+    * [앱 구성](./how-to-start-stop-delete.md): Azure Spring Cloud의 애플리케이션을 시작, 중지 및 삭제합니다. Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud에서 애플리케이션의 상태를 변경합니다.
     * [크기 조정](./how-to-scale-manual.md): Azure Portal에서 Azure Spring Cloud 대시보드를 사용하거나 자동 크기 조정 설정을 사용하여 모든 마이크로서비스 애플리케이션의 크기를 조정하는 방법을 보여줍니다. 공용 IP는 데이터베이스, 스토리지 및 키 자격 증명 모음과 같은 외부 리소스와 통신하는 데 사용할 수 있습니다.
     * [앱 모니터링](./how-to-distributed-tracing.md): 복잡한 문제를 쉽게 디버깅하고 모니터링할 수 있는 분산 추적 도구입니다. Azure Spring Cloud는 Spring Cloud Sleuth를 Azure의 Application Insights와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
     * [보안 앱](./how-to-enable-system-assigned-managed-identity.md): Azure 리소스는 Azure Active Directory에서 자동으로 관리 ID를 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.

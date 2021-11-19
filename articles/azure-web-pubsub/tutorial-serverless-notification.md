@@ -6,18 +6,18 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 8e565d31de0943b592db0bafff3e9a55e15c0fee
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 3fb4c5dbbc8ea073962cd7e0edb3e53c4c9920d5
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578671"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494029"
 ---
 # <a name="tutorial-create-a-serverless-notification-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 알림 앱 만들기
 
 Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 메시징 웹 애플리케이션을 쉽게 빌드할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 자습서에서는 Azure Web PubSub 서비스 및 Azure Functions를 사용하여 알림 시나리오의 실시간 메시징과 함께 서버리스 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 서버리스 알림 앱 빌드
@@ -67,71 +67,77 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
     func init --worker-runtime dotnet
     ```
 
-1. `Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
+2. *`Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
 
-   1. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
+    > [!NOTE]
+    > [확장 번들](/azure/azure-functions/functions-bindings-register#extension-bundles)이 지원되는 경우 이 단계는 선택사항입니다.
 
-      ```json
-      {
+   a. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
+    ```json
+    {
         "version": "2.0"
-      }
-      ```
+    }
+    ```
+   b. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
+    ```bash
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+    ```
 
-   1. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
-
-      ```bash
-      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-      ```
-
-1. 클라이언트에 대한 정적 웹 페이지를 읽고 호스팅하는 `index` 함수를 만듭니다.
-
-   ```bash
-   func new -n index -t HttpTrigger
-   ```
-
+3. 클라이언트에 대한 정적 웹 페이지를 읽고 호스팅하는 `index` 함수를 만듭니다.
+    ```bash
+    func new -n index -t HttpTrigger
+    ```
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - `index/function.json`을 업데이트하고 다음 json 코드를 복사합니다.
-     ```json
-     {
-         "bindings": [
-             {
-                 "authLevel": "anonymous",
-                 "type": "httpTrigger",
-                 "direction": "in",
-                 "name": "req",
-                 "methods": [
-                   "get",
-                   "post"
-                 ]
-             },
-             {
-                 "type": "http",
-                 "direction": "out",
-                 "name": "res"
-             }
-         ]
-     }
-     ```
+        ```json
+        {
+            "bindings": [
+                {
+                    "authLevel": "anonymous",
+                    "type": "httpTrigger",
+                    "direction": "in",
+                    "name": "req",
+                    "methods": [
+                      "get",
+                      "post"
+                    ]
+                },
+                {
+                    "type": "http",
+                    "direction": "out",
+                    "name": "res"
+                }
+            ]
+        }
+        ```
    - `index/index.js`를 업데이트하고 다음 코드를 복사합니다.
-     ```js
-     var fs = require('fs');
-     module.exports = function (context, req) {
-         fs.readFile('index.html', 'utf8', function (err, data) {
-             if (err) {
-                 console.log(err);
-                 context.done(err);
-             }
-             context.res = {
-                 status: 200,
-                 headers: {
-                     'Content-Type': 'text/html'
-                 },
-                 body: data
-             };
-             context.done();
-         });
-     }
-     ```
+        ```js
+        var fs = require('fs');
+        var path = require('path');
+
+        module.exports = function (context, req) {
+            var index = 'index.html';
+            if (process.env["HOME"] != null)
+            {
+                index = path.join(process.env["HOME"], "site", "wwwroot", index);
+            }
+            context.log("index.html path: " + index);
+            fs.readFile(index, 'utf8', function (err, data) {
+                if (err) {
+                    console.log(err);
+                    context.done(err);
+                }
+                context.res = {
+                    status: 200,
+                    headers: {
+                        'Content-Type': 'text/html'
+                    },
+                    body: data
+                };
+                context.done();
+            });
+        }
+        ```
 
    # <a name="c"></a>[C#](#tab/csharp)
    - `index.cs`를 업데이트하고 `Run` 함수를 다음 코드로 바꿉니다.
@@ -139,15 +145,21 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
         [FunctionName("index")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
         {
+            string indexFile = "index.html";
+            if (Environment.GetEnvironmentVariable("HOME") != null)
+            {
+                indexFile = Path.Join(Environment.GetEnvironmentVariable("HOME"), "site", "wwwroot", indexFile);
+            }
+            log.LogInformation($"index.html path: {indexFile}.");
             return new ContentResult
             {
-                Content = File.ReadAllText("index.html"),
+                Content = File.ReadAllText(indexFile),
                 ContentType = "text/html",
             };
         }
         ```
 
-2. 클라이언트가 액세스 토큰과 함께 서비스 연결 URL을 얻을 수 있도록 `negotiate` 함수를 만듭니다.
+4. 클라이언트가 액세스 토큰과 함께 서비스 연결 URL을 얻을 수 있도록 `negotiate` 함수를 만듭니다.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -188,7 +200,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             [WebPubSubConnection(Hub = "notification")] WebPubSubConnection connection,
             ILogger log)
         {
@@ -198,7 +210,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
         }
         ```
 
-3. `TimerTrigger`를 사용하여 알림을 생성하도록 `notification` 함수를 만듭니다.
+5. `TimerTrigger`를 사용하여 알림을 생성하도록 `notification` 함수를 만듭니다.
    ```bash
     func new -n notification -t TimerTrigger
     ```
@@ -215,7 +227,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
                 },
                 {
                 "type": "webPubSub",
-                "name": "webPubSubOperation",
+                "name": "actions",
                 "hub": "notification",
                 "direction": "out"
                 }
@@ -225,9 +237,9 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
    - `notification/index.js`를 업데이트하고 다음 코드를 복사합니다.
         ```js
         module.exports = function (context, myTimer) {
-            context.bindings.webPubSubOperation = {
-                "operationKind": "sendToAll",
-                "message": `[DateTime: ${new Date()}] Temperature: ${getValue(22, 1)}\xB0C, Humidity: ${getValue(40, 2)}%`,
+            context.bindings.actions = {
+                "actionName": "sendToAll",
+                "data": `[DateTime: ${new Date()}] Temperature: ${getValue(22, 1)}\xB0C, Humidity: ${getValue(40, 2)}%`,
                 "dataType": "text"
             }
             context.done();
@@ -242,12 +254,12 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
         ```c#
         [FunctionName("notification")]
         public static async Task Run([TimerTrigger("*/10 * * * * *")]TimerInfo myTimer, ILogger log,
-            [WebPubSub(Hub = "notification")] IAsyncCollector<WebPubSubOperation> operations)
+            [WebPubSub(Hub = "notification")] IAsyncCollector<WebPubSubAction> actions)
         {
-            await operations.AddAsync(new SendToAll
+            await actions.AddAsync(new SendToAllAction
             {
-                Message = BinaryData.FromString($"[DateTime: {DateTime.Now}] Temperature: {GetValue(23, 1)}{'\xB0'}C, Humidity: {GetValue(40, 2)}%"),
-                DataType = MessageDataType.Text
+                Data = BinaryData.FromString($"[DateTime: {DateTime.Now}] Temperature: {GetValue(23, 1)}{'\xB0'}C, Humidity: {GetValue(40, 2)}%"),
+                DataType = WebPubSubDataType.Text
             });
         }
 
@@ -259,7 +271,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
         }
         ``` 
 
-4. 프로젝트 루트 폴더에서 클라이언트 단일 페이지(`index.html`)를 추가하고 아래와 같이 콘텐츠를 복사합니다.
+6. 프로젝트 루트 폴더에서 클라이언트 단일 페이지(`index.html`)를 추가하고 아래와 같이 콘텐츠를 복사합니다.
     ```html
     <html>
         <body>
@@ -296,7 +308,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
     </ItemGroup>
     ```
 
-5. Azure 함수 앱을 구성하고 실행합니다.
+7. Azure 함수 앱을 구성하고 실행합니다.
 
     - 브라우저에서 **Azure Portal** 을 열고 이전에 배포한 Web PubSub 서비스 인스턴스가 성공적으로 만들어졌는지 확인합니다. 인스턴스로 이동합니다.
     - **키** 를 선택하고 연결 문자열을 복사합니다.

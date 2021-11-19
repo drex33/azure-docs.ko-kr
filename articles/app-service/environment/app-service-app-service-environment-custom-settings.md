@@ -7,18 +7,19 @@ ms.topic: tutorial
 ms.date: 11/03/2021
 ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 863a3fe9ae7b51f347055def7dcaaaa5445293c9
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: c90357a77d8ea95675fb17ecbde5c8dfb94b49ea
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510041"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524990"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
+
 ## <a name="overview"></a>개요
 ASE(App Service Environment)는 단일 고객에게 격리되므로 App Service Environment에만 적용할 수 있는 특정 구성 설정이 있습니다. 이 문서에서는 App Service Environment에 사용 가능한 다양한 App Service Environment 관련 사용자 지정 항목을 설명합니다.
 
-App Service Environment가 없는 경우 [템플릿에서 ASEv1을 만드는 방법](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)을 참조하세요.
+App Service Environment가 없는 경우 [ASEv3을 만드는 방법](./creation.md)을 참조하세요.
 
 새 **clusterSettings** 특성의 배열을 사용하여 App Service Environment 사용자 지정을 저장할 수 있습니다. 이 특성은 *hostingEnvironments* Azure Resource Manager 엔터티의 "속성" 사전에 있습니다.
 
@@ -27,7 +28,7 @@ App Service Environment가 없는 경우 [템플릿에서 ASEv1을 만드는 방
 ```json
 "resources": [
 {
-    "apiVersion": "2015-08-01",
+    "apiVersion": "2021-03-01",
     "type": "Microsoft.Web/hostingEnvironments",
     "name": ...,
     "location": ...,
@@ -38,7 +39,7 @@ App Service Environment가 없는 경우 [템플릿에서 ASEv1을 만드는 방
                 "value": "valueOfCustomSetting"
             }
         ],
-        "workerPools": [ ...],
+        "internalLoadBalancingMode": ...,
         etc...
     }
 }
@@ -61,7 +62,7 @@ App Service Environment가 없는 경우 [템플릿에서 ASEv1을 만드는 방
 
 ## <a name="enable-internal-encryption"></a>내부 암호화 사용
 
-App Service Environment는 시스템 내에서 내부 구성 요소나 통신을 볼 수 없는 블랙 박스 시스템으로 작동합니다. 높은 처리량을 활성화하기 위해 내부 구성 요소 사이에는 기본적으로 암호화가 사용되지 않습니다. 시스템은 트래픽을 모니터링하거나 액세스하는 데 액세스할 수 없기 때문에 보안이 유지됩니다. 엔드투엔드에서 데이터 경로를 완벽하게 암호화해야 하는 규정 준수 요구 사항이 있는 경우에는 clusterSetting을 사용하여 전체 데이터 경로의 암호화를 사용하도록 설정하는 방법이 있습니다.  
+App Service Environment는 시스템 내에서 내부 구성 요소나 통신을 볼 수 없는 블랙 박스 시스템으로 작동합니다. 높은 처리량을 활성화하기 위해 내부 구성 요소 사이에는 기본적으로 암호화가 사용되지 않습니다. 시스템은 트래픽을 모니터링하거나 액세스하는 데 액세스할 수 없기 때문에 보안이 유지됩니다. 엔드투엔드에서 데이터 경로를 완벽하게 암호화해야 하는 규정 준수 요구 사항이 있는 경우에는 clusterSetting을 사용하여 전체 데이터 경로의 암호화를 사용하도록 설정하는 방법이 있습니다.
 
 ```json
 "clusterSettings": [
@@ -107,8 +108,4 @@ ASE는 기본값에서 암호화 그룹 변경을 지원합니다. 기본 암호
 > 암호화 그룹에 대해 SChannel에서 이해할 수 없는 잘못된 값이 설정된 경우 서버에 대한 모든 TLS 통신의 작동이 중지될 수 있습니다. 이러한 경우 *clusterSettings* 에서 **FrontEndSSLCipherSuiteOrder** 항목을 제거하고 업데이트된 Resource Manager 템플릿을 제출하여 기본 암호화 제품군 설정으로 되돌려야 합니다.  이 기능을 주의하여 사용하세요.
 
 ## <a name="get-started"></a>시작하기
-Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [App Service Environment 만들기](https://azure.microsoft.com/resources/templates/web-app-ase-create/)에 대한 기본 정의에 템플릿이 포함되어 있습니다.
-
-<!-- LINKS -->
-
-<!-- IMAGES -->
+Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [App Service Environment 만들기](https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create/)에 대한 기본 정의에 템플릿이 포함되어 있습니다.

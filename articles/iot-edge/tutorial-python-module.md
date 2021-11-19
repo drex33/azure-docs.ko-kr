@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8f5bbb05e51ec52c001b69bd726dd154c9f89de9
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: f315e3987d46bc4a27b5ad5566b0424f410cd16a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084116"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485204"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 Python IoT Edge 모듈 개발 및 배포
 
@@ -122,7 +122,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
     import json
     ```
 
-3. 전역 카운터 아래 **TEMPERATURE_THRESHOLD** 및 **TWIN_CALLBACKS** 변수를 추가합니다. IoT 허브로 데이터를 보내려면 온도 임계값을 측정된 컴퓨터 온도에서 초과해야 하는 값으로 설정합니다.
+3. **TEMPERATURE_THRESHOLD**, **RECEIVED_MESSAGES** 및 **TWIN_CALLBACKS** 변수에 대한 전역 정의를 추가합니다. IoT 허브로 데이터를 보내려면 온도 임계값을 측정된 컴퓨터 온도에서 초과해야 하는 값으로 설정합니다.
 
     ```python
     # global counters
@@ -131,63 +131,60 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
     RECEIVED_MESSAGES = 0
     ```
 
-4. **input1_listener** 함수를 다음 코드로 바꿉니다.
+4. **create_client** 함수를 다음 코드로 바꿉니다.
 
     ```python
-        # Define behavior for receiving an input message on input1
-        # Because this is a filter module, we forward this message to the "output1" queue.
-        async def input1_listener(module_client):
+    def create_client():
+        client = IoTHubModuleClient.create_from_edge_environment()
+
+        # Define function for handling received messages
+        async def receive_message_handler(message):
             global RECEIVED_MESSAGES
-            global TEMPERATURE_THRESHOLD
-            while True:
-                try:
-                    input_message = await module_client.on_message_received("input1")  # blocking call
-                    message = input_message.data
-                    size = len(message)
-                    message_text = message.decode('utf-8')
-                    print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
-                    custom_properties = input_message.custom_properties
-                    print ( "    Properties: %s" % custom_properties )
-                    RECEIVED_MESSAGES += 1
-                    print ( "    Total messages received: %d" % RECEIVED_MESSAGES )
-                    data = json.loads(message_text)
-                    if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
-                        custom_properties["MessageType"] = "Alert"
-                        print ( "Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
-                        await module_client.send_message_to_output(input_message, "output1")
-                except Exception as ex:
-                    print ( "Unexpected error in input1_listener: %s" % ex )
+            print("Message received")
+            size = len(message.data)
+            message_text = message.data.decode('utf-8')
+            print("    Data: <<<{data}>>> & Size={size}".format(data=message.data, size=size))
+            print("    Properties: {}".format(message.custom_properties))
+            RECEIVED_MESSAGES += 1
+            print("Total messages received: {}".format(RECEIVED_MESSAGES))
 
-        # twin_patch_listener is invoked when the module twin's desired properties are updated.
-        async def twin_patch_listener(module_client):
+            if message.input_name == "input1":
+                message_json = json.loads(message_text)
+                if "machine" in message_json and "temperature" in message_json["machine"] and message_json["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
+                    message.custom_properties["MessageType"] = "Alert"
+                    print("ALERT: Machine temperature {temp} exceeds threshold {threshold}".format(
+                        temp=message_json["machine"]["temperature"], threshold=TEMPERATURE_THRESHOLD
+                    ))
+                    await client.send_message_to_output(message, "output1")
+
+        # Define function for handling received twin patches
+        async def receive_twin_patch_handler(twin_patch):
+            global TEMPERATURE_THRESHOLD
             global TWIN_CALLBACKS
-            global TEMPERATURE_THRESHOLD
-            while True:
-                try:
-                    data = await module_client.on_twin_desired_properties_patch_received()  # blocking call
-                    print( "The data in the desired properties patch was: %s" % data)
-                    if "TemperatureThreshold" in data:
-                        TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
-                    TWIN_CALLBACKS += 1
-                    print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
-                except Exception as ex:
-                    print ( "Unexpected error in twin_patch_listener: %s" % ex )
+            print("Twin Patch received")
+            print("     {}".format(twin_patch))
+            if "TemperatureThreshold" in twin_patch:
+                TEMPERATURE_THRESHOLD = twin_patch["TemperatureThreshold"]
+            TWIN_CALLBACKS += 1
+            print("Total calls confirmed: {}".format(TWIN_CALLBACKS))
+
+        try:
+            # Set handler on the client
+            client.on_message_received = receive_message_handler
+            client.on_twin_desired_properties_patch_received = receive_twin_patch_handler
+        except:
+            # Cleanup if failure occurs
+            client.shutdown()
+            raise
+
+        return client
     ```
 
-5. **수신기** 를 업데이트하여 쌍 업데이트도 수신 대기하도록 합니다.
+7. main.py 파일을 저장합니다.
 
-    ```python
-        # Schedule task for C2D Listener
-        listeners = asyncio.gather(input1_listener(module_client), twin_patch_listener(module_client))
+8. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다.
 
-        print ( "The sample is now waiting for messages. ")
-    ```
-
-6. main.py 파일을 저장합니다.
-
-7. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다.
-
-8. **PythonModule** 모듈 쌍을 배포 매니페스트에 추가합니다. **$edgeHub** 모듈 쌍 뒤에 있는 **moduleContent** 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다.
+9. **PythonModule** 모듈 쌍을 배포 매니페스트에 추가합니다. **$edgeHub** 모듈 쌍 뒤에 있는 **moduleContent** 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다.
 
    ```json
        "PythonModule": {
@@ -199,7 +196,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
    ![배포 템플릿에 모듈 쌍 추가](./media/tutorial-python-module/module-twin.png)
 
-9. deployment.template.json 파일을 저장합니다.
+10. deployment.template.json 파일을 저장합니다.
 
 ## <a name="build-and-push-your-module"></a>모듈 빌드 및 푸시
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: eur
-ms.openlocfilehash: 7906a2e317f209550e91016c1749d1325b090cac
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: ba09913faf523c2301228e305e3f26d28a02e237
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501921"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529780"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -84,9 +84,9 @@ cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 
 C++용 음성 SDK의 [인식기 클래스](/cpp/cognitive-services/speech/speechrecognizer)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
 
-### <a name="single-shot-recognition"></a>단일 샷 인식
+### <a name="at-start-recognition"></a>시작 시 인식
 
-단일 샷 인식은 단일 발화를 비동기적으로 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다. 다음은 [`RecognizeOnceAsync`](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)를 사용하는 비동기 단일 샷 인식의 예입니다.
+시작 시 인식은 단일 발화를 비동기적으로 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다. 다음은 [`RecognizeOnceAsync`](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)를 사용하는 비동기 시작 시 인식의 예입니다.
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();
@@ -126,7 +126,7 @@ switch (result->Reason)
 
 ### <a name="continuous-recognition"></a>연속 인식
 
-연속 인식은 단일 샷 인식보다 약간 더 복잡합니다. `Recognizing`, `Recognized` 및 `Canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [StopContinuousRecognitionAsync](/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
+연속 인식은 시작 시 인식보다 약간 더 복잡합니다. `Recognizing`, `Recognized` 및 `Canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [StopContinuousRecognitionAsync](/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
 
 먼저 입력을 정의하고 [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer)를 초기화하겠습니다.
 

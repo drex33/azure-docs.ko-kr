@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc1be378d16388ad3814596f3e49d434af350a96
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: dd8be8174d8834ccad88cd512cefcf4d761a5e2c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004961"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487058"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 탐색
 
@@ -43,7 +43,7 @@ ms.locfileid: "130004961"
 
 ## <a name="get-samples-on-your-notebook-server"></a>Notebook 서버에서 샘플 가져오기
 
-로컬 개발용으로 사용자 고유의 Notebook 서버를 구현하려는 경우 아래 단계를 따르세요.
+로컬 개발용으로 사용자 고유의 Notebook 서버를 구현하려는 경우 사용자 컴퓨터에서 이 단계를 따르세요.
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 

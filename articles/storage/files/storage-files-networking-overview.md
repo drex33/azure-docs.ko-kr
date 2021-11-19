@@ -7,17 +7,17 @@ ms.topic: overview
 ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8771c79aa788627fb73745e98e924bbaa3ab1236
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: d3f3bb466156b08ae90561d5e02e5b5ddf469755
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113224682"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518511"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files 네트워킹 고려 사항 
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.
 
-- SMB(서버 메시지 블록), NFS(네트워크 파일 시스템)(미리 보기) 또는 FileREST 프로토콜을 통해 공유에 직접 액세스합니다. 이 액세스 패턴은 최대한 많은 온-프레미스 서버를 제거할 때 주로 사용됩니다.
+- SMB(서버 메시지 블록), NFS(네트워크 파일 시스템) 또는 FileREST 프로토콜을 통해 공유에 직접 액세스합니다. 이 액세스 패턴은 최대한 많은 온-프레미스 서버를 제거할 때 주로 사용됩니다.
 - Azure 파일 동기화를 사용하여 온-프레미스 서버(또는 Azure VM)에서 Azure 파일 공유 캐시를 만들고, 사용 사례에 원하는 프로토콜(SMB, NFS, FTPS 등)을 사용하여 온-프레미스 서버에서 파일 공유의 데이터에 액세스합니다. 이 액세스 패턴은 온-프레미스 성능 및 클라우드 규모의 연결 가능한 서버리스 서비스(예: Azure Backup) 모두를 가장 효율적으로 결합하므로 편리합니다.
 
 이 문서에서는 사용 사례에서 Azure 파일 동기화를 사용하지 않고 Azure 파일 공유에 직접 액세스하도록 호출하는 경우에 네트워킹을 구성하는 방법에 대해 중점적으로 설명합니다. Azure File Sync 배포의 네트워킹 고려 사항에 대한 자세한 내용은 [Azure File Sync 네트워킹 고려 사항](../file-sync/file-sync-networking-overview.md)을 참조하세요.

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 83d8d6498a5ec4906f7cdd7187ae88e4a2f45126
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 07168ec69046973d4e02c2dc40b3b5e256ea26b4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318030"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492116"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 사용하여 VSCode로 Apache Spark 애플리케이션 만들기
 
@@ -192,6 +192,29 @@ for (word, count) in sortedCollection:
 >2. Synapse Pyspark 커널로 전환하고 Azure Portal에서 자동 설정을 사용하지 않도록 설정하는 것이 좋습니다. 그렇지 않으면 클러스터의 절전 모드를 해제하고 처음 사용할 때 synapse 커널을 설정하는 데 시간이 오래 걸릴 수 있습니다. 
 >
 >    ![자동 설정](./media/vscode-tool-synapse/auto-settings.png)
+
+## <a name="spark-session-config"></a>Spark 세션 구성
+
+**세션 구성** 에서 현재 Spark 세션에 제공할 실행기의 크기와 수, 제한 시간을 지정할 수 있습니다. Spark 세션을 다시 시작하면 구성 변경 사항이 적용됩니다. 캐시된 Notebook 변수는 모두 지워집니다.
+
+```python
+%%configure -f
+{
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
+    "driverMemory":"2g",
+    "driverCores":3,
+    "executorMemory":"2g",
+    "executorCores":2,
+    "jars":[],
+    "conf":{
+        "spark.driver.maxResultSize":"10g"
+    }
+}
+```
+
+> [!NOTE]
+>
+> 출력 셀에서 표시 함수 및 Spark SQL이 제대로 렌더링되지 않을 수 있습니다. 
 
 ## <a name="submit-pyspark-batch-job-to-spark-pool"></a>Spark 풀에 PySpark 일괄 작업 제출
 

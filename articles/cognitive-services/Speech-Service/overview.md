@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: eur
-ms.openlocfilehash: 739f5b448f49b825cbb0fbec2c02c5385e0de138
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.openlocfilehash: ece5aa9a17f5f65b96cf85de96a8ce655e9c9ec9
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131990005"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485612"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -114,7 +114,7 @@ Speech Service를 시작한 후에는 다양한 시나리오를 해결하는 방
 
 ## <a name="get-sample-code"></a>샘플 코드 가져오기
 
-샘플 코드는 Speech Service를 위해 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다. 다음 링크를 사용하여 SDK 및 REST 샘플을 확인하세요.
+샘플 코드는 Speech Service를 위해 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 시작 시 인식 그리고 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다. 다음 링크를 사용하여 SDK 및 REST 샘플을 확인하세요.
 
 - [음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역 샘플(SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)

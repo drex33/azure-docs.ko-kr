@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: fc175bdad79bbb01bd0686dcdbf314d8d6ee47fb
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 35394fc33316518dac760363d2b69fdaa0727d6a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201000"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529981"
 ---
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [활성 Communication Services 리소스](../../create-communication-resource.md)
@@ -37,9 +37,9 @@ ms.locfileid: "114201000"
 1. [전화 번호 유형](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services) 선택
 2. [전화 번호 기능](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services) 선택
 
-두 가지 전화 번호 유형, 즉 **지역** 및 **무료** 중에서 선택할 수 있습니다. 전화 번호 유형이 선택되면 기능을 선택할 수 있습니다.
+**현지** 및 **수신자 부담** 의 두 가지 전화번호 유형 중에서 선택할 수 있습니다. 전화 번호 유형이 선택되면 기능을 선택할 수 있습니다.
 
-이 예에서는 **아웃바운드 통화** 및 **인바운드 및 아웃바운드 SMS** 기능이 있는 **무료** 전화 번호 유형을 선택했습니다.
+이 예에서는 **전화 걸기** 및 **SMS 보내기 및 받기** 기능이 있는 **수신자 부담** 번호 유형을 선택했습니다.
 
 :::image type="content" source="../../media/manage-phone-azure-portal-select-plans.png" alt-text="기능 선택 보기를 보여 주는 스크린샷":::
 
@@ -52,7 +52,7 @@ ms.locfileid: "114201000"
 :::image type="content" source="../../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="[번호 선택] 페이지를 보여주는 스크린샷":::
 
 > [!NOTE]
-> 이 빠른 시작에서는 **무료** 전화 번호 유형의 사용자 지정 흐름을 보여 줍니다. **지역** 전화 번호 유형을 선택한 경우 환경이 약간 다를 수 있지만 최종 결과는 동일합니다.
+> 이 빠른 시작에서는 **무료** 전화 번호 유형의 사용자 지정 흐름을 보여 줍니다. **현지** 번호 유형을 선택한 경우 환경이 약간 다를 수 있지만 최종 결과는 동일합니다.
 
 사용 가능한 지역 코드 목록에서 **지역 코드** 를 선택하고, 프로비저닝하려는 수량을 입력한 다음, **검색** 을 클릭하여 선택한 요구 사항을 충족하는 전화 번호를 찾습니다. 요구 사항을 충족하는 전화 번호가 해당 월간 비용과 함께 표시됩니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "114201000"
 
 :::image type="content" source="../../media/manage-phone-azure-portal-capability-update.png" alt-text="기능 업데이트 페이지를 보여 주는 스크린샷":::
 
-사용 가능한 옵션에서 기능을 선택한 다음, **확인** 을 클릭하여 선택 항목을 적용합니다.
+사용 가능한 옵션에서 기능을 선택한 다음, **저장** 을 클릭하여 선택 항목을 적용합니다.
 
 ### <a name="release-phone-number"></a>전화 번호 해제
 

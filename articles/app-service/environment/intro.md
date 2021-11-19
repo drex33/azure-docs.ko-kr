@@ -1,28 +1,25 @@
 ---
-title: 소개
-description: Azure App Service Environments를 통해 완전히 격리된 전용 환경에서 앱을 확장, 보호 및 최적화하는 방법을 알아봅니다.
-author: ccompy
-ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
+title: ASEv2 소개
+description: Azure App Service Environments v2를 통해 완전히 격리된 전용 환경에서 앱을 확장, 보호 및 최적화하는 방법을 알아봅니다.
+author: madsd
 ms.topic: overview
-ms.date: 07/28/2021
-ms.author: ccompy
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 6fdce6c435c86d92f56d1ef6e00c966cabf8a590
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/15/2021
+ms.author: madsd
+ms.openlocfilehash: f704cf8bcd1efdc9a415b8c94662570869787491
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130231498"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523336"
 ---
-# <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
+# <a name="introduction-to-app-service-environment-v2"></a>App Service Environment v2 소개
 > [!NOTE]
-> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다. 사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](overview.md)를 참조하세요.
 > 
 
+## <a name="overview"></a>개요
 
-## <a name="overview"></a>개요 ##
-
-Azure App Service Environment는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. 이 기능은 다음을 호스트할 수 있습니다.
+Azure App Service Environment v2는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. 이 기능은 다음을 호스트할 수 있습니다.
 
 * Windows 웹앱
 * Linux 웹앱 
@@ -47,7 +44,7 @@ ASE는 한 고객에서만 애플리케이션을 호스팅하고 VNet 중 하나
 * ASE에서 실행 중인 앱은 WAF(웹 애플리케이션 방화벽) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [WAF(웹 애플리케이션 방화벽)][AppGW]를 참조하세요.
 * 영역 고정을 사용하여 App Service Environments를 AZ(가용성 영역)에 배포할 수 있습니다.  자세한 내용은 [가용성 영역에 대한 App Service Environment 지원][ASEAZ]을 참조하세요.
 
-## <a name="dedicated-environment"></a>전용 환경 ##
+## <a name="dedicated-environment"></a>전용 환경
 
 ASE는 단일 고객에게만 제공되는 전용 환경으로 App Service 요금제의 총 인스턴스 200개를 호스트할 수 있습니다. 격리된 단일 SKU App Service 요금제에는 최대 100개의 인스턴스가 포함될 수 있습니다. 해당 ASE의 모든 App Service 요금제에서 모든 인스턴스를 추가하는 경우 합계는 200보다 작거나 같아야 합니다.
 
@@ -63,7 +60,7 @@ ASE는 프런트 엔드 및 작업자로 구성됩니다. 프런트 엔드는 AS
 
 인프라에 대해 대금을 지급하고 ASE 크기에 따라 변경되지 않는 ASE의 월정액이 있습니다. 거기에 App Service 계획 vCPU당 비용이 발생합니다. ASE에 호스트되는 모든 앱은 격리 가격 책정 SKU에 해당합니다. ASE의 가격 책정에 대한 정보는 [App Service 가격 책정][Pricing] 페이지를 참조하고 ASE에 대한 사용 가능한 옵션을 검토하세요.
 
-## <a name="virtual-network-support"></a>가상 네트워크 지원 ##
+## <a name="virtual-network-support"></a>가상 네트워크 지원
 
 ASE 기능은 고객의 Azure Resource Manager 가상 네트워크에 직접 Azure App Service를 배포하는 것입니다. Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 FAQ](../../virtual-network/virtual-networks-faq.md)를 참조하세요. ASE는 항상 가상 네트워크 내 존재하며, 더 정확하게는 가상 네트워크의 서브넷 내에 있습니다. 가상 네트워크의 보안 기능을 사용하여 앱에 대한 인바운드 및 아웃바운드 네트워크 통신을 제어할 수 있습니다.
 
@@ -77,9 +74,9 @@ ASE가 가상 네트워크 및 온-프레미스 네트워크와 함께 어떻게
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
-## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
+## <a name="app-service-environment-v1"></a>App Service 환경 v1
 
-App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다. 
+App Service Environment에는 세 가지 버전(ASEv1, ASEv2 및 ASEv3)이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다. 자세히 알아보려면 [App Service Environment v3 소개](./overview.md)를 참조하세요.
 
 ASEv1에서는 모든 리소스를 수동으로 관리해야 합니다. 여기에는 IP 기반 TLS/SSL 바인딩에 사용되는 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 스케일 아웃하기 전에 호스트할 작업자 풀을 먼저 스케일 아웃해야 합니다.
 

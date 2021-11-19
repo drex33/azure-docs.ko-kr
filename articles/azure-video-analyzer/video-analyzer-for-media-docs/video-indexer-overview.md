@@ -5,12 +5,12 @@ description: 이 문서에서는 Azure Video Analyzer for Media(이전 Video Ind
 ms.topic: overview
 ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: a6fd02283bbd6304611dab1c6cfbc8a63e01139e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fddcb1cd3562fde14c38c68811b7272a7d710d2b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658605"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487499"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>Video Analyzer for Media란?
 
@@ -66,7 +66,8 @@ Video Analyzer for Media의 인사이트는 다음과 같은 다양한 시나리
 * **롤링 크레딧**: TV 프로그램과 영화의 끝 부분에 있는 롤링 크레딧의 시작과 끝을 식별합니다.
 * **애니메이션 캐릭터 검색**(미리 보기): [Cognitive Services 사용자 지정 비전](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)과 통합을 통해 애니메이션 콘텐츠에서 캐릭터를 검색, 그룹화 및 인식합니다. 자세한 내용은 [애니메이션 캐릭터 검색](animated-characters-recognition.md)을 참조하세요.
 * **편집 샷 유형 검색**: 관련 유형(예: 와이드 샷, 중간 샷, 클로즈업, 익스트림 클로즈업, 2인 샷, 여러 사람, 실외, 실내 등)을 기준으로 샷에 태그를 지정합니다. 자세한 내용은 [편집 샷 유형 검색](scenes-shots-keyframes.md#editorial-shot-type-detection)을 참조하세요.
-* **관찰된 사람 추적**: 비디오에서 관찰된 사람을 감지하고 비디오 프레임 내 사람의 위치(경계 상자 사용) 및 사람이 표시될 때의 정확한 타임스탬프(시작, 종료)와 신뢰도 같은 정보를 제공합니다. 자세한 내용은 [비디오에서 관찰된 사람 추적](observed-people-tracing.md)을 참조하세요.
+* **관찰된 사람 추적**(미리 보기): 비디오에서 관찰된 사람을 감지하고 비디오 프레임 내 사람의 위치(경계 상자 사용) 및 사람이 표시될 때의 정확한 타임스탬프(시작, 종료)와 신뢰도 같은 정보를 제공합니다. 자세한 내용은 [비디오에서 관찰된 사람 추적](observed-people-tracing.md)을 참조하세요.
+    * **사람이 감지한 옷**: 비디오에 나타나는 사람의 옷 유형을 감지하고, 길거나 짧은 소매, 길거나 짧은 바지, 치마 또는 드레스와 같은 정보를 제공합니다. 감지된 옷은 입고 있는 사람과 연결되며 감지에 대한 신뢰도 수준과 함께 정확한 타임스탬프(시작, 끝)가 제공됩니다.
 
 ### <a name="audio-insights"></a>오디오 인사이트
 

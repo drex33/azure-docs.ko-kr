@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
-ms.openlocfilehash: 62144ef2181a872327db3e30c0f81192f5a07ca4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 169772593542f502673194012112d56465ae224d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029548"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518644"
 ---
 # <a name="what-is-text-summarization-preview-in-azure-cognitive-service-for-language"></a>Azure Cognitive Service for Language의 텍스트 요약(미리 보기)이란?
 
@@ -35,6 +35,6 @@ AI 시스템에는 기술뿐만 아니라 기술을 사용하는 사람, 영향�
 
 ## <a name="next-steps"></a>다음 단계
 
-엔터티 연결 기능을 사용하여 시작하는 방법에는 두 가지가 있습니다.
+텍스트 요약 기능을 사용하여 시작하는 방법에는 두 가지가 있습니다.
 * [Language Studio](../language-studio.md): 코드를 작성할 필요 없이 여러 Azure Cognitive Service for Language 기능을 사용해 볼 수 있는 웹 기반 플랫폼입니다.
 * REST API 및 클라이언트 라이브러리 SDK를 사용하여 서비스에 요청하는 방법에 대한 지침은 [빠른 시작 문서](quickstart.md)를 참조하세요.  

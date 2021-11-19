@@ -1,18 +1,18 @@
 ---
-title: Azure CLI를 사용하여 Spring Boot 애플리케이션 배포
-description: 이 빠른 시작에서는 Azure CLI를 사용하여 Spring Boot 애플리케이션을 배포하는 방법을 알아봅니다.
+title: 방법 - 소스 코드에서 Spring Cloud 애플리케이션 시작
+description: 이 빠른 시작에서는 소스 코드에서 직접 Azure Spring Cloud의 애플리케이션을 시작하는 방법을 알아봅니다.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/03/2020
+ms.date: 11/12/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: db13944a29c0c9159d11f38e4bc6f26e5890235d
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 0815f48fd9b194a84566138b25b4bedc97de1a83
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132399791"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490329"
 ---
 # <a name="how-to-deploy-spring-boot-applications-from-azure-cli"></a>Azure CLI에서 Spring Boot 애플리케이션을 배포하는 방법
 

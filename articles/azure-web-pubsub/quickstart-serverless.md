@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/08/2021
-ms.openlocfilehash: 14642eda290049d02cac18d967808b534516e1a4
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 7dc376bb84c52688e1f665501680f11f6bb317eb
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131998047"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488528"
 ---
 # <a name="tutorial-create-a-serverless-real-time-chat-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 실시간 채팅 앱 만들기
 
@@ -71,27 +71,26 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     func init --worker-runtime dotnet
     ```
 
-1. `Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
+2. *`Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
 
-   1. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
+    > [!NOTE]
+    > [확장 번들](/azure/azure-functions/functions-bindings-register#extension-bundles)이 지원되는 경우 이 단계는 선택사항입니다.
 
-      ```json
-      {
+   a. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
+    ```json
+    {
         "version": "2.0"
-      }
-      ```
+    }
+    ```
+   b. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
+    ```bash
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+    ```
 
-   1. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
-
-      ```bash
-      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-      ```
-
-1. 클라이언트에 대한 정적 웹 페이지를 읽고 호스팅하는 `index` 함수를 만듭니다.
+3. 클라이언트에 대한 정적 웹 페이지를 읽고 호스팅하는 `index` 함수를 만듭니다.
     ```bash
     func new -n index -t HttpTrigger
     ```
-
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - `index/function.json`을 업데이트하고 다음 json 코드를 복사합니다.
         ```json
@@ -118,18 +117,26 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
    - `index/index.js`를 업데이트하고 다음 코드를 복사합니다.
         ```js
         var fs = require('fs');
+        var path = require('path');
+
         module.exports = function (context, req) {
-            fs.readFile('index.html', 'utf8', function (err, data) {
+            var index = 'index.html';
+            if (process.env["HOME"] != null)
+            {
+                index = path.join(process.env["HOME"], "site", "wwwroot", index);
+            }
+            context.log("index.html path: " + index);
+            fs.readFile(index, 'utf8', function (err, data) {
                 if (err) {
-                    console.log(err);
-                    context.done(err);
+                console.log(err);
+                context.done(err);
                 }
                 context.res = {
-                    status: 200,
-                    headers: {
-                        'Content-Type': 'text/html'
-                    },
-                    body: data
+                status: 200,
+                headers: {
+                    'Content-Type': 'text/html'
+                },
+                body: data
                 };
                 context.done();
             });
@@ -142,15 +149,21 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
         [FunctionName("index")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
         {
+            string indexFile = "index.html";
+            if (Environment.GetEnvironmentVariable("HOME") != null)
+            {
+                indexFile = Path.Join(Environment.GetEnvironmentVariable("HOME"), "site", "wwwroot", indexFile);
+            }
+            log.LogInformation($"index.html path: {indexFile}.");
             return new ContentResult
             {
-                Content = File.ReadAllText("index.html"),
+                Content = File.ReadAllText(indexFile),
                 ContentType = "text/html",
             };
         }
         ```
 
-1. 클라이언트에서 액세스 토큰을 사용하여 서비스 연결 URL을 가져오는 데 도움이 되는 `negotiate` 함수를 만듭니다.
+4. 클라이언트에서 액세스 토큰을 사용하여 서비스 연결 URL을 가져오는 데 도움이 되는 `negotiate` 함수를 만듭니다.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -204,7 +217,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
         }
         ```
 
-2. 서비스를 통해 클라이언트 메시지를 브로드캐스트하는 `message` 함수를 만듭니다.
+5. 서비스를 통해 클라이언트 메시지를 브로드캐스트하는 `message` 함수를 만듭니다.
    ```bash
    func new -n message -t HttpTrigger
    ```
@@ -220,15 +233,14 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
                 {
                     "type": "webPubSubTrigger",
                     "direction": "in",
-                    "name": "message",
-                    "dataType": "binary",
+                    "name": "data",
                     "hub": "simplechat",
                     "eventName": "message",
                     "eventType": "user"
                 },
                 {
                     "type": "webPubSub",
-                    "name": "webPubSubEvent",
+                    "name": "actions",
                     "hub": "simplechat",
                     "direction": "out"
                 }
@@ -237,15 +249,15 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
         ```
    - `message/index.js`를 업데이트하고 다음 코드를 복사합니다.
         ```js
-        module.exports = async function (context, message) {
-            context.bindings.webPubSubEvent = {
-                "operationKind": "sendToAll",
-                "message": `[${context.bindingData.connectionContext.userId}] ${message}`,
+        module.exports = async function (context, data) {
+            context.bindings.actions = {
+                "actionName": "sendToAll",
+                "data": `[${context.bindingData.request.connectionContext.userId}] ${data}`,
                 "dataType": context.bindingData.dataType
             };
-            // MessageResponse directly return to caller
+            // UserEventResponse directly return to caller
             var response = { 
-                "message": '[SYSTEM] ack.',
+                "data": '[SYSTEM] ack.',
                 "dataType" : "text"
             };
             return response;
@@ -256,26 +268,25 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
    - `message.cs`를 업데이트하고 `Run` 함수를 다음 코드로 바꿉니다.
         ```c#
         [FunctionName("message")]
-        public static async Task<MessageResponse> Run(
-            [WebPubSubTrigger(WebPubSubEventType.User, "message")] ConnectionContext context,
-            BinaryData message,
-            MessageDataType dataType,
-            [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubOperation> operations)
+        public static async Task<UserEventResponse> Run(
+            [WebPubSubTrigger(WebPubSubEventType.User, "message")] UserEventRequest request,
+            BinaryData data,
+            WebPubSubDataType dataType,
+            [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubAction> actions)
         {
-            await operations.AddAsync(new SendToAll
+            await actions.AddAsync(WebPubSubAction.CreateSendToAllAction(
+                BinaryData.FromString($"[{request.ConnectionContext.UserId}] {message.ToString()}"),
+                dataType
+            );
+            return new UserEventResponse
             {
-                Message = BinaryData.FromString($"[{context.UserId}] {message.ToString()}"),
-                DataType = dataType
-            });
-            return new MessageResponse
-            {
-                Message = BinaryData.FromString("[SYSTEM] ack"),
-                DataType = MessageDataType.Text
+                Data = BinaryData.FromString("[SYSTEM] ack"),
+                DataType = WebPubSubDataType.Text
             };
         }
         ```
 
-3. 프로젝트 루트 폴더에서 클라이언트 단일 페이지(`index.html`)를 추가하고 아래와 같이 콘텐츠를 복사합니다.
+6. 프로젝트 루트 폴더에서 클라이언트 단일 페이지(`index.html`)를 추가하고 아래와 같이 콘텐츠를 복사합니다.
     ```html
     <html>
         <body>
@@ -389,7 +400,7 @@ Use the following commands to create these items.
 
 ## <a name="configure-the-web-pubsub-service-event-handler"></a>`Event Handler` Web PubSub 서비스 구성
 
-이 샘플에서는 `WebPubSubTrigger`를 사용하여 서비스 업스트림 메시지 요청을 수신 대기합니다. 따라서 Web PubSub는 대상 클라이언트 요청을 보내기 위해 함수의 엔드포인트 정보를 인식하고 있어야 합니다. 그리고 Azure Function 앱에는 확장 관련 웹후크 방법에 대한 보안을 위한 시스템 키가 필요합니다. 이전 단계에서 `message` 함수를 사용하여 함수 앱을 배포하면 시스템 키를 얻을 수 있습니다.
+이 샘플에서는 `WebPubSubTrigger`를 사용하여 서비스 업스트림 요청을 수신 대기합니다. 따라서 Web PubSub는 대상 클라이언트 요청을 보내기 위해 함수의 엔드포인트 정보를 인식하고 있어야 합니다. 그리고 Azure Function 앱에는 확장 관련 웹후크 방법에 대한 보안을 위한 시스템 키가 필요합니다. 이전 단계에서 `message` 함수를 사용하여 함수 앱을 배포하면 시스템 키를 얻을 수 있습니다.
 
 **Azure Portal** -> 함수 앱 리소스 찾기 -> **앱 키** -> **시스템 키** ->  **`webpubsub_extension`** 로 차례로 이동합니다. 값을 `<APP_KEY>`로 복사합니다.
 

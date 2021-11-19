@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cf379d2eb5c20c8f8922631d5a467e961ea8f800
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3b95302be3eda412f6941abe359f6da63e235d24
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130228471"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492041"
 ---
 # <a name="tutorial-create-a-host-pool"></a>자습서: 호스트 풀 만들기
 
@@ -219,7 +219,12 @@ Azure Portal 호스트 풀 설정 프로세스 내에서 가상 머신을 설정
 
 12. **가상 머신 관리자 계정** 에서 VM을 생성하는 동안 추가할 로컬 관리자 계정의 자격 증명을 입력합니다. AD 및 Azure AD 조인 VM 모두에서 이 계정을 관리 목적으로 사용할 수 있습니다.
 
-13. **다음: 작업 영역 >** 을 선택합니다.
+13. **업데이트 후 사용자 지정 구성** 에서 Azure Resource Manager 템플릿의 위치를 입력하여 세션 호스트를 만든 후 사용자 지정 구성을 수행할 수 있습니다. Azure Resource Manager 템플릿 파일과 Azure Resource Manager 템플릿 매개 변수 파일 모두에 대한 URL을 입력해야 합니다. 
+
+      >[!NOTE]
+      >Azure Virtual Desktop은 템플릿에서 Azure 리소스 프로비전을 지원하지 않습니다.
+
+14. **다음: 작업 영역 >** 을 선택합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

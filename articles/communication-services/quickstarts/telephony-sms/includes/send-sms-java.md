@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: ea5e7c4c502e7a31fddac78e1931d172acce7b9d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: c0225c1193cd7e3664b9a7f21fa0337be8cb384a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112032"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132530111"
 ---
 Communication Services Java SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
@@ -24,7 +24,7 @@ Communication Services Java SMS SDK를 사용하여 SMS 메시지를 보내 Azur
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상.
@@ -140,7 +140,7 @@ System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 `<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
 
 > [!WARNING]
-> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
+> 전화 번호는 E.164 국제 표준 형식(예: +14255550123)으로 제공되어야 합니다. **발신** 전화번호도 단축 코드일 수 있습니다(예: 23456).
 
 ## <a name="send-a-1n-sms-message-with-options"></a>옵션이 포함된 1:N SMS 메시지 보내기
 SMS 메시지를 수신자 목록에 보내려면 수신자 전화 번호 목록을 사용하여 `send` 메서드를 호출합니다. 선택적 매개 변수를 전달하여 전달 보고서를 사용하도록 설정할지 여부를 지정하고 사용자 지정 태그를 설정할 수도 있습니다.
@@ -166,7 +166,7 @@ for (SmsSendResult result : sendResults) {
 `<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` 및 `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
 
 > [!WARNING]
-> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
+> 전화 번호는 E.164 국제 표준 형식(예: +14255550123)으로 제공되어야 합니다. **발신** 전화번호도 단축 코드일 수 있습니다(예: 23456).
 
 `setDeliveryReportEnabled` 메서드는 배달 보고를 구성하는 데 사용됩니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
 

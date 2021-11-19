@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 44cf84b1a9a045d1f9ecd6c6aaf3a8224ec273a6
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 12e16f8078d90ec1faae990a2e1dc4e6e7a42971
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112019"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529729"
 ---
 Communication Services C# SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
@@ -24,7 +24,7 @@ Communication Services C# SMS SDK를 사용하여 SMS 메시지를 보내 Azure 
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)
@@ -113,7 +113,7 @@ Console.WriteLine($"Sms id: {sendResult.MessageId}");
 `<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
 
 > [!WARNING]
-> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
+> 전화 번호는 E.164 국제 표준 형식(예: +14255550123)으로 제공되어야 합니다. **발신** 전화번호도 단축 코드일 수 있습니다(예: 23456).
 
 ## <a name="send-a-1n-sms-message-with-options"></a>옵션이 포함된 1:N SMS 메시지 보내기
 SMS 메시지를 수신자 목록에 보내려면 수신자의 전화 번호 목록이 포함된 SmsClient에서 `Send` 또는 `SendAsync` 함수를 호출합니다. 선택적 매개 변수를 전달하여 전달 보고서를 사용하도록 설정할지 여부를 지정하고 사용자 지정 태그를 설정할 수도 있습니다.
@@ -139,7 +139,7 @@ foreach (SmsSendResult result in results)
 `<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` 및 `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
 
 > [!WARNING]
-> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
+> 전화 번호는 E.164 국제 표준 형식(예: +14255550123)으로 제공되어야 합니다. **발신** 전화번호도 단축 코드일 수 있습니다(예: 23456).
 
 `enableDeliveryReport` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
 

@@ -2,13 +2,13 @@
 title: Microsoft Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
-ms.date: 11/09/2021
-ms.openlocfilehash: 955e9feb6d7f47c325421a9bf680c2151a9200f6
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.date: 11/16/2021
+ms.openlocfilehash: ed4c7ab63c2b1b4b0a1efdade213fcd141da27c2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132283626"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550367"
 ---
 # <a name="whats-new-in-microsoft-defender-for-iot"></a>Microsoft Defender for IoT의 새로운 기능은 무엇인가요?
 
@@ -32,7 +32,18 @@ Microsoft는 분기별로 한 번 이상 Defender for IoT 업데이트를 릴리
 |--|--|--|
 | 10.0 | 2021년 1월 | 2021년 10월 |
 | 10.3 | 2021년 4월 | 2022년 1월 |
-| 10.5.2 | 2021년 11월 | 2022년 7월 |
+| 10.5.2 | 2021년 10월 | 2022년 7월 |
+| 10.5.3 | 2021년 11월 | 2022년 8월 |
+
+## <a name="november-2021"></a>2021년 11월
+
+다음 기능 개선 사항은 Microsoft Defender for IoT 버전 10.5.3에서 사용할 수 있습니다.
+
+- 이제 센서는 90일이 지난 보관된 경고를 자동으로 삭제합니다.
+
+- 고객 피드백에 따라 경고 내보내기를 개선했습니다.
+
+- 성능 및 네트워크 트래픽 분석이 개선되었습니다.
 
 ## <a name="october-2021"></a>2021년 10월
 
@@ -46,11 +57,12 @@ Microsoft는 분기별로 한 번 이상 Defender for IoT 업데이트를 릴리
 
 - [Webhook 확장](#webhook-extended)
 
-- [인증서 암호에 대한 유니코드 지원](#unicode-support-for-certificate-passphrases) 
+- [인증서 암호에 대한 유니코드 지원](#unicode-support-for-certificate-passphrases)
 
 ### <a name="plc-operating-mode-detections-public-preview"></a>PLC 운영 모드 검색(공개 미리 보기)
 
 이제 사용자는 PLC 운영 모드 상태, 변경 내용 및 위험을 볼 수 있습니다. PLC 운영 모드는 물리적 키 스위치가 PLC에 있는 경우 PLC 논리 실행 상태와 물리적 키 상태로 구성됩니다.
+
 이 새로운 기능은 *보안되지* 않은 PLC를 검색하여 보안을 강화하고, 그 결과 PLC 프로그램 다운로드와 같은 악의적인 공격을 방지할 수 있습니다. 2017년 석유화학 공장에 대한 Triton 공격은 이러한 위험의 영향을 보여줍니다.
 또한 이 정보는 운영 엔지니어에게 엔터프라이즈 PLC의 운영 모드에 대한 중요한 가시성을 제공합니다.
 

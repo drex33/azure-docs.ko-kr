@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: 9e44cc1f631a56d1948c744a1ecb912208bad11e
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: c6fcc4c63b786af08c48450791a58b4f6f13a6ad
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659533"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132530088"
 ---
 Communication Services Python SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
@@ -24,7 +24,7 @@ Communication Services Python SMS SDK를 사용하여 SMS 메시지를 보내 Az
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-sms-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
@@ -105,7 +105,7 @@ sms_responses = sms_client.send(
 `<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
 
 > [!WARNING]
-> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
+> 전화 번호는 E.164 국제 표준 형식(예: +14255550123)으로 제공되어야 합니다. **발신** 전화번호도 단축 코드일 수 있습니다(예: 23456).
 
 ## <a name="send-a-1n-sms-message"></a>1:N SMS 메시지 보내기
 
@@ -126,7 +126,7 @@ sms_responses = sms_client.send(
 `<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
 
 > [!WARNING]
-> 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +14255550123)
+> 전화 번호는 E.164 국제 표준 형식(예: +14255550123)으로 제공되어야 합니다. **발신** 전화번호도 단축 코드일 수 있습니다(예: 23456).
 
 ## <a name="optional-parameters"></a>선택적 매개 변수
 

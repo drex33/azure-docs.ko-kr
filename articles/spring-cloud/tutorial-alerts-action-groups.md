@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 75ca1779ca358d955f9cb7bdb4af5867347ca569
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 98ac612782eff1b304473b12f3c8883a684bff28
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015430"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491682"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링
 
@@ -111,7 +111,7 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud 애플리케이션에 대한 경고 및 작업 그룹을 설정하는 방법에 대해 알아보았습니다. 작업 그룹에 대해 자세히 알아보려면 다음을 참조하세요.
+이 자습서에서는 Azure Spring Cloud의 애플리케이션에 대한 경고 및 작업 그룹을 설정하는 방법에 대해 알아보았습니다. 작업 그룹에 대해 자세히 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/alerts/action-groups.md)

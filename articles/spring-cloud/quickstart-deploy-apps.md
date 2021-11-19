@@ -5,15 +5,15 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/03/2020
+ms.date: 11/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 3fa8c1cef251e9eef1e8e4256dfd654302714743
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c52c2f68754eb87cfca63223674b885f1ba7041e
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131008772"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492609"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -222,8 +222,8 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 1. 이전 단계에서 빌드된 JAR 파일을 배포합니다.
 
     ```azurecli
-    az spring-cloud app deploy --name api-gateway --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-    az spring-cloud app deploy --name customers-service --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
+    az spring-cloud app deploy --name api-gateway --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+    az spring-cloud app deploy --name customers-service --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
     ```
 
 1. 다음 명령을 사용하여 배포 후 앱 상태를 쿼리합니다.
@@ -256,9 +256,9 @@ PetClinic 앱이 관리 서버, 방문 및 수의사 같은 모든 기능과 함
 az spring-cloud app create --name admin-server --instance-count 1 --memory 2 --assign-endpoint
 az spring-cloud app create --name vets-service --instance-count 1 --memory 2
 az spring-cloud app create --name visits-service --instance-count 1 --memory 2
-az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
 ```
 
 #### <a name="maven"></a>[Maven](#tab/Maven)
@@ -360,7 +360,7 @@ Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정
     ![Azure 1에 배포](media/spring-cloud-intellij-howto/deploy-to-azure-1-pet-clinic.png)
 
 1. **이름** 필드에서 *:api-gateway* 를 기존 **이름** 에 추가합니다.
-1. **아티팩트** 텍스트 상자에서 *spring-petclinic-api-gateway-2.3.6* 을 선택합니다.
+1. **아티팩트** 텍스트 상자에서 *spring-petclinic-api-gateway-2.5.1* 을 선택합니다.
 1. **구독** 텍스트 상자에서 구독을 확인합니다.
 1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
 1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.

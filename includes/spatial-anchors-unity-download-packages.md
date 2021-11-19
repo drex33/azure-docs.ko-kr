@@ -2,25 +2,25 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 03/30/2021
+ms.date: 11/12/2021
 ms.author: parkerra
-ms.openlocfilehash: 2cd6fff6cc68baa28e85fa0c17294bcfe783ae54
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 96a820f6cc2f0ae41f7b17fc284ba0a2a064b45d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721796"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490503"
 ---
 다음은 Unity용 Azure Spatial Anchors 패키지를 다운로드하는 단계입니다. 
 
-> [!WARNING]
-> ASA SDK 2.7.0은 지원되는 최소 버전입니다. Unity 2020을 사용하는 경우 지원되는 최소 버전은 ASA SDK 2.9.0입니다.
+> [!IMPORTANT]
+> ASA SDK 2.7.0은 지원되는 최소 버전입니다. Unity 2020을 사용하는 경우 지원되는 최소 버전은 ASA SDK 2.9.0입니다. Mixed Reality OpenXR 플러그 인을 사용하는 경우 ASA SDK 2.10.0이 지원되는 최소 버전입니다.
 
-Unity에서 Azure Spatial Anchors를 사용하려면 지원할 계획인 각 플랫폼(Android/iOS/HoloLens)에 대한 플랫폼별 패키지 뿐만 아니라 코어 패키지를 다운로드해야 합니다.
+Unity에서 Azure Spatial Anchors를 사용하려면 지원할 계획인 각 플랫폼(Android/iOS/HoloLens)에 대한 플랫폼별 패키지와 코어 패키지를 다운로드해야 합니다. 즉, 다음 패키지 중 두 개 이상을 다운로드합니다.
 
 | 플랫폼 | 패키지 이름                                    |
 |----------|-------------------------------------------------|
-| Android/iOS/HoloLens  | com.microsoft.azure.spatial-anchors-sdk.core@<version_number> |
+| 모든 플랫폼  | com.microsoft.azure.spatial-anchors-sdk.core@<version_number> |
 | Android  | com.microsoft.azure.spatial-anchors-sdk.android@<version_number> |
 | iOS      | com.microsoft.azure.spatial-anchors-sdk.ios@<version_number>     |
 | HoloLens | com.microsoft.azure.spatial-anchors-sdk.windows@<version_number> |

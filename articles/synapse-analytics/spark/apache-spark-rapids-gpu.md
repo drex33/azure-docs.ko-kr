@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 10/18/2021
 ms.author: nidutta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 072d1481ea1a089db7c02c5bc9af8179dcefccd7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c37e1361a1f0864dc64af3bfb91eb6f8df293949
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100962"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494328"
 ---
-# <a name="apache-spark-gpu-enabled-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Apache Spark GPU 사용 풀
+# <a name="apache-spark-gpu-accelerated-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 GPU 가속 풀 Apache Spark
 
 Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플리케이션의 성능을 향상하는 병렬 처리 프레임워크입니다. Azure Synapse Analytics의 Apache Spark는 Microsoft가 구현한 클라우드의 Apache Spark 중 하나입니다. 
 
-이제 Azure Synapse는 GPU의 방대한 병렬 처리 능력을 활용하여 처리를 가속화하는 기본 [RAPIDS 라이브러리](https://nvidia.github.io/spark-rapids/)를 통해 Spark 워크로드를 실행하는 Azure Synapse GPU 사용 풀을 만드는 기능을 제공합니다. Apache Spark용 RAPIDS 가속기를 사용하면 GPU 사용 풀로 미리 구성된 구성 설정을 사용하도록 설정하여 **코드 변경 없이** 기존 Spark 애플리케이션을 실행할 수 있습니다.
+이제 Azure Synapse는 GPU의 방대한 병렬 처리 능력을 사용하여 처리를 가속화하는 기본 [RAPIDS 라이브러리](https://nvidia.github.io/spark-rapids/)를 통해 Spark 워크로드를 실행하는 Azure Synapse GPU 사용 풀을 만드는 기능을 제공합니다. Apache Spark용 RAPIDS 가속기를 사용하면 GPU 사용 풀로 미리 구성된 구성 설정을 사용하도록 설정하여 **코드 변경 없이** 기존 Spark 애플리케이션을 실행할 수 있습니다.
 다음 구성을 설정하여 워크로드 전체 또는 일부에 대해 RAPIDS 기반 GPU 가속을 설정하거나 해제할 수 있습니다.
 
 ```
@@ -63,9 +63,9 @@ RAPIDS 가속기 플러그 인은 GPU와 실행기 간의 일대일 매핑만 �
 }
 ```
 
-## <a name="run-a-sample-spark-job-through-notebook-on-an-azure-synapse-gpu-enabled-pool"></a>Azure Synapse GPU 사용 풀에서 Notebook을 통해 샘플 Spark 작업 실행
+## <a name="run-a-sample-spark-job-through-notebook-on-an-azure-synapse-gpu-accelerated-pool"></a>Azure Synapse GPU 가속 풀에서 Notebook을 통해 샘플 Spark 작업 실행
 
-이 섹션을 진행하기 전에 Azure Synapse Analytics에서 [Notebook을 사용하는 방법에 대한 기본 개념](apache-spark-development-using-notebooks.md)을 숙지하는 것이 좋습니다. GPU 가속을 활용하는 간단한 Spark 애플리케이션을 실행하는 단계를 살펴보겠습니다. Spark 애플리케이션은 Synapse 내에서 지원되는 4개 언어(PySpark(Python), Spark(Scala), SparkSQL 및 .NET for Spark(C#)) 모두로 작성할 수 있습니다.
+이 섹션을 진행하기 전에 Azure Synapse Analytics에서 [Notebook을 사용하는 방법에 대한 기본 개념](apache-spark-development-using-notebooks.md)을 숙지하는 것이 좋습니다. GPU 가속을 활용하는 Spark 애플리케이션을 실행하는 단계를 살펴보겠습니다. Spark 애플리케이션은 Synapse 내에서 지원되는 4개 언어(PySpark(Python), Spark(Scala), SparkSQL 및 .NET for Spark(C#)) 모두로 작성할 수 있습니다.
 
 1. [이 빠른 시작](../quickstart-create-apache-gpu-pool-portal.md)에서 설명한 대로 GPU 사용 풀을 만듭니다.
 
@@ -142,7 +142,7 @@ DataFrame empDF = spark.CreateDataFrame(emp, schema);
 ```
 ---
 
-5. 이제 부서 ID당 최대 급여를 가져와서 간단한 집계를 수행하고 결과를 표시해 보겠습니다.
+5. 이제 부서 ID당 최대 급여를 가져와서 집계를 수행하고 결과를 표시해 보겠습니다.
 
 ### <a name="scala"></a>[Scala](#tab/scala1)
 
@@ -176,4 +176,7 @@ resultDF.Show();
 
 ### <a name="workspace-level"></a>작업 영역 수준
 
-모든 Azure Synapse 작업 영역에는 GPU vCore 수가 0개인 기본 할당량이 제공됩니다. GPU 코어 할당량을 늘리려면 작업 영역 이름, 지역 및 워크로드에 필요한 총 GPU 할당량을 포함한 이메일을 AzureSynapseGPU@microsoft.com으로 보내주세요.
+모든 Azure Synapse 작업 영역에는 GPU vCore 수가 50개인 기본 할당량이 제공됩니다. GPU 코어 할당량을 늘리려면 작업 영역 이름, 지역 및 워크로드에 필요한 총 GPU 할당량을 포함한 이메일을 AzureSynapseGPU@microsoft.com으로 보내주세요.
+
+## <a name="next-steps"></a>다음 단계
+- [Azure Synapse Analytics](../overview-what-is.md)

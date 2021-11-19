@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e64f27480126fdf444f8dd72abc2d66c78b30407
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 1eac3238bc5f39915360db2de3b0526ed4f699d7
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868810"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491892"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>자습서: 규칙 엔진 구성
 
@@ -48,6 +48,14 @@ ms.locfileid: "107868810"
     ![규칙 엔진 구성](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
 1. [위로 이동], [아래로 이동] 및 [맨 위로 이동] 단추를 사용하여 구성 내 규칙의 우선 순위를 결정합니다. 우선 순위는 오름차순, 즉, 맨 처음에 표시되는 규칙이 가장 중요한 규칙입니다.
+
+
+    > [!TIP]
+    > 변경 내용이 Azure Front Door에 전파되는 시기를 확인하려면 아래 예를 사용하여 규칙에서 사용자 지정 응답 헤더를 만들 수 있습니다. `_X-<RuleName>-Version_` 응답 헤더를 추가하고, 규칙이 업데이트될 때마다 값을 변경할 수 있습니다.
+    >  
+    > :::image type="content" source="./media/front-door-rules-engine/rules-version.png" alt-text="사용자 지정 버전 헤더 규칙의 스크린샷" lightbox="./media/front-door-rules-engine/rules-version-expanded.png":::
+    > 변경 내용이 업데이트되면 URL로 이동하여 호출되는 규칙 버전을 확인할 수 있습니다. :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="사용자 지정 헤더 버전 출력의 스크린샷":::
+
 
 1. 규칙을 하나 이상 만들었으면 **저장** 을 누릅니다. 그러면 규칙 엔진 구성이 만들어집니다.
 

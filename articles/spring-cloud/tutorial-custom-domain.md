@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: bbead4e25df9646c08ec605694cfa7514b011522
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 73f6c8217b6d630a1e31b53d54da56e5d30582a6
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015405"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488965"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>자습서: Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -24,7 +24,7 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure Spring Cloud에 배포된 애플리케이션. [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)을 참조하거나 기존 앱을 사용하세요.
+* Azure Spring Cloud에 배포된 애플리케이션([빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud에서 기존 애플리케이션 시작](./quickstart.md) 또는 기존 앱 사용).
 * GoDaddy 같은 도메인 공급자의 DNS 레지스트리에 대한 액세스 권한이 있는 도메인
 * 타사 공급자의 프라이빗 인증서(즉, 자체 서명된 인증서) 인증서는 도메인과 일치해야 합니다.
 * 배포된 [Azure Key Vault](../key-vault/general/overview.md) 인스턴스
@@ -173,7 +173,7 @@ CNAME을 추가한 후 DNS 레코드 페이지는 다음 예제와 비슷합니�
 ![DNS 레코드 페이지](./media/custom-dns-tutorial/dns-records.png)
 
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Azure Spring Cloud 앱에 사용자 지정 도메인 매핑
-Azure Spring Cloud에 아직 애플리케이션이 없으면 [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)의 지침을 따릅니다.
+Azure Spring Cloud에 애플리케이션이 없는 경우 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud에서 기존 애플리케이션 시작](./quickstart.md)의 지침을 따르세요.
 
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
 애플리케이션 페이지로 이동합니다.

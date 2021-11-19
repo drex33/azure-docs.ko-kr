@@ -1,33 +1,23 @@
 ---
-title: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
-description: 이 자습서는 Azure Sentinel의 자동화 규칙과 함께 플레이북을 사용하여 인시던트 응답을 자동화하고 보안 위협을 해결하는 데 도움이 됩니다.
-services: sentinel
-documentationcenter: na
+title: Microsoft Sentinel에서 자동화 규칙으로 플레이북 사용
+description: 이 자습서는 Microsoft Sentinel의 자동화 규칙과 함께 플레이북을 사용하여 인시던트 응답을 자동화하고 보안 위협을 해결하는 데 도움이 됩니다.
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/17/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 903a0ae946a60ff4b1dd2fec7789fa38986d3bcb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 06da046a2ccd6be414693525cacba2fcb7e50e68
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083786"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132756460"
 ---
-# <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
+# <a name="tutorial-use-playbooks-with-automation-rules-in-microsoft-sentinel"></a>자습서: Microsoft Sentinel에서 자동화 규칙으로 플레이북 사용
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 자습서에서는 자동화 규칙과 함께 플레이북을 사용하여 인시던트 응답을 자동화하고 Azure Sentinel이 탐지한 보안 위협을 해결하는 방법을 보여줍니다. 이 자습서를 완료하고 나면 다음을 수행할 수 있습니다.
+이 자습서에서는 자동화 규칙과 함께 플레이북을 사용하여 인시던트 응답을 자동화하고 Microsoft Sentinel이 탐지한 보안 위협을 해결하는 방법을 보여줍니다. 이 자습서를 완료하고 나면 다음을 수행할 수 있습니다.
 
 > [!div class="checklist"]
 >
@@ -37,16 +27,16 @@ ms.locfileid: "131083786"
 > * 자동화 규칙 또는 분석 규칙에 플레이북을 연결하여 위협 대응 자동화
 
 > [!NOTE]
-> 이 자습서는 주요 고객 작업인 인시던트 분류를 위한 자동화 만들기에 대한 기본 지침을 제공합니다. 자세한 내용은 [Azure Sentinel에서 플레이북으로 위협 대응 자동화](automate-responses-with-playbooks.md) 및 [Azure Sentinel 플레이북에서 트리거 및 작업 사용](playbook-triggers-actions.md)과 같은 **방법** 섹션을 참조하세요.
+> 이 자습서는 주요 고객 작업인 인시던트 분류를 위한 자동화 만들기에 대한 기본 지침을 제공합니다. 자세한 내용은 [Microsoft Sentinel에서 플레이북으로 위협 대응 자동화](automate-responses-with-playbooks.md) 및 [Microsoft Sentinel 플레이북에서 트리거 및 작업 사용](playbook-triggers-actions.md)과 같은 **방법** 섹션을 참조하세요.
 >
 
 ## <a name="what-are-automation-rules-and-playbooks"></a>자동화 규칙 및 플레이북이란?
 
-자동화 규칙은 Azure Sentinel에서 인시던트를 심사하는 데 도움이 됩니다. 자동화 규칙을 사용하여 적절한 직원에게 인시던트를 자동으로 할당하고, 잡음이 있는 인시던트 또는 알려진 [가양성](false-positives.md)을 종결하고, 심각도를 변경하고, 태그를 추가할 수 있습니다. 자동화 규칙은 인시던트에 대응하여 플레이북을 실행할 수 있는 메커니즘이기도 합니다.
+자동화 규칙은 Microsoft Sentinel에서 인시던트를 심사하는 데 도움이 됩니다. 자동화 규칙을 사용하여 적절한 직원에게 인시던트를 자동으로 할당하고, 잡음이 있는 인시던트 또는 알려진 [가양성](false-positives.md)을 종결하고, 심각도를 변경하고, 태그를 추가할 수 있습니다. 자동화 규칙은 인시던트에 대응하여 플레이북을 실행할 수 있는 메커니즘이기도 합니다.
 
-플레이북은 경고 또는 인시던트에 대응하여 Azure Sentinel에서 실행할 수 있는 프로시저 컬렉션입니다. 플레이북은 대응을 자동화하고 오케스트레이션하는 데 도움이 될 수 있으며, 각각 분석 규칙 또는 자동화 규칙에 연결하여 특정 경고나 인시던트가 생성될 때 자동으로 실행되도록 설정할 수 있습니다. 요청 시 수동으로 실행할 수도 있습니다.
+플레이북은 경고 또는 인시던트에 대응하여 Microsoft Sentinel에서 실행할 수 있는 프로시저 컬렉션입니다. 플레이북은 대응을 자동화하고 오케스트레이션하는 데 도움이 될 수 있으며, 각각 분석 규칙 또는 자동화 규칙에 연결하여 특정 경고나 인시던트가 생성될 때 자동으로 실행되도록 설정할 수 있습니다. 요청 시 수동으로 실행할 수도 있습니다.
 
-Azure Sentinel의 플레이북은 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에 내장된 워크플로를 기반으로 합니다. 즉, Logic Apps의 모든 성능, 사용자 지정 기능은 물론, 기본 제공되는 템플릿을 활용할 수 있습니다. 플레이북이 속한 구독마다 플레이북이 만들어지지만, **플레이북** 에는 선택한 구독에서 사용할 수 있는 모든 플레이북이 표시됩니다.
+Microsoft Sentinel의 플레이북은 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에 내장된 워크플로를 기반으로 합니다. 즉, Logic Apps의 모든 성능, 사용자 지정 기능은 물론, 기본 제공되는 템플릿을 활용할 수 있습니다. 플레이북이 속한 구독마다 플레이북이 만들어지지만, **플레이북** 에는 선택한 구독에서 사용할 수 있는 모든 플레이북이 표시됩니다.
 
 > [!NOTE]
 > 플레이북은 Azure Logic Apps를 사용하기 때문에 추가 요금이 부과될 수 있습니다. 자세한 내용은 [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) 가격 책정 페이지를 방문하세요.
@@ -63,7 +53,7 @@ Azure Sentinel의 플레이북은 [Azure Logic Apps](../logic-apps/logic-apps-ov
 
 1. 관리자가 **차단** 을 선택하면 플레이북은 사용자를 비활성화하는 명령을 Azure AD에 보내고, IP 주소를 차단하는 명령을 방화벽에 보냅니다.
 
-1. 관리자가 **무시** 를 선택하면 플레이북은 Azure Sentinel의 인시던트와 ServiceNow의 티켓을 닫습니다.
+1. 관리자가 **무시** 를 선택하면 플레이북은 Microsoft Sentinel의 인시던트와 ServiceNow의 티켓을 닫습니다.
 
 플레이북을 트리거하려면 이러한 인시던트가 생성될 때 실행되는 자동화 규칙을 만듭니다. 이 규칙은 다음 단계를 수행합니다.
 
@@ -79,7 +69,7 @@ Azure Sentinel의 플레이북은 [Azure Logic Apps](../logic-apps/logic-apps-ov
 
 선택한 경고에 대한 응답으로 요청 시 수동으로 플레이북을 실행하도록 선택할 수도 있습니다.
 
-Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automation-rules.md) 및 [플레이북](automate-responses-with-playbooks.md)을 사용하여 위협 대응을 자동화하는 방법에 대한 완전하고 구체적인 방법을 확인하세요.
+Microsoft Sentinel에서 [자동화 규칙](automate-incident-handling-with-automation-rules.md) 및 [플레이북](automate-responses-with-playbooks.md)을 사용하여 위협 대응을 자동화하는 방법에 대한 완전하고 구체적인 방법을 확인하세요.
 
 > [!IMPORTANT]
 >
@@ -87,11 +77,11 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
 ## <a name="create-a-playbook"></a>플레이북 만들기
 
-다음 단계를 따라 Azure Sentinel에서 새 플레이북을 만듭니다.
+다음 단계에 따라 Microsoft Sentinel에서 새 플레이북을 만듭니다.
 
 ### <a name="prepare-the-playbook-and-logic-app"></a>플레이북 및 논리 앱 준비
 
-1. **Azure Sentinel** 탐색 메뉴에서 **자동화** 를 선택합니다.
+1. **Microsoft Sentinel** 탐색 메뉴에서 **자동화** 를 선택합니다.
 
 1. 상단 메뉴에서 **만들기** 를 선택하고 **새 플레이북 추가** 를 선택합니다.
 
@@ -121,23 +111,23 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
 모든 플레이북은 트리거로 시작해야 합니다. 트리거는 플레이북을 시작하는 작업과 플레이북에서 받게 될 스키마를 정의합니다.
 
-1. 검색 창에서 Azure Sentinel을 검색합니다. 결과에 표시되는 **Azure Sentinel** 을 선택합니다.
+1. 검색 창에서 Microsoft Sentinel을 검색합니다. 결과에 표시되는 **Microsoft Sentinel** 을 선택합니다.
 
-1. **트리거** 탭에는 다음과 같은 경우에 Azure Sentinel에서 제공하는 두 개의 트리거가 표시됩니다.
-    - Azure Sentinel 경고에 대한 응답이 트리거될 때
-    - Azure Sentinel 인시던트 만들기 규칙이 트리거된 경우
+1. **트리거** 탭에는 다음과 같은 경우에 Microsoft Sentinel에서 제공하는 두 개의 트리거가 표시됩니다.
+    - Microsoft Sentinel 경고에 대한 응답이 트리거되는 경우
+    - Microsoft Sentinel 인시던트 만들기 규칙이 트리거된 경우
 
    만들고 있는 플레이북의 유형과 일치하는 트리거를 선택합니다.
 
     > [!NOTE]
     > **인시던트 트리거** 를 기반으로 하는 플레이북만 자동화 규칙을 통해 호출할 수 있습니다. **경고 트리거** 를 기반으로 하는 플레이북은 [분석 규칙](detect-threats-custom.md#set-automated-responses-and-create-the-rule)에서 직접 실행되도록 정의해야 하며 수동으로 실행할 수도 있습니다.
     > 
-    > 사용할 트리거에 대한 자세한 내용은 [**Azure Sentinel 플레이북에서 트리거 및 작업 사용**](playbook-triggers-actions.md)을 참조하세요.
+    > 사용할 트리거에 대한 자세한 내용은 [**Microsoft Sentinel 플레이북에서 트리거 및 작업 사용**](playbook-triggers-actions.md)을 참조하세요.
 
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="플레이북의 트리거 선택":::
 
 > [!NOTE]
-> 트리거 또는 후속 작업을 선택하면 조작하는 리소스 공급자에 인증하라는 메시지가 표시됩니다. 이 경우 공급자는 Azure Sentinel입니다. 인증에 사용할 수 있는 몇 가지 방법이 있습니다. 자세한 내용과 지침은 [**Azure Sentinel에 플레이북 인증**](authenticate-playbooks-to-sentinel.md)을 참조하세요.
+> 트리거 또는 후속 작업을 선택하면 조작하는 리소스 공급자에 인증하라는 메시지가 표시됩니다. 이 경우 공급자는 Microsoft Sentinel입니다. 인증에 사용할 수 있는 몇 가지 방법이 있습니다. 자세한 내용과 지침은 [**Microsoft Sentinel에 플레이북 인증**](authenticate-playbooks-to-sentinel.md)을 참조하세요.
 
 ### <a name="add-actions"></a>작업 추가
 
@@ -159,7 +149,7 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
 자동화 규칙을 만들려면 다음을 수행합니다.
 
-1. Azure Sentinel 탐색 메뉴의 **자동화** 블레이드에서 상단 메뉴에서 **만들기** 를 선택한 다음, **새 규칙 추가** 를 선택합니다.
+1. Microsoft Sentinel 탐색 메뉴의 **자동화** 블레이드에서 상단 메뉴에서 **만들기** 를 선택한 다음, **새 규칙 추가** 를 선택합니다.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="새 규칙 추가":::
 
@@ -176,28 +166,28 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 1. **플레이북 실행** 작업을 추가하는 경우 사용 가능한 플레이북 드롭다운 목록에서 선택하라는 메시지가 표시됩니다. **인시던트 트리거** 로 시작하는 플레이북만 자동화 규칙에서 실행할 수 있으므로 이러한 플레이북만 목록에만 표시됩니다.<a name="permissions-to-run-playbooks"></a>
 
     > [!IMPORTANT]
-    > 자동화 규칙에서 플레이북을 실행하려면 Azure Sentinel에 명시적 권한을 부여해야 합니다. 드롭다운 목록에서 플레이북이 "회색으로 표시"되면 해당 플레이북의 리소스 그룹에 대한 권한이 Sentinel에 없다는 뜻입니다. 권한을 할당하려면 **플레이북 권한 관리** 링크를 클릭합니다.
+    > 자동화 규칙에서 플레이북을 실행하려면 명시적 권한을 Microsoft Sentinel에 부여해야 합니다. 드롭다운 목록에서 플레이북이 "회색으로 표시"되면 해당 플레이북의 리소스 그룹에 대한 권한이 Sentinel에 없다는 뜻입니다. 권한을 할당하려면 **플레이북 권한 관리** 링크를 클릭합니다.
     > 열리는 **권한 관리** 패널에서, 실행하려는 플레이북이 포함된 리소스 그룹의 확인란을 선택하고 **적용** 을 클릭합니다.
     > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="사용 권한 관리":::
-    > - Azure Sentinel에 권한을 부여하려는 리소스 그룹에 대한 **소유자** 권한을 본인이 갖고 있어야 하며, 실행하려는 플레이북이 포함된 리소스 그룹에 대한 **논리 앱 기여자** 역할을 본인이 갖고 있어야 합니다.
-    > - 다중 테넌트 배포에서 실행하려는 플레이북이 다른 테넌트에 있는 경우 플레이북의 테넌트에서 플레이북을 실행할 수 있는 권한을 Azure Sentinel에 부여해야 합니다.
-    >    1. 플레이북 테넌트의 Azure Sentinel 탐색 메뉴에서 **설정** 을 선택합니다.
+    > - 권한을 Microsoft Sentinel에 부여하려는 리소스 그룹에 대한 **소유자** 권한을 본인이 갖고 있어야 하며, 실행하려는 플레이북이 포함된 리소스 그룹에 대한 **논리 앱 기여자** 역할을 본인이 갖고 있어야 합니다.
+    > - 다중 테넌트 배포에서 실행하려는 플레이북이 다른 테넌트에 있는 경우 플레이북의 테넌트에서 플레이북을 실행할 수 있는 권한을 Microsoft Sentinel에 부여해야 합니다.
+    >    1. 플레이북 테넌트의 Microsoft Sentinel 탐색 메뉴에서 **설정** 을 선택합니다.
     >    1. **설정** 블레이드에서 **설정** 탭을 선택한 다음, **플레이북 권한** 확장기를 선택합니다.
     >    1. **권한 구성** 단추를 클릭하여 위에서 언급한 **권한 관리** 패널을 열고, 패널의 설명에 따라 계속합니다.
-    > - **MSSP** 시나리오에서 서비스 공급자 테넌트에 로그인하는 동안 생성된 자동화 규칙에서 [고객 테넌트에서 플레이북을 실행](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture)하려면 **_두 테넌트_*모두에서 플레이북을 실행할 수 있는 Azure Sentinel 권한을 부여해야 합니다.* 고객** 테넌트에서 이전 글머리 기호 지점의 다중 테넌트 배포에 대한 지침을 따릅니다. **서비스 공급자** 테넌트에서 Azure Lighthouse 온보딩 템플릿에 Azure Security Insights 앱을 추가해야 합니다.
+    > - **MSSP** 시나리오에서 서비스 공급자 테넌트에 로그인하는 동안 생성된 자동화 규칙에서 [고객 테넌트에서 플레이북을 실행](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture)하려면 **_두 테넌트_*모두에서 플레이북을 실행할 수 있는 Microsoft Sentinel 권한을 부여해야 합니다.* 고객** 테넌트에서 이전 글머리 기호 지점의 다중 테넌트 배포에 대한 지침을 따릅니다. **서비스 공급자** 테넌트에서 Azure Lighthouse 온보딩 템플릿에 Azure Security Insights 앱을 추가해야 합니다.
     >    1. Azure Portal에서 **Azure Active Directory** 로 이동합니다.
     >    1. **엔터프라이즈 애플리케이션** 을 클릭합니다.
     >    1. **애플리케이션 유형** 을 선택하고 **Microsoft 애플리케이션** 에서 필터링합니다.
     >    1. 검색 상자에 **Azure Security Insights** 를 입력합니다.
     >    1. **개체 ID** 필드를 복사합니다. 기존 Azure Lighthouse 위임에 이 추가 권한 부여를 추가해야 합니다.
     >
-    >    **Azure Sentinel Automation 기여자** 역할에는 고정 GUID(`f4c81013-99ee-4d62-a7ee-b3f1f648599a`)가 있습니다. 샘플 Azure Lighthouse 권한 부여는 매개 변수 템플릿에서 다음과 같습니다.
+    >    **Microsoft Sentinel Automation 기여자** 역할에는 고정 GUID(`f4c81013-99ee-4d62-a7ee-b3f1f648599a`)가 있습니다. 샘플 Azure Lighthouse 권한 부여는 매개 변수 템플릿에서 다음과 같습니다.
     >    
     >    ```json
     >    {
     >        "principalId": "<Enter the Azure Security Insights app Object ID>", 
     >        "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
-    >        "principalIdDisplayName": "Azure Sentinel Automation Contributors" 
+    >        "principalIdDisplayName": "Microsoft Sentinel Automation Contributors" 
     >    }
     >    ```
 
@@ -213,7 +203,7 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
 플레이북을 사용하여 **경고** 에 대응할 수 있습니다. [분석 규칙 마법사](detect-threats-custom.md)에서 경고가 생성될 때 실행되는 **분석 규칙** 을 만들거나 기존 규칙을 편집하고 플레이북을 자동 응답으로 선택하면 됩니다.
 
-1. Azure Sentinel 탐색 메뉴의 **분석** 블레이드에서 대응을 자동화할 분석 규칙을 선택하고, 세부 정보 창에서 **편집** 을 클릭합니다.
+1. Microsoft Sentinel 탐색 메뉴의 **분석** 블레이드에서 대응을 자동화할 분석 규칙을 선택하고, 세부 정보 창에서 **편집** 을 클릭합니다.
 
 1. **분석 규칙 마법사 - 기존 규칙 편집** 페이지에서 **자동 응답** 탭을 선택합니다.
 
@@ -238,5 +228,5 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Sentinel에서 플레이북과 자동화 규칙을 사용하여 위협에 대응하는 방법을 배웠습니다. 
-- Azure Sentinel을 사용하여 [사전에 위협을 탐지하는 방법](hunting.md)을 알아보세요.
+이 자습서에서는 Microsoft Sentinel에서 플레이북과 자동화 규칙을 사용하여 위협에 대응하는 방법을 알아보았습니다. 
+- Microsoft Sentinel을 사용하여 [사전에 위협을 탐지하는 방법](hunting.md)을 알아보세요.

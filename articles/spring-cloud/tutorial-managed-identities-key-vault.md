@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b7854bac6706de156eca79e98361310659486b88
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 875763dbbc3beb39133f04579d8c46a9e0343f3a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181776"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492514"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
 
@@ -249,6 +249,6 @@ Azure Key Vault 비밀 클라이언트 라이브러리를 사용하면 토큰, �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Spring Cloud에서 관리 ID를 사용하여 스토리지 Blob에 액세스하는 방법](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
-* [시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법](./how-to-enable-system-assigned-managed-identity.md)
+* [시스템이 할당한 관리 ID를 Azure Spring Cloud의 애플리케이션에 사용하도록 설정하는 방법](./how-to-enable-system-assigned-managed-identity.md)
 * [Azure 리소스의 관리 ID에 대해 자세히 알아보기](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [GitHub Actions에서 Key Vault를 사용하여 Azure Spring Cloud 인증](./github-actions-key-vault.md)

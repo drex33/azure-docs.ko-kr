@@ -1,45 +1,41 @@
 ---
 title: 수집된 데이터 시각화
-description: Azure Sentinel을 사용하여 사용자 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법에 대해 알아봅니다.
-services: sentinel
+description: Microsoft Sentinel을 사용하여 사용자 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법을 알아봅니다.
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit, ignite-fall-2021
-ms.date: 09/16/2020
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: fb01d57a7801b940ba9de2e8c939743070c57eaa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: aa6b71689c2a3081b23a155e09a539d0bb55d6c5
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131004096"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132760450"
 ---
 # <a name="visualize-collected-data"></a>수집된 데이터 시각화
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 Azure Sentinel을 사용하여 작업 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법을 알아봅니다. Azure Sentinel에 데이터 원본을 연결하면 데이터가 바로 시각화되고 분석되므로 연결된 모든 데이터 원본에서 발생하는 상황을 파악할 수 있습니다. Azure Sentinel은 로그 및 쿼리 분석을 제공하기 위해 기본적으로 제공되는 표와 차트뿐만 아니라 Azure에서 이미 사용할 수 있는 전체 도구 기능을 제공하는 통합 문서를 지원합니다. 기본 제공 통합 문서를 사용할 수도 있고, 기존 통합 문서를 토대로 또는 처음부터 완전히 새롭게 새 통합 문서를 만들 수도 있습니다. 
+이 문서에서는 Microsoft Sentinel을 사용하여 작업 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법을 알아봅니다. Microsoft Sentinel에 데이터 원본을 연결하면 데이터가 바로 시각화되고 분석되므로 연결된 모든 데이터 원본에서 발생하는 상황을 파악할 수 있습니다. Microsoft Sentinel은 로그 및 쿼리 분석을 제공하기 위해 기본적으로 제공되는 표와 차트뿐만 아니라 Azure에서 이미 사용할 수 있는 전체 도구 기능을 제공하는 통합 문서를 지원합니다. 기본 제공 통합 문서를 사용할 수도 있고, 기존 통합 문서를 토대로 또는 처음부터 완전히 새롭게 새 통합 문서를 만들 수도 있습니다. 
 
 ## <a name="get-visualization"></a>데이터 시각화
 
-작업 환경에서 발생하는 상황을 시각화하고 분석하려면 먼저 개요 대시보드를 통해 조직의 보안 상황을 파악합니다. 이러한 타일의 각 요소를 클릭하여 생성 시 기반이 된 원시 데이터로 드릴다운할 수 있습니다. 노이즈를 줄이고 검토 및 조사해야 하는 경고의 수를 최소화하기 위해 Azure Sentinel은 Fusion 기법을 통해 경고와 인시던트 간 상관 관계를 파악합니다. **인시던트** 는 조사하고 해결할 수 있는 실행 가능한 인시던트를 만드는 데 사용되는 관련 경고 그룹입니다.
+작업 환경에서 발생하는 상황을 시각화하고 분석하려면 먼저 개요 대시보드를 통해 조직의 보안 상황을 파악합니다. 이러한 타일의 각 요소를 클릭하여 생성 시 기반이 된 원시 데이터로 드릴다운할 수 있습니다. 노이즈를 줄이고 검토 및 조사해야 하는 경고의 수를 최소화하기 위해 Microsoft Sentinel은 Fusion 기법을 통해 경고와 인시던트 간 상관 관계를 파악합니다. **인시던트** 는 조사하고 해결할 수 있는 실행 가능한 인시던트를 만드는 데 사용되는 관련 경고 그룹입니다.
 
-- Azure Portal에서 Azure Sentinel을 선택하고 모니터링하려는 작업 영역을 선택합니다.
+- Azure Portal에서 Microsoft Sentinel을 선택하고 모니터링하려는 작업 영역을 선택합니다.
 
-  ![Azure Sentinel 개요](./media/qs-get-visibility/overview.png)
+  ![Microsoft Sentinel 개요](./media/qs-get-visibility/overview.png)
 
-- 위쪽 도구 모음에는 선택한 기간 동안 발생한 이벤트의 수와 이전 24시간과 비교한 결과가 표시됩니다. 이 도구 모음에는 이러한 이벤트에서 트리거된 경고(작은 크기 숫자는 지난 24시간 동안의 변화량을 나타냄)가 표시된 후, 열려 있는 이벤트, 진행 중인 이벤트 및 닫힌 이벤트 수가 표시됩니다. 이벤트 수가 급격히 증가하거나 감소하지 않았는지 확인합니다. 이벤트 수가 감소하면 Azure Sentinel에 연결 중지가 보고될 수 있습니다. 이벤트 수가 증가하면 의심스러운 문제가 발생한 것일 수 있습니다. 새 경고가 있는지 확인합니다.
+- 위쪽 도구 모음에는 선택한 기간 동안 발생한 이벤트의 수와 이전 24시간과 비교한 결과가 표시됩니다. 이 도구 모음에는 이러한 이벤트에서 트리거된 경고(작은 크기 숫자는 지난 24시간 동안의 변화량을 나타냄)가 표시된 후, 열려 있는 이벤트, 진행 중인 이벤트 및 닫힌 이벤트 수가 표시됩니다. 이벤트 수가 급격히 증가하거나 감소하지 않았는지 확인합니다. 이벤트 수가 감소하면 Microsoft Sentinel에 연결 중지가 보고될 수 있습니다. 이벤트 수가 증가하면 의심스러운 문제가 발생한 것일 수 있습니다. 새 경고가 있는지 확인합니다.
 
-   ![Azure Sentinel 카운터](./media/qs-get-visibility/funnel.png)
+   ![Microsoft Sentinel 카운터](./media/qs-get-visibility/funnel.png)
 
 개요 페이지의 주 본문에서 작업 영역의 보안 상태를 한눈에 파악할 수 있습니다.
 
 - **시간에 따른 이벤트 및 경고**: 이벤트의 수와 해당 이벤트에서 생성된 경고 수를 표시합니다. 일반적이지 않은 스파이크가 나타나면 경고를 확인해야 합니다. 이벤트에 일반적이지 않은 스파이크가 나타나지만 경고가 발생하지 않으면 문제의 원인이 될 수 있습니다.
 
-- **잠재적 악성 이벤트**: 트래픽이 악의적인 것으로 알려진 원본에서 검색되면 Azure Sentinel에서 맵에 경고를 표시합니다. 주황색 표시는 인바운드 트래픽을 나타냅니다. 누군가가 악의적인 것으로 알려진 IP 주소에서 조직에 액세스하려고 하는 것입니다. 아웃바운드(빨간색) 활동이 표시되면 네트워크의 데이터가 조직을 벗어나 악의적인 것으로 알려진 IP 주소로 스트리밍되고 있음을 나타냅니다.
+- **잠재적 악성 이벤트**: 트래픽이 악의적인 것으로 알려진 원본에서 검색되면 Microsoft Sentinel에서 맵에 경고를 표시합니다. 주황색 표시는 인바운드 트래픽을 나타냅니다. 누군가가 악의적인 것으로 알려진 IP 주소에서 조직에 액세스하려고 하는 것입니다. 아웃바운드(빨간색) 활동이 표시되면 네트워크의 데이터가 조직을 벗어나 악의적인 것으로 알려진 IP 주소로 스트리밍되고 있음을 나타냅니다.
 
    ![악성 트래픽 맵](./media/qs-get-visibility/map.png)
 
@@ -55,7 +51,7 @@ ms.locfileid: "131004096"
 
 1. **설정** 에서 **통합 문서** 를 선택합니다. **설치됨** 아래에서 설치된 통합 문서를 모두 볼 수 있습니다. **모두** 아래에서 설치할 수 있는 기본 제공 통합 문서의 전체 갤러리를 볼 수 있습니다. 
 2. 특정 통합 문서를 검색하여 각 통합 문서가 제공하는 항목의 전체 목록 및 설명을 볼 수 있습니다. 
-3. Azure AD를 사용한다고 가정할 경우, Azure Sentinel을 가동하고 실행하기 위해 적어도 다음 통합 문서를 설치하는 것이 좋습니다.
+3. Azure AD를 사용한다고 가정할 경우, Microsoft Sentinel을 가동하고 실행하기 위해 적어도 다음 통합 문서를 설치하는 것이 좋습니다.
    - **Azure AD**: 다음 중 하나 또는 둘 모두를 사용합니다.
        - **Azure AD 로그인** 은 시간에 따른 로그인을 분석하여 오류가 있는지 확인합니다. 이 통합 문서는 애플리케이션, 디바이스, 위치별로 실패한 로그인을 보여주기 때문에 비정상적인 상황이 발생하면 한눈에 알아볼 수 있습니다. 로그인이 여러 번 실패하면 주의하세요. 
        - **Azure AD 감사 로그** 는 사용자에 대한 변경(추가, 제거 등), 그룹 만들기 및 수정과 같은 관리 활동을 분석합니다.  
@@ -71,7 +67,7 @@ ms.locfileid: "131004096"
 
 ### <a name="add-a-new-tile"></a>새 타일 추가
 
-새 타일을 추가하려는 경우 직접 만든 통합 문서 또는 Azure Sentinel 기본 제공 통합 문서에 추가할 수 있습니다. 
+새 타일을 추가하려는 경우 직접 만든 통합 문서 또는 Microsoft Sentinel 기본 제공 통합 문서에 추가할 수 있습니다. 
 1. Log Analytics에서 [자습서: Log Analytics의 시각적 데이터](../azure-monitor/visualize/tutorial-logs-dashboards.md)에 제공되는 지침에 따라 타일을 만듭니다. 
 2. 타일이 생성되면 **고정** 아래에서 타일을 표시할 통합 문서를 선택합니다.
 
@@ -113,18 +109,18 @@ AuditLogs
 
 ## <a name="create-new-detections"></a>새 탐지 만들기
 
-[Azure Sentinel에 연결한 데이터 원본](connect-data-sources.md)에 대한 탐지를 생성하여 조직내 위험 요소를 조사할 수 있습니다.
+[Microsoft Sentinel에 연결한 데이터 원본](connect-data-sources.md)에 대한 탐지를 생성하여 조직 내 위험 요소를 조사할 수 있습니다.
 
 새 탐지를 만들 때 Microsoft 보안 연구원들이 만든 기본 제공 탐지를 활용하세요. 이 기본 제공 탐지는 사용자가 연결한 데이터 원본에 맞게 조정됩니다.
 
-기본 제공되는 탐지를 모두 보려면 **Analytics** 로 이동한 다음, **규칙 템플릿** 으로 이동합니다. 이 탭에는 Azure Sentinel 기본 제공 규칙이 모두 포함됩니다.
+기본 제공되는 탐지를 모두 보려면 **Analytics** 로 이동한 다음, **규칙 템플릿** 으로 이동합니다. 이 탭에는 Microsoft Sentinel 기본 제공 규칙이 모두 포함됩니다.
 
-   ![기본 제공 탐지를 사용하여 Azure Sentinel로 위협 요소 찾기](media/tutorial-detect-built-in/view-oob-detections.png)
+   ![기본 제공 탐지를 사용하여 Microsoft Sentinel로 위협 요소 찾기](media/tutorial-detect-built-in/view-oob-detections.png)
 
 즉시 기본 제공되는 검색을 가져오는 방법에 대한 자세한 내용은 [기본 제공 분석 가져오기](detect-threats-built-in.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 Azure Sentinel 사용을 시작하는 방법을 알아보았습니다. [위협을 검색하는 방법](detect-threats-built-in.md)에 대한 문서를 계속 진행합니다.
+이 빠른 시작에서는 Microsoft Sentinel 사용을 시작하는 방법을 알아보았습니다. [위협을 검색하는 방법](detect-threats-built-in.md)에 대한 문서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 > [사용자 지정 위협 탐지 규칙을 만들어서](detect-threats-custom.md) 위협 요소에 대한 대응을 자동화합니다.

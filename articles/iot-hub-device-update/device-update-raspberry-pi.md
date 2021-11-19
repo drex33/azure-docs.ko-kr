@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7d6cb25d553e5215ae3d06810b7c0087dd433ef3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ded90c34a3e43f202c815dc593b3420cf5d88e41
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019935"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518948"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -173,13 +173,13 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 �
 
 1. 이전에 디바이스 업데이트 인스턴스에 연결한 IoT Hub로 이동합니다.
 
-2. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
+2. 왼쪽 탐색 모음에서 디바이스 관리 아래에 있는 업데이트 옵션을 선택합니다.
 
 3. 페이지 맨 위에서 그룹 탭을 선택합니다. 
 
 4. 추가 단추를 선택하여 새 그룹을 만듭니다.
 
-5. 이전 단계에서 만든 IoT Hub 태그를 목록에서 선택합니다. 업데이트 그룹 만들기를 선택합니다.
+5. 이전 단계에서 만든 IoT Hub 태그를 목록에서 선택합니다. 그룹 만들기를 선택합니다.
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="태그 선택을 보여 주는 스크린샷" lightbox="media/create-update-group/select-tag.PNG":::
 

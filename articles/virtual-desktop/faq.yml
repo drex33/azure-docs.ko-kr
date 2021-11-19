@@ -9,12 +9,12 @@ metadata:
   ms.author: helohr
   ms.custom: devx-track-azurepowershell
   manager: femila
-  ms.openlocfilehash: c1a60fe5b6b8d171521ce7fcee25502612a56fc8
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 62cbb90c4da18e7f273da2924f8d81ea2752d19a
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130254048"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132491548"
 title: Azure Virtual Desktop FAQ
 summary: 이 문서에서는 Azure Virtual Desktop에 대해 자주 묻는 질문에 답하고 모범 사례에 대해 설명합니다.
 sections:
@@ -194,4 +194,4 @@ sections:
       예. Azure Virtual Desktop 호스트 풀에는 VM을 만들 때 가용성 집합 또는 가용성 영역을 선택하는 옵션이 있습니다. 이 가용성 옵션은 Azure Compute에서 사용하는 것과 동일합니다. 호스트 풀에서 만든 VM에 대해 영역을 선택하면, 해당 영역에서 만든 모든 VM에 자동으로 설정이 적용됩니다. 여러 영역에 호스트 풀 VM을 분산하려는 경우 [Azure Portal에 가상 머신 추가](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal)의 지침을 따라 만든 각각의 새 VM에 대해 새 영역을 수동으로 선택해야 합니다.
   - question: >
       내게 적합한 가용성 옵션은 무엇인가요?
-    answer: "VM에 사용해야 하는 가용성 옵션은 이미지의 위치 및 관리 디스크 필드에 따라 달라집니다. 다음 표에서는 배포에 가장 적합한 옵션을 파악할 수 있게, 각 설정과 변수와의 관계에 대해 설명합니다. \n\n| 가용성 옵션 | 이미지 위치 | 관리 디스크 옵션 단추 사용(라디오 단추) |\n|---|---|---|\n| 없음 | 갤러리 | 사용하지 않도록 기본값 \"예\"로 설정 |\n| 없음 | Blob 스토리지 | 사용하도록 기본값 \"아니요\"로 설정 |\n| 가용성 영역 | 갤러리(Blob 스토리지 옵션 사용 안 함) | 사용하지 않도록 기본값 \"예\"로 설정 |\n| 관리형 SKU를 사용하는 가용성 집합(관리 디스크) | 갤러리 | 사용하지 않도록 기본값 \"예\"로 설정 |\n| 관리형 SKU를 사용하는 가용성 집합(관리 디스크) | Blob 스토리지 | 사용하도록 기본값 \"아니요\"로 설정 |\n| 관리형 SKU를 사용하는 가용성 집합(관리 디스크) | Blob Stroage(갤러리 옵션 사용 안 함) | 사용하지 않도록 기본값 \"아니요\"로 설정 |\n| 가용성 집합(사용자가 새로 만듦) | 갤러리 | 사용하지 않도록 기본값 \"예\"로 설정 |\n| 가용성 집합(사용자가 새로 만듦) | Blob 스토리지 | 사용하도록 기본값 \"아니요\"로 설정 |"
+    answer: "VM에 사용해야 하는 가용성 옵션은 이미지 위치에 따라 다릅니다. 다음 표에서는 배포에 가장 적합한 옵션을 파악할 수 있게, 각 설정과 변수와의 관계에 대해 설명합니다. \n\n| 가용성 옵션 | 이미지 위치 |\n|---|---|\n| 없음 | 갤러리 | \n| 없음 | Blob 스토리지 | \n| 가용성 영역 | 갤러리(Blob 스토리지 옵션 사용 안 함) |\n| 관리형 SKU를 사용하는 가용성 집합(관리 디스크) | 갤러리 | \n| 관리형 SKU를 사용하는 가용성 집합(관리 디스크) | Blob 스토리지 | \n| 관리형 SKU를 사용하는 가용성 집합(관리 디스크) | Blob Stroage(갤러리 옵션 사용 안 함) | \n| 가용성 집합(사용자가 새로 만듦) | 갤러리 | \n| 가용성 집합(사용자가 새로 만듦) | Blob 스토리지 |"

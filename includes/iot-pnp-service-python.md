@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 8cbfbc0f020504b17d9c2cbe3ca7d3f807ec28cd
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 59e353b7c052d41c1478473c2636fc81200ae327
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403619"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132875409"
 ---
 IoT 플러그 앤 플레이를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 모델과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 Python을 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여줍니다.
 
@@ -41,7 +41,7 @@ pip install azure-iot-hub
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md)를 참조하세요.
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/pnp/README.md)를 참조하세요.
 
 이 빠른 시작에서는 Python으로 작성한 샘플 자동 온도 조절 디바이스를 IoT 플러그 앤 플레이 디바이스로 사용합니다. 샘플 디바이스를 실행하려면 다음을 수행합니다.
 

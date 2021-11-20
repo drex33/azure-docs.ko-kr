@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 78721aa407977262747c43be90001da2343322aa
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 3b01b36114e682ebcdfd6b611261eb1e7baedb50
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123484551"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132875757"
 ---
-지금은 ultra disks, premium Ssd 및 standard Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 디스크 크기에 따라 `maxShares` 제한이 다를 수 있으므로 `maxShares` 값을 설정할 때 초과할 수 없습니다. 프리미엄 SSD의 경우 디스크 공유를 지원하는 디스크 크기는 P15 이상입니다.
+지금은 울트라 디스크, 프리미엄 SSD 및 표준 SSD만 공유 디스크를 사용하도록 설정할 수 있습니다. 디스크 크기에 따라 `maxShares` 제한이 다를 수 있으므로 `maxShares` 값을 설정할 때 초과할 수 없습니다.
 
 각 디스크에 대해 디스크를 동시에 공유할 수 있는 최대 노드 수를 나타내는 `maxShares` 값을 정의할 수 있습니다. 예를 들어 2 노드 장애 조치(failover) 클러스터를 설정하려는 경우 `maxShares=2`를 설정합니다. 최댓값이 상한입니다. 노드 수가 지정된 `maxShares` 값보다 적으면 노드가 클러스터에 조인하거나 탈퇴할 수 있습니다(디스크를 탑재 또는 분리).
 

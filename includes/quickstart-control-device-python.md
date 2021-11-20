@@ -11,12 +11,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: 8e9388f8b929743dddde0db21270e92eddf08a40
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 0e975772bcdac042a74c6c7129972f5ee1097837
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732215"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132876099"
 ---
  이 빠른 시작에서는 백 엔드 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션과 시뮬레이션된 디바이스에서 직접 메서드를 호출하는 백 엔드 애플리케이션인 두 개의 Python 애플리케이션을 사용합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "114732215"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* [Python 3.7 이상](https://www.python.org/downloads/). 지원되는 다른 버전의 Python은 [Azure IoT 디바이스 기능](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features)을 참조하세요.
+* [Python 3.7 이상](https://www.python.org/downloads/). 지원되는 다른 버전의 Python은 [Azure IoT 디바이스 기능](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device#azure-iot-device-features)을 참조하세요.
 
 * github의 [샘플 Python 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-python/). github 리포지토리에 있는 **코드** 단추를 사용하여 샘플을 다운로드하거나 복제합니다.
 

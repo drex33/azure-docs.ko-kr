@@ -10,12 +10,12 @@ ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4e93e5b157cc7bb17eb2e66a97770f4af0d915c2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 33499d0c34daab4adafa6237fdd1dbc7299df4b8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030891"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132876173"
 ---
 > [!IMPORTANT]
 >
@@ -37,7 +37,7 @@ ms.locfileid: "131030891"
 * Cognitive Services 또는 Form Recognizer 리소스. Azure 구독이 있으면 Azure Portal에서 [단일 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 또는 [다중 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer 리소스를 만들어 키와 엔드포인트를 가져옵니다. 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 > [!TIP]
-> 단일 엔드포인트/키에서 여러 Cognitive Services에 액세스하려는 경우 Cognitive Services 리소스를 만듭니다. Form Recognizer 리소스를 Form Recognizer 액세스 전용으로 만듭니다. [Azure Active Directory 인증](/azure/active-directory/authentication/overview-authentication)을 사용하려는 경우 단일 서비스 리소스가 필요합니다.
+> 단일 엔드포인트/키에서 여러 Cognitive Services에 액세스하려는 경우 Cognitive Services 리소스를 만듭니다. Form Recognizer 리소스를 Form Recognizer 액세스 전용으로 만듭니다. [Azure Active Directory 인증](../../../../active-directory/authentication/overview-authentication.md)을 사용하려는 경우 단일 서비스 리소스가 필요합니다.
 
 * 리소스가 배포되면 **리소스로 이동** 을 클릭합니다. 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 키와 엔드포인트는 이 빠른 시작의 뒷부분에서 코드에 붙여넣습니다.
 
@@ -122,7 +122,7 @@ import com.azure.core.util.polling.SyncPoller;
 
 > [!IMPORTANT]
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](/azure/cognitive-services/cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](../../../../cognitive-services/cognitive-services-security.md) 문서를 참조하세요.
 
 ## <a name="try-it-layout-model"></a>**사용해 보기**: 레이아웃 모델
 
@@ -175,7 +175,7 @@ public static void main(String[] args) {FormRecognizerClient recognizerClient = 
 
 ```
 
-## <a name="try-it-prebuilt-model"></a>**체험해 보기**: 미리 빌드된 모델
+## <a name="try-it-prebuilt-model"></a>**사용해 보기**: 미리 빌드된 모델
 
 이 샘플에서는 청구서를 예로 사용하여 미리 학습된 모델에서 특정 유형의 일반 문서에 있는 데이터를 분석하는 방법을 보여 줍니다.
 

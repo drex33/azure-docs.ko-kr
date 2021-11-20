@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0b97af7f7a274fec000bfee7d2cdeae92a3efc91
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010870"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132875868"
 ---
 가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. Azure 가용성 영역의 가상 네트워크 게이트웨이 SKU는 [Azure 가용성 영역 게이트웨이 SKU](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)를 참조하세요.
 
@@ -34,7 +34,7 @@ ms.locfileid: "96010870"
 | **SKU**| **기능**|
 | ---    | ---         |
 |**기본**(\*\*)   | **경로 기반 VPN**: S2S/연결 터널 10개, P2S에 대한 RADIUS 인증 없음, P2S에 대한 IKEv2 없음<br>**정책 기반 VPN**: (IKEv1): S2S/연결 터널 1개, P2S 없음|
-| **기본을 제외한 모든 1세대 및 2세대 SKU** | **경로 기반 VPN**: 최대 30개의 터널( * ),P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 |
+| **기본을 제외한 모든 1세대 및 2세대 SKU** | **경로 기반 VPN:** 최대 100개의 터널(*), P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 |
 |        |             |
 
 (*) "PolicyBasedTrafficSelectors"를 구성하여 경로 기반 VPN 게이트웨이를 여러 온-프레미스 정책 기반 방화벽 디바이스에 연결할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 VPN Gateway를 여러 온-프레미스 정책 기반 VPN 디바이스에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.

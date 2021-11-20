@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 08/03/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 8791b9d78e4d31b228ed0db34002b9b36714fbb2
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 89a91f437322c0b056e24b9f66bcf420a3550366
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131860726"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132876501"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 온도 컨트롤러를 실행하고, 허브에 안전하게 연결하고, 원격 분석을 보냅니다. 온도 컨트롤러 샘플 애플리케이션은 로컬 컴퓨터에서 실행되고 IoT Hub로 보낼 시뮬레이션된 센서 데이터를 생성합니다.
 
@@ -45,7 +45,7 @@ Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 
     > [!NOTE]
     > Azure CLI의 로컬 설치를 사용하는 경우 이제 두 개의 콘솔 창이 열려 있을 수 있습니다. CLI에 사용한 콘솔이 아니라 방금 연 콘솔에서 이 섹션의 명령을 입력해야 합니다.
 
-1. [Azure IoT Python SDK 디바이스 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples)을 로컬 컴퓨터에 복사합니다.
+1. [Azure IoT Python SDK 디바이스 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples)을 로컬 컴퓨터에 복사합니다.
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python

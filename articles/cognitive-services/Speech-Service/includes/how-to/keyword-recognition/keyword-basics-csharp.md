@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/04/2021
 ms.author: eur
-ms.openlocfilehash: 7214efa174e16ea27fd24beded8fcbeb77ecc57e
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 46aa82b1b1936d1a42f919fbfa0c339ddbdc5478
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508630"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132876487"
 ---
 먼저 `KeywordRecognitionModel`을 반환하는 `FromFile()` 정적 함수를 사용하여 키워드 모델 파일을 로드합니다. Speech Studio에서 다운로드한 `.table` 파일의 경로를 사용합니다. 또한 기본 마이크를 사용하여 `AudioConfig`를 만든 다음, 오디오 구성을 사용하여 새 `KeywordRecognizer`를 인스턴스화합니다.
 
@@ -29,7 +29,7 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 ```
 
 > [!NOTE]
-> 여기에 표시된 예제에서는 인증 컨텍스트에 `SpeechConfig` 개체가 필요하지 않으며 백 엔드에 연결하지 않기 때문에 로컬 키워드 인식을 사용합니다. 그러나 [직접 백 엔드 연결을 이용](../../../tutorial-voice-enable-your-bot-speech-sdk.md#view-the-source-code-that-enables-keyword)하여 키워드 인식 및 확인을 둘 다 실행할 수 있습니다.
+> 여기에 표시된 예제에서는 인증 컨텍스트에 `SpeechConfig` 개체가 필요하지 않으며 백 엔드에 연결하지 않기 때문에 로컬 키워드 인식을 사용합니다. 그러나 [직접 백 엔드 연결을 이용](../../../tutorial-voice-enable-your-bot-speech-sdk.md#view-the-source-code-that-enables-keyword-detection)하여 키워드 인식 및 확인을 둘 다 실행할 수 있습니다.
 
 ### <a name="continuous-recognition"></a>연속 인식
 

@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ed3824491e043ea99637604e76d83612d1ad6764
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 6e020a861294747ce381f4b6ae8d11e0f082d857
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131520281"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132876288"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 
@@ -34,7 +34,7 @@ ms.locfileid: "131520281"
     |위치 | "West US 2" 또는 "West Europe"         |
     |가격 책정 계층     | 표준(**S**) 가격 책정 계층        |
 
-2. **Custom NER(명명된 엔터티 인식) 및 사용자 지정 분류 (미리 보기)** 섹션에서 기존 스토리지 계정을 선택하거나 **새 스토리지 계정 만들기** 를 선택합니다. 이러한 값은 이 빠른 시작을 위한 것이며 프로덕션 환경에서 사용하려는 [스토리지 계정 값](/azure/storage/common/storage-account-overview)이 반드시 필요한 것은 아닙니다.
+2. **Custom NER(명명된 엔터티 인식) 및 사용자 지정 분류 (미리 보기)** 섹션에서 기존 스토리지 계정을 선택하거나 **새 스토리지 계정 만들기** 를 선택합니다. 이러한 값은 이 빠른 시작을 위한 것이며 프로덕션 환경에서 사용하려는 [스토리지 계정 값](../../../../../storage/common/storage-account-overview.md)이 반드시 필요한 것은 아닙니다.
 
     |스토리지 계정 값  |권장되는 값  |
     |---------|---------|
@@ -74,22 +74,12 @@ Azure 스토리지 계정을 만들고 언어 리소스에 연결한 후에는 �
 다음 URL을 사용하여 프로젝트를 만들고 태그 파일을 가져옵니다. 아래의 자리 표시자 값을 사용자 고유의 값으로 바꿉니다. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import. 
+{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import?api-version=2021-11-01-preview
 ```
 
 |자리 표시자  |값  | 예제 |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | API 요청을 인증하기 위한 엔드포인트입니다.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-
-### <a name="parameters"></a>매개 변수
-
-요청과 함께 다음 매개 변수를 전달합니다. 
-
-|키|설명|값|
-|--|--|--|
-|`api-version`| 사용된 API 버전입니다.| `2021-11-01-preview` |
-
-매개 변수를 전달하려면 요청 URL의 끝에 `?api-version=2021-11-01-preview`를 추가합니다.
 
 ### <a name="headers"></a>헤더
 
@@ -189,23 +179,13 @@ Azure 스토리지 계정을 만들고 언어 리소스에 연결한 후에는 �
 API 요청을 만드는 경우 다음 URL을 사용합니다. 아래의 자리 표시자 값을 사용자 고유의 값으로 바꿉니다. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train?api-version=2021-11-01-preview
 ```
 
 |자리 표시자  |값  | 예제 |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | API 요청을 인증하기 위한 엔드포인트입니다.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | 프로젝트에 대한 이름입니다. 이 값은 대/소문자를 구분합니다.  | `myProject` |
-
-### <a name="parameters"></a>매개 변수
-
-요청과 함께 다음 매개 변수를 전달합니다.
-
-|키|설명|값|
-|--|--|--|
-|`api-version`| 사용된 API 버전입니다.| `2021-11-01-preview` |
-
-매개 변수를 전달하려면 요청 URL의 끝에 `?api-version=2021-11-01-preview`를 추가합니다.
 
 ### <a name="headers"></a>헤더
 
@@ -234,7 +214,7 @@ API 요청을 만드는 경우 다음 URL을 사용합니다. 아래의 자리 �
 API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니다. 응답 헤더에서 `location` 값을 추출합니다. 다음과 같은 형식으로 지정됩니다. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 이 작업은 비동기이므로 `JOB-ID`가 요청을 식별하는 데 사용됩니다. 다음 단계에서 이 URL을 사용하여 학습 상태를 가져옵니다. 
@@ -244,7 +224,7 @@ API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니�
 다음 **GET** 요청을 사용하여 모델의 학습 프로세스 상태를 쿼리합니다. 이전 단계에서 받은 URL을 사용하거나, 아래의 자리 표시자 값을 사용자 고유의 값으로 바꿀 수 있습니다. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |자리 표시자  |값  | 예제 |
@@ -252,16 +232,6 @@ API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니�
 |`{YOUR-ENDPOINT}`     | API 요청을 인증하기 위한 엔드포인트입니다.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | 프로젝트에 대한 이름입니다. 이 값은 대/소문자를 구분합니다.  | `myProject` |
 |`{JOB-ID}`     | 모델의 학습 상태를 찾기 위한 ID입니다. 이는 이전 단계에서 받은 `location` 헤더 값에 있습니다.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### <a name="parameters"></a>매개 변수
-
-요청과 함께 다음 매개 변수를 전달합니다. 
-
-|키|설명|값|
-|--|--|--|
-|`api-version`| 사용된 API 버전입니다.| `2021-11-01-preview` |
-
-매개 변수를 전달하려면 요청 URL의 끝에 `?api-version=2021-11-01-preview`를 추가합니다.
 
 ### <a name="headers"></a>헤더
 
@@ -311,7 +281,7 @@ API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니�
 다음 URL, 헤더 및 JSON 본문을 사용하는 **PUT** 요청을 만들어 사용자 지정 NER 모델 배포를 시작합니다.
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version=2021-11-01-preview
 ```
 
 |자리 표시자  |값  | 예제 |
@@ -319,16 +289,6 @@ API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니�
 |`{YOUR-ENDPOINT}`     | API 요청을 인증하기 위한 엔드포인트입니다.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | 프로젝트에 대한 이름입니다. 이 값은 대/소문자를 구분합니다.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | 배포의 이름입니다. 이 값은 대/소문자를 구분합니다.  | `prod` |
-
-### <a name="parameters"></a>매개 변수
-
-요청과 함께 다음 매개 변수를 전달합니다. 
-
-|키|설명|값|
-|--|--|--|
-|`api-version`| 사용된 API 버전입니다.| `2021-11-01-preview` |
-
-매개 변수를 전달하려면 요청 URL의 끝에 `?api-version=2021-11-01-preview`를 추가합니다.
 
 ### <a name="headers"></a>헤더
 
@@ -352,7 +312,7 @@ API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니�
 API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니다. 응답 헤더에서 `location` 값을 추출합니다. 다음과 같은 형식으로 지정됩니다. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 이 작업은 비동기이므로 `JOB-ID`가 요청을 식별하는 데 사용됩니다. 다음 단계에서 이 URL을 사용하여 게시 상태를 가져옵니다.
@@ -362,7 +322,7 @@ API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니�
 다음 **GET** 요청을 사용하여 모델의 게시 프로세스 상태를 쿼리합니다. 이전 단계에서 받은 URL을 사용하거나, 아래의 자리 표시자 값을 사용자 고유의 값으로 바꿀 수 있습니다. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |자리 표시자  |값  | 예제 |
@@ -371,16 +331,6 @@ API 요청이 보내지면 성공을 나타내는 `202` 응답을 받게 됩니�
 |`{PROJECT-NAME}`     | 프로젝트에 대한 이름입니다. 이 값은 대/소문자를 구분합니다.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | 배포의 이름입니다. 이 값은 대/소문자를 구분합니다.  | `prod` |
 |`{JOB-ID}`     | 모델의 학습 상태를 찾기 위한 ID입니다. 이는 이전 단계에서 받은 `location` 헤더 값에 있습니다.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### <a name="parameters"></a>매개 변수
-
-요청과 함께 다음 매개 변수를 전달합니다. 
-
-|키|설명|값|
-|--|--|--|
-|`api-version`| 사용된 API 버전입니다.| `2021-11-01-preview` |
-
-매개 변수를 전달하려면 요청 URL의 끝에 `?api-version=2021-11-01-preview`를 추가합니다.
 
 ### <a name="headers"></a>헤더
 

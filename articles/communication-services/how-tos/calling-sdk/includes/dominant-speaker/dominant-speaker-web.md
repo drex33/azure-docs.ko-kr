@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: 9c98d06f017aeae227622e87f58c5c31c9cfab9a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1123410b1f8a58b7a3fbc92b20b0e9ba8e3e76dc
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128634103"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132876080"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
@@ -23,7 +23,7 @@ ms.locfileid: "128634103"
 통화의 주요 스피커를 알려면 먼저 통화 주요 스피커 기능 API 개체를 가져와야 합니다.
 
 ```js
-const callDominantSpeakersApi = call.api(Features.CallDominantSpeakers);
+const callDominantSpeakersApi = call.feature(Features.CallDominantSpeakers);
 ```
 
 그런 다음, `dominantSpeakers`를 호출하여 주요 스피커 목록을 가져옵니다. 이 목록은 `DominantSpeakersInfo` 형식을 가지며 다음 구성원을 포함합니다.
@@ -80,7 +80,7 @@ function getRemoteParticipantForDominantSpeaker(dominantSpeakerIdentifier) {
 // Handler function for when the dominant speaker changes
 const dominantSpeakersChangedHandler = async () => {
     // Get the new dominant speaker's identifier
-    const newDominantSpeakerIdentifier = currentCall.api(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
+    const newDominantSpeakerIdentifier = currentCall.feature(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
 
      if (newDominantSpeakerIdentifier) {
         // Get the remote participant object that matches newDominantSpeakerIdentifier
@@ -125,9 +125,9 @@ currentCall.on('stateChanged', () => {
     }
 });
 
-const dominantSpeakerIdentifier = currentCall.api(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
+const dominantSpeakerIdentifier = currentCall.feature(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
 dominantRemoteParticipant = getRemoteParticipantForDominantSpeaker(dominantSpeakerIdentifier);
-currentCall.api(Features.DominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
+currentCall.feature(Features.DominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 
 subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: RemoteParticipant) {
     let renderer: VideoStreamRenderer;

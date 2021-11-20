@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0f6258d1f851fc860c2e9e2b2d302545d9233f89
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 043f5b7150b2911acc70ea7efc166699c587bfc0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132590586"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132876218"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +35,7 @@ ms.locfileid: "132590586"
     |위치 | "West US 2" 또는 "West Europe"         |
     |가격 책정 계층     | 표준(**S**) 가격 책정 계층        |
 
-2. **Custom NER(명명된 엔터티 인식) 및 사용자 지정 분류 (미리 보기)** 섹션에서 기존 스토리지 계정을 선택하거나 **새 스토리지 계정 만들기** 를 선택합니다. 이러한 값은 이 빠른 시작을 위한 것이며 프로덕션 환경에서 사용하려는 [스토리지 계정 값](/azure/storage/common/storage-account-overview)이 반드시 필요한 것은 아닙니다.
+2. **Custom NER(명명된 엔터티 인식) 및 사용자 지정 분류 (미리 보기)** 섹션에서 기존 스토리지 계정을 선택하거나 **새 스토리지 계정 만들기** 를 선택합니다. 이러한 값은 이 빠른 시작을 위한 것이며 프로덕션 환경에서 사용하려는 [스토리지 계정 값](../../../../../storage/common/storage-account-overview.md)이 반드시 필요한 것은 아닙니다.
 
     |스토리지 계정 값  |권장되는 값  |
     |---------|---------|

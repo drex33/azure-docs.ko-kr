@@ -1,25 +1,28 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 02/11/2019
+ms.date: 11/15/2021
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 344a1952e106b9300e2441fdfcb5338ee846cfeb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d04498760e9d09bc5da55036bcfaf2ea67248029
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "126056446"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132876582"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
 ### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA 드라이버
 
-NC, NCv2, NCv3, ND 및 NDv2 시리즈 VM(NV 시리즈의 경우 선택적임)용 NVIDIA CUDA 드라이버는 다음 표에 나와 있는 Linux 배포판에서만 사용할 수 있습니다. CUDA 드라이버 정보는 게시 시점의 최신 정보입니다. 최신 CUDA 드라이버 및 지원되는 운영 체제는 [NVIDIA](https://developer.nvidia.com/cuda-zone) 웹 사이트를 참조하세요. 배포에 필요한 최신 CUDA 드라이버를 설치 또는 업그레이드해야 합니다. 
+NC, NCv2, NCv3, ND 및 NDv2 시리즈 VM(NV 시리즈의 경우 선택적임)용 NVIDIA CUDA 드라이버는 다음 표에 나와 있는 Linux 배포판에서만 사용할 수 있습니다. 최신 CUDA 드라이버 및 지원되는 운영 체제는 [NVIDIA](https://developer.nvidia.com/cuda-zone) 웹 사이트를 참조하세요. 배포를 위해 지원 되는 최신 verda 드라이버를 설치 하거나 업그레이드 해야 합니다. 
+
+> [!NOTE]
+> NC 시리즈 Vm에 대해 지원 되는 최신 verda 드라이버는 현재 470.82.01 중입니다. 이후 드라이버 버전은 NC의 K80 카드에서 지원 되지 않습니다.
 
 > [!TIP]
 > Linux VM에서 수동 CUDA 드라이버를 설치하는 대신, Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) 이미지를 배포할 수 있습니다. Ubuntu 16.04 LTS 또는 CentOS 7.4용 DSVM 에디션은 NVIDIA CUDA 드라이버, CUDA 심층 신경망 네트워크 라이브러리 및 기타 도구를 사전 설치합니다.
@@ -33,7 +36,7 @@ Azure에서 재배포한 GRID 드라이버는 NC, NCv2, NCv3, ND 및 NDv2 시리
 
 |배포|드라이버|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7~7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 이상 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 13, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7, 7.8, 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 sp2 이상, 15 sp2 | NVIDIA GRID 13, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 이전 Nvidia GRID 드라이버 링크의 전체 목록은 [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)를 참조하세요.
 

@@ -273,6 +273,9 @@
         - name: Azure Certified Device
           tocHref: /azure/certification/
           topicHref: /azure/certification/
+        - name: 산업용 IoT
+          tocHref: /azure/industrial-iot/
+          topicHref: /azure/industrial-iot/index
     - name: 리소스 관리자
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/

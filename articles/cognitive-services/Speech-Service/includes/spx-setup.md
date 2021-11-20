@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: eric-urban
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 197c186f87eacfb19412c12bc171b46fd59b0ef2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: cd3f8c1e1aec11213270342058438b68033c4f56
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501975"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132876341"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -171,15 +171,3 @@ Follow these instructions to create a shortcut:
 > If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
 --->
 ***
-
-## <a name="create-subscription-config"></a>구독 구성 만들기
-
-음성 CLI 사용을 시작하려면 음성 구독 키 및 지역 식별자를 입력해야 합니다. [음성 서비스 무료로 사용해 보기](../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요.
-구독 키와 지역 식별자가 있으면(예: `eastus`, `westus`) 다음 명령을 실행합니다.
-
-```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
-```
-
-구독 인증은 이제 향후 SPX 요청에 대해 저장됩니다. 이러한 저장된 값 중 하나를 제거해야 하는 경우 `spx config @region --clear` 또는 `spx config @key --clear`를 실행합니다.

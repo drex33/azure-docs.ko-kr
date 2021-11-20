@@ -4,14 +4,14 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: 241e7fc5797a0ebff062d8d9f814091ae3e09571
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: f97582f2ca181e8ecc443cd9d41ea6a5fa131645
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114408243"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132876166"
 ---
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
 
 ## <a name="prerequisites"></a>필수 조건
 

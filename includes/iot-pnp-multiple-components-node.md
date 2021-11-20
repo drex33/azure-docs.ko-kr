@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: dfd5568e14dff765148096d55e5d10b1e5fe12f6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a2420e0f8a4e39c6c58bf804f148e07fdb6b7f97
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131521008"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132875752"
 ---
 이 자습서에서는 구성 요소를 사용하여 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 허브로 전송된 정보를 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 Node.js용으로 작성되었으며 Node.js용 Azure IoT Hub 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -110,7 +110,7 @@ npm install
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/readme.md#iot-plug-and-play-device-samples)를 참조하세요.
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/readme.md#iot-plug-and-play-device-samples)를 참조하세요.
 
 코드를 살펴보았으면 다음 명령을 사용하여 샘플을 실행합니다.
 

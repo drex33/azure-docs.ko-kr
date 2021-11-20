@@ -4,14 +4,14 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: 319567fba40d2412c882685b8d7d3b916b699968
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 024c349b4237b4698ffe89c9b7ff090f408101e9
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131520197"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132876659"
 ---
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
 ## <a name="prerequisites"></a>필수 조건
 

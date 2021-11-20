@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 23970d887c1e3d2523c69ae0ace25fdc7b0094ff
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: c39c3302ce44a3bb224e5f31e5260b839eca043c
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131860918"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132876593"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 온도 컨트롤러를 만들고 IoT Central에 안전하게 연결하고 원격 분석을 보냅니다. 온도 컨트롤러 샘플 애플리케이션은 로컬 컴퓨터에서 실행되고 IoT Central에 보낼 시뮬레이션된 센서 데이터를 생성합니다.
 
@@ -86,15 +86,15 @@ ms.locfileid: "131860918"
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\javascript\pnp
+    cd azure-iot-sdk-node\device\samples\javascript
     ```
 
     **Linux 또는 Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-node/device/samples/javascript/pnp
+    cd azure-iot-sdk-node/device/samples/javascript
     ```
 
-1. Azure IoT Node.js SDK 및 필요한 종속성을 설치합니다.
+2. Azure IoT Node.js SDK 및 필요한 종속성을 설치합니다.
     ```console
     npm install
     ```
@@ -103,7 +103,7 @@ ms.locfileid: "131860918"
 
 1. 콘솔에서 SDK에서 다음 코드 샘플을 실행합니다. 샘플은 온도 조절기 센서가 있는 온도 컨트롤러를 만듭니다.
     ```console
-    node pnpTemperatureController.js
+    node pnp_temperature_controller.js
     ```
 
     디바이스가 IoT Central 애플리케이션에 연결되면 애플리케이션에서 만든 디바이스 인스턴스에 연결하고 원격 분석 전송을 시작합니다. 연결 세부 정보 및 원격 분석 출력이 콘솔에 표시됩니다. 

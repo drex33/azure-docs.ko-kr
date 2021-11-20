@@ -4,18 +4,18 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: faf4bd0bd87f71af8f62064297f8288b3977ec8d
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: cfd250e4826bf0675763b4e5c19c72f1088ef467
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405041"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132876054"
 ---
 다음 리소스를 사용할 수도 있습니다.
 
 - [Python SDK 참조 설명서](/python/api/azure-iot-hub/azure.iot.hub)
-- [서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)
-- [Digital Twins 샘플](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py)
+- [서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)
+- [Digital Twins 샘플](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-hub/samples/get_digital_twin_sample.py)
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 

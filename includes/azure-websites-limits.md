@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: 8e787aab95da883f5a448ee250eb542fb10e45f6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6224269e8e33f9099a1e8fba9c130b5cd0080143
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130287545"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132875795"
 ---
 | 리소스 | 무료 | 공유됨 | Basic | Standard | Premium(v1-v3) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -17,10 +17,10 @@ ms.locfileid: "130287545"
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) |지역당 10개 |리소스 그룹 당 10 |리소스 그룹당 100 |리소스 그룹당 100 |리소스 그룹당 100 |리소스 그룹당 100|
 | 컴퓨팅 인스턴스 유형 |공유됨 |공유됨 |전용<sup>3</sup> |전용<sup>3</sup> |전용<sup>3</sup></p> |전용<sup>3</sup>|
 | [규모 확장](../articles/app-service/manage-scale-up.md)(최대 인스턴스 수) |1개 공유됨 |1개 공유됨 |3개 전용됨<sup>3</sup> |10개 전용됨<sup>3</sup> | v1의 경우 20개 전용됨, v2 및 v3의 경우 30개 전용됨<sup>3</sup>|100개 전용됨<sup> 4</sup>|
-| 스토리지<sup>5</sup> |1GB<sup>5</sup> |1GB<sup>5</sup> |10GB<sup>5</sup> |50GB<sup>5</sup> |250GB<sup>5</sup> |1TB<sup>5</sup> <br/><br/> 사용 가능한 스토리지 할당량은 999GB입니다. |
+| 스토리지<sup>5</sup> |1GB<sup>5</sup> |1GB<sup>5</sup> |10GB<sup>5</sup> |50GB<sup>5</sup> |250GB<sup>5</sup> |1 TB<sup>13</sup> <br/><br/> 사용 가능한 스토리지 할당량은 999GB입니다. |
 | CPU 시간(5분)<sup>6</sup> |3분 |3분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a>|
 | CPU 시간(일)<sup>6</sup> |60분 |240분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |
-| 메모리(1시간) |App Service 계획당 1,024MB |앱당 1,024MB |해당 없음 |해당 없음 |해당 없음 |해당 없음 |
+| 메모리(1시간) |App Service 계획당 1,024MB |앱당 1,024MB |해당 없음 |N/A |해당 없음 |해당 없음 |
 | 대역폭 |165 MB |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |
 | 애플리케이션 아키텍처 |32비트 |32비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |
 | 인스턴스당 웹 소켓 수<sup>7</sup> |5 |35 |350 |제한 없음 |제한 없음 |제한 없음 |
@@ -70,3 +70,5 @@ ms.locfileid: "130287545"
 <sup>11</sup> App Service 인스턴스 내에서 요청 시, 일정에 따라 또는 연속적인 백그라운드 작업으로 사용자 지정 실행 파일 및/또는 스크립트를 실행합니다. Always On은 연속 Webjob 실행을 위해 필요합니다. App Service 인스턴스에서 실행할 수 있는 WebJobs 수에는 미리 정의된 제한이 없습니다. 애플리케이션 코드에서 수행하려고 하는 작업에 따라 실제적인 제한이 있습니다.
 
 <sup>12</sup> Naked 도메인은 지원되지 않습니다. 표준 인증서만 발급합니다(와일드카드 인증서는 사용할 수 없음). 사용자 지정 도메인당 무료 인증서는 하나만 사용할 수 있습니다.
+
+<sup>13</sup> 단일 App Service Environment 배포된 모든 앱에서 총 스토리지 사용량(서로 다른 리소스 그룹에 할당되는 방법에 관계 없이).

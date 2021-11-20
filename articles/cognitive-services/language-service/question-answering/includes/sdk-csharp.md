@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: include
 ms.date: 11/11/2021
-ms.openlocfilehash: e374ef91c414b9d352b3c0cddd8af59da3e699a0
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 5eb9fff67b4e94c71c3412a4164e42a02613bbc5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132354055"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132876424"
 ---
 이 빠른 시작을 .NET용 질문 답변 클라이언트 라이브러리에 사용하여 다음을 수행합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "132354055"
  [API 참조 설명서][questionanswering_refdocs]|[소스 코드][questionanswering_client_src] | [패키지(NuGet)][questionanswering_nuget_package]  | [샘플][questionanswering_samples] |
 
 [questionanswering_nuget_package]: https://nuget.org/packages/Azure.AI.Language.
-[questionanswering_refdocs]: https://docs.microsoft.com/dotnet/api/Azure.AI.Language.QuestionAnswering/
+[questionanswering_refdocs]: /dotnet/api/Azure.AI.Language.QuestionAnswering/
 [questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/src/
 [questionanswering_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/samples/README.md
 

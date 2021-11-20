@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: eur
-ms.openlocfilehash: 3a832bcb236790a9736b032549cb0fe21e258d34
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 05f20a7fca35fc3461364ace72176b6c582eebcd
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131520705"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132875631"
 ---
 압축된 오디오 입력을 허용하도록 Speech SDK를 구성하려면 `PullAudioInputStream` 또는 `PushAudioInputStream`을 만듭니다. 그런 다음, 스트림 클래스의 인스턴스에서 `AudioConfig`를 만들어 스트림의 압축 형식을 지정합니다. [Speech SDK 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/WavStream.java)에서 관련 샘플 코드를 찾습니다.
 
@@ -20,7 +20,7 @@ import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import com.microsoft.cognitiveservices.speech.audio.AudioInputStream;
 import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
 import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStream;
-import com.microsoft.cognitiveservices.speech.internal.AudioStreamContainerFormat;
+import com.microsoft.cognitiveservices.speech.audio.AudioStreamContainerFormat;
 
 // ... omitted for brevity
 

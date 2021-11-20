@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/08/2021
 ms.author: mahender
-ms.openlocfilehash: 5fc17f7a4a5220ebcfb05b179c3ee75ba077e5a4
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 07496f2b334eeafcff0d1ab6e709f6ce5460a29b
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132529597"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132875422"
 ---
 ## <a name="connections"></a>Connections
 
@@ -30,20 +30,26 @@ ms.locfileid: "132529597"
 
 ### <a name="identity-based-connections"></a>ID 기반 연결
 
-비밀이 있는 연결 문자열을 사용하는 대신 [버전 5.x 이상 확장](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher)를 사용하는 경우 앱에서 Azure Active Directory [ID](../articles/active-directory/fundamentals/active-directory-whatis.md)를 사용하도록 할 수 있습니다. 이렇게 하려면 트리거 및 바인딩 구성의 속성에 매핑되는 공통 접두사 아래에 설정을 `connection` 정의합니다.
+비밀이 있는 연결 문자열을 사용하는 대신 [버전 5.x 이상 확장](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher)를 사용하는 경우 앱에서 Azure Active Directory [ID를](../articles/active-directory/fundamentals/active-directory-whatis.md)사용하도록 할 수 있습니다. 이렇게 하려면 트리거 및 바인딩 구성의 속성에 매핑되는 공통 접두사 아래에 설정을 `connection` 정의합니다.
 
 이 모드에서는 확장에 다음 속성이 필요합니다.
 
 | 속성                  | 환경 변수 템플릿                       | 설명                                | 예제 값 |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
-| Blob Service URI | `<CONNECTION_NAME_PREFIX>__blobServiceUri`<sup>1</sup>  | HTTPS 체계를 사용하여 연결 중인 Blob Service의 데이터 평면 URI입니다. | https://<storage_account_name>.blob.core.windows.net |
+| Blob Service URI | `<CONNECTION_NAME_PREFIX>__serviceUri`<sup>1</sup>  | HTTPS 체계를 사용하여 연결 중인 Blob Service의 데이터 평면 URI입니다. | https://<storage_account_name>.blob.core.windows.net |
 
-<sup>1은</sup> `<CONNECTION_NAME_PREFIX>__serviceUri` 별칭으로 사용할 수 있습니다. 두 별칭이 모두 제공되면 `blobServiceUri` 양식이 사용됩니다. `serviceUri`전체 연결 구성을 Blob, 큐 및/또는 테이블에서 사용할 경우에는 폼을 사용할 수 없습니다.
-
-> [!NOTE]
-> 기본적으로 Blob 트리거는 내부적으로 Azure 큐를 사용합니다. `<CONNECTION_NAME_PREFIX>__queueServiceUri` 을 지정할 수도 있지만 기본 동작이 없으면 "AzureWebJobsStorage"로 정의된 연결을 사용하는 것입니다. 트리거는 이러한 큐에 사용할 연결에 [Storage 큐 데이터 기여자가](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 필요합니다.
+<sup>1은</sup> `<CONNECTION_NAME_PREFIX>__blobServiceUri` 별칭으로 사용할 수 있습니다. Blob 트리거에서 연결 구성을 사용하는 경우 `blobServiceUri` 도 함께 사용해야 `queueServiceUri` 합니다. 아래 내용을 참조하세요.
 
 연결을 사용자 지정하기 위해 추가 속성을 설정할 수 있습니다. [ID 기반 연결에 대한 공용 속성을 참조하세요.](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections)
+
+`serviceUri`전체 연결 구성을 Blob, 큐 및/또는 테이블에서 사용할 경우에는 폼을 사용할 수 없습니다. URI 자체는 Blob service만 지정할 수 있습니다. 또는 각 서비스에 대한 URI를 제공하여 단일 연결을 사용할 수 있습니다. 두 버전이 모두 제공되면 다중 서비스 양식이 사용됩니다. 대신 여러 서비스에 대한 연결을 구성하려면 `<CONNECTION_NAME_PREFIX>__serviceUri` 다음을 설정합니다.
+
+| 속성                  | 환경 변수 템플릿                       | 설명                                | 예제 값 |
+|---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
+| Blob Service URI | `<CONNECTION_NAME_PREFIX>__blobServiceUri` | HTTPS 체계를 사용하여 연결 중인 Blob Service의 데이터 평면 URI입니다. | https://<storage_account_name>.blob.core.windows.net |
+| 큐 서비스 URI(Blob 트리거 <sup>2에</sup>**필요)**  | `<CONNECTION_NAME_PREFIX>__queueServiceUri` | HTTPS 체계를 사용하는 큐 서비스의 데이터 평면 URI입니다. 이 값은 Blob 트리거에만 필요합니다. | https://<storage_account_name>.queue.core.windows.net |
+
+<sup>2</sup> 기본적으로 Blob 트리거는 내부적으로 Azure 큐를 사용합니다. `serviceUri`양식에서 `AzureWebJobsStorage` 연결이 사용됩니다. 그러나 를 지정할 `blobServiceUri` 때는 큐 서비스 URI도 와 함께 제공해야 `queueServiceUri` 합니다. Blob 서비스와 동일한 스토리지 계정의 서비스를 사용하는 것이 좋습니다. 또한 Storage [큐 데이터 기여자와](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor)같은 역할을 할당하여 트리거가 구성된 큐 서비스에서 메시지를 읽고 쓸 수 있는지 확인해야 합니다. 
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 

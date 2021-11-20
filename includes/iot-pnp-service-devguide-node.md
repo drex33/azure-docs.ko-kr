@@ -4,18 +4,18 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 974dc0488e358581bc6c0ee1798c079026d75cca
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: 7306affd8e0566a9e29daaebb3781de07b4aa835
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405048"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132875988"
 ---
 다음 리소스를 사용할 수도 있습니다.
 
 - [Node.js SDK 참조 설명서](/javascript/api/azure-iothub)
-- [서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)
-- [Digital Twins 샘플](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js)
+- [서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-node/blob/main/service/samples/javascript/twin.js)
+- [Digital Twins 샘플](https://github.com/Azure/azure-iot-sdk-node/blob/main/service/samples/javascript/get_digital_twin.js)
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 

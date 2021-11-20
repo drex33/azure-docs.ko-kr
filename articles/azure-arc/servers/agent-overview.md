@@ -1,26 +1,26 @@
 ---
-title: Connected Machine 에이전트 개요
+title: Azure Connected Machine 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트되는 가상 머신의 모니터링을 지원하는 Azure Arc 지원 서버 에이전트에 대한 자세한 개요를 제공합니다.
 ms.date: 11/03/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30c9a32cabf24e54dd41d45d40a8ff07920fd919
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 8ee624923be7f32047752572fc582f4c2e8616cf
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546921"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868854"
 ---
-# <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
+# <a name="overview-of-azure-connected-machine-agent"></a>Azure Connected Machine 에이전트 개요
 
-Azure Arc 지원 서버의 Connected Machine 에이전트를 사용하면 Azure 외부에서 회사 네트워크 또는 다른 클라우드 공급자에 호스트되는 Windows 및 Linux 머신을 관리할 수 있습니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.
+Azure Connected Machine 에이전트를 사용하면 회사 네트워크 또는 다른 클라우드 공급자에서 Azure 외부에서 호스트되는 Windows 및 Linux 머신을 관리할 수 있습니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.
 
 >[!NOTE]
 > AMA([Azure Monitor 에이전트](../../azure-monitor/agents/azure-monitor-agent-overview.md))는 Connected Machine 에이전트를 대체하지 않습니다. Azure Monitor 에이전트는 Windows 및 Linux 머신 모두에 대한 Log Analytics 에이전트, 진단 확장 및 Telegraf 에이전트를 대체합니다. 자세한 내용은 새 에이전트에 대한 Azure Monitor 설명서를 검토하세요.
 
 ## <a name="agent-component-details"></a>에이전트 구성 요소 세부 정보
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc 지원 서버 에이전트 개요." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc 사용 가능한 서버 에이전트 개요입니다." border="false":::
 
 Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구성 요소가 함께 포함되어 있습니다.
 
@@ -54,6 +54,10 @@ Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구
 * 정책 준수 상태 및 세부 정보(게스트 구성 정책을 사용하는 경우)
 * SQL Server 설치(부울 값)
 * 클러스터 리소스 ID(Azure Stack HCI 노드의 경우)
+* 하드웨어 제조업체
+* 하드웨어 모델
+* 클라우드 공급자
+* AWS(Amazon Web Services) 계정 ID, 인스턴스 ID 및 지역(AWS에서 실행되는 경우)
 
 다음 메타데이터 정보는 Azure의 에이전트에서 요청합니다.
 
@@ -165,13 +169,12 @@ Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 �
 
 ## <a name="networking-configuration"></a>네트워킹 구성
 
-Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 머신이 인터넷을 통해 통신하기 위해 방화벽이나 프록시 서버를 통해 연결해야 하는 경우 에이전트는 HTTP 프로토콜을 사용하는 대신 아웃바운드로 통신합니다. 트래픽이 이미 암호화되어 있기 때문에 프록시 서버를 사용해도 Connected Machine 에이전트가 더 안전해지지 않습니다.
+Linux 및 Windows 용 azure 연결 된 컴퓨터 에이전트는 TCP 포트 443을 통해 azure Arc로 안전 하 게 아웃 바운드를 전달 합니다. 기본적으로 에이전트는 인터넷에 대 한 기본 경로를 사용 하 여 Azure 서비스에 연결 합니다. 필요에 따라 네트워크에 필요한 경우 [프록시 서버를 사용 하도록 에이전트를 구성할](manage-agent.md#update-or-remove-proxy-settings) 수 있습니다. 트래픽이 이미 암호화되어 있기 때문에 프록시 서버를 사용해도 Connected Machine 에이전트가 더 안전해지지 않습니다.
 
 공용 네트워크와 프록시 서버를 사용 하는 대신 azure Arc에 대 한 네트워크 연결을 더욱 안전 하 게 보호 하기 위해 [Azure Arc 개인 링크 범위](private-link-security.md) (미리 보기)를 구현할 수 있습니다.
 
 > [!NOTE]
 > Azure Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
->
 
 방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트가 서비스와 통신하는 데 필요한 IP 범위 또는 도메인 이름만 허용하는 경우 다음 서비스 태그와 URL에 대한 액세스도 허용해야 합니다.
 
@@ -187,7 +190,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`azgn*.servicebus.windows.net`|Azure Arc 연결 플랫폼|
+|`azgn*.servicebus.windows.net`|확장에 대 한 알림 서비스|
 |`management.azure.com`|Azure 리소스 관리자|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
@@ -256,11 +259,11 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 시�
 
     |로그 |Description |
     |----|------------|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |하트비트 및 ID 에이전트 구성 요소의 세부 정보를 기록합니다.|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |azcmagent 도구 명령의 출력을 포함합니다.|
-    |%ProgramData%\GuestConfig\arc_policy_logs\ |게스트 구성(정책) 에이전트 구성 요소에 대한 세부 정보를 기록합니다.|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |하트 비트 및 id 에이전트 구성 요소의 세부 정보를 기록 합니다.|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Azcmagent tool 명령의 출력을 포함 합니다.|
+    |%ProgramData%\GuestConfig\ arc_policy_logs \ |게스트 구성 (정책) 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
     |%ProgramData%\GuestConfig\ext_mgr_logs|확장 에이전트 구성 요소에 대한 세부 정보를 기록합니다.|
-    |%ProgramData%\GuestConfig\extension_logs\\\<Extension>|설치된 확장의 세부 정보를 기록합니다.|
+    |%ProgramData%\GuestConfig\ extension_logs\\\<Extension>|설치된 확장의 세부 정보를 기록합니다.|
 
 * 로컬 보안 그룹 **하이브리드 에이전트 확장 애플리케이션** 이 만들어집니다.
 
@@ -278,19 +281,19 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
-    |폴더 |Description |
+    |폴더 |설명 |
     |-------|------------|
-    |/opt/azcmagent/ |azcmagent CLI 및 인스턴스 메타데이터 서비스 실행 파일|
-    |/opt/GC_Ext/ | 확장 서비스 실행 파일.|
-    |/opt/GC_Service/ |게스트 구성(정책) 서비스 실행 파일.|
-    |/var/opt/azcmagent/ |azcmagent CLI 및 인스턴스 메타데이터 서비스에 대한 구성, 로그 및 ID 토큰 파일입니다.|
-    |/var/lib/GuestConfig/ |확장 패키지 다운로드, 게스트 구성(정책) 정의 다운로드 및 확장 및 게스트 구성 서비스에 대한 로그|
+    |/opt/azcmagent/ |azcmagent CLI 및 인스턴스 메타 데이터 서비스 실행 파일|
+    |/opt/GC_Ext/ | 확장 서비스 실행 파일입니다.|
+    |/opt/GC_Service/ |게스트 구성 (정책) 서비스 실행 파일입니다.|
+    |/var/opt/azcmagent/ |Azcmagent CLI 및 인스턴스 메타 데이터 서비스에 대 한 구성, 로그 및 id 토큰 파일입니다.|
+    |/var/lib/GuestConfig/ |확장 패키지 다운로드, 게스트 구성 (정책) 정의 다운로드 및 확장 및 게스트 구성 서비스에 대 한 로그를 다운로드 합니다.|
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 디먼이 만들어집니다.
 
     |서비스 이름 |표시 이름 |프로세스 이름 |Description |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Azure Connected Machine 에이전트 서비스 |himds |이 서비스는 IMDS(하이브리드 인스턴스 메타데이터 서비스)를 구현하여 Azure 및 연결된 머신의 Azure ID에 대한 연결을 관리합니다.|
+    |himdsd.service |Azure Connected Machine 에이전트 서비스 |himds |이 서비스는 IMDS (하이브리드 인스턴스 메타 데이터 서비스)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
     |gcad.service |GC Arc 서비스 |gc_linux_service |컴퓨터의 필요한 상태 구성을 모니터링합니다. |
     |extd.service |확장 서비스 |gc_linux_service | 머신을 대상으로 하는 필수 확장을 설치합니다.|
 
@@ -298,11 +301,11 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
 
     |로그 |Description |
     |----|------------|
-    |/var/opt/azcmagent/log/himds.log |하트비트 및 ID 에이전트 구성 요소의 세부 정보를 기록합니다.|
-    |/var/opt/azcmagent/log/azcmagent.log |azcmagent 도구 명령의 출력을 포함합니다.|
-    |/var/lib/GuestConfig/arc_policy_logs |게스트 구성(정책) 에이전트 구성 요소에 대한 세부 정보를 기록합니다.|
-    |/var/lib/GuestConfig/ext_mgr_logs |확장 에이전트 구성 요소에 대한 세부 정보를 기록합니다.|
-    |/var/lib/GuestConfig/extension_logs|확장 설치/업데이트/제거 작업의 세부 정보를 기록합니다.|
+    |/var/opt/azcmagent/log/himds.log |하트 비트 및 id 에이전트 구성 요소의 세부 정보를 기록 합니다.|
+    |/var/opt/azcmagent/log/azcmagent.log |Azcmagent tool 명령의 출력을 포함 합니다.|
+    |/var/lib/GuestConfig/arc_policy_logs |게스트 구성 (정책) 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
+    |/var/lib/GuestConfig/ext_mgr_logs |확장 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
+    |/var/lib/GuestConfig/extension_logs|확장 설치/업데이트/제거 작업의 세부 정보를 기록 합니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다. 이러한 변수는 `/lib/systemd/system.conf.d/azcmagent.conf`에 설정됩니다.
 
@@ -318,18 +321,18 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
 
 ### <a name="agent-resource-governance"></a>에이전트 리소스 거버넌스
 
-Azure Arc 지원 서버 Connected Machine 에이전트는 에이전트 및 시스템 리소스 사용을 관리하도록 설계되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
+Azure 연결 된 컴퓨터 에이전트는 에이전트 및 시스템 리소스 소비를 관리 하도록 설계 되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
 
-* 게스트 구성 에이전트는 정책을 평가하는 데 CPU의 최대 5%를 사용하도록 제한됩니다.
-* 확장 서비스 에이전트는 CPU의 최대 5%를 사용하여 확장을 설치하고 관리하도록 제한됩니다.
+* 게스트 구성 에이전트는 정책을 평가 하기 위해 CPU의 최대 5%를 사용 하도록 제한 됩니다.
+* 확장 서비스 에이전트는 최대 5%의 CPU를 사용 하 여 확장을 설치 하 고 관리할 수 있도록 제한 됩니다.
 
-  * 설치되면 각 확장은 실행하는 동안 CPU의 최대 5%까지 사용하도록 제한됩니다. 예를 들어 2개의 확장이 설치된 경우 총 CPU의 10%를 사용할 수 있습니다.
-  * Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업 중에 CPU의 최대 60%를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
+  * 설치가 완료 되 면 각 확장은 실행 하는 동안 CPU의 최대 5%까지 사용 하도록 제한 됩니다. 예를 들어 2 개의 확장이 설치 된 경우 총 10%의 CPU를 사용할 수 있습니다.
+  * Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업을 수행 하는 동안 최대 60%의 CPU를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Arc 지원 서버 평가를 시작하려면 Azure Arc 지원 서버가 있는 [하이브리드 머신 커넥트](learn/quick-enable-hybrid-vm.md)문서를 따르세요.
+* azure arc 사용 서버 평가를 시작 하려면 [azure arc 사용 서버를 사용 하는 하이브리드 컴퓨터 커넥트](learn/quick-enable-hybrid-vm.md)문서를 따르세요.
 
-* Azure Arc 지원 서버 에이전트를 배포하고 다른 Azure 관리 및 모니터링 서비스와 통합하기 전에 [계획 및 배포 가이드를](plan-at-scale-deployment.md)검토하세요.
+* Azure Arc 사용 서버 에이전트를 배포 하 고 다른 Azure 관리 및 모니터링 서비스와 통합 하기 전에 [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토 하세요.
 
 * 문제 해결 정보는 [Connected Machine 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.

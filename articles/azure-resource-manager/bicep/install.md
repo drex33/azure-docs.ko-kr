@@ -2,14 +2,14 @@
 title: Bicep 개발 및 배포 환경 설정
 description: Bicep 개발 및 배포 환경을 구성하는 방법
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/19/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c53afb17b42b5359a545e78197a44eefdeed5e29
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 987699d08e99992e562f7c58c06f430951bfaffa
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132807240"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863502"
 ---
 # <a name="install-bicep-tools"></a>Bicep 도구 설치
 
@@ -32,17 +32,17 @@ Bicep 파일을 만들려면 적절한 Bicep 편집기가 필요합니다. 다�
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep 언어 모드":::
 
-설치하는 동안 오류가 발생하면 [Bicep 설치 문제 해결을](installation-troubleshoot.md)참조하세요.
+설치 하는 동안 오류가 발생 하는 경우 [Bicep 설치 문제 해결](installation-troubleshoot.md)을 참조 하세요.
 
 ## <a name="deployment-environment"></a>배포 환경
 
-개발 환경을 설정하면 배포 환경용 도구를 설치해야 합니다. 로컬 배포 환경을 설정하려면 [Azure CLI](#azure-cli) 사용하여 Bicep CLI를 설치하거나 [를 Azure PowerShell.](#azure-powershell) 이러한 단계는 다음 섹션에 표시됩니다.
+개발 환경을 설정한 후에는 배포 환경에 대 한 도구를 설치 해야 합니다. 로컬 배포 환경을 설정 하려면 [Azure CLI](#azure-cli) 또는 [Azure PowerShell](#azure-powershell)Bicep CLI를 설치 합니다. 이러한 단계는 다음 섹션에 나와 있습니다.
 
-Azure Pipeline에서 Bicep 파일을 배포하려면 [Bicep과 Azure Pipelines 통합을](add-template-to-azure-pipelines.md)참조하세요. GitHub Actions를 통해 Bicep 파일을 배포하려면 GitHub [작업을 사용하여 Bicep 파일 배포를 참조하세요.](deploy-github-actions.md)
+Azure 파이프라인에서 Bicep 파일을 배포 하려면 [Bicep와 Azure Pipelines 통합](add-template-to-azure-pipelines.md)을 참조 하세요. GitHub 작업을 통해 Bicep 파일을 배포 하려면 [GitHub 작업을 사용 하 여 Bicep 파일 배포](deploy-github-actions.md)를 참조 하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI 버전 **2.20.0이** 설치되어 있어야 합니다. Azure CLI를 설치하거나 업데이트하려면 다음을 참조하세요.
+Azure CLI 버전 **2.20.0 이상** 버전이 설치 되어 있어야 합니다. Azure CLI를 설치하거나 업데이트하려면 다음을 참조하세요.
 
 - [Windows에 Azure CLI 설치](/cli/azure/install-azure-cli-windows)
 - [Linux에 Azure CLI 설치](/cli/azure/install-azure-cli-linux)
@@ -54,7 +54,7 @@ Azure CLI 버전 **2.20.0이** 설치되어 있어야 합니다. Azure CLI를 �
 az --version
 ```
 
-이제 Bicep 파일을 [배포](deploy-cli.md)하고 [디컴파일](decompile.md)하는 데 필요한 모든 것이 있습니다. 필요한 명령이 실행될 때 Azure CLI 자동으로 Bicep CLI를 설치하기 때문에 모든 것이 있습니다.
+이제 Bicep 파일을 [배포](deploy-cli.md)하고 [디컴파일](decompile.md)하는 데 필요한 모든 것이 있습니다. Azure CLI가 필요한 명령이 실행 될 때 자동으로 Bicep CLI를 설치 하기 때문에 모든 항목이 있습니다.
 
 Bicep CLI 설치를 수동으로 시작하려면 다음을 사용합니다.
 
@@ -79,11 +79,11 @@ az bicep version
 > [!IMPORTANT]
 > Azure CLI는 Bicep CLI의 자체 포함 인스턴스를 설치합니다. 이 인스턴스는 수동으로 설치한 버전과 충돌하지 않습니다. Azure CLI는 Bicep CLI를 PATH에 추가하지 않습니다.
 
-Bicep 환경 설정을 완료했습니다. 이 문서의 나머지 부분에는 Azure CLI 사용할 때 필요하지 않은 설치 단계가 설명됩니다.
+Bicep 환경을 설정 하는 작업을 완료 했습니다. 이 문서의 나머지 부분에서는 Azure CLI를 사용할 때 필요 하지 않은 설치 단계에 대해 설명 합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell 버전 **5.6.0 이상** 버전이 설치되어 있어야 합니다. 업데이트하거나 설치하려면 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
+Azure PowerShell 버전 **5.6.0 이상** 버전이 설치 되어 있어야 합니다. 업데이트하거나 설치하려면 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 Azure PowerShell은 Bicep CLI를 자동으로 설치하지 않습니다. 대신 [Bicep CLI를 수동으로 설치](#install-manually)해야 합니다.
 
@@ -101,6 +101,8 @@ bicep --version
 ## <a name="install-manually"></a>수동 설치
 
 다음 메서드는 Bicep CLI를 설치하고 경로에 추가합니다. Azure CLI 이외의 모든 용도에 대해서는 수동으로 설치해야 합니다.
+
+수동으로 설치 하는 경우 Azure CLI에서 관리 하는 것과 다른 위치를 선택 합니다. 다음 모든 예에서는 **bicep** 또는 **. bicep** 라는 위치를 사용 합니다. 이 위치는 **. Azure** 를 사용 하는 Azure CLI에서 관리 하는 위치와 충돌 하지 않습니다.
 
 - [Linux](#linux)
 - [macOS](#macos)
@@ -125,7 +127,7 @@ bicep --help
 
 ### <a name="macos"></a>macOS
 
-#### <a name="via-homebrew"></a>homebrew를 통해
+#### <a name="via-homebrew"></a>Via homebrew
 
 ```sh
 # Add the tap for bicep
@@ -188,9 +190,9 @@ bicep --help
 # Done!
 ```
 
-## <a name="install-on-air-gapped-cloud"></a>에어 맵이 있는 클라우드에 설치
+## <a name="install-on-air-gapped-cloud"></a>Gapped 클라우드에 설치
 
-Bicep CLI를 에어 갭 환경에 설치하려면 Bicep CLI 실행 파일을 수동으로 다운로드하여 특정 위치에 저장해야 합니다.
+`bicep install`및 `bicep upgrade` 명령은 gapped 환경에서 작동 하지 않습니다. Bicep CLI를 gapped 환경에 설치 하려면 Bicep CLI 실행 파일을 수동으로 다운로드 하 여. s e r **/bin** 에 저장 해야 합니다. 이 위치는 Azure CLI에서 관리 하는 인스턴스가 설치 되는 위치입니다.
 
 - **Linux**
 
@@ -207,8 +209,6 @@ Bicep CLI를 에어 갭 환경에 설치하려면 Bicep CLI 실행 파일을 수
     1. 비 에어 갭 환경의 [Bicep 릴리스 페이지](https://github.com/Azure/bicep/releases/latest/)에서 **bicep-win-x64.exe** 를 다운로드합니다.
     1. 실행 파일을 에어 갭 컴퓨터의 **%UserProfile%/.azure/bin** 디렉터리에 복사합니다.
 
-`bicep install`공 `bicep upgrade` 간격이 있는 환경에서는 및 명령이 작동하지 않습니다.
-
 ## <a name="install-the-nightly-builds"></a>야간 빌드 설치
 
 릴리스 전에 Bicep의 시험판 비트를 사용해 보려는 경우 [야간 빌드 설치](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md)를 참조하세요.
@@ -220,4 +220,4 @@ Bicep CLI를 에어 갭 환경에 설치하려면 Bicep CLI 실행 파일을 수
 
 Visual Studio Code 및 Bicep 확장 사용에 대한 자세한 내용은 [빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기](./quickstart-create-bicep-use-visual-studio-code.md)를 참조하세요.
 
-Bicep 설치에 문제가 있는 경우 [Bicep 설치 문제 해결을](installation-troubleshoot.md)참조하세요.
+Bicep 설치에 문제가 있는 경우 [Bicep 설치 문제 해결](installation-troubleshoot.md)을 참조 하세요.

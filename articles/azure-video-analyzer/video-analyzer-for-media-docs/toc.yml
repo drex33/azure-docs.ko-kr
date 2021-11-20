@@ -119,7 +119,7 @@
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 영역
       displayName: location
       href: regions.md

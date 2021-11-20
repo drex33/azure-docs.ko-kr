@@ -5,12 +5,12 @@ description: Azure Kubernetes Service(AKS)에 대한 서비스 주체 또는 ADD
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 72cc0c6ab369b035df8c4a29c89be74fa9102cc5
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 655dc9db959f1d4d2f5e1313e467060b5320050c
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101520"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132870300"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에 대한 자격 증명 업데이트 및 순환
 
@@ -68,10 +68,10 @@ SP_SECRET=$(az ad sp credential reset --name "$SP_ID" --query password -o tsv)
 
 이전 섹션에서 기존 서비스 주체 자격 증명을 업데이트하도록 선택한 경우 이 단계를 건너뜁니다. 계속해서 [새 서비스 주체 자격 증명으로 AKS 클러스터를 업데이트](#update-aks-cluster-with-new-service-principal-credentials)합니다.
 
-서비스 주체를 만든 후 이 새 자격 증명을 사용하도록 AKS 클러스터를 업데이트하려면 [az ad sp create-for-rbac][az-ad-sp-create] 명령을 사용합니다. 다음 예제에서 `--skip-assignment` 매개 변수는 추가 기본 할당이 할당되는 것을 방지합니다.
+서비스 주체를 만든 후 이 새 자격 증명을 사용하도록 AKS 클러스터를 업데이트하려면 [az ad sp create-for-rbac][az-ad-sp-create] 명령을 사용합니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac
 ```
 
 다음 예제와 유사하게 출력됩니다. 사용자 고유의 `appId` 및 `password`를 기록해 둡니다. 해당 값은 다음 단계에서 사용됩니다.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: e7f964fa6c8975bfb765feec295dba1de642b09f
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: 48d780af74cefa44b9add68224dc04d97ea97292
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114706576"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868588"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Azure CLI를 사용하여 Azure AD 앱을 만들고 Media Services API에 액세스하도록 구성
 
@@ -46,7 +46,7 @@ ms.locfileid: "114706576"
  
 ```azurecli
 az login
-az ad sp create-for-rbac --name <appName> 
+az ad sp create-for-rbac --name <appName> --role Contributor
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 

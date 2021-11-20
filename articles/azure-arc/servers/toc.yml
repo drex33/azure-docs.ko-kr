@@ -88,7 +88,7 @@
         - name: Microsoft Sentinel에 등록
           href: scenario-onboard-azure-sentinel.md
         - name: Microsoft Defender for Cloud에 등록
-          href: ../../security-center/quickstart-onboard-machines.md
+          href: ../../defender-for-cloud/quickstart-onboard-machines.md
     - name: 문제 해결
       items:
         - name: 에이전트 연결 문제
@@ -102,13 +102,13 @@
     - name: Azure CLI
       href: /cli/azure/connectedmachine
     - name: Azure PowerShell
-      href: /powershell/module/az.connectedmachine
+      href: /powershell/module/az.connectedmachine/
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
     - name: Azure Stack HCI REST
-      href: /rest/api/stackhci
+      href: /rest/api/stackhci/
     - name: REST (영문)
-      href: /rest/api/hybridcompute
+      href: /rest/api/hybridcompute/
     - name: Go
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
     - name: Java

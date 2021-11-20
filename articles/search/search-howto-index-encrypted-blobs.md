@@ -1,5 +1,5 @@
 ---
-title: 암호화된 Azure Blob Storage 콘텐츠 검색
+title: 암호화된 Azure Blob Storage 콘텐츠 인덱싱
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search를 사용하는 Azure Blob Storage에서 암호화된 문서의 텍스트를 인덱싱하고 추출하는 방법을 알아봅니다.
 manager: nitinme
@@ -8,17 +8,17 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2020
-ms.openlocfilehash: c78d8f3bc4a7bfc7b73d71a97e29c369926448c5
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
-ms.translationtype: HT
+ms.date: 11/19/2021
+ms.openlocfilehash: 77faf0d946bdd499f37e83c769c6561f73f1bb54
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113139416"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869101"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 BLOB 인덱서 및 기술 세트를 사용하여 암호화된 BLOB을 인덱싱하는 방법
 
-이 문서에서는 [Azure Cognitive Search](search-what-is-azure-search.md)를 통해 [Azure Key Vault](../key-vault/general/overview.md)를 사용하는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 내에서 이전에 암호화된 문서를 인덱싱하는 방법을 보여 줍니다. 일반적으로 인덱서는 암호화 키에 대한 액세스 권한이 없기 때문에 암호화된 파일에서 콘텐츠를 추출할 수 없습니다. 그러나 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) 사용자 지정 기술에 이어 [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)을 활용하면 키에 대한 제어된 액세스를 제공하여 파일의 암호를 해독한 다음 해당 파일에서 콘텐츠를 추출할 수 있습니다. 이렇게 하면 저장된 문서의 암호화 상태를 손상시키지 않고 이러한 문서를 인덱싱하는 기능이 해제됩니다.
+이 문서에서는 [Azure Cognitive Search](search-what-is-azure-search.md)를 통해 [Azure Key Vault](../key-vault/general/overview.md)를 사용하는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 내에서 이전에 암호화된 문서를 인덱싱하는 방법을 보여 줍니다. 일반적으로 인덱서는 암호화 키에 대한 액세스 권한이 없기 때문에 암호화된 파일에서 콘텐츠를 추출할 수 없습니다. 그러나 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) 사용자 지정 기술, [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)을 활용하여 키에 대한 제어된 액세스를 제공하여 파일의 암호를 해독한 다음 해당 파일에서 콘텐츠를 추출할 수 있습니다. 이렇게 하면 저장된 문서의 암호화 상태를 손상시키지 않고 이러한 문서를 인덱싱하는 기능이 해제됩니다.
 
 Azure Blob Storage에서 PDF, HTML, DOCX 및 PPTX와 같은 이전에 암호화된 전체 문서(구조화되지 않은 텍스트)부터 이 가이드는 Postman 및 Search REST API를 사용하여 다음 작업을 수행합니다.
 

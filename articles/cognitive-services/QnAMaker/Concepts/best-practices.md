@@ -4,14 +4,14 @@ description: 모범 사례를 사용하여 기술 자료를 개선하고 애플�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/19/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c4cea81d3e3e5a60672423d05c836947da95da1d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 888fc5a7d6d413a777cb15f97840d88401284c82
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131043778"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865423"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -25,7 +25,7 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 
 ### <a name="configuring-multi-turn"></a>다중 턴 구성
 
-다중 턴 추출이 사용 설정된 [기술 자료를 만듭니다](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure). 기술 자료가 질문 계층 구조를 지원하거나 지원해야 하는 경우 문서에서 이 계층 구조는 문서에서 추출하거나 문서를 추출한 후에 생성될 수 있습니다.
+다중 턴 추출이 사용 설정된 [기술 자료를 만듭니다](../how-to/multi-turn.md#create-a-multi-turn-conversation-from-a-documents-structure). 기술 자료가 질문 계층 구조를 지원하거나 지원해야 하는 경우 문서에서 이 계층 구조는 문서에서 추출하거나 문서를 추출한 후에 생성될 수 있습니다.
 
 ## <a name="creating-good-questions-and-answers"></a>좋은 질문 및 답변 만들기
 
@@ -65,7 +65,7 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 |배려하는 |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
 |열정적인 |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-응답은 격식체에서 비격식체의 범위까지 지정됩니다. 봇에 대해 원하는 톤에 가장 가까운 개성 있는 사용자를 선택 합니다. [데이터 세트](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)를 보고, 봇에 대한 기준으로 사용되는 데이터 세트를 선택한 다음, 응답을 사용자 지정할 수 있습니다.
+응답은 격식체에서 비격식체의 범위까지 지정됩니다. 봇에 원하는 어조와 가장 가까운 개성을 선택합니다. [데이터 세트](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)를 보고, 봇에 대한 기준으로 사용되는 데이터 세트를 선택한 다음, 응답을 사용자 지정할 수 있습니다.
 
 ### <a name="edit-bot-specific-questions"></a>봇 관련 질문 편집
 잠답 데이터 집합의 일부이며 일반 답변으로 채워진 몇 가지 봇 관련 질문이 있습니다. 이 대답을 변경하여 봇 세부 정보를 가장 잘 반영합니다.
@@ -90,7 +90,7 @@ GenerateAnswer API는 질문 및 답변을 모두 사용하여 사용자의 쿼�
 
 답변을 검색하지 않으려면 [`RankerType=QuestionOnly`](#choosing-ranker-type)를 사용합니다.
 
-이에 대 한 예는 기술 자료가 답변으로 전체 형식이 있는 질문으로 머리글자어의 카탈로그 일 때입니다. 답변의 값은 적절한 답변을 검색하는 데 도움이 되지 않습니다.
+예를 들어 기술 자료가 전체 형식이 답변인 질문으로 머리글자어 카탈로그인 경우입니다. 답변의 값은 적절한 답변을 검색하는 데 도움이 되지 않습니다.
 
 ## <a name="rankingscoring"></a>순위 지정/채점
 QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니다. 그러면 특정 사용자 쿼리에 적절하게 답변할 가능성이 높아집니다.

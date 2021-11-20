@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 3/12/2021
 ms.author: pgibson
-ms.openlocfilehash: 68bb34bc5619523fbc9db0feaacc8396b7f01b7e
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: cd3a11946f61aad1d45a24d5e756421afeecf559
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132753952"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863312"
 ---
 # <a name="open-service-mesh-aks-add-on"></a>Open Service Mesh AKS 추가 기능
 
@@ -49,10 +49,6 @@ OSM은 다음과 같은 시나리오를 통해 AKS 배포를 지원할 수 있�
 - A/B 또는 카나리아 배포에 대해 둘 이상의 서비스 간에 가중치가 적용된 트래픽 컨트롤 구성
 
 - 애플리케이션 트래픽에서 KPI 수집 및 보기
-
-## <a name="osm-service-quotas-and-limits-preview"></a>OSM 서비스 할당량 및 제한(미리 보기)
-
-서비스 할당량 및 한도에 대한 OSM 미리 보기 제한은 AKS [할당량 및 지역 제한 페이지](./quotas-skus-regions.md)에서 찾을 수 있습니다.
 
 <!-- LINKS - internal -->
 

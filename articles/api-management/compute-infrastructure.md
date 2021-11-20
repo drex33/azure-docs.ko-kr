@@ -1,18 +1,18 @@
 ---
 title: Azure API Management 컴퓨팅 플랫폼
-description: API Management 서비스 인스턴스를 호스트하는 데 사용되는 컴퓨팅 플랫폼에 대해 알아봅니다.
+description: API Management 서비스 인스턴스를 호스트하는 데 사용되는 컴퓨팅 플랫폼에 대해 알아보기
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 23d54c2725e48b1d587fb641c593be0c8d63958f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 377a3d02af89b5280df4b19147d4d083eed3dba1
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130248643"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869139"
 ---
 # <a name="compute-platform-for-azure-api-management"></a>Azure API Management 컴퓨팅 플랫폼
 
@@ -24,7 +24,7 @@ ms.locfileid: "130248643"
 
 ## <a name="compute-platform-versions"></a>컴퓨팅 플랫폼 버전
 
-| 버전 | 설명 | Architecture | API Management 계층 |
+| Version | 설명 | Architecture | API Management 계층 |
 | -------| ----------| ----------- | ------- |
 | `stv2` | 단일 테넌트 v2 | [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) | 개발자, 기본, 표준 및 프리미엄 |
 | `stv1` |  단일 테넌트 v1 | [클라우드 서비스(클래식)](../cloud-services/cloud-services-choose-me.md) | 개발자, 기본, 표준 및 프리미엄 |
@@ -36,7 +36,7 @@ ms.locfileid: "130248643"
 ### <a name="developer-basic-standard-and-premium-tiers"></a>개발자, 기본, 표준 및 Premium 계층
 
 * 2021년 4월 이후 Azure Portal 사용하거나 API Management REST API 버전 **2021-01-01-preview** 이상 버전을 사용하여 만들거나 업데이트한 가상 네트워크 연결이 있는 인스턴스는  `stv2` 플랫폼에서 호스트됩니다.
-* Premium 계층 인스턴스에서 [영역 중복성을](zone-redundancy.md) 사용하도록 설정한 경우 플랫폼에서 호스팅됩니다. `stv2`
+* Premium 계층 인스턴스에서 [영역 중복을](zone-redundancy.md) 사용하도록 설정한 경우 플랫폼에서 호스팅됩니다. `stv2`
 * 그렇지 않으면 인스턴스가 플랫폼에서 호스트됩니다. `stv1`
 
 > [!TIP]
@@ -57,7 +57,7 @@ ms.locfileid: "130248643"
 
 > [!IMPORTANT]
 > Azure [가상 네트워크에](virtual-network-concepts.md)연결된 인스턴스의 컴퓨팅 플랫폼 버전을 업데이트하는 경우:
-> * 표준 SKU [공용 IPv4 주소](../virtual-network/ip-services/public-ip-addresses.md#standard) 리소스를 제공해야 합니다.
+> * 표준 SKU [공용 IPv4 주소](../virtual-network/ip-services/public-ip-addresses.md#sku) 리소스를 제공해야 합니다.
 > * API Management 인스턴스의 VIP 주소가 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,12 +4,12 @@ description: Application Insights에 사용할 수 있는 언어, 플랫폼 및 
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.reviewer: olegan
-ms.openlocfilehash: 44c08d1008691826299d1fa41507df26064f6274
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f2f871422be41f8e2a89fe6750db3c4179347808
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131462029"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865783"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -21,22 +21,23 @@ ms.locfileid: "131462029"
 
 ## <a name="supported-platforms-and-frameworks"></a>지원되는 플랫폼 및 프레임워크
 
-### <a name="azure-service-integration-portal-enablement-arm-deployments"></a>Azure 서비스 통합 (포털 활성화, ARM 배포)
+### <a name="azure-service-integration-portal-enablement-arm-deployments"></a>Azure 서비스 통합(포털 사용, ARM 배포)
 * [Azure VM 및 Azure 가상 머신 확장 집합](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
 * 웹 역할과 작업자 역할을 모두 포함하는 [Azure Cloud Services](./cloudservices.md)
 
-### <a name="auto-instrumentation-enable-without-code-changes"></a>자동 계측 (코드 변경 없이 사용)
+### <a name="auto-instrumentation-enable-without-code-changes"></a>자동 계측(코드 변경 없이 사용)
 * [ASP.NET - IIS로 호스트되는 웹앱용](./status-monitor-v2-overview.md)
+* [ASP.NET Core - IIS로 호스트되는 웹앱용](./status-monitor-v2-overview.md)
 * [Java](./java-in-process-agent.md)
 
-### <a name="manual-instrumentation--sdk-some-code-changes-required"></a>수동 계측/SDK (일부 코드 변경 필요)
+### <a name="manual-instrumentation--sdk-some-code-changes-required"></a>수동 계측/SDK(일부 코드 변경 필요)
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
-* [JavaScript-웹](./javascript.md)
+* [JavaScript - 웹](./javascript.md)
   * [React](./javascript-react-plugin.md)
   * [React Native](./javascript-react-native-plugin.md)
   * [Angular](./javascript-angular-plugin.md)
@@ -46,7 +47,7 @@ ms.locfileid: "131462029"
 * [iOS](../app/mobile-center-quickstart.md)(App Center)
 
 > [!NOTE]
-> OpenTelemetry 기반 계측은 [c #, Node.js 및 Python](opentelemetry-enable.md)에 대 한 미리 보기 상태로 제공 됩니다. 각 언어의 공식 설명서의 시작 부분에서 설명한 제한 사항을 검토 하세요. 모든 기능을 사용 해야 하는 사용자는 기존 Application Insights sdk를 사용 해야 합니다.
+> OpenTelemetry 기반 계측은 [C#, Node.js 및 Python의](opentelemetry-enable.md)미리 보기 상태에서 사용할 수 있습니다. 각 langauge의 공식 설명서의 시작 부분에 설명된 제한 내용을 검토하세요. 전체 기능 환경이 필요한 경우 기존 애플리케이션 Insights SDK를 사용해야 합니다.
 
 ## <a name="logging-frameworks"></a>로깅 프레임워크
 * [ILogger](./ilogger.md)
@@ -60,4 +61,4 @@ ms.locfileid: "131462029"
 * [Stream Analytics](./export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>지원되지 않는 SDK
-다른 여러 커뮤니티 지원 Application Insights sdk가 있습니다. 그러나 Azure Monitor은이 페이지에 나열 된 지원 되는 계측 옵션을 사용할 때만 지원 합니다. 다른 언어에 대 한 지원을 확장할 수 있는 기회를 지속적으로 평가 하 고 있습니다. 최신 SDK 뉴스에 대 한 [Application Insights Azure 업데이트](https://azure.microsoft.com/updates/?query=application%20insights) 를 따르세요.
+다른 여러 커뮤니티 지원 애플리케이션 Insights SDK가 있습니다. 그러나 Azure Monitor 이 페이지에 나열된 지원되는 계측 옵션을 사용하는 경우에만 지원을 제공합니다. 다른 언어에 대한 지원을 확장할 기회를 지속적으로 평가하고 있습니다. 최신 SDK 뉴스를 [위해 애플리케이션 Insights](https://azure.microsoft.com/updates/?query=application%20insights) 대한 Azure 업데이트를 따르세요.

@@ -5,18 +5,18 @@ author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 11/18/2021
 ms.author: lizross
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: fd702d1c5516d8cc8b1ba163509cf34b233dcab6
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: cfa345e56744bf2c26f18d98dac3101db8021d2b
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132556138"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132864477"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -142,7 +142,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 [Azure App Service의 웹앱 기능](../app-service/overview.md)은 웹 애플리케이션을 호스트하기 위한 PAAS(Platform as a Service)를 제공합니다. Azure App Service에서 호스트되는 웹 애플리케이션은 추가 보안, 부하 분산 및 확장성과 같은 강력한 Azure 기능과 연속 배포, 패키지 관리 등과 같은 Azure 및 파트너 DevOps 솔루션의 이점을 누릴 수 있습니다. Azure App Service는 널리 사용되는 여러 언어로 개발되고 Windows 또는 Linux 인프라에 배포된 웹 애플리케이션을 지원합니다.
 
-이 섹션에서는 App Service에서 웹앱을 프로비저닝하고 Azure CLI 명령을 사용하여 코드를 배포합니다. [az webapp](/cli/azure/webapp) 설명서에서 사용되는 명령에 대한 세부 정보를 찾을 수 있습니다. 시작하기 전에 [IoT Hub에 리소스 그룹을 추가하고](#add-a-consumer-group-to-your-iot-hub), [IoT Hub의 서비스 연결 문자열을 가져오고](#get-a-service-connection-string-for-your-iot-hub), [GitHub에서 웹앱을 다운로드하는](#download-the-web-app-from-github) 단계를 완료했는지 확인합니다.
+이 섹션에서는 App Service에서 웹앱을 프로비저닝하고 Azure CLI 명령을 사용하여 코드를 배포합니다. [az webapp](/cli/azure/webapp) 설명서에서 사용되는 명령에 대한 세부 정보를 찾을 수 있습니다. 시작하기 전에 [IoT Hub에 소비자 그룹을 추가하고, IoT Hub에](#add-a-consumer-group-to-your-iot-hub) [대한 서비스 연결 문자열을 얻고,](#get-a-service-connection-string-for-your-iot-hub) [GitHub 에서 웹앱을 다운로드하는](#download-the-web-app-from-github)단계를 완료했는지 확인합니다.
 
 1. [App Service 플랜](../app-service/overview-hosting-plans.md)은 App Service에서 호스트된 앱에서 실행할 컴퓨팅 리소스 세트를 정의합니다. 이 자습서에서는 개발자/무료 계층을 사용하여 웹앱을 호스트합니다. 무료 계층을 사용하여 웹앱은 다른 고객의 앱을 포함하여 다른 App Service 앱과 공유된 Windows 리소스에서 실행됩니다. 또한 Azure는 Linux 컴퓨팅 리소스에 웹앱을 배포하기 위한 App Service 플랜을 제공합니다. 사용하려는 App Service 플랜이 이미 있는 경우 이 단계를 건너뛸 수 있습니다.
 
@@ -185,16 +185,16 @@ set EventHubConsumerGroup=YourConsumerGroupName
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. App Service에서 웹앱에 대한 Git 리포지토리를 참조하는 복제본에 원격 기능을 추가합니다. \<Git clone URL\>의 경우 이전 단계에서 반환된 URL을 사용합니다. 명령 창에서 다음 명령을 실행합니다.
+7. App Service에서 웹앱에 대한 Git 리포지토리를 참조하는 복제본에 원격 기능을 추가합니다. \<Git clone URL\>의 경우 이전 단계에서 반환된 URL을 사용합니다. 명령 창에서 다음 명령을 실행합니다. *web-apps-code-iot-hub-data-visualization* 샘플 디렉터리에 있는지 확인한 후 명령 창에서 다음 명령을 실행합니다.
 
    ```cmd
    git remote add webapp <Git clone URL>
    ```
 
-8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 기본 분기로 푸시하는지 확인합니다.
+8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 샘플 디렉터리 *web-apps-code-iot-hub-data-visualization* 에 있는지 확인합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 마스터 분기에 푸시합니다.
 
     ```cmd
-    git push webapp main:main
+    git push webapp master:master
     ```
 
 9. 배포 진행률이 명령 창에서 업데이트됩니다. 성공적으로 배포되면 다음 출력과 유사한 줄로 끝납니다.
@@ -205,7 +205,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  main -> main
+    6b132dd..7cbc994  master -> master
     ```
 
 10. 다음 명령을 실행하여 웹앱의 상태를 쿼리하고 실행 중인지 확인합니다.

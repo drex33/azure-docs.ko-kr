@@ -116,7 +116,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Azure 지역
-      href: 'https://azure.microsoft.com/regions/'
+      href: 'https://azure.microsoft.com/global-infrastructure/geographies/'
 - name: Azure Orbital 설명서
   items:
     - name: Azure Orbital이란?

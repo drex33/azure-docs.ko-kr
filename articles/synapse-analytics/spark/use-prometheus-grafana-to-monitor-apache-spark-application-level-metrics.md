@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: 1c26ed72a804335a675a2456b2908f582848f5a7
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 7433589c2e3e6b486bee81603f34cb4673fcefef
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132399089"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863369"
 ---
 # <a name="monitor-apache-spark-applications-metrics-with-prometheus-and-grafana"></a>Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 메트릭 모니터링
 
@@ -54,7 +54,7 @@ az aks get-credentials --name <kubernetes_name> --resource-group <kubernetes_res
 ## <a name="create-a-service-principal-and-grant-permission-to-synapse-workspace"></a>서비스 주체를 만들고 Synapse 작업 영역에 대한 권한 부여
 
 ```bash
-az ad sp create-for-rbac --name <service_principal_name>
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor
 ```
 
 결과는 다음과 같습니다.

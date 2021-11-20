@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 6a5500bdcf551fbbb8c3fc612606ec63bce00557
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: de2acb162a2a9da86ae9ae8b0cb351f4217e7c09
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805955"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132862647"
 ---
 # <a name="transform-data-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에서 데이터 변환
 
@@ -35,6 +35,8 @@ ms.locfileid: "124805955"
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 ## <a name="overview"></a>개요
 이 문서에서는 원시 데이터를 대규모로 예측하고 인사이트로 변환하고 처리하는 데 사용할 수 있는 Azure Data Factory 및 Synapse 파이프라인의 데이터 변환 작업을 설명합니다. 변환 작업은 Azure Databricks 또는 Azure HDInsight 클러스터와 같은 컴퓨팅 환경에서 실행됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.

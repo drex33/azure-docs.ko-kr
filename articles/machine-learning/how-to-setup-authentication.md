@@ -11,12 +11,12 @@ ms.subservice: enterprise-readiness
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps
-ms.openlocfilehash: c83d578c364257ad8ecd229e49fdd0d35ec7a9c6
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 8137758dc726035616177be6e55e372b79960775
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560780"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871341"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
@@ -79,7 +79,7 @@ SP를 만들고 작업 영역에 대해 액세스 권한을 부여하는 가장 
 1. 서비스 주체를 만듭니다. 다음 예제에서는 **ml-auth** 라는 SP를 만듭니다.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth --name ml-auth
+    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor
     ```
 
     출력은 다음과 유사한 JSON입니다. 이 문서의 다른 단계에 필요하므로 `clientId`, `clientSecret` 및 `tenantId` 필드를 기록해 둡니다.

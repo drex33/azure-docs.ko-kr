@@ -11,12 +11,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.openlocfilehash: 467cae97f9b4efe4782ac802cccd84271d475ea7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bd698529c9a5457a05afd5e71c3cb3b3a9bba2bd
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955434"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871284"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Azure에서 지원되는 메인프레임 워크로드
 
@@ -39,7 +39,7 @@ ms.locfileid: "104955434"
 - [NTT Open PL/I](https://us.nttdata.com/en/digital/application-development-and-modernization) 메인프레임 PL/I 구문, 데이터 형식 및 동작을 지원하는 .NET 플랫폼을 위한 레거시 컴파일러.
 - [Raincode COBOL 컴파일러](https://www.raincode.com/products/cobol/) 개발 및 통합 도구.
 - .NET 플랫폼을 위한 [Raincode PL/I 컴파일러](https://www.raincode.com/products/pli/) 메인프레임 PL/I 구문, 데이터 형식 및 동작 지원.
-- [Raincode ASM370 컴파일러](https://www.raincode.com/technical-landscape/asm370/) 메인프레임 어셈블러 370 및 HLASM 구문용.
+- Raincode ASM370 컴파일러 메인프레임 어셈블러 370 및 HLASM 구문용.
 
 ## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>온라인 및 일괄 처리를 위한 에뮬레이션 환경 배포
 
@@ -52,7 +52,7 @@ ms.locfileid: "104955434"
 
 ## <a name="code-conversion"></a>코드 변환
 
-- 소스 코드, 데이터, 일괄 처리, 일정, TP 모니터, 인터페이스, 보안, 관리 등을 포함하는 [Asysco](https://www.asysco.com/azure-cloud/) 시스템 변환 기술입니다.
+- 소스 코드, 데이터, 일괄 처리, 일정, TP 모니터, 인터페이스, 보안, 관리 등을 포함하는 [Asysco](https://asysco.com/) 시스템 변환 기술입니다.
 - [Asysco AMT Services](https://www.asysco.com/migration-services/) 인벤토리 및 분석, 디자인 교육, 최종 예행연습, 라이브 전환, 마이그레이션 후 지원 등 마이그레이션 프로젝트를 위한 엔드 투 엔드 서비스.
 - [Blu Age](https://www.bluage.com/) 레거시 비즈니스 애플리케이션 및 데이터베이스 디지털화를 위한 도구.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) 메인프레임 COBOL, CICS 및 VSAM을 Java로 변환하는 서비스.

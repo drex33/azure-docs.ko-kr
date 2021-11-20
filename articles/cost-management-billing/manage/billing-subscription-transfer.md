@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 11/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 1417d727565b349f9f18b0add73d443c22a4dbb3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bc95d78e04e383f71f63e5b17c13ead9efc29700
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992328"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132866692"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -27,6 +27,8 @@ ms.locfileid: "129992328"
 EA(기업계약) 고객인 경우 엔터프라이즈 관리자가 계정 간에 구독의 청구 소유권을 양도할 수 있습니다. 자세한 내용은 [Azure 구독 또는 계정 소유권 변경](ea-portal-administration.md#change-azure-subscription-or-account-ownership)을 참조하세요.
 
 계정의 대금 청구 관리자만 구독의 소유권을 양도할 수 있습니다.
+
+전송 요청을 보내거나 수락하면 계약조건에 동의하게 됩니다. 자세한 내용은 [계약조건 이전을 참조하세요.](subscription-transfer.md#transfer-terms-and-conditions)
 
 ## <a name="transfer-billing-ownership-of-an-azure-subscription"></a>Azure 구독의 청구 소유권 양도
 
@@ -114,7 +116,7 @@ Azure 계정 및 Azure 구독을 만든 청구 계정의 원소유자가 조직�
 
 ###  <a name="not-all-subscription-types-can-transfer"></a>일부 구독 유형을 양도할 수 없음
 
-일부 구독 유형은 청구 소유권 양도를 지원하지 않습니다. 전송을 지 원하는 구독 유형 목록을 보려면 [Azure 구독 전송 허브](subscription-transfer.md)를 참조 하세요.
+일부 구독 유형은 청구 소유권 양도를 지원하지 않습니다. 양도를 지원하는 구독 유형 목록을 보려면 [Azure 구독 전송 허브를](subscription-transfer.md)참조하세요.
 
 ###  <a name="access-denied-error-shown-when-trying-to-transfer-subscription-billing-ownership"></a>구독 청구 소유권을 양도하려고 하면 액세스 거부 오류가 표시됨
 

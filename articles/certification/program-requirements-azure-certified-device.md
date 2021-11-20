@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 8e68cf180927e000c93c4c2d73d25d4ae6ccf0f8
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: b2786d848dd7b052c59f7235e935f664229257f8
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538144"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132867548"
 ---
 # <a name="azure-certified-device-certification-requirements"></a>Azure Certified Device 인증 요구 사항 
 (이전에는 IoT Hub로 알려짐)
@@ -96,4 +96,4 @@ Azure Certified Device 인증에 대한 약속은 다음과 같습니다.
 | **OS**                                    | 장치 및 시스템 독립성                                                     |
 | **유효성 검사 유형**                       | 정책                                                       |
 | **유효성 검사**                            | 사용자에 대한 디바이스 구성을 간소화하기 위해 디바이스 소스 코드를 다시 컴파일하거나 배포할 필요 없이 모든 디바이스를 Azure에 연결하도록 구성할 수 있어야 합니다. 여기에는 구성 설정으로 설정되고 컴파일되지 않아야 하는 DPS 정보(예: 범위 ID)가 포함됩니다. 그러나 디바이스에 특정 보안 하드웨어가 포함되어 있거나 사용자가 코드를 컴파일하고 배포할 것으로 예상되는 정상 상황이 있는 경우 인증 팀에 문의하여 예외 검토를 요청하세요. |
-| **리소스**                             | **a)** [디바이스 프로비저닝 서비스 개요](../iot-dps/about-iot-dps.md), **b)** [DPS ID 범위 전송을 위한 샘플 config 파일](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |
+| **리소스**                             | **a)** [장치 프로 비전 서비스 개요](../iot-dps/about-iot-dps.md)  **b)** DPS ID 범위 전송용 샘플 구성 파일 |

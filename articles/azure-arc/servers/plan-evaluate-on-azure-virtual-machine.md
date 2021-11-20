@@ -3,12 +3,12 @@ title: Azure VM을 사용하여 Azure Arc 지원 서버를 평가하는 방법
 description: Azure 가상 머신을 사용하여 Azure Arc 지원 서버를 평가하는 방법을 알아봅니다.
 ms.date: 10/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 54656e0701857fd3badbcec619b2185917935857
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 83abe15a891359e11bbb374a29c2c0223fe971ac
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389820"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868759"
 ---
 # <a name="evaluate-azure-arc-enabled-servers-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 Azure Arc 지원 서버 평가
 
@@ -33,7 +33,7 @@ Azure VM을 Azure Arc 지원 서버로 관리하려면 Azure VM을 다음과 같
 
 1. Azure VM에 배포된 모든 VM 확장(예: Log Analytics 에이전트)을 제거합니다. Azure Arc 지원 서버는 Azure VM과 동일한 많은 확장을 지원하지만 Azure Arc 지원 서버 에이전트는 VM에 이미 배포된 VM 확장을 관리할 수 없습니다.
 
-2. Azure Windows 또는 Linux 게스트 에이전트를 사용하지 않도록 설정합니다. Azure VM 게스트 에이전트는 Azure Arc 지원 서버의 Connected Machine 에이전트와 비슷한 용도로 사용됩니다. 두 에이전트 간의 충돌을 방지하려면 Azure VM 에이전트를 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 VM 확장 또는 일부 Azure 서비스를 사용할 수 없습니다.
+2. Azure Windows 또는 Linux 게스트 에이전트를 사용하지 않도록 설정합니다. Azure VM 게스트 에이전트는 Azure Connected Machine 에이전트와 비슷한 용도로 사용됩니다. 두 에이전트 간의 충돌을 방지하려면 Azure VM 에이전트를 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 VM 확장 또는 일부 Azure 서비스를 사용할 수 없습니다.
 
 3. IMDS(Azure Instance Metadata Service)에 대한 액세스를 거부하는 보안 규칙을 만듭니다. IMDS는 애플리케이션이 리소스 ID 및 위치를 포함하여 Azure에서 VM의 표현에 대한 정보를 얻기 위해 호출할 수 있는 REST API입니다. 또한 IMDS는 컴퓨터에 할당된 모든 관리 ID에 대한 액세스 권한을 제공합니다. Azure Arc 지원 서버는 자체 IMDS 구현을 제공하고 VM의 Azure Arc 표현에 대한 정보를 반환합니다. 두 IMDS 엔드포인트를 모두 사용할 수 있고 앱이 둘 중에서 선택해야 하는 상황을 피하려면 Azure Arc 지원 서버의 IMDS 구현만 사용할 수 있도록 Azure VM IMDS에 대한 액세스를 차단합니다.
 
@@ -86,7 +86,7 @@ Azure Arc 지원 서버가 VM에 구성된 경우 Azure에서 두 가지 표현�
    sudo ufw default allow incoming
    ```
 
-   Azure VM이 CentOS, Red Hat 또는 SLES(SUSE Linux Enterprise Server)를 실행하는 경우 다음 단계를 수행하여 방화벽을 구성합니다.
+   Azure VM에서 CentOS, Red Hat 또는 SLES(SUSE Linux Enterprise Server)를 실행하는 경우 다음 단계를 수행하여 방화벽을 구성합니다.
 
    ```bash
    firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
@@ -124,4 +124,4 @@ Azure Arc 지원 서버가 VM에 구성된 경우 Azure에서 두 가지 표현�
 
 * Windows 또는 Linux 컴퓨터를 위한 Automation, KeyVault 등의 기타 Azure 서비스와 함께 배포를 단순화하는 데 사용할 수 있는 [지원되는 Azure VM 확장](manage-vm-extensions.md)에 대해 알아봅니다.
 
-* 테스트를 마쳤으면 [Azure Arc 사용 서버 에이전트 제거를](manage-agent.md#remove-the-agent)참조하세요.
+* 테스트를 마쳤으면 [Azure Arc 지원 서버 에이전트 제거를](manage-agent.md#remove-the-agent)참조하세요.

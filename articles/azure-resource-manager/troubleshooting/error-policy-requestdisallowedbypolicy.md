@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ef38591fb47f7d7dcfce96551c756b11a42b2a9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0e3847c54291703c569c2632bee1228a787a6f4e
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102978"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132864496"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 리소스 정책의 RequestDisallowedByPolicy 오류
 
@@ -35,8 +35,6 @@ ms.locfileid: "131102978"
 배포를 차단한 정책에 대한 세부 정보를 검색하려면 다음 방법 중 하나를 사용합니다.
 
 ### <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 PowerShell에서 해당 정책 식별자를 `Id` 매개 변수로 제공하여 배포를 차단한 정책에 대한 정보를 검색합니다.
 

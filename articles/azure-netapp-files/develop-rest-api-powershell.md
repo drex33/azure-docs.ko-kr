@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: b481c021a1bb90b9839c5ee014bc9caf54bd7911
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: f549233de8481f7f86c6d67dbadddec820067ea2
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785658"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863941"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>PowerShell을 사용하여 REST API로 Azure NetApp Files 개발
 
@@ -41,7 +41,7 @@ Azure NetApp Files용 REST API 사양은 [GitHub](https://github.com/Azure/azure
    2. Azure CLI에서 다음 명령을 입력합니다.  
 
       ```azurecli
-      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> | ConvertFrom-Json         
+      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> --role Contributor | ConvertFrom-Json         
       ```
 
       서비스 사용자 정보를 표시하려면 `$RBAC_SP`를 입력하고 Enter를 누릅니다.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 64b57c814c99d7a792a198d300df27e821fe3cf5
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 826db0c64ce826d8853aa5c4bc4b8671f9a7e700
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577140"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869253"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -213,21 +213,21 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 
 ### <a name="required-fqdn--application-rules"></a>필수 FQDN / 애플리케이션 규칙
 
-AKS 클러스터에서 클러스터 확장을 사용하려면 다음 FQDN/애플리케이션 규칙이 필요합니다.
+AKS 클러스터에서 클러스터 확장을 사용 하려면 다음 FQDN/응용 프로그램 규칙이 필요 합니다.
 
 | FQDN | 포트 | 사용 |
 |-----------------------------------------------|-----------|----------|
-| **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | 이 주소는 클러스터 확장 서비스에서 구성 정보를 가져오고 확장 상태를 서비스에 보고하는 데 사용됩니다.|
-| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | 이 주소는 AKS 클러스터에 클러스터 확장 에이전트를 설치하기 위해 컨테이너 이미지를 끌어와야 합니다.|
+| **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | 이 주소는 클러스터 확장 서비스에서 구성 정보를 가져오고 확장 상태를 서비스에 보고 하는 데 사용 됩니다.|
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | 이 주소는 AKS 클러스터에 클러스터 확장 에이전트를 설치 하기 위해 컨테이너 이미지를 끌어오는 데 필요 합니다.|
 
 #### <a name="azure-us-government-required-fqdn--application-rules"></a>Azure 미국 정부 필수 FQDN/애플리케이션 규칙
 
-AKS 클러스터에서 클러스터 확장을 사용하려면 다음 FQDN/애플리케이션 규칙이 필요합니다.
+AKS 클러스터에서 클러스터 확장을 사용 하려면 다음 FQDN/응용 프로그램 규칙이 필요 합니다.
 
 | FQDN | 포트 | 사용 |
 |-----------------------------------------------|-----------|----------|
-| **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | 이 주소는 클러스터 확장 서비스에서 구성 정보를 가져오고 확장 상태를 서비스에 보고하는 데 사용됩니다. |
-| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | 이 주소는 AKS 클러스터에 클러스터 확장 에이전트를 설치하기 위해 컨테이너 이미지를 끌어와야 합니다.|
+| **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | 이 주소는 클러스터 확장 서비스에서 구성 정보를 가져오고 확장 상태를 서비스에 보고 하는 데 사용 됩니다. |
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | 이 주소는 AKS 클러스터에 클러스터 확장 에이전트를 설치 하기 위해 컨테이너 이미지를 끌어오는 데 필요 합니다.|
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Azure Firewall을 사용하여 송신 트래픽 제한
 
@@ -425,7 +425,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 ```azurecli
 # Create SP and Assign Permission to Virtual Network
 
-az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
+az ad sp create-for-rbac -n "${PREFIX}sp"
 ```
 
 이제 `APPID` 및 `PASSWORD`를 이전 명령 출력에 의해 자동으로 생성된 서비스 주체 appid 및 서비스 주체 암호로 바꿉니다. AKS가 리소스를 배포할 수 있도록 VNET 리소스 ID를 참조하여 서비스 주체에 권한을 부여합니다.

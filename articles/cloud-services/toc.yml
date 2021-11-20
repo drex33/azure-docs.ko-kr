@@ -195,7 +195,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/cloud
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/compute/cloudservices/
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
@@ -222,7 +222,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: 학습 경로
-      href: /learn/paths/azure-fundamentals/
+      href: /learn/paths/az-900-describe-cloud-concepts/
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-cloud-services.html
     - name: 가격 책정

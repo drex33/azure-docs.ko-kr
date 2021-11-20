@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/08/2021
 ms.author: phjensen
-ms.openlocfilehash: 6a5fb518622a36ffe5562e76ffb09a472c12fe01
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5e2d6ab8ef0f641833771bed225a7415c5267e55
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124737318"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863901"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 설치
 
@@ -107,7 +107,7 @@ RBAC 서비스 주체 만들기
 1. 다음 예제에 따라 Azure CLI를 사용하여 서비스 주체를 만듭니다.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth
+    az ad sp create-for-rbac --role Contributor --sdk-auth
     ```
 
     1. 그러면 다음 예제와 유사한 출력이 생성됩니다.

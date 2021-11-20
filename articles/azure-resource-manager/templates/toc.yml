@@ -152,7 +152,7 @@
         - name: Cache for Redis
           href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cosmos DB
-          href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../cosmos-db/sql/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Database for MariaDB
           href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Database for MySQL
@@ -210,7 +210,7 @@
         - name: Managed Applications
           href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 모니터
-          href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+          href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
         - name: 정책
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 포털
@@ -270,7 +270,7 @@
         - name: Key Vault - 비밀
           href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Defender for Cloud
-          href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: 스토리지
       items:
         - name: Data Share
@@ -314,7 +314,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: parameters.md
-        - name: 변수
+        - name: variables
           href: variables.md
         - name: 사용자 정의 함수
           href: user-defined-functions.md
@@ -477,7 +477,7 @@
     - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
-      href: /powershell/module/az.resources
+      href: /powershell/module/az.resources/
     - name: Azure CLI
       href: /cli/azure/resource
     - name: .NET

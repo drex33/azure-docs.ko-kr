@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 8d10304ecf43654c0713961f62621505af73fbd1
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: 7158f24d4168995c1fc196f01a15f333b735d4a4
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112152"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868436"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
 
@@ -48,7 +48,7 @@ Azure NetApp Files용 REST API 사양은 [GitHub](https://github.com/Azure/azure
    2. Azure CLI에서 다음 명령을 입력합니다. 
     
         ```azurecli
-        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor
         ```
 
       명령 출력은 다음 예제와 유사합니다.  

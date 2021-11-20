@@ -5,12 +5,12 @@ description: 자동 TLS 인증서 생성을 위해 Let's Encrypt를 사용하는
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: bd436a02d64887abf74a6ffedfef6dac3c90d52c
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: cb1d43d239bf82f7fc49085cbc9552cc156f97ee
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519803"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132867985"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -28,31 +28,42 @@ ms.locfileid: "132519803"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI 사용, Azure PowerShell][aks-quickstart-cli]사용 또는 [Azure Portal][aks-quickstart-powershell] 사용 AKS 빠른 시작 [을][aks-quickstart-portal]참조하세요.
 
 또한 이 문서에서는 AKS 클러스터와 동일한 리소스 그룹에 [DNS 영역][dns-zone]을 포함하는 [사용자 지정 도메인][custom-domain]이 있다고 가정합니다.
 
-이 문서에서는 [Helm 3][helm]을 사용하여 [지원되는 Kubernetes 버전][aks-supported versions]에 NGINX 수신 컨트롤러를 설치합니다. 최신 버전의 투구를 사용 하 고 `ingress-nginx` 및 투구 리포지토리에 액세스할 수 있는지 확인 합니다 `jetstack` . 이 문서에 설명된 단계는 이전 버전의 Helm 차트, NGINX 수신 컨트롤러 또는 Kubernetes와 호환되지 않을 수 있습니다.
+이 문서에서는 [Helm 3][helm]을 사용하여 [지원되는 Kubernetes 버전][aks-supported versions]에 NGINX 수신 컨트롤러를 설치합니다. Helm의 최신 릴리스를 사용하고 있고 및 Helm `ingress-nginx` 리포지토리에 액세스할 수 있는지 `jetstack` 확인합니다. 이 문서에 설명된 단계는 이전 버전의 Helm 차트, NGINX 수신 컨트롤러 또는 Kubernetes와 호환되지 않을 수 있습니다.
 
 Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요.
 
-또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 또한 이 문서에서는 통합 ACR을 포함하는 기존 AKS 클러스터가 있다고 가정합니다. 통합 ACR을 포함하는 AKS 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증][aks-integrated-acr]을 참조하세요.
 
+또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+또한 이 문서에서는 통합 ACR을 포함하는 기존 AKS 클러스터가 있다고 가정합니다. 통합 ACR을 포함하는 AKS 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증][aks-integrated-acr-ps]을 참조하세요.
+
+이 문서에서는 Azure PowerShell 버전 5.9.0 이상도 실행해야 합니다. `Get-InstalledModule -Name Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 설치][azure-powershell-install]를 참조하세요.
+
+---
 ## <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Helm 차트에서 사용하는 이미지를 ACR로 가져오기
 
-이 문서에서는 세 개의 컨테이너 이미지를 사용하는 [NGINX 수신 컨트롤러 Helm 차트][ingress-nginx-helm-chart]를 사용합니다. `az acr import`를 사용하여 해당 이미지를 ACR로 가져옵니다.
+이 문서에서는 세 개의 컨테이너 이미지를 사용하는 [NGINX 수신 컨트롤러 Helm 차트][ingress-nginx-helm-chart]를 사용합니다. 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+`az acr import`를 사용하여 해당 이미지를 ACR로 가져옵니다.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
-CONTROLLER_REGISTRY=k8s.gcr.io
+SOURCE_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
 CONTROLLER_TAG=v1.0.4
-PATCH_REGISTRY=docker.io
-PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.2
-DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+PATCH_TAG=v1.1.1
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 CERT_MANAGER_REGISTRY=quay.io
@@ -61,13 +72,44 @@ CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
 CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
 CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
 
-az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
-az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
-az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
 az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
 az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
 az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$RegistryName = "<REGISTRY_NAME>"
+$ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
+$ControllerRegistry = "k8s.gcr.io"
+$ControllerImage = "ingress-nginx/controller"
+$ControllerTag = "v1.0.4"
+$PatchRegistry = "docker.io"
+$PatchImage = "jettech/kube-webhook-certgen"
+$PatchTag = "v1.5.1"
+$DefaultBackendRegistry = "k8s.gcr.io"
+$DefaultBackendImage = "defaultbackend-amd64"
+$DefaultBackendTag = "1.5"
+$CertManagerRegistry = "quay.io"
+$CertManagerTag = "v1.3.1"
+$CertManagerImageController = "jetstack/cert-manager-controller"
+$CertManagerImageWebhook = "jetstack/cert-manager-webhook"
+$CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
+
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $ControllerRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $PatchRegistry -SourceImage "${PatchImage}:${PatchTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $DefaultBackendRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
+
+```
+
+---
 
 > [!NOTE]
 > 컨테이너 이미지를 ACR로 가져오는 것 외에도 Helm 차트를 ACR로 가져올 수도 있습니다. 자세한 내용은 [Azure 컨테이너 레지스트리에 Helm 차트 푸시 및 끌어오기][acr-helm]를 참조하세요.
@@ -82,7 +124,9 @@ az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGE
 > 다음 예제는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만들고 해당 네임스페이스 내에서 작동하도록 작성되었습니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
 
 > [!TIP]
-> 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래의 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지가 활성화된 수신 컨트롤러를 사용하는 경우 TLS 통과는 작동하지 않습니다.
+> 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래의 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지를 사용하는 수신 컨트롤러를 사용하는 경우 TLS 통과는 작동하지 않습니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```console
 # Add the ingress-nginx repository
@@ -112,6 +156,44 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set defaultBackend.image.digest=""
 ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+# Set variable for ACR location to use for pulling images
+$AcrUrl = "$RegistryName.azurecr.io"
+
+# Get the SHA256 digest of the controller and patch images
+$ControllerDigest = (Get-AzContainerRegistryTag -RegistryName $RegistryName -RepositoryName $ControllerImage -Name $ControllerTag).Attributes.digest
+$PatchDigest = (Get-AzContainerRegistryTag -RegistryName $RegistryName -RepositoryName $PatchImage -Name $PatchTag).Attributes.digest
+
+# Use Helm to deploy an NGINX ingress controller
+helm install nginx-ingress ingress-nginx/ingress-nginx `
+    --namespace ingress-basic `
+    --set controller.replicaCount=2 `
+    --set controller.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.image.registry=$AcrUrl `
+    --set controller.image.image=$ControllerImage `
+    --set controller.image.tag=$ControllerTag `
+    --set controller.image.digest=$ControllerDigest `
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
+    --set controller.admissionWebhooks.patch.image.image=$PatchImage `
+    --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
+    --set controller.admissionWebhooks.patch.image.digest=$PatchDigest `
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux `
+    --set defaultBackend.image.registry=$AcrUrl `
+    --set defaultBackend.image.image=$DefaultBackendImage `
+    --set defaultBackend.image.tag=$DefaultBackendTag
+```
+
+---
+
 설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 이 공용 IP 주소는 수신 컨트롤러의 수명 동안만 고정됩니다. 수신 컨트롤러를 삭제하면 공용 IP 주소 할당이 손실됩니다. 추가 수신 컨트롤러를 만들면 새 공용 IP 주소가 할당됩니다. 공용 IP 주소를 계속 사용하려는 경우에는 대신 [고정 공용 IP 주소로 수신 컨트롤러를 만들][aks-ingress-static-tls] 수 있습니다.
 
 공용 IP 주소를 얻으려면 `kubectl get service` 명령을 사용합니다. 서비스에 IP 주소가 할당될 때까지 몇 분 정도 걸립니다.
@@ -127,15 +209,34 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 
 ## <a name="add-an-a-record-to-your-dns-zone"></a>DNS 영역에 A 레코드 추가
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 [az network dns record-set a add-record][az-network-dns-record-set-a-add-record]를 사용하여 NGINX 서비스의 외부 IP 주소로 DNS 영역에 *A* 레코드를 추가합니다.
 
-```console
+```azurecli
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
     --record-set-name "*" \
     --ipv4-address MY_EXTERNAL_IP
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+[New-AzDnsRecordSet][new-az-dns-recordset-create-a-record]를 사용하여 NGINX 서비스의 외부 IP 주소로 DNS 영역에 A 레코드를 추가합니다. 
+
+```azurepowershell
+$Records = @()
+$Records += New-AzDnsRecordConfig -IPv4Address <External IP>
+New-AzDnsRecordSet -Name "*" `
+    -RecordType A `
+    -ResourceGroupName <Name of Resource Group for the DNS Zone> `
+    -ZoneName <Custom Domain Name> `
+    -TTL 3600
+    -DnsRecords $Records
+```
+
+---
 
 ### <a name="configure-an-fqdn-for-the-ingress-controller"></a>수신 컨트롤러에 대한 FQDN 구성
 선택적으로 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대한 FQDN을 구성할 수 있습니다.  FQDN은 `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com` 형식입니다.
@@ -144,6 +245,8 @@ az network dns record-set a add-record \
 
 #### <a name="method-1-set-the-dns-label-using-the-azure-cli"></a>방법 1: Azure CLI를 사용하여 DNS 레이블 설정
 이 샘플은 Bash 셸에 대한 것입니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```bash
 # Public IP address of your ingress controller
@@ -162,11 +265,32 @@ az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
  ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Public IP address of your ingress controller
+$AksIpAddress = "MY_EXTERNAL_IP"
+
+# Get the Public IP Address for the ingress controller
+$PublicIp = Get-AzPublicIpAddress | Where-Object {$_.IpAddress -eq $AksIpAddress}
+
+# Update public ip address with DNS name
+$PublicIp.DnsSettings = @{"DomainNameLabel" = "demo-aks-ingress"}
+$UpdatedPublicIp = Set-AzPublicIpAddress -PublicIpAddress $publicIp
+
+# Display the FQDN
+Write-Output $UpdatedPublicIp.DnsSettings.Fqdn
+```
+
+---
+
 #### <a name="method-2-set-the-dns-label-using-helm-chart-settings"></a>방법 2: helm 차트 설정을 사용하여 DNS 레이블 설정
-매개 변수를 사용 하 여 주석 설정을 투구 차트 구성에 전달할 수 있습니다 `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` .  수신 컨트롤러를 처음 배포할 때 설정하거나 나중에 구성할 수 있습니다.
+매개 변수를 사용하여 주석 설정을 Helm 차트 구성에 전달할 수 `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` 있습니다.  수신 컨트롤러를 처음 배포할 때 설정하거나 나중에 구성할 수 있습니다.
 다음 예제에서는 컨트롤러가 배포된 후 이 설정을 업데이트하는 방법을 보여 줍니다.
 
-```
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```bash
 DNS_LABEL="demo-aks-ingress"
 NAMESPACE="nginx-basic"
 
@@ -176,13 +300,29 @@ helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
 
 ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$DnsLabel = "demo-aks-ingress"
+$Namespace = "nginx-basic"
+
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace $Namespace \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel
+
+```
+
+---
+
 ## <a name="install-cert-manager"></a>cert-manager 설치
 
 NGINX 수신 컨트롤러는 TLS 종료를 지원합니다. HTTPS에 대한 인증서를 검색하고 구성하는 몇 가지 방법이 있습니다. 이 문서에서는 자동 [Lets Encrypt][lets-encrypt] 인증서 생성 및 관리 기능을 제공하는 [cert-manager][cert-manager]를 사용하는 방법을 보여 줍니다.
 
 cert-manager 컨트롤러 설치 방법
 
-```console
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```bash
 # Label the ingress-basic namespace to disable resource validation
 kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 
@@ -205,6 +345,34 @@ helm install cert-manager jetstack/cert-manager \
   --set cainjector.image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CAINJECTOR \
   --set cainjector.image.tag=$CERT_MANAGER_TAG
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Label the ingress-basic namespace to disable resource validation
+kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
+
+# Add the Jetstack Helm repository
+helm repo add jetstack https://charts.jetstack.io
+
+# Update your local Helm chart repository cache
+helm repo update
+
+# Install the cert-manager Helm chart
+helm install cert-manager jetstack/cert-manager `
+  --namespace ingress-basic `
+  --version $CertManagerTag `
+  --set installCRDs=true `
+  --set nodeSelector."kubernetes\.io/os"=linux `
+  --set image.repository="${AcrUrl}/${CertManagerImageController}" `
+  --set image.tag=$CertManagerTag `
+  --set webhook.image.repository="${AcrUrl}/${CertManagerImageWebhook}" `
+  --set webhook.image.tag=$CertManagerTag `
+  --set cainjector.image.repository="${AcrUrl}/${CertManagerImageCaInjector}" `
+  --set cainjector.image.tag=$CertManagerTag
+```
+
+---
 
 cert-manager 구성에 대한 자세한 내용은 [cert-manager 프로젝트][cert-manager]를 참조합니다.
 
@@ -249,7 +417,7 @@ kubectl apply -f cluster-issuer.yaml
 
 *aks-helloworld-one.yaml* 파일을 만들고 다음 예제 YAML에 복사합니다.
 
-```yml
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -287,7 +455,7 @@ spec:
 
 *aks-helloworld-two.yaml* 파일을 만들고 다음 예제 YAML에 복사합니다.
 
-```yml
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -509,6 +677,7 @@ kubectl delete namespace ingress-basic
 
 <!-- LINKS - external -->
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az_network_dns_record_set_a_add_record
+[new-az-dns-recordset-create-a-record]: /powershell/module/az.dns/new-azdnsrecordset
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/
@@ -534,9 +703,12 @@ kubectl delete namespace ingress-basic
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-powershell]: kubernetes-walkthrough-powershell.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [acr-helm]: ../container-registry/container-registry-helm-repos.md

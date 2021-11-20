@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 81f4775771c162dce061bc1ad8901bd9b9542d40
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: d4e850b9678cea67f688a20f27b69696f0ef8c68
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132554943"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132867449"
 ---
 # <a name="connect-to-and-manage-salesforce-in-azure-purview-preview"></a>Azure 부서의 범위에서 Salesforce 커넥트 및 관리 (미리 보기)
 
@@ -26,11 +26,11 @@ ms.locfileid: "132554943"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| 예|
+| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| 아니요|
 
 Salesforce를 스캔할 때 부서의 범위는 Salesforce 조직, 개체, 필드, 외래 키, unique_constraints 등의 메타 데이터 추출을 지원 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -70,7 +70,7 @@ Salesforce를 스캔할 때 부서의 범위는 Salesforce 조직, 개체, 필�
 
 1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
 
-1. Salesforce 로그인 끝점 URL을 **도메인 URL** 로 입력 합니다. 예들 들어 `https://login.salesforce.com`입니다. 회사의 인스턴스 URL (예: `https://na30.salesforce.com` ) 또는 내 도메인 url (예:)을 사용할 수 있습니다 `https://myCompanyName.my.salesforce.com/` .
+1. Salesforce 로그인 끝점 URL을 **도메인 URL** 로 입력 합니다. 예: `https://login.salesforce.com`. 회사의 인스턴스 URL (예: `https://na30.salesforce.com` ) 또는 내 도메인 url (예:)을 사용할 수 있습니다 `https://myCompanyName.my.salesforce.com/` .
 
 1. 컬렉션을 선택하거나 새로 만듭니다(선택 사항).
 
@@ -83,6 +83,10 @@ Salesforce를 스캔할 때 부서의 범위는 Salesforce 조직, 개체, 필�
 아래 단계에 따라 Salesforce를 검색 하 여 자산을 자동으로 식별 하 고 데이터를 분류 합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
 
 Azure 부서의 범위는 Salesforce REST API 버전 41.0을 사용 하 여 '/v41.0/sobjects/(Global ' URI), ' sObject Basic Information ' URI (/v41.0/sobjects/sObject/) 및 ' SOQL Query ' URI (/v41.0/query?)와 같은 REST 요청을 비롯 한 메타 데이터를 추출 합니다.
+
+### <a name="authentication-for-a-scan"></a>검사 인증
+
+Salesforce 원본에 대해 지원 되는 인증 유형은 **소비자 키 인증** 입니다.
 
 ### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
@@ -111,7 +115,7 @@ Azure 부서의 범위는 Salesforce REST API 버전 41.0을 사용 하 여 '/v4
         * 연결 된 앱 정의에서 소비자 키를 제공 합니다. 연결 된 앱의 연결 된 앱 관리 페이지 또는 연결 된 앱 정의에서 찾을 수 있습니다.
         * Azure Key Vault 암호에 연결 된 앱 정의의 소비자 암호를 저장 합니다. 소비자 키와 함께 찾을 수 있습니다.
 
-    1. **개체**: 검색 범위를 지정할 개체 이름 목록을 제공 합니다. 예들 들어 `object1; object2`입니다. 빈 목록은 사용 가능한 모든 개체를 검색 하는 것을 의미 합니다. 개체 이름을 와일드 카드 패턴으로 지정할 수 있습니다. `topic?`, `*topic*` 또는 `topic_?,*topic*`).
+    1. **개체**: 검색 범위를 지정할 개체 이름 목록을 제공 합니다. 예: `object1; object2`. 빈 목록은 사용 가능한 모든 개체를 검색 하는 것을 의미 합니다. 개체 이름을 와일드 카드 패턴으로 지정할 수 있습니다. `topic?`, `*topic*` 또는 `topic_?,*topic*`).
 
     1. **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검색할 Salesforce 원본의 크기에 따라 달라 집니다.
 

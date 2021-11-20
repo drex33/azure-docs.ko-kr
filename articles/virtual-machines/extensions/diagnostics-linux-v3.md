@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 12/13/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 04264276b3419e32aa420792027502ce3d1acbb2
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: ef1d21d0cb34219c0d6f576a58fdd1287c96f12f
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669685"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871132"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Linux 진단 확장 3.0을 사용하여 메트릭 및 로그 모니터링
 
@@ -847,7 +847,7 @@ Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합�
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 Explorer
-* [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 Azure Storage Explorer 세션의 다음 스크린샷은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 

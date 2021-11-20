@@ -90,6 +90,8 @@
       href: uwp-react.md
 - name: 개념
   items:
+    - name: 가용성 영역
+      href: availability-zones.md
     - name: TLS(전송 계층 보안)
       href: notification-hubs-tls12.md
     - name: 엔터프라이즈 푸시 아키텍처 지침
@@ -165,7 +167,7 @@
       href: /cli/azure/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/notificationhubs/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.notificationhubs/allversions

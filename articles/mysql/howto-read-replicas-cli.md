@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c7f33156394b3dfde100014ace6d8b7f1cbc8caf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4627878962c6cc3c1ab5294138fd5dbb130c4bac
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528551"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871768"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "122528551"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용하여 읽기 복제본을 생성하고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 원본 서버로 사용할 [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md) 
@@ -34,7 +34,7 @@ Azure CLI를 사용하여 읽기 복제본을 생성하고 관리할 수 있습�
 ### <a name="create-a-read-replica"></a>읽기 복제본 만들기
 
 > [!IMPORTANT]
-> 기존 복제본이 없는 원본에 대한 복제본을 만드는 경우 원본이 먼저 다시 시작하여 자체적으로 복제할 준비를 합니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
+> 원본 서버에 기존 복제본 서버가 없는 경우 사용된 스토리지(v1/v2)에 따라 복제를 준비하기 위해 원본 서버를 다시 시작해야 할 수 있습니다. 서버를 다시 시작하고 사용량이 많은 시간 동안 이 작업을 수행하세요. 자세한 내용은 [원본 서버 다시 시작을](./concepts-read-replicas.md#source-server-restart) 참조하세요.  
 >
 >주 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 지원하고 GTID 기반 복제를 사용합니다. 자세한 내용은 [GTID(글로벌 트랜잭션 식별자)](concepts-read-replicas.md#global-transaction-identifier-gtid) 참조
 
@@ -124,7 +124,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 [Azure REST API](/rest/api/azure/)를 사용하여 읽기 복제본을 생성하고 관리할 수 있습니다.
 
 ### <a name="create-a-read-replica"></a>읽기 복제본 만들기
-[API 만들기](/rest/api/mysql/flexibleserver(preview)/servers/create)를 사용하여 읽기 복제본을 만들 수 있습니다.
+[API 만들기](/rest/api/mysql/flexibleserver/servers/create)를 사용하여 읽기 복제본을 만들 수 있습니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
@@ -152,14 +152,14 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > 원본 서버 설정을 새 값으로 업데이트하기 전에 복제본 설정을 같거나 더 큰 값으로 업데이트합니다. 이렇게 하면 복제본은 마스터에 생긴 변경 내용을 유지할 수 있습니다.
 
 ### <a name="list-replicas"></a>복제본 목록
-[복제본 목록 API](/rest/api/mysql/flexibleserver(preview)/replicas/listbyserver)를 사용하여 원본 서버의 복제본 목록을 볼 수 있습니다.
+[복제본 목록 API](/rest/api/mysql/flexibleserver/replicas/list-by-server)를 사용하여 원본 서버의 복제본 목록을 볼 수 있습니다.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
-[업데이트 API](/rest/api/mysql/flexibleserver(preview)/servers/update)를 사용하여 원본 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
+[업데이트 API](/rest/api/mysql/flexibleserver/servers/update)를 사용하여 원본 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
 
 원본 서버와 읽기 복제본에 대한 복제를 중지하면 실행 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 
@@ -176,7 +176,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-source-or-replica-server"></a>원본 또는 복제본 서버 삭제
-원본 또는 복제본 서버를 삭제하려면 [API 삭제](/rest/api/mysql/flexibleserver(preview)/servers/delete)를 사용합니다.
+원본 또는 복제본 서버를 삭제하려면 [API 삭제](/rest/api/mysql/flexibleserver/servers/delete)를 사용합니다.
 
 원본 서버를 삭제하면 모든 읽기 복제본에 대한 복제가 중지됩니다. 그러면 읽기 복제본은 읽기와 쓰기를 모두 지원하는 독립 실행형 서버가 됩니다.
 

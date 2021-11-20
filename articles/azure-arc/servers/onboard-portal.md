@@ -1,16 +1,16 @@
 ---
-title: 배포 스크립트를 사용 하 여 Azure에 하이브리드 컴퓨터 커넥트
-description: 이 문서에서는 Azure Portal에서 만든 배포 스크립트를 사용 하 여 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
+title: 배포 스크립트를 사용하여 하이브리드 머신을 Azure에 커넥트
+description: 이 문서에서는 Azure Portal 만든 배포 스크립트를 사용하여 에이전트를 설치하고 Azure Arc 지원 서버를 사용하여 Azure에 머신을 연결하는 방법을 알아봅니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 832e54538c6eb44e90dbd7ccb8ef804e0b0c45b9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b28c46aabcc554a65f8b476c6ead834b5b27e16f
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651981"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868778"
 ---
-# <a name="connect-hybrid-machines-to-azure-using-a-deployment-script"></a>배포 스크립트를 사용 하 여 Azure에 하이브리드 컴퓨터 커넥트
+# <a name="connect-hybrid-machines-to-azure-using-a-deployment-script"></a>배포 스크립트를 사용하여 하이브리드 머신을 Azure에 커넥트
 
 일련의 단계를 수동으로 수행하여 환경에서 하나 또는 소수의 Windows 또는 Linux 머신에 대해 Azure Arc 지원 서버를 활성화할 수 있습니다. 또는 제공된 템플릿 스크립트를 실행하여 자동화된 방법을 사용할 수 있습니다. 이 스크립트는 두 에이전트의 다운로드 및 설치를 자동화합니다.
 
@@ -127,7 +127,7 @@ Linux용 Connected Machine 에이전트는 Microsoft [패키지 리포지토리]
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent.
+# Install the Azure Connected Machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
@@ -137,7 +137,7 @@ bash ~/Install_linux_azcmagent.sh
     # Download the installation package.
     wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-    # Install the connected machine agent.
+    # Install the AZure Connected Machine agent.
     bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
     ```
 

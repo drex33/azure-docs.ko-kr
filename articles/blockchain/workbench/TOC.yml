@@ -54,7 +54,7 @@
     - name: 메시징 API
       href: messages-overview.md
     - name: REST API
-      href: /rest/api/azure-blockchain-workbench
+      href: /rest/api/azure-blockchain-workbench/
 - name: 리소스
   items:
     - name: 코드 샘플

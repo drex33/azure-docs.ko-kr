@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a43b3945a214f0825f1b580610dd364be446eeba
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 8430ccc747ad0c3f6fdafd9fcf35ebb58ab6b4e1
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713082"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863438"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "129713082"
 
 이 문서에서는 Azure Stack Edge Pro 디바이스의 기존 Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하는 방법을 보여 줍니다. 
 
-이 절차는 [Azure Stack Edge Pro 디바이스에서 Kubernetes 워크로드를](azure-stack-edge-gpu-kubernetes-workload-management.md) 검토하고 Azure Arc [지원 Kubernetes(미리 보기)란?](../azure-arc/kubernetes/overview.md)개념에 익숙한 사람들을 위한 것입니다.
+이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 워크 로드](azure-stack-edge-gpu-kubernetes-workload-management.md) 를 검토 하 고 [Azure Arc 사용 Kubernetes (미리 보기) 란?](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -74,7 +74,7 @@ Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하기 전에 �
     
     ![Kubernetes 리소스 공급자 등록 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-`az cli`를 통해 리소스 공급자를 등록할 수도 있습니다. 자세한 내용은 [Azure Arc 지원 Kubernetes에 대한 두 공급자 등록을 참조하세요.](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes)
+`az cli`를 통해 리소스 공급자를 등록할 수도 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes에 대 한 두 공급자 등록](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes)을 참조 하세요.
 
 ## <a name="create-service-principal-assign-role"></a>서비스 주체 만들기, 역할 할당
 
@@ -88,14 +88,14 @@ Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하기 전에 �
 
 1. 서비스 주체를 만들려면 `az cli`를 통해 다음 명령을 사용합니다.
 
-    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --name "<Informative name for service principal>"`  
 
     `az cli`에 로그인하는 방법에 대한 내용을 보려면 [Azure Portal에서 Cloud Shell을 시작](../cloud-shell/quickstart-powershell.md#start-cloud-shell)하세요.
 
     다음은 예제입니다. 
     
     ```azurecli
-    PS /home/user> az ad sp create-for-rbac --skip-assignment --name "https://azure-arc-for-ase-k8s"
+    PS /home/user> az ad sp create-for-rbac --name "https://azure-arc-for-ase-k8s"
     {
       "appId": "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b",
       "displayName": "azure-arc-for-ase-k8s",
@@ -142,14 +142,14 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"` 
     
-    이 명령을 실행하면 를 입력하라는 후속 메시지가 `ClientSecret` 표시됩니다. 서비스 주체 암호를 제공합니다.
+    이 명령이 실행 되 면를 입력 하 라는 메시지가 표시 됩니다 `ClientSecret` . 서비스 사용자 암호를 제공 합니다.
 
-    Azure 퍼블릭이 아닌 다른 클라우드를 사용하는 경우 `CloudEnvironment` 매개 변수를 추가합니다. 이 매개 변수를 , , 및 로 설정할 수 `AZUREPUBLICCLOUD` `AZURECHINACLOUD` `AZUREGERMANCLOUD` `AZUREUSGOVERNMENTCLOUD` 있습니다.
+    Azure 퍼블릭이 아닌 다른 클라우드를 사용하는 경우 `CloudEnvironment` 매개 변수를 추가합니다. 이 매개 변수는,, 및로 설정할 수 있습니다 `AZUREPUBLICCLOUD` `AZURECHINACLOUD` `AZUREGERMANCLOUD` `AZUREUSGOVERNMENTCLOUD` .
 
     > [!NOTE]
     > - 디바이스에 Azure Arc를 배포하려면 [Azure Arc의 지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)을 사용해야 합니다. 
     > - `az account list-locations` 명령을 사용하여 `Set-HcsKubernetesAzureArcAgent` cmdlet에 전달할 정확한 위치 이름을 파악합니다. 위치 이름 형식은 일반적으로 공백이 없습니다.
-    > - `ClientId` 및 `ClientSecret` 가 필요합니다. 
+    > - `ClientId` 및 `ClientSecret` 가 필요 합니다. 
     
     예를 들면 다음과 같습니다.
    
@@ -217,14 +217,14 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
     ```
 
 
-앞의 출력과 같이 Azure Arc 지원 Kubernetes는 네임스페이스에 배포된 클러스터에서 실행되는 몇 가지 에이전트(운영자)로 `azure-arc` 구성됩니다.
+위의 출력에서 볼 수 있듯이 Azure Arc 사용 Kubernetes는 네임 스페이스에 배포 된 클러스터에서 실행 되는 몇 개의 에이전트 (운영자)로 구성 됩니다 `azure-arc` .
 
 - `config-agent`: 클러스터에 적용된 원본 제어 구성 리소스에 대해 연결된 클러스터를 감시하고 호환성 상태를 업데이트합니다.
 - `controller-manager`: 연산자의 연산자이며 Azure Arc 구성 요소 간의 상호 작용을 조정합니다.
 - `metrics-agent`: 다른 Arc 에이전트의 메트릭을 수집하여 이러한 에이전트가 최적의 성능을 발휘하는지 확인합니다.
 - `cluster-metadata-operator`: 클러스터 메타데이터 - 클러스터 버전, 노드 수 및 Azure Arc 에이전트 버전을 수집합니다.
 - `resource-sync-agent`: 위에서 언급한 클러스터 메타데이터를 Azure에 동기화합니다.
-- `clusteridentityoperator`: Azure Arc 사용하도록 설정된 Kubernetes는 현재 시스템 할당 ID를 지원합니다. 다른 에이전트가 Azure와 통신하기 위해 사용하는 MSI(관리 서비스 ID) 인증서를 유지 관리합니다.
+- `clusteridentityoperator`: Azure Arc 사용 Kubernetes 현재 시스템 할당 id를 지원 합니다. 다른 에이전트가 Azure와 통신하기 위해 사용하는 MSI(관리 서비스 ID) 인증서를 유지 관리합니다.
 - `flux-logs-agent`: 원본 제어 구성의 일부로 배포된 Flux 연산자에서 로그를 수집합니다.
 - `connect-agent`: Azure Arc 리소스와 통신합니다.
 

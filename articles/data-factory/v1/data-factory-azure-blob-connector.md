@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cd797c58edb1d6918c8681f9cadffecdba8ef827
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f2b29376afc7dc562fbb8c63cb6cc73b1ee1429f
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011468"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132866768"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -173,7 +173,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 1. 아직 만들지 않은 경우 범용 **Azure Storage 계정** 을 만듭니다. 이 연습에서는 Blob Storage를 **원본** 및 **대상** 데이터 스토리지로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
 2. 스토리지 계정에 **adfblobconnector** 라는 Blob 컨테이너를 만듭니다.
 4. **adfblobconnector** 컨테이너에 **input** 이라는 폴더를 만듭니다.
-5. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 다음 내용이 포함된 **emp.txt** 라는 파일을 만들어 **input** 폴더에 업로드합니다.
+5. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 다음 내용이 포함된 **emp.txt** 라는 파일을 만들어 **input** 폴더에 업로드합니다.
     ```json
     John, Doe
     Jane, Doe

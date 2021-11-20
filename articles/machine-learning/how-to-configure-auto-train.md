@@ -11,12 +11,12 @@ ms.subservice: automl
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 8a9f31dc34e412521a9a74dfb113da13af66afa3
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 46ec04e5b643f328aa14bae0374d7df9688401fe
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132722642"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871388"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
@@ -136,7 +136,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
     Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
-* Azure 구독의 **Azure Databricks 클러스터**. 자세한 내용은 [자동화된 ML에 대한 Azure Databricks 클러스터 설정](how-to-configure-databricks-automl-environment.md)에서 확인할 수 있습니다. Azure Databricks를 사용하는 Notebook의 예제는 [이 GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)를 참조하세요.
+* Azure 구독의 **Azure Databricks 클러스터**. 자세한 내용은 [자동화된 ML에 대한 Azure Databricks 클러스터 설정](how-to-configure-databricks-automl-environment.md)에서 확인할 수 있습니다. Azure Databricks를 사용하는 Notebook의 예제는 [이 GitHub 사이트](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks)를 참조하세요.
 
 <a name='configure-experiment'></a>
 
@@ -393,7 +393,7 @@ run = experiment.submit(automl_config, show_output=True)
 자식 실행 및 수행 가능한 시기를 관리하는 데 도움이 되도록 실험당 전용 클러스터를 만들고 실험의 `max_concurrent_iterations` 수를 클러스터의 노드 수와 일치시키는 것이 좋습니다. 이러한 방식으로 클러스터의 모든 노드를 동시에 사용하여 원하는 동시 자식 실행/반복 횟수를 지정할 수 있습니다.
 
 `AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.
-컴퓨팅 인스턴스의 경우 을 `max_concurrent_iterations` 컴퓨팅 인스턴스 VM의 코어 수와 동일하게 설정할 수 있습니다.
+계산 인스턴스의 경우 `max_concurrent_iterations` 계산 인스턴스 VM의 코어 수와 동일 하 게 설정할 수 있습니다.
 
 ## <a name="explore-models-and-metrics"></a>모델 및 메트릭 탐색
 
@@ -431,7 +431,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-동일한 실험 Notebook 내에서 제출되고 학습된 로컬 또는 원격 실행의 경우 메서드를 사용하여 최상의 모델을 전달할 수 `get_output()` 있습니다. 
+동일한 실험 노트북 내에서 제출 및 학습 된 로컬 또는 원격 실행의 경우, 메서드를 사용 하 여 최상의 모델을 전달할 수 있습니다 `get_output()` . 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -516,23 +516,23 @@ RunDetails(run).show()
 
 ![자동화된 기계 학습을 위한 Jupyter Notebook 위젯](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
-## <a name="test-models-preview"></a>테스트 모델(미리 보기)
+## <a name="test-models-preview"></a>테스트 모델 (미리 보기)
 
 >[!IMPORTANT]
-> 테스트 데이터 세트를 사용하여 모델을 테스트하여 자동화된 ML 생성된 모델을 평가하는 것은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
+> 자동화 된 ML 생성 된 모델을 평가 하기 위해 테스트 데이터 집합을 사용 하 여 모델을 테스트 하는 기능은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
 
 > [!WARNING]
-> 이 기능은 다음과 같은 자동화된 ML 시나리오에 사용할 수 없습니다.
->  * [Computer Vision 작업(미리 보기)](how-to-auto-train-image-models.md)
->  * [많은 모델 및 계층적 Time Series 예측 학습(미리 보기)](how-to-auto-train-forecast.md)
->  * [DNN(딥 러닝 신경망)이 사용되는 예측 작업](how-to-auto-train-forecast.md#enable-deep-learning)
->  * [로컬 컴퓨팅 또는 Azure Databricks 클러스터에서 자동화된 ML 실행](how-to-configure-auto-train.md#compute-to-run-experiment)
+> 다음 자동화 된 ML 시나리오에서는이 기능을 사용할 수 없습니다.
+>  * [컴퓨터 시각 작업 (미리 보기)](how-to-auto-train-image-models.md)
+>  * [많은 모델 및 hiearchical 시계열 예측 교육 (미리 보기)](how-to-auto-train-forecast.md)
+>  * [심층 학습 신경망 (DNN)을 사용할 수 있는 예측 작업](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [로컬 계산 또는 Azure Databricks 클러스터에서 자동화 된 ML 실행](how-to-configure-auto-train.md#compute-to-run-experiment)
 
-또는 매개 변수를 에 전달하면 `test_data` `test_size` `AutoMLConfig` 제공된 테스트 데이터를 사용하여 자동화된 ML 실험 완료 시 권장하는 최상의 모델을 평가하는 원격 테스트 실행이 자동으로 트리거됩니다. 이 원격 테스트 실행은 최상의 모델이 결정되면 실험이 끝날 때 수행됩니다. 테스트 데이터를 에 전달하는 방법을 [참조하세요. `AutoMLConfig` ](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) 
+또는 매개 변수를에 전달 하면 `test_data` `test_size` `AutoMLConfig` 에서 제공 된 테스트 데이터를 사용 하는 원격 테스트 실행을 자동으로 트리거하여 자동 ML 실험 완료 시 권장 되는 최상의 모델을 평가 합니다. 이 원격 테스트 실행은 최상의 모델이 결정 되 면 실험의 끝에서 수행 됩니다. [테스트 데이터 `AutoMLConfig` ](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview)를에 전달 하는 방법을 참조 하세요. 
 
-### <a name="get-test-run-results"></a>테스트 실행 결과 얻기 
+### <a name="get-test-run-results"></a>테스트 실행 결과 가져오기 
 
-[Azure Machine Learning Studio에서](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) 또는 다음 코드를 사용하여 원격 테스트 실행에서 예측 및 메트릭을 얻을 수 있습니다. 
+[Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) 에서 또는 다음 코드를 사용 하 여 원격 테스트 실행에서 예측 및 메트릭을 가져올 수 있습니다. 
 
 
 ```python
@@ -557,16 +557,16 @@ predictions_df = pd.read_csv("predictions.csv")
 
 ```
 
-모델 테스트 실행은 작업 영역으로 만든 기본 데이터 저장소에 저장된 predictions.csv 파일을 생성합니다. 이 데이터 저장소는 동일한 구독을 가진 모든 사용자에게 표시됩니다. 테스트 실행에 사용되거나 테스트 실행에 의해 생성된 정보가 비공개로 유지되어야 하는 시나리오에는 테스트 실행이 권장되지 않습니다.
+모델 테스트 실행은 작업 영역을 사용 하 여 만든 기본 데이터 저장소에 저장 된 predictions.csv 파일을 생성 합니다. 이 데이터 저장소는 동일한 구독의 모든 사용자에 게 표시 됩니다. 테스트 실행에 사용 되거나 생성 된 정보 중 하나를 개인 상태로 유지 해야 하는 경우 시나리오에는 테스트 실행을 사용 하지 않는 것이 좋습니다.
 
-### <a name="test-existing-automated-ml-model"></a>기존 자동화된 ML 모델 테스트
+### <a name="test-existing-automated-ml-model"></a>기존 자동화 된 ML 모델 테스트
 
-생성된 다른 자동화된 ML 모델을 테스트하려면 를 사용하여 기본 [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) AutoML 실행이 완료된 후 모델을 테스트합니다. `ModelProxy()` 는 이미 예측 및 메트릭을 반환하며 출력을 검색하기 위해 추가 처리가 필요하지 않습니다.
+작성 된 기존의 자동화 된 ML 모델, 최상의 실행 또는 자식 실행을 테스트 하려면 [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) 기본 automl 실행이 완료 된 후 모델을 테스트 하는 데를 사용 합니다. `ModelProxy()` 는 이미 예측 및 메트릭을 반환 하며 출력을 검색 하는 데 추가 처리가 필요 하지 않습니다.
 
 > [!NOTE]
-> ModelProxy는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 클래스이며 언제든지 변경 될 수 있습니다.
+> ModelProxy는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 클래스 이며 언제 든 지 변경 될 수 있습니다.
 
-다음 코드에서는 [ModelProxy.test()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#test-test-data--azureml-data-abstract-dataset-abstractdataset--include-predictions-only--bool---false-----typing-tuple-azureml-data-abstract-dataset-abstractdataset--typing-dict-str--typing-any--) 메서드를 사용하여 모든 실행에서 모델을 테스트하는 방법을 보여 있습니다. test() 메서드에는 매개 변수를 사용하여 테스트 실행의 예측만 표시할 것인지 지정하는 옵션이 `include_predictions_only` 있습니다. 
+다음 코드에서는 [Modelproxy. test ()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#test-test-data--azureml-data-abstract-dataset-abstractdataset--include-predictions-only--bool---false-----typing-tuple-azureml-data-abstract-dataset-abstractdataset--typing-dict-str--typing-any--) 메서드를 사용 하 여 모든 실행에서 모델을 테스트 하는 방법을 보여 줍니다. Test () 메서드에서는 매개 변수를 사용 하 여 테스트 실행의 예측만 볼 것인지 여부를 지정 하는 옵션을 사용할 수 있습니다 `include_predictions_only` . 
 
 ```python
 from azureml.train.automl.model_proxy import ModelProxy
@@ -578,7 +578,7 @@ predictions, metrics = model_proxy.test(test_data, include_predictions_only= Tru
 
 ## <a name="register-and-deploy-models"></a>모델 등록 및 배포
 
-모델을 테스트하고 프로덕션에서 사용할 것인지 확인한 후 나중에 사용할 수 있도록 등록할 수 있습니다. 
+모델을 테스트 하 고 프로덕션에서 사용할 수 있는지 확인 한 후 나중에 사용 하기 위해 등록할 수 있습니다. 
 
 자동화된 ML 실행에서 모델을 등록하려면 [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) 메서드를 사용합니다. 
 
@@ -607,9 +607,9 @@ model = run.register_model(model_name = model_name,
 
 모델 해석력을 통해 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 모델과 배포된 모델의 학습 및 유추 시간에 모델 해석력 기능을 사용할 수 있도록 다양한 패키지가 포함되어 있습니다.
 
-특히 자동화된 ML 실험 내에서 [해석 기능 기능을 사용하도록 설정하는](how-to-machine-learning-interpretability-automl.md) 방법을 참조하세요.
+자동화 된 ML 실험 내에서 특히 [interpretability 기능을 사용 하도록 설정](how-to-machine-learning-interpretability-automl.md) 하는 방법을 참조 하세요.
 
-자동화된 기계 학습 이외의 SDK의 다른 영역에서 모델 설명 및 기능 중요도를 사용하도록 설정하는 방법에 대한 일반적인 내용은 [해석력에 대한 개념 문서를 참조하세요.](how-to-machine-learning-interpretability.md)
+자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 일반적인 내용은 [interpretability의 개념 문서](how-to-machine-learning-interpretability.md) 를 참조 하세요.
 
 > [!NOTE]
 > ForecastTCN 모델은 현재 설명 클라이언트에서 지원되지 않습니다. 이 모델은 최상의 모델로 반환되고 주문형 설명 실행을 지원하지 않는 경우 설명 대시보드를 반환하지 않습니다.

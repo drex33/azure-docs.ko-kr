@@ -1,14 +1,14 @@
 ---
 title: Azure Monitor Cosmos DB 인사이트를 사용하여 Azure Cosmos DB 모니터링 | Microsoft Docs
-description: 이 문서에서는 Cosmos DB 소유자가 CosmosDB 계정의 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Azure Monitor의 Cosmos DB 인사이트 기능에 대해 설명합니다.
+description: 이 문서에서는 Cosmos DB 소유자에 게 Cosmos DB 계정의 성능 및 사용률 문제를 빠르게 이해 하는 데 사용 되는 Azure Monitor의 Cosmos DB 정보 기능에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3a3a87a3d639c2f5d0211e488340ab918c339ba0
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: e3adf927482ff6c1fe4e3d17020517c06b9d9b21
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131926"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871208"
 ---
 # <a name="explore-azure-monitor-cosmos-db-insights"></a>Azure Monitor Cosmos DB 인사이트 살펴보기
 
@@ -22,7 +22,7 @@ Cosmos DB 인사이트에서 모든 Azure Cosmos DB 리소스의 전체 성능, 
 
 * 단일 위치의 모든 구독에 대한 Azure Cosmos DB 리소스의 **규모에 따른 관점** - 평가하려는 구독과 리소스로 범위를 좁힐 수 있습니다.
 
-* 특정 Azure CosmosDB 리소스의 **드릴다운 분석** - 문제를 진단하거나 범주(사용률, 실패, 용량 및 작업)별로 자세한 분석을 수행할 수 있습니다. 이러한 옵션 중 하나를 선택하면 관련 Azure Cosmos DB 메트릭을 자세히 볼 수 있습니다.  
+* 특정 Azure Cosmos DB 리소스를 **드릴 다운 분석** 하 여 문제를 진단 하거나 범주 사용률, 오류, 용량 및 작업으로 자세한 분석을 수행할 수 있습니다. 이러한 옵션 중 하나를 선택하면 관련 Azure Cosmos DB 메트릭을 자세히 볼 수 있습니다.  
 
 * **사용자 지정** - 이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 하므로 표시할 메트릭을 변경하고, 제한과 일치하는 임계값을 수정하거나 설정한 다음, 사용자 지정 통합 문서에 저장할 수 있습니다. 그런 다음, 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.  
 

@@ -57,7 +57,7 @@
         - name: 컨테이너용 Azure Monitor를 사용하여 모니터링
           href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Microsoft Defender for Cloud를 사용하여 위협 방지 적용
-          href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
+          href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Policy를 사용한 클러스터 내 정책 시행
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Arc 지원 Open Service Mesh 배포
@@ -75,7 +75,7 @@
         - name: Azure Arc 지원 Machine Learning
           href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: 문제 해결
-      href: Troubleshooting.md
+      href: troubleshooting.md
 - name: 참조
   items:
     - name: Azure Policy 기본 제공 기능

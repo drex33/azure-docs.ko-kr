@@ -4,14 +4,14 @@ description: QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/19/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1d8e61aa9bfbade22274c9ef9d642f606eb8bf00
-ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.openlocfilehash: d48b3348ae66c93bb2721794ef9552374a7b689d
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132814229"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865556"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -128,7 +128,7 @@ QnA 쌍 ID를 찾아야 하는 경우 다음 두 위치에서 찾을 수 있습�
 
 ## <a name="linking-qna-pairs"></a>QnA 쌍 연결
 
-QnA 쌍 연결은 [후속 프롬프트](multiturn-conversation.md)와 함께 제공됩니다. 이는 기술 자료 수준에서 관리되는 QnA 쌍 간의 논리적 연결입니다. QnA Maker 포털에서 후속 프롬프트를 편집할 수 있습니다.
+QnA 쌍 연결은 [후속 프롬프트](multi-turn.md)와 함께 제공됩니다. 이는 기술 자료 수준에서 관리되는 QnA 쌍 간의 논리적 연결입니다. QnA Maker 포털에서 후속 프롬프트를 편집할 수 있습니다.
 
 답변의 메타데이터에 QnA 쌍을 연결할 수 없습니다.
 

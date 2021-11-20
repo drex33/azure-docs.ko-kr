@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 459aedbda8ea42fb0ee0990fb1074373efc38acc
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 9047560e15741c82e94ba5b290e63ef39978420b
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132133927"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132870107"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -119,15 +119,17 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 
 * Synapse Link SQL API 및 MongoDB API 계정 모두에 대해 새 컨테이너에서 사용하도록 설정할 수 있지만 기존 컨테이너는 SQL API에 대해서만 지원됩니다.
 
-* 분석 저장소에서 데이터의 백업 및 복원은 현재 지원되지 않습니다. 이 제한은 주기적 백업 모드와 연속 백업 모드 모두에 적용되며 Cosmos DB 트랜잭션 저장소 데이터에 영향을 미치지 않습니다.
+* 분석 저장소에서 데이터의 백업 및 복원은 현재 지원되지 않습니다. 이 제한은 주기적 백업 모드와 연속 백업 모드 모두에 적용되며 Cosmos DB 트랜잭션 저장소 데이터에 영향을 미치지 않습니다. 
 
-* 동일한 데이터베이스 계정에서 Synapse Link 및 주기적 백업 모드가 공존할 수 있습니다. 분석 저장소에서 데이터의 백업 및 복원은 지원되지 않지만
+* 동일한 데이터베이스 계정에서 Synapse Link 및 주기적 백업 모드가 공존할 수 있습니다. 트랜잭션 데이터를 정상적으로 백업할 수 있습니다. 보다 크거나 같은 를 사용하는 경우 `transactional TTL` `analytical TTL` 트랜잭션 데이터를 복원하고 분석 저장소를 다시 만들 수 있습니다.
 
-* 동일한 데이터베이스 계정에서 Synapse Link 및 연속 백업 모드가 공존하는 것은 지원되지 않습니다.
+* 동일한 데이터베이스 계정에서 Synapse Link 및 연속 백업 모드가 공존하는 것은 지원되지 않습니다. 연속 백업 모드를 사용하도록 설정하면 Synapse Link 설정할 수 없으며 그 반대의 경우도 마찬가지입니다.
 
 * Azure Synapse Dedicated SQL 풀을 사용하여 Azure Cosmos DB 분석 저장소에 액세스하는 것은 현재 지원되지 않습니다.
 
 * Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다.
+
+* RBAC 및 관리 ID는 현재 지원되지 않습니다.
 
 
 ## <a name="security"></a>보안
@@ -138,7 +140,7 @@ Synapse Link를 사용하면 Azure Cosmos DB에서 중요 업무용 데이터를
 
 * **고객 관리형 키를 통한 데이터 암호화** - 자동화되고 투명한 방식으로 동일한 고객 관리형 키를 사용하여 트랜잭션 및 분석 저장소에서 데이터를 원활하게 암호화할 수 있습니다. Azure Synapse Link는 Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성만 지원합니다. 계정에서 Azure Synapse Link](configure-synapse-link.md#enable-synapse-link)를 활성화하기 전에 Azure Key Vault 액세스 정책에서 계정의 관리 ID를 구성해야 합니다. 자세한 내용은 [Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성](how-to-setup-cmk.md#using-managed-identity) 문서를 참조하세요.
 
-* **보안 키 관리** - Synapse Analytics 및 Synapse 서버리스 SQL 풀에서 분석 저장소에 있는 데이터에 액세스하려면 Synapse Analytics 작업 영역 내의 Azure Cosmos DB 키를 관리해야 합니다. Spark 작업 또는 SQL 스크립트에서 Azure Cosmos DB 계정 키를 인라인으로 사용하는 대신 Azure Synapse Link에서 더 안전한 기능을 제공합니다.
+* **보안 키 관리** - Synapse Analytics 및 Synapse 서버리스 SQL 풀에서 분석 저장소에 있는 데이터에 액세스하려면 Synapse Analytics 작업 영역 내의 Azure Cosmos DB 키를 관리해야 합니다. Spark 작업 또는 SQL 스크립트에서 Azure Cosmos DB 계정 키를 인라인으로 사용하는 대신 Azure Synapse Link는 더 안전한 기능을 제공합니다.
 
   * Synapse 서버리스 SQL 풀을 사용하는 경우 계정 키를 저장하고 `OPENROWSET` 함수에서 참조하는 SQL 자격 증명을 미리 만들어 Azure Cosmos DB 분석 저장소를 쿼리할 수 있습니다. 자세히 알아보려면 [Synapse Analytics Link에서 서버리스 SQL 풀로 쿼리](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) 문서를 참조하세요.
 

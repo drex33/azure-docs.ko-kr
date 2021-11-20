@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 0e3270c827e25ff13bd53c5a7d7d2610ce36c921
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 8e5c8947b537a30006bf4c5c9d4e39c3f4ce9b31
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132286181"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865310"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Azure Machine Learning에서 Azure Databricks 및 AutoML을 사용하여 개발 환경 설정 
 
@@ -53,7 +53,7 @@ Azure Databricks는 Azure Machine Learning 및 해당 AutoML 기능과 통합됩
 | 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |always| yourclustername |
-| Databricks Runtime 버전 |always| 런타임 7.3 LTS-ML 하지 않음|
+| Databricks Runtime 버전 |always| 런타임 7.3 LTS - ML 않음|
 | Python 버전 |always| 3 |
 | 작업자 유형 <br>(최대 동시 반복 횟수를 결정합니다.) |자동화된 ML<br>전용| 메모리 최적화 VM 기본 설정 |
 | 작업자 |always| 2 이상 |
@@ -97,7 +97,7 @@ Azure Databricks는 Azure Machine Learning 및 해당 AutoML 기능과 통합됩
   ![Databricks용 Azure Machine Learning SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
 
 ## <a name="add-the-azure-ml-sdk-with-automl-to-databricks"></a>Databricks에 AutoML을 사용하여 Azure ML SDK 추가
-클러스터가 Databricks Runtime 7.3 lts (ML가 *아님* )를 사용 하 여 만들어진 경우 노트북의 첫 번째 셀에서 다음 명령을 실행 하 여 AML SDK를 설치 합니다.
+Databricks Runtime 7.3 LTS(ML *않음)를* 사용하여 클러스터를 만든 경우 Notebook의 첫 번째 셀에서 다음 명령을 실행하여 AML SDK를 설치합니다.
 
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
@@ -113,7 +113,7 @@ AutoML 구성에서 Azure Databricks를 사용하는 경우 다음 매개 변수
 ## <a name="ml-notebooks-that-work-with-azure-databricks"></a>Azure Databricks에서 작동하는 ML Notebooks
 
 사용해보기:
-+ 많은 샘플 Notebook을 사용할 수 있지만 **[이러한 샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)만 Azure Databricks에서 작동합니다.**
++ 많은 샘플 Notebook을 사용할 수 있지만 **[이러한 샘플 Notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks)만 Azure Databricks에서 작동합니다.**
 
 + 작업 영역에서 직접 이러한 샘플을 가져옵니다. 아래 참조: ![가져오기 선택](./media/how-to-configure-environment/azure-db-screenshot.png)
 ![가져오기 패널](./media/how-to-configure-environment/azure-db-import.png)

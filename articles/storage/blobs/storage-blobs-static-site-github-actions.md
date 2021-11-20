@@ -6,15 +6,15 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 09/17/2021
+ms.date: 11/19/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3ec1eb55ae54a29d8bb5334993edeee7308dd2de
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 85a4e84c50618ad5cfe631e0bab42d2a322c7a75
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662536"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871645"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포하는 GitHub Actions 워크플로 설정
 
@@ -113,19 +113,17 @@ Azure 구독 및 GitHub 계정
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Azure CLI 작업을 사용하여 Blob Storage에 코드를 업로드하고 CDN 엔드포인트를 제거합니다. `az storage blob upload-batch`의 경우 자리 표시자를 스토리지 계정 이름으로 바꿉니다. 스크립트는 `$web` 컨테이너에 업로드됩니다. `az cdn endpoint purge`의 경우 자리 표시자를 CDN 프로필 이름, CDN 엔드포인트 이름 및 리소스 그룹으로 바꿉니다. CDN 제거 속도를 높이려면 `--no-wait` 옵션을 `az cdn endpoint purge`에 추가할 수 있습니다. 보안을 강화하기 위해 스토리지 계정 키를 사용하여 옵션을 추가할 수도 `--account-key` 있습니다. [](../common/storage-account-keys-manage.md)
+1. Azure CLI 작업을 사용하여 Blob Storage에 코드를 업로드하고 CDN 엔드포인트를 제거합니다. `az storage blob upload-batch`의 경우 자리 표시자를 스토리지 계정 이름으로 바꿉니다. 스크립트는 `$web` 컨테이너에 업로드됩니다. `az cdn endpoint purge`의 경우 자리 표시자를 CDN 프로필 이름, CDN 엔드포인트 이름 및 리소스 그룹으로 바꿉니다. CDN 제거 속도를 높이려면 `--no-wait` 옵션을 `az cdn endpoint purge`에 추가할 수 있습니다. 보안을 강화 하기 위해 `--account-key` [저장소 계정 키](../common/storage-account-keys-manage.md)를 사용 하 여 옵션을 추가할 수도 있습니다.
 
     ```yaml
         - name: Upload to blob storage
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                 az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
     ```
@@ -151,13 +149,11 @@ Azure 구독 및 GitHub 계정
         - name: Upload to blob storage
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                 az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
 

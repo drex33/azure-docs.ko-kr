@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: ce46cbaf5a368d3278f4ccdf0c012f212fbfb48a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 979924b4bfc4080058b5908051c304e48959a50a
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004220"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871664"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -213,6 +213,18 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 - 사용자 지정 캐싱 규칙
 - 보안 정책 적용
 - 인코딩 설정
+- [CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS)(원본 간 리소스 공유) 구성
+
+다음은 사용자 지정 CORS 구성을 구현 하는 방법의 예입니다.
+
+```json
+{
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "https://example.com",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+  }
+}
+```
 
 ## <a name="response-overrides"></a>응답 재정의
 

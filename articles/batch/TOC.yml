@@ -44,7 +44,7 @@
         - name: Azure 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=batch'
         - name: Batch 샘플 리포지토리
-          href: 'https://github.com/Azure/azure-batch-samples'
+          href: 'https://github.com/Azure-Samples/azure-batch-samples'
     - name: Azure CLI
       items:
         - name: Batch 서비스 모드에서 Batch 계정 만들기
@@ -280,7 +280,7 @@
     - name: Azure CLI
       href: /cli/azure/batch
     - name: Azure PowerShell
-      href: /powershell/module/az.batch
+      href: /powershell/module/az.batch/
     - name: .NET
       href: /dotnet/api/overview/azure/batch
     - name: Java
@@ -292,7 +292,7 @@
     - name: REST (영문)
       items:
         - name: Batch 서비스
-          href: /rest/api/batchservice
+          href: /rest/api/batchservice/
         - name: Batch 관리
           href: /rest/api/batchmanagement/
     - name: Resource Manager 템플릿
@@ -338,7 +338,7 @@
     - name: 블로그
       href: /archive/blogs/windowshpc/
     - name: Azure의 HPC
-      href: /azure/architecture/topics/high-performance-computing/
+      href: /azure/architecture/topics/high-performance-computing
     - name: Batch에 대한 Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-batch.html
     - name: 가격 책정

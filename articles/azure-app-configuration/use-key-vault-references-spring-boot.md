@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: alkemper
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 956aa33f8152c8e07ebc8d04a91242eba88362cf
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7607c28f51f31e89385d0c9619f83fc1f65c7ce6
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441447"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865708"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 Key Vault 참조 사용
 
@@ -96,7 +96,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. 이 자습서에서는 Key Vault에 대한 인증에 서비스 주체를 사용합니다. 서비스 주체를 만들려면 Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용합니다.
 
     ```azurecli
-    az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+    az ad sp create-for-rbac -n "http://mySP" --role Contributor --sdk-auth
     ```
 
     이 작업을 수행하면 일련의 키/값 쌍이 반환됩니다.

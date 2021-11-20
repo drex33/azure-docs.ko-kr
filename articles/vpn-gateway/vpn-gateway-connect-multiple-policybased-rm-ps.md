@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 5a0d42dbeb3713202ef0b2c5c05f08d51bd8a6db
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: 2b9076e419392d472f93bbd14eb89c7f4c9dbe17
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291175"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132866616"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
 
@@ -37,12 +37,12 @@ ms.locfileid: "108291175"
 ### <a name="azure-support-for-policy-based-vpn"></a>정책 기반 VPN에 대한 Azure 지원
 현재 Azure에서는 VPN Gateway의 두 가지 모드(경로 기반 VPN Gateway 및 정책 기반 VPN Gateway)를 모두 지원합니다. 이러한 게이트웨이는 서로 다른 플랫폼에 구축되므로 사양이 서로 다릅니다.
 
-| Category | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |
-| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
-| **Azure Gateway SKU**    | 기본                       | 기본                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
-| **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1, IKEv2                         |
-| **최대 S2S 연결** | **1**                       | 10                               | 30                     |
-|                          |                             |                                  |                                                    |
+| 범주 | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |  RouteBased VPN Gateway
+| -------- | ----------------------- | ---------------------- | ---------------------- | ----------------------- |
+| **Azure Gateway SKU**    | 기본                       | 기본                            | VpnGw1, VpnGw2, VpnGw3  | VpnGw4 및 VpnGw5 |
+| **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1, IKEv2         | IKEv1, IKEv2   |
+| **최대 S2S 연결** | **1**                       | 10                               | 30                      | 100               |
+|                          |                             |                                  |                         |                   |
 
 이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 디바이스에 연결하도록 Azure 경로 기반 VPN 게이트웨이를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 디바이스에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
 

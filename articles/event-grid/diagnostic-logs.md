@@ -3,12 +3,12 @@ title: Azure Event Grid-Azure Event Grid 토픽 및 Event Grid 도메인에 대 
 description: 이 문서에서는 Azure Event Grid 토픽 또는 도메인의 진단 로그에 대 한 개념 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 11/11/2021
-ms.openlocfilehash: df3fe9eaab544e3e52ff3a2da24fe7b624292367
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: b7656969a9c607060ffd71ff9d7e66ee51cc5f83
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546826"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868175"
 ---
 # <a name="diagnostic-logs-for-event-grid-topics-and-event-grid-domains"></a>Event Grid 토픽 및 Event Grid 도메인에 대 한 진단 로그
 
@@ -44,12 +44,12 @@ ms.locfileid: "132546826"
 
 | 속성 이름 | 데이터 형식 | Description |
 | ------------- | --------- | ----------- |
-| NetworkAccess | String | **Publicaccess**  -공용 IP를 통해 연결 하는 경우 <br /> **PrivateAccess** -개인 링크를 통해 연결 하는 경우 |
+| NetworkAccess | String | 허용된 값은 <ul><li>`PublicAccess` -공용 IP를 통해 연결 하는 경우</li><li>`PrivateAccess` -개인 링크를 통해 연결 하는 경우</li></ul> |
 | ClientIpAddress | String | 들어오는 요청의 원본 IP |
-| TlsVersion | String | 클라이언트 연결에서 사용 하는 Tls 버전입니다. **1.0**, **1.1** 및 **1.2** 은 가능한 값입니다. |
-| 인증/유형 | String | 메시지를 게시할 때 인증에 사용 되는 비밀의 유형입니다. <br /> **알 수 없음** – 다른 인증 유형이 아닙니다. 옵션 요청은이 인증 유형을 갖습니다. <br /> **키** – 요청에서 SAS 키를 사용 합니다. <br /> **SASToken** – 요청은 sas 키에서 생성 된 sas 토큰을 사용 합니다. <br /> **AADAccessToken** – AAD 발급 된 JWT 토큰 |
-| 인증/ObjectId | String | AADAccessToken 인증 유형에 사용 되는 서비스 사용자의 ObjectId입니다. |
-| OperationResult | String | 게시의 결과입니다. **성공**, **권한 없음**, 사용할 수 **없음**, **requestentitytoolarge**, **badrequest**  &  **internalservererror** |
+| TlsVersion | String | 클라이언트 연결에서 사용 하는 TLS (전송 계층 보안) 버전입니다. 가능한 값: **1.0**, **1.1** 및 **1.2** |
+| 인증/유형 | String | 메시지를 게시할 때 인증에 사용 되는 비밀의 유형입니다. <ul><li>`Key` – 요청에서 SAS 키를 사용 합니다.</li><li>`SASToken` – 요청은 SAS 키에서 생성 된 SAS 토큰을 사용 합니다.</li><li>`AADAccessToken`– Azure Active Directory 발급 된 JWT (JSON Web Token) 토큰</li><li>`Unknown` – 위의 인증 유형 없음 옵션 요청은이 인증 유형을 갖습니다. </li></ul> |
+| 인증/ObjectId | String | 인증 유형이로 설정 된 경우 사용 되는 서비스 주체의 ObjectId입니다. `AADAccessToken` |
+| OperationResult | String | 게시의 결과입니다. 가능한 값은 다음과 같습니다. <ul><li>Success</li><li>권한 없음</li><li>사용할 수 없음</li><li>RequestEntityTooLarge</li><li>BadRequest</li><li>InternalServerError</li></ul> |
 | TotalOperations | String | 이러한 추적은 각 게시 요청에 대해 내보내지 않습니다. 위의 값의 고유한 각 조합에 대 한 집계는 1 분 마다 내보내집니다. |
 
 ## <a name="example---schema-for-data-plane-requests"></a>예제-데이터 평면 요청에 대 한 스키마
@@ -80,7 +80,7 @@ ms.locfileid: "132546826"
 }
 ```
 
-`DataPlaneRequests`진단 설정을 선택 Event Grid 하 고 나면 리소스는 공용 및 개인 액세스를 포함 하 여 데이터 평면 작업에 대 한 감사 추적을 게시 하기 시작 하 고, 필요한 경우 하나 이상의 요청을 기록할 수 있습니다.
+`DataPlaneRequests`진단 설정을 선택 하면 Event Grid 리소스는 공용 및 개인 액세스 작업을 포함 하 여 데이터 평면 작업에 대 한 감사 추적을 게시 하기 시작 합니다. 이 추적은 필요한 경우 하나 이상의 요청을 기록할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

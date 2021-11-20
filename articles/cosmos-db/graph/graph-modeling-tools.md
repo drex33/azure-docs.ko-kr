@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 224465fe282b086c2158f4d81ee67e5bf7cedc09
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ea06236abb5914e0317fc2cbecf40ea99218a081
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771786"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869671"
 ---
 # <a name="third-party-data-modeling-tools-for-azure-cosmos-db-graph-data"></a>Azure Cosmos DB 그래프 데이터를 위한 타사 데이터 모델링 도구
 
@@ -53,7 +53,6 @@ Hackolade는 NoSQL 데이터베이스를 위한 데이터 모델링 및 스키�
 **그림-2:** 실행 중인 Hackolade(SQL에서 Gremlin로의 데이터 모델 변환 예시)
 ### <a name="useful-links"></a>유용한 링크 
 -   [14일 평가판 다운로드](https://hackolade.com/download.html)
--   [데모 예약](https://c.x.ai/pdesmarets)
 -  [추가 데이터 모델 가져오기](https://hackolade.com/samplemodels.html#cosmosdb)
 -  [Hackolade 설명서](https://hackolade.com/help/CosmosDBGremlin.html)
 

@@ -1,33 +1,33 @@
 ---
-title: SNC(Secure Network Communications) | Microsoft Sentinel SAP 데이터 커넥터 배포 Microsoft Docs
-description: NetWeaver/ABAP 인터페이스 기반 로그에 대해 SNC를 통한 보안 연결을 사용하여 SAP 환경용 Microsoft Sentinel 데이터 커넥터를 배포하는 방법을 알아봅니다.
+title: SNC (Secure Network Communications)를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포 | Microsoft Docs
+description: NetWeaver/ABAP 인터페이스 기반 로그에 대해 snc를 통해 보안 연결을 사용 하 여 SAP 환경용 Microsoft 센티널 data connector를 배포 하는 방법에 대해 알아봅니다.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 2437859c3ee236e1dc3c641f22de5e1d3ce07fff
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 44bdea5878992e6b7cc6228f5dbcb465dc9e941b
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711890"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871708"
 ---
-# <a name="deploy-the-microsoft-sentinel-sap-data-connector-with-snc"></a>SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포
+# <a name="deploy-the-microsoft-sentinel-sap-data-connector-with-snc"></a>SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 문서에서는 NetWeaver/ABAP 인터페이스 기반 로그에 대해 SNC(Secure Network Communications)를 통해 SAP에 대한 보안 연결이 있는 경우 Microsoft Sentinel SAP 데이터 커넥터를 배포하는 방법을 설명합니다.
+이 문서에서는 NetWeaver/ABAP 인터페이스 기반 로그에 대해 snc (secure Network Communications)를 통해 sap에 안전 하 게 연결 되어 있는 경우 Microsoft 센티널 sap data connector를 배포 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> Microsoft Sentinel SAP 데이터 커넥터를 배포하는 데 가장 권장되는 기본 프로세스는 [Azure VM을 사용하는](sap-deploy-solution.md)것입니다. 이 문서는 고급 사용자를 위한 것입니다.
+> Microsoft 센티널 SAP 데이터 커넥터를 배포 하기 위한 기본 및 가장 권장 되는 프로세스는 [AZURE VM을 사용 하](sap-deploy-solution.md)는 것입니다. 이 문서는 고급 사용자를 위한 것입니다.
 
 > [!IMPORTANT]
-> Microsoft Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> Microsoft 센티널 SAP 솔루션은 현재 미리 보기로 제공 됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Microsoft Sentinel SAP 데이터 커넥터를 배포하기 위한 기본 필수 조건은 배포 방법에 관계없이 동일합니다.
+Microsoft 센티널 SAP 데이터 커넥터를 배포 하기 위한 기본 필수 조건은 배포 방법에 관계 없이 동일 합니다.
 
 시작하기 전에 시스템에서 주 [SAP 데이터 커넥터 배포 프로시저](sap-deploy-solution.md#prerequisites)에 설명된 필수 조건을 준수하는지 확인합니다.
 
@@ -37,11 +37,11 @@ SNC를 사용한 작업을 위한 기타 필수 조건은 다음과 같습니다
 
 - SAP Service Marketplace에서 다운로드한 **SAPCAR 유틸리티**. 자세한 내용은 [SAP 설치 가이드](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/467291d0dc104d19bba073a0380dc6b4.html)를 참조하세요.
 
-자세한 내용은 [Microsoft Sentinel SAP 솔루션 상세 SAP 요구 사항(공개 미리 보기)을 참조하세요.](sap-solution-detailed-requirements.md)
+자세한 내용은 [Microsoft 센티널 sap solution 자세한 sap 요구 사항 (공개 미리 보기)](sap-solution-detailed-requirements.md)을 참조 하세요.
 
 ## <a name="create-your-azure-key-vault"></a>Azure Key Vault 만들기
 
-Microsoft Sentinel SAP 데이터 커넥터에만 사용할 수 있는 Azure Key Vault를 만듭니다.
+Microsoft 센티널 SAP 데이터 커넥터용 전용으로 사용할 수 있는 Azure key vault를 만듭니다.
 
 다음 명령을 실행하여 Azure Key Vault를 만들고 Azure 서비스 주체에 대한 액세스 권한을 부여합니다.
 
@@ -55,7 +55,7 @@ spname=<sp-name>
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
 
-az ad sp create-for-rbac –name $spname
+az ad sp create-for-rbac –name $spname --role Contributor
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
 
@@ -107,7 +107,7 @@ az keyvault secret set \
 
 1. 의미 있는 이름을 사용하여 새 폴더를 만들고 SDK Zip 파일을 새 폴더에 복사합니다.
 
-1. Microsoft Sentinel 솔루션 GitHub 리포지션을 데이터 커넥터 VM에 복제하고 Microsoft Sentinel SAP 솔루션 **systemconfig.ini** 파일을 새 폴더에 복사합니다.
+1. microsoft 센티널 솔루션 GitHub 리포지토리를 데이터 커넥터 VM에 복제 하 고 microsoft 센티널 SAP solution **systemconfig.ini** 파일을 새 폴더에 복사 합니다.
 
     예를 들면 다음과 같습니다.
 
@@ -122,9 +122,9 @@ az keyvault secret set \
 
     키 자격 증명 모음 비밀을 제외한 모든 구성을 편집해야 합니다. 자세한 내용은 [수동으로 SAP 데이터 커넥터 구성](sap-solution-deploy-alternate.md#manually-configure-the-sap-data-connector)을 참조하세요.
 
-1. **systemconfig.ini** 파일의 지침을 사용하여 Microsoft Sentinel에 로깅하려는 로그를 정의합니다.
+1. **systemconfig.ini** 파일의 지침을 사용 하 여 Microsoft 센티널에 수집 하려는 로그를 정의 합니다.
 
-    예를 들어 [Microsoft Sentinel로 전송되는 SAP 로그 정의를](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)참조하세요.
+    예를 들어 [Microsoft 센티널로 전송 되는 SAP 로그 정의](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)를 참조 하세요.
 
     > [!NOTE]
     > SNC 통신 관련 로그는 NetWeaver/ABAP 인터페이스를 통해 검색되는 로그입니다. SAP 컨트롤 및 HANA 로그는 SNC의 범위를 벗어났습니다.
@@ -280,7 +280,7 @@ SNC는 데이터 커넥터 VM에서 사용하도록 설정됩니다.
 
 예를 들어 **systemconfig.ini** 파일 또는 Azure 키 자격 증명 모음의 잘못된 구성으로 인해 문제가 발생할 수 있습니다. 또는 SNC를 통해 보안 연결을 만드는 단계 중 일부가 올바르게 실행되지 않았을 수 있습니다.
 
-다시 위의 단계에 따라 SNC를 통해 보안 연결을 구성해 보세요. 자세한 내용은 Microsoft [Sentinel SAP 솔루션 배포 문제 해결을 참조하세요.](sap-deploy-troubleshoot.md)
+다시 위의 단계에 따라 SNC를 통해 보안 연결을 구성해 보세요. 자세한 내용은 [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

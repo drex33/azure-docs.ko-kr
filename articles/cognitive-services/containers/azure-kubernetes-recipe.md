@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a60f92f98a23cacfd36e42619008f91285902f9d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d9d159939453af20fa9de1185b1c4326e56af46d
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131476778"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869747"
 ---
-# <a name="deploy-a-language-detection-container-to-azure-kubernetes-service"></a>언어 감지 컨테이너를 배포하여 Azure Kubernetes Service
+# <a name="deploy-a-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 언어 검색 컨테이너 배포
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다.
 
@@ -32,14 +32,14 @@ ms.locfileid: "131476778"
 * [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * 올바른 가격 책정 계층이 지정된 Azure 리소스. 모든 가격 책정 계층이 이 컨테이너에 작동하는 것은 아닙니다.
-  * F0 또는 표준 가격 책정 계층만 있는 **언어** 리소스입니다.
+  * F0 또는 표준 가격 책정 계층만 포함 된 **언어** 리소스
   * S0 가격 책정 계층이 있는 **Cognitive Services** 리소스
 
 ## <a name="running-the-sample"></a>샘플 실행
 
 이 절차에서는 언어 감지를 위해 Cognitive Services 컨테이너 샘플을 로드하고 실행합니다. 샘플은 클라이언트 애플리케이션용 1개, Cognitive Services 컨테이너용 1개, 모두 2개의 컨테이너를 포함합니다. 이 이미지 둘 다를 Azure Container Registry로 푸시합니다. 이미지가 사용자 고유의 레지스트리에 추가되면 Azure Kubernetes Service를 만들어 이러한 이미지에 액세스하고 컨테이너를 실행합니다. 컨테이너가 실행되는 동안 **kubectl** CLI를 사용하여 컨테이너 성능을 감시합니다. HTTP 요청을 사용하여 클라이언트 애플리케이션에 액세스하고 결과를 봅니다.
 
-![Kubernetes에서 컨테이너를 실행하는 개념적 아이디어를 보여 주는 다이어그램](media/container-instance-sample.png)
+![Kubernetes에서 컨테이너를 실행 하는 개념적 아이디어를 보여 주는 다이어그램](media/container-instance-sample.png)
 
 ## <a name="the-sample-containers"></a>샘플 컨테이너
 
@@ -178,7 +178,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 1. 서비스 주체를 만듭니다.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --skip-assignment
+    az ad sp create-for-rbac
     ```
 
     assignee 매개 변수에 대한 결과 `appId` 값을 3단계 `<appId>`에 저장합니다. 다음 섹션의 클라이언트-암호 매개 변수 `<client-secret>`을 위해 `password`를 저장합니다.
@@ -310,21 +310,21 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
-1. 다음 표에 따라 의 언어 프런트 엔드 배포 줄을 `language.yml` 변경하여 사용자 고유의 컨테이너 레지스트리 이미지 이름, 클라이언트 암호 및 언어 서비스 설정을 추가합니다.
+1. 다음 표에 따라의 언어 프런트 엔드 배포 줄을 변경 `language.yml` 하 여 사용자 고유의 컨테이너 레지스트리 이미지 이름, 클라이언트 암호 및 언어 서비스 설정을 추가 합니다.
 
     언어-프런트 엔드 배포 설정|목적|
     |--|--|
     |줄 32<br> `image` 속성|Container Registry에 있는 프런트 엔드 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |줄 44<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
 
-1. 다음 표에 따라 의 언어 배포 줄을 `language.yml` 변경하여 사용자 고유의 컨테이너 레지스트리 이미지 이름, 클라이언트 암호 및 언어 서비스 설정을 추가합니다.
+1. 다음 표에 따라의 언어 배포 줄을 변경 `language.yml` 하 여 사용자 고유의 컨테이너 레지스트리 이미지 이름, 클라이언트 암호 및 언어 서비스 설정을 추가 합니다.
 
     |언어 배포 설정|목적|
     |--|--|
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
     |줄 91<br> `apiKey` 속성|언어 서비스 리소스 키|
-    |줄 92<br> `billing` 속성|언어 서비스 리소스에 대한 청구 엔드포인트입니다.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |줄 92<br> `billing` 속성|언어 서비스 리소스에 대 한 청구 끝점입니다.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     **apiKey** 및 **청구 엔드포인트** 는 Kubernetes 오케스트레이션 정의의 일부로 설정되므로 웹 사이트 컨테이너가 이러한 항목을 알아야 하거나 요청의 일부로 전달해야 할 필요가 없습니다. 웹 사이트 컨테이너는 오케스트레이터 이름 `language`로 언어 감지 컨테이너를 나타냅니다.
 
@@ -384,7 +384,7 @@ replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 
 브라우저를 열고 이전 섹션에 나오는 `language` 컨테이너의 외부 IP로 이동합니다. `http://<external-ip>:5000/swagger/index.html` API의 `Try it` 기능을 사용하여 언어 감지 엔드포인트를 테스트합니다.
 
-![컨테이너의 swagger 설명서를 보여주는 스크린샷](./media/language-detection-container-swagger-documentation.png)
+![컨테이너의 swagger 설명서를 보여 주는 스크린샷](./media/language-detection-container-swagger-documentation.png)
 
 ## <a name="test-the-client-application-container"></a>클라이언트 애플리케이션 컨테이너 테스트
 

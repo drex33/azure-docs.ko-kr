@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/17/2021
 ms.author: banders
-ms.openlocfilehash: 682c07b4ab34bacbca280cea54e5df8a06c735c5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6ccbd897f595bdb7620afe177ee0fa5f47fc79f0
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616501"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132866711"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -25,7 +25,9 @@ ms.locfileid: "128616501"
 
 이 문서는 Microsoft 파트너 계약에 대한 청구 계정에 적용됩니다. 이러한 계정은 새 상거래 환경에서 고객에 대한 청구를 관리하기 위해 CSP(클라우드 솔루션 공급자)에 대해 만들어집니다. 새 환경은 MCA(Microsoft 고객 계약)를 수락하고 Azure 플랜이 있는 고객을 한 명 이상 보유한 파트너에만 사용할 수 있습니다. [Microsoft 파트너 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>필수 구성 요소
+전송 요청을 보내거나 수락하면 계약조건에 동의하게 됩니다. 자세한 내용은 [계약조건 이전을 참조하세요.](subscription-transfer.md#transfer-terms-and-conditions)
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. 고객과 [재판매인 관계](/partner-center/request-a-relationship-with-a-customer)를 설정합니다. [CSP 지역 권한 부여 개요](/partner-center/regional-authorization-overview)를 확인하여 고객과 파트너 테넌트가 동일한 권한 있는 지역 내에 있는지 확인합니다.
 1. [고객이 Microsoft 고객 계약에 동의했는지 확인합니다](/partner-center/confirm-customer-agreement).

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
-ms.openlocfilehash: 09564bd149488d956586c8a0e349cd79eec358a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e431c95c33ee23870b989dccfc548ccdbee06da3
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582752"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863882"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>Go용 HDInsight SDK(미리 보기)
 
@@ -78,7 +78,7 @@ az account set -s <name or ID of subscription>
 그런 다음 서비스 주체 이름을 선택하고 다음 명령을 사용해서 만듭니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth
+az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth --role Contributor
 ```
 
 서비스 주체 정보는 JSON으로 표시됩니다.

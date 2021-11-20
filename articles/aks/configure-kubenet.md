@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: d78616830c47cb2a50292a226cf1d79e0ece58ba
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 6adf159878ca0a4d72fab9c502da8cad9b0507b7
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545080"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869538"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "129545080"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -54,7 +54,7 @@ Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보�
 * kubenet을 사용하려면 경로 테이블 및 사용자 정의 경로가 필요하며 이는 작업에 복잡성을 더합니다.
 * Kubenet 디자인으로 인해 kubenet에 직접 Pod 주소 지정은 지원되지 않습니다.
 * Azure CNI 클러스터와 달리 여러 kubenet 클러스터는 서브넷을 공유할 수 없습니다.
-* AKS는 서브넷에 NSG(네트워크 보안 그룹)를 적용하지 않으며 해당 서브넷과 연결된 NSG를 수정하지 않습니다. 고유한 서브넷을 제공하고 해당 서브넷과 연결된 NSG를 추가하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 간의 트래픽을 허용하는지 확인해야 합니다. 자세한 내용은 [네트워크 보안 그룹 을 참조하세요.][aks-network-nsg]
+* AKS는 서브넷에 NSGs (네트워크 보안 그룹)를 적용 하지 않으며 해당 서브넷과 연결 된 NSGs를 수정 하지 않습니다. 사용자 고유의 서브넷을 제공 하 고 해당 서브넷과 연결 된 NSGs를 추가 하는 경우 NSGs의 보안 규칙에서 노드 및 pod CIDR 간의 트래픽을 허용 하는지 확인 해야 합니다. 자세한 내용은 [네트워크 보안 그룹][aks-network-nsg]을 참조 하세요.
 * **kubenet에서 지원되지 않는** 기능은 다음과 같습니다.
    * [Azure 네트워크 정책](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy). 하지만 Calico 네트워크는 kubenet에서 지원됩니다.
    * [Windows 노드 풀](./windows-faq.md)
@@ -125,7 +125,7 @@ az network vnet create \
 AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. 서비스 주체는 AKS 노드가 사용하는 가상 네트워크와 서브넷을 관리하기 위한 권한이 필요합니다. 서비스 주체를 만들려면 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용합니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac
 ```
 
 다음 예제 출력에서는 서비스 주체의 애플리케이션 ID 및 암호를 보여 줍니다. 이러한 값은 서비스 주체에 역할을 할당한 다음, AKS 클러스터를 만드는 추가 단계에서 사용됩니다.

@@ -84,9 +84,9 @@
 - name: 참조
   items:
     - name: Azure PowerShell
-      href: /powershell/module/az.network
+      href: /powershell/module/az.network/
     - name: REST (영문)
-      href: /rest/api/virtualnetwork/bastionhosts
+      href: /rest/api/virtualnetwork/bastion-hosts
     - name: Azure CLI
       href: /cli/azure/network/bastion
 - name: 리소스
@@ -94,9 +94,9 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 블로그
-      href: 'https://azure.microsoft.com/blog/topics/networking'
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/azure-bastion'
+      href: 'https://azure.microsoft.com/pricing/details/azure-bastion/'
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-virtual-network.html
     - name: SLA 미리 보기

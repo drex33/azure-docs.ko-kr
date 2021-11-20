@@ -284,7 +284,7 @@
               href: logs/query-audit.md
             - name: 쿼리 최적화
               href: logs/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: logs/functions.md
             - name: 텍스트 데이터 구문 분석
               href: logs/parse-text.md
@@ -1179,6 +1179,8 @@
           href: insights/cosmosdb-insights-overview.md
         - name: Azure Data Explorer
           href: insights/data-explorer.md
+        - name: Azure Service Bus
+          href: insights/service-bus-insights.md
         - name: Log Analytics 작업 영역
           href: logs/log-analytics-workspace-insights-overview.md
         - name: 네트워크
@@ -1435,11 +1437,11 @@
     - name: Azure PowerShell
       items:
         - name: Azure Monitor
-          href: /powershell/module/az.monitor
+          href: /powershell/module/az.monitor/
         - name: Azure Monitor 로그
-          href: /powershell/module/az.operationalinsights
+          href: /powershell/module/az.operationalinsights/
         - name: Application Insights
-          href: /powershell/module/az.applicationinsights
+          href: /powershell/module/az.applicationinsights/
     - name: Azure CLI
       items:
         - name: Azure Monitor
@@ -1456,7 +1458,7 @@
         - name: Azure Monitor
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
-          href: /rest/api/loganalytics
+          href: /rest/api/loganalytics/
         - name: REST API 연습
           displayname: 'metrics, analyze'
           href: essentials/rest-api-walkthrough.md
@@ -1512,8 +1514,8 @@
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/en-us/updates/?category=management-tools'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
+      href: 'https://azure.microsoft.com/pricing/details/monitor/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor'

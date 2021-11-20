@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e069037d2a5f855978a7d4483b12d2e8ce69ae92
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: a4ea91899be57e0f346e8f8a5d96271c58917d69
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071418"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865632"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
@@ -117,7 +117,7 @@ az account set --subscription "<subscription name or subscription id>"
 그런 다음, 서비스 주체를 만듭니다. (이 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.)
 
 ```azurecli
-az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
+az ad sp create-for-rbac --name <servicePrincipalName> --role Contributor --password <yourSPStrongPassword>
 ```
 
 완료되는 즉시 필요한 자격 증명이 포함된 다음 JSON 출력이 보일 것입니다.

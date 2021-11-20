@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b5810d7d69322793afea76bfbe29fb49b5dc13a3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 63efa80916926c0f1ac86839dca8205c0ec3297f
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086776"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865385"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 
@@ -92,7 +92,7 @@ QnA 쌍의 최종 형식이 markdown이므로 [markdown 지원](../reference-mar
 
 일반적으로 대화 흐름은 `Hi` 또는 `Hello`와 같은 사용자의 인사말로 시작합니다. 기술 자료는 `Hi, how can I help you`와 같은 일반적인 대답으로 응답할 수 있으며 대화를 계속하기 위한 후속 프롬프트를 선택을 제공할 수도 있습니다.
 
-사용자가 봇 사용 방법을 파악하고 대화 중 봇에 의해 중단되지 않도록 루프를 염두에 두고 대화 흐름을 디자인해야 합니다. [후속 프롬프트](../how-to/multiturn-conversation.md)는 QnA 쌍 간의 연결을 제공하여 대화 흐름을 허용합니다.
+사용자가 봇 사용 방법을 파악하고 대화 중 봇에 의해 중단되지 않도록 루프를 염두에 두고 대화 흐름을 디자인해야 합니다. [후속 프롬프트](../how-to/multi-turn.md)는 QnA 쌍 간의 연결을 제공하여 대화 흐름을 허용합니다.
 
 ### <a name="authoring-with-collaborators"></a>협력자와 함께 작성
 

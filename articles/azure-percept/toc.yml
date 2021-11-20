@@ -84,8 +84,6 @@
           href: how-to-determine-your-update-strategy.md
         - name: Azure IoT Hub를 설정하여 무선 업데이트를 배포합니다.
           href: how-to-set-up-over-the-air-updates.md
-        - name: Azure Percept DK 업데이트 패키지 선택
-          href: how-to-select-update-package.md
         - name: 무선으로 Azure Percept DK 업데이트
           href: how-to-update-over-the-air.md
         - name: USB-C 연결을 통해 Azure Percept DK 업데이트

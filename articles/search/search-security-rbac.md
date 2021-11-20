@@ -1,23 +1,24 @@
 ---
-title: 역할 기반 권한 부여
+title: Azure RBAC 사용
 titleSuffix: Azure Cognitive Search
 description: 서비스 관리 및 콘텐츠 작업에 대한 세분화된 권한을 위해 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 10/04/2021
-ms.openlocfilehash: ce23ad790ad0692fd1da979fca3ddf7aebb6ddc0
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.topic: how-to
+ms.date: 11/19/2021
+ms.custom: subject-rbac-steps, references_regions
+ms.openlocfilehash: bb0dd8668d7f32abc27e34992535efe6ad733c26
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132812167"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132864167"
 ---
-# <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Azure Cognitive Search에서 역할 기반 권한 부여 사용
+# <a name="use-azure-role-based-access-control-azure-rbac-in-azure-cognitive-search"></a>Azure Cognitive Search에서 azure RBAC (역할 기반 액세스 제어) 사용
 
-Azure는 플랫폼에서 실행 중인 모든 서비스에 대해 글로벌 [RBAC(역할 기반 액세스 제어) 권한 부여 시스템](../role-based-access-control/role-assignments-portal.md)을 제공합니다. Cognitive Search에서 다음과 같은 방법으로 역할을 사용할 수 있습니다.
+Azure는 플랫폼에서 실행 중인 모든 서비스에 대해 글로벌 [RBAC(역할 기반 액세스 제어) 권한 부여 시스템](../role-based-access-control/role-assignments-portal.md)을 제공합니다. Cognitive Search에서 다음을 수행할 수 있습니다.
 
 + 서비스 관리에 일반적으로 사용할 수 있는 역할을 사용 합니다.
 
@@ -26,7 +27,7 @@ Azure는 플랫폼에서 실행 중인 모든 서비스에 대해 글로벌 [RBA
 > [!NOTE]
 > Search Service 참여자는 "미리 보기" 기능이 포함 된 "일반 공급" 역할입니다. 서비스 및 콘텐츠 관리 작업의 진정한 하이브리드을 지원 하 여 지정 된 검색 서비스에 대 한 모든 작업을 허용 하는 유일한 역할입니다. 이 역할에 대 한 콘텐츠 관리의 미리 보기 기능을 얻으려면 [**미리 보기에 등록**](#step-1-preview-sign-up)합니다.
 
-몇 가지 RBAC 시나리오는 지원 **되지 않으며** 이 문서에서 다루지 않습니다.
+몇 가지 Azure RBAC 시나리오는 지원 **되지 않으며** 이 문서에서 다루지 않습니다.
 
 + 아웃 바운드 인덱서 연결은 ["관리 되는 id를 사용 하 여 데이터 원본에 대 한 인덱서 연결 설정"](search-howto-managed-identities-data-sources.md)에 설명 되어 있습니다. 관리 id가 할당 된 검색 서비스의 경우 신뢰할 수 있는 검색 서비스에 의해 blob에 대 한 Azure Blob Storage, 읽기 액세스 등의 외부 데이터 서비스를 허용 하는 역할 할당을 만들 수 있습니다.
 
@@ -38,9 +39,9 @@ Cognitive Search 기본 제공 역할에는 일반적으로 사용 가능 하 �
 
 역할 할당은 검색 서비스를 만들거나 관리하는 데 사용되는 모든 도구 및 클라이언트 라이브러리에서 누적되고 광범위하게 사용됩니다. 이러한 클라이언트에는 Azure sdk의 Azure Portal, 관리 REST API, Azure PowerShell, Azure CLI 및 관리 클라이언트 라이브러리가 포함 됩니다.
 
-역할은 검색 서비스 전체에 적용 되며 소유자가 할당 해야 합니다. 특정 인덱스나 기타 최상위 개체에 역할을 할당할 수 없습니다.
+역할 할당 범위는 검색 서비스 또는 인덱스와 같은 개별 최상위 리소스로 지정할 수 있습니다. 포털을 사용 하 여 역할은 특정 최상위 리소스를 제외 하 고 서비스에 대해서만 정의할 수 있습니다. [특정 개체에 대 한 세부적인 액세스](#rbac-single-index)를 위해 PowerShell 또는 Azure CLI를 사용 합니다.
 
-Azure Cognitive Search에서 RBAC 사용에 대한 지역, 계층 또는 가격 책정 제한은 없지만 검색 서비스는 Azure 퍼블릭 클라우드에 있어야 합니다.
+Azure Cognitive Search에서 Azure RBAC를 사용 하는 경우 지역, 계층 또는 가격 제한이 없지만 Search 서비스는 Azure 공용 클라우드에 있어야 합니다.
 
 | 역할 | 적용 대상 | Description |
 | ---- | ---------- | ----------- |
@@ -54,26 +55,38 @@ Azure Cognitive Search에서 RBAC 사용에 대한 지역, 계층 또는 가격 
 > [!NOTE]
 > Azure 리소스는 [컨트롤 플레인과 데이터 평면](../azure-resource-manager/management/control-plane-and-data-plane.md) 작업 범주의 개념을 가집니다. Cognitive Search에서 "제어 평면"은 [관리 REST API](/rest/api/searchmanagement/) 또는 이와 동등한 클라이언트 라이브러리에서 지원 되는 모든 작업을 나타냅니다. "데이터 평면"은 검색 서비스 끝점에 대 한 작업 (예: 인덱싱 또는 쿼리) 또는 [검색 REST API](/rest/api/searchservice/) 또는 동등한 클라이언트 라이브러리에 지정 된 기타 작업을 나타냅니다. 대부분의 역할은 하나의 평면에만 적용 됩니다. 예외는 둘 다에서 작업을 지 원하는 Search Service 기여자입니다.
 
+## <a name="preview-limitations"></a>미리 보기 제한 사항
+
++ Azure RBAC 미리 보기는 현재 Azure 공용 클라우드 지역 에서만 사용할 수 있으며 Azure Government, Azure 독일 또는 Azure 중국 21Vianet에서 사용할 수 없습니다.
+
++ 이 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 에 따라 제공 되며 프로덕션 환경으로 롤아웃할 수 없습니다.
+
++ 구독이 새 테 넌 트로 마이그레이션되면 RBAC 미리 보기를 다시 사용 하도록 설정 해야 합니다. 
+
++ Azure RBAC를 채택 하면 일부 요청의 대기 시간이 늘어날 수 있습니다. 요청에 사용 되는 서비스 리소스 (인덱스, 인덱서 등)와 서비스 사용자의 고유한 각 조합은 권한 부여 검사를 트리거합니다. 이러한 권한 부여 확인은 요청에 최대 200 밀리초의 대기 시간을 추가할 수 있습니다. 
+
++ 드문 경우 지만 여러 서비스 리소스 (인덱스, 인덱서 등)를 대상으로 하는 많은 수의 서비스 사용자 로부터 요청이 발생 하는 경우 권한 부여 검사를 통해 조정이 발생할 수 있습니다. 몇 초 내에 검색 서비스 리소스와 서비스 사용자의 고유 조합이 모두 사용 된 경우에만 제한이 발생 합니다.
+
 ## <a name="step-1-preview-sign-up"></a>1 단계: 등록 미리 보기
 
 **적용 대상:** 검색 인덱스 데이터 참여자, 검색 인덱스 데이터 판독기, Search Service 기여자
 
-일반적으로 사용 가능한 역할 (소유자, 참가자, 읽기 권한자) 또는 Search Service 참여자의 서비스 수준 작업만 사용 하는 경우이 단계를 건너뜁니다.
+일반적으로 사용 가능한 역할 (소유자, 참가자, 읽기 권한자)을 사용 하거나 Search Service 참여자의 서비스 수준 작업만 수행 하려는 경우이 단계를 건너뜁니다.
 
-새로운 기본 제공 미리 보기 역할은 검색 서비스의 콘텐츠에 대해 세부적인 사용 권한 집합을 제공 합니다. 기본 제공 역할은 항상 Azure Portal에 표시 되지만 서비스를 등록 하려면 서비스를 등록 해야 합니다.
+새로운 기본 제공 미리 보기 역할은 검색 서비스의 콘텐츠에 대 한 사용 권한을 제공 합니다. 기본 제공 역할은 항상 Azure Portal에 표시 되지만 미리 보기 등록을 사용 하 여 작업을 수행 해야 합니다.
 
-미리 보기에 구독을 추가 하려면 다음을 수행 합니다.
+1. [Azure Portal](https://portal.azure.com/) 를 열고 검색 서비스를 찾습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 검색 서비스로 이동 합니다.
-1. 페이지의 왼쪽에서 **키** 를 선택 합니다.
+1. 왼쪽 탐색 창에서 **키** 를 선택 합니다.
+
 1. 미리 보기를 언급 하는 파란색 배너에서 **등록** 을 선택 하 여 구독에 기능을 추가 합니다.
 
-![포털에서 rbac 미리 보기에 등록 하는 방법의 스크린샷](media/search-howto-aad/rbac-signup-portal.png)
+   :::image type="content" source="media/search-howto-aad/rbac-signup-portal.png" alt-text="포털에서 rbac 미리 보기에 등록 하는 방법의 스크린샷" border="true" :::
 
 Azure 기능 노출 제어 (AFEC)를 사용 하 여 미리 보기에 등록 하 고 *Search Service (미리 보기)에 대 한 Access Control 역할을 기준으로* 검색할 수도 있습니다. 미리 보기 기능을 추가 하는 방법에 대 한 자세한 내용은 [Azure 구독에서 미리 보기 기능 설정](../azure-resource-manager/management/preview-features.md?tabs=azure-portal)을 참조 하세요.
 
 > [!NOTE]
-> 구독에 미리 보기를 추가 하면 구독에 있는 모든 서비스가 미리 보기에 영구적으로 등록 됩니다. 지정 된 서비스에서 RBAC를 원하지 않는 경우 다음 단계에 표시 된 것 처럼 데이터 평면 작업에 대해 RBAC를 사용 하지 않도록 설정할 수 있습니다.
+> 구독에 미리 보기를 추가 하면 구독에 있는 모든 서비스가 미리 보기에 영구적으로 등록 됩니다. 지정 된 서비스에서 RBAC를 원하지 않는 경우에는 이후 섹션에서 설명한 대로 데이터 평면 작업에 대해 RBAC를 사용 하지 않도록 설정할 수 있습니다.
 
 ## <a name="step-2-preview-configuration"></a>2 단계: 구성 미리 보기
 
@@ -99,17 +112,15 @@ Azure 기능 노출 제어 (AFEC)를 사용 하 여 미리 보기에 등록 하 
    | 역할 기반 액세스 제어 | 미리 보기 | 다음 단계에서 설명하는 작업을 완료하려면 역할 할당의 멤버 자격이 필요합니다. 각 요청에는 인증 헤더가 필요합니다. 이 옵션을 선택하면 2021-04-30-preview REST API를 지원하는 클라이언트로 제한됩니다. |
    | 모두 | 미리 보기 | 요청은 API 키 또는 권한 부여 토큰을 사용하여 유효합니다. |
 
-옵션이 표시 되지 않으면 포털 URL을 확인 합니다.
-
-선택 항목을 저장할 수 없거나 "API 액세스 제어에서 검색 서비스를 업데이트 하지 못했습니다 `<name>` . DisableLocalAuth가이 구독에 대해 미리 보기 이며 사용할 수 없습니다. "라는 구독 등록이 시작 되지 않았거나 처리 되지 않았습니다.
+선택 항목을 저장할 수 없거나 "검색 서비스에 대한 API 액세스 제어를 업데이트하지 `<name>` 못했습니다. DisableLocalAuth는 미리 보기이며 이 구독에 대해 사용하도록 설정되지 않았습니다." 구독 등록이 시작되지 않았거나 처리되지 않았습니다.
 
 ### <a name="rest-api"></a>[**REST API**](#tab/config-svc-rest)
 
-관리 REST API 버전 2021-04-01-미리 보기, [만들기 또는 업데이트 서비스](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용 하 여 서비스를 구성 합니다.
+관리 REST API 버전 2021-04-01-Preview, [서비스 만들기 또는 업데이트](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 서비스를 구성합니다.
 
 Postman 또는 다른 웹 테스트 도구를 사용하는 경우 요청 설정에 대한 도움말은 아래 팁을 참조하세요.
 
-1. ["AuthOptions"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) "aadOrApiKey"로 설정합니다.
+1. "properties"에서 ["AuthOptions"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) "aadOrApiKey"로 설정합니다.
 
    필요에 따라 ["AadAuthFailureMode"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) 설정하여 인증이 실패할 때 403 대신 401이 반환되는지 여부를 지정합니다. "disableLocalAuth"의 기본값은 false이므로 설정할 필요가 없지만 authOptions가 설정될 때마다 false여야 함을 강조하기 위해 아래에 나열되어 있습니다.
 
@@ -154,9 +165,11 @@ Postman 또는 다른 웹 테스트 도구를 사용하는 경우 요청 설정�
 
 1. 왼쪽 탐색 창에서 **액세스 제어(IAM)** 를 선택합니다.
 
-1. 오른쪽의 **이 리소스에 대한 액세스 부여** 에서 **역할 할당 추가** 를 선택합니다.
+1. **추가** > **역할 할당 추가** 를 선택합니다.
 
-1. 해당 역할을 찾은 다음, Azure Active Directory 사용자 또는 그룹 ID를 할당합니다.
+   ![역할 할당 추가 메뉴가 열려 있는 액세스 제어(IAM) 페이지.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. 적용 가능한 역할을 선택합니다.
 
    + 소유자
    + 참가자
@@ -164,6 +177,10 @@ Postman 또는 다른 웹 테스트 도구를 사용하는 경우 요청 설정�
    + Search 서비스 참가자
    + 인덱스 데이터 기여자 검색(미리 보기)
    + 인덱스 데이터 판독기 검색(미리 보기)
+
+1. **멤버** 탭에서 Azure AD 사용자 또는 그룹 ID를 선택합니다.
+
+1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/roles-powershell)
 
@@ -245,6 +262,95 @@ SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCred
 
 ---
 
+<a name="rbac-single-index"></a>
+
+## <a name="grant-access-to-a-single-index"></a>단일 인덱스 액세스 권한 부여
+
+일부 시나리오에서는 인덱스와 같은 단일 리소스에 대한 애플리케이션의 액세스 범위를 축소할 수 있습니다. 
+
+포털은 현재 단일 인덱스만 액세스 권한을 부여하는 것을 지원하지 않지만 [PowerShell](../role-based-access-control/role-assignments-powershell.md) 또는 [Azure CLI](../role-based-access-control/role-assignments-cli.md)사용하여 수행할 수 있습니다.
+
+PowerShell에서 [New-AzRoleAssignment를](/powershell/module/az.resources/new-azroleassignment)사용하여 Azure 사용자 또는 그룹 이름과 할당 범위를 제공합니다.
+
+1. Azure 및 AzureAD 모듈을 로드하고 Azure 계정에 연결합니다.
+
+   ```powershell
+   Import-Module -Name Az
+   Import-Module -Name AzureAD
+   Connect-AzAccount
+   ```
+
+1. 개별 인덱스로 범위가 지정된 역할 할당을 추가합니다.
+
+   ```powershell
+   New-AzRoleAssignment -ObjectId <objectId> `
+       -RoleDefinitionName "Search Index Data Contributor" `
+       -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>/indexes/<index-name>"
+   ```
+
+## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
+
+[기본 제공 역할이](#built-in-roles-used-in-search) 올바른 사용 권한 조합을 제공하지 않는 경우 필요한 작업을 지원하는 사용자 지정 [역할을](../role-based-access-control/custom-roles.md) 만들 수 있습니다.
+
+예를 들어 검색 서비스의 인덱스 목록을 포함하도록 읽기 전용 역할을 보강하거나(Microsoft.Search/searchServices/indexes/read) 인덱스를 만들고 데이터를 읽는 기능을 포함하여 인덱스를 완전히 관리할 수 있는 역할을 만들 수 있습니다. 
+
+PowerShell 예제에서는 사용자 지정 역할을 만들기 위한 JSON 구문을 보여줍니다.
+
+### <a name="azure-powershell"></a>[**Azure PowerShell**](#tab/custom-role-ps)
+
+1. [원자성 권한 목록을](../role-based-access-control/resource-provider-operations.md#microsoftsearch) 검토하여 필요한 권한을 확인합니다.
+
+1. PowerShell 세션을 설정하여 사용자 지정 역할을 만듭니다. 자세한 지침은 [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)
+
+1. 역할 정의를 JSON 문서로 제공합니다. 다음 예제에서는 PowerShell을 통해 사용자 지정 역할을 만들기 위한 구문을 보여줍니다.
+
+```json
+{
+  "Name": "Search Index Manager",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can manage search indexes and read or write to them",
+  "Actions": [
+    "Microsoft.Search/searchServices/indexes/*",
+    
+  ],
+  "NotActions": [],
+  "DataActions": [
+      "Microsoft.Search/searchServices/indexes/documents/*"
+  ],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}"
+  ]
+}
+```
+
+### <a name="azure-portal"></a>[**Azure portal**](#tab/custom-role-portal)
+
+1. [원자성 권한 목록을](../role-based-access-control/resource-provider-operations.md#microsoftsearch) 검토하여 필요한 권한을 확인합니다.
+
+1. 단계는 [Azure Portal 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트를](../role-based-access-control/custom-roles-portal.md) 참조하세요.
+
+1. 역할을 복제하거나 만들거나 JSON을 사용하여 사용자 지정 역할을 지정합니다(JSON 구문에 대한 PowerShell 탭 참조).
+
+### <a name="rest-api"></a>[**REST API**](#tab/custom-role-rest)
+
+1. [원자성 권한 목록을](../role-based-access-control/resource-provider-operations.md#microsoftsearch) 검토하여 필요한 권한을 확인합니다.
+
+1. 단계는 [REST API 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트를](../role-based-access-control/custom-roles-rest.md) 참조하세요.
+
+1. 역할을 복제하거나 만들거나 JSON을 사용하여 사용자 지정 역할을 지정합니다(JSON 구문에 대한 PowerShell 탭 참조).
+
+### <a name="azure-cli"></a>[**Azure CLI**](#tab/custom-role-cli)
+
+1. [원자성 권한 목록을](../role-based-access-control/resource-provider-operations.md#microsoftsearch) 검토하여 필요한 권한을 확인합니다.
+
+1. 단계는 [Azure CLI 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트를](../role-based-access-control/custom-roles-cli.md) 참조하세요.
+
+1. 역할을 복제하거나 만들거나 JSON을 사용하여 사용자 지정 역할을 지정합니다(JSON 구문에 대한 PowerShell 탭 참조).
+
+---
+
 ## <a name="disable-api-key-authentication"></a>API 키 인증 사용 안 함
 
 API 키는 삭제할 수 없지만 서비스에서 사용하지 않도록 설정할 수 있습니다. Search Service 기여자, 검색 인덱스 데이터 기여자 및 검색 인덱스 데이터 판독기 역할 및 Azure AD 인증을 사용하는 경우 API 키를 사용하지 않도록 설정하여 검색 서비스에서 콘텐츠 관련 요청에 대한 헤더에 API 키를 전달하는 모든 데이터 관련 요청을 거부할 수 있습니다.
@@ -253,7 +359,7 @@ API 키는 삭제할 수 없지만 서비스에서 사용하지 않도록 설정
 
 기능을 사용하지 않도록 설정하려면 소유자 또는 기여자 권한이 필요합니다. Postman 또는 다른 웹 테스트 도구를 사용하여 다음 단계를 완료합니다(아래 팁 참조).
 
-1. 첫 번째 요청에서 ["AuthOptions"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) "aadOrApiKey"로 설정하여 Azure AD 인증을 사용하도록 설정합니다. 옵션은 Azure AD 또는 네이티브 API 키 중 하나의 가용성을 나타냅니다.
+1. 첫 번째 요청에서 ["Authoptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) 를 "aadOrApiKey"로 설정 하 여 Azure AD 인증을 사용 하도록 설정 합니다. 옵션은 Azure AD 또는 기본 API 키 중 하나를 사용할 수 있음을 나타냅니다.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -272,7 +378,7 @@ API 키는 삭제할 수 없지만 서비스에서 사용하지 않도록 설정
    }
     ```
 
-1. 두 번째 요청에서 ["disableLocalAuth"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) true로 설정합니다. 이 단계에서는 "aadOrApiKey" 옵션의 API 키 부분을 해제하여 Azure AD 인증만 남깁니다.
+1. 두 번째 요청에서 ["Disablelocalauth"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) 를 true로 설정 합니다. 이 단계에서는 Azure AD 인증만 사용 하 여 "aadOrApiKey" 옵션의 API 키 부분을 해제 합니다.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -287,25 +393,32 @@ API 키는 삭제할 수 없지만 서비스에서 사용하지 않도록 설정
     }
     ```
 
-1단계와 2단계를 결합할 수 없습니다. 1단계에서 "authOptions"를 설정하기 위한 요구 사항을 충족하려면 "disableLocalAuth"가 false여야 하지만, 2단계에서는 해당 값을 true로 변경합니다.
+1 단계와 2 단계를 결합할 수 없습니다. 1 단계에서 "disableLocalAuth"는 "AuthOptions"를 설정 하는 데 필요한 요구 사항을 충족 하기 위해 false이 고, 두 번째 단계는 해당 값을 true로 변경 합니다.
 
-키 인증을 다시 사용하도록 설정하려면 마지막 요청을 다시 실행하여 "disableLocalAuth"를 false로 설정합니다. 검색 서비스는 요청에 대한 API 키 수락을 자동으로 다시 시작합니다(지정된 것으로 가정).
+키 인증을 다시 사용 하도록 설정 하려면 마지막 요청을 다시 실행 하 고, "disableLocalAuth"를 false로 설정 합니다. 검색 서비스는 요청에 대 한 API 키의 수락을 자동으로 다시 시작 합니다 (지정 된 경우).
 
 > [!TIP]
-> 관리 REST API 호출은 Azure Active Directory 통해 인증됩니다. 보안 원칙 및 요청 설정에 대한 지침은 [Postman을 통해 Azure REST API(2021)라는](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/)블로그 게시물을 참조하세요. 이전 예제는 블로그 게시물에 제공된 지침 및 Postman 컬렉션을 사용하여 테스트되었습니다.
+> 관리 REST API 호출은 Azure Active Directory를 통해 인증 됩니다. 보안 원칙 및 요청을 설정 하는 방법에 대 한 지침은이 블로그 게시물 [Postman을 사용 하 여 AZURE REST api 게시물 (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/)을 참조 하세요. 이전 예제는 블로그 게시물에 제공 된 명령 및 Postman 컬렉션을 사용 하 여 테스트 되었습니다.
 
 ## <a name="conditional-access"></a>조건부 액세스
 
-[조건부 액세스는](../active-directory/conditional-access/overview.md) Azure Active Directory 조직 정책을 적용하는 데 사용하는 도구입니다. 조건부 액세스 정책을 사용하면 조직의 보안을 유지하는 데 필요한 경우 올바른 액세스 제어를 적용할 수 있습니다. 역할 기반 액세스 제어를 사용하여 Azure Cognitive Search 서비스에 액세스할 때 조건부 액세스는 조직 정책을 적용할 수 있습니다.
+[조건부 액세스](../active-directory/conditional-access/overview.md) 는 조직 정책을 적용 하는 데 사용 되는 Azure Active Directory 도구입니다. 조건부 액세스 정책을 사용 하 여 조직의 보안을 유지 하는 데 필요한 경우 적합 한 액세스 제어를 적용할 수 있습니다. 역할 기반 액세스 제어를 사용 하 여 Azure Cognitive Search 서비스에 액세스할 때 조건부 액세스는 조직 정책을 적용할 수 있습니다.
 
-Azure Cognitive Search 조건부 액세스 정책을 사용하도록 설정하려면 다음 단계를 수행합니다.
+Azure Cognitive Search에 대 한 조건부 액세스 정책을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+
 1. Azure Portal에 [로그인](https://portal.azure.com)합니다.
-1. Azure **AD 조건부 액세스를 검색합니다.**
-1. **정책을** 선택합니다.
+
+1. **AZURE AD 조건부 액세스** 를 검색 합니다.
+
+1. **정책** 을 선택 합니다.
+
 1. **+ 새 정책** 을 선택합니다.
-1. 정책의 **클라우드 앱 또는 작업** 섹션에서 정책 설정 방법에 따라 클라우드 앱으로 **Azure Cognitive Search** 추가합니다.
-1. 정책의 나머지 매개 변수를 업데이트합니다. 예를 들어 이 정책이 적용되는 사용자 및 그룹을 지정합니다. 
+
+1. 정책의 **클라우드 앱 또는 작업** 섹션에서 정책을 설정 하는 방법에 따라 **Azure Cognitive Search** 를 클라우드 앱으로 추가 합니다.
+
+1. 정책의 나머지 매개 변수를 업데이트 합니다. 예를 들어이 정책이 적용 되는 사용자 및 그룹을 지정 합니다. 
+
 1. 해당 정책을 저장합니다.
 
 > [!IMPORTANT]
-> 검색 서비스에 관리 ID가 할당된 경우 특정 검색 서비스가 조건부 액세스 정책의 일부로 포함되거나 제외될 수 있는 클라우드 앱으로 표시됩니다. 조건부 액세스 정책은 특정 검색 서비스에 적용할 수 없습니다. 대신 일반 **Azure Cognitive Search** 클라우드 앱을 선택해야 합니다.
+> 검색 서비스에 관리 id가 할당 되어 있는 경우 특정 검색 서비스는 조건부 액세스 정책의 일부로 포함 하거나 제외할 수 있는 클라우드 앱으로 표시 됩니다. 특정 검색 서비스에는 조건부 액세스 정책을 적용할 수 없습니다. 대신 일반 **Azure Cognitive Search** 클라우드 앱을 선택 해야 합니다.

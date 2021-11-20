@@ -4,14 +4,14 @@ ms.service: api-management
 ms.topic: include
 ms.date: 04/12/2021
 ms.author: danlep
-ms.openlocfilehash: 413328496d35346ef6b7219bbed40755160ce9eb
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bc537ab8a2c030c74c06ab9ae8bc512ea16cf75c
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130287567"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869322"
 ---
-* **표준 SKU [공용 IPv4 주소](../articles/virtual-network/ip-services/public-ip-addresses.md#standard)** 입니다. 공용 IP 주소 리소스는 외부 또는 내부 액세스를 위해 가상 네트워크를 설정할 때 필요합니다. 내부 가상 네트워크를 사용하는 경우 공용 IP 주소는 관리 작업에만 사용됩니다. [API Management의 IP 주소](../articles/api-management/api-management-howto-ip-addresses.md)에 대해 자세히 알아보세요.
+* **표준 SKU [공용 IPv4 주소](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)** 입니다. 공용 IP 주소 리소스는 외부 또는 내부 액세스를 위해 가상 네트워크를 설정할 때 필요합니다. 내부 가상 네트워크를 사용하는 경우 공용 IP 주소는 관리 작업에만 사용됩니다. [API Management의 IP 주소](../articles/api-management/api-management-howto-ip-addresses.md)에 대해 자세히 알아보세요.
 
   * IP 주소는 API Management 인스턴스 및 가상 네트워크와 동일한 지역 및 구독에 있어야 합니다.
 

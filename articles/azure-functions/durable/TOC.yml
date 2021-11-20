@@ -142,7 +142,7 @@
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 동영상
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Microsoft Q&A 질문 페이지

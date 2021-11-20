@@ -4,15 +4,15 @@ description: QnA Maker는 데이터를 통해 자연스러운 대화형 계층�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/19/2021
 keywords: qna maker, 낮은 코드 채팅 봇, 멀티 턴 대화
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f8d23bc199ad38830b1d80ba7ddbb0fc5174109b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6219ab302aa4c9c51d46faf8c63450c23891e1b2
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131016873"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865499"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -36,7 +36,7 @@ QnA Maker는 고객 데이터를 저장하지 않습니다. 모든 고객 데이
 * **정적 정보가 있는 경우** - 정적 정보가 대답의 기술 자료에 있는 경우 QnA Maker를 사용합니다. 이 기술 자료는 사용자의 요구에 맞게 사용자 지정되며, [PDF 및 URL](../Concepts/data-sources-and-content.md)과 같은 문서를 사용하여 작성되었습니다.
 * **동일한 대답을 요청, 질문 또는 명령에 제공하려는 경우** - 다른 사용자가 동일한 질문을 제출하면 동일한 대답이 반환됩니다.
 * **메타 정보에 따라 정적 정보를 필터링하려는 경우** - [메타데이터](../how-to/metadata-generateanswer-usage.md) 태그를 추가하여 클라이언트 애플리케이션의 사용자 및 정보와 관련된 추가 필터링 옵션을 제공합니다. 일반 메타데이터 정보에는 [잡담](../how-to/chit-chat-knowledge-base.md)(chit-chat), 콘텐츠 형식 또는 형식, 콘텐츠 용도 및 콘텐츠 새로 고침이 포함됩니다.
-* **정적 정보가 포함된 봇 대화를 관리하려는 경우** - 기술 자료에서 사용자의 대화형 텍스트 또는 명령을 사용하여 대답합니다. 대답이 [다중 턴 컨텍스트](../how-to/multiturn-conversation.md)를 사용하여 기술 자료에 표시된 미리 결정된 대화 흐름의 일부인 경우 봇에서 이 흐름을 쉽게 제공할 수 있습니다.
+* **정적 정보가 포함된 봇 대화를 관리하려는 경우** - 기술 자료에서 사용자의 대화형 텍스트 또는 명령을 사용하여 대답합니다. 대답이 [다중 턴 컨텍스트](../how-to/multi-turn.md)를 사용하여 기술 자료에 표시된 미리 결정된 대화 흐름의 일부인 경우 봇에서 이 흐름을 쉽게 제공할 수 있습니다.
 
 ## <a name="what-is-a-knowledge-base"></a>기술 자료란?
 

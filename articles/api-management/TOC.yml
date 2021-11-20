@@ -366,7 +366,7 @@
     - name: 릴리스 정보
       href: 'https://aka.ms/apim/releases'
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?service=api-management'
     - name: Microsoft Q&A 질문 페이지

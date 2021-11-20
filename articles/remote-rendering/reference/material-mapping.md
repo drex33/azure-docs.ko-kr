@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8004b514d9647a22dc0e70ea982ac3960804151c
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96024047"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865290"
 ---
 # <a name="material-mapping-for-model-formats"></a>모델 형식에 대한 재질 매핑
 
@@ -55,7 +55,7 @@ glTF의 각 텍스처에는 Azure Remote Rendering 재질에서도 지원되는 
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): [색 재질](../overview/features/color-materials.md)에 해당합니다. 발광 재질의 경우 이 확장을 사용하는 것이 좋습니다.
-* [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): metallic-roughness 텍스처 대신 diffuse-specular-glossiness 텍스처를 제공할 수 있습니다. Azure Remote Rendering 구현은 확장의 변환 수식 바로 뒤에 나옵니다.
+* [KHR_materials_pbrSpecularGlossiness](https://kcoley.github.io/glTF/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/): metallic-roughness 텍스처 대신 diffuse-specular-glossiness 텍스처를 제공할 수 있습니다. Azure Remote Rendering 구현은 확장의 변환 수식 바로 뒤에 나옵니다.
 
 ## <a name="fbx"></a>FBX
 
@@ -123,7 +123,7 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 
 여기서의 개념은 Ax<sup>2</sup> + Bx + C = 0 식을 푸는 것입니다.
 기본적으로 유전체 표면에서는 빛의 약 4%가 반사되고 나머지는 확산됩니다. 금속성 표면에서는 빛이 확산되지 않고 모두 반사됩니다.
-이 수식에는 광택 플라스틱 표면과 광택 금속 표면을 구분할 수 있는 방법이 없기 때문에 몇 가지 단점이 있습니다. 대부분의 경우에는 표면에 금속성이 있으며 결과적으로 광택 플라스틱/고무 표면이 예상대로 표시되지 않을 수 있다고 가정합니다.
+이 수식에는 광택 플라스틱 표면과 광택 금속 표면을 구분할 수 있는 방법이 없기 때문에 몇 가지 단점이 있습니다. 대부분의 경우 표면에는 금속 속성이 있으므로 흐리고 은은한 수고기 표면이 예상대로 보이지 않을 수 있다고 가정합니다.
 
 ```cpp
 dielectricSpecularReflectance = 0.04
@@ -154,7 +154,7 @@ albedoRawColor = lerpColors(dielectricColor, metalColor, metalness * metalness)
 AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ```
 
-`AlbedoRGB`는 위의 수식으로 계산되었지만 알파 채널에는 추가 계산이 필요합니다. FBX 형식은 투명성에 대해 모호하며 이를 정의하는 여러 가지 방법이 있습니다. 콘텐츠 도구마다 다양한 방법을 사용합니다. 여기서의 개념은 이러한 방법을 하나의 수식으로 통합하는 것입니다. 그러나 자산이 공통된 방법으로 생성되지 않은 경우 일부 자산이 투명하게 잘못 표시됩니다.
+`AlbedoRGB` 는 위의 수식에 의해 계산되었지만 알파 채널에는 더 많은 계산이 필요합니다. FBX 형식은 투명성에 대해 모호하며 이를 정의하는 여러 가지 방법이 있습니다. 콘텐츠 도구마다 다양한 방법을 사용합니다. 여기서의 개념은 이러한 방법을 하나의 수식으로 통합하는 것입니다. 그러나 자산이 공통된 방법으로 생성되지 않은 경우 일부 자산이 투명하게 잘못 표시됩니다.
 
 이는 `TransparentColor`, `TransparencyFactor`, `Opacity`에서 계산됩니다.
 
@@ -171,7 +171,7 @@ AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ### <a name="known-issues"></a>알려진 문제
 
 * 현재 수식은 색이 지정된 간단한 기하 도형에는 제대로 작동하지 않습니다. `Specular`가 충분히 밝은 경우 모든 기하 도형은 색이 없는 금속성 반사 표면이 됩니다. 여기서 해결 방법은 `Specular`를 원래 값에서 30% 낮추거나 변환 설정 [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model)을 사용하는 것입니다.
-* 최근에 PBR 재질이 `Maya` 및 `3DS Max` 콘텐츠 생성 도구에 추가되었습니다. 이러한 도구는 사용자 지정 사용자 정의 블랙 박스 속성을 사용하여 FBX에 이를 전달합니다. 이러한 추가 속성은 문서화되어 있지 않고 폐쇄형이기 때문에 Azure Remote Rendering에서 읽지 않습니다.
+* 최근에 PBR 재질이 `Maya` 및 `3DS Max` 콘텐츠 생성 도구에 추가되었습니다. 이러한 도구는 사용자 지정 사용자 정의 블랙 박스 속성을 사용하여 FBX에 이를 전달합니다. Azure Remote Rendering 문서화되지 않고 형식이 폐쇄형 소스이므로 해당 속성을 읽지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

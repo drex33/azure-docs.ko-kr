@@ -8,24 +8,24 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 5d2a08a1ed51028d63e7bc98825c972b869b50ea
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: b22475285420cbb0c8d31546a6b846ecb3cb4fdb
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848897"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132867491"
 ---
 # <a name="connect-to-and-manage-an-on-premises-sql-server-instance-in-azure-purview"></a>Azure Purview에서 온-프레미스 SQL 서버 인스턴스 커넥트 및 관리
 
-이 문서에서는 온-프레미스 SQL 서버 인스턴스를 등록하는 방법과 Azure Purview에서 온-프레미스 SQL 서버 인스턴스를 인증하고 상호 작용하는 방법을 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 읽어보십시오.
+이 문서에서는 온-프레미스 SQL 서버 인스턴스를 등록하는 방법과 Azure Purview에서 온-프레미스 SQL 서버 인스턴스를 인증하고 상호 작용하는 방법을 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan) | [예](#scan) | 예| 아니요** |
+| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan) | [예](#scan) | 아니요| 예** |
 
-\** 계보는 데이터 세트가 에서 원본/싱크로 사용되는 경우 [지원됩니다Data Factory 복사 작업](how-to-link-azure-data-factory.md) 
+\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -35,7 +35,7 @@ ms.locfileid: "131848897"
 
 * 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
 
-* 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드를 참조하세요.](../data-factory/create-self-hosted-integration-runtime.md)
+* 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드](../data-factory/create-self-hosted-integration-runtime.md)를 참조하세요.
 
 ## <a name="register"></a>등록
 
@@ -47,7 +47,7 @@ SQL Server 온-프레미스에 대한 인증을 설정하는 방법은 한 가�
 
 - SQL 인증
 
-#### <a name="sql-authentication-to-register"></a>SQL 등록할 인증
+#### <a name="sql-authentication-to-register"></a>등록할 인증 SQL
 
 SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있어야 합니다. 이는 `sys.databases`가 master 데이터베이스에 있기 때문입니다. Purview 스캐너는 서버에서 모든 SQL 데이터베이스를 찾으려면 `sys.databases`를 열거해야 합니다.
 

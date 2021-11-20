@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 959a6d5c5ed4b606c5a5850264422b6e460eb8f5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: af04a4c7ef905ab35f0efd1a402d2d27dc333bf9
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020448"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132870248"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -68,7 +68,7 @@ QnA Maker의 새로운 기능에 대해 알아봅니다.
 ### <a name="november-2019"></a>2019년 11월
 
 * QnA Maker에 대한 [미국 정부 클라우드 지원](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers)
-* GA의 [다중 턴](./how-to/multiturn-conversation.md) 기능
+* GA의 [다중 턴](./how-to/multi-turn.md) 기능
 * 계층 1 언어로 제공되는 [Chit-chat 지원](./how-to/chit-chat-knowledge-base.md#language-support)
 
 ### <a name="october-2019"></a>2019년 10월

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 10/21/2021
 ms.custom: automl
-ms.openlocfilehash: cc8ac6d5abe5843c76698e0bf36cdeb8932246e3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b5b917e76e9dd36451d63934bfbb9d0332f4b571
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559583"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863768"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 
@@ -40,7 +40,7 @@ Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용�
 
 * Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요. 
 
-* [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) 데이터 파일 다운로드
+* [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) 데이터 파일 다운로드
 
 ## <a name="sign-in-to-the-studio"></a>스튜디오에 로그인
 
@@ -70,7 +70,7 @@ Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용�
 
     1. **찾아보기** 를 선택합니다. 
     
-    1. 로컬 컴퓨터에 있는 **bike-no.csv** 파일을 선택합니다. 이는 [구성 요소](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)로 다운로드한 파일입니다.
+    1. 로컬 컴퓨터에 있는 **bike-no.csv** 파일을 선택합니다. 이는 [구성 요소](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv)로 다운로드한 파일입니다.
 
     1. **다음** 을 선택합니다.
 

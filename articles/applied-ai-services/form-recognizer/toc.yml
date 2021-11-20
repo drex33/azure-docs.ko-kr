@@ -9,7 +9,7 @@ items:
       - name: 언어 지원
         href: language-support.md
       - name: 가격 책정
-        href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
+        href: 'https://azure.microsoft.com/pricing/details/form-recognizer/'
       - name: 서비스 제한
         href: service-limits.md
       - name: 새로운 기능
@@ -85,11 +85,11 @@ items:
   - name: 샘플
     items:
       - name: C#/.NET
-        href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+        href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples/
       - name: Java
         href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
       - name: Python
-        href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+        href: /samples/azure/azure-sdk-for-python/formrecognizer-samples/
       - name: JavaScript
         href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
   - name: AI의 책임 있는 사용

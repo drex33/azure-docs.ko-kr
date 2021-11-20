@@ -4,12 +4,12 @@ description: 기술 자료가 게시되어야 합니다. 게시된 후에는 gen
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bc1ef09e05b118c2f0a8b5b69cec38f2c38f7fb8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ac59e5ac3fad38f3c556772dacc9ca31bd9e498d
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086795"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865443"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>기술 자료에서 답변 쿼리
 
@@ -63,7 +63,7 @@ ms.locfileid: "131086795"
 
 [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), [strictFilters](../how-to/query-knowledge-base-with-metadata.md) 등의 속성을 설정하여 응답을 제어합니다.
 
-[대화 컨텍스트](../how-to/query-knowledge-base-with-metadata.md)를 [멀티 턴 기능](../how-to/multiturn-conversation.md)과 함께 사용하여 질문 및 답변을 구체화하는 대화를 유지하고 정확한 최종 답변을 찾을 수 있습니다.
+[대화 컨텍스트](../how-to/query-knowledge-base-with-metadata.md)를 [멀티 턴 기능](../how-to/multi-turn.md)과 함께 사용하여 질문 및 답변을 구체화하는 대화를 유지하고 정확한 최종 답변을 찾을 수 있습니다.
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>답변을 생성하는 호출의 응답
 

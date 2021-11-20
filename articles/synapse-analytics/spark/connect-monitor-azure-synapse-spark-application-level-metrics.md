@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: b2810d97651c6819996c79ce554fa2feee2a6c65
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 3df6cac70df3ff80e48aa1e13374d9f0146262ca
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539644"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132862229"
 ---
 #  <a name="collect-apache-spark-applications-metrics-using-apis"></a>API를 사용하여 Apache Spark 애플리케이션 메트릭 수집
 
@@ -42,7 +42,7 @@ Linux VM에 Prometheus 서버가 배포되어 있어야 합니다.
 #### <a name="21-create-a-service-principal"></a>2.1 서비스 주체 만들기:
 
 ```bash
-az ad sp create-for-rbac --name <service_principal_name>
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor
 ```
 
 결과는 다음과 같습니다.

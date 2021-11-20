@@ -3,11 +3,11 @@
 - name: 개요
   items:
     - name: 몰입형 판독기란?
-      href: Overview.md
+      href: overview.md
     - name: 언어 지원
       href: language-support.md
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
+      href: 'https://azure.microsoft.com/pricing/details/immersive-reader/'
     - name: 릴리스 정보
       href: release-notes.md
 - name: 빠른 시작

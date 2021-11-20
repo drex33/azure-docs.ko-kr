@@ -5,12 +5,12 @@ author: emaher
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: enewman
-ms.openlocfilehash: cc05b682a91deab2d67e9d5ddbe5d4dc85740f6a
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 725ea750543185f50de1ba3461fb617a3f31a0fd
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130176646"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132862818"
 ---
 # <a name="set-up-a-lab-to-teach-r-on-linux"></a>Linux에서 R을 가르치기 위한 랩 설정
 
@@ -63,7 +63,7 @@ sudo apt upgrade
 
 ### <a name="install-x2go-server"></a>X2Go 서버 설치
 
-X2Go를 사용하기로 선택한 경우 [서버를 설치](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop#install-x2go-server)합니다.  서버 구성 요소를 설치하려면 먼저 [ssh를 사용하여 연결](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh)해야 합니다.  이 작업이 완료되면 [X2Go 클라이언트를 사용하여 연결](how-to-use-remote-desktop-linux-student.md)한 후 나머지 설정을 완료할 수 있습니다.
+X2Go를 사용하기로 선택한 경우 서버를 설치합니다.  서버 구성 요소를 설치하려면 먼저 [ssh를 사용하여 연결](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh)해야 합니다.  이 작업이 완료되면 [X2Go 클라이언트를 사용하여 연결](how-to-use-remote-desktop-linux-student.md)한 후 나머지 설정을 완료할 수 있습니다.
 
 X2Go의 기본 설치는 RStudio와 호환되지 않습니다.  이 문제를 해결하려면 x2goagent 옵션 파일을 업데이트합니다.
 

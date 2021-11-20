@@ -100,7 +100,7 @@
     - name: 쿡북
       items:
         - name: 배포 스크립트
-          href: 'https://azure.microsoft.com/documentation/scripts/'
+          href: /azure/automation/automation-runbook-gallery
     - name: 문제 해결
       items:
         - name: Visual Studio를 사용하여 문제 해결

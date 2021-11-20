@@ -6,21 +6,21 @@ ms.date: 06/24/2021
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 6fbc2c38431cc638873ed4a93ce80f16d789c1de
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: a66a316048a9462272f7d9ba3dc933d03173aa45
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158943"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132866807"
 ---
 # <a name="azure-monitor-opentelemetry-based-auto-instrumentation-for-java-applications"></a>Java 애플리케이션에 대한 OpenTelemetry 기반 자동 계측 Azure Monitor
 
 이 문서에서는 OpenTelemetry 기반 Azure Monitor Java 제품을 사용하도록 설정하고 구성하는 방법을 설명합니다. 이 문서의 지침을 완료하면 Azure Monitor 애플리케이션 Insights 사용하여 애플리케이션을 모니터링할 수 있습니다.
 
-## <a name="get-started"></a>시작
-코드를 변경하지 않고도 Java 자동 계측을 사용하도록 설정할 수 있습니다.
+## <a name="get-started"></a>시작하기
+코드를 변경하지 않고 Java 자동 계측을 사용하도록 설정할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 - Java 8+를 사용하는 Java 애플리케이션
 - Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/)
 - 애플리케이션 Insights 리소스 - [애플리케이션 Insights 리소스 만들기](create-workspace-resource.md#create-workspace-based-resource)
@@ -30,7 +30,7 @@ ms.locfileid: "132158943"
 
 #### <a name="1-download-jar-file"></a>1. jar 파일 다운로드
 
-[applicationinsights-agent-3.2.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.3/applicationinsights-agent-3.2.3.jar) 파일을 다운로드합니다.
+[applicationinsights-agent-3.2.3.jar 파일을 다운로드합니다.](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.3/applicationinsights-agent-3.2.3.jar)
 
 > [!WARNING]
 > 
@@ -90,7 +90,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 > 동일한 Application Insights 리소스에 원격 분석을 내보내는 서비스가 두 개 이상 있는 경우 애플리케이션 맵에 올바르게 표시되도록 [클라우드 역할 이름을 설정해야](java-standalone-config.md#cloud-role-name) 합니다.
 
 > [!NOTE]
-> Application Insights 계측을 사용하는 과정의 일환으로 진단 데이터를 수집하고 Microsoft에 보냅니다. 이 데이터는 애플리케이션 Insights 실행하고 개선하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용하지 않도록 설정하는 옵션이 있습니다. [자세한 정보를 알아보세요](./statsbeat.md).
+> Application Insights 계측을 사용하는 과정의 일환으로 진단 데이터를 수집하고 Microsoft에 보냅니다. 이 데이터는 애플리케이션 Insights 실행하고 개선하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용하지 않도록 설정하는 옵션이 있습니다. [자세히 알아보기](./statsbeat.md).
 
 ## <a name="configuration-options"></a>구성 옵션
 
@@ -210,15 +210,15 @@ Java 3.X에는 다음과 같은 계측 라이브러리가 포함되어 있습니
 ## <a name="modify-telemetry"></a>원격 분석 수정
 
 ### <a name="add-span-attributes"></a>범위 특성 추가
-를 사용하여 범위에 특성을 추가할 수 `opentelemetry-api` 있습니다. 이러한 특성에는 원격 분석용 사용자 지정 비즈니스 차원 추가가 포함될 수 있습니다. 특성을 사용하여 애플리케이션 Insights 스키마에서 사용자 ID 또는 클라이언트 IP와 같은 선택적 필드를 설정할 수도 있습니다.
+를 사용 하 여 `opentelemetry-api` 범위에 특성을 추가할 수 있습니다. 이러한 특성에는 원격 분석에 사용자 지정 비즈니스 차원을 추가 하는 작업이 포함 될 수 있습니다. 특성을 사용 하 여 사용자 ID 또는 클라이언트 IP와 같은 Application Insights 스키마의 선택적 필드를 설정할 수도 있습니다.
 
 #### <a name="add-custom-dimension"></a>사용자 지정 차원 추가
-하나 이상의 사용자 지정 차원을 추가하면 요청, 의존성 또는 예외 테이블의 _customDimensions_ 필드가 채워집니다.
+하나 이상의 사용자 지정 차원을 추가 하면 요청, 종속성 또는 예외 테이블의 _Customdimensions_ 필드가 채워집니다.
 
 > [!NOTE]
-> 이 기능은 3.2.0 이상에만 있습니다.
+> 이 기능은 3.2.0 이상 에서만 유효 합니다.
 
-`opentelemetry-api-1.6.0.jar`애플리케이션에 를 추가합니다.
+`opentelemetry-api-1.6.0.jar`응용 프로그램에를 추가 합니다.
 
 ```xml
 <dependency>
@@ -228,7 +228,7 @@ Java 3.X에는 다음과 같은 계측 라이브러리가 포함되어 있습니
 </dependency>
 ```
 
-코드에 사용자 지정 차원을 추가합니다.
+코드에 사용자 지정 차원을 추가 합니다.
 
 ```java
 import io.opentelemetry.api.trace.Span;
@@ -237,15 +237,15 @@ Span.current().setAttribute("mycustomdimension", "myvalue1");
 ```
 
 #### <a name="set-user-id"></a>사용자 ID 설정
-요청, 의존성 또는 예외 테이블의 사용자 ID 필드를 채웁니다.
+요청, 종속성 또는 예외 테이블의 사용자 ID 필드를 채웁니다.
 
 > [!IMPORTANT]
-> 인증된 사용자 ID를 설정하기 전에 관련 개인 정보 보호법을 참조합니다.
+> 인증 된 사용자 ID를 설정 하기 전에 적용 가능한 개인 정보 보호법을 참조 하십시오.
 
 > [!NOTE]
-> 이 기능은 3.2.0 이상에만 있습니다.
+> 이 기능은 3.2.0 이상 에서만 유효 합니다.
 
-`opentelemetry-api-1.6.0.jar`애플리케이션에 를 추가합니다.
+`opentelemetry-api-1.6.0.jar`응용 프로그램에를 추가 합니다.
 
 ```xml
 <dependency>
@@ -255,7 +255,7 @@ Span.current().setAttribute("mycustomdimension", "myvalue1");
 </dependency>
 ```
 
-코드에서 를 설정합니다. `user_Id`
+코드에서를 설정 합니다 `user_Id` .
 
 ```java
 import io.opentelemetry.api.trace.Span;
@@ -263,14 +263,14 @@ import io.opentelemetry.api.trace.Span;
 Span.current().setAttribute("enduser.id", "myuser");
 ```
 
-### <a name="get-trace-id-or-span-id"></a>추적 ID 또는 범위 ID를 얻습니다.
+### <a name="get-trace-id-or-span-id"></a>추적 ID 또는 범위 ID 가져오기
 
-를 사용하여 추적 ID 또는 범위 ID를 얻을 수 `opentelemetry-api` 있습니다. 이 작업을 수행하여 문제를 디버깅하고 진단할 때 상관 관계를 개선하기 위해 이러한 식별자를 기존 로깅 원격 분석 에 추가할 수 있습니다.
+`opentelemetry-api`를 사용 하 여 추적 id 또는 범위 id를 가져올 수 있습니다. 이 작업을 수행 하 여 문제를 디버깅 하 고 진단할 때 상관 관계를 향상 시키기 위해 기존 로깅 원격 분석에 이러한 식별자를 추가할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 3.2.0 이상에만 있습니다.
+> 이 기능은 3.2.0 이상 에서만 유효 합니다.
 
-`opentelemetry-api-1.6.0.jar`애플리케이션에 를 추가합니다.
+`opentelemetry-api-1.6.0.jar`응용 프로그램에를 추가 합니다.
 
 ```xml
 <dependency>
@@ -280,7 +280,7 @@ Span.current().setAttribute("enduser.id", "myuser");
 </dependency>
 ```
 
-코드에서 요청 추적 ID 및 범위 ID를 확인합니다.
+코드에서 요청 추적 ID 및 범위 ID를 가져옵니다.
 
 ```java
 import io.opentelemetry.api.trace.Span;
@@ -293,11 +293,11 @@ String spanId = Span.current().getSpanContext().getSpanId();
 
 Java 3.x Application Insights의 목표는 표준 API를 사용하여 사용자 지정 원격 분석을 보낼 수 있도록 하는 것입니다.
 
-현재 마이크로미터, 인기 있는 로깅 프레임워크 및 애플리케이션 Insights Java 2.x SDK를 지원합니다. Application Insights Java 3.x는 이러한 API를 통해 전송되는 원격 분석을 자동으로 캡처하고 자동으로 수집된 원격 분석과의 상관 관계를 지정합니다.
+현재 마이크로 측정기, 인기 있는 로깅 프레임 워크 및 Application Insights Java 2.x SDK를 지원 합니다. Application Insights Java 3.x는 이러한 API를 통해 전송되는 원격 분석을 자동으로 캡처하고 자동으로 수집된 원격 분석과의 상관 관계를 지정합니다.
 
 ### <a name="supported-custom-telemetry"></a>지원되는 사용자 지정 원격 분석
 
-아래 표에서는 Java 3.x 에이전트를 보완하기 위해 사용할 수 있는 현재 지원되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약하자면, 사용자 지정 메트릭은 마이크로 분석을 통해 지원되고, 사용자 지정 예외 및 추적은 로깅 프레임워크, 사용자 지정 요청, 의존성 및 예외를 통해 사용하도록 설정할 수 `opentelemetry-api` 있으며, [Application Insights Java 2.x SDK를](#send-custom-telemetry-using-the-2x-sdk)통해 모든 유형의 사용자 지정 원격 분석이 지원됩니다.
+아래 표에서는 Java 3.x 에이전트를 보완하기 위해 사용할 수 있는 현재 지원되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크, 사용자 지정 요청, 종속성 및 예외를 통해 사용 하도록 설정할 수 있으며, `opentelemetry-api` [Java 2.x SDK Application Insights](#send-custom-telemetry-using-the-2x-sdk)을 통해 사용자 지정 원격 분석의 모든 형식이 지원 됩니다.
 
 |                     | 마이크로미터 | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
 |---------------------|------------|---------------------|---------|-------------------|
@@ -311,7 +311,7 @@ Java 3.x Application Insights의 목표는 표준 API를 사용하여 사용자 
 
 이제 Application Insights 3.x를 사용하여 SDK를 릴리스할 계획을 세울 예정입니다.
 
-Application Insights Java 3.x는 Application Insights Java 2.x SDK로 전송된 원격 분석을 이미 수신 대기하고 있습니다. 이 기능은 기존 2.x 사용자를 위한 업그레이드 스토리의 중요한 부분으로, OpenTelemetry API가 GA될 때까지 사용자 지정 원격 분석 지원의 중요한 격차를 메꿉니다.
+Application Insights java 3.x는 Application Insights java 2.x SDK로 전송 되는 원격 분석을 이미 수신 대기 하 고 있습니다. 이 기능은 기존 2.x 사용자를 위한 업그레이드 스토리의 중요한 부분으로, OpenTelemetry API가 GA될 때까지 사용자 지정 원격 분석 지원의 중요한 격차를 메꿉니다.
 
 ### <a name="send-custom-metrics-using-micrometer"></a>Micrometer를 사용하여 사용자 지정 메트릭 보내기
 
@@ -331,7 +331,7 @@ Micrometer [전역 레지스트리](https://micrometer.io/docs/concepts#_global_
 static final Counter counter = Metrics.counter("test_counter");
 ```
 
-카운터를 사용하여 메트릭을 기록합니다.
+카운터를 사용 하 여 메트릭을 기록 합니다.
 
 ```java
 counter.increment();
@@ -342,13 +342,13 @@ counter.increment();
 Log4j, Logback 및 java.util.logging은 자동으로 계측되며 이러한 로깅 프레임워크를 통해 수행된 로깅은 추적 및 예외 원격 분석으로 자동 수집됩니다.
 
 기본적으로 로깅은 정보 수준 이상에서 수행되는 경우에만 수집됩니다.
-이 수준을 변경 하려면 [구성 옵션](./java-standalone-config.md#auto-collected-logging)을 참조 하십시오.
+이 수준을 변경하려면 구성 옵션 를 [참조하세요.](./java-standalone-config.md#auto-collected-logging)
 
-로그에 사용자 지정 차원을 연결 하려는 경우 [Log4j 1.2 mdc](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 Mdc](https://logging.apache.org/log4j/2.x/manual/thread-context.html)또는 [logback MDC](http://logback.qos.ch/manual/mdc.html)를 사용할 수 있습니다. Application Insights Java 3.x는 추적 및 예외 원격 분석에서 이러한 MDC 속성을 사용자 지정 차원으로 자동으로 캡처합니다.
+로그에 사용자 지정 차원을 연결하려는 경우 [Log4j 1.2 MDC,](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html) [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)또는 [Logback MDC](http://logback.qos.ch/manual/mdc.html)를 사용할 수 있습니다. Application Insights Java 3.x는 추적 및 예외 원격 분석에서 해당 MDC 속성을 사용자 지정 차원으로 자동으로 캡처합니다.
 
 ### <a name="send-custom-telemetry-using-the-2x-sdk"></a>2\.x SDK를 사용하여 사용자 지정 원격 분석 보내기
 
-`applicationinsights-core-2.6.3.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.x에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+`applicationinsights-core-2.6.3.jar`를 애플리케이션에 추가합니다(모든 2.x 버전은 Application Insights Java 3.x에서 지원되지만, 원하는 경우 최신 버전을 사용하는 것이 좋습니다.)
 
 ```xml
 <dependency>
@@ -364,7 +364,7 @@ TelemetryClient를 만듭니다.
 static final TelemetryClient telemetryClient = new TelemetryClient();
 ```
 
-클라이언트를 사용 하 여 사용자 지정 원격 분석을 보냅니다.
+클라이언트를 사용하여 사용자 지정 원격 분석을 보냅니다.
 
 ##### <a name="events"></a>이벤트
 
@@ -413,20 +413,21 @@ try {
 
 ## <a name="troubleshooting"></a>문제 해결
 
-[문제 해결](java-standalone-troubleshoot.md) 문서를 참조 하세요.
+문제 [해결](java-standalone-troubleshoot.md) 문서를 참조하세요.
 
 ## <a name="support"></a>지원
-- [문제 해결 단계](java-standalone-troubleshoot.md)를 검토 합니다.
-- Azure 지원에 대 한 문제는 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 엽니다.
-- OpenTelemetry 문제는 [OpenTelemetry 커뮤니티](https://opentelemetry.io/community/) 에 직접 문의 하세요.
+- [문제 해결 단계를 검토합니다.](java-standalone-troubleshoot.md)
+- Azure 지원 문제의 경우 [Azure 지원 티켓을](https://azure.microsoft.com/support/create-ticket/)엽니다.
+- OpenTelemetry 문제의 경우 [OpenTelemetry 커뮤니티에 직접 문의합니다.](https://opentelemetry.io/community/)
 
 ## <a name="opentelemetry-feedback"></a>OpenTelemetry 피드백
-- OpenTelemetry 커뮤니티의 사용자 [의견 설문 조사](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform)를 작성 합니다.
-- [OpenTelemetry 초기 도입자 Community](https://aka.ms/AzMonOTel/)에 참여 하 여 Microsoft에 자신에 게 알려 주십시오.
-- [Microsoft의 기술 Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor)에서 다른 Azure Monitor 사용자와 참여 하세요.
+- OpenTelemetry 커뮤니티의 고객 [피드백 설문 조사](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform)를 작성합니다.
+- [OpenTelemetry 얼리 어답터 Community](https://aka.ms/AzMonOTel/)조인하여 Microsoft에 자신을 조금 알려주세요.
+- [Microsoft Tech](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor)Community 다른 Azure Monitor 사용자와 소통합니다.
+- [Azure 피드백 포럼](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0)에서 기능 요청을 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor Java 자동 계측 GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-Java)에서 소스 코드를 검토 합니다.
-- OpenTelemetry 및 해당 커뮤니티에 대해 자세히 알아보려면 [OpenTelemetry Java GitHub 리포지토리](https://github.com/open-telemetry/opentelemetry-java-instrumentation)를 방문 하세요.
-- [웹/브라우저 사용자 모니터링](javascript.md) 을 사용 하 여 사용 환경을 활성화 합니다.
+- Azure Monitor Java 자동 [계측 GitHub 리포지토리에서](https://github.com/Microsoft/ApplicationInsights-Java)소스 코드를 검토합니다.
+- OpenTelemetry 및 해당 커뮤니티에 대한 자세한 내용은 [OpenTelemetry Java GitHub 리포지토리를](https://github.com/open-telemetry/opentelemetry-java-instrumentation)방문합니다.
+- 사용 환경을 사용하도록 설정하려면 [웹/브라우저 사용자 모니터링을](javascript.md) 사용하도록 설정합니다.

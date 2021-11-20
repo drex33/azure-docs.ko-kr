@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/15/2021
 ms.custom: devx-track-azurecli, ignite-fall-2021
-ms.openlocfilehash: 9d7a263a17d117aea162b39682fa5bd9ec4c1fde
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: dee4b11618d4c992de16e48b493df554f143b3d0
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132485758"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869234"
 ---
 # <a name="dapr-extension-for-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) 용 4apr 확장 (미리 보기)
 
@@ -91,7 +91,10 @@ az extension update --name k8s-extension
 
 ## <a name="create-the-extension-and-install-dapr-on-your-aks-cluster"></a>확장을 만들고 AKS 클러스터에 d 4를 설치 합니다.
 
-Kubernetes 확장을 사용 하도록 구독을 등록 한 후에는 AKS 클러스터에 A4를 설치 하는 Eapr 확장을 만들 수 있습니다. 예:
+> [!NOTE]
+> `--cluster-type managedClusters`AKS 클러스터에 Eapr 확장을 설치할 때 플래그를 사용 하는 것이 중요 합니다. `--cluster-type connectedClusters`현재는를 사용할 수 없습니다.
+
+Kubernetes 확장을 사용 하도록 구독을 등록 한 후에는 AKS 클러스터에 A4를 설치 하는 Eapr 확장을 만들 수 있습니다. 예를 들어:
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \

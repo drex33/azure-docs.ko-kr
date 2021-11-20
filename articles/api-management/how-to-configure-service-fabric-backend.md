@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/29/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4239e9a9abc5e7e63a99ac72a50ec7f238386a20
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5f2039b2ec4c4c1afc58d4fbaa1b204eaa9b3e7e
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004771"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869158"
 ---
 # <a name="set-up-a-service-fabric-backend-in-api-management-using-the-azure-portal"></a>Azure Portal을 사용하여 API Management에 Service Fabric 백 엔드 설정
 
@@ -116,16 +116,20 @@ API Management와 클러스터의 통합을 테스트하려면 해당 GET 작업
 
 1. **디자인** 탭의 **인바운드 처리** 섹션에서 코드 편집기( **</>** ) 아이콘을 선택합니다. 
 1. **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
-1. 다음 정책 문을 추가합니다. `backend-id`에서 Service Fabric 백 엔드의 이름을 대체합니다.
+1. 정책 `set-service-backend` 문을 추가합니다. 
+      * `backend-id`에서 Service Fabric 백 엔드의 이름을 대체합니다.
 
-   `sf-resolve-condition`은 클러스터 파티션이 확인되지 않은 경우 재시도 조건입니다. 재시도 횟수는 백 엔드를 구성할 때 설정되었습니다.
+      * `sf-resolve-condition`는 서비스 위치를 다시 해결하고 요청을 다시 추가하기 위한 조건입니다. 재시도 횟수는 백 엔드를 구성할 때 설정되었습니다. 예를 들어:
 
-    ```xml
-    <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"  />
+      ```xml
+      <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"/>
     ```
 1. **저장** 을 선택합니다.
 
     :::image type="content" source="media/backends/set-backend-service.png" alt-text="set-backend-service 정책 구성":::
+
+> [!NOTE]
+> Service Fabric 클러스터에서 하나 이상의 노드가 다운되거나 제거되면 API Management 자동 알림을 받지 못하고 이러한 노드로 트래픽을 계속 보냅니다. 이러한 경우를 처리하려면 다음과 유사한 해결 조건을 구성합니다. `sf-resolve-condition="@((int)context.Response.StatusCode != 200 || context.LastError?.Reason == "BackendConnectionFailure" || context.LastError?.Reason == "Timeout")"`
 
 ### <a name="test-backend-api"></a>백 엔드 API 테스트
 

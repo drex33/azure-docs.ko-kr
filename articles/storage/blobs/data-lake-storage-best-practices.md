@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 사용에 대한 모범 사례 | Microsoft Docs
-description: 성능을 최적화하고, 비용을 절감하고, Data Lake Storage Gen2 지원 Azure Storage 계정을 보호하는 방법을 알아봅니다.
+description: 성능을 최적화하고, 비용을 절감하고, Data Lake Storage Gen2 사용 Azure Storage 계정을 보호하는 방법을 알아봅니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 85f6ce139db0fb69428dc775ef75befccb081af3
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: fc6a2b95049e23923e166c24686744fabd88124e
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042734"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869557"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -29,17 +29,17 @@ Blob Storage 기능을 사용하도록 계정을 구성할 때 다음 패턴을 
 
 1. Azure Storage [계정의 Blob Storage 기능 지원을](storage-feature-support-in-storage-accounts.md) 검토하여 계정에서 기능이 완전히 지원되는지 확인합니다. 일부 기능은 아직 지원되지 않거나 Data Lake Storage Gen2 사용 계정에서 부분적으로 지원됩니다. 기능 지원은 항상 확장되므로 업데이트를 위해 이 문서를 정기적으로 검토해야 합니다.
 
-2. Azure [Data Lake Storage Gen2의 알려진 문제를](data-lake-storage-known-issues.md) 검토하여 사용하려는 기능에 대한 제한 사항 또는 특별 지침이 있는지 확인합니다.
+2. Azure [Data Lake Storage Gen2의 알려진 문제](data-lake-storage-known-issues.md) 문서를 검토하여 사용하려는 기능에 대한 제한 사항 또는 특별 지침이 있는지 확인합니다.
 
-3. Data Lake Storage Gen2 사용 계정과 관련된 지침은 기능 문서를 검사합니다. 
+3. Data Lake Storage Gen2 사용 계정과 관련된 지침은 기능 문서를 검색합니다. 
 
 #### <a name="understand-the-terms-used-in-documentation"></a>설명서에 사용된 용어 이해
 
-콘텐츠 집합 간에 이동할 때 약간의 용어 차이가 있습니다. 예를 들어 [Blob Storage 설명서](storage-blobs-introduction.md)에 추천되는 콘텐츠는 *파일* 대신 *Blob이라는* 용어를 사용합니다. 기술적으로 스토리지 계정에 저장하는 파일은 계정의 Blob이 됩니다. 따라서 용어가 올바름입니다. 그러나 이 경우 *라는* 용어를 사용하는 경우 혼동이 발생할 수 있습니다. *파일 시스템* 을 참조하는 데 사용되는 *컨테이너라는* 용어도 표시됩니다. 이러한 용어는 동의어로 간주합니다.
+콘텐츠 집합 간에 이동할 때 약간의 용어 차이가 있습니다. 예를 들어 [Blob Storage 설명서](storage-blobs-introduction.md)에 포함된 콘텐츠는 *파일* 대신 *Blob이라는* 용어를 사용합니다. 기술적으로 스토리지 계정에 저장하는 파일은 계정의 Blob이 됩니다. 따라서 용어가 올바름입니다. 그러나 *파일이라는* 용어를 사용하는 경우 혼동을 일으킬 수 있습니다. *파일 시스템* 을 참조하는 데 사용되는 *컨테이너라는* 용어도 표시됩니다. 이러한 용어는 동의어로 간주합니다.
 
 ## <a name="consider-premium"></a>프리미엄 고려
 
-워크로드에 짧은 대기 시간이 필요하거나 IOP(초당 입력 출력 작업 수)가 많이 필요한 경우 프리미엄 블록 Blob Storage 계정을 사용하는 것이 좋습니다. 이 유형의 계정은 고성능 하드웨어를 통해 데이터를 사용할 수 있게 합니다. 데이터는 짧은 대기 시간에 최적화된 SSD(반도체 드라이브)에 저장됩니다. SSD는 기존 하드 드라이브에 비해 더 높은 처리량을 제공합니다. 프리미엄 성능의 스토리지 비용은 더 높지만 트랜잭션 비용은 낮으므로 워크로드에서 많은 수의 트랜잭션을 실행하는 경우 프리미엄 성능 블록 Blob 계정은 경제적일 수 있습니다.
+워크로드의 대기 시간이 낮거나 IOP(초당 입력 출력 작업 수)가 많이 필요한 경우 프리미엄 블록 Blob Storage 계정을 사용하는 것이 좋습니다. 이 유형의 계정은 고성능 하드웨어를 통해 데이터를 사용할 수 있게 합니다. 데이터는 짧은 대기 시간에 최적화된 SSD(반도체 드라이브)에 저장됩니다. SSD는 기존 하드 드라이브에 비해 더 높은 처리량을 제공합니다. 프리미엄 성능의 스토리지 비용은 더 높지만 트랜잭션 비용은 낮으므로 워크로드가 많은 수의 트랜잭션을 실행하는 경우 프리미엄 성능 블록 Blob 계정은 경제적일 수 있습니다.
 
 스토리지 계정을 분석에 사용하려는 경우 프리미엄 블록 Blob Storage 계정과 함께 Azure Data Lake Storage Gen2를 사용하는 것이 좋습니다. Data Lake Storage 사용 계정과 함께 프리미엄 블록 Blob Storage 계정을 사용하는 이 조합을 [Azure Data Lake Storage 대한 프리미엄 계층이라고](premium-tier-for-data-lake-storage.md)합니다.
 
@@ -74,7 +74,7 @@ Blob Storage 기능을 사용하도록 계정을 구성할 때 다음 패턴을 
 > [!NOTE]
 > 수집 작업의 전반적인 성능은 데이터를 수집하기 위해 사용하는 도구와 관련된 다른 요인에 따라 달라집니다. 최신 지침은 사용하려는 각 도구에 대한 설명서를 참조하세요.
 
-계정을 확장하여 모든 분석 시나리오에 필요한 처리량을 제공할 수 있습니다. 기본적으로 Data Lake Storage Gen2 사용 계정은 광범위한 사용 사례 범주의 요구 사항을 충족하기에 충분한 처리량을 기본 구성에 제공합니다. 기본 한도에 초과하는 경우 Azure 지원 에 [문의하여](https://azure.microsoft.com/support/faq/)더 많은 처리량을 제공하도록 계정을 구성할 수 있습니다.
+계정을 확장하여 모든 분석 시나리오에 필요한 처리량을 제공할 수 있습니다. 기본적으로 Data Lake Storage Gen2 사용 계정은 광범위한 사용 사례 범주의 요구 사항을 충족하기에 충분한 처리량을 기본 구성에 제공합니다. 기본 제한에 초과하는 경우 Azure 지원 에 [문의하여](https://azure.microsoft.com/support/faq/)더 많은 처리량을 제공하도록 계정을 구성할 수 있습니다.
 
 ## <a name="structure-data-sets"></a>구조 데이터 집합
 
@@ -90,7 +90,7 @@ I/O 패턴이 쓰기 집약적이거나 쿼리 패턴이 여러 레코드 행 �
 
 I/O 패턴을 더 많이 읽거나 쿼리 패턴이 레코드의 열 하위 집합에 초점을 맞춘 경우 Parquet 및 ORC 파일 형식을 고려합니다. 읽기 트랜잭션은 전체 레코드를 읽는 대신 특정 열을 검색하도록 최적화할 수 있습니다.
 
-Apache Parquet은 읽기가 많은 분석 파이프라인에 최적화된 오픈 소스 파일 형식입니다. Parquet의 열형 스토리지 구조를 사용하면 관련 없는 데이터를 건너뛸 수 있습니다. 쿼리는 스토리지에서 분석 엔진으로 보낼 데이터의 범위를 좁힐 수 있으므로 훨씬 더 효율적입니다. 또한 유사한 데이터 형식(열의 경우)이 함께 저장되기 때문에 Parquet는 데이터 스토리지 비용을 낮출 수 있는 효율적인 데이터 압축 및 인코딩 체계를 지원합니다. [Azure Synapse Analytics,](../../synapse-analytics/overview-what-is.md) [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) 및 [Azure Data Factory](../../data-factory/introduction.md) 같은 서비스에는 Parquet 파일 형식을 활용하는 네이티브 기능이 있습니다.
+Apache Parquet은 읽기가 많은 분석 파이프라인에 최적화된 오픈 소스 파일 형식입니다. Parquet의 열형 스토리지 구조를 사용하면 관련 없는 데이터를 건너뛸 수 있습니다. 쿼리는 스토리지에서 분석 엔진으로 보낼 데이터의 범위를 좁힐 수 있으므로 훨씬 더 효율적입니다. 또한 유사한 데이터 형식(열의 경우)이 함께 저장되므로 Parquet은 데이터 스토리지 비용을 낮출 수 있는 효율적인 데이터 압축 및 인코딩 체계를 지원합니다. [Azure Synapse Analytics,](../../synapse-analytics/overview-what-is.md) [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) 및 [Azure Data Factory](../../data-factory/introduction.md) 같은 서비스에는 Parquet 파일 형식을 활용하는 네이티브 기능이 있습니다.
 
 ### <a name="file-size"></a>파일 크기
 
@@ -98,9 +98,9 @@ Apache Parquet은 읽기가 많은 분석 파이프라인에 최적화된 오픈
 
 일반적으로 HDInsight와 같은 분석 엔진에는 나열, 액세스 확인 및 다양한 메타데이터 작업 수행과 같은 작업이 포함된 파일당 오버헤드가 있습니다. 데이터를 많은 작은 파일로 저장하는 경우 성능이 저하될 수 있습니다. 일반적으로 성능 향상을 위해 데이터를 더 큰 크기의 파일로 구성합니다(256MB~100GB 크기). 일부 엔진 및 애플리케이션은 크기가 100GB보다 큰 파일을 효율적으로 처리하는 데 문제가 있을 수 있습니다. 
 
-파일 크기를 늘리면 트랜잭션 비용도 줄일 수 있습니다. 읽기 및 쓰기 작업은 4MB 증분으로 청구되므로 파일에 4MB 또는 몇 킬로바이트만 포함되는지 여부에 관계없이 작업에 대한 요금이 청구됩니다. 가격 책정 정보는 [Azure Data Lake Storage 가격 책정을 참조하세요.](https://azure.microsoft.com/pricing/details/storage/data-lake/)
+파일 크기를 늘리면 트랜잭션 비용도 절감할 수 있습니다. 읽기 및 쓰기 작업은 4MB 증분으로 청구되므로 파일에 4MB 또는 몇 킬로바이트만 포함되는지 여부에 관계없이 작업에 대한 요금이 청구됩니다. 가격 책정 정보는 [Azure Data Lake Storage 가격 책정을 참조하세요.](https://azure.microsoft.com/pricing/details/storage/data-lake/)
 
-때때로 작은 파일들이 많은 원시 데이터에 대해 데이터 파이프라인의 제어가 제한될 수 있습니다. 일반적으로 시스템에는 다운스트림 응용 프로그램에서 사용하기 위해 작은 파일을 더 큰 파일로 집계하는 일종의 프로세스를 갖추는 것이 좋습니다. 실시간으로 데이터를 처리하는 경우 실시간 스트리밍 엔진(예: [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) 또는 Spark 스트리밍)을 [](https://databricks.com/glossary/what-is-spark-streaming)메시지 브로커(예: [Event Hub](../../event-hubs/event-hubs-about.md) 또는 [Apache Kafka)와](https://kafka.apache.org/)함께 사용하여 데이터를 더 큰 파일로 저장할 수 있습니다. 작은 파일을 더 큰 파일로 집계할 때 다운스트림 처리를 위해 [Apache Parquet과](https://parquet.apache.org/) 같은 읽기 최적화 형식으로 저장하는 것이 좋습니다. 
+때때로 작은 파일들이 많은 원시 데이터에 대해 데이터 파이프라인의 제어가 제한될 수 있습니다. 일반적으로 시스템에는 다운스트림 응용 프로그램에서 사용하기 위해 작은 파일을 더 큰 파일로 집계하는 일종의 프로세스를 갖추는 것이 좋습니다. 실시간으로 데이터를 처리하는 경우 실시간 스트리밍 엔진(예: [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) 또는 [Spark 스트리밍)을](https://databricks.com/glossary/what-is-spark-streaming)메시지 브로커(예: Event [Hub](../../event-hubs/event-hubs-about.md) 또는 [Apache Kafka)와](https://kafka.apache.org/)함께 사용하여 데이터를 더 큰 파일로 저장할 수 있습니다. 작은 파일을 더 큰 파일로 집계할 때 다운스트림 처리를 위해 [Apache Parquet과](https://parquet.apache.org/) 같은 읽기 최적화 형식으로 저장하는 것이 좋습니다. 
 
 ### <a name="directory-structure"></a>디렉터리 구조
 
@@ -199,7 +199,7 @@ Splunk 같은 다른 쿼리 엔진을 통해 로그에 액세스 하려는 경�
 Azure Portal, PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 통해 Azure Monitor의 Azure Storage 로그를 사용 하도록 설정할 수 있습니다. 규모에 맞는 배포의 경우 수정 작업을 완벽 하 게 지 원하는 Azure Policy를 사용할 수 있습니다. 자세한 내용은 [Azure/Community 정책](https://github.com/Azure/Community-Policy/tree/master/Policies/Storage/deploy-storage-monitoring-log-analytics) 및 [ciphertxt/AzureStoragePolicy](https://github.com/ciphertxt/AzureStoragePolicy)를 참조 하세요.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)
 - [Data Lake에 대 한 hitchhiker 가이드](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)

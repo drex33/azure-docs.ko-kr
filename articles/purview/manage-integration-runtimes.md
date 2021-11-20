@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 10/22/2021
-ms.openlocfilehash: 10e893886d98fc5ea6d79bf8092cc5b0d948d84a
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 23138638a607b4e00f587f085efc33bb74cbc4e8
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132309721"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869614"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -158,6 +158,8 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 옵션을 선택하는 �
 | `*.frontend.clouddatahub.net` | 443            | 글로벌 인프라 Purview는 이를 사용하여 해당 검사를 실행합니다. 전용 리소스가 없기 때문에 와일드카드가 필요합니다. |
 | `<managed Purview storage account>.core.windows.net`          | 443            | 자체 호스팅 통합 런타임에서 관리형 Azure 스토리지 계정에 연결하는 데 사용됩니다.|
 | `<managed Purview storage account>.queue.core.windows.net` | 443            | purview에서 검사 프로세스를 실행하는 데 사용하는 큐입니다. |
+| `*.login.windows.net`          | 443            | Azure Active Directory 로그인합니다.|
+| `*.login.microsoftonline.com` | 443            | Azure Active Directory 로그인합니다. |
 | `download.microsoft.com` | 443           | SHIR 업데이트의 경우 선택 사항입니다. |
 
 원본에 따라 다른 Azure 또는 외부 원본의 도메인을 허용해야 할 수도 있습니다. 아래에는 몇 가지 예와 Key Vault에 저장된 자격 증명에 연결하는 경우 Azure Key Vault 도메인도 나와 있습니다.

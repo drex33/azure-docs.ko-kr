@@ -2,57 +2,59 @@
 title: Azure 대시보드를 프로그래밍 방식으로 만들기
 description: Azure Portal에서 대시보드를 템플릿으로 사용하여 프로그래밍 방식으로 Azure 대시보드를 만듭니다. JSON 참조를 포함합니다.
 ms.topic: how-to
-ms.date: 10/19/2021
-ms.openlocfilehash: 15d94cf5efc857adf9bbc0cf98c9e3d34e5bda7d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/18/2021
+ms.openlocfilehash: 2f686e2babdad7005fad175c906d6c3df482d8d8
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239830"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869997"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
-이 문서에서는 Azure 대시보드를 프로그래밍 방식으로 만들고 게시하는 과정을 안내합니다. 아래에 표시된 샘플 대시보드는 문서 전체에서 참조됩니다.
+이 문서에서는 Azure 대시보드를 프로그래밍 방식으로 만들고 게시하는 과정을 안내합니다. 아래에 표시 된 샘플 대시보드는 문서 전체에서 참조 됩니다.
 
-:::image type="content" source="media/azure-portal-dashboards-create-programmatically/sample-dashboard.png" alt-text="Azure Portal 샘플 대시보드의 스크린샷.":::
+:::image type="content" source="media/azure-portal-dashboards-create-programmatically/sample-dashboard.png" alt-text="Azure Portal의 샘플 대시보드 스크린샷":::
 
 ## <a name="overview"></a>개요
 
-[Azure Portal](https://portal.azure.com) 공유 대시보드는 가상 머신 및 스토리지 계정과 같은 [리소스입니다.](../azure-resource-manager/management/overview.md) [Azure Resource Manager REST API](/rest/api/), [Azure CLI](/cli/azure)및 [Azure PowerShell 명령](/powershell/azure/get-started-azureps)을 사용하여 프로그래밍 방식으로 리소스를 관리할 수 있습니다.
+[Azure Portal](https://portal.azure.com) 의 공유 대시보드는 가상 머신 및 저장소 계정과 같은 [리소스](../azure-resource-manager/management/overview.md)입니다. [Azure Resource Manager REST API](/rest/api/), [Azure CLI](/cli/azure)및 [Azure PowerShell 명령](/powershell/azure/get-started-azureps)을 사용하여 프로그래밍 방식으로 리소스를 관리할 수 있습니다.
 
 API에 빌드한 많은 기능으로 리소스를 보다 쉽게 관리할 수 있습니다. 이러한 각 API 및 도구는 리소스를 만들고 나열하며 검색, 수정 및 삭제하는 방법을 제공합니다. 대시보드는 리소스이므로 선호하는 API 또는 도구를 선택하여 사용할 수 있습니다.
 
 어떤 도구를 사용하든 대시보드를 프로그래밍 방식으로 만들려면 대시보드 개체의 JSON 표시를 생성합니다. 이 개체는 대시보드의 타일에 대한 정보를 포함합니다. 크기, 위치, 바인딩되어 있는 리소스 및 모든 사용자 지정이 포함됩니다.
 
-이 JSON 문서를 생성하는 가장 실용적인 방법은 Azure Portal 사용하여 원하는 타일이 있는 초기 대시보드를 만드는 것입니다. 그런 다음 JSON을 내보내고 결과에서 템플릿을 만들어 스크립트, 프로그램 및 배포 도구에서 추가로 수정하고 사용할 수 있습니다.
+이 JSON 문서를 생성 하는 가장 실용적인 방법은 Azure Portal를 사용 하 여 원하는 타일로 초기 대시보드를 만드는 것입니다. 그런 다음 JSON을 내보내고 스크립트, 프로그램 및 배포 도구에서 추가로 수정 하 고 사용할 수 있는 결과에서 템플릿을 만듭니다.
 
 ## <a name="create-a-dashboard"></a>대시보드 만들기
 
 대시보드를 만들려면 [Azure Portal](https://portal.azure.com) 메뉴에서 **대시보드** 를 선택하고 **새 대시보드** 를 선택합니다.
 
-자세한 지침은 Azure Portal [대시보드 만들기를](azure-portal-dashboards.md)참조하세요.
+자세한 지침은 [Azure Portal에서 대시보드 만들기](azure-portal-dashboards.md)를 참조 하세요.
 
 ## <a name="share-the-dashboard"></a>대시보드 공유
 
 대시보드를 구성한 후 다음 단계는 **공유** 명령을 사용하여 대시보드를 게시하는 것입니다.
 
-대시보드를 공유하는 경우 게시할 구독 및 리소스 그룹을 선택해야 합니다. 선택한 구독 및 리소스 그룹에 대한 쓰기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+대시보드를 공유 하는 경우 게시할 구독 및 리소스 그룹을 선택 해야 합니다. 선택한 구독 및 리소스 그룹에 대한 쓰기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-자세한 지침은 Azure [역할 기반 액세스 제어를 사용하여 Azure 대시보드 공유를 참조하세요.](azure-portal-dashboard-share-access.md)
+자세한 지침은 [azure 역할 기반 액세스 제어를 사용 하 여 azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조 하세요.
 
 ## <a name="fetch-the-json-representation-of-the-dashboard"></a>대시보드의 JSON 표현 가져오기
 
-대시보드를 공유하는 데 몇 초밖에 걸리지 않습니다. 완료되면 다음 단계는 **다운로드** 명령을 사용하여 JSON을 내보내는 것입니다.
+대시보드를 공유 하는 데 몇 초 밖에 걸리지 않습니다. 완료 되 면 다음 단계는 **다운로드** 명령을 사용 하 여 JSON을 내보내는 것입니다.
 
-:::image type="content" source="media/azure-portal-dashboards-create-programmatically/download-command.png" alt-text="Azure Portal 템플릿의 JSON 표현을 내보내는 명령의 스크린샷.":::
+:::image type="content" source="media/azure-portal-dashboards-create-programmatically/download-command.png" alt-text="Azure Portal에 있는 템플릿의 JSON 표현을 내보내는 명령의 스크린샷":::
+
+[REST api](/rest/api/resources/Resources/Get) 또는 다른 방법을 사용 하 여 프로그래밍 방식으로 대시보드 리소스에 대 한 정보를 검색할 수도 있습니다.
 
 ## <a name="create-a-template-from-the-json"></a>JSON에서 템플릿 만들기
 
-다음 단계는 이 JSON에서 템플릿을 만드는 것입니다. 적절한 리소스 관리 API, 명령줄 도구 또는 포털 내에서 프로그래밍 방식으로 템플릿을 사용할 수 있습니다.
+다음 단계는 이 JSON에서 템플릿을 만드는 것입니다. 적절 한 리소스 관리 Api, 명령줄 도구 또는 포털 내에서 프로그래밍 방식으로 템플릿을 사용할 수 있습니다.
 
 템플릿을 만들기 위해 대시보드 JSON 구조를 완전히 이해할 필요는 없습니다. 대부분의 경우 각 타일의 구조와 구성을 보존하려고 합니다. 그다음 타일이 가리키는 Azure 리소스 집합을 매개 변수화합니다.
 
-내보낸 JSON 대시보드를 살펴보고 Azure 리소스 ID의 모든 항목을 찾습니다. 예제 대시보드는 모두 단일 Azure 가상 컴퓨터를 가리키는 여러 개의 타일을 포함하고 있습니다. 이는 대시보드가 이 단일 리소스만 살펴보기 때문입니다. 문서의 끝에 포함된 샘플 JSON에서 "/subscriptions"를 검색하는 경우 이 ID가 여러 번 발생합니다.
+내보낸 JSON 대시보드를 살펴보고 Azure 리소스 ID의 모든 항목을 찾습니다. 예제 대시보드는 모두 단일 Azure 가상 컴퓨터를 가리키는 여러 개의 타일을 포함하고 있습니다. 이는 대시보드가 이 단일 리소스만 살펴보기 때문입니다. 문서 끝에 포함 된 샘플 JSON을 검색 하는 경우 "/구독"에 대해이 ID의 여러 항목을 찾을 수 있습니다.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
@@ -117,7 +119,7 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 
 ### <a name="json-representation-of-our-example-dashboard"></a>예제 대시보드의 JSON 표현
 
-이 예제는 이 문서를 따라하면 표시되는 것과 비슷합니다. 지침에서는 이미 배포된 대시보드의 JSON 표현을 내보냈습니다. 하드 코드된 리소스 식별자는 이 대시보드가 특정 Azure 가상 머신을 가리키고 있음을 나타냅니다.
+이 예제는이 문서와 함께 이어지는 경우 표시 되는 것과 비슷합니다. 지침에서는 이미 배포된 대시보드의 JSON 표현을 내보냈습니다. 하드 코드된 리소스 식별자는 이 대시보드가 특정 Azure 가상 머신을 가리키고 있음을 나타냅니다.
 
 ```json
 
@@ -361,7 +363,7 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
     "id": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/dashboards/providers/Microsoft.Portal/dashboards/aa9786ae-e159-483f-b05f-1f7f767741a9",
     "name": "aa9786ae-e159-483f-b05f-1f7f767741a9",
     "type": "Microsoft.Portal/dashboards",
-    "location": "eastasia",
+    "location": "westus",
     "tags": {
         "hidden-title": "Created via API"
     }
@@ -373,7 +375,7 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 
 대시보드의 템플릿 버전에서 `virtualMachineName`, `virtualMachineResourceGroup` 및 `dashboardName`라는 세 개의 매개 변수를 정의했습니다.  매개 변수를 사용하면 배포할 때마다 다른 Azure 가상 컴퓨터에서 이 대시보드를 가리키도록 할 수 있습니다. 이 대시보드는 Azure 가상 머신을 가리키도록 프로그래밍 방식으로 구성 및 배포될 수 있습니다. 이 기능을 테스트하는 방법은 다음 템플릿을 복사하여 [Azure Portal의 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)에 붙여넣는 것입니다.
 
-이 예제에서는 대시보드를 단독으로 배포하지만 템플릿 언어를 사용하면 여러 리소스를 배포하고 하나 이상의 대시보드를 함께 묶을 수 있습니다.
+이 예제에서는 대시보드 자체를 배포 하지만 템플릿 언어를 사용 하 여 여러 리소스를 배포 하 고 하나 이상의 대시보드를 함께 묶을 수 있습니다.
 
 ```json
 {
@@ -649,9 +651,9 @@ Azure CLI에 대한 환경을 준비합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- 이 예제에서는 [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json)이라는 대시보드를 사용합니다. 각진 대괄호 안에 있는 모든 콘텐츠를 값으로 바꿔야 합니다.
+- 이 예제에서는 [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json)이라는 대시보드를 사용합니다. 꺾쇠 괄호 안의 모든 콘텐츠를 값으로 바꾸어야 합니다.
 
-[az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) 명령을 실행하여 템플릿을 기반으로 대시보드를 만듭니다.
+[Az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) 명령을 실행 하 여 템플릿을 기반으로 대시보드를 만듭니다.
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -685,6 +687,6 @@ az portal dashboard list --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 대시보드에서 Markdown 타일을 사용하여 사용자 지정 콘텐츠를 표시하는](azure-portal-markdown-tile.md)방법을 알아봅니다.
-- 대시보드에 대한 모든 Azure CLI 명령을 탐색하고 [az portal dashboard를 참조하세요.](/cli/azure/portal/dashboard)
-- Azure Portal 설정 및 기본 설정을 관리하는 방법을 [알아봅니다.](set-preferences.md)
+- [Azure 대시보드에서 markdown 타일을 사용 하 여 사용자 지정 콘텐츠를 표시](azure-portal-markdown-tile.md)하는 방법을 알아봅니다.
+- 대시보드에 대 한 모든 Azure CLI 명령 살펴보기, [az portal dashboard](/cli/azure/portal/dashboard)를 참조 하세요.
+- [Azure Portal 설정 및 기본 설정을 관리](set-preferences.md)하는 방법을 알아봅니다.

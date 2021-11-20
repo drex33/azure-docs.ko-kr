@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 359b86861326cc2d0f375c95db54142c6da2fd12
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5bc6498939747a3c99b491f4940aa6ec9bfea5a8
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130243869"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868289"
 ---
 # <a name="updating-ml-studio-classic-models-using-update-resource-activity"></a>리소스 작업 업데이트를 사용하여 ML Studio(클래식) 모델 업데이트
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 

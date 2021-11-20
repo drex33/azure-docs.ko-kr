@@ -134,7 +134,7 @@
         - name: 서버 SDK - Python
           href: reference-server-sdk-python.md
     - name: REST API
-      href: /rest/api/webpubsub
+      href: /rest/api/webpubsub/
 - name: 리소스
   items:
     - name: 샘플

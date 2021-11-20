@@ -6,12 +6,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: b605d63db09b81bfe73eca8f4abd7a38d2325004
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 477159e0ce2c5cafc270b095cfd51d7219363c38
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86056024"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132862604"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>PowerShell을 사용하여 관리되는 애플리케이션 정의 만들기
 
@@ -20,8 +20,6 @@ ms.locfileid: "86056024"
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
-
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../../powershell_scripts/managed-applications/create-definition/create-definition.ps1 "Create definition")]
 

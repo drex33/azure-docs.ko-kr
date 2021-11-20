@@ -4,18 +4,16 @@ description: Azure Resource Manager를 사용하여 리소스를 배포할 때 �
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df789ba83efe5d8a20d6c925b40adfb209f65dd4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 87e36a6a68ffbdc85e6ad0d8ef621f2180435206
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053629"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132864246"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>리소스 할당량 오류 해결
 
 이 문서에서는 리소스를 배포할 때 발생할 수 있는 할당량 오류에 대해 설명합니다.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>증상
 

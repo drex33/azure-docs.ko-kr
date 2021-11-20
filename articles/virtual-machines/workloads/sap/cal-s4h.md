@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/26/2021
 ms.author: hobruche
-ms.openlocfilehash: 0fff7d57e8a7dfa312b16accd15ef5990cdedf15
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 91ab1cd4be2b664b91c6e3d98e0b35f775a1e2b1
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853627"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871626"
 ---
 # <a name="sap-cloud-appliance-library"></a>SAP 클라우드 어플라이언스 라이브러리
 
@@ -33,14 +33,14 @@ S-User 또는 P-User로 인증해야 합니다. [SAP 커뮤니티](https://commu
 | -------------- | :--------- | 
 | **SAP S/4HANA 2020 FPS02, Fully-Activated 어플라이언스**  7 월 27 2021 | [인스턴스 만들기](https://cal.sap.com/registration?sguid=d48af08b-e2c6-4409-82f8-e42d5610e918&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |이 어플라이언스에는 SAP S/4HANA 핵심 함수에 대해 사전 활성화된 SAP 모범 사례를 사용하는 SAP S/4HANA 2020(FPS02)과 Service, MDG(Master Data Governance), TM(Transportation Mgmt.), PPM(Portfolio Mgmt.), HCM(Human Capital Management), Analytics, Migration Cockpit에 대한 추가 시나리오가 포함되어 있습니다. 사용자 액세스는 SAP Fiori, SAP GUI, SAP HANA Studio, Windows 원격 데스크톱 또는 전체 관리 액세스를 위한 백 엔드 운영 체제를 통해 발생합니다. |  [세부 정보]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/d48af08b-e2c6-4409-82f8-e42d5610e918) |
-| **SAP S/4HANA 2020 FPS01, 전체 활성화 어플라이언스**  2021년 4월 20일 | [인스턴스 만들기](https://cal.sap.com/registration?sguid=a0b63a18-0fd3-4d88-bbb9-4f02c13dc343&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|이 어플라이언스에는 SAP S/4HANA 핵심 함수에 대해 사전 활성화된 SAP 모범 사례를 사용하는 SAP S/4HANA 2020(FPS01)과 Service, MDG(Master Data Governance), TM(Transportation Mgmt.), PPM(Portfolio Mgmt.), HCM(Human Capital Management), Analytics, Migration Cockpit에 대한 추가 시나리오가 포함되어 있습니다. 사용자 액세스는 SAP Fiori, SAP GUI, SAP HANA Studio, Windows 원격 데스크톱 또는 전체 관리 액세스를 위한 백 엔드 운영 체제를 통해 발생합니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/a0b63a18-0fd3-4d88-bbb9-4f02c13dc343) | 
+| **SAP S/4HANA 2020 fps01 users, Fully-Activated 어플라이언스** 4 월 20 2021  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=a0b63a18-0fd3-4d88-bbb9-4f02c13dc343&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|이 어플라이언스에는 SAP S/4HANA 핵심 함수에 대해 사전 활성화된 SAP 모범 사례를 사용하는 SAP S/4HANA 2020(FPS01)과 Service, MDG(Master Data Governance), TM(Transportation Mgmt.), PPM(Portfolio Mgmt.), HCM(Human Capital Management), Analytics, Migration Cockpit에 대한 추가 시나리오가 포함되어 있습니다. 사용자 액세스는 SAP Fiori, SAP GUI, SAP HANA Studio, Windows 원격 데스크톱 또는 전체 관리 액세스를 위한 백 엔드 운영 체제를 통해 발생합니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/a0b63a18-0fd3-4d88-bbb9-4f02c13dc343) |
 | **SAP S/4HANA 2020 FPS02**  2021년 6월 10일 | [인스턴스 만들기](https://cal.sap.com/registration?sguid=c7cff775-cbf7-4cd1-a907-6eeca95a0946&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 | 이 솔루션은 간편한 프런트 엔드 액세스를 위한 원격 데스크톱을 포함하여 표준 S/4HANA 시스템 설치로 제공됩니다. 클라이언트 100에 사전 구성 및 활성화된 SAP S/4HANA Fiori UI가 포함되어 있으며, SAP S/4HANA 2020 FPS02에 SAP Fiori에 대한 SAP Note 3045635 Rapid Activation에 따라 필수 구성 요소가 활성화되어 있습니다. 추가 정보 링크를 참조하세요. | [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/c7cff775-cbf7-4cd1-a907-6eeca95a0946) | 
 | **SAP ASE의 SAP ERP 6.0에 대 한 IDE EHP8, June 2021** 6 월 10 2021  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=ed55a454-0b10-47c5-8644-475ecb8988a0&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |IDE 시스템은 SAP 내부 데모 시스템의 복사본으로, 사용자 지정 및 테스트를 위한 방법으로 사용 됩니다. SAP S/4HANA Fully-Activated 어플라이언스 (2020 FPS01 USERS 이상)의 데이터 마이그레이션 시나리오에서 특히이 IDE 시스템을 원본 시스템으로 사용할 수 있습니다. 그 외에도 미리 정의 된 마스터 및 트랜잭션 데이터를 기반으로 하는 표준 비즈니스 시나리오를 포함 합니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/ed55a454-0b10-47c5-8644-475ecb8988a0) |
-| **SAP BW/4HANA 2.0 SP07, BW/4HANA Content 2.0 SP06 포함**   2020년 2월 24일 | [인스턴스 만들기](https://cal.sap.com/registration?sguid=0f2f20f4-d012-4f76-81af-6ff15063db66&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|이 솔루션은 SAP BW/4HANA에 대한 인사이트를 제공합니다. SAP BW/4HANA는 HANA에 최적화된 차세대 Data Warehouse입니다. 기본 BW/4HANA 옵션 외에도 솔루션은 다양한 HANA 최적화 BW/4HANA 콘텐츠와 SAP Data Warehouse Cloud를 통해 하이브리드 시나리오의 다음 단계를 제공합니다. 시스템이 사전 구성되면 시나리오의 직접 구현을 시작할 수 있습니다.| [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/0f2f20f4-d012-4f76-81af-6ff15063db66) | 
+| **SAP BW/4hana 2.0 SP07 (BW/4Hana 콘텐츠 2.0 SP06 포함** ) 2 월 24 2021  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=0f2f20f4-d012-4f76-81af-6ff15063db66&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|이 솔루션은 SAP BW/4HANA에 대한 인사이트를 제공합니다. SAP BW/4HANA는 HANA에 최적화된 차세대 Data Warehouse입니다. 기본 BW/4HANA 옵션 외에도 솔루션은 다양한 HANA 최적화 BW/4HANA 콘텐츠와 SAP Data Warehouse Cloud를 통해 하이브리드 시나리오의 다음 단계를 제공합니다. 시스템이 사전 구성되면 시나리오의 직접 구현을 시작할 수 있습니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/0f2f20f4-d012-4f76-81af-6ff15063db66) |
 | **SAP Business One 10.0 PL02, 버전 SAP HANA** 8 월 04 2020  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=371edc8c-56c6-4d21-acb4-2d734722c712&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |170 + 국가에서 7만 중소 중소기업에서 신뢰 하는 SAP Business One은 SAP HANA 기능을 갖춘 유연 하 고 경제적 이며 확장 가능한 ERP 솔루션입니다. 이 솔루션은 31 일 평가판 라이선스를 사용 하 여 미리 구성 되며 선택한 데모 데이터베이스가 미리 설치 되어 있습니다. 솔루션의 범위 및 새 데모 데이터베이스를 쉽게 추가 하는 방법에 대 한 자세한 내용은 시작 가이드를 참조 하세요. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/371edc8c-56c6-4d21-acb4-2d734722c712) |
 | **SAP 데이터 보유자 v2106에 대 한 정보 탐지기** 8 월 30 2021  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=db44680c-8a2a-405d-8963-838db38fa7dd&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
@@ -59,12 +59,16 @@ S-User 또는 P-User로 인증해야 합니다. [SAP 커뮤니티](https://commu
 |SAP HANA의 sap ABAP 플랫폼은 SAP HANA에서 sap ABAP platform 1909 Developer Edition에 대 한 액세스를 제공 합니다. 이 솔루션은 sap ABAP RESTful 응용 프로그램 프로그래밍 모델, sap Fiori 실행 패드, sap gcts, sap ABAP 테스트 환경 및 미리 구성 된 프런트 엔드/백 엔드 연결을 비롯 한 다양 한 추가 요소로 미리 구성 되어 있습니다. 또한 모든 표준 ABAP를 인프라로 포함 합니다. 트랜잭션 관리, 데이터베이스 작업/지 속성, 변경 및 전송 시스템, SAP 게이트웨이, 상호 운용성 ABAP 개발 Toolkit 및 SAP webide 등 |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/7bd4548f-a95b-4ee9-910a-08c74b4f6c37) |
 | **1: SAP ERP 원본 시스템 (openSAP)**  9 월 17 2021 | [인스턴스 만들기](https://cal.sap.com/registration?sguid=1a3556c0-0ee1-4a4c-8a5a-db08173df293&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |해결 방법 1-SAP ERP에서 SAP S/4HANA 초기 상태로 시스템 변환을 수행 합니다. Sap EHP6 for SAP ERP 6.0 SPS13에서 SAP S/4HANA 2020 FPS00로 변환할 수 있도록 테스트 되 고 준비 되었습니다. |  [세부 정보]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/1a3556c0-0ee1-4a4c-8a5a-db08173df293) |
-| **2: 소프트웨어 업데이트 관리자 (openSAP)를 실행 하기 전에 준비 단계 후 SAP ERP 원본 시스템**  10 월 17 2021 | [인스턴스 만들기](https://cal.sap.com/registration?sguid=5eb92a4d-a704-48b8-b060-0647c63b667c&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|해결 방법 2-소프트웨어 업데이트 관리자를 실행 하기 전에 준비 단계 후 SAP ERP에서 SAP S/4HANA로 시스템 변환을 수행 합니다. Sap EHP6 for SAP ERP 6.0 SPS13에서 SAP S/4HANA 2020 FPS00로 변환할 수 있도록 테스트 되 고 준비 되었습니다. |  [세부 정보]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/5eb92a4d-a704-48b8-b060-0647c63b667c) |
+| **2: 소프트웨어 업데이트 관리자 (openSAP)를 실행 하기 전에 준비 단계 후 SAP ERP 원본 시스템** 10 월 04 2021  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=5eb92a4d-a704-48b8-b060-0647c63b667c&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|해결 방법 2-소프트웨어 업데이트 관리자를 실행 하기 전에 준비 단계 후 SAP ERP에서 SAP S/4HANA로 시스템 변환을 수행 합니다. Sap EHP6 for SAP ERP 6.0 SPS13에서 SAP S/4HANA 2020 FPS00로 변환할 수 있도록 테스트 되 고 준비 되었습니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/5eb92a4d-a704-48b8-b060-0647c63b667c) |
 | **3.9 월 22 2021 추가 구성 전에 기술 변환 후의 SAP S/4HANA 대상 시스템**  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=4336a3fb-2fc9-4a93-9500-c65101ffc9d7&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |해결 방법 3-추가 구성 전에 SAP ERP에서 SAP S/4HANA로의 기술 시스템 변환을 수행한 후 Sap EHP6 for SAP ERP 6.0 SPS13에서 SAP S/4HANA 2020 FPS00로 변환 되어 테스트 되 고 준비 되었습니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/4336a3fb-2fc9-4a93-9500-c65101ffc9d7) |
 | **4: 추가 구성 (openSAP)을 포함 하는 SAP S/4HANA 대상 시스템**  10 월 17 2021 | [인스턴스 만들기](https://cal.sap.com/registration?sguid=f48f2b77-389f-488b-be2b-1c14a86b2e69&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|해결 방법 4. 추가 구성을 포함 하 여 SAP ERP에서 SAP S/4HANA로의 기술 시스템 변환을 수행한 후 Sap EHP6 for SAP ERP 6.0 SPS13에서 SAP S/4HANA 2020 FPS00로 변환 되어 테스트 되 고 준비 되었습니다. |  [세부 정보]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/f48f2b77-389f-488b-be2b-1c14a86b2e69) |
+|추가 구성을 포함하여 SAP ERP에서 SAP S/4HANA로 기술 시스템 변환을 수행한 후 솔루션 4. SAP ERP 6.0 SPS13용 SAP EHP6에서 SAP S/4HANA 2020 FPS00으로 변환된 것으로 테스트 및 준비되었습니다. |  [세부 정보]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/f48f2b77-389f-488b-be2b-1c14a86b2e69) |
+| **SAP S/4HANA를 & SAP Solution Manager 7.2 SP13에 집중된 솔루션 SP08(데모 시스템)** 2021년 11월 16일  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=769336fe-cb15-44dc-926c-e3f851adab32&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|SAP Solution Manager 7.2는 네 가지 주요 가치 체인이 있는 "IT 비즈니스"를 지원합니다. P2P(Project 포트폴리오)를 통해 프로젝트 포트폴리오를 구동하고 IT 용량, 기술 및 타임라인에 대한 비즈니스 이니셔티브와 비즈니스 가치의 균형을 유지합니다. 비즈니스에 필요한 사항을 빌드하기 위한 R2D(배포 요구 사항) 서비스 카탈로그, 요청 및 처리에 대한 R2F(Fulfill 요청) D2C(수정할 수 있도록 검색)하여 프로덕션 문제를 예측하고 해결합니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/769336fe-cb15-44dc-926c-e3f851adab32) |
+| **SAP S/4HANA 2020 FPS02 2021년** 11월 15일을 위한 Enterprise 관리 계층  | [인스턴스 만들기](https://cal.sap.com/registration?sguid=0f85835e-b3d5-4b75-b65e-4d89ed0da409&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|SAP S/4HANA 2020의 엔터프라이즈 관리 계층은 43개 국가를 포괄하는 사전 활성화된 SAP 모범 사례 온-프레미스 국가 버전을 기반으로 즉시 실행되고 미리 구성된 지역화된 핵심 템플릿을 제공합니다. CAL 솔루션을 사용하여 이 제품에 익숙해질 수 있습니다. |  [세부 정보](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/0f85835e-b3d5-4b75-b65e-4d89ed0da409) |
  
 
 

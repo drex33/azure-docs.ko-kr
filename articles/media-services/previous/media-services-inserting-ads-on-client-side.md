@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4ed0f075aad09b77a0c50682bad92522f4e5472
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: 238e2f06d4e9120ba5871ea2a4103ac4b579cd37
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280278"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871246"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 
@@ -370,7 +370,7 @@ VPAID는 실행 가능한 광고 단위가 비디오 플레이어와 통신하�
 실행 가능한 광고는 VAST 응답의 `<Linear>` 또는 `<NonLinear>` 요소 내에서 `<AdParameters>` 요소를 사용하여 초기화할 수 있습니다. `<AdParameters>` 요소에 대한 자세한 내용은 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요. VPAID API에 대한 자세한 내용은 [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)(영문)을 참조하세요.
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>광고 지원이 포함된 Windows 또는 Windows Phone 8 플레이어 구현
-Microsoft Media Platform: Windows 8 및 Windows Phone 8용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Windows 8 및 Windows Phone 8용 플레이어 프레임워크](https://playerframework.codeplex.com)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다.
+Microsoft Media Platform: Windows 8 및 Windows Phone 8용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Windows 8 및 Windows Phone 8용 플레이어 프레임워크](https://developerpublish.com/player-framework-for-windows-8-preview-6-released/)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다.
 
 Microsoft.PlayerFramework.Xaml.Samples 솔루션을 열면 프로젝트 내에 많은 폴더가 표시됩니다. Advertising 폴더에는 광고 지원이 있는 비디오 플레이어를 만드는 방법과 관련된 샘플 코드가 들어 있습니다. Advertising 폴더 내에는 각각 광고를 다르게 삽입하는 방법을 보여 주는 다양한 XAML/cs 파일이 있습니다. 다음 목록은 각각에 대해 설명합니다.
 
@@ -409,7 +409,6 @@ Microsoft.PlayerFramework.Xaml.Samples 솔루션을 열면 프로젝트 내에 �
     </mmppf:MediaPlayer>
 ```
 
-AdSchedulerPlugin에 대한 자세한 내용은 [Windows 8 및 Windows Phone 8의 플레이어 프레임워크에서 광고](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
 이 샘플에서도 AdSchedulerPlugin을 사용합니다. 세 가지 광고인 재생 전 광고, 재생 중 광고 및 재생 후 광고를 예약합니다. 각 광고의 VAST 파일에 대한 URI는 `<RemoteAdSource>` 요소에서 지정됩니다.

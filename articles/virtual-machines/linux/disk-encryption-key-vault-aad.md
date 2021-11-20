@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: aa17a556696d3152c3710b94a925816edde60b28
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: bef7e0f06a89f8545605916b39749bf5615bb813
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694950"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863642"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Linux VM용 Azure AD(이전 릴리스)를 사용하여 Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
 
@@ -119,7 +119,7 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 1. 새 서비스 주체를 만듭니다.
 
      ```azurecli-interactive
-     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --skip-assignment
+     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret"
      ```
 3.  반환된 appId는 다른 명령에 사용되는 Azure AD ClientID이며, az keyvault set-policy에 사용할 SPN이기도 합니다. 암호는 나중에 Azure Disk Encryption을 사용하도록 설정하는 데 사용해야 하는 클라이언트 비밀입니다. Azure AD 클라이언트 비밀을 적절하게 보호합니다.
 

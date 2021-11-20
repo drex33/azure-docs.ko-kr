@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: c2b8dd4a40205178b3656477e89189d6f0f0bfeb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5ef0e56dd353d1c307537eadc5be87672956b060
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635530"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132864134"
 ---
 # <a name="quickstart-authenticate-using-azure-active-directory-azure-cli"></a>빠른 시작: Azure Active Directory(Azure CLI)를 사용하여 인증
 
@@ -52,7 +52,7 @@ Azure CLI에서 등록된 애플리케이션을 만들려면 작업을 수행하
 다음 예에서는 Azure CLI를 사용하여 새 등록된 애플리케이션을 만듭니다.
 
 ```azurecli
-az ad sp create-for-rbac --name <application-name> 
+az ad sp create-for-rbac --name <application-name> --role Contributor
 ```
 
 `az ad sp create-for-rbac` 명령은 JSON 형식으로 서비스 주체 속성 목록을 반환합니다. 해당 값을 복사하면 다음 단계에 필요한 환경 변수를 만드는 데 사용할 수 있습니다.

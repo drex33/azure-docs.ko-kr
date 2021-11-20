@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 86f1d8923eea961471883c44168c4fa848ac12d1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: d0cae917bfde1cf0e6a54309f32a815b42b67a8f
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769286"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132862704"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "107769286"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 ‘고급’ 네트워킹(Azure CNI)을 사용하여 만든 AKS 클러스터에서만 작동합니다. 기본적으로 AKS 클러스터는 ‘기본’ 네트워킹(kubenet)을 사용하여 생성됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 고급 네트워킹(Azure CNI)을 사용하여 만든 AKS 클러스터에서만 작동합니다. 기본적으로 AKS 클러스터는 기본 네트워킹(kubenet)을 사용하여 생성됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
 > AKS에서 가상 노드를 사용하기 전에 [AKS 가상 노드의 제한 사항][virtual-nodes-aks] 및 [ACI의 가상 네트워킹 제한 사항][virtual-nodes-networking-aci]을 둘 다 검토합니다. 이 제한 사항은 AKS 클러스터 및 가상 노드의 위치, 네트워킹 구성 및 기타 구성 세부 정보에 영향을 줍니다.
@@ -88,10 +88,10 @@ az network vnet subnet create \
 
 AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 클러스터 ID가 사용됩니다. Azure CLI 또는 Azure Portal에서 이 클러스터 ID를 자동으로 만들 수도 있고 추가 권한을 미리 만들고 할당할 수도 있습니다. 기본적으로 이 클러스터 ID는 관리 ID입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 ID로 사용할 수 있습니다. 다음 단계에서는 서비스 주체를 수동으로 만들고 클러스터에 할당하는 방법을 보여 줍니다.
 
-[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
+[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac
 ```
 
 다음 예제와 유사하게 출력됩니다.

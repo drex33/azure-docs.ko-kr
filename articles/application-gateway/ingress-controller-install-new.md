@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9148bbf83a8fadc6c71fd995fd4a444e7c6d7db4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5cc3f82abd0b31f22dcf9071ec9a0f56e5f4994b
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130253137"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132862571"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 Application Gateway를 사용하여 AGIC(Application Gateway 수신 컨트롤러)를 설치하는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "130253137"
 
 1. AD 서비스 주체 만들기([Azure RBAC에 대한 자세한 정보](../role-based-access-control/overview.md)):
     ```azurecli
-    az ad sp create-for-rbac --skip-assignment -o json > auth.json
+    az ad sp create-for-rbac -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```

@@ -8,17 +8,18 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 12ea58dbfcf389441758eaa3371c8a3ce9f144c6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1f5842d671b58874ec8f21d05b6d60aac7c65f0b
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223579"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132866363"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 PowerShell 샘플](../samples-powershell.md) 및 [Azure Code Samples 갤러리의 코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-factory)을 참조하세요.
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 ## <a name="samples-on-github"></a>GitHub 샘플
 [GitHub Azure-DataFactory 리포지토리](https://github.com/azure/azure-datafactory) 에는 신속하게 Azure Data Factory 서비스의 규모를 확장하거나 스크립트를 수정하고 자체 애플리케이션에서 사용하는 데 도움이 되는 여러 샘플이 포함되어 있습니다. Samples\JSON 폴더에는 일반적인 시나리오에 대한 JSON 조각이 포함되어 있습니다.

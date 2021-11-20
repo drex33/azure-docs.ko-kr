@@ -28,6 +28,74 @@
           href: tutorial-data-explorer-import.md
         - name: Time Series Insights를 사용하여 데이터 시각화 및 분석
           href: tutorial-visualize-data-time-series-insights.md
+- name: 방법 가이드
+  items:
+    - name: IoT Edge 설치 및 프로비전
+      items:
+        - name: IoT Edge 디바이스 만들기
+          href: ../iot-edge/how-to-create-iot-edge-device.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Linux 호스트의 Linux 컨테이너
+          items:
+            - name: 단일 디바이스 프로비저닝
+              items:
+                - name: X.509 인증서 증명
+                  href: ../iot-edge/how-to-provision-single-device-linux-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: 대칭 키 증명
+                  href: ../iot-edge/how-to-provision-single-device-linux-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: 규모에 맞게 디바이스 프로비전
+              items:
+                - name: X.509 인증서 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: TPM 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: 대칭 키 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Windows 호스트의 Linux 컨테이너
+          items:
+            - name: 단일 디바이스 프로비저닝
+              items:
+                - name: X.509 인증서 증명
+                  href: ../iot-edge/how-to-provision-single-device-linux-on-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: 대칭 키 증명
+                  href: ../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: 규모에 맞게 디바이스 프로비전
+              items:
+                - name: X.509 인증서 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: TPM 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: 대칭 키 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: Windows VM에 대한 중첩된 가상화 구성
+              href: ../iot-edge/nested-virtualization.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: 가상 스위치 만들기
+              href: ../iot-edge/how-to-create-virtual-switch.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: GPU 가속 구성
+              href: ../iot-edge/gpu-acceleration.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Windows 호스트의 Windows 컨테이너
+          items:
+            - name: 단일 디바이스 프로비저닝
+              items:
+                - name: 대칭 키 증명
+                  href: ../iot-edge/how-to-provision-single-device-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: X.509 인증서 증명
+                  href: ../iot-edge/how-to-provision-single-device-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: 규모에 맞게 디바이스 프로비전
+              items:
+                - name: 대칭 키 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: X.509 인증서 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: TPM 증명
+                  href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: IoT Edge 업데이트
+          href: ../iot-edge/how-to-update-iot-edge.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: 디바이스 인증서 관리
+          href: ../iot-edge/how-to-manage-device-certificates.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Kubernetes의 IoT Edge 실행
+          href: ../iot-edge/how-to-install-iot-edge-kubernetes.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: ARM 템플릿을 사용하여 IoT Edge VM 배포
+          href: ../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
 - name: 참조
   items:
     - name: 명령줄 인수

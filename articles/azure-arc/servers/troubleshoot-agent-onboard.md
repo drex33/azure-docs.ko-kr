@@ -3,16 +3,16 @@ title: Azure Arc 지원 서버 에이전트 연결 문제 해결
 description: 이 문서에서는 서비스에 연결할 때 Azure Arc 지원 서버에서 발생하는 Connected Machine 에이전트 관련 문제를 해결하는 방법을 설명합니다.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8547e66ee8915c356b345bceb3cc52bde63713b0
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: 69f1556a9e59b748e4a415d76643bee0f3122e9e
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390170"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871094"
 ---
 # <a name="troubleshoot-azure-arc-enabled-servers-agent-connection-issues"></a>Azure Arc 지원 서버 에이전트 연결 문제 해결
 
-이 문서에서는 Windows 또는 Linux용 Azure Arc 지원 서버 Connected Machine 에이전트를 구성하는 동안 발생할 수 있는 문제를 해결하는 방법에 대한 정보를 제공합니다. 서비스 연결을 구성하는 경우의 대화형 및 대규모 설치 방법이 모두 포함되어 있습니다. 일반적인 내용은 [Arc 지원 서버 개요](./overview.md)를 참조하세요.
+이 문서에서는 Windows 또는 Linux용 Azure Connected Machine 에이전트를 구성하는 동안 발생할 수 있는 문제를 해결하고 해결하는 방법을 제공합니다. 서비스 연결을 구성하는 경우의 대화형 및 대규모 설치 방법이 모두 포함되어 있습니다. 일반 정보는 [Azure Arc 지원 서버 개요를 참조하세요.](./overview.md)
 
 ## <a name="agent-error-codes"></a>에이전트 오류 코드
 
@@ -31,9 +31,9 @@ Azure Arc 지원 서버 에이전트를 구성할 때 오류가 발생하는 경
 | AZCM0017 | 리소스 이름이 잘못되었습니다. | 영숫자, 하이픈 및/또는 밑줄만 사용하는 이름을 지정합니다. 이름은 하이픈 또는 밑줄로 끝날 수 없습니다. |
 | AZCM0018 | 명령이 관리자 권한을 사용하지 않고 실행되었습니다. | 관리자 권한 명령 프롬프트 또는 콘솔 세션에서 관리자 또는 루트 권한으로 명령을 다시 시도합니다. |
 | AZCM0041 | 제공된 자격 증명이 잘못되었습니다. | 디바이스 로그인의 경우 서버 리소스가 만들어질 테넌트 및 구독에 대한 액세스 권한이 지정된 사용자 계정에 있는지 확인합니다. 서비스 주체 로그인의 경우 클라이언트 ID와 비밀이 정확한지 확인하고, 비밀 만료 날짜를 확인하고, 서버 리소스를 만들 동일한 테넌트에서 서비스 주체가 제공되었는지 확인합니다. |
-| AZCM0042 | Arc 지원 서버 리소스를 만들지 못했습니다. | 지정된 리소스 그룹에서 Arc 지원 서버 리소스를 만들 수 있는 액세스 권한이 지정된 사용자/서비스 주체에 있는지 확인합니다. |
-| AZCM0043 | Arc 지원 서버 리소스를 삭제하지 못했습니다. | 지정된 리소스 그룹에서 Arc 지원 서버 리소스를 삭제할 수 있는 액세스 권한이 지정된 사용자/서비스 주체에 있는지 확인합니다. 리소스가 더 이상 Azure에 없으면 `--force-local-only` 플래그를 사용하여 계속 진행합니다. |
-| AZCM0044 | 이름이 같은 리소스가 이미 있습니다. | 다른 이름을 `--resource-name` 매개 변수에 지정하거나 Azure에서 기존 Arc 지원 서버를 삭제하고 다시 시도합니다. |
+| AZCM0042 | Azure Arc 사용 가능한 서버 리소스를 만들 수 없습니다. | 지정된 사용자/서비스 주체가 지정된 리소스 그룹에 Azure Arc 사용 가능한 서버 리소스를 만들 수 있는 액세스 권한이 있는지 확인합니다. |
+| AZCM0043 | Azure Arc 사용 가능한 서버 리소스를 삭제하지 못했습니다. | 지정된 사용자/서비스 주체가 지정된 리소스 그룹에서 Azure Arc 사용 가능한 서버 리소스를 삭제할 수 있는 액세스 권한이 있는지 확인합니다. 리소스가 더 이상 Azure에 없으면 `--force-local-only` 플래그를 사용하여 계속 진행합니다. |
+| AZCM0044 | 이름이 같은 리소스가 이미 있습니다. | 매개 변수에 다른 이름을 `--resource-name` 지정하거나 Azure에서 기존 Azure Arc 지원 서버를 삭제하고 다시 시도합니다. |
 | AZCM0061 | 에이전트 서비스에 연결할 수 없습니다. | 관리자 권한 사용자 컨텍스트(관리자/루트)에서 명령을 실행하고 HIMDS 서비스가 서버에서 실행되는지 확인합니다. |
 | AZCM0062 | 서버를 연결하는 동안 오류가 발생했습니다. | 출력에서 다른 오류 코드를 검토하여 더 구체적인 정보를 확인합니다. Azure 리소스를 만든 후에 오류가 발생한 경우 먼저 리소스 그룹에서 Arc 서버를 삭제한 후에 다시 시도해야 합니다. |
 | AZCM0063 | 서버 연결을 끊는 동안 오류가 발생했습니다. | 출력에서 다른 오류 코드를 검토하여 더 구체적인 정보를 확인합니다. 이 오류가 계속 발생하면 Azure에서 리소스를 삭제한 다음, 서버에서 `azcmagent disconnect --force-local-only`를 실행하여 에이전트의 연결을 끊을 수 있습니다. |

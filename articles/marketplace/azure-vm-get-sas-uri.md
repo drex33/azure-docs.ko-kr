@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 06/23/2021
-ms.openlocfilehash: 36565dd38b74e8e03d44625f3dab765a26207c7c
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: cbd6eeaf6e49135d46bdbed1596c930352169f75
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132723041"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132864856"
 ---
 # <a name="generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대한 SAS URI 생성
 
 > [!NOTE]
-> VM을 게시하는 데 SAS URI가 필요하지 않습니다. 파트너 센터 이미지를 공유할 수 있습니다. [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-use-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-use-own-image.md) 지침을 참조하세요.
+> VM을 게시하는 데 SAS URI가 필요하지 않습니다. 파트너 센터에서 이미지를 공유 하기만 하면 됩니다. [승인된 기본을 사용하여 가상 머신 만들기](azure-vm-use-approved-base.md) 또는 [고유한 이미지를 사용하여 가상 머신 만들기](azure-vm-use-own-image.md) 지침을 참조하세요.
 
 VHD에 대한 SAS URI를 생성할 때의 요구 사항은 다음과 같습니다.
 
@@ -83,7 +83,6 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 ### <a name="script-explanation"></a>스크립트 설명
 이 스크립트에서는 다음 명령을 사용하여 스냅샷의 SAS URI를 생성하고 SAS URI를 사용하여 스토리지 계정에 기본 VHD를 복사합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-
 |명령  |메모  |
 |---------|---------|
 | az disk grant-access    |     기본 VHD 파일을 스토리지 계정으로 복사하거나 온-프레미스로 다운로드하는 데 사용되는 읽기 전용 SAS를 생성합니다.    |
@@ -100,7 +99,7 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 ### <a name="using-tool-1-azure-storage-explorer"></a>도구 1 사용: Azure Storage Explorer
 
 1. **스토리지 계정** 으로 이동합니다.
-1. **Storage Explorer** 를 엽니다.
+2. **Storage Explorer** 를 엽니다.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="스토리지 계정 창.":::
 
@@ -144,8 +143,8 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
     az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name <container-name> -- permissions rl --start '2020-04-01T00:00:00Z' --expiry '2021-04-01T00:00:00Z'
     ```
 
-1. 변경 내용을 저장합니다.
-2. 다음 방법 중 하나를 사용하여 이 스크립트를 관리자 권한으로 실행해 컨테이너 수준 액세스를 위한 SAS 연결 문자열을 만듭니다.
+4. 변경 내용을 저장합니다.
+5. 다음 방법 중 하나를 사용하여 이 스크립트를 관리자 권한으로 실행해 컨테이너 수준 액세스를 위한 SAS 연결 문자열을 만듭니다.
 
     - 콘솔에서 스크립트를 실행합니다. Windows에서 스크립트를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
     - [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise)와 같은 PowerShell 스크립트 편집기에서 스크립트를 실행합니다. 이 화면은 이 편집기 내에서 SAS 연결 문자열을 만드는 것을 보여 줍니다.
@@ -161,6 +160,23 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 9. 6단계의 SAS 연결 문자열을 사용하여 텍스트 파일을 편집합니다. 다음 형식을 사용하여 전체 SAS URI를 만듭니다.
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
+
+### <a name="virtual-machine-sas-failure-messages"></a>가상 머신 SAS 오류 메시지
+
+다음은 권장되는 해결 방법과 함께 공유 액세스 서명(업로드된 솔루션용 VHD를 식별하고 공유하는 데 사용됨)을 사용할 때 발생하는 몇 가지 일반적인 문제입니다.
+
+| 문제 | 오류 메시지 | Fix |
+| --- | --- | --- |
+| *이미지 복사 중 오류* |  |  |
+| "?"가 SAS URI에 없습니다 | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | 권장되는 도구를 사용하여 SAS URI를 업데이트합니다. |
+| SAS URI에 없는 "st" 및 "se" 매개 변수 | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | SAS URI를 적절한 **시작 날짜** 와 **종료 날짜** 값으로 업데이트합니다. |
+| SAS URI에 없는 "sp=rl" | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | SAS URI를 `Read` 및 `List`로 설정된 권한으로 업데이트합니다. |
+| SAS URI에는 VHD 이름에 공백이 있습니다. | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | SAS URI를 업데이트하여 공백을 제거합니다. |
+| SAS URI 권한 부여 오류 | `Failure: Copying Images. Not able to download blob due to authorization error.` | SAS URI 형식을 검토하고 수정합니다. 필요한 경우 다시 생성합니다. |
+| SAS URI "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다. | `Failure: Copying Images. Not able to download blob due to incorrect SAS Uri.` | SAS URI **시작 날짜** 및 **종료 날짜** 매개 변수(`st` 및 `se` 하위 문자열)는 `11-02-2017T00:00:00Z`와 같이 전체 날짜/시간 형식이어야 합니다. 단축 버전이 잘못되었습니다(Azure CLI의 일부 명령은 기본적으로 약식 값을 생성할 수 있음). |
+|
+
+자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여를 참조하세요.](../storage/common/storage-sas-overview.md)
 
 ## <a name="verify-the-sas-uri"></a>SAS URI 확인
 

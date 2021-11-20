@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/21/2021
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 1b4d704f404df361e0f0a58c9c5bf033c5e6c067
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 220d8f651683ac80b87ebe3f49befc72fe406642
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560970"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863787"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
@@ -110,6 +110,16 @@ def run(Inputs, GlobalParameters):
         return error
 ```
 
+> [!TIP]
+> 스크립트의 반환 값은 JSON으로 serialize 할 수 있는 모든 Python 개체가 될 수 있습니다. 예를 들어 모델이 여러 열을 포함 하는 Pandas 데이터 프레임을 반환 하는 경우 다음 코드와 유사한 출력 데코레이터를 사용할 수 있습니다.
+> 
+> ```python
+> output_sample = pd.DataFrame(data=[{"a1": 5, "a2": 6}])
+> @output_schema(PandasParameterType(output_sample))
+> ...
+> result = model.predict(data)
+> return result
+> ```
 
 ## <a name="binary-ie-image-data"></a><a id="binary-data"></a>이진 데이터(예: 이미지)
 

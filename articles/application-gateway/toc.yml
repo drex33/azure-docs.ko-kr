@@ -295,15 +295,15 @@
     - name: Azure PowerShell
       href: /powershell/azure/
     - name: .NET
-      href: /dotnet/api
+      href: /dotnet/api/
     - name: Java
-      href: /java/api
+      href: /java/api/
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/applicationgateway
+    - name: REST (영문)
+      href: /rest/api/application-gateway/application-gateways
     - name: Azure 리소스 관리자
       displayName: ARM
       href: ../azure-resource-manager/management/overview.md
@@ -319,10 +319,10 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
       displayName: ARM
-      href: 'https://azure.microsoft.com/documentation/templates'
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/application-gateway/'
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-application-gateway'

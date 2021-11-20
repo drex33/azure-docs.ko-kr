@@ -6,12 +6,12 @@ ms.date: 03/03/2021
 ms.topic: article
 description: 'Azure Arc 사용 가능한 온보딩 서비스 주체 만들기 '
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 5c102ce73672528810bbb35b2a74a5de2a3bf81e
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: c8bc9c21bebf70a4253cc21b7a9e42ce358dd20a
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132056248"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132870233"
 ---
 # <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Azure Arc 사용 가능한 Kubernetes에 대한 온보딩 서비스 주체 만들기
 
@@ -25,8 +25,8 @@ Kubernetes 클러스터를 Azure Arc 연결하기 위해 서비스 주체를 사
 
 Azure Active Directory 테넌트에서 고유한 정보 이름으로 새 서비스 주체를 만듭니다.
 
-```console
-az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
+```azurecli
+az ad sp create-for-RBAC --name "https://azure-arc-for-k8s-onboarding"
 ```
 
 **출력:**
@@ -43,7 +43,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>권한 할당
 
-새로 만든 서비스 주체에 "Kubernetes 클러스터 - Azure Arc 온보딩" 역할을 할당합니다. 권한이 제한된 이 기본 제공 Azure 역할은 보안 주체가 Azure에 클러스터를 등록하는 것만 허용합니다. 이 할당된 역할의 보안 주체는 구독 내의 다른 클러스터 또는 리소스를 업데이트, 삭제 또는 수정할 수 없습니다.
+새로 만든 서비스 주체에 "Kubernetes 클러스터 - Azure Arc 온보딩" 역할을 할당합니다. 권한이 제한된 이 기본 제공 Azure 역할은 보안 주체가 Azure에 클러스터를 등록하는 것만 허용합니다. 이 할당된 역할이 있는 보안 주체는 구독 내의 다른 클러스터 또는 리소스를 업데이트, 삭제 또는 수정할 수 없습니다.
 
 제한된 기능이 부여되어 있으므로 고객은 이 보안 주체를 쉽게 다시 사용하여 여러 클러스터를 등록할 수 있습니다.
 
@@ -54,7 +54,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 | Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | 서비스 주체는 해당 구독 아래의 모든 리소스 그룹에 클러스터를 등록할 수 있습니다. |
 | 리소스 그룹 | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | 서비스 주체는 리소스 그룹 의 __클러스터만__ 등록할 수 `myGroup` 있습니다. |
 
-```console
+```azurecli
 az role assignment create \
     --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 \      # this is the id for the built-in role
     --assignee 22cc2695-54b9-49c1-9a73-2269592103d8 \  # use the appId from the new SP

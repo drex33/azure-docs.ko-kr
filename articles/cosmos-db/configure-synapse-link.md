@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: 6baedff1ef084940b91c40b57572844f4b63de4b
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 4ec6a93a8954b995aece5110da39635be3e350cc
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132319399"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868398"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -197,7 +197,7 @@ except exceptions.CosmosResourceExistsError:
 ## <a name="enable-analytical-store-on-an-existing-container"></a><a id="update-analytical-ttl"></a> 기존 컨테이너에서 분석 저장소 사용
 
 > [!NOTE]
-> 단기 용량 제약 조건으로 인해 기존 컨테이너에서 Synapse 링크를 사용 하도록 등록 해야 합니다. 보류 중인 요청에 따라이 요청을 승인 하는 일은 한 주에서 1 주일까지 걸릴 수 있습니다. 요청 상태를 확인하는 지침은 다음과 같습니다. 문제 또는 질문이 있는 경우 에 [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) 문의하세요. 이 단계는 구독당 한 번씩 필요하며, 모든 새 데이터베이스 계정에서도 이 기능을 사용할 수 있습니다.
+> 단기 용량 제약 조건으로 인해 기존 컨테이너에서 Synapse 링크를 사용 하도록 등록 해야 합니다. 보류 중인 요청에 따라이 요청을 승인 하는 일은 한 주에서 1 주일까지 걸릴 수 있습니다. 요청 상태를 확인하는 지침은 다음과 같습니다. 이 단계는 구독당 한 번씩 필요하며 모든 새 데이터베이스 계정에서도 이 기능을 사용할 수 있습니다. 기존 컨테이너 기능을 사용하도록 요청을 등록하려면 구독에 대한 **기여자** 또는 **관리자** Azure 기본 제공 역할이 필요합니다. 문제 또는 질문이 있는 경우 에 [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) 문의하세요.
 
 > [!NOTE]
 > 기존 Azure Cosmos DB SQL API 컨테이너에서 분석 저장소를 설정할 수 있습니다. 이 기능은 일반 사용 가능하며 프로덕션 워크로드에 사용할 수 있습니다.
@@ -220,9 +220,9 @@ except exceptions.CosmosResourceExistsError:
 ### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/)에 로그인합니다.
-2. Azure Cosmos DB 계정으로 이동하고 **통합** 섹션에서 **Synapse Link"** 탭을 엽니다. 이 탭에서는 다음을 수행할 수 있습니다.
+2. Azure Cosmos DB 계정으로 이동하고 통합 섹션에서 **Synapse Link"** **탭을** 엽니다. 이 탭에서는 다음을 수행할 수 있습니다.
 3. **등록을** 클릭하여 구독에 대한 승인을 요청합니다. 요청 상태를 보려면 동일한 포털 창으로 돌아가세요.
-4. 승인되면 계정의 컨테이너 목록이 표시되고 분석 저장소를 사용하도록 설정된 컨테이너를 선택할 수 있습니다.
+4. 승인되면 계정의 컨테이너 목록이 표시되고 분석 저장소를 사용하도록 설정할 컨테이너 목록을 선택할 수 있습니다.
 5. 필요에 따라 **통합** 섹션의 **Power BI** 탭으로 이동하여 Synapse Link 사용하도록 설정된 컨테이너에 Power BI 대시보드를 만들 수 있습니다.
 
 
@@ -331,7 +331,7 @@ Spark 2 통합의 경우 [Spark 2를 사용하여 Azure Cosmos DB 분석 저장�
 
 ## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>서버리스 SQL 풀을 사용하여 Power BI에서 데이터 분석 및 시각화
 
-Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 만들 수 있습니다. 나중에 Azure Cosmos DB 컨테이너를 쿼리한 다음, 해당 쿼리를 반영하기 위해 해당 뷰에 대해 Power BI 사용하여 모델을 빌드할 수 있습니다. 트랜잭션 워크로드에 대한 성능 또는 비용 영향은 없으며 ETL 파이프라인 관리의 복잡성도 없습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 자세한 내용은 [Synapse Link로 Azure Cosmos DB 데이터를 분석하기 위한 서버리스 SQL 풀](synapse-link-power-bi.md) 사용 방법 문서를 참조하세요.
+Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 만들 수 있습니다. 나중에 Azure Cosmos DB 컨테이너를 쿼리한 다음, 해당 쿼리를 반영하기 위해 해당 보기에 대해 Power BI 사용하여 모델을 빌드할 수 있습니다. 트랜잭션 워크로드에 대한 성능 또는 비용 영향은 없으며 ETL 파이프라인 관리의 복잡성도 없습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 자세한 내용은 [Synapse Link로 Azure Cosmos DB 데이터를 분석하기 위한 서버리스 SQL 풀](synapse-link-power-bi.md) 사용 방법 문서를 참조하세요.
 
 ## <a name="configure-custom-partitioning"></a>사용자 지정 분할 구성
 

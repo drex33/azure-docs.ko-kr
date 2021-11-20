@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 79f7291380e756ad40a7944fecdc99a89451379d
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 520bdd399675f39d2cf58c892eebf7cd6bf4cc61
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132810349"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869595"
 ---
 # <a name="labeling-in-azure-purview"></a>Azure Purview의 레이블 지정
 
@@ -30,7 +30,7 @@ ms.locfileid: "132810349"
 
 Azure Purview를 사용하면 자산에 민감도 레이블을 적용하여 데이터를 분류하고 보호할 수 있습니다.
 
-* **레이블은 데이터와 함께 이동합니다.** Purview에서 사용되는 민감도 레이블은 현재 Microsoft 365, SharePoint, Teams, Power BI 및 SQL 인식됩니다. 레이블이 Purview의 자산에 적용되고 데이터가 Power BI 또는 Office 같은 다른 플랫폼으로 이동하는 경우 레이블도 데이터와 함께 이동합니다. 마찬가지로, Word 문서에 레이블을 적용한 다음 Purview에서 검사하면 레이블이 Purview로 흐릅니다.
+* **레이블은 데이터와 함께 이동합니다.** Microsoft 365 만든 민감도 레이블을 Purview, SharePoint, Teams, Power BI 및 SQL 확장할 수도 있습니다. 사무실 문서에 레이블을 적용한 다음 Purview에서 스캔하면 레이블이 Purview로 흐릅니다. 레이블은 M365의 실제 파일에 적용되지만 Purview 카탈로그에 메타데이터로만 추가됩니다. 레이블이 다양한 서비스/애플리케이션에서 자산에 적용되는 방식에는 차이가 있지만 레이블은 데이터와 함께 이동하며 이를 확장하는 모든 서비스에서 인식됩니다. 
 * **데이터 자산 개요:** Purview는 미리 정리된 보고서를 통해 데이터에 대한 인사이트를 제공합니다. Purview에서 데이터를 스캔하는 경우 보유한 자산, 검사 기록, 데이터에 있는 분류, 적용된 레이블, 용어집 용어 등에 대한 정보로 보고서를 수화합니다.
 * **자동 레이블 지정:** 레이블은 데이터의 민감도에 따라 자동으로 적용할 수 있습니다. 자산에서 중요한 데이터를 검색할 때 자동 레이블 지정 규칙을 사용하여 적용할 민감도 레이블을 결정합니다. 레이블을 구성하는 분류/중요한 정보 유형을 정의하여 각 민감도 레이블에 대한 자동 레이블 지정 규칙을 만들 수 있습니다.
 * **파일 및 데이터베이스 열에 레이블 적용:** 레이블은 Azure Data Lake, Azure Files 등과 같은 스토리지의 파일 및 Azure SQL DB, Cosmos DB 등의 열과 같은 스키마화된 데이터에 적용할 수 있습니다.

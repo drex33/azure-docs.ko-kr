@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.collection: linux
-ms.openlocfilehash: 273e9e832bf3203281f32a343ad9c6c1b48ec34a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 1a4cdb2e26efde3e8c0478240b417d2327b01ca4
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692251"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871531"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 
@@ -42,7 +42,7 @@ Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure �
 [az ad sp create-for-rbac](/cli/azure/ad/sp)를 사용하여 서비스 사용자를 만들고 Packer가 필요로 하는 자격 증명을 출력합니다.
 
 ```azurecli
-az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+az ad sp create-for-rbac --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
 이전 명령에서 출력의 예는 다음과 같습니다.

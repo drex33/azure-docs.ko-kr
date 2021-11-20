@@ -7,14 +7,14 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 11/19/2021
 ms.author: allensu
-ms.openlocfilehash: a57c4ea8d058f0f565b6dbec7fdb74b07ea7564e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c77385b5ecc4792276ef6ab41e10a82c0720d0dd
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131471405"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871569"
 ---
 # <a name="public-ip-addresses"></a>공용 IP 주소
 
@@ -55,41 +55,21 @@ IPv4 또는 IPv6 주소를 사용하여 공용 IP 주소를 만들 수 있습니
 
 공용 IP 주소는 다음 SKU 중 하나로 만들어집니다.
 
-### <a name="standard"></a>Standard
+| | Standard  | Basic |
+| --- | --- | --- |
+| 할당 방법| 정적 | IPv4의 경우: 동적 또는 정적; IPv6의 경우: 동적입니다.| 
+| | 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.|조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.|
+| 보안 | 기본적으로 모델을 보호하고 프런트 엔드로 사용될 때 인바운드 트래픽에 대해 닫힙니다.  NSG(네트워크 [보안 그룹)를](../../virtual-network/network-security-groups-overview.md#network-security-groups) 사용하여 트래픽을 허용해야 합니다(예: 표준 SKU 공용 IP가 연결된 가상 머신의 NIC에서).| 기본적으로 엽니다.  네트워크 보안 그룹을 사용하는 것이 좋지만 인바운드 또는 아웃바운드 트래픽을 제한하는 것은 선택 사항입니다.| 
+| [가용성 영역](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 지원됨. 표준 IP는 비영역, 영역 또는 영역 중복일 수 있습니다. **영역 중복 IP는 [3개의 가용성 영역이 있는 하위 지역](../../availability-zones/az-region.md)에서만 만들 수 있습니다.** 영역이 라이브 상태가 되기 전에 만든 IP는 영역 중복이 아닙니다. | 지원되지 않습니다. | 
+| [라우팅 기본 설정](routing-preference-overview.md)| Azure와 인터넷 간에 트래픽을 라우팅하는 방법을 보다 세밀 하 게 제어할 수 있도록 지원 됩니다. | 지원되지 않습니다.| 
+| 글로벌 계층 | [지역 간 부하 분산 장치](../../load-balancer/cross-region-overview.md)를 통해 지원 됩니다.| 지원되지 않습니다. |
 
-표준 SKU 공용 IP:
-
-- 항상 고정 할당 메서드를 사용합니다.
-- 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
-- "기본적으로 보안" 모델에 맞게 설계 되 고 프런트 엔드로 사용 될 때 인바운드 트래픽으로 닫히도록 설계 되었습니다.  Nsg ( [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md#network-security-groups) )가 포함 된 allowlisting 데이터 평면 트래픽이 필요 합니다 (예: 표준 SKU 공용 IP가 연결 된 가상 머신의 NIC).
-- 영역 중복(3개 영역에서 모두 보급됨), 영역(미리 선택한 특정 가용성 영역에서 보장됨) 또는 “영역 없음”(미리 선택한 특정 가용성 영역과 연결되지 않음)이 될 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 IP는 [3개의 가용성 영역이 라이브 상태인 지역](../../availability-zones/az-region.md)에서만 만들 수 있습니다.** 영역이 라이브 상태가 되기 전에 만든 IP는 영역 중복이 아닙니다.
-- [라우팅 기본 설정](routing-preference-overview.md)으로 활용하여 Azure와 인터넷 간에 트래픽이 라우팅되는 방식을 보다 세부적으로 제어할 수 있습니다.
-- [영역 간 부하 분산 장치](../../load-balancer/cross-region-overview.md)(미리 보기 기능)의 애니캐스트 프런트 엔드 IP로 사용할 수 있습니다.
-
-> [!NOTE]
-> [인스턴스 메타데이터 서비스 IMDS](../../virtual-machines/windows/instance-metadata-service.md)를 사용하는 경우 기본 SKU를 사용하는 공용 IP 주소만 이용할 수 있습니다. 표준 SKU는 지원되지 않습니다.
-
-> [!NOTE]
-> 표준 SKU 공용 IP 주소를 사용하는 경우 리소스 블레이드 아래에 진단 설정이 표시되지 않습니다. 표준 공용 IP 리소스를 위한 로깅을 사용하도록 설정하려면 Azure Monitor 블레이드에서 진단 설정으로 이동한 다음, IP 주소 리소스를 선택합니다.
-
-> [!NOTE]
-> [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.
-
-### <a name="basic"></a>기본
-
-기본 SKU 주소:
-
-- IPv4의 경우: 동적 또는 고정 할당 방법으로 할당할 수 있습니다.  IPv6의 경우: 동적 할당 방법으로만 할당할 수 있습니다.
-- 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
-- 기본적으로 열려 있습니다.  네트워크 보안 그룹을 사용하는 것이 좋지만 인바운드 또는 아웃바운드 트래픽을 제한하는 것은 선택 사항입니다.
-- 가용성 영역 시나리오를 지원하지 않습니다. 해당 지역에서 가용성 영역 시나리오에 대해 표준 SKU 공용 IP를 사용합니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
-- [라우팅 기본 설정](routing-preference-overview.md) 또는 [지역 간 부하 분산 장치](../../load-balancer/cross-region-overview.md) 기능을 지원하지 않습니다.
 
 > [!NOTE]
 > 표준 SKU에 만든 후 기본 SKU IPv4 주소를 업그레이드할 수 있습니다.  SKU 업그레이드에 관한 자세한 내용은 [공용 IP 업그레이드](public-ip-upgrade-portal.md)를 참조하세요.
 
 >[!IMPORTANT]
-> 부하 분산 장치 및 공용 IP 리소스에 일치하는 SKU가 필요합니다. 기본 SKU 리소스와 표준 SKU 리소스를 혼합 하 여 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
+> Load Balancer 및 공용 IP 리소스에 대해 일치 하는 Sku가 필요 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 혼합 하 여 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
 ## <a name="ip-address-assignment"></a>IP 주소 할당
 

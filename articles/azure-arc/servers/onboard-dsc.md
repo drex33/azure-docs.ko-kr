@@ -3,16 +3,16 @@ title: Windows PowerShell DSC를 사용하여 Connected Machine 에이전트 설
 description: 이 문서에서는 Windows PowerShell DSC로 Azure Arc 사용 서버를 사용하여 컴퓨터를 Azure에 연결하는 방법을 알아봅니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 357d89a989efbc3b8deded193808d47753b722d9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fc70a4ef1063c034de6a763068427aa230d64198
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124789088"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132868508"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용하여 Connected Machine 에이전트 설치 방법
 
-[Windows PowerShell DSC(Desired State Configuration)](/powershell/scripting/dsc/getting-started/winGettingStarted)를 사용하여 Windows 컴퓨터의 소프트웨어 설치 및 구성을 자동화할 수 있습니다. 이 문서에서는 DSC를 사용하여 하이브리드 Windows 컴퓨터에 Azure Arc 사용 서버 Connected Machine 에이전트를 설치하는 방법을 설명합니다.
+[Windows PowerShell DSC(Desired State Configuration)](/powershell/scripting/dsc/getting-started/winGettingStarted)를 사용하여 Windows 컴퓨터의 소프트웨어 설치 및 구성을 자동화할 수 있습니다. 이 문서에서는 DSC를 사용 하 여 하이브리드 Windows 컴퓨터에 Azure 연결 된 컴퓨터 에이전트를 설치 하는 방법을 설명 합니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -20,7 +20,7 @@ ms.locfileid: "124789088"
 
 - [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc) DSC 모듈
 
-- 컴퓨터를 비대화형으로 Azure Arc 사용 서버에 연결할 서비스 주체. Azure Arc 지원 서버에 대한 서비스 주체를 아직 만들지 않은 경우 [대규모로 온보딩할](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 서비스 주체 만들기 섹션의 단계를 따릅니다.
+- 컴퓨터를 비대화형으로 Azure Arc 사용 서버에 연결할 서비스 주체. Azure Arc 사용 서버에 대 한 서비스 주체를 아직 만들지 않은 경우 [대규모로 온 보 딩에 대 한 서비스 주체 만들기](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 섹션의 단계를 따릅니다.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>ConnectedMachine DSC 모듈 설치
 
@@ -42,7 +42,7 @@ ms.locfileid: "124789088"
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>에이전트를 설치하고 Azure에 연결
 
-이 모듈의 리소스는 Azure Connected Machine 에이전트 구성을 관리하도록 설계되었습니다. PowerShell 스크립트 `AzureConnectedMachineAgent.ps1`도 포함되어 있습니다(`AzureConnectedMachineDsc\examples` 폴더에 있음). 이 스크립트는 커뮤니티 리소스를 사용하여 다운로드 및 설치를 자동화하고, Azure Arc와의 연결을 설정합니다. 이 스크립트는 [Azure Portal에서 Azure에 하이브리드 컴퓨터 연결](onboard-portal.md) 문서에 설명된 것과 유사한 단계를 수행합니다.
+이 모듈의 리소스는 Azure 연결 된 컴퓨터 에이전트 구성을 관리 하도록 설계 되었습니다. PowerShell 스크립트 `AzureConnectedMachineAgent.ps1`도 포함되어 있습니다(`AzureConnectedMachineDsc\examples` 폴더에 있음). 이 스크립트는 커뮤니티 리소스를 사용하여 다운로드 및 설치를 자동화하고, Azure Arc와의 연결을 설정합니다. 이 스크립트는 [Azure Portal에서 Azure에 하이브리드 컴퓨터 연결](onboard-portal.md) 문서에 설명된 것과 유사한 단계를 수행합니다.
 
 컴퓨터가 프록시 서버를 통해 서비스와 통신해야 하는 경우 에이전트를 설치한 후 [여기](manage-agent.md#update-or-remove-proxy-settings)에서 설명하는 명령을 실행해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다. 명령을 수동으로 실행하는 대신 [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc) 모듈을 사용하여 DSC로 이 단계를 수행할 수 있습니다. 이 구성을 사용하여 에이전트는 HTTP 프로토콜을 사용하는 프록시 서버를 통해 통신합니다.
 

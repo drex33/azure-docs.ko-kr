@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 9/9/2021
-ms.openlocfilehash: 12f445c1b532ff3989010ca2a4b747ca0c241aef
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 4e370fea316b501c81f549217db646503e5b1eb4
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546496"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132869481"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 vCore 기반 구매
 
 
 > [!div class="nextstepaction"]
-> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>하이퍼스케일 기능에는 무엇이 있나요?
 
@@ -45,7 +45,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 - 최대 100TB의 데이터베이스 크기 지원
 - 컴퓨팅 리소스에 대한 I/O에 영향을 주지 않으면서 크기에 관계없이 거의 즉각적인 데이터베이스 백업(Azure Blob 스토리지에 저장된 파일 스냅샷 기반)  
 - 몇 시간 또는 며칠이 아닌 몇 분 내에(데이터베이스 작업의 규모가 아닌) 빠른 데이터베이스 복원(파일 스냅샷 기반)
-- 데이터 볼륨에 관계없이 트랜잭션 로그 처리량이 증가하고 트랜잭션 커밋 시간이 빨라져 전반적인 성능이 향상됩니다.
+- 데이터 볼륨에 관계 없이 트랜잭션 로그 처리량이 높고 트랜잭션 커밋 시간이 단축 되어 전반적인 성능 향상
 - 빠른 스케일 아웃 - 읽기 워크로드를 오프로드하고 핫 대기로 사용하기 위해 하나 이상의 [읽기 전용 복제본](service-tier-hyperscale-replicas.md)을 프로비저닝할 수 있습니다.
 - 빠른 스케일 업 - 필요할 때 과도한 워크로드를 수용하도록 컴퓨팅 리소스를 지속적으로 스케일 업한 다음, 필요하지 않을 때 컴퓨팅 리소스를 다시 스케일 다운할 수 있습니다.
 
@@ -100,11 +100,11 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 ### <a name="page-server"></a>페이지 서버
 
-페이지 서버는 스케일 아웃된 스토리지 엔진을 나타내는 시스템입니다.  각 페이지 서버는 데이터베이스의 페이지 하위 집합을 담당합니다.  명목상 각 페이지 서버는 최대 128GB 또는 최대 1TB의 데이터를 제어합니다. 둘 이상의 페이지 서버(중복성과 가용성을 위해 유지되는 페이지 서버 복제본 외부)에서 데이터가 공유되지 않습니다. 페이지 서버의 업무는 요청 시 컴퓨팅 노드에 데이터베이스 페이지를 제공하고, 트랜잭션으로 인해 데이터가 업데이트될 때 페이지를 최신 상태로 유지하는 것입니다. 페이지 서버는 로그 서비스에서 트랜잭션 로그 레코드를 재생하여 최신 상태로 유지됩니다. 또한 페이지 서버는 성능을 향상시키기 위해 SSD 기반 캐시 처리를 유지 관리합니다. 데이터 페이지의 장기 스토리지는 추가 안정성을 위해 Azure Storage에 보관됩니다.
+페이지 서버는 스케일 아웃된 스토리지 엔진을 나타내는 시스템입니다.  각 페이지 서버는 데이터베이스의 페이지 하위 집합을 담당합니다.  명목상 각 페이지 서버는 최대 128GB 또는 최대 1TB의 데이터를 제어합니다. 둘 이상의 페이지 서버(중복성과 가용성을 위해 유지되는 페이지 서버 복제본 외부)에서 데이터가 공유되지 않습니다. 페이지 서버의 업무는 요청 시 컴퓨팅 노드에 데이터베이스 페이지를 제공하고, 트랜잭션으로 인해 데이터가 업데이트될 때 페이지를 최신 상태로 유지하는 것입니다. 페이지 서버는 로그 서비스에서 트랜잭션 로그 레코드를 재생 하 여 최신 상태로 유지 됩니다. 또한 페이지 서버는 성능을 향상시키기 위해 SSD 기반 캐시 처리를 유지 관리합니다. 데이터 페이지의 장기 스토리지는 추가 안정성을 위해 Azure Storage에 보관됩니다.
 
 ### <a name="log-service"></a>로그 서비스
 
-로그 서비스는 주 컴퓨팅 복제본의 트랜잭션 로그 레코드를 수락하고, 지속성 캐시에 보관하며, 데이터를 업데이트할 수 있도록 해당 캐시를 업데이트할 수 있도록 나머지 컴퓨팅 복제본과 관련 페이지 서버에 로그 레코드를 전달합니다. 이러한 방식으로 주 컴퓨팅 복제본의 모든 데이터 변경 내용은 로그 서비스를 통해 모든 보조 컴퓨팅 복제본 및 페이지 서버로 전파됩니다. 마지막으로 트랜잭션 로그 레코드는 가상 무한 스토리지 리포지토리인 Azure Storage 장기 스토리지로 푸시됩니다. 이 메커니즘을 사용하면 로그를 자주 잘라낼 필요가 없습니다. 또한 로그 서비스에는 로그 레코드에 대한 액세스 속도를 높이기 위해 로컬 메모리 및 SSD 캐시가 있습니다.
+로그 서비스는 기본 계산 복제본의 트랜잭션 로그 레코드를 수락 하 고, 영구 캐시에 보관 하 고, 로그 레코드를 나머지 계산 복제본으로 전달 하 여 해당 캐시를 업데이트 하 고 관련 페이지 서버를 전달 하 여 데이터를 업데이트할 수 있도록 합니다. 이러한 방식으로 주 컴퓨팅 복제본의 모든 데이터 변경 내용은 로그 서비스를 통해 모든 보조 컴퓨팅 복제본 및 페이지 서버로 전파됩니다. 마지막으로 트랜잭션 로그 레코드는 거의 무한 한 저장소 저장소 인 Azure Storage의 장기 저장소로 푸시됩니다. 이 메커니즘을 사용하면 로그를 자주 잘라낼 필요가 없습니다. 또한 로그 서비스에는 로그 레코드에 대한 액세스 속도를 높이기 위해 로컬 메모리 및 SSD 캐시가 있습니다. 단일 트랜잭션이 1tb를 초과 하는 로그를 생성할 수 없다는 제한이 있으므로 대규모의 로그는 사실상 무한 합니다.
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -195,7 +195,7 @@ Azure SQL Database hyperscale 계층은 대부분의 Azure 지역에서 사용�
 | 인텔리전트 데이터베이스 기능 | "계획 강제 적용" 옵션을 제외하고 다른 모든 자동 튜닝 옵션은 아직 하이퍼스케일에서 지원되지 않습니다. 이 옵션은 사용하도록 설정된 것처럼 보일 수 있지만 권장 사항 또는 작업이 수행되지 않습니다. |
 | Query Performance Insight | Query Performance Insights는 현재 하이퍼스케일 데이터베이스를 지원하지 않습니다. |
 | 데이터베이스 축소 | DBCC SHRINKDATABASE 또는 DBCC SHRINKFILE은 현재 하이퍼스케일 데이터베이스를 지원하지 않습니다. |
-| 데이터베이스 무결성 검사 | DBCC CHECKDB는 현재 하이퍼스케일 데이터베이스를 지원하지 않습니다. 해결 방법으로 DBCC CHECKFILEGROUP 및 DBCC CHECKTABLE을 사용할 수 있습니다. Azure SQL Database의 데이터 무결성 관리에 대한 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)을 참조하세요. |
+| 데이터베이스 무결성 검사 | DBCC CHECKDB는 현재 하이퍼스케일 데이터베이스를 지원하지 않습니다. TABLOCK을 사용 하는 DBCC CHECKTABLE (' TableName ')과 TABLOCK을 사용 하는 DBCC CHECKFILEGROUP은 해결 방법으로 사용할 수 있습니다. Azure SQL Database의 데이터 무결성 관리에 대한 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)을 참조하세요. |
 | 탄력적 작업 | 하이퍼스케일 데이터베이스를 작업 데이터베이스로 사용하는 것은 지원되지 않습니다. 그러나 탄력적 작업은 다른 Azure SQL 데이터베이스와 동일한 방식으로 하이퍼스케일 데이터베이스를 대상으로 할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -78,7 +78,7 @@
     - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell
-      href: /powershell/module/az.resources
+      href: /powershell/module/az.resources/
     - name: REST (영문)
       href: /rest/api/resources/
     - name: 사용자 인터페이스 함수

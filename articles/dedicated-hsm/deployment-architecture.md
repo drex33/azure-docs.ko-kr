@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: c454b2e4df7a9ce5fadd33386e5bb413b503c6e4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 6dc148ff633ad1b2418c4ef7edc68d57c9fa4821
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608428"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132901854"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure Dedicated HSM 배포 아키텍처
 
@@ -45,7 +45,6 @@ HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 �
 * 영국 남부
 * 영국 서부
 * 캐나다 중부
-* 캐나다 동부
 * 오스트레일리아 동부
 * 오스트레일리아 남동부
 * 스위스 북부

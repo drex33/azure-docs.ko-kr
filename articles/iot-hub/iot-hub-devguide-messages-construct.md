@@ -5,17 +5,17 @@ author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 11/19/2021
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 40cbc1c5046c944a8915f1db38805cacb95b2889
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 048f478094e2397d18adb285af9dd969ea5daa0b
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294769"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132901722"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -60,6 +60,8 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 | iothub-connection-module-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **moduleId** 를 포함합니다. | 예 | connectionModuleId |
 | iothub-connection-auth-generation-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **connectionDeviceGenerationId**([디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당)를 포함합니다. | 예 |connectionDeviceGenerationId |
 | iothub-connection-auth-method |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 디바이스를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다.| 예 | connectionAuthMethod |
+| iothub-iothub-utc | 장치에서 일괄 처리로 데이터를 보낼 때 이벤트 생성 시간을 보낼 수 있습니다. | 예 | 만든 시간-utc |
+| iothub-creation-time-utc | 장치에서 한 번에 하나의 메시지를 보낼 때 이벤트 생성 시간을 보낼 수 있습니다. | 예 | 만든 시간-utc |
 | dt-dataschema | 이 값은 디바이스-클라우드 메시지의 IoT 허브에 의해 설정됩니다. 디바이스 연결에 설정된 디바이스 모델 ID 세트를 포함합니다. | 예 | $dt-dataschema |
 | dt-subject | 디바이스-클라우드 메시지를 전송하는 구성 요소의 이름입니다. | 예 | $dt-subject |
 

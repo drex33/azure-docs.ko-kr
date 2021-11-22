@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 8627a8989a4fbd64c66d8af7299baacacee22b56
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: ae72ae66853a075673a2fcf51b4285e7e8676b86
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114285046"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132901532"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -123,7 +123,8 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 - '서비스' 아래의 'Microsoft.Storage' 및 '서브넷' 필드 아래의 필요한 서브넷을 선택하고 '추가'를 클릭합니다.
 
 >[!NOTE]
->ASR에 사용되는 스토리지 계정에 대한 가상 네트워크 액세스를 제한하지 마십시오. '모든 네트워크'에서 액세스를 허용해야 합니다.
+>방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](../storage/common/storage-network-security.md)을 선택해야 합니다. 또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다.
+
 
 ### <a name="forced-tunneling"></a>강제 터널링
 

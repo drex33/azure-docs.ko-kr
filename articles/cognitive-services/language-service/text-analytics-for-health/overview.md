@@ -8,17 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/19/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
-ms.openlocfilehash: 609d60d2094372cd5c1e476afd3abde1df7f68af
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ab9048707568361a6c96d09c91d7de71dcfe6cea
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053203"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903559"
 ---
 # <a name="what-is-text-analytics-for-health-in-azure-cognitive-service-for-language"></a>Azure Cognitive Service for Language의 의료 분야 Text Analytics는 무엇인가요?
+
+[!INCLUDE [service notice](includes/service-notice.md)]
 
 의료 분야 Text Analytics는 [Azure Cognitive Service for Language](../overview.md)에서 제공하는 기능으로, 작성된 언어와 관련된 지능형 애플리케이션을 개발하기 위한 클라우드의 기계 학습 및 AI 알고리즘 모음입니다. 
 

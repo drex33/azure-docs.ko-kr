@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.reviewer: cynthn
 ms.author: mamccrea
-ms.openlocfilehash: 46e13297938cc9a291cd68d020d26a143f94191c
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 86b9e4cd9bc10d11e0b5bc7aa6e2b2718e5f2f3f
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458324"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902612"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
 

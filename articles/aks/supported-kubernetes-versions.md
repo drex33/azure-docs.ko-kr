@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d4a2d90c797585ad025a9540045fe65dee385000
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 23149bb6779f2e6819919cbc6d1c70b18d577f89
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493607"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903711"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -173,17 +173,21 @@ Get-AzAksVersion -Location eastus
 | 1.19 *  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA |
 | 1.20  | 2020년 12월 8일  | 2021년 1월   | 2021년 3월  | 1.23 GA |
 | 1.21  | 2021년 4월 8일 | 2021년 5월   | 2021년 7월  | 1.24 GA |
-| 1.22  | 2021년 8월 4일 | 2021년 9월   | 11 월 2021  | 1.25 GA |
+| 1.22  | 2021년 8월 4일 | 2021년 9월   | 2021년 11월  | 1.25 GA |
 | 1.23  | 2021년 12월 | 2022년 1월   | 2022년 2월  | 1.26 GA |
 
 > [!NOTE]
-> 1.19는 2022 년 1 월 말에 AKS에서 더 이상 사용 되지 않고 제거 됩니다.
+>  AKS 및 휴일 계절: 휴일 기간 동안 업그레이드 및 변경 부담을 완화하기 위해 AKS는 1.19의 모든 클러스터 및 노드 풀에 대한 제한된 지원 범위를 출처로 확장하고 있습니다. [2021-11-30의 사용 중단이 발표된 후 1.19에](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar) 클러스터 및 노드 풀이 있는 고객에게는 더 이상 사용되지 않은 [버전에 대한 일반적인 지원 범위를](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy)벗어나는 기능 확장이 부여됩니다.
+이 제한된 확장의 범위는 '2021-12-01에서 2022-01-31'로 적용되며 다음으로 제한됩니다.
+>  * 1.19에서 새 클러스터 및 노드 풀 만들기
+>  * 1.19 클러스터에서 CRUD 작업
+>  * Kubernetes와 관련이 없는 플랫폼 문제에 대한 Azure 지원. 플랫폼 문제에는 Azure에서 실행되는 네트워킹, 스토리지 또는 컴퓨팅 문제가 포함됩니다. K8s 패치 및 문제 해결에 대한 모든 지원 요청은 지원되는 버전으로 업그레이드하기 위해 요청됩니다.
 
 ## <a name="faq"></a>FAQ
 
 **Microsoft에서 새 Kubernetes 버전을 알리는 방법은 무엇인가요?**
 
-AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  알림 외에도 AKS를 [Azure Advisor](../advisor/advisor-overview.md) 사용 하 여 사용자가 지원 되지 않는 경우 사용자에 게 알리거나 응용 프로그램 또는 개발 프로세스에 영향을 줄 수 있는 사용 되지 않는 api에 대 한 경고를 사용자에 Azure Portal 게 알릴 수 있습니다.
+AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  또한 AKS는 Azure Advisor 사용하여 [Azure Portal](../advisor/advisor-overview.md) 내 고객에게 지원되지 않을 경우 사용자에게 경고하고 애플리케이션 또는 개발 프로세스에 영향을 줄 수 있는 사용되지 않는 API에 대해 경고합니다.
 
 **계속 지원받으려면 Kubernetes 버전을 얼마나 자주 업그레이드해야 하나요?**
 
@@ -220,7 +224,7 @@ AKS에서 지원하지 않는 부 버전의 경우 규모 축소 또는 규모 �
 
 **클러스터를 업그레이드하는 동안 여러 AKS 버전을 건너뛸 수 있나요?**
 
-지원되는 AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. Kubernetes 제어 평면 [버전 기울이기 정책은](https://kubernetes.io/releases/version-skew-policy/) 부 버전 건너뛰기를 지원 하지 않습니다. 예를 들어 다음과 같이 업그레이드합니다.
+지원되는 AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. Kubernetes 컨트롤 플레인 [버전 기울이기 정책은](https://kubernetes.io/releases/version-skew-policy/) 부 버전 건너뛰기를 지원하지 않습니다. 예를 들어 다음과 같이 업그레이드합니다.
 
   * *1.12.x* -> *1.13.x*: 허용
   * *1.13.x* -> *1.14.x*: 허용
@@ -230,7 +234,7 @@ AKS에서 지원하지 않는 부 버전의 경우 규모 축소 또는 규모 �
 1. 먼저 *1.12.x* -> *1.13.x* 업그레이드
 1. 다음으로 *1.13.x* -> *1.14.x* 업그레이드
 
-지원 되지 않는 버전에서 지원 되는 최소 버전으로 다시 업그레이드 하는 경우에만 여러 버전을 건너뛸 수 있습니다. 예를 들어 *1.15* 이 지원 되는 최소 부 버전인 경우 지원 되지 않는 *1.10. x* 에서 지원 되는 *1.15* 로 업그레이드할 수 있습니다.
+지원되지 않는 버전에서 지원되는 최소 버전으로 다시 업그레이드하는 경우에만 여러 버전을 건너뛸 수 있습니다. 예를 들어 *1.15가* 지원되는 최소 부 버전인 경우 지원되지 않는 *1.10.x에서* 지원되는 *1.15.x로* 업그레이드할 수 있습니다.
 
 **30일 지원 기간 동안 새 1.xx.x 클러스터를 만들 수 있나요?**
 

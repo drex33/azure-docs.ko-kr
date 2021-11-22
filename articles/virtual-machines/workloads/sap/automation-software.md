@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 0f1c58dfa56fe797257c2bd8257504200587e9bc
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 55be18565ca6805b223a45bf01cd085ca652752e
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132760792"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132901892"
 ---
 # <a name="download-sap-software"></a>SAP 소프트웨어 다운로드
 
@@ -29,25 +29,29 @@ Azure에서 SAP [배포 자동화 프레임워크를](automation-deployment-fram
 
 1. 사용하려는 [계정으로 Azure CLI 로그인합니다.](/cli/azure/authenticate-azure-cli)
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
-1. SAP 사용자 계정의 사용자 이름을 가진 비밀을 추가합니다. `<keyvault-name>`를 배포자 키 자격 증명 모음의 이름으로 대체합니다. 또한 `<sap-username>` 을 SAP 사용자 이름으로 대체합니다.
+1. SAP 사용자 계정의 사용자 이름을 통해 비밀을 추가합니다. `<keyvault-name>`을 배포자 자격 증명 모음의 이름으로 바꿉니다. `<sap-username>`도 SAP 사용자 이름으로 바꿉니다.
 
-    ```azurecli-interactive
-     az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+    ```azurecli
+    export key_vault=<vaultID>
+    sap_username=<sap-username>
+
+    az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
     ```
 
-2. SAP 사용자 계정의 암호로 비밀을 추가합니다. `<keyvault-name>`를 배포자 키 자격 증명 모음의 이름으로 대체합니다. 또한 `<sap-password>` 를 SAP 암호로 대체합니다.
+1. SAP 사용자 계정에 대한 암호를 통해 비밀을 추가합니다. `<keyvault-name>`을 배포자 자격 증명 모음의 이름으로 바꿉니다. 또한 `<sap-password>` 를 SAP 암호로 대체합니다.
 
-```azurecli-interactive
-az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
-```
+    ```azurecli
+    sap_user_password="<sap-password>
+    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
+    ```
 
-3. 스토리지 계정에 대해 이 단계에서 필요한 두 가지 다른 `sapbits` 비밀이 자동화 프레임워크에 의해 자동으로 설정됩니다. 그러나 항상 배포자 키에 있는지 여부를 확인하는 것이 좋습니다.
+1. 스토리지 계정에 대해 이 단계에서 필요한 두 가지 다른 `sapbits` 비밀이 자동화 프레임워크에 의해 자동으로 설정됩니다. 그러나 항상 배포자 키에 있는지 여부를 확인하는 것이 좋습니다.
 
-    ```azurecli-interactive
+    ```text
     sapbits-access-key
     sapbits-location-base-path
     ```
@@ -59,12 +63,6 @@ az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --valu
 ### <a name="configure-parameters-file"></a>매개 변수 파일 구성
 
 SAP 매개 변수 파일을 구성합니다.
-
-1. SAP 배포 작업 영역의 디렉터리로 이동합니다.
-
-    ```bash
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
-    ```
 
 1. 라는 새 디렉터리를 만듭니다. `BOMS`
 
@@ -78,10 +76,8 @@ SAP 매개 변수 파일을 구성합니다.
     cat <<EOF > sap-parameters.yaml
     ---
     bom_base_name:               S41909SPS03_v0006ms
-    sapbits_location_base_path:  https://<storage_account_FQDN>/sapbits
     kv_name: Name of your Management/Control Plane keyvault
-    secret_prefix:
-    ...
+    ..
     EOF
     ```
 
@@ -95,30 +91,27 @@ SAP 매개 변수 파일을 구성합니다.
 
     1. `bom_base_name`의 값을 `S41909SPS03_v0006ms`로 변경합니다.
 
-    2. 값을 스토리지 `sapbits_location_base_path` 계정 의 경로로 `sapbits` 변경합니다.
-
-    3. 값을 `kv_name` 배포자 키 자격 증명 모음의 이름으로 변경합니다.
+    1. 값을 `kv_name` 배포자 키 자격 증명 모음의 이름으로 변경합니다.
    
-   4. (필요한 경우) `secret_prefix` 사용자 환경의 접두사(예: DEV-WEEU-SAP)와 일치하도록 값을 변경합니다.
+    1. (필요한 경우) `secret_prefix` 사용자 환경의 접두사(예: DEV-WEEU-SAP)와 일치하도록 값을 변경합니다.
    
 ### <a name="execute-ansible-playbooks"></a>Ansible 플레이북 실행
 
 그런 다음, Ansible 플레이북을 실행합니다. 플레이북을 실행할 수 있는 한 가지 방법은 유효성 검사기 테스트 메뉴를 사용하는 것입니다.
 
-1. 유효성 검사기 테스트 메뉴 스크립트를 실행합니다.
+1. 다운로드 메뉴 스크립트를 실행합니다.
 
     ```bash
-    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
+    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
     ```
 
-1. 실행할 플레이북을 선택합니다. 다음은 그 예입니다.
+1. 실행할 플레이북을 선택합니다. 예를 들면 다음과 같습니다.
     
-    ```output
+    ```text
     1) BoM Downloader
     2) Quit
     Please select playbook: 
     ```
-
 
 또 다른 옵션은 명령을 사용하여 Ansible 플레이북을 실행하는 `ansible-playbook` 것입니다. 
 
@@ -132,4 +125,4 @@ ansible-playbook                                                                
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자동화 프레임워크 배포 시작](automation-get-started.md)
+> [SAP 인프라 배포](automation-deploy-system.md)

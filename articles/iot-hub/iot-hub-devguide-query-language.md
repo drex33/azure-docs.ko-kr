@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2021
 ms.author: lizross
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddc29ac74117ffe66db195b391e93459ac7b91cc
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: db14886322f0897dc62b728b065728af4908c921
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132553347"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902082"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -91,6 +91,12 @@ SELECT * FROM devices
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md)는 큰 결과에 대한 페이징을 지원합니다.
 
+집계가 지원 됩니다. 예를 들어 다음 쿼리는 IoT hub에 있는 장치의 총 수를 가져옵니다.
+
+```sql
+SELECT COUNT() as totalNumberOfDevices FROM devices
+```
+
 IoT Hub는 임의의 조건으로 디바이스 쌍 필터링을 검색하도록 허용합니다. 예를 들어 **location.region** 태그가 **US** 로 설정된 디바이스 쌍을 받으려면 다음 쿼리를 사용합니다.
 
 ```sql
@@ -122,7 +128,7 @@ SELECT * FROM devices
 
 필터링 기능에 대한 전체 참조는 [WHERE 절](iot-hub-devguide-query-language.md#where-clause) 섹션을 참조하세요.
 
-그룹화 및 집계도 지원됩니다. 예를 들어 각 원격 분석 구성 상태에서 디바이스 수를 찾으려면 다음 쿼리를 사용합니다.
+그룹화도 지원 됩니다. 예를 들어 각 원격 분석 구성 상태에서 디바이스 수를 찾으려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,

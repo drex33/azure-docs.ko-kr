@@ -14,12 +14,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 03/25/2021
   ms.author: keithp
-  ms.openlocfilehash: 21bd9915e661662f05b98fe1b311cf1de71ef4bb
-  ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+  ms.openlocfilehash: b9052cd65ec6827bb8413501cc2edec4829b2937
+  ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/14/2021
-  ms.locfileid: "112063664"
+  ms.lasthandoff: 11/22/2021
+  ms.locfileid: "132901873"
 title: 질문과 대답(FAQ)
 summary: Microsoft Azure Dedicated HSM과 관련된 일반적인 질문에 대한 대답을 확인하세요.
 sections:
@@ -99,8 +99,6 @@ sections:
       * 영국 서부
 
       * 캐나다 중부
-
-      * 캐나다 동부
 
       * 오스트레일리아 동부
 

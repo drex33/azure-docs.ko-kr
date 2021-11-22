@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
-ms.openlocfilehash: 93f232233da0310881539441fdb296ac4ae39b62
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f09bc3da8315445788ac5ea153b492f492b645ed
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103057"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132901684"
 ---
 # <a name="how-to-detect-and-redact-personally-identifying-information-pii"></a>PII (개인 식별 정보)를 검색 하 고 교정 하는 방법
 
@@ -49,7 +49,7 @@ API는 지정 된 문서 언어에 대해 [정의 된 엔터티 범주](concepts
 > [!TIP]
 > 엔터티 범주를 지정할 때 `default`가 포함되지 않으면 API에서 사용자가 지정한 엔터티 범주만 반환합니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
 ## <a name="getting-pii-results"></a>PII 결과 가져오기
 

@@ -11,14 +11,14 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: e82ba7fbab8d82d266fb3a4d86d97598bc9b6703
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9ede7f3153390765d509dd330930770ffb9b43ed
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132722965"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902650"
 ---
-# <a name="connect-to-storage-by-using-identity-based-data-access"></a>ID 기반 데이터 액세스를 사용하여 스토리지에 커넥트
+# <a name="connect-to-storage-by-using-identity-based-data-access"></a>Id 기반 데이터 액세스를 사용 하 여 저장소에 커넥트
 
 이 문서에서는 [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)를 통해 ID 기반 데이터 액세스 및 Azure Machine Learning 데이터 저장소를 사용하여 Azure의 스토리지 서비스에 연결하는 방법을 알아봅니다.  
 
@@ -142,9 +142,9 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                        account_name='myadls2')
 ```
 ### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
-Azure SQL 데이터베이스의 경우 [register_azure_sql_database()를](/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) 사용하여 Azure SQL 데이터베이스 스토리지에 연결하는 데이터 저장소를 등록합니다.
+azure SQL 데이터베이스의 경우 [register_azure_sql_database ()](/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) 를 사용 하 여 azure SQL 데이터베이스 저장소에 연결 되는 데이터 저장소를 등록 합니다.
 
-다음 코드는 데이터 저장소를 만들어 `credentialless_sqldb` 작업 영역에 `ws` 등록하고 변수 에 `sqldb_dstore` 할당합니다. 이 데이터 저장소는 `mydb` SQL DB 서버의 데이터베이스에 `myserver` 액세스합니다.  
+다음 코드에서는 데이터 저장소를 만들어 `credentialless_sqldb` 작업 영역에 등록 하 `ws` 고 변수에 할당 `sqldb_dstore` 합니다. 이 데이터 저장소는 `mydb` SQL DB 서버에 있는 데이터베이스에 액세스 `myserver` 합니다.  
 
 ```python
 # createn sqldatabase datastore without credentials
@@ -158,10 +158,12 @@ sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
 
 ## <a name="use-data-in-storage"></a>스토리지의 데이터 사용
 
-Azure Machine Learning을 사용하여 스토리지의 데이터와 상호 작용할 때 [Azure Machine Learning 데이터 세트](how-to-create-register-datasets.md)를 사용하는 것이 좋습니다. 
+Azure Machine Learning을 사용하여 스토리지의 데이터와 상호 작용할 때 [Azure Machine Learning 데이터 세트](how-to-create-register-datasets.md)를 사용하는 것이 좋습니다.  
+
+> [!IMPORTANT]
+> [자동 ML 실험](how-to-configure-auto-train.md)에는 id 기반 데이터 액세스를 사용 하는 데이터 집합이 지원 되지 않습니다.
 
 데이터 세트는 학습과 같은 기계 학습 작업을 위해 천천히 평가되는 사용 가능한 개체로 데이터를 패키징합니다. 또한 데이터 세트를 사용하여 Azure Storage 서비스(예: Azure Blob Storage 및 Azure Data Lake Storage)에서 컴퓨팅 대상으로 모든 형식의 파일을 [다운로드하거나 탑재](how-to-train-with-datasets.md#mount-vs-download)할 수 있습니다.
-
 
 ID 기반 데이터 액세스를 사용하여 데이터 세트를 만드는 경우 다음과 같은 옵션이 있습니다. 이러한 유형의 데이터 세트를 만들 때는 데이터 액세스 인증에 Azure Active Directory 토큰을 사용합니다. 
 

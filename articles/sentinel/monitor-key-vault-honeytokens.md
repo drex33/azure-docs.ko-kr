@@ -5,12 +5,12 @@ author: batamig
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: d6ce920ff7391b83bbc2ab43487f831e5b4ae33b
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 5abbffd265ab6b751a61189bd7238550abce613c
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132756156"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903144"
 ---
 # <a name="deploy-and-monitor-azure-key-vault-honeytokens-with-microsoft-sentinel-public-preview"></a>Microsoft Sentinel을 사용하여 Azure Key Vault Honeytoken 배포 및 모니터링(공개 미리 보기)
 
@@ -53,13 +53,13 @@ ms.locfileid: "132756156"
 
     함수 앱 이름은 길이가 2-22자 사이이고 영숫자 문자만 고유해야 합니다.
 
-    아래에는 정의한 이름으로 명령이 표시됩니다. 다음은 그 예입니다.
+    아래에는 정의한 이름으로 명령이 표시됩니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="업데이트된 curl 명령을 보여주는 필수 구성 조건 탭의 스크린샷.":::
 
 1. <a name="secret"></a>**Cloud Shell을 열려면 여기를 클릭을** 선택하여 Cloud Shell 탭을 엽니다. 메시지가 표시되면 로그인한 다음, 표시된 명령을 실행합니다.
 
-    실행하는 스크립트는 허니 토큰을 배포하는 Azure AD(AAD) 함수 앱을 만듭니다.    다음은 그 예입니다.
+    실행하는 스크립트는 허니 토큰을 배포하는 Azure AD(AAD) 함수 앱을 만듭니다.    예를 들면 다음과 같습니다.
 
     ```bash
     Requesting a Cloud Shell.Succeeded
@@ -73,7 +73,7 @@ ms.locfileid: "132756156"
     maria@Azure:~$curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s HoneyTokenFunctionApp
     ```
 
-    스크립트 출력에는 AAD 앱 ID 및 비밀이 포함됩니다. 다음은 그 예입니다.
+    스크립트 출력에는 AAD 앱 ID 및 비밀이 포함됩니다. 예를 들면 다음과 같습니다.
 
     ```bash
     WARNING: The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control. For more information, see https://aka.ms/azadsp-cli
@@ -83,13 +83,13 @@ ms.locfileid: "132756156"
     maria@Azure:~$
     ```
 
-1. Microsoft Sentinel로 **돌아가서 필수 구성 조건** 탭의 맨 아래에 있는 관련 필드에 AAD 앱 ID 및 비밀을 입력합니다. 다음은 그 예입니다.
+1. Microsoft Sentinel로 **돌아가서 필수 구성 조건** 탭의 맨 아래에 있는 관련 필드에 AAD 앱 ID 및 비밀을 입력합니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/client-app-secret-values.png" alt-text="함수 앱의 클라이언트 앱 및 추가된 비밀 값의 스크린샷.":::
 
 1. 4단계에서 **함수 앱 설정을 계속하려면 여기를 클릭을** 선택합니다. Azure AD 애플리케이션 설정에서 새 브라우저 탭이 열립니다.
 
-    메시지가 표시되면 로그인한 다음, **관리자 `<your directory name>` 동의 허용을** 선택하여 계속합니다. 다음은 그 예입니다.
+    메시지가 표시되면 로그인한 다음, **관리자 `<your directory name>` 동의 허용을** 선택하여 계속합니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/grant-admin-access.png" alt-text="디렉터리에 대한 관리자 동의 부여 단추의 스크린샷.":::
 
@@ -117,8 +117,8 @@ ms.locfileid: "132756156"
 
     |필드  |Description  |
     |---------|---------|
-    |**키 키워드**     |  디코이 허니 토큰 이름과 함께 사용하려는 값의 쉼표로 구분된 목록을 입력합니다.  예: `key,prod,dev`.  값은 영숫자여야 합니다.   |
-    |**비밀**     |   디코이 허니 토큰 비밀에 사용할 값의 쉼표로 구분된 목록을 입력합니다.  예: `secret,secretProd,secretDev`. 값은 영숫자여야 합니다.    |
+    |**키 키워드**     |  디코이 허니 토큰 이름과 함께 사용하려는 값의 쉼표로 구분된 목록을 입력합니다.  예들 들어 `key,prod,dev`입니다.  값은 영숫자여야 합니다.   |
+    |**비밀**     |   디코이 허니 토큰 비밀에 사용할 값의 쉼표로 구분된 목록을 입력합니다.  예들 들어 `secret,secretProd,secretDev`입니다. 값은 영숫자여야 합니다.    |
     |**추가 HoneyToken 확률**     |  과 사이에 값을 `0` `1` 입력합니다(예: `0.6` ). 이 값은 Key Vault 두 개 이상의 Honeytoken이 추가될 확률을 정의합니다.       |
     |     |         |
 
@@ -146,7 +146,7 @@ ms.locfileid: "132756156"
 
 1. Microsoft Sentinel에서 **통합 문서 > 내 통합 문서로** 이동하여 **SOCHTManagement** 통합 문서를 엽니다. 솔루션을 배포할 때 이 이름을 수정했을 수 있습니다.
 
-1. **저장된 통합 문서 보기**  >  **트러스트된 로 추가를** 선택합니다. 다음은 그 예입니다.
+1. **저장된 통합 문서 보기**  >  **트러스트된 로 추가를** 선택합니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/add-as-trusted.png" alt-text="SOCHTManagement 통합 문서 '신뢰할 수 있는 것으로 추가' 단추의 스크린샷.":::
 
@@ -154,11 +154,11 @@ ms.locfileid: "132756156"
 
 1. 통합 문서의 **Key Vault** 탭에서 구독을 확장하여 Honeytoken을 배포할 준비가 된 키 자격 증명 모음과 이미 배포된 honeytoken이 있는 키 자격 증명 모음을 확인합니다.
 
-    **SOC에서 모니터링되는** 항목 열에서 녹색 확인 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/checkmark.png" border="false"::: 모음에 이미 Honeytoken이 있음을 나타냅니다. 빨간색 X 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/xmark.png" border="false"::: 모음에 아직 Honeytoken이 없는 것을 나타냅니다. 다음은 그 예입니다.
+    **SOC에서 모니터링되는** 항목 열에서 녹색 확인 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/checkmark.png" border="false"::: 모음에 이미 Honeytoken이 있음을 나타냅니다. 빨간색 X 표시는 키 자격 증명 :::image type="icon" source="media/monitor-key-vault-honeytokens/xmark.png" border="false"::: 모음에 아직 Honeytoken이 없는 것을 나타냅니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-deployed.png" alt-text="배포된 Honeytoken을 보여 있는 SOCHTManagement 통합 문서의 스크린샷.":::
 
-1. 통합 문서 페이지에서 Scroll down **작업 수행** 섹션의 지침과 링크를 사용하여 대규모로 모든 키 자격 증명 모음에 honeytoken을 배포하거나 한 번에 하나씩 수동으로 배포합니다.
+1. 통합 문서 페이지에서 Scroll down **작업 수행** 섹션의 지침과 링크를 사용하여 대규모의 모든 키 자격 증명 모음에 honeytoken을 배포하거나 한 번에 하나씩 수동으로 배포합니다.
 
     # <a name="deploy-at-scale"></a>[대규모 배포](#tab/deploy-at-scale)
 
@@ -166,9 +166,9 @@ ms.locfileid: "132756156"
 
     1. 사용자 **사용** 링크를 선택하여 키 자격 증명 모음 액세스 정책을 배포하는 ARM 템플릿을 배포하고 Honeytoken을 만들 수 있는 권한으로 지정된 사용자 ID를 부여합니다.
 
-        메시지가 표시되면 로그인하고 ARM 템플릿 배포에 대한 **Project 세부 정보** 및 인스턴스 세부 **정보** 영역에 대한 값을 입력합니다. 사용자의 Azure Active Directory 홈페이지에서 **테넌트 ID** 및 **사용자 개체 ID를** 찾습니다.
+        메시지가 표시되면 로그인하고 ARM 템플릿 배포에 대한 **Project 세부 정보** 및 인스턴스 세부 **정보** 영역에 대한 값을 입력합니다. 사용자의 Azure Active Directory 홈페이지에서 **테넌트 ID** 및 사용자 **개체 ID를** 찾습니다.
 
-        완료되면 **검토 + 만들기를** 선택하여 ARM 템플릿을 배포합니다. 다음은 그 예입니다.
+        완료되면 **검토 + 만들기를** 선택하여 ARM 템플릿을 배포합니다. 예를 들면 다음과 같습니다.
 
         :::image type="content" source="media/monitor-key-vault-honeytokens/deploy-arm-template.png" alt-text="사용자 지정 배포 페이지의 스크린샷":::
 
@@ -176,7 +176,7 @@ ms.locfileid: "132756156"
 
         페이지 아래쪽에서 **만들기를** 선택하여 ARM 템플릿을 배포하고 성공적인 배포 확인 페이지를 확인합니다.
 
-    1. Microsoft Sentinel로 **돌아가서 SOCHTManagement** 통합 문서 > 규모에 따라 작업 배포를 **수행하려면**  >   **클릭하여 배포** 링크를 선택하여 선택한 구독에서 액세스할 수 있는 모든 키 자격 증명 모음에 honeytoken을 추가합니다.
+    1. Microsoft Sentinel로 **돌아가서 SOCHTManagement** 통합 문서 > 규모에 따라 작업 배포를 수행하세요.에서   >   **배포하려면 클릭** 링크를 선택하여 선택한 구독에서 액세스할 수 있는 모든 키 자격 증명 모음에 honeytoken을 추가합니다.
 
         완료되면 허니 토큰 배포 결과가 새 탭의 테이블에 표시됩니다.
 
@@ -188,7 +188,7 @@ ms.locfileid: "132756156"
 
     1. 페이지 맨 위에 있는 테이블에서 Honeytoken을 배포할 키 자격 증명 모음을 선택합니다. 특정 키 자격 증명 **모음에 배포:** 섹션이 페이지 아래쪽에 나타납니다.
 
-    1. Scroll down **Honeytoken 형식** 드롭다운에서 키 또는 비밀을 만들 것인지 선택합니다. 새 **허니 토큰 이름 필드에 Honeytoken에** 대한 의미 있는 이름을 입력합니다. 다음은 그 예입니다.
+    1. Scroll down **Honeytoken 형식** 드롭다운에서 키 또는 비밀을 만들 것인지 선택합니다. 새 **허니 토큰 이름 필드에 Honeytoken에** 대한 의미 있는 이름을 입력합니다. 예를 들면 다음과 같습니다.
 
         :::image type="content" source="media/monitor-key-vault-honeytokens/deploy-manually.png" alt-text="특정 키 자격 증명 모음 영역에 배포하는 스크린샷.":::
 
@@ -230,7 +230,7 @@ ms.locfileid: "132756156"
 
 1. Microsoft Sentinel **Watchlists** 페이지에서 **내 감시 목록 탭을** 선택한 다음 **HoneyTokens watchlist를** 선택합니다.
 
-    **Log Analytics에서 보기를** 선택하여 찾은 현재 Honeytoken 값의 목록을 봅니다. **로그** 페이지에서는 쿼리에 대해 주의 목록의 항목이 자동으로 추출됩니다. 다음은 그 예입니다.
+    **Log Analytics에서 보기를** 선택하여 찾은 현재 Honeytoken 값의 목록을 봅니다. **로그** 페이지에서는 쿼리에 대해 주의 목록의 항목이 자동으로 추출됩니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png" alt-text="Log Analytics의 Honeytokens 감시 목록 값 스크린샷." lightbox="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png":::
 
@@ -278,13 +278,13 @@ ms.locfileid: "132756156"
     | 배포 옵션 | 설명 | Azure에 배포 | GitHub 링크 |
     |-------------------|-------------|-------------|-----------------|
     | 관리 그룹 | 엔터프라이즈 수준의 배포에 권장| [![DTA-Button-MG]][DTA-MG]  |[GitHub 예제][GitHub-MG] |
-    | 구독 | 단일 구독에서 테스트하는 데 권장 | [![DTA-Button-Sub]][DTA-Sub]  | [GitHub 예제][GitHub-Sub] |
+    | Subscription | 단일 구독에서 테스트하는 데 권장 | [![DTA-Button-Sub]][DTA-Sub]  | [GitHub 예제][GitHub-Sub] |
 
     메시지가 표시되면 로그인합니다.
 
 1. ARM 템플릿의 **Deception 솔루션 정책 배포**  >  **기본 사항** 탭에서 관리 그룹 값 및 지역을 선택합니다. 그런 **다음, 다음: 배포 대상 >** 선택하여 계속합니다.
 
-1. 배포 **대상** 탭에서 관리 그룹을 다시 선택한 다음, **Nex: Management Workbook >** 를 선택합니다.
+1. 배포 **대상** 탭에서 관리 그룹을 다시 선택한 후 **다음: 관리 통합 문서 >** 를 선택합니다.
 
 1. 관리 **통합 문서** 탭에서 **SOCHTManagement** 통합 문서에 대한 링크를 붙여넣습니다.
 
@@ -294,13 +294,13 @@ ms.locfileid: "132756156"
 
 1. 통합 문서 링크를 입력한 후 **다음: 검토 + >만들기를** 선택하여 계속합니다. 유효성 검사가 통과되었다는 확인 메시지가 표시될 때까지 기다린 다음, **만들기를** 선택합니다.
 
-1. 배포가 완료되면 배포에 새 **HoneyTokens** 이니셔티브와 **KeyVault HoneyTokens** 및 **KVReviewTag라는** 두 개의 새 정책이 포함됩니다. 다음은 그 예입니다.
+1. 배포가 완료되면 배포에 새 **HoneyTokens** 이니셔티브와 **KeyVault HoneyTokens** 및 **KVReviewTag라는** 두 개의 새 정책이 포함됩니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/policy-deployment.png" alt-text="성공적으로 배포된 ARM 템플릿 정책의 스크린샷." lightbox="media/monitor-key-vault-honeytokens/policy-deployment.png":::
 
 1. Azure **Policy에서** 필요한 범위로 새 **KVReviewTag** 정책을 할당합니다. 이 할당은 **KVReview** 태그 및 **ReviewNeeded** 값을 선택한 범위의 모든 키 자격 증명 모음에 추가합니다.
 
-    1. Azure Policy 왼쪽의 **제작** 아래에서 **정의를** 선택합니다. **KVReviewTag** 정책 행을 찾고 오른쪽의 옵션 메뉴를 선택합니다.
+    1. Azure Policy 왼쪽의 **제작에서** **정의를** 선택합니다. **KVReviewTag** 정책 행을 찾고 오른쪽의 옵션 메뉴를 선택합니다.
 
     1. 활동 **로그에 대한 진단 설정 Log Analytics 작업 영역에 배포** 페이지에서 환경에 대한 진단 설정을 배포하는 데 필요한 값을 입력합니다.
 

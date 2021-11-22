@@ -11,16 +11,16 @@ ms.subservice: automl
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 46ec04e5b643f328aa14bae0374d7df9688401fe
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: b5533b794b6c879018bec2c738addf24de791edf
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132871388"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903407"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
-이 가이드에서는 자동화된 ML 사용하여 자동화된 Machine Learning AutoML, [Azure Machine Learning Python SDK를](/python/api/overview/azure/ml/intro) 사용하여 학습 실행을 설정하는 Azure Machine Learning 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화된 ML 실험을 구성하는 데 사용할 수 있는 다양한 옵션에 대해 자세히 설명합니다.
+이 가이드에서는 자동화 된 ML를 사용 하 Azure Machine Learning 여 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 를 사용 하 여 자동화 된 기계 학습, automl, 학습 실행을 설정 하는 방법에 대해 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화 된 ML 실험을 구성 하는 데 사용할 수 있는 다양 한 옵션에 대해 자세히 설명 합니다.
 
 엔드투엔드 예제는 [자습서: AutoML - 회귀 모델 학습](tutorial-auto-train-models.md)을 참조하세요.
 
@@ -63,6 +63,9 @@ automl_config = AutoMLConfig(task = "classification")
 - 데이터는 테이블 형식이어야 합니다.
 - 예측하려는 값(대상 열)이 데이터에 있어야 합니다.
 
+> [!IMPORTANT]
+> 자동화 된 ML 실험은 [id 기반 데이터 액세스](how-to-identity-based-data-access.md)를 사용 하는 데이터 집합에 대 한 학습을 지원 하지 않습니다.
+
 **원격 실험의 경우** 원격 컴퓨팅에서 학습 데이터에 액세스할 수 있어야 합니다. 자동화된 ML은 원격 컴퓨팅에서 작업하는 경우에만 [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset)를 허용합니다. 
 
 Azure Machine Learning 데이터 세트는 다음과 같은 기능을 보여줍니다.
@@ -91,7 +94,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>학습, 유효성 검사 및 테스트 데이터
 
-별도의 **학습 데이터 및 유효성 검사 데이터 세트** 를 `AutoMLConfig` 생성자에서 직접 지정할 수 있습니다. AutoML [실험에 대한 학습, 유효성 검사, 교차 유효성 검사 및 테스트 데이터를 구성하는 방법에](how-to-configure-cross-validation-data-splits.md) 대해 자세히 알아봅니다. 
+별도의 **학습 데이터 및 유효성 검사 데이터 세트** 를 `AutoMLConfig` 생성자에서 직접 지정할 수 있습니다. AutoML 실험의 [학습, 유효성 검사, 교차 유효성 검사 및 테스트 데이터를 구성 하는 방법](how-to-configure-cross-validation-data-splits.md) 에 대해 자세히 알아보세요. 
 
 `validation_data` 또는 `n_cross_validation` 매개 변수를 명시적으로 지정하지 않는 경우 자동화된 ML은 유효성 검사가 수행되는 방식을 결정하는 기본 기술을 적용합니다. 이러한 결정은 `training_data` 매개 변수에 할당된 데이터 세트의 행 수에 따라 달라집니다. 
 
@@ -102,12 +105,12 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 
 > [!TIP] 
-> **테스트 데이터(미리 보기)를** 업로드하여 자동화된 ML 생성된 모델을 평가할 수 있습니다. 이러한 기능은  [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능이며 언제든지 변경 될 수 있습니다.
+> 자동화 ML 생성 된 모델을 평가 하는 **테스트 데이터 (미리 보기)** 를 업로드할 수 있습니다. 이러한 기능은  [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
 > 방법 배우기: 
-> * [AutoMLConfig 개체 에 테스트 데이터를 전달합니다.](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) 
-> * [실험에 대해 생성된 자동화된 ML 모델을 테스트합니다.](#test-models-preview)
+> * [AutoMLConfig 개체에 테스트 데이터를 전달](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview)합니다. 
+> * [실험을 위해 생성 된 자동화 ML 모델을 테스트](#test-models-preview)합니다.
 >  
-> 코드 없는 환경을 선호하는 경우 [스튜디오 UI를 사용하여 AutoML 설정의 12단계를 참조하세요.](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
+> 코드를 사용 하지 않는 환경을 선호 하는 경우 [STUDIO UI를 사용 하 여 AutoML 설정의 12 단계](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment) 를 참조 하세요.
 
 
 ### <a name="large-data"></a>큰 데이터 
@@ -132,7 +135,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 * 데스크톱이나 랩톱 같은 사용자의 **로컬** 머신 - 일반적으로 데이터 세트가 작은 경우 및 아직 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
  
-* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 컴퓨팅 인스턴스는 컴퓨팅 대상으로도 지원됩니다.
+* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 계산 인스턴스는 계산 대상으로도 지원 됩니다.
 
     Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
@@ -144,7 +147,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 자동화된 ML 실험을 구성하는 데 사용할 수 있는 몇 가지 옵션이 있습니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)를 참조하세요.
 
-다음 예제는 분류 작업에 대한 것입니다. 이 실험에서는 AUC 가중치를 [기본 메트릭으로](#primary-metric) 사용하고 실험 시간 초과가 30분 및 교차 유효성 검사 접기 2개로 설정됩니다.
+다음은 분류 태스크에 대 한 예입니다. 실험에서는 [기본 메트릭으로](#primary-metric) 로가는가 중 되 고 실험 시간 제한이 30 분으로 설정 되 고 교차 유효성 검사 접기가 2로 설정 됩니다.
 
 ```python
     automl_classifier=AutoMLConfig(task='classification',
@@ -155,7 +158,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
                                    label_column_name=label,
                                    n_cross_validations=2)
 ```
-추가 설정이 필요한 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [Time-Series 예측에 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조하세요. 
+추가로 설치 해야 하는 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [시계열 예측을 위한 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조 하세요. 
 
 ```python
     time_series_settings = {
@@ -393,7 +396,7 @@ run = experiment.submit(automl_config, show_output=True)
 자식 실행 및 수행 가능한 시기를 관리하는 데 도움이 되도록 실험당 전용 클러스터를 만들고 실험의 `max_concurrent_iterations` 수를 클러스터의 노드 수와 일치시키는 것이 좋습니다. 이러한 방식으로 클러스터의 모든 노드를 동시에 사용하여 원하는 동시 자식 실행/반복 횟수를 지정할 수 있습니다.
 
 `AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.
-계산 인스턴스의 경우 `max_concurrent_iterations` 계산 인스턴스 VM의 코어 수와 동일 하 게 설정할 수 있습니다.
+컴퓨팅 인스턴스의 경우 을 `max_concurrent_iterations` 컴퓨팅 인스턴스 VM의 코어 수와 동일하게 설정할 수 있습니다.
 
 ## <a name="explore-models-and-metrics"></a>모델 및 메트릭 탐색
 
@@ -431,7 +434,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-동일한 실험 노트북 내에서 제출 및 학습 된 로컬 또는 원격 실행의 경우, 메서드를 사용 하 여 최상의 모델을 전달할 수 있습니다 `get_output()` . 
+동일한 실험 Notebook 내에서 제출되고 학습된 로컬 또는 원격 실행의 경우 메서드를 사용하여 최상의 모델을 전달할 수 `get_output()` 있습니다. 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -516,23 +519,23 @@ RunDetails(run).show()
 
 ![자동화된 기계 학습을 위한 Jupyter Notebook 위젯](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
-## <a name="test-models-preview"></a>테스트 모델 (미리 보기)
+## <a name="test-models-preview"></a>테스트 모델(미리 보기)
 
 >[!IMPORTANT]
-> 자동화 된 ML 생성 된 모델을 평가 하기 위해 테스트 데이터 집합을 사용 하 여 모델을 테스트 하는 기능은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
+> 테스트 데이터 세트를 사용하여 모델을 테스트하여 자동화된 ML 생성된 모델을 평가하는 것은 미리 보기 기능입니다. 이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
 
 > [!WARNING]
-> 다음 자동화 된 ML 시나리오에서는이 기능을 사용할 수 없습니다.
->  * [컴퓨터 시각 작업 (미리 보기)](how-to-auto-train-image-models.md)
->  * [많은 모델 및 hiearchical 시계열 예측 교육 (미리 보기)](how-to-auto-train-forecast.md)
->  * [심층 학습 신경망 (DNN)을 사용할 수 있는 예측 작업](how-to-auto-train-forecast.md#enable-deep-learning)
->  * [로컬 계산 또는 Azure Databricks 클러스터에서 자동화 된 ML 실행](how-to-configure-auto-train.md#compute-to-run-experiment)
+> 이 기능은 다음과 같은 자동화된 ML 시나리오에 사용할 수 없습니다.
+>  * [Computer Vision 작업(미리 보기)](how-to-auto-train-image-models.md)
+>  * [많은 모델 및 계층적 Time Series 예측 학습(미리 보기)](how-to-auto-train-forecast.md)
+>  * [DNN(딥 러닝 신경망)이 사용되는 예측 작업](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [로컬 컴퓨팅 또는 Azure Databricks 클러스터에서 자동화된 ML 실행](how-to-configure-auto-train.md#compute-to-run-experiment)
 
-또는 매개 변수를에 전달 하면 `test_data` `test_size` `AutoMLConfig` 에서 제공 된 테스트 데이터를 사용 하는 원격 테스트 실행을 자동으로 트리거하여 자동 ML 실험 완료 시 권장 되는 최상의 모델을 평가 합니다. 이 원격 테스트 실행은 최상의 모델이 결정 되 면 실험의 끝에서 수행 됩니다. [테스트 데이터 `AutoMLConfig` ](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview)를에 전달 하는 방법을 참조 하세요. 
+또는 매개 변수를 에 전달하면 `test_data` `test_size` `AutoMLConfig` 제공된 테스트 데이터를 사용하여 자동화된 ML 실험 완료 시 권장하는 최상의 모델을 평가하는 원격 테스트 실행이 자동으로 트리거됩니다. 이 원격 테스트 실행은 최상의 모델이 결정되면 실험이 끝날 때 수행됩니다. 테스트 데이터를 에 전달하는 방법을 [참조하세요. `AutoMLConfig` ](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) 
 
-### <a name="get-test-run-results"></a>테스트 실행 결과 가져오기 
+### <a name="get-test-run-results"></a>테스트 실행 결과 얻기 
 
-[Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) 에서 또는 다음 코드를 사용 하 여 원격 테스트 실행에서 예측 및 메트릭을 가져올 수 있습니다. 
+[Azure Machine Learning Studio에서](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) 또는 다음 코드를 사용하여 원격 테스트 실행에서 예측 및 메트릭을 얻을 수 있습니다. 
 
 
 ```python

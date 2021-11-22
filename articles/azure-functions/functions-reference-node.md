@@ -3,14 +3,14 @@ title: Azure Functions에 대한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 11/18/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 8a4026334e4b0313513e57ac8ed78cd9f24f6e34
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: e7abb345d5867883490b82ac7ff80009a61f036b
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028043"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902916"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -122,16 +122,6 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
-   
- - **입력으로 JavaScript [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
- 
-   ```javascript
-   module.exports = async function(context) { 
-       context.log("This is myTrigger: " + arguments[1]);
-       context.log("This is myInput: " + arguments[2]);
-       context.log("This is myOtherInput: " + arguments[3]);
-   };
-   ```
 
 ### <a name="outputs"></a>출력
 출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json* 에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
@@ -186,7 +176,10 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 런타임은 `context` 개체를 사용하여 함수와 런타임 간에 데이터를 전달합니다. 바인딩에서 데이터를 읽고 설정하고 로그에 쓰는 데 사용되는 `context` 개체는 항상 함수에 전달되는 첫 번째 매개 변수입니다.
 
-동기 코드를 포함하는 함수의 경우 컨텍스트 개체는 함수 처리가 완료될 때 호출하는 `done` 콜백을 포함합니다. 비동기 코드를 작성할 때 명시적으로 `done`을 호출할 필요는 없습니다. `done` 콜백은 암시적으로 호출됩니다.
+동기 코드를 포함하는 함수의 경우 컨텍스트 개체는 함수 처리가 완료될 때 호출하는 `done` 콜백을 포함합니다.
+
+> [!NOTE]
+> `done` [비동기 함수](#exporting-an-async-function)를 작성 하는 경우 명시적 호출은 필요 하지 않습니다. `done` 콜백은 암시적으로 호출 됩니다.
 
 ```javascript
 module.exports = (context) => {
@@ -210,11 +203,10 @@ module.exports = (context) => {
 다음 예제에서는 `invocationId`를 반환하는 방법을 보여 줍니다.
 
 ```javascript
-module.exports = (context, req) => {
+module.exports = async function (context, req) {
     context.res = {
         body: context.executionContext.invocationId
     };
-    context.done();
 };
 ```
 
@@ -252,7 +244,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-`context.binding` 개체 대신 `context.done` 메서드를 사용하여 출력 바인딩 데이터를 정의하도록 선택할 수 있습니다(아래 참조).
+Synchonous 함수에서는 개체 대신 메서드를 사용 하 여 출력 바인딩 데이터를 정의 하도록 선택할 수 있습니다 `context.done` `context.binding` (아래 참조).
 
 ### <a name="contextbindingdata-property"></a>context.bindingData property
 
@@ -264,7 +256,7 @@ context.bindingData
 
 ### <a name="contextdone-method"></a>context.done 메서드
 
-**context.done** 메서드는 동기 메서드에서 사용됩니다.
+**context.done** 메서드는 동기 함수에서 사용됩니다.
 
 |동기 실행|[비동기](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 실행<br>(노드 8 이상, Functions 런타임 2 이상)|
 |--|--|
@@ -323,10 +315,10 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 | 방법                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
-| **warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
-| **info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
-| **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
+| **context.log.error(_message_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
+| **context.log.warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
+| **context.log.info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
+| **context.log.verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
 
 다음 예에서는 정보 수준 대신 경고 추적 수준에서 동일한 로그를 씁니다.
 
@@ -371,7 +363,7 @@ const appInsights = require("applicationinsights");
 appInsights.setup();
 const client = appInsights.defaultClient;
 
-module.exports = function (context, req) {
+module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
@@ -383,8 +375,6 @@ module.exports = function (context, req) {
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
-
-    context.done();
 };
 ```
 
@@ -474,7 +464,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
     ```
 + **_[응답 전용]_`context.res.send(body?: any)`를 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()`은 암시적으로 호출됩니다.
 
-+ **_[응답 전용]_`context.done()`를 호출합니다.** `context.done()` 메서드에 전달되는 응답을 반환하는 특별한 형식의 HTTP 바인딩이 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
++ **_[응답 전용]_ 응답을 반환 합니다.** 의 특수 바인딩 이름을 `$return` 사용 하면 함수의 반환 값을 출력 바인딩에 할당할 수 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
 
     ```json
     {
@@ -483,6 +473,15 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
       "name": "$return"
     }
     ``` 
+
+    비동기 함수에서 직접 응답 개체를 반환할 수 있습니다.
+
+    ```javascript
+    return { status: 201, body: "Insert succeeded." };
+    ```
+
+    Sync 함수에서의 두 번째 인수를 사용 하 여 응답 개체를 반환 합니다 `context.done()` .
+
     ```javascript
      // Define a valid response object.
     res = { status: 201, body: "Insert succeeded." };
@@ -497,7 +496,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 
 해당 스케일링 동작은 여러 Node.js 애플리케이션을 지원하기에 충분합니다. CPU에 바인딩된 애플리케이션의 경우 여러 언어 작업자 프로세스를 사용하여 성능을 향상시킬 수 있습니다.
 
-기본적으로 모든 Functions 호스트 인스턴스에는 언어 작업자 프로세스가 하나만 있습니다. [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 애플리케이션 설정을 사용하여 호스트당 작업자 프로세스 수를 10개까지 늘릴 수 있습니다. 그러면 Azure Functions는 이러한 작업자 사이에 동시 함수 호출을 균등하게 분산하려고 시도합니다. 
+기본적으로 모든 Functions 호스트 인스턴스에는 언어 작업자 프로세스가 하나만 있습니다. [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 애플리케이션 설정을 사용하여 호스트당 작업자 프로세스 수를 10개까지 늘릴 수 있습니다. 그러면 Azure Functions는 이러한 작업자 사이에 동시 함수 호출을 균등하게 분산하려고 시도합니다. 이렇게 하면 CPU를 많이 사용 하는 함수가 다른 함수 실행을 차단할 가능성이 줄어듭니다.
 
 요구 사항을 충족하기 위해 애플리케이션을 스케일 아웃할 때 Functions가 만드는 각 호스트에 FUNCTIONS_WORKER_PROCESS_COUNT가 적용됩니다. 
 
@@ -507,8 +506,8 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 
 | Functions 버전 | 노드 버전(Windows) | 노드 버전(Linux) |
 |---|---| --- |
-| 4.x | `~14` | `node|14` |
-| 3.x(권장) | `~14`(권장)<br/>`~12`<br/>`~10` | `node|14`(권장)<br/>`node|12`<br/>`node|10` |
+| 4.x (권장) | `~16`(미리 보기)<br/>`~14`(권장) | `node|16`(미리 보기)<br/>`node|14`(권장) |
+| 3.x | `~14`<br/>`~12`<br/>`~10` | `node|14`<br/>`node|12`<br/>`node|10` |
 | 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
 
@@ -524,19 +523,18 @@ Linux 함수 앱의 경우 다음 Azure CLI 명령을 실행하여 노드 버전
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
-Azure Functions 런타임 지원 정책에 대한 자세한 내용은 이 [문서](./language-support-policy.md)를 참조하세요.
+Azure Functions 런타임 지원 정책에 대 한 자세한 내용은이 [문서](./language-support-policy.md)를 참조 하세요.
 
 ## <a name="dependency-management"></a>종속성 관리
 아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.
 
 ```javascript
 // Import the underscore.js library
-var _ = require('underscore');
-var version = process.version; // version === 'v6.5.0'
+const _ = require('underscore');
 
-module.exports = function(context) {
+module.exports = async function(context) {
     // Using our imported underscore.js library
-    var matched_names = _
+    const matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
@@ -553,7 +551,7 @@ module.exports = function(context) {
 2. 코드를 배포하고 `node_modules` 폴더가 배포에 포함되어 있는지 확인합니다. 
 
 
-### <a name="using-kudu"></a>Kudu 사용
+### <a name="a-nameusing-kuduusing-kudu-windows-only"></a><a name="using-kudu">Kudu 사용 (Windows에만 해당)
 1. [https://editor.swagger.io](`https://<function_app_name>.scm.azurewebsites.net`) 로 이동합니다.
 
 2. **디버그 콘솔** > **CMD** 를 클릭합니다.
@@ -587,7 +585,7 @@ module.exports = function(context) {
 
 ### <a name="in-azure-cloud-environment"></a>Azure 클라우드 환경
 
-Azure에서 실행하는 경우 함수 앱을 사용하면 서비스 연결 문자열과 같은 [애플리케이션 설정을](functions-app-settings.md)설정하고 사용할 수 있으며 실행 중에 이러한 설정을 환경 변수로 노출합니다. 
+Azure에서 실행 하는 경우 함수 앱을 사용 하 여 서비스 연결 문자열과 같은 [응용 프로그램 설정을](functions-app-settings.md)설정 하 고 사용할 수 있으며, 실행 중에 이러한 설정을 환경 변수로 노출 합니다. 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -597,7 +595,6 @@ Azure에서 실행하는 경우 함수 앱을 사용하면 서비스 연결 문�
 
 ```javascript
 module.exports = async function (context, myTimer) {
-
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
@@ -606,9 +603,9 @@ module.exports = async function (context, myTimer) {
 ## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>ECMAScript 모듈(미리 보기)
 
 > [!NOTE]
-> ECMAScript 모듈은 현재 Node.js 14에서 ‘실험적’ 모듈이므로 Node.js 14 Azure Functions에서 미리 보기 기능으로 사용할 수 있습니다. ECMAScript 모듈에 대한 Node.js 14 지원이 ‘안정’될 때까지는 API 나 동작이 변경될 수 있습니다.
+> ECMAScript 모듈은 현재 Node.js 14와 16 Azure Functions의 미리 보기 기능입니다.
 
-[ECMAScript 모듈](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules)(ES 모듈)은 Node.js에 대한 새로운 공식 표준 모듈 시스템입니다. 지금까지 이 문서의 코드 샘플에서는 CommonJS 구문을 사용합니다. Node.js 14에서 Azure Functions를 실행하는 경우 ES 모듈 구문을 사용하여 함수를 작성하도록 선택할 수 있습니다.
+[ECMAScript 모듈](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules)(ES 모듈)은 Node.js에 대한 새로운 공식 표준 모듈 시스템입니다. 지금까지 이 문서의 코드 샘플에서는 CommonJS 구문을 사용합니다. Node.js 14 이상에서 Azure Functions를 실행 하는 경우 ES 모듈 구문을 사용 하 여 함수를 작성 하도록 선택할 수 있습니다.
 
 함수에서 ES 모듈을 사용하려면 `.mjs` 확장을 사용하도록 파일 이름을 변경합니다. 다음 *index.mjs* 파일 예제는 ES 모듈 구문을 사용하여 `uuid` 라이브러리를 가져오고 값을 반환하는 HTTP 트리거 함수입니다.
 
@@ -668,7 +665,7 @@ FunctionApp
 }
 ```
 
-사용자 함수에서 `this` 매개 변수를 지원하는 Functions v2.x에서 함수 코드는 다음 예제와 같을 수 있습니다.
+사용자 함수에서 매개 변수를 지 원하는 v2 또는 이상 함수에서 `this` 함수 코드는 다음 예제와 같습니다.
 
 ```javascript
 class MyObj {
@@ -676,9 +673,8 @@ class MyObj {
         this.foo = 1;
     };
 
-    logFoo(context) { 
+    async logFoo(context) { 
         context.log("Foo is " + this.foo); 
-        context.done(); 
     }
 }
 
@@ -690,7 +686,7 @@ module.exports = myObj;
 
 ## <a name="local-debugging"></a>로컬 디버깅
 
-`--inspect` 매개 변수를 사용하여 시작하면 Node.js 프로세스가 지정된 포트에서 디버깅 클라이언트를 수신 대기합니다. Azure Functions 2.x에서는 환경 변수 또는 앱 설정 `languageWorkers:node:arguments = <args>`를 추가하여 코드를 실행하는 Node.js 프로세스에 전달할 인수를 지정할 수 있습니다. 
+`--inspect` 매개 변수를 사용하여 시작하면 Node.js 프로세스가 지정된 포트에서 디버깅 클라이언트를 수신 대기합니다. Azure Functions 2.x 이상에서는 환경 변수 또는 앱 설정을 추가 하 여 코드를 실행 하는 Node.js 프로세스에 전달할 인수를 지정할 수 있습니다 `languageWorkers:node:arguments = <args>` . 
 
 로컬로 디버그하려면 [local.settings.json](./functions-develop-local.md#local-settings-file) 파일의 `Values`에 `"languageWorkers:node:arguments": "--inspect=5858"`을 추가하고 포트 5858에 디버거를 연결합니다.
 
@@ -698,9 +694,12 @@ VS Code를 사용하여 디버그하는 경우 `--inspect` 매개 변수는 프�
 
 버전 1.x에서는 `languageWorkers:node:arguments` 설정이 작동하지 않습니다. Azure Functions Core Tools에서 [`--nodeDebugPort`](./functions-run-local.md#start) 매개 변수를 사용하여 디버그 포트를 선택할 수 있습니다.
 
+> [!NOTE]
+> `languageWorkers:node:arguments`함수 앱을 로컬로 실행 하는 경우에만 구성할 수 있습니다.
+
 ## <a name="typescript"></a>TypeScript
 
-Functions 런타임 버전 2.x를 대상으로 하는 경우 [Visual Studio Code용 Azure Functions](./create-first-function-cli-typescript.md)와 [Azure Functions Core Tools](functions-run-local.md)를 사용하면 TypeScript 함수 앱 프로젝트를 지원하는 템플릿을 사용하여 함수 앱을 만들 수 있습니다. 템플릿은 해당 도구를 사용하여 TypeScript 코드에서 JavaScript 함수를 더 쉽게 변환 컴파일, 실행, 게시하게 하는 `package.json` 및 `tsconfig.json` 프로젝트 파일을 생성합니다.
+Functions 런타임 버전 2.x를 대상으로 하는 경우 [Visual Studio Code Azure Functions](./create-first-function-cli-typescript.md) 및 [Azure Functions Core Tools](functions-run-local.md) 모두 TypeScript 함수 앱 프로젝트를 지원하는 템플릿을 사용하여 함수 앱을 만들 수 있습니다. 템플릿은 해당 도구를 사용하여 TypeScript 코드에서 JavaScript 함수를 더 쉽게 변환 컴파일, 실행, 게시하게 하는 `package.json` 및 `tsconfig.json` 프로젝트 파일을 생성합니다.
 
 생성된 `.funcignore` 파일은 프로젝트가 Azure에 게시될 때 제외되는 파일을 나타내는 데 사용됩니다.  
 

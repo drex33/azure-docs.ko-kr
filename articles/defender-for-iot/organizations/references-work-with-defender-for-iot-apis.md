@@ -1,14 +1,14 @@
 ---
 title: Defender for IoT API 작업
 description: 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
-ms.date: 11/17/2021
+ms.date: 11/21/2021
 ms.topic: reference
-ms.openlocfilehash: f9e5e380f6659cd9a884b4de57db430fc39fea2b
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 84cf68d64a6aba783c990337cdfa57ba35c1297e
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132704907"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903483"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender for IoT 센서 및 관리 콘솔 API
 
@@ -1550,11 +1550,11 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 |--|--|--|
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
-### <a name="retrieve-alert-pcap---apiv2alertspcap"></a>경고 PCAP-/api/v2/alerts/pcap 검색
+### <a name="retrieve-alert-pcap---apiv2alertspcap"></a>경고 PCAP 검색 - /api/v2/alerts/pcap
 
-이 API를 사용 하 여 경고와 관련 된 PCAP 파일을 검색 합니다.
+이 API를 사용하여 경고와 관련된 PCAP 파일을 검색합니다.
 
-이 끝점은 권한 부여에 일반 액세스 토큰을 사용 하지 않습니다. 대신 CM의 API 끝점에서 만든 특수 토큰이 필요 `/external/v2/alerts/pcap` 합니다.
+이 엔드포인트는 권한 부여를 위해 일반 액세스 토큰을 사용하지 않습니다. 대신 `/external/v2/alerts/pcap` CM의 API 엔드포인트에서 만든 특수 토큰이 필요합니다.
 
 #### <a name="method"></a>방법
 
@@ -1563,7 +1563,7 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
 - id: Xsense 경고 ID  
-예제:  
+예:  
 `/api/v2/alerts/pcap/<id>`
 
 #### <a name="response-type"></a>응답 형식
@@ -1572,8 +1572,8 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="response-content"></a>응답 콘텐츠
 
-- **성공**: pcap 데이터를 포함 하는 이진 파일
-- **실패**: 오류 메시지를 포함 하는 JSON 개체입니다.
+- **성공:** PCAP 데이터를 포함하는 이진 파일
+- **실패:** 오류 메시지를 포함하는 JSON 개체
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1623,7 +1623,7 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 
 ### <a name="version-3"></a>버전 3
 
-- [Service Now 통합 API - "/external/v3/integration/](#service-now-integration-api---externalv3integration)
+- [ServiceNow 통합 API - "/external/v3/integration/(미리 보기)](#servicenow-integration-api---externalv3integration-preview)
 
 ### <a name="alert-exclusions"></a>경고 제외
 
@@ -2369,7 +2369,7 @@ response:
 
 /api/v2/는 다음 정보에 필요합니다.
 
-- sourceDeviceAddress 
+- sourceDeviceAddress
 - destinationDeviceAddress
 - remediationSteps
 - sensorName
@@ -2675,7 +2675,7 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 |--|--|--|
 | POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
 | PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
-| Delete | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
 
 ### <a name="request-alert-pcap---externalv2alertspcap"></a>경고 PCAP 요청 - /external/v2/alerts/pcap
@@ -2689,7 +2689,7 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 #### <a name="query-parameters"></a>쿼리 매개 변수
 
 - id: CM 경고 ID  
-예제:  
+예:  
 `/external/v2/alerts/pcap/<id>`
 
 #### <a name="response-type"></a>응답 형식
@@ -2739,34 +2739,34 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
 
-### <a name="service-now-integration-api---externalv3integration"></a>Service Now Integration API-"/external/v3/integration/
+### <a name="servicenow-integration-api---externalv3integration-preview"></a>ServiceNow 통합 API - "/external/v3/integration/(미리 보기)
 
-아래 API는 servicenow에 대 한 Defender의 Service Graph 커넥터 (IoT 용)를 통한 servicenow 통합과 함께 사용할 수 있습니다.
+아래 API는 ServiceNow의 Service Graph Connector for Defender for IoT를 통해 ServiceNow 통합과 함께 사용할 수 있습니다.
 
-### <a name="create-and-update-devices"></a>장치 만들기 및 업데이트
+### <a name="create-and-update-devices"></a>디바이스 만들기 및 업데이트
 
 #### <a name="request"></a>요청
 
 - 경로: "/devices/{timestamp}"
 - 메서드 형식: GET
 - 경로 매개 변수:
-    - "**timestamp**" – 업데이트가 필요한 시간으로, 이후 업데이트만 반환 됩니다.
+    - "**timestamp**" – 업데이트가 필요한 시간이며 이후 업데이트만 반환됩니다.
 
 - 쿼리 매개 변수:
-    - "**sensorId**"-이 매개 변수를 사용 하 여 특정 센서에 표시 되는 장치만 가져올 수 있습니다. 이 Id는 센서 API의 결과에서 가져와야 합니다.
-    - "**notificationType**"-다음 매핑에서 숫자 여야 합니다.
-        - 0 – 업데이트 된 장치와 새 장치 모두 (기본값)
-        - 1 – 새 장치만
-        - 2 – 업데이트 된 장치만
-    - "**page**"-결과 집합의 페이지 번호입니다. 첫 번째 페이지는 0이 고 기본값은 0입니다.
-    - "**size**"-페이지 크기 (기본값은 50)
+    - "**sensorId**" - 이 매개 변수를 사용하여 특정 센서에서 볼 수 있는 디바이스만을 얻습니다. Id는 센서 API의 결과에서 가져와야 합니다.
+    - "**notificationType**" - 다음 매핑의 숫자여야 합니다.
+        - 0 – 업데이트된 디바이스와 새 디바이스(기본값)
+        - 1 – 새 디바이스만
+        - 2 – 업데이트된 디바이스만
+    - "**page**" - 결과 집합의 페이지 번호입니다(첫 번째 페이지는 0, 기본값은 0).
+    - "**size**" - 페이지 크기(기본값: 50)
 
 #### <a name="response"></a>응답
 
 - 형식: JSON
-- 구조체나
-    - "**u_count**"-모든 페이지를 포함 하 여 전체 결과 집합의 개체 양입니다.
-    - "**u_devices**"-특정 장치 API에 정의 된 장치 개체의 배열입니다.
+- 구조:
+    - "**u_count**" - 모든 페이지를 포함하여 전체 결과 집합의 개체 양입니다.
+    - "**u_devices**" - 디바이스 개체의 배열입니다(특정 디바이스 API에 정의된 대로).
 
 ### <a name="connections"></a>Connections
 
@@ -2775,64 +2775,64 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 - 경로: "/connections/{timestamp}"
 - 메서드 형식: GET
 - 경로 매개 변수:
-    - "**timestamp**" – 업데이트가 필요한 시간으로, 이후 업데이트만 반환 됩니다.
+    - "**timestamp**" – 업데이트가 필요한 시간이며 이후 업데이트만 반환됩니다.
 - 쿼리 매개 변수:
-    - "**page**"-결과 집합의 페이지 번호입니다. 기본값은 1입니다.
-    - "**size**"-페이지 크기 (기본값은 50)
+    - "**page**" - 결과 집합의 페이지 번호입니다(기본값은 1).
+    - "**size**" - 페이지 크기(기본값: 50)
 
 #### <a name="response"></a>응답
 
 - 형식: JSON
-- 구조체나 
-    - "**u_count**"-모든 페이지를 포함 하 여 전체 결과 집합의 개체 양입니다.
-    - "**u_connections**"-배열
-        - "**u_src_device_id**"-원본 장치의 id입니다.
-        - "**u_dest_device_id**"-대상 장치의 id입니다.
-        - "**u_connection_type**"-다음 중 하나입니다.
-            - "**단방향"**
+- 구조: 
+    - "**u_count**" - 모든 페이지를 포함하여 전체 결과 집합의 개체 양입니다.
+    - "**u_connections**" - 배열
+        - "**u_src_device_id**" - 원본 디바이스의 ID입니다.
+        - "**u_dest_device_id**" - 대상 디바이스의 ID입니다.
+        - "**u_connection_type**" - 다음 중 하나:
+            - "**단방향**"
             - "**양방향**"
-            - "**멀티 캐스트**"
+            - "**멀티캐스트**"
 
-### <a name="specific-device"></a>특정 장치
+### <a name="specific-device"></a>특정 디바이스
 
 #### <a name="request"></a>요청
 
 - 경로: "/device/{deviceId}"
 - 메서드 형식: GET
 - 경로 매개 변수:
-    - "**deviceId**" – 요청 된 장치의 Id입니다.
+    - "**deviceId**" – 요청된 디바이스의 ID입니다.
 
 #### <a name="response"></a>응답
 
 - 형식: JSON
-- 구조체나
-    - "**u_id**"-장치의 내부 id입니다.
-    - "**u_vendor**"-공급 업체의 이름입니다.
-    - "**u_mac_address_objects**"-배열
-        - "**u_mac_address**"-장치의 mac 주소입니다.
-    - "**u_ip_address_objects**"-배열
-        - "**u_ip_address**"-장치의 ip 주소입니다.
-        - "**u_guessed_mac_addresses**"-배열
-            - "**u_mac_address**"-추측 되는 mac 주소입니다.
-    - "**u_name**"-장치 이름입니다.
-    - "**u_last_activity**"-장치가 마지막으로 활성화 된 시간에 대 한 타임 스탬프입니다.
-    - "**u_first_discovered**"-장치의 검색 시간에 대 한 타임 스탬프입니다.
-    - "**u_last_update**"-장치의 마지막 업데이트 시간에 대 한 타임 스탬프입니다.
-    - "**u_vlans**"-배열
-        - "**u_vlan**"-장치가 있는 vlan입니다.
-    - "**u_device_type**"-
-        - "**u_name**"-장치 유형
-        - "**u_purdue_layer**"-이 장치 유형에 대 한 기본 purdue 계층입니다.
-        - "**u_category**"-다음 중 하나가 됩니다.
+- 구조:
+    - "**u_id**" - 디바이스의 내부 ID입니다.
+    - "**u_vendor**" - 공급업체의 이름입니다.
+    - "**u_mac_address_objects**" - 배열
+        - "**u_mac_address**" - 디바이스의 mac 주소입니다.
+    - "**u_ip_address_objects**" - 배열
+        - "**u_ip_address**" - 디바이스의 IP 주소입니다.
+        - "**u_guessed_mac_addresses**" - 배열
+            - "**u_mac_address**" - 추측된 mac 주소입니다.
+    - "**u_name**" - 디바이스의 이름입니다.
+    - "**u_last_activity**" - 디바이스가 마지막으로 활성화된 시간의 타임스탬프입니다.
+    - "**u_first_discovered**" - 디바이스 검색 시간의 타임스탬프입니다.
+    - "**u_last_update**" - 디바이스의 마지막 업데이트 시간의 타임스탬프입니다.
+    - "**u_vlans**" - 배열
+        - "**u_vlan**" - 디바이스가 있는 vlan입니다.
+    - "**u_device_type**" -
+        - "**u_name**" - 디바이스 유형
+        - "**u_purdue_layer**" - 이 디바이스 유형의 기본 purdue 계층입니다.
+        - "**u_category**" - 다음 중 하나입니다.
             - "**IT**"
             - "**ICS**"
             - "**IoT**"
             - "**네트워크**"
-    - "**u_operating_system**"-장치 운영 체제
-    - "**u_protocol_objects**"-배열
-        - "**u_protocol**"-장치가 사용 하는 프로토콜입니다.
-    - "**u_purdue_layer**"-사용자가 수동으로 설정한 purdue 계층입니다.
-    - "**u_sensor_ids**"-배열
+    - "**u_operating_system**" - 디바이스 운영 체제입니다.
+    - "**u_protocol_objects**" - 배열
+        - "**u_protocol**" - 디바이스에서 사용하는 프로토콜입니다.
+    - "**u_purdue_layer**" - 사용자가 수동으로 설정한 purdue 계층입니다.
+    - "**u_sensor_ids**" - 배열
         - "**u_sensor_id**" - 디바이스를 본 센서의 ID입니다.
     - "**u_device_urls**" - 배열
         - "**u_device_url**" 센서에서 디바이스를 볼 URL입니다.
@@ -2915,7 +2915,6 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 - 경로 매개 변수:
     - "**timestamp**" – 업데이트가 필요한 시간이며 이후 업데이트만 반환됩니다.
 - 쿼리 매개 변수:
-    - "**sensorId**" - 이 매개 변수를 사용하여 특정 센서에서 볼 수 있는 디바이스만을 얻습니다. Id는 센서 API의 결과에서 가져와야 합니다.
     - "**page**" - 결과 집합의 페이지 번호입니다(첫 번째 페이지는 0, 기본값은 0).
     - "**size**" - 페이지 크기(기본값: 50)
 
@@ -2924,7 +2923,6 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 - 형식: JSON
 - 구조:
     - "**u_count**" - 모든 페이지를 포함하여 전체 결과 집합의 개체 양입니다.
-    - "**u_devices**" - 배열
     - "**u_id**" - 특정 디바이스 API와 동일합니다.
     - "**u_name**" - 특정 디바이스 API와 동일합니다.
     - "**u_ip_address_objects**" - 특정 디바이스 API와 동일합니다.

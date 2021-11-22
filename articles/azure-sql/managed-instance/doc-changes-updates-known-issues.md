@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: 31f42cb2dd8405a08477fd6ee9048f42e80e44be
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: b800eb960891c814f343c3703be1912edd5d8398
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851290"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132901949"
 ---
 # <a name="known-issues-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 알려진 문제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,7 +35,6 @@ ms.locfileid: "131851290"
 |[서버 신뢰 그룹에서 관리 되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020년 10월|해결 방법 있음||
 |[관리 되는 인스턴스 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020년 10월|해결됨|2021년 5월|
 |[이전에 삭제한 논리 서버와 동일한 이름으로 SQL Managed Instance를 만들 수 없습니다.](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|2020년 8월|해결 방법 있음||
-|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / azure SQL의 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) 및 `BACKUP` / `RESTORE` SQL Managed Instance azure AD 관리 id를 사용 하 여 azure storage에 인증할 수 없습니다.|2020년 9월|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없음](#service-principal-cannot-access-azure-ad-and-akv)|2020년 8월|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
 |[기존 작업을 수정하면 또는 사용하거나 사용하지 않도록 설정하면 에이전트가 응답하지 않음](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
@@ -123,34 +122,17 @@ BEGIN
 END
 ```
 
-### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>서버 신뢰 그룹에서 관리되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>서버 신뢰 그룹에서 관리 되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.
 
-[서버 신뢰 그룹은](../managed-instance/server-trust-group-overview.md) [분산 트랜잭션을](../database/elastic-transactions-overview.md)실행하기 위한 필수 조건인 관리되는 인스턴스 간에 트러스트를 설정하는 데 사용됩니다. 서버 신뢰 그룹에서 관리되는 인스턴스를 제거하거나 그룹을 삭제한 후에도 분산 트랜잭션을 실행할 수 있습니다. 분산 트랜잭션이 비활성화되고 관리되는 인스턴스에서 사용자가 시작한 수동 장애 [조치(failover)되도록](../managed-instance/user-initiated-failover.md) 적용할 수 있는 해결 방법이 있습니다.
+[서버 트러스트 그룹](../managed-instance/server-trust-group-overview.md) 은 [분산 트랜잭션을](../database/elastic-transactions-overview.md)실행 하기 위한 필수 구성 요소인 관리 되는 인스턴스 간에 트러스트를 설정 하는 데 사용 됩니다. 서버 신뢰 그룹에서 관리 되는 인스턴스를 제거 하거나 그룹을 삭제 한 후에도 분산 트랜잭션을 실행할 수 있습니다. 관리 되는 인스턴스에서 [사용자가 시작한 수동 장애 조치 (failover)](../managed-instance/user-initiated-failover.md) 를 수행할 수 있도록 분산 트랜잭션을 사용 하지 않도록 설정 하는 해결 방법이 있습니다.
 
-### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>관리되는 인스턴스 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>관리 되는 인스턴스 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.
 
-SQL 서비스 계층 또는 vCore 수를 변경하는 작업을 포함하는 Managed Instance 크기 조정 작업은 백 엔드에서 서버 신뢰 그룹 설정을 다시 설정하고 [분산 트랜잭션](../database/elastic-transactions-overview.md)실행을 사용하지 않도록 설정합니다. 해결 방법으로 Azure Portal에서 새 [서버 신뢰 그룹](../managed-instance/server-trust-group-overview.md)을 삭제하고 만듭니다.
+서비스 계층 변경 또는 vcores 수를 포함 하는 SQL Managed Instance 크기 조정 작업은 백 엔드에서 서버 트러스트 그룹 설정을 다시 설정 하 고 [분산 트랜잭션](../database/elastic-transactions-overview.md)실행을 비활성화 합니다. 해결 방법으로 Azure Portal에서 새 [서버 신뢰 그룹](../managed-instance/server-trust-group-overview.md)을 삭제하고 만듭니다.
 
 ### <a name="cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted"></a>이전에 삭제한 논리 서버와 동일한 이름으로 SQL Managed Instance를 만들 수 없습니다.
 
-의 DNS `<name>.database.windows.com` 레코드는 [azure에서](../database/logical-servers.md) Azure SQL Database 논리 서버를 만들 때와 SQL Managed Instance 만들 때 만들어집니다. DNS 레코드는 고유해야 합니다. 따라서 SQL Database 논리 서버를 만든 다음 삭제하는 경우 레코드에서 이름이 해제되기까지 7일의 임계값 기간이 있습니다. 해당 기간에는 삭제된 논리 서버와 동일한 이름으로 SQL Managed Instance 만들 수 없습니다. 해결하려면 SQL Managed Instance 다른 이름을 사용하거나 지원 티켓을 만들어 논리 서버 이름을 해제합니다.  
-
-
-### <a name="bulk-insert-and-backuprestore-statements-should-use-sas-key-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 SAS 키를 사용하여 Azure Storage에 액세스해야 합니다.
-
-현재 Azure Storage `DATABASE SCOPED CREDENTIAL` 인증하기 위해 관리 ID에서 구문이 지원되지 않습니다. 대량 삽입을 위해 Azure Storage [액세스하는](../../storage/common/storage-sas-overview.md) 경우 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token)에 공유 액세스 서명을 사용하는 것이 `BACKUP` `RESTORE` `OPENROWSET` 좋습니다. 예를 들면 다음과 같습니다.
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL sas_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
- SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=2016-12-29T16:55:34Z***************';
-GO
-CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
-  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/invoices', CREDENTIAL= sas_cred );
-GO
-BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
-```
-
-SAS 키와 함께 `BULK INSERT`를 사용하는 또 다른 예는 [스토리지 인증을 위한 공유 액세스 서명](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)을 참조하세요. 
+의 DNS 레코드는 `<name>.database.windows.com` Azure SQL Database에 대해 [Azure에서 논리 서버](../database/logical-servers.md) 를 만들 때와 SQL Managed Instance를 만들 때 생성 됩니다. DNS 레코드는 고유 해야 합니다. 따라서 SQL Database에 대 한 논리 서버를 만든 다음 삭제 하는 경우 레코드에서 이름이 해제 되기까지 7 일의 임계값이 있습니다. 이 기간에는 삭제 된 논리 서버와 동일한 이름으로 SQL Managed Instance를 만들 수 없습니다. 해결 방법으로 SQL Managed Instance에 다른 이름을 사용 하거나 논리 서버 이름을 해제 하기 위한 지원 티켓을 만듭니다.  
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.
 

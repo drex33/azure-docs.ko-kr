@@ -8,14 +8,14 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 11/10/2021
 ms.reviewer: ''
-ms.openlocfilehash: 47acffc242973e70f9fe89db9304d193307c5695
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 5b7fe49510c00cc5c34a0029f04414f2626b75b8
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132335749"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903521"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용하여 일반적인 보안 요구 사항을 해결하는 방법에 대한 플레이북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -160,7 +160,7 @@ Azure AD Multi-Factor Authentication은 두 가지 이상의 인증 형태를 �
 
 **모범 사례**:
 
-- Windows 자격 증명을 사용하는 Single Sign-On 인증을 사용합니다. 온-프레미스 AD 도메인을 Azure AD와 페더레이션하고 통합 Windows 인증을 사용합니다(Azure AD를 사용하는 도메인에 가입된 머신의 경우).
+- Windows 자격 증명을 사용하는 Single Sign-On 인증을 사용합니다. 온-프레미스 ad 도메인을 azure ad와 페더레이션 하 고 통합 Windows 인증 (azure ad에서 도메인에 가입 된 컴퓨터의 경우)을 사용 합니다.
   - [SSMS의 Azure AD 통합 인증 지원](authentication-aad-configure.md#active-directory-integrated-authentication) 문서를 참조하세요.
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-applications"></a>애플리케이션에 대한 암호 기반 인증 사용 최소화
@@ -501,22 +501,18 @@ CLE를 사용하는 경우:
 
 **구현 방법**:
 
-- Azure SQL Database 및 SQL Managed Instance에 연결하는 클라이언트 머신에서 [TLS(전송 계층 보안)](security-overview.md#transport-layer-security-encryption-in-transit)를 사용합니다.
+- Azure SQL Database 및 SQL Managed Instance에 연결 하는 클라이언트 컴퓨터가 최신 [TLS (Transport Layer Security)](security-overview.md#transport-layer-security-encryption-in-transit) 버전을 사용 하 고 있는지 확인 합니다.
 
 **모범 사례**:
+
+- 최소 tls 버전 설정을 사용 하 여 [SQL Database 서버](connectivity-settings.md#minimal-tls-version) 또는 [SQL Managed Instance](../managed-instance/minimal-tls-version-configure.md) 수준에서 최소 tls 버전을 적용 합니다. 테스트 후 최소 TLS 버전을 1.2로 설정 하 여 응용 프로그램에서 지원 하는지 확인 하는 것이 좋습니다. TLS 1.2에는 이전 버전의 취약성에 대 한 수정 사항이 포함 되어 있습니다.
 
 - 암호화를 사용하여 SQL Database에 연결하도록 모든 앱과 도구를 구성합니다.
   - Encrypt = On, TrustServerCertificate = Off(또는 타사의 해당 드라이버).
 
 - 앱이 TLS를 지원하지 않거나 이전 버전의 TLS를 지원하는 드라이버를 사용하는 경우 되도록이면 드라이버를 바꿉니다. 바꿀 수 없는 경우 보안 위험을 신중하게 평가합니다.
-
-- [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings#tls-10)에 따라 Azure SQL Database에 연결하는 클라이언트 머신에서 SSL 2.0, SSL 3.0, TLS 1.0 및 TLS 1.1을 사용하지 않도록 설정하여 취약성을 통한 공격 벡터를 줄입니다.
-
-- 클라이언트에서 사용할 수 있는 [TLS/SSL의 암호화 도구 모음(Schannel SSP)](/windows/desktop/SecAuthN/cipher-suites-in-schannel)을 확인합니다. 특히 [TLS 암호화 도구 모음 순서 구성](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)에 따라 3DES를 사용하지 않도록 설정합니다.
-
-- Azure SQL Database 및 SQL Managed Instance의 경우 프록시 및 리디렉션 연결 형식 모두에 대해 암호화가 적용됩니다. Azure SQL Managed Instance의 경우 서버 쪽에서 암호화를 적용하는 **프록시** 연결 형식(기본값)을 사용합니다. **리디렉션** 연결 형식은 현재 암호화 적용을 지원하지 않으며 개인 IP 연결에만 사용할 수 있습니다.
-
-- 자세한 내용은 [Azure SQL Database 연결 아키텍처 - 연결 정책](connectivity-architecture.md#connection-policy)을 참조하세요.
+  - [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings#tls-10)에 따라 Azure SQL Database에 연결하는 클라이언트 머신에서 SSL 2.0, SSL 3.0, TLS 1.0 및 TLS 1.1을 사용하지 않도록 설정하여 취약성을 통한 공격 벡터를 줄입니다.
+  - 클라이언트에서 사용할 수 있는 [TLS/SSL의 암호화 도구 모음(Schannel SSP)](/windows/desktop/SecAuthN/cipher-suites-in-schannel)을 확인합니다. 특히 [TLS 암호화 도구 모음 순서 구성](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)에 따라 3DES를 사용하지 않도록 설정합니다.
 
 ### <a name="minimize-attack-surface"></a>공격 노출 영역 최소화
 
@@ -530,7 +526,7 @@ SQL 데이터베이스:
 
 - 서버 수준에서 [Azure 서비스에 대한 액세스 허용]을 [끄기]로 설정합니다.
 - VNet 서비스 엔드포인트 및 VNet 방화벽 규칙을 사용합니다.
-- 프라이빗 링크(미리 보기)를 사용합니다.
+- Private Link 사용합니다.
 
 SQL Managed Instance:
 
@@ -625,7 +621,7 @@ Azure 플랫폼에서는 DDoS 보호가 자동으로 사용됩니다. 여기에�
 - Advanced Threat Protection **무차별 암호 대입 SQL 자격 증명** 경고는 무차별 암호 대입 공격을 감지하는 데 도움이 됩니다. 경우에 따라 경고가 침투 테스트 워크로드를 구분할 수도 있습니다.
 
 - SQL Database에 연결하는 Azure VM 호스팅 애플리케이션:
-  - 권장 사항에 따라 클라우드의 Microsoft Defender에서 인터넷 연결 끝점을 통해 액세스를 제한 합니다.
+  - 권장 사항에 따라 Microsoft Defender for Cloud에서 인터넷 연결 엔드포인트를 통한 액세스 제한을 참조하세요.
   - 가상 머신 확장 집합을 사용하여 Azure VM에서 애플리케이션의 여러 인스턴스를 실행합니다.
   - 인터넷에서 RDP 및 SSH를 사용하지 않도록 설정하여 무차별 암호 대입 공격을 방지합니다.
 
@@ -647,7 +643,7 @@ Advanced Threat Protection을 사용하면 비정상적인 활동에 대한 보�
 
 **모범 사례**:
 
-- 특정 서버 또는 관리 되는 인스턴스에 대 한 [SQL에 대해 Microsoft Defender](azure-defender-for-sql.md)를 구성   합니다. 또한 microsoft defender for [Cloud](../../security-center/security-center-pricing.md)를 사용 하도록 설정 하 여 구독의 모든 서버 및 관리 되는 인스턴스에 대해 microsoft defender SQL를 구성할 수 있습니다.
+- 특정 서버 또는 관리되는 [인스턴스에 대한 SQL Microsoft Defender를](azure-defender-for-sql.md)   구성합니다. Microsoft Defender for Cloud를 사용하도록 설정하여 구독의 모든 서버 및 관리되는 인스턴스에 대해 [SQL Microsoft Defender를](../../security-center/security-center-pricing.md)구성할 수도 있습니다.
 
 - 전체 조사 환경에는  [SQL Database 감사](../../azure-sql/database/auditing-overview.md)를 사용하도록 설정하는 것이 좋습니다. 감사를 사용하면 데이터베이스 이벤트를 추적하고 Azure Storage 계정 또는 Azure Log Analytics 작업 영역의 감사 로그에 기록할 수 있습니다.
 

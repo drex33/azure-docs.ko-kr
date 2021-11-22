@@ -10,22 +10,22 @@ ms.author: memildin
 manager: rkarlin
 author: memildin
 ms.date: 06/07/2021
-ms.openlocfilehash: 77c9e9fc02ba5fdb5f67cf14495103b352196f0c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d6f525438a1097eb194b1dc7a7437d582d08c329
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132347895"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902897"
 ---
 # <a name="microsoft-defender-for-sql"></a>Microsoft Defender for SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-microsoft Defender for SQL 고급 SQL 보안 기능을 위한 통합 패키지입니다. Microsoft Defender for Cloud는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics 사용할 수 있습니다. 데이터베이스에서 취약해질 수 있는 부분을 파악 및 완화하고, 데이터베이스에 위협이 될 수 있는 비정상적인 활동을 감지하기 위한 기능이 포함되어 있습니다. 이러한 기능을 설정하고 관리하는 단일 준비 위치를 제공합니다.
+Microsoft Defender for SQL은 고급 SQL 보안 기능의 통합 패키지입니다. Microsoft Defender for Cloud는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics 사용할 수 있습니다. 데이터베이스에서 취약해질 수 있는 부분을 파악 및 완화하고, 데이터베이스에 위협이 될 수 있는 비정상적인 활동을 감지하기 위한 기능이 포함되어 있습니다. 이러한 기능을 설정하고 관리하는 단일 준비 위치를 제공합니다.
 
 ## <a name="what-are-the-benefits-of-microsoft-defender-for-sql"></a>Microsoft Defender for SQL의 이점은 무엇인가요?
 
-Microsoft Defender for Cloud는 SQL 취약성 평가 및 Advanced Threat Protection을 포함하여 일련의 고급 SQL 보안 기능을 제공합니다.
+Microsoft Defender for Cloud는 SQL 취약성 평가 및 Advanced Threat Protection을 비롯한 고급 SQL 보안 기능 집합을 제공합니다.
 - [취약성 평가](sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 상태에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하기 위한 실행 가능한 단계를 포함합니다.
 - [Advanced Threat Protection](threat-detection-overview.md)은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 탐지합니다. 지속적으로 의심스러운 활동에 대한 데이터베이스를 모니터링하고, 잠재적인 취약점, Azure SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 즉시 제공합니다. Advanced Threat Protection 경고는 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.
 
@@ -71,7 +71,7 @@ Azure의 유연성을 통해 다양한 프로그래밍 방식으로 Microsoft De
 
 ### <a name="enable-microsoft-defender-for-azure-sql-database-at-the-resource-level"></a>리소스 수준에서 Azure SQL Database Microsoft Defender 사용
 
-구독 수준에서 Microsoft Defender 계획을 사용하도록 설정하는 것이 좋으며, 이렇게 하면 보호되지 않는 리소스를 만드는 데 도움이 될 수 있습니다. 그러나 서버 수준에서 Microsoft Defender for Cloud를 사용하도록 설정해야 하는 조직의 이유가 있는 경우 다음 단계를 사용합니다.
+구독 수준에서 Microsoft Defender 계획을 사용하도록 설정하는 것이 좋으며, 이렇게 하면 보호된 리소스를 만드는 데 도움이 될 수 있습니다. 그러나 서버 수준에서 Microsoft Defender for Cloud를 사용하도록 설정해야 하는 조직의 이유가 있는 경우 다음 단계를 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 서버 또는 관리되는 인스턴스를 엽니다.
 1. **보안** 제목 아래에서 **Defender for Cloud를** 선택합니다.
@@ -94,7 +94,7 @@ Azure의 유연성을 통해 다양한 프로그래밍 방식으로 Microsoft De
 
     :::image type="content" source="media/azure-defender-for-sql/status-of-defender-for-sql.png" alt-text="Azure SQL 데이터베이스 내에서 SQL Microsoft Defender의 상태를 확인합니다.":::
 
-1. microsoft Defender for SQL 사용하도록 설정된 경우 이전 그래픽과 같이 **구성** 링크가 표시됩니다. microsoft Defender for SQL 대한 설정을 편집하려면 **구성을** 선택합니다.
+1. microsoft Defender for SQL 사용하도록 설정된 경우 이전 그래픽과 같이 **구성** 링크가 표시됩니다. microsoft Defender for SQL 설정을 편집하려면 **구성을** 선택합니다.
 
     :::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="microsoft Defender for SQL 대한 설정.":::
 

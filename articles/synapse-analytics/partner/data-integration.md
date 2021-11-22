@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 78ae9a54d9e09076c010afc75a693a5a87f66ab7
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 98b4a6dc420d16d2c00f72b76146ad7a5a4fe177
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518093"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902320"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics 데이터 통합 파트너
 
@@ -55,6 +55,7 @@ Azure Synapse Analytics의 전용 SQL 풀을 사용하여 데이터 웨어하우
 | ![SnowMirror](./media/data-integration/snowmirror-logo.png) |**GuideVision의 SnowMirror**<br>SnowMirror는 ServiceNow를 위한 스마트 데이터 복제 도구입니다. 이 도구는 ServiceNow 인스턴스에서 데이터를 로드하고 온-프레미스 또는 클라우드 데이터베이스에 저장합니다. 이후 Power BI 같은 도구를 사용하여 사용자 지정 보고와 대시보드에 대해 복제된 데이터를 사용할 수 있습니다. 데이터가 복제되므로 이 도구는 ServiceNow 클라우드 인스턴스에 대한 부하를 줄입니다. 시스템 통합, 재해 복구 등에 사용할 수 있습니다. SnowMirror는 온-프레미스나 클라우드에서 사용할 수 있으며 Microsoft SQL Server, Azure Synapse를 비롯한 모든 주요 데이터베이스와 호환됩니다.|[제품 페이지](https://www.snow-mirror.com/)|
 | ![StreamSets](./media/data-integration/streamsets_logo.png) |**StreamSets**<br>StreamSets는 DataOps용 데이터 통합 플랫폼을 제공합니다. 또한 Azure Synapse 데이터 웨어하우스로 데이터를 통합하기 위한 전체 디자인-배포-작업 수명 주기를 운용합니다. 스트리밍, 일괄 처리 또는 변경된 데이터 캡처를 통해 웨어하우스 간에 데이터를 신속하게 수집하고 통합할 수 있습니다. 또한 종단 간 데이터 흐름의 가시성과 복원력을 제공하는 스마트 데이터 파이프라인을 사용하여 연속 작업을 보장할 수 있습니다.|[제품 페이지](https://streamsets.com/partners/microsoft)|
 | ![Talend](./media/data-integration/talend-logo.png) |**Talend Cloud**<br>Talend Cloud는 클라우드 또는 온-프레미스에서 데이터를 연결, 액세스 및 변환하기 위한 엔터프라이즈 데이터 통합 플랫폼입니다. 광범위한 연결, 기본 제공 데이터 품질 및 최신 빅 데이터와 클라우드 기술에 대한 기본 지원을 제공하는 Integration Platform as a Service입니다. |[제품 페이지](https://www.talend.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview) |
+| ![Theobald](./media/data-integration/theobald-logo.png) |**Theobald Software**<br>Theobald Software는 2004년부터 SAP와 데이터 통합을 위한 다양한 솔루션을 제공하고 있습니다. 안전하고 안정적이며 빠르며 필요한 경우 SAP ERP, S/4, BW 또는 BW/4 시스템의 모든 유형의 SAP 데이터 개체에 대한 증분 액세스는 전문 분야입니다. SAP에서 공식적으로 인증했으며 3,500명 이상의 글로벌 고객이 사용하고 있는 전문 지식 Azure 및 Xtract Universal용 Xtract IS 제품은 지속적으로 개선되고 있으며, Synapse 및 Data Factory 파이프라인을 사용하여 SAP 데이터 추출을 오케스트레이션할 수 있는 Microsoft Azure 원활하게 통합되는 SAP ETL/ELT 솔루션으로 발전하고 있으며, Azure Storage SAP 데이터 수집의 대상으로 사용됩니다. |[제품 페이지](https://theobald-software.com/en/products-technologies/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/theobaldsoftwaregmbh.xtractisforazure) |
 | ![TimeXtender](./media/data-integration/timextender-logo.png) |**TimeXtender**<br>TimeXtender의 Discovery Hub를 사용하여 기업들은 데이터 인사이트 획득 시간을 10배까지 가속화하는 통합 데이터 관리 플랫폼을 제공하여 최신 데이터 자산을 구축할 수 있습니다. 일상적인 ETL과 ELT를 넘어 단일 플랫폼에서 데이터 액세스, 데이터 모델링, 규정 준수를 위한 기능을 제공합니다. Discovery Hub는 클라우드 스케일 분석을 위한 통합된 데이터 패브릭을 제공합니다. 따라서 분석과 AI를 위해 다양한 데이터 사일로, 카탈로그, 모델, 이동 및 문서 데이터를 연결하고 통합할 수 있습니다. | [제품 페이지](https://www.timextender.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
 | ![Trifacta](./media/data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta를 사용하여 개인 및 조직은 분석을 위해 다양한 데이터를 탐색하고 결합할 수 있습니다. Trifacta Wrangler는 대규모로 많은 최종 사용자에게 데이터를 지원해야 하는 데이터 랭글링 워크로드를 처리하도록 디자인되었습니다.|[제품 페이지](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifactainc1587522950142.trifactaazure?tab=Overview) |
 | ![WhereScape](./media/data-integration/wherescape_logo.png) |**Wherescape RED**<br> WhereScape RED는 팀에 ETL 워크플로를 능률화하기 위한 자동화 도구를 제공하는 IDE입니다. IDE는 인기 있는 데이터 대상에 최적화된 모범 사례 네이티브 코드를 제공합니다. WhereScape RED를 사용하면 데이터 인프라를 개발, 배포 및 운영하는 시간을 단축할 수 있습니다.|[제품 페이지](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |

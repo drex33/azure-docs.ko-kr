@@ -6,15 +6,15 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/22/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 6500e743644cc505a15e44be02358d943fa5baa4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 50ad1e1260adc007b608e8ba2a8b79defcf35ca2
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750514"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902213"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에 연결된 서비스 매개 변수화
 
@@ -45,19 +45,24 @@ Azure Portal의 UI 또는 프로그래밍 인터페이스를 사용하여 연결
 - Amazon S3 호환 스토리지
 - Azure Blob Storage
 - Azure Cosmos DB(SQL API)
+- Azure Data Explorer
 - Azure Data Lake Storage Gen2
 - Azure Database for MySQL
 - Azure Databricks
+- Azure File Storage
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- 파일 시스템
+- FTP
 - 일반 HTTP
 - 일반 REST
 - MySQL
 - Oracle
 - Oracle Cloud Storage
+- SFTP
 - SQL Server
 
 **고급 작성:** 위 목록에 없는 다른 연결된 서비스 유형의 경우 UI에서 JSON을 편집하여 연결된 서비스를 매개 변수화할 수 있습니다.

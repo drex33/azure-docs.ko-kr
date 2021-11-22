@@ -8,12 +8,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
 ms.date: 09/28/2021
-ms.openlocfilehash: c4baf3ee8fdb26bd361dfafbaa29953f6d1d13f8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 179260306a7f590f93c7713d0e61cdee8c4b46f9
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131469556"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902025"
 ---
 # <a name="azure-data-factory-managed-virtual-network"></a>Azure Data Factory 관리형 가상 네트워크
 
@@ -38,7 +38,7 @@ Azure Data Factory 관리형 가상 네트워크(VNET) 내에 Azure IR(Integrati
 >현재, 관리형 Virtual Network는 Azure Data Factory 지역과 동일한 지역에서만 지원됩니다.
 
 > [!Note]
->기존 글로벌 Azure 통합 런타임은 Azure Data Factory 관리형 가상 네트워크에서 Azure 통합 런타임으로 전환할 수 없으며 그 반대의 경우도 마찬가지입니다.
+>기존의 글로벌 Azure integration runtime은 Azure Data Factory 관리 가상 네트워크에서 Azure integration runtime으로 전환할 수 없으며 그 반대의 경우도 마찬가지입니다.
  
 
 :::image type="content" source="./media/managed-vnet/managed-vnet-architecture-diagram.png" alt-text="ADF 관리형 가상 네트워크 아키텍처":::
@@ -77,12 +77,12 @@ Azure Data Factory는 프라이빗 링크를 지원합니다. 프라이빗 링�
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="대화형 작성":::
 
 ## <a name="activity-execution-time-using-managed-virtual-network"></a>관리형 가상 네트워크를 사용한 작업 실행 시간
-기본적으로 관리형 가상 네트워크의 Azure 통합 런타임은 데이터 팩터리당 하나의 컴퓨팅 노드를 예약하지 않으므로 글로벌 Azure 통합 런타임보다 큐 시간이 더 오래 걸리므로 각 활동을 시작할 준비 시간이 있으며, 주로 Azure 통합 런타임이 아닌 가상 네트워크 조인에서 발생합니다. 파이프라인 작업 및 외부 작업을 포함한 복사가 아닌 작업의 경우 처음 트리거할 때 60분의 TTL(Time To Live)이 있습니다. TTL 내에서는 노드가 이미 준비되어 있으므로 큐 시간이 단축됩니다. 
+기본적으로 관리 되는 가상 네트워크의 Azure integration runtime은 데이터 팩터리에서 하나의 계산 노드를 예약 하지 않으므로 글로벌 Azure integration runtime 보다 큐 시간을 더 많이 차지 하므로 각 작업을 시작할 준비를 하 고 Azure integration runtime이 아닌 가상 네트워크 조인에서 주로 발생 합니다. 파이프라인 작업 및 외부 작업을 포함한 복사가 아닌 작업의 경우 처음 트리거할 때 60분의 TTL(Time To Live)이 있습니다. TTL 내에서는 노드가 이미 준비되어 있으므로 큐 시간이 단축됩니다. 
 > [!NOTE]
 > 복사 작업은 아직 TTL을 지원하지 않습니다.
 
 > [!NOTE]
-> 2 복사 작업 DIU는 관리되는 가상 네트워크에서 지원되지 않습니다.
+> 2 관리 가상 네트워크에서는 복사 작업을 위한 DIU가 지원 되지 않습니다.
 
 ## <a name="create-managed-virtual-network-via-azure-powershell"></a>Azure PowerShell을 통해 관리형 가상 네트워크 만들기
 ```powershell
@@ -127,11 +127,13 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
     }
 
 ```
+> [!Note]
+> 다른 데이터 원본의 **groupId** 의 경우 [개인 링크 리소스](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource)에서 가져올 수 있습니다.
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
 ### <a name="supported-data-sources"></a>지원되는 데이터 원본
-다음 데이터 원본은 네이티브 프라이빗 엔드포인트를 지원하며 ADF 관리형 Virtual Network 프라이빗 링크를 통해 연결할 수 있습니다.
+다음 데이터 원본에는 기본 개인 끝점이 지원 되며 ADF 관리 Virtual Network의 개인 링크를 통해 연결할 수 있습니다.
 - Azure Blob Storage(스토리지 계정 V1 포함 안 함)
 - Azure Cognitive Search
 - Azure Cosmos DB SQL API
@@ -155,10 +157,10 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 > Azure SQL Managed Instance는 현재 기본 프라이빗 엔드포인트를 지원하지 않으므로 프라이빗 연결된 서비스 및 부하 분산 장치를 사용하여 관리되는 Virtual Network에서 액세스할 수 있습니다. [프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 SQL Managed Instance에 액세스하는 방법](tutorial-managed-virtual-network-sql-managed-instance.md)을 참조하세요.
 
 ### <a name="on-premises-data-sources"></a>온-프레미스 데이터 원본
-프라이빗 엔드포인트를 사용하여 관리되는 Virtual Network 온-프레미스 데이터 원본에 액세스하려면 프라이빗 엔드포인트를 [사용하여 Data Factory 관리형 VNET에서 온-프레미스 SQL Server 액세스하는 방법](tutorial-managed-virtual-network-on-premise-sql-server.md)자습서를 참조하세요.
+개인 끝점을 사용 하 여 관리 Virtual Network에서 온-프레미스 데이터 원본에 액세스 하려면 [개인 끝점을 사용 하 Data Factory 관리 되는 VNET에서 온-프레미스 SQL Server에 액세스 하는 방법](tutorial-managed-virtual-network-on-premise-sql-server.md)자습서를 참조 하세요.
 
-### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory 관리되는 Virtual Network 다음 Azure 지역에서 사용할 수 있습니다.
-일반적으로 관리되는 가상 네트워크는 다음을 제외한 모든 Azure Data Factory 지역에서 사용할 수 있습니다.
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>다음 Azure 지역에서 Azure Data Factory 관리 Virtual Network를 사용할 수 있습니다.
+일반적으로 관리 되는 가상 네트워크는 다음과 같은 경우를 제외 하 고 모든 Azure Data Factory 지역에서 사용할 수 있습니다.
 - 인도 남부
 
 

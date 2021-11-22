@@ -2,13 +2,13 @@
 title: Microsoft Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
-ms.date: 11/16/2021
-ms.openlocfilehash: ed4c7ab63c2b1b4b0a1efdade213fcd141da27c2
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.date: 11/18/2021
+ms.openlocfilehash: 2ee9bc9c9a27af18fd8813543dd8afaa3f4e2d72
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132550367"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132754162"
 ---
 # <a name="whats-new-in-microsoft-defender-for-iot"></a>Microsoft Defender for IoT의 새로운 기능은 무엇인가요?
 
@@ -33,7 +33,7 @@ Microsoft는 분기별로 한 번 이상 Defender for IoT 업데이트를 릴리
 | 10.0 | 2021년 1월 | 2021년 10월 |
 | 10.3 | 2021년 4월 | 2022년 1월 |
 | 10.5.2 | 2021년 10월 | 2022년 7월 |
-| 10.5.3 | 2021년 11월 | 2022년 8월 |
+| 10.5.3 | 2021년 10월 | 2022년 7월 |
 
 ## <a name="november-2021"></a>2021년 11월
 
@@ -44,6 +44,8 @@ Microsoft는 분기별로 한 번 이상 Defender for IoT 업데이트를 릴리
 - 고객 피드백에 따라 경고 내보내기를 개선했습니다.
 
 - 성능 및 네트워크 트래픽 분석이 개선되었습니다.
+
+- 새로운 [ServiceNow 통합 API](references-work-with-defender-for-iot-apis.md#service-now-integration-api---externalv3integration)가 온-프레미스 관리 콘솔에 추가되었습니다.
 
 ## <a name="october-2021"></a>2021년 10월
 

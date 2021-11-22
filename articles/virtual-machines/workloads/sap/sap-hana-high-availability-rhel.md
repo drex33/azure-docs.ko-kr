@@ -116,7 +116,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 가상 네트워크를 만듭니다.
 1. 가용성 집합을 만듭니다.  
    업데이트 도메인의 최대 수를 설정합니다.
-1. 부하 분산 장치(내부)를 만듭니다. [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.
+1. 부하 분산 장치(내부)를 만듭니다. [표준 Load Balancer](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.
    * 2단계에서 만든 가상 네트워크를 선택합니다.
 1. 가상 머신 1을 만듭니다.  
    최소한 Red Hat Enterprise Linux 7.4 for SAP HANA를 사용합니다. 이 예제에서는 Red Hat Enterprise Linux 7.4 for SAP HANA 이미지(<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>)를 사용합니다. 3단계에서 만든 가용성 집합을 선택합니다.

@@ -140,7 +140,7 @@ Windows Server 2016과 Windows Serve 2019가 모두 지원됩니다(최신 데�
 
 ### <a name="create-azure-internal-load-balancer"></a>Azure 내부 부하 분산 장치 만들기
 
-SAP ASCS, SAP SCS 및 새 SAP ERS2는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 [부하 분산 장치](../../../load-balancer/load-balancer-overview.md)가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다. 
+SAP ASCS, SAP SCS 및 새 SAP ERS2는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 [Load Balancer](../../../load-balancer/load-balancer-overview.md)가 필요합니다. [표준 Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다. 
 
 두 번째 SAP SID ASCS/SCS/ERS 인스턴스 **PR2** 에 대한 구성을 기존 부하 분산 장치에 추가해야 합니다. 첫 번째 SAP SID **PR1** 에 대한 구성이 이미 준비되어 있어야 합니다.  
 

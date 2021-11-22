@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 07/21/2020
-  ms.openlocfilehash: 0e38303b435a478b2c6338cd976d7659a3a70c6d
-  ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+  ms.openlocfilehash: 213e8336eb40a56c6f8bb4d1ce0e2f20e02d1fd4
+  ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/18/2021
-  ms.locfileid: "122418440"
+  ms.lasthandoff: 11/20/2021
+  ms.locfileid: "132869215"
 landingContent:
 - title: AKS(Azure Kubernetes Service) 정보
   linkLists:
@@ -38,6 +38,14 @@ landingContent:
       url: concepts-storage.md
     - text: 확장
       url: concepts-scale.md
+  - linkListType: learn
+    links:
+    - text: Azure Kubernetes Service 소개
+      url: /learn/modules/intro-to-azure-kubernetes-service/
+    - text: Azure의 컨테이너에 대한 소개
+      url: /learn/modules/intro-to-containers/
+    - text: Azure Container Registry를 사용하여 컨테이너 이미지 빌드 및 저장
+      url: /learn/modules/build-and-store-container-images/
 - title: 5분 내에 AKS 클러스터 배포
   linkLists:
   - linkListType: quickstart
@@ -48,32 +56,20 @@ landingContent:
       url: kubernetes-walkthrough-portal.md
     - text: Resource Manager 템플릿
       url: kubernetes-walkthrough-rm-template.md
-- title: Kubernetes에 대한 브리지를 사용하여 애플리케이션 개발 및 디버그
+- title: 애플리케이션 개발 및 디버그
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Helm으로 개발
+      url: quickstart-helm.md
+    - text: Dapr로 개발
+      url: quickstart-dapr.md
   - linkListType: how-to-guide
     links:
     - text: Visual Studio Code와 함께 Kubernetes에 대한 브리지 사용
       url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
     - text: Visual Studio와 함께 Kubernetes에 대한 브리지 사용
       url: /visualstudio/containers/bridge-to-kubernetes
-- title: 애플리케이션 배포, 관리 및 업데이트
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 1. AKS를 위한 애플리케이션 준비
-      url: tutorial-kubernetes-prepare-app.md
-    - text: 2. Azure Container Registry 배포 및 사용
-      url: tutorial-kubernetes-prepare-acr.md
-    - text: 3. AKS 클러스터 배포
-      url: tutorial-kubernetes-deploy-cluster.md
-    - text: 4. 애플리케이션 실행
-      url: tutorial-kubernetes-deploy-application.md
-    - text: 5. 애플리케이션 확장
-      url: tutorial-kubernetes-scale.md
-    - text: 6. 애플리케이션 업데이트
-      url: tutorial-kubernetes-app-update.md
-    - text: 7. AKS에서 Kubernetes 업그레이드
-      url: tutorial-kubernetes-upgrade-cluster.md
 - title: 아키텍처 지침
   linkLists:
   - linkListType: architecture
@@ -92,13 +88,31 @@ landingContent:
       url: best-practices.md
     - text: 기타 AKS 솔루션
       url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
-- title: Microsoft Learn을 통해 기술 쌓기
+- title: 애플리케이션 배포, 관리 및 업데이트
   linkLists:
-  - linkListType: learn
+  - linkListType: tutorial
     links:
-    - text: Azure Kubernetes Service 소개
-      url: /learn/modules/intro-to-azure-kubernetes-service/
-    - text: Azure의 컨테이너에 대한 소개
-      url: /learn/modules/intro-to-containers/
-    - text: Azure Container Registry를 사용하여 컨테이너 이미지 빌드 및 저장
-      url: /learn/modules/build-and-store-container-images/
+    - text: 1. AKS를 위한 애플리케이션 준비
+      url: tutorial-kubernetes-prepare-app.md
+    - text: 2. Azure Container Registry 배포 및 사용
+      url: tutorial-kubernetes-prepare-acr.md
+    - text: 3. AKS 클러스터 배포
+      url: tutorial-kubernetes-deploy-cluster.md
+    - text: 4. 애플리케이션 실행
+      url: tutorial-kubernetes-deploy-application.md
+    - text: 5. 애플리케이션 확장
+      url: tutorial-kubernetes-scale.md
+    - text: 6. 애플리케이션 업데이트
+      url: tutorial-kubernetes-app-update.md
+    - text: 7. AKS에서 Kubernetes 업그레이드
+      url: tutorial-kubernetes-upgrade-cluster.md
+- title: 클러스터의 기능 확장
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Open Service Mesh 추가 기능
+      url: open-service-mesh-about.md
+    - text: Dapr 클러스터 확장
+      url: dapr.md
+    - text: 클러스터 확장
+      url: cluster-extensions.md

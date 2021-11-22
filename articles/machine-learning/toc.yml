@@ -295,6 +295,8 @@
               href: how-to-manage-rest.md
             - name: Azure Synapse Analytics 작업 영역에 연결
               href: how-to-link-synapse-ml-workspaces.md
+            - name: 작업 영역 진단
+              href: how-to-workspace-diagnostic-api.md
         - name: 컴퓨팅 리소스 만들기 및 관리
           items:
             - name: 컴퓨팅 인스턴스
@@ -559,7 +561,7 @@
                   href: how-to-use-managed-online-endpoint-studio.md
                 - name: Triton을 사용한 고성능 서비스 제공
                   href: how-to-deploy-with-triton.md
-                - name: 관리형 온라인 엔드포인트 및 관리 ID를 사용하여 스토리지에 액세스
+                - name: 관리형 온라인 엔드포인트에서 Azure 리소스에 액세스
                   href: how-to-access-resources-from-endpoints-managed-identities.md
                 - name: 관리형 온라인 엔드포인트 비용 보기
                   href: how-to-view-online-endpoints-costs.md

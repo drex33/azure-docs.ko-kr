@@ -34,7 +34,7 @@ ms.locfileid: "131996303"
 
 이 기능을 사용하려면 다음이 필요합니다.
 * Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](./tutorial-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
-* ArcSight Syslog NG Daemon SmartConnector(SmartConnector) 또는 ArcSight Load Balancer의 구성된 인스턴스입니다. 이벤트를 ArcSight Load Balancer로 보내면 부하 분산 장치는 이어서 SmartConnector로 보냅니다.
+* ArcSight Syslog NG Daemon SmartConnector(SmartConnector) 또는 ArcSight Load Balancer의 구성된 인스턴스입니다. 이벤트를 ArcSight Load Balancer로 보내면 Load Balancer는 이어서 SmartConnector로 보냅니다.
 
 [Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)를 다운로드하고 엽니다. 이 가이드에는 Azure Monitor용 ArcSight SmartConnector를 설치하고 구성하는 데 필요한 단계가 포함되어 있습니다. 
 

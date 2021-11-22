@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/08/2021
-ms.openlocfilehash: 7dc376bb84c52688e1f665501680f11f6bb317eb
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 3e6af1542452218a5e63182f484d9d5910407c3d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488528"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715058"
 ---
 # <a name="tutorial-create-a-serverless-real-time-chat-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 실시간 채팅 앱 만들기
 
@@ -74,7 +74,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 2. *`Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
 
     > [!NOTE]
-    > [확장 번들](/azure/azure-functions/functions-bindings-register#extension-bundles)이 지원되는 경우 이 단계는 선택사항입니다.
+    > [확장 번들](../azure-functions/functions-bindings-register.md#extension-bundles)이 지원되는 경우 이 단계는 선택사항입니다.
 
    a. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
     ```json
@@ -223,7 +223,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
    ```
 
    > [!NOTE]
-   > 이 함수는 실제로 `WebPubSubTrigger`를 사용합니다. 그러나 서비스가 아직 미리 보기 상태이므로 `WebPubSubTrigger`는 함수의 템플릿에 통합되지 않습니다. `HttpTrigger`를 사용하여 함수 템플릿을 초기화하고 코드에서 트리거 형식을 변경합니다.
+   > 이 함수는 실제로 `WebPubSubTrigger`를 사용합니다. 그러나 `WebPubSubTrigger`는 함수의 템플릿에 통합되어 있지 않습니다. `HttpTrigger`를 사용하여 함수 템플릿을 초기화하고 코드에서 트리거 형식을 변경합니다.
 
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - `message/function.json`을 업데이트하고 다음 json 코드를 복사합니다.

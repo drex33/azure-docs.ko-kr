@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 4a32d9675de9968608da0c7faa70cc31208d666a
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 32af882e5261192a3d2aa70ec625aa2c937effe5
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821706"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132810730"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 
@@ -90,7 +90,7 @@ Standard Storage는 HDD에서 지원되며, 비용 효율적인 스토리지 및
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 확장 집합을 만들 때 또는 기존 확장 집합을 사용하여 디스크를 만들고 연결할 수 있습니다.
 
-API 버전 `2019-07-01`을 기준으로 [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 속성을 사용하여 가상 머신 확장 집합에서 OS 디스크의 크기를 설정할 수 있습니다. 프로비저닝한 후에는 전체 공간을 사용하기 위해 디스크를 확장하거나 다시 분할해야 할 수 있습니다. [여기에서 디스크 확장](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os)에 대해 자세히 알아보세요.
+API 버전 `2019-07-01`을 기준으로 [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 속성을 사용하여 가상 머신 확장 집합에서 OS 디스크의 크기를 설정할 수 있습니다. 프로비저닝한 후에는 전체 공간을 사용하기 위해 디스크를 확장하거나 다시 분할해야 할 수 있습니다. [Windows](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-in-the-operating-system) 또는 [Linux](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem)에서 OS의 볼륨을 확장하는 방법에 대해 자세히 알아보세요.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>확장 집합을 만들 때 디스크 연결
 [New-AzVmss](/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 메시지가 표시되면 VM 인스턴스에 대한 사용자 이름과 암호를 제공합니다. 트래픽을 개별 VM 인스턴스로 배포하기 위해 부하 분산 장치도 생성됩니다. 부하 분산 장치에는 80 TCP 포트에서 트래픽을 분산할 뿐만 아니라 3389 TCP 포트의 원격 데스크톱 트래픽 및 5985 TCP 포트의 PowerShell 원격을 허용하는 규칙이 포함되어 있습니다.

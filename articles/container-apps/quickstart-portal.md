@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: v-bcatherine
 ms.custom: ''
-ms.openlocfilehash: dc0550e4e32e84bbf99456a337a66c3da8f6cf57
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: e2f2bf2cafc60bca637bee3309f4b721965f30fd
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132526801"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710283"
 ---
 # <a name="quickstart-deploy-your-first-container-app-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 첫 번째 컨테이너 앱 배포
 
@@ -25,7 +25,7 @@ Azure Container Apps Preview를 사용하면 서버리스 플랫폼에서 마이
 
 활성 구독이 있는 Azure 계정이 필요합니다. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 <!--
@@ -78,7 +78,7 @@ Do we need to include steps to login?  Probably not..
 | 설정 | 작업 |
 |---|---|
 | 빠른 시작 이미지 사용 | 확인란을 **선택 취소** 합니다. |
-| Name | **my-app** 을 입력합니다. <!-- I don't know what name to use --> |
+| 이름 | **my-app** 을 입력합니다. <!-- I don't know what name to use --> |
 | 이미지 원본 | **Docker Hub 또는 기타 레지스트리** 를 선택합니다. |
 | 이미지 형식 | **공용** 을 선택합니다. |
 | 레지스트리 로그인 서버 | `mcr.microsoft.com`를 입력합니다. |  
@@ -102,7 +102,7 @@ Do we need to include steps to login?  Probably not..
 
 1. **만들기** 를 선택합니다.
 
-    *배포 진행 중* 이라는 메시지가 있는 페이지가 표시됩니다.  배포가 성공적으로 완료되면 "배포가 완료됨"이라는 메시지가 표시됩니다.
+    *배포 진행 중* 이라는 메시지가 있는 페이지가 표시됩니다.  배포가 성공적으로 완료되면 *배포가 완료됨* 이라는 메시지가 표시됩니다.
 
 ### <a name="view-your-deployed-application"></a>배포된 애플리케이션 보기
 

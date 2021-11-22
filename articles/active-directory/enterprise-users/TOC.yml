@@ -38,6 +38,8 @@
           href: users-bulk-add.md
         - name: 사용자 프로필 관리
           href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+        - name: 사용자 지정 보안 특성 할당
+          href: users-custom-security-attributes.md
         - name: 사용자 정보 다운로드
           href: users-bulk-download.md
         - name: 사용자 계정 공유

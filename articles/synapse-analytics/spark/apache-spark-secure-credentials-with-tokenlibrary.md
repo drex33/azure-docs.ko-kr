@@ -10,18 +10,20 @@ ms.date: 11/19/2020
 ms.author: martinle
 ms.reviewer: nirav
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 1290fdb907272d4a47e4b11430fc47955a259951
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: af247a9bffc0b43328ec4504f64dc695e6cc9310
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860864"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132809156"
 ---
 # <a name="secure-credentials-with-linked-services-using-the-tokenlibrary"></a>TokenLibrary를 사용하여 연결된 서비스를 통해 자격 증명 보호
 
 외부 소스에서 데이터에 액세스하는 것은 일반적인 패턴입니다. 외부 데이터 원본에서 익명 액세스를 허용하지 않는 한, 자격 증명, 비밀 또는 연결 문자열로 연결을 보호해야 할 수도 있습니다.  
 
 Synapse는 기본적으로 리소스 간의 인증을 위해 AAD(Azure Active Directory) 통과를 사용합니다.  다른 자격 증명을 사용하여 리소스에 연결해야 하는 경우 TokenLibrary를 직접 사용합니다.  TokenLibrary는 연결된 서비스 또는 Azure Key Vault에서 저장된 SAS 토큰, AAD 토큰, 연결 문자열 및 비밀을 검색하는 프로세스를 간소화합니다.
+
+AAD 통과는 Synapse 또는 별도의 서비스 주체에 할당된 권한이 아닌 AAD의 사용자로 할당된 권한을 사용합니다.  예를 들어 AAD 통과를 사용하여 스토리지 계정의 Blob에 액세스하려면 해당 스토리지 계정으로 이동하여 Blob 기여자 역할을 자신에게 할당해야 합니다.
 
 Azure Key Vault에서 비밀을 검색하는 경우 Azure Key Vault 연결된 서비스를 만드는 것이 좋습니다.  Synapse 작업 영역 MSI(관리되는 서비스 ID)에 Azure Key Vault에 대한 비밀 가져오기 권한이 있는지 확인합니다.  Synapse는 Synapse 작업 영역 관리형 서비스 ID를 사용하여 Azure Key Vault에 인증합니다. 연결된 서비스 없이 Azure Key Vault에 직접 연결하는 경우 사용자 Azure Active Directory 자격 증명을 사용하여 인증합니다.
 

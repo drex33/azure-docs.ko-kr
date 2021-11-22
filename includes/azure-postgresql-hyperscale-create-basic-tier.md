@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 08/03/2021
+ms.date: 11/16/2021
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: 3f0468a55c897559a2dab3eb2f29855129fcff2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a8826948dbb6fc6843f256dcdabba60ac1b770b7
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728701"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814251"
 ---
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -41,18 +41,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    - **저장** 을 클릭합니다.
 6. 화면 아래쪽에서 **다음: 네트워킹 >** 을 선택합니다.
 
-7. **네트워킹** 탭에서 **공용 엔드포인트** 라디오 단추를 클릭합니다.
+7. **네트워킹** 탭에서 **Azure 내의 Azure 서비스 및 리소스에서 이 서버 그룹에 대한 퍼블릭 액세스 허용** 을 선택합니다. 그런 다음, **+ 현재 클라이언트 IP 주소 추가** 를 선택합니다.
    ![선택된 공용 엔드포인트](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
-8. **+ 현재 클라이언트 IP 주소 추가** 링크를 클릭합니다.
-   ![추가된 클라이언트 IP](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
-
    > [!NOTE]
    > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 5432를 열지 않으면 하이퍼스케일(Citus) 클러스터에 연결할 수 없습니다.
    >
 
-9. **검토 + 만들기** 를 클릭한 다음, **만들기** 를 클릭하여 서버를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
-10. 배포를 모니터링하도록 페이지가 리디렉션됩니다. 실시간 상태가 **배포 진행 중** 에서 **배포가 완료됨** 으로 바뀌면 페이지 왼쪽에서 **출력** 메뉴 항목을 클릭합니다.
-11. 출력 페이지에는 코디네이터 호스트 이름이 포함되어 있고, 그 옆에는 이 값을 클립보드에 복사하는 단추가 있습니다. 나중에 사용할 수 있도록 이 정보를 기록해 둡니다.
+8. **검토 + 만들기** 를 클릭한 다음, **만들기** 를 클릭하여 서버를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
+9. 배포를 모니터링하도록 페이지가 리디렉션됩니다. 실시간 상태가 **배포 진행 중** 에서 **배포가 완료됨** 으로 바뀌면 페이지 왼쪽에서 **출력** 메뉴 항목을 클릭합니다.
+10. 출력 페이지에는 코디네이터 호스트 이름이 포함되어 있고, 그 옆에는 이 값을 클립보드에 복사하는 단추가 있습니다. 나중에 사용할 수 있도록 이 정보를 기록해 둡니다.
 
 ## <a name="connect-to-the-database-using-psql"></a>psql을 사용하여 데이터베이스에 연결
 

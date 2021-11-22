@@ -18,8 +18,14 @@
       href: customize-application-attributes.md
     - name: 앱별 프로비저닝 자습서
       href: /azure/active-directory/saas-apps/tutorial-list
-    - name: SQL 기반 앱에 프로비저닝
-      href: tutorial-ecma-sql-connector.md
+    - name: 온-프레미스 앱 프로비저닝 자습서
+      items:
+        - name: 온-프레미스 SCIM 사용 앱에 프로비저닝
+          href: on-premises-scim-provisioning.md
+        - name: SQL 기반 앱에 프로비저닝
+          href: on-premises-sql-connector-configure.md
+        - name: LDAP 기반 앱에 프로비저닝
+          href: on-premises-ldap-connector-configure.md
 - name: 개념
   expanded: true
   items:
@@ -62,10 +68,6 @@
           href: export-import-provisioning-configuration.md
         - name: 보고서 프로비저닝
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: MS Graph를 사용하여 구성 자동화
-      href: application-provisioning-configuration-api.md
-    - name: 실수로 삭제 방지 사용
-      href: accidental-deletions.md
     - name: 애플리케이션 프로비저닝 문제 해결
       items:
         - name: 알려진 문제
@@ -82,16 +84,6 @@
           href: on-premises-ecma-troubleshoot.md
         - name: 프로비저닝 로그
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: 온-프레미스 앱 프로비전
-      items:
-        - name: SQL 기반 앱에 프로비저닝
-          href: on-premises-sql-connector-configure.md
-        - name: 일반 LDAP 커넥터 구성
-          href: on-premises-ldap-connector-configure.md
-        - name: SCIM 지원 앱에 대한 온-프레미스 애플리케이션 프로비전
-          href: on-premises-scim-provisioning.md
-        - name: MIM 동기화에서 커넥터 마이그레이션
-          href: on-premises-migrate-microsoft-identity-manager.md
     - name: HR 프로비저닝 문제 해결
       items:
         - name: 특성 검색 문제
@@ -104,14 +96,18 @@
           href: hr-manager-update-issues.md
         - name: HR 쓰기 저장 문제
           href: hr-writeback-issues.md
+    - name: 실수로 삭제 방지 사용
+      href: accidental-deletions.md
+    - name: MS Graph를 사용하여 구성 자동화
+      href: application-provisioning-configuration-api.md
 - name: 참조
   items:
+    - name: 특성 매핑에 대한 식을 쓰기 위한 함수 참조
+      href: functions-for-customizing-application-data.md
     - name: SCIM 2.0 프로토콜 규정 준수
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM 및 그래프 시나리오
       href: scim-graph-scenarios.md
-    - name: 특성 매핑에 대한 식을 쓰기 위한 함수 참조
-      href: functions-for-customizing-application-data.md
     - name: 클라우드 HR 프로비저닝
       items:
         - name: SuccessFactors 특성 참조
@@ -120,6 +116,8 @@
           href: workday-attribute-reference.md
         - name: 프로비저닝 에이전트 버전 기록
           href: provisioning-agent-release-version-history.md
+        - name: MIM 동기화에서 커넥터 마이그레이션
+          href: on-premises-migrate-microsoft-identity-manager.md
 - name: 리소스
   items:
     - name: 개발자를 위한 지원 및 도움말 옵션

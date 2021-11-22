@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: suzizuber
   ms.author: v-szuber
-  ms.date: 10/06/2021
-  ms.openlocfilehash: efc7a0083929d6750544c649e18a74cb929d6605
-  ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+  ms.date: 11/12/2021
+  ms.openlocfilehash: bf6c18fd32288ed99c16dd89314aca7c743a37b3
+  ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/16/2021
-  ms.locfileid: "132555473"
+  ms.lasthandoff: 11/19/2021
+  ms.locfileid: "132812072"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -74,16 +74,26 @@ landingContent:
       url: tutorial-scale-private-cloud.md
     - text: 8 - 프라이빗 클라우드 삭제
       url: tutorial-delete-private-cloud.md
-- title: 재해 복구
+- title: Azure VMware Solution용 엔터프라이즈 규모
   linkLists:
-  - linkListType: how-to-guide
+  - linkListType: architecture
     links:
-    - text: JetStream DR 배포
-      url: deploy-disaster-recovery-using-jetstream.md
-    - text: 재해 복구를 위한 VMware HCX 배포
-      url: deploy-disaster-recovery-using-vmware-hcx.md
-    - text: 재해 복구를 위한 VMware SRM 배포
-      url: disaster-recovery-using-vmware-site-recovery-manager.md
+    - text: Azure VMware Solution용 엔터프라이즈 규모
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
+    - text: ID 및 액세스 관리
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
+    - text: 네트워크 토폴로지 및 연결
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
+    - text: 관리 및 모니터링
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
+    - text: 엔터프라이즈 규모 비즈니스 연속성 및 재해 복구
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
+    - text: 엔터프라이즈 규모 보안, 거버넌스 및 규정 준수
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
+    - text: 플랫폼 자동화 및 DevOps
+      url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
+    - text: Azure VMware Solution 자동화를 위한 엔터프라이즈 규모
+      url: https://github.com/Azure/Enterprise-Scale-for-AVS
 - title: ID 관리
   linkLists:
   - linkListType: how-to-guide
@@ -152,6 +162,14 @@ landingContent:
       url: set-up-backup-server-for-azure-vmware-solution.md
     - text: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
       url: backup-azure-vmware-solution-virtual-machines.md
+  - linkListType: deploy
+    links:
+    - text: JetStream DR 배포
+      url: deploy-disaster-recovery-using-jetstream.md
+    - text: 재해 복구를 위한 VMware HCX 배포
+      url: deploy-disaster-recovery-using-vmware-hcx.md
+    - text: 재해 복구를 위한 VMware SRM 배포
+      url: disaster-recovery-using-vmware-site-recovery-manager.md
 - title: VMware 솔루션
   linkLists:
   - linkListType: how-to-guide
@@ -194,6 +212,8 @@ landingContent:
       url: /azure/templates/microsoft.avs/privateclouds
     - text: Terraform Azure 공급자
       url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+    - text: Azure VMware Solution 자동화를 위한 엔터프라이즈 규모
+      url: https://github.com/Azure/Enterprise-Scale-for-AVS
   - linkListType: video
     links:
     - text: 재생 목록

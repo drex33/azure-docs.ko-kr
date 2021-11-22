@@ -251,7 +251,7 @@
           href: configure-authentication-file-based.md
     - name: 앱 보안
       items:
-        - name: TSL/SSL 인증서 추가
+        - name: TLS/SSL 인증서 추가
           href: configure-ssl-certificate.md
         - name: 액세스 제한
           href: app-service-ip-restrictions.md
@@ -385,7 +385,7 @@
         - name: 참조 아키텍처
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: 배포 스크립트
-          href: 'https://azure.microsoft.com/documentation/scripts/'
+          href: /azure/automation/automation-runbook-gallery
     - name: 문제 해결
       items:
         - name: 일시적인 아웃바운드 연결 오류 문제 해결

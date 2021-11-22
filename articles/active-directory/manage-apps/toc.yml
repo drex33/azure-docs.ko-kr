@@ -25,7 +25,7 @@
 - name: 자습서
   items:
     - name: 앱 통합 자습서 목록
-      href: /azure/active-directory/saas-apps/
+      href: /azure/active-directory/saas-apps/tutorial-list
 - name: 샘플
   items:
     - name: 앱 관리 샘플 개요
@@ -100,6 +100,8 @@
               href: manage-application-permissions.md
         - name: 사용자 할당 관리
           href: assign-user-or-group-access-portal.md
+        - name: 사용자 지정 보안 특성 할당
+          href: custom-security-attributes-apps.md
         - name: 내 앱에서 컬렉션 만들기
           href: access-panel-collections.md
         - name: 셀프 서비스 앱 액세스 사용
@@ -199,7 +201,7 @@
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-active-directory.html
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow

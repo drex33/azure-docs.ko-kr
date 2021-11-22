@@ -1,21 +1,17 @@
 ---
 title: '빠른 시작: Microsoft Sentinel의 온보딩'
 description: 이 빠른 시작에서는 먼저 Microsoft Sentinel을 사용하도록 설정한 다음, 데이터 원본을 연결하여 온보딩하는 방법을 알아봅니다.
-services: sentinel
 author: yelevin
 ms.author: yelevin
-ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 46ac4308035491dc2d6b75e34bc0c58a58f93535
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 03ed8e5f616fa94823d261c3bc3a1f2347959f15
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520810"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132762402"
 ---
 # <a name="quickstart-on-board-microsoft-sentinel"></a>빠른 시작: Microsoft Sentinel 온보딩
 
@@ -28,46 +24,35 @@ Microsoft Sentinel에는 Microsoft 365 Defender(이전에는 Microsoft Threat Pr
 데이터 원본을 연결한 후 데이터에 따른 인사이트를 제공하는 전문가가 만든 통합 문서 갤러리 중에서 선택합니다. 이러한 통합 문서는 사용자의 요구에 맞게 쉽게 사용자 지정할 수 있습니다.
 
 >[!IMPORTANT]
-> Microsoft Sentinel을 사용할 때 발생하는 요금에 대한 자세한 내용은 [Microsoft Sentinel 가격](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [Microsoft Sentinel 비용 및 청구](azure-sentinel-billing.md)를 참조하세요.
+> Microsoft Sentinel을 사용할 때 발생하는 요금에 대한 자세한 내용은 [Microsoft Sentinel 가격](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [Microsoft Sentinel 비용 및 청구](billing.md)를 참조하세요.
 
 ## <a name="global-prerequisites"></a>전역 전제 조건
 
-- 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
+- **활성 Azure 구독**. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
-- Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/logs/quick-create-workspace.md)을 알아봅니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Azure Monitor 로그 배포 디자인](../azure-monitor/logs/design-logs-deployment.md)을 참조하세요.
+- **Log Analytics 작업 영역** [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/logs/quick-create-workspace.md)을 알아봅니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Azure Monitor 로그 배포 디자인](../azure-monitor/logs/design-logs-deployment.md)을 참조하세요.
 
-- Microsoft Sentinel을 사용하도록 설정하려면 Microsoft Sentinel 작업 영역이 있는 구독에 대한 기여자 권한이 필요합니다. 
-- Microsoft Sentinel을 사용하려면 작업 영역이 속한 리소스 그룹에 대해 기여자 또는 읽기 권한자 권한이 있어야 합니다.
-- 특정 데이터 원본을 연결하려면 추가 권한이 필요할 수 있습니다.
-- Microsoft Sentinel은 유료 서비스입니다. 자세한 내용은 [Microsoft Sentinel 정보](https://go.microsoft.com/fwlink/?linkid=2104058)를 참조하세요.
+    기본적으로 Microsoft Sentinel에 사용되는 Log Analytics 작업 영역에는 기본 [30일의 보존 기간](/azure/azure-monitor/logs/manage-cost-storage#legacy-pricing-tiers)이 있을 수 있습니다. Microsoft Sentinel 기능의 전체 범위를 사용하려면 이 기간을 90일로 늘립니다. 자세한 내용은 [보존 기간 변경](/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)을 참조하세요.
+
+- **사용 권한**:
+
+    - Microsoft Sentinel을 사용하도록 설정하려면 Microsoft Sentinel 작업 영역이 있는 구독에 대한 **기여자** 권한이 필요합니다. 
+
+    - Microsoft Sentinel을 사용하려면 작업 영역이 속한 리소스 그룹에 대해 **기여자** 또는 **읽기 권한자** 권한이 있어야 합니다.
+
+    - 특정 데이터 원본을 연결하려면 추가 권한이 필요할 수 있습니다.
+
+- **Microsoft Sentinel은 유료 서비스입니다.** 자세한 내용은 [Microsoft Sentinel 정보](https://go.microsoft.com/fwlink/?linkid=2104058) 및 [Microsoft Sentinel 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sentinel/)를 참조하세요.
 
 자세한 내용은 [Microsoft Sentinel 배포를 위한 사전 배포 활동 및 필수 조건](prerequisites.md)을 참조하세요.
 
 ### <a name="geographical-availability-and-data-residency"></a>지리적 가용성 및 데이터 상주
 
-- Microsoft Sentinel은 중국과 독일(소버린) 지역을 제외한 대부분의 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. 새 Log Analytics 지역은 Microsoft Sentinel 서비스를 온보딩하는 데 시간이 걸릴 수 있습니다. 
+- Microsoft Sentinel은 [Log Analytics를 일반적으로 사용할 수 있는 대부분의 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. Log Analytics를 새로 사용할 수 있는 지역은 Microsoft Sentinel 서비스를 온보딩하는 데 다소 시간이 걸릴 수 있습니다. 
 
-- 인시던트, 책갈피 및 분석 규칙과 같이 Microsoft Sentinel에서 생성된 데이터에는 고객의 Log Analytics 작업 영역에서 소싱된 일부 고객 데이터가 포함될 수 있습니다. 이 Microsoft Sentinel에서 생성된 데이터는 작업 영역이 있는 지리에 따라 다음 표에 나열된 지리에 저장됩니다.
+- [지역 및 영역](https://azure.microsoft.com/global-infrastructure/data-residency/#select-geography) 및 [고객 데이터가 저장되는 위치](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information)에 대한 자세한 내용은 [Azure의 데이터 보존](https://azure.microsoft.com/global-infrastructure/data-residency/)을 참조하세요.
 
-    | 작업 영역 지리 | Microsoft Sentinel 생성 데이터 지리 |
-    | --- | --- |
-    | 미국<br>인도 | 미국 |
-    | 유럽<br>프랑스 | 유럽 |
-    | 오스트레일리아 | 오스트레일리아 |
-    | United Kingdom | United Kingdom |
-    | Canada | Canada |
-    | 일본 | 일본 |
-    | 아시아 태평양 | 아시아 태평양 * |
-    | 브라질 | 브라질 * |
-    | 노르웨이 | 노르웨이 |
-    | 아프리카 | 아프리카 |
-    | 한국 | 한국 |
-    | 독일 | 독일 |
-    | 아랍에미리트연합국 | 아랍에미리트연합국 |
-    | 스위스 | 스위스 |
-    |
-
-    \* 단일 지역 데이터 상주는 현재 아시아 태평양 지역의 동남아시아 지역(싱가포르)과 브라질 지역의 브라질 남부(상파울루 주) 지역에서만 제공됩니다. 다른 모든 지역의 경우 고객 데이터는 Sentinel이 온보딩된 작업 영역의 지리적 위치에 저장할 수 있습니다.
+- 단일 지역 데이터 보존은 현재 아시아 태평양 지역의 동남 아시아(싱가포르) 지역과 브라질 지역의 브라질 남부(상파울루 주) 지역에서만 제공됩니다.
 
     > [!IMPORTANT]
     > - ML(기계 학습) 엔진을 사용하는 특정 규칙을 사용하도록 설정하여 **Microsoft Sentinel 작업 영역 지리 외부에서 수집된 관련 데이터를 복사하는 권한을 Microsoft에 제공** 합니다. 이 권한은 기계 학습 엔진에서 이러한 규칙을 처리하는 데 필요할 수 있습니다.
@@ -120,11 +105,11 @@ Microsoft Sentinel은 서비스에 연결하고 이벤트 및 로그를 Microsof
 
 자세한 내용은 다음을 참조하세요.
 
-- **대체 배포 옵션**:
+- **대체 배포/관리 옵션**:
 
-    - [API를 통해 Microsoft Sentinel 배포](/rest/api/securityinsights/)
-    - [PowerShell을 통해 Microsoft Sentinel 배포](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
     - [ARM 템플릿을 통해 Microsoft Sentinel 배포](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+    - [API를 통해 Microsoft Sentinel 관리](/rest/api/securityinsights/)
+    - [PowerShell을 통해 Microsoft Sentinel 관리](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
 
 - **시작**:
     - [Microsoft Sentinel 시작](get-visibility.md)

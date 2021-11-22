@@ -31,7 +31,7 @@ AKS와 통합된 **공용** 부하 분산 장치는 두 가지 용도로 사용�
 
 Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다.  기본적으로 표준 SKU는 AKS 클러스터를 만들 때 사용됩니다. 더 큰 백엔드 풀, [**여러 노드 풀**](use-multiple-node-pools.md), [**가용성 영역**](availability-zones.md)과 같이 추가된 기능에 대한 액세스 권한을 갖도록 표준 SKU를 사용합니다. 권장 AKS용 부하 분산 장치 SKU입니다.
 
-‘기본’ 및 ‘표준’ SKU에 대한 자세한 정보는 [Azure 부하 분산 장치 SKU 비교][azure-lb-comparison]를 참조하세요. 
+‘기본’ 및 ‘표준’ SKU에 대한 자세한 정보는 [Azure Load Balancer SKU 비교][azure-lb-comparison]를 참조하세요. 
 
 이 문서에서는 사용자에게 표준 SKU Azure Load Balancer 지원 AKS 클러스터가 있다고 가정하고, 부하 분산 장치의 일부 기능의 사용 및 구성 방법을 안내합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 

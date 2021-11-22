@@ -107,6 +107,8 @@
           href: active-directory-licensing-whatis-azure-portal.md
         - name: 기본 사용자 사용 권한
           href: users-default-permissions.md
+    - name: 사용자 지정 보안 특성
+      href: custom-security-attributes-overview.md
     - name: Architecture
       items:
         - name: Azure AD 아키텍처
@@ -278,6 +280,14 @@
           href: license-users-groups.md
         - name: 삭제한 사용자 복원
           href: active-directory-users-restore.md
+    - name: 사용자 지정 보안 특성
+      items:
+        - name: 특성 추가 또는 비활성화
+          href: custom-security-attributes-add.md
+        - name: 특성에 대한 액세스 관리
+          href: custom-security-attributes-manage.md
+        - name: 특성 문제 해결
+          href: custom-security-attributes-troubleshoot.md
     - name: 시나리오
       items:
         - name: Azure Active Directory를 사용하여 SAP 플랫폼 및 애플리케이션에 대한 액세스 보호

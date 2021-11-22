@@ -18,7 +18,7 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3975f23ad184ec04849fca57ef37d5fe57c2b48f
 ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/17/2021
 ms.locfileid: "122530543"
@@ -128,7 +128,7 @@ Azure VM의 경우 다음과 같은 고가용성 구성이 DBMS 수준에서 지
 
 ![DBMS HA 구성](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)
 
-DBMS 및/또는 운영 체제에 따라 Azure 부하 분산 장치와 같은 구성 요소가 솔루션 아키텍처에 필요할 수도 있고 필요하지 않을 수도 있습니다. 
+DBMS 및/또는 운영 체제에 따라 Azure Load Balancer와 같은 구성 요소가 솔루션 아키텍처에 필요할 수도 있고 필요하지 않을 수도 있습니다. 
 
 특히 maxDB의 경우 스토리지 구성이 달라야 합니다. maxDB에서 고가용성 구성을 구현하려면 데이터 및 로그 파일이 공유 스토리지에 있어야 합니다. maxDB의 경우에만 공유 스토리지가 고가용성을 지원합니다. 그 외의 DBMS에서는 노드당 스토리지 스택이 유일하게 지원되는 디스크 구성입니다.
 

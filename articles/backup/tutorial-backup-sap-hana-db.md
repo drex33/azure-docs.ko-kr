@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 475c742cae311cc1d816c7b879af61aa09fe882e
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 827b930811be1125dba79f6f9d01d98f63204728
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132709846"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132755263"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -27,7 +27,7 @@ ms.locfileid: "132709846"
 백업을 구성하기 전에 다음을 수행해야 합니다.
 
 * SAP HANA를 실행하는 VM과 동일한 지역 및 구독에서 [Recovery Services 자격 증명 모음](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)을 식별하거나 만듭니다.
-* 아래 [네트워크 연결 설정](#set-up-network-connectivity) 절차에 설명된 대로 VM에서 인터넷에 연결하도록 허용합니다. 그래야 Azure에 연결할 수 있습니다.
+* [네트워크 연결 설정](backup-azure-sap-hana-database.md#establish-network-connectivity) 섹션에 설명된 대로 VM에서 인터넷에 연결하도록 허용합니다. 그래야 Azure에 연결할 수 있습니다.
 * SAP HANA Server VM 이름 및 리소스 그룹 이름의 결합된 길이가 Azure Resource Manager(ARM_ VM(및 클래식 VM의 경우 77자))의 경우 84자를 초과하지 않는지 확인합니다. 이 제한은 서비스에서 일부 문자를 예약했기 때문에 발생합니다.
 * **hdbuserstore** 에 다음 조건을 충족하는 키가 있어야 합니다.
   * 기본 **hdbuserstore** 에 있어야 합니다. 기본값은 SAP HANA가 설치된 `<sid>adm` 계정입니다.
@@ -40,65 +40,6 @@ ms.locfileid: "132709846"
 
 >[!NOTE]
 >사전 등록 스크립트는 RHEL(7.4, 7.6 및 7.7)에서 실행되는 SAP HANA 워크로드용 **compat-unixODBC234** 및 RHEL 8.1용 **unixODBC** 를 설치합니다. [이 패키지는 RHEL for SAP HANA(RHEL 7 Server의 경우), RPM(SAP 솔루션용 업데이트 서비스) 리포지토리에 있습니다](https://access.redhat.com/solutions/5094721).  Azure Marketplace RHEL 이미지의 경우 리포지토리는 **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms** 입니다.
-
-## <a name="set-up-network-connectivity"></a>네트워크 연결 설정
-
-모든 작업을 실행하려면 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup 서비스, Azure Storage 및 Azure Active Directory에 연결해야 합니다. 프라이빗 엔드포인트를 사용하거나 필요한 공용 IP 주소 또는 FQDN에 대한 액세스를 허용하면 됩니다. 필요한 Azure 서비스에 대한 적절한 연결을 허용하지 않으면 데이터베이스 검색, 백업 구성, 백업 수행, 데이터 복원과 같은 작업 시 오류가 발생할 수 있습니다.
-
-다음 표에는 연결을 설정하는 데 사용할 수 있는 여러 가지 방법이 나와 있습니다.
-
-| **옵션**                        | **장점**                                               | **단점**                                            |
-| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 프라이빗 엔드포인트                 | 가상 네트워크 내 개인 IP를 통한 백업 허용  <br><br>   네트워크 및 자격 증명 모음에 대한 세부적인 제어 지원 | 표준 프라이빗 엔드포인트 [비용](https://azure.microsoft.com/pricing/details/private-link/) 발생 |
-| NSG 서비스 태그                  | 범위 변경이 자동으로 병합되어 관리가 더 쉬움   <br><br>   추가 비용 없음 | NSG에만 사용할 수 있음  <br><br>    전체 서비스에 대한 액세스 제공 |
-| Azure Firewall FQDN 태그          | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음                         |
-| 서비스 FQDN/IP에 대한 액세스 허용 | 추가 비용 없음   <br><br>  모든 네트워크 보안 어플라이언스 및 방화벽과 함께 작동 | 광범위한 IP 또는 FQDN 세트에 액세스해야 할 수 있음   |
-| HTTP 프록시 사용                 | VM에 대한 인터넷 액세스의 단일 지점                       | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음         |
-| [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Azure Storage(= Recovery Services 자격 증명 모음)에 사용할 수 있습니다.     <br><br>     데이터 평면 트래픽의 성능을 최적화하는 데 큰 이점이 있습니다.          |         Azure AD, Azure Backup 서비스에 사용할 수 없습니다.    |
-| 네트워크 가상 어플라이언스      |      Azure Storage, Azure AD, Azure Backup 서비스에 사용할 수 있습니다. <br><br> **데이터 평면**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **관리 평면**  <ul><li>  Azure AD: [Microsoft 365 Common 및 Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online)의 56 및 59 섹션에 언급된 FQDN에 대한 액세스를 허용합니다. </li><li>   Azure Backup 서비스: `.backup.windowsazure.com` </li></ul> <br>[Azure Firewall 서비스 태그](../firewall/fqdn-tags.md)에 대해 자세히 알아보세요.       |  데이터 평면 트래픽에 오버헤드를 추가하고 처리량/성능을 저하시킵니다.  |
-
-이러한 옵션을 사용하는 방법에 대한 자세한 내용은 아래에 나와 있습니다.
-
-### <a name="private-endpoints"></a>프라이빗 엔드포인트
-
-프라이빗 엔드포인트를 사용하면 가상 네트워크 내의 서버에서 안전하게 Recovery Services 자격 증명 모음에 연결할 수 있습니다. 프라이빗 엔드포인트는 VNET 주소 공간의 개인 IP를 자격 증명 모음에 사용합니다. 가상 네트워크 내의 리소스와 자격 증명 모음 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통해 이동합니다. 이렇게 하면 퍼블릭 인터넷에서 공개되지 않습니다. 프라이빗 엔드포인트는 가상 네트워크의 특정 서브넷에 할당되며 Azure Active Directory에 사용할 수 없습니다. Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](./private-endpoints.md)를 참조하세요.
-
-### <a name="nsg-tags"></a>NSG 태그
-
-NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에도 Azure AD(*AzureActiveDirectory*) 및 Azure Storage(*Storage*)에 대해 유사한 [NSG 규칙](../virtual-network/network-security-groups-overview.md#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결을 허용해야 합니다. 다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
-
-1. **모든 서비스** 에서 **네트워크 보안 그룹** 으로 이동하여 네트워크 보안 그룹을 선택합니다.
-
-1. **설정** 아래에서 **아웃바운드 보안 규칙** 을 선택합니다.
-
-1. **추가** 를 선택합니다. [보안 규칙 설정](../virtual-network/manage-network-security-group.md#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그* 로 설정되고 **대상 서비스 태그** 가 *AzureBackup* 으로 설정되어 있는지 확인합니다.
-
-1. **추가** 를 선택하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
-
-마찬가지로, Azure Storage 및 Azure AD에 대한 [NSG 아웃바운드 보안 규칙](../virtual-network/network-security-groups-overview.md#service-tags)을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](../virtual-network/service-tags-overview.md)를 참조하세요.
-
-### <a name="azure-firewall-tags"></a>Azure Firewall 태그
-
-Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그](../firewall/fqdn-tags.md)를 사용하여 애플리케이션 규칙을 만듭니다. 이는 Azure Backup에 대한 모든 아웃바운드 액세스를 허용합니다.
-
-### <a name="allow-access-to-service-ip-ranges"></a>서비스 IP 범위에 대한 액세스 허용
-
-서비스 IP에 대한 액세스를 허용하도록 선택할 경우 사용할 수 있는 JSON 파일의 IP 범위를 [여기](https://www.microsoft.com/download/confirmation.aspx?id=56519)에서 참조하세요. Azure Backup, Azure Storage 및 Azure Active Directory에 해당하는 IP에 대한 액세스를 허용해야 합니다.
-
-### <a name="allow-access-to-service-fqdns"></a>서비스 FQDN에 대한 액세스 허용
-
-다음 FQDN을 사용하여 서버에서 필요한 서비스에 액세스하도록 허용할 수도 있습니다.
-
-| 서비스    | 액세스할 도메인 이름                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure Backup  | `*.backup.windowsazure.com`                             |
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | [이 문서](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에 따라 섹션 56 및 59에서 FQDN에 대한 액세스 허용 |
-
-### <a name="use-an-http-proxy-server-to-route-traffic"></a>HTTP 프록시 서버를 사용하여 트래픽 라우팅
-
-> [!NOTE]
-> 현재 SAP HANA에 대한 프록시 지원은 없습니다. HANA VM에서 Azure 백업을 통해 데이터베이스 백업에 대한 아웃바운드 연결 요구 사항을 제거하려면 프라이빗 엔드포인트와 같은 다른 옵션을 고려하세요.
 
 ## <a name="understanding-backup-and-restore-throughput-performance"></a>백업 및 복원 처리량 성능 이해
 
@@ -186,13 +127,13 @@ hdbuserstore list
 | `<sid>`adm(OS)   |  HANA OS    |   명령 실행:<br> `hdbuserstore List`   |  결과에 다음과 같은 기본 저장소가 포함되어 있는지 확인합니다. <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
 | 루트(OS)   |   HANA OS    |    [Azure Backup HANA 등록 전 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 실행합니다.     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
 | `<sid>`adm(OS)   |   HANA OS   |    명령 실행: <br> `hdbuserstore List`   |   결과에 다음과 같은 새 줄이 포함되어 있는지 확인합니다. <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
-| Azure 기여자     |    Azure portal    |   Azure Backup 서비스, Azure AD 및 Azure Storage로 전송되는 아웃바운드 트래픽을 허용하도록 NSG, NVA, Azure Firewall 등을 구성합니다.     |    [네트워크 연결 설정](#set-up-network-connectivity)    |
+| Azure 기여자     |    Azure portal    |   Azure Backup 서비스, Azure AD 및 Azure Storage로 전송되는 아웃바운드 트래픽을 허용하도록 NSG, NVA, Azure Firewall 등을 구성합니다.     |    [네트워크 연결 설정](backup-azure-sap-hana-database.md#establish-network-connectivity)    |
 | Azure 기여자 |   Azure portal    |   Recovery Services 자격 증명 모음을 만들거나 연 다음, HANA 백업을 선택합니다.   |   백업할 모든 대상 HANA VM을 찾습니다.   |
 | Azure 기여자    |   Azure portal    |   HANA 데이터베이스를 검색하고 백업 정책을 구성합니다.   |  다음은 그 예입니다. <br><br>  매주 백업: 매주 일요일 오전 2:00, 매주 백업은 12주, 매월 백업은 12개월, 매년 백업은 3년간 보존   <br>   차등 또는 증분: 매일, 일요일 제외    <br>   로그: 15분마다 백업은 35일간 보존    |
 | Azure 기여자  |   Azure portal    |    Recovery Service 자격 증명 모음 – 백업 항목 – SAP HANA     |   백업 작업(Azure 워크로드)을 확인합니다.    |
 | HANA 관리자    | HANA 스튜디오   | Backup 콘솔, Backup 카탈로그, backup.log, backint.log 및 globa.ini 확인   |    SYSTEMDB 및 테넌트 데이터베이스 둘 다   |
 
-등록 전 스크립트를 성공적으로 실행하고 확인한 후 [연결 요구 사항](#set-up-network-connectivity)을 확인한 다음, Recovery Services 자격 증명 모음에서 [백업을 구성](#discover-the-databases)할 수 있습니다.
+등록 전 스크립트를 성공적으로 실행하고 확인한 후 [연결 요구 사항](backup-azure-sap-hana-database.md#establish-network-connectivity)을 확인한 다음, Recovery Services 자격 증명 모음에서 [백업을 구성](#discover-the-databases)할 수 있습니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 

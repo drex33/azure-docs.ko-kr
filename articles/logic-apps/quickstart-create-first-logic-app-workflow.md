@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
 ms.date: 08/24/2021
-ms.openlocfilehash: a2b3533a1af6740b1d847a2a3e452bbe45aacc05
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 2c84bdfc2a3e7a93123d67c4532a9b255a0f989d
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831286"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132813837"
 ---
 # <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>빠른 시작: Azure Portal에서 다중 테넌트 Azure Logic Apps를 사용하여 통합 워크플로 만들기
 
@@ -69,14 +69,15 @@ ms.locfileid: "122831286"
 
 1. **논리 앱 만들기** 창에서 사용할 Azure 구독을 선택하고 논리 앱 리소스에 대해 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 만들고 논리 앱 리소스에 대해 기본 세부 정보를 제공합니다.
 
-   | 속성 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름입니다. |
    | **리소스 그룹** | <*Azure-resource-group-name*> | [Azure 리소스 그룹](../azure-resource-manager/management/overview.md#terminology) 이름으로, 지역에서 고유해야 합니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
    | **유형** | **Consumption** | 논리 앱 리소스 유형 및 리소스에 사용할 청구 모델: <p><p>- **소비**: 이 논리 앱 리소스 유형은 전역 다중 테넌트 Azure Logic Apps에서 실행되며 [소비 청구 모델](logic-apps-pricing.md#consumption-pricing)을 사용합니다. 이 예제에서는 이 **소비** 모델을 사용합니다. <p>- **표준**: 이 논리 앱 리소스 유형은 단일 테넌트 Azure Logic Apps에서 실행되며 [표준 청구 모델](logic-apps-pricing.md#standard-pricing)을 사용합니다. |
    | **논리 앱 이름** | <*logic-app-name*> | 지역 간에 고유해야 하는 논리 앱 리소스 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. <p><p>**중요**: 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함될 수 있습니다.  |
+   | **게시** | **Workflow** | [**표준** 논리 앱 리소스 종류](create-single-tenant-workflows-azure-portal.md)를 선택하는 경우에만 사용할 수 있습니다. 기본적으로 **워크플로** 는 [단일 테넌트 Azure Logic Apps](single-tenant-overview-compare.md)에 배포하도록 선택되며, 첫 번째 워크플로를 추가하는 빈 논리 앱 리소스를 만듭니다. <p><p>**참고**: 현재 **Docker 컨테이너** 옵션을 사용하려면 Azure Arc 지원 Kubernetes 클러스터에서 [*사용자 지정 위치*](../azure-arc/kubernetes/conceptual-custom-locations.md)가 필요하며 [Azure Arc 지원 Logic Apps(표준)](azure-arc-enabled-logic-apps-overview.md)와 함께 사용할 수 있습니다. 논리 앱, 사용자 지정 위치 및 클러스터의 리소스 위치는 모두 동일해야 합니다. |
    | **지역** | <*Azure-region*> | 앱의 정보를 저장할 Azure 데이터 센터 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. <p>**참고**: 구독이 [통합 서비스 환경](connect-virtual-network-vnet-isolated-environment-overview.md)과 연결된 경우 이 목록에 해당 환경이 포함됩니다. |
-   | **로그 분석 사용** | **아니요** | 진단 로깅을 사용하도록 설정하려는 경우에만 이 옵션을 변경합니다. 이 예제에서는 이 옵션을 선택하지 않은 상태로 둡니다. |
+   | **로그 분석 사용** | **아니요** | **소비** 논리 앱 리소스 종류를 선택하는 경우에만 사용할 수 있습니다. <p><p>진단 로깅을 사용하도록 설정하려는 경우에만 이 옵션을 변경합니다. 이 예제에서는 이 옵션을 선택하지 않은 상태로 둡니다. |
    ||||
 
    ![Azure Portal 및 새 논리 앱에 대한 세부 정보가 포함된 논리 앱 리소스 만들기 페이지를 보여주는 스크린샷입니다.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
@@ -115,7 +116,7 @@ ms.locfileid: "122831286"
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **RSS 피드 URL** | Yes | <*RSS-feed-URL*> | 모니터링할 RSS 피드 URL입니다. <p><p>이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 있는 Wall Street Journal의 RSS 피드를 사용합니다. 그러나 HTTP 권한 부여가 필요하지 않은 RSS 피드를 사용할 수 있습니다. 자주 게시되는 RSS 피드를 선택합니다. 그러면 워크플로를 쉽게 테스트할 수 있습니다. |
+   | **RSS 피드 URL** | 예 | <*RSS-feed-URL*> | 모니터링할 RSS 피드 URL입니다. <p><p>이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 있는 Wall Street Journal의 RSS 피드를 사용합니다. 그러나 HTTP 권한 부여가 필요하지 않은 RSS 피드를 사용할 수 있습니다. 자주 게시되는 RSS 피드를 선택합니다. 그러면 워크플로를 쉽게 테스트할 수 있습니다. |
    | **선택한 속성을 사용하여 확인** | 아니요 | PublishDate | 새 항목을 결정하는 속성입니다. |
    | **간격** | 예 | 1 | 피드 확인 간에 대기하는 간격(숫자)입니다. <p><p>이 예제에서는 `1`을 간격으로 사용합니다. |
    | **빈도** | 예 | Minute | 모든 간격에 사용할 빈도 단위입니다. <p><p>이 예제에서는 `Minute`를 빈도로 사용합니다. |

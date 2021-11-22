@@ -9,12 +9,12 @@ metadata:
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 05/07/2021
-  ms.openlocfilehash: 6c2119b81b9eea8c4da0caa68f998e70fab4fae1
-  ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+  ms.openlocfilehash: b41c8a8ed84fc627528f06c8c443fbc112456074
+  ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/28/2021
-  ms.locfileid: "129154948"
+  ms.lasthandoff: 11/19/2021
+  ms.locfileid: "132814156"
 landingContent:
 - title: Static Web Apps 정보
   linkLists:
@@ -26,13 +26,13 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 첫 번째 앱 만들기(프레임워크 없음)
+    - text: 프런트 엔드 프레임워크 없이 앱 배포
       url: ./getting-started.md?tabs=vanilla-javascript
-    - text: 첫 번째 Angular 앱 만들기
+    - text: Angular 앱 배포
       url: ./getting-started.md?tabs=angular
-    - text: 첫 번째 React 앱 만들기
+    - text: React 앱 배포
       url: ./getting-started.md?tabs=react
-    - text: 첫 번째 Vue 앱 만들기
+    - text: Vue 앱 배포
       url: ./getting-started.md?tabs=vue
   - linkListType: learn
     links:
@@ -44,33 +44,27 @@ landingContent:
     links:
     - text: 정적 웹앱 빌드 및 배포
       url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
-- title: 시나리오 게시
+- title: 프레임워크/라이브러리에서 배포
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Gatsby에서 게시
+    - text: Gatsby
       url: publish-gatsby.md
-    - text: Hugo에서 게시
+    - text: Hugo
       url: publish-hugo.md
-    - text: VuePress에서 게시
+    - text: VuePress
       url: publish-vuepress.md
-    - text: Jekyll에서 게시
+    - text: Jekyll
       url: publish-jekyll.md
-    - text: Blazor에서 배포
+    - text: Blazor
       url: deploy-blazor.md
-    - text: Next.js에서 배포
+    - text: Next.js
       url: deploy-nextjs.md
-    - text: Nuxt.js에서 배포
+    - text: Nuxt.js
       url: deploy-nuxtjs.md
-    - text: Azure DevOps로 배포
-      url: publish-devops.md
-    - text: ARM 템플릿을 사용하여 배포
-      url: publish-azure-resource-manager.md
-  - linkListType: learn
-    links:
-    - text: Gatsby를 사용하여 정적 웹앱 게시
+    - text: Gatsby
       url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
-    - text: Blazor를 사용하여 정적 웹앱 게시
+    - text: Blazor
       url: /learn/modules/publish-app-service-static-web-app-api-dotnet
 - title: 주요 개념
   linkLists:
@@ -84,3 +78,13 @@ landingContent:
       url: review-publish-pull-requests.md
     - text: 액세스 제한
       url: authentication-authorization.md
+    - text: GitHub Actions를 사용하여 빌드 구성
+      url: publish-devops.md?tabs=github-actions
+    - text: Azure DevOps를 사용하여 빌드 구성
+      url: publish-devops.md?tabs=azure-devops
+- title: SaaS(Software as a Service)
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: ARM 템플릿을 사용하여 배포
+      url: publish-azure-resource-manager.md

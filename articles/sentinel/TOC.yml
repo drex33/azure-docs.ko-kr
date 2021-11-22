@@ -128,7 +128,7 @@
         - name: 상단 커넥터
           expanded: true
           items:
-            - name: Amazon Web Services CloudTrail
+            - name: Amazon Web Services 로그
               href: connect-aws.md
             - name: Azure Active Directory
               href: connect-azure-active-directory.md

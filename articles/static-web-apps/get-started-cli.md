@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/17/2021
 ms.author: cshoe
-ms.openlocfilehash: 035a13eeb09f60ca8e16a4f41281341b2ea9dae0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e2eb25b5f5aa93376cc918cb43146e6fa2d028a4
+ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003518"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132814295"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -23,26 +23,14 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
-- [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Azure](https://portal.azure.com) 계정
-- [Azure CLI](/cli/azure/install-azure-cli) 설치(버전 2.8.0 이상)
+- [Azure CLI](/cli/azure/install-azure-cli) 설치(버전 2.29.0 이상)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
-
-[!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
-
-다음으로, 다음 명령을 사용하여 새 폴더로 전환합니다.
-
-```bash
-cd my-first-static-web-app
-```
 
 ## <a name="create-a-static-web-app"></a>정적 웹앱 만들기
 
 이제 리포지토리가 생성되었으므로 Azure CLI에서 정적 웹앱을 만들 수 있습니다.
-
-> [!IMPORTANT]
-> 터미널의 _my-first-static-web-app_ 폴더에 있는지 확인합니다.
 
 1. 다음 명령을 사용하여 Azure CLI에 로그인합니다.
 
@@ -50,93 +38,137 @@ cd my-first-static-web-app
     az login
     ```
 
+1. 리소스 그룹을 만듭니다.
+
+    ```bash
+    az group create \
+      --name my-swa-group \
+      --location "eastus2"
+    ```
+
+1. GitHub 사용자 이름을 저장할 변수를 만듭니다.
+
+    ```bash
+    GITHUB_USER_NAME=<YOUR_GITHUB_USER_NAME>
+    ```
+
+    자리 표시자 `<YOUR_GITHUB_USER_NAME>`을 GitHub 사용자 이름으로 바꿉니다.
+
 1. 리포지토리에서 새 정적 웹앱을 만듭니다.
 
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
     ```azurecli
     az staticwebapp create \
-        -n my-first-static-web-app \
-        -g <RESOURCE_GROUP_NAME> \
-        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-        -l <LOCATION> \
-        -b main \
+        --name my-first-static-web-app \
+        --resource-group my-swa-group \
+        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
+        --location "eastus2" \
+        --branch main \
         --app-location "src" \
-        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+        --login-with-github
     ```
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
     ```azurecli
     az staticwebapp create \
-        -n my-first-static-web-app \
-        -g <RESOURCE_GROUP_NAME> \
-        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-        -l <LOCATION> \
-        -b main \
-        --app-location "dist/angular-basic" \
-        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+        --name my-first-static-web-app \
+        --resource-group my-swa-group \
+        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
+        --location "eastus2" \
+        --branch main \
+        --app-location "/" \
+        --output-location "dist/angular-basic" \
+        --login-with-github
     ```
 
     # <a name="react"></a>[React](#tab/react)
 
     ```azurecli
     az staticwebapp create \
-        -n my-first-static-web-app \
-        -g <RESOURCE_GROUP_NAME> \
-        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-        -l <LOCATION> \
-        -b main \
-        --app-location "build" \
-        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+        --name my-first-static-web-app \
+        --resource-group my-swa-group \
+        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
+        --location "eastus2" \
+        --branch main \
+        --app-location "/"  \
+        --output-location "build"  \
+        --login-with-github
     ```
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
     ```azurecli
     az staticwebapp create \
-        -n my-first-static-web-app \
-        -g <RESOURCE_GROUP_NAME> \
-        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-        -l <LOCATION> \
-        -b main \
-        --app-location "dist" \
-        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+        --name my-first-static-web-app \
+        --resource-group my-swa-group \
+        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
+        --location "eastus2" \
+        --branch main \
+        --app-location "/" \
+        --output-location "dist"  \
+        --login-with-github
     ```
 
     ---
-    
+
     > [!IMPORTANT]
-    > `s` 매개 변수에 전달된 URL에는 `.git` 접미사가 포함되어서는 안 됩니다.
+    > `--source` 매개 변수에 전달된 URL에는 `.git` 접미사가 포함되어서는 안 됩니다.
 
-    - `<RESOURCE_GROUP_NAME>`: 이 값을 기존 [Azure 리소스 그룹 이름](../azure-resource-manager/management/manage-resources-cli.md)으로 바꿉니다.
+    이 명령을 실행하면 CLI가 GitHub 대화형 로그인 환경을 시작합니다. 콘솔에서 다음 메시지와 유사한 줄을 찾습니다.
 
-      - 리소스 그룹 나열에 대한 자세한 내용은 [az group](/cli/azure/group#az_group_list) 설명서를 참조하세요.
+    > `https://github.com/login/device`로 이동해 사용자 코드 329B-3945를 입력하여 github 개인용 액세스 토큰을 활성화하고 검색하세요.
 
-    - `<YOUR_GITHUB_ACCOUNT_NAME>`: 이 값을 GitHub 사용자 이름으로 바꿉니다.
+1. **https://github.com/login/device** 으로 이동합니다.
 
-    - `<LOCATION>`: 이 값을 가장 가까운 위치로 바꿉니다. 옵션은 다음과 같습니다. _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_ 및 _WestUS2_.
+1. 콘솔의 메시지에 표시된 대로 사용자 코드를 입력합니다.
 
-    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: 이 값을 이전에 생성한 [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)으로 바꿉니다. 최소 권한은 퍼블릭 리포지토리의 경우 `workflow` 범위, 프라이빗 리포지토리의 경우 `repo` 범위입니다.
+1. **계속** 단추를 선택합니다.
 
-    이제 Azure에서 만든 앱을 볼 수 있습니다.
+1. **AzureAppServiceCLI 권한 부여** 단추를 선택합니다.
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
+## <a name="view-the-website"></a>웹 사이트 보기
 
-1. 위쪽 검색 창에서 **my-first-web-static-app** 을 검색합니다.
+정적 앱을 배포하는 데는 두 가지 측면이 있습니다. 첫 번째 작업은 앱을 구성하는 기본 Azure 리소스를 만듭니다. 두 번째는 애플리케이션을 빌드하고 게시하는 GitHub Actions 워크플로입니다.
 
-1. **my-first-web-static-app** 을 선택합니다.
+새 정적 사이트로 이동하려면 먼저 배포 빌드가 실행을 완료해야 합니다.
 
-[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+1. 콘솔 창으로 돌아가서 다음 명령을 실행하여 앱과 연결된 URL을 나열합니다.
+
+    ```bash
+    az staticwebapp show \
+      --name  my-first-static-web-app \
+      --query "repositoryUrl"
+    ```
+
+    이 명령의 출력은 GitHub 리포지토리에 대한 URL을 반환합니다.
+
+1. **리포지토리 URL** 을 복사하여 브라우저에 붙여넣습니다.
+
+1. **작업** 탭을 선택합니다.
+
+    이 시점에서 Azure는 정적 웹앱을 지원하기 위한 리소스를 만듭니다. 실행 중인 워크플로 옆의 아이콘이 녹색 배경(:::image type="icon" source="media/get-started-cli/checkmark-green-circle.png" border="false":::)의 확인 표시로 바뀔 때까지 기다립니다. 이 작업이 완료될 때까지 몇 분 정도 걸릴 수 있습니다.
+
+    성공 아이콘이 표시되면 워크플로가 완료되고 콘솔 창으로 돌아갈 수 있습니다.
+
+1. 다음 명령을 실행하여 웹 사이트의 URL을 쿼리합니다.
+
+    ```bash
+    az staticwebapp show \
+      --name my-first-static-web-app \
+      --query "defaultHostname"
+    ```
+
+    URL을 브라우저에 복사하고 웹 사이트로 이동합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 애플리케이션을 계속 사용하지 않을 경우 다음 명령을 실행하여 Azure Static Web App 인스턴스를 삭제할 수 있습니다.
+이 애플리케이션을 계속 사용하지 않으려면 다음 명령을 실행하여 리소스 그룹과 정적 웹앱을 삭제할 수 있습니다.
 
 ```azurecli
-az staticwebapp delete \
-    --name my-first-static-web-app \
-    --resource-group my-first-static-web-app
+az group delete \
+  --name my-swa-group
 ```
 
 ## <a name="next-steps"></a>다음 단계

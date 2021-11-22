@@ -8,7 +8,7 @@ ms.author: bharatn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d15f8a139a63845470c26048c043d574064e2aa1
 ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/11/2021
 ms.locfileid: "112034016"
@@ -41,7 +41,7 @@ Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabri
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>클러스터 외부에서 마이크로 서비스에 연결
-마이크로 서비스에 대한 기본 외부 통신 모델은 옵트인 모델이며, 여기서 각 서비스는 외부 클라이언트에서 직접 액세스될 수 없습니다. 마이크로 서비스와 외부 클라이언트 간의 네트워크 경계인 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)는 네트워크 주소 변환을 수행하고 외부 요청을 내부 IP:port 엔드포인트에 전달합니다. 마이크로 서비스의 엔드포인트에서 외부 클라이언트에 직접 액세스할 수 있도록 하려면 먼저 클러스터의 서비스가 사용하는 각 포트에 트래픽을 전달하도록 부하 분산 장치를 구성해야 합니다. 그러나 대부분의 마이크로 서비스(특히 상태 저장 마이크로 서비스)가 클러스터의 모든 노드에 있는 것은 아닙니다. 마이크로 서비스는 장애 조치(Failover) 시 노드 간을 이동할 수 있습니다. 이러한 경우 부하 분산 장치를 트래픽을 전달할 복제본의 대상 노드 위치를 효과적으로 확인할 수 없습니다.
+마이크로 서비스에 대한 기본 외부 통신 모델은 옵트인 모델이며, 여기서 각 서비스는 외부 클라이언트에서 직접 액세스될 수 없습니다. 마이크로 서비스와 외부 클라이언트 간의 네트워크 경계인 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)는 네트워크 주소 변환을 수행하고 외부 요청을 내부 IP:port 엔드포인트에 전달합니다. 마이크로 서비스의 엔드포인트에서 외부 클라이언트에 직접 액세스할 수 있도록 하려면 먼저 클러스터의 서비스가 사용하는 각 포트에 트래픽을 전달하도록 Load Balancer를 구성해야 합니다. 그러나 대부분의 마이크로 서비스(특히 상태 저장 마이크로 서비스)가 클러스터의 모든 노드에 있는 것은 아닙니다. 마이크로 서비스는 장애 조치(Failover) 시 노드 간을 이동할 수 있습니다. 이러한 경우 Load Balancer를 트래픽을 전달할 복제본의 대상 노드 위치를 효과적으로 확인할 수 없습니다.
 
 ### <a name="reaching-microservices-via-the-reverse-proxy-from-outside-the-cluster"></a>클러스터 외부에서 역방향 프록시를 통해 마이크로 서비스에 연결
 부하 분산 장치에서 개별 서비스의 포트를 구성하는 대신, 부하 분산 장치에서 역방향 프록시 포트만 구성할 수 있습니다. 이 구성을 사용하면 클러스터 외부의 클라이언트가 추가 구성 없이 역방향 프록시를 사용하여 클러스터 내부의 서비스에 연결할 수 있습니다.

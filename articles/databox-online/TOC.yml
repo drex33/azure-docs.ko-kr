@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작
+        - name: 시작하기
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:
@@ -404,7 +404,9 @@
               href: azure-stack-edge-contact-microsoft-support.md
     - name: 공유 릴리스 정보
       items:
-        - name: 2110 - 현재
+        - name: 2111 - 현재
+          href: azure-stack-edge-gpu-2111-release-notes.md
+        - name: 2110
           href: azure-stack-edge-gpu-2110-release-notes.md
         - name: 2106
           href: azure-stack-edge-gpu-2106-release-notes.md

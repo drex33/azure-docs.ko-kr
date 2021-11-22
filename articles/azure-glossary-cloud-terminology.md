@@ -79,7 +79,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="load-balancer"></a>부하 분산 장치
-들어오는 트래픽을 네트워크의 컴퓨터 간에 분산시키는 리소스입니다. Azure에서 부하 분산 장치는 부하 분산 장치 집합에 정의된 가상 머신에 트래픽을 분산시킵니다. [부하 분산 장치](load-balancer/load-balancer-overview.md) 는 인터넷에 연결되거나 내부에 있을 수 있습니다.  
+들어오는 트래픽을 네트워크의 컴퓨터 간에 분산시키는 리소스입니다. Azure에서 부하 분산 장치는 부하 분산 장치 집합에 정의된 가상 머신에 트래픽을 분산시킵니다. [Load Balancer](load-balancer/load-balancer-overview.md) 는 인터넷에 연결되거나 내부에 있을 수 있습니다.  
 
 ## <a name="mobile-app"></a>모바일 앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.

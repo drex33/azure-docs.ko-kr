@@ -52,6 +52,9 @@
     - name: Azure Portal에서 쿼리 만들기 및 공유
       displayName: 'query, portal'
       href: ./tutorials/create-share-query.md
+    - name: Azure Logic Apps를 사용하여 쿼리 자동화
+      displayName: 'query, resource graph, logic app'
+      href: ./tutorials/logic-app-calling-arg.md
 - name: 샘플
   items:
     - name: 언어 예제

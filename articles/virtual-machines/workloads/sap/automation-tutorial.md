@@ -1,23 +1,22 @@
 ---
-title: SAP 배포 자동화 프레임워크를 통한 엔터프라이즈 크기 조정
-description: Azure에서 SAP 배포 자동화 프레임워크를 사용하여, 배포를 위한 엔터프라이즈 크기 조정을 수행하는 방법입니다.
+title: SAP 배포 자동화 프레임워크 실습 랩
+description: Azure의 SAP 배포 자동화 프레임워크에 대한 실습 랩입니다.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
-ms.openlocfilehash: ab67d4ecf6588b2fd95abfc6702b58a19029e137
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 4753a2979d39b5a2bcc473a9f4002bdedda5c10d
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730392"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132806404"
 ---
-# <a name="enterprise-scale-for-sap-automation-framework-deployment---hands-on-lab"></a>SAP Automation Framework 배포를 위한 엔터프라이즈 크기 조정 - 실습 랩
+# <a name="enterprise-scale-for-sap-deployment-automation-framework---hands-on-lab"></a>SAP 배포 자동화 프레임워크를 위한 엔터프라이즈 크기 조정 - 실습 랩
 
-
-이 자습서에서는 [Azure에서 SAP 배포 자동화 프레임워크](automation-deployment-framework.md)를 사용하여, 배포를 위한 엔터프라이즈 크기 조정을 수행하는 방법을 보여 줍니다. 이 예제에서는 Azure Cloud Shell을 사용하여 컨트롤 플레인 인프라를 배포합니다. 배포자 VM(가상 머신)이 나머지 인프라 및 SAP HANA 구성을 만듭니다. 이 자습서에서 사용하기 위해 [자동화 프레임워크용 GitHub 리포지토리](https://github.com/Azure/sap-hana/)에 기능이 잠긴 분기가 있으며 이름은 `sap-level-up`입니다.
+이 자습서에서는 [Azure에서 SAP 배포 자동화 프레임워크](automation-deployment-framework.md)를 사용하여, 배포를 위한 엔터프라이즈 크기 조정을 수행하는 방법을 보여 줍니다. 이 예제에서는 Azure Cloud Shell을 사용하여 컨트롤 플레인 인프라를 배포합니다. 배포자 VM(가상 머신)이 나머지 인프라 및 SAP HANA 구성을 만듭니다. 
 
 이 랩에서는 다음 작업을 수행합니다.
 
@@ -42,7 +41,7 @@ ms.locfileid: "132730392"
 
 3. 시스템 배포. 이 단계에는 SAP 시스템용 인프라가 포함됩니다.
 
-배포 자동화 프로세스에는 여러 워크플로가 있습니다. 그러나 이 자습서에서는 쉽게 배포할 수 있는 하나의 워크플로에 중점을 둡니다. SAP-S4HANA 독립 실행형 환경인 이 워크플로는 Bash를 사용하여 배포할 수 있습니다. 이 자습서에서는 배포의 일반 계층 구조 및 다양한 단계에 대해 설명합니다.
+배포 자동화 프로세스에는 여러 워크플로가 있습니다. 그러나 이 자습서에서는 쉽게 배포할 수 있는 하나의 워크플로에 중점을 둡니다. SAP S4 HANA 독립 실행형 환경인 이 워크플로는 Bash를 사용하여 배포할 수 있습니다. 이 자습서에서는 배포의 일반 계층 구조 및 다양한 단계에 대해 설명합니다.
 ### <a name="environment-overview"></a>환경 개요
 
 Azure의 SAP 배포 자동화 프레임워크에는 두 가지 주요 구성 요소가 있습니다.
@@ -82,9 +81,9 @@ SAP 애플리케이션에는 일반적으로 여러 배포 계층이 있습니�
 
 ## <a name="hands-on-lab"></a>실습 랩
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-[SAP 배포 자동화 프레임워크 리포지토리](https://github.com/Azure/sap-hana)는 GitHub에서 사용할 수 있습니다.
+[SAP 배포 자동화 프레임워크 리포지토리](https://github.com/Azure/sap-automation)는 GitHub에서 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 시작하기 전에 기본 분기를 **sap-level-up** 으로 변경해야 합니다.
@@ -125,7 +124,7 @@ az account list --query "[?isDefault]"
 **or**
 
 ```cloudshell-interactive
-az  account list -o table | grep True
+az account list -o table | grep True
 ```
 
 배포 폴더를 만들고 리포지토리를 복제합니다.
@@ -135,16 +134,15 @@ mkdir -p ~/Azure_SAP_Automated_Deployment
 
 cd ~/Azure_SAP_Automated_Deployment
 
-git clone https://github.com/Azure/sap-hana.git \
-    --single-branch --branch=sap-level-up
+git clone https://github.com/Azure/sap-automation.git
 
-cd ~/Azure_SAP_Automated_Deployment/sap-hana
+cd ~/Azure_SAP_Automated_Deployment/sap-automation
 ```
 
 필요에 따라 Terraform 버전과 Cloud Shell 인스턴스에서 사용할 수 있는 Azure CLI(Azure 명령줄 인터페이스)의 유효성을 검사합니다.
 
 ```bash
-./util/check_workstation.sh
+deploy/scripts/helpers/check_workstation.sh
 ```
 
 자동화 프레임워크를 실행하려면 다음 버전으로 업데이트합니다.
@@ -152,7 +150,6 @@ cd ~/Azure_SAP_Automated_Deployment/sap-hana
 1. `az` 버전 2.28.0 이상
 
 1. `terraform` 버전 1.0.8 이상 필요에 따라 [Terraform 지침을 사용하여 업그레이드합니다.](https://www.terraform.io/upgrade-guides/0-12.html)
-
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 
@@ -170,13 +167,13 @@ az ad sp create-for-rbac --role="Contributor" \
   --name="<environment>-Deployment-Account"
 ```
 
-출력을 검토합니다. 예를 들어 다음과 같습니다.
+출력을 검토합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
     "appId": "<AppID>",
     "displayName": "<environment>-Deployment-Account ",
-    "name": "<AppID>,
+    "name": "<AppID>",
     "password": "<AppSecret>",
     "tenant": "<Tenant ID>"
 }
@@ -209,7 +206,7 @@ az role assignment create --assignee <appId> \
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
+cp -Rp ./sap-automation/training-materials/WORKSPACES ./
 ```
 
 Cloud Shell에서 VS Code 열기 
@@ -236,7 +233,7 @@ code .
 
 적절한 하위 폴더에서 Terraform 변수 파일을 찾습니다. 예를 들어 **DEPLOYER** terraform 변수 파일은 다음과 같습니다.
 
-```bash
+```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
 environment="MGMT"
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
@@ -270,21 +267,22 @@ firewall_deployment=true
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret="<password>"
-tenant_id=<tenant>
+export subscriptionID="<subscriptionID>"
+export appId="<appID>"
+export spn_secret="<password>"
+export tenant_id="<tenant>"
+export region_code="NOEU"
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                     \
-    --deployer_parameter_file DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE/MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars  \
-    --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars                      \
-    --subscription $subscriptionID                                                                           \
-    --spn_id $appID                                                                                          \
-    --spn_secret $spn_secret                                                                                 \
-    --tenant_id $tenant_id
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                         \
+    --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
+    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      \
+    --subscription "${subscriptionID}"                                                                                           \
+    --spn_id "${spn_id}"                                                                                                         \
+    --spn_secret "${spn_secret}"                                                                                                 \
+    --tenant_id "${tenant_id}"
 ```
 
 인증 문제가 발생하면 `az logout`을 실행하여 로그아웃합니다. `token-cache`를 지운 다음, `az login`을 실행하여 다시 인증합니다.
@@ -293,7 +291,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
 
 배포자의 배포는 약 15-20분 동안 실행될 수 있습니다.
 
-[Azure 포털](https://portal.azure.com)로 이동합니다.  
+[Azure Portal](https://portal.azure.com)로 이동합니다.  
 
 **리소스 그룹** 을 선택합니다. 배포자 인프라 및 라이브러리에 대한 새 리소스 그룹을 찾습니다. 예를 들어 `MGMT-[region]-DEP00-INFRASTRUCTURE` 및 `MGMT-[region]-SAP_LIBRARY`를 지정합니다.
 
@@ -303,7 +301,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
     
 :::image type="content" source="media/automation-tutorial/sap-library-resource-group.png" alt-text="라이브러리 리소스":::
 
-이제 Terraform 상태 파일이, 이름에 'tfstate'가 포함된 스토리지 계정에 있습니다. 스토리지 계정에는 배포자 및 라이브러리 상태 파일이 있는 'tfstate'라는 컨테이너가 있습니다. 다음은 컨트롤 플레인 배포에 성공한 후 'tfstate' 컨테이너의 콘텐츠 목록입니다.
+이제 Terraform 상태 파일이, 이름에 'tfstate'가 포함된 스토리지 계정에 있습니다. 스토리지 계정에는 배포자 및 라이브러리 상태 파일이 있는 'tfstate'라는 컨테이너가 있습니다. 컨트롤 플레인 배포에 성공한 후 'tfstate' 컨테이너의 콘텐츠는 아래에서 확인할 수 있습니다.
     
 :::image type="content" source="media/automation-tutorial/terraform-state-files.png" alt-text="컨트롤 플레인 tfstate 파일":::
 
@@ -377,7 +375,7 @@ BOM 파일의 샘플 추출은 다음과 같습니다.
 ```yaml
 
 ---
-name:    'S41909SPS03_v0005ms'
+name:    'S41909SPS03_v0006ms'
 target:  'S/4 HANA 1909 SPS 03'
 version: 6
 
@@ -447,7 +445,7 @@ kv_name:                       MGMTNOEUDEP00user99F
 Ansible 플레이북을 실행합니다. 플레이북을 실행할 수 있는 한 가지 방법은 유효성 검사기 테스트 메뉴를 사용하는 것입니다. 유효성 검사기 테스트 메뉴 스크립트를 실행합니다.
   
 ```bash
-~/Azure_SAP_Automated_Deployment/sap-hana/deploy/ansible/validator_test_menu.sh
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
 ```
   
 실행할 플레이북을 선택합니다.
@@ -488,12 +486,12 @@ Please select playbook:
 rm -rf WORKSPACES
 ```
 
-**sap-hana** 폴더로 이동합니다. **sap-level-up** 분기를 확인합니다.
+**sap-automation** 폴더로 이동합니다. 
   
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/sap-hana/
+cd ~/Azure_SAP_Automated_Deployment/sap-automation/
 
-git checkout sap-level-up
+git pull
 ```
 
 리포지토리에서 샘플 구성 파일을 복사합니다.
@@ -501,7 +499,7 @@ git checkout sap-level-up
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
 
-cp -Rp ./sap-hana/deploy/samples/WORKSPACES ./
+cp -Rp ./sap-automation/training_materials/WORKSPACES ./
 ```
 
 ## <a name="deploy-the-workload-zone"></a>워크로드 영역 배포
@@ -531,27 +529,29 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTR
 워크로드 영역의 배포를 시작합니다.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret="<password>"
-tenant_id=<tenant>
-storageaccount=<storageaccountName>
-statefile_subscription=<subscriptionID>
+export subscriptionID="<subscriptionID>"
+export appId="<appID>"
+export spn_secret="<password>"
+export tenant_id="<tenant>"
+export storage_account="<storageaccountName>"
+export statefile_subscription="<subscriptionID>"
+export region_code="NOEU"
 key_vault=<vaultID>
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
-    --parameterfile ./DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars                  \
-    --deployer_environment MGMT                                             \
-    --deployer_tfstate_key MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate \
-    --keyvault $key_vault                                                   \
-    --storageaccountname $storageaccount                                    \
-    --state_subscription $statefile_subscription                            \
-    --subscription $subscriptionID                                          \
-    --spn_id $appID                                                         \
-    --spn_secret $spn_secret                                                \
-    --tenant_id $tenant_id
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                          \
+    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                    \
+    --deployer_environment "MGMT"                                                       \
+    --deployer_tfstate_key "MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate" \
+    --keyvault "${key_vault}"                                                           \
+    --storageaccountname "${storage_account}"                                           \
+    --state_subscription "${statefile_subscription}"                                    \
+    --subscription "${subscriptionID}"                                                  \
+    --spn_id "${spn_id}"                                                                \
+    --spn_secret "${spn_secret}"                                                        \
+    --tenant_id "${tenant_id}"
 ```
 
 워크로드 영역 배포가 자동으로 시작됩니다.
@@ -561,7 +561,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh              \
 ## <a name="deploy-sap-system-infrastructure"></a>SAP 시스템 인프라 배포
 
 워크로드 영역이 완료되면 SAP 시스템 인프라 리소스를 배포할 수 있습니다. SAP 시스템은 SAP 애플리케이션용 VM 및 지원 구성 요소를 만듭니다.
-[Installler.sh](bash/automation-installer.md) 스크립트를 사용하여 SAP 시스템을 배포합니다. 
+[installer.sh](bash/automation-installer.md) 스크립트를 사용하여 SAP 시스템을 배포합니다. 
 
 SAP 시스템은 다음을 배포합니다.
 
@@ -573,11 +573,14 @@ SAP 시스템은 다음을 배포합니다.
 SAP 시스템을 배포합니다.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-XXXX-SAP01-X00
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh \
-  --parameterfile DEV-XXXX-SAP01-X00.tfvars         \
-  --type sap_system                                 \
+export region_code="NOEU"
+
+cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
+  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+  --type sap_system                                      \
   --auto-approve
 ```
   
@@ -587,7 +590,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh \
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-  --parameter_file DEV-NOEU-SAP01-X00.tfvars         \
+  --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
   --type sap_system                                  \
   --auto-approve
 ```
@@ -612,15 +615,15 @@ cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 
 ### <a name="playbook-os-config"></a>플레이북: OS 구성
 
-이 플레이북을 선택하면 모든 컴퓨터에서 소프트웨어 리포지토리, 패키지, 서비스 등의 구성이 포함된 일반 OS 구성 설정이 수행됩니다.
+이 플레이북은 모든 컴퓨터에서 소프트웨어 리포지토리, 패키지, 서비스 등의 구성을 포함하는 일반 OS 구성 설정을 수행합니다.
 
 ### <a name="playbook-sap-specific-os-config"></a>플레이북: SAP 특정 OS 구성
 
-이 플레이북을 선택하면 모든 컴퓨터에서 SAP OS 구성 설정이 수행됩니다. 여기에는 볼륨 그룹 및 파일 시스템 만들기와, 소프트웨어 리포지토리, 패키지 및 서비스 구성이 포함됩니다.
+이 플레이북은 모든 컴퓨터에서 볼륨 그룹 및 파일 시스템 만들기와 소프트웨어 리포지토리, 패키지 및 서비스 구성을 포함하는 SAP OS 구성 설정을 수행합니다.
 
 ### <a name="playbook-bom-processing"></a>플레이북: BOM 처리
 
-이 플레이북을 선택하면 SAP 소프트웨어가 SCS 가상 머신으로 다운로드됩니다. 
+이 플레이북은 SAP 소프트웨어를 SCS 가상 머신에 다운로드합니다. 
     
 ### <a name="playbook-hana-db-install"></a>플레이북: HANA DB 설치
 
@@ -669,11 +672,13 @@ cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 `SYSTEM` 폴더 내의 `DEV-NOEU-SAP01-X00` 하위 폴더로 이동합니다. 그런 후 다음 명령을 실행합니다.
   
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
+export region_code="NOEU"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
-      --parameter_file DEV-NOEU-SAP01-X00.tfvars           \
-      --type sap_system
+cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh        \
+  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+  --type sap_system
 ```
 
 ### <a name="remove-sap-workload-zone"></a>SAP 워크로드 영역 제거
@@ -681,10 +686,13 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
 `LANDSCAPE` 폴더 내의 `DEV-XXXX-SAP01-INFRASTRUCTURE` 하위 폴더로 이동합니다. 이제 다음 명령을 실행합니다.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
+
+export region_code="NOEU"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
-      --parameter_file DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars           \
+      --parameterfile DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars           \
       --type sap_landscape
 ```
 
@@ -701,21 +709,21 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
 다음 두 환경 변수를 내보냅니다.
 
 ```bash
-export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
-
-export ARM_SUBSCRIPTION_ID=<subscriptionID>
+export DEPLOYMENT_REPO_PATH="~/Azure_SAP_Automated_Deployment/sap-automation"
+export ARM_SUBSCRIPTION_ID="<subscriptionID>"
 ```
 
 다음 명령을 실행합니다.
 
 ```bash
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                    \
-  --deployer_parameter_file DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE/MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars  \
-  --library_parameter_file LIBRARY/MGMT-NOEU-SAP_LIBRARY/MGMT-NOEU-SAP_LIBRARY.tfvars
+export region_code="NOEU"
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                                          \
+    --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
+    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      
 ```
 
-이제 모든 리소스가 정리되었는지 확인합니다.
-
+모든 리소스가 정리되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

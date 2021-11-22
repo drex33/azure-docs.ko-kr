@@ -4,6 +4,10 @@
   items:
     - name: AKS 정보
       href: intro-kubernetes.md
+    - name: 할당량 및 국가별 제한
+      href: quotas-skus-regions.md
+    - name: 지원되는 Kubernetes 버전
+      href: supported-kubernetes-versions.md
     - name: 솔루션 아키텍처
       href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: 빠른 시작
@@ -48,10 +52,8 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: 개념
   items:
-    - name: 클러스터 및 워크로드
+    - name: 핵심 개념
       href: concepts-clusters-workloads.md
-    - name: 액세스 및 ID
-      href: concepts-identity.md
     - name: 보안
       items:
         - name: 보안 기준
@@ -61,6 +63,10 @@
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: 호스트 OS의 보안 강화
+          href: security-hardened-vm-host-image.md
+    - name: 액세스 및 ID
+      href: concepts-identity.md
     - name: 네트워킹
       href: concepts-network.md
     - name: 스토리지
@@ -71,6 +77,8 @@
       href: node-auto-repair.md
     - name: 서비스 메시
       href: servicemesh-about.md
+    - name: 지속 가능한 소프트웨어 엔지니어링
+      href: concepts-sustainable-software-engineering.md
     - name: 모범 사례
       items:
         - name: 개요
@@ -104,8 +112,6 @@
               href: developer-best-practices-resource-management.md
             - name: Pod 보안
               href: developer-best-practices-pod-security.md
-    - name: 할당량 및 국가별 제한
-      href: quotas-skus-regions.md
     - name: AKS로 마이그레이션
       items:
         - name: 마이그레이션 계획 및 실행
@@ -134,16 +140,6 @@
         - name: ASP.NET 앱 컨테이너화 및 마이그레이션
           href: ../migrate/tutorial-app-containerization-aspnet-kubernetes.md
           maintainContext: false
-    - name: 지원되는 Kubernetes 버전
-      href: supported-kubernetes-versions.md
-    - name: Cloud Controller Manager(미리 보기)
-      href: out-of-tree.md
-    - name: 호스트 OS의 보안 강화
-      href: security-hardened-vm-host-image.md
-    - name: Azure Kubernetes Service Diagnostics 개요
-      href: concepts-diagnostics.md
-    - name: 지속 가능한 소프트웨어 엔지니어링
-      href: concepts-sustainable-software-engineering.md
 - name: 방법 가이드
   items:
     - name: 클러스터 작업
@@ -156,6 +152,8 @@
           href: start-stop-cluster.md
         - name: 계획된 유지 관리 사용(미리 보기)
           href: planned-maintenance.md
+        - name: Cloud Controller Manager(미리 보기)
+          href: out-of-tree.md
         - name: AKS 클러스터 업그레이드
           href: upgrade-cluster.md
         - name: 작동 시간 SLA 사용
@@ -207,79 +205,6 @@
           href: kubernetes-portal.md
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
-    - name: 데이터 볼륨 구성
-      items:
-        - name: Azure Disk - Dynamic
-          href: azure-disks-dynamic-pv.md
-        - name: Azure Disk - Static
-          href: azure-disk-volume.md
-        - name: Azure Files - Dynamic
-          href: azure-files-dynamic-pv.md
-        - name: Azure Files - Static
-          href: azure-files-volume.md
-        - name: Azure HPC Cache
-          href: azure-hpc-cache.md
-        - name: NFS Server - Static
-          href: azure-nfs-volume.md
-        - name: Azure NetApp Files
-          href: azure-netapp-files.md
-        - name: Azure Ultra Disk 사용
-          href: use-ultra-disks.md
-        - name: CSI 스토리지 드라이버
-          items:
-            - name: CSI 스토리지 드라이버 사용
-              href: csi-storage-drivers.md
-            - name: Azure Disk CSI 드라이버
-              href: azure-disk-csi.md
-            - name: Azure Files CSI 드라이버
-              href: azure-files-csi.md
-    - name: 네트워킹 구성
-      items:
-        - name: 기존 가상 네트워크 만들기 또는 사용
-          items:
-            - name: kubenet 사용
-              href: configure-kubenet.md
-            - name: Azure CNI 사용
-              href: configure-azure-cni.md
-        - name: 내부 부하 분산 장치 만들기
-          href: internal-lb.md
-        - name: 표준 Load Balancer 사용
-          href: load-balancer-standard.md
-        - name: 고정 IP 주소 및 DNS 레이블 사용
-          href: static-ip.md
-        - name: HTTP 프록시 사용(미리 보기)
-          href: http-proxy.md
-        - name: 수신
-          items:
-            - name: 기본 컨트롤러 만들기
-              href: ingress-basic.md
-            - name: HTTP 애플리케이션 라우팅 사용
-              href: http-application-routing.md
-            - name: 내부 네트워크 사용
-              href: ingress-internal-ip.md
-            - name: 기존 AKS 클러스터에 대한 AGIC 추가 기능 사용
-              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
-              maintainContext: true
-            - name: 고유한 인증서와 함께 TLS 사용
-              href: ingress-own-tls.md
-            - name: Let's Encrypt와 함께 TLS 사용
-              items:
-                - name: 동적 공용 IP 주소 사용
-                  href: ingress-tls.md
-                - name: 고정 공용 IP 주소 사용
-                  href: ingress-static-ip.md
-        - name: 송신
-          items:
-            - name: 클러스터 송신 트래픽 제한 및 제어
-              href: limit-egress-traffic.md
-            - name: 송신에 사용자 정의 경로 사용
-              href: egress-outboundtype.md
-            - name: 기본 부하 분산 장치 및 고정 IP 주소 사용
-              href: egress.md
-            - name: 관리형 NAT Gateway(미리 보기)
-              href: nat-gateway.md
-        - name: CoreDNS 사용자 지정
-          href: coredns-custom.md
     - name: 보안 및 인증
       items:
         - name: 서비스 주체 만들기
@@ -333,6 +258,79 @@
               href: csi-secrets-store-nginx-tls.md
             - name: 문제 해결
               href: csi-secrets-store-troubleshooting.md
+    - name: 네트워킹 구성
+      items:
+        - name: 기존 가상 네트워크 만들기 또는 사용
+          items:
+            - name: kubenet 사용
+              href: configure-kubenet.md
+            - name: Azure CNI 사용
+              href: configure-azure-cni.md
+        - name: 내부 부하 분산 장치 만들기
+          href: internal-lb.md
+        - name: 표준 Load Balancer 사용
+          href: load-balancer-standard.md
+        - name: 고정 IP 주소 및 DNS 레이블 사용
+          href: static-ip.md
+        - name: HTTP 프록시 사용(미리 보기)
+          href: http-proxy.md
+        - name: 수신
+          items:
+            - name: 기본 컨트롤러 만들기
+              href: ingress-basic.md
+            - name: HTTP 애플리케이션 라우팅 사용
+              href: http-application-routing.md
+            - name: 내부 네트워크 사용
+              href: ingress-internal-ip.md
+            - name: 기존 AKS 클러스터에 대한 AGIC 추가 기능 사용
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
+            - name: 고유한 인증서와 함께 TLS 사용
+              href: ingress-own-tls.md
+            - name: Let's Encrypt와 함께 TLS 사용
+              items:
+                - name: 동적 공용 IP 주소 사용
+                  href: ingress-tls.md
+                - name: 고정 공용 IP 주소 사용
+                  href: ingress-static-ip.md
+        - name: 송신
+          items:
+            - name: 클러스터 송신 트래픽 제한 및 제어
+              href: limit-egress-traffic.md
+            - name: 송신에 사용자 정의 경로 사용
+              href: egress-outboundtype.md
+            - name: 기본 부하 분산 장치 및 고정 IP 주소 사용
+              href: egress.md
+            - name: 관리형 NAT Gateway(미리 보기)
+              href: nat-gateway.md
+        - name: CoreDNS 사용자 지정
+          href: coredns-custom.md
+    - name: 데이터 볼륨 구성
+      items:
+        - name: Azure Disk - Dynamic
+          href: azure-disks-dynamic-pv.md
+        - name: Azure Disk - Static
+          href: azure-disk-volume.md
+        - name: Azure Files - Dynamic
+          href: azure-files-dynamic-pv.md
+        - name: Azure Files - Static
+          href: azure-files-volume.md
+        - name: Azure HPC Cache
+          href: azure-hpc-cache.md
+        - name: NFS Server - Static
+          href: azure-nfs-volume.md
+        - name: Azure NetApp Files
+          href: azure-netapp-files.md
+        - name: Azure Ultra Disk 사용
+          href: use-ultra-disks.md
+        - name: CSI 스토리지 드라이버
+          items:
+            - name: CSI 스토리지 드라이버 사용
+              href: csi-storage-drivers.md
+            - name: Azure Disk CSI 드라이버
+              href: azure-disk-csi.md
+            - name: Azure Files CSI 드라이버
+              href: azure-files-csi.md
     - name: 모니터링 및 로깅
       items:
         - name: 모니터 AKS
@@ -438,6 +436,8 @@
           href: troubleshoot-linux.md
         - name: Resource Health 이벤트 확인(미리 보기)
           href: aks-resource-health.md
+        - name: Azure Kubernetes Service 진단(미리 보기)
+          href: concepts-diagnostics.md
 - name: 참조
   items:
     - name: Azure CLI

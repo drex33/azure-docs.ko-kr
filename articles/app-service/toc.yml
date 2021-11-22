@@ -385,7 +385,7 @@
         - name: 참조 아키텍처
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: 배포 스크립트
-          href: /azure/automation/automation-runbook-gallery
+          href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: 문제 해결
       items:
         - name: 일시적인 아웃바운드 연결 오류 문제 해결

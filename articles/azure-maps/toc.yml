@@ -13,7 +13,7 @@ items:
       - name: Android 앱 만들기
         href: quick-android-map.md
       - name: iOS 앱 만들기
-        href: quick-ios-app.md
+        href: quick-iOS-app.md
   - name: 자습서
     items:
       - name: 웹 SDK 자습서
@@ -338,7 +338,7 @@ items:
           - name: Render Service
             href: /rest/api/maps/render
           - name: Render Service V2
-            href: /rest/api/maps/render-v2
+            href: /rest/api/maps/renderv2
           - name: Route Service
             href: /rest/api/maps/route
           - name: Search 서비스
@@ -366,11 +366,11 @@ items:
               - name: WFS 서비스
                 href: /rest/api/maps/v2/wfs
           - name: Maps 계정 관리
-            href: /rest/api/maps-management/
+            href: /rest/api/maps-management
       - name: JavaScript
         items:
           - name: 지도 컨트롤
-            href: /javascript/api/azure-maps-control/
+            href: /javascript/api/azure-maps-javascript/
           - name: 그리기 도구
             href: /javascript/api/azure-maps-drawing-tools/
           - name: 서비스 모듈
@@ -396,7 +396,7 @@ items:
           - name: IoT Hub Device Provisioning Service
             href: ../iot-dps/index.yml
           - name: IoT Central
-            href: /azure/iot-central/
+            href: /microsoft-iot-central/
           - name: IoT Edge
             href: ../iot-edge/index.yml
           - name: IoT 플러그 앤 플레이
@@ -414,7 +414,7 @@ items:
       - name: Azure Maps 사용 약관
         href: 'https://azure.microsoft.com/support/legal/'
       - name: Azure Maps 가격 책정
-        href: 'https://azure.microsoft.com/pricing/details/azure-maps/'
+        href: 'https://azure.microsoft.com/pricing/details/azure-maps'
       - name: 요금 계산기
         href: 'https://azure.microsoft.com/pricing/calculator/'
       - name: Azure Maps 비디오
@@ -426,9 +426,9 @@ items:
       - name: Azure Maps 용어집
         href: glossary.md
       - name: 서비스 업데이트
-        href: 'https://azure.microsoft.com/updates/'
+        href: 'https://azure.microsoft.com/updates'
       - name: Azure IoT 개발자 센터
-        href: 'https://azure.microsoft.com/overview/iot/'
+        href: 'https://azure.microsoft.com/develop/iot/'
       - name: Azure 로드맵
         href: 'https://azure.microsoft.com/roadmap/?category=iot'
       - name: 기술 사례 연구

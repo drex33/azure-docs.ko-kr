@@ -1,19 +1,19 @@
 ---
 title: 기본 제공 메트릭 액세스 - Azure IoT Edge
 description: IoT Edge 런타임 구성 요소에서 기본 제공 메트릭에 대한 원격 액세스
-author: v-tcassi
-ms.author: v-tcassi
+author: kgremban
+ms.author: kgremban
 ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee4c39b7dfc4097480588620465eedd40eba53f6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a94dd1f8893c78fed6c7fd8f205a0d182059ce74
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536503"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938422"
 ---
 # <a name="access-built-in-metrics"></a>기본 제공 메트릭 액세스
 

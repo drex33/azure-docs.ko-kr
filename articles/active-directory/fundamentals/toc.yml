@@ -115,6 +115,8 @@
           href: active-directory-architecture.md
         - name: 모든 앱을 Azure AD와 통합
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: 병렬 ID 옵션
+          href: azure-active-directory-parallel-identity-options.md
         - name: 다중 테넌트 사용자 관리
           items:
             - name: 다중 테넌트 사용자 관리 소개

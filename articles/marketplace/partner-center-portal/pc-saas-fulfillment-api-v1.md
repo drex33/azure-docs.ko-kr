@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/04/2020
-author: saasguide
-ms.author: souchak
-ms.openlocfilehash: 3a7e56f70a27b44ecaace86cf48cb7c2faafab65
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: arifgani
+ms.author: argani
+ms.openlocfilehash: c54ffeffd2179224749aaa44b25c1714fb3e95b6
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132060057"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934784"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS 처리 API 버전 1 (사용되지 않음)
 

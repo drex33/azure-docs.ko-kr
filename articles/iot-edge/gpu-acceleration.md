@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Edge for Linux on Windows의 GPU 가속 | Microsoft Docs
 description: 호스트 디바이스 GPU를 사용하도록 Azure IoT Edge for Linux on Windows 가상 머신을 구성하는 방법에 관해 알아봅니다.
-author: v-tcassi
+author: kgremban
 manager: kgremban
-ms.author: v-tcassi
+ms.author: kgremban
 ms.date: 06/22/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: c85659a6c9e89145494d4683da37bd2f13cbd379
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: fa296478ac4d2f1f9460c05a04dcec744339636f
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130234868"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940736"
 ---
 # <a name="gpu-acceleration-for-azure-iot-edge-for-linux-on-windows-preview"></a>Azure IoT Edge for Linux on Windows의 GPU 가속(미리 보기)
 

@@ -2,19 +2,18 @@
 title: x.509 인증서를 사용 하 여 Windows에 IoT Edge 장치 만들기 및 프로 비전-Azure IoT Edge | Microsoft Docs
 description: x.509 인증서를 사용한 수동 프로 비전을 사용 하 여 IoT Hub에서 단일 Windows IoT Edge 장치 만들기 및 프로 비전
 author: kgremban
-ms.reviewer: v-tcassi
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.author: kgremban
 monikerRange: iotedge-2018-06
-ms.openlocfilehash: b68f55c4580ff09b7725aead3cd78877bc66128a
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 263f66329f70056a00e9f79fd1e30adfd491f32a
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845108"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940356"
 ---
 # <a name="create-and-provision-an-iot-edge-device-on-windows-using-x509-certificates"></a>x.509 인증서를 사용 하 여 Windows에 IoT Edge 장치 만들기 및 프로 비전
 
@@ -50,7 +49,7 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 > * [TPM을 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-windows-tpm.md)
 > * [대칭 키를 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-windows-symmetric.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 IoT Edge 장치를 등록 하 고 IoT Edge 설치 하는 방법을 설명 합니다. 이러한 작업을 수행 하는 데 사용 되는 다양 한 필수 조건 및 유틸리티가 있습니다. 계속 하기 전에 모든 필수 구성 요소가 포함 되어 있는지 확인 합니다.
 

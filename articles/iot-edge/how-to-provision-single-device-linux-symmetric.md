@@ -1,61 +1,60 @@
 ---
-title: 대칭 키를 사용하여 Linux에서 IoT Edge 디바이스 만들기 및 프로비전 - Azure IoT Edge | Microsoft Docs
-description: 대칭 키를 사용하여 수동 프로비저닝을 위해 IoT Hub 단일 IoT Edge 디바이스 만들기 및 프로비전
+title: 대칭 키를 사용 하 여 Linux에서 IoT Edge 장치 만들기 및 프로 비전-Azure IoT Edge | Microsoft Docs
+description: IoT Hub에서 단일 IoT Edge 장치를 만들고 프로 비전 하 여 대칭 키로 수동 프로 비전
 author: kgremban
-ms.reviewer: v-tcassi
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: kgremban
-ms.openlocfilehash: 8d0db2b4aa516be4da48a6d80904cfd485e8462e
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: cb96db99ef4634ecf0cb76b093d6adb93a45a995
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132490571"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941817"
 ---
-# <a name="create-and-provision-an-iot-edge-device-on-linux-using-symmetric-keys"></a>대칭 키를 사용하여 Linux에서 IoT Edge 디바이스 만들기 및 프로비전
+# <a name="create-and-provision-an-iot-edge-device-on-linux-using-symmetric-keys"></a>대칭 키를 사용 하 여 Linux에서 IoT Edge 장치 만들기 및 프로 비전
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-이 문서에서는 IoT Edge 설치를 포함하여 Linux IoT Edge 디바이스를 등록하고 프로비전하는 엔드투엔드 지침을 제공합니다.
+이 문서에서는 IoT Edge 설치를 포함 하 여 Linux IoT Edge 장치를 등록 하 고 프로 비전 하는 종단 간 지침을 제공 합니다.
 
 IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 또는 디바이스-클라우드 통신을 추적하는 데 사용되는 디바이스 ID가 있습니다. IoT 허브 호스트 이름, 디바이스 ID, 디바이스에서 IoT Hub 인증에 사용하는 정보를 포함하는 연결 정보로 디바이스를 구성합니다.
 
 이 문서의 단계는 단일 디바이스를 IoT 허브에 연결하는 수동 프로비저닝이라는 프로세스를 안내합니다. 수동 프로비저닝을 위해 IoT Edge 디바이스를 인증하는 두 가지 옵션이 있습니다.
 
-* **대칭 키:** IoT Hub 새 디바이스 ID를 만들 때 서비스에서 두 개의 키를 만듭니다. 디바이스에 키 중 하나를 저장하고 인증 시 IoT Hub 키를 제시합니다.
+* **대칭 키**: IoT Hub에서 새 장치 id를 만들면 서비스에서 두 개의 키를 만듭니다. 디바이스에 키 중 하나를 저장하고 인증 시 IoT Hub 키를 제시합니다.
 
   이 인증 방식을 사용하면 빠르게 시작할 수 있지만 안전하지 않습니다.
 
 * **X.509 자체 서명**: 두 개의 x.509 ID 인증서를 만들어 디바이스에 저장합니다. IoT Hub에서 새 디바이스 ID를 만들 때 두 인증서의 지문을 모두 제공합니다. 디바이스는 IoT Hub에 인증 시 인증서 하나를 제시되고 IoT Hub는 인증서가 지문과 일치하는지 확인합니다.
 
-  이 인증 방법은 더 안전하며 프로덕션 시나리오에 권장됩니다.
+  이 인증 방법은 보다 안전 하며 프로덕션 시나리오에 권장 됩니다.
 
-이 문서에서는 대칭 키를 인증 방법으로 사용하는 방법을 다룹니다. X.509 인증서를 사용하려면 [X.509 인증서를 사용하여 Linux에서 IoT Edge 디바이스 만들기 및 프로비저닝을 참조하세요.](how-to-provision-single-device-linux-x509.md)
+이 문서에서는 인증 방법으로 대칭 키를 사용 하는 방법을 설명 합니다. X.509 인증서를 사용 하려면 [x.509 인증서를 사용 하 여 Linux에서 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-single-device-linux-x509.md)을 참조 하세요.
 
 > [!NOTE]
-> 설정할 디바이스가 많고 각 디바이스를 수동으로 프로비전하지 않으려는 경우 다음 문서 중 하나를 사용하여 IoT Hub 디바이스 프로비저닝 서비스에서 IoT Edge 작동하는 방법을 알아봅니다.
+> 설정할 장치가 많고 각 장치를 수동으로 프로 비전 하지 않으려는 경우 다음 문서 중 하나를 사용 하 여 IoT Edge IoT Hub 장치 프로 비전 서비스에서 작동 하는 방법을 알아봅니다.
 >
-> * [X.509 인증서를 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-x509.md)
-> * [TPM을 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-tpm.md)
-> * [대칭 키를 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-symmetric.md)
+> * [X.509 인증서를 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-x509.md)
+> * [TPM을 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-tpm.md)
+> * [대칭 키를 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 IoT Edge 디바이스 등록 및 디바이스에 IoT Edge 설치에 대해 설명합니다. 이러한 작업에는 이러한 작업을 수행하는 데 사용되는 다양한 필수 구성 조건 및 유틸리티가 있습니다. 계속하기 전에 모든 필수 구성요소가 있는지 확인합니다.
+이 문서에서는 IoT Edge 장치를 등록 하 고 IoT Edge 설치 하는 방법을 설명 합니다. 이러한 작업을 수행 하는 데 사용 되는 다양 한 필수 조건 및 유틸리티가 있습니다. 계속 하기 전에 모든 필수 구성 요소가 포함 되어 있는지 확인 합니다.
 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
 ### <a name="iot-edge-installation"></a>IoT Edge 설치
 
-X64, ARM32 또는 ARM64 Linux 디바이스.
+X64, ARM32 또는 ARM64 Linux 장치입니다.
 
 Microsoft는 Ubuntu Server 18.04 및 Raspberry Pi OS Stretch 운영 체제용 설치 패키지를 제공합니다.
 
-현재 프로덕션 시나리오에서 지원되는 운영 체제에 대한 최신 정보는 [Azure IoT Edge 지원 시스템을 참조하세요.](support.md#operating-systems)
+현재 프로덕션 시나리오에 대해 지원 되는 운영 체제에 대 한 최신 정보는 [Azure IoT Edge 지원 시스템](support.md#operating-systems)을 참조 하세요.
 
 >[!NOTE]
 >ARM64 디바이스 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다.
@@ -108,13 +107,13 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-다음 명령을 사용하여 대칭 키 인증으로 IoT Edge 디바이스를 신속하게 구성할 수 있습니다.
+다음 명령을 사용 하 여 대칭 키 인증을 사용 하 여 IoT Edge 장치를 신속 하 게 구성할 수 있습니다.
 
    ```bash
    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
    ```
 
-   명령은 `iotedge config mp` 디바이스에 구성 파일을 만들고 파일에 연결 문자열을 입력합니다.
+   이 `iotedge config mp` 명령은 장치에 구성 파일을 만들고 연결 문자열을 파일에 입력 합니다.
 
 구성 변경 내용을 적용합니다.
 
@@ -122,7 +121,7 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
    sudo iotedge config apply
    ```
 
-구성 파일을 보려면 다음을 열 수 있습니다.
+구성 파일을 표시 하려면 다음을 열 수 있습니다.
 
    ```bash
    sudo nano /etc/aziot/config.toml

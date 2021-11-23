@@ -3,12 +3,12 @@ title: Azure Blueprints 함수
 description: Azure Blueprints 정의 및 할당의 청사진 아티팩트와 함께 사용할 수 있는 함수를 설명합니다.
 ms.date: 08/17/2021
 ms.topic: reference
-ms.openlocfilehash: 4481ae74bdd0ecb6fdd926806415befc8d1bd0c6
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: bc3e093ca004fc6a42649a2c635b0af4646fc624
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538671"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132942102"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure Blueprints와 사용할 수 있는 함수
 
@@ -134,7 +134,7 @@ _myTemplateArtifact_ 샘플에서의 데이터 검색 예시 중 일부는 다�
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 문자열에서만 작동한다는 점에서 ARM 템플릿 함수와 다릅니다.
+Azure 청사진 함수는 문자열 에서만 작동 한다는 점에서 ARM 템플릿 함수와 다릅니다.
 
 ### <a name="example"></a>예제
 
@@ -158,7 +158,7 @@ Azure Blueprint 함수는 문자열에서만 작동한다는 점에서 ARM 템�
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 청사진 매개 변수에서만 작동한다는 점에서 ARM 템플릿 함수와 다릅니다.
+Azure 청사진 함수는 청사진 매개 변수 에서만 작동 한다는 점에서 ARM 템플릿 함수와 다릅니다.
 
 ### <a name="example"></a>예제
 
@@ -218,7 +218,7 @@ Azure Blueprint 함수는 청사진 매개 변수에서만 작동한다는 점�
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()` 함수는 구독 수준 아티팩트 또는 청사진 정의에서 사용할 수 없습니다. 리소스 그룹 아티팩트의 일부인 청사진 아티팩트에만 사용할 수 있습니다.
+Azure 청사진 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()` 함수는 구독 수준 아티팩트 또는 청사진 정의에서 사용할 수 없습니다. 리소스 그룹 아티팩트의 일부인 청사진 아티팩트에만 사용할 수 있습니다.
 
 `resourceGroup()` 함수는 일반적으로 리소스 그룹 아티팩트와 동일한 위치에 리소스를 만드는 데 사용됩니다.
 

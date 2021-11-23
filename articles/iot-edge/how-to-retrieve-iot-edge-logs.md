@@ -1,20 +1,20 @@
 ---
 title: IoT Edge 로그 검색 - Azure IoT Edge
 description: IoT Edge 모듈 로그 검색을 Azure Blob Storage에 업로드합니다.
-author: v-tcassi
-ms.author: v-tcassi
+author: kgremban
+ms.author: kgremban
 ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 75b89acff320b3083c098a0546882d80bdcfc5ad
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 0b5c912f6d7a79af8ed8abb49929427a6a9c3b29
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060899"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935069"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
 
@@ -78,7 +78,7 @@ IoT Edge 에이전트 모듈에 포함된 직접 메서드를 사용하여 디�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | items | JSON 배열 | `id` 및 `filter` 튜플이 포함된 배열입니다. |
@@ -187,7 +187,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | sasURL | 문자열(URI) | [Azure Blob Storage 컨테이너에 대한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
 
@@ -201,7 +201,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
@@ -304,7 +304,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | sasURL | 문자열(URI) | [Azure Blob Storage 컨테이너에 대한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
@@ -325,7 +325,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
@@ -383,9 +383,9 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
-| 상태 | 문자열 | ,, `NotStarted` `Running` `Completed` , `Failed` , ' 취소 됨 ' 또는 `Unknown` 중 하나입니다. |
+| 상태 | 문자열 | , `NotStarted` , `Running` , , `Completed` `Failed` 'Cancelled' 또는 중 `Unknown` 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 

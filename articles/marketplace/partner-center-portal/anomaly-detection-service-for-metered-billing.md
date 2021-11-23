@@ -4,15 +4,15 @@ description: 변칙 검색이 작동하는 방식, 알림을 보내는 시기 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: saasguide
-ms.author: souchak
-ms.date: 09/27/2021
-ms.openlocfilehash: 8e8989eabc08b98b8b0bac922d7c998496c74a1c
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.date: 11/22/2021
+author: arifgani
+ms.author: argani
+ms.openlocfilehash: 36988166bec438f770643f4028cb5e9cc2c1c512
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455155"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934274"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>요금제 청구를 위한 변칙 검색 서비스
 
@@ -70,12 +70,12 @@ ms.locfileid: "129455155"
 #### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
 1. 회사 계정을 사용하여 [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 홈 페이지에서 **도움말 + 지원** 타일을 선택 합니다.
+1. 홈 페이지에서 **도움말 + 지원** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 도움말 및 지원 타일을 보여 줍니다. ](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
+    [![파트너 센터 홈페이지의 도움말 및 지원 타일을 보여 줍니다. ](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
 
-1. **내 지원 요청** 에서 **+ 새 요청** 을 선택 합니다.
-1. **문제 요약** 상자에서 **요금제 청구** 를 입력 합니다.
+1. **내 지원 요청에서** **+ 새 요청을** 선택합니다.
+1. 문제 **요약** 상자에 요금 **청구를 입력합니다.**
 1. **문제 유형** 상자에서 다음 중 하나를 선택합니다.
     - **상업용 Marketplace > 요금 청구 > Azure Applications 제품에 대해 잘못된 사용량 전송**
     - **상업용 Marketplace > 요금 청구 > SaaS 제품에 대해 잘못된 사용량 전송**

@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 11/17/2021
-ms.openlocfilehash: 9eeb48743e36df8666345ba218c81cb4a72180b7
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: de57a798429aa582e49be134890a16cc835c08b8
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132810691"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132942026"
 ---
 # <a name="model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search의 복합 데이터 형식 모델링
 
@@ -73,7 +73,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 
 모든 인덱스 정의와 마찬가지로, 포털, [REST API](/rest/api/searchservice/create-index) 또는 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex)를 사용하여 복합 형식을 포함하는 스키마를 만들 수 있습니다. 
 
-다른 Azure Sdk는 [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) 및 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/javascript/indexOperations.js)에 샘플을 제공 합니다.
+다른 Azure Sdk는 [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py), [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java)및 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/javascript/indexOperations.js)에 샘플을 제공 합니다.
 
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/complex-type-portal)
 

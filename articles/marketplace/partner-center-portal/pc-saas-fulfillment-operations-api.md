@@ -1,22 +1,22 @@
 ---
-title: Microsoft 상업용 Marketplace의 SaaS 처리 작업 API v2
-description: SaaS 처리 API 버전 2의 일부인 Operations API를 사용하여 Microsoft AppSource, Azure Marketplace 및 Azure Portal SaaS 제안을 관리하는 방법을 알아봅니다.
+title: Microsoft 상업적 marketplace의 SaaS 처리 작업 Api v2
+description: SaaS 상품 Api 버전 2의 일부인 작업 Api를 사용 하 여 Microsoft AppSource, Azure Marketplace 및 Azure Portal에서 SaaS 제품을 관리 하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 11/10/2021
-author: saasguide
-ms.author: souchak
-ms.openlocfilehash: ef0e735206df6556bd7a7a7b2cf584bc79566a0f
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: arifgani
+ms.author: argani
+ms.openlocfilehash: 6601378ac59f83361f8dd73f5f6604200c346421
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064454"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937795"
 ---
-# <a name="saas-fulfillment-operations-apis-v2-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace의 SaaS 처리 작업 API v2
+# <a name="saas-fulfillment-operations-apis-v2-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 처리 작업 Api v2
 
-이 문서에서는 SaaS 처리 작업 API 버전 2에 대해 설명합니다.
+이 문서에서는 SaaS 처리 작업 Api의 버전 2를 설명 합니다.
 
 ## <a name="list-outstanding-operations"></a>미해결 작업 나열
 
@@ -42,7 +42,7 @@ ms.locfileid: "132064454"
 
 *응답 코드:*
 
-코드: 200 지정된 SaaS 구독에서 보류 중인 작업을 반환합니다.
+Code: 200 지정 된 SaaS 구독에서 보류 중인 작업을 반환 합니다.
 
 *응답 페이로드 예제:*
 
@@ -65,7 +65,7 @@ ms.locfileid: "132064454"
 }
 ```
 
-보류 중인 작업이 없으면 빈 json을 반환합니다.
+보류 중인 작업이 없는 경우 빈 json을 반환 합니다.
 
 코드: 400 잘못된 요청: 유효성을 검사할 수 없습니다.
 

@@ -3,12 +3,12 @@ title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 배포 단계입니다.
 ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 553218028f610598f1b13cd4daebdb43f1ea1656
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: adca03a39fc9e1dd6fc2cb7217e317c0b7518c20
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632104"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935430"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 배포
 

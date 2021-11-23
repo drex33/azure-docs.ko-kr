@@ -5,14 +5,14 @@ author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 11/22/2021
 ms.author: lizross
-ms.openlocfilehash: 84342a3cc325efbaee5a11167392586cea9c3734
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: c4a5cd750408110c3e4b264ee22fc3b39927534e
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132552606"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939579"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -34,8 +34,22 @@ IoT 솔루션에 대해 정의한 가동 시간 목표에 따라 아래에 설�
 
 IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하여 역내 HA를 제공합니다. [IoT Hub 서비스에 의해 게시된 SLA](https://azure.microsoft.com/support/legal/sla/iot-hub)는 이러한 중복성을 통해 구현됩니다. IoT 솔루션 개발자는 추가적인 작업 없이 이러한 HA 특성을 활용할 수 있습니다. IoT Hub는 비교적 높은 가동 시간을 보장하지만 분산 컴퓨팅 플랫폼에서와 마찬가지로 일시적인 오류는 여전히 발생합니다. 온-프레미스 솔루션에서 클라우드로의 솔루션 마이그레이션을 막 시작했다면 “오류 간 평균 시간”이 아닌 “평균 복구 시간” 최적화로 초점을 이동할 필요가 있습니다. 즉, 클라우드 혼합 운영 중에 일시적 오류는 정상적인 것으로 간주됩니다. 일시적 오류 처리를 위해 클라우드 애플리케이션과 상호 작용하는 적절한 [다시 시도 정책](iot-hub-reliability-features-in-sdks.md)을 구성해야 합니다.
 
-> [!NOTE]
-> 또한 일부 Azure 서비스는 [AZ(가용성 영역)](../availability-zones/az-overview.md)과의 통합을 통해 영역 내에서 추가적인 가용성 게층을 제공합니다. AZ는 현재 IoT Hub 서비스에서 지원되지 않습니다.
+## <a name="availability-zones"></a>가용성 영역
+
+IoT Hub에 99.9% Service Level Agreement(서비스 수준 약정) 있으며 [SLA를 읽을](https://azure.microsoft.com/support/legal/sla/iot-hub/)수 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+
+IoT Hub는 [가용성 영역](../availability-zones/az-overview.md)를 지원 합니다. 가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 제품입니다. 가용성 영역을 지 원하는 지역은 해당 지역을 지 원하는 세 가지 영역으로 구성 됩니다. 각 영역은 독립 된 전원, 냉각 및 네트워킹을 통해 각각 고유한 물리적 위치에 하나 이상의 데이터 센터를 제공 합니다. 이를 통해 지역 내에서 복제 및 중복성을 제공 합니다. IoT Hub에 대 한 가용성 영역 지원은 다음 Azure 지역에서 만든 새 IoT Hub 리소스에 대해 자동으로 사용 하도록 설정 됩니다.
+
+- 오스트레일리아 동부
+- 브라질 남부
+- 캐나다 중부
+- 미국 중부
+- 프랑스 중부
+- 미국 서 부 2
+- 일본 동부
+- 북유럽
+- 동남아시아
+- 영국 남부
 
 ## <a name="cross-region-dr"></a>지역 간 DR
 

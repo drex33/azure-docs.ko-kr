@@ -1,25 +1,25 @@
 ---
-title: Azure Blob Storage에서 SFTP (Secure 파일 전송 프로토콜) 지원에 대 한 호스트 키 (미리 보기) | Microsoft Docs
+title: Azure Blob Storage의 SFTP 지원에 대 한 호스트 키 (미리 보기) | Microsoft Docs
 description: SFTP 클라이언트를 사용 하 여 Azure Blob Storage 연결 하는 경우 유효한 호스트 키 목록을 찾습니다.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: reference
-ms.date: 11/15/2021
+ms.date: 11/22/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
-ms.openlocfilehash: 5088bb2274d0c658aa05a20a06b4373c8c206cf6
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 21d2b84704f94ab33f41a99f957a2dfd14691469
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132556940"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937019"
 ---
-# <a name="host-keys-for-secure-file-transfer-protocol-sftp-support-in-azure-blob-storage-preview"></a>Azure Blob Storage에서 SFTP (Secure 파일 전송 프로토콜) 지원에 대 한 호스트 키 (미리 보기)
+# <a name="host-keys-for-ssh-file-transfer-protocol-sftp-support-for-azure-blob-storage-preview"></a>Azure Blob Storage에 대 한 SFTP (SSH 파일 전송 프로토콜) 지원 호스트 키 (미리 보기)
 
 이 문서에는 SFTP 클라이언트에서 Azure Blob Storage에 연결 하는 데 사용 되는 유효한 호스트 키 목록이 포함 되어 있습니다.
 
-이제 Blob storage는 SFTP (Secure 파일 전송 프로토콜)를 지원 합니다. 이 지원은 sftp 끝점을 통해 Blob Storage 계정에 안전 하 게 연결 하는 기능을 제공 하 여 파일 액세스, 파일 전송 및 파일 관리를 위해 sftp를 활용할 수 있도록 합니다. 자세한 내용은 [Azure Blob Storage에서 SFTP (Secure File Transfer) 프로토콜 지원](secure-file-transfer-protocol-support.md)을 참조 하세요.
+이제 Blob storage는 SFTP (SSH 파일 전송 프로토콜)를 지원 합니다. 이 지원은 sftp 끝점을 통해 Blob Storage 계정에 안전 하 게 연결 하는 기능을 제공 하 여 파일 액세스, 파일 전송 및 파일 관리를 위해 sftp를 활용할 수 있도록 합니다. 자세한 내용은 [Azure Blob Storage의 SFTP (SSH 파일 전송 프로토콜) 지원](secure-file-transfer-protocol-support.md)을 참조 하세요.
 
 SFTP 클라이언트를 사용 하 여 Blob Storage에 연결 하는 경우 호스트 키를 신뢰 하 라는 메시지가 표시 될 수 있습니다. 공개 미리 보기 중에이 문서에 표시 된 목록에서 해당 키를 찾아 호스트 키를 확인할 수 있습니다. 
 
@@ -66,6 +66,6 @@ SFTP 클라이언트를 사용 하 여 Blob Storage에 연결 하는 경우 호�
 
 <sup>1</sup>    SHA 256 지문을 Open SSH 및 winscp에서 사용 합니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
-- [Azure Blob Storage의 SFTP (Secure File Transfer) 프로토콜 지원](secure-file-transfer-protocol-support.md)
+- [Azure Blob Storage에서 파일 전송 프로토콜 SFTP (SSH) 지원](secure-file-transfer-protocol-support.md)

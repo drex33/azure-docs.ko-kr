@@ -1,19 +1,19 @@
 ---
 title: 자습서 - IoT Edge 디바이스의 계층 구조 만들기 - Azure IoT Edge
 description: 이 자습서에서는 게이트웨이를 사용하여 IoT Edge 디바이스의 계층 구조를 만드는 방법을 보여줍니다.
-author: v-tcassi
-ms.author: v-tcassi
+author: kgremban
+ms.author: kgremban
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 5c204a07a0457852d2faefacdd77740f147b9d88
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5c1d212d95d00b1e6bfceeb76158ef5bded6b413
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225994"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935411"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기
 

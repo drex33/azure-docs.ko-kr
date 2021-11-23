@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 author: garyericson
 ms.author: garye
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e69730f486303fa508fed4cd53f8df3ee76433ba
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 64923ae3c351c44f3ba86d1b13247cbcd97b4881
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132318468"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938365"
 ---
 # <a name="cognitive-services-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Cognitive Services
 
@@ -25,7 +25,7 @@ Azure Cognitive Services의 미리 학습된 모델을 사용하면 Azure Synaps
 
 - Synapse Analytics의 Cognitive Services 마법사는 Spark 테이블의 데이터를 사용하여 인식 서비스에 연결하는 Synapse Notebook에서 PySpark 코드를 생성합니다. 그런 다음, 이 서비스에서 미리 학습된 기계 학습 모델을 사용하여 데이터에 AI를 추가하는 작업을 수행합니다. 자세한 내용은 [감정 분석 마법사](tutorial-cognitive-services-sentiment.md) 및 [변칙 검색 마법사](tutorial-cognitive-services-anomaly.md)를 확인하세요.
 
-- [SynapseML](https://github.com/microsoft/SynapseML)(Synapse Machine Learning)을 사용하면 다양한 Spark 데이터 원본에서 강력하고 확장성이 뛰어난 예측 및 분석 모델을 빌드할 수 있습니다. Synapse Spark는 [Cognitive Services on Spark](https://github.com/microsoft/SynapseML/blob/master/docs/cogsvc.md)를 포함한 기본 제공 SynapseML 라이브러리를 제공합니다. 자세한 내용은 이 [자습서](#tutorials)를 확인하세요.
+- [SynapseML](https://github.com/microsoft/SynapseML)(Synapse Machine Learning)을 사용하면 다양한 Spark 데이터 원본에서 강력하고 확장성이 뛰어난 예측 및 분석 모델을 빌드할 수 있습니다. Synapse Spark는 [Cognitive Services on Spark](https://github.com/microsoft/SynapseML/tree/master/notebooks/features/cognitive_services)를 포함한 기본 제공 SynapseML 라이브러리를 제공합니다. 자세한 내용은 이 [자습서](#tutorials)를 확인하세요.
 
 - 마법사에서 생성된 PySpark 코드 또는 자습서에 제공된 예제 SynapseML 코드부터는 데이터에 다른 인지 서비스를 사용하는 사용자 고유의 코드를 작성할 수 있습니다. 사용 가능한 서비스에 대한 자세한 내용은 [Azure Cognitive Services 무엇인가요?](../../cognitive-services/what-are-cognitive-services.md)를 참조하세요.
 

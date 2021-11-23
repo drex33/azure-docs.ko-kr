@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: ac59d16fc25b8f7d47d3422687a390013df38ebf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a6691e8020a7d9c8264f6f7bf2f0f3c222150a1f
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529463"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934556"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>기존 Application Gateway를 사용하여 AGIC(Application Gateway 수신 컨트롤러) 설치
 
@@ -117,7 +117,7 @@ Kubernetes 암호를 통해 ARM에 대한 액세스 권한을 AGIC에 제공할 
 1. Active Directory 서비스 주체를 만들고 base64로 인코딩합니다. base64 인코딩은 JSON blob을 Kubernetes에 저장하는 데 필요합니다.
 
 ```azurecli
-az ad sp create-for-rbac --sdk-auth | base64 -w0
+az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0
 ```
 
 2. base64 인코딩 JSON blob을 `helm-config.yaml` 파일에 추가합니다. `helm-config.yaml`에 대한 자세한 내용은 다음 섹션에 나와 있습니다.
@@ -184,7 +184,7 @@ armAuth:
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
@@ -221,7 +221,7 @@ armAuth:
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \

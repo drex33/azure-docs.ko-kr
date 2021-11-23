@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3cc75c637dd286cb87ca745d713a55a0a2cf8834
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: b78119f5be4d3ee3cf4fab0a8363d27abd224efc
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137706"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934594"
 ---
 # <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 
@@ -375,7 +375,7 @@ OpenSSL을 사용하는 Linux의 경우:
 
 **원인:** 이 오류는 Application Gateway가 인증서의 유효성을 확인할 수 없는 경우에 발생합니다.
 
-**해결 방법:** 이 문제를 해결하려면 서버의 인증서가 제대로 생성되었는지 확인합니다. 예를 들어 [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html)을 사용하여 인증서 및 해당 속성을 확인한 다음 인증서를 Application Gateway HTTP 설정으로 다시 업로드할 수 있습니다.
+**해결 방법:** 이 문제를 해결하려면 서버의 인증서가 제대로 생성되었는지 확인합니다. 예를 들어 [OpenSSL](https://www.openssl.org/docs/manmaster/man1/verify.html)을 사용하여 인증서 및 해당 속성을 확인한 다음 인증서를 Application Gateway HTTP 설정으로 다시 업로드할 수 있습니다.
 
 ## <a name="backend-health-status-unknown"></a>백 엔드 상태: 알 수 없음
 

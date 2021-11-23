@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 0de81ce6f7f6f042ce0e0cb933a85566af7f3875
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 2f5e99e0551f78785a9ac11f8d32a5cb5143a61a
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724162"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940186"
 ---
 # <a name="azure-storage-blob-inventory"></a>Azure Storage Blob 인벤토리
 
@@ -197,7 +197,7 @@ Azure Portal의 **Blob 인벤토리** 섹션에서 **코드 보기** 탭을 선�
 
 ## <a name="inventory-run"></a>인벤토리 실행
 
-Blob 인벤토리 실행은 매일 자동으로 예약됩니다. 인벤토리 실행을 완료하는 데 최대 24시간이 걸릴 수 있습니다. 계층 구조 네임스페이스가 설정된 계정의 경우 실행은 2일 정도 걸릴 수 있으며 처리 중인 파일 수에 따라 해당 2일이 끝날 때까지 실행이 완료되지 않을 수 있습니다. 실행이 성공적으로 완료되지 않으면 후속 실행을 확인하여 지원 담당자에게 문의하기 전에 완료되었는지 확인합니다. 실행 성능은 달라질 수 있으므로 실행이 완료되지 않으면 후속 실행이 실행될 수 있습니다.
+Blob 인벤토리 실행은 매일 자동으로 예약됩니다. 인벤토리 실행을 완료하는 데 최대 24시간이 걸릴 수 있습니다. 계층적 네임 스페이스 사용 계정의 경우 실행은 2 일이 소요 될 수 있으며, 처리 되는 파일 수에 따라 2 일의 끝까지 실행이 완료 되지 않을 수 있습니다. 실행이 성공적으로 완료 되지 않으면 후속 실행을 확인 하 여 지원 담당자에 게 문의 하기 전에 완료 되었는지 확인 합니다. 실행 성능은 달라질 수 있으므로 실행이 완료 되지 않으면 다음에 실행 될 수 있습니다.
 
 인벤토리 정책은 전체로 읽거나 쓸 수 있습니다. 부분 업데이트는 지원되지 않습니다.
 
@@ -231,7 +231,7 @@ Blob 인벤토리 실행은 매일 자동으로 예약됩니다. 인벤토리 �
 
 다음 표에는 `BlobInventoryPolicyCompleted` 이벤트의 스키마가 설명되어 있습니다.
 
-|필드|형식|설명|
+|필드|Type|설명|
 |---|---|
 |scheduleDateTime|문자열|인벤토리 정책이 예약된 시간입니다.|
 |accountName|문자열|스토리지 계정 이름입니다.|
@@ -254,21 +254,21 @@ Blob 인벤토리 실행은 매일 자동으로 예약됩니다. 인벤토리 �
 
 규칙에 대한 인벤토리를 실행할 때마다 다음 파일이 생성됩니다.
 
-- **인벤토리 파일:** 규칙에 대한 인벤토리 실행은 하나 이상의 CSV 또는 Apache Parquet 형식의 파일을 생성합니다. 일치하는 개체 수가 많으면 단일 파일 대신 여러 개의 파일이 생성됩니다. 각 파일에는 일치하는 개체와 해당 메타데이터가 포함됩니다. 
+- **인벤토리 파일:** 규칙에 대 한 인벤토리 실행은 하나 이상의 CSV 또는 Apache Parquet 형식 파일을 생성 합니다. 일치하는 개체 수가 많으면 단일 파일 대신 여러 개의 파일이 생성됩니다. 각 파일에는 일치하는 개체와 해당 메타데이터가 포함됩니다. 
 
   > [!NOTE]
   > Apache Parquet 형식의 보고서는 날짜를 `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC` 형식으로 표시합니다.
 
-  CSV 형식 파일의 경우 첫 번째 행은 항상 스키마 행입니다. 다음 이미지는 Microsoft Excel에서 열린 인벤토리 CSV 파일을 보여 줍니다.
+  CSV 형식의 파일의 경우 첫 번째 행은 항상 스키마 행입니다. 다음 이미지는 Microsoft Excel에서 열린 인벤토리 CSV 파일을 보여 줍니다.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Microsoft Excel에서 열린 인벤토리 CSV 파일의 스크린샷":::
 
   > [!IMPORTANT]
-  > 인벤토리 파일에 표시되는 Blob 경로는 특정 순서로 표시되지 않을 수 있습니다. 
+  > 인벤토리 파일에 표시 되는 blob 경로는 특정 순서로 표시 되지 않을 수 있습니다. 
 
-- **체크섬 파일:** 체크섬 파일에는 manifest.json 파일 내용의 MD5 체크섬이 포함됩니다. 체크섬 파일의 이름은 `<ruleName>-manifest.checksum`입니다. 체크섬 파일이 생성되면 인벤토리 실행이 완료되었다는 뜻입니다.
+- **체크섬 파일:** 체크섬 파일에는 매니페스트 json 파일 콘텐츠의 MD5 체크섬이 포함 되어 있습니다. 체크섬 파일의 이름은 `<ruleName>-manifest.checksum`입니다. 체크섬 파일이 생성되면 인벤토리 실행이 완료되었다는 뜻입니다.
 
-- **매니페스트 파일:** manifest.json 파일에는 해당 규칙에 대해 생성된 인벤토리 파일의 세부 정보가 포함됩니다. 파일 이름은 `<ruleName>-manifest.json`입니다. 또한 이 파일은 사용자가 제공하는 규칙 정의와 해당 규칙에 대한 인벤토리의 경로를 캡처합니다. 다음 json은 샘플 manifest.json 파일의 콘텐츠를 보여줍니다.
+- **매니페스트 파일:** 매니페스트. json 파일에는 해당 규칙에 대해 생성 된 인벤토리 파일의 세부 정보가 포함 됩니다. 파일 이름은 `<ruleName>-manifest.json`입니다. 또한 이 파일은 사용자가 제공하는 규칙 정의와 해당 규칙에 대한 인벤토리의 경로를 캡처합니다. 다음 json은 샘플 manifest.json 파일의 콘텐츠를 보여줍니다.
 
   ```json
   {
@@ -336,9 +336,9 @@ Azure Storage Blob 인벤토리의 가격 책정에 대한 자세한 내용은 [
 | 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png) <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 | Premium 블록 Blob | ![예](../media/icons/yes-icon.png)| ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 
-<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(보안 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (SSH 파일 전송 프로토콜)는 계층 네임 스페이스가 사용 하도록 설정 된 저장소 계정이 필요 합니다.
 
-<sup>2</sup> 기능은 미리 보기 수준에서 지원됩니다.
+<sup>2</sup> 기능은 미리 보기 수준에서 지원 됩니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -346,7 +346,7 @@ Azure Storage Blob 인벤토리의 가격 책정에 대한 자세한 내용은 [
 
 ### <a name="inventory-job-fails-to-complete-for-hierarchical-namespace-enabled-accounts"></a>계층 구조 네임스페이스를 사용하는 계정에 대한 인벤토리 작업이 완료되지 않음
 
-수억 개의 Blob 및 계층 구조 네임스페이스를 사용하도록 설정된 계정의 경우 2일 이내에 인벤토리 작업이 완료되지 않을 수 있습니다. 이 경우 인벤토리 파일이 생성되지 않습니다. 작업이 성공적으로 완료되지 않으면 지원 담당자에게 문의하기 전에 후속 작업이 완료되었는지 확인합니다. 작업의 성능은 달라질 수 있으므로 작업이 완료되지 않으면 후속 작업이 수행될 수 있습니다.
+수백만 개의 blob 및 계층적 네임 스페이스를 사용 하는 계정에 대해 2 일 이내에 인벤토리 작업이 완료 되지 않을 수 있습니다. 이 경우 인벤토리 파일이 생성되지 않습니다. 작업이 성공적으로 완료 되지 않으면 지원 서비스에 문의 하기 전에 후속 작업을 확인 하 여 완료 되었는지 확인 합니다. 작업의 성능은 달라질 수 있으므로 작업이 완료 되지 않으면 후속 작업에서이 작업을 수행할 수 있습니다.
 
 ### <a name="inventory-job-cannot-write-inventory-reports"></a>인벤토리 작업에서 인벤토리 보고서를 쓸 수 없음
 

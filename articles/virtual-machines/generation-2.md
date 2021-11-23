@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: f0a78f60f8610c4b6430cf33928ec389c0ed85ba
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 8f216abdd6a171e0640752f32740df0ed31a4be7
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131471576"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936266"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -39,6 +39,8 @@ ms.locfileid: "131471576"
 * [Ddsv4 시리즈](ddv4-ddsv4-series.md)
 * [Dasv5 시리즈](dasv5-dadsv5-series.md)
 * [Dadsv5 시리즈](dasv5-dadsv5-series.md)
+* [DCasv5 시리즈](dcasv5-dcadsv5-series.md)
+* [DCadsv5 시리즈](dcasv5-dcadsv5-series.md)
 * [Dv5 시리즈](dv5-dsv5-series.md)
 * [Dsv5 시리즈](dv5-dsv5-series.md)
 * [Esv3 시리즈](ev3-esv3-series.md)
@@ -47,6 +49,8 @@ ms.locfileid: "131471576"
 * [Edsv4 시리즈](edv4-edsv4-series.md)
 * [Easv5 시리즈](easv5-eadsv5-series.md)
 * [Eadsv5 시리즈](easv5-eadsv5-series.md)
+* [ECasv5 시리즈](ecasv5-ecadsv5-series.md)
+* [ECadsv5 시리즈](ecasv5-ecadsv5-series.md)
 * [Edv5 시리즈](edv5-edsv5-series.md)
 * [Edsv5 시리즈](edv5-edsv5-series.md)
 * [Ev5 시리즈](ev5-esv5-series.md)
@@ -122,7 +126,7 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 | 가상 머신 확장 집합 지원 | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | 백업/복원                    | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Compute 갤러리             | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [서버 쪽 암호화](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 

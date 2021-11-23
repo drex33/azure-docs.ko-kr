@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 67abdaa7f38a2b6d20bb8ca3ecc2ad128e90e9c0
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: b15d404572e3d0dcff796ba62c407ad8b2fe2bc5
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132715172"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936285"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 Blob에 대한 개체 복제
 
@@ -142,7 +142,7 @@ Azure Blob Storage에 대한 불변성 정책에는 시간 기반 보존 정책 
 /subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-이전에 정책 정의 파일에는 스토리지 계정의 전체 리소스 ID 대신 계정 이름만 필요했습니다. Azure Storage 리소스 공급자 REST API 버전 2021-02-01의 **AllowCrossTenantReplication** 보안 속성이 도입되면서 이제 복제 정책에 참여하는 스토리지 계정에 대해 테넌트 간 복제가 허용되지 않을 때 생성되는 모든 개체 복제 정책에 대한 전체 리소스 ID를 제공해야 합니다. Azure Storage 전체 리소스 ID를 사용하여 원본 및 대상 계정이 동일한 테넌트 내에 있는지 확인합니다. 테넌트 간 복제 정책을 허용되지 않는 방법에 대한 자세한 내용은 [Azure AD 테넌트 간 복제 방지를 참조하세요.](#prevent-replication-across-azure-ad-tenants)
+이전에 정책 정의 파일에는 스토리지 계정의 전체 리소스 ID 대신 계정 이름만 필요했습니다. Azure Storage 리소스 공급자 REST API 버전 2021-02-01에 **AllowCrossTenantReplication** 보안 속성이 도입되면서 이제 복제 정책에 참여하는 스토리지 계정에 대해 테넌트 간 복제가 허용되지 않을 때 생성되는 모든 개체 복제 정책에 대한 전체 리소스 ID를 제공해야 합니다. Azure Storage 전체 리소스 ID를 사용하여 원본 및 대상 계정이 동일한 테넌트 내에 있는지 확인합니다. 테넌트 간 복제 정책을 허용되지 않는 방법에 대한 자세한 내용은 [Azure AD 테넌트 간 복제 방지를 참조하세요.](#prevent-replication-across-azure-ad-tenants)
 
 스토리지 계정에 대해 테넌트 간 복제가 허용되는 경우에도 계정 이름만 제공하는 것이 지원되지만 항상 전체 리소스 ID를 제공하는 것이 좋습니다. Azure Storage 리소스 공급자의 모든 이전 버전은 개체 복제 정책에서 전체 리소스 ID 경로를 사용할 REST API 있습니다.
 
@@ -192,10 +192,10 @@ Azure Policy 사용하여 스토리지 계정 집합을 감사하여 **AllowCros
 
 | Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(Secure 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(SSH 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
 ## <a name="billing"></a>결제
 

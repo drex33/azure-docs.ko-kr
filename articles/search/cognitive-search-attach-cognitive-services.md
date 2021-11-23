@@ -5,29 +5,35 @@ description: Azure Cognitive Search의 AI 보강 파이프라인에 다중 서�
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 10/22/2021
-ms.openlocfilehash: fe9ee1bb6cf701a28985b04b3152a59241fba382
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.topic: how-to
+ms.date: 11/22/2021
+ms.openlocfilehash: 4ce78142572fa41fd0d030d9cb04ec2de1b47655
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132808417"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937833"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술 세트에 Cognitive Services 리소스 연결
 
-Azure Cognitive Search 선택적 [AI 보강 파이프라인을](cognitive-search-concept-intro.md) 구성할 때 제한된 수의 문서를 무료로 보강할 수 있습니다. 더 크고 빈번한 워크로드의 경우 청구 가능한 [**다중 서비스 Cognitive Services 리소스를**](../cognitive-services/cognitive-services-apis-create-account.md)연결해야 합니다. 다중 서비스 리소스는 단일 API 키를 통해 액세스 권한이 부여된 개별 서비스가 아닌 제공으로 ‘Cognitive Services’를 참조합니다.
+Azure Cognitive Search 선택적 [AI 보강 파이프라인을](cognitive-search-concept-intro.md) 구성할 때 제한된 수의 문서를 무료로 보강할 수 있습니다. 더 크고 빈번한 워크로드의 경우 청구 가능한 [**다중 서비스 Cognitive Services 리소스를**](../cognitive-services/cognitive-services-apis-create-account.md)연결해야 합니다. 
 
-다중 서비스 리소스 키는 기술 자료에 지정되며 Microsoft에서 다음 API 사용에 대한 요금을 청구할 수 있습니다.
+다중 서비스 리소스는 단일 API 키를 통해 액세스 권한이 부여된 개별 서비스가 아닌 제공으로 ‘Cognitive Services’를 참조합니다. 이 키는 기술 [**스킬에**](/rest/api/searchservice/create-skillset) 지정되며 Microsoft에서 다음 API 사용에 대한 요금을 청구할 수 있습니다.
 
 + 이미지 분석 및 OCR(광학 인식)을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
 + 언어 검색, 엔터티 인식, 감정 분석 및 핵심 구 추출을 위한 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 + [텍스트 번역](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-> [!NOTE]
-> AI 보강은 Cognitive Services 리소스를 연결하지 않고도 짧은 연습을 완료할 수 있도록 소량의 무료 처리를 제공합니다. 무료 보강은 인덱서당 하루에 20개의 문서입니다. 연습을 반복하려는 경우 [인덱서](search-howto-run-reset-indexers.md) 다시 설정하여 카운터를 다시 설정할 수 있습니다.
+> [!TIP]
+> Azure는 청구 및 예산을 모니터링할 수 있는 인프라를 제공합니다. 모니터링 Cognitive Services 대한 자세한 내용은 Azure Cognitive Services [비용 계획 및 관리를](../cognitive-services/plan-manage-costs.md)참조하세요.
 
-## <a name="azure-portal"></a>[**Azure portal**](#tab/cogkey-portal)
+## <a name="set-the-resource-key"></a>리소스 키 설정
+
+Azure Portal, REST API 또는 Azure SDK를 사용하여 청구 가능한 리소스를 기술 자료에 연결할 수 있습니다.
+
+속성을 지정하지 않은 상태로 두면 청구 가능한 기술의 실행이 인덱서 호출당 20개의 트랜잭션에서 중지되고 인덱서 실행 기록에 "시간 아웃" 메시지가 표시됩니다.
+
+### <a name="azure-portal"></a>[**Azure portal**](#tab/cogkey-portal)
 
 1. 검색 서비스와 [동일한 지역에](#same-region-requirement) 다중 서비스 [Cognitive Services 리소스를](../cognitive-services/cognitive-services-apis-create-account.md) 만듭니다.
 
@@ -37,9 +43,9 @@ Azure Cognitive Search 선택적 [AI 보강 파이프라인을](cognitive-search
 
    + 새 기술 또는 기존 기술 항목에 키를 추가하는 경우 **Cognitive Services** 탭에 키를 제공합니다.
 
-   :::image type="content" source="media/cognitive-search-attach-cognitive-services/attach-existing2.png" alt-text="키 페이지의 스크린샷" border="true":::
+   :::image type="content" source="media/cognitive-search-attach-cognitive-services/attach-existing2.png" alt-text="키 페이지의 스크린샷." border="true":::
 
-## <a name="rest"></a>[**REST**](#tab/cogkey-rest)
+### <a name="rest"></a>[**REST**](#tab/cogkey-rest)
 
 1. 검색 서비스와 [동일한 지역에](#same-region-requirement) 다중 서비스 [Cognitive Services 리소스를](../cognitive-services/cognitive-services-apis-create-account.md) 만듭니다.
 
@@ -77,7 +83,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="net-sdk"></a>[**.NET SDK**](#tab/cogkey-csharp)
+### <a name="net-sdk"></a>[**.NET SDK**](#tab/cogkey-csharp)
 
 다음 코드 조각은 간결하게 트리밍된 [azure-search-dotnet-samples에서](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/tutorial-ai-enrichment/v11/Program.cs)나온 것입니다.
 
@@ -107,39 +113,43 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ---
 
+<a name="same-region-requirement"></a>
+
 ## <a name="how-the-key-is-used"></a>키 사용 방법
 
-키는 요금 청구에 사용 되지만 연결에는 사용 되지 않습니다. 연결의 경우 검색 서비스는 내부 네트워크를 통해 [동일한 물리적 지역에](https://azure.microsoft.com/global-infrastructure/services/?products=search)공동 배치된 Cognitive Services 리소스에 연결합니다. 
+키 기반 청구는 Cognitive Services 리소스에 대한 API 호출이 하루에 인덱서당 20개의 API 호출을 초과하는 경우에 적용됩니다. 
 
-키 기반 청구는 Cognitive Services 리소스에 대한 API 호출이 하루에 인덱서당 20개의 API 호출을 초과하는 경우에 적용됩니다. 각 인덱서 호출 후 인덱서 를 다시 설정하여 API 카운터를 다시 설정할 수 있지만 자유롭게 만들 수 있는 최대 호출 수는 20개로 제한됩니다.
+키는 요금 청구에 사용 되지만 연결에는 사용 되지 않습니다. 연결의 경우 검색 서비스는 내부 네트워크를 통해 [동일한 물리적 지역에](https://azure.microsoft.com/global-infrastructure/services/?products=search)공동 배치된 Cognitive Services 리소스에 연결합니다. Cognitive Search를 제공하는 대부분의 지역은 Cognitive Services를 제공합니다.
 
- AI 보강 중에 Cognitive Search Computer Vision, 텍스트 번역 및 Text Analytics 기반으로 하는 [기본 제공 기술에](cognitive-search-predefined-skills.md) 대한 Cognitive Services API 호출합니다. Cognitive Services 대한 백 엔드 호출을 만드는 기본 제공 기술에는 [엔터티 링크,](cognitive-search-skill-entity-linking-v3.md) [엔터티 인식,](cognitive-search-skill-entity-recognition-v3.md) [이미지 분석,](cognitive-search-skill-image-analysis.md) [핵심 구 추출,](cognitive-search-skill-keyphrases.md) [언어 감지,](cognitive-search-skill-language-detection.md) [OCR,](cognitive-search-skill-ocr.md) [PII 검색,](cognitive-search-skill-pii-detection.md) [감정](cognitive-search-skill-sentiment-v3.md)및 [텍스트 번역이](cognitive-search-skill-text-translation.md)포함됩니다.
+두 서비스가 모두 없는 지역에서 AI 보강을 시도하면 다음과 같은 메시지가 표시됩니다. "제공된 키는 검색 서비스의 지역에 유효한 CognitiveServices 유형 키가 아닙니다."
 
-사용자 지정 기술 또는 유틸리티 기술로만 구성된 기술 세트에 대한 키 및 Cognitive Services 섹션을 생략할 수 있습니다. 청구 가능한 기술의 사용량이 일별 인덱서당 20개 미만인 경우 속성을 지정하지 않은 상태로 둘 수도 있습니다.
+> [!NOTE]
+> 일부 기본 제공 기술은 비 지역별 Cognitive Services(예: [텍스트 번역 기술](cognitive-search-skill-text-translation.md))를 기반으로 합니다. 비 지역별 기술을 사용하는 것은 Azure Cognitive Search 지역이 아닌 다른 지역에서 요청을 처리할 수 있음을 의미합니다. 지역 이외의 서비스에 대한 자세한 내용은 [지역별 제품 Cognitive Services](https://aka.ms/allinoneregioninfo) 페이지를 참조하세요.
 
-### <a name="exceptions-and-special-cases"></a>예외 및 특수 사례
+### <a name="key-requirements-special-cases"></a>주요 요구 사항 특수 사례
 
-+ Cognitive Services 호출하지 않는 유틸리티 기술(즉, [조건부](cognitive-search-skill-conditional.md), [문서 추출,](cognitive-search-skill-document-extraction.md) [셰이퍼,](cognitive-search-skill-shaper.md) [텍스트 병합](cognitive-search-skill-textmerger.md)및 [텍스트 분할 기술)은](cognitive-search-skill-textsplit.md)청구할 수 없습니다. 
+[사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md)는 Cognitive Services가 아닌 Azure Cognitive Search에 의해 측정되지만 하루에 인덱서당 20개를 초과하는 트랜잭션을 잠금 해제하려면 Cognitive Services 리소스 키가 필요합니다. 이 기술의 경우에만 리소스 키는 트랜잭션 수를 차단 해제하지만 청구와는 관련이 없습니다.
 
-+ [사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md)는 Cognitive Services가 아닌 Azure Cognitive Search에 의해 측정되지만 하루에 인덱서당 20개를 초과하는 트랜잭션을 잠금 해제하려면 Cognitive Services 리소스 키가 필요합니다. 이 기술의 경우에만 리소스 키는 트랜잭션 수를 차단 해제하지만 청구와는 관련이 없습니다.
+## <a name="free-enrichments"></a>무료 보강
 
-### <a name="other-costs-of-ai-enrichment"></a>AI 보강의 기타 비용
+AI 보강은 Cognitive Services 리소스를 연결하지 않고도 짧은 연습을 완료할 수 있도록 청구 가능한 보강을 소량의 무료 처리로 제공합니다. 무료 보강은 인덱서당 하루에 20개의 문서입니다. 연습을 반복하려는 경우 [인덱서](search-howto-run-reset-indexers.md) 다시 설정하여 카운터를 다시 설정할 수 있습니다.
+
+일부 보강은 항상 무료입니다. 
+
++ Cognitive Services 호출하지 않는 유틸리티 기술(즉, [조건부](cognitive-search-skill-conditional.md), [문서 추출,](cognitive-search-skill-document-extraction.md) [셰이퍼,](cognitive-search-skill-shaper.md) [텍스트 병합](cognitive-search-skill-textmerger.md)및 [텍스트 분할 기술)은](cognitive-search-skill-textsplit.md)청구할 수 없습니다.
+
++ PDF 문서 및 기타 애플리케이션 파일에서 텍스트 추출은 청구할 수 없습니다. 텍스트 추출은 문서 [크래킹](search-indexer-overview.md#document-cracking) 단계 중에 발생하며 그 자체로 보강되지는 않지만 AI 보강 중에 발생하므로 여기에 설명되어 있습니다.
+
+## <a name="billable-enrichments"></a>청구 가능한 보강
+
+ AI 보강 중에 Cognitive Search Computer Vision, 텍스트 번역 및 Text Analytics 기반으로 하는 [기본 제공 기술에](cognitive-search-predefined-skills.md) 대한 Cognitive Services API 호출합니다. 
+
+Cognitive Services 대한 백 엔드 호출을 만드는 청구 가능한 기본 제공 기술에는 [엔터티 링크,](cognitive-search-skill-entity-linking-v3.md) [엔터티 인식,](cognitive-search-skill-entity-recognition-v3.md) [이미지 분석,](cognitive-search-skill-image-analysis.md) [핵심 구 추출,](cognitive-search-skill-keyphrases.md) [언어 감지,](cognitive-search-skill-language-detection.md) [OCR,](cognitive-search-skill-ocr.md) [PII 검색,](cognitive-search-skill-pii-detection.md) [감정](cognitive-search-skill-sentiment-v3.md)및 [텍스트 번역이](cognitive-search-skill-text-translation.md)포함됩니다.
 
 이미지 추출은 보강 전에 문서가 깨진 경우 발생하는 Azure Cognitive Search 작업입니다. 이미지 추출은 무료 계층에서 20개의 무료 일일 추출을 제외하고 모든 계층에서 청구 가능합니다. 이미지 추출 비용은 Blob 내부의 이미지 파일, 다른 파일(PDF 및 기타 앱 파일)에 포함된 이미지, [문서 추출](cognitive-search-skill-document-extraction.md)을 사용하여 추출한 이미지에 적용됩니다. 이미지 추출 가격 책정은 [Azure Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 
-텍스트 추출은 [문서 크래킹](search-indexer-overview.md#document-cracking) 구문 중에도 발생합니다. 청구되지 않습니다.
-
 > [!TIP]
 > 스킬셋 처리 비용을 낮추려면 [증분 보강(미리보기)](cognitive-search-incremental-indexing-conceptual.md)을 활성화하여 기술 세트 변경의 영향을 받지 않는 보강을 캐시하고 재사용합니다. 캐싱에는 Azure Storage가 필요합니다([가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 참조). 특히 이미지 추출 및 분석을 사용하는 기술 세트의 경우 기존 강화를 재사용할 수 있는 경우 기술 세트 실행의 누적 비용이 더 낮습니다.
-
-## <a name="same-region-requirement"></a>동일한 지역 요구 사항
-
-Cognitive Search와 Cognitive Services는 모두 [제품 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지에 표시된 것처럼 동일한 물리적 지역 내에 있어야 합니다. Cognitive Search를 제공하는 대부분의 지역은 Cognitive Services를 제공합니다.
-
-두 서비스가 없는 지역에서 AI 보강을 시도하면 "제공된 키가 검색 서비스 지역에 대한 올바른 CognitiveServices 유형 키가 아닙니다."라는 메시지가 표시됩니다.
-
-> [!NOTE]
-> 일부 기본 제공 기술은 비 지역별 Cognitive Services(예: [텍스트 번역 기술](cognitive-search-skill-text-translation.md))를 기반으로 합니다. 비 지역별 기술을 사용하는 것은 Azure Cognitive Search 지역이 아닌 다른 지역에서 요청을 처리할 수 있음을 의미합니다. 비 지역별 서비스에 대한 자세한 내용은 [지역별 Cognitive Services 제품](https://aka.ms/allinoneregioninfo) 페이지를 참조하세요.
 
 ## <a name="example-estimate-costs"></a>예제: 비용 추정
 
@@ -156,9 +166,9 @@ Cognitive Search와 Cognitive Services는 모두 [제품 가용성](https://azur
 
 1. 텍스트 및 이미지 콘텐츠로 문서 해독의 경우, 텍스트 추출이 현재 무료입니다. 6,000개 이미지의 경우 추출된 모든 1,000개 이미지에 대해 $1를 가정합니다. 이 단계의 비용은 $6.00입니다.
 
-2. 영어로 된 6,000개의 이미지 OCR의 경우, OCR 인지 기술은 최적의 알고리즘(DescribeText)을 사용합니다. 분석할 1,000개 이미지당 비용이 $2.50라고 가정할 경우 이 단계를 위해 $15.00를 지불합니다.
+1. 영어로 된 6,000개의 이미지 OCR의 경우, OCR 인지 기술은 최적의 알고리즘(DescribeText)을 사용합니다. 분석할 1,000개 이미지당 비용이 $2.50라고 가정할 경우 이 단계를 위해 $15.00를 지불합니다.
 
-3. 엔터티 추출의 경우 페이지당 총 3개의 텍스트 레코드가 있습니다. 각 레코드는 1,000자입니다. 페이지당 3개의 텍스트 레코드* 6,000장의 페이지 = 18,000개의 텍스트 레코드입니다. 1,000개의 텍스트 레코드당 $2.00라고 가정할 경우 이 단계의 비용은 $36.00입니다.
+1. 엔터티 추출의 경우 페이지당 총 3개의 텍스트 레코드가 있습니다. 각 레코드는 1,000자입니다. 페이지당 3개의 텍스트 레코드* 6,000장의 페이지 = 18,000개의 텍스트 레코드입니다. 1,000개의 텍스트 레코드당 $2.00라고 가정할 경우 이 단계의 비용은 $36.00입니다.
 
 비용을 모두 합하면, 설명한 기술 세트를 통해 이러한 형식의 PDF 문서 1,000개를 수집하는 데 $57.00 정도를 지불합니다.
 

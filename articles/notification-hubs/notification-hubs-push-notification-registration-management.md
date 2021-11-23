@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9eb83289beaf3cafb80bda1b5c25bf6b4cb9528
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e7e33aabfeb27809bab0b76095b61dd1cd2a26fe
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467742"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936397"
 ---
 # <a name="registration-management"></a>등록 관리
 
@@ -39,7 +39,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치** 를 사�
 
 ### <a name="installations"></a>설치
 
-설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 클라이언트 쪽 .NET SDK ([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))를 사용 하 여 장치를 등록 하는 가장 최신 방법입니다.  [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation) 방법을 사용 하 여 클라이언트 장치 자체에 설치를 등록할 수도 있습니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
+설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 서버 쪽 .NET SDK ([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))를 사용 하 여 장치를 등록 하는 가장 최신 방법입니다.  [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation) 방법을 사용 하 여 클라이언트 장치 자체에 설치를 등록할 수도 있습니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
 
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 

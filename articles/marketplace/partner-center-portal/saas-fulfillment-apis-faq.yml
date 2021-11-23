@@ -6,14 +6,14 @@ metadata:
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
   ms.date: 03/19/2021
-  author: saasguide
-  ms.author: souchak
-  ms.openlocfilehash: b16e1b8e014e28b1ec02f93a23a48aa6df57dbde
-  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+  author: arifgani
+  ms.author: argani
+  ms.openlocfilehash: a02431546292d38ad837d37472e3682a76fec6a3
+  ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/09/2021
-  ms.locfileid: "132056174"
+  ms.lasthandoff: 11/23/2021
+  ms.locfileid: "132940205"
 title: SaaS 제공 API에 대한 일반적인 질문
 summary: 이 문서에서는 Azure 고객이 SaaS 제품을 구독할 수 있도록 Microsoft 상업용 Marketplace에 대한 몇 가지 통합 요구 사항에 대해 설명합니다.
 sections:

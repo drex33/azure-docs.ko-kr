@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 5fc15f07e2263598b758fe18945ae1b6f1323292
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 824f26181389cdd22ad3508c29fbb8d7ec4fcb17
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733549"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937245"
 ---
 # <a name="how-to-use-collectioncontenttemplate-mappings"></a>CollectionContentTemplate 매핑을 사용 하는 방법
 
@@ -69,6 +69,8 @@ CollectionContentTemplate는 정규화 중에 사용 되는 템플릿 목록을 
   ]
 }
 ```
+> [!TIP]
+> 일반적인 오류 및 문제 해결에 대 한 지원은 IoT 커넥터 [문제 해결 가이드](./iot-troubleshoot-guide.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

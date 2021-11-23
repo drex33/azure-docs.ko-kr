@@ -2,14 +2,14 @@
 title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0e998c4c26afc456a83cdb0c06a5ccb3906364df
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4598f5f191e9380166da7034928199ea3e40ee66
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606573"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937567"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>ARM 템플릿을 사용하여 테넌트 배포
 
@@ -38,8 +38,10 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 비용을 관리하려면 다음을 사용합니다.
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+* [방침](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
 
 포털을 구성하려면 다음을 사용합니다.
 
@@ -193,5 +195,5 @@ ARM 템플릿 배포를 위한 배포 명령 및 옵션에 대한 자세한 내�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 역할 할당에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당을 참조하세요.](../../role-based-access-control/role-assignments-template.md)
+* 역할 할당에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
 * [구독 수준](deploy-to-subscription.md) 또는 [관리 그룹 수준](deploy-to-management-group.md)에서 템플릿을 배포할 수도 있습니다.

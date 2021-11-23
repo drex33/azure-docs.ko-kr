@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: abhishgu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7f5925ffa70977d13a2eefb25dc48898ac513f6e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 85bb6f2a509b2e58f364f2393a56722e11231b89
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434088"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939142"
 ---
 # <a name="partial-document-update-in-azure-cosmos-db"></a>Azure Cosmos DB의 부분 문서 업데이트
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -71,29 +71,29 @@ Azure Cosmos DB 부분 문서 업데이트 기능 (Patch API 라고도 함)은 �
 > [!NOTE]
 > `Replace` 는 사용자가 일부 속성을 항상 표시 하 고이를 어설션/적용할 수 있는 좋은 후보입니다.
 
-## <a name="partial-document-update-specification"></a>부분 문서 업데이트 사양
+## <a name="rest-api-reference-for-partial-document-update"></a>부분 문서 업데이트에 대 한 REST API 참조
 
-부분 문서 업데이트 기능의 클라이언트 연결 구성 요소는 최상위 REST API 구현 됩니다. Azure Cosmos DB에서 작업을 모델링 하는 방법의 예는 `Conditional Add` 다음과 같습니다.
+[Azure Cosmos DB REST API](/rest/api/cosmos-db/) 는 데이터베이스, 문서 컬렉션 및 문서를 생성, 쿼리 및 삭제 하는 Azure Cosmos DB 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다. 컬렉션의 JSON 문서에서 삽입, 바꾸기, 삭제, 읽기, 열거 및 쿼리 작업을 실행 하는 것 외에도 `PATCH` 부분 문서 업데이트 작업에는 HTTP 메서드를 사용할 수 있습니다. 자세한 내용은 [Azure Cosmos DB REST API 참조](/rest/api/cosmos-db/patch-a-document) 를 참조 하세요.
 
-```bash
-PATCH /dbs/{db}/colls/{coll}/documents/{doc}
-HTTP/1.1
-Content-Type:application/json-patch+json
+예를 들어 `set` 부분 문서 업데이트를 사용 하 여 작업에 대 한 요청은 다음과 같습니다.
 
-{
-   "condition":"from c where (c.TotalDue = 0 OR NOT IS_DEFINED(c.TotalDue))", 
-   "operations":[ 
-      { 
-         "op":"add", 
-         "path":"amount", 
-         "value":80000 
-      }
-   ]
-} 
+```json
+PATCH https://querydemo.documents.azure.com/dbs/FamilyDatabase/colls/FamilyContainer/docs/Andersen.1 HTTP/1.1  
+x-ms-documentdb-partitionkey: ["Andersen"]  
+x-ms-date: Tue, 29 Mar 2016 02:28:29 GMT  
+Authorization: type%3dmaster%26ver%3d1.0%26sig%3d92WMAkQv0Zu35zpKZD%2bcGSH%2b2SXd8HGxHIvJgxhO6%2fs%3d
+Content-Type:application/json_patch+json
+Cache-Control: no-cache  
+User-Agent: Microsoft.Azure.DocumentDB/2.16.12  
+x-ms-version: 2015-12-16  
+Accept: application/json  
+Host: querydemo.documents.azure.com  
+Cookie: x-ms-session-token#0=602; x-ms-session-token=602  
+Content-Length: calculated when request is sent  
+Connection: keep-alive
+  
+{"operations":[{ "op" :"set", "path":"/Parents/0/FamilyName","value":"Bob" }]}
 ```
-
-> [!NOTE]
-> 이 경우 `amount` `80000` 의 값이 0 이거나 없는 경우 (조건)에 *만* path의 값이 (작업)로 설정 됩니다 `TotalDue` .
 
 ## <a name="document-level-vs-path-level-conflict-resolution"></a>문서 수준 vs 경로 수준 충돌 해결  
 

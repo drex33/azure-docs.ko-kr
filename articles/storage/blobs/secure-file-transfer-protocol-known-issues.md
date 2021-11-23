@@ -1,21 +1,21 @@
 ---
 title: Azure Blob Storage(미리 보기) | SFTP의 알려진 문제 Microsoft Docs
-description: Azure Blob Storage SFTP(Secure 파일 전송 프로토콜) 지원의 제한 사항 및 알려진 문제에 대해 알아봅니다.
+description: Azure Blob Storage SFTP(SSH 파일 전송 프로토콜) 지원의 제한 사항 및 알려진 문제에 대해 알아봅니다.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 11/22/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
-ms.openlocfilehash: 8ffa56f765c9455f3841eae970ee496183b4b0f2
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 337b4e8a2946c2a9025411dbb842aaf21e568a51
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132763452"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940054"
 ---
-# <a name="known-issues-with-secure-file-transfer-protocol-sftp-support-in-azure-blob-storage-preview"></a>Azure Blob Storage SFTP(Secure 파일 전송 프로토콜) 지원과 관련된 알려진 문제(미리 보기)
+# <a name="known-issues-with-ssh-file-transfer-protocol-sftp-support-for-azure-blob-storage-preview"></a>Azure Blob Storage(미리 보기)에 대한 SFTP(SSH 파일 전송 프로토콜) 지원과 관련된 알려진 문제
 
 이 문서에서는 Azure Blob Storage SFTP 지원의 제한 사항 및 알려진 문제에 대해 설명합니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "132763452"
 
   - 원격 호스트 키가 업데이트되었습니다(호스트 키는 주기적으로 순환됨).
   
-  - 클라이언트가 로컬 ssh "known_hosts" 파일에 저장된 것과 다른 호스트 키 알고리즘을 선택했습니다. OpenSSH는 알고리즘이 반드시 일치하지 않는 경우에도 호스트(account.blob.core.windows.net)가 일치하는 경우 이미 신뢰할 수 있는 키를 사용합니다.
+  - 클라이언트가 로컬 ssh "known_hosts" 파일에 저장된 알고리즘과 다른 호스트 키 알고리즘을 선택했습니다. OpenSSH는 알고리즘이 반드시 일치하지 않는 경우에도 호스트(account.blob.core.windows.net)가 일치하는 경우 이미 신뢰할 수 있는 키를 사용합니다.
   
   - 스토리지 계정이 다른 지역으로 장애 조치되었습니다.
   
@@ -109,6 +109,6 @@ ms.locfileid: "132763452"
 
 - PowerShell 및 Azure CLI 지원되지 않습니다. 공개 미리 보기에 포털 및 ARM 템플릿을 활용할 수 있습니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
-- [Azure Blob Storage SFTP(보안 파일 전송) 프로토콜 지원](secure-file-transfer-protocol-support.md)
+- [Azure Blob Storage SFTP(SSH 파일 전송) 프로토콜 지원](secure-file-transfer-protocol-support.md)

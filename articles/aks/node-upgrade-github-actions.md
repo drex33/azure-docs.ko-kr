@@ -5,12 +5,12 @@ description: GitHub 작업을 사용하여 AKS 노드를 업데이트하는 방�
 services: container-service
 ms.topic: article
 ms.date: 11/27/2020
-ms.openlocfilehash: 6876cf1e5044246492e249d8a61060cbeac46f96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f6238dc1fac8ed23eae473776bd9bedbd4d24923
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217960"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940641"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>GitHub 작업을 사용하여 AKS(Azure Kubernetes Service) 노드에 자동으로 보안 업데이트 적용
 
@@ -105,7 +105,7 @@ Azure CLI를 다운로드하고 로그인합니다.
 1. Azure CLI에서 다음 명령을 실행하여 새 사용자 이름 및 암호를 생성합니다.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac -o json
+    az ad sp create-for-rbac --role Contributor -o json
     ```
 
     출력은 다음 json과 비슷합니다.

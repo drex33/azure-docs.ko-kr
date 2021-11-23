@@ -3,12 +3,12 @@ title: CAF Foundation 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 CAF Foundation 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: daa3d4a2c8f8abec3754680ddf9fb6115f88bf6b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0e8872feb76d398780a556afee00d199a3a5449b
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678235"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935487"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플 배포
 

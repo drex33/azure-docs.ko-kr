@@ -3,18 +3,17 @@ title: Windows의 Linux에서 대칭 키를 사용 하 여 IoT Edge 장치 만�
 description: 대칭 키 증명을 사용 하 여 장치 프로 비전 서비스와 Azure IoT에 대 한 대규모로 Windows 장치에서 프로 비전 Linux 테스트
 author: kgremban
 ms.author: kgremban
-ms.reviewer: v-tcassi
 ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 8b11313c7ff443226352558ffb172c3bbf59964b
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: e2dad93c58bef8cdd1295cd916f804af48483612
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131852126"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936659"
 ---
 # <a name="create-and-provision-iot-edge-for-linux-on-windows-devices-at-scale-using-symmetric-keys"></a>대칭 키를 사용 하 여 대규모로 Windows 장치에서 Linux 용 IoT Edge 만들기 및 프로 비전 
 

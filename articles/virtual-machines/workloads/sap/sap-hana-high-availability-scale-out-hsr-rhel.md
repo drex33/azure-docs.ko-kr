@@ -1,6 +1,6 @@
 ---
 title: RHEL에서 HSR 및 Pacemaker를 사용하여 SAP HANA 스케일 아웃 | Microsoft Docs
-description: RHEL(Red Hat Enterprise Linux)에서 HSR(HANA 시스템 복제) 및 Pacemaker를 SAP HANA 스케일 아웃
+description: SAP HANA RHEL(Red Hat Enterprise Linux)에서 HSR(HANA 시스템 복제) 및 Pacemaker를 통해 스케일 아웃
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 74f9fef91149a34c189c696e1791ad6c035e963e
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: b83c1e91794261516ab60701f9ccd0dc4cdc1b97
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493650"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941323"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에 배포된 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -66,7 +66,7 @@ ms.locfileid: "132493650"
 * SAP Note [2002167]: RHEL에 권장되는 운영 체제 설정이 있습니다.
 * SAP note [2009879:]RHEL에 대한 SAP HANA 지침이 있습니다.
 * SAP note [2178632:]Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함합니다.
-* SAP note [2191498:]Azure의 Linux에 필요한 SAP 호스트 에이전트 버전을 포함합니다.
+* SAP note [2191498:]Azure에서 Linux에 필요한 SAP 호스트 에이전트 버전을 포함합니다.
 * SAP note [2243692:]Azure의 Linux에서 SAP 라이선스에 대한 정보를 포함합니다.
 * SAP note [1999351:]SAP용 Azure 고급 모니터링 확장에 대한 추가 문제 해결 정보를 포함합니다.
 * SAP note [1900823:]SAP HANA 스토리지 요구 사항에 대한 정보를 포함합니다.
@@ -100,7 +100,7 @@ HANA 스케일 아웃 설치에 대한 HANA 고가용성을 달성하려면 HANA
 > [!TIP]
 > 권장 SAP HANA 스토리지 구성은 [SAP HANA Azure VM 스토리지 구성](./hana-vm-operations-storage.md)을 참조하세요.   
 
-[![HSR 및 Pacemaker 클러스터를 SAP HANA 스케일 아웃 다이어그램.](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
+[![HSR 및 Pacemaker 클러스터를 SAP HANA 스케일 아웃 다이어그램](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
 앞의 다이어그램은 SAP HANA 네트워크 권장 사항에 따라 하나의 Azure 가상 네트워크 내에 표시되는 세 개의 서브넷을 보여 드립니다. 
 
@@ -133,7 +133,7 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
    `client` 가상 네트워크 서브넷의 각 VM별 기본 네트워크 인터페이스를 배포합니다. Azure Portal을 통해 VM을 배포하는 경우 네트워크 인터페이스 이름이 자동으로 생성됩니다. 이 문서에서는 자동으로 생성된 기본 네트워크 인터페이스를 **hana-s1-db1-client, hana-s1-db2-client,** **hana-s1-db3-client** 등으로 참조합니다.  이러한 네트워크 인터페이스는 `client` Azure 가상 네트워크 서브넷에 연결됩니다.  
 
    > [!IMPORTANT]
-   > 선택한 운영 체제가 사용 중인 특정 VM 유형에서 SAP HANA SAP 인증되었는지 확인합니다. 이러한 유형의 SAP HANA 인증된 VM 유형 및 운영 체제 릴리스 목록은 [SAP HANA 인증된 IaaS 플랫폼을 참조하세요.](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 나열된 VM 유형의 세부 정보를 자세히 조사하여 해당 형식에 대해 지원되는 SAP HANA 운영 체제 릴리스의 전체 목록을 확인합니다.  
+   > 선택한 운영 체제가 사용 중인 특정 VM 유형에서 SAP HANA SAP 인증되었는지 확인합니다. 이러한 유형의 SAP HANA 인증된 VM 유형 및 운영 체제 릴리스 목록은 [인증된 IaaS 플랫폼 SAP HANA 참조하세요.](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 나열된 VM 유형의 세부 정보를 자세히 조사하여 해당 형식에 대해 지원되는 SAP HANA 운영 체제 릴리스의 전체 목록을 확인합니다.  
   
 1. `inter` 가상 네트워크 서브넷에 HANA DB 가상 머신마다 하나씩 총 6개의 네트워크 인터페이스를 만듭니다(이 예에서는 **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, **hana-s2-db3-inter**).  
 
@@ -221,7 +221,7 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
 표준 부하 분산기를 사용하는 경우 다음과 같은 제한 사항을 알고 있어야 합니다. 공용 IP 주소가 없는 VM을 내부 부하 분산기의 백 엔드 풀에 배치하면 아웃바운드 인터넷 연결이 없습니다. 퍼블릭 엔드포인트로 라우팅할 수 있도록 하려면 추가 구성을 수행해야 합니다. 자세한 내용은 [SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
    > [!IMPORTANT]
-   > Azure Load Balancer 뒤에 배치된 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하지 마세요. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브가 실패합니다. 매개 변수를 `net.ipv4.tcp_timestamps` `0` 로 설정합니다. 자세한 내용은 [상태 프로브 Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) 및 SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421)참조하세요.  
+   > Azure Load Balancer 뒤에 배치된 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하지 마세요. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브가 실패합니다. 매개 변수를 `net.ipv4.tcp_timestamps` `0` 로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브 및](../../../load-balancer/load-balancer-custom-probe-overview.md) SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421)참조하세요.  
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 배포 
 
@@ -345,7 +345,7 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
     mkdir -p /hana/shared
     ```
 
-1. **[AH]** NFS 도메인 설정을 확인합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성되어 있는지 `defaultv4iddomain.com` 확인합니다. 매핑이 로 설정되어 있는지 `nobody` 확인합니다.  
+1. **[AH]** NFS 도메인 설정을 확인합니다. 도메인이 기본 Azure NetApp Files 도메인()으로 구성되어 있는지 `defaultv4iddomain.com` 확인합니다. 매핑이 로 설정되어 있는지 `nobody` 확인합니다.  
    (이 단계는 Azure NetAppFiles NFS v4.1을 사용하는 경우에만 필요합니다.)  
 
     > [!IMPORTANT]
@@ -485,13 +485,13 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
     chmod 775 /hana/shared
     ```
 
-1. **[1]** 암호를 입력 하 라는 메시지가 표시 되지 않고 **SSH (secure** shell)를 통해 **db3** 에서 로그인 할 수 있는지 확인 합니다. 이 경우 `ssh` [키 기반 인증 사용](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs)에 설명 된 대로 교환 키가 아닌 것입니다.  
+1. **[1]** 암호를 입력 하 라는 메시지가 표시 되지 않고 **SSH (secure** shell)를 통해 **db3** 에서 로그인 할 수 있는지 확인 합니다. 이 경우 `ssh` [키 기반 인증 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs)에 설명 된 대로 교환 키가 아닌 것입니다.  
     ```bash
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
-1. **[2]** 암호를 입력 하 라는 메시지가 표시 되지 않고 SSH를 통해 **db3** **에서 로그인** 할 수 있는지 확인 합니다. 이 경우 `ssh` [키 기반 인증 사용](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs)에 설명 된 대로 교환 키가 아닌 것입니다.  
+1. **[2]** 암호를 입력 하 라는 메시지가 표시 되지 않고 SSH를 통해 **db3** **에서 로그인** 할 수 있는지 확인 합니다. 이 경우 `ssh` [키 기반 인증 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs)에 설명 된 대로 교환 키가 아닌 것입니다.  
     ```bash
     ssh root@hana-s2-db2
     ssh root@hana-s2-db3
@@ -776,7 +776,7 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
 
 ## <a name="create-a-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
-이 HANA 서버에 대한 기본 Pacemaker 클러스터를 만들려면 [Azure에서 Red Hat Enterprise Linux에서 Pacemaker 설정의](high-availability-guide-rhel-pacemaker.md)단계를 수행합니다. 클러스터의 주 결정자를 비롯한 모든 가상 머신을 포함합니다.  
+이 HANA 서버에 대한 기본 Pacemaker 클러스터를 만들려면 [Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정의](high-availability-guide-rhel-pacemaker.md)단계를 수행합니다. 클러스터의 주 결정자를 비롯한 모든 가상 머신을 포함합니다.  
 
 > [!IMPORTANT]
 > 를 2로 설정하지 `quorum expected-votes` 마세요. 2노드 클러스터가 아닙니다. `concurrent-fencing`노드 펜싱이 deserialized되도록 클러스터 속성이 사용하도록 설정되어 있는지 확인합니다.   
@@ -874,7 +874,7 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
     ```
 
    > [!TIP]
-   > 구성에 / 이외의 파일 시스템이 포함되어 `hana/shared` 있고 이러한 파일 시스템이 NFS 탑재된 경우 옵션을 `sequential=false` 포함합니다. 이 옵션을 사용하면 파일 시스템 간에 순서가 정해지지 않습니다. 탑재된 모든 NFS 파일 시스템은 해당 특성 리소스 전에 시작해야 하지만 서로 상대적인 순서로 시작할 필요는 없습니다. 자세한 내용은 [어떻게 할까요? 파일 시스템이 NFS 공유인 경우 Pacemaker 클러스터에서 SAP HANA 스케일 아웃 HSR 구성을 참조하세요.](https://access.redhat.com/solutions/5423971)  
+   > 구성에 / 이외의 파일 시스템이 포함되어 `hana/shared` 있고 이러한 파일 시스템이 NFS 탑재된 경우 옵션을 `sequential=false` 포함합니다. 이 옵션을 사용하면 파일 시스템 간에 순서가 정해지지 않습니다. 탑재된 모든 NFS 파일 시스템은 해당 특성 리소스 전에 시작해야 하지만 서로 상대적인 순서로 시작할 필요는 없습니다. 자세한 내용은 [HANA 파일 시스템이 NFS 공유인 경우 Pacemaker 클러스터에서 SAP HANA 스케일 아웃 HSR 구성](https://access.redhat.com/solutions/5423971)어떻게 할까요? 참조하세요.  
 
 1. **[1]** HANA 클러스터 리소스 만들기를 준비하기 위해 Pacemaker를 유지 관리 모드로 배치합니다.  
     ```bash
@@ -893,7 +893,7 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
 
 
    > [!NOTE]
-   > 운영 체제 릴리스에 지원되는 최소 버전의 패키지는 `resource-agents-sap-hana-scaleout` [RHEL HA 클러스터에 대한 지원 정책 - 클러스터의 SAP HANA 관리를](https://access.redhat.com/articles/3397471) 참조하세요.  
+   > 운영 체제 릴리스에 지원되는 최소 패키지 버전은 `resource-agents-sap-hana-scaleout` [RHEL HA 클러스터에 대한 지원 정책 - 클러스터의 SAP HANA 관리를](https://access.redhat.com/articles/3397471) 참조하세요.  
 
 1. **[1,2]** 각 시스템 복제 사이트의 HANA DB 노드 하나에 HANA 시스템 복제 후크를 설치합니다. SAP HANA 여전히 중단되어야 합니다.        
 
@@ -973,7 +973,7 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
 
    1. HANA 인스턴스 리소스를 만듭니다.  
       > [!NOTE]
-      > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.  
+      > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.  
  
       RHEL **7.x** 클러스터를 빌드하는 경우 다음 명령을 사용합니다.    
       ```bash
@@ -1040,25 +1040,25 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
   
 ## <a name="configure-hana-activeread-enabled-system-replication"></a>HANA 활성/읽기 가능 시스템 복제 구성
 
-SAP HANA 2.0 SPS 01부터 SAP는 SAP HANA 시스템 복제를 위한 활성/읽기 가능 설정을 허용합니다. 이 기능을 사용하면 읽기 집약적 워크로드에 SAP HANA 시스템 복제의 보조 시스템을 적극적으로 사용할 수 있습니다. 클러스터에서 이러한 설정을 지원하려면 클라이언트가 보조 읽기 사용 SAP HANA 데이터베이스에 액세스할 수 있는 두 번째 가상 IP 주소가 필요합니다. 인수가 발생한 후에도 보조 복제 사이트에 계속 액세스할 수 있도록 하려면 클러스터에서 가상 IP 주소를 SAP HANA 리소스의 보조 리소스와 함께 이동해야 합니다.
+SAP HANA 2.0 SPS 01부터 SAP는 SAP HANA 시스템 복제에 대 한 활성/읽기 지원 설정을 허용 합니다. 이 기능을 사용 하면 읽기 집약적 작업을 위해 SAP HANA 시스템 복제의 보조 시스템을 사용할 수 있습니다. 클러스터에서 이러한 설정을 지원 하려면 클라이언트가 보조 읽기 가능 SAP HANA 데이터베이스에 액세스할 수 있도록 하는 두 번째 가상 IP 주소가 필요 합니다. 인수 발생 한 후에도 보조 복제 사이트에 액세스할 수 있도록 하려면 클러스터에서 SAP HANA 리소스의 보조 데이터베이스에 대 한 가상 IP 주소를 이동 해야 합니다.
 
-이 섹션에서는 두 번째 가상 IP 주소를 사용하여 Red Hat 고가용성 클러스터에서 이러한 유형의 시스템 복제를 관리하기 위해 수행해야 하는 추가 단계를 설명합니다.  
+이 섹션에서는 두 번째 가상 IP 주소를 사용 하 여 Red Hat 고가용성 클러스터에서이 유형의 시스템 복제를 관리 하기 위해 수행 해야 하는 추가 단계에 대해 설명 합니다.  
 
-계속하기 전에 이 문서의 앞부분에서 설명한 대로 red Hat 고가용성 클러스터를 완전히 구성하고 SAP HANA 데이터베이스를 관리해야 합니다.  
+계속 진행 하기 전에이 문서의 앞부분에서 설명한 대로 SAP HANA 데이터베이스를 관리 하는 Red Hat 고가용성 클러스터를 완전히 구성 했는지 확인 합니다.  
 
-![읽기 사용 보조를 사용하여 고가용성 확장 SAP HANA](./media/sap-hana-high-availability-rhel/sap-hana-high-avalability-scale-out-hsr-rhel-read-enabled.png)
+![읽기 가능 보조를 사용 하 여 스케일 아웃 고가용성 SAP HANA](./media/sap-hana-high-availability-rhel/sap-hana-high-avalability-scale-out-hsr-rhel-read-enabled.png)
 
-### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정에 대한 Azure Load Balancer 추가 설정
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 가능 설치를 위한 Azure Load Balancer의 추가 설정
 
-두 번째 가상 IP 프로비저닝을 계속하려면 배포 Azure Load Balancer 에 설명된 대로 [Azure Load Balancer](#deploy-azure-load-balancer)구성했는지 확인합니다.
+두 번째 가상 IP의 프로 비전을 계속 하려면 [배포 Azure Load Balancer](#deploy-azure-load-balancer)에 설명 된 대로 Azure Load Balancer를 구성 했는지 확인 합니다.
 
-*표준* 부하 분산의 경우 이전 섹션에서 만든 것과 동일한 부하 분산에서 이러한 추가 단계를 수행합니다.
+*표준* 부하 분산 장치에 대해 이전 섹션에서 만든 것과 동일한 부하 분산 장치에서 다음 추가 단계를 수행 합니다.
 
 1. 두 번째 프런트 엔드 IP 풀 만들기: 
 
    1. 부하 분산 장치를 열고, **프런트 엔드 IP 풀** 을 선택하고, **추가** 를 선택합니다.
    1. 두 번째 프런트 엔드 IP 풀의 이름을 입력합니다(예: *hana-secondaryIP*).
-   1. **할당을** **정적** 로 설정하고 IP 주소(예: **10.23.0.19)를** 입력합니다.
+   1. **할당** 을 **정적** 으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.23.0.19**).
    1. **확인** 을 선택합니다.
    1. 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
 
@@ -1073,14 +1073,14 @@ SAP HANA 2.0 SPS 01부터 SAP는 SAP HANA 시스템 복제를 위한 활성/읽�
 
    1. 부하 분산 장치를 열고, **부하 분산 규칙** 을 선택한 다음, **추가** 를 선택합니다.
    1. 새 부하 분산 장치 규칙의 이름(예: *hana-secondarylb*)을 입력합니다.
-   1. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-secondaryIP, hana-backend** 및 **hana-secondaryhp).** 
+   1. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Hana secondaryIP**, **hana 백 엔드** 및 **hana secondaryip**)를 선택 합니다.
    1. **HA 포트** 를 선택합니다.
    1. **부동 IP를 사용하도록 설정** 했는지 확인합니다.
    1. **확인** 을 선택합니다.
 
 ### <a name="configure-hana-activeread-enabled-system-replication"></a>HANA 활성/읽기 가능 시스템 복제 구성
 
-HANA 시스템 복제를 구성하는 단계는 SAP HANA [2.0 시스템 복제 구성](#configure-sap-hana-20-system-replication) 섹션에 설명되어 있습니다. 읽기 사용 보조 시나리오를 배포하는 경우 두 번째 노드에서 시스템 복제를 구성하는 동안 **hanasid** adm으로 다음 명령을 실행합니다.
+HANA 시스템 복제를 구성 하는 단계는 [SAP HANA 2.0 시스템 복제 구성](#configure-sap-hana-20-system-replication) 섹션에 설명 되어 있습니다. 읽기 가능 보조 시나리오를 배포 하는 경우 두 번째 노드에서 시스템 복제를 구성 하는 동안 **hanasid** adm으로 다음 명령을 실행 합니다.
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -1088,9 +1088,9 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2 --operationMode=logreplay_readaccess 
 ```
 
-### <a name="add-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>활성/읽기 사용 설정에 대한 보조 가상 IP 주소 리소스 추가
+### <a name="add-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>활성/읽기 사용 설정의 보조 가상 IP 주소 리소스 추가
 
-다음 명령을 통해 두 번째 가상 IP 및 추가 제약 조건을 구성할 수 있습니다. 보조 인스턴스가 다운되면 보조 가상 IP가 주 IP로 전환됩니다.   
+다음 명령을 사용 하 여 두 번째 가상 IP와 추가 제약 조건을 구성할 수 있습니다. 보조 인스턴스가 종료 되 면 보조 가상 IP가 주 복제본으로 전환 됩니다.   
 
 ```
 pcs property set maintenance-mode=true
@@ -1115,7 +1115,7 @@ pcs constraint colocation add g_secip_HN1_03 with Slave msl_SAPHana_HN1_HDB03 5
 
 pcs property set maintenance-mode=false
 ```
-클러스터 상태가 `ok` 이고 모든 리소스가 시작되었는지 확인합니다. 두 번째 가상 IP는 보조 사이트에서 SAP HANA 보조 리소스와 함께 실행됩니다.
+클러스터 상태가 이며 `ok` 모든 리소스가 시작 되었는지 확인 합니다. 두 번째 가상 IP는 보조 사이트에서 SAP HANA 보조 리소스와 함께 실행 됩니다.
 
 ```
 # Example output from crm_mon
@@ -1146,21 +1146,21 @@ pcs property set maintenance-mode=false
 
 ```
 
-다음 섹션에서는 실행할 일반적인 장애 조치(failover) 테스트 집합을 찾을 수 있습니다.
+다음 섹션에서는 실행할 일반적인 장애 조치 (failover) 테스트 집합을 찾을 수 있습니다.
 
-읽기 사용 보조를 사용하여 구성된 HANA 클러스터를 테스트하는 경우 두 번째 가상 IP의 다음 동작에 유의하세요.
+읽기 가능 보조 데이터베이스를 사용 하 여 구성 된 HANA 클러스터를 테스트 하는 경우 두 번째 가상 IP의 다음 동작에 유의 해야 합니다.
 
-- 클러스터 리소스 **SAPHana_HN1_HDB03** 보조 사이트(**S2)로** 이동하면 두 번째 가상 IP가 다른 사이트 **hana-s1-db1** 로 이동합니다. 를 `AUTOMATED_REGISTER="false"` 구성했고 HANA 시스템 복제가 자동으로 등록되지 않은 경우 두 번째 가상 IP는 **hana-s2-db1** 에서 실행됩니다.  
+- 클러스터 리소스 **SAPHana_HN1_HDB03** 가 보조 사이트 (**S2**)로 이동 하는 경우 두 번째 가상 IP는 다른 사이트인 **hana-s1-db1** 로 이동 합니다. 를 구성 하 `AUTOMATED_REGISTER="false"` 고 hana 시스템 복제를 자동으로 등록 하지 않은 경우 두 번째 가상 IP가 **hana-s2-db1** 에서 실행 됩니다.  
 
-- 서버 크래시 테스트를 진행하는 경우 주 서버에서 두 번째 가상 IP 리소스(**secvip_HN1_03**) 및 Azure Load Balancer 포트 리소스(**secnc_HN1_03**)가 주 서버에서 주 가상 IP 리소스와 함께 실행됩니다. 보조 서버가 다운 상태인 동안 읽기 사용 HANA 데이터베이스에 연결된 애플리케이션은 주 HANA 데이터베이스에 연결됩니다. 이는 정상적인 동작입니다. 이 기능을 사용하면 보조 서버를 사용할 수 없는 동안 읽기 사용 HANA 데이터베이스에 연결된 애플리케이션이 작동할 수 있습니다.   
+- 서버 충돌을 테스트 하는 경우 두 번째 가상 ip 리소스 (**secvip_HN1_03**) 및 Azure Load Balancer 포트 리소스 (**secnc_HN1_03**)는 주 가상 ip 리소스와 함께 주 서버에서 실행 됩니다. 보조 서버가 다운 상태인 동안 읽기 사용 HANA 데이터베이스에 연결된 애플리케이션은 주 HANA 데이터베이스에 연결됩니다. 이는 정상적인 동작입니다. 이를 통해 읽기 지원 HANA 데이터베이스에 연결 된 응용 프로그램은 보조 서버를 사용할 수 없는 동안 작동할 수 있습니다.   
   
-- 장애 조치(failover) 및 대체(fallback) 중에 두 번째 가상 IP를 사용하여 HANA 데이터베이스에 연결하는 애플리케이션에 대한 기존 연결이 중단될 수 있습니다.  
+- 장애 조치 (failover) 및 대체 중에 두 번째 가상 IP를 사용 하 여 HANA 데이터베이스에 연결 하는 응용 프로그램에 대 한 기존 연결이 중단 될 수 있습니다.  
 
 ## <a name="test-sap-hana-failover"></a>SAP HANA 장애 조치(failover) 테스트 
 
 1. 테스트를 시작하기 전에 클러스터와 SAP HANA 시스템 복제 상태를 확인합니다.  
 
-   1. 실패한 클러스터 작업이 없는지 확인합니다.  
+   1. 실패 한 클러스터 작업이 없는지 확인 합니다.  
        ```bash
        #Verify that there are no failed cluster actions
        pcs status
@@ -1196,7 +1196,7 @@ pcs property set maintenance-mode=false
        #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
        ```
 
-   1. SAP HANA 시스템 복제가 동기화되어 있는지 확인합니다.
+   1. SAP HANA 시스템 복제가 동기화 되어 있는지 확인 하십시오.
 
       ```bash
       # Verify HANA HSR is in sync
@@ -1223,11 +1223,11 @@ pcs property set maintenance-mode=false
 
 1. 노드가 NFS 공유(`/hana/shared`)에 대한 액세스 권한을 상실하면 장애 시나리오에 대한 클러스터 구성을 확인합니다.  
 
-   SAP HANA 리소스 에이전트는 장애 조치(failover) 중에 작업을 수행하기 위해 에 저장된 이진에 `/hana/shared` 의존합니다. `/hana/shared` 파일 시스템은 제시된 구성의 NFS를 통해 탑재됩니다. 수행할 수 있는 한 가지 테스트는 `/hana/shared` 파일 시스템을 읽기 *전용으로* 다시 탑재하는 것입니다. 이 방식은 활성 시스템 복제 사이트에서 `/hana/shared`에 대한 액세스 권한을 상실할 때 클러스터 장애 조치(failover)가 이루어지는지 확인합니다.  
+   SAP HANA 리소스 에이전트는 `/hana/shared` 장애 조치 (failover) 중에 작업을 수행 하기 위해에 저장 된 이진 파일에 종속 됩니다. `/hana/shared` 파일 시스템은 제시된 구성의 NFS를 통해 탑재됩니다. 수행할 수 있는 한 가지 테스트는 `/hana/shared` 파일 시스템을 *읽기 전용* 으로 다시 탑재 하는 것입니다. 이 방식은 활성 시스템 복제 사이트에서 `/hana/shared`에 대한 액세스 권한을 상실할 때 클러스터 장애 조치(failover)가 이루어지는지 확인합니다.  
 
-   **예상 결과:** 읽기 전용으로 다시 탑재하면 `/hana/shared` 파일 시스템에서 읽기/쓰기 작업을 수행하는 모니터링 작업이 실패합니다. 이는 파일 시스템에 쓸 수 없고 HANA 리소스 장애 조치(failover)를 트리거하기 때문입니다. HANA 노드가 NFS 공유에 액세스할 수 없는 경우에도 동일한 결과가 예상됩니다.  
+   **예상 결과**: 읽기 전용으로 다시 탑재 하 `/hana/shared` 는 경우 파일 시스템에서 읽기/쓰기 작업을 수행 하는 모니터링 작업이 실패 합니다.  이는 파일 시스템에 쓸 수 없고 HANA 리소스 장애 조치 (failover)를 트리거할 수 있기 때문입니다. HANA 노드가 NFS 공유에 액세스할 수 없는 경우에도 동일한 결과가 예상됩니다.  
      
-   또는 을 실행하여 클러스터 리소스의 상태를 확인할 수 `crm_mon` `pcs status` 있습니다. 테스트 시작 전 리소스 상태:
+   또는를 실행 하 여 클러스터 리소스의 상태를 확인할 수 있습니다 `crm_mon` `pcs status` . 테스트 시작 전 리소스 상태:
       ```bash
       # Output of crm_mon
       #7 nodes configured
@@ -1256,7 +1256,7 @@ pcs property set maintenance-mode=false
       #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
       ```
 
-   기본 복제 사이트 VM 중 하나에서 에 대한 오류를 시뮬레이션하려면 `/hana/shared` 다음 명령을 실행합니다.
+   `/hana/shared`주 복제 사이트 vm 중 하나에서 실패를 시뮬레이트하려면 다음 명령을 실행 합니다.
       ```bash
       # Execute as root 
       mount -o ro /hana/shared
@@ -1264,16 +1264,16 @@ pcs property set maintenance-mode=false
       sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
       ```
   
-   에 대한 액세스 권한이 손실된 HANA VM은 `/hana/shared` 클러스터 구성에 따라 다시 시작하거나 중지해야 합니다. 클러스터 리소스가 다른 HANA 시스템 복제 사이트로 마이그레이션됩니다.  
+   클러스터 구성에 따라에 대 한 액세스를 잃은 HANA VM을 `/hana/shared` 다시 시작 하거나 중지 해야 합니다. 클러스터 리소스가 다른 HANA 시스템 복제 사이트로 마이그레이션됩니다.  
          
-   클러스터가 다시 시작된 VM에서 시작되지 않은 경우 다음을 실행하여 클러스터를 시작합니다. 
+   다시 시작 된 VM에서 클러스터가 시작 되지 않은 경우 다음을 실행 하 여 클러스터를 시작 합니다. 
 
       ```bash
       # Start the cluster 
       pcs cluster start
       ```
    
-   클러스터가 시작되면 파일 시스템이 `/hana/shared` 자동으로 탑재됩니다. 를 설정하는 경우 `AUTOMATED_REGISTER="false"` 보조 사이트에서 SAP HANA 시스템 복제를 구성해야 합니다. 이 경우 이러한 명령을 실행하여 SAP HANA 보조로 다시 구성할 수 있습니다.   
+   클러스터가 시작 되 면 파일 시스템이 `/hana/shared` 자동으로 탑재 됩니다. 를 설정 하는 경우 `AUTOMATED_REGISTER="false"` 보조 사이트에서 SAP HANA 시스템 복제를 구성 해야 합니다. 이 경우 다음 명령을 실행 하 여 SAP HANA를 보조로 다시 구성할 수 있습니다.   
 
       ```bash
       # Execute on the secondary 
@@ -1317,7 +1317,7 @@ pcs property set maintenance-mode=false
       ```
 
 
-[RHEL의 Azure VM에서](./sap-hana-high-availability-rhel.md#test-the-cluster-setup)SAP HANA HA에 설명된 테스트를 수행하여 SAP HANA 클러스터 구성을 철저히 테스트하는 것이 좋습니다.
+[RHEL의 Azure vm에서 SAP HANA에 대해 HA](./sap-hana-high-availability-rhel.md#test-the-cluster-setup)에 설명 된 테스트를 수행 하 여 SAP HANA 클러스터 구성을 철저히 테스트 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -1325,4 +1325,4 @@ pcs property set maintenance-mode=false
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](./hana-vm-operations-netapp.md)
-* 고가용성을 설정하고 Azure VM에서 SAP HANA 재해 복구를 계획하는 방법을 알아보려면 Azure VM에서 [SAP HANA 고가용성을 참조하세요.][sap-hana-ha]
+* 고가용성을 설정 하 고 Azure Vm의 SAP HANA에 대 한 재해 복구를 계획 하는 방법을 알아보려면 [Azure vm에서 고가용성 SAP HANA][sap-hana-ha]을 참조 하세요.

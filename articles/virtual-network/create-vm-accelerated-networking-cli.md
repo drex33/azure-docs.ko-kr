@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 4e67ecdb25a64c7e61eb54391a6f09f5f68df435
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: f6cfaee4378dfcf4bfecb13a082ad180197073da
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755270"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935734"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI을 사용하여 가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -61,7 +61,7 @@ ms.locfileid: "111755270"
 가속화된 네트워킹에 대한 지원은 개별 [가상 머신 크기](../virtual-machines/sizes.md) 설명서에서 확인할 수 있습니다. 
 
 ### <a name="custom-images"></a>사용자 지정 이미지
-사용자 지정 이미지를 사용 중이고 이미지가 가속화된 네트워킹을 지원하는 경우 Azure에서 Mellanox ConnectX-3 및 ConnectX-4 Lx NIC와 함께 작동하는 데 필요한 드라이버가 있어야 합니다.
+사용자 지정 이미지를 사용 중이 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 Azure에서 Mellanox Connectx-3, Connectx-3, 및 Connectx-3 Nic와 함께 작동 하는 데 필요한 드라이버가 있는지 확인 합니다. 또한 가속화 된 네트워킹에는 가상 함수 (mlx4_en 및 mlx5_core 드라이버)의 구성을 제외 하는 네트워크 구성이 필요 합니다. 클라우드 init >= 19.4 인 이미지에서 네트워킹은 프로 비전 하는 동안 가속화 된 네트워킹을 지원 하도록 올바르게 구성 됩니다.
 
 ### <a name="regions"></a>영역
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.

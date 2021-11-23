@@ -6,14 +6,14 @@ metadata:
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
   ms.date: 06/01/2020
-  author: saasguide
-  ms.author: souchak
-  ms.openlocfilehash: 8666fdbb7618b1698d4480e187cfb4affdd49781
-  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+  author: arifgani
+  ms.author: argani
+  ms.openlocfilehash: 498983a012876c6401d13071716f658b8f1a1882
+  ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/09/2021
-  ms.locfileid: "132063178"
+  ms.lasthandoff: 11/23/2021
+  ms.locfileid: "132934198"
 title: Marketplace 계량 청구 API - FAQ
 summary: 고객이 SaaS 서비스 또는 관리형 앱 요금제를 사용하는 Azure 애플리케이션을 구독하면 사용되는 각 청구 차원에 대한 사용량이 계량 청구를 통해 추적됩니다.  사용량이 고객이 선택한 기간에 대해 설정된 포함 수량을 초과하는 경우 서비스에서 사용 이벤트를 Microsoft에 내보냅니다.
 sections:

@@ -1,0 +1,97 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure DCasv5/ECasv5 시리즈 기밀 virtual machines FAQ (미리 보기)
+  description: Azure 기밀 컴퓨팅의 기밀 가상 머신 (기밀 Vm)에 대 한 Faq (질문과 대답)입니다.
+  author: edendcohen
+  ms.topic: troubleshooting
+  ms.workload: infrastructure
+  ms.service: virtual-machines
+  ms.subservice: confidential-computing
+  ms.date: 11/15/2021
+  ms.author: edcohen
+  ms.openlocfilehash: 16f6e20c8f937e71ab4a68f89c76b239b042635f
+  ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/23/2021
+  ms.locfileid: "132943469"
+title: Azure DCasv5/ECasv5 시리즈 기밀 virtual machines FAQ (미리 보기)
+summary: >
+  > [!IMPORTANT]
+
+  > Azure 기밀 컴퓨팅의 기밀 Vm (가상 머신)은 현재 미리 보기로 제공 됩니다.
+
+  > 베타, 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+
+  이 문서에서는 [기밀 vm](confidential-vm-overview.md)에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 제공 합니다.
+sections:
+- name: 일반
+  questions:
+  - question: >
+      기밀 Vm 이란?
+    answer: "기밀 Vm은 특히 높은 보안과 기밀성 요구 사항을 가진 테 넌 트의 IaaS Vm입니다. 기밀 Vm은 다음과 같은 기술 및 이점에 대 한 액세스를 제공 합니다. \n  - 프로세서 상태와 가상 컴퓨터의 메모리를 포함 하 여 \"사용 중인 데이터\"에 대 한 암호화 키는 프로세서에 의해 생성 되 고 유지 되지 않습니다.\n  - 기밀 VM을 초기화 하기 전에 서버에 대 한 전체 상태 및 준수를 확인 하기 위한 호스트 증명\n  - \"미사용 데이터\"의 암호화 HSM (하드웨어 보안 모듈)은 테 넌 트가 독점적으로 소유 하는 키를 보호 하는 데 사용할 수 있습니다.\n  - 향상 된 보안 설정 및 기능을 위해 게스트 OS를 지 원하는 새로운 UEFI 부팅 아키텍처입니다.\n  - 신뢰할 수 있는 플랫폼 모듈 (TPM)의 전용 가상 인스턴스입니다. VM의 상태를 인증 하 고 강화 된 키 관리 기능을 제공 합니다. BitLocker와 같은 사용 사례를 지원 합니다.\n"
+  - question: >
+      기밀 Vm을 사용 해야 하는 이유는 무엇 인가요?
+    answer: >
+      기밀 Vm은 중요 한 워크 로드를 클라우드로 이동 하는 것에 대 한 고객의 문제를 해결 합니다. 기밀 Vm은 기본 인프라 및 클라우드 운영자의 고객 데이터에 대해 크게 향상 된 보호 기능을 제공 합니다. 다른 방법 및 솔루션과 달리 플랫폼의 기술 요구 사항에 맞게 기존 워크 로드를 조정할 필요가 없습니다.
+  - question: >
+      AMD 심각도 기술 이란 무엇 이며 Azure 기밀 Vm과 어떻게 관련 되나요?
+    answer: >
+      AMD 심각도 기술, 특히 보안 암호화 된 Virtualization-Secure 중첩 페이징 (심각도)은 여러 보호를 제공 합니다. 예를 들어 메모리 암호화, 고유 CPU 키, 프로세서 등록 상태에 대 한 암호화, 강력한 무결성 보호, 펌웨어 롤백 방지, 측 채널 강화, 인터럽트 및 예외 동작에 대 한 제한 등이 있습니다. 통칭 하 여 AMD 심각도 기술은 하이퍼바이저를 거부 하는 게스트 보호와 VM 메모리 및 상태에 대 한 기타 호스트 관리 코드 액세스를 강화 합니다. 기밀 Vm은 AMD 심각도을 전체 디스크 암호화 및 [Azure Key Vault 관리 되는 HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview)과 같은 Azure 기술과 결합 합니다. 사용자가 제어 하는 키를 사용 하 여 전송 중인 데이터와 미사용 데이터를 암호화할 수 있습니다. 기본 제공 [Azure 증명](https://azure.microsoft.com/services/azure-attestation/) 기능을 사용 하면 기밀 vm의 보안 상태 및 기본 인프라에서 독립적으로 신뢰를 설정할 수 있습니다.
+  - question: >
+      Azure 기밀 Vm을 배포 하려면 어떻게 해야 하나요?
+    answer: >
+      AMD 프로세서에서 기밀 VM을 배포할 수 있는 몇 가지 방법은 다음과 같습니다.
+         - [Azure Portal에서 배포](quick-create-confidential-vm-portal-amd.md)
+         - [Azure Command-Line 인터페이스 (Azure CLI)에서 배포](quick-create-confidential-vm-arm-amd.md)
+  - question: >
+      모든 OS 이미지가 기밀 Vm에서 작동 하나요?
+    answer: >
+      기밀 VM에서 실행 하려면 OS 이미지가 특정 보안 및 호환성 요구 사항을 충족 해야 합니다. Vm은 기본 클라우드 인프라와 안전 하 게 탑재 하 고, 증명 된, 격리 되어야 합니다. [Azure Compute 갤러리](../virtual-machines/shared-image-galleries.md) 를 사용 하 여 응용 프로그램을 설치 하는 등의 기밀 VM 이미지를 수정할 수 있습니다. 그런 다음 수정 된 이미지를 기반으로 기밀 Vm을 배포할 수 있습니다.
+  - question: >
+      전체 디스크 암호화 체계를 사용 해야 하나요? 표준 구성표를 대신 사용할 수 있나요?
+    answer: >
+      선택적인 전체 디스크 암호화 체계는 Azure가 가장 안전 하 고 [기밀 컴퓨팅 원리](https://azure.microsoft.com/blog/azure-confidential-computing/)를 충족 합니다. 그러나 전체 디스크 암호화 대신 또는와 함께 다른 [디스크 암호화 스키마](../security/fundamentals/azure-disk-encryption-vms-vmss.md) 를 사용할 수도 있습니다.
+
+      여러 디스크 암호화 스키마를 사용 하는 경우 이중 암호화가 성능에 부정적인 영향을 줄 수 있습니다.
+  - question: >
+      VM을 만든 후 새 전체 디스크 암호화 체계를 사용 하거나 사용 하지 않도록 설정할 수 있나요?
+    answer: >
+      아니요. 기밀 VM을 만든 후에는 전체 디스크 암호화를 비활성화 하거나 다시 활성화할 수 없습니다. 대신 새 기밀 VM을 만드세요.
+  - question: >
+      비밀 없는 VM을 기밀 VM으로 변환할 수 있나요?
+    answer: >
+      아니요. 보안상의 이유로 시작에서와 같이 기밀 VM을 만들어야 합니다.
+  - question: >
+      Azure Portal 크기 선택기에서 DCasv5 또는 ECasv5 Vm을 찾을 수 없는 이유는 무엇입니까?
+    answer: "[기밀 vm에 대해 사용 가능한 지역을](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)선택 했는지 확인 합니다. 또한 크기 선택기에서 **모든 필터 지우기** 를 선택 해야 합니다. \n"
+  - question: >
+      기밀 Vm에서 Azure 가속 네트워킹을 사용 하도록 설정할 수 있나요?
+    answer: 아니요. 기밀 Vm은 가속화 네트워킹을 지원 하지 않습니다. 기밀 VM 배포 또는 기밀 컴퓨팅에서 실행 되는 Azure Kubernetes 서비스 클러스터 배포에 대해 가속화 된 네트워킹을 사용 하도록 설정할 수 없습니다.
+  - question: >
+      이 오류의 의미는 무엇 인가요? "승인 된 표준 DCasV5/ECasv5 패밀리 코어 할당량을 초과 하므로 작업을 완료할 수 없습니다."
+    answer: "**승인 된 표준 DCasv5/ECasv5 패밀리 코어 할당량을 초과 하** 여 오류 작업을 완료할 수 없습니다.\n이 Azure Resource Manager 템플릿 (ARM 템플릿) 오류는 Azure 계산 코어가 부족 하 여 배포가 실패 했음을 의미 합니다. Azure 무료 평가판 구독에는 기밀 Vm에 대 한 충분 한 코어 할당량이 없습니다. [할당량을 늘리는 지원 요청을 만듭니다](../azure-portal/supportability/per-vm-quota-requests.md).  \n"
+  - question: >
+      DCasv5 시리즈와 ECasv5 시리즈 Vm 간의 차이점은 무엇 인가요?
+    answer: "ECasv5 시리즈는 메모리 최적화 VM 크기 이며 메모리 대 CPU 비율을 더 많이 제공 합니다. 이러한 크기는 관계형 데이터베이스 서버, 중간에서 큼 캐시 및 메모리 내 분석에 특히 적합 합니다. \n"
+  - question: >
+      DCasv5/ECasv5 Vm을 전역적으로 사용할 수 있나요?
+    answer: "아니요. 이번에는 선택 지역 에서만 이러한 Vm을 사용할 수 있습니다. 사용 가능한 지역에 대 한 최신 목록은 [지역별 VM 제품](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 참조 하세요. \n"
+  - question: >
+      내 기밀 VM의 서비스 또는 데이터에 액세스 하는 데 Microsoft가 필요한 경우 어떻게 되나요?
+    answer: >
+      고객이 액세스 권한을 부여 하는 경우에도 Azure에는 직원에 게 기밀 VM 액세스 권한을 부여 하는 운영 절차가 없습니다. 따라서 다양 한 복구 및 지원 시나리오를 기밀 Vm에 사용할 수 없습니다.
+  - question: >
+      기밀 Vm이 Azure VMware 솔루션과 같은 가상화를 지원 하나요?
+    answer: "아니요. 현재 기밀 Vm은 VM 내에서 하이퍼바이저를 실행 하는 기능과 같은 중첩 된 가상화를 지원 하지 않습니다. \n"
+  - question: >
+      기밀 Vm을 사용 하는 데 추가 비용이 있나요?
+    answer: >-
+      기밀 Vm에 대 한 청구는 사용량 및 저장소와 VM의 크기 및 영역에 따라 달라 집니다. 기밀 Vm은 전용 크기로 사용할 수 있으므로 가격은 범용 Vm과 다를 수 있습니다. 기밀 Vm은 몇 메가바이트의 작은 암호화 된 VMGS (가상 머신 게스트 상태) 디스크를 사용 합니다. VMGS는 vTPM 및 UEFI 부팅 로더와 같은 구성 요소의 VM 보안 상태를 캡슐화 합니다. 이 디스크는 월별 저장소 요금을 초래할 수 있습니다.
+
+      2022부터, 선택적 전체 디스크 암호화를 사용 하도록 선택 하는 경우 암호화 된 OS 디스크의 비용이 더 많이 듭니다. 이 변경은 암호화 된 OS 디스크에서 더 많은 공간을 사용 하 고 압축을 수행할 수 없기 때문입니다.
+
+      저장소 요금에 대 한 자세한 내용은 [관리 디스크에 대 한 가격 책정 가이드](https://azure.microsoft.com/pricing/details/managed-disks/)를 참조 하세요.
+
+      마지막으로, 보안 및 개인 정보를 보호 하기 위해 [관리 되는 HSM 풀](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview)등의 연결 된 리소스를 만들도록 선택할 수 있습니다. Azure는 이러한 리소스를 기밀 VM 비용과 별도로 청구 합니다.

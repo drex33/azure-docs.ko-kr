@@ -8,13 +8,13 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 05/07/2021
-  ms.openlocfilehash: b41c8a8ed84fc627528f06c8c443fbc112456074
-  ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+  ms.date: 11/19/2021
+  ms.openlocfilehash: 60ccc61d3783681365de58979263c5ad7e05888f
+  ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/19/2021
-  ms.locfileid: "132814156"
+  ms.lasthandoff: 11/20/2021
+  ms.locfileid: "132871683"
 landingContent:
 - title: Static Web Apps 정보
   linkLists:
@@ -40,11 +40,15 @@ landingContent:
       url: /learn/modules/publish-app-service-static-web-app-api
     - text: API 게시
       url: /learn/modules/publish-static-web-app-api-preview-url
+    - text: Gatsby 앱 만들기 및 배포
+      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - text: Blazor WebAssembly 앱 및 .NET API 게시
+      url: /learn/modules/publish-app-service-static-web-app-api-dotnet
   - linkListType: video
     links:
     - text: 정적 웹앱 빌드 및 배포
       url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
-- title: 프레임워크/라이브러리에서 배포
+- title: 빌드 및 배포
   linkLists:
   - linkListType: tutorial
     links:
@@ -62,29 +66,25 @@ landingContent:
       url: deploy-nextjs.md
     - text: Nuxt.js
       url: deploy-nuxtjs.md
-    - text: Gatsby
-      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
-    - text: Blazor
-      url: /learn/modules/publish-app-service-static-web-app-api-dotnet
+- title: 코드 제공 인프라(Infrastructure as code)
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: ARM 템플릿을 사용하여 Azure Static Web App 만들기
+      url: publish-azure-resource-manager.md
 - title: 주요 개념
   linkLists:
   - linkListType: concept
     links:
     - text: 구성
       url: configuration-overview.md
-    - text: 공용 API
+    - text: 서버리스 API 엔드포인트
       url: apis.md
     - text: 스테이징 환경
       url: review-publish-pull-requests.md
-    - text: 액세스 제한
+    - text: 인증 및 권한 부여
       url: authentication-authorization.md
     - text: GitHub Actions를 사용하여 빌드 구성
       url: publish-devops.md?tabs=github-actions
     - text: Azure DevOps를 사용하여 빌드 구성
       url: publish-devops.md?tabs=azure-devops
-- title: SaaS(Software as a Service)
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: ARM 템플릿을 사용하여 배포
-      url: publish-azure-resource-manager.md

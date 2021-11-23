@@ -714,6 +714,8 @@
               href: ./windows/ps-template.md
             - name: TLS\SSL로 웹 서버 보안
               href: ./windows/tutorial-secure-web-server.md
+    - name: VM 및 해당 리소스 삭제
+      item: delete.md
     - name: Virtual Machines에 연결
       items:
         - name: Linux

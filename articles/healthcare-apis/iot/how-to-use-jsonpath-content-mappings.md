@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 7def9d932f36a7720d0da7e19a29cf72f2ef0b98
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9c8ce02be3301bdfaf8d151ef84e1475edaa6b03
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733488"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937263"
 ---
 # <a name="how-to-use-jsonpathcontenttemplate-mappings"></a>JsonPathContentTemplate 매핑을 사용하는 방법
 
@@ -28,7 +28,7 @@ ms.locfileid: "132733488"
 
 JsonPathContentTemplate을 사용하면 JSONPath를 사용하여 Azure Event Hub 메시지에서 값을 일치시키고 추출할 수 있습니다.
 
-|속성|설명|예제|
+|속성|Description|예제|
 |--------|-----------|-------|
 |TypeName|템플릿과 일치하는 측정값과 연결할 형식입니다.|`heartrate`|
 |TypeMatchExpression|EventData 페이로드에 대해 계산되는 JSONPath 식입니다. 일치하는 JToken이 발견되면 템플릿이 일치하는 것으로 간주됩니다. 이후의 모든 식은 여기에서 일치하는 추출된 JToken에 대해 평가됩니다.|`$..[?(@heartRate)]`|
@@ -41,11 +41,11 @@ JsonPathContentTemplate을 사용하면 JSONPath를 사용하여 Azure Event Hub
 |값[]. ValueExpression|원하는 값을 추출하는 JSONPath 식입니다.|`$.matchedToken.heartRate`|
 |값[]. 필수|페이로드에 값이 있어야 합니다. 찾을 수 없으면 측정값이 생성되지 않고 InvalidOperationException이 생성됩니다.|`true`|
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 **심박수**
 
-*메시지*
+*Message*
 
 ```json
 {
@@ -81,7 +81,7 @@ JsonPathContentTemplate을 사용하면 JSONPath를 사용하여 Azure Event Hub
 ```
 **혈압**
 
-*메시지*
+*Message*
 
 ```json
 {
@@ -120,7 +120,7 @@ JsonPathContentTemplate을 사용하면 JSONPath를 사용하여 Azure Event Hub
 ```
 **단일 메시지에서 여러 측정값 Project**
 
-*메시지*
+*Message*
 
 ```json
 {
@@ -179,7 +179,7 @@ JsonPathContentTemplate을 사용하면 JSONPath를 사용하여 Azure Event Hub
 
 **메시지의 배열에서 여러 측정값 Project**
 
-*메시지*
+*Message*
 
 ```json
 {
@@ -224,6 +224,9 @@ JsonPathContentTemplate을 사용하면 JSONPath를 사용하여 Azure Event Hub
     }
 }
 ```
+
+> [!TIP]
+> 일반적인 오류 및 문제를 해결하는 데 도움이 필요하면 IoT 커넥터 [문제 해결 가이드를](./iot-troubleshoot-guide.md) 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

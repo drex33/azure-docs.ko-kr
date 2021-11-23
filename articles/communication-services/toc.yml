@@ -55,6 +55,8 @@ items:
             href: quickstarts/voice-video-calling/call-automation-api-sample.md
           - name: 통화 녹음
             href: quickstarts/voice-video-calling/call-recording-sample.md
+          - name: 원시 미디어 액세스
+            href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: UI 라이브러리
         items:
           - name: 구성 요소 시작

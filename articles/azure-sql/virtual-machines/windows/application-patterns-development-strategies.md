@@ -118,18 +118,18 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 애플리케이션 �
 * 다양한 워크로드에 대한 부하 테스트를 수행하면서도 여러 물리적 컴퓨터의 항시 보유와 유지 관리는 원하지 않을 경우
 * 필요에 따라 확장 및 축소할 수 있는 인프라 환경을 보유하고자 하는 경우
 
-다음 그림에서는 들어오는 클라이언트 요청의 규모 증대에 따라 프레젠테이션 계층을 확장하여 Azure의 여러 가상 머신에 애플리케이션 계층을 배치하는 방법을 보여줍니다. 이 그림에 표시된 것처럼 Azure 부하 분산 장치는 여러 가상 머신 간의 트래픽 분산과 연결 대상 웹 서버 결정을 담당합니다. 부하 분산 장치 뒤에 여러 웹 서버 인스턴스가 있으면 프레젠테이션 계층의 고가용성이 보장됩니다.
+다음 그림에서는 들어오는 클라이언트 요청의 규모 증대에 따라 프레젠테이션 계층을 확장하여 Azure의 여러 가상 머신에 애플리케이션 계층을 배치하는 방법을 보여줍니다. 이 그림에 표시된 것처럼 Azure Load Balancer는 여러 가상 머신 간의 트래픽 분산과 연결 대상 웹 서버 결정을 담당합니다. 부하 분산 장치 뒤에 여러 웹 서버 인스턴스가 있으면 프레젠테이션 계층의 고가용성이 보장됩니다.
 
 ![애플리케이션 패턴 - 프레젠테이션 계층 스케일 아웃](./media/application-patterns-development-strategies/IC728010.png)
 
 ### <a name="best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier"></a>한 계층에 여러 VM이 있는 2계층, 3계층 또는 n계층 패턴 모범 사례
 동일한 클라우드 서비스와 동일한 가용성 집합의 동일한 계층에 속하는 가상 머신을 배치하는 것이 좋습니다. 예를 들어, 웹 서버 집합을 **CloudService1** 및 **AvailabilitySet1** 에, 데이터베이스 서버 집합을 **CloudService2** 및 **AvailabilitySet2** 에 배치합니다. Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인과 업그레이드 도메인에 배치할 수 있습니다.
 
-계층의 여러 VM 인스턴스를 활용하려면 애플리케이션 계층 간에 Azure 부하 분산 장치를 구성해야 합니다. 각 계층에서 부하 분산 장치를 구성하려면 각 계층의 VM에 개별적으로 부하 분산 엔드포인트를 만듭니다. 특정 계층의 경우 먼저 동일한 클라우드 서비스에서 VM을 만듭니다. 이를 통해 모두 동일한 공용 가상 IP 주소를 갖게 됩니다. 다음으로 해당 계층에서 가상 머신 중 하나에 엔드포인트를 만듭니다. 그런 다음 부하 분산을 위해 해당 계층의 다른 가상 머신에 동일한 엔드포인트를 할당합니다. 부하 분산된 집합을 만들면 여러 가상 머신에 트래픽을 배분하고, 부하 분산 장치가 백엔드 VM 노드 실패 시 연결할 노드를 결정하게 할 수 있습니다. 예를 들어, 부하 분산 장치 뒤에 여러 웹 서버 인스턴스가 있으면 프레젠테이션 계층의 고가용성이 보장됩니다.
+계층의 여러 VM 인스턴스를 활용하려면 애플리케이션 계층 간에 Azure Load Balancer를 구성해야 합니다. 각 계층에서 Load Balancer를 구성하려면 각 계층의 VM에 개별적으로 부하 분산 엔드포인트를 만듭니다. 특정 계층의 경우 먼저 동일한 클라우드 서비스에서 VM을 만듭니다. 이를 통해 모두 동일한 공용 가상 IP 주소를 갖게 됩니다. 다음으로 해당 계층에서 가상 머신 중 하나에 엔드포인트를 만듭니다. 그런 다음 부하 분산을 위해 해당 계층의 다른 가상 머신에 동일한 엔드포인트를 할당합니다. 부하 분산된 집합을 만들면 여러 가상 머신에 트래픽을 배분하고, Load Balancer가 백엔드 VM 노드 실패 시 연결할 노드를 결정하게 할 수 있습니다. 예를 들어, 부하 분산 장치 뒤에 여러 웹 서버 인스턴스가 있으면 프레젠테이션 계층의 고가용성이 보장됩니다.
 
 또한 항상 모든 인터넷 연결이 프레젠테이션 계층으로 먼저 이동하도록 하는 것이 바람직합니다. 프레젠테이션 계층이 비즈니스 계층에 액세스한 다음 비즈니스 계층이 데이터 계층에 액세스합니다. 프레젠테이션 계층에 대한 액세스를 허용하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 VM에 대한 외부 액세스 허용](../../../virtual-machines/windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치와 유사하게 작동합니다. 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산](../../../virtual-machines/windows/tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+Azure의 Load Balancer는 온-프레미스 환경의 부하 분산 장치와 유사하게 작동합니다. 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산](../../../virtual-machines/windows/tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 또한 Azure Virtual Network를 사용하여 가상 머신에 대한 프라이빗 네트워크를 설정하는 것이 좋습니다. 이렇게 하면 개인 IP 주소를 통해 가상 머신 간에 통신할 수 있습니다. 자세한 내용은 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
@@ -145,7 +145,7 @@ Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치
 * 다양한 워크로드에 대한 부하 테스트를 수행하면서도 여러 물리적 컴퓨터의 항시 보유와 유지 관리는 원하지 않을 경우
 * 필요에 따라 확장 및 축소할 수 있는 인프라 환경을 보유하고자 하는 경우
 
-다음 그림은 온-프레미스 시나리오와 해당 클라우드 사용 솔루션을 보여줍니다. 이 시나리오에서는 비즈니스 논리 계층 및 데이터 액세스 구성 요소를 포함하는 비즈니스 계층을 확장하여 Azure의 여러 가상 머신에 애플리케이션 계층을 배치합니다. 이 그림에 표시된 것처럼 Azure 부하 분산 장치는 여러 가상 머신 간의 트래픽 분산과 연결 대상 웹 서버 결정을 담당합니다. 부하 분산 장치 뒤에 여러 애플리케이션 서버 인스턴스가 있으면 비즈니스 계층의 고가용성이 보장됩니다. 자세한 내용은 [한 계층에 여러 가상 머신이 있는 2계층, 3계층 또는 n계층 애플리케이션 패턴 모범 사례](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier)를 참조하세요.
+다음 그림은 온-프레미스 시나리오와 해당 클라우드 사용 솔루션을 보여줍니다. 이 시나리오에서는 비즈니스 논리 계층 및 데이터 액세스 구성 요소를 포함하는 비즈니스 계층을 확장하여 Azure의 여러 가상 머신에 애플리케이션 계층을 배치합니다. 이 그림에 표시된 것처럼 Azure Load Balancer는 여러 가상 머신 간의 트래픽 분산과 연결 대상 웹 서버 결정을 담당합니다. 부하 분산 장치 뒤에 여러 애플리케이션 서버 인스턴스가 있으면 비즈니스 계층의 고가용성이 보장됩니다. 자세한 내용은 [한 계층에 여러 가상 머신이 있는 2계층, 3계층 또는 n계층 애플리케이션 패턴 모범 사례](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier)를 참조하세요.
 
 ![비즈니스 계층 스케일 아웃이 있는 애플리케이션 패턴](./media/application-patterns-development-strategies/IC728011.png)
 
@@ -191,7 +191,7 @@ Cloud Services에서는 Azure가 인프라를 자동으로 유지 관리합니�
 
 다음 그림은 온-프레미스 시나리오와 해당 클라우드 사용 솔루션을 보여줍니다. 이 시나리오에서는 웹 역할에 프레젠테이션 계층, 작업자 역할에 비즈니스 계층을 배치하지만 데이터 계층은 Azure의 가상 머신에 배치합니다. 서로 다른 웹 역할에서 프레젠테이션 계층의 여러 사본을 실행하면 요청의 부하를 분산할 수 있습니다. Azure Virtual Machines에 Azure Cloud Services를 결합할 경우 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) 도 설정하는 것이 좋습니다. [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)를 통해 클라우드의 동일한 클라우드 서비스 안에서 안정적인 영구 개인 IP 주소가 있게 됩니다. 가상 머신과 클라우드 서비스에 대해 가상 네트워크를 정의한 후에는 개인 IP 주소를 통해 서로 간에 통신을 시작할 수 있습니다. 또한 가상 머신과 Azure 웹/작업자 역할이 동일한 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) 에 있으면 대기 시간이 짧아지고 더 안전한 연결이 가능합니다. 자세한 내용은 [클라우드 서비스란?](../../../cloud-services/cloud-services-choose-me.md)을 참조하세요.
 
-이 그림에 표시된 것처럼 Azure 부하 분산 장치는 여러 가상 머신 간의 트래픽 분산과, 연결 대상 웹 서버 또는 애플리케이션 서버 결정을 담당합니다. 부하 분산 장치 뒤에 여러 웹 및 애플리케이션 서버 인스턴스가 있으면 프레젠테이션 계층 및 비즈니스 계층의 고가용성이 보장됩니다. 자세한 내용은 [SQL HADR가 필요한 애플리케이션 패턴 모범 사례](#best-practices-for-application-patterns-requiring-sql-hadr)를 참조하세요.
+이 그림에 표시된 것처럼 Azure 부하 분산 장치는 여러 가상 머신 간의 트래픽 분산과, 연결 대상 웹 서버 또는 애플리케이션 서버 결정을 담당합니다.  Load Balancer 뒤에 여러 웹 및 애플리케이션 서버 인스턴스가 있으면 프레젠테이션 계층 및 비즈니스 계층의 고가용성이 보장됩니다. 자세한 내용은 [SQL HADR가 필요한 애플리케이션 패턴 모범 사례](#best-practices-for-application-patterns-requiring-sql-hadr)를 참조하세요.
 
 ![다이어그램은 Azure 부하 분산 장치를 통해 Azure 가상 네트워크의 웹 역할 인스턴스에 연결된 온-프레미스 물리적 또는 가상 머신을 보여 줍니다.](./media/application-patterns-development-strategies/IC728013.png)
 

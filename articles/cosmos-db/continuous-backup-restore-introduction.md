@@ -4,16 +4,16 @@ description: Azure Cosmos DB의 특정 시점 복원 기능은 실수로 인한 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: c0e08a9aadc7389fa064ba03fbd026ace197cae1
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 4a2d5337a55b10b3337c0ca1aeaf976a69de42d5
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165531"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940451"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Azure Cosmos DB의 특정 시점 복원을 사용한 지속적인 백업
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -28,7 +28,7 @@ Azure Cosmos DB는 추가로 프로비전된 처리량(RU)을 사용하지 않�
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Blob Storage로 Azure Cosmos DB 데이터 백업" lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-복원에 사용할 수 있는 기간(보존 기간이라고도 함)은 '30일 이전' 또는 '리소스 생성 시점' 중 작은 값입니다. 복원 시점은 보존 기간 내에 모든 타임스탬프가 될 수 있습니다.
+복원에 사용할 수 있는 기간(보존 기간이라고도 함)은 '30일 이전' 또는 '리소스 생성 시점' 중 작은 값입니다. 복원 시점은 보존 기간 내에 모든 타임스탬프가 될 수 있습니다. 강력한 일관성 모드에서 쓰기 지역에서 수행된 백업은 읽기 지역에 비해 최신 상태로 유지됩니다. 읽기 지역은 네트워크 또는 기타 일시적인 문제로 인해 지연할 수 있습니다. 복원을 수행하는 동안 해당 지역에서 [복원 가능한 최신 타임스탬프를 확보하여](get-latest-restore-timestamp.md) 지정된 시간에 백업하고 지정된 지역에서 복원할 수 있습니다.
 
 현재 [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [Azure 명령줄 인터페이스](restore-account-continuous-backup.md#restore-account-cli)(az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 특정 시점의 SQL API 또는 MongoDB 콘텐츠용 Azure Cosmos DB 계정을 다른 계정으로 복원할 수 있습니다.
 
@@ -134,6 +134,7 @@ Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli) 또는 [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template)를 사용하여 지속적인 백업을 프로비저닝합니다.
+* SQL 및 MongoDB 계정에 대한 [최신 복원 타임스탬프를](get-latest-restore-timestamp.md) 얻습니다.
 * [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 지속적인 백업 계정을 복원합니다.
 * [정기 백업에서 연속 백업으로 계정에 마이그레이션](migrate-continuous-backup.md)합니다.
 * 지속적인 백업 모드를 사용하여 데이터를 복원하는 데 필요한 [권한을 관리](continuous-backup-restore-permissions.md)합니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure Blob Storage(미리 보기) | 대한 SFTP(Secure 파일 전송 프로토콜) 지원 Microsoft Docs
-description: Blob Storage는 이제 SFTP(Secure 파일 전송 프로토콜)를 지원합니다.
+title: Azure Blob Storage(미리 보기) | 대한 SFTP 지원 Microsoft Docs
+description: Blob Storage는 이제 SFTP(SSH 파일 전송 프로토콜)를 지원합니다.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 11/15/2021
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
-ms.openlocfilehash: 847001d7a01e29ae40db73080efcae19517544e3
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 718369dd41691851cdb9450ab074d388bcc95a50
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132751216"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941913"
 ---
 # <a name="ssh-file-transfer-protocol-sftp-support-for-azure-blob-storage-preview"></a>Azure Blob Storage(미리 보기)에 대한 SFTP(SSH 파일 전송 프로토콜) 지원
 
@@ -33,7 +33,7 @@ Azure를 사용하면 Azure Blob service REST API, Azure SDK 및 AzCopy와 같�
 
 이제 Azure Blob Storage 대한 SFTP 지원을 통해 단일 설정으로 Blob Storage 계정에 대한 SFTP 엔드포인트를 사용하도록 설정할 수 있습니다. 그런 다음 추가 작업을 수행할 필요 없이 데이터를 안전하게 전송하도록 인증을 위한 로컬 사용자 ID를 설정할 수 있습니다. 
 
-이 문서에서는 Azure Blob Storage 대한 SFTP 지원에 대해 설명합니다. 스토리지 계정에 SFTP를 사용하도록 설정하는 방법을 알아보려면 [SFTP(보안 파일 전송) 프로토콜(미리 보기)을 사용하여 Azure Blob Storage](secure-file-transfer-protocol-support-how-to.md)커넥트 참조하세요.
+이 문서에서는 Azure Blob Storage 대한 SFTP 지원에 대해 설명합니다. 스토리지 계정에 SFTP를 사용하도록 설정하는 방법을 알아보려면 [SFTP(SSH 파일 전송 프로토콜)(미리 보기)를 사용하여 Azure Blob Storage 커넥트](secure-file-transfer-protocol-support-how-to.md)참조하세요.
 
 ## <a name="sftp-and-the-hierarchical-namespace"></a>SFTP 및 계층 구조 네임스페이스
 
@@ -77,11 +77,11 @@ Azure Storage SFTP 클라이언트 연결에 대한 SAS(공유 액세스 서명)
 
 | 사용 권한 | 권한 코드 | Description |
 |---|---|---|
-| Read | r | <li>파일 내용 읽기</li> |
+| 읽기 | r | <li>파일 내용 읽기</li> |
 | 쓰기 | w | <li>파일 업로드</li><li>디렉터리 만들기</li><li>업로드 디렉터리</li> |
 | 목록 | l | <li>컨테이너 내의 콘텐츠 나열</li><li>디렉터리 내의 콘텐츠 나열</li> |
-| DELETE | 일 | <li>파일/디렉터리 삭제</li> |
-| 생성 | c | <li>파일이 없는 경우 파일 업로드</li><li>디렉터리(없는 경우) 만들기</li><li>디렉터리 만들기</li>|
+| 삭제 | 일 | <li>파일/디렉터리 삭제</li> |
+| 만들기 | c | <li>파일이 없는 경우 파일 업로드</li><li>디렉터리(없는 경우) 만들기</li><li>디렉터리 만들기</li>|
 
 ## <a name="home-directory"></a>홈 디렉터리
 
@@ -106,7 +106,7 @@ SFTP 지원의 현재 릴리스와 관련된 문제 및 제한 사항의 전체 
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-SFTP 지원은 다음 지역에서 제공 됩니다. 
+SFTP 지원은 다음 지역에서 사용할 수 있습니다. 
 
 - 미국 중북부
 - 미국 동부 2
@@ -124,11 +124,11 @@ SFTP 지원은 다음 지역에서 제공 됩니다.
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
 > [!IMPORTANT]
-> 공개 미리 보기 동안 SFTP를 사용 하는 경우 추가 요금이 발생 하지 않습니다. 그러나 기본 Azure Data Lake Store Gen2 계정에 대 한 표준 트랜잭션, 저장소 및 네트워킹 가격은 여전히 적용 됩니다. 기능이 일반 공급 되 면 SFTP는 추가 요금을 발생 시킬 수 있습니다.  
+> 공개 미리 보기 동안 SFTP를 사용하면 추가 요금이 발생하지 않습니다. 그러나 기본 Azure Data Lake Store Gen2 계정에 대한 표준 트랜잭션, 스토리지 및 네트워킹 가격은 여전히 적용됩니다. 기능을 일반적으로 사용할 수 있게 되면 SFTP에 추가 요금이 부과될 수 있습니다.  
 
-트랜잭션 및 저장소 비용은 저장소 계정 유형, 저장소 계정에 데이터를 전송 하는 데 사용 하는 끝점 등의 요소를 기반으로 합니다. 자세히 알아보려면 [Azure Blob Storage의 전체 청구 모델 이해](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage)를 참조 하세요.
+트랜잭션 및 스토리지 비용은 스토리지 계정 유형 및 스토리지 계정으로 데이터를 전송하는 데 사용하는 엔드포인트와 같은 요인을 기반으로 합니다. 자세한 내용은 [Azure Blob Storage 대한 전체 청구 모델 이해를](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage)참조하세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
-- [SFTP (Secure File Transfer) 프로토콜 (미리 보기)을 사용 하 여 Azure Blob Storage 커넥트](secure-file-transfer-protocol-support-how-to.md)
-- [Azure Blob Storage의 SFTP (Secure File Transfer) 프로토콜 지원에 대 한 알려진 문제 (미리 보기)](secure-file-transfer-protocol-known-issues.md)
+- [SFTP(SSH 파일 전송 프로토콜)(미리 보기)를 사용하여 Azure Blob Storage 커넥트](secure-file-transfer-protocol-support-how-to.md)
+- [Azure Blob Storage SFTP(SSH 파일 전송 프로토콜)의 알려진 문제(미리 보기)](secure-file-transfer-protocol-known-issues.md)

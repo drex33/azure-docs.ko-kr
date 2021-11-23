@@ -6,45 +6,45 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: reference
 ms.date: 10/11/2021
-ms.openlocfilehash: c836ed432cb4e138524f3724cb3aa0530039240c
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: bbda8bf010992aa8b8a1720cd65455b50a71679c
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859364"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936152"
 ---
 # <a name="whats-new-in-azure-cache-for-redis"></a>Azure Cache for Redis의 새로운 기능
 
 ## <a name="october-2021"></a>2021년 10월
 
-### <a name="azure-cache-for-redis-60-ga"></a>Redis 6.0 GA 용 Azure 캐시
+### <a name="azure-cache-for-redis-60-ga"></a>Azure Cache for Redis 6.0 GA
 
-Redis 6.0에 대 한 Azure 캐시가 이제 일반 공급 됩니다. 새 버전에는 다음이 포함 됩니다.
+이제 Azure Cache for Redis 6.0이 일반 제공됩니다. 새 버전에는 다음이 포함됩니다.
 
-- Redis 스트림, 새 데이터 형식
+- 새 데이터 형식인 Redis 스트림
 - 성능 향상
-- 향상 된 개발자 생산성
+- 향상된 개발자 생산성
 - 보안 강화
 
-이제 추가 전용 데이터 구조 인 Redis 스트림를 사용 하 여 지속적으로 생성 되는 데이터를 수집, 관리 및 이해할 수 있습니다.
+이제 추가 전용 데이터 구조 Redis 스트림 사용하여 지속적으로 생성되는 데이터를 수집, 관리 및 이해할 수 있습니다.
 
-또한 Redis 6.0에 대 한 Azure Cache에는 `STRALGO` ,, `ZPOPMIN` `ZPOPMAX` 및 `HELP` 성능 및 사용 편의성을 위한 새 명령이 도입 되었습니다.
+또한 Azure Cache for Redis 6.0에는 `STRALGO` `ZPOPMIN` 성능과 사용 편의성을 위해 , , 및 라는 새로운 명령이 `ZPOPMAX` `HELP` 도입되었습니다.
 
-Redis 6.0에 대 한 Azure Cache를 시작 하 고, 캐시를 만드는 동안 Redis 6.0를 선택 합니다. 또한 기존 Redis 4.0 cache 인스턴스를 업그레이드할 수 있습니다. 자세한 내용은 [Set Redis version For Azure Cache For Redis](cache-how-to-version.md)를 참조 하세요.
+오늘 Azure Cache for Redis 6.0을 시작하고 캐시를 만드는 동안 Redis 6.0을 선택합니다. 또한 기존 Redis 4.0 캐시 인스턴스를 업그레이드할 수 있습니다. 자세한 내용은 [Azure Cache for Redis Redis 버전 설정을](cache-how-to-version.md)참조하세요.
 
-### <a name="diagnostics-for-connected-clients"></a>연결 된 클라이언트에 대 한 진단
+### <a name="diagnostics-for-connected-clients"></a>연결된 클라이언트에 대한 진단
 
-이제 azure Cache for Redis가 Azure 진단 설정과 통합 되어 모든 클라이언트 연결에 대 한 정보를 캐시에 기록 합니다. 이 진단 설정을 기록 하 고 분석 하면 캐시에 연결 하는 사용자와 해당 연결의 타임 스탬프를 이해 하는 데 도움이 됩니다. 이 데이터는 보안 위반의 범위 및 보안 감사를 식별 하는 데 사용할 수 있습니다. 사용자는 저장소 계정 또는 이벤트 허브와 같은 선택한 대상으로 이러한 로그를 라우팅할 수 있습니다.
+이제 Azure Cache for Redis Azure 진단 설정과 통합되어 캐시에 대한 모든 클라이언트 연결에 대한 정보를 기록합니다. 이 진단 설정을 로깅한 다음 분석하면 캐시에 연결하는 사용자와 해당 연결의 타임스탬프를 이해하는 데 도움이 됩니다. 이 데이터는 보안 위반의 범위를 식별하고 보안 감사를 위해 사용할 수 있습니다. 사용자는 이러한 로그를 스토리지 계정 또는 이벤트 허브와 같은 선택한 대상으로 라우팅할 수 있습니다.
 
-자세한 내용은 [진단 설정을 사용 하 여 Redis 데이터에 대 한 Azure 캐시 모니터링](cache-monitor-diagnostic-settings.md)을 참조 하세요.
+자세한 내용은 [진단 설정을 사용하여 Azure Cache for Redis 데이터 모니터링을 참조하세요.](cache-monitor-diagnostic-settings.md)
 
-### <a name="azure-cache-for-redis-enterprise-update"></a>Redis 용 Azure Cache Enterprise 업데이트
+### <a name="azure-cache-for-redis-enterprise-update"></a>Azure Cache for Redis Enterprise 업데이트
 
-활성 지역 복제 공개 미리 보기는 이제 다음을 지원 합니다.
+활성 지역 복제 공개 미리 보기는 이제 다음을 지원합니다.
 
-- RediSearch 모듈: 활성 지역 복제를 사용 하 여 RediSearch 배포
-- 복제 그룹의 5 개 캐시. 이전에는 두 개의 캐시가 지원 되었습니다.
-- OSS 클러스터링 정책-고성능 워크 로드에 적합 하며 더 나은 확장성을 제공 합니다.
+- RediSearch 모듈: 활성 지역 복제를 통해 RediSearch 배포
+- 복제 그룹에 5개의 캐시가 있습니다. 이전에는 두 개의 캐시를 지원했습니다.
+- OSS 클러스터링 정책 - 고성능 워크로드에 적합하며 더 나은 확장성을 제공합니다.
 
 ## <a name="october-2020"></a>2020년 10월
 

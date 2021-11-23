@@ -2,13 +2,13 @@
 title: Azure 리소스 배포를 위한 Bicep 언어
 description: Azure에 인프라를 배포하기 위한 Bicep 언어를 설명합니다. JSON을 사용하여 템플릿을 개발하는 것보다 향상된 제작 환경을 제공합니다.
 ms.topic: conceptual
-ms.date: 11/12/2021
-ms.openlocfilehash: 028ec297aa30bf6bfd397fee83b8b4525a66bdbc
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.date: 11/22/2021
+ms.openlocfilehash: 23c693038896dfbb1f2ac7fb47bf12f65b082458
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484294"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937624"
 ---
 # <a name="what-is-bicep"></a>Bicep이란?
 
@@ -33,7 +33,7 @@ Bicep으로 시작하려면:
 1. **도구를 설치** 합니다. [Bicep 개발 및 배포 환경 설정](./install.md)을 참조하세요. 또는 [VS Code Devcontainer/Codespaces 리포지토리](https://github.com/Azure/vscode-remote-try-bicep)를 사용하여 사전 구성된 작성 환경을 얻을 수 있습니다.
 2. **[빠른 시작](./quickstart-create-bicep-use-visual-studio-code.md) 및 [Microsoft Learn Bicep 모듈](./learn-bicep.md)** 을 완료합니다.
 
-기존 ARM 템플릿을 Bicep으로 디컴파일하려면 [ARM 템플릿을 Bicep으로 디컴파일](./decompile.md)을 참조하세요. [Bicep 플레이그라운드](https://bicepdemo.z22.web.core.windows.net/)를 사용하여 Bicep 및 이에 상응하는 JSON을 나란히 볼 수 있습니다.
+기존 ARM 템플릿을 Bicep로 디컴파일 하려면 [디컴파일 ARM 템플릿 JSON To Bicep](./decompile.md)를 참조 하세요.
 
 Bicep 파일에서 사용할 수 있는 리소스에 대해 알아보려면 [Bicep 리소스 참조](/azure/templates/)를 참조하세요.
 
@@ -112,7 +112,7 @@ ARM 템플릿을 선택한 고객의 경우 Bicep이 제작 환경을 개선할 
 
 **Bicep를 사용 하 여 Azure Stack 허브에 배포할 수 있나요?**
 
-예, Azure Stack 허브 배포에 대해 Bicep를 사용할 수 있지만, Bicep에는 Azure Stack 허브에서 아직 사용할 수 없는 형식이 표시 될 수 있습니다. [Azure Stack Hub 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep)에서 예제 집합을 볼 수 있습니다. 
+예, Azure Stack 허브 배포에 대해 Bicep를 사용할 수 있지만, Bicep에는 Azure Stack 허브에서 아직 사용할 수 없는 형식이 표시 될 수 있습니다. [Azure Stack Hub 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep)에서 예제 집합을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

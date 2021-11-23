@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Edge for Linux on Windows용 PowerShell 함수 | Microsoft Docs
 description: IoT Edge for Linux on Windows 가상 머신을 배포, 프로비전하고 상태를 확인하는 Azure IoT Edge for Linux on Windows PowerShell 함수에 대한 참조 정보입니다.
-author: v-tcassi
+author: kgremban
 ms.author: fcabrera
 ms.date: 10/15/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9038f8b99728b2808cb1d4cf6b23a7673fa5d92e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3cc76043d65a489f30b2f05169c90af22807e75e
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131085908"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941798"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>IoT Edge for Linux on Windows용 PowerShell 함수
 
@@ -21,7 +21,7 @@ ms.locfileid: "131085908"
 
 IoT Edge for Linux on Windows(EFLOW) 가상 머신을 배포, 프로비저닝하고 상태를 확인하는 PowerShell 함수를 이해합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명된 명령은 `AzureEFLOW.psm1` 파일에서 가져온 것입니다. 이 파일은 `C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW` 아래의 `WindowsPowerShell` 디렉터리에 있는 시스템에서 찾을 수 있습니다.
 
@@ -51,7 +51,7 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 
 ## <a name="connect-eflowvm"></a>Connect-EflowVm
 
-**커넥트-EflowVm** 명령은 SSH를 사용하여 가상 머신에 연결합니다. SSH를 가상 머신에 허용하는 유일한 계정은 가상 머신을 만든 사용자입니다.
+**커넥트-eflowvm** 명령은 SSH를 사용 하 여 가상 머신에 연결 합니다. SSH를 가상 머신에 허용하는 유일한 계정은 가상 머신을 만든 사용자입니다.
 
 이 명령은 호스트 디바이스에서 실행되는 PowerShell 세션에서만 작동합니다. Windows Admin Center 또는 PowerShell ISE를 사용할 때는 작동하지 않습니다.
 
@@ -73,7 +73,7 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 
 ## <a name="deploy-eflow"></a>Deploy-Eflow
 
-**Deploy-Eflow** 명령은 기본 배포 방법입니다. 이 배포 명령은 가상 머신을 만들고, 파일을 프로비전하고, IoT Edge 에이전트 모듈을 배포합니다. 매개 변수는 필요하지 않지만 만드는 동안 가상 머신에 대한 설정을 수정하는 데 사용할 수 있습니다.
+**Deploy-Eflow** 명령은 기본 배포 방법입니다. 이 배포 명령은 가상 머신을 만들고, 파일을 프로비전하고, IoT Edge 에이전트 모듈을 배포합니다. 매개 변수는 필요 하지 않지만 만드는 동안 가상 컴퓨터에 대 한 설정을 수정 하는 데 사용할 수 있습니다.
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |

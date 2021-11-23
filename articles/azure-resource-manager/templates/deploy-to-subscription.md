@@ -2,14 +2,14 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0fd0bc94c899cf47e3e0b06f6acd9f9e9bd5d3c8
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 05e2b36832ff88e3a727a6fc13ec89735787abc4
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132310151"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941133"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 구독 배포
 
@@ -38,10 +38,15 @@ Azure 정책의 경우 다음을 사용합니다.
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합니다.
+액세스 제어의 경우 다음을 사용합니다.
 
+* [accessReviewScheduleDefinitions](/azure/templates/microsoft.authorization/accessreviewscheduledefinitions)
+* [accessReviewScheduleSettings](/azure/templates/microsoft.authorization/accessreviewschedulesettings)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 리소스 그룹에 배포하는 중첩된 템플릿의 경우 다음을 사용합니다.
 
@@ -56,8 +61,30 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 * [Advisor 구성](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
 * [변경 분석 프로필](/azure/templates/microsoft.changeanalysis/profile)
+* [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
+* [잠금](/azure/templates/microsoft.authorization/locks)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [태그](/azure/templates/microsoft.resources/tags)
+
+모니터링의 경우 다음을 사용합니다.
+
+* [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
+* [logprofiles]) (/azure/templates/microsoft.insights/logprofiles)
+
+보안을 위해 다음을 사용합니다.
+
+* [advancedThreatProtectionSettings](/azure/templates/microsoft.security/advancedthreatprotectionsettings)
+* [alertsSuppressionRules](/azure/templates/microsoft.security/alertssuppressionrules)
+* [assessmentMetadata](/azure/templates/microsoft.security/assessmentmetadata)
+* [평가](/azure/templates/microsoft.security/assessments)
+* [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
+* [커넥터](/azure/templates/microsoft.security/connectors)
+* [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
+* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [pricings](/azure/templates/microsoft.security/pricings)
+* [securityContacts](/azure/templates/microsoft.security/securitycontacts)
+* [설정](/azure/templates/microsoft.security/settings)
+* [workspaceSettings](/azure/templates/microsoft.security/workspacesettings)
 
 지원되는 다른 형식은 다음과 같습니다.
 
@@ -416,7 +443,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Access Control
 
-역할 할당에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
+역할 할당에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당을 참조하세요.](../../role-based-access-control/role-assignments-template.md)
 
 다음 예제에서는 리소스 그룹을 만들고 해당 그룹에 잠금을 적용하며 보안 주체에 역할을 할당합니다.
 
@@ -424,6 +451,6 @@ New-AzSubscriptionDeployment `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 클라우드 용 Microsoft Defender에 대 한 작업 영역 설정 배포에 대 한 예제는 [deployASCwithWorkspaceSettings](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)를 참조 하세요.
+* Microsoft Defender for Cloud에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json을](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)참조하세요.
 * 샘플 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments)에서 찾을 수 있습니다.
 * [관리 그룹 수준](deploy-to-management-group.md) 및 [테넌트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

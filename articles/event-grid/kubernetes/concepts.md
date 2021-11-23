@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 911a67644ac50906ee7e4b3009658043cfa022d6
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: eabfe62972dc8e69f700e70e55bc05f5ab14c19d
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112414578"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940413"
 ---
 # <a name="event-grid-on-kubernetes---concepts"></a>Kubernetes의 Event Grid - 개념
 이 문서에서는 Azure Arc(미리 보기)를 사용하는 Kubernetes의 Azure Event Grid에 대한 주요 개념을 설명합니다.
@@ -21,8 +21,8 @@ ms.locfileid: "112414578"
 ## <a name="events"></a>이벤트
 이벤트는 소프트웨어 시스템의 작업에 대한 팩트를 알리는 데이터 레코드입니다. 일반적으로 이벤트는 시스템에서 발생한 신호 또는 시스템에서 관찰한 신호로 인한 상태 변경을 알립니다. 이벤트에는 다음과 같은 두 가지 유형의 정보가 포함됩니다. 
 
-- [이벤트 데이터](https://github.com/cloudevents/spec/blob/master/spec.md#event-data) - 상태 변경의 발생을 나타냅니다. 
-- [컨텍스트 특성](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes) - 이벤트 발생에 대한 컨텍스트 정보를 제공합니다.     
+- [이벤트 데이터](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#event-data) - 상태 변경의 발생을 나타냅니다. 
+- [컨텍스트 특성](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#context-attributes) - 이벤트 발생에 대한 컨텍스트 정보를 제공합니다.     
 
     이벤트 데이터 및 컨텍스트 특성을 모두 이벤트 필터링에 사용할 수 있습니다. 
 

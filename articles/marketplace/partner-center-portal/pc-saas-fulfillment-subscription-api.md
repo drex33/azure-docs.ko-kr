@@ -1,22 +1,22 @@
 ---
-title: Microsoft 상업적 marketplace의 SaaS 배송 구독 Api v2
-description: SaaS 상품 Api 버전 2의 일부인 구독 Api를 사용 하 여 Microsoft AppSource, Azure Marketplace 및 Azure Portal에서 SaaS 제품을 관리 하는 방법에 대해 알아봅니다.
+title: Microsoft 상업용 Marketplace의 SaaS 처리 구독 API v2
+description: SaaS Fulfillment API 버전 2의 일부인 구독 API를 사용하여 Microsoft AppSource, Azure Marketplace 및 Azure Portal SaaS 제안을 관리하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/27/2021
-author: saasguide
-ms.author: souchak
-ms.openlocfilehash: ace7aac5a308621ca8032677e7ca7eec3858bdb7
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: arifgani
+ms.author: argani
+ms.openlocfilehash: 0bd1f689feb18c0108614cf9fb593800dc51df57
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064462"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940660"
 ---
-# <a name="saas-fulfillment-subscription-apis-v2-in-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 배송 구독 Api v2
+# <a name="saas-fulfillment-subscription-apis-v2-in-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace의 SaaS 처리 구독 API v2
 
-이 문서에서는 SaaS 처리 구독 Api의 버전 2를 설명 합니다.
+이 문서에서는 SaaS 처리 구독 API 버전 2에 대해 설명합니다.
 
 ## <a name="resolve-a-purchased-subscription"></a>구매한 구독 확인
 
@@ -157,7 +157,7 @@ SaaS 계정이 최종 사용자에 대해 구성된 후, 게시자는 Microsoft 
 
 ## <a name="get-list-of-all-subscriptions"></a>모든 구독 목록 가져오기
 
-이 API는 상업용 Marketplace에서 게시자가 게시하는 모든 제품에 대해 구매한 모든 SaaS 구독의 목록을 검색합니다.  가능한 모든 상태의 SaaS 구독이 반환됩니다. 이 정보는 Microsoft 쪽에서 삭제 되지 않으므로 구독 되지 않은 SaaS 등록도 반환 됩니다.
+이 API는 상업용 Marketplace에서 게시자가 게시하는 모든 제품에 대해 구매한 모든 SaaS 구독의 목록을 검색합니다.  가능한 모든 상태의 SaaS 구독이 반환됩니다. 이 정보는 Microsoft 쪽에서 삭제되지 않으므로 구독되지 않은 SaaS 구독도 반환됩니다.
 
 API는 페이지당 100개의 페이지가 매겨진 결과를 반환합니다.
 

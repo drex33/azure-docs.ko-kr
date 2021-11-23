@@ -2,13 +2,13 @@
 title: Bicep을 사용하여 테넌트로 리소스 배포
 description: Bicep 파일의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: fe5b8a1a17af47570bb2399172866a1e720b0bab
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/22/2021
+ms.openlocfilehash: f1420ade14b034e68e77a47234983784d1280c1e
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793724"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938042"
 ---
 # <a name="tenant-deployments-with-bicep-file"></a>Bicep 파일을 통해 테넌트 배포
 
@@ -41,8 +41,10 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 비용을 관리하려면 다음을 사용합니다.
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+* [방침](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
 
 포털을 구성하려면 다음을 사용합니다.
 

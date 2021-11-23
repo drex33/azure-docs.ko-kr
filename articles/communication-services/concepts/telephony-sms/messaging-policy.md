@@ -9,12 +9,12 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8bd683be329572189daedc74f089ef89d9f015ea
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fde5aa37543eee51f93cfef5db35a136bb394d92
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609672"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934803"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Azure Communication Services 메시징 정책
 
@@ -117,7 +117,7 @@ Azure Communication Services에서는 모든 메시징 캠페인에 대해 이�
 
 ### <a name="how-we-handle-opt-out-requests"></a>옵트아웃 요청을 처리하는 방법:
 
-개인이 Azure Communication Services 무료 전화 번호에서 향후 메시지를 옵트아웃(거부)하도록 요청하는 경우에는 해당 번호의 모든 추가 트래픽이 자동으로 중지됩니다. 그래도 새 번호나 다른 번호에서 해당 메시징 캠페인에 대한 추가 메시지를 보내지 않도록 해야 합니다. 다른 메시징 캠페인에 대해 별도로 명시적 동의를 얻은 경우에는 해당 캠페인에 대해 다른 번호에서 계속 메시지를 보낼 수 있습니다. [옵트아웃 처리](https://github.com/Prakulka/azure-docs-pr/blob/master/articles/communication-services/concepts/telephony-sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)에 대해 자세히 알아보려면 FAQ 섹션을 확인하세요.
+개인이 Azure Communication Services 무료 전화 번호에서 향후 메시지를 옵트아웃(거부)하도록 요청하는 경우에는 해당 번호의 모든 추가 트래픽이 자동으로 중지됩니다. 그래도 새 번호나 다른 번호에서 해당 메시징 캠페인에 대한 추가 메시지를 보내지 않도록 해야 합니다. 다른 메시징 캠페인에 대해 별도로 명시적 동의를 얻은 경우에는 해당 캠페인에 대해 다른 번호에서 계속 메시지를 보낼 수 있습니다. [옵트아웃 처리](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/communication-services/concepts/telephony-sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)에 대해 자세히 알아보려면 FAQ 섹션을 확인하세요.
 
 ## <a name="message-content"></a>메시지 콘텐츠
 

@@ -5,18 +5,18 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ae759d67273461dff2c4fb8b37de222603bdcb7d
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 0fa596998ca32f6373b724b94e6c9188ea94aad1
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563989"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934480"
 ---
 # <a name="create-a-video-analyzer-account"></a>Video Analyzer 계정을 만듭니다.
 
-Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들어야 합니다. 계정은 스토리지 계정 및 하나 이상의 [UAMI(사용자 할당 관리 ID)와][docs-uami]연결되어야 합니다. UAMI에는 스토리지 계정에 대한 Storage [Blob 데이터 기여자][docs-storage-access] 역할 및 [읽기][docs-role-reader] 권한자 역할의 권한이 있어야 합니다. 필요에 따라 Video Analyzer 계정과 IoT Hub 연결할 수 있습니다. Video Analyzer 에지 모듈을 [투명 게이트웨이로](./cloud/use-remote-device-adapter.md)사용하는 경우에 필요합니다. 이렇게 하는 경우 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 권한이 있는 UAMI를 추가해야 합니다. 스토리지 계정과 IoT Hub 둘 다에 대해 동일한 UAMI를 사용하거나 별도의 UAMI를 사용할 수 있습니다.
+Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들어야 합니다. 계정은 스토리지 계정 및 하나 이상의 [UAMI(사용자 할당 관리 ID)와][docs-uami]연결되어야 합니다. UAMI에는 스토리지 계정에 대한 Storage [Blob 데이터 기여자][docs-storage-access] 역할 및 [읽기][docs-role-reader] 권한자 역할의 권한이 있어야 합니다. 필요에 따라 Video Analyzer 계정과 IoT Hub 연결할 수 있습니다. Video Analyzer 에지 모듈을 [투명 게이트웨이로](./cloud/use-remote-device-adapter.md)사용하는 경우에 필요합니다. 이렇게 하는 경우 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 권한이 있는 UAMI를 추가해야 합니다. 스토리지 계정과 IoT Hub 동일한 UAMI를 사용하거나 별도의 UAMI를 사용할 수 있습니다.
 
-이 문서에서는 새 Video Analyzer 계정을 만드는 단계를 설명합니다. Azure Portal 또는 [ARM(Azure Resource Manager) 템플릿][docs-arm-template]을 사용할 수 있습니다. 사용하려는 방법에 대한 탭을 선택합니다.
+이 문서에서는 새 Video Analyzer 계정을 만드는 단계를 설명합니다. Azure Portal 또는 [ARM(Azure Resource Manager) 템플릿 을][docs-arm-template]사용할 수 있습니다. 사용하려는 방법에 대한 탭을 선택합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -259,11 +259,11 @@ Azure Portal을 사용하여 만든 계정 및 기타 리소스를 확인할 수
 ### <a name="next-steps"></a>다음 단계
 
 * [IoT Edge 디바이스에 Video Analyzer를 배포][docs-deploy-on-edge]하는 방법을 알아봅니다.
-* [클라우드에 직접 비디오를 캡처하고 녹화하는](cloud/get-started-livepipelines-portal.md)방법을 알아봅니다.
+* [비디오를 캡처하고 클라우드에 직접 녹화하는](cloud/get-started-livepipelines-portal.md)방법을 알아봅니다.
 
 <!-- links -->
 [docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
 [docs-storage-access]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
 [docs-role-reader]: ../../role-based-access-control/built-in-roles.md#reader
 [docs-arm-template]: ../../azure-resource-manager/templates/overview.md
-[docs-deploy-on-edge]: deploy-iot-edge-device.md
+[docs-deploy-on-edge]: ./edge/deploy-iot-edge-device.md

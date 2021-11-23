@@ -3,17 +3,17 @@ title: Azure Data Factory에서 파이프라인 오케스트레이션 및 트리
 description: 여러 가지 방법을 통해 Azure Data Factory에서 파이프라인 트리거 문제를 해결할 수 있습니다.
 author: ssabat
 ms.service: data-factory
-ms.date: 11/17/2021
+ms.date: 11/22/2021
 ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: fe519cfe438b0d7aa61ebb2404dd7d618f38b7e5
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 9ceda2e2c755744ec9ebe1efaae7f0be67ffee3a
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132902688"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939313"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 오케스트레이션 및 트리거 문제 해결
 
@@ -263,15 +263,15 @@ Edge/Chrome 브라우저 **개발자 도구** 를 사용하여 ADF 포털에서 
 * 원본에서 파티션을 조정하고 이에 따라 싱크합니다. 
 * [데이터 흐름 최적화](concepts-data-flow-performance.md)를 검토합니다.
 
-### <a name="error-code-badrequest-when--passing-parameters-to-child-pipelines"></a>자식 파이프라인에 매개 변수를 전달할 때 오류 코드 "BadRequest"
+### <a name="error-code-badrequest-when--passing-parameters-to-child-pipelines"></a>자식 파이프라인에 매개 변수를 전달할 때 발생 하는 오류 코드 "BadRequest"
 
 **원인**
 
-오류 유형은 사용자 구성 문제입니다. 배열 대신 매개 변수 문자열이 자식 파이프라인에 전달됩니다.
+오류 유형은 사용자 구성 문제입니다. 배열 대신 매개 변수 문자열이 자식 파이프라인으로 전달 됩니다.
 
 **해결 방법**
 
-매개 변수 'a' 및 'b'를 전달하려는 경우 파이프라인 매개 변수에 대한 입력 **실행 파이프라인** 활동을 *@createArray ('a','b')로* 입력합니다. 예를 들어 숫자를 전달하려면 *@createArray (1,2,3)를* 사용합니다.  createArray 함수를 사용하여 매개 변수가 배열로 전달되는 것을 강제합니다.
+' A ' 및 ' b ' 매개 변수를 전달 하려는 경우와 같이 파이프라인 매개 변수에 대 한 **파이프라인 실행** 작업을 입력 합니다 (예: *@createArray ' a ', ' b ')* . 예를 들어 숫자를 전달 하려는 경우 *@createArray (1, 2, 3)* 를 사용 합니다.  CreateArray 함수를 사용 하 여 매개 변수가 배열로 전달 되도록 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

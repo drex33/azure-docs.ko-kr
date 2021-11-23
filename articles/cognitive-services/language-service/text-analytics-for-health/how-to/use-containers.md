@@ -1,37 +1,37 @@
 ---
-title: 상태 컨테이너에 Text Analytics 사용하는 방법
+title: 상태 컨테이너에 Text Analytics를 사용 하는 방법
 titleSuffix: Azure Cognitive Services
-description: 상태 Docker 컨테이너용 Text Analytics 사용하여 온-프레미스에서 의료 정보를 추출하고 레이블을 지정하는 방법을 알아봅니다.
+description: 상태 Docker 컨테이너에 대 한 Text Analytics를 사용 하 여 온-프레미스에서 의료 정보를 추출 하 고 레이블 하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/22/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
-ms.openlocfilehash: b3ab4a3a3261fbd53d5294cf213823a369adbd3c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ae613b8d132c6615ab6337dc2a499f91d9cb5e73
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102924"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939484"
 ---
 # <a name="use-text-analytics-for-health-containers"></a>상태 컨테이너에 Text Analytics 사용
 
-컨테이너를 사용하면 자체 인프라에서 상태 API에 대한 Text Analytics 호스트할 수 있습니다. 원격으로 상태 Text Analytics 호출하여 충족할 수 없는 보안 또는 데이터 거버넌스 요구 사항이 있는 경우 컨테이너가 좋은 옵션일 수 있습니다.
+컨테이너를 사용 하면 사용자의 인프라에서 health API에 대 한 Text Analytics를 호스트할 수 있습니다. 상태에 대 한 Text Analytics를 원격으로 호출 하 여 충족 될 수 없는 보안 또는 데이터 거 버 넌 스 요구 사항이 있는 경우 컨테이너가 좋은 옵션 일 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-상태 컨테이너에 Text Analytics 사용하려면 먼저 다음 필수 구성을 충족해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
+상태 컨테이너에 대해 Text Analytics를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
 * 호스트 컴퓨터에 [Docker](https://docs.docker.com/)가 설치되어 있습니다. Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. 
     * Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.
     * [Docker 개념](https://docs.docker.com/get-started/overview/)에 대한 기본 지식이 있어야 합니다. 
-* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" "  target="_blank"> </a> 무료(F0) 또는 표준(S) [가격 책정 계층을](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)사용하여 언어 리소스 언어 리소스 만들기
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" "  target="_blank"> </a> 무료 (F0) 또는 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)을 사용 하는 언어 리소스 언어 리소스를 만듭니다.
 
 [!INCLUDE [Gathering required parameters](../../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -39,12 +39,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-다음 표에서는 상태 컨테이너에 대한 Text Analytics 대한 최소 및 권장 사양을 설명합니다. 각 CPU 코어는 속도가 2.6GHz 이상이어야 합니다. 허용되는 TPS(초당 트랜잭션 수)도 나열됩니다.
+다음 표에서는 상태 컨테이너의 Text Analytics에 대 한 최소 및 권장 사양을 설명 합니다. 각 CPU 코어는 속도가 2.6GHz 이상이어야 합니다. 허용되는 TPS(초당 트랜잭션 수)도 나열됩니다.
 
 |  | 최소 호스트 사양 | 권장 호스트 사양 | 최소 TPS | 최대 TPS|
 |---|---------|-------------|--|--|
-| **문서/요청 1개**   |  4개 코어, 10GB 메모리 | 6개 코어, 12GB 메모리 |15 | 30|
-| **문서/요청 10개**   |  6개 코어, 16GB 메모리 | 8개 코어, 20GB 메모리 |15 | 30|
+| **1 개 문서/요청**   |  4개 코어, 10GB 메모리 | 6개 코어, 12GB 메모리 |15 | 30|
+| **10 개 문서/요청**   |  6개 코어, 16GB 메모리 | 8개 코어, 20GB 메모리 |15 | 30|
 
 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 CPU 코어 및 메모리.
 
@@ -66,12 +66,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:
 > [!IMPORTANT]
 > * 다음 섹션에서 Docker 명령은 줄 연속 문자 같은 백 슬래시, `\`을 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
 > * 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
->   * 책임 있는 AI(RAI) 승인도 값과 함께 있어야 [](/legal/cognitive-services/text-analytics/transparency-note-health) `accept` 합니다.
+>   * 또한 rai ( [담당 AI](/legal/cognitive-services/text-analytics/transparency-note-health)  ) 승인이 값과 함께 제공 되어야 합니다 `accept` .
 > * 감정 분석 및 언어 감지 컨테이너는 API v3을 사용하며 출시되었습니다. 핵심 구 추출 컨테이너는 API의 v2를 사용하며 미리 보기 상태입니다.
 
 Text Analytics for Health 컨테이너를 설치하고 실행할 수 있는 여러 가지 방법이 있습니다. 
 
-- Azure Portal 사용하여 언어 리소스를 만들고 Docker를 사용하여 컨테이너를 얻습니다.
+- Azure Portal를 사용 하 여 언어 리소스를 만들고 Docker를 사용 하 여 컨테이너를 가져옵니다.
 - Docker와 함께 Azure VM을 사용하여 컨테이너를 실행합니다. [Azure의 Docker](../../../../docker/index.yml)를 참조하세요.
 - 다음 PowerShell 및 Azure CLI 스크립트를 사용하여 리소스 배포 및 컨테이너 구성을 자동화할 수 있습니다.
 
@@ -82,7 +82,7 @@ Text Analytics for Health 컨테이너를 설치하고 실행할 수 있는 여�
 | 자리 표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 | **{API_KEY}** | 언어 리소스의 키입니다. Azure Portal의 리소스 **키 및 엔드포인트** 페이지에서 이 값을 찾을 수 있습니다. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | API에 액세스하기 위한 엔드포인트입니다. Azure Portal의 리소스 **키 및 엔드포인트** 페이지에서 이 값을 찾을 수 있습니다. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{ENDPOINT_URI}** | API에 액세스 하기 위한 끝점입니다. Azure Portal의 리소스 **키 및 엔드포인트** 페이지에서 이 값을 찾을 수 있습니다. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
@@ -91,7 +91,6 @@ Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
-Logging:Disk:Format=json
 ```
 
 이 명령은 다음을 수행합니다.
@@ -216,7 +215,7 @@ server {
 
 #### <a name="example-docker-compose-file"></a>Docker Compose 파일 예제
 
-아래 예제에서는 NGINX 및 상태 컨테이너를 배포하기 위해 [docker compose](https://docs.docker.com/compose/reference/overview) 파일을 만드는 방법을 보여줍니다.
+아래 예제에서는 NGINX 및 health 컨테이너를 배포 하기 위해 [docker 작성](https://docs.docker.com/compose/reference/overview) 파일을 만드는 방법을 보여 줍니다.
 
 ```yaml
 version: "3.7"
@@ -229,7 +228,6 @@ services:
       - eula=accept
       - billing={ENDPOINT_URI}
       - apikey={API_KEY}
-      - Logging:Disk:Format=json
     volumes:
         # replace with path to logs folder
       - <path-to-logs-folder>:/output
@@ -271,7 +269,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --hea
 
 ```
 
-다음 JSON은 상태 요청의 POST 본문에 대한 Text Analytics 연결된 JSON 파일의 예입니다.
+다음 JSON은 상태 요청의 POST 본문에 대 한 Text Analytics에 연결 된 JSON 파일의 예입니다.
 
 ```json
 example.json
@@ -294,7 +292,7 @@ example.json
 
 ### <a name="container-response-body"></a>컨테이너 응답 본문
 
-다음 JSON은 컨테이너화된 동기 호출의 상태 응답 본문에 대한 Text Analytics 예입니다.
+다음 JSON은 컨테이너 화 된 동기 호출의 상태 응답 본문에 대 한 Text Analytics의 예입니다.
 
 ```json
 {
@@ -435,17 +433,17 @@ example.json
 }
 ```
 
-## <a name="run-the-container-with-client-library-support"></a>클라이언트 라이브러리 지원을 사용하여 컨테이너 실행
+## <a name="run-the-container-with-client-library-support"></a>클라이언트 라이브러리 지원으로 컨테이너를 실행 합니다.
 
-컨테이너 `3.0.017010001-onprem-amd64` 버전(또는 컨테이너를 사용하는 `latest` 경우)부터 [클라이언트 라이브러리](../quickstart.md)를 사용하여 상태 컨테이너에 대한 Text Analytics 실행할 수 있습니다. 이렇게 하려면 명령에 다음 매개 변수를 추가합니다. `docker run`
+컨테이너 버전부터 `3.0.017010001-onprem-amd64` 또는 컨테이너를 사용 하는 경우 `latest` [클라이언트 라이브러리](../quickstart.md)를 사용 하 여 상태 컨테이너에 대 한 Text Analytics를 실행할 수 있습니다. 이렇게 하려면 다음 매개 변수를 명령에 추가 합니다 `docker run` .
 
 `enablelro=true`
 
-나중에 클라이언트 개체를 인증할 때 컨테이너가 실행 중인 엔드포인트를 사용합니다.
+이후에 클라이언트 개체를 인증할 때 컨테이너가 실행 중인 끝점을 사용 합니다.
 
 `http://localhost:5000`
 
-예를 들어 C#을 사용하는 경우 다음 코드를 사용합니다.
+예를 들어 c #을 사용 하는 경우 다음 코드를 사용 합니다.
 
 ```csharp
 var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
@@ -463,18 +461,18 @@ var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analyti
 
 ## <a name="billing"></a>결제
 
-상태 컨테이너에 대한 Text Analytics Azure 계정의 _언어_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
+상태 컨테이너에 대 한 Text Analytics Azure 계정의 _언어_ 리소스를 사용 하 여 azure로 청구 정보를 보냅니다. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 상태 컨테이너에 대한 Text Analytics 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
+이 문서에서는 상태 컨테이너에 대 한 Text Analytics를 다운로드, 설치 및 실행 하기 위한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
-* 상태 Text Analytics Docker용 Linux 컨테이너 제공
+* 상태에 대 한 Text Analytics는 Docker 용 Linux 컨테이너를 제공 합니다.
 * 컨테이너 이미지는 Microsoft 컨테이너 레지스트리(MCR)에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
-* REST API 또는 SDK를 사용하여 컨테이너의 호스트 URI를 지정하여 상태 컨테이너에 대한 Text Analytics 작업을 호출할 수 있습니다.
+* 컨테이너의 호스트 URI를 지정 하 여 REST API 또는 SDK를 사용 하 여 상태 컨테이너에 대 한 Text Analytics에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]

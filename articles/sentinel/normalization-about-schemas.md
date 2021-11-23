@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 841399ca58a88923ded03bffd363335faeb2c7ae
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 4f01288a48eb8a448a71dbd720ff02240e3496a5
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132763889"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938403"
 ---
 # <a name="advanced-siem-information-model-asim-schemas-public-preview"></a>ASIM(고급 SIEM 정보 모델) 스키마(공개 미리 보기)
 
@@ -72,15 +72,15 @@ ms.locfileid: "132763889"
 
 ## <a name="common-fields"></a><a name="common"></a>공용 필드
 
-일부 필드는 모든 ASIM 스키마에 공통적입니다. 각 스키마는 특정 스키마의 컨텍스트에서 일부 공통 필드를 사용 하기 위한 지침을 추가할 수 있습니다. 예를 들어, **EventType** 필드에 대해 허용 되는 값은 **eventschemaversion** 필드 값이 스키마 마다 다를 수 있습니다.
+일부 필드는 모든 ASIM 스키마에 공통적으로 발생합니다. 각 스키마는 특정 스키마의 컨텍스트에서 일부 공통 필드를 사용하기 위한 지침을 추가할 수 있습니다. 예를 들어 **EventType** 필드에 허용되는 값은 **EventSchemaVersion** 필드의 값과 마찬가지로 스키마마다 다를 수 있습니다.
 
-다음 필드는 각 레코드에 대해 Log Analytics에 의해 생성 되며 [사용자 지정 커넥터를 만들](create-custom-connector.md)때 재정의할 수 있습니다.
+다음 필드는 각 레코드에 대해 Log Analytics에서 생성되며 사용자 지정 커넥터 를 만들 때 [재정의할](create-custom-connector.md)수 있습니다.
 
 | 필드         | 형식     | 토론(Discussion)      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
-| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 여러 채널을 통해 동일한 이벤트를 받을 수 있고 [Eventvendor](#eventvendor) 및 [eventvendor](#eventproduct) 값이 동일한 경우에 유용 합니다.<br><br>예를 들어 테이블 또는 테이블에 Sysmon 이벤트를 수집할 수 있습니다 `Event` `WindowsEvent` . |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블로 동일한 이벤트를 수신할 수 있고 [EventVendor](#eventvendor) 및 [EventProduct](#eventproduct) 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 테이블 또는 테이블에 수집될 수 `Event` `WindowsEvent` 있습니다. |
 | | | |
 
 > [!NOTE]
@@ -88,7 +88,7 @@ ms.locfileid: "132763889"
 >
 
 
-다음 필드는 모든 스키마에 대해 ASIM에 의해 정의 됩니다.
+다음 필드는 모든 스키마에 대해 ASIM에 의해 정의됩니다.
 
 | 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -107,19 +107,20 @@ ms.locfileid: "132763889"
 | <a name="eventvendor"></a>**EventVendor**         | 필수   | String     |           이벤트를 생성하는 제품의 공급 업체 <br><br>예: `Microsoft`  <br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다.  |
 | **EventSchemaVersion**  | 필수   | String     | 스키마의 버전입니다. 각 스키마는 현재 버전을 문서화합니다.         |
 | **EventReportUrl**      | 선택    | 문자열     | 이벤트에 대한 추가 정보를 제공하는 리소스에 대해 이벤트에 제공된 URL입니다.|
-| <a name="dvc"></a>**Dvc** | 필수       | String     | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 고유 식별자입니다. <br><br>이 필드는 [DvcFQDN,](#dvcfqdn) [DvcId,](#dvcid) [DvcHostname](#dvchostname)또는 [DvcIpAddr](#dvcipaddr) 필드에 별칭을 붙일 수 있습니다. 명백한 디바이스가 없는 클라우드 원본의 경우 [이벤트 제품](#eventproduct) 필드와 동일한 값을 사용합니다.            |
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | 권장 | IP 주소 | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 IP 주소입니다. <br><br>예: `45.21.42.12`    |
-| <a name ="dvchostname"></a>**DvcHostname**         | 권장 | 호스트 이름   | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 호스트 이름입니다. <br><br>예: `ContosoDc.Contoso.Azure`               |
-| <a name="dvcdomain"></a>**DvcDomain** | 권장 | String | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 도메인입니다.<br><br>예: `Contoso` |
-| <a name="dvcdomaintype"></a>**DvcDomainType** | 권장 | Enumerated | [DvcDomain의 형식(알려진](#dvcdomain) 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows`( 예: for) `contoso\mypc`<br>- `FQDN`( 예: for) `docs.microsoft.com`<br><br>**참고:** [DvcDomain](#dvcdomain) 필드를 사용하는 경우 이 필드가 필요합니다. |
-| <a name="dvcfqdn"></a>**DvcFQDN** | 선택 | 문자열 | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 호스트 이름입니다. <br><br> 예: `Contoso\DESKTOP-1282V4D`<br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [DvcDomainType](#dvcdomaintype) 필드는 사용된 형식을 반영합니다.  |
-| <a name ="dvcid"></a>**DvcId**               | 선택    | 문자열     | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 디바이스의 고유 ID입니다. <br><br>예: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| **DvcIdType** | 선택 사항 | Enumerated | [DvcId의](#dvcid)형식입니다(알려진 경우). 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 ID를 사용할 수 있는 경우 목록의 첫 번째 ID를 사용하고 각각  **DvcAzureResourceId** 및 **DvcMDEid** 필드 이름을 사용하여 다른 ID를 저장합니다.<br><br>**참고:** [DvcId](#dvcid) 필드를 사용하는 경우 이 필드가 필요합니다. |
+| <a name="dvc"></a>**Dvc** | 필수       | String     | 스키마에 따라 이벤트가 발생 하거나 이벤트를 보고 한 장치의 고유 식별자입니다. <br><br>이 필드에는 [Dvcfqdn](#dvcfqdn), [dvcid](#dvcid), [DvcHostname](#dvchostname)또는 [dvcipaddr](#dvcipaddr) 필드가 별칭으로 있을 수 있습니다. 명백한 장치가 없는 클라우드 원본의 경우 [이벤트 제품](#eventproduct) 필드와 동일한 값을 사용 합니다.            |
+| <a name ="dvcipaddr"></a>**DvcIpAddr**           | 권장 | IP 주소 | 스키마에 따라 이벤트가 발생 하거나 이벤트가 보고 된 장치의 IP 주소입니다. <br><br>예: `45.21.42.12`    |
+| <a name ="dvchostname"></a>**DvcHostname**         | 권장 | 호스트 이름   | 스키마에 따라 이벤트가 발생 하거나 이벤트가 보고 된 장치의 호스트 이름입니다. <br><br>예: `ContosoDc.Contoso.Azure`               |
+| <a name="dvcdomain"></a>**DvcDomain** | 권장 | String | 스키마에 따라 이벤트가 발생 하거나 이벤트가 보고 된 장치의 도메인입니다.<br><br>예: `Contoso` |
+| <a name="dvcdomaintype"></a>**DvcDomainType** | 권장 | Enumerated | [Dvcdomain](#dvcdomain) 의 유형입니다 (알려진 경우). 가능한 값은 다음과 같습니다.<br>- `Windows`(예:) `contoso\mypc`<br>- `FQDN`(예:) `docs.microsoft.com`<br><br>**참고**:이 필드는 [dvcdomain](#dvcdomain) 필드가 사용 되는 경우에 필요 합니다. |
+| <a name="dvcfqdn"></a>**DvcFQDN** | 선택 | 문자열 | 스키마에 따라 이벤트가 발생 하거나 이벤트가 보고 된 장치의 호스트 이름입니다. <br><br> 예: `Contoso\DESKTOP-1282V4D`<br><br>**참고**:이 필드는 기존의 FQDN 형식과 Windows domain\hostname 형식을 둘 다 지원 합니다. [DvcDomainType](#dvcdomaintype) 필드에는 사용 된 형식이 반영 됩니다.  |
+| <a name ="dvcid"></a>**DvcId**               | 선택    | 문자열     | 스키마에 따라 이벤트가 발생 하거나 이벤트를 보고 한 장치의 고유 ID입니다. <br><br>예: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
+| **DvcIdType** | 선택 사항 | Enumerated | 알려진 경우 [Dvcid](#dvcid)의 유형입니다. 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 Id를 사용할 수 있는 경우 목록에서 첫 번째 Id를 사용 하 고 필드 이름  **DvcAzureResourceId** 및 **Dvcmdeid** 를 각각 사용 하 여 다른 id를 저장 합니다.<br><br>**참고**:이 필드는 [dvcid](#dvcid) 필드가 사용 되는 경우에 필요 합니다. |
 | **DvcMacAddr**          | 선택 사항    | MAC        |   이벤트가 발생한 디바이스의 MAC 주소입니다.  <br><br>예: `00:1B:44:11:3A:B7`       |
-| **DvcZone** | 선택 | 문자열 | 스키마에 따라 이벤트가 발생했거나 이벤트를 보고한 네트워크입니다. 영역은 보고 디바이스에 의해 정의됩니다.<br><br>예: `Dmz` |
+| **DvcZone** | 선택 | 문자열 | 스키마에 따라 이벤트가 발생 하거나 이벤트가 보고 된 네트워크입니다. 영역은 보고 장치에 의해 정의 됩니다.<br><br>예: `Dmz` |
 | **DvcOs**               | 선택    | 문자열     |         이벤트가 발생한 디바이스에서 실행 중인 운영 체제입니다.    <br><br>예: `Windows`    |
 | **DvcOsVersion**        | 선택    | 문자열     |   이벤트가 발생한 디바이스의 운영 체제 버전입니다. <br><br>예: `10` |
-| **DvcAction** | 선택 | 문자열 | 보고 보안 시스템의 경우 시스템에서 수행 하는 작업입니다 (해당 하는 경우). <br><br>예: `Blocked` |
+| <a name="dvcaction"></a>**DvcAction** | 선택 | 문자열 | 보고 보안 시스템의 경우 시스템에서 수행 하는 작업입니다 (해당 하는 경우). <br><br>예: `Blocked` |
+| <a name="dvcoriginalaction"></a>**DvcOriginalAction** | 선택 | 문자열 | 보고 장치에서 제공 하는 원래 [Dvcaction](#dvcaction) 입니다. |
 | <a name="additionalfields"></a>**AdditionalFields**    | 선택 사항    | 동적    | 원본에서 보존할 가치가 있는 추가 정보를 제공하는 경우 원본 필드 이름으로 유지하거나 동적 **AdditionalFields** 필드를 만들고 추가 정보를 키/값 쌍으로 추가합니다.    |
 | | | | |
 
@@ -267,7 +268,7 @@ ms.locfileid: "132763889"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft 센티널 및 고급 SIEM 정보 모델의 정규화에 대 한 개요를 제공 합니다.
+이 문서에서는 Microsoft Sentinel의 정규화 및 고급 SIEM 정보 모델에 대한 개요를 제공합니다.
 
 자세한 내용은 다음을 참조하세요.
 - [고급 SIEM 정보 모델 개요](normalization.md)

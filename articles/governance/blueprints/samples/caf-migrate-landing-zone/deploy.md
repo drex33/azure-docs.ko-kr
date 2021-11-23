@@ -3,12 +3,12 @@ title: CAF Migration 방문 영역 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 CAF Migration 방문 영역 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 9c953c5ec7f6c8a9a9ae7a1ff784b5c0d0f8f877
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4a930f7cc285778f54090c760c0109fe98bcab43
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757820"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938498"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플 배포
 

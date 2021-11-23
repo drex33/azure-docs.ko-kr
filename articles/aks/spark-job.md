@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용하여 대규모 데이터 �
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ffb204d02e27498c7cf82a9bc4d0a591c7e13964
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: e151bc7059e40a38a4890358ed4b70c99e101934
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093766"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938175"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
@@ -42,7 +42,7 @@ az group create --name mySparkCluster --location eastus
 클러스터의 서비스 주체를 만듭니다. 생성되면 다음 명령에 대한 서비스 주체 appId 및 암호가 필요합니다.
 
 ```azurecli
-az ad sp create-for-rbac --name SparkSP
+az ad sp create-for-rbac --name SparkSP --role Contributor
 ```
 
 크기가 `Standard_D3_v2`이고, appId 및 암호 값이 서비스 주체 및 클라이언트 암호 매개 변수로 전달된 노드를 사용하여 AKS 클러스터를 만듭니다.

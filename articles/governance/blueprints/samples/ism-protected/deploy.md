@@ -3,12 +3,12 @@ title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 오스트레일리아 정부 ISM PROTECTED 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 630453b0673d07ffb43380a26af9871d394c0584
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 305eb078ac3e65838ef4da52130d199e98e7a480
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632256"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937358"
 ---
 # <a name="deploy-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플 배포
 

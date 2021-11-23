@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 571e89e1616f8e7ab2ee0eca021ea1020dea9140
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: a128ea8a8894464016777705af014430ff3efc65
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564075"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938725"
 ---
 # <a name="tutorial-real-time-visualization-of-ai-inference-events-with-power-bi"></a>자습서: Power BI를 사용하여 AI 추론 이벤트를 실시간으로 시각화
 
@@ -41,7 +41,7 @@ ms.locfileid: "131564075"
   > [!TIP]
   >
   > - [선 교차 샘플](use-line-crossing.md)은 5분 길이의 비디오 녹화본을 사용합니다. 시각화에서 최상의 결과를 얻으려면 [다른 데이터 세트](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset)에서 제공하는 60분 길이의 고속도로 위 차량 녹화본을 사용하세요.
-  > - rtsp 시뮬레이터에 샘플 비디오 파일을 추가하는 방법은 [FAQ](faq-edge.yml)의 구성 및 배포 섹션을 참조하세요. 추가한 후에는 새 비디오 파일을 가리키도록 `rtspUrl` 값을 편집합니다.
+  > - rtsp 시뮬레이터에 샘플 비디오 파일을 추가하는 방법은 [FAQ](https://github.com/MicrosoftDocs/azure-docs-pr/pull/edge/faq.yml)의 구성 및 배포 섹션을 참조하세요. 추가한 후에는 새 비디오 파일을 가리키도록 `rtspUrl` 값을 편집합니다.
   > - 선 교차 샘플을 진행했고 [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)를 사용하는 경우에는 속성 -> 매개 변수 -> 값에서 operations.json 파일을 `"rtsp://rtspsim:554/media/camera-3600s.mkv"`로 편집하여 비디오 원본을 60분 길이의 녹화본으로 변경합니다.
 
 - [Power BI](https://powerbi.microsoft.com/) 계정

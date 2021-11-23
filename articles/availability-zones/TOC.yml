@@ -40,9 +40,9 @@
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
         - name: Load Balancer
           items:
-            - name: 부하 분산 장치란?
+            - name: ' Load Balancer 란?'
               href: ../load-balancer/load-balancer-overview.md
-            - name: 부하 분산 장치 표준 및 가용성 영역
+            - name: Load Balancer 표준 및 가용성 영역
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: 영역 중복 공용 표준 부하 분산 장치 만들기
               href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md

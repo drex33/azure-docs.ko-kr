@@ -2,14 +2,14 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ea8ee72cebc8a44d3e87ab80ab22d04b4fdc9f66
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 826e8fedbb06a101cb61ccbac1ffb09c86ff625a
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132319314"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935867"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용하여 관리 그룹 배포
 
@@ -33,10 +33,14 @@ Azure Policy의 경우 다음을 사용합니다.
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합니다.
+액세스 제어의 경우 다음을 사용합니다.
 
+* [privateLinkAssociations](/azure/templates/microsoft.authorization/privatelinkassociations)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 구독 또는 리소스 그룹에 배포하는 중첩된 템플릿의 경우 다음을 사용합니다.
 
@@ -44,6 +48,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 
 리소스를 관리하려면 다음을 사용합니다.
 
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [태그](/azure/templates/microsoft.resources/tags)
 
 관리 그룹은 테넌트 수준 리소스입니다. 그러나 새 관리 그룹의 범위를 테넌트로 설정하여 관리 그룹 배포에서 관리 그룹을 만들 수 있습니다. [관리 그룹](#management-group)을 참조하세요.
@@ -387,6 +392,6 @@ ARM 템플릿을 사용하여 관리 그룹에서 새 Azure 구독을 만들려�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 역할 할당에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
-* 클라우드 용 Microsoft Defender에 대 한 작업 영역 설정 배포에 대 한 예제는 [deployASCwithWorkspaceSettings](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)를 참조 하세요.
+* 역할 할당에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당을 참조하세요.](../../role-based-access-control/role-assignments-template.md)
+* Microsoft Defender for Cloud에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json을](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)참조하세요.
 * [구독 수준](deploy-to-subscription.md) 및 [테넌트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

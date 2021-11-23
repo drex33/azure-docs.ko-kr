@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 50c4d8bad51998f8077e2d5915748d0a19bd0a00
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9fb3331e70d6a9e132f2d7cd96768249f0de83fb
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733577"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938857"
 ---
 # <a name="how-to-use-iotcentraljsonpathcontenttemplate-mappings"></a>IotCentralJsonPathContentTemplate 매핑을 사용하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "132733577"
 > Azure Healthcare API는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 > [!TIP]
-> [IoT 커넥터](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위해 IoMT 커넥터 데이터 매퍼 도구를 확인하세요. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 [오픈 소스 버전의](https://github.com/microsoft/iomt-fhir) IoT 커넥터와 함께 사용합니다.
+> [IoT 커넥터](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위해 IoMT 커넥터 데이터 매퍼 도구를 확인하세요. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 오픈 [소스 버전의](https://github.com/microsoft/iomt-fhir) IoT 커넥터와 함께 사용합니다.
 
 이 문서에서는 IoT 커넥터 디바이스 매핑을 사용하여 IoTCentralJsonPathContentTemplate 매핑을 사용하는 방법을 설명합니다.
 
@@ -33,11 +33,11 @@ IotCentralJsonPathContentTemplate에도 DeviceIdExpression 및 TimestampExpressi
 > [!NOTE]
 > 를 사용하는 경우 `IotCentralJsonPathContentTemplate` `TypeMatchExpression` 전체 메시지를 JToken으로 확인해야 합니다. 자세한 내용은 다음 예제를 참조하세요.
  
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 **심박수**
 
-*메시지*
+*Message*
 
 ```json
 {
@@ -88,7 +88,7 @@ IotCentralJsonPathContentTemplate에도 DeviceIdExpression 및 TimestampExpressi
 
 **혈압**
 
-*메시지*
+*Message*
 
 ```json
 {
@@ -141,6 +141,9 @@ IotCentralJsonPathContentTemplate에도 DeviceIdExpression 및 TimestampExpressi
     }
 }
 ```
+
+> [!TIP]
+> 일반적인 오류 및 문제를 해결하는 데 도움이 필요하면 IoT 커넥터 [문제 해결 가이드를](./iot-troubleshoot-guide.md) 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -280,6 +280,8 @@
           href: application-gateway-backend-health-troubleshooting.md
         - name: Key Vault 오류
           href: application-gateway-key-vault-common-errors.md
+    - name: 프록시 버퍼 구성
+      href: proxy-buffers.md
     - name: 사용자 지정 오류 페이지
       href: custom-error.md
     - name: v1에서 v2로 마이그레이션

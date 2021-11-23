@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3e8d2259c4ae41f5f0433151cef8c6f447e49418
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: c24a6a8278aaea9ff78122ac632d08e8bf5ef8a0
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768106"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935012"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-features"></a>Azure Arc 기능을 사용하는 Kubernetes의 Event Grid
 Kubernetes의 Event Grid는 워크로드를 통합하고 하이브리드 아키텍처를 실현하는 데 도움이 되는 다양한 기능 집합을 제공합니다. 동일한 서비스의 다른 버전과 같은 [rest API](/rest/api/eventgrid/version2021-06-01-preview/topics)(버전 2020-10-15-preview부터 적용), [Event Grid CLI](/cli/azure/eventgrid), Azure Portal 환경, [관리 SDK](../sdk-overview.md#management-sdks), Azure Event Grid를 사용하는 [데이터 평면 SDK](../sdk-overview.md#data-plane-sdks)를 공유합니다. 이벤트를 게시할 준비가 되면 Event Grid 두 버전 모두에서 작동하는 [다른 언어로 제공된 데이터 평면 SDK 예제](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/)를 사용할 수 있습니다.
@@ -26,7 +26,7 @@ Kubernetes의 Event Grid와 Azure Event Grid는 다양한 기능을 공유하며
 | 기능 | Kubernetes의 Event Grid | Azure Event Grid |
 |:--|:-:|:-:|
 | [Event Grid 토픽](/rest/api/eventgrid/version2021-06-01-preview/topics) | ✔ | ✔ |
-| [CNCF 클라우드 이벤트 스키마](https://github.com/cloudevents/spec/blob/master/spec.md) | ✔ | ✔ |
+| [CNCF 클라우드 이벤트 스키마](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md) | ✔ | ✔ |
 | Event Grid 및 사용자 지정 스키마 | ✘* | ✔ |
 | 안정적인 배달 | ✔ | ✔ |
 | 메트릭  | ✔** | ✔ |

@@ -172,7 +172,7 @@ items:
             href: conversational-language-understanding/concepts/evaluation-metrics.md
           - name: 여러 언어 사용
             href: conversational-language-understanding/concepts/multiple-languages.md
-      - name: 참조
+      - name: 참고
         items:
           - name: 미리 빌드된 구성 요소 참조
             href: conversational-language-understanding/prebuilt-component-reference.md
@@ -182,6 +182,8 @@ items:
             items:
               - name: 작성
                 href: 'https://aka.ms/clu-authoring-apis'
+              - name: 런타임 API
+                href: 'https://aka.ms/clu-apis'
           - name: SDK
             items:
               - name: .NET

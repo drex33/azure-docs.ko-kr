@@ -2,13 +2,13 @@
 title: Bicep을 사용하여 관리 그룹에 리소스 배포
 description: 관리 그룹 범위에서 리소스를 배포하는 Bicep 파일을 만드는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 10/18/2021
-ms.openlocfilehash: 8e198f923e864b0919f20cb4d0ef6579bb375ec4
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/22/2021
+ms.openlocfilehash: 55840f743c0291e877f22e357d9894c712cf85af
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178325"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935924"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Bicep 파일을 사용하여 관리 그룹 배포
 
@@ -38,10 +38,14 @@ Azure Policy의 경우 다음을 사용합니다.
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합니다.
+액세스 제어의 경우 다음을 사용합니다.
 
+* [privateLinkAssociations](/azure/templates/microsoft.authorization/privatelinkassociations)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 구독 또는 리소스 그룹에 배포하는 중첩된 템플릿의 경우 다음을 사용합니다.
 
@@ -49,6 +53,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 
 리소스를 관리하려면 다음을 사용합니다.
 
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [태그](/azure/templates/microsoft.resources/tags)
 
 관리 그룹은 테넌트 수준 리소스입니다. 그러나 새 관리 그룹의 범위를 테넌트로 설정하여 관리 그룹 배포에서 관리 그룹을 만들 수 있습니다. [관리 그룹](#management-group)을 참조하세요.

@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-ms.openlocfilehash: 2d30b39d641c69580e11589616212fbc35ff5f5d
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b99b47962e1af6613b5559588e4a573f0861b7b0
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522729"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939826"
 ---
 <!-- NOTES:
 
@@ -403,7 +403,7 @@ App Service를 설정하는 과정에서 다음 항목을 만듭니다.
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-1. [`az login`](/cli/reference-index#az_login) 명령을 사용하고 프롬프트에 따라 Azure 계정에 로그인합니다.
+1. [`az login`](/cli/azure/reference-index#az_login) 명령을 사용하고 프롬프트에 따라 Azure 계정에 로그인합니다.
 
     ```azurecli
     az login

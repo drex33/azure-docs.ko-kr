@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: template-quickstart, ignite-fall-2021
-ms.openlocfilehash: d27bef4eedec63a2fccd3ddc5c30ed07e430c0ff
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 20010836b2c8e5933f96b234bd200a62de626750
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132808055"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934531"
 ---
 # <a name="quickstart-create-a-mesh-network-with-azure-virtual-network-manager-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하는 Azure Virtual Network Manager를 통해 메시 네트워크 만들기
 
@@ -52,14 +52,16 @@ Install-Module -Name Az.Network -AllowPrerelease
 1. 이 Azure Virtual Network Manager 인스턴스에 포함될 범위 및 액세스 유형을 정의합니다. 구독 그룹 또는 관리 그룹이나 둘의 조합을 사용하여 범위를 만들기 위해 선택할 수 있습니다. New-AzNetworkManagerScope을 사용하여 범위를 만듭니다.
 
     ```azurepowershell-interactive
+    Import-Module -Name Az.Network -RequiredVersion "4.12.1"
+    
     [System.Collections.Generic.List[string]]$subGroup = @()  
-    $group.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
+    $subGroup.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
     [System.Collections.Generic.List[string]]$mgGroup = @()  
-    $group.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
+    $mgGroup.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
     
     [System.Collections.Generic.List[String]]$access = @()  
     $access.Add("Connectivity");  
-    $access.Add("Security"); 
+    $access.Add("SecurityAdmin"); 
  
     $scope = New-AzNetworkManagerScope -Subscription $subGroup  -ManagementGroup $mgGroup
     ```
@@ -70,7 +72,7 @@ Install-Module -Name Az.Network -AllowPrerelease
     $avnm = @{
         Name = 'myAVNM'
         ResourceGroupName = 'myAVNMResourceGroup'
-        NetworkManagerScope = $scope.id
+        NetworkManagerScope = $scope
         NetworkManagerScopeAccess = $access
         Location = 'West US'
     }

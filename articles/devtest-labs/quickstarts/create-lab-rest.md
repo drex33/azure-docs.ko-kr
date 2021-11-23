@@ -3,12 +3,12 @@ title: '빠른 시작: REST API를 사용하여 랩 만들기'
 description: 이 빠른 시작에서는 Azure REST API를 사용하여 Azure DevTest Labs에서 랩을 만듭니다.
 ms.topic: quickstart
 ms.date: 10/27/2021
-ms.openlocfilehash: 83a1509f36f53d51f63f7dbc39ea2d1f6794dc54
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e618003bf4ddd254fe37168a5388cec08526be97
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131479784"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938517"
 ---
 # <a name="quickstart-create-a-lab-in-azure-devtest-labs-using-azure-rest-api"></a>빠른 시작: Azure REST API를 사용하여 Azure DevTest Labs에서 랩 만들기
 
@@ -22,7 +22,7 @@ Azure REST API를 사용하여 Azure DevTest Labs 시작 Azure DevTest Labs는 A
 
 ## <a name="prepare-request-body"></a>요청 본문 준비
 
-REST 호출에서 사용할 [요청 본문](/rest/api/dtl/labs/create-or-update.md#request-body)을 준비합니다.
+REST 호출에서 사용할 [요청 본문](/rest/api/dtl/labs/create-or-update#request-body)을 준비합니다.
 
 다음 JSON 구문을 `body.json`이라는 파일에 복사하여 붙여넣습니다. 로컬 컴퓨터 또는 Azure 스토리지 계정에 파일을 저장합니다.
 

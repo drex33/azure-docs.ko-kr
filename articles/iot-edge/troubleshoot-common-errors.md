@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 11b74530daa08112ca945edfa45595a3aa1cf1f4
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 8d0ccbbf15f79d9e3475654094d45ed1518a2e89
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491756"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132942083"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -403,7 +403,7 @@ IoT Edge 서비스에 대해 모듈을 설정한 후 모듈이 성공적으로 �
 
 **근본 원인:**
 
-컨테이너는 클라우드 서비스와 통신할 수 있도록 IP 패킷 전달을 사용하여 인터넷에 연결합니다. IP 패킷 전달은 Docker에서 기본적으로 사용하도록 설정되지만 사용하지 않도록 설정되면 클라우드 서비스에 연결하는 모든 모듈이 예상대로 작동하지 않습니다. 자세한 내용은 Docker 설명서의 [컨테이너 통신 이해를](http://docs.docker.oeynet.com/engine/userguide/networking/default_network/container-communication/) 참조하세요.
+컨테이너는 클라우드 서비스와 통신할 수 있도록 IP 패킷 전달을 사용하여 인터넷에 연결합니다. IP 패킷 전달은 Docker에서 기본적으로 사용하도록 설정되지만 사용하지 않도록 설정되면 클라우드 서비스에 연결하는 모든 모듈이 예상대로 작동하지 않습니다. 자세한 내용은 Docker 설명서의 [컨테이너 통신 이해를](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) 참조하세요.
 
 **해결 방법:**
 
@@ -418,7 +418,7 @@ Windows에서:
 
 1. `regedit`텍스트 상자에 를 입력하고 **확인을** 선택합니다.
 
-1. 레지스트리 **편집기** 창에서 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters** 찾습니다.
+1. 레지스트리 **편집기** 창에서 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters** 으로 찾습니다.
 
 1. **IPEnableRouter 매개 변수를 찾습니다.**
 
@@ -428,8 +428,8 @@ Windows에서:
 
       | 설정 | 값 |
       | ------- | ----- |
-      | Name    | IPEnableRouter |
-      | 형식    | REG_DWORD |
+      | 이름    | IPEnableRouter |
+      | Type    | REG_DWORD |
       | 값   | 1 |
 
 1. 레지스트리 편집기 창을 닫습니다.

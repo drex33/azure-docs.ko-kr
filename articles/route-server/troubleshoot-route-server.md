@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: how-to
 ms.date: 09/23/2021
 ms.author: duau
-ms.openlocfilehash: abece146cb2394046b7f46aa96ea70dc124cade0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1661789d0763ed856500a3a4b37bd523e0ccceb5
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649060"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939504"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Azure Route Server 문제 해결
 
@@ -63,7 +63,7 @@ Azure Route Server에서 사용하는 ASN은 65515입니다. 경로 전파가 �
 
 ### <a name="why-is-the-equal-cost-multi-path-ecmp-function-of-my-expressroute-turned-off-after-i-deploy-azure-route-server-to-the-virtual-network"></a>Azure Route Server를 가상 네트워크에 배포한 후 ExpressRoute의 ECMP(Equal-Cost Multi-Path) 기능이 꺼져 있는 이유가 무엇인가요?
 
-여러 ExpressRoute 연결을 통해 온-프레미스 네트워크에서 Azure로 동일한 경로를 보급할 때 일반적으로 ECMP는 Azure에서 다시 온-프레미스로의 이러한 경로를 대상으로 하는 트래픽에 대해 기본적으로 사용하도록 설정됩니다. 그러나 경로 서버가 배포된 후 ExpressRoute와 Azure Route Server 간의 BGP 교환에서 다중 경로 정보가 손실되고 결과적으로 Azure의 트래픽은 ExpressRoute 연결 중 하나에서만 통과합니다. 이 제한은 Azure Route Server의 향후 릴리스에서 해제됩니다.  
+여러 ExpressRoute 연결을 통해 온-프레미스 네트워크에서 Azure로 동일한 경로를 보급할 때 일반적으로 ECMP는 Azure에서 다시 온-프레미스로의 이러한 경로를 대상으로 하는 트래픽에 대해 기본적으로 사용하도록 설정됩니다. 그러나 경로 서버가 배포된 후 ExpressRoute와 Azure Route Server 간의 BGP 교환에서 다중 경로 정보가 손실되고 결과적으로 Azure의 트래픽은 ExpressRoute 연결 중 하나에서만 통과합니다. 이러한 제한은 Azure Route Server의 향후 릴리스에서 리프트 될 예정입니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,15 +5,15 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: saasguide
-ms.author: souchak
+author: arifgani
+ms.author: argani
 ms.date: 05/28/2021
-ms.openlocfilehash: 16c989973779bac210a44c80762457f7b74cb758
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 39773615c89cd18f80864781ea879ff177e9a7de
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458570"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132933917"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 

@@ -8,12 +8,12 @@ ms.author: danlep
 ms.topic: how-to
 ms.date: 10/21/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c1541e9de6d2f9346826e256fcb854b0ca7cdac3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 07a75203cce5800ba7ab61cd77ab9d3ae3c27791
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102724"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935050"
 ---
 # <a name="import-a-graphql-api-preview"></a>GraphQL API 가져오기(미리 보기)
 
@@ -42,7 +42,7 @@ API Management GraphQL API 게시와 함께 제공되는 보안, 인증 및 권�
 
 1. API Management 인스턴스로 이동합니다.
 1. 측면 탐색 메뉴의 **API** 섹션 아래에서 **API** 를 선택합니다.
-1. **새 API 정의에서** **GraphQL** 아이콘을 선택합니다.
+1. **새 API 정의** 아래에서 **GraphQL** 아이콘을 선택합니다.
 
     :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="API 목록에서 GraphQL 아이콘 선택":::
 
@@ -54,12 +54,12 @@ API Management GraphQL API 게시와 함께 제공되는 보안, 인증 및 권�
     |----------------|-------|
     | 표시 이름 | GraphQL API가 표시되는 이름입니다. |
     | 이름 | GraphQL API의 원시 이름입니다. 표시 이름을 입력하면 자동으로 채워집니다. |
-    | GraphQL API 엔드포인트 | GraphQL API 엔드포인트 이름이 있는 기본 URL입니다. <br /> 예: *https://example.com/your-GraphQL-name* . 일반적인 ["StarType" GraphQL 엔드포인트를](https://swapi-graphql.netlify.app/.netlify/functions/index) 데모로 사용할 수도 있습니다. |
+    | GraphQL API 엔드포인트 | GraphQL API 엔드포인트 이름이 있는 기준 URL입니다. <br /> 예: *`https://example.com/your-GraphQL-name`* . 일반적인 ["StarType" GraphQL 엔드포인트를](https://swapi-graphql.netlify.app/.netlify/functions/index) 데모로 사용할 수도 있습니다. |
     | 스키마 파일 업로드 | 스키마 파일을 찾아 업로드하려면 선택합니다. |
-    | 설명 | API에 대한 설명을 추가합니다. |
+    | Description | API에 대한 설명을 추가합니다. |
     | URL 구성표 | HTTP, HTTPS 또는 모두를 선택합니다. 기본 선택: *둘 다.* |
     | API URL 접미사| URL 접미사를 추가하여 이 API Management 인스턴스에서 이 API를 식별합니다. 접미사는 이 API Management 인스턴스에서 고유해야 합니다. |
-    | 기준 URL | API 기준 URL을 표시하는 반복할 수 없는 필드 |
+    | 기준 URL | API 기준 URL을 표시하는 미지정 필드 |
     | 태그 | GraphQL API를 새 태그 또는 기존 태그와 연결합니다. |
     | 제품 | GraphQL API를 제품과 연결하여 게시합니다. |
     | 게이트웨이 | GraphQL API를 기존 게이트웨이와 연결합니다. 기본 게이트웨이 선택: *관리되는* 입니다. |
@@ -71,7 +71,7 @@ API Management GraphQL API 게시와 함께 제공되는 보안, 인증 및 권�
 
 1. API Management 인스턴스로 이동합니다.
 1. 측면 탐색 메뉴의 **API** 섹션 아래에서 **API** 를 선택합니다.
-1. **모든 API에서** GraphQL API를 선택합니다.
+1. **모든 API** 아래에서 GraphQL API를 선택합니다.
 1. **테스트** 탭을 선택하여 테스트 콘솔에 액세스합니다. 
 1. **헤더 아래에서:**
     1. **이름** 드롭다운 메뉴에서 헤더를 선택합니다.

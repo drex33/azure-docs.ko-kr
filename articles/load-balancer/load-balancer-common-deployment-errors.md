@@ -8,14 +8,14 @@ tags: top-support-issue
 author: anavinahar
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.date: 04/27/2020
+ms.date: 11/22/2021
 ms.author: anavin
-ms.openlocfilehash: da7d31d018853b340be4506af48a602e7cb2765b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: 058baee6623d10e1888d33700928cc3f9c5f50de
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113437939"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934217"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Azure Load Balancer를 사용하여 일반적인 Azure 배포 오류 해결
 
@@ -37,7 +37,8 @@ ms.locfileid: "113437939"
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | 다중 배치 그룹 가상 머신 확장 집합 또는 교차 가용성 영역 가상 머신 확장 집합에 대한 기본 Load Balancer는 지원되지 않습니다. 표준 Load Balancer를 대신 사용하세요. |
 |MarketplacePurchaseEligibilityFailed | 구독이 EA 구독으로 전환됨에 따라 구매가 가능하도록 올바른 관리 계정으로 전환하세요. 자세한 내용은 [여기](../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-)를 참조하세요. |
 |ResourceDeploymentFailure| 부하 분산 장치에 장애가 발생한 경우 다음 단계에 따라 복구하세요.<ol><li>https://resources.azure.com 으로 이동하고 Azure Portal 자격 증명으로 로그인합니다.</li><li>**읽기/쓰기** 를 선택합니다.</li><li>왼쪽에서 **구독** 을 확장한 다음, 업데이트할 Load Balancer로 구독을 확장합니다.</li><li>**ResourceGroups** 를 확장한 다음, 업데이트할 Load Balancer로 리소스 그룹을 확장합니다.</li><li>**Microsoft.Network** > **LoadBalancers** 를 선택한 다음, 업데이트할 Load Balancer로 **LoadBalancer_1** 을 선택합니다.</li><li>**LoadBalancer_1** 에 대한 표시 페이지에서 **가져오기** > **편집** 을 선택합니다.</li><li>**ProvisioningState** 값을 **실패** 에서 **성공** 으로 업데이트합니다.</li><li>**PUT** 을 선택합니다.</li></ol>|
-|  |  |
+|LoadBalancerWithoutFrontendIPCantHaveChildResources | 프런트 엔드 IP 구성이 없는 Load Balancer 리소스에는 연결된 자식 리소스 또는 연결된 구성 요소가 있을 수 없습니다. 이 오류를 완화하려면 프런트 엔드 IP 구성을 추가한 다음 추가하려는 리소스를 추가합니다. |
+| LoadBalancerRuleCountLimitReachedForNic | 백 엔드 풀 멤버의 네트워크 인터페이스(가상 머신, 가상 머신 확장 집합)는 300개 이상의 규칙에 연결될 수 없습니다. 규칙 수를 줄이거나 다른 Load Balancer 활용합니다. 이 제한은 Load Balancer [제한 페이지에 설명되어 있습니다.](https://aka.ms/lblimits)
 
 ## <a name="next-steps"></a>다음 단계
 

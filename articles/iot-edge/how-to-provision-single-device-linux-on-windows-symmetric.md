@@ -1,26 +1,25 @@
 ---
 title: 대칭 키를 사용하여 Windows 디바이스에서 Linux용 IoT Edge 만들고 프로비전 - Azure IoT Edge | Microsoft Docs
-description: 대칭 키와 함께 수동 프로비저닝을 사용하여 IoT Hub Windows 디바이스에서 Linux용 단일 IoT Edge 만들고 프로비전합니다.
+description: 대칭 키로 수동 프로비저닝을 사용하여 IoT Hub Windows 디바이스에서 Linux용 단일 IoT Edge 만들고 프로비전합니다.
 author: kgremban
-ms.reviewer: v-tcassi
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: kgremban
 monikerRange: iotedge-2018-06
-ms.openlocfilehash: 014019cd2615488cb30eb85ef2f751f6d5cac7a8
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 319f1af5316e1e1d7d3e8532e7ce397e7788a4da
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853399"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132942121"
 ---
 # <a name="create-and-provision-an-iot-edge-for-linux-on-windows-device-using-symmetric-keys"></a>대칭 키를 사용하여 Windows 디바이스에서 Linux용 IoT Edge 만들기 및 프로비전
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-이 문서에서는 Windows 디바이스에서 Linux용 IoT Edge 등록하고 프로비전하는 엔드투엔드 지침을 제공합니다.
+이 문서에서는 Windows 디바이스에서 Linux용 IoT Edge 등록 및 프로비전하기 위한 엔드투엔드 지침을 제공합니다.
 
 IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 또는 디바이스-클라우드 통신을 추적하는 데 사용되는 디바이스 ID가 있습니다. IoT 허브 호스트 이름, 디바이스 ID, 디바이스에서 IoT Hub 인증에 사용하는 정보를 포함하는 연결 정보로 디바이스를 구성합니다.
 
@@ -43,7 +42,7 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 > * [TPM을 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
 > * [대칭 키를 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 IoT Edge 디바이스 등록 및 Windows Linux용 IoT Edge 설치에 대해 설명합니다. 이러한 작업에는 이러한 작업을 수행하는 데 사용되는 다양한 필수 구성 조건 및 유틸리티가 있습니다. 계속하기 전에 모든 필수 구성요소가 있는지 확인합니다.
 
@@ -63,7 +62,7 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 
 클라우드 ID 및 인증 정보를 사용하여 디바이스를 설정할 준비가 완료되었습니다.
 
-대칭 키를 사용하여 디바이스를 프로비전하려면 디바이스의 **연결 문자열** 이 필요합니다.
+대칭 키를 사용하여 디바이스를 프로비전하려면 디바이스의 **연결 문자열** 가 필요합니다.
 
 Windows Admin Center 또는 관리자 권한 PowerShell 세션을 사용하여 디바이스를 프로비전할 수 있습니다.
 

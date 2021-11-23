@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 96b110b03f211d62a0ed778e40aa7a6ad8c8c3ce
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 4b86742fb3bb5cc5c642b4d97b96c6aebc7c887c
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733493"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936583"
 ---
 # <a name="how-to-use-device-mappings"></a>디바이스 매핑을 사용하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "132733493"
 > Azure Healthcare API는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 > [!TIP]
-> [IoT 커넥터](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위해 IoMT 커넥터 데이터 매퍼 도구를 확인하세요. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 [오픈 소스 버전의](https://github.com/microsoft/iomt-fhir) IoT 커넥터와 함께 사용합니다.
+> [IoT 커넥터](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위해 IoMT 커넥터 데이터 매퍼 도구를 확인하세요. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 오픈 [소스 버전의](https://github.com/microsoft/iomt-fhir) IoT 커넥터와 함께 사용합니다.
 
 이 문서에서는 디바이스 매핑을 사용하여 IoT 커넥터를 구성하는 방법을 설명합니다.
 
@@ -88,13 +88,16 @@ IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑이 필요합니다. 
 
 다양한 템플릿 형식이 있으며 디바이스 매핑 파일을 빌드할 때 사용할 수 있습니다.
 
-|이름                                                                     | 설명                                                                   |  
+|이름                                                                     | Description                                                                   |  
 |-------------------------------------------------------------------------|-------------------------------------------------------------------------------|
 |[JsonPathContentTemplate](./how-to-use-jsonpath-content-mappings.md)     |JsonPath를 사용하여 식 작성을 지원하는 템플릿                  
 |[CollectionContentTemplate](./how-to-use-collection-content-mappings.md) |정규화 중에 사용할 템플릿 목록을 나타내는 데 사용되는 템플릿입니다.                                                            |                                                           
 |[CalculatedContentTemplate](./how-to-use-calculated-functions-mappings.md)|여러 식 언어 중 하나를 사용하여 식을 작성할 수 있는 템플릿입니다. JmesPath 함수를 사용하여 데이터 변환을 지원합니다.|
 |[IotJsonPathContentTemplate](./how-to-use-iot-jsonpath-content-mappings.md)|Azure Iot Hub 또는 Azure Iot Central의 레거시 데이터 내보내기 기능에서 보낸 메시지를 지원하는 템플릿입니다.|
-|[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|Azure Iot Central의 데이터 내보내기 기능을 통해 전송된 메시지를 지원하는 템플릿입니다.|  
+|[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|Azure Iot Central의 데이터 내보내기 기능을 통해 전송된 메시지를 지원하는 템플릿입니다.| 
+
+> [!TIP]
+> 일반적인 오류 및 문제를 해결하는 데 도움이 필요하면 IoT 커넥터 [문제 해결 가이드를](./iot-troubleshoot-guide.md) 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

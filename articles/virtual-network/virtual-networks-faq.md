@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3e59e95de15a34e11bba2071f5b22c722c6845a4
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 61d0ea174f5af9b73933e992130fa25b7b927361
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132552131"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934530"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -162,7 +162,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
   - **Resource Manager**: 동적 또는 정적 메서드로 할당된 개인 IP 주소는 리소스가 삭제될 때까지 가상 머신(Resource Manager)에 할당된 상태로 유지됩니다. 차이점은 정적 방법을 사용하면 할당할 주소를 사용자가 선택하고 동적 방법을 사용하면 Azure에서 선택된다는 점입니다. 
   - **클래식**: 가상 머신(클래식) VM이 중지(할당 취소됨)된 상태에서 다시 시작될 때 동적 메서드로 할당된 개인 IP 주소가 변경될 수 있습니다. 클래식 배포 모델을 통해 배포된 리소스의 개인 IP 주소가 절대 변경되지 않도록 하려면 정적 메서드로 개인 IP 주소를 할당합니다.
 
-* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소를 [ILPIP (인스턴스 수준 공용 IP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) 주소 라고 하며 동적으로 할당할 수 있습니다.
+* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소를 [ILPIP(인스턴스 수준 공용 IP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) 주소라고 하며 동적으로 할당할 수 있습니다.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있나요?
 아니요. 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. VM은 개인 IP 주소를 할당하려는 VM일 수도 있고 그렇지 않을 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.
@@ -231,8 +231,8 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 ### <a name="do-virtual-networks-store-customer-data"></a>가상 네트워크에서 고객 데이터를 저장하나요?
 아니요. 가상 네트워크는 고객 데이터를 저장하지 않습니다. 
 
-### <a name="can-i-set-flowtimeoutinminutes-property-for-an-entire-subscription"></a>전체 구독에 대해 [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork?view=azps-6.5.0) 속성을 설정할 수 있나요? 
-아니요. 이는 가상 네트워크에서 설정 해야 합니다. 다음은 더 큰 구독의 경우이 속성을 자동으로 설정 하는 데 도움이 될 수 있습니다.  
+### <a name="can-i-set-flowtimeoutinminutes-property-for-an-entire-subscription"></a>전체 [구독에 대해 FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork?view=azps-6.5.0) 속성을 설정할 수 있나요? 
+아니요. 가상 네트워크에서 설정해야 합니다. 다음은 대규모 구독에 대해 이 속성을 자동으로 설정하는 데 도움이 될 수 있습니다.  
 ```Powershell
 $Allvnet = Get-AzVirtualNetwork
 $time = 4 #The value should be between 4 and 30 minutes (inclusive) to enable tracking, or null to disable tracking. $null to disable. 
@@ -270,7 +270,7 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 - Redis Cache 
 - Application Gateway(v1) SKU
 - Service Fabric
-- API Management (stv1)
+- API Management(stv1)
 - ADDS(Active Directory Domain Service)
 - Logic Apps
 - HDInsight
@@ -294,7 +294,7 @@ VNet 피어링 연결이 *연결 끊김* 상태에 있는 경우 만들어진 �
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>주소 범위가 일치하거나 겹치는 두 VNet을 피어로 연결할 수 있나요?
 아니요. VNet 피어링을 사용하려면 주소 공간이 겹치지 않아야 합니다.
 
-### <a name="can-i-peer-a-vnet-to-two-different-vnets-with-the-the-use-remote-gateway-option-enabled-on-both-the-peerings"></a>두 피어링에서 '원격 게이트웨이 사용' 옵션을 사용하도록 설정하여 VNet을 두 개의 다른 VNet에 피어링할 수 있나요?
+### <a name="can-i-peer-a-vnet-to-two-different-vnets-with-the-use-remote-gateway-option-enabled-on-both-the-peerings"></a>피어 링에서 ' 원격 게이트웨이 사용 ' 옵션을 사용할 수 있는 두 개의 다른 Vnet에 VNet을 피어 링 할 수 있나요?
 아니요. VNet 중 하나에 대한 하나의 피어링에서만 '원격 게이트웨이 사용' 옵션을 사용하도록 설정할 수 있습니다.
 
 ### <a name="how-much-do-vnet-peering-links-cost"></a>VNet 피어링 연결 비용은 얼마나 되나요?
@@ -415,7 +415,7 @@ Azure 서비스에 연결하려면 NSG에서 아웃바운드 연결을 허용해
 가상 네트워크에 대한 쓰기 권한이 있는 사용자는 가상 네트워크에서 독립적으로 서비스 엔드포인트를 구성할 수 있습니다. VNet에 대한 Azure 서비스 리소스를 보호하려면 사용자는 추가되는 서브넷에 대한 사용 권한 **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** 을 갖고 있어야 합니다. 이 권한은 기본적으로 기본 제공 서비스 관리자 역할에 포함되고 사용자 지정 역할을 만들어 수정할 수 있습니다. 기본 제공 역할 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
  
 
-### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>VNet 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용하여 Azure 서비스에 대한 가상 네트워크 트래픽을 필터링할 수 있나요? 
+### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>VNet 서비스 끝점을 통해 특정 Azure 서비스 리소스만 허용 하 여 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있나요? 
 
 VNet(가상 네트워크) 서비스 엔드포인트 정책을 통해 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용할 수 있습니다. 엔드포인트 정책은 Azure 서비스로 전송되는 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. [여기서](virtual-network-service-endpoint-policies-overview.md) 서비스 엔드포인트 정책에 대해 자세히 알아볼 수 있습니다.
 

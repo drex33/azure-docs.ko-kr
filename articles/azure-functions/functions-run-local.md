@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 10/05/2021
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8512df7ba32e7fabee5d666ca119197da7d82d6b
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: f7fc365fb312c2041aa3b46a1bb1bd84440ac4f9
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028404"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939237"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -193,7 +193,7 @@ Core Tools 버전 1.x는 Linux에서 지원되지 않습니다. Linux에서 버�
 npm install -g azure-functions-core-tools@3 --unsafe-perm true
 ```
 
-MSI(Windows 설치 관리자)를 사용하여 Windows Core Tools를 설치한 경우 다른 버전을 설치하기 전에 프로그램 제거 추가에서 이전 버전을 제거해야 합니다.
+MSI(Windows 설치 관리자)를 사용하여 Windows Core Tools를 설치한 경우 다른 버전을 설치하기 전에 프로그램 추가에서 이전 버전을 제거해야 합니다.
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
@@ -260,7 +260,7 @@ PowerShell에 대한 추가 고려 사항은 없습니다.
 
 런타임 버전 2.x부터 Functions 트리거 및 바인딩은 .NET 확장(NuGet) 패키지로 구현됩니다. 컴파일된 C# 프로젝트의 경우 사용 중인 특정 트리거 및 바인딩에 대한 NuGet 확장 패키지를 참조하기만 하면 됩니다. HTTP 바인딩 및 타이머 트리거에는 확장이 필요하지 않습니다. 
 
-C#이 아닌 프로젝트의 개발 환경을 개선하기 위해 Functions를 사용하면 host.json 프로젝트 파일에서 버전이 지정된 확장 번들을 참조할 수 있습니다. [확장 번들](functions-bindings-register.md#extension-bundles)은 앱에서 모든 확장을 사용할 수 있도록 하고 확장 간에 패키지 호환성 문제가 발생할 가능성을 제거합니다. 확장 번들은 .NET Core 3.1 SDK를 설치하고 extensions.csproj 파일을 처리해야 하는 요구 사항도 제거합니다.
+C#이 아닌 프로젝트의 개발 환경을 개선하기 위해 Functions를 사용하면 host.json 프로젝트 파일에서 버전이 지정된 확장 번들을 참조할 수 있습니다. [확장 번들](functions-bindings-register.md#extension-bundles)은 앱에서 모든 확장을 사용할 수 있도록 하고 확장 간에 패키지 호환성 문제가 발생할 가능성을 제거합니다. 또한 확장 번들은 .NET Core 3.1 SDK를 설치하고 extensions.csproj 파일을 처리해야 하는 요구 사항을 제거합니다.
 
 확장 번들은 C# 호환 프로젝트 이외의 Functions 프로젝트에 권장되는 접근 방식입니다. 이러한 프로젝트의 경우 초기화 중에 확장 번들 설정이 _host.json_ 파일에 생성됩니다. 이것이 작동한다면 이 전체 섹션을 건너뛸 수 있습니다.  
 
@@ -504,7 +504,7 @@ Azure Functions Core Tools는 세 가지 배포 유형을 지원합니다.
 | ----- | ----- | ----- |
 | 프로젝트 파일 | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | [zip 배포](functions-deployment-technologies.md#zip-deploy)를 사용하여 함수 프로젝트 파일을 함수 앱에 직접 배포합니다. |
 | 사용자 지정 컨테이너 | `func deploy` | 프로젝트를 Linux 함수 앱에 사용자 지정 Docker 컨테이너로 배포합니다.  |
-| Kubernetes 클러스터 | `func kubernetes deploy` | Linux 함수 앱을 Kubernetes 클러스터에 고객 Docker 컨테이너로 배포합니다. | 
+| Kubernetes 클러스터 | `func kubernetes deploy` | Linux 함수 앱을 사용자 지정 Docker 컨테이너로 Kubernetes 클러스터에 배포합니다. | 
 
 ### <a name="before-you-publish"></a>게시하기 전에 
 

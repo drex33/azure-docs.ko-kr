@@ -3,19 +3,16 @@ title: Microsoft 센티널 네트워크 세션 정규화 스키마 참조 (공�
 description: 이 문서에서는 Microsoft 센티널 네트워크 세션 정규화 스키마를 표시 합니다.
 author: oshezaf
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 11/17/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 53d4dc6f8a5df69463b6cbe16e6a292bfe024628
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 755bf453719f72ed87b4616d6d06b84899c3bf41
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132756764"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941380"
 ---
 # <a name="microsoft-sentinel-network-session-normalization-schema-reference-public-preview"></a>Microsoft 센티널 네트워크 세션 정규화 스키마 참조 (공개 미리 보기)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 네트워크 세션 정규화 스키마는 IP 네트워크 작업을 설명 하는 데 사용 됩니다. 여기에는 네트워크 연결 및 네트워크 세션이 포함 됩니다. 예를 들어 운영 체제, 라우터, 방화벽, 침입 방지 시스템 및 웹 보안 게이트웨이에서 이러한 이벤트가 보고 됩니다.
 
@@ -48,71 +45,85 @@ Microsoft 센티널의 정규화에 대 한 자세한 내용은 [정규화 및 A
 
 ### <a name="netflow-log-sources"></a>Netflow 로그 원본
 
-| Task | Description|
+| 작업 | 설명|
 | --- | --- |
 | **Netflow 이벤트 정규화** | Netflow 이벤트를 정규화 하려면 [네트워크 세션 필드](#network-session-fields)에 매핑합니다. Netflow 원격 분석은 집계를 지원 하 고 `EventCount` 필드 값은이를 반영 하 고 Netflow *흐름* 값으로 설정 되어야 합니다. |
-| **Netflow 이벤트 사용** | Netflow 이벤트는 [Imnetworksession](#use-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. Aggregative 쿼리를 만들 때는 `EventCount` 항상로 설정 되지 않을 수 있는 필드 값을 고려해 야 `1` 합니다. |
+| **Netflow 이벤트 사용** | Netflow 이벤트는 [Imnetworksession](#source-agnostic-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. Aggregative 쿼리를 만들 때는 `EventCount` 항상로 설정 되지 않을 수 있는 필드 값을 고려해 야 `1` 합니다. |
 | | |
 
 ### <a name="firewall-log-sources"></a>방화벽 로그 원본
 
-| Task | Description |
+| 작업 | Description |
 | --- | --- |
-| **방화벽 이벤트 정규화** | 방화벽에서 이벤트를 정규화 하려면 [이벤트](#event-fields), [네트워크 세션](#network-session-fields)및 [세션 검사](#inspection-fields) 필드에 관련 이벤트를 매핑합니다. 이러한 이벤트를 필터링 하 여 [Innetworknotables](#use-parsers) 소스에 관계 없는 파서에 추가 합니다. |
-| **방화벽 이벤트 사용** | 방화벽 이벤트는 [Imnetworksession](#use-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. 방화벽 검사 엔진에 의해 식별 되는 관련 이벤트는 [Innetworknotables](#use-parsers) 소스와 무관 한 파서의 일부로도 표시 됩니다. |
+| **방화벽 이벤트 정규화** | 방화벽에서 이벤트를 정규화 하려면 관련 이벤트를 [공통](#common-fields), [네트워크 세션](#network-session-fields)및 [세션 검사](#inspection-fields) 필드에 매핑합니다. 이러한 이벤트를 필터링 하 여 [Innetworknotables](#source-agnostic-parsers) 소스에 관계 없는 파서에 추가 합니다. |
+| **방화벽 이벤트 사용** | 방화벽 이벤트는 [Imnetworksession](#source-agnostic-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. 방화벽 검사 엔진에 의해 식별 되는 관련 이벤트는 [Innetworknotables](#source-agnostic-parsers) 소스와 무관 한 파서의 일부로도 표시 됩니다. |
 | | |
 
 ### <a name="intrusion-prevention-systems-ips-log-sources"></a>IP (침입 방지 시스템) 로그 원본
 
-| Task | Description |
+| 작업 | Description |
 | --- | --- |
-| **IP 이벤트 정규화** | 침입 방지 시스템에서 이벤트를 정규화 하려면 [이벤트 필드](#event-fields), [네트워크 세션 필드](#network-session-fields)및 [세션 검사 필드](#inspection-fields)를 매핑합니다. [Imnetworksession](#use-parsers) 과 [Innetworknotables](#use-parsers) 소스에 관계 없는 파서에 모두 소스 관련 파서를 포함 해야 합니다. |
-| **IP 이벤트 사용** | IP 이벤트는 [Imnetworksession](#use-parsers) 및 [Innetworknotables](#use-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. |
+| **IP 이벤트 정규화** | 침입 방지 시스템에서 이벤트를 정규화 하려면 [공용](#common-fields), [네트워크 세션](#network-session-fields)및 [세션 검사](#inspection-fields) 필드를 매핑합니다. [Imnetworksession](#source-agnostic-parsers) 과 [Innetworknotables](#source-agnostic-parsers) 소스에 관계 없는 파서에 모두 소스 관련 파서를 포함 해야 합니다. |
+| **IP 이벤트 사용** | IP 이벤트는 [Imnetworksession](#source-agnostic-parsers) 및 [Innetworknotables](#source-agnostic-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. |
 | | |
 
 ### <a name="web-servers"></a>웹 서버
 
-| Task | Description |
+| 작업 | 설명 |
 | --- | --- |
-| **웹 서버 이벤트 정규화** | 웹 서버에서 이벤트를 정규화 하려면 [이벤트 필드](#event-fields), [네트워크 세션 필드](#network-session-fields)및 [HTTP 세션 필드](#http-session-fields)를 매핑합니다. 값을로 설정 하 `EventType` `HTTP Session` 고 및 필드에 대 한 HTTP 세션 관련 지침을 따릅니다 `EventResult` `EventResultDetails` . <br><br>[Imnetworksession](#use-parsers) 및 [imnetworksession](#use-parsers) 소스에 관계 없는 파서에 소스 관련 파서를 포함 해야 합니다. |
-| **웹 서버 이벤트 사용** | 웹 서버 이벤트는 [Imnetworksession](#use-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. 그러나 HTTP 관련 필드를 사용 하려면 [Imwebsession](#use-parsers) 파서를 사용 합니다. |
+| **웹 서버 이벤트 정규화** | 웹 서버에서 이벤트를 정규화 하려면 [공용](#common-fields), [네트워크 세션](#network-session-fields)및 [HTTP 세션](#http-session-fields) 필드를 매핑합니다. 값을로 설정 하 `EventType` `HTTP Session` 고 및 필드에 대 한 HTTP 세션 관련 지침을 따릅니다 `EventResult` `EventResultDetails` . <br><br>[Imnetworksession](#source-agnostic-parsers) 및 [imnetworksession](#source-agnostic-parsers) 소스에 관계 없는 파서에 소스 관련 파서를 포함 해야 합니다. |
+| **웹 서버 이벤트 사용** | 웹 서버 이벤트는 [Imnetworksession](#source-agnostic-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. 그러나 HTTP 관련 필드를 사용 하려면 [Imwebsession](#source-agnostic-parsers) 파서를 사용 합니다. |
 | | |
 
 ### <a name="web-security-gateways"></a>웹 보안 게이트웨이
 
-| Task | Description |
+| 작업 | 설명 |
 | --- | --- |
-| **웹 보안 게이트웨이 이벤트 정규화** | 웹 서버 게이트웨이에서 이벤트를 정규화 하려면 [이벤트 필드](#event-fields), [네트워크 세션 필드](#network-session-fields), [HTTP 세션 필드](#http-session-fields), [세션 검사 필드](#inspection-fields)및 선택적으로 중간 필드를 매핑합니다. <br><br>`EventType`을로 설정 하 `HTTP` 고 및 필드에 대 한 HTTP 세션 관련 지침을 따라야 `EventResult` 합니다 `EventResultDetails` . <br><br>[Imnetworksession](#use-parsers) 및 [imnetworksession](#use-parsers) 소스에 관계 없는 파서에 소스 관련 파서를 포함 해야 합니다. 또한 검사 엔진에 의해 검색 된 모든 이벤트를 필터링 하 여 [Innetworknotables](#use-parsers) 소스에 관계 없는 파서에 추가 합니다. |
-| **웹 보안 게이트웨이 이벤트 사용** | 웹 서버 이벤트는 [Imnetworksession](#use-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. <br><br>-HTTP 관련 필드를 사용 하려면 [Imwebsession](#use-parsers) 파서를 사용 합니다.<br>-검색 된 세션을 분석 하려면 [Innetworknotables](#use-parsers) 소스와 무관 한 파서를 사용 합니다. |
+| **웹 보안 게이트웨이 이벤트 정규화** | 웹 서버 게이트웨이에서 이벤트를 정규화 하려면 [공용](#common-fields), [네트워크 세션](#network-session-fields), [HTTP 세션](#http-session-fields), [세션 검사](#inspection-fields)및 선택적으로 중간 필드를 매핑합니다. <br><br>`EventType`을로 설정 하 `HTTP` 고 및 필드에 대 한 HTTP 세션 관련 지침을 따라야 `EventResult` 합니다 `EventResultDetails` . <br><br>[Imnetworksession](#source-agnostic-parsers) 및 [imnetworksession](#source-agnostic-parsers) 소스에 관계 없는 파서에 소스 관련 파서를 포함 해야 합니다. 또한 검사 엔진에 의해 검색 된 모든 이벤트를 필터링 하 여 [Innetworknotables](#source-agnostic-parsers) 소스에 관계 없는 파서에 추가 합니다. |
+| **웹 보안 게이트웨이 이벤트 사용** | 웹 서버 이벤트는 [Imnetworksession](#source-agnostic-parsers) 소스와 무관 한 파서의 일부로 표시 됩니다. <br><br>-HTTP 관련 필드를 사용 하려면 [Imwebsession](#source-agnostic-parsers) 파서를 사용 합니다.<br>-검색 된 세션을 분석 하려면 [Innetworknotables](#source-agnostic-parsers) 소스와 무관 한 파서를 사용 합니다. |
 | | |
 
 
-## <a name="use-parsers"></a>파서 사용
+## <a name="parsers"></a>파서
 
-모든 기본 제공 파서를 통합 하는 소스 독립적인 파서를 사용 하 고 구성 된 모든 원본에서 분석을 실행 하도록 하려면 다음 파서 중 하나를 사용 합니다.
+### <a name="source-agnostic-parsers"></a>원본 중립적 파서
+
+모든 기본 파서를 통합 하는 소스에 관계 없는 파서를 사용 하 고 구성 된 모든 원본에서 분석을 실행 하도록 하려면 쿼리에서 다음 KQL 함수를 테이블 이름으로 사용 합니다.
+
+| 이름 | 설명 | 사용 지침 |
+| ---- | --- | --- |
+| **imNetworkSession** | *Union* 을 사용 하 여 모든 *네트워크 세션* 원본의 정규화 된 이벤트를 포함 하는 Aggregative 파서입니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다. <br><br>- 원본 독립적 쿼리에서 이 함수를 사용합니다.|
+| **imWebSession** | *Union* 을 사용 하 여 [HTTP 세션 필드](#http-session-fields)를 지 원하는 네트워크 세션 필드와 같은 모든 *웹 세션* 원본의 정규화 된 이벤트를 포함 하는 Aggregative 파서입니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다.<br><br>- 원본 독립적 쿼리에서 이 함수를 사용합니다.|
+| **inNetworkNotables** | *Union* 을 사용 하 여 검색 정보를 포함 하 고 [세션 검사 필드](#inspection-fields)를 지 원하는 모든 네트워크 세션의 정규화 된 이벤트를 포함 하는 Aggregative 파서입니다. |- 원본 독립적 분석에서 원본을 추가하거나 제거하려면 이 파서를 업데이트합니다.<br><br>- 원본 독립적 쿼리에서 이 함수를 사용합니다.|
+| **ASimNetworkSession**<br>**ASimWebSession**<br>**ASimNetworkNotables** | `im*`함수와 유사 하지만 매개 변수가 지원 되지 않으므로 **로그** 페이지 시간 선택에서 값을 사용 하지 않습니다 `custom` . |-소스와 관계 없는 분석에서 소스를 추가 하거나 제거 하려는 경우 이러한 파서를 업데이트 합니다.<br><br>-매개 변수를 사용 하지 않으려는 경우 소스에 관계 없는 쿼리에서이 함수를 사용 합니다.|
+| **vimnetworksession \<vendor\> \<product\> <br> vimnetworksession \<vendor\> \<product\> <br> vimnetworknotables\<vendor\>\<product\>** | 원본 관련 파서는 특정 원본에 대해 *Vimnetworksessionsysmonlinux* 와 같은 정규화를 구현 합니다. |-기본 정규화 파서가 없을 때 원본에 대 한 소스 관련 파서를 추가 합니다. `im`새 파서의 참조를 포함 하도록 aggregative 파서를 업데이트 합니다. <br><br>- 구문 분석 및 정규화 문제를 해결하기 위해 원본 관련 파서를 업데이트합니다.<br><br>- 원본 관련 분석에 원본 관련 파서를 사용합니다.|
+| **Asimnetworksession \<vendor\> \<product\> <br> asimnetworksession \<vendor\> \<product\> <br> asimnetworknotables\<vendor\>\<product\>** | 소스 관련 파서는 특정 소스에 대 한 정규화를 구현 합니다. 함수와 달리 `vim*` `ASim*` 함수는 매개 변수를 지원 하지 않습니다. |-기본 정규화 파서가 없을 때 원본에 대 한 소스 관련 파서를 추가 합니다. `ASim`새 파서의 참조를 포함 하도록 aggregative 파서를 업데이트 합니다.<br><br>- 구문 분석 및 정규화 문제를 해결하기 위해 원본 관련 파서를 업데이트합니다.<br><br>- `ASim` 매개 변수를 사용 하지 않을 때 대화형 쿼리에 대 한 원본 관련 파서를 사용 합니다.|
+| | | |
 
 
-- 모든 네트워크 세션에 대해 **Imnetworksession**
-- HTTP 세션의 경우 웹 서버, 웹 프록시 및 웹 보안 게이트웨이에서 일반적으로 보고 하는 **Imwebsession**
-- **Innetworknotables**-일반적으로 의심 스러운 것으로 검색 엔진에서 검색 된 세션입니다. 주목할 만한 이벤트는 일반적으로 침입 방지 시스템, 방화벽 및 웹 보안 게이트웨이에서 보고 됩니다.
+파서는 [Microsoft 센티널 GitHub 리포지토리에서](https://aka.ms/azsentinelDNS)배포할 수 있습니다.
 
-[Microsoft 센티널 GitHub 리포지토리에서](https://aka.ms/AzSentinelNetworkSession) [소스와 무관 한 소스 관련 파서](normalization-about-parsers.md) 를 배포 합니다.
-
-### <a name="built-in-source-specific-parsers"></a>기본 제공 소스 관련 파서
+### <a name="out-of-the-box-source-specific-parsers"></a>기본, 소스 관련 파서
 
 Microsoft 센티널은 다음과 같은 기본 제공 제품 관련 네트워크 세션 파서를 제공 합니다.
 
-- 소스 관련 파서:
-  - **끝점에 대 한 Microsoft 365 Defender** -vimNetworkSessionMicrosoft365Defender
-  - **Microsoft Defender For IoT-엔드포인트 (MD4IoT)** -vimNetworkSessionMD4IoT
-  - **Microsoft Sysmon For Linux** -vimnetworksessionsysmonlinux
-  - **Windows 이벤트 방화벽** -Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용 하 여 수집 된 Windows 이벤트 515x를 사용 하 여 수집 된 방화벽 작업을 Windows 이벤트 또는 WindowsEvent 테이블에 vimNetworkSessionMicrosoftWindowsEventFirewall 
+| **이름** | **설명** |
+| --- | --- |
+| **엔드포인트용 Microsoft 365 Defender** | -매개 변수가 있는: vimNetworkSessionMicrosoft365Defender <br> -일반: ASimNetworkSessionMicrosoft365Defender | 
+| **Microsoft Defender for IoT-엔드포인트 (MD4IoT)** | -매개 변수가 있는: vimNetworkSessionMD4IoT <br> -일반: ASimNetworkSessionMD4IoT  |
+| **Microsoft Sysmon for Linux** | -매개 변수가 있는: vimNetworkSessionSysmonLinux<br> -일반: ASimNetworkSessionSysmonLinux  |
+| **Windows 이벤트 방화벽** | 이벤트 또는 WindowsEvent 테이블에 Log Analytics 에이전트 또는 Azure Monitor 에이전트를 사용 하 여 수집 된 Windows 이벤트 515x를 사용 하 여 수집 된 방화벽 작업을 Windows 합니다.<br><br> -매개 변수가 있는: vimNetworkSessionMicrosoftWindowsEventFirewall <br> -일반: ASimNetworkSessionMicrosoftWindowsEventFirewall
+| | |
 
-파서는 [Microsoft 센티널 GitHub 리포지토리에서](https://aka.ms/AzSentinelNetworkSession)배포할 수 있습니다.
 
 ### <a name="add-your-own-normalized-parsers"></a>사용자 고유의 정규화된 파서 추가
 
-네트워크 세션 정보 모델에 대 한 사용자 지정 파서를 구현 하는 경우 다음 구문을 사용 하 여 KQL 함수의 이름을 지정 `imNetworkSession<vendor><Product>` 합니다. 이 함수는 원본과 관련 된 모든 필드를 매핑해야 합니다.
+네트워크 세션 정보 모델에 대 한 사용자 지정 파서를 구현 하는 경우 다음 구문을 사용 하 여 KQL 함수의 이름을 지정 합니다.
+
+- `vimNetworkSession<vendor><Product>` 매개 변수가 있는 파서의 경우
+- `ASimNetworkSession<vendor><Product>` 일반 파서의 경우
+
+그런 다음, **모든** 관련 된 소스에 관계 없는 파서에 새 파서를 추가 합니다.
 
 로그 소스에 따라 필요에 따라 관련 된 소스 관련 없는 파서에 KQL 함수를 추가 합니다. 자세한 내용은 다음을 참조하세요.
 
@@ -121,6 +132,32 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품 관련 네트워크
 - [IP (침입 방지 시스템) 로그 원본](#intrusion-prevention-systems-ips-log-sources)
 - [웹 서버](#web-servers)
 - [웹 보안 게이트웨이](#web-security-gateways)
+
+### <a name="filtering-parser-parameters"></a>파서 매개 변수 필터링
+
+`im`및 `vim*` 파서는 [필터링 매개 변수](normalization-about-parsers.md#optimized-parsers)를 지원 합니다. 이러한 파서는 선택 사항이 며 쿼리 성능을 향상 시킬 수 있습니다.
+
+다음 필터링 매개 변수를 사용할 수 있습니다.
+
+| 이름     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | Datetime | 이 시간 이후 또는 이후에 **시작** 된 네트워크 세션만 필터링 합니다. |
+| **endtime** | Datetime | 이 시간 이전에 실행을 **시작한** 네트워크 세션만 필터링 합니다. |
+| **srcipaddr_has_any_ipv4_prefix** | 동적 | [원본 IP 주소 필드](#srcipaddr) 접두사가 나열 된 값 중 하나에 있는 네트워크 세션만 필터링 합니다. |
+| **dstipaddr_has_any_ipv4_prefix** | 동적 | [대상 IP 주소 필드](#dstipaddr) 접두사가 나열 된 값 중 하나에 있는 네트워크 세션만 필터링 합니다. |
+| **dstportnum** | int | 지정 된 대상 포트 번호로 네트워크 세션만 필터링 합니다. |
+| **hostname_has_any** | 동적 | [대상 호스트 이름 필드](#dsthostname) 에 나열 된 값이 있는 네트워크 세션만 필터링 합니다. |
+| **dvcaction** | 동적 | [장치 작업 필드가](#dvcaction) 나열 된 값에 해당 하는 네트워크 세션만 필터링 합니다. | 
+| **url_has_any** | 동적 | [URL 필드](#url) 에 나열 된 값이 있는 웹 세션만 필터링 합니다. 지정 된 경우 세션이 웹 세션이 아니면 결과가 반환 되지 않습니다.|  
+| **httpuseragent_has_any** | 동적 | [사용자 에이전트 필드](#httpuseragent) 에 나열 된 값이 있는 웹 세션만 필터링 합니다. 지정 된 경우 세션이 웹 세션이 아니면 결과가 반환 되지 않습니다. |  
+| | | |
+
+예를 들어 지정 된 도메인 이름 목록에 대 한 웹 세션만 필터링 하려면 다음을 사용 합니다.
+
+```kql
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+imWebusrSession (hostname_has_any = torProxies)
+```
 
 ## <a name="schema-details"></a>스키마 세부 정보
 
@@ -134,68 +171,35 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품 관련 네트워크
 
 다른 ASIM 스키마는 일반적으로 **Dst** 대신 **대상을** 사용 합니다.
 
-### <a name="log-analytics-fields"></a>Log Analytics 필드
 
-다음 필드는 각 레코드에 대해 Log Analytics에 의해 생성 되며 [사용자 지정 커넥터를 만들](create-custom-connector.md)때 재정의할 수 있습니다.
+### <a name="common-fields"></a>공용 필드
 
+모든 스키마에 공통 된 필드는 [Asim 스키마 개요](normalization-about-schemas.md#common)에 설명 되어 있습니다. 다음 필드에는 이벤트를 처리 하기 위한 특정 지침이 있습니다.
 
-| 필드 | 형식 | 토론(Discussion) |
-|-------|------|------------|
-| <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다. |
-| **\_ResourceId** | guid | 보고 장치 또는 서비스의 Azure 리소스 ID 또는 Syslog, CEF 또는 WEF를 사용 하 여 전달 된 이벤트에 대 한 로그 전달자 리소스 ID입니다. |
-| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 여러 채널을 통해 동일한 이벤트를 수신 하는 경우에 유용 하지만 `EventVendor` 및 값은 동일 `EventProduct` 합니다. <br><br>예를 들어 **이벤트** 테이블이 나 **Securityevent** 테이블로 Sysmon 이벤트를 수집할 수 있습니다. |
-| | | |
-
-> [!NOTE]
-> Log Analytics는 보안 사용 사례와 관련성이 낮은 다른 필드도 추가합니다. 자세한 내용은 [Azure Monitor 로그의 표준 열](../azure-monitor/logs/log-standard-columns.md)을 참조하세요.
->
-
-### <a name="event-fields"></a>이벤트 필드
-
-이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
-
-| 필드 | 클래스 | 형식 | Description |
-|-------|-------|------|-------------|
-| **EventMessage** | 선택 | 문자열 | 레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다. |
-| **EventCount** | 필수 | 정수 | 레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>**참고**: netflow 원본은 집계를 지원 하며 **Eventcount** 필드는 netflow **흐름** 필드의 값으로 설정 되어야 합니다. 다른 원본의 경우 값은 일반적으로로 설정 됩니다 `1` . |
-| **EventStartTime** | 필수 | 날짜/시간 | 원본에서 집계가 지원 되 고 레코드가 여러 이벤트를 나타내는 경우이 필드는 첫 번째 이벤트가 생성 된 시간을 지정 합니다. 그렇지 않은 경우 이 필드는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |
-| **EventEndTime** | 필수 | Alias | [TimeGenerated](#timegenerated) 필드에 대한 별칭입니다. |
+| 필드               | 클래스       | 형식       |  Description        |
+|---------------------|-------------|------------|--------------------|
+| **EventCount** | 필수 | 정수 | Netflow 원본은 집계를 지원 하며 **Eventcount** 필드는 netflow **흐름** 필드의 값으로 설정 되어야 합니다. 다른 원본의 경우 값은 일반적으로로 설정 됩니다 `1` . |
 | **EventType** | 필수 | Enumerated | 레코드에서 보고하는 작업을 설명합니다.<br><br> 네트워크 세션 레코드의 경우 지원 되는 값은 다음과 같습니다.<br>- `NetworkConnection`<br>- `NetworkSession`<br>- `HTTPsession` |
 | **EventSubType** | 선택 | 문자열 | 이벤트 유형에 대 한 추가 설명입니다 (해당 하는 경우). <br> 네트워크 세션 레코드의 경우 지원 되는 값은 다음과 같습니다.<br>- `Start`<br>- `End` |
 | **EventResult** | 필수 | Enumerated | 다음 값 중 하나로 정규화 된 이벤트 결과를 설명 합니다. <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA`(해당 사항 없음) <br><br>HTTP 세션의 경우 `Success` 은 보다 낮은 상태 코드로 정의 되 `400` 고 `Failure` 는 보다 높은 상태 코드로 정의 됩니다 `400` . HTTP 상태 코드 목록은 [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 참조 하세요.<br><br>원본에서 [Eventresultdetails](#eventresultdetails)  필드에 값을 제공할 수 있습니다 .이 필드는  **eventresult**  값을 가져오기 위해 분석 되어야 합니다. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | 선택 | 문자열 | HTTP 세션의 경우 값은 HTTP 상태 코드 여야 합니다. <br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 원래 값은 **Eventoriginalresultdetails** 필드에 저장 되어야 합니다.|
-| **EventOriginalResultDetails**    | 선택    | 문자열     |  원본에서 제공하는 경우 [EventResultDetails](#eventresultdetails)에 대한 원래 레코드에 제공된 값입니다.|
-| **EventSeverity** | 필수 | Enumerated | 검색 된 위협 또는 경고를 나타내는 경우 이벤트의 심각도입니다. 가능한 값은,, `Informational` `Low` `Medium` 및 `High` 입니다. <br><br>이벤트가 위협을 나타내지 않는 경우 값을 사용 `Informational` 합니다.<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. [Eventoriginalseverity](#eventoriginalseverity) 필드에 원래 값을 저장 합니다. |
-| <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | 선택 | 문자열 | 원본 레코드에 제공 된 원래 심각도 값입니다. |
-| **EventOriginalUid** | 선택 | 문자열 | 원본에서 제공하는 경우 원래 레코드의 고유 ID입니다.<br><br>예: `69f37748-ddcd-4331-bf0f-b137f1ea83b` |
-| **EventOriginalType** | 선택 | 문자열 | 원본에서 제공하는 경우 원본 이벤트 유형 또는 ID입니다. <br><br>예: `5031` |
-| <a name="eventproduct"></a>**EventProduct** | 필수 | String | 이벤트를 생성하는 제품<br><br>예: `Sysmon`<br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다. |
-| **EventProductVersion** | 선택 | 문자열 | 이벤트를 생성하는 제품의 버전<br><br>예: `12.1` |
-| **EventVendor** | 필수 | String | 이벤트를 생성하는 제품의 공급 업체<br><br>예: `Microsoft`<br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다. |
-| **EventSchema** | 필수 | String | 스키마의 이름입니다. 여기에 설명된 스키마의 이름은 `NetworkSession` 입니다. |
-| **EventSchemaVersion** | 필수 | String | 스키마의 버전입니다. 여기에 설명된 스키마의 버전은 `0.2` 입니다. |
-| **EventReportUrl** | 선택 | 문자열 | 이벤트에 대한 추가 정보를 제공하는 리소스에 대해 이벤트에 제공된 URL입니다. |
-| **Dvc** | Alias | String | 보고 또는 중간 디바이스의 고유 식별자입니다.<br><br>예: `ContosoDc.Contoso.Azure`<br><br>이 필드는 [DvcFQDN,](#dvcfqdn) [DvcId,](#dvcid) [DvcHostname](#dvchostname)또는 [DvcIpAddr](#dvcipaddr) 필드에 별칭을 붙일 수 있습니다. 명백한 디바이스가 없는 클라우드 원본의 경우 [이벤트 제품](#eventproduct) 필드와 동일한 값을 사용합니다. |
-| <a name="dvcipaddr"></a>**DvcIpAddr** | 권장 | IP 주소 | 보고 또는 중간 디바이스의 IP 주소입니다.<br><br>예: `2001:db8::ff00:42:8329` |
-| <a name="dvchostname"></a>**DvcHostname** | 필수 | String | 도메인 정보를 제외한 보고 또는 중간 디바이스의 호스트 이름입니다. 사용할 수 있는 디바이스 이름이 없는 경우 이 필드에 관련 IP 주소를 저장합니다.<br><br>예: `DESKTOP-1282V4D` |
-| <a name="dvcdomain"></a>**DvcDomain** | 권장 | String | 보고 또는 중간 디바이스의 도메인입니다.<br><br>예: `Contoso` |
-| <a name="dvcdomaintype"></a>**DvcDomainType** | 권장 | Enumerated | [DvcDomain의 형식(알려진](#dvcdomain) 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>**참고:** [DvcDomain](#dvcdomain) 필드를 사용하는 경우 이 필드가 필요합니다. |
-| <a name="dvcfqdn"></a>**DvcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함하여 보고 또는 중간 디바이스의 호스트 이름입니다. <br><br> 예: `Contoso\DESKTOP-1282V4D`<br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [DvcDomainType](#dvcdomaintype) 필드는 사용된 형식을 반영합니다.  |
-| <a name="dvcid"></a>**DvcId** | 선택 | 문자열 | 레코드에 보고된 보고 또는 중간 디바이스의 ID입니다.<br><br>예제: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DvcIdType** | 선택 사항 | Enumerated | [DvcId의](#dvcid)형식입니다(알려진 경우). 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 ID를 사용할 수 있는 경우 목록의 첫 번째 ID를 사용하고 각각  **DvcAzureResourceId** 및 **DvcMDEid** 필드 이름을 사용하여 다른 ID를 저장합니다.<br><br>**참고:** [DvcId](#dvcid) 필드를 사용하는 경우 이 필드가 필요합니다. |
-| **AdditionalFields** | 선택 사항 | 동적 | 원본에서 보존할 가치가 있는 추가 정보를 제공하는 경우 원래 필드 이름으로 유지하거나 동적  **AdditionalFields**  필드를 만들고 추가 정보를 키/값 쌍으로 추가합니다. |
+| **EventSchema** | 필수 | String | 여기에 설명 된 스키마 이름은 `NetworkSession` 입니다. |
+| **EventSchemaVersion**  | 필수   | String     | 스키마의 버전입니다. 여기에 설명된 스키마의 버전은 `0.2.1`입니다.         |
+| <a name="dvcaction"></a>**DvcAction** | 선택 사항 | Enumerated | 네트워크 세션에서 수행 되는 작업입니다. 지원되는 값은 다음과 같습니다.<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 원래 값은 [Dvcoriginalaction](normalization-about-schemas.md#dvcoriginalaction) 필드에 저장 해야 합니다.<br><br>예: `drop` |
+| **Dvc** 필드|        |      | 네트워크 세션 이벤트의 경우 장치 필드는 네트워크 세션 이벤트를 보고 하는 시스템을 참조 합니다.  |
 | | | | |
 
 ### <a name="network-session-fields"></a>네트워크 세션 필드
 
-다음 필드는 모든 네트워크 세션 활동 로깅에 공통됩니다.
+다음 필드는 모든 네트워크 세션 활동 로깅에 공통적으로 수행 됩니다.
 
 | 필드 | 클래스 | 형식 | Description |
 |-------|-------|------|-------------|
-|<a name="dstipaddr"></a> **DstIpAddr** | 권장 | IP 주소 | 연결 또는 세션 대상의 IP 주소입니다. <br><br>예: `2001:db8::ff00:42:8329`<br><br>**참고:** [DstHostname이](#dsthostname) 지정된 경우 이 값은 필수입니다. |
+| <a name="dst"></a>**대상** | 권장       | String     |    DNS 요청을 받는 서버의 고유 식별자입니다. <br><br>이 필드는 [Dstdvcid](#dstdvcid), [DstHostname](#dsthostname)또는 [DstIpAddr](#dstipaddr) 필드에 별칭을 할 수 있습니다. <br><br>예: `192.168.12.1`       |
+|<a name="dstipaddr"></a> **DstIpAddr** | 권장 | IP 주소 | 연결 또는 세션 대상의 IP 주소입니다. <br><br>예: `2001:db8::ff00:42:8329`<br><br>**참고**: [DstHostname](#dsthostname) 가 지정 된 경우이 값은 필수입니다. |
 | <a name="dstportnumber"></a>**DstPortNumber** | 선택 | 정수 | 대상 IP 포트<br><br>예: `443` |
 | <a name="dsthostname"></a>**DstHostname** | 권장 | String | 대상 장치 호스트 이름 (도메인 정보 제외) 사용할 수 있는 장치 이름이 없으면이 필드에 관련 IP 주소를 저장 합니다.<br><br>예: `DESKTOP-1282V4D`<br><br>**참고**: [DstIpAddr](#dstipaddr) 가 지정 된 경우이 값은 필수입니다. |
-| **호스트 이름** | Alias | | [DstHostname](#dsthostname) 에 대 한 별칭 |
+| <a name="hostname"></a>**N** | Alias | | [DstHostname](#dsthostname) 에 대 한 별칭 |
 | <a name="dstdomain"></a>**DstDomain** | 권장 | String | 대상 장치의 도메인입니다.<br><br>예: `Contoso` |
 | <a name="dstdomaintype"></a>**DstDomainType** | 권장 | Enumerated | [Dstdomain](#dstdomain)의 유형 (알려진 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>[Dstdomain](#dstdomain) 을 사용 하는 경우 필수 사항입니다. |
 | **DstFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함 하는 대상 장치 호스트 이름 <br><br>예: `Contoso\DESKTOP-1282V4D` <br><br>**참고**:이 필드는 기존의 FQDN 형식 및 Windows domain\hostname 형식을 모두 지원 합니다. [DstDomainType](#dstdomaintype) 는 사용 되는 형식을 반영 합니다.   |
@@ -217,117 +221,121 @@ Microsoft 센티널은 다음과 같은 기본 제공 제품 관련 네트워크
 | **DstInterfaceName** | 선택 | 문자열 | 대상 디바이스의 연결 또는 세션에 사용되는 네트워크 인터페이스<br><br>예: `Microsoft Hyper-V Network Adapter` |
 | **DstInterfaceGuid** | 선택 | 문자열 | 대상 장치에서 사용 되는 네트워크 인터페이스의 GUID입니다.<br><br>예제:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
 | **DstMacAddr** | 선택 | 문자열 | 대상 장치에서 연결 또는 세션에 사용 되는 네트워크 인터페이스의 MAC 주소입니다.<br><br>예: `06:10:9f:eb:8f:14` |
-| **DstGeoCountry** | 선택 사항 | 국가 | 대상 IP 주소와 연결 된 국가입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `USA` |
-| **DstGeoRegion** | 선택 사항 | 지역 | 대상 IP 주소와 연결 된 국가 내의 지역 또는 상태입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `Vermont` |
-| **DstGeoCity** | 선택 사항 | City | 대상 IP 주소와 연결 된 구/군/시입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `Burlington` |
-| **DstGeoLatitude** | 선택 사항 | 위도 | 대상 IP 주소와 연결 된 지리적 좌표의 위도입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `44.475833` |
-| **DstGeoLongitude** | 선택 사항 | 경도 | 대상 IP 주소와 연결 된 지리적 좌표의 경도입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `73.211944` |
-| <a name="srcipaddr"></a>**SrcIpAddr** | 권장 | IP 주소 | 연결 또는 세션이 시작된 IP 주소 **SrcHostname** 가 지정 된 경우이 값은 필수입니다.<br><br>예: `77.138.103.108` |
-| **IpAddr** | Alias | | [Srcipaddr](#srcipaddr) 에 대 한 별칭 |
+| <a name="dstvlanid"></a>**DstVlanId** | 선택 | 문자열 | 대상 디바이스와 관련된 VLAN ID입니다.<br><br>예제: `130` |
+| **OuterVlanId** | 선택 사항 | Alias | [DstVlanId](#dstvlanid)에 대한 별칭입니다. <br><br>대부분의 경우 VLAN은 원본 또는 대상으로 확인할 수 없지만 내부 또는 외부로 특징지어지게 됩니다. 이 별칭은 VLAN이 외부로 특성화될 때 [DstVlanId를](#dstvlanid) 사용해야 임을 의미합니다. |
+| **DstGeoCountry** | 선택 사항 | 국가 | 대상 IP 주소와 연결된 국가입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `USA` |
+| **DstGeoRegion** | 선택 사항 | 지역 | 대상 IP 주소와 연결된 국가 내의 지역 또는 주입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `Vermont` |
+| **DstGeoCity** | 선택 사항 | City | 대상 IP 주소와 연결된 도시입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `Burlington` |
+| **DstGeoLatitude** | 선택 사항 | 위도 | 대상 IP 주소와 연결된 지리적 좌표의 위도입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `44.475833` |
+| **DstGeoLongitude** | 선택 사항 | 경도 | 대상 IP 주소와 연결된 지리적 좌표의 경도입니다. 자세한 내용은 [논리적 형식](normalization-about-schemas.md#logical-types)을 참조하세요.<br><br>예: `73.211944` |
+| <a name="src"></a>**Src** | 권장       | String     |    원본 디바이스의 고유 식별자입니다. <br><br>이 필드는 [SrcDvcId,](#srcdvcid) [SrcHostname](#srchostname)또는 [SrcIpAddr](#srcipaddr) 필드의 별칭을 나타낼 수 있습니다. <br><br>예: `192.168.12.1`       |
+| <a name="srcipaddr"></a>**SrcIpAddr** | 권장 | IP 주소 | 연결 또는 세션이 시작된 IP 주소 **SrcHostname이** 지정된 경우 이 값은 필수입니다.<br><br>예: `77.138.103.108` |
+| **IpAddr** | Alias | | [SrcIpAddr에](#srcipaddr) 대한 별칭 |
 | **SrcPortNumber** | 선택 | 정수 | 연결이 시작된 IP 포트. 여러 연결을 구성하는 세션과 관련이 없을 수 있습니다.<br><br>예: `2335` |
-| **SrcHostname** | 권장 | String | 원본 장치 호스트 이름 (도메인 정보 제외) 사용할 수 있는 장치 이름이 없으면이 필드에 관련 IP 주소를 저장 합니다. 이 값은 [Srcipaddr](#srcipaddr) 가 지정 된 경우 필수입니다.<br><br>예: `DESKTOP-1282V4D` |
-|<a name="srcdomain"></a>**Srcdomain** | 권장 | String | 원본 장치의 도메인입니다.<br><br>예: `Contoso` |
-| <a name="srcdomaintype"></a>**SrcDomainType** | 권장 | Enumerated | [Srcdomain](#srcdomain)의 유형 (알려진 경우)입니다. 가능한 값은 다음과 같습니다.<br>- `Windows` (예: `contoso` )<br>- `FQDN` (예: `microsoft.com` )<br><br>[SrcDomain을](#srcdomain) 사용하는 경우 필요합니다. |
+| <a name="srchostname"></a> **SrcHostname** | 권장 | String | 도메인 정보를 제외한 원본 디바이스 호스트 이름입니다. 사용할 수 있는 디바이스 이름이 없는 경우 이 필드에 관련 IP 주소를 저장합니다. [SrcIpAddr가](#srcipaddr) 지정된 경우 이 값은 필수입니다.<br><br>예: `DESKTOP-1282V4D` |
+|<a name="srcdomain"></a>**SrcDomain** | 권장 | String | 원본 디바이스의 도메인입니다.<br><br>예: `Contoso` |
+| <a name="srcdomaintype"></a>**SrcDomainType** | 권장 | Enumerated | 알려진 경우 [SrcDomain 의 형식입니다.](#srcdomain) 가능한 값은 다음과 같습니다.<br>- `Windows` (예: `contoso` )<br>- `FQDN` (예: `microsoft.com` )<br><br>[SrcDomain을](#srcdomain) 사용하는 경우 필요합니다. |
 | **SrcFQDN** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함한 원본 디바이스 호스트 이름입니다. <br><br>**참고:** 이 필드는 기존 FQDN 형식과 Windows domain\hostname 형식을 모두 지원합니다. [SrcDomainType](#srcdomaintype) 필드는 사용된 형식을 반영합니다. <br><br>예: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | 선택 | 문자열 | 레코드에 보고된 원본 디바이스의 ID입니다.<br><br>예: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **SrcDvcIdType** | 선택 사항 | Enumerated | 알려진 경우 [SrcDvcId](#srcdvcid)의 형식입니다. 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 개의ID를 사용할 수 있는 경우 위 목록의 첫 번째 ID를 사용하고 다른 것을 각각 **SrcDvcAzureResourceId** 및 **SrcDvcMDEid** 에 저장합니다.<br><br>**참고:** [SrcDvcId를](#srcdvcid) 사용하는 경우 이 필드가 필요합니다. |
+| **SrcDvcIdType** | 선택 사항 | Enumerated | 알려진 경우 [SrcDvcId](#srcdvcid)의 형식입니다. 가능한 값은 다음과 같습니다.<br> - `AzureResourceId`<br>- `MDEid`<br><br>여러 개의ID를 사용할 수 있는 경우 위 목록의 첫 번째 ID를 사용하고 다른 것을 각각 **SrcDvcAzureResourceId** 및 **SrcDvcMDEid** 에 저장합니다.<br><br>**참고**:이 필드는 [srcdvcid](#srcdvcid) 를 사용 하는 경우에 필요 합니다. |
 | **SrcDeviceType** | 선택 사항 | Enumerated | 원본 디바이스의 형식입니다. 가능한 값은 다음과 같습니다.<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
-| <a name="srcuserid"></a>**SrcUserId** | 선택 | 문자열 | 원본 사용자의 컴퓨터에서 읽을 수 있는 영숫자 고유 표현입니다. 형식 및 지원되는 형식은 다음과 같습니다.<br>-  **SID(Windows):**`S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID(Linux):**`4578`<br>-  **A** 한정자(Azure Active Directory):`9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>ID 형식을 [SrcUserIdType](#srcuseridtype) 필드에 저장합니다. 다른 ID를 사용할 수 있는 경우 필드 이름을 각각 SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId 및 UserAwsId로 정규화하는 것이 좋습니다. 자세한 내용은 사용자 엔터티를 참조하세요.<br><br>예: S-1-12 |
-| <a name="srcuseridtype"></a>**SrcUserIdType** | 선택 사항 | Enumerated | [SrcUserId](#srcuserid) 필드에 저장된 ID의 형식입니다. 지원되는 값은 `SID` , , , 및 `UIS` `AADID` `OktaId` `AWSId` 입니다. |
-| <a name="srcusername"></a>**SrcUsername** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함하는 원본 사용자 이름입니다. 다음 형식 중 하나를 사용하고 다음 우선 순위 순서로 사용합니다.<br>- **Upn/메일**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **단순**: `johndow`. 도메인 정보를 사용할 수 없는 경우에만 단순 양식을 사용합니다.<br><br>사용자 이름 형식을 [SrcUsernameType](#srcusernametype) 필드에 저장합니다. 다른 ID를 사용할 수 있는 경우 필드 이름을 **SrcUserUpn**, **SrcUserWindows** 및 **SrcUserDn** 로 정규화하는 것이 좋습니다.<br><br>자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `AlbertE` |
-| <a name="srcusernametype"></a>**SrcUsernameType** | 선택 사항 | Enumerated | [SrcUsername](#srcusername) 필드에 저장된 사용자 이름 형식을 지정합니다. 지원되는 값은 `UPN` , `Windows` , 및 `DN` `Simple` 입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `Windows` |
-| **SrcUserType** | 선택 사항 | Enumerated | Actor의 형식입니다. 허용된 값은<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 원래 값을 [EventOriginalSeverity 필드에 저장합니다.](#eventoriginalseverity) |
-| **SrcOriginalUserType** | | | 원본에서 제공하는 경우 원래 원본 사용자 유형입니다. |
-| **SrcUserDomain** | 선택 | 문자열 | 이 필드는 이전 버전과의 호환성을 위해서만 유지됩니다. ASIM을 사용하려면 도메인 정보(사용 가능한 경우)가 [SrcUsername](#srcusername) 필드의 일부가 되어야 합니다. |
-| <a name="srcappname"></a>**SrcAppName** | 선택 | 문자열 | 원본 애플리케이션의 이름입니다. <br><br>예: `filezilla.exe` |
-| <a name="srcappid"></a>**SrcAppId** | 선택 | 문자열 | 보고 디바이스에서 보고한 대상 애플리케이션의 ID입니다.<br><br>예: `124` |
-| **SrcAppType** | 선택 | 문자열 | 원본 애플리케이션의 형식입니다. 지원되는 값은 다음과 같습니다.<br>- `Process`<br>- `Service`<br>- `Resource`<br>- `Other`<br><br>[SrcAppName](#srcappname) 또는 [SrcAppId를](#srcappid) 사용하는 경우 이 필드는 필수입니다. |
+| <a name="srcuserid"></a>**SrcUserId** | 선택 | 문자열 | 원본 사용자의 컴퓨터에서 읽을 수 있는 영숫자 고유 표현입니다. 형식 및 지원되는 형식은 다음과 같습니다.<br>-  **SID** (Windows):`S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID** (Azure Active Directory):`9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>[Srcuseridtype](#srcuseridtype) 필드에 ID 유형을 저장 합니다. 다른 Id를 사용할 수 있는 경우 필드 이름을 SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId 및 UserAwsId로 각각 정규화 하는 것이 좋습니다. 자세한 내용은 사용자 엔터티를 참조 하세요.<br><br>예: S-1-12 |
+| <a name="srcuseridtype"></a>**SrcUserIdType** | 선택 사항 | Enumerated | [Srcuserid](#srcuserid) 필드에 저장 된 ID의 유형입니다. 지원 되는 값은 `SID` ,, `UIS` `AADID` , `OktaId` 및 `AWSId` 입니다. |
+| <a name="srcusername"></a>**SrcUsername** | 선택 | 문자열 | 사용 가능한 경우 도메인 정보를 포함 하는 원본 사용자 이름입니다. 다음 형식 중 하나를 사용 하 고 우선 순위를 지정 합니다.<br>- **Upn/메일**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **단순**: `johndow`. 도메인 정보를 사용할 수 없는 경우에만 간단한 양식을 사용 합니다.<br><br>[SrcUsernameType](#srcusernametype) 필드에 사용자 이름 유형을 저장 합니다. 다른 Id를 사용할 수 있는 경우 필드 이름을 **Srcuserupn**, **srcuserupn** 및 **SrcUserDn** 으로 정규화 하는 것이 좋습니다.<br><br>자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `AlbertE` |
+| <a name="srcusernametype"></a>**SrcUsernameType** | 선택 사항 | Enumerated | [Srcusername](#srcusername) 필드에 저장 된 사용자 이름 유형을 지정 합니다. 지원 되는 값은 `UPN` ,, `Windows` `DN` 및 `Simple` 입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.<br><br>예: `Windows` |
+| **SrcUserType** | 선택 사항 | Enumerated | Actor의 형식입니다. 허용된 값은<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. [SrcOriginalUserType](#srcoriginalusertype) 필드에 원래 값을 저장 합니다. |
+| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | 원본에서 제공 하는 경우 원래 원본 사용자 형식입니다. |
+| **SrcUserDomain** | 선택 | 문자열 | 이 필드는 이전 버전과의 호환성을 위해서만 유지 됩니다. ASIM을 사용 하려면 사용 가능한 경우 도메인 정보를 [Srcusername](#srcusername) 필드에 포함 해야 합니다. |
+| <a name="srcappname"></a>**SrcAppName** | 선택 | 문자열 | 원본 응용 프로그램의 이름입니다. <br><br>예: `filezilla.exe` |
+| <a name="srcappid"></a>**SrcAppId** | 선택 | 문자열 | 보고 장치에서 보고 하는 대상 응용 프로그램의 ID입니다.<br><br>예: `124` |
+| **SrcAppType** | 선택 | 문자열 | 원본 응용 프로그램의 형식입니다. 지원되는 값은 다음과 같습니다.<br>- `Process`<br>- `Service`<br>- `Resource`<br>- `Other`<br><br>이 필드는 [Srcappname](#srcappname) 또는 [srcappname](#srcappid) 를 사용 하는 경우 필수입니다. |
 | **SrcZone** | 선택 | 문자열 | 보고 디바이스에서 정의한 원본 네트워크 영역<br><br>예: `Internet` |
 | **SrcIntefaceName** | 선택 | 문자열 | 원본 디바이스에서 연결 또는 세션에 사용하는 네트워크 인터페이스 <br><br>예: `eth01` |
 | **SrcInterfaceGuid** | 선택 | 문자열 | 원본 장치에서 사용 되는 네트워크 인터페이스의 GUID입니다.<br><br>예제:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
 | **SrcMacAddr** | 선택 | 문자열 | 연결 또는 세션이 시작 된 네트워크 인터페이스의 MAC 주소입니다.<br><br>예: `06:10:9f:eb:8f:14` |
-| **SrcGeoCountry** | 선택 사항 | 국가 | 원본 IP 주소와 연결 된 국가입니다.<br><br>예: `USA` |
-| **SrcGeoRegion** | 선택 사항 | 지역 | 원본 IP 주소와 연결 된 국가 내의 지역입니다.<br><br>예: `Vermont` |
-| **SrcGeoCity** | 선택 사항 | City | 원본 IP 주소와 연결 된 구/군/시입니다.<br><br>예: `Burlington` |
-| **SrcGeoLatitude** | 선택 사항 | 위도 | 원본 IP 주소와 연결 된 지리적 좌표의 위도입니다.<br><br>예: `44.475833` |
-| **SrcGeoLongitude** | 선택 사항 | 경도 | 원본 IP 주소와 연결 된 지리적 좌표의 경도입니다.<br><br>예: `73.211944` |
-| **NetworkApplicationProtocol** | 선택 | 문자열 | 연결 또는 세션에서 사용하는 애플리케이션 계층 프로토콜입니다. [DstPortNumber](#dstportnumber) 값이 제공 되 면 **networkapplicationprotocol** 도 포함 하는 것이 좋습니다. 원본에서 값을 사용할 수 없는 경우 [DstPortNumber](#dstportnumber) 값에서 값을 파생 시킵니다.<br><br>예: `HTTP` |
-| **NetworkProtocol** | 선택 사항 | Enumerated | [IANA 프로토콜 할당](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)에 나열 된 대로 연결 또는 세션에서 사용 하는 IP 프로토콜입니다. 일반적으로 `TCP` , `UDP` 또는 `ICMP` 입니다.<br><br>예: `TCP` |
-| **NetworkDirection** | 선택 사항 | Enumerated | 조직에 대 한 연결 또는 세션의 방향입니다. 지원 되는 값은 `Inbound` , `Outbound` , `Listen` 입니다. `Listen` 장치에서 네트워크 연결을 수락 하기 시작 했지만 실제로는 연결 되어 있지 않아도 됨을 나타냅니다.|
-| <a name="networkduration"></a>**NetworkDuration** | 선택 | 정수 | 네트워크 세션 또는 연결을 완료 하는 데 걸린 시간 (밀리초)입니다.<br><br>예: `1500` |
-| **기간** | Alias | | [Networkduration](#networkduration) 의 별칭 |
-| **NetworkIcmpCode** | 선택 | 정수 | ICMP 메시지의 경우 [rfc 2780](https://datatracker.ietf.org/doc/html/rfc2780) 에서 IPv4 네트워크 연결 또는 IPv6 네트워크 연결에 대 한 [rfc 4443](https://datatracker.ietf.org/doc/html/rfc4443) 에 설명 된 대로 icmp 메시지 유형 숫자 값을 입력 합니다. [NetworkIcmpType](#networkicmptype) 값을 제공 하는 경우이 필드는 필수입니다. 원본에서 값을 사용할 수 없는 경우  [NetworkIcmpType](#networkicmptype) 필드에서 값을 파생 시킵니다.<br><br>예: `34` |
-|<a name="networkicmptype"></a> **NetworkIcmpType** | 선택 | 문자열 | ICMP 메시지의 경우 [rfc 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network Connections 또는 IPv6 네트워크 연결용 [rfc 4443](https://datatracker.ietf.org/doc/html/rfc4443) 에 설명 된 대로 icmp 메시지 유형 텍스트를 표시 합니다.<br><br>예: `Destination Unreachable` |
-| **DstBytes** | 권장 | 정수 | 연결 또는 세션의 대상에서 원본으로 보낸 바이트 수 이벤트가 집계 되는 경우 **Dstbytes** 는 집계 된 모든 세션에 대 한 합계 여야 합니다.<br><br>예: `32455` |
-| **SrcBytes** | 권장 | 정수 | 연결 또는 세션의 원본에서 대상으로 보낸 바이트 수 이벤트가 집계 된 경우 **Srcbytes** 는 집계 된 모든 세션에 대 한 합계 여야 합니다.<br><br>예: `46536` |
-| **NetworkBytes** | 선택 | 정수 | 양방향으로 전송된 바이트 수. **Bytesreceived** 와 **BytesSent** 가 모두 있으면 **BytesTotal** 는 해당 합계와 같아야 합니다. 이벤트가 집계 된 경우 **Networkbytes** 는 집계 된 모든 세션에 대 한 합계 여야 합니다.<br><br>예: `78991` |
-| **DstPackets** | 선택 | 정수 | 연결 또는 세션의 대상에서 원본으로 전송된 패킷 수입니다. 패킷의 의미는 보고 장치에 의해 정의 됩니다. 이벤트가 집계 되는 경우 **Dstpackets** 는 집계 된 모든 세션에 대 한 합계 여야 합니다.<br><br>예: `446` |
-| **SrcPackets** | 선택 | 정수 | 연결 또는 세션 원본에서 대상으로 보낸 패킷 수입니다. 패킷의 의미는 보고 디바이스에 의해 정의됩니다. 이벤트가 집계 된 경우 **Srcpackets** 는 집계 된 모든 세션에 대 한 합계 여야 합니다.<br><br>예: `6478` |
-| **NetworkPackets** | 선택 | 정수 | 양방향으로 전송 되는 패킷 수입니다. **PacketsReceived** 와 **PacketsSent** 가 모두 있는 경우 **BytesTotal** 는 해당 합계와 같아야 합니다. 패킷의 의미는 보고 디바이스에 의해 정의됩니다. 이벤트가 집계 된 경우 **Networkpackets** 는 집계 된 모든 세션에 대 한 합계 여야 합니다.<br><br>예: `6924` |
+| <a name="srcvlanid"></a>**SrcVlanId** | 선택 | 문자열 | 원본 장치와 관련 된 VLAN ID입니다.<br><br>예제: `130` |
+| **InnerVlanId** | 선택 사항 | Alias | [SrcVlanId](#srcvlanid)에 대한 별칭입니다. <br><br>대부분의 경우 VLAN은 원본 또는 대상으로 확인할 수 없지만 내부 또는 외부로 특징지어지게 됩니다. 이 별칭은 VLAN이 내부로 특성화될 때 [SrcVlanId를](#srcvlanid) 사용해야 임을 의미합니다.    |
+| **SrcGeoCountry** | 선택 사항 | 국가 | 원본 IP 주소와 연결된 국가입니다.<br><br>예: `USA` |
+| **SrcGeoRegion** | 선택 사항 | 지역 | 원본 IP 주소와 연결된 국가 내의 지역입니다.<br><br>예: `Vermont` |
+| **SrcGeoCity** | 선택 사항 | City | 원본 IP 주소와 연결된 도시입니다.<br><br>예: `Burlington` |
+| **SrcGeoLatitude** | 선택 사항 | 위도 | 원본 IP 주소와 연결된 지리적 좌표의 위도입니다.<br><br>예: `44.475833` |
+| **SrcGeoLongitude** | 선택 사항 | 경도 | 원본 IP 주소와 연결된 지리적 좌표의 경도입니다.<br><br>예: `73.211944` |
+| **NetworkApplicationProtocol** | 선택 | 문자열 | 연결 또는 세션에서 사용하는 애플리케이션 계층 프로토콜입니다. [DstPortNumber](#dstportnumber) 값이 제공되는 경우 **NetworkApplicationProtocol도** 포함하는 것이 좋습니다. 원본에서 값을 사용할 수 없는 경우 [DstPortNumber](#dstportnumber) 값에서 값을 파생합니다.<br><br>예: `HTTP` |
+| **NetworkProtocol** | 선택 사항 | Enumerated | [IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)프로토콜 할당 에 나열된 연결 또는 세션에서 사용하는 IP 프로토콜입니다. 일반적으로 `TCP` , `UDP` 또는 `ICMP` 입니다.<br><br>예: `TCP` |
+| **NetworkDirection** | 선택 사항 | Enumerated | 조직 내/외부 연결 또는 세션의 방향입니다. 지원되는 값은 `Inbound` , `Outbound` , `Listen` 입니다. `Listen` 는 디바이스가 네트워크 연결을 수락하기 시작했지만 실제로 반드시 연결된 것은 아님을 나타냅니다.|
+| <a name="networkduration"></a>**NetworkDuration** | 선택 | 정수 | 네트워크 세션 또는 연결을 완료하는 데 소요되는 시간(밀리초)입니다.<br><br>예: `1500` |
+| **기간** | Alias | | [NetworkDuration에](#networkduration) 대한 별칭 |
+| **NetworkIcmpCode** | 선택 | 정수 | ICMP 메시지의 경우 ICMP 메시지는 IPv4 네트워크 연결의 경우 [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) 또는 IPv6 네트워크 연결의 경우 [RFC 4443에](https://datatracker.ietf.org/doc/html/rfc4443) 설명된 대로 숫자 값을 입력합니다. [NetworkIcmpType](#networkicmptype) 값이 제공된 경우 이 필드는 필수입니다. 값을 원본에서 사용할 수 없는 경우  [NetworkIcmpType](#networkicmptype) 필드에서 값을 대신 파생합니다.<br><br>예: `34` |
+|<a name="networkicmptype"></a> **NetworkIcmpType** | 선택 | 문자열 | ICMP 메시지의 경우 IPv4 네트워크 연결의 경우 [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) 또는 IPv6 네트워크 연결의 경우 [RFC 4443에](https://datatracker.ietf.org/doc/html/rfc4443) 설명된 대로 ICMP 메시지 형식 텍스트 표현입니다.<br><br>예: `Destination Unreachable` |
+| NetworkConnectionHistory | 선택 | 문자열 | TCP 플래그 및 기타 잠재적 IP 헤더 정보입니다. |
+| **DstBytes** | 권장 | 정수 | 연결 또는 세션의 대상에서 원본으로 보낸 바이트 수 이벤트가 집계되는 경우 **DstBytes는** 집계된 모든 세션의 합계여야 합니다.<br><br>예: `32455` |
+| **SrcBytes** | 권장 | 정수 | 연결 또는 세션의 원본에서 대상으로 보낸 바이트 수 이벤트가 집계되는 경우 **SrcBytes는** 집계된 모든 세션의 합계여야 합니다.<br><br>예: `46536` |
+| **NetworkBytes** | 선택 | 정수 | 양방향으로 전송된 바이트 수. **BytesReceived와** **BytesSent가** 모두 있는 경우 **BytesTotal은** 해당 합계와 같아야 합니다. 이벤트가 집계되는 경우 **NetworkBytes는** 집계된 모든 세션의 합계여야 합니다.<br><br>예: `78991` |
+| **DstPackets** | 선택 | 정수 | 연결 또는 세션의 대상에서 원본으로 전송된 패킷 수입니다. 패킷의 의미는 보고 디바이스에 의해 정의됩니다. 이벤트가 집계되는 경우 **DstPackets는** 집계된 모든 세션의 합계여야 합니다.<br><br>예: `446` |
+| **SrcPackets** | 선택 | 정수 | 연결 또는 세션 원본에서 대상으로 보낸 패킷 수입니다. 패킷의 의미는 보고 디바이스에 의해 정의됩니다. 이벤트가 집계되는 경우 **SrcPackets는** 집계된 모든 세션의 합계여야 합니다.<br><br>예: `6478` |
+| **NetworkPackets** | 선택 | 정수 | 양방향으로 전송된 패킷 수입니다. **PacketsReceived와** **PacketsSent가** 모두 있는 경우 **BytesTotal은** 해당 합계와 같아야 합니다. 패킷의 의미는 보고 디바이스에 의해 정의됩니다. 이벤트가 집계되는 경우 **NetworkPackets는** 집계된 모든 세션의 합계여야 합니다.<br><br>예: `6924` |
 |<a name="networksessionid"></a>**NetworkSessionId** | 선택 | 문자열 | 보고 디바이스에서 보고한 세션 식별자 <br><br>예: `172\_12\_53\_32\_4322\_\_123\_64\_207\_1\_80` |
-| **SessionId** | Alias | String | [Networksessionid](#networksessionid) 에 대 한 별칭 |
+| **SessionId** | Alias | String | [NetworkSessionId에](#networksessionid) 대한 별칭 |
 | | | | |
 
-### <a name="intermediary-device-fields"></a><a name="Intermediary"></a>중간 장치 필드
+### <a name="intermediary-device-fields"></a><a name="Intermediary"></a>중간 디바이스 필드
 
-다음 필드는 레코드에 네트워크 세션을 릴레이 하는 방화벽 또는 프록시와 같은 중간 장치에 대 한 정보가 포함 된 경우에 유용 합니다.
+다음 필드는 네트워크 세션을 릴레이하는 방화벽 또는 프록시와 같은 중간 디바이스에 대한 정보가 레코드에 포함된 경우에 유용합니다.
 
 | 필드 | 클래스 | 형식 | Description |
 | --- | --- | --- | --- |
-| **DstNatIpAddr** | 선택 사항 | IP 주소 | 중간 NAT 장치에서 보고 하는 경우 NAT 장치에서 원본과 통신 하는 데 사용 하는 IP 주소입니다.<br><br>예: `2::1` |
-| **DstNatPortNumber** | 선택 | 정수 | 중간 NAT 장치에서 보고 하는 경우 NAT 장치에서 원본과 통신 하는 데 사용 하는 포트입니다.<br><br>예: `443` |
-| **SrcNatIpAddr** | 선택 사항 | IP 주소 | 중간 NAT 장치에서 보고 하는 경우 NAT 장치에서 대상과 통신 하는 데 사용 하는 IP 주소입니다.<br><br>예: `4.3.2.1` |
-| **SrcNatPortNumber** | 선택 | 정수 | 중간 NAT 장치에서 보고 하는 경우 NAT 장치에서 대상과 통신 하는 데 사용 하는 포트입니다.<br><br>예: `345` |
-| **DvcInboundInterface** | 선택 | 문자열 | 중간 장치에서 보고 된 경우 원본 장치에 대 한 연결을 위해 NAT 장치에서 사용 하는 네트워크 인터페이스입니다.<br><br>예: `eth0` |
-| **DvcOutboundInterface** | 선택 | 문자열 | 중간 장치에서 보고 하는 경우 대상 장치에 대 한 연결을 위해 NAT 장치에서 사용 하는 네트워크 인터페이스입니다.<br><br>예: `Ethernet adapter Ethernet 4e` |
+| **DstNatIpAddr** | 선택 사항 | IP 주소 | 중간 NAT 디바이스에서 보고하는 경우 NAT 디바이스에서 원본과의 통신에 사용하는 IP 주소입니다.<br><br>예: `2::1` |
+| **DstNatPortNumber** | 선택 | 정수 | 중간 NAT 디바이스에서 보고하는 경우 NAT 디바이스에서 원본과의 통신에 사용하는 포트입니다.<br><br>예: `443` |
+| **SrcNatIpAddr** | 선택 사항 | IP 주소 | 중간 NAT 디바이스에서 보고하는 경우 NAT 디바이스에서 대상과의 통신에 사용하는 IP 주소입니다.<br><br>예: `4.3.2.1` |
+| **SrcNatPortNumber** | 선택 | 정수 | 중간 NAT 디바이스에서 보고하는 경우 NAT 디바이스에서 대상과의 통신에 사용하는 포트입니다.<br><br>예: `345` |
+| **DvcInboundInterface** | 선택 | 문자열 | 중간 디바이스에서 보고하는 경우 NAT 디바이스에서 원본 디바이스에 연결하기 위해 사용하는 네트워크 인터페이스입니다.<br><br>예: `eth0` |
+| **DvcOutboundInterface** | 선택 | 문자열 | 중간 디바이스에서 보고하는 경우 NAT 디바이스에서 대상 디바이스에 연결하기 위해 사용하는 네트워크 인터페이스입니다.<br><br>예: `Ethernet adapter Ethernet 4e` |
 | | | | |
 
 ### <a name="http-session-fields"></a><a name="http-session-fields"></a>HTTP 세션 필드
 
-HTTP 세션은 HTTP 프로토콜을 사용 하는 네트워크 세션입니다. 이러한 세션은 웹 서버, 웹 프록시 및 웹 보안 게이트웨이에서 보고 되는 경우가 많습니다. 다음은 HTTP 세션과 관련 된 추가 필드입니다.
+HTTP 세션은 HTTP 프로토콜을 사용하는 네트워크 세션입니다. 이러한 세션은 웹 서버, 웹 프록시 및 웹 보안 게이트웨이에서 보고되는 경우가 많습니다. HTTP 세션과 관련한 추가 필드는 다음과 같습니다.
 
 | 필드 | 클래스 | 형식 | Description |
 | --- | --- | --- | --- |
-| **Url** | 권장 | String | HTTP/HTTPS 네트워크 세션의 경우 매개 변수를 포함 한 전체 HTTP 요청 URL입니다. 이벤트가 HTTP 세션을 나타내는 경우이 필드는 필수입니다.<br><br>예: `https://contoso.com/fo/?k=v&amp;q=u#f` |
-| **UrlCategory** | 선택 | 문자열 | Url의 도메인 부분과 URL의 정의 된 그룹입니다. 범주는 일반적으로 웹 보안 게이트웨이에서 제공 되며 URL이 가리키는 사이트의 콘텐츠를 기반으로 합니다.<br><br>예: 검색 엔진, 성인, 뉴스, 광고 및 파킹 도메인 |
-| **UrlOriginal** | 선택 | 문자열 | Url이 보고 장치에 의해 수정 되 고 두 값이 모두 제공 되는 경우 URL의 원래 값입니다. |
+| <a name="url"></a>**Url** | 권장 | String | HTTP/HTTPS 네트워크 세션의 경우 매개 변수를 포함한 전체 HTTP 요청 URL입니다. 이 필드는 이벤트가 HTTP 세션을 나타내는 경우 필수입니다.<br><br>예: `https://contoso.com/fo/?k=v&amp;q=u#f` |
+| **UrlCategory** | 선택 | 문자열 | URL 또는 URL의 도메인 부분에 대해 정의된 그룹화입니다. 범주는 일반적으로 웹 보안 게이트웨이에서 제공되며 URL이 가리키는 사이트의 콘텐츠를 기반으로 합니다.<br><br>예: 검색 엔진, 성인, 뉴스, 광고 및 파킹된 도메인 |
+| **UrlOriginal** | 선택 | 문자열 | URL이 보고 디바이스에 의해 수정되고 두 값이 모두 제공된 경우 URL의 원래 값입니다. |
 | **HttpVersion** | 선택 | 문자열 | HTTP/HTTPS 네트워크 연결의 HTTP 요청 버전<br><br>예: `2.0` |
-| **HttpRequestMethod** | 권장 | Enumerated | HTTP/HTTPS 네트워크 세션의 HTTP 메서드 값은 [rfc 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4) 및 [rfc 5789](https://datatracker.ietf.org/doc/html/rfc5789#section-2)에 정의 된 대로,,,,,,,, 및를 포함 `GET` `HEAD` `POST` `PUT` `DELETE` `CONNECT` `OPTIONS` `TRACE` `PATCH` 합니다.<br><br>예: `GET` |
-| **HttpStatusCode** | Alias | | HTTP/HTTPS 네트워크 세션의 HTTP 상태 코드 [Eventresultdetails](#eventresultdetails)에 대 한 별칭입니다. |
-| <a name="httpcontenttype"></a>**HttpContentType** | 선택 | 문자열 | HTTP/HTTPS 네트워크 세션의 HTTP 응답 콘텐츠 형식 헤더 <br><br>**참고**: **httpcontenttype** 필드에는 콘텐츠 형식과 실제 형식을 가져오는 데 사용 되는 인코딩과 같은 추가 매개 변수가 모두 포함 될 수 있습니다.<br><br> 예: `text/html; charset=ISO-8859-4` |
-| **HttpContentFormat** | 선택 | 문자열 | [Httpcontenttype](#httpcontenttype) 의 콘텐츠 형식 부분 <br><br> 예: `text/html` |
-| **HttpReferrer** | 선택 | 문자열 | HTTP/HTTPS 네트워크 세션의 HTTP 참조 페이지 헤더<br><br>**참고**: ASIM (ossem와 동기화)은 원본 HTTP 헤더 철자가 아니라 참조 페이지 *에 대해 올바른 철자를 사용* 합니다.<br><br>예: `https://developer.mozilla.org/docs` |
-| <a name="httpuseragent"></a>**HttpUserAgent** | 선택 | 문자열 | HTTP/HTTPS 네트워크 세션의 HTTP 사용자 에이전트 헤더<br><br>예제:<br> `Mozilla/5.0`(Windows NT 10.0; 용<br>`AppleWebKit/537.36` (KHTML, 예: Gecko)<br>`Chrome/83.0.4103.97 Safari/537.36` |
-| **UserAgent** | Alias | | [HttpUserAgent](#httpuseragent) 에 대 한 별칭 |
+| **HttpRequestMethod** | 권장 | Enumerated | HTTP/HTTPS 네트워크 세션의 HTTP 메서드 값은 [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4) 및 [RFC 5789](https://datatracker.ietf.org/doc/html/rfc5789#section-2)에 정의된 대로 이며 `GET` , , , 및 `HEAD` 를 `POST` `PUT` `DELETE` `CONNECT` `OPTIONS` `TRACE` `PATCH` 포함합니다.<br><br>예: `GET` |
+| **HttpStatusCode** | Alias | | HTTP/HTTPS 네트워크 세션의 HTTP 상태 코드 [EventResultDetails 에 대한 별칭입니다.](#eventresultdetails) |
+| <a name="httpcontenttype"></a>**HttpContentType** | 선택 | 문자열 | HTTP/HTTPS 네트워크 세션의 HTTP 응답 콘텐츠 형식 헤더 <br><br>**참고:** **HttpContentType** 필드에는 콘텐츠 형식과 실제 형식을 얻는 데 사용되는 인코딩과 같은 추가 매개 변수가 모두 포함될 수 있습니다.<br><br> 예: `text/html; charset=ISO-8859-4` |
+| **HttpContentFormat** | 선택 | 문자열 | [HttpContentType의](#httpcontenttype) 콘텐츠 형식 부분입니다. <br><br> 예: `text/html` |
+| **HttpReferrer** | 선택 | String | HTTP/HTTPS 네트워크 세션의 HTTP 참조 페이지 헤더<br><br>**참고:** ASIM은 OSSEM과 동기화되어 원래 HTTP 헤더 맞춤법이 아닌 *참조 관리자* 에 올바른 철자를 사용합니다.<br><br>예: `https://developer.mozilla.org/docs` |
+| <a name="httpuseragent"></a>**HttpUserAgent** | 선택 | 문자열 | HTTP/HTTPS 네트워크 세션의 HTTP 사용자 에이전트 헤더<br><br>예제:<br> `Mozilla/5.0`(Windows NT 10.0; WOW64)<br>`AppleWebKit/537.36` (Gecko와 같은 KHTML)<br>`Chrome/83.0.4103.97 Safari/537.36` |
+| **UserAgent** | Alias | | 별칭을 [HttpUserAgent로](#httpuseragent) |
 | **HttpRequestXff** | 선택 사항 | IP 주소 | HTTP/HTTPS 네트워크 세션에 대한 HTTP X-Forwarded-For 헤더<br><br>예: `120.12.41.1` |
-| **HttpRequestTime** | 선택 | 정수 | 서버에 요청을 보내는 데 걸린 시간 (밀리초)입니다 (해당 하는 경우).<br><br>예: `700` |
-| **HttpResponseTime** | 선택 | 정수 | 서버에서 응답을 수신 하는 데 걸린 시간 (밀리초)입니다 (해당 하는 경우).<br><br>예: `800` |
-| **FileName** | 선택 | 문자열 | HTTP 업로드의 경우 업로드 된 파일의 이름입니다. |
-| **FileMD5** | 선택 사항 | MD5 | HTTP 업로드의 경우 업로드 된 파일의 MD5 해시입니다.<br><br>예: `75a599802f1fa166cdadb360960b1dd0` |
-| **FileSHA1** | 선택 사항 | SHA1 | HTTP 업로드의 경우 업로드 된 파일의 SHA1 해시입니다.<br><br>예제:<br>`d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
-| **FileSHA256** | 선택 사항 | SHA256 | HTTP 업로드의 경우 업로드 된 파일의 SHA256 해시입니다.<br><br>예제:<br>`e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
-| **FileSHA512** | 선택 사항 | SHA512 | HTTP 업로드의 경우 업로드 된 파일의 SHA512 해시입니다. |
-| **FileSize** | 선택 | 정수 | HTTP 업로드의 경우 업로드 된 파일의 크기 (바이트)입니다. |
-| **FileContentType** | 선택 | 문자열 | HTTP 업로드의 경우 업로드 된 파일의 콘텐츠 형식입니다. |
+| **HttpRequestTime** | 선택 | 정수 | 해당하는 경우 서버에 요청을 보내는 데 걸린 시간(밀리초)입니다.<br><br>예: `700` |
+| **HttpResponseTime** | 선택 | 정수 | 해당하는 경우 서버에서 응답을 받는 데 걸린 시간(밀리초)입니다.<br><br>예: `800` |
+| **FileName** | 선택 | 문자열 | HTTP 업로드의 경우 업로드된 파일의 이름입니다. |
+| **FileMD5** | 선택 사항 | MD5 | HTTP 업로드의 경우 업로드된 파일의 MD5 해시입니다.<br><br>예: `75a599802f1fa166cdadb360960b1dd0` |
+| **FileSHA1** | 선택 사항 | SHA1 | HTTP 업로드의 경우 업로드된 파일의 SHA1 해시입니다.<br><br>예제:<br>`d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
+| **FileSHA256** | 선택 사항 | SHA256 | HTTP 업로드의 경우 업로드된 파일의 SHA256 해시입니다.<br><br>예제:<br>`e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
+| **FileSHA512** | 선택 사항 | SHA512 | HTTP 업로드의 경우 업로드된 파일의 SHA512 해시입니다. |
+| **FileSize** | 선택 | 정수 | HTTP 업로드의 경우 업로드된 파일의 크기(바이트)입니다. |
+| **FileContentType** | 선택 | 문자열 | HTTP 업로드의 경우 업로드된 파일의 콘텐츠 형식입니다. |
 | | | | |
 
-또한 다음 표준 네트워킹 스키마 필드에는 HTTP 세션에 사용 될 때 추가 지침이 있습니다.
+또한 다음 표준 네트워킹 스키마 필드에는 HTTP 세션에 사용되는 경우 추가 지침이 있습니다.
 
-- **EventType** 은 &quot; HTTP 세션 이어야 합니다.&quot;
-- **Eventresultdetails** 는 HTTP 상태 코드로 설정 되어야 합니다.
-- **Eventresult** 는 &quot; &quot; 400 보다 낮은 HTTP 상태 코드에 대해 성공 해야 &quot; 하며 &quot; 그렇지 않으면 실패 합니다.
+- **EventType은** &quot; HTTP 세션이어야 합니다.&quot;
+- **EventResultDetails는** HTTP 상태 코드로 설정해야 합니다.
+- **EventResult는** &quot; &quot; HTTP 상태 코드가 400보다 낮으면 Success이고, &quot; 그렇지 않으면 Failure여야 &quot; 합니다.
 
 ### <a name="inspection-fields"></a><a name="inspection-fields"></a>검사 필드
 
-다음 필드는 방화벽, IP 또는 웹 보안 게이트웨이와 같은 보안 장치를 수행 하는 검사를 나타내는 데 사용 됩니다.
+다음 필드는 방화벽, IPS 또는 웹 보안 게이트웨이와 같은 보안 디바이스가 수행한 검사를 나타내는 데 사용됩니다.
 
 | 필드 | 클래스 | 형식 | Description |
 | --- | --- | --- | --- |
-| **NetworkRuleName** | 선택 | 문자열 | [Dvcaction](#dvcaction) 이 결정 된 규칙의 이름 또는 ID입니다.<br><br> 예: `AnyAnyDrop` |
-| **NetworkRuleNumber** | 선택 | 정수 | [Dvcaction](#dvcaction) 이 결정 된 규칙의 번호입니다.<br><br>예: `23` |
+| **NetworkRuleName** | 선택 | 문자열 | [DvcAction이](#dvcaction) 결정된 규칙의 이름 또는 ID입니다.<br><br> 예: `AnyAnyDrop` |
+| **NetworkRuleNumber** | 선택 | 정수 | [DvcAction이](#dvcaction) 결정된 규칙의 수입니다.<br><br>예: `23` |
 | **규칙** | 필수 | String | `NetworkRuleName` 또는 `NetworkRuleNumber` |
-| <a name="dvcaction"></a>**DvcAction** | 선택 사항 | Enumerated | 네트워크 세션에서 수행된 작업입니다. 지원되는 값은 다음과 같습니다.<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**참고**: 값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 원래 값은 [DvcOriginalAction](#dvcoriginalaction) 필드에 저장되어야 합니다.<br><br>예: `drop` |
-| <a name="dvcoriginalaction"></a>**DvcOriginalAction** | 선택 | 문자열 | 보고 디바이스에서 제공하는 원래 [DvcAction입니다.](#dvcaction) |
 | **ThreatId** | 선택 | 문자열 | 네트워크 세션에서 식별된 위협 또는 맬웨어의 ID입니다.<br><br>예: `Tr.124` |
 | **ThreatName** | 선택 | 문자열 | 네트워크 세션에서 식별된 위협 또는 맬웨어의 이름입니다.<br><br>예: `EICAR Test File` |
 | **ThreatCategory** | 선택 | 문자열 | 네트워크 세션에서 식별된 위협 또는 맬웨어의 범주입니다.<br><br>예: `Trojan` |
@@ -339,6 +347,11 @@ HTTP 세션은 HTTP 프로토콜을 사용 하는 네트워크 세션입니다. 
 
 이벤트가 네트워크 세션의 엔드포인트 중 하나에서 보고되는 경우 세션을 시작하거나 종료한 프로세스에 대한 정보가 포함될 수 있습니다. 이러한 경우 [ASIM 프로세스 이벤트 스키마를](process-events-normalization-schema.md) 사용하여 이 정보를 정규화합니다.
 
+### <a name="schema-updates"></a>스키마 업데이트
+
+다음은 스키마 버전 0.2.1의 변경 내용입니다.
+- `Src`원본 `Dst` 및 대상 시스템의 선행 식별자로 및 를 별칭으로 추가했습니다.
+- `NetworkConnectionHistory`, , `SrcVlanId` , `DstVlanId` `InnerVlanId` 및 필드가 추가되었습니다.`OuterVlanId` 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음을 참조하세요.
@@ -349,3 +362,4 @@ HTTP 세션은 HTTP 프로토콜을 사용 하는 네트워크 세션입니다. 
 - [Microsoft Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
 - [Microsoft Sentinel 프로세스 이벤트 정규화 스키마 참조](process-events-normalization-schema.md)
 - [Microsoft Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)](registry-event-normalization-schema.md)
+

@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 청사진 가져오기 및 내보내기
 description: 청사진 정의를 코드로 사용하는 방법에 대해 알아봅니다. export 및 import 명령을 사용하여 공유, 소스 제어 및 관리합니다.
 ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: b4d7eef9ca650d6d8796acb4e235f49889d42821
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: d3eeef9bd01954daaf760a9bc966eaf96d657228
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567955"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132935753"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>PowerShell을 사용하여 청사진 정의 가져오기 및 내보내기
 
@@ -88,7 +88,7 @@ Azure Blueprints는 Azure Portal을 통해 완벽하게 관리할 수 있습니�
 
 [내보낸 청사진 정의](#export-your-blueprint-definition)가 있거나 [필요한 폴더 구조](#folder-structure-of-a-blueprint-definition)에 수동으로 만든 청사진 정의가 있으면 해당 청사진 정의를 다른 관리 그룹 또는 구독으로 가져올 수 있습니다.
 
-기본 제공 청사진 정의의 예제는 [Azure Blueprint GitHub 리포지토리](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins)를 참조하세요.
+기본 제공 청사진 정의의 예는 [Azure 청사진 GitHub 리포지토리](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins)를 참조 하세요.
 
 - **Name** [필수]
   - 새 청사진 정의의 이름을 지정합니다.

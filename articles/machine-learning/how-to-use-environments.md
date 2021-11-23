@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: ca2a58e9498a6ce2ef04d1ce568b965341b2dff5
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: e0e11865fc2a037c27641e0681ec67c9e53e6783
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553244"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936565"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "131553244"
 * 학습을 위해 환경을 사용합니다.
 * 웹 서비스 배포를 위한 환경을 사용합니다.
 
-Azure Machine Learning에서 환경이 작동하는 방식에 대한 개요는 [ML 환경이란?](concept-environments.md)을 참조하세요. 개발 환경을 구성하는 방법에 대한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조하세요.
+Azure Machine Learning에서 환경이 작동하는 방식에 대한 개요는 [ML 환경이란?](concept-environments.md)을 참조하세요. Azure ML Studio의 환경 관리에 대한 자세한 내용은 스튜디오에서 [환경 관리를 참조하세요.](https://docs.microsoft.com/azure/machine-learning/how-to-manage-environments-in-studio) 개발 환경을 구성하는 방법에 대한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -108,7 +108,7 @@ myenv = Environment.from_pip_requirements(name = "myenv",
 
 ### <a name="enable-docker"></a>Docker 사용
 
-Azure Machine Learning는 사용자의 사양을 고려 하 여 Docker 이미지를 빌드하고 해당 컨테이너 내에서 Python 환경을 만듭니다. Docker 이미지가 캐시되고 재사용됩니다. 이미지가 빌드되므로 새 환경의 첫 번째 실행은 일반적으로 더 오래 걸립니다. 로컬 실행의 경우 [Runconfiguration](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true#variables)내에서 Docker를 지정 합니다. 
+Azure Machine Learning 지정된 경우 Docker 이미지를 빌드하고 해당 컨테이너 내에 Python 환경을 만듭니다. Docker 이미지가 캐시되고 재사용됩니다. 이미지가 빌드되므로 새 환경의 첫 번째 실행은 일반적으로 더 오래 걸립니다. 로컬 실행의 경우 [RunConfiguration](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true#variables)내에서 Docker를 지정합니다. 
 
 기본적으로 새로 빌드된 Docker 이미지는 작업 영역과 연결된 컨테이너 레지스트리에 나타납니다.  리포지토리 이름의 형식은 *azureml/azureml_\<uuid\>* 입니다. 이름의 고유 식별자(*uuid*) 부분은 환경 구성에서 계산된 해시에 해당합니다. 이러한 대응을 통해 서비스는 주어진 환경의 이미지가 재사용을 위해 이미 존재하는지를 판단할 수 있습니다.
 

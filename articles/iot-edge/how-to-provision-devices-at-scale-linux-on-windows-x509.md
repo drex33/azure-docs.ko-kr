@@ -1,32 +1,31 @@
 ---
-title: Windows Linux에서 X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비전 - Azure IoT Edge | Microsoft Docs
-description: X.509 인증서 증명을 사용하여 디바이스 프로비저닝 서비스에서 Azure IoT Edge에 대한 대규모 프로비저닝 디바이스 테스트
+title: Windows의 Linux에서 x.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전-Azure IoT Edge | Microsoft Docs
+description: x.509 인증서 증명을 사용 하 여 장치 프로 비전 서비스를 통해 Azure IoT Edge에 대 한 대규모로 프로 비전 장치 테스트
 author: kgremban
 ms.author: kgremban
-ms.reviewer: v-tcassi
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 59c29f3ce91f5ee1e1e5ee65710cc34ce1572907
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 6f26234dc110fee18cdbb76b5c986523c8427776
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131846004"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132933973"
 ---
-# <a name="create-and-provision-iot-edge-for-linux-on-windows-devices-at-scale-using-x509-certificates"></a>X.509 인증서를 사용하여 대규모로 Windows 디바이스에서 Linux용 IoT Edge 만들고 프로비전
+# <a name="create-and-provision-iot-edge-for-linux-on-windows-devices-at-scale-using-x509-certificates"></a>x.509 인증서를 사용 하 여 대규모로 Windows 장치에서 Linux 용 IoT Edge 만들기 및 프로 비전
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-이 문서에서는 X.509 인증서를 사용하여 Windows [디바이스에서 Linux용 하나](iot-edge-for-linux-on-windows.md) 이상의 IoT Edge 자동 프로비전하는 엔드투엔드 지침을 제공합니다. Azure IoT Hub DPS(디바이스 [프로비저닝 서비스)를 Azure IoT Edge 디바이스를 자동으로 프로비전할](../iot-dps/index.yml) 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비전 개요를](../iot-dps/about-iot-dps.md#provisioning-process) 검토하세요.
+이 문서에서는 x.509 인증서를 사용 하 여 [Windows 장치에서 Linux에 대 한](iot-edge-for-linux-on-windows.md) 하나 이상의 IoT Edge를 자동으로 프로 비전 하는 종단 간 지침을 제공 합니다. [Azure IoT 허브 장치 프로 비전 서비스](../iot-dps/index.yml) (DPS)를 사용 하 여 Azure IoT에 지 장치를 자동으로 프로 비전 할 수 있습니다. Autoprovisioning 비전 프로세스에 익숙하지 않은 경우 계속 하기 전에 [프로 비전 개요](../iot-dps/about-iot-dps.md#provisioning-process) 를 검토 합니다.
 
 작업은 다음과 같습니다.
 
 1. 인증서 및 키를 생성합니다.
-1. 단일 디바이스에 대한 **개별 등록** 또는 디바이스 집합에 대한 **그룹 등록을** 만듭니다.
-1. IoT Edge 런타임이 설치된 Linux 가상 머신을 배포하고 IoT Hub 연결합니다.
+1. 단일 장치에 대 한 **개별 등록** 또는 장치 집합에 대 한 **그룹 등록** 을 만듭니다.
+1. IoT Edge 런타임을 설치한 Linux 가상 머신을 배포 하 고 IoT Hub에 연결 합니다.
 
 X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. 일반적으로 X.509 인증서는 신뢰할 수 있는 인증서 체인에 정렬됩니다. 자체 서명되었거나 신뢰할 수 있는 루트 인증서부터 시작하여, 체인에 존재하는 각 인증서는 그다음으로 낮은 인증서에 서명합니다. 이 패턴을 통해 루트 인증서부터 시작하여 각 중간 인증서를 거쳐 디바이스에 설치된 마지막 “리프” 인증서에서 완료되는 위임된 신뢰 체인이 만들어집니다.
 
@@ -40,7 +39,7 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 ## <a name="generate-device-identity-certificates"></a>디바이스 ID 인증서 생성
 
-디바이스 ID 인증서는 인증서 신뢰 체인을 통해 상위 X.509 인증 기관(CA) 인증서에 연결하는 리프 인증서입니다. 디바이스 ID 인증서의 CN(일반 이름)은 디바이스가 IoT Hub에 갖도록 하려는 디바이스 ID로 설정되어 있어야 합니다.
+디바이스 ID 인증서는 인증서 신뢰 체인을 통해 상위 X.509 인증 기관(CA) 인증서에 연결하는 리프 인증서입니다. 장치 id 인증서에는 장치를 IoT hub에 포함 하려는 장치 ID로 설정 된 CN (일반 이름)이 있어야 합니다.
 
 디바이스 ID 인증서는 IoT Edge 디바이스를 프로비저닝하고 Azure IoT Hub 디바이스를 인증하는 데만 사용됩니다. 해당 인증서는 IoT Edge 디바이스가 모듈이나 리프 디바이스에 확인을 위해 제공하는 CA 인증서와 달리 서명 인증서가 아닙니다. 자세한 내용은 [Azure IoT Edge 인증서 사용 현황 세부 정보](iot-edge-certs.md)를 참조하세요.
 
@@ -74,7 +73,7 @@ IoT Edge 디바이스에는 해당 인증서가 모두 필요합니다. DPS에�
 
 ## <a name="provision-the-device-with-its-cloud-identity"></a>클라우드 ID를 사용한 디바이스 프로비전
 
-런타임이 디바이스에 설치되면 디바이스 프로비전 서비스에 연결하고 IoT Hub 데 사용하는 정보로 디바이스를 구성합니다.
+런타임이 장치에 설치 되 면 장치 프로 비전 서비스에 연결 하는 데 사용 하는 정보를 사용 하 여 장치를 구성 하 고 IoT Hub 합니다.
 
 다음 정보를 준비합니다.
 
@@ -96,13 +95,13 @@ Provision-EflowVm -provisioningType DpsX509 -scopeId PASTE_YOUR_ID_SCOPE_HERE -r
 
 Windows Admin Center의 경우 다음 단계를 사용합니다.
 
-1. Azure IoT **Edge 디바이스 프로비저닝 창의 프로비저닝** 방법 드롭다운에서 **X509 DPS(인증서)를** 선택합니다.
+1. **Azure IoT Edge 장치 프로 비전** 창의 프로 비전 방법 드롭다운에서 **X509 인증서 (DPS)** 를 선택 합니다.
 
 1. Windows Admin Center 필드에 DPS 범위 ID, 장치 등록 ID, 등록 기본 키, 파생 키를 제공합니다.
 
 1. **선택한 방법을 통한 프로비전** 을 선택합니다.
 
-   ![대칭 키 프로비전에 필요한 필드 PNG를 입력한 후 선택한 방법으로 프로비저닝을 선택합니다.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/provisioning-with-selected-method-x509-certs.png)
+   ![대칭 키 프로 비전에 대 한 필수 필드인 PNG를 입력 한 후 선택한 방법으로 프로 비전을 선택 합니다.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/provisioning-with-selected-method-x509-certs.png)
 
 1. 프로비전이 완료되면 **마침** 을 선택합니다. 기본 대시보드로 돌아갑니다. 이제 유형이 `IoT Edge Devices`인 새 디바이스가 표시됩니다. 연결할 IoT Edge 디바이스를 선택할 수 있습니다. **개요** 페이지에서 디바이스의 **IoT Edge 모듈 목록** 및 **IoT Edge 상태** 가 표시됩니다.
 
@@ -114,11 +113,11 @@ IoT Edge for Linux on Windows가 IoT Edge 디바이스에 성공적으로 설치
 
 # <a name="individual-enrollment"></a>[개별 등록](#tab/individual-enrollment)
 
-디바이스 프로비저닝 서비스에서 만든 개별 등록이 사용되었는지 확인할 수 있습니다. Azure Portal 디바이스 프로비저닝 서비스 인스턴스로 이동합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이며 디바이스 ID가 나열된 것을 확인할 수 있습니다.
+장치 프로 비전 서비스에서 만든 개별 등록이 사용 되었는지 확인할 수 있습니다. Azure Portal에서 장치 프로 비전 서비스 인스턴스로 이동 합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이며 디바이스 ID가 나열된 것을 확인할 수 있습니다.
 
 # <a name="group-enrollment"></a>[그룹 등록](#tab/group-enrollment)
 
-디바이스 프로비저닝 서비스에서 만든 그룹 등록이 사용되었는지 확인할 수 있습니다. Azure Portal 디바이스 프로비저닝 서비스 인스턴스로 이동합니다. 만든 그룹 등록에 대한 등록 세부 정보를 엽니다. **등록 레코드** 탭으로 이동하여 해당 그룹에 등록된 모든 디바이스를 봅니다.
+장치 프로 비전 서비스에서 만든 그룹 등록이 사용 되었는지 확인할 수 있습니다. Azure Portal에서 장치 프로 비전 서비스 인스턴스로 이동 합니다. 만든 그룹 등록에 대 한 등록 정보를 엽니다. **등록 레코드** 탭으로 이동 하 여 해당 그룹에 등록 된 모든 장치를 볼 수 있습니다.
 
 ---
 
@@ -169,7 +168,7 @@ IoT Edge for Linux on Windows가 IoT Edge 디바이스에 성공적으로 설치
 
 ## <a name="next-steps"></a>다음 단계
 
-디바이스 프로비전 서비스 등록 프로세스를 사용하면 새 디바이스를 프로비전하는 동시에 디바이스 ID 및 디바이스 쌍 태그를 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-cli-at-scale.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-at-scale.md)하는 방법을 알아봅니다.
+장치 프로 비전 서비스 등록 프로세스를 통해 새 장치를 프로 비전 하는 동시에 장치 ID 및 장치 쌍 태그를 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-cli-at-scale.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-at-scale.md)하는 방법을 알아봅니다.
 
 다음도 가능합니다.
 

@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 네트워크 정책�
 services: container-service
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: 4ceb9059456a4f5b20a346e1688b82320e5041fe
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: e68833f01943f75b357202e1a0eb6431eb811c2a
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577653"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941209"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -104,7 +104,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-SP=$(az ad sp create-for-rbac --output json)
+SP=$(az ad sp create-for-rbac --role Contributor --output json)
 SP_ID=$(echo $SP | jq -r .appId)
 SP_PASSWORD=$(echo $SP | jq -r .password)
 

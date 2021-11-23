@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/27/2021
-author: saasguide
-ms.author: souchak
-ms.openlocfilehash: 6cf50327719b434cda7d5df4e3df99b9d96a1dcd
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: arifgani
+ms.author: argani
+ms.openlocfilehash: e5df2ea8371d44157cb668f92d132bde1a3fd516
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064461"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934708"
 ---
 # <a name="implementing-a-webhook-on-the-saas-service"></a>SaaS 서비스에서 webhook 구현
 

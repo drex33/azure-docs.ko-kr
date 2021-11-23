@@ -3,12 +3,12 @@ title: CMMC 수준 3 청사진 샘플
 description: CMMC 수준 3 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 2925acf75ada0bd950ca52e3fe63b9c97b5e34ad
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7973ed5a33a8a678c1520c231eff0d9df2361a67
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632332"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938479"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>CMMC 수준 3 청사진 샘플
 

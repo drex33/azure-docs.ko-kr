@@ -2,14 +2,14 @@
 title: ARM 템플릿 JSON을 Bicep으로 디컴파일
 description: Azure Resource Manager 템플릿을 Bicep 파일로 디컴파일하는 명령을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b9244eb0a076785c424603dc79ba13af6c29fb03
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: 807a2090d50822c75d57c4dd9120cdacf618eff2
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537034"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934993"
 ---
 # <a name="decompiling-arm-template-json-to-bicep"></a>ARM 템플릿 JSON을 Bicep으로 디컴파일링
 
@@ -199,10 +199,6 @@ bicep decompile main.json
 다운로드한 파일에서 `bicep decompile <filename>`를 엽니다.
 
 ---
-
-## <a name="side-by-side-view"></a>나란히 보기
-
-[Bicep 플레이그라운드](https://aka.ms/bicepdemo)를 사용하면 동등한 ARM 템플릿과 Bicep 파일을 나란히 볼 수 있습니다. 샘플 템플릿을 선택하여 두 버전을 모두 볼 수 있습니다. 또는 `Decompile`을 선택하여 자체 ARM 템플릿을 업로드하고 동등한 Bicep 파일을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

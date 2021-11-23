@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/27/2021
-author: saasguide
-ms.author: souchak
-ms.openlocfilehash: dfe47c220cb0dc427d9ff00bdfbaa85da949f520
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: arifgani
+ms.author: argani
+ms.openlocfilehash: c76e203c2260dd782ea0db52e60d85abdd42b9d6
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064447"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937852"
 ---
 # <a name="managing-the-saas-subscription-life-cycle"></a>SaaS 구독 수명 주기 관리
 
@@ -109,12 +109,12 @@ SaaS 구독은 다음과 같은 두 가지 유형의 업데이트를 사용할 �
 
 ### <a name="suspended-suspended"></a>일시 중단됨(*일시 중단됨*)
 
-이 상태는 SaaS 서비스에 대한 고객의 지불이 수신되지 않음을 나타냅니다. Microsoft는 게시자에게 SaaS 구독 상태의 이 변경 사항을 알립니다. 알림은 *action* 매개 변수를 *Suspended* 로 설정한 webhook 호출을 통해 수행됩니다.
+이 상태는 SaaS 서비스에 대한 고객의 지불이 수신되지 않음을 나타냅니다. Microsoft는 SaaS 구독 상태의 이 변경 사항을 게시자에게 알립니다. 알림은 *action* 매개 변수를 *Suspended* 로 설정한 webhook 호출을 통해 수행됩니다.
 
 게시자가 게시자 쪽에서 SaaS 서비스를 변경할 수 없습니다. 게시자는 이 정보를 일시 중단된 고객에게 제공하고 고객의 SaaS 서비스 액세스를 제한하거나 차단하는 것이 좋습니다. 결제가 절대 수신되지 않을 가능성이 있습니다.
 
 > [!NOTE]
-> Microsoft는 구독을 자동으로 취소하기 전에 고객에게 30일의 유예 기간을 줍니다. 30일의 유예 기간이 지나면 webhook에서 작업을 받게 `Unsubscribe` 됩니다.
+> Microsoft는 구독을 자동으로 취소하기 전에 고객에게 30일의 유예 기간을 줍니다. 30일 유예 기간이 지나면 webhook에서 작업을 받게 `Unsubscribe` 됩니다.
 
 구독이 *일시 중단됨* 상태인 경우:
 
@@ -138,7 +138,7 @@ SaaS 구독은 다음과 같은 두 가지 유형의 업데이트를 사용할 �
 
 ### <a name="renewed-subscribed"></a>갱신됨(*구독됨*)
 
-SaaS 구독은 월간 또는 연간 구독 기간이 끝날 때 Microsoft에서 자동으로 갱신합니다. 모든 SaaS 구독의 자동 갱신 설정의 기본값은 *true* 입니다. 활성 SaaS 구독은 정기적으로 계속 갱신됩니다. Microsoft는 갱신 이벤트에 대 한 알림 전용 webhook 알림을 제공 합니다. 고객은 Microsoft 365 관리 포털을 통해 SaaS 구독의 자동 갱신을 해제할 수 있습니다. 이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소됩니다. 고객은 언제든지 SaaS 구독을 취소할 수 있습니다.
+SaaS 구독은 월간 또는 연간 구독 기간이 끝날 때 Microsoft에서 자동으로 갱신합니다. 모든 SaaS 구독의 자동 갱신 설정의 기본값은 *true* 입니다. 활성 SaaS 구독은 정기적으로 계속 갱신됩니다. Microsoft는 갱신 이벤트에 대한 정보 전용 webhook 알림을 제공합니다. 고객은 Microsoft 365 관리 포털을 통해 SaaS 구독의 자동 갱신을 해제할 수 있습니다. 이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소됩니다. 고객은 언제든지 SaaS 구독을 취소할 수 있습니다.
 
 활성 구독만 자동으로 갱신됩니다. 갱신 프로세스가 진행되는 동안 그리고 자동 갱신이 성공하면 구독이 활성 상태를 유지합니다. 갱신 후 구독 기간의 시작 및 종료 날짜가 새 기간의 날짜로 업데이트됩니다.
 
@@ -154,5 +154,5 @@ SaaS 구독은 수명 주기 동안 언제든지 취소할 수 있습니다. 구
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SaaS 배송 구독 Api v2](pc-saas-fulfillment-subscription-api.md)
-- [SaaS 처리 작업 Api v2](pc-saas-fulfillment-operations-api.md)
+- [SaaS 처리 구독 API v2](pc-saas-fulfillment-subscription-api.md)
+- [SaaS 처리 작업 API v2](pc-saas-fulfillment-operations-api.md)

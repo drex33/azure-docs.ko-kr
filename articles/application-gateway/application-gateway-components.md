@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
-ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ac459ae85553a7322b24dc53ade139db748aa001
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88723319"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956807"
 ---
 # <a name="application-gateway-components"></a>Application Gateway 구성 요소
 
@@ -71,7 +71,7 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 - **다중 사이트**. 동일한 애플리케이션 게이트웨이에서 웹 애플리케이션 두 개 이상의 호스트 이름 또는 도메인 이름을 기반으로 라우팅을 구성하려는 경우 이 수신기 구성이 필요합니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 contoso.com, fabrikam.com 및 adatum.com이라는 세 개의 도메인이 애플리케이션 게이트웨이의 IP 주소를 가리킵니다. 세 개의 [다중 사이트 수신기](multiple-site-overview.md)를 만들고 각 포트 및 프로토콜 설정에 대해 각각의 수신기를 구성합니다. 
 
-    또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름(미리 보기)](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조하세요.
+    또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener)을 참조하세요.
 
     다중 사이트 수신기를 구성하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Application Gateway에서 다중 사이트 호스트](create-multiple-sites-portal.md)를 참조하세요.
 
@@ -103,7 +103,7 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 다시 쓰기 규칙을 사용하면 요청 및 응답 패킷이 애플리케이션 게이트웨이를 통해 클라이언트와 백 엔드 풀 간에 이동할 때 URL 경로 및 쿼리 문자열 매개 변수뿐만 아니라 HTTP 요청 및 응답 헤더도 추가하거나, 제거하거나, 업데이트할 수 있습니다.
 
-헤더 및 URL 매개 변수는 정적 값 또는 다른 헤더 및 서버 변수로 설정할 수 있습니다. 이 기능은 클라이언트 IP 주소 추출, 백 엔드에 대한 중요한 정보 제거, 보안 추가 등 중요한 사용 사례에 도움이 됩니다.
+헤더 및 URL 매개 변수는 정적 값이나 다른 헤더와 서버 변수로 설정할 수 있습니다. 이 기능은 클라이언트 IP 주소 추출, 백 엔드에 대한 중요한 정보 제거, 보안 추가 등 중요한 사용 사례에 도움이 됩니다.
 
 자세한 내용은 [애플리케이션 게이트웨이에서 HTTP 헤더 및 URL 다시 작성](rewrite-http-headers-url.md)을 참조하세요.
 

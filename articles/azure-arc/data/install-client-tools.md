@@ -9,23 +9,23 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: e328c65eb7453a8e80faa315c0b038e8fa6f13e1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6f45667fa4f7aed4f5081690c8b84cc3ad77ddb5
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567337"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956507"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스 배포 및 관리를 위한 클라이언트 도구 설치
 
-이 문서에서는 Arc 지원 데이터 서비스를 관리하는 도구를 설치하기 위한 리소스에 대해 설명합니다.
+이 문서에서는 Azure Arc 사용 데이터 서비스를 관리 하는 도구를 설치 하는 리소스를 안내 합니다.
 
 > [!IMPORTANT]
 > 새 릴리스로 업데이트하는 경우 최신 버전의 Azure Data Studio, Azure Data Studio용 Azure Arc 확장, Azure(`az`) CLI(명령줄 인터페이스), [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]으로 업데이트됩니다.
 >
 > [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)] 
 
-[Azure CLI(`az`)용 `arcdata` 확장](reference/reference-az-arcdata-dc.md)은 Arc 지원 데이터 서비스를 `azdata`로 대체합니다.
+[ `arcdata` Azure CLI ( `az` )에 대 한 확장](reference/reference-az-arcdata-dc.md) 은 `azdata` Azure Arc 사용 데이터 서비스를 대체 합니다.
 
 ## <a name="tools-for-creating-and-managing-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스를 만들고 관리하기 위한 도구
 
@@ -33,8 +33,8 @@ ms.locfileid: "122567337"
 
 | 도구 | 필수 | Description | 설치 |
 |---|---|---|---|
-| Azure CLI(`az`)<sup>1</sup> | Yes | Azure 서비스를 관리하기 위한 최신 명령줄 인터페이스입니다. 일반적으로 Azure 서비스를 관리하는 데 사용되며 특히 간접 연결 모드(지금 사용 가능) 및 직접 연결 모드(곧 사용 가능)에 대한 스크립트 또는 CLI를 사용하여 Arc 지원 데이터 서비스를 관리하는 데 사용됩니다. ([추가 정보](/cli/azure/)) | [설치](/cli/azure/install-azure-cli) |
-| Azure(`az`) CLI용 `arcdata` 확장 | Yes | Arc 지원 데이터 서비스를 Azure CLI(`az`)에 대한 확장으로 관리하기 위한 명령줄 도구입니다. | [설치](install-arcdata-extension.md) |
+| Azure CLI(`az`)<sup>1</sup> | Yes | Azure 서비스를 관리하기 위한 최신 명령줄 인터페이스입니다. 일반적으로 Azure 서비스를 관리 하는 데 사용 되며 간접적으로 연결 된 모드 (지금 사용 가능) 및 직접 연결 된 모드 (곧 사용 가능)에 대 한 CLI 또는 스크립트를 사용 하 여 특히 Azure Arc 사용 데이터 서비스를 관리 합니다. ([추가 정보](/cli/azure/)) | [설치](/cli/azure/install-azure-cli) |
+| Azure(`az`) CLI용 `arcdata` 확장 | Yes | Azure CLI ()에 대 한 확장으로 Azure Arc 사용 데이터 서비스를 관리 하기 위한 명령줄 도구입니다. `az` | [설치](install-arcdata-extension.md) |
 | Azure Data Studio | 예 | Azure SQL, SQL Server, PostrgreSQL 및 MySQL을 비롯한 다양한 데이터베이스에 연결하고 쿼리하는 데 사용할 수 있는 풍부한 환경 도구입니다. Azure Data Studio에 대한 확장은 Azure Arc 지원 데이터 서비스에 대한 관리 환경을 제공합니다. | [설치](/sql/azure-data-studio/download-azure-data-studio) |
 | Azure Data Studio용 Azure Arc 확장 | Yes | Azure Arc 지원 데이터 서비스에 대한 관리 환경을 제공하는 Azure Data Studio에 대한 확장입니다.| Azure Data Studio의 확장 갤러리에서 설치합니다.|
 | Azure Data Studio의 PostgreSQL 확장 | 아니요 | PostgreSQL에 대한 관리 기능을 제공하는 Azure Data Studio용 PostgreSQL 확장입니다. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Azure Data Studio의 확장 갤러리에서 설치합니다.|
@@ -52,4 +52,4 @@ ms.locfileid: "122567337"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)
+[Azure Arc 지원 데이터 서비스 배포 계획](plan-azure-arc-data-services.md)

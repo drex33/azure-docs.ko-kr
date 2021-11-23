@@ -3,17 +3,17 @@ title: 로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 description: Azurite 오픈 소스 에뮬레이터는 Azure Storage 애플리케이션을 테스트할 수 있는 무료 로컬 환경을 제공합니다.
 author: normesta
 ms.author: normesta
-ms.date: 08/02/2021
+ms.date: 11/22/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 567b54aae5ac2ac1defeedb390ee9d5c04f5f6bb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 553904e05bc893c739e82c6552a48d40b139392f
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013520"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957339"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 
@@ -27,11 +27,6 @@ Azurite를 로컬 시스템에 설치하고 실행하는 여러 가지 방법이
 
 ### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-> [!TIP]
-> Azurite는 [Visual Studio 2022 미리 보기 에서](https://visualstudio.microsoft.com/vs/preview/)자동으로 사용할 수 있으므로 미리 보기를 설치하는 경우 Azurite를 수동으로 설치할 필요가 없습니다. 
-
-이 섹션의 지침에서는 Visual Studio 2022 미리 보기를 아직 설치하지 않은 것으로 가정합니다.
-
 Visual Studio에서 Azure 프로젝트(예: **Azure Functions** 프로젝트)를 만듭니다.
 
 ![새 Azure Function 프로젝트](media/storage-use-azurite/visual-studio-azure-function-project.png)
@@ -40,26 +35,20 @@ Visual Studio에서 Azure 프로젝트(예: **Azure Functions** 프로젝트)를
 
 ![함수 프로젝트 설정](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
 
-[Node.js 버전 8.0 이상](https://nodejs.org)을 설치합니다. Npm(노드 패키지 관리자)은 모든 Node.js 설치에 포함되는 패키지 관리 도구입니다. Node.js가 설치되면 다음 `npm` 명령을 실행하여 Azurite를 설치합니다.
+#### <a name="install-azurite"></a>Azurite 설치
 
-```console
-npm install -g azurite
-```
+Azurite는 [Visual Studio 2022 미리 보기](https://visualstudio.microsoft.com/vs/preview/)에서 자동으로 사용할 수 있으므로 미리 보기를 설치 하는 경우 수동으로 설치 하 고 Azurite를 수동으로 시작할 필요가 없습니다. 
 
-명령줄에서 다음 명령을 용하 여 Azurite를 시작합니다.
+> [!NOTE] 
+> 이전 버전의 Visual Studio를 실행 하는 경우에는를 수동으로 설치한 후 Azurite를 시작 해야 합니다. 먼저 [Node.js 버전 8.0](https://nodejs.org)이상을 설치 합니다. Npm(노드 패키지 관리자)은 모든 Node.js 설치에 포함되는 패키지 관리 도구입니다. 
+>
+> Node.js를 설치한 후 다음 명령을 실행 `npm` 하 여 Azurite를 설치 `npm install -g azurite` 합니다. 그런 후 다음 명령을 사용 하 여 Azurite를 시작 `azurite` 합니다.
 
-```console
-azurite
-```
-
-콘솔에 다음과 유사한 출력 정보가 표시됩니다.
-
-![명령줄 출력](media/storage-use-azurite/azurite-command-line-output.png)
+### <a name="run-azurite"></a>Azurite 실행
 
 [릴리스 빌드 구성](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration)으로 변경하고 프로젝트를 실행합니다.
 
-> [!NOTE]
-> 디버그 빌드 구성을 사용하여 프로젝트를 시작하면 오류가 발생할 수 있습니다. 이는 Visual Studio에서 Visual Studio에 기본 제공되는 레거시 스토리지 에뮬레이터를 시작하려고 할 수 있기 때문입니다. Azurite에서 레거시 스톨리지 에뮬레이터에 필요한 수신 대기 포트를 사용하므로 레거시 에뮬레이터를 시작하려는 시도가 차단됩니다.
+디버그 빌드 구성을 사용하여 프로젝트를 시작하면 오류가 발생할 수 있습니다. 이는 Visual Studio에서 Visual Studio에 기본 제공되는 레거시 스토리지 에뮬레이터를 시작하려고 할 수 있기 때문입니다. Azurite에서 레거시 스톨리지 에뮬레이터에 필요한 수신 대기 포트를 사용하므로 레거시 에뮬레이터를 시작하려는 시도가 차단됩니다.
 
 다음 이미지는 Azure 함수 프로젝트를 실행할 때 나타나는 명령줄 출력을 보여 줍니다.
 

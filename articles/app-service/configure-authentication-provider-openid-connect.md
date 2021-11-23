@@ -1,17 +1,17 @@
 ---
-title: OpenID Connect 공급자(미리 보기) 구성
+title: Openid connect 커넥트 공급자 구성
 description: OpenID Connect 공급자를 App Service 또는 Azure Functions 앱의 ID 공급자로 구성하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/20/2021
 ms.reviewer: mahender
-ms.openlocfilehash: 0536d28ec91ada939a1ee0b3b7ecf6bf5e621a7a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 4050e76789253cad9f63f52fc569a483fd082238
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236503"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956655"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>OpenID Connect 공급자를 사용하여 로그인하도록 App Service 또는 Azure Functions 앱 구성(미리 보기)
+# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider"></a>Openid connect 커넥트 공급자를 사용 하 여 로그인 하도록 App Service 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

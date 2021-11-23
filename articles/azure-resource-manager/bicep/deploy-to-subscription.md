@@ -3,12 +3,12 @@ title: Bicep을 사용하여 테넌트로 리소스 배포
 description: 관리 그룹 범위에서 리소스를 배포하는 Bicep 파일을 만드는 방법을 설명합니다. 리소스 그룹을 만드는 방법을 보여주는 스크린샷
 ms.topic: conceptual
 ms.date: 11/22/2021
-ms.openlocfilehash: 5eb9144c997524ab96ae34ab7f878a825d11eb31
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: b79c21d66d4d7e02446ab469fcb02e83e66899f0
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/23/2021
-ms.locfileid: "132935905"
+ms.locfileid: "132955882"
 ---
 # <a name="subscription-deployments-with-bicep-files"></a>Bicep 파일을 사용한 구독 배포
 
@@ -61,18 +61,18 @@ Azure 정책의 경우 다음을 사용합니다.
 
 구독을 관리하려면 다음을 사용합니다.
 
-* [Advisor 구성](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [변경 분석 프로필](/azure/templates/microsoft.changeanalysis/profile)
+* [구성-Advisor ](/azure/templates/microsoft.advisor/configurations)
 * [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
-* [잠금](/azure/templates/microsoft.authorization/locks)
+* [중지](/azure/templates/microsoft.authorization/locks)
+* [프로필 변경 분석 ](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [태그](/azure/templates/microsoft.resources/tags)
 
 모니터링을 위해 다음을 사용 합니다.
 
 * [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
-* [logprofiles]) (/azure/templates/microsoft.insights/logprofiles)
+* [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 보안을 위해 다음을 사용 합니다.
 

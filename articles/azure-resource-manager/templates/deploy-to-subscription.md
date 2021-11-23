@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드�
 ms.topic: conceptual
 ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 05e2b36832ff88e3a727a6fc13ec89735787abc4
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: ebc4c07e26f2e88509beafb4258e7a47dd43d354
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/23/2021
-ms.locfileid: "132941133"
+ms.locfileid: "132956894"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 구독 배포
 
@@ -58,18 +58,18 @@ Azure 정책의 경우 다음을 사용합니다.
 
 구독을 관리하려면 다음을 사용합니다.
 
-* [Advisor 구성](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [변경 분석 프로필](/azure/templates/microsoft.changeanalysis/profile)
+* [구성 - Advisor ](/azure/templates/microsoft.advisor/configurations)
 * [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
 * [잠금](/azure/templates/microsoft.authorization/locks)
+* [profile - 변경 분석 ](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [태그](/azure/templates/microsoft.resources/tags)
 
 모니터링의 경우 다음을 사용합니다.
 
 * [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
-* [logprofiles]) (/azure/templates/microsoft.insights/logprofiles)
+* [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 보안을 위해 다음을 사용합니다.
 
@@ -443,7 +443,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Access Control
 
-역할 할당에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당을 참조하세요.](../../role-based-access-control/role-assignments-template.md)
+역할 할당에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
 
 다음 예제에서는 리소스 그룹을 만들고 해당 그룹에 잠금을 적용하며 보안 주체에 역할을 할당합니다.
 
@@ -451,6 +451,6 @@ New-AzSubscriptionDeployment `
 
 ## <a name="next-steps"></a>다음 단계
 
-* Microsoft Defender for Cloud에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json을](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)참조하세요.
+* 클라우드 용 Microsoft Defender에 대 한 작업 영역 설정 배포에 대 한 예제는 [deployASCwithWorkspaceSettings](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)를 참조 하세요.
 * 샘플 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments)에서 찾을 수 있습니다.
 * [관리 그룹 수준](deploy-to-management-group.md) 및 [테넌트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 8dc495f16fe205350f5eeeae7a8aee1e933c6a1c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4949b315315ae20ff704c6b934a35e9c21100859
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468236"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954356"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용하여 데이터베이스 작업 추적
 
@@ -22,7 +22,7 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
 
 >[!IMPORTANT]
-> 서버 성능에 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자만 로깅하는 것이 좋습니다.
+> 서버 성능에 큰 영향을 미치지 않고 최소한의 데이터만 수집되도록 감사 목적에 필요한 이벤트 유형 및 사용자만 기록하는 것이 좋습니다.
 
 기본적으로 감사 로그는 사용하도록 설정되어 있지 않습니다. 감사 로깅을 사용하도록 설정하려면 `audit_log_enabled` 서버 매개 변수를 *ON* 으로 설정합니다. 이는 Azure Portal 또는 Azure CLI를 사용하여 구성할 수 있습니다. <!-- add link to server parameter-->.
 

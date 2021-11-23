@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: mmcrey
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 09d4c88bec94c881fd9895557aa35264ea4ffab4
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b1658be367802781b34d78e3d2e1fe2dbfdedae8
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131561217"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957358"
 ---
 # <a name="dcsv3-and-dcdsv3-series"></a>DCsv3 및 DCdsv3 시리즈
 
@@ -33,7 +33,7 @@ DCsv3 및 DCdsv3 시리즈 가상 머신은 공용 클라우드에서 처리 되
 
 Microsoft는 워크 로드가 로컬 디스크의 이점을 활용 하는지 여부에 따라 두 가지 변형을 제공 합니다. 로컬 디스크를 사용 하 여 VM을 선택 하는지 여부에 관계 없이 원격 영구 디스크 저장소를 모든 Vm에 연결할 수 있습니다. 원격 디스크 옵션 (예: VM 부팅 디스크의 경우)은 언제나 처럼 Vm과는 별도로 청구 됩니다. 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 CPU: 3 세대 Intel® Xeon 확장 가능 프로세서 8370C<br>
 기본 All-Core 빈도: 2.8 g h z<br>
@@ -42,7 +42,7 @@ CPU: 3 세대 Intel® Xeon 확장 가능 프로세서 8370C<br>
 [총 메모리 암호화-다중 키](https://itpeernetwork.intel.com/memory-encryption/): 사용<br>
 [Premium Storage](premium-storage-performance.md): 지원됨<br>
 [디스크 저장소](disks-enable-ultra-ssd.md): 지원 됨<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (CLI 프로 비전 또는 ARM 템플릿만 해당)<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [Azure Kubernetes Service](../aks/intro-kubernetes.md): 지원 됨 (처음에만 CLI 프로 비전)<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 42e8a1f2480e3924f6b1e68cff3c05a967e1964c
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355740"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132953694"
 ---
 # <a name="azure-application-gateway-features"></a>Azure Application Gateway 기능
 
@@ -89,7 +89,7 @@ Application Gateway를 사용하면 동일한 애플리케이션 게이트웨이
 
 마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 `http://blog.contoso.com` 및 `http://app.contoso.com`이 포함됩니다. 자세한 내용은 [Application Gateway 다중 사이트 호스팅](multiple-site-overview.md)을 참조하세요.
 
-또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세히 알아보려면 [수신기의 와일드카드 호스트 이름(미리 보기)](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조하세요.
+또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener)을 참조하세요.
 
 ## <a name="redirection"></a>리디렉션
 

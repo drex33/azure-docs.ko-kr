@@ -4,25 +4,80 @@ description: 이 문서에서는 다른 Azure 게스트 OS에 적용된 Microsof
 services: cloud-services
 ms.subservice: auto-os-updates
 documentationcenter: na
-author: gunnarcms
+author: ibthampy
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/01/2021
+ms.date: 11/19/2021
 ms.author: ibthampy
-ms.openlocfilehash: 4c949cbea937b77da56ac39264750af3488fa851
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: a97b222872fa6bb96c405446fcad18a2656dca97
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132865822"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956389"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
+
+## <a name="november-2021-guest-os"></a>2021 년 11 월 게스트 OS
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 21-11  |  [5007206]  |  LCU(최신 누적 업데이트)  |  [6.37]  |  2021 년 11 월 9 일  |
+|  Rel 21-11  |  [5006671]  |  IE 누적 업데이트  |  [2.116], [3.103], [4.96]  |  2021 년 11 월 9 일  |
+|  Rel 21-11  |  [5007205]  |  LCU(최신 누적 업데이트)  |  [7.5]  |  2021 년 11 월 9 일  |
+|  Rel 21-11  |  [5007192]  |  LCU(최신 누적 업데이트)  |  [5.61]  |  2021 년 11 월 9 일  |
+|  Rel 21-11  |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업  |  [2.116]  |  2021년 2월 16일  |
+|  Rel 21-11  |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업  |  [2.116]  |  2021년 6월 8일  |
+|  Rel 21-11  |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업  |  [4.96]  |  2021년 2월 16일  |
+|  Rel 21-11  |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업  |  [4.96]  |  2021년 2월 16일  |
+|  Rel 21-11  |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업  |  [3.103]  |  2021년 2월 16일  |
+|  Rel 21-11  |  [4578954]  |  . .NET Framework 4.5.2 보안 및 품질 롤업  |  [3.103]  |  2021년 2월 16일  |
+|  Rel 21-11  |  [5004335]  |  . NET Framework 3.5 및 4.7.2 누적 업데이트  |  [6.37]  |  2021년 8월 10일  |
+|  Rel 21-11  |  [5007236]  |  월간 롤업  |  [2.116]  |  9 월 14 일, 2021  |
+|  Rel 21-11  |  [5007260]  |  월간 롤업  |  [3.103]  |  9 월 14 일, 2021  |
+|  Rel 21-11  |  [5007247]  |  월간 롤업  |  [4.96]  |  9 월 14 일, 2021  |
+|  Rel 21-11  |  [5001401]  |  서비스 스택 업데이트  |  [3.103]  |  2021년 4월 13일  |
+|  Rel 21-11  |  [5001403]  |  서비스 스택 업데이트  |  [4.96]  |  2021년 4월 13일  |
+|  Rel 21-11 OOB  |  [4578013]  |  독립 실행형 보안 업데이트  |  [4.96]  |  2020년 8월 19일  |
+|  Rel 21-11  |  [5005698]  |  서비스 스택 업데이트  |  [5.61]  |  9 월 14 일, 2021  |
+|  Rel 21-11  |  [5006749]  |  서비스 스택 업데이트  |  [2.116]  |  2021년 7월 13일  |
+|  Rel 21-11  |  [5006749]  |  서비스 스택 업데이트  |  [6.37]  |  2021년 8월 10일  |
+|  Rel 21-11  |  [4494175]  |  마이크로코드  |  [5.61]  |  2020년 9월 1일  |
+|  Rel 21-11  |  [4494174]  |  마이크로코드  |  [6.37]  |  2020년 9월 1일  |
+
+[5007206]: https://support.microsoft.com/kb/5007206
+[5006671]: https://support.microsoft.com/kb/5006671
+[5007205]: https://support.microsoft.com/kb/5007205
+[5007192]: https://support.microsoft.com/kb/5007192
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[5004335]: https://support.microsoft.com/kb/5004335
+[5007236]: https://support.microsoft.com/kb/5007236
+[5007260]: https://support.microsoft.com/kb/5007260
+[5007247]: https://support.microsoft.com/kb/5007247
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5005698]: https://support.microsoft.com/kb/5005698
+[5006749]: https://support.microsoft.com/kb/5006749
+[5006749]: https://support.microsoft.com/kb/5006749
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.116]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.103]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.96]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.61]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.37]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.5]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## <a name="october-2021-guest-os"></a>2021 년 10 월 게스트 OS
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -38,9 +93,9 @@ ms.locfileid: "132865822"
 |  Rel 21-10 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업  | 3.102 | 2021년 2월 16일 |
 |  Rel 21-10 |  [4578954]  |  . .NET Framework 4.5.2 보안 및 품질 롤업  | 3.102 | 2021년 2월 16일 |
 |  Rel 21-10 |  [5004335]  |  . NET Framework 3.5 및 4.7.2 누적 업데이트  | 6.36 | 2021년 8월 10일 |
-|  Rel 21-10 |  [5006743]  |  월간 롤업  | 2.115 | 9 월 14 일, 2021 |
-|  Rel 21-10 |  [5006739]  |  월간 롤업  | 3.102 | 9 월 14 일, 2021 |
-|  Rel 21-10 |  [5006714]  |  월간 롤업  | 4.95 | 9 월 14 일, 2021 |
+|  Rel 21-10 |  [5006743]  |  월간 롤업  | 2.115 | 2021년 9월 14일 |
+|  Rel 21-10 |  [5006739]  |  월간 롤업  | 3.102 | 2021년 9월 14일 |
+|  Rel 21-10 |  [5006714]  |  월간 롤업  | 4.95 | 2021년 9월 14일 |
 |  Rel 21-10 |  [5001401]  |  서비스 스택 업데이트  | 3.102 | 2021년 4월 13일 |
 |  Rel 21-10 |  [5001403]  |  서비스 스택 업데이트  | 4.95 | 2021년 4월 13일 |
 |  Rel 21-10 OOB |  [4578013]  |  독립 실행형 보안 업데이트  | 4.95 | 2020년 8월 19일 |
@@ -80,7 +135,7 @@ ms.locfileid: "132865822"
 | --- | --- | --- | --- | --- |
 |  Rel 21-09 |  [5005568]  |  LCU(최신 누적 업데이트) | [6.35] | 2021년 9월 14일 |
 |  Rel 21-09 |  [5005563]  |  IE 누적 업데이트 | [2.114], [3.101], [4.94] | 2021년 9월 14일 |
-|  Rel 21-09 |  [5005573]  |  LCU(최신 누적 업데이트) | [5.59] | 2021년 9월 14일 |
+|  Rel 21-09 |  [5005573]  |  LCU(최신 누적 업데이트) | [5.59] | 9 월 14 일, 2021 |
 |  Rel 21-09 |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업  | [2.114] | 2021년 2월 16일 |
 |  Rel 21-09 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업  | [2.114] | 2021년 6월 8일 |
 |  Rel 21-09 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업  | [4.94] | 2021년 2월 16일 |
@@ -88,7 +143,7 @@ ms.locfileid: "132865822"
 |  Rel 21-09 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업  | [3.101] | 2021년 2월 16일 |
 |  Rel 21-09 |  [4578954]  |  . .NET Framework 4.5.2 보안 및 품질 롤업  | [3.101] | 2021년 2월 16일 |
 |  Rel 21-09 |  [5004335]  |  . NET Framework 3.5 및 4.7.2 누적 업데이트  | [6.35] | 2021년 8월 10일 |
-|  Rel 21-09 |  [5005633]  |  월간 롤업  | [2.114] | 2021년 9월 14일 |
+|  Rel 21-09 |  [5005633]  |  월간 롤업  | [2.114] | 9 월 14 일, 2021 |
 |  Rel 21-09 |  [5005623]  |  월간 롤업  | [3.101] | 9 월 14 일, 2021 |
 |  Rel 21-09 |  [5005613]  |  월간 롤업  | [4.94] | 9 월 14 일, 2021 |
 |  Rel 21-09 |  [5001401]  |  서비스 스택 업데이트  | [3.101] | 2021년 4월 13일 |

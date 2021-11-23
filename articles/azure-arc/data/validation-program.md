@@ -9,16 +9,16 @@ author: MikeRayMSFT
 ms.author: mikeray
 description: Azure Arc 지원 데이터 서비스에 대한 Kubernetes 배포에 대한 유효성 검사 프로그램을 설명합니다.
 keywords: Kubernetes, Arc, Azure, K8s, 유효성 검사, 데이터 서비스, SQL Managed Instance
-ms.openlocfilehash: 45c6967a536bc4e32e2382acd795f508a4bea0a4
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 95c59ff551b5184dabe65c5c09d791df692e0733
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615185"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954413"
 ---
 # <a name="azure-arc-enabled-data-services-kubernetes-validation"></a>Azure Arc 지원 데이터 서비스 Kubernetes 유효성 검사
 
-Azure Arc 지원 데이터 서비스 팀은 업계 파트너와 협력하여 Azure Arc 지원 데이터 서비스를 호스팅하는 특정 배포 및 솔루션의 유효성을 검사했습니다. 이 유효성 검사는 데이터 서비스에 대한 [Azure Arc 지원 Kubernetes 유효성 검사](../kubernetes/validation-program.md)를 확장합니다. 이 문서에서는 데이터 서비스를 지원하기 위해 확인된 파트너 솔루션, 버전, Kubernetes 버전, SQL 엔진 버전 및 PostgreSQL 하이퍼스케일 버전을 식별합니다. 
+Azure Arc 지원 데이터 서비스 팀은 업계 파트너와 협력하여 Azure Arc 지원 데이터 서비스를 호스팅하는 특정 배포 및 솔루션의 유효성을 검사했습니다. 이 유효성 검사는 데이터 서비스에 대한 [Azure Arc 지원 Kubernetes 유효성 검사](../kubernetes/validation-program.md)를 확장합니다. 이 문서에서는 데이터 서비스를 지원 하기 위해 확인 된 파트너 솔루션, 버전, Kubernetes 버전, SQL 엔진 버전 및 PostgreSQL hyperscale 버전을 식별 합니다. 
 
 모든 Azure Arc 지원 구성 요소의 유효성이 검사되는 방법을 보려면 [유효성 검사 프로그램 개요](../validation-program/overview.md)를 참조하세요.
 
@@ -33,7 +33,7 @@ Azure Arc 지원 데이터 서비스 팀은 업계 파트너와 협력하여 Azu
 
 |솔루션 및 버전 | Kubernetes 버전 | Azure Arc 지원 데이터 서비스 버전 | SQL 엔진 버전 | PostgreSQL 하이퍼스케일 버전
 |-----|-----|-----|-----|-----|
-|VMware의 Cisco Hyperflex <br/> Cisco IKS ESXi 6.7 U3 |v1.19.5|v1.0.0_2021-07-30|15.0.2148.140| 확인 안 함 |
+|VMware에서 Cisco Hyperflex <br/> Cisco IKS ESXi 6.7 U3 |v 1.19.5|v1.0.0_2021-07-30|15.0.2148.140| 확인 안 함 |
 
 ### <a name="dell"></a>Dell
 
@@ -55,7 +55,7 @@ Azure Arc 지원 데이터 서비스 팀은 업계 파트너와 협력하여 Azu
 
 |솔루션 및 버전 | Kubernetes 버전 | Azure Arc 지원 데이터 서비스 버전 | SQL 엔진 버전 | PostgreSQL 하이퍼스케일 버전
 |-----|-----|-----|-----|-----|
-| Platform9 관리되는 Kubernetes v5.3.0 | 1.20.5 | v1.0.0_2021-07-30| 15.0.2148.140 | 확인 안 함 |
+| Platform9 Managed Kubernetes v 5.3.0 | 1.20.5 | v1.0.0_2021-07-30| 15.0.2148.140 | 확인 안 함 |
 
 ### <a name="purestorage"></a>PureStorage
 
@@ -112,4 +112,6 @@ Azure Arc 지원 데이터 서비스의 향후 릴리스에는 더 많은 테스
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 컨트롤러 만들기](create-data-controller.md)
+- [Azure Arc 지원 데이터 서비스 배포 계획](plan-azure-arc-data-services.md)
+- [데이터 컨트롤러 만들기 - CLI와 간접적으로 연결됨](create-data-controller-indirect-cli.md)
+- 직접 연결된 데이터 컨트롤러를 만들려면 데이터 [컨트롤러를 직접 연결 모드로 배포하기 위한 필수 구성 조건으로](create-data-controller-direct-prerequisites.md)시작합니다.

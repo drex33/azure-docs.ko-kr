@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: 54e619491a52828475143fbe5656736063e84c9d
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: b33394821ce71d9ee9269a9d381af68d83e955ee
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642146"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957320"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 감사 로그
 
@@ -22,7 +22,7 @@ Azure Database for MySQL에서는 사용자에게 감사 로그를 제공합니�
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
 
 >[!IMPORTANT]
-> 서버 성능이 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자만 로그하는 것이 좋습니다.
+> 서버 성능이 크게 영향을 받지 않고 최소 데이터 양이 수집 되도록 감사 목적에 필요한 이벤트 유형과 사용자를 기록 하는 것이 좋습니다. 
 
 기본값으로 감사 로그는 비활성화됩니다. 사용하려면 `audit_log_enabled`을 ON으로 설정합니다.
 

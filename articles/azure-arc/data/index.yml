@@ -10,12 +10,12 @@ metadata:
   author: MikeRayMSFT
   ms.author: mikeray
   ms.date: 12/16/2020
-  ms.openlocfilehash: cdfa89d1b39e6bc823d863bdb156c706d4c7247f
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: c7313545fc9d11b6659805f8cc972a6675f872eb
+  ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129716095"
+  ms.lasthandoff: 11/23/2021
+  ms.locfileid: "132956486"
 landingContent:
 - title: 정보
   linkLists:
@@ -33,22 +33,14 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 데이터 컨트롤러 만들기
-      url: create-data-controller.md
+    - text: 배포 계획
+      url: plan-azure-arc-data-services.md
     - text: 클라이언트 도구 설치
       url: install-client-tools.md
-- title: Azure Arc 지원 PostgreSQL 하이퍼스케일(미리 보기)
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: 생성
-      url: create-postgresql-hyperscale-server-group.md
-    - text: 연결
-      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
-    - text: 마이그레이션
-      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-    - text: 복원
-      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+    - text: 필수 조건 완료
+      url: create-data-controller-direct-prerequisites.md
+    - text: 데이터 컨트롤러 만들기
+      url: create-data-controller-direct-azure-portal.md
 - title: Azure Arc 지원 SQL Managed Instance
   linkLists:
   - linkListType: quickstart
@@ -67,3 +59,15 @@ landingContent:
     links:
     - text: 빠른 시작
       url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+- title: Azure Arc 지원 PostgreSQL 하이퍼스케일(미리 보기)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 생성
+      url: create-postgresql-hyperscale-server-group.md
+    - text: 연결
+      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - text: 마이그레이션
+      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+    - text: 복원
+      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md

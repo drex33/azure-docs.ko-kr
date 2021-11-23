@@ -6,13 +6,13 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 8/27/2021
-ms.openlocfilehash: 931c4aec854b2512c649570b5fe8fc24bfe11c81
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.date: 11/17/2021
+ms.openlocfilehash: 2224fc019270e56528a35f3e4ab0af5656398624
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894573"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957225"
 ---
 # <a name="move-azure-cache-for-redis-instances-to-different-regions"></a>Redis 인스턴스로 Azure Cache를 다른 지역으로 이동
 
@@ -22,17 +22,19 @@ ms.locfileid: "131894573"
 - 내부 정책 및 거 버 넌 스 요구 사항을 충족할 수 있습니다.
 - 용량 계획 요구 사항에 응답 합니다.
 
-사용 하는 Redis에 대 한 Azure 캐시의 계층에 따라 가장 적합 한 옵션이 결정 됩니다.
+온-프레미스, 클라우드 기반 Vm 또는 다른 호스팅 서비스에서 Redis 용 Azure Cache로 마이그레이션하려면 [Redis 용 Azure cache로 마이그레이션](cache-migration-guide.md)을 참조 하는 것이 좋습니다.
+
+사용 하는 Redis에 대 한 Azure 캐시의 계층에 따라 가장 적합 한 옵션이 결정 됩니다. 
 
 | 캐시 계층 | 옵션  | 
 | ------------ |  ------- | 
-| Premium | 지역에서 복제, 새 캐시 만들기, 두 개의 캐시로 이중 쓰기 또는 RDB 파일을 통해 데이터 내보내기 및 가져오기| 
-| 기본 또는 표준 | 두 개의 캐시로 새 캐시 또는 이중 쓰기를 만듭니다.| 
-| Enterprise 또는 Enterprise 플래시 | 새 캐시 만들기 또는 RDB 파일을 사용 하 여 데이터 내보내기 및 가져오기 | 
+| Premium | 지역에서 복제, 새 캐시 만들기, 두 개의 캐시로 이중 쓰기, RDB 파일을 통해 데이터 내보내기 및 가져오기, 프로그래밍 방식으로 마이그레이션 | 
+| 기본 또는 표준 | 새 캐시 만들기, 두 개의 캐시에 이중 쓰기, 프로그래밍 방식으로 마이그레이션 | 
+| Enterprise 또는 Enterprise 플래시 | 새 캐시 만들기 또는 RDB 파일을 사용 하 여 데이터 내보내기 및 가져오기 또는 프로그래밍 방식으로 마이그레이션 | 
 
 ## <a name="geo-replication-premium"></a>지역에서 복제 (Premium)
 
-### <a name="prerequisites"></a>필수 조건 
+### <a name="prerequisites"></a>사전 요구 사항 
 
 두 캐시 간에 지역에서 복제를 구성하려면 다음 필수 조건을 충족해야 합니다.
 
@@ -126,7 +128,7 @@ ms.locfileid: "131894573"
 
 ## <a name="create-a-new-cache-all-tiers"></a>새 캐시 만들기 (모든 계층)
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
 ### <a name="prepare"></a>준비
@@ -149,16 +151,16 @@ ms.locfileid: "131894573"
 > RDB 파일 형식은 Redis 버전 간에 변경 될 수 있으며 이전 버전과의 호환성을 유지 하지 않을 수 있습니다. 내보내는 캐시의 Redis 버전은 새 캐시 인스턴스의 버전 보다 동일 하거나 더 작아야 합니다.
 >
 
-### <a name="prerequisites"></a>필수 조건
-- 두 캐시는 모두 [Premium 계층 또는 Enterprise 계층](cache-overview.md#service-tiers) 캐시입니다.
-- 두 번째 캐시는 원래 캐시와 동일한 캐시 크기 또는 더 큰 캐시 크기입니다.
-- 내보내는 캐시의 Redis 버전은 새 캐시 인스턴스의 버전과 동일하거나 낮아야 합니다.
+### <a name="prerequisites"></a>사전 요구 사항
+- 두 캐시 모두 [Premium 계층 또는 Enterprise 계층](cache-overview.md#service-tiers) 캐시입니다.
+- 두 번째 캐시는 캐시 크기가 같거나 원래 캐시 크기 보다 큰 캐시 크기입니다.
+- 내보내는 캐시의 Redis 버전은 새 캐시 인스턴스의 버전 보다 동일 하거나 더 작아야 합니다.
 
 ### <a name="prepare"></a>준비
-캐시 인스턴스를 다른 지역으로 이동하려면 원하는 지역에 [두 번째 프리미엄 캐시 인스턴스](quickstart-create-redis.md) 또는 두 번째 엔터프라이즈 캐시 [인스턴스를](quickstart-create-redis-enterprise.md) 만들어야 합니다.
+캐시 인스턴스를 다른 지역으로 이동 하려면 원하는 지역에 [두 번째 프리미엄 캐시 인스턴스](quickstart-create-redis.md) 또는 [두 번째 엔터프라이즈 캐시 인스턴스](quickstart-create-redis-enterprise.md) 를 만들어야 합니다.
 
 ### <a name="move"></a>이동
-1. Azure Cache for Redis 데이터를 가져오고 내보내는 방법에 대한 자세한 내용은 [여기를](cache-how-to-import-export-data.md) 참조하세요.
+1. Redis 용 Azure Cache에서 데이터를 가져오고 내보내는 방법에 대 한 자세한 내용은 [여기](cache-how-to-import-export-data.md) 를 참조 하세요.
 
 2. 새 캐시 인스턴스를 사용하도록 애플리케이션을 업데이트합니다.
 
@@ -166,16 +168,16 @@ ms.locfileid: "131894573"
 Azure Portal의 알림에 따르거나 [감사 로그](../azure-monitor/essentials/activity-log.md)의 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다.
 
 ### <a name="clean-up-source-resources"></a>원본 리소스 정리 
-대상 지역의 새 캐시가 실행되면 원래 인스턴스를 삭제합니다.
+대상 영역에서 새 캐시가 실행 되 면 원래 인스턴스를 삭제 합니다.
 
-## <a name="dual-write-to-two-caches-basic-standard-and-premium"></a>두 캐시에 이중 쓰기(기본, 표준 및 Premium)
-캐시 간에 데이터를 직접 이동하는 대신 애플리케이션을 사용하여 기존 캐시와 설정 중인 새 캐시 모두에 데이터를 쓸 수 있습니다. 애플리케이션은 처음에 기존 캐시에서 데이터를 읽습니다. 새 캐시에 필요한 데이터가 생기면 애플리케이션을 해당 캐시로 전환하고 이전 캐시를 사용 중지합니다. 예를 들어 Redis를 세션 저장소로 사용하며, 애플리케이션 세션은 7일 동안 유효하다고 가정해 보겠습니다. 일주일 동안 2개의 캐시에 쓰면 새 캐시에 만료되지 않은 모든 세션 정보가 포함됩니다. 해당 시점부터 데이터 손실에 대한 걱정 없이 안전하게 새 캐시를 사용할 수 있습니다.
+## <a name="dual-write-to-two-caches-basic-standard-and-premium"></a>두 개의 캐시에 이중 쓰기 (Basic, Standard 및 Premium)
+캐시 간에 직접 데이터를 이동 하는 대신 응용 프로그램을 사용 하 여 기존 캐시 및 설정 중인 새 캐시에 데이터를 쓸 수 있습니다. 응용 프로그램은 처음에 기존 캐시에서 데이터를 처음으로 읽습니다. 새 캐시에 필요한 데이터가 생기면 애플리케이션을 해당 캐시로 전환하고 이전 캐시를 사용 중지합니다. 예를 들어 Redis를 세션 저장소로 사용하며, 애플리케이션 세션은 7일 동안 유효하다고 가정해 보겠습니다. 일주일 동안 2개의 캐시에 쓰면 새 캐시에 만료되지 않은 모든 세션 정보가 포함됩니다. 해당 시점부터 데이터 손실에 대한 걱정 없이 안전하게 새 캐시를 사용할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
-- 두 번째 캐시는 원래 캐시와 동일한 캐시 크기 또는 더 큰 캐시 크기입니다.
+### <a name="prerequisites"></a>사전 요구 사항
+- 두 번째 캐시는 캐시 크기가 같거나 원래 캐시 크기 보다 큰 캐시 크기입니다.
 
 ### <a name="prepare"></a>준비
-캐시 인스턴스를 다른 지역으로 이동하려면 원하는 지역에 [두 번째 캐시 인스턴스를 만들어야](quickstart-create-redis.md) 합니다.
+캐시 인스턴스를 다른 지역으로 이동 하려면 원하는 지역에 [두 번째 캐시 인스턴스를 만들어야](quickstart-create-redis.md) 합니다.
 
 ### <a name="move"></a>이동
 이 옵션을 구현하는 일반적인 단계는 다음과 같습니다.
@@ -187,7 +189,37 @@ Azure Portal의 알림에 따르거나 [감사 로그](../azure-monitor/essentia
 3. 새 인스턴스에서만 데이터를 읽고 쓰도록 애플리케이션 코드를 업데이트합니다.
 
 ### <a name="clean-up-source-resources"></a>원본 리소스 정리 
-대상 지역의 새 캐시가 실행되면 원래 인스턴스를 삭제합니다.
+대상 영역에서 새 캐시가 실행 되 면 원래 인스턴스를 삭제 합니다.
+
+
+## <a name="migrate-programmatically-all-tiers"></a>프로그래밍 방식으로 마이그레이션 (모든 계층)
+기존 캐시에서 프로그래밍 방식으로 데이터를 읽고 Redis 용 Azure Cache에 기록 하 여 사용자 지정 마이그레이션 프로세스를 만들 수 있습니다. 이 [오픈 소스 도구](https://github.com/deepakverma/redis-copy) 를 사용 하 여 Redis 인스턴스로 하나의 azure 캐시에서 다른 azure 캐시 지역의 다른 인스턴스로 데이터를 복사할 수 있습니다. [컴파일된 버전](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip)도 사용할 수 있습니다. 또한 고객 고유의 마이그레이션 도구를 작성하는 데 도움이 되는 소스 코드도 찾을 수 있습니다.
+
+> [!NOTE]
+> 이 도구는 Microsoft에서 공식적으로 지원하는 도구가 아닙니다. 
+>
+
+### <a name="prerequisites"></a>사전 요구 사항
+- 두 번째 캐시는 캐시 크기가 같거나 원래 캐시 크기 보다 큰 캐시 크기입니다.
+
+### <a name="prepare"></a>준비
+
+- 기존 캐시가 있는 지역에 VM을 만듭니다. 데이터 세트가 크면 비교적 강력한 VM을 선택하여 복사 시간을 줄입니다.
+- 캐시 인스턴스를 다른 지역으로 이동 하려면 원하는 지역에 [두 번째 캐시 인스턴스를 만들어야](quickstart-create-redis.md) 합니다.
+
+### <a name="move"></a>이동
+기존 캐시가 있는 지역에서 VM을 만들고 원하는 지역에 새 캐시를 만든 후이 옵션을 구현 하는 일반적인 단계는 다음과 같습니다.
+
+1. 새 캐시의 데이터를 플러시하여 캐시를 비웁니다. 복사 도구 자체는 대상 캐시의 기존 키를 덮어쓰지 않기 때문에 이 단계가 필수입니다.
+
+    > [!IMPORTANT]
+    > 원본 캐시의 데이터는 플러시하지 않습니다.
+    >
+
+2. 위의 오픈 소스 도구와 같은 애플리케이션을 사용하여 원본 캐시에서 대상으로 데이터 복사를 자동화합니다. 데이터 세트의 크기에 따라 복사 프로세스가 완료될 때까지 다소 시간이 걸릴 수 있습니다.
+
+### <a name="clean-up-source-resources"></a>원본 리소스 정리 
+대상 영역에서 새 캐시가 실행 되 면 원래 인스턴스를 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

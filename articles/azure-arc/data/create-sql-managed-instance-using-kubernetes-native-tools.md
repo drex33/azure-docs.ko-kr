@@ -9,19 +9,19 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 502b3ffc28e1eb1880e2611b0bf33dbe4cf1aeb4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cb3111f4a0da0a7fca9333cb28dc338f488fdbf3
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675310"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957130"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Kubernetes 도구를 사용하여 Azure SQL 관리형 인스턴스 만들기
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[Azure Arc 데이터 컨트롤러](./create-data-controller.md)는 이미 만들어 놓은 상태일 것입니다.
+[데이터 컨트롤러가](plan-azure-arc-data-services.md)이미 만들어져 있어야 합니다.
 
 Kubernetes 도구를 사용하여 SQL 관리형 인스턴스를 만들려면 Kubernetes 도구가 설치되어 있어야 합니다.  본 문서의 예제에서는 `kubectl`을 사용할 것이지만, Kubernetes 대시보드, `oc` 또는 `helm`과 같은 Kubernetes 도구나 Kubernetes yaml/json에 익숙한 상태라면 비슷한 방식에서 이러한 Kubernetes 도구를 사용할 수도 있습니다.
 

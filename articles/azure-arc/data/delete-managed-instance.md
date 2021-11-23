@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 19f5befde22ed7b16302b7da5df313c476b47194
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e404235ee984f4d1744910307e2eaa95276ee2df
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528593"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956617"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance 삭제
 이 문서에서는 Azure Arc 지원 SQL Managed Instance를 삭제하는 방법을 설명합니다.
@@ -101,6 +101,6 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 [Azure Arc 지원 SQL Managed Instance의 특징 및 기능](managed-instance-features.md)에 대한 자세한 정보
 
-[데이터 컨트롤러를 생성하여 시작](create-data-controller.md)
+[데이터 컨트롤러를 생성하여 시작](create-data-controller-indirect-cli.md)
 
 데이터 컨트롤러를 이미 만들었나요? [Azure Arc 지원 SQL Managed Instance 만들기](create-sql-managed-instance.md)

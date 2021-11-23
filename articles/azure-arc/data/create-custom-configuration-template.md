@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: e7d5d470fd967c9f350fddaae2032085caf17c07
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 925638f5efb43dca57b07c1f80cf2a101e2dd4b3
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566820"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954622"
 ---
 # <a name="create-custom-configuration-templates"></a>사용자 지정 구성 템플릿 만들기
 
@@ -58,6 +58,6 @@ Azure Arc 데이터 컨트롤러 만들기 화면에서 사용자 지정 템플�
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 컨트롤러 배포 - 직접 연결 모드(필수 구성 요소)](create-data-controller-direct-prerequisites.md)
+* 직접 연결 모드의 경우: [데이터 컨트롤러 배포 - 직접 연결 모드(필수 조건)](create-data-controller-direct-prerequisites.md)
 
-[Azure Arc 데이터 컨트롤러 만들기(CLI)](create-data-controller-direct-cli.md)
+* 간접 연결 모드의 경우: [CLI를 사용하여 데이터 컨트롤러 만들기](create-data-controller-indirect-cli.md)

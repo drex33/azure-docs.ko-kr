@@ -11,12 +11,12 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: f5dba6b81befd569523111b997c29e54b3e82881
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 34d9025df005eca6d01f616c91e73ef520135c48
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774617"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956674"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
@@ -480,8 +480,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="reference-a-notebook"></a>노트북 참조
-노트북을 참조 하 고 종료 값을 반환 합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
+### <a name="reference-a-notebook"></a>Notebook 참조
+Notebook을 참조하고 종료 값을 반환합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
 
 ```python
 
@@ -562,8 +562,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="reference-a-notebook"></a>노트북 참조
-노트북을 참조 하 고 종료 값을 반환 합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
+### <a name="reference-a-notebook"></a>Notebook 참조
+Notebook을 참조하고 종료 값을 반환합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
 
 ```scala
 
@@ -574,7 +574,7 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 다음은 그 예입니다.
 
 ```scala
-mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, Map("input" -> 20))
 ```
 
 ### <a name="exit-a-notebook"></a>Notebook을 종료합니다.
@@ -680,7 +680,7 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 |--|--|
 |대상 그룹 확인 형식|'Audience'|
 |스토리지 대상 그룹 리소스|'Storage'|
-|전용 SQL 풀 (데이터 웨어하우스)|'DW'|
+|전용 SQL 풀(데이터 웨어하우스)|'DW'|
 |Data Lake 대상 그룹 리소스|'AzureManagement'|
 |자격 증명 모음 대상 그룹 리소스|'DataLakeStore'|
 |Azure OSSDB 대상 그룹 리소스|'AzureOSSDB'|
@@ -1097,7 +1097,7 @@ Env.GetClusterId()
 ## <a name="runtime-context"></a>런타임 컨텍스트
 
 Mssparkutils 런타임 유틸리티는 3개의 런타임 속성을 노출합니다. mssparkutils 런타임 컨텍스트를 사용하여 아래와 같이 나열된 속성을 얻을 수 있습니다.
-- **Notebookname** - 현재 notbook의 이름은 항상 대화형 모드와 파이프라인 모드 모두에 대한 값을 반환합니다.
+- **Notebookname** - 현재 Notebook의 이름은 항상 대화형 모드와 파이프라인 모드 모두에 대한 값을 반환합니다.
 - **Pipelinejobid** - 파이프라인 실행 ID는 파이프라인 모드에서 값을 반환하고 대화형 모드에서 빈 문자열을 반환합니다.
 - **Activityrunid** - Notebook 작업 실행 ID는 파이프라인 모드에서 값을 반환하고 대화형 모드에서 빈 문자열을 반환합니다.
 
@@ -1124,3 +1124,5 @@ mssparkutils.runtime.context
 - [빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기](../quickstart-apache-spark-notebook.md)
 - [Azure Synapse Analytics의 Apache Spark란?](apache-spark-overview.md)
 - [Azure Synapse Analytics](../index.yml)
+- [Synapse에서 파일 탑재/탑재 해제 API를 재생하는 방법](./synapse-file-mount-api.md)
+

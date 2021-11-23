@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 2380a10d9a4a054a5d83b2c1096797e41bba7d0f
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 867083850dabac6ec2c0081f6e00e3d6a0321c21
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563609"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954550"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구로 Azure Arc 데이터 컨트롤러 만들기
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-개요 정보는 [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md) 항목을 검토하세요.
+개요 정보는 Azure Arc 지원 데이터 서비스 배포 계획 항목을 [검토하세요.](plan-azure-arc-data-services.md)
 
 Kubernetes 도구를 사용하여 Azure Arc 데이터 컨트롤러를 만들려면 Kubernetes 도구가 설치되어 있어야 합니다.  이 문서의 예제에서는 `kubectl`을 사용하지만 이와 마찬가지로, 관련 도구와 Kubernetes yaml/json에 익숙하다면 Kubernetes 대시보드, `oc` 또는 `helm` 등의 다른 Kubernetes 도구를 사용할 수도 있습니다.
 
@@ -159,9 +159,9 @@ bootstrapper.yaml 템플릿 파일은 기본적으로 MCR(Microsoft Container Re
         imagePullPolicy: Always
 ```
 
-## <a name="create-secrets-for-the-metrics-and-logs-dashboards"></a>메트릭 및 로그 대시보드에 대 한 비밀 만들기
+## <a name="create-secrets-for-the-metrics-and-logs-dashboards"></a>메트릭 및 로그 대시보드에 대한 비밀 만들기
 
-메트릭 및 로그 대시보드에 관리자 권한으로 인증 하는 데 사용 되는 사용자 이름 및 암호를 지정할 수 있습니다. 보안 암호를 선택하고 이러한 권한이 필요한 암호를 사용하여 공유합니다.
+메트릭 및 로그 대시보드를 관리자 권한으로 인증하는 데 사용되는 사용자 이름 및 암호를 지정할 수 있습니다. 보안 암호를 선택하고 이러한 권한이 필요한 암호를 사용하여 공유합니다.
 
 Kubernetes 비밀은 Base64로 인코딩한 문자열로, 사용자 이름을 위해 하나, 암호를 위해 하나가 저장됩니다.
 
@@ -186,7 +186,7 @@ echo -n '<your string to encode here>' | base64
 # echo -n 'example' | base64
 ```
 
-사용자 이름 및 암호를 인코딩한 후 [템플릿 파일](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) 을 기반으로 파일을 만들고 사용자 이름 및 암호를 고유한 이름으로 바꿀 수 있습니다.
+사용자 이름 및 암호를 인코딩한 후에는 [템플릿](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) 파일을 기반으로 파일을 만들고 사용자 이름과 암호를 사용자 고유의 암호로 바꿀 수 있습니다.
 
 이 후 다음 명령을 실행하여 비밀을 만듭니다.
 
@@ -222,7 +222,7 @@ kubectl create -n arc -f <path to the edited template file on your computer>
 필요에 따라 다음을 편집합니다.
 
 **필수**
-- **location**: 이 항목을, 데이터 컨트롤러 관련 _메타데이터_ 가 저장될 Azure 위치로 변경합니다.  [데이터 컨트롤러 만들기 개요](create-data-controller.md) 문서에서 사용 가능한 Azure 위치 목록을 볼 수 있습니다.
+- **location**: 이 항목을, 데이터 컨트롤러 관련 _메타데이터_ 가 저장될 Azure 위치로 변경합니다.  사용 [가능한 지역 목록을 검토합니다.](overview.md#supported-regions)
 - **resourceGroup**: Azure Resource Manager에서 데이터 컨트롤러 Azure 리소스를 만들려는 Azure 리소스 그룹입니다.  일반적으로 이 리소스 그룹은 미리 있어야 하지만 데이터를 Azure하는 시점까지는 필요하지 않습니다.
 - **subscription**: Azure 리소스를 만들려는 구독에 대한 Azure 구독 GUID입니다.
 

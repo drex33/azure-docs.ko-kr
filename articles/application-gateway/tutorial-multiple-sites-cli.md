@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c637f22a21b73450746a90b83ea7c87249da1d45
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
-ms.translationtype: HT
+ms.openlocfilehash: 0f2f2dacb9d3db69b3a0dbf4813d689908e6f06f
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113507432"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954186"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -123,7 +123,7 @@ az network application-gateway address-pool create \
 [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create)를 사용하여 트래픽을 라우팅하는 데 필요한 수신기를 추가합니다.
 
 >[!NOTE]
-> Application Gateway 또는 WAF v2 SKU를 사용하여 수신기당 호스트 이름을 5개까지 구성할 수 있으며, 호스트 이름에 와일드카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조하세요.
+> Application Gateway 또는 WAF v2 SKU를 사용하여 수신기당 호스트 이름을 5개까지 구성할 수 있으며, 호스트 이름에 와일드카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener)을 참조하세요.
 >Azure CLI를 사용하여 수신기에서 여러 호스트 이름 및 와일드카드 문자를 사용하려면 `--host-name` 대신 `--host-names`를 사용해야 합니다. host-names를 사용하여 최대 5개의 호스트 이름을 공백으로 구분된 값으로 지정할 수 있습니다. 예를 들어 `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive

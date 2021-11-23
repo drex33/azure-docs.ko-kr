@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: a2a63e62598b291388375e0eb520d390dbdc4278
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 9a3de062e4a54ec60c4ee5b1d2a39088ee571a51
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562830"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956446"
 ---
 # <a name="limitations-of-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일의 제한 사항
 
@@ -56,7 +56,7 @@ __Microsoft에서 Azure Arc 하이브리드 서비스에 대한 SLA를 제공하
 
 - **나만의 인프라 생성.** 고유한 Kubernetes 클러스터에 만들려면 다음 단계를 따르세요. 
    1. [클라이언트 도구 설치](install-client-tools.md)
-   2. [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)
+   2. [Azure Arc 지원 데이터 서비스 배포 계획](plan-azure-arc-data-services.md)
    3. [Azure Arc에 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**

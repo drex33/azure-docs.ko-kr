@@ -6,18 +6,19 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e958a253834ee9548a1a91e38d947821a3058767
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664234"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957306"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 Query Performance Insight
 
 **적용 대상:** Azure Database for MariaDB 10.2
 
 Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼리, 쿼리가 시간의 경과에 따라 변경되는 방식 및 쿼리에 영향을 주는 대기 등을 빠르게 파악할 수 있습니다.
+
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
@@ -65,6 +66,10 @@ Azure Database for MariaDB 서버의 포털 페이지에서 **Query Performance 
 대기 통계 보기에 표시되는 쿼리는 지정된 시간 간격 동안 가장 큰 대기를 나타내는 쿼리로 그룹화됩니다.
 
 ![Query Performance Insight 대기 통계](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+
+## <a name="limitations"></a>제한 사항 
+
+* 버전 10.3에 대 한 쿼리 성능 정보는 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

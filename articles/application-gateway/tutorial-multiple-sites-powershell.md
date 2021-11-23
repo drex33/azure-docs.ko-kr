@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: c05e97b1325a0d924c173df19ed5d83831d079bb
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
-ms.translationtype: HT
+ms.openlocfilehash: b4962b91da1c93e7a542fc1f08d61cd3d28832d8
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113507288"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954565"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -126,7 +126,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule* 이라는 기본 규칙을 만듭니다.
 
 >[!NOTE]
-> Application Gateway 또는 WAF v2 SKU를 사용하여 수신기당 호스트 이름을 최대 5개까지 구성할 수 있으며, 호스트 이름에 와일드카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조하세요.
+> Application Gateway 또는 WAF v2 SKU를 사용하여 수신기당 호스트 이름을 최대 5개까지 구성할 수 있으며, 호스트 이름에 와일드카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener)을 참조하세요.
 >Azure PowerShell를 사용하여 수신기에 여러 호스트 이름 및 와일드카드 문자를 사용하려면 `-HostName` 대신 `-HostNames`을 사용해야 합니다. HostNames를 사용하면 최대 5개의 호스트 이름을 쉼표로 구분된 값으로 멘션할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive

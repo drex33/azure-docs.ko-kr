@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 24db395c33f50fc7638ee00e9406db3709db5366
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d29a4efd0c8b25f1632af56feed6779ce4cd24f5
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004011"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956237"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 입력 바인딩
 
@@ -351,7 +351,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**type** | 해당 없음 | `blob`로 설정해야 합니다. |
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
-|**path** |**BlobPath** | Blob에 대한 경로입니다. |
+|**path** |**BlobPath** | Blob에 대한 경로입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. |
 |**connection** |**연결**| Azure Blob에 연결하는 방법을 지정하는 앱 설정 또는 설정 컬렉션의 이름입니다. [연결](#connections)을 참조하세요.|
 |**dataType**| 해당 없음 | 동적으로 형식화된 언어의 경우 기본 데이터 형식을 지정합니다. 가능한 값은 `string`, `binary` 또는 `stream`입니다. 자세한 내용은 [트리거 및 바인딩 개념](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions)을 참조하세요. |
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |

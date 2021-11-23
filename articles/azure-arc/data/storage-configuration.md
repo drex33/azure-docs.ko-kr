@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: 503bfec47621e5663e6626e1285840625e92c46c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 35d53e58fa6b4cb1a3b460077d1401ebba3a2c24
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566542"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957282"
 ---
 # <a name="storage-configuration"></a>스토리지 구성
 
@@ -151,7 +151,7 @@ az arcdata dc config add --path custom/control.json --json-values 'spec.security
 
 데이터 컨트롤러가 프로비저닝될 때 --스토리지 클래스 | -sc 매개 변수를 `az arcdata dc create` 명령에 전달하거나, 사용되는 control.json 배포 템플릿 파일에 스토리지 클래스를 설정하여 이러한 각 영구 볼륨에 사용할 스토리지 클래스가 지정됩니다.  Azure Portal을 사용하여 직접 연결 모드에서 데이터 컨트롤러를 만드는 경우 선택한 배포 템플릿에는 템플릿에 미리 정의된 스토리지 클래스가 있거나 미리 정의된 스토리지 클래스가 없는 템플릿을 선택한 경우에는 해당 템플릿을 선택하라는 메시지가 표시됩니다.  사용자 지정 배포 템플릿을 사용하는 경우 스토리지 클래스를 지정할 수 있습니다.
 
-기본적으로 제공되는 배포 템플릿에는 대상 환경에 적합한 기본 스토리지 클래스가 지정되어 있지만 배포 시 재정의될 수 있습니다. 배포 시 데이터 컨트롤러 Pod의 스토리지 클래스 구성을 변경하려면 [배포 프로필을 변경](create-data-controller.md)하는 자세한 단계를 참조하세요.
+기본적으로 제공되는 배포 템플릿에는 대상 환경에 적합한 기본 스토리지 클래스가 지정되어 있지만 배포 시 재정의될 수 있습니다. 배포 시 pod 데이터 컨트롤러에 대 한 저장소 클래스 구성을 변경 하려면 [사용자 지정 구성 temmplates를 만드는](create-custom-configuration-template.md) 자세한 단계를 참조 하세요.
 
 --스토리지 클래스 | -sc 매개 변수를 사용하여 스토리지 클래스를 설정하면 로그 및 데이터 스토리지 클래스 모두에 스토리지 클래스가 사용됩니다. 배포 템플릿 파일에서 스토리지 클래스를 설정하면 로그와 데이터에 서로 다른 스토리지 클래스를 지정할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: bfb4fa215da1aee450c8ea109ad0f98c0f84e95c
-ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.openlocfilehash: bb5d54a74939b2c0bfaf202719f593e166e49bc2
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132814434"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956731"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -148,14 +148,14 @@ Storage Explorer를 사용하는 데 필요한 권한을 제공할 수 있는 �
 
 계정에 대해 충족해야 하는 조건부 액세스 정책이 있는 경우 **로그인에 사용할 계정** 설정에 **기본 웹 브라우저** 값을 사용하고 있는지 확인합니다. 해당 설정에 대한 자세한 내용은 [로그인이 발생하는 위치 변경](./storage-explorer-sign-in.md#changing-where-sign-in-happens)을 참조하세요.
 
-### <a name="browser-complains-about-http-redirect-during-sign-in"></a>로그인하는 동안 브라우저에서 HTTP 리디렉션에 대해 불만을 제기함
+### <a name="browser-complains-about-http-redirect-or-insecure-connection-during-sign-in"></a>로그인하는 동안 HTTP 리디렉션 또는 안전하지 않은 연결에 대한 브라우저의 불만
 
 Storage Explorer가 웹 브라우저에서 로그인을 수행하면 로그인 프로세스가 끝날 때 `localhost`로 리디렉션됩니다. 브라우저에서 리디렉션이 HTTPS 대신 HTTP를 통해 수행되고 있다는 경고 또는 오류를 표시하는 경우가 있습니다. 일부 브라우저에서는 HTTPS를 사용하여 리디렉션을 강제로 수행하려고 할 수도 있습니다. 이 중 하나가 발생하면 브라우저에 따라 다양한 옵션이 있습니다.
 - 경고를 무시합니다.
 - `localhost`에 대한 예외를 추가합니다.
 - 전역적으로 또는 `localhost`에 대해서만 HTTPS 강제 적용을 사용하지 않도록 설정합니다.
 
-이러한 옵션을 수행할 수 없는 경우 [로그인이 발생하는 위치를 변경](./storage-explorer-sign-in.md#changing-where-sign-in-happens)할 수도 있습니다.
+이러한 옵션을 수행할 수 없는 경우 로그인이 통합 [로그인으로 발생하는 위치를 변경하여](./storage-explorer-sign-in.md#changing-where-sign-in-happens) 브라우저를 모두 사용할 필요가 없도록 할 수도 있습니다.
 
 ### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>테넌트가 필터링되어 토큰을 가져올 수 없음
 
@@ -400,10 +400,10 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer 시스템에 .NET Core 3.1을 설치해야 합니다.
+Storage Explorer 하려면 .net Core 3.1이 시스템에 설치 되어 있어야 합니다.
 
 > [!NOTE]
-> Storage Explorer 버전 1.8.0~ 1.20.1에는 .NET Core 2.1이 필요합니다. Storage Explorer 버전 1.7.0 이하에는 .NET Core 2.0이 필요합니다.
+> 1.8.0 1.20.1를 통해 Storage Explorer 버전은 .net Core 2.1이 필요 합니다. Storage Explorer 버전 1.7.0 이하에는 .NET Core 2.0이 필요합니다.
 
 ### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
@@ -542,7 +542,7 @@ Storage Explorer는 버전 1.16.0부터 자체 애플리케이션 로그에 다�
 6. 작업 단추를 클릭합니다.
 7. 다음 대화 상자에서 "루트 인증서 신뢰"를 선택한 다음 "예"를 선택합니다.
 8. 작업 단추를 다시 클릭합니다.
-9. "루트 인증서를 바탕 화면으로 내보내기"를 선택 합니다.
+9. "데스크톱으로 루트 인증서 내보내기" 선택
 10. 바탕 화면으로 이동합니다.
 11. FiddlerRoot.cer 파일을 찾습니다.
 12. 두 번 클릭하여 열기
@@ -562,7 +562,7 @@ Storage Explorer는 버전 1.16.0부터 자체 애플리케이션 로그에 다�
 2부: 문제 재현
 1. Fiddler 이외의 모든 앱을 닫습니다.
 2. Fiddler 로그를 지웁니다(왼쪽 상단의 보기 메뉴 옆에 있는 X 아이콘).
-3. 선택/권장: 몇 분 동안 Storage Explorer 설정 된 네트워크 호출이 표시 되는 경우이를 마우스 오른쪽 단추로 클릭 하 고 ' 지금 필터링 ' > ' 숨기기 (프로세스 이름) '를 선택 합니다.
+3. 선택 사항/권장: 몇 분 동안 Fiddler를 설정합니다. 네트워크 호출이 Storage Explorer 관련이 없는 것으로 표시되면 마우스 오른쪽 단추로 클릭하고 '지금 필터링' > '숨기기(프로세스 이름)'를 선택합니다.
 4. Storage Explorer 시작
 5. 문제 재현
 6. 파일 > 저장 > 모든 세션...을 클릭하고 원하는 위치에 저장합니다.

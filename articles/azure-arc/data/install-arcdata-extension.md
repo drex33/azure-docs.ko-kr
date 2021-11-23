@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 5e1ddfdc13ff7bf11a2a1293ebf39c4c527c6d0f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c33dea26b8d989e46e10af55403cb663188b243e
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567338"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957103"
 ---
 # <a name="install-arcdata-azure-cli-extension"></a>`arcdata` Azure CLI 확장 설치
 
@@ -47,4 +47,4 @@ az extension update --name arcdata
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)
+[Azure Arc 지원 데이터 서비스 배포 계획](plan-azure-arc-data-services.md)

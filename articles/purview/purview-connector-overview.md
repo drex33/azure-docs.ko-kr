@@ -6,14 +6,14 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 11/23/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ea65f8fe57a5417cf466832380bffc3c4b3b0c00
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 51583d9c7dd42325d906b9d7e7aaf400dba4808c
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132871555"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957263"
 ---
 # <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
@@ -37,8 +37,9 @@ Purview는 다음의 데이터 저장소를 지원합니다. 각 데이터 저�
 ||    [Azure Synapse Analytics(작업 영역)](register-scan-synapse-workspace.md)| [예](register-scan-synapse-workspace.md#register) | [예](register-scan-synapse-workspace.md#scan)| [예 - Synapse 파이프라인](how-to-lineage-azure-synapse-analytics.md)| 아니요|
 |데이터베이스| [Amazon RDS](register-scan-amazon-rds.md) | [예](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [예](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | 아니요 | 아니요 |
 ||    [Cassandra](register-scan-cassandra-source.md)|[예](register-scan-cassandra-source.md#register) | 아니요 | [예](how-to-lineage-cassandra.md)| 아니요|
+|| [DB2](register-scan-db2.md) | [예](register-scan-db2.md#register) | 아니요 | [예](register-scan-db2.md#scan) | 아니요 |
 ||    [Google BigQuery](register-scan-google-bigquery-source.md)| [예](register-scan-google-bigquery-source.md#register)| 아니요 | [예](how-to-lineage-google-bigquery.md)| 아니요|
-|| [Hive 메타스토어 데이터베이스](register-scan-hive-metastore-source.md) | [예](register-scan-hive-metastore-source.md#register) | 예 | 예* | 예|
+|| [Hive 메타스토어 데이터베이스](register-scan-hive-metastore-source.md) | [예](register-scan-hive-metastore-source.md#register) | 예 | 예* | No|
 || [MySQL](register-scan-mysql.md) | [예](register-scan-mysql.md#register) | 아니요 | [예](register-scan-mysql.md#scan) | 아니요 |
 || [Oracle](register-scan-oracle-source.md) | [예](register-scan-oracle-source.md#register)|  아니요 | [예*](how-to-lineage-oracle.md) | 아니요|
 || [PostgreSQL](register-scan-postgresql.md) | [예](register-scan-postgresql.md#register) | 아니요 | [예](register-scan-postgresql.md#scan) | 아니요 |

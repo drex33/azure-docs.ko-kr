@@ -5,13 +5,13 @@ author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: c3cc01b4cc6863b2100a1948b66c811b32b6cb46
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.date: 11/22/2021
+ms.openlocfilehash: 19e640cfb608b1d548047291a6674af897eade3e
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724675"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954527"
 ---
 # <a name="access-control-in-azure-purview"></a>Azure Purview의 액세스 제어
 
@@ -32,7 +32,7 @@ Azure Purview는 미리 정의된 역할 세트를 사용하여 누가 계정 �
 - **컬렉션 관리자** -Azure 부서의 범위에서 다른 사용자에 게 역할을 할당 하거나 컬렉션을 관리 해야 하는 사용자에 대 한 역할입니다. 컬렉션 관리자는 관리자 인 컬렉션의 역할에 사용자를 추가할 수 있습니다. 컬렉션 및 세부 정보를 편집 하 고 하위 컬렉션을 추가할 수도 있습니다.
 - **데이터 curators** 자산을 관리 하 고, 사용자 지정 분류를 구성 하 고, 용어를 설정 하 고, 정보를 볼 수 있는 데이터 카탈로그에 대 한 액세스를 제공 하는 역할입니다. 데이터는 자산을 만들고, 읽고, 수정 하 고, 이동 하 고, 삭제할 수 있습니다. 또한 자산에 주석을 적용할 수 있습니다.
 - **데이터 판독기** -데이터 자산, 분류, 분류 규칙, 컬렉션 및 용어집 용어에 대 한 읽기 전용 액세스를 제공 하는 역할입니다.
-- **데이터 원본 관리자** -사용자가 데이터 원본과 검색을 관리할 수 있는 역할입니다. 데이터 원본 관리자 역할의 사용자는 Azure 부서의 범위 studio에 액세스할 수 없습니다. 모든 컬렉션 범위에서이 역할을 데이터 판독기 또는 데이터 큐레이터 역할과 결합 하면 Azure 부서의 범위 studio 액세스를 제공 합니다.
+- **데이터 원본 관리자** -사용자가 데이터 원본과 검색을 관리할 수 있는 역할입니다. 사용자가 지정 된 데이터 원본에 대 한 **데이터 원본 관리자** 역할에만 부여 된 경우 기존 검색 규칙을 사용 하 여 새 검색을 실행할 수 있습니다. 새 스캔 규칙을 만들려면 사용자도 **데이터 판독기** 또는 **데이터 큐레이터** 역할로 부여 되어야 합니다.
 
 ## <a name="who-should-be-assigned-to-what-role"></a>누가 어떤 역할에 할당되어야 하나요?
 

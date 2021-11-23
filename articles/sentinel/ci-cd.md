@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f4b3d8e5c7082d2db987d0263872a1752e1225d2
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 3cfab0e4ea1b4073dcb75e0cc61614e7c8286761
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132757412"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132957168"
 ---
 # <a name="deploy-custom-content-from-your-repository-public-preview"></a>리포지토리에서 사용자 지정 콘텐츠 배포 (공개 미리 보기)
 
@@ -89,14 +89,14 @@ Microsoft 센티널 콘텐츠 허브에 제공 된 기본 제공 (기본 제공)
 
         - 다른 모든 콘텐츠 형식의 경우 **새 연결 만들기** 창에서 콘텐츠 형식을 선택 하면 해당 콘텐츠만 Microsoft 센티널에 배포 됩니다. 다른 형식의 콘텐츠는 배포 되지 않습니다.
 
-    1. **만들기** 를 선택하여 연결을 만듭니다. 다음은 그 예입니다.
+    1. **만들기** 를 선택하여 연결을 만듭니다. 예:
 
         :::image type="content" source="media/ci-cd/create-new-connection-github.png" alt-text="새 GitHub 리포지토리 연결의 스크린샷":::
 
     # <a name="azure-devops"></a>[Azure DevOps](#tab/azure-devops)
 
     > [!NOTE]
-    > Azure DevOps 연결을 만들 때 [게스트 사용자](../active-directory/external-identities/what-is-b2b.md) 는 현재 자체 Azure Active Directory 테 넌 트에 없는 작업 영역에 연결할 수 없습니다. 이러한 교차 테 넌 트 시나리오는 Azure DevOps 연결에 대해 아직 지원 되지 않습니다.
+    > 작업 영역에서 [게스트 사용자](../active-directory/external-identities/what-is-b2b.md) 로 연결을 만드는 경우 테 넌 트 간 제한으로 인해 드롭다운 보기에 표시 되지 않으므로 Azure DevOps 리포지토리 URL을 수동으로 입력 해야 합니다. 
     >
 
     현재 Azure 자격 증명을 사용 하 여 Azure DevOps에 대 한 권한이 자동으로 부여 됩니다. 유효한 연결을 보장 하려면 Microsoft 센티널에서 연결 하는 것 [과 동일한 Azure DevOps 계정에 대 한 권한을 부여 받았는지 확인](https://aex.dev.azure.com/) 하거나 InPrivate 브라우저 창을 사용 하 여 연결을 만듭니다.
@@ -107,7 +107,7 @@ Microsoft 센티널 콘텐츠 허브에 제공 된 기본 제공 (기본 제공)
 
         - 다른 모든 콘텐츠 형식의 경우 **새 연결 만들기** 창에서 콘텐츠 형식을 선택 하면 해당 콘텐츠만 Microsoft 센티널에 배포 됩니다. 다른 형식의 콘텐츠는 배포 되지 않습니다.
 
-    1. **만들기** 를 선택하여 연결을 만듭니다. 다음은 그 예입니다.
+    1. **만들기** 를 선택하여 연결을 만듭니다. 예:
 
         :::image type="content" source="media/ci-cd/create-new-connection-devops.png" alt-text="새 GitHub 리포지토리 연결의 스크린샷":::
 
@@ -130,7 +130,7 @@ Microsoft 센티널 콘텐츠 허브에 제공 된 기본 제공 (기본 제공)
 
 - 리포지토리에 저장 된 콘텐츠가 Microsoft 센티널 작업 영역에 있는 관련 Microsoft 센티널 페이지에 표시 됩니다.
 
-- **저장소** 페이지의 연결 세부 정보는 연결의 배포 로그에 대 한 링크로 업데이트 됩니다. 다음은 그 예입니다.
+- **저장소** 페이지의 연결 세부 정보는 연결의 배포 로그에 대 한 링크로 업데이트 됩니다. 예:
 
     :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="GitHub 리포지토리 연결의 배포 로그 스크린샷":::
 
@@ -152,13 +152,13 @@ GitHub 또는 Azure DevOps에서 콘텐츠 배포에 대 한 기본 구성이 �
 
     워크플로 이름은 워크플로 파일의 첫 번째 줄에 표시 되며 다음과 같은 기본 명명 규칙이 `Deploy Content to <workspace-name> [<deployment-id>]` 있습니다.
 
-    예: `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
+    `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
 
 1. 페이지의 오른쪽 위에서 연필 단추를 선택 하 여 편집할 파일을 열고 다음과 같이 배포를 수정 합니다.
 
     - **배포 트리거를 수정 하려면** `on` 워크플로 실행을 트리거하는 이벤트를 설명 하는 코드에서 섹션을 업데이트 합니다.
 
-        기본적으로이 구성은로 설정 됩니다 `on: push` . 즉, 기존 콘텐츠를 수정 하 고 리포지토리에 새 콘텐츠를 추가 하는 작업을 포함 하 여 연결 된 분기에 대 한 모든 푸시에서 워크플로가 트리거됩니다. 다음은 그 예입니다.
+        기본적으로이 구성은로 설정 됩니다 `on: push` . 즉, 기존 콘텐츠를 수정 하 고 리포지토리에 새 콘텐츠를 추가 하는 작업을 포함 하 여 연결 된 분기에 대 한 모든 푸시에서 워크플로가 트리거됩니다. 예:
 
         ```yml
         on:
@@ -204,7 +204,7 @@ GitHub 또는 Azure DevOps에서 콘텐츠 배포에 대 한 기본 구성이 �
 
     파이프라인 이름이 파이프라인 파일의 첫 번째 줄에 표시 되 고 기본 명명 규칙 인가 `Deploy Content to <workspace-name> [<deployment-id>]` 있습니다.
 
-    예: `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
+    `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
 
 1. 페이지의 오른쪽 위에서 연필 단추를 선택 하 여 편집할 파일을 열고 다음과 같이 배포를 수정 합니다.
 
@@ -297,5 +297,5 @@ GitHub 리포지토리에서 microsoft 센티널 앱을 삭제 하려는 경우 
 - [수집된 데이터 시각화](get-visibility.md)
 - [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](detect-threats-custom.md)
 - [Microsoft 센티널에서 위협 구하기](hunting.md)
-- [Microsoft 센티널 watchlists 사용](watchlists.md)
+- [Microsoft Sentinel 관심 목록 사용](watchlists.md)
 - [Microsoft 센티널에서 플레이 북을 사용 하 여 위협 대응 자동화](automate-responses-with-playbooks.md)

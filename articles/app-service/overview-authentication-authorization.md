@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/21/2021
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 304dc18933cc89a19dcc949fd6ff6b33a9be4479
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 1cd95e97b38d0cebd4ae9fab7de3d32ec34154a4
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568050"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956826"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -37,7 +37,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook 로그인](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google 로그인](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter 로그인](configure-authentication-provider-twitter.md) |
-| 모든 [OpenID Connect](https://openid.net/connect/) 공급자(미리 보기) | `/.auth/login/<providerName>` | [App Service OpenID Connect 로그인](configure-authentication-provider-openid-connect.md) |
+| [OpenID 커넥트](https://openid.net/connect/) 공급자 | `/.auth/login/<providerName>` | [App Service OpenID Connect 로그인](configure-authentication-provider-openid-connect.md) |
 
 이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 로그인 옵션을 제공할 수 있습니다.
 

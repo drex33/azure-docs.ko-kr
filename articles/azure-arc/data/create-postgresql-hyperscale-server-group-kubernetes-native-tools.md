@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 20214832a79dcf22bd14f6c6594f37a7036669fe
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: df29960214f6077849a151fc1c97a21484e091e0
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558861"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956788"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Kubernetes 도구를 사용하여 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "131558861"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[Azure Arc 데이터 컨트롤러](./create-data-controller.md)를 미리 만들어야 합니다.
+[데이터 컨트롤러](plan-azure-arc-data-services.md)를 이미 만들었어야 합니다.
 
 Kubernetes 도구를 사용하여 PostgreSQL 하이퍼스케일 서버 그룹을 만들려면 Kubernetes 도구가 설치되어 있어야 합니다.  이 문서의 예제에서는 `kubectl`을 사용하지만 이와 마찬가지로, 관련 도구와 Kubernetes yaml/json에 익숙하다면 Kubernetes 대시보드, `oc` 또는 `helm` 등의 다른 Kubernetes 도구를 사용할 수도 있습니다.
 
@@ -166,7 +166,7 @@ kubectl get postgresqls/pg1 --namespace arc
 kubectl get pods --namespace arc
 ```
 
-명령을 실행하여 특정 Pod의 생성 상태를 확인할 수도 `kubectl describe` 있습니다.  `describe`이 명령은 문제를 해결하는 데 특히 유용합니다. 예를 들면 다음과 같습니다.
+명령을 실행하여 특정 Pod의 생성 상태를 확인할 수도 `kubectl describe` 있습니다.  `describe`명령은 문제를 해결하는 데 특히 유용합니다. 예:
 
 ```console
 kubectl describe pod/<pod name> --namespace arc

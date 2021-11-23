@@ -4,14 +4,14 @@ description: Redis 용 Azure Cache에 기존 캐시를 마이그레이션하는 
 author: curib
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 11/17/2021
 ms.author: cauribeg
-ms.openlocfilehash: 4d2dab8534cafee529e0467026323c5018c84d43
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 37251a4b451dbab0ed2479ddaab0c251e441cd4a
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537803"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132953789"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Azure Cache for Redis로 마이그레이션
 
@@ -21,12 +21,13 @@ ms.locfileid: "129537803"
 
 오픈 소스 Redis는 많은 계산 환경에서 실행할 수 있습니다. 일반적인 예제는 다음을 포함합니다.
 
-- **온-프레미스** -Redis 캐시가 전용 데이터 센터에서 실행 되 고 있습니다.
+- **온-프레미스** -Redis 캐시는 개인 데이터 센터에서 실행 됩니다.
 - **클라우드 기반 vm** -Azure VM, AWS EC2 등에서 실행 되는 Redis 캐시
 - **호스팅 서비스** -AWS ElastiCache와 같은 관리 되는 Redis services
-- 다른 **지역** -Redis 캐시가 다른 Azure 지역에 있습니다.
 
-이러한 캐시가 있는 경우 최소 중단 또는 가동 중지 시간으로 Redis을 위해 Azure 캐시로 이동할 수 있습니다.
+이러한 캐시가 있는 경우 최소 중단 또는 가동 중지 시간으로 Redis을 위해 Azure 캐시로 이동할 수 있습니다. 
+
+한 Azure 지역에서 다른 지역으로 이동 하려는 경우 [Redis 인스턴스를 위한 Azure Cache를 여러 지역으로 이동](cache-moving-resources.md) 문서를 참조 하는 것이 좋습니다.
 
 ## <a name="migration-options"></a>마이그레이션 옵션
 
@@ -93,7 +94,7 @@ ms.locfileid: "129537803"
 
 ### <a name="migrate-programmatically"></a>프로그래밍 방식으로 마이그레이션
 
-기존 캐시에서 프로그래밍 방식으로 데이터를 읽고 Redis 용 Azure Cache에 기록 하 여 사용자 지정 마이그레이션 프로세스를 만들 수 있습니다. 이 [오픈 소스 도구](https://github.com/deepakverma/redis-copy)를 사용하여 한 Azure Cache for Redis 인스턴스에서 다른 인스턴스로 데이터를 복사할 수 있습니다. 이 도구는 서로 다른 Azure 캐시 지역에 있는 캐시 인스턴스 간에 데이터를 이동하는 데 유용합니다. [컴파일된 버전](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip)도 사용할 수 있습니다. 또한 고객 고유의 마이그레이션 도구를 작성하는 데 도움이 되는 소스 코드도 찾을 수 있습니다.
+기존 캐시에서 프로그래밍 방식으로 데이터를 읽고 Redis 용 Azure Cache에 기록 하 여 사용자 지정 마이그레이션 프로세스를 만들 수 있습니다. 이 [오픈 소스 도구](https://github.com/deepakverma/redis-copy)를 사용하여 한 Azure Cache for Redis 인스턴스에서 다른 인스턴스로 데이터를 복사할 수 있습니다. [컴파일된 버전](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip)도 사용할 수 있습니다. 또한 고객 고유의 마이그레이션 도구를 작성하는 데 도움이 되는 소스 코드도 찾을 수 있습니다.
 
 > [!NOTE]
 > 이 도구는 Microsoft에서 공식적으로 지원하는 도구가 아닙니다. 

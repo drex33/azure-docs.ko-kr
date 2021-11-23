@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.date: 08/31/2021
 ms.author: azhussai
 ms.topic: conceptual
-ms.openlocfilehash: 5687c4af0321e26d20906932fd9ac3b06b983651
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 8a67a9f98fb263308565e9f94f8da545ac3f4ffb
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373083"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132955648"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
 
 다중 사이트 호스팅을 사용하면 퍼블릭 연결 수신기를 사용하여 동일한 애플리케이션 게이트웨이 포트에 둘 이상의 웹 애플리케이션을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 contoso.com, fabrikam.com 및 adatum.com이라는 세 개의 도메인이 애플리케이션 게이트웨이의 IP 주소를 가리킵니다. 3개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각각의 수신기를 구성합니다.
 
-또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](#wildcard-host-names-in-listener-preview)을 참조하세요.
+또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](#wildcard-host-names-in-listener)을 참조하세요.
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="다중 사이트 Application Gateway":::
 
@@ -44,7 +44,7 @@ ms.locfileid: "132373083"
 >[!NOTE]
 >규칙 우선 순위를 사용하려면, 모든 기존 요청 회람 규칙에 대한 규칙 우선 순위 필드 값을 지정해야 합니다. 일단 규칙 우선 순위 필드를 사용하면, 생성된 모든 새 회람 규칙에도 해당 구성의 일부로 규칙 우선 순위 필드 값이 있어야 합니다.
 
-## <a name="wildcard-host-names-in-listener-preview"></a>수신기의 와일드카드 호스트 이름(미리 보기)
+## <a name="wildcard-host-names-in-listener"></a>수신기의 와일드카드 호스트 이름
 
 애플리케이션 게이트웨이에서는 다중 사이트 HTTP(S) 수신기를 사용하여 호스트 기반 라우팅을 수행할 수 있습니다. 이제 호스트 이름에 별표(*) 및 물음표(?) 같은 와일드카드 문자를 사용할 수 있으며 다중 사이트 HTTP(S) 수신기마다 최대 5개의 호스트 이름을 사용할 수 있습니다. 예들 들어 `*.contoso.com`입니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "132373083"
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="와일드카드 수신기":::
 
 >[!NOTE]
-> 이 기능은 미리 보기로 제공되며 Application Gateway Standard_v2 및 WAF_v2 SKU에만 사용할 수 있습니다. 미리 보기에 대한 자세한 내용은 [사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 Application Gateway Standard_v2 및 WAF_v2 SKU에만 사용할 수 있습니다.
 
 [Azure PowerShell](tutorial-multiple-sites-powershell.md)에서는 `-HostName` 대신 `-HostNames`를 사용해야 합니다. HostNames를 사용하면 최대 5개의 호스트 이름을 쉼표로 구분된 값으로 사용할 수 있고 와일드카드 문자를 사용할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com","*.fabrikam.com"`
 

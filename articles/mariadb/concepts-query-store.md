@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cc43fd3ea141852373d80814f1c60c5a2c88c358
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664200"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956370"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>쿼리 저장소를 사용하여 Azure Database for MariaDB 성능 모니터링
 
@@ -175,6 +175,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 - 긴 유니코드 쿼리(\>= 6000바이트)가 발견되면 쿼리 저장소 기능이 중단될 수 있습니다.
 - 대기 통계의 보존 기간은 24시간입니다.
 - 대기 통계는 샘플을 사용하여 이벤트의 비율을 캡처합니다. `query_store_wait_sampling_frequency` 매개 변수를 사용하여 빈도를 수정할 수 있습니다.
+- 쿼리 저장소는 버전 10.3에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

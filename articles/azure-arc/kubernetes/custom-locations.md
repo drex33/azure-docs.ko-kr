@@ -1,28 +1,28 @@
 ---
-title: Azure Arc 지원 Kubernetes에서 사용자 지정 위치 만들기 및 관리
+title: Azure Arc 사용 Kubernetes에서 사용자 지정 위치 만들기 및 관리
 ms.service: azure-arc
 ms.date: 10/19/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
-description: 사용자 지정 위치를 사용하여 Azure Arc 지원 Kubernetes 클러스터에 Azure PaaS 서비스 배포
-ms.openlocfilehash: f241ec384fc9ed7ee96d7415074e009cea486811
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+description: 사용자 지정 위치를 사용 하 여 Azure Arc 사용 Kubernetes 클러스터에 Azure PaaS 서비스 배포
+ms.openlocfilehash: 33ac4e2b88a6d95bff35539c557b679b642e294c
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273823"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954202"
 ---
-# <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에서 사용자 지정 위치 만들기 및 관리
+# <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Azure Arc 사용 Kubernetes에서 사용자 지정 위치 만들기 및 관리
 
- *사용자 지정 위치는* 테넌트 또는 클러스터 관리자가 Azure Arc 지원 Kubernetes 클러스터를 Azure 서비스 인스턴스를 배포하기 위한 대상 위치로 구성하는 방법을 제공합니다.  Azure Arc 지원 SQL Managed Instance 및 Azure Arc 지원 PostgreSQL 하이퍼스케일과 같은 리소스 Azure Arc 지원 Kubernetes 클러스터에서 사용자 지정 위치는 Azure Arc 지원 Kubernetes 클러스터 내에서 네임스페이스의 추상화입니다. 테넌트 또는 클러스터 관리자는 애플리케이션 개발자 또는 데이터베이스 관리자에게 RBAC(역할 기반 액세스 제어) 권한을 할당하여 사용자 지정 위치에 Azure Arc 지원 SQL Managed Instance, Azure Arc 지원 PostgreSQL 하이퍼스케일 인스턴스 또는 Azure 웹앱과 같은 리소스를 배포할 수 있습니다. 
+ *사용자 지정 위치* 를 사용 하면 테 넌 트 또는 클러스터 관리자가 azure Arc 사용 Kubernetes 클러스터를 azure 서비스 인스턴스를 배포 하기 위한 대상 위치로 구성할 수 있습니다. 즉,  azure arc 사용 SQL Managed Instance 및 azure arc 지원 PostgreSQL hyperscale과 같은 리소스 Azure Arc 사용 Kubernetes 클러스터에서 사용자 지정 위치는 Azure Arc 사용 Kubernetes 클러스터 내에서 네임 스페이스의 추상화를 나타냅니다. 테 넌 트 또는 클러스터 관리자는 응용 프로그램 개발자 또는 데이터베이스 관리자에 게 RBAC (역할 기반 액세스 제어) 권한을 할당 하 여 사용자 지정 위치에서 azure arc 사용 SQL 관리 되는 인스턴스, azure arc 사용 가능 PostgreSQL hyperscale 인스턴스 또는 azure 웹 앱과 같은 리소스를 배포할 수 있습니다. 
  
-이 기능에 대한 개념적 개요는 [사용자 지정 위치 - Azure Arc 지원 Kubernetes](conceptual-custom-locations.md) 문서에서 확인할 수 있습니다. 
+이 기능에 대 한 개념적 개요는 [사용자 지정 위치-Azure Arc 사용 Kubernetes](conceptual-custom-locations.md) 문서에서 사용할 수 있습니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]
-> * Azure Arc 지원 Kubernetes 클러스터에서 사용자 지정 위치를 사용하도록 설정합니다.
+> * Azure Arc 사용 Kubernetes 클러스터에서 사용자 지정 위치를 사용 하도록 설정 합니다.
 > * 사용자 지정 위치를 만듭니다.
 
 
@@ -49,7 +49,7 @@ ms.locfileid: "130273823"
     az extension update --name customlocation
     ```
     >[!NOTE]
-    >최신 버전의 CLI 확장을 사용하여 최신 기능을 얻는 것이 좋습니다.  
+    >최신 버전의 CLI 확장을 사용 하 여 최신 기능을 얻는 것이 좋습니다.  
 
 - `Microsoft.ExtendedLocation`에 대한 완료된 공급자 등록을 확인합니다.
     1. 다음 명령을 입력합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "130273823"
 
         등록된 후에는 `RegistrationState` 상태가 `Registered` 값을 가지게 됩니다.
 
-- 기존 Azure Arc 지원 [Kubernetes 연결 클러스터](quickstart-connect-cluster.md)가 있는지 확인합니다.
+- 기존 [Azure Arc 사용 Kubernetes 연결 된 클러스터가](quickstart-connect-cluster.md)있는지 확인 합니다.
     - 버전 1.1.0 이상으로 [에이전트를 업그레이드](agent-upgrade.md#manually-upgrade-agents)합니다.
 
 ## <a name="enable-custom-locations-on-cluster"></a>클러스터에서 사용자 지정 위치 사용
@@ -97,31 +97,31 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## <a name="create-custom-location"></a>사용자 지정 위치 만들기
 
-1. 클러스터에 설치하려는 Azure 서비스 인스턴스의 Azure 서비스 클러스터 확장을 배포합니다.
+1. 클러스터에 설치 하려는 Azure 서비스 인스턴스의 Azure 서비스 클러스터 확장을 배포 합니다.
 
-    * [Azure Arc 사용 Data Services](../data/create-data-controller-direct-cli.md#create-the-arc-data-services-extension)
+    * [Azure Arc-사용 Data Services](../data/create-data-controller-direct-prerequisites.md)
 
         > [!NOTE]
-        > 인증이 없는 아웃바운드 프록시 및 기본 인증을 사용하는 아웃바운드 프록시는 Azure Arc 지원되는 Data Services 클러스터 확장에서 지원됩니다. 신뢰할 수 있는 인증서가 필요한 아웃바운드 프록시는 현재 지원되지 않습니다.
+        > 기본 인증을 사용 하는 인증 및 아웃 바운드 프록시를 사용 하지 않는 아웃 바운드 프록시는 Azure Arc 사용 Data Services 클러스터 확장에서 지원 됩니다. 신뢰할 수 있는 인증서가 필요한 아웃바운드 프록시는 현재 지원되지 않습니다.
 
 
     * [Azure Arc의 Azure App Service](../../app-service/manage-create-arc-environment.md#install-the-app-service-extension)
 
     * [Kubernetes의 Event Grid](../../event-grid/kubernetes/install-k8s-extension.md)
 
-2. 이후 단계에서 로 참조되는 Azure Arc 지원 Kubernetes 클러스터의 Azure Resource Manager 식별자를 확인합니다. `connectedClusterId`
+2. 이후 단계에서 참조 되는 Azure Arc 사용 Kubernetes 클러스터의 Azure Resource Manager 식별자를 가져옵니다 `connectedClusterId` .
 
     ```azurecli
     az connectedk8s show -n <clusterName> -g <resourceGroupName>  --query id -o tsv
     ```
 
-3. 이후 단계에서 로 참조되는 Azure Arc 지원 Kubernetes 클러스터 위에 배포된 클러스터 확장의 Azure Resource Manager 식별자를 가져옵니다. `extensionId`
+3. Azure Arc 사용 Kubernetes 클러스터 위에 배포 된 클러스터 확장의 Azure Resource Manager 식별자를 가져옵니다 .이는 이후 단계에서 다음과 같이 참조 됩니다 `extensionId` .
 
     ```azurecli
     az k8s-extension show --name <extensionInstanceName> --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName>  --query id -o tsv
     ```
 
-4. Azure Arc 지원 Kubernetes 클러스터 및 확장을 참조하여 사용자 지정 위치를 만듭니다.
+4. Azure Arc 사용 Kubernetes 클러스터 및 확장을 참조 하 여 사용자 지정 위치를 만듭니다.
 
     ```azurecli
     az customlocation create -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
@@ -133,23 +133,23 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 |----------------|------------|
 | `--name, --n` | 사용자 지정 위치의 이름 |
 | `--resource-group, --g` | 사용자 지정 위치의 리소스 그룹  | 
-| `--namespace` | 생성되는 사용자 지정 위치에 바인딩된 클러스터의 네임스페이스 |
-| `--host-resource-id` | Azure Arc 지원 Kubernetes 클러스터(연결된 클러스터)의 Azure Resource Manager 식별자 |
-| `--cluster-extension-ids` | 연결된 클러스터에 설치된 클러스터 확장 인스턴스의 식별자를 Azure Resource Manager. 클러스터 확장 ID의 공백으로 분리된 목록 제공  |
+| `--namespace` | 만드는 사용자 지정 위치에 바인딩된 클러스터의 네임 스페이스 |
+| `--host-resource-id` | Azure Arc 사용 Kubernetes 클러스터 (연결 된 클러스터)의 Azure Resource Manager 식별자 |
+| `--cluster-extension-ids` | 연결 된 클러스터에 설치 된 클러스터 확장 인스턴스의 식별자를 Azure Resource Manager 합니다. 클러스터 확장 id의 공백으로 구분 된 목록을 제공 합니다.  |
 
 **선택적 매개 변수**
 
 | 매개 변수 이름 | Description |
 |--------------|------------|
-| `--assign-identity` | 기본값은 `None`입니다. 매개 변수가 "SystemAssigned"로 설정된 경우 [시스템 할당 관리 ID를](../../active-directory/managed-identities-azure-resources/overview.md) 만듭니다. |
-| `--location, --l` | Azure에서 사용자 지정 위치 Azure Resource Manager 리소스의 위치입니다. 기본적으로 연결된 클러스터의 위치(또는 Azure 지역)로 설정됩니다. |
-| `--tags` | 공백으로 구분된 태그 목록: key[=value] [key[=value] ...]. ''을 사용하여 기존 태그 지우기 |
-| `--kubeconfig` | 클러스터의 관리자 Kubeconfig. 클러스터가 AAD 사용하도록 설정되지 않은 클러스터인 경우 파일로 전달해야 합니다. |
+| `--assign-identity` | 기본값은 `None`입니다. 매개 변수가 "SystemAssigned"으로 설정 된 경우 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 만듭니다. |
+| `--location, --l` | Azure에서 리소스 Azure Resource Manager 사용자 지정 위치의 위치입니다. 기본적으로이는 연결 된 클러스터의 위치 (또는 Azure 지역)로 설정 됩니다. |
+| `--tags` | 공백으로 구분 된 태그 목록: 키 [= 값] [키 [= 값] ...]. 기존 태그를 지우려면 ' '를 사용 하십시오. |
+| `--kubeconfig` | 클러스터의 관리 Kubeconfig. 클러스터가 AAD 사용이 가능 하지 않은 클러스터 인 경우 파일로 전달 해야 합니다. |
 
 
-## <a name="show-details-of-a-custom-location"></a>사용자 지정 위치의 세부 정보 표시
+## <a name="show-details-of-a-custom-location"></a>사용자 지정 위치에 대 한 세부 정보 표시
 
-사용자 지정 위치의 세부 정보 표시
+사용자 지정 위치에 대 한 세부 정보 표시
 
 ```azurecli
     az customlocation show -n <customLocationName> -g <resourceGroupName> 
@@ -164,7 +164,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## <a name="list-custom-locations"></a>사용자 지정 위치 나열
 
-리소스 그룹의 모든 사용자 지정 위치를 나열합니다.
+리소스 그룹의 모든 사용자 지정 위치를 나열 합니다.
 
 ```azurecli
     az customlocation show -g <resourceGroupName> 
@@ -179,7 +179,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## <a name="update-a-custom-location"></a>사용자 지정 위치 업데이트
 
-`update`새 태그를 추가하려면 명령을 사용하고, 기존 태그 및 연결된 클러스터 확장을 유지하면서 새 클러스터 확장 ID를 사용자 지정 위치에 연결합니다. `--cluster-extension-ids`, `--tags` , 를  `assign-identity` 업데이트할 수 있습니다. 
+`update`새 태그를 추가 하려는 경우 명령을 사용 하 여 기존 태그 및 관련 클러스터 확장을 유지 하면서 새 클러스터 확장 id를 사용자 지정 위치에 연결 합니다. `--cluster-extension-ids`, `--tags` ,를  `assign-identity` 업데이트할 수 있습니다. 
 
 ```azurecli
     az customlocation update -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
@@ -190,20 +190,20 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 |----------------|------------|
 | `--name, --n` | 사용자 지정 위치의 이름 |
 | `--resource-group, --g` | 사용자 지정 위치의 리소스 그룹  | 
-| `--namespace` | 생성되는 사용자 지정 위치에 바인딩된 클러스터의 네임스페이스 |
-| `--host-resource-id` | Azure Arc 지원 Kubernetes 클러스터(연결된 클러스터)의 Azure Resource Manager 식별자 |
+| `--namespace` | 만드는 사용자 지정 위치에 바인딩된 클러스터의 네임 스페이스 |
+| `--host-resource-id` | Azure Arc 사용 Kubernetes 클러스터 (연결 된 클러스터)의 Azure Resource Manager 식별자 |
 
 **선택적 매개 변수**
 
 | 매개 변수 이름 | Description |
 |--------------|------------|
-| `--assign-identity` | `None`시스템 할당 관리 `"SystemAssigned` [ID를](../../active-directory/managed-identities-azure-resources/overview.md) 사용자 지정 위치에 할당하려는 경우 또는 로 업데이트할 수 있습니다. |
-| `--cluster-extension-ids` | 연결된 클러스터에 설치된 클러스터 확장 인스턴스의 Azure Resource Manager 식별자를 제공하여 새 클러스터 확장을 이 사용자 지정 위치에 연결합니다. 클러스터 확장 ID의 공백으로 분리된 목록 제공 |
-| `--tags` | 기존 태그 외에도 새 태그를 추가합니다. 공백으로 구분된 태그 목록: key[=value] [key[=value] ...]. |
+| `--assign-identity` | `None` `"SystemAssigned` 사용자 지정 위치에 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 할당 하려는 경우 또는으로 업데이트할 수 있습니다. |
+| `--cluster-extension-ids` | 연결 된 클러스터에 설치 된 클러스터 확장 인스턴스의 Azure Resource Manager 식별자를 제공 하 여 새 클러스터 확장을이 사용자 지정 위치에 연결 합니다. 클러스터 확장 id의 공백으로 구분 된 목록을 제공 합니다. |
+| `--tags` | 기존 태그 외에 새 태그를 추가 합니다. 공백으로 구분 된 태그 목록: 키 [= 값] [키 [= 값] ...]. |
 
 ## <a name="patch-a-custom-location"></a>사용자 지정 위치 패치
 
-`patch`기존 태그, 클러스터 확장 ID를 새 태그, 클러스터 확장 ID로 바꾸려면 명령을 사용합니다. `--cluster-extension-ids`, `assign-identity` , 를 `--tags` 패치할 수 있습니다. 
+`patch`기존 태그, 클러스터 확장 id를 새 태그로 바꾸려는 경우 명령을 사용 하 고, 클러스터 확장 id를 선택 합니다. `--cluster-extension-ids`, `assign-identity` , `--tags` 패치를 적용할 수 있습니다. 
 
 ```azurecli
     az customlocation patch -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 

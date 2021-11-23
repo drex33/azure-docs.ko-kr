@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/11/2021
-ms.openlocfilehash: aa49185d8941038ab100a0a480061cf63560f439
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: f26877631a7c517be982e16bc368f0b18fd10652
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132705458"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956211"
 ---
 # <a name="create-diagnostic-settings-to-send-azure-monitor-platform-logs-and-metrics-to-different-destinations"></a>Azure Monitor 플랫폼 로그 및 메트릭을 다른 대상으로 보내는 진단 설정 만들기
 
@@ -28,7 +28,12 @@ Azure 활동 로그 및 리소스 로그를 포함한 [플랫폼](./platform-log
 
 단일 진단 설정으로 각 대상 중 하나만 정의할 수 있습니다. 데이터를 2개 이상의 특정 대상 유형(예: 두 개의 다른 Log Analytics 작업 영역) 으로 보내려면 여러 개의 설정을 만듭니다. 각 리소스는 진단 설정을 5개까지 포함할 수 있습니다.
 
-다음 비디오에서는 진단 설정으로 플랫폼 로그를 라우팅하는 방법을 보여줍니다.
+다음 비디오에서는 진단 설정으로 플랫폼 로그를 라우팅하는 방법을 보여줍니다. 비디오는 이전 시간에 수행되었으며 다음을 포함하지 않습니다.
+ - 이제 4개의 대상이 있습니다. 플랫폼 메트릭 및 로그를 특정 Azure Monitor 파트너에게 보낼 수 있습니다. 
+ - 범주 그룹이라는 새로운 기능은 2021년 11월에 도입되었습니다. 
+
+이러한 최신 기능에 대한 정보는 이 문서에 포함되어 있습니다. 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
 ## <a name="sources"></a>원본
@@ -122,13 +127,13 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
    리소스에 기존 설정이 있는 경우 이미 구성된 설정의 목록이 표시됩니다. **진단 설정 추가** 를 클릭해 새 설정을 추가하거나, **설정 편집** 을 선택해 기존 설정을 편집합니다. 각 설정에는 대상 유형이 하나만 있을 수 있습니다.
 
-   ![진단 설정 추가 - 기존 설정](media/diagnostic-settings/edit-setting.png)
+   :::image type="Add diagnostic setting - existing settings" source="media/diagnostic-settings/edit-setting.png" alt-text="기존 설정에 대 한 진단 설정 추가":::
 
 3. 아직 없는 경우 설정에 이름을 지정합니다.
 
-      :::image type="Add diagnostic setting" source="media/diagnostic-settings/setting-new-blank.png" alt-text="새 진단 설정 추가":::
+      :::image type="Add diagnostic setting" source="media/diagnostic-settings/setting-new-blank.png" alt-text="진단 설정 이름 설정":::
 
-4. **라우팅할 로그 및 메트릭** - 로그의 경우 범주 그룹을 선택하거나 나중에 지정된 대상에 보낼 데이터의 각 범주에 대한 개별 상자를 선택합니다. 범주 목록은 각 Azure 서비스마다 다릅니다. 메트릭을 Azure Monitor 로그에도 저장하려면 *allMetrics를* 선택합니다. 
+4. **경로에 대 한 로그 및 메트릭** -로그의 경우 범주 그룹을 선택 하거나 나중에 지정 된 대상으로 보내려는 각 데이터 범주의 개별 상자를 확인 합니다. 범주 목록은 각 Azure 서비스마다 다릅니다. Azure Monitor 로그에 메트릭을 저장 하려는 경우 *Allmetrics* 을 선택 합니다. 
 
 5. **대상 세부 정보** - 각 대상에 대한 확인란을 선택합니다. 각 확인란을 선택하면 추가 정보를 추가할 수 있는 옵션이 표시됩니다.
 
@@ -136,10 +141,10 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
     1. **Log Analytics** - 구독 및 작업 영역을 입력합니다.  작업 영역이 없는 경우 [진행하기 전에 만들어야](../logs/quick-create-workspace.md) 합니다.
 
-    1. **Event Hubs** - 다음 조건을 지정합니다.
-       - 이벤트 허브가 속한 구독
-       - 이벤트 허브 네임스페이스 - 네임스페이스가 아직 없는 경우 [네임스페이스를 만들어야](../../event-hubs/event-hubs-create.md) 합니다.
-       - 모든 데이터를 보낼 이벤트 허브 이름(선택 사항)입니다. 이름을 지정하지 않으면 각 로그 범주에 대해 이벤트 허브가 만들어집니다. 여러 범주를 보내는 경우 이름을 지정하여 만들어진 이벤트 허브 수를 제한할 수 있습니다. 자세한 내용은 [Azure Event Hubs 할당량 및 제한](../../event-hubs/event-hubs-quotas.md)을 참조하세요.
+    1. **Event Hubs** -다음 조건을 지정 합니다.
+       - 이벤트 허브가 포함 된 구독
+       - 이벤트 허브 네임 스페이스-아직 없는 경우 [하나 만들어야](../../event-hubs/event-hubs-create.md) 합니다.
+       - 모든 데이터를 보낼 이벤트 허브 이름 (선택 사항)입니다. 이름을 지정하지 않으면 각 로그 범주에 대해 이벤트 허브가 만들어집니다. 여러 범주를 보내는 경우 이름을 지정하여 만들어진 이벤트 허브 수를 제한할 수 있습니다. 자세한 내용은 [Azure Event Hubs 할당량 및 제한](../../event-hubs/event-hubs-quotas.md)을 참조하세요.
        - 이벤트 허브 정책(선택 사항) - 정책은 스트리밍 메커니즘이 보유한 권한을 정의합니다. 자세한 내용은 [Event-hubs-features](../../event-hubs/event-hubs-features.md#publisher-policy)를 참조하세요.
 
     1. **스토리지** -구독, 스토리지 계정 및 보존 정책을 선택합니다.
@@ -147,11 +152,11 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
         ![스토리지로 보내기](media/diagnostic-settings/storage-settings-new.png)
 
         > [!TIP]
-        > 보존 정책을 0으로 설정하고 [Azure Storage 수명 주기 정책을](../../storage/blobs/lifecycle-management-policy-configure.md) 사용하거나 예약된 작업을 사용하여 스토리지에서 데이터를 삭제하는 것이 좋습니다. 이러한 전략은 보다 일관된 동작을 제공할 가능성이 높습니다. 
+        > 보존 정책을 0으로 설정 하 고 [Azure Storage 수명 주기 정책을](../../storage/blobs/lifecycle-management-policy-configure.md) 사용 하거나 예약 된 작업을 사용 하 여 저장소에서 데이터를 삭제 하는 것이 좋습니다. 이러한 전략은 보다 일관 된 동작을 제공할 가능성이 높습니다. 
         >
         > 첫째, 보관에 스토리지를 사용하는 경우 일반적으로 365일을 초과하여 데이터를 보관하고자 합니다. 둘째, 0보다 큰 보존 정책을 선택하는 경우 만료 날짜는 저장 시점에 로그에 연결됩니다. 저장한 후에는 해당 로그의 날짜를 변경할 수 없습니다. 예를 들어, *WorkflowRuntime* 에 대한 보존 정책을 180일로 설정한 다음 24시간 후에 365일로 설정하면, 처음 24시간 동안 저장된 로그는 180일 후 자동으로 삭제되는 반면, 모든 후속 로그는 자동으로 365일 후에 삭제됩니다. 나중에 보존 정책을 변경해도 처음 24시간 동안의 로그가 365일 동안 유지되지 않습니다.
 
-     1. **파트너 통합** - 먼저 구독에 파트너 통합을 설치해야 합니다. 구성 옵션은 파트너에 따라 달라집니다. 자세한 내용은 [Azure Monitor 파트너 통합을 참조하세요.](../../partner-solutions/overview.md) 
+     1. **파트너 통합** -먼저 구독에 파트너 통합을 설치 해야 합니다. 구성 옵션은 파트너에 따라 다릅니다. 자세한 내용은 [Azure Monitor 파트너 통합](../../partner-solutions/overview.md)을 참조 하세요. 
     
 6. **저장** 을 클릭합니다.
 
@@ -220,48 +225,48 @@ Resource Manager 템플릿을 사용하여 진단 설정을 만들거나 업데�
 ## <a name="create-using-rest-api"></a>REST API를 사용하여 만들기
 [Azure Monitor REST API](/rest/api/monitor/)를 사용하여 진단 설정을 만들거나 업데이트하려면 [진단 설정](/rest/api/monitor/diagnosticsettings)을 참조하세요.
 
-## <a name="create-at-scale-using-azure-policy"></a>Azure Policy 사용하여 대규모로 만들기
+## <a name="create-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 대규모로 만들기
 
-진단 설정은 각 Azure 리소스에 대해 만들어야 하며, 각 리소스를 만들 때마다 진단 설정을 자동으로 만드는 데 Azure Policy를 사용할 수 있습니다. 각 Azure 리소스 종류에는 진단 설정에 나열해야 하는 고유한 범주 세트가 있습니다. 이 때문에 각 리소스 종류에는 별도의 정책 정의가 필요합니다. 일부 리소스 종류에는 수정 없이 할당할 수 있는 기본 제공 정책 정의가 있습니다. 다른 리소스 종류의 경우 사용자 지정 정의를 만들어야 합니다. 
+진단 설정은 각 Azure 리소스에 대해 만들어야 하며, 각 리소스를 만들 때마다 진단 설정을 자동으로 만드는 데 Azure Policy를 사용할 수 있습니다. 각 Azure 리소스 종류에는 진단 설정에 나열해야 하는 고유한 범주 세트가 있습니다. 이러한 이유로 각 리소스 종류에는 별도의 정책 정의가 필요 합니다. 일부 리소스 종류에는 수정 없이 할당할 수 있는 기본 제공 정책 정의가 있습니다. 다른 리소스 종류의 경우 사용자 지정 정의를 만들어야 합니다. 
 
-리소스 로그 범주 그룹을 추가하면 이제 로그 범주가 변경됨에 따라 동적으로 업데이트되는 옵션을 선택할 수 있습니다.  자세한 내용은 이 문서의 앞에 나열된 [진단 설정 원본을](#sources) 참조하세요. 
+리소스 로그 범주 그룹을 추가 하 여 이제 로그 범주가 변경 될 때 동적으로 업데이트 되는 옵션을 선택할 수 있습니다.  자세한 내용은이 문서의 앞부분에 나열 된 [진단 설정 원본](#sources) 을 참조 하세요. 모든 리소스 종류에는 "All" 범주가 있습니다. 일부에는 "감사" 범주가 있습니다.  
 
 ### <a name="built-in-policy-definitions-for-azure-monitor"></a>Azure Monitor에 대한 기본 제공 정책 정의
-각 리소스 종류에 대한 두 가지 기본 제공 정책 정의가 있습니다. 하나는 Log Analytics 작업 영역으로 보내고 다른 하나는 이벤트 허브로 보냅니다. 위치가 하나만 필요한 경우 리소스 종류에 대해 해당 정책을 할당합니다. 둘 다 필요한 경우 리소스에 대한 두 정책 정의를 모두 할당합니다.
+각 리소스 유형에 대 한 기본 제공 정책 정의에는 두 가지가 있습니다. 하나는 Log Analytics 작업 영역으로 보내고 다른 하나는 이벤트 허브로 보냅니다. 위치가 하나만 필요한 경우 리소스 종류에 대해 해당 정책을 할당 합니다. 둘 다 필요한 경우 리소스에 대 한 두 정책 정의를 모두 할당 합니다.
 
-예를 들어 다음 이미지는 Azure Data Lake Analytics 대한 기본 제공 진단 설정 정책 정의를 보여줍니다.
+예를 들어 다음 이미지는 Azure Data Lake Analytics에 대 한 기본 제공 진단 설정 정책 정의를 보여 줍니다.
 
 ![Data Lake Analytics에 대한 두 가지 기본 제공 진단 설정 정책 정의를 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷](media/diagnostic-settings/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>사용자 지정 정책 정의
-기본 제공 정책이 없는 리소스 종류의 경우 사용자 지정 정책 정의를 만들어야 합니다. 기존 기본 제공 정책을 복사한 다음 리소스 종류에 맞게 수정하여 Azure Portal 수동으로 이 작업을 수행할 수 있습니다. 그러나 PowerShell 갤러리 스크립트를 사용하여 프로그래밍 방식으로 정책을 만드는 것이 더 효율적입니다.
+기본 제공 정책이 없는 리소스 종류의 경우 사용자 지정 정책 정의를 만들어야 합니다. 기존 기본 제공 정책을 복사한 후 리소스 형식에 맞게 수정 하 여 Azure Portal에서이 작업을 수동으로 수행할 수 있습니다. 그러나 PowerShell 갤러리 스크립트를 사용 하 여 프로그래밍 방식으로 정책을 만드는 것이 더 효율적입니다.
 
-[Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) 스크립트는 PowerShell 또는 Azure CLI 사용하여 설치할 수 있는 특정 리소스 종류에 대한 정책 파일을 만듭니다. 진단 설정에 대한 사용자 지정 정책 정의를 만들려면 다음 절차를 수행합니다.
+[AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) 스크립트는 PowerShell 또는 Azure CLI를 사용 하 여 설치할 수 있는 특정 리소스 종류에 대 한 정책 파일을 만듭니다. 진단 설정에 대 한 사용자 지정 정책 정의를 만들려면 다음 절차를 따르십시오.
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps)이 설치되어 있는지 확인합니다.
-2. 다음 명령을 사용하여 스크립트를 설치합니다.
+2. 다음 명령을 사용 하 여 스크립트를 설치 합니다.
   
     ```azurepowershell
     Install-Script -Name Create-AzDiagPolicy
     ```
 
-3. 매개 변수를 사용하여 스크립트를 실행하여 로그를 보낼 위치를 지정합니다. 구독 및 리소스 종류를 지정하라는 메시지가 표시됩니다. 
+3. 매개 변수를 사용 하 여 스크립트를 실행 하 여 로그를 보낼 위치를 지정 합니다. 구독 및 리소스 종류를 지정 하 라는 메시지가 표시 됩니다. 
 
-   예를 들어 Log Analytics 작업 영역 및 이벤트 허브로 로그를 보내는 정책 정의를 만들려면 다음 명령을 사용합니다.
+   예를 들어 Log Analytics 작업 영역 및 이벤트 허브에 로그를 전송 하는 정책 정의를 만들려면 다음 명령을 사용 합니다.
 
    ```azurepowershell
    Create-AzDiagPolicy.ps1 -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-   또는 명령에서 구독 및 리소스 종류를 지정할 수 있습니다. 예를 들어 로그를 Log Analytics 작업 영역 및 SQL Server 데이터베이스에 대한 이벤트 허브로 보내는 정책 정의를 만들려면 다음 명령을 사용합니다.
+   또는 명령에서 구독 및 리소스 종류를 지정할 수 있습니다. 예를 들어 Log Analytics 작업 영역에 로그를 보내고 SQL Server 데이터베이스용 이벤트 허브를 전송 하는 정책 정의를 만들려면 다음 명령을 사용 합니다.
 
    ```azurepowershell
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. 스크립트는 각 정책 정의에 대해 별도의 폴더를 만듭니다. 각 폴더에는 *azurepolicy.json , azurepolicy.rules.json* 및 *azurepolicy.parameters.json* 이라는 세 개의 파일이 포함되어 있습니다.  Azure Portal 정책을 수동으로 만들려는 경우 전체 정책 정의가 포함되어 있으므로 *azurepolicy.json의* 내용을 복사하여 붙여넣을 수 있습니다. PowerShell 또는 Azure CLI 다른 두 파일을 사용하여 명령줄에서 정책 정의를 만듭니다.
+5. 스크립트는 각 정책 정의에 대해 별도의 폴더를 만듭니다. 각 폴더에는 *azurepolicy. json*, *azurepolicy. rules* 및 *azurepolicy* 라는 세 개의 파일이 있습니다. Azure Portal에서 정책을 수동으로 만들려면 전체 정책 정의가 포함 되어 있으므로 *azurepolicy. json* 의 내용을 복사 하 여 붙여 넣을 수 있습니다. PowerShell 또는 Azure CLI에서 다른 두 파일을 사용 하 여 명령줄에서 정책 정의를 만듭니다.
 
-   다음 예제에서는 PowerShell 및 Azure CLI 모두의 정책 정의를 설치하는 방법을 보여줍니다. 각 예제에는 모니터링 범주를 **지정하는** 메타데이터가 포함되어 새 정책 정의를 기본 제공 정책 정의로 그룹화합니다.
+   다음 예에서는 PowerShell과 Azure CLI 모두에서 정책 정의를 설치 하는 방법을 보여 줍니다. 각 예제에는 기본 제공 정책 정의를 사용 하 여 새 정책 정의를 그룹화 하는 **모니터링** 범주를 지정 하는 메타 데이터가 포함 되어 있습니다.
 
    ```azurepowershell
    New-AzPolicyDefinition -name "Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace" -policy .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json -parameter .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json -mode All -Metadata '{"category":"Monitoring"}'
@@ -272,7 +277,7 @@ Resource Manager 템플릿을 사용하여 진단 설정을 만들거나 업데�
    ```
 
 ### <a name="initiative"></a>이니셔티브
-각 정책 정의에 대한 할당을 만드는 대신, 일반적인 전략은 각 Azure 서비스에 대한 진단 설정을 만드는 정책 정의를 포함하는 이니셔티브를 만드는 것입니다. 환경을 관리하는 방법에 따라 이니셔티브와 관리 그룹, 구독 또는 리소스 그룹 간에 할당을 만듭니다. 이 전략은 다음과 같은 이점을 제공합니다.
+각 정책 정의에 대한 할당을 만드는 대신, 일반적인 전략은 각 Azure 서비스에 대한 진단 설정을 만드는 정책 정의를 포함하는 이니셔티브를 만드는 것입니다. 환경을 관리 하는 방법에 따라 이니셔티브와 관리 그룹, 구독 또는 리소스 그룹 간의 할당을 만듭니다. 이 전략은 다음과 같은 이점을 제공합니다.
 
 - 리소스 종류마다 여러 할당을 만드는 대신 이니셔티브에 대해 단일 할당을 만듭니다. 여러 모니터링 그룹, 구독 또는 리소스 그룹에 동일한 이니셔티브를 사용합니다.
 - 새 리소스 유형 또는 대상을 추가해야 하는 경우 이니셔티브를 수정합니다. 예를 들어 Log Analytics 작업 영역에만 데이터를 전송 하 고 나중에 이벤트 허브를 추가 하려면 초기 요구 사항을 충족 해야 합니다. 새 할당을 만드는 대신 이니셔티브를 수정 합니다.

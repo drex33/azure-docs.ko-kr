@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: d93fa1d16366ee131d98aebe2ab8e3e040949d72
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: cb99653c9e105f44090a27de352c7a8cbc5fa344
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567437"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132953732"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>마이그레이션: SQL Server에서 Azure Arc 지원 SQL Managed Instance로 마이그레이션
 
@@ -27,7 +27,7 @@ Azure Arc 지원 SQL Managed Instance로 마이그레이션하려면 Azure Blob 
 
 이 방법은 백업한 후 복원할 수 있는 임시 스토리지 위치로 Azure Blob Storage를 사용합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Data Studio 설치](install-client-tools.md)
 
@@ -128,7 +128,7 @@ URL에 백업에 대한 자세한 내용은 아래를 참조하세요.
 
 이 방법은 모든 방법으로 만든 백업 파일을 사용하고 Azure SQL 관리형 인스턴스 Pod의 로컬 스토리지에 복사하여 Windows 또는 Linux의 일반적인 파일 시스템에 있는 것처럼 복원할 수 있도록 하는 방법을 보여 줍니다. 이 시나리오에서는 `kubectl cp` 명령을 사용하여 한 위치의 파일을 Pod의 파일 시스템에 복사합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - kubectl을 설치하고 Azure Arc 데이터 서비스가 배포된 Kubernetes 클러스터를 가리키도록 구성합니다.
 - Azure Data Studio 또는 SQL Server Management Server와 같은 도구를 설치하고 백업 파일을 만들려고 하거나 로컬 파일 시스템에 이미 생성된 기존 .bak 파일이 있는 SQL Server에 연결합니다.
@@ -154,7 +154,7 @@ SQL 인스턴스가 배포된 Pod의 이름을 찾습니다. 일반적으로 `po
 kubectl get pods -n <namespace of data controller>
 ```
 
-예:
+예제:
 
 로컬 스토리지에서 클러스터의 SQL Pod로 백업 파일을 복사합니다.
 
@@ -195,6 +195,6 @@ GO
 
 [Azure Arc 지원 SQL Managed Instance의 특징 및 기능에 대해 자세히 알아보기](managed-instance-features.md)
 
-[데이터 컨트롤러를 생성하여 시작](create-data-controller.md)
+[데이터 컨트롤러를 생성하여 시작](create-data-controller-indirect-cli.md)
 
 [데이터 컨트롤러가 이미 만들어져 있나요? Azure Arc 지원 SQL Managed Instance 만들기](create-sql-managed-instance.md)

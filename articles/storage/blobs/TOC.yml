@@ -748,6 +748,8 @@ items:
             href: data-lake-storage-introduction.md
       - name: 자습서
         items:
+          - name: Synapse SQL과 함께 사용
+            href: data-lake-storage-use-sql.md
           - name: Databricks 및 Spark와 함께 사용
             href: data-lake-storage-use-databricks-spark.md
           - name: Apache Hive 및 HDInsight와 함께 사용

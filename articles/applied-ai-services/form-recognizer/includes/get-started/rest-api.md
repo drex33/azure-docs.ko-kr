@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c889cb0db92a4b9df9df07ddad9cb136e147b466
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: ae6eee615dfd97d0d4e28de2f9e660544b6ca411
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132875430"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132949551"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -77,7 +77,7 @@ https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samp
 #### <a name="request"></a>요청
 
 ```bash
-curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
+curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -151,7 +151,7 @@ JSON 콘텐츠가 포함된 `200 (success)` 응답을 받게 됩니다.
 #### <a name="request"></a>요청
 
 ```bash
-curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{'source': '{your invoice URL}'}"
+curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{'urlSource': '{your invoice URL}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location

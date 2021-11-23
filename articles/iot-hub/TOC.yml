@@ -203,19 +203,23 @@
       items:
         - name: 디바이스 및 서비스 SDK 사용
           items:
-            - name: C용 IoT 디바이스 SDK 사용
-              href: iot-hub-device-sdk-c-intro.md
+            - name: Azure IoT Embedded C SDK
+              href: iot-hub-device-embedded-c-sdk.md
+            - name: Azure IoT C SDK
               items:
-                - name: IoTHubClient 사용
-                  href: iot-hub-device-sdk-c-iothubclient.md
-            - name: Azure IoT C SDK 리소스 정보
-              href: 'https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md'
-            - name: 제한된 디바이스에 대한 개발
-              href: iot-hub-devguide-develop-for-constrained-devices.md
-            - name: 모바일 디바이스에 대한 개발
-              href: iot-hub-how-to-develop-for-mobile-devices.md
-            - name: Android 작업 플랫폼용 개발
-              href: iot-hub-how-to-android-things.md
+                - name: Azure IoT C SDK 사용
+                  href: iot-hub-device-sdk-c-intro.md
+                  items:
+                    - name: IoTHubClient 사용
+                      href: iot-hub-device-sdk-c-iothubclient.md
+                - name: Azure IoT C SDK 리소스 정보
+                  href: 'https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md'
+                - name: 제한된 디바이스에 대한 개발
+                  href: iot-hub-devguide-develop-for-constrained-devices.md
+                - name: 모바일 디바이스에 대한 개발
+                  href: iot-hub-how-to-develop-for-mobile-devices.md
+                - name: Android 작업 플랫폼용 개발
+                  href: iot-hub-how-to-android-things.md
         - name: Android에서 디바이스 제어
           href: quickstart-control-device-android.md
         - name: 허브 경로에서 Avro 데이터 쿼리

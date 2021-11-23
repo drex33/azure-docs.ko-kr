@@ -12,6 +12,12 @@
 - name: 빠른 시작
   expanded: true
   items:
+    - name: 기밀 VM
+      items:
+        - name: Azure CLI를 사용하여 기밀 VM 만들기
+          href: quick-create-confidential-vm-arm-amd.md
+        - name: Azure Portal을 사용하여 기밀 VM 만들기
+          href: quick-create-confidential-vm-portal-amd.md
     - name: Enclave를 사용하는 기밀 VM
       items:
         - name: Intel SGX 배포
@@ -33,20 +39,32 @@
       href: confidential-computing-deployment-models.md
     - name: 기밀 가상 머신
       items:
-        - name: Enclave를 사용하여 빌드
+        - name: 기밀 VM 정보
+          href: confidential-vm-overview.md
+        - name: AMD 기밀 VM에 대한 FAQ
+          href: confidential-vm-faq-amd.yml
+        - name: 기밀 VM에 대한 AMD 프로세서 옵션
+          href: virtual-machine-solutions-amd.md
+        - name: DCasv5 및 DCadsv5 시리즈
+          href: ../virtual-machines/dcasv5-dcadsv5-series.md
+        - name: ECasv5 및 ECadsv5 시리즈
+          href: ../virtual-machines/ecasv5-ecadsv5-series.md
+    - name: Enclave를 사용하여 빌드
+      items:
+        - name: Enclave 개요
+          href: confidential-computing-enclaves.md
+        - name: Enclave 애플리케이션 개발
           items:
-            - name: Enclave 개요
-              href: confidential-computing-enclaves.md
-            - name: Enclave 애플리케이션 개발
-              items:
-                - name: Enclave 개발 개요
-                  href: application-development.md
-                - name: 개발을 위한 오픈 소스 프로젝트
-                  href: enclave-development-oss.md
-                - name: 애플리케이션 Enclave 증명
-                  href: attestation.md
+            - name: Enclave 개발 개요
+              href: application-development.md
+            - name: 개발을 위한 오픈 소스 프로젝트
+              href: enclave-development-oss.md
+            - name: 애플리케이션 Enclave 증명
+              href: attestation.md
             - name: Intel SGX 가상 머신 개발
               href: virtual-machine-solutions-sgx.md
+            - name: AMD 가상 머신 배포
+              href: virtual-machine-solutions-amd.md
             - name: 애플리케이션 Enclave VM FAQ
               href: faq-application-enclaves.yml
     - name: 기밀 컨테이너

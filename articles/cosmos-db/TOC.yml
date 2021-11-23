@@ -98,6 +98,8 @@
               href: continuous-backup-restore-frequently-asked-questions.yml
             - name: 지속적인 백업 - 리소스 모델
               href: continuous-backup-restore-resource-model.md
+            - name: 복원 가능한 최신 타임스탬프
+              href: latest-restore-timestamp-continuous-backup.md
     - name: Azure Cosmos DB 비용 최적화
       items:
         - name: 비용 계획 및 관리
@@ -1495,6 +1497,8 @@
               href: continuous-backup-restore-permissions.md
             - name: 계정 프로비전 - 지속적인 백업
               href: provision-account-continuous-backup.md
+            - name: 최신 복원 타임스탬프 가져오기
+              href: get-latest-restore-timestamp.md
             - name: 계정 복원 - 지속적인 백업
               href: restore-account-continuous-backup.md
             - name: 지속적인 백업으로 마이그레이션

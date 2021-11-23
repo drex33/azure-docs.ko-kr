@@ -74,6 +74,8 @@
       href: publish-apps-2019.md
     - name: Azure AD Multi-Factor Authentication 설정
       href: ../set-up-mfa.md
+    - name: Azure Virtual Desktop 클래식 삭제
+      href: manual-delete.md
 - name: 개념
   items:
     - name: Azure Virtual Desktop 환경

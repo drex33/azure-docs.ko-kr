@@ -8,12 +8,12 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 03/23/2021
-ms.openlocfilehash: e21dab310c41cf6aae0e201d7d1b8e78a8540a30
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 0087da1ed65aa1c20ca50602f23d4dc33de438af
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112255814"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132949572"
 ---
 [참조 설명서](/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer) | [다중 슬롯 개념](..\concept-multi-slot-personalization.md) | [샘플](https://aka.ms/personalizer/ms-dotnet)
 
@@ -579,4 +579,4 @@ dotnet run
 ![빠른 시작 프로그램은 기능으로 알려진 사용자 기본 설정을 수집하기 위해 몇 가지 질문을 합니다.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
-[이 빠른 시작의 소스 코드](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer/multislot-quickstart)가 제공됩니다.
+[이 빠른 시작의 소스 코드](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer/multislot-quickstart-v2PreviewSdk)가 제공됩니다.

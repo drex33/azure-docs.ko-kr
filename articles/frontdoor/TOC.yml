@@ -30,7 +30,7 @@
       href: front-door-quickstart-template-samples.md
 - name: 개념
   items:
-    - name: 표준/프리미엄 SKU
+    - name: 표준/프리미엄 계층
       href: standard-premium/overview.md
     - name: 캐싱
       href: front-door-caching.md

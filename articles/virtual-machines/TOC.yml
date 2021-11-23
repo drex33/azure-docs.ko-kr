@@ -161,6 +161,8 @@
               href: av2-series.md
             - name: B-시리즈 버스터블
               href: sizes-b-series-burstable.md
+            - name: DCasv5 및 DCadsv5 시리즈
+              href: dcasv5-dcadsv5-series.md
             - name: DCsv2 시리즈
               href: dcv2-series.md
             - name: DCsv3 및 DCdsv3 시리즈
@@ -181,6 +183,8 @@
               href: ddv5-ddsv5-series.md
             - name: Dasv5 및 Dadsv5 시리즈
               href: dasv5-dadsv5-series.md
+            - name: DCasv5 및 DCadsv5 시리즈
+              href: dcasv5-dcadsv5-series.md
         - name: 컴퓨팅 최적화
           items:
             - name: 개요
@@ -211,6 +215,8 @@
               href: edv5-edsv5-series.md
             - name: Easv5 및 Eadsv5 시리즈
               href: easv5-eadsv5-series.md
+            - name: ECasv5 및 ECadsv5 시리즈
+              href: ecasv5-ecadsv5-series.md
             - name: M 시리즈
               href: m-series.md
             - name: Msv2 및 Mdsv2 중간 메모리 시리즈

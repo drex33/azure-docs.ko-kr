@@ -5,13 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4082fee167e64b6fc88191957bca3f69975f35dd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 03d78f4f70acb3cb8994eefb4952bc7caaac9b97
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696682"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041261"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>빠른 시작: 렌더링을 위해 모델 변환
 
@@ -25,7 +25,7 @@ ms.locfileid: "110696682"
 > * Azure Remote Rendering에서 사용할 3D 모델 업로드 및 변환
 > * 렌더링을 위해 애플리케이션에 변환된 3D 모델 포함
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 완료
 * PowerShell 스크립트를 사용하여 변환하는 경우: Azure PowerShell 설치[(설명서)](/powershell/azure/)

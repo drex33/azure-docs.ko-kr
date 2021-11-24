@@ -11,13 +11,13 @@ ms.date: 11/02/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 recommendations: false
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: b8203c42b8db814acc0a47984386a995d346a599
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 3c7deae342a623037d950f0cbd071bf2e79d89ba
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030878"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042576"
 ---
 # <a name="get-started-with-a-client-library-sdks-or-rest-api"></a>클라이언트 라이브러리 SDK 또는 REST API 시작
 

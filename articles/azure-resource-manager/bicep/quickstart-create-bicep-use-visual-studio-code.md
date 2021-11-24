@@ -3,13 +3,13 @@ title: Bicep 파일 만들기 - Visual Studio Code
 description: Azure 리소스 배포를 위해 Visual Studio Code 및 Bicep 파일에 대한 Bicep 확장 사용
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f5950a143510b85ea6de8f7af4e08c7d4b5ed293
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 38465663bf5ee82dbbee17c02245206d8ffa6631
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136232"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064903"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기
 

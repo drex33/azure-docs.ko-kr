@@ -8,12 +8,13 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: dotnet
 ms.date: 09/27/2021
-ms.openlocfilehash: 670e7425c8b56732a32e1deb0b664bc6544eda0c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: mode-other
+ms.openlocfilehash: b00b1d18ee6941af65a55f3eb82c2616a32f6f67
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209626"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055476"
 ---
 # <a name="publish-messages-to-and-process-messages-from-azure-purviews-atlas-kafka-topics-via-event-hubs-using-net"></a>.NET을 사용하여 Event Hubs를 통해 Azure Purview의 Atlas Kafka 토픽에 메시지를 게시하고 메시지 처리 
 이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET 라이브러리를 사용하여 이벤트 허브와 Azure Purview의 Atlas Kafka 토픽의 이벤트를 주고 받는 방법을 보여 줍니다. 

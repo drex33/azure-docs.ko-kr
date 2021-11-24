@@ -6,13 +6,13 @@ author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 0ea55c36c239b5ecdb51ef3dc7a3ff762718bd1e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
+ms.openlocfilehash: f4f2e1b1e0cacc205abb49cf089b9545d4642403
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769006"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054875"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Docker Compose 구성을 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 

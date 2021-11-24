@@ -8,13 +8,13 @@ ms.author: vigunase
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.custom: devx-track-python
-ms.openlocfilehash: c242d2e685fc3e9702a666c1eb52f1d3b61fa43a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: devx-track-python, mode-other
+ms.openlocfilehash: a49352ff34c8ee31d842bfe9a1bc6dd8651aa658
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259430"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045975"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 

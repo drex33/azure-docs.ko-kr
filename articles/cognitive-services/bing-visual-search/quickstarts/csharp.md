@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e2f2b1d21e36f059b3848e6f9a1a9d6ed02c05ab
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 6938589a1e12694a66ceb021749131806549fb5e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669458"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064378"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>빠른 시작: Bing Visual Search REST API 및 C#을 사용하여 이미지 인사이트 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "128669458"
 
 이 빠른 시작에서는 Bing Visual Search API에 이미지를 업로드하고 반환되는 인사이트를 보는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET 프레임워크](https://www.newtonsoft.com/json).

@@ -5,12 +5,13 @@ author: tfitzmac
 ms.date: 05/04/2021
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f44c485d0a7eb7f546c1b227ca121d906225b43e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 7004cf1eaf3c7ba2aa370ace0f2265367a51e60e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631213"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068869"
 ---
 # <a name="quickstart-create-and-deploy-template-spec"></a>빠른 시작: 템플릿 사양 만들기 및 배포
 

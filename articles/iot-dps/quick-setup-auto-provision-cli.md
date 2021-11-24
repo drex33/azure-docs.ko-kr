@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0a8225e63844b0eefa9d8a6922732769b723e200
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.openlocfilehash: 59eb1154fb9c844c8d0534469680f21ae3b2007f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273745"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041651"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
 

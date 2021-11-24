@@ -3,13 +3,13 @@ title: 캡쳐를 사용하도록 설정된 이벤트 허브 만들기 - Azure Ev
 description: Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브가 있는 Azure Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정
 ms.topic: quickstart
 ms.date: 09/28/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 72cd56ef7d2fce836afb5963639983249204cf6c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: a3b37c68a3da21881080dac7c7ad1ab7522c2504
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218606"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046012"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 

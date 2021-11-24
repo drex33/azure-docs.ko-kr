@@ -2,13 +2,13 @@
 title: Microsoft Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
-ms.date: 11/18/2021
-ms.openlocfilehash: 2ee9bc9c9a27af18fd8813543dd8afaa3f4e2d72
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.date: 11/21/2021
+ms.openlocfilehash: e523848b2c344fbaac599ef67784ef397c8ddd4f
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132754162"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902063"
 ---
 # <a name="whats-new-in-microsoft-defender-for-iot"></a>Microsoft Defender for IoT의 새로운 기능은 무엇인가요?
 
@@ -45,7 +45,7 @@ Microsoft는 분기별로 한 번 이상 Defender for IoT 업데이트를 릴리
 
 - 성능 및 네트워크 트래픽 분석이 개선되었습니다.
 
-- 새로운 [ServiceNow 통합 API](references-work-with-defender-for-iot-apis.md#service-now-integration-api---externalv3integration)가 온-프레미스 관리 콘솔에 추가되었습니다.
+- 새로운 [ServiceNow 통합 API - “/external/v3/integration/(미리 보기)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview)가 온-프레미스 관리 콘솔에 추가되었습니다.
 
 ## <a name="october-2021"></a>2021년 10월
 

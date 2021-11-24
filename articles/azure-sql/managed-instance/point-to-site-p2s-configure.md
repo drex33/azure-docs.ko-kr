@@ -5,26 +5,26 @@ description: 온-프레미스 클라이언트 컴퓨터에서 지점 및 사이�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: ''
+ms.custom: mode-other
 ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: e99dbfdf482abfe0b7ccab3b7b5c805ba186419b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 56495222ff8344a95e4d41cb1db0283796806705
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752204"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054383"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Managed Instance로의 지점 및 사이트 간 연결 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 이 빠른 시작에서는 온-프레미스 클라이언트 컴퓨터에서 [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)를 사용하여 지점 및 사이트 간 연결을 통해 Azure SQL Managed Instance에 연결하는 방법을 보여 줍니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](../../vpn-gateway/point-to-site-about.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작의 특징은 다음과 같습니다.
 

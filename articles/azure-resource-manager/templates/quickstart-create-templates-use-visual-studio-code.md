@@ -5,13 +5,13 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5de17c2333d2fe50f89c5f86558bab8759f36edb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: e7cf6f954f08ab328e3486f48851fbdc964d079e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321738"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068814"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기
 

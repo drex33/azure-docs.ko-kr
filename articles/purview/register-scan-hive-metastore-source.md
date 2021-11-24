@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 2e40125d65dd2b4b701d5b1049444a52e6cb7dc4
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 5784ae0b74762ae4dbcd512e92df4f81f9f70ec5
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131850663"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132871512"
 ---
 # <a name="connect-to-and-manage-hive-metastore-databases-in-azure-purview"></a>Azure Purview에서 Hive Metastore 데이터베이스에 연결 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "131850663"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 예 | 예 | 예 | 아니요| 예** |
+| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| 예** |
 
 \**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 
@@ -31,7 +31,7 @@ ms.locfileid: "131850663"
 > 지원되는 플랫폼은 Apache Hadoop, Cloudera, Hortonworks 및 Databricks입니다.
 > 지원되는 Hive 버전은 2.x~3.x입니다. 지원되는 Databricks 버전은 8.0 이상입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -140,13 +140,11 @@ Hive 메타스토어 데이터베이스에 대해 유일하게 지원되는 인�
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
 
        > [!NOTE]
-       > *hive-site.xml* 에서 URL을 복사할 때 문자열에서 `amp;`를 제거해야 합니다. 그렇지 않으면 검사가 실패합니다.
+       > *hive-site.xml* 에서 URL을 복사할 때 문자열에서 `amp;`를 제거해야 합니다. 그렇지 않으면 검사가 실패합니다. 이 URL에 대해 VM에서 SSL 인증서가 배치된 위치에 경로를 추가합니다. [SSL 인증서를 다운로드](../mysql/howto-configure-ssl.md)할 수 있습니다. Windows 경로 구분 문자를 `\`에서 `/`로 변경해야 합니다. 예를 들어, MariaDB JAR 파일이 *C:\mariadb-jdbc.jar* 인 경우 *C:/mariadb-jdbc.jar* 로 변경합니다. Metastore JDBC URL `sslCA` 매개 변수를 동일하게 변경합니다. *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem* 에서 *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem* 으로 변경합니다.
 
-       이 URL에 대해 VM에서 SSL 인증서가 배치된 위치에 경로를 추가합니다. SSL 인증서는 [여기](../mysql/howto-configure-ssl.md)에서 다운로드할 수 있습니다.
+       **메타스토어 JDBC URL** 은 다음 예제와 같습니다.
 
-       메타스토어 JDBC URL은 다음과 같습니다.
-
-       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&useSSL=true&sslCA=D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem`
 
     1. **메타스토어 데이터베이스 이름**: Hive 메타스토어 데이터베이스 이름을 제공합니다.
 

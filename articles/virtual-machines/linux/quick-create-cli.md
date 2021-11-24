@@ -8,18 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 03/30/2021
 ms.author: cynthn
-ms.custom:
-- mvc
-- seo-javascript-september2019
-- seo-javascript-october2019
-- seo-python-october2019
-- devx-track-azurecli
-ms.openlocfilehash: 4329110d117a81d34b70662e44e36d8aed21e114
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, mode-api
+ms.openlocfilehash: 1e4907142e35bbd0bcab59fc5a7a5b400988d7ff
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774199"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069162"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux 가상 머신 만들기
 

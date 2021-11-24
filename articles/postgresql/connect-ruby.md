@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 �
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 703178ae1a99044ae12b4f594f1c1b977aa8e929
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: e81ba4c3a6786a1d42dae4f2dfde6f59fc60462e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217280"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066275"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Ruby를 사용하여 Azure Database for PostgreSQL에서 데이터 연결 및 쿼리 - 단일 서버
 

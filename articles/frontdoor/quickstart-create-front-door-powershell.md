@@ -12,13 +12,13 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom: devx-track-azurepowershell, mode-api
-ms.openlocfilehash: 29c0718f048358867f78ef58f2d0a688240d08a0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 866d4cc3eb12c19e19a2ab56bb4c21a0943b163b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086268"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041931"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하는 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
 

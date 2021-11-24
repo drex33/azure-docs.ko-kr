@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-other
 zone_pivot_groups: qnamaker-quickstart
-ms.openlocfilehash: a8b60c629b3f8b0421b98f64d6ca4a817d0eb372
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fd0c497aa6b23ca445b203ab5fa8db9cde5baab6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071326"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039668"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>빠른 시작: QnA Maker 클라이언트 라이브러리
 

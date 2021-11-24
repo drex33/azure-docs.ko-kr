@@ -4,15 +4,15 @@ description: Azure Portal을 사용하여 새 Azure API Management 서비스 인
 author: dlepow
 ms.service: api-management
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.date: 09/08/2020
 ms.author: danlep
-ms.openlocfilehash: c2a822147b06cfdd950d12bd1fa2d5c1c583f22f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4f2e0ea9b9d45fc25f8cb0fc238e563076e69301
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660788"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054757"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 
@@ -43,7 +43,7 @@ API Management 인스턴스
 
    :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="새 인스턴스":::
    
-   | 설정                 | 설명   |                                                                     
+   | 설정                 | Description   |                                                                     
    |-------------------------|-----------------------------------------------|
    | 이름 - **                | API Management 서비스에 대한 고유한 이름입니다. 이 이름은 나중에 변경할 수 없습니다. 서비스 이름은 서비스와 해당 Azure 리소스를 모두 나타냅니다. <br/> 서비스 이름은 기본 도메인 이름 *\<name\>.azure-api.net* 을 생성하는 데 사용됩니다. 사용자 지정 도메인 이름을 사용하려는 경우 [사용자 지정 도메인 구성](configure-custom-domain.md)을 참조하세요. |
    | **구독**:          | 이 새 서비스 인스턴스가 만들어질 구독입니다.   |

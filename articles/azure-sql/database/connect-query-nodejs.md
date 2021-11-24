@@ -11,13 +11,13 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma, v-masebo
 ms.date: 05/19/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
-ms.openlocfilehash: d9d6ea8cd3ef13fe38ca67caffb01beb64fbb982
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js, mode-other
+ms.openlocfilehash: cde19bc4ed2f6a0f7641dc7d7905235078255e31
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131012286"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068591"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Node.js를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

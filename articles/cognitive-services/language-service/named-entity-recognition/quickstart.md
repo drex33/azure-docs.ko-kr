@@ -10,15 +10,15 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner, ignite-fall-2021, mode-other
 keywords: 텍스트 마이닝, 핵심 구
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 5d53254ccf94f5b275e2f552e83f03643cfe81e2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6fbf709da46dd2706e1bc000f693aaf7a3169de3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101167"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039416"
 ---
 # <a name="quickstart-detecting-named-entities-ner"></a>빠른 시작: 명명된 엔터티 검색(NER)
 

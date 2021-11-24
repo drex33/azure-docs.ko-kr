@@ -9,13 +9,13 @@ ms.reviewer: shsagir
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: d127abb6e8b493e0db3a281083d9ca17802cf529
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 3cc64ce454f8038852d4ca2e94da56952ed74733
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101230"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056906"
 ---
 # <a name="quickstart-use-synapse-studio-to-monitor-your-data-explorer-pools-preview"></a>빠른 시작: Synapse Studio 사용하여 데이터 탐색기 풀 모니터링(미리 보기)
 

@@ -8,15 +8,15 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 08/01/2020
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 79cf3c2764035ef2e8c4418d172ba991a72bf3ff
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 593ca7b9cdf503d8dc69f243403353f224c7297b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113285911"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042762"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 

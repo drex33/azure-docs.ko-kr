@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.topic: quickstart
 ms.date: 02/12/2020
 keywords: Azure, Kinect, 개발 키트, Azure DK, 설정, 하드웨어, 빠른 시작, USB, 전원, 뷰어, 센서, 스트리밍, 설정, SDK, 펌웨어
-ms.custom: CI 114092, CSSTroubleshooting
+ms.custom: CI 114092, CSSTroubleshooting, mode-other
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: 1f7bd9a7f21a97fd0a9176fcd8a8f8ec40f1777e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7f6ec3cfdf3edf678f4b8f04a21e2f4c00f16c8b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131085889"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052676"
 ---
 # <a name="quickstart-set-up-your-azure-kinect-dk"></a>빠른 시작: Azure Kinect DK 설정
 

@@ -6,14 +6,14 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6c342a898a7ad9f0918313b2292a0105c75f6c8a
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 9aafdc74403fc37d72e150e8d8d01ea64fc62607
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535559"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042824"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 

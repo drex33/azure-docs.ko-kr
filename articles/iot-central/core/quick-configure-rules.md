@@ -7,13 +7,13 @@ ms.date: 05/27/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: 9357198e140a6ba403fcb74787d31a0940554fa7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: mvc, mode-other
+ms.openlocfilehash: 0164d0e3354db03be2747ba15438261cc657b02b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459178"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044197"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>빠른 시작: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 

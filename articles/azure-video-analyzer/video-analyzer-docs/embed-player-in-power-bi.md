@@ -1,16 +1,16 @@
 ---
-title: Power BI에 플레이어 위젯 포함 - Azure Video Analyzer
+title: Power BI에 플레이어 위젯 포함
 description: 연속 비디오 녹화 또는 이벤트 기반 기록을 위해 Azure Video Analyzer를 사용할 수 있습니다. 이 문서에서는 Microsoft Power BI에 비디오를 포함하여 사용자에게 사용자 지정 가능한 UI를 제공하는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: fc21cafacb361c05995caed01bf6463d3757f892
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 6282796e57adb37e0cdd2a7e6e60bd7dc682d0d6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132939693"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046784"
 ---
 # <a name="embed-player-widget-in-power-bi"></a>Power BI에 플레이어 위젯 포함
 

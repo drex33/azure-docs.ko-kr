@@ -5,15 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.date: 06/09/2021
 ms.author: zhshang
-ms.openlocfilehash: 3a3fa958ac6ad1cb440f30b5c680ae3f9139d29a
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 832b26aa4751db65fc6b59729d94ce2b32304654
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444926"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068772"
 ---
 # <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-c"></a>빠른 시작: C를 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기\#
 
@@ -204,4 +204,3 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 > [!div class="nextstepaction"]
 > [Visual Studio를 사용하여 Azure 함수 앱에 배포](../azure-functions/functions-develop-vs.md#publish-to-azure)
-

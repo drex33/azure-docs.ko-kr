@@ -7,12 +7,13 @@ ms.service: postgresql
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 03/26/2021
-ms.openlocfilehash: 00adc50ac14e627eb356a3e62ce0faa5a9716aa3
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.custom: mode-other
+ms.openlocfilehash: 26eb883ef3f815a6c5331c14ccfeaca6f8131ea1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505560"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066169"
 ---
 # <a name="quickstart-use-rust-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Rust를 사용하여 Azure Database for PostgreSQL - 단일 서버에서 데이터 연결 및 쿼리
 

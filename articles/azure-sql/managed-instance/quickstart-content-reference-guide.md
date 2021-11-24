@@ -5,19 +5,19 @@ description: 'Azure SQL Managed Instance를 시작하는 데 도움이 되는 �
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, mode-other
 ms.devlang: ''
 ms.topic: quickstart
 author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto, mathoma
 ms.date: 07/11/2019
-ms.openlocfilehash: 5093dc4b3e401c90e06234b33cdd996ff4a9d781
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 4bc5d6558a6c4eddb1d5c3157e05dcf8d54ee70d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689697"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054250"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

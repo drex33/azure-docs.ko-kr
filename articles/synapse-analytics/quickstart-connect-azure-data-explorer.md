@@ -9,12 +9,13 @@ ms.subservice: workspace
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f45bc134c656701ff02beca464ac00fdf222f88
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.custom: mode-other
+ms.openlocfilehash: ec8de51e4833327d5b94b706c1d03aa8aca540a7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830206"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045568"
 ---
 # <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Azure Synapse Analytics용 Apache Spark를 사용하여 Azure Data Explorer에 연결
 

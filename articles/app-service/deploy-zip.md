@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/13/2021
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: be58de78ba82c3c5e99475b00649e2a7ebfdf5e4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b72001783c1e3d640c3ab9f35c097aa7822298e1
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216942"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097269"
 ---
 # <a name="deploy-files-to-app-service"></a>App Service에 파일 배포
 
@@ -74,7 +74,7 @@ Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath 
 다음 예제에서는 cURL 도구를 사용하여 ZIP 패키지를 배포합니다. `<username>`, `<zip-package-path>` 및 `<app-name>` 자리 표시자를 바꿉니다. cURL에서 프롬프트가 표시되면 [배포 암호](deploy-configure-credentials.md)를 입력합니다.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=zip
+curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=zip
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -204,7 +204,7 @@ az webapp deploy --resource group <group-name> --name <app-name> --src-path conf
 다음 예제에서는 cURL 도구를 사용하여 애플리케이션의 시작 파일을 배포합니다. 자리표시자 `<username>`, `<startup-file-path>` 및 `<app-name>`을 교체하세요. cURL에서 프롬프트가 표시되면 [배포 암호](deploy-configure-credentials.md)를 입력합니다.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<startup-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=startup
+curl -X POST -u <username> --data-binary @"<startup-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=startup
 ```
 
 ### <a name="deploy-a-library-file"></a>라이브러리 파일 배포
@@ -212,7 +212,7 @@ curl -X POST -u <username> --data-binary @"<startup-file-path>" https://<app-nam
 다음 예제에서는 cURL 도구를 사용하여 애플리케이션의 라이브러리 파일을 배포합니다. `<username>`, `<lib-file-path>` 및 `<app-name>` 자리 표시자를 바꿉니다. cURL에서 프롬프트가 표시되면 [배포 암호](deploy-configure-credentials.md)를 입력합니다.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<lib-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=lib&path="/home/site/deployments/tools/my-lib.jar"
+curl -X POST -u <username> --data-binary @"<lib-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path="/home/site/deployments/tools/my-lib.jar"
 ```
 
 ### <a name="deploy-a-static-file"></a>정적 파일 배포
@@ -220,7 +220,7 @@ curl -X POST -u <username> --data-binary @"<lib-file-path>" https://<app-name>.s
 다음 예제에서는 cURL 도구를 사용하여 애플리케이션의 구성 파일을 배포합니다. `<username>`, `<config-file-path>` 및 `<app-name>` 자리 표시자를 바꿉니다. cURL에서 프롬프트가 표시되면 [배포 암호](deploy-configure-credentials.md)를 입력합니다.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<config-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=static&path="/home/site/deployments/tools/my-config.json"
+curl -X POST -u <username> --data-binary @"<config-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path="/home/site/deployments/tools/my-config.json"
 ```
 
 # <a name="kudu-ui"></a>[Kudu UI](#tab/kudu-ui)

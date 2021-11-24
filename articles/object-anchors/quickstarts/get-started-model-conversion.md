@@ -7,12 +7,13 @@ ms.author: crtreasu
 ms.date: 06/10/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: e3b67bee93a0e9a7b823d3a91d6d95e1bccbbe71
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.custom: mode-other
+ms.openlocfilehash: 378e0d9419bfa239829b4ca3fd3c83b0395e844d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202825"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055737"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>빠른 시작: 3D 모델에서 Object Anchors 모델 만들기
 

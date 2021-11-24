@@ -4,14 +4,14 @@ description: 이 빠른 시작에서는 Visual Studio를 사용하여 HTTP 트�
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5dffc4b1ffaa221e507c84c8a9b5654f9e5355c8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 88e08181977f78c8cc37a611b22edcdf28ed49f5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785248"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045004"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기
 

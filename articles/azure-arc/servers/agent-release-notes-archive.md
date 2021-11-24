@@ -4,22 +4,45 @@ description: Azure Arc 지원 서버 에이전트에 대한 개요 섹션의 새
 ms.topic: overview
 ms.date: 08/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0e3dbda61503442f15bc74e0ec3b771e732b96db
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9c58b9b85ec33120de6f43a84e55b4d6ea47f9bc
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680702"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863920"
 ---
 # <a name="archive-for-whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트의 새로운 기능 아카이브
 
 주요 [Azure Arc 지원 서버 에이전트의 새로운 기능](agent-release-notes.md) 문서에는 지난 6개월의 업데이트가 포함되어 있으며, 이 문서에는 모든 이전 정보가 포함되어 있습니다.
 
-Azure Arc 지원 서버 Connected Machine 에이전트에는 지속적으로 향상된 기능이 제공됩니다. 이 문서에서는 다음에 대한 정보를 제공합니다.
+Azure Connected Machine 에이전트에는 지속적으로 향상된 기능이 제공됩니다. 이 문서에서는 다음에 대한 정보를 제공합니다.
 
 - 이전 릴리스
 - 알려진 문제
 - 버그 수정
+
+## <a name="june-2021"></a>2021년 6월
+
+버전 1.7
+
+### <a name="new-features"></a>새로운 기능
+
+- 온보딩 중에 안정성 개선:
+  - HIMDS를 사용할 수 없을 때 다시 시도 논리 개선
+  - OS 정보를 얻을 수 없는 경우 중단하지 않고 온보딩을 계속 진행합니다.
+- Red Hat 및 CentOS 시스템에 Linux 확장용 Log Analytics 에이전트를 설치할 때 안정성이 개선되었습니다.
+
+## <a name="may-2021"></a>2021년 5월
+
+버전 1.6
+
+### <a name="new-features"></a>새로운 기능
+
+- SUSE Enterprise Linux 12에 대한 지원이 추가되었습니다
+- 게스트 구성 에이전트가 다음을 포함하도록 버전 1.26.12.0으로 업데이트되었습니다.
+  - 정책이 별도의 프로세스로 실행됩니다.
+  - 확장 유효성 검사에 대한 V2 서명 지원이 추가되었습니다.
+  - 데이터 로깅에 대한 사소한 업데이트입니다.
 
 ## <a name="april-2021"></a>2021년 4월
 
@@ -31,7 +54,7 @@ Azure Arc 지원 서버 Connected Machine 에이전트에는 지속적으로 향
 - 새 `-useStderr` 매개 변수를 통해 오류 및 자세한 정보 출력을 stderr로 지정합니다.
 - 새 `-json` 매개 변수를 통해 출력을 지정하여 JSON 형식이 되도록 합니다(-useStderr과 함께 사용하는 경우).
 - 제조업체, 모델, 클러스터 리소스 ID(Azure Stack HCI 노드의 경우) 등 다른 인스턴스 메타데이터를 수집합니다.
- 
+
 ## <a name="march-2021"></a>2021년 3월
 
 버전 1.4

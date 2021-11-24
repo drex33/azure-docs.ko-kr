@@ -9,12 +9,13 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 8c418f7cbeb56b94b7a85b12e833301b979bff32
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: mode-other
+ms.openlocfilehash: 777363a98583e5ca20d025ae354874bd5fcb8725
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871557"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067900"
 ---
 ::: zone target = "docs"
 

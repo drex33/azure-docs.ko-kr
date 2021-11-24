@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 831aa049d6426eeb23e4f227321a79359ed852af
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: ffe88d8aaa33c22c6fa9ba2cd6db5dd60389e116
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255358"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938080"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
@@ -32,14 +32,14 @@ Azure Communication Services는 [Azure Event Grid](https://azure.microsoft.com/s
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Azure Notification Hubs를 통해 푸시 알림 제공
 
-걸려오는 전화를 받을 때 사용자의 모바일 디바이스에 푸시 알림을 자동으로 보내기 위해 Azure Notification Hub를 Communication Services 리소스에 연결할 수 있습니다. 이러한 푸시 알림을 사용하여 백그라운드에서 애플리케이션을 깨우고 사용자가 통화를 수락하거나 거절할 수 있는 UI를 표시해야 합니다.
+Azure Notification Hub를 Communication Services 리소스에 연결하여 걸려오는 전화를 받을 때 사용자의 모바일 디바이스에 푸시 알림을 자동으로 보내거나 누락된 채팅 활동에 대해 알릴 수 있습니다. 이러한 푸시 알림을 사용하여 백그라운드에서 애플리케이션을 깨우고 사용자가 통화를 수락 또는 거부하거나 새로 받은 채팅 메시지를 읽을 수 있는 UI를 표시해야 합니다. 
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Communication Services가 Azure Notification Hubs와 통합되는 방식을 보여 주는 다이어그램":::
 
-Communication Services는 Azure Notification Hub를 통과 서비스로 사용하여 [Direct Send](/rest/api/notificationhubs/direct-send) API를 통해 다양한 플랫폼별 푸시 알림 서비스와 통신합니다. 이렇게 하면 기존 Azure Notification Hub 리소스 및 구성을 다시 사용하여 대기 시간이 짧고 안정적인 통화 알림을 애플리케이션에 전달할 수 있습니다.
+Communication Services는 Azure Notification Hub를 통과 서비스로 사용하여 [Direct Send](/rest/api/notificationhubs/direct-send) API를 통해 다양한 플랫폼별 푸시 알림 서비스와 통신합니다. 이렇게 하면 기존 Azure Notification Hub 리소스 및 구성을 다시 사용하여 대기 시간이 짧고 안정적인 알림을 애플리케이션에 전달할 수 있습니다.
 
 > [!NOTE]
-> 현재는 푸시 알림 호출만 지원됩니다.
+> 현재 호출 푸시 알림은 Android 및 iOS에서 모두 지원됩니다. 채팅 푸시 알림은 버전 1.1.0-beta.4의 Android SDK에 대해서만 지원됩니다.
 
 ### <a name="notification-hub-provisioning"></a>Notification Hub 프로비저닝
 
@@ -88,7 +88,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 ### <a name="device-registration"></a>디바이스 등록
 
-Communication Services에 디바이스 핸들을 등록하는 방법을 알아보려면 [음성 통화 빠른 시작](../quickstarts/voice-video-calling/getting-started-with-calling.md)을 참조하세요.
+Communication Services에 디바이스 핸들을 등록하는 방법을 알아보려면 [음성 통화 빠른 시작](../quickstarts/voice-video-calling/getting-started-with-calling.md) 및 [채팅 빠른 시작](../quickstarts/chat/get-started.md)을 참조하세요.
 
 ### <a name="troubleshooting-guide-for-push-notifications"></a>푸시 알림 문제 해결 가이드
 

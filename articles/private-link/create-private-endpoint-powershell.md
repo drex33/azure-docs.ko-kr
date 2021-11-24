@@ -7,13 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9999f9d8e297bd36f20ab77c821619040ecd7870
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 1fb9b9449c956e567ed238a76f3be22b32891799
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696839"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055640"
 ---
 # <a name="quickstart-create-an-azure-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Private Endpoint 만들기
 

@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure App Configuration의 기능 플래
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 22de8b7775d6825d99afe8eb4f0dc043f8ec639c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a3909dd0aa6e37196c88835ca6ac8ba9c254d1f3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031559"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076238"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>빠른 시작: Azure Functions 앱에 기능 플래그 추가
 

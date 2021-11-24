@@ -1,15 +1,15 @@
 ---
 title: 명령줄에서 JavaScript 함수 만들기 - Azure Functions
 description: 명령줄에서 JavaScript 함수를 만든 다음, 로컬 Node.js 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
-ms.date: 11/03/2020
+ms.date: 11/18/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 016c5fad3c6bc5e341bf917fc6c24ecba54abc86
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 02ef3317a517e7502912b6e953743e0c13f34996
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132027227"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065101"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 JavaScript 함수 만들기
 
@@ -33,9 +33,9 @@ ms.locfileid: "132027227"
 
     + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
-    + [Az PowerShell 모듈](/powershell/azure/install-az-ps), 버전 5.9.0 이상.
+    + Azure [Az PowerShell 모듈](/powershell/azure/install-az-ps) 버전 5.9.0 이상
 
-+ [Node.js](https://nodejs.org/) 버전 14 
++ [Node.js](https://nodejs.org/) 버전 14 또는 16(미리 보기). 
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -114,18 +114,18 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. Node.js 10을 사용하는 경우 `--runtime-version`도 `10`으로 변경합니다.
+    [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. Node.js 16을 사용하는 경우 `--runtime-version`도 `16`으로 변경합니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location <REGION>
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 14 -FunctionsVersion 4 -Location <REGION>
     ```
 
-    [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. Node.js 10을 사용하는 경우 `-RuntimeVersion`을 `10`으로 변경합니다.
+    [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. Node.js 16을 사용하는 경우 `-RuntimeVersion`을 `16`으로 변경합니다.
 
     ---
 

@@ -7,12 +7,13 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: 7dfded652c14ec6805b7fa48004cf5dfe8d72b5f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mode-portal
+ms.openlocfilehash: 24ee9a9288092ba1f1da762654ac8baf31f3eba4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131061108"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043585"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Route Server 만들기 및 구성
 

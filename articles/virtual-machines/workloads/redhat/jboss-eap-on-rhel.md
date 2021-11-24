@@ -8,14 +8,14 @@ ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: mode-api
+ms.custom: mode-other
 ms.collection: linux
-ms.openlocfilehash: 134e06e4ca4831d5e6995b330d527f2f5515856a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2f4786da196dc25c8bdfa971bb31dfd0531fef1a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131018390"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065649"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 JBoss EAP를 사용하여 엔터프라이즈 Java 애플리케이션을 Azure에 배포
 

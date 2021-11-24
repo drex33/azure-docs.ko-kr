@@ -10,13 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: clschott
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 24e172edd47bd859e530536671b5e8df7e0d4c8f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: bcef5e482023ebbe8b5a88979dd8fc6836524741
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352561"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044628"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>빠른 시작: Bing Video Search REST API 및 C#을 사용하여 비디오 검색
 

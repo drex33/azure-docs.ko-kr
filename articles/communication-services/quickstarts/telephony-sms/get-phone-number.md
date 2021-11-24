@@ -9,14 +9,14 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.custom: references_regions
+ms.custom: references_regions, mode-other
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
-ms.openlocfilehash: 3f44c3913eb7c12dc521ad806f9994a1bd358e50
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 0bbf98259fcd84a69cf0391a3fbac59e8061d935
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132809175"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046366"
 ---
 # <a name="quickstart-get-and-manage-phone-numbers"></a>빠른 시작: 전화 번호 가져오기 및 관리
 

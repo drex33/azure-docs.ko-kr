@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 995956e23e211d2182159f6e61abbbf184983ab0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-other
+ms.openlocfilehash: cb6acdafc1b2eed6c829ff006f7c0eb79d84d268
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87101274"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056088"
 ---
 # <a name="accessing-the-azure-education-hub"></a>Azure Education Hub 액세스
 

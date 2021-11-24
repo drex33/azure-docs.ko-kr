@@ -7,12 +7,13 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 23e1bdc895da7ba9941901832d7fc89cd9c6196a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 381aa068a2a27bd3c28b13adee16aeeab51d735b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592625"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040264"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>빠른 시작: Rust에서 Azure Cache for Redis 사용
 

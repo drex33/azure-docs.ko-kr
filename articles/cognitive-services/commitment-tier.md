@@ -3,16 +3,16 @@ title: 약정 계층 가격 책정을 사용하여 Azure Cognitive Services 리�
 description: 종량제 가격 책정과 다른 약정 계층 가격 책정에 가입하는 방법을 알아봅니다.
 author: aahill
 ms.author: aahi
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, mode-other
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.openlocfilehash: 94bd9d22876f264ffd438d579c48aa037ed87c3f
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: e3c29dbaf856efe74b247704854e3e17ba66fbd2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132486628"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068094"
 ---
 # <a name="quickstart-purchase-commitment-tier-pricing"></a>빠른 시작: 구매 약정 계층 가격 책정
 

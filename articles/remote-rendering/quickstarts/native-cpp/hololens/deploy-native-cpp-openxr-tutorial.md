@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 41049aa7c4bd4b5e1ea5dedb3da7578f37a05d55
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.custom: mode-other
+ms.openlocfilehash: a52748cd7927974c8547754039b220308f3db803
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113667567"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052308"
 ---
 # <a name="quickstart-deploy-native-c-openxr-sample-to-hololens"></a>빠른 시작: HoloLens에 네이티브 C++ OpenXR 샘플 배포
 

@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 10/26/2021
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: cc5761afe295bd9ef71c86cf6ffdafb8c0e847ff
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 038a22c3d8935cf420ee956930b946e54b71a499
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435836"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096640"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -74,7 +74,7 @@ Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD �
 
     단일 테넌트 앱의 경우 형식의 기본값을 사용할 수 `api://<application-client-id>` 있습니다. 테넌트에서 확인된 도메인 중 하나를 기반으로 보다 읽기 가능한 URI를 지정할 수도 `https://contoso.com/api` 있습니다. 다중 테넌트 앱의 경우 사용자 지정 URI를 제공해야 합니다. 앱 ID URI에 허용되는 형식에 대한 자세한 내용은 [앱 등록 모범 사례 참조를 참조하세요.](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration)
 
-    값을 입력한 후 **저장을** 클릭합니다.
+    값이 자동으로 저장됩니다.
 
 1. **범위 추가** 를 선택합니다.
    1. **범위 추가에서** **애플리케이션 ID URI는** 이전 단계에서 설정한 값입니다.  **저장하고 계속** 을 선택합니다.
@@ -106,7 +106,7 @@ Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD �
 
 1. **추가** 를 클릭합니다.
 
-이제 앱에서 인증에 Microsoft ID 플랫폼 사용할 준비가 되었습니다. 공급자는 **인증** 화면에 나열됩니다. 여기에서 공급자 구성을 편집하거나 삭제할 수 있습니다.
+이제 앱에서 인증을 위해 Microsoft ID 플랫폼를 사용할 준비가 되었습니다. 공급자는 **인증** 화면에 나열됩니다. 여기에서 공급자 구성을 편집하거나 삭제할 수 있습니다.
 
 ## <a name="configure-client-apps-to-access-your-app-service"></a>App Service에 액세스하도록 클라이언트 앱 구성
 

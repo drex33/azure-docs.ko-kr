@@ -8,16 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom:
-- mvc
-- amqp
-- mqtt
-ms.openlocfilehash: 5fd94f155b272b31d534d6aeb075a0b7269ad112
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.custom: mvc, amqp, mqtt, mode-other
+ms.openlocfilehash: b0ae305dbb1d60deb505e783026cd2cdccf5ba72
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132808992"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044050"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device"></a>빠른 시작: 시뮬레이션된 TPM 디바이스 프로비저닝
 

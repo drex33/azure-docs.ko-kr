@@ -1,5 +1,5 @@
 ---
-title: IP 연결 필터 Microsoft Azure IoT DPS
+title: IoT DPS IP 연결 필터 Microsoft Azure
 description: 특정 IP 주소에서 Azure IoT DPS 인스턴스로의 연결을 차단하도록 IP 필터링을 사용하는 방법입니다.
 author: wesmc7777
 ms.author: wesmc
@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: how-to
 ms.date: 11/12/2021
-ms.openlocfilehash: c9af76cab55218fffa5e638f4b71a5bcee68a99f
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 55a9bc2d4f3ea520cf48cf77a592623cc02c2fea
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132752223"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133095943"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Azure IoT DPS IP 연결 필터 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "132752223"
 * DPS 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
 
 >[!Note]
->IP 필터링을 사용하도록 설정하면 더 이상 Azure Portal 사용하여 서비스 작업(예: 등록 관리)을 수행할 수 없습니다. 포털을 사용하여 서비스 작업을 수행하려면 일시적으로 IP 필터링을 비활성화하고 작업을 완료한 다음 IP 필터링 기능을 다시 사용하도록 설정해야 합니다. 사용자 고유의 클라이언트를 사용하고 IP 필터 비활성화를 방지하려면 컴퓨터의 IP 주소를 에 추가하고 `ipFilterRules` CLI를 통해 DPS에서 등록을 관리하도록 선택할 수 있습니다.
+>IP 필터링을 사용 하는 경우 더 이상 Azure Portal를 사용 하 여 서비스 작업을 수행할 수 없습니다 (즉, 등록 관리). 포털을 사용 하 여 서비스 작업을 수행 하려면 IP 필터링을 일시적으로 비활성화 하 고 작업을 완료 한 다음 IP 필터링 기능을 다시 사용 하도록 설정 해야 합니다. 사용자 고유의 클라이언트를 사용 하 고 IP 필터의 비활성화를 방지 하려는 경우 컴퓨터의 IP 주소를에 추가 하 `ipFilterRules` 고 CLI를 통해 DPS에서 등록를 관리 하도록 선택할 수 있습니다.
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 
@@ -40,13 +40,13 @@ DPS 인스턴스의 거부 IP 규칙에 일치하는 IP 주소에서 오는 모�
 
 ## <a name="default-setting"></a>기본 설정
 
-기본적으로 IP 필터링은 사용하지 않도록 설정되고 **공용 네트워크 액세스는** *모든 네트워크* 로 설정됩니다. 이 기본 설정은 DPS가 모든 IP 주소에서 연결을 허용하거나 0.0.0.0/0 IP 주소 범위를 허용하는 규칙을 준수한다는 것을 의미합니다.
+기본적으로 IP 필터링은 사용 하지 않도록 설정 되며 **공용 네트워크 액세스** 는 *모든 네트워크* 로 설정 됩니다. 이 기본 설정은 DPS가 모든 IP 주소에서 연결을 수락 하거나 0.0.0.0/0 IP 주소 범위를 허용 하는 규칙을 준수 함을 의미 합니다.
 
-:::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-default.png" alt-text="기본 IP 필터 설정을 IoT DPS.":::
+:::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-default.png" alt-text="IoT DPS 기본 IP 필터 설정입니다.":::
 
 ## <a name="add-an-ip-filter-rule"></a>IP 필터 규칙 추가
 
-IP 필터 규칙을 추가하려면 다음을 수행합니다.
+IP 필터 규칙을 추가 하려면:
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
@@ -54,77 +54,77 @@ IP 필터 규칙을 추가하려면 다음을 수행합니다.
 
 3. Device Provisioning Service를 선택합니다.
 
-4. 왼쪽의 **설정** 메뉴에서 *네트워킹을* 선택합니다.
+4. 왼쪽의 **설정** 메뉴에서 *네트워킹* 을 선택 합니다.
 
-5. **공용 네트워크 액세스** 아래에서 선택한 IP 범위를 *선택합니다.*
+5. **공용 네트워크 액세스** 아래에서 *선택한 IP 범위* 를 선택 합니다.
 
-6. **+ IP 필터 규칙 추가를** 선택합니다.
+6. **+ IP 필터 규칙 추가** 를 선택 합니다.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-add-rule.png" alt-text="IoT DPS IP 필터 규칙을 추가합니다.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-add-rule.png" alt-text="IoT DPS에 IP 필터 규칙을 추가 합니다.":::
 
 7. 다음 필드를 작성합니다.
 
-    | 필드 | Description|
+    | 필드 | 설명|
     |-------|------------|
-    | **이름** |대/소문자를 구분하지 않는 고유한 영숫자 문자열로, 최대 128자 길이입니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.|
-    | **주소 범위** |단일 IPv4 주소 또는 CIDR 표기의 IP 주소 블록입니다. 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다.|
-    | **동작** |**허용** 또는 **차단을** 선택합니다.|
+    | **이름** |대/소문자를 구분 하지 않는 고유 영숫자 문자열이 며 최대 128 자까지 입력할 수 있습니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.|
+    | **주소 범위** |단일 IPv4 주소 또는 CIDR 표기법으로 표시 된 IP 주소 블록 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다.|
+    | **작업** |**허용** 또는 **차단** 을 선택 합니다.|
 
     :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IP 필터 규칙 추가를 선택한 후":::
 
-8. **저장** 을 선택합니다. 업데이트가 진행 중임을 알리는 경고가 표시됩니다.
+8. **저장** 을 선택합니다. 업데이트가 진행 되 고 있음을 알리는 경고가 표시 됩니다.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png" alt-text="IP 필터 규칙 저장에 대한 알림입니다.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png" alt-text="IP 필터 규칙을 저장 하는 방법에 대 한 알림입니다.":::
 
     >[!Note]
-    > **+ IP 필터 규칙 추가는** 최대 100개 IP 필터 규칙에 도달하면 사용할 수 없습니다.
+    > + 최대 100 IP 필터 규칙에 도달 하면 **Ip 필터 규칙 추가** 를 사용할 수 없습니다.
 
 ## <a name="edit-an-ip-filter-rule"></a>IP 필터 규칙 편집
 
-기존 규칙을 편집하려면 다음을 수행합니다.
+기존 규칙을 편집 하려면:
 
-1. 변경하려는 IP 필터 규칙 데이터를 선택합니다.
+1. 변경 하려는 IP 필터 규칙 데이터를 선택 합니다.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="IP 필터 규칙을 편집합니다.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="IP 필터 규칙을 편집 합니다.":::
 
-2. 변경합니다.
+2. 변경을 수행 합니다.
 
-3. **저장을** 선택합니다.
+3. **저장** 을 선택 합니다.
 
 ## <a name="delete-an-ip-filter-rule"></a>IP 필터 규칙 삭제
 
-IP 필터 규칙을 삭제하려면 다음을 수행합니다.
+IP 필터 규칙을 삭제 하려면:
 
-1. 삭제하려는 IP 규칙의 행에서 삭제 아이콘을 선택합니다.
+1. 삭제할 IP 규칙의 행에서 삭제 아이콘을 선택 합니다.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT DPS IP 필터 규칙을 삭제합니다.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT DPS IP 필터 규칙을 삭제 합니다.":::
 
 2. **저장** 을 선택합니다.
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 필터 규칙 평가
 
-IP 필터 규칙은 순서대로 적용됩니다. IP 주소와 일치하는 첫 번째 규칙은 수락 또는 거부 작업을 결정합니다.
+IP 필터 규칙은 순서 대로 적용 됩니다. IP 주소와 일치 하는 첫 번째 규칙은 수락 또는 거부 동작을 결정 합니다.
 
 예를 들어 192.168.100.0/22 범위의 주소를 수락하고 그 외의 주소는 거부하려는 경우 그리드에 있는 첫 번째 규칙이 주소 범위 192.168.100.0/22를 수락해야 합니다. 다음 규칙은 0.0.0.0/0 범위를 사용하여 모든 주소를 거부해야 합니다.
 
-IP 필터 규칙의 순서를 변경하려면 다음을 수행합니다.
+IP 필터 규칙의 순서를 변경 하려면 다음을 수행 합니다.
 
-1. 이동하려는 규칙을 선택합니다.
+1. 이동 하려는 규칙을 선택 합니다.
 
-2. 규칙을 원하는 위치로 끌어서 놓습니다.
+2. 규칙을 원하는 위치로 끌어 놓습니다.
 
 3. **저장** 을 선택합니다.
 
-## <a name="update-ip-filter-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 IP 필터 규칙 업데이트
+## <a name="update-ip-filter-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 IP 필터 규칙 업데이트
 
-DPS IP 필터를 업데이트하는 방법에는 두 가지가 있습니다.
+DPS IP 필터를 업데이트 하는 방법에는 두 가지가 있습니다.
 
-1. IoT Hub 리소스 공급자 REST API 메서드를 호출합니다. REST를 사용하여 IP 필터 규칙을 업데이트하는 방법을 알아보려면 `IpFilterRule` [Iot Hub 리소스 - 업데이트 방법](/api/iothub/iot-hub-resource/update)의 정의 [섹션을](/api/iothub/iot-hub-resource/update#definitions) 참조하세요.
+1. IoT Hub 리소스 REST API 메서드를 호출 합니다. REST를 사용 하 여 IP 필터 규칙을 업데이트 하는 방법을 알아보려면 `IpFilterRule` [Iot Hub 리소스-업데이트 방법](/rest/api/iothub/iot-hub-resource/update)의 [정의 섹션](/rest/api/iothub/iot-hub-resource/update#definitions) 에서를 참조 하세요.
 
-2. Azure Resource Manager 템플릿을 사용합니다. Resource Manager 템플릿을 사용하는 방법에 대한 지침은 [Azure Resource Manager 템플릿을 참조하세요.](../azure-resource-manager/templates/overview.md) 다음 예제에서는 Azure Resource Manager 템플릿을 사용하여 DPS IP 필터 규칙을 만들고, 편집하고, 삭제하는 방법을 보여줍니다.
+2. Azure Resource Manager 템플릿을 사용 합니다. 리소스 관리자 템플릿을 사용 하는 방법에 대 한 지침은 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)을 참조 하세요. 다음 예에서는 Azure Resource Manager 템플릿을 사용 하 여 DPS IP 필터 규칙을 만들고, 편집 하 고, 삭제 하는 방법을 보여 줍니다.
 
     >[!NOTE]
-    >Azure CLI 및 Azure PowerShell 현재 DPS IP 필터 규칙 업데이트를 지원하지 않습니다.
+    >Azure CLI 및 Azure PowerShell는 현재 DPS IP 필터 규칙 업데이트를 지원 하지 않습니다.
 
 ### <a name="add-an-ip-filter-rule"></a>IP 필터 규칙 추가
 

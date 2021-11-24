@@ -7,12 +7,13 @@ ms.author: victorh
 ms.date: 08/16/2021
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.openlocfilehash: 3e7eef6eed76f2b6e3e122c1a373580e05556f03
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.custom: mode-api
+ms.openlocfilehash: abdf0759e8a44af9e8a6ea77d22a3dfbc0977228
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254381"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044308"
 ---
 # <a name="quickstart-create-and-update-an-azure-firewall-policy-using-azure-powershell"></a>빠른 시작: Azure PowerShell 사용하여 Azure Firewall 정책 만들기 및 업데이트
 

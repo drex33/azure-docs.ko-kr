@@ -5,15 +5,15 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.topic: quickstart
 ms.date: 11/16/2021
-ms.openlocfilehash: bf9ccf3cfa0850b4cab2dd95b2f3ffb72e2c500b
-ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.openlocfilehash: ef672b075b72d52c127b1daa07502058cf0f53d9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132813636"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055645"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 하이퍼스케일(Citus) 서버 그룹 만들기
 

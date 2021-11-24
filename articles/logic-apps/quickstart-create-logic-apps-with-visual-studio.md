@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.date: 05/25/2021
-ms.openlocfilehash: 8aa96455eba49dd624f1ced469d34f0cf0f48757
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4cdb23afe861e50f7a6a273e937f6e69e5290005
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372501"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067037"
 ---
 # <a name="quickstart-create-automated-integration-workflows-with-multi-tenant-azure-logic-apps-and-visual-studio"></a>빠른 시작: 다중 테넌트 Azure Logic Apps 및 Visual Studio를 사용하여 자동 통합 워크플로 만들기
 

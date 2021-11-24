@@ -9,12 +9,13 @@ ms.reviewer: shsagir
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 1473b0db71d0ceaa4e7f78d20b10319047427311
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: 0affe0dbe3d6de3586c7b2fe075ed7cfded72df5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131479886"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038089"
 ---
 # <a name="quickstart-analyze-with-data-explorer-preview"></a>빠른 시작: Data Explorer를 사용하여 분석(미리 보기)
 

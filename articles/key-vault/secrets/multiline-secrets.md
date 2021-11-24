@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.date: 03/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 502bf926d7dd4f353a94ddb91c851bc274910fe0
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5d9582eb82edd4db8417b163f797a3cb0d414689
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671551"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067455"
 ---
 # <a name="store-a-multi-line-secret-in-azure-key-vault"></a>Azure Key Vault에서 여러 줄 비밀 저장
 

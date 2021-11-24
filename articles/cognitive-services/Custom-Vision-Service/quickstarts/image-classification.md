@@ -8,15 +8,15 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 09/28/2021
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 keywords: 사용자 지정 비전, 이미지 인식, 이미지 인식 앱, 이미지 분석, 이미지 인식 소프트웨어
 zone_pivot_groups: programming-languages-set-cusvis
-ms.openlocfilehash: a5f8b8a22dc667a32fc17b5b4c8874c7875a4522
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 77602559c6332bb3c0ac32faacfd4e9f993383ab
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355819"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053494"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library-or-rest-api"></a>빠른 시작: Custom Vision 클라이언트 라이브러리를 또는 REST API를 사용하여 이미지 분류 프로젝트 만들기
 

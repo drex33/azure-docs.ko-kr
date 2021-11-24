@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 08/26/2021
 ms.author: moderakh
-ms.custom: cosmos-db
-ms.openlocfilehash: 4eaa82f3a4089d4fedc002fc159ecf9b7ae02c24
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.custom: cosmos-db, mode-other
+ms.openlocfilehash: 42987d4dc3cb631a6254fcf70d4ddf4dd282cba3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117893"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043239"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-3-in-azure-synapse-link"></a>Azure Synapse Link에서 Apache Spark 3을 사용하여 Azure Cosmos DB와 상호 작용
 

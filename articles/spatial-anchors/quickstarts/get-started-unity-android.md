@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4f4bfdb5d09da6a9967b53ca56bb2491976592a1
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 57961321c427163b110d5d67a8c5e6542132ffaa
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105887"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956636"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity Android 앱 만들기
 
@@ -34,11 +34,12 @@ ms.locfileid: "107105887"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- **Android SDK 및 NDK 도구** 및 **OpenJDK** 모듈이 있는 **Android 빌드 지원** 을 포함하여 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity(LTS)</a>가 설치된 Windows 또는 macOS 머신. ASA SDK 버전 2.9 이상([Unity XR 플러그 인 프레임워크](https://docs.unity3d.com/Manual/XRPluginArchitecture.html) 사용)에서 **Unity 2020 LTS** 를 사용하거나 ASA SDK 버전 2.8 이하에서 **Unity 2019 LTS** 를 사용합니다.
-  - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 필요합니다.
-  - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git` 및 `brew install git-lfs`를 실행합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
   - 컴퓨터가 Android 디바이스와 통신하려면 추가 디바이스 드라이버가 필요할 수 있습니다. 추가 정보 및 지침은 [여기](https://developer.android.com/studio/run/device.html)를 참조하세요.
+- Windows 또는 macOS 머신.
+  - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 필요합니다.
+  - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git` 및 `brew install git-lfs`를 실행합니다.
+- **Android SDK 및 NDK 도구** 및 **OpenJDK** 모듈이 있는 **Android 빌드 지원** 을 포함한 Unity 설치. 지원되는 버전 및 필수 기능은 [Unity 프로젝트 설정 페이지](../how-tos/setup-unity-project.md)를 참조하세요.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

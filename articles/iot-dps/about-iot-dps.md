@@ -11,12 +11,12 @@ manager: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c074d465cdf7ba07ef9a61e169798eefa0766348
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 9df29222f8f979730564317f6e5a4ddc1821dea0
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132940963"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133098136"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service란?
 
@@ -153,41 +153,41 @@ DPS의 각 API 호출은 하나의 *작업* 으로 청구됩니다. 여기에는
 
 | API | 작업 | 청구 가능 여부 |
 | --------------- | -------  | -- |
-|  디바이스 API | [디바이스 등록 상태 조회](/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | No|
-|  디바이스 API | [작업 상태 조회](/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
-|  디바이스 API | [디바이스 등록](/api/iot-dps/device/runtime-registration/register-device) | 예 |
-| DPS 서비스 API(등록 상태)  | [삭제](/api/iot-dps/service/device-registration-state/delete) | 예|
-| DPS 서비스 API(등록 상태)  | [가져오기](/api/iot-dps/service/device-registration-state/get) | 예|
-| DPS 서비스 API(등록 상태)  | [쿼리](/api/iot-dps/service/device-registration-state/query) | 예|
-| DPS 서비스 API(등록 그룹) | [만들기 또는 업데이트](/api/iot-dps/service/enrollment-group/create-or-update) | 예|
-| DPS 서비스 API(등록 그룹) | [삭제](/api/iot-dps/service/enrollment-group/delete) | 예|
-| DPS 서비스 API(등록 그룹) | [가져오기](/api/iot-dps/service/enrollment-group/get) | 예|
-| DPS 서비스 API(등록 그룹) | [증명 메커니즘 가져오기](/api/iot-dps/service/enrollment-group/get-attestation-mechanism)| 예|
-| DPS 서비스 API(등록 그룹) | [쿼리](/api/iot-dps/service/enrollment-group/query) | 예|
-| DPS 서비스 API(등록 그룹) | [대량 작업 실행](/api/iot-dps/service/enrollment-group/run-bulk-operation) | 예|
-| DPS 서비스 API(개별 등록) | [만들기 또는 업데이트](/api/iot-dps/service/individual-enrollment/create-or-update)  | 예|
-| DPS 서비스 API(개별 등록)| [삭제](/api/iot-dps/service/individual-enrollment/delete) | 예|
-| DPS 서비스 API(개별 등록)| [가져오기](/api/iot-dps/service/individual-enrollment/get) | 예|
-| DPS 서비스 API(개별 등록)| [증명 메커니즘 가져오기](/api/iot-dps/service/individual-enrollment/get-attestation-mechanism) | 예|
-| DPS 서비스 API(개별 등록)| [쿼리](/api/iot-dps/service/individual-enrollment/query)  | 예|
-| DPS 서비스 API(개별 등록)| [대량 작업 실행](/api/iot-dps/service/individual-enrollment/run-bulk-operation)  | 예|
-|  DPS 인증서 API|  [만들기 또는 업데이트](/api/iot-dps/dps-certificate/create-or-update) | No |
-|  DPS 인증서 API| [삭제](/api/iot-dps/dps-certificate/delete) | No |
-|  DPS 인증서 API| [확인 코드 생성](/api/iot-dps/dps-certificate/generate-verification-code)|No  |
-|  DPS 인증서 API| [가져오기](/api/iot-dps/dps-certificate/get) | No |
-|  DPS 인증서 API| [목록](/api/iot-dps/dps-certificate/list) |No  |
-|  DPS 인증서 API| [인증서 확인](/api/iot-dps/dps-certificate/verify-certificate) | No |
-|  IoT DPS 리소스 API| [프로비전 서비스 이름 가용성 확인](/api/iot-dps/iot-dps-resource/check-provisioning-service-name-availability)  | No |
-|  IoT DPS 리소스 API| [만들기 또는 업데이트](/api/iot-dps/iot-dps-resource/create-or-update)  | No |
-|  IoT DPS 리소스 API| [삭제](/api/iot-dps/iot-dps-resource/delete) |  No|
-|  IoT DPS 리소스 API| [가져오기](/api/iot-dps/iot-dps-resource/get) | No |
-|  IoT DPS 리소스 API| [작업 결과를 가져옵니다.](/api/iot-dps/iot-dps-resource/get-operation-result)| No |
-|  IoT DPS 리소스 API| [리소스 그룹별 목록](/api/iot-dps/iot-dps-resource/list-by-resource-group) |No  |
-|  IoT DPS 리소스 API| [구독별 목록](/api/iot-dps/iot-dps-resource/list-by-subscription) |No  |
-|  IoT DPS 리소스 API| [키로 나열](/api/iot-dps/iot-dps-resource/list-keys) |No  |
-|  IoT DPS 리소스 API| [키 이름에 대한 키 나열](/api/iot-dps/iot-dps-resource/list-keys-for-key-name) |No  |
-|  IoT DPS 리소스 API| [유효한 SKU 나열](/api/iot-dps/iot-dps-resource/list-valid-skus) |No  |
-|  IoT DPS 리소스 API| [업데이트](/api/iot-dps/iot-dps-resource/update) |  No|
+|  디바이스 API | [디바이스 등록 상태 조회](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | No|
+|  디바이스 API | [작업 상태 조회](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
+|  디바이스 API | [디바이스 등록](/rest/api/iot-dps/device/runtime-registration/register-device) | 예 |
+| DPS 서비스 API(등록 상태)  | [삭제](/rest/api/iot-dps/service/device-registration-state/delete) | 예|
+| DPS 서비스 API(등록 상태)  | [가져오기](/rest/api/iot-dps/service/device-registration-state/get) | 예|
+| DPS 서비스 API(등록 상태)  | [쿼리](/rest/api/iot-dps/service/device-registration-state/query) | 예|
+| DPS 서비스 API(등록 그룹) | [만들기 또는 업데이트](/rest/api/iot-dps/service/enrollment-group/create-or-update) | 예|
+| DPS 서비스 API(등록 그룹) | [삭제](/rest/api/iot-dps/service/enrollment-group/delete) | 예|
+| DPS 서비스 API(등록 그룹) | [가져오기](/rest/api/iot-dps/service/enrollment-group/get) | 예|
+| DPS 서비스 API(등록 그룹) | [증명 메커니즘 가져오기](/rest/api/iot-dps/service/enrollment-group/get-attestation-mechanism)| 예|
+| DPS 서비스 API(등록 그룹) | [쿼리](/rest/api/iot-dps/service/enrollment-group/query) | 예|
+| DPS 서비스 API(등록 그룹) | [대량 작업 실행](/rest/api/iot-dps/service/enrollment-group/run-bulk-operation) | 예|
+| DPS 서비스 API(개별 등록) | [만들기 또는 업데이트](/rest/api/iot-dps/service/individual-enrollment/create-or-update)  | 예|
+| DPS 서비스 API(개별 등록)| [삭제](/rest/api/iot-dps/service/individual-enrollment/delete) | 예|
+| DPS 서비스 API(개별 등록)| [가져오기](/rest/api/iot-dps/service/individual-enrollment/get) | 예|
+| DPS 서비스 API(개별 등록)| [증명 메커니즘 가져오기](/rest/api/iot-dps/service/individual-enrollment/get-attestation-mechanism) | 예|
+| DPS 서비스 API(개별 등록)| [쿼리](/rest/api/iot-dps/service/individual-enrollment/query)  | 예|
+| DPS 서비스 API(개별 등록)| [대량 작업 실행](/rest/api/iot-dps/service/individual-enrollment/run-bulk-operation)  | 예|
+|  DPS 인증서 API|  [만들기 또는 업데이트](/rest/api/iot-dps/dps-certificate/create-or-update) | No |
+|  DPS 인증서 API| [삭제](/rest/api/iot-dps/dps-certificate/delete) | No |
+|  DPS 인증서 API| [확인 코드 생성](/rest/api/iot-dps/dps-certificate/generate-verification-code)|No  |
+|  DPS 인증서 API| [가져오기](/rest/api/iot-dps/dps-certificate/get) | No |
+|  DPS 인증서 API| [목록](/rest/api/iot-dps/dps-certificate/list) |No  |
+|  DPS 인증서 API| [인증서 확인](/rest/api/iot-dps/dps-certificate/verify-certificate) | No |
+|  IoT DPS 리소스 API| [프로비전 서비스 이름 가용성 확인](/rest/api/iot-dps/iot-dps-resource/check-provisioning-service-name-availability)  | No |
+|  IoT DPS 리소스 API| [만들기 또는 업데이트](/rest/api/iot-dps/iot-dps-resource/create-or-update)  | No |
+|  IoT DPS 리소스 API| [삭제](/rest/api/iot-dps/iot-dps-resource/delete) |  No|
+|  IoT DPS 리소스 API| [가져오기](/rest/api/iot-dps/iot-dps-resource/get) | No |
+|  IoT DPS 리소스 API| [작업 결과를 가져옵니다.](/rest/api/iot-dps/iot-dps-resource/get-operation-result)| No |
+|  IoT DPS 리소스 API| [리소스 그룹별 목록](/rest/api/iot-dps/iot-dps-resource/list-by-resource-group) |No  |
+|  IoT DPS 리소스 API| [구독별 목록](/rest/api/iot-dps/iot-dps-resource/list-by-subscription) |No  |
+|  IoT DPS 리소스 API| [키로 나열](/rest/api/iot-dps/iot-dps-resource/list-keys) |No  |
+|  IoT DPS 리소스 API| [키 이름에 대한 키 나열](/rest/api/iot-dps/iot-dps-resource/list-keys-for-key-name) |No  |
+|  IoT DPS 리소스 API| [유효한 SKU 나열](/rest/api/iot-dps/iot-dps-resource/list-valid-skus) |No  |
+|  IoT DPS 리소스 API| [업데이트](/rest/api/iot-dps/iot-dps-resource/update) |  No|
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
 

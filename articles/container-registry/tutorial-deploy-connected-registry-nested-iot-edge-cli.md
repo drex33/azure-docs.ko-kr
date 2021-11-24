@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 38f125d6f839e1dbe5ff2859eecebbeb04dbbb4d
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 739869d96d143c2053a159d94d6526287bdc79a7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132755555"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039239"
 ---
 # <a name="tutorial-deploy-a-connected-registry-to-a-nested-iot-edge-hierarchy"></a>자습서: 중첩된 IoT Edge 계층 구조에 연결된 레지스트리 배포
 

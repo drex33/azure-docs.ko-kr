@@ -5,15 +5,15 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 1c562c52eb7df92ba2297b066560866d04074f2f
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: e35f6b7f37fd43bf3217eaf93e1dd959e763d624
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982218"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065901"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 엔드포인트 만들기
 

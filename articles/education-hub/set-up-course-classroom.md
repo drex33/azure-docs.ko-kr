@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 0b797e2416b4d8849da19e4e75127f86a6f17322
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-other
+ms.openlocfilehash: 750aa1d0bf4254c6ea0a7b8b273aeda2e610acbd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87101338"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067646"
 ---
 # <a name="quickstart-set-up-a-course-and-create-a-classroom"></a>빠른 시작: 과정 설정 및 클래스룸 만들기
 

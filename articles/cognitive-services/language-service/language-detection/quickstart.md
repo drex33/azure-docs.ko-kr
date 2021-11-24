@@ -10,15 +10,15 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-language-detection, ignite-fall-2021
+ms.custom: language-service-language-detection, ignite-fall-2021, mode-other
 keywords: 텍스트 마이닝, 언어 감지
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: a23b7a31a182aa8ab9c3a9e8875f9c6f6784a1cc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 65e6af6a148ca09a6c27be9fd53c789818143480
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100837"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068054"
 ---
 # <a name="quickstart-using-the-language-detection-client-library-and-rest-api"></a>빠른 시작: 언어 감지 클라이언트 라이브러리 및 REST API 사용
 

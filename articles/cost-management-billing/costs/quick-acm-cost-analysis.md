@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy22q1
-ms.openlocfilehash: 52afb1398217fc8a3a885704ea1e689a6f4b1393
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: contperf-fy22q1, mode-other
+ms.openlocfilehash: ae65e4c0d8913716afd2267587227666a0a3d57b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711441"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056193"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 

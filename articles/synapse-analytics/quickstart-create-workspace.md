@@ -9,13 +9,13 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.custom: subject-rbac-steps
-ms.openlocfilehash: 0f593d801bdcc477d6084a395630211393ffa9c7
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.custom: subject-rbac-steps, mode-other
+ms.openlocfilehash: 8db73a682ace898c7043c9fb0a3dc7b52967fa28
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217290"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076990"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역 만들기
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Synapse 작업 영역을 만드는 단계를 설명합니다.

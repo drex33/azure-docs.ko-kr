@@ -6,13 +6,13 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a13a627cfe30121b84ecb18fb1af6b52a396bbcc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 2bd54e7bc84ffe68d1cd395306213cffe3b81b33
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053200"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068048"
 ---
 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
 

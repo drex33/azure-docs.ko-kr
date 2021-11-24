@@ -3,13 +3,13 @@ title: '빠른 시작: 웹 엔드포인트에 사용자 지정 이벤트 보내�
 description: '빠른 시작: Azure Event Grid 및 PowerShell을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.'
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1262331b6dec0d5e87d54b13a4b641b38359c1fe
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 1264f618e669b5c481b15d896cec3907e168f6e1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113232397"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067757"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>빠른 시작: PowerShell 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 

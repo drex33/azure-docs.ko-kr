@@ -4,7 +4,6 @@ description: 이 빠른 시작에서는 Azure Front Door를 사용하여 Azure C
 services: front-door
 author: duongau
 manager: KumudD
-ms.assetid: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
@@ -12,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: 3567d5af31b0c7bc2443e3d02426a5bb7aba06f7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: mode-other
+ms.openlocfilehash: 61f96f47f8d250c4352a60803b8344309bd0115e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862006"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041894"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하는 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
 

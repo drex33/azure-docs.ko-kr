@@ -7,12 +7,13 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: azure, kinect, record, play back, reader, matroska, mkv, streams, depth, rgb, camera, color, imu, audio, sensor
-ms.openlocfilehash: 3dab147b593bf012bd6cd9c95d0195e84a2cbcf1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mode-other
+ms.openlocfilehash: 14461671199fbc08864da8d90864f73c2c5ee6fe
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277834"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052602"
 ---
 # <a name="quickstart-record-azure-kinect-sensor-streams-to-a-file"></a>빠른 시작: Azure Kinect 센서 스트림을 파일에 기록
 

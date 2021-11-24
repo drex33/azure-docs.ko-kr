@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.collection: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 6842c352a1dd4859ca3722d893540db7864ac56f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mimckitt, subject-armqs, devx-track-azurepowershell, mode-arm
+ms.openlocfilehash: fcbe14e5f54d50d17ad301c6a5fff5534489e8cf
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693216"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045256"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기
 

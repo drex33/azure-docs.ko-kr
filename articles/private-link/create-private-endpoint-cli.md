@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: 036052dc45b8d029dac6e137b3a878b75e6e015c
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: mode-other
+ms.openlocfilehash: 9b9e2f9293e48c15bca30d2fd9c7bead19607441
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873400"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052228"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 프라이빗 엔드포인트 만들기
 

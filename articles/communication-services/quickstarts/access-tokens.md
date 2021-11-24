@@ -11,13 +11,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-other
-ms.openlocfilehash: 2b163db12209df247d5a6cbd32b9e76fcc50b7ff
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 17b1cbd0c1937558a8ca30347a7c856de1d2afdc
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133039360"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132870409"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>빠른 시작: 액세스 토큰 만들기 및 관리
 

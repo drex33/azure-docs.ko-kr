@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 4ada2c92b541a4a0d89aad1791d3bb9c97377f83
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 389a8416413467895316a9231a620ab0c71eac07
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441650"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040985"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
@@ -79,7 +79,7 @@ SMLG 트랜잭션은 ABAP 애플리케이션 서버에 대한 로그인 그룹�
  > [!NOTE]
  > Site Recovery는 클라우드 감시를 복제하지 않으므로 재해 복구 지역에 클라우드 감시를 배포하는 것이 좋습니다.
 
-[ DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)은 장애 조치 클러스터 환경을 지원하기 위해 클러스터 공유 볼륨 기능을 수행합니다. 이 기능에서 SIOS DataKeeper Cluster는 클러스터 노드에서 소유하는 독립 디스크를 복제합니다. Azure는 기본적으로 공유 디스크를 지원하지 않으므로 SIOS에서 제공하는 솔루션이 필요합니다.
+[ DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)은 장애 조치 클러스터 환경을 지원하기 위해 클러스터 공유 볼륨 기능을 수행합니다. 이 기능에서 SIOS DataKeeper Cluster는 클러스터 노드에서 소유하는 독립 디스크를 복제합니다. 
 
 파일 공유 클러스터를 구현하여 클러스터링을 처리할 수도 있습니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. Central Services 인스턴스를 확인할 수 있습니다. Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(스토리지 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용합니다.
 

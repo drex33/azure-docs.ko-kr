@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 3404575f7eef3dc1c4f4784d255e0df6d569fd0f
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: fada77ef2409e4e92082ee48e98a459dd26a42f9
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893693"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964133"
 ---
 # <a name="about-azure-cache-for-redis"></a>Azure Cache for Redis 소개
 
@@ -94,7 +94,7 @@ Azure Cache for Redis 계층을 선택하는 경우 다음 옵션을 고려합�
 
 > [!IMPORTANT]
 > Azure Cache for Redis Enterprise에는 캐시 인스턴스와 별도로 청구되는 표준 네트워크 부하 분산 장치가 필요합니다. 자세한 내용은 [Load Balancer 가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/)을 참조하세요.
-> Enterprise 캐시가 여러 가용성 영역에 대해 구성된 경우 데이터 전송은 2021년 7월 1일부터 [표준 네트워크 대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)으로 청구됩니다.
+> Enterprise 캐시가 여러 가용성 영역에 대해 구성된 경우 데이터 전송은 2022년 7월 1일부터 [표준 네트워크 대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)으로 청구됩니다.
 >
 > 또한 데이터 지속성은 Managed Disks를 추가합니다. Enterprise 데이터 지속성의 공개 미리 보기 중에는 이러한 리소스의 사용이 무료입니다. 이는 기능이 일반 공급되면 변경될 수 있습니다.
 >

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 0f75aea82a6b41605c34685b910699192f1c8a99
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b34fe5eddd45b17aced775eab554bbea4c5b6855
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431589"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046861"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 Android 앱 만들기
 

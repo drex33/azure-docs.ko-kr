@@ -10,13 +10,13 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 46617ffba8e826ed88501487342dfb57662d02e7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: a2cf23ca55d12fe4fa628c2c91a1e7898020d1d0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341941"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056483"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>빠른 시작: Bing Image Search REST API 및 C#을 사용하여 이미지 검색
 

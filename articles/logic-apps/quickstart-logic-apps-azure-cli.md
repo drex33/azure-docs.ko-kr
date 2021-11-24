@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
+ms.custom: mvc, devx-track-azurecli, contperf-fy21q2, mode-other
 ms.date: 05/25/2021
-ms.openlocfilehash: 533a3001068c2bfa6a6902e486d6a1acf468d246
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: d1273349a72c073df241d625755e2e816cca8676
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617263"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066892"
 ---
 # <a name="quickstart-create-and-manage-workflows-using-azure-cli-in-multi-tenant-azure-logic-apps"></a>빠른 시작: 다중 테넌트 Azure Logic Apps에서 Azure CLI를 사용하여 워크플로 만들기 및 관리
 
@@ -192,7 +192,7 @@ az logic workflow show --name
 
 명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters)가 포함되어야 합니다.
 
-| 매개 변수 | 값 | Description |
+| 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
 | 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱이 배치되는 리소스 그룹의 이름입니다. |

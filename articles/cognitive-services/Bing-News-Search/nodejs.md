@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-js
-ms.openlocfilehash: a3241fc72fc1add8381f7681b4df6df9173683ac
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, devx-track-js, mode-other
+ms.openlocfilehash: 86bc2516e27ad392fdc6f3e6960cbfb67b11ded8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351319"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046702"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>빠른 시작: Node.js 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 

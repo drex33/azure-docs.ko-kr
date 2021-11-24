@@ -6,15 +6,15 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2940e407e88239aa1afec84137e72073b7a5028a
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 84591f1d845b48beec96817b3a7cd7ed58ea5f5f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533234"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042844"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -142,7 +142,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>다른 언어 스택은 어떻게 배포하나요?</summary>
 다른 언어 스택을 배포하려면 - 업데이트: <abbr title="이 템플릿은 .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다.">언어 매개 변수</abbr> 적절한 값으로. Java의 경우 <a href="/azure/app-service/quickstart-java-uiex">Java 앱 만들기</a>를 참조하세요.
 
-| 매개 변수 | Type    | 기본값                | Description |
+| 매개 변수 | Type    | 기본값                | 설명 |
 |------------|---------|------------------------------|-------------|
 | 언어   | 문자열  | ".net"                       | 프로그래밍 언어 스택(.net, php, node, html) |
 

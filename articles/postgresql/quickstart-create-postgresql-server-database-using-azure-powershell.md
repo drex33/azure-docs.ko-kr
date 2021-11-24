@@ -7,19 +7,19 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 79a070dbd49ed6ee00dd790c8157057aebde30df
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 4451a5eeb157c46ce2c0580cccbd99a27f7c547a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606740"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055734"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 
 이 빠른 시작에서는 PowerShell을 사용하여 Azure 리소스 그룹에서 Azure Database for PostgreSQL 서버를 만드는 방법에 대해 설명합니다. PowerShell을 사용하여 대화형으로 또는 스크립트에서 Azure 리소스를 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -61,7 +61,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 |        **설정**         | **샘플 값** |                                                                                                                                                             **설명**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                       | mydemoserver     | Azure에서 Azure Database for PostgreSQL 서버를 식별하는 전역적으로 고유한 이름을 선택합니다. 서버 이름은 문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다. 지정된 모든 대문자는 만들기 프로세스 중에 자동으로 소문자로 변환됩니다. 3-63자여야 합니다. |
+| 속성                       | mydemoserver     | Azure에서 Azure Database for PostgreSQL 서버를 식별하는 전역적으로 고유한 이름을 선택합니다. 서버 이름은 문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다. 지정된 모든 대문자는 만들기 프로세스 중에 자동으로 소문자로 변환됩니다. 3-63자여야 합니다. |
 | ResourceGroupName          | myresourcegroup  | Azure 리소스 그룹의 이름을 입력합니다.                                                                                                                                                                                                                                                                                            |
 | SKU                        | GP_Gen5_2        | SKU의 이름입니다. 축약형 **pricing-tier\_compute-generation\_vCores** 규칙을 따릅니다. Sku 매개 변수에 대한 자세한 내용은 이 표 뒤에 나오는 정보를 참조하세요.                                                                                                                                           |
 | BackupRetentionDay         | 7                | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위는 7-35입니다.                                                                                                                                                                                                                                                                       |

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.date: 05/25/2021
-ms.openlocfilehash: 15f3481e42c543bead8ccf5f01654912cce5085f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 145bcb5ad9dbd9b6246d9023753998501e0d71d5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078430"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067132"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-multi-tenant-azure-logic-apps-and-visual-studio-code"></a>빠른 시작: 다중 테넌트 Azure Logic Apps 및 Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 623163dc81bb604627bbbe9d87fff2bca17ea9f8
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 05533406bbb166d9cc9a051ae52e426cefac9c19
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063168"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096133"
 ---
 # <a name="configure-virtual-network-support-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 가상 네트워크 지원 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "130063168"
 
 1. **새 Redis Cache** 페이지에서 새 프리미엄 계층 캐시의 설정을 구성합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 캐시 이름은 1~63자의 문자열이어야 하며 숫자, 문자, 하이픈만 포함할 수 있습니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름* 은 *\<DNS name>.redis.cache.windows.net* 입니다. |
    | **구독** | 드롭다운 목록에서 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |
@@ -56,7 +56,7 @@ ms.locfileid: "130063168"
    >
    >
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **가상 네트워크** | 드롭다운 목록에서 가상 네트워크를 선택합니다. | 캐시와 동일한 구독 및 위치에 있는 가상 네트워크를 선택합니다. |
    | **서브넷** | 드롭다운 목록에서 서브넷을 선택합니다. | 서브넷의 주소 범위는 CIDR 표기법을 따라야 합니다(예: 192.168.1.0/24). 가상 네트워크의 주소 공간에 포함되어야 합니다. |
@@ -206,7 +206,7 @@ Azure 가상 네트워크에서 캐시 간의 지역 복제를 사용하는 경�
 
 IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다. 호스트 이름을 사용하는 것이 좋습니다. 즉, 다음 문자열을 사용합니다.
 
-`[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+`[mycachename].redis.cache.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
 다음 연결 문자열과 유사한 IP 주소는 사용하지 마세요.
 
@@ -214,7 +214,7 @@ IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다.
 
 DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
 
-`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.cache.windows.net`
 
 ### <a name="can-i-use-virtual-networks-with-a-standard-or-basic-cache"></a>표준 또는 기본 캐시에 가상 네트워크를 사용할 수 있나요?
 

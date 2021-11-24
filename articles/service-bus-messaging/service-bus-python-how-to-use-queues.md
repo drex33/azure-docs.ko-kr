@@ -7,13 +7,13 @@ ms.author: spelluru
 ms.date: 11/18/2020
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: seo-python-october2019, devx-track-python, mode-api
-ms.openlocfilehash: 333fb5149293a0ae1e6135511f29eafa6e1bd18b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: seo-python-october2019, devx-track-python, mode-other
+ms.openlocfilehash: ce6da30b39363fb0b1dc145a2ab0b61a842c862c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131004039"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065731"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Python)
 이 문서에서는 Python을 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 설명합니다. 

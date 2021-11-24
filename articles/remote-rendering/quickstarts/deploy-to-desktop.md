@@ -5,12 +5,13 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mode-other
+ms.openlocfilehash: 581acefe61ee6d8e8e0013afdfd5085a766b5d65
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88796819"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038483"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>빠른 시작: 데스크톱에 Unity 샘플 배포
 
@@ -24,7 +25,7 @@ ms.locfileid: "88796819"
 >* PC에 샘플 배포
 >* PC에서 샘플 실행
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서는 [빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md)의 샘플 프로젝트를 배포합니다.
 

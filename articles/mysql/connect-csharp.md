@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터�
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc, devx-track-csharp
+ms.custom: mvc, devx-track-csharp, mode-other
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 3af3a216b8c9d2e19021582181aea188de9dd0cc
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e7e4732938f29706559595c9f51d457013d3f617
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472867"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038680"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: .NET(C#)을 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 

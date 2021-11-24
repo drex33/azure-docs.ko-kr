@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 23bf626368d172149d8f3efe003b4d7a796f3a2e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 460365315268bdddb78fadb36510c9b0700fe386
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648434"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041133"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Queue Storage 클라이언트 라이브러리 v12
 

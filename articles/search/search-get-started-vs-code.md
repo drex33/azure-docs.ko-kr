@@ -7,12 +7,13 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/10/2021
-ms.openlocfilehash: 34e4527ed18afb57ca3f15203d837bb0b9f2e29d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.custom: mode-other
+ms.openlocfilehash: a696610808e2f65d17d32d0c1a32469e48b24226
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178962"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065803"
 ---
 # <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Cognitive Search 시작
 

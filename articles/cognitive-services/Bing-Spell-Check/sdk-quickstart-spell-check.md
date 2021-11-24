@@ -10,13 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 5194dab21842e47d2bf2445c69ccaeec3cb78e4f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: b21745292f4016d374ce69942e7a76591eae2406
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943423"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039927"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>빠른 시작: C#용 Bing Spell Check SDK로 맞춤법 검사
 

@@ -4,16 +4,16 @@ description: Azure Database for PostgreSQL에 대한 배포 옵션의 보안에 
 author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/01/2021
-ms.openlocfilehash: f31c013bbdf12f34cd73495e3885e17a35b368ef
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: ccb6db2ede03e8a9ba479982c34443b3f0e0c1ac
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312289"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066049"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 보안
 

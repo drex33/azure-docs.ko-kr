@@ -8,12 +8,13 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 4cd05aa5d9d1846dd30c171b4ed19f3506121b10
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mode-portal
+ms.openlocfilehash: fd9ba19713a432cc745c3b83ba1712172155d394
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698303"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069113"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Windows 가상 머신 만들기 및 암호화
 

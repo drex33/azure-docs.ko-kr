@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 1280f9774d3fe5d72dce275fc89305bbc9ad205b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, mode-other
+ms.openlocfilehash: ed1f699e483af71c50ea8493d551796d76691561
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351251"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068200"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>빠른 시작: Ruby 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 

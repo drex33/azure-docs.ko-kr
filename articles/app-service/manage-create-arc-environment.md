@@ -3,12 +3,12 @@ title: App Service, 함수, 논리 앱용으로 Azure Arc 설정
 description: Azure Arc 지원 Kubernetes 클러스터의 경우 App Service 앱, 함수 앱 및 논리 앱을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 11/02/2021
-ms.openlocfilehash: a330d68ed556a60261ca91e6bfb32fdddf52dc14
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b33165441fabd486bb5839f9c08be300a3816668
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435589"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097087"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
 
@@ -145,7 +145,7 @@ az extension add --upgrade --yes --name appservice-kube
     
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md) Azure Arc App Service 실행할 필요는 없지만, 개발자가 Azure Arc 지원 Kubernetes 클러스터에서 실행 중인 앱에 대한 애플리케이션 로그를 얻을 수 있는 방법입니다. 
+Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md) Azure Arc App Service 실행할 필요가 없지만, 개발자가 Azure Arc 지원 Kubernetes 클러스터에서 실행 중인 앱에 대한 애플리케이션 로그를 얻을 수 있습니다. 
 
 1. 간단한 설명을 위해 지금 작업 영역을 만듭니다.
 
@@ -231,7 +231,7 @@ Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md)
 
     ---
     
-2. Log Analytics를 사용하도록 설정된 Azure Arc 연결된 클러스터에 App Service 확장을 설치합니다. 이번에도 Log Analytics가 필요하지는 않지만 나중에는 확장에 추가할 수 없으니 지금 하는 것이 더 편합니다.
+2. Log Analytics를 사용하여 Azure Arc 연결된 클러스터에 App Service 확장을 설치합니다. 이번에도 Log Analytics가 필요하지는 않지만 나중에는 확장에 추가할 수 없으니 지금 하는 것이 더 편합니다.
 
     # <a name="bash"></a>[bash](#tab/bash)
 
@@ -296,7 +296,7 @@ Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md)
     | 매개 변수 | 설명 |
     | - | - |
     | `Microsoft.CustomLocation.ServiceAccount` | 생성할 사용자 지정 위치에 대해 만들어야 하는 서비스 계정입니다. `default` 값으로 설정하는 것이 좋습니다. |
-    | `appsNamespace` | 앱 정의 및 Pod를 프로비전하는 네임스페이스입니다. 확장 릴리스 네임스페이스의 해당 네임스페이스와 **일치해야 합니다.** |
+    | `appsNamespace` | 앱 정의 및 Pod를 프로비전하는 네임스페이스입니다. 확장 릴리스 네임스페이스의 네임스페이스와 **일치해야 합니다.** |
     | `clusterName` | 이 확장에 대해 생성되는 App Service Kubernetes 환경의 이름입니다. |
     | `keda.enabled` | [KEDA](https://keda.sh/)를 Kubernetes 클러스터에 설치해야 하는지 여부입니다. `true` 또는 `false`를 수락합니다. |
     | `buildService.storageClassName` | 빌드 아티팩트를 저장하는 빌드 서비스를 위한 [스토리지 클래스의 이름](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class)입니다. `default` 같은 값은 `default`라는 클래스를 지정하며 [기본으로 표시되는 클래스](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)는 지정하지 않습니다.  기본값은 AKS 및 AKS HCI에 유효한 스토리지 클래스이지만 다른 배포판/플랫폼에는 사용할 수 없습니다. |
@@ -446,7 +446,7 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
     az appservice kube create \
         --resource-group $groupName \
         --name $kubeEnvironmentName \
-        --custom-location $customLocationId \
+        --custom-location $customLocationId 
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -455,7 +455,7 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
     az appservice kube create `
         --resource-group $groupName `
         --name $kubeEnvironmentName `
-        --custom-location $customLocationId `      
+        --custom-location $customLocationId       
     ```
 
     ---

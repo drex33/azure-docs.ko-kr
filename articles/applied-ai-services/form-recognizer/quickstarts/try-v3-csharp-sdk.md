@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4ec6d3ea7467edc08f380077790f67324c1b2371
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: cba23d531f53ef42659a8ef51ccc1f68e873c125
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851328"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042515"
 ---
 # <a name="quickstart-c-client-library-sdk-v30--preview"></a>빠른 시작: C# 클라이언트 라이브러리 SDK v3.0 | 미리 보기
 

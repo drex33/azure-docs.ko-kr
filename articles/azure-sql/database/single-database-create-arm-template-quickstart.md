@@ -4,18 +4,17 @@ description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
-ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell
-ms.devlang: ''
+ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell, mode-arm
 ms.topic: quickstart
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 06/24/2020
-ms.openlocfilehash: 6e2bf456d9a86f652ade4d68df8846d7c5f2a974
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: a2c94a9ae46da5fb6be2cbc51a418af45bddf880
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111893159"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068556"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 

@@ -6,16 +6,16 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.workload: identity
 ms.date: 04/28/2021
 ms.author: rolyon
-ms.openlocfilehash: 0fb96bedc12939c130b7fa4c7feee4c7967e0e77
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 37037c85f15023f784bfa92fcec25bb482c8c48f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132055684"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045705"
 ---
 # <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 역할 할당
 

@@ -11,13 +11,13 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma, v-masebo
 ms.date: 05/29/2020
-ms.custom: sqldbrb=2
-ms.openlocfilehash: a250e26f9919c24913dd6c5cf7672df596a0493c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: sqldbrb=2 , mode-other
+ms.openlocfilehash: 408b59b453ba815d6e984d5fd27289f5223604b0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706329"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054260"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL Database의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

@@ -10,13 +10,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-js
-ms.openlocfilehash: 843d1da2a9d046c1dddd24c4b72811b0b65256eb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, devx-track-js, mode-other
+ms.openlocfilehash: 1e250661cab2d4e9a436a1d86a5cb44f5c9b25ba
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350554"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053617"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>빠른 시작: Bing Web Search REST API 및 Node.js를 사용하여 웹 검색
 

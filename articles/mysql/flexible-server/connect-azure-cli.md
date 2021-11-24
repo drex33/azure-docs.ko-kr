@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Azure Database for MySQL - 유연한 서
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: 26c25afc997ee86f0fe23f944ae5afad34269e92
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a8ffaa2318e48ee9a74cecd83c075a8142304910
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468122"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043647"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>빠른 시작: Azure Database for MySQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 
@@ -180,4 +180,3 @@ Closed the connection to mysqldemoserver.
 > [!div class="nextstepaction"]
 * [암호화된 연결을 사용하여 Azure Database for MySQL - 유연한 서버에 연결](how-to-connect-tls-ssl.md)
 * [서버 관리](./how-to-manage-server-cli.md)
-

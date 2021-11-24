@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python
+ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python, mode-other
 ms.devlang: python
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma
 ms.date: 12/19/2020
-ms.openlocfilehash: ca6f5b9107daa321f6451ca63100f493aa081ba2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2f78068bfb3bf44a06f97a1f87e1a86bf1aae87d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114466995"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068608"
 ---
 # <a name="quickstart-use-python-to-query-a-database"></a>빠른 시작: Python을 사용하여 데이터베이스 쿼리
 

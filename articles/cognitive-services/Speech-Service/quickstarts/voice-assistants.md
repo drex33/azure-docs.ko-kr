@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 zone_pivot_groups: programming-languages-voice-assistants
-ms.openlocfilehash: 6e13864aa46ff1871aa18d8d33296b21b99d7047
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3dd4c429a3755276ebae8caa86d5f37ea8c9d60a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187634"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042357"
 ---
 # <a name="quickstart-create-a-custom-voice-assistant"></a>빠른 시작: 사용자 지정 음성 도우미 만들기
 

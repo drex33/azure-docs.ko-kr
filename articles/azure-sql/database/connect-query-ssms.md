@@ -6,19 +6,19 @@ keywords: SQL Database에 연결, SQL Server Management Studio
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, mode-other
 ms.devlang: ''
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma
 ms.date: 09/28/2020
-ms.openlocfilehash: 3a37f434bfd6ebbda137f56d970d96be21b2d41a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e183c63e984776274f09bf82aa69462bcb3cd63b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704491"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040469"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: SSMS를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

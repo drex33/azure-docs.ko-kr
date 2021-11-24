@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: defender-for-cloud
 ms.topic: overview
-ms.date: 11/19/2021
+ms.date: 11/21/2021
 ms.author: memildin
-ms.openlocfilehash: 42783c03f2639c4c948f08a62e729197abbb8f71
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 5c1cf43aa127b50262315465e8c57fe6bc1fe170
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132817609"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902840"
 ---
 # <a name="important-upcoming-changes-to-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에 대한 향후 중요 변경 내용
 
@@ -32,12 +32,11 @@ ms.locfileid: "132817609"
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | [사용 중단 미리 보기 경고: ARM. MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | 2021년 11월             |
 | [ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | 2021년 11월             |
-| [온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name) | 2021년 11월             |
 | [Microsoft Defender for Storage의 보안 경고 변경 내용](#changes-to-a-security-alert-from-microsoft-defender-for-storage)                                                 | 2021년 11월             |
 | [Defender for Containers에서 그룹화할 컨테이너 보안 기능](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | 2021년 12월             |
 | [ID 권장 사항에 대한 여러 변경 사항](#multiple-changes-to-identity-recommendations)                                                                                       | 2021년 12월             |
 | [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | 2022년 1분기                   |
-| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | 2022년 2월             |
+| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | 2022년 3월             |
 |                                                                                                                                                                                     |                           |
 
 ### <a name="deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses"></a>사용 중단 미리 보기 경고: ARM. MCAS_ActivityFromAnonymousIPAddresses
@@ -61,15 +60,6 @@ ISO 27001의 레거시 구현은 Defender for Cloud의 규정 준수 대시보�
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="ISO 27001의 레거시 구현을 제거하는 방법에 대한 메시지를 보여주는 Defender for Cloud의 규정 준수 대시보드." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-
-### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.
-
-**변경 예상 날짜:** 2021년 11월
-
-[자산 인벤토리](asset-inventory.md)의 리소스 표시를 개선하기 위해 템플릿에서 "source-computer-IP" 요소를 제거하여 온-프레미스 머신 이름을 지정합니다.
-
-- **현재 형식:** ``machine-name_source-computer-id_VMUUID``
-- **업데이트에서:** ``machine-name_VMUUID``
 
 ### <a name="changes-to-a-security-alert-from-microsoft-defender-for-storage"></a>Microsoft Defender for Storage의 보안 경고 변경 내용
 
@@ -165,7 +155,7 @@ Defender for Kubernetes 또는 컨테이너 레지스트리용 Defender가 이�
 
 ### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경
 
-**변경 예상 날짜:** 2022년 2월
+**변경 예상 날짜:** 2022년 3월
 
 2021년 8월에 컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 자세한 내용은 [릴리스 정보](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)를 참조하세요.
 

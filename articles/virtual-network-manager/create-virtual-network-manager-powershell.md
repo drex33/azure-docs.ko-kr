@@ -6,13 +6,13 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: template-quickstart, ignite-fall-2021
-ms.openlocfilehash: 20010836b2c8e5933f96b234bd200a62de626750
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: template-quickstart, ignite-fall-2021, mode-api
+ms.openlocfilehash: bcf40569bf75f4374100a58200dde3bd30a2d9e4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132934531"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056747"
 ---
 # <a name="quickstart-create-a-mesh-network-with-azure-virtual-network-manager-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하는 Azure Virtual Network Manager를 통해 메시 네트워크 만들기
 

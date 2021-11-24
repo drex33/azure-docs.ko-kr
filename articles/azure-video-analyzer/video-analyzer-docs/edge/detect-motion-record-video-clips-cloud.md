@@ -3,13 +3,13 @@ title: Azure Video Analyzer를 사용하여 동작을 감지하고 비디오 녹
 description: 이 빠른 시작에서는 Azure Video Analyzer 에지 모듈을 사용하여 라이브 비디오 스트림에서 동작을 감지하고 Video Analyzer 계정에 비디오를 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 48c41b812a4cdbd416d0dd146aba938cce419864
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 88d86a37212a4a8f66974205ae2beebf3690d044
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484193"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054313"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>빠른 시작: 동작을 감지하고 Video Analyzer에 비디오 녹화
 

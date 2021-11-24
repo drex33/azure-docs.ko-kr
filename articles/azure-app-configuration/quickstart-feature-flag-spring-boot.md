@@ -6,13 +6,13 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 06/25/2021
 ms.author: mametcal
-ms.custom: devx-track-java
-ms.openlocfilehash: 6e2b57ec7f5522d8789d1977afc4aa58fc24a3e7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-java, mode-other
+ms.openlocfilehash: 66bcf922005a550a8e51e64cc84721fe1f08684c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128573311"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065316"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 

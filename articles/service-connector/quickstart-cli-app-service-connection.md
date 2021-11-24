@@ -6,13 +6,13 @@ ms.author: xshi
 ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: d6d0f69f09f95694b718be17fe5567060d67c7b2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: ignite-fall-2021, mode-api
+ms.openlocfilehash: 84904d7ad49520dc5288d00dd552fda8361bec1b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132714716"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052397"
 ---
 # <a name="quickstart-create-a-service-connection-in-app-service-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 App Service에서 서비스 연결 만들기
 

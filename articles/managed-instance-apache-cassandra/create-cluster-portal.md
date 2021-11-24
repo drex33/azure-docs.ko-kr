@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 03b5cc8b56e7d6825ec7bee5ec61d156e960123b
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: ignite-fall-2021, mode-portal
+ms.openlocfilehash: 54a7fd497b95e8c526c0717de60de6f31f12a666
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132704215"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066736"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Managed Instance for Apache Cassandra 클러스터 만들기
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 세부 정보를 입력합니다.
 
-   * **데이터 센터 이름** - 드롭다운에서 Azure 구독을 선택합니다.
+   * **데이터 센터 이름** - 텍스트 필드에 데이터 센터 이름을 입력합니다.
    * **가용성 영역** - 가용성 영역을 사용하도록 설정하려면 이 확인란을 선택합니다.
    * **SKU 크기** - 사용 가능한 가상 머신 SKU 크기 중에서 선택합니다.
    * **디스크 수** - 각 Cassandra 노드에 연결할 p30 디스크 수를 선택합니다.

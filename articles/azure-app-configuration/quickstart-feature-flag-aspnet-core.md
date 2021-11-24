@@ -3,16 +3,16 @@ title: ASP.NET Core에 기능 플래그를 추가하기 위한 빠른 시작
 description: ASP.NET Core 앱에 기능 플래그를 추가하고 Azure App Configuration을 사용하여 관리
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: 8ca4a6e78ab3c6ccf492869bb68c5296ae91de21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45917e5a2cae4b356d92bca76ae223fb47589576
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99806073"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076273"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 

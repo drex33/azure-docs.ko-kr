@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a1d50c3f8f94fbfd7dbcb9b25e051b7f2951c518
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: 3729306af829ee9f679b88f2a85efa3f903a4243
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91969095"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044417"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 

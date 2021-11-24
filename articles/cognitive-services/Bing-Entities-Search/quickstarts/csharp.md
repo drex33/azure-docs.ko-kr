@@ -10,13 +10,13 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
-ms.openlocfilehash: aba090378ee459f6dd2747621321aa30bb9103b0
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: f82eca2d5a66e7b1eaa22924a50846db6152b4db
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615218"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064637"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>빠른 시작: C#을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 

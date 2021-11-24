@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: quickstart
 ms.date: 06/09/2021
 ms.author: alkohli
-ms.openlocfilehash: fa68d0c14c8a540b4e32fc4d4075df6e7529ad03
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: mode-other
+ms.openlocfilehash: abe9b11d631325cdec9b9be36b7000ad6eb4038b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710137"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044482"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>빠른 시작: GPU가 있는 Azure Stack Edge Pro 시작 
 

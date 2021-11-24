@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 11/23/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44a9da990b1f44f151ab6492cbca65d1b445ae65
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 723bebb64e4b72373d4d2109d12de540e9230772
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132059548"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097965"
 ---
 # <a name="azure-firewall-dns-settings"></a>Azure Firewall DNS 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "132059548"
 
 ## <a name="dns-servers"></a>DNS 서버
 
-DNS 서버는 도메인 이름을 IP 주소로 유지 관리하고 확인합니다. 기본 설정으로 Azure Firewall에서 이름 확인에 Azure DNS를 사용합니다. **DNS 서버** 설정을 사용하여 Azure Firewall 이름 확인을 위해 자체 DNS 서버를 구성할 수 있습니다. 단일 서버 또는 여러 서버를 구성할 수 있습니다. 여러 DNS 서버를 구성 하는 경우 사용 되는 서버는 임의로 선택 됩니다.
+DNS 서버는 도메인 이름을 IP 주소로 유지 관리하고 확인합니다. 기본 설정으로 Azure Firewall에서 이름 확인에 Azure DNS를 사용합니다. **DNS 서버** 설정을 사용하여 Azure Firewall 이름 확인을 위해 자체 DNS 서버를 구성할 수 있습니다. 단일 서버 또는 여러 서버를 구성할 수 있습니다. 여러 DNS 서버를 구성 하는 경우 사용 되는 서버는 임의로 선택 됩니다. **사용자 지정 dns** 에서 최대 15 개의 dns 서버를 구성할 수 있습니다. 
 
 > [!NOTE]
 > Azure Firewall Manager를 사용하여 관리되는 Azure Firewall 인스턴스의 경우 연결된 Azure Firewall 정책에서 DNS 설정이 구성됩니다.
@@ -81,11 +81,9 @@ Azure Firewall이 DNS 프록시인 경우 두 가지 캐싱 함수 형식이 가
 
 DNS 프록시는 네트워크 규칙의 FQDN에서 모든 확인된 IP 주소를 저장합니다. IP 주소 하나를 확인하는 FQDN을 사용하는 것이 가장 좋습니다.
 
-연결에 실패 한 경우 DNS 프록시는 Azure DNS을 포함 하 여 다른 DNS 서버에 대 한 다시 시도 또는 장애 조치 (failover)를 수행 하지 않습니다.
-
 ### <a name="policy-inheritance"></a>정책 상속
 
- 독립 실행형 방화벽에 적용된 정책 DNS 설정은 독립 실행형 방화벽 DNS 설정을 재정의합니다. 자식 정책은 모든 부모 정책 DNS 설정을 상속하지만 부모 정책을 재정의할 수 있습니다.
+ 독립 실행형 방화벽에 적용 되는 정책 DNS 설정은 독립 실행형 방화벽의 DNS 설정을 재정의 합니다. 자식 정책은 모든 부모 정책 DNS 설정을 상속하지만 부모 정책을 재정의할 수 있습니다.
 
 예를 들어 네트워크 규칙에서 FQDN을 사용하려면 DNS 프록시를 사용하도록 설정해야 합니다. 그러나 상위 정책에 DNS 프록시가 사용하도록 설정되어 있지 **않으면** 하위 정책은 이 설정을 로컬로 재정의하지 않는 한 네트워크 규칙에서 FQDN을 지원하지 않습니다.
 
@@ -171,6 +169,15 @@ $azFw.DNSEnableProxy = $true
 
 $azFw | Set-AzFirewall
 ```
+### <a name="high-availability-failover"></a>고가용성 장애 조치 (failover)
+
+DNS 프록시에는 검색 된 비정상 서버 사용을 중지 하 고 사용 가능한 다른 DNS 서버를 사용 하는 장애 조치 (failover) 메커니즘이 있습니다.
+
+모든 DNS 서버를 사용할 수 없는 경우 다른 DNS 서버를 대체 하지 않습니다.
+
+### <a name="health-checks"></a>상태 확인
+
+DNS 프록시는 업스트림 서버가 비정상으로 보고 하는 한 5 초의 상태 검사 루프를 수행 합니다. 업스트림 서버가 정상으로 간주 되 면 방화벽은 다음 오류가 발생할 때까지 상태 검사를 중지 합니다. 정상적인 프록시가 exchange를 실행 하는 동안 오류를 반환 하면 방화벽은 목록에서 다른 DNS 서버를 선택 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

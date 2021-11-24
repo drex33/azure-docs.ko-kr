@@ -9,13 +9,13 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9060660328367d08d849c7a72ca0e69b68a0c20a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 4c29fc70f2bab8b4cc6b047a80c43a0f3f89194c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616534"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069353"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 

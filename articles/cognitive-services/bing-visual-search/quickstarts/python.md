@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 1470bfe66ee79b993e624f1bf6f9d5ca31c84b60
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-python, mode-other
+ms.openlocfilehash: 3941da8a417ae1ce0c2fc344db906aab20e8aadc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658700"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039464"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>빠른 시작: Bing Visual Search REST API 및 Python을 사용하여 이미지 인사이트 가져오기
 

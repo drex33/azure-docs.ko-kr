@@ -4,19 +4,18 @@ description: Azure PowerShell을 사용하여 Azure SQL Managed Instance의 인�
 services: sql-managed-instance
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: ''
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.topic: quickstart
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 06/25/2021
-ms.openlocfilehash: 6697cb9b89d3cb960f2def9ff4dcf478080b7b07
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 60a055dc534b72b6573dec14f67f625612bbfd92
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113221043"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064677"
 ---
 # <a name="quickstart-create-a-managed-instance-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 관리되는 인스턴스 만들기
 
@@ -156,5 +155,3 @@ SQL Managed Instance가 만들어지면 클라이언트 VM을 배포하여 SQL M
 > [!div class="nextstepaction"]
 > [클라이언트 VM 만들기](connect-vm-instance-configure.md)
 > [데이터베이스 복원](restore-sample-database-quickstart.md)
-
-

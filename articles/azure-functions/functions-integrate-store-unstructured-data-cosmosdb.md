@@ -3,13 +3,13 @@ title: Azure Cosmos DB 및 Functions를 사용하여 비정형 데이터 저장
 description: Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 ms.topic: quickstart
 ms.date: 10/01/2020
-ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 90a85cad60696ad692d39d19ad123ecfd6f7dc30
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.custom: devx-track-csharp, mvc, mode-other
+ms.openlocfilehash: d9581edc55a90c0abcc193728d86cfadf0a0a541
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112236574"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054613"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 

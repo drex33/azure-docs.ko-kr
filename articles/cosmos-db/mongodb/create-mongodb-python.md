@@ -7,12 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 10/22/2021
-ms.openlocfilehash: af59ce8dc6fa3fc4a2f62e3bc00e185cb8be1bbf
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: 521612669473ed290cadd6c70af2af96b88a93e3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130271308"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053114"
 ---
 # <a name="quickstart-get-started-using-azure-cosmos-db-api-for-mongodb-and-python"></a>MongoDB 및 Python에 대 한 Azure Cosmos DB API 사용 시작
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]

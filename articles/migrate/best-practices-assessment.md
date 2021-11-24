@@ -6,18 +6,18 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: cf8f4adabf07ec349c2b5890d0f3a6cfd6bbb192
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6fb2923df6cd44470fce28bfe33bf2d724f6353b
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566571"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096602"
 ---
 # <a name="best-practices-for-creating-assessments"></a>평가 생성 모범 사례
 
 [Azure Migrate](./migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
-이 문서에는 Azure Migrate 검색 및 평가 도구를 사용하여 평가를 만들 때의 모범 사례가 요약되어 있습니다.
+이 문서에서는 Azure Migrate 검색 및 평가 도구를 사용 하 여 평가를 만들 때의 모범 사례를 요약 합니다.
 
 Azure Migrate: 검색 및 평가 도구로 만든 평가는 데이터의 지정 시간 스냅샷입니다. Azure Migrate: 검색 및 평가를 사용하여 만들 수 있는 평가에는 네 가지 유형이 있습니다.
 
@@ -36,7 +36,7 @@ Azure Migrate 평가의 크기 조정 기준 옵션:
 
 **크기 조정 기준** | **세부 정보** | **Data**
 --- | --- | ---
-**성능 기반** | 수집된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | **Azure VM 평가**: VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항(표준 HDD/SSD, 프리미엄 관리 또는 ultra 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.<br/><br/>**Azure SQL 평가**: Azure SQL 구성은 CPU 사용률, 메모리 사용률, IOPS(데이터 및 로그 파일), IO 작업의 처리량 및 대기 시간을 포함하는 SQL 인스턴스 및 데이터베이스의 성능 데이터를 기반으로 합니다.<br/><br/>**AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.
+**성능 기반** | 수집 된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | **Azure VM 평가**: VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항(표준 HDD/SSD, 프리미엄 관리 또는 ultra 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.<br/><br/>**Azure SQL 평가**: Azure SQL 구성은 CPU 사용률, 메모리 사용률, IOPS(데이터 및 로그 파일), IO 작업의 처리량 및 대기 시간을 포함하는 SQL 인스턴스 및 데이터베이스의 성능 데이터를 기반으로 합니다.<br/><br/>**AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.
 **온-프레미스인 경우** | 권장 사항을 적용하기 위해 성능 데이터를 사용하지 않는 평가. | **Azure VM 평가**: VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가를 위해 스토리지 유형 설정에서 선택한 항목을 기반으로 합니다.<br/><br/> **Azure App Service 평가**: 평가 권장 사항은 온-프레미스 웹앱 구성 데이터를 기반으로 합니다.<br/><br/> **AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.
 
 #### <a name="example"></a>예제

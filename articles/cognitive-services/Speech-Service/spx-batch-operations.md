@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: eur
-ms.openlocfilehash: 1049720604ba4ba3a0be1874e0364e2e92c321e9
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.custom: mode-other
+ms.openlocfilehash: 8e05bb4441bb1d1b89c826b2714ac0ff95f99dcc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505216"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075644"
 ---
 # <a name="speech-cli-batch-operations"></a>Speech CLI 일괄 처리 작업
 

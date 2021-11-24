@@ -7,12 +7,13 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: ab7bd55dd7b66d613f99b4d54a8fdf4445542545
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: e9b0915dde16a1eb1caa1d877fd71205c6ebaaf3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591827"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044979"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>빠른 시작: Go에서 Azure Cache for Redis 사용
 

@@ -9,12 +9,13 @@ ms.subservice: spark
 ms.date: 08/19/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: df9df0db6c93241d47baae9b33927f9a96a66eda
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.custom: mode-portal
+ms.openlocfilehash: d31c689c47c2dc2d0941fd510e0217ea19d84c06
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597369"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045332"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 서버리스 Apache Spark 풀 만들기
 

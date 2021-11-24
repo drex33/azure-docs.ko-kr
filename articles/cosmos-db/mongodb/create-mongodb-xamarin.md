@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: masoucou
-ms.custom: devx-track-csharp
-ms.openlocfilehash: fbc32979e06dc18282637e80664f43daec947e1d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 9f82148aa598c80481d04a469c6841f706b1f027
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130227039"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067939"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB의 API for MongoDB를 사용하여 Xamarin.Forms 앱 빌드
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]

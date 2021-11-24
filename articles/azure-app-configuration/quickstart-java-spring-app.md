@@ -8,14 +8,14 @@ editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: alkemper
-ms.openlocfilehash: 301aab272d719bb89124f83d0dde0c616c37e031
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 835a9e485fc30a376711628ad77b7740e5139574
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450535"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054587"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Java Spring 앱 만들기
 

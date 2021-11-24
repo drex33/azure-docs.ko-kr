@@ -5,13 +5,13 @@ keywords: azure app service, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 04/27/2021
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: dffb2634b59c54632364d8469244edb6840d7b9d
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
+ms.openlocfilehash: afb74ffca558b16f33b6ce2f20fac6b3e73a8ef5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435423"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056851"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>App Service에서 Ruby on Rails 앱 만들기
 

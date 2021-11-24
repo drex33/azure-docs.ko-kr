@@ -2,14 +2,14 @@
 author: russell-cooks
 ms.topic: include
 ms.service: azure-video-analyzer
-ms.date: 11/04/2021
+ms.date: 11/22/2021
 ms.author: juliako
-ms.openlocfilehash: 50bc0dc30b14685747e24afc7bda2964e8fd2d37
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: e474aec339f4b4c1901b4ecdaa304671178f78eb
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131861236"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133034898"
 ---
 ### <a name="get-the-sample-code"></a>샘플 코드 가져오기
 
@@ -36,7 +36,7 @@ ms.locfileid: "131861236"
         AVA_PROVISIONING_TOKEN="<Provisioning token>"
         VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"
         VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
-        APPDATA_FOLDER_ON_DEVICE="/var/lib/videoAnalyzer"
+        APPDATA_FOLDER_ON_DEVICE="/var/lib/videoanalyzer"
         CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"
         CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
    ```

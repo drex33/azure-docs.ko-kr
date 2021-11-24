@@ -3,13 +3,13 @@ title: Azure Portal을 사용하여 Azure Video Analyzer 시작 - Azure
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Video Analyzer를 시작하는 단계를 안내합니다.
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5c39d6ddae6ad34ad705da8ee2b6de79a8102452
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: c162187259207da6cbf6b18b7d49c65e10fe9a74
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132398823"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068542"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-in-the-portal"></a>빠른 시작: 포털에서 Video Analyzer 시작하기
 

@@ -7,12 +7,13 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: c932ee18bca79ce5607a27f6b6c6fe58e5ce7ef7
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.custom: mode-other
+ms.openlocfilehash: 41489066dcad97a06c400d7a22616e92dcb593ee
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406684"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044143"
 ---
 # <a name="tutorial-set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>자습서: IoT 플러그 앤 플레이 빠른 시작 및 자습서에 사용할 환경 설정
 

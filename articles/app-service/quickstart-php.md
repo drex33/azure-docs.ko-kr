@@ -5,12 +5,13 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 05/02/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 94d863dfcc3b6fd8b1d316994541ea61fd32c080
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-other
+ms.openlocfilehash: c4b54b2da743cd6a6c8ebde9ac37226ceb362b0b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787379"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054815"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Azure App Service에서 PHP 웹앱 만들기
 
